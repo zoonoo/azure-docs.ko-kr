@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 35c12118cb906b312114ee7e99e299714e397914
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 78fda5785d85b728c897bf758bc2a3cdee768d02
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223981"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849907"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 

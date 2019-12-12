@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/07/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 2e9611995a233f9890aebb90fc3b8deaeed8efc2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 15c2e84742ff0f552c688ccf1ba795f742e288ca
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226318"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849890"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 

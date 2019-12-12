@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/20/2019
+ms.date: 12/09/2019
 ms.author: yulili
-ms.openlocfilehash: 805193c08e57ddc18dfca0a78c6b58cf895baec1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: c5f0a0fe032d18cd4f01aebe9a5c736d6d511a74
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817481"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981312"
 ---
 이 빠른 시작에서는 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 사용하여 한 언어에서 다른 언어로 음성을 대화형으로 번역합니다. 몇 가지 필수 구성 요소를 충족한 후 음성을 음성으로 번역하는 작업은 여섯 가지 단계를 수행하면 됩니다.
 > [!div class="checklist"]

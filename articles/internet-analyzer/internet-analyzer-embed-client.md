@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: bc3b9eb5753d09ca3442633deb259865b07e8b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f9ecb8d731945847160b49c68c554fafdd7285d9
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488149"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896378"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Internet Analyzer 클라이언트 포함
 
@@ -34,6 +34,7 @@ Internet Analyzer가 제대로 작동하려면 Azure와 기타 Microsoft 서비�
 
 옵션 2. Azure 명령줄 인터페이스를 사용하여 `scriptFileUri` 속성을 확인합니다.
 ```azurecli-interactive
+    az extension add --name internet-analyzer    
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
 ```
 

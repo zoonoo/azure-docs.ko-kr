@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 23d8c847bc041f3e583aa8706a919393c54a4627
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 256f78b5bfe7598bf418678c75ed93131434c370
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817562"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981167"
 ---
 바로 들어가려면 GitHub에서 모든 <a href="https://aka.ms/speech/github-csharp">Speech SDK C# 샘플</a>을 보거나 다운로드합니다. 그렇지 않으면 시작하겠습니다.

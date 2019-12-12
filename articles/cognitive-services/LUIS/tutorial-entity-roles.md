@@ -9,28 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488740"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894599"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>자습서: 발언에서 컨텍스트 관련 데이터 추출
 
-이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 한 도시에서 다른 도시로 가는 이사의 출발지 및 목적지 위치를 예로 들 수 있습니다. 두 데이터 조각이 모두 필요할 수 있으며, 서로 관련되어 있습니다.  
+이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 한 도시에서 다른 도시로 가는 이사의 출발지 및 목적지 위치를 예로 들 수 있습니다. 두 데이터 조각이 모두 필요할 수 있으며, 서로 관련되어 있습니다.
 
-역할은 미리 작성된 엔터티 유형 또는 사용자 지정 엔터티 유형에 사용할 수 있으며, 두 예제 발화 및 패턴 모두에서 사용할 수 있습니다. 
+역할은 미리 작성된 엔터티 유형 또는 사용자 지정 엔터티 유형에 사용할 수 있으며, 두 예제 발화 및 패턴 모두에서 사용할 수 있습니다.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 > [!div class="checklist"]
 > * 새 앱 만들기
-> * 의도 추가 
+> * 의도 추가
 > * 역할을 사용하여 원래 위치 및 대상 위치 정보 가져오기
 > * 학습
 > * 게시
@@ -57,9 +57,9 @@ ms.locfileid: "73488740"
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. **새 의도 만들기**를 선택합니다. 
+1. **새 의도 만들기**를 선택합니다.
 
-1. 팝업 대화 상자에서 `MoveEmployeeToCity`을 입력하고 **완료**를 선택합니다. 
+1. 팝업 대화 상자에서 `MoveEmployeeToCity`을 입력하고 **완료**를 선택합니다.
 
     ![새 의도 만들기 대화 상자의 스크린샷](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -85,24 +85,24 @@ ms.locfileid: "73488740"
 
 1. 왼쪽 탐색 영역에서 **엔터티**를 선택합니다.
 
-1. **미리 작성된 엔터티 추가**를 선택한 다음, 검색 창에서 `geo`를 선택하여 미리 작성된 엔터티를 필터링합니다. 
+1. **미리 작성된 엔터티 추가**를 선택한 다음, 검색 창에서 `geo`를 선택하여 미리 작성된 엔터티를 필터링합니다.
 
     ![미리 작성된 geographyV2 엔터티를 앱에 추가](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. 확인란을 선택하고 **완료**를 선택합니다.
-1. **엔터티** 목록에서 **geographyV2**를 선택하여 새 엔터티를 엽니다. 
-1. `Origin` 및 `Destination` 역할을 추가합니다. 
+1. **엔터티** 목록에서 **geographyV2**를 선택하여 새 엔터티를 엽니다.
+1. `Origin` 및 `Destination` 역할을 추가합니다.
 
     ![미리 작성된 엔터티에 역할 추가](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. 왼쪽 탐색 영역에서 **의도**를 선택한 다음, **MoveEmployeeToCity** 의도를 선택합니다. 도시 이름 레이블이 미리 작성된 엔터티 **geographyV2**로 지정되었습니다.
 1. 목록의 첫 번째 벌화에서 원래 위치를 선택합니다. 드롭다운 메뉴가 나타납니다. 목록에서 **geographyV2**를 선택한 다음, 메뉴를 따라 **원래 위치**를 선택합니다.
-1. 이전 단계의 방법을 사용하여 모든 발화에 있는 위치의 모든 역할을 표시합니다. 
+1. 이전 단계의 방법을 사용하여 모든 발화에 있는 위치의 모든 역할을 표시합니다.
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>None 의도에 예제 발언 추가 
+## <a name="add-example-utterances-to-the-none-intent"></a>None 의도에 예제 발언 추가
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>의도에 대한 변경 내용을 테스트할 수 있도록 앱 학습시키기 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>의도에 대한 변경 내용을 테스트할 수 있도록 앱 학습시키기
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -152,9 +152,9 @@ ms.locfileid: "73488740"
       ]
     }
     ```
-    
+
     올바른 의도가 예측되고 엔터티 배열은 해당 **entities** 속성에 원래 위치 및 대상 위치 역할이 모두 있습니다.
-    
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -173,5 +173,5 @@ ms.locfileid: "73488740"
 
 이 자습서에서는 새 의도를 만들고, 컨텍스트에 따라 학습된 원본 및 대상 위치 데이터에 대한 발언 예시를 추가했습니다. 앱이 학습되고 게시되면 클라이언트 애플리케이션이 해당 정보를 사용하여 관련 정보가 포함된 이동 티켓을 만들 수 있습니다.
 
-> [!div class="nextstepaction"] 
-> [복합 엔터티를 추가하는 방법 알아보기](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [복합 엔터티를 추가하는 방법 알아보기](luis-tutorial-composite-entity.md)
