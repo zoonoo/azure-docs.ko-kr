@@ -3,12 +3,12 @@ title: Java 함수를 Azure Storage에 연결
 description: Queue storage 출력 바인딩을 사용하여 Azure Storage에 HTTP 트리거 Java 함수를 연결하는 방법에 대해 알아봅니다.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231202"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926893"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Java 함수를 Azure Storage에 연결
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
+> host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x-and-higher)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
 
 이전과 마찬가지로 새 터미널 창에서 cURL을 사용하여 명령줄에서 함수를 트리거합니다.
 

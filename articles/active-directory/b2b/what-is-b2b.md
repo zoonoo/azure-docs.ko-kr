@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18d60614a07895c7e9468d35b2d389a28129af4d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f1ca0baa98336570d870a98c75c45a5303bdfaca
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271662"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868911"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -61,7 +61,7 @@ Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로
 - 게스트 사용자는 자신의 액세스 패널에 로그인하는 데 사용할 수 있는 사용자 지정 가능한 초대를 즉시 받습니다.
 - 디렉터리에 있는 게스트 사용자를 앱 또는 그룹에 할당할 수 있습니다.  
 
-![새 게스트 사용자 초대 항목 페이지를 보여 주는 스크린샷](media/what-is-b2b/adding-b2b-users-admin.png)
+![새 게스트 사용자 초대 항목 페이지를 보여 주는 스크린샷](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>애플리케이션 및 그룹 소유자가 자신의 게스트 사용자를 관리할 수 있음
 

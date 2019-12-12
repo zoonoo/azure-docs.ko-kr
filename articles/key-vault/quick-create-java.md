@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: daf7cfdca2e9bfa4de68f490eb4a67f46cc59f42
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e06c8d5373f8740e8091daae242a4f7af6c0ea4a
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174760"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995867"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 클라이언트 라이브러리
 
@@ -241,7 +241,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 더 이상 필요하지 않은 경우 Azure CLI 또는 Azure PowerShell을 사용하여 키 자격 증명 모음 및 해당 리소스 그룹을 제거할 수 있습니다.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell
