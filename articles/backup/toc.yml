@@ -222,6 +222,8 @@
       items:
         - name: Recovery Services 자격 증명 모음 만들기
           href: backup-azure-arm-userestapi-createorupdatevault.md
+        - name: Recovery Services 자격 증명 모음 구성 업데이트
+          href: use-restapi-update-vault-properties.md
         - name: 백업 정책 만들기 및 업데이트
           href: backup-azure-arm-userestapi-createorupdatepolicy.md
         - name: Azure VM 백업
