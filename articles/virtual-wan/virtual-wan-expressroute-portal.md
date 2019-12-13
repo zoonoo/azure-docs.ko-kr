@@ -114,7 +114,7 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
    ![회로 연결](./media/virtual-wan-expressroute-portal/cktconnect.png "회로 연결")
 
-### <a name="authkey">인증 키를 사용하여 연결하려면</a>
+### <a name="authkey"></a>인증 키를 사용하여 연결하려면
 
 연결하기 위해 제공된 인증 키와 회로 URI를 사용합니다.
 
