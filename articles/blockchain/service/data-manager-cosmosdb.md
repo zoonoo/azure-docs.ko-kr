@@ -1,15 +1,15 @@
 ---
 title: Blockchain Data Manager를 사용하여 Azure Cosmos DB 업데이트 - Azure Blockchain Service
 description: Azure Blockchain Service용 Blockchain Data Manager를 사용하여 Azure Cosmos DB로 블록체인 데이터 보내기
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 497652f91d46592212a17a0a22832c02a696df62
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 79c39d9883b5ba618e368b0ff6d3e95f1af5bd96
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326254"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977400"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>자습서: Blockchain Data Manager를 사용하여 Azure Cosmos DB로 데이터 보내기
 
@@ -78,13 +78,15 @@ Blockchain Data Manager가 이벤트 및 속성 상태를 디코딩할 수 있�
 
 1. **abi** 배열을 JSON 파일로 저장합니다. 예: *abi.json*. 이 파일은 이후 단계에서 사용됩니다.
 
-Blockchain Data Manager에는 스마트 계약용으로 배포된 바이트 코드가 필요합니다. 배포된 바이트 코드는 스마트 계약 바이트 코드와 다릅니다. 배포된 바이트 코드는 컴파일된 계약 메타데이터 파일에서 가져올 수 있습니다.
+Blockchain Data Manager에는 스마트 계약용으로 배포된 바이트 코드가 필요합니다. 배포된 바이트 코드는 스마트 계약 바이트 코드와 다릅니다. Azure 블록체인 개발 키트 확장을 사용하여 바이트 코드를 클립보드에 복사합니다.
 
-1. Solidity 프로젝트의 **build/contracts** 폴더에 포함된 계약 메타데이터 파일을 엽니다. 파일 이름에는 스마트 계약 이름 뒤에 **.json** 확장명이 붙습니다.
-1. JSON 파일에서 **deployedBytecode** 요소를 찾습니다.
-1. 따옴표 없이 16진수 값을 복사합니다.
+1. Visual Studio Code 탐색기 창에서 Solidity 프로젝트의 **build/contracts** 폴더를 펼칩니다.
+1. 마우스 오른쪽 단추로 계약 메타데이터 JSON 파일을 클릭합니다. 파일 이름에는 스마트 계약 이름 뒤에 **.json** 확장명이 붙습니다.
+1. **트랜잭션 바이트 코드 복사**를 선택합니다.
 
-    ![메타데이터의 바이트 코드가 있는 Visual Studio Code 창](./media/data-manager-portal/bytecode-metadata.png)
+    ![트랜잭션 바이트 코드 복사가 선택된 Visual Studio Code 창](./media/data-manager-cosmosdb/bytecode-devkit.png)
+
+    바이트 코드가 클립보드에 복사됩니다.
 
 1. **바이트 코드** 값을 JSON 파일로 저장합니다. 예: *bytecode.json*. 이 파일은 이후 단계에서 사용됩니다.
 

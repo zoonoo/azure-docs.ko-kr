@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 7baa3e2de00997496edb5b445f8426d899ac65a4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ed86a286051ba9240fe23951ef7cb72de1e96201
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383713"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74960573"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 개체 검색 프로젝트 만들기
 
-이 문서에서는 C#과 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. .NET 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 
+이 문서에서는 C#과 함께 Custom Vision SDK를 사용하여 개체 검색 모델을 빌드하는 방법을 보여줍니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. .NET 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -41,7 +41,7 @@ Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet �
 
 ## <a name="understand-the-code"></a>코드 이해
 
-_Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_TRAINING_KEY` 및 `CUSTOM_VISION_PREDICTION_KEY`라고 명명된 학습 및 예측 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). 스크립트는 다음을 찾습니다.
+_Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_TRAINING_KEY` 및 `CUSTOM_VISION_PREDICTION_KEY`라고 명명된 학습 및 예측 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). 스크립트는 이러한 변수를 찾습니다.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_keys)]
 
@@ -70,7 +70,7 @@ _Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_T
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload)]
 
-이제 모든 샘플 이미지가 업로드되었으며, 각 이미지에는 태그(**포크** 또는 **가위**) 및 해당 태그와 연결된 픽셀 사각형이 있습니다.
+이 때 모든 샘플 이미지를 업로드하고 연결된 픽셀 사각형을 각 샘플 이미지(**포크** 또는 **가위**)에 연결된 픽셀 사각형으로 태그 지정했습니다.
 
 ### <a name="train-the-project"></a>프로젝트 학습
 
@@ -114,7 +114,7 @@ Making a prediction:
 
 ## <a name="next-steps"></a>다음 단계
 
-개체 검색 프로세스의 모든 단계를 코드로 수행하는 방법을 살펴보았습니다. 이 샘플은 교육을 한 번만 반복하지만, 정확도를 높이기 위해 모델을 여러 차례 교육하고 테스트해야 하는 경우가 많습니다. 다음 가이드에서는 이미지 분류를 다루지만, 원칙은 개체 검색과 비슷합니다.
+이제 코드에서 개체 검색 프로세스의 모든 단계를 수행하는 방법을 살펴보았습니다. 이 샘플은 학습을 한 번만 반복하지만, 정확도를 높이기 위해 모델을 여러 차례 학습하고 테스트해야 하는 경우가 많습니다. 다음 가이드에서는 이미지 분류를 다루지만, 원칙은 개체 검색과 비슷합니다.
 
 > [!div class="nextstepaction"]
 > [모델 테스트 및 재교육](test-your-model.md)

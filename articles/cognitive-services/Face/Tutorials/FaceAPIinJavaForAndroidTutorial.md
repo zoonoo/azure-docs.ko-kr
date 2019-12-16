@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858978"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977797"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>자습서: 이미지에서 얼굴을 감지하고 포착하는 Android 앱 만들기
 
-이 자습서에서는 Azure Face API를 사용하여 Java SDK를 통해 이미지에서 사람 얼굴을 감지하고 포착하는 샘플 Android 애플리케이션을 만들 것입니다. 이 애플리케이션은 선택한 이미지를 표시하고 감지된 각 얼굴 주위에 프레임을 그립니다.
+이 자습서에서는 Azure Face API를 사용하여 Java SDK를 통해 이미지에서 사람 얼굴을 감지하고 포착하는 Android 애플리케이션을 만듭니다. 이 애플리케이션은 선택한 이미지를 표시하고 감지된 각 얼굴 주위에 프레임을 그립니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 

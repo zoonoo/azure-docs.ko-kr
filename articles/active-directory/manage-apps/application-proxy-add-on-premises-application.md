@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f1f812bb7d31319476e6b940443e067fac895f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7b00fff9c979fe6bd2c52f67801a94cb50b1c660
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420457"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970349"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -217,8 +217,9 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 
 애플리케이션에 대한 로그온을 테스트하려면 다음을 수행합니다.
 
-1. 브라우저에서 게시 단계에서 구성한 외부 URL로 이동합니다. 시작 화면이 표시됩니다.
-1. 이전 섹션에서 만든 사용자로 로그인합니다.
+1. 테스트할 애플리케이션에서 **애플리케이션 프록시**를 선택합니다.
+2. 페이지 맨 위에서 **애플리케이션 테스트**를 선택하여 애플리케이션에서 테스트를 실행하고 구성 문제가 있는지 확인합니다.
+3. 애플리케이션에 대한 로그인을 테스트하려면 먼저 애플리케이션을 시작한 다음, 진단 보고서를 다운로드하여 검색된 문제에 대한 해결 지침을 검토하세요.
 
 문제 해결은 [애플리케이션 프록시 문제 및 오류 메시지 문제 해결](application-proxy-troubleshoot.md)을 참조하세요.
 

@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 7fb24d53876ab8c06fca4fbfe929c06a889335f3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786353"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951448"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>빠른 시작: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - PowerShell
 
@@ -55,7 +55,13 @@ Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
 Type                  :
 ```
 
-이제 Powershell을 사용하여 암호를 검색합니다.
+> [!NOTE] 
+> SPN 권한을 올바르게 채우는 데는 시간이 걸릴 수 있습니다. 다음 역할 할당을 실행하여 사용 권한을 훨씬 빠르게 설정합니다.
+> ``` PowerShell
+> New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
+> ```
+
+이제 PowerShell을 사용하여 암호를 검색합니다.
 
 ```azurepowershell-interactive
 $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
@@ -66,8 +72,11 @@ $credential.GetNetworkCredential().password
 
 설치 에이전트 온보딩 스크립트에서:
 
-* **ApplicationId** 속성은 설치 에이전트에서 사용되는 `--service-principal-id` 매개 변수에 사용됩니다.
-* **password** 속성은 설치 에이전트의 `--service-principal-secret` 매개 변수에 사용됩니다.
+* **ApplicationId** 속성은 에이전트 연결에 사용되는 `--service-principal-id` 매개 변수에 사용됩니다.
+* **암호** 속성은 에이전트 연결에 사용되는 `--service-principal-secret` 매개 변수에 사용됩니다.
+
+> [!NOTE]
+> **ID** 속성이 아닌 서비스 주체 **ApplicationId** 속성을 사용해야 합니다. **ID**가 작동하지 않습니다.
 
 ## <a name="manually-install-the-agent-and-connect-to-azure"></a>에이전트를 수동으로 설치하고 Azure에 연결
 
@@ -84,7 +93,6 @@ $credential.GetNetworkCredential().password
 > [!NOTE]
 > 공개 미리 보기 중에는 Ubuntu 16.04 또는 18.04에 적합한 한 가지 패키지만 릴리스되었습니다.
 
-<!-- What about this aks? -->
 가장 간단한 옵션은 패키지 리포지토리를 등록한 다음, 배포의 패키지 관리자를 사용하여 패키지를 설치하는 것입니다.
 [https://aka.ms/azcmagent](https://aka.ms/azcmagent)에 있는 bash 스크립트는 다음 작업을 수행합니다.
 

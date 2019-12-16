@@ -1,16 +1,13 @@
 ---
-title: Azure AD로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드 | Microsoft Docs
-description: 로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호된 API를 호출하는 AngularJS 단일 페이지 애플리케이션을 빌드하는 방법을 알아봅니다.
+title: 로그인 및 로그아웃을 위한 Azure AD AngularJS 단일 페이지 앱 빌드 | Microsoft Docs
+description: 로그인 및 로그아웃을 위해 Azure AD를 통합하고 OAuth를 사용하여 Azure AD로 보호된 API를 호출하는 AngularJS 단일 페이지 앱을 빌드하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 10/25/2019
@@ -18,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150054"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963531"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>빠른 시작: Azure Active Directory로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드
 

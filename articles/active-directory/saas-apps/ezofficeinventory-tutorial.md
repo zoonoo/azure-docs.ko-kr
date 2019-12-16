@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ebfe5f75d5d8546e0f5e8ad6f8c5d0063e5bda2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cc73d7ec81ea0105a5868ec698289bd27526a43b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377285"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893504"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>자습서: EZOfficeInventory와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. EZOfficeInventory 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![이미지](common/default-attributes.png)
 
 1. 위에서 언급한 특성 외에도 EZOfficeInventory 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
@@ -144,13 +144,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-ezofficeinventory-sso"></a>EZOfficeInventory SSO 구성
 
-1. 새 웹 브라우저 창을 열고, EZOfficeInventory 회사 사이트에 관리자 권한으로 로그인합니다.
+1. EZOfficeInventory 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-2. 페이지의 오른쪽 위 모서리에서  **프로필** 을 클릭한 다음,  **설정** > **추가 기능**으로 이동합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+1. 브라우저에 확장을 추가한 후 **EZOfficeInventory 설정**을 클릭하면 EZOfficeInventory 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 EZOfficeInventory에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+1. EZOfficeInventory를 수동으로 설정하려면 새 웹 브라우저 창을 열고 EZOfficeInventory 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+1. 페이지의 오른쪽 위 모서리에서 **프로필**을 클릭한 다음, **설정** > **기능 추가**로 이동합니다.
 
     ![EZOfficeInventory 구성](./media/ezofficeinventory-tutorial/configure01.png)
 
-3. **SAML 통합** 섹션까지 아래로 스크롤하고 다음 단계를 수행합니다.
+1. **SAML 통합** 섹션까지 아래로 스크롤하고 다음 단계를 수행합니다.
 
     ![EZOfficeInventory 구성](./media/ezofficeinventory-tutorial/configure02.png)
 
@@ -176,7 +184,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 EZOfficeInventory에서 Britta Simon이라는 사용자를 만듭니다. EZOfficeInventory는 Just-In-Time 사용자 프로비저닝을 지원하며, 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. EZOfficeInventory에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
-## <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -191,4 +199,3 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 EZOfficeInventory 사용해보기](https://aad.portal.azure.com/)
-

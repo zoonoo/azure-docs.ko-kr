@@ -1,5 +1,5 @@
 ---
-title: '자습서: BenSelect와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: BenSelect와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
 description: Azure Active Directory 및 BenSelect 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ca12f89615cd4b3110b0d67268c048b8e44561
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4a027a4038d806b7c19dc45ea5b6da74acb802b2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879712"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893130"
 ---
-# <a name="tutorial-integrate-benselect-with-azure-active-directory"></a>자습서: Azure Active Directory와 BenSelect 연결
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>자습서: BenSelect와 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 BenSelect를 연결하는 방법에 대해 알아봅니다. Azure AD와 BenSelect를 연결하는 경우 다음을 수행할 수 있습니다.
 
@@ -44,7 +44,11 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
+
 * BenSelect에서 **IDP** 시작 SSO를 지원합니다
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-benselect-from-the-gallery"></a>갤러리에서 BenSelect 추가
 
@@ -58,24 +62,24 @@ BenSelect의 Azure AD 통합을 구성하려면 갤러리의 BenSelect를 관리
 1. 결과 패널에서 **BenSelect**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on-for-benselect"></a>BenSelect용 Azure AD Single Sign-On 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 BenSelect에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 BenSelect의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 BenSelect에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[BenSelect SSO 구성](#configure-benselect-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[BenSelect 테스트 사용자 만들기](#create-benselect-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 BenSelect에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[BenSelect SSO 구성](#configure-benselect-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[BenSelect 테스트 사용자 만들기](#create-benselect-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 BenSelect에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **BenSelect** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **BenSelect** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On**을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
@@ -88,7 +92,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 값을 얻으려면 [BenSelect 클라이언트 지원 팀](mailto:support@selerix.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. BenSelect 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+1. BenSelect 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -115,13 +119,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **BenSelect 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
-
-### <a name="configure-benselect-sso"></a>BenSelect SSO 구성
-
-**BenSelect** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(원시)** 및 Azure Portal에서 적절히 복사한 URL을 [BenSelect 지원 팀](mailto:support@selerix.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
-> [!NOTE]
-> app2101 등과 같은 해당 서버에서 SSO를 설정할 수 있도록 이 통합에 SHA256 알고리즘(SHA1은 지원되지 않음)이 필요하다는 내용을 언급해야 합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -153,11 +150,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+## <a name="configure-benselect-sso"></a>BenSelect SSO 구성
+
+**BenSelect** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(원시)** 및 Azure Portal에서 적절히 복사한 URL을 [BenSelect 지원 팀](mailto:support@selerix.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+
+> [!NOTE]
+> app2101 등과 같은 해당 서버에서 SSO를 설정할 수 있도록 이 통합에 SHA256 알고리즘(SHA1은 지원되지 않음)이 필요하다는 내용을 언급해야 합니다.
+
 ### <a name="create-benselect-test-user"></a>BenSelect 테스트 사용자 만들기
 
 이 섹션에서는 BenSelect에서 Britta Simon이라는 사용자를 만듭니다. BenSelect 플랫폼에 사용자를 추가하려면  [BenSelect 지원 팀](mailto:support@selerix.com)과 함께 작업하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -170,4 +174,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Azure AD에서 BenSelect 사용해 보기](https://aad.portal.azure.com/)
 

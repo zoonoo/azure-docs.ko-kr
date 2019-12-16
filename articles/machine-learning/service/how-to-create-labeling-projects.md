@@ -1,20 +1,20 @@
 ---
-title: 데이터 레이블 가져오기
+title: 데이터 레이블 지정 프로젝트 만들기
 titleSuffix: Azure Machine Learning
-description: 이 문서에서는 기계 학습용 데이터에 태그를 지정하는 레이블 지정 프로젝트를 만들고 실행하는 방법을 보여 줍니다.
+description: 기계 학습용 데이터에 태그를 지정하는 레이블 지정 프로젝트를 만들고 실행하는 방법을 알아봅니다.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: e66a9f8a775a46c906601ea08be52ca9dfbe0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bdedc3ee0c76eafc4b4bc95116fb5be846f4bee5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689305"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978239"
 ---
-# <a name="get-labels-for-data"></a>데이터 레이블 가져오기
+# <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
 기계 학습 프로젝트에서 대량의 데이터에 대한 레이블을 지정하는 작업은 처리하기가 매우 어려운 경우가 많습니다. 이미지 분류 또는 개체 감지와 같은 컴퓨터 비전 구성 요소가 있는 프로젝트에는 일반적으로 수천 개의 이미지에 대한 레이블이 필요합니다.
  
@@ -24,6 +24,9 @@ Machine Learning은 진행 상황을 추적하고 불완전한 레이블 지정 
 
 Machine Learning에서는 프로젝트를 시작 및 중지하고, 사용자와 팀을 추가 및 제거하며, 진행 상황을 모니터링합니다. 레이블이 지정된 데이터는 COCO 형식 또는 Azure Machine Learning 데이터 세트로 내보낼 수 있습니다.
 
+> [!Important]
+> 현재 이미지 분류 및 개체 식별 레이블 지정 프로젝트만 지원됩니다. 또한 데이터 이미지는 Azure Blob 데이터 저장소에서 사용할 수 있어야 합니다. (기존 데이터 저장소가 없는 경우 프로젝트를 만드는 동안 이미지를 업로드할 수 있습니다.) 
+
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
@@ -32,6 +35,7 @@ Machine Learning에서는 프로젝트를 시작 및 중지하고, 사용자와 
 > * 프로젝트에서 작업하는 팀 및 사용자 관리
 > * 프로젝트 실행 및 모니터링
 > * 레이블 내보내기
+
 
 ## <a name="prerequisites"></a>필수 조건
 

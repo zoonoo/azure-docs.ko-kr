@@ -2,15 +2,15 @@
 title: 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 description: SQL Database 확장을 사용하여 Azure Resource Manager 템플릿을 통해 SQL BACPAC 파일을 가져오는 방법을 알아봅니다.
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 741521551335712400e5f61822d7dda31199d3df
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 9f5e2e402e13076dc538a9c9d55e5b67e0d86d4f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422190"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978908"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
@@ -44,17 +44,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 BACPAC 파일은 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)에서 공유됩니다. 사용자 고유의 파일을 만들려면 [Azure SQL 데이터베이스를 BACPAC 파일로 내보내기](../sql-database/sql-database-export.md)를 참조하세요. 사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿을 업데이트해야 합니다.
 
-Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Storage 계정에 BACPAC 파일을 저장해야 합니다.
+Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Storage 계정에 BACPAC 파일을 저장해야 합니다. 다음 PowerShell 스크립트는 다음 단계를 수행하여 BACPAC 파일을 준비합니다.
 
-1. [Cloud Shell](https://shell.azure.com)을 엽니다.
-1. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다.
-1. 다음 URL을 지정하고 **열기**를 선택합니다.
+* BACPAC 파일 다운로드
+* Azure Storage 계정 만들기
+* Storage 계정 Blob 컨테이너 만들기
+* 컨테이너에 BACPAC 파일 업로드
+* 스토리지 계정 키와 Blob URL을 표시합니다.
 
-    ```url
-    https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
-    ```
-
-1. 다음 PowerShell 스크립트를 복사하여 셸 창에 붙여넣습니다.
+1. **사용해 보기**를 선택하여 셸을 연 후, 다음 PowerShell 스크립트를 셸 창에 붙여넣습니다.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -63,10 +61,16 @@ Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼�
     $resourceGroupName = "${projectName}rg"
     $storageAccountName = "${projectName}store"
     $containerName = "bacpacfiles"
-    $bacpacFile = "$HOME/SQLDatabaseExtension.bacpac"
-    $blobName = "SQLDatabaseExtension.bacpac"
+    $bacpacFileName = "SQLDatabaseExtension.bacpac"
+    $bacpacUrl = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
 
+    # Download the bacpac file
+    Invoke-WebRequest -Uri $bacpacUrl -OutFile "$HOME/$bacpacFileName"
+
+    # Create a resource group
     New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account
     $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
                                            -Name $storageAccountName `
                                            -SkuName Standard_LRS `
@@ -74,19 +78,21 @@ Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼�
     $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
                                                   -Name $storageAccountName).Value[0]
 
+    # Create a container
     New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
-    Set-AzStorageBlobContent -File $bacpacFile `
+    # Upload the BACPAC file to the container
+    Set-AzStorageBlobContent -File $HOME/$bacpacFileName `
                              -Container $containerName `
-                             -Blob $blobName `
+                             -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
     Write-Host "The storage account key is $storageAccountKey"
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName"
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. 스토리지 계정 키와 BACPAC 파일 URL을 적어 둡니다. 템플릿을 배포할 때 필요합니다.
+1. 스토리지 계정 키와 BACPAC 파일 URL을 기록합니다. 템플릿을 배포할 때 필요합니다.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
@@ -101,10 +107,9 @@ Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼�
 
 3. **열기**를 선택하여 파일을 엽니다.
 
-    템플릿에 3개 리소스가 정의되어 있습니다.
+    템플릿에는 다음과 같은 2개의 리소스가 정의되어 있습니다.
 
    * `Microsoft.Sql/servers`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)를 참조하세요.
-   * `Microsoft.SQL/servers/securityAlertPolicies`. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)를 참조하세요.
    * `Microsoft.SQL.servers/databases`.  [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
 
      템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
@@ -138,19 +143,21 @@ Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼�
     * SQL 데이터베이스 확장이 BACPAC 파일을 가져올 수 있도록 Azure 서비스의 트래픽을 허용해야 합니다. SQL 서버 정의 아래에서 다음 방화벽 규칙 정의를 추가합니다.
 
         ```json
-        {
-          "type": "firewallrules",
-          "apiVersion": "2015-05-01-preview",
-          "name": "AllowAllAzureIps",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
+        "resources": [
+          {
+            "type": "firewallrules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "AllowAllAzureIps",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+              "[parameters('databaseServerName')]"
+            ],
+            "properties": {
+              "startIpAddress": "0.0.0.0",
+              "endIpAddress": "0.0.0.0"
+            }
           }
-        }
+        ]
         ```
 
         템플릿은 다음과 비슷합니다.
@@ -161,22 +168,22 @@ Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼�
 
         ```json
         "resources": [
-            {
-              "type": "extensions",
-              "apiVersion": "2014-04-01",
-              "name": "Import",
-              "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', variables('databaseServerName'), variables('databaseName'))]"
-              ],
-              "properties": {
-                "storageKeyType": "StorageAccessKey",
-                "storageKey": "[parameters('storageAccountKey')]",
-                "storageUri": "[parameters('bacpacUrl')]",
-                "administratorLogin": "[variables('databaseServerAdminLogin')]",
-                "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import"
-              }
+          {
+            "type": "extensions",
+            "apiVersion": "2014-04-01",
+            "name": "Import",
+            "dependsOn": [
+              "[resourceId('Microsoft.Sql/servers/databases', parameters('databaseServerName'), parameters('databaseName'))]"
+            ],
+            "properties": {
+              "storageKeyType": "StorageAccessKey",
+              "storageKey": "[parameters('storageAccountKey')]",
+              "storageUri": "[parameters('bacpacUrl')]",
+              "administratorLogin": "[parameters('adminUser')]",
+              "administratorLoginPassword": "[parameters('adminPassword')]",
+              "operationMode": "Import"
             }
+          }
         ]
         ```
 
@@ -192,6 +199,10 @@ Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼�
         * **storageUri**: 스토리지 계정에 저장된 BACPAC 파일의 URL을 지정합니다.
         * **administratorLoginPassword**: SQL 관리자의 암호입니다. 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
 
+완성된 템플릿은 다음과 같습니다.
+
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
+
 ## <a name="deploy-the-template"></a>템플릿 배포
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -199,7 +210,7 @@ Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼�
 배포 절차는 [템플릿 배포](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) 섹션을 참조하세요. 다음 PowerShell 배포 스크립트를 대신 사용합니다.
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
@@ -207,7 +218,7 @@ $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
 $bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
 $resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+#New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `

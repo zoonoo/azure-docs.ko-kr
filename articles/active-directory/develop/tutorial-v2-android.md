@@ -1,6 +1,6 @@
 ---
-title: Android 시작 - Microsoft ID 플랫폼 | Azure
-description: Android 앱에서 액세스 토큰을 얻는 방법 및 Microsoft ID 플랫폼의 액세스 토큰이 필요한 Microsoft Graph API를 호출하는 방법을 알아봅니다.
+title: 사용자 로그인 및 Microsoft Graph(Android) 호출 - Microsoft ID 플랫폼 | Azure
+description: 액세스 토큰을 가져오고 Microsoft ID 플랫폼(Android)의 액세스 토큰이 필요한 Microsoft Graph 또는 API를 호출합니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 7feefc368815b1bfe57b67db2cd94702db799d78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242209"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961560"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>자습서: Android 앱에서 사용자 로그인 및 Microsoft Graph 호출
 

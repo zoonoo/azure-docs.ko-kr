@@ -4,16 +4,19 @@ description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커�
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8af8daa4233fe6461b4e129f56a063e7cc212245
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454746"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840785"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 컨테이너 이미지 빌드 자동화
 
-[빠른 작업](container-registry-tutorial-quick-task.md) 외에, ACR 작업은 소스 코드를 Git 리포지토리로 커밋할 때 클라우드에서 자동화된 Docker 컨테이너 이미지 빌드를 지원합니다.
+[빠른 작업](container-registry-tutorial-quick-task.md) 외에, ACR 작업은 소스 코드를 Git 리포지토리로 커밋할 때 클라우드에서 자동화된 Docker 컨테이너 이미지 빌드를 지원합니다. ACR 작업에 지원되는 Git 컨텍스트에는 퍼블릭이나 프라이빗 GitHub 또는 Azure 리포지토리가 포함됩니다.
+
+> [!NOTE]
+> 현재 ACR 작업은 GitHub Enterprise 리포지토리에서 커밋 또는 끌어오기 요청 트리거를 지원하지 않습니다.
 
 이 자습서의 ACR 작업은 소스 코드를 Git 리포지토리로 커밋할 때 Dockerfile에 지정된 단일 컨테이너 이미지를 빌드하고 푸시합니다. YAML 파일을 사용하여 코드 커밋 시 여러 컨테이너를 빌드하고, 푸시하고, 필요에 따라 테스트하는 단계를 정의하는 [다단계 작업](container-registry-tasks-multi-step.md)을 만들려면 [자습서: 소스 코드를 커밋할 때 클라우드에서 다단계 컨테이너 워크플로 실행](container-registry-tutorial-multistep-task.md)을 참조하세요. ACR 작업 개요에 대해서는 [ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화](container-registry-tasks-overview.md)를 참조하세요.
 

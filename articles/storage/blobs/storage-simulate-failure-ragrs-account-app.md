@@ -1,21 +1,22 @@
 ---
-title: '자습서: Azure에서 읽기 액세스 중복 스토리지 액세스 오류 시뮬레이션 | Microsoft Docs'
-description: 읽기 액세스 지역 중복 스토리지 액세스 오류 시뮬레이션
+title: 자습서 - 주 지역에서 데이터를 읽는 동안 발생하는 오류 시뮬레이션
+titleSuffix: Azure Storage
+description: 스토리지 계정에 대해 RA-GRS(읽기 액세스 지역 중복 스토리지)가 활성화된 경우 주 지역에서 데이터를 읽는 동안 발생하는 오류를 시뮬레이션합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 1f5c404e410ded2714be761e35060f3c07379bd3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508091"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892450"
 ---
-# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>자습서: 읽기 액세스 중복 스토리지 액세스 오류 시뮬레이션
+# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>자습서: 주 지역에서 데이터를 읽는 동안 발생하는 오류 시뮬레이션
 
 이 자습서는 시리즈의 2부입니다. 여기서는 오류를 시뮬레이션하여 [RA-GRS(읽기 액세스 지역 중복 스토리지)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)의 이점에 대해 알아봅니다.
 
@@ -44,7 +45,7 @@ Fiddler를 사용하여 실패를 시뮬레이트하려면 [Fiddler를 다운로
 
 ### <a name="start-and-pause-the-application"></a>애플리케이션 시작 및 일시 중지
 
-[이전 자습서][previous-tutorial]의 지침에 따라 샘플을 시작하고 테스트 파일을 다운로드한 후, 기본 스토리지에서 가져온 것인지 확인합니다. 대상 플랫폼에 따라 샘플을 수동으로 일시 중지하거나 프롬프트 시 대기할 수 있습니다.
+[이전 자습서][previous-tutorial]의 지침에 따라 샘플을 시작하고 테스트 파일을 다운로드하여 기본 스토리지에서 가져온 것인지 확인합니다. 대상 플랫폼에 따라 샘플을 수동으로 일시 중지하거나 프롬프트 시 대기할 수 있습니다.
 
 ### <a name="simulate-failure"></a>오류 시뮬레이션
 
@@ -132,7 +133,7 @@ Fiddler ScriptEditor가 시작되고 **SampleRules.js** 파일을 표시합니�
 
 ### <a name="start-and-pause-the-application"></a>애플리케이션 시작 및 일시 중지
 
-[이전 자습서][previous-tutorial]의 지침에 따라 샘플을 시작하고 테스트 파일을 다운로드한 후, 기본 스토리지에서 가져온 것인지 확인합니다. 대상 플랫폼에 따라 샘플을 수동으로 일시 중지하거나 프롬프트 시 대기할 수 있습니다.
+[이전 자습서][previous-tutorial]의 지침에 따라 샘플을 시작하고 테스트 파일을 다운로드하여 기본 스토리지에서 가져온 것인지 확인합니다. 대상 플랫폼에 따라 샘플을 수동으로 일시 중지하거나 프롬프트 시 대기할 수 있습니다.
 
 ### <a name="simulate-failure"></a>오류 시뮬레이션
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: ca21bbd77b269e3034fd69cc4685311e91295f36
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: db98464ecefaaf177161a1e417496ee7c994cff0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "73519114"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978648"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 이미지 분류 프로젝트 만들기
 
-이 문서에서는 C#과 함께 Custom Vision SDK를 사용하여 이미지 분류 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. .NET 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 코드 _없이_ 분류 모델을 빌드하고 사용하는 방법을 알아보려면 [브라우저 기반 가이드](getting-started-build-a-classifier.md)를 참조하세요.
+이 문서에서는 C#과 함께 Custom Vision SDK를 사용하여 이미지 분류 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. .NET 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 코드 _없이_ 분류 모델을 빌드하고 프로세스를 수행하려면 대신 [브라우저 기반 가이드](getting-started-build-a-classifier.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -41,7 +41,7 @@ Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet �
 
 ## <a name="understand-the-code"></a>코드 이해
 
-_Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_TRAINING_KEY` 및 `CUSTOM_VISION_PREDICTION_KEY`라고 명명된 학습 및 예측 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). 스크립트는 다음을 찾습니다.
+_Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_TRAINING_KEY` 및 `CUSTOM_VISION_PREDICTION_KEY`라고 명명된 학습 및 예측 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). 스크립트는 이러한 변수를 찾습니다.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_keys)]
 
@@ -69,7 +69,7 @@ _Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_T
 
 ### <a name="train-the-classifier-and-publish"></a>분류자 학습 및 게시
 
-이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
+이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 반복 이름을 사용하여 예측 요청을 보낼 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_train)]
 
@@ -81,7 +81,7 @@ _Program.cs_ 파일을 열고 코드를 검사합니다. 각각 `CUSTOM_VISION_T
 
 ### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>기본 예측 엔드포인트에 이미지 제출
 
-이 스크립트의 테스트 이미지는 **LoadImagesFromDisk** 메서드에 로드되고, 모델의 예측 출력은 콘솔에 표시됩니다. publishedModelName 변수의 값은 Custom Vision 포털의 **성능** 탭에 있는 "다음으로 게시된" 값과 일치해야 합니다. 
+이 스크립트의 테스트 이미지는 **LoadImagesFromDisk** 메서드에 로드되고, 모델의 예측 출력은 콘솔에 표시됩니다. `publishedModelName` 변수의 값은 Custom Vision 포털의 **성능** 탭에 있는 "다음으로 게시된" 값과 일치해야 합니다. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_prediction)]
 
@@ -106,7 +106,7 @@ Making a prediction:
 
 ## <a name="next-steps"></a>다음 단계
 
-이미지 분류 프로세스의 모든 단계를 코드로 수행하는 방법을 살펴보았습니다. 이 샘플은 교육을 한 번만 반복하지만, 정확도를 높이기 위해 모델을 여러 차례 교육하고 테스트해야 하는 경우가 많습니다.
+이제 코드에서 이미지 분류 프로세스의 모든 단계를 수행하는 방법을 살펴보았습니다. 이 샘플은 교육을 한 번만 반복하지만, 정확도를 높이기 위해 모델을 여러 차례 교육하고 테스트해야 하는 경우가 많습니다.
 
 > [!div class="nextstepaction"]
 > [모델 테스트 및 재교육](test-your-model.md)

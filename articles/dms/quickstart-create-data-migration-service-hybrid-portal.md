@@ -10,19 +10,22 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/06/2019
-ms.openlocfilehash: 47c0ecb5674f821d3034fb5f165df08f176c2e93
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.date: 12/06/2019
+ms.openlocfilehash: a124c33f15318f1b9b22a750a1de15601823afa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646937"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890694"
 ---
 # <a name="quickstart-create-an-instance-of-azure-database-migration-service-in-hybrid-mode-using-the-azure-portal-preview"></a>빠른 시작: Azure Portal(미리 보기)을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스 만들기
 
 Azure Database Migration Service 하이브리드 모드는 클라우드에서 실행 중인 Azure Database Migration Service 인스턴스와 온-프레미스에서 호스트되는 마이그레이션 작업자를 함께 사용하여 데이터베이스 마이그레이션을 관리합니다. 하이브리드 모드는 온-프레미스 네트워크와 Azure 간에 사이트 간 연결이 부족하거나 사이트 간 연결 대역폭이 제한된 경우에 특히 유용합니다.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service의 인스턴스를 만듭니다. 그런 다음, 온-프레미스 네트워크에서 Hybrid Worker를 다운로드, 설치 및 설정합니다. 미리 보기 중에 Azure Database Migration Service 하이브리드 모드를 사용하여 SQL Server 온-프레미스 인스턴스에서 Azure SQL Database으로 데이터를 마이그레이션할 수 있습니다.
+
+> [!IMPORTANT]
+> Azure Database Migration Service 하이브리드 설치 관리자에는 .NET 4.7.2 이상이 필요합니다. 최신 버전의 .NET을 찾으려면 [.NET Framework 다운로드](https://dotnet.microsoft.com/download/dotnet-framework) 페이지를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -111,6 +114,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 3. Azure Database Migration Service Hybrid Worker를 호스트할 서버에서 ZIP 파일의 압축을 풉니다.
 
+    > [!IMPORTANT]
+    > Azure Database Migration Service 하이브리드 설치 관리자에는 .NET 4.7.2 이상이 필요합니다. 최신 버전의 .NET을 찾으려면 [.NET Framework 다운로드](https://dotnet.microsoft.com/download/dotnet-framework) 페이지를 참조하세요.
+
 4. 설치 폴더에서 **dmsSettings.json** 파일을 찾아 열고, **ApplicationId** 및 **resourceId**를 지정한 다음, 파일을 저장합니다.
 
     ![Azure Database Migration Service Hybrid Worker 설정](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
@@ -125,7 +131,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Azure Database Migration Service Hybrid Worker 인증서](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. Azure Portal에서 앱 ID로 이동한 후 **관리** 아래에서 **인증서 및 비밀**을 선택하고 **인증서 업로드**를 선택하여 방금 생성한 퍼블릭 인증서를 선택합니다.
+6. Azure Portal에서 앱 ID로 이동한 후 **관리** 아래에서 **인증서 및 비밀**을 선택하고 **인증서 업로드**를 선택하여 생성한 퍼블릭 인증서를 선택합니다.
 
     ![Azure Database Migration Service Hybrid Worker 인증서 업로드](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 

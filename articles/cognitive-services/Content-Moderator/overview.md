@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a78a92a33075a97ddadb2e1fe677b7ded541d12c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c1ff74bc358f167612b2bfe05ca47e21203d8702
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565588"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973495"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
-Azure Content Moderator API는 자료에서 불쾌감을 주거나, 위험하거나, 원치 않는 텍스트, 이미지 및 비디오 콘텐츠를 확인하는 인식 서비스입니다. 이러한 자료가 발견되면 서비스가 콘텐츠에 적절한 레이블(플래그)을 적용합니다. 그러면 앱이 규정에 부합하고 원하는 사용자 환경을 유지하기 위해 플래그가 지정된 콘텐츠를 처리할 수 있습니다. 다양한 콘텐츠 플래그의 의미를 자세히 알아보려면 [중재 API](#moderation-apis) 섹션을 참조하세요.
+Azure Content Moderator는 자료에서 모욕적이거나, 위험하거나, 원치 않는 텍스트, 이미지 및 비디오 콘텐츠를 확인하는 인지 서비스입니다. 이 자료가 발견되면 서비스가 콘텐츠에 적절한 레이블(플래그)을 적용합니다. 그러면 앱이 규정에 부합하고 원하는 사용자 환경을 유지하기 위해 플래그가 지정된 콘텐츠를 처리할 수 있습니다. 다양한 콘텐츠 플래그의 의미를 자세히 알아보려면 [중재 API](#moderation-apis) 섹션을 참조하세요.
 
-## <a name="where-it-is-used"></a>사용 위치
+## <a name="where-its-used"></a>사용 위치
 
 다음은 소프트웨어 개발자나 팀이 Content Moderator를 사용하는 몇 가지 시나리오입니다.
 
@@ -32,7 +32,7 @@ Azure Content Moderator API는 자료에서 불쾌감을 주거나, 위험하거
 - 학생 및 교육자에게 부적절한 콘텐츠를 필터링하는 K-12 교육 솔루션 공급자.
 
 > [!NOTE]
-> Content Moderator를 사용하여 불법 아동 착취 이미지를 검색할 수 없습니다. 그러나 인증된 조직에서 [PhotoDNA 클라우드 서비스](https://www.microsoft.com/photodna "Microsoft PhotoDNA 클라우드 서비스")를 사용하여 이러한 종류의 콘텐츠를 차단할 수 있습니다.
+> Content Moderator를 사용하여 불법 아동 착취 이미지를 검색할 수 없습니다. 그러나 자격이 있는 조직은 [PhotoDNA 클라우드 서비스](https://www.microsoft.com/photodna "Microsoft PhotoDNA 클라우드 서비스")를 사용하여 이러한 종류의 콘텐츠를 차단할 수 있습니다.
 
 ## <a name="what-it-includes"></a>포함되는 항목
 
@@ -49,7 +49,7 @@ Content Moderator 서비스에는 콘텐츠에 잠재적으로 부적절하거�
 | API 그룹 | 설명 |
 | ------ | ----------- |
 |[**텍스트 조정**](text-moderation-api.md)| 텍스트에서 불쾌감을 주는 콘텐츠, 외설적이거나 선정적인 콘텐츠, 불경한 언어 및 개인 데이터를 검사합니다.|
-|[**사용자 지정 용어 목록**](try-terms-list-api.md)| 기본 제공 용어 외에 사용자 지정 용어 목록을 기준으로 검사합니다. 사용자 지정 콘텐츠 정책에 따라 사용자 지정 목록을 사용하여 콘텐츠를 차단하거나 허용합니다.|  
+|[**사용자 지정 용어 목록**](try-terms-list-api.md)| 기본 제공 용어와 함께 사용자 지정 용어 목록에 대해 텍스트를 검사합니다. 사용자 지정 콘텐츠 정책에 따라 사용자 지정 목록을 사용하여 콘텐츠를 차단하거나 허용합니다.|  
 |[**이미지 조정**](image-moderation-api.md)| 이미지에서 성인 또는 외설 콘텐츠를 검사하고, OCR(광학 문자 인식) 기능을 사용하여 이미지에서 텍스트를 감지하고, 얼굴을 감지합니다.|
 |[**사용자 지정 이미지 목록**](try-image-list-api.md)| 사용자 지정 이미지 목록을 기준으로 이미지를 검사합니다. 사용자 지정 이미지 목록을 사용하여 다시 분류하지 않으려는 일반적인 반복 콘텐츠의 인스턴스를 필터링합니다.|
 |[**비디오 조정**](video-moderation-api.md)| 비디오에서 성인 또는 외설 콘텐츠를 검사하고 언급된 콘텐츠의 시간 마커를 반환합니다.|
@@ -65,7 +65,7 @@ Content Moderator 서비스에는 콘텐츠에 잠재적으로 부적절하거�
 
 ## <a name="the-review-tool"></a>검토 도구
 
-Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)도 포함되어 있습니다. 이 도구는 사용자 중재자가 처리할 콘텐츠 검토를 호스팅합니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다. 검토 도구는 다양한 Content Moderator 리소스에 대한 사용자 친화적인 프런트 엔드도 제공합니다.
+Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)도 포함되어 있습니다. 이 도구는 사용자 중재자가 처리할 콘텐츠 검토를 호스팅합니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다. 검토 도구는 여러 Content Moderator 리소스에 대한 사용자 친화적인 프런트 엔드도 제공합니다.
 
 ![Content Moderator 사용자 검토 도구 홈 페이지](images/homepage.PNG)
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743694"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961542"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Face API란?
 
@@ -45,11 +45,11 @@ Find Similar API는 대상 얼굴을 후보 얼굴 세트와 비교하여 대상
 
 ![웃는 여자](./Images/FaceFindSimilar.QueryFace.jpg)
 
-다음은 후보 얼굴입니다.
+그리고 다음 이미지는 후보 얼굴입니다.
 
 ![5개의 웃는 사람들의 이미지 a와 b 이미지는 동일한 사람을 보여 줍니다.](./Images/FaceFindSimilar.Candidates.jpg)
 
-4개의 유사한 얼굴을 찾기 위해 matchPerson 모드는 a와 b를 반환하며 동일한 사람을 대상 얼굴로 표시합니다. matchFace 모드는 일부가 대상과 동일한 사람이 아니거나 유사성이 낮은 경우에도 4개의 후보인 a, b, c 및 d를 정확히 반환합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 참조 설명서를 참조하세요.
+4개의 유사한 얼굴을 찾기 위해 matchPerson 모드는 a와 b를 반환하며 동일한 사람을 대상 얼굴로 표시합니다. matchFace 모드는 일부가 대상과 동일한 사람이 아니거나 유사성이 낮은 경우에도 4개의 후보인 a, b, c 및 d&mdash;를 정확히 반환합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 참조 설명서를 참조하세요.
 
 ## <a name="face-grouping"></a>얼굴 그룹화
 

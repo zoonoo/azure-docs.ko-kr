@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304710"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893351"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="route-resource-data-to-the-storage-account"></a>스토리지 계정에 리소스 데이터 라우팅
 
-이제 **리소스 진단 설정**을 설정하여 스토리지 계정에 라우팅되도록 리소스 수준 데이터(리소스 메트릭 및 진단 로그)를 구성합니다.
+이제 **리소스 진단 설정**을 설정하여 스토리지 계정에 라우팅되도록 리소스 수준 데이터(리소스 메트릭 및 리소스 로그)를 구성합니다.
 
 1. 왼쪽 탐색 목록에 있는 **모니터** 단추를 클릭한 후 **진단 설정**에서 다음을 수행합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다. 이 목록에 리소스가 없는 경우 계속 진행하기 전에 [논리 앱을 만들어](../../logic-apps/quickstart-create-first-logic-app-workflow.md) 진단 설정을 구성할 수 있는 리소스를 포함할 수 있습니다.
 
@@ -162,7 +162,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 5. 리소스 ID, 날짜 및 시간에 해당하는 컨테이너를 클릭하여 PT1H.json 파일로 이동합니다. PT1H.json 파일을 클릭하고 **다운로드**를 클릭합니다. 각 PT1H.json Blob은 Blob URL에 지정된 시간 내에서 발생한 이벤트의 JSON Blob을 포함합니다(예: h=12). 현재 시간 동안 이벤트는 발생하는 순서대로 PT1H.json 파일에 추가됩니다. 로그 이벤트는 시간당 개별 Blob으로 나뉘므로 분 값(m=00)은 항상 00입니다.
 
-   이제 스토리지 계정에 저장된 JSON 이벤트를 볼 수 있습니다. 리소스 진단 로그에서 Blob에 대한 형식은 다음과 같습니다.
+   이제 스토리지 계정에 저장된 JSON 이벤트를 볼 수 있습니다. 리소스 로그에서 Blob에 대한 형식은 다음과 같습니다.
 
    insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 

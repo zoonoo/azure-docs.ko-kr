@@ -11,21 +11,21 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 207e8def168227cb419d25c8e98aa15c09c72b2c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671573"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851607"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 방법 문서에서는 Azure Machine Learning을 사용하여 대량의 데이터를 비동기적으로, 그리고 병렬로 유추하는 방법을 알아봅니다. 여기서 설명하는 일괄 처리 유추 기능은 공개 미리 보기로 제공됩니다. 유추 및 처리 데이터를 생성하는 성능과 처리량이 뛰어난 방법입니다. 비동기 기능을 기본 제공합니다.
+Azure Machine Learning을 사용하여 대량의 데이터를 비동기 병렬 처리 방식으로 유추하는 방법을 알아봅니다. 여기서 설명하는 일괄 처리 유추 기능은 공개 미리 보기로 제공됩니다. 유추 및 처리 데이터를 생성하는 성능과 처리량이 뛰어난 방법입니다. 비동기 기능을 기본 제공합니다.
 
 일괄 처리 유추를 사용하면 간단하게 오프라인 유추를 수 테라바이트에 달하는 프로덕션 데이터의 대규모 머신 클러스터로 확장하여 생산성을 향상하고 비용을 최적화할 수 있습니다.
 
-이 방법 문서에서는 다음 작업에 대해 알아봅니다.
+이 문서에서는 다음 작업에 대해 알아봅니다.
 
 > * 원격 컴퓨팅 리소스를 만듭니다.
 > * 사용자 지정 유추 스크립트를 작성합니다.
@@ -189,7 +189,7 @@ model = Model.register(model_path="models/",
 스크립트에 다음 두 함수가 *포함되어야 합니다*.
 - `init()`: 이후 유추를 위해 비용이 많이 드는 준비 또는 일반적인 준비에 이 함수를 사용합니다. 예를 들어 모델을 글로벌 개체에 로드하는 데 사용합니다.
 -  `run(mini_batch)`: 이 함수는 각 `mini_batch` 인스턴스에 대해 실행됩니다.
-    -  `mini_batch`: 일괄 처리 유추는 run 메서드를 호출하고 목록 또는 Pandas 데이터 프레임을 메서드에 인수로 전달합니다. min_batch의 각 항목은 입력이 FileDataset이면 filepath이고, 입력이 TabularDataset이면 Pandas 데이터 프레임입니다.
+    -  `mini_batch`: 일괄 처리 유추는 run 메서드를 호출하고 목록 또는 Pandas 데이터 프레임을 메서드에 인수로 전달합니다. 입력이 FileDataset이면 min_batch의 각 항목이 파일 경로이고, 입력이 TabularDataset이면 Pandas 데이터 프레임입니다.
     -  `response`: run() 메서드는 Pandas 데이터 프레임 또는 배열을 반환해야 합니다. append_row output_action의 경우 반환되는 요소가 공통 출력 파일에 추가됩니다. summary_only의 경우 요소의 내용이 무시됩니다. 모든 출력 작업의 경우 반환되는 각 출력 요소는 입력 미니 일괄 처리의 입력 요소에 대한 성공적인 유추 하나를 나타냅니다. 사용자는 입력을 유추에 매핑하기에 충분한 데이터가 유추에 포함되어 있는지 확인해야 합니다. 유추 출력은 출력 파일에 기록되지만 순서대로 기록된다는 보장은 없으므로, 사용자는 출력의 키를 사용하여 입력에 매핑해야 합니다.
 
 ```python
@@ -237,6 +237,15 @@ def run(mini_batch):
     return resultList
 ```
 
+### <a name="how-to-access-other-files-in-init-or-run-functions"></a>`init()` 또는 `run()` 함수에서 다른 파일에 액세스하는 방법
+
+다른 파일 또는 폴더가 유추 스크립트와 동일한 디렉터리에 있는 경우 현재 작업 디렉터리를 찾아 참조할 수 있습니다.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
 ## <a name="build-and-run-the-batch-inference-pipeline"></a>일괄 처리 유추 파이프라인 빌드 및 실행
 
 이제 파이프라인을 빌드하는 데 필요한 모든 준비가 끝났습니다.
@@ -261,11 +270,11 @@ batch_env.spark.precache_packages = False
 
 ### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>일괄 처리 유추 파이프라인 단계에 대한 매개 변수를 지정합니다.
 
-`ParallelRunConfig`는 Azure Machine Learning 파이프라인 내에서 새로 도입된 일괄 처리 유추 `ParallelRunStep` 인스턴스에 대한 주요 구성입니다. 스크립트를 래핑하고 다음을 포함하여 필요한 매개 변수를 구성하는 데 사용됩니다.
+`ParallelRunConfig`는 Azure Machine Learning 파이프라인 내에서 새로 도입된 일괄 처리 유추 `ParallelRunStep` 인스턴스에 대한 주요 구성입니다. 이를 사용하여 스크립트를 래핑하고 다음 매개 변수를 모두 포함하여 필요한 매개 변수를 구성합니다.
 - `entry_script`: 여러 노드에서 병렬로 실행되는 로컬 파일 경로인 사용자 스크립트입니다. `source_directly`가 있으면 상대 경로를 사용합니다. 없으면 머신에서 액세스할 수 있는 아무 경로를 사용합니다.
 - `mini_batch_size`: 단일 `run()` 호출에 전달된 미니 일괄 처리의 크기입니다. (선택 사항이며 기본값은 `1`입니다.)
     - `FileDataset`의 경우 최솟값이 `1`인 파일 수입니다. 여러 파일을 한 미니 일괄 처리로 결합할 수 있습니다.
-    - `TabularDataset`의 경우 데이터의 크기입니다. 예제 값은 `1024`, `1024KB`, `10MB` 및 `1GB`입니다. 권장 값은 `1MB`입니다. `TabularDataset`의 미니 일괄 처리는 절대로 파일 경계를 넘지 않습니다. 예를 들어 다양한 크기의 .csv 파일이 있는 경우 가장 작은 파일은 100KB이고 가장 큰 파일은 10MB입니다. `mini_batch_size = 1MB`를 설정하는 경우 크기가 1MB보다 작은 파일은 하나의 미니 일괄 처리로 취급됩니다. 크기가 1MB보다 큰 파일은 여러 개의 미니 일괄 처리로 분할됩니다.
+    - `TabularDataset`의 경우 데이터의 크기입니다. 예제 값은 `1024`, `1024KB`, `10MB` 및 `1GB`입니다. 권장 값은 `1MB`입니다. `TabularDataset`의 미니 일괄 처리는 파일 경계를 넘지 않습니다. 예를 들어 다양한 크기의 .csv 파일이 있는 경우 가장 작은 파일은 100KB이고 가장 큰 파일은 10MB입니다. `mini_batch_size = 1MB`를 설정하는 경우 크기가 1MB보다 작은 파일은 하나의 미니 일괄 처리로 취급됩니다. 크기가 1MB보다 큰 파일은 여러 개의 미니 일괄 처리로 분할됩니다.
 - `error_threshold`: 처리 중에 무시해야 하는 `FileDataset`에 대한 `TabularDataset` 및 파일 오류에 대한 레코드 실패 횟수입니다. 전체 입력의 오류 횟수가 이 값을 초과하면 작업이 중지됩니다. 오류 임계값은 `run()` 메서드로 전송되는 개별 미니 일괄 처리가 아닌 전체 입력에 적용됩니다. 범위는 `[-1, int.max]`입니다. `-1` 부분은 처리 중에 발생하는 모든 오류를 무시한다는 뜻입니다.
 - `output_action`: 다음 값 중 하나는 출력을 구성하는 방법을 나타냅니다.
     - `summary_only`: 사용자 스크립트는 출력을 저장합니다. `ParallelRunStep`은 출력을 오류 임계값 계산에만 사용합니다.
@@ -348,6 +357,8 @@ pipeline_run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>다음 단계
 
 이 프로세스가 작동하는 모습을 처음부터 끝까지 보려면 [일괄 처리 유추 Notebook](https://aka.ms/batch-inference-notebooks)을 사용해 보세요. 
+
+ParallelRunStep에 대한 디버깅 및 문제 해결 지침은 [이 방법 가이드](how-to-debug-batch-predictions.md)를 참조하세요.
 
 파이프라인의 디버깅 및 문제 해결 지침은 [방법 가이드](how-to-debug-pipelines.md)를 참조하세요.
 

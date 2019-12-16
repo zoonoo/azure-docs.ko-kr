@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 58871035eac89931dce0c1cd289cf3fab97c0c3e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b1d5f20ccd2f2c637d7db668af10ef331947d018
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688408"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971199"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>App Service에 대한 Azure Resource Manager 템플릿
 
@@ -33,6 +33,8 @@ App Services 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Micr
 | [사용자 지정 도메인 및 SSL이 있는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| 사용자 지정 호스트 이름이 있는 App Service 앱을 배포하고 SSL 바인딩을 위해 Key Vault에서 앱 인증서를 가져옵니다. |
 | [GoLang 확장이 있는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Golang 사이트 확장을 사용하여 App Service 앱을 배포합니다. 그런 다음, Azure의 Golang에서 개발된 웹 애플리케이션을 실행할 수 있습니다. |
 | [Java 8 및 Tomcat 8이 있는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Java 8 및 Tomcat 8을 사용하여 App Service 앱을 배포합니다. 그런 다음, Azure에서 Java 애플리케이션을 실행할 수 있습니다. |
+|**앱 보호**||
+| [Azure Application Gateway와 통합된 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2)| App Service 앱 및 Application Gateway를 배포하고 서비스 엔드포인트와 액세스 제한을 사용하여 트래픽을 격리합니다. |
 |**연결된 리소스를 사용하는 Linux 앱**||
 | [MySQL을 사용하는 Linux의 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Azure Database for MySQL로 Linux에 App Service 앱을 배포합니다. |
 | [PostgreSQL을 사용하는 Linux의 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) | Azure Database for PostgreSQL로 Linux에 App Service 앱을 배포합니다. |
@@ -42,7 +44,7 @@ App Services 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Micr
 | [SQL 데이터베이스를 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| App Service 앱과 SQL 데이터베이스를 기본 서비스 수준에서 배포합니다. |
 | [Blob 스토리지 연결을 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Azure Blob 스토리지 연결 문자열을 사용하여 App Service 앱을 배포합니다. 그런 다음, 앱에서 Blob 스토리지를 사용할 수 있습니다. |
 | [Azure Cache for Redis를 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Azure Cache for Redis를 사용하여 App Service 앱을 배포합니다. |
-|**PowerApps용 App Service Environment**||
+|**App Service Environment**||
 | [App Service Environment v2 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | 가상 네트워크에 App Service Environment v2를 만듭니다. |
 | [ILB 주소로 App Service Environment v2 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | 프라이빗 내부 부하 분산 장치 주소로 가상 네트워크에 App Service Environment v2를 만듭니다. |
 | [ILB App Service Environment 또는 ILB App Service Environment v2에 대한 기본 SSL 인증서 구성](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) | ILB App Service Environment 또는 ILB App Service Environment v2에 대한 기본 SSL 인증서를 구성합니다. |

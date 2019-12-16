@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422306"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996581"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -111,7 +111,7 @@ WebSocket 및 HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 �
 
 ## <a name="connection-draining"></a>연결 드레이닝
 
-연결 드레이닝은 예정된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거하는 데 도움이 됩니다. 이 설정은 백 엔드 http 설정을 통해 사용이 가능하며 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에 적용할 수 있습니다. 일단 활성화되면 Application Gateway는 기존 요청이 구성된 제한 시간 내에 완료되도록 하면서 백 엔드 풀의 모든 등록 취소 인스턴스가 새로운 요청을 받지 않도록 합니다. 이는 API 호출에 의해 백엔드 풀에서 명시적으로 제거된 백 엔드 인스턴스와 상태 프로브에 의해 확인된 대로 비정상 상태로 보고된 백엔드 인스턴스에 모두 적용됩니다.
+연결 드레이닝은 예정된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거하는 데 도움이 됩니다. 이 설정은 백 엔드 http 설정을 통해 사용이 가능하며 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에 적용할 수 있습니다. 일단 활성화되면 Application Gateway는 기존 요청이 구성된 제한 시간 내에 완료되도록 하면서 백 엔드 풀의 모든 등록 취소 인스턴스가 새로운 요청을 받지 않도록 합니다. 이는 사용자 구성 변경에 의해 백엔드 풀에서 명시적으로 제거된 백 엔드 인스턴스와 상태 프로브에 의해 확인된 대로 비정상 상태로 보고된 백엔드 인스턴스에 모두 적용됩니다. 이에 대한 유일한 예외는 게이트웨이 관리 세션 선호도로 인해 명시적으로 등록 취소된 인스턴스에 대해 바인딩되는 요청이며, 등록 취소 인스턴스에 계속 프록시됩니다.
 
 자세한 내용은 [Application Gateway 구성 개요의 연결 드레이닝 섹션](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining)을 참조하세요.
 

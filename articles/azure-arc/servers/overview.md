@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122847"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951431"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>서버용 Azure Arc란
 
@@ -108,6 +108,40 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 [Azure Portal](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)의 단계에 따라 포털을 사용하여 리소스 공급자를 등록할 수도 있습니다.
+
+## <a name="machine-changes-after-installing-the-agent"></a>에이전트 설치 후 머신 변경
+
+변경 내용 추적 솔루션이 환경에 배포되어 있는 경우 아래 목록을 사용하여 **AzCMAgent(Azure Connected Machine Agent)** 설치 패키지에서 변경한 내용을 추적, 식별 및 허용할 수 있습니다.
+
+에이전트가 설치되면 다음과 같은 서버에 대한 변경 내용이 표시됩니다.
+
+### <a name="windows"></a>Windows
+
+설치된 서비스:
+
+* `Himds` - **Azure Connected Machine Agent** 서비스입니다.
+* `Dscservice` 또는 `gcd` - **게스트 구성** 서비스입니다.
+
+서버에 추가된 파일:
+
+* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` - **Azure Connected Machine Agent** 파일의 위치입니다.
+* `%ProgramData%\GuestConfig\*.*` - **게스트 구성** 로그입니다.
+
+레지스트리 키 위치:
+
+* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` - **Azure Connected Machine Agent**에 대한 레지스트리 키입니다.
+
+### <a name="linux"></a>Linux
+
+설치된 서비스:
+
+* `Himdsd` - **Azure Connected Machine Agent** 서비스입니다.
+* `dscd` 또는 `gcd` - **게스트 구성** 서비스입니다.
+
+서버에 추가된 파일:
+
+* `/var/opt/azcmagent/**` - **Azure Connected Machine Agent** 파일의 위치입니다.
+* `/var/lib/GuestConfig/**` - **게스트 구성** 로그입니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 

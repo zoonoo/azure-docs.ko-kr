@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB SQL API 계정으로 데이터를 대량으로 가져올 때 처리량 최적화
-description: Azure Cosmos DB으로 데이터를 가져오는 데 필요한 프로비저닝된 처리량(RU/초)을 최적화하는 .NET 콘솔 애플리케이션을 빌드하는 방법을 알아봅니다.
+title: .Net SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
+description: 데이터 가져오기에 필요한 프로비저닝된 처리량(RU/초)을 최적화하는 .NET 콘솔 애플리케이션을 빌드하여 데이터를 Azure Cosmos DB로 가져오거나 수집하는 방법 알아보기
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606213"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896272"
 ---
-# <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정으로 데이터를 대량으로 가져올 때 처리량 최적화
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
 
 이 자습서에서는 Azure Cosmos DB으로 데이터를 가져오는 데 필요한 프로비저닝된 처리량(RU/초)을 최적화하는 .NET 콘솔 애플리케이션을 빌드하는 방법을 설명합니다. 이 문서에서는 샘플 데이터 원본에서 데이터를 읽고 Azure Cosmos 컨테이너로 가져옵니다.
 이 자습서에서는 .NET Framework 또는 .NET Core를 대상으로 하는 [버전 3.0 이상](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) Azure Cosmos DB .NET SDK를 사용합니다.

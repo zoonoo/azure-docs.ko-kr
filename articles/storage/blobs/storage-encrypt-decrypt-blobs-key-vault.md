@@ -1,24 +1,24 @@
 ---
-title: '자습서: Azure Key Vault를 사용하여 Azure Storage에서 Blob 암호화 및 해독 | Microsoft Docs'
-description: Azure Key Vault를 사용하여 Microsoft Azure Storage에 대한 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법입니다.
+title: '자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독'
+titleSuffix: Azure Storage
+description: Azure Key Vault를 통해 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003428"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892892"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
-## <a name="introduction"></a>소개
 이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 스토리지 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 애플리케이션에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
 
 **예상 완료 시간:** 20분
@@ -27,7 +27,7 @@ Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/key-va
 
 Azure Storage에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -48,7 +48,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
 
-이 자습서를 진행 하려면 자습서 [빠른 시작에 설명 된 다음 단계를 수행 해야 합니다. .NET 웹 앱](../../key-vault/quick-create-net.md)을 사용 하 여 Azure Key Vault에서 비밀을 설정 하 고 검색 합니다.
+이 자습서를 계속하려면 자습서 [빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/quick-create-net.md)에 요약된 다음 단계를 수행해야 합니다.
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 또는 암호를 키 자격 증명 모음에 추가합니다.
@@ -121,9 +121,9 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>사용자의 프로그램에서 스토리지 및 키 자격 증명 모음 액세스
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>프로그램에서 Azure Storage 및 Key Vault 액세스
 
-Main () 메서드에서 다음 코드를 추가 합니다.
+Main() 메서드에서 다음 코드를 추가합니다.
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -229,7 +229,8 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
-이제 끝났습니다! 마음껏 즐기세요!
+
+이것으로 끝입니다. 마음껏 즐기세요!
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407007"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900995"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -268,7 +268,7 @@ Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 �
 
 ## <a name="next-steps"></a>다음 단계
 
-포털은 초기 탐색 및 작은 작업에 유용하지만 초기에 API를 검토하면 보다 심층적으로 개념과 워크플로를 이해하는 데 도움이 됩니다.
+포털 마법사를 사용하여 브라우저에서 실행되는 즉시 사용할 수 있는 웹앱을 생성합니다. 방금 만든 작은 인덱스에서 이 마법사를 사용해 보거나 기본 제공된 샘플 데이터 세트 중 하나를 사용하여 보다 다양한 검색 환경을 만들 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [.NET SDK를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [포털에서 검색 앱 만들기](search-create-app-portal.md)

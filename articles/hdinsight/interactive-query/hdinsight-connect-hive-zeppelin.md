@@ -1,20 +1,19 @@
 ---
 title: '빠른 시작: Apache Zeppelin을 사용한 Azure HDInsight의 Apache Hive'
 description: 이 빠른 시작에서는 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
-keywords: hdinsight,hadoop,hive,대화형 쿼리,LLAP
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 36d9e9b34deb4bc6cd5f599cfe2d09a12f680730
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/03/2019
+ms.openlocfilehash: 915aca0e95fce05f74477b526de047c829c7f512
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494288"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890402"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>빠른 시작: Apache Zeppelin을 사용하여 Azure HDInsight에서 Apache Hive 쿼리 실행
 
@@ -70,6 +69,44 @@ HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apac
     ```
 
     기존의 Hive에 비해 쿼리 결과를 반환하는 속도가 훨씬 빠릅니다.
+
+### <a name="additional-examples"></a>추가 예제
+
+1. 테이블을 만듭니다. Zeppelin Notebook에서 아래 코드를 실행합니다.
+
+    ```hql
+    %jdbc(hive)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
+    ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE;
+    ```
+
+1. 새 테이블에 데이터를 로드합니다. Zeppelin Notebook에서 아래 코드를 실행합니다.
+
+    ```hql
+    %jdbc(hive)
+    LOAD DATA
+    INPATH 'wasbs:///example/data/sample.log'
+    INTO TABLE log4jLogs;
+    ```
+
+1. 단일 레코드를 삽입합니다. Zeppelin Notebook에서 아래 코드를 실행합니다.
+
+    ```hql
+    %jdbc(hive)
+    INSERT INTO TABLE log4jLogs2
+    VALUES ('A', 'B', 'C', 'D', 'E', 'F', 'G');
+    ```
+
+추가 구문은 [Hive 언어 매뉴얼](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)을 검토하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

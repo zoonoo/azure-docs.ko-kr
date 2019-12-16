@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
-description: Cosmos DB Gremlin API를 사용하여 그래프 데이터베이스를 모델링하는 방법을 알아봅니다.
+description: Azure Cosmos DB Gremlin API를 사용하여 그래프 데이터베이스를 모델링하는 방법을 알아봅니다. 이 문서에서는 그래프 데이터베이스와 모범 사례를 사용하여 엔터티 및 관계를 모델링하는 경우를 설명합니다.
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 06/24/2019
+ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 2bd8c07b384872f3107b5938380cea4c8eb0abae
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559121"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873729"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
 

@@ -1,7 +1,7 @@
 ---
 title: Media Services의 동적 패키징
 titleSuffix: Azure Media Services
-description: Azure Media Services의 동적 패키징에 대해 간략하게 설명합니다.
+description: 이 문서에서는 Azure Media Services의 동적 패키징에 대해 간략하게 설명합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 304a6168ee5a4c60369b541d4a8cc7ac961913b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574883"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977763"
 ---
 # <a name="dynamic-packaging-in-media-services"></a>Media Services의 동적 패키징
 
@@ -269,6 +269,9 @@ HLS v7 이상의 경우 `(format=m3u8-cmaf)` 해당 재생 목록은 오디오 �
 ## <a name="dynamic-encryption"></a>동적 암호화
 
 *동적 암호화*를 사용하여 AES-128 또는 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나에서 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. 자세한 정보는 [동적 암호화](content-protection-overview.md)를 참조하세요.
+
+> [!NOTE]
+> Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
 ## <a name="more-information"></a>자세한 정보
 

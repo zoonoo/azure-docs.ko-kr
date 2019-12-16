@@ -2,27 +2,23 @@
 title: Microsoft ID 플랫폼의 발전 - Azure
 description: Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태인 Microsoft ID 플랫폼에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7e5faf9db9a6ba97f353b54a4fb8123fde072574
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533098"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996989"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 발전
 
@@ -30,13 +26,13 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) 개발자 플랫폼�
 
 지금까지는 대부분의 개발자가 ADAL(Azure AD 인증 라이브러리), 애플리케이션 등록 및 구성을 위한 Azure Portal, 프로그래밍 방식으로 애플리케이션 구성을 위한 Azure AD Graph API를 사용하여 Azure AD v1.0 엔드포인트에서 토큰을 요청하는 방법으로 Azure AD v1.0 플랫폼을 작업하여 회사 및 학교 계정(Azure AD로 프로비저닝된)을 인증했습니다.
 
-Microsoft ID 플랫폼(v2.0)을 사용하면 서비스 범위가 다음과 같은 사용자로 확장됩니다.
+통합 Microsoft ID 플랫폼(v2.0)을 사용하는 경우 코드를 한 번만 작성하면 모든 Microsoft ID를 애플리케이션에 인증할 수 있습니다. 여러 플랫폼의 경우 ID 플랫폼 엔드포인트에 대해 완전히 지원되는 오픈 소스 MSAL(Microsoft Authentication Library)을 사용하는 것이 좋습니다. MSAL은 사용 방법이 간단하고, 사용자에게 뛰어난 SSO(Single Sign-On) 환경을 제공하고, 높은 신뢰성과 성능을 제공하며, Microsoft SDL(Security Development Lifecycle)을 사용하여 개발됩니다. API를 호출할 때 증분 동의를 활용하도록 애플리케이션을 구성할 수 있습니다. 이렇게 하면 런타임에 애플리케이션을 사용할 수 있을 때까지 동의 요청을 지연하여 보다 공격적인 범위를 구현할 수 있습니다.  또한 MSAL은 Azure Active Directory B2C를 지원하므로, 고객은 기본 설정 소셜, 엔터프라이즈 또는 로컬 계정 ID를 사용하여 애플리케이션 및 API에 대한 Single Sign-On 액세스 권한을 얻습니다.
+
+Microsoft ID 플랫폼을 사용하면 서비스 범위가 다음과 같은 사용자로 확장됩니다.
 
 - 회사 및 학교 계정(Azure AD로 프로비저닝한 계정)
 - 개인 계정(예: Outlook.com 또는 Hotmail.com)
-- Azure AD B2C 제품을 통해 자신의 이메일 또는 소셜 ID(예: LinkedIn, Facebook, Google)를 사용하는 고객
-
-통합 Microsoft ID 플랫폼을 사용하는 경우 코드를 한 번만 작성하면 모든 Microsoft ID를 애플리케이션에 인증할 수 있습니다. 여러 플랫폼을 완벽하게 지원하는 MSAL(Microsoft 인증 라이브러리)이라는 오픈 소스 라이브러리가 있습니다. MSAL은 사용 방법이 간단하고, 사용자에게 뛰어난 SSO(Single Sign-On) 환경을 제공하고, 높은 신뢰성과 성능을 제공하며, Microsoft SDL(Security Development Lifecycle)을 사용하여 개발됩니다. API를 호출할 때 증분 동의를 활용하도록 애플리케이션을 구성할 수 있습니다. 이렇게 하면 런타임에 애플리케이션을 사용할 수 있을 때까지 동의 요청을 지연하여 보다 공격적인 범위를 구현할 수 있습니다.
+- MSAL 및 Azure AD B2C를 통해 자신의 이메일 또는 소셜 ID(예: LinkedIn, Facebook, Google)를 가져오는 고객
 
 Azure Portal을 사용하여 애플리케이션을 등록 및 구성하고, Microsoft Graph API를 방식 애플리케이션 구성에 사용할 수 있습니다.
 

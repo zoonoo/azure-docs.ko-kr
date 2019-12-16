@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7c83350dbecaf20e9b35f159b2c01824777bc665
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604648"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973716"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
 이 자습서에서는 Azure Computer Vision 서비스를 웹앱에 통합하여 업로드된 이미지에 대한 메타데이터를 생성하는 방법에 대해 알아봅니다. 이 기능은 회사가 모든 이미지에 대한 설명 캡션 또는 검색 가능한 키워드를 빠르게 생성하려는 경우와 같이 [DAM(디지털 자산 관리)](../Home.md#computer-vision-for-digital-asset-management) 시나리오에 유용합니다.
 
-전체 앱 가이드는 GitHub의 [Azure Storage 및 Cognitive Services 랩](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md)에서 찾을 수 있으며, 이 자습서에서는 기본적으로 랩의 연습 5를 다룹니다. 모든 단계를 수행하여 엔드투엔드 애플리케이션을 만들 수 있지만, Computer Vision이 기존 웹앱에 통합될 수 있는 방법을 알아보려면 여기를 참조하세요.
+전체 앱 가이드는 GitHub의 [Azure Storage 및 Cognitive Services 랩](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md)에서 찾을 수 있으며, 이 자습서에서는 기본적으로 랩의 연습 5를 다룹니다. 모든 단계를 수행하여 전체 애플리케이션을 만들 수 있지만 Computer Vision을 기존 웹앱에 통합하는 방법만 알아보려면 여기를 참조하세요.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -36,13 +36,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - [Visual Studio 2017 Community 버전](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 이상("ASP.NET 및 웹 개발" 및 "Azure 개발" 워크로드가 설치되어 있음)
-- 이미지에 할당된 Blob 컨테이너가 있는 Azure Storage 계정입니다(이 단계에서 도움이 필요한 경우 [Azure Storage 랩의 연습 1](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) 수행)
+- 이미지 스토리지에 설정된 Blob 컨테이너가 있는 Azure Storage 계정(이 단계와 관련하여 도움이 필요한 경우 [Azure Storage 랩의 연습 1](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) 수행)
 - Azure Storage Explorer 도구(이 단계에서 도움이 필요한 경우 [Azure Storage 랩의 연습 2](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) 수행)
 - Azure Storage에 액세스할 수 있는 ASP.NET 웹 애플리케이션([Azure Storage 랩의 연습 3](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3)에 따라 앱을 빠르게 만듦)
 
 ## <a name="create-a-computer-vision-resource"></a>Computer Vision 리소스 만들기
 
-Azure 계정에 사용할 Computer Vision 리소스를 만들어야 합니다. 이 리소스는 Azure의 Computer Vision 서비스에 대한 액세스를 관리합니다. 
+Azure 계정에 대한 Computer Vision 리소스를 만들어야 합니다. 이 리소스는 Azure의 Computer Vision 서비스에 대한 액세스를 관리합니다. 
 
 1. [Azure Cognitive Services 리소스 만들기](../../cognitive-services-apis-create-account.md)의 지침에 따라 Computer Vision 리소스를 만듭니다.
 
@@ -61,7 +61,7 @@ Azure 계정에 사용할 Computer Vision 리소스를 만들어야 합니다. �
 
 다음으로, Computer Vision 리소스에 액세스할 수 있도록 필요한 자격 증명을 앱에 추가합니다.
 
-Visual Studio에서 ASP.NET 웹 애플리케이션을 열고 프로젝트의 루트에 있는 **Web.config** 파일로 이동합니다. 다음 명령문을 파일의 `<appSettings>` 섹션에 추가하여 `VISION_KEY`를 이전 단계에서 복사한 키로 바꾸고, `VISION_ENDPOINT`를 이전에 단계에서 저장한 URL로 바꿉니다.
+Visual Studio에서 ASP.NET 웹 애플리케이션을 열고 프로젝트의 루트에 있는 **Web.config** 파일로 이동합니다. 다음 명령문을 파일의 `<appSettings>` 섹션에 추가하고, `VISION_KEY`를 이전 단계에서 복사한 키로 바꾸고, `VISION_ENDPOINT`를 이전 단계에서 저장한 URL로 바꿉니다.
 
 ```xml
 <add key="SubscriptionKey" value="VISION_KEY" />
@@ -72,7 +72,7 @@ Visual Studio에서 ASP.NET 웹 애플리케이션을 열고 프로젝트의 루
 
 ## <a name="add-metadata-generation-code"></a>메타데이터 생성 코드 추가
 
-다음으로, Computer Vision 서비스를 실제로 활용하는 코드를 추가하여 이미지에 대한 메타데이터를 만듭니다. 이 단계는 랩의 ASP.NET 앱에 적용되지만 사용자 고유의 앱에도 적용할 수 있습니다. 중요한 점은 이 시점에서 이미지를 Azure Storage 컨테이너에 업로드하고, 여기에서 이미지를 읽고, 보기에 이를 표시할 수 있는 ASP.NET 웹 애플리케이션이 있다는 것입니다. 이에 대해 잘 모르는 경우 [Azure Storage 랩의 연습 3](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3)을 수행하는 것이 좋습니다. 
+다음으로, Computer Vision 서비스를 실제로 활용하여 이미지에 대한 메타데이터를 만드는 코드를 추가합니다. 이 단계는 랩의 ASP.NET 앱에 적용되지만 사용자 고유의 앱에도 적용할 수 있습니다. 중요한 점은 이 시점에서 이미지를 Azure Storage 컨테이너에 업로드하고, 여기에서 이미지를 읽고, 보기에 이를 표시할 수 있는 ASP.NET 웹 애플리케이션이 있다는 것입니다. 이 단계를 잘 모르는 경우 [Azure Storage 랩의 연습 3](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3)을 수행하는 것이 좋습니다. 
 
 1. 프로젝트의 **Controllers** 폴더에서 *HomeController.cs* 파일을 열고, 파일의 맨 위에 다음 `using` 문을 추가합니다.
 
@@ -105,7 +105,7 @@ Visual Studio에서 ASP.NET 웹 애플리케이션을 열고 프로젝트의 루
     await photo.SetMetadataAsync();
     ```
 
-1. 다음으로, 동일한 파일에서 **Index** 메서드로 이동합니다. 이 메서드는 대상(**IListBlobItem** 인스턴스)으로 지정된 Blob 컨테이너에 저장된 이미지 Blob을 열거하고 애플리케이션 보기로 전달합니다. 이 메서드의 `foreach` 블록을 다음 코드로 바꿉니다. 이 코드는 **CloudBlockBlob.FetchAttributes**를 호출하여 각 Blob의 연결된 메타데이터를 가져옵니다. 컴퓨터에서 생성된 메타데이터의 설명(`caption`)을 추출하여 보기에 전달되는 **BlobInfo** 개체에 추가합니다.
+1. 다음으로, 동일한 파일에서 **Index** 메서드로 이동합니다. 이 메서드는 대상 Blob 컨테이너(**IListBlobItem** 인스턴스)에 저장된 이미지 Blob을 열거하고, 이를 애플리케이션 보기로 전달합니다. 이 메서드의 `foreach` 블록을 다음 코드로 바꿉니다. 이 코드는 **CloudBlockBlob.FetchAttributes**를 호출하여 각 Blob의 연결된 메타데이터를 가져옵니다. 컴퓨터에서 생성된 메타데이터의 설명(`caption`)을 추출하여 보기에 전달되는 **BlobInfo** 개체에 추가합니다.
     
     ```csharp
     foreach (IListBlobItem item in container.ListBlobs())
@@ -139,13 +139,13 @@ Visual Studio에서 변경 내용을 저장하고 **Ctrl+F5**를 눌러 브라�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-웹앱에서 계속 작업하려면 [다음 단계](#next-steps) 섹션을 참조하세요. 이 애플리케이션을 계속 사용하지 않으려면 모든 앱 관련 리소스를 삭제해야 합니다. 이렇게 하려면 단순히 Azure Storage 구독 및 Computer Vision 리소스가 포함된 리소스 그룹을 삭제하면 됩니다. 그러면 스토리지 계정, 이 계정에 업로드된 Blob 및 ASP.NET 웹앱에 연결하는 데 필요한 App Service 리소스가 제거됩니다. 
+웹앱에서 계속 작업하려면 [다음 단계](#next-steps) 섹션을 참조하세요. 이 애플리케이션을 계속 사용하지 않으려면 모든 앱 관련 리소스를 삭제해야 합니다. 리소스를 삭제하려면 단순히 Azure Storage 구독 및 Computer Vision 리소스가 포함된 리소스 그룹을 삭제할 수 있습니다. 그러면 스토리지 계정, 이 계정에 업로드된 Blob 및 ASP.NET 웹앱에 연결하는 데 필요한 App Service 리소스가 제거됩니다. 
 
-리소스 그룹을 삭제하려면 포털에서 **리소스 그룹** 블레이드를 열고, 이 프로젝트에 사용한 리소스 그룹으로 이동한 다음, 보기의 위쪽에서 **리소스 그룹 삭제**를 클릭합니다. 리소스 그룹은 삭제되면 복구할 수 없으므로 삭제할 것인지 여부를 확인하기 위해 리소스 그룹의 이름을 입력하라는 메시지가 표시됩니다.
+리소스 그룹을 삭제하려면 포털에서 **리소스 그룹** 탭을 열고, 이 프로젝트에 사용한 리소스 그룹으로 이동한 다음, 보기의 위쪽에서 **리소스 그룹 삭제**를 클릭합니다. 리소스 그룹이 삭제되면 복구할 수 없으므로 삭제할 것인지를 확인하기 위해 리소스 그룹의 이름을 입력하라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure의 Computer Vision 서비스를 기존 웹앱에 통합하여 Blob 이미지를 업로드할 때 이에 대한 캡션과 키워드를 자동으로 생성했습니다. 다음으로, Azure Storage 랩의 연습 6을 참조하여 웹앱에 검색 기능을 추가하는 방법을 알아봅니다. 여기서는 Computer Vision 서비스에서 생성하는 검색 키워드를 활용합니다.
+이 자습서에서는 기존 웹앱에서 Azure의 Computer Vision 서비스를 설정하여 업로드되는 Blob 이미지에 대한 캡션과 키워드를 자동으로 생성했습니다. 다음으로, Azure Storage 랩의 연습 6을 참조하여 웹앱에 검색 기능을 추가하는 방법을 알아봅니다. 여기서는 Computer Vision 서비스에서 생성하는 검색 키워드를 활용합니다.
 
 > [!div class="nextstepaction"]
 > [앱에 검색 추가](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise6)
