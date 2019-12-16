@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706137"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849278"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Azure Databricks에서 Azure Blob Storage에 액세스
 
@@ -129,7 +129,8 @@ ms.locfileid: "74706137"
 
 4. 별도의 창에서 Azure Databricks 작업 영역이 열리면 **#secrets/createScope**를 URL에 추가합니다. URL의 형식은 다음과 같습니다. 
 
-   **https://<\location>.azuredatabricks.net/#secrets/createScope**.
+   **https://<\location>.azuredatabricks.net/?o=<\orgID>#secrets/createScope**.
+   
 
 5. 범위 이름을 입력하고, 앞에서 저장한 Azure Key Vault DNS 이름과 리소스 ID를 입력합니다. 이 자습서의 뒷부분에서 사용할 수 있도록 범위 이름을 텍스트 편집기에 저장합니다. 그런 다음 **만들기**를 선택합니다.
 

@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 06f03e0005c4f98370bb1f6430fff506f9145d5a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688520"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971505"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Azure App Service에 대한 CLI 샘플
 
@@ -32,6 +32,8 @@ ms.locfileid: "74688520"
 |**앱 크기 조정**||
 | [수동으로 앱 크기 조정](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱을 만들고 2개의 인스턴스로 확장합니다. |
 | [전 세계에 고가용성 아키텍처를 가진 앱 확장](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | 두 개의 지역에 두 개의 App Service 앱을 만들고 Azure Traffic Manager를 사용하여 단일 엔드포인트를 통해 사용할 수 있습니다. |
+|**앱 보호**||
+| [Azure Application Gateway와 통합](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱을 만들고 서비스 엔드포인트 및 액세스 제한을 사용하여 Application Gateway와 통합합니다. |
 |**리소스에 앱 연결**||
 | [SQL Database에 앱 연결](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱 및 SQL Database를 만든 다음, 앱 설정에 데이터베이스 연결 문자열을 추가합니다. |
 | [스토리지 계정에 앱 연결](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱 및 스토리지 계정을 만든 다음, 앱 설정에 스토리지 연결 문자열을 추가합니다. |

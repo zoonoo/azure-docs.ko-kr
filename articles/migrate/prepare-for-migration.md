@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196432"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974787"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -99,7 +99,7 @@ Windows 머신을 마이그레이션하는 경우 마이그레이션하기 전�
 1. 온-프레미스 머신(호스트 서버가 아님)에서 관리자 권한 명령 프롬프트를 엽니다.
 2. **diskpart**를 입력합니다.
 3. **SAN**을 입력합니다. 게스트 운영 체제의 드라이브 문자가 유지되지 않으면 **모두 오프라인** 또는 **공유 디스크만 오프라인**이 반환됩니다.
-4. **DISKPART** 프롬프트에서 **SANPOLICY=ONLINEALL**을 입력합니다. 이 설정을 사용하면 디스크를 온라인으로 전환하여 읽고 쓸 수 있습니다.
+4. **DISKPART** 프롬프트에서 **SAN Policy=OnlineAll**을 입력합니다. 이 설정을 사용하면 디스크를 온라인으로 전환하여 읽고 쓸 수 있습니다.
 5. 테스트 마이그레이션 중에 드라이브 문자가 유지되는지 확인할 수 있습니다.
 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0463ffad87d00421c2fcb5c8357406d5f692144
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075315"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966285"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -80,6 +80,13 @@ ms.locfileid: "71075315"
 - 특정 위치의 액세스 차단 또는 액세스 권한 부여
 - 위험한 로그인 동작 차단
 - 특정 애플리케이션에는 조직에서 관리하는 디바이스를 사용하도록 요구
+
+## <a name="customer-case-studies"></a>고객 사례 연구
+
+다른 조직에서 Azure AD 조건부 액세스를 사용하여 자동화된 액세스 제어 결정을 정의하고 구현하는 방법에 대해 알아봅니다. 이러한 고객 요구 사항이 충족되는 방법을 보여 주는 주요 사례는 다음과 같습니다.
+
+* [Wipro는 Microsoft 클라우드 보안 도구를 사용하여 모바일 생산성을 높여 고객 참여를 향상시킵니다.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) 회사에서 Azure AD의 조건부 액세스 정책을 통해 회사의 자체 데이터에 대한 제어를 유지하면서 문서, 리소스 및 애플리케이션을 신뢰할 수 있는 외부 기관(자체의 자격 증명을 사용할 수 있음)과 공유할 수 있었습니다.
+* [Aramex delivery limited - 글로벌 물류 및 운송 회사에서 ID 및 액세스 관리 솔루션을 사용하여 클라우드에 연결된 사무실을 만듭니다](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Aramex의 원격 직원에게 보안 액세스를 보장하는 것이 특히 어려웠습니다. 이 회사는 이제 이러한 원격 직원이 네트워크 외부에서 SaaS 애플리케이션에 액세스할 수 있도록 조건부 액세스를 적용하고 있습니다. 조건부 액세스 규칙은 Multi-Factor Authentication을 적용할지 여부를 결정하여 올바른 사용자에게만 올바른 액세스 권한을 부여합니다.
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370ccd2508e9dda35ccc5815dce42a7b7089c07e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7acd4b8014aad7b70f1a67c91368477599a97901
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160013"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>자습서: Snowflake와 Azure Active Directory 통합
 
@@ -47,6 +47,7 @@ Snowflake와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Snowflake에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+* Snowflake가 [자동 사용자 프로비저닝 및 프로비전 해제](snowflake-provisioning-tutorial.md)(권장) 지원
 
 ## <a name="adding-snowflake-from-the-gallery"></a>갤러리에서 Snowflake 추가
 

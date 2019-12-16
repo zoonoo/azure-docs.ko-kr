@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 20cb5f65ed33bc3e737bbba902ed2d891eaf83be
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6c847af4f6938923abdfced4d5e8b842ae84eca6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823365"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978818"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>빠른 시작: Bing Web Search REST API 및 C#을 사용하여 웹 검색
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>변수 정의
 
-계속하기 전에 몇 가지 변수를 설정해야 합니다. `uriBase`가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `searchTerm` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다. 위에서 설명한 것처럼 이 코드를 `Program` 클래스에 추가해야 합니다.
+계속하기 전에 몇 가지 변수를 설정해야 합니다.  `uriBase`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다. `uriBase`가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `searchTerm` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다. 위에서 설명한 것처럼 이 코드를 `Program` 클래스에 추가해야 합니다.
 
 ```csharp
 // Enter a valid subscription key.

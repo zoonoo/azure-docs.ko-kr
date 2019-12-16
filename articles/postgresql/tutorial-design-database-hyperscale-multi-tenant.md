@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계 자습서
+title: '자습서: 다중 테넌트 데이터베이스 디자인 - 하이퍼스케일(Citus) - Azure Database for PostgreSQL'
 description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에서 분산된 테이블을 만들고, 채우고, 쿼리하는 방법을 보여 줍니다.
 author: jonels-msft
 ms.author: jonels
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17ac29de243f4abfff1cfc83fc6424799978bf0e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496533"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978154"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계
 

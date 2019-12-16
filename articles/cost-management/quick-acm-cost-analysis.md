@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 858672a7fcfcfd5f50c91eb769fdd0d42578195f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 36b8a3bba82a338f3aab526d505c4d1e96061ddf
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229990"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849125"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -101,7 +101,9 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 
 비용을 세분화하고 상위 기여자를 식별하기 위한 **그룹화 방법** 공용 속성이 있습니다. 예를 들어 리소스 태그별로 그룹화하려면 그룹화하려는 태그 키를 선택합니다. 비용은 해당 태그가 적용되지 않는 리소스에 대한 추가 세그먼트를 포함하여 각 태그 값에 따라 세분화됩니다.
 
-대부분의 [Azure 리소스는 태그 지정을 지원합니다](../azure-resource-manager/tag-support.md). 그렇지만 일부 태그는 Cost Management 및 청구에 사용할 수 없습니다. 또한 리소스 그룹 태그는 지원되지 않습니다. Cost Management는 태그가 리소스에 직접 적용된 날짜의 리소스 태그만 지원합니다. Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키는 방법을 알아보려면 [Azure Cost Management를 사용하여 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요.
+대부분의 [Azure 리소스는 태그 지정을 지원합니다](../azure-resource-manager/tag-support.md). 그렇지만 일부 태그는 Cost Management 및 청구에 사용할 수 없습니다. 또한 리소스 그룹 태그는 지원되지 않습니다. 태그에 대한 지원은 리소스에 적용된 *후*에 보고된 사용량에 적용됩니다. 비용 롤업에는 태그가 소급 적용되지 않습니다.
+
+Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키는 방법을 알아보려면 [Azure Cost Management를 사용하여 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요.
 
 현재 월에 대한 Azure 서비스 비용 보기는 다음과 같습니다.
 

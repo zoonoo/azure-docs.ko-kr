@@ -1,5 +1,5 @@
 ---
-title: Databricks Notebook 작업으로 Databricks Notebook 실행
+title: 작업으로 Databricks Notebook 실행
 description: Azure Data Factory에서 Databricks Notebook 작업을 사용하여 databricks 작업 클러스터에 대해 Databricks Notebook을 실행하는 방법을 알아봅니다.
 services: data-factory
 ms.service: data-factory
@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
-ms.openlocfilehash: 7ad7c8e70d8669612baf00f19d3695dc7fab07f5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 39b8745b65eccd8e4d1b5986490e30be443ad656
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217872"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913510"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -162,8 +162,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
            # Creating widgets for leveraging parameters, and printing the parameters
 
            dbutils.widgets.text("input", "","")
-           dbutils.widgets.get("input")
-           y = getArgument("input")
+           y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
            ```

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 00d3b1dce9bacc01c8319c678ab27a3d4cc8da88
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718432"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969842"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python에서 TensorFlow 모델 실행
 
@@ -31,7 +31,7 @@ Custom Vision Service에서 [TensorFlow 모델을 내보낸](https://docs.micros
 - Python 2.7+ 또는 Python 3.5+ 중 하나를 설치합니다.
 - pip를 설치합니다.
 
-다음으로 다음과 같은 패키지를 설치해야 합니다.
+다음으로, 다음과 같은 패키지를 설치해야 합니다.
 
 ```
 pip install tensorflow
@@ -68,7 +68,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>예측을 위해 이미지 준비
 
-예측하기에 적절한 형태가 되도록 이미지를 준비하기 위한 몇 가지 단계가 있습니다. 다음 단계는 학습 동안 수행되는 이미지 조작을 모방한 것입니다.
+예측을 위한 이미지를 준비하기 위해 수행해야 하는 몇 가지 단계가 있습니다. 다음 단계는 학습 동안 수행되는 이미지 조작을 모방한 것입니다.
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>파일 열기 및 BGR 색 공간에 이미지 만들기
 

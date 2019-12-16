@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
-description: Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
+description: Azure PowerShell 샘플을 가져와 Azure Cosmos DB의 API for MongoDB에서 다양한 일반 작업 수행
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: b28ec11c59b21762cd12e037e872a2e000d5ba0b
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 286b2fc349fc16a79dd3048a164f4c86924f0a1c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155311"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873576"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
 

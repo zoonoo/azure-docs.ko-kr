@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b808e13ec37b9667a3ab1aaa233532a076bf4970
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: aceec8ad6ca23a1bd89b93a6442d48aa81597e55
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558928"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964177"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>자습서: Box와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -45,8 +45,8 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Box에서 **SP** 시작 SSO를 지원합니다.
+* Box에서 [**자동** 사용자 프로비저닝 및 프로비전 해제(권장)](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial)를 지원합니다.
 * Box에서 **Just-In-Time** 사용자 프로비전을 지원합니다.
-* Box는 [**자동** 사용자 프로비저닝](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial)을 지원합니다.
 
 ## <a name="adding-box-from-the-gallery"></a>갤러리에서 Box 추가
 

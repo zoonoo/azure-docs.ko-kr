@@ -1,16 +1,13 @@
 ---
-title: .NET Desktop(WPF) 앱에서 사용자 로그인 및 Microsoft Graph API 호출 | Microsoft Docs
+title: .NET Desktop(WPF)에서 사용자 로그인 및 Microsoft Graph API 호출 | Azure
 description: 로그인을 위해 Azure AD와 통합되고 OAuth 2.0을 사용하여 Azure AD로 보호되는 API를 호출하는 .NET Windows Desktop 애플리케이션을 빌드하는 방법을 알아보세요.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/17/2019
@@ -18,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 946d376ef8af7d08b7924bd5b126c8b04e555668
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0f1aca48c547fc8c298128b35d9c571512fcbdf8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324421"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965945"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>빠른 시작: .NET Desktop(WPF) 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 

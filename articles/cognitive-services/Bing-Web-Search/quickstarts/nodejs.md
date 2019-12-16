@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f45b6ce402a5f61faeabd1534d7e3562af81294c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834492"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973869"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>빠른 시작: Bing Web Search REST API 및 Node.js를 사용하여 웹 검색
 
@@ -57,7 +57,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>요청을 만드는 함수 만들기
 
-이 함수는 보안 GET 요청을 만들어 검색 쿼리를 경로에 쿼리 매개 변수로 저장합니다. `encodeURIComponent`는 잘못된 문자를 이스케이프하는 데 사용되고, 구독 키는 헤더에 전달됩니다. 콜백은 `data` 이벤트를 구독하여 JSON 본문을 집계하는 [응답](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), 모든 문제를 기록하는 `error` 이벤트 및 메시지를 완료로 간주해야 하는 시기를 알 수 있는 `end` 이벤트를 수신합니다. 완료되면 앱은 흥미로운 헤더 및 메시지 본문을 인쇄합니다. 색을 사용하여 재생하고 기본 설정에 맞도록 깊이를 설정할 수 있으며, `1`의 깊이는 응답의 유용한 요약을 제공합니다.
+이 함수는 보안 GET 요청을 만들어 검색 쿼리를 경로에 쿼리 매개 변수로 저장합니다. `hostname`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.  `encodeURIComponent`는 잘못된 문자를 이스케이프하는 데 사용되고, 구독 키는 헤더에 전달됩니다. 콜백은 `data` 이벤트를 구독하여 JSON 본문을 집계하는 [응답](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), 모든 문제를 기록하는 `error` 이벤트 및 메시지를 완료로 간주해야 하는 시기를 알 수 있는 `end` 이벤트를 수신합니다. 완료되면 앱은 흥미로운 헤더 및 메시지 본문을 인쇄합니다. 색을 사용하여 재생하고 기본 설정에 맞도록 깊이를 설정할 수 있으며, `1`의 깊이는 응답의 유용한 요약을 제공합니다.
 
 ```javascript
 function bingWebSearch(query) {

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: b369dc82e98dff58a42b63b9733e7b786593d534
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e52101b873e03cd6fcd847e9aa2a2d801f8f583d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034663"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918861"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>빠른 시작: Bing Image Search REST API 및 C#을 사용하여 이미지 검색
 
@@ -42,7 +42,7 @@ ms.locfileid: "70034663"
     using Newtonsoft.Json.Linq;
     ```
 
-2. API 엔드포인트, 구독 키 및 검색 용어에 대한 변수를 만듭니다.
+2. API 엔드포인트, 구독 키 및 검색 용어에 대한 변수를 만듭니다. `uriBase`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 
     ```csharp
     //...
@@ -136,7 +136,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="process-and-view-the-response"></a>응답 처리 및 보기
 
-1. 주 메서드에서 `BingImageSearch()`를 호출하고 반환된 응답을 저장합니다. 그런 다음, JSON을 개체로 deserialize합니다.
+1. 주 메서드에서 `BingImageSearch()`를 호출하고 반환된 응답을 저장합니다. 그런 다음, JSON을 개체로 역직렬화합니다.
 
     ```csharp
     SearchResult result = BingImageSearch(searchTerm);

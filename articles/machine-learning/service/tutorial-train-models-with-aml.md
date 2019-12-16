@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca0f64fe67865e18c47009779cf8bd307a21c961
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581533"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978733"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 이 자습서를 시작하기 전에 [자습서: 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 완료하여 다음을 수행합니다.
+* 이 자습서를 시작하기 전에 [자습서: 첫 번째 Azure ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 완료하여 다음을 수행합니다.
     * 작업 영역 만들기
     * 자습서 Notebook을 작업 영역의 사용자 폴더로 복제합니다.
     * 클라우드 기반 Notebook VM을 만듭니다.
@@ -430,7 +430,7 @@ print(model.name, model.id, model.version, sep='\t')
 Azure Machine Learning 컴퓨팅 클러스터만 삭제할 수도 있습니다. 그러나 자동 크기 조정이 설정되고 클러스터 최솟값이 0이 됩니다. 따라서 이 특정 리소스를 사용하지 않는 경우에는 추가 컴퓨팅 요금이 부과하지 않습니다.
 
 ```python
-# optionally, delete the Azure Machine Learning Compute cluster
+# Optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa8fc4c6b27c2a2c7d11a95ddb2ecca347ec0e0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a902e869ed9fd2ae9274f0ad8eee11e43b8edc6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858834"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974328"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>빠른 시작: Ruby를 사용하여 Bing Web Search API 호출  
 
@@ -43,7 +43,7 @@ require 'json'
 
 ## <a name="define-variables"></a>변수 정의
 
-계속하기 전에 몇 가지 변수를 설정해야 합니다. `$uri` 및 `path`가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `term` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
+계속하기 전에 몇 가지 변수를 설정해야 합니다. `uri`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다. `uri` 및 `path`가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `term` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 17864ed471537f80b537af4b3a8679cb9deaab57
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323809"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930735"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>빠른 시작: Bing Image Search REST API 및 Python을 사용하여 이미지 검색
 
@@ -40,7 +40,7 @@ ms.locfileid: "74323809"
 
 ## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-1. 즐겨찾는 IDE 또는 편집기에서 새 Python 파일을 만들고 다음 모듈을 가져옵니다. 구독 키, 검색 엔드포인트 및 검색 용어에 대한 변수를 만듭니다.
+1. 즐겨찾는 IDE 또는 편집기에서 새 Python 파일을 만들고 다음 모듈을 가져옵니다. 구독 키, 검색 엔드포인트 및 검색 용어에 대한 변수를 만듭니다. `search_url`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 
     ```python
     import requests

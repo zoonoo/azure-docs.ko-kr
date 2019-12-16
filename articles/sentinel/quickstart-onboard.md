@@ -8,13 +8,13 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 09/23/2019
-ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/05/2019
+ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133091"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900447"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -24,18 +24,8 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
 데이터 원본을 연결한 후 데이터에 따른 인사이트를 제공하는 전문가가 만든 통합 문서 갤러리 중에서 선택합니다. 이러한 통합 문서는 사용자의 요구에 맞게 쉽게 사용자 지정할 수 있습니다.
 
->[!NOTE] 
-> [Azure Sentinel 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel/)은 연결된 Azure Monitor Log analytics 작업 영역에서 수집된 데이터 양을 기준으로 합니다. 다음 데이터 커넥터 중 일부는 수집 요금이 청구되지 않지만, Log Analytics 작업 영역에 저장된 수집된 데이터를 사용하여 여러 종류의 경고를 생성하는 경우에는 요금이 청구되며 [Azure Monitor Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)에 따라 청구됩니다. 
-  > - Azure 활동(Azure 작업에 대한 활동 로그)
-  > - Azure Active Directory Identity Protection(AAD P2 라이선스를 사용하는 테넌트의 경우)
-  > - Azure Information Protection
-  > - Azure Advanced Threat Protection(경고)
-  > - Azure Security Center(경고)
-  > - Microsoft Cloud App Security(경고만)
-  > - Microsoft Defender Advanced Threat Protection(모니터링 에이전트 경고)
-  > - Office 365(Exchange 및 Sharepoint 로그)
->
-> Azure AD/Office365 감사 로그는 무료가 아니며, 프리미엄 계층으로 제공되므로 이 데이터의 수집 비용은 GB단위로 책정됩니다. 
+>[!IMPORTANT] 
+> Azure Sentinel 사용 시 발생하는 요금에 대한 자세한 내용은 [Azure Sentinel 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel/)을 참조하세요.
   
 
 ## <a name="global-prerequisites"></a>전역 전제 조건
@@ -44,7 +34,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
 - Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다. Log Analytics 작업 영역에 대한 자세한 내용은 [Azure Monitor 로그 배포 디자인](../azure-monitor/platform/design-logs-deployment.md)을 참조하세요.
 
--  Azure Sentinel을 사용하도록 설정하려면 Azure Sentinel 작업 영역이 있는 구독에 대한 참가자 권한이 필요합니다. 
+- Azure Sentinel을 사용하도록 설정하려면 Azure Sentinel 작업 영역이 있는 구독에 대한 참가자 권한이 필요합니다. 
 - Azure Sentinel을 사용하려면 작업 영역이 속한 리소스 그룹에 대해 참가자 또는 읽기 권한자 권한이 있어야 합니다.
 - 특정 데이터 원본을 연결하려면 추가 권한이 필요할 수 있습니다.
 - Azure Sentinel은 유료 서비스입니다. 가격 책정 정보에 대해서는 [Azure Sentinel 정보](https://go.microsoft.com/fwlink/?linkid=2104058)를 참조하세요.

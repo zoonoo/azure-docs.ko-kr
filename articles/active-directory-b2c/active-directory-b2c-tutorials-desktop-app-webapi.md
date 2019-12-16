@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure Active Directory B2C를 사용하여 데스크톱 애플리케이션에서 Node.js Web API로의 액세스 권한 부여 | Microsoft Docs
-description: Active Directory B2C를 사용하여 Node.js web api를 보호하고 .NET 데스크톱 앱에서 호출하는 방법에 대한 자습서입니다.
+title: '자습서: 데스크톱 애플리케이션에서 Node.js 웹 API에 대한 액세스 권한 부여'
+description: Active Directory B2C를 사용하여 Node.js 웹 API를 보호하고 .NET 데스크톱 앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f271dd23501aa0514faff29f638f695c80c844f2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641836"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949775"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여
 

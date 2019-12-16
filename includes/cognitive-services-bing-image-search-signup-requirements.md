@@ -3,12 +3,26 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/08/2018
-ms.openlocfilehash: e783605a830bfdd19d17a58c993f91b284fb2319
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 12/06/2019
+ms.openlocfilehash: b8a04dcda03de277ff9f2b291e798540846c1e49
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182482"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981237"
 ---
-Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 만들 수 있습니다. 계속하기 전에 평가판을 활성화한 후에 제공된 액세스 키 또는 Azure 대시보드에서 유료 구독 키가 필요합니다.
+## <a name="create-an-azure-resource"></a>Azure 리소스 만들기
+
+아래 Azure 리소스 중 하나를 만들어 Bing Image Search API 사용을 시작합니다.
+
+* [평가판 리소스 만들기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
+    * Azure 구독이 필요하지 않습니다.
+    * 평가판은 7일 동안 유효합니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 평가판 키 및 엔드포인트를 사용할 수 있습니다.
+
+* [Bing Search v7 리소스 만들기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
+    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.
+    * 평가판 가격 책정 계층을 사용하여 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드합니다.
+
+* [다중 서비스 리소스 만들기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.  
+    * 여러 Cognitive Services에서 애플리케이션에 동일한 키와 엔드포인트를 사용합니다.

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: quickstart
-ms.date: 09/17/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 7d1a7b2cdba082c78a1753ea0dcce6ead02ab036
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f0a3008dace4e9382bbb6b6d9465ce1c9b4ddc6c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147405"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976063"
 ---
 # <a name="quickstart-bing-custom-search-client-library-for-java"></a>빠른 시작: Java용 Bing Custom Search 클라이언트 라이브러리
 
@@ -102,7 +102,7 @@ public class BingCustomSearchSample {
 }
 ```
 
-클래스에서 리소스의 Azure 엔드포인트 및 키에 대한 `main` 메서드 및 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 해당 변수에 액세스하려면 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 엽니다. 메서드는 나중에 정의합니다.
+클래스에서 리소스의 키에 대한 `main` 메서드 및 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 해당 변수에 액세스하려면 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 엽니다. 메서드는 나중에 정의합니다.
 
 [!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=main)]
 

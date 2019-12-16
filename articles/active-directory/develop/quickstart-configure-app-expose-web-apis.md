@@ -1,28 +1,24 @@
 ---
-title: 웹 API를 공개하는 애플리케이션 구성 - Microsoft ID 플랫폼
+title: 웹 API를 노출하도록 앱 구성 - Microsoft ID 플랫폼 | Azure
 description: 애플리케이션이 새 권한/범위와 역할을 공개하여 해당 애플리케이션을 클라이언트 애플리케이션이 사용할 수 있게 구성하는 방법을 살펴봅니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68989284"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966115"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
 

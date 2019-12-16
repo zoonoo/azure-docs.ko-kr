@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868252"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930693"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
 
@@ -40,7 +40,7 @@ Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 �
 
 ## <a name="manage-and-store-user-subscription-keys"></a>사용자 구독 키 관리 및 저장
 
-이 애플리케이션은 웹 브라우저의 영구적 스토리지를 사용하여 API 구독 키를 저장합니다. 키가 저장되지 않은 경우 웹 페이지에서 해당 키를 요청하는 메시지를 사용자에게 표시하고 나중에 사용할 수 있도록 키를 저장합니다. 나중에 키가 API에서 거부되면 앱이 스토리지에서 키를 제거합니다.
+이 애플리케이션은 웹 브라우저의 영구적 스토리지를 사용하여 API 구독 키를 저장합니다. 키가 저장되지 않은 경우 웹 페이지에서 해당 키를 요청하는 메시지를 사용자에게 표시하고 나중에 사용할 수 있도록 키를 저장합니다. 나중에 키가 API에서 거부되면 앱이 스토리지에서 키를 제거합니다. 이 샘플은 글로벌 엔드포인트를 사용합니다. 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수도 있습니다.
 
 
 `storeValue` 및 `retrieveValue` 함수를 정의하여 `localStorage` 개체(브라우저가 지원하는 경우) 또는 쿠키를 사용합니다.

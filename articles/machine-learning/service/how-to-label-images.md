@@ -1,18 +1,18 @@
 ---
-title: Azure Machine Learning에서 데이터 레이블 지정 도구를 사용하는 방법
+title: 레이블 지정 프로젝트에서 이미지에 태그 지정
 title.suffix: Azure Machine Learning
-description: 이 문서에서는 Azure Machine Learning 레이블 지정 프로젝트에서 데이터 태깅 도구를 사용하는 방법을 알아봅니다.
+description: Azure Machine Learning 레이블 지정 프로젝트에서 데이터 태깅 도구를 사용하는 방법을 알아봅니다.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bc7eaeefcef042417b29eb7c887cc19acf8c5c02
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b36eed1918be2c769bcf74c0d8dee09a5bd62756
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688225"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978137"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정
 

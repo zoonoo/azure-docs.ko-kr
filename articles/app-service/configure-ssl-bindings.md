@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: b967e4cfad2444e39c7df8cfddcc2154bd48367d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 60a4646b77f083590a6eb8a8648d6dea932f0bdd
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670686"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849754"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
@@ -107,6 +107,8 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 다양한 브라우저에서 `https://<your.custom.domain>`으로 이동하여 앱을 처리하는지 확인합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+
+애플리케이션 코드는 "x-appservice-proto" 헤더를 통해 프로토콜을 검사할 수 있습니다. 헤더의 값은 `http` 또는 `https`입니다. 
 
 > [!NOTE]
 > 앱에서 인증서 유효성 검사 오류가 발생한 경우 자체 서명된 인증서를 사용하고 있을 수도 있습니다.

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 58a92536510d2f434154169cbefff60487a422fa
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 11187b403b9bc23a0aa20eb5ee7a5e4923bb7276
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075456"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896675"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -76,7 +76,7 @@ VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실�
 
 ### <a name="S2S"></a>사이트 간
 
-S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. S2S 연결은 공용 IP 주소가 할당되어 있고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. VPN 디바이스 선택에 대한 자세한 내용은 [VPN Gateway FAQ - VPN 디바이스](vpn-gateway-vpn-faq.md#s2s)를 참조하세요.
+S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. S2S 연결에는 공용 IP 주소가 할당된 온-프레미스에 있는 VPN 디바이스가 필요합니다. VPN 디바이스 선택에 대한 자세한 내용은 [VPN Gateway FAQ - VPN 디바이스](vpn-gateway-vpn-faq.md#s2s)를 참조하세요.
 
 ![Azure VPN Gateway 사이트 간 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

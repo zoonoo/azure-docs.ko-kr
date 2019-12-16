@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: b86ea2367a17baa8c57b8d0c0331c0cd3cfbb481
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227111"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976879"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Azure for Students Starter를 사용하여 함수 만들기
 
@@ -121,7 +121,7 @@ Azure for Student Starter에서는 아래의 주요 제한 사항을 제외하�
     * [여기에서 상위 계획에서 지원되는 언어를 참조하세요.](supported-languages.md)
 * Windows는 유일하게 지원되는 운영 체제입니다.
 * 확장은 매일 최대 60분 동안 실행되는 [하나의 무료 계층 인스턴스](https://azure.microsoft.com/pricing/details/app-service/windows/)로 제한됩니다. HTTP 트래픽이 수신될 때 서버리스 방식으로 0에서 1개로 인스턴스를 자동으로 확장하게 되지만 추가 확장은 가능하지 않습니다.
-* [2.x 런타임](functions-versions.md)만 지원됩니다.
+* Functions 런타임의 [버전 2.x 이상](functions-versions.md)만 지원됩니다.
 * 모든 개발자 도구는 함수 편집 및 게시를 지원합니다. 여기에는 VS Code, Visual Studio, Azure CLI 및 Azure Portal이 포함됩니다. 포털 이외의 도구를 사용하려는 경우 먼저 포털에서 앱을 만든 후, 기본 설정 도구에서 해당 앱을 배포 대상으로 선택해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

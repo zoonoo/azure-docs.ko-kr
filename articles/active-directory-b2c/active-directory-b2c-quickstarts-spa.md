@@ -1,5 +1,6 @@
 ---
-title: 빠른 시작 - Azure Active Directory B2C를 사용하여 단일 페이지 앱의 로그인 설정
+title: '빠른 시작: SPA(단일 페이지 앱)에 대한 로그인 설정'
+titleSuffix: Azure AD B2C
 description: 이 빠른 시작에서는 Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 단일 페이지 애플리케이션을 실행합니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7dc3a52ca9f227f8476cf74286be917b5b6ba021
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ef6fd46ef51cff9823c93e2297a738f95494f577
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420171"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948337"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정
 
@@ -29,7 +30,7 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 - [Node.JS](https://nodejs.org/en/download/)
 - Facebook, Google 또는 Microsoft의 소셜 계정
 - GitHub의 코드 샘플: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-    
+
     [zip 보관을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)하거나 리포지토리를 복제할 수 있습니다.
 
     ```

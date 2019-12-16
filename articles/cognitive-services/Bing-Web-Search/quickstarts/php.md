@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf3cf1f69f7b45dd90070f4074e85fa21359837d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858204"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961484"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>빠른 시작: PHP를 사용하여 Bing Web Search API 호출  
 
@@ -43,7 +43,7 @@ ms.locfileid: "57858204"
 
 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다. 여는 `<?php` 태그 및 닫는 `?>` 태그를 추가하는 것을 잊지 마세요.
 
-계속하기 전에 몇 가지 변수를 설정해야 합니다. `$endpoint`가 올바른지 확인하고 `$accesskey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `$term` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
+계속하기 전에 몇 가지 변수를 설정해야 합니다. `$endpoint`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다. `$endpoint`가 올바른지 확인하고 `$accesskey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `$term` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
 
 ```php
 $accessKey = 'enter key here';

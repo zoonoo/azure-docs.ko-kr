@@ -1,29 +1,26 @@
 ---
-title: Azure AD를 사용하여 인증 및 권한 부여 용도의 .NET 웹 API 빌드 | Microsoft Docs
+title: 인증 및 권한 부여를 위한 Azure AD .NET 웹 API 빌드 | Microsoft Docs
 description: 인증 및 권한 부여를 위해 Azure AD와 통합되는 .NET MVC Web API를 빌드하는 방법입니다.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: ryanwi
-ms.reviewer: jmprieur, andret
+ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7891ea6aa2dbe10456c701b5e0216117f6ed27b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: abc4c05aab6efcfc55d5e4dc812ab41a3e3fc8aa
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380703"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963276"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>빠른 시작: 인증 및 권한 부여를 위해 Azure AD와 통합되는 .NET 웹 API 빌드
 

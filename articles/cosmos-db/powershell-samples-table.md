@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에 대한 Azure PowerShell 샘플 - Table API
-description: Azure Cosmos DB에 대한 Azure PowerShell 샘플 - Table API
+description: Azure PowerShell 샘플을 가져와 Azure Cosmos DB 테이블 API 계정에서 다양한 일반 작업 수행
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 95cd55bd3f87ddb4d37bfc527c8dcd28bdfa42da
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 56d8eaa0c89f5ad8edf1a44ebae682c99c94f194
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155190"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873559"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---table-api"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플 - Table API
 

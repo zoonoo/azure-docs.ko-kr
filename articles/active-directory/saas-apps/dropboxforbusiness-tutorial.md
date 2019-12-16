@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 615c10357e099b547008b128ca5f5a773ff1aa14
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ae1e537665739c055121fd82cf14f733a90142e4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158311"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964245"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>자습서: Dropbox for Business와 Azure Active Directory 통합
 
@@ -44,7 +44,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. Dropbox for Business가 **SP**에서 시작된 SSO를 지원
 
-* Dropbox for Business가 **JIT(Just-in-time)** 사용자 프로비전을 지원
+* Dropbox for Business가 [자동 사용자 프로비저닝 및 프로비전 해제](dropboxforbusiness-tutorial.md) 지원
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>갤러리에서 Dropbox for Business 추가
 

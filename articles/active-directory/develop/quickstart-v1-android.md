@@ -1,8 +1,7 @@
 ---
-title: Android 앱(v1.0)에서 사용자 로그인 및 Microsoft Graph API 호출 | Microsoft Docs
+title: Android(v1.0)에서 사용자 로그인 및 Microsoft Graph API 호출 | Azure
 description: 내 Android 앱에서 사용자를 로그인하고 Microsoft Graph API를 호출하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: android
 author: rwike77
 manager: CelesteDG
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
@@ -17,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da92944149f983960605bd219ce9707bb3e9276
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 87dd60f00278389c1fc03d6fd69652608ae0c998
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150286"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966064"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app-v10"></a>빠른 시작: Android 앱(v1.0)에서 사용자 로그인 및 Microsoft Graph API 호출
 

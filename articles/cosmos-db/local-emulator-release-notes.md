@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos Emulator 다운로드 및 릴리스 정보
-description: Azure Cosmos Emulator 릴리스 정보를 확인하고 다운로드합니다.
+description: 다양한 버전에 대한 Azure Cosmos 에뮬레이터 릴리스 정보를 가져오고 정보를 다운로드합니다.
 ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: cda3b0db1a4f1b098d8ea57887a047fcdef04243
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: eb73551c4226df8bc20428558720c0ebbfff96d9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286499"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873593"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 

@@ -3,12 +3,12 @@ title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484018"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885469"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -16,7 +16,9 @@ ms.locfileid: "74484018"
 
 회사에서 해결할 수 없는 IT 문제가 많이 있나요? 좋은 IT 거버넌스에는 문제를 관리하고 방지할 수 있는 이니셔티브 계획과 전략적 수준의 우선 순위 설정이 필요합니다. 이 전략적 요구를 충족하는 데 Azure Policy가 사용됩니다.
 
-Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다. 이러한 정책은 리소스에 대해 다양한 규칙과 효과를 적용하여 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 할당된 정책의 비준수에 대해 리소스를 평가하여 이 요구를 충족합니다. 예를 들어 환경에서 특정 SKU 크기의 가상 머신만을 허용하는 정책이 있을 수 있습니다. 이 정책을 구현하면 새 리소스와 기존 리소스의 규정 준수가 평가됩니다. 올바른 정책 유형을 사용하여 기존 리소스가 규정을 준수하도록 만들 수 있습니다. 이 문서의 뒷부분에서 Azure Policy를 사용하여 정책을 만들고 구현하는 방법을 자세히 살펴보겠습니다.
+Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다. 이러한 정책은 리소스에 대해 다양한 규칙과 효과를 적용하여 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 할당된 정책의 비준수에 대해 리소스를 평가하여 이 요구를 충족합니다. Azure Policy에 의해 저장된 모든 데이터는 미사용 암호화됩니다.
+
+예를 들어 환경에서 특정 SKU 크기의 가상 머신만을 허용하는 정책이 있을 수 있습니다. 이 정책을 구현하면 새 리소스와 기존 리소스의 규정 준수가 평가됩니다. 올바른 정책 유형을 사용하여 기존 리소스가 규정을 준수하도록 만들 수 있습니다. 이 문서의 뒷부분에서 Azure Policy를 사용하여 정책을 만들고 구현하는 방법을 자세히 살펴보겠습니다.
 
 > [!IMPORTANT]
 > 이제 가격 책정 계층에 관계없이 모든 할당에 Azure Policy의 규정 준수 평가가 제공됩니다. 할당에 규정 준수 데이터가 표시되지 않는 경우 구독이 Microsoft.PolicyInsights 리소스 공급자에 등록되었는지 확인하세요.

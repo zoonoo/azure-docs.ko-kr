@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 1d05df454e3d7a4f54e7451b81dd2a6470a8200b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2d3bffd025d484ac928e21003b7cba9c63d2c514
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806418"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885958"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습된 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
@@ -221,7 +221,7 @@ ms.locfileid: "74806418"
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="get-intent-and-entity-prediction--from-http-endpoint"></a>HTTP 엔드포인트에서 의도 및 엔터티 예측 가져오기
+## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>HTTP 엔드포인트에서 의도 및 엔터티 예측 가져오기
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 

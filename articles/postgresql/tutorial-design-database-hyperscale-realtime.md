@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL - 하이퍼스케일(Citus)을 사용하여 실시간 대시보드 설계 자습서
+title: '자습서: 실시간 대시보드 디자인 - 하이퍼스케일(Citus) - Azure Database for PostgreSQL'
 description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에서 분산된 테이블을 만들고, 채우고, 쿼리하는 방법을 보여 줍니다.
 author: jonels-msft
 ms.author: jonels
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482880"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978103"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL - 하이퍼스케일(Citus)을 사용하여 실시간 분석 대시보드 설계
 

@@ -1,24 +1,25 @@
 ---
-title: 'Azure Data Factory를 사용하여 테이블 증분 복사 '
+title: Azure Portal을 사용하여 테이블 증분 복사
 description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분을 복사하는 Azure 데이터 팩터리 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.author: yexu
-ms.openlocfilehash: a446574f0a6b2b18959f1a3c3e9a02a0a97e9f6b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5d82971cbd7781a298f3f3aeeba47e4be471e248
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683384"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927987"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분 로드
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL 데이터베이스에서 Azure Blob 스토리지로 데이터 증분 로드
+
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob Storage로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -207,7 +208,7 @@ END
     ![워터마크 데이터 세트 - 연결 설정](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
 10. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 파이프라인 편집기로 전환합니다. **조회** 활동에 대한 속성 창에서 **원본 데이터 세트** 필드에 대해 **WatermarkDataset**가 선택되어 있는지 확인합니다. 
 
-11. **활동** 도구 상자에서 **일반**을 펼치고, 다른 **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 속성 창의 **일반** 탭에서 이름을 **LookupNewWaterMarkActivity**로 설정합니다. 이 조회 활동은 대상에 복사될 원본 데이터가 있는 테이블에서 새 워터마크 값을 가져옵니다. 
+11. **활동** 도구 상자에서 **일반**을 펼치고, 다른 **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 속성 창의 **일반** 탭에서 이름을 **LookupNewWaterMarkActivity**로 설정합니다. 이 조회 작업은 대상에 복사될 원본 데이터가 있는 테이블에서 새 워터마크 값을 가져옵니다. 
 
 12. 두 번째 **조회** 활동에 대한 속성 창에서 **설정** 탭으로 전환하고, **새로 만들기**를 클릭합니다. 새 워터마크 값(LastModifyTime의 최대값)이 포함된 원본 테이블을 가리키도록 데이터 세트를 만듭니다. 
 
@@ -255,10 +256,10 @@ END
 27. **속성 설정** 창의 **연결된 서비스**에서 **AzureStorageLinkedService**가 선택되어 있는지 확인합니다. 그런 다음, **마침**을 선택합니다.
 28. SinkDataset의 **연결** 탭으로 이동하여 다음 단계를 수행합니다.
     1. **파일 경로** 필드에 **adftutorial/incrementalcopy**를 입력합니다. **adftutorial**은 Blob 컨테이너 이름이고, **incrementalcopy**는 폴더 이름입니다. 이 코드 조각에서는 Blob Storage에 adftutorial이라는 Blob 컨테이너가 있다고 가정합니다. 컨테이너가 없으면 만들거나 기존 컨테이너의 이름으로 설정합니다. **incrementalcopy** 출력 폴더가 없으면 Azure Data Factory에서 자동으로 만듭니다. 또한 **파일 경로**에 대한 **찾아보기** 단추를 사용하여 Blob 컨테이너의 폴더로 이동할 수도 있습니다.
-    2. **파일 경로** 필드의 **파일** 부분에서 **동적 콘텐츠 추가 [Alt+P]** 를 선택한 다음, 열린 창에서 `@CONCAT('Incremental-', pipeline().RunId, '.txt')`를 입력합니다. 그런 다음, **마침**을 선택합니다. 파일 이름은 식을 사용하여 동적으로 생성됩니다. 각 파이프라인 실행에는 고유한 ID가 있습니다. 복사 활동은 실행 ID를 사용하여 파일 이름을 생성합니다. 
+    2. **파일 경로** 필드의 **파일** 부분에서 **동적 콘텐츠 추가 [Alt+P]** 를 선택한 다음, 열린 창에서 `@CONCAT('Incremental-', pipeline().RunId, '.txt')`를 입력합니다. 그런 다음, **마침**을 선택합니다. 파일 이름은 식을 사용하여 동적으로 생성됩니다. 각 파이프라인 실행에는 고유한 ID가 있습니다. 복사 작업은 실행 ID를 사용하여 파일 이름을 생성합니다. 
 
 28. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 **파이프라인** 편집기로 전환합니다. 
-29. **활동** 도구 상자에서 **일반**을 펼치고, **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동의 녹색(성공) 출력을 **저장 프로시저** 활동에 **연결**합니다. 
+29. **작업** 도구 상자에서 **일반**을 펼치고, **저장 프로시저** 작업을 **작업** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 작업의 녹색(성공) 출력을 **저장 프로시저** 작업에 **연결**합니다. 
 
 24. 파이프라인 디자이너에서 **저장 프로시저 활동**을 선택하고, 이름을 **StoredProceduretoWriteWatermarkActivity**로 변경합니다. 
 

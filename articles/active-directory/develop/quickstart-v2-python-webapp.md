@@ -1,26 +1,22 @@
 ---
-title: Microsoft ID 플랫폼 Python 웹앱 빠른 시작 | Azure
+title: Microsoft ID 플랫폼 Python 웹앱에 Microsoft로 로그인 추가| Azure
 description: OAuth2를 사용하여 Python 웹앱에서 Microsoft 로그인을 구현하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: abhidnya13
-editor: ''
-ms.assetid: 9551f0b5-04f2-44d7-87b5-756409180fe9
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: d9349391ad9af1a4ec1c84b586f825f3f7632ff8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8a6e8dad7549b3656d4387cfad1d0c3a44b13975
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815761"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965979"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 

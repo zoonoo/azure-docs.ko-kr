@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 12/05/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 65e28b557a3708c155bf80f21a784374c4497783
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6615f166ced4a93115f9cbaae1c6ce5b57cf57bc
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383047"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892994"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Bing Web Search API란?
 
@@ -42,7 +42,7 @@ Bing Web Search는 즉각적인 답변에 대한 액세스 권한만 주는 것�
 
 Bing Web Search API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석할 수 있는 모든 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 이 서비스는 [REST API](quickstarts/python.md) 또는 [Bing Web Search SDK](web-sdk-python-quickstart.md)를 사용하여 액세스할 수 있습니다.
 
-1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
+1. Bing Search API에 대한 [Azure 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Azure 구독이 없는 경우 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. [Bing Web Search API에 요청을 보냅니다](quickstarts/python.md).
 3. JSON 응답을 구문 분석합니다.
 

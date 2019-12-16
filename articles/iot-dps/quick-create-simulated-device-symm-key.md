@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - C에서 대칭 키를 사용하여 Azure IoT Hub에 시뮬레이션된 디바이스 프로비저닝
-description: 이 빠른 시작에서는 C 디바이스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service로 대칭 키를 사용하는 시뮬레이션된 디바이스를 만듭니다.
+description: 이 빠른 시작에서는 C 디바이스 SDK를 사용하여 Azure IoT Hub DPS(Device Provisioning Service)로 대칭 키를 사용하는 시뮬레이션된 디바이스를 만듭니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4d1e1ff5312cfb5aa0b2e378a24d5e0db7fb3605
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 20416f83c31857417e01de31b787528e20775cdf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423543"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976676"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전
 

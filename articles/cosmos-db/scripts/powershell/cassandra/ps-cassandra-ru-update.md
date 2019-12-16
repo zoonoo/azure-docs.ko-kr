@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API용 업데이트 RU/s
-description: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API용 업데이트 RU/s
+description: PowerShell을 사용하여 Azure Cosmos DB Cassandra API에서 키스페이스 또는 테이블의 처리량을 업데이트하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7109c393aa37faf1eaddb37cb2861030ef2900e7
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 417ee8d839e65a7625b8ba8daa84cc0dcc41abf5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178981"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871978"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB - Cassandra API용 키스페이스 또는 테이블에 대한 업데이트 RU/s
 

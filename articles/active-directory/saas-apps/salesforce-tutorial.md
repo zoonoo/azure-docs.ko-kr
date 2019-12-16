@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63cc4b902c0bd0281228e23076be6e0a18461597
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241426"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970009"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -46,9 +46,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Salesforce가 **SP**에서 시작된 SSO를 지원
 
-* Salesforce가 **JIT(Just-in-time)** 사용자 프로비전을 지원
+* Salesforce가 [**자동** 사용자 프로비저닝 및 프로비전 해제(권장)](salesforce-provisioning-tutorial.md) 지원
 
-* Salesforce가 [**자동화된** 사용자 프로비전](salesforce-provisioning-tutorial.md)을 지원
+* Salesforce가 **JIT(Just-in-time)** 사용자 프로비전을 지원
 
 * 이제 Salesforce 모바일 애플리케이션을 Azure AD에서 SSO가 가능하도록 설정할 수 있습니다. 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 

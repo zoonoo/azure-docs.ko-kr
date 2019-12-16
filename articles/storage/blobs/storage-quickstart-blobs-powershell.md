@@ -1,21 +1,22 @@
 ---
-title: Azure 빠른 시작 - Azure PowerShell을 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs
+title: 빠른 시작 - PowerShell을 사용하여 Blob 만들기
+titleSuffix: Azure Storage
 description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 Azure PowerShell을 사용합니다. 그런 다음, PowerShell을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: b0e9cc37f6269c3b878e16b754ec3a49aee13f72
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c5d32b91043d310e51143357ad51631463f7e991
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698994"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892501"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 
 Azure PowerShell 모듈을 사용하여 Azure 리소스를 만들고 관리합니다. PowerShell 명령줄 또는 스크립트에서 Azure 리소스 만들기 또는 관리를 수행할 수 있습니다. 이 가이드에서는 PowerShell을 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 설명합니다.
 

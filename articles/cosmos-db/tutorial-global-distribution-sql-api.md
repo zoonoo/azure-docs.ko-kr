@@ -1,18 +1,18 @@
 ---
 title: '자습서: SQL API의 Azure Cosmos DB 글로벌 배포 자습서'
-description: '자습서: SQL API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법에 대해 알아봅니다.'
+description: '자습서: .Net, Java, Python 및 기타 다양한 SDK와 함께 SQL API를 사용하여 Azure Cosmos DB 글로벌 배포를 설정하는 방법 알아보기'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7c7ea4ca8fc28ef47e60d5010c804223c3cfab3b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 541fcdd966ec1e0443fa6211d894bab3ed965f93
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173845"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870329"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
 

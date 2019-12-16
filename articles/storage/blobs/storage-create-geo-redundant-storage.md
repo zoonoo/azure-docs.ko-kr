@@ -1,21 +1,22 @@
 ---
-title: '자습서: Blob Storage에서 고가용성 애플리케이션 빌드 - Azure Storage'
+title: 자습서 - Blob 스토리지에서 고가용성 애플리케이션 빌드
+titleSuffix: Azure Storage
 description: 읽기 액세스 지역 중복 스토리지를 사용하여 애플리케이션 데이터의 고가용성을 지원하세요.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 6b0ac017704c599e96543ed36a13ff5d3ddef9fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55846c76f2c3ef1c5d884af39af85db3abe38aad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838566"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892909"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
@@ -40,8 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
-  - **Azure 개발**
+* **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
 
   ![Azure Development(웹 및 클라우드 아래)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -191,7 +191,6 @@ Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다
 
 다운로드하기 전에 Service 개체 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.
 
-
 # <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 
 샘플을 실행하려면 명령 프롬프트를 열고 샘플 폴더로 이동한 다음, `node index.js`을 입력합니다.
@@ -223,7 +222,7 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
@@ -274,7 +273,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+### <a name="pythontabpython"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
@@ -317,7 +316,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 
 Node.js V10 SDK를 사용하면 콜백 처리기가 필요하지 않습니다. 대신, 샘플이 다시 시도 옵션과 보조 엔드포인트로 구성된 파이프라인을 작성합니다. 그러면 애플리케이션이 기본 파이프라인을 통해 데이터에 도달하지 못하면 보조 파이프라인으로 자동 전환될 수 있습니다.
 
@@ -349,4 +348,4 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 시리즈의 파트 2로 진행하여 오류를 시뮬레이션하고 보조 RA-GRS 엔드포인트를 사용하도록 애플리케이션을 강제하는 방법을 알아 보세요.
 
 > [!div class="nextstepaction"]
-> [기본 스토리지 엔드포인트 연결 오류 시뮬레이션](storage-simulate-failure-ragrs-account-app.md)
+> [주 지역에서 읽기 오류 시뮬레이션](storage-simulate-failure-ragrs-account-app.md)

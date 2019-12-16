@@ -1,6 +1,5 @@
 ---
-title: Azure AD v2.0 JavaScript SPA(단일 페이지 애플리케이션) 단계별 설정
-titleSuffix: Microsoft identity platform
+title: Microsoft ID 플랫폼 JavaScript 단일 페이지 애플리케이션 가이드 | Azure
 description: Azure Active Directory v2.0 엔드포인트를 통해 액세스 토큰을 요구하는 API를 JavaScript SPA 애플리케이션에서 호출하는 방법입니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802519"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919395"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 

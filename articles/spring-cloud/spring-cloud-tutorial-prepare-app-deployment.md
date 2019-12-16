@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 3c567c54f887afe9ac112970a682b9466515d949
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e112fdc9e6f518e2ea3c72161e8978118cf19335
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708724"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890317"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>자습서: Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
@@ -176,3 +176,5 @@ pom.xml의 종속성 섹션에 `spring-boot-starter-actuator`를 포함합니다
 
 > [!div class="nextstepaction"]
 > [Config 서버를 설정하는 방법을 알아봅니다](spring-cloud-tutorial-config-server.md).
+
+GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

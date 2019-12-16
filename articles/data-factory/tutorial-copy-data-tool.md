@@ -1,24 +1,26 @@
 ---
-title: Azure 데이터 복사 도구를 사용하여 데이터 복사
+title: 데이터 복사 도구를 사용하여 Azure Blob 스토리지에서 SQL로 데이터 복사
 description: Azure Data Factory를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.author: jingwang
-ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e71fc869a08192b756c37e5106568bdd36361bd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683594"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926570"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
+
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](tutorial-copy-data-tool.md)

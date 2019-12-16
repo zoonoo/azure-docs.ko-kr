@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 415613d99b3a7b9f3845a458886e93e5655842c8
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c1e339643613db188819e7eb8853cad8a48ea47f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899706"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928147"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>빠른 시작: Azure 인지 서비스인 Bing Image Search API를 사용하여 이미지 검색 
 
@@ -48,7 +48,7 @@ ms.locfileid: "70899706"
     import com.google.gson.JsonParser;
     ```
 
-2. API 엔드포인트, 구독 키 및 검색 용어에 대한 변수를 만듭니다.
+2. API 엔드포인트, 구독 키 및 검색 용어에 대한 변수를 만듭니다. `host`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 
     ```java
     static String subscriptionKey = "enter key here";

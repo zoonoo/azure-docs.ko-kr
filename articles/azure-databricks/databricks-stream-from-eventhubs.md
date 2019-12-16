@@ -8,14 +8,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2019
+ms.date: 12/08/2019
 ms.author: alehall
-ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6af0881049e52cbead5cca9719d4c9b06be29491
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121268"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951550"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
 
@@ -101,7 +101,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
    * 클러스터의 이름을 입력합니다.
-   * 이 문서에서는 **6.0* 런타임을 사용하여 클러스터를 만듭니다.
+   * 이 문서에서는 **6.0** 런타임을 사용하여 클러스터를 만듭니다.
    * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
    기술 조건 및 [예산](https://azure.microsoft.com/pricing/details/databricks/)에 적합한 클러스터 작업자 및 드라이버 노드 크기를 선택합니다.
@@ -138,14 +138,10 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
    ![라이브러리 추가 대화 상자](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "새 라이브러리 설치 추가")
 
-2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven**을 선택합니다. **좌표**에서 추가하려는 패키지의 **좌표 검색**을 클릭합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
+2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven**을 선택합니다. Spark Event Hubs 커넥터 및 Twitter API에 대한 다음 좌표를 개별적으로 **좌표**에 입력합니다.
 
-   * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
-
-     ![Maven 좌표 제공](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Maven 좌표 제공")
-
-     ![Maven 좌표 제공](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Maven 좌표 검색")
 
 3. **설치**를 선택합니다.
 

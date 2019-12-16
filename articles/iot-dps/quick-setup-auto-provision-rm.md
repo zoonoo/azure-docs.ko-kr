@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub Device Provisioning 설정
-description: Azure 빠른 시작 - 템플릿을 사용하여 Azure IoT Hub Device Provisioning Service 설정
+description: Azure 빠른 시작 - 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b40e126ca23190fbe50a717016b18719be6950e2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276392"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969584"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
 

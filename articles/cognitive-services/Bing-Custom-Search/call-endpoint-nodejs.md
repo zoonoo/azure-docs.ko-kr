@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: e95b9aa8f01142065202e029c6298fc4c4cb1294
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 97bf62c61aee63ce97496e54b99ad641d6150876
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565736"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972707"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Custom Search 엔드포인트 호출
 
@@ -45,7 +45,7 @@ ms.locfileid: "68565736"
 
 ## <a name="send-and-receive-a-search-request"></a>검색 요청 보내고 받기 
 
-1. 요청에서 전송되는 정보를 저장할 변수를 만듭니다. 검색 용어를 `q=` 쿼리 매개 변수에 추가하고 검색 인스턴스의 사용자 지정 구성 ID를 `customconfig=`에 추가하여 요청 URL을 생성합니다. 매개 변수를 `&` 문자로 분리합니다. 
+1. 요청에서 전송되는 정보를 저장할 변수를 만듭니다. 검색 용어를 `q=` 쿼리 매개 변수에 추가하고 검색 인스턴스의 사용자 지정 구성 ID를 `customconfig=`에 추가하여 요청 URL을 생성합니다. 매개 변수를 `&` 문자로 분리합니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```javascript
     var info = {

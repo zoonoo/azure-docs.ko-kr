@@ -1,5 +1,6 @@
 ---
-title: 자습서 - 네이티브 클라이언트 애플리케이션에서 사용자 인증 - Azure Active Directory B2C
+title: '자습서: 네이티브 클라이언트 애플리케이션에서 사용자 인증'
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C를 사용하여 .NET 데스크톱 애플리케이션에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 54a2fe4f0eee5c926878682ea1fccdfdd005e68b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538930"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950196"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 네이티브 데스크톱 클라이언트에서 사용자 인증
 

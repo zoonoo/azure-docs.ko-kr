@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 쿼리
-description: Azure Cosmos DB의 API for MongoDB를 사용하여 데이터를 쿼리하는 방법을 알아봅니다.
+description: MongoDB 셸 명령을 사용하여 Azure Cosmos DB의 API for MongoDB에서 데이터를 쿼리하는 방법 알아보기
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 40385524e85f950fb32b69817fec27d842370736
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754755"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870142"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 쿼리
 

@@ -1,22 +1,23 @@
 ---
-title: Azure Storage를 사용하여 클라우드의 애플리케이션 데이터에 대한 액세스 보호 | Microsoft Docs
+title: 애플리케이션 데이터에 대한 보안 액세스
+titleSuffix: Azure Storage
 description: SAS 토큰, 암호화 및 HTTPS를 사용하여 클라우드의 애플리케이션 데이터를 보호합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986693"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892433"
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 애플리케이션 데이터에 대한 액세스 보호
+# <a name="secure-access-to-application-data"></a>애플리케이션 데이터에 대한 보안 액세스
 
 이 자습서는 시리즈의 3부입니다. 스토리지 계정에 대한 액세스를 보호하는 방법을 배웁니다. 
 
@@ -31,7 +32,7 @@ ms.locfileid: "68986693"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 이전 스토리지 자습서: [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정][previous-tutorial]를 완료해야 합니다. 
+이 자습서를 완료하려면 이전 스토리지 자습서: [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정][previous-tutorial]를 완료해야 합니다.
 
 ## <a name="set-container-public-access"></a>컨테이너 공용 액세스 설정
 

@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93c88b167884c455ffb995f35356b121bce8a207
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fbaafdce6f2510b58966f4b6c18e45a3fcd4a664
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794993"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997091"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -42,7 +42,7 @@ Azure AD Connect 동기화를 사용하면 온-프레미스 동기화 서버에�
 
 **Q: 에이전트를 업데이트하려면 어떻게 하나요?**
 
-에이전트는 Microsoft에서 자동으로 업그레이드합니다. 이렇게 하면 새 에이전트 버전을 테스트하고 유효성을 검사해야 하는 IT의 부담을 줄일 수 있습니다. 
+에이전트는 Microsoft에서 자동으로 업그레이드합니다. IT 팀의 경우 이를 통해 새 에이전트 버전을 테스트하고 유효성을 검사해야 하는 부담을 줄일 수 있습니다. 
 
 **Q: 자동 업그레이드를 사용하지 않도록 설정할 수 있나요?**
 

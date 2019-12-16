@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327001"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930680"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>자습서: Bing Image Search API 및 C#을 사용하여 이미지 세부 정보 추출
 
@@ -42,7 +42,7 @@ Bing Image Search API를 통해 사용할 수 있는 다양한 [엔드포인트]
 
 ## <a name="construct-an-image-details-search-request"></a>이미지 세부 정보 검색 요청 생성
 
-다음은 요청 본문에 이미지 데이터와 함께 POST 요청을 허용하는 `/details` 엔드포인트입니다.
+다음은 요청 본문에 이미지 데이터와 함께 POST 요청을 허용하는 `/details` 엔드포인트입니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```

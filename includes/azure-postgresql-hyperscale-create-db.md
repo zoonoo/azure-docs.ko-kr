@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73998129"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973420"
 ---
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    ![추가된 클라이언트 IP](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
-   > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 5432를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
+   > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 5432를 열지 않으면 하이퍼스케일(Citus) 클러스터에 연결할 수 없습니다.
    >
 
 9. **검토 + 만들기**를 클릭한 다음, **만들기**를 클릭하여 서버를 프로비저닝합니다. 프로비전하는 데 몇 분이 걸립니다.
@@ -57,10 +57,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Azure Database for PostgreSQL을 만들 때 **citus**라는 기본 데이터베이스가 만들어집니다. 데이터베이스 서버에 연결하려면 연결 문자열 및 관리자 암호가 필요합니다.
 
-1. 연결 문자열을 가져옵니다. 서버 그룹 페이지에서 **연결 문자열** 메뉴 항목을 클릭합니다. (**설정** 아래에 있습니다.) **C++(libpq)** 라고 표시되어 있는 문자열을 찾습니다. 다음과 같은 형식입니다.
+1. 연결 문자열을 가져옵니다. 서버 그룹 페이지에서 **연결 문자열** 메뉴 항목을 클릭합니다. (**설정** 아래에 있습니다.) **psql**로 표시된 문자열을 찾습니다. 다음과 같은 형식입니다.
 
    ```
-   host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
+   psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
 
    문자열을 복사합니다. “{your\_password}”를 이전에 선택한 관리 암호로 바꾸어야 합니다. 시스템은 일반 텍스트 암호를 저장하지 않으므로 문자열에 표시할 수도 없습니다.
@@ -69,7 +69,7 @@ Azure Database for PostgreSQL을 만들 때 **citus**라는 기본 데이터베�
 
 3. 프롬프트에서 [psql](https://www.postgresql.org/docs/current/app-psql.html) 유틸리티를 사용하여 Azure Database for PostgreSQL 서버에 연결합니다. 따옴표 안에 연결 문자열을 전달합니다. 암호가 포함되어 있는지 확인합니다.
    ```bash
-   psql "{connection_string}"
+   psql "host=..."
    ```
 
    예를 들어 다음 명령은 **mydemoserver** 서버 그룹의 코디네이터 노드에 연결합니다.

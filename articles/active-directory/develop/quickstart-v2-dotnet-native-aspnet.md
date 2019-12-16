@@ -1,28 +1,23 @@
 ---
-title: Azure AD로 보호된 ASP.NET Web API 호출 - Microsoft ID
+title: Azure AD 보호 ASP.NET Web API 호출 - Microsoft ID 플랫폼
 description: 이 빠른 시작에서는 Windows 데스크톱(WPF) 애플리케이션에서 Azure Active Directory로 보호된 ASP.NET 웹 API를 호출하는 방법을 알아봅니다. WPF 클라이언트는 사용자를 인증하고, 액세스 토큰을 요청하고, 웹 API를 호출합니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e0fdeb2c1955eab18b440c3ef3bcac725ad92b6
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200247"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963310"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>빠른 시작: Azure AD로 보호된 ASP.NET Web API 호출
 

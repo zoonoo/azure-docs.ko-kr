@@ -1,19 +1,19 @@
 ---
 title: .NET Standard SDK를 사용하여 Azure Cosmos DB Table API 시작
-description: Azure Cosmos DB Table API를 사용하여 클라우드에 정형 데이터를 저장합니다.
+description: Azure Cosmos DB Table API 계정에서 구조화된 데이터를 저장하고 쿼리하는 방법 알아보기
 author: wmengmsft
 ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 05/20/2019
-ms.openlocfilehash: 11179d6adc676ae99257442b186a15e69dcc4a03
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/03/2019
+ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764476"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870550"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 

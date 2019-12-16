@@ -1,16 +1,12 @@
 ---
-title: 콘솔 앱의 ID(v1.0)를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출 | Microsoft Docs
-description: Azure AD와 통합되고 OAuth 2.0을 사용하여 Azure AD로 보호되는 API를 호출하는 .NET 디먼 애플리케이션을 빌드하는 방법 알아보기
+title: 콘솔 앱(v1.0)에서 토큰 가져오기 및 Microsoft Graph API 호출 | Azure
+description: Azure AD와 통합되고 OAuth 2.0을 사용하여 Azure AD 보호된 API를 호출하는 .NET 디먼 애플리케이션 빌드
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/17/2019
@@ -18,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d79d448f10c0d404516371be19d561bb21c8c0c7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 2858a0b14863195ee0f56c89fe2c55c9e63873de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149613"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965928"
 ---
 # <a name="quickstart-acquire-token-and-call-microsoft-graph-api-with-console-apps-identity-v10"></a>빠른 시작: 콘솔 앱의 ID(v1.0)를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출 
 

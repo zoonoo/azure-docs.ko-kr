@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 SSL 인증서로 Windows 웹 서버 보호
+title: '자습서: Azure에서 SSL 인증서로 Windows 웹 서버 보호'
 description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure Key Vault에 저장된 SSL 인증서로 IIS 웹 서버를 실행하는 Windows 가상 머신을 보호하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6fd60993582fb4d7c052ffff2f492739153229e6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c84bc3633ccd25fd2206c9e6912a6b8c8d46a5f4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067751"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974192"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 SSL 인증서로 Azure에서 Windows 가상 머신의 웹 서버 보호
 

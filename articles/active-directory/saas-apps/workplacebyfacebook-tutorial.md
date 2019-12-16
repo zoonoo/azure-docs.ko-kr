@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787644"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969708"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -48,8 +48,8 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Workplace by Facebook이 **SP**에서 시작된 SSO를 지원
+* Workplace by Facebook이 **[자동 사용자 프로비저닝 및 프로비전 해제(권장)](workplacebyfacebook-provisioning-tutorial.md)** 지원
 * Workplace by Facebook이 **Just-In-Time 프로비전**을 지원
-* Workplace by Facebook이 **[자동 사용자 프로비전](workplacebyfacebook-provisioning-tutorial.md)** 을 지원
 * 이제 Workplace by Facebook 모바일 애플리케이션을 Azure AD에서 SSO를 사용하도록 설정할 수 있습니다. 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>갤러리에서 Workplace by Facebook 추가

@@ -1,28 +1,24 @@
 ---
-title: Microsoft ID 플랫폼의 인증 시나리오 | Azure
+title: Microsoft ID 플랫폼 인증 시나리오 | Azure
 description: Microsoft ID 플랫폼의 인증 흐름 및 애플리케이션 시나리오에 대해 알아봅니다. ID를 인증하고, 토큰을 가져오고, 보호된 API를 호출할 수 있는 다양한 유형의 애플리케이션에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c891c3de9126de6b833dea30c78c14b709384d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 969c7b6c86e09ec73ccf1ffa5cc4dc9703a3d25c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687744"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963803"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>인증 흐름 및 애플리케이션 시나리오
 
