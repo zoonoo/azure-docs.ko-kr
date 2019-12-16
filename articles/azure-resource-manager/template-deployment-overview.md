@@ -40,7 +40,7 @@ Azure 솔루션에 대 한 코드로 인프라를 구현 하려면 Azure Resourc
 
    ![배포 기록](./media/template-deployment-overview/deployment-history.png)
 
-* **코드를 코드로**: [Azure Policy](../governance/policy/overview.md) 는 거 버 넌 스를 자동화 하는 코드 프레임 워크로 서의 정책입니다. Azure 정책을 사용 하는 경우 템플릿을 통해 배포 되는 경우 비규격 리소스에서 정책 관리가 수행 됩니다.
+* **코드로서의 정책**: [Azure Policy](../governance/policy/overview.md)는 거버넌스를 자동화하는 코드 프레임워크로서의 정책입니다. Azure 정책을 사용하는 경우 템플릿을 통해 배포되는 경우 비규격 리소스에서 정책 관리가 수행됩니다.
 
 * **배포 청사진**: 규정 및 규정 준수 표준을 충족 하기 위해 Microsoft에서 제공 하는 [청사진](../governance/blueprints/overview.md) 을 활용할 수 있습니다. 이러한 청사진에는 다양 한 아키텍처를 위한 미리 빌드된 템플릿이 포함 되어 있습니다.
 
