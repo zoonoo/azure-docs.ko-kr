@@ -39,7 +39,7 @@ Visual studio Code는 MacOS, Windows 및 Linux를 지원 합니다.  [Visual Stu
 
 템플릿 개요 뷰를 사용 하면 많은 템플릿을 쉽게 탐색할 수 있습니다.
 
-### <a name="intellisense"></a>메서드가
+### <a name="intellisense"></a>Intellisense
 
 리소스 관리자 템플릿 확장은 함수 이름, 매개 변수, 변수 및 참조에 대 한 가능한 완료를 알고 있습니다. 입력 하면 IntelliSense 제안 팝업이 표시 됩니다. 문자를 계속 입력 하면 멤버 목록 (변수, 메서드 등)이 필터링 되어 입력 된 문자를 포함 하는 멤버만 포함 됩니다. **Tab** 또는 **enter** 키를 누르면 선택한 멤버가 삽입 됩니다.
 
@@ -69,7 +69,7 @@ Visual studio Code는 MacOS, Windows 및 Linux를 지원 합니다.  [Visual Stu
 
 ### <a name="go-to-definition-for-variable-and-parameter-references"></a>변수 및 매개 변수 참조에 대 한 정의로 이동
 
-**Ctrl + 클릭**을 사용 하 여 정의로 이동 하거나 스크린샷에 표시 된 상황에 맞는 메뉴를 사용 하 여 (![Visual Studio Code 리소스 관리자 도구 확장 정의로 이동)를 사용할 수 있습니다](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
+**Ctrl + 클릭**을 사용하거나 스크린샷에 표시된 대로 상황에 맞는 메뉴를 사용하여 정의로 이동할 수 있습니다. (![Visual Studio Code 리소스 관리자 도구 확장 정의로 이동)를 사용할 수 있습니다](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
 
 **Ctrl + Alt + 클릭**을 사용 하 여 정의를 왼쪽으로 열 수 있습니다.
 
