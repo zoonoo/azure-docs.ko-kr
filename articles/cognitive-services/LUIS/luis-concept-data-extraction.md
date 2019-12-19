@@ -26,26 +26,26 @@ LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제
 ## <a name="data-location-and-key-usage"></a>데이터 위치 및 키 사용
 LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 제공합니다. **HTTPS 요청**(POST 또는 GET)에는 스테이징 또는 프로덕션 환경과 같은 일부 선택적 구성과 발화가 포함됩니다.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 예측 끝점 요청](#tab/V2)
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 예측 엔드포인트 요청](#tab/V2)
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 예측 끝점 요청](#tab/V3)
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 예측 엔드포인트 요청](#tab/V3)
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * * 
 
-`appID`는 LUIS 앱을 편집하는 동안 URL의 일부(`/apps/` 뒤) 및 LUIS 앱의 **설정** 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 엔드포인트 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 엔드포인트 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
+`appID`는 LUIS 앱을 편집하는 동안 URL의 일부(**뒤) 및 LUIS 앱의**설정`/apps/` 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 엔드포인트 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 엔드포인트 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
 
 **HTTPS 응답**에는 스테이징 또는 프로덕션 엔드포인트의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 엔드포인트 URL은 [LUIS](luis-reference-regions.md) 웹 사이트의 **관리** 섹션에 있는 **키 및 엔드포인트** 페이지에서 찾을 수 있습니다.
 
 ## <a name="data-from-intents"></a>의도의 데이터
 기본 데이터는 상위 점수 **의도 이름**입니다. 엔드포인트 응답은 다음과 같습니다.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 {
@@ -58,7 +58,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
 ```JSON
 {
@@ -76,7 +76,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 }
 ```
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * * 
 
@@ -87,9 +87,9 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 두 개 이상의 의도 점수에 따라 의사 결정 봇 또는 LUIS 호출 앱이 결정 되 면 모든 의도의 점수를 반환 합니다.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
-Querystring 매개 변수를 `verbose=true`으로 설정 합니다. 엔드포인트 응답은 다음과 같습니다.
+Querystring 매개 변수를 `verbose=true`설정 합니다. 엔드포인트 응답은 다음과 같습니다.
 
 ```JSON
 {
@@ -112,9 +112,9 @@ Querystring 매개 변수를 `verbose=true`으로 설정 합니다. 엔드포인
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔드포인트 응답은 다음과 같습니다.
+Querystring 매개 변수를 `show-all-intents=true`설정 합니다. 엔드포인트 응답은 다음과 같습니다.
 
 ```JSON
 {
@@ -136,7 +136,7 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
 }
 ```
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * * 
 
@@ -149,7 +149,7 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
 
 미리 빌드된 도메인을 추가하는 경우, 의도 이름은 의도뿐 아니라 `Utilties` 또는 `Communication`와 같은 도메인을 나타냅니다.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 {
@@ -175,7 +175,7 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
 ```JSON
 {
@@ -199,7 +199,7 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
 }
 ```
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * * 
 
@@ -217,7 +217,7 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
 
 모든 엔터티는 엔드포인트에서 응답의 **엔터티** 배열로 반환됩니다.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 "entities": [
@@ -240,7 +240,7 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
 ```JSON
 "entities": {
@@ -248,7 +248,7 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
     "number": [3]
 }
 ```
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * * 
 
@@ -274,7 +274,7 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
 
 `Dec 5th send to +1 360-555-1212`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 "entities": [
@@ -355,9 +355,9 @@ Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합니다.
+Querystring 매개 변수를 사용 하지 않고 `verbose=true`합니다.
 
 ```json
 "entities": {
@@ -399,7 +399,7 @@ Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합�
 }
 ```
 
-Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
+Querystring 매개 변수를 사용 하 여 `verbose=true`합니다.
 
 ```json
 
@@ -532,7 +532,7 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
 }
 ```
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * * 
 ## <a name="regular-expression-entity-data"></a>정규식 엔터티 데이터
@@ -564,9 +564,9 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
 역할은 엔터티의 컨텍스트 차이입니다.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
-엔터티 이름은 `Location` 이며 두 개의 역할이 `Origin`과 `Destination`입니다.
+엔터티 이름은 `Location``Origin` 및 `Destination`라는 두 개의 역할이 있습니다.
 
 ```JSON
 "entities": [
@@ -597,13 +597,13 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
 V3에서 **역할 이름은** 개체의 기본 이름입니다. 
 
-엔터티 이름은 `Location` 이며 두 개의 역할이 `Origin`과 `Destination`입니다.
+엔터티 이름은 `Location``Origin` 및 `Destination`라는 두 개의 역할이 있습니다.
 
-Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합니다.
+Querystring 매개 변수를 사용 하지 않고 `verbose=true`합니다.
 
 ```json
 "entities": {
@@ -619,7 +619,7 @@ Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합�
 }
 ```
 
-Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
+Querystring 매개 변수를 사용 하 여 `verbose=true`합니다.
 
 ```json
 "entities": {
@@ -681,7 +681,7 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
 }
 ```
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * *
 
@@ -689,7 +689,7 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
 
 [패턴. any](reference-entity-pattern-any.md) 는 패턴이 시작 되 고 끝나는 위치를 표시 하는 패턴의 템플릿 utterance에만 사용 되는 가변 길이 자리 표시자입니다.  
 
-## <a name="sentiment-analysis"></a>감정 분석
+## <a name="sentiment-analysis"></a>정서 분석
 감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
 
 ### <a name="sentiment-data"></a>감정 데이터
@@ -717,7 +717,7 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
 키 구문 추출 엔터티는 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)에서 제공하는 발화의 키 구문을 반환합니다.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 {
@@ -752,11 +752,11 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
-Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합니다.
+Querystring 매개 변수를 사용 하지 않고 `verbose=true`합니다.
 
 ```json
 "entities": {
@@ -768,7 +768,7 @@ Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합�
 }
 ```
 
-Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
+Querystring 매개 변수를 사용 하 여 `verbose=true`합니다.
 
 ```json
 "entities": {
@@ -817,7 +817,7 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
 }
 ```
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * *
 
@@ -830,7 +830,7 @@ LUIS는 발화에서 검색된 모든 엔터티를 반환합니다. 결과적으
 
 LUIS 끝점은 서로 다른 엔터티에서 동일한 데이터를 검색할 수 있습니다.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 {
@@ -956,9 +956,9 @@ LUIS 끝점은 서로 다른 엔터티에서 동일한 데이터를 검색할 �
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
--0을 querystring 매개 변수로 @no__t 하지 않습니다.
+Querystring 매개 변수로 `verbose=true` 하지 않습니다.
 
 ```json
 "entities": {
@@ -995,7 +995,7 @@ LUIS 끝점은 서로 다른 엔터티에서 동일한 데이터를 검색할 �
 }
 ```
 
-@No__t-0을 querystring 매개 변수로 사용 합니다.
+`verbose=true` querystring 매개 변수로 사용 합니다.
 
 
 ```json
@@ -1133,7 +1133,7 @@ LUIS 끝점은 서로 다른 엔터티에서 동일한 데이터를 검색할 �
 }
 ```
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * *
 
@@ -1143,7 +1143,7 @@ LUIS 끝점은 서로 다른 엔터티에서 동일한 데이터를 검색할 �
 
 `when is the best time to go to red rock?` 쿼리에서 앱이 둘 이상의 목록에 `red`라는 단어를 갖는 경우 LUIS는 모든 엔터티를 인식하고 엔터티의 배열을 JSON 엔드포인트 응답의 일부로 반환합니다. 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 {
@@ -1181,9 +1181,9 @@ LUIS 끝점은 서로 다른 엔터티에서 동일한 데이터를 검색할 �
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-쿼리 문자열에 `verbose=true`을 사용 하지 않습니다.
+쿼리 문자열에 `verbose=true` 하지 않습니다.
 
 ```JSON
 {
@@ -1270,7 +1270,7 @@ LUIS 끝점은 서로 다른 엔터티에서 동일한 데이터를 검색할 �
 }
 ```
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * *
 
