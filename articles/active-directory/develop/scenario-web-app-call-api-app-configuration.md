@@ -1,6 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 웹 앱 (코드 구성)-Microsoft identity platform
-description: 웹 Api를 호출 하는 웹 앱을 빌드하는 방법에 대해 알아봅니다 (앱 코드 구성).
+title: 웹 Api를 호출 하는 웹 앱 구성-Microsoft identity platform | Microsoft
+description: 웹 Api를 호출 하는 웹 앱의 코드를 구성 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231ecdb6afae1fc36d11b2c12aa82c7e860bb708
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 83523fd12700789fb5c34230d529e06c0b284147
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175308"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964988"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 웹 앱-코드 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "73175308"
 
 웹 앱에 대 한 권한 부여 코드 흐름을 지 원하는 라이브러리는 다음과 같습니다.
 
-| MSAL 라이브러리 | 설명 |
+| MSAL 라이브러리 | Leírás |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 지원 되는 플랫폼은 .NET Framework 및 .NET Core 플랫폼입니다 (이러한 플랫폼은 공용 클라이언트 응용 프로그램을 빌드하는 데 사용 되므로 UWP, Xamarin.ios 및 Xamarin.ios가 아님). |
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 개발 진행 중-공개 미리 보기 |
@@ -86,7 +86,7 @@ ASP.NET의 경우 미들웨어 OIDC 이벤트를 구독 합니다. 원리는 다
 
 ### <a name="startupcs"></a>Startup.cs
 
-ASP.NET Core에서 원칙은 `Startup.cs` 파일에 있습니다. `OnAuthorizationCodeReceived` open ID connect 이벤트를 구독 하 고이 이벤트에서 MSAL을 호출 하려고 합니다. NET의 메서드 `AcquireTokenFromAuthorizationCode`는 토큰 캐시에 저장 하는 효과, 요청 된 `scopes`에 대 한 액세스 토큰, 만료에 근접 한 경우 액세스 토큰을 새로 고치는 데 사용 되는 새로 고침 토큰 및 동일한 사용자를 대신 하 여 토큰을 가져오는 데 사용 됩니다. 다른 리소스의 경우
+ASP.NET Core에서 원칙은 `Startup.cs` 파일에 있습니다. `OnAuthorizationCodeReceived` open ID connect 이벤트를 구독 하 고이 이벤트에서 MSAL을 호출 하려고 합니다. NET의 메서드 `AcquireTokenFromAuthorizationCode`는 토큰 캐시에 저장 하는 효과, 요청 된 `scopes`에 대 한 액세스 토큰, 만료에 가까운 경우 액세스 토큰을 새로 고치는 데 사용 되는 새로 고침 토큰, 같은 사용자를 대신 하 여 다른 리소스에 대 한 토큰을 가져오는 데 사용 됩니다.
 
 실제로 [ASP.NET Core 웹 앱 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) 에서는 웹 앱에 다시 사용할 수 있는 코드를 제공 하려고 합니다.
 
@@ -314,13 +314,13 @@ public class TokenAcquisition : ITokenAcquisition
 
 ```
 
-### <a name="summary"></a>요약
+### <a name="summary"></a>Összefoglalás
 
 합계를 계산 하기 위해 `AcquireTokenByAuthorizationCode`는 ASP.NET에서 요청 된 인증 코드를 교환 하 고 MSAL.NET 사용자 토큰 캐시에 추가 되는 토큰을 가져옵니다. 그런 다음 ASP.NET Core 컨트롤러에서 사용 됩니다.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET는 OpenIdConnect의 구성과 `OnAuthorizationCodeReceived` 이벤트에 대 한 구독이 [startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) 파일에서 발생 한다는 점을 제외 하 고는 ASP.NET Core와 유사 하 게 처리 됩니다. ASP.NET [# L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15)에서 redirecturi를 지정 해야 한다는 점을 제외 하 고는 ASP.NET Core와 비슷한 개념을 확인할 수 있습니다. 이 구성은 응용 프로그램을 배포할 때 변경 해야 하므로 ASP.NET Core에서 수행 되는 것 보다 조금 더 강력 합니다.
+ASP.NET는 OpenIdConnect의 구성과 `OnAuthorizationCodeReceived` 이벤트에 대 한 구독이 [App_Start \startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) 파일에서 발생 한다는 점을 제외 하 고는 ASP.NET Core와 비슷합니다. ASP.NET [# L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15)에서 redirecturi를 지정 해야 한다는 점을 제외 하 고는 ASP.NET Core와 비슷한 개념을 확인할 수 있습니다. 이 구성은 응용 프로그램을 배포할 때 변경 해야 하므로 ASP.NET Core에서 수행 되는 것 보다 조금 더 강력 합니다.
 
 ```CSharp
 public partial class Startup
@@ -610,7 +610,7 @@ def _build_msal_app(cache=None):
 
 ---
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 이 시점에서 토큰 캐시에 사용자가 로그인 하면 토큰 캐시에 저장 됩니다. 웹 앱의 다른 부분에서 사용 되는 방법을 살펴보겠습니다.
 
