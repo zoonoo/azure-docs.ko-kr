@@ -1,21 +1,19 @@
 ---
-title: X12 메시지 인코딩 - Azure Logic Apps | Microsoft Docs
+title: X12 메시지 인코딩
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 X12 메시지 인코더를 사용하여 EDI 유효성을 검사하고 XML 디코딩 메시지 변환
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.openlocfilehash: 871d6d2b2019372bd258f8909ed0feeeddac4af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705693"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792354"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 X12 메시지 인코딩
 
@@ -33,7 +31,7 @@ X12 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속�
 
 ## <a name="encode-x12-messages"></a>X12 메시지 인코딩
 
-1. [논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
+1. [Create a logic app를 참조하세요.
 
 2. X12 메시지 인코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 

@@ -1,7 +1,7 @@
 ---
-title: 지원 및 도움말 옵션-Speech Service
+title: 지원 및 도움말 옵션-Speech service
 titleSuffix: Azure Cognitive Services
-description: Speech Service와 통합되는 애플리케이션을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
+description: 음성 서비스와 통합 하는 응용 프로그램을 만들 때 질문과 문제에 대 한 도움말 및 지원을 얻는 방법
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: f8793975d920e24924fca7c2ae366f70972e6ab7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 7017c3065e41befab6b5d7cdea47e2e3e6720173
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468624"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928654"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
-이제 막 음성 서비스의 기능을 살펴보기 시작했나요? 애플리케이션에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
+Speech Service의 기능을 탐색하기 시작했나요? 애플리케이션에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * *Azure Cognitive Services*의 새로운 개발에 대한 정보를 받거나 *Speech Service*와 관련된 최신 뉴스를 찾습니다.
+> * *Azure Cognitive Services*의 새로운 개발에 대 한 정보를 계속 받거나 *음성 서비스*와 관련 된 최신 뉴스를 찾아보세요.
 > * 릴리스 정보는 모든 릴리스에 대한 정보를 포함합니다.
 > * 커뮤니티에서 문제가 논의되었는지 또는 구현하려는 기능에 대한 기존 설명서가 이미 있는지 검색합니다.
 > * 만족스러운 대답을 찾을 수 없으면 *Stack Overflow*에 대한 질문을 합니다.
 > * GitHub의 샘플 중 하나에 문제가 있으면 *GitHub* 문제를 제기합니다.
 > * *UserVoice 포럼*에서 솔루션을 검색합니다.
 
-## <a name="stay-informed"></a>최신 소식 수신
+## <a name="stay-informed"></a>최신 소식 받기
 
-Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. 음성 서비스에 대한 최신 정보는 [Speech Services 블로그](https://azure.microsoft.com/blog/tag/speech-service/)에 있습니다.
+Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. 음성 서비스에 대 한 최신 정보를 보려면 [음성 서비스 블로그](https://azure.microsoft.com/blog/tag/speech-service/)를 추적 하세요.
 
 ## <a name="release-notes"></a>릴리스 정보
 
 [릴리스 정보](https://aka.ms/csspeech/whatsnew)는 새 릴리스가 출시되는 즉시 업데이트됩니다. 그 정보는 새로운 기능, 향상 및 버그 수정에 대한 정보를 포함합니다.
 
-## <a name="search"></a>검색
+## <a name="search"></a>Search
 
 설명서, 샘플 또는 [Stack Overflow](https://www.stackoverflow.com) 질문에 대한 답변이나 샘플에서 필요한 대답을 찾을 수 있습니다.
 
@@ -55,23 +55,14 @@ Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://az
 
 Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
 
-## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문 게시
+## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
 
 Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 여기서는 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
 
-검색을 통해 문제에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문을 작성할 때 다음 태그 중 하나를 사용합니다.
-
-|구성 요소/영역  |태그  |
-|---------|---------|
-|음성 인식 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|음성 합성 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|음성 의도 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|일반 음성 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-|음성 도우미 | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+검색을 통해 문제에 대 한 답변을 찾을 수 없는 경우 [microsoft 인지\]\[음성\]\[](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)태그를 사용 하 여 Stack Overflow에 새 질문을 제출 합니다.
 
 > [!TIP]
 > Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  

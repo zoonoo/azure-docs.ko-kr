@@ -1,21 +1,19 @@
 ---
-title: EDIFACT 메시지 인코딩 - Azure Logic Apps | Microsoft Docs
+title: EDIFACT 메시지 인코딩
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps용 EDIFACT 메시지 인코더를 사용하여 EDI 유효성 검사 및 XML 생성
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017
-ms.openlocfilehash: 7396aee56acdf2476ed1bb3cc5a9909349662dc7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 257cbd0b1a68ddd2b16235e6f8dec5d5b0eb10e2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705531"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790651"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 인코딩
 
@@ -33,7 +31,7 @@ EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 �
 
 ## <a name="encode-edifact-messages"></a>EDIFACT 메시지 인코딩
 
-1. [논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
+1. [Create a logic app를 참조하세요.
 
 2. EDIFACT 메시지 인코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 

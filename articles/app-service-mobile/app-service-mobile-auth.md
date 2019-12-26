@@ -1,23 +1,14 @@
 ---
-title: Azure App Service에서 모바일 앱에 대한 인증 및 권한 부여 | Microsoft Docs
-description: Azure App Service, 특히 모바일 앱에 대한 인증/권한 부여 기능에 대한 개념적 참조 및 개요입니다.
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: erikre
-editor: ''
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
+title: 인증 및 권한 부여
+description: Azure App Service에 대 한 인증/권한 부여 기능의 개념 참조 및 개요 (특히 mobile apps 용)
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: mahender
-ms.openlocfilehash: 6017d9bc8b9a791e46fd1562660c9049ca0f72e5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2c3bc1f9563a5657d7574020fc908f23a711391c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388900"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668525"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service에서 모바일 앱에 대한 인증 및 권한 부여
 
@@ -28,7 +19,7 @@ ms.locfileid: "72388900"
 
 이 문서에서는 App Service 백 엔드를 사용하여 네이티브 모바일 앱을 개발할 때 인증 및 권한 부여가 작동하는 방법에 대해 설명합니다. App Service에서 통합된 인증 및 권한 부여를 제공하므로 모바일 앱은 App Service의 코드를 변경하지 않고 사용자를 로그인할 수 있습니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다. 
 
-이 문서는 모바일 앱 개발에 중점을 둡니다. 모바일 앱에 대 한 App Service 인증 및 권한 부여를 신속 하 게 시작 하려면 [iOS 앱에 인증 추가][iOS] (또는 [android], [Windows], [xamarin.ios], xamarin.ios, xamarin) 자습서 중 하나를 참조 하세요 [Xamarin.Android], [Xamarin.Forms]또는 [Cordova]). 
+이 문서는 모바일 앱 개발에 중점을 둡니다. 모바일 앱에 대 한 App Service 인증 및 권한 부여를 신속 하 게 시작 하려면 [iOS 앱에 인증 추가][iOS] (또는 [android], [Windows], [Xamarin.iOS] [Xamarin.Android] [Xamarin.Forms]또는 [Cordova]) 자습서 중 하나를 참조 하세요. 
 
 App Service에서 인증 및 권한 부여가 작동하는 방법에 대한 내용은 [Azure App Service의 인증 및 권한 부여](../app-service/overview-authentication-authorization.md)를 참조하세요.
 

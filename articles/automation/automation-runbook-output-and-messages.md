@@ -4,17 +4,17 @@ description: Azure Automation의 runbook에서 출력 및 오류 메시지를 �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: df0842635d13180951f8d79a598fe0708ca64b8a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.openlocfilehash: af199439fedddaef5b1bd3b219a60db697fb25ab
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850532"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849652"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 
@@ -22,13 +22,13 @@ ms.locfileid: "68850532"
 
 다음 테이블에서는 게시된 Runbook 및 [Runbook을 테스트](automation-testing-runbook.md)할 경우 Azure Portal의 각 스트림 및 해당 동작을 간략히 설명합니다. 각 스트림에 대한 자세한 내용은 뒷부분의 섹션에 제공됩니다.
 
-| 스트림 | Description | 게시됨 | 테스트 |
+| Stream | 설명 | 게시됨 | 테스트 |
 |:--- |:--- |:--- |:--- |
 | 출력 |다른 runbook에서 사용할 수 있도록 의도된 개체입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
 | 경고 |사용자를 위한 경고 메시지입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
-| Error |사용자를 위한 오류 메시지입니다. 예외와 달리 runbook는 기본적으로 오류 메시지 이후에 계속합니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
-| 자세히 |일반 또는 디버깅 정보를 제공하는 메시지입니다. |자세한 정보 표시 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |$VerbosePreference runbook가 계속으로 설정된 경우 테스트 출력 창에 표시합니다. |
-| 진행률 |runbook의 각 작업 전과 후에 레코드를 자동으로 생성했습니다. 자체 진행률 레코드는 대화형 사용자를 위한 것이기 때문에 Runbook이 만들려고 하지 않아야 합니다. |진행률 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |테스트 출력 창에 표시하지 않습니다. |
+| 오류 |사용자를 위한 오류 메시지입니다. 예외와 달리 runbook는 기본적으로 오류 메시지 이후에 계속합니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
+| 자세한 정보 표시 |일반 또는 디버깅 정보를 제공하는 메시지입니다. |자세한 정보 표시 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |$VerbosePreference runbook가 계속으로 설정된 경우 테스트 출력 창에 표시합니다. |
+| 진행 |runbook의 각 작업 전과 후에 레코드를 자동으로 생성했습니다. 자체 진행률 레코드는 대화형 사용자를 위한 것이기 때문에 Runbook이 만들려고 하지 않아야 합니다. |진행률 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |테스트 출력 창에 표시하지 않습니다. |
 | 디버그 |대화형 사용자를 위한 메시지입니다. Runbook에서 사용하지 않아야 합니다. |작업 기록에 기록하지 않습니다. |테스트 출력 창에 기록하지 않습니다. |
 
 ## <a name="output-stream"></a>출력 스트림
@@ -107,7 +107,7 @@ Workflow Test-Runbook
 
 다음 예제에서는 이 기능을 보여 주기 위한 두 개의 그래픽 Runbook이 있습니다. 모듈식 Runbook 디자인 모델을 적용하는 경우 실행 계정을 사용하여 Azure로 인증을 관리하는 *인증 Runbook 템플릿*으로 제공하는 하나의 Runbook이 있습니다. 이 경우에 일반적으로 제공된 시나리오를 자동화하는 핵심 논리를 수행하는 두 번째 Runbook은 *인증 Runbook 템플릿* 을 실행하고 **테스트** 출력 창에 결과를 표시합니다. 정상적인 상황에서 자식 Runbook의 출력을 활용하는 리소스에 대해 이 Runbook이 작업을 수행하도록 합니다.
 
-**AuthenticateTo-Azure** Runbook의 기본 논리는 다음과 같습니다.<br> ![Runbook 템플릿 예제 인증](media/automation-runbook-output-and-messages/runbook-authentication-template.png)할 경우 Azure 관리 포털에서 각 스트림 및 동작에 대한 간략한 설명을 제공합니다.
+**AuthenticateTo-Azure** Runbook의 기본 논리는 다음과 같습니다.<br> ![Runbook 템플릿 예제 인증할 경우 Azure 관리 포털에서 각 스트림 및 동작에 대한 간략한 설명을 제공합니다.
 
 인증 프로필 속성을 반환하는 출력 형식 *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*를 포함합니다.<br> ![Runbook 출력 형식 예제](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
 
@@ -172,17 +172,17 @@ Windows PowerShell은 [기본 설정 변수](https://technet.microsoft.com/libra
 
 | 변수 | 기본값 | 유효한 값 |
 |:--- |:--- |:--- |
-| WarningPreference |계속 |Stop<br>계속<br>SilentlyContinue |
-| ErrorActionPreference |계속 |Stop<br>계속<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |Stop<br>계속<br>SilentlyContinue |
+| WarningPreference |계속하기 |중지<br>계속하기<br>SilentlyContinue |
+| ErrorActionPreference |계속하기 |중지<br>계속하기<br>SilentlyContinue |
+| VerbosePreference |SilentlyContinue |중지<br>계속하기<br>SilentlyContinue |
 
 다음 테이블은 runbook에서 유효한 기본 설정 변수 값에 대한 동작을 나열합니다.
 
-| 값 | 동작 |
+| Value | 동작 |
 |:--- |:--- |
-| 계속 |메시지를 기록하고 runbook 실행을 계속합니다. |
+| 계속하기 |메시지를 기록하고 runbook 실행을 계속합니다. |
 | SilentlyContinue |메시지를 기록하지 않고 Runbook을 계속 실행합니다. 이 값은 메시지를 무시하는 효과가 있습니다. |
-| Stop |메시지를 기록하고 runbook을 일시 중단합니다. |
+| 중지 |메시지를 기록하고 runbook을 일시 중단합니다. |
 
 ## <a name="runbook-output"></a>Runbook 출력 및 메시지 검색
 
@@ -218,7 +218,7 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 
 ### <a name="graphical-authoring"></a>그래픽 작성
 
-그래픽 Runbook의 경우 추가 로깅은 작업 수준 추적의 형식으로 사용할 수 있습니다. 추적에는 두 가지 수준이 있습니다. 기본 및 자세히 추적 기본 추적에서는 Runbook의 각 작업의 시작 및 종료 시간과 작업 다시 시도와 관련된 정보를 볼 수 있습니다. 작업의 시도 횟수 및 시작 시간을 예로 들 수 있습니다. 자세히 추적에서는 기본 추적 외에도 각 작업에 대한 입력 및 출력 데이터를 얻습니다. 현재 추적 레코드는 자세한 정보 표시 스트림을 사용하여 기록되므로 추적을 사용하도록 설정할 경우 자세한 정보 로깅을 사용하도록 설정해야 합니다. 추적이 활성화된 그래픽 Runbook의 경우 진행률 레코드를 기록할 필요가 없습니다. 기본 추적은 동일한 용도를 제공하며 정보가 더욱 자세합니다.
+그래픽 Runbook의 경우 추가 로깅은 작업 수준 추적의 형식으로 사용할 수 있습니다. 추적에는 기본 추적과 자세히 추적이 있습니다. 기본 추적에서는 Runbook의 각 작업의 시작 및 종료 시간과 작업 다시 시도와 관련된 정보를 볼 수 있습니다. 작업의 시도 횟수 및 시작 시간을 예로 들 수 있습니다. 자세히 추적에서는 기본 추적 외에도 각 작업에 대한 입력 및 출력 데이터를 얻습니다. 현재 추적 레코드는 자세한 정보 표시 스트림을 사용하여 기록되므로 추적을 사용하도록 설정할 경우 자세한 정보 로깅을 사용하도록 설정해야 합니다. 추적이 활성화된 그래픽 Runbook의 경우 진행률 레코드를 기록할 필요가 없습니다. 기본 추적은 동일한 용도를 제공하며 정보가 더욱 자세합니다.
 
 ![그래픽 작성 작업 스트림 보기](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
