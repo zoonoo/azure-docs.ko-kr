@@ -29,7 +29,7 @@ ms.locfileid: "74968020"
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
-* http://nodejs.org/ 에서 Node.js 설치
+* [http://nodejs.org/](http://nodejs.org/ )에서 Node.js 설치
 
 * [Microsoft 계정](https://www.outlook.com) 또는 [ Office 365 개발자 프로그램](/office/developer-program/office-365-developer-program)
 
