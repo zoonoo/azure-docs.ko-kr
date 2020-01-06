@@ -99,7 +99,7 @@
       items:
         - name: Azure Traffic Manager의 성능 저하된 상태 문제 해결
           href: traffic-manager-troubleshooting-degraded.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
@@ -140,7 +140,7 @@
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 제한
-      href: '../azure-subscription-service-limits.md#traffic-manager-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
     - name: SLA

@@ -3,18 +3,18 @@ title: CAF Foundation 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 청사진 샘플의 개요 및 아키텍처입니다.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: 8339b7335ff2946dcd602db6ece4637ac4bc1d92
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545444"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562564"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플
 
 Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크) Foundation 청사진은 첫 번째 프로덕션 등급 Azure 애플리케이션에 필요한 핵심 인프라 리소스 및 정책 컨트롤 세트를 배포합니다. 이 파운데이션 청사진은 CAF에 있는 권장 패턴을 기반으로 합니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 CAF Foundation 청사진 샘플은 조직에서 클라우드 자산을 관리하는 데 필요한 기본 컨트롤을 배치하는 데 사용할 수 있는 권장 인프라 리소스를 Azure에 배포합니다. 이 샘플은 조직이 Azure를 안전하게 시작할 수 있도록 리소스, 정책 및 템플릿을 배포하고 적용합니다.
 
@@ -43,7 +43,7 @@ CAF Foundation 청사진 샘플은 조직에서 클라우드 자산을 관리하
 > CAF Foundation은 워크로드에 대한 기본 아키텍처를 배치합니다.
 > 이러한 기본 아키텍처 뒤에 워크로드를 배포해야 합니다.
 
-더 자세한 내용은 [Azure에 대한 Microsoft 클라우드 채택 프레임워크 - 준비](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/govern-org-compliance?tabs=AzurePolicy)를 참조하세요.
+더 자세한 내용은 [Azure에 대한 Microsoft 클라우드 채택 프레임워크 - 준비](/azure/cloud-adoption-framework/ready/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

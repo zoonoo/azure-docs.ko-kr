@@ -68,7 +68,7 @@
   items:
     - name: 데이터 탐색 및 모델링 유틸리티(GitHub)
       href: 'https://github.com/Azure/Azure-TDSP-Utilities'
-- name: 교육
+- name: 학습
   items:
     - name: 데이터 과학자용
       href: team-data-science-process-for-data-scientists.md
@@ -130,11 +130,11 @@
               href: parallel-load-sql-partitioned-tables.md
             - name: 온-프레미스 SQL로부터 이동
               href: move-sql-azure-adf.md
-        - name: 데이터를 살펴보고 시각화
+        - name: 데이터 탐색 및 시각화
           items:
             - name: 데이터 준비
               href: prepare-data.md
-            - name: 데이터 탐색
+            - name: 데이터 살펴보기
               items:
                 - name: 개요
                   href: explore-data.md
@@ -144,7 +144,7 @@
                   href: explore-data-sql-server.md
                 - name: Hive 테이블 탐색
                   href: explore-data-hive-tables.md
-            - name: 샘플 데이터
+            - name: 예제 데이터
               items:
                 - name: 개요
                   href: sample-data.md
@@ -193,7 +193,7 @@
 - name: 관련 항목
   items:
     - name: Azure Machine Learning
-      href: ../service/
+      href: ../
     - name: Azure AI 갤러리
       href: 'https://gallery.azure.ai'
     - name: Cortana 분석
@@ -206,7 +206,7 @@
           items:
             - name: 개요
               href: cortana-analytics-playbook-predictive-maintenance.md
-            - name: 아키텍처
+            - name: Architecture
               href: cortana-analytics-architecture-predictive-maintenance.md
             - name: 기술 가이드
               href: cortana-analytics-technical-guide-predictive-maintenance.md

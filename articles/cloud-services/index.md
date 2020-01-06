@@ -2,19 +2,18 @@
 title: Azure Cloud Services 설명서 - 자습서, API 참조 | Microsoft Docs
 description: 자습서, API 참조 및 기타 설명서에서는 Cloud Services를 사용하여 가용성 및 확장이 뛰어난 클라우드 애플리케이션 및 API를 호스트하고 실행하는 방법을 보여 줍니다.
 services: cloud-services
-author: georgewallace
-manager: gwallace
+author: tgore03
 layout: LandingPage
 ms.service: cloud-services
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: gwallace
-ms.openlocfilehash: f30032ff2d7189e45075c74152bb6903128217ad
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.author: tagore
+ms.openlocfilehash: 7265880f6356988d594cb2ea91a080fc45b92029
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609725"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360381"
 ---
 # <a name="cloud-services-documentation"></a>Cloud Services 설명서
 
@@ -97,14 +96,14 @@ Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드
 
 ---
 
-<h2>참고 자료</h2>
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Languages</h3>
+                        <h3>언어</h3>
                         <p><a href="/azure/cloud-services/schema-csdef-file">.csdef XML 스키마</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe 스키마</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole 스키마</a></p>
@@ -131,3 +130,7 @@ Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드
         </div>
     </li>
 </ul>
+
+
+
+

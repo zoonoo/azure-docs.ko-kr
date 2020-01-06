@@ -25,7 +25,7 @@
       href: deploy-trusted-security-partner.md
     - name: 방화벽 정책으로 마이그레이션
       href: migrate-to-policy.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/ext/azure-firewall/network/firewall
@@ -42,11 +42,11 @@
     - name: REST (영문)
       href: /rest/api/firewall
     - name: Azure 리소스 관리자
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:
     - name: 작성자 템플릿
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿

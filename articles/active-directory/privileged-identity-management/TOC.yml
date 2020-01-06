@@ -16,7 +16,7 @@
       href: pim-how-to-require-mfa.md
     - name: 개요 대시보드
       href: pim-resource-roles-overview-dashboards.md
-    - name: 전자 메일 알림
+    - name: 이메일 알림
       href: pim-email-notifications.md
     - name: Microsoft Graph API
       href: pim-apis.md
@@ -45,6 +45,8 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Azure AD 역할 관리
       items:
+        - name: 기능 업데이트
+          href: azure-ad-roles-features.md
         - name: 역할 할당
           href: pim-how-to-add-role-to-user.md
         - name: 요청 승인

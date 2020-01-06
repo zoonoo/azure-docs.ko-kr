@@ -83,6 +83,8 @@
       href: tutorial-connectivity.md
 - name: 개념
   items:
+    - name: TLS 1.2 적용
+      href: tls-1.2-everywhere.md
     - name: 메시지 보강 개요
       href: iot-hub-message-enrichments-overview.md
     - name: 디바이스 관리 개요
@@ -370,7 +372,7 @@
       items:
         - name: 디바이스 연결 끊김
           href: iot-hub-troubleshoot-connectivity.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/iot

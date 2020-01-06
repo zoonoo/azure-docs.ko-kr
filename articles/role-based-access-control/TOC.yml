@@ -94,12 +94,12 @@
       href: classic-administrators.md
     - name: 문제 해결
       href: troubleshooting.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 리소스 공급자 작업
       href: resource-provider-operations.md
     - name: RBAC 제한
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Azure CLI

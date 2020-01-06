@@ -68,11 +68,9 @@
           href: export-model-python.md
     - name: 계정 데이터 내보내기 또는 삭제
       href: ./export-delete-data.md
-    - name: 제한된 평가판 프로젝트를 Azure로 이동
-      href: ./move-your-project-to-azure.md
     - name: 3.0 API로 앱 업데이트
       href: ./update-application-to-3.0-sdk.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Custom Vision 교육 API
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'

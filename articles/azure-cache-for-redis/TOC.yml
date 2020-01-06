@@ -1,5 +1,5 @@
 - name: Azure Cache for Redis 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   items:
     - name: Azure Cache for Redis 소개
@@ -113,7 +113,7 @@
           href: cache-how-to-scale.md
         - name: Redis 클러스터를 이용한 확장/감축
           href: cache-how-to-premium-clustering.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=redis-cache'

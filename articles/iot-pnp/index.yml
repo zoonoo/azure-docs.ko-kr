@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 442b9c5028ef899329912fa9d21ce780437d7970
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: e226dbf20550fc48de38882c364fe57e39a437ca
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73570187"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75429046"
 landingContent:
 - title: IoT 플러그 앤 플레이 정보
   linkLists:
@@ -33,11 +33,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: IoT Hub에 샘플 디바이스 연결
-      url: quickstart-connect-pnp-device.md
+      url: quickstart-connect-pnp-device-c-windows.md
     - text: IoT Central에 샘플 디바이스 연결
       url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - text: 디바이스 기능 모델을 사용하여 디바이스 만들기
-      url: quickstart-create-pnp-device.md
+      url: quickstart-create-pnp-device-windows.md
   - linkListType: tutorial
     links:
     - text: Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트
@@ -61,7 +61,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: 솔루션에 연결된 디바이스와 상호 작용
-      url: quickstart-connect-pnp-device-solution.md
+      url: quickstart-connect-pnp-device-solution-node.md
   - linkListType: concept
     links:
     - text: 모델 검색

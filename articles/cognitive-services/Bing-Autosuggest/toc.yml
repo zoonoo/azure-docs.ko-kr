@@ -22,6 +22,12 @@
       href: quickstarts/python.md
     - name: Ruby
       href: quickstarts/ruby.md
+- name: 클라이언트 라이브러리
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp-sdk.md
+    - name: Go
+      href: quickstarts/go-sdk.md
 - name: 자습서
   items:
     - name: 단일 페이지 웹앱
@@ -36,7 +42,7 @@
       href: concepts/get-suggestions.md
     - name: 요청 보내기
       href: concepts/sending-requests.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Autosuggest API v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference'

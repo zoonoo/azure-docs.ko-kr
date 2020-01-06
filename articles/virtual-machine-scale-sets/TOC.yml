@@ -64,7 +64,7 @@
 - name: 개념
   items:
     - name: Azure 리소스 관리자
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: 영역
       href: ../virtual-machines/windows/regions.md
@@ -286,7 +286,7 @@
         - name: 확장 집합 자동 크기 조정
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview

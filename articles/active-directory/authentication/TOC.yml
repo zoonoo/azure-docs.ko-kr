@@ -49,6 +49,8 @@
           href: concept-mfa-authprovider.md
         - name: 보안 지침
           href: multi-factor-authentication-security-best-practices.md
+        - name: 데이터 상주
+          href: concept-mfa-data-residency.md
         - name: Office 365용 MFA
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
         - name: MFA FAQ
@@ -210,7 +212,7 @@
           href: multi-factor-authentication-faq.md
         - name: NPS 확장
           href: howto-mfa-nps-extension-errors.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: MFA 사용자 가이드
       href: ./end-user/current/multi-factor-authentication-end-user.md

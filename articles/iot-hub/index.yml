@@ -48,6 +48,7 @@ sections:
               - href: /azure/iot-hub/quickstart-send-telemetry-ios
           - title: 디바이스 제어
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-control-device-node
               - href: /azure/iot-hub/quickstart-control-device-dotnet
               - href: /azure/iot-hub/quickstart-control-device-java
@@ -55,6 +56,7 @@ sections:
               - href: /azure/iot-hub/quickstart-control-device-android
           - title: 디바이스 스트림을 사용한 통신(미리 보기)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
               - href: null
@@ -64,6 +66,7 @@ sections:
               - href: null
           - title: 디바이스 스트림을 사용한 SSH/RDP(미리 보기)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
               - href: null
@@ -80,7 +83,7 @@ sections:
           - html: <a href="/azure/iot-hub/tutorial-device-twins">백 엔드 서비스에서 디바이스 구성</a>
           - html: <a href="/azure/iot-hub/tutorial-firmware-update">디바이스 펌웨어 업데이트 프로세스 구현</a>
           - html: <a href="/azure/iot-hub/tutorial-connectivity">시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트</a>
-  - title: 참고 자료
+  - title: 참조
     items:
       - type: list
         style: cards
