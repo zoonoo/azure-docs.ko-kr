@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 527ab905997d18433d1dba5c16ee67c8146f5afa
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 90995b1c9d10c7b589706f5abf37f92d76e4362b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126459"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560354"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Azure Files에서 사용하기 위한 Windows의 P2S(지점 및 사이트 간) VPN 구성
 P2S(지점 및 사이트 간) VPN 연결을 사용하여 포트 445을 열지 않고 Azure 외부에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 지점 및 사이트 간 VPN 연결은 Azure와 개별 클라이언트 간의 VPN 연결입니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. 온-프레미스 네트워크에서 Azure 파일 공유에 연결해야 하는 클라이언트가 많은 경우에는 각 클라이언트에 대해 지점 및 사이트 간 연결 대신 S2S(사이트 간) VPN 연결을 사용할 수 있습니다. 자세한 내용은 [Azure Files에서 사용하기 위한 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
@@ -21,7 +21,7 @@ Azure Files에 사용할 수 있는 네트워킹 옵션에 대해 자세히 알�
 
 이 문서에서는 Azure 파일 공유를 온-프레미스에 직접 탑재하도록 Windows(Windows 클라이언트 및 Windows Server)에서 지점 및 사이트 간 VPN을 구성하는 단계를 자세히 설명합니다. VPN을 통해 Azure 파일 동기화 트래픽을 라우팅하는 경우 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](storage-sync-files-firewall-and-proxy.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 - 최신 버전의 Azure PowerShell 모듈. Azure PowerShell을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하고 해당 운영 체제를 선택합니다. Windows에서 Azure CLI를 사용하고 싶은 분들은 그렇게 해도 되지만, 아래 지침은 Azure PowerShell에 대한 지침입니다.
 
 - Azure 프라이빗 DNS PowerShell 모듈. 이 모듈은 현재 Azure PowerShell 모듈의 일부로 배포되지 않으므로, 다음 메서드를 사용하여 설치할 수 있습니다.
@@ -161,7 +161,7 @@ foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
         $recordName = $fqdn.split('.', 2)[0]
         $dnsZone = $fqdn.split('.', 2)[1]
         New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName ` 
+            -ResourceGroupName $resourceGroupName `
             -Name $recordName `
             -RecordType A `
             -ZoneName $zone.Name `

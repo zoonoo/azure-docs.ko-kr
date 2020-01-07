@@ -4,22 +4,22 @@ description: Log Analytics를 사용하여 Log Analytics 에이전트 VM 확장�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: quickstart
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 84b076cf92c57f3cd912a6c4b401a5ef81f8557b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: cec27a2e16489850824d5b662b6bda4b23b1fa99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398915"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신에서 데이터 수집
 
 [Azure Monitor](../overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure 가상 머신 데이터를 Log Analytics 작업 영역으로 직접 수집할 수 있습니다. [Windows](../../virtual-machines/extensions/oms-windows.md) 및 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장을 설치하면 Azure Monitor에서 Azure VM 데이터를 수집할 수 있습니다. 이 빠른 시작에서는 VM 확장을 사용하여 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 몇 가지 간단한 단계로 보여줍니다.  
  
-또한 기존 Azure Virtual Machine이 있다고 가정합니다. 그렇지 않은 경우 VM 빠른 시작 가이드에 따라 [Windows VM을 만들거나](../../virtual-machines/windows/quick-create-portal.md) [Linux VM을 만들 수 있습니다](../../virtual-machines/linux/quick-create-cli.md).
+또한 기존 Azure Virtual Machine이 있다고 가정합니다. 그렇지 않은 경우 VM 빠른 시작 가이드에 따라 [Windows VM을 만들거나](../../virtual-machines/windows/quick-create-portal.md)[Linux VM을 만들 수 있습니다](../../virtual-machines/linux/quick-create-cli.md).
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 

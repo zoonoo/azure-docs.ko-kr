@@ -1,14 +1,14 @@
 ---
 title: Blueprint 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 11/22/2019
+ms.date: 12/05/2019
 ms.topic: sample
-ms.openlocfilehash: ea8759db0fde7d6686acd3c58006be3f59adf6fd
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: a0be956037f6b1ee5229ecde7b1491f552113866
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436573"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -21,6 +21,7 @@ ms.locfileid: "74404123"
 | [캐나다 연방 PBMM](./canada-federal-pbmm/index.md) | Canada Federal Protected B, 중간 무결성, 중간 가용성(PBMM) 규정 준수를 위한 가드레일을 제공합니다. |
 | [CIS Microsoft Azure Foundations 벤치마크](./cis-azure-1.1.0/index.md)| CIS Microsoft Azure Foundations 벤치마크 권장 사항을 준수하는 데 도움이 되는 일련의 정책을 제공합니다. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | FedRAMP Moderate를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
+| [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | HIPAA HITRUST를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [IRS 1075](./irs-1075/index.md) | IRS 1075 규정을 준수하기 위한 가드 레일을 제공합니다.|
 | [ISO 27001](./iso27001/index.md) | ISO 27001 규정 준수를 위한 가드레일을 제공합니다. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | ISO 27001 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |

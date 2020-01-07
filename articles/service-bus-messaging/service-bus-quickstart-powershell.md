@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure PowerShell을 사용하여 Service Bus 큐 만들기 | Microsoft Docs
+title: Azure PowerShell을 사용하여 Service Bus 큐 만들기
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Service Bus큐를 만드는 방법을 배웁니다. 그런 다음, 애플리케이션 샘플을 사용하여 큐에서 메시지를 보내고 받습니다.
 services: service-bus-messaging
 author: spelluru
@@ -8,14 +8,14 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 80cef3efd65a3f68dba1856a892a9a120f7d95cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426944"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>빠른 시작: Azure PowerShell을 사용하여 Service Bus 큐 만들기
 이 빠른 시작에서는 PowerShell을 사용하여 메시징 네임스페이스 및 해당 네임스페이스 내에 큐를 만들고 네임스페이스에서 권한 부여 자격 증명을 얻은 다음, Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다. 그런 다음, [.NET 표준 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)를 사용하여 이 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.
@@ -25,11 +25,11 @@ ms.locfileid: "65990293"
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만듭니다. 
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만듭니다. 
 - [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상 Visual Studio를 사용하여 큐로 메시지를 보내고 큐에서 메시지를 받는 샘플을 빌드합니다. 이 샘플은 포털에서 만든 큐를 테스트하는 것입니다. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
@@ -256,7 +256,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 ```
 
 > [!NOTE]
-> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, 알림 허브 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

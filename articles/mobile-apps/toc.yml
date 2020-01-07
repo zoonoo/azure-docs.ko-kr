@@ -18,13 +18,13 @@
           href: azure-storage.md
         - name: 실시간 앱
           href: real-time.md
-    - name: 소스 제어
+    - name: 원본 제어
       href: code-hosting-services.md
     - name: DevOps
       items:
         - name: DevOps란?
           href: devops.md
-        - name: 업데이트 빌드 및 통합
+        - name: 연속 빌드 및 통합
           href: continuous-integration.md
         - name: 실제 디바이스에서 테스트
           href: test.md
@@ -32,7 +32,7 @@
           href: continuous-delivery.md
     - name: 사용량 및 사용자 동작 분석
       href: analytics.md
-    - name: 실시간 크래시 보고
+    - name: 실시간 오류 보고
       href: diagnostics.md
     - name: 푸시 알림
       href: push-notifications.md
@@ -42,7 +42,7 @@
       href: cognitive-services.md
     - name: Azure Maps
       href: azure-maps.md
-    - name: Azure CDN
+    - name: Azure Content Delivery Network
       href: azure-cdn.md
     - name: Azure Cognitive Search
       href: azure-search.md

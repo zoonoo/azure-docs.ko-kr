@@ -3,17 +3,17 @@ title: Azure Stream Analytics의 개요
 description: IoT(사물 인터넷)의 스트리밍 데이터를 실시간으로 분석하도록 도와주는 관리 서비스인 Stream Analytics에 대해 알아봅니다.
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 0982cc90d26c9f04e8d547c7d634e09280d7fca2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3399cc47af20df05d6315a4bd77965f799eaf5f9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426178"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Stream Analytics란?
 
@@ -31,7 +31,7 @@ Azure Stream Analytics는 여러 원본에서 대량의 빠른 스트리밍 데�
 
 Azure Stream Analytics 작업은 입력, 쿼리 및 출력으로 구성됩니다. Stream Analytics는 Azure Event Hubs, Azure IoT Hub 또는 Azure Blob Storage에서 데이터를 수집합니다. SQL 쿼리 언어를 기반으로 하는 쿼리는 일정 기간 동안 스트리밍 데이터를 쉽게 필터링, 정렬, 집계 및 조인하는 데 사용될 수 있습니다. 또한 JavaScript 및 C# UDF(사용자 정의 기능)를 사용하여 이 SQL 언어를 확장할 수 있습니다. 간단한 언어 구성 및/또는 구성을 통해 집계 작업을 수행할 때 이벤트 순서 지정 옵션 및 시간 범위 기간을 손쉽게 조정할 수 있습니다.
 
-각 작업에는 변환된 데이터에 대한 출력이 있으며, 분석한 정보에 대한 응답으로 수행되는 작업을 제어 할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
+각 작업에는 변환된 데이터에 대한 출력이 있으며, 분석한 정보에 대한 응답으로 수행되는 작업을 제어 할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
 
 * Azure Functions, Service Bus 항목 또는 큐와 같은 서비스에 데이터를 보내 통신을 트리거하거나 워크플로 다운스트림을 사용자 지정합니다.
 * 실시간 대시보드를 위해 Power BI 대시보드로 데이터를 전송합니다.

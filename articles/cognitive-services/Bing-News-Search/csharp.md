@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 427cf87a8907482ae5346372c2997ce6e01084d0
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: e6911c51ecfe1c8f6924bf403e9ad00e14558a09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027106"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448472"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>빠른 시작: C# 및 Bing News Search REST API를 사용하여 뉴스 검색
 
@@ -24,15 +24,13 @@ ms.locfileid: "73027106"
 
 이 애플리케이션은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
-
-[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
@@ -46,7 +44,7 @@ ms.locfileid: "73027106"
     using System.Collections.Generic;
     ```
 
-2. API 엔드포인트, 구독 키 및 검색 용어에 대한 변수를 만듭니다.
+2. API 엔드포인트, 구독 키 및 검색 용어에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```csharp
     const string accessKey = "enter key here";
@@ -108,7 +106,7 @@ ms.locfileid: "73027106"
 
 ## <a name="process-the-response"></a>응답 처리
 
-1. 주 메서드에서 `BingNewsSearch()`를 호출하고 반환된 응답을 저장합니다. 그런 다음, JSON을 개체로 deserialize합니다. 그런 다음, 응답 값을 볼 수 있습니다.
+1. 주 메서드에서 `BingNewsSearch()`를 호출하고 반환된 응답을 저장합니다. 그런 다음, JSON을 개체로 역직렬화합니다. 그런 다음, 응답 값을 볼 수 있습니다.
 
     ```csharp
     SearchResult result = BingNewsSearch(searchTerm);

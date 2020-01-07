@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 70ecc5dc95aced3eb901f24910339eb059ba0c17
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d56b81dbe8c78b9b48f122d79f4567d0b0f42e27
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398527"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -28,7 +28,7 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
 > * 잘못된 코드를 수정하도록 새 작업 항목 만들기
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

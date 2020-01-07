@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 494ef8b76f9767b43e5e1d739c47933ee0f3c40d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 676427ca2985de51767939891b41f413446d4bb1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383561"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446576"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>빠른 시작: Bing Visual Search SDK for Node.js를 사용하여 이미지 인사이트 가져오기
 
 이 빠른 시작의 안내에 따라 Node.js SDK를 사용하여 Bing Visual Search 서비스에서 이미지 인사이트 가져오기를 시작하세요. Bing Visual Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있지만 SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js)에서 확인할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * [Node.JS](https://www.nodejs.org/)
 * Bing Visual Search SDK for Node.js
     * Bing Visual Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면 다음 명령을 실행합니다.
         1. `npm install ms-rest-azure`
-        2. `npm install azure-cognitiveservices-search-visualSearch`.
+        2. `npm install azure-cognitiveservices-search-visualSearch`입니다.
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 

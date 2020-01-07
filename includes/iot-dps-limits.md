@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: fb77682bce0d9faef8f9ac8197afd8751560d515
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a306a05899a644f2ee8ea738789b84ee98221531
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392360"
 ---
 다음 표에는 Azure IoT Hub Device Provisioning Service 리소스에 적용되는 제한이 나열되어 있습니다.
 
@@ -22,10 +22,6 @@ ms.locfileid: "74224562"
 | 최대 CA 수 | 25 |
 | 연결된 최대 IoT 허브 수 | 50 |
 | 최대 메시지 크기 | 96KB|
-
-
-> [!NOTE]
-> 구독의 인스턴스 수를 늘리려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 > [!NOTE]
 > 프로비저닝 서비스의 등록 수를 늘리려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.

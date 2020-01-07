@@ -3,6 +3,12 @@
 - name: Azure 청구 이해
   expanded: true
   items:
+    - name: 청구 계정 및 범위
+      href: billing-view-all-accounts.md
+    - name: Microsoft 고객 계약에 대한 청구 계정
+      href: billing-mca-overview.md
+    - name: Microsoft 파트너 계약에 대한 청구 계정
+      href: mpa-overview.md
     - name: 요금 청구 방식
       href: billing-understand-your-bill.md
     - name: 요금 청구 방식 - Microsoft 고객 계약
@@ -29,10 +35,6 @@
       href: billing-mpa-invoice-terms-explained.md
     - name: 청구서 지불 방법 - Microsoft 고객 계약
       href: billing-how-to-pay-bill.md
-    - name: Microsoft 고객 계약에 대한 청구 계정
-      href: billing-mca-overview.md
-    - name: Microsoft 파트너 계약에 대한 청구 계정
-      href: mpa-overview.md
 - name: 비용 관리
   items:
     - name: 예기치 않은 비용 방지
@@ -147,8 +149,6 @@
       href: billing-understand-mca-roles.md
     - name: 파트너 ID 연결
       href: billing-partner-admin-link-started.md
-    - name: 청구 계정 보기
-      href: billing-view-all-accounts.md
     - name: 청구서 섹션으로 비용 구성
       href: billing-mca-section-invoice.md
     - name: Microsoft 고객 계약의 EA 작업
@@ -161,7 +161,7 @@
           href: billing-understand-your-bill-ea.md
         - name: Azure의 EA 역할
           href: billing-understand-ea-roles.md
-        - name: Azure EA 포털 관리
+        - name: Azure EA Portal 관리
           href: billing-ea-portal-administration.md
         - name: Azure EA 계약 및 수정안
           href: billing-ea-portal-agreements.md
@@ -171,7 +171,7 @@
           href: billing-ea-portal-rest-apis.md
         - name: Azure EA VM 예약 인스턴스
           href: billing-ea-portal-vm-reservations.md
-        - name: Azure EA 포털 액세스 문제 해결
+        - name: Azure EA Portal 액세스 문제 해결
           href: billing-ea-portal-troubleshoot.md
         - name: Microsoft 고객 계약의 EA 작업
           href: billing-mca-enterprise-operations.md
@@ -216,7 +216,7 @@
     - name: Azure AD 테넌트 연결
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: 한도 및 할당량
-      href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: 문제 해결
   items:
     - name: 구독을 찾을 수 없음
@@ -251,7 +251,7 @@
           href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
         - name: RateCard API 코드 샘플
           href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: 참고 자료
+- name: 참조
   items:
     - name: 청구 자동화 시나리오
       href: billing-cost-management-automation-scenarios.md

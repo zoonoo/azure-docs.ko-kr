@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: ac77f0b6a1d90fd78db64618c1e03ade198a67c0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0a228f6d8b4f72acd3783f27bf192fe6bd13f988
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882124"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392134"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Azure SignalR Service 인스턴스 만들기
 
@@ -26,12 +26,12 @@ ms.locfileid: "68882124"
 
 1. 다음 설정을 입력합니다.
 
-    | 설정      | 제안 값  | 설명                                        |
+    | 설정      | 제안 값  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **리소스 이름** | 전역적으로 고유한 이름 | 새 SignalR Service 인스턴스를 식별하는 이름입니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다.  | 
     | **구독** | 사용자의 구독 | 이 새 SignalR Service 인스턴스가 생성되는 구독입니다. | 
-    | **[리소스 그룹](../../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | SignalR Service 인스턴스를 만들 새 리소스 그룹의 이름입니다. | 
-    | **위치**: | 미국 서부 | 근처 [지역](https://azure.microsoft.com/regions/)을 선택하세요. |
+    | **[리소스 그룹](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | SignalR Service 인스턴스를 만들 새 리소스 그룹의 이름입니다. | 
+    | **위치** | 미국 서부 | 근처 [지역](https://azure.microsoft.com/regions/)을 선택하세요. |
     | **가격 책정 계층** | 무료 | Azure SignalR Service를 체험해 보세요. |
     | **단위 수** |  해당 없음 | 단위 수는 SignalR Service 인스턴스가 허용할 수 있는 연결 수를 지정합니다. 표준 계층에서만 구성할 수 있습니다. |
     | **서비스 모드** |  서버를 사용하지 않음 | Azure Functions 또는 REST API와 함께 사용합니다. |

@@ -4,12 +4,12 @@ description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7bf079f84978539735f3bbf5bb13b18130871fb1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484386"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551491"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
@@ -19,7 +19,7 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 
 이 자습서에서는 Azure Functions 핵심 도구를 사용하여 사용자 지정 Linux 이미지에서 함수를 만드는 방법을 안내합니다. Azure CLI를 사용하여, 만든 이미지를 Azure에서 함수 앱에 게시합니다. 나중에 Azure Queue storage에 연결하도록 함수를 업데이트합니다. 또한 다음을 설정합니다.  
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 핵심 도구를 사용하여 함수 앱과 Dockerfile을 만듭니다.
@@ -35,9 +35,9 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 
 다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 샘플을 실행하기 전에 다음이 있어야 합니다.
+이 샘플을 실행하기 전에 다음 사항이 준비되어야 합니다.
 
 * [Azure Core Tools 버전 2.x](functions-run-local.md#v2)를 설치합니다.
 
@@ -175,8 +175,7 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings AzureWebJobsDashboard=$storageConnectionString \
-AzureWebJobsStorage=$storageConnectionString
+--settings AzureWebJobsStorage=$storageConnectionString
 ```
 
 > [!NOTE]
