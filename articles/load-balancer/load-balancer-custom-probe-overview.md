@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077067"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690398"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
-Azure Load Balancer에서 부하 분산 규칙을 사용 하는 경우 Load Balancer에서 백 엔드 끝점 상태를 검색할 수 있도록 상태 프로브를 지정 해야 합니다.  상태 프로브 및 프로브 응답의 구성에 따라 새 흐름을 수신할 백 엔드 풀 인스턴스가 결정 됩니다. 상태 프로브를 사용 하 여 백 엔드 끝점에서 응용 프로그램의 오류를 검색할 수 있습니다. 또한 상태 프로브에 대한 사용자 지정 응답을 생성하고 흐름 제어를 위해 상태 프로브를 사용하여 부하 또는 계획된 가동 중지 시간을 관리할 수 있습니다. 상태 프로브가 실패 하면 Load Balancer는 해당 비정상 인스턴스에 대 한 새 흐름 전송을 중지 합니다.
+Azure Load Balancer에서 부하 분산 규칙을 사용 하는 경우 Load Balancer에서 백 엔드 끝점 상태를 검색할 수 있도록 상태 프로브를 지정 해야 합니다.  상태 프로브 및 프로브 응답의 구성에 따라 새 흐름을 수신할 백 엔드 풀 인스턴스가 결정 됩니다. 상태 프로브를 사용 하 여 백 엔드 끝점에서 응용 프로그램의 오류를 검색할 수 있습니다. 또한 상태 프로브에 대한 사용자 지정 응답을 생성하고 흐름 제어를 위해 상태 프로브를 사용하여 부하 또는 계획된 가동 중지 시간을 관리할 수 있습니다. 상태 프로브가 실패 하면 Load Balancer는 해당 비정상 인스턴스에 대 한 새 흐름 전송을 중지 합니다. 아웃 바운드 연결에는 영향을 주지 않으며 인바운드 연결만 영향을 받습니다.
 
 상태 프로브는 여러 프로토콜을 지원합니다. 특정 상태 프로브 프로토콜의 가용성은 SKU Load Balancer 따라 다릅니다.  또한이 표에 표시 된 것 처럼 Load Balancer SKU에 따라 서비스의 동작이 달라 집니다.
 
@@ -49,8 +49,8 @@ Azure Load Balancer에서 부하 분산 규칙을 사용 하는 경우 Load Bala
 - 프로브 포트
 - Http (S) 프로브를 사용할 때 HTTP GET에 사용할 HTTP 경로입니다.
 
-> [!NOTE]
-> Azure PowerShell, Azure CLI, 템플릿 또는 API를 사용 하는 경우 프로브 정의가 필수가 아니거나 확인 되지 않습니다. 프로브 유효성 검사 테스트는 Azure Portal을 사용 하는 경우에만 수행 됩니다.
+>[!NOTE]
+>Azure PowerShell, Azure CLI, 템플릿 또는 API를 사용 하는 경우 프로브 정의가 필수가 아니거나 확인 되지 않습니다. 프로브 유효성 검사 테스트는 Azure Portal을 사용 하는 경우에만 수행 됩니다.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>응용 프로그램 신호 이해, 신호 검색 및 플랫폼 반응 이해
 
@@ -112,7 +112,7 @@ TCP 프로브가 실패하는 경우는 다음과 같습니다.
       },
 ```
 
-### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP/HTTPS 프로브
+### <a name="httpprobe"></a><a name="httpsprobe"></a> HTTP/HTTPS 프로브
 
 >[!NOTE]
 >HTTPS 프로브는 [표준 Load Balancer](load-balancer-standard-overview.md)에만 제공됩니다.
@@ -120,6 +120,9 @@ TCP 프로브가 실패하는 경우는 다음과 같습니다.
 HTTP 및 HTTPS 프로브는 TCP 프로브에서 구축되고, 지정된 경로가 포함된 HTTP GET을 실행합니다. 두 프로브 모두 HTTP GET에 대한 상대 경로를 지원합니다. HTTPS 프로브는 TLS(전송 계층 보안, SSL이라고도 함)가 추가되었다는 점을 제외하면 HTTP 프로브와 동일합니다. 인스턴스에서 제한 시간 내에 200 HTTP 상태로 응답하면 상태 프로브가 표시됩니다.  이 상태 프로브는 기본적으로 구성된 상태 프로브 포트를 15초마다 확인하려고 합니다. 최소 프로브 간격은 5초입니다. 모든 간격의 총 지속 시간은 120초를 초과할 수 없습니다.
 
 HTTP/HTTPS 프로브는 프로브 포트가 서비스 자체의 수신기 이기도 한 경우 부하 분산 장치 순환에서 인스턴스를 제거 하는 사용자 고유의 논리를 구현 하는 데 유용할 수도 있습니다. 예를 들어 CPU 백분율이 90%를 초과하고 200 이외의 HTTP 상태를 반환하는 경우 인스턴스를 제거하도록 결정할 수 있습니다. 
+
+> [!NOTE] 
+> HTTPS 프로브를 사용 하려면 전체 체인에서 SHA256의 최소 서명 해시가 있는 인증서를 사용 해야 합니다.
 
 Cloud Services를 사용하고 w3wp.exe를 사용하는 웹 역할이 있는 경우 웹 사이트의 자동 모니터링도 수행할 수 있습니다. 웹 사이트 코드에서 실패하면 부하 분산 장치 프로브로 200이 아닌 상태를 반환합니다.
 
@@ -224,13 +227,13 @@ AzureLoadBalancer 서비스 태그는 [네트워크 보안 그룹](../virtual-ne
 
 UDP 부하 분산의 경우, 백 엔드 끝점에서 사용자 지정 상태 프로브 신호를 생성 하 고 해당 수신기를 대상으로 하는 TCP, HTTP 또는 HTTPS 상태 프로브를 사용 하 여 UDP 응용 프로그램의 상태를 반영 해야 합니다.
 
-[표준 Load Balancer](load-balancer-ha-ports-overview.md)와 함께 [HA 포트 부하 분산 규칙](load-balancer-standard-overview.md)을 사용하면, 모든 포트의 부하가 분산되고 단일 상태 프로브 응답에는 전체 인스턴스의 상태가 반영되어야 합니다.
+[표준 Load Balancer](load-balancer-standard-overview.md)와 함께 [HA 포트 부하 분산 규칙](load-balancer-ha-ports-overview.md)을 사용하면, 모든 포트의 부하가 분산되고 단일 상태 프로브 응답에는 전체 인스턴스의 상태가 반영되어야 합니다.
 
 이 구성을 사용할 경우 시나리오에서 연속 오류로 이어질 수 있으므로 VNet의 다른 인스턴스로 상태 프로브를 받는 인스턴스를 통해 상태 프로브를 변환하거나 프록시하지 않아야 합니다.  타사 어플라이언스 세트가 Load Balancer 리소스의 백 엔드 풀에 배포되어 어플라이언스에 대한 확장 및 중복성을 제공하고, 타사 어플라이언스가 어플라이언스 뒤에 있는 다른 가상 머신으로 프록시 또는 변환하는 포트를 프로브하도록 상태 프로브가 구성되어 있다고 가정합니다.  사용 중인 동일한 포트를 프로브하여 요청을 변환하거나 어플라이언스 뒤의 다른 가상 머신으로 프록시하려는 경우, 어플라이언스 뒤의 단일 가상 머신에서 어떤 프로브 응답이 발생하더라도 어플라이언스 자체는 중단 상태로 표시됩니다. 이 구성을 통해 전체 응용 프로그램 시나리오에 대 한 단일 백엔드 끝점의 결과로 전체 응용 프로그램 시나리오의 연계 오류가 발생할 수 있습니다.  간헐적 프로브 실패는 Load Balancer가 원래 대상(어플라이언스 인스턴스)을 작동 중단으로 표시하도록 하고, 전체 애플리케이션 시나리오를 비활성화하도록 하는 트리거로 작용할 수 있습니다. 대신 어플라이언스 자체의 상태를 프로브합니다. 상태 신호를 판별하기 위한 프로브는 NVA(네트워크 가상 어플라이언스) 시나리오에서 중요한 고려 사항이며, 이러한 시나리오에 적합한 상태 신호는 애플리케이션 공급업체에 문의해야 합니다.
 
 방화벽 정책에서 프로브의 [원본 IP](#probesource)를 허용하지 않으면 인스턴스에 연결할 수 없으므로 상태 프로브가 실패하게 됩니다.  차례로 상태 프로브 실패로 인해 Load Balancer에서 인스턴스를 표시합니다.  이 잘못된 구성으로 인해 부하 분산된 애플리케이션 시나리오가 실패할 수 있습니다.
 
-Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 Azure **네트워크 보안 그룹** 및 로컬 방화벽 정책에서 이 IP 주소를 [허용해야 합니다](../virtual-network/security-overview.md).  기본적으로, 모든 네트워크 보안 그룹은 상태 프로브 트래픽을 허용하기 위해 [서비스 태그](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer를 포함합니다.
+Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 Azure [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 로컬 방화벽 정책에서 이 IP 주소를 **허용해야 합니다**.  기본적으로, 모든 네트워크 보안 그룹은 상태 프로브 트래픽을 허용하기 위해 [서비스 태그](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer를 포함합니다.
 
 상태 프로브 실패를 테스트하거나 개별 인스턴스를 표시하려는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 상태 프로브(대상 포트 또는 [원본 IP](#probesource))를 명시적으로 차단하고 프로브 실패를 시뮬레이트할 수 있습니다.
 

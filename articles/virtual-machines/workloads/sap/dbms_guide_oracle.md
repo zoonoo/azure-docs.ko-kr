@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099978"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645847"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -77,8 +77,8 @@ ms.locfileid: "70099978"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "70099978"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "70099978"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -352,12 +352,12 @@ SAP 설치 설명서에 따라 모든 Oracle 관련 파일을 VM의 OS 디스크
 
 tempfiles를 위한 적절한 양의 공간 크기를 결정하려면 기존 시스템의 tempfiles 크기를 확인할 수 있습니다.
 
-### <a name="storage-configuration"></a>Storage 구성
+### <a name="storage-configuration"></a>스토리지 구성
 NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 또는 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 기준으로 합니다. 
 
 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
 
-네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은
+네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음을 참조하세요.
 
 - [Microsoft Azure 파일 서비스 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -372,12 +372,12 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 최소 구성은 다음과 같습니다. 
 
-| 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
+| 구성 요소 | Disk | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
-| \oracle\<SID>\origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
-| \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch | 표준 | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaA & mirrlogB | 프리미엄 | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaB & mirrlogA | 프리미엄 | 없음 | 필요하지 않음 |
+| \oracle\<SID>\sapdata1...n | 프리미엄 | 읽기 전용 | 사용할 수 있음 |
+| \oracle\<SID>\oraarch | Standard | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 
@@ -385,15 +385,15 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 성능 구성은 다음과 같습니다.
 
-| 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
+| 구성 요소 | Disk | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Premium | 없음 | 사용할 수 있음  |
-| \oracle\<SID>\origlogaB | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogAB | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogBA | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 권장  |
-| \oracle\SID\sapdata(n+1)* | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch* | Premium | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaA | 프리미엄 | 없음 | 사용할 수 있음  |
+| \oracle\<SID>\origlogaB | 프리미엄 | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogAB | 프리미엄 | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogBA | 프리미엄 | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\sapdata1...n | 프리미엄 | 읽기 전용 | 권장  |
+| \oracle\SID\sapdata(n+1)* | 프리미엄 | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\oraarch* | 프리미엄 | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *(n+1): SYSTEM, TEMP 및 UNDO 테이블스페이스를 호스트합니다. I/O 패턴의 시스템 및 Undo 테이블스페이스는 애플리케이션 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
@@ -440,7 +440,7 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 이 경우에는 Oracle 홈, 단계, saptrace, saparch, sapbackup, sapcheck 또는 sapreorg를 부팅 디스크에 설치/배치하는 것이 좋습니다. Oracle DBMS 구성 요소의 이러한 부분은 I/O 및 I/O 처리량에 무리는 아닙니다. 따라서 OS 디스크는 I/O 요구 사항을 처리할 수 있습니다. OS 디스크의 기본 크기는 30GB입니다. Azure Portal, PowerShell 또는 CLI를 통해 부팅 디스크를 확장할 수 있습니다. 부팅 디스크를 확장한 후 Oracle 이진 파일에 대한 추가 파티션을 추가할 수 있습니다.
 
 
-### <a name="storage-configuration"></a>Storage 구성
+### <a name="storage-configuration"></a>스토리지 구성
 
 ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 기준으로 합니다.
 
@@ -448,7 +448,7 @@ Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](https://docs.microsof
 
 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [Azure 프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
 
-네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음 항목을 참조하세요. 
+네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 
 
 - [Microsoft Azure 파일 서비스 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -462,12 +462,12 @@ Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 �
 
 최소 구성
 
-| 구성 요소 | 디스크 | 캐싱 | 제거* |
+| 구성 요소 | Disk | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID >/origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
-| /oracle/\<SID >/origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
-| /oracle/\<SID >/sapdata1... 개의 | Premium | 읽기 전용 | 사용할 수 있음 |
-| /oracle/\<SID >/oraarch | 표준 | 없음 | 필요하지 않음 |
+| /oracle/\<SID >/origlogaA & mirrlogB | 프리미엄 | 없음 | 필요하지 않음 |
+| /oracle/\<SID >/origlogaB & mirrlogA | 프리미엄 | 없음 | 필요하지 않음 |
+| /oracle/\<SID >/sapdata1... 개의 | 프리미엄 | 읽기 전용 | 사용할 수 있음 |
+| /oracle/\<SID >/oraarch | Standard | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
@@ -476,15 +476,15 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 성능 구성
 
-| 구성 요소 | 디스크 | 캐싱 | 제거* |
+| 구성 요소 | Disk | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID >/origlogaA | Premium | 없음 | 사용할 수 있음  |
-| /oracle/\<SID>/origlogaB | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogAB | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogBA | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID >/sapdata1... 개의 | Premium | 읽기 전용 | 권장  |
-| /oracle/\<SID > 형식이 며/sapdata (n + 1) * | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/oraarch* | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID >/origlogaA | 프리미엄 | 없음 | 사용할 수 있음  |
+| /oracle/\<SID>/origlogaB | 프리미엄 | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogAB | 프리미엄 | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogBA | 프리미엄 | 없음 | 사용할 수 있음 |
+| /oracle/\<SID >/sapdata1... 개의 | 프리미엄 | 읽기 전용 | 권장  |
+| /oracle/\<SID > 형식이 며/sapdata (n + 1) * | 프리미엄 | 없음 | 사용할 수 있음 |
+| /oracle/\<SID>/oraarch* | 프리미엄 | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM

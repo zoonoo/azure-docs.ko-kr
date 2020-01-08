@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996647"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658341"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -25,7 +25,7 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크 및 전용 서브넷
 
@@ -48,7 +48,7 @@ Application Gateway는 인스턴스당 1 개의 개인 IP 주소를 사용 하 �
 
 NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다. 하지만 다음과 같은 몇 가지 제한 사항이 있습니다.
 
-- Application Gateway v1 SKU에 대해 TCP 포트 65503-65534에서 들어오는 인터넷 트래픽을 허용 하 고, 대상 서브넷 *이 있는 V2*sku의 경우 tcp 포트 65200-65535를 허용 해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 이러한 게이트웨이의 고객을 포함 한 외부 엔터티는 적절 한 인증서를 사용 하지 않고 해당 끝점에 대 한 변경 내용을 초기화할 수 없습니다.
+- Application Gateway v1 SKU에 대 한 TCP 포트 65503-65534에서 들어오는 인터넷 트래픽을 허용 하 고, 대상 서브넷 **이 있는 V2** sku에 대 한 tcp 포트 65200-65535 및 원본을 **gmanager** 서비스 태그로 허용 해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 이러한 끝점에서는 외부 엔터티 (해당 게이트웨이의 고객 포함)를 통신할 수 없습니다.
 
 - 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙은 인터넷 연결을 허용 합니다. 다음을 수행하는 것이 좋습니다.
 
@@ -57,12 +57,12 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 
 - **Azureloadbalancer** 태그의 트래픽이 허용 되어야 합니다.
 
-##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>몇 가지 원본 Ip에 Application Gateway 액세스 허용
+#### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>몇 가지 원본 Ip에 Application Gateway 액세스 허용
 
 이 시나리오에서는 Application Gateway 서브넷에 NSGs를 사용 합니다. 이 우선 순위에 따라 서브넷에 다음과 같은 제한 사항을 적용 합니다.
 
-1. 원본 IP 또는 IP 범위 및 대상에서 전체 Application Gateway 서브넷 또는 구성 된 특정 개인 프런트 엔드 IP로 들어오는 트래픽을 허용 합니다. NSG는 공용 IP에서 작동 하지 않습니다.
-2. 모든 원본에서 Application Gateway v1 SKU에 대 한 포트 65503-65534, [백 엔드 상태 통신용](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)v2 sku에 대 한 포트 65200-65535에 대 한 들어오는 요청을 허용 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 적절 한 인증서가 없는 경우 외부 엔터티는 해당 끝점에 대 한 변경 내용을 초기화할 수 없습니다.
+1. 인바운드 액세스 포트 (예: HTTP 액세스용 포트 80)로 전체 Application Gateway 서브넷 주소 범위 및 대상 포트를 대상으로 하는 원본 IP 또는 IP 범위에서 들어오는 트래픽을 허용 합니다.
+2. 원본에서 **Gmanager** 서비스 태그 및 **destination으로 들어오는** 요청을 Application Gateway v1 sku의 경우 65503-65534로, [백 엔드 상태 통신](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)의 경우 포트 65200-65535을 사용 하도록 허용 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 적절 한 인증서가 없는 경우 외부 엔터티는 해당 끝점에 대 한 변경 내용을 초기화할 수 없습니다.
 3. [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)에서 들어오는 Azure Load Balancer 프로브 (*azureloadbalancer* 태그) 및 인바운드 가상 네트워크 트래픽 (*VirtualNetwork* 태그)을 허용 합니다.
 4. 모든 수신 트래픽 거부 규칙을 사용 하 여 차단 합니다.
 5. 모든 대상에 대해 인터넷으로의 아웃바운드 트래픽을 허용합니다.
@@ -74,10 +74,10 @@ V1 SKU의 경우 UDRs (사용자 정의 경로)는 종단 간 요청/응답 통�
 V2 SKU의 경우 Application Gateway 서브넷에서 UDRs가 지원 되지 않습니다. 자세한 내용은 [Azure 애플리케이션 Gateway V2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku)를 참조 하세요.
 
 > [!NOTE]
-> UDRs는 v2 SKU에 대해 지원 되지 않습니다.  UDRs가 필요한 경우에는 v1 SKU를 계속 배포 해야 합니다.
+> 지금은 v2 SKU에 대해 UDRs가 지원 되지 않습니다.
 
 > [!NOTE]
-> Application Gateway 서브넷에서 UDRs를 사용 하면 [백 엔드 상태 보기](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) 의 상태가 "알 수 없음"으로 표시 됩니다. 또한 Application Gateway 로그 및 메트릭이 생성 되지 않습니다. 백 엔드 상태, 로그 및 메트릭을 볼 수 있도록 Application Gateway 서브넷에서 UDRs를 사용 하지 않는 것이 좋습니다.
+> Application Gateway 서브넷에서 UDRs를 사용 하면 [백 엔드 상태 보기](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) 의 상태가 "알 수 없음"으로 표시 될 수 있습니다. 이로 인해 Application Gateway 로그 및 메트릭이 생성 되지 않을 수도 있습니다. 백 엔드 상태, 로그 및 메트릭을 볼 수 있도록 Application Gateway 서브넷에서 UDRs를 사용 하지 않는 것이 좋습니다.
 
 ## <a name="front-end-ip"></a>프런트 엔드 IP
 
@@ -241,7 +241,7 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 
 #### <a name="rewrite-the-http-header-setting"></a>HTTP 헤더 설정 다시 작성
 
-이 설정은 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 간에 이동 하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트 합니다. 자세한 내용은
+이 설정은 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 간에 이동 하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트 합니다. 자세한 내용은 다음을 참조하세요.
 
  - [HTTP 헤더 재작성 개요](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [HTTP 헤더 재작성 구성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
@@ -256,7 +256,7 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 
 ### <a name="connection-draining"></a>연결 드레이닝
 
-연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 이를 통해 백 엔드 풀의 모든 있음이 인스턴스는 기존 연결을 계속 유지 하 고 구성 가능한 시간 제한에 대해 진행 중인 요청을 처리할 수 있으며 새 요청 또는 연결을 받지 않습니다. 이에 대 한 유일한 예외는 게이트웨이 관리 세션 선호도로 인해 deregistring 인스턴스에 대해 바인딩된 요청이 며 deregistring 인스턴스로 계속 프록시 됩니다. 연결 드레이닝은 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다.
+연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 이를 통해 백 엔드 풀의 모든 있음이 인스턴스는 기존 연결을 계속 유지 하 고 구성 가능한 시간 제한에 대해 진행 중인 요청을 처리할 수 있으며 새 요청 또는 연결을 받지 않습니다. 이에 대 한 유일한 예외는 게이트웨이 관리 세션 선호도로 인해 있음이 인스턴스에 대해 바인딩된 요청이 며 있음이 인스턴스로 계속 전달 됩니다. 연결 드레이닝은 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다.
 
 ### <a name="protocol"></a>프로토콜
 

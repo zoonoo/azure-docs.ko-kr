@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 09/19/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671746"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666461"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -23,7 +23,7 @@ ms.locfileid: "74671746"
 * 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요 하지 않은 경우 [자동 교환](#Auto-Swap) 을 구성 하 여이 전체 워크플로를 자동화할 수 있습니다.
 * 교환 후에는 이전의 준비된 앱이 들어 있던 슬롯 안에 이전의 프로덕션 앱이 들어갑니다. 프로덕션 슬롯과 교환한 변경 내용이 예상과 다른 경우 같은 교환 작업을 즉시 수행하여 "마지막 양호 상태"로 돌아갈 수 있습니다.
 
-각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 배포 슬롯 사용에 대 한 추가 비용은 없습니다. 앱 계층이 지 원하는 슬롯 수를 확인 하려면 [App Service 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits)을 참조 하세요. 
+각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 배포 슬롯 사용에 대 한 추가 비용은 없습니다. 앱 계층이 지 원하는 슬롯 수를 확인 하려면 [App Service 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits)을 참조 하세요. 
 
 앱을 다른 계층으로 확장 하려면 대상 계층에서 앱이 이미 사용 하는 슬롯 수를 지원 하는지 확인 합니다. 예를 들어 앱의 슬롯이 5 개를 초과 하는 **경우 표준 계층은 5** 개의 배포 슬롯만 지원 하기 때문에 **표준** 계층으로 확장할 수 없습니다. 
 
@@ -32,7 +32,11 @@ ms.locfileid: "74671746"
 ## <a name="add-a-slot"></a>슬롯 추가
 여러 배포 슬롯을 사용하려면 앱이 **표준**, **프리미엄** 또는 **격리** 계층에서 실행 중이어야 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 앱의 [리소스 페이지](../azure-resource-manager/manage-resources-portal.md#manage-resources)를 엽니다.
+
+1. [Azure Portal](https://portal.azure.com/)에서 **App Services** 를 검색 하 여 선택 하 고 앱을 선택 합니다. 
+   
+    ![App Services 검색](./media/web-sites-staged-publishing/search-for-app-services.png)
+   
 
 2. 왼쪽 창에서 **배포 슬롯** > **슬롯 추가**를 선택 합니다.
    
@@ -166,7 +170,7 @@ Preview를 사용 하 여 교환 하려면:
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>자동 교환 구성
+## <a name="configure-auto-swap"></a>자동 전환 구성
 
 > [!NOTE]
 > 자동 교환은 Linux의 웹 앱에서 지원 되지 않습니다.
@@ -206,7 +210,7 @@ Preview를 사용 하 여 교환 하려면:
 
 또한 다음 [앱 설정](configure-common.md)중 하나 또는 둘 모두를 사용 하 여 준비 동작을 사용자 지정할 수 있습니다.
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트를 준비 하기 위해 ping 할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예는 `/statuscheck`입니다. 기본값은 `/`입니다. 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트를 준비 하기 위해 ping 할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예제는 `/statuscheck`입니다. 기본값은 `/`입니다. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대 한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. 예를 `200,202` 합니다. 반환 된 상태 코드가 목록에 없으면 준비 및 교환 작업이 중지 됩니다. 기본적으로 모든 응답 코드는 유효합니다.
 
 > [!NOTE]
@@ -241,7 +245,7 @@ Preview를 사용 하 여 교환 하려면:
 클라이언트는 특정 슬롯에 자동으로 라우팅되고 나면 해당 클라이언트 세션의 수명 동안 해당 슬롯에 "고정" 됩니다. 클라이언트 브라우저에서 HTTP 헤더의 `x-ms-routing-name` 쿠키를 확인하여 세션이 고정된 슬롯을 볼 수 있습니다. "스테이징" 슬롯에 라우팅되는 요청에는 쿠키 `x-ms-routing-name=staging`이 있습니다. 프로덕션 슬롯으로 라우팅되는 요청에는 쿠키 `x-ms-routing-name=self`가 있습니다.
 
    > [!NOTE]
-   > Azure Portal 옆의 Azure CLI에서 [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) 명령을 사용 하 여 devops 파이프라인이 나 기타 자동화 시스템과 같은 CI/CD 도구에서 라우팅 비율을 설정할 수도 있습니다.
+   > Azure Portal 옆에 Azure CLI의 [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) 명령을 사용 하 여 devops 파이프라인이 나 기타 자동화 시스템과 같은 CI/CD 도구에서 라우팅 비율을 설정할 수도 있습니다.
    > 
 
 ### <a name="route-production-traffic-manually"></a>수동으로 프로덕션 트래픽 라우팅
@@ -268,7 +272,7 @@ Preview를 사용 하 여 교환 하려면:
 
 ## <a name="delete-a-slot"></a>슬롯 삭제
 
-앱의 리소스 페이지로 이동 합니다. \<슬롯 > **배포 슬롯** *을 선택 하 >*  > **개요**를 삭제 합니다. 명령 모음에서 **삭제** 를 선택 합니다.  
+앱을 검색 하 고 선택 합니다. \<슬롯 > **배포 슬롯** *을 선택 하 >*  > **개요**를 삭제 합니다. 명령 모음에서 **삭제** 를 선택 합니다.  
 
 ![배포 슬롯 삭제](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -327,16 +331,16 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-arm-templates"></a>ARM 템플릿을 사용 하 여 자동화
+## <a name="automate-with-resource-manager-templates"></a>리소스 관리자 템플릿으로 자동화
 
-[ARM 템플릿은](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) Azure 리소스의 배포 및 구성을 자동화 하는 데 사용 되는 선언적 JSON 파일입니다. ARM 템플릿을 사용 하 여 슬롯을 교환 하려면 *Microsoft 웹/사이트/슬롯* 및 *microsoft 웹/사이트* 리소스에서 두 개의 속성을 설정 합니다.
+[Azure Resource Manager 템플릿은](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) Azure 리소스의 배포 및 구성을 자동화 하는 데 사용 되는 선언적 JSON 파일입니다. 리소스 관리자 템플릿을 사용 하 여 슬롯을 교환 하려면 *Microsoft 웹/사이트/슬롯* 및 *microsoft 웹/사이트* 리소스에서 두 개의 속성을 설정 합니다.
 
 - `buildVersion`: 슬롯에 배포 된 앱의 현재 버전을 나타내는 문자열 속성입니다. 예를 들면 "v1", "1.0.0.1" 또는 "2019-09-20T11:53:25.2887393-07:00"입니다.
 - `targetBuildVersion`: 슬롯에 있는 `buildVersion`를 지정 하는 문자열 속성입니다. TargetBuildVersion가 현재 `buildVersion`와 일치 하지 않으면 지정 된 `buildVersion`있는 슬롯을 검색 하 여 교환 작업을 트리거합니다.
 
-### <a name="example-arm-template"></a>ARM 템플릿 예제
+### <a name="example-resource-manager-template"></a>리소스 관리자 템플릿 예제
 
-다음 ARM 템플릿은 스테이징 슬롯의 `buildVersion`을 업데이트 하 고 프로덕션 슬롯에서 `targetBuildVersion`를 설정 합니다. 그러면 두 슬롯이 교환 됩니다. 템플릿은 "준비" 라는 슬롯을 사용 하 여 만든 webapp 이미 있다고 가정 합니다.
+다음 리소스 관리자 템플릿은 스테이징 슬롯의 `buildVersion`를 업데이트 하 고 프로덕션 슬롯에서 `targetBuildVersion`를 설정 합니다. 그러면 두 슬롯이 교환 됩니다. 템플릿은 "준비" 라는 슬롯을 사용 하 여 만든 webapp 이미 있다고 가정 합니다.
 
 ```json
 {
@@ -380,7 +384,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 }
 ```
 
-이 ARM 템플릿은 idempotent 됩니다. 즉, 반복적으로 실행 하 여 슬롯의 동일한 상태를 생성할 수 있습니다. 첫 번째 실행 후 `targetBuildVersion`은 현재 `buildVersion`일치 하므로 교환이 트리거되지 않습니다.
+이 리소스 관리자 템플릿은 idempotent 됩니다. 즉, 반복적으로 실행 하 여 슬롯의 동일한 상태를 생성할 수 있습니다. 첫 번째 실행 후 `targetBuildVersion`은 현재 `buildVersion`일치 하므로 교환이 트리거되지 않습니다.
 
 <!-- ======== Azure CLI =========== -->
 

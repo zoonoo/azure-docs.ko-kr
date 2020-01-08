@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b8bf44893bf23502aaf8c446d9e6d7c9022bfce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389679"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425649"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>사용자 지정 정책을 사용 하 여 Azure Active Directory B2C에서 페이지 레이아웃 선택
 
@@ -46,9 +46,9 @@ ms.locfileid: "72389679"
 </ContentDefinition>
 ```
 
-페이지 레이아웃을 선택 하려면 정책에서 [Contentdefinitions](contentdefinitions.md) 의 **datauri** 값을 변경 합니다. 이전 **DataUri** 값을 새 값을 전환하면 변경할 수 없는 패키지를 선택하는 것입니다. 이 패키지를 사용할 때의 이점은 아시다시피 변경되지 않으므로 페이지에 예기치 않은 동작이 발생하지 않는다는 것입니다.
+페이지 레이아웃을 선택 하려면 정책에서 [Contentdefinitions](contentdefinitions.md) 의 **datauri** 값을 변경 합니다. 이전 **DataUri** 값을 새 값을 전환하면 변경할 수 없는 패키지를 선택하는 것입니다. 이 패키지를 사용 하면 변경 되지 않으며 페이지에서 예기치 않은 동작이 발생할 수 있다는 것을 알 수 있습니다.
 
-페이지 레이아웃을 설정 하려면 다음 표를 사용 하 여 **Datauri** 값을 찾습니다.
+이전 **Datauri** 값을 사용 하는 사용자 지정 정책에서 페이지 레이아웃을 지정 하려면 `elements`와 페이지 유형 (예: `selfasserted`) 사이에 `contract`을 삽입 하 고 버전 번호를 지정 합니다. 예:
 
 | 이전 DataUri 값 | 새 DataUri 값 |
 | ----------------- | ----------------- |
@@ -68,17 +68,23 @@ ms.locfileid: "72389679"
 
 페이지 레이아웃 패키지는 주기적으로 업데이트 되어 페이지 요소에 수정 및 향상 된 기능이 포함 됩니다. 다음 변경 로그는 각 버전에 도입 된 변경 내용을 지정 합니다.
 
-### <a name="120"></a>1.2.0 
+### <a name="200"></a>2.0.0
+
+- 자체 어설션 페이지 (`selfasserted`)
+  - 사용자 지정 정책의 [표시 컨트롤](display-controls.md) 에 대 한 지원이 추가 되었습니다.
+
+### <a name="120"></a>1.2.0
+
 - 모든 페이지
   - 내게 필요한 옵션 수정
-  - 이제 HTML 태그에 `data-preload="true"` 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다. 시나리오는 다음과 같습니다.
-      - CSS 링크를 사용 하 여 HTML과 동시에 CSS를 로드 하 여 파일 로드 사이에 ' 깜박임 '를 하지 않도록 합니다.
-      - 이 특성을 사용 하면 페이지를 로드 하기 전에 스크립트 태그를 가져오고 실행 하는 순서를 제어할 수 있습니다.
-  - 전자 메일 필드는 이제 `type=email` 이며 모바일 키보드가 올바른 제안 사항을 제공 합니다.
+  - 이제 HTML 태그에 `data-preload="true"` 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다. 시나리오에는 다음이 포함됩니다.
+    - CSS 링크를 사용 하 여 HTML과 동시에 CSS를 로드 하 여 파일 로드 사이에 ' 깜박임 '를 하지 않도록 합니다.
+    - 이 특성을 사용 하면 페이지를 로드 하기 전에 스크립트 태그를 가져오고 실행 하는 순서를 제어할 수 있습니다.
+  - 이제 전자 메일 필드가 `type=email` 되 고 모바일 키보드가 올바른 제안을 제공 합니다.
   - Chrome 변환 지원
 - 통합 및 자체 어설션된 페이지
-  - 이제 사용자 이름/전자 메일 및 암호 필드에 양식 HTML 요소가 사용 됩니다.  이제 Microsoft Edge 및 IE가이 정보를 제대로 저장할 수 있습니다.
-  
+  - 이제 사용자 이름/전자 메일 및 암호 필드에 양식 HTML 요소가 사용 됩니다.  이제 Edge 및 IE가이 정보를 제대로 저장할 수 있습니다.
+
 ### <a name="110"></a>1.1.0
 
 - 예외 페이지 (globalexception)
@@ -103,7 +109,7 @@ ms.locfileid: "72389679"
 
 ### <a name="100"></a>1.0.0
 
-- 최초 릴리스
+- 초기 릴리스
 
 ## <a name="next-steps"></a>다음 단계
 

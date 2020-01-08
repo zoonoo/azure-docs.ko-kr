@@ -1,21 +1,21 @@
 ---
-title: 논리 앱 정의 만들기, 편집 또는 확장
-description: Azure Logic Apps에서 논리 앱 JSON 정의를 작성, 편집 및 확장 하는 방법
+title: 논리 앱 JSON 워크플로 정의 만들기, 편집 또는 확장
+description: Azure Logic Apps에서 논리 앱의 JSON 워크플로 정의를 작성, 편집 및 확장 하는 방법
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792598"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666927"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 정의를 위한 JSON 만들기, 편집 또는 확장
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 워크플로 정의에 대 한 JSON 만들기, 편집 또는 확장
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 자동화된 워크플로를 사용하여 엔터프라이즈 통합 솔루션을 만들 때 기본 논리 앱 정의는 해당 설명 및 유효성 검사에 대해 간단하고 선언적 JSON(JavaScript Object Notation)과 함께 [WDL(워크플로 정의 언어) 스키마](../logic-apps/logic-apps-workflow-definition-language.md)를 사용합니다. 이러한 형식 덕분에 코드에 대해 잘 몰라도 논리 앱 정의를 더 쉽게 읽고 이해할 수 있습니다. 논리 앱의 만들기 및 배포를 자동화하려는 경우 논리 앱 정의를 [Azure Resource Manager 템플릿](../azure-resource-manager/template-deployment-overview.md) 내 [Azure 리소스](../azure-resource-manager/resource-group-overview.md)로 포함할 수 있습니다. 그런 다음, [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 또는 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)를 사용하여 논리 앱을 생성, 관리 및 배포할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 자동화된 워크플로를 사용하여 엔터프라이즈 통합 솔루션을 만들 때 기본 논리 앱 정의는 해당 설명 및 유효성 검사에 대해 간단하고 선언적 JSON(JavaScript Object Notation)과 함께 [WDL(워크플로 정의 언어) 스키마](../logic-apps/logic-apps-workflow-definition-language.md)를 사용합니다. 이러한 형식 덕분에 코드에 대해 잘 몰라도 논리 앱 정의를 더 쉽게 읽고 이해할 수 있습니다. 논리 앱의 만들기 및 배포를 자동화하려는 경우 논리 앱 정의를 [Azure Resource Manager 템플릿](../azure-resource-manager/template-deployment-overview.md) 내 [Azure 리소스](../azure-resource-manager/management/overview.md)로 포함할 수 있습니다. 그런 다음, [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 또는 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)를 사용하여 논리 앱을 생성, 관리 및 배포할 수 있습니다.
 
 JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studio에서 작업하는 경우 코드 보기 편집기를 열거나 원하는 편집기에로 정의를 복사합니다. 논리 앱을 처음 사용하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 검토하세요.
 
@@ -25,7 +25,7 @@ JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studi
 
 ## <a name="edit-json---azure-portal"></a>JSON 편집 - Azure Portal
 
-1. <a href="https://portal.azure.com" target="_blank">Azure portal</a>에 로그인합니다.
+1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 
 2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에서 “논리 앱”을 찾은 다음, 결과에서 사용자의 논리 앱을 선택합니다.
 
@@ -39,7 +39,7 @@ Visual Studio에서 논리 앱 정의를 작업하려면 [필요한 도구가 �
 
 Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio에서 Azure Resource Manager 프로젝트로 배포된 논리 앱을 열 수 있습니다.
 
-1. Visual Studio 솔루션 또는 논리 앱이 포함된 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 프로젝트를 엽니다.
+1. Visual Studio 솔루션 또는 논리 앱이 포함된 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 프로젝트를 엽니다.
 
 2. 기본적으로 [Resource Manager 템플릿](../azure-resource-manager/template-deployment-overview.md)에 표시되는 **LogicApp.json**이라 명명된 논리 앱의 정의를 찾아서 엽니다. 배포를 위해 이 템플릿을 다른 환경으로 사용 및 사용자 지정할 수 있습니다.
 
@@ -56,9 +56,9 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 
 5. 디자이너 보기로 돌아가려면 코드 보기 편집기의 맨 아래에서 **디자인**을 선택합니다.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
-배포 수명 주기는 일반적으로 개발, 테스트, 스테이징 및 프로덕션에 대해 서로 다른 환경을 포함 합니다. 하드 코딩 하지 않고 논리 앱 전체에서 다시 사용 하거나 배포 요구 사항에 따라 달라 지는 값이 있는 경우 논리 앱 배포를 자동화할 수 있도록 워크플로 정의에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md) 만들 수 있습니다. 
+배포 수명 주기는 일반적으로 개발, 테스트, 스테이징 및 프로덕션에 대해 서로 다른 환경을 포함 합니다. 하드 코딩 하지 않고 논리 앱 전체에서 다시 사용 하거나 배포 요구 사항에 따라 달라 지는 값이 있는 경우 논리 앱 배포를 자동화할 수 있도록 워크플로 정의에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md) 만들 수 있습니다. 
 
 이러한 값에 대 한 매개 변수를 매개 *변수화*하거나 정의 하 고 사용 하는 일반적인 단계를 수행 합니다. 그런 다음 해당 값을 템플릿에 전달 하는 별도의 매개 변수 파일에 값을 제공할 수 있습니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
 
@@ -72,7 +72,7 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 
    워크플로 정의 매개 변수에 대 한 값을 지정할 때 워크플로 정의 외부에 있지만 논리 앱에 대 한 리소스 정의 내에 있는 매개 변수 섹션을 사용 하 여 템플릿 매개 변수를 참조할 수 있습니다. 이렇게 하면 템플릿 매개 변수 값을 워크플로 정의 매개 변수에 전달할 수 있습니다.
 
-1. 매개 변수의 값을 별도의 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) 에 저장 하 고 해당 파일을 배포에 포함 합니다.
+1. 매개 변수의 값을 별도의 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md) 에 저장 하 고 해당 파일을 배포에 포함 합니다.
 
 ## <a name="process-strings-with-functions"></a>함수로 문자열 처리
 

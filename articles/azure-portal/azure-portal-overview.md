@@ -1,22 +1,22 @@
 ---
 title: Azure Portal 개요 | Microsoft Docs
-description: Azure Portal를 탐색 하 고이를 사용 하 여 서비스를 관리 하는 방법을 알아봅니다.
+description: Azure Portal는 Azure 서비스를 관리 하는 데 사용할 수 있는 그래픽 사용자 인터페이스입니다. Azure Portal에서 리소스를 탐색 하 고 찾는 방법을 알아봅니다.
 services: azure-portal
 keywords: portal
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 90bbea1068bb237501daf5e0dfac865ca6b9a12a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 478b090cfe0bfd63bde37dc944cd9fad6e88f179
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579405"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637612"
 ---
-# <a name="azure-portal-overview"></a>Azure 포털 개요
+# <a name="azure-portal-overview"></a>Azure Portal 개요
 
 이 문서에서는 Azure Portal 소개 하 고, 포털 페이지 요소를 식별 하 고, Azure Portal 관리 환경을 익히는 데 도움을 줍니다.
 
@@ -38,7 +38,7 @@ Azure Portal 복원 력 및 지속적인 가용성을 위해 설계 되었습니
 
 ![도킹 된 모드의 Azure Portal 메뉴](./media/azure-portal-overview/azure-portal-overview-portal-menu-expandcollapse.png)
 
-## <a name="azure-home"></a>Azure 홈
+## <a name="azure-home"></a>Azure Home
 
 Azure 서비스에 대 한 새 구독자는 [포털에 로그인](https://portal.azure.com) 한 후 가장 먼저 표시 되는 항목은 **azure Home**입니다. 이 페이지에서는 Azure 구독을 최대한 활용 하는 데 도움이 되는 리소스를 컴파일합니다. 귀하의 조직에 대 한 변경 내용을 최신으로 유지 하 고 관리할 수 있는 무료 온라인 과정, 설명서, 핵심 서비스 및 유용한 사이트에 대 한 링크가 포함 되어 있습니다. 진행 중인 작업에 빠르고 쉽게 액세스할 수 있도록 가장 최근에 방문한 리소스의 목록도 표시 됩니다. 이 페이지를 사용자 지정할 수는 없지만 **Azure Home** 또는 **azure 대시보드** 를 기본 보기로 표시할지 여부를 선택할 수 있습니다. 처음 로그인 할 때 페이지 맨 위에 기본 설정을 저장할 수 있는 프롬프트가 표시 됩니다.
 
@@ -64,7 +64,7 @@ Azure Portal 메뉴와 페이지 머리글은 항상 존재 하는 전역 요소
 
 ![확장 된 포털 메뉴를 보여 주는 스크린샷](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
-|키|설명
+|키|Description
 |:---:|---|
 |1|페이지 머리글입니다. 는 모든 포털 페이지의 맨 위에 나타나고 전역 요소를 포함 합니다.|
 |2| 전체 검색. 검색 표시줄을 사용 하 여 특정 리소스, 서비스 또는 설명서를 신속 하 게 찾을 수 있습니다.|

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen2의 Acl & 파일에 대해 PowerShell 사용 (미리 보기)
+title: Acl & 파일에 대 한 Azure Data Lake Storage Gen2 PowerShell (미리 보기)
 description: PowerShell cmdlet을 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정의 디렉터리 및 파일 및 디렉터리 ACL (액세스 제어 목록)을 관리 합니다.
 services: storage
 author: normesta
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: f2a2eaa3224fff117a30dfb742b4f8a35196dba4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: be5a1dce89219957f98c585d8e531c369e2f23c4
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973903"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690409"
 ---
-# <a name="use-powershell-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2의 Acl & 파일에 대해 PowerShell 사용 (미리 보기)
+# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리 (미리 보기)
 
 이 문서에서는 PowerShell을 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
@@ -25,10 +25,10 @@ ms.locfileid: "74973903"
 
 [Gen1 To Gen2 mapping](#gen1-gen2-map) | [사용자 의견 제공](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
-> * Azure-előfizetés. Lásd: [Ingyenes Azure-fiók létrehozása](https://azure.microsoft.com/pricing/free-trial/).
+> * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 > * 계층적 네임 스페이스 (HNS)를 사용 하도록 설정 된 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
 > * .NET Framework 4.7.2 이상 설치 되어 있습니다. [다운로드 .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)를 참조 하세요.
 > * PowerShell 버전 `5.1` 이상
@@ -59,37 +59,36 @@ ms.locfileid: "74973903"
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
-1. Windows PowerShell 명령 창을 엽니다.
+Windows PowerShell 명령 창을 열고 `Connect-AzAccount` 명령을 사용 하 여 Azure 구독에 로그인 하 고 화면의 지시를 따릅니다.
 
-2. Jelentkezzen be az Azure-előfizetésbe a `Connect-AzAccount` paranccsal, és kövesse a képernyőn megjelenő útmutatásokat.
+```powershell
+Connect-AzAccount
+```
 
-   ```powershell
-   Connect-AzAccount
-   ```
+Id가 둘 이상의 구독과 연결 된 경우 활성 구독을 디렉터리를 만들고 관리 하려는 저장소 계정의 구독으로 설정 합니다. 이 예제에서는 `<subscription-id>` 자리 표시자 값을 구독의 ID로 바꿉니다.
 
-3. Id가 둘 이상의 구독과 연결 된 경우 활성 구독을 디렉터리를 만들고 관리 하려는 저장소 계정의 구독으로 설정 합니다.
+```powershell
+Select-AzSubscription -SubscriptionId <subscription-id>
+```
 
-   ```powershell
-   Select-AzSubscription -SubscriptionId <subscription-id>
-   ```
+그런 다음 명령을 통해 저장소 계정에 대 한 권한 부여를 가져오는 방법을 선택 합니다. 
 
-   `<subscription-id>` 자리 표시자 값을 구독의 ID로 바꿉니다.
+### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>옵션 1: Azure Active Directory (AD)를 사용 하 여 권한 부여 가져오기
 
-4. 저장소 계정을 가져옵니다.
+이 방법을 사용 하면 시스템에서 사용자 계정에 적절 한 RBAC (역할 기반 액세스 제어) 할당 및 ACL 권한이 있는지 확인 합니다. 
 
-   ```powershell
-   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   ```
+```powershell
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+```
 
-   * `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>옵션 2: 저장소 계정 키를 사용 하 여 권한 부여 가져오기
 
-   * `<storage-account-name>` 자리 표시자 값을 저장소 계정의 이름으로 바꿉니다.
+이 방법을 사용 하는 경우 시스템은 리소스의 RBAC 또는 ACL 권한을 확인 하지 않습니다.
 
-5. 저장소 계정 컨텍스트를 가져옵니다.
-
-   ```powershell
-   $ctx = $storageAccount.Context
-   ```
+```powershell
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+$ctx = $storageAccount.Context
+```
 
 ## <a name="create-a-file-system"></a>파일 시스템 만들기
 
@@ -102,7 +101,7 @@ $filesystemName = "my-file-system"
 New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
 ```
 
-## <a name="create-a-directory"></a>Könyvtár létrehozása
+## <a name="create-a-directory"></a>디렉터리 만들기
 
 `New-AzDataLakeGen2Item` cmdlet을 사용 하 여 디렉터리 참조를 만듭니다. 
 
@@ -158,7 +157,7 @@ $dirname2 = "my-directory-2/my-subdirectory/"
 Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname1 -DestFileSystem $filesystemName -DestPath $dirname2 -Umask --------x -PathRenameMode Posix
 ```
 
-## <a name="delete-a-directory"></a>Könyvtár törlése
+## <a name="delete-a-directory"></a>디렉터리 삭제
 
 `Remove-AzDataLakeGen2Item` cmdlet을 사용 하 여 디렉터리를 삭제 합니다.
 
@@ -185,13 +184,11 @@ $downloadFilePath = "download.txt"
 Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $filePath -Destination $downloadFilePath
 ```
 
-## <a name="list-directory-contents"></a>Könyvtár tartalmának listázása
+## <a name="list-directory-contents"></a>디렉터리 콘텐츠 나열
 
 `Get-AzDataLakeGen2ChildItem` cmdlet을 사용 하 여 디렉터리의 내용을 나열 합니다.
 
-이 예에서는 이름이 `my-directory`인 디렉터리의 내용을 나열 합니다. 
-
-파일 시스템의 내용을 나열 하려면 명령에서 `-Path` 매개 변수를 생략 합니다.
+이 예에서는 이름이 `my-directory`인 디렉터리의 내용을 나열 합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -199,15 +196,21 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```
 
-이 예에서는 `my-directory` 디렉터리의 내용을 나열 하 고 목록에 Acl을 포함 합니다. 또한 `-Recurse` 매개 변수를 사용 하 여 모든 하위 디렉터리의 내용을 나열 합니다.
+이 예에서는 `ACL`, `Permissions`, `Group`및 `Owner` 속성에 대 한 값을 반환 하지 않습니다. 이러한 값을 얻으려면 `-FetchPermission` 매개 변수를 사용 합니다. 
 
-파일 시스템의 내용을 나열 하려면 명령에서 `-Path` 매개 변수를 생략 합니다.
+다음 예에서는 동일한 디렉터리의 내용을 나열 하지만 `-FetchPermission` 매개 변수를 사용 하 여 `ACL`, `Permissions`, `Group`및 `Owner` 속성의 값을 반환 합니다. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties.ACL
+$properties.Permissions
+$properties.Group
+$properties.Owner
 ```
+
+파일 시스템의 내용을 나열 하려면 명령에서 `-Path` 매개 변수를 생략 합니다.
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 
@@ -249,7 +252,7 @@ $file.File.Metadata
 $file.File.Properties
 ```
 
-## <a name="delete-a-file"></a>Fájl törlése
+## <a name="delete-a-file"></a>파일 삭제
 
 `Remove-AzDataLakeGen2Item` cmdlet을 사용 하 여 파일을 삭제 합니다.
 
@@ -339,19 +342,60 @@ $file.ACL
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Get the directory ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+
+# Add ACL Entries
+$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
+
+# Update ACL on server
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew  
+
 ```
+
 이 예에서는 사용자에 게 파일에 대 한 쓰기 및 실행 권한을 제공 합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
 $fileName = "my-directory/upload.txt"
 $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Get the file ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName).ACL
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $acl
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+
+# Add ACL Entries
+$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
+
+# Update ACL on server
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $aclnew 
+
 ```
 
 ### <a name="set-permissions-on-all-items-in-a-file-system"></a>파일 시스템의 모든 항목에 대 한 사용 권한 설정
@@ -371,7 +415,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 
 다음 표에서는 Data Lake Storage Gen1에 사용 되는 cmdlet이 Data Lake Storage Gen2 cmdlet에 매핑되는 방법을 보여 줍니다.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Megjegyzések |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| 메모 |
 |--------|---------|-----|
 |AzDataLakeStoreChildItem|AzDataLakeGen2ChildItem|기본적으로 AzDataLakeGen2ChildItem cmdlet은 첫 번째 수준의 자식 항목만 나열 합니다. -재귀 매개 변수는 자식 항목을 재귀적으로 나열 합니다. |
 |AzDataLakeStoreItem<br>AzDataLakeStoreItemAclEntry<br>AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission|AzDataLakeGen2Item|AzDataLakeGen2Item cmdlet의 출력 항목에는 Acl, Owner, Group, Permission 속성이 있습니다.|
@@ -384,9 +428,9 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 
 
 
-## <a name="see-also"></a>Lásd még:
+## <a name="see-also"></a>참고 항목
 
-* [Ismert problémák](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Azure Storage에서 Azure PowerShell 사용](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Azure Storage와 함께 Azure PowerShell 사용](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [저장소 PowerShell cmdlet](/powershell/module/az.storage).
 

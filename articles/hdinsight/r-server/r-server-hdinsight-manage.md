@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123549"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647733"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
 이 문서에서는 여러 동시 사용자 추가, ML 서비스 클러스터에 원격 연결, 계산 컨텍스트 변경 등의 작업을 수행 하기 위해 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
 
-* SSH (Secure Shell) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* SSH (Secure Shell) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결 하 고 클러스터에서 직접 명령을 실행 하는 데 사용 됩니다. 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="enable-multiple-concurrent-users"></a>여러 동시 사용자 사용
 
@@ -70,7 +70,7 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>3단계: 만든 사용자를 통해 RStudio Community 버전 사용
 
-[https://CLUSTERNAME.azurehdinsight.net/rstudio/](https://CLUSTERNAME.azurehdinsight.net/rstudio/ ) 에서 RStudio에 액세스합니다. 클러스터를 만든 후 처음 로그인하는 경우, 클러스터 관리자 자격 증명을 입력한 후 만든 SSH 사용자 자격 증명을 입력합니다. 첫 번째 로그인이 아닌 경우 사용자가 만든 SSH 사용자의 자격 증명만 입력하면 됩니다.
+`https://CLUSTERNAME.azurehdinsight.net/rstudio/`에서 RStudio에 액세스합니다. 클러스터를 만든 후 처음 로그인하는 경우, 클러스터 관리자 자격 증명을 입력한 후 만든 SSH 사용자 자격 증명을 입력합니다. 첫 번째 로그인이 아닌 경우 사용자가 만든 SSH 사용자의 자격 증명만 입력하면 됩니다.
 
 또한 다른 브라우저 창에서 원래 자격 증명(기본적으로 *sshuser*)을 사용하여 동시에 로그인할 수도 있습니다.
 
@@ -78,7 +78,7 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML 서비스에 원격으로 연결
 
-데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 컴퓨팅 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 컴퓨팅 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다.
 
     myNameNode <- "default"
     myPort <- 0
@@ -196,7 +196,7 @@ HDInsight ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트의 ScaleR �
 
    * **작업자** 확인란만 선택합니다.
 
-   * **매개 변수**: 설치할 R 패키지. 예를 들어 IPv4 주소를 사용하는 경우 `bitops stringr arules`
+   * **매개 변수**: 설치할 R 패키지 예를 들어 `bitops stringr arules`
 
    * **이 스크립트 작업 유지** 확인란을 선택합니다.  
 

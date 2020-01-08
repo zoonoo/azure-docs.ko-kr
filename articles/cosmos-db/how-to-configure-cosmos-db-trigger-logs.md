@@ -1,17 +1,17 @@
 ---
-title: Cosmos DB용 Azure Functions 트리거를 사용할 때 로그 구성 및 읽기
+title: Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 로그 구성 및 읽기
 description: Cosmos DB용 Azure Functions 트리거를 사용할 때 Azure Functions 로깅 파이프라인에 로그를 노출하는 방법 알아보기
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 17b2d4854e3222e5bdb607c6c80b0ec5ed6177d3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441840"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB용 Azure Functions 트리거를 사용할 때 로그를 구성하고 읽는 방법
 
@@ -39,7 +39,7 @@ Cosmos DB용 Azure Functions 트리거를 사용할 때 로깅을 설정하려�
 }
 ```
 
-업데이트된 구성을 사용하여 Azure Function이 배포되면 추적의 일부로 Cosmos DB용 Azure Functions 트리거 로그가 나타납니다. *범주* `Host.Triggers.CosmosDB` 아래에서 구성된 로깅 공급 기업에서 로그를 볼 수 있습니다.
+업데이트된 구성을 사용하여 Azure Function이 배포되면 추적의 일부로 Cosmos DB용 Azure Functions 트리거 로그가 나타납니다. 구성 된 로깅 공급자의 *범주* `Host.Triggers.CosmosDB`아래에서 로그를 볼 수 있습니다.
 
 ## <a name="query-the-logs"></a>로그 쿼리
 

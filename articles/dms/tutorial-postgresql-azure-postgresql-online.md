@@ -1,5 +1,6 @@
 ---
-title: '자습서: Azure Database Migration Service를 사용하여 Azure Database for PostgreSQL로 PostgreSQL 온라인 마이그레이션 수행 | Microsoft Docs'
+title: '자습서: PostgreSQL online을 Azure Database for PostgreSQL로 마이그레이션'
+titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 PostgreSQL 온-프레미스에서 Azure Database for PostgreSQL로 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
 services: dms
 author: HJToland3
@@ -8,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/28/2019
-ms.openlocfilehash: 1b4eebafadcdbebfc89ce7265f4d4f77f4f5ac8c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a710512d7063a73fde42e2b076a3bb67c5efbf7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043238"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437349"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션
 
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 온-프레미스 PostgreSQL 인스턴스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **DVD 대여** 샘플 데이터베이스를 PostgreSQL 9.6의 온-프레미스 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 >
 > * pg_dump 유틸리티를 사용하여 샘플 스키마를 마이그레이션합니다.
@@ -56,11 +57,11 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-* VNet NSG(네트워크 보안 그룹) 규칙에서 Azure Database Migration Service에 대한 443, 53, 9354, 445, 12000. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
+* VNet NSG (네트워크 보안 그룹) 규칙이 Azure Database Migration Service (443, 53, 9354, 445, 12000에 대해 다음 인바운드 통신 포트를 차단 하지 않는지 확인 합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Windows 방화벽을 열고 Azure Database Migration Service에서 기본적으로 5432 TCP 포트인 원본 PostgreSQL 서버에 액세스할 수 있도록 허용합니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNet의 서브넷 범위를 제공합니다.
+* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNet의 서브넷 범위를 입력합니다.
 * CLI를 호출하는 방법은 두 가지가 있습니다.
 
   * Azure Portal의 오른쪽 위에서 Cloud Shell 단추를 선택합니다.
@@ -208,7 +209,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
    예를 들어 다음 명령은 서비스를 만듭니다.
 
-   * 위치: 미국 동부2
+   * 위치: 미국 동부 2
    * 구독: 97181df2-909d-420b-ab93-1bff15acb6b7
    * 리소스 그룹 이름: PostgresDemo
    * DMS 서비스 이름: PostgresCLI

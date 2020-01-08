@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/15/2019
-ms.openlocfilehash: 95953b4f052531c9804024410e225bb0b5c62aef
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
-ms.translationtype: MT
+ms.date: 11/16/2019
+ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460649"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -28,7 +28,7 @@ ms.locfileid: "74539180"
 - **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
 - **Azure Storage**: 적은 비용으로 방대한 양의 원격 분석 데이터를 보관합니다.
 
-    ![건축](./media/sql-database-metrics-diag-logging/architecture.png)
+    ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 
 다양한 Azure 서비스에서 지원하는 메트릭 및 로그 범주에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -63,23 +63,24 @@ Azure SQL database 및 인스턴스 데이터베이스를 설정 하 여 다음�
 
 | 데이터베이스에 대한 원격 분석 모니터링 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
 | :------------------- | ----- | ----- |
-| [기본 메트릭](#basic-metrics): DTU/cpu 백분율, DTU/cpu 제한, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단 됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율을 포함 합니다. | yes | 아닙니다. |
-| [인스턴스 및 앱 고급](#advanced-metrics): tempdb 시스템 데이터베이스 데이터와 로그 파일 크기 및 사용 된 tempdb 비율 로그 파일을 포함 합니다. | yes | 아닙니다. |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대 한 정보를 포함 합니다. | yes | yes |
-| [Querystorewaitstatistics](#query-store-wait-statistics): CPU, 로그 및 잠금과 같은 쿼리 대기 통계 (쿼리가 대기 하는 시간)에 대 한 정보를 포함 합니다. | yes | yes |
-| [오류](#errors-dataset): 데이터베이스의 SQL 오류에 대 한 정보를 포함 합니다. | yes | yes |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | yes | 아닙니다. |
-| [시간 제한](#time-outs-dataset): 데이터베이스의 제한 시간에 대 한 정보를 포함 합니다. | yes | 아닙니다. |
-| [블록](#blockings-dataset): 데이터베이스의 차단 이벤트에 대 한 정보를 포함 합니다. | yes | 아닙니다. |
-| [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대 한 정보를 포함 합니다. | yes | 아닙니다. |
-| 자동 [튜닝](#automatic-tuning-dataset): 데이터베이스에 대 한 자동 조정 권장 사항에 대 한 정보를 포함 합니다. | yes | 아닙니다. |
-| [SQLInsights](#intelligent-insights-dataset): 데이터베이스의 성능에 대 한 Intelligent Insights를 포함 합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | yes | yes |
+| [기본 메트릭](#basic-metrics): DTU/cpu 백분율, DTU/cpu 제한, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단 됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율을 포함 합니다. | 예 | 아닙니다. |
+| [인스턴스 및 앱 고급](#advanced-metrics): tempdb 시스템 데이터베이스 데이터와 로그 파일 크기 및 사용 된 tempdb 비율 로그 파일을 포함 합니다. | 예 | 아닙니다. |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대 한 정보를 포함 합니다. | 예 | 예 |
+| [Querystorewaitstatistics](#query-store-wait-statistics): CPU, 로그 및 잠금과 같은 쿼리 대기 통계 (쿼리가 대기 하는 시간)에 대 한 정보를 포함 합니다. | 예 | 예 |
+| [오류](#errors-dataset): 데이터베이스의 SQL 오류에 대 한 정보를 포함 합니다. | 예 | 예 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아닙니다. |
+| [시간 제한](#time-outs-dataset): 데이터베이스의 제한 시간에 대 한 정보를 포함 합니다. | 예 | 아닙니다. |
+| [블록](#blockings-dataset): 데이터베이스의 차단 이벤트에 대 한 정보를 포함 합니다. | 예 | 아닙니다. |
+| [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대 한 정보를 포함 합니다. | 예 | 아닙니다. |
+| 자동 [튜닝](#automatic-tuning-dataset): 데이터베이스에 대 한 자동 조정 권장 사항에 대 한 정보를 포함 합니다. | 예 | 아닙니다. |
+| [SQLInsights](#intelligent-insights-dataset): 데이터베이스의 성능에 대 한 Intelligent Insights를 포함 합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | 예 | 예 |
 
 > [!IMPORTANT]
 > 탄력적 풀 및 관리 되는 인스턴스에는 포함 된 데이터베이스와 별도의 진단 원격 분석이 있습니다. 진단 원격 분석은 아래에서 설명한 대로 이러한 각 리소스에 대해 개별적으로 구성 되므로 주의 해야 합니다.
 
 > [!NOTE]
-> 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
+> - 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
+> - Master, msdb, model, 리소스 및 tempdb 데이터베이스와 같은 **시스템 데이터베이스**에 대해서는 진단 설정을 구성할 수 없습니다.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -217,7 +218,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정할 수 있습니다.
 
@@ -458,12 +459,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>관리 되는 인스턴스의 리소스 사용 통계
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: ResourceUsageStats |
 |리소스|리소스 이름 |
@@ -483,12 +484,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: QueryStoreRuntimeStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent |
@@ -534,12 +535,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: QueryStoreWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent |
@@ -572,12 +573,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="errors-dataset"></a>오류 데이터 세트
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: Errors |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
@@ -601,12 +602,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 세트
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: DatabaseWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent |
@@ -630,12 +631,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="time-outs-dataset"></a>제한 시간 데이터 세트
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: Timeouts |
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent |
@@ -653,12 +654,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="blockings-dataset"></a>차단 데이터 세트
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: Blocks |
 |OperationName|작업의 이름입니다. 항상: BlockEvent |
@@ -677,12 +678,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="deadlocks-dataset"></a>교착 상태 데이터 세트
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: 교착 상태 |
 |OperationName|작업의 이름입니다. 항상: DeadlockEvent |
@@ -698,12 +699,12 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 세트
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|유형|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: AutomaticTuning |
 |리소스|리소스 이름 |

@@ -1,6 +1,6 @@
 ---
 title: B2B 용 AS2 메시지 송신 및 수신
-description: Azure Logic Apps를 사용 하 여 B2B 엔터프라이즈 통합 시나리오용 AS2 메시지 교환
+description: 엔터프라이즈 통합 팩와 함께 Azure Logic Apps를 사용 하 여 B2B 엔터프라이즈 통합 시나리오용 AS2 메시지 교환
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b2d7c8840da3bb44f9e220f2963dc4fee63176e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790724"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666706"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -39,7 +39,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
   또한이 작업은 구성 될 때 다음 작업을 수행 합니다.
 
-  * 서명을 확인 합니다.
+  * 서명을 확인합니다.
   * 메시지의 암호를 해독 합니다.
   * 메시지의 압축을 풉니다.
   * 메시지 ID 중복을 확인 하 고 허용 하지 않습니다.
@@ -49,9 +49,9 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 > [!IMPORTANT]
 > 원래 AS2 커넥터는 더 이상 사용 되지 않으므로 **as2 (v2)** 커넥터를 대신 사용 해야 합니다. 이 버전은 원래 버전과 동일한 기능을 제공 하 고, Logic Apps 런타임으로 기본 사용 되며, 처리량 및 메시지 크기 측면에서 상당한 성능 향상을 제공 합니다. 또한 native v2 커넥터를 사용할 경우 통합 계정에 대 한 연결을 만들 필요가 없습니다. 대신, 필수 구성 요소에 설명 된 대로 커넥터를 사용 하려는 논리 앱에 통합 계정을 연결 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * AS2 커넥터를 사용 하려는 논리 앱 및 논리 앱의 워크플로를 시작 하는 트리거 AS2 커넥터는 트리거가 아니라 동작만 제공 합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
 
@@ -81,14 +81,14 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 1. 이제 이러한 속성에 대 한 정보를 제공 합니다.
 
-   | 자산 | 설명 |
+   | 속성 | Description |
    |----------|-------------|
    | **인코딩할 메시지** | 메시지 페이로드 |
    | **AS2 원본** | AS2 규약에서 지정한 메시지 보낸 사람의 식별자입니다. |
    | **AS2 to** | AS2 규약에서 지정한 메시지 수신기의 식별자입니다. |
    |||
 
-   다음은 그 예입니다.
+   예:
 
    ![메시지 인코딩 속성](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 

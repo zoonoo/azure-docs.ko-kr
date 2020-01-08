@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793124"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666740"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
 
@@ -29,30 +29,30 @@ ms.locfileid: "74793124"
 
 배열의 데이터를 사용할 수 있는 작업은 다음과 같습니다.
 
-| 실행력 | 설명 |
+| 실행력 | Description |
 |--------|-------------|
 | [**CSV 테이블 만들기**](#create-csv-table-action) | 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. |
 | [**HTML 테이블 만들기**](#create-html-table-action) | 배열에서 HTML 테이블을 만듭니다. |
 | [**배열 필터링**](#filter-array-action) | 지정된 필터 또는 조건에 따라 배열에서 배열 하위 집합을 만듭니다. |
-| [**조인**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 각 항목을 지정된 문자로 구분합니다. |
-| [**선택**](#select-action) | 다른 배열의 모든 항목에 대해 지정된 속성에서 배열을 만듭니다. |
+| [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 각 항목을 지정된 문자로 구분합니다. |
+| [**Select**](#select-action) | 다른 배열의 모든 항목에 대해 지정된 속성에서 배열을 만듭니다. |
 ||| 
 
 **JSON 작업**
 
 JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 작업은 다음과 같습니다.
 
-| 실행력 | 설명 |
+| 실행력 | Description |
 |--------|-------------|
-| [**작성**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
-| [**JSON 구문 분석**](#parse-json-action) | JSON 콘텐츠의 속성에 대해 사용자에게 친숙한 데이터 토큰을 만들어 논리 앱에서 해당 속성을 더 쉽게 사용할 수 있습니다. |
+| [**Compose**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
+| [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에 대해 사용자에게 친숙한 데이터 토큰을 만들어 논리 앱에서 해당 속성을 더 쉽게 사용할 수 있습니다. |
 |||
 
 더 복잡한 JSON 변환을 만들려면 [Liquid 템플릿을 사용하여 고급 JSON 변환 수행](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 데이터 작업을 위한 작업이 필요한 논리 앱
 
@@ -200,7 +200,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   다음은 그 예입니다.
+   예:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ Oranges,2
    }
    ```
 
-   다음은 그 예입니다.
+   예:
 
    ```json
    "Create_CSV_table": {
@@ -351,7 +351,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   다음은 그 예입니다.
+   예:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ Oranges,2
    }
    ```
 
-   다음은 그 예입니다.
+   예:
 
    ```json
    "Create_HTML_table": {
@@ -443,6 +443,9 @@ Oranges,2
 > 조건에서 사용하는 모든 필터 텍스트는 대/소문자를 구분합니다. 또한 이 작업은 배열 항목의 형식 또는 구성 요소를 변경할 수 없습니다. 
 > 
 > **배열 필터링** 작업에서 배열 출력을 사용하는 작업의 경우 해당 작업에서 배열을 입력으로 받아들여야 하거나 출력 배열을 호환되는 다른 형식으로 변환해야 할 수 있습니다.
+> 
+> HTTP 끝점을 호출 하 고 JSON 응답을 수신 하는 경우 json **구문 분석** 작업을 사용 하 여 json 응답을 처리 합니다. 
+> 그렇지 않은 경우에는 **필터 배열** 작업에서 JSON 페이로드의 구조가 아닌 응답 본문만 읽을 수 있습니다.
 
 또는 코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 배열 필터링](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 문서의 **배열 필터링** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
@@ -505,7 +508,7 @@ Oranges,2
 
 <a name="join-action"></a>
 
-## <a name="join-action"></a>조인 작업
+## <a name="join-action"></a>Join 작업
 
 배열의 모든 항목을 포함 하 고 해당 항목을 특정 구분 기호 문자로 구분 하는 문자열을 만들려면 **조인** 동작을 사용 합니다. 그런 다음, **조인** 작업 이후에 수행하는 작업에서 문자열을 사용할 수 있습니다.
 
@@ -565,7 +568,7 @@ Oranges,2
 
 <a name="parse-json-action"></a>
 
-## <a name="parse-json-action"></a>JSON 구문 분석 작업
+## <a name="parse-json-action"></a>Parse JSON 작업
 
 JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세스 하려면 **Json 구문 분석** 작업을 사용 하 여 해당 속성에 대 한 사용자에 게 친숙 한 필드 또는 토큰을 만들 수 있습니다. 이렇게 하면 논리 앱에 대한 입력을 지정할 때 동적 콘텐츠 목록에서 해당 속성을 선택할 수 있습니다. 이 작업의 경우 JSON 콘텐츠 또는 페이로드 샘플에서 JSON 스키마를 제공하거나 생성할 수 있습니다.
 

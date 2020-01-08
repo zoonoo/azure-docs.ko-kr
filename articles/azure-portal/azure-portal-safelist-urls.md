@@ -3,18 +3,18 @@ title: Azure Portal Url Safelist | Microsoft Docs
 description: 이러한 Url을 프록시 서버 바이패스에 추가 하 여 Azure Portal 및 해당 서비스와 통신
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
+author: mblythe
+ms.author: mblythe
 ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 4f4badbd923b10cf2cd66f7df9742a6bc657a01c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218048"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637545"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>방화벽 또는 프록시 서버에서 Azure Portal Url Safelist
 
@@ -80,7 +80,7 @@ Azure Portal에 대해 safelist URL 끝점은 조직이 배포 되는 Azure 클�
 IP 주소를 safelist 해야 하나요? 클라우드의 Microsoft Azure 데이터 센터 IP 범위 목록을 다운로드 합니다.
 
 * [전](https://www.microsoft.com/download/details.aspx?id=56519)
-* [미국 자치](https://www.microsoft.com/download/details.aspx?id=57063)
+* [미국 정부](https://www.microsoft.com/download/details.aspx?id=57063)
 * [독일](https://www.microsoft.com/download/details.aspx?id=57064)
 * [중국](https://www.microsoft.com/download/details.aspx?id=57062)
 

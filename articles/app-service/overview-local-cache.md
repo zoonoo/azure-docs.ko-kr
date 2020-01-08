@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: bce0620ed6be4937c95a2ce01f3d4c175c8bc18d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 87c95d8bbf199f232eca5475f4d8f0c64427a198
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687084"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680888"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
@@ -36,7 +36,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>로컬 캐시가 App Service 동작을 변경하는 방식
 * _D:\home_은 앱이 시작될 때 VM 인스턴스에서 만들어진 로컬 캐시를 가리킵니다. _D:\local_은 임시 VM 관련 스토리지를 계속 가리킵니다.
-* 로컬 캐시는 각각 _D:\home\site_ 및 _D:\home\siteextensions_에 공유 콘텐츠 저장소의 _/site_ 및 _/siteextensions_ 폴더에 대한 일회성 복사본을 포함합니다. 파일은 앱이 시작될 때 로컬 캐시에 복사됩니다. 각 앱에서 두 폴더의 크기는 기본적으로 300MB로 제한되지만 최대 2GB로 증가될 수 있습니다.
+* 로컬 캐시는 각각 _D:\home\site_ 및 _D:\home\siteextensions_에 공유 콘텐츠 저장소의 _/site_ 및 _/siteextensions_ 폴더에 대한 일회성 복사본을 포함합니다. 파일은 앱이 시작될 때 로컬 캐시에 복사됩니다. 각 앱에서 두 폴더의 크기는 기본적으로 300MB로 제한되지만 최대 2GB로 증가될 수 있습니다. 복사한 파일이 로컬 캐시의 크기를 초과 하는 경우 App Service는 로컬 캐시를 자동으로 무시 하 고 원격 파일 공유에서 읽습니다.
 * 로컬 캐시는 읽기/쓰기가 가능합니다. 그러나 앱이 가상 머신을 이동하거나 다시 시작된 경우 모든 수정 내용이 삭제됩니다. 중요 업무용 데이터를 콘텐츠 저장소에 저장하는 앱에 로컬 캐시를 사용해서는 안 됩니다.
 * _D:\home\LogFiles_ 및 _D:\home\Data_에는 로그 파일 및 앱 데이터가 포함됩니다. 두 개의 하위 폴더가 VM 인스턴스에 로컬로 저장되고 공유 콘텐츠 저장소에 주기적으로 복사됩니다. 앱은 로그 파일 및 데이터를 이러한 폴더에 써서 유지할 수 있습니다. 그러나 공유 콘텐츠 저장소로의 복사는 최상의 노력 방식을 따르므로 VM 인스턴스의 갑작스러운 작동 중단으로 인해 로그 파일 및 데이터가 손실될 수 있습니다.
 * [로그 스트리밍](troubleshoot-diagnostic-logs.md#stream-logs)은 최상의 노력 복사의 영향을 받습니다. 스트리밍된 로그에서 최대 1분의 지연을 확인할 수 있습니다.
@@ -48,7 +48,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ## <a name="enable-local-cache-in-app-service"></a>App Service에서 로컬 캐시 사용
 로컬 캐시는 예약된 앱 설정 조합을 사용하여 구성됩니다. 다음과 같은 방법으로 이러한 앱 설정을 구성할 수 있습니다.
 
-* [Azure 포털](#Configure-Local-Cache-Portal)
+* [Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure 리소스 관리자](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>방법: Azure 포털을 사용하여 로컬 캐시 구성
@@ -83,7 +83,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>로컬 캐시에서 크기 설정 변경
-기본적으로 로컬 캐시 크기는 **1gb**입니다. 여기에는 Site 폴더, 콘텐츠 저장소에서 복사된 SiteExtensions 폴더, 로컬로 만든 모든 로그 및 데이터 폴더가 포함됩니다. 이 한도를 늘리려면 앱 설정 `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용합니다. 앱당 최대 **2GB**(2000MB)로 늘릴 수 있습니다.
+기본적으로 로컬 캐시 크기는 **300MB**입니다. 여기에는 Site 폴더, 콘텐츠 저장소에서 복사된 SiteExtensions 폴더, 로컬로 만든 모든 로그 및 데이터 폴더가 포함됩니다. 이 한도를 늘리려면 앱 설정 `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용합니다. 앱당 최대 **2GB**(2000MB)로 늘릴 수 있습니다.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>App Service 로컬 캐시 사용에 대한 모범 사례
 로컬 캐시는 [스테이징 환경](../app-service/deploy-staging-slots.md) 기능과 함께 사용하는 것이 좋습니다.

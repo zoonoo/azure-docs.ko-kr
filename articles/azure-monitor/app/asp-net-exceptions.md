@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights를 사용하여 웹앱의 실패 및 예외 진단 | Microsoft Docs
+title: Azure 애플리케이션 정보를 사용 하 여 오류 및 예외 진단
 description: 요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/11/2019
-ms.openlocfilehash: 90f03baa35d0bf2b63ec480a23db30409df3845f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f89149de9b1173a659176f686053e8dc564ab85c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432662"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
 라이브 웹앱의 예외는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
@@ -201,7 +201,7 @@ public class GoodController : ApiController
 ## <a name="mvc"></a>MVC
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 MVC 5 + 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 다음은 그 예입니다.
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예:
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외
@@ -293,7 +293,7 @@ FilterConfig.cs에서 AiHandleErrorAttribute를 글로벌 필터로 등록합니
 ## <a name="web-api"></a>웹 API
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 WebAPI 2+의 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 다음은 그 예입니다.
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예:
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외

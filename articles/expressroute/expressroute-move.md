@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: f232e1e8a1f7121b047a846fc2c614b48e757f76
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076652"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645908"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 이 문서에서는 Azure ExpressRoute 회로를 클래식에서 Azure Resource Manager 배포 모델로 이동하는 것에 대해 간략히 설명합니다.
@@ -39,7 +39,7 @@ ExpressRoute 회로가 리소스 관리자 배포 모델로 이동한 후에는 
 * 클래식 배포 모델에 대한 액세스는 ExpressRoute 회로의 **allowClassicOperations** 매개 변수에 의해 제어됩니다.
 
 > [!IMPORTANT]
-> [서비스 제한](../azure-subscription-service-limits.md) 페이지에 문서화된 모든 할당량이 적용됩니다. 예를 들어 표준 회로는 클래식 및 리소스 관리자 배포 모델 간에 최대 10개의 가상 네트워크 링크/연결을 포함할 수 있습니다.
+> [서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md) 페이지에 문서화된 모든 할당량이 적용됩니다. 예를 들어 표준 회로는 클래식 및 리소스 관리자 배포 모델 간에 최대 10개의 가상 네트워크 링크/연결을 포함할 수 있습니다.
 > 
 > 
 
@@ -87,7 +87,7 @@ ExpressRoute 회로는 클래식 및 리소스 관리자 배포 모델 간의 �
 * 클래식 배포 모델에서 ExpressRoute 회로의 수명 주기를 관리합니다.
 * 클래식 배포 모델에 대한 역할 기반 Access Control(RBAC) 지원 클래식 배포 모델에서 회로에 대한 RBAC 제어를 수행할 수 없습니다. 구독의 모든 관리자/공동 관리자는 가상 네트워크를 회로에 연결하거나 연결을 끊을 수 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](expressroute-howto-move-arm.md)에서 설명한 지침을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계

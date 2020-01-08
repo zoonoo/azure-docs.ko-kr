@@ -4,15 +4,15 @@ description: Application Insights에 데이터를 보내도록 Azure Diagnostics
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 6165ff13f489f9f23b9ece677b3643641150130d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b89e7d93113990e032f526d1f32e4e6acddffa75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285999"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450573"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure Diagnostics 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure Diagnostics 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 세트나 전체를 파이핑할 수 있습니다.
@@ -57,10 +57,10 @@ Application Insights에 대한 싱크 예제 구성:
     ]
 }
 ```
-- **싱크** *name* 특성은 싱크를 고유하게 식별하는 문자열 값입니다.
+- **싱크** *이름* 특성은 싱크를 고유 하 게 식별 하는 문자열 값입니다.
 
 - **ApplicationInsights** 요소는 Azure 진단 데이터를 보낼 Application Insights 리소스의 계측 키를 지정합니다.
-    - 기존 Application Insights 리소스가 없는 경우 리소스 만들기 및 계측 키 가져오기에 대한 자세한 내용은 [새 Application Insights 리소스 만들기](../../azure-monitor/app/create-new-resource.md ) 를 참조하세요.
+    - 기존 Application Insights 리소스가 없는 경우 리소스 만들기 및 계측 키 가져오기에 대한 자세한 내용은 [새 Application Insights 리소스 만들기](../../azure-monitor/app/create-new-resource.md )를 참조하세요.
     - Azure SDK 2.8 이상에서 클라우드 서비스를 개발하는 경우 이 계측 키는 자동으로 채워집니다. 클라우드 서비스 프로젝트를 패키징할 때 값은 **APPINSIGHTS_INSTRUMENTATIONKEY** 서비스 구성을 기반으로 합니다. [Cloud Services와 함께 Application Insights 사용](../../azure-monitor/app/cloudservices.md)을 참조하세요.
 
 - **채널** 요소는 하나 이상의 **채널** 요소를 포함합니다.
@@ -68,9 +68,9 @@ Application Insights에 대한 싱크 예제 구성:
     - *loglevel* 특성을 사용하면 채널이 허용하는 로그 수준을 지정할 수 있습니다. 정보가 많은 순서대로 사용 가능한 로그 수준은 다음과 같습니다.
         - 자세히
         - 정보
-        - Warning
-        - Error
-        - 중요
+        - 경고
+        - 오류
+        - 위험
 
 채널은 필터처럼 작동하고 채널을 사용하면 대상 싱크에 보내는 특정 로그 수준을 선택할 수 있습니다. 예를 들어 자세한 정보 표시 로그를 수집하고 스토리지에 보내지만 오류만을 싱크에 보낼 수 있습니다.
 

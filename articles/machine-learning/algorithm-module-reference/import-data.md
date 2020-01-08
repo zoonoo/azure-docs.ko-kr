@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5fa8d3984c758d0bf95372864f3bffeb6f302c83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497796"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529612"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
 
@@ -23,22 +23,22 @@ ms.locfileid: "73497796"
 이 모듈을 사용 하 여 기존 클라우드 데이터 서비스에서 machine learning 파이프라인으로 데이터를 로드할 수 있습니다. 
 
 > [!Note]
-> 이 모듈에서 제공 하는 모든 기능은 작업 영역 방문 페이지의 데이터 **저장소** 및 **데이터 집합** 을 통해 수행할 수 있습니다. 데이터 모니터링과 같은 추가 기능을 포함 하는 데이터 **저장소** 및 데이터 **집합** 을 사용 하는 것이 좋습니다. 자세히 알아보려면 [데이터에 액세스 하는 방법](../service/how-to-access-data.md) 및 데이터 [집합을 등록 하는](../service/how-to-create-register-datasets.md) 방법 문서를 참조 하세요.
+> 이 모듈에서 제공 하는 모든 기능은 작업 영역 방문 페이지의 데이터 **저장소** 및 **데이터 집합** 을 통해 수행할 수 있습니다. 데이터 모니터링과 같은 추가 기능을 포함 하는 데이터 **저장소** 및 데이터 **집합** 을 사용 하는 것이 좋습니다. 자세히 알아보려면 [데이터에 액세스 하는 방법](../how-to-access-data.md) 및 데이터 [집합을 등록 하는](../how-to-create-register-datasets.md) 방법 문서를 참조 하세요.
 > 데이터 집합을 등록 한 후 **에는 디자이너** 인터페이스에서 내 데이터 집합 -> **내 데이터** 집합 범주에서 찾을 수 있습니다. 이 모듈은 익숙한 환경을 위해 Studio (클래식) 사용자 용으로 예약 되어 있습니다. 
 >
 
 먼저 읽고 있는 원본을 선택 하 고 추가 설정을 완료 합니다. **데이터 가져오기** 모듈은 다음 원본에서 데이터 읽기를 지원 합니다.
 
 - HTTP를 통한 URL
-- [**Datastores**](../service/how-to-access-data.md)를 통한 Azure 클라우드 저장소)
+- [**Datastores**](../how-to-access-data.md)를 통한 Azure 클라우드 저장소)
     - Azure Blob 컨테이너
     - Azure 파일 공유
-    - Azure 데이터 레이크
+    - Azure Data Lake
     - Azure Data Lake Gen2
     - Azure SQL Database
     - Azure PostgreSQL    
 
-클라우드 저장소를 사용 하기 전에 Azure Machine Learning 작업 영역에 데이터 저장소를 먼저 등록 해야 합니다. 자세한 내용은 [데이터에 액세스 하는 방법](../service/how-to-access-data.md)을 참조 하세요. 
+클라우드 저장소를 사용 하기 전에 Azure Machine Learning 작업 영역에 데이터 저장소를 먼저 등록 해야 합니다. 자세한 내용은 [데이터에 액세스 하는 방법](../how-to-access-data.md)을 참조 하세요. 
 
 원하는 데이터를 정의 하 고 원본에 연결 하면 **[데이터 가져오기](./import-data.md)** 는 포함 된 값을 기준으로 각 열의 데이터 형식을 유추 하 고 디자이너 파이프라인에 데이터를 로드 합니다. **데이터 가져오기** 의 출력은 모든 디자이너 파이프라인에서 사용할 수 있는 데이터 집합입니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "73497796"
 
     데이터 가져오기는 데이터를 디자이너에 로드 하는 경우 포함 된 값을 기준으로 각 열의 데이터 형식 (숫자 또는 범주)을 유추 합니다.
 
-    헤더가 있는 경우 헤더는 출력 데이터 집합의 열 이름을 표시 하는 데 사용 됩니다.
+    헤더가 있으면 헤더를 사용하여 출력 데이터 집합의 열 이름을 지정합니다.
 
     데이터에 기존 열 머리글이 없으면 col1, col2 형식을 사용 하 여 새 열 이름이 생성 됩니다,... , coln *.
 

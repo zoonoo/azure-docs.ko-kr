@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379157"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689130"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 연결 된 장치 문제 해결 
 
@@ -26,7 +26,7 @@ ms.locfileid: "74379157"
 
 이 문서에서는 다음 시나리오를 지원하도록 [디바이스에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
 
-- 장치 기반 조건부 액세스
+- 디바이스 기반 조건부 액세스
 - [엔터프라이즈 설정 로밍](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [비즈니스용 Windows Hello](../active-directory-azureadjoin-passport-deployment.md)
 
@@ -102,7 +102,8 @@ WamDefaultAuthority: organizations
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
 
-이 필드는 디바이스가 Azure AD에 조인되어 있는지 여부를 나타냅니다. 값이 **아니요**인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다. 
+이 필드는 장치가 조인 되었는지 여부를 나타냅니다. 장치가 Azure AD 조인 장치 또는 하이브리드 Azure AD 가입 장치인 경우에는 값이 **예** 입니다.
+값이 **아니요**인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다. 
 
 추가 문제 해결을 위해 다음 단계를 진행 합니다.
 
@@ -371,13 +372,13 @@ WamDefaultAuthority: organizations
 
 ##### <a name="federated-join-server-errors"></a>페더레이션된 조인 서버 오류
 
-| 서버 오류 코드 | 서버 오류 메시지 | 가능한 이유 | 해결 방법 |
+| 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해상도 |
 | --- | --- | --- | --- |
-| DirectoryError | 요청이 일시적으로 제한 됩니다. 300 초 후에 시도 하세요. | 오류가 발생 했습니다. 여러 번의 신속한 등록 요청이 있을 수 있습니다. | 쿨 기간 이후에 조인 다시 시도 |
+| DirectoryError | 요청이 일시적으로 제한되었습니다. 300 초 후에 시도 하세요. | 오류가 발생 했습니다. 여러 번의 신속한 등록 요청이 있을 수 있습니다. | 쿨 기간 이후에 조인 다시 시도 |
 
 ##### <a name="sync-join-server-errors"></a>동기화 조인 서버 오류
 
-| 서버 오류 코드 | 서버 오류 메시지 | 가능한 이유 | 해결 방법 |
+| 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해상도 |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: 테 넌 트 <UUID>를 찾을 수 없습니다. 이 오류는 테 넌 트에 대 한 활성 구독이 없는 경우에 발생할 수 있습니다. 구독 관리자에 게 문의 하세요. | SCP 개체의 테 넌 트 ID가 잘못 되었습니다. | SCP 개체가 올바른 Azure AD 테 넌 트 ID 및 활성 구독으로 구성 되 고 테 넌 트에 표시 되는지 확인 합니다. |
 | DirectoryError | 지정 된 ID의 장치 개체를 찾을 수 없습니다. | 동기화 조인에 필요한 오류입니다. 장치 개체가 AD에서 Azure AD로 동기화 되지 않았습니다. | Azure AD Connect 동기화가 완료 될 때까지 기다렸다가 동기화 완료 후 다음 조인 시도가 문제를 해결 합니다. |

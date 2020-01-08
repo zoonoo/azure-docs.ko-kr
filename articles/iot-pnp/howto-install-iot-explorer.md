@@ -3,33 +3,33 @@ title: Azure IoT 탐색기 설치 및 사용 | Microsoft Docs
 description: Azure IoT 탐색기 도구를 설치 하 고이 도구를 사용 하 여 iot hub에 연결 된 IoT 플러그 앤 플레이 미리 보기 장치와 상호 작용 합니다.
 author: miagdp
 ms.author: miag
-ms.date: 07/02/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679864"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529629"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Azure IoT 탐색기 설치 및 사용
 
 Azure IoT 탐색기는 IoT 플러그 앤 플레이 미리 보기 장치를 조작 하 고 테스트 하는 그래픽 도구입니다. 로컬 컴퓨터에 도구를 설치한 후에는이 도구를 사용 하 여 장치에 연결할 수 있습니다. 도구를 사용 하 여 장치에서 보내는 원격 분석을 확인 하 고, 장치 속성을 사용 하 고, 명령을 호출할 수 있습니다.
 
-이 문서에서는 다음 방법을 안내합니다.
+이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
 
 - Azure IoT 탐색기 도구를 설치 하 고 구성 합니다.
 - 도구를 사용 하 여 장치를 조작 하 고 테스트 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure IoT 탐색기 도구를 사용 하려면 다음이 필요 합니다.
 
 - Azure IoT Hub - [Azure CLI를 사용 하 여 iot hub를 만드는 등의](../iot-hub/iot-hub-create-using-cli.md)다양 한 방법으로 Azure 구독에 iot hub를 추가할 수 있습니다. Azure IoT 탐색기 도구를 실행 하려면 IoT hub 연결 문자열이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- IoT hub에 등록 된 장치입니다. 다음 Azure CLI 명령을 사용 하 여 장치를 등록할 수 있습니다. @No__t_0 및 `{YourDeviceID}` 자리 표시자를 값으로 바꾸어야 합니다.
+- IoT hub에 등록 된 장치입니다. 다음 Azure CLI 명령을 사용 하 여 장치를 등록할 수 있습니다. `{YourIoTHubName}` 및 `{YourDeviceID}` 자리 표시자를 값으로 바꾸어야 합니다.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -73,7 +73,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 - **추가** 를 선택 하 여 허브에 새 장치를 등록 합니다. 그런 다음 장치 ID를 입력 합니다. 기본 설정을 사용 하 여 인증 키를 자동으로 생성 하 고 허브에 대 한 연결을 사용 하도록 설정 합니다.
 - 장치를 선택 하 고 **삭제** 를 선택 하 여 장치 id를 삭제 합니다. 이 작업을 완료 하기 전에 장치 세부 정보를 검토 하 여 올바른 장치 id를 삭제 하 고 있는지 확인 합니다.
-- @No__t_0 및 `interfaceID`를 기준으로 쿼리 합니다. @No__t_0 또는 `interfaceID`를 매개 변수로 추가 하 여 장치를 쿼리 합니다.
+- `capabilityID` 및 `interfaceID`를 기준으로 쿼리 합니다. `capabilityID` 또는 `interfaceID`를 매개 변수로 추가 하 여 장치를 쿼리 합니다.
 
 ## <a name="interact-with-a-device"></a>장치와 상호 작용
 
@@ -97,7 +97,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 **인터페이스** 페이지에서 인터페이스의 JSON 정의를 볼 수 있습니다.
 
-#### <a name="properties"></a>properties
+#### <a name="properties"></a>속성
 
 **쓰기 불가능 한 속성** 페이지의 인터페이스에 정의 된 읽기 전용 속성을 볼 수 있습니다. **쓰기 가능한 속성** 페이지의 인터페이스에 정의 된 쓰기 가능한 속성을 업데이트할 수 있습니다.
 

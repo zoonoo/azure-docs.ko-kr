@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815111"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456578"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -50,7 +50,7 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다. 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다.
 
@@ -78,11 +78,11 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 1. **연결 게이트웨이 만들기**에서 게이트웨이 리소스에 대해이 정보를 제공 합니다. 완료되면 **만들기**를 선택합니다.
 
-   | 자산 | 설명 |
+   | 속성 | Description |
    |----------|-------------|
    | **리소스 이름** | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 또는 마침표 (`.`)만 포함 하는 게이트웨이 리소스의 이름을 제공 합니다. |
    | **구독** | 게이트웨이 설치에 사용 된 Azure 계정에 대 한 Azure 구독을 선택 합니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다. |
-   | **리소스 그룹** | 사용 하려는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) |
+   | **리소스 그룹** | 사용 하려는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) |
    | **위치** | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 것과 동일한 지역 또는 위치입니다. 그렇지 않으면 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
    | **설치 이름** | 이러한 조건이 충족 될 때만 목록에 표시 되는 게이트웨이 설치를 선택 합니다. <p><p>-게이트웨이 설치는 만들려는 게이트웨이 리소스와 동일한 지역을 사용 합니다. <br>-게이트웨이 설치는 다른 Azure 게이트웨이 리소스에 연결 되지 않습니다. <br>-게이트웨이 설치는 게이트웨이 리소스를 만드는 데 사용 하는 것과 동일한 Azure 계정에 연결 됩니다. <br>-Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology) 에 속하며 게이트웨이 설치에 사용 된 것과 동일한 계정입니다. <p><p>자세한 내용은 질문과 [대답](#faq) 섹션을 참조 하세요. |
    |||
@@ -150,7 +150,7 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 1. 게이트웨이 리소스 메뉴에서 아직 선택하지 않은 경우 **온-프레미스 데이터 게이트웨이**를 선택합니다. 게이트웨이 리소스 도구 모음에서 **삭제**를 선택 합니다.
 
-   다음은 그 예입니다.
+   예:
 
    ![Azure에서 게이트웨이 리소스 삭제](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

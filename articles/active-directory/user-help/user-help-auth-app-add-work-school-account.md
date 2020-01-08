@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d1d781ee16cd1c78f03b58288bf75e036e38cf00
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267133"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681228"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 회사 또는 학교 계정 추가
 
@@ -28,7 +28,7 @@ ms.locfileid: "74267133"
 
 ## <a name="add-your-work-or-school-account"></a>회사 또는 학교 계정 추가
 
-1. 컴퓨터에서 [추가 보안 확인](https://aka.ms/mfasetup) 페이지로 이동합니다.
+1. 컴퓨터에서 [추가 보안 확인](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) 페이지로 이동합니다.
 
     >[!Note]
     >**추가 보안 인증** 페이지가 표시되지 않는 경우에는 관리자가 보안 정보(미리 보기) 환경을 켰을 수 있습니다. 이 경우 [인증자 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md) 섹션의 지침을 따라야 합니다. 이외의 경우에는 조직의 지원 센터에 도움을 요청해야 합니다. 보안 정보에 대 한 자세한 내용은 [보안 정보 (미리 보기) 개요](user-help-security-info-overview.md)를 참조 하세요.

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup를 사용 하 여 Azure virtual ma
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172113"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611392"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -17,7 +17,7 @@ SQL Server 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 �
 
 이 문서에서는 Azure VM에서 실행 되는 SQL Server 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업 하는 방법을 보여 줍니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -25,7 +25,7 @@ SQL Server 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 �
 > * 데이터베이스를 검색 하 고 백업을 설정 합니다.
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 합니다.
 
@@ -43,32 +43,47 @@ SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 �
 
 다음 옵션 중 하나를 사용 하 여 연결을 설정 합니다.
 
-* **Azure 데이터 센터 IP 범위를 허용**합니다. 이 옵션을 선택 하면 다운로드의 [IP 범위가](https://www.microsoft.com/download/details.aspx?id=41653) 허용 됩니다. NSG (네트워크 보안 그룹)에 액세스 하려면 AzureNetworkSecurityRule cmdlet을 사용 합니다. 안전 받는 사람이 지역 특정 Ip만을 나열 하는 경우 인증을 사용 하도록 설정 하려면 수신 받는 사람 목록에 Azure Active Directory (Azure AD) 서비스 태그를 업데이트 해야 합니다.
+#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Azure 데이터 센터 IP 범위 허용
 
-* **NSG 태그를 사용 하 여 액세스를 허용**합니다.  NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup에 대 한 아웃 바운드 액세스를 허용 해야 합니다. 또한 Azure AD 및 Azure Storage에 대 한 [규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 을 사용 하 여 인증 및 데이터 전송에 대 한 연결을 허용 해야 합니다. 포털 또는 PowerShell에서이 작업을 수행할 수 있습니다.
+이 옵션은 다운로드 한 파일의 [IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 를 허용 합니다. NSG (네트워크 보안 그룹)에 액세스 하려면 AzureNetworkSecurityRule cmdlet을 사용 합니다. 수신 받는 사람 목록에 지역별 Ip만 포함 되어 있는 경우 인증을 사용 하도록 설정 하려면 수신 받는 사람 목록에 Azure Active Directory (Azure AD) 서비스 태그를 업데이트 해야 합니다.
 
-    포털을 사용 하 여 규칙을 만들려면 다음을 수행 합니다.
+#### <a name="allow-access-using-nsg-tags"></a>NSG 태그를 사용 하 여 액세스 허용
 
-  * **모든 서비스**에서 **네트워크 보안** 그룹으로 이동 하 여 네트워크 보안 그룹을 선택 합니다.
-  * **설정**에서 **아웃 바운드 보안 규칙** 을 선택 합니다.
-  * **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명 된 대로 새 규칙을 만드는 데 필요한 모든 세부 정보를 입력 합니다. **대상** 옵션을 **서비스 태그로** 설정 하 고 **대상 서비스 태그** 를 **azurebackup**으로 설정 했는지 확인 합니다.
-  * **추가**를 클릭 하 여 새로 만든 아웃 바운드 보안 규칙을 저장 합니다.
+NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup에 대 한 아웃 바운드 액세스를 허용 해야 합니다. 또한 Azure AD 및 Azure Storage에 대 한 [규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 을 사용 하 여 인증 및 데이터 전송에 대 한 연결을 허용 해야 합니다. Azure Portal 또는 PowerShell을 통해 수행할 수 있습니다.
 
-   Powershell을 사용 하 여 규칙을 만들려면
+포털을 사용 하 여 규칙을 만들려면 다음을 수행 합니다.
 
-  * Azure 계정 자격 증명을 추가 하 고 국가를 업데이트 합니다.<br/>
-    ``Add-AzureRmAccount``
-  * NSG 구독 선택<br/>
-    ``Select-AzureRmSubscription "<Subscription Id>"``
-  * NSG 선택<br/>
-    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  * Azure Backup 서비스 태그에 아웃 바운드 규칙 허용 추가<br/>
-   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  * NSG 저장<br/>
-    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+  1. **모든 서비스**에서 **네트워크 보안** 그룹으로 이동 하 여 네트워크 보안 그룹을 선택 합니다.
+  2. **설정**에서 **아웃 바운드 보안 규칙** 을 선택 합니다.
+  3. **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명 된 대로 새 규칙을 만드는 데 필요한 모든 세부 정보를 입력 합니다. **대상** 옵션을 **서비스 태그로** 설정 하 고 **대상 서비스 태그** 를 **azurebackup**으로 설정 했는지 확인 합니다.
+  4. **추가**를 클릭 하 여 새로 만든 아웃 바운드 보안 규칙을 저장 합니다.
 
-* **Azure 방화벽 태그를 사용 하 여 액세스를 허용**합니다. Azure 방화벽을 사용 하는 경우 AzureBackup [FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)를 사용 하 여 응용 프로그램 규칙을 만듭니다. 이렇게 하면 Azure Backup에 대 한 아웃 바운드 액세스가 가능 합니다.
-* **트래픽을 라우팅하는 HTTP 프록시 서버를 배포**합니다. Azure VM에서 SQL Server 데이터베이스를 백업 하면 VM의 백업 확장이 HTTPS Api를 사용 하 여 Azure Backup 및 데이터에 대 한 관리 명령을 Azure Storage 보냅니다. 또한 백업 확장은 인증에 Azure AD를 사용 합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장의 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소입니다.
+PowerShell을 사용 하 여 규칙을 만들려면
+
+ 1. Azure 계정 자격 증명을 추가 하 고 국가를 업데이트 합니다.<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. NSG 구독 선택<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. NSG 선택<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Azure Backup 서비스 태그에 아웃 바운드 규칙 허용 추가<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. 저장소 서비스 태그에 아웃 바운드 규칙 허용 추가<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. AzureActiveDirectory service 태그에 아웃 바운드 규칙 허용 추가<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. NSG 저장<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Azure 방화벽 태그를 사용 하 여 액세스를 허용**합니다. Azure 방화벽을 사용 하는 경우 AzureBackup [FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)를 사용 하 여 응용 프로그램 규칙을 만듭니다. 이렇게 하면 Azure Backup에 대 한 아웃 바운드 액세스가 가능 합니다.
+
+**트래픽을 라우팅하는 HTTP 프록시 서버를 배포**합니다. Azure VM에서 SQL Server 데이터베이스를 백업 하면 VM의 백업 확장이 HTTPS Api를 사용 하 여 Azure Backup 및 데이터에 대 한 관리 명령을 Azure Storage 보냅니다. 또한 백업 확장은 인증에 Azure AD를 사용 합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장의 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소입니다.
 
 연결 옵션에는 다음과 같은 장점과 단점이 있습니다.
 
@@ -194,7 +209,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
    ![새 백업 정책에 대한 정책 유형 선택](./media/backup-azure-sql-database/policy-type-details.png)
 
 3. **정책 이름**에 새 정책의 이름을 입력합니다.
-4. **전체 백업 정책**에서 **백업 빈도**를 선택 합니다. **매일** 또는 **매주**를 선택 합니다.
+4. **전체 백업 정책**에서 **백업 빈도**를 선택합니다. **매일** 또는 **매주**를 선택 합니다.
 
    * **매일**의 경우 백업 작업이 시작될 때 시간과 표준 시간대를 선택합니다.
    * **매주**의 경우 백업 작업이 시작되는 요일, 시간 및 표준 시간대를 선택합니다.
@@ -232,11 +247,12 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
     ![로그 백업 정책 편집](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. **백업 정책** 메뉴에서 **SQL 백업 압축**을 사용할지 여부를 선택합니다.
-    * 압축은 기본적으로 사용하지 않도록 설정되어 있습니다.
-    * 백 엔드에서, Azure Backup은 SQL 네이티브 백업 압축을 사용합니다.
+13. **백업 정책** 메뉴에서 **SQL 백업 압축** 을 사용할지 여부를 선택 합니다. 이 옵션은 기본적으로 사용되지 않습니다. 사용 하도록 설정 하면 SQL Server는 VDI로 압축 된 백업 스트림을 보냅니다.  이 컨트롤의 값에 따라 Azure Backup는 압축/NO_COMPRESSION 절을 사용 하 여 인스턴스 수준 기본값을 재정의 합니다.
 
 14. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
+
+> [!NOTE]
+> 각 로그 백업은 이전 전체 백업에 연결 되어 복구 체인을 형성 합니다. 이 전체 백업은 마지막 로그 백업이 만료 될 때까지 보존 됩니다. 이는 모든 로그를 복구할 수 있도록 전체 백업이 추가 기간 동안 보존 됨을 의미할 수 있습니다. 사용자에 게 주간 전체 백업, 일별 차등 및 2 시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30 일 동안 보존 됩니다. 그러나 매주 전체 백업을 사용할 수 있는 경우 (예: 30 + 7 일 후)에만 매주 전체를 정리/삭제할 수 있습니다. 예를 들어 매주 전체 백업은 11 월 16 일에 발생 합니다. 보존 정책에 따라 10 월 16 일까지 유지 됩니다. 이 전체에 대 한 마지막 로그 백업은 11 월 26 일에 다음에 예약 된 전체 시간 이전에 발생 합니다. 이 로그를 Dec 2 초까지 사용할 수 있을 때까지 11 월 16 일 전체를 삭제할 수 없습니다. 따라서 11 월 16 일은 12 월 2 일부 터까지 유지 됩니다.
 
 ## <a name="enable-auto-protection"></a>자동 보호 사용  
 
@@ -261,7 +277,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
 ## <a name="next-steps"></a>다음 단계
 
-방법 배우기:
+방법 알아보기
 
 * [백업 SQL Server 데이터베이스 복원](restore-sql-database-azure-vm.md)
 * [백업 SQL Server 데이터베이스 관리](manage-monitor-sql-database-backup.md)

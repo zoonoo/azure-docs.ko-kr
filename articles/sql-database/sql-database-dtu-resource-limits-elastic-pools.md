@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 1dd0f90a9844bb3afbd15e1f8c804d3a7c6b7fff
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 1c9d3256f3898d57eb9f7fe5d758bcaffb37aca6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687689"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637578"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>DTU 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한
 
@@ -114,13 +114,13 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL Database 서비스는 같은 분량의 컴퓨팅 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
 > [!NOTE]
-> `tempdb` 제한은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
+> `tempdb`제한 사항은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
 
 ### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 
 다음 표에서 풀링된 데이터베이스에 대한 속성을 설명합니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 데이터베이스당 최대 eDTU |풀에 있는 다른 데이터베이스의 사용률에 따라 사용 가능한 경우 풀에 있는 임의 데이터베이스에서 사용할 수 있는 최대 eDTU 수입니다. 데이터베이스당 최대 eDTU는 데이터베이스에 대해 리소스를 보장하지 않습니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스 사용률의 최대치를 처리할 만큼 데이터베이스당 최대 eDTU를 충분히 높게 설정합니다. 풀은 일반적으로 모든 데이터베이스가 동시에 최대로 사용되지 않을 경우 데이터베이스에 대해 핫 및 콜드 사용률 패턴을 가정하므로 일정 수준의 오버커밋이 예상됩니다. 예를 들어, 데이터베이스당 최고 사용률이 20 eDTU이며 풀에 있는 100개의 데이터베이스 중 20%만 동시에 최대로 사용되는 것으로 가정합니다. 데이터베이스당 eDTU 최대값이 20 eDTU로 설정된 경우 풀을 5배만큼 오버커밋하고 풀당 eDTU를 400으로 설정하는 것이 적합합니다. |
 | 데이터베이스당 최소 eDTU |풀에 있는 임의 데이터베이스에 보장되는 최소 eDTU 수입니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최소 eDTU를 0으로 설정할 수 있으며 기본값이기도 합니다. 이 속성은 0과 데이터베이스당 평균 기록 eDTU 사용률 사이의 값으로 설정됩니다. 풀에 있는 데이터베이스 수와 데이터베이스당 최소 eDTU를 곱한 값은 풀당 eDTU를 초과할 수 없습니다. 예를 들어, 풀에 20개의 데이터베이스가 있고 데이터베이스당 eDTU 최소값이 10 eDTU로 설정되면 풀당 eDTU는 200 eDTU 이상이어야 합니다. |
@@ -132,6 +132,6 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 - 단일 데이터베이스에 대 한 vCore 리소스 제한은 [vcore 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 을 참조 하세요.
 - 단일 데이터베이스에 대 한 DTU 리소스 제한의 경우 [dtu 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한](sql-database-dtu-resource-limits-single-databases.md) 을 참조 하세요.
 - 탄력적 풀에 대 한 vCore 리소스 제한은 [vcore 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md) 을 참조 하세요.
-- 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](sql-database-managed-instance-resource-limits.md)을 참조합니다.
-- 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
+- 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](sql-database-managed-instance-resource-limits.md)을 참조하세요.
+- 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
 - 데이터베이스 서버의 리소스 제한에 대한 자세한 내용은 서버 및 구독 수준의 한도에 관한 정보인 경우 [SQL Database 서버의 리소스 제한 개요](sql-database-resource-limits-database-server.md)를 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: Azure 센티널의 Azure Monitor 통합 문서에 따라 대시보드를 사용 하 여 데이터 모니터링 | Microsoft Docs
-description: 이 자습서에서는 Azure 센티널의 통합 문서를 기반으로 대시보드를 사용 하 여 데이터를 모니터링 하는 방법을 알아봅니다.
+title: Azure 센티널의 Azure Monitor 통합 문서에 따라 대시보드를 사용 하 여 데이터 시각화 | Microsoft Docs
+description: 이 자습서에서는 Azure 센티널의 통합 문서를 기반으로 대시보드를 사용 하 여 데이터를 시각화 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
+ms.date: 01/01/2020
 ms.author: rkarlin
-ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158858"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610457"
 ---
-# <a name="tutorial-monitor-your-data"></a>자습서: 데이터 모니터링
+# <a name="tutorial-visualize-and-monitor-your-data"></a>자습서: 데이터 시각화 및 모니터링
 
 
 
- [데이터 원본](quickstart-onboard.md) 를 azure 센티널에 연결한 후에는 사용자 지정 대시보드를 만들 때 다양 한 기능을 제공 하는 Azure Monitor 통합 문서와 azure 센티널 통합을 사용 하 여 데이터를 모니터링할 수 있습니다. 통합 문서가 Azure 센티널에 다르게 표시 되는 반면 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/app/usage-workbooks.md)방법을 확인 하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
+데이터  [원본을](quickstart-onboard.md) azure 센티널에 연결 하면 사용자 지정 대시보드를 만들 때 다양 한 기능을 제공 하는 Azure Monitor 통합 문서에 대 한 azure 센티널 채택을 사용 하 여 데이터를 시각화 하 고 모니터링할 수 있습니다. 통합 문서가 Azure 센티널에 다르게 표시 되는 반면 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/app/usage-workbooks.md)방법을 확인 하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
 
 
-이 자습서는 Azure 센티널의 데이터를 모니터링 하는 데 도움이 됩니다.
+이 자습서는 Azure 센티널에서 데이터를 시각화 하는 데 도움이 됩니다.
 > [!div class="checklist"]
 > * 기본 제공 통합 문서 사용
 > * 새 통합 문서 만들기
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 센티널 작업 영역의 리소스 그룹에 대해 적어도 통합 문서 판독기 또는 통합 문서 참가자 권한이 있어야 합니다.
 

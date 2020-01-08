@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 57d30803f20d17ee31c3d42d9a26e04c1b0832b6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1413035c879198cf333aeeb5d8fe993162939172
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460573"
 ---
 # <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>PowerShell을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 RBAC 역할 할당
 
@@ -57,7 +57,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-rbac-role-to-a-security-principal"></a>보안 주체에 RBAC 역할 할당
 
-보안 주체에 RBAC 역할을 할당 하려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 사용 합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 다음 예에서는 다양 한 범위에서 사용자에 게 역할을 할당 하는 방법을 보여 주지만 동일한 명령을 사용 하 여 보안 주체에 역할을 할당할 수 있습니다.
+보안 주체에 RBAC 역할을 할당 하려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 사용 합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 명령을 실행 하려면 해당 범위에서 소유자 또는 참가자 역할을 할당 해야 합니다. 다음 예에서는 다양 한 범위에서 사용자에 게 역할을 할당 하는 방법을 보여 주지만 동일한 명령을 사용 하 여 보안 주체에 역할을 할당할 수 있습니다.
 
 ### <a name="container-scope"></a>컨테이너 범위
 

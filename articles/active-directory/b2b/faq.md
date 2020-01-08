@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd72aea9087b03dcd5c6072676e8f98e7cfc1ee
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8be047caf8631cda4e48b7bf10987db616a9b86f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816460"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608611"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 협업 FAQ
 
@@ -48,17 +48,17 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 어떤 조직에서는 B2B 협업 사용자를 추가하고 필요한 경우 애플리케이션에 프로비전한 다음, 초대를 보내려고 합니다. B2B 협업 초대 API를 사용하여 온보딩 워크플로를 사용자 지정할 수 있습니다.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
-예. 게스트 개체는 기본적으로 조직의 GAL (전체 주소 목록)에 표시 되지 않지만 Azure Active Directory PowerShell을 사용 하 여 표시 되도록 할 수 있습니다. [전체 주소 목록에 게스트 개체를 표시할 수 있나요?를 참조 하세요](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list) .
+예. 게스트 개체는 기본적으로 조직의 GAL (전체 주소 목록)에 표시 되지 않지만 Azure Active Directory PowerShell을 사용 하 여 표시 되도록 할 수 있습니다. [전체 주소 목록에 게스트 개체를 표시할 수 있나요?를 참조 하세요](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list) .
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>게스트 사용자를 제한된 관리자로 지정할 수 있나요?
-그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.
+당연히 그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Azure AD B2B 협업을 사용하면 B2B 사용자가 Azure Portal에 액세스할 수 있나요?
 사용자에 게 제한 된 관리자 역할이 할당 되지 않으면 B2B 공동 작업 사용자가 Azure Portal에 액세스할 필요가 없습니다. 그러나 제한 된 관리자의 역할이 할당 된 B2B 공동 작업 사용자는 포털에 액세스할 수 있습니다. 또한 이러한 관리자 역할 중 하나가 할당되지 않은 게스트 사용자가 포털에 액세스하는 경우 사용자는 특정 부분의 환경에 액세스할 수 있습니다. 게스트 사용자 역할에는 디렉터리에 대한 일부 사용 권한이 있습니다.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>게스트 사용자를 위해 Azure Portal에 대한 액세스를 차단할 수 있습니까?
 
-예! 모든 게스트 및 외부 사용자가 Azure Portal에 액세스 하지 못하도록 차단 하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
+예. 모든 게스트 및 외부 사용자가 Azure Portal에 액세스 하지 못하도록 차단 하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
 
 1. [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
 2. Azure Portal에서 **Azure Active Directory**를 선택합니다. 
@@ -67,7 +67,7 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 정책의 이름을 입력 합니다 (예: "게스트가 포털에 액세스 하지 못하도록 차단").
 6. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
 7. **포함** 탭에서 **사용자 및 그룹 선택**을 선택 하 고 **모든 게스트 및 외부 사용자 (미리 보기)** 를 선택 합니다.
-9. **완료**를 선택합니다.
+9. **완료** 를 선택합니다.
 10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱 또는 작업**을 선택 합니다.
 11. **클라우드 앱 또는 작업** 페이지에서 **앱 선택**을 선택한 다음 **선택**을 선택 합니다.
 12. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 후 **선택**을 선택합니다.
@@ -81,7 +81,7 @@ Azure AD 테넌트가 사용자의 홈 디렉터리이면 Azure portal에서 [�
  
 * Microsoft 계정(예: guestuser@live.com)으로 로그인한 게스트 사용자는 Microsoft 계정 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용자 고유의 암호를 재설정할 수 있습니다. [Microsoft 계정 암호를 재설정하는 방법](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)을 참조하세요.
 * Google 계정 또는 다른 외부 ID 공급자로 로그인한 게스트 사용자는 ID 공급자의 SSPR 메서드를 사용하여 사용자 고유의 암호를 재설정할 수 있습니다. 예를 들어 Google 계정 guestuser@gmail.com을 사용하는 게스트 사용자는 [암호 변경 또는 재설정](https://support.google.com/accounts/answer/41078)의 지침에 따라 자신의 암호를 재설정할 수 있습니다.
-* ID 테넌트가 JIT(Just-In-Time) 또는 “바이럴” 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 등록할 때 생성된 [바이럴 테넌트 관리를 인계](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
+* ID 테넌트가 JIT(Just-In-Time) 또는 “바이럴” 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
 * 게스트 사용자의 홈 디렉터리가 Azure AD 테넌트인 경우 사용자의 암호를 재설정할 수 있습니다. 예를 들어 온-프레미스 Active Directory에서 사용자를 만들거나 동기화하고 UserType을 Guest로 설정할 수 있습니다. 이 사용자는 디렉터리에 속해 있기 때문에 Azure Portal에서 암호를 재설정할 수 있습니다.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365에서 Azure AD B2B 협업에 대한 온라인 지원을 제공합니까?

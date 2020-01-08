@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 0c243d216e00adf49a6425e5b7be0d38caeef043
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929057"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658545"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -35,7 +35,7 @@ ms.locfileid: "73929057"
 
 * [Velero](https://velero.io/) (Kubernetes 1.7 이상 필요)
 * [Azure Kube CLI 확장](https://github.com/yaron2/azure-kube-cli)
-* [Resster](https://github.com/mhausenblas/reshifter)
+* [ReShifter](https://github.com/mhausenblas/reshifter)
 
 이 문서에서는 다음에 대 한 마이그레이션 세부 정보를 요약 합니다.
 
@@ -91,7 +91,7 @@ az aks create \
 
 [네트워크 할당량](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) 에 대 한 증가를 요청 하 여 ip가 고갈 되지 않도록 해야 할 수도 있습니다. 추가 정보는 [AKS에 대 한 네트워킹 및 IP 범위](https://docs.microsoft.com/azure/aks/configure-kubenet) 를 참조 하세요.
 
-자세한 내용은 [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 참조 하세요. 현재 할당량을 확인 하려면 Azure Portal [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동 하 여 구독을 선택한 다음 **사용량 + 할당량**을 선택 합니다.
+자세한 내용은 [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조 하세요. 현재 할당량을 확인 하려면 Azure Portal [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동 하 여 구독을 선택한 다음 **사용량 + 할당량**을 선택 합니다.
 
 ## <a name="high-availability-and-business-continuity"></a>고가용성 및 비즈니스 연속성
 
@@ -124,7 +124,7 @@ Azure Managed Disks를 사용 하는 경우 VM에 연결 되지 않은 경우에
 이러한 방법이 작동 하지 않는 경우 백업 및 복원 옵션을 사용할 수 있습니다.
 * [Azure의 Velero](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 
-#### <a name="azure-files"></a>Azure 파일
+#### <a name="azure-files"></a>Azure Files
 
 디스크와 달리 Azure Files는 여러 호스트에 동시에 탑재할 수 있습니다. AKS 클러스터에서 Azure 및 Kubernetes는 ACS 클러스터가 여전히 사용 하는 pod를 만들 수 있도록 방지 하지 않습니다. 데이터 손실 및 예기치 않은 동작을 방지 하려면 클러스터가 같은 파일에 동시에 쓰지 않도록 합니다.
 

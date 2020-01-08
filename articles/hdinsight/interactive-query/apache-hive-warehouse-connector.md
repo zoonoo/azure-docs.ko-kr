@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 47bcc9a4f906fa1e0cc0560cdbd2e0cebec481ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494311"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435369"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive 웨어하우스 커넥터를 사용 하 여 Apache Spark 및 Apache Hive 통합
 
@@ -20,19 +20,19 @@ HWC (Apache Hive 웨어하우스 커넥터)는 Spark 데이터 프레임와 Hive
 
 Hive 웨어하우스 커넥터를 사용 하면 Hive 및 Spark의 고유한 기능을 활용 하 여 강력한 빅 데이터 응용 프로그램을 빌드할 수 있습니다. Apache Hive는 ACID (원자성, 일관성, 격리성 및 내구성) 인 데이터베이스 트랜잭션에 대 한 지원을 제공 합니다. Hive의 ACID 및 트랜잭션에 대 한 자세한 내용은 [Hive 트랜잭션](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)을 참조 하세요. 또한 Hive는 Apache Spark에서 사용할 수 없는 Apache 레인저 및 짧은 대기 시간 분석 처리를 통해 자세한 보안 제어를 제공 합니다.
 
-Apache Spark에는 Apache Hive에서 사용할 수 없는 스트리밍 기능을 제공 하는 구조적 스트리밍 API가 있습니다. HDInsight 4.0부터 Apache Spark 2.3.1 및 Apache Hive 3.1.0에는 별도의 metastore 있으므로 상호 운용성이 어려워질 수 있습니다. Hive 웨어하우스 커넥터를 사용 하면 Spark와 Hive를 함께 더 쉽게 사용할 수 있습니다. HWC 라이브러리는 LLAP 디먼에서 Spark 실행 기에 병렬로 데이터를 로드 하 여 Spark에서 Hive로 표준 JDBC 연결을 사용 하는 것 보다 효율적이 고 확장 가능 합니다.
+Apache Spark에는 Apache Hive에서 사용할 수 없는 스트리밍 기능을 제공 하는 구조적 스트리밍 API가 있습니다. HDInsight 4.0부터 Apache Spark 2.3.1 및 Apache Hive 3.1.0에는 별도의 metastore 있으므로 상호 운용성이 어려워질 수 있습니다. Hive Warehouse Connector를 통해 보다 쉽게 Spark 및 Hive를 함께 사용할 수 있습니다. HWC 라이브러리는 LLAP 디먼에서 Spark 실행 기에 병렬로 데이터를 로드 하 여 Spark에서 Hive로 표준 JDBC 연결을 사용 하는 것 보다 효율적이 고 확장 가능 합니다.
 
 ![hive 웨어하우스 커넥터 아키텍처](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
-Hive 웨어하우스 커넥터에서 지원 되는 작업은 다음과 같습니다.
+Hive Warehouse Connector에서 지원하는 일부 작업은 다음과 같습니다.
 
 * 테이블 설명
 * ORC 형식의 데이터에 대 한 테이블 만들기
-* Hive 데이터 선택 및 데이터 프레임 검색
-* 데이터 프레임을 Hive에 일괄 처리로 쓰기
+* Hive 데이터 선택 및 DataFrame 검색
+* Hive에 DataFrame 일괄 쓰기
 * Hive update 문 실행
-* Hive에서 테이블 데이터를 읽고 Spark에서 변환한 다음 새 Hive 테이블에 기록
-* HiveStreaming를 사용 하 여 Hive에 데이터 프레임 또는 Spark 스트림 작성
+* Hive에서 테이블 데이터 읽기, Spark에서 데이터 변환 및 새 Hive 테이블에 데이터 쓰기
+* HiveStreaming를 사용하여 Hive에 DataFrame 또는 Spark 스트림 쓰기
 
 ## <a name="hive-warehouse-connector-setup"></a>Hive 웨어하우스 커넥터 설정
 
@@ -46,7 +46,7 @@ Azure HDInsight에서 Spark 및 대화형 쿼리 클러스터 간에 Hive 웨어
 
 ### <a name="modify-hosts-file"></a>호스트 파일 수정
 
-대화형 쿼리 클러스터의 headnode0에 있는 `/etc/hosts` 파일에서 노드 정보를 복사 하 고이 정보를 Spark 클러스터 headnode0의 `/etc/hosts` 파일에 연결 합니다. 이 단계에서는 Spark 클러스터가 대화형 쿼리 클러스터 노드의 IP 주소를 확인할 수 있습니다. `cat /etc/hosts`를 사용 하 여 업데이트 된 파일의 내용을 봅니다. 최종 출력은 아래 스크린샷에 표시 된 것과 같아야 합니다.
+대화형 쿼리 클러스터의 headnode0에 있는 `/etc/hosts` 파일에서 노드 정보를 복사 하 고 해당 정보를 Spark 클러스터의 headnode0에 있는 `/etc/hosts` 파일에 연결 합니다. 이 단계에서는 Spark 클러스터가 대화형 쿼리 클러스터 노드의 IP 주소를 확인할 수 있습니다. `cat /etc/hosts`를 사용 하 여 업데이트 된 파일의 내용을 봅니다. 최종 출력은 아래 스크린샷에 표시 된 것과 같아야 합니다.
 
 ![hive 웨어하우스 커넥터가 파일을 호스트 합니다.](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
@@ -56,15 +56,15 @@ Azure HDInsight에서 Spark 및 대화형 쿼리 클러스터 간에 Hive 웨어
 
 1. `https://LLAPCLUSTERNAME.azurehdinsight.net`를 사용 하 여 클러스터의 Apache Ambari 홈 페이지로 이동 합니다. 여기서 `LLAPCLUSTERNAME`은 대화형 쿼리 클러스터의 이름입니다.
 
-1. **Hive** > **CONFIGS** > **고급** > **고급 hive-사이트** > **hive** 로 이동 하 여 값을 확인 합니다. 값은 `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`과 유사할 수 있습니다.
+1. **Hive** > **CONFIGS** > **고급** > **고급 hive-사이트** > **hive** 로 이동 하 여 값을 확인 합니다. 값은 `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`와 유사할 수 있습니다.
 
-1. **Hive** > **CONFIGS** > **고급** > **일반** > **metastore** 으로 이동 하 여 값을 확인 합니다. 값은 `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`과 유사할 수 있습니다.
+1. **Hive** > **CONFIGS** > **고급** > **일반** > **metastore** 으로 이동 하 여 값을 확인 합니다. 값은 `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`와 유사할 수 있습니다.
 
 #### <a name="from-your-apache-spark-cluster"></a>Apache Spark 클러스터에서
 
 1. `https://SPARKCLUSTERNAME.azurehdinsight.net`를 사용 하 여 클러스터의 Apache Ambari 홈 페이지로 이동 합니다. 여기서 `SPARKCLUSTERNAME`는 Apache Spark 클러스터의 이름입니다.
 
-1. **Hive** > **CONFIGS** > **고급** > **고급 hive-대화형** > **hive** . a l a. a l a. 값은 `@llap0`과 유사할 수 있습니다.
+1. **Hive** > **CONFIGS** > **고급** > **고급 hive-대화형** > **hive** . a l a. a l a. 값은 `@llap0`와 유사할 수 있습니다.
 
 ### <a name="configure-spark-cluster-settings"></a>Spark 클러스터 설정 구성
 
@@ -77,10 +77,10 @@ Spark Ambari 웹 UI에서 **Spark2** > **CONFIGS** > **Custom Spark2-defaults**�
 | 키 | 값 |
 |----|----|
 |`spark.hadoop.hive.llap.daemon.service.hosts`|이전에 **hive**. a l a.|
-|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`에 설정해야 합니다에 설정해야 합니다. 대화형 쿼리 클러스터의 Hiveserver2에 연결 하는 JDBC 연결 문자열로 설정 합니다. `LLAPCLUSTERNAME`을 대화형 쿼리 클러스터의 이름으로 바꿉니다. `PWD`를 실제 암호로 바꿉니다.|
-|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`에 설정해야 합니다에 설정해야 합니다. 적절 한 HDFS 호환 준비 디렉터리로 설정 합니다. 서로 다른 두 개의 클러스터가 있는 경우 스테이징 디렉터리는 HiveServer2에서 액세스할 수 있도록 LLAP 클러스터의 저장소 계정의 준비 디렉터리에 있는 폴더 여야 합니다.  `STORAGE_ACCOUNT_NAME`를 클러스터에서 사용 하는 저장소 계정의 이름으로 바꾸고 `STORAGE_CONTAINER_NAME`,을 저장소 컨테이너의 이름으로 바꿉니다.|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 대화형 쿼리 클러스터의 Hiveserver2에 연결 하는 JDBC 연결 문자열로 설정 합니다. `LLAPCLUSTERNAME`을 대화형 쿼리 클러스터의 이름으로 바꿉니다. `PWD`를 실제 암호로 바꿉니다.|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 적절 한 HDFS 호환 준비 디렉터리로 설정 합니다. 서로 다른 두 개의 클러스터가 있는 경우 스테이징 디렉터리는 HiveServer2에서 액세스할 수 있도록 LLAP 클러스터의 저장소 계정의 준비 디렉터리에 있는 폴더 여야 합니다.  `STORAGE_ACCOUNT_NAME`를 클러스터에서 사용 하는 저장소 계정의 이름으로 바꾸고 `STORAGE_CONTAINER_NAME`,을 저장소 컨테이너의 이름으로 바꿉니다.|
 |`spark.datasource.hive.warehouse.metastoreUri`|이전에 **metastore**에서 가져온 값입니다.|
-|`spark.security.credentials.hiveserver2.enabled`|YARN 클라이언트 배포 모드의 경우 `false`입니다.|
+|`spark.security.credentials.hiveserver2.enabled`|YARN client 배포 모드에 대 한 `false`입니다.|
 |`spark.hadoop.hive.zookeeper.quorum`|이전에 **hive**에서 가져온 값입니다.|
 
 필요에 따라 변경 내용을 저장 하 고 구성 요소를 다시 시작 합니다.
@@ -91,9 +91,9 @@ Spark Ambari 웹 UI에서 **Spark2** > **CONFIGS** > **Custom Spark2-defaults**�
 
 몇 가지 방법 중 하나를 선택 하 여 대화형 쿼리 클러스터에 연결 하 고 Hive 웨어하우스 커넥터를 사용 하 여 쿼리를 실행할 수 있습니다. 지원 되는 방법에는 다음 도구가 포함 됩니다.
 
-* [spark-셸](../spark/apache-spark-shell.md)
+* [spark-shell](../spark/apache-spark-shell.md)
 * PySpark
-* spark-제출
+* spark-submit
 * [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
 * [Livy](../spark/apache-spark-livy-rest-interface.md)
 
@@ -107,11 +107,11 @@ Spark 셸 세션을 시작 하려면 다음 단계를 수행 합니다.
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-    환영 메시지가 표시 되 고 명령을 입력할 수 있는 `scala>` 프롬프트가 표시 됩니다.
+    명령을 입력할 수 있는 시작 메시지와 `scala>` 프롬프트가 표시 됩니다.
 
 1. Spark-셸을 시작한 후 다음 명령을 사용 하 여 Hive 웨어하우스 커넥터 인스턴스를 시작할 수 있습니다.
 
@@ -132,7 +132,7 @@ Enterprise Security Package (ESP)는 Active Directory 기반 인증, 다중 사�
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     --conf spark.hadoop.hive.llap.daemon.service.hosts='<LLAP_APP_NAME>'
     --conf spark.sql.hive.hiveserver2.jdbc.url='jdbc:hive2://<ZOOKEEPER_QUORUM>;serviceDiscoveryMode=zookeeper;zookeeperNamespace=hiveserver2-interactive'
@@ -163,7 +163,7 @@ Spark는 기본적으로 Hive의 관리 되는 ACID 테이블에 쓰기를 지�
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-1. 열 `state` `Colorado`와 일치 하는 테이블 `hivesampletable`를 필터링 합니다. Hive 테이블의이 쿼리는 Spark 데이터 프레임 반환 됩니다. 그런 다음 `write` 함수를 사용 하 여 데이터 프레임이 Hive 테이블 `sampletable_colorado`에 저장 됩니다.
+1. 열 `state` `Colorado`와 일치 하는 테이블 `hivesampletable`를 필터링 합니다. Hive 테이블의이 쿼리는 Spark 데이터 프레임 반환 됩니다. 그런 다음 `write` 함수를 사용 하 여 `sampletable_colorado` 데이터 프레임이 Hive 테이블에 저장 됩니다.
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
@@ -193,7 +193,7 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
 
 1. 다음 단계를 수행 하 여 만든 Spark 스트림에 대 한 데이터를 생성 합니다.
     1. 동일한 Spark 클러스터에서 두 번째 SSH 세션을 엽니다.
-    1. 명령 프롬프트에 `nc -lk 9999`을 입력합니다. 이 명령은 netcat 유틸리티를 사용 하 여 명령줄에서 지정 된 포트로 데이터를 보냅니다.
+    1. 명령 프롬프트에서 `nc -lk 9999`를 입력합니다. 이 명령은 netcat 유틸리티를 사용 하 여 명령줄에서 지정 된 포트로 데이터를 보냅니다.
 
 1. 첫 번째 SSH 세션으로 돌아가서 스트리밍 데이터를 보관할 새 Hive 테이블을 만듭니다. Spark-셸에서 다음 명령을 입력 합니다.
 
@@ -228,7 +228,7 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Spark ESP 클러스터에서 데이터 보호
 
-1. 다음 명령을 입력 하 여 몇 가지 샘플 데이터를 포함 하는 `demo` 테이블을 만듭니다.
+1. 다음 명령을 입력 하 여 몇 가지 샘플 데이터를 포함 하는 테이블 `demo`를 만듭니다.
 
     ```scala
     create table demo (name string);
@@ -237,7 +237,7 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
     INSERT INTO demo VALUES ('InteractiveQuery');
     ```
 
-1. 다음 명령을 사용 하 여 테이블의 내용을 봅니다. 정책을 적용 하기 전에 `demo` 테이블은 전체 열을 보여 줍니다.
+1. 다음 명령을 사용 하 여 테이블의 내용을 봅니다. 정책을 적용 하기 전에 `demo` 표에는 전체 열이 표시 됩니다.
 
     ```scala
     hive.executeQuery("SELECT * FROM demo").show()

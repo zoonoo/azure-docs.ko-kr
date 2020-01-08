@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883579"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75657984"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Application Gateway를 사용 하는 SSL 종료 및 종단 간 SSL 개요
 
@@ -44,13 +44,13 @@ Application gateway는 다음과 같은 유형의 인증서를 지원 합니다.
 
 - CA (인증 기관) 인증서: CA 인증서는 CA (인증 기관)에서 발급 한 디지털 인증서입니다.
 - EV (확장 유효성 검사) 인증서: EV 인증서는 업계 표준 인증서 지침입니다. 그러면 브라우저 로케이터 막대가 녹색으로 바뀌고 회사 이름도 게시 됩니다.
-- 와일드 카드 인증서: 이 인증서는 *. site.com을 기반으로 하는 여러 하위 도메인을 지원 합니다. 여기서 하위 도메인은 *를 대체 합니다. 그러나 site.com 지원 되지 않으므로 사용자가 "www"를 입력 하지 않고 웹 사이트에 액세스 하는 경우 와일드 카드 인증서에 포함 되지 않습니다.
-- 자체 서명 된 인증서: 클라이언트 브라우저는 이러한 인증서를 신뢰 하지 않으며 사용자에 게 가상 서비스의 인증서가 신뢰 체인의 일부가 아니라는 것을 경고 합니다. 자체 서명 된 인증서는 관리자가 클라이언트를 제어 하 고 브라우저의 보안 경고를 안전 하 게 무시할 수 있는 테스트 또는 환경에 적합 합니다. 프로덕션 워크 로드는 자체 서명 된 인증서를 사용해 서는 안 됩니다.
+- 와일드 카드 인증서:이 인증서는 *. site.com을 기반으로 하는 여러 하위 도메인을 지원 합니다. 여기서 하위 도메인은 *를 대체 합니다. 그러나 site.com 지원 되지 않으므로 사용자가 "www"를 입력 하지 않고 웹 사이트에 액세스 하는 경우 와일드 카드 인증서에 포함 되지 않습니다.
+- 자체 서명 된 인증서: 클라이언트 브라우저는 이러한 인증서를 신뢰 하지 않으며 사용자에 게 가상 서비스의 인증서가 신뢰 체인에 포함 되지 않았다는 경고를 표시 합니다. 자체 서명 된 인증서는 관리자가 클라이언트를 제어 하 고 브라우저의 보안 경고를 안전 하 게 무시할 수 있는 테스트 또는 환경에 적합 합니다. 프로덕션 워크 로드는 자체 서명 된 인증서를 사용해 서는 안 됩니다.
 
 자세한 내용은 [application gateway를 사용 하 여 SSL 종료 구성](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)을 참조 하세요.
 
 ### <a name="size-of-the-certificate"></a>인증서 크기
-[Application Gateway 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) 섹션을 확인 하 여 지원 되는 최대 SSL 인증서 크기를 확인 합니다.
+[Application Gateway 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) 섹션을 확인 하 여 지원 되는 최대 SSL 인증서 크기를 확인 합니다.
 
 ## <a name="end-to-end-ssl-encryption"></a>종단 간 SSL 암호화
 

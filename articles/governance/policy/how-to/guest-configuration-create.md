@@ -1,14 +1,14 @@
 ---
 title: 게스트 구성 정책을 만드는 방법
 description: Azure PowerShell를 사용 하 여 Windows 또는 Linux Vm에 대 한 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873083"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608527"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
@@ -24,6 +24,9 @@ ms.locfileid: "74873083"
 ## <a name="add-the-guestconfiguration-resource-module"></a>GuestConfiguration 리소스 모듈을 추가 합니다.
 
 게스트 구성 정책을 만들려면 리소스 모듈을 추가 해야 합니다. 이 리소스 모듈은 로컬에 설치 된 PowerShell, [Azure Cloud Shell](https://shell.azure.com)또는 [Azure PowerShell 핵심 Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell-core)와 함께 사용할 수 있습니다.
+
+> [!NOTE]
+> **GuestConfiguration** 모듈이 위의 환경에서 작동 하는 동안 DSC 구성을 컴파일하는 단계는 Windows PowerShell 5.1에서 완료 해야 합니다.
 
 ### <a name="base-requirements"></a>기본 요구 사항
 
@@ -59,6 +62,12 @@ ms.locfileid: "74873083"
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>게스트 구성 사용자 지정 리소스에 대 한 요구 사항
 
 게스트 구성에서 컴퓨터를 감사 하는 경우 먼저 `Test-TargetResource`를 실행 하 여 올바른 상태 인지 확인 합니다. 함수에서 반환 하는 부울 값은 게스트 할당에 대 한 Azure Resource Manager 상태를 준수/비준수로 지정 해야 하는지 여부를 결정 합니다. 구성의 모든 리소스에 대해 부울이 `$false` 되 면 공급자가 `Get-TargetResource`실행 됩니다. 부울이 `$true` 이면 `Get-TargetResource` 호출 되지 않습니다.
+
+#### <a name="configuration-requirements"></a>구성 요구 사항
+
+사용자 지정 구성을 사용 하는 게스트 구성의 유일한 요구 사항은 구성의 이름이 사용 되는 모든 위치에서 일관 되도록 구성 하는 것입니다.  여기에는 콘텐츠 패키지에 대 한 .zip 파일의 이름, 콘텐츠 패키지 내에 저장 된 mof 파일의 구성 이름 및 ARM에서 게스트 할당 이름으로 사용 되는 구성 이름이 포함 됩니다.
+
+#### <a name="get-targetresource-requirements"></a>Test-targetresource 요구 사항
 
 함수 `Get-TargetResource`에는 Windows 필요한 상태 구성에 필요 하지 않은 게스트 구성에 대 한 특별 한 요구 사항이 있습니다.
 
@@ -96,7 +105,7 @@ Linux에서 게스트 구성에 대 한 DSC 구성은 `ChefInSpecResource` 리�
 
 다음 예제에서는 **GuestConfiguration** 이라는 구성을 만들고 **,이 리소스**모듈을 가져오고, `ChefInSpecResource` 리소스를 사용 하 여 InSpec 정의의 이름을 **linux 패치 기준**으로 설정 합니다.
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -120,7 +129,7 @@ baseline
 
 다음 예제에서는 **Auditbitlocker**라는 구성을 만들고, **GuestConfiguration** 리소스 모듈을 가져오고, `Service` 리소스를 사용 하 여 실행 중인 서비스를 감사 합니다.
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -298,7 +307,7 @@ New-GuestConfigurationPolicy
 
 Linux 정책의 경우 구성에 **AttributesYmlContent** 속성을 포함 하 고 적절 하 게 값을 덮어씁니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장 하는 데 사용 하는 YaML 파일을 자동으로 만듭니다. 아래 예를 참조하세요.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -403,7 +412,7 @@ Linux 컴퓨터에서 사용할 GPG 키를 만드는 방법에 대 한 좋은 �
 
 콘텐츠를 게시 한 후에는 이름 `GuestConfigPolicyCertificateValidation` 및 값이 `enabled` 인 태그를 코드 서명이 필요한 모든 가상 컴퓨터에 추가 합니다. 이 태그는 Azure Policy을 사용 하 여 대규모로 배달 될 수 있습니다. [Apply tag and the default value](../samples/apply-tag-default-value.md) sample을 참조 하십시오. 이 태그가 준비 되 면 `New-GuestConfigurationPolicy` cmdlet을 사용 하 여 생성 된 정책 정의를 통해 게스트 구성 확장을 통해 요구 사항을 설정할 수 있습니다.
 
-## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>모드 게스트 구성 정책 할당 문제 해결
+## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>게스트 구성 정책 할당 문제 해결 (미리 보기)
 
 도구는 게스트 구성 할당 Azure Policy 문제 해결을 지원 하기 위해 미리 보기에서 사용할 수 있습니다. 이 도구는 미리 보기 상태 이며 PowerShell 갤러리 모듈 이름 [게스트 구성 문제 해결사로](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)게시 되었습니다.
 

@@ -11,16 +11,15 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c3173841de25a30b84870332c7334a81773e84d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 604dca2861b7a7126d2e37b5a01bcb85c530546e
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68561593"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561466"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전에 대해 Atlassian Cloud 구성
 
@@ -29,8 +28,7 @@ ms.locfileid: "68561593"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
-
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -82,7 +80,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당을 기반으로 Atlassian 클라우드에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [Atlassian cloud Single Sign-On 자습서](atlassian-cloud-tutorial.md)에 제공 된 지침에 따라 Atlassian 클라우드에 대해 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single Sign-On은 자동 사용자 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
+> [Atlassian cloud Single Sign-On 자습서](atlassian-cloud-tutorial.md)에 제공 된 지침에 따라 Atlassian 클라우드에 대해 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Azure AD에서 Atlassian Cloud에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
@@ -102,55 +100,57 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/credentials.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 Atlassian 클라우드의 계정에 대 한 **테 넌 트 URL** 및 **암호 토큰** 을 입력 합니다. 이러한 값의 예는 다음과 같습니다.
+5. [Atlassian 조직 관리자](https://admin.atlassian.com) **> 조직 > 디렉터리를 선택**합니다.
+
+    ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
+
+6. **사용자 프로 비전** 을 클릭 하 고 **디렉터리 만들기**를 클릭 합니다. **디렉터리 기준 url** 및 **전달자 토큰** 을 **테 넌 트 url** 및 **암호 토큰** 필드 각각에 복사 합니다.
+
+    ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
+
+7. **관리자 자격 증명** 섹션 아래에서 Atlassian 클라우드의 계정에 대 한 **테 넌 트 URL** 및 **암호 토큰** 을 입력 합니다. 이러한 값의 예는 다음과 같습니다.
 
    * **테 넌 트 URL** 필드에서 6 단계에 설명 된 대로 Atlassian에서 수신 하는 특정 테 넌 트 엔드포인트를 채웁니다. 예: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
    * 6단계에서 설명한 대로 **비밀 토큰** 필드에 비밀 토큰을 채웁니다.
 
-6. [Atlassian 조직 관리자](https://admin.atlassian.com) **> 사용자 프로 비전** 으로 이동 하 고 **토큰 만들기**를 클릭 합니다. **디렉터리 기준 url** 및 **전달자 토큰** 을 **테 넌 트 url** 및 **암호 토큰** 필드 각각에 복사 합니다.
-
-    클라우드 프로 비전을 ![Atlassian 클라우드 프로 비전 ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian ](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
-
-    ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
-
-7. 5 단계에 표시 된 필드를 채우면 **연결 테스트** 를 클릭 하 여 Azure AD가 Atlassian 클라우드에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Atlassian 클라우드 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+8. 7 단계에 표시 된 필드를 채우면 **연결 테스트** 를 클릭 하 여 Azure AD가 Atlassian 클라우드에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Atlassian 클라우드 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
 
-8. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
+9. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
-9. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+10. **저장**을 클릭합니다.
 
-10. **매핑** 섹션 아래에서 **Atlassian Cloud에 사용자 Azure Active Directory 동기화를**선택 합니다.
+11. **매핑** 섹션 아래에서 **Atlassian Cloud에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
 
-11. **특성 매핑** 섹션에서 Azure AD에서 Atlassian Cloud로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Atlassian 클라우드의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+12. **특성 매핑** 섹션에서 Azure AD에서 Atlassian Cloud로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Atlassian 클라우드의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
 
-12. **매핑** 섹션 아래에서 **Atlassian Cloud에 Azure Active Directory 그룹 동기화를**선택 합니다.
+13. **매핑** 섹션 아래에서 **Atlassian Cloud에 Azure Active Directory 그룹 동기화를**선택 합니다.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
 
-13. **특성 매핑** 섹션에서 Azure AD에서 Atlassian Cloud로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Atlassian 클라우드의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+14. **특성 매핑** 섹션에서 Azure AD에서 Atlassian Cloud로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Atlassian 클라우드의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
 
-14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+15. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-15. Atlassian Cloud에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
+16. Atlassian Cloud에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
 
-16. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 Atlassian Cloud에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+17. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 Atlassian Cloud에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
 
-17. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+18. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
     ![Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/save.png)
 

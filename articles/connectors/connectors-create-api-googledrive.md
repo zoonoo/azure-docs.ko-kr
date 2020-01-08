@@ -1,20 +1,20 @@
 ---
 title: Google Drive에 연결
-description: Google 드라이브 REST API 및 Azure Logic Apps을 사용하여 파일 만들기 및 관리
+description: Azure Logic Apps를 사용 하 여 Google 드라이브의 파일을 만들고 관리 하는 워크플로 자동화
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 6310c3b7e5b84915fa336708bc702e94317ad04c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 155a579438747ca7de67eba6449b8a0191e86e2c
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789703"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666842"
 ---
-# <a name="get-started-with-the-google-drive-connector"></a>Google 드라이브 커넥터 시작
+# <a name="create-and-manage-files-for-google-drive-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Google Drive의 파일 만들기 및 관리
 
 Google 드라이브에 연결하여 파일 만들기, 행 가져오기 등의 작업을 수행합니다. Google 드라이브를 사용하면 다음과 같은 작업을 수행할 수 있습니다. 
 
@@ -33,8 +33,8 @@ Google 드라이브에 연결하여 파일 만들기, 행 가져오기 등의 �
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[커넥터 세부 정보](/connectors/googledrive/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
+커넥터의 Swagger 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지를 참조](/connectors/googledrive/)하세요.
 
-## <a name="more-connectors"></a>추가 커넥터
+## <a name="next-steps"></a>다음 단계
 
-[API 목록](apis-list.md)으로 돌아갑니다.
+* 다른 [Logic Apps 커넥터](apis-list.md)에 대해 알아봅니다.

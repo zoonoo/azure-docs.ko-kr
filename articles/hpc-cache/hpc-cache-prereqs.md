@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 406b77a428ec725a3d8d070bd60fcd4440a5cb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 90b84d936bda4e3a974e60934e82ac6c3389d85a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166474"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645772"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -80,7 +80,7 @@ NFS 백 엔드 저장소는 호환 되는 하드웨어/소프트웨어 플랫폼
 
 캐시에서 Azure Blob 저장소를 사용 하려면 [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)에서 설명한 대로 호환 되는 저장소 계정 및 빈 Blob 컨테이너 또는 Azure HPC 캐시 형식의 데이터로 채워진 컨테이너가 필요 합니다.
 
-계정 및 컨테이너를 저장소 대상으로 추가 하기 전에 만듭니다.
+저장소 대상 추가를 시도 하기 전에 계정을 만드세요. 대상을 추가할 때 새 컨테이너를 만들 수 있습니다.
 
 호환 되는 저장소 계정을 만들려면 다음 설정을 사용 합니다.
 

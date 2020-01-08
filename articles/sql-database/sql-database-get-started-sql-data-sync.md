@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807520"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461565"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: 온-프레미스에서 Azure SQL Database와 SQL Server 간에 SQL 데이터 동기화 설정
 
@@ -33,14 +33,20 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 ## <a name="create-sync-group"></a>동기화 그룹 만들기
 
-1. 브라우저에서 Azure Portal로 이동합니다. 대시보드에서 SQL 데이터베이스를 찾거나 도구 모음에서 **SQL 데이터베이스** 아이콘을 선택한 다음 **SQL 데이터베이스** 페이지에서 데이터 동기화용 허브 데이터베이스로 사용할 데이터베이스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 SQL 데이터베이스를 찾습니다. **SQL 데이터베이스**를 검색하고 선택합니다.
+
+    ![SQL 데이터베이스 검색, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. 데이터 동기화를 위해 허브 데이터베이스로 사용할 데이터베이스를 선택 합니다.
+
+    ![SQL database 목록에서 선택 Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
-    > 허브 데이터베이스는 동기화 그룹에 여러 데이터베이스 엔드포인트가 있는 동기화 토폴로지의 중앙 엔드포인트입니다. 동기화 그룹에서 엔드포인트를 포함하는 기타 모든 멤버 데이터베이스는 허브 데이터베이스와 동기화됩니다.
+    > 허브 데이터베이스는 동기화 그룹에 여러 데이터베이스 끝점이 있는 동기화 토폴로지의 중앙 끝점입니다. 동기화 그룹에서 엔드포인트를 포함하는 기타 모든 멤버 데이터베이스는 허브 데이터베이스와 동기화됩니다.
 
-1. 선택한 데이터베이스의 **SQL 데이터베이스** 페이지에서 **다른 데이터베이스와 동기화**를 선택합니다.
+1. 선택한 데이터베이스에 대 한 **SQL database** 메뉴에서 **다른 데이터베이스에 동기화를**선택 합니다.
 
-    ![다른 데이터베이스 옵션에 동기화](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![다른 데이터베이스, SQL database, Microsoft Azure portal로 동기화](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. **다른 데이터베이스와 동기화** 페이지에서 **새 동기화 그룹**을 선택합니다. **동기화 그룹 만들기**(1단계)가 강조 표시된 상태로 **새 동기화 그룹** 페이지가 열립니다.
 
@@ -48,7 +54,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
    **데이터 동기화 그룹 만들기** 페이지에서 다음 설정을 변경합니다.
 
-   | 설정                        | 설명 |
+   | 설정                        | Description |
    | ------------------------------ | ------------------------------------------------- |
    | **동기화 그룹 이름** | 새 동기화 그룹의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. |
    | **메타데이터 데이터베이스 동기화** | 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.<br/><br/>**새 데이터베이스**를 선택하는 경우 **새 데이터베이스 만들기**를 선택합니다. **SQL 데이터베이스** 페이지에서 새 데이터베이스의 이름을 지정하고 데이터베이스를 구성한 다음 **확인**을 선택합니다.<br/><br/>**기존 데이터베이스 사용**을 선택하는 경우 목록에서 데이터베이스를 선택합니다. |
@@ -76,7 +82,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
   **Azure SQL Database 구성** 페이지에서 다음 설정을 변경합니다.
 
-  | 설정                       | 설명 |
+  | 설정                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **동기화 구성원 이름** | 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과는 달라야 합니다. |
   | **구독** | 대금 청구용으로 연결된 Azure 구독을 선택합니다. |
@@ -191,7 +197,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 **데이터는 동기화 후에 수렴 상태가 되나요?**
 
-그럴 필요는 없습니다. 허브 하나와 스포크 3개(A, B, C)가 포함된 동기화 그룹에서 허브->A/B/C로 동기화가 진행되는 경우 허브->A로의 동기화 *후*에 데이터베이스 A를 변경하면 다음 동기화 작업이 진행될 때까지 해당 변경 내용이 데이터베이스 B나 C에 기록되지 않습니다.
+반드시 그렇지는 않습니다. 허브 하나와 스포크 3개(A, B, C)가 포함된 동기화 그룹에서 허브->A/B/C로 동기화가 진행되는 경우 허브->A로의 동기화 *후*에 데이터베이스 A를 변경하면 다음 동기화 작업이 진행될 때까지 해당 변경 내용이 데이터베이스 B나 C에 기록되지 않습니다.
 
 **동기화 그룹으로 스키마 변경 내용을 가져오려면 어떻게 해야 하나요?**
 
@@ -231,7 +237,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 - [모범 사례](sql-database-best-practices-data-sync.md) 및 [Azure SQL 데이터 동기화 관련 문제를 해결하는 방법](sql-database-troubleshoot-data-sync.md)
-- [Azure Monitor 로그를 사용 하 여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
+- [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 - [Transact-SQL](sql-database-update-sync-schema.md) 또는 [PowerShell](scripts/sql-database-sync-update-schema.md)을 사용하여 동기화 스키마 업데이트
 
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.

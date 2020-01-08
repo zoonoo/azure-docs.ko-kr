@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: fb8f4de3b3b24d1eba372600c817627771ef0ef6
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f099a0eb6501b6576c4560e0b397d3105bb15f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158882"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610712"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Azure ATP (Advanced Threat Protection)에서 데이터 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "74158882"
 
 한 번의 클릭으로 [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) 에서 azure 센티널로 로그를 스트리밍할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
 - Azure ATP의 미리 보기 고객 이어야 하 고 Azure ATP와 Microsoft Cloud App Security 간의 통합을 사용 하도록 설정 해야 합니다. 자세한 내용은 [Azure Advanced Protection 통합](https://docs.microsoft.com/cloud-app-security/aatp-integration)을 참조 하세요.
@@ -55,6 +55,6 @@ Azure ATP가 배포 되 고 데이터를 수집 의심 스러운 경고를 Azure
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 azure 센티널에 Azure Advanced Threat Protection을 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
 

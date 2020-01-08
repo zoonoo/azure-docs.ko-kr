@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/08/2019
-ms.openlocfilehash: 352e31e2a2f1a88a33e82134460e6df0911dbd2e
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 33dc415e06b7f49f75697abb05248750444fea7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677640"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432636"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 살펴보기
 
@@ -84,7 +84,7 @@ Log4net 또는 NLog를 선호 하는 경우 다음을 사용 합니다.
     logger.Warn("Slow response - database01");
 
 ## <a name="use-eventsource-events"></a>EventSource 이벤트 사용
-Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 `TelemetryModules`ApplicationInsights.config[ 파일의 ](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 섹션을 편집합니다.
+Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -135,14 +135,14 @@ ETW(Windows용 이벤트 추적) (ETW) 이벤트를 Application Insights 추적�
 ## <a name="use-the-trace-api-directly"></a>추적 API 직접 사용
 Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어댑터는 이 API를 사용합니다.
 
-예를 들어:
+예:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
 
-메시지에 심각도 수준을 추가할 수도 있습니다. 다른 원격 분석과 마찬가지로, 다른 추적 집합을 필터링 하거나 검색 하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어:
+메시지에 심각도 수준을 추가할 수도 있습니다. 다른 원격 분석과 마찬가지로, 다른 추적 집합을 필터링 하거나 검색 하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",

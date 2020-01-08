@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167441"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452418"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -25,7 +25,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 - 특정 세션 호스트의 활성 사용자에 게 메시지를 보냅니다.
 - 세션 호스트에서 사용자를 로그 아웃 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 도구의 Azure Resource Manager 템플릿을 배포 하려면 먼저 Azure Active Directory 앱 등록 및 Log Analytics 작업 영역을 만들어야 합니다. 이러한 작업을 수행 하려면 사용자 또는 관리자에 게 다음 권한이 필요 합니다.
 
@@ -185,7 +185,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 4.  왼쪽 패널의 관리 섹션에서 **인증**을 선택 합니다.
 5.  **리디렉션 uri** 텍스트 상자에 원하는 리디렉션 uri를 입력 한 다음 메뉴의 왼쪽 위 모서리에서 **저장** 을 선택 합니다.
 6. 유형 아래의 드롭다운 메뉴에서 **웹** 을 선택 합니다.
-7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예를 들어 `https://<yourappname>.azurewebsites.net/security/signin-callback`을 참조하십시오.
+7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예: `https://<yourappname>.azurewebsites.net/security/signin-callback`
 
    ![URI 리디렉션 페이지](media/redirect-uri-page.png)
 
@@ -256,3 +256,8 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 - [초당 사용자 입력 지연 (\*)\\최대 입력 지연](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - 임계값: 2000 밀리초 이상 비정상으로 표시 되어 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Log Analytics를 사용 하 여 사용 진단](diagnostics-log-analytics.md)에서 활동 로그를 모니터링 하는 방법을 알아봅니다.
+- 일반적인 오류 시나리오 및 [문제를 식별 하 고 진단](diagnostics-role-service.md)하는 방법에 대 한 자세한 내용은을 참조 하세요.

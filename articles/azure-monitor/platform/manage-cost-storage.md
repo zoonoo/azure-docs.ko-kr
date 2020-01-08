@@ -3,7 +3,7 @@ title: Azure Monitor 로그의 사용량 및 비용 관리 | Microsoft Docs
 description: Azure Monitor에서 Log Analytics 작업 영역에 대 한 가격 책정 계획을 변경 하 고 데이터 볼륨 및 보존 정책을 관리 하는 방법을 알아봅니다.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: magoedte
+ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f60b0b9294fa3f11889613a7d63f21e87fbea201
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e4146155915979e51a6e3a989ab57316ca643018
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894116"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658022"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -90,7 +90,7 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
 4 월 2016 이전에 만들어진 작업 영역은 각각 30 및 365 일의 고정 데이터 보존을 포함 하는 원래의 **표준** 및 **프리미엄** 가격 책정 계층에 액세스할 수도 있습니다. **표준** 또는 **프리미엄** 가격 책정 계층에서는 새 작업 영역을 만들 수 없으며, 작업 영역을 이러한 계층 외부로 이동 하는 경우에는 다시 이동할 수 없습니다. 
 
-가격 책정 계층 제한 사항에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces)에서 제공 됩니다.
+가격 책정 계층 제한 사항에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces)에서 제공 됩니다.
 
 > [!NOTE]
 > System Center용 OMS E1 Suite, OMS E2 Suite 또는 OMS 추가 기능을 구매할 때 제공되는 자격을 사용하려면 Log Analytics의 *노드별* 가격 책정 계층을 선택합니다.
@@ -353,7 +353,7 @@ union withsource = tt *
 | 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [감사 레지스트리](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [감사 파일 시스템](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [감사 커널 개체](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [감사 핸들 조작](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 이동식 저장소 감사 |
 | 성능 카운터       | [성능 카운터 구성](data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
-| syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
+| Syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
 | AzureDiagnostics           | 다음 작업을 수행하도록 리소스 로그 컬렉션을 변경합니다. <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 
@@ -438,7 +438,7 @@ union withsource = $table Usage
 - **경고 조건**은 다음을 지정합니다.
    - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
    - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`으로
-   - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
+   - **경고 논리** 는 *결과 수* 를 **기반으로** 하며 **조건이** **임계값** *0* *보다 큽니다* .
    - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *1440*분이고 **주파수 경고**는 *60*분마다입니다.
 - **경고 세부 정보 정의**는 다음을 지정합니다.
    - **이름**을 *24시간 내에 100GB를 초과하는 데이터 볼륨*으로
@@ -452,7 +452,7 @@ union withsource = $table Usage
 - **경고 조건**은 다음을 지정합니다.
    - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
    - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`으로
-   - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
+   - **경고 논리** 는 *결과 수* 를 **기반으로** 하며 **조건이** **임계값** *0* *보다 큽니다* .
    - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *180*분이고 **주파수 경고**는 *60*분마다입니다.
 - **경고 세부 정보 정의**는 다음을 지정합니다.
    - **이름**을 *24시간 내에 100GB를 초과한다고 예측되는 데이터 볼륨*으로
@@ -487,7 +487,7 @@ Operation | where OperationCategory == 'Data Collection Status'
 
 ## <a name="limits-summary"></a>제한 요약
 
-몇 가지 추가 Log Analytics 제한이 있으며, 그 중 일부는 Log Analytics 가격 책정 계층에 따라 달라 집니다. 여기에는 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces)에 설명 되어 있습니다.
+몇 가지 추가 Log Analytics 제한이 있으며, 그 중 일부는 Log Analytics 가격 책정 계층에 따라 달라 집니다. 여기에는 [여기](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces)에 설명 되어 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

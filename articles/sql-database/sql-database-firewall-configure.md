@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c1a146a12fd8881982826e0a87868a6eaf05cb1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9db6b5ff517a1b0d67e59591ee634dfad685527b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461458"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>IP 방화벽 규칙 Azure SQL Database 및 Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ ms.locfileid: "74851831"
 
 ### <a name="connections-from-inside-azure"></a>Azure 내부에서 연결
 
-Azure 내에서 호스트 되는 응용 프로그램이 SQL server에 연결할 수 있도록 하려면 Azure 연결을 사용 하도록 설정 해야 합니다. Azure의 응용 프로그램이 데이터베이스 서버에 연결 하려고 하면 방화벽은 Azure 연결이 허용 되는지 확인 합니다. 시작 및 끝 IP 주소가 *0.0.0.0* 과 같은 방화벽 설정은 Azure 연결이 허용 됨을 나타냅니다. 연결이 허용 되지 않으면 요청이 SQL Database 서버에 도달 하지 않습니다.
+Azure 내에서 호스트 되는 응용 프로그램이 SQL server에 연결할 수 있도록 하려면 Azure 연결을 사용 하도록 설정 해야 합니다. Azure의 응용 프로그램이 데이터베이스 서버에 연결 하려고 하면 방화벽은 Azure 연결이 허용 되는지 확인 합니다. 시작 및 끝 IP 주소가 *0.0.0.0* 과 같은 방화벽 설정은 Azure 연결이 허용 됨을 나타냅니다. 방화벽 규칙을 설정 하 고 방화벽 **및 가상 네트워크** 설정에서 **이 서버에 액세스할 수 있는 azure 서비스 및 리소스** 를 **전환 하는** 것을 비롯 하 여 azure Portal 블레이드에서 직접 설정할 수 있습니다. 연결이 허용 되지 않으면 요청이 SQL Database 서버에 도달 하지 않습니다.
 
 > [!IMPORTANT]
 > 이 옵션은 다른 고객의 구독에서 연결을 포함 하 여 Azure의 모든 연결을 허용 하도록 방화벽을 구성 합니다. 이 옵션을 선택 하는 경우 로그인 및 사용자 권한이 권한 있는 사용자만 액세스할 수 있도록 제한 해야 합니다.
@@ -147,7 +147,7 @@ Azure Portal에서 서버 수준 IP 방화벽 규칙을 설정 하려면 Azure S
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Transact-sql을 사용 하 여 IP 방화벽 규칙 관리
 
-| 카탈로그 뷰 또는 저장 프로시저 | Level | 설명 |
+| 카탈로그 뷰 또는 저장 프로시저 | 수준 | Description |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
@@ -181,7 +181,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 이제 Az. Sql 모듈에 대 한 모든 개발이 지원 됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
-| Cmdlet | Level | 설명 |
+| Cmdlet | 수준 | Description |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |서버 |현재 서버 수준 방화벽 규칙 반환 |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |서버 |새 서버 수준 방화벽 규칙 만들기 |
@@ -203,7 +203,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>CLI를 사용 하 여 서버 수준 IP 방화벽 규칙 관리
 
-| Cmdlet | Level | 설명 |
+| Cmdlet | 수준 | Description |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|서버|서버 IP 방화벽 규칙을 만듭니다.|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|서버|서버의 IP 방화벽 규칙을 나열합니다.|
@@ -225,7 +225,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>REST API를 사용 하 여 서버 수준 IP 방화벽 규칙 관리
 
-| API | Level | 설명 |
+| API | 수준 | Description |
 | --- | --- | --- |
 | [방화벽 규칙 나열](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
 | [방화벽 규칙 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |

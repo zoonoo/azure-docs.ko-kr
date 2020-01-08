@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129334"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639874"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 클러스터의 지역 재해 복구
 
@@ -21,7 +21,7 @@ ms.locfileid: "74129334"
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks 아키텍처
 
-간략하게 설명하자면, Azure Portal에서 Azure Databricks 작업 영역을 만들면 선택한 Azure 지역(예: 미국 서부)에 [관리되는 어플라이언스](../managed-applications/overview.md)가 구독의 Azure 리소스로 배포됩니다. 이 어플라이언스는 구독에서 사용할 수 있는 [네트워크 보안 그룹](../virtual-network/virtual-networks-overview.md) 및 Azure Storage 계정을 사용하여 [Azure Virtual Network](../virtual-network/manage-network-security-group.md)에 배포됩니다. 가상 네트워크는 Databricks 작업 영역에 경계 수준 보안을 제공하며 네트워크 보안 그룹을 통해 보호됩니다. 작업 영역 내에서, 작업자 및 드라이버 VM 유형과 Databricks 런타임 버전을 제공하여 Databricks 클러스터를 만들 수 있습니다. 지속형 데이터는 저장소 계정에서 사용할 수 있으며, Azure Blob Storage 하거나 Azure Data Lake Storage 수 있습니다. 클러스터가 만들어지면 작업을 특정 클러스터에 연결하여 노트북, REST API, ODBC/JDBC 엔드포인트를 통해 작업을 실행할 수 있습니다.
+간략하게 설명하자면, Azure Portal에서 Azure Databricks 작업 영역을 만들면 선택한 Azure 지역(예: 미국 서부)에 [관리되는 어플라이언스](../azure-resource-manager/managed-applications/overview.md)가 구독의 Azure 리소스로 배포됩니다. 이 어플라이언스는 구독에서 사용할 수 있는 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md) 및 Azure Storage 계정을 사용하여 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 배포됩니다. 가상 네트워크는 Databricks 작업 영역에 경계 수준 보안을 제공하며 네트워크 보안 그룹을 통해 보호됩니다. 작업 영역 내에서, 작업자 및 드라이버 VM 유형과 Databricks 런타임 버전을 제공하여 Databricks 클러스터를 만들 수 있습니다. 지속형 데이터는 저장소 계정에서 사용할 수 있으며, Azure Blob Storage 하거나 Azure Data Lake Storage 수 있습니다. 클러스터가 만들어지면 작업을 특정 클러스터에 연결하여 노트북, REST API, ODBC/JDBC 엔드포인트를 통해 작업을 실행할 수 있습니다.
 
 Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모니터링합니다. 클러스터 만들기 같은 관리 작업은 제어 평면에서 시작됩니다. 예약된 작업 같은 모든 메타데이터는 내결함성을 위해 지역 복제 기능을 갖춘 Azure Database에 저장됩니다.
 
@@ -90,7 +90,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
    > [!NOTE]
    > 라이브러리는 이 단계에서 복사되지 않습니다. 기본 API가 라이브러리를 지원하지 않기 때문입니다.
 
-   다음 python 스크립트를 복사하여 파일에 저장하고, Databricks 명령줄에서 실행합니다. 예: `python scriptname.py`.
+   다음 python 스크립트를 복사하여 파일에 저장하고, Databricks 명령줄에서 실행합니다. `python scriptname.py`)을 입력합니다.
 
    ```python
    from subprocess import call, check_output
@@ -133,7 +133,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
    제공된 다음 스크립트는 기존 클러스터 ID에서 새 클러스터 ID로의 매핑을 인쇄하며, 나중에 작업 마이그레이션(기존 클러스터를 사용하도록 구성된 작업)에 사용할 수 있습니다.
 
-   다음 python 스크립트를 복사하여 파일에 저장하고, Databricks 명령줄에서 실행합니다. 예: `python scriptname.py`.
+   다음 python 스크립트를 복사하여 파일에 저장하고, Databricks 명령줄에서 실행합니다. `python scriptname.py`)을 입력합니다.
 
    ```python
    from subprocess import call, check_output

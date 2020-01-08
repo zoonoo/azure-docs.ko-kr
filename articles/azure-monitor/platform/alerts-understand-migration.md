@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor 경고에 대해 자발적 마이그레이션 도구가 작동 하는 방식을 이해 합니다.
 description: 경고 마이그레이션 도구의 작동 원리를 이해 하 고 문제를 해결 합니다.
-author: snehithm
+author: yalavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061563"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680684"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 원리 이해
 
@@ -39,7 +39,7 @@ ms.locfileid: "70061563"
 구독에 이러한 클래식 규칙이 있는 경우 수동으로 마이그레이션해야 합니다. 자동 마이그레이션을 제공할 수 없으므로 이러한 유형의 기존 클래식 메트릭 경고는 6 월 2020 일까 지 계속 작동 합니다. 이 확장은 새 경고로 이동 하는 시간을 제공 합니다. 또한 6 월 2020 일까지 위에 나열 된 예외에 대 한 새 클래식 경고를 계속 만들 수 있습니다. 그러나 다른 모든 항목의 경우 8 월 2019 일 이후에는 새로운 클래식 경고를 만들 수 없습니다.
 
 > [!NOTE]
-> 위의 예외를 제외 하 고, 클래식 경고 규칙이 잘못 된 경우 (예: 삭제 된 [사용 되지 않는 메트릭](#classic-alert-rules-on-deprecated-metrics) 또는 리소스에 있는 경우) 자발적 마이그레이션 중에 마이그레이션되지 않습니다. 자동 마이그레이션이 수행 될 때 이러한 잘못 된 클래식 경고 규칙은 삭제 됩니다.
+> 위의 예외 외에도 클래식 경고 규칙이 잘못 된 경우 (예: [사용 되지 않는 사용 되지 않는 메트릭](#classic-alert-rules-on-deprecated-metrics) 또는 삭제 된 리소스에 있는 경우) 마이그레이션되지 않으며 서비스가 중지 된 후에는 사용할 수 없게 됩니다.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>가상 컴퓨터의 게스트 메트릭
 
@@ -93,9 +93,9 @@ ms.locfileid: "70061563"
 - 관찰 된 읽기 대기 시간
 - 관찰 된 쓰기 대기 시간
 - 서비스 가용성
-- 스토리지 용량
+- Storage 용량
 - 제한 된 요청
-- 총 요청
+- 총 요청 수
 
 초당 평균 요청, 일관성 수준, 분당 사용 된 최대 RUPM, 초당 최대 RUs, 관찰 된 읽기 대기 시간, 관찰 된 쓰기 대기 시간, 관찰 된 쓰기 대기 시간, 현재 [새 시스템](metrics-supported.md#microsoftdocumentdbdatabaseaccounts)에서 저장소 용량을 사용할 수 없습니다.
 
@@ -111,7 +111,7 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 이러한 규칙은 이전에 지원 되었지만 결국 사용 되지 않았던 메트릭에 대 한 클래식 경고 규칙입니다. 일부 고객에 게는 이러한 메트릭에 대 한 잘못 된 클래식 경고 규칙이 있을 수 있습니다. 이러한 경고 규칙은 유효 하지 않으므로 마이그레이션되지 않습니다.
 
-| 리소스 형식| 사용 되지 않는 메트릭 |
+| 리소스 유형| 사용 되지 않는 메트릭 |
 |-------------|----------------- |
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
@@ -122,12 +122,12 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>새 경고 규칙 및 작업 그룹을 만드는 방법
 
-마이그레이션 도구는 기존 경고 규칙을 동등한 새 경고 규칙 및 작업 그룹으로 변환 합니다. 대부분의 기존 경고 규칙의 경우, 같은 속성 `windowSize` 을 갖는 동일한 메트릭이 및 `aggregationType`와 동일 합니다. 그러나 기존 경고 규칙은 새 시스템에서 동등한 다른 메트릭을 가진 메트릭에 있습니다. 다음 원칙은 아래 섹션에 지정 된 경우를 제외 하 고 클래식 경고 마이그레이션에 적용 됩니다.
+마이그레이션 도구는 기존 경고 규칙을 동등한 새 경고 규칙 및 작업 그룹으로 변환 합니다. 대부분의 클래식 경고 규칙의 경우 동일한 속성 (예: `windowSize` 및 `aggregationType`)을 사용 하는 동일한 메트릭에 새 경고 규칙이 있습니다. 그러나 기존 경고 규칙은 새 시스템에서 동등한 다른 메트릭을 가진 메트릭에 있습니다. 다음 원칙은 아래 섹션에 지정 된 경우를 제외 하 고 클래식 경고 마이그레이션에 적용 됩니다.
 
-- **빈도**: 조건에 대해 클래식 또는 새 경고 규칙에서 확인 하는 빈도를 정의 합니다. 클래식 `frequency` 경고 규칙의은 사용자가 구성할 수 없으며, 1 분 이었던 Application Insights 구성 요소를 제외 하 고 모든 리소스 유형에 대해 항상 5 분 이었습니다. 따라서 동등 규칙의 빈도는 각각 5 분에서 1 분으로 설정 됩니다.
-- **집계 유형**: 원하는 창에서 메트릭을 집계 하는 방법을 정의 합니다. 또한 `aggregationType` 는 기존 경고와 대부분의 메트릭에 대 한 새 경고 사이에서 동일 합니다. 일부 경우에는 메트릭이 기존 경고와 새 경고 간에 차이가 있으므로 해당 `aggregationType` 메트릭에 대해 정의 된 `primary Aggregation Type` 또는가 사용 됩니다.
-- **단위**: 경고가 생성 되는 메트릭의 속성입니다. 이와 동등한 메트릭에는 단위가 다릅니다. 필요에 따라 임계값을 적절 하 게 조정 합니다. 예를 들어 원래 메트릭에 시간 (초)이 있고 해당 하는 새 메트릭은 단위 밀리초 인 경우 원래 임계값에 1000을 곱하여 동일한 동작을 보장 합니다.
-- **창 크기**: 임계값과 비교할 메트릭 데이터를 집계 하는 기간을 정의 합니다. 5 분 `windowSize` , 15 분, 30 분, 1 시간, 3 시간, 6 시간, 12 시간, 1 일 같은 표준 값의 경우 해당 하는 새 경고 규칙에 대 한 변경 내용이 없습니다. 다른 값의 경우 가장 가까운 `windowSize` 를 사용 하도록 선택 합니다. 대부분의 고객에 게는이 변경 내용에 영향을 주지 않습니다. 소수의 고객에 게는 정확히 동일한 동작을 얻기 위해 임계값을 조정 해야 할 수 있습니다.
+- **빈도**: 기존 또는 새 경고 규칙에서 조건에 대해 확인 하는 빈도를 정의 합니다. 클래식 경고 규칙의 `frequency`는 사용자가 구성할 수 없으며, 1 분당 Application Insights 구성 요소를 제외 하 고 모든 리소스 유형에 대해 항상 5 분 이었습니다. 따라서 동등 규칙의 빈도는 각각 5 분에서 1 분으로 설정 됩니다.
+- **집계 유형**: 대상 창에서 메트릭을 집계 하는 방법을 정의 합니다. `aggregationType`은 기존 경고와 대부분의 메트릭에 대 한 새 경고 간에도 동일 합니다. 경우에 따라 기존 경고와 새 경고 간에 메트릭이 다르기 때문에 동일한 `aggregationType` 또는 메트릭에 대해 정의 된 `primary Aggregation Type` 사용 됩니다.
+- **Units**: 경고가 생성 되는 메트릭의 속성입니다. 이와 동등한 메트릭에는 단위가 다릅니다. 필요에 따라 임계값을 적절 하 게 조정 합니다. 예를 들어 원래 메트릭에 시간 (초)이 있고 해당 하는 새 메트릭은 단위 밀리초 인 경우 원래 임계값에 1000을 곱하여 동일한 동작을 보장 합니다.
+- **창 크기**: 임계값과 비교할 메트릭 데이터를 집계 하는 기간을 정의 합니다. 5 분, 15 분, 30 분, 1 시간, 3 시간, 6 시간, 12 시간, 1 일 같은 표준 `windowSize` 값의 경우 해당 하는 새 경고 규칙에 대 한 변경 내용이 없습니다. 다른 값의 경우 가장 가까운 `windowSize` 사용 하도록 선택 됩니다. 대부분의 고객에 게는이 변경 내용에 영향을 주지 않습니다. 소수의 고객에 게는 정확히 동일한 동작을 얻기 위해 임계값을 조정 해야 할 수 있습니다.
 
 다음 섹션에서는 새 시스템에서 동등한 다른 메트릭을 가진 메트릭에 대해 자세히 설명 합니다. 클래식 및 새 경고 규칙에 대해 동일 하 게 유지 되는 메트릭은 나열 되지 않습니다. 새 시스템에서 지원 되는 메트릭 목록은 [여기](metrics-supported.md)에서 찾을 수 있습니다.
 
@@ -135,7 +135,7 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 다음과 같은 메트릭이 다음과 같이 동등한 메트릭에 매핑됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
 |--------------------------|---------------------------------|---------|
 | AnonymousAuthorizationError| "ResponseType" = "AuthorizationError" 및 "Authentication" = "Anonymous" 차원이 포함 된 트랜잭션 메트릭| |
 | AnonymousClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 및 "Authentication" = "Anonymous" 인 트랜잭션 메트릭 | |
@@ -147,12 +147,12 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 | AuthorizationError | 차원이 "ResponseType" = "AuthorizationError" 인 트랜잭션 메트릭 | |
 | AverageE2ELatency | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
-| 용 | BlobCapacity | ' `aggregationType` Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
+| 용량 중심 | BlobCapacity | ' Last ' 대신 ' average ' `aggregationType`를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
 | ClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 인 트랜잭션 메트릭  | |
 | ClientTimeoutError | 차원이 "ResponseType" = "ClientTimeOutError" 인 트랜잭션 메트릭 | |
-| ContainerCount | ContainerCount | ' `aggregationType` Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
+| ContainerCount | ContainerCount | ' Last ' 대신 ' average ' `aggregationType`를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
 | NetworkError | 차원이 "ResponseType" = "NetworkError" 인 트랜잭션 메트릭 | |
-| ObjectCount | BlobCount| ' `aggregationType` Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
+| ObjectCount | BlobCount| ' Last ' 대신 ' average ' `aggregationType`를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
 | SASAuthorizationError | "ResponseType" = "AuthorizationError" 및 "Authentication" = "SAS" 차원이 포함 된 트랜잭션 메트릭 | |
 | SASClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 및 "Authentication" = "SAS" 인 트랜잭션 메트릭 | |
 | SASClientTimeOutError | "ResponseType" = "ClientTimeOutError" 및 "Authentication" = "SAS" 차원이 포함 된 트랜잭션 메트릭 | |
@@ -163,21 +163,21 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 | ServerOtherError | 차원이 "ResponseType" = "ServerOtherError" 인 트랜잭션 메트릭 | |
 | ServerTimeOutError | 차원이 "ResponseType" = "ServerTimeOutError" 인 트랜잭션 메트릭  | |
 | Success | 차원이 "ResponseType" = "Success" 인 트랜잭션 메트릭 | |
-| TotalBillableRequests| 의 | |
+| TotalBillableRequests| 트랜잭션 | |
 | TotalEgress | 송신 | |
 | TotalIngress | 수신 | |
-| TotalRequests | 의 | |
+| TotalRequests | 트랜잭션 | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft.insights/components
 
 Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
 |--------------------------|---------------------------------|---------|
 | availability.availabilityMetric.value | availabilityResults/availabilityPercentage|   |
 | availability.durationMetric.value | availabilityResults/duration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
-| basicExceptionBrowser.count | exceptions/browser|  ' `aggregationType` Sum ' 대신 ' count '를 사용 합니다. |
-| basicExceptionServer.count | exceptions/server| ' `aggregationType` Sum ' 대신 ' count '를 사용 합니다.  |
+| basicExceptionBrowser.count | exceptions/browser|  ' Sum ' 대신 ' count ' `aggregationType` 사용 합니다. |
+| basicExceptionServer.count | exceptions/server| ' Sum ' 대신 ' count ' `aggregationType` 사용 합니다.  |
 | clientPerformance.clientProcess.value | browserTimings/processingDuration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
 | clientPerformance.networkConnection.value | browserTimings/networkDuration|  원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다. |
 | clientPerformance.receiveRequest.value | browserTimings/receiveDuration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
@@ -195,14 +195,14 @@ Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 | performanceCounter.requests_per_sec.value | performanceCounters/requestsPerSecond|   |
 | request.duration | requests/duration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
 | request.rate | requests/rate|   |
-| requestFailed.count | requests/failed| ' `aggregationType` Sum ' 대신 ' count '를 사용 합니다.   |
-| view.count | pageViews/count| ' `aggregationType` Sum ' 대신 ' count '를 사용 합니다.   |
+| requestFailed.count | requests/failed| ' Sum ' 대신 ' count ' `aggregationType` 사용 합니다.   |
+| view.count | pageViews/count| ' Sum ' 대신 ' count ' `aggregationType` 사용 합니다.   |
 
 ### <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
 | 데이터 크기 | DataUsage| |
@@ -262,7 +262,7 @@ Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 
 ### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>범위 잠금-규칙을 마이그레이션하지 못하게 합니다.
 
-마이그레이션의 일부로 새 메트릭 경고 및 새 작업 그룹이 생성 된 다음 클래식 경고 규칙이 삭제 됩니다. 그러나 범위 잠금을 통해 리소스를 만들거나 삭제 하지 못할 수 있습니다. 범위 잠금에 따라 일부 또는 모든 규칙을 마이그레이션하지 못했습니다. [마이그레이션 도구](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)에 나열 된 구독, 리소스 그룹 또는 리소스에 대 한 범위 잠금을 제거 하 고 마이그레이션을 다시 트리거하는 방법으로이 문제를 해결할 수 있습니다. 범위 잠금은 사용 하지 않도록 설정할 수 없으며 마이그레이션 프로세스가 진행 되는 동안에는 제거 해야 합니다. [범위 잠금 관리에 대해 자세히 알아보세요](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+마이그레이션의 일부로 새 메트릭 경고 및 새 작업 그룹이 생성 된 다음 클래식 경고 규칙이 삭제 됩니다. 그러나 범위 잠금을 통해 리소스를 만들거나 삭제 하지 못할 수 있습니다. 범위 잠금에 따라 일부 또는 모든 규칙을 마이그레이션하지 못했습니다. [마이그레이션 도구](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)에 나열 된 구독, 리소스 그룹 또는 리소스에 대 한 범위 잠금을 제거 하 고 마이그레이션을 다시 트리거하는 방법으로이 문제를 해결할 수 있습니다. 범위 잠금은 사용 하지 않도록 설정할 수 없으며 마이그레이션 프로세스가 진행 되는 동안에는 제거 해야 합니다. [범위 잠금 관리에 대해 자세히 알아보세요](../../azure-resource-manager/management/lock-resources.md#portal).
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>' 거부 ' 효과가 적용 된 정책을 사용 하 여 규칙을 마이그레이션하지 못함
 

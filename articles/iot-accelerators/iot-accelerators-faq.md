@@ -8,18 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b448099dab0e79dca38310396896be46cf2e0ff6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826269"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647716"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
 [연결된 팩터리-특정 FAQ](iot-accelerators-faq-cf.md) 그리고 [원격 모니터링-특정 FAQ](iot-accelerators-faq-rm-v2.md)도 참조하세요.
 
-### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>어디에서 솔루션 가속기에 대한 소스 코드를 찾을 수 있나요?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>솔루션 가속기에 대한 소스 코드는 어디에서 찾을 수 있나요?
 
 소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
 
@@ -82,7 +82,7 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 IoT Hub 인스턴스는 몇 개인가요?
 
-기본적으로 [구독당 10개의 IoT Hub](../azure-subscription-service-limits.md#iot-hub-limits)를 프로비전할 수 있습니다. [Azure 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 만들어 이 제한을 높일 수 있습니다. 결과적으로 모든 솔루션 가속기가 새 IoT Hub를 프로비전하기 때문에 지정된 구독에서 최대 10개의 솔루션 가속기만 프로비전할 수 있습니다.
+기본적으로 [구독당 10개의 IoT Hub](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits)를 프로비전할 수 있습니다. [Azure 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 만들어 이 제한을 높일 수 있습니다. 결과적으로 모든 솔루션 가속기가 새 IoT Hub를 프로비전하기 때문에 지정된 구독에서 최대 10개의 솔루션 가속기만 프로비전할 수 있습니다.
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 Azure Cosmos DB 인스턴스는 몇 개인가요?
 

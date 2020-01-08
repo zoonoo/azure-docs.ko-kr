@@ -1,6 +1,6 @@
 ---
-title: B2B 시나리오에 대 한 오류 및 해결 방법
-description: Azure Logic Apps에서 B2B 시나리오의 오류 및 해결 방법 찾기
+title: B2B 시나리오의 일반적인 오류 및 문제에 대 한 해결 방법
+description: Azure Logic Apps에서 B2B 시나리오 문제를 해결할 때 일반적인 오류 및 문제에 대 한 해결 방법 찾기
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 176bc3642f7c923b50cbf2f7a97096f88dc02817
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790705"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666689"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Azure Logic Apps의 B2B 오류 및 해결 방법
 
@@ -63,7 +63,7 @@ ms.locfileid: "74790705"
 | 사용자 조치 | 파트너에게 보내기 전에 AS2Message에 @base64ToBinary를 추가합니다. |
 |||
 
-다음은 그 예입니다.
+예:
 
 ```json
 "HTTP": {
@@ -83,7 +83,7 @@ ms.locfileid: "74790705"
 | 사용자 조치 | 파트너에게 보내기 전에 MDN에 @base64ToBinary를 추가합니다. | 
 |||
 
-다음은 그 예입니다.
+예:
 
 ```json
 "Response": {

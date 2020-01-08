@@ -1,33 +1,24 @@
 ---
-title: 일반적인 Azure Service Fabric 진단 시나리오 | Microsoft Docs
-description: Azure Service Fabric을 사용하여 일반적인 시나리오 문제를 해결하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 일반적인 시나리오 진단
+description: Azure Service Fabric 응용 프로그램 내에서 일반적인 모니터링 및 진단 시나리오를 해결 하는 방법에 대해 알아봅니다.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60394206"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645789"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
-이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 제시된 시나리오는 서비스 패브릭의 모든 3계층을 설명합니다. 애플리케이션, 클러스터 및 인프라 각 솔루션은 Application Insights 및 Azure Monitor logs, Azure 모니터링 도구를 사용 하 여 각 시나리오를 완료 합니다. 각 솔루션의 단계는 사용자에 게 Service Fabric 컨텍스트에서 Application Insights 및 Azure Monitor 로그를 사용 하는 방법을 소개 합니다.
+이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 여기서 제시되는 시나리오에서는 애플리케이션, 클러스터 및 인프라의 Service Fabric 3개 계층을 모두 다룹니다. 각 솔루션은 Application Insights 및 Azure Monitor logs, Azure 모니터링 도구를 사용 하 여 각 시나리오를 완료 합니다. 각 솔루션의 단계는 사용자에 게 Service Fabric 컨텍스트에서 Application Insights 및 Azure Monitor 로그를 사용 하는 방법을 소개 합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites-and-recommendations"></a>필수 구성 요소 및 권장 사항
+## <a name="prerequisites-and-recommendations"></a>필수 조건 및 권장 사항
 
 이 문서의 솔루션에서 사용하는 도구는 다음과 같습니다. 다음과 같이 설정하고 구성하는 것이 좋습니다.
 
@@ -56,7 +47,7 @@ ms.locfileid: "60394206"
 1. 동일한 Application Insight 리소스에서 예외 대신 "요청"을 필터링하여 모든 요청을 볼 수 있습니다
 2. Service Fabric Application Insights SDK를 사용하는 경우 서로 연결된 서비스의 시각적 표현과 성공하거나 실패한 요청 수를 볼 수 있습니다. 왼쪽에서 "애플리케이션 맵"을 클릭합니다.
 
-    ![AI 응용 프로그램 맵 블레이드](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI 응용 프로그램 맵](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![AI 앱 지도 블레이드](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI 앱 지도](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     애플리케이션 맵에 대한 자세한 내용은 [애플리케이션 맵 설명서](../azure-monitor/app/app-map.md)를 참조하세요.
 
@@ -101,7 +92,7 @@ ms.locfileid: "60394206"
 
 ## <a name="how-can-i-monitor-performance-counters"></a>성능 카운터를 모니터링하려면 어떻게 해야 할까요?
 
-1. 클러스터에 Log Analytics 에이전트가 추가되었으면 추적하려는 특정 성능 카운터를 추가해야 합니다. 포털에서 Log Analytics 작업 영역의 페이지로 이동합니다. 작업 영역 탭은 솔루션 페이지의 왼쪽 메뉴에 있습니다.
+1. Log Analytics 에이전트를 클러스터에 추가 했으면 추적 하려는 특정 성능 카운터를 추가 해야 합니다. 포털의 Log Analytics 작업 영역 페이지로 이동 – 솔루션의 페이지에서 작업 영역 탭은 왼쪽 메뉴에 있습니다.
 
     ![Log Analytics 작업 영역 탭](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 

@@ -8,127 +8,163 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006468"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497730"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 모델링
 
 이 문서에서는 Azure Time Series Insights 미리 보기에서 시계열 모델을 사용 하는 방법을 설명 합니다. 몇 가지 일반적인 데이터 시나리오를 자세히 설명합니다.
 
-업데이트 사용 방법에 대한 자세한 내용은 [Azure Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)를 참조하세요.
-
-## <a name="types"></a>형식
-
-### <a name="create-a-single-type"></a>단일 형식 만들기
-
-1. 시계열 모델 선택기 패널로 이동 하 고 메뉴에서 **형식** 을 선택 합니다. 시계열 모델 형식에 초점을 맞추기 위해 패널을 축소 합니다.
-
-    [!["형식" 창](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
-
-1. **+추가**를 선택합니다.
-1. 유형과 관련 된 모든 세부 정보를 입력 하 고 **만들기**를 선택 합니다. 이 작업은 환경에 형식을 만듭니다.
-
-    [형식을 추가 하기 위한 ![선택](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
-
-### <a name="bulk-upload-one-or-more-types"></a>하나 이상의 형식 대량 업로드
-
-1. **JSON 업로드**를 선택합니다.
-1. 형식 페이로드를 포함하는 파일을 선택합니다.
-1. **업로드**를 선택합니다.
-
-    [하나 이상의 형식에 대 한 대량 업로드 ![선택](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
-
-### <a name="edit-a-single-type"></a>단일 형식 편집
-
-1. 형식을 선택하고 **편집**을 선택합니다. 
-1. 필요에 따라 변경하고 **저장**을 선택합니다.
-
-    [형식 편집을 위한 ![선택](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
-
-### <a name="delete-a-type"></a>형식 삭제
-
-1. 형식을 선택하고 **삭제**를 선택합니다.
-1. 형식과 연결된 인스턴스가 없으면 형식이 삭제됩니다.
-
-    ["삭제" 단추 ![](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
-
-## <a name="hierarchies"></a>계층 구조
-
-### <a name="create-a-single-hierarchy"></a>단일 계층 구조 만들기
-
-1. 시계열 모델 선택기 패널로 이동 하 고 메뉴에서 **계층** 을 선택 합니다. 시계열 모델 계층 구조에 초점을 맞추기 위해 패널을 축소 합니다.
-
-    [!["계층" 창](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
-
-1. **+추가**를 선택합니다.
-
-    [!["추가" 단추](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
-
-1. 오른쪽 창에서 **+ 수준 추가** 를 선택 합니다.
-
-    [!["수준 추가" 단추](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
-
-1. 계층 구조 정보를 입력하고 **만들기**를 선택합니다.
-
-    [계층 세부 정보 및 "만들기" 단추를 ![합니다.](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
-
-### <a name="bulk-upload-one-or-more-hierarchies"></a>하나 이상의 계층 구조 대량 업로드
-
-1. **JSON 업로드**를 선택합니다.
-1. 계층 구조 페이로드를 포함하는 파일을 선택합니다.
-1. **업로드**를 선택합니다.
-
-    [계층의 대량 업로드에 대 한 ![선택](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
-
-### <a name="edit-a-single-hierarchy"></a>단일 계층 구조 편집
-
-1. 계층 구조를 선택한 다음, **편집**을 선택합니다.
-1. 필요에 따라 변경하고 **저장**을 선택합니다.
-
-    [단일 계층 편집을 위한 ![선택](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
-
-### <a name="delete-a-hierarchy"></a>계층 구조 삭제
-
-1. 계층을 선택 하 고 **삭제**를 선택 합니다. 
-1. 계층 구조와 연결된 인스턴스가 없으면 계층 구조가 삭제됩니다.
-
-    ["삭제" 단추 ![](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
+> [!TIP]
+> * 미리 보기 [시계열 모델](time-series-insights-update-tsm.md)에 대해 읽어 보세요.
+> * [Azure Time Series Insights preview 탐색기](./time-series-insights-update-explorer.md)에서 미리 보기 UI 탐색에 대해 자세히 알아보세요.
 
 ## <a name="instances"></a>인스턴스
 
+Azure Time Series Insights 탐색기는 브라우저 내에서 인스턴스 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다. 
+
+시작 하려면 Time Series Insights 탐색기 **분석** 보기에서 **모델** 뷰를 선택 합니다.
+
 ### <a name="create-a-single-instance"></a>단일 인스턴스 만들기
 
-1. 시계열 모델 선택기 패널로 이동 하 고 메뉴에서 **인스턴스** 를 선택 합니다. 시계열 모델 인스턴스에 초점을 맞추기 위해 패널을 축소 합니다.
+1. 시계열 모델 선택기 패널로 이동 하 고 메뉴에서 **인스턴스** 를 선택 합니다. 선택한 Time Series Insights 환경에 연결 된 모든 인스턴스가 표시 됩니다.
 
-    [!["인스턴스" 창](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
+    [먼저 인스턴스를 선택 하 여 단일 인스턴스를 만들 ![.](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png#lightbox)
 
-1. **추가**를 선택합니다.
+1. **+추가**를 선택합니다.
 
-    [인스턴스를 추가 하기 위한 ![선택](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
+    [+ 추가 단추를 선택 하 여 인스턴스를 추가 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png#lightbox)
 
 1. 인스턴스 정보를 입력하고 형식 및 계층 구조 연결을 선택한 다음, **만들기**를 선택합니다.
 
 ### <a name="bulk-upload-one-or-more-instances"></a>하나 이상의 인스턴스 대량 업로드
 
+> [!TIP]
+> JSON에서 사용자의 데스크톱에 인스턴스를 저장할 수 있습니다. 다운로드 한 JSON 파일은 다음 단계를 통해 업로드할 수 있습니다.
+
 1. **JSON 업로드**를 선택합니다.
 1. 인스턴스 페이로드를 포함하는 파일을 선택합니다.
 
-    [하나 이상의 인스턴스를 대량 업로드 하기 위한 ![선택](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
+    [JSON을 통해 대량 업로드 인스턴스를 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png#lightbox)
 
 1. **업로드**를 선택합니다.
 
 ### <a name="edit-a-single-instance"></a>단일 인스턴스 편집
 
-1. 인스턴스를 선택하고 **편집**을 선택합니다. 
+1. 인스턴스를 선택 하 고 **편집** 또는 **연필 아이콘**을 선택 합니다. 
 1. 필요에 따라 변경하고 **저장**을 선택합니다.
 
-    [단일 인스턴스 편집을 위한 ![선택](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
+    [단일 인스턴스를 편집 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
+
+### <a name="delete-an-instance"></a>인스턴스 삭제
+
+1. 유형을 선택 하 고 **삭제** 또는 **폐기물 저장 아이콘**을 선택 합니다.
+
+   [삭제를 선택 하 여 형식을 ![삭제 합니다.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+
+1. **삭제**를 선택 하 여 삭제를 확인 합니다.
+
+> [!NOTE]
+> 인스턴스는 삭제할 필드 유효성 검사를 성공적으로 통과 해야 합니다.
+
+## <a name="hierarchies"></a>계층 구조
+
+Azure Time Series Insights 탐색기는 브라우저 내에서 계층 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다. 
+
+시작 하려면 Time Series Insights 탐색기 **분석** 보기에서 **모델** 뷰를 선택 합니다.
+
+### <a name="create-a-single-hierarchy"></a>단일 계층 구조 만들기
+
+1. 시계열 모델 선택기 패널로 이동 하 고 메뉴에서 **계층** 을 선택 합니다. 선택한 Time Series Insights 환경과 연결 된 모든 계층이 표시 됩니다.
+
+    [창을 통해 계층 구조를 만들 ![.](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png#lightbox)
+
+1. **+추가**를 선택합니다.
+
+    [계층 + 추가 단추를 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png#lightbox)
+
+1. 오른쪽 창에서 **+ 수준 추가** 를 선택 합니다.
+
+    [계층에 수준을 추가 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png)](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png#lightbox)
+
+1. 계층 세부 정보를 입력 하 고 **저장**을 선택 합니다.
+
+    [계층 세부 정보를 지정 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png)](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png#lightbox)
+
+### <a name="bulk-upload-one-or-more-hierarchies"></a>하나 이상의 계층 구조 대량 업로드
+
+> [!TIP]
+> JSON에서 데스크톱에 계층을 저장할 수 있습니다. 다운로드 한 JSON 파일은 다음 단계를 통해 업로드할 수 있습니다.
+
+1. **JSON 업로드**를 선택합니다.
+1. 계층 구조 페이로드를 포함하는 파일을 선택합니다.
+1. **업로드**를 선택합니다.
+
+    [계층의 대량 업로드를 위한 선택 항목을 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png#lightbox)
+
+### <a name="edit-a-single-hierarchy"></a>단일 계층 구조 편집
+
+1. 계층을 선택 하 고 **편집** 또는 **연필 아이콘**을 선택 합니다.
+1. 필요에 따라 변경하고 **저장**을 선택합니다.
+
+    [단일 계층 편집을 위해 선택할 ![.](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png#lightbox)
+
+### <a name="delete-a-hierarchy"></a>계층 구조 삭제
+
+1. 계층을 선택 하 고 **삭제** 또는 **폐기물 저장 아이콘**을 선택 합니다. 
+
+    [삭제 단추를 선택 하 여 계층을 삭제 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
+
+1. **삭제**를 선택 하 여 삭제를 확인 합니다.
+
+## <a name="types"></a>유형
+
+Azure Time Series Insights 탐색기는 브라우저 내에서 형식 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다. 
+
+시작 하려면 Time Series Insights 탐색기 **분석** 보기에서 **모델** 뷰를 선택 합니다.
+
+### <a name="create-a-single-type"></a>단일 형식 만들기
+
+1. 시계열 모델 선택기 패널로 이동 하 고 메뉴에서 **형식** 을 선택 합니다. 선택한 Time Series Insights 환경에 연결 된 모든 유형이 표시 됩니다.
+
+    [시계열 모델 유형 창 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
+
+1. **+ 추가** 를 선택 하 여 **새 형식 추가** 팝업 모달을 표시 합니다.
+1. 형식에 대 한 속성 및 변수를 입력 합니다. 입력 한 후 **저장**을 선택 합니다. 
+
+    [유형을 추가 하는 구성 설정을 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
+
+### <a name="bulk-upload-one-or-more-types"></a>하나 이상의 형식 대량 업로드
+
+> [!TIP]
+> JSON에서 사용자의 데스크톱에 형식을 저장할 수 있습니다. 다운로드 한 JSON 파일은 다음 단계를 통해 업로드할 수 있습니다.
+
+1. **JSON 업로드**를 선택합니다.
+1. 형식 페이로드를 포함하는 파일을 선택합니다.
+1. **업로드**를 선택합니다.
+
+    [대량 형식 업로드 옵션을 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png#lightbox)
+
+### <a name="edit-a-single-type"></a>단일 형식 편집
+
+1. 유형을 선택 하 고 **편집** 또는 **연필 아이콘**을 선택 합니다.
+1. 필요에 따라 변경하고 **저장**을 선택합니다.
+
+    [![창에서 형식을 편집 합니다.](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png#lightbox)
+
+### <a name="delete-a-type"></a>형식 삭제
+
+1. 유형을 선택 하 고 **삭제** 또는 **폐기물 저장 아이콘**을 선택 합니다. .
+
+   [삭제를 선택 하 여 형식을 ![삭제 합니다.](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
+
+1. **삭제**를 선택 하 여 삭제를 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679413"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440395"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 전환 작업
 
@@ -65,20 +65,20 @@ Switch 활동은 프로그래밍 언어로 제공 되는 스위치 문과 동일
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | 전환 활동의 이름입니다. | 문자열 | 예
-type | *전환* 하려면를 설정 해야* | 문자열 | 예
+name | 전환 활동의 이름입니다. | String | 예
+type | *전환* 하려면를 설정 해야* | String | 예
 식 | 문자열 값으로 계산 해야 하는 식입니다. | 결과 형식 문자열이 포함 된 식 | 예
 cases | 값이 식 계산에 일치할 때 실행할 작업 집합 및 값을 포함 하는 사례 집합입니다. 하나 이상의 사례를 제공 해야 합니다. 최대 25 개의 사례 제한이 있습니다. | Case 개체의 배열 | 예
 defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 집합입니다. | 작업 배열 | 예
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 이 샘플의 파이프라인에서는 입력 폴더의 데이터를 출력 폴더로 복사합니다. 출력 폴더는 파이프라인 매개 변수 routeSelection의 값에 의해 결정됩니다.
 
 > [!NOTE]
-> 이 섹션에서는 JSON 정의 및 파이프라인을 실행하는 PowerShell 명령 예제를 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+> 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 ### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Switch 활동을 포함 하는 파이프라인 (Adfv2quickstartpipeline.json)
 
@@ -236,10 +236,7 @@ defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

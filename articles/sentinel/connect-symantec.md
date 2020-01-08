@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0250780c85041c07fabf7d5ed268d1f3cdb63e18
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 111bc7cd0439eee2026a6a980e9e126b63ac58c6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240641"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610491"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Symantec ICDx 어플라이언스 연결 
 
@@ -42,7 +42,7 @@ Symantec ICDx는 로그를 Azure 센티널로 직접 통합 하 고 내보낼 �
 4. **전달자**에서 Microsoft Azure 센티널 (Log Analytics) 옆에 있는 **추가**를 클릭 합니다. 
 4. **Microsoft Azure 센티널 (Log Analytics)** 창에서 **고급 표시**를 클릭 합니다. 
 5. Microsoft Azure 센티널 (Log Analytics) 창의 위쪽에서 다음을 수행 합니다.
-    -   **Name**: 전달 자가 30 자이 하를 포함 하는 이름을 입력 합니다. 고유 하 고 의미 있는 이름을 선택 합니다. 이 이름은 **구성** 화면의 전달자 목록 및 **대시보드** 화면에 표시 됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. Microsoft Azure Log Analytics East. 이 필드는 필수입니다.
+    -   **이름**: 전달 자의 이름을 30 자 미만으로 입력 합니다. 고유 하 고 의미 있는 이름을 선택 합니다. 이 이름은 **구성** 화면의 전달자 목록 및 **대시보드** 화면에 표시 됩니다. 예: Microsoft Azure Log Analytics 동부. 이 필드는 필수입니다.
     -   **설명**: 전달자에 대 한 설명을 입력 합니다. 이 설명은 **구성** 화면의 전달자 목록에도 표시 됩니다. 전달 되는 이벤트 유형과 데이터를 검사 해야 하는 그룹 등의 세부 정보를 포함 합니다.
     -   **시작 유형**: 전달자 구성의 시작 방법을 선택 합니다. 옵션은 수동 및 자동입니다.<br>기본값은 자동입니다. 
 6. **이벤트**에서 다음을 수행 합니다. 
@@ -58,9 +58,9 @@ Symantec ICDx는 로그를 Azure 센티널로 직접 통합 하 고 내보낼 �
     - **포함 된 특성**: 전달 된 데이터에 포함할 쉼표로 구분 된 특성 목록을 입력 합니다. 포함 된 특성은 제외 된 특성 보다 우선적으로 적용 됩니다.
     - **제외 된 특성**: 전달 된 데이터에서 제외할 특성의 쉼표로 구분 된 목록을 입력 합니다.
     - **일괄 처리 크기**: 일괄 처리당 전송할 이벤트 수를 선택 합니다. 옵션은 10, 50, 100, 500 및 1000입니다.<br>기본값은 100입니다. 
-    - **전송률 제한**: 이벤트가 전달 되는 속도를 선택 하 여 초당 이벤트로 표시 합니다. 옵션은 무제한, 500, 1000, 5000, 1만입니다. <br> 기본값은 5000입니다. 
+    - **속도 제한**: 이벤트를 전달 하는 속도를 선택 하 여 초당 이벤트로 표시 합니다. 옵션은 무제한, 500, 1000, 5000, 1만입니다. <br> 기본값은 5000입니다. 
 7. **Azure Destination**에서 다음을 수행 합니다. 
-    - **작업 영역 ID**: 아래에서 작업 영역 ID를 붙여 넣습니다. 이 필드는 필수입니다.
+    - **작업 영역 id**: 아래에서 작업 영역 id를 붙여 넣습니다. 이 필드는 필수입니다.
     - **기본 키**: 아래에서 기본 키를 붙여넣습니다. 이 필드는 필수입니다.
     - **사용자 지정 로그 이름**: 이벤트를 전달 하려는 Microsoft Azure portal Log Analytics 작업 영역에 사용자 지정 로그 이름을 입력 합니다. 기본값은 SymantecICDx입니다. 이 필드는 필수입니다.
 8. *저장* 을 클릭 하 여 전달자 구성을 완료 합니다. 
@@ -76,6 +76,8 @@ Symantec ICDx는 로그를 Azure 센티널로 직접 통합 하 고 내보낼 �
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Symantec ICDx를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](tutorial-monitor-your-data.md) 하 여 데이터를 모니터링 합니다.
+
 

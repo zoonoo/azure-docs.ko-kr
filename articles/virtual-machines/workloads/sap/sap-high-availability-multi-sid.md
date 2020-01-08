@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75d4c4e38069cb192917f275245d87bb4c63d502
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff01bd0d6586cf75dcfdb7277c34120c6ec22894
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078159"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647495"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "70078159"
 [sap-ha-guide-figure-6004]:./media/virtual-machines-shared-sap-high-availability-guide/6004-sap-multi-sid-dns.png
 [sap-ha-guide-figure-6005]:./media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:./media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-ha-guide-9.1.1]:sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
 [sap-ha-guide-8.8]:sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c
 [sap-ha-guide-8.12.3.3]:sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
@@ -55,7 +55,7 @@ SAP 배포를 사용 하는 경우 [Windows vm에서 고가용성 Sap NetWeaver 
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 다이어그램에 표시 된 것 처럼, [Windows vm에서 고가용성 Sap NetWeaver 가이드][sap-ha-guide] 에 설명 된 대로 하나의 SAP ascs/SCS 인스턴스에 사용 되는 WSFC 클러스터를 이미 구성 했습니다.
 
 ![고가용성 SAP ASCS/SCS 인스턴스][sap-ha-guide-figure-6001]
@@ -72,7 +72,7 @@ SAP 배포를 사용 하는 경우 [Windows vm에서 고가용성 Sap NetWeaver 
 >하나의 WSFC 클러스터에서 SAP ASCS/SCS 인스턴스의 최대수는 각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 최대수와 같습니다.
 >
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager].
+부하 분산 장치 제한에 대 한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조 하세요.
 
 두 가지 고가용성 SAP 시스템을 포함한 전체 그림은 다음과 같습니다.
 

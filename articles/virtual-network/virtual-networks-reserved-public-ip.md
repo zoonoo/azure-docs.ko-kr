@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: 675e7a7b557a3f19ea4d8d4960316c3859cbb9c1
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: c1de86c1d12109853bb5d6d1aac4143caab9199f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058487"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638224"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>예약된 IP 주소(클래식 배포)
 
@@ -28,7 +28,7 @@ ms.locfileid: "71058487"
 IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니다. 예약된 IP는 VIP로만 사용할 수 있으므로 리소스가 종료 또는 중지(할당 취소)된 때에도 클라우드 서비스의 IP 주소가 동일하게 유지됩니다. 또한 VIP로 사용하는 기존의 동적 IP를 예약된 IP 주소로 변환할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 사용하기 위한  [Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델](virtual-network-ip-addresses-overview-arm.md)을 사용하여 고정 공용 IP 주소를 예약하는 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델](virtual-network-ip-addresses-overview-arm.md)을 사용하여 고정 공용 IP 주소를 예약하는 방법을 알아봅니다.
 
 Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-classic.md)를 확인하세요.
 
@@ -39,15 +39,15 @@ Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [IP 주소](vir
 
 ## <a name="faqs"></a>FAQ
 - 모든 Azure 서비스에 예약된 IP를 사용할 수 있나요?
-    아니요. 예약된 IP는 VM 및 VIP를 통해 노출되는 클라우드 서비스 인스턴스 역할에만 사용할 수 있습니다.
+    아닙니다. 예약된 IP는 VM 및 VIP를 통해 노출되는 클라우드 서비스 인스턴스 역할에만 사용할 수 있습니다.
 - 예약된 IP를 몇 개까지 사용할 수 있나요?
-    자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
+    자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
 - 예약된 IP는 사용 요금이 있나요?
     때때로 그렇습니다. 가격 책정 정보는 [예약된 IP 주소 가격 책정 정보](https://go.microsoft.com/fwlink/?LinkID=398482)를 참조하세요.
 - IP 주소를 어떻게 예약하나요?
     PowerShell, [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 지역에서 IP 주소를 예약할 수 있습니다. 예약된 IP 주소는 구독에 연결됩니다.
 - 선호도 그룹 기반 VNet에서 예약된 IP를 사용할 수 있나요?
-    아니요. 예약된 IP는 지역 VNet에서만 지원됩니다. 예약된 IP는 선호도 그룹과 연결된 VNet에 대해 지원되지 않습니다. VNet을 지역 또는 선호도 그룹과 연결하는 방법에 대한 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](virtual-networks-migrate-to-regional-vnet.md) 문서를 참조하세요.
+    아닙니다. 예약된 IP는 지역 VNet에서만 지원됩니다. 예약된 IP는 선호도 그룹과 연결된 VNet에 대해 지원되지 않습니다. VNet을 지역 또는 선호도 그룹과 연결하는 방법에 대한 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](virtual-networks-migrate-to-regional-vnet.md) 문서를 참조하세요.
 
 ## <a name="manage-reserved-vips"></a>예약된 VIP 관리
 
@@ -103,7 +103,7 @@ Azure 클래식 CLI를 사용하여 ‘미국 중부’ 위치에서 사용할 �
 ```azurecli
 azure network reserved-ip create <name> <location>
 ```
-예제:
+예:
  ```azurecli
  azure network reserved-ip create MyReservedIP centralus
  ```
@@ -121,7 +121,7 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
  ```azurecli
  azure network reserved-ip delete <name>
  ```
-  예제:  
+  예:  
  ```azurecli
  azure network reserved-ip delete MyReservedIP
  ```
@@ -141,7 +141,7 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
     ```azurecli
      azure network reserved-ip create <name> <location> -r <service-name> -d <deployment-name>
     ```
-    예제:
+    예:
 
     ```azurecli
       azure network reserved-ip create MyReservedIP centralus -r TestService -d asmtest8942
@@ -180,7 +180,7 @@ Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName Test
 azure network reserved-ip disassociate <name> <service-name> <deployment-name>
 ```
 
-예제:
+예:
 
 ```azurecli
 azure network reserved-ip disassociate MyReservedIP TestService asmtest8942
@@ -197,7 +197,7 @@ azure network reserved-ip disassociate MyReservedIP TestService asmtest8942
 ```azurecli
 azure network reserved-ip delete <name>
 ```
-예제:
+예:
 
 ```azurecli
 azure network reserved-ip delete MyReservedIP
@@ -226,7 +226,7 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 ```azurecli
 azure network reserved-ip associate <name> <service-name> <deployment-name>
 ```
-예제:
+예:
 ```azurecli
 azure network reserved-ip associate MyReservedIP TestService asmtest8942
 ```

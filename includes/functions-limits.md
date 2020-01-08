@@ -4,32 +4,32 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: eb61bf5734d0aea1534735b23a2b95b52000f5ad
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8946da455b4a395814d4cb5a833932c2e3d56f0a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322894"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75658528"
 ---
 | 리소스 | [소비 계획](../articles/azure-functions/functions-scale.md#consumption-plan) | [프리미엄 요금제](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service 계획](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | 확장 | 이벤트 기반 | 이벤트 기반 | [수동/자동 크기 조정](../articles/app-service/manage-scale-up.md) | 
 | 최대 인스턴스 | 200 | 100 | 10-20 |
 |기본 [제한 시간](../articles/azure-functions/functions-scale.md#timeout) (분) |5 | 30 |30<sup>2</sup> |
-|최대 [제한 시간](../articles/azure-functions/functions-scale.md#timeout) (분) |10 | 60 | 바인딩되지 않은<sup>3</sup> |
+|최대 [제한](../articles/azure-functions/functions-scale.md#timeout) 시간 (분) |10 | 60 | unbounded<sup>3</sup> |
 | 최대 아웃 바운드 연결 (인스턴스당) | 600 활성 (총 1200) | unbounded | unbounded |
 | 최대 요청 크기 (MB)<sup>4</sup> | 100 | 100 | 100 |
 | 최대 쿼리 문자열 길이<sup>4</sup> | 4096 | 4096 | 4096 |
 | 최대 요청 URL 길이<sup>4</sup> | 8192 | 8192 | 8192 |
 | 인스턴스당 [Acu](../articles/virtual-machines/windows/acu.md) | 100 | 210-840 | 100-840 |
 | 최대 메모리 (인스턴스당 GB) | 1.5 | 3.5-14 | 1.75 g-14 |
-| 계획 당 함수 앱 |100 |100 |제한 없음<sup>5</sup> |
+| 계획 당 함수 앱 |100 |100 |unbounded<sup>5</sup> |
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) | 100/ [지역](https://azure.microsoft.com/global-infrastructure/regions/) |리소스 그룹당 100 |리소스 그룹당 100 |
-| 저장소<sup>6</sup> |1 GB |250GB |50-1000 GB |
+| Storage<sup>6</sup> |1GB |250GB |50-1000 GB |
 | 앱당 사용자 지정 도메인</a> |500<sup>7</sup> |500 |500 |
 | 사용자 지정 도메인 [SSL 지원](../articles/app-service/configure-ssl-bindings.md) |제한 없는 SNI SSL 연결 포함 | 제한 없는 SNI SSL 및 1 개의 IP SSL 연결 포함 |제한 없는 SNI SSL 및 1 개의 IP SSL 연결 포함 | 
 
-<sup>1</sup> 다양 한 App Service 계획 옵션에 대 한 특정 한도는 [App Service 계획 제한](../articles/azure-subscription-service-limits.md#app-service-limits)을 참조 하세요.  
+<sup>1</sup> 다양 한 App Service 계획 옵션에 대 한 특정 한도는 [App Service 계획 제한](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)을 참조 하세요.  
 <sup>2</sup> 기본적으로 App Service 계획의 함수 1.x 런타임에 대 한 제한 시간은 제한 되지 않습니다.  
 <sup>3</sup> App Service 계획을 [Always On](../articles/azure-functions/functions-scale.md#always-on)으로 설정 해야 합니다. 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 지불 합니다.  
 <sup>4</sup> [호스트에서](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config)이러한 한도를 설정 합니다.  

@@ -1,17 +1,17 @@
 ---
-title: 오류 문제 해결 및 진단
-description: Azure Logic Apps에서 워크플로 오류를 진단하고 해결하는 방법 알아보기
+title: 워크플로 오류 문제 해결 및 진단
+description: 에서 워크플로의 문제, 오류 및 오류를 해결 하 고 문제를 진단 하는 방법에 대해 알아봅니다 Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790770"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666808"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 오류를 진단하고 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "74790770"
 
    트리거 시도에서 가능한 상태는 다음과 같습니다.
 
-   | 상태 | 설명 | 
+   | 상태 | Description | 
    | ------ | ----------- | 
    | **성공함** | 트리거는 엔드포인트를 확인하고 사용할 수 있는 데이터를 찾았습니다. 일반적으로 "실행됨" 상태도 이 상태와 함께 나타납니다. 그렇지 않은 트리거 정의는 `SplitOn` 또는 조건을 충족하지 않는 명령을 포함합니다. <p>이 상태는 수동 트리거, 되풀이 트리거 또는 폴링 트리거에 적용될 수 있습니다. 작업이 처리되지 않은 오류를 생성할 때 트리거가 성공적으로 실행될 수는 있지만 실행 자체는 실패할 수 있습니다. | 
    | **생략** | 트리거는 엔드포인트를 확인했지만 데이터가 없습니다. | 
@@ -75,7 +75,7 @@ ms.locfileid: "74790770"
 
    실행에서 가능한 상태는 다음과 같습니다.
 
-   | 상태 | 설명 | 
+   | 상태 | Description | 
    | ------ | ----------- | 
    | **성공함** | 모든 작업에 성공했습니다. <p>특정 작업에서 오류가 발생하는 경우 워크플로에서 다음 작업은 해당 오류를 처리합니다. | 
    | **실패** | 하나 이상의 작업이 실패하면 워크플로에서 오류를 처리하기 위한 후속 동작이 설정되지 않습니다. | 
@@ -91,7 +91,7 @@ ms.locfileid: "74790770"
 
    ![논리 앱 실행에 대한 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 다음은 그 예입니다.
+3. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 예:
 
    ![단계 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d3822b5000611d1b5229924cb44d055795468
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2bca4521184fa42002e6649a90bb9101fded595c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688271"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658443"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [Azure Portal](https://portal.azure.com)의 웹앱, 모바일 백 엔드 및 API 앱에 대해 기본 제공 모니터링 기능을 제공합니다.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 은 [Azure Portal](https://portal.azure.com)에서 웹 앱, 모바일 및 API 앱에 대 한 기본 제공 모니터링 기능을 제공 합니다.
 
-Azure Portal에서 앱에 대 한 *할당량* 및 *메트릭* 을 검토 하 고 계획을 App Service 하 고 기반 메트릭에 대 한 *경고* 및 *자동 크기 조정을* 설정할 수 있습니다.
+Azure Portal에서 앱에 대 한 *할당량* 및 *메트릭* 을 검토 하 고, 계획을 App Service 하 고, 기반 메트릭의 *경고* 및 자동 크기 *조정을* 설정할 수 있습니다.
 
 ## <a name="understand-quotas"></a>할당량 이해
 
@@ -31,7 +31,7 @@ App Service를 호스트로 사용하는 앱에는 사용 가능한 리소스에
 
 무료 또는 공유 앱의 할당량은 다음과 같습니다.
 
-| 할당량 | 설명 |
+| 할당량 | Description |
 | --- | --- |
 | **CPU(짧음)** | 5분 간격으로 이 앱에 허용되는 CPU의 양입니다. 이 할당량은 5분마다 재설정됩니다. |
 | **CPU(일)** | 하루에 이 앱에 허용되는 총 CPU 양입니다. 이 할당량은 자정 UTC에 24시간마다 재설정됩니다. |
@@ -41,7 +41,7 @@ App Service를 호스트로 사용하는 앱에는 사용 가능한 리소스에
 
 *Basic*, *Standard*및 *Premium* 에서 호스트 되는 앱에 적용 가능한 유일한 할당량은 파일 시스템입니다.
 
-다양한 App Service SKU에 사용할 수 있는 특정 할당량, 한도 및 기능에 대한 자세한 내용은 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md#app-service-limits)을 참조하세요.
+다양한 App Service SKU에 사용할 수 있는 특정 할당량, 한도 및 기능에 대한 자세한 내용은 [Azure 구독 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)을 참조하세요.
 
 ### <a name="quota-enforcement"></a>할당량 적용
 
@@ -65,7 +65,7 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 
 앱에 사용 가능한 메트릭은 다음과 같습니다.
 
-| 메트릭 | 설명 |
+| 메트릭 | Description |
 | --- | --- |
 | **평균 응답 시간** | 앱에서 요청을 처리 하는 데 걸린 평균 시간 (초)입니다. |
 | **평균 메모리 작업 집합** | 앱에 사용된 메가바이트(MiB) 크기의 평균 메모리 양입니다. |
@@ -87,14 +87,14 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 | **Http 406** | 결과로 HTTP 406 상태 코드가 나타나는 요청의 수입니다. |
 | **Http 4xx** | 결과로 나타나는 HTTP 상태 코드가 400 이상, 500 미만인 요청 수입니다. |
 | **Http 서버 오류** | 결과로 나타나는 HTTP 상태 코드가 500 이상, 600 미만인 요청 수입니다. |
-| **초당 IO 기타 바이트 수** | 애플리케이션 프로세스에서 제어 작업과 같이 데이터가 포함되지 않은 I/O 작업에 바이트를 보내는 속도입니다.|
+| **초당 IO 기타 바이트 수** | 응용 프로그램 프로세스가 데이터를 포함 하지 않는 i/o 작업 (예: 제어 작업)에 바이트를 발급 하는 속도입니다.|
 | **초당 IO 기타 작업 수** | 앱 프로세스가 읽기 또는 쓰기 작업이 아닌 i/o 작업을 실행 하는 속도입니다.|
 | **초당 IO 읽기 바이트 수** | 앱 프로세스에서 I/O 작업의 바이트를 읽는 속도입니다.|
 | **초당 IO 읽기 작업 수** | 앱 프로세스에서 읽기 I/O 작업을 실행하는 속도입니다.|
 | **초당 IO 쓰기 바이트 수** | 앱 프로세스에서 I/O 작업에 바이트를 쓰는 속도입니다.|
 | **초당 IO 쓰기 작업 수** | 앱 프로세스에서 쓰기 I/O 작업을 실행하는 속도입니다.|
 | **메모리 작업 집합** | 현재 앱에 사용된 메모리 양(MiB)입니다. |
-| **프라이빗 바이트** | 프라이빗 바이트 수는 다른 프로세스와 공유할 수 없는 앱 프로세스에서 할당한 메모리의 현재 크기(바이트)입니다.|
+| **프라이빗 바이트** | Private Bytes는 앱 프로세스가 할당 하 여 다른 프로세스와 공유할 수 없는 메모리의 현재 크기 (바이트)입니다.|
 | **요청** | 결과 HTTP 상태 코드에 관계 없이 총 요청 수입니다. |
 | **애플리케이션 큐의 요청 수** | 애플리케이션 요청 큐의 요청 수입니다.|
 | **스레드 수** | 앱 프로세스에서 현재 활성 상태인 스레드의 수입니다.|
@@ -108,13 +108,13 @@ App Service 계획에 대해 사용 가능한 메트릭은 다음과 같습니�
 > App Service 계획 메트릭은 *기본*, *표준* 및 *프리미엄* 계층의 계획에만 사용할 수 있습니다.
 > 
 
-| 메트릭 | 설명 |
+| 메트릭 | Description |
 | --- | --- |
 | **CPU 비율** | 계획의 모든 인스턴스 간에 사용된 평균 CPU입니다. |
 | **메모리 비율** | 계획의 모든 인스턴스 간에 사용된 평균 메모리입니다. |
 | **데이터 입력** | 계획의 모든 인스턴스 간에 사용된 평균 들어오는 대역폭입니다. |
 | **데이터 출력** | 계획의 모든 인스턴스 간에 사용된 평균 나가는 대역폭입니다. |
-| **디스크 큐 길이** | 스토리지에 대기 중인 평균 읽기 및 쓰기 요청 수입니다. 디스크 큐 길이 값이 높으면 과도한 디스크 I/O로 인해 앱의 속도가 느려질 수 있음을 나타냅니다. |
+| **디스크 큐 길이** | 스토리지에 대기 중인 평균 읽기 및 쓰기 요청 수입니다. 디스크 큐 길이가 높으면 과도 한 디스크 i/o로 인해 속도가 저하 될 수 있는 앱을 나타냅니다. |
 | **Http 큐 길이** | 처리하기 전에 큐에 배치해야 하는 평균 HTTP 요청 수입니다. HTTP 큐 길이 값이 높거나 증가하면 계획이 과부하 상태에 있음을 나타냅니다. |
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>CPU 시간 및 CPU 비율
@@ -129,9 +129,9 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다.
 ## <a name="metrics-granularity-and-retention-policy"></a>메트릭 세분성 및 보존 정책
 앱 및 App Service 계획에 대한 메트릭은 다음 세분성 및 보존 정책에 따라 서비스에 의해 기록 및 집계됩니다.
 
-* **분** 세분성 메트릭은 30시간 동안 보존됩니다.
-* **시** 세분성 메트릭은 30일 동안 보존됩니다.
-* **일** 세분성 메트릭은 30일 동안 보존됩니다.
+* **분** 세분성 메트릭은 30 시간 동안 유지 됩니다.
+* **시간** 세분성 메트릭은 30 일 동안 유지 됩니다.
+* **일** 세분성 메트릭은 30 일 동안 유지 됩니다.
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Azure Portal에서 할당량 및 메트릭을 모니터링합니다.
 앱에 영향을 주는 다양한 할당량 및 메트릭 상태를 검토하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
@@ -144,19 +144,16 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다.
 1. 현재 한도
 1. 현재 값
 
-![Azure Portal의 메트릭 차트][metrics] **리소스** 페이지에서 직접 메트릭에 액세스할 수 있습니다. 차트를 사용자 지정하려면 
-1. 차트를 선택합니다.
-1. **차트 편집**을 선택합니다.
-1. **시간 범위**를 편집합니다.
-1. **차트 종류**를 편집합니다.
-1. 표시할 메트릭을 편집합니다.  
+Azure Portal][metrics] 메트릭 차트 ![리소스 **개요** 페이지에서 직접 메트릭에 액세스할 수 있습니다. 여기에서 일부 앱 메트릭을 나타내는 차트가 표시 됩니다.
+
+이러한 차트 중 하나를 클릭 하면 사용자 지정 차트를 만들고 다양 한 메트릭을 쿼리할 수 있는 메트릭 뷰로 이동 합니다. 
 
 메트릭에 대한 자세한 내용은 [서비스 메트릭 모니터링](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)을 참조하세요.
 
 ## <a name="alerts-and-autoscale"></a>경고 및 자동 크기 조정
 앱 또는 App Service 계획의 메트릭은 경고에 연결할 수 있습니다. 자세한 내용은 [경고 알림 받기](../monitoring-and-diagnostics/insights-alerts-portal.md)를 참조하세요.
 
-기본, 표준 또는 프리미엄 App Service 계획에 호스팅된 App Service 앱은 자동 크기 조정을 지원합니다. 자동 크기 조정을 사용하여 App Service 계획 메트릭을 모니터링하는 규칙을 구성할 수 있습니다. 규칙은 필요에 따라 추가 리소스를 제공할 수 있도록 인스턴스 수를 눌리거나 줄일 수 있습니다. 규칙을 사용하면 앱이 과도하게 프로비전될 때 비용을 절감할 수도 있습니다.
+기본 이상 App Service 계획에서 호스트 되는 App Service 앱은 자동 크기 조정을 지원 합니다. 자동 크기 조정을 사용하여 App Service 계획 메트릭을 모니터링하는 규칙을 구성할 수 있습니다. 규칙은 필요에 따라 추가 리소스를 제공할 수 있도록 인스턴스 수를 눌리거나 줄일 수 있습니다. 규칙을 사용하면 앱이 과도하게 프로비전될 때 비용을 절감할 수도 있습니다.
 
 자동 크기 조정에 대한 자세한 내용은 [크기 조정 방법](../monitoring-and-diagnostics/insights-how-to-scale.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md)를 참조하세요.
 

@@ -2,26 +2,26 @@
 title: HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용 - Azure
 description: 디버깅 및 분석을 위해 Linux 기반 HDInsight 클러스터에서 Apache Hadoop 서비스에 힙 덤프를 사용하도록 설정합니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494860"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658800"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 애플리케이션의 메모리에 대한 스냅샷을 포함합니다. 따라서 런타임에 발생하는 문제를 진단하는 데 유용합니다.
+힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 애플리케이션의 메모리에 대한 스냅샷을 포함합니다. 따라서 런타임에 발생 하는 문제를 진단 하는 데 유용 합니다.
 
-## <a name="whichServices"></a>Services
+## <a name="services"></a>서비스
 
 다음 서비스에 힙 덤프를 사용할 수 있습니다.
 
@@ -33,11 +33,11 @@ ms.locfileid: "73494860"
 
 HDInsight에서 실행하는 map 및 reduce프로세스에 힙 덤프를 사용할 수도 있습니다.
 
-## <a name="configuration"></a>힙 덤프 구성 이해
+## <a name="understanding-heap-dump-configuration"></a>힙 덤프 구성 이해
 
 힙 덤프를 사용하려면 서비스를 시작할 때 JVM으로 옵션(opts 또는 매개 변수라고도 함)을 전달합니다. 대부분의 [Apache Hadoop](https://hadoop.apache.org/) 서비스에서는 서비스를 시작하는 데 사용하는 셸 스크립트를 수정하여 이러한 옵션을 생략할 수 있습니다.
 
-각 스크립트에는 JVM으로 전달되는 옵션이 포함된 **\*\_OPTS**에 대한 내보내기가 있습니다. 예를 들어 **hadoop-env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
+각 스크립트에는 JVM에 전달 된 옵션을 포함 하는 **\*\_OPTS**에 대 한 내보내기가 있습니다. 예를 들어 **hadoop-env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
 
 map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로세스이므로 서로 약간 다른 작업입니다. 각 map 또는 reduce 프로세스는 자식 컨테이너에서 실행되며, JVM 옵션이 포함된 두 가지 항목이 있습니다. **mapred-site.xml**에 포함된 두 항목은 다음과 같습니다.
 
@@ -81,12 +81,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 서비스에 대한 구성을 수정하려면 다음 단계를 사용합니다.
 
-1. 클러스터에 대한 Ambari 웹 UI를 엽니다. URL은 https://YOURCLUSTERNAME.azurehdinsight.net입니다.
-
-    메시지가 나타나면 클러스터의 HTTP 계정 이름(기본값: admin) 및 암호를 사용하여 사이트를 인증합니다.
-
-   > [!NOTE]  
-   > Ambari에서 사용자 이름 및 암호를 묻는 메시지가 다시 나타날 수 있습니다. 이 경우 동일한 계정 이름 및 암호를 다시 입력합니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동 합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
 2. 왼쪽의 목록을 사용하여 수정할 서비스 영역을 선택합니다. 예를 들어 **HDFS**를 선택합니다. 가운데 영역에서 **Configs** 탭을 선택합니다.
 
@@ -96,7 +91,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
     ![Apache Ambari 구성 필터링 된 목록](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. 힙 덤프를 사용할 서비스에 대한 **\*\_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`HADOOP**NAMENODE\_OPTS\_ 항목에** 를 추가했습니다.
+4. 힙 덤프를 사용할 서비스에 대한 **\*\_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
 
     ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 
@@ -121,4 +116,3 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
    > **Restart** 단추의 항목은 서비스마다 다를 수 있습니다.
 
 8. 서비스가 다시 시작되면 **Service Actions** 단추를 사용하여 **Turn Off Maintenance Mode**를 지정합니다. 그러면 Ambari에서 서비스에 대한 경고 모니터링을 재개합니다.
-

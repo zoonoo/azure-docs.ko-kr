@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5c407edfedd6eb1156a0fec5719cc9435858bd4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456931"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs에서 사용자 지정 이미지 팩터리 만들기
+# <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Azure DevTest Labs에서 보존 정책 설정
 이 문서에서는 보존 정책을 설정 하 고, 팩터리를 정리 하 고, 조직의 다른 모든 DevTest 랩에서 이전 이미지를 사용 중지 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 계속 진행 하기 전에 다음 문서를 따랐는지 확인 합니다.
 
 - [이미지 팩터리 만들기](image-factory-create.md)

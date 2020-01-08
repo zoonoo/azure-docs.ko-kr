@@ -1,5 +1,5 @@
 ---
-title: 예약 용량을 통해 Azure Cosmos DB 리소스 비용 최적화
+title: 비용을 최적화 하기 위해 Azure Cosmos DB 예약 된 용량
 description: Azure Cosmos DB 예약 용량을 구매하여 컴퓨팅 비용을 절약하는 방법에 대해 알아봅니다.
 author: bandersmsft
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 0ee43fe0996c05f4e59f6107ba52fac19b83cdef
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0a956a1372ba1535b9d918333bd7411a4ca6abe4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441939"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 예약된 용량을 활용해 비용 최적화
 
@@ -40,7 +40,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB 예약 용량 구매
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.  
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
 
 2. **모든 서비스** > **예약** > **추가**를 차례로 선택합니다.  
 
@@ -50,7 +50,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
    ![예약 용량 양식 채우기](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
 
-   |필드  |설명  |
+   |필드  |Description  |
    |---------|---------|
    |범위   |   얼마나 많은 구독이 예약과 연결된 청구 혜택을 사용할 수 있는지 제어하는 옵션입니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다. <br/><br/>  **공유**를 선택하면 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행되는 Azure Cosmos DB 인스턴스에 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종 량 제 고객의 경우 공유 범위는 계정 관리자가 만든 종 량 제 요금이 포함 된 모든 개별 구독입니다.  <br/><br/>  **단일 구독**을 선택하면 예약 할인이 선택한 구독의 Azure Cosmos DB 인스턴스에 적용됩니다. <br/><br/> **단일 리소스 그룹**을 선택 하는 경우 선택한 구독의 Azure Cosmos DB 인스턴스와 해당 구독 내에서 선택한 리소스 그룹에 예약 할인이 적용 됩니다. <br/><br/> 예약 용량을 구입한 후 예약 범위를 변경할 수 있습니다.  |
    |Subscription  |   Azure Cosmos DB 예약 용량에 대한 요금을 지불하는 데 사용되는 구독입니다. 선택한 구독의 결제 방법을 사용 하 여 비용을 청구 합니다. 구독은 다음 형식 중 하나 여야 합니다. <br/><br/>  기업계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p): Enterprise 구독의 경우 요금 청구는 등록의 금액 약정 잔액에서 공제 되거나 초과분로 청구 됩니다. <br/><br/> 종 량 제 요금이 있는 개별 구독 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P): 종 량 제 요금이 있는 개별 구독의 경우 요금 청구는 구독에 대 한 신용 카드나 청구서 지불 방법으로 청구 됩니다.    |
@@ -84,14 +84,14 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 *  예약 용량 할인이 Azure Cosmos DB에 적용되는 방법을 알아보려면 [Azure 예약 할인 이해](../billing/billing-understand-cosmosdb-reservation-charges.md)를 참조하세요.
 
-* Azure Reservations에 대한 자세한 내용은 다음 문서를 참조하세요.
+* Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
    * [Azure 예약이란?](../billing/billing-save-compute-costs-reservations.md)  
    * [Azure 예약 관리](../billing/billing-manage-reserved-vm-instance.md)  
-   * [엔터프라이즈 등록의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)  
+   * [엔터프라이즈 등록에서 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)  
    * [종량제 구독의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)
    * [파트너 센터 CSP 프로그램에서 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의처
+## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

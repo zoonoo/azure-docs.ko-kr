@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671714"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680927"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
@@ -21,15 +21,21 @@ ms.locfileid: "74671714"
 
 ## <a name="open-ftp-dashboard"></a>FTP 대시보드 열기
 
-[Azure Portal](https://portal.azure.com)에서 앱의 [리소스 페이지](../azure-resource-manager/manage-resources-portal.md#manage-resources)를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색 하 고 선택 합니다.
 
-FTP 대시보드를 열려면 **배포 센터** > **FTP** > **대시보드**를 클릭합니다.
+    ![App services를 검색 합니다.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-![FTP 대시보드 열기](./media/app-service-deploy-ftp/open-dashboard.png)
+2. 배포 하려는 웹 앱을 선택 합니다.
+
+    ![앱을 선택 합니다.](media/app-service-continuous-deployment/select-your-app.png)
+
+3. **배포 센터** > **FTP** > **대시보드**를 선택 합니다.
+
+    ![FTP 대시보드 열기](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>FTP 연결 정보 가져오기
 
-FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 자격 증명을 복사합니다.
+FTP 대시보드에서 **복사** 를 선택 하 여 FTPS 끝점 및 앱 자격 증명을 복사 합니다.
 
 ![FTP 정보 복사](./media/app-service-deploy-ftp/ftp-dashboard.png)
 

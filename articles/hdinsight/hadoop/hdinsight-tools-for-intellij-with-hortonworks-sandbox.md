@@ -3,18 +3,18 @@ title: Hortonworks 샌드박스에서 Azure Toolkit for IntelliJ 사용
 description: Hortonworks 샌드박스에서 IntelliJ용 Azure 도구 키트의 HDInsight Tools 사용 방법을 알아봅니다.
 keywords: hadoop 도구,hive 쿼리,intellij,hortonworks 샌드박스,intellij용 azure 도구 키트
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076264"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647835"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 
@@ -22,7 +22,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/)는 컴퓨터 소프트웨어를 개발하기 위한 Java IDE(통합 개발 환경)입니다. Hortonworks 샌드박스에서 애플리케이션을 개발하고 테스트한 후에 [Azure HDInsight](apache-hadoop-introduction.md)로 애플리케이션을 이동할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -63,7 +63,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
    1. **프로젝트 이름** 상자에 프로젝트 이름을 입력합니다.
    2. **프로젝트 위치** 상자에 프로젝트 위치를 입력합니다.
    3. **프로젝트 SDK** 드롭다운 목록 옆의 **새로 만들기**를 선택하고 **JDK**를 선택한 다음 Java JDK 버전 1.7 이상의 폴더를 지정합니다. Spark 2.x 클러스터에 대해 **Java 1.8**을 선택합니다. Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다. 기본 위치는 C:\Program Files\Java\jdk1.8.x_xxx입니다.
-   4. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 올바른 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark 2.x**를 선택합니다. 이 예제에서는 Spark 1.6.2(Scala 2.10.5)를 사용합니다. **Scala 2.10.x**가 표시된 리포지토리를 사용하고 있는지 확인합니다. Scala 2.11.x가 표시된 리포지토리를 사용하지 마십시오.
+   4. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 올바른 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x**를 선택합니다. 그렇지 않으면 **Spark2.x**를 선택합니다. 이 예제에서는 Spark 1.6.2(Scala 2.10.5)를 사용합니다. **Scala 2.10.x**가 표시된 리포지토리를 사용하고 있는지 확인합니다. Scala 2.11.x가 표시된 리포지토리를 사용하지 마십시오.
     
       ![IntelliJ Scala 프로젝트 속성 만들기](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -158,4 +158,3 @@ IntelliJ IDEA를 에뮬레이터에 연결한 후에는 프로젝트를 제출�
 
 - [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션을 만드는](../spark/apache-spark-eclipse-tool-plugin.md) 방법을 알아봅니다.
 
-- Eclipse용 HDInsight 도구에 대한 비디오는 [Eclipse용 HDInsight 도구를 사용하여 Spark 애플리케이션 만들기](https://mix.office.com/watch/1rau2mopb6fha)를 참조하세요.

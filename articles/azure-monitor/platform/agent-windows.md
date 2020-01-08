@@ -4,15 +4,15 @@ description: 이 문서에서는 다른 클라우드 또는 온-프레미스에 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 42183ca7b02ba75b241ee1a83b5a0dc936a8c1c8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420426"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689984"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure Monitor에 Windows 컴퓨터 연결
 
@@ -38,7 +38,7 @@ Azure Monitor를 사용 하 여 로컬 데이터 센터 또는 다른 클라우�
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 올바르게 구성 하 고 Azure 상용 및 미국 정부 클라우드의 Azure Monitor와 성공적으로 통신할 수 있도록 각 설치 방법에서 설치 하는 동안 필요 합니다. 
 
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+1. Azure Portal에서 **Log Analytics 작업 영역**을 검색 하 고 선택 합니다.
 2. Log Analytics 작업 영역 목록에서 에이전트가 보고할 작업 영역을 선택합니다.
 3. **고급 설정**을 선택합니다.<br><br> ![Log Analytics 고급 설정](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. **연결된 원본**을 선택한 다음 **Windows 서버**를 선택합니다.   
@@ -93,7 +93,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 다음 표에서는 자동화 DSC를 사용하여 배포하는 경우를 포함하여 에이전트용 설치 프로그램에서 지원하는 특정 매개 변수를 집중적으로 살펴봅니다.
 
-|MMA 관련 옵션                   |참고 사항         |
+|MMA 관련 옵션                   |메모         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | 선택적 매개 변수. .NET 애플리케이션 성능 모니터링 없이 에이전트를 설치합니다.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = 작업 영역에 보고하도록 에이전트 구성                |
@@ -132,7 +132,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 >[!NOTE]
 >이 절차 및 스크립트 예제는 Windows 컴퓨터에 이미 배포된 에이전트의 업그레이드를 지원하지 않습니다.
 
-32비트 및 64비트 버전의 에이전트 패키지에는 서로 다른 제품 코드가 있으며 릴리스된 새 버전에도 고유한 값이 있습니다.  제품 코드는 애플리케이션 또는 제품의 보안 주체 ID이며 Windows Installer **ProductCode** 속성으로 표시되는 GUID입니다.  `ProductId`MMAgent.ps1**스크립트의** 값은 32비트 또는 64비트 에이전트 설치 관리자 패키지의 제품 코드와 일치해야 합니다.
+32비트 및 64비트 버전의 에이전트 패키지에는 서로 다른 제품 코드가 있으며 릴리스된 새 버전에도 고유한 값이 있습니다.  제품 코드는 애플리케이션 또는 제품의 보안 주체 ID이며 Windows Installer **ProductCode** 속성으로 표시되는 GUID입니다.  **MMAgent.ps1** 스크립트의 `ProductId` 값은 32비트 또는 64비트 에이전트 설치 관리자 패키지의 제품 코드와 일치해야 합니다.
 
 에이전트 설치 패키지에서 제품 코드를 직접 검색하려면 Windows 소프트웨어 개발 키트의 구성 요소인 [Windows Installer 개발자용 Windows SDK 구성 요소](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx)에서 Orca.exe를 사용하거나 MVP(Microsoft Valuable Professional)에서 작성된 [예제 스크립트](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)에 따라 PowerShell을 사용할 수 있습니다.  두 가지 방법에서 먼저 **MOMagent.msi** 파일을 MMASetup 설치 패키지에서 추출해야 합니다.  이는 앞서 첫 번째 단계의 [명령줄을 사용하여 에이전트 설치](#install-the-agent-using-the-command-line) 섹션에 나와 있습니다.  
 
@@ -188,9 +188,9 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 Azure Portal에서 간단한 로그 쿼리를 수행할 수도 있습니다.  
 
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Azure Monitor**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Azure Monitor**를 선택 합니다.  
-2. 메뉴에서 **로그** 를 선택 합니다. 
-2. 로그 창의 쿼리 필드에 다음을 입력 합니다.  
+1. Azure Portal에서를 검색 하 고 **모니터**를 선택 합니다.
+1. 메뉴에서 **로그** 를 선택 합니다.
+1. **로그** 창의 쿼리 필드에 다음을 입력 합니다.  
 
     ```
     Heartbeat 

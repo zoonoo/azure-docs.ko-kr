@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2768c2d4cef68dcf25e25c047aaa69653af5e0b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 85ef34f8644d95f6cfd2c7262bfe4bbc0683547f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170858"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561741"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
@@ -136,7 +136,7 @@ spec:
 다음과 같이 `istioctl apply` 명령과 위의 `istio.aks.yaml` Istio 제어 평면 사양 파일을 사용 하 여 istio를 설치 합니다.
 
 ```console
-istioctl manifest apply -f istio.aks.yaml
+istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
 ```
 
 설치 관리자는 다양 한 [Crds][kubernetes-crd] 를 배포한 다음 종속성을 관리 하 여이 istio 구성에 대해 정의 된 관련 개체를 모두 설치 합니다. 다음 출력 코드 조각과 유사한 내용이 표시 되어야 합니다.
@@ -361,7 +361,9 @@ istioctl dashboard envoy <pod-name>.<namespace>
 AKS 클러스터에서 Istio를 제거 하려면 `istio.aks.yaml` Istio 제어 평면 사양 파일과 함께 `istioctl manifest generate` 명령을 사용 합니다. 그러면 설치 된 모든 구성 요소와 `istio-system` 네임 스페이스를 제거 하기 위해 `kubectl delete`에 파이프 하는 배포 된 매니페스트가 생성 됩니다.
 
 ```console
-istioctl manifest generate -f istio.aks.yaml | kubectl delete -f -
+istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 
+
+kubectl delete -f istio-components-aks -R
 ```
 
 ### <a name="remove-istio-crds-and-secrets"></a>Istio CRDs 및 비밀 제거

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: d032bf1241f355af110ee8f4da38ff4685bd2e3f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ae951896e9c97826264990dc33b9a1930b0eec2
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932295"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530054"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>자습서: Azure AD 사용자 프로 비전 (미리 보기)에 대 한 SAP SuccessFactors 구성
 이 자습서에서는 SuccessFactors Employee Central에서 Azure Active Directory로 작업자 데이터를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있습니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../manage-apps/sap-successfactors-attribute-reference.md) 검색을 지원 합니다. 
@@ -165,7 +165,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
 
-7. **프로비전** **모드**를 **자동**으로 변경합니다.
+7. **프로 비전** **모드** 를 **자동** 으로 변경
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
@@ -176,12 +176,12 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
    * **테 넌 트 URL –** SuccessFactors OData API 서비스 끝점의 이름을 입력 합니다. Http 또는 https를 사용 하지 않고 서버의 호스트 이름만 입력 합니다. 이 값은 **api-server-name.successfactors.com**와 같습니다.
 
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패 하면 SuccessFactors 자격 증명 및 URL이 올바른지 다시 한 번 확인 합니다.
     >[!div class="mx-imgBorder"]
-    >![Azure 포털](./media/sap-successfactors-inbound-provisioning/sf2aad-provisioning-creds.png)
+    >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sf2aad-provisioning-creds.png)
 
    * 자격 증명이 성공적으로 저장 되 면 **매핑** 섹션에 **SuccessFactors 사용자를 동기화 하** 는 기본 매핑이 표시 됩니다 Azure Active Directory
 
@@ -261,7 +261,7 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+2. **저장**을 클릭합니다.
 
 3. 이 작업을 수행 하면 초기 동기화가 시작 되며,이는 SuccessFactors 테 넌 트에 있는 사용자 수에 따라 시간이 많이 걸릴 수 있습니다. 진행률 표시줄을 확인 하 여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
 

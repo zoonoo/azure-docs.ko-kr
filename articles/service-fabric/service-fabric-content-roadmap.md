@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric에 대해 자세히 알아보기 | Microsoft Docs
+title: Azure Service Fabric에 대 한 자세한 정보
 description: Azure Service Fabric의 주요 영역과 핵심 개념에 대해 알아봅니다. Service Fabric 및 마이크로 서비스를 만드는 방법의 확장된 개요를 제공합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/08/2017
-ms.author: atsenthi
-ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458156"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 애플리케이션 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -27,18 +16,18 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 ## <a name="core-concepts"></a>핵심 개념
 [Service Fabric 용어](service-fabric-technical-overview.md), [애플리케이션 모델](service-fabric-application-model.md) 및 [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)은 기초 수준에서 자세한 개념과 설명을 제공합니다.
 
-### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>디자인 타임: 서비스 유형, 서비스 패키지 및 매니페스트, 응용 프로그램 유형, 응용 프로그램 패키지 및 매니페스트
-서비스 형식은 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. ServiceManifest.xml 파일에서 정의 됩니다. 실행 코드 및 서비스 구성 설정과 서비스가 런타임에 로드 되는 서비스에서 사용 되는 정적 데이터의 서비스 유형으로 구성 됩니다.
+### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>디자인 타임: 서비스 형식, 서비스 패키지 및 매니페스트, 응용 프로그램 종류, 응용 프로그램 패키지 및 매니페스트
+서비스 형식은 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. 이 파일은 Servicemanifest.xml 파일에 정의 되어 있습니다. 서비스 유형은 런타임에 로드 되는 실행 코드와 서비스 구성 설정 및 서비스에서 사용 하는 정적 데이터로 구성 됩니다.
 
 서비스 패키지는 서비스 형식의 ServiceManifest.xml 파일이 들어 있는 디스크 디렉터리로, 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
 
-애플리케이션 형식은 서비스 형식 컬렉션에 할당된 이름/버전입니다. ApplicationManifest.xml 파일에 정의 됩니다.
+애플리케이션 형식은 서비스 형식 컬렉션에 할당된 이름/버전입니다. 이는 ApplicationManifest .xml 파일에 정의 되어 있습니다.
 
 ![Service Fabric 애플리케이션 유형 및 서비스 유형][cluster-imagestore-apptypes]
 
-응용 프로그램 패키지에는 응용 프로그램 유형을 구성 하는 각 서비스 형식에 대해 서비스 패키지를 참조 하는 응용 프로그램 형식의 ApplicationManifest.xml 파일을 포함 하는 디스크 디렉터리입니다. 예를 들어 전자 메일 애플리케이션 형식에 대한 애플리케이션 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.  
+응용 프로그램 패키지는 응용 프로그램 종류를 구성 하는 각 서비스 유형에 대 한 서비스 패키지를 참조 하는 응용 프로그램 유형의 ApplicationManifest .xml 파일을 포함 하는 디스크 디렉터리입니다. 예를 들어 전자 메일 애플리케이션 형식에 대한 애플리케이션 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.  
 
-애플리케이션 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 실행되는 이 애플리케이션 형식으로부터 명명된 애플리케이션을 만들 수 있습니다. 명명된 된 응용 프로그램을 만든 후 응용 프로그램 형식의 서비스 형식 중 하나에서 명명된 된 서비스를 만들 수 있습니다. 
+애플리케이션 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 실행되는 이 애플리케이션 형식으로부터 명명된 애플리케이션을 만들 수 있습니다. 명명 된 응용 프로그램을 만든 후에는 응용 프로그램 형식의 서비스 유형 중 하나에서 명명 된 서비스를 만들 수 있습니다. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>런타임: 클러스터 및 노드, 명명된 애플리케이션, 명명된 서비스, 파티션 및 복제본
 [Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
@@ -67,7 +56,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric용 상태 비저장 및 상태 저장 마이크로 서비스
 Service Fabric을 사용하면 마이크로 서비스 또는 컨테이너로 구성된 애플리케이션을 빌드할 수 있습니다. 상태 비저장 마이크로 서비스(프로토콜 게이트웨이, 웹 프록시 등)는 서비스의 요청 및 응답 이외에 변경 가능한 상태를 관리하지 않습니다. Azure Cloud Services 작업자 역할이 상태 비저장 서비스의 예입니다. 상태 저장 마이크로 서비스(사용자 계정, 데이터베이스, 디바이스, 쇼핑 카트, 큐 등)는 요청 및 응답 이외에 변경 가능하고 신뢰할 수 있는 상태를 관리합니다. 오늘날 인터넷 범위의 서비스는 상태 비저장 및 상태 저장 마이크로 서비스의 조합으로 구성됩니다. 
 
-Service Fabric을 통한 주요 차별화는 해당 중점을 사용 하 여 상태 저장 서비스를 빌드하는 [기본 제공 프로그래밍 모델](service-fabric-choose-framework.md) 또는 컨테이너 화 된 상태 저장 서비스를 사용 하 여 합니다. [애플리케이션 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
+Service Fabric와의 주요 차이점은 [기본 제공 프로그래밍 모델](service-fabric-choose-framework.md) 을 사용 하거나 컨테이너 화 된 상태 저장 서비스를 사용 하 여 상태 저장 서비스를 빌드하는 것에 중점을 두는 것입니다. [애플리케이션 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
 
 상태 저장 마이크로 서비스가 상태 비저장 마이크로 서비스와 함께 있는 이유는 무엇인가요? 두 가지 주요 이유가 있습니다.
 
@@ -116,12 +105,12 @@ Service Fabric은 웹 및 API 애플리케이션 빌드를 위한 첫 번째 클
 * [장애 조치(failover) 시나리오](service-fabric-testability-scenarios.md#failover-test) - 다른 서비스의 영향을 받지 않고 특정 서비스 파티션을 대상으로 하는 비정상 상황 테스트 시나리오의 버전입니다.
 
 ## <a name="clusters"></a>클러스터
-[Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 머신 또는 VM이 자동 시작 서비스 `FabricHost.exe`를 포함합니다. 이 서비스는 부팅 시 실행하기 시작한 다음, 두 개의 실행 파일: Fabric.exe 및 FabricGateway.exe를 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
+[Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM에는 자동 시작 서비스인 `FabricHost.exe`가 있습니다. 이 서비스는 부팅 시 실행된 다음 Fabric.exe, FabricGateway.exe 등의 두 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
 Windows Server 또는 Linux를 실행하는 가상 또는 물리적 컴퓨터에 Service Fabric 클러스터를 만들 수 있습니다. 온-프레미스, Microsoft Azure 또는 다른 모든 클라우드 공급자에서 Windows Server 또는 Linux 컴퓨터가 서로 연결된 모든 환경에 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다.
 
 ### <a name="clusters-on-azure"></a>Azure의 클러스터
-Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 및 관리를 더 용이하고 안정적으로 해주는 다음과 같은 다른 Azure 기능 및 서비스와 통합할 수 있습니다. 클러스터는 Azure Resource Manager 리소스이므로 Azure에서 다른 리소스처럼 클러스터를 모델링할 수 있습니다. 또한 Resource Manager는 클러스터가 단일 단위로 사용하는 모든 리소스를 손쉽게 관리할 수 있습니다. Azure의 클러스터는 Azure 진단을 사용 하 여 통합 하 고 Azure Monitor 기록 합니다. 클러스터 노드 형식은 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/index)이므로 자동 크기 조정 기능을 기본 제공합니다.
+Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 및 관리를 더 용이하고 안정적으로 해주는 다음과 같은 다른 Azure 기능 및 서비스와 통합할 수 있습니다. 클러스터는 Azure Resource Manager 리소스이므로 Azure에서 다른 리소스처럼 클러스터를 모델링할 수 있습니다. 또한 Resource Manager는 클러스터가 단일 단위로 사용하는 모든 리소스를 손쉽게 관리할 수 있습니다. Azure의 클러스터는 Azure 진단 및 Azure Monitor 로그와 통합 됩니다. 클러스터 노드 형식은 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/index)이므로 자동 크기 조정 기능을 기본 제공합니다.
 
 [Azure Portal](service-fabric-cluster-creation-via-portal.md), [템플릿](service-fabric-cluster-creation-via-arm.md) 또는 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)를 통해 Azure에 클러스터를 만들 수 있습니다.
 
@@ -146,7 +135,7 @@ Linux 독립 실행형 클러스터는 아직 지원되지 않습니다.
 
 자세한 내용은 [클러스터에 보안 적용](service-fabric-cluster-security.md)을 참조하세요.
 
-### <a name="scaling"></a>확장
+### <a name="scaling"></a>크기 조정
 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다. Azure에서 [수동으로](service-fabric-cluster-scale-up-down.md) 또는 [프로그래밍 방식으로](service-fabric-cluster-programmatic-scaling.md) 클러스터의 크기를 조정할 수 있습니다. 독립 실행형 클러스터는 [수동으로](service-fabric-cluster-windows-server-add-remove-nodes.md) 크기를 조정할 수 있습니다.
 
 ### <a name="cluster-upgrades"></a>클러스터 업그레이드
@@ -167,7 +156,7 @@ Service Fabric은 특정 엔터티(예: 클러스터 노드 및 서비스 복제
 * Service Fabric 노드에서 실행되지만 Service Fabric 서비스로 구현되지 않는 내부 watchdog
 * Service Fabric 클러스터 외부의 리소스를 조사하는 외부 Watchdog(예: Gomez와 같은 모니터링 서비스)
 
-기본적으로 Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 바로 보고합니다. [시스템 상태 보고서](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)는 상태를 통해 클러스터 및 애플리케이션의 기능 및 플래그 문제에 대한 가시성을 제공합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 Service Fabric 런타임 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 서비스의 비즈니스 논리의 상태 모니터링을 제공 하지 않거나 응답 하지 않는 프로세스를 검색 합니다. 서비스 논리에 맞는 상태 정보를 추가하려면 서비스에서 [사용자 지정 상태 보고를 구현](service-fabric-report-health.md)합니다.
+기본적으로 Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 바로 보고합니다. [시스템 상태 보고서](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)는 상태를 통해 클러스터 및 애플리케이션의 기능 및 플래그 문제에 대한 가시성을 제공합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 Service Fabric 런타임 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 이 보고서는 서비스의 비즈니스 논리에 대 한 상태 모니터링을 제공 하지 않거나 응답을 중지 한 프로세스를 검색 하지 않습니다. 서비스 논리에 맞는 상태 정보를 추가하려면 서비스에서 [사용자 지정 상태 보고를 구현](service-fabric-report-health.md)합니다.
 
 Service Fabric은 여러 가지 다음 방법으로 상태 저장소에 집계된 [상태 보고서를 볼](service-fabric-view-entities-aggregated-health.md) 수 있습니다.
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 또는 기타 시각화 도구

@@ -7,15 +7,15 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 9635798720667e38a767f26fc2e5f5374e420059
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 838145f8573e11deff8566c932a9c73c6f59f03b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795542"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561663"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러는 무엇입니까?
-AGIC (Application Gateway 수신 컨트롤러)는 Kubernetes 응용 프로그램으로, azure [Kubernetes 서비스 (AKS)](https://azure.microsoft.com/services/kubernetes-service/) 고객이 azure의 기본 [Application Gateway](https://azure.microsoft.com/services/application-gateway/) L7 부하 분산 장치를 활용 하 여 클라우드 소프트웨어를에 노출할 수 있도록 합니다. 인터넷. AGIC는 호스트 되는 Kubernetes 클러스터를 모니터링 하 고 Application Gateway를 지속적으로 업데이트 하 여 선택 된 서비스가 인터넷에 노출 되도록 합니다.
+AGIC (Application Gateway 수신 컨트롤러)는 Kubernetes 응용 프로그램으로, azure [Kubernetes 서비스 (AKS)](https://azure.microsoft.com/services/kubernetes-service/) 고객이 azure의 기본 [Application Gateway](https://azure.microsoft.com/services/application-gateway/) L7 부하 분산 장치를 활용 하 여 클라우드 소프트웨어를 인터넷에 노출할 수 있도록 합니다. AGIC는 호스트 되는 Kubernetes 클러스터를 모니터링 하 고 Application Gateway를 지속적으로 업데이트 하 여 선택 된 서비스가 인터넷에 노출 되도록 합니다.
 
 수신 컨트롤러는 고객의 AKS에서 자체 pod로 실행 됩니다. AGIC는 Kubernetes 리소스의 하위 집합을 모니터링 하 여 변경 내용을 모니터링 합니다. AKS 클러스터의 상태는 특정 구성 Application Gateway 변환 되 고 [ARM (Azure Resource Manager)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에 적용 됩니다.
 
@@ -28,7 +28,7 @@ AGIC 외에도 Application Gateway를 사용 하면 TLS 정책 및 WAF (웹 응�
 
 ![Azure 애플리케이션 게이트웨이 + AKS](./media/application-gateway-ingress-controller-overview/architecture.png)
 
-AGIC는 서비스 및 배포/Pod와 함께 Kubernetes [수신 리소스](http://kubernetes.io/docs/user-guide/ingress/)를 통해 구성 됩니다. Azure의 기본 Application Gateway L7 부하 분산 장치를 활용 하 여 다양 한 기능을 제공 합니다. 몇 가지 이름을 다음과 같이 합니다.
+AGIC는 서비스 및 배포/Pod와 함께 Kubernetes [수신 리소스](https://kubernetes.io/docs/user-guide/ingress/)를 통해 구성 됩니다. Azure의 기본 Application Gateway L7 부하 분산 장치를 활용 하 여 다양 한 기능을 제공 합니다. 몇 가지를 예로 들자면 다음과 같습니다.
   - URL 라우팅
   - 쿠키 기반 선호도
   - SSL 종료

@@ -2,19 +2,15 @@
 title: Azure Automation Hybrid Runbook Worker
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 공급자의 컴퓨터에서 Runbook을 실행할 수 있도록 해주는 Azure Automation의 기능인 Hybrid Runbook Worker를 설치하고 사용하는 방법에 대한 정보를 제공합니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 7329d32c01f005f4f5a727f80c6af0b58982b41f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fd90b98f4df195297e31a5dda91f64efcc1f5212
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850264"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658040"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화
 
@@ -26,7 +22,7 @@ Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므�
 
 각 Hybrid Runbook Worker는 에이전트를 설치할 때 지정한 Hybrid Runbook Worker 그룹의 구성원입니다. 그룹은 단일 에이전트를 포함할 수 있지만 고가용성을 위해 그룹에 여러 에이전트를 설치할 수 있습니다. 각 컴퓨터는 하나의 Automation 계정에 보고 한 Hybrid Worker를 호스트할 수 있습니다.
 
-Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 각 작업자는 Azure Automation을 폴링하여 사용할 수 있는 작업이 있는지 확인합니다. 작업을 사용할 수 있는 경우 작업을 가져올 수 있는 첫 번째 작업자가 해당 작업을 수행합니다. 작업 큐의 처리 시간은 하이브리드 작업자 하드웨어 프로필 및 로드에 따라 달라집니다. 특정 작업자를 지정할 수 없습니다. Hybrid Runbook Worker는 Azure의 샌드박스에 있는 제한 중 다수를 공유하지 않습니다. 디스크 공간, 메모리 또는 네트워크 소켓에 동일한 제한이 없습니다. Hybrid Runbook Worker는 Hybrid Runbook Worker 자체의 리소스에 의해서만 제한됩니다. 또한 Hybrid Runbook Worker는 Azure 샌드박스가 적용하는 180분 [공평 분배](automation-runbook-execution.md#fair-share) 시한을 공유하지 않습니다. Azure 샌드박스 및 Hybrid Runbook Worker의 서비스 제한에 대해 자세히 알아보려면 [한도](../azure-subscription-service-limits.md#automation-limits) 페이지를 참조하세요.
+Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 각 작업자는 Azure Automation을 폴링하여 사용할 수 있는 작업이 있는지 확인합니다. 작업을 사용할 수 있는 경우 작업을 가져올 수 있는 첫 번째 작업자가 해당 작업을 수행합니다. 작업 큐의 처리 시간은 하이브리드 작업자 하드웨어 프로필 및 로드에 따라 달라집니다. 특정 작업자를 지정할 수 없습니다. Hybrid Runbook Worker는 Azure의 샌드박스에 있는 제한 중 다수를 공유하지 않습니다. 디스크 공간, 메모리 또는 네트워크 소켓에 동일한 제한이 없습니다. Hybrid Runbook Worker는 Hybrid Runbook Worker 자체의 리소스에 의해서만 제한됩니다. 또한 Hybrid Runbook Worker는 Azure 샌드박스가 적용하는 180분 [공평 분배](automation-runbook-execution.md#fair-share) 시한을 공유하지 않습니다. Azure 샌드박스 및 Hybrid Runbook Worker의 서비스 제한에 대해 자세히 알아보려면 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) 페이지를 참조하세요.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker 설치
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450656"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor의 사용자 지정 로그
 
@@ -63,10 +63,10 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 타임스탬프 구분 기호가 사용되면, Azure Monitor에 저장된 각 레코드의 TimeGenerated 속성이 로그 파일의 해당 항목에 대해 지정된 날짜/시간으로 채워집니다.  새 줄 구분 기호가 사용되는 경우에는, TimeGenerated가 Azure Monitor에서 항목을 수집한 날짜와 시간으로 채워집니다.
 
 1. **찾아보기** 를 클릭하고 샘플 파일로 이동합니다.  일부 브라우저에서는 이 단추의 레이블이 **파일 선택** 인 경우도 있습니다.
-2. **다음**을 누릅니다.
+2. **다음**을 클릭합니다.
 3. Custom Log Wizard(사용자 지정 로그 마법사)가 파일을 업로드하고 식별된 레코드를 기록합니다.
 4. 새 레코드 식별에 사용된 구분 기호를 변경하고 로그 파일의 레코드를 가장 잘 식별하는 구분 기호를 선택합니다.
-5. **다음**을 누릅니다.
+5. **다음**을 클릭합니다.
 
 ### <a name="step-3-add-log-collection-paths"></a>3단계. 로그 수집 경로 추가
 사용자 지정 로그를 찾을 수 있는 에이전트의 경로를 하나 이상의 지정해야 합니다.  로그 파일의 특정 경로 및 이름을 제공하거나 이름의 와일드카드를 포함하는 경로를 지정할 수 있습니다. 이렇게 하면 매일 새 파일을 만드는 애플리케이션을 지원하거나 하나의 파일이 일정한 크기에 도달하는 경우를 지원합니다. 하나의 로그 파일에 여러 경로를 제공할 수도 있습니다.
@@ -75,7 +75,7 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| 설명 | path |
+| Description | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |
@@ -118,7 +118,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ## <a name="custom-log-record-properties"></a>사용자 지정 로그 레코드 속성
 사용자 지정 로그 레코드에는 사용자가 제공하는 로그 이름의 유형과 다음 테이블의 속성이 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | TimeGenerated |Azure Monitor에서 레코드를 수집한 날짜와 시간입니다.  로그에 시간 기반 구분 기호가 사용되는 경우, 항목에서 수집한 시간이 여기에 해당됩니다. |
 | SourceSystem |레코드가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 System Center Operations Manager <br> Linux – 모든 Linux 에이전트 |
@@ -151,7 +151,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ![로그 이름](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>사용자 지정 로그를 수집 중인지 유효성을 검사합니다.
-*MyApp_CL* 의 간단한 쿼리를 사용 하 여 수집 된 로그의 모든 레코드를 반환 합니다.
+*MyApp_CL* 에 대 한 간단한 쿼리를 사용 하 여 수집 된 로그의 모든 레코드를 반환 합니다.
 
 ![사용자 지정 필드가 없는 로그 쿼리](media/data-sources-custom-logs/query-01.png)
 

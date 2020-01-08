@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328305"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645806"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -77,8 +77,8 @@ ms.locfileid: "74328305"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide_general.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "74328305"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "74328305"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -355,7 +355,7 @@ SQL Server와 SAP 데이터베이스를 실행하고 tempdb 데이터 및 tempdb
 
 
 ### <a name="special-for-m-series-vms"></a>M 시리즈 VM에 대한 특별 고려 사항
-Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 트랜잭션 로그에 대한 대기 시간 기록을 요인별로 줄일 수 있습니다. 따라서 SQL Server 트랜잭션 로그에 대한 볼륨을 만드는 VHD에 Azure Write Accelerator를 배포해야 합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 문서를 참조하세요.
+Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 트랜잭션 로그에 대한 대기 시간 기록을 요인별로 줄일 수 있습니다. 따라서 SQL Server 트랜잭션 로그에 대한 볼륨을 만드는 VHD에 Azure Write Accelerator를 배포해야 합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 문서에서 참조할 수 있습니다.
   
 
 ### <a name="formatting-the-disks"></a>디스크 형식 설정
@@ -415,7 +415,7 @@ Azure에서 다양한 SQL Server 백업 가능성을 살펴보려면 [Azure Virt
 - 여러 Azure 블록 Blob(최대 64개) - 이론적인 백업 크기인 12TB를 사용할 수 있습니다. 그러나 고객 데이터베이스를 테스트한 결과에서 최대 백업 크기가 이론적인 제한보다 작을 수 있다고 밝혀졌습니다. 이 경우에는 백업 보존 및 백업 액세스를 관리해야 합니다.
 
 
-### <a name="automated-backup-for-sql-server"></a>자동화된 SQL Server 백업
+### <a name="automated-backup-for-sql-server"></a>SQL Server의 자동화된 Backup
 자동화된 백업은 Azure의 Windows VM에서 실행 중인 SQL Server Standard 및 Enterprise 버전에 대한 자동 백업 서비스를 제공합니다. 이 서비스는 Azure Portal에서 SQL Server Windows 가상 머신 이미지에 자동으로 설치되는 [SQL Server IaaS 에이전트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)에서 제공됩니다. SQL Server가 설치된 사용자 고유의 OS 이미지를 배포하는 경우 VM 확장을 별도로 설치해야 합니다. 필요한 단계는 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)에서 설명하고 있습니다.
 
 이 방법의 기능에 대한 자세한 내용은 다음 문서에서 찾을 수 있습니다.
@@ -461,7 +461,7 @@ Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에
 
     Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
 
-결과가 다른 경우 SAP 배포를 중지하고 설치 명령이 예상대로 작동하지 않은 이유를 조사합니다. 위에서 언급한 것과 다른 SQL Server 코드 페이지를 사용하여 SAP NetWeaver 애플리케이션을 SQL Server 인스턴스에 배포할 수는 **없습니다**.
+결과가 다른 경우 SAP 배포를 중지하고 설치 명령이 예상대로 작동하지 않은 이유를 조사합니다. 위에서 언급한 것과 다른 SQL Server 코드 페이지를 사용하여 SAP NetWeaver 애플리케이션을 SQL Server 인스턴스에 배포할 수는 **없습니다** .
 
 ## <a name="sql-server-high-availability-for-sap-in-azure"></a>Azure의 SAP용 SQL Server 고가용성
 SAP용 Azure IaaS 배포에서 SQL Server를 사용하면 DBMS 계층을 고가용성으로 배포하기 위해 추가할 수 있는 여러 가지 다른 가능성이 있습니다. [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 이미 설명한 대로 Azure는 Azure 가용성 집합에 배포된 단일 VM과 한 쌍의 VM에 대해 서로 다른 가동 시간 SLA를 제공합니다. Azure 가용성 집합에서 배포가 필요한 프로덕션 배포에 대한 가동 시간 SLA를 추진하고 있다고 가정합니다. 이 경우 가용성 집합에 최소 2개의 VM을 배포해야 합니다. 한 VM에서 활성 SQL Server 인스턴스를 실행하며, 다른 하나의 VM에서는 수동 인스턴스를 실행합니다.
@@ -546,13 +546,13 @@ SQL Server TDE에 Azure Key Vault를 사용하는 방법에 대한 자세한 내
 >특히 Azure Key Vault에서 SQL Server TDE를 사용하는 경우 SQL Server 2014, SQL Server 2016 및 SQL Server 2017의 최신 패치를 사용하는 것이 좋습니다. 이는 고객의 피드백에 따라 최적화 및 수정이 코드에 적용되었기 때문입니다. 예를 들어 [KBA #4058175](https://support.microsoft.com/help/4058175/tde-enabled-backup-and-restore-slow-if-encryption-key-is-stored-in-ekm)를 확인하세요.
 >  
 
-## <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Azure의 SAP용 일반 SQL Server 요약
+## <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Azure의 SAP용 SQL Server에 대한 일반적 요약
 이 가이드에는 많은 권장 사항이 있으며 Azure 배포를 계획하기 전에 두 번 이상 읽는 것이 좋습니다. 하지만 일반적으로 Azure 관련 권장 사항에서 다음과 같은 최상위 일반 DBMS를 따라야 합니다.
 
 1. SQL Server 2017과 같이 Azure에서 가장 많은 이점을 제공하는 최신 DBMS 릴리스를 사용합니다. 
 2. 데이터 파일 레이아웃과 Azure 제한 사항 균형을 조정하도록 Azure에서 SAP 시스템 배경을 신중하게 계획합니다.
    * 디스크가 너무 많으면 안 되지만 필요한 IOPS에 도달할 수 있을 만큼 충분해야 합니다.
-   * Managed Disks 사용 하지 않는 경우 IOPS는 Azure Storage 계정에 따라 제한 되며 저장소 계정은 각 Azure 구독 내에서 제한 됩니다 ([자세한 내용][azure-subscription-service-limits]). 
+   * Managed Disks 사용 하지 않는 경우 IOPS는 Azure Storage 계정에 따라 제한 되며 저장소 계정은 각 Azure 구독 내에서 제한 됩니다 ([자세한 내용][azure-resource-manager/management/azure-subscription-service-limits]). 
    * 더 높은 처리량이 필요한 경우에만 디스크를 스트라이프합니다.
 3. D:\ 드라이브는 비영구적이며 Windows 재부팅 시 이 드라이브의 내용이 모두 손실되므로 계속 유지해야 하는 소프트웨어를 설치하거나 파일을 저장하지 마세요.
 4. Azure Standard Storage에 대해 디스크 캐싱을 사용하지 마세요.

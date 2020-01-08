@@ -4,12 +4,12 @@ description: Azure Backup 작업을 모니터링 하 고 Azure Monitor를 사용
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1fb739c8d517654c7258fd3a58c93ab29602f228
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 983939a905c6c096f2e8e3007bd40cbbe9088395
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894065"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611699"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -35,9 +35,9 @@ Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소�
 
 모니터링 섹션에서 **진단 설정** 을 선택 하 고 Recovery Services 자격 증명 모음 진단 데이터의 대상을 지정 합니다.
 
-![Recovery Services 자격 증명 모음의 진단 설정, 대상 지정 Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
+![Recovery Services 자격 증명 모음의 진단 설정, 대상 지정 Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
 
-다른 구독에서 Log Analytics 작업 영역을 대상으로 지정할 수 있습니다. 한 위치의 구독에서 자격 증명 모음을 모니터링 하려면 여러 Recovery Services 자격 증명 모음에 대해 동일한 Log Analytics 작업 영역을 선택 합니다. Log Analytics 작업 영역 Azure Backup와 관련 된 모든 정보를 표시 하려면 표시 되는 설정/해제에서 **리소스 특정** 을 선택 하 고 다음 이벤트 ( **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**)를 선택 합니다. LA 진단 설정 구성에 대 한 자세한 내용은 [이 문서](backup-azure-diagnostic-events.md) 를 참조 하세요.
+다른 구독에서 Log Analytics 작업 영역을 대상으로 지정할 수 있습니다. 한 위치의 구독에서 자격 증명 모음을 모니터링 하려면 여러 Recovery Services 자격 증명 모음에 대해 동일한 Log Analytics 작업 영역을 선택 합니다. Log Analytics 작업 영역 Azure Backup와 관련 된 모든 정보를 표시 하려면 표시 되는 설정/해제에서 **Azurediagnostics** 를 선택 하 고 **azurebackupreport** 이벤트를 선택 합니다.
 
 > [!IMPORTANT]
 > 구성을 완료 한 후에는 초기 데이터 푸시가 완료 될 때까지 24 시간 동안 대기 해야 합니다. 초기 데이터 푸시 후에는이 문서의 뒷부분에 나오는 [frequency 섹션](#diagnostic-data-update-frequency)에서 모든 이벤트가 푸시됩니다.
@@ -50,9 +50,6 @@ Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소�
 데이터가 Log Analytics 작업 영역에 포함 된 후에는 Log Analytics에 [GitHub 템플릿을 배포](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) 하 여 데이터를 시각화할 수 있습니다. 작업 영역을 올바르게 식별 하려면 동일한 리소스 그룹, 작업 영역 이름 및 작업 영역 위치를 지정 해야 합니다. 그런 다음이 템플릿을 작업 영역에 설치 합니다.
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>Log Analytics를 사용 하 여 Azure Backup 데이터 보기
-
-> [!IMPORTANT]
-> LA 보고 템플릿은 현재 Azure진단 모드에서 레거시 이벤트 AzureBackupReport의 데이터를 지원 합니다. 이 템플릿을 사용 하려면 [Azure 진단 모드에서 자격 증명 모음 진단 설정을 구성](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event)해야 합니다. 
 
 - **Azure Monitor**: **Insights** 섹션에서 **자세히** 를 선택 하 고 관련 작업 영역을 선택 합니다.
 - **Log Analytics 작업 영역**: 관련 작업 영역을 선택한 다음 **일반**에서 **작업 영역 요약**을 선택 합니다.
@@ -113,65 +110,90 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 - 성공한 모든 백업 작업
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup"
-    | where JobStatus=="Completed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | where OperationName == "Job" and JobOperation_s == "Backup"
+    | where JobStatus_s == "Completed"
     ````
 
 - 실패 한 모든 백업 작업
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup"
-    | where JobStatus=="Failed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | where OperationName == "Job" and JobOperation_s == "Backup"
+    | where JobStatus_s == "Failed"
     ````
 
 - 모든 성공한 Azure VM 백업 작업
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup"
-    | where JobStatus=="Completed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
     | join kind=inner
     (
-        CoreAzureBackup
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
         | where OperationName == "BackupItem"
-        | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
-        | distinct BackupItemUniqueId, BackupItemFriendlyName
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
     )
-    on BackupItemUniqueId
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
     ````
 
 - 모든 성공한 SQL 로그 백업 작업
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup" and JobOperationSubType=="Log"
-    | where JobStatus=="Completed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
     | join kind=inner
     (
-        CoreAzureBackup
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
         | where OperationName == "BackupItem"
-        | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
-        | distinct BackupItemUniqueId, BackupItemFriendlyName
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
     )
-    on BackupItemUniqueId
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
     ````
 
 - 성공한 모든 Azure Backup 에이전트 작업
 
     ````Kusto
-    AddonAzureBackupJobs
-    | where JobOperation=="Backup"
-    | where JobStatus=="Completed"
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
     | join kind=inner
     (
-        CoreAzureBackup
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
         | where OperationName == "BackupItem"
-        | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
-        | distinct BackupItemUniqueId, BackupItemFriendlyName
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
     )
-    on BackupItemUniqueId
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
     ````
 
 ### <a name="diagnostic-data-update-frequency"></a>진단 데이터 업데이트 빈도
@@ -217,7 +239,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 활동 로그를 통해 알림을 받을 수는 있지만, 대규모로 모니터링 하기 위해 활동 로그가 아닌 Log Analytics를 사용 하는 것이 좋습니다. 이유는 다음과 같습니다.
 
 - **제한 된 시나리오**: 활동 로그를 통한 알림은 Azure VM 백업에만 적용 됩니다. 모든 Recovery Services 자격 증명 모음에 대해 알림을 설정 해야 합니다.
-- **정의 맞춤**: 예약 된 백업 작업이 활동 로그의 최신 정의와 일치 하지 않습니다. 대신 [리소스 로그](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace)에 맞춰집니다. 이 맞춤은 활동 로그 채널을 통해 흐르는 데이터가 변경 될 때 예기치 않은 효과를 발생 시킵니다.
+- **정의 맞춤**: 예약 된 백업 작업이 활동 로그의 최신 정의와 일치 하지 않습니다. 대신 [리소스 로그](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace)에 맞춰집니다. 이 맞춤은 활동 로그 채널을 통해 흐르는 데이터가 변경 될 때 예기치 않은 효과를 발생 시킵니다.
 - **활동 로그 채널 문제**: Recovery Services 자격 증명 모음에서 Azure Backup 펌프 활동 로그는 새 모델을 따릅니다. 아쉽게도이 변경 내용은 Azure Government, Azure 독일 및 Azure 중국 21Vianet에서 활동 로그를 생성 하는 것에 영향을 줍니다. 이러한 클라우드 서비스 사용자가 Azure Monitor의 활동 로그에서 경고를 만들거나 구성 하는 경우 경고가 트리거되지 않습니다. 또한 모든 Azure 공용 지역에서 사용자가 [Recovery Services 활동 로그를 Log Analytics 작업 영역으로 수집](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)하면 이러한 로그가 표시 되지 않습니다.
 
 Log Analytics 작업 영역을 사용 하 여 Azure Backup으로 보호 되는 모든 작업에 대해 대규모로 모니터링 하 고 경고 합니다.

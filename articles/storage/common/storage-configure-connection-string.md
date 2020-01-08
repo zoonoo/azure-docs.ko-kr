@@ -1,20 +1,21 @@
 ---
-title: Azure Storage에 대 한 연결 문자열 구성
+title: 연결 문자열 구성
+titleSuffix: Azure Storage
 description: Azure Storage 계정에 대한연결 문자열을 구성합니다. 연결 문자열에는 공유 키 인증을 사용 하 여 런타임에 응용 프로그램에서 저장소 계정에 대 한 액세스 권한을 부여 하는 데 필요한 정보가 포함 되어 있습니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460560"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage 연결 문자열 구성
 
@@ -23,8 +24,6 @@ ms.locfileid: "69640501"
 * Azure Storage 에뮬레이터에 연결합니다.
 * Azure의 스토리지 계정에 액세스
 * SAS(공유 액세스 서명)를 통해 Azure의 지정된 리소스에 액세스
-
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -145,4 +144,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 * [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage-use-emulator.md)
 * [Azure Storage Explorer](storage-explorers.md)
-* [공유 액세스 서명 (SAS)을 사용 하 여](storage-sas-overview.md)
+* [SAS(공유 액세스 서명) 사용](storage-sas-overview.md)

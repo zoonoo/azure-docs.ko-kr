@@ -7,24 +7,33 @@ author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/17/2019
+ms.openlocfilehash: 7ec18cab74d683e4547843f965d22026e7ba22aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461150"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure의 기술에 Cognitive Services 리소스 연결 Cognitive Search 
 
-AI 알고리즘은 Azure Cognitive Search의 콘텐츠 변환에 사용 되는 [보강 파이프라인](cognitive-search-concept-intro.md) 을 구동 합니다. 이러한 알고리즘은 이미지 분석과 OCR (광학 문자 인식 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) )을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) , 엔터티 인식, 핵심 문구 추출 및 기타 강화를 포함 하 여 Azure Cognitive Services 리소스를 기반으로 합니다. 문서 보강 목적으로 Azure Cognitive Search에서 사용 되는 알고리즘은 *기술*내에서 래핑됩니다. *기술*에 배치 되 고 인덱싱 중에 *인덱서가* 참조 됩니다.
+Azure Cognitive Search에서 보강 파이프라인을 구성 하는 경우 제한 된 수의 문서를 무료로 보강할 수 있습니다. 더 크고 더 잦은 워크 로드의 경우 청구 가능 Cognitive Services 리소스를 연결 해야 합니다.
 
-제한 된 수의 문서를 무료로 보강할 수 있습니다. 또는 *기술* 에 청구 가능한 Cognitive Services 리소스를 더 크고 더 잦은 워크 로드에 연결할 수 있습니다. 이 문서에서는 Azure Cognitive Search [인덱싱을](search-what-is-an-index.md)수행 하는 동안 청구 가능한 Cognitive Services 리소스를 연결 하 여 문서를 보강 하는 방법을 알아봅니다.
+이 문서에서는 보강 파이프라인을 정의 하는 기술에 키를 할당 하 여 리소스를 연결 하는 방법에 대해 알아봅니다.
 
-> [!NOTE]
-> 청구 가능한 이벤트에는 Azure Cognitive Search에서 문서 크랙 단계의 일부로 Cognitive Services API 및 이미지 추출에 대 한 호출이 포함 됩니다. Cognitive Services를 호출 하지 않는 기술 또는 문서에서 텍스트를 추출 하는 경우에는 요금이 부과 되지 않습니다.
->
-> 청구 가능한 기술 실행은 [Cognitive Services 종 량 제 가격으로 진행](https://azure.microsoft.com/pricing/details/cognitive-services/)됩니다. 이미지 추출 가격은 [Azure Cognitive Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)를 참조 하세요.
+## <a name="resources-used-during-enrichment"></a>보강 중에 사용 되는 리소스
+
+Azure Cognitive Search는 이미지 분석과 OCR (광학 문자 인식), 자연어 처리 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) 및 [텍스트 변환과](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)같은 기타 강화에 대 한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 를 비롯 하 여 Cognitive Services에 대 한 종속성이 있습니다. Azure Cognitive Search의 보강 컨텍스트에서 이러한 AI 알고리즘은 *기술*에 배치 되 고 인덱싱 중에 *인덱서가* 참조 되는 *기술*내에 래핑됩니다.
+
+## <a name="how-billing-works"></a>청구 방법
+
++ Azure Cognitive Search는 기술에서 제공 하는 Cognitive Services 리소스 키를 사용 하 여 이미지 및 텍스트 보강를 청구 합니다. 청구 가능한 기술 실행은 [Cognitive Services 종 량 제 가격으로 진행](https://azure.microsoft.com/pricing/details/cognitive-services/)됩니다.
+
++ 이미지 추출은 보강 전에 문서를 깨진 경우 발생 하는 Azure Cognitive Search 작업입니다. 이미지 추출을 청구 가능 합니다. 이미지 추출 가격은 [Azure Cognitive Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)를 참조 하세요.
+
++ 텍스트 추출은 문서 크랙 구에도 발생 합니다. 청구 되지 않습니다.
+
++ 조건부, Shaper, 텍스트 병합 및 텍스트 분할 기술을 포함 하 여 Cognitive Services를 호출 하지 않는 기술은 요금이 청구 되지 않습니다.
 
 ## <a name="same-region-requirement"></a>동일한 지역 요구 사항
 
@@ -33,7 +42,7 @@ Azure Cognitive Search와 Azure Cognitive Services는 동일한 지역 내에 �
 여러 지역에서 서비스를 이동할 수 있는 방법은 없습니다. 이 오류가 발생 하는 경우 Azure Cognitive Search와 동일한 지역에 새 Cognitive Services 리소스를 만들어야 합니다.
 
 > [!NOTE]
-> 일부 기본 제공 기술은 비 지역별 Cognitive Services (예: [텍스트 번역 기술](cognitive-search-skill-text-translation.md))를 기반으로 합니다. 기술에 이러한 기술을 추가 하면 데이터가 Azure Cognitive Search 또는 Cognitive Services 리소스와 동일한 지역에 유지 되지 않을 수 있습니다. 자세한 내용은 [서비스 상태 페이지](https://aka.ms/allinoneregioninfo) 를 참조 하세요.
+> 일부 기본 제공 기술은 비 지역별 Cognitive Services (예: [텍스트 번역 기술](cognitive-search-skill-text-translation.md))를 기반으로 합니다. 지역이 아닌 기술을 사용 하는 것은 Azure Cognitive Search 지역이 아닌 다른 지역에서 요청을 처리할 수 있음을 의미 합니다. 비 지역별 서비스에 대 한 자세한 내용은 [지역별 제품 Cognitive Services](https://aka.ms/allinoneregioninfo) 페이지를 참조 하세요.
 
 ## <a name="use-free-resources"></a>무료 리소스 사용
 

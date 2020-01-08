@@ -7,15 +7,15 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
-ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.date: 12/12/2019
+ms.openlocfilehash: 7a438a52ab69810ecf49319c148f817da974ea61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440211"
 ---
-# <a name="source-transformation-for-mapping-data-flow"></a>매핑 데이터 흐름에 대 한 원본 변환 
+# <a name="source-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 원본 변환 
 
 원본 변환은 데이터 흐름에 대 한 데이터 원본을 구성 합니다. 데이터 흐름을 디자인할 때 첫 번째 단계는 항상 원본 변환을 구성 합니다. 원본을 추가 하려면 데이터 흐름 캔버스에서 **원본 추가** 상자를 클릭 합니다.
 
@@ -23,18 +23,20 @@ ms.locfileid: "74702049"
 
 각 원본 변환은 정확히 하나의 Data Factory 데이터 집합에 연결 됩니다. 데이터 집합은 쓰거나 읽고 싶은 데이터의 모양과 위치를 정의 합니다. 파일 기반 데이터 집합을 사용 하는 경우 소스에서 와일드 카드 및 파일 목록을 사용 하 여 한 번에 두 개 이상의 파일을 사용할 수 있습니다.
 
-## <a name="supported-connectors-in-mapping-data-flow"></a>매핑 데이터 흐름에서 지원 되는 커넥터
+## <a name="supported-source-connectors-in-mapping-data-flow"></a>매핑 데이터 흐름에서 지원 되는 원본 커넥터
 
 매핑 데이터 흐름은 ELT (추출, 로드, 변환) 접근 방식을 따르며, 모든 Azure의 *준비* 데이터 집합에서 작동 합니다. 현재 원본 변환에 사용할 수 있는 데이터 집합은 다음과 같습니다.
     
-* Azure Blob Storage (JSON, Avro, 텍스트, Parquet)
-* Azure Data Lake Storage Gen1 (JSON, Avro, 텍스트, Parquet)
-* Azure Data Lake Storage Gen2 (JSON, Avro, 텍스트, Parquet)
-* Azure SQL Data Warehouse
-* Azure SQL Database
-* Azure CosmosDB
+* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, 텍스트, Parquet)
+* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, 텍스트, Parquet)
+* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, 텍스트, Parquet)
+* [Azure Synapse 분석](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
+* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
+* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-Azure Data Factory는 80 개의 기본 커넥터에 액세스할 수 있습니다. 데이터 흐름에 이러한 다른 원본의 데이터를 포함 하려면 복사 작업을 사용 하 여 지원 되는 준비 영역 중 하나에 해당 데이터를 로드 합니다.
+이러한 커넥터와 관련 된 설정은 [ **원본 옵션** ] 탭에 있습니다. 이러한 설정에 대 한 정보는 커넥터 설명서에 있습니다. 
+
+Azure Data Factory는 [90 개의 기본 커넥터](connector-overview.md)에 액세스할 수 있습니다. 데이터 흐름에 이러한 다른 원본의 데이터를 포함 하려면 복사 작업을 사용 하 여 지원 되는 준비 영역 중 하나에 해당 데이터를 로드 합니다.
 
 ## <a name="source-settings"></a>원본 설정
 
@@ -54,101 +56,18 @@ Azure Data Factory는 80 개의 기본 커넥터에 액세스할 수 있습니�
 
 **샘플링:** 샘플링을 사용 하 여 원본의 행 수를 제한 합니다. 디버깅을 위해 소스에서 데이터를 테스트 하거나 샘플링할 때이 설정을 사용 합니다.
 
-**여러 줄 행:** 원본 텍스트 파일에 여러 행을 포함 하는 문자열 값 (예: 값 내 줄바꿈)이 포함 된 경우 여러 줄로 된 행을 선택 합니다.
+**여러 줄 행:** 원본 텍스트 파일에 여러 행을 포함 하는 문자열 값 (예: 값 내 줄바꿈)이 포함 된 경우 여러 줄로 된 행을 선택 합니다. 이 설정은 DelimitedText 데이터 집합 에서만 사용할 수 있습니다.
 
 소스가 올바르게 구성 되었는지 확인 하려면 디버그 모드를 설정 하 고 데이터 미리 보기를 인출 합니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조 하세요.
 
 > [!NOTE]
 > 디버그 모드가 설정 된 경우 디버그 설정의 행 제한 구성은 데이터 미리 보기 중에 원본의 샘플링 설정을 덮어씁니다.
 
-## <a name="file-based-source-options"></a>파일 기반 원본 옵션
-
-Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이터 집합을 사용 하는 경우 원본 **옵션** 탭을 사용 하 여 원본에서 파일을 읽는 방법을 관리할 수 있습니다.
-
-![원본 옵션](media/data-flow/sourceOPtions1.png "원본 옵션")
-
-**와일드 카드 경로:** 와일드 카드 패턴을 사용 하면 ADF가 일치 하는 각 폴더와 파일을 단일 원본 변환에서 반복 하도록 지시할 수 있습니다. 단일 흐름 내에서 여러 파일을 처리 하는 효과적인 방법입니다. 기존 와일드 카드 패턴을 가리킬 때 표시 되는 + 기호를 사용 하 여 와일드 카드 일치 패턴을 여러 개 추가 합니다.
-
-소스 컨테이너에서 패턴과 일치 하는 일련의 파일을 선택 합니다. 데이터 집합에는 컨테이너만 지정할 수 있습니다. 따라서 와일드 카드 경로에도 루트 폴더의 폴더 경로가 포함 되어야 합니다.
-
-와일드 카드 예제:
-
-* ```*```는 모든 문자 집합을 나타냅니다.
-* 재귀 디렉터리 중첩을 나타내는 ```**```
-* ```?``` 한 문자를 대체 합니다.
-* ```[]```는 대괄호 안에 있는 하나 이상의 문자를 찾습니다.
-
-* />/> 아래에 있는 모든 csv 파일을 ```/data/sales/**/*.csv``` 가져옵니다.
-* ```/data/sales/20??/**``` 20 세기의 모든 파일을 가져옵니다.
-* 12 월 2004에 X 또는 Y 접두사가 2 자리 숫자로 시작 하는 모든 csv 파일을 ```/data/sales/2004/*/12/[XY]1?.csv``` 가져옵니다.
-
-**파티션 루트 경로:** 파일 원본에 ```key=value``` 형식으로 분할 된 폴더가 있는 경우 (예: year = 2019) 해당 파티션 폴더 트리의 최상위 수준을 데이터 흐름 데이터 스트림의 열 이름에 할당할 수 있습니다.
-
-먼저 분할 된 폴더와 읽으려는 리프 파일의 모든 경로를 포함 하도록 와일드 카드를 설정 합니다.
-
-![파티션 원본 파일 설정](media/data-flow/partfile2.png "파티션 파일 설정")
-
-파티션 루트 경로 설정을 사용 하 여 폴더 구조의 최상위 수준을 정의 합니다. 데이터 미리 보기를 통해 데이터의 내용을 볼 때 ADF가 각 폴더 수준에 있는 확인 된 파티션을 추가 하는 것을 볼 수 있습니다.
-
-![파티션 루트 경로](media/data-flow/partfile1.png "파티션 루트 경로 미리 보기")
-
-**파일 목록:** 이 파일은 파일 집합입니다. 처리할 상대 경로 파일 목록이 포함 된 텍스트 파일을 만듭니다. 이 텍스트 파일을 가리킵니다.
-
-**저장할 열 파일 이름:** 원본 파일의 이름을 데이터의 열에 저장 합니다. 여기에 새 열 이름을 입력 하 여 파일 이름 문자열을 저장 합니다.
-
-**완료 후:** 데이터 흐름이 실행 된 후 원본 파일을 사용 하 여 아무 작업도 수행 하지 않도록 선택 하거나 원본 파일을 삭제 하거나 원본 파일을 이동 합니다. 이동 경로는 상대 경로입니다.
-
-원본 파일을 다른 위치로 처리 후에 이동 하려면 먼저 파일 작업에 대해 "이동"을 선택 합니다. 그런 다음 "from" 디렉터리를 설정 합니다. 경로에 와일드 카드를 사용 하지 않는 경우 "보낸 사용자" 설정은 원본 폴더와 같은 폴더에 있습니다.
-
-와일드 카드가 있는 원본 경로를 사용 하는 경우 구문은 다음과 같습니다.
-
-```/data/sales/20??/**/*.csv```
-
-다음으로 "시작"을 지정할 수 있습니다.
-
-```/data/sales```
-
-및 "to"로
-
-```/backup/priorSales```
-
-이 경우/cv/ps 아래에서 소스인 모든 파일이/backup/priorSales.로 이동 됩니다.
-
-> [!NOTE]
-> 파이프라인에서 데이터 흐름 실행 작업을 사용 하는 파이프라인 실행 (파이프라인 디버그 또는 실행 실행)에서 데이터 흐름을 시작 하는 경우에만 파일 작업이 실행 됩니다. 파일 작업은 데이터 흐름 디버그 모드에서 실행 *되지* 않습니다.
-
-**마지막으로 수정한 사람 필터링:** 마지막으로 수정 된 날짜 범위를 지정 하 여 처리 하는 파일을 필터링 할 수 있습니다. 모든 날짜/시간은 UTC 시간입니다. 
-
-### <a name="add-dynamic-content"></a>동적 콘텐츠 추가
-
-모든 원본 설정은 [매핑 데이터 흐름의 변환 식 언어](data-flow-expression-functions.md)를 사용 하 여 식으로 지정할 수 있습니다. 동적 콘텐츠를 추가 하려면 설정 패널에서 필드 내부를 클릭 하거나 마우스로 가리킵니다. **동적 콘텐츠 추가**에 대 한 하이퍼링크를 클릭 합니다. 그러면 식, 정적 리터럴 값 또는 매개 변수를 사용 하 여 동적으로 값을 설정할 수 있는 식 작성기가 시작 됩니다.
-
-![매개 변수](media/data-flow/params6.png "parameters")
-
-## <a name="sql-source-options"></a>SQL 원본 옵션
-
-원본이 SQL Database 또는 SQL Data Warehouse 인 경우 **원본 옵션** 탭에서 추가 SQL 관련 설정을 사용할 수 있습니다. 
-
-**입력:** 원본 위치를 테이블에 표시할지 (```Select * from <table-name>```와 동일) 선택 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
-
-**쿼리**: 입력 필드에서 쿼리를 선택 하는 경우 원본에 대 한 SQL 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다. **Order by** 절은 여기서 지원 되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 테이블을 반환 하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성 합니다. 쿼리를 사용 하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법 이기도 합니다. 예: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
-
-**일괄 처리 크기**: 대량 데이터를 읽기로 청크 하는 일괄 처리 크기를 입력 합니다.
-
-**격리 수준**: 매핑 데이터 흐름에서 SQL 원본의 기본값은 커밋되지 않은 읽기입니다. 여기에서 격리 수준을 다음 값 중 하나로 변경할 수 있습니다.
-* 커밋된 읽기
-* 커밋되지 않은 읽기
-* 반복 가능한 읽기
-* 가능
-* 없음 (격리 수준 무시)
-
-![격리 수준](media/data-flow/isolationlevel.png "격리 수준")
-
-## <a name="projection"></a>프로젝션
+## <a name="projection"></a>도법
 
 데이터 집합의 스키마와 마찬가지로 원본의 프로젝션은 원본 데이터의 데이터 열, 형식 및 형식을 정의 합니다. SQL 및 Parquet와 같은 대부분의 데이터 집합 형식에 대해 원본 프로젝션은 데이터 집합에 정의 된 스키마를 반영 하도록 수정 됩니다. 원본 파일이 강력 하 게 형식화 되지 않은 경우 (예: Parquet 파일이 아닌 플랫 csv 파일) 원본 변환의 각 필드에 대 한 데이터 형식을 정의할 수 있습니다.
 
-![투영 탭의 설정](media/data-flow/source3.png "프로젝션")
+![투영 탭의 설정](media/data-flow/source3.png "도법")
 
 텍스트 파일에 정의 된 스키마가 없는 경우 데이터 형식 **검색** 을 선택 하 여 Data Factory에서 데이터 형식을 샘플링 하 고 유추 하도록 합니다. 기본 데이터 형식을 자동으로 검색 하려면 **기본 형식 정의** 를 선택 합니다. 
 
@@ -157,15 +76,6 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 ### <a name="import-schema"></a>스키마 가져오기
 
 복합 데이터 구조를 지 원하는 Avro 및 CosmosDB와 같은 데이터 집합은 스키마 정의가 데이터 집합에 존재 하지 않아도 됩니다. 따라서 이러한 형식의 원본에 대해 **프로젝션** 탭에서 **스키마 가져오기** 단추를 클릭할 수 있습니다.
-
-## <a name="cosmosdb-specific-settings"></a>CosmosDB 특정 설정
-
-CosmosDB를 원본 유형으로 사용 하는 경우 다음과 같은 몇 가지 옵션을 고려해 야 합니다.
-
-* 시스템 열 포함:이 확인란을 선택 하면 ```id```, ```_ts```및 기타 시스템 열이 CosmosDB의 데이터 흐름 메타 데이터에 포함 됩니다. 컬렉션을 업데이트할 때 기존 행 id를 가져올 수 있도록이를 포함 하는 것이 중요 합니다.
-* 페이지 크기: 쿼리 결과의 페이지당 문서 수입니다. 기본값은 서비스 동적 페이지를 1000까지 사용 하는 "-1"입니다.
-* 처리량: 읽기 작업 중에이 데이터 흐름을 실행할 때마다 CosmosDB collection에 적용 하려는 RUs 수에 대 한 선택적 값을 설정 합니다. 최소값은 400입니다.
-* 기본 설정 영역:이 프로세스에 대 한 기본 읽기 영역을 선택할 수 있습니다.
 
 ## <a name="optimize-the-source-transformation"></a>원본 변환 최적화
 

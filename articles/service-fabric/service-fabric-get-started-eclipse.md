@@ -1,25 +1,16 @@
 ---
-title: Eclipse용 Azure Service Fabric 플러그 인 | Microsoft Docs
-description: Eclipse용 Azure Service Fabric 플러그 인을 시작합니다.
-services: service-fabric
-documentationcenter: java
+title: Eclipse 용 Azure Service Fabric 플러그 인
+description: Eclipse 및 제공 Service Fabric 플러그 인을 사용 하 여 Java에서 Azure Service Fabric를 시작 하는 방법에 대해 알아봅니다.
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: c15ca6d68512bc79ce4e5a27f5ce4f7ea6bc3080
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: b779873488f1fff754d4105249b28f545738c11b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035441"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645704"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인
 Eclipse는 가장 널리 사용되는 Java 개발자를 위한 IDE(통합 개발 환경) 중 하나입니다. 이 문서에서는 Azure Service Fabric 작업을 수행하기 위해 Eclipse 개발 환경을 설정하는 방법에 대해 설명합니다. Service Fabric 플러그 인을 설치하고 Service Fabric 애플리케이션을 만들며 Service Fabric 애플리케이션을 Eclipse의 로컬 또는 원격 Service Fabric 클러스터에 배포하는 방법을 알아봅니다. 
@@ -40,11 +31,11 @@ Eclipse에서 Service Fabric 플러그 인을 설치할 수 있습니다. 플러
 
 [Eclipse 사이트](https://www.eclipse.org)에서 Eclipse Neon 이상을 설치합니다.  또한 Buildship의 버전 2.2.1 이상을 설치합니다(Service Fabric 플러그 인은 이전 버전의 Buildship과 호환되지 않음).
 -   설치된 구성 요소의 버전을 확인하려면 Eclipse에서 **도움말** > **Eclipse 정보** > **설치 세부 정보**로 이동합니다.
--   Buildship을 업데이트하려면 [Eclipse Buildship: Gradle][buildship-update]용 Eclipse 플러그 인입니다.
+-   Buildship을 업데이트 하려면 [Eclipse buildship: Gradle 용 Eclipse 플러그][buildship-update]인을 참조 하세요.
 -   Eclipse에 대한 업데이트를 확인하고 설치하려면 **도움말** > **업데이트 확인**으로 이동합니다.
 
 Service Fabric 플러그 인을 설치하고, Eclipse에서 **도움말** > **새 소프트웨어 설치**로 이동합니다.
-1. **작업** 위치 상자에 https:\//dl.microsoft.com/eclipse를 입력 합니다.
+1. **작업** 위치 상자에 https:\//dl.microsoft.com/eclipse을 입력 합니다.
 2. **추가**를 클릭합니다.
 
    ![Eclipse용 Service Fabric 플러그 인][sf-eclipse-plugin-install]
@@ -168,7 +159,7 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
 
 보안 Linux 클러스터에서, 애플리케이션에 Reliable Services 서비스가 포함되는 경우 서비스에서 Service Fabric 런타임 API를 호출하는 데 사용할 수 있는 인증서도 구성해야 합니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.
 
-Java로 작성된 Service Fabric Reliable Services 애플리케이션을 보안 Linux 클러스터에 배포하는 방법에 대한 빠른 연습은 [빠른 시작: Java Reliable Services 애플리케이션 배포](./service-fabric-quickstart-java-reliable-services.md)를 참조하세요.
+Java로 작성 된 Service Fabric Reliable Services 응용 프로그램을 보안 Linux 클러스터에 배포 하는 방법에 대 한 빠른 연습은 빠른 시작 [: java Reliable Services 응용 프로그램 배포](./service-fabric-quickstart-java-reliable-services.md)를 참조 하세요.
 
 ## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Eclipse 실행 구성을 사용하여 Service Fabric 애플리케이션 배포
 
@@ -233,7 +224,7 @@ Eclipse를 사용하여 애플리케이션을 업그레이드하려면 중복 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Java Reliable Services 애플리케이션을 빌드하여 Azure에 로컬로 배포하는 빠른 단계는 [빠른 시작: Java Reliable Services 애플리케이션 배포](./service-fabric-quickstart-java-reliable-services.md)를 참조하세요.
+- Java 신뢰할 수 있는 서비스 응용 프로그램을 빌드하고 로컬 및 Azure에 배포 하는 빠른 단계는 빠른 시작 [: java Reliable Services 응용 프로그램 배포](./service-fabric-quickstart-java-reliable-services.md)를 참조 하세요.
 - 로컬 클러스터에서 Java 애플리케이션을 디버그하는 방법은 [Eclipse에서 Java 서비스 디버그](./service-fabric-debugging-your-application-java.md)를 참조하세요.
 - Service Fabric 애플리케이션을 모니터링하고 진단하는 방법은 [로컬 머신 개발 설정에서 서비스 모니터링 및 진단](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)을 참조하세요.
 

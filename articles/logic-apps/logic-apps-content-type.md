@@ -1,17 +1,17 @@
 ---
 title: 콘텐츠 형식 처리
-description: Logic Apps가 디자인 타임 및 런타임에 콘텐츠 형식을 처리하는 방법 알아보기
+description: Azure Logic Apps에서 디자인 타임 및 런타임에 워크플로의 다양 한 콘텐츠 형식을 처리 하는 방법에 대해 알아봅니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791524"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666876"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic Apps에서 콘텐츠 형식 처리
 
@@ -59,7 +59,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
   
-  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 다음은 그 예입니다. 
+  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예: 
 
      ![샘플 JSON 페이로드 입력](./media/logic-apps-content-type/request-trigger.png)
 

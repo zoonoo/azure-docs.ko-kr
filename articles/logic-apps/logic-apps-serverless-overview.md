@@ -1,6 +1,6 @@
 ---
-title: 개요-Azure 서버 리스
-description: 인프라에 대해 걱정 하지 않고 클라우드에서 강력한 솔루션 만들기
+title: 개요-클라우드 기반 앱 및 솔루션에 대 한 Azure 서버 리스
+description: Azure Logic Apps 및 Azure Functions를 사용 하 여 인프라에 대해 걱정 하지 않고 클라우드 기반 앱 및 솔루션을 만드는 방법에 대해 알아봅니다.
 services: logic-apps
 ms.suite: integration
 author: jeffhollan
@@ -8,14 +8,14 @@ ms.author: jehollan
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: d658efd278425358a2a931fe976827c3bae4247d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792833"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666553"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>개요: Azure Logic Apps 및 Azure Functions를 사용 하 여 Azure 서버 리스
+# <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Azure 서버 리스: Azure Logic Apps 및 Azure Functions를 사용 하 여 클라우드 기반 앱 및 솔루션 빌드에 대 한 개요
 
 [서버](https://azure.microsoft.com/solutions/serverless/) 를 사용 하지 않는 앱은 개발 속도 향상, 코드 축소, 간소화 및 규모와 같은 이점을 제공 합니다. 이 문서에서는 서버를 사용 하지 않는 솔루션과 Azure 서버를 사용 하지 않는 제품의 다양 한 특성을 다룹니다.
 

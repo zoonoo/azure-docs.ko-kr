@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ccd98553b06ef3fcd2241c8223889c0a86e331
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fa25a1b1d24c034a92a94ac9378bc4bff3947348
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024662"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639924"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -53,11 +53,11 @@ ID 공급자 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 |
 등록 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 |전역 관리자 | 
 사용자 특정 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
 사용자 만들기, 읽기, 업데이트 및 삭제 | 글로벌 관리자([설명서 참조](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
-모든 구성 읽기 | 전역 관리자 | 
-B2C 감사 로그 읽기 | 글로벌 관리자([설명서 참조](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+모든 구성 읽기 | 전역 판독기 | 
+B2C 감사 로그 읽기 | 전역 판독기 ([설명서 참조](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Azure AD B2C 전역 관리자에 게는 Azure AD 전역 관리자와 같은 권한이 없습니다. 전역 관리자 권한이 Azure AD B2C 경우 Azure AD 디렉터리가 아니라 Azure AD B2C 디렉터리에 있는지 확인 합니다.
+> Azure AD B2C 전역 판독기에는 Azure AD 전역 관리자와 같은 권한이 없습니다. 전역 관리자 권한이 Azure AD B2C 경우 Azure AD 디렉터리가 아니라 Azure AD B2C 디렉터리에 있는지 확인 합니다.
 
 ## <a name="company-branding"></a>회사 브랜딩
 
@@ -77,8 +77,8 @@ Task | 최소 권한 역할 | 추가 역할
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 통과 인증 | 전역 관리자 | 
-모든 구성 읽기 | 전역 관리자 | 
-원활한 Single Sign-On | 전역 관리자 | 
+모든 구성 읽기 | 전역 판독기 | 
+간편한 Single Sign-On | 전역 관리자 | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -97,7 +97,6 @@ ADFS 보안 보고서 읽기 | 보안 판독기 | 기여자, 소유자
 메트릭 및 경고 보기 | 읽기 권한자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 기여자, 소유자
 동기화 서비스 메트릭 및 경고 보기 | 읽기 권한자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 기여자, 소유자
 
-
 ## <a name="custom-domain-names"></a>사용자 지정 도메인 이름
 
 Task | 최소 권한 역할 | 추가 역할
@@ -105,7 +104,7 @@ Task | 최소 권한 역할 | 추가 역할
 도메인 관리 | 전역 관리자 | 
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
-## <a name="domain-services"></a>Domain Services
+## <a name="domain-services"></a>도메인 서비스
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -203,7 +202,7 @@ Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 로그인 로그 읽기 | 보고서 읽기 권한자 | 보안 읽기 권한자, 보안 관리자
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Multi-factor authentication
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -227,9 +226,9 @@ Task | 최소 권한 역할 | 추가 역할
 전화 통화 설정 구성 | 전역 관리자 | 
 공급자 구성 | 전역 관리자 | 
 서버 설정 구성 | 전역 관리자 | 
-활동 보고서 읽기 | 전역 관리자 | 
-모든 구성 읽기 | 전역 관리자 | 
-서버 상태 읽기 | 전역 관리자 |  
+활동 보고서 읽기 | 전역 판독기 | 
+모든 구성 읽기 | 전역 판독기 | 
+서버 상태 읽기 | 전역 판독기 |  
 
 ## <a name="organizational-relationships"></a>조직 관계
 
@@ -238,7 +237,7 @@ Task | 최소 권한 역할 | 추가 역할
 ID 공급자 관리 | 전역 관리자 | 
 설정 관리 | 전역 관리자 | 
 사용 약관 관리 | 전역 관리자 | 
-모든 구성 읽기 | 전역 관리자 | 
+모든 구성 읽기 | 전역 판독기 | 
 
 ## <a name="password-reset"></a>암호 재설정
 
@@ -252,7 +251,7 @@ Task | 최소 권한 역할 | 추가 역할
 등록 구성 | 전역 관리자 |
 모든 구성 읽기 | 보안 관리자 | 사용자 관리자 |
 
-## <a name="privileged-identity-management"></a>Privileged Identity Management
+## <a name="privileged-identity-management"></a>권한 있는 ID 관리
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -274,7 +273,7 @@ Azure AD 역할의 액세스 검토 읽기  | 보안 판독기 | 보안 관리�
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 인증 방법 구성 | 전역 관리자 | 
-모든 구성 읽기 | 전역 관리자 | 
+모든 구성 읽기 | 전역 판독기 | 
 
 ## <a name="security---conditional-access"></a>보안-조건부 액세스
 

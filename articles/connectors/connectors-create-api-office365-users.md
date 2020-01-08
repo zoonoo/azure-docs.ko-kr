@@ -1,20 +1,21 @@
 ---
 title: Office 365 사용자에 연결
-description: Office 365 사용자 REST API 및 Azure Logic Apps을 사용하여 사용자 프로필 관리
+description: Azure Logic Apps를 사용 하 여 Office 365 사용자 프로필에서 프로필을 가져오고 관리 하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
 tags: connectors
-ms.openlocfilehash: addb64a9b43c51af8363caa6f0fb3261a618e893
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 179c7538d8072f0e1a4f7d049cf521971efd7a21
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789525"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666859"
 ---
-# <a name="get-started-with-the-office-365-users-connector"></a>Office 365 사용자 커넥터 시작
+# <a name="get-and-manage-profiles-in-office-365-users-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Office 365 사용자의 프로필 가져오기 및 관리
+
 Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다. Office 365 사용자를 사용하여 다음을 수행할 수 있습니다.
 
 * Office 365 사용자에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
@@ -23,7 +24,8 @@ Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 �
 이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 ## <a name="create-a-connection-to-office-365-users"></a>Office 365 사용자에 대한 연결 만들기
-논리 앱에 이 커넥터를 추가할 때 Office 365 사용자 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
+
+논리 앱에이 커넥터를 추가할 때 Azure Logic Apps 사용자 계정에 연결할 수 있도록 Office 365 사용자 계정에 로그인 해야 합니다.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
@@ -33,7 +35,8 @@ Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 �
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[커넥터 세부 정보](/connectors/officeusers/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
+커넥터의 Swagger 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지를 참조](/connectors/officeusers/)하세요.
 
-## <a name="more-connectors"></a>추가 커넥터
-[API 목록](apis-list.md)으로 돌아갑니다.
+## <a name="next-steps"></a>다음 단계
+
+* 다른 [Logic Apps 커넥터](apis-list.md)에 대해 알아봅니다.

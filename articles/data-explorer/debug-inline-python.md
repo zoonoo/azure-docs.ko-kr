@@ -7,23 +7,23 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: f0bf81ce6392e1650d9986d81a55eac9c416c24d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 96bd66f96b04bd7032d976ba9ebbbeb60c8415e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74822904"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444463"
 ---
 # <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>VS Code를 사용 하 여 Kusto 쿼리 언어 인라인 Python 디버그
 
-Azure 데이터 탐색기는 [python () 플러그 인](/azure/kusto/query/pythonplugin)을 사용 하 여 Kusto 쿼리 언어에 포함 된 python 코드 실행을 지원 합니다. 플러그 인 런타임은 격리 된 보안 Python 환경에서 샌드박스에서 호스팅됩니다. Python () 플러그 인 기능은 Kusto 쿼리 언어 기본 기능을 확장 하 여 OSS Python 패키지의 대규모 보관을 확장 합니다. 이 확장을 통해 기계 학습, 인공 지능, 통계 및 시계열과 같은 고급 알고리즘을 쿼리의 일부로 실행할 수 있습니다.
+Azure 데이터 탐색기는 [python () 플러그 인](/azure/kusto/query/pythonplugin)을 사용 하 여 Kusto 쿼리 언어에 포함 된 python 코드 실행을 지원 합니다. 플러그 인 런타임은 격리 된 보안 Python 환경에서 샌드박스에서 호스팅됩니다. Python () 플러그 인 기능은 Kusto 쿼리 언어 기본 기능을 확장 하 여 OSS Python 패키지의 대규모 보관을 확장 합니다. 이 확장을 사용 하면 기계 학습, 인공 지능, 통계 및 시계열과 같은 고급 알고리즘을 쿼리의 일부로 실행할 수 있습니다.
 
 Kusto 쿼리 언어 도구는 Python 알고리즘을 개발 하 고 디버깅 하는 데 편리 하지 않습니다. 따라서 Jupyter, PyCharm, VS 또는 VS Code와 같은 즐겨 사용 하는 Python 통합 개발 환경에서 알고리즘을 개발 합니다. 알고리즘이 완료 되 면 복사 하 여 KQL에 붙여넣습니다. 이 워크플로를 개선 하 고 간소화 하기 위해 Azure 데이터 탐색기는 KQL 인라인 Python 코드를 작성 하 고 디버그할 수 있도록 Kusto 탐색기나 웹 UI 클라이언트와 VS Code 간의 통합을 지원 합니다. 
 
 > [!NOTE]
 > 이 워크플로는 비교적 작은 입력 테이블을 디버그 하는 데만 사용할 수 있습니다 (최대 2MB). 따라서 디버깅을 위해 입력을 제한 해야 할 수 있습니다.  많은 테이블을 처리 해야 하는 경우 `| take`, `| sample`또는 `where rand() < 0.x`를 사용 하 여 디버깅 하도록 제한 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 1. Python [Anaconda 배포](https://www.anaconda.com/distribution/#download-section)를 설치 합니다. **고급 옵션**에서 **내 경로 환경 변수에 Anaconda 추가**를 선택 합니다.
 2. [Visual Studio Code](https://code.visualstudio.com/Download)를 설치합니다.

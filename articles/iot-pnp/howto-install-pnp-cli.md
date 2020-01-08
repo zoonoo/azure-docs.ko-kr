@@ -3,17 +3,17 @@ title: Azure CLI 용 Azure IoT 확장을 사용 하 여 IoT 플러그 앤 플레
 description: Azure CLI 용 Azure IoT 확장을 설치 하 고이를 사용 하 여 iot hub에 연결 된 IoT 플러그 앤 플레이 장치와 상호 작용 합니다.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f4e255309d32026b7f2bb4de67fce7ec37c753f6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571011"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529578"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Azure CLI에 대 한 Azure IoT 확장 설치 및 사용
 
@@ -26,7 +26,7 @@ Azure CLI에 대 한 Azure IoT 확장은 IoT 플러그 앤 플레이 미리 보�
 - 장치 속성을 사용 합니다.
 - 장치 명령을 호출 합니다.
 
-이 문서에서는 다음 방법을 안내합니다.
+이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
 
 - Azure CLI에 대 한 Azure IoT 확장을 설치 하 고 구성 합니다.
 - 확장을 사용 하 여 장치를 조작 하 고 테스트 합니다.

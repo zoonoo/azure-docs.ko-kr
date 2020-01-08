@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 630535103656e13ca43d958ef2a4124a4ea940ac
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546950"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658290"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -131,7 +131,7 @@ Root squash 병합는 현재 지원 되지 않습니다.
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>지원 되는 Active Directory 연결은 몇 개입니까?
 
-현재 Azure NetApp Files는 구독 당 하나의 Active Directory 연결을 지원 합니다. 또한 Active Directory 연결은 단일 NetApp 계정에만 적용 됩니다. 계정 간에 공유 되지 않습니다. 
+현재 Azure NetApp Files는 NetApp 계정, 구독 당 및 각 지역에서 하나의 Active Directory 연결만 지원 합니다. 연결은 NetApp 계정에서 공유 되지 않습니다.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Azure Active Directory 지원 Azure NetApp Files? 
 
@@ -197,7 +197,7 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [Microsoft Azure ExpressRoute Faq](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
+- [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)

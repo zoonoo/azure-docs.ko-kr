@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 95f7966fa59f0a1f6f6a3c9c6832cc573f89e05c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172117"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659256"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -20,13 +20,32 @@ ms.locfileid: "74172117"
 
 가상 머신에서 SQL Server 데이터베이스에 대 한 보호를 구성 하려면 해당 가상 머신에 **Azurebackupwindowsworkload 로드** 확장을 설치 해야 합니다. **Usererrorsqlnosysadminmembership**오류가 발생 하면 SQL Server 인스턴스에 필요한 백업 권한이 없는 것입니다. 이 오류를 해결 하려면 [VM 권한 설정](backup-azure-sql-database.md#set-vm-permissions)의 단계를 따르세요.
 
+## <a name="troubleshoot-discover-and-configure-issues"></a>문제 검색 및 구성 문제 해결
+Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베이스를 검색 하 고 백업을 구성 하는 과정은 두 단계로 구성 됩니다.<br>
+
+![sql](./media/backup-azure-sql-database/sql.png)
+
+백업 구성 중에 SQL VM 및 해당 인스턴스가 **vm의 검색 db** 에 표시 되지 않고 백업 (위의 이미지 참조)을 **구성** 하는 경우 다음을 확인 합니다.
+
+### <a name="step-1-discovery-dbs-in-vms"></a>1 단계: Vm에서 Db 검색
+
+- VM이 검색 된 VM 목록에 나열 되어 있지 않고 다른 자격 증명 모음에 SQL backup에 등록 되어 있지 않은 경우에는 [검색 SQL Server 백업](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) 단계를 따릅니다.
+
+### <a name="step-2-configure-backup"></a>2 단계: 백업 구성
+
+- SQL VM이 데이터베이스를 보호 하는 데 사용 되는 것과 동일한 자격 증명 모음에 등록 된 경우 [백업 구성](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) 단계를 따릅니다.
+
+새 자격 증명 모음에 SQL VM을 등록 해야 하는 경우 이전 자격 증명 모음에서 등록 취소 해야 합니다.  자격 증명 모음에서 SQL VM의 등록을 취소 하려면 보호 된 모든 데이터 원본의 보호를 중지 하 고 백업 된 데이터를 삭제할 수 있습니다. 백업 된 데이터를 삭제 하는 작업은 안전 하지 않습니다.  SQL VM의 등록을 취소 하 고 모든 예방 조치를 수행한 후에는이 동일한 VM을 새 자격 증명 모음에 등록 하 고 백업 작업을 다시 시도 합니다.
+
+
+
 ## <a name="error-messages"></a>오류 메시지
 
 ### <a name="backup-type-unsupported"></a>지원 되지 않는 백업 유형
 
-| 심각도 | 설명 | 가능한 원인 | 권장 작업 |
+| 심각도 | Description | 가능한 원인 | 권장 작업 |
 |---|---|---|---|
-| Warning | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
+| 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -87,7 +106,7 @@ ms.locfileid: "74172117"
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
-| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지하도록 사용할 수 없습니다. | 데이터베이스가 대량 로그 복구 모드인 경우 대량 로그 트랜잭션과 다음 로그 트랜잭션 간의 데이터를 복구할 수 없습니다. | 복구를 위해 다른 지정 시간을 선택 합니다. [자세히 알아봅니다](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
+| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지하도록 사용할 수 없습니다. | 데이터베이스가 대량 로그 복구 모드인 경우 대량 로그 트랜잭션과 다음 로그 트랜잭션 간의 데이터를 복구할 수 없습니다. | 복구를 위해 다른 지정 시간을 선택 합니다. [자세히 알아보기](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -125,18 +144,27 @@ ms.locfileid: "74172117"
 |---|---|---|
 자격 증명 모음이 24 시간 범위에서 허용 되는 작업의 최대 제한에 도달 하 여 작업이 차단 되었습니다. | 24 시간 범위의 작업에 허용 되는 최대 제한에 도달 하면이 오류가 발생 합니다. 이 오류는 일반적으로 정책 수정 또는 자동 보호와 같은 규모에 따라 작업을 수행 하는 경우에 발생 합니다. CloudDosAbsoluteLimitReached의 경우와 달리이 상태를 해결 하기 위해 수행할 수 있는 작업은 많지 않습니다. 실제로 Azure Backup 서비스는 문제의 모든 항목에 대해 내부적으로 작업을 다시 시도 합니다.<br> 예를 들어 정책을 사용 하 여 보호 되는 데이터 원본 수가 많은 경우 해당 정책을 수정 하려고 하면 보호 된 각 항목에 대 한 보호 작업 구성이 트리거되고 때로는 매일 이러한 작업에 허용 되는 최대 제한에 도달할 수 있습니다.| Azure Backup 서비스는 24 시간 후에이 작업을 자동으로 다시 시도 합니다.
 
+### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
+
+| 오류 메시지 | 가능한 원인 | 권장 작업 |
+|---|---|---|
+인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다. | VM Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 연결이 필요 합니다.| -NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 Azure Backup 아웃 바운드 액세스를 허용 해야 합니다. 액세스 권한을 부여 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) 를 수행 합니다.<br>-DNS가 Azure 끝점을 확인 하 고 있는지 확인 합니다.<br>-VM이 인터넷 액세스를 차단 하는 부하 분산 장치 뒤에 있는지 확인 합니다. Vm에 공용 IP를 할당 하면 검색은 작동 합니다.<br>-위의 세 대상 서비스에 대 한 호출을 차단 하는 방화벽/바이러스 백신/프록시가 없는지 확인 합니다.
+
+
 ## <a name="re-registration-failures"></a>다시 등록 오류
 
 다시 등록 작업을 트리거하기 전에 다음 증상 중 하나 이상이 있는지 확인 합니다.
 
-* 다음 오류 코드 중 하나를 사용 하 여 VM에서 백업, 복원 및 구성 백업 등의 모든 작업이 실패 합니다. **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent** , **WorkloadExtensionDidntDequeueMsg**.
-* 백업 항목에 대 한 **백업 상태** 영역에 **연결할 수 없음**이 표시 됩니다. 동일한 상태가 될 수 있는 다른 모든 원인을 제외 합니다.
+* **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**오류 코드 중 하나를 사용 하 여 VM에서 모든 작업 (예: 백업, 복원 및 구성 백업)이 실패 합니다.
+* 백업 항목의 **백업 상태** 영역에 **연결할 수 없는**것으로 표시 되는 경우 다른 모든 원인을 제외 하 여 동일한 상태가 될 수 있습니다.
 
-  * VM에서 백업 관련 작업을 수행할 수 있는 권한이 없습니다.  
+  * VM에서 백업 관련 작업을 수행할 수 있는 권한이 없습니다.
   * 백업을 수행할 수 없으므로 VM을 종료 합니다.
-  * 네트워크 문제  
+  * 네트워크 문제
 
-  ![VM 다시 등록에서 "연결할 수 없음" 상태](./media/backup-azure-sql-database/re-register-vm.png)
+   ![VM 다시 등록](./media/backup-azure-sql-database/re-register-vm.png)
+
+
 
 * Always On 가용성 그룹의 경우 백업 기본 설정을 변경 하거나 장애 조치 (failover) 후에 백업이 실패 하기 시작 합니다.
 

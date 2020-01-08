@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: aff6be1a6abf2550013b752ba4f796ffe255499f
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.date: 12/27/2019
+ms.openlocfilehash: 1c482166ffe27bde900a102c39def400728c102f
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539057"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529714"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -37,7 +37,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
 
@@ -184,7 +184,7 @@ Azure Active Directory에서 Office 365 응용 프로그램을 만들고 구성 
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
 
-    예제:
+    예:
 
     ```
     .\office365_consent.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631- yyyyyyyyyyyy'
@@ -373,7 +373,7 @@ Azure Active Directory에서 Office 365 응용 프로그램을 만들고 구성 
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
 
-    예제:
+    예:
 
     ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
@@ -501,7 +501,7 @@ At line:12 char:18
     .\office365_unsubscribe.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> 
     ```
 
-    예제:
+    예:
 
     ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
@@ -532,7 +532,7 @@ Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드
 
 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 경고를 나열합니다. 열 아래쪽의 모두 보기를 클릭하거나 열 머리글을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:--|:--|
 | 운영 | 모니터링되는 모든 Office 365 구독의 활성 사용자에 대한 정보를 제공합니다. 시간에 따라 발생하는 활동의 수도 확인할 수 있습니다.
 | 교환 | Add-MailboxPermission, Set-Mailbox 등의 Exchange Server 활동이 자세히 구분되어 표시됩니다. |
@@ -550,25 +550,25 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| 유형 | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>교환<br>SharePoint|
-| 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
+| 작업 | 사용자 또는 관리자 활동의 이름입니다.  |
 | OrganizationId | 조직의 Office 365 테넌트 GUID입니다. 이 값은 값이 나타나는 Office 365 서비스에 관계없이 조직에서 항상 동일하게 유지됩니다. |
 | RecordType | 수행한 작업의 유형입니다. |
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>일반<br>예약<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>Admin<br>애플리케이션<br>DcAdmin<br>일반<br>예약<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성
 
 다음 속성은 모든 Azure Active Directory 레코드에 공통적으로 적용됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -580,7 +580,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -594,7 +594,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 이러한 레코드는 Azure Active Directory 개체를 추가하거나 변경할 때 생성됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -612,7 +612,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 데이터 센터 보안 감사 데이터에서 생성됩니다.  
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | EffectiveOrganization | 권한 상승/cmdlet의 대상 테넌트 이름입니다. |
 | ElevationApprovedTime | 권한 상승이 승인된 시간에 해당하는 타임스탬프입니다. |
@@ -628,7 +628,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 구성을 변경하면 생성됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | 교환 |
 | RecordType     | ExchangeAdmin |
@@ -636,14 +636,14 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | ModifiedObjectResolvedName |  cmdlet에 의해 수정된 개체의 사용자에게 친숙한 이름입니다. cmdlet이 개체를 수정하는 경우에만 이 속성이 기록됩니다. |
 | OrganizationName | 테넌트의 이름입니다. |
 | OriginatingServer | cmdlet이 실행된 서버의 이름입니다. |
-| parameters | Operations 속성에 나와 있는 cmdlet과 함께 사용된 모든 매개 변수의 이름과 값입니다. |
+| 매개 변수 | Operations 속성에 나와 있는 cmdlet과 함께 사용된 모든 매개 변수의 이름과 값입니다. |
 
 
 ### <a name="exchange-mailbox"></a>Exchange 사서함
 
 다음 레코드는 Exchange 사서함을 변경하거나 추가하면 생성됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | 교환 |
 | RecordType     | ExchangeItem |
@@ -666,7 +666,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 사서함 감사 항목을 만들면 생성됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | 교환 |
 | RecordType     | ExchangeItem |
@@ -681,7 +681,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 그룹을 변경하거나 추가하면 생성됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | 교환 |
 | OfficeWorkload | ExchangeItemGroup |
@@ -700,7 +700,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 SharePoint 레코드에 공통적으로 적용됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -717,7 +717,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint 구성을 변경하면 생성됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -730,7 +730,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint의 파일 작업에 대한 응답으로 생성됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -751,10 +751,10 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 테이블은 이 솔루션에 의해 수집된 업데이트 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 | --- | --- |
 |Office 365 구독의 모든 작업 수 |OfficeActivity &#124; summarize count() by Operation |
-|SharePoint 사이트 사용량|&#124; \| SiteUrl 작업 = ~ "sharepoint" &#124; 는 count ()를 기준으로 count ()를 요약 합니다.|
+|SharePoint 사이트 사용량|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
 |사용자 유형별 파일 액세스 작업|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |특정 키워드를 사용한 검색|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Exchange에서 외부 작업 모니터링|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6824eae4d5fed2eceaf85b9a674f980815afb260
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101381"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645874"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포
 
@@ -77,8 +77,8 @@ ms.locfileid: "70101381"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "70101381"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "70101381"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -338,7 +338,7 @@ SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 
 
 한마디로 다음을 수행해야 합니다.
 
-* Azure Storage 계정을 사용하는 경우 **SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항**에서 지정한 대로 SAP MaxDB 데이터 및 로그 볼륨(데이터 및 로그 파일)을 유지하는 Azure Storage 계정을 [LRS(로컬 중복 스토리지)](dbms_guide_general.md)로 설정합니다.
+* Azure Storage 계정을 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 지정한 대로 SAP MaxDB 데이터 및 로그 볼륨(데이터 및 로그 파일)을 유지하는 Azure Storage 계정을 **LRS(로컬 중복 스토리지)** 로 설정합니다.
 * 로그 볼륨(로그 파일)에 대한 IO 경로에서 SAP MaxDB 데이터 볼륨(데이터 파일)에 대한 IO 경로를 분리합니다. 즉, 하나의 논리 드라이브에 SAP MaxDB 데이터 볼륨(데이터 파일)을 설치하고, 다른 논리 드라이브에 SAP MaxDB 로그 볼륨(로그 파일)을 설치해야 합니다.
 * [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로, SAP MaxDB 데이터 또는 로그 볼륨(데이터 및 로그 파일)을 사용하는지와 Azure Standard 또는 Azure Premium Storage를 사용하는지 여부에 따라 각 디스크에 적절한 캐싱 유형을 설정합니다.
 * 디스크당 현재 IOPS 할당량이 요구 사항을 충족하는 경우 탑재된 단일 디스크의 모든 데이터 볼륨을 저장하고 다른 탑재된 단일 디스크에 모든 데이터베이스 로그 볼륨을 저장할 수 있습니다.

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 68315b1b0d290b107fe2d28a9e3b49be009b78b8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782243"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647631"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>미리 보기: 가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -50,7 +50,7 @@ ms.locfileid: "74782243"
 ## <a name="deploying-spot-vms-in-scale-sets"></a>확장 집합에 지점 Vm 배포
 
 확장 집합에 별색 Vm을 배포 하려면 새 *우선 순위* *플래그를 지정 합니다.* 확장 집합의 모든 Vm이 지점으로 설정 됩니다. 지점 Vm을 사용 하 여 확장 집합을 만들려면 다음 방법 중 하나를 사용 합니다.
-- [Azure 포털](#portal)
+- [Azure Portal](#portal)
 - [Azure CLI](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Azure 리소스 관리자 템플릿](#resource-manager-templates)
@@ -151,7 +151,7 @@ $vmssConfig = New-AzVmssConfig `
 
 **Q:** 할당량은 어떻게 관리 되나요?
 
-**A:** 스폿 인스턴스와 표준 인스턴스는 별도의 할당량 풀을 갖게 됩니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 참조하세요.
+**A:** 스폿 인스턴스와 표준 인스턴스는 별도의 할당량 풀을 갖게 됩니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조하세요.
 
 
 **Q:** 추가 할당량을 요청할 수 있나요?
@@ -192,12 +192,12 @@ $vmssConfig = New-AzVmssConfig `
 
 | Azure 채널               | Azure 스폿 Vm 가용성       |
 |------------------------------|-----------------------------------|
-| 기업계약         | yes                               |
-| 종량제                | yes                               |
+| 기업계약         | 예                               |
+| 종량제                | 예                               |
 | CSP(클라우드 서비스 공급자) | [파트너에 게 문의](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | 혜택                     | 사용할 수 없음                     |
 | 스폰서                    | 사용할 수 없음                     |
-| 평가판                   | 사용할 수 없음                     |
+| 무료 평가판                   | 사용할 수 없음                     |
 
 
 **Q:** 어디에서 질문을 게시할 수 있나요?

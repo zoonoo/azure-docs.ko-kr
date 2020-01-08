@@ -3,20 +3,20 @@ title: 수정할 수 있는 정책 배포
 description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 10/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463884"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456865"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>위임된 구독 내에서 수정할 수 있는 정책 배포
 
-[Azure Lighthouse](../overview.md)를 사용하면 서비스 공급자가 위임된 구독 내에서 정책 정의를 만들고 편집할 수 있습니다. 그러나 [수정 작업](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources)을 사용하는 정책(즉 [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) 또는 [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) 효과를 사용하는 정책)을 배포하려면 고객 테넌트에서 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 만들어야 합니다. Azure Policy에서 이 관리 ID를 사용하여 정책 내에서 템플릿을 배포할 수 있습니다. Azure 위임된 리소스 관리를 위해 고객을 등록하고 정책 자체를 배포할 때 이 시나리오를 활성화하는 데 필요한 단계가 있습니다.
+[Azure Lighthouse](../overview.md)를 사용하면 서비스 공급자가 위임된 구독 내에서 정책 정의를 만들고 편집할 수 있습니다. 그러나 [수정 작업](../../governance/policy/how-to/remediate-resources.md)을 사용하는 정책(즉 [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) 또는 [modify](../../governance/policy/concepts/effects.md#modify) 효과를 사용하는 정책)을 배포하려면 고객 테넌트에서 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 만들어야 합니다. Azure Policy에서 이 관리 ID를 사용하여 정책 내에서 템플릿을 배포할 수 있습니다. Azure 위임된 리소스 관리를 위해 고객을 등록하고 정책 자체를 배포할 때 이 시나리오를 활성화하는 데 필요한 단계가 있습니다.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>고객 테넌트에서 관리 ID에 역할을 할당할 수 있는 사용자 만들기
 
-Azure에서 위임된 리소스 관리를 위해 고객을 등록하는 경우 고객 테넌트에서 위임된 리소스에 액세스할 수 있는 관리 테넌트에서 사용자, 사용자 그룹 및 서비스 사용자를 정의하는 매개 변수 파일과 함께 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template)을 사용합니다. 매개 변수 파일에서 이러한 각 사용자(**principalId**)에는 액세스 수준을 정의하는 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)(**roleDefinitionId**)이 할당됩니다.
+Azure에서 위임된 리소스 관리를 위해 고객을 등록하는 경우 고객 테넌트에서 위임된 리소스에 액세스할 수 있는 관리 테넌트에서 사용자, 사용자 그룹 및 서비스 사용자를 정의하는 매개 변수 파일과 함께 [Azure Resource Manager 템플릿](onboard-customer.md#create-an-azure-resource-manager-template)을 사용합니다. 매개 변수 파일에서 이러한 각 사용자(**principalId**)에는 액세스 수준을 정의하는 [기본 제공 역할](../../role-based-access-control/built-in-roles.md)(**roleDefinitionId**)이 할당됩니다.
 
 **principalId**가 고객 테넌트에서 관리 ID를 만들도록 허용하려면 해당 **roleDefinitionId**를 **사용자 액세스 관리자**로 설정해야 합니다. 이 역할은 일반적으로 지원되지 않지만 이 특정 시나리오에서 사용할 수 있습니다. 이 권한을 가진 사용자는 관리 ID에 특정 기본 제공 역할을 하나 이상 할당할 수 있습니다. 이러한 역할은 **delegatedRoleDefinitionIds** 속성에서 정의됩니다. 사용자 액세스 관리자 또는 소유자를 제외하고 여기에 기본 제공 역할을 포함할 수 있습니다.
 
@@ -66,5 +66,5 @@ Azure에서 위임된 리소스 관리를 위해 고객을 등록하는 경우 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy](https://docs.microsoft.com/azure/governance/policy/)에 대해 알아봅니다.
-- [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 대해 알아봅니다.
+- [Azure Policy](../../governance/policy/index.yml)에 대해 알아봅니다.
+- [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 대해 알아봅니다.

@@ -1,6 +1,6 @@
 ---
 title: 통합 계정에 대 한 재해 복구
-description: Azure Logic Apps의 통합 계정에 대 한 지역 간 재해 복구 설정
+description: Azure Logic Apps에서 지역 간 재해 복구를 사용 하 여 통합 계정 및 B2B 아티팩트 설정
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 5ab0b14a190461d4dfba74e277f3d2ec30d9981a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 25dff0cb14467513bf1cc60fd1fb6c2205bd2276
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793127"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666906"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps의 통합 계정에 대 한 지역 간 재해 복구 설정
 

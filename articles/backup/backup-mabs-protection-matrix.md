@@ -3,12 +3,12 @@ title: Azure Backup Server에서 백업할 수 있는 항목
 description: 이 문서에서는 Azure Backup Server에서 보호하는 모든 워크로드, 데이터 형식 및 설치 프로그램을 나열하는 지원 매트릭스를 제공합니다.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8f1ae1432f619dafc5084d250e3f89707405e08b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996156"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449884"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Server 보호 매트릭스
 
@@ -16,10 +16,10 @@ ms.locfileid: "74996156"
 
 ## <a name="protection-support-matrix"></a>보호 지원 매트릭스
 
-|작업|버전|Azure Backup 서버</br> installation|지원 되는 Azure Backup Server|보호 및 복구|
+|작업|버전|Azure Backup Server</br> installation|지원 되는 Azure Backup Server|보호 및 복구|
 |------------|-----------|---------------|--------------|--------------|
-|클라이언트 컴퓨터(64비트 및 32비트)|Windows 10|물리적 서버<br /><br />Hyper-V 가상 컴퓨터<br /><br />VMware 가상 머신|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|물리적 서버<br /><br />Hyper-V 가상 컴퓨터|V3, V2|파일<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 10|물리적 서버<br /><br />Hyper-V 가상 머신<br /><br />VMware 가상 머신|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|물리적 서버<br /><br />Hyper-V 가상 머신|V3, V2|파일<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 8|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 8|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
@@ -40,9 +40,9 @@ ms.locfileid: "74996156"
 |서버(32비트 및 64비트)|Windows Storage Server 2008|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|V3, V2|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
 |SQL Server|SQL Server 2019|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 머신 <br /> <br /> Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우) <br /><br /> VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3|모든 배포 시나리오: 데이터베이스|
 |SQL Server|SQL Server 2017|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 머신 <br /> <br /> Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우) <br /><br /> VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3|모든 배포 시나리오: 데이터베이스|
-|SQL Server|SQL Server 2016 SP2|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 머신 <br /> <br /> Azure 가상 컴퓨터 <br /><br /> VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
-|SQL Server|SQL Server 2016 SP1|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 머신 <br /> <br /> Azure 가상 컴퓨터 <br /><br /> VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
-|SQL Server|SQL Server 2016|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 머신 <br /> <br /> Azure 가상 컴퓨터 <br /><br /> VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
+|SQL Server|SQL Server 2016 SP2|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 머신 <br /> <br /> Azure 가상 머신 <br /><br /> VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
+|SQL Server|SQL Server 2016 SP1|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 머신 <br /> <br /> Azure 가상 머신 <br /><br /> VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
+|SQL Server|SQL Server 2016|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 머신 <br /> <br /> Azure 가상 머신 <br /><br /> VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
 |SQL Server|SQL Server 2014|Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우)<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
 |SQL Server|SQL Server 2014|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
 |SQL Server|SQL Server 2012 SP2|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|V3, V2|모든 배포 시나리오: 데이터베이스|
@@ -82,9 +82,23 @@ ms.locfileid: "74996156"
 
 ## <a name="azure-expressroute-support"></a>Azure Express 경로 지원
 
-Azure Express 경로를 개인 또는 Microsoft 피어 링으로 구성 하면 데이터를 Azure에 백업 하는 데 사용할 수 없습니다.
+공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링을 통한 백업은 지원 되지 않습니다.
 
-Azure Express 경로를 공용 피어 링으로 구성 하면 데이터를 Azure에 백업 하는 데 사용할 수 있습니다.
+공용 피어 링 사용: 다음 도메인/주소에 대 한 액세스를 확인 합니다.
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 하세요.
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
+* Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
+
+자세한 내용은 [express 경로 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조 하세요.
 
 >[!NOTE]
 >공용 피어 링은 새 회로에서 사용 되지 않습니다.
@@ -93,17 +107,17 @@ Azure Express 경로를 공용 피어 링으로 구성 하면 데이터를 Azure
 
 Azure Backup Server는 다음과 같은 클러스터 된 애플리케이션에서 데이터를 보호할 수 있습니다.
 
-- 파일 서버
+* 파일 서버
 
-- SQL Server
+* SQL Server
 
-- Hyper-v-스케일 아웃 MABS 보호 에이전트를 사용 하 여 Hyper-v 클러스터를 보호 하는 경우 보호 된 Hyper-v 작업에 대 한 보조 보호를 추가할 수 없습니다.
+* Hyper-v-스케일 아웃 MABS 보호 에이전트를 사용 하 여 Hyper-v 클러스터를 보호 하는 경우 보호 된 Hyper-v 작업에 대 한 보조 보호를 추가할 수 없습니다.
 
     Windows Server 2008 R2에서 Hyper-V를 실행하는 경우 KB[975354](https://support.microsoft.com/kb/975354)에 설명된 업데이트를 설치해야 합니다.
     클러스터 구성에서 Hyper-V를 Windows Server 2008 R2에서 실행하는 경우 SP2 및 KB[971394](https://support.microsoft.com/kb/971394)를 설치해야 합니다.
 
-- Exchange Server - Azure Backup Server는 지원되는 Exchange Server 버전의 공유되지 않은 디스크 클러스터(클러스터 연속 복제)를 보호할 수 있으며 로컬 연속 복제를 위해 구성된 Exchange Server도 보호할 수 있습니다.
+* Exchange Server - Azure Backup Server는 지원되는 Exchange Server 버전의 공유되지 않은 디스크 클러스터(클러스터 연속 복제)를 보호할 수 있으며 로컬 연속 복제를 위해 구성된 Exchange Server도 보호할 수 있습니다.
 
-- SQL Server - Azure Backup Server는 CSV(클러스터 공유 볼륨)에서 호스트되는 SQL Server 데이터베이스를 백업할 수 없습니다.
+* SQL Server - Azure Backup Server는 CSV(클러스터 공유 볼륨)에서 호스트되는 SQL Server 데이터베이스를 백업할 수 없습니다.
 
 Azure Backup Server는 MABS 서버와 동일한 도메인에 있는 클러스터 작업 및 하위 도메인 이나 트러스트 된 도메인에 있는 클러스터 작업을 보호할 수 있습니다. 트러스트되지 않은 도메인 또는 작업 그룹의 데이터 원본을 보호하려면 단일 서버의 경우 NTLM 또는 인증서 인증을 사용하거나 클러스터의 경우 인증서 인증만 사용합니다.

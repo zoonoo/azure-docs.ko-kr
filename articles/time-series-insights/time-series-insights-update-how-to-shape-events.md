@@ -1,6 +1,6 @@
 ---
 title: 셰이프 이벤트-Azure Time Series Insights | Microsoft Docs
-description: Azure Time Series Insights 미리 보기로 이벤트를 셰이핑 하는 방법을 알아봅니다.
+description: 모범 사례 및 Azure Time Insights 미리 보기에서 쿼리에 대 한 이벤트를 셰이핑 하는 방법에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd1b59ac2037669be021dfad3bf5032b794bef4a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006252"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452606"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 
@@ -38,7 +38,7 @@ Time Series Insights 미리 보기로 이벤트를 보내는 방법에 대해 �
 
 수집 하는 동안 중첩이 포함 된 페이로드가 평면화 되어 열 이름이 delineator 인 단일 값이 됩니다. Time Series Insights 미리 보기에서는 경계에 밑줄을 사용 합니다. 이는 기간을 사용 하는 제품의 GA 버전에서 변경 된 사항입니다. 미리 보기 중에는 아래 두 번째 예제에서 설명 하는 평면화에 주의 해야 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 다음 예제는 둘 이상의 디바이스가 측정값 또는 신호를 보내는 시나리오를 기반으로 합니다. 측정 또는 신호는 *흐름 요금*, *엔진 오일 압력*, *온도*및 *습도*가 될 수 있습니다.
 
@@ -46,7 +46,7 @@ Time Series Insights 미리 보기로 이벤트를 보내는 방법에 대해 �
 
 시계열 인스턴스는 장치 메타 데이터를 포함 합니다. 이 메타 데이터는 모든 이벤트에 대해 변경 되지 않지만 데이터 분석에 대 한 유용한 속성을 제공 합니다. 네트워크를 통해 전송 되는 바이트를 절약 하 고 메시지의 효율성을 향상 시키려면 공통 차원 값을 일괄 처리 하 고 시계열 인스턴스 메타 데이터를 사용 하는 것이 좋습니다.
 
-### <a name="example-1"></a>예제 1:
+### <a name="example-1"></a>예 1:
 
 ```JSON
 [
@@ -117,7 +117,7 @@ Time Series Insights 미리 보기로 이벤트를 보내는 방법에 대해 �
 
 Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 조인합니다(평면화 후). 테이블에는 **유형** 등의 추가 열이 포함됩니다. 다음 예제에서는 원격 분석 데이터의 [모양을](./time-series-insights-send-events.md#supported-json-shapes) 지정할 수 있는 방법을 보여 줍니다.
 
-| deviceId  | 형식 | L1 | L2 | timestamp | series_Flow Rate ft3/s | 석유 압력 프 series_Engine |
+| deviceId  | 유형 | L1 | L2 | timestamp | series_Flow Rate ft3/s | 석유 압력 프 series_Engine |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | 시뮬레이터 | 배터리 시스템 | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | 시뮬레이터 |   배터리 시스템 |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |

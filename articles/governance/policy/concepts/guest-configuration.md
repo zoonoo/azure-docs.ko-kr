@@ -3,12 +3,12 @@ title: 가상 컴퓨터의 콘텐츠를 감사 하는 방법 알아보기
 description: Azure Policy 게스트 구성 에이전트를 사용 하 여 가상 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f68bbc64ee8f0da02d213895a70e4c533b9a5f63
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: f3d99b32b952470f266ed2168d5760c2c72377c4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463799"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666723"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -59,7 +59,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
 
-|운영 체제|유효성 검사 도구|참고 사항|
+|운영 체제|유효성 검사 도구|메모|
 |-|-|-|
 |Windows|[Windows PowerShell 필요한 상태 구성](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 게스트 구성 확장을 통해 Ruby 및 Python이 설치됩니다. |
@@ -77,7 +77,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
-|Microsoft|Windows 클라이언트|Windows 10|
+|Microsoft|Windows 클라이언트|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |Suse|SLES|12 SP3|
@@ -93,10 +93,10 @@ Windows Server Nano Server는 어떤 버전 에서도 지원 되지 않습니다
 
 Azure에서 게스트 구성 리소스 공급자와 통신 하려면 컴퓨터에 포트 **443**에서 azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 합니다. 아웃 바운드 트래픽을 허용 하지 않는 Azure에서 개인 가상 네트워크를 사용 하는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용 하 여 예외를 구성 합니다. Azure Policy 게스트 구성에 대 한 서비스 태그가 현재 존재 하지 않습니다.
 
-IP 주소 목록 [Microsoft Azure 데이터 센터 Ip 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다. Vm이 배포 된 지역에서 Ip에 대 한 아웃 바운드 액세스를 허용 하기만 하면 됩니다.
+IP 주소 목록에 대해 [AZURE Ip 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다. Vm이 배포 된 지역에서 Ip에 대 한 아웃 바운드 액세스를 허용 하기만 하면 됩니다.
 
 > [!NOTE]
-> Azure 데이터 센터 IP 주소 XML 파일은 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위를 나열합니다. 이 파일에는 컴퓨팅, SQL 및 스토리지 범위가 포함되어 있습니다. 업데이트된 파일이 매주 게시됩니다. 이 파일에는 현재 배포된 범위 및 IP 범위에 대해 예정된 변경 내용이 반영됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다. 새 XML 파일을 매주 다운로드하는 것이 좋습니다. 그런 다음 Azure에서 실행되는 서비스를 올바르게 식별하도록 사이트를 업데이트합니다. Azure ExpressRoute 사용자는 이 파일을 사용해 Azure 공간에 대한 BGP(Border Gateway Protocol) 공지 사항을 매월 첫 주에 업데이트하고 있음에 유의해야 합니다.
+> Azure IP 범위 및 서비스 태그 JSON 파일은 Microsoft Azure 데이터 센터에서 사용 되는 IP 주소 범위를 나열 합니다. 이 파일에는 컴퓨팅, SQL 및 스토리지 범위가 포함되어 있습니다. 업데이트된 파일이 매주 게시됩니다. 이 파일에는 현재 배포된 범위 및 IP 범위에 대해 예정된 변경 내용이 반영됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다. 새 XML 파일을 매주 다운로드하는 것이 좋습니다. 그런 다음 Azure에서 실행되는 서비스를 올바르게 식별하도록 사이트를 업데이트합니다. Azure ExpressRoute 사용자는 이 파일을 사용해 Azure 공간에 대한 BGP(Border Gateway Protocol) 공지 사항을 매월 첫 주에 업데이트하고 있음에 유의해야 합니다.
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
@@ -124,7 +124,7 @@ Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성
 
 Azure Policy에서 사용할 수 있는 이니셔티브 중 하나는 Microsoft의 "기준"에 따라 가상 머신 내에서 운영 체제 설정을 감사 하는 기능을 제공 합니다. 정의 _\[미리 보기\]: Azure 보안 기준 설정과 일치 하지 않는 Windows Vm 감사_ 는 Active Directory 그룹 정책 설정에 따라 완전 한 감사 규칙 집합을 포함 합니다.
 
-대부분의 설정은 매개 변수로 사용할 수 있습니다. 이 기능을 사용 하 여 정책을 조직의 요구 사항에 맞게 조정 하거나 업계 규제 표준 등의 타사 정보에 매핑하기 위해 감사 되는 항목을 사용자 지정할 수 있습니다.
+대부분의 설정은 매개 변수로 사용할 수 있습니다. 이 기능을 사용 하 여 정책을 조직의 요구 사항에 맞게 조정 하거나 업계 규정 표준과 같은 타사 정보에 정책을 매핑하기 위해 감사 되는 항목을 사용자 지정할 수 있습니다.
 
 일부 매개 변수는 정수 값 범위를 지원 합니다. 예를 들어 범위 연산자를 사용 하 여 최대 암호 사용 기간 매개 변수를 설정 하 여 컴퓨터 소유자에 게 유연성을 제공할 수 있습니다. 사용자가 암호를 변경 하도록 요구 하는 효과적인 그룹 정책 설정은 70 일이 하 여야 하지만 1 일 보다 짧아야 합니다. 매개 변수의 정보-거품형에 설명 된 대로이 비즈니스 정책에 유효한 감사 값을 설정 하려면 값을 "1, 70"으로 설정 합니다.
 

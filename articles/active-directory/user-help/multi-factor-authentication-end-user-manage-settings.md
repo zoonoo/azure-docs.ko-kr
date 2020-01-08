@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7fbc18d8141c44c2b0863547c33b5c5193e928b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7e557ca1bfc7587b6a65957177440041bf4e902f
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231920"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681330"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>2 단계 확인 방법 및 설정 변경
 
@@ -32,16 +32,16 @@ ms.locfileid: "74231920"
 
 ## <a name="using-the-additional-security-verification-page"></a>추가 보안 인증 페이지 사용
 
-조직에서 2 단계 인증을 설정 하 고 관리 하는 방법에 대 한 특정 단계를 제공한 경우 해당 지침을 따라야 합니다. 그렇지 않으면 [추가 보안 인증](https://aka.ms/mfasetup) 페이지에서 보안 확인 방법 설정을 가져올 수 있습니다.
+조직에서 2 단계 인증을 설정 하 고 관리 하는 방법에 대 한 특정 단계를 제공한 경우 해당 지침을 따라야 합니다. 그렇지 않으면 [추가 보안 인증](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) 페이지에서 보안 확인 방법 설정을 가져올 수 있습니다.
 
 >[!Note]
 >화면에 표시 되는 내용이이 문서에서 설명 하는 내용과 일치 하지 않으면 관리자가 보안 정보 (미리 보기) 환경을 사용 하도록 설정 했거나 조직에 고유한 사용자 지정 포털이 있음을 의미 합니다. 보안 정보 환경에 대 한 자세한 내용은 [보안 정보 (미리 보기) 개요](user-help-security-info-overview.md)를 참조 하세요. 조직의 사용자 지정 포털에 대 한 자세한 내용은 기술 지원팀에 문의 해야 합니다.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>추가 보안 인증 페이지를 가져오려면
 
-- https://aka.ms/mfasetup로 이동합니다.
+- [추가 보안 인증](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) 페이지로 이동 합니다.
 
-    ![사용 가능한 보안 확인 방법 세부 정보를 포함 하는 추가 보안 확인 화면](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
+    ![사용 가능한 보안 확인 방법 세부 정보를 포함 하는 추가 보안 확인 페이지](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
     이 링크를 클릭할 때 링크가 작동하지 않으면 다음 단계에 따라 **추가 보안 인증** 페이지로 이동할 수도 있습니다.
 
@@ -141,4 +141,4 @@ Microsoft Authenticator 앱에서 계정을 삭제할 수 있으며 회사 또�
 
 - [2단계 인증을 사용하여 로그인](multi-factor-authentication-end-user-signin.md)
 
-- [2단계 인증에 관한 도움말 보기](multi-factor-authentication-end-user-troubleshoot.md)
+- [2단계 확인에 대한 도움말 보기](multi-factor-authentication-end-user-troubleshoot.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: edaa3f7c17ff5fb6bc79f67b7028a7ba72347367
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73591106"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466663"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -83,8 +83,8 @@ Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA
 비관리 디스크에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)으로 저장하는 스토리지 계정에 대한 아래의 모범 사례를 따릅니다.
 
 1. **동일한 스토리지 계정에서 VM과 모든 디스크(OS 및 데이터) 연결 유지**
-2. 스토리지 계정에 더 많은 VHD를 추가하기 전에 **Storage 계정에서 관리되지 않는 디스크의 수에 대한 [제한](../articles/storage/common/storage-scalability-targets.md) 검토**
-3. **가용성 집합의 각 VM마다 별도의 스토리지 계정을 사용합니다.** 동일한 가용성 집합에서 여러 VM을 사용하여 Storage 계정을 공유하지 않습니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에서 스토리지 계정을 공유할 수 있습니다. ![관리되지 않는 디스크 FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
+2. 저장소 계정에 더 많은 Vhd를 추가 하기 전에 **Azure Storage 계정의 관리 되지 않는 디스크 수에 대 한 [제한을](../articles/storage/blobs/scalability-targets-premium-page-blobs.md) 검토** 하세요.
+3. **가용성 집합의 각 VM에 대해 별도의 저장소 계정을 사용 합니다.** 동일한 가용성 집합에서 여러 VM을 사용하여 Storage 계정을 공유하지 않습니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에서 스토리지 계정을 공유할 수 있습니다. ![관리되지 않는 디스크 FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답
 

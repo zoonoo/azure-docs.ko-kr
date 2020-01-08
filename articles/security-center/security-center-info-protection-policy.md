@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664396"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611069"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Security Center에서 SQL 정보 보호 정책 사용자 지정
  
 Azure Security Center에서 전체 Azure 테 넌 트에 대 한 SQL information protection 정책을 정의 하 고 사용자 지정할 수 있습니다.
 
-Information protection은 Azure 데이터 리소스의 중요 한 데이터를 검색, 분류, 레이블 지정 및 보호 하기 위한 고급 보안 기능입니다. 가장 중요 한 데이터 (비즈니스, 재무, 의료, 개인 데이터 등)를 검색 하 고 분류 하면 조직 정보 보호에서 pivotal 역할을 수행할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
-- 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원
+Information protection은 Azure 데이터 리소스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 고급 보안 기능입니다. 가장 중요 한 데이터 (비즈니스, 재무, 의료, 개인 데이터 등)를 검색 하 고 분류 하면 조직 정보 보호에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
+- 데이터 개인 정보 보호 표준 및 규정 준수 요구 사항 충족 지원
 - 모니터링 (감사) 및 중요 한 데이터에 대 한 비정상적인 액세스 경고와 같은 보안 시나리오
 - 매우 중요한 데이터가 들어 있는 데이터 저장소에 대한 액세스 제어 및 보안 강화
  

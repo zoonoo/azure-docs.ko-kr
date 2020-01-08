@@ -1,22 +1,24 @@
 ---
-title: Notebooks에 로그인
+title: Azure Notebooks 미리 보기에 로그인
 description: Microsoft 계정 또는 회사/학교 계정을 사용하여 Azure Notebooks에 대한 사용자 계정을 구성합니다.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: a2d8c8180dfb5dc31e273c7953a57f40cf31238d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277630"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646299"
 ---
-# <a name="your-user-account-for-azure-notebooks"></a>Azure Notebooks에 대한 사용자 계정
+# <a name="your-user-account-for-azure-notebooks-preview"></a>Azure Notebooks 미리 보기용 사용자 계정
 
 사용자 계정에 로그인하여 또는 로그인하지 않고 Azure Notebooks를 사용할 수 있습니다.
 
 - 로그인하지 않을 경우 Notebook을 만들고 실행할 수 있지만 프로젝트의 일부로 Notebook 또는 데이터 파일을 유지할 수는 없습니다. 예를 들어 Azure Notebook에 대한 링크를 받은 사람은 로그인하지 않고 Notebook을 사용할 수 있습니다.
 - 로그인하면 Azure Notebooks가 모든 프로젝트를 계정과 함께 유지합니다. 또한 로그인한 사용자는 사용자 ID를 통해 프로젝트 및 Notebook을 다른 사용자와 공유할 수 있습니다.
-  - Azure Notebooks에 사용되는 계정을 Azure 구독과 연결하면 보다 강력한 서버에서 Notebook을 실행하고, 프라이빗 Notebook을 만들고, 개별 사용자에 대한 권한을 노트북에 부여하는 등의 추가 혜택을 누릴 수 있습니다.
+- Azure Notebooks에 사용되는 계정을 Azure 구독과 연결하면 보다 강력한 서버에서 Notebook을 실행하고, 프라이빗 Notebook을 만들고, 개별 사용자에 대한 권한을 노트북에 부여하는 등의 추가 혜택을 누릴 수 있습니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Azure Notebooks에 로그인하려면 Microsoft 계정 또는 "회사 또는 학교" 계정이 필요합니다. Notebook 페이지의 오른쪽 위에서 **로그인** 명령을 선택하면 계정을 입력하라는 메시지가 표시됩니다.
 

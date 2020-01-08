@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor의 사용자 지정 필드 | Microsoft Docs
+title: Azure Monitor의 사용자 지정 필드 (미리 보기) | Microsoft Docs
 description: Azure Monitor의 사용자 지정 필드 기능을 사용 하면 수집 된 레코드의 속성에 추가 되는 Log Analytics 작업 영역의 레코드에서 고유한 검색 가능 필드를 만들 수 있습니다.  이 문서는 사용자 지정 필드를 만드는 프로세스를 설명하고 샘플 이벤트에 대한 자세한 연습을 제공합니다.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396876"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에 사용자 지정 필드 만들기
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Azure Monitor (미리 보기)에서 Log Analytics 작업 영역에 사용자 지정 필드 만들기
 
 > [!NOTE]
 > 이 문서에서는 수집 될 때 Log Analytics 작업 영역에서 텍스트 데이터를 구문 분석 하는 방법을 설명 합니다. [Azure Monitor에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)에 설명 된 지침에 따라 쿼리 필터에서 텍스트 데이터를 구문 분석 하는 것이 좋습니다. 사용자 지정 필드 사용에 비해 여러 가지 이점을 제공 합니다.
@@ -113,7 +113,7 @@ Top 속성 옆에 있는 줄임표를 클릭 하 여 사용자 지정 필드를 
 
 ![검색 결과](media/custom-fields/search-results-02.png)
 
-이제 **Service_CF** 가 생성 되었지만 아직 레코드에 추가 되지 않았는지 확인 하는 쿼리를 실행할 수 있습니다. 사용자 지정 필드가 기존 레코드에 대해 작동 하지 않기 때문에 새 레코드가 수집 될 때까지 기다려야 합니다.
+이제 **Service_CF** 생성 되었지만 아직 레코드에 추가 되지 않았는지 확인 하는 쿼리를 실행할 수 있습니다. 사용자 지정 필드가 기존 레코드에 대해 작동 하지 않기 때문에 새 레코드가 수집 될 때까지 기다려야 합니다.
 
 ![초기 개수](media/custom-fields/initial-count.png)
 

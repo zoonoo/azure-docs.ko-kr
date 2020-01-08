@@ -1,5 +1,5 @@
 ---
-title: Linux에서 VM 디스크의 확장성 및 성능 목표-Microsoft Azure
+title: Linux 기반 VM 디스크의 확장성 및 성능 목표
 description: Linux 기반의 VM에 연결된 가상 머신 디스크의 확장성 및 성능 목표를 알아봅니다.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 8bc355c4658ae3f410fb8852008752cf4497751d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7298b54d94effaa5bd7e600ec2d8d1045aa263ec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036331"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647614"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux 기반 VM 디스크의 확장성 및 성능 목표
 
@@ -31,6 +31,6 @@ ms.locfileid: "74036331"
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
-[Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits)
+[Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)

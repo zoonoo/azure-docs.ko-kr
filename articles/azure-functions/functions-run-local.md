@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 65fa8502be43076e06cea18b2499ceed9d7d770e
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941834"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667524"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -129,7 +129,6 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
 
     | Linux 배포 | 버전 |
     | --------------- | ----------- |
-    | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
@@ -155,7 +154,7 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
 
 함수 프로젝트 디렉터리에는 개별 함수에 대한 코드가 포함된 하위 폴더와 함께 [host.json](functions-host-json.md) 및 [local.settings.json](#local-settings-file) 파일이 포함됩니다. 이 디렉터리는 Azure의 함수 앱에 해당합니다. Functions 폴더 구조에 대한 자세한 내용은 [Azure Functions 개발자 가이드](functions-reference.md#folder-structure)를 참조하세요.
 
-버전 2.x는 초기화될 때 프로젝트에 대한 기본 언어를 선택해야 하고 추가된 모든 기능은 기본 언어 템플릿을 사용합니다. 버전 1.x에서는 함수를 만들 때마다 언어를 지정합니다.
+버전 2.x를 사용 하려면 프로젝트를 초기화할 때 프로젝트에 대 한 기본 언어를 선택 해야 합니다. 버전 2.x에서 추가 된 모든 함수는 기본 언어 템플릿을 사용 합니다. 버전 1.x에서는 함수를 만들 때마다 언어를 지정합니다.
 
 터미널 창이나 명령 프롬프트에서 다음 명령을 실행하여 프로젝트 및 로컬 Git 리포지토리를 만듭니다.
 
@@ -189,7 +188,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 별도의 설명이 없으면 `func init`는 다음 옵션(버전 2.x 전용)을 지원합니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csharp`**<br/> **`--dotnet`** | [ C# 클래스 라이브러리 (.cs) 프로젝트](functions-dotnet-class-library.md)를 초기화 합니다. |
 | **`--csx`** | [ C# 스크립트 (csx) 프로젝트](functions-reference-csharp.md)를 초기화 합니다. 후속 명령에서 `--csx`를 지정해야 합니다. |
@@ -203,7 +202,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--python`**  | [Python 프로젝트](functions-reference-python.md)를 초기화 합니다. |
 | **`--source-control`** | Git 리포지토리 작성 여부를 제어합니다. 리포지토리는 기본적으로 작성되지 않습니다. `true`이면 리포지토리가 작성됩니다. |
 | **`--typescript`**  | [TypeScript 프로젝트](functions-reference-node.md#typescript)를 초기화 합니다. |
-| **`--worker-runtime`** | 프로젝트의 언어 런타임을 설정합니다. 지원 되는 값은 `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python`, `typescript`입니다. 설정하지 않으면 초기화 중에 런타임을 선택하라는 메시지가 표시됩니다. |
+| **`--worker-runtime`** | 프로젝트의 언어 런타임을 설정합니다. 지원 되는 값은 `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python`, `typescript`입니다. 설정 하지 않은 경우 초기화 하는 동안 런타임을 선택 하 라는 메시지가 표시 됩니다. |
 
 > [!IMPORTANT]
 > 기본적으로 핵심 도구 버전 2.x에서는 .NET 런타임에 대한 함수 앱 프로젝트를 [C# 클래스 프로젝트](functions-dotnet-class-library.md)(.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 중에/Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
@@ -212,7 +211,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish) `--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings**의 값은 게시되지 않습니다.
+기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish)`--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings**의 값은 게시되지 않습니다.
 
 이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
 
@@ -227,9 +226,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 ### <a name="get-your-storage-connection-strings"></a>스토리지 연결 문자열 가져오기
 
-개발을 위해 스토리지 에뮬레이터를 사용하는 경우라도 실제 스토리지 연결을 테스트하고 싶을 수 있습니다. 이미 [스토리지 계정을 만든](../storage/common/storage-create-storage-account.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 스토리지 연결 문자열을 가져올 수 있습니다.
+개발에 Microsoft Azure Storage 에뮬레이터를 사용 하는 경우에도 실제 저장소 연결로 테스트 하는 것이 좋습니다. 이미 [스토리지 계정을 만든](../storage/common/storage-create-storage-account.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 스토리지 연결 문자열을 가져올 수 있습니다.
 
-- [Azure 포털]에서 **저장소 계정**을 검색 하 고 선택 합니다. 
+- [Azure Portal]에서 **저장소 계정**을 검색 하 고 선택 합니다. 
   ![Azure Portal](./media/functions-run-local/select-storage-accounts.png)에서 저장소 계정을 선택 합니다.
   
   저장소 계정을 선택 하 고, **설정**에서 **액세스 키** 를 선택한 다음, **연결 문자열** 값 중 하나를 복사 합니다.
@@ -252,7 +251,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Azure에 로그인하지 않은 경우 수행하라는 메시지가 나타납니다.
+    Azure에 아직 로그인 하지 않은 경우 로그인 하 라는 메시지가 표시 됩니다.
 
 ## <a name="create-func"></a>함수 만들기
 
@@ -290,11 +289,11 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 다음 인수를 사용하는 명령에서 이러한 옵션을 지정할 수도 있습니다.
 
-| 인수     | 설명                            |
+| 인수     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (버전 2.x) 버전 1.x 및 포털에서 사용되는 것과 동일한 C# 스크립트(.csx) 템플릿을 생성합니다. |
 | **`--language -l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x에서는 이 옵션을 사용하지 않거나 작업자 런타임과 일치하는 언어를 선택하세요. |
-| **`--name -n`** | 함수 이름 |
+| **`--name -n`** | 함수 이름입니다. |
 | **`--template -t`** | `func templates list` 명령을 사용하여 지원되는 각 언어에 대해 사용 가능한 템플릿의 전체 목록을 확인합니다.   |
 
 예를 들어 단일 명령에서 JavaScript HTTP 트리거를 만들려면 다음을 실행합니다.
@@ -346,13 +345,13 @@ func host start
 
 `func start`은 다음 옵션을 지원합니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 실행 전에 현재 프로젝트를 빌드하지 않도록 합니다. dotnet 프로젝트에만 해당합니다. 기본값은 false로 설정하는 것입니다. 버전 2.x 전용입니다. |
 | **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
 | **`--cors-credentials`** | 원본 간 인증된 요청(즉, 쿠키 및 인증 헤더)을 허용하며, 버전 2.x 전용입니다. |
 | **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
-| **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 버전 2.x 전용입니다. |
+| **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 예를 들어 [디버그 포트 및 기타 필수 인수](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)를 제공 하 여 언어 작업자에 대해 디버깅을 사용 하도록 설정할 수 있습니다. 버전 2.x 전용입니다. |
 | **`--nodeDebugPort -n`** | 사용할 노드 디버거의 포트입니다. 기본값: launch.json 값 또는 5858 버전 1.x 전용입니다. |
 | **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
 | **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
@@ -436,7 +435,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run`은 다음 옵션을 지원합니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | 인라인 콘텐츠입니다. |
 | **`--debug -d`** | 함수를 실행하기 전에 호스트 프로세스에 디버거를 연결합니다.|
@@ -472,14 +471,14 @@ func azure functionapp publish <FunctionAppName>
 
 다음 게시 옵션은 1. x 및 2.x 버전 모두에 적용 됩니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용 하는 경우 먼저 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경 합니다. |
+| **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. Microsoft Azure Storage 에뮬레이터 사용 하는 경우 먼저 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경 합니다. |
 | **`--overwrite-settings -y`** | `--publish-local-settings -i` 사용 시 앱 설정을 덮어쓴다는 메시지를 표시하지 않습니다.|
 
 다음 게시 옵션은 버전 2.x에서만 지원됩니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
 |**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |
@@ -487,7 +486,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 .wheels 폴더 생성을 건너뜁니다. |
 | **`--build`**<br/>**`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local`. |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | .NET 클래스 라이브러리 함수를 빌드하지 않습니다. |
@@ -503,7 +502,7 @@ func deploy
 
 다음과 같은 사용자 지정 컨테이너 배포 옵션을 사용할 수 있습니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 현재 사용자가 로그인되어 있는 Docker 레지스트리의 이름입니다. |
 | **`--platform`** | 함수 앱의 호스팅 플랫폼입니다. 유효한 옵션은 `kubernetes`입니다. |
@@ -516,9 +515,9 @@ func deploy
 
 함수 실행을 모니터링 하는 권장 방법은 Azure 애플리케이션 Insights와 통합 하는 것입니다. 실행 로그를 로컬 컴퓨터로 스트리밍할 수도 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
-### <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
+### <a name="application-insights-integration"></a>Application Insights 통합
 
-Azure Portal에서 함수 앱을 만들 때 기본적으로 Application Insights 통합이 수행 됩니다. 그러나 Azure CLI를 사용하여 함수 앱을 만드는 경우 Azure에서 함수 앱 통합이 수행되지 않습니다.
+Azure에서 함수 앱을 만들 때 Application Insights 통합을 사용 하도록 설정 해야 합니다. 일부 이유로 함수 앱이 Application Insights 인스턴스에 연결 되지 않은 경우 Azure Portal에서이 통합을 쉽게 수행할 수 있습니다. 
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -530,7 +529,7 @@ Azure Portal에서 함수 앱을 만들 때 기본적으로 Application Insights
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-이 유형의 스트리밍 로그에는 함수 앱에 대 한 [Application Insights 통합을 사용 하도록 설정](#enable-application-insights-integration) 해야 합니다.   
+이 유형의 스트리밍 로그에는 함수 앱에 대 한 Application Insights 통합을 사용 하도록 설정 해야 합니다.   
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -541,8 +540,8 @@ Azure Portal에서 함수 앱을 만들 때 기본적으로 Application Insights
 <!-- LINKS -->
 
 [Azure Functions 핵심 도구]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure 포털]: https://portal.azure.com 
-[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Azure Portal]: https://portal.azure.com 
+[Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [확장 번들]: functions-bindings-register.md#extension-bundles

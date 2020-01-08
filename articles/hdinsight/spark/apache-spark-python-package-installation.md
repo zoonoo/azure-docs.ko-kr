@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: a8654f6c9c6c6d020872d2c89e0dd141db4e0451
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 109ac20d8a3d3dc87b4a83165c0e6c24808c1340
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215590"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529646"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -22,11 +22,11 @@ ms.locfileid: "74215590"
 
 HDInsight에는 Spark 클러스터에 두 가지 기본 제공 Python 설치 Anaconda Python 2.7 및 Python 3.5이 있습니다. 경우에 따라 고객은 외부 Python 패키지 또는 다른 Python 버전을 설치 하는 등 Python 환경을 사용자 지정 해야 합니다. 이 문서에서는 HDInsight에서 [Apache Spark](https://spark.apache.org/) 클러스터에 대 한 Python 환경을 안전 하 게 관리 하는 모범 사례를 보여 줍니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독 [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
    > [!NOTE]  
    > Hdinsight Linux에 Spark 클러스터가 아직 없는 경우 클러스터를 만드는 동안 스크립트 작업을 실행할 수 있습니다. [사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에 대한 설명서를 참조하세요.
@@ -43,7 +43,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 > [!IMPORTANT]
 > HDInsight 클러스터에 제공되는 구성 요소는 완벽히 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하도록 도와줍니다.
 >
-> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원을 통해 문제를 해결할 수 있습니다. 또는 해당 기술에 대한 전문 지식이 있는 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요청할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/)).
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원을 통해 문제를 해결할 수 있습니다. 또는 해당 기술에 대한 전문 지식이 있는 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요청할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. 또한 Apache 프로젝트에는 [https://apache.org](https://apache.org)에 대 한 프로젝트 사이트가 있습니다 (예: [Hadoop](https://hadoop.apache.org/)).
 
 ## <a name="understand-default-python-installation"></a>기본 Python 설치 이해
 
@@ -52,8 +52,8 @@ Anaconda 설치를 사용 하 여 HDInsight Spark 클러스터를 만듭니다. 
 | |Python 2.7|Python 3.5|
 |----|----|----|
 |경로|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|2\.7로 기본 설정|해당 없음|
-|Livy|2\.7로 기본 설정|해당 없음|
+|Spark|2\.7로 기본 설정|N/A|
+|Livy|2\.7로 기본 설정|N/A|
 |Jupyter|PySpark 커널|PySpark3 커널|
 
 ## <a name="safely-install-external-python-packages"></a>외부 Python 패키지를 안전 하 게 설치
@@ -81,7 +81,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
     sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
     ```
 
-    가상 환경 이름을 모르는 경우 클러스터의 헤더 노드로 SSH를 실행 하 고 `/usr/bin/anaconda/bin/conda info -e`를 실행 하 여 모든 가상 환경을 표시할 수 있습니다.
+    가상 환경 이름을 모르는 경우 클러스터의 헤드 노드로 SSH를 실행 하 고 `/usr/bin/anaconda/bin/conda info -e`를 실행 하 여 모든 가상 환경을 표시할 수 있습니다.
 
 3. Spark 및 Livy configs를 변경 하 고 만든 가상 환경을 가리킵니다.
 

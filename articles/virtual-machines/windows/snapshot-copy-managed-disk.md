@@ -1,5 +1,5 @@
 ---
-title: Azure에서 VHD의 스냅숏 만들기
+title: Azure에서 가상 하드 드라이브의 스냅숏 만들기
 description: 백업 또는 문제 해결을 위해 사용할 Azure VM의 복사본을 만드는 방법을 알아봅니다.
 documentationcenter: ''
 author: roygara
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b564e20ca8aa5acd7fbd4ea69ac2b1cd72e66d5e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075332"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370904"
 ---
 # <a name="create-a-snapshot"></a>스냅샷 만들기
 
@@ -27,13 +27,14 @@ ms.locfileid: "74075332"
 
 스냅샷을 사용하여 새 VM을 만들려는 경우 진행 중인 모든 프로세스를 제거하려면 스냅샷을 만들기 전에 완전히 VM을 종료하는 것이 좋습니다.
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용 
+## <a name="use-the-azure-portal"></a>Azure Portal 사용 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **리소스 만들기**를 선택한 다음, **스냅샷**을 검색하여 선택합니다.
+스냅숏을 만들려면 다음 단계를 완료 합니다. 
+1.  [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택 합니다.
+2. **스냅숏**을 검색 하 고 선택 합니다.
 3. **스냅샷** 창에서 만들기 **만들기**를 선택합니다. **스냅샷 만들기** 창이 나타납니다.
 4. 스냅샷의 **이름**을 입력합니다.
-5. 기존 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
+5. 기존 [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
 6. Azure 데이터 센터 **위치**를 선택합니다.  
 7. **원본 디스크**에서 스냅샷을 만들 관리 디스크를 선택합니다.
 8. 스냅샷 저장에 사용할 **계정 유형**을 선택합니다. 스냅샷이 고성능 디스크에 저장되어야 하는 경우가 아니면 **Standard_HDD**를 선택합니다.
@@ -41,7 +42,7 @@ ms.locfileid: "74075332"
 
 ## <a name="use-powershell"></a>PowerShell 사용
 
-다음 단계에서는 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 VHD 디스크를 복사하고, 스냅샷 구성을 만들고, 디스크의 스냅샷을 만드는 방법을 보여 줍니다. 
+다음 단계에서는 VHD 디스크를 복사 하 고 스냅숏 구성을 만드는 방법을 보여 줍니다. 그런 다음 [AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용 하 여 디스크의 스냅숏을 만들 수 있습니다. 
 
  
 

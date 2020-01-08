@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ff8956d942aa54500a08cac4ebd94127b14b0bd4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: 9cd6c2a39f72c47b06bebfa2a8c457a725484141
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931769"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529986"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Azure 활동 로그를 storage 또는 Azure Event Hubs로 내보내기
 
@@ -30,7 +30,7 @@ Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 �
 * **타사 로깅 및 원격 분석 시스템으로 스트림**: 시간이 지나면서 Azure Event Hubs 스트리밍은 활동 로그를 타사 SIEM 및 로그 분석 솔루션으로 파이핑하기 위한 메커니즘이 되고 있습니다.
 * **사용자 지정 원격 분석 및 로깅 플랫폼 빌드**: 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 Event Hubs의 확장성 높은 게시-구독 특성을 통해 활동 로그를 유연하게 수집할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="storage-account"></a>Storage 계정
 활동 로그를 보관 하는 경우 [저장소 계정을 만들어야](../../storage/common/storage-quickstart-create-account.md) 합니다 (아직 없는 경우). 모니터링 데이터에 대 한 액세스를 더 잘 제어할 수 있도록 다른 모니터링 되지 않는 데이터가 저장 되어 있는 기존 저장소 계정을 사용해 서는 안 됩니다. 그러나 저장소 계정에 로그 및 메트릭을 보관 하는 경우에도 동일한 저장소 계정을 사용 하 여 모든 모니터링 데이터를 중앙 위치에 유지 하도록 선택할 수 있습니다.
@@ -39,7 +39,7 @@ Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 �
 > [!NOTE]
 >  현재는 보안 가상 네트워크 뒤에 있는 스토리지 계정에 데이터를 보관할 수 없습니다.
 
-### <a name="event-hubs"></a>Event Hubs(영문)
+### <a name="event-hubs"></a>Event Hubs
 활동 로그를 event hub에 전송 하는 경우에는 [이벤트 허브를 만들어야](../../event-hubs/event-hubs-create.md) 합니다 (아직 없는 경우). 이전에 활동 로그 이벤트를이 Event Hubs 네임 스페이스로 스트리밍하는 경우 해당 이벤트 허브가 다시 사용 됩니다.
 
 공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. Event Hubs로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요 합니다. Event Hubs 네임 스페이스의 구성 탭에 있는 Azure Portal에서 Event Hubs 네임 스페이스에 대 한 공유 액세스 정책을 만들거나 수정할 수 있습니다.
@@ -111,13 +111,13 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 자산 | 필수 | 설명 |
+    | 속성 | 필수 | Description |
     | --- | --- | --- |
-    | name |yes |로그 프로필의 이름입니다. |
+    | 이름 |예 |로그 프로필의 이름입니다. |
     | StorageAccountId |아닙니다. |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
     | serviceBusRuleId |아닙니다. |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}`형식의 문자열입니다. |
-    | 위치 |yes |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
-    | RetentionInDays |yes |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
+    | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
+    | RetentionInDays |예 |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
     | 범주 |아닙니다. |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_및 _동작_입니다. |
 
 ### <a name="example-script"></a>예제 스크립트
@@ -154,99 +154,14 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | 자산 | 필수 | 설명 |
+    | 속성 | 필수 | Description |
     | --- | --- | --- |
-    | 이름 |yes |로그 프로필의 이름입니다. |
-    | storage-account-id |yes |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-    | 위치 |yes |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
-    | days |yes |이벤트를 유지 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한(영원히) 저장합니다.  0 인 경우 enabled 매개 변수를 false로 설정 해야 합니다. |
-    |사용 | yes |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
-    | 범주 |yes |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
-
-
-
-## <a name="activity-log-schema"></a>활동 로그 스키마
-Azure storage 또는 Event Hub로 전송 되는 경우 활동 로그 데이터는 다음 형식의 JSON에 기록 됩니다.
-
-
-> 11 월 1 일에 저장소 계정에 기록 된 활동 로그 데이터의 형식이 JSON 줄로 변경 되었습니다. 1, 2018. 이러한 형식 변경에 대 한 자세한 내용은 [저장소 계정에 보관 된 리소스 로그를 Azure Monitor 형식 변경 준비를](diagnostic-logs-append-blobs.md) 참조 하세요.
-
-``` JSON
-{
-    "records": [
-        {
-            "time": "2015-01-21T22:14:26.9792776Z",
-            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-            "operationName": "microsoft.support/supporttickets/write",
-            "category": "Write",
-            "resultType": "Success",
-            "resultSignature": "Succeeded.Created",
-            "durationMs": 2826,
-            "callerIpAddress": "111.111.111.11",
-            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
-            "identity": {
-                "authorization": {
-                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-                    "action": "microsoft.support/supporttickets/write",
-                    "evidence": {
-                        "role": "Subscription Admin"
-                    }
-                },
-                "claims": {
-                    "aud": "https://management.core.windows.net/",
-                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-                    "iat": "1421876371",
-                    "nbf": "1421876371",
-                    "exp": "1421880271",
-                    "ver": "1.0",
-                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-                    "puid": "20030000801A118C",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-                    "name": "John Smith",
-                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-                    "appidacr": "2",
-                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-                }
-            },
-            "level": "Information",
-            "location": "global",
-            "properties": {
-                "statusCode": "Created",
-                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
-            }
-        }
-    ]
-}
-```
-이 JSON의 요소는 다음 표에 설명 되어 있습니다.
-
-| 요소 이름 | 설명 |
-| --- | --- |
-| time |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
-| resourceId |영향을 받는 리소스의 리소스 ID입니다. |
-| operationName |작업의 이름입니다. |
-| category |작업의 범주 (예: 쓰기, 읽기, 작업) |
-| resultType |결과의 형식 (예: 성공, 실패, 시작) |
-| resultSignature |리소스 종류에 따라 다릅니다. |
-| durationMS |밀리초 단위의 작업 기간 |
-| callerIpAddress |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 IP 주소입니다. |
-| correlationId |일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
-| ID |권한 부여 및 클레임을 설명하는 JSON Blob입니다. |
-| authorization |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
-| level |이벤트의 수준입니다. _중요_, _오류_, _경고_, _정보_및 _자세한 정보_ 를 표시 하는 다음 값 중 하나입니다. |
-| location |발생하는 위치의 지역(또는 전역)입니다. |
-| properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
-
-> [!NOTE]
-> 이러한 속성의 속성과 사용법은 리소스에 따라 다를 수 있습니다.
+    | name |예 |로그 프로필의 이름입니다. |
+    | storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+    | 위치 |예 |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
+    | 일 |예 |이벤트를 유지 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한(영원히) 저장합니다.  0 인 경우 enabled 매개 변수를 false로 설정 해야 합니다. |
+    |사용 | 예 |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
+    | 범주 |예 |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 
 

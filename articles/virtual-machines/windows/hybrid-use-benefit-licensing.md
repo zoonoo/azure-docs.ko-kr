@@ -1,5 +1,5 @@
 ---
-title: Windows Server용 Azure Hybrid Benefit
+title: Windows Server에 대한 Azure Hybrid Benefit
 description: Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 40697925d399962399da499e0469198a0e997f66
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461163"
 ---
-# <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
+# <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server에 대한 Azure Hybrid Benefit
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows OS를 사용하여 새 가상 머신을 배포하려면 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
 
 > [!Important]
@@ -201,4 +201,4 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 - [Windows Server용 Azure 하이브리드 혜택 라이선스 세부 지침](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)에 대해 자세히 알아봅니다.
 - [Windows Server용 Azure 하이브리드 혜택 및 Azure Site Recovery를 사용하여 애플리케이션을 Azure로 훨씬 간편하게 마이그레이션하는 방법](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)에 대해 자세히 알아봅니다.
 - [다중 테넌트 호스팅 권한으로 Azure에서 Windows 10](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)에 대해 자세히 알아봅니다.
-- [Resource Manager 템플릿 사용](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
+- [Resource Manager 템플릿 사용](../../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.

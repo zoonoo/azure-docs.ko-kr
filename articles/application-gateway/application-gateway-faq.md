@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996666"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658307"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -158,7 +158,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?
 
-[Application Gateway 제한](../azure-subscription-service-limits.md#application-gateway-limits)을 참조 하세요.
+[Application Gateway 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)을 참조 하세요.
 
 ### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>외부 및 내부 트래픽에 대해 동시에 Application Gateway를 사용할 수 있나요?
 
@@ -200,6 +200,9 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 예. 자세한 내용은 v 1 [에서 v 2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽 마이그레이션](migrate-v1-v2.md)을 참조 하세요.
 
+### <a name="does-application-gateway-support-ipv6"></a>I p v 6을 지원 Application Gateway?
+
+Application Gateway v2는 현재 i p v 6을 지원 하지 않습니다. IPv4만 사용 하는 이중 스택 VNet에서 작동할 수 있지만 게이트웨이 서브넷은 IPv4 전용 이어야 합니다. Application Gateway v1은 이중 스택 Vnet을 지원 하지 않습니다. 
 
 ## <a name="configuration---ssl"></a>구성-SSL
 
@@ -380,6 +383,30 @@ Application Gateway 액세스 로그를 위해 인기 있는 [Goaccess](https://
 - Application Gateway v2를 배포 했습니다.
 - 응용 프로그램 게이트웨이 서브넷에 NSG가 있습니다.
 - 해당 NSG에서 NSG 흐름 로그를 사용 하도록 설정 했습니다.
+
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>사설 프런트 엔드 IP 주소만 사용 하는 어떻게 할까요? Application Gateway V2를 사용 하 시겠습니까?
+
+현재 Application Gateway V2는 개인 IP 모드만 지원 하지 않습니다. 다음 조합을 지원 합니다.
+* 개인 IP 및 공용 IP
+* 공용 IP만
+
+하지만 개인 IP만 포함 된 Application Gateway v 2를 사용 하려는 경우 다음 프로세스를 수행할 수 있습니다.
+1. 공용 및 개인 프런트 엔드 IP 주소를 사용 하 여 Application Gateway 만들기
+2. 공용 프런트 엔드 IP 주소에 대 한 수신기를 만들지 마세요. 수신기가 생성 되지 않은 경우 Application Gateway은 공용 IP 주소에 대 한 트래픽을 수신 대기 하지 않습니다.
+3. 우선 순위에 따라 다음 구성을 사용 하 여 Application Gateway 서브넷에 대 한 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview) 을 만들고 연결 합니다.
+    
+    a. 원본에서 **게이트웨이 관리자** 서비스 태그 및 **대상으로의** 트래픽을 **65200-65535**로 허용 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호 (잠금 해제) 됩니다. 게이트웨이 사용자 관리자를 비롯 한 외부 엔터티는 적절 한 인증서를 사용 하지 않고 해당 끝점에 대 한 변경 내용을 시작할 수 없습니다.
+    
+    b. 원본에서 **Azureloadbalancer** 서비스 태그로 트래픽 및 대상 및 대상 포트를 **Any** 로 허용
+    
+    다. 원본에서 **인터넷** 서비스 태그로 모든 인바운드 트래픽을 거부 하 고 대상 및 대상 포트를 **Any**로 거부 합니다. 인바운드 규칙에서이 규칙의 *최소 우선 순위* 를 지정 합니다.
+    
+    d. 개인 IP 주소에 대 한 액세스가 차단 되지 않도록 VirtualNetwork 인바운드 허용과 같은 기본 규칙을 유지 합니다.
+    
+    e. 아웃바운드 인터넷 연결은 차단할 수 없습니다. 그렇지 않으면 로깅, 메트릭 등의 문제를 발생 시킵니다.
+
+개인 IP 전용 액세스에 대 한 샘플 NSG 구성: 개인 IP 액세스 전용 ![Application Gateway V2 NSG 구성](./media/application-gateway-faq/appgw-privip-nsg.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 

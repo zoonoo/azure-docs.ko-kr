@@ -7,29 +7,29 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2018
-ms.openlocfilehash: 9cc9c9db1438196190df38082f18d650eff38249
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7112f86ca123c66c5969236617f35fcb8d698030
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932689"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680667"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리
 Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
 
 > [!IMPORTANT]
-> [이전에 발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)한 대로 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 azure ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [azure Resource Mananger 템플릿만](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) [사용 하 여 경고 규칙을 관리할 수 있습니다. PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). 고객은 이전 작업 영역에 대 한 기본 [설정 된 경고 규칙 관리 수단](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 을 쉽게 전환 하 여 Azure Monitor scheduledQueryRules를 기본값으로 활용할 수 있으며, 기본 PowerShell cmdlet을 사용 하는 기능과 같은 [새로운 많은 이점을](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 얻을 수 있습니다. lookback는 규칙에서 별도의 리소스 그룹 또는 구독에 대 한 규칙 생성 등의 기간을 결정 합니다.
+> [앞서 발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)했 듯이 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 azure ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [azure Resource Mananger 템플릿](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell) **만** 사용 하 여 경고 규칙을 관리할 수 있습니다. 고객은 이전 작업 영역에 대 한 기본 [설정 된 경고 규칙 관리 수단](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 을 쉽게 전환 하 여 Azure Monitor scheduledQueryRules를 기본값으로 활용할 수 있으며, 기본 PowerShell cmdlet을 사용 하는 기능, 규칙에서 lookback 기간 증가, 별도의 리소스 그룹 또는 구독에서 규칙 생성 등의 많은 [새로운 이점을](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 누릴 수 있습니다.
 
 Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 활용하여 Log Analytics 작업 영역을 호출하고, 이 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 현재 Log Analytics에 저장된 검색을 사용해서만 경고를 만들 수 있습니다.  자세한 내용은 [로그 검색 REST API](../../azure-monitor/log-query/log-query-overview.md) 를 참조하세요.
 
 ## <a name="schedules"></a>일정
 저장된 검색은 하나 이상의 일정을 가질 수 있습니다. 일정은 검색이 실행되는 빈도 및 조건이 식별되는 기간을 정의합니다.
 일정은 다음 표의 속성을 가집니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 간격 |검색이 실행되는 빈도입니다. 분 단위로 측정됩니다. |
 | QueryTimeSpan |조건이 평가되는 시간 간격입니다. 간격보다 크거나 같아야 합니다. 분 단위로 측정됩니다. |
@@ -89,7 +89,7 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
 
 모든 작업은 다음 표의 속성을 가집니다.  서로 다른 유형의 경고는 아래에 설명하는 서로 다른 추가 속성을 가집니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
 | `Name` |경고에 대한 표시 이름입니다. |
@@ -124,7 +124,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 ### <a name="alert-actions"></a>경고 작업
 일정은 경고 작업을 한 개만 가져야 합니다.  경고 작업은 다음 표의 섹션 중 하나 이상을 가집니다.  아래에서 각 섹션을 자세히 설명합니다.
 
-| 섹션 | 설명 | 사용량 |
+| 섹션 | Description | 사용량 |
 |:--- |:--- |:--- |
 | 임계값 |작업이 실행되기 위한 조건입니다.| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
 | 심각도 |트리거되는 경우 경고를 분류하는 데 사용되는 레이블| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
@@ -137,7 +137,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 
 임계값은 다음 표의 속성을 가집니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Operator` |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br> lt = 보다 작은 |
 | `Value` |임계값에 대한 값입니다. |
@@ -159,12 +159,12 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 
 고유 작업 ID와 Put 메서드를 사용하여 일정에 대한 새 임계값 작업을 만듭니다.  
 
-    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
 고유 작업 ID와 Put 메서드를 사용하여 일정에 대한 임계값 작업을 수정합니다.  요청 본문에는 작업의 etag가 포함되어야 합니다.
 
-    $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
 #### <a name="severity"></a>심각도
@@ -191,12 +191,12 @@ Log Analytics를 통해 쉽게 관리하고 심사할 수 있도록 경고를 �
 
 고유한 작업 ID와 함께 Put 메서드를 사용하여 심각도로 일정에 대한 새 작업을 만듭니다.  
 
-    $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
 
 고유 작업 ID와 Put 메서드를 사용하여 일정에 대한 심각도 작업을 수정합니다.  요청 본문에는 작업의 etag가 포함되어야 합니다.
 
-    $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
 
 #### <a name="suppress"></a>표시 안 함
@@ -222,12 +222,12 @@ Log Analytics 경고 규칙의 표시 안 함 속성은 *Throttling* 값을 사�
 
 고유한 작업 ID와 함께 Put 메서드를 사용하여 심각도로 일정에 대한 새 작업을 만듭니다.  
 
-    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 고유 작업 ID와 Put 메서드를 사용하여 일정에 대한 심각도 작업을 수정합니다.  요청 본문에는 작업의 etag가 포함되어야 합니다.
 
-    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>작업 그룹
@@ -257,12 +257,12 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 고유한 작업 ID와 Put 메서드를 사용하여 일정에 대한 기존 작업 그룹을 연결합니다.  다음은 사용의 샘플 그림입니다.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 고유 작업 ID와 Put 메서드를 사용하여 일정에 대해 연결된 작업 그룹을 수정합니다.  요청 본문에는 작업의 etag가 포함되어야 합니다.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': { 'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'] } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 #### <a name="customize-actions"></a>사용자 지정 동작
@@ -292,12 +292,12 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 고유한 작업 ID와 Put 메서드를 사용하여 일정에 대한 사용자 지정과 기존 작업 그룹을 연결합니다.  다음은 사용의 샘플 그림입니다.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} }"
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 고유 작업 ID와 Put 메서드를 사용하여 일정에 대해 연결된 작업 그룹을 수정합니다.  요청 본문에는 작업의 etag가 포함되어야 합니다.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' }"
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>작업 그룹에 대한 웹후크 페이로드 사용자 지정
@@ -327,12 +327,12 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 고유한 작업 ID와 Put 메서드를 사용하여 일정에 대한 사용자 지정과 기존 작업 그룹을 연결합니다.  다음은 사용의 샘플 그림입니다.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} }"
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 고유 작업 ID와 Put 메서드를 사용하여 일정에 대해 연결된 작업 그룹을 수정합니다.  요청 본문에는 작업의 etag가 포함되어야 합니다.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' }"
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 

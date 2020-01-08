@@ -1,35 +1,37 @@
 ---
-title: Azure에서 Jupyter Notebook 만들기 및 복제
-description: Azure Notebooks 프로젝트는 Notebook 및 관련 파일 컬렉션을 관리하며, 프로젝트를 새로 만들 수도 있고 다른 원본에서 복제할 수도 있습니다.
-ms.topic: article
+title: Jupyter 노트북 만들기 및 복제-Azure Notebooks 미리 보기
+description: Azure Notebooks 미리 보기 프로젝트는 다른 원본에서 새로 만들거나 복제할 수 있는 노트북 및 관련 파일의 컬렉션을 관리 합니다.
+ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: fc5425312637710f0b9f94493b8cfb4a48582236
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277571"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646248"
 ---
-# <a name="create-and-clone-projects"></a>프로젝트 만들기 및 복제
+# <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 프로젝트 만들기 및 복제
 
 Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 하는 논리 그룹으로 구성합니다. 먼저 프로젝트를 컨테이너로 만든 다음, 폴더 내에 다른 프로젝트 파일과 함께 하나 이상의 Notebook을 새로 만들거나 복제합니다. (이 프로세스는 [자습서](tutorial-create-run-jupyter-notebook.md)에 설명되어 있습니다.)
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 또한 프로젝트는 사용자 지정 설정 단계 및 패키지 설치를 포함하여 Notebook이 실행되는 서버에 영향을 주는 메타데이터 및 기타 구성 설정을 유지합니다. 자세한 내용은 [프로젝트 관리 및 구성](configure-manage-azure-notebooks-projects.md)을 참조하세요.
 
 ## <a name="use-the-my-projects-dashboard"></a>[내 프로젝트] 대시보드 사용
 
-**의** 내 프로젝트`https://notebooks.azure.com/<userID>/projects` 대시보드에서 프로젝트를 보고, 관리하고, 만들 수 있습니다.
+`https://notebooks.azure.com/<userID>/projects`의 **내 프로젝트** 대시보드에서 프로젝트를 보고, 관리하고, 만들 수 있습니다.
 
 [![Azure Notebooks의 내 프로젝트 대시보드](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 사용자 ID를 소유한 계정으로 로그인하는지 여부에 따라 대시보드에서 할 수 있는 일이 달라집니다.
 
-| 명령 | 제공 대상 | 설명 |
+| 명령 | 제공 대상 | Description |
 | --- | --- | --- |
-| **RoleEntryPoint** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
+| **실행** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
 | **다운로드** | 모든 사람 | 선택한 프로젝트의 복사본을 ZIP 파일로 다운로드합니다. |
 | **공유** | 모든 사람 | 선택한 프로젝트의 URL을 가져오고, 소셜 미디어에 공유하고, URL이 포함된 이메일을 보내고, URL을 사용하여 "Notebook 시작" 배지([시작 배지 얻기](#obtain-a-launch-badge) 참조)가 있는 HTML 또는 Markdown 코드를 모두 얻을 수 있는 공유 팝업을 표시합니다. |
-| **삭제** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 취소할 수 없습니다. |
+| **Delete** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 실행 취소할 수 없습니다. |
 | **터미널** | 소유자 | 프로젝트 서버를 시작한 다음, 해당 서버에 대한 bash 터미널을 사용하여 새 브라우저 창을 엽니다. |
 | **+ 새 프로젝트** | 소유자 | 새 프로젝트를 만듭니다. [새 프로젝트 만들기](#create-a-new-project)를 참조하세요. |
 | **GitHub 리포지토리 업로드** | 소유자 | GitHub에서 프로젝트를 가져옵니다. [GitHub에서 프로젝트를 가져옵니다](#import-a-project-from-github). |
@@ -55,7 +57,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 
 **+ 새 프로젝트** 명령을 사용하면 Azure Notebooks가 **새 프로젝트 만들기** 팝업을 표시합니다. 이 팝업에서 다음 정보를 입력하고 **만들기**를 선택합니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. 예를 들어 "내 전자 필기장 프로젝트"입니다. |
 | 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다(형식은 `https://notebooks.azure.com/<user_id>/projects/<project_id>`). 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며, 30 자로 제한 되며, [예약 된 프로젝트 id](#reserved-project-ids)가 될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
@@ -68,11 +70,11 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| about | 계정 | 관리 | api | 치거나 | 단체 |
-| 콘텐츠 | dashboard | 탐험 | 자주 묻는 질문(FAQ) | help | html |
-| home | 수입 | 도서관 | 관리 | new | 필기장이 |
+| 정보 | account | 관리 | api | 블로그 | 교실 |
+| content | dashboard | 탐색 | 자주 묻는 질문(FAQ) | help | html |
+| home | 수입 | 도서관 | 관리 | 신규 | Notebook |
 | notebooks | pdf | 미리 보기 | 가격 책정 | 프로필 | 검색 |
-| 상태 | support | 테스트 | | | |
+| 상태 | support | test | | | |
 
 이러한 단어 중 하나를 프로젝트 ID로 사용 하려는 경우 **새 프로젝트** 및 **프로젝트 설정** 만들기 팝업은 "라이브러리 ID는 예약 된 식별자입니다."를 표시 합니다.
 
@@ -82,7 +84,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 
 데이터 및 *README.md* 파일을 포함하여 공개 GitHub 리포지토리 전체를 간단하게 프로젝트로 가져올 수 있습니다. **GitHub 리포지토리 업로드** 명령을 사용하고, 팝업에서 다음 세부 정보를 입력하고, **가져오기**를 선택합니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | GitHub 리포지토리 | github.com의 원본 리포지토리 이름입니다. 예를 들어 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)에서 Azure Cognitive Services에 대한 Jupyter Notebook을 복제하려면 "Microsoft/cognitive-services-notebooks"를 입력합니다.  |
 | 재귀적으로 복제 | GitHub 리포지토리는 여러 자식 리포지토리를 포함할 수 있습니다. 부모 리포지토리와 자식을 모두 복제하려면 이 옵션을 설정합니다. 한 리포지토리가 여러 자식을 가질 수 있으므로 꼭 필요한 경우 외에는 이 옵션을 선택하지 마세요. |

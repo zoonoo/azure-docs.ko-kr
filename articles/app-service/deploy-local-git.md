@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 91d5827a08a600c19c24ac0a96a5f4e3e98e22f2
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671771"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680956"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대 한 로컬 Git 배포
 
 이 방법 가이드에서는 로컬 컴퓨터의 Git 리포지토리에서 [Azure App Service](overview.md) 에 앱을 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드의 단계를 수행하려면
 
@@ -97,7 +97,9 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
 
 Azure Pipelines (미리 보기)를 사용 하 여 앱에 대 한 로컬 Git 배포를 사용 하도록 설정 하려면
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure App Service 앱 페이지로 이동 하 여 왼쪽 메뉴에서 **Deployment Center** 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색 하 고 선택 합니다. 
+
+1. Azure App Service 앱을 선택 하 고 왼쪽 메뉴에서 **Deployment Center** 를 선택 합니다.
    
 1. **Deployment Center** 페이지에서 **로컬 Git**를 선택한 다음 **계속**을 선택 합니다. 
    
@@ -146,8 +148,8 @@ Git를 사용 하 여 Azure에서 App Service 앱에 게시 하는 경우 다음
 |`Couldn't resolve host 'hostname'`|' Azure ' 원격에 대 한 주소 정보가 잘못 되었습니다.|`git remote -v` 명령을 사용 하 여 연결 된 URL과 함께 모든 원격을 나열 합니다. 'azure' 원격의 URL이 올바른지 확인합니다. 필요한 경우 제거하고 올바른 URL을 사용하여 이 원격을 다시 만드세요.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|`git push`중에 분기를 지정 하지 않았거나 `.gitconfig`에서 `push.default` 값을 설정 하지 않았습니다.|Master 분기 `git push azure master`지정 하 여 `git push`를 다시 실행 합니다.|
 |`src refspec [branchname] does not match any.`|' Azure ' 원격의 마스터가 아닌 다른 분기에 푸시 하려고 했습니다.|Master 분기 `git push azure master`지정 하 여 `git push`를 다시 실행 합니다.|
-|`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|`postBuffer`을 더 크게 만들려면 로컬 컴퓨터의 git 구성을 변경 하십시오. 예: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 _패키지나 json_ 파일을 사용 하 여 node.js 앱을 배포 했습니다.|오류에 대 한 자세한 컨텍스트를 확인 하려면이 오류 이전에 `npm ERR!` 오류 메시지를 검토 하십시오. 다음은이 오류의 알려진 원인과 해당 `npm ERR!` 메시지입니다.<br /><br />**형식이 잘못 된 package. json 파일**: `npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가**없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|`postBuffer`을 더 크게 만들려면 로컬 컴퓨터의 git 구성을 변경 하십시오. 예: `git config --global http.postBuffer 524288000`|
+|`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 _패키지나 json_ 파일을 사용 하 여 node.js 앱을 배포 했습니다.|오류에 대 한 자세한 컨텍스트를 확인 하려면이 오류 이전에 `npm ERR!` 오류 메시지를 검토 하십시오. 다음은이 오류의 알려진 원인과 해당 `npm ERR!` 메시지입니다.<br /><br />**형식이 잘못 된 package. json 파일**: `npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가**없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />또는 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>추가 리소스
 

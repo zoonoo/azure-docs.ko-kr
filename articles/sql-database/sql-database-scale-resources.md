@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819832"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462618"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
 
@@ -62,9 +62,9 @@ Azure SQL Database의 세 가지 버전은 모두 데이터베이스 크기를 �
 
 ## <a name="alternative-scale-methods"></a>대체 크기 조정 방법
 
-리소스 크기 조정은 데이터베이스 또는 애플리케이션 코드를 변경하지 않고 데이터베이스 성능을 향상하는 가장 쉽고 효과적인 방법입니다. 경우에 따라 가장 높은 서비스 계층, 컴퓨팅 크기, 성능 최적화를 사용해도 워크로드가 성공적이고 비용 효과적인 방식으로 처리되지 않을 수 있습니다. 이 경우 다음과 같은 추가 옵션을 사용하여 데이터베이스 크기를 조정할 수 있습니다.
+리소스 크기를 조정 하는 것은 데이터베이스 또는 응용 프로그램 코드를 변경 하지 않고 데이터베이스의 성능을 향상 시키는 가장 간단 하 고 효과적인 방법입니다. 경우에 따라 가장 높은 서비스 계층, 계산 크기 및 성능 최적화도 작업을 성공적이 고 비용 효율적인 방식으로 처리 하지 못할 수 있습니다. 이 경우 다음과 같은 추가 옵션을 통해 데이터베이스를 확장할 수 있습니다.
 
-- [읽기 확장](sql-database-read-scale-out.md)은 데이터의 읽기 전용 복제본이 한 개 있고, 보고서 등 까다로운 읽기 전용 쿼리를 실행할 수 있는 경우에 사용할 수 있는 기능입니다. 읽기 전용 복제본은 주 데이터베이스의 리소스 사용량에 영향을 주지 않고 읽기 전용 워크로드를 처리합니다.
+- [읽기 확장](sql-database-read-scale-out.md) 은 보고서와 같은 까다로운 읽기 전용 쿼리를 실행할 수 있는 데이터의 읽기 전용 복제본 하나를 가져오는 데 사용할 수 있는 기능입니다. 읽기 전용 복제본은 주 데이터베이스의 리소스 사용량에 영향을 주지 않고 읽기 전용 워크로드를 처리합니다.
 - [데이터베이스 분할](sql-database-elastic-scale-introduction.md)은 데이터를 여러 데이터베이스로 분할하고 독립적으로 크기를 조정할 수 있는 기술 집합입니다.
 
 ## <a name="next-steps"></a>다음 단계

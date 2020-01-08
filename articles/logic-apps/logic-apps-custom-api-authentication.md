@@ -1,17 +1,17 @@
 ---
-title: 사용자 지정 Api에 인증 추가
-description: Azure Logic Apps에서 사용자 지정 API 호출에 대한 인증 설정
+title: 사용자 지정 Api에 대 한 보안 호출에 대 한 인증 추가
+description: Azure Logic Apps에서 사용자 지정 Api에 대 한 호출 보안 설정에 대 한 인증을 설정 하는 방법
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: f6dfa98550dcfb092ca1fb52a5cf0bed32e697ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793150"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666899"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 API에 대한 호출 보호
 
@@ -197,16 +197,16 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 }
 ```
 
-| 자산 | 필수 | 설명 | 
+| 속성 | 필수 | Description | 
 | -------- | -------- | ----------- | 
-| tenant | yes | Azure AD 테넌트의 GUID | 
-| 대상 | yes | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
-| clientId | yes | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
-| secret | yes | 액세스 토큰을 요청하는 클라이언트에 대한 애플리케이션 ID의 키 또는 암호 | 
-| type | yes | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
+| tenant | 예 | Azure AD 테넌트의 GUID | 
+| 대상 | 예 | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
+| clientId | 예 | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
+| secret | 예 | 액세스 토큰을 요청하는 클라이언트에 대한 애플리케이션 ID의 키 또는 암호 | 
+| type | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 |||| 
 
-다음은 그 예입니다.
+예:
 
 ``` json
 {
@@ -248,11 +248,11 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 } 
 ```
 
-| 자산 | 필수 | 설명 |
+| 속성 | 필수 | Description |
 | -------- | -------- | ----------- |
-| `type` | yes | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`여야 합니다. |
+| `type` | 예 | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`여야 합니다. |
 | `password` | 아닙니다. | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 |
-| `pfx` | yes | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 |
+| `pfx` | 예 | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 |
 ||||
 
 <a name="basic"></a>
@@ -271,11 +271,11 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 }
 ```
 
-| 자산 | 필수 | 설명 | 
+| 속성 | 필수 | Description | 
 | -------- | -------- | ----------- | 
-| type | yes | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
-| username | yes | 인증에 사용할 사용자 이름 | 
-| 암호 | yes | 인증에 사용할 암호 | 
+| type | 예 | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
+| 사용자 이름 | 예 | 인증에 사용할 사용자 이름 | 
+| password | 예 | 인증에 사용할 암호 | 
 |||| 
 
 <a name="azure-ad-code"></a>

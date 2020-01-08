@@ -7,7 +7,7 @@ author: Yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460806"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
-‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 *텍스트 분석기*입니다.[](search-analyzers.md) 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
+‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
 
 Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 및 Bing에서 사용 되는 독점적인 Microsoft 자연어 처리 기술로 지원 되는 50 분석기를 지원 합니다.
 
@@ -48,7 +48,10 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 
 ## <a name="configuring-analyzers"></a>분석기 구성
 
-언어 분석기는 있는 그대로 사용됩니다. 인덱스 정의의 각 필드에 대한 **analyzer** 속성으로 언어 및 언어 체계 스택(Microsoft 또는 Lucene)을 지정하는 분석기 이름을 설정할 수 있습니다. 해당 필드를 인덱싱 및 검색하는 경우 동일한 분석기를 적용합니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다. 또는 **analyzer**대신 **indexAnalyzer** 및 **searchAnalyzer**를 사용하여 인덱싱 시간과 쿼리 시간에 서로 다른 분석 규칙을 사용할 수 있습니다. 
+언어 분석기는 있는 그대로 사용됩니다. 인덱스 정의의 각 필드에 대한 **analyzer** 속성으로 언어 및 언어 체계 스택(Microsoft 또는 Lucene)을 지정하는 분석기 이름을 설정할 수 있습니다. 해당 필드를 인덱싱 및 검색하는 경우 동일한 분석기를 적용합니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다.
+
+> [!NOTE]
+> 필드에 대 한 쿼리 시간에는 인덱싱 시 다른 언어 분석기를 사용할 수 없습니다. 이 기능은 [사용자 지정 분석기](index-add-custom-analyzers.md)에 대해 예약 되어 있습니다. 이러한 이유로 **searchanalyzer** 또는 **indexanalyzer** 속성을 언어 분석기의 이름으로 설정 하려고 하면 REST API 오류 응답이 반환 됩니다. 대신 **analyzer** 속성을 사용 해야 합니다.
 
 **searchFields** 쿼리 매개 변수를 사용하여 쿼리에서 검색할 언어별 필드를 지정합니다. analyzer 속성을 포함하는 쿼리 예제는 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents)에서 검토할 수 있습니다. 
 
@@ -73,7 +76,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 |체코어|cs.microsoft|cs.lucene|  
 |덴마크어|da.microsoft|da.lucene|  
 |네덜란드어|nl.microsoft|nl.lucene|  
-|영어|en.microsoft|en.lucene|  
+|한국어|en.microsoft|en.lucene|  
 |에스토니아어|et.microsoft||  
 |핀란드어|fi.microsoft|fi.lucene|  
 |프랑스어|fr.microsoft|fr.lucene|  
@@ -99,12 +102,12 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 |노르웨이어|nb.microsoft|no.lucene|  
 |페르시아어||fa.lucene|  
 |폴란드어|pl.microsoft|pl.lucene|  
-|포르투갈어(브라질)|pt-Br.microsoft|pt-Br.lucene|  
+|포르투갈어 (브라질)|pt-Br.microsoft|pt-Br.lucene|  
 |포르투갈어(포르투갈)|pt-Pt.microsoft|pt-Pt.lucene|  
 |펀잡어|pa.microsoft||  
 |루마니아어|ro.microsoft|ro.lucene|  
 |러시아어|ru.microsoft|ru.lucene|  
-|세르비아어(키릴자모)|sr-cyrillic.microsoft||  
+|세르비아어(키릴 자모)|sr-cyrillic.microsoft||  
 |세르비아어(라틴 문자)|sr-latin.microsoft||  
 |슬로바키아어|sk.microsoft||  
 |슬로베니아어|sl.microsoft||  
@@ -120,7 +123,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 
  이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )를 통해 구동됩니다.
 
-## <a name="see-also"></a>참고 항목:  
+## <a name="see-also"></a>참고 항목  
 
 + [Azure Cognitive Search &#40;REST API 인덱스 만들기&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

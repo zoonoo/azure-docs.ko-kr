@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5d6b8ce557cb794b3a56ecb3a938a2fe184156ab
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677799"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680752"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>로그 경고의 API 기본 설정 전환
 
 > [!NOTE]
 > 콘텐츠는 사용자 Azure 공용 클라우드에만 적용 되 고 Azure Government 또는 Azure 중국 클라우드에는 적용 **되지 않습니다** .  
 
-최근까지 Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경이 Log Analytics를 포함한 Microsoft Azure의 다양한 서비스와 통합되었으며 Microsoft에서는 [OMS 포털에서 Azure로 경고 규칙을 확장](alerts-extend.md)하라고 요청했습니다. 하지만, 고객 서비스 중단을 최소화하기 위해 사용할 프로그래밍 인터페이스인 SavedSearch 기반의 [Log Analytics 경고 API](api-alerts.md)를 변경하지 않았습니다.
+최근까지 경고 규칙은 Microsoft Operations Management Suite 포털에서 관리했습니다. 새 경고 환경이 Log Analytics를 포함한 Microsoft Azure의 다양한 서비스와 통합되었으며 Microsoft에서는 [OMS 포털에서 Azure로 경고 규칙을 확장](alerts-extend.md)하라고 요청했습니다. 하지만, 고객 서비스 중단을 최소화하기 위해 사용할 프로그래밍 인터페이스인 SavedSearch 기반의 [Log Analytics 경고 API](api-alerts.md)를 변경하지 않았습니다.
 
 이제 Log Analytics 경고 사용자에게 진정한 Azure 프로그래밍 대체 인터페이스인 [Azure Monitor - ScheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 발표합니다. 이 API는 [Azure 청구 - 로그 경고용](alerts-unified-log.md#pricing-and-billing-of-log-alerts)에도 반영됩니다. API를 사용 하 여 로그 경고를 관리 하는 방법에 대해 자세히 알아보려면 [Azure 리소스 템플릿을 사용 하 여 로그 경고 관리](alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell을 사용 하 여 로그 경고 관리](alerts-log.md#managing-log-alerts-using-powershell)를 참조 하세요.
 
@@ -44,12 +44,15 @@ scheduledQueryRules API로 기본 설정을 전환할 경우 미치는 영향은
 
 - 프로그래밍 인터페이스를 통해 로그 경고를 관리하기 위해 수행된 모든 조작은 이제 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하여 수행해야 합니다. 자세한 내용은 [Azure 리소스 템플릿을 통한 샘플 사용](alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell을 통한 샘플 사용](alerts-log.md#managing-log-alerts-using-powershell) 을 참조 하세요.
 - Azure Portal에서 만든 모든 새 로그 경고 규칙은 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)만 사용하여 만들어지고, 이를 통해 사용자는 Azure Portal을 통해 [새 API의 추가 기능](#benefits-of-switching-to-new-azure-api)을 사용할 수 있습니다.
-- 로그 경고 규칙에 대 한 심각도는 다음에서 이동 합니다. *위험, 경고 & 정보*, *심각도 값 0, 1 & 2*. 심각도 3 및 4를 사용 하 여 경고 규칙을 만들고 업데이트 하는 옵션을 함께 사용 합니다.
+- 로그 경고 규칙에 대 한 심각도는 *위험, 경고 & 정보*에서 *심각도 값 0, 1 & 2*로 이동 합니다. 심각도 3 및 4를 사용 하 여 경고 규칙을 만들고 업데이트 하는 옵션을 함께 사용 합니다.
 
-[레거시 Log Analytics 경고 API](api-alerts.md)에서 경고 규칙을 이동하는 프로세스는 어떠한 방법으로도 경고 정의, 쿼리 또는 구성의 변경을 포함하지 않습니다. 경고 규칙 및 모니터링은 영향을 받지 않으며 스위치 중 또는 이후에 경고를 중지 하거나 중단 하지 않습니다. 유일한 변경 내용은 API 기본 설정을 변경 하 고 새 API를 통해 규칙에 액세스 하는 것입니다.
+[레거시 Log Analytics 경고 API](api-alerts.md)에서 경고 규칙을 이동하는 프로세스는 어떠한 방법으로도 경고 정의, 쿼리 또는 구성의 변경을 포함하지 않습니다. 경고 규칙 및 모니터링은 영향을 받지 않으며 스위치 중 또는 이후에 경고를 중지 하거나 중단 하지 않습니다. 유일한 변경 내용은 다음과 같습니다.
+
+- 새 API를 통해 API 기본 설정 및 규칙에 대 한 액세스를 변경 합니다.
+- 이 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`구조에서 경고 규칙 이름 대신 [레거시 Log Analytics 경고 API](api-alerts.md) 에 사용 되는 id를 포함 하는 수정 된 경고 규칙 리소스 URI입니다. 경고 규칙의 표시 이름은 변경 되지 않고 그대로 유지 됩니다.
 
 > [!NOTE]
-> 사용자가 새 [SCHEDULEDQUERYRULES API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)에 대 한 기본 설정으로 전환 하면 opts 이전 [레거시 Log Analytics 경고 API](api-alerts.md)를 사용 하도록 옵트인 하거나 되돌릴 수 없습니다.
+> 사용자가 새 [SCHEDULEDQUERYRULES API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 로 기본 설정 전환을 선택한 후에는 이전 [레거시 Log Analytics 경고 API](api-alerts.md)를 사용 하 여로 되돌릴 수 없습니다.
 
 자발적으로 새 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)로 전환하고 [레거시 Log Analytics 경고 API](api-alerts.md)의 사용을 차단하려는 고객은 아래 API에서 PUT 호출을 수행하여 특정 Log Analytics 작업 영역과 연결된 모든 경고 규칙을 전환하면 됩니다.
 

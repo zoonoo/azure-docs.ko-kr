@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279059"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681364"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>본인 확인 방법 정보를 등록 하 여 암호 다시 설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "74279059"
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>SSPR을 사용하여 인증 데이터 등록 또는 확인
 
-1. 디바이스에서 웹 브라우저를 열고 [암호 재설정 등록 페이지](https://aka.ms/ssprsetup)로 이동합니다.
+1. 디바이스에서 웹 브라우저를 열고 [암호 재설정 등록 페이지](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup)로 이동합니다.
 2. 관리자가 제공한 사용자 이름과 암호를 입력합니다.
 3. IT 직원이 작업을 구성한 방식에 따라 구성하고 확인하는 데 다음 옵션 중 하나 이상을 사용할 수 있습니다. 관리자가 사용자 정보를 사용할 수 있는 권한이 있는 경우 사용자의 일부 정보를 채울 수 있습니다.
     * **사무실 전화**: 관리자만 이 옵션을 설정할 수 있습니다.
@@ -50,7 +50,7 @@ ms.locfileid: "74279059"
 
  다음은 일반적인 오류 사례 및 해결 방법입니다.
 
-| 오류 사례| 어떤 오류가 표시되나요?| 해결 방법 |
+| 오류 사례| 어떤 오류가 표시되나요?| 솔루션 |
 | --- | --- | --- |
 | 내 사용자 ID를 입력한 후에 "관리자에게 문의하세요" 페이지가 보입니다. | 관리자에게 문의하세요. <br> <br> Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다. <br> <br> IT 직원에게 추가 지원을 요청하세요. | IT 직원이 온-프레미스 환경에서 암호를 관리하고 **계정 링크에 액세스할 수 없음**에서 암호를 재설정할 수 없기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 다시 설정하려면 도움말에 대해 IT 직원에게 직접 문의합니다. 이 기능을 활성화할 수 있도록 암호를 재설정하길 원한다는 것을 해당 IT 직원에게 알려주세요.|
 | 내 사용자 ID를 입력한 후에 "계정은 암호 재설정에 사용할 수 없습니다." 오류가 발생합니다. | 암호 재설정을 위해 계정을 사용할 수 없습니다. <br> <br> 죄송하지만 IT 직원이 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | IT 직원이 **계정에 액세스할 수 없음** 링크에서 조직에 대해 암호 재설정을 사용하도록 설정하지 않았거나 기능을 사용하도록 허가하지 않았기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 재설정하려면 **관리자에게 문의하세요.** 링크를 선택합니다. 회사의 IT 직원에게 전자 메일이 전송됩니다. 이 전자 메일은 이 기능을 활성화할 수 있도록 암호를 재설정하길 원한다는 것을 해당 IT 직원에게 알려줍니다. |

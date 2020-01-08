@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 2a74df3aaf70270353b10f757cf3a61e8f479d74
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: c5b7f4eaac91e79dde625ea00bfb6b1ea8782b31
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052991"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530615"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Data Science Virtual Machines의 공유 풀 만들기
 
 이 문서에서는 팀에 대 한 DSVMs (데이터 과학 Virtual Machines)의 공유 풀을 만드는 방법에 대해 알아봅니다. 공유 풀을 사용할 경우의 이점에는 더 나은 리소스 사용률, 더 쉬워진 공유 및 공동 작업, DSVM 리소스에 대 한 보다 효과적인 관리 등이 있습니다.
 
-다양한 메서드 및 기술을 사용하여 DSVM의 풀을 만들 수 있습니다. 이 문서는 대화형 Vm (가상 머신)에 대 한 풀을 중심으로 설명 합니다. 대체 관리형 컴퓨팅 인프라는 Azure Machine Learning 컴퓨팅입니다. 자세한 내용은 [계산 대상 설정](../service/how-to-set-up-training-targets.md#amlcompute)을 참조 하세요.
+다양한 메서드 및 기술을 사용하여 DSVM의 풀을 만들 수 있습니다. 이 문서는 대화형 Vm (가상 머신)에 대 한 풀을 중심으로 설명 합니다. 대체 관리형 컴퓨팅 인프라는 Azure Machine Learning 컴퓨팅입니다. 자세한 내용은 [계산 대상 설정](../how-to-set-up-training-targets.md#amlcompute)을 참조 하세요.
 
 ## <a name="interactive-vm-pool"></a>대화형 VM 풀
 

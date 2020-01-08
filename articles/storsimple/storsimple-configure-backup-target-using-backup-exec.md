@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67876793"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561646"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec에서 백업 대상으로 StorSimple 구성
 
@@ -37,7 +37,7 @@ Azure StorSimple은 Microsoft의 하이브리드 클라우드 스토리지 솔�
 
 ## <a name="supported-versions"></a>지원되는 버전
 
--   [Backup Exec 16 이상 버전](http://backupexec.com/compatibility)
+-   [Backup Exec 16 이상 버전](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple 업데이트 3 이상 버전](storsimple-overview.md#storsimple-workload-summary)
 
 
@@ -184,7 +184,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 | StorSimple 배포 작업  | 추가 설명 |
 |---|---|
-| 온-프레미스 StorSimple 디바이스를 배포합니다. | 지원되는 버전: 업데이트 3 이상 버전. |
+| 온-프레미스 StorSimple 디바이스를 배포합니다. | 지원되는 버전: 업데이트 3 이상 버전 |
 | 백업 대상을 켭니다. | 다음 명령을 사용하여 백업 대상 모드를 설정하거나 해제하고 상태를 가져옵니다. 자세한 내용은 [StorSimple 디바이스에 원격으로 연결](storsimple-remote-connect.md)을 참조하세요.</br> 백업 모드 설정: `Set-HCSBackupApplianceMode -enable` </br> 백업 모드 해제: `Set-HCSBackupApplianceMode -disable` </br> 백업 모드 설정의 현재 상태 가져오기: `Get-HCSBackupApplianceMode` |
 | 백업 데이터를 저장하는 볼륨에 대한 일반적인 볼륨 컨테이너를 만듭니다. 볼륨 컨테이너에 있는 모든 데이터의 중복을 제거합니다. | StorSimple 볼륨 컨테이너는 중복 제거 도메인을 정의합니다.  |
 | StorSimple 볼륨을 만듭니다. | 볼륨 크기가 클라우드 스냅샷 기간에 영향을 주기 때문에 가능하면 예상되는 사용량에 가까운 크기로 볼륨을 만듭니다. 볼륨 크기를 조정하는 방법에 대한 내용은 [보존 정책](#retention-policies)을 참조하세요.</br> </br> 계층화된 StorSimple 볼륨을 사용하고 **자주 액세스하지 않는 보관 데이터에 이 볼륨 사용** 확인란을 선택합니다. </br> 로컬로 고정된 볼륨만 사용하는 것은 지원되지 않습니다. |
@@ -310,10 +310,10 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 다음은 GFS 회전 일정(4주, 매월 및 매년)의 예입니다.
 
-| 빈도/백업 유형 | 모든 | 증분(1-5일)  |   
+| 빈도/백업 유형 | 전체 | 증분(1-5일)  |   
 |---|---|---|
 | 매주(1-4주) | 토요일 | 월요일-금요일 |
-| 매월  | 토요일  |   |
+| 월간  | 토요일  |   |
 | 매년 | 토요일  |   |
 
 
@@ -381,13 +381,13 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS 예제 일정: GFS 회전 매주, 매월 및 매년 일정
 
-| 주 | 모든 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
+| 주 | 전체 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
 |---|---|---|---|---|---|---|
-| 1 주 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
-| 2 주 | StorSimple 2-4주 |   |   |   |   |   |
+| 1주차 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
+| 2주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 3주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 4주차 | StorSimple 2-4주 |   |   |   |   |   |
-| 매월 | StorSimple 매월 |   |   |   |   |   |
+| 월간 | StorSimple 매월 |   |   |   |   |   |
 | 매년 | StorSimple 매년  |   |   |   |   |   |
 
 
@@ -472,18 +472,18 @@ StorSimple 디바이스에서 복원하면 모든 블록 스토리지 디바이�
 
 재해는 다양한 요인으로 발생할 수 있습니다. 다음 표에서는 일반적인 재해 복구 시나리오를 나열합니다.
 
-| 시나리오 | 영향 | 복구 방법 | 참고 |
+| 시나리오 | 영향 | 복구 방법 | 메모 |
 |---|---|---|---|
 | StorSimple 디바이스 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 디바이스를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱싱 및 카탈로그 작업 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
 | Backup Exec 서버 오류 | Backup 및 복원 작업이 중단됩니다. | [BEDB(Backup Exec 데이터베이스)의 수동 백업 및 복원을 수행하는 방법](http://www.veritas.com/docs/000041083)에 설명된 대로 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 Backup Exec 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 Backup Exec 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그 작업이 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
 | 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | Backup 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
 
-## <a name="references"></a>참조 항목
+## <a name="references"></a>참조
 
 이 문서에서는 다음 문서를 참조했습니다.
 
 - [StorSimple 다중 경로 I/O 설정](storsimple-configure-mpio-windows-server.md)
-- [Storage 시나리오: 씬 프로비저닝](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [스토리지 시나리오: 씬 프로비전](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [GPT 드라이브 사용](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [공유 폴더의 섀도 복사본 설정](https://technet.microsoft.com/library/cc771893.aspx)
 

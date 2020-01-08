@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b8e259c6212e9a1e81b6b0c8825287f3025f9068
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172569"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680531"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -23,7 +23,7 @@ VM을 만들 때 [지원 되는 운영 체제](backup-support-matrix-iaas.md#sup
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>백업 비용이 VM 비용에 포함 되나요?
 
-아니요. 백업 비용은 VM의 비용과 별개입니다. [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대해 자세히 알아보세요.
+아닙니다. 백업 비용은 VM의 비용과 별개입니다. [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대해 자세히 알아보세요.
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>VM에 대 한 백업을 사용 하도록 설정 하는 데 필요한 권한은 무엇입니까?
 
@@ -43,11 +43,11 @@ Recovery Services 자격 증명 모음 및 VM에 다른 리소스 그룹이 있�
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>주문형 백업 작업은 예약된 백업과 동일한 보존 일정을 사용하나요?
 
-아니요. 주문형 백업 작업의 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
+아닙니다. 주문형 백업 작업의 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>최근에 일부 VM에서 Azure Disk Encryption을 사용할 수 있습니다. 내 백업이 계속 작동하나요?
 
-Key Vault에 액세스할 수 있는 Azure Backup에 대 한 권한을 제공 합니다. **Azure Backup PowerShell** 설명서의 [백업 사용](backup-azure-vms-automation.md) 섹션에 설명된 대로 PowerShell에서 권한을 지정합니다.
+Key Vault에 액세스할 수 있는 Azure Backup에 대 한 권한을 제공 합니다. [Azure Backup PowerShell](backup-azure-vms-automation.md) 설명서의 **백업 사용** 섹션에 설명된 대로 PowerShell에서 권한을 지정합니다.
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>VM 디스크를 관리 디스크로 마이그레이션했습니다. 내 백업이 계속 작동하나요?
 
@@ -111,16 +111,9 @@ VM 복원은 Azure VM의 빠른 만들기 옵션이라고 생각하시면 됩니
 
 예, 디스크를 비관리형에서 관리형으로 마이그레이션하기 전에 만든 백업을 사용할 수 있습니다.
 
-- 기본적으로 VM 복원 작업은 비관리형 VM을 만듭니다.
-- 하지만 디스크를 복원하여 관리형 VM을 만드는 데 사용할 수 있습니다.
-
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>VM이 관리 디스크로 마이그레이션되기 전에 VM을 복원 지점으로 복원하려면 어떻게 할까요?
 
-기본적으로 VM 복원 작업은 비관리형 디스크를 사용하는 VM을 만듭니다. 관리 디스크가 있는 VM을 만들려면 다음을 수행합니다.
-
-1. [비관리형 디스크에 복원](tutorial-restore-disk.md#restore-a-vm-disk).
-2. [복원된 디스크를 관리 디스크로 변환](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
-3. [관리 디스크를 사용하는 VM 만들기](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk)
+복원 프로세스는 동일 하 게 유지 됩니다. VM이 관리 되지 않는 디스크를가지고 있는 경우 복구 지점은 관리 되지 않는 디스크로 [복원할](tutorial-restore-disk.md#unmanaged-disks-restore)수 있습니다. VM에 managed disks가 있는 경우 [디스크를 managed disks로 복원할](tutorial-restore-disk.md#managed-disk-restore)수 있습니다. 그런 다음 [해당 디스크에서 VM을 만들](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk)수 있습니다.
 
 PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요](backup-azure-vms-automation.md#restore-an-azure-vm).
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462595"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 (미리 보기)에서 파일 & Acl의 Azure CLI 사용
+# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리 (미리 보기)
 
 이 문서에서는 [CLI (Azure 명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) )를 사용 하 여 계층 네임 스페이스가 있는 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
@@ -24,10 +24,10 @@ ms.locfileid: "74534290"
 > 이 문서에서 설명 하는 `storage-preview` 확장은 현재 공개 미리 보기로 제공 됩니다.
 
 Gen1 [샘플](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen2 매핑](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [피드백 제공](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
-> * Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+> * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 > * 계층적 네임 스페이스 (HNS)를 사용 하도록 설정 된 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
 > * Azure CLI 버전 `2.0.67` 이상.
 
@@ -42,7 +42,7 @@ Gen1 [샘플](https://github.com/Azure/azure-cli-extensions/tree/master/src/stor
    ```
    Azure CLI 버전이 `2.0.67`보다 낮은 경우 최신 버전을 설치 합니다. [Azure CLI 설치를](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)참조 하세요.
 
-3. `storage-preview` 확장을 설치 합니다.
+3. `storage-preview` 확장을 설치합니다.
 
    ```azurecli
    az extension add -n storage-preview
@@ -198,7 +198,7 @@ az storage blob move -c my-file-system -d my-file-renamed.txt -s my-file.txt --a
 az storage blob delete -c my-file-system -b my-file.txt --account-name mystorageaccount 
 ```
 
-## <a name="manage-permissions"></a>권한 관리
+## <a name="manage-permissions"></a>사용 권한 관리
 
 디렉터리 및 파일의 액세스 권한을 가져오고 설정 하 고 업데이트할 수 있습니다.
 

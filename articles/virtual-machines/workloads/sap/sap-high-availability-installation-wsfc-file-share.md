@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bdd1e1922d9d8845a8187cabb3fd39af4694ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 75fe9c8587a15ed37366dceda05b5befb353ebb3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077907"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647512"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
 
@@ -36,8 +36,8 @@ ms.locfileid: "70077907"
 
 [sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
@@ -193,17 +193,17 @@ ms.locfileid: "70077907"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 WSFC(Windows Server 장애 조치(failover) 클러스터) 및 스케일 아웃 파일 서버를 사용하여 Azure에 고가용성 SAP 시스템을 설치하고 구성하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: 파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]
+* [아키텍처 가이드: Windows 장애 조치 (failover) 클러스터에서 파일 공유를 사용 하 여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]
 
 * [SAP ASCS/SCS 인스턴스에 대 한 Windows 장애 조치 (failover) 클러스터 및 파일 공유를 사용 하 여 Azure 인프라 SAP 고가용성 준비][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -231,7 +231,7 @@ Azure에서 다양한 DBMS 서비스가 이러한 종류의 클러스터형 SAP 
 
 SOFS 클러스터에 다음 볼륨 및 파일 공유를 만듭니다.
 
-* SOFS 클러스터 공유 볼륨 `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` (CSV)의 SAP globalhost 파일 구조
+* SOFS 클러스터 공유 볼륨 (CSV)의 SAP GLOBALHOST 파일 `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` 구조
 
 * SAPMNT 파일 공유
 
@@ -299,7 +299,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 첫 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. 인스턴스를 설치하려면 SAP SWPM 설치 도구에서 다음으로 이동합니다.
 
-**\<제품 >**  >  >  **DBMS>\<** 설치응용프로그램 > **서버 abap** (또는 Java) > 고가용성 시스템 >  **Ascs/SCS 인스턴스** **첫 번째 클러스터 노드.**  > 
+**\<Product >**  >  **\<DBMS >** **설치** > **응용 프로그램 서버 abap** (또는 **Java**) > **고가용성 시스템** > **ascs/SCS 인스턴스의** **첫 번째 클러스터 노드** > .
 
 ### <a name="add-a-probe-port"></a>프로브 포트 추가
 
@@ -309,12 +309,12 @@ PowerShell을 사용하여 SAP 클러스터 리소스인 SAP-SID-IP 프로브 �
 
 두 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. 인스턴스를 설치하려면 SAP SWPM 설치 도구에서 다음으로 이동합니다.
 
-**\<제품 >**  >  >  **DBMS>\<** 설치응용프로그램 > **서버 abap** (또는 Java) > 고가용성 시스템 >  **Ascs/SCS 인스턴스** **추가 클러스터 노드.**  > 
+**\<Product >**  >  **\<DBMS >** **설치** > **응용 프로그램 서버 Abap** (또는 **Java**) > **사용 가능한 시스템** > **ascs/SCS 인스턴스** > **추가 클러스터 노드** > .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>SAP ASCS/SCS 인스턴스 프로필 업데이트
 
-SAP ascs/scs 인스턴스 프로필 \<SID >_ascs/scs\<Nr >_ \<호스트 > 매개 변수를 업데이트 합니다.
+SAP ASCS/SCS 인스턴스 프로필 \<SID >_Ascs/scs\<Nr >_ \<Host >의 매개 변수를 업데이트 합니다.
 
 
 | 매개 변수 이름 | 매개 변수 값 |
@@ -323,7 +323,7 @@ SAP ascs/scs 인스턴스 프로필 \<SID >_ascs/scs\<Nr >_ \<호스트 > 매개
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-SAP ASCS/SCS 인스턴스를 다시 시작 합니다. Sap `KeepAlive` ascs/scs 클러스터 노드 둘 다에 대 한 매개 변수 설정 지침에 따라 [sap ascs/scs 인스턴스의 클러스터 노드에 대 한 레지스트리 항목을 설정][high-availability-guide]합니다. 
+SAP ASCS/SCS 인스턴스를 다시 시작 합니다. SAP ASCS/SCS 클러스터 노드에서 `KeepAlive` 매개 변수 설정 지침에 따라 [SAP ascs/scs 인스턴스의 클러스터 노드에 대 한 레지스트리 항목을 설정][high-availability-guide]합니다. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치
 

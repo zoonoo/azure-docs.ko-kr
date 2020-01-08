@@ -1,16 +1,16 @@
 ---
-title: Azure Notebooks에 사용할 사용자 프로필 및 ID
+title: Azure Notebooks 미리 보기에 사용할 사용자 프로필 및 ID
 description: 공유 전자 필기장의 URL에 포함 되는 Azure Notebooks을 사용 하 여 사용자 프로필 및 사용자 ID를 만들고 관리 하는 방법입니다.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277603"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646282"
 ---
-# <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure Notebooks에 대한 프로필 및 사용자 ID
+# <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Azure Notebooks 미리 보기용 프로필 및 사용자 ID
 
 Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에서는 공용 이미지를 다른 사용자에게 보여줍니다.
 
@@ -23,6 +23,8 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: 프로젝트 파일.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: 특정 프로젝트의 클론입니다.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: 특정 노트북 또는 파일의 HTML 미리 보기입니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>사용자 ID
 
@@ -47,7 +49,7 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 
 프로필을 편집하려면 프로필 페이지에서 **프로필 정보 편집** 명령을 사용합니다. 프로필의 섹션은 다음과 같습니다.
 
-| 섹션 | 목차 |
+| 섹션 | 콘텐츠 |
 | --- | --- |
 | 프로필 사진 | 프로필 페이지에 표시되는 이미지입니다. |
 | 계정 정보 | 표시 이름, 사용자 ID와 공용 이메일 계정입니다. 여기에서 이메일 계정은 다른 사용자가 사용자에게 연락할 수 있는 수단을 제공하며 Azure Notebooks에 로그인하는 데 사용하는 [계정](azure-notebooks-user-account.md)과는 다를 수 있습니다. |

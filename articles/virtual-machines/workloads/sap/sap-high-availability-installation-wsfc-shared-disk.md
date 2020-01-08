@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22d77de80c7440fc120d2c48f9e73e606388848
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfbff1f95eaad41813ee0741a6b133dccdae181d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078166"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647529"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치
 
@@ -33,8 +33,8 @@ ms.locfileid: "70078166"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -142,13 +142,13 @@ ms.locfileid: "70078166"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 이 문서에서는 Azure에서 Windows Server 장애 조치(Failover)클러스터와 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링을 위한 고가용성 SAP 시스템을 설치하고 구성하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
@@ -388,9 +388,9 @@ SAP 애플리케이션 서버 인스턴스를 호스트하도록 지정한 모�
 
 SAP PR1 클러스터 그룹이 클러스터 노드 A(예: pr1-ascs-0)에서 실행되고 있습니다. SAP PR1 클러스터 그룹에 속한 S 공유 디스크 드라이브를 클러스터 노드 A에 할당합니다. ASCS/SCS 인스턴스도 S 공유 디스크 드라이브를 사용합니다. 
 
-![그림 6: 장애 조치(Failover) 클러스터 관리자: SAP \<SID\> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고 있습니다.][sap-ha-guide-figure-5000]
+![그림 6: 장애 조치 클러스터 관리자 - 클러스터 노드 A에서 실행 중인 SAP \<SID\> 클러스터 그룹][sap-ha-guide-figure-5000]
 
-_**그림 6:** 장애 조치(Failover) 클러스터 관리자: SAP \<SID\> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고 있습니다._
+_**그림 6:** 장애 조치 클러스터 관리자 - 클러스터 노드 A에서 실행 중인 SAP \<SID\> 클러스터 그룹_
 
 SIOS DataKeeper 관리 및 구성 도구에서 공유 디스크 데이터가 클러스터 노드 A의 S 원본 볼륨 드라이브에서 클러스터 노드 B의 S 대상 볼륨 드라이브로 동기식으로 복제되는 것을 확인할 수 있습니다(예: pr1-ascs-0 [10.0.0.40]에서 pr1-ascs-1 [10.0.0.41]로 복제됨).
 
@@ -417,9 +417,9 @@ _**그림 7:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스터
 
    장애 조치 후 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B(예: pr1-ascs-1에서 실행 중)에서 실행되고 있습니다.
 
-   ![그림 8: 장애 조치(Failover) 클러스터 관리자에서 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고 있습니다.][sap-ha-guide-figure-5002]
+   ![그림 8: 장애 조치 클러스터 관리자: 클러스터 노드 B에서 실행 중인 SAP \<SID\> 클러스터 그룹][sap-ha-guide-figure-5002]
 
-   _**그림 8**: 장애 조치(Failover) 클러스터 관리자에서 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고 있습니다._
+   _**그림 8**: 장애 조치 클러스터 관리자: 클러스터 노드 B에서 실행 중인 SAP \<SID\> 클러스터 그룹_
 
    이제 공유 디스크가 클러스터 노드 B에 탑재됩니다. SIOS DataKeeper에서 데이터를 클러스터 노드 B의 S 소스 볼륨 드라이브에서 클러스터 노드 A의 S 대상 볼륨 드라이브로 복제합니다(예: pr1-ascs-1 [10.0.0.41]에서 pr1-ascs-0 [10.0.0.40]으로 복제).
 

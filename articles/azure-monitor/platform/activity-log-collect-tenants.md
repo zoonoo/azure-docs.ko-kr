@@ -4,20 +4,21 @@ description: Event Hubs 및 Logic Apps를 사용 하 여 Azure 활동 로그에�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: e202885c695e4d8cdadaf8640d7ed01b05b70ad9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e3b368f8a59d201f70bfad05125ed59b4b8551c5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931830"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530003"
 ---
-# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Azure Active Directory 테 넌 트에서 Azure 활동 로그를 Azure Monitor으로 수집
+# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Azure 활동 로그를 Azure Active Directory 테 넌 트 간에 Azure Monitor으로 수집 (레거시)
 
-> [!WARNING]
-> 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](diagnostic-settings-subscription.md)을 참조 하세요.
+> [!NOTE]
+> 이 문서에서는 Log Analytics 작업 영역에서 수집 되도록 Azure 테 넌 트 전체에서 Azure 활동 로그를 구성 하는 레거시 방법을 설명 합니다.  이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](activity-log-collect.md)을 참조 하세요.
+
 
 이 문서에서는 azure Log Analytics 데이터 수집기 connector for Logic Apps를 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역으로 Azure 활동 로그를 수집 하는 방법을 단계별로 안내 합니다. 다른 Azure Active Directory 테넌트의 작업 영역에 로그를 보내야 하는 경우 이 문서의 과정을 사용합니다. 예를 들어 관리형 서비스 공급자인 경우 고객의 구독에서 활동 로그를 수집하여 자체 구독의 Log Analytics 작업 영역에 저장하는 것이 좋습니다.
 
@@ -124,9 +125,9 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
     ![논리 앱 만들기](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |설정 | 설명  |
+   |설정 | Description  |
    |:---|:---|
-   | name           | Logic App의 고유 이름입니다. |
+   | 이름           | Logic App의 고유 이름입니다. |
    | Subscription   | Logic App이 포함될 Azure 구독을 선택합니다. |
    | 리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 Logic App에 사용할 리소스 그룹을 새로 만듭니다. |
    | 위치       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |
@@ -299,7 +300,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
     ![데이터 보내기 작업 구성](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |설정        | Value           | 설명  |
+   |설정        | 값           | Description  |
    |---------------|---------------------------|--------------|
    |JSON 요청 본문  | **작성** 작업의 **출력** | 작성 작업의 본문에서 레코드를 검색합니다. |
    | 사용자 지정 로그 이름 | AzureActivity | 가져온 데이터를 저장 하기 위해 Log Analytics 작업 영역에 만들 사용자 지정 로그 테이블의 이름입니다. |

@@ -1,5 +1,5 @@
 ---
-title: 테넌트에 기존 Azure 구독 추가 - Azure Active Directory | Microsoft Docs
+title: 기존 Azure 구독을 테 넌 트에 추가-Azure AD
 description: Azure Active Directory 테넌트에 기존 Azure 구독을 추가하는 방법에 대한 지침입니다.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f61792235d13ef801cffb3a69c32df54f058a9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8d2111e631dd43b5d86a0bd486642657a20cc3ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073592"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422976"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 

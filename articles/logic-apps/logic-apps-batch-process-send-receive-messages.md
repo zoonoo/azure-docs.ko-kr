@@ -1,6 +1,6 @@
 ---
 title: 메시지를 그룹으로 일괄 처리
-description: Azure Logic Apps에서 메시지를 일괄 처리로 보내고 받습니다.
+description: Azure Logic Apps에서 일괄 처리를 사용 하 여 워크플로 간에 메시지 보내기 및 받기
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791568"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666757"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 메시지 보내기, 받기 및 일괄 처리
 
@@ -27,25 +27,25 @@ ms.locfileid: "74791568"
 
    또한 고객 번호와 같은 고유 키를 지정하여 해당 키에 따라 대상 일괄 처리를 논리적 하위 집합으로 *분할*하거나 나눌 수도 있습니다. 이런 방식으로 수신자 앱에서 동일한 키가 있는 모든 항목을 수집하고 함께 처리할 수 있습니다.
 
-일괄 처리 수신자 및 일괄 처리 발신자가 동일한 Azure 구독 *및* Azure 지역을 공유하도록 합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
+일괄 처리 수신자와 일괄 처리 발신자에서 동일한 Azure 구독 *및* Azure 지역을 공유하는지 확인합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 예제를 수행하려면 다음과 같은 항목이 필요합니다.
 
-* Azure 구독. 구독이 없는 경우 [Azure 계정을 사용하여 시작](https://azure.microsoft.com/free/)할 수 있습니다. 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
+* Azure 구독 구독이 없는 경우 [Azure 계정을 사용하여 시작](https://azure.microsoft.com/free/)할 수 있습니다. 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
 
 * [Azure Logic Apps에서 지원하는 전자 메일 공급자](../connectors/apis-list.md)를 사용하는 메일 계정
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 
 
-* Azure Portal 대신 Visual Studio를 사용하려면 [Logic Apps 사용을 위해 Visual Studio를 설정](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)해야 합니다.
+* Azure Portal 대신 Visual Studio를 사용하려면 [Logic Apps를 사용하도록 Visual Studio를 설정](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)해야 합니다.
 
 <a name="batch-receiver"></a>
 
 ## <a name="create-batch-receiver"></a>일괄 처리 수신자 만들기
 
-일괄 처리에 메시지를 보내려면 해당 일괄 처리는 해당 메시지를 보내는 대상으로 먼저 존재해야 합니다. 따라서 먼저 **일괄 처리** 트리거를 시작하는 "일괄 처리 수신자" 논리 앱을 만들어야 합니다. 이런 방식으로 "일괄 처리 발신자" 논리 앱을 만들 때 일괄 처리 수신자 논리 앱을 선택할 수 있습니다. 일괄 처리 수신자는 지정된 조건이 충족되어 해당 메시지를 해제하고 처리할 때까지 메시지 수집을 계속합니다. 일괄 처리 수신자는 일괄 처리 발신자에 대해 알 필요가 없지만 일괄 처리 발신자는 메시지를 보내는 대상을 알고 있어야 합니다. 
+메시지를 일괄 처리로 보내려면 먼저 해당 일괄 처리가 해당 메시지를 보내는 대상으로 존재해야 합니다. 따라서 먼저 **일괄 처리** 트리거를 시작하는 "일괄 처리 수신자" 논리 앱을 만들어야 합니다. 이런 방식으로 "일괄 처리 발신자" 논리 앱을 만들 때 일괄 처리 수신자 논리 앱을 선택할 수 있습니다. 일괄 처리 수신자는 지정된 조건이 충족되어 해당 메시지를 해제하고 처리할 때까지 메시지 수집을 계속합니다. 일괄 처리 수신자는 일괄 처리 발신자에 대해 인식하고 있을 필요가 없지만, 일괄 처리 발신자는 메시지를 보내는 대상을 인식하고 있어야 합니다. 
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio에서 "BatchReceiver"라는 이름이 있는 논리 앱을 만듭니다. 
 
@@ -55,11 +55,11 @@ ms.locfileid: "74791568"
 
 3. 일괄 처리 수신자에 대해 다음 속성을 설정합니다. 
 
-   | 자산 | 설명 | 
+   | 속성 | Description | 
    |----------|-------------|
    | **일괄 처리 모드** | - **인라인**: 일괄 처리 트리거 내부에 해제 조건을 정의하는 경우 <br>- **통합 계정**: [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 통해 다중 해제 조건 구성을 정의하는 경우. 통합 계정을 사용하면 별도의 논리 앱이 아닌 한 곳에서 이러한 구성을 모두 유지 관리할 수 있습니다. | 
    | **일괄 처리 이름** | 일괄 처리에 대한 이름이며(이 예의 경우 "TestBatch"), **인라인** 일괄 처리 모드에만 적용됩니다. |  
-   | **릴리스 기준** | **인라인** 일괄 처리 모드에만 적용되며, 각 일괄 처리를 처리하기 전에 충족할 조건을 선택합니다. <p>- **메시지 수 기반**: 일괄 처리에 의해 수집 된 메시지 수에 따라 일괄 처리를 해제 합니다. <br>- **크기 기반**: 해당 일괄 처리에 의해 수집 된 모든 메시지의 총 크기 (바이트)를 기준으로 일괄 처리를 해제 합니다. <br>- **일정**: 간격 및 빈도를 지정 하는 되풀이 일정을 기반으로 일괄 처리를 해제 합니다. 고급 옵션에서는 표준 시간대를 선택하고 시작 날짜와 시간을 선택할 수도 있습니다. <br>- **모두 선택**: 지정된 모든 조건을 사용합니다. | 
+   | **해제 조건** | **인라인** 일괄 처리 모드에만 적용되며, 각 일괄 처리를 처리하기 전에 충족할 조건을 선택합니다. <p>- **메시지 수 기반**: 일괄 처리에 의해 수집 된 메시지 수에 따라 일괄 처리를 해제 합니다. <br>- **크기 기반**: 해당 일괄 처리에 의해 수집 된 모든 메시지의 총 크기 (바이트)를 기준으로 일괄 처리를 해제 합니다. <br>- **일정**: 간격 및 빈도를 지정 하는 되풀이 일정을 기반으로 일괄 처리를 해제 합니다. 고급 옵션에서는 표준 시간대를 선택하고 시작 날짜와 시간을 선택할 수도 있습니다. <br>- **모두 선택**: 지정된 모든 조건을 사용합니다. | 
    | **메시지 수** | 일괄 처리에서 수집할 메시지 수입니다(예: 10개 메시지). 일괄 처리당 메시지는 8,000개로 제한됩니다. | 
    | **Batch 크기** | 일괄 처리에서 수집할 총 바이트 크기입니다(예: 10MB). 일괄 처리 크기는 80MB로 제한됩니다. | 
    | **일정** | 일괄 처리 해제 간의 간격 및 빈도입니다(예: 10분). 되풀이는 최소 60초 또는 1분입니다. 분의 소수 자릿수 부분은 1분으로 반올림됩니다. 표준 시간대나 시작 시간 및 날짜를 지정하려면 **고급 옵션 표시**를 선택합니다. | 
@@ -78,7 +78,7 @@ ms.locfileid: "74791568"
    이 예의 경우 일괄 처리 트리거가 발생할 때 이메일을 보내는 작업을 추가합니다. 
    일괄 처리에서 10개의 메시지가 있거나 10MB에 도달하거나 10분이 경과하면 트리거가 실행되고 이메일을 보냅니다.
 
-   1. 일괄 처리 트리거에서 **새 단계**를 선택합니다.
+   1. 일괄 처리 트리거 아래에서 **새 단계**를 선택합니다.
 
    2. 검색 상자에서 필터로 “전자 메일 보내기”를 입력합니다.
    전자 메일 공급자에 따라 전자 메일 커넥터를 선택합니다.
@@ -89,7 +89,7 @@ ms.locfileid: "74791568"
 
    3. **이메일 보내기 - <*이메일 공급자*>** 작업을 선택합니다.
 
-      다음은 그 예입니다.
+      예:
 
       ![전자 메일 공급자에 대한 “전자 메일 보내기” 작업을 선택합니다.](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -121,7 +121,7 @@ ms.locfileid: "74791568"
 
     ![논리 앱 저장](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
-8. Visual Studio를 사용하는 경우 [일괄 처리 수신자 논리 앱을 Azure에 배포했는지](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure) 확인합니다. 그렇지 않은 경우 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
+8. Visual Studio를 사용하는 경우 [일괄 처리 수신자 논리 앱을 Azure에 배포](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)해야 합니다. 그렇지 않으면 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
 <a name="batch-sender"></a>
 
@@ -129,7 +129,7 @@ ms.locfileid: "74791568"
 
 이제 일괄 처리 수신자 논리 앱에 메시지를 보내는 하나 이상의 일괄 처리 발신자 논리 앱을 만듭니다. 각 일괄 처리 발신자에서 일괄 처리 수신자와 일괄 처리 이름, 메시지 콘텐츠 및 다른 설정을 지정합니다. 필요에 따라 고유 파티션 키를 제공하여 해당 키가 있는 메시지를 수집하기 위한 논리적 하위 집합으로 일괄 처리를 나눌 수 있습니다. 
 
-* 일괄 처리 발신자를 만들 때 기존 일괄 처리 수신자를 대상 일괄 처리로 선택할 수 있도록 [일괄 처리 수신자를 만들었는지](#batch-receiver) 확인합니다. 일괄 처리 수신자는 일괄 처리 발신자에 대해 인식하고 있을 필요가 없지만, 일괄 처리 발신자는 메시지를 보내는 위치를 인식하고 있어야 합니다. 
+* 일괄 처리 발신자를 만들 때 기존 일괄 처리 수신자를 대상 일괄 처리로 선택할 수 있도록 [일괄 처리 수신자를 이미 만들었는지](#batch-receiver) 확인합니다. 일괄 처리 수신자는 일괄 처리 발신자에 대해 인식하고 있을 필요가 없지만, 일괄 처리 발신자는 메시지를 보내는 위치를 인식하고 있어야 합니다. 
 
 * 일괄 처리 수신자와 일괄 처리 발신자에서 동일한 Azure 지역 *및* Azure 구독을 공유하는지 확인합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
@@ -149,9 +149,9 @@ ms.locfileid: "74791568"
    1. 되풀이 트리거 아래에서 **새 단계**를 선택합니다.
 
    2. 검색 상자에서 필터로 “일괄 처리”를 입력합니다. 
-   **작업** 목록을 선택한 다음, **일괄 처리 트리거를 사용하여 Logic Apps 워크플로 선택 - 일괄 처리로 메시지 보내기** 작업을 선택합니다.
+   **작업** 목록을 선택한 다음, **일괄 처리 트리거가 있는 Logic Apps 워크플로를 선택합니다. - 일괄 처리로 메시지 보내기** 작업을 선택합니다.
 
-      !["일괄 처리 트리거가 있는 Logic Apps 워크플로 선택"을 선택합니다.](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
+      !["일괄 처리 트리거가 있는 Logic Apps 워크플로를 선택합니다." 선택](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
    3. 이전에 만든 일괄 처리 수신자 논리 앱을 선택합니다.
 
@@ -168,7 +168,7 @@ ms.locfileid: "74791568"
 
 3. 일괄 처리 발신자의 속성을 설정합니다.
 
-   | 자산 | 설명 | 
+   | 속성 | Description | 
    |----------|-------------| 
    | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
    | **메시지 콘텐츠** | 보내려는 메시지에 대한 콘텐츠입니다. | 
@@ -186,7 +186,7 @@ ms.locfileid: "74791568"
 
 4. 이제 일괄 처리에 대한 파티션을 설정합니다. "BatchReceiver" 작업에서 **고급 옵션 표시**를 선택하고 다음 속성을 설정합니다.
 
-   | 자산 | 설명 | 
+   | 속성 | Description | 
    |----------|-------------| 
    | **파티션 이름** | 대상 일괄 처리를 논리적 하위 집합으로 나누고 해당 키에 따라 메시지를 수집하는 데 사용하는 선택적 고유 파티션 키입니다. | 
    | **메시지 ID** | 비어 있을 때 생성된 GUID(Globally Unique Identifier)라는 선택적 메시지 식별자입니다. | 

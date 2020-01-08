@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fbd658d610fba27bdaed2af4bc27ed40a138fac
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008025"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608383"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용 하 여 ArcSight와 Azure Active Directory 로그 통합
 
@@ -30,13 +30,13 @@ ms.locfileid: "74008025"
 
 이 문서에서는 Azure Monitor를 사용하여 ArcSight로 Azure AD 로그를 라우팅하는 방법을 배웁니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 기능을 사용하려면 다음이 필요합니다.
 * Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](quickstart-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
 * ArcSight Syslog NG Daemon SmartConnector(SmartConnector) 또는 ArcSight Load Balancer의 구성된 인스턴스입니다. 이벤트를 ArcSight Load Balancer로 보내면 부하 분산 장치는 이어서 SmartConnector로 보냅니다.
 
-[Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)를 다운로드하고 엽니다. 이 가이드에는 Azure Monitor용 ArcSight SmartConnector를 설치하고 구성하는 데 필요한 단계가 포함되어 있습니다. 
+[Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)를 다운로드하고 엽니다. 이 가이드에는 Azure Monitor용 ArcSight SmartConnector를 설치하고 구성하는 데 필요한 단계가 포함되어 있습니다. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>ArcSight와 Azure AD 로그 통합
 
@@ -47,7 +47,7 @@ ms.locfileid: "74008025"
 
 2. 구성 가이드의 **커넥터 배포** 섹션에 있는 단계에 따라 커넥터를 배포합니다. 이 섹션에서는 커넥터를 다운로드하고 압축을 풀며, 압축을 푼 폴더에서 애플리케이션 속성을 구성하고 배포 스크립트를 실행하는 방법을 안내합니다. 
 
-3. **Azure에서 배포 확인**의 단계를 사용하여 커넥터가 제대로 설정되어 기능하는지 확인합니다. 다음 사항을 확인합니다.
+3. **Azure에서 배포 확인**의 단계를 사용하여 커넥터가 제대로 설정되어 기능하는지 확인합니다. 다음을 확인합니다.
     * 필수 Azure 함수는 Azure 구독에서 만들어집니다.
     * Azure AD 로그가 올바른 대상으로 스트리밍됩니다. 
     * 배포의 애플리케이션 설정은 Azure 함수 앱의 애플리케이션 설정에서 그대로 유지됩니다. 
@@ -59,4 +59,4 @@ ms.locfileid: "74008025"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

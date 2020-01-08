@@ -5,19 +5,23 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: a30ac638422f99134ebe9cc26e4b418f5de079b9
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c7d778a0afca4b3552976526d58a2cb2efe12161
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672141"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689611"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>PowerShell을 사용 하 여 삭제 된 App Service 앱 복원
 
 Azure App Service에서 앱을 실수로 삭제 한 경우 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0)의 명령을 사용 하 여 복원할 수 있습니다.
 
+> [!NOTE]
+> 삭제 된 앱은 초기 삭제 후 30 일 후 시스템에서 제거 됩니다. 제거 된 앱은 복구할 수 없습니다.
+>
+
 ## <a name="re-register-app-service-resource-provider"></a>App Service 리소스 공급자를 다시 등록 합니다.
-일부 고객에 게는 삭제 된 앱 목록을 검색 하는 데 실패 하는 문제가 발생할 수 있습니다. 이 문제를 해결 하려면 다음 명령을 실행 합니다.
+일부 고객은 삭제 된 앱 목록을 검색 하는 데 실패 하는 문제가 발생할 수 있습니다. 이 문제를 해결 하려면 다음 명령을 실행 합니다.
 
 ```powershell
  Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 61bee1618092788da33549ec322dc4ab7130de16
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 2913ef93d610b1d6a0ea57d79b27aee329838d25
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244689"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610746"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>AWS CloudTrail에 Azure 센티널 연결
 
 AWS 커넥터를 사용 하 여 모든 AWS CloudTrail 이벤트를 Azure 센티널로 스트리밍합니다. 이 연결 프로세스는 AWS 리소스 로그에 Azure 센티널에 대 한 액세스를 위임 하 여 AWS CloudTrail와 Azure 센티널 간의 트러스트 관계를 만듭니다. 이는 AWS 로그에 액세스할 수 있도록 Azure 센티널에 권한을 부여 하는 역할을 만들어 AWS에서 수행 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 
@@ -81,6 +81,7 @@ Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 AWS CloudTrail를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](tutorial-monitor-your-data.md) 하 여 데이터를 모니터링 합니다.
 

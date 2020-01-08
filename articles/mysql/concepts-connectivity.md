@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 92e213a87796247128e7e3810db99fde8525e12a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765209"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659222"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>일시적인 오류를 처리 하 고 Azure Database for MySQL에 효율적으로 연결
 
@@ -52,7 +52,7 @@ ms.locfileid: "74765209"
 
 데이터베이스 연결을 관리 하면 전체적으로 응용 프로그램의 성능에 상당한 영향을 줄 수 있습니다. 응용 프로그램의 성능을 최적화 하려면 연결이 설정 되는 횟수와 키 코드 경로에서 연결을 설정 하는 시간을 줄이는 것이 목표입니다. 데이터베이스 연결 풀링 또는 영구 연결을 사용 하 여 Azure Database for MySQL에 연결 하는 것이 좋습니다. 데이터베이스 연결 풀링은 데이터베이스 연결의 생성, 관리 및 할당을 처리 합니다. 프로그램은 데이터베이스 연결을 요청할 때 새 연결을 만드는 대신 기존 유휴 데이터베이스 연결의 할당을 우선 순위를 유지 합니다. 프로그램에서 데이터베이스 연결을 사용 하 여 완료 한 후에는 연결이 단순히 종료 되는 것이 아니라 나중에 사용할 수 있도록 준비 됩니다.
 
-더 나은 설명을 위해이 문서에서는 JAVA를 예로 사용 하는 [샘플 코드](./sample-scripts-java-connection-pooling.md) 를 제공 합니다. 자세한 내용은 [Apache common DBCP](http://commons.apache.org/proper/commons-dbcp/)를 참조 하세요.
+더 나은 설명을 위해이 문서에서는 JAVA를 예로 사용 하는 [샘플 코드](./sample-scripts-java-connection-pooling.md) 를 제공 합니다. 자세한 내용은 [Apache common DBCP](https://commons.apache.org/proper/commons-dbcp/)를 참조 하세요.
 
 > [!NOTE]
 > 서버는 시간 제한 메커니즘을 구성 하 여 리소스를 확보 하기 위해 일정 시간 동안 유휴 상태에 있는 연결을 닫습니다. 사용할 때 영구 연결의 효율성을 보장 하기 위해 확인 시스템을 설정 해야 합니다. 자세한 내용은 [영구적 연결의 효율성을 보장 하기 위해 클라이언트 쪽에서 확인 시스템 구성](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections)을 참조 하세요.

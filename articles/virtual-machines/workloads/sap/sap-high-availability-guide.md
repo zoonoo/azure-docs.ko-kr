@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bebdd8beacb3b5fc91802fb41055df7e24b93218
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0fbff3679004b8278b7634c2dc21253973cf34d0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078960"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647665"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -33,8 +33,8 @@ ms.locfileid: "70078960"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -148,7 +148,7 @@ ms.locfileid: "70078960"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -168,7 +168,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 이 문서에서는 배포 및 구성을 단순화하기 위해 SAP 3계층 고가용성 Resource Manager 템플릿을 사용합니다. 이 템플릿은 고가용성 SAP 시스템에 필요한 전체 인프라의 배포를 자동화합니다. 또한 이러한 인프라는 SAP 시스템의 SAPS(SAP 애플리케이션 성능 표준) 크기 조정도 지원합니다.
 
-## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> 필수 구성 요소
+## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> 필수 조건
 시작하기 전에 다음 섹션에 설명된 필수 조건을 충족하는지 확인하세요. 또한 [리소스][sap-ha-guide-2] 섹션에 나열 된 모든 리소스를 확인 해야 합니다.
 
 이 문서에서는 [관리 디스크를 사용하는 3계층 SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/)용 Azure Resource Manager 템플릿을 사용합니다. 유용한 템플릿 개요를 보려면 [SAP Azure Resource Manager 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)을 참조하세요.
@@ -197,7 +197,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 | [1999351] |Windows에서의 가상화: 향상된 모니터링 |
 | [2243692] |SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용 |
 
-일반적인 기본 제한 및 최대 제한 사항을 포함 하 여 Azure 구독에 대 한 [제한 사항][azure-subscription-service-limits-subscription]에 대해 자세히 알아보세요.
+일반적인 기본 제한 및 최대 제한 사항을 포함 하 여 Azure 구독에 대 한 [제한 사항][azure-resource-manager/management/azure-subscription-service-limits-subscription]에 대해 자세히 알아보세요.
 
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>Azure Resource Manager 및 Azure 클래식 배포 모델의 고가용성 SAP
 Azure Resource Manager와 Azure 클래식 배포 모델은 다음과 같은 영역에서 차이가 있습니다.
@@ -207,7 +207,7 @@ Azure Resource Manager와 Azure 클래식 배포 모델은 다음과 같은 영�
 - SAP 다중 SID 지원 시나리오
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> 리소스 그룹
-Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 애플리케이션 리소스를 관리할 수 있습니다. 통합 접근 방식의 리소스 그룹에서는 모든 리소스가 동일한 수명 주기를 갖습니다. 예를 들어 모든 리소스가 동시에 생성되고 동시에 삭제됩니다. [리소스 그룹](../../../azure-resource-manager/resource-group-overview.md#resource-groups)에 대해 알아봅니다.
+Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 애플리케이션 리소스를 관리할 수 있습니다. 통합 접근 방식의 리소스 그룹에서는 모든 리소스가 동일한 수명 주기를 갖습니다. 예를 들어 모든 리소스가 동시에 생성되고 동시에 삭제됩니다. [리소스 그룹](../../../azure-resource-manager/management/overview.md#resource-groups)에 대해 알아봅니다.
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure 리소스 그룹에 대한 Azure 내부 부하 분산 장치 종속성
 
@@ -279,7 +279,7 @@ _**그림 2:** 공유 디스크를 사용하지 않는 Azure의 Windows Server �
 고가용성 SAP ASCS/SCS 인스턴스를 위해서는 클러스터 공유 Storage가 필요합니다. 2016년 9월을 기준으로 Azure는 공유 Storage 클러스터를 만드는 데 사용할 수 있는 공유 Storage를 제공하지 않습니다. 타사 소프트웨어 SIOS DataKeeper Cluster Edition을 사용하여 클러스터 공유 Storage를 시뮬레이션하는 미러링된 Storage를 만들 수 있습니다. SIOS 솔루션은 실시간 동기 데이터 복제 기능을 제공합니다. 다음은 클러스터에 대한 공유 디스크 리소스를 만드는 방법입니다.
 
 1. Windows 클러스터 구성에 있는 각 VM(가상 머신)에 추가 디스크 하나를 연결합니다.
-2. 두 가상 컴퓨터 노드에서 SIOS DataKeeper Cluster Edition을 실행합니다.
+2. 두 가상 머신 노드에서 SIOS DataKeeper Cluster Edition을 실행합니다.
 3. 원본 가상 머신의 추가 디스크 연결 볼륨의 콘텐츠를 대상 가상 머신의 추가 디스크 연결 볼륨에 미러링하는 방식으로 SIOS DataKeeper Cluster Edition을 구성합니다. SIOS DataKeeper는 원본 및 대상 로컬 볼륨을 추상화한 다음 Windows Server 장애 조치 클러스터링에 단일 공유 디스크로 제공합니다.
 
 [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
@@ -322,7 +322,7 @@ SAP 애플리케이션 서버 인스턴스를 호스트하는 모든 가상 머�
 
 [가상 컴퓨터의 가용성을 관리][virtual-machines-manage-availability]하는 방법에 대해 자세히 알아보세요.
 
-비관리 디스크에만 해당하는 설명: Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 둘 이상의 가상 머신이 배포될 둘 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 머신의 디스크를 다른 스토리지 계정에 배포합니다.
+비관리 디스크에만 해당하는 설명: Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 둘 이상의 가상 머신이 배포될 둘 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 컴퓨터의 디스크를 다른 스토리지 계정에 배포합니다.
 
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> 고가용성 SAP ASCS/SCS 인스턴스
 그림 5는 고가용성 SAP ASCS/SCS 인스턴스의 예입니다.
@@ -377,9 +377,9 @@ _**그림 9:** SAP 고가용성 아키텍처 템플릿 2 - ASCS/SCS 전용 클�
 
 ### <a name="deployment-scenario-using-architectural-template-3"></a>아키텍처 템플릿 3을 사용하여 배포 시나리오
 
-그림 10에서는 **SID1** 및 &lt;SID2&gt;의 &lt;두&gt; SAP 시스템을 위한 Azure의 SAP NetWeaver 고가용성 아키텍처의 예제를 보여 줍니다. 이 시나리오는 다음과 같이 설정됩니다.
+그림 10에서는 &lt;SID1&gt; 및 &lt;SID2&gt;의 **두** SAP 시스템을 위한 Azure의 SAP NetWeaver 고가용성 아키텍처의 예제를 보여 줍니다. 이 시나리오는 다음과 같이 설정됩니다.
 
-- 하나의 전용 클러스터는 SAP ASCS/SCS SID1 인스턴스 **및** SAP ASCS/SCS SID2 인스턴스 *모두*에 사용됩니다(하나의 클러스터).
+- 하나의 전용 클러스터는 SAP ASCS/SCS SID1 인스턴스 *및* SAP ASCS/SCS SID2 인스턴스 **모두**에 사용됩니다(하나의 클러스터).
 - 하나의 전용 클러스터는 DBMS SID1에 사용되고 다른 전용 클러스터는 DBMS SID2에 사용됩니다(두 개의 클러스터).
 - SAP 시스템 SID1에 대한 SAP 애플리케이션 서버 인스턴스에는 자체의 전용 VM이 있습니다.
 - SAP 시스템 SID2에 대한 SAP 애플리케이션 서버 인스턴스에는 자체의 전용 VM이 있습니다.
@@ -741,7 +741,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 2. SAP ASCS 또는 SCS 인스턴스에 속하는 모든 부하 분산 규칙에 대해 다음 값을 변경합니다.
 
    * 이름
-   * 포트
+   * Port
    * 백 엔드 포트
 
    예를 들어 기본 ASCS 인스턴스 번호를 00에서 31로 변경하려는 경우 표 1에 나열된 모든 포트에 대해 이러한 변경을 수행해야 합니다.
@@ -1292,7 +1292,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort**가 **62000**으로 설정됩니다. 이제 **ascsha-dbas\\ 등의 다른 호스트에서** **\ascsha-clsap\sapmnt** 파일 공유에 액세스할 수 있습니다.
+**ProbePort**가 **62000**으로 설정됩니다. 이제 **ascsha-dbas** 등의 다른 호스트에서 **\\\ascsha-clsap\sapmnt** 파일 공유에 액세스할 수 있습니다.
 
 ### <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> 데이터베이스 인스턴스 설치
 

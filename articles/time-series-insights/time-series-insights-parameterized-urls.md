@@ -1,6 +1,6 @@
 ---
 title: 매개 변수가 있는 Url을 사용 하 여 사용자 지정 보기 공유-Azure Time Series Insights | Microsoft Docs
-description: Azure Time Series Insights에서 매개 변수가 있는 Url을 개발 하 여 쉽게 사용자 지정 된 보기를 공유 하는 방법을 알아봅니다.
+description: Azure Time Series Insights에서 사용자 지정 된 탐색기 보기를 쉽게 공유 하기 위해 매개 변수가 있는 Url을 만드는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 10/18/2019
+ms.date: 12/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fd6de7dfe9509e7f99adeed0e5de3e157335e6bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452803"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -33,7 +33,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 예를 들어 `?environmentId=10000000-0000-0000-0000-100000000108`은 환경 ID 매개 변수입니다.
 
-## <a name="time"></a>Time
+## <a name="time"></a>시간
 
 매개 변수가 있는 URL을 사용하여 절대 또는 상대 시간 값을 지정할 수 있습니다.
 
@@ -44,11 +44,12 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 * `from=<integer>`는 검색 범위에 대한 시작 시간의 JavaScript 밀리초 값입니다.
 * `to=<integer>`는 검색 범위에 대한 종료 시간의 JavaScript 밀리초 값입니다.
 
-날짜에 대한 JavaScript 밀리초를 확인하는 방법은 [Epoch & Unix 타임스탬프 변환기](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html)를 참조하세요.
+> [!TIP]
+> 날짜를 JavaScript 밀리초로 쉽게 변환 하려면 [Epoch & Unix 타임 스탬프 변환기](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html)를 사용해 보세요.
 
 ### <a name="relative-time-values"></a>상대 시간 값
 
-상대 시간 값의 경우 `relativeMillis=<value>`를 사용합니다. 여기서 *value*는 백 엔드에서 가장 최신 데이터의 JavaScript 밀리초입니다.
+상대 시간 값의 경우에는 `relativeMillis=<value>`를 사용 합니다. 여기서 *값* 은 API에서 받은 최신 타임 스탬프에서 JavaScript 밀리초에 있습니다.
 
 예를 들어 `&relativeMillis=3600000`은 최근 60분의 데이터를 표시합니다.
 
@@ -65,33 +66,41 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
 
-`timeSeriesDefinitions=<collection of term objects>` 매개 변수는 Time Series Insights 보기의 조건을 지정 합니다.
+`timeSeriesDefinitions=<collection of term objects>` 매개 변수는 Time Series Insights 뷰에 표시 되는 조건자 용어를 지정 합니다.
 
-| 매개 변수를 포함해야 합니다. | URL 항목 | 설명 |
+| 매개 변수 | URL 항목 | Description |
 | --- | --- | --- |
 | **name** | `\<string>` | *조건*의 이름입니다. |
 | **splitBy** | `\<string>` | *분할의 기준*이 되는 열 이름입니다. |
 | **measureName** | `\<string>` | *측정값*의 열 이름입니다. |
 | **predicate** | `\<string>` | 서버 쪽 필터링에 대한 *where* 절입니다. |
-| **useSum** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. </br>  `Events` 선택 된 측정값이 면 기본적으로 개수가 선택 됩니다.  </br>  `Events` 선택 되지 않은 경우 기본적으로 평균이 선택 됩니다. |
+| **useSum** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. |
+
+> [!NOTE]
+> `Events` 선택 된 경우에는 기본적으로 **개수가 선택 됩니다** .  
+> `Events` 선택 되지 않은 경우 기본적으로 평균이 선택 됩니다. |
 
 * `multiChartStack=<true/false>` 키-값 쌍은 차트에서 누적을 사용 합니다.
 * `multiChartSameScale=<true/false>` 키-값 쌍은 선택적 매개 변수 내에서 용어에 대해 동일한 Y 축 눈금을 사용할 수 있도록 합니다.  
 * `timeBucketUnit=<Unit>&timeBucketSize=<integer>`를 사용 하면 간격 슬라이더를 조정 하 여 보다 세분화 하거나 더 정교 하 고 더 세분화 된 차트 보기를 제공할 수 있습니다.  
 * `timezoneOffset=<integer>` 매개 변수를 사용 하 여 UTC의 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
 
-| 쌍 | 설명 |
+| 쌍 | Description |
 | --- | --- |
 | `multiChartStack=false` | `true`은 기본적으로 사용 하도록 설정 되므로 스택에 `false`를 전달 합니다. |
-| `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  기본적으로 `false` 이므로 ' t r u e '를 전달 하면이 기능을 사용할 수 있습니다. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 단위 = 일, 시간, 분, 초, 밀리초.  단위는 항상 대문자로 시작합니다. </br> timeBucketSize에 원하는 정수를 전달하여 단위의 수를 정의합니다.  최대 7일까지 설정할 수 있습니다.  |
-| `timezoneOffset=-<integer>` | 정수는 항상 밀리초 단위입니다. </br> 이 기능은 Time Series Insights 탐색기에서 사용 하는 것과 약간 다르며, 여기에서 로컬 (브라우저 시간) 또는 UTC를 선택할 수 있습니다. |
+| `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  기본적으로 `false` 되므로 `true`를 전달 하면이 기능을 사용할 수 있습니다. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unit = `days`, `hours`, `minutes`, `seconds``milliseconds`.  단위는 항상 대문자로 시작합니다. </br> **TimeBucketSize**에 필요한 정수를 전달 하 여 단위 수를 정의 합니다.  |
+| `timezoneOffset=-<integer>` | 정수는 항상 밀리초 단위입니다. |
 
-### <a name="examples"></a>예
+> [!NOTE]
+> **timeBucketUnit** 값은 최대 7 일까 지 사용할 수 있습니다.
+> **timezoneOffset** 값은 UTC 및 현지 시간이 아닙니다.
+
+### <a name="examples"></a>예시
 
 URL 매개 변수로 Time Series Insights 환경에 시계열 정의를 추가 하려면 다음을 추가 합니다.
 
-```plaintext
+```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
@@ -100,24 +109,28 @@ URL 매개 변수로 Time Series Insights 환경에 시계열 정의를 추가 �
 
 * 환경 ID
 * 데이터의 최근 60 분
-* 선택적 매개 변수를 구성 하는 용어 (F1PressureID, F2TempStation 및 F3VibrationPL)
+* 선택적 매개 변수를 구성 하는 용어 (**F1PressureID**, **F2TempStation**및 **F3VibrationPL**)
 
 뷰에 대해 다음 매개 변수가 있는 URL을 생성할 수 있습니다.
 
-```plaintext
+```URL
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
+[![Time Series Insights 탐색기 매개 변수가 있는 URL](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+
 > [!TIP]
-> [URL을 사용 하 여](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}])탐색기 라이브를 확인 합니다.
+> 위의 [URL 예제를 사용 하 여](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) 탐색기 라이브를 확인 합니다.
 
-위의 URL은 Time Series Insights 탐색기 보기를 설명 하 고 빌드합니다.
+위의 URL은 매개 변수가 있는 Time Series Insights 탐색기 뷰를 설명 하 고 표시 합니다. 
 
-[![Time Series Insights 탐색기 용어](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+* 매개 변수가 있는 조건자입니다.
 
-전체 보기 (차트 포함):
+  [Time Series Insights 탐색기 매개 변수가 있는 조건자를 ![합니다.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
-[![차트 뷰](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+* 공유 된 전체 차트 뷰입니다.
+
+  [공유 된 전체 차트 뷰를 ![합니다.](media/parameterized-url/share-parameterized-url-full-chart.png)](media/parameterized-url/share-parameterized-url-full-chart.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

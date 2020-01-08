@@ -1,25 +1,14 @@
 ---
 title: FabricClient를 사용 하 여 Azure Service Fabric 배포
 description: FabricClient API를 사용하여 Service Fabric에서 애플리케이션을 배포 및 제거합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: cdb5ae4efbd4119422101eb8a05ce71e7b58d51f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376973"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>FabricClient를 사용하여 애플리케이션 배포 및 제거
 > [!div class="op_single_selector"]
@@ -332,7 +321,7 @@ static void Main(string[] args)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[Service Fabric 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
+[서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 [서비스 패브릭 상태 소개](service-fabric-health-introduction.md)
 

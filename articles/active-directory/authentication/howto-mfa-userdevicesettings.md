@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a1e6dc3ed1c1f9af6f6b935cdd3a6ceaedbe7a4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848258"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425279"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
 
@@ -30,9 +30,9 @@ ms.locfileid: "74848258"
 
 관리자가 인증 관리자 역할을 할당 한 경우 사용자가 암호를 재설정 하 고 MFA를 다시 등록 하거나 사용자 개체에서 기존 MFA 세션을 취소 하도록 요구할 수 있습니다.
 
-![Azure Portal에서 인증 방법 관리](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+![Azure Portal에서 인증 방법 관리](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
 1. 작업을 수행 하려는 사용자를 선택 하 고 **인증 방법**을 선택 합니다.
    - **암호 재설정** 은 사용자의 암호를 다시 설정 하 고 다음에 로그인 할 때 변경 해야 하는 임시 암호를 할당 합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "74848258"
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>사용자 기존 앱 암호를 삭제하는 방법
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
 3. 오른쪽의 도구 모음에서 **Multi-Factor Authentication**을 선택합니다. 다단계 인증 페이지가 열립니다.
 4. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 오른쪽에 빠른 단계 옵션 목록이 표시 됩니다.

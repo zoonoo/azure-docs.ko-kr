@@ -1,31 +1,22 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh | Microsoft Docs
-description: Service Fabric CLI sfctl mesh 명령을 설명합니다.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 메시
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. Service Fabric 메시 응용 프로그램을 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: a97cf0a9dd9eccea2db60d73308338350102cb8c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 608efba614f17932b3bfb7852c16ffbeaca02457
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901110"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646078"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Service Fabric Mesh 애플리케이션을 삭제하고 관리합니다.
 
 ## <a name="subgroups"></a>하위 그룹
-|하위 그룹|설명|
+|하위 그룹|Description|
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | 애플리케이션 리소스를 가져오고 삭제합니다. |
 | [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | 지정된 서비스 복제본에 대해 지정된 코드 패키지의 컨테이너 관련 로그를 가져옵니다. |
@@ -40,5 +31,5 @@ Service Fabric Mesh 애플리케이션을 삭제하고 관리합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md).
+- Service Fabric CLI [설정](service-fabric-cli.md)
 - [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
