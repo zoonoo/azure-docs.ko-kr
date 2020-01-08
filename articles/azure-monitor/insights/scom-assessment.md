@@ -4,15 +4,15 @@ description: System Center Operations Manager Health Check 솔루션을 사용�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402860"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -34,7 +34,7 @@ System Center Operations Manager Health Check 솔루션을 사용하여 일정�
 
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 
-이 솔루션은 Microsoft System Center 2012 Operations Manager 서비스 팩 1, Microsoft system Center 2012 R2 Operations Manager, Microsoft System center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager 및 Microsoft System과 함께 작동 합니다. 센터 Operations Manager 1807
+이 솔루션은 Microsoft System Center 2012 Operations Manager 서비스 팩 1, Microsoft system Center 2012 R2 Operations Manager, Microsoft System center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager 및 Microsoft System과 함께 작동 합니다. 센터 Operations Manager 1807. .NET Framework 4.6.2의 지원 되는 버전은 각 관리 서버에 설치 해야 합니다.
 
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
@@ -56,7 +56,7 @@ System Center Operations Manager Health Check 솔루션을 사용하여 일정�
 System Center Operations Manager 상태 검사 솔루션은 다음 원본에서 데이터를 수집 합니다.
 
 * 레지스트리
-* WMI(Windows Management Instrumentation)
+* Windows Management Instrumentation(WMI)
 * 이벤트 로그
 * 파일 데이터
 * 지정한 관리 서버에서 Operations Manager에서 직접 PowerShell 및 SQL 쿼리를 사용합니다.  

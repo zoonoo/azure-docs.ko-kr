@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 06c8784c235b157f5799bb727df9784dfaa2f376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440523"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
 
@@ -56,11 +56,11 @@ Azure Data Factory에서 지속적인 통합 & 배달은 Data Factory 파이프�
 
 테스트 및 프로덕션 데이터 팩터리에서 **ARM 템플릿 가져오기**를 선택 합니다. 이 작업을 통해 Azure Portal로 이동합니다. 여기서 내보낸 템플릿을 가져올 수 있습니다. **편집기에서 사용자 고유의 템플릿 빌드** 를 선택 하 여 리소스 관리자 템플릿 편집기를 엽니다.
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![사용자 지정 배포 사용자 고유의 템플릿 빌드](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 **파일 로드** 를 클릭 하 고 생성 된 리소스 관리자 템플릿을 선택 합니다.
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![사용자 지정 배포 템플릿 편집](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 설정 창에서 연결 된 서비스 자격 증명과 같은 구성 값을 입력 합니다. 완료 되 면 **구매** 를 클릭 하 여 리소스 관리자 템플릿을 배포 합니다.
 
@@ -112,17 +112,17 @@ Azure Data Factory에서 지속적인 통합 & 배달은 Data Factory 파이프�
 
     ![](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  새 작업을 만듭니다. **Azure 리소스 그룹 배포**를 검색 하 고 **추가**를 클릭 합니다.
+    b.  새 태스크를 만듭니다. **Azure 리소스 그룹 배포**를 검색 하 고 **추가**를 클릭 합니다.
 
-    c.  배포 작업에서 대상 Data Factory의 구독, 리소스 그룹 및 위치를 선택하고, 필요한 경우 자격 증명을 제공합니다.
+    다.  배포 작업에서 대상 Data Factory의 구독, 리소스 그룹 및 위치를 선택하고, 필요한 경우 자격 증명을 제공합니다.
 
     d.  작업 드롭다운에서 **리소스 그룹 만들기 또는 업데이트**를 선택 합니다.
 
-    e.  “**템플릿**” 필드에서 **…** 를 선택합니다. [각 환경에 대 한 Resource Manager 템플릿 만들기](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment)의 **ARM 템플릿 가져오기** 단계를 통해 Azure Resource Manager 템플릿 만들기를 찾습니다. `<FactoryName>` 분기의 `adf_publish` 폴더에서 이 파일을 찾습니다.
+    e.  **템플릿 매개 변수 재정의** 필드 **…** 를 선택합니다. [각 환경에 대 한 Resource Manager 템플릿 만들기](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment)의 **ARM 템플릿 가져오기** 단계를 통해 Azure Resource Manager 템플릿 만들기를 찾습니다. `adf_publish` 분기의 `<FactoryName>` 폴더에서 이 파일을 찾습니다.
 
-    f.  “**템플릿**” 필드에서 **템플릿 매개 변수 필드에 있습니다.** 를 클릭 하 여 매개 변수 파일을 선택 합니다. 복사본을 만들었는지 또는 기본 파일 *ARMTemplateParametersForFactory.json*을 사용하는지에 따라 올바른 파일을 선택합니다.
+    f.  **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수 필드에 있습니다.** 를 클릭 하 여 매개 변수 파일을 선택 합니다. 복사본을 만들었는지 또는 기본 파일 *ARMTemplateParametersForFactory.json*을 사용하는지에 따라 올바른 파일을 선택합니다.
 
-    g.  “**템플릿**” 필드에서 옆에 있는 **…** 을 선택하고 대상 Data Factory에 대한 정보를 입력합니다. Key vault에서 가져온 자격 증명의 경우 큰따옴표 사이에 비밀 이름을 입력 합니다. 예를 들어 비밀의 이름이 `cred1`인 경우 해당 값에 대 한 `"$(cred1)"`을 입력 합니다.
+    g.  **템플릿 매개 변수 재정의** 필드 옆에 있는 **…** 을 선택하고 대상 Data Factory에 대한 정보를 입력합니다. Key vault에서 가져온 자격 증명의 경우 큰따옴표 사이에 비밀 이름을 입력 합니다. 예를 들어 비밀의 이름이 `cred1`인 경우 해당 값에 대 한 `"$(cred1)"`을 입력 합니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -424,7 +424,7 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 #### <a name="triggers"></a>트리거
 
 * `typeProperties`에서는 두 개의 속성을 매개 변수화 합니다. 첫 번째 값은 `maxConcurrency`이며 기본값을 갖도록 지정 되 고`string`형식입니다. `<entityName>_properties_typeProperties_maxConcurrency`의 기본 매개 변수 이름이 있습니다.
-* 또한 `recurrence` 속성은 매개 변수가 있습니다. 이 수준에서 해당 수준의 모든 속성은 기본값으로 매개 변수화 되도록 지정 되며 기본값 및 매개 변수 이름이 사용 됩니다. 단, `interval` 속성은 숫자 형식으로 매개 변수화 되 고 매개 변수 이름에는 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`로 접미사로 사용 됩니다. 마찬가지로 `freq` 속성은 문자열이 며 문자열로 매개 변수화 됩니다. 그러나 `freq` 속성은 기본값이 없는 매개 변수화 됩니다. 이름이 단축 되 고 접미사가 붙습니다. `<entityName>_freq`) 을 입력합니다.
+* 또한 `recurrence` 속성은 매개 변수가 있습니다. 이 수준에서 해당 수준의 모든 속성은 기본값으로 매개 변수화 되도록 지정 되며 기본값 및 매개 변수 이름이 사용 됩니다. 단, `interval` 속성은 숫자 형식으로 매개 변수화 되 고 매개 변수 이름에는 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`로 접미사로 사용 됩니다. 마찬가지로 `freq` 속성은 문자열이 며 문자열로 매개 변수화 됩니다. 그러나 `freq` 속성은 기본값이 없는 매개 변수화 됩니다. 이름이 단축 되 고 접미사가 붙습니다. `<entityName>_freq`)을 입력합니다.
 
 #### <a name="linkedservices"></a>LinkedServices
 

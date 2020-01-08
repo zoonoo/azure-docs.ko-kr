@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433278"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -32,7 +32,8 @@ Durable Functions 확장 프로그램은 HTTP Api 집합을 Azure Functions 호�
 * [오케스트레이션에 외부 이벤트 보내기](durable-functions-http-api.md#raise-event)
 * [오케스트레이션 기록 제거](durable-functions-http-api.md#purge-single-instance-history)
 * [엔터티에 작업 이벤트 보내기](durable-functions-http-api.md#signal-entity)
-* [엔터티 상태 쿼리](durable-functions-http-api.md#query-entity)
+* [엔터티 상태 가져오기](durable-functions-http-api.md#get-entity)
+* [엔터티 목록 쿼리](durable-functions-http-api.md#list-entities)
 
 Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api에 대 한 자세한 설명은 [HTTP api 문서](durable-functions-http-api.md) 를 참조 하세요.
 
@@ -178,7 +179,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-이전 예제에서 `tokenSource` 매개 변수는 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)에 대 한 Azure AD 토큰을 획득 하도록 구성 됩니다. 토큰은 리소스 URI `https://management.core.windows.net`로 식별 됩니다. 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id에 `myRG`지정 된 리소스 그룹의 Vm을 관리할 수 있는 권한이 있다고 가정 합니다.
+이전 예제에서 `tokenSource` 매개 변수는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대 한 Azure AD 토큰을 획득 하도록 구성 됩니다. 토큰은 리소스 URI `https://management.core.windows.net`로 식별 됩니다. 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id에 `myRG`지정 된 리소스 그룹의 Vm을 관리할 수 있는 권한이 있다고 가정 합니다.
 
 런타임에 구성 된 토큰 소스는 OAuth 2.0 액세스 토큰을 자동으로 반환 합니다. 그런 다음 소스는 들어오는 요청의 권한 부여 헤더에 토큰을 전달자 토큰으로 추가 합니다. 이 모델은 다음 이유로 인해 HTTP 요청에 권한 부여 헤더를 수동으로 추가 하는 것 보다 향상 되었습니다.
 

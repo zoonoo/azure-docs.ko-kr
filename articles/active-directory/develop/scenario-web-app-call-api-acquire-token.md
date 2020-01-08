@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398b68221681f0d14dbcc20ac7c0cb603313eaee
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f6a7f3e4e1470bc3788ceae68f035f68f05ae449
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423542"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 웹 앱-앱에 대 한 토큰을 가져옵니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "74919466"
 
 컨트롤러 메서드는 웹 앱을 사용 하도록 사용자를 인증 하도록 하는 `[Authorize]` 특성에 의해 보호 됩니다. Microsoft Graph를 호출 하는 코드는 다음과 같습니다.
 
-```CSharp
+```csharp
 [Authorize]
 public class HomeController : Controller
 {
@@ -54,7 +54,7 @@ public class HomeController : Controller
 
 Microsoft Graph를 호출 하는 토큰을 가져오는 HomeController 동작의 간소화 된 코드는 다음과 같습니다.
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token
@@ -153,7 +153,7 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 Python 샘플에서 Microsoft graph를 호출 하는 코드는 [py # L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62)에 있습니다.
 
-토큰 캐시에서 토큰을 가져온 다음 권한 부여 헤더를 설정한 후에 eb API를 호출 하려고 시도 합니다. 사용할 수 없는 경우 사용자에 게 다시 로그인 합니다.
+토큰 캐시에서 토큰을 가져온 다음 권한 부여 헤더를 설정한 후 웹 API를 호출 하려고 시도 합니다. 사용할 수 없는 경우 사용자에 게 다시 로그인 합니다.
 
 ```python
 @app.route("/graphcall")

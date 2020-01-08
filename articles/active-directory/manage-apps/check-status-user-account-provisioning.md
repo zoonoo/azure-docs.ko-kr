@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e6a6714a1a9e7a2724d07584dd7b548ada2f201b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275056"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430221"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -30,7 +30,7 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 ## <a name="overview"></a>개요
 
-프로비전 커넥터는 지원되는 애플리케이션에 [제공된 설명서](https://portal.azure.com)에 따라 [Azure Portal](../saas-apps/tutorial-list.md)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
+프로비전 커넥터는 지원되는 애플리케이션에 [제공된 설명서](../saas-apps/tutorial-list.md)에 따라 [Azure Portal](https://portal.azure.com)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
 
 * **Azure Portal** -이 문서에서는 기본적으로 프로 비전 요약 보고서와 지정 된 응용 프로그램에 대 한 자세한 프로 비전 감사 로그를 모두 제공 하는 [Azure Portal](https://portal.azure.com)에서 보고서 정보를 검색 하는 방법을 설명 합니다.
 * **감사 API** - Azure Active Directory는 자세한 프로비저닝 감사 로그를 프로그래밍 방식으로 검색할 수 있게 해주는 감사 API도 제공합니다. 이 API의 사용과 관련하여 [Azure Active Directory 감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 문서를 참조하세요. 이 문서에서는 API를 사용하는 방법을 구체적으로 다루지 않지만, 감사 로그에 기록되는 프로비전 이벤트 유형에 대해서는 자세히 설명합니다.
@@ -55,8 +55,8 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 [프로 비전 진행률 표시줄이](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) 지정 된 응용 프로그램의 **프로 비전** 탭에 표시 됩니다. **설정**아래의 **현재 상태** 섹션에 있으며 현재 초기 또는 증분 주기의 상태를 표시 합니다. 이 섹션에는 다음도 나와 있습니다.
 
 * 동기화되어 현재의 원본 시스템과 대상 시스템 간 프로비전에 해당하는 범위에 포함된 총 사용자 및/또는 그룹 수
-* 동기화가 마지막으로 실행된 시간 - 일반적으로 동기화는 [초기 순환이](user-provisioning.md#what-happens-during-provisioning) 완료 된 후 20-40 분 마다 발생 합니다.
-* [초기 순환이](user-provisioning.md#what-happens-during-provisioning) 완료 되었는지 여부입니다.
+* 동기화가 마지막으로 실행된 시간 - 일반적으로 동기화는 [초기 순환이](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 완료 된 후 20-40 분 마다 발생 합니다.
+* [초기 순환이](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 완료 되었는지 여부입니다.
 * 프로비저닝 프로세스의 격리 여부 및 격리 상태에 대한 이유(예: 잘못된 관리자 자격 증명으로 인해 대상 시스템과 통신하지 못하는 경우).
 
 **현재 상태** 는 관리자가 프로 비전 작업의 작동 상태를 확인 하는 첫 번째 위치 여야 합니다.

@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric의 주문형 백업 | Microsoft Docs
+title: Azure Service Fabric의 주문형 백업
 description: Service Fabric의 백업 및 복원 기능을 사용하여 필요할 때 애플리케이션 데이터를 백업할 수 있습니다.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 88698a7a0f78987dc96bf7f39831ec1a7560a359
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458426"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Azure Service Fabric의 주문형 백업
 
@@ -65,7 +56,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 #### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 Rest 호출
 
-파티션 ID [에 대한 주문형 백업 트리거를 설정하려면 ](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition)BackupPartition`974bd92a-b395-4631-8a7f-53bd4ae9cf22` API를 사용합니다.
+파티션 ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`에 대한 주문형 백업 트리거를 설정하려면 [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API를 사용합니다.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -73,7 +64,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-[주문형 백업 진행률](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress)에 대한 추적을 사용하도록 설정하려면 [GetBackupProgress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress) API를 사용합니다.
+[주문형 백업 진행률](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress)에 대한 추적을 사용하도록 설정하려면 [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API를 사용합니다.
 
 ### <a name="on-demand-backup-to-specified-storage"></a>지정된 스토리지에 주문형 백업
 
@@ -90,7 +81,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 #### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 Rest 호출
 
-파티션 ID [에 대한 주문형 백업 트리거를 설정하려면 ](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition)BackupPartition`974bd92a-b395-4631-8a7f-53bd4ae9cf22` API를 사용합니다. 다음 Azure Storage 정보를 포함합니다.
+파티션 ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`에 대한 주문형 백업 트리거를 설정하려면 [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API를 사용합니다. 다음 Azure Storage 정보를 포함합니다.
 
 ```powershell
 $StorageInfo = @{
@@ -109,7 +100,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-[주문형 백업 진행률](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress)에 대한 추적을 설정하려면 [GetBackupProgress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress) API를 사용할 수 있습니다.
+[주문형 백업 진행률](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress)에 대한 추적을 설정하려면 [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API를 사용할 수 있습니다.
 
 ### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
 Service Fabric Explorer 설정에서 고급 모드를 사용 하도록 설정 했는지 확인 합니다.

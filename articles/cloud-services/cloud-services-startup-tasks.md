@@ -2,17 +2,17 @@
 title: Azure Cloud Services에서 시작 작업 실행 | Microsoft Docs
 description: 시작 작업을 통해 응용 프로그램에 대한 클라우드 서비스 환경을 준비합니다. 시작 작업의 작동 방법 및 만드는 방법을 배웁니다.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: cea28aba4c57f69a030d05ac192f9578967cbc3f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359467"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360313"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>클라우드 서비스에 대한 시작 작업 구성 및 실행 방법
 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "68359467"
 > 
 
 ## <a name="how-startup-tasks-work"></a>시작 작업 작동 방법
-시작 작업은 [시작] 요소 내의 [작업] 요소를 사용하여 역할이 시작되고 [ServiceDefinition.csdef] 파일에서 정의되기 전에 수행되는 동작입니다. 시작 작업은 흔히 배치 파일이지만 PowerShell 스크립트를 시작하는 콘솔 애플리케이션 또는 배치 파일일 수도 있습니다.
+시작 작업은 [시작] 요소 내의 [Task] 요소를 사용하여 역할이 시작되고 [ServiceDefinition.csdef] 파일에서 정의되기 전에 수행되는 동작입니다. 시작 작업은 흔히 배치 파일이지만 PowerShell 스크립트를 시작하는 콘솔 애플리케이션 또는 배치 파일일 수도 있습니다.
 
 환경 변수는 시작 작업으로 정보를 전달하고 로컬 스토리지는 시작 작업에서 정보를 전달하는데 사용할 수 있습니다. 예를 들어 환경 변수는 설치하려는 프로그램에 경로를 지정할 수 있고 사용자 역할에 의해 나중에 읽을 수 있는 로컬 스토리지에 파일을 쓸 수 있습니다.
 
@@ -154,10 +154,13 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 **변�
 [포장합니다](cloud-services-model-and-package.md) .  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[작업]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [시작]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [런타임]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [값]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
+
+
+

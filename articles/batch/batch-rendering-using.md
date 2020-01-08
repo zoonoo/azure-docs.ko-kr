@@ -1,18 +1,18 @@
 ---
-title: 렌더링 기능 - Azure Batch
-description: Azure Batch 렌더링 기능을 사용하는 방법
+title: 렌더링 기능 사용-Azure Batch
+description: Azure Batch 렌더링 기능 사용 방법 클라이언트 응용 프로그램 플러그 인에서 직접 또는 호출 하는 Batch Explorer 응용 프로그램을 사용해 보세요.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2dff44f0b5b4b02c39c4c63f23ff64d55ca9d833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449674"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
@@ -32,7 +32,7 @@ ms.locfileid: "60337609"
 
 개발자나 Azure 전문가가 아닌 최종 사용자가 Azure Batch 렌더링을 사용해보는 가장 간단한 방법은 직접 또는 클라이언트 애플리케이션 플러그인에서 호출하여 Batch Explorer 애플리케이션을 사용하는 것입니다.
 
-## <a name="using-batch-explorer"></a>Batch Explorer 사용
+## <a name="using-batch-explorer"></a>Batch 탐색기 사용
 
 Batch Explorer를 사용하여 렌더링을 수행하는 단계별 자습서는 [Blender 자습서](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)를 참조하세요.
 

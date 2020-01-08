@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 35eff70c12e6f98fa74a4180bf82a369c1ecfaa4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439816"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 컨테이너에서 파일 복사
 
@@ -34,9 +34,11 @@ ms.locfileid: "74927694"
 - **ForEach** **GetMetadata** 작업에서 컨테이너 목록을 가져온 다음 목록을 반복 하 고 각 컨테이너를 복사 작업에 전달 합니다.
 - **복사** 는 원본 저장소 저장소의 각 컨테이너를 대상 저장소에 복사 합니다.
 
-이 템플릿은 다음 두 개의 매개 변수를 정의합니다.
-- *Sourcefilepath* 는 컨테이너의 목록을 가져올 수 있는 데이터 원본 저장소의 경로입니다. 대부분의 경우 이 경로는 여러 컨테이너 폴더를 포함하는 루트 디렉터리입니다. 이 매개 변수의 기본값은 `/`입니다.
-- *Destinationfilepath* 는 대상 저장소에서 파일이 복사 될 경로입니다. 이 매개 변수의 기본값은 `/`입니다.
+템플릿은 다음 매개 변수를 정의합니다.
+- *Sourcefilefolder* 는 컨테이너 목록을 가져올 수 있는 데이터 원본 저장소의 폴더 경로입니다. 경로는 여러 컨테이너 폴더를 포함 하는 루트 디렉터리입니다. 이 매개 변수의 기본값은 `sourcefolder`입니다.
+- *Sourcefiledirectory* 는 데이터 원본 저장소의 루트 디렉터리 아래에 있는 하위 폴더 경로입니다. 이 매개 변수의 기본값은 `subfolder`입니다.
+- *Destinationfilefolder* 는 대상 저장소에서 파일이 복사 될 폴더 경로입니다. 이 매개 변수의 기본값은 `destinationfolder`입니다.
+- *Destinationfiledirectory* 는 대상 저장소에서 파일이 복사 되는 하위 폴더 경로입니다. 이 매개 변수의 기본값은 `subfolder`입니다.
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 

@@ -1,18 +1,18 @@
 ---
 title: 렌더링 관리자 지원 - Azure Batch
-description: Azure Batch 렌더링 관리자 통합을 통해 렌더링에 Azure 사용
+description: Azure Batch 렌더링 관리자 통합을 사용 합니다. 인기 있는 렌더링 관리자를 위한 기본 제공 지원 또는 추가 기능에 대해 알아봅니다.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: eb3ce47e5ffed697392065a1faacbbfaec19f4d1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983683"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449691"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>렌더링 팜 관리자로 Azure Batch 사용
 
@@ -26,7 +26,7 @@ Azure는 주요 렌더링 관리자에 대한 기본 제공 지원 또는 추가
 * [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
-## <a name="azure-render-hub"></a>Azure 렌더링 허브
+## <a name="azure-render-hub"></a>Azure Render Hub
 
 Azure 렌더링 허브는 Azure 렌더링 팜을 만들고 관리 하는 것을 간소화 합니다.  렌더링 허브는 PipelineFx 이상 및 최종 기한 10에 대 한 기본 지원을 제공 합니다.  자세한 내용 및 자세한 지침은 [GitHub 리포지토리를](https://github.com/Azure/azure-render-hub)참조 하세요.
 

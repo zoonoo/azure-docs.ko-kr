@@ -1,5 +1,6 @@
 ---
-title: CloudSimple-CloudSimple 활동 관리를 통한 Azure VMware 솔루션
+title: CloudSimple 활동 관리
+titleSuffix: Azure VMware Solution by CloudSimple
 description: CloudSimple을 사용한 VMware 솔루션의 활동 개념에 대해 설명 합니다.
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ad7905244ca190badf73c9a812a8f72282cbcdf3
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 985fcc0aa99723fde5e0c11babe3777c31cbd4c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430250"
 ---
 # <a name="activity-management-overview"></a>작업 관리 개요
 
@@ -23,11 +24,11 @@ CloudSimple은 사설 클라우드 환경의 기능에 영향을 줄 수 있는 
 
 이벤트는 CloudSimple 포털에서 사용자 및 시스템 작업을 추적 합니다. 이벤트는 특정 리소스와 관련 된 활동과 영향의 심각도를 표시 합니다.  CloudSimple 포털에서 이벤트를 볼 수 있습니다.
 
-## <a name="alerts"></a>,
+## <a name="alerts"></a>경고
 
 경고는 CloudSimple 환경에서 중요 한 작업에 대 한 알림입니다. 청구 또는 사용자 액세스에 영향을 주는 이벤트는 경고로 표시 됩니다.  CloudSimple 포털에서 경고를 승인할 수 있습니다.
 
-## <a name="tasks"></a>태스크
+## <a name="tasks"></a>작업
 
 작업은 완료 하는 데 30 초 이상 걸리는 모든 사용자 작업을 추적 합니다. CloudSimple 포털에서 작업의 진행률을 모니터링할 수 있습니다.  완료 된 작업의 경우이 정보에는 완료 총 시간이 포함 됩니다.
 

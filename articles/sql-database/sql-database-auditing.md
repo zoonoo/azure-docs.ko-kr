@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928707"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551627"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -73,7 +73,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. SQL 데이터베이스/서버 창의 보안 제목 아래에 있는 **감사**로 이동합니다.
 
-    <a id="auditing-screenshot"></a> ![탐색 창][1]
+    <a id="auditing-screenshot"></a>![탐색 창][1]
 
 3. 서버 감사 정책을 설정하는 것을 선호하면 데이터베이스 감사 페이지에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은 이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용됩니다.
 
@@ -108,7 +108,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
     ![이벤트 허브](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+9. **저장**을 클릭합니다.
 10. 감사 이벤트를 사용자 지정하려면 [PowerShell cmdlet](#subheading-7) 또는 [REST API](#subheading-9)를 통해 다음 작업을 수행합니다.
 11. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 
@@ -243,7 +243,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 - AAD 인증을 사용하는 경우 실패한 로그인 레코드는 SQL 감사 로그에 나타나지 *않습니다*. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
 
 
-## <a id="subheading-7"></a>Azure PowerShell을 사용하여 SQL Database 감사 관리
+## <a id="subheading-7"></a>Azure PowerShell를 사용 하 여 Azure SQL Server 및 데이터베이스 감사 관리
 
 **PowerShell cmdlet(추가 필터링을 위한 WHERE 절 지원 포함)** :
 
@@ -256,7 +256,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
 
-## <a id="subheading-9"></a>REST API를 사용하여 SQL Database 감사 관리
+## <a id="subheading-8"></a>REST API를 사용 하 여 Azure SQL Server 및 데이터베이스 감사 관리
 
 **REST API**:
 
@@ -272,7 +272,7 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 - [데이터베이스 *확장* 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [서버 *확장* 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Azure Resource Manager 템플릿을 사용 하 여 SQL database 감사 관리
+## <a id="subheading-9"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure SQL Server 및 데이터베이스 감사 관리
 
 다음 예제처럼 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 템플릿을 사용하여 Azure SQL 데이터베이스 감사를 관리할 수 있습니다.
 
@@ -289,10 +289,9 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

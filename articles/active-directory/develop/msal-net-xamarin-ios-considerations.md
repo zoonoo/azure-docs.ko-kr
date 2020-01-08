@@ -3,7 +3,7 @@ title: Xamarin iOS 고려 사항 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin iOS를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04074dfd9055fa4791f6fdce6bcf296aae8ff61
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f74c1f515df23a89af7cf50a208a9965865f6edf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424124"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin iOS 관련 고려 사항
 Xamarin iOS에서 MSAL.NET 사용 시 고려해 야 할 몇 가지 고려 사항이 있습니다.
@@ -30,18 +30,11 @@ Xamarin iOS에서 MSAL.NET 사용 시 고려해 야 할 몇 가지 고려 사항
 - [토큰 캐시 공유 사용](#enable-token-cache-sharing-across-ios-applications)
 - [키 집합 액세스 사용](#enable-keychain-access)
 
-## <a name="known-issues-with-ios-12-and-authentication"></a>IOS 12 및 인증의 알려진 문제
-Microsoft는 iOS12와 일부 인증 유형 간의 비 호환성에 대 한 정보를 제공 하기 위해 [보안 권고](https://github.com/aspnet/AspNetCore/issues/4647) 를 출시 했습니다. 비호환은 소셜, WSFed 및 OIDC 로그인을 중단 합니다. 또한이 권고는 개발자가 응용 프로그램에 ASP.NET에 의해 추가 된 현재 보안 제한을 제거 하 여 iOS12와 호환 되도록 하는 데 도움이 되는 지침을 제공 합니다.  
-
-Xamarin iOS에서 MSAL.NET 응용 프로그램을 개발할 때 iOS 12에서 웹 사이트에 로그인 하려고 할 때 무한 루프가 표시 될 수 있습니다 (이 [ADAL 문제와](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329)비슷함). 
-
-또한이 [WebKit 문제](https://bugs.webkit.org/show_bug.cgi?id=188165)에 설명 된 대로 IOS 12 Safari를 사용 하 여 ASP.NET Core oidc 인증에서 중단 되는 것을 볼 수 있습니다.
-
 ## <a name="implement-openurl"></a>OpenUrl 구현
 
 먼저 `FormsApplicationDelegate` 파생 클래스의 `OpenUrl` 메서드를 재정의 하 고 `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`를 호출 해야 합니다.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 {
     AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
@@ -56,40 +49,28 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 키 집합 액세스를 사용 하도록 설정 하려면 응용 프로그램에 키 집합 액세스 그룹이 있어야 합니다.
 아래와 같이 응용 프로그램을 만들 때 `WithIosKeychainSecurityGroup()` api를 사용 하 여 키 집합 액세스 그룹을 설정할 수 있습니다.
 
-Single Sign-On를 사용 하도록 설정 하려면 모든 응용 프로그램에서 `PublicClientApplication.iOSKeychainSecurityGroup` 속성을 동일한 값으로 설정 해야 합니다.
+캐시와 Single Sign-On를 활용 하려면 모든 응용 프로그램에서 키 집합 액세스 그룹을 동일한 값으로 설정 해야 합니다.
 
-MSAL v3. x를 사용 하는 예제는 다음과 같습니다.
+MSAL v4. x를 사용 하는 예제는 다음과 같습니다.
 ```csharp
 var builder = PublicClientApplicationBuilder
      .Create(ClientId)
-     .WithIosKeychainSecurityGroup("com.microsoft.msalrocks")
+     .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
      .Build();
 ```
-
-Info.plist는 다음과 같은 XML 조각과 같이 업데이트 되어야 합니다.
 
 이러한 변경은 아래 액세스 그룹 또는 사용자 고유의 액세스 그룹을 사용 하 여 `Entitlements.plist` 파일에서 키 집합 액세스를 사용 하도록 설정 하는 것 *외에* 도 사용 됩니다.
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
 <dict>
   <key>keychain-access-groups</key>
   <array>
-    <string>$(AppIdentifierPrefix)com.microsoft.msalrocks</string>
+    <string>$(AppIdentifierPrefix)com.microsoft.adalcache</string>
   </array>
 </dict>
-</plist>
 ```
 
-MSAL v4. x를 사용 하는 예제는 다음과 같습니다.
-
-```csharp
-PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
-```
-
-`WithIosKeychainSecurityGroup()` api를 사용 하는 경우 xcode를 사용 하 여 응용 프로그램을 빌드할 때 동일한 작업을 수행 하기 때문에 MSAL이 응용 프로그램의 "팀 ID" (AppIdentifierPrefix)의 끝에 자동으로 보안 그룹을 추가 합니다. [자세한 내용은 iOS 자격 설명서를 참조](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps)하세요. 따라서 info.plist의 키 집합 액세스 그룹 앞에 $ (AppIdentifierPrefix)를 포함 하도록 자격을 업데이트 해야 합니다.
+`WithIosKeychainSecurityGroup()` api를 사용 하는 경우 xcode를 사용 하 여 응용 프로그램을 빌드할 때 동일한 작업을 수행 하기 때문에 MSAL이 응용 프로그램의 *팀 ID* (AppIdentifierPrefix)의 끝에 보안 그룹을 자동으로 추가 합니다. 자세한 내용은 [iOS 자격 설명서](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps)를 참조 하세요. 따라서 자격에는 `Entitlements.plist`의 키 집합 액세스 그룹 앞에 `$(AppIdentifierPrefix)`를 포함 해야 합니다.
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>IOS 응용 프로그램에서 토큰 캐시 공유 사용
 
@@ -123,8 +104,15 @@ Broker를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [
 
 자세한 내용은 다음 샘플의 readme.md 파일에 있는 [IOS 관련 고려 사항](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) 단락에서 제공 됩니다.
 
-샘플 | 플랫폼 | 설명
+샘플 | 플랫폼 | Description
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 Azure AD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다.
 
 <!--- https://github.com/Azure-Samples/active-directory-xamarin-native-v2/blob/master/ReadmeFiles/Topology.png -->
+
+## <a name="known-issues-with-ios-12-and-authentication"></a>IOS 12 및 인증의 알려진 문제
+Microsoft는 iOS12와 일부 인증 유형 간의 비 호환성에 대 한 정보를 제공 하기 위해 [보안 권고](https://github.com/aspnet/AspNetCore/issues/4647) 를 출시 했습니다. 비호환은 소셜, WSFed 및 OIDC 로그인을 중단 합니다. 또한이 권고는 개발자가 응용 프로그램에 ASP.NET에 의해 추가 된 현재 보안 제한을 제거 하 여 iOS12와 호환 되도록 하는 데 도움이 되는 지침을 제공 합니다.  
+
+Xamarin iOS에서 MSAL.NET 응용 프로그램을 개발할 때 iOS 12에서 웹 사이트에 로그인 하려고 하면 무한 루프가 표시 될 수 있습니다 (이 [ADAL 문제와](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329)비슷함). 
+
+또한이 [WebKit 문제](https://bugs.webkit.org/show_bug.cgi?id=188165)에 설명 된 대로 IOS 12 Safari를 사용 하 여 ASP.NET Core oidc 인증에서 중단 되는 것을 볼 수 있습니다.

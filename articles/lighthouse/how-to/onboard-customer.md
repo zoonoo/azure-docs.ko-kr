@@ -1,25 +1,25 @@
 ---
 title: Azure 위임 리소스 관리에 고객 등록
 description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
-ms.date: 11/7/2019
+ms.date: 12/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 88e75b92ca09f3c6671fe4399c4672240f863f66
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
-ms.translationtype: MT
+ms.openlocfilehash: 16d1b4d9d51c377c4aa09b5e35b02790d8a1b8dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689271"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453547"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
-이 문서에서는 서비스 공급자가 고객을 Azure 위임 리소스 관리에 온보딩하여 위임된 해당 리소스(구독 및/또는 리소스 그룹)를 고유한 Azure AD(Azure Active Directory) 테넌트를 통해 액세스 및 관리할 수 있도록 하는 방법을 설명합니다. 여기서는 서비스 공급자 및 고객 관련 내용을 다루지만, 여러 테넌트를 관리하는 기업은 동일한 프로세스를 사용하여 관리 환경을 통합할 수 있습니다.
+이 문서에서는 서비스 공급자가 고객을 Azure 위임 리소스 관리에 온보딩하여 위임된 해당 리소스(구독 및/또는 리소스 그룹)를 고유한 Azure AD(Azure Active Directory) 테넌트를 통해 액세스 및 관리할 수 있도록 하는 방법을 설명합니다. 여기서는 서비스 공급자 및 고객을 참조 하지만, [여러 테 넌 트를 관리](../concepts/enterprise.md) 하는 기업은 동일한 프로세스를 사용 하 여 관리 환경을 통합할 수 있습니다.
 
 여러 고객의 리소스를 관리하는 경우 이 프로세스를 반복할 수 있습니다. 그러면 권한 있는 사용자는 테넌트에 로그인한 경우 모든 개별 고객 테넌트에 로그인하지 않고도 고객 테넌시 범위에서 관리 작업을 수행하기 위한 권한을 받을 수 있습니다.
 
-MPN(Microsoft 파트너 네트워크) ID를 온보딩한 구독과 연결하여 고객 계약에 미치는 영향을 추적하고 인식을 받을 수 있습니다. 자세한 내용은 [Azure 계정에 파트너 ID 연결](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started)을 참조하세요. 서비스 공급자 테넌트에서 이 연결을 수행해야 합니다.
+고객 계약의 영향을 추적 하 고 인식을 받으려면 Microsoft 파트너 네트워크 (MPN) ID를 등록 구독과 연결 합니다. 자세한 내용은 [Azure 계정에 파트너 ID 연결](../../billing/billing-partner-admin-link-started.md)을 참조하세요. 서비스 공급자 테넌트에서 이 연결을 수행해야 합니다.
 
 > [!NOTE]
-> 고객이 Azure Marketplace에 게시한 관리형 서비스 제품(퍼블릭 또는 프라이빗)을 구매할 때 온보딩될 수도 있습니다. 자세한 내용은 [Azure Marketplace에 관리형 서비스 제품 게시](publish-managed-services-offers.md)를 참조하세요. 여기에 설명된 온보딩 프로세스를 Azure Marketplace에 게시된 제품에 사용할 수도 있습니다.
+> 고객이 Azure Marketplace에 게시한 관리형 서비스 제품(퍼블릭 또는 프라이빗)을 구매할 때 온보딩될 수도 있습니다. 자세한 내용은 [Azure Marketplace에 관리형 서비스 제품 게시](publish-managed-services-offers.md)를 참조하세요. 여기에 설명 된 온 보 딩 프로세스와 Azure Marketplace에 게시 된 제품을 함께 사용할 수도 있습니다.
 
 온보딩 프로세스를 사용하려면 서비스 공급자의 테넌트와 고객의 테넌트 둘 다에서 작업을 수행해야 합니다. 이러한 모든 단계는 이 문서에 설명되어 있습니다.
 
@@ -34,11 +34,11 @@ MPN(Microsoft 파트너 네트워크) ID를 온보딩한 구독과 연결하여 
 - 고객 테넌트의 테넌트 ID(서비스 공급자가 관리하는 리소스 포함)
 - 서비스 공급자가 관리할(또는 서비스 공급자가 관리할 리소스 그룹을 포함하는) 고객 테넌트에 있는 각 특정 구독의 구독 ID
 
-이 정보가 아직 없는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다.
+이 정보가 아직 없는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다. 배포에서이 정확한 값을 사용 해야 합니다.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환**을 선택하여 테넌트 ID를 확인할 수 있습니다. 테넌트 ID를 선택하고 복사하려면 포털 내에서 "Azure Active Directory"를 검색한 다음, **속성**을 선택하고 **디렉터리 ID** 필드에 표시된 값을 복사합니다. 구독의 ID를 찾으려면 "구독"을 검색한 다음, 적절한 구독 ID를 선택합니다.
+Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환**을 선택하여 테넌트 ID를 확인할 수 있습니다. 테넌트 ID를 선택하고 복사하려면 포털 내에서 "Azure Active Directory"를 검색한 다음, **속성**을 선택하고 **디렉터리 ID** 필드에 표시된 값을 복사합니다. 고객 테 넌 트에서 구독의 ID를 찾으려면 "구독"을 검색 한 다음 적절 한 구독 ID를 선택 합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -62,11 +62,11 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>역할 및 권한 정의
 
-서비스 공급자는 단일 고객을 위해 여러 작업을 수행하고, 범위마다 다른 액세스 권한을 요구할 수 있습니다. 테넌트의 사용자에게 [RBAC(역할 기반 액세스 제어) 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 할당하는 데 필요한 수만큼 권한 부여를 정의할 수 있습니다.
+서비스 공급자는 단일 고객을 위해 여러 작업을 수행하고, 범위마다 다른 액세스 권한을 요구할 수 있습니다. 테넌트의 사용자에게 [RBAC(역할 기반 액세스 제어) 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 할당하는 데 필요한 수만큼 권한 부여를 정의할 수 있습니다.
 
 보다 용이한 관리를 위해서는 해당 사용자에게 직접 사용 권한을 할당하는 대신, 각 역할에 대해 Azure AD 사용자 그룹을 사용하여 그룹에서 개별 사용자를 추가하거나 제거할 수 있도록 하는 것이 좋습니다. 또한 서비스 주체에 역할을 할당할 수도 있습니다. 사용자가 작업을 완료하는 데 필요한 권한만 갖도록 최소 권한 원칙을 따라야 합니다. 지원되는 역할에 대한 권장 사항 및 정보는 [Azure Lighthouse 시나리오의 테넌트, 사용자 및 역할](../concepts/tenants-users-roles.md)을 참조하세요.
 
-권한 부여를 정의하려면 액세스 권한을 부여하려는 각 사용자, 사용자 그룹 또는 서비스 주체의 ID 값을 알고 있어야 합니다. 또한 할당하려는 각 기본 제공 역할에 대한 역할 정의 ID도 필요합니다. 이 ID를 아직 모르는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다.
+권한 부여를 정의 하려면 액세스 권한을 부여 하려는 서비스 공급자 테 넌 트의 각 사용자, 사용자 그룹 또는 서비스 사용자에 대 한 ID 값을 알고 있어야 합니다. 또한 할당하려는 각 기본 제공 역할에 대한 역할 정의 ID도 필요합니다. 아직 없는 경우 서비스 공급자 테 넌 트 내에서 아래 명령을 실행 하 여 검색할 수 있습니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -104,34 +104,39 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> 나중에 필요할 때 테넌트의 사용자가 [위임에 대한 액세스 권한을 제거](#remove-access-to-a-delegation)할 수 있도록 고객을 온보딩할 때 [관리 서비스 등록 할당 삭제 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)을 할당하는 것이 좋습니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
+> 나중에 필요할 때 테넌트의 사용자가 [위임에 대한 액세스 권한을 제거](#remove-access-to-a-delegation)할 수 있도록 고객을 온보딩할 때 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)을 할당하는 것이 좋습니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
 
-고객을 온보딩하려면 다음 정보가 포함된 제품에 대한 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) 템플릿을 만들어야 합니다. Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md)에서 제품 세부 정보를 볼 때 **mspOfferName** 및 **mspOfferDescription** 값이 고객에게 표시됩니다.
+고객을 온보딩하려면 다음 정보가 포함된 제품에 대한 [Azure Resource Manager](../../azure-resource-manager/index.yml) 템플릿을 만들어야 합니다. Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md) 에서 제품 세부 정보를 볼 때 고객에 게 **mspOfferName** 및 **mspOfferDescription** 값이 표시 됩니다.
 
 |필드  |정의  |
 |---------|---------|
 |**mspOfferName**     |이 정의를 설명하는 이름입니다. 이 값은 고객에게 제품의 제목으로 표시됩니다.         |
-|**mspOfferDescription**     |제품에 대한 간단한 설명(예: "Contoso VM 관리 제품")      |
-|**managedByTenantId**     |테넌트 ID         |
-|**권한 부여**     |테넌트의 사용자/그룹/SPN에 대한 **principalid** 값으로, 각 값은 고객이 권한 부여의 목적을 이해하는 데 도움이 되는 **principalIdDisplayName** 값을 가지며, 액세스 수준을 지정하는 기본 제공 **roleDefinitionId** 값에 매핑되어 있습니다.         |
+|**mspOfferDescription**     |제품에 대 한 간단한 설명 (예: "Contoso VM 관리 제안")      |
+|**managedByTenantId**     |테넌트 ID          |
+|**권한 부여**     |각 테 넌 트의 사용자/그룹/Spn에 대 한 **Principalid** 값 이며, 각 테 넌 트의 용도를 **이해 하 고** 기본 제공 **roleDefinitionId** 값에 매핑하여 액세스 수준을 지정할 수 있습니다.         |
 
-고객의 구독을 온보딩하려면 구성과 일치하도록 수정하는 해당 매개 변수 파일과 함께 [샘플 리포지토리](https://github.com/Azure/Azure-Lighthouse-samples/)서 제공하는 적절한 Azure Resource Manager 템플릿을 사용하고 사용자의 권한 부여를 정의합니다. 전체 구독, 리소스 그룹 또는 구독 내의 여러 리소스 그룹 중 어떤 항목을 온보딩할지에 따라 별도의 템플릿이 제공됩니다. 또한 이러한 방식으로 구독을 온보딩하려는 경우, Azure Marketplace에 게시한 관리형 서비스 제품을 구매한 고객에게 사용할 수 있는 템플릿도 제공합니다.
+> [!TIP]
+> **ManagedByTenantID**, **Principaliddisplayname**및 **roleDefinitionId** 항목은 Azure에서 사용 하는 값과 동일 해야 합니다. 이러한 값에는 대문자를 사용 하지 마십시오.
+
+온 보 딩 프로세스에는 [샘플 리포지토리](https://github.com/Azure/Azure-Lighthouse-samples/) 및 구성에 맞게 수정 하는 해당 매개 변수 파일에 제공 된 Azure Resource Manager 템플릿이 필요 하며 권한 부여를 정의 합니다.
+
+선택한 템플릿은 구독 내에서 전체 구독, 리소스 그룹 또는 여러 리소스 그룹을 등록 하 고 있는지 여부에 따라 달라 집니다. 또한 이러한 방식으로 구독을 온보딩하려는 경우, Azure Marketplace에 게시한 관리형 서비스 제품을 구매한 고객에게 사용할 수 있는 템플릿도 제공합니다.
 
 |온보딩할 대상  |사용하는 Azure Resource Manager 템플릿  |수정할 매개 변수 파일 |
 |---------|---------|---------|
 |Subscription   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|리소스 그룹   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
 |구독 내의 여러 리소스 그룹   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |구독(Azure Marketplace 게시된 제품을 사용하는 경우)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> 여기에 설명된 프로세스에서는 온보딩되는 각 구독에 대해 별도의 배포가 필요합니다. 여러 다른 구독 내에서 여러 리소스 그룹을 온보딩하는 경우에도 별도의 배포가 필요합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온보딩하는 것은 하나의 배포에서 수행할 수 있습니다.
+> 여기에 설명 된 프로세스에는 동일한 고객 테 넌 트에 있는 경우에도 등록 되는 각 구독에 대 한 별도의 배포가 필요 합니다. 동일한 고객 테 넌 트의 여러 구독 내에서 여러 리소스 그룹을 온 보 딩 하는 경우에도 별도의 배포가 필요 합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온보딩하는 것은 하나의 배포에서 수행할 수 있습니다.
 >
 > 동일한 구독 또는 구독 내의 리소스 그룹에 여러 제품이 적용되는 경우 별도의 배포도 필요합니다. 적용된 각 제품은 다른 **mspOfferName**을 사용해야 합니다.
 
-다음 예제에서는 구독을 온보딩하는 데 사용할 **delegatedResourceManagement.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일([rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
+다음 예제에서는 구독을 등록 하는 데 사용할 수 있는 수정 된 **delegatedResourceManagement** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일([rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
 
 ```json
 {
@@ -183,16 +188,17 @@ az role definition list --name "<roleName>" | grep name
     }
 }
 ```
-위 예제의 마지막 권한 부여는 사용자 액세스 관리자 역할이 있는 **principalId**를 추가합니다(18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). 이 역할을 할당할 때 **delegatedRoleDefinitionIds** 속성 및 하나 이상의 기본 제공 역할을 포함해야 합니다. 이 권한 부여에서 만든 사용자는 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 이러한 기본 제공 역할을 할당할 수 있습니다. 이러한 역할 할당은 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요합니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
+
+위 예제의 마지막 권한 부여는 사용자 액세스 관리자 역할이 있는 **principalId**를 추가합니다(18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). 이 역할을 할당할 때 **delegatedRoleDefinitionIds** 속성 및 하나 이상의 기본 제공 역할을 포함해야 합니다. 이 권한 부여에서 만든 사용자는 이러한 기본 제공 역할을 고객 테 넌 트의 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 할당할 수 있습니다. 이러한 기본 제공 역할은 [재구성 가능한 정책을 배포](deploy-policy-remediation.md)하는 데 필요 합니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 배포
 
-매개 변수 파일을 업데이트한 후 고객은 고객의 테넌트에서 Azure Resource Manager 템플릿을 구독 수준 배포로 배포해야 합니다. Azure 위임 리소스 관리에 온보딩하려는 각 구독(또는 온보딩하려는 리소스 그룹을 포함하는 각 구독)에 대해 별도의 배포가 필요합니다.
+매개 변수 파일을 업데이트 한 후 고객의 테 넌 트에 있는 사용자는 구독 수준 배포로 테 넌 트 내에 Azure Resource Manager 템플릿을 배포 해야 합니다. Azure 위임 리소스 관리에 온보딩하려는 각 구독(또는 온보딩하려는 리소스 그룹을 포함하는 각 구독)에 대해 별도의 배포가 필요합니다.
 
 이 배포는 구독 수준 배포이므로 Azure Portal에서 시작할 수 없습니다. 이 배포는 아래와 같이 PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 배포는 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+> 이 배포는 등록 중인 구독에 대 한 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 을 가진 고객 테 넌 트의 비 게스트 계정 (또는 등록 되는 리소스 그룹을 포함 하는)에 의해 수행 되어야 합니다. 구독을 위임할 수 있는 모든 사용자를 보려면 고객 테 넌 트의 사용자가 Azure Portal에서 구독을 선택 하 고, **액세스 제어 (IAM)** 를 열고 [모든 역할을 나열](../../role-based-access-control/role-definitions-list.md#list-all-roles)한 다음 **소유자** 를 선택 하 여 해당 역할의 모든 사용자를 볼 수 있습니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -247,7 +253,7 @@ az deployment create –-name <deploymentName \
 3. Resource Manager 템플릿에서 제공한 제품 이름의 구독을 볼 수 있는지 확인합니다.
 
 > [!IMPORTANT]
-> [내 고객](view-manage-customers.md)에서 위임된 구독을 보려면 Azure 위임 리소스 관리에 대해 구독이 온보딩될 때 서비스 공급자의 테넌트에 있는 사용자에게 [읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) 역할(또는 읽기 권한자 액세스를 포함하는 다른 기본 제공 역할)을 부여해야 합니다.
+> [내 고객](view-manage-customers.md)에서 위임된 구독을 보려면 Azure 위임 리소스 관리에 대해 구독이 온보딩될 때 서비스 공급자의 테넌트에 있는 사용자에게 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할(또는 읽기 권한자 액세스를 포함하는 다른 기본 제공 역할)을 부여해야 합니다.
 
 고객의 테넌트에서 다음을 수행합니다.
 
@@ -276,9 +282,9 @@ az account list
 
 ## <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 
-기본적으로 적절한 사용 권한이 있는 고객 테넌트의 사용자는 Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md#add-or-remove-service-provider-offers)에서 서비스 공급자에게 위임된 리소스에 대한 액세스 권한을 제거할 수 있습니다.
+기본적으로 적절 한 권한이 있는 고객 테 넌 트의 사용자는 Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md#add-or-remove-service-provider-offers) 에서 위임 된 리소스에 대 한 서비스 공급자 액세스를 제거할 수 있습니다. 이렇게 하면 서비스 공급자의 테 넌 트에 있는 사용자가 이전에 위임 된 리소스에 액세스할 수 없게 됩니다.
 
-Azure 위임 리소스 관리에 대해 고객을 온보딩할 때 [관리 서비스 등록 할당 삭제 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)에 사용자를 포함한 경우 테넌트의 해당 사용자도 위임을 제거할 수 있습니다. 이렇게 하면 서비스 공급자 테넌트에 있는 사용자가 이전에 위임된 리소스에 액세스할 수 없게 됩니다.
+Azure 위임 된 리소스 관리를 위해 고객을 온 보 딩 하는 경우 [관리 되는 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 을 등록 사용자가 있는 경우 해당 사용자도 위임을 제거할 수 있습니다.
 
 아래 예제에서는 매개 변수 파일에 포함될 수 있는 **관리 서비스 등록 할당 삭제 역할**을 부여하는 할당을 보여 줍니다.
 

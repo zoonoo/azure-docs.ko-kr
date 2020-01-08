@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 보안 모범 사례 | Microsoft Docs
-description: Azure Service Fabric 보안에 대한 모범 사례입니다.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 보안 모범 사례
+description: Azure Service Fabric 클러스터와 응용 프로그램의 보안을 유지 하기 위한 모범 사례 및 디자인 고려 사항입니다.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: fec81e843753656d651c6d5d0b73077a964be9d4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807445"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551763"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 

@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric-시스템 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포 | Microsoft Docs
+title: 시스템 할당 MI를 사용 하 여 Service Fabric 앱 배포
 description: 이 문서에서는 Azure Service Fabric 응용 프로그램에 시스템 할당 관리 id를 할당 하는 방법을 보여 줍니다.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973417"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614828"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>시스템 할당 관리 id (미리 보기)를 사용 하 여 Service Fabric 응용 프로그램 배포
 

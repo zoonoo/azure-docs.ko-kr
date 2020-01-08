@@ -1,23 +1,23 @@
 ---
 title: 클라우드 서비스를 구성하는 방법(포털) | Microsoft Docs
-description: Azure에서 Cloud Services를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure Portal을 사용합니다.
+description: Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: gwallace
-ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361010"
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
 
-Azure Portal에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는 구성 파일을 직접 업데이트하려는 경우 업데이트할 서비스 구성 파일을 다운로드한 후 업데이트된 파일을 업로드하고 구성 변경 내용으로 클라우드 서비스를 업데이트합니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
+Azure Portal에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는, 구성 파일을 직접 업데이트하려는 경우에는 업데이트할 서비스 구성 파일을 다운로드한 다음 업데이트된 파일을 업로드하고 구성 변경 사항을 적용하여 클라우드 서비스를 업데이트할 수 있습니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
 
 클라우드 서비스 역할의 인스턴스 또는 이에 대한 원격 데스크톱을 관리할 수도 있습니다.
 
@@ -95,12 +95,15 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
     ![다운로드](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. 서비스 구성 파일을 업데이트한 후 구성 업데이트를 업로드하고 적용합니다.
 
-    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![업로드](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. .cscfg 파일을 선택하고 **확인**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
-* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)구성
+
+
+

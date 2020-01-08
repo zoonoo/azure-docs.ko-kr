@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: f7859dbef486d4afa825b289f3991464dacf702c
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 396652e3f8a0a8d9e18effb94a48a362054dde96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403155"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -37,17 +37,25 @@ ms.locfileid: "74665647"
  
 ## <a name="supported-regions"></a>지원되는 지역
 NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 세계에 모든 곳에 있는 네트워크와 애플리케이션 간의 연결을 모니터링할 수 있습니다.
+* 북유럽
 * 서유럽
+* 프랑스 중부
+
 * 미국 중서부
 * 미국 중북부
+* 미국 중남부
+* 미국 중부
 * 미국 동부
 * 미국 동부 2
+* 미국 서부 2
 * 일본 동부
 * 동남아시아
 * 오스트레일리아 동남부
 * 오스트레일리아 중부
 * 오스트레일리아 동부
 * 영국 남부
+* 동아시아
+* 한국 중부
 * 인도 중부
 * 미국 버지니아 주 정부
 * 중국 동부 2

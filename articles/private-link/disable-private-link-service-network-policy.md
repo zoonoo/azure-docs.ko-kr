@@ -2,17 +2,17 @@
 title: 'Azure 개인 링크 서비스 원본 IP 주소에 대 한 네트워크 정책 사용 안 함 '
 description: Azure 개인 링크에 대 한 네트워크 정책을 사용 하지 않도록 설정 하는 방법 알아보기
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22dbb12de0793db8aac12f610ff94380542d426a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228116"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453001"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>개인 링크 서비스 원본 IP에 대해 네트워크 정책 사용 안 함
 

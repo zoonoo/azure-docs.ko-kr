@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 18ba99077592a7d03e19fda86bc61e5839b82b5e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433171"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -22,7 +22,7 @@ GitHub 작업에서 [워크플로](https://help.github.com/articles/about-github
 
 Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 섹션이 있습니다. 
 
-| 섹션 | 태스크 |
+| 섹션 | 작업 |
 | ------- | ----- |
 | **인증** | <ol><li>서비스 주체를 정의 합니다.</li><li>게시 프로필을 다운로드 합니다.</li><li>GitHub 비밀을 만듭니다.</li></ol>|
 | **빌드** | <ol><li>환경을 설정 합니다.</li><li>함수 앱을 빌드합니다.</li></ol> |
@@ -64,18 +64,11 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="set-up-the-environment"></a>환경 설정 
 
-환경 설정은 게시 설정 작업 중 하나를 사용 하 여 수행할 수 있습니다.
+환경 설정은 언어별 게시 설정 작업을 사용 하 여 수행 됩니다.
 
-|언어 | 설치 작업 |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-다음 예에서는 지원 되는 여러 언어에 대해 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
-
-**JavaScript**
+다음 예제에서는 `actions/setup-node` 작업을 사용 하 여 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -88,7 +81,9 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         node-version: '10.x'
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+다음 예제에서는 `actions/setup-python` 작업을 사용 하 여 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -101,7 +96,9 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         python-version: 3.6
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+다음 예제에서는 `actions/setup-dotnet` 작업을 사용 하 여 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -114,7 +111,9 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+다음 예제에서는 `actions/setup-java` 작업을 사용 하 여 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -128,14 +127,15 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## <a name="build-the-function-app"></a>함수 앱 빌드
 
 이 섹션은 언어와 Azure Functions에서 지 원하는 언어에 따라 달라 집니다 .이 섹션은 각 언어의 표준 빌드 단계 여야 합니다.
 
-다음 예제에서는 다양 한 언어에서 함수 앱을 빌드하는 워크플로의 일부를 보여 줍니다.
+다음 예제에서는 언어별 함수 앱을 빌드하는 워크플로의 일부를 보여 줍니다.
 
-**JavaScript**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -150,7 +150,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         popd
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -164,7 +164,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         popd
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -177,7 +177,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         popd
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -190,6 +190,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         mvn azure-functions:package
         popd
 ```
+---
 
 ## <a name="deploy-the-function-app"></a>함수 앱 배포
 

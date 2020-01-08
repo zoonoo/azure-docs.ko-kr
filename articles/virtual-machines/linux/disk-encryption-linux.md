@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e7646d2f84696d0b04183d8d06b96405909de87
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ff4ccb4409bd9a41f390668cb94ef91b1b565421
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358815"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 시나리오
 
@@ -66,7 +66,7 @@ az account set --subscription "<subscription name or ID>"
 자세한 내용은 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell az module](/powershell/azure/new-azureps-module-az) 은 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 모델을 사용 하 여 Azure 리소스를 관리 하는 cmdlet 집합을 제공 합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)를 사용 하 여 브라우저에서 사용 하거나 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)의 지침을 사용 하 여 로컬 컴퓨터에 설치할 수 있습니다. 
+[Azure PowerShell az module](/powershell/azure/new-azureps-module-az) 은 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 모델을 사용 하 여 Azure 리소스를 관리 하는 cmdlet 집합을 제공 합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)를 사용 하 여 브라우저에서 사용 하거나 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)의 지침을 사용 하 여 로컬 컴퓨터에 설치할 수 있습니다. 
 
 이미 로컬에 설치되어있는 경우 최신 버전의 Azure PowerShell SDK 버전을 사용하여 Azure Disk Encryption을 구성해야 합니다. 최신 버전의 [Azure PowerShell 릴리스](https://github.com/Azure/azure-powershell/releases)를 다운로드합니다.
 
@@ -193,16 +193,16 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
 
 다음 표에서는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수를 나열합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | vmName | 암호화 작업을 실행할 VM의 이름. |
-| keyVaultName | 암호화 키를 업로드 해야 하는 key vault의 이름입니다. Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`을 사용 하 여 가져올 수 있습니다.|
+| keyVaultName | 암호화 키를 업로드 해야 하는 key vault의 이름입니다. Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`를 사용 하 여 가져올 수 있습니다.|
 | keyVaultResourceGroup | 키 자격 증명 모음을 포함 하는 리소스 그룹의 이름입니다. |
 |  keyEncryptionKeyURL | 암호화 키를 암호화 하는 데 사용 되는 키 암호화 키의 URL입니다. UseExistingKek 드롭다운 목록에서 **nokek**를 선택하면 이 매개 변수가 선택 사항입니다. UseExistingKek 드롭다운 목록에서 **kek**를 선택하면 _keyEncryptionKeyURL_ 값을 반드시 입력해야 합니다. |
 | volumeType | 암호화 작업을 수행할 볼륨의 유형. 유효한 값은 _OS_, _Data_ 및 _All_입니다. 
 | forceUpdateTag | 작업을 강제로 실행해야 할 때마다 GUID 같은 고유한 값으로 전달합니다. |
 | resizeOSDisk | 시스템 볼륨을 분할하기 전에 전체 OS VHD를 채우려면 OS 파티션 크기를 조정해야 합니다. |
-| location | 모든 리소스에 대한 위치. |
+| 위치 | 모든 리소스에 대한 위치. |
 
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Linux Vm의 데이터 디스크에 EncryptFormatAll 기능 사용
@@ -328,7 +328,7 @@ Powershell 구문과 달리 CLI에서는 사용자가 암호화를 사용하도�
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Azure PowerShell을 사용하여 새로 추가된 디스크에서 암호화 사용
- Powershell을 사용하여 Linux용 새 디스크를 암호화하는 경우 새 순서 버전을 지정해야 합니다. 순서 버전은 고유해야 합니다. 아래 스크립트는 순서 버전에 대한 GUID를 생성합니다. 디스크를 암호화 하기 전에 [스냅숏을](snapshot-copy-managed-disk.md) 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 를 사용 하 여 VM을 백업 합니다. -SkipVmBackup 매개 변수는 PowerShell 스크립트에서 새로 추가 된 데이터 디스크를 암호화 하는 데 이미 지정 되어 있습니다.
+ Powershell을 사용하여 Linux용 새 디스크를 암호화하는 경우 새 순서 버전을 지정해야 합니다. 시퀀스 버전은 고유해야 합니다. 아래 스크립트는 시퀀스 버전에 대한 GUID를 생성합니다. 디스크를 암호화 하기 전에 [스냅숏을](snapshot-copy-managed-disk.md) 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 를 사용 하 여 VM을 백업 합니다. -SkipVmBackup 매개 변수는 PowerShell 스크립트에서 새로 추가 된 데이터 디스크를 암호화 하는 데 이미 지정 되어 있습니다.
  
 
 -  **실행 중인 VM의 데이터 볼륨 암호화:** 아래 스크립트는 변수를 초기화 하 고 AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM 및 키 자격 증명 모음은 필수 구성 요소로 이미 만들어져 있어야 합니다. MyVirtualMachineResourceGroup, MySecureVM 및 Mysecurevm를 사용자의 값으로 바꿉니다. -VolumeType 매개 변수에 허용되는 값은 All, OS 및 Data입니다. VM이 이전에 "OS" 또는 "All" 볼륨 유형을 사용 하 여 암호화 된 경우에는 OS와 새 데이터 디스크가 모두 포함 되도록-Vetype 매개 변수를 "All"로 변경 해야 합니다.
@@ -399,6 +399,7 @@ Azure Disk Encryption는 다음 Linux 시나리오, 기능 및 기술에 대해 
 - 동적 볼륨
 - 운영 체제 디스크를 삭제 합니다.
 - DFS, GFS, DRDB 및 CephFS와 같은 공유/분산 파일 시스템의 암호화.
+- 커널 크래시 덤프 (kdump).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,19 +3,15 @@ title: 복합 리소스를 사용하여 Azure Automation 상태 구성(DSC)에�
 description: Azure Automation 상태 구성(DSC)에서 복합 리소스를 사용하여 구성을 작성하는 방법 알아보기
 keywords: PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure, 복합 리소스
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/21/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: e9552adad1f15422eb60c34f2548324aeb03ee74
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2c6d9aa13c8c320dc46f6634f3a60e0c1730c710
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418727"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>복합 리소스를 사용하여 Azure Automation 상태 구성(DSC)에서 DSC 구성 작성
 
@@ -28,7 +24,7 @@ Azure Automation은 [복합 리소스 가져오기 및 컴파일](automation-dsc
 
 Azure Portal의 복합 리소스에서 구성을 할당하려면 먼저 구성을 작성해야 합니다. 이 작업은 **상태 구성(DSC)** 페이지에서 또한 **구성** 또는 **컴파일된 구성** 탭에서 **구성 작성**을 사용하여 수행할 수 있습니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 선택합니다.
 1. **상태 구성(DSC)** 페이지에서 **구성** 또는 **컴파일된 구성** 탭을 클릭한 다음, 페이지 맨 위에 있는 메뉴에서 **구성 작성**을 클릭합니다.

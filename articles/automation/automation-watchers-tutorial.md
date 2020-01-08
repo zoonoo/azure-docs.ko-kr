@@ -2,24 +2,21 @@
 title: Azure Automation 계정에서 감시자 작업 만들기
 description: 폴더에 만들어진 새 파일을 감시하도록 Azure Automation 계정에 감시자 작업을 만드는 방법을 알아봅니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 75341fa2df6972dbf05542577d56ab35315919e6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5dc6145940883ff6f4446ad67c399cdf4931d38e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989243"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419750"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>로컬 컴퓨터에서 파일 변경 내용을 추적하는 Azure Automation 감시자 태스크 만들기
 
 Azure Automation은 감시자 태스크를 사용하여 이벤트를 감시하고 PowerShell Runbook을 사용하여 작업을 트리거합니다. 이 자습서에서는 새 파일이 디렉터리에 추가되는 시기를 모니터링하기 위한 감시자 태스크를 만드는 과정을 안내합니다.
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 감시자 Runbook 가져오기
@@ -29,7 +26,7 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 감시하�
 > * 감시자 트리거
 > * 출력 검사
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -156,7 +153,7 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 감시자 Runbook 가져오기

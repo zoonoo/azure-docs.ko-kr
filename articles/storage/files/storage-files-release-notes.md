@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/6/2019
+ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: cc919cabab94e078b8a212feec40047639a36341
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931073"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452924"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +25,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| V9 릴리스- [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2019 년 12 월 2 일 | 지원 됨-Flighting |
+| 12 월 2019 업데이트 롤업- [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 2019년 12월 12일 | 지원됨 |
+| V9 릴리스- [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2019 년 12 월 2 일 | 지원됨 |
 | V8 릴리스- [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 2019년 10월 8일 | 지원됨 |
 | 7 월 2019 업데이트 롤업- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019년 7월 24일 | 지원됨 |
 | 7 월 2019 업데이트 롤업- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019 년 7 월 12 일 | 지원됨 |
@@ -43,6 +44,15 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-9100"></a>에이전트 버전 9.1.0.0
+다음 릴리스 정보는 2019 년 12 월 12 일에 릴리스된 Azure File Sync 에이전트의 버전 9.1.0.0에 대 한 것입니다. 이러한 메모는 버전 9.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
+
+이 릴리스에서 해결 된 문제:  
+- Azure File Sync 에이전트 버전 9.0으로 업그레이드 한 후 다음 오류 중 하나를 사용 하 여 동기화가 실패 합니다.
+    - 0x8e5e044e (JET_errWriteConflict)
+    - 0x8e5e0450 (JET_errInvalidSesid)
+    - 0x8e5e0442 (JET_errInstanceUnavailable)
 
 ## <a name="agent-version-9000"></a>에이전트 버전 9.0.0.0
 다음 릴리스 정보는 Azure File Sync 에이전트 (12 월 2 2019 일 출시 출시)의 버전 9.0.0.0입니다.
@@ -127,7 +137,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
@@ -194,7 +204,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
@@ -287,7 +297,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
@@ -384,7 +394,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
@@ -416,7 +426,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - Azure Government 클라우드 지원
   - Azure Government 클라우드에 대한 미리 보기 지원이 추가되었습니다. 이 기능을 이용하려면 허용 목록에 구독을 추가하고 Microsoft에서 특수 에이전트를 다운로드해야 합니다. 미리 보기에 대한 액세스 권한을 얻으려면 [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com)으로 직접 메일을 보내 주세요.
 - 데이터 중복 제거 지원
-    - Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 이제 데이터 중복 제거가 완전히 지원됩니다. 클라우드 계층화가 사용되는 볼륨에서 중복 제거를 사용하면 추가 스토리지를 프로비전하지 않고도 더 많은 파일을 온-프레미스에 캐시할 수 있습니다.
+    - Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 이제 데이터 중복 제거가 완전히 지원됩니다. 클라우드 계층화가 사용되는 볼륨에서 중복 제거를 사용하면 추가 스토리지를 프로비저닝하지 않고도 더 많은 파일을 온-프레미스에 캐시할 수 있습니다.
 - 오프라인 데이터 전송 지원(예: Data Box 사용)
     - 선택한 수단을 통해 대량 데이터를 Azure 파일 동기화로 쉽게 마이그레이션하세요. Azure Data Box, AzCopy 및 타사 마이그레이션 서비스를 선택할 수 있습니다. Data Box의 경우 데이터를 Azure로 가져오기 위해 대량 대역폭을 사용할 필요가 없습니다. 메일로 전송하면 됩니다. 자세한 내용은 [오프라인 데이터 전송 문서](https://aka.ms/AFS/OfflineDataTransfer)를 참조하세요.
 - 향상된 동기화 성능
@@ -426,7 +436,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
         - 동기화된 파일 수
         - 전송된 데이터 크기
         - 동기화되지 않은 파일 수
-        - 회수된 데이터 크기
+        - 회수되는 데이터 크기
         - 서버 연결 상태
     - 자세한 내용은 [Azure 파일 동기화 모니터링](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring)을 참조하세요.
 - 확장성 및 안정성 개선
@@ -482,7 +492,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.

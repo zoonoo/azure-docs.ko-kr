@@ -1,25 +1,16 @@
 ---
-title: EventFlow를 사용하여 Azure Service Fabric 이벤트 집계 | Microsoft Docs
+title: EventFlow를 사용 하 여 Azure Service Fabric 이벤트 집계
 description: Azure Service Fabric 클러스터 모니터링 및 진단을 위해 EventFlow를 사용하여 이벤트를 집계 및 수집하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: bdc6c9476529b986f425d56544fd4b1afd8a864e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde24657cc8ed78b91e72df16d51df4077a6e030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393228"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463085"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>EventFlow를 사용하여 이벤트 집계 및 수집
 
@@ -157,5 +148,5 @@ servicefabric:/<section-name>/<setting-name>
 ## <a name="next-steps"></a>다음 단계
 
 * [Application Insights를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [이벤트 분석 및 Azure Monitor 로그를 사용 하 여 시각화](service-fabric-diagnostics-event-analysis-oms.md)
+* [Azure Monitor 로그를 사용 하 여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 설명서](https://github.com/Azure/diagnostics-eventflow)

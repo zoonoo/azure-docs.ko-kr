@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 05d849aa0edf5892e568c4078ca619490cfcd98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363203"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure Monitor에서 뷰 디자이너를 사용 하 여 사용자 지정 보기 만들기
 Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 될 수 있는 다양 한 사용자 지정 보기를 Azure Portal 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
@@ -32,7 +32,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 뷰 디자이너로 만든 보기에는 다음 표에 설명된 요소가 포함됩니다.
 
-| 부 | 설명 |
+| 부분 | Description |
 |:--- |:--- |
 | 타일 | Azure Monitor **개요** 페이지에 표시 됩니다. 각 타일에는 해당 타일이 나타내는 사용자 지정 보기의 시각적 요약이 표시됩니다. 각 타일 유형은 레코드의 다른 시각화를 제공합니다. 사용자 지정 보기를 표시하려면 타일을 선택합니다. |
 | 사용자 지정 보기 | 타일을 선택하면 표시됩니다. 각 보기는 시각화 요소를 하나 이상 포함합니다. |
@@ -49,7 +49,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 옵션은 다음 표에 설명되어 있습니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 |:--|:--|
 | 새로 고침   | 최신 데이터로 보기를 새로 고칩니다. | 
 | 로그      | 로그 쿼리를 사용 하 여 데이터를 분석 하는 [Log Analytics](../log-query/portals.md) 을 엽니다. |
@@ -95,12 +95,12 @@ Log Analytics 작업 영역의 메뉴에서 **뷰 디자이너**를 선택하여
 
 ![편집 메뉴](media/view-designer/edit-menu.png)
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 |:--|:--|
 | 저장        | 변경 내용을 저장하고 보기를 닫습니다. |
 | 취소      | 변경 내용을 무시하고 보기를 닫습니다. |
 | 보기 삭제 | 보기를 삭제합니다. |
-| 내보내기      | 다른 작업 영역으로 가져올 수 있는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)으로 보기를 내보냅니다. 파일 이름은 보기 이름이며 확장명은 *omsview*입니다. |
+| 내보내기      | 다른 작업 영역으로 가져올 수 있는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)으로 보기를 내보냅니다. 파일 이름은 보기 이름이며 확장명은 *omsview*입니다. |
 | 가져오기      | 다른 작업 영역에서 내보낸 *omsview* 파일을 가져옵니다. 이렇게 하면 기존 보기의 구성을 덮어씁니다. |
 | 복제       | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다. |
 

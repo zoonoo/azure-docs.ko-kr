@@ -1,27 +1,18 @@
 ---
-title: Azure Service Fabric Explorer를 사용하여 클러스터 시각화 | Microsoft Docs
+title: Azure Service Fabric Explorer를 사용 하 여 클러스터 시각화
 description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 애플리케이션 및 노드를 검사 및 관리하기 위한 애플리케이션입니다.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 9b873b5a68979b8225c44c32e0b9494408e35ac1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464107"
 ---
-# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer를 사용하여 클러스터 시각화
+# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric 탐색기를 사용하여 클러스터 시각화
 
 SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 애플리케이션입니다.
 
@@ -48,7 +39,7 @@ Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하
 
 Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 브라우저에서 클러스터의 HTTP 관리 끝점 (예: https:\//clusterFQDN: 19080)으로 이동 합니다.
 
-개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
+개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer 로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
 
 > [!NOTE]
 > 클러스터가 자체 서명된 인증서로 보호되면 웹 브라우저에서 "이 사이트는 안전하지 않습니다"라는 오류 메시지가 표시됩니다. 대부분의 최신 웹 브라우저에서는 이 경고를 무시하고 계속 진행할 수 있습니다. 프로덕션 환경의 클러스터는 일반 이름과 인증 기관에서 발급한 인증서를 사용하여 보호해야 합니다. 
@@ -89,7 +80,7 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 ### <a name="view-the-clusters-nodes"></a>클러스터의 노드 보기
 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
 예를 들어 애플리케이션 인스턴스를 삭제하려면 왼쪽 트리에서 애플리케이션을 선택한 다음 **작업** > **애플리케이션 삭제**로 이동하여 로컬 클러스터에서 Service Fabric 탐색기를 시작할 수 있습니다.

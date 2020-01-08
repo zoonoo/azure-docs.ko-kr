@@ -1,17 +1,17 @@
 ---
 title: Redis 서버 쪽 문제에 대 한 Azure 캐시 문제 해결
-description: Redis 용 Azure Cache를 사용 하 여 일반적인 서버 쪽 문제를 해결 하는 방법을 알아봅니다.
+description: 메모리 부족, 높은 CPU, 장기 실행 명령 또는 대역폭 제한과 같은 Redis 용 Azure Cache를 사용 하 여 일반적인 서버 쪽 문제를 해결 하는 방법에 대해 알아봅니다.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: 22cb4beb3411c617882972e1b91c5f538019fae4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122566"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433346"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Redis 서버 쪽 문제에 대 한 Azure 캐시 문제 해결
 
@@ -75,7 +75,7 @@ CPU 또는 서버 부하와 같은 [메트릭을 모니터링](cache-how-to-moni
 
 ## <a name="additional-information"></a>추가 정보
 
-- [Redis 클라이언트 쪽 문제에 대 한 Azure 캐시 문제 해결](cache-troubleshoot-client.md)
+- [Azure Cache for Redis 클라이언트 쪽 문제 해결](cache-troubleshoot-client.md)
 - [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 - [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md)

@@ -28,6 +28,8 @@
           href: classroom-labs-scenarios.md
 - name: 방법 가이드
   items:
+    - name: 관리자 가이드
+      href: administrator-guide.md
     - name: 클래스룸 랩 - 클래스 형식
       items:
         - name: 클래스 형식 개요
@@ -52,6 +54,8 @@
           href: how-to-connect-peer-virtual-network.md
         - name: 공유 이미지 갤러리 연결 또는 분리
           href: how-to-attach-detach-shared-image-gallery.md
+        - name: 사용자를 클래스룸 랩에 소유자로 추가
+          href: how-to-add-user-lab-owner.md
     - name: 클래스룸 랩 만들기 및 구성(교사)
       items:
         - name: 클래스룸 랩 만들기 및 관리
@@ -70,6 +74,8 @@
           href: how-to-use-shared-image-gallery.md
         - name: Linux에 대한 원격 데스크톱 연결을 사용하도록 설정
           href: how-to-enable-remote-desktop-linux.md
+        - name: 연결 해제 시 자동 종료 사용
+          href: how-to-enable-shutdown-disconnect.md
         - name: 템플릿 VM에서 중첩된 가상화 사용
           href: how-to-enable-nested-virtualization-template-vm.md
         - name: Windows 템플릿 VM 준비
@@ -82,7 +88,7 @@
           href: how-to-use-remote-desktop-linux-student.md
         - name: 가상 머신의 암호 설정 또는 재설정
           href: how-to-set-virtual-machine-passwords-student.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/labservices/'

@@ -1,5 +1,5 @@
 ---
-title: Azure 애플리케이션 Insights OpenCensus 분산 추적 로컬 전달자 (미리 보기) | Microsoft 문서
+title: Azure 애플리케이션 Insights OpenCensus 로컬 전달자 (미리 보기)
 description: 분산된 전달 OpenCensus는 Python 및 Go와 같은 언어부터 Azure Application Insights까지 추적하고 포괄합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 25c6c82fa1179a9173f42c3a5a4e95a371dd49c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406598"
 ---
 # <a name="local-forwarder-preview"></a>로컬 전달자 (미리 보기)
 

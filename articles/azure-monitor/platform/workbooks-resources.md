@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: adc9855d30a3b286cfbc3489ec639ab8b460e314
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 02456d6e690c2ef96b578a00f8e71ae2515ec089
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872811"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363118"
 ---
 # <a name="workbook-resource-parameters"></a>통합 문서 리소스 매개 변수
 
@@ -101,7 +101,7 @@ ms.locfileid: "74872811"
 > 이 접근 방식을 사용 하면 리소스를 메트릭과 같은 다른 컨트롤에 바인딩할 수 있습니다.
 
 ## <a name="resource-parameter-options"></a>리소스 매개 변수 옵션
-| 매개 변수를 포함해야 합니다. | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | ------------- |:-------------|:-------------|
 | `{Applications}` | 선택한 리소스 ID | _/subscriptions/< 하위 id >/Stgg/< 리소스 그룹 >/providers/< >/acmeauthentication_ |
 | `{Applications:label}` | 선택한 리소스의 레이블 | `acmefrontend` |

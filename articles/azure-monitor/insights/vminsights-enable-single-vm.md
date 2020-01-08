@@ -4,15 +4,15 @@ description: 단일 Azure 가상 머신 또는 가상 머신 확장 집합에서
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 3ab3164db7702566e62b2eedf2a9a03e9f7fb55c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c77fabf0220ecfcb889ce7cb71fa075fde27226f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400587"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>평가를 위해 VM용 Azure Monitor (미리 보기) 사용
 

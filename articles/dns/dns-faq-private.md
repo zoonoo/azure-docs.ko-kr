@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: de63799400a10afc1930cd373df0c8dd86320f78
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9bc0b32d3c94cabc1a772f02bf21f31e73f1306f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212003"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75642151"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 프라이빗 DNS FAQ
 
@@ -30,11 +30,11 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>프라이빗 영역을 위해 가상 네트워크에서 인터넷에 연결되어야 하나요?
 
-아니요. 프라이빗 영역은 가상 네트워크에서 작동합니다. 이를 사용 하 여 가상 네트워크 내의 가상 머신 또는 기타 리소스에 대 한 도메인을 관리할 수 있습니다. 이름 확인을 위해 인터넷 연결이 필요하지는 않습니다.
+아닙니다. 프라이빗 영역은 가상 네트워크에서 작동합니다. 이를 사용 하 여 가상 네트워크 내의 가상 머신 또는 기타 리소스에 대 한 도메인을 관리할 수 있습니다. 이름 확인을 위해 인터넷 연결이 필요하지는 않습니다.
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>확인을 위해 여러 가상 네트워크에서 동일한 프라이빗 영역을 사용할 수 있나요?
 
-예. 수천 개의 가상 네트워크와 개인 DNS 영역을 연결할 수 있습니다. 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
+예. 수천 개의 가상 네트워크와 개인 DNS 영역을 연결할 수 있습니다. 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>다른 구독에 속한 가상 네트워크를 개인 영역에 연결할 수 있나요?
 
@@ -58,7 +58,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ## <a name="what-happens-when-we-delete-a-linked-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-linked-virtual-network-from-the-zone"></a>개인 영역에 연결 된 연결 된 가상 네트워크를 삭제 하면 어떻게 되나요? 영역에서 가상 네트워크를 연결 된 가상 네트워크로 연결 해제 하기 위해 개인 영역을 수동으로 업데이트 해야 하나요?
 
-아니요. 먼저 개인 영역에서 연결을 해제 하지 않고 연결 된 가상 네트워크를 삭제 하면 삭제 작업이 성공 하 고 DNS 영역에 대 한 링크가 자동으로 지워집니다.
+아닙니다. 먼저 개인 영역에서 연결을 해제 하지 않고 연결 된 가상 네트워크를 삭제 하면 삭제 작업이 성공 하 고 DNS 영역에 대 한 링크가 자동으로 지워집니다.
 
 ## <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>개인 영역 (예: private.contoso.com)이 가상 네트워크에 연결 된 경우에도 기본 FQDN (internal.cloudapp.net)을 사용 하 여 DNS 확인이 작동 하나요?
 
@@ -66,12 +66,12 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>연결된 가상 네트워크 내의 가상 머신에 사용되는 DNS 접미사가 프라이빗 영역의 DNS 접두사로 변경되나요?
 
-아니요. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 프라이빗 영역의 DNS 접미사로 수동으로 변경할 수 있습니다.
+아닙니다. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 프라이빗 영역의 DNS 접미사로 수동으로 변경할 수 있습니다.
 이 접미사를 변경 하는 방법에 대 한 지침은 [동적 dns를 사용 하 여 자체 DNS 서버에 호스트 이름 등록](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients) 을 참조 하세요.
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Azure DNS 개인 영역에 대 한 사용 제한은 무엇 인가요?
 
-Azure DNS 전용 영역에 대 한 사용 제한에 대 한 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
+Azure DNS 전용 영역에 대 한 사용 제한에 대 한 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>기존 개인 DNS 영역이 새 포털 환경에 표시 되지 않는 이유는 무엇 인가요?
 

@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94f7f2dfdbf404a092773857a0f7727618cd429a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dabc96ef669f0c0c61a7bca4a16828294cf404df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423848"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 데스크톱 앱-앱 등록
 
@@ -42,7 +42,7 @@ ms.locfileid: "74965537"
 - 장치 코드 흐름을 사용 하려는 경우에는 Microsoft 개인 계정으로 사용자를 로그인 할 수 없습니다.
 - B2C 인증 기관 및 정책을 전달 하는 소셜 id를 사용 하 여 사용자를 로그인 하는 경우에는 대화형 및 사용자 이름 암호만 사용할 수 있습니다.
 
-## <a name="redirect-uris"></a>Átirányítási URI azonosítók
+## <a name="redirect-uris"></a>리디렉션 URI
 
 데스크톱 응용 프로그램에서 사용할 리디렉션 Uri는 사용 하려는 흐름에 따라 달라 집니다.
 
@@ -57,11 +57,11 @@ ms.locfileid: "74965537"
 
   ![공용 클라이언트 허용](media/scenarios/default-client-type.png)
 
-## <a name="api-permissions"></a>API-engedélyek
+## <a name="api-permissions"></a>API 사용 권한
 
 데스크톱 응용 프로그램은 로그인 한 사용자에 대 한 Api를 호출 합니다. 위임 된 권한을 요청 해야 합니다. 그러나 [디먼 응용 프로그램](scenario-daemon-overview.md)에서만 처리 되는 응용 프로그램 권한은 요청할 수 없습니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [데스크톱 앱-앱 구성](scenario-desktop-app-configuration.md)

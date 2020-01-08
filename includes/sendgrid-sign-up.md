@@ -1,24 +1,24 @@
 ---
-author: erikre
+author: georgewallace
 ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: erikre
-ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: gwallace
+ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463495"
 ---
-Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 매달 이러한 25,000통의 무료 메일을 통해 고급 보고 및 분석과 [모든 API][all APIs](Web, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스를 보려면 [SendGrid 솔루션][SendGrid Solutions] 페이지를 방문하세요.
+Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 이러한 25000 무료 월별 전자 메일을 통해 고급 보고 및 분석과 [모든 api][all APIs] (WEB, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공 하는 추가 서비스에 대 한 자세한 내용은 [SendGrid 솔루션][SendGrid Solutions] 페이지를 참조 하세요.
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>SendGrid 계정을 등록하려면
 1. [Azure Portal][Azure portal]에 로그인합니다.
-2. 왼쪽에 있는 메뉴에서 **리소스 만들기**를 클릭합니다.
+2. Azure Portal 메뉴나 홈 페이지에서 **리소스 만들기**를 선택 합니다.
 
     ![command-bar-new][command-bar-new]
-3. **추가 기능**, **SendGrid 전자 메일 배달**을 차례로 클릭합니다.
+3. **SendGrid**를 검색 하 고 선택 합니다.
 
     ![sendgrid-store][sendgrid-store]
 4. 등록 양식을 작성하고 **만들기**를 선택합니다.
@@ -34,11 +34,11 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 10. 프로모션 코드를 갖고 있는 경우 **프로모션 코드**를 입력합니다.
 11. **연락처 정보**를 입력합니다.
 12. **약관**을 검토하고 동의합니다.
-13. 구매를 확인하면 **배포 성공**이라는 팝업이 나타나고 **모든 리소스** 섹션에 사용자의 계정이 표시될 것입니다.
+13. 구매를 확인 하면 **배포 성공** 팝업이 표시 되 고 계정이 나열 됩니다.
 
     ![모든 리소스][all-resources]
 
-    구매를 완료하고 **관리** 단추를 클릭하여 전자 메일 확인 프로세스를 시작하면 SendGrid로부터 계정을 확인하라는 전자 메일을 받게 됩니다. 이 전자 메일이 오지 않거나 계정 확인에 문제가 있으면 이 FAQ를 참조하세요.
+    구매를 완료하고 **관리** 단추를 클릭하여 전자 메일 확인 프로세스를 시작하면 SendGrid로부터 계정을 확인하라는 전자 메일을 받게 됩니다. 이 전자 메일을 받지 않았거나 계정을 확인 하는 데 문제가 있는 경우 FAQ를 참조 하세요.
 
     ![manage][manage]
 
@@ -76,7 +76,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 
 ![manage][manage]
 
-SendGrid 통해 전자 메일을 보내는 방법에 대한 자세한 내용은 [전자 메일 API 개요][Email API Overview]를 참조하세요.
+SendGrid를 통해 전자 메일을 보내는 방법에 대 한 자세한 내용은 [EMAIL API 개요][Email API Overview]를 참조 하세요.
 
 <!--images-->
 

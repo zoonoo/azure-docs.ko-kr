@@ -7,26 +7,26 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 36c06182d0807ce3d255477a865023ae7b74e2cb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b83a66296d54a179a56e37de199ec900ae23a1db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433007"
 ---
-# <a name="create-a-data-source"></a>데이터 원본 만들기
+# <a name="create-a-data-source"></a>데이터 소스 만들기
 
 Azure Maps 웹 SDK는 쿼리 및 렌더링을 위해 데이터를 최적화 하는 데이터 원본에 데이터를 저장 합니다. 현재 다음과 같은 두 가지 유형의 데이터 원본이 있습니다.
 
 **GeoJSON 데이터 원본**
 
-GeoJSON 기반 데이터 소스는 클래스를 `DataSource` 사용 하 여 데이터를 로컬에서 로드 하 고 저장할 수 있습니다. GeoJSON 네임은 [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) 네임스페이스의 도우미 클래스를 사용하여 수동으로 데이터를 만들거나 만들 수 있습니다. 클래스 `DataSource` 는 로컬 또는 원격 GeoJSON 파일을 가져오기 위한 함수를 제공 합니다. 원격 GeoJSON 파일은 CORs 사용 끝점에서 호스팅되어야 합니다. 클래스 `DataSource` 는 클러스터링 지점 데이터에 대 한 기능을 제공 합니다. 데이터는 `DataSource` 클래스를 사용 하 여 쉽게 추가, 제거 및 업데이트할 수 있습니다.
+GeoJSON 기반 데이터 원본은 `DataSource` 클래스를 사용 하 여 데이터를 로컬로 로드 하 고 저장할 수 있습니다. GeoJSON 네임은 [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) 네임스페이스의 도우미 클래스를 사용하여 수동으로 데이터를 만들거나 만들 수 있습니다. `DataSource` 클래스는 로컬 또는 원격 GeoJSON 파일을 가져오기 위한 함수를 제공 합니다. 원격 GeoJSON 파일은 CORs 사용 끝점에서 호스팅되어야 합니다. `DataSource` 클래스는 클러스터링 지점 데이터를 위한 기능을 제공 합니다. `DataSource` 클래스를 사용 하 여 데이터를 쉽게 추가, 제거 및 업데이트할 수 있습니다.
 
 
 > [!TIP]
-> 의 `DataSource`모든 데이터를 덮어쓰려면 `clear` then `add` 함수를 호출 하면 맵이 두 번 다시 렌더링을 시도 하므로 약간의 지연이 발생할 수 있습니다. 대신 데이터 원본의 `setShapes` 모든 데이터를 제거 하 고 대체 하는 함수를 대신 사용 하 여 맵의 단일 다시 렌더링만 트리거합니다.
+> `DataSource`의 모든 데이터를 덮어쓰려면 `clear`를 호출한 다음 함수를 `add` 하면 맵이 두 번 다시 렌더링 되어 약간의 지연이 발생할 수 있습니다. 대신 데이터 원본의 모든 데이터를 제거 하 고 대체 하는 `setShapes` 함수를 사용 하 고 지도의 단일 다시 렌더링만 트리거합니다.
 
 **벡터 타일 원본**
 
@@ -37,9 +37,9 @@ GeoJSON 기반 데이터 소스는 클래스를 `DataSource` 사용 하 여 데�
  - 클라이언트에 새 스타일을 적용할 수 있으므로 벡터 맵의 데이터 스타일을 변경 하는 경우 데이터를 다시 다운로드할 필요가 없습니다. 반면 래스터 타일 계층의 스타일을 변경 하는 경우 일반적으로 새 스타일이 적용 된 서버에서 타일을 로드 해야 합니다.
  - 데이터는 벡터 형식으로 전달 되므로 데이터를 준비 하는 데 필요한 서버 쪽 처리가 감소 합니다. 즉, 최신 데이터를 더 빨리 사용할 수 있습니다.
 
-벡터 원본을 사용 하는 모든 계층은 값을 `sourceLayer` 지정 해야 합니다. 
+벡터 원본을 사용 하는 모든 레이어는 `sourceLayer` 값을 지정 해야 합니다. 
 
-데이터 원본을 만든 후에는 `map.sources` [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager)인 속성을 통해 지도에 데이터 원본을 추가할 수 있습니다. 다음 코드에서는를 `DataSource` 만들어 맵에 추가 하는 방법을 보여 줍니다.
+데이터 원본을 만든 후에는 [Sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager)인 `map.sources` 속성을 통해 맵에 데이터 원본을 추가할 수 있습니다. 다음 코드는 `DataSource`를 만들어 맵에 추가 하는 방법을 보여 줍니다.
 
 ```javascript
 //Create a data source and add it to the map.

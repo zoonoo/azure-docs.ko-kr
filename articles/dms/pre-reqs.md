@@ -1,5 +1,5 @@
 ---
-title: Azure Database Migration Service 사용을 위한 필수 구성 요소 개요 | Microsoft Docs
+title: Azure Database Migration Service에 대 한 필수 구성 요소
 description: Azure Database Migration Service를 사용하여 데이터베이스 마이그레이션을 수행하기 위한 필수 구성 요소의 개요를 알아봅니다.
 services: database-migration
 author: HJToland3
@@ -8,19 +8,19 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 05/29/2019
-ms.openlocfilehash: 4e21014f7b4ed86846a100ed9a2b1cd4b0400974
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 6a262b75e4ab0f178e5d4bea34f5046f2292ab40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304269"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437754"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Azure Database Migration Service 사용을 위한 필수 구성 요소 개요
 
-데이터베이스 마이그레이션을 수행 하는 경우 Azure Database Migration Service가 원활히 실행 되도록 하는 데 필요한 몇 가지 필수 구성 요소가 있습니다. 일부 필수 구성 요소는 서비스가 지원하는 모든 시나리오(원본-대상 쌍)에 적용되는 반면에 특정 시나리오에만 적용되는 필수 구성 요소도 있습니다.
+데이터베이스 마이그레이션을 수행할 때 Azure Database Migration Service 원활 하 게 실행 되도록 하기 위해 필요한 몇 가지 필수 구성 요소가 있습니다. 일부 필수 구성 요소는 서비스가 지원하는 모든 시나리오(원본-대상 쌍)에 적용되는 반면에 특정 시나리오에만 적용되는 필수 구성 요소도 있습니다.
 
 Azure Database Migration Service 사용과 관련된 필구 구성 요소는 다음 섹션에 나열되어 있습니다.
 
@@ -29,13 +29,13 @@ Azure Database Migration Service 사용과 관련된 필구 구성 요소는 다
 지원되는 모든 마이그레이션 시나리오에 공통적인 Azure Database Migration Service 필구 구성 요소는 다음을 수행해야 합니다.
 
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다.
-* VNet 네트워크 보안 그룹 (NSG) 규칙에 다음을 차단 하지는 않도록 통신 포트 443, 53, 9354, 445, 12000과 합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
+* VNet NSG (네트워크 보안 그룹) 규칙이 다음 통신 포트 443, 53, 9354, 445, 12000을 차단 하지 않는지 확인 합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
 
     > [!IMPORTANT]
-    > Azure Database Migration Service의 인스턴스를 만들려면 일반적으로 동일한 리소스 그룹 내에 있는 VNet 설정에 대 한 액세스가 필요 합니다. 결과적으로, DMS의 인스턴스를 만들고 사용자 구독 수준에서 권한이 필요 합니다. 필요에 따라, 할당할 수 있는 필요한 역할을 만들려면 다음 스크립트를 실행 합니다.
+    > Azure Database Migration Service 인스턴스를 만들려면 일반적으로 동일한 리소스 그룹 내에 있지 않은 VNet 설정에 액세스할 수 있어야 합니다. 따라서 DMS의 인스턴스를 만드는 사용자에 게는 구독 수준에서 사용 권한이 필요 합니다. 필요에 따라 할당할 수 있는 필수 역할을 만들려면 다음 스크립트를 실행 합니다.
     >
     > ```
     >
@@ -118,9 +118,9 @@ Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Data
    > Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션을 수행하기 위해 필요한 전체 필수 구성 요소 목록은 [SQL Server를 Azure SQL Database로 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql) 자습서를 참조하세요.
    > 
 
-## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스로 SQL Server로 마이그레이션에 대 한 필수 구성 요소
+## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스로 SQL Server 마이그레이션하기 위한 필수 구성 요소
 
-* 문서의 세부 지침을 수행 하 여 Azure SQL Database 관리 되는 인스턴스를 만듭니다 [Azure portal에서 Azure SQL Database Managed Instance 만들기](https://aka.ms/sqldbmi)합니다.
+* [Azure Portal에서 Azure SQL Database Managed Instance 만들기](https://aka.ms/sqldbmi)문서의 세부 정보를 따라 Azure SQL Database 관리 되는 인스턴스를 만듭니다.
 * 방화벽을 열고 Azure Database Migration Service IP 주소 또는 서브넷 범위에 대한 포트 445에서 SMB 트래픽을 허용합니다.
 * Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있도록 방화벽을 통해 UDP 포트 1434에 액세스할 수 있습니다.

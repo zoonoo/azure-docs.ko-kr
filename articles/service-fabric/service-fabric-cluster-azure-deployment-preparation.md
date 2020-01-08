@@ -1,24 +1,14 @@
 ---
-title: Azure Service Fabric 클러스터 배포 계획 | Microsoft Docs
+title: Azure Service Fabric 클러스터 배포 계획
 description: Azure에 대 한 프로덕션 Service Fabric 클러스터 배포를 계획 하 고 준비 하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: a130e9bc8859360704c9be1c0a7fe066d2ed4567
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463327"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>클러스터 배포 계획 및 준비
 
@@ -28,7 +18,7 @@ ms.locfileid: "68600009"
 Azure Service Fabric 응용 프로그램 및 클러스터를 성공적으로 관리 하려면 프로덕션 환경의 안정성을 최적화 하기 위해 수행 하는 것이 좋습니다.  자세한 내용은 [Service Fabric 응용 프로그램 및 클러스터 모범 사례](service-fabric-best-practices-overview.md)를 참조 하세요.
 
 ## <a name="select-the-os-for-the-cluster"></a>클러스터에 대 한 OS를 선택 합니다.
-Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는 VM 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다.  클러스터를 배포 하기 전에 OS를 선택 해야 합니다.  Windows 또는 Linux  클러스터의 모든 노드 (가상 머신)는 동일한 OS를 실행 하며, 동일한 클러스터에서 Windows 및 Linux Vm을 혼합할 수 없습니다.
+Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는 VM 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다.  클러스터를 배포 하기 전에 Windows 또는 Linux 운영 체제를 선택 해야 합니다.  클러스터의 모든 노드 (가상 머신)는 동일한 OS를 실행 하며, 동일한 클러스터에서 Windows 및 Linux Vm을 혼합할 수 없습니다.
 
 ## <a name="capacity-planning"></a>용량 계획
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 할 몇 가지 사항입니다.
@@ -47,7 +37,7 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 
 주 노드 유형에 대 한 최소 Vm 수는 선택한 [안정성 계층][reliability] 에 따라 결정 됩니다.
 
-주 노드 형식에 대 [한 최소](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance)권장 사항, 주 노드가 [아닌 노드 형식에 대 한 상태 저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)및 [주 노드가 아닌 노드 형식에 대 한 상태 비저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads)을 참조 하세요. 
+주 [노드 형식에 대 한 최소](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance)권장 사항, 주 노드가 [아닌 노드 형식에 대 한 상태 저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)및 [주 노드가 아닌 노드 형식에 대 한 상태 비저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads)을 참조 하세요. 
 
 최소 노드 수는이 노드 유형에 서 실행 하려는 응용 프로그램/서비스의 복제본 수를 기반으로 해야 합니다.  [Service Fabric 응용 프로그램에 대 한 용량 계획](service-fabric-capacity-planning.md) 을 통해 응용 프로그램을 실행 하는 데 필요한 리소스를 예상할 수 있습니다. 나중에 응용 프로그램 워크 로드를 변경 하기 위해 클러스터를 확장 하거나 축소할 수 있습니다. 
 
@@ -57,7 +47,7 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 안정성 계층은 주 노드 유형에서 이 클러스터에서 실행하려는 시스템 서비스의 복제본 수를 설정하는 데 사용됩니다. 복제본 수가 많을수록 클러스터에서 시스템 서비스를 신뢰할 수 있습니다.  사용할 수준 및 시기에 대 한 다양 한 수준 및 권장 사항의 장점은 [클러스터의 안정성 특성][reliability]을 참조 하세요. 
 
 ## <a name="enable-reverse-proxy-andor-dns"></a>역방향 프록시 및/또는 DNS 사용
-클러스터의 노드는 동일한 로컬 네트워크에 있으므로 클러스터 내에서 서로 연결하고 있는 서비스는 다른 서비스의 엔드포인트에 직접 액세스할 수 있습니다. 서비스 간 연결을 용이 하 게 하기 위해 Service Fabric는 추가 서비스를 제공 합니다. [DNS 서비스](service-fabric-dnsservice.md) 및 [역방향 프록시 서비스](service-fabric-reverseproxy.md)입니다.  클러스터를 배포할 때 두 서비스를 모두 사용할 수 있습니다.
+클러스터의 노드는 동일한 로컬 네트워크에 있으므로 클러스터 내에서 서로 연결하고 있는 서비스는 다른 서비스의 엔드포인트에 직접 액세스할 수 있습니다. 서비스 간 연결을 용이 하 게 하기 위해 Service Fabric는 추가 서비스 ( [DNS 서비스](service-fabric-dnsservice.md) 및 [역방향 프록시 서비스](service-fabric-reverseproxy.md))를 제공 합니다.  클러스터를 배포할 때 두 서비스를 모두 사용할 수 있습니다.
 
 많은 서비스, 특히 컨테이너 화 된 서비스는 기존 URL 이름을 가질 수 있으며, 특히 응용 프로그램 "리프트 앤 시프트" 시나리오에서 Naming Service 프로토콜이 아닌 표준 DNS 프로토콜을 사용 하 여 이러한 이름을 확인할 수 있습니다. 바로 이것이 DNS 서비스의 용도입니다. DNS 서비스를 통해 DNS 이름을 서비스 이름에 매핑할 수 있으므로 엔드포인트 IP 주소를 확인할 수 있습니다.
 

@@ -1,25 +1,14 @@
 ---
 title: Azure Service Fabric의 ReliableConcurrentQueue
 description: ReliableConcurrentQueue는 병렬 큐 및 dequeues를 허용 하는 처리량이 높은 큐입니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: raja,tyadam,masnider,vturecek
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350283"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462730"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric의 ReliableConcurrentQueue 소개
 신뢰할 수 있는 동시 큐는 비동기, 트랜잭션 및 복제된 큐로서 큐에 넣기 및 큐에서 제거 작업에 대한 높은 동시성을 제공합니다. [신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx)에서 제공한 엄격한 FIFO 순서를 완화하여 처리량이 높고 대기 시간이 짧게 설계되었으며 대신 최상의 순서를 제공합니다.
@@ -52,7 +41,7 @@ ReliableConcurrentQueue의 샘플 사용 사례는 [메시지 큐](https://en.wi
 ## <a name="code-snippets"></a>코드 조각
 몇 가지 코드 조각 및 예상된 출력에 대해 살펴보겠습니다. 이 섹션에서 예외 처리는 무시됩니다.
 
-### <a name="instantiation"></a>인스턴스화하고
+### <a name="instantiation"></a>인스턴스화
 신뢰할 수 있는 동시 큐의 인스턴스를 만드는 것은 다른 신뢰할 수 있는 컬렉션과 유사 합니다.
 
 ```csharp
@@ -313,7 +302,7 @@ do
 } while (ret.HasValue);
 ```
 
-### <a name="peek"></a>피킹
+### <a name="peek"></a>보기
 ReliableConcurrentQueue는 *TryPeekAsync* API를 제공하지 않습니다. 사용자는 *TryDequeueAsync*를 사용한 다음 트랜잭션을 중단하여 보기 의미 체계를 가져올 수 있습니다. 이 예제에서는 큐에서 제거는 항목의 값이 *10*보다 큰 경우에만 처리됩니다.
 
 ```

@@ -3,17 +3,17 @@ title: Azure IoT Central에서 디바이스 연결 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central의 디바이스 연결과 관련된 주요 개념을 소개합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: ef0e4c9070733266349a37e863c48901eae90c16
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 412a678465589da87c713a55a7b67193b254bf96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894592"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434940"
 ---
 # <a name="get-connected-to-azure-iot-central-preview-features"></a>Azure IoT Central에 연결 (미리 보기 기능)
 
@@ -60,7 +60,7 @@ IoT Central 응용 프로그램으로 많은 수의 장치를 등록 하려면 C
 > [!NOTE]
 > 먼저 IoT Central에 등록 하지 않고 장치를 연결 하는 방법을 알아보려면 [먼저 장치를 등록 하지 않고 연결](#connect-without-registering-devices)을 참조 하세요.
 
-### <a name="set-up-your-devices"></a>장치 설정
+### <a name="set-up-your-devices"></a>디바이스 설정
 
 장치 코드에서 내보내기 파일의 연결 정보를 사용 하 여 장치가 IoT Central 응용 프로그램에 연결 하 고 IoT에 데이터를 보낼 수 있도록 합니다. 장치를 연결 하는 방법에 대 한 자세한 내용은 [다음 단계](#next-steps)를 참조 하세요.
 

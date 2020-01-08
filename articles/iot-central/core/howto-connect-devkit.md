@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 270f92365823fb0f9378a9daae77dbbe08b53b14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435052"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결
 
@@ -25,12 +25,12 @@ ms.locfileid: "73582947"
 
 이 문서의 단계를 완료 하려면 다음 리소스가 필요 합니다.
 
-1. **샘플 Devkits** 애플리케이션 템플릿으로 만든 Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+1. **레거시 응용** 프로그램 응용 프로그램 템플릿에서 만든 Azure IoT Central 응용 프로그램입니다. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 1. DevKit 디바이스. DevKit 디바이스를 구매하려면 [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)를 방문하세요.
 
-## <a name="sample-devkits-application"></a>샘플 Devkits 애플리케이션
+## <a name="add-a-device-template"></a>디바이스 템플릿 추가
 
-**샘플 devkits** 응용 프로그램 템플릿에서 만든 응용 프로그램에는 다음과 같은 장치 특성을 정의 하는 **MXChip** 장치 템플릿이 포함 되어 있습니다.
+Azure IoT Central 응용 프로그램에서 다음 장치 특성을 정의 하는 새 **MXChip** 장치 템플릿을 추가 합니다.
 
 - **습도**, **온도**, **압력**, **지자기 센터** (x, y, z 축을 따라 측정), **가 속도계** (x, y, z 축을 따라 측정 됨) 및 **자이로스코프가** (x, y, z 축을 따라 측정 됨)에 대 한 원격 분석 측정.
 - **장치 상태**에 대 한 상태 측정입니다.
@@ -40,6 +40,11 @@ ms.locfileid: "73582947"
 - **에서 제조**되는 클라우드 속성
 - 명령 **에코** 및 **카운트다운**. 실제 장치에 **Echo** 명령이 수신 되 면 장치 디스플레이에 전송 된 값이 표시 됩니다. 실제 장치에 **카운트다운** 명령이 수신 되 면 LED는 패턴을 순환 하 고 장치는 카운트다운 값을 IoT Central으로 다시 보냅니다.
 
+1. 장치 템플릿 ![장치 템플릿에서 **+ 새로 만들기** 를 선택](media/howto-connect-devkit/adddevicetemplate.png)
+   
+
+2. **MXChip** 를 선택 하 고 MXChip 장치 템플릿을 만들어 장치 템플릿 추가 ![](media/howto-connect-devkit/newtemplate.png)
+
 구성에 대 한 자세한 내용은 [MXChip Device template details](#mxchip-device-template-details) 항목을 참조 하세요.
 
 ## <a name="add-a-real-device"></a>실제 디바이스 추가
@@ -48,7 +53,7 @@ ms.locfileid: "73582947"
 
 Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿의 실제 장치를 추가 하 고 장치 연결 정보: **범위 ID, 장치 ID 및 기본 키**를 적어둡니다.
 
-1. Device Explorer에서 **실제 장치** 를 추가 하 고 **+ 새로 > 만들기** 를 선택 하 여 실제 장치를 추가 합니다.
+1. 장치에서 **실제 장치** 를 추가 하 고 **+ 새로 > 만들기** 를 선택 하 여 실제 장치를 추가 합니다.
 
     * 소문자 **장치 id**를 입력 하거나 제안 된 **장치 id**를 사용 합니다.
     * **장치 이름을**입력 하거나 제안 된 이름을 사용 합니다.
@@ -184,7 +189,7 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 **Azureiotclient .cpp** 소스 파일의 코드는 [Microsoft Azure IoT sdk 및 C 용 라이브러리](https://github.com/Azure/azure-iot-sdk-c) 의 함수를 사용 하 여 IoT Hub와 상호 작용 합니다.
 
-샘플 코드를 수정하고, 빌드하고, 디바이스에 업로드하는 방법은 **폴더에 있는**readme.md`MXCHIP/mxchip_advanced` 파일을 참조하세요.
+샘플 코드를 수정하고, 빌드하고, 디바이스에 업로드하는 방법은 `MXCHIP/mxchip_advanced` 폴더에 있는 **readme.md** 파일을 참조하세요.
 
 ## <a name="mxchip-device-template-details"></a>MXChip 디바이스 템플릿 세부 정보
 
@@ -194,7 +199,7 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 #### <a name="telemetry"></a>원격 분석
 
-| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
+| 필드 이름     | 단위  | 최소 | 최대 | 소수 자릿수 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidity       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -210,12 +215,12 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>상태 
-| Name          | 표시 이름   | 정상 | 주의 | 위험 | 
+| 이름          | 표시 이름   | NORMAL | 주의 | 위험 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 디바이스 상태   | 녹색  | 주황색  | 빨강    | 
+| DeviceState   | 디바이스 상태   | 녹색  | Orange  | 빨강    | 
 
 #### <a name="events"></a>이벤트 
-| Name             | 표시 이름      | 
+| 이름             | 표시 이름      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 단추 B 누름  | 
 
@@ -223,31 +228,31 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 숫자 설정
 
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| 표시 이름 | 필드 이름 | 단위 | 소수 자릿수 | 최소 | 최대 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
+| 현재      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
 | 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 설정 전환
 
 | 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
+| IR           | activateIR | 켜기      | OFF      | 해제     |
 
 ### <a name="properties"></a>속성
 
-| 형식            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| 유형            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| 디바이스 속성 | 디바이스 위치   | location  | location    |
-| 텍스트            | 제조 일자     | manufacturedIn   | 해당 없음       |
+| 디바이스 속성 | 디바이스 위치   | 위치  | 위치    |
+| 텍스트            | 제조 일자     | manufacturedIn   | N/A       |
 
 ### <a name="commands"></a>명령
 
 | 표시 이름 | 필드 이름 | 반환 형식 | 입력 필드 표시 이름 | 입력 필드 이름 | 입력 필드 형식 |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| 울림         | echo       | 텍스트        | 표시할 값         | displayedValue   | 텍스트             |
+| Echo         | echo       | text        | 표시할 값         | displayedValue   | text             |
 | 다운    | 다운  | number      | 개수               | countFrom        | number           |
 
 ## <a name="next-steps"></a>다음 단계

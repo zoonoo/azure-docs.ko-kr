@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3d7148b104c723d124a954cf858ca77ff6552f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423803"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 모바일 앱-코드 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "74919956"
 
 모바일 앱을 지 원하는 Microsoft 라이브러리는 다음과 같습니다.
 
-  MSAL 라이브러리 | 설명
+  MSAL 라이브러리 | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 이식 가능한 응용 프로그램을 개발 합니다. 모바일 응용 프로그램을 빌드하는 데 지원 되는 플랫폼은 UWP, Xamarin.ios 및 MSAL.NET입니다.
   ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | 목적-C 또는 Swift를 사용 하 여 네이티브 iOS 응용 프로그램을 개발 하려면
@@ -77,7 +77,7 @@ if let application = try? MSALPublicClientApplication(configuration: config){ /*
 
 Xamarin 또는 UWP에서 응용 프로그램을 인스턴스화하는 가장 간단한 방법은 다음과 같습니다. 여기서 `ClientId`는 등록 된 앱의 Guid입니다.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
@@ -88,7 +88,7 @@ UI 부모를 설정 하 고, 기본 인증 기관을 재정의 하 고, 원격 �
 
 Android에서는 대화형 인증을 수행 하기 전에 부모 활동을 전달 해야 합니다. IOS에서 broker를 사용 하는 경우에는 ViewController에 전달 해야 합니다. UWP에서와 동일한 방식으로 부모 창에 전달 하는 것이 좋습니다. 이는 토큰을 가져올 때 가능 하지만, 응용 프로그램 생성 시 UIParent를 반환 하는 대리자를 지정 하는 것도 가능 합니다.
 
-```CSharp
+```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
   .ParentActivityOrWindowFunc(() => parentUi)
   .Build();
@@ -96,7 +96,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
 
 Android에서는 [여기](https://github.com/jamesmontemagno/CurrentActivityPlugin)`CurrentActivityPlugin`를 사용 하는 것이 좋습니다.  그러면 `PublicClientApplication` builder 코드가 다음과 같이 표시 됩니다.
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -175,7 +175,7 @@ Android에서 broker를 사용 하는 방법에 대 한 자세한 내용은 [and
 
 Broker 지원은`PublicClientApplication` 별로 사용 하도록 설정 됩니다. 기본적으로 사용하지 않도록 설정되어 있습니다. `PublicClientApplicationBuilder`를 통해 `PublicClientApplication`를 만들 때 `WithBroker()` 매개 변수를 사용 해야 합니다 (기본적으로 true로 설정).
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -187,7 +187,7 @@ var app = PublicClientApplicationBuilder
 
 MSAL.NET가 broker를 호출 하면 broker는 `AppDelegate.OpenUrl` 메서드를 통해 응용 프로그램을 다시 호출 합니다. MSAL은 broker의 응답을 기다리기 때문에 MSAL.NET를 호출 하려면 응용 프로그램을 공동으로 전환 해야 합니다. 이렇게 하려면 `AppDelegate.cs` 파일을 업데이트 하 여 아래 메서드를 재정의 합니다.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
                              string sourceApplication,
                              NSObject annotation)
@@ -218,17 +218,17 @@ Xamarin iOS를 사용 하면 일반적으로 개체 창을 설정할 필요가 �
 
 **예:**
 
-`App.cs`:
-```CSharp
+`App.cs`의 경우:
+```csharp
    public static object RootViewController { get; set; }
 ```
-`AppDelegate.cs`:
-```CSharp
+`AppDelegate.cs`의 경우:
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 토큰 획득 호출에서 다음을 수행 합니다.
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();

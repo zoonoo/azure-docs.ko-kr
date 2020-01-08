@@ -123,6 +123,9 @@
         - name: 클러스터 구성
           href: /azure/databricks/clusters/configure
           maintainContext: true
+        - name: 사용자 지정 컨테이너
+          href: /azure/databricks/clusters/custom-containers
+          maintainContext: true
         - name: 클러스터 노드 초기화
           href: /azure/databricks/clusters/init-scripts
           maintainContext: true
@@ -221,7 +224,7 @@
     - name: 라이브러리
       href: /azure/databricks/libraries
       maintainContext: true
-    - name: Data
+    - name: data
       items:
         - name: 데이터베이스 및 테이블
           href: /azure/databricks/data/tables
@@ -239,7 +242,7 @@
             - name: Apache Spark 커넥터를 사용하는 SQL Databases
               href: /azure/databricks/data/data-sources/sql-databases-azure
               maintainContext: true
-            - name: Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.
+            - name: Azure BLOB 스토리지
               href: /azure/databricks/data/data-sources/azure/azure-storage
               maintainContext: true
             - name: Azure Data Lake Storage Gen2
@@ -772,6 +775,14 @@
             - name: TensorFlow를 사용하여 TFRecord 파일에 데이터 저장
               href: /azure/databricks/applications/deep-learning/data-prep/tensorflow-to-tfrecords
               maintainContext: true
+            - name: 기능 개발
+              items:
+                - name: 기능 개발 개요
+                  href: /azure/databricks/applications/deep-learning/featurization/index
+                  maintainContext: true
+                - name: 이전 학습
+                  href: /azure/databricks/applications/deep-learning/featurization/transfer-learning-keras
+                  maintainContext: true
         - name: 단일 노드 학습
           items:
             - name: 단일 노드 학습 개요
@@ -826,9 +837,12 @@
             - name: TensorFlow를 사용하여 모델 유추
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
               maintainContext: true
-            - name: 분산 이미지 모델 유추를 위한 참조 솔루션
-              href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
+            - name: 모델 유추 성능 튜닝
+              href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
               maintainContext: true
+        - name: 분산 이미지 모델 유추를 위한 참조 솔루션
+          href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
+          maintainContext: true
     - name: MLflow
       items:
         - name: MLflow 개요
@@ -853,7 +867,7 @@
             - name: 추적 개요
               href: /azure/databricks/applications/mlflow/tracking
               maintainContext: true
-            - name: scikit 학습 모델 학습
+            - name: scikit-learn 모델 학습
               href: /azure/databricks/applications/mlflow/tracking-ex-scikit
               maintainContext: true
             - name: PyTorch 모델 학습
@@ -1062,6 +1076,9 @@
           items:
             - name: 클러스터 구성 개요
               href: /azure/databricks/administration-guide/clusters/index
+              maintainContext: true
+            - name: Container Services 사용
+              href: /azure/databricks/administration-guide/clusters/container-services
               maintainContext: true
             - name: Genomics용 Databricks Runtime 사용
               href: /azure/databricks/administration-guide/clusters/genomics-runtime
@@ -1463,7 +1480,7 @@
         - name: 데이터 파이프라인에서 종속성 관리
           href: /azure/databricks/dev-tools/data-pipelines
           maintainContext: true
-- name: 참고 자료
+- name: 참조
   items:
     - name: Databricks REST API
       items:
@@ -1518,11 +1535,37 @@
       href: /azure/databricks/dev-tools/databricks-utils
       maintainContext: true
     - name: Databricks CLI
-      href: /azure/databricks/dev-tools/databricks-cli
-      maintainContext: true
-    - name: Stack CLI
-      href: /azure/databricks/dev-tools/stack
-      maintainContext: true
+      items:
+        - name: Databricks CLI 개요
+          href: /azure/databricks/dev-tools/cli/index
+          maintainContext: true
+        - name: 클러스터
+          href: /azure/databricks/dev-tools/cli/clusters-cli
+          maintainContext: true
+        - name: DBFS
+          href: /azure/databricks/dev-tools/cli/dbfs-cli
+          maintainContext: true
+        - name: 그룹
+          href: /azure/databricks/dev-tools/cli/groups-cli
+          maintainContext: true
+        - name: 인스턴스 풀
+          href: /azure/databricks/dev-tools/cli/instance-pools-cli
+          maintainContext: true
+        - name: 교육
+          href: /azure/databricks/dev-tools/cli/jobs-cli
+          maintainContext: true
+        - name: 라이브러리
+          href: /azure/databricks/dev-tools/cli/libraries-cli
+          maintainContext: true
+        - name: 비밀
+          href: /azure/databricks/dev-tools/cli/secrets-cli
+          maintainContext: true
+        - name: 스택
+          href: /azure/databricks/dev-tools/cli/stack-cli
+          maintainContext: true
+        - name: 작업 영역
+          href: /azure/databricks/dev-tools/cli/workspace-cli
+          maintainContext: true
     - name: Azure Databricks REST API
       href: /rest/api/databricks
     - name: Resource Manager 템플릿
@@ -1620,6 +1663,9 @@
                   maintainContext: true
                 - name: Databricks Runtime 6.2 ML
                   href: /azure/databricks/release-notes/runtime/6.2ml
+                  maintainContext: true
+                - name: Databricks Runtime 6.2 Genomics
+                  href: /azure/databricks/release-notes/runtime/6.2genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.1
                   href: /azure/databricks/release-notes/runtime/6.1

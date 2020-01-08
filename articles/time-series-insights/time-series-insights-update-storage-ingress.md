@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62ee248c06d2b26b935f72b3bb73cf708f949c72
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014702"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615106"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -23,7 +23,9 @@ ms.locfileid: "74014702"
 
 ## <a name="data-ingress"></a>데이터 수신
 
-Azure Time Series Insights 환경에는 시계열 데이터를 수집, 처리 및 저장 하기 위한 수집 엔진이 포함 됩니다. 환경을 계획할 때에는 들어오는 모든 데이터가 처리 되도록 하기 위해 고려해 야 할 몇 가지 고려 사항이 있습니다. 즉, 들어오는 모든 데이터를 처리 하 고, 수집 대기 시간을 최소화 하 여 수집 대기 시간을 최소화 해야 합니다 (TSI에서 이벤트의 데이터를 읽고 처리 하는 데 소요 되는 시간). 원본). Time Series Insights 미리 보기에서 데이터 수신 정책은 데이터를 원본으로 사용할 수 있는 위치와 데이터의 형식을 결정 합니다.
+Azure Time Series Insights 환경에는 시계열 데이터를 수집, 처리 및 저장 하기 위한 수집 엔진이 포함 됩니다. 환경을 계획할 때에는 들어오는 모든 데이터가 처리 되도록 하기 위해 고려해 야 할 몇 가지 고려 사항이 있습니다. 즉, 들어오는 모든 데이터를 처리 하 고, 수집 대기 시간을 최소화 하 여 수집 대기 시간을 최소화 해야 합니다 (TSI에서 이벤트의 데이터를 읽고 처리 하는 데 소요 되는 시간). 원본). 
+
+Time Series Insights 미리 보기에서 데이터 수신 정책은 데이터를 원본으로 사용할 수 있는 위치와 데이터의 형식을 결정 합니다.
 
 ### <a name="ingress-policies"></a>수신 정책
 
@@ -32,12 +34,12 @@ Time Series Insights 미리 보기는 다음과 같은 이벤트 소스를 지�
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Time Series Insights 미리 보기는 인스턴스당 최대 2 개의 이벤트 원본을 지원 합니다.
-  
-Azure Time Series Insights Azure IoT Hub 또는 Azure Event Hubs를 통해 전송 되는 JSON을 지원 합니다.
+Time Series Insights 미리 보기는 인스턴스당 최대 2 개의 이벤트 원본을 지원 합니다. Azure Time Series Insights Azure IoT Hub 또는 Azure Event Hubs를 통해 전송 되는 JSON을 지원 합니다.
 
 > [!WARNING] 
-> Time Series Insights 미리 보기 환경에 새 이벤트 원본을 연결 하는 경우 현재 IoT Hub 나 이벤트 허브에 있는 이벤트 수에 따라 초기 수집 대기 시간이 길어질 수 있습니다. 데이터가 수집 되 면이 긴 대기 시간을 감소으로 간주 해야 합니다. 그렇지 않은 경우에는 Azure Portal를 통해 지원 티켓을 제출 하 여 문의해 주시기 바랍니다.
+> * 미리 보기 환경에 이벤트 원본을 연결할 때 초기 대기 시간이 길어질 수 있습니다. 
+> 이벤트 원본 대기 시간은 현재 IoT Hub 또는 이벤트 허브에 있는 이벤트 수에 따라 달라 집니다.
+> * 이벤트 원본 데이터가 처음 수집 감소 긴 대기 시간이 발생 합니다. 대기 시간이 계속 되 면 Azure Portal를 통해 지원 티켓을 제출 하 여 문의해 주시기 바랍니다.
 
 ## <a name="ingress-best-practices"></a>수신 모범 사례
 
@@ -49,12 +51,19 @@ Azure Time Series Insights Azure IoT Hub 또는 Azure Event Hubs를 통해 전�
 
 ### <a name="ingress-scale-and-limitations-in-preview"></a>미리 보기의 수신 크기 조정 및 제한 사항
 
-기본적으로 Time Series Insights 미리 보기는 환경 당 초당 최대 1mb의 초기 수신 크기를 지원 합니다. 필요한 경우 최대 16mb/s의 처리량을 사용할 수 있습니다. 필요한 경우 Azure Portal에 지원 티켓을 제출 하 여 문의해 주세요. 또한 0.5 m b/s의 파티션당 제한이 있습니다. 이는 IoT Hub를 사용 하는 고객에 게는 IoT Hub 장치 파티션 간의 선호도가 지정 된 경우에만 영향을 미칩니다. 단일 게이트웨이 장치에서 자체 장치 ID 및 연결 문자열을 사용 하 여 허브로 메시지를 전달 하는 시나리오에서 이벤트 페이로드가 다른 TS를 지정 하는 경우에도 메시지가 단일 파티션에 도착 하면 0.5 m b/s 제한에 도달할 위험이 있습니다. 가. 일반적으로 수신 율은 조직에 있는 장치 수, 이벤트 내보내기 빈도 및 이벤트 크기에 대 한 요소로 표시 됩니다. 수집 비율을 계산할 때 사용자 IoT Hub 조직의 전체 장치가 아닌 사용 중인 허브 연결 수를 사용 해야 합니다. 개선된 크기 조정 지원을 제공하기 위해 작업 중입니다. 이 설명서는 이러한 개선 사항을 반영 하도록 업데이트 됩니다. 
+기본적으로 미리 보기 환경에서는 **환경 당 초당**최대 1mb의 수신 속도를 지원 합니다. 고객은 필요한 경우 최대 **16mb/초** 처리량까지 미리 보기 환경을 확장할 수 있습니다.
+또한 **0.5 m b/s**의 파티션당 제한이 있습니다. 
 
-> [!WARNING]
-> IoT Hub를 이벤트 원본으로 사용 하는 환경의 경우 사용 중인 허브 장치 수를 사용 하 여 수집 율을 계산 합니다.
+파티션당 제한은 IoT Hub를 사용 하는 고객에 게 영향을 미칩니다. 특히 IoT Hub 장치와 파티션 간의 선호도가 제공 됩니다. 단일 게이트웨이 장치에서 자체 장치 ID 및 연결 문자열을 사용 하 여 허브로 메시지를 전달 하는 시나리오에서 이벤트 페이로드가 여러 시계열 Id를 지정 하는 경우에도 메시지가 단일 파티션에 도착 하면 0.5 m b/s 제한에 도달할 위험이 있습니다. 
 
-처리량 단위 및 파티션에 대 한 자세한 내용은 다음 링크를 참조 하세요.
+일반적으로 수신 속도는 조직에 있는 장치 수, 이벤트 내보내기 빈도 및 각 이벤트의 크기에 대 한 요소로 표시 됩니다.
+
+*  **장치 수** × **이벤트 내보내기 빈도** × **각 이벤트의 크기**입니다.
+
+> [!TIP]
+> IoT Hub를 이벤트 원본으로 사용 하는 환경의 경우 사용 중인 전체 장치 또는 조직에서 사용 하는 허브 연결 수를 사용 하 여 수집 비율을 계산 합니다.
+
+처리량 단위, 제한 및 파티션에 대 한 자세한 내용은 다음과 같습니다.
 
 * [IoT Hub 크기 조정](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [이벤트 허브 크기 조정](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
@@ -91,11 +100,11 @@ Azure Blob 저장소에 대 한 자세한 설명은 [저장소 blob 소개](../s
 
 Time Series Insights 미리 보기 종 량 제 환경을 만들 때 Azure Storage 범용 V1 blob 계정이 장기 콜드 저장소로 생성 됩니다.  
 
-Time Series Insights 미리 보기는 Azure storage 계정에서 각 이벤트의 복사본을 두 개까지 게시 합니다. 초기 복사본은 수집 시간을 기준으로 정렬 되는 이벤트를 포함 하며 다른 서비스를 사용 하 여 액세스할 수 있습니다. Spark, Hadoop 및 기타 친숙 한 도구를 사용 하 여 원시 Parquet 파일을 처리할 수 있습니다. 
+Time Series Insights 미리 보기는 Azure Storage 계정에서 각 이벤트의 복사본을 두 개까지 게시 합니다. 초기 복사본은 수집 시간을 기준으로 정렬 되는 이벤트를 포함 하며 다른 서비스를 사용 하 여 액세스할 수 있습니다. Spark, Hadoop 및 기타 친숙 한 도구를 사용 하 여 원시 Parquet 파일을 처리할 수 있습니다. 
 
 Time Series Insights 미리 보기는 Parquet 파일을 다시 분할 하 여 Time Series Insights 쿼리를 최적화 합니다. 이 다시 분할 데이터 복사본도 저장 됩니다.
 
-공개 미리 보기 중에는 데이터가 Azure storage 계정에 무기한 저장 됩니다.
+공개 미리 보기 중에는 데이터가 Azure Storage 계정에 무기한 저장 됩니다.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Time Series Insights blob 작성 및 편집
 
@@ -109,11 +118,11 @@ Time Series Insights 미리 보기 탐색기에 표시 되는 데이터에 액�
 
 * Time Series Insights 미리 보기 탐색기 탐색기에서 CSV 파일로 데이터를 내보낼 수 있습니다. 자세한 내용은 [Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)를 참조하세요.
 * Time Series Insights 미리 보기 API. `/getRecorded`에서 API 끝점에 연결할 수 있습니다. 이 API에 대한 자세한 내용은 [시계열 쿼리](./time-series-insights-update-tsq.md)를 참조하세요.
-* Azure Storage 계정에서 직접 Time Series Insights 미리 보기 데이터에 액세스 하는 데 사용 중인 계정에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [스토리지 계정 리소스에 대한 액세스 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
+* Azure Storage 계정에서 직접. Time Series Insights 미리 보기 데이터에 액세스 하는 데 사용 중인 계정에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [스토리지 계정 리소스에 대한 액세스 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
 
 ### <a name="data-deletion"></a>데이터 삭제
 
-Time Series Insights 미리 보기 파일을 삭제 하지 마세요. Time Series Insights 미리 보기 내 에서만 관련 데이터를 관리 해야 합니다.
+Time Series Insights 미리 보기 파일을 삭제 하지 마세요. Time Series Insights 미리 보기 내 에서만 관련 데이터를 관리 합니다.
 
 ## <a name="parquet-file-format-and-folder-structure"></a>Parquet 파일 형식 및 폴더 구조
 
@@ -136,7 +145,7 @@ Time Series Insights 미리 보기는 다음과 같이 데이터의 복사본을
 > [!NOTE]
 > * `<YYYY>`은 네 자리 연도 표현으로 매핑됩니다.
 > * `<MM>`는 두 자리 월 표현에 매핑됩니다.
-> * `<YYYYMMDDHHMMSSfff>`은 4 자리 연도 (`YYYY`), 두 자리 월 (`MM``DD`), 두 자리 시간 (`HH`), 두 자리 분 (`MM`), 2 자리 초 (`SS`) 및 3 자리 밀리초 ()를 사용 하는 타임 스탬프 표현에 매핑됩니다.`fff`).
+> * `<YYYYMMDDHHMMSSfff>` 4 자리 연도 (`YYYY`), 두 자리 월 (`MM``DD`), 두 자리 시간 (`HH`), 두 자리 분 (`MM`), 두 자리 초 (`SS`) 및 3 자리 밀리초 (`fff`)를 사용 하는 타임 스탬프 표현에 매핑됩니다.
 
 Time Series Insights 미리 보기 이벤트는 다음과 같이 Parquet 파일 내용에 매핑됩니다.
 

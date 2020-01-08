@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 4c72bd37a636ec31c13737705c22aaa895b9ad72
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928204"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439631"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 델타 복사
 
@@ -38,10 +38,13 @@ ms.locfileid: "74928204"
 - 원본 데이터베이스에서 대상 저장소로의 변경 **내용만 복사 합니다** . 원본 데이터베이스의 변경 내용을 식별 하는 쿼리는 ' SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > "last high 워터 마크" 및 TIMESTAMP_Column < = "current high 워터 마크" '와 비슷합니다.
 - **SqlServerStoredProcedure** 다음에 델타 복사를 위해 현재 높은 워터 마크 값을 외부 컨트롤 테이블에 씁니다.
 
-이 템플릿은 다음 5개의 매개 변수를 정의합니다.
+템플릿은 다음 매개 변수를 정의 합니다.
 - *Data_Source_Table_Name* 은 데이터를 로드 하려는 원본 데이터베이스의 테이블입니다.
 - *Data_Source_WaterMarkColumn* 는 새 행 또는 업데이트 된 행을 식별 하는 데 사용 되는 원본 테이블의 열 이름입니다. 이 열의 형식은 일반적으로 *datetime*, *INT*또는 유사 합니다.
-- *Data_Destination_Folder_Path* 또는 *Data_Destination_Table_Name* 는 대상 저장소에서 데이터가 복사 되는 위치입니다.
+- *Data_Destination_Container* 은 대상 저장소에서 데이터가 복사 되는 위치의 루트 경로입니다.
+- *Data_Destination_Directory* 은 대상 저장소에서 데이터가 복사 되는 위치의 루트 아래에 있는 디렉터리 경로입니다.
+- *Data_Destination_Table_Name* 대상 저장소의 데이터가 복사 되는 위치입니다. "Azure Synapse Analytics (이전의 SQL DW)"가 데이터 대상으로 선택 된 경우에 해당 합니다.
+- *Data_Destination_Folder_Path* 대상 저장소의 데이터가 복사 되는 위치입니다. "파일 시스템" 또는 "Azure Data Lake Storage Gen1"를 데이터 대상으로 선택한 경우에 해당 합니다.
 - *Control_Table_Table_Name* 는 상위 워터 마크 값을 저장 하는 외부 컨트롤 테이블입니다.
 - *Control_Table_Column_Name* 은 상위 워터 마크 값을 저장 하는 외부 컨트롤 테이블의 열입니다.
 
@@ -100,20 +103,18 @@ ms.locfileid: "74928204"
     ![제어 테이블 데이터 저장소에 대한 새 연결 만들기](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
 7. **이 템플릿 사용**을 선택합니다.
-
-     ![이 템플릿 사용](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. 다음 예제와 같이 사용 가능한 파이프라인이 표시 됩니다.
+  
+    ![파이프라인 검토](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-     ![파이프라인 검토](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+9. **저장 프로시저**를 선택 합니다. **저장 프로시저 이름**에 대해 **[dbo]를 선택 합니다. update_watermark]** . **가져오기 매개 변수**를 선택 하 고 **동적 콘텐츠 추가**를 선택 합니다.  
 
-9. **저장 프로시저**를 선택 합니다. **저장 프로시저 이름**에 대해 **[update_watermark]** 를 선택 합니다. **가져오기 매개 변수**를 선택 하 고 **동적 콘텐츠 추가**를 선택 합니다.  
-
-     ![저장 프로시저 작업 설정](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
+    ![저장 프로시저 작업 설정](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
 10. 콘텐츠 **\@{activity (' LookupCurrentWaterMark 마크 '). NewWatermarkValue}** 를 작성 한 후 **마침**을 선택 합니다.  
 
-     ![저장 프로시저의 매개 변수에 대 한 내용 작성](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
+    ![저장 프로시저의 매개 변수에 대 한 내용 작성](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
 11. **디버그**를 선택 하 고 **매개 변수**를 입력 한 다음 **마침**을 선택 합니다.
 
@@ -132,13 +133,12 @@ ms.locfileid: "74928204"
             INSERT INTO data_source_table
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
-14. 파이프라인을 다시 실행 하려면 **디버그**를 선택 하 고 **매개 변수**를 입력 한 다음 **마침**을 선택 합니다.
 
-    ![\* * 디버그 * *를 선택 합니다.](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+14. 파이프라인을 다시 실행 하려면 **디버그**를 선택 하 고 **매개 변수**를 입력 한 다음 **마침**을 선택 합니다.
 
     새 행만 대상으로 복사 된 것을 볼 수 있습니다.
 
-15. 필드 SQL Data Warehouse를 데이터 대상으로 선택한 경우에는 Polybase를 SQL Data Warehouse 하는 데 필요한 Azure Blob storage에 대 한 연결도 제공 해야 합니다. 컨테이너가 Blob 저장소에 이미 만들어졌는지 확인 합니다.
+15. 필드 Azure Synapse Analytics (이전의 SQL DW)를 데이터 대상으로 선택 하는 경우에는 Polybase를 SQL Data Warehouse 하는 데 필요한 Azure Blob storage에 대 한 연결도 준비 해야 합니다. 템플릿이 컨테이너 경로를 생성 합니다. 파이프라인이 실행 된 후 컨테이너를 Blob 저장소에서 만들었는지 확인 합니다.
     
     ![PolyBase 구성](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

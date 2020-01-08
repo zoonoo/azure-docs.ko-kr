@@ -4,21 +4,21 @@ description: Azure Resource Manager 템플릿을 사용하여 Log Analytics 작�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 5410d6ef11c3f95bb4f02dbd914a1aacbd068a1b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363373"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Azure Resource Manager 템플릿을](../../azure-resource-manager/resource-group-authoring-templates.md) 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
+[Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
 
 * 설정 가격 책정 계층을 포함하는 작업 영역 만들기 
 * 솔루션 추가
@@ -38,10 +38,10 @@ ms.locfileid: "73176390"
 
 다음 표에는 이 예제에서 사용된 리소스의 API 버전이 제공됩니다.
 
-| 리소스 | 리소스 종류 | API 버전 |
+| 리소스 | 리소스 유형 | API 버전 |
 |:---|:---|:---|
 | 작업 영역   | workspaces    | 2017-03-15-preview |
-| Search      | savedSearches | 2015-03-20 |
+| 검색      | savedSearches | 2015-03-20 |
 | 데이터 원본 | datasources   | 2015-11-01-preview |
 | 솔루션    | solutions     | 2015-11-01-preview |
 

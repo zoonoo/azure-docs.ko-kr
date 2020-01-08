@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 9404bbf0ad79df41b0b5960977d6605697da5df5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363543"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "74894578"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이러한 예제는 OperationalInsights 모듈의 버전 1.0.0 이상에서 작동 합니다.
 
 
@@ -177,6 +177,10 @@ New-AzOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName 
 New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+
+> [!NOTE]
+> 사용자 지정 로그의 구성을 정의 하는 **CustomLogRawJson** 매개 변수의 형식은 복잡할 수 있습니다. [AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) 를 사용 하 여 기존 사용자 지정 로그의 구성을 검색 합니다. **Properties** 속성은 **CustomLogRawJson** 매개 변수에 필요한 구성입니다.
+
 위의 예에서 regexDelimiter는 줄 바꿈에 대한 “\\n”으로 정의되었습니다. 로그 구분 기호는 타임스탬프일 수도 있습니다.  지원되는 형식은 다음과 같습니다.
 
 | 형식 | Json RegEx 형식에서는 표준 RegEx에서 모든 \에 대해 두 개의 \\를 사용하므로 RegEx 앱에서 테스트하는 경우 \\를 \로 줄입니다. | | |
@@ -198,24 +202,24 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 
 | 리소스 형식 | 로그 | 메트릭 |
 | --- | --- | --- |
-| Application Gateway    | yes | yes |
-| Automation 계정     | yes | |
-| Batch 계정          | yes | yes |
-| Data Lake Analytics     | yes | |
-| Data Lake Store         | yes | |
-| 탄력적인 SQL 풀        |     | yes |
-| 이벤트 허브 네임스페이스     |     | yes |
-| IoT Hub                |     | yes |
-| Key Vault               | yes | |
-| 부하 분산 장치          | yes | |
-| Logic Apps              | yes | yes |
-| 네트워크 보안 그룹 | yes | |
-| Azure Cache for Redis             |     | yes |
-| Search 서비스         | yes | yes |
-| Service Bus 네임스페이스   |     | yes |
-| SQL(v12)               |     | yes |
-| 웹 사이트               |     | yes |
-| 웹 서버 팜        |     | yes |
+| Application Gateway    | 예 | 예 |
+| Automation 계정     | 예 | |
+| Batch 계정          | 예 | 예 |
+| Data Lake Analytics     | 예 | |
+| Data Lake Store         | 예 | |
+| 탄력적인 SQL 풀        |     | 예 |
+| 이벤트 허브 네임스페이스     |     | 예 |
+| IoT Hub                |     | 예 |
+| Key Vault               | 예 | |
+| Load Balancer          | 예 | |
+| Logic Apps              | 예 | 예 |
+| 네트워크 보안 그룹 | 예 | |
+| Azure Cache for Redis             |     | 예 |
+| Search 서비스         | 예 | 예 |
+| Service Bus 네임스페이스   |     | 예 |
+| SQL(v12)               |     | 예 |
+| 웹 사이트               |     | 예 |
+| 웹 서버 팜        |     | 예 |
 
 사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 

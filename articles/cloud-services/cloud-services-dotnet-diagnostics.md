@@ -3,19 +3,19 @@ title: Cloud Services에서 Azure 진단(.NET)을 사용하는 방법 | Microsof
 description: Azure 진단을 사용하면 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 위해 Azure 클라우드 서비스에서 데이터를 수집할 수 있습니다.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: gwallace
-ms.openlocfilehash: 5f2ec77452b90d4270de043955fc0b443f045d5b
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: tagore
+ms.openlocfilehash: d5a4e5ce40726ea36734a0dcf751b79225d5e153
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68359696"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361116"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services에서 Azure Diagnostics 사용
 Azure Diagnostics의 배경은 [Azure Diagnostics 개요](../azure-diagnostics.md)를 참조하세요.
@@ -23,7 +23,7 @@ Azure Diagnostics의 배경은 [Azure Diagnostics 개요](../azure-diagnostics.m
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>작업자 역할에서 진단을 사용하는 방법
 이 연습에서는 .NET EventSource 클래스를 사용하여 원격 분석 데이터를 내보내는 Azure 작업자 역할을 구현하는 방법에 대해 설명합니다. Azure Diagnostics는 원격 분석 데이터를 수집하고 이를 Azure 스토리지 계정에 저장하는 데 사용됩니다. Visual Studio 작업자 역할을 만드는 경우 Azure .NET SDK 2.4 이상 버전에서 진단 1.0을 솔루션의 일부로 자동으로 사용하도록 설정합니다. 다음 지침에서는 작업자 역할을 만들고, 솔루션에서 진단 1.0을 사용하지 않도록 설정하고, 진단 1.2 또는 1.3을 작업자 역할에 배포하기 위한 프로세스에 대해 설명합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 이 문서에서는 Azure 구독이 있으며 Visual Studio와 Azure SDK를 함께 사용 중인 것으로 가정합니다. Azure 구독이 없는 경우 [무료 평가판][Free Trial]에 등록할 수 있습니다. [Azure PowerShell 버전 0.8.7 이상을 설치 및 구성][Install and configure Azure PowerShell version 0.8.7 or later]해야 합니다.
 
 ### <a name="step-1-create-a-worker-role"></a>1단계: 작업자 역할 만들기
@@ -35,7 +35,7 @@ Azure Diagnostics의 배경은 [Azure Diagnostics 개요](../azure-diagnostics.m
 6. 솔루션을 빌드하여 오류가 없는지 확인합니다.
 
 ### <a name="step-2-instrument-your-code"></a>2단계: 코드 계측
-WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][EventSource Class]에서 상속 된 SampleEventSourceWriter 클래스는 네 가지 로깅 메서드를 구현 합니다. **SendEnums**, **MessageMethod**, **SetOther** 및 HighFreq **WriteEvent** 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
+WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][EventSource Class]에서 상속 되는 클래스 SampleEventSourceWriter는 **sendenums**, **MessageMethod**, **setother** 및의 네 가지 로깅 메서드를 구현 합니다. **WriteEvent** 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -201,3 +201,6 @@ Visual Studio **서버 탐색기**에서 wadexample 스토리지 계정으로 �
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+
+
+

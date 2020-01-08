@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 독립 실행형 클러스터 구성 | Microsoft Docs
+title: Azure Service Fabric 독립 실행형 클러스터 구성
 description: 독립 실행형 또는 온-프레미스 Azure Service Fabric 클러스터를 구성하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458364"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
 이 문서에서는 *ClusterConfig.json* 파일에서 설정할 수 있는 독립 실행형 Azure Service Fabric 클러스터의 구성 설정을 설명합니다. 이 파일을 사용하여 오류 및 업그레이드 도메인 측면에서 네트워크 토폴로지뿐만 아니라 클러스터의 노드, 보안 구성에 관한 정보를 지정합니다.  구성 설정을 변경 또는 추가한 후 [독립 실행형 클러스터를 만들](service-fabric-cluster-creation-for-windows-server.md)거나 [독립 실행형 클러스터의 구성을 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)할 수 있습니다.

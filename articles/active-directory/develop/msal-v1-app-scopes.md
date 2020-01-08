@@ -1,5 +1,5 @@
 ---
-title: V 1.0 응용 프로그램의 경우 MSAL 범위 | Microsoft
+title: V 1.0 앱 (MSAL)의 범위 | Microsoft
 description: MSAL(Microsoft 인증 라이브러리)을 사용하여 v1.0 애플리케이션에 대한 범위를 알아봅니다.
 services: active-directory
 author: TylerMSFT
@@ -13,12 +13,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0606376c455733ca90f1bff3d0295cbd1a075637
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 75838b655a2f4a10bce6c4cbd8310598a1fd9ed2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963259"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424062"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>v1.0 토큰을 허용하는 Web API에 대한 범위
 

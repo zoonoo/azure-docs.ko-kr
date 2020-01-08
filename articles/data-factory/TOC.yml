@@ -121,7 +121,7 @@
       items:
         - name: Data Lake Storage Gen1에서 복사
           href: load-azure-data-lake-storage-gen2-from-gen1.md
-    - name: SQL Data Warehouse 로드
+    - name: Synapse Analytics(이전의 SQL Data Warehouse) 로드
       href: load-azure-sql-data-warehouse.md
     - name: Data Lake Storage Gen1 로드
       href: load-azure-data-lake-store.md
@@ -189,7 +189,7 @@
       items:
         - name: 데이터 팩터리 시각화
           href: author-visually.md
-        - name: 소스 제어
+        - name: 원본 제어
           href: source-control.md
         - name: 지속적인 통합 및 업데이트
           href: continuous-integration-deployment.md
@@ -233,7 +233,7 @@
           href: connector-azure-sql-database.md
         - name: Azure SQL Database Managed Instance
           href: connector-azure-sql-database-managed-instance.md
-        - name: Azure SQL Data Warehouse
+        - name: Azure Synapse Analytics(이전의 SQL Data Warehouse)
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
           href: connector-azure-table-storage.md
@@ -389,14 +389,18 @@
           href: delete-activity.md
         - name: 데이터 복사 도구
           href: copy-data-tool.md
-        - name: 성능 및 튜닝
-          href: copy-activity-performance.md
         - name: 형식 및 압축 지원
           href: supported-file-formats-and-compression-codecs.md
+        - name: 성능 및 튜닝
+          href: copy-activity-performance.md
+        - name: 메타데이터 및 ACL 유지
+          href: copy-activity-preserve-metadata.md
         - name: 스키마 및 형식 매핑
           href: copy-activity-schema-and-type-mapping.md
         - name: 내결함성
           href: copy-activity-fault-tolerance.md
+        - name: 형식 및 압축 지원(레거시)
+          href: supported-file-formats-and-compression-codecs-legacy.md
     - name: 데이터 변환
       href: transform-data.md
       items:
@@ -476,9 +480,9 @@
           href: data-flow-conditional-split.md
         - name: 파생 열
           href: data-flow-derived-column.md
-        - name: exists
+        - name: Exists
           href: data-flow-exists.md
-        - name: Filter
+        - name: Assert
           href: data-flow-filter.md
         - name: Join
           href: data-flow-join.md
@@ -498,7 +502,7 @@
           href: data-flow-source.md
         - name: 서로게이트 키
           href: data-flow-surrogate-key.md
-        - name: 통합
+        - name: Union
           href: data-flow-union.md
         - name: 피벗 해제
           href: data-flow-unpivot.md
@@ -648,7 +652,7 @@
           href: scenario-ssis-migration-overview.md
         - name: Azure SQL Database 관리형 인스턴스로 SSISDB 마이그레이션
           href: scenario-ssis-migration-ssisdb-mi.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 데이터 흐름 스크립트
       href: data-flow-script.md

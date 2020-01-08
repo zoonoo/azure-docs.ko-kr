@@ -4,15 +4,15 @@ description: 성능 카운터는 Windows 및 Linux 에이전트에서 성능을 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932434"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363832"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  Azure Monitor는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -26,7 +26,7 @@ Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체�
 
 Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스턴스를 선택할 수 있습니다. Linux 성능 카운터의 경우, 선택하는 각 카운터의 인스턴스는 부모 카운터의 모든 자식 카운터에 적용됩니다. 다음 테이블은 Linux와 Windows 성능 카운터 모두에서 사용할 수 있는 공통 인스턴스를 보여줍니다.
 
-| 인스턴스 이름 | 설명 |
+| 인스턴스 이름 | Description |
 | --- | --- |
 | \_합계 |모든 인스턴스의 총계 |
 | \* |모든 인스턴스 |
@@ -74,7 +74,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 
 이 요소의 매개 변수를 다음 테이블에서 설명합니다.
 
-| parameters | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | object\_name | 수집하는 개체의 이름입니다. |
 | instance\_regex |  수집할 인스턴스를 정의하는 *정규식*입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `(crond\|sshd)`를 지정합니다. |
@@ -181,9 +181,9 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 ## <a name="performance-record-properties"></a>성능 레코드 속성
 성능 레코드에는 **Perf**라는 type과 다음 테이블의 속성이 포함됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
-| 컴퓨터 |이벤트가 수집된 컴퓨터입니다. |
+| Computer |이벤트가 수집된 컴퓨터입니다. |
 | CounterName |성능 카운터의 이름입니다. |
 | CounterPath |카운터의 전체 경로이며 형식은 \\\\\<Computer>\\object(instance)\\counter입니다. |
 | CounterValue |카운터의 숫자 값입니다. |
@@ -200,12 +200,12 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 ## <a name="log-queries-with-performance-records"></a>성능 레코드를 통한 로그 쿼리
 다음 표에서는 성능 레코드를 검색하는 로그 쿼리의 다양한 예제를 제공합니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:--- |:--- |
 | Perf |모든 성능 데이터 |
 | Perf &#124; where Computer == "MyComputer" |특정 컴퓨터의 모든 성능 데이터 |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |특정 컴퓨터에 대한 모든 성능 데이터 |
-| &#124; ObjectName = = "Processor" 및 CounterName = = "% processor Time" 및 InstanceName = = "_total" &#124; 요약 AVGCPU = avg (Countervalue) by Computer |모든 컴퓨터의 평균 CPU 사용률 |
+| &#124; ObjectName = = "processor" 및 CounterName = = "% processor Time" 및 InstanceName = = "_Total" &#124; 요약 AVGCPU = avg (Countervalue) by Computer |모든 컴퓨터의 평균 CPU 사용률 |
 | &#124; CounterName = = "% Processor Time" &#124; 은 컴퓨터별 AggregatedValue = max (countervalue)를 요약 합니다. |모든 컴퓨터의 최대 CPU 사용률 |
 | Perf &#124; = = "논리 디스크" 및 CounterName = = "Current Disk Queue Length" 및 Computer = = "mycomputername" &#124; 요약 AggregatedValue = avg (Countervalue) by InstanceName |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
 | Perf &#124; where CounterName = = "Disk transfer/Sec" &#124; AggregatedValue = 백분위 수 (countervalue, 95) 컴퓨터별 |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |

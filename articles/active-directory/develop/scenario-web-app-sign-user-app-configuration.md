@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b077a71a541d29c9b93778babc096ea40c3b43cb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fe845fca4a50828cabbf6c360cb9bc65dd20ae7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423520"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인 하는 웹 앱: 코드 구성
 
@@ -31,11 +31,11 @@ ms.locfileid: "74964874"
 <!-- This section can be in an include for Web App and Web APIs -->
 웹 앱 및 웹 API를 보호 하는 데 사용 되는 라이브러리는 다음과 같습니다.
 
-| 플랫폼 | 라이브러리 | 설명 |
+| 플랫폼 | 라이브러리 | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Model Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET 또는 ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스 (특히 일부 파트너 시나리오)를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다. |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 용 MSAL (Microsoft 인증 라이브러리) 현재 공개 미리 보기로 제공 됩니다. |
-| ![파이썬](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 용 MSAL. 현재 공개 미리 보기로 제공 됩니다. |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 웹 응용 프로그램에 대 한 지원 |
+| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 웹 응용 프로그램 지원 |
 
 관심 있는 플랫폼에 해당 하는 탭을 선택 합니다.
 
@@ -210,7 +210,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET Core 웹 앱 및 웹 Api에서 컨트롤러 또는 컨트롤러 작업에 `[Authorize]` 특성이 있으므로 응용 프로그램이 보호 됩니다. 이 특성은 사용자가 인증 되었는지 확인 합니다. 응용 프로그램을 초기화 하는 코드는 Startup.cs 파일에 있습니다. 
+ASP.NET Core 웹 앱 및 웹 Api에서 컨트롤러 또는 컨트롤러 작업에 `[Authorize]` 특성이 있으므로 응용 프로그램이 보호 됩니다. 이 특성은 사용자가 인증 되었는지 확인 합니다. 응용 프로그램을 초기화 하는 코드는 Startup.cs 파일에 있습니다.
 
 Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려면 다음 코드를 추가 해야 합니다. 코드의 주석은 설명이 필요 하지 않습니다.
 
@@ -221,7 +221,7 @@ Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려�
 
 다음 코드는 [시작 .cs # L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34)에서 사용할 수 있습니다.
 
-```CSharp
+```csharp
 public class Startup
 {
  ...
@@ -256,7 +256,7 @@ public class Startup
 
 Openid connect 연결 미들웨어 이벤트를 추적 하면 인증이 작동 하지 않는 경우 웹 응용 프로그램의 문제를 해결 하는 데 도움이 됩니다. `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents`를 `true`로 설정 하면 HTTP 응답에서 `HttpContext.User`의 사용자 id로 진행 되는 ASP.NET Core 미들웨어 집합이 정보를 구체화 하는 방법을 보여 줍니다.
 
-```CSharp
+```csharp
 /// <summary>
 /// Add authentication with the Microsoft identity platform.
 /// This method expects the configuration file to have a section named "AzureAd" with the necessary settings to initialize authentication options.
@@ -321,7 +321,7 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
 
 ASP.NET 웹 앱 및 web Api의 인증과 관련 된 코드는 [App_Start/startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61) 파일에 있습니다.
 
-```CSharp
+```csharp
  public void ConfigureAuth(IAppBuilder app)
  {
   app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -345,7 +345,7 @@ ASP.NET 웹 앱 및 web Api의 인증과 관련 된 코드는 [App_Start/startup
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Java 샘플에서는 스프링 프레임 워크를 사용 합니다. 각 HTTP 응답을 가로채는 필터를 구현 하므로 응용 프로그램은 보호 됩니다. Java 웹 앱에 대 한 빠른 시작에서이 필터는 `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java``AuthFilter` 됩니다. 
+Java 샘플에서는 스프링 프레임 워크를 사용 합니다. 각 HTTP 응답을 가로채는 필터를 구현 하므로 응용 프로그램은 보호 됩니다. Java 웹 앱에 대 한 빠른 시작에서이 필터는 `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java``AuthFilter` 됩니다.
 
 이 필터는 OAuth 2.0 인증 코드 흐름을 처리 하 고 사용자가 인증 되었는지 확인 합니다 (`isAuthenticated()` 방법). 사용자가 인증 되지 않은 경우 Azure AD 권한 부여 끝점의 URL을 계산 하 고 브라우저를이 URI로 리디렉션합니다.
 

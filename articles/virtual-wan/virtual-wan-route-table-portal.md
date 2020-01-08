@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c0681024b60827cf589906041c264d912ab209bb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534145"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612363"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Nva에 대 한 가상 WAN 허브 경로 테이블 만들기: Azure Portal
 
@@ -67,7 +67,7 @@ ms.locfileid: "74534145"
 
 허브 경로 테이블로 허브를 업데이트 합니다. 이 연습에서는 다음 값을 사용할 수 있습니다.
 
-* **간접 스포크 VNet 주소 공간:** (VNet1 및 VNet2) 10.0.2.0/24 및 10.0.3.0/24
+* **스포크 VNet 주소 공간:** (VNet1 및 VNet2) 10.0.2.0/24 및 10.0.3.0/24
 * **DMZ NVA 네트워크 인터페이스 개인 IP 주소:** 10.0.4.5
 
 1. 가상 WAN으로 이동 합니다.

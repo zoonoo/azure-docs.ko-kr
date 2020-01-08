@@ -6,16 +6,16 @@ keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 72a881a2ab508caa2274f3b9299157921cb8ceff
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 12/12/2019
+ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330687"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612632"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 Virtual Machine 데이터 수집 도구
 
@@ -30,7 +30,7 @@ ms.locfileid: "72330687"
 | 무엇인가요?   | Azure Blob 저장소에서 Azure Data Lake Store로 데이터를 복사 하는 도구입니다. 또한 두 Azure Data Lake Store 계정 간에 데이터를 복사할 수도 있습니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | Azure Blob 저장소에서 Azure Data Lake Store로 여러 blob 가져오기      |
-|  사용/실행 방법    |   명령 프롬프트를 열고 `adlcopy`을 입력 하 여 도움을 받으세요.    |
+|  사용/실행 방법    |   명령 프롬프트를 열고 `adlcopy`를 입력 하 여 도움을 받으세요.    |
 | 샘플에 대한 링크      | [AdlCopy 사용](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | DSVM의 관련 도구      | AzCopy, Azure CLI     |
 
@@ -41,7 +41,7 @@ ms.locfileid: "72330687"
 | 무엇인가요?   | Azure용 관리 도구. 또한 Azure Blob storage 및 Azure Data Lake Store 같은 Azure 데이터 플랫폼에서 데이터를 이동 하는 명령 동사를 포함 합니다.     |
 | 지원 되는 DSVM 버전      | Windows, Linux     |
 | 일반적인 사용 용도      | Azure Storage와 Azure Data Lake Store 간에 데이터 가져오기 및 내보내기      |
-|  사용/실행 방법    |   명령 프롬프트를 열고 `az`을 입력 하 여 도움을 받으세요.    |
+|  사용/실행 방법    |   명령 프롬프트를 열고 `az`를 입력 하 여 도움을 받으세요.    |
 | 샘플에 대한 링크      | [Azure CLI 사용](https://docs.microsoft.com/cli/azure)     |
 | DSVM의 관련 도구      | AzCopy, AdlCopy      |
 
@@ -53,7 +53,7 @@ ms.locfileid: "72330687"
 | 무엇인가요?   | 로컬 파일, Azure Blob 저장소, 파일 및 테이블 간에 데이터를 복사 하는 도구입니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | Azure Blob 저장소에 파일을 복사 하 고 계정 간에 blob을 복사 합니다.      |
-|  사용/실행 방법    |   명령 프롬프트를 열고 `azcopy`을 입력 하 여 도움을 받으세요.    |
+|  사용/실행 방법    |   명령 프롬프트를 열고 `azcopy`를 입력 하 여 도움을 받으세요.    |
 | 샘플에 대한 링크      | [Windows에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | DSVM의 관련 도구      | AdlCopy     |
 
@@ -65,7 +65,7 @@ ms.locfileid: "72330687"
 | 무엇인가요?   | 클라우드의 NoSQL 데이터베이스인 Azure Cosmos DB으로 다양 한 소스에서 데이터를 가져오는 도구입니다. 이러한 원본에는 JSON 파일, CSV 파일, SQL, MongoDB, Azure Table storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션이 있습니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | VM에서 CosmosDB로 파일 가져오기, Azure table storage에서 CosmosDB로 데이터 가져오기, Microsoft SQL Server 데이터베이스에서 CosmosDB로 데이터 가져오기     |
-|  사용/실행 방법    |   명령줄 버전을 사용 하려면 명령 프롬프트를 열고 `dt`을 입력 합니다. GUI 도구를 사용 하려면 명령 프롬프트를 열고 `dtui`을 입력 합니다.    |
+|  사용/실행 방법    |   명령줄 버전을 사용 하려면 명령 프롬프트를 열고 `dt`를 입력 합니다. GUI 도구를 사용 하려면 명령 프롬프트를 열고 `dtui`를 입력 합니다.    |
 | 샘플에 대한 링크      | [CosmosDB 데이터 가져오기](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | DSVM의 관련 도구      | AzCopy, AdlCopy      |
 
@@ -87,7 +87,7 @@ ms.locfileid: "72330687"
 | 무엇인가요?   | SQL Server와 데이터 파일 간에 데이터를 복사하는 SQL Server 도구입니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | CSV 파일을 SQL Server 테이블로 가져오고 SQL Server 테이블을 파일로 내보냅니다.      |
-|  사용/실행 방법    |   명령 프롬프트를 열고 `bcp`을 입력 하 여 도움을 받으세요.    |
+|  사용/실행 방법    |   명령 프롬프트를 열고 `bcp`를 입력 하 여 도움을 받으세요.    |
 | 샘플에 대한 링크      | [bcp 유틸리티](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | DSVM의 관련 도구      | SQL Server, sqlcmd      |
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965480"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615040"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Linux 또는 Windows에서 Azure 가상 머신 성능 문제 해결
 
@@ -30,7 +30,7 @@ ms.locfileid: "72965480"
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Azure IAAS 가상 머신 모니터링
 
-게스트 VM을 모니터링 하려면 Azure VM 모니터링을 사용 합니다. 그러면 특정 개략적인 리소스 조건에 대해 경고를 표시 합니다. VM 진단을 사용 하도록 설정 했는지 여부를 확인 하려면 [Azure 리소스 로그 개요](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs)를 참조 하세요. 다음이 표시 되는 경우 진단이 사용 하도록 설정 되어 있지 않을 가능성이 높습니다.
+게스트 VM을 모니터링 하려면 Azure VM 모니터링을 사용 합니다. 그러면 특정 개략적인 리소스 조건에 대해 경고를 표시 합니다. VM 진단을 사용 하도록 설정 했는지 여부를 확인 하려면 [Azure 리소스 로그 개요](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)를 참조 하세요. 다음이 표시 되는 경우 진단이 사용 하도록 설정 되어 있지 않을 가능성이 높습니다.
 
 ![모니터링 사용 안 함](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -137,7 +137,7 @@ VM을 증가 시키고 CPU가 여전히 95%를 실행 하는 경우이 설정이
 
 스파이크 및 상수/상수를 사용 하는 경우, 관계형 데이터베이스 엔진과 같은 일부 응용 프로그램에서 많은 양의 메모리를 할당 하 고이 사용률이 중요 하지 않을 수 있으므로 메모리 사용률이 높으면 잘못 된 성능의 원인이 아닐 수 있습니다. 그러나 메모리를 많이 소비 하는 응용 프로그램이 여러 개 있는 경우 메모리 경합으로 인해 디스크에 대 한 트리밍 및 페이징/스와핑의 성능이 저하 될 수 있습니다. 이러한 성능 저하는 종종 응용 프로그램 성능에 미치는 영향을 크게 초래 합니다.
 
-꾸준히 증가 – 가능한 응용 프로그램 ' 준비 '는 이러한 소비는 시작 되는 데이터베이스 엔진 사이에서 자주 발생 합니다. 그러나 응용 프로그램에서 메모리 누수가 발생할 수도 있습니다. 응용 프로그램을 식별 하 고 동작이 예상 되는지 여부를 파악 합니다.
+꾸준히 증가 – 가능한 응용 프로그램 ' 준비 '는 이러한 소비는 시작 되는 데이터베이스 엔진 사이에서 자주 발생 합니다. 그러나 애플리케이션의 메모리 누수 징후일 수도 있습니다. 응용 프로그램을 식별 하 고 동작이 예상 되는지 여부를 파악 합니다.
 
 페이지 또는 스왑 파일 사용 – Windows 페이징 파일\) (`/dev/sdb`에 위치)을 사용 하 고 있는지 여부를 확인 합니다. 이러한 파일을 제외 하 고 이러한 볼륨에 아무 것도 없는 경우 해당 디스크에 대 한 읽기/쓰기의 높은를 확인 합니다. 이 문제는 메모리 부족 상태를 나타냅니다.
 

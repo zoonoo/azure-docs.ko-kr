@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/17/2019
-ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/17/2019
+ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977559"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453046"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Citus (Hyperscale) 서버 그룹 크기 조정
 
-Citus (Azure Database for PostgreSQL-Hyperscale)는 늘어난 부하를 처리 하기 위한 셀프 서비스 크기 조정을 제공 합니다. Azure Portal를 사용 하면 새 작업자 노드를 쉽게 추가 하 고 기존 노드의 용량을 늘릴 수 있습니다.
+Citus (Azure Database for PostgreSQL-Hyperscale)는 늘어난 부하를 처리 하기 위한 셀프 서비스 크기 조정을 제공 합니다. Azure Portal를 사용 하면 새 작업자 노드를 쉽게 추가 하 고 기존 노드의 vCores를 늘릴 수 있습니다.
 
 ## <a name="add-worker-nodes"></a>작업자 노드 추가
 
@@ -38,10 +38,10 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 `rebalance_table_shards` 함수는 해당 인수에서 이라는 테이블의 [공동 배치](concepts-hyperscale-colocation.md) 그룹에 있는 모든 테이블의 균형을 다시 조정 합니다. 따라서 분산 된 모든 테이블에 대해 함수를 호출할 필요는 없으며, 각 공동 배치 그룹의 대표 테이블에 대해이 함수를 호출 하기만 하면 됩니다.
 
-## <a name="increase-vcores-or-storage-space"></a>VCores 또는 저장소 공간 늘리기
+## <a name="increase-vcores"></a>VCores 늘리기
 
-새 노드를 추가 하는 것 외에도 기존 노드의 기능을 늘릴 수 있습니다. Citus (Hyperscale) 서버 그룹의 **구성** 탭으로 이동 하 고 **Vcores** 및 **저장소** 에 대 한 슬라이더를 끌어서 모든 작업자 노드에 대 한 이러한 값을 변경 합니다. **저장** 을 클릭 하 여 변경 내용을 적용 해야 합니다.
+새 노드를 추가 하는 것 외에도 기존 노드의 기능을 늘릴 수 있습니다. 이 기능은 현재 미리 보기 상태입니다. 서버 그룹의 노드에 대해 증가 하는 vCores를 요청 하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 서버 그룹 [성능 옵션](concepts-hyperscale-configuration-options.md)에 대해 자세히 알아보세요.

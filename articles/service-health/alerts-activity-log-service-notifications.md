@@ -1,18 +1,14 @@
 ---
 title: Azure 서비스 알림에 대한 활동 로그 경고 수신
 description: Azure 서비스가 발생할 때 SMS, 전자 메일 또는 웹후크를 통해 알림을 받습니다.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 40ffe0b377a5cbb21f07c479097958d7c15a2879
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
-ms.translationtype: MT
+ms.openlocfilehash: bc8e935b9d44cb5236c7a1ef38da24e12b877e14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464030"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -64,7 +60,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
     > [!NOTE]
     > 이 구독은 활동 로그 경고를 저장하는 데 사용됩니다. 경고 리소스가 이 구독에 배포되고 이에 대한 활동 로그에서 이벤트를 모니터링합니다.
 
-1. 다음 중에 경고를 표시할 **이벤트 유형**을 선택합니다. ‘서비스 문제’, ‘계획된 유지 관리’ 및 ‘상태 공지’ 
+1. 경고를 받을 **이벤트 형식**(*서비스 문제*, *계획 된 유지 관리*, *상태 공지*)을 선택합니다. 
 
 1. **경고 규칙 이름** 및 **설명**을 입력하여 경고 세부 정보를 정의합니다.
 
@@ -80,7 +76,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
     b. **작업 유형**: SMS, 메일, 웹후크, Azure 앱 등을 선택합니다.
 
-    c. **세부 정보**: 선택한 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI 등을 입력합니다.
+    다. **세부 정보**: 선택한 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI 등을 입력합니다.
 
 1. **확인**을 선택하여 작업 그룹을 만든 다음, **경고 규칙 만들기**를 선택하여 경고를 완성합니다.
 

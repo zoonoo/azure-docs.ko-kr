@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 클러스터 노드에 원격 연결 | Microsoft Docs
+title: Azure Service Fabric 클러스터 노드에 원격 연결
 description: 확장 집합 인스턴스(Service Fabric 클러스터 노드)에 원격으로 연결하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 12508fd5297691f06bce46e056527672083c3a91
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599935"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458325"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 머신 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
 Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러스터 노드 형식은 [가상 머신별 규모를 설정](service-fabric-cluster-nodetypes.md)합니다.  특정 확장 집합 인스턴스(클러스터 노드)에 원격 연결할 수 있습니다.  단일 인스턴스 VM과 달리 확장 집합 인스턴스는 고유한 가상 IP 주소가 없습니다. 따라서 특정 인스턴스에 원격으로 연결하는 데 사용할 수 있는 IP 주소 및 포트를 찾는 것이 어려울 수 있습니다.
@@ -28,7 +17,7 @@ Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러�
 
 1. RDP(원격 데스크톱 프로토콜)에 대한 인바운드 NAT 규칙을 가져옵니다.
 
-    일반적으로 클러스터에 정의된 각 노드 형식에는 자체 가상 IP 주소와 전용 부하 분산 장치가 있습니다. 기본적으로 노드 형식에 대 한 부하 분산 장치는 다음과 같은 형식으로 명명 됩니다. *LB-{cluster-name}-{node-type}* ; 예를 들어 *LB-mycluster-프런트 엔드*입니다. 
+    일반적으로 클러스터에 정의된 각 노드 형식에는 자체 가상 IP 주소와 전용 부하 분산 장치가 있습니다. 기본적으로 노드 형식에 대한 부하 분산 장치는 *LB-{cluster-name}-{node-type}* 형식으로 이름이 지정됩니다(예: *LB-mycluster-FrontEnd*). 
     
     Azure Portal의 부하 분산 장치 페이지에서 **설정** > **인바운드 NAT 규칙**을 선택합니다. 
 

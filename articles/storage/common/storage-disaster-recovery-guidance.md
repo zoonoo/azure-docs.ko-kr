@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2e0ae05ff8c32a70991769171cb29b229c2b0be1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895362"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526365"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>재해 복구 및 계정 장애 조치 (failover) (미리 보기)
 
@@ -146,7 +146,7 @@ Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderName
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-### <a name="additional-considerations"></a>추가 고려 사항 
+### <a name="additional-considerations"></a>기타 고려 사항 
 
 미리 보기 기간 동안 강제 장애 조치(failover)를 수행할 경우 애플리케이션 및 서비스가 어떤 영향을 받을 수 있는지를 이해하려면 이 섹션에 설명된 추가 고려 사항을 검토합니다.
 
@@ -177,7 +177,8 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 - Azure 파일 동기화는 스토리지 계정 장애 조치(Failover)를 지원하지 않습니다. Azure 파일 동기화에서 클라우드 엔드포인트로 사용되는 Azure 파일 공유를 포함하는 스토리지 계정은 장애 조치(failover)하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다.  
 - 보관된 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 보관된 blob은 장애 조치(failover)하지 않으려는 별도 스토리지 계정에 유지 관리합니다.
 - 프리미엄 블록 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 프리미엄 블록 blob를 지원하는 스토리지 계정은 현재 지리적 중복을 지원하지 않습니다.
-- 장애 조치 (failover)가 완료 된 후에는 [이벤트 구독](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [수명 주기 정책](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [스토리지 분석 로깅을](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)사용 하는 경우 다음 기능이 작동을 중지 합니다.
+- [웜 불변성 정책](../blobs/storage-blob-immutable-storage.md) 사용 컨테이너를 포함 하는 저장소 계정은 장애 조치 (failover) 할 수 없습니다. 잠금 해제/잠금 시간 기반 보존 또는 법적 보류 정책은 규정 준수를 유지 하기 위해 장애 조치 (failover)를 방지 합니다.
+- 장애 조치 (failover)가 완료 된 후에는 [이벤트 구독](../blobs/storage-blob-event-overview.md), [변경 피드](../blobs/storage-blob-change-feed.md), [수명 주기 정책](../blobs/storage-lifecycle-management-concepts.md)및 [스토리지 분석 로깅을](storage-analytics-logging.md)사용 하는 경우 다음 기능을 사용 하지 못할 수 있습니다.
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>장애 조치(failover) 대신 데이터 복사
 

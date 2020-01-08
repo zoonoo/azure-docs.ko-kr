@@ -77,7 +77,7 @@
       href: howto-app-configuration-event.md
     - name: 모범 사례
       href: howto-best-practices.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 구성
       items:
@@ -87,15 +87,15 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: .NET Framework 작성기
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: .NET Azure SDK
+        - name: .Net용 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Java Spring 공급자
           href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
-        - name: Java Azure SDK
+        - name: Java용 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
-        - name: Python Azure SDK
+        - name: Python용 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
-        - name: JavaScript Azure SDK
+        - name: JavaScript용 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
         - name: REST (영문)
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9004e74d1b42a2b50ef57da58d9a79497e17f1ed
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1e921059caa0d34c9ba1e303ff7f4a8de027a021
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434979"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 아키텍처 (미리 보기 기능)
 
@@ -152,7 +152,7 @@ Azure IoT Central 응용 프로그램에서 연결 된 장치를 관리 하는 [
 
 ## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
 
-관리자는 미리 정의된 역할을 사용하여 Azure IoT Central 애플리케이션에 대한 [액세스 규칙을 정의](howto-administer.md)할 수 있습니다. 관리자는 사용자가 액세스할 수 있는 애플리케이션 영역을 결정하는 역할을 사용자에게 할당할 수 있습니다.
+관리자는 미리 정의 된 역할 중 하나를 사용 하거나 사용자 지정 역할을 만들어 Azure IoT Central 응용 프로그램에 대 한 [액세스 규칙을 정의할 수 있습니다](howto-manage-users-roles.md) . 역할은 사용자가 액세스할 수 있는 응용 프로그램의 영역 및 사용자가 수행할 수 있는 작업을 결정 합니다.
 
 ## <a name="security"></a>보안
 

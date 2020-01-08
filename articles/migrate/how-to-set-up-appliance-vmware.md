@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360177"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
@@ -48,7 +48,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. 다음 명령을 실행 하 여 OVA에 대 한 해시를 생성 합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 설정과 일치 해야 합니다.
+3. 최신 어플라이언스 버전의 경우 생성된 해시는 다음 설정과 일치해야 합니다.
 
   **알고리즘** | **해시 값**
   --- | ---
@@ -67,7 +67,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 6. **스토리지**에서 VM에 대한 스토리지 대상을 지정합니다.
 7. **디스크 형식**에서 디스크 유형 및 크기를 지정합니다.
 8. **네트워크 매핑**에서 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure Migrate 서버 평가에 보내려면 네트워크에 인터넷 연결이 필요합니다.
-9. 설정을 검토 및 확인한 후 **마침**을 클릭합니다.
+9. 설정을 검토 및 확인한 다음 **마침**을 클릭합니다.
 
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
@@ -79,7 +79,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 어플라이언스를 처음으로 설정합니다.
 
-1. vSphere 클라이언트 콘솔에서 VM을 마우스 오른쪽 단추로 클릭하고 **콘솔 열기**를 클릭합니다.
+1. vSphere Client 콘솔에서 VM > **Open Console**을 마우스 오른쪽 단추로 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
 3. VM에 연결할 수 있는 모든 컴퓨터에서 브라우저를 열고 어플라이언스 웹 앱의 URL ( **https://*어플라이언스 이름 또는 IP 주소*: 44368**)을 엽니다.
 
@@ -105,7 +105,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 3. 성공적으로 로그인하면 웹앱으로 돌아갑니다.
 2. Azure Migrate 프로젝트가 만들어진 구독을 선택합니다. 그런 다음, 해당 프로젝트를 선택합니다.
 3. 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
-4. **Register**를 클릭합니다.
+4. **등록**을 클릭합니다.
 
 
 ## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>vCenter Server 및 VM 자격 증명을 제공 하 여 연속 검색 시작
@@ -114,7 +114,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 ### <a name="specify-vcenter-server-details"></a>vCenter Server 세부 정보 지정
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신하는 사용자 지정 포트를 지정할 수 있습니다.
-2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server에서 VM을 검색하는 데 사용할 읽기 전용 계정 자격 증명을 지정합니다. 계정에 [검색에 필요한 권한이](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)있는지 확인 합니다. 이에 따라 vCenter 계정에 대 한 액세스를 제한 하 여 검색 범위를 지정할 수 있습니다. 범위 검색에 대 한 자세한 내용은 [여기](tutorial-assess-vmware.md#scoping-discovery)를 참조 하세요.
+2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server에서 VM을 검색하는 데 사용할 읽기 전용 계정 자격 증명을 지정합니다. 계정에 [필요한 검색 권한](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)이 있는지 확인합니다. 이에 따라 vCenter 계정에 대한 액세스를 제한하여 검색 범위를 지정할 수 있습니다. 검색 범위를 지정하는 방법에 대한 자세한 내용은 [여기](tutorial-assess-vmware.md#set-the-scope-of-discovery)를 참조하세요.
 3. **연결 유효성 검사**를 클릭하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d98fdab6dcd0abb70967d1e17d138a860a31da5f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0610b235d218c24c108e39aeb9bd3b2cf8c9c663
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039311"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463444"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크 연결
 
@@ -21,7 +21,7 @@ ms.locfileid: "74039311"
 
 ## <a name="add-a-data-disk"></a>데이터 디스크 추가
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **가상 머신**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 데이터 디스크를 추가 합니다. **가상 컴퓨터**를 검색 하 고 선택 합니다.
 2. 목록에서 가상 머신을 선택합니다.
 3. **가상 머신** 페이지에서 **디스크**를 선택합니다.
 4. **디스크** 페이지에서 **데이터 디스크 추가**를 선택합니다.

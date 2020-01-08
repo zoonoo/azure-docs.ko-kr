@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a346b264afc23e21ccf3e6d5dbf7a8f5d96518d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 93b8387d4453a3d83bcce55c739548d914545f2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430076"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 애플리케이션에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -29,7 +29,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 * 전체 식은 <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* 서로 함수를 중첩할 수 있습니다. 다음은 그 예입니다. <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* 서로 함수를 중첩할 수 있습니다. 예: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
   
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
@@ -38,7 +38,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 * 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \\" Contoso\\""
 
 ## <a name="list-of-functions"></a>함수 목록
-[추가](#append) &nbsp;&nbsp;&nbsp;&nbsp; [formatdatetime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [&nbsp;&nbsp;](#join) &nbsp;[&nbsp; &nbsp;&nbsp;](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;[NormalizeDiacritics](#normalizediacritics) [&nbsp;&nbsp; &nbsp;](#not) &nbsp;&nbsp;[&nbsp;&nbsp;&nbsp;](#replace) [SelectUniqueValue](#selectuniquevalue) &nbsp;&nbsp; [Singleapproleassignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [스위치](#switch)&nbsp;&nbsp;[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](#tolower) &nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>추가
@@ -48,10 +48,138 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |대개는 원본 개체의 특성 이름입니다. |
-| **접미사** |필수 |string |원본 값의 끝에 추가하려는 문자열입니다. |
+| **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
+| **접미사** |필수 |String |원본 값의 끝에 추가하려는 문자열입니다. |
+
+---
+### <a name="bitand"></a>BitAnd
+**함수:**<br> BitAnd (value1, value2)
+
+**설명:**<br> 이 함수는 두 매개 변수를 전부 이진 표현으로 변환시키고 비트를 다음과 같이 설정합니다.
+
+0-value1 및 value2의 해당 비트 중 하나 또는 둘 다가 0 인 경우                                                  
+1 - 2개 모두 해당 비트일 경우 1입니다.                                    
+
+즉, 두 매개 변수의 해당 비트가 1일 경우를 제외하는 모든 경우에는 0을 반환합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **value1** |필수 |num |Value2로 AND'ed 해야 하는 숫자 값입니다.|
+| **value2** |필수 |num |Value1으로 AND'ed 해야 하는 숫자 값입니다.|
+
+**예:**<br>
+BitAnd(&HF, &HF7)                                                                                
+11110111 및 00000111 = 00000111, BitAnd는 7, 이진 값 00000111을 반환 합니다.
+
+---
+### <a name="cbool"></a>CBool
+**함수:**<br> CBool (식)
+
+**설명:**<br> CBool은 계산 된 식에 따라 부울을 반환 합니다. 식이 0이 아닌 값으로 계산 되는 경우 CBool은 True를 반환 하 고 그렇지 않으면 False를 반환 합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **expression** |필수 | 식 | 모든 유효한 식 |
+
+**예:**<br>
+CBool ([attribute1] = [attribute2])                                                                    
+두개의 속성이 같은 동일한 값을 가지면 True로 반환합니다.
+
+---
+### <a name="coalesce"></a>병합
+**함수:**<br> 병합 (source1, 소스 2, ..., defaultValue)
+
+**설명:**<br> NULL이 아닌 첫 번째 소스 값을 반환 합니다. 모든 인수가 NULL 이면 defaultValue가 있는 경우 defaultValue가 반환 됩니다. 모든 인수가 NULL이 고 defaultValue가 없으면 병합은 NULL을 반환 합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **source1  … sourceN** | 필수 | String |필수, 가변적인 횟수 대개는 원본 개체의 특성 이름입니다. |
+| **defaultValue** | 선택 사항 | String | 모든 원본 값이 NULL 일 때 사용할 기본값입니다. 빈 문자열("")일 수 있습니다.
+
+---
+### <a name="converttobase64"></a>ConvertToBase64
+**함수:**<br> ConvertToBase64 (원본)
+
+**설명:**<br> ConvertToBase64 함수는 문자열을 유니코드 base64 문자열로 변환합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **원본(source)** |필수 |String |64 기본으로 변환 될 문자열|
+
+**예:**<br>
+ConvertToBase64("Hello world!")                                                                                                        
+"SABlAGwAbABvACAAdwBvAHIAbABkACEA"를 반환합니다.
+
+---
+### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
+**함수:**<br> ConvertToUTF8Hex (원본)
+
+**설명:**<br> ConvertToUTF8Hex 함수는 문자열을 UTF8 16진수 인코딩 값으로 변환합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **원본(source)** |필수 |String |UTF8 Hex로 변환할 문자열|
+
+**예:**<br>
+ConvertToUTF8Hex("Hello world!")                                                                                                         
+48656C6C6F20776F726C6421을 반환합니다.
+
+---
+### <a name="count"></a>카운트
+**함수:**<br> Count (특성)
+
+**설명:**<br> Count 함수는 다중값 특성의 요소 수를 반환합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **attribute** |필수 |attribute |요소가 계산 될 다중값 특성|
+
+---
+### <a name="cstr"></a>CStr
+**함수:**<br> CStr (값)
+
+**설명:**<br> CStr 함수는 값을 문자열 데이터 형식으로 변환 합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **value** |필수 | 숫자, 참조 또는 부울 | 숫자 값, 참조 특성 또는 부울입니다. |
+
+**예:**<br>
+CStr([dn])                                                            
+"Cn = Joe, dc = contoso, dc = com"을 반환 합니다.
+
+---
+### <a name="datefromnum"></a>DateFromNum
+**함수:**<br> DateFromNum (값)
+
+**설명:**<br> DateFromNum 함수는 AD의 날짜 값 형식을 날짜/시간 형식으로 변환합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **value** |필수 | 날짜 | DateTime 형식으로 변환 될 광고 날짜 |
+
+**예:**<br>
+DateFromNum([lastLogonTimestamp])                                                                                                   
+DateFromNum(129699324000000000)                                                            
+2012-01-01 23:00:00을 나타내는 날짜/시간을 반환합니다.
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -61,11 +189,115 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |대개는 원본 개체의 특성 이름입니다. |
-| **inputFormat** |필수 |string |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
-| **outputFormat** |필수 |string |출력 날짜의 형식입니다. |
+| **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
+| **inputFormat** |필수 |String |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
+| **outputFormat** |필수 |String |출력 날짜의 형식입니다. |
+
+---
+### <a name="guid"></a>GUID
+**함수:**<br> Guid()
+
+**설명:**<br> 함수 Guid는 임의의 GUID를 새로 생성합니다.
+
+---
+### <a name="instr"></a>InStr
+**함수:**<br> InStr (value1, value2, start, compareType)
+
+**설명:**<br> InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 찾습니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **value1** |필수 |String |검색할 문자열입니다. |
+| **value2** |필수 |String |찾을 문자열 |
+| **start** |선택 사항 |정수 |하위 문자열을 찾을 시작 위치입니다.|
+| **compareType** |선택 사항 |열거형 |VbTextCompare 또는 Vbtextcompare 일 수 있습니다. |
+
+**예:**<br>
+InStr("The quick brown fox","quick")                                                                             
+5로 계산합니다.
+
+InStr("repEated","e",3,vbBinaryCompare)                                                                                  
+7로 계산합니다.
+
+---
+### <a name="isnull"></a>IsNull
+**함수:**<br> IsNull (식)
+
+**설명:**<br> 식이 Null로 계산되면 IsNull 함수는 true를 반환합니다. 특성이 없는 경우 Null로 표현됩니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **expression** |필수 |식 |평가할 식입니다. |
+
+**예:**<br>
+IsNull([displayName])                                                                                                
+특성이 없는 경우 True를 반환 합니다.
+
+---
+### <a name="isnullorempty"></a>IsNullorEmpty
+**함수:**<br> IsNullOrEmpty (식)
+
+**설명:**<br> 식이 null 또는 빈 문자열일 경우 IsNullOrEmpty 함수는 true를 반환합니다. 특성이 없거나, 빈 문자열로 존재하는 경우 True로 계산합니다.
+이 함수의 역원을 IsPresnt라고 합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **expression** |필수 |식 |평가할 식입니다. |
+
+**예:**<br>
+IsNullOrEmpty ([displayName])                                               
+특성이 없거나 빈 문자열인 경우 True를 반환 합니다.
+
+---
+### <a name="ispresent"></a>IsPresent
+**함수:**<br> IsNullOrEmpty (식)
+
+**설명:**<br> 식이 Null이 아니고 비어 있지 않은 문자열로 계산되는 경우 IsPresent 함수는 true를 반환합니다. 이 함수의 역함수는 IsNullOrEmpty으로 지칭됩니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **expression** |필수 |식 |평가할 식입니다. |
+
+**예:**<br>
+Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
+
+---
+### <a name="isstring"></a>IsString
+**함수:**<br> IsString (식)
+
+**설명:**<br> 식이 문자열 형식으로 계산될 수 있는 경우 IsString 함수는 True로 계산됩니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **expression** |필수 |식 |평가할 식입니다. |
+
+---
+### <a name="item"></a>항목
+**함수:**<br> Item (특성, 인덱스)
+
+**설명:**<br> Item 함수는 다중값 문자열/특성에서 하나의 항목을 반환합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **attribute** |필수 |attribute |검색할 다중 값 특성 |
+| **index** |필수 |정수 | 다중값 문자열의 항목에 대 한 인덱스|
+
+**예:**<br>
+Item ([proxyAddresses], 1)
 
 ---
 ### <a name="join"></a>Join
@@ -77,10 +309,30 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **구분 기호** |필수 |string |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-| **source1  … sourceN** |필수, 시간 변수 |string |값이 함께 조인될 문자열입니다. |
+| **separator** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
+| **source1  … sourceN** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
+
+---
+### <a name="left"></a>Left
+**함수:**<br> Left (String, NumChars)
+
+**설명:**<br> Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다. numChars = 0 인 경우, 빈 문자열을 반환합니다.
+numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
+문자열이 null이면 빈 문자열을 반환합니다.
+문자열이 numChars 내에서 숫자가 지정한 문자보다 적은 문자를 포함하는 경우, 문자열과 동일한 문자열(즉, 매개 변수 1의 모든 문자가 포함)이 반환됩니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **String** |필수 |attribute | 문자를 반환할 문자열입니다. |
+| **NumChars** |필수 |정수 | 문자열의 시작 (왼쪽)부터 반환할 문자 수를 나타내는 숫자입니다.|
+
+**예:**<br>
+Left ("John Doe", 3)                                                            
+"Joh"를 반환 합니다.
 
 ---
 ### <a name="mid"></a>Mid
@@ -90,11 +342,11 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |일반적으로 특성 이름입니다. |
-| **시작** |필수 |정수 |부분 문자열이 시작될 **원본** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
-| **length** |필수 |정수 |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
+| **원본(source)** |필수 |String |일반적으로 특성 이름입니다. |
+| **start** |필수 |integer |부분 문자열이 시작될 **원본** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
+| **length** |필수 |integer |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -104,21 +356,37 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string | 일반적으로 이름 또는 성 특성입니다. |
+| **원본(source)** |필수 |String | 일반적으로 이름 또는 성 특성입니다. |
 
 ---
-### <a name="not"></a>not
+### <a name="not"></a>Not
 **함수:**<br> Not(source)
 
 **설명:**<br> **원본**의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |부울 문자열 |예상 **원본** 값은 "True" 또는 "False"입니다. |
+| **원본(source)** |필수 |부울 문자열 |예상 **원본** 값은 "True" 또는 "False"입니다. |
+
+---
+### <a name="removeduplicates"></a>RemoveDuplicates
+**함수:**<br> RemoveDuplicates (특성)
+
+**설명:**<br> RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고유하게 만듭니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **attribute** |필수 |다중값 특성 |중복 항목을 제거 하는 다중값 특성|
+
+**예:**<br>
+RemoveDuplicates([proxyAddresses])                                                                                                       
+모든 중복 값이 제거 된 삭제 된 proxyAddress 특성을 반환 합니다.
 
 ---
 ### <a name="replace"></a>Replace
@@ -129,32 +397,32 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 * **oldValue** 및 **replacementValue**가 제공되는 경우:
   
-  * **원본** 에서 모든 **OldValue** 항목을 **replacementValue** 로 대체 합니다.
+  * **source**에서 발생하는 모든 **oldValue**를 **replacementValue**로 바꿉니다.
 * **oldValue** 및 **template**이 제공되는 경우:
   
   * **template**에서 **oldValue**의 모든 항목을 **원본** 값으로 바꿉니다.
-* **RegexPattern** 및 **replacementValue** 가 제공 되는 경우:
+* **regexPattern** 및 **replacementValue**가 제공되는 경우:
 
-  * 함수는 **regexPattern** 를 **소스** 문자열에 적용 하 고 regex 그룹 이름을 사용 하 여 **replacementValue** 에 대 한 문자열을 생성할 수 있습니다.
+  * 함수에서 **regexPattern**을 **source** 문자열에 적용하고, regex 그룹 이름을 사용하여 **replacementValue**에 대한 문자열을 생성할 수 있습니다.
 * **regexPattern**, **regexGroupName**, **replacementValue**가 제공되는 경우:
   
-  * 함수는 **regexPattern** 를 **소스** 문자열에 적용 하 고 **regexGroupName** 와 일치 하는 모든 값을 **replacementValue** 로 바꿉니다.
-* **RegexPattern**, **regexGroupName**, **replacementAttributeName** 가 제공 됩니다.
+  * 함수에서 **regexPattern**을 **source** 문자열에 적용하고, **regexGroupName**과 일치하는 모든 값을 **replacementValue**로 바꿉니다.
+* **regexPattern**, **regexGroupName**, **replacementAttributeName**이 제공되는 경우:
   
   * **source**에 값이 없는 경우 **source**가 반환됩니다.
-  * **Source** 에 값이 있는 경우이 함수는 **regexPattern** 를 **소스** 문자열에 적용 하 고 **regexGroupName** 와 일치 하는 모든 값을 **replacementAttributeName** 와 연결 된 값으로 바꿉니다.
+  * **source**에 값이 있는 경우 함수에서 **regexPattern**을 **source** 문자열에 적용하고, **regexGroupName**과 일치하는 모든 값을 **replacementAttributeName**과 연결된 값으로 바꿉니다.
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |일반적으로 **소스** 개체의 특성 이름입니다. |
-| **oldValue** |선택 사항 |string |**원본** 또는 **템플릿**에서 대체될 값입니다. |
-| **regexPattern** |선택 사항 |string |**원본**에서 대체될 값에 대한 Regex 패턴입니다. 또는 **replacementPropertyName** 을 사용 하는 경우 **replacementPropertyName**에서 값을 추출 하는 패턴입니다. |
-| **regexGroupName** |선택 사항 |string |**regexPattern**내 그룹의 이름입니다. **ReplacementPropertyName** 를 사용 하는 경우에만이 그룹의 값을 **replacementPropertyName**에서 **replacementValue** 로 추출 합니다. |
-| **replacementValue** |선택 사항 |string |이전 값과 대체할 새로운 값입니다. |
-| **replacementAttributeName** |선택 사항 |string |대체 값에 사용할 특성의 이름입니다. |
-| **template** |선택 사항 |string |**템플릿** 값이 제공 되 면 템플릿 내에서 **oldValue** 를 찾아 **원본** 값으로 바꿉니다. |
+| **원본(source)** |필수 |String |일반적으로 **source** 개체의 특성 이름입니다. |
+| **oldValue** |선택 사항 |String |**원본** 또는 **템플릿**에서 대체될 값입니다. |
+| **regexPattern** |선택 사항 |String |**원본**에서 대체될 값에 대한 Regex 패턴입니다. 또는 **replacementPropertyName**을 사용하는 경우 **replacementPropertyName**에서 값을 추출하는 패턴입니다. |
+| **regexGroupName** |선택 사항 |String |**regexPattern**내 그룹의 이름입니다. **replacementPropertyName**을 사용하는 경우에만 **replacementPropertyName**에서 이 그룹의 값을 **replacementValue**로 추출합니다. |
+| **replacementValue** |선택 사항 |String |이전 값과 대체할 새로운 값입니다. |
+| **replacementAttributeName** |선택 사항 |String |대체 값에 사용할 특성의 이름입니다. |
+| **template** |선택 사항 |String |**template** 값이 제공되는 경우 템플릿 내에서 **oldValue**를 찾아서 **source** 값으로 바꿉니다. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -164,16 +432,16 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 > [!NOTE]
 > - 최상위 레벨 함수이므로 중첩할 수 없습니다.
-> - 이 함수는 일치 하는 우선 순위가 있는 특성에는 적용할 수 없습니다.  
+> - 우선 순위가 일치하는 특성에는 이 함수를 적용할 수 없습니다.  
 > - 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만**으로 설정합니다.
-> - 이 함수는 현재 "Workday to Active Directory 사용자 프로 비전"에만 지원 됩니다. 다른 프로 비전 응용 프로그램에서 사용할 수 없습니다. 
+> - 이 함수는 현재 "Workday에서 Active Directory로의 사용자 프로비저닝"에만 지원되며, 다른 프로비저닝 애플리케이션에서는 사용할 수 없습니다. 
 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |string | 평가할 고유한 값 생성 규칙 목록입니다. |
+| **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |String | 평가할 고유한 값 생성 규칙 목록입니다. |
 
 
 ---
@@ -184,22 +452,22 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |필수 |string |**[appRoleAssignments]** 개체. |
+| **[appRoleAssignments]** |필수 |String |**[appRoleAssignments]** 개체. |
 
 ---
 ### <a name="split"></a>분할
 **함수:**<br> Split(원본, 구분 기호)
 
-**설명:**<br> 지정 된 구분 기호 문자를 사용 하 여 문자열을 다중값 배열로 분할 합니다.
+**설명:**<br> 지정된 구분 기호 문자를 사용하여 문자열을 다중 값 배열로 분할합니다.
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |**원본** 값입니다. |
-| **delimiter** |필수 |string |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
+| **원본(source)** |필수 |String |**원본** 값입니다. |
+| **delimiter** |필수 |String |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -209,24 +477,24 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |**원본** 값입니다. |
+| **원본(source)** |필수 |String |**원본** 값입니다. |
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>스위치
 **함수:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **설명:**<br> **원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. **원본** 값과 일치하는 키가 없으면 **defaultValue**를 반환합니다.  **Key** 및 **value** 매개 변수는 항상 쌍으로 제공되어야 합니다. 함수는 항상 짝수 개수의 매개 변수를 예상합니다. 관리자와 같은 참조 특성에는 함수를 사용 하면 안 됩니다. 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |**Source** 값입니다. |
-| **defaultValue** |선택 사항 |string |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
-| **key** |필수 |string |**원본** 값과 비교할 **Key**입니다. |
-| **값** |필수 |string |키와 일치하는 **원본** 의 대체 값입니다. |
+| **원본(source)** |필수 |String |**Source** 값입니다. |
+| **defaultValue** |선택 사항 |String |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
+| **key** |필수 |String |**원본** 값과 비교할 **Key**입니다. |
+| **value** |필수 |String |키와 일치하는 **원본** 의 대체 값입니다. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -236,10 +504,10 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |대개는 원본 개체의 특성 이름 |
-| **문화권** |선택 사항 |string |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+| **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름 |
+| **문화권** |선택 사항 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -249,10 +517,37 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| name | 필수/ 반복 | Type | 참고 |
+| 이름 | 필수/ 반복 | 유형 | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |string |대개는 원본 개체의 특성 이름입니다. |
-| **문화권** |선택 사항 |string |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+| **원본(source)** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
+| **문화권** |선택 사항 |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+
+---
+### <a name="word"></a>Word
+**함수:**<br> Word (문자열, WordNumber, 구분 기호)
+
+**설명:**<br> Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 문자열 내에 포함된 단어와 반환할 단어 수를 반환합니다. 구분 기호 내의 문자 중 하나로 구분되는 전체 문자열의 각 문자열은 단어로 식별됩니다.
+
+숫자가 < 1인경우 , 빈 문자열을 반환합니다.
+문자열이 null이면, 빈 문자열을 반환합니다.
+문자열이 단어 수보다 적거나, 구분 기호로 식별되는 단어를 포함할 경우, 빈 문자열이 반환됩니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | 유형 | 메모 |
+| --- | --- | --- | --- |
+| **String** |필수 |다중값 특성 |단어를 반환할 문자열입니다.|
+| **WordNumber** |필수 | 정수 | 반환할 단어 번호를 식별 하는 번호|
+| **delimiters** |필수 |String| 단어를 식별 하는 데 사용 해야 하는 구분 기호를 나타내는 문자열입니다.|
+
+**예:**<br>
+Word ("quick 갈색 fox", 3, "")                                                                                       
+"brown"을 반환합니다.
+
+Word ("This, string!에는 여러 구분 기호가 &", 3, ",! & #")                                                                       
+"있음"을 반환 합니다.
+
+---
 
 ## <a name="examples"></a>예시
 ### <a name="strip-known-domain-name"></a>알려진 도메인 이름 제거
@@ -379,6 +674,18 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 * **출력**: John.Smith@contoso.com의 UPN 값이 디렉터리에 아직 없는 경우 “John.Smith@contoso.com”
 * **출력**: John.Smith@contoso.com의 UPN 값이 디렉터리에 이미 있는 경우 “J.Smith@contoso.com”
 * **출력**: 위의 두 UPN 값이 디렉터리에 이미 있는 경우 “Jo.Smith@contoso.com”
+
+### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>NULL이 아닌 경우 흐름 메일 값, 그렇지 않으면 flow userPrincipalName
+메일 특성이 있는 경우이 특성을 이동 하려고 합니다. 그렇지 않으면 userPrincipalName의 값을 대신 전달 합니다.
+
+**식:** <br>
+`Coalesce([mail],[userPrincipalName])`
+
+**샘플 입/출력:** <br>
+
+* **입력** (메일): NULL
+* **INPUT** (userPrincipalName): "John.Doe@contoso.com"
+* **출력**:  “John.Doe@contoso.com”
 
 ## <a name="related-articles"></a>관련 문서
 * [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)

@@ -1,17 +1,17 @@
 ---
-title: 코드 조각 추가 및 실행
-description: Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각 추가 및 실행
+title: 인라인 코드를 사용 하 여 코드 조각 추가 및 실행
+description: 를 사용 하 여 만든 자동화 된 작업 및 워크플로에 대 한 인라인 코드 작업을 사용 하 여 코드 조각을 만들고 실행 하는 방법에 대해 알아봅니다 Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453506"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각 추가 및 실행
 
@@ -32,9 +32,9 @@ ms.locfileid: "74792611"
 
 ![예제 개요](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 트리거를 포함 하 여 코드 조각을 추가 하려는 논리 앱입니다. 논리 앱이 없는 경우 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조 하세요.
 
@@ -128,11 +128,11 @@ ms.locfileid: "74792611"
 
 이 테이블에는 다음 하위 속성에 대 한 자세한 내용이 포함 되어 있습니다.
 
-| 자산 | Type | 설명 |
+| 속성 | 유형 | Description |
 |----------|------|-------|
 | `actions` | 개체 컬렉션 | 코드 조각이 실행 되기 전에 실행 되는 작업의 결과 개체입니다. 각 개체에는 키가 동작 이름인 *키-값* 쌍이 있으며 값은 `@actions('<action-name>')`를 사용 하 여 [actions () 함수](../logic-apps/workflow-definition-language-functions-reference.md#actions) 를 호출 하는 것과 같습니다. 작업 이름은 기본 워크플로 정의에 사용 되는 것과 동일한 동작 이름을 사용 합니다 .이 이름은 작업 이름의 공백 ("")을 밑줄 (_)로 대체 합니다. 이 개체는 현재 워크플로 인스턴스 실행에서 작업 속성 값에 대 한 액세스를 제공 합니다. |
-| `trigger` | Object | 트리거의 결과 개체 이며 [trigger () 함수](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 호출 하는 것과 동일 합니다. 이 개체는 현재 워크플로 인스턴스 실행의 트리거 속성 값에 대 한 액세스를 제공 합니다. |
-| `workflow` | Object | 워크플로 개체 이며 [workflow () 함수](../logic-apps/workflow-definition-language-functions-reference.md#workflow)를 호출 하는 것과 동일 합니다. 이 개체를 사용 하면 현재 워크플로 인스턴스가 실행 되는 워크플로 이름, 실행 ID 등의 워크플로 속성 값에 액세스할 수 있습니다. |
+| `trigger` | 개체 | 트리거의 결과 개체 이며 [trigger () 함수](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 호출 하는 것과 동일 합니다. 이 개체는 현재 워크플로 인스턴스 실행의 트리거 속성 값에 대 한 액세스를 제공 합니다. |
+| `workflow` | 개체 | 워크플로 개체 이며 [workflow () 함수](../logic-apps/workflow-definition-language-functions-reference.md#workflow)를 호출 하는 것과 동일 합니다. 이 개체를 사용 하면 현재 워크플로 인스턴스가 실행 되는 워크플로 이름, 실행 ID 등의 워크플로 속성 값에 액세스할 수 있습니다. |
 |||
 
 이 항목의 예제에서 `workflowContext` 개체에는 코드에서 액세스할 수 있는 다음과 같은 속성이 있습니다.
@@ -218,9 +218,9 @@ ms.locfileid: "74792611"
 
    ![매개 변수 추가](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | 매개 변수를 포함해야 합니다. | 설명 |
+   | 매개 변수 | Description |
    |-----------|-------------|
-   | **Actions** | 이전 작업의 결과를 포함 합니다. [작업 결과 포함](#action-results)을 참조 하세요. |
+   | **actions** | 이전 작업의 결과를 포함 합니다. [작업 결과 포함](#action-results)을 참조 하세요. |
    | **트리거** | 트리거의 결과를 포함 합니다. [트리거 결과 포함](#trigger-results)을 참조 하세요. |
    |||
 

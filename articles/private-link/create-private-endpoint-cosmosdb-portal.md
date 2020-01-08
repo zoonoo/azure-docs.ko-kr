@@ -1,17 +1,17 @@
 ---
 title: Azure 개인 링크를 사용 하 여 Azure Cosmos 계정에 연결
 description: 개인 끝점을 만들어 VM에서 Azure Cosmos 계정에 안전 하 게 액세스 하는 방법을 알아봅니다.
-author: asudbring
+author: malopMSFT
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430311"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 개인적으로 Azure Cosmos 계정에 연결
 
@@ -33,12 +33,12 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
-    | name | *MyVirtualNetwork*를 입력합니다. |
+    | 이름 | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
-    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
+    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
     | 위치 | **WestCentralUS**를 선택합니다.|
     | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
@@ -52,11 +52,11 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm*을 입력합니다. |
     | 지역 | **WestCentralUS**를 선택합니다. |
@@ -79,7 +79,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 1. **가상 머신 만들기 - 네트워킹**에서 다음 정보를 선택합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | 가상 네트워크 | 기본값인 **MyVirtualNetwork**를 그대로 둡니다.  |
     | 주소 공간 | 기본값인 **10.1.0.0/24**를 그대로 둡니다.|
@@ -109,7 +109,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결**이 열립니다.
 
-1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 1. 다운로드한 *.rdp* 파일을 엽니다.
 
@@ -134,7 +134,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
    [개인 IP 주소] [계정 엔드포인트]. documents. .com
 
-   **예제:**
+   **예:**
 
    10.1.255.13 mycosmosaccount.documents.azure.com
 

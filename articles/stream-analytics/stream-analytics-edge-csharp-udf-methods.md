@@ -1,33 +1,30 @@
 ---
 title: Azure Stream Analytics 작업을 위한 .NET Standard 함수 개발 (미리 보기)
 description: 'Stream Analytics 작업에 대 한 c # 사용자 정의 함수를 작성 하는 방법에 대해 알아봅니다.'
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0bc59ac3e55466f8ac06a3a8fa9cf08fecbb5ce3
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426307"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Azure Stream Analytics 작업에 대 한 .NET Standard 사용자 정의 함수 개발 (미리 보기)
 
-Azure Stream Analytics는 이벤트 데이터 스트림에서 변환과 계산을 수행하기 위해 SQL 방식 쿼리 언어를 제공합니다. 많은 기본 제공 함수가 있지만 일부 복잡한 시나리오에는 추가적인 유연성이 필요합니다. .NET Standard UDF(사용자 정의 함수)를 사용하면 .NET 표준 언어(C#, F# 등)로 작성된 사용자 고유의 함수를 호출하여 Stream Analytics 쿼리 언어를 확장할 수 있습니다. UDF를 사용하면 복잡한 수학 계산을 수행하고, ML.NET을 사용하여 사용자 지정 ML 모델을 가져오며, 누락된 데이터에 사용자 지정 대체 논리를 사용할 수 있습니다. Stream Analytics 작업에 대 한 UDF 기능은 현재 미리 보기 상태 이며 프로덕션 워크 로드에 사용할 수 없습니다.
+Azure Stream Analytics는 이벤트 데이터 스트림에서 변환과 계산을 수행하기 위해 SQL 방식 쿼리 언어를 제공합니다. 많은 기본 제공 함수가 있지만 일부 복잡한 시나리오에는 추가적인 유연성이 필요합니다. .NET Standard UDF(사용자 정의 함수)를 사용하면 .NET 표준 언어(C#, F# 등)로 작성된 사용자 고유의 함수를 호출하여 Stream Analytics 쿼리 언어를 확장할 수 있습니다. UDF를 사용하면 복잡한 수학 계산을 수행하고, ML.NET을 사용하여 사용자 지정 ML 모델을 가져오며, 누락된 데이터에 사용자 지정 대체 논리를 사용할 수 있습니다. Stream Analytics 작업용 UDF 함수는 현재 미리 보기로 제공되며 프로덕션 워크로드에는 사용해서는 안 됩니다.
 
 클라우드 작업에 대 한 .NET 사용자 정의 함수는 다음에서 사용할 수 있습니다.
-* 미국 서 부 중부 (사용 가능)
-* 서유럽 (사용 가능)
-* 미국 동부 (사용 가능)
-* 미국 서 부 (출시 예정)
-* 미국 동부 2 (출시 예정)
-* 유럽 서부 (출시 예정)
+* 미국 중서부
+* 북유럽
+* 미국 동부
+* 미국 서부
+* 미국 동부 2
+* 서유럽
 
 다른 지역에서이 기능을 사용 하려는 경우 [액세스를 요청할](https://aka.ms/ccodereqregion)수 있습니다.
 
@@ -49,12 +46,12 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 |**UDF 형식(C#)**  |**Azure Stream Analytics 형식**  |
 |---------|---------|
 |long  |  bigint   |
-|Double  |  Double   |
+|double  |  double   |
 |문자열  |  nvarchar(max)   |
-|datetime  |  datetime   |
+|dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |object  |  IRecord   |
-|배열\<개체 >  |  IArray   |
+|Array\<object>  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -73,7 +70,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 6. 어셈블리 경로를 `JobConfig.json` 작업 구성 파일에 구성합니다. [어셈블리 경로]를 **로컬 프로젝트 참조 또는 CodeBehind**로 설정합니다.
 7. 함수 프로젝트와 Azure Stream Analytics 프로젝트를 모두 다시 빌드합니다.  
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 이 예제에서 **Udftest** 는 C# 클래스 라이브러리 프로젝트이 고 **ASAUDFDemo** 는 **udftest**를 참조 하는 Azure Stream Analytics 프로젝트입니다.
 
@@ -123,12 +120,12 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
    |**설정**|**제안 값**|
    |-------|---------------|
-   |전역 저장소 설정 리소스|현재 계정에서 데이터 원본 선택|
-   |전역 저장소 설정 구독| 구독을 < >|
-   |전역 저장소 설정 저장소 계정| 저장소 계정 < >|
-   |사용자 지정 코드 저장소 설정 리소스|현재 계정에서 데이터 원본 선택|
-   |사용자 지정 코드 저장소 설정 저장소 계정|저장소 계정 < >|
-   |사용자 지정 코드 저장소 설정 컨테이너|저장소 컨테이너를 < >|
+   |글로벌 스토리지 설정 리소스|현재 계정에서 데이터 원본 선택|
+   |글로벌 스토리지 설정 구독| < 사용자 구독 >|
+   |글로벌 스토리지 설정 스토리지 계정| < 사용자 스토리지 계정 >|
+   |사용자 지정 코드 스토리지 설정 리소스|현재 계정에서 데이터 원본 선택|
+   |사용자 지정 코드 스토리지 설정 스토리지 계정|< 사용자 스토리지 계정 >|
+   |사용자 지정 코드 스토리지 설정 컨테이너|< 사용자 스토리지 컨테이너 >|
    |사용자 지정 코드 어셈블리 소스|클라우드의 기존 어셈블리 패키지|
    |사용자 지정 코드 어셈블리 소스|UserCustomCode .zip|
 

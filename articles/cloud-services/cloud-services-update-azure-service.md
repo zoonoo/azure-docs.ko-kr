@@ -2,17 +2,17 @@
 title: 클라우드 서비스를 업데이트하는 방법 | Microsoft Docs
 description: Azure에서 클라우드 서비스를 업데이트하는 방법에 대해 알아봅니다. 가용성을 보장하도록 클라우드 서비스에서 업데이트가 진행되는 방법에 대해 알아봅니다.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: tagore
+ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360347"
 ---
 # <a name="how-to-update-a-cloud-service"></a>클라우드 서비스를 업데이트하는 방법
 
@@ -53,7 +53,7 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 | 로컬 스토리지 설정 |증가만<sup>2</sup> |예 |예 |
 | 서비스에서 역할 추가 또는 제거 |예 |예 |예 |
 | 특정 역할의 인스턴스 수 |예 |예 |예 |
-| 서비스에 대한 엔드포인트의 개수 또는 유형 |예<sup>2</sup> |아니요 |예 |
+| 서비스에 대한 엔드포인트의 개수 또는 유형 |예<sup>2</sup> |아닙니다. |예 |
 | 구성 설정의 이름 및 값 |예 |예 |예 |
 | 구성 설정의 값(이름 제외) |예 |예 |예 |
 | 새 인증서 추가 |예 |예 |예 |
@@ -134,7 +134,7 @@ Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 �
   1. Locked 요소를 사용하면 지정된 배포에서 변경 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
   2. RollbackAllowed 요소를 사용하면 지정된 배포에서 [업데이트 또는 업그레이드 롤백](/previous-versions/azure/reference/hh403977(v=azure.100)) 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
 
-  롤백을 수행하려면 Locked 및 RollbackAllowed 요소를 모두 확인할 필요가 없습니다. RollbackAllowed가 true로 설정되어 있는지 확인하는 것으로 충분합니다. 이러한 요소는 "x-y-version"으로 설정 된 요청 헤더를 사용 하 여 이러한 메서드를 호출 하는 경우에만 반환 됩니다. 2011-10-01 "이상 버전 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
+  롤백을 수행하려면 Locked 및 RollbackAllowed 요소를 모두 확인할 필요가 없습니다. RollbackAllowed가 true로 설정되어 있는지 확인하는 것으로 충분합니다. "x-ms-버전: 2011-10-01" 이상 버전으로 설정된 요청 헤더를 사용하여 해당 메서드가 호출되는 경우 해당 요소는 반환됩니다. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
 
 업데이트 또는 업그레이드의 롤백이 지원되지 않는 경우는 다음과 같습니다.
 
@@ -155,11 +155,11 @@ Azure 패브릭 컨트롤러에서 서비스 업데이트 또는 업그레이드
 
 첫 번째 업데이트가 진행 중일 동안 두 번째 업데이트 작업을 시작하는 것은 롤백 작업과 유사하게 수행됩니다. 두 번째 업데이트가 자동 모드에 있는 경우 첫 번째 업그레이드 도메인은 동일한 지점에서 오프라인되는 여러 업그레이드 도메인에서 인스턴스를 이끌도록 즉시 업그레이드됩니다.
 
-변경 작업은 다음과 같습니다. [배포 구성을 변경](/previous-versions/azure/reference/ee460809(v=azure.100))하 고 [배포를 업그레이드](/previous-versions/azure/reference/ee460793(v=azure.100))하 고 [배포 상태를 업데이트](/previous-versions/azure/reference/ee460808(v=azure.100))하 고 배포를 [삭제](/previous-versions/azure/reference/ee460815(v=azure.100))하 고 [업데이트 또는 업그레이드를 롤백합니다](/previous-versions/azure/reference/hh403977(v=azure.100)).
+변경 작업은 다음과 같습니다. [배포 구성 변경](/previous-versions/azure/reference/ee460809(v=azure.100)), [배포 업그레이드](/previous-versions/azure/reference/ee460793(v=azure.100)), [배포 상태 업데이트](/previous-versions/azure/reference/ee460808(v=azure.100)), [배포 삭제](/previous-versions/azure/reference/ee460815(v=azure.100)) 및 [업데이트 또는 업그레이드 롤백](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
 두 작업 [배포 가져오기](/previous-versions/azure/reference/ee460804(v=azure.100)) 및 [클라우드 서비스 속성 가져오기](/previous-versions/azure/reference/ee460806(v=azure.100))는 지정된 배포에서 변경 작업을 호출할 수 있는지 여부를 확인하도록 검사할 수 있는 Locked 플래그를 반환합니다.
 
-잠긴 플래그를 반환 하는 이러한 메서드의 버전을 호출 하려면 요청 헤더를 "x-y-버전: 2011-10-01 이상. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
+Locked 플래그를 반환하는 이러한 메서드의 버전을 호출하려면 요청 헤더를 "x-ms-버전: 2011-10-01" 이상으로 설정해야 합니다. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
 
 <a name="distributiondfroles"></a>
 
@@ -183,3 +183,6 @@ Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업�
 [Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)  
 [Cloud Services를 모니터링하는 방법](cloud-services-how-to-monitor.md)  
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure-portal.md)  
+
+
+

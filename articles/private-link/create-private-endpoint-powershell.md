@@ -2,17 +2,17 @@
 title: Azure PowerShell를 사용 하 여 Azure 개인 끝점 만들기 Microsoft Docs
 description: Azure 개인 링크에 대 한 자세한 정보
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 83f1cbc3f8da61370c90744be3f0a7b230e016c3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430332"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 끝점 만들기
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 
@@ -32,10 +32,10 @@ New-AzResourceGroup `
   -Location westcentralus
 ```
 
-## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+## <a name="create-a-virtual-network"></a>Virtual Network 만들기
 이 섹션에서는 가상 네트워크 및 서브넷을 만듭니다. 그런 다음 서브넷을 Virtual Network 연결 합니다.
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+### <a name="create-a-virtual-network"></a>Virtual Network 만들기
 
 [AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용 하 여 개인 끝점에 대 한 가상 네트워크를 만듭니다. 다음 예에서는 *MyVirtualNetwork*라는 Virtual Network를 만듭니다.
  
@@ -60,6 +60,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
+> [!CAUTION]
+> `PrivateEndpointNetworkPoliciesFlag` 매개 변수를 사용 가능한 다른 플래그 (`PrivateLinkServiceNetworkPoliciesFlag`)와 혼동 하기 쉽습니다. 이러한 플래그는 긴 단어 이며 모양은 동일 하기 때문입니다.  `PrivateEndpointNetworkPoliciesFlag`올바른를 사용 하 고 있는지 확인 합니다.
+
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>서브넷을 Virtual Network 연결
 
 [AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용 하 여 서브넷 구성을 Virtual Network에 쓸 수 있습니다. 다음 명령은 서브넷을 만듭니다.
@@ -68,7 +71,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="create-a-virtual-machine"></a>Virtual Machine 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
 [New-azvm](/powershell/module/az.compute/new-azvm)를 사용 하 여 VIRTUAL NETWORK에서 VM을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. VM의 사용자 이름 및 암호를 입력합니다.
 
@@ -95,7 +98,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## <a name="create-a-sql-database-server"></a>SQL Database 서버 만들기 
+## <a name="create-a-sql-database-server"></a>SQL Database Server 만들기 
 
 AzSqlServer 명령을 사용 하 여 SQL Database 서버를 만듭니다. SQL Database 서버의 이름은 Azure에서 고유 해야 하므로 괄호 안의 자리 표시자 값을 고유한 값으로 바꿉니다.
 
@@ -138,7 +141,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
-## <a name="configure-the-private-dns-zone"></a>사설 DNS 영역 구성 
+## <a name="configure-the-private-dns-zone"></a>프라이빗 DNS 영역 구성 
 SQL Database 서버 도메인에 대 한 개인 DNS 영역을 만들고 가상 네트워크를 사용 하 여 연결 링크를 만듭니다. 
 
 ```azurepowershell
@@ -192,10 +195,10 @@ mstsc /v:<publicIpAddress>
 3. **확인**을 선택합니다. 
 4. 인증서 경고가 표시될 수도 있습니다. 표시되는 경우 **예** 또는 **계속**을 선택합니다. 
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>VM에서 전용 SQL Database 서버 액세스
+## <a name="access-sql-database-server-privately-from-the-vm"></a>VM에서 SQL Database Server에 비공개 액세스
 
 1. MyVM의 원격 데스크톱에서 PowerShell을 엽니다.
-2. `nslookup myserver.database.windows.net`을 입력합니다. 
+2. `nslookup myserver.database.windows.net`를 입력합니다. 
 
     다음과 유사한 메시지가 표시됩니다.
     ```azurepowershell
@@ -206,7 +209,7 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. SQL Server Management Studio 설치
+3. SQL Server Management Studio를 설치합니다.
 4. 서버에 연결에서 다음 정보를 입력 하거나 선택 합니다. 값 서버 유형 설정 데이터베이스 엔진를 선택 합니다.
       서버 이름 myserver.database.windows.net 사용자 이름을 선택 합니다. 생성 중에 제공 된 사용자 이름을 입력 합니다.
       암호 생성 중에 제공 된 암호를 입력 합니다.
@@ -224,4 +227,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 개인 링크](private-link-overview.md) 에 대 한 자세한 정보
+- [Azure Private Link](private-link-overview.md)에 대해 자세히 알아봅니다.

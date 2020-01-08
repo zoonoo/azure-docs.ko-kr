@@ -1,5 +1,6 @@
 ---
-title: Azure API Management 정책 샘플 - 공유 액세스 서명 생성 | Microsoft Docs
+title: 샘플 API management 정책-공유 액세스 서명 생성
+titleSuffix: Azure API Management
 description: Azure API Management 정책 샘플 - 식을 사용하여 공유 액세스 서명을 생성하고 rewrite-uri 정책을 사용하여 Azure Storage로 요청을 전달하는 방법을 보여줍니다.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 45e29673e264f64c976cce664eaf749636400c7f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0f003bc268af6b7f8bd6b046ae84734dbefeac28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067744"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442454"
 ---
 # <a name="generate-shared-access-signature"></a>공유 액세스 서명 생성
 

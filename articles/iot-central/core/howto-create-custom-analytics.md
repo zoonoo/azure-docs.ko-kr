@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 618216208b61051d5446f96fb5b28a451b188c35
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954111"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435040"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장
 
@@ -27,29 +27,29 @@ ms.locfileid: "72954111"
 * *연속 데이터 내보내기를*사용 하 여 IoT Central 응용 프로그램에서 원격 분석을 스트리밍합니다.
 * 장치 원격 분석을 분석 하 고 플롯 하는 Azure Databricks 환경을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-### <a name="iot-central-application"></a>응용 프로그램 IoT Central
+### <a name="iot-central-application"></a>IoT Central 애플리케이션
 
 다음 설정을 사용 하 여 [Azure IoT Central 응용 프로그램](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만듭니다.
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
 | 결제 계획 | 종량제 |
-| 애플리케이션 템플릿 | 샘플 Contoso |
+| 애플리케이션 템플릿 | 기존 애플리케이션 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
 | 디렉터리 | Azure Active Directory 테 넌 트 |
 | Azure 구독 | Azure 구독 |
-| 지역 | 미국 동부 |
+| 지역 | 미국 |
 
-이 문서의 예제 및 스크린샷은 **미국 동부** 지역을 사용 합니다. 가까운 위치를 선택 하 고 동일한 지역에 모든 리소스를 만들어 두어야 합니다.
+이 문서의 예제 및 스크린샷은 **미국** 지역을 사용 합니다. 가까운 위치를 선택 하 고 동일한 지역에 모든 리소스를 만들어 두어야 합니다.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>리소스 그룹
 
 Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **IoTCentralAnalysis** 라는 [리소스 그룹을 만듭니다](https://portal.azure.com/#create/Microsoft.ResourceGroup) . IoT Central 응용 프로그램과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -57,12 +57,12 @@ Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **IoTCen
 
 Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이스를 만듭니다](https://portal.azure.com/#create/Microsoft.EventHub) .
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
-| name    | 네임 스페이스 이름 선택 |
+| 이름    | 네임 스페이스 이름 선택 |
 | 가격 책정 계층 | Basic |
 | Subscription | 사용자의 구독 |
-| Resource group | IoTCentralAnalysis |
+| 리소스 그룹 | IoTCentralAnalysis |
 | 위치 | 미국 동부 |
 | 처리량 단위 | 1 |
 
@@ -70,11 +70,11 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 
 Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스를 만듭니다](https://portal.azure.com/#create/Microsoft.Databricks) .
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
 | 작업 영역 이름    | 작업 영역 이름 선택 |
 | Subscription | 사용자의 구독 |
-| Resource group | IoTCentralAnalysis |
+| 리소스 그룹 | IoTCentralAnalysis |
 | 위치 | 미국 동부 |
 | 가격 책정 계층 | Standard |
 
@@ -104,7 +104,7 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 1. **연속 데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
     | 사용 | 설정 |
@@ -128,7 +128,7 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 다음 표의 정보를 사용 하 여 클러스터를 만듭니다.
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
 | 클러스터 이름 | centralanalysis |
 | 클러스터 모드 | Standard |

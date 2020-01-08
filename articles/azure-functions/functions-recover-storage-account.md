@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226771"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612975"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"Functions 런타임에 연결할 수 없음" 문제를 해결하는 방법
 
@@ -31,6 +31,8 @@ Azure Functions 런타임을 시작할 수 없으면 이 문제가 발생합니�
 1. 스토리지 계정 자격 증명이 잘못됨
 1. 스토리지 계정에 액세스할 수 없음
 1. 일일 실행 할당량 포화 상태
+1. 앱이 방화벽 뒤에 있습니다.
+
 
 ## <a name="storage-account-deleted"></a>스토리지 계정이 삭제됨
 
@@ -56,7 +58,7 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 
 [이 문서에서 이러한 애플리케이션 설정에 대해 자세히 살펴보세요.](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>인도
+### <a name="guidance"></a>지침
 
 * 이러한 설정에 대해서는 "슬롯 설정"을 선택하지 않습니다. 배포 슬롯을 교환하면 함수가 손상됩니다.
 * 이러한 설정은 자동 배포의 일부로 수정 하지 마십시오.
@@ -80,6 +82,12 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 * 확인하려면 포털에서 플랫폼 기능 열기 &gt; 함수 앱 설정을 확인하세요. 할당량을 초과한 경우 다음 메시지가 표시됩니다.
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * 할당량을 제거하고 앱을 다시 시작하여 문제를 해결합니다.
+
+## <a name="app-is-behind-a-firewall"></a>앱이 방화벽 뒤에 있습니다.
+
+함수 앱이 [내부적으로 부하가 분산 된 App Service Environment](../app-service/environment/create-ilb-ase.md) 에서 호스트 되 고 인바운드 인터넷 트래픽을 차단 하도록 구성 되어 있거나 인터넷 액세스를 차단 하도록 구성 된 [인바운드 IP 제한이](functions-networking-options.md#inbound-ip-restrictions) 있는 경우 함수 런타임에 연결할 수 없게 됩니다. Azure Portal는 실행 중인 앱을 직접 호출 하 여 함수 목록을 가져오고 KUDU 끝점에 대 한 http 호출도 수행 합니다. `Platform Features` 탭의 플랫폼 수준 설정은 계속 사용할 수 있습니다.
+
+* ASE 구성을 확인 하려면 ASE가 있는 서브넷의 NSG로 이동 하 고 인바운드 규칙의 유효성을 검사 하 여 응용 프로그램에 액세스 하는 컴퓨터의 공용 IP에서 들어오는 트래픽을 허용 합니다. 앱을 실행 하는 가상 네트워크에 연결 된 컴퓨터 또는 가상 네트워크에서 실행 되는 가상 컴퓨터에서 포털을 사용할 수도 있습니다. [인바운드 규칙 구성에 대 한 자세한 내용은 여기를 참조 하세요.](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,25 +1,15 @@
 ---
-title: Service Fabric 클러스터 용량 계획 | Microsoft Docs
+title: Service Fabric 클러스터 용량 계획
 description: Service Fabric 클러스터 용량 계획 고려 사항입니다. 노드 유형, 작업, 내구성 및 안정성 계층
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463297"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -76,9 +66,9 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 
 | 내구성 계층  | 필요한 최소 VM 수 | 지원되는 VM SKU                                                                  | 가상 머신 확장 집합의 업데이트                               | Azure에서 시작되는 업데이트 및 유지 관리                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5                              | 단일 고객 전용인 전체 노드 SKU(예: L32s, GS5, G5, DS15_v2, D15_v2) | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 복제본이 이전 오류에서 복구될 수 있는 추가 시간을 허용하기 위해 UD당 2시간 동안 일시 중지될 수 있음 |
-| Silver           | 5                              | 최소 50 GB 이상의 로컬 SSD를 포함 하는 단일 코어 이상의 Vm                      | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 오랜 기간 동안 지연될 수 없음                                                    |
-| Bronze           | 1                              | 50 GB 이상의 로컬 SSD를 포함 하는 Vm                                              | Service Fabric 클러스터에 의해 지연되지 않음           | 오랜 기간 동안 지연될 수 없음                                                    |
+| 금             | 5                              | 단일 고객 전용인 전체 노드 SKU(예: L32s, GS5, G5, DS15_v2, D15_v2) | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 복제본이 이전 오류에서 복구될 수 있는 추가 시간을 허용하기 위해 UD당 2시간 동안 일시 중지될 수 있음 |
+| 은           | 5                              | 최소 50 GB 이상의 로컬 SSD를 포함 하는 단일 코어 이상의 Vm                      | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 오랜 기간 동안 지연될 수 없음                                                    |
+| 동           | 1                              | 50 GB 이상의 로컬 SSD를 포함 하는 Vm                                              | Service Fabric 클러스터에 의해 지연되지 않음           | 오랜 기간 동안 지연될 수 없음                                                    |
 
 > [!WARNING]
 > Bronze 내구성으로 실행되는 노드 형식은 _권한 없음_이 됩니다. 즉, 상태 저장 작업에 영향을 주는 인프라 작업은 중지 되거나 지연 되지 않으므로 워크 로드에 영향을 줄 수 있습니다. 상태 비저장 워크로드만 실행하는 노드 형식에는 Bronze만 사용합니다. 프로덕션 워크로드의 경우 Silver 이상을 실행하는 것이 좋습니다. 
@@ -142,9 +132,9 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 | **클러스터 노드 수** | **안정성 계층** |
 | --- | --- |
 | 1 |안정성 계층 매개 변수를 지정하지 마세요. 시스템에서 매개 변수를 계산합니다. |
-| 3 |Bronze |
-| 5 또는 6|Silver |
-| 7 또는 8 |Gold |
+| 3 |동 |
+| 5 또는 6|은 |
+| 7 또는 8 |금 |
 | 9 이상 |플래티넘 |
 
 ## <a name="primary-node-type---capacity-guidance"></a>주 노드 유형 - 용량 지침
@@ -161,7 +151,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 
 - 클러스터 기본 NodeType을 시스템 서비스 전용으로 지정하고 배포 제약 조건을 사용하여 보조 NodeType에 애플리케이션을 배포하는 것이 좋습니다.
 - 권장 VM SKU는 표준 D2_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다.
-- 지원 되는 최소 사용 VM SKU는 Standard_D2_V3 또는 Standard D1_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다. 
+- 지원 되는 최소 사용 VM SKU는 Standard_D2_V3 또는 표준 D1_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다. 
 - 권장 사항은 최소 50GB입니다. 워크로드를 위해, 특히 Windows 컨테이너를 실행하는 경우, 더 큰 디스크가 필요합니다. 
 - 프로덕션 작업에는 표준 A0과 같은 부분 코어 VM SKU가 지원되지 않습니다.
 - 시리즈 VM Sku는 성능상의 이유로 프로덕션 워크 로드에 대해 지원 되지 않습니다.
@@ -183,7 +173,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 프로덕션 워크로드 
 
 - 권장 VM SKU는 표준 D2_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다.
-- 지원 되는 최소 사용 VM SKU는 Standard_D2_V3 또는 Standard D1_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다. 
+- 지원 되는 최소 사용 VM SKU는 Standard_D2_V3 또는 표준 D1_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다. 
 - 프로덕션 작업에는 표준 A0과 같은 부분 코어 VM SKU가 지원되지 않습니다.
 - 시리즈 VM Sku는 성능상의 이유로 프로덕션 워크 로드에 대해 지원 되지 않습니다.
 
@@ -197,7 +187,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 
 프로덕션 워크로드 
 
-- 권장 VM SKU는 표준 D2_V2 이거나 그와 동일 합니다. 
+- 권장 VM SKU는 표준 D2_V2 이거나 이와 동일 합니다. 
 - 지원되는 최소 사용 VM SKU는 표준 D1 또는 표준 D1_V2이거나 동급 수준입니다. 
 - 프로덕션 작업에는 표준 A0과 같은 부분 코어 VM SKU가 지원되지 않습니다.
 - 시리즈 VM Sku는 성능상의 이유로 프로덕션 워크 로드에 대해 지원 되지 않습니다.

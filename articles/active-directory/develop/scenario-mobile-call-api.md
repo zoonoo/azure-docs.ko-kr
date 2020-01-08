@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db58f94501590eb3150700d282377ec1b2378cea
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3f56d55a08c46338fb7916664834b69005419e72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423742"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 모바일 앱-web API 호출
 
@@ -89,11 +89,11 @@ MSAL은 다음 값을 제공 합니다.
         queue.add(request);
 ```
 
-### <a name="msal-for-ios-and-macos"></a>MSAL iOS és macOS rendszerekre
+### <a name="msal-for-ios-and-macos"></a>iOS 및 macOS용 MSAL
 
 토큰을 획득 하는 메서드는 `MSALResult` 개체를 반환 합니다. `MSALResult`는 web API를 호출 하는 데 사용할 수 있는 `accessToken` 속성을 노출 합니다. 보호 된 Web API에 액세스 하기 전에 액세스 토큰을 HTTP 권한 부여 헤더에 추가 해야 합니다.
 
-목표-C:
+Objective-C:
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -107,7 +107,7 @@ NSURLSessionDataTask *task =
 [task resume];
 ```
 
-Swift
+Swift:
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -134,7 +134,7 @@ task.resume()
 
 동일한 사용자에 대해 여러 Api를 호출 해야 하는 경우 사용자에 대 한 토큰을 가져온 후에는 `AcquireTokenSilent`를 호출 하 여 토큰을 가져오는 방법으로 사용자에 게 자격 증명을 반복적으로 요청 하는 것을 방지할 수 있습니다.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -147,7 +147,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 - 사용자가 첫 번째 API에 대해 동의한 이제 더 많은 범위 (증분 승인)에 동의 해야 합니다.
 - 첫 번째 API에는 multi-factor authentication이 필요 하지 않습니다.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -164,7 +164,7 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [프로덕션으로 이동](scenario-mobile-production.md)

@@ -1,18 +1,18 @@
 ---
 title: 렌더링 기능 - Azure Batch
-description: Azure Batch의 특정 렌더링 기능
+description: 표준 Azure Batch 기능은 렌더링 워크 로드 및 앱을 실행 하는 데 사용 됩니다. 일괄 처리는 렌더링 작업을 지 원하는 특정 기능을 포함 합니다.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449718"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -30,10 +30,10 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 
 풀 구성 예제는 [Azure CLI 렌더링 자습서](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)를 참조하세요.  Azure Portal 및 Batch Explorer는 풀을 만들 때 렌더링 VM 이미지를 선택하기 위한 GUI 도구를 제공합니다.  Batch API를 사용하는 경우 풀을 만들 때 [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference)에 대한 다음 속성 값을 지정합니다.
 
-| 게시자 | 제공 | SKU | 버전 |
+| 게시자 | 제품 | SKU | 버전 |
 |---------|---------|---------|--------|
-| 일괄 처리(batch) | rendering-centos73 | 렌더링 | 최신 |
-| 일괄 처리(batch) | rendering-windows2016 | 렌더링 | 최신 |
+| batch | rendering-centos73 | 렌더링 | latest |
+| batch | rendering-windows2016 | 렌더링 | latest |
 
 추가 애플리케이션이 풀 VM에서 필요한 경우 다른 옵션을 사용할 수 있습니다.
 

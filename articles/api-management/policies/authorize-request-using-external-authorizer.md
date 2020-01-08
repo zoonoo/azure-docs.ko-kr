@@ -1,5 +1,6 @@
 ---
-title: Azure API 관리 정책 샘플 - 외부 권한 부여자를 사용하여 요청 인증 | Microsoft Docs
+title: 샘플 API management 정책-외부 권한 부여자를 사용 하 여 요청 권한 부여
+titleSuffix: Azure API Management
 description: Azure API 관리 정책 샘플 - 사용자 지정 또는 레거시 인증/권한 부여 논리를 캡슐화하는 외부 권한 부여자를 사용하여 요청을 인증하는 방법을 설명합니다.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: 92836e0bfe43a41ad6547c68bc0b9a326528862c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 99bf1068042eb7ab0c43e2a683ca7116d2e426f3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442491"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>외부 권한 부여자를 사용하여 요청 인증
 

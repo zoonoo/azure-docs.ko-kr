@@ -1,5 +1,6 @@
 ---
-title: Azure API Management 개발자 포털 개요-Azure API Management | Microsoft Docs
+title: Azure API Management 개발자 포털 개요
+titleSuffix: Azure API Management
 description: API Management에서 개발자 포털에 대해 알아봅니다.
 services: api-management
 documentationcenter: API Management
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442601"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -67,7 +68,7 @@ ms.locfileid: "74454399"
 
 포털은 [용지 비트 프레임 워크](https://paperbits.io/)의 조정 된 포크를 기반으로 합니다. 원래 용지 비트 기능은 API Management 특정 위젯 (예: Api 목록, 제품 목록) 및 콘텐츠 저장 및 검색을 위한 API Management 서비스에 대 한 커넥터를 제공 하도록 확장 되었습니다.
 
-## <a name="faq"></a>질문과 대답
+## <a name="faq"></a> 질문과 대답
 
 이 섹션에서는 일반적인 특성상 새로운 개발자 포털에 대 한 일반적인 질문에 답변 합니다. 자체 호스팅 버전과 관련 된 질문은 [GitHub 리포지토리의 wiki 섹션](https://github.com/Azure/api-management-developer-portal/wiki)을 참조 하세요.
 
@@ -109,7 +110,7 @@ ms.locfileid: "74454399"
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>포털이 Azure Resource Manager 템플릿을 지원 하나요? 아니면 API Management DevOps Resource Kit와 호환 되나요?
 
-아니요.
+아닙니다.
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>새 관리 되는 포털 종속성에 대 한 추가 VNet 연결을 사용 하도록 설정 해야 하나요?
 
@@ -135,7 +136,7 @@ Id 공급자 (예: AAD, AAD B2C)를 구성한 후에는 [포털을 다시 게시
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>대화형 콘솔을 사용 하는 경우 CORS 오류가 발생 합니다.
 
-대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](api-management-cross-domain-policies.md#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정 하거나 와일드 카드 `*` 값을 사용할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](api-management-cross-domain-policies.md#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정 하거나 와일드 카드 `*` 값을 사용할 수 있습니다. 예:
 
 ```XML
 <cors>

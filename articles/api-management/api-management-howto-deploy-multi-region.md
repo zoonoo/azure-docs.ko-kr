@@ -1,5 +1,6 @@
 ---
-title: 여러 Azure 지역에 Azure API Management 서비스 배포 | Microsoft Docs
+title: Azure API Management 서비스를 여러 Azure 지역에 배포
+titleSuffix: Azure API Management
 description: 여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cd0533dcbc9b367fa9a1e138b1aa1257989a3d7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442660"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
 
@@ -114,8 +115,8 @@ API Management는 [가장 짧은 대기 시간](../traffic-manager/traffic-manag
 
 1. 사용자 고유의 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 만듭니다.
 1. 사용자 지정 도메인을 사용 하는 경우 API Management 서비스 대신 [Traffic Manager와 함께 사용](../traffic-manager/traffic-manager-point-internet-domain.md) 합니다.
-1. [Traffic Manager에서 API Management 국가별 끝점을 구성](../traffic-manager/traffic-manager-manage-endpoints.md)합니다. 지역 끝점은의 `https://<service-name>-<region>-01.regional.azure-api.net`URL 패턴 (예: `https://contoso-westus2-01.regional.azure-api.net`)을 따릅니다.
-1. [Traffic Manager에서 API Management 지역별 상태 끝점을 구성](../traffic-manager/traffic-manager-monitoring.md)합니다. 지역별 상태 끝점은의 `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`URL 패턴 (예: `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`)을 따릅니다.
+1. [Traffic Manager에서 API Management 국가별 끝점을 구성](../traffic-manager/traffic-manager-manage-endpoints.md)합니다. 지역 끝점은 `https://<service-name>-<region>-01.regional.azure-api.net`의 URL 패턴을 따릅니다 (예: `https://contoso-westus2-01.regional.azure-api.net`).
+1. [Traffic Manager에서 API Management 지역별 상태 끝점을 구성](../traffic-manager/traffic-manager-monitoring.md)합니다. 지역별 상태 끝점은 `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`의 URL 패턴을 따릅니다 (예: `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`).
 1. Traffic Manager의 [라우팅 메서드를](../traffic-manager/traffic-manager-routing-methods.md) 지정 합니다.
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png

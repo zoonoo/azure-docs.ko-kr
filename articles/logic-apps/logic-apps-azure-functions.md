@@ -1,17 +1,17 @@
 ---
-title: Azure Logic Apps에서 Azure 함수를 추가 하 고 호출 합니다.
-description: 논리 앱에서 Azure 함수 추가 및 실행
+title: Azure Logic Apps에서 Azure Functions를 추가 하 고 호출 합니다.
+description: Azure Logic Apps의 자동화 된 작업 및 워크플로에서 Azure Functions에서 사용자 지정 코드를 호출 하 고 실행 합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453462"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Azure Logic Apps에서 Azure 함수를 호출 합니다.
 
@@ -26,9 +26,9 @@ Azure 함수를 만들지 않고 코드 조각을 실행 하려면 [인라인 �
 > [!NOTE]
 > 현재 Logic Apps와 Azure Functions 간의 통합은 슬롯을 사용 하는 경우 작동 하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * Azure 함수를 사용 하 여 azure 함수를 위한 컨테이너인 Azure 함수 앱입니다. 함수 앱이 없는 경우 [함수 앱을 먼저 만듭니다](../azure-functions/functions-create-first-azure-function.md). 그런 다음 Azure Portal의 논리 앱 외부에서 또는 논리 앱 디자이너의 [논리 앱 내에서](#create-function-designer) 함수를 만들 수 있습니다.
 
@@ -125,7 +125,7 @@ function convertToDateString(request, response){
 
    1. **코드** 상자에서 함수 실행이 완료 된 후에 논리 앱에 반환 하려는 응답과 페이로드를 포함 하 여 함수 템플릿에 코드를 추가 합니다. 완료되면 **만들기**를 선택합니다.
 
-   다음은 그 예입니다.
+   예:
 
    ![함수 정의](./media/logic-apps-azure-functions/add-code-function-definition.png)
 

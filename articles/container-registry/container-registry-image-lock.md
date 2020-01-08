@@ -3,12 +3,12 @@ title: 이미지 잠그기
 description: 컨테이너 이미지 또는 리포지토리에 대 한 특성을 설정 하 여 Azure container registry에서 삭제 하거나 덮어쓸 수 없습니다.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 9e55a6688be9f51f1c1b237ae86bd57692a86592
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456319"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442227"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Azure container registry에서 컨테이너 이미지 잠그기
 
@@ -23,7 +23,11 @@ Azure container registry에서 이미지 버전 또는 리포지토리를 잠가
 
 기본적으로 Azure Container Registry의 태그가 지정 된 이미지는 *변경*가능 하므로 적절 한 사용 권한이 있으면 동일한 태그가 있는 이미지를 반복적으로 업데이트 하 고 레지스트리로 푸시할 수 있습니다. 필요에 따라 컨테이너 이미지를 [삭제할](container-registry-delete.md) 수도 있습니다. 이 동작은 이미지를 개발할 때 레지스트리의 크기를 유지 해야 하는 경우에 유용 합니다.
 
-그러나 컨테이너 이미지를 프로덕션 환경에 배포 하는 경우에는 *변경할* 수 없는 컨테이너 이미지가 필요할 수 있습니다. 변경할 수 없는 이미지는 실수로 삭제 하거나 덮어쓸 수 없는 이미지입니다. [Az acr repository update][az-acr-repository-update] 명령을 사용 하 여 리포지토리 특성을 설정 하 여 다음을 수행할 수 있습니다.
+그러나 컨테이너 이미지를 프로덕션 환경에 배포 하는 경우에는 *변경할* 수 없는 컨테이너 이미지가 필요할 수 있습니다. 변경할 수 없는 이미지는 실수로 삭제 하거나 덮어쓸 수 없는 이미지입니다.
+
+레지스트리의 태그 및 버전 이미지에 대 한 전략의 컨테이너 이미지에 태그를 지정 하 고 버전을 지정 하기 [위한 권장 사항을](container-registry-image-tag-version.md) 참조 하세요.
+
+[Az acr repository update][az-acr-repository-update] 명령을 사용 하 여 리포지토리 특성을 설정 하 여 다음을 수행할 수 있습니다.
 
 * 이미지 버전 또는 전체 리포지토리 잠그기
 
@@ -31,7 +35,7 @@ Azure container registry에서 이미지 버전 또는 리포지토리를 잠가
 
 * 이미지 버전 또는 전체 리포지토리에서 읽기 (끌어오기) 작업 차단
 
-예제는 다음 섹션을 참조 하세요.
+예제는 다음 섹션을 참조 하세요. 
 
 ## <a name="lock-an-image-or-repository"></a>이미지 또는 리포지토리 잠금 
 

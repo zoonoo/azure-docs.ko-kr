@@ -1,31 +1,22 @@
 ---
-title: Azure Service Fabric 네트워킹 모범 사례 | Microsoft Docs
-description: Service Fabric 네트워킹 관리를 위한 모범 사례를 소개합니다.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 네트워킹 모범 사례
+description: Azure Service Fabric을 사용 하 여 네트워크 연결을 관리 하기 위한 모범 사례 및 디자인 고려 사항입니다.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262239"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551797"
 ---
 # <a name="networking"></a>네트워킹
 
 Azure Service Fabric 클러스터를 만들고 관리할 때는 노드와 애플리케이션용 네트워크 연결을 제공합니다. 네트워킹 리소스에는 IP 주소 범위, 가상 네트워크, 부하 분산 장치 및 네트워크 보안 그룹이 포함됩니다. 이 문서에서는 이러한 리소스와 관련된 모범 사례에 대해 알아봅니다.
 
-Azure [Service Fabric 네트워킹 패턴](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)을 검토하면 기존 가상 네트워크 또는 서브넷, 정적 공용 IP 주소, 내부 전용 부하 분산 장치 또는 내부 및 외부 부하 분산 장치 등의 기능을 사용하는 클러스터를 만드는 방법을 파악할 수 있습니다.
+Azure [Service Fabric 네트워킹 패턴](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) 을 검토 하 여 기존 가상 네트워크 또는 서브넷, 고정 공용 IP 주소, 내부 전용 부하 분산 장치 또는 내부 및 외부 부하 분산 장치와 같은 기능을 사용 하는 클러스터를 만드는 방법을 알아보세요.
 
 ## <a name="infrastructure-networking"></a>인프라 네트워킹
 Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가속화된 네트워킹을 통해 가상 머신 성능을 최대화할 수 있습니다. 아래에는 가속화된 네트워킹을 사용하도록 설정하는 Virtual Machine Scale Set NetworkInterfaceConfigurations의 코드 조각이 나와 있습니다.
@@ -48,7 +39,7 @@ Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가
 ```
 [가속화된 네트워킹을 사용하는 Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 및 [가속화된 네트워킹을 사용하는 Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell)에서 Service Fabric 클러스터를 프로비전할 수 있습니다.
 
-가속화된 네트워킹은 Azure Virtual Machine Series SKU D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, Ms/Mms에서 지원됩니다. Service Fabric Windows 클러스터의 경우 2019년 1월 23일에 Standard_DS8_v3 SKU를 사용하여, Service Fabric Linux 클러스터의 경우 2019년 1월 29일에 Standard_DS12_v2를 사용하여 가속화된 네트워킹을 테스트한 결과 정상 작동이 확인되었습니다.
+가속화 된 네트워킹은 D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 및 Ms/Mms에 대해 지원 됩니다. Service Fabric Windows 클러스터의 경우 2019년 1월 23일에 Standard_DS8_v3 SKU를 사용하여, Service Fabric Linux 클러스터의 경우 2019년 1월 29일에 Standard_DS12_v2를 사용하여 가속화된 네트워킹을 테스트한 결과 정상 작동이 확인되었습니다.
 
 기존 Service Fabric 클러스터에서 가속화된 네트워킹을 사용하도록 설정하려면 먼저 [Virtual Machine Scale Set를 추가하여 Service Fabric 클러스터를 확장](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)해 다음 작업을 수행해야 합니다.
 1. 가속화된 네트워킹이 사용하도록 설정된 NodeType 프로비전
@@ -60,7 +51,7 @@ Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가
 
 * [Service Fabric 네트워킹 패턴](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)에 요약되어 있는 단계를 수행하면 기존 가상 네트워크에 Service Fabric 클러스터를 배포할 수 있습니다.
 
-* 클러스터로의 인바운드 및 아웃바운드 트래픽을 제한하는 노드 형식의 경우에는 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에서 필요한 포트가 열려 있는지 확인합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. ![Service Fabric NSG 규칙][NSGSetup]
+* 클러스터로의 인바운드 및 아웃바운드 트래픽을 제한하는 노드 형식의 경우에는 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에서 필요한 포트가 열려 있는지 확인합니다. 예: ![Service Fabric NSG 규칙][NSGSetup]
 
 * Service Fabric 시스템 서비스를 포함하는 주 노드 형식은 외부 부하 분산 장치를 통해 표시하지 않아도 되며 [내부 부하 분산 장치](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)를 통해 표시할 수 있습니다.
 
@@ -76,7 +67,7 @@ Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가
 
 ## <a name="next-steps"></a>다음 단계
 
-* Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
+* Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 * Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 

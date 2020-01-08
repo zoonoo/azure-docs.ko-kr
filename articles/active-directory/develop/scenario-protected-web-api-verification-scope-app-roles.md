@@ -1,5 +1,5 @@
 ---
-title: 범위 및 앱 역할 확인 | Microsoft
+title: 앱 역할 & 보호 된 Web API에 대 한 범위 확인 | Microsoft
 titleSuffix: Microsoft identity platform
 description: 보호 된 웹 API를 빌드하고 응용 프로그램의 코드를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20a7a5a0df87910d2093bfee47e46c9c1a06530
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2eb9cdf68bf5103776d50db28e9e6facc89c9278
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965384"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423701"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호 된 웹 API: 범위 및 앱 역할 확인
 
@@ -42,7 +42,7 @@ ASP.NET/ASP.NET Core web API를 보호 하려면 다음 중 하나에 `[Authoriz
 - 컨트롤러 자체 (컨트롤러의 모든 작업을 보호 하려는 경우)
 - API에 대 한 개별 컨트롤러 작업
 
-```CSharp
+```csharp
     [Authorize]
     public class TodoListController : Controller
     {
@@ -59,7 +59,7 @@ ASP.NET/ASP.NET Core web API를 보호 하려면 다음 중 하나에 `[Authoriz
 
 사용자를 대신 하 여 클라이언트 앱에서 API를 호출 하는 경우 API에 대 한 특정 범위의 전달자 토큰을 요청 해야 합니다. ( [코드 구성 참조 | 전달자 토큰](scenario-protected-web-api-app-configuration.md#bearer-token).)
 
-```CSharp
+```csharp
 [Authorize]
 public class TodoListController : Controller
 {
@@ -86,7 +86,7 @@ public class TodoListController : Controller
 - `http://schemas.microsoft.com/identity/claims/scope` 또는 `scp`라는 클레임이 있는지 확인 합니다.
 - 클레임에 API가 예상 하는 범위를 포함 하는 값이 있는지 확인 합니다.
 
-```CSharp
+```csharp
     /// <summary>
     /// When applied to a <see cref="HttpContext"/>, verifies that the user authenticated in the 
     /// web API has any of the accepted scopes.
@@ -121,7 +121,7 @@ public class TodoListController : Controller
 웹 API가 [디먼 앱](scenario-daemon-overview.md)에 의해 호출 되는 경우 해당 앱에는 web api에 대 한 응용 프로그램 권한이 있어야 합니다. API가 이러한 사용 권한을 노출 하는 [응용 프로그램 권한 (앱 역할) (](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) 예: `access_as_application` 앱 역할)을 노출 하는 방법을 살펴보았습니다.
 이제 Api에서 받은 토큰이 `roles` 클레임을 포함 하 고이 클레임에 필요한 값이 있는지 확인 해야 합니다. 이 확인을 수행 하는 코드는 위임 된 권한을 확인 하는 코드와 비슷합니다. 단, `scopes`을 테스트 하는 대신 컨트롤러 작업에서 `roles`를 테스트 합니다.
 
-```CSharp
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -134,7 +134,7 @@ public class TodoListController : ApiController
 
 `ValidateAppRole()` 메서드는 다음과 같이 지정할 수 있습니다.
 
-```CSharp
+```csharp
 private void ValidateAppRole(string appRole)
 {
     //
@@ -161,7 +161,7 @@ private void ValidateAppRole(string appRole)
 
 디먼 앱만 웹 API를 호출할 수 있도록 허용 하려면 앱 역할의 유효성을 검사할 때 토큰이 앱 전용 토큰 임을 나타내는 조건을 추가 합니다.
 
-```CSharp
+```csharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
 string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
 bool isAppOnlyToken = oid == sub;
@@ -169,7 +169,7 @@ bool isAppOnlyToken = oid == sub;
 
 역 조건을 확인 하면 사용자가 로그인 하는 앱만 API를 호출할 수 있습니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [프로덕션으로 이동](scenario-protected-web-api-production.md)

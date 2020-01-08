@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전 개요
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. 버전 간 차이점과 적합한 버전을 선택하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 874d2e657c2c9d7cba7874ff9815c61f9bbe8ef7
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941725"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433072"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -104,7 +104,7 @@ Azure Functions 버전 3(sp3)은 버전 2.x와 호환 되는 이전 버전입니
 
 Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) 애플리케이션 설정에 따라 결정됩니다. 지원 되는 주요 런타임 버전 값은 다음과 같습니다.
 
-| Value | 런타임 대상 |
+| 값 | 런타임 대상 |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2.x |
@@ -115,7 +115,7 @@ Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTI
 
 ### <a name="locally-developed-application-versions"></a>로컬에서 개발한 응용 프로그램 버전
 
-다음 업데이트 함수 앱을 로컬에서 대상 버전으로 변경할 수 있습니다.
+대상 버전을 로컬에서 변경 하도록 함수 앱을 다음과 같이 업데이트할 수 있습니다.
 
 #### <a name="visual-studio-runtime-versions"></a>Visual Studio 런타임 버전
 

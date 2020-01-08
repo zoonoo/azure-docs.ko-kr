@@ -3,17 +3,17 @@ title: Azure IoT Central에서 디바이스 연결 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central를 사용 하 여 장치를 연결 하 고 정상 상태로 유지 하는 방법에 대 한 요약을 제공 합니다.
 author: aaronbjork
 ms.author: abjork
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: ''
-ms.openlocfilehash: 20001247c608a52ffd18920c0b6b1f1aabd28313
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 938d93b1df077914323c7b5f4ee1d42276aeff04
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434922"
 ---
 # <a name="stay-connected-with-azure-iot-central-preview-features"></a>Azure IoT Central와 연결 된 상태로 유지 (미리 보기 기능)
 

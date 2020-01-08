@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6063d143e2f217426bdf1db217fde46f8542d314
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5829ca41aaa4bd61f8878657e5eedbf6351b5df4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423570"
 ---
 # <a name="web-api-that-calls-web-apis---call-an-api"></a>웹 api를 호출 하는 web API-API 호출
 
@@ -32,7 +32,7 @@ ms.locfileid: "74965214"
 
 토큰을 얻은 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
 
-```CSharp
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...
@@ -58,7 +58,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [프로덕션으로 이동](scenario-web-api-call-api-production.md)

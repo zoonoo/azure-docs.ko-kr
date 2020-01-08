@@ -4,25 +4,25 @@ description: 이 문서에서는 Azure Monitor의 작업 영역에 Configuration
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: fee6f09ba8e290ae6599f07d4ed831fb89427f76
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2262c951b52ef58006bacde4be76dc92468a20ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364053"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 System Center Configuration Manager 환경을 Azure Monitor에 연결 하 여 장치 컬렉션 데이터를 동기화 하 고 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure Monitor System Center Configuration Manager 현재 분기, 버전 1606 이상을 지원 합니다.
 
 >[!NOTE]
->Log Analytics 작업 영역을 사용 하 여 Configuration Manager 연결 하는 기능은 선택 사항이 며 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이 기능을 사용 하려면 먼저이 기능을 사용 하도록 설정 해야 합니다. 자세한 내용은 [업데이트에서 선택적 기능 사용](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options)을 참조 하세요.
+>Log Analytics 작업 영역을 사용 하 여 Configuration Manager 연결 하는 기능은 선택 사항이 며 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이 기능은 사용하기 전에 활성화해야 합니다. 자세한 내용은 [업데이트에서 선택적 기능 사용](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options)을 참조하세요.
 
 ## <a name="configuration-overview"></a>구성 개요
 
@@ -80,8 +80,8 @@ Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 호�
 
 4. Azure 서비스 마법사의 Azure 서비스 페이지에서 다음을 수행 합니다.
 
-    1. Configuration Manager 개체의 **이름을** 지정 합니다.
-    2. 서비스를 식별 하는 데 도움이 되는 **설명** (선택 사항)을 지정 합니다.
+    1. Configuration Manager의 개체 **이름**을 지정합니다.
+    2. 서비스를 식별하는 데 도움이 되도록 선택적 **설명**을 지정합니다.
     3. Azure 서비스 **OMS 커넥터**를 선택 합니다.
 
     >[!NOTE]
@@ -109,7 +109,7 @@ Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 호�
 
     8. **확인** 을 선택 하 고 오른쪽에 결과가 **확인 됨으로**표시 됩니다 .를 선택 합니다.
 
-8. **구성** 페이지에서 azure **구독**, **Azure 리소스 그룹**및 **OPERATIONS Management Suite 작업 영역** 필드가 azure AD 응용 프로그램에 있음을 나타내는 미리 채워져 있는지 확인 하는 정보를 검토 합니다. 리소스 그룹에 대 한 권한이 있어야 합니다. 필드가 비어 있으면 응용 프로그램에 필요한 권한이 없다는 것을 나타냅니다. 장치 컬렉션을 선택 하 여 작업 영역으로 이동 하 고 **추가**를 선택 합니다.
+8. **구성** 페이지에서 정보를 검토 하 여 azure AD 응용 프로그램에 리소스 그룹에 대 한 충분 한 권한이 있음을 나타내는 azure **구독**, **Azure 리소스 그룹**및 **Operations Management Suite 작업 영역** 필드가 미리 채워져 있는지 확인 합니다. 필드가 비어 있으면 응용 프로그램에 필요한 권한이 없다는 것을 나타냅니다. 장치 컬렉션을 선택 하 여 작업 영역으로 이동 하 고 **추가**를 선택 합니다.
 
 9. **설정 확인** 페이지의 옵션을 검토 하 고 **다음** 을 선택 하 여 연결 만들기 및 구성을 시작 합니다.
 

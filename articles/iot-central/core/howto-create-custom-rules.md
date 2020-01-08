@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8c0328c1d82af5e96afca29f05a065450eab9ae4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950744"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434995"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용 하 여 사용자 지정 규칙으로 Azure IoT Central 확장
 
@@ -28,29 +28,29 @@ ms.locfileid: "72950744"
 * 장치에서 데이터 전송을 중지 한 경우를 검색 하는 Stream Analytics 쿼리를 만듭니다.
 * Azure Functions 및 SendGrid 서비스를 사용 하 여 전자 메일 알림을 보냅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-### <a name="iot-central-application"></a>응용 프로그램 IoT Central
+### <a name="iot-central-application"></a>IoT Central 애플리케이션
 
 다음 설정을 사용 하 여 [Azure IoT Central 응용 프로그램](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만듭니다.
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
 | 결제 계획 | 종량제 |
-| 애플리케이션 템플릿 | 샘플 Contoso |
+| 애플리케이션 템플릿 | 기존 애플리케이션 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
 | 디렉터리 | Azure Active Directory 테 넌 트 |
 | Azure 구독 | Azure 구독 |
-| 지역 | 미국 동부 |
+| 지역 | 미국 |
 
-이 문서의 예제 및 스크린샷은 **미국 동부** 지역을 사용 합니다. 가까운 위치를 선택 하 고 동일한 지역에 모든 리소스를 만들어 두어야 합니다.
+이 문서의 예제 및 스크린샷은 **미국** 지역을 사용 합니다. 가까운 위치를 선택 하 고 동일한 지역에 모든 리소스를 만들어 두어야 합니다.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>리소스 그룹
 
 Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **DetectStoppedDevices** 라는 [리소스 그룹을 만듭니다](https://portal.azure.com/#create/Microsoft.ResourceGroup) . IoT Central 응용 프로그램과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -58,24 +58,24 @@ Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **Detect
 
 Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이스를 만듭니다](https://portal.azure.com/#create/Microsoft.EventHub) .
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
-| name    | 네임 스페이스 이름 선택 |
+| 이름    | 네임 스페이스 이름 선택 |
 | 가격 책정 계층 | Basic |
 | Subscription | 사용자의 구독 |
-| Resource group | DetectStoppedDevices |
+| 리소스 그룹 | DetectStoppedDevices |
 | 위치 | 미국 동부 |
 | 처리량 단위 | 1 |
 
-### <a name="stream-analytics-job"></a>작업 Stream Analytics
+### <a name="stream-analytics-job"></a>Stream Analytics 작업
 
 Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 만듭니다](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) .
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
-| name    | 작업 이름 선택 |
+| 이름    | 작업 이름 선택 |
 | Subscription | 사용자의 구독 |
-| Resource group | DetectStoppedDevices |
+| 리소스 그룹 | DetectStoppedDevices |
 | 위치 | 미국 동부 |
 | 호스팅 환경 | 클라우드 |
 | 스트리밍 단위 | 3 |
@@ -84,27 +84,27 @@ Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 �
 
 다음 설정을 사용 하 여 [함수 앱을 만들려면 Azure Portal를](https://portal.azure.com/#create/Microsoft.FunctionApp) 사용 합니다.
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
 | 앱 이름    | 함수 앱 이름 선택 |
 | Subscription | 사용자의 구독 |
-| Resource group | DetectStoppedDevices |
+| 리소스 그룹 | DetectStoppedDevices |
 | OS | Windows |
 | 호스팅 계획 | 소비 계획 |
 | 위치 | 미국 동부 |
 | 런타임 스택 | .NET |
-| 스토리지 | 새로 만들기 |
+| Storage | 새로 만들기 |
 
 ### <a name="sendgrid-account"></a>SendGrid 계정
 
 Azure Portal를 사용 하 여 다음 설정으로 [SendGrid 계정을 만듭니다](https://portal.azure.com/#create/Sendgrid.sendgrid) .
 
-| 설정 | Value |
+| 설정 | 값 |
 | ------- | ----- |
-| name    | SendGrid 계정 이름 선택 |
+| 이름    | SendGrid 계정 이름 선택 |
 | 암호 | 암호 만들기 |
 | Subscription | 사용자의 구독 |
-| Resource group | DetectStoppedDevices |
+| 리소스 그룹 | DetectStoppedDevices |
 | 가격 책정 계층 | F1 무료 |
 | 연락처 정보 | 필수 정보 입력 |
 
@@ -240,7 +240,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. Azure Portal에서 Stream analytics 작업으로 이동 하 고, **작업 토폴로지** 에서 **입력**을 선택 하 고, **+ 스트림 입력 추가**를 선택 하 고, **이벤트 허브**를 선택 합니다.
 1. 이전에 만든 이벤트 허브를 사용 하 여 입력을 구성 하려면 다음 표의 정보를 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | 입력 별칭 | centraltelemetry |
     | Subscription | 사용자의 구독 |
@@ -250,7 +250,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. **작업 토폴로지**에서 **출력**을 선택 하 고 **+ 추가**를 선택한 다음, **Azure 함수**를 선택 합니다.
 1. 다음 표의 정보를 사용 하 여 출력을 구성한 후 **저장**을 선택 합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | 출력 별칭 | emailnotification |
     | Subscription | 사용자의 구독 |
@@ -310,7 +310,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. **연속 데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
     | 사용 | 설정 |

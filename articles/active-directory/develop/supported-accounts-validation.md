@@ -1,5 +1,5 @@
 ---
-title: 계정 유형별 유효성 검사 차이-Microsoft identity platform | Microsoft
+title: 지원 되는 계정 유형 별 유효성 검사 차이-Microsoft identity platform | Microsoft
 description: Microsoft id 플랫폼에 앱을 등록할 때 지원 되는 다른 계정 유형에 대 한 다양 한 속성의 유효성 검사 차이점에 대해 알아봅니다.
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576adc99ef7d794f50efeb61375f3e59f8815033
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2d15c22e2495432926285dbdbd55a4a6f3b0aa35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423464"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>지원 되는 계정 유형 별 유효성 검사 차이 (signInAudience)
 
@@ -34,7 +34,7 @@ ms.locfileid: "74919361"
 
 지원 되는 다른 계정 유형에 대 한 다양 한 속성의 유효성 검사 차이점은 다음 표를 참조 하세요.
 
-| 자산 | `AzureADMyOrg` | `AzureADMultipleOrgs`  | `AzureADandPersonalMicrosoftAccount` |
+| 속성 | `AzureADMyOrg` | `AzureADMultipleOrgs`  | `AzureADandPersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
 | 응용 프로그램 ID URI (`identifierURIs`)  | 테 넌 트에서 고유 해야 합니다. <br><br> urn://체계가 지원 됩니다. <br><br> 와일드 카드는 지원 되지 않습니다. <br><br> 쿼리 문자열 및 조각이 지원 됩니다. <br><br> 최대 255 문자 길이 <br><br> IdentifierURIs 수에 제한 없음 *  | 전역적으로 고유해야 합니다. <br><br> urn://체계가 지원 됩니다. <br><br> 와일드 카드는 지원 되지 않습니다. <br><br> 쿼리 문자열 및 조각이 지원 됩니다. <br><br> 최대 255 문자 길이 <br><br> IdentifierURIs 수에 제한 없음 * | 전역적으로 고유해야 합니다. <br><br> urn://체계가 지원 되지 않습니다. <br><br> 와일드 카드, 조각 및 쿼리 문자열은 지원 되지 않습니다. <br><br> 최대 120 문자 길이 <br><br> 최대 50 identifierURIs |
 | 인증서 (`keyCredentials`) | 대칭 서명 키 | 대칭 서명 키 | 암호화 및 비대칭 서명 키 | 

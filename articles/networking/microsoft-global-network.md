@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: c064a5afee8db0c747273ab1c38c901a6f10ef98
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876141"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453067"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 
@@ -40,14 +40,14 @@ Microsoft 클라우드를 사용 하는 경우 [가장 적합 한 환경을](htt
   
 Microsoft 서비스를 사용 하는 경우 모든 트래픽을 의미 하는 것은 무엇 인가요? 예, Microsoft Azure 내에서 또는 Virtual Machines, Office 365, XBox, SQL Db, 저장소 및 가상 네트워크와 같은 Microsoft 서비스 간에 전송 되는 데이터 센터 간의 트래픽은 글로벌 네트워크 내에서 라우팅됩니다. 성능 및 무결성.  
  
-클라우드 및 온라인 서비스의 극단적인 증가를 주도하 하는 동시에 일관성 있고 높은 서비스 수준을 유지 하는 동시에 많은 규모의 파이버 용량과 metro, 지상파 및 해저 경로에 대 한 다양성을 유지 하는 것이 중요 합니다. 글로벌 네트워크에 대 한 최근 추가 사항은 Bilbao, 스페인 및 버지니아 해변, 버지니아, USA 간의 해저와 뉴욕, 미국, 더블린, 아일랜드 사이에 있는 [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) 사이에 있는 [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) 케이블, 업계의 최초의 OLS (Open Line System) 도쿄, 일본 및 포틀랜드, Oregon, 미국 간의 [새로운 태평양 (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) . 
+클라우드 및 온라인 서비스의 극단적인 증가를 주도하 하는 동시에 일관성 있고 높은 서비스 수준을 유지 하는 동시에 많은 규모의 파이버 용량과 metro, 지상파 및 해저 경로에 대 한 다양성을 유지 하는 것이 중요 합니다. 글로벌 네트워크에 대 한 최근 추가 사항은 Bilbao, 스페인 및 버지니아 해변, 버지니아, USA 사이에 있는 OLS ( [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) 해저)와 뉴욕, 미국 및 더블린 사이에 있는 AEC와 도쿄, 일본, 포틀랜드, NCP, [usa 사이에](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) 있는 뉴욕, 미국 및 더블린 간의 [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) 입니다. 
  
 
 ## <a name="our-network-is-your-network"></a>네트워크는 네트워크입니다.
 
 Microsoft는 네트워크에 대 한 대규모 투자와 함께 수십 년간의 경험을 제공 하 여 항상 최적의 성능을 보장 합니다. 기업은 네트워크 자산을 최대한 활용 하 고 위에 고급 오버레이 아키텍처를 구축할 수 있습니다. 
  
-Microsoft Azure는 서비스 및 기능에 대 한 가장 다양 한 포트폴리오를 제공 하 여 고객이 어디에서 든 지 네트워킹 요구 사항을 빠르고 쉽게 빌드하고 확장 하 고 충족할 수 있습니다. Microsoft의 연결 서비스 제품군은 지역, 하이브리드 및 클라우드 간 지점 및 사이트 간 아키텍처와 글로벌 IP 전송 시나리오 간에 가상 네트워크 피어 링을 분산 합니다.  자체 데이터 센터 또는 네트워크를 Azure에 연결 하려는 기업 또는 대규모 데이터 수집 또는 전송 요구, [express](../expressroute/expressroute-introduction.md)경로 및 [express](../expressroute/expressroute-erdirect-about.md) 경로를 사용 하는 고객은 최대 100 g b의 대역폭을 직접 제공 합니다. 전 세계의 위치를 피어 링 하는 Microsoft의 글로벌 네트워크  
+Microsoft Azure는 서비스 및 기능에 대 한 가장 다양 한 포트폴리오를 제공 하 여 고객이 어디에서 든 지 네트워킹 요구 사항을 빠르고 쉽게 빌드하고 확장 하 고 충족할 수 있습니다. Microsoft의 연결 서비스 제품군은 지역, 하이브리드 및 클라우드 간 지점 및 사이트 간 아키텍처와 글로벌 IP 전송 시나리오 간에 가상 네트워크 피어 링을 분산 합니다.  자체 데이터 센터 또는 네트워크를 Azure에 연결 하려는 기업 또는 대규모 데이터 수집 또는 전송 요구, [express](../expressroute/expressroute-introduction.md)경로 및 [express](../expressroute/expressroute-erdirect-about.md) 경로를 사용 하는 고객은 전 세계에서 피어 링 위치에 있는 Microsoft의 글로벌 네트워크에 직접 100 Gbps의 대역폭을 제공 합니다.  
  
 [Express 경로 Global Reach](../expressroute/expressroute-global-reach.md) 는 서비스 공급자의 WAN 구현을 보완 하 고 전 세계 온-프레미스 사이트에 연결 하도록 설계 되었습니다. 글로벌 작업을 실행 하는 경우 기본 및 로컬 서비스 공급자와 함께 Express 경로 Global Reach를 사용 하 여 Microsoft 글로벌 네트워크를 사용 하는 모든 글로벌 사이트를 연결할 수 있습니다. 클라우드 (WAN)에서 많은 수의 분기 사이트를 확장 하는 것은 Azure 가상 WAN을 통해 수행할 수 있습니다 .이를 통해 SDWAN & VPN 장치를 사용 하 여 Microsoft 글로벌 네트워크에 분기를 원활 하 게 연결할 수 있습니다. 기본 제공 되는 간편한 사용 및 자동화 된 연결 및 구성 관리가 포함 된 고객 프레미스 장비 또는 CPE). 
  
@@ -56,7 +56,7 @@ Microsoft Azure는 서비스 및 기능에 대 한 가장 다양 한 포트폴�
 
 ## <a name="well-managed-using-software-defined-innovation"></a>소프트웨어 정의 혁신을 사용한 잘 관리
 
-Microsoft는 전 세계의 주요 클라우드 중 하나를 실행 하 여 고성능 글로벌 인프라를 [구축 하 고 관리](https://myignite.techcommunity.microsoft.com/sessions/66668) 하는 많은 통찰력 및 경험을 얻었습니다.  
+Microsoft는 전 세계의 주요 클라우드 중 하나를 실행 하 여 고성능 글로벌 인프라를 구축 하 고 관리 하는 많은 통찰력 및 경험을 얻었습니다.  
  
 Microsoft는 다음과 같은 강력한 운영 원리 집합을 준수 합니다. 
  

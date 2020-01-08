@@ -7,13 +7,13 @@ ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
-ms.openlocfilehash: d867e9a1afcb495aee7e8b0e0b3b001104f48a4c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+manager: cpendle
+ms.openlocfilehash: 6aa256f026033a8b204b3c2ab1080f9f63ef63d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432797"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
 
@@ -40,7 +40,7 @@ Azure Maps 웹 SDK는 다음 데스크톱 브라우저를 지원 합니다.
 
 또한이 문서의 뒷부분에 있는 [레거시 브라우저 대상](#Target-Legacy-Browsers) 을 참조 하세요.
 
-## <a name="mobile"></a>휴대폰
+## <a name="mobile"></a>모바일
 
 Azure Maps 웹 SDK는 다음과 같은 모바일 브라우저를 지원 합니다.
 
@@ -68,7 +68,7 @@ WebGL을 지원 하지 않거나 제한적 으로만 지원 되는 이전 브라
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> () Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>()를 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조 하세요.
 </iframe>
 
 

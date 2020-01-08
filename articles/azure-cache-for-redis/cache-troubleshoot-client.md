@@ -1,17 +1,17 @@
 ---
 title: Redis 클라이언트 쪽 문제에 대 한 Azure 캐시 문제 해결
-description: Redis 용 Azure Cache를 사용 하 여 일반적인 클라이언트 쪽 문제를 해결 하는 방법을 알아봅니다.
+description: Redis client memory 압력, 트래픽 버스트, 높은 CPU, 제한 된 대역폭, 큰 요청 또는 큰 응답 크기와 같은 Redis 용 Azure Cache를 사용 하 여 일반적인 클라이언트 쪽 문제를 해결 하는 방법에 대해 알아봅니다.
 author: yegu-ms
-ms.service: cache
-ms.topic: conceptual
-ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: a4fdbe9c0943e77719a9ee9da7dc358696284d99
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.service: cache
+ms.topic: troubleshooting
+ms.date: 10/18/2019
+ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433367"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Redis 클라이언트 쪽 문제에 대 한 Azure 캐시 문제 해결
 
@@ -48,7 +48,7 @@ ms.locfileid: "74122625"
 
 위의 예외에는 몇 가지 흥미로운 문제가 있습니다.
 
-- `IOCP` 섹션과 `WORKER` 섹션에 `Busy` 값보다 큰 `Min` 값이 있습니다. 이러한 차이는 `ThreadPool` 설정을 조정 해야 함을 의미 합니다.
+- `IOCP` 섹션과 `WORKER` 섹션에 `Min` 값보다 큰 `Busy` 값이 있습니다. 이러한 차이는 `ThreadPool` 설정을 조정 해야 함을 의미 합니다.
 - 또한 `in: 64221`도 볼 수 있습니다: 이 값은 64211 바이트를 클라이언트의 커널 소켓 계층에서 받았지만 응용 프로그램에서 읽지 않았음을 나타냅니다. 이러한 차이는 일반적으로 응용 프로그램 (예: Redis)이 서버에서 데이터를 전송 하는 것 처럼 네트워크에서 데이터를 읽지 않는다는 것을 의미 합니다.
 
 버스트 시나리오에서 스레드 풀이 신속 하 게 확장 되도록 [`ThreadPool` 설정을 구성할](https://gist.github.com/JonCole/e65411214030f0d823cb) 수 있습니다.
@@ -60,7 +60,7 @@ ms.locfileid: "74122625"
 Azure Portal 또는 컴퓨터의 성능 카운터를 통해 사용 가능한 메트릭을 사용 하 여 클라이언트의 시스템 전체 CPU 사용량을 모니터링 합니다. 단일 프로세스의 CPU 사용량이 낮지만 시스템 차원의 CPU가 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의 해야 합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다. 또한 CPU가 높으면 [트래픽 버스트](#traffic-burst) 섹션에 설명 된 대로 `TimeoutException` 오류 메시지에 높은 `in: XXX` 값이 발생할 수 있습니다.
 
 > [!NOTE]
-> StackExchange.Redis 1.1.603 이상은 `local-cpu` 오류 메시지에 `TimeoutException` 매트릭을 포함합니다. [StackExchange.Redis NuGet 패키지](https://www.nuget.org/packages/StackExchange.Redis/)최신 버전을 사용 중인지 확인합니다. 제한 시간에 더욱 견고하도록 만들기 위해 코드 속의 버그를 지속적으로 수정하고 있으므로 최신 버전을 갖는 것이 중요합니다.
+> StackExchange.Redis 1.1.603 이상은 `TimeoutException` 오류 메시지에 `local-cpu` 매트릭을 포함합니다. [StackExchange.Redis NuGet 패키지](https://www.nuget.org/packages/StackExchange.Redis/)최신 버전을 사용 중인지 확인합니다. 제한 시간에 더욱 견고하도록 만들기 위해 코드 속의 버그를 지속적으로 수정하고 있으므로 최신 버전을 갖는 것이 중요합니다.
 >
 
 클라이언트의 높은 CPU 사용량을 완화 하려면:
@@ -104,5 +104,5 @@ Azure Portal 또는 컴퓨터의 성능 카운터를 통해 사용 가능한 메
 
 ## <a name="additional-information"></a>추가 정보
 
-- [Redis 서버 쪽 문제에 대 한 Azure 캐시 문제 해결](cache-troubleshoot-server.md)
+- [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)
 - [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

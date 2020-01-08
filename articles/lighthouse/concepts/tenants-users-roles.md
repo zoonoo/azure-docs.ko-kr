@@ -3,12 +3,12 @@ title: Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 description: Azure Active Directory 테넌트, 사용자 및 역할의 개념과 Azure Lighthouse 시나리오에서 이러한 항목을 사용하는 방법을 알아봅니다.
 ms.date: 11/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1ad004c79f90f4642640405da9e8876b9202e98
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453564"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 
@@ -22,13 +22,13 @@ ms.locfileid: "74463937"
 
 ## <a name="role-support-for-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 대한 역할 지원
 
-권한 부여를 정의할 때 각 사용자 계정에는 [RBAC(역할 기반 액세스 제어) 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 중 하나를 할당해야 합니다. 사용자 지정 역할 및 [클래식 구독 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)은 지원되지 않습니다.
+권한 부여를 정의할 때 각 사용자 계정에는 [RBAC(역할 기반 액세스 제어) 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 중 하나를 할당해야 합니다. 사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 
-현재 모든 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)은 Azure 위임 리소스 관리에서 지원됩니다. 단, 다음과 같은 예외가 적용됩니다.
+현재 모든 [기본 제공 역할](../../role-based-access-control/built-in-roles.md)은 Azure 위임 리소스 관리에서 지원됩니다. 단, 다음과 같은 예외가 적용됩니다.
 
-- [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 역할은 지원되지 않습니다.
-- [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) 권한이 있는 기본 제공 역할은 지원되지 않습니다.
-- [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) 기본 제공 역할은 지원되지만, [고객 테넌트에서 관리 ID에 역할을 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)하는 제한된 목적으로만 사용할 수 있습니다. 이 역할에서 일반적으로 부여하는 다른 사용 권한은 적용되지 않습니다. 이 역할이 있는 사용자를 정의하는 경우 이 사용자가 관리 ID에 할당할 수 있는 기본 제공 역할도 지정해야 합니다.
+- [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할은 지원되지 않습니다.
+- [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할은 지원되지 않습니다.
+- [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 기본 제공 역할은 지원되지만, [고객 테넌트에서 관리 ID에 역할을 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)하는 제한된 목적으로만 사용할 수 있습니다. 이 역할에서 일반적으로 부여하는 다른 사용 권한은 적용되지 않습니다. 이 역할이 있는 사용자를 정의하는 경우 이 사용자가 관리 ID에 할당할 수 있는 기본 제공 역할도 지정해야 합니다.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>사용자 및 역할을 정의하기 위한 모범 사례
 
@@ -36,8 +36,8 @@ ms.locfileid: "74463937"
 
 - 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다.
 - 사용자가 작업을 완료하는 데 필요한 권한만 갖도록 하여 실수로 인한 오류 발생 가능성을 줄일 수 있게 최소 권한 원칙을 따라야 합니다. 자세한 내용은 [권장 보안 방법](../concepts/recommended-security-practices.md)을 참조하세요.
-- 필요한 경우 나중에 [위임에 대한 액세스 권한을 제거](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)할 수 있도록 [관리 서비스 등록 할당 삭제 역할](../how-to/onboard-customer.md#remove-access-to-a-delegation)에 사용자를 포함합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
-- [Azure Portal에서 내 고객 페이지를 볼 수 있어야](../how-to/view-manage-customers.md) 하는 모든 사용자에게 [읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) 역할(또는 읽기 권한자 액세스 권한을 포함하는 다른 기본 제공 역할)이 있어야 합니다.
+- 필요한 경우 나중에 [위임에 대한 액세스 권한을 제거](../how-to/onboard-customer.md#remove-access-to-a-delegation)할 수 있도록 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)에 사용자를 포함합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
+- [Azure Portal에서 내 고객 페이지를 볼 수 있어야](../how-to/view-manage-customers.md) 하는 모든 사용자에게 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할(또는 읽기 권한자 액세스 권한을 포함하는 다른 기본 제공 역할)이 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

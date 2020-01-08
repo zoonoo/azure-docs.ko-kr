@@ -1,5 +1,5 @@
 ---
-title: 로그 아웃 시 캐시에서 계정 제거-Microsoft identity platform | Microsoft
+title: 로그 아웃 시 토큰 캐시에서 계정 제거-Microsoft identity platform | Microsoft
 description: 로그 아웃 시 토큰 캐시에서 계정을 제거 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5472b424f7d2b44b62e6e4495afaf7bdfbbc8439
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423502"
 ---
 # <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>전역 로그 아웃 시 캐시에서 계정 제거
 
@@ -38,7 +38,7 @@ ms.locfileid: "74961661"
 
 응용 프로그램에 대해 등록 한 **로그 아웃 Url** 을 사용 하 여 single sign-on을 구현할 수 있습니다. Microsoft id 플랫폼 `logout` 끝점은 응용 프로그램에 등록 된 **로그 아웃 URL** 을 호출 합니다. 이 호출은 웹 앱 또는 다른 웹 앱 또는 브라우저에서 로그 아웃을 시작한 경우에 발생 합니다. 자세한 내용은 [Single sign-on](v2-protocols-oidc.md#single-sign-out)을 참조 하세요.
 
-```CSharp
+```csharp
 public static class WebAppServiceCollectionExtensions
 {
  public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")

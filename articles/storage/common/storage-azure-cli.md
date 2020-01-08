@@ -1,5 +1,5 @@
 ---
-title: Azure Storage에서 Azure CLI 사용 | Microsoft Docs
+title: Azure Storage에서 Azure CLI 사용
 description: Azure Storage에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Storage 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259398"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460462"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage에서 Azure CLI 사용
 
@@ -29,12 +29,12 @@ ms.locfileid: "70259398"
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 Storage 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
 
 ### <a name="accounts"></a>계정
-* **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **스토리지 계정**: [Azure Storage 계정 정보](storage-create-storage-account.md)에서 [Storage 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
+* **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/).
+* **Storage 계정**: [Azure 스토리지 계정 정보](storage-create-storage-account.md)의 [스토리지 계정 만들기](storage-quickstart-create-account.md) 섹션을 참조하세요.
 
 ### <a name="install-the-azure-cli"></a>Azure CLI 설치
 
@@ -195,8 +195,8 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
-  * `Standard_GZRS`모드
-  * `Standard_RAGZRS`모드
+  * `Standard_GZRS` (미리 보기)
+  * `Standard_RAGZRS` (미리 보기)
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>기본 Azure Storage 계정 환경 변수 설정
 
@@ -320,7 +320,7 @@ az storage blob copy start \
     --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-위의 예제에서는 복사 작업이 성공하기 위해 대상 컨테이너가 대상 스토리지 계정에 이미 있어야 합니다. 또한 `--source-uri` 인수에 지정된 원본 Blob는 SAS(공유 액세스 서명) 토큰을 포함하거나 이 예제에서처럼 공개적으로 액세스할 수 있어야 합니다.
+위의 예제에서는 복사 작업이 성공하기 위해 대상 컨테이너가 대상 스토리지 계정에 이미 있어야 합니다. 또한 `--source-uri` 인수에 지정된 원본 Blob은 SAS(공유 액세스 서명) 토큰을 포함하거나 이 예제에서처럼 공개적으로 액세스할 수 있어야 합니다.
 
 ### <a name="delete-a-blob"></a>Blob 삭제
 Blob을 삭제하려면 `blob delete` 명령을 사용합니다.
@@ -331,7 +331,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 
 ### <a name="set-the-content-type"></a>콘텐츠 형식 설정
 
-콘텐츠 형식((MIME 형식이라고도 함))은 Blob의 데이터 형식을 식별합니다. 브라우저 및 기타 소프트웨어는 콘텐츠 형식을 사용하여 데이터를 처리할 방법을 결정합니다. 예를 들어 PNG 이미지 `image/png`의 콘텐츠 형식은입니다. 콘텐츠 형식을 설정 하려면 명령을 사용 합니다 `blob update` .
+콘텐츠 형식((MIME 형식이라고도 함))은 Blob의 데이터 형식을 식별합니다. 브라우저 및 기타 소프트웨어는 콘텐츠 형식을 사용하여 데이터를 처리할 방법을 결정합니다. 예를 들어 PNG 이미지의 콘텐츠 형식은 `image/png`입니다. 콘텐츠 형식을 설정 하려면 `blob update` 명령을 사용 합니다.
 
 ```azurecli
 az storage blob update

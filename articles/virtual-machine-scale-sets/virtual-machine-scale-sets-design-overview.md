@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항 | Microsoft Docs
-description: Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항에 대해 알아보기
+title: Azure Virtual Machine Scale Sets에 대 한 디자인 고려 사항
+description: Azure Virtual Machine Scale Sets에 대 한 디자인 고려 사항에 대해 알아봅니다. 확장 집합 기능과 VM 기능을 비교 합니다.
 keywords: linux 가상 머신, 가상 머신 크기 집합
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4238e96465a1fd7ad3e73c62134437cd819fba8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618475"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359446"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
@@ -45,7 +45,7 @@ ms.locfileid: "60618475"
 - 네이티브 디스크에서 관리 디스크로 개별 VM을 마이그레이션할 수 있지만, 확장 집합의 VM 인스턴스는 마이그레이션할 수 없습니다.
 - 개별 VM 가상 NIC(네트워크 인터페이스 카드)에 IPv6 공용 IP 주소를 할당할 수 있지만 확장 집합의 VM 인스턴스에 대해서는 이렇게 할 수 없습니다. 개별 VM이나 확장 집합 VM 앞에 놓인 부하 분산 장치에 IPv6 공용 IP 주소를 할당할 수 있습니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Azure Managed Disks를 사용하는 확장 집합
 확장 집합은 기존의 Azure Storage 계정 대신 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용하여 만들 수 있습니다. Managed Disks는 다음과 같은 이점을 제공합니다.
@@ -64,7 +64,7 @@ Azure Managed Disks로 정의되지 않은 확장 집합은 사용자가 생성�
 
 오버프로비전을 사용하면 프로비전 성공률이 향상되지만 나타난 다음, 사라지는 추가 VM을 처리하도록 설계되지 않은 애플리케이션에서 동작이 혼란스러워질 수 있습니다. 오버프로비전을 해제하려면 템플릿에 `"overprovision": "false"` 문자열이 있어야 합니다. 자세한 내용은 [확장 집합 REST API 설명서](/rest/api/virtualmachinescalesets/create-or-update-a-set)에서 찾을 수 있습니다.
 
-확장 집합이 사용자 관리 스토리지를 사용하고 오버프로비전을 해제하는 경우 스토리지 계정당 20개 이상의 VM을 가질 수 있지만 IO 성능상의 이유로 40개 이상은 권장되지 않습니다. 
+크기 집합이 사용자 관리 스토리지를 사용하고 오버프로비전을 해제하는 경우 스토리지 계정당 20개 이상의 VM을 가질 수 있지만 IO 성능상의 이유로 40개 이상은 권장되지 않습니다. 
 
 ## <a name="limits"></a>제한
 Marketplace 이미지에 구축되고(플랫폼 이미지라고도 함) Azure Managed Disks를 사용하도록 구성된 확장 집합은 최대 1,000개의 VM 용량을 지원합니다. 100개 이상의 VM을 지원하도록 확장 집합을 구성하는 경우 모든 시나리오가 동일하게 동작하지 않습니다(예: 부하 분산). 자세한 내용은 [대규모 가상 머신 확장 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. 
