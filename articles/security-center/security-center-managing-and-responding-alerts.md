@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: c3134988452efe16044ab7b7740cafd02e8cf27a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201926"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666298"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 
@@ -65,7 +65,7 @@ ms.locfileid: "71201926"
     > [!NOTE]
     >일부 경우에는 원본 IP 주소를 사용할 수 없습니다. 일부 Windows 보안 이벤트 로그에는 IP 주소가 포함 되지 않습니다.
 
-1. Security Center에서 제안 하는 수정 단계는 보안 경고에 따라 다릅니다. 각 경고에 대해 다음을 수행 합니다. 경우에 따라 위협 검색 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
+1. Security Center에서 제안하는 수정 단계는 보안 경고에 따라 다릅니다. 각 경고에 대해 다음을 수행 합니다. 경우에 따라 위협 검색 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
 
     다음 항목에서는 리소스 유형에 따라 다양 한 경고를 안내 합니다.
     
@@ -76,9 +76,9 @@ ms.locfileid: "71201926"
     다음 항목에서는 azure에 배포 된 리소스에 대 한 추가 보호 계층을 적용 하기 위해 Security Center Azure 인프라와 통합 하 여 수집 하는 다양 한 원격 분석을 사용 하는 방법에 대해 설명 합니다.
     
     * [서비스 계층 경고](security-center-alerts-service-layer.md)
-    * [Azure 보안 제품과 통합](security-center-alerts-integration.md)
+    * [Azure WAF 및 Azure DDoS Protection에 대 한 위협 감지](security-center-alerts-integration.md)
     
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 이 문서에서는 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 

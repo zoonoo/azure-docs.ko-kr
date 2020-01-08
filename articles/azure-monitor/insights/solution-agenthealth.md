@@ -4,20 +4,20 @@ description: 이 문서는 Log Analytics 또는 System Center Operations Manager
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2017
-ms.openlocfilehash: 5a48bbff89f0d6a0be9adf2ad242dbca41eec6db
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555327"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402439"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
 Azure의 에이전트 상태 솔루션은 Azure Monitor의 Log Analytics 작업 영역에 직접 보고 하는 모든 에이전트 또는 Azure Monitor에 연결 된 System Center Operations Manager 관리 그룹 (응답 하지 않음)에 대해 이해 하는 데 도움이 됩니다. 운영 데이터를 제출 합니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 솔루션을 배포하기 전에 [Windows 에이전트](../../log-analytics/log-analytics-windows-agent.md)가 Log Analytic 작업 영역 또는 작업 영역에 통합된 [Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)에 보고하도록 지원하는지 확인합니다.
 
 ## <a name="solution-components"></a>솔루션 구성 요소
@@ -39,17 +39,17 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="supported-agents"></a>지원되는 에이전트
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 지원됨 | 설명 |
+| 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
-| Windows 에이전트 | yes | 하트비트 이벤트는 Windows 에이전트에서 직접 수집됩니다.|
-| System Center Operations Manager 관리 그룹 | yes | 하트 비트 이벤트는 관리 그룹에 보고 하는 에이전트에서 60 초 마다 수집 된 다음 Azure Monitor 전달 됩니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결 하는 것은 필요 하지 않습니다. 하트 비트 이벤트 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달 됩니다.|
+| Windows 에이전트 | 예 | 하트비트 이벤트는 Windows 에이전트에서 직접 수집됩니다.|
+| System Center Operations Manager 관리 그룹 | 예 | 하트 비트 이벤트는 관리 그룹에 보고 하는 에이전트에서 60 초 마다 수집 된 다음 Azure Monitor 전달 됩니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결 하는 것은 필요 하지 않습니다. 하트 비트 이벤트 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달 됩니다.|
 
 ## <a name="using-the-solution"></a>솔루션 사용
 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드에 **에이전트 상태** 타일이 추가됩니다. 이 타일은 총 에이전트 수와 지난 24시간 동안 응답하지 않는 에이전트의 수를 표시합니다.<br><br> ![대시보드의 에이전트 상태 솔루션 타일](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 **에이전트 상태**타일을 클릭하여 **에이전트 상태** 대시보드를 엽니다.  대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 이벤트를 나열합니다. 각 열의 오른쪽 아래쪽에 있는 **모두 보기**를 선택하거나 열 제목을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |--------|-------------|
 | 시간에 따른 에이전트 수 | Linux 및 Windows 에이전트에 대해 7일 동안의 에이전트 수의 추세입니다.|
 | 응답하지 않는 에이전트 개수 | 지난 24시간 동안 하트비트를 보내지 않은 에이전트의 목록입니다.|
@@ -68,7 +68,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="heartbeat-records"></a>하트비트 레코드
 **하트비트** 형식이 포함된 레코드가 만들어집니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
 
-| 자산 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | `Type` | *하트비트*|
 | `Category` | 값은 *직접 에이전트*, *SCOM 에이전트* 또는 *SCOM 관리 서버*합니다.|
@@ -86,12 +86,12 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 | `RemoteIPLongitude` | 컴퓨터 지리적 위치의 경도입니다.|
 | `RemoteIPLatitude` | 컴퓨터 지리적 위치의 위도입니다.|
 
-Operations Manager management server에 보고 하는 각 에이전트는 두 하트 비트를 보내고 SCAgentChannel 속성의 값은 보유 한 데이터 원본 및 모니터링 솔루션에 따라 **Direct** 및 **SCManagementServer** 를 모두 포함 합니다. 구독에서 사용할 수 있습니다. 기억 하는 경우 솔루션의 데이터는 Operations Manager management 서버에서 Azure Monitor로 직접 전송 되거나 에이전트에 수집 된 데이터의 양에 따라 에이전트에서 Azure Monitor으로 직접 전송 됩니다. **SCManagementServer** 값이 있는 하트비트 이벤트의 경우, ComputerIP 값은 관리 서버가 데이터를 실제로 업로드하기 때문에 관리 서버의 IP 주소가 됩니다.  SCAgentChannel가 **직접**에 설정된 하트비트의 경우 이 값은 에이전트의 공용 IP 주소입니다.  
+Operations Manager management server에 보고 하는 각 에이전트는 두 하트 비트를 보내고 SCAgentChannel 속성의 값은 구독에서 사용 하도록 설정한 데이터 원본 및 모니터링 솔루션에 따라 **Direct** 및 **SCManagementServer** 를 모두 포함 합니다. 기억 하는 경우 솔루션의 데이터는 Operations Manager management 서버에서 Azure Monitor로 직접 전송 되거나 에이전트에 수집 된 데이터의 양에 따라 에이전트에서 Azure Monitor으로 직접 전송 됩니다. **SCManagementServer** 값이 있는 하트비트 이벤트의 경우, ComputerIP 값은 관리 서버가 데이터를 실제로 업로드하기 때문에 관리 서버의 IP 주소가 됩니다.  SCAgentChannel가 **직접**에 설정된 하트비트의 경우 이 값은 에이전트의 공용 IP 주소입니다.  
 
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 다음 테이블은 이 솔루션에 의해 수집된 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |에이전트의 총수 |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |지난 24시간 동안 응답하지 않는 에이전트 개수 |

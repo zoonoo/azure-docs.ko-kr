@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 97fcd3241be6dac81adfa8e17999d92d84abaa19
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598231"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647291"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Azure Network Watcher에 대 한 FAQ (질문과 대답)
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 서비스는 azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구 모음을 제공 합니다. 이 문서에서는 서비스에 대 한 일반적인 질문에 답변 합니다.
 
 ## <a name="general"></a>일반
 
-### <a name="what-is-network-watcher"></a>Network Watcher 이란?
+### <a name="what-is-network-watcher"></a>Network Watcher란?
 Network Watcher는 Azure virtual network의 Virtual Machines, 가상 네트워크, 응용 프로그램 게이트웨이, 부하 분산 장치 및 기타 리소스를 포함 하는 IaaS (Infrastructure as a Service) 구성 요소의 네트워크 상태를 모니터링 하 고 복구 하도록 설계 되었습니다. PaaS (Platform as a Service) 인프라를 모니터링 하거나 웹/모바일 분석을 받기 위한 솔루션은 아닙니다.
 
 ### <a name="what-tools-does-network-watcher-provide"></a>Network Watcher에서 제공 하는 도구
@@ -51,14 +51,20 @@ Network Watcher는 세 가지 주요 기능 집합을 제공 합니다.
 ### <a name="how-does-network-watcher-pricing-work"></a>Network Watcher 가격은 어떻게 작동 하나요?
 Network Watcher 구성 요소 및 가격 책정에 대 한 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/network-watcher/) 를 방문 하세요.
 
-### <a name="which-regions-is-network-watcher-available-in"></a>Network Watcher 사용할 수 있는 지역은 어디 인가요?
+### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>Network Watcher 지원/사용할 수 있는 지역은 어디 인가요?
 [Azure 서비스 가용성 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher) 에서 최신 지역의 가용성을 확인할 수 있습니다.
 
 ### <a name="what-are-resource-limits-on-network-watcher"></a>Network Watcher에 대 한 리소스 제한은 무엇 인가요?
-모든 제한에 대해서는 [서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) 페이지를 참조 하세요.  
+모든 제한에 대해서는 [서비스 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) 페이지를 참조 하세요.  
 
 ### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>지역별 Network Watcher 인스턴스는 하나만 허용 되는 이유는 무엇 인가요?
 Network Watcher 작동 하는 기능에 대 한 구독에 대해 한 번만 사용 하도록 설정 해야 하는 것은 서비스 제한이 아닙니다.
+
+### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>Network Watcher 확장을 설치 해야 하는 이유는 무엇 인가요? 
+Network Watcher 확장은 VM에서 트래픽을 생성 하거나 가로채는 데 필요한 모든 기능에 필요 합니다. 
+
+### <a name="which-features-require-the-network-watcher-extension"></a>Network Watcher 확장이 필요한 기능은 무엇입니까?
+패킷 캡처, 연결 문제 해결 및 연결 모니터에만 Network Watcher 확장이 있어야 합니다.
 
 ## <a name="nsg-flow-logs"></a>NSG 흐름 로그
 

@@ -4,7 +4,7 @@
   items:
     - name: Security Center 정보
       href: security-center-intro.md
-    - name: 지원되는 플랫폼
+    - name: 지원 플랫폼
       href: security-center-os-coverage.md
     - name: 지원되는 기능
       href: security-center-services.md
@@ -29,7 +29,7 @@
       href: security-center-compliance-dashboard.md
 - name: 개념
   items:
-    - name: 권한
+    - name: 사용 권한
       href: security-center-permissions.md
     - name: 데이터 보안
       href: security-center-data-security.md
@@ -49,6 +49,8 @@
       items:
         - name: 보안 경고 개요
           href: security-center-alerts-overview.md
+        - name: 경고의 참조 목록
+          href: alerts-reference.md
         - name: 보안 경고 관리
           href: security-center-managing-and-responding-alerts.md
         - name: 보안 인시던트 관리
@@ -61,7 +63,7 @@
           href: security-center-alerts-data-services.md
         - name: Azure 서비스 계층에 대한 위협 탐지
           href: security-center-alerts-service-layer.md
-        - name: Azure 보안 제품과 통합
+        - name: Azure WAF 및 Azure DDoS Protection에 대한 위협 탐지
           href: security-center-alerts-integration.md
         - name: 클라우드 스마트 경고 상관 관계(인시던트)
           href: security-center-alerts-cloud-smart.md
@@ -75,6 +77,14 @@
       href: security-center-secure-score.md
     - name: 고급 보안으로 업그레이드
       href: security-center-onboarding.md
+    - name: VM 취약성 검색
+      items:
+        - name: 취약성 검색 개요
+          href: security-center-vulnerability-assessment-recommendations.md
+        - name: VM에 대한 통합 취약성 검사기
+          href: built-in-vulnerability-assessment.md
+        - name: 외부 검사기 사용
+          href: partner-vulnerability-assessment.md
     - name: Microsoft Defender ATP를 사용하여 서버 보호
       href: security-center-wdatp.md
     - name: Azure VM의 SQL에 대한 Advanced Data Security 사용
@@ -125,14 +135,12 @@
           href: security-center-remediate-recommendations.md
         - name: 보안 상태 강화
           href: security-center-monitoring.md
+        - name: 권장 사항 참조 목록
+          href: recommendations-reference.md
         - name: 머신 및 응용 프로그램 보호
           href: security-center-virtual-machine-protection.md
-        - name: 머신 및 앱 권장 사항 참조
-          href: recommendations-compute-and-apps.md
         - name: 네트워크 리소스 사용
           href: security-center-network-recommendations.md
-        - name: 네트워크 권장 사항 참조
-          href: recommendations-network.md
         - name: 파일 및 스토리지 서비스 보호
           href: security-center-sql-service-recommendations.md
         - name: ID 및 액세스 보호
@@ -155,8 +163,6 @@
           href: security-center-apply-system-updates.md
         - name: Endpoint Protection 설치
           href: security-center-install-endpoint-protection.md
-        - name: 취약성 평가 설치되지 않음
-          href: security-center-vulnerability-assessment-recommendations.md
         - name: 위협 보고서
           href: security-center-threat-report.md
         - name: 경고 신뢰도 점수
@@ -169,7 +175,7 @@
           href: security-center-playbooks.md
         - name: 계획 및 작업
           href: security-center-planning-and-operations-guide.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'

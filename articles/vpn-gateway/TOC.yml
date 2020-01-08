@@ -136,6 +136,8 @@
           items:
             - name: 테넌트 구성
               href: openvpn-azure-ad-tenant.md
+            - name: 여러 클라이언트 앱을 사용하여 테넌트 구성
+              href: openvpn-azure-ad-tenant-multi-app.md
             - name: MFA(Multi-Factor Authentication) 구성
               href: openvpn-azure-ad-mfa.md
             - name: VPN 클라이언트 구성
@@ -243,7 +245,7 @@
           href: vpn-gateway-configure-vpn-gateway-mp.md
         - name: 클래식에서 Resource Manager로 마이그레이션
           href: vpn-gateway-classic-resource-manager-migration.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.network#vpn'
@@ -266,7 +268,7 @@
     - name: 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
     - name: 구독 및 서비스 한도
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/vpn-gateway'
     - name: 요금 계산기

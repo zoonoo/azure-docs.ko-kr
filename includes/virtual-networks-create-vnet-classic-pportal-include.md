@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: ac5599a38c3fcbc4a6c331d2b14c6b6c55c31d82
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8d13d5d93dba66fa0dce08ffbf569164fb03398d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850425"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468428"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Azure 포털에서 클래식 VNet을 만드는 방법
 이전 시나리오에 따라 클래식 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. 브라우저에서 https://portal.azure.com으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
+1. 브라우저에서 https://portal.azure.com 으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
 2. **리소스 만들기** > **네트워킹** > **가상 머신**을 클릭합니다. **배포 모델 선택** 목록에 이미 **클래식**이 표시됩니다. 3. 다음 그림에 표시된 대로 **만들기**를 클릭합니다.
    
     ![Azure 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 4. **가상 네트워크** 창에서 VNet의 **이름**을 입력하고 **주소 공간**을 클릭합니다. VNet 및 첫 번째 서브넷에 대한 주소 공간 설정을 구성하고 **확인**을 클릭합니다. 다음 그림에서는 이 시나리오에 대한 CIDR 블록 설정을 보여 줍니다.
    
     ![주소 공간 창](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-5. **리소스 그룹**을 클릭하고 VNet을 추가할 리소스 그룹을 클릭하거나 **새 리소스 그룹 만들기**를 클릭하여 새 리소스 그룹에 VNet을 추가합니다. 다음 그림은 **TestRG**라는 새 리소스 그룹에 대한 리소스 그룹 설정을 보여 줍니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.
+5. **리소스 그룹**을 클릭하고 VNet을 추가할 리소스 그룹을 클릭하거나 **새 리소스 그룹 만들기**를 클릭하여 새 리소스 그룹에 VNet을 추가합니다. 다음 그림은 **TestRG**라는 새 리소스 그룹에 대한 리소스 그룹 설정을 보여 줍니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../articles/azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
    
     ![리소스 그룹 창 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 6. 필요한 경우 VNet에 맞게 **구독** 및 **위치** 설정을 변경합니다. 

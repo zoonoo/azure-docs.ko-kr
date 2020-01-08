@@ -1,23 +1,17 @@
 ---
-title: Azure App Configuration 키 값 저장소 | Microsoft Docs
-description: 구성 데이터가 Azure App Configuration에 저장되는 방법을 간략히 설명합니다.
-services: azure-app-configuration
-documentationcenter: ''
+title: Azure 앱 구성 키-값 저장소
+description: 구성 데이터가 Azure 앱 구성에 저장 되는 방식에 대 한 개요입니다.
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 054de294c9edb0fe5b75da4ac7fd54ce987123de
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 04/19/2019
+ms.openlocfilehash: 11e019e276944e0c3f50d604420046979b5f3fbb
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185234"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495275"
 ---
 # <a name="keys-and-values"></a>키 및 값
 
@@ -77,7 +71,7 @@ App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 �
 
 | 키 | |
 |---|---|
-| `key`는 생략 또는 `key=*` | 모든 키와 일치 |
+| `key`은 생략 또는 `key=*` | 모든 키와 일치 |
 | `key=abc` | **abc** 키 이름과 정확하게 일치 |
 | `key=abc*` | **abc**로 시작하는 키 이름과 일치 |
 | `key=*abc` | **abc**로 끝나는 키 이름과 일치 |

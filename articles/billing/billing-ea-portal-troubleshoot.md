@@ -1,19 +1,19 @@
 ---
-title: Azure EA 포털 액세스 문제 해결
+title: Azure EA Portal 액세스 문제 해결
 description: 이 문서에서는 Azure EA Portal에서 Azure 기업계약(EA)에 발생할 수 있는 몇 가지 일반적인 문제에 대해 설명합니다.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ff8408a098049d860a614900bdeea80da1bd95e4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f48aaee34dd35f065fd7e2d065316674b72db7c5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841390"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644429"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Azure EA Portal 액세스 문제 해결
 
@@ -166,4 +166,4 @@ Microsoft Live ID 암호를 잊어버린 경우 [https://account.live.com/passwo
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure EA 포털 관리자는 [Azure EA 포털 관리](billing-ea-portal-administration.md)를 읽고 일반적인 관리 작업에 대해 알아보아야 합니다.
+- Azure EA Portal 관리자는 [Azure EA Portal 관리](billing-ea-portal-administration.md)를 읽고 일반적인 관리 작업에 대해 알아보아야 합니다.

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4d44598bd1352ac6d4d98ae73838fbfc9e2485e7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ac3aa0dc619ec05dcd79a4f8740026b1eabc19aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427710"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 알고리즘을 최적화 하는 매개 변수 선택
 
@@ -23,7 +23,7 @@ ms.locfileid: "73838428"
 
 
 
-모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서 교차 유효성 검사는 모델 선택에 가장 널리 사용 되는 방법 중 하나 이며 Azure Machine Learning Studio 클래식 버전의 기본 모델 선택 메커니즘입니다. 클래식 버전의 Azure Machine Learning Studio R과 Python을 모두 지원 하기 때문에 언제 든 지 R 또는 Python을 사용 하 여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
+모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서 교차 유효성 검사는 모델 선택에 가장 널리 사용 되는 방법 중 하나 이며 Azure Machine Learning Studio (클래식)의 기본 모델 선택 메커니즘입니다. Azure Machine Learning Studio (클래식)에서 R과 Python을 모두 지원 하기 때문에 항상 R 또는 Python을 사용 하 여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
 
 최상의 매개 변수 집합을 찾는 프로세스는 4단계로 구성됩니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "73838428"
 3. **메트릭 정의**: 최상의 매개 변수 집합(예: 정확도, 평균 제곱근 오차, 정밀도, 재현율 또는 f-score)을 결정하는 데 사용할 메트릭을 결정합니다.
 4. **학습, 평가 및 비교**: 매개 변수 값의 각 고유한 조합에 대해 정의한 오류 메트릭을 기반으로 교차 유효성 검사를 수행합니다. 평가 및 비교 후에 최고 성능 모델을 선택할 수 있습니다.
 
-다음 그림에서는 클래식 버전의 Azure Machine Learning Studio에서이를 수행 하는 방법을 보여 줍니다.
+다음 이미지는 Azure Machine Learning Studio (클래식)에서이를 달성할 수 있는 방법을 보여 줍니다.
 
 ![최상의 매개 변수 집합 찾기](./media/algorithm-parameters-optimize/fig1.png)
 

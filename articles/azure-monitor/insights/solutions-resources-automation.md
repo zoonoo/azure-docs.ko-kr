@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401813"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
 > [!NOTE]
@@ -26,12 +26,12 @@ ms.locfileid: "72555250"
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드]( solutions-creating.md)에서 설명한 매개 변수와 변수가 사용 
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 이미 다음 정보에 대해 잘 알고 있다고 가정합니다.
 
 - 방법: [관리 솔루션 만들기]( solutions-creating.md)
 - 구조: [솔루션 파일]( solutions-solution-file.md)
-- 방법: [Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)
+- 방법: [Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Automation 계정
 Azure Automation의 모든 리소스는 [Automation 계정](../../automation/automation-security-overview.md#automation-account-overview)에 포함됩니다.  [Log Analytics 작업 영역 및 Automation 계정]( solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 Automation 계정은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
@@ -69,7 +69,7 @@ Azure Automation의 모든 리소스는 [Automation 계정](../../automation/aut
 
 Runbook의 속성은 다음 표에서 설명하고 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | runbookType |runbook 유형을 지정합니다. <br><br> Script - PowerShell 스크립트 <br>PowerShell - PowerShell 워크플로 <br> GraphPowerShell - 그래픽 PowerShell 스크립트 runbook <br> GraphPowerShellWorkflow - 그래픽 PowerShell 워크플로 runbook |
 | logProgress |runbook에 대한 [진행률 레코드](../../automation/automation-runbook-output-and-messages.md)를 생성해야 하는지 지정합니다. |
@@ -105,10 +105,10 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 자동화 작업의 속성은 다음 표에서 설명하고 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | runbook |시작할 Runbook의 이름을 포함하는 단일 이름 엔터티입니다. |
-| parameters |Runbook에 필요한 각 매개 변수 값의 엔터티입니다. |
+| 매개 변수 |Runbook에 필요한 각 매개 변수 값의 엔터티입니다. |
 
 작업에는 runbook 이름과 runbook으로 전송되는 모든 매개 변수 값이 포함됩니다.  작업 전에 Runbook을 만들어야 하므로 작업은 시작하는 Runbook에 따라 [달라집니다]( solutions-solution-file.md#resources).  시작해야 하는 Runbook이 여러 개 있는 경우 작업을 먼저 실행해야 하는 다른 작업에 종속되게 하여 순서를 정의 할 수 있습니다.
 
@@ -136,7 +136,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 인증서 리소스의 속성은 다음 표에서 설명하고 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | base64Value |인증서에 대한 Base 64 값입니다. |
 | thumbprint |인증서의 지문입니다. |
@@ -163,10 +163,10 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 자격 증명 리소스의 속성은 다음 표에서 설명하고 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | userName |인증서의 사용자 이름입니다. |
-| 암호 |인증서의 암호입니다. |
+| password |인증서의 암호입니다. |
 
 
 ## <a name="schedules"></a>일정
@@ -191,7 +191,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 일정 리소스의 속성은 다음 테이블에 설명되어 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | description |일정에 대한 선택적 설명입니다. |
 | startTime |일정 시작 시간을 DateTime 개체로 지정합니다. 적합한 DateTime으로 변환될 수 있는 경우 문자열을 제공할 수 있습니다. |
@@ -234,7 +234,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 작업 일정의 속성은 다음 표에서 설명하고 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 일정 이름 |일정의 이름을 포함하는 단일 **이름** 엔터티입니다. |
 | Runbook 이름  |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
@@ -261,7 +261,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 변수 리소스의 속성은 다음 표에서 설명하고 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | description | 변수에 대한 선택적 설명입니다. |
 | isEncrypted | 변수를 암호화해야 하는지 지정합니다. |
@@ -273,11 +273,11 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 변수에 대한 초기 값을 설정하는 경우 올바른 데이터 형식으로 구성해야 합니다.  다음 표에서는 허용 가능한 여러 데이터 형식과 해당 구문을 제공합니다.  JSON의 값에서는 항상 특수 문자를 인용 부호로 묶고 전체 값도 인용 부호로 묶어야 합니다.  예를 들어 문자열 값은 따옴표로 묶고(이스케이프 문자(\\) 사용), 숫자 값은 하나의 인용 부호 세트로 묶어야 합니다.
 
-| 데이터 형식 | 설명 | 예제 | 결과 값 |
+| 데이터 형식 | Description | 예 | 결과 값 |
 |:--|:--|:--|:--|
 | 문자열   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
 | numeric  | 작은따옴표가 있는 숫자 값| "64" | 64 |
-| 부울  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
+| boolean  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
 | Datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>모듈
@@ -301,7 +301,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 모듈 리소스의 속성은 다음 표에서 설명하고 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | contentLink |모듈의 내용을 지정합니다. <br><br>uri - 모듈 내용에 대한 Uri입니다.  이 URL은 PowerShell 및 Script runbook의 경우 .ps1 파일이 되고 그래프 runbook의 경우 내보낸 그래픽 runbook 파일이 됩니다.  <br> version - 자체적으로 추적하기 위한 모듈의 버전입니다. |
 

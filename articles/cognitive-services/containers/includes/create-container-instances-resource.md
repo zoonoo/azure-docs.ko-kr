@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 1679862b1660d3c8b2505c6e0c54f203f5d4665d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 18f4edf5cc63a448779423cc1b302130b4b80724
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383533"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692523"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Azure Container Instance 리소스 만들기
 
@@ -22,10 +22,10 @@ ms.locfileid: "74383533"
 
 2. **기본 사항** 탭에서 다음 세부 정보를 입력 합니다.
 
-    |설정|Value|
+    |설정|값|
     |--|--|
     |Subscription|구독을 선택합니다.|
-    |Resource group|사용 가능한 리소스 그룹을 선택 하거나 `cognitive-services`와 같은 새 리소스 그룹을 만듭니다.|
+    |리소스 그룹|사용 가능한 리소스 그룹을 선택 하거나 `cognitive-services`와 같은 새 리소스 그룹을 만듭니다.|
     |컨테이너 이름|`cognitive-container-instance`와 같은 이름을 입력 합니다. 이름은 하위 캡 이어야 합니다.|
     |위치|배포할 지역을 선택 합니다.|
     |이미지 형식|컨테이너 이미지가 자격 증명이 필요 하지 않은 컨테이너 레지스트리에 저장 되어 있는 경우 `Public`를 선택 합니다. 컨테이너 이미지에 액세스 하는 데 자격 증명이 필요한 경우 `Private`를 선택 합니다. 컨테이너 이미지를 `Public` 또는 `Private` ("공개 미리 보기") 여부에 대 한 자세한 내용은 [컨테이너 리포지토리 및 이미지](../../cognitive-services-container-support.md#container-repositories-and-images) 를 참조 하세요. |
@@ -35,18 +35,18 @@ ms.locfileid: "74383533"
 
 3. **네트워킹** 탭에서 다음 세부 정보를 입력 합니다.
 
-    |설정|Value|
+    |설정|값|
     |--|--|
     |포트|TCP 포트를 `5000`설정 합니다. 포트 5000의 컨테이너를 노출 합니다.|
 
 4. **고급** 탭에서 Azure container Instance 리소스의 컨테이너 청구 설정에 필요한 **환경 변수** 를 입력 합니다.
 
-    | 키 | Value |
+    | 키 | 값 |
     |--|--|
     |`apikey`|리소스의 **키** 페이지에서 복사 합니다. `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`공백이 나 대시가 없는 32 영숫자 문자열입니다.|
     |`billing`|리소스의 **개요** 페이지에서 복사 합니다.|
     |`eula`|`accept`|
 
-1. **검토 및 만들기를** 클릭 합니다.
-1. 유효성 검사를 통과 한 후 **만들기** 를 클릭 하 여 만들기 프로세스를 마칩니다.
-1. 리소스가 성공적으로 배포 되 면 준비 된 것입니다.
+5. **검토 및 만들기를** 클릭 합니다.
+6. 유효성 검사를 통과 한 후 **만들기** 를 클릭 하 여 만들기 프로세스를 마칩니다.
+7. 리소스가 성공적으로 배포 되 면 준비 된 것입니다.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 8ab4cb6b06f0f023a8f6368dac633a97afe29fd4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390016"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614966"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Queue storage에 대한 성능 및 확장성 검사 목록
 
@@ -45,13 +45,13 @@ Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장�
 | &nbsp; |대량 검색 |[여러 메시지를 단일 GET 작업으로 검색합니까?](#batch-retrieval) |
 | &nbsp; |폴링 빈도 |[애플리케이션의 체감 대기 시간을 단축할 수 있을 만큼 자주 폴링을 수행하고 있습니까?](#queue-polling-interval) |
 | &nbsp; |메시지 업데이트 |[오류 발생 시 전체 메시지를 다시 처리할 필요가 없도록 메시지 업데이트 작업을 사용하여 메시지 처리 진행 상황을 저장하고 있습니까?](#use-update-message) |
-| &nbsp; |아키텍처 |[장기 실행 작업을 중요 경로 외부에서만 실행하고 독립적으로 확장함으로써 큐를 통해 전체 애플리케이션의 확장성을 높이고 있습니까?](#application-architecture) |
+| &nbsp; |Architecture |[장기 실행 작업을 중요 경로 외부에서만 실행하고 독립적으로 확장함으로써 큐를 통해 전체 애플리케이션의 확장성을 높이고 있습니까?](#application-architecture) |
 
 ## <a name="scalability-targets"></a>확장성 목표
 
 애플리케이션이 확장성 목표에 도달하거나 목표를 초과하는 경우 트랜잭션 대기 시간이 길어지거나 제한이 증가할 수 있습니다. Azure Storage에서 애플리케이션을 제한하면 서비스에서 503(서버 작업 중) 또는 500(작업 시간 제한) 오류 코드를 반환하기 시작합니다. 확장성 목표의 한도 내에서 유지하여 이러한 오류를 방지하는 것은 애플리케이션의 성능을 향상시키는 데 중요한 부분입니다.
 
-큐 서비스의 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#azure-queue-storage-scale-targets)를 참조하세요.
+큐 서비스의 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage)를 참조하세요.
 
 ### <a name="maximum-number-of-storage-accounts"></a>최대 스토리지 계정 수
 

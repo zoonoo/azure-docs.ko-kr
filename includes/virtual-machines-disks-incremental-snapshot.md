@@ -5,23 +5,21 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/23/2019
+ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
-ms.translationtype: MT
+ms.openlocfilehash: b936c3a320a99d0853cb331fcd0bc44718527b9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566308"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468527"
 ---
 증분 스냅숏 (미리 보기)은 마지막 스냅숏 이후의 모든 변경 내용 으로만 구성 된 관리 디스크의 지정 시간 백업입니다. 증분 스냅숏을 다운로드 하거나 사용 하지 않으면 전체 VHD가 사용 됩니다. 관리 디스크 스냅숏에 대 한 이러한 새로운 기능을 사용 하면 필요한 경우를 제외 하 고 각 개별 스냅숏으로 전체 디스크를 저장 하는 것이 더 이상 필요 하지 않으므로 관리 디스크 스냅숏에 대 한 이러한 새로운 기능을 사용 하는 것이 더 비용 효율적입니다. 일반 스냅숏과 마찬가지로 증분 스냅숏은 전체 관리 디스크를 만드는 데 사용 하거나 일반 스냅숏을 만드는 데 사용할 수 있습니다.
 
 증분 스냅숏과 일반 스냅숏 간에는 몇 가지 차이점이 있습니다. 증분 스냅숏은 디스크의 저장소 유형과 관계 없이 항상 표준 Hdd 저장소를 사용 하는 반면, 일반 스냅숏은 프리미엄 Ssd를 사용할 수 있습니다. Premium Storage에서 정기적인 스냅숏을 사용 하 여 VM 배포를 강화 하는 경우 [공유 이미지 갤러리](../articles/virtual-machines/linux/shared-image-galleries.md)의 standard Storage에서 사용자 지정 이미지를 사용 하는 것이 좋습니다. 이를 통해 더 저렴 한 비용으로 더 광범위 한 규모를 달성할 수 있습니다. 또한 증분 스냅숏은 ZRS ( [영역 중복 저장소](../articles/storage/common/storage-redundancy-zrs.md) )를 사용 하 여 더 높은 안정성을 제공할 수 있습니다. 선택한 지역에서 ZRS을 사용할 수 있는 경우 증분 스냅숏은 ZRS을 자동으로 사용 합니다. ZRS를 지역에서 사용할 수 없는 경우 스냅숏은 기본적으로 LRS ( [로컬 중복 저장소](../articles/storage/common/storage-redundancy-lrs.md) )로 사용 됩니다. 이 동작을 재정의 하 고 하나를 수동으로 선택할 수 있지만 권장 되지는 않습니다.
 
 또한 증분 스냅숏은 관리 디스크에 고유 하 게 사용할 수 있는 차등 기능을 제공 합니다. 이를 통해 동일한 관리 디스크의 두 증분 스냅숏 간의 변경 내용을 블록 수준까지 가져올 수 있습니다. 이 기능을 사용 하 여 지역 간에 스냅숏을 복사할 때 데이터 공간을 줄일 수 있습니다.
-
-아직 미리 보기에 등록 하지 않았고 증분 스냅숏 사용을 시작 하려는 경우 공개 미리 보기에 대 한 액세스 권한을 얻기 위해 AzureDisks@microsoft.com 전자 메일을 보내 주시기 바랍니다.
 
 ## <a name="restrictions"></a>제한
 
@@ -156,8 +154,4 @@ Azure Resource Manager 템플릿을 사용 하 여 증분 스냅숏을 만들 �
 
 ## <a name="next-steps"></a>다음 단계
 
-1. 아직 미리 보기에 등록 하지 않았고 증분 스냅숏 사용을 시작 하려는 경우 공개 미리 보기에 대 한 액세스 권한을 얻기 위해 AzureDisks@microsoft.com 전자 메일을 보내 주시기 바랍니다. 
-
-2. 차등 기능을 사용 하 여 증분 스냅숏의 지역 간 복사본에 대 한 다음 샘플을 탐색 합니다.   
-
-    - [Azure .Net Sdk 사용](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
+.NET을 사용 하 여 증분 스냅숏의 차등 기능을 보여 주는 샘플 코드를 보려면 [증분 스냅숏의 차등 기능을 사용 하 여 다른 지역에 Azure Managed Disks 백업 복사](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)를 참조 하세요.

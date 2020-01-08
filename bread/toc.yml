@@ -102,7 +102,7 @@
     - name: Application Gateway
       tocHref: /azure/application-gateway/
       topicHref: /azure/application-gateway/
-    - name: IoT 용 ASC
+    - name: IoT용 ASC
       tocHref: /azure/asc-for-iot/
       topicHref: /azure/asc-for-iot/
     - name: Automation
@@ -139,6 +139,10 @@
     - name: Azure Monitor
       tocHref: /azure/azure-monitor/
       topicHref: /azure/azure-monitor/
+      items:
+        - name: Application Insights
+          tocHref: /azure/azure-monitor/azure-monitor-app-hub
+          topicHref: /azure/azure-monitor/azure-monitor-app-hub
     - name: Azure Spatial Anchors
       tocHref: /azure/spatial-anchors/
       topicHref: /azure/spatial-anchors/
@@ -170,7 +174,7 @@
     - name: CloudSimple의 Azure VMware 솔루션
       tocHref: /azure/vmware-cloudsimple/
       topicHref: /azure/vmware-cloudsimple/
-    - name: Azure Portal 사용자 지정
+    - name: Azure Portal 문서
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
     - name: 사물 인터넷
@@ -226,6 +230,19 @@
     - name: 리소스 관리자
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
+      items:
+        - name: 템플릿
+          tocHref: /azure/azure-resource-manager/templates/
+          topicHref: /azure/azure-resource-manager/templates/
+        - name: 관리
+          tocHref: /azure/azure-resource-manager/management/
+          topicHref: /azure/azure-resource-manager/management/
+        - name: Managed Applications
+          tocHref: /azure/azure-resource-manager/managed-applications/
+          topicHref: /azure/azure-resource-manager/managed-applications/
+        - name: Azure 사용자 지정 공급자
+          tocHref: /azure/azure-resource-manager/custom-providers/
+          topicHref: /azure/azure-resource-manager/custom-providers/
     - name: SignalR Service
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -408,7 +425,7 @@
         - name: DC/OS 및 Swarm
           tocHref: /azure/container-service/dcos-swarm/
           topicHref: /azure/container-service/dcos-swarm/
-        - name: kubernetes
+        - name: Kubernetes
           tocHref: /azure/container-service/kubernetes/
           topicHref: /azure/container-service/kubernetes/
     - name: Bastion
@@ -659,6 +676,9 @@
         - name: 개발
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: 벤치마크
+          tocHref: /azure/security/benchmarks/
+          topicHref: /azure/security/benchmarks/
     - name: Security Center
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
@@ -695,7 +715,7 @@
     - name: SQL Server Stretch Database
       tocHref: /azure/sql-server-stretch-database/
       topicHref: /azure/sql-server-stretch-database/
-    - name: Storage
+    - name: 스토리지
       tocHref: /azure/storage/
       topicHref: /azure/storage/
       items:
@@ -769,7 +789,7 @@
     - name: Virtual Network
       tocHref: /azure/virtual-network/
       topicHref: /azure/virtual-network/
-    - name: 피어링 서비스
+    - name: Peering Service
       tocHref: /azure/peering-service/
       topicHref: /azure/peering-service/
     - name: VPN Gateway

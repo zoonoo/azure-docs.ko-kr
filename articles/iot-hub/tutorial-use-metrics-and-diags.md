@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084370"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429094"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -34,9 +34,9 @@ ms.locfileid: "74084370"
 > * 경고가 발생될 때까지 앱 실행 
 > * 메트릭 결과를 보고 진단 로그를 확인합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 - [Visual Studio](https://www.visualstudio.com/)를 설치합니다. 
 
@@ -50,7 +50,7 @@ ms.locfileid: "74084370"
 
 다음과 같은 단계가 필요합니다.
 
-1. [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 
+1. [리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 
 
 2. IoT Hub를 만듭니다.
 
@@ -209,7 +209,7 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
     다음 필드를 입력합니다.
 
-    **이름**: *telemetry-messages*와 같은 경고 규칙의 이름을 입력합니다.
+    **Name**: *telemetry-messages*와 같은 경고 규칙의 이름을 입력합니다.
 
     **설명**: *1000개의 원격 분석 메시지를 보낸 경우 경고*와 같이 경고에 대한 설명을 입력합니다. 
 
@@ -239,7 +239,7 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
    **클래식 경고 보기** 화면에서 **메트릭 경고 추가(클래식)** 를 클릭한 다음, **규칙 추가** 창에서 이러한 필드를 입력합니다.
 
-   **이름**: *number-of-messages-used*와 같은 경고 규칙의 이름을 입력합니다.
+   **Name**: *number-of-messages-used*와 같은 경고 규칙의 이름을 입력합니다.
 
    **설명**: *할당량에 근접할 때 경고*와 같이 경고에 대한 설명을 입력합니다.
 

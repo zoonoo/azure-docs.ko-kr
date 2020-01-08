@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: a206b63b03bcb3bb17e201487f0e00bcb3926151
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582235"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646730"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Azure Blob storage로 데이터 이동
 
@@ -21,7 +21,7 @@ ms.locfileid: "73582235"
 
 이러한 사실을 염두에 두십시오.
 
-* Azure HPC 캐시는 특수화 된 저장소 형식을 사용 하 여 Blob storage에서 데이터를 구성 합니다. 이것은 Blob storage 대상이 새 빈 컨테이너 이거나 이전에 Azure HPC 캐시 데이터에 사용 된 Blob 컨테이너 여야 하는 이유입니다. ([Avere vFXT For Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) 는이 클라우드 파일 시스템도 사용 합니다.)
+* Azure HPC 캐시는 특수화 된 저장소 형식을 사용 하 여 Blob storage에서 데이터를 구성 합니다. 이것은 Blob storage 대상이 새 빈 컨테이너 이거나 이전에 Azure HPC 캐시 데이터에 사용 된 Blob 컨테이너 여야 하는 이유입니다. <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
 
 * 여러 클라이언트와 병렬 작업을 사용 하는 경우 Azure HPC 캐시를 통해 백 엔드 저장소 대상으로 데이터를 복사 하는 것이 더 효율적입니다. 한 클라이언트의 단순 복사 명령이 데이터를 느리게 이동 합니다.
 
@@ -31,7 +31,7 @@ Python 기반 유틸리티는 Blob 저장소 컨테이너에 콘텐츠를 로드
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>CLFSLoad를 사용 하 여 Blob storage에 데이터 미리 로드
 
-다음을 사용할 수 있습니다. <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad 유틸리티를 통해 데이터를 저장소 대상으로 추가 하기 전에 새 Blob 저장소 컨테이너로 데이터를 복사 합니다. 이 유틸리티는 단일 Linux 시스템에서 실행 되며 Azure HPC 캐시에 필요한 소유 형식으로 데이터를 기록 합니다. CLFSLoad는 캐시에 사용할 Blob 저장소 컨테이너를 채우는 가장 효율적인 방법입니다.
+사용자는 <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad 유틸리티를 통해 데이터를 저장소 대상으로 추가 하기 전에 새 Blob 저장소 컨테이너로 데이터를 복사 합니다. 이 유틸리티는 단일 Linux 시스템에서 실행 되며 Azure HPC 캐시에 필요한 소유 형식으로 데이터를 기록 합니다. CLFSLoad는 캐시에 사용할 Blob 저장소 컨테이너를 채우는 가장 효율적인 방법입니다.
 
 Avere CLFSLoad 유틸리티는 Azure HPC 캐시 팀의 요청에 의해 제공 됩니다. 팀에 문의 하거나 [지원 티켓](hpc-cache-support-ticket.md) 을 열어 지원을 요청 하세요.
 

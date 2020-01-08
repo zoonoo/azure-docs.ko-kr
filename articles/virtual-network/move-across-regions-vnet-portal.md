@@ -6,21 +6,21 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: d6f417e53e7d7a1a242a0c0dc56c2356f78f5344
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828963"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640791"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 가상 네트워크를 다른 지역으로 이동
 
 기존 Azure 가상 네트워크를 한 지역에서 다른 지역으로 이동 하는 다양 한 시나리오가 있습니다. 예를 들어 기존 가상 네트워크로 테스트 및 가용성에 대해 동일한 구성으로 가상 네트워크를 만들 수 있습니다. 또는 재해 복구 계획의 일부로 프로덕션 가상 네트워크를 다른 지역으로 이동 하는 것이 좋습니다.
 
-Azure Resource Manager 템플릿을 사용 하 여 가상 네트워크를 다른 지역으로 이동 하는 것을 완료할 수 있습니다. 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여이 작업을 수행 합니다. 리소스 관리자 템플릿에 대 한 자세한 내용은 [Quickstart 시작을 참조 하세요. Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)를 참조하세요.
+Azure Resource Manager 템플릿을 사용 하 여 가상 네트워크를 다른 지역으로 이동 하는 것을 완료할 수 있습니다. 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여이 작업을 수행 합니다. 리소스 관리자 템플릿에 대 한 자세한 내용은 빠른 시작 [: Azure Portal를 사용 하 여 Azure Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 가상 네트워크가 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -32,7 +32,7 @@ Azure Resource Manager 템플릿을 사용 하 여 가상 네트워크를 다른
 
 - Azure 구독을 사용 하 여 대상 지역에서 가상 네트워크를 만들 수 있는지 확인 합니다. 필요한 할당량을 사용 하도록 설정 하려면 지원 담당자에 게 문의 하세요.
 
-- 구독에이 프로세스에 대 한 가상 네트워크 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조하세요.
+- 구독에이 프로세스에 대 한 가상 네트워크 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)을 참조하세요.
 
 
 ## <a name="prepare-for-the-move"></a>이동 준비
@@ -63,7 +63,7 @@ Azure Portal를 사용 하 여 가상 네트워크를 내보내고 대상 가상
 
 1. 편집기에서 **저장** 을 선택 합니다.
 
-1. 온라인 편집기에서 *템플릿 json* 파일을 열려면 **템플릿** > **템플릿 편집**을 선택 합니다.
+1. 온라인 편집기에서 *템플릿 json* 파일을 열려면 **템플릿 > ** **템플릿 편집**을 선택 합니다.
 
 1. 온라인 편집기에서 가상 네트워크가 이동 될 대상 지역을 편집 하려면 **리소스**에서 **위치** 속성을 변경 합니다.
 
@@ -89,7 +89,7 @@ Azure Portal를 사용 하 여 가상 네트워크를 내보내고 대상 가상
 
 1. 필드 요구 사항에 따라 템플릿에서 다른 매개 변수를 변경할 수도 있습니다.
 
-    * **주소 공간**: 파일을 저장 하기 전에  > **addressSpace** 섹션의 **리소스**를 수정 하 고 **addressPrefixes** 속성을 변경 하 여 가상 네트워크의 주소 공간을 변경할 수 있습니다.
+    * **주소 공간**: 파일을 저장 하기 전에 **리소스** > **addressSpace** 섹션을 수정 하 고 **addressPrefixes** 속성을 변경 하 여 가상 네트워크의 주소 공간을 변경할 수 있습니다.
 
         ```json
                 "resources": [
@@ -194,13 +194,13 @@ Azure Portal를 사용 하 여 가상 네트워크를 내보내고 대상 가상
 
 ## <a name="delete-the-target-virtual-network"></a>대상 가상 네트워크를 삭제 합니다.
 
-대상 가상 네트워크를 삭제 하려면 대상 가상 네트워크를 포함 하는 리소스 그룹을 삭제 합니다. 이를 수행하려면:
+대상 가상 네트워크를 삭제 하려면 대상 가상 네트워크를 포함 하는 리소스 그룹을 삭제 합니다. 이렇게 하려면 다음을 수행합니다.
 1. Azure Portal 대시보드에서 리소스 그룹을 선택 합니다.
 1. **개요** 창 위쪽에서 **삭제**를 선택 합니다.
 
 ## <a name="clean-up"></a>정리
 
-변경 내용을 커밋하고 가상 네트워크 이동을 완료 하려면 원본 가상 네트워크 또는 리소스 그룹을 삭제 합니다. 이를 수행하려면:
+변경 내용을 커밋하고 가상 네트워크 이동을 완료 하려면 원본 가상 네트워크 또는 리소스 그룹을 삭제 합니다. 이렇게 하려면 다음을 수행합니다.
 1. Azure Portal 대시보드에서 가상 네트워크 또는 리소스 그룹을 선택 합니다.
 1. 각 창의 위쪽에서 **삭제**를 선택 합니다.
 

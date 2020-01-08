@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2430b5135a5d3f7ad1f9ef0bd17d9149bf48ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793462"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690790"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -57,12 +57,12 @@ SQL VM 리소스 공급자 사용의 이점에 대 한 자세한 내용은 다�
 <iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure에서 자동 설치 SQL Server 경우 SQL VM 리소스 공급자의 혜택-Microsoft Channel 9 비디오"></iframe>
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 리소스 공급자에 SQL Server VM을 등록 하려면 다음이 필요 합니다. 
 
 - [Azure 구독](https://azure.microsoft.com/free/).
-- Azure 리소스 모델 [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) 공용 클라우드에 배포 됩니다. 
+- Azure 리소스 모델 [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) 공용 또는 Azure Government 클라우드에 배포 됩니다. 
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli) 또는 [PowerShell](/powershell/azure/new-azureps-module-az)입니다. 
 
 ## <a name="management-modes"></a>관리 모드
@@ -223,7 +223,7 @@ PowerShell을 사용 하 여 SQL Server IaaS 에이전트의 현재 모드를 �
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. [SQL 가상 컴퓨터](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 리소스로 이동 합니다. 
 1. SQL Server 가상 컴퓨터를 선택 하 고 **개요**를 선택 합니다. 
 1. NoAgent 또는 lightweight IaaS 모드를 사용 하는 SQL Server Vm의 경우 **SQL IaaS 확장 메시지에서 유일한 라이선스 유형 및 버전 업데이트를 사용할 수** 있습니다 .를 선택 합니다.
@@ -265,7 +265,7 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 SQL Server VM SQL VM
 
 ### <a name="azure-portal"></a>Azure Portal 
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. [SQL Server virtual machines](virtual-machines-windows-sql-manage-portal.md)로 이동 합니다.
 1. 목록에서 SQL Server VM을 선택 합니다. SQL Server VM 여기에 나열 되지 않은 경우 SQL VM 리소스 공급자에 등록 되지 않았을 수 있습니다. 
 1. **상태**에서 값을 확인 합니다. **상태가** **성공**인 경우 SQL Server VM SQL VM 리소스 공급자에 등록 되었습니다. 
@@ -286,8 +286,7 @@ Az CLI 또는 PowerShell을 사용 하 여 현재 SQL Server VM 등록 상태를
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
@@ -349,7 +348,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 
 SQL VM 리소스 공급자는 다음을 지원 합니다.
 - Azure Resource Manager를 통해 배포 된 Vm을 SQL Server 합니다. 클래식 모델을 통해 배포 된 SQL Server Vm은 지원 되지 않습니다. 
-- 공용 클라우드에 배포 된 Vm을 SQL Server 합니다. 개인 또는 정부 클라우드로의 배포는 지원 되지 않습니다. 
+- 공용 또는 Azure Government 클라우드에 배포 된 Vm을 SQL Server 합니다. 다른 사설 또는 정부 클라우드로의 배포는 지원 되지 않습니다. 
 
 
 ## <a name="frequently-asked-questions"></a>FAQ(질문과 대답) 

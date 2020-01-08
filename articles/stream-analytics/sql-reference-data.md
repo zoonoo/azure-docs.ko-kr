@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics 작업에서 SQL Database 참조 데이터 사용
 description: 이 문서에서는 Azure Portal 및 Visual Studio에서 Azure Stream Analytics 작업에 대한 참조 데이터 입력으로 SQL Database를 사용하는 방법을 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 733ac7d1ff1d50e5fdcfa0dec2ad3fd3f30f6d86
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426494"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업에 대 한 SQL Database의 참조 데이터 사용
 
@@ -116,7 +115,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. 편집기에서 SQL 파일을 열고 SQL 쿼리를 작성합니다.
 
-5. Visual Studio 2019을 사용 하 고 SQL Server Data tools를 설치한 경우 **실행**을 클릭 하 여 쿼리를 테스트할 수 있습니다. SQL Database에 연결하는 데 도움이 되는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
+5. Visual Studio 2019를 사용하는 SQL Server Data tools를 설치한 경우 **Execute** 클릭하여 쿼리를 테스트할 수 있습니다. SQL Database에 연결하는 데 도움이 되는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
 
 ### <a name="specify-storage-account"></a>스토리지 계정 지정
 
@@ -148,7 +147,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    ```
 2. 스냅샷 쿼리를 작성합니다. 
 
-   **\@snapshotTime** 매개 변수를 사용 하 여 Stream Analytics 런타임에 시스템 시간에 유효한 SQL database temporal 테이블에서 참조 데이터 집합을 가져오도록 지시 합니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
+   **\@snapshotTime** 매개 변수를 사용하여 Stream Analytics 런타임을 지시하여 시스템 시간에 유효한 SQL 데이터베이스 temporal 테이블에서 참조 데이터 집합을 가져오도록 합니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -157,7 +156,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
 2. 델타 쿼리를 작성합니다. 
    
-   이 쿼리는 시작 시간 내에 삽입 되거나 삭제 된 SQL 데이터베이스의 모든 행을 검색 하 고, **\@deltaStartTime**및 종료 시간 **\@deltastarttime**을 검색 합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 **\@deltaStartTime** 과 **\@deltastarttime**사이에 행이 삽입 또는 삭제 되는지 여부를 정의 합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 
+   이 쿼리는 시작 시간  **\@deltaStartTime** 과 종료 시간  **\@deltaEndTime**사이에 SQL database에서 삽입 또는 삭제된 모든 행을 검색합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 행이  **\@deltaStartTime** 과  **\@deltaEndTime**내에서 삽입되거나 삭제되었는지를 정의합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 
 
    업데이트된 레코드의 경우 temporal 테이블은 삽입 및 삭제 작업을 캡처하여 목록을 만듭니다. 그러면 Stream Analytics 런타임은 이전 스냅샷에 델타 쿼리 결과를 적용하여 참조 데이터를 최신 상태로 유지합니다. 델타 쿼리 예제는 다음과 같습니다.
 
@@ -174,7 +173,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅샷 쿼리를 주기적으로 실행할 수 있습니다.
 
 ## <a name="test-your-query"></a>쿼리 테스트
-   쿼리가 Stream Analytics 작업에서 참조 데이터로 사용할 예상 데이터 집합을 반환 하는지 확인 하는 것이 중요 합니다. 쿼리를 테스트 하려면 포털의 작업 토폴로지 섹션에서 입력으로 이동 합니다. 그런 다음 SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플을 사용할 수 있게 되 면 파일을 다운로드 하 여 반환 되는 데이터가 예상 대로 작동 하는지 확인할 수 있습니다. 개발 및 테스트 반복을 최적화 하려면 [Visual Studio 용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용 하는 것이 좋습니다. 또한 기본 설정의 다른 도구를 사용 하 여 먼저 쿼리가 Azure SQL Database에서 올바른 결과를 반환 하는지 확인 한 다음 Stream Analytics 작업에서 사용할 수 있습니다. 
+   쿼리가 Stream Analytics 작업이 참조 데이터로 사용할 예상된 데이터 집합을 반환하는지 확인하는 것이 중요합니다. 쿼리를 테스트하려면 포털의 작업 토폴로지 섹션 아래의 입력으로 이동합니다. 그런 다음 SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플이 사용 가능해지면, 파일을 다운로드할 수 있으며 데이터가 기대한 대로 반환되는지 확인할 수 있습니다. 개발 및 테스트 반복을 최적화하려는 경우는 [Visual Studio 용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용하는 것이 좋습니다. 또한 쿼리가 Azure SQL database에서 올바른 결과를 반환하는지 먼저 확인하기 위해 원하는 다른 도구를 사용한 다음 Stream Analytics 작업에 이 결과를 사용할 수 있습니다. 
 
 ## <a name="faqs"></a>FAQ
 

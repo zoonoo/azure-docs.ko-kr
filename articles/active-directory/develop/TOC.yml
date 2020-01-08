@@ -35,6 +35,7 @@
               href: quickstart-v2-aspnet-core-webapp.md
             - name: NodeJS
               href: quickstart-v2-nodejs-webapp.md
+              displayName: OIDC
             - name: Java
               href: quickstart-v2-java-webapp.md
             - name: Python
@@ -135,7 +136,7 @@
                   href: scenario-web-app-call-api-app-registration.md
                 - name: 코드 구성
                   href: scenario-web-app-call-api-app-configuration.md
-                - name: 로그인
+                - name: 글로벌 로그아웃
                   href: scenario-web-app-call-api-sign-in.md
                 - name: 앱용 토큰 획득
                   href: scenario-web-app-call-api-acquire-token.md
@@ -213,7 +214,8 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
-                    - name: Xamarin iOS 및 Android 애플리케이션과 함께 broker 사용
+                    - name: Xamarin iOS 및 Android와 함께 브로커 사용
+                      displayName: Microsoft Authenticator Microsoft Intune
                       href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: 범용 Windows 플랫폼
                       href: msal-net-uwp-considerations.md
@@ -241,13 +243,13 @@
                   href: msal-compare-msal-js-and-adal-js.md
                 - name: MSAL.Android로 마이그레이션
                   href: migrate-android-adal-msal.md
-                - name: MSAL.iOS 및 MacOS로 마이그레이션
+                - name: MSAL.iOS/MacOS로 마이그레이션
                   href: migrate-objc-adal-msal.md
                 - name: MSAL Python으로 마이그레이션
                   href: migrate-python-adal-msal.md
                 - name: Java용 MSAL로 마이그레이션
                   href: migrate-adal-msal-java.md
-                - name: broker를 사용하여 ADAL.NET에서 MSAL.NET으로 Xamarin 앱 마이그레이션
+                - name: 브로커를 사용하여 MSAL.NET으로 Xamarin 앱 마이그레이션
                   href: msal-net-migration-ios-broker.md
             - name: 지원되는 인증 흐름
               href: msal-authentication-flows.md
@@ -263,7 +265,7 @@
               items:
                 - name: 클라이언트 애플리케이션
                   href: msal-client-applications.md
-                - name: 애플리케이션 구성(.NET)
+                - name: 애플리케이션 구성
                   href: msal-client-application-configuration.md
                 - name: 애플리케이션 초기화(.NET)
                   href: msal-net-initializing-client-applications.md
@@ -317,7 +319,7 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: 알려진 문제 - Safari
                       href: msal-js-known-issues-safari-browser.md
-                - name: iOS 및 macOS용 MSAL SSL 문제
+                - name: SSL 문제 해결(MSAL iOS/macOS)
                   href: ssl-issues.md
         - name: 인증 프로토콜
           items:
@@ -400,9 +402,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: 애플리케이션 구성
           items:
-            - name: 앱 등록(레거시)에서 Azure Portal의 새로운 앱 등록 환경으로 전환
+            - name: 새로운 Azure Portal 앱 등록 학습 가이드
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: 애플리케이션 등록 포털에서 Azure Portal의 새로운 앱 등록 환경으로 전환
+            - name: 새로운 Azure Portal 앱 등록 환경
               href: app-registration-portal-training-guide.md
             - name: 단일 테넌트 앱을 다중 테넌트 앱으로 변환
               href: howto-convert-app-to-be-multi-tenant.md
@@ -418,7 +420,7 @@
               href: howto-add-app-roles-in-azure-ad-apps.md
             - name: 브랜딩 지침
               href: howto-add-branding-in-azure-ad-apps.md
-            - name: 게시자 도메인
+            - name: 게시자 도메인 구성
               href: howto-configure-publisher-domain.md
             - name: 서비스 약관 및 개인정보처리방침
               href: howto-add-terms-of-service-privacy-statement.md
@@ -432,7 +434,7 @@
                   href: msal-net-token-cache-serialization.md
                 - name: 토큰 캐시 지우기
                   href: msal-net-clear-token-cache.md
-                - name: 옵션으로 공용 클라이언트 인스턴스화
+                - name: 퍼블릭 클라이언트 앱 인스턴스화
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: 옵션으로 기밀 클라이언트 인스턴스화
                   href: msal-net-instantiate-confidential-client-config-options.md
@@ -462,13 +464,13 @@
                   href: redirect-uris-ios.md
             - name: Python용 MSAL
               items:
-                - name: 토큰 캐시 직렬화
+                - name: 사용자 지정 토큰 캐시 직렬화
                   href: msal-python-token-cache-serialization.md
             - name: Java용 MSAL
               items:
-                - name: 토큰 캐시 직렬화
+                - name: 사용자 지정 토큰 캐시 직렬화
                   href: msal-java-token-cache-serialization.md
-                - name: 토큰 캐시에서 계정 추가 및 제거
+                - name: 토큰 캐시에서 계정 가져오기 및 제거
                   href: msal-java-get-remove-accounts-token-cache.md
         - name: Visual Studio 작업
           items:
@@ -482,7 +484,7 @@
               href: vs-active-directory-webapi-getting-started.md
             - name: 내 WebAPI 프로젝트는 어떻게 되었나요?
               href: vs-active-directory-webapi-what-happened.md
-            - name: 인증 검색 중 오류 발생
+            - name: 인증 중 오류 진단
               href: vs-active-directory-error.md
     - name: 참조
       items:

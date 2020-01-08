@@ -2,17 +2,17 @@
 title: Azure 개인 링크 서비스 란?
 description: Azure 개인 링크 서비스에 대해 알아봅니다.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912990"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647376"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
@@ -42,11 +42,11 @@ Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 
 
 개인 링크 서비스를 더 이상 사용 하지 않는 경우 해당 서비스를 삭제할 수 있습니다. 그러나 서비스를 삭제 하기 전에 연결 된 개인 끝점 연결이 없는지 확인 합니다. 모든 연결을 거부 하 고 서비스를 삭제할 수 있습니다.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>속성
 
 개인 링크 서비스는 다음 속성을 지정 합니다. 
 
-|자산 |설명  |
+|속성 |설명  |
 |---------|---------|
 |프로 비전 상태 (provisioningState)  |개인 링크 서비스에 대 한 현재 프로 비전 상태를 나열 하는 읽기 전용 속성입니다. 적용 가능한 프로 비전 상태는 "삭제 중;입니다. 오류가 열었습니다 업데이트 중 ". 프로 비전 상태가 "성공" 인 경우 개인 링크 서비스를 프로 비전 했습니다.        |
 |별칭 (별칭)     | 별칭은 서비스에 대 한 전역적으로 고유한 읽기 전용 문자열입니다. 서비스에 대 한 고객 데이터를 마스킹하는 동시에 서비스에 대 한 공유 하기 쉬운 이름을 만들 수 있습니다. 개인 링크 서비스를 만들 때 Azure는 고객과 공유할 수 있는 서비스에 대 한 별칭을 생성 합니다. 고객은이 별칭을 사용 하 여 서비스에 대 한 연결을 요청할 수 있습니다.          |
@@ -68,7 +68,7 @@ Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 
  
 - 여러 Vnet, 구독 및/또는 Active Directory 테 넌 트에 속하는 여러 개인 끝점에서 단일 개인 링크 서비스에 액세스할 수 있습니다. 연결은 연결 워크플로를 통해 설정 됩니다. 
  
-- 다른 프런트 엔드 IP 구성을 사용 하 여 동일한 표준 Load Balancer에 여러 개인 링크 서비스를 만들 수 있습니다. 표준 Load Balancer 및 구독 당 만들 수 있는 개인 링크 서비스 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조 하세요.
+- 다른 프런트 엔드 IP 구성을 사용 하 여 동일한 표준 Load Balancer에 여러 개인 링크 서비스를 만들 수 있습니다. 표준 Load Balancer 및 구독 당 만들 수 있는 개인 링크 서비스 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)을 참조 하세요.
  
 - 개인 링크 서비스는 둘 이상의 NAT IP 구성을 연결할 수 있습니다. NAT IP 구성을 두 개 이상 선택 하면 서비스 공급자가 크기를 조정 하는 데 도움이 될 수 있습니다. 현재, 서비스 공급자는 개인 링크 서비스 당 최대 8 개의 NAT IP 주소를 할당할 수 있습니다. 각 NAT IP 주소를 사용 하 여 TCP 연결에 더 많은 포트를 할당 하 고 확장할 수 있습니다. 개인 링크 서비스에 여러 NAT IP 주소를 추가한 후에는 NAT IP 주소를 삭제할 수 없습니다. NAT IP 주소를 삭제 하는 동안 활성 연결에 영향을 주지 않도록 하기 위한 작업입니다.
 

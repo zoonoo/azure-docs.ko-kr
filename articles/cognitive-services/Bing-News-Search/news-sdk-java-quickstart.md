@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: def964dd932f8a41a877a3d9568a8ec4825874b8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b8c2ca3bf919d70123b7b5b6d13c0301e0c1fd13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383581"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>빠른 시작: Java용 Bing News Search SDK로 뉴스 검색
 
 Java용 Bing News Search SDK를 사용하여 뉴스 검색을 시작하려면 이 빠른 시작을 사용합니다. Bing News Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있는 반면, SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing News Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
 
@@ -57,7 +57,7 @@ import java.io.IOException;
 
 ## <a name="create-a-search-client-and-store-credentials"></a>검색 클라이언트 및 저장소 자격 증명 만들기
 
-1. 새 `NewsSearchAPIImpl` 검색 클라이언트를 반환하는 `getClient()`라는 메서드를 만듭니다. 새 `NewsSearchAPIImpl` 개체 및 새 `ServiceClientCredentials` 개체에 대해 첫 번째 매개 변수로 엔드포인트를 추가하여 자격 증명을 저장합니다.
+1. 새 `NewsSearchAPIImpl` 검색 클라이언트를 반환하는 `getClient()`라는 메서드를 만듭니다. 새 `NewsSearchAPIImpl` 개체 및 새 `ServiceClientCredentials` 개체에 대해 첫 번째 매개 변수로 엔드포인트를 추가하여 자격 증명을 저장합니다. 
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {

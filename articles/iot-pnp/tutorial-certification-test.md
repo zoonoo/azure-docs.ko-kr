@@ -7,13 +7,13 @@ services: iot-pnp
 ms.topic: tutorial
 ms.author: koichih
 author: konichi3
-ms.date: 06/21/2019
-ms.openlocfilehash: 1516a132372a81d06d82de2409c48220f27b8d87
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 12/27/2019
+ms.openlocfilehash: dc2c33659f3f3a3df0f11fcc6ab36a9fc993da43
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878734"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550165"
 ---
 # <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>자습서: IoT 플러그 앤 플레이 미리 보기 디바이스 인증
 
@@ -28,7 +28,7 @@ ms.locfileid: "69878734"
 > * IoT 플러그 앤 플레이 인터페이스를 검토하고 인증 테스트를 실행하는 방법
 > * 인증된 IoT 플러그 앤 플레이 디바이스를 카탈로그에 게시하는 방법
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

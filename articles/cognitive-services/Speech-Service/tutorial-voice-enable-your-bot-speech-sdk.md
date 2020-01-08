@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: b42314d1c8c1bd734181f02c36ae3f43507e9b79
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 0c26f94d0a51b7912d3f964e3cc96ec392fec69b
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815212"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495166"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: 음성 SDK를 사용 하 여 봇 음성 사용
 
@@ -50,7 +50,7 @@ ms.locfileid: "74815212"
 > * 사용자 지정 키워드 활성화 추가
 > * 인식 된 음성 및 음성 음성의 언어를 변경 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료 하는 데 필요한 사항은 다음과 같습니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "74815212"
 
 이 자습서에서 만들 클라이언트 앱은 몇 가지 Azure 서비스를 사용 합니다. Bot의 응답에 대 한 왕복 시간을 줄이려면 이러한 서비스가 동일한 Azure 지역에 있는지 확인 하는 것이 좋습니다. 이 섹션에서는 **미국 서 부** 지역에 리소스 그룹을 만듭니다. 이 리소스 그룹은 봇 프레임 워크, 직접 라인 음성 채널 및 음성 서비스에 대 한 개별 리소스를 만들 때 사용 됩니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 탐색 영역에서 **리소스 그룹**을 선택 합니다. 그런 다음 **추가** 를 클릭 하 여 새 리소스 그룹을 추가 합니다.
 1. 몇 가지 정보를 제공 하 라는 메시지가 표시 됩니다.
    * **구독** 을 **무료 평가판** 으로 설정 합니다 (기존 구독을 사용할 수도 있음).
@@ -107,7 +107,7 @@ ms.locfileid: "74815212"
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial**)에 음성 리소스가 있는지 확인 합니다.
 
-| 이름 | 유형  | 위치 |
+| NAME | 유형  | 위치 |
 |------|-------|----------|
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
@@ -130,9 +130,9 @@ ms.locfileid: "74815212"
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial-ResourceGroup**)에 두 개의 리소스가 있는지 확인 합니다.
 
-| 이름 | 유형  | 위치 |
+| NAME | 유형  | 위치 |
 |------|-------|----------|
-| SpeechEchoBotTutorial-AppServicePlan | App Service 플랜 | 미국 서부 |
+| SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
 ## <a name="build-an-echo-bot"></a>에코 봇 빌드
@@ -166,7 +166,7 @@ ms.locfileid: "74815212"
 1. [Bot Framework 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) 버전 4.3.0 이상을 설치 합니다.
 2. Bot Framework 에뮬레이터를 시작 하 고 bot를 엽니다.
    * **파일** -> **열기 봇**입니다.
-3. 봇의 URL을 입력 합니다. 다음은 그 예입니다.
+3. 봇의 URL을 입력 합니다. 예:
 
    ```
    http://localhost:3978/api/messages
@@ -187,7 +187,7 @@ ms.locfileid: "74815212"
    samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
    ```
 
-1. **솔루션 탐색기**에서 **EchoBot** 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **게시 ...** 를 선택 합니다.
+1. **솔루션 탐색기**에서 **EchoBot** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시 ...** 를 선택 합니다.
 1. **게시 대상 선택** 이라는 제목의 새 창이 열립니다.
 1. 왼쪽 탐색 모음에서 **App Service** 를 선택 하 고 **새로 만들기**를 선택한 다음 **게시**를 클릭 합니다.
 1. **App Service 만들기** 창이 표시 되 면 다음을 수행 합니다.
@@ -207,7 +207,7 @@ ms.locfileid: "74815212"
 1. 기본 브라우저가 열리고 "봇이 준비 되었습니다!" 라는 페이지가 표시 됩니다.
 1. 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 하 고 세 가지 리소스가 있는지 확인 합니다.
 
-| 이름 | 유형  | 위치 |
+| NAME | 유형  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -221,7 +221,7 @@ ms.locfileid: "74815212"
 2. 왼쪽 탐색의 **설정**에서 **구성**을 클릭 합니다.
 3. **일반 설정** 탭을 선택 합니다.
 4. **웹 소켓** 에 대해 설정/해제를 찾아 **켜기**로 설정 합니다.
-5. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+5. **저장**을 클릭합니다.
 
 > [!TIP]
 > Azure App Service 페이지 맨 위에 있는 컨트롤을 사용 하 여 서비스를 중지 하거나 다시 시작할 수 있습니다. 이는 문제를 해결할 때 유용할 수 있습니다.
@@ -237,7 +237,7 @@ ms.locfileid: "74815212"
 2. 검색 표시줄 유형 **봇**에서 결과가 표시 되 면 **bot 채널 등록**을 선택 합니다.
 3. **만들기**를 클릭합니다.
 4. 몇 가지 정보를 제공 하 라는 메시지가 표시 됩니다.
-   * **Bot name**에 **SpeechEchoBotTutorial-BotRegistration**를 입력 합니다.
+   * **봇 핸들**에 **SpeechEchoBotTutorial-BotRegistration**를 입력 합니다.
    * **구독**의 경우 **무료 평가판**을 선택 합니다.
    * **리소스 그룹**에 대해 **SpeechEchoBotTutorial-ResourceGroup**을 선택 합니다.
    * **위치**에서 **미국 서 부**를 선택 합니다.
@@ -245,11 +245,11 @@ ms.locfileid: "74815212"
      * **메시징 끝점**의 경우 끝에 추가 된 `/api/messages` 경로를 사용 하 여 웹 앱에 대 한 URL을 입력 합니다. 예: 전역적으로 고유한 앱 이름이 **EchoBot20190805125647**인 경우 메시징 끝점은 `https://EchoBot20190805125647.azurewebsites.net/api/messages/`입니다.
      * **Application insights**의 경우이를 **Off**로 설정할 수 있습니다. 자세한 내용은 [봇 분석](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0)을 참조 하세요.
      * **앱 ID 및 암호 자동 생성을**무시 합니다.
-5. **Bot 채널 등록** 으로 다시 이동 하 여 **만들기**를 클릭 합니다.
+5. **Bot 채널 등록** 블레이드의 아래쪽에서 **만들기**를 클릭 합니다.
 
 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 합니다. 이제 다음 4 개의 리소스를 표시 해야 합니다.
 
-| 이름 | 유형  | 위치 |
+| NAME | 유형  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -268,11 +268,11 @@ ms.locfileid: "74815212"
    * **더 많은 채널**을 찾고, **직접 줄 음성**을 찾아서 클릭 합니다.
    * **직접 줄 음성 구성**이라는 페이지의 텍스트를 검토 한 다음 "인지 서비스 계정" 이라는 드롭다운 메뉴를 확장 합니다.
    * 메뉴에서 이전에 만든 음성 리소스 (예: **SpeechEchoBotTutorial**)를 선택 하 여 봇을 음성 구독 키에 연결 합니다.
-   * 페이지 맨 아래에 있는 **저장**을 참조하세요.
+   * **저장**을 클릭합니다.
 
 1. 왼쪽 탐색 영역에서 **설정**을 클릭 합니다.
    * **스트리밍 끝점 사용**확인란을 선택 합니다. 이는 봇과 직접 선 음성 채널 사이에서 웹 소켓을 기반으로 하는 통신 프로토콜을 사용 하도록 설정 하는 데 필요 합니다.
-   * 페이지 맨 아래에 있는 **저장**을 참조하세요.
+   * **저장**을 클릭합니다.
 
 > [!TIP]
 > 자세히 알아보려면 [선 음성으로 연결 하려면 봇 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0)을 참조 하세요. 이 페이지에는 추가 정보 및 알려진 문제가 포함 되어 있습니다.
@@ -383,29 +383,50 @@ Speech SDK는 사용자 지정 키워드 활성화를 지원 합니다. Microsof
 1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) 에는 디스크의 로컬 파일에서 모델을 인스턴스화하는 데 사용 되는 Speech SDK 메서드 [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-)에 대 한 호출이 포함 되어 있습니다.
 1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) 에는 연속 키워드 검색을 활성화 하는 음성 SDK 메서드 [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync)에 대 한 호출이 포함 되어 있습니다.
 
-## <a name="optional-change-the-language-and-redeploy-your-bot"></a>필드 언어 변경 및 인공 지능 재배포
+## <a name="optional-change-the-language-and-bot-voice"></a>필드 언어 및 봇 음성 변경
 
-만든 봇은 영어로 수신 하 고 응답 합니다. 그러나 영어를 사용 하는 것으로 제한 되지 않습니다. 이 섹션에서는 봇에서 수신 하 고 응답 하는 언어를 변경 하 고 봇을 다시 배포 하는 방법에 대해 알아봅니다.
+사용자가 만든 봇은 영어로 수신 하 고 응답 하며, 기본 미국 영어 텍스트 음성 변환 음성을 사용 하 여 영어로 응답 합니다. 그러나 영어 또는 기본 음성을 사용 하는 것으로 제한 되지 않습니다. 이 섹션에서는 봇에서 수신 하 고 응답 하는 언어를 변경 하는 방법에 대해 알아봅니다. 해당 언어에 대해 다른 음성을 선택 하는 방법에 대해서도 알아봅니다.
 
 ### <a name="change-the-language"></a>언어 변경
 
-1. 먼저 `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`를 열어 보겠습니다.
-2. 다음으로 SSML을 찾습니다. `<speak></speak>` 태그로 묶여 있기 때문에 쉽게 찾을 수 있습니다.
-3. SSML 문자열에서 `<voice name>` 태그를 찾아 `<voice name='de-DE-Stefan-Apollo'>`로 바꾸고 저장 합니다. 이 형식이 지정 된 문자열은 독일어에 대해 최적화 된 음성 `de-DE-Stefan-Apollo`를 사용 하 여 합성 된 음성 응답을 반환 하도록 텍스트 음성 처리를 지정 합니다.
+[음성 텍스트](language-support.md#speech-to-text) 표에 언급 된 언어 중 하나에서 선택할 수 있습니다. 아래 예제에서는 언어를 독일어로 변경 합니다.
 
->[!NOTE]
-> 독일어로 제한 되지 않으며 [음성 서비스](language-support.md#text-to-speech)의 사용 가능한 음성 목록에서 선택할 수 있습니다.
+1. 다이렉트 음성 클라이언트 앱을 열고 설정 단추 (오른쪽 위 기어 아이콘)를 클릭 한 다음 언어 필드에 `de-de`를 입력 합니다 ( [음성 텍스트](language-support.md#speech-to-text) 테이블에서 언급 한 로캘 값). 그러면 음성 언어가 인식 되어 기본 `en-us`재정의 됩니다. 또한 직접 선 음성 채널에 봇 회신에 대 한 기본 독일어 음성을 사용 하도록 지시 합니다.
+2. 설정 페이지를 닫고 다시 연결 단추를 클릭 하 여 echo 봇에 대 한 새 연결을 설정 합니다.
+3. 마이크 단추를 클릭 하 고 독일어로 된 구를 말합니다. 인식 된 텍스트와 echo 봇이 기본 독일 음성으로 회신 하는 것을 볼 수 있습니다.
+
+
+### <a name="change-the-default-bot-voice"></a>기본 봇 음성 변경
+
+텍스트 음성 변환 음성 및 발음 제어를 선택 하는 것은 봇이 간단한 텍스트가 아닌, SSML ( [음성 합성 마크업 언어](speech-synthesis-markup.md) ) 형식의 회신을 지정 하는 경우 수행할 수 있습니다. Echo 봇은 SSML를 사용 하지 않지만이를 수행 하도록 코드를 쉽게 수정할 수 있습니다. 아래 예제에서는 기본 여성 음성 대신 독일어 voice Stefan 아폴로 (남성 음성)를 사용 하도록 echo bot 회신에 SSML을 추가 합니다. 해당 언어에 대해 지원 되는 [표준 음성](language-support.md#standard-voices) 및 [신경망](language-support.md#neural-voices) 목록을 참조 하세요.
+
+1. 먼저 `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`를 열어 보겠습니다.
+2. 다음 두 줄을 찾습니다.
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
+    ```
+3. 다음으로 바꿉니다.
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    var replySpeak = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='de-DE'>
+                    <voice name='Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)'>" +
+                    $"{replyText}" + "</voice></speak>";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replySpeak), cancellationToken);
+    ```
+4. Visual Studio에서 솔루션을 빌드하고 빌드 오류를 수정 합니다.
+
+' MessageFactory. Text ' 메서드의 두 번째 인수는 bot reply의 [작업 읽어주기 필드](https://github.com/Microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) 를 설정 합니다. 위와 같이 변경 하면 기본이 아닌 독일 음성을 지정 하기 위해 단순 텍스트에서 SSML로 대체 되었습니다.
 
 ### <a name="redeploy-your-bot"></a>Bot 다시 배포
 
 이제 bot를 변경 했으므로 다음 단계는 Azure App Service에 다시 게시 하 여 사용해 보는 것입니다.
 
-1. Visual Studio에서 솔루션을 빌드하고 빌드 오류를 수정 합니다.
-2. 솔루션 탐색기 창에서 **EchoBot** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다.
-3. 이전 배포 구성이 이미 기본값으로 로드 되었습니다. **EchoBot20190805125647-웹 배포 옆의** **게시** 를 클릭 하기만 하면 됩니다.
-4. **게시 성공** 메시지가 Visual Studio 출력 창에 표시 되 고 웹 페이지가 "봇 준비 되었습니다!" 라는 메시지와 함께 시작 됩니다.
-5. 다이렉트 음성 클라이언트 앱을 열고 설정 단추 (오른쪽 위 기어 아이콘)를 클릭 한 다음 언어 필드에 `de-de`을 입력 합니다. 그러면 음성 언어가 인식 되어 기본 `en-us`재정의 됩니다.
-6. [Direct Line Speech Client 빌드](#build-the-direct-line-speech-client) 의 지침에 따라 새로 배포 된 봇에 다시 연결 하 고, 새 언어로 말한 후 새 음성으로 해당 언어로의 봇 회신을 듣습니다.
+1. 솔루션 탐색기 창에서 **EchoBot** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다.
+2. 이전 배포 구성이 이미 기본값으로 로드 되었습니다. **EchoBot20190805125647-웹 배포 옆의** **게시** 를 클릭 하기만 하면 됩니다.
+3. **게시 성공** 메시지가 Visual Studio 출력 창에 표시 되 고 웹 페이지가 "봇 준비 되었습니다!" 라는 메시지와 함께 시작 됩니다.
+4. 다이렉트 음성 클라이언트 앱을 열고 설정 단추 (오른쪽 위 기어 아이콘)를 클릭 한 다음 언어 필드에 `de-de` 있는지 확인 합니다.
+5. [Direct Line Speech Client 빌드](#build-the-direct-line-speech-client) 의 지침에 따라 새로 배포 된 봇에 다시 연결 하 고, 새 언어로 말한 후 새 음성으로 해당 언어로의 봇 회신을 듣습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -12,12 +12,12 @@ metadata:
   author: mhopkins-msft
   ms.author: mhopkins
   ms.date: 08/27/2019
-  ms.openlocfilehash: 4dcf6ae4e9a5a65e060b647f02761b2c46238d13
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.openlocfilehash: 871447957b905157625ab487269b9ce1ca105935
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70277911"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75457290"
 landingContent:
 - title: Azure 큐 정보
   linkLists:
@@ -31,10 +31,18 @@ landingContent:
     links:
     - text: Azure Portal을 사용하여 큐를 만들어서 메시지 추가하기
       url: storage-quickstart-queues-portal.md
-    - text: .NET을 사용하여 Azure Storage에 큐 만들기
-      url: storage-quickstart-queues-dotnet.md
 - title: 큐로 개발
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: .NET용 Azure Queue Storage
+      url: storage-quickstart-queues-dotnet.md
+    - text: Java용 Azure Queue Storage
+      url: storage-quickstart-queues-java.md
+    - text: Python용 Azure Queue Storage
+      url: storage-quickstart-queues-python.md
+    - text: JavaScript용 Azure Queue Storage
+      url: storage-quickstart-queues-nodejs.md
   - linkListType: how-to-guide
     links:
     - text: .NET을 사용하여 Azure Queue Storage 시작

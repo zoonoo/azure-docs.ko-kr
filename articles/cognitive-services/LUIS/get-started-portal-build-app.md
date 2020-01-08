@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381990"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 이 빠른 시작에서는 LUIS 포털에서 새 앱을 빌드합니다. 우선 앱, **의도** 및 **엔터티**의 기본적인 부분을 만듭니다. 그런 다음, 예측된 의도를 얻기 위해 대화형 테스트 패널에 샘플 사용자 발언을 제공하여 앱을 테스트합니다.
 
@@ -37,8 +35,8 @@ ms.locfileid: "74278597"
 
    |설정 이름| 값 | 목적|
    |--|--|--|
-   |Name|`myEnglishApp`|고유한 LUIS 앱 이름<br>필수|
-   |문화권|**English**|사용자의 발화 언어, **en-us**<br>필수|
+   |속성|`myEnglishApp`|고유한 LUIS 앱 이름<br>required|
+   |문화권|**English**|사용자의 발화 언어, **en-us**<br>required|
    |설명(선택 사항)|`App made with LUIS Portal`|앱에 대한 설명<br>선택 사항|
    |예측 리소스(선택 사항) |-  |선택하지 마세요. LUIS는 작성 및 1,000개의 예측 엔드포인트 요청에 무료로 사용할 수 있는 시작 키를 제공합니다. |
 

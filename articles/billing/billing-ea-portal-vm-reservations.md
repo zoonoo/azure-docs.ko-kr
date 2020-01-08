@@ -4,16 +4,16 @@ description: 이 문서에서는 VM 예약 인스턴스에 대한 Azure 예약�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 3c3d95feed4f7cf47448c4fe62d8368fa5498dd7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 11cdf3ec03c125b98938847390c71eb12d1b4800
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841323"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644514"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
 

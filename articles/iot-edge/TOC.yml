@@ -123,8 +123,12 @@
           href: how-to-install-iot-edge-windows-server-vm.md
         - name: Ubuntu VM
           href: how-to-install-iot-edge-ubuntuvm.md
-        - name: kubernetes
+        - name: Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
+        - name: 프로덕션 인증서 설치
+          href: how-to-install-production-certificates.md
+        - name: 테스트 인증서 만들기
+          href: how-to-create-test-certificates.md
         - name: 런타임 버전 업데이트
           href: how-to-update-iot-edge.md
     - name: DPS와 함께 큐 자동 프로비전

@@ -7,17 +7,17 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 01/03/2020
+ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889701"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660327"
 ---
-# <a name="routing-events-and-messages"></a>이벤트 라우팅 및 메시지
+# <a name="routing-iot-events-and-messages"></a>IoT 이벤트 및 메시지 라우팅
 
-IoT 솔루션은 스토리지, 분석 등을 비롯한 몇 가지 강력한 서비스를 통합하는 경우가 있습니다. 이 문서에서는 Azure Digital Twins 앱을 Azure 분석, AI 및 스토리지 서비스에 연결하여 심층 인사이트 및 기능을 제공하는 방법을 설명합니다.
+사물 인터넷 솔루션은 종종 저장소, 분석 등을 포함 하는 여러 가지 강력한 서비스를 자리 합니다. 이 문서에서는 Azure Digital Twins 앱을 Azure 분석, AI 및 스토리지 서비스에 연결하여 심층 인사이트 및 기능을 제공하는 방법을 설명합니다.
 
 ## <a name="route-types"></a>경로 형식  
 

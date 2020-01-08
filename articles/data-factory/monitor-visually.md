@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278434"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690918"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>시각적으로 Azure Data Factory 모니터링
 
@@ -30,14 +30,14 @@ Azure Data Factory에서 파이프라인을 만들어 게시 한 후에는 트�
 | **열 이름** | **설명** |
 | --- | --- |
 | 파이프라인 이름 | 파이프라인 이름입니다. |
-| 동작 | 활동 세부 정보를 보거나, 취소 하거나, 파이프라인을 다시 실행할 수 있는 아이콘 |
+| 작업 | 활동 세부 정보를 보거나, 취소 하거나, 파이프라인을 다시 실행할 수 있는 아이콘 |
 | 실행 시작 | 파이프라인 실행에 대 한 시작 날짜 및 시간 (MM/DD/YYYY, HH: MM: SS AM/PM) |
-| Duration | 실행 기간 (HH:MM:SS) |
+| 기간 | 실행 기간 (HH:MM:SS) |
 | 트리거 주체 | 파이프라인을 시작한 트리거의 이름입니다. |
-| 가동 상태 | **실패**, **성공**, **진행 중**, **취소 됨**또는 **대기** 중 |
+| 상태 | **실패**, **성공**, **진행 중**, **취소 됨**또는 **대기** 중 |
 | 주석 | 파이프라인에 연결 된 필터링 가능한 태그  |
 | 매개 변수 | 파이프라인 실행에 대 한 매개 변수 (이름/값 쌍) |
-| Error | 파이프라인이 실패 한 경우 실행 오류 |
+| 오류 | 파이프라인이 실패 한 경우 실행 오류 |
 | 실행 ID | 파이프라인 실행 ID입니다. |
 
 ![파이프라인 실행 모니터링에 대 한 목록 보기](media/monitor-visually/pipeline-runs.png)
@@ -54,13 +54,13 @@ Azure Data Factory에서 파이프라인을 만들어 게시 한 후에는 트�
 | --- | --- |
 | 작업 이름 | 파이프라인 내의 활동 이름 |
 | 작업 유형 | 작업 유형 (예: **복사**, **executedataflow 흐름**또는 **AzureMLExecutePipeline** ) |
-| 동작 | JSON 입력 정보, JSON 출력 정보 또는 자세한 작업 관련 모니터링 환경을 볼 수 있는 아이콘 | 
+| 작업 | JSON 입력 정보, JSON 출력 정보 또는 자세한 작업 관련 모니터링 환경을 볼 수 있는 아이콘 | 
 | 실행 시작 | 작업 실행에 대 한 시작 날짜 및 시간 (MM/DD/YYYY, HH: MM: SS AM/PM) |
-| Duration | 실행 기간 (HH:MM:SS) |
-| 가동 상태 | **실패**, **성공**, **진행 중**또는 **취소 됨** |
+| 기간 | 실행 기간 (HH:MM:SS) |
+| 상태 | **실패**, **성공**, **진행 중**또는 **취소 됨** |
 | Integration Runtime | 활동이 실행 된 Integration Runtime |
 | 사용자 속성 | 활동의 사용자 정의 속성 |
-| Error | 작업이 실패 한 경우 실행 오류 |
+| 오류 | 작업이 실패 한 경우 실행 오류 |
 | 실행 ID | 활동 실행 ID입니다. |
 
 ![작업 실행 모니터링에 대 한 목록 보기](media/monitor-visually/activity-runs.png)
@@ -113,6 +113,12 @@ Azure Data Factory에서 파이프라인을 만들어 게시 한 후에는 트�
 ![활동 실행 보기](media/monitor-visually/rerun-activities-image1.png)
 
 ![활동 실행 선택](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="rerun-from-failed-activity"></a>실패 한 작업에서 다시 실행
+
+작업이 실패 하거나, 시간이 초과 되거나, 취소 되는 경우 실패 한 **작업에서 다시 실행**을 선택 하 여 실패 한 작업에서 파이프라인을 다시 실행할 수 있습니다.
+
+![실패 한 작업 다시 실행](media/monitor-visually/rerun-failed-activity.png)
 
 ### <a name="view-rerun-history"></a>다시 실행 기록 보기
 

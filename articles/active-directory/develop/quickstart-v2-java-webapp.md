@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920704"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549944"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -28,7 +28,7 @@ ms.locfileid: "74920704"
 
 ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "74920704"
 >    - 지금은 **Redirect URI**를 비워 두고 **등록**을 선택합니다.
 > 1. **개요** 페이지에서 애플리케이션의 **애플리케이션(클라이언트) ID**와 **디렉터리(테넌트) ID** 값을 찾습니다. 나중에 사용할 수 있도록 이러한 값을 복사합니다.
 > 1. 메뉴에서 **인증**을 선택한 후 다음 정보를 추가합니다.
->    - **리디렉션 URI**에 `http://localhost:8080/msal4jsamples/secure/aad` 및 `http://localhost:8080/msal4jsamples/graph/me`를 추가합니다.
+>    - **리디렉션 URI**에 `http://localhost:8080/msal4jsample/secure/aad` 및 `http://localhost:8080/msal4jsample/graph/me`를 추가합니다.
 >    - **저장**을 선택합니다.
 > 1. 메뉴에서 **인증서 및 암호**를 선택하고 **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 클릭합니다.
 >
@@ -121,7 +121,7 @@ IDE에서 웹 애플리케이션을 실행하는 경우 실행을 클릭한 다�
 
 1. 전면 페이지에서 **로그인** 단추를 선택하여 Azure Active Directory으로 리디렉션하고 사용자에게 자격 증명을 입력하라는 메시지를 표시합니다.
 
-1. 사용자가 인증된 후에는 *http://localhost:8080/msal4jsamples/secure/aad* 로 리디렉션됩니다. 사용자는 이제 로그인되었으며, 페이지에는 로그인된 계정에 대한 정보가 표시됩니다. 샘플 UI에는 다음과 같은 단추가 있습니다.
+1. 사용자가 인증된 후에는 *http://localhost:8080/msal4jsample/secure/aad* 로 리디렉션됩니다. 사용자는 이제 로그인되었으며, 페이지에는 로그인된 계정에 대한 정보가 표시됩니다. 샘플 UI에는 다음과 같은 단추가 있습니다.
     - *로그아웃*: 애플리케이션에서 현재 사용자를 로그아웃하고 홈페이지로 리디렉션합니다.
     - *사용자 정보 표시*: Microsoft Graph에 대한 토큰을 획득하고, 로그인한 사용자에 대한 기본 정보를 반환하는 토큰을 포함하는 요청을 사용하여 Microsoft Graph를 호출합니다.
 

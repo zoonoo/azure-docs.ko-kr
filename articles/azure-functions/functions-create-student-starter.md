@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409892"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Azure for Students Starter를 사용하여 함수 만들기
 
@@ -43,11 +43,11 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
     <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
 
-    | 설정      | 제안 값  | 설명                                        |
+    | 설정      | 제안 값  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **앱 이름** | 전역적으로 고유한 이름 | 새 함수 앱을 식별하는 이름입니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다.  | 
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. | 
-    | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
+    | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
    | **[App Service 계획/위치](./functions-scale.md)** | 새로 만들기 | 함수 앱이 배포되는 지역 및 리소스 밀도를 제어하는 호스팅 계획입니다. 동일한 계획에 배포된 여러 함수 앱은 모두 동일한 단일 무료 인스턴스를 공유합니다. 이러한 측면이 Student Starter 계획의 제한 사항입니다. 전체 호스팅 옵션은 [여기에 설명되어 있습니다.](./functions-scale.md)|
     | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. |
     |**[Application Insights](./functions-monitoring.md)**| 사용 | Application Insights는 함수 앱의 로그를 저장 및 분석하는 데 사용됩니다. Application Insights를 지원하는 위치를 선택하면 기본적으로 사용하도록 설정됩니다. Application Insights는 Application Insights를 배포할 가까운 지역을 수동으로 선택하여 모든 함수에 사용할 수 있습니다. Application Insights가 없으면 라이브 스트리밍 로그만 볼 수 있습니다.

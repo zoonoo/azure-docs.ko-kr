@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e686648680261e2d13707f1704c56f306c510397
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927203"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439461"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>매핑 데이터 흐름을 사용 하 여 데이터 변환
 
@@ -24,13 +24,13 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 데이터 흐름 작업을 사용 하 여 파이프라인을 만듭니다.
 > * 네 가지 변환으로 매핑 데이터 흐름을 작성 합니다. 
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 작업 모니터링
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. ADLS 저장소를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 
@@ -57,7 +57,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
     b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
          
-    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
+    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요. 
 6. **버전**에서 **V2**를 선택합니다.
 7. **위치**에서 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용 하는 데이터 저장소 (예: Azure Storage 및 SQL Database) 및 계산 (예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
 8. **만들기**를 선택합니다. 
@@ -167,7 +167,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. **DelimitedText**를 선택 합니다. 계속을 클릭합니다.
 
     ![데이터 세트](media/tutorial-data-flow/dataset2.png)
-1. 싱크 데이터 집합의 이름을 **MoviesSink**합니다. 연결 된 서비스의 경우 6 단계에서 만든 ADLS gen2 연결 된 서비스를 선택 합니다. 데이터를 쓸 출력 폴더를 입력 합니다. 이 자습서에서는 ' sample-data ' 컨테이너의 ' output ' 폴더에 쓰고 있습니다. 폴더는 미리 존재 하지 않아도 되며 동적으로 만들 수 있습니다. **첫 번째 행을 머리글로** true로 설정 하 고 **스키마 가져오기**에 대해 **없음** 을 선택 합니다. Finish를 클릭합니다.
+1. 싱크 데이터 집합의 이름을 **MoviesSink**합니다. 연결 된 서비스의 경우 6 단계에서 만든 ADLS gen2 연결 된 서비스를 선택 합니다. 데이터를 쓸 출력 폴더를 입력 합니다. 이 자습서에서는 ' sample-data ' 컨테이너의 ' output ' 폴더에 쓰고 있습니다. 폴더는 미리 존재 하지 않아도 되며 동적으로 만들 수 있습니다. **첫 번째 행을 머리글로** true로 설정 하 고 **스키마 가져오기**에 대해 **없음** 을 선택 합니다. 마침을 클릭합니다.
     
     ![sink](media/tutorial-data-flow/sink3.png)
 
@@ -194,10 +194,10 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서의 파이프라인은 1910에서 2000 사이의 평균 등급을 집계 하 고 ADLS에 데이터를 기록 하는 데이터 흐름을 실행 합니다. 다음 방법에 대해 알아보았습니다.
+이 자습서의 파이프라인은 1910에서 2000 사이의 평균 등급을 집계 하 고 ADLS에 데이터를 기록 하는 데이터 흐름을 실행 합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 데이터 흐름 작업을 사용 하 여 파이프라인을 만듭니다.
 > * 네 가지 변환으로 매핑 데이터 흐름을 작성 합니다. 
 > * 파이프라인 실행 테스트

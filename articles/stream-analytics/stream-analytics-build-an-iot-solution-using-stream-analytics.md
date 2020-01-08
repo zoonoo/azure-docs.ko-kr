@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics를 사용하여 IoT 솔루션 빌드
 description: 요금 창구 시나리오의 Stream Analytics IoT 솔루션 시작하기 자습서
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620516"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426451"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -44,7 +43,7 @@ ms.locfileid: "67620516"
 ### <a name="entry-data-stream"></a>진입 데이터 스트림
 진입 데이터 스트림에는 톨게이트 요금소로 들어가는 자동차에 대한 정보가 포함됩니다. 종료 데이터 이벤트는 샘플 앱에 포함된 Web App의 Event Hub 큐에 라이브 스트리밍됩니다.
 
-| TollId | EntryTime | LicensePlate | 시스템 상태 | 계정을 | 모델 | VehicleType | VehicleWeight | Toll | 태그 |
+| TollId | EntryTime | LicensePlate | 상태 | 만들기 | 모델 | VehicleType | VehicleWeight | Toll | 태그 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -55,13 +54,13 @@ ms.locfileid: "67620516"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | 설명 |
+| 열 | Description |
 | --- | --- |
 | TollId |톨게이트 요금소를 고유하게 식별하는 요금 창구 ID |
 | EntryTime |요금 창구에 차량이 진입하는 날짜 및 시간(UTC) |
 | LicensePlate |차량 번호판 번호 |
-| 시스템 상태 |미국의 주 이름 |
-| 계정을 |자동차 제조업체 |
+| 상태 |미국의 주 이름 |
+| 만들기 |자동차 제조업체 |
 | 모델 |자동차 모델 번호 |
 | VehicleType |여객 차량의 경우 1, 화물 차량의 경우 2 |
 | WeightType |차량 무게(톤), 승용차는 0 |
@@ -73,16 +72,16 @@ ms.locfileid: "67620516"
 
 | **TollId** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
-| 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
-| 1 |2014-09-10T12:03:00.0000000Z |YXZ 1001 |
-| 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
-| 2 |2014-09-10T12:07:00.0000000Z |XYZ 1003 |
-| 1 |2014-09-10T12:08:00.0000000Z |1007 BNJ |
-| 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
+| 1 |2014-09-10T12:03:00.0000000 Z |JNB 7001 |
+| 1 |2014-09-10T12:03:00.0000000 Z |YXZ 1001 |
+| 3 |2014-09-10T12:04:00.0000000 Z |ABC 1004 |
+| 2 |2014-09-10T12:07:00.0000000 Z |XYZ 1003 |
+| 1 |2014-09-10T12:08:00.0000000 Z |1007 BNJ |
+| 2 |2014-09-10T12:07:00.0000000 Z |CDE 1007 |
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | 설명 |
+| 열 | Description |
 | --- | --- |
 | TollId |톨게이트 요금소를 고유하게 식별하는 요금 창구 ID |
 | ExitTime |차량이 요금소를 빠져 나가는 날짜 및 시간(UTC) |
@@ -102,7 +101,7 @@ ms.locfileid: "67620516"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | 설명 |
+| 열 | Description |
 | --- | --- |
 | LicensePlate |차량 번호판 번호 |
 | RegistrationId |차량 등록 ID |
@@ -172,7 +171,7 @@ ms.locfileid: "67620516"
    - **Registration** 입력은 필요에 따라 조회에 사용되는 고정 registration.json 파일을 가리키는 Azure Blob Storage 연결입니다. 이 참조 데이터 입력은 쿼리 구문의 이후 변형에 사용됩니다.
 
 4. TollApp 샘플 작업의 출력을 검사합니다.
-   - **Cosmos DB** 출력은 출력 싱크 이벤트를 받는 Cosmos 데이터베이스 컨테이너입니다. 이 출력은 스트리밍 쿼리의 INTO 절에 사용합니다.
+   - **Cosmos DB** 출력은 출력 싱크 이벤트를 수신 하는 Cosmos 데이터베이스 컨테이너입니다. 이 출력은 스트리밍 쿼리의 INTO 절에 사용합니다.
 
 ## <a name="start-the-tollapp-streaming-job"></a>TollApp 스트리밍 작업 시작
 스트리밍 작업을 시작하려면 다음 단계를 수행합니다.
@@ -284,7 +283,7 @@ WHERE Registration.Expired = '1'
 ```
 
 ## <a name="scale-out-the-job"></a>작업 규모 확장
-Azure Stream Analytics는 대량의 데이터 처리를 위해 탄력적으로 크기 조정할 수 있도록 설계되었습니다. Azure Stream Analytics 쿼리에서 **PARTITION BY** 절을 사용하여 이 단계에서 확장하도록 시스템에 명령할 수 있습니다. **PartitionId**는 입력(이벤트 허브)의 파티션 ID와 일치하도록 시스템이 추가하는 특수한 열입니다.
+Azure Stream Analytics는 대량의 데이터 처리를 위해 탄력적으로 크기 조정할 수 있도록 설계되었습니다. Azure Stream Analytics 쿼리는 **PARTITION by** 절을 사용 하 여이 단계가 확장 됨을 시스템에 알릴 수 있습니다. **PartitionId** 는 입력 (이벤트 허브)의 파티션 ID와 일치 하도록 시스템이 추가 하는 특수 열입니다.
 
 쿼리를 파티션으로 확장하려면 쿼리 구문을 다음 코드로 편집합니다.
 ```sql

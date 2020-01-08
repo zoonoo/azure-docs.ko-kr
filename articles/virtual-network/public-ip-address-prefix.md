@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: f89218b066b0a22559c00c4a53316f0df9c0bb8f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488444"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640723"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
@@ -39,7 +39,7 @@ ms.locfileid: "73488444"
 - 알려진 범위에서 공용 IP 주소 리소스를 만들 수 있습니다.
 - 내가 또는 나의 비즈니스 파트너가 현재 할당된 공용 IP 주소뿐만 아니라 아직 할당되지 않은 주소가 포함된 범위로 방화벽 규칙을 생성할 수 있습니다. 이렇게 하면 새 리소스에 IP 주소를 할당할 때 방화벽 규칙을 변경할 필요가 없습니다.
 - 만들 수 있는 범위의 기본 크기는 IP 주소 /28 또는 16개입니다.
-- 만들 수 있는 범위의 수에는 제한이 없지만 Azure 구독에 포함할 수 있는 정적 공용 IP 주소의 최대 수에는 제한이 있습니다. 따라서 만들 수 있는 범위의 개수는 구독에 포함할 수 있는 정적 공용 IP 주소의 개수를 초과할 수 없습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
+- 만들 수 있는 범위의 수에는 제한이 없지만 Azure 구독에 포함할 수 있는 정적 공용 IP 주소의 최대 수에는 제한이 있습니다. 따라서 만들 수 있는 범위의 개수는 구독에 포함할 수 있는 정적 공용 IP 주소의 개수를 초과할 수 없습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 - 접두사의 주소를 사용하여 만든 주소는 공용 IP 주소를 할당할 수 있는 Azure 리소스에 할당할 수 있습니다.
 - 범위 내에서 어떤 IP 주소가 할당되었고 할당되지 않았는지 쉽게 볼 수 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "73488444"
 
 |리소스|시나리오|단계|
 |---|---|---|
-|Virtual Machines| 접두사의 공용 IP를 Azure의 가상 머신에 연결하면 방화벽의 IP를 허용 목록에 대한 관리 오버헤드가 줄어듭니다. 하나의 방화벽 규칙에서 전체 접두사를 허용 목록에 포함시킬 수 있습니다. Azure에서 가상 머신으로 확장할 때 동일한 접두사의 IP를 연결하면 비용, 시간 및 관리 오버헤드를 절약할 수 있습니다.| 접두사의 IP를 가상 머신에 연결하려면: 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) 3. [IP를 가상 머신의 네트워크 인터페이스에 연결합니다.](virtual-network-network-interface-addresses.md#add-ip-addresses) [가상 머신 확장 집합에 ip를 연결할](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/)수도 있습니다.
+|가상 머신| 접두사의 공용 IP를 Azure의 가상 머신에 연결하면 방화벽의 IP를 허용 목록에 대한 관리 오버헤드가 줄어듭니다. 하나의 방화벽 규칙에서 전체 접두사를 허용 목록에 포함시킬 수 있습니다. Azure에서 가상 머신으로 확장할 때 동일한 접두사의 IP를 연결하면 비용, 시간 및 관리 오버헤드를 절약할 수 있습니다.| 접두사의 IP를 가상 머신에 연결하려면: 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) 3. [IP를 가상 머신의 네트워크 인터페이스에 연결합니다.](virtual-network-network-interface-addresses.md#add-ip-addresses) [가상 머신 확장 집합에 ip를 연결할](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/)수도 있습니다.
 | 표준 부하 분산 장치 | 접두사의 공용 IP를 프런트 엔드 IP 구성 또는 부하 분산 장치의 아웃바운드 규칙에 연결하면 Azure 공용 IP 주소 공간이 간소화됩니다. 공용 IP 접두사로 정의된 일련의 연속 IP 주소에서 발생할 아웃바운드 연결을 정리하여 시나리오를 간소화할 수 있습니다. | 접두사의 IP를 부하 분산 장치에 연결하려면: 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) 3. Load Balancer를 만들 때 위의 2단계에서 부하 분산 장치의 프런트 엔드 IP로 만든 IP를 선택하거나 업데이트합니다. |
 | Azure Firewall | 아웃바운드 SNAT의 접두사에서 공용 IP를 사용할 수 있습니다. 즉, 모든 아웃바운드 가상 네트워크 트래픽은 [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 공용 IP로 변환됩니다. 이 IP는 미리 정해진 접두사에서 사용되기 때문에, Azure의 공용 IP 공간이 어떤 모양인지를 쉽게 미리 알 수 있습니다. | 1. [접두사를 만듭니다](manage-public-ip-address-prefix.md) . 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) 3. [Azure Firewall을 배포](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)할 때 접두사에서 이전에 할당한 IP를 반드시 선택해야 합니다.|
 | Application Gateway v2 | 자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 v2에 대해 접두사에서 공용 IP를 사용할 수 있습니다. 이 IP는 미리 정해진 접두사에서 사용되기 때문에, Azure의 공용 IP 공간이 어떤 모양인지를 쉽게 미리 알 수 있습니다. | 1. [접두사를 만듭니다](manage-public-ip-address-prefix.md) . 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) 3. Application Gateway를 [배포할](../application-gateway/quick-create-portal.md#create-an-application-gateway)때 이전에 접두사에서 할당 한 IP를 선택 해야 합니다.|
@@ -56,7 +56,7 @@ ms.locfileid: "73488444"
 ## <a name="constraints"></a>제약 조건
 
 - 접두사에 대한 IP 주소를 지정할 수 없습니다. 사용자가 지정한 크기에 따라 접두사에 대한 IP 주소가 Azure에서 할당됩니다.
-- 최대 16 개의 IP 주소 또는/28의 접두사를 만들 수 있습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
+- 최대 16 개의 IP 주소 또는/28의 접두사를 만들 수 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 - 접두사를 만든 후에는 범위를 변경할 수 없습니다.
 - 표준 SKU로 만든 고정 공용 IP 주소만 접두사의 범위에서 할당할 수 있습니다. 공용 IP 주소 SKU에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
 - 범위에서 가져온 주소는 Azure Resource Manager 리소스에만 할당할 수 있습니다. 클래식 배포 모델의 리소스에는 주소를 할당할 수 없습니다.

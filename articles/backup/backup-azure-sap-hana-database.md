@@ -3,14 +3,14 @@ title: Azure Backup를 사용 하 여 Azure에 SAP HANA 데이터베이스 백�
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure virtual machines에 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: ed47f18c9dabc685d6fbe02804562ef86a93190a
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: MT
+ms.openlocfilehash: 3246f6cf8046e0a0c5795059ad3448b70130e7e1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285897"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496963"
 ---
-# <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 백업
+# <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
 SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보존이 필요한 중요 한 워크 로드입니다. [Azure Backup](backup-overview.md)를 사용 하 여 Azure vm (가상 머신)에서 실행 되는 SAP HANA 데이터베이스를 백업할 수 있습니다.
 
@@ -24,44 +24,50 @@ SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보�
 > * 백업 구성
 > * 주문형 백업 작업 실행
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 백업할 데이터베이스를 설정 하려면 [필수 구성 요소](tutorial-backup-sap-hana-db.md#prerequisites) 및 [권한 설정](tutorial-backup-sap-hana-db.md#setting-up-permissions) 섹션을 참조 하세요.
 
 ### <a name="set-up-network-connectivity"></a>네트워크 연결 설정
 
-모든 작업에 대해 SAP HANA VM에는 Azure 공용 IP 주소에 대 한 연결이 필요 합니다. VM 작업 (데이터베이스 검색, 백업 구성, 백업 예약, 복구 지점의 복원 등)은 연결 없이 작동할 수 없습니다. Azure 데이터 센터 IP 범위에 대 한 액세스를 허용 하 여 연결을 설정 합니다.
+모든 작업에서는 SAP HANA VM이 Azure 공용 IP 주소에 연결되어 있어야 합니다. 연결되어 있지 않으면 VM 작업(데이터베이스 검색, 백업 구성, 백업 예약, 복구 지점 복원 등)이 작동하지 않습니다. 다음과 같이 Azure 데이터 센터 IP 범위에 대한 액세스를 허용하여 연결을 설정합니다.
 
-* Azure 데이터 센터의 [ip 주소 범위](https://www.microsoft.com/download/details.aspx?id=41653) 를 다운로드 한 다음 이러한 ip 주소에 대 한 액세스를 허용할 수 있습니다.
-* NSGs (네트워크 보안 그룹)를 사용 하는 경우 AzureCloud [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 를 사용 하 여 모든 AZURE 공용 IP 주소를 허용할 수 있습니다. [AzureNetworkSecurityRule cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) 을 사용 하 여 nsg 규칙을 수정할 수 있습니다.
-* 전송에서 HTTPS를 통해 포트 443을 허용 목록에 추가 해야 합니다.
+* Azure 데이터 센터에 대한 [IP 주소 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드한 다음, 이러한 IP 주소에 대한 액세스를 허용할 수 있습니다.
+* NSG(네트워크 보안 그룹)를 사용하는 경우 AzureCloud [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 사용하여 모든 Azure 공용 IP 주소를 허용할 수 있습니다. [Set-AzureNetworkSecurityRule cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0)을 사용하여 NSG 규칙을 수정할 수 있습니다.
+* HTTPS를 통해 전송되므로 443 포트를 허용 목록에 추가해야 합니다.
 
-## <a name="onboard-to-the-public-preview"></a>공개 미리 보기에 등록
+## <a name="onboard-to-the-public-preview"></a>공개 미리 보기에 온보딩
 
-다음과 같이 공개 미리 보기로 등록 합니다.
+다음과 같이 공개 미리 보기에 온보딩합니다.
 
-* 포털에서 [이 문서](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)에 따라 Recovery Services 서비스 공급자에 구독 ID를 등록 합니다.
-* PowerShell의 경우이 cmdlet을 실행 합니다. "등록 됨"으로 완료 되어야 합니다.
+* 포털에서 [이 문서에 따라](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal) 구독 ID를 Recovery Services 공급자에 등록합니다.
+* PowerShell의 ' Az ' 모듈에 대해이 cmdlet을 실행 합니다. 그러면 "등록됨"으로 완료됩니다.
 
     ```powershell
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
+* PowerShell에서 ' AzureRM ' 모듈을 사용 하는 경우이 cmdlet을 실행 합니다. 그러면 "등록됨"으로 완료됩니다.
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+    
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>데이터베이스 검색
 
-1. 자격 증명 모음의 **시작**에서 **백업**을 클릭 합니다. **워크 로드가 실행 되는 위치**에서 **Azure VM의 SAP HANA**을 선택 합니다.
-2. **검색 시작**을 클릭 합니다. 자격 증명 모음 지역에서 보호 되지 않는 Linux Vm의 검색을 시작 합니다.
+1. 자격 증명 모음의 **시작**에서 **백업**을 클릭합니다. **작업이 실행되는 위치**에서 **Azure VM의 SAP HANA**를 선택합니다.
+2. **검색 시작**을 클릭합니다. 그러면 자격 증명 모음 지역에서 보호되지 않는 Linux VM의 검색이 시작됩니다.
 
    * 검색 후 보호 되지 않는 Vm은 이름 및 리소스 그룹 별로 나열 된 포털에 표시 됩니다.
    * VM이 예상 대로 표시 되지 않으면 이미 자격 증명 모음에 백업 되어 있는지 확인 합니다.
    * 여러 Vm은 동일한 이름을 가질 수 있지만 다른 리소스 그룹에 속해 있습니다.
 
-3. **Virtual Machines 선택**에서 링크를 클릭 하 여 Azure Backup 서비스에서 데이터베이스 검색에 대 한 SAP HANA vm에 액세스할 수 있는 권한을 제공 하는 스크립트를 다운로드 합니다.
+3. **Virtual Machines 선택**에서 링크를 클릭하여 데이터베이스 검색을 위해 SAP HANA VM에 액세스할 수 있는 권한을 Azure Backup 서비스에 제공하는 스크립트를 다운로드합니다.
 4. 백업 하려는 SAP HANA 데이터베이스를 호스트 하는 각 VM에 대해 스크립트를 실행 합니다.
-5. Vm에서 스크립트를 실행 한 후 **Virtual Machines 선택**에서 vm을 선택 합니다. 그런 다음 **Db 검색**을 클릭 합니다.
-6. Azure Backup VM의 모든 SAP HANA 데이터베이스를 검색 합니다. 검색 하는 동안 Azure Backup는 자격 증명 모음으로 VM을 등록 하 고 VM에 확장을 설치 합니다. 데이터베이스에 에이전트가 설치 되어 있지 않습니다.
+5. Vm에서 스크립트를 실행 한 후 **Virtual Machines 선택**에서 vm을 선택 합니다. 그런 다음, **DB 검색**을 클릭합니다.
+6. Azure Backup에서 VM의 모든 SAP HANA 데이터베이스를 검색합니다. 검색하는 동안 Azure Backup은 VM을 자격 증명 모음에 등록하고 확장을 해당 VM에 설치합니다. 에이전트는 데이터베이스에 설치되지 않습니다.
 
     ![SAP HANA 데이터베이스 검색](./media/backup-azure-sap-hana-database/hana-discover.png)
 
@@ -71,7 +77,7 @@ SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보�
 
 1. 2 단계에서 **백업 구성**을 클릭 합니다.
 
-    ![백업 구성](./media/backup-azure-sap-hana-database/configure-backup.png)
+    ![Backup 구성](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. **백업할 항목 선택**에서 보호 하려는 모든 데이터베이스 > **확인**을 선택 합니다.
 
     ![백업할 항목 선택](./media/backup-azure-sap-hana-database/select-items.png)
@@ -81,16 +87,16 @@ SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보�
 4. 정책을 만든 후 **백업** 메뉴에서 **백업 사용**을 클릭 합니다.
 
     ![백업 사용](./media/backup-azure-sap-hana-database/enable-backup.png)
-5. 포털의 **알림** 영역에서 백업 구성 진행률을 추적 합니다.
+5. 포털의 **알림** 영역에서 백업 구성 진행률을 추적합니다.
 
 ### <a name="create-a-backup-policy"></a>백업 정책 만들기
 
-백업 정책은 백업이 수행 되는 시기와 보존 기간을 정의 합니다.
+백업 정책은 백업이 수행되는 시기와 보존 기간을 정의합니다.
 
 * 정책은 자격 증명 모음 수준에서 만들어집니다.
 * 다수의 자격 증명 모음은 자격 증명 모음은 동일한 백업 정책을 사용할 수 있지만 자격 증명 모음마다 백업 정책을 적용해야 합니다.
 
-정책 설정을 다음과 같이 지정 합니다.
+정책 설정을 다음과 같이 지정합니다.
 
 1. **정책 이름**에 새 정책의 이름을 입력합니다.
 
@@ -104,14 +110,14 @@ SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보�
 
    ![백업 빈도 선택](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. **보존 범위**에서 전체 백업에 대 한 보존 설정을 구성 합니다.
+3. **보존 범위**에서 전체 백업에 대한 보존 설정을 구성합니다.
     * 기본적으로 모든 옵션이 선택 되어 있습니다. 사용 하지 않을 보존 범위 제한을 모두 선택 취소 하 고 수행 하는 범위를 설정 합니다.
-    * 모든 백업 유형에 대 한 최소 보존 기간은 7 일입니다.
+    * 모든 백업 유형(전체/차등/로그)의 최소 보존 기간은 7일입니다.
     * 복구 지점은 보존 범위를 기반으로 보존 태그가 지정됩니다. 예를 들어, 매일, 전체 백업을 선택하면 매일 하나의 전체 백업만 트리거됩니다.
-    * 특정 날짜에 대 한 백업은 주간 보존 범위 및 설정에 따라 태그가 지정 되 고 보존 됩니다.
+    * 특정 일의 백업은 매주 보존 범위 및 설정에 기반한 태그로 지정되어 보존됩니다.
     * 매월 및 매년 보존 범위도 유사한 방식으로 작동합니다.
 
-4. **전체 백업 정책** 메뉴에서 **확인** 을 클릭 하 여 설정을 적용 합니다.
+4. **전체 백업 정책** 메뉴에서 **확인**을 클릭하여 설정을 적용합니다.
 5. 차등 **백업** 을 선택 하 여 차등 정책을 추가 합니다.
 6. **차등 백업 정책**에서 **사용**을 선택하여 빈도 및 보존 컨트롤을 엽니다.
     * 많으면, 하루에 하나의 차등 백업을 트리거할 수 있습니다.
@@ -120,18 +126,21 @@ SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보�
     ![차등 백업 정책](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > 증분 백업은 현재 지원 되지 않습니다.
+    > 증분 백업은 현재 지원되지 않습니다.
 
-7. **확인** 을 클릭 하 여 정책을 저장 하 고 주 **백업 정책** 메뉴로 돌아갑니다.
-8. **로그 백업** 을 선택 하 여 트랜잭션 로그 백업 정책 추가
-    * **로그 백업**에서 **사용**을 선택 합니다.  SAP HANA 모든 로그 백업을 관리 하므로이 기능을 사용 하지 않도록 설정할 수 없습니다.
+7. **확인**을 클릭하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
+8. **로그 백업**을 선택하여 트랜잭션 로그 백업 정책을 추가합니다.
+    * **로그 백업**에서 **사용**을 선택 합니다.  SAP HANA에서 모든 로그 백업을 관리하므로 이 기능을 사용하지 않도록 설정할 수 없습니다.
     * 빈도 및 보존 제어를 설정 합니다.
 
     > [!NOTE]
     > 로그 백업은 전체 백업이 성공적으로 완료 된 후에만 flow를 시작 합니다.
 
-9. **확인** 을 클릭 하 여 정책을 저장 하 고 주 **백업 정책** 메뉴로 돌아갑니다.
-10. 백업 정책 정의를 완료 한 후 **확인**을 클릭 합니다.
+9. **확인**을 클릭하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
+10. 백업 정책 정의가 완료되면 **확인**을 클릭합니다.
+
+> [!NOTE]
+> 각 로그 백업은 이전 전체 백업에 연결 되어 복구 체인을 형성 합니다. 이 전체 백업은 마지막 로그 백업이 만료 될 때까지 보존 됩니다. 이는 모든 로그를 복구할 수 있도록 전체 백업이 추가 기간 동안 보존 됨을 의미할 수 있습니다. 사용자에 게 주간 전체 백업, 일별 차등 및 2 시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30 일 동안 보존 됩니다. 그러나 매주 전체 백업을 사용할 수 있는 경우 (예: 30 + 7 일 후)에만 매주 전체를 정리/삭제할 수 있습니다. 예를 들어 매주 전체 백업은 11 월 16 일에 발생 합니다. 보존 정책에 따라 10 월 16 일까지 유지 됩니다. 이 전체에 대 한 마지막 로그 백업은 11 월 26 일에 다음에 예약 된 전체 시간 이전에 발생 합니다. 이 로그를 Dec 2 초까지 사용할 수 있을 때까지 11 월 16 일 전체를 삭제할 수 없습니다. 따라서 11 월 16 일은 12 월 2 일부 터까지 유지 됩니다.
 
 ## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
@@ -159,5 +168,5 @@ Azure Backup를 사용 하 여 백업 되는 데이터베이스의 로컬 백업
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure vm에서 실행 되는 SAP HANA 데이터베이스를 복원](https://docs.microsoft.com/azure/backup/sap-hana-db-restore) 하는 방법 알아보기
+* [Azure VM에서 실행되는 SAP HANA 데이터베이스를 복원하는 방법](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)을 알아봅니다.
 * 을 [사용 하 여 백업 되는 SAP HANA 데이터베이스를 관리](https://docs.microsoft.com/azure/backup/sap-hana-db-manage) 하는 방법을 알아봅니다 Azure Backup

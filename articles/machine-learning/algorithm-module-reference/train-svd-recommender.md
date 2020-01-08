@@ -1,7 +1,7 @@
 ---
 title: '.SVD 추천 학습: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 학습 .SVD 추천 모듈을 사용 하 여 .SVD 알고리즘을 통해 Bayesian 추천를 학습 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 학습 .SVD 추천 모듈을 사용 하 여 .SVD 알고리즘을 사용 하 여 Bayesian 추천를 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 2019b752ab224abc244e471de3d427a77f7ed93a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dc78322b09548e4e9c2f666e0c8315ce688d6541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716912"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428415"
 ---
-# <a name="train-svd-recommender"></a>.SVD 추천 학습
+# <a name="train-svd-recommender"></a>SVD 추천 학습
 
 이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 학습 .SVD 추천 모듈을 사용 하는 방법을 설명 합니다. 이 모듈을 사용 하 여 .SVD (단일 값 분해) 알고리즘을 기반으로 추천 모델을 학습 합니다.  
 
@@ -50,14 +50,14 @@ ms.locfileid: "73716912"
 
 Azure Machine Learning 디자이너의 **식당 등급** 데이터 집합 ( **저장 된 데이터 집합** 및 **샘플**선택)은 예상 되는 형식을 보여 줍니다.
 
-|Id|placeID|rating|
+|userID|placeID|rating|
 |------------|-------------|------------|
 |U1077|135085|2|
 |U1077|135038|2|
 
 이 샘플에서는 단일 사용자가 두 식당의 등급을 매긴 것을 볼 수 있습니다. 
 
-### <a name="train-the-model"></a>모델 학습
+### <a name="train-the-model"></a>모델 교육
 
 1.  Designer에서 .SVD 추천 모듈을 파이프라인에 추가 하 고 학습 데이터에 연결 합니다.  
    
@@ -76,4 +76,4 @@ Azure Machine Learning 디자이너의 **식당 등급** 데이터 집합 ( **�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

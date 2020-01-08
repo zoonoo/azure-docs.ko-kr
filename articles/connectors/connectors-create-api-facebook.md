@@ -1,18 +1,18 @@
 ---
 title: Facebook에 연결
-description: Facebook REST API 및 Azure Logic Apps를 사용하여 타임라인 및 페이지 관리
+description: Azure Logic Apps를 사용 하 여 Facebook 타임 라인 및 페이지를 관리 하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 1aa936f902dc17c9a401959c19824f6c581547b1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 803453291b5cab2c51fec6641f8b096f62336325
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789829"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665805"
 ---
 # <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Facebook 타임 라인 및 페이지 관리
 

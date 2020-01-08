@@ -1,18 +1,20 @@
 ---
-title: Azure Notebooks를 사용하는 프로젝트에서 데이터 가져오기 및 내보내기
-description: 외부 리소스의 데이터를 Azure Notebooks 프로젝트로 가져오는 방법 및 프로젝트의 데이터를 내보내는 방법을 알아봅니다.
-ms.topic: article
+title: Azure Notebooks 미리 보기를 사용 하 여 프로젝트로 데이터 가져오기 및 내보내기
+description: 외부 원본에서 Azure Notebooks Preview 프로젝트로 데이터를 가져오는 방법 및 프로젝트에서 데이터를 내보내는 방법에 대해 알아봅니다.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277395"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646979"
 ---
-# <a name="work-with-data-files-in-azure-notebook-projects"></a>Azure Notebook 프로젝트에서 데이터 파일 작업
+# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Azure Notebooks 미리 보기 프로젝트에서 데이터 파일 작업
 
 데이터는 많은 Jupyter Notebook, 특히 데이터 과학에 사용되는 Notebook의 핵심 요소입니다. Azure notebooks를 사용하면 간편하게 다양한 소스의 데이터를 프로젝트로 가져와서 Notebook에서 사용할 수 있습니다. 뿐만 아니라 Notebook에서 생성하는 데이터는 프로젝트에 저장되며, 이 데이터를 다운로드하여 다른 곳에 사용할 수 있습니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 실행 중인 Notebook의 **데이터** 메뉴에서는 현재 Notebook 세션에 임시 파일뿐 아니라 프로젝트의 파일까지 사용하는 **업로드** 및 **다운로드** 명령을 제공합니다.
 

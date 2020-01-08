@@ -1,6 +1,6 @@
 ---
-title: Azure에서 Linux 가상 머신에 대 한 클라우드 초기화 지원 개요
-description: Microsoft Azure의 cloud-init 기능 개요
+title: Azure에서 Linux Vm에 대 한 클라우드 초기화 지원 개요
+description: Azure에서 프로 비전 시 VM을 구성 하는 클라우드 초기화 기능 개요
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: 6c522af44be51eb89ee9f64bae2dc4e9e7b24123
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7b3f64d0629ba5d7aaf85b854e1ee8e5a1410f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458609"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상 머신에 대한 Cloud-init 지원
 이 문서에서는 Azure에서 프로 비전 하는 시간에 VM (가상 머신) 또는 가상 머신 확장 집합을 구성 하기 위해 [클라우드 초기화](https://cloudinit.readthedocs.io) 에 대해 존재 하는 지원을 설명 합니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다.  

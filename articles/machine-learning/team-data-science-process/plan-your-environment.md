@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ba87461c6c195a6b483538fd94d8be76239b8dc5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495041"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647308"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 
@@ -56,7 +56,7 @@ ms.locfileid: "73495041"
 
 * Azure Blob Storage
 * SQL Azure 데이터베이스
-* Azure VM에서 SQL Server
+* Azure VM의 SQL Server
 * HDInsight(Azure의 Hadoop) 또는 하이브 테이블
 * Azure Machine Learning
 * 탑재식 Azure 가상 하드 디스크
@@ -109,7 +109,7 @@ ms.locfileid: "73495041"
 Azure Machine Learning Studio (클래식) 환경을 사용 합니다. 예를 들면 다음과 같습니다.
 
 * Azure Machine Learning Studio에서 지원되는 데이터 형식 및 유형의 목록은 [지원되는 데이터 형식 및 데이터 유형](../studio/import-data.md#supported-data-formats-and-data-types) 섹션을 참조하세요.
-* 분석 과정에 사용되는 다른 Azure 서비스의 제한 사항에 대한 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)을 참조하세요.
+* 분석 과정에 사용되는 다른 Azure 서비스의 제한 사항에 대한 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>데이터 품질 질문: 탐색 및 전처리
 

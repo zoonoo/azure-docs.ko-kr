@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: bd538d436d1c900a370f522bccf724eaf87210b4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd3cef4d70ea3f78d7e135ad01e0e00b38c60b9
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582616"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666281"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -35,7 +35,7 @@ Azure Security Center에는 다양 한 리소스 유형에 대 한 다양 한 �
 
 ## <a name="what-are-security-alerts"></a>보안 경고란?
 
-경고는 리소스에 대 한 위협을 검색할 때 Security Center에서 생성 하는 알림입니다. Security Center 우선 순위를 정하여 문제를 신속 하 게 조사 하는 데 필요한 정보와 함께 경고를 나열 합니다. Security Center는 공격을 해결 하는 방법에 대 한 권장 사항도 제공 합니다.
+경고는 리소스에 대한 위협을 탐지할 때 Security Center에서 생성하는 알림입니다. Security Center 우선 순위를 정하여 문제를 신속 하 게 조사 하는 데 필요한 정보와 함께 경고를 나열 합니다. Security Center는 공격을 해결하는 방법에 대한 권장 사항도 제공합니다.
 
 ## 는 어떻게 위협을 Security Center 검색 하나요? <a name="detect-threats"> </a>
 
@@ -63,7 +63,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 
 
 또한 광범위 한 캠페인의 증명을 지 원하는 것을 확인 하기 위해 다른 신호와의 상관 관계가 있습니다. 이 상관 관계를 통해 설정된 손상 표시기와 일치하는 이벤트를 식별할 수 있습니다. 
 
-### <a name="anomaly-detection"></a>이상 감지
+### <a name="anomaly-detection"></a>변칙 검색
 
 Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다.
 
@@ -105,13 +105,17 @@ Microsoft 전체에서 위협 환경의 변화를 지속적으로 모니터링 �
 다음 항목에서는 azure에 배포 된 리소스에 대 한 추가 보호 계층을 적용 하기 위해 Security Center Azure 인프라와 통합 하 여 수집 하는 다양 한 원격 분석을 사용 하는 방법에 대해 설명 합니다.
 
 * [서비스 계층 경고](security-center-alerts-service-layer.md)
-* [Azure 보안 제품과 통합](security-center-alerts-integration.md)
+* [Azure WAF 및 Azure DDoS Protection에 대 한 위협 감지](security-center-alerts-integration.md)
 
 ## <a name="what-are-security-incidents"></a>보안 인시던트 란 무엇 인가요?
 
 보안 인시던트는 각 경고를 개별적으로 나열 하는 대신 관련 된 경고의 컬렉션입니다. Security Center는 [클라우드 스마트 경고 상관 관계](security-center-alerts-cloud-smart.md) 를 사용 하 여 서로 다른 경고와 낮은 충실도 신호의 상관 관계를 보안 인시던트에 연결 합니다.
 
 인시던트를 사용 하 여 공격 캠페인 및 모든 관련 경고에 대 한 단일 보기를 제공 Security Center 합니다. 이 보기에서는 공격자가 수행한 작업과 영향을 받는 리소스를 빠르게 파악할 수 있습니다. 자세한 내용은 [클라우드 스마트 경고 상관 관계](security-center-alerts-cloud-smart.md)를 참조 하세요.
+
+## <a name="security-alerts-in-azure-activity-log"></a>Azure 활동 로그의 보안 경고
+
+보안 경고 및 인시던트는 Azure Portal에서 또는 프로그래밍 방식으로 사용할 수 있을 뿐만 아니라 [Azure 활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)에서 이벤트로 감사 됩니다. 이벤트 스키마에 대 한 자세한 내용은 [Azure 활동 로그의 보안 경고](https://go.microsoft.com/fwlink/?linkid=2114113)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 16892ec729f56f8c8e1713379285e07fbc0dd4d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084156"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495431"
 ---
-# <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대 한 일반적인 질문
+# <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
 이 문서에서는 온-프레미스 VMware Vm (가상 머신)의 재해 복구를 Azure에 배포할 때 나타날 수 있는 일반적인 질문에 답변 합니다.
 
@@ -103,7 +103,7 @@ GPv2 저장소 Azure Site Recovery 계정에 발생 하는 트랜잭션 비용�
 - UI 또는 PowerShell에서 [수동 설치](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui)
 - [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 와 같은 배포 도구를 사용 하 여 배포
 
-## <a name="managed-disks"></a>관리되는 디스크
+## <a name="managed-disks"></a>Managed Disks
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Site Recovery에서 데이터를 복제 하는 위치
 
@@ -116,7 +116,7 @@ Site Recovery 온-프레미스 VMware Vm 및 물리적 서버를 Azure의 manage
 
 ### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>저장소 계정에 새 컴퓨터를 복제할 수 있나요?
 
-아니요. 3 월 2019 부터는 Azure Portal에서 Azure managed disks에만 복제할 수 있습니다.
+아닙니다. 3 월 2019 부터는 Azure Portal에서 Azure managed disks에만 복제할 수 있습니다.
 
 저장소 계정에 새 Vm을 복제 하는 것은 PowerShell 또는 REST API (버전 2018-01-10 또는 2016-08-10)을 사용 하는 경우에만 사용할 수 있습니다.
 
@@ -135,7 +135,7 @@ Site Recovery 온-프레미스 VMware Vm 및 물리적 서버를 Azure의 manage
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>관리 디스크에서 관리 되지 않는 디스크로 복제를 전환할 수 있나요?
 
-아니요. 관리 됨에서 관리 되지 않음으로의 전환은 지원 되지 않습니다.
+아닙니다. 관리 됨에서 관리 되지 않음으로의 전환은 지원 되지 않습니다.
 
 ## <a name="replication"></a>복제
 
@@ -176,11 +176,11 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>디스크를 추가하거나 크기를 조정하여 복제 중인 VM을 수정할 수 있나요?
 
-Azure에 대 한 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다. 새 디스크를 추가 하려면 디스크를 추가 하 고 VM에 대 한 보호를 다시 활성화 해야 합니다.
+Azure에 대 한 VMware 복제의 경우 원본 Vm의 디스크 크기를 수정할 수 있습니다. 새 디스크를 추가 하려면 디스크를 추가 하 고 VM에 대 한 보호를 다시 활성화 해야 합니다.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>진행 중인 복제에 영향을 주지 않고 온-프레미스 컴퓨터를 새 vCenter Server 마이그레이션할 수 있나요?
 
-아니요. VMware Vcenter 또는 migration이 변경 되 면 진행 중인 복제에 영향을 줍니다. 새 vCenter Server를 사용 하 여 Site Recovery를 설정 하 고 컴퓨터에 대 한 복제를 다시 사용 하도록 설정 합니다.
+아닙니다. VMware Vcenter 또는 migration이 변경 되 면 진행 중인 복제에 영향을 줍니다. 새 vCenter Server를 사용 하 여 Site Recovery를 설정 하 고 컴퓨터에 대 한 복제를 다시 사용 하도록 설정 합니다.
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>가상 네트워크 (Azure 방화벽 포함)가 구성 된 캐시 또는 대상 저장소 계정에 복제할 수 있나요?
 
@@ -188,7 +188,7 @@ Azure에 대 한 VMware 복제의 경우 디스크 크기를 수정할 수 있�
 
 ## <a name="component-upgrade"></a>구성 요소 업그레이드
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>이전 버전의 모바일 서비스 에이전트 또는 구성 서버가 이전 버전 이며 업그레이드가 실패 했습니다. 어떻게 해야 합니까?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>이전 버전의 모바일 서비스 에이전트 또는 구성 서버가 이전 버전 이며 업그레이드가 실패 했습니다. 어떻게 하나요?
 
 Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그레이드 하는 방법에 [대해 자세히 알아보세요](https://aka.ms/asr_support_statement) .
 
@@ -202,7 +202,7 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>업그레이드 마다 원본 컴퓨터를 다시 부팅 해야 하나요?
 
-다시 부팅 하는 것이 좋지만 각 업그레이드에 반드시 필요한 것은 아닙니다. [자세히 알아봅니다](https://aka.ms/asr_vmware_upgrades).
+다시 부팅 하는 것이 좋지만 각 업그레이드에 반드시 필요한 것은 아닙니다. [자세히 알아보기](https://aka.ms/asr_vmware_upgrades).
 
 ## <a name="configuration-server"></a>구성 서버
 
@@ -234,7 +234,7 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>구성 서버에서 둘 이상의 지역에 복제할 수 있나요?
 
-아니요. 둘 이상의 지역에 복제 하려면 각 지역에 구성 서버가 필요 합니다.
+아닙니다. 둘 이상의 지역에 복제 하려면 각 지역에 구성 서버가 필요 합니다.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Azure에서 구성 서버를 호스팅할 수 있나요?
 
@@ -266,15 +266,15 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
 
-아니요. 구성 서버에만 VM을 사용 합니다.
+아닙니다. 구성 서버에만 VM을 사용 합니다.
 
 ### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>구성 서버를 복제하고 오케스트레이션에 사용할 수 있나요?
 
-아니요. 등록 문제를 방지 하기 위해 새로운 구성 서버를 설정 합니다.
+아닙니다. 등록 문제를 방지 하기 위해 새로운 구성 서버를 설정 합니다.
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>구성 서버가 등록 된 자격 증명 모음을 변경할 수 있나요?
 
-아니요. 자격 증명 모음이 구성 서버와 연결 된 후에는 변경할 수 없습니다. 다른 자격 증명 모음에 구성 서버를 등록 하는 방법에 [대해 알아봅니다](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) .
+아닙니다. 자격 증명 모음이 구성 서버와 연결 된 후에는 변경할 수 없습니다. 다른 자격 증명 모음에 구성 서버를 등록 하는 방법에 [대해 알아봅니다](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) .
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>VMware Vm과 물리적 서버의 재해 복구에 동일한 구성 서버를 사용할 수 있나요?
 
@@ -326,7 +326,7 @@ VMware에서 Azure로의 경우 사용할 수 있는 가장 오래 된 복구 �
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>장애 조치 후 Azure VM에 액세스하려면 어떻게 할까요?
 
-장애 조치 (failover) 후에는 보안 인터넷 연결, 사이트 간 VPN 또는 Azure Express 경로를 통해 Azure Vm에 액세스할 수 있습니다. 연결 하려면 여러 항목을 준비 해야 합니다. [자세히 알아봅니다](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+장애 조치 (failover) 후에는 보안 인터넷 연결, 사이트 간 VPN 또는 Azure Express 경로를 통해 Azure Vm에 액세스할 수 있습니다. 연결 하려면 여러 항목을 준비 해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
 ### <a name="is-failed-over-data-resilient"></a>장애 조치 (failover) 데이터 복원 력이 있나요?
 
@@ -338,27 +338,24 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA (
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>다른 위치로 장애 조치할 수 있나요?
 
-예. Azure로 장애 조치 (failover) 한 경우 원래 위치를 사용할 수 없는 경우 다른 위치로 장애 복구 (failback) 할 수 있습니다. [자세히 알아봅니다](concepts-types-of-failback.md#alternate-location-recovery-alr).
+예. Azure로 장애 조치 (failover) 한 경우 원래 위치를 사용할 수 없는 경우 다른 위치로 장애 복구 (failback) 할 수 있습니다. [자세히 알아보기](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>장애 복구를 위해 개인 피어 링이 있는 VPN 또는 Express 경로를 사용 해야 하는 이유는 무엇 인가요?
 
 Azure에서 장애 복구 (failback) 하는 경우 Azure의 데이터가 온-프레미스 VM에 다시 복사 되 고 개인 액세스가 필요 합니다.
 
-### <a name="can-i-resize-the-azure-vm-after-failover"></a>장애 조치(failover) 후 Azure VM의 크기를 조정할 수 있나요?
-
-아니요, 장애 조치 (failover) 후 대상 VM의 크기나 유형을 변경할 수 없습니다.
 
 ## <a name="automation-and-scripting"></a>자동화 및 스크립팅
 
 ### <a name="can-i-set-up-replication-with-scripting"></a>스크립팅을 사용하여 복제를 설정할 수 있나요?
 
-예. Rest API, PowerShell 또는 Azure SDK를 사용 하 여 Site Recovery 워크플로를 자동화할 수 있습니다. [자세히 알아봅니다](vmware-azure-disaster-recovery-powershell.md).
+예. Rest API, PowerShell 또는 Azure SDK를 사용 하 여 Site Recovery 워크플로를 자동화할 수 있습니다. [자세히 알아보기](vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="performance-and-capacity"></a>성능 및 용량
 
 ### <a name="can-i-throttle-replication-bandwidth"></a>복제 대역폭을 제한할 수 있나요?
 
-예. [자세히 알아봅니다](site-recovery-plan-capacity-vmware.md).
+예. [자세히 알아보기](site-recovery-plan-capacity-vmware.md).
 
 ## <a name="next-steps"></a>다음 단계
 

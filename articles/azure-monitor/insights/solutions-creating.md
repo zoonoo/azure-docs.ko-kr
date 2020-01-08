@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402043"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Azure에서 관리 솔루션 디자인 및 빌드(Preview)
 > [!NOTE]
@@ -60,7 +60,7 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 
 
 ## <a name="create-solution-file"></a>솔루션 파일 만들기
-솔루션에 포함될 구성 요소를 구성하고 테스트하면 [솔루션 파일을 만들 수 있습니다]( solutions-solution-file.md).  파일의 다른 리소스와 관계가 있는 [솔루션 리소스]( solutions-solution-file.md#solution-resource)를 포함하는 [Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)에 솔루션 구성 요소를 구현합니다.  
+솔루션에 포함될 구성 요소를 구성하고 테스트하면 [솔루션 파일을 만들 수 있습니다]( solutions-solution-file.md).  파일의 다른 리소스와 관계가 있는 [솔루션 리소스]( solutions-solution-file.md#solution-resource)를 포함하는 [Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)에 솔루션 구성 요소를 구현합니다.  
 
 
 ## <a name="test-your-solution"></a>솔루션 테스트
@@ -76,5 +76,5 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 
 ## <a name="next-steps"></a>다음 단계
 * 관리 솔루션의 [솔루션 파일을 만드는 방법]( solutions-solution-file.md)에 대해 알아봅니다.
-* [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
+* [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)에 대해 자세히 알아봅니다.
 * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates)에서 다양한 Resource Manager 템플릿 샘플을 검색합니다.

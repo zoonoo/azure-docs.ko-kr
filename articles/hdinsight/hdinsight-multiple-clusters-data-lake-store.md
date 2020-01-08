@@ -1,20 +1,19 @@
 ---
 title: 여러 HDInsight 클러스터 & Azure Data Lake Storage 계정 하나
 description: 단일 Data Lake Storage 계정으로 하나 이상의 HDInsight 클러스터를 사용하는 방법에 대해 알아봅니다
-keywords: hdinsight 스토리지, hdfs, 구조화된 데이터, 구조화되지 않은 데이터, Data Lake Store
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: hrasheed
-ms.openlocfilehash: ba0c26d87f2161af514c9430eae5c9949ef92b15
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/18/2019
+ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498180"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495753"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Azure Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용
 
@@ -23,22 +22,21 @@ Data Lake Storage는 많은 양의 데이터 호스팅뿐만 아니라 단일 Da
 
 이 문서에서는 Data Lake Storage 관리자에게 여러 **활성** HDInsight 클러스터에서 사용할 수 있는 단일 및 공유 Data Lake Storage 계정 설정에 대한 권장 사항을 제공합니다. 이러한 권장 사항은 여러 보안 호스팅뿐만 아니라 공유 Data Lake Storage 계정에서 비보안 Apache Hadoop 클러스터에도 적용됩니다.
 
-
 ## <a name="data-lake-storage-file-and-folder-level-acls"></a>Data Lake Storage 파일 및 폴더 수준 ACL
 
 이 문서의 나머지 부분에서는 [Azure Data Lake Storage의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)에 자세히 설명되어 있는 Azure Data Lake Storage의 파일 및 폴더 수준 ACL에 대해 잘 알고 있다고 가정합니다.
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>여러 HDInsight 클러스터에 대한 Data Lake Storage 설정
+
 2 단계 폴더 계층 구조를 사용 하 여 Data Lake Storage 계정으로 여러 HDInsight 클러스터를 사용 하기 위한 권장 사항을 설명 해 주세요. **/클러스터/재무** 폴더 구조의 Data Lake Storage 계정이 있는 것이 좋습니다. 이 구조로 재무 부서에 필요한 모든 클러스터는 스토리지 위치로 /클러스터/재무를 사용할 수 있습니다. 향후 다른 조직에서(예: 마케팅) 동일한 Data Lake Storage 계정을 사용하여 HDInsight 클러스터를 만들려는 경우 /클러스터/마케팅을 만들 수 있습니다. 이제 **/클러스터/재무**를 사용해보겠습니다.
 
-HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려면 Data Lake Storage 관리자는 테이블에 설명된 대로 적절한 권한을 할당해야 합니다. 테이블에 표시된 사용 권한은 액세스-ACL에 해당하며 기본 ACL에 해당하지 않습니다. 
-
+HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려면 Data Lake Storage 관리자는 테이블에 설명된 대로 적절한 권한을 할당해야 합니다. 테이블에 표시된 사용 권한은 액세스-ACL에 해당하며 기본 ACL에 해당하지 않습니다.
 
 |폴더  |권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |admin |admin  |서비스 주체 |--x  |FINGRP   |r-x         |
-|/클러스터 | rwxr-x--x |admin |admin |서비스 주체 |--x  |FINGRP |r-x         |
-|/클러스터/재무 | rwxr-x--t |admin |FINGRP  |서비스 주체 |rwx  |-  |-     |
+|/ | rwxr-x--x  |관리자 |관리자  |서비스 주체 |--x  |FINGRP   |r-x         |
+|/클러스터 | rwxr-x--x |관리자 |관리자 |서비스 주체 |--x  |FINGRP |r-x         |
+|/클러스터/재무 | rwxr-x--t |관리자 |FINGRP  |서비스 주체 |rwx  |-  |-     |
 
 테이블에서,
 
@@ -50,20 +48,18 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 
 몇 가지 고려할 주요 사항은 다음과 같습니다.
 
-- 두 수준 폴더 구조( **/클러스터/재무/** )는 클러스터의 스토리지 계정을 사용하기 **전에** Data Lake Storage 관리자에 의해 적절한 권한으로 생성 및 프로비전되어야 합니다. 이 구조는 클러스터를 만드는 동안 자동으로 생성되지 않습니다.
+- 두 수준 폴더 구조( **/클러스터/재무/** )는 클러스터의 스토리지 계정을 사용하기 **전에** Data Lake Storage 관리자에 의해 적절한 권한으로 생성 및 프로비전되어야 합니다. 이 구조는 클러스터를 만드는 동안 자동으로 생성 되지 않습니다.
 - 위의 예제에서는 **FINGRP**로 **/클러스터/재무**의 소유 그룹 설정 및 루트에서 시작하는 전체 폴더 계층에 대한 FINGRP에 **r-x** 액세스 허용을 권장합니다. 이렇게 하면 FINGRP의 멤버는 루트에서 시작하는 폴더 구조를 탐색할 수 있습니다.
 - 다른 AAD 서비스 주체에서 **/클러스터/재무**에 클러스터를 만들 수 있는 경우, 고정 비트(**재무** 폴더에서 설정된 경우)를 통해 하나의 서비스 주체에서 만든 폴더는 다른 서비스 주체에서 삭제할 수 없습니다.
 - 폴더 구조 및 사용 권한이 준비 되 면 HDInsight 클러스터 만들기 프로세스에서 **/clusters/finance/** 아래에 클러스터 관련 저장소 위치를 만듭니다. 예를 들어 fincluster01이라는 이름의 클러스터에 대한 스토리지는 **/클러스터/재무/fincluster01**이 될 수 있습니다. HDInsight 클러스터에 의해 생성된 폴더에 대한 소유권 및 권한은 테이블에 표시됩니다.
 
     |폴더  |권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/클러스터/재무/fincluster01 | rwxr-x---  |서비스 주체 |FINGRP  |- |-  |-   |-  | 
-   
-
+    |/클러스터/재무/fincluster01 | rwxr-x---  |서비스 주체 |FINGRP  |- |-  |-   |-  |
 
 ## <a name="recommendations-for-job-input-and-output-data"></a>작업 입력 및 출력 데이터에 대한 권장 사항
 
-작업에 대한 입력 데이터 및 작업의 출력은 **/클러스터** 외부의 폴더에 저장하는 것이 좋습니다. 이렇게 하면 클러스터 특정 폴더가 일부 스토리지 공간을 확보하도록 삭제되는 경우에도 작업 입력 및 출력을 나중에 계속 사용할 수 있습니다. 이 경우 작업 입력 및 출력을 저장하기 위한 폴더 계층 구조가 서비스 주체에 대한 적절한 수준의 액세스를 허용하는지 확인합니다.
+작업에 대한 입력 데이터 및 작업의 출력은 **/클러스터** 외부의 폴더에 저장하는 것이 좋습니다. 이렇게 하면 클러스터 특정 폴더를 삭제 하 여 저장소 공간을 회수 하더라도 작업 입력 및 출력은 나중에 계속 사용할 수 있습니다. 이 경우 작업 입력 및 출력을 저장하기 위한 폴더 계층 구조가 서비스 주체에 대한 적절한 수준의 액세스를 허용하는지 확인합니다.
 
 ## <a name="limit-on-clusters-sharing-a-single-storage-account"></a>단일 스토리지 계정을 공유하는 클러스터에 대한 제한
 
@@ -71,7 +67,7 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 
 ## <a name="support-for-default-acls"></a>기본 ACL에 대한 지원
 
-명명된 사용자 액세스 권한이 있는 서비스 주체를 만들 때(위의 테이블에 나와 있는 대로) 기본 ACL로 명명된 사용자를 추가하지 **않는** 것이 좋습니다. 기본 ACL을 사용하여 명명된 사용자 액세스를 프로비전하면 소유 사용자, 소유 그룹 및 다른 사용자에 대한 770 사용 권한 할당이 발생합니다. 770의 기본값은 소유 사용자(7) 또는 소유 그룹(7)에서 권한을 가져가지 않는 반면 다른 사용자(0)에 대한 모든 권한을 가져갑니다. 이로 인해 [알려진 문제 및 해결 방법](#known-issues-and-workarounds) 섹션에서 자세히 설명되어 있는 하나의 특정 사용 사례로 알려진 문제가 발생합니다.
+명명된 사용자 액세스 권한이 있는 서비스 주체를 만들 때(위의 테이블에 나와 있는 대로) 기본 ACL로 명명된 사용자를 추가하지 **않는** 것이 좋습니다. 기본 ACL을 사용하여 명명된 사용자 액세스를 프로비전하면 소유 사용자, 소유 그룹 및 다른 사용자에 대한 770 사용 권한 할당이 발생합니다. 770의 기본값은 소유 사용자 (7) 또는 소유 그룹 (7)에서 사용 권한을 받지 않지만 다른 사용자 (0)에 대 한 모든 사용 권한을 제거 합니다. 이로 인해 [알려진 문제 및 해결 방법](#known-issues-and-workarounds) 섹션에서 자세히 설명되어 있는 하나의 특정 사용 사례로 알려진 문제가 발생합니다.
 
 ## <a name="known-issues-and-workarounds"></a>알려진 문제 및 해결 방법
 
@@ -85,12 +81,13 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 
     Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
 
-이전에 연결된 YARN JIRA에 명시된 대로 공용 리소스를 지역화하는 동안 지역화 담당자는 원격 파일 시스템에서 해당 사용 권한을 확인하여 요청된 모든 리소스가 실제로 공용인지 확인합니다. 지역화를 위해 해당 조건에 맞지 않는 모든 LocalResource는 거부됩니다. 사용 권한에 대한 확인은 "다른 사용자"에 대한 파일에 읽기 액세스를 포함합니다. Azure Data Lake는 루트 폴더 수준에서 "다른 사용자"에 대한 모든 액세스를 거부하므로 이 시나리오는 Azure Data Lake에서 HDInsight 클러스터를 호스팅할 때 기본으로 작동하지 않습니다.
+이전에 연결된 YARN JIRA에 명시된 대로 공용 리소스를 지역화하는 동안 지역화 담당자는 원격 파일 시스템에서 해당 사용 권한을 확인하여 요청된 모든 리소스가 실제로 공용인지 확인합니다. 해당 조건에 맞지 않는 모든 LocalResource는 지역화에 대해 거부 됩니다. 사용 권한에 대한 확인은 "다른 사용자"에 대한 파일에 읽기 액세스를 포함합니다. 이 시나리오는 Azure Data Lake에서 HDInsight 클러스터를 호스트 하는 경우 기본적으로 작동 하지 않습니다. Azure Data Lake는 루트 폴더 수준에서 "다른 사용자"에 대 한 모든 액세스를 거부 하기 때문입니다.
 
 #### <a name="workaround"></a>해결 방법
+
 계층을 통해 **다른 사용자**에 대한 읽기-실행 권한을 설정합니다(예: **/** 에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무**).
 
 ## <a name="see-also"></a>참고 항목
 
-* [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+- [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)

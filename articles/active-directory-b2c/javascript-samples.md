@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064176"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659528"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용하기 위한 JavaScript 샘플
 
@@ -26,9 +26,13 @@ ms.locfileid: "71064176"
 > [!NOTE]
 > 사용자 흐름에 JavaScript를 사용 하도록 설정 하려면 [Azure Active Directory B2C의 javascript 및 페이지 레이아웃 버전](user-flow-javascript-overview.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-응용 프로그램의 사용자 인터페이스 요소에 대 한 페이지 레이아웃을 선택 합니다. JavaScript를 사용 하려는 경우 사용자 지정 정책의 모든 콘텐츠 정의에 대해 페이지 레이아웃 버전을 정의 해야 합니다.
+### <a name="select-a-page-layout"></a>페이지 레이아웃 선택
+
+* 응용 프로그램의 사용자 인터페이스 요소에 대 한 [페이지 레이아웃을 선택](page-layout.md) 합니다.
+
+    JavaScript를 사용 하려는 경우 사용자 지정 정책의 *모든* 콘텐츠 정의에 대해 [페이지 레이아웃 버전을 정의](page-layout.md#replace-datauri-values) 해야 합니다.
 
 ## <a name="add-the-scriptexecution-element"></a>ScriptExecution 요소 추가
 

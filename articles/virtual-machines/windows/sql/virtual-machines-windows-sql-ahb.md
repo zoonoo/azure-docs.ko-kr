@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa2cbad75319de93c34128a09f94971e5c70216
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 00262b48b8fa2fd1292554155e8ec8e933d886e6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790619"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690901"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 컴퓨터에 대 한 라이선스 모델 변경
 이 문서에서는 **SqlVirtualMachine**새 SQL vm 리소스 공급자를 사용 하 여 AZURE에서 vm (가상 머신)에 대 SQL Server 한 라이선스 모델을 변경 하는 방법을 설명 합니다.
@@ -41,7 +41,7 @@ Azure VM에서 SQL Server에 Azure 하이브리드 혜택를 사용 하 고 정�
 
 VM이 프로 비전 될 때 SQL Server의 라이선스 유형이 설정 됩니다. 나중에 언제 든 지 변경할 수 있습니다. 라이선스 모델 간을 전환 하면 가동 중지 시간이 발생 하지 않으며, VM 또는 SQL Server 서비스를 다시 시작 하지 않고 추가 비용을 추가 하지 않으며 즉시 적용 됩니다. 실제로 Azure 하이브리드 혜택를 활성화 하면 비용이 *절감* 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 SQL Server VM 라이선스 모델을 변경 하려면 다음 요구 사항이 충족 되어야 합니다. 
 
@@ -52,7 +52,7 @@ SQL Server VM 라이선스 모델을 변경 하려면 다음 요구 사항이 �
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>리소스 공급자에 이미 등록 된 Vm에 대 한 라이선스 변경 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -129,7 +129,7 @@ SQL Server VM SQL VM 리소스 공급자에 등록 된 경우에만 SQL Server V
    - [소프트웨어 보증이](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview)있는 고객만 사용할 수 있습니다.
    - Standard 및 Enterprise edition SQL Server에만 지원 됩니다. Express, Web 및 Developer의 라이선스 변경은 지원 되지 않습니다. 
    - Azure Resource Manager 모델을 통해 배포 된 가상 컴퓨터에만 지원 됩니다. 클래식 모델을 통해 배포 된 가상 머신은 지원 되지 않습니다. 
-   - 공용 클라우드 설치에만 사용할 수 있습니다. 
+   - 공용 또는 Azure Government 클라우드에 대해서만 사용할 수 있습니다. 
    - 단일 NIC (네트워크 인터페이스)가 있는 가상 컴퓨터 에서만 지원 됩니다. 
 
 
@@ -144,7 +144,7 @@ SQL Server VM SQL VM 리소스 공급자에 등록 된 경우에만 SQL Server V
 리소스 공급자에 구독을 등록 한 다음 [리소스 공급자를 사용](virtual-machines-windows-sql-register-with-resource-provider.md)하 여 SQL Server VM를 등록 해야 합니다. 
 
 
-## <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>가상 컴퓨터 '\<vmname\>'에 둘 이상의 NIC가 연결 되어 있습니다.
+### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>가상 컴퓨터 '\<vmname\>'에 둘 이상의 NIC가 연결 되어 있습니다.
 
 이 오류는 NIC가 둘 이상 있는 가상 컴퓨터에서 발생 합니다. 라이선스 모델을 변경 하기 전에 Nic 중 하나를 제거 합니다. 라이선스 모델을 변경한 후에는 VM에 NIC를 다시 추가할 수 있지만 Azure Portal의 작업 (예: 자동 백업 및 패치 적용)은 더 이상 지원 되지 않습니다. 
 

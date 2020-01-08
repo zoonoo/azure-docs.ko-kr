@@ -4,14 +4,14 @@ description: Azure HPC 캐시가 장기 파일 저장소에 대해 온-프레미
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166631"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647227"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -33,6 +33,8 @@ Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대에서 **�
 
 새 Blob 저장소 대상에는 빈 Blob 컨테이너 또는 Azure HPC 캐시 클라우드 파일 시스템 형식의 데이터로 채워지는 컨테이너가 필요 합니다. [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)에서 blob 컨테이너를 미리 로드 하는 방법에 대해 자세히 알아보세요.
 
+이 페이지를 추가 하기 바로 전에이 페이지에서 새 컨테이너를 만들 수 있습니다.
+
 Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 ![새 Azure Blob 저장소 대상에 대 한 정보로 채워진 저장소 대상 추가 페이지의 스크린샷](media/hpc-cache-add-blob.png)
@@ -41,13 +43,15 @@ Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 * **저장소 대상 이름** -Azure HPC 캐시에서이 저장소 대상을 식별 하는 이름을 설정 합니다.
 * **대상 유형** - **Blob**을 선택 합니다.
-* **저장소 계정** -컨테이너를 사용 하려는 계정을 선택 합니다.
+* **저장소 계정** -사용 하려는 계정을 선택 합니다.
 
   [액세스 역할 추가](#add-the-access-control-roles-to-your-account)에 설명 된 대로 저장소 계정에 액세스 하려면 캐시 인스턴스에 권한을 부여 해야 합니다.
 
   사용할 수 있는 저장소 계정 종류에 대 한 자세한 내용은 [Blob 저장소 요구 사항](hpc-cache-prereqs.md#blob-storage-requirements)을 참조 하세요.
 
-* **저장소 컨테이너** -이 대상에 대 한 Blob 컨테이너를 선택 합니다.
+* **저장소 컨테이너** -이 대상에 대 한 Blob 컨테이너를 선택 하거나 **새로 만들기**를 클릭 합니다.
+
+  ![새 컨테이너의 이름 및 액세스 수준 (개인)을 지정 하는 대화 상자의 스크린샷](media/add-blob-new-container.png)
 
 * **가상 네임 스페이스 경로** -이 저장소 대상에 대 한 클라이언트 쪽 파일 경로를 설정 합니다. 가상 네임 스페이스 기능에 대해 자세히 알아보려면 [집계 된 네임 스페이스 구성](hpc-cache-namespace.md) 을 참조 하세요.
 
@@ -146,8 +150,8 @@ NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 �
 
 | 사용 모델 | 캐싱 모드 | 백 엔드 확인 | 최대 다시 쓰기 지연 |
 | ---- | ---- | ---- | ---- |
-| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기 | 안 함 | 없음 |
-| 쓰기 15% 초과 | 읽기/쓰기 | 안 함 | 1시간 |
+| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기 | 사용 안 함 | 없음 |
+| 쓰기 15% 초과 | 읽기/쓰기 | 사용 안 함 | 1시간 |
 | 클라이언트에서 캐시 무시 | 읽기 | 30초 | 없음 |
 
 ## <a name="next-steps"></a>다음 단계

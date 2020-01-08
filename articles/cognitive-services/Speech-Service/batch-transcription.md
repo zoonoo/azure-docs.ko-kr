@@ -8,42 +8,46 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 2cccd17ce04b3954a7d0720d9ba25bbe792da3b6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 765a74ac20d6a1c79dfc31c5e11b1f214dd2aa97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806340"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446962"
 ---
-# <a name="why-use-batch-transcription"></a>Batch Transcription을 사용하는 이유
+# <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
-Batch Transcription은 Azure Blob과 같이 스토리지에 많은 양의 오디오를 전사하려는 경우에 이상적입니다. 전용 REST API를 사용하면 SAS(공유 액세스 서명) URI가 있는 오디오 파일을 가리키고 비동기식으로 전사를 수신할 수 있습니다.
+일괄 처리는 저장소에서 많은 양의 오디오를 찍으면 되므로 간편 하는 데 적합 합니다. 전용 REST API를 사용 하 여 SAS (공유 액세스 서명) URI를 사용 하는 오디오 파일을 가리키고 기록 결과를 비동기적으로 받을 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+API는 비동기 음성-텍스트 기록 및 기타 기능을 제공 합니다. REST API를 사용 하 여 다음에 메서드를 노출할 수 있습니다.
+
+- 일괄 처리 요청 만들기
+- 상태 쿼리
+- 기록 결과 다운로드
+- 서비스에서 기록 정보 삭제
+
+자세한 API는 `Custom Speech transcriptions`제목에서 [Swagger 문서로](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)사용할 수 있습니다.
+
+일괄 처리 작업은 최상의 노력으로 예약 됩니다. 현재 작업을 실행 중 상태로 변경 하는 시기에 대 한 예측은 없습니다. 정상적인 시스템 로드에서는 몇 분 내에 발생 해야 합니다. 실행 상태에 있으면 실제 기록을 오디오 실시간 보다 빠르게 처리 합니다.
+
+사용 하기 쉬운 API 옆에 사용자 지정 끝점을 배포할 필요가 없으며 관찰할 동시성 요구 사항이 없습니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="subscription-key"></a>구독 키
 
-Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 기준 모델에서 전사를 가져오려는 경우 키 만들기만 수행하면 됩니다.
+Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다.
 
 >[!NOTE]
-> 일괄 처리 기록을 사용 하려면 Speech (표준 구독) 서비스를 사용 해야 합니다. 체험 구독 키(F0)는 작동하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
+> 일괄 처리 기록을 사용 하려면 Speech (표준 구독) 서비스를 사용 해야 합니다. 체험 구독 키(F0)는 작동하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조 하세요.
 
 ### <a name="custom-models"></a>사용자 지정 모델
 
-어쿠스틱 또는 언어 모델을 사용자 지정하려는 경우, [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md) 및 [언어 모델 사용자 지정](how-to-customize-language-model.md)의 단계를 수행합니다. 생성된 모델을 일괄 처리 전사에 사용하려면 모델 ID가 필요합니다. 이 ID는 엔드포인트 세부 정보 보기에 표시되는 엔드포인트 ID가 아니라 모델의 세부 정보를 선택할 때 검색할 수 있는 모델 ID입니다.
+음향 또는 언어 모델을 사용자 지정 하려는 경우 [음향 모델 사용자 지정](how-to-customize-acoustic-models.md) 및 [디자인 사용자 지정 언어 모델](how-to-customize-language-model.md)의 단계를 따르세요. 일괄 처리에 생성 된 모델을 사용 하려면 모델 Id가 필요 합니다. 모델의 세부 정보를 검사할 때 모델 ID를 검색할 수 있습니다. 배치 기록 서비스에는 배포 된 사용자 지정 끝점이 필요 하지 않습니다.
 
 ## <a name="the-batch-transcription-api"></a>Batch Transcription API
-
-Batch Transcription API는 추가 기능과 함께 비동기 음성 텍스트 변환 전사를 제공합니다. 다음 용도로 사용되는 메서드를 노출하는 REST API입니다.
-
-1. 일괄 처리 요청 만들기
-1. 상태 쿼리
-1. 전사 다운로드
-
-> [!NOTE]
-> Batch Transcription API는 일반적으로 수천 시간의 오디오를 누적하는 호출 센터에 적합합니다. 이렇게 하면 대량의 오디오 녹음을 쉽게 전사할 수 있습니다.
 
 ### <a name="supported-formats"></a>지원되는 형식
 
@@ -51,11 +55,11 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 | 형식 | Codec | Bitrate | 샘플링 주기 |
 |--------|-------|---------|-------------|
-| WAV | PCM | 16비트 | 8 또는 16kHz, 모노, 스테레오 |
-| MP3 | PCM | 16비트 | 8 또는 16kHz, 모노, 스테레오 |
-| OGG | OPUS | 16비트 | 8 또는 16kHz, 모노, 스테레오 |
+| WAV | PCM | 16비트 | 8Khz 또는 16khz, mono 또는 스테레오 |
+| MP3 | PCM | 16비트 | 8Khz 또는 16khz, mono 또는 스테레오 |
+| OGG | OPUS | 16비트 | 8Khz 또는 16khz, mono 또는 스테레오 |
 
-스테레오 오디오 스트림의 경우 Batch Transcription API는 전사하는 동안 왼쪽 및 오른쪽 채널을 분할합니다. 결과를 포함하는 2개의 JSON 파일이 각각 단일 채널에서 만들어집니다. 말하기 기준 타임스탬프를 사용하여 개발자는 순서가 지정된 최종 기록을 만들 수 있습니다. 이 샘플 요청에는 욕설 필터링, 문장 부호 및 단어 수준 타임스탬프에 대한 속성이 포함되어 있습니다.
+스테레오 오디오 스트림의 경우 기록 중 왼쪽 채널과 오른쪽 채널이 분할 됩니다. 각 채널에 대해 JSON 결과 파일을 만들고 있습니다. Utterance 당 생성 된 타임 스탬프를 통해 개발자는 주문 된 최종 성적 증명서를 만들 수 있습니다.
 
 ### <a name="configuration"></a>구성
 
@@ -69,38 +73,119 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
-    "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True",
-    "AddSentiment" : "True"
+    "ProfanityFilterMode": "None | Removed | Tags | Masked",
+    "PunctuationMode": "None | Dictated | Automatic | DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True | False",
+    "AddSentiment" : "True | False",
+    "AddDiarization" : "True | False",
+    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
   }
 }
 ```
-
-> [!NOTE]
-> Batch Transcription API는 기록, 해당 상태 및 관련 결과를 요청하기 위해 REST 서비스를 사용합니다. 모든 언어에서 API를 사용할 수 있습니다. 다음 섹션에서는 API 사용 방법을 설명합니다.
 
 ### <a name="configuration-properties"></a>구성 속성
 
 이러한 선택적 속성을 사용 하 여 기록을 구성 합니다.
 
-| 매개 변수를 포함해야 합니다. | 설명 |
-|-----------|-------------|
-| `ProfanityFilterMode` | 인식 결과에서 욕설을 처리하는 방법을 지정합니다. 허용되는 값은 욕설 필터링을 비활성화하는 `None`, 욕설을 별표로 바꾸는 `masked`, 결과에서 모든 욕설을 제거하는 `removed`, 또는 “profanity” 태그를 추가하는 `tags`입니다. 기본 설정은 `masked`입니다. |
-| `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `None`, 명시적인 문장 부호를 의미하는 `dictated`, 디코더가 문장 부호를 처리하도록 하는 `automatic`, 지정된 문장 부호 또는 자동을 의미하는 `dictatedandautomatic`입니다. |
- | `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. |
- | `AddSentiment` | 발언에 감정을 추가할 것인지 지정합니다. 허용되는 값인 `true`는 발언당 감정을 사용 설정하고 `false`(기본값)는 사용하지 않도록 설정합니다. |
- | `AddDiarization` | 두 개의 음성을 포함 하는 mono 채널이 될 것으로 예상 되는 입력에 대해 diarization 분석을 수행 하도록 지정 합니다. 허용 되는 값은 diarization 및 `false` (기본값)을 사용 하지 않도록 설정 하는 `true`입니다. 또한 `AddWordLevelTimestamps`를 true로 설정 해야 합니다.|
+| 매개 변수 | Description |
+|-----------|------------|
+|`ProfanityFilterMode`|인식 결과에서 비속어를 처리 하는 방법을 지정 합니다.
+||**`Masked`** -기본값입니다. 비속어를 별표로 바꿉니다.<br>`None`-사용 금지 필터링 사용 안 함<br>`Removed`-결과에서 모든 비속어를 제거 합니다.<br>`Tags`-비속어 태그를 추가 합니다.
+|`PunctuationMode`|인식 결과에서 문장 부호를 처리 하도록 지정 합니다.
+||`Automatic`-서비스에서 문장 부호를 삽입 합니다.<br>발음 (`Dictated`) 문장 부호<br>**`DictatedAndAutomatic`** -기본값입니다. 지시 및 자동 문장 부호<br>`None`-문장 부호 사용 안 함
+|`AddWordLevelTimestamps`|단어 수준 타임 스탬프를 출력에 추가할지 여부를 지정 합니다.
+||`True`-word 수준 타임 스탬프를 사용 합니다.<br>**`False`** -기본값입니다. Word 수준 타임 스탬프 사용 안 함
+|`AddSentiment`|감정 분석을 utterance에 추가할지 여부를 지정 합니다.
+||`True`-utterance 당 감정를 사용 하도록 설정 합니다.<br>**`False`** -기본값입니다. 감정 사용 안 함
+|`AddDiarization`|Diarization 분석을 수행 하는지 여부를 지정 합니다. `true`경우 입력은 최대 2 개의 음성을 포함 하는 mono 채널 오디오로 예상 됩니다. `AddWordLevelTimestamps`를로 설정 해야 `true`
+||`True`-diarization 사용<br>**`False`** -기본값입니다. Diarization 사용 안 함
+|`TranscriptionResultsContainerUrl`|Azure의 쓰기 가능한 컨테이너에 대 한 SAS 토큰 (선택 사항)입니다. 결과는이 컨테이너에 저장 됩니다.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 일괄 처리 기록은 오디오를 읽고 기록을 저장소에 쓰기 위해 [Azure Blob 저장소](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)를 지원합니다.
 
+## <a name="the-batch-transcription-result"></a>일괄 처리 기록 결과
+
+Mono 입력 오디오의 경우 하나의 기록 결과 파일을 만듭니다. 스테레오 입력 오디오의 경우 두 개의 기록 결과 파일이 생성 됩니다. 각에는 다음 구조가 있습니다.
+
+```json
+{
+  "AudioFileResults":[ 
+    {
+      "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
+      "AudioFileUrl": null                                  'always null'
+      "AudioLengthInSeconds": number                        'Real number. Two decimal places'
+      "CombinedResults": [
+        {
+          "ChannelNumber": null                             'always null'
+          "Lexical": string
+          "ITN": string
+          "MaskedITN": string
+          "Display": string
+        }
+      ]
+      SegmentResults:[                                     'for each individual segment'
+        {
+          "RecognitionStatus": Success | Failure
+          "ChannelNumber": null
+          "SpeakerId": null | "1 | 2"                     'null if no diarization
+                                                            or stereo input file, the
+                                                            speakerId as a string if
+                                                            diarization requested for
+                                                            mono audio file'
+          "Offset": number                                'time in milliseconds'
+          "Duration": number                              'time in milliseconds'
+          "OffsetInSeconds" : number                      'Real number. Two decimal places'
+          "DurationInSeconds" : number                    'Real number. Two decimal places'
+          "NBest": [
+            {
+              "Confidence": number                        'between 0 and 1'
+              "Lexical": string
+              "ITN": string
+              "MaskedITN": string
+              "Display": string
+              "Sentiment":
+                {                                          'this is omitted if sentiment is
+                                                            not requested'
+                  "Negative": number                        'between 0 and 1'
+                  "Neutral": number                         'between 0 and 1'
+                  "Positive": number                        'between 0 and 1'
+                }
+              "Words": [
+                {
+                  "Word": string
+                  "Offset": number                         'time in milliseconds'
+                  "Duration": number                       'time in milliseconds'
+                  "OffsetInSeconds": number                'Real number. Two decimal places'
+                  "DurationInSeconds": number              'Real number. Two decimal places'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+결과에는 다음과 같은 형식이 포함 됩니다.
+
+|Form|목차|
+|-|-|
+|`Lexical`|실제 단어를 인식 합니다.
+|`ITN`|인식 되는 텍스트의 반전 된 텍스트 형식입니다. 약어 ("의사 smith"), 전화 번호 및 기타 변환이 적용 됩니다.
+|`MaskedITN`|사용 금지 마스킹을 적용 한 ITN 폼입니다.
+|`Display`|인식 되는 텍스트의 표시 형식입니다. 여기에는 문장 부호와 대/소문자가 추가 됩니다.
+
 ## <a name="speaker-separation-diarization"></a>스피커 분리 (Diarization)
 
-Diarization는 스피커를 오디오 조각으로 분리 하는 프로세스입니다. Batch 파이프라인은 Diarization를 지원 하 고 mono 채널 녹화에서 두 개의 스피커를 인식할 수 있습니다.
+Diarization는 스피커를 오디오 조각으로 분리 하는 프로세스입니다. Batch 파이프라인은 diarization를 지원 하 고 mono 채널 녹화에서 두 개의 스피커를 인식할 수 있습니다. 스테레오 녹화에서는이 기능을 사용할 수 없습니다.
 
-Diarization에 대 한 오디오 기록 요청이 처리 되도록 요청 하려면 아래와 같이 HTTP 요청에 관련 매개 변수를 추가 하기만 하면 됩니다.
+모든 기록 출력에는 `SpeakerId`포함 됩니다. Diarization를 사용 하지 않으면 JSON 출력에 `"SpeakerId": null` 표시 됩니다. Diarization의 경우 두 가지 음성을 지원 하므로 스피커가 `"1"` 또는 `"2"`로 식별 됩니다.
+
+Diarization를 요청 하려면 아래와 같이 HTTP 요청에 관련 매개 변수를 추가 하기만 하면 됩니다.
 
  ```json
 {
@@ -116,28 +201,19 @@ Diarization에 대 한 오디오 기록 요청이 처리 되도록 요청 하려
 }
 ```
 
-또한 단어 수준 타임 스탬프는 위의 요청에서 매개 변수가 나타내는 것 처럼 ' 설정 ' 해야 합니다. 
+위의 요청에서 매개 변수가 표시 되므로 단어 수준 타임 스탬프도 ' 켜 짐 ' 이어야 합니다.
 
-해당 오디오에는 숫자로 식별 된 스피커가 포함 됩니다. 현재는 두 개의 음성만 지원 하므로 스피커가 ' 스피커 1 ' 및 ' 스피커 2 '로 식별 된 후 녹음 출력이 표시 됩니다.
+## <a name="sentiment-analysis"></a>감정 분석
 
-또한 Diarization는 스테레오 녹화에서 사용할 수 없습니다. 또한 모든 JSON 출력에는 스피커 태그가 포함 됩니다. Diarization를 사용 하지 않는 경우 JSON 출력에 ' 스피커: Null '이 표시 됩니다.
+감정 기능은 오디오에 표현 된 감정를 추정 합니다. 감정 `Negative`, `Neutral`및 `Positive` 감정에 대해 0에서 1 사이의 값으로 표현 됩니다. 예를 들어, 콜 센터 시나리오에서 감정 분석을 사용할 수 있습니다.
 
-> [!NOTE]
-> Diarization은 모든 지역 및 모든 로캘에서 사용할 수 있습니다.
+- 고객 만족도에 대 한 통찰력 얻기
+- 에이전트(호출을 수행하는 팀)의 성능에 대한 통찰력 확보
+- 호출이 음수 방향으로 전환 되는 정확한 시점 찾기
+- 음수 호출을 긍정 방향으로 전환할 때의 기능
+- 제품이나 서비스에 대해 고객이 좋아하는 점과 싫어하는 점을 식별
 
-## <a name="sentiment"></a>감정
-
-감정은 일괄 처리 기록 API의 새로운 기능이자 호출 센터 도메인의 중요한 기능입니다. 고객은 다음 요청에 `AddSentiment` 매개 변수를 사용할 수 있습니다.
-
-1.  고객 만족도에 대한 통찰력 얻기
-2.  에이전트(호출을 수행하는 팀)의 성능에 대한 통찰력 확보
-3.  부정 방향으로 호출될 때의 정확한 시점을 파악
-4.  부정 호출이 긍정으로 바뀔 경우를 파악
-5.  제품이나 서비스에 대해 고객이 좋아하는 점과 싫어하는 점을 식별
-
-감정은 오디어 세그먼트가 발언의 시작(오프셋)과 바이트 스트림 끝의 침묵 감지 사이의 시간 경과로 정의되는 오디오 세그먼트당 점수가 매겨집니다. 해당 세그먼트 내의 전체 텍스트가 감정 계산에 사용됩니다. 전체 호출 또는 각 채널의 전체 음성에 대한 종합 감정의 값은 계산하지 않습니다. 이러한 집계는 추가 적용을 위해 도메인 소유자에 게 남아 있습니다.
-
-감정은 어휘 폼에 적용됩니다.
+감정는 어휘 형태를 기준으로 오디오 세그먼트로 점수가 매겨집니다. 해당 오디오 세그먼트 내의 전체 텍스트는 감정을 계산 하는 데 사용 됩니다. 전체 기록을 위해 집계 감정 계산 되 고 있지 않습니다.
 
 JSON 출력 샘플은 다음과 같습니다.
 
@@ -174,7 +250,10 @@ JSON 출력 샘플은 다음과 같습니다.
   ]
 }
 ```
-이 기능은 현재 Beta 인 감정 모델을 사용 합니다.
+
+## <a name="best-practices"></a>모범 사례
+
+기록 서비스는 많은 수의 제출 된 많은 서비스를 처리할 수 있습니다. 이러한 [메서드](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions)를 통해 `GET`를 통해 진행 상태를 쿼리할 수 있습니다. `take` 매개 변수 (몇 백)를 지정 하 여 반환 되는 정보를 적절 한 크기로 유지 합니다. 결과를 검색 한 후 서비스에서 정기적으로 [삭제](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) 합니다. 이렇게 하면 기록 관리 통화의 빠른 회신이 보장 됩니다.
 
 ## <a name="sample-code"></a>샘플 코드
 
@@ -200,9 +279,6 @@ JSON 출력 샘플은 다음과 같습니다.
 ## <a name="download-the-sample"></a>샘플 다운로드
 
 [GitHub 샘플 리포지토리](https://aka.ms/csspeech/samples)의 `samples/batch` 디렉터리에서 샘플을 확인할 수 있습니다.
-
-> [!NOTE]
-> 일괄 처리 전사 작업은 최상의 노력을 기준으로 예약되며, 작업이 실행 상태로 변경되는 예상 시간이 없습니다. 실행 상태가 되면 실제 전사가 실시간 오디오보다 빠르게 처리됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,7 @@
 ---
-title: PostgreSQL에서 Azure Database for PostgreSQL로의 온라인 마이그레이션에 대 한 알려진 문제/마이그레이션 제한 사항에 대 한 문서-단일 서버 | Microsoft Docs
-description: PostgreSQL에서 Azure Database for PostgreSQL로의 온라인 마이그레이션에 대 한 알려진 문제/마이그레이션 제한 사항에 대해 알아봅니다.
+title: '알려진 문제: PostgreSQL에서 Azure Database for PostgreSQL로 온라인 마이그레이션'
+titleSuffix: Azure Database Migration Service
+description: Azure Database Migration Service를 사용 하 여 PostgreSQL에서 Azure Database for PostgreSQL 단일 서버로의 온라인 마이그레이션과의 알려진 문제 및 마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 10/27/2019
-ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c5c0015c5034dd3b30b716264fd97e9881b3fe67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437864"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>PostgreSQL에서 Azure DB for PostgreSQL에 대 한 온라인 마이그레이션과의 알려진 문제/마이그레이션 제한 사항-단일 서버
 
@@ -34,7 +37,7 @@ PostgreSQL에서 Azure Database for PostgreSQL 단일 서버로의 온라인 마
   - **wal_level** = logical
   - **max_replication_slots** = [마이그레이션의 최대 데이터베이스 수]; 4 개의 데이터베이스를 마이그레이션하려면 값을 4로 설정 합니다.
   - **max_wal_senders** = [동시에 실행되는 데이터베이스 수]. 권장 값은 10입니다.
-- DMS 에이전트 IP를 원본 PostgreSQL pg_hba에 추가 합니다.
+- PostgreSQL pg_hba 원본에 DMS 에이전트 IP를 추가 합니다.
   1. DMS 인스턴스 프로비전을 완료한 후 DMS IP 주소를 기록해 둡니다.
   2. 아래에 나와 있는 것처럼 pg_hba.conf 파일에 IP 주소를 추가합니다.
 

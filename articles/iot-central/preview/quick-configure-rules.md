@@ -3,18 +3,18 @@ title: 빠른 시작 - Azure IoT Central에서 규칙 및 작업 구성
 description: 이 빠른 시작에서는 Azure IoT Central 애플리케이션에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 보여 줍니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: f81171d0f545bbf7f903d54bee761817e9451d9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 489a512ea5658aaeaccdba4b91eae7def14a589c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706718"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434815"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>빠른 시작: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성(미리 보기 기능)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74706718"
 
 이 빠른 시작에서는 환경 센서 디바이스의 온도가 90&deg; F를 초과하는 경우 이메일을 보내는 규칙을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 두 가지 이전 빠른 시작인 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-pnp-device.md)를 완료하여 작업할 **환경 센서** 디바이스 템플릿을 만들어야 합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "74706718"
     | 설정   | 값                                             |
     | --------- | ------------------------------------------------- |
     | 표시 이름 | 운영자 메일 작업                          |
-    | 받는 사람        | 이메일 주소                                |
+    | 수행할 작업        | 이메일 주소                                |
     | 메모     | 환경 온도가 임계값을 초과했습니다. |
 
     > [!NOTE]

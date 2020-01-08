@@ -1,19 +1,19 @@
 ---
 title: 장치 연결 및 원격 분석 수신-Azure Digital Twins | Microsoft Docs
-description: Azure Digital Twins 내에서 장치를 연결 하 고 등록 하는 방법에 대해 알아봅니다.
+description: Azure Digital Twins의 IoT 장치에서 원격 분석을 연결 하 고, 등록 하 고, 전송 하는 방법을 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 529baf6a3eedf1d7490e8138642e90928a209876
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 01/03/2020
+ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010122"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660344"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
@@ -45,7 +45,7 @@ IoT Hub 디바이스 연결 문자열을 가져오려면 `includes=ConnectionStr
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
 
-| 매개 변수를 포함해야 합니다. | 다음 항목으로 교체 |
+| 매개 변수 | 다음 항목으로 교체 |
 | --- | --- |
 | *YOUR_DEVICE_GUID* | 디바이스 ID |
 
@@ -67,12 +67,12 @@ YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
  **Message**의 페이로드 콘텐츠는 최대 256KB의 임의 데이터일 수 있습니다. [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) 형식의 속성에 대한 요구 사항으로 몇 가지가 예상됩니다. 이 표는 시스템에서 지원하는 필수 속성 및 선택적 속성을 보여줍니다.
 
-| 속성 이름 | 값 | 필수 | 설명 |
+| 속성 이름 | 값 | 필수 | Description |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | 예 | 시스템에 메시지를 식별하는 상수 값입니다. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. 예: `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | 아니오 | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 날짜 문자열입니다. 예: `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | 아니오 | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. 예: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. `00FF0643BE88-CO2`)을 입력합니다. |
+| **CreationTimeUtc** | `string` | 아닙니다. | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) 형식의 날짜 문자열입니다. `2018-09-20T07:35:00.8587882-07:00`)을 입력합니다. |
+| **CorrelationId** | `string` | 아닙니다. | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. `cec16751-ab27-405d-8fe6-c68e1412ce1f`)을 입력합니다.
 
 ### <a name="send-your-message-to-digital-twins"></a>Digital Twins로 메시지 보내기
 

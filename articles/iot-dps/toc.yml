@@ -2,32 +2,26 @@
   href: index.yml
 - name: 개요
   items:
-    - name: IoT Device Provisioning Service 정보
+    - name: IoT Hub Device Provisioning Service란?
       href: about-iot-dps.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 자동 프로비전 설정 - Azure CLI
-      href: quick-setup-auto-provision-cli.md
-    - name: 자동 프로비전 설정 - 포털
-      href: quick-setup-auto-provision.md
-    - name: 자동 프로비전 설정 - 템플릿
-      href: quick-setup-auto-provision-rm.md
-    - name: 시뮬레이트된 디바이스 자동 프로비전
+    - name: DPS 설정
       items:
-        - name: TPM 증명
+        - name: Azure Portal
+          href: quick-setup-auto-provision.md
+        - name: Azure CLI
+          href: quick-setup-auto-provision-cli.md
+        - name: Azure RM 템플릿
+          href: quick-setup-auto-provision-rm.md
+    - name: 시뮬레이션된 단일 디바이스 프로비저닝
+      items:
+        - name: 대칭 키 증명
           items:
             - name: C
-              href: quick-create-simulated-device.md
-            - name: Java
-              href: quick-create-simulated-device-tpm-java.md
-            - name: 'C#'
-              href: quick-create-simulated-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-tpm-node.md
-            - name: Python
-              href: quick-create-simulated-device-tpm-python.md
-        - name: X.509 증명
+              href: quick-create-simulated-device-symm-key.md
+        - name: X.509 인증서 증명
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,23 +33,21 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-        - name: 대칭 키 증명
+        - name: 시뮬레이션된 TPM 디바이스 증명
           items:
             - name: C
-              href: quick-create-simulated-device-symm-key.md
-    - name: 프로비전 서비스 API를 사용하여 디바이스 등록
-      items:
-        - name: TPM 증명
-          items:
+              href: quick-create-simulated-device.md
             - name: Java
-              href: quick-enroll-device-tpm-java.md
+              href: quick-create-simulated-device-tpm-java.md
             - name: 'C#'
-              href: quick-enroll-device-tpm-csharp.md
+              href: quick-create-simulated-device-tpm-csharp.md
             - name: Node.js
-              href: quick-enroll-device-tpm-node.md
+              href: quick-create-simulated-device-tpm-node.md
             - name: Python
-              href: quick-enroll-device-tpm-python.md
-        - name: X.509 증명
+              href: quick-create-simulated-device-tpm-python.md
+    - name: DPS API를 사용하여 디바이스 등록 만들기
+      items:
+        - name: X.509 인증서 증명을 사용하여 그룹 등록
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -65,6 +57,16 @@
               href: quick-enroll-device-x509-node.md
             - name: Python
               href: quick-enroll-device-x509-python.md
+        - name: TPM 증명을 사용하여 개별 디바이스 등록
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+            - name: Python
+              href: quick-enroll-device-tpm-python.md
 - name: 자습서
   items:
     - name: 1 - 클라우드 리소스 설정
@@ -79,7 +81,7 @@
           href: tutorial-net-provision-device-to-hub.md
     - name: 4 - 여러 허브에 디바이스 프로비전
       href: tutorial-provision-multiple-hubs.md
-    - name: 5 - 그룹 등록 프로비전
+    - name: 5 - 그룹 등록 설정
       href: tutorial-group-enrollments.md
 - name: 개념
   items:
@@ -147,7 +149,7 @@
       href: how-to-troubleshoot-dps.md
     - name: MQTT 프로토콜을 사용하여 DPS와 통신
       href: iot-dps-mqtt-support.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: REST API
       href: /rest/api/iot-dps

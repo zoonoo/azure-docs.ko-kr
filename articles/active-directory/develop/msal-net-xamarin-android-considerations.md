@@ -3,7 +3,7 @@ title: Xamarin Android 고려 사항 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb28b8465bf74351c5c6efe9d80dcc01137be5d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 678b581e09fe1eac49e4f2bf07eabbbc944c8d4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915525"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424161"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin Android 관련 고려 사항
 이 문서에서는 MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용할 때의 구체적인 고려 사항을 설명 합니다.
@@ -35,7 +35,7 @@ var authResult = AcquireTokenInteractive(scopes)
 ```
 콜백을 통해 PublicClientApplication 수준 (MSAL 4.2 이상)에서이를 설정할 수도 있습니다.
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -45,7 +45,7 @@ var pca = PublicClientApplicationBuilder
 
 [여기서](https://github.com/jamesmontemagno/CurrentActivityPlugin)는 CurrentActivityPlugin를 사용 하는 것이 좋습니다.  그런 다음 PublicClientApplication builder 코드는 다음과 같습니다.
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -82,6 +82,23 @@ protected override void OnActivityResult(int requestCode,
          </intent-filter>
 </activity>
 ```
+
+또는 [코드에서 활동을 만들고](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) `AndroidManifest.xml`를 수동으로 편집 하지 않을 수 있습니다. 이렇게 하려면 `Activity` 및 `IntentFilter` 특성이 있는 클래스를 만들어야 합니다. 위의 xml 값을 나타내는 클래스는 다음과 같습니다.
+
+```csharp
+  [Activity]
+  [IntentFilter(new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataHost = "auth",
+        DataScheme = "msal{client_id}")]
+  public class MsalActivity : BrowserTabActivity
+  {
+  }
+```
+
+### <a name="xamarinforms-43x-manifest"></a>XamarinForms 4.3. X 매니페스트
+
+XamarinForms 4.3. x에 의해 생성 된 코드는 `AndroidManifest.xml`에서 `com.companyname.{appName}` `package` 특성을 설정 합니다. `DataScheme`을 `msal{client_id}`사용 하는 경우 `MainActivity.cs` 네임 스페이스와 동일 하 게 값을 변경할 수 있습니다.
 
 ## <a name="use-the-embedded-web-view-optional"></a>포함 된 웹 보기 사용 (선택 사항)
 
@@ -125,6 +142,6 @@ Visual Studio에서 Android .csproj * 파일을 올바르게 업데이트 하지
 
 다음 샘플의 readme.md 파일에 있는 [Android 관련 고려 사항](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) 단락에서 자세한 내용 및 샘플을 제공 합니다.
 
-| 샘플 | 플랫폼 | 설명 |
+| 샘플 | 플랫폼 | Description |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 AADD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다. <br>![토폴로지](media/msal-net-xamarin-android-considerations/topology.png) |

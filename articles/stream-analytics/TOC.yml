@@ -49,7 +49,7 @@
           href: stream-analytics-define-inputs.md
         - name: 참조 데이터 입력
           href: stream-analytics-use-reference-data.md
-        - name: .NET 사용자 지정 역직렬 변환기 쓰기
+        - name: 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기
           href: custom-deserializer-examples.md
     - name: 작업에 대한 출력 형식
       items:
@@ -174,9 +174,9 @@
       items:
         - name: 도구 설치
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: 샘플 데이터를 사용한 테스트
+        - name: 샘플 데이터를 사용하여 로컬로 테스트
           href: stream-analytics-vs-tools-local-run.md
-        - name: 라이브 데이터를 사용한 테스트
+        - name: 라이브 데이터를 사용하여 로컬로 테스트
           href: stream-analytics-live-data-local-testing.md
         - name: Visual Studio에서 작업 보기
           href: stream-analytics-vs-tools.md
@@ -188,12 +188,14 @@
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio Code
       items:
-        - name: 샘플 데이터를 사용한 테스트
-          href: vscode-local-run.md
+        - name: 샘플 데이터를 사용하여 로컬로 테스트
+          href: visual-studio-code-local-run.md
+        - name: 라이브 데이터를 사용하여 로컬로 테스트
+          href: visual-studio-code-local-run-live-input.md
         - name: CI/CD 파이프라인 설정
           href: setup-cicd-vs-code.md
         - name: 작업 탐색
-          href: vscode-explore-jobs.md
+          href: visual-studio-code-explore-jobs.md
     - name: 문제 해결
       items:
         - name: 입력
@@ -551,7 +553,7 @@
     - name: 이벤트 배달 보장
       href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
       maintainContext: true
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.streamanalytics

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b7e5b0725049fa5de95f435c848502c36a3a1726
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4ac8fe2e5bf1c338fa67619a675225eb80256c3f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598115"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690984"
 ---
 # <a name="list-blob-containers-with-net"></a>.NET을 사용 하 여 blob 컨테이너 나열
 
@@ -49,7 +49,8 @@ ms.locfileid: "72598115"
 다음 예제에서는 지정 된 접두사로 시작 하는 저장소 계정에서 컨테이너를 비동기적으로 나열 합니다. 이 예제에서는 한 번에 5 개 결과의 증분 컨테이너를 나열 하 고 연속 토큰을 사용 하 여 결과의 다음 세그먼트를 가져옵니다. 또한이 예제에서는 결과와 함께 컨테이너 메타 데이터를 반환 합니다.
 
 ```csharp
-private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
+private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
+                                                        string prefix)
 {
     Console.WriteLine("List all containers beginning with prefix {0}, plus container metadata:", prefix);
 
@@ -97,7 +98,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 [Blob 리소스를 열거하는](/rest/api/storageservices/list-containers2)
 [ 컨테이너 나열](/rest/api/storageservices/enumerating-blob-resources)

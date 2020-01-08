@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: da8dfe61e92c4839deb1f7fbc289be0136087720
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795793"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497305"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -111,7 +111,7 @@ Azure에서 지원되는 암호화 모델은 앞에서 언급한 대로 두 가�
 
 클라이언트 쪽 암호화 모델은 서비스 또는 호출 애플리케이션이 리소스 공급자 또는 Azure 외부에서 수행되는 암호화를 나타냅니다. 이 암호화는 Azure의 서비스 애플리케이션이나 고객 데이터 센터에서 실행되는 애플리케이션에서 수행할 수 있습니다. 두 경우 모두 Azure 리소스 공급자에서 이 암호화 모델을 활용할 때 어떤 방식으로든 데이터의 암호를 해독할 수 없거나 암호화 키에 대한 액세스 권한이 없는 데이터의 암호화된 Blob을 받습니다. 이 모델에서는 키 관리가 호출 서비스/애플리케이션에서 수행되며 Azure 서비스에 대해 불투명합니다.
 
-![클라이언트](./media/encryption-atrest/azure-security-encryption-atrest-fig2.png)
+![Client](./media/encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
 ### <a name="server-side-encryption-model"></a>서버 쪽 암호화 모델
 
@@ -268,18 +268,18 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Power BI                         | 예                | 미리 보기, RSA 2048비트 | -                  |
 | **분석**                    |                    |                    |                    |
 | Azure Stream Analytics           | 예                | -                  | -                  |
-| Event Hubs(영문)                       | 예                | Preview, 모든 RSA 길이입니다. | -                  |
+| Event Hubs                       | 예                | Preview, 모든 RSA 길이입니다. | -                  |
 | Azure Analysis Services          | 예                | -                  | -                  |
 | Azure Data Catalog               | 예                | -                  | -                  |
 | Azure HDInsight의 Apache Kafka  | 예                | 모든 RSA 길이입니다.   | -                  |
 | Azure Data Explorer              | 예                | -                  | -                  |
-| Azure 데이터 팩터리               | 예                | 예                | -                  |
+| Azure Data Factory               | 예                | 예                | -                  |
 | Azure Data Lake Store            | 예                | 예, RSA 2048비트  | -                  |
 | **컨테이너**                   |                    |                    |                    |
 | Azure Kubernetes Service         | 예                | -                  | -                  |
 | Container Registry               | 예                | -                  | -                  |
-| **Compute**                      |                    |                    |                    |
-| Virtual Machines                 | 예                | 예, RSA 2048비트  | -                  |
+| **컴퓨팅**                      |                    |                    |                    |
+| 가상 머신                 | 예                | 예, RSA 2048비트  | -                  |
 | 가상 머신 확장 집합        | 예                | 예, RSA 2048비트  | -                  |
 | SAP HANA                         | 예                | 예, RSA 2048비트  | -                  |
 | **데이터베이스**                    |                    |                    |                    |
@@ -297,7 +297,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Repos                      | 예                | -                  | 예                |
 | **ID**                     |                    |                    |                    |
 | Azure Active Directory           | 예                | -                  | -                  |
-| Azure Active Directory Domain Services | 예          | 예, RSA 2048비트  | -                  |
+| Active Directory Domain Services | 예          | 예, RSA 2048비트  | -                  |
 | **통합**                  |                    |                    |                    |
 | Service Bus                      | 예                | -                  | 예                |
 | Event Grid                       | 예                | -                  | -                  |
@@ -305,8 +305,8 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | **IoT 서비스**                 |                    |                    |                    |
 | IoT Hub                          | 예                | -                  | 예                |
 | **관리 및 거 버 넌 스**    |                    |                    |                    |
-| Azure Site Recovery              | 예                | 예, RSA 2048비트  | 예                |
-| **미디어만**                        |                    |                    |                    |
+| Azure Site Recovery              | 예                | -                  | -                  |
+| **미디어**                        |                    |                    |                    |
 | Media Services                   | 예                | -                  | 예                |
 | **스토리지**                      |                    |                    |                    |
 | Blob Storage                     | 예                | 예, RSA 2048비트  | 예                |

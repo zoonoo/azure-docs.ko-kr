@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 19a65e688d66738db0b6e4dcca383c6e4abed262
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b26e54c7130469eee87a9237f4847f46cb3b7698
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974407"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75691035"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob Storage의 변경 피드 지원 (미리 보기)
 
 변경 피드의 목적은 저장소 계정의 blob 및 blob 메타 데이터에 발생 하는 모든 변경 내용에 대 한 트랜잭션 로그를 제공 하는 것입니다. 변경 피드는 이러한 변경 내용에 대 한 **순서**, **보장**, **내구성**, 변경 **불가능**, **읽기 전용** 로그를 제공 합니다. 클라이언트 응용 프로그램은 스트리밍 또는 일괄 처리 모드에서 언제 든 지 이러한 로그를 읽을 수 있습니다. 변경 피드를 사용 하면 Blob Storage 계정에서 발생 하는 변경 이벤트를 저렴 한 비용으로 처리 하는 효율적이 고 확장 가능한 솔루션을 빌드할 수 있습니다.
 
-변경 피드는 저장소 계정의 특수 컨테이너에 [blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 으로 표준 [blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 비용으로 저장 됩니다. 요구 사항에 따라 이러한 파일의 보존 기간을 제어할 수 있습니다 (현재 릴리스의 [조건](#conditions) 참조). 변경 이벤트는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양의 레코드로 변경 피드에 추가 됩니다. 인라인 스키마를 사용 하 여 풍부한 데이터 구조를 제공 하는 간단 하 고 빠른 이진 형식입니다. 이 형식은 Hadoop 에코 시스템, Stream Analytics 및 Azure Data Factory에서 널리 사용 됩니다.
+변경 피드는 저장소 계정의 특수 컨테이너에 [blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 으로 표준 [blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 비용으로 저장 됩니다. 요구 사항에 따라 이러한 파일의 보존 기간을 제어할 수 있습니다 (현재 릴리스의 [조건](#conditions) 참조). 변경 이벤트는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양의 레코드로 변경 피드에 추가 됩니다. 인라인 스키마를 사용 하 여 풍부한 데이터 구조를 제공 하는 간단 하 고 빠른 이진 형식입니다. 이 형식은 Hadoop 에코시스템, Stream Analytics 및 Azure Data Factory에서 널리 사용됩니다.
 
 이러한 로그는 증분 방식으로 또는 전체에서 처리할 수 있습니다. 원하는 수의 클라이언트 응용 프로그램은 변경 피드를 독립적으로 개별적으로 읽을 수 있습니다. [Apache 드릴](https://drill.apache.org/docs/querying-avro-files/) 또는 [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) 와 같은 분석 응용 프로그램은 로그를 Avro 파일로 직접 사용할 수 있으므로, 높은 대역폭을 사용 하 고 사용자 지정 응용 프로그램을 작성 하지 않고도 처리할 수 있습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "74974407"
 > [!IMPORTANT]
 > 변경 피드는 공개 미리 보기 상태 이며 **westcentralus** 및 **westus2** 지역에서 사용할 수 있습니다. 이 문서의 [조건](#conditions) 섹션을 참조 하세요. 미리 보기에 등록 하려면이 문서의 [구독 등록](#register) 단원을 참조 하세요. 저장소 계정에서 변경 피드를 사용 하도록 설정 하려면 먼저 구독을 등록 해야 합니다.
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 저장소 계정에서 변경 피드를 사용 하도록 설정 합니다.
 
@@ -87,7 +87,7 @@ PowerShell을 사용 하 여 변경 피드를 사용 하도록 설정 합니다.
    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
    ```
 
-4. `Connect-AzAccount` 명령을 사용 하 여 Azure 구독에 로그인 하 고 화면의 지시에 따라 인증 합니다.
+4. `Connect-AzAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시에 따라 인증합니다.
 
    ```powershell
    Connect-AzAccount
@@ -96,19 +96,19 @@ PowerShell을 사용 하 여 변경 피드를 사용 하도록 설정 합니다.
 5. 저장소 계정에 대 한 변경 피드를 사용 하도록 설정 합니다.
 
    ```powershell
-   Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
+   Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
-### <a name="templatetabtemplate"></a>[Sablon](#tab/template)
+### <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 Azure Resource Manager 템플릿을 사용 하 여 Azure Portal를 통해 기존 저장소 계정에서 변경 피드를 사용 하도록 설정 합니다.
 
 1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
 
-2. A **Keresés a Marketplace-en** mezőbe írja be a **template deployment** kifejezést, majd nyomja le az **ENTER** billentyűt.
+2. **Marketplace 검색**에서 **템플릿 배포**를 입력하고 **ENTER**를 누릅니다.
 
 3. **[사용자 지정 템플릿 배포](https://portal.azure.com/#create/Microsoft.Template)** 를 선택한 다음 **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
 
-4. 템플릿 편집기에서 다음 json을 붙여넣습니다. `<accountName>` 자리 표시자를 사용자의 저장소 계정 이름으로 바꿉니다.
+4. 템플릿 편집기에서 다음 json을 붙여넣습니다. `<accountName>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
    ```json
    {
@@ -148,7 +148,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Portal를 통해 기존
 
 <a id="segment-index"></a>
 
-### <a name="segments"></a>Szegmensek
+### <a name="segments"></a>세그먼트
 
 변경 피드는 **매시간** *세그먼트로* 구성 되지만 몇 분 마다 추가 및 업데이트 되는 변경 내용에 대 한 로그입니다. 이러한 세그먼트는 해당 시간에 발생 하는 blob 변경 이벤트가 있는 경우에만 생성 됩니다. 이렇게 하면 클라이언트 응용 프로그램에서 전체 로그를 검색할 필요 없이 특정 시간 범위 내에 발생 하는 변경 내용을 사용할 수 있습니다. 자세히 알아보려면 [사양](#specifications)을 참조 하세요.
 
@@ -243,7 +243,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 <a id="specifications"></a>
 
-## <a name="specifications"></a>Specifikációk
+## <a name="specifications"></a>사양
 
 - 변경 이벤트 레코드는 변경 피드에만 추가 됩니다. 이러한 레코드가 추가 되 면 변경할 수 없으며 레코드 위치는 안정적입니다. 클라이언트 응용 프로그램은 변경 피드의 읽기 위치에서 자신의 검사점을 유지 관리할 수 있습니다.
 
@@ -317,7 +317,7 @@ az provider register --namespace 'Microsoft.Storage'
 - 현재 ListContainers API를 호출할 때 **$blobchangefeed** 컨테이너가 표시 되지 않으며 컨테이너가 Azure Portal 또는에 표시 되지 않습니다 Storage 탐색기
 - 이전에 [계정 장애 조치 (failover)](../common/storage-disaster-recovery-guidance.md) 를 시작한 저장소 계정은 로그 파일에 문제가 있을 수 있습니다. 이후 모든 계정 장애 조치 (failover)는 미리 보기 중에 로그 파일에 영향을 줄 수도 있습니다.
 
-## <a name="faq"></a>Gyakori kérdések
+## <a name="faq"></a>FAQ
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>변경 피드와 스토리지 분석 로깅 간의 차이점은 무엇 인가요?
 분석 로그에는 모든 작업에 대해 성공한 요청과 실패 한 요청을 포함 하 여 모든 읽기, 쓰기, 나열 및 삭제 작업에 대 한 레코드가 있습니다. 분석 로그는 가장 좋은 작업 이며 순서는 보장 되지 않습니다.
@@ -327,7 +327,7 @@ az provider register --namespace 'Microsoft.Storage'
 ### <a name="should-i-use-change-feed-or-storage-events"></a>변경 피드 또는 저장소 이벤트를 사용 해야 하나요?
 두 기능을 함께 사용할 수 있습니다. 변경 피드 및 [Blob storage 이벤트](storage-blob-event-overview.md) 는 동일한 정보를 제공 하는 동일한 정보를 제공 합니다. 변경 피드는 변경 후 몇 분 이내에 로그에 레코드를 게시 하 고 blob 당 변경 작업의 순서를 보장 합니다. 저장소 이벤트는 실시간으로 푸시되 며 순서가 지정 되지 않을 수 있습니다. 변경 피드 이벤트는 저장소 계정 내에 고유 하 게 정의 된 보존이 있는 읽기 전용의 안정적인 로그로 저장 지속적으로, 저장소 이벤트는 명시적으로 저장 하지 않는 한 이벤트 처리기에서 사용 되는 임시 이벤트입니다. 변경 피드를 사용 하면 원하는 수의 응용 프로그램에서 blob Api 또는 Sdk를 사용 하 여 자체의 편리한 방식으로 로그를 사용할 수 있습니다. 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 - .NET 클라이언트 응용 프로그램을 사용 하 여 변경 피드를 읽는 방법의 예제를 참조 하세요. [Azure Blob Storage에서 변경 피드 로그 처리를](storage-blob-change-feed-how-to.md)참조 하세요.
 - 실시간으로 이벤트에 반응 하는 방법에 대해 알아봅니다. [Blob Storage 이벤트에 대 한 응답을](storage-blob-event-overview.md) 참조 하세요.

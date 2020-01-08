@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671957"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666189"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -21,7 +21,11 @@ ms.locfileid: "74671957"
 
 App Service에서 앱 설정은 응용 프로그램 코드에 환경 변수로 전달 되는 변수입니다. Linux 앱 및 사용자 지정 컨테이너의 경우 App Service `--env` 플래그를 사용 하 여 컨테이너에 앱 설정을 전달 하 여 컨테이너에 환경 변수를 설정 합니다.
 
-[Azure Portal]에서 앱의 관리 페이지로 이동 합니다. 앱의 왼쪽 메뉴에서 **구성** > **응용 프로그램 설정**을 클릭 합니다.
+[Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 
+
+![App Services 검색](./media/configure-common/search-for-app-services.png)
+
+앱의 왼쪽 메뉴에서 **구성** > **응용 프로그램 설정**을 선택 합니다.
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
@@ -30,7 +34,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 마찬가지로 다른 언어 스택은 런타임에 환경 변수로 앱 설정을 가져옵니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
+- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
 - [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
@@ -82,7 +86,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 
 ## <a name="configure-connection-strings"></a>연결 문자열 구성
 
-[Azure Portal]에서 앱의 관리 페이지로 이동 합니다. 앱의 왼쪽 메뉴에서 **구성** > **응용 프로그램 설정**을 클릭 합니다.
+[Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 앱의 왼쪽 메뉴에서 **구성** > **응용 프로그램 설정**을 선택 합니다.
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
@@ -100,7 +104,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 *문자열
 예를 들어 *connectionstring1* 이라는 MySql 연결 문자열은 환경 변수 `MYSQLCONNSTR_connectionString1`로 액세스할 수 있습니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
+- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
 - [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
@@ -153,7 +157,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 *문자열
 
 ## <a name="configure-general-settings"></a>일반 설정 구성
 
-[Azure Portal]에서 앱의 관리 페이지로 이동 합니다. 앱의 왼쪽 메뉴에서 **구성** > **응용 프로그램 설정**을 클릭 합니다.
+[Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 앱의 왼쪽 메뉴에서 **구성** > **일반 설정**을 선택 합니다.
 
 ![일반 설정](./media/configure-common/open-general.png)
 
@@ -176,9 +180,9 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 *문자열
 
 이 설정은 Windows 앱에만 해당 됩니다.
 
-[Azure Portal]에서 앱의 관리 페이지로 이동 합니다. 앱의 왼쪽 메뉴에서 **구성** > **기본 문서**를 클릭 합니다.
+[Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 앱의 왼쪽 메뉴에서 **구성** > **기본 문서**를 선택 합니다.
 
-![일반 설정](./media/configure-common/open-documents.png)
+![기본 문서](./media/configure-common/open-documents.png)
 
 기본 문서는 웹 사이트의 루트 URL에 표시 되는 웹 페이지입니다. 목록에서 첫 번째로 일치되는 파일이 사용됩니다. 새 기본 문서를 추가 하려면 **새 문서**를 클릭 합니다. **저장**을 클릭 하는 것을 잊지 마세요.
 
@@ -186,9 +190,9 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 *문자열
 
 ## <a name="configure-path-mappings"></a>경로 매핑 구성
 
-[Azure Portal]에서 앱의 관리 페이지로 이동 합니다. 앱의 왼쪽 메뉴에서 **구성** > **경로 매핑**을 클릭 합니다.
+[Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 앱의 왼쪽 메뉴에서 **구성** > **경로 매핑**을 선택 합니다.
 
-![일반 설정](./media/configure-common/open-path.png)
+![경로 매핑](./media/configure-common/open-path.png)
 
 **경로 매핑** 페이지에는 OS 유형에 따라 다양 한 항목이 표시 됩니다.
 
@@ -228,7 +232,7 @@ Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디
 Linux 앱의 경우 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.js](containers/configure-language-nodejs.md)
+- [Node.JS](containers/configure-language-nodejs.md)
 - [PHP](containers/configure-language-php.md)
 - [Python](containers/how-to-configure-python.md)
 - [Java](containers/configure-language-java.md)

@@ -4,73 +4,16 @@ description: Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Reco
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665596"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496984"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업 관리
 
 이 문서에서는 Microsoft Azure Recovery Services 에이전트를 사용 하 여 백업 되는 파일 및 폴더를 관리 하는 방법을 설명 합니다.
-
-## <a name="create-a-backup-policy"></a>백업 정책 만들기
-
-백업 정책은 복구 지점의 데이터 스냅숏을 만들고 복구 지점의 보존 기간을 지정 하는 시기를 지정 합니다. MARS 에이전트를 사용 하 여 백업 정책을 구성 합니다.
-
-다음과 같이 정책을 만듭니다.
-
-1. MARS 에이전트를 다운로드 하 고 등록 한 후 에이전트 콘솔을 시작 합니다. **Microsoft Azure Backup**에 대한 컴퓨터를 검색하여 찾을 수 있습니다.  
-2. **작업**에서 **백업 예약**을 클릭 합니다.
-
-    ![Windows Server 백업 예약](./media/backup-configure-vault/schedule-first-backup.png)
-3. 백업 예약 마법사에서 **시작**> **다음**을 클릭 합니다.
-4. **백업할 항목 선택**에서 **항목 추가**를 클릭 합니다.
-
-    ![백업할 항목 선택](./media/backup-azure-manage-mars/select-item-to-backup.png)
-
-5. **항목 선택**에서 백업할 항목을 선택 하 고 **확인**을 클릭 합니다.
-
-    ![백업할 항목 선택](./media/backup-azure-manage-mars/selected-items-to-backup.png)
-
-6. **백업할 항목 선택** 페이지에서 **다음**을 클릭 합니다.
-7. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행 하려는 경우를 지정 합니다. 그런 후 **Next** 를 클릭합니다.
-
-    - 복구 지점은 백업을 수행할 때 생성 됩니다.
-    - 사용자 환경에서 생성 되는 복구 지점의 수는 백업 일정에 따라 달라 집니다.
-
-8. 하루에 최대 3 번까지 매일 백업을 예약할 수 있습니다. 예를 들어 스크린샷은 매일 자정에 하나씩, 오후 6:00 시에 하나씩 두 개의 일별 백업을 보여 줍니다.
-
-    ![일별 일정](./media/backup-configure-vault/day-schedule.png)
-
-9. 주별 백업만 실행할 수 있습니다. 예를 들어 스크린샷은 9:30 오전 시와 오전 1:00 시에 모든 대체 일요일 & 수요일에 수행 된 백업을 보여 줍니다.
-
-    ![주별 일정](./media/backup-configure-vault/week-schedule.png)
-
-10. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. 그런 후 **Next** 를 클릭합니다.
-
-    - 보존 설정은 저장 해야 하는 복구 지점과 저장 해야 하는 기간을 지정 합니다.
-    - 예를 들어 일별 보존 설정을 설정 하는 경우 매일 보존에 지정 된 시간에 최신 복구 지점이 지정 된 일 수 동안 보존 됨을 표시 합니다. 또는 매월 30 일에 생성 된 복구 지점을 12 개월 동안 저장 하도록 표시 하는 월별 보존 정책을 지정할 수 있습니다.
-    - 매일 및 매주 복구 지점 보존은 일반적으로 백업 일정과 일치 합니다. 백업이 일정에 따라 트리거될 경우 백업으로 만들어진 복구 지점은 매일 또는 매주 보존 정책에 지정 된 기간 동안 저장 됩니다.
-    - 예를 들어 다음 스크린샷에서는 매일 자정 및 오후 6:00 시에 매일 백업을 7 일 동안 보관 합니다.
-            -토요일 자정 및 오후 6:00에 수행 된 백업은 4 주 동안 유지 됩니다.
-            -월의 마지막 주에 수행 된 토요일 자정 및 오후 6:00에 수행 된 백업은 12 개월 동안 유지 됩니다.
-            -3 월의 마지막 주 토요일에 수행 된 백업은 10 년 동안 유지 됩니다.
-
-    ![보존 예](./media/backup-configure-vault/retention-example.png)
-
-11. **초기 백업 유형 선택** 에서 네트워크를 통해 초기 백업을 수행 하거나 오프 라인 백업을 사용할지 결정 합니다. 오프 라인 백업에 대 한 자세한 내용은이 [문서](backup-azure-backup-import-export.md)를 참조 하세요. 네트워크를 통해 초기 백업을 수행 하려면 **네트워크를 통해 자동으로** 를 선택 하 고 **다음**을 클릭 합니다.
-
-    ![초기 백업 유형](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
-
-12. **확인**에서 정보를 검토 한 다음 **마침**을 클릭 합니다.
-    백업 유형을 확인 ![](./media/backup-azure-manage-mars/confirm-backup-type.png)
-
-13. 마법사가 백업 일정 생성을 완료하면 **닫기**를 클릭합니다.
-  백업 프로세스 수정 ![확인](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
-
-에이전트가 설치 된 각 컴퓨터에서 정책을 만들어야 합니다.
 
 ## <a name="modify-a-backup-policy"></a>백업 정책 수정
 
@@ -83,7 +26,7 @@ ms.locfileid: "74665596"
   - 이러한 항목을 변경 하면 첫 번째 전체 백업이 수행 되 고 새 정책 변경 내용은 이전 백업에 적용 되지 않습니다.
   - 전체 볼륨을 선택을 취소 하면 보존 정책을 수정 하기 위한 범위 없이 이전 백업이 유지 됩니다.
 - **제외 설정** 이 옵션을 사용 하 여 특정 항목을 백업에서 제외할 수 있습니다.
-  
+
 ### <a name="add-new-items-to-existing-policy"></a>기존 정책에 새 항목 추가
 
 1. **작업**에서 **백업 예약**을 클릭 합니다.
@@ -158,12 +101,17 @@ ms.locfileid: "74665596"
 ### <a name="stop-protection-and-retain-backup-data"></a>보호 중지 및 백업 데이터 보존
 
 1. MARS 관리 콘솔을 열고 **작업 창**으로 이동 하 여 **Backup 예약을 선택**합니다.
-    예약 된 백업을 수정 하거나 중지 ![합니다.](./media/backup-azure-manage-mars/mars-actions.png)
+
+    ![예약 된 백업 수정 또는 중지](./media/backup-azure-manage-mars/mars-actions.png)
 1. **정책 항목 선택** 페이지에서 **파일 및 폴더에 대 한 백업 일정 수정** 을 선택 하 고 **다음**을 클릭 합니다.
-    예약 된 백업을 수정 하거나 중지 ![합니다.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. 예약 된 **백업 수정 또는 중지** 페이지에서 **이 백업 일정 사용 중지를 선택 하지만 일정이 다시 활성화 될 때까지 저장 된 백업 유지**를 선택 합니다. 그다음에 **다음**을 선택합니다.  
-    예약 된 백업을 수정 하거나 중지 ![합니다.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. **예약 된 백업 일시 중지** 에서 정보를 검토 하 고 **완료** 를 클릭 하 ![예약 된 백업을 수정 하거나 중지 합니다.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+
+    ![예약 된 백업 수정 또는 중지](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
+1. 예약 된 **백업 수정 또는 중지** 페이지에서 **이 백업 일정 사용 중지를 선택 하지만 일정이 다시 활성화 될 때까지 저장 된 백업 유지**를 선택 합니다. 그다음에 **다음**을 선택합니다.
+
+    ![예약 된 백업 수정 또는 중지](./media/backup-azure-manage-mars/stop-schedule-backup.png)
+1. **예약 된 백업 일시 중지** 에서 정보를 검토 하 고 **마침**을 클릭 합니다.
+
+    ![예약 된 백업 수정 또는 중지](./media/backup-azure-manage-mars/pause-schedule-backup.png)
 1. **백업 프로세스 수정** 에서 일정 백업 일시 중지가 성공 상태 인지 확인 하 고 **닫기** 를 클릭 하 여 완료 합니다.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>보호 중지 및 백업 데이터 삭제
@@ -194,15 +142,34 @@ ms.locfileid: "74665596"
 데이터를 유지 하 고 보호를 다시 시작 하기로 결정 한 경우 보호를 중지 한 경우 백업 정책 수정을 사용 하 여 백업 일정을 다시 사용 하도록 설정할 수 있습니다.
 
 1. **작업** 에서 **백업 예약**을 선택 합니다.
-1. **백업 일정 다시 사용을 선택 합니다. 백업 항목 또는 시간을 수정** 하 고 **다음**을 클릭할 수도 있습니다.
+1. **백업 일정 다시 사용을 선택 합니다. 백업 항목 또는 시간을 수정** 하 고 **다음**을 클릭할 수도 있습니다.<br>
+
     ![백업 인프라를 삭제 합니다.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. **백업할 항목 선택**에서 **다음**을 클릭 합니다.
+
     ![백업 인프라를 삭제 합니다.](./media/backup-azure-manage-mars/re-enable-next.png)
 1. **백업 일정 지정**에서 백업 일정을 지정 하 고 **다음**을 클릭 합니다.
 1. **보존 정책 선택**에서 보존 기간을 지정 하 고 **다음**을 클릭 합니다.
-1. 마지막으로 **conformation** 화면에서 정책 세부 정보를 검토 하 고 **마침**을 클릭 합니다.
+1. 마지막으로 **확인** 화면에서 정책 세부 정보를 검토 하 고 **마침**을 클릭 합니다.
+
+## <a name="re-generate-passphrase"></a>암호 다시 생성
+
+암호는 MARS 에이전트를 사용 하 여 온-프레미스 또는 로컬 컴퓨터를 백업 또는 복원 하는 동안 데이터를 암호화 하 고 암호 해독 하는 데 사용 됩니다. 암호를 분실 하거나 잊은 경우 다음 단계를 수행 하 여 암호를 다시 생성할 수 있습니다 (컴퓨터가 Recovery Services 자격 증명 모음에 등록 되 고 백업이 구성 된 경우).
+
+- MARS 에이전트 콘솔에서 **작업 창** 으로 이동 하 > **속성 > 변경** 합니다. 그런 다음 **암호화 탭**으로 이동 합니다.<br>
+- **암호 변경** 확인란을 선택 합니다.<br>
+- 새 암호를 입력 하거나 **암호 생성**을 클릭 합니다.
+- **찾아보기** 를 클릭 하 여 새 암호를 저장 합니다.
+
+    ![암호를 생성 합니다.](./media/backup-azure-manage-mars/passphrase.png)
+- **확인**을 클릭하여 변경 내용을 적용합니다.  Recovery Services 자격 증명 모음에 대 한 Azure Portal에서 [보안 기능](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) 을 사용 하는 경우 보안 PIN을 입력 하 라는 메시지가 표시 됩니다. PIN을 받으려면이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations)에 나열 된 단계를 따르세요.<br>
+- 포털에서 보안 PIN을 붙여넣은 다음 **확인** 을 클릭 하 여 변경 내용을 적용 합니다.<br>
+
+    ![암호를 생성 합니다.](./media/backup-azure-manage-mars/passphrase2.png)
+- 암호를 원본 컴퓨터가 아닌 대체 위치에 안전 하 게 저장 하 고 Azure Key Vault 하는 것이 좋습니다. MARS 에이전트를 사용 하 여 여러 컴퓨터를 백업 하는 경우 모든 암호를 추적 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 
-- 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [MARS의 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)를 참조 하세요.
+- 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [MARS 에이전트에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)를 참조 하세요.
 - [주문형 백업 정책 보존 동작](backup-configure-vault.md#on-demand-backup-policy-retention-behavior)에 대해 자세히 알아보세요.

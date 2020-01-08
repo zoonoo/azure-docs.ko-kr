@@ -4,15 +4,15 @@ description: 개인 구독에서 작업 영역을 만들었거나 작업 영역 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/28/2019
-ms.openlocfilehash: b8fdefb5e8555e90b5c9065672f4593e5bf98e06
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 2b54dd5161312a081d439b3e10d2cb4bf9014d52
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326503"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496537"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복원
 
@@ -20,7 +20,10 @@ ms.locfileid: "74326503"
 
 ## <a name="considerations-when-deleting-a-workspace"></a>작업 영역을 삭제할 때의 고려 사항
 
-Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에이전트를 포함 하는 작업 영역을 14 일 내에 복구 하도록 허용 하기 위해 일시 삭제 작업이 수행 됩니다. 일시 삭제 기간이 지나면 작업 영역 및 해당 데이터는 복구할 수 없습니다. 데이터는 30 일 이내에 영구 삭제를 위해 큐에 대기 하 고 작업 영역 이름은 사용할 수 있으며 새 작업 영역을 만드는 데 사용할 수 있습니다.
+Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에이전트를 포함 하는 작업 영역을 14 일 내에 복구 하도록 허용 하기 위해 일시 삭제 작업이 수행 됩니다. 일시 삭제 기간이 지나면 작업 영역 리소스와 해당 데이터는 복구할 수 없습니다. 해당 데이터가 영구적으로 삭제 되 고 30 일 이내에 완전히 제거 될 때까지 대기 됩니다. 작업 영역 이름은 ' 릴리스 ' 이며 새 작업 영역을 만드는 데 사용할 수 있습니다.
+
+> [!NOTE]
+> 일시 삭제 동작은 해제할 수 없습니다. 삭제 작업에서 ' force ' 태그를 사용할 때 일시 삭제를 재정의 하는 옵션을 곧 추가할 예정입니다.
 
 작업 영역을 삭제할 때 서비스 작업에 부정적인 영향을 줄 수 있는 중요 한 데이터 및 구성이 있을 수 있으므로 주의를 기울여야 합니다. 다음과 같이 Log Analytics에 데이터를 저장 하는 에이전트, 솔루션 및 기타 Azure 서비스와 소스를 검토 합니다.
 
@@ -41,7 +44,7 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
 
 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 작업 영역을 삭제할 수 있습니다.
 
-### <a name="delete-workspace-in-azure-portal"></a>Azure Portal에서 작업 영역 삭제
+### <a name="azure-portal"></a>Azure Portal
 
 1. 로그인 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다. 
 2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
@@ -49,6 +52,11 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
    ![작업 영역 속성 창에서 옵션 삭제](media/delete-workspace/log-analytics-delete-workspace.png)
 4. 작업 영역 삭제를 확인할지 묻는 확인 메시지 창이 나타나면 **예**를 클릭합니다.
    ![작업 영역 삭제 확인](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+
+### <a name="powershell"></a>PowerShell
+```PowerShell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "ContosResourceGroup" -Name "MyWorkspace"
+```
 
 ## <a name="recover-workspace"></a>작업 영역 복구
 
@@ -59,7 +67,7 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
 * 구독 ID
 * 리소스 그룹 이름
 * 작업 영역 이름
-* Region
+* 지역
 
 작업 영역 및 모든 해당 데이터는 복구 작업 후에 다시 가져옵니다. 솔루션 및 연결 된 서비스는 삭제 시 작업 영역에서 영구적으로 제거 되며 작업 영역을 이전에 구성 된 상태로 전환 하도록 다시 구성 해야 합니다. 연결 된 솔루션을 다시 설치 하 고 해당 스키마를 작업 영역에 추가할 때까지 작업 영역 복구 후에 일부 데이터를 쿼리에 사용할 수 없습니다.
 

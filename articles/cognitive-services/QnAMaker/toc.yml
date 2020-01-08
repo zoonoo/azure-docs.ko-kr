@@ -14,6 +14,8 @@
       href: quickstarts/add-question-metadata-portal.md
     - name: Postman 또는 cURL을 사용하여 답변 가져오기
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+    - name: 배치 파일을 사용하여 테스트
+      href: Quickstarts/batch-testing.md
     - name: REST API 사용
       items:
         - name: 새 기술 자료 만들기
@@ -25,7 +27,7 @@
             - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
-              href: Quickstarts/create-knowledge-rest-api-nodejs.md
+              href: Quickstarts/publish-kb-nodejs.md
             - name: Python
               href: Quickstarts/create-new-kb-python.md
         - name: 기술 자료 게시
@@ -37,7 +39,7 @@
             - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
-              href: 'Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base'
+              href: 'Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base'
             - name: Python
               href: Quickstarts/publish-kb-python.md
         - name: 답변 구하기
@@ -135,7 +137,7 @@
           href: Tutorials/choosing-capacity-qnamaker-deployment.md
         - name: 비즈니스 연속성 계획 만들기
           href: How-To/business-continuity-plan.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 언어
       href: Overview/language-support.md

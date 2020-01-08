@@ -7,27 +7,27 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: a858a078f8e22a7176fc0eeb09ae0133e2ea11a4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: db00398efa638ac945bc188ad0c44f904059e689
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818573"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467869"
 ---
 이 가이드에서는 .NET Framework(Windows)용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에는 다음이 필요합니다.
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Visual Studio 프로젝트를 만들고  Speech SDK 설치
+## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Visual Studio 프로젝트를 만들고 Speech SDK를 설치합니다.
 
 코드에서 참조할 수 있도록 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget)를 설치해야 합니다. 이렇게 하려면 먼저 **helloworld** 프로젝트를 만들어야 할 수 있습니다. **.NET 데스크톱 개발** 워크로드를 사용할 수 있는 프로젝트가 이미 있는 경우 해당 프로젝트를 사용하고 [NuGet 패키지 관리자를 사용하여 Speech SDK 설치](#use-nuget-package-manager-to-install-the-speech-sdk)로 건너뛸 수 있습니다.
 

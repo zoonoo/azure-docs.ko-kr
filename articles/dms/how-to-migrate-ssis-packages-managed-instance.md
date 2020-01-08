@@ -1,6 +1,7 @@
 ---
-title: SQL Server Integration Services 패키지를 Azure SQL Database 관리 되는 인스턴스로 마이그레이션 | Microsoft Docs
-description: Azure SQL Database 관리 되는 인스턴스로 SQL Server Integration Services 패키지를 마이그레이션하는 방법에 알아봅니다.
+title: SSIS 패키지를 SQL 관리 되는 인스턴스로 마이그레이션
+titleSuffix: Azure Database Migration Service
+description: Azure Database Migration Service 또는 Data Migration Assistant를 사용 하 여 SQL Server Integration Services (SSIS) 패키지 및 프로젝트를 Azure SQL Database 관리 되는 인스턴스로 마이그레이션하는 방법에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,23 +9,23 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/08/2019
-ms.openlocfilehash: 82a047616c199e37bfa22f53e02f3f7b224b47c1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: c0ec3cb21c83c7b9f5ff0cec092ab210ea8894eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437995"
 ---
-# <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>SQL Server Integration Services 패키지를 Azure SQL Database 관리 되는 인스턴스로 마이그레이션
-SQL Server Integration Services (SSIS)를 사용 하 고 대상 Azure SQL Database 관리 되는 인스턴스에서 호스팅되는 SSISDB에 SQL Server에서 호스팅되는 SSISDB 원본에서 SSIS 프로젝트/패키지를 마이그레이션할 경우에 Azure Database Migration Service를 사용할 수 있습니다.
+# <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스로 SQL Server Integration Services 패키지 마이그레이션
+SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에 의해 호스팅되는 원본 SSISDB에서 SSIS 프로젝트/패키지를 Azure SQL Database 관리 되는 인스턴스에서 호스팅하는 대상 SSISDB로 마이그레이션하려면 Azure Database Migration Service를 사용할 수 있습니다.
 
-SSIS 사용 하면 버전은 2012 이전 버전 또는 SSIS 마이그레이션 프로젝트/패키지 하기 전에 SSISDB이 아닌 패키지 저장소 형식을 사용 하는 경우 SSMS에서 시작할 수도 있습니다는 Integration Services 프로젝트 변환 마법사를 사용 하 여 변환 해야 합니다. 자세한 내용은 문서 [프로젝트를 프로젝트 배포 모델로 변환](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert)을 참조하세요.
+사용 중인 SSIS 버전이 2012 이전 이거나 SSISDB가 아닌 패키지 저장소 유형을 사용 하는 경우, SSIS 프로젝트/패키지를 마이그레이션하기 전에 SSMS에서 시작할 수도 있는 Integration Services 프로젝트 변환 마법사를 사용 하 여 변환 해야 합니다. 자세한 내용은 문서 [프로젝트를 프로젝트 배포 모델로 변환](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert)을 참조하세요.
 
 > [!NOTE]
-> 현재 azure 데이터베이스 마이그레이션 서비스 (DMS) 마이그레이션 대상으로 Azure SQL Database를 지원 하지 않습니다. Azure SQL Database에 SSIS 프로젝트/패키지를 재배포할 문서를 참조 [Azure SQL Database로 다시 배포할 SQL Server Integration Services 패키지](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)합니다.
+> Azure Database Migration Service (DMS)는 현재 대상 마이그레이션 대상으로 Azure SQL Database을 지원 하지 않습니다. Azure SQL Database에 SSIS 프로젝트/패키지를 다시 배포 하려면 [Azure SQL Database에 SQL Server Integration Services 패키지 다시 배포](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)문서를 참조 하세요.
 
 이 문서에서는 다음 방법을 설명합니다.
 > [!div class="checklist"]
@@ -36,19 +37,19 @@ SSIS 사용 하면 버전은 2012 이전 버전 또는 SSIS 마이그레이션 �
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
-* 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Azure Virtual Network (VNet)를 만들려면 [ExpressRoute ](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 나 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)합니다. 자세한 내용은 문서 참조 [Azure SQL Database에 대 한 네트워크 토폴로지 관리 Azure Database Migration Service를 사용 하 여 인스턴스 마이그레이션]( https://aka.ms/dmsnetworkformi)합니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
-* VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service는 다음 인바운드 통신 포트를 차단 하지 확인 합니다. 443, 53, 9354, 445, 12000. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
-* 구성 하 여 [원본 데이터베이스 엔진 액세스에 대 한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017)합니다.
-* SQL Server, 기본적으로 TCP 포트 1433 인 원본에 액세스 하려면 Azure Database Migration Service를 허용 하도록 Windows 방화벽을 엽니다.
+* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Azure Virtual Network (VNet)를 만듭니다. 자세한 내용은 [Azure Database Migration Service를 사용 하 여 관리 되는 인스턴스 마이그레이션의 Azure SQL Database 네트워크 토폴로지]( https://aka.ms/dmsnetworkformi)문서를 참조 하세요. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
+* VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대해 443, 53, 9354, 445, 12000 인바운드 통신 포트를 차단 하지 않도록 하려면 다음을 수행 합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
+* [원본 데이터베이스 엔진 액세스를 위해 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017)을 구성 하려면
+* Azure Database Migration Service에서 원본 SQL Server에 액세스할 수 있도록 Windows 방화벽을 열려면 (기본값은 TCP 포트 1433입니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우, SQL Browser 서비스를 사용하도록 설정하고 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service에서 마이그레이션을 위해 445 SMB 포트를 통해 파일뿐만 아니라 원본 데이터베이스에 액세스할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure SQL Database 인스턴스에 SSISDB 호스트할 관리 합니다. 하나를 생성 해야 하는 경우 문서의 세부 지침에 따라 [Azure SQL Database Managed Instance 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)합니다.
-* 원본에 연결 하는 데 로그인 되도록 SQL Server 및 대상 관리 되는 인스턴스에서 sysadmin 서버 역할의 멤버입니다.
-* SSIS에서 Azure 데이터 팩터리 (ADF) 대상 Azure SQL Database에서 호스팅되는 SSISDB 사용 하 여 Azure SSIS IR (Integration Runtime)을 포함 하는 프로 비전 확인 하려면 관리 되는 인스턴스 (이 문서에 설명 된 대로 [AZURE-SSIS-만들기 Azure Data Factory의 integration runtime](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)).
+* SSISDB를 호스트 하는 Azure SQL Database 관리 되는 인스턴스입니다. 하나를 만들어야 하는 경우 [Azure SQL Database Managed Instance 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)문서에 있는 세부 정보를 따르세요.
+* 원본 SQL Server와 대상 관리 되는 인스턴스를 연결 하는 데 사용 되는 로그인이 sysadmin 서버 역할의 멤버 인지 확인 합니다.
+* SSIS가 [Azure Data Factory의 AZURE ssis 통합 런타임 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)문서에 설명 된 대로 Azure SQL Database 관리 되는 인스턴스에서 호스팅하는 대상 SSISDB를 사용 하 여 AZURE-SSIS INTEGRATION RUNTIME (IR)를 포함 하는 AZURE DATA FACTORY (ADF)에 프로 비전 되었는지 확인 합니다.
 
 ## <a name="assess-source-ssis-projectspackages"></a>원본 SSIS 프로젝트/패키지 평가
 
-SSISDB 원본의 평가 데이터베이스 마이그레이션 길잡이 (DMA)에 아직 통합 되지 않습니다, 하지만 SSIS 프로젝트/패키지는 평가/유효성을 검사할 수 SSISDB 호스팅되는 Azure SQL Database 관리 되는 인스턴스에서 대상에 재배포 하는 것입니다.
+원본 SSISDB의 평가는 아직 DMA (데이터베이스 Migration Assistant)에 통합 되어 있지 않지만 SSIS 프로젝트/패키지는 Azure SQL Database 관리 되는 인스턴스에서 호스팅되는 대상 SSISDB에 다시 배포 될 때 평가/유효성을 검사 합니다.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
@@ -80,7 +81,7 @@ SSISDB 원본의 평가 데이터베이스 마이그레이션 길잡이 (DMA)에
 
 5. 기존 VNet을 선택하거나 새로 만듭니다.
 
-    VNet 원본 SQL Server 및 대상 Azure SQL Database 관리 되는 인스턴스에 대 한 액세스를 사용 하 여 Azure Database Migration Service를 제공합니다.
+    VNet은 원본 SQL Server 및 대상 Azure SQL Database 관리형 인스턴스에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공합니다.
 
     Azure Portal에서 VNet을 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet) 문서를 참조하세요.
 
@@ -106,7 +107,7 @@ SSISDB 원본의 평가 데이터베이스 마이그레이션 길잡이 (DMA)에
 
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 
-4. 에 **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정 합니다 **원본 서버 유형** 텍스트 상자에서 **SQL Server**를 **대상 서버 형식** 텍스트 상자 **Azure SQL Database Managed Instance**, 한 후 **작업 유형 선택**선택, **SSIS 패키지 마이그레이션**.
+4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정 하 고, **원본 서버 유형** 텍스트 상자에서 **SQL Server**를 선택 하 고, **대상 서버 유형** 텍스트 상자에서 **Azure SQL Database Managed Instance**을 선택한 다음, **활동 유형 선택**에서 **SSIS 패키지 마이그레이션**을 선택 합니다.
 
    ![DMS 프로젝트 만들기](media/how-to-migrate-ssis-packages-mi/dms-create-project2.png)
 
@@ -121,7 +122,7 @@ SSISDB 원본의 평가 데이터베이스 마이그레이션 길잡이 (DMA)에
     신뢰할 수 있는 인증서가 설치되어 있지 않으면 인스턴스가 시작될 때 SQL Server에서 자체 서명 인증서를 생성합니다. 이 인증서는 클라이언트 연결에 대한 자격 증명을 암호화하는 데 사용됩니다.
 
     > [!CAUTION]
-    > 자체 서명 인증서를 사용하여 암호화된 SSL 연결은 강력한 보안을 제공하지 않습니다. 메시지 가로채기(man-in-the-middle) 공격을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서 자체 서명 인증서를 사용하는 SSL을 신뢰해서는 안 됩니다.
+    > 자체 서명 인증서를 사용하여 암호화된 SSL 연결은 강력한 보안을 제공하지 않습니다. 중간자 공격(man-in-the-middle)을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서 자체 서명 인증서를 사용하는 SSL을 신뢰해서는 안 됩니다.
 
    ![원본 세부 정보](media/how-to-migrate-ssis-packages-mi/dms-source-details1.png)
 
@@ -129,7 +130,7 @@ SSISDB 원본의 평가 데이터베이스 마이그레이션 길잡이 (DMA)에
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
-1. 에 **마이그레이션 대상 세부 정보** 화면에서 대상에 대 한 연결 정보를 지정 합니다.
+1. **마이그레이션 대상 세부 정보** 화면에서 대상에 대 한 연결 세부 정보를 지정 합니다.
 
      ![대상 세부 정보](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
 
@@ -139,7 +140,7 @@ SSISDB 원본의 평가 데이터베이스 마이그레이션 길잡이 (DMA)에
 
 1. **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정합니다.
 
-2. 에 대 한 합니다 **SSIS 프로젝트 및 환경을 덮어쓰기 옵션**를 덮어쓰거나 기존 SSIS 프로젝트 및 환경이 무시 여부를 지정 합니다.
+2. **Ssis 프로젝트 및 환경 덮어쓰기 옵션**의 경우 기존 SSIS 프로젝트 및 환경을 덮어쓸지 아니면 무시할지를 지정 합니다.
 
     ![마이그레이션 프로젝트 요약](media/how-to-migrate-ssis-packages-mi/dms-project-summary2.png)
 

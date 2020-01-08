@@ -3,16 +3,16 @@ title: 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 �
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 0be85bf57510f575f238012b9bd1ef21e44e3cf1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 9a3c13856d3c130f2396488fed09313578dda79c
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894031"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496931"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
-맬웨어, 랜섬웨어 및 침입 같은 보안 문제에 대한 우려가 증가하고 있습니다. 이 보안 문제는 비용과 데이터 측면 모두에서 지출이 클 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악성 행위자가 VM의 백업 (또는 실수로 삭제 됨)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. 이러한 추가 14 일 동안 "일시 삭제" 상태의 백업 데이터를 보존 하는 것은 고객에 게 비용을 부과 하지 않습니다.
+맬웨어, 랜섬웨어 및 침입 같은 보안 문제에 대한 우려가 증가하고 있습니다. 이 보안 문제는 비용과 데이터 측면 모두에서 지출이 클 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악성 행위자가 VM의 백업 (또는 실수로 삭제 됨)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. 이러한 추가 14 일 동안 "일시 삭제" 상태의 백업 데이터를 보존 하는 것은 고객에 게 비용을 부과 하지 않습니다. 또한 Azure는 데이터를 더욱 안전 하 게 보호 하기 위해 [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 를 사용 하 여 미사용 백업 된 모든 데이터를 암호화 합니다.
 
 > [!NOTE]
 > 일시 삭제는 삭제 된 백업 데이터만 보호 합니다. 백업을 사용 하지 않고 VM을 삭제 하면 일시 삭제 기능은 데이터를 보존 하지 않습니다. 모든 리소스는 전체 복원 력을 보장 하기 위해 Azure Backup로 보호 되어야 합니다.
@@ -114,6 +114,11 @@ AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM
 
 백업 항목의 ' DeleteState '는 ' NotDeleted '로 돌아갑니다. 그러나 보호는 계속 중지 됩니다. 보호를 다시 사용 하도록 설정 하려면 [백업을 다시 시작](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) 해야 합니다.
 
+### <a name="soft-delete-for-vms-using-rest-api"></a>REST API를 사용 하는 Vm에 대 한 일시 삭제
+
+- [여기](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)에 설명 된 대로 REST API를 사용 하 여 백업을 삭제 합니다.
+- 사용자가 이러한 삭제 작업을 실행 취소 하려면 [여기](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)에 언급 된 단계를 참조 하세요.
+
 ## <a name="disabling-soft-delete"></a>일시 삭제 사용 안 함
 
 일시 삭제는 새로 만든 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 되어 실수로 또는 악의적 삭제 로부터 백업 데이터를 보호 합니다.  이 기능을 사용 하지 않도록 설정 하는 것은 권장 되지 않습니다. 일시 삭제를 사용 하지 않도록 설정 해야 하는 유일한 경우는 보호 된 항목을 새 자격 증명 모음으로 이동할 계획인 경우이 고, 테스트 환경에서와 같이 삭제 하 고 다시 보호 하기 전에 14 일 동안 기다릴 수 없는 경우입니다. 백업 관리자만이 기능을 사용 하지 않도록 설정할 수 있습니다. 이 기능을 사용 하지 않도록 설정 하면 보호 된 항목을 모두 삭제 하면 복원 기능 없이 즉시 제거 됩니다. 일시 삭제 된 상태에서이 기능을 사용 하지 않도록 설정 된 백업 데이터는 일시 삭제 된 상태로 유지 됩니다. 이러한 항목을 즉시 영구적으로 삭제 하려면 삭제를 취소 하 고 삭제 한 후 영구적으로 삭제 해야 합니다.
@@ -146,15 +151,19 @@ EnhancedSecurityState  : Enabled
 SoftDeleteFeatureState : Disabled
 ```
 
+### <a name="disabling-soft-delete-using-rest-api"></a>REST API를 사용 하 여 일시 삭제 사용 안 함
+
+REST API를 사용 하 여 일시 삭제 기능을 사용 하지 않도록 설정 하려면 [여기](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)에 설명 된 단계를 참조 하세요.
+
 ## <a name="permanently-deleting-soft-deleted-backup-items"></a>일시 삭제 된 백업 항목을 영구적으로 삭제
 
 일시 삭제 된 상태에서이 기능을 사용 하지 않도록 설정 된 백업 데이터는 일시 삭제 된 상태로 유지 됩니다. 이러한 항목을 영구적으로 삭제 하려면 삭제 한 후 삭제 하 고 다시 삭제 하 여 영구적으로 삭제 합니다.
 
-### <a name="using-azure-portal"></a>Azure 포털 사용
+### <a name="using-azure-portal"></a>Azure Portal 사용
 
 다음 단계를 수행하세요.
 
-1. [일시 삭제를 사용 하지 않도록 설정](#disabling-soft-delete)하는 단계를 수행 합니다. 
+1. [일시 삭제를 사용 하지 않도록 설정](#disabling-soft-delete)하는 단계를 수행 합니다.
 2. Azure Portal에서 자격 증명 모음으로 이동 하 고, **백업 항목** 으로 이동 하 고, 일시 삭제 된 VM을 선택 합니다.
 
 ![일시 삭제 된 VM 선택](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
@@ -215,6 +224,14 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
+### <a name="using-rest-api"></a>REST API 사용
+
+일시 삭제를 사용 하지 않도록 설정 하기 전에 항목이 삭제 된 경우 일시 삭제 된 상태가 됩니다. 삭제 작업을 즉시 삭제 하려면 삭제 작업을 취소 한 후 다시 수행 해야 합니다.
+
+1. 먼저 [여기](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)에 설명 된 단계를 사용 하 여 삭제 작업을 실행 취소 합니다.
+2. 그런 다음 [여기](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)에 설명 된 단계를 사용 하 여 REST API를 사용 하는 일시 삭제 기능을 비활성화 합니다.
+3. 그런 다음 [여기](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)에 설명 된 대로 REST API를 사용 하 여 백업을 삭제 합니다.
+
 ## <a name="other-security-features"></a>기타 보안 기능
 
 ### <a name="storage-side-encryption"></a>스토리지 쪽 암호화
@@ -223,7 +240,7 @@ Azure Storage는 클라우드로 데이터를 유지할 때 자동으로 데이�
 
 Azure 내에서 Azure storage와 자격 증명 모음 간의 전송 데이터는 HTTPS에 의해 보호 됩니다. 이 데이터는 Azure 백본 네트워크에 남아 있습니다.
 
-자세한 내용은 [미사용 데이터에 대 한 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조 하세요.
+자세한 내용은 [미사용 데이터에 대 한 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조 하세요.  [AZURE BACKUP FAQ](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) 를 참조 하 여 암호화에 대해 발생할 수 있는 질문에 답변 하세요.
 
 ### <a name="vm-encryption"></a>VM 암호화
 
@@ -237,7 +254,7 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 ## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
-### <a name="soft-delete"></a>일시 삭제
+### <a name="for-soft-delete"></a>일시 삭제의 경우
 
 #### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>모든 자격 증명 모음에서 일시 삭제 기능을 사용 하도록 설정 해야 하나요?
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 1f46eb1995e2e7cb098098ebd22eedbd194dc6a6
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310245"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500012"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB 소개: Gremlin API
 
@@ -56,7 +56,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
 * **Apache TinkerPop과의 호환성**
 
-  Azure Cosmos DB는 [오픈 소스 Apache TinkerPop 표준](http://tinkerpop.apache.org/)을 지원합니다. Tinkerpop 표준에는 Azure Cosmos DB의 Gremlin API와 쉽게 통합할 수 있는 애플리케이션 및 라이브러리의 충분한 에코시스템이 있습니다. 
+  Azure Cosmos DB는 [오픈 소스 Apache TinkerPop 표준](https://tinkerpop.apache.org/)을 지원합니다. Tinkerpop 표준에는 Azure Cosmos DB의 Gremlin API와 쉽게 통합할 수 있는 애플리케이션 및 라이브러리의 충분한 에코시스템이 있습니다. 
 
 * **튜닝 가능한 일관성 수준**
 

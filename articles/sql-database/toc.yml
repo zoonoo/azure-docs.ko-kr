@@ -69,6 +69,8 @@
         - name: 보안 개요
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
+        - name: 보안 모범 사례
+          href: sql-database-security-best-practice.md
         - name: 액세스 관리
           items:
             - name: Access Control
@@ -218,7 +220,7 @@
               href: sql-database-long-term-retention.md
         - name: 장애 조치(failover) 그룹 및 지역에서 복제
           items:
-            - name: 활성 지역 복제
+            - name: 활성 지리적 복제
               href: sql-database-active-geo-replication.md
             - name: 자동 장애 조치 그룹
               href: sql-database-auto-failover-group.md
@@ -292,7 +294,7 @@
               href: sql-database-elastic-scale-introduction.md
             - name: 용어
               href: sql-database-elastic-scale-glossary.md
-            - name: 탄력적인 클라이언트 라이브러리 - 통합
+            - name: 탄력적인 클라이언트 라이브러리
               href: sql-database-elastic-database-client-library.md
             - name: 분할된 맵
               href: sql-database-elastic-scale-shard-map-management.md
@@ -564,7 +566,7 @@
               items:
                 - name: R 스크립트 만들기
                   href: sql-database-quickstart-r-create-script.md
-                - name: 모델 학습 및 채점
+                - name: 모델 학습 및 점수 매기기
                   href: sql-database-quickstart-r-train-score-model.md
             - name: 자습서
               items:
@@ -683,15 +685,16 @@
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL 관리형 인스턴스
+  href: sql-database-managed-instance-index.yml
   items:
-    - name: 관리형 인스턴스 설명서
-      href: sql-database-managed-instance-index.yml
     - name: 개요
-      href: sql-database-managed-instance.md
-    - name: 인스턴스 풀
-      href: sql-database-instance-pools.md
-    - name: FAQ
-      href: sql-database-managed-instance-faq.md
+      items:
+        - name: 관리되는 인스턴스
+          href: sql-database-managed-instance.md
+        - name: 인스턴스 풀
+          href: sql-database-instance-pools.md
+        - name: FAQ
+          href: sql-database-managed-instance-faq.md
     - name: 빠른 시작
       items:
         - name: 생성
@@ -718,14 +721,18 @@
       items:
         - name: DMS를 사용하여 마이그레이션
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-        - name: 트랜잭션 복제 구성
-          href: replication-with-sql-database-managed-instance.md
         - name: 보안 구성
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: 장애 조치(failover) 그룹에 관리형 인스턴스 추가
           href: sql-database-managed-instance-failover-group-tutorial.md
         - name: 온-프레미스 사용자 및 그룹 마이그레이션
           href: tutorial-managed-instance-azure-active-directory-migration.md
+        - name: 트랜잭션 복제
+          items:
+            - name: MI 구독으로 MI 게시
+              href: replication-with-sql-database-managed-instance.md
+            - name: 'MI 게시, MI 배포, SQL 구독'
+              href: sql-database-managed-instance-configure-replication-tutorial.md
     - name: 개념
       items:
         - name: 관리 API 참조
@@ -788,7 +795,7 @@
           href: sql-database-resource-manager-samples.md?tabs=managed-instance
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/sql

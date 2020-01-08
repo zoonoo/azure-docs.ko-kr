@@ -4,15 +4,15 @@ description: Azure Monitor를 사용 하면 SQL Health Check 솔루션을 사용
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401026"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor의 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경을 최적화 합니다.
 
@@ -32,9 +32,9 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 
 ![SQL Health Check 대시보드의 이미지](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* SQL Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4를 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.  
+* SQL Health Check 솔루션을 사용 하려면 MMA (Microsoft Monitoring Agent)가 설치 된 각 컴퓨터에 지원 되는 .NET Framework 4.6.2 버전이 설치 되어 있어야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.  
 * 이 솔루션은 SQL Server 2012, 2014 및 2016 버전을 지원합니다.
 * Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역.  솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다.
 
@@ -56,7 +56,7 @@ SQL Server를 Operations Manager에서 모니터링하는 경우 Operations Mana
 ## <a name="sql-health-check-data-collection-details"></a>SQL Health Check 데이터 수집 세부 정보
 SQL Health Check는 사용자가 사용하도록 설정한 에이전트를 통해 다음과 같은 소스에서 데이터를 수집합니다.
 
-* WMI(Windows Management Instrumentation)
+* Windows Management Instrumentation(WMI)
 * 레지스트리
 * 성능 카운터
 * SQL Server 동적 관리 뷰 결과
@@ -86,7 +86,7 @@ Log Analytics에서는 Operations Manager 에이전트와 관리 그룹을 사�
    > 실행 계정 유형은 Windows이어야 합니다. 실행 계정은 SQL Server 인스턴스를 호스팅하는 모든 Windows 서버에서 로컬 관리자 그룹의 일부이어야 합니다.
    >
    >
-5. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+5. **저장**을 클릭합니다.
 6. 상태 검사에 실행 계정으로 필요한 최소 사용 권한을 부여하도록 각 SQL Server 인스턴스에서 다음 T-SQL 샘플을 수정한 다음 실행합니다. 그러나 실행 계정이 SQL Server 인스턴스에서 이미 sysadmin 서버 역할의 일부인 경우, 이 작업을 수행할 필요가 없습니다.
 
 ```

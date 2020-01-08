@@ -1,5 +1,5 @@
 ---
-title: Xamarin iOS ADAL을 MSAL.NET로 마이그레이션
+title: MSAL.NET로 broker를 사용 하 여 Xamarin 앱 마이그레이션
 titleSuffix: Microsoft identity platform
 description: Microsoft Authenticator를 사용 하는 Xamarin iOS 앱을 ADAL.NET에서 MSAL.NET로 마이그레이션하는 방법에 대해 알아봅니다.
 author: jmprieur
@@ -13,12 +13,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e70865c897e408f1cebb7359d0890d27b11243b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c830b7f6d13d9b85eae34b6193ad2a10e7bfb410
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424207"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Microsoft Authenticator를 사용 하는 iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션
 
@@ -26,10 +26,10 @@ Azure Active Directory Authentication Library for .NET (ADAL.NET) 및 iOS broker
 
 어디서 시작해야 합니까? 이 문서는 ADAL에서 MSAL으로 Xamarin iOS 앱을 마이그레이션하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 iOS broker와 통합 된 Xamarin iOS 앱이 이미 있다고 가정 합니다. 그렇지 않으면 MSAL.NET로 직접 이동 하 여 해당 위치에서 broker 구현을 시작 합니다. 새 응용 프로그램을 사용 하 여 MSAL.NET에서 iOS broker를 호출 하는 방법에 대 한 자세한 내용은 [이 설명서](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications)를 참조 하세요.
 
-## <a name="background"></a>백그라운드
+## <a name="background"></a>배경
 
 ### <a name="what-are-brokers"></a>Broker 란?
 
@@ -52,14 +52,14 @@ ADAL.NET에서 broker 지원은 인증 별 컨텍스트를 기준으로 설정 �
 
 broker를 호출 하려면 `PlatformParameters` 생성자에서 플래그를 true로 `useBroker` 합니다.
 
-```CSharp
+```csharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
 ```
 또한 플랫폼별 코드에서이 예제의 iOS에 대 한 페이지 렌더러에서 `useBroker` 설정 합니다. 
 true로 플래그 지정:
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -67,7 +67,7 @@ page.BrokerParameters = new PlatformParameters(
 ```
 
 그런 다음 토큰 가져오기 호출에 매개 변수를 포함 합니다.
-```CSharp
+```csharp
  AuthenticationResult result =
                     await
                         AuthContext.AcquireTokenAsync(
@@ -83,7 +83,7 @@ MSAL.NET에서 broker 지원은 PublicClientApplication 기준으로 설정 됩�
 
 broker를 호출 하기 위해 매개 변수 `WithBroker()` (기본적으로 true로 설정):
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -91,7 +91,7 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 토큰 획득 호출에서 다음을 수행 합니다.
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -107,7 +107,7 @@ UIViewController는 다음으로 전달 됩니다.
 
 iOS 관련 플랫폼에서 `PlatformParameters` 합니다.
 
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -121,17 +121,17 @@ MSAL.NET에서 iOS에 대 한 개체 창을 설정 하는 두 가지 작업을 �
 
 **예:**
 
-`App.cs`:
-```CSharp
+`App.cs`의 경우:
+```csharp
    public static object RootViewController { get; set; }
 ```
-`AppDelegate.cs`:
-```CSharp
+`AppDelegate.cs`의 경우:
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 토큰 획득 호출에서 다음을 수행 합니다.
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -140,7 +140,7 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>3 단계: 콜백을 처리 하도록 AppDelegate 업데이트
-ADAL 및 MSAL은 모두 broker를 호출 하 고, broker는 `AppDelegate` 클래스의 `OpenUrl` 메서드를 통해 응용 프로그램을 다시 호출 합니다. 자세한 내용은 [SDK 설명서](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback)를 참조하세요.
+ADAL 및 MSAL은 모두 broker를 호출 하 고, broker는 `AppDelegate` 클래스의 `OpenUrl` 메서드를 통해 응용 프로그램을 다시 호출 합니다. 자세한 내용은 [SDK 설명서](msal-net-use-brokers-with-xamarin-apps.md#step-3-update-appdelegate-to-handle-the-callback)를 참조하세요.
 
 ADAL.NET와 MSAL.NET 사이에는 변경 내용이 없습니다.
 
@@ -162,7 +162,7 @@ URL 구성표는 앱에 고유 합니다.
 
 예: `$"msauth.(BundleId")`
 
-```CSharp
+```csharp
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -195,7 +195,7 @@ ADAL.NET 및 MSAL.NET 모두 `-canOpenURL:`를 사용 하 여 broker가 장치�
 `msauth`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauth</string>
@@ -207,10 +207,11 @@ ADAL.NET 및 MSAL.NET 모두 `-canOpenURL:`를 사용 하 여 broker가 장치�
 `msauthv2`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauthv2</string>
+     <string>msauthv3</string>
 </array>
 ```
 </table>
@@ -224,20 +225,20 @@ ADAL.NET 및 MSAL.NET 모두 broker를 대상으로 하는 경우 리디렉션 U
 
 `"<app-scheme>://<your.bundle.id>"`
 
-예제: 
+예: 
 
 `mytestiosapp://com.mycompany.myapp`
 </td><td>
 
 `$"msauth.{BundleId}://auth"`
 
-예제:
+예:
 
 `public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; `
 
 </table>
 
-포털에서 리디렉션 URI를 등록 하는 방법에 대 한 자세한 내용은 [xamarin.ios 응용 프로그램에서 Broker 활용](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app)을 참조 하세요.
+포털에서 리디렉션 URI를 등록 하는 방법에 대 한 자세한 내용은 [xamarin.ios 응용 프로그램에서 Broker 활용](msal-net-use-brokers-with-xamarin-apps.md#step-8-make-sure-the-redirect-uri-is-registered-with-your-app)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

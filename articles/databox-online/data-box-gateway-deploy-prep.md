@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 428b42e62f44d182de109740359544135561e54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438652"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 배포 준비
 
@@ -22,7 +22,7 @@ ms.locfileid: "67441501"
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 포털 준비에는 10분 미만이 소요됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 새 리소스 만들기
@@ -42,7 +42,7 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 
 이제 Azure Portal 설치를 시작할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 여기에는 Data Box Gateway 리소스, Data Box Gateway 디바이스 및 데이터 센터 네트워크에 대한 구성 필수 조건이 있습니다.
 
@@ -94,22 +94,22 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     - 또는 URL [https://portal.azure.us](https://portal.azure.us)에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
 
 2. 왼쪽 창에서 **+ 리소스 만들기**를 선택합니다. **Data Box Edge/Data Box Gateway**를 검색합니다. Data Box Edge/Data Box Gateway를 선택합니다. **만들기**를 선택합니다.
-3. Data Box Gateway 디바이스에서 사용하려는 구독을 선택합니다. Data Box Gateway 리소스를 배포할 지역을 선택합니다. 이 릴리스에서는 미국 동부, 동남 아시아 및 유럽 서부를 사용할 수 있습니다. 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. **Data Box Gateway** 옵션에서 **만들기**를 선택합니다.
+3. Data Box Gateway 디바이스에서 사용하려는 구독을 선택합니다. Data Box Gateway 리소스를 배포할 지역을 선택합니다. 이 릴리스에서는 미국 동부, 동남 아시아 및 서유럽을 선택할 수 있습니다. 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. **Data Box Gateway** 옵션에서 **만들기**를 선택합니다.
 
     ![Data Box Gateway 서비스 검색](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-4. **기본 사항** 탭에서 다음 **프로젝트 세부 정보**를 선택합니다.
+4. **기본 사항** 탭에서 다음 **프로젝트 세부 정보**를 입력하거나 선택합니다.
     
     |설정  |값  |
     |---------|---------|
-    |구독    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
-    |리소스 그룹  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.     |
+    |Subscription    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
+    |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
 
 5. 다음 **인스턴스 세부 정보**를 입력하거나 선택합니다.
 
     |설정  |값  |
     |---------|---------|
-    |이름   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
+    |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
     |지역     |이 릴리스는 미국 동부, 동남 아시아 및 서유럽에 리소스를 배포할 수 있습니다. Azure Government의 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 나열된 모든 정부 지역에서 사용 가능합니다. <br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
     
     ![Data Box 게이트웨이 리소스 만들기](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)

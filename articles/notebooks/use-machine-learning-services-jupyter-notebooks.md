@@ -1,18 +1,20 @@
 ---
-title: Azure Notebooks에서 Azure Machine Learning 사용
-description: Azure Notebooks에서 사용할 수 있는 Azure Machine Learning에 대 한 샘플 노트북의 개요입니다.
-ms.topic: article
+title: Azure Notebooks 미리 보기에서 Azure Machine Learning 사용
+description: Azure Notebooks Preview에서 사용할 수 있는 Azure Machine Learning에 대 한 샘플 노트북의 개요입니다.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e3c4fbdf35bf7ea1f4dddbceb9d7235c67ed13a4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3c0e0e9ccea079d7e8f4e35e9af2a0e1c1ec5051
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277452"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646955"
 ---
-# <a name="use-azure-machine-learning-in-a-notebook"></a>노트북에서 Azure Machine Learning 사용
+# <a name="use-azure-machine-learning-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 Azure Machine Learning 사용
 
 Azure Notebooks은 [Azure Machine Learning](/azure/machine-learning/service/)작업 하는 데 필요한 환경으로 미리 구성 되어 있습니다. 샘플 프로젝트를 Notebooks 계정에 쉽게 복제하여 다양한 Machine Learning 시나리오를 살펴볼 수 있습니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="clone-the-sample-into-your-account"></a>사용자 계정에 샘플 복제
 

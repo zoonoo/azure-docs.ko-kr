@@ -1,23 +1,23 @@
 ---
 title: Azure Portal에서 즐겨찾기 추가, 제거 및 정렬 Microsoft Docs
-description: 즐겨찾기 목록에서 항목을 추가 또는 제거 하 고 항목 순서를 정렬 하는 방법에 대해 알아봅니다.
+description: 즐겨찾기 목록에서 항목을 추가 또는 제거 하 고 항목 순서를 다시 정렬 하는 방법에 대해 알아봅니다.
 services: azure-portal
-keywords: 자주
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+keywords: 즐겨찾기, 포털
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 57ce053f268558886dad33d450d48f9a0889a10a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579511"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640570"
 ---
-# <a name="add-remove-and-sort-favorites"></a>즐겨찾기 추가, 제거 및 정렬
+# <a name="add-remove-and-rearrange-favorites"></a>즐겨찾기 추가, 제거 및 다시 정렬
 
 자주 사용 하는 서비스로 빠르게 이동할 수 있도록 **즐겨찾기** 목록에서 항목을 추가 하거나 제거 합니다. **즐겨찾기** 목록에 몇 가지 공통 서비스를 이미 추가 했지만 사용자 지정 하려고 할 가능성이 있습니다. **즐겨찾기에**대 한 변경 내용을 사용자에 게 표시 하는 유일한 사용자입니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "73579511"
 
 2. 정보 카드에서 별표를 선택 하 여 채워져 있지 않음에서 채워지지 않음으로 변경 합니다. 서비스가 **즐겨찾기** 목록에서 제거 됩니다.
 
-## <a name="sort-favorites"></a>즐겨찾기 정렬
+## <a name="rearrange-favorites"></a>즐겨찾기 다시 정렬
 
 즐겨 찾는 서비스가 나열 되는 순서를 변경할 수 있습니다. 메뉴 항목을 **즐겨찾기**아래의 다른 위치로 끌어 놓습니다.
 

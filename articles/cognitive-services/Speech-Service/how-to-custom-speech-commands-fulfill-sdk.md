@@ -1,7 +1,7 @@
 ---
 title: Speech SDK를 사용 하 여 클라이언트에서 사용자 지정 명령을 수행 하는 방법
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Speech SDK를 사용 하 여 클라이언트에서 사용자 지정 명령 활동을 처리 합니다.
+description: 이 문서에서는 Speech SDK를 사용 하 여 클라이언트에서 사용자 지정 명령 활동을 처리 하는 방법을 설명 합니다.
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d17ccc67f8254f05461012a9ae443d96ffd58fa5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446937"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>방법: 음성 SDK를 사용 하 여 클라이언트에서 명령 수행 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "74806153"
 - 사용자 지정 명령 응용 프로그램에서 사용자 지정 JSON 페이로드 정의 및 보내기
 - C# UWP Speech SDK 클라이언트 응용 프로그램에서 사용자 지정 JSON 페이로드 콘텐츠 수신 및 시각화
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - 음성 서비스에 대 한 Azure 구독 키
@@ -49,7 +49,7 @@ ms.locfileid: "74806153"
    > [!div class="mx-imgBorder"]
    > ![보내기 작업 완료 규칙](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | 설정 | 제안 값 | 설명 |
+   | 설정 | 제안 값 | Description |
    | ------- | --------------- | ----------- |
    | 규칙 이름 | UpdateDeviceState | 규칙의 용도를 설명 하는 이름입니다. |
    | 조건 | 필수 매개 변수-`OnOff` 및 `SubjectDevice` | 규칙을 실행할 수 있는 시기를 결정 하는 조건 |

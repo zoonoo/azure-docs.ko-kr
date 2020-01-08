@@ -1,5 +1,5 @@
 ---
-title: MSAL.NET에서 웹 브라우저 사용 | Microsoft
+title: 웹 브라우저 사용 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
@@ -14,14 +14,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44698bc88b87aa76dd55ab5d632ad7276a49aea5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424164"
 ---
-# <a name="using-web-browsers-in-msalnet"></a>MSAL.NET에서 웹 브라우저 사용
+# <a name="using-web-browsers-msalnet"></a>웹 브라우저 사용 (MSAL.NET)
+
 대화형 인증에는 웹 브라우저가 필요 합니다. 기본적으로 MSAL.NET 및 Xamarin.ios에서 [시스템 웹 브라우저](#system-web-browser-on-xamarinios-xamarinandroid) 를 지원 합니다. 그러나 [xamarin.ios](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) 및 [xamarin Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) 앱에서 요구 사항 (UX, SSO (Single Sign-On에 필요), 보안)에 따라 [포함 된 웹 브라우저를 사용 하도록 설정할 수도 있습니다](#enable-embedded-webviews-on-ios-and-android) . 뿐만 아니라 Android에서 chrome 사용자 지정 탭을 지 원하는 Chrome 또는 브라우저를 지 원하는 브라우저의 유무에 따라 사용할 웹 브라우저를 [동적으로 선택할](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) 수도 있습니다. MSAL.NET는 .NET Core 데스크톱 응용 프로그램에서 시스템 브라우저만 지원 합니다.
 
 ## <a name="web-browsers-in-msalnet"></a>MSAL.NET의 웹 브라우저
@@ -47,13 +48,13 @@ MSAL.NET는 다중 프레임 워크 라이브러리 이며 UI 컨트롤에서 �
 
 | 프레임워크        | 포함된 | 시스템 | 기본값 |
 | ------------- |-------------| -----| ----- |
-| .NET 클래식     | yes | 예 ^ | 포함된 |
+| .NET 클래식     | 예 | 예 ^ | 포함된 |
 | .NET Core     | 아닙니다. | 예 ^ | 시스템 |
 | .NET Standard | 아닙니다. | 예 ^ | 시스템 |
-| UWP | yes | 아닙니다. | 포함된 |
-| Xamarin.Android | yes | yes  | 시스템 |
-| Xamarin.iOS | yes | yes  | 시스템 |
-| Xamarin.Mac| yes | 아닙니다. | 포함된 |
+| UWP | 예 | 아닙니다. | 포함된 |
+| Xamarin.Android | 예 | 예  | 시스템 |
+| Xamarin.iOS | 예 | 예  | 시스템 |
+| Xamarin.Mac| 예 | 아닙니다. | 포함된 |
 
 ^ "http://localhost" 리디렉션 URI가 필요 합니다.
 

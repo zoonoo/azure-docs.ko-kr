@@ -1,17 +1,17 @@
 ---
 title: Azure 데이터 과학 Virtual Machines 사용
-description: Azure Data Science Virtual Machine (DSVM)에 연결 하 여 Azure Notebooks에서 사용할 수 있는 계산 능력을 확장 합니다.
+description: Azure Data Science Virtual Machine (DSVM)에 연결 하 여 Azure Notebooks 미리 보기에 사용할 수 있는 계산 능력을 확장 하는 방법을 알아봅니다.
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277399"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646997"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines 사용
 
@@ -19,6 +19,8 @@ ms.locfileid: "74277399"
 
 > [!Note]
 > Azure Notebooks은 Linux Ubuntu 이미지를 사용 하 여 만든 DSVMs 에서만 지원 됩니다. 노트북은 Windows 2012, Windows 2016 또는 Linux CentOS 이미지에서 지원 되지 않습니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>DSVM 인스턴스 만들기
 

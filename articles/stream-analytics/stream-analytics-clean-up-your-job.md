@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics 작업 정리
 description: 이 문서에서는 Azure Stream Analytics 작업을 삭제하기 위한 여러 가지 방법을 보여줍니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 093ada2b2751540b986154be3a2f333784c1259f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d99920417f20034da1001a821c02376ac19274d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426479"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Azure Stream Analytics 작업을 중지 하거나 삭제 합니다.
 
@@ -41,7 +40,7 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 용 Azure 
 >[!WARNING] 
 >Stream Analytics 작업을 삭제 한 후에는 복구할 수 없습니다.
 
-1. Azure 포털에 로그인합니다. 
+1. Azure Portal에 로그인합니다. 
 
 2. 기존 Stream Analytics 작업을 찾아서 선택합니다.
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468843"
 ---
 가용성 그룹 수신기는 SQL Server 가용성 그룹에서 수신하는 IP 주소 및 네트워크 이름입니다. 가용성 그룹 수신기를 만들려면 다음을 수행합니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "67182160"
 
     b. 장애 조치(failover) 클러스터 관리자를 엽니다.
 
-    c. **네트워크** 노드를 선택하고 클러스터 네트워크 이름을 확인합니다. 이 이름을 PowerShell 스크립트에서 `$ClusterNetworkName` 변수에 사용합니다. 다음 이미지에서 클러스터 네트워크 이름은 **클러스터 네트워크 1**입니다.
+    다. **네트워크** 노드를 선택하고 클러스터 네트워크 이름을 확인합니다. 이 이름을 PowerShell 스크립트에서 `$ClusterNetworkName` 변수에 사용합니다. 다음 이미지에서 클러스터 네트워크 이름은 **클러스터 네트워크 1**입니다.
 
    ![클러스터 네트워크 이름](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
@@ -32,7 +32,7 @@ ms.locfileid: "67182160"
 
    ![클라이언트 액세스 지점](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
-    c. **이름** 상자에서 이 새 수신기의 이름을 만듭니다. 
+    다. **이름** 상자에서 이 새 수신기의 이름을 만듭니다. 
    새 수신기의 이름은 애플리케이션에서 SQL Server 가용성 그룹의 데이터베이스에 연결하는 데 사용하는 네트워크 이름입니다.
 
     d. 수신기 만들기를 완료하려면 **다음**을 두 번 클릭한 다음 **마침**을 클릭합니다. 현재 온라인 상태에서 수신기 또는 리소스를 가져오지 마세요.
@@ -48,7 +48,7 @@ ms.locfileid: "67182160"
 
     b. IP 리소스를 마우스 오른쪽 단추로 클릭한 다음 [속성]을 클릭합니다. IP 주소의 이름을 적어두고 PowerShell 스크립트의 `$IPResourceName` 변수에 사용합니다.
 
-    c. **IP 주소**에서 **고정 IP 주소**를 클릭합니다. Azure Portal에서 부하 분산 장치 주소를 설정할 때 사용한 주소와 동일한 주소로 IP 주소를 설정합니다.
+    다. **IP 주소**에서 **고정 IP 주소**를 클릭합니다. Azure Portal에서 부하 분산 장치 주소를 설정할 때 사용한 주소와 동일한 주소로 IP 주소를 설정합니다.
 
    ![IP 리소스](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
@@ -62,7 +62,7 @@ ms.locfileid: "67182160"
 
     b. **리소스** 탭의 **기타 리소스**에서 가용성 리소스 그룹을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. 
 
-    c. [종속성] 탭에서 클라이언트 액세스 지점(수신기) 리소스의 이름을 추가합니다.
+    다. [종속성] 탭에서 클라이언트 액세스 지점(수신기) 리소스의 이름을 추가합니다.
 
    ![IP 리소스](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
@@ -76,7 +76,7 @@ ms.locfileid: "67182160"
 
    ![IP 리소스](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. **종속성** 탭을 클릭합니다. IP 주소가 종속성인지 확인합니다. 그렇지 않으면 IP 주소에 대한 종속성을 설정합니다. 여러 리소스가 나열되어 있으면 IP 주소에 AND가 아닌 OR 종속성이 있는지 확인합니다. **확인**을 클릭합니다. 
+    다. **종속성** 탭을 클릭 합니다. IP 주소가 종속성 인지 확인 합니다. 그렇지 않으면 IP 주소에 대한 종속성을 설정합니다. 여러 리소스가 나열되어 있으면 IP 주소에 AND가 아닌 OR 종속성이 있는지 확인합니다. **확인**을 클릭합니다. 
 
    ![IP 리소스](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -140,4 +140,4 @@ ms.locfileid: "67182160"
    b. 클러스터 노드 중 하나에서 PowerShell 스크립트를 실행하여 클러스터 매개 변수를 설정합니다.  
 
 >[!WARNING]
->가용성 그룹 수신기 상태 프로브 포트는 클러스터 코어 IP 주소 상태 프로브 포트와 달라야 합니다. 이러한 예제에서 수신기 포트는 59999이며 클러스터 코어 IP 주소는 58888입니다. 두 포트는 모두 인바운드 방화벽 규칙을 허용해야 합니다.
+>가용성 그룹 수신기 상태 프로브 포트는 클러스터 코어 IP 주소 상태 프로브 포트와 달라야 합니다. 이 예에서 수신기 포트는 59999이 고 클러스터 코어 IP 주소 상태 프로브 포트는 58888입니다. 두 포트는 모두 인바운드 방화벽 규칙을 허용해야 합니다.

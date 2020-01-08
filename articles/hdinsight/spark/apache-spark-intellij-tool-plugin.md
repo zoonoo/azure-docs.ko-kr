@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: b417823d0ec7ed838186d53c1bb25400a148e0e9
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 1790a7806b1abbe4d537f309f33dee686e30662b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533909"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645041"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>자습서: Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -23,13 +23,13 @@ ms.locfileid: "74533909"
 * Azure HDInsight Spark 클러스터 리소스에 액세스합니다.
 * Scala Spark 애플리케이션을 로컬로 개발 및 실행합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Azure Toolkit for IntelliJ 플러그 인 사용
 > * Apache Spark 애플리케이션 개발
 > * Azure HDInsight 클러스터에 애플리케이션 제출
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -73,12 +73,12 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
 6. **새 프로젝트** 창에서 다음 정보를 제공합니다.  
 
-    |  자산   | 설명   |  
+    |  속성   | Description   |  
     | ----- | ----- |  
     |프로젝트 이름| 이름을 입력합니다.  이 자습서에서는 `myApp`를 사용합니다.|  
     |프로젝트&nbsp;위치| 프로젝트를 저장하기를 원하는 위치를 입력합니다.|
     |프로젝트 SDK| IDEA를 처음 사용하는 경우에는 비어 있을 수 있습니다.  **새로 만들기...** 를 만들기 JDK로 이동합니다.|
-    |Spark 버전|만들기 마법사는 Spark SDK 및 Scala SDK에 대해 적합한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.3.0(Scala 2.11.8)** 을 사용합니다.|
+    |Spark 버전|만들기 마법사는 Spark SDK 및 Scala SDK에 대해 적합한 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x**를 선택합니다. 그렇지 않으면 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.3.0(Scala 2.11.8)** 을 사용합니다.|
 
     ![Apache Spark SDK 선택](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
 
@@ -183,7 +183,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
 
     * **HDInsight 클러스터**  
   
-        |자산 |값 |
+        |속성 |값 |
         |----|----|
         |링크 리소스 유형|드롭다운 목록에서 **HDInsight 클러스터**를 선택합니다.|
         |클러스터 이름/URL| 클러스터 이름을 입력합니다.|
@@ -195,12 +195,12 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
 
     * **Livy 서비스**  
   
-        |자산 |값 |
+        |속성 |값 |
         |----|----|
         |링크 리소스 유형|드롭다운 목록에서 **Livy 서비스**를 선택합니다.|
         |Livy 엔드포인트| Livy 엔드포인트를 입력합니다.|
         |클러스터 이름| 클러스터 이름을 입력합니다.|
-        |Yarn 엔드포인트|선택 사항입니다.|
+        |Yarn 엔드포인트|(선택 사항)|
         |인증 유형| **기본 인증** 상태로 유지|
         |사용자 이름| 클러스터 사용자 이름을 입력합니다. 기본값은 admin입니다.|
         |암호| 사용자 이름에 대한 암호를 입력합니다.|
@@ -227,14 +227,14 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
 
 3. **구성 편집** 창에서 다음 값을 제공하고 **확인**을 선택합니다.
 
-    |자산 |값 |
+    |속성 |값 |
     |----|----|
-    |Spark 클러스터(Linux 전용)|애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.|
+    |Spark 클러스터(Linux만 해당)|애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.|
     |제출할 아티팩트를 선택합니다.|기본 설정을 유지합니다.|
-    |기본 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
-    |작업 구성|기본 키 및/또는 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조하세요.|
+    |주 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
+    |작업 구성|기본 키 및/또는 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html)를 참조하세요.|
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
-    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일(있는 경우)의 경로를 입력할 수 있습니다. Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen 2 클러스터만 지원됩니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)  [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요.|
+    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen 2 클러스터만 지원됩니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)  [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요.|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|
     |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드**를 선택합니다.|
     |스토리지 계정|스토리지 계정을 입력합니다.|
@@ -243,7 +243,7 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
 
     ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
-4. **SparkJobRun**을 선택하여 선택된 클러스터에 프로젝트를 제출합니다. 맨 아래의 **Remote Spark Job in Cluster**(클러스터의 원격 Spark 작업) 탭은 작업 실행 진행 상황을 표시합니다. 빨간색 단추를 클릭하여 애플리케이션을 중지할 수 있습니다. 작업 출력에 액세스하는 방법을 알아보려면 이 문서의 뒷부분에 나오는 "IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리" 섹션을 참조하세요.  
+4. **SparkJobRun**을 선택하여 선택된 클러스터에 프로젝트를 제출합니다. **클러스터의 원격 Spark 작업** 탭 아래쪽에는 작업 실행 진행률이 표시됩니다. 빨간색 단추를 클릭하여 애플리케이션을 중지할 수 있습니다. 작업 출력에 액세스하는 방법을 알아보려면 이 문서의 뒷부분에 나오는 "IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리" 섹션을 참조하세요.  
 
     ![Apache Spark 제출 창](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
@@ -302,20 +302,20 @@ Spark 로컬 콘솔(Scala)을 실행하거나 Spark Livy 대화형 세션 콘솔
 
 ### <a name="spark-local-consolescala"></a>Spark 로컬 콘솔(Scala)
 
-WINUTILS.EXE 필수 구성 요소를 충족했는지 확인합니다.
+WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
 
 1. 메뉴 모음에서 **실행** > **구성 편집...** 으로 이동합니다.
 
 2. **구성 실행/디버그** 창의 왼쪽 분할 창에서 **HDInsight의 Apache Spark** >  **[HDInsight의 Spark] myApp**으로 이동합니다.
 
-3. 기본 창에서 **로컬로 실행** 탭을 선택합니다.
+3. 주 창에서 **로컬 실행** 탭을 선택합니다.
 
-4. 다음 값을 제공하고 **확인**을 선택합니다.
+4. 다음 값을 입력하고 **확인**을 선택합니다.
 
-    |자산 |값 |
+    |속성 |값 |
     |----|----|
     |작업 기본 클래스|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
-    |환경 변수|HADOOP_HOME 값이 올바른지 확인합니다.|
+    |환경 변수|HADOOP_HOME의 값이 올바른지 확인합니다.|
     |WINUTILS.exe 위치|경로가 올바른지 확인합니다.|
 
     ![로컬 콘솔 구성 설정](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
@@ -324,13 +324,13 @@ WINUTILS.EXE 필수 구성 요소를 충족했는지 확인합니다.
 
 6. 메뉴 모음에서 **도구** > **Spark 콘솔** > **Spark 로컬 콘솔(Scala) 실행**으로 이동합니다.
 
-7. 그러면 종속성을 자동 수정할 것인지 묻는 두 개의 대화 상자가 표시됩니다. 이러한 대화 상자가 표시되면 **자동 수정**을 선택합니다.
+7. 그러면 종속성을 자동으로 수정할 것인지 묻는 두 개의 대화 상자가 표시될 수 있습니다. 자동으로 수정하려면 **자동 수정**을 선택합니다.
 
     ![IntelliJ IDEA Spark 자동 수정 대화 상자1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
 
     ![IntelliJ IDEA Spark 자동 수정 대화 상자2](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
 
-8. 콘솔은 아래 그림과 유사합니다. 콘솔 창에 `sc.appName`을 입력하고 Ctrl+Enter를 누릅니다.  결과가 나타납니다. 빨간색 단추를 클릭하여 로컬 콘솔을 종료할 수 있습니다.
+8. 콘솔은 아래 그림과 같이 표시됩니다. 콘솔 창에서 `sc.appName`을 입력한 다음, Ctrl+Enter를 누릅니다.  결과가 표시됩니다. 빨간색 단추를 클릭하여 로컬 콘솔을 종료할 수 있습니다.
 
     ![IntelliJ IDEA 로컬 콘솔 결과](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
@@ -342,26 +342,26 @@ WINUTILS.EXE 필수 구성 요소를 충족했는지 확인합니다.
 
 3. 주 창에서 **클러스터에서 원격으로 실행** 탭을 선택합니다.
 
-4. 다음 값을 제공하고 **확인**을 선택합니다.
+4. 다음 값을 입력하고 **확인**을 선택합니다.
 
-    |자산 |값 |
+    |속성 |값 |
     |----|----|
-    |Spark 클러스터(Linux 전용)|애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.|
-    |기본 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
+    |Spark 클러스터(Linux만 해당)|애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.|
+    |주 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
 
     ![대화형 콘솔 구성 설정](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
 
 5. 프로젝트에서 **myApp** > **src** > **main** > **scala** > **myApp**으로 이동합니다.  
 
-6. 메뉴 모음에서 **도구** > **Spark 콘솔** > **Spark Livy 대화형 세션 콘솔(Scala) 실행**으로 이동합니다.
+6. 메뉴 모음에서 **도구** > **Spark 콘솔** > **Spark Livy 대화형 세션 콘솔(Scala)** 로 이동합니다.
 
-7. 콘솔은 아래 그림과 유사합니다. 콘솔 창에 `sc.appName`을 입력하고 Ctrl+Enter를 누릅니다.  결과가 나타납니다. 빨간색 단추를 클릭하여 로컬 콘솔을 종료할 수 있습니다.
+7. 콘솔은 아래 그림과 같이 표시됩니다. 콘솔 창에서 `sc.appName`을 입력한 다음, Ctrl+Enter를 누릅니다.  결과가 표시됩니다. 빨간색 단추를 클릭하여 로컬 콘솔을 종료할 수 있습니다.
 
     ![IntelliJ IDEA 대화형 콘솔 결과](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
 
 ### <a name="send-selection-to-spark-console"></a>Spark 콘솔로 선택 내용 보내기
 
-일부 코드를 로컬 콘솔 또는 Livy 대화식 세션 콘솔(Scala)로 보내면 편리하게 스크립트 결과를 예측할 수 있습니다. Scala 파일의 일부 코드를 강조 표시하고 **Spark 콘솔로 선택 내용 보내기**를 마우스 오른쪽 단추로 클릭합니다. 선택한 코드가 콘솔로 전송되고 실행됩니다. 결과는 콘솔의 코드 뒤에 표시됩니다. 콘솔에서 오류가 있는지 검사합니다.  
+일부 코드를 로컬 콘솔 또는 Livy 대화식 세션 콘솔(Scala)로 보내면 편리하게 스크립트 결과를 예측할 수 있습니다. Scala 파일에서 일부 코드를 강조 표시한 다음, 마우스 오른쪽 단추로 **Spark 콘솔로 선택 내용 보내기**를 클릭합니다. 선택한 코드가 콘솔로 전송된 후 수행됩니다. 결과는 콘솔의 코드 뒤에 표시됩니다. 콘솔에서 오류가 발생했는지 확인합니다.  
 
    ![Spark 콘솔로 선택 내용 보내기](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 

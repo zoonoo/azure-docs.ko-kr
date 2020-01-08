@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684191"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640845"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -19,7 +19,7 @@ ms.locfileid: "74684191"
 
 이 문서에서는 WebJobs을 .NET Core 콘솔 앱으로 배포 하는 방법을 보여 줍니다. WebJobs를 .NET Framework 콘솔 앱으로 배포 하려면 [WebJobs as .NET Framework console apps](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps)를 참조 하세요. .NET Framework 지 원하는 WebJobs SDK 버전 2.x에 관심이 있는 경우 [Visual Studio를 사용 하 여 WebJobs 개발 및 배포-Azure App Service](webjobs-dotnet-deploy-vs.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 개발** 워크 로드를 사용 하 여 [Visual Studio 2019을 설치](/visualstudio/install/) 합니다. Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다.
 
@@ -320,13 +320,13 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
-   |name  |연결 문자열  |데이터베이스 유형|
+   |이름  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
    |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|맞춤형 서비스|
 
 1. **애플리케이션 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
-   |name  |Value  |
+   |이름  |값  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 
@@ -399,21 +399,23 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 이 섹션에서는 로컬로 다시 실행하여 로깅 데이터가 이제 Application Insights 및 콘솔 둘 다로 이동하는지 확인합니다.
 
-1. *Hello App Insights!* 를 메시지 텍스트로 입력하는 것을 제외하고는 [이전](#trigger-the-function-in-azure)과 동일한 방식으로 Visual Studio의 **서버 탐색기**를 사용하여 큐 메시지를 만듭니다.
+1. *Hello App Insights* 입력을 제외 하 고 Visual Studio에서 **서버 탐색기** 를 사용 하 여 [이전](#test-locally)처럼 큐 메시지를 만듭니다. 큐 메시지를 만듭니다.
 
 1. 프로젝트를 실행합니다.
 
-   WebJobs SDK에서 큐 메시지를 처리하고, 콘솔 창에 로그를 표시합니다.
+   WebJobs SDK는 큐 메시지를 처리 하 고 콘솔 창에 로그를 표시 합니다.
 
 1. 콘솔 창을 닫습니다.
 
-1. [Azure Portal](https://portal.azure.com/)을 열고, Application Insights 리소스로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 Application Insights 리소스를 확인 합니다. **Application Insights**를 검색하고 선택합니다.
+
+1. Application Insights 인스턴스를 선택 합니다.
 
 1. **검색**을 선택합니다.
 
    ![검색 선택](./media/webjobs-sdk-get-started/select-search.png)
 
-1. *Hello App Insights!* 가 표시되지 않으면 몇 분 동안 정기적으로 **새로 고침**을 선택합니다. (Application Insights 클라이언트에서 처리하는 로그를 플러시하는 데 시간이 걸리기 때문에 로그가 즉시 표시되지 않습니다.)
+1. *Hello App Insights!* 가 표시되지 않으면 몇 분 동안 정기적으로 **새로 고침**을 선택합니다. Application Insights 클라이언트가 처리 하는 로그를 플러시하는 데 시간이 걸리므로 로그가 즉시 표시 되지 않습니다.
 
    ![Application Insights의 로그](./media/webjobs-sdk-get-started/logs-in-ai.png)
 

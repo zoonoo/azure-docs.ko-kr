@@ -6,23 +6,34 @@ ms.service: site-recovery
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 1cc1ee82b45ecab17e4bcfb3a909fc90b33a1545
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954445"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495378"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
 이 문서에서는 Azure로의 온-프레미스 VMware VM 복제를 사용하도록 설정하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="resolve-common-issues"></a>일반적인 문제 해결
+
+* 각 디스크는 4 TB 보다 작아야 합니다.
+* OS 디스크는 동적 디스크가 아닌 기본 디스크 여야 합니다.
+* 2 세대/UEFI 지원 가상 컴퓨터의 경우 운영 체제 제품군이 Windows이 고 부팅 디스크는 300 보다 작아야 합니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 - [온-프레미스 원본 환경을 설정](vmware-azure-set-up-source.md)합니다.
 - [Azure에서 대상 환경을 설정](vmware-azure-set-up-target.md)합니다.
+- 시작 하기 전에 [요구 사항 및 필수 구성 요소를 확인](vmware-physical-azure-support-matrix.md) 합니다. 유의 해야 할 중요 한 사항은 다음과 같습니다.
+    - 복제 된 컴퓨터에 대해 [지원 되는 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines) 입니다.
+    - [저장소/디스크](vmware-physical-azure-support-matrix.md#storage) 지원.
+    - 온-프레미스 컴퓨터에서 준수 해야 하는 [Azure 요구 사항](vmware-physical-azure-support-matrix.md#azure-vm-requirements)
+
 
 ## <a name="before-you-start"></a>시작하기 전에
 VMware 가상 컴퓨터를 복제 하는 경우 다음 정보를 염두에 두어야 합니다.
@@ -34,7 +45,7 @@ VMware 가상 컴퓨터를 복제 하는 경우 다음 정보를 염두에 두�
 * 예약 된 검색을 기다리지 않고 복제를 위해 가상 컴퓨터를 추가 하려면 구성 서버를 강조 표시 하 고 (클릭 하지 않음) **새로 고침**을 선택 합니다.
 * 복제를 사용 하도록 설정 하는 경우 가상 컴퓨터가 준비 되 면 프로세스 서버가 Azure Site Recovery 모바일 서비스를 자동으로 설치 합니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 이 섹션의 단계를 수행 하기 전에 다음 정보를 참고 하십시오.
 * 이제 Azure Site Recovery은 모든 새 복제에 대해 관리 디스크에 직접 복제 됩니다. 프로세스 서버는 대상 지역의 캐시 저장소 계정에 복제 로그를 씁니다. 이러한 로그는 asrseeddisk의 명명 규칙을 사용 하는 복제본 관리 디스크에 복구 지점의 생성에 사용 됩니다.
@@ -48,7 +59,7 @@ VMware 가상 컴퓨터를 복제 하는 경우 다음 정보를 염두에 두�
 2. **원본** 페이지 > **원본**에서 구성 서버를 선택합니다.
 3. **컴퓨터 유형에**대해 **Virtual Machines** 또는 **물리적 컴퓨터**를 선택 합니다.
 4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vCenter Server를 선택하거나 해당 호스트를 선택합니다. 물리적 컴퓨터를 복제 하는 경우에는이 설정이 적합 하지 않습니다.
-5. 프로세스 서버를 선택합니다. 추가 프로세스 서버를 만들지 않은 경우 구성 서버의 기본 제공 프로세스 서버가 드롭다운에서 제공 됩니다. 각 프로세스 서버의 상태는 권장되는 제한 및 기타 매개 변수에 따라 표시됩니다. 정상 프로세스 서버를 선택합니다. [위험한](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 프로세스 서버는 선택할 수 없습니다. 오류를 [해결](vmware-physical-azure-troubleshoot-process-server.md)**하거나**  [스케일 아웃 프로세스 서버](vmware-azure-set-up-process-server-scale.md)를 설정할 수 있습니다.
+5. 프로세스 서버를 선택합니다. 추가 프로세스 서버를 만들지 않은 경우 구성 서버의 기본 제공 프로세스 서버가 드롭다운에서 제공 됩니다. 각 프로세스 서버의 상태는 권장되는 제한 및 기타 매개 변수에 따라 표시됩니다. 정상 프로세스 서버를 선택합니다. [위험한](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 프로세스 서버는 선택할 수 없습니다. 오류를 [해결](vmware-physical-azure-troubleshoot-process-server.md)**하거나** [스케일 아웃 프로세스 서버](vmware-azure-set-up-process-server-scale.md)를 설정할 수 있습니다.
     복제 원본 창을 사용 하도록 설정 ![](media/vmware-azure-enable-replication/ps-selection.png)
 
 > [!NOTE]
@@ -61,12 +72,12 @@ VMware 가상 컴퓨터를 복제 하는 경우 다음 정보를 염두에 두�
    
    ![복제 대상 창 사용](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-1. 가상 **컴퓨터** > 가상 컴퓨터를 **선택**하 고 복제 하려는 각 가상 컴퓨터를 선택 합니다. 복제를 사용 하도록 설정할 수 있는 가상 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택합니다. 특정 가상 컴퓨터를 보거나 선택할 수 없는 경우 문제 해결을 위해 [원본 컴퓨터가 Azure Portal에 나열 되지 않음](https://aka.ms/doc-plugin-VM-not-showing) 을 참조 하세요.
+1. 가상 **컴퓨터** > 가상 컴퓨터를 **선택**하 고 복제 하려는 각 가상 컴퓨터를 선택 합니다. 복제를 사용 하도록 설정할 수 있는 가상 컴퓨터만 선택할 수 있습니다. 그런 다음, **확인**을 선택합니다. 특정 가상 컴퓨터를 보거나 선택할 수 없는 경우 문제 해결을 위해 [원본 컴퓨터가 Azure Portal에 나열 되지 않음](https://aka.ms/doc-plugin-VM-not-showing) 을 참조 하세요.
 
     ![복제 사용 가상 컴퓨터 선택 창](./media/vmware-azure-enable-replication/enable-replication5.png)
 
 1. 속성 ** > ** **구성**속성에 대해 프로세스 서버가 가상 컴퓨터에 Site Recovery 모바일 서비스를 자동으로 설치 하는 데 사용 하는 계정을 선택 합니다. 또한 데이터 변동 패턴에 따라 복제할 대상 관리 디스크의 유형을 선택 합니다.
-10. 기본적으로 원본 가상 컴퓨터의 모든 디스크가 복제 됩니다. 복제에서 디스크를 제외 하려면 복제 하지 않을 디스크에 대 한 **포함** 확인란의 선택을 취소 합니다. 그런 다음 **확인**을 선택합니다. 나중에 추가 속성을 설정할 수 있습니다. [디스크 제외](vmware-azure-exclude-disk.md)에 대해 자세히 알아보세요.
+10. 기본적으로 원본 가상 컴퓨터의 모든 디스크가 복제 됩니다. 복제에서 디스크를 제외 하려면 복제 하지 않을 디스크에 대 한 **포함** 확인란의 선택을 취소 합니다. 그런 다음, **확인**을 선택합니다. 나중에 추가 속성을 설정할 수 있습니다. [디스크 제외](vmware-azure-exclude-disk.md)에 대해 자세히 알아보세요.
 
     ![복제 사용 속성 구성 창](./media/vmware-azure-enable-replication/enable-replication6.png)
 
@@ -123,11 +134,7 @@ Microsoft 소프트웨어 보증 고객은 Azure 하이브리드 혜택를 사�
 
 [Azure 하이브리드 혜택](https://aka.ms/azure-hybrid-benefit-pricing)에 대해 자세히 알아봅니다.
 
-## <a name="resolve-common-issues"></a>일반적인 문제 해결
 
-* 각 디스크는 4 TB 보다 작아야 합니다.
-* OS 디스크는 동적 디스크가 아닌 기본 디스크 여야 합니다.
-* 2 세대/UEFI 지원 가상 컴퓨터의 경우 운영 체제 제품군이 Windows이 고 부팅 디스크는 300 보다 작아야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

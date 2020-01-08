@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459094"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -30,7 +30,7 @@ ms.locfileid: "68422967"
 
 ## <a name="general-questions"></a>일반적인 질문
 ### <a name="what-is-azure-relay"></a>Azure 릴레이란?
-[Azure Relay 서비스](relay-what-is-it.md)는 회사 엔터프라이즈 네트워크 내에 있는 서비스를 공용 클라우드에 더 안전하게 노출하여 하이브리드 애플리케이션을 간편하게 만듭니다. 방화벽 연결을 열지 않고 회사 네트워크 인프라를 방해하는 변경 사항 없이 서비스를 노출할 수 있습니다.
+[Azure Relay 서비스](relay-what-is-it.md)는 회사 엔터프라이즈 네트워크 내에 있는 서비스를 퍼블릭 클라우드에 더 안전하게 노출하여 하이브리드 애플리케이션을 간편하게 만듭니다. 방화벽 연결을 열지 않고 회사 네트워크 인프라를 방해하는 변경 사항 없이 서비스를 노출할 수 있습니다.
 
 ### <a name="what-is-a-relay-namespace"></a>릴레이 네임스페이스란?
 [네임스페이스](relay-create-namespace-portal.md)는 애플리케이션 내에서 Relay 리소스를 확인하는 데 사용할 수 있는 범위 지정 컨테이너입니다. Relay를 사용하는 네임스페이스를 만들어야 합니다. 시작하는 첫 번째 단계 중 하나입니다.
@@ -38,7 +38,7 @@ ms.locfileid: "68422967"
 ### <a name="what-happened-to-service-bus-relay-service"></a>Service Bus Relay 서비스는 어떻게 되나요?
 이전의 Service Bus Relay 서비스를 이제 [WCF Relay](service-bus-relay-tutorial.md)라고 부릅니다. 평소처럼 이 서비스를 계속 사용할 수 있습니다. 하이브리드 연결 기능은 Azure BizTalk Services에 옮겨진 업데이트된 버전의 서비스입니다. WCF Relay 및 하이브리드 연결은 모두 계속 지원됩니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 이 섹션에서는 Relay 가격 책정 구조에 대해 자주 묻는 일부 질문에 답변합니다. 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하면 됩니다. 릴레이 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요.
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이의 요금은 어떻게 청구되나요?
@@ -71,7 +71,7 @@ WCF Relay는 표준 계층 네임스페이스에서만 사용할 수 있습니�
 경우에 따라 단일 릴레이에 연결된 수신기가 여러 개 있을 수 있습니다. 하나 이상의 릴레이 수신기가 연결된 경우 릴레이는 열린 것으로 간주됩니다. 열린 릴레이에 수신기를 추가하면 릴레이 시간이 추가됩니다. 또한 릴레이에 연결된 릴레이 발신자(메시지를 릴레이에 호출하거나 전송하는 클라이언트)의 수는 릴레이 시간을 계산하는 데 영향을 주지 않습니다.
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>WCF 릴레이 대한 메시지 측정기를 어떻게 계산하나요?
-(**WCF 릴레이에 적용됩니다. 하이브리드 연결에서 메시지의 비용은 없습니다.** )
+**이는 WCF 릴레이에만 적용 됩니다. 메시지는 하이브리드 연결에 대 한 비용이 아닙니다.** )
 
 이전에 설명한 대로 일반적으로 조정된 엔터티(큐, 토픽 및 구독)에 대해 동일한 메서드를 사용하여 릴레이의 청구 가능한 메시지를 계산합니다. 하지만 몇 가지 주목할 차이점이 있습니다.
 
@@ -80,7 +80,7 @@ Service Bus Relay에 메시지를 보내는 경우 메시지를 수신하는 릴
 **netTCPRelay** WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지가 아니라 시스템을 통과하는 데이터의 스트림으로서 메시지를 처리합니다. 이 바인딩을 사용하는 경우, 발신자와 리스너만이 보내고 받은 개별 메시지의 프레임에 대한 가시성이 있습니다. **netTCPRelay** 바인딩을 사용하는 릴레이의 경우 청구 가능한 메시지를 계산하기 위해 모든 데이터를 스트림으로 처리합니다. 이 경우에 Service Bus는 5분 단위로 개별 릴레이를 통해 보내거나 받은 데이터의 총 크기를 계산합니다. 그런 다음 64KB로 총 데이터 양을 나누어서 해당 기간 동안 해당 릴레이에 대한 청구 가능 메시지 수를 결정합니다.
 
 ## <a name="quotas"></a>할당량
-| 할당량 이름 | 범위 |  참고 | 값 |
+| 할당량 이름 | 범위 |  메모 | 값 |
 | --- | --- | --- | --- |
 | 릴레이의 동시 수신기 |엔터티 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
 | 서비스 네임스페이스의 모든 릴레이 엔드포인트당 동시 릴레이 연결 |네임스페이스 |- |5,000 |
@@ -92,7 +92,7 @@ Service Bus Relay에 메시지를 보내는 경우 메시지를 수신하는 릴
 기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이번에는 요구가 이러한 제한을 초과할 수 있다는 점을 이해합니다. 이러한 한도를 적절하게 조정할 수 있도록 고객 서비스에 언제든지 문의해 주세요. Service Bus의 경우 집계 사용 할당량은 다음과 같습니다.
 
 * 50억 개의 메시지
-* 2백만 릴레이 시간
+* 200만 지연 시간
 
 매달 사용 할당량을 초과하는 계정을 사용하지 않도록 설정하는 권한을 보유하지만 메일 알림을 제공하며 조치를 취하기 전에 고객에게 연락을 여러 번 시도합니다. 이러한 할당량을 초과하는 고객은 초과하는 요금을 지불해야 합니다.
 
@@ -106,7 +106,7 @@ Azure 구독 간에 네임스페이스를 이동하려면 [Azure Portal](https:/
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Azure Portal을 사용하여 구독 간에 Azure Relay 네임스페이스를 마이그레이션하려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md#use-the-portal)을 참조하세요. 
+Azure Portal을 사용하여 구독 간에 Azure Relay 네임스페이스를 마이그레이션하려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal)을 참조하세요. 
 
 #### <a name="powershell"></a>PowerShell
 

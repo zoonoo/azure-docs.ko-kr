@@ -3,18 +3,18 @@ title: IoT 플러그 앤 플레이 미리 보기 소개 | Microsoft Docs
 description: IoT 플러그 앤 플레이 미리 보기에 대해 알아봅니다. IoT 플러그 앤 플레이는 IoT 디바이스가 기능을 선언할 수 있는 개방형 모델링 언어를 기반으로 합니다. IoT 디바이스는 Azure IoT Central 또는 파트너 애플리케이션 같은 클라우드 솔루션에 연결할 때 디바이스 기능 모델이라고 하는 선언을 제공합니다. 그러면 클라우드 솔루션이 코드를 작성하지 않고도 자동으로 디바이스를 이해하고 디바이스와 상호 작용을 시작할 수 있습니다.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 06/21/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935390"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531165"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기란?
 
@@ -86,6 +86,6 @@ IoT 플러그 앤 플레이 디바이스를 연결하면 해당 디바이스 기
 
 IoT 플러그 앤 플레이의 개요를 살펴보았으므로, 그 다음 단계로 다음 빠른 시작 중 하나를 도전해보세요.
 
-- [디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 디바이스 만들기](./quickstart-create-pnp-device.md)
-- [디바이스를 IoT Hub에 연결](./quickstart-connect-pnp-device.md)
-- [솔루션에서 디바이스에 연결](./quickstart-connect-pnp-device-solution.md)
+- [디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 디바이스 만들기](./quickstart-create-pnp-device-windows.md)
+- [디바이스를 IoT Hub에 연결](./quickstart-connect-pnp-device-c-windows.md)
+- [솔루션에서 디바이스에 연결](./quickstart-connect-pnp-device-solution-node.md)

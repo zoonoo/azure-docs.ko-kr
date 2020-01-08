@@ -1,5 +1,5 @@
 ---
-title: Azure Power BI Embedded 설명서 - 자습서, API 참조 | Microsoft Docs
+title: Azure Power BI Embedded 설명서
 description: 앱에 Power BI 데이터 시각화 및 대화형 보고서를 포함하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다.
 services: power-bi-embedded
 author: rkarlin
@@ -9,12 +9,12 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: decbe7c59f46ea77b1f5088bab8daf64722f2a8c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bdc609735380a280b754841009d2706c245af961
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727735"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427092"
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 설명서
 
@@ -97,7 +97,7 @@ Power BI Embedded를 사용하여 애플리케이션에 데이터 시각화 및 
 
 ---
 
-<h2>참고 자료</h2>
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -116,7 +116,7 @@ Power BI Embedded를 사용하여 애플리케이션에 데이터 시각화 및 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Languages</h3>
+                        <h3>언어</h3>
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded?view=azure-dotnet">.NET</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">.NET SDK 다운로드</a></p>
                         <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>

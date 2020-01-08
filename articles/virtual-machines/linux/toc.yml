@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 - 가상 머신 Backup
       href: tutorial-backup-vms.md
-    - name: 10 - VM 제어
+    - name: 10 - VM 관리
       href: tutorial-govern-resources.md
     - name: 11 - VM 추적 및 업데이트
       href: tutorial-config-management.md

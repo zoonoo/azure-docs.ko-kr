@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: 2a22039b3499f1ba0f2d7acb2e86a1991d35a380
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202128"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665771"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
@@ -40,7 +40,7 @@ ms.locfileid: "71202128"
    > [!NOTE]
    > 동일한 경고가 인시던트의 일부로 있을 수 있을 뿐만 아니라 독립 실행형 경고로 표시 될 수도 있습니다.
 
-    ![경고 정보](./media/security-center-incident/security-center-incident-alert.png)
+    ![경고 세부 정보](./media/security-center-incident/security-center-incident-alert.png)
 
 1. 각 경고에 대해 제공 된 수정 단계를 따릅니다.
 
@@ -55,9 +55,9 @@ ms.locfileid: "71202128"
 다음 항목에서는 azure에 배포 된 리소스에 대 한 추가 보호 계층을 적용 하기 위해 Security Center Azure 인프라와 통합 하 여 수집 하는 다양 한 원격 분석을 사용 하는 방법에 대해 설명 합니다.
 
 * [서비스 계층 경고](security-center-alerts-service-layer.md)
-* [Azure 보안 제품과 통합](security-center-alerts-integration.md)
+* [Azure WAF 및 Azure DDoS Protection에 대 한 위협 감지](security-center-alerts-integration.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터에서 보안 인시던트 기능을 사용하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center의 보안 경고](security-center-alerts-overview.md)

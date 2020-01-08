@@ -17,12 +17,12 @@ ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429806"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
@@ -57,9 +57,15 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * 한 주 동안 얼마나 많은 사용자가 로그인했나요?
 * 이러한 로그인의 상태란?
 
-[Azure Portal](https://portal.azure.com)으로 시작 합니다. 로그인 보고서에 액세스 하려면 **로그인**을 선택 하 고 모니터링을 계속 진행 **합니다.** 일부 로그인 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
+[Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory**를 선택 하거나 모든 페이지에서 **Azure Active Directory** 을 검색 하 여 선택 합니다.
 
-![로그인 활동](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "로그인 작업")
+![Azure Active Directory 선택](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+**모니터링**에서 **로그인** 을 선택 하 여 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)를 엽니다.
+
+![로그인 활동](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "로그인 작업")
+
+일부 로그인 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
 
 > [!IMPORTANT]
 > 로그인 보고서에는 **대화형** 로그인, 즉 사용자 이름과 암호를 사용하는 수동 로그인만 표시됩니다. 비대화형 로그인(서비스 간 인증)은 로그인 보고서에 표시되지 않습니다. 
@@ -79,7 +85,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ![로그인 활동](./media/concept-sign-ins/19.png "로그인 작업")
 
-**열** 대화 상자를 사용 하 여 선택 가능한 특성에 액세스할 수 있습니다. 로그인 보고서에는 열과 다른 특성에 대 한 일 대 다 관계가 없는 특성만 있을 수 있습니다.
+**열** 대화 상자를 사용 하 여 선택 가능한 특성에 액세스할 수 있습니다. 로그인 보고서에는 지정 된 로그인 요청에 대해 둘 이상의 값이 있는 필드를 열로 사용할 수 없습니다. 예를 들어 인증 정보, 조건부 액세스 데이터 및 네트워크 위치에 대해 true입니다.   
 
 ![로그인 활동](./media/concept-sign-ins/columns.png "로그인 작업")
 
@@ -106,20 +112,20 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 **로그인 상태** 필터를 사용하면 다음을 선택할 수 있습니다.
 
 - 전체
-- 성공
+- Success
 - 실패
 
 **조건부 액세스** 필터를 사용하면 로그인에 대한 CA 정책 상태를 선택할 수 있습니다.
 
 - 전체
 - 적용되지 않음
-- 성공
+- Success
 - 실패
 
 **날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
 가능한 값은 다음과 같습니다.
 
-- 1 개월
+- 1달
 - 7일
 - 24시간
 - 사용자 지정 시간 간격
@@ -190,7 +196,7 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - 사용자 이름
 - 애플리케이션 UI
 - 애플리케이션
-- 클라이언트
+- Client
 - 위치
 - IP 주소
 - 날짜
@@ -222,7 +228,7 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 
 원하면 특정 애플리케이션에 포커스를 설정할 수 있습니다.
 
-![보고](./media/concept-sign-ins/single-app-usage-graph.png "보고")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "보고")
 
 앱 사용량 그래프에서 날짜를 클릭하면 로그인 활동의 자세한 목록이 표시됩니다.
 

@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: f3e1abc46b79953d5a6d44abe4e7a5cecfa256be
-  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+  ms.openlocfilehash: 8b08503be49c3052312d28bc1f65d1be5c775cd9
+  ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73646815"
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75553055"
 landingContent:
 - title: Blob Storage 정보
   linkLists:
@@ -91,10 +91,14 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: .NET 사용
+    - text: .NET용 Azure Blob Storage
       url: storage-quickstart-blobs-dotnet.md
-    - text: Python 사용
+    - text: Java용 Azure Blob Storage
+      url: storage-quickstart-blobs-java.md
+    - text: Python용 Azure Blob Storage
       url: storage-quickstart-blobs-python.md
+    - text: JavaScript용 Azure Blob Storage
+      url: storage-quickstart-blobs-nodejs.md
     - text: 웹 엔드포인트로 이벤트 라우팅
       url: ../../event-grid/blob-event-quickstart-portal.md
     - text: 정적 웹 사이트 호스트
@@ -144,9 +148,9 @@ landingContent:
   - linkListType: concept
     links:
     - text: 확장성 및 성능
-      url: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: scalability-targets.md
     - text: 성능 및 확장성 검사 목록
-      url: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: storage-performance-checklist.md
   - linkListType: tutorial
     links:
     - text: 성능 및 확장성을 위한 최적화

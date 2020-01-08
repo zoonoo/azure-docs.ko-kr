@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 753c239f4bf4d6a8f31d4dc5ca771f312cd34578
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828991"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646713"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 가상 네트워크를 다른 지역으로 이동
 
@@ -20,7 +20,7 @@ ms.locfileid: "71828991"
 Azure Resource Manager 템플릿을 사용 하 여 가상 네트워크를 다른 지역으로 이동 하는 것을 완료할 수 있습니다. 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여이 작업을 수행 합니다. 리소스 관리자 템플릿에 대 한 자세한 내용은 [템플릿으로 리소스 그룹 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 가상 네트워크가 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -32,7 +32,7 @@ Azure Resource Manager 템플릿을 사용 하 여 가상 네트워크를 다른
 
 - Azure 구독을 사용 하 여 대상 지역에서 가상 네트워크를 만들 수 있는지 확인 합니다. 필요한 할당량을 사용 하도록 설정 하려면 지원 담당자에 게 문의 하세요.
 
-- 구독에이 프로세스에 대 한 가상 네트워크 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조하세요.
+- 구독에이 프로세스에 대 한 가상 네트워크 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)을 참조하세요.
 
 
 ## <a name="prepare-for-the-move"></a>이동 준비
@@ -60,7 +60,7 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹과 이름이 같습니다. 명령을 사용 하 여 내보낸 *\<resource-그룹-이름 >* 파일을 찾아 편집기에서 엽니다.
+1. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹과 이름이 같습니다. 명령을 사용 하 여 내보낸 *\<리소스 그룹 이름 >* 파일을 찾아 편집기에서 엽니다.
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,9 +105,9 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
     Get-AzLocation | format-table
     ```
 
-1. 필드 사용자의 요구 사항에 따라 *\<gggggs >* 파일에서 다른 매개 변수를 변경할 수도 있습니다.
+1. 필드 또한 요구 사항에 따라 *\<리소스 그룹 이름 >* 의 다른 매개 변수를 변경할 수도 있습니다.
 
-    * **주소 공간**: 파일을 저장 하기 전에  > **addressSpace** 섹션의 **리소스**를 수정 하 고 **addressPrefixes** 속성을 변경 하 여 가상 네트워크의 주소 공간을 변경할 수 있습니다.
+    * **주소 공간**: 파일을 저장 하기 전에 **리소스** > **addressSpace** 섹션을 수정 하 고 **addressPrefixes** 속성을 변경 하 여 가상 네트워크의 주소 공간을 변경할 수 있습니다.
 
         ```json
                 "resources": [
@@ -201,7 +201,7 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 *\<resource-그룹 이름 > json* 파일을 배포 합니다.
+1. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 *\<리소스 그룹 이름 > json* 파일을 배포 합니다.
 
     ```azurepowershell-interactive
 

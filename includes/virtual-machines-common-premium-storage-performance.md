@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182253"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564770"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -53,7 +53,7 @@ Managed Disks에 대 한 다음 제어 평면 작업에는 한 저장소 위치�
 - 스냅숏에서 관리 디스크를 만듭니다.
 - 관리 되지 않는 디스크를 managed disks로 변환 합니다.
 
-# <a name="performance-application-checklist-for-disks"></a>디스크에 대한 성능 애플리케이션 검사 목록
+## <a name="performance-application-checklist-for-disks"></a>디스크에 대한 성능 애플리케이션 검사 목록
 
 Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계하는 첫 번째 단계는 애플리케이션의 성능 요구 사항을 파악하는 것입니다. 성능 요구 사항을 수집한 후에 최적의 성능을 얻을 수 있도록 애플리케이션을 최적화할 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계�
 > [!NOTE]
 > 애플리케이션의 예상된 향후 성장에 따라 이러한 숫자를 확장하는 것이 좋습니다. 나중에 성능 향상을 위한 인프라를 변경하기가 더 어려울 수 있으므로 사전 확장을 계획하는 것이 좋습니다.
 
-기존 애플리케이션이 있고 Premium Storage로 이동하려는 경우 먼저 기존 애플리케이션에 대해 위의 검사 목록을 빌드합니다. 그런 다음, Premium Storage에 있는 애플리케이션의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *애플리케이션 성능 최적화*에 설명된 지침에 따라 애플리케이션을 설계합니다. 다음 문서에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
+기존 애플리케이션이 있고 Premium Storage로 이동하려는 경우 먼저 기존 애플리케이션에 대해 위의 검사 목록을 빌드합니다. 그런 다음, Premium Storage에 있는 애플리케이션의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *애플리케이션 성능 최적화* 에 설명된 지침에 따라 애플리케이션을 설계합니다. 다음 문서에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>애플리케이션 성능 요구 사항을 측정하기 위한 카운터
 
@@ -92,14 +92,14 @@ Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계�
 
 PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의 실제 디스크에 대해 사용할 수 있습니다. VM에서 Premium Storage 디스크를 사용하는 경우 실제 디스크 카운터는 각 Premium Storage 디스크에 대한 것이며 논리 디스크 카운터는 Premium Storage 디스크에 생성된 각 볼륨에 대한 것입니다. 애플리케이션 작업을 호스팅하는 디스크에 대한 값을 캡처해야 합니다. 논리 및 실제 디스크 간에 일대일 매핑이 있는 경우 실제 디스크 카운터를 참조할 수 있으며 그렇지 않은 경우 논리 디스크 카운터를 참조합니다. Linux에서 iostat 명령은 CPU 및 디스크 사용률 보고서를 생성합니다. 디스크 사용률 보고서는 물리적 디바이스 또는 파티션당 통계를 제공합니다. 데이터베이스 서버에 데이터와 별도의 디스크에 대 한 로그가 있는 경우 두 디스크 모두에 대해이 데이터를 수집 합니다. 아래 표에서는 디스크, 프로세서 및 메모리에 대 한 카운터를 설명 합니다.
 
-| 카운터 | 설명 | PerfMon | Iostat |
+| 카운터 | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **초당 IOPS 또는 트랜잭션** |스토리지 디스크에 발급된 초당 I/O 요청 수입니다. |디스크 읽기/초 <br> 디스크 쓰기/초 |tps <br> r/s <br> w/s |
 | **디스크 읽기 및 쓰기** |디스크에서 수행되는 읽기 및 쓰기 작업의 %입니다. |% 디스크 읽기 시간 <br> % 디스크 쓰기 시간 |r/s <br> w/s |
 | **처리량** |초당 디스크에서 읽거나 디스크에 쓴 데이터 양입니다. |디스크 읽기 바이트/초 <br> 디스크 쓰기 바이트/초 |kB_read/s <br> kB_wrtn/s |
 | **대기 시간** |디스크 IO 요청을 완료하는 총 시간입니다. |평균 디스크 초/읽기 <br> 평균 디스크 초/쓰기 |await <br> svctm |
 | **IO 크기** |I/O의 요청의 크기는 스토리지 디스크에 발급합니다. |평균 디스크 바이트/읽기 <br> 평균 디스크 바이트/쓰기 |avgrq-sz |
-| **큐 크기** |스토리지 디스크에서 읽거나 스토리지 디스크에 쓰도록 대기 중인 미해결 I/O 요청의 수입니다. |현재 디스크 큐 길이 |avgqu-sz |
+| **큐 크기** |스토리지 디스크에서 읽거나 스토리지 디스크에 쓰도록 대기 중인 미해결 I/O 요청의 수입니다. |Current Disk Queue Length |avgqu-sz |
 | **최대 메모리** |애플리케이션을 원활하게 실행하는데 필요한 메모리의 양 |% 사용 중인 커밋된 바이트 |vmstat 사용 |
 | **최대 CPU** |애플리케이션을 원활하게 실행하는데 필요한 CPU 양 |% 프로세서 시간 |%util |
 
@@ -130,7 +130,7 @@ VM 크기 및 각 VM의 유형에 사용할 수 있는 IOPS, 처리량 및 대�
 | **디스크 캐싱** |더 많은 읽기 IOPS를 얻기 위해 많은 읽기 작업과 함께 Premium Storage 디스크의 읽기 전용 캐시를 사용합니다. | &nbsp; |더 짧은 읽기 대기 시간을 얻기 위해 많은 읽기 작업과 함께 Premium Storage 디스크의 ReadOnly 캐시를 사용합니다. |
 | **디스크 스트라이프** |결합된 높은 IOPS 및 처리량 한계를 얻기 위해 여러 디스크 및 디스크 스트라이프를 사용합니다. VM 당 결합 된 한도는 연결 된 프리미엄 디스크의 조합 된 제한 보다 높아야 합니다. | &nbsp; | &nbsp; |
 | **스트라이프 크기** |OLTP 애플리케이션에 표시된 작은 임의 IO 패턴에 대한 더 작은 스트라이프 크기입니다. 예를 들어 SQL Server OLTP 응용 프로그램의 경우 64 KB의 스트라이프 크기를 사용 합니다. |데이터 웨어하우스에 애플리케이션에 표시된 대형 순차 IO 패턴에 대한 더 큰 스트라이프 크기입니다. 예를 들어 SQL Server 데이터 웨어하우스 응용 프로그램의 경우 256 KB 스트라이프 크기를 사용 합니다. | &nbsp; |
-| **멀티 스레드** |높은 IOPS 및 처리량을 얻도록 하는 Premium Storage에 더 높은 요청 수를 밀어 넣도록 멀티 스레드를 사용합니다. 예를 들어 SQL Server에서 SQL Server에 더 많은 CPU를 할당하는 높은 MAXDOP 값을 설정합니다. | &nbsp; | &nbsp; |
+| **다중 스레딩** |높은 IOPS 및 처리량을 얻도록 하는 Premium Storage에 더 높은 요청 수를 밀어 넣도록 멀티 스레드를 사용합니다. 예를 들어 SQL Server에서 SQL Server에 더 많은 CPU를 할당하는 높은 MAXDOP 값을 설정합니다. | &nbsp; | &nbsp; |
 | **큐 크기** |더 큰 큐 크기는 더 높은 IOPS를 생성합니다. |더 큰 큐 크기는 더 높은 처리량을 생성합니다. |더 작은 큐 크기는 더 짧은 대기 시간을 생성합니다. |
 
 ## <a name="nature-of-io-requests"></a>IO 요청의 특성
@@ -170,9 +170,9 @@ IO 크기를 변경할 수 있는 애플리케이션을 사용하는 경우 다�
 
 ## <a name="high-scale-vm-sizes"></a>대규모 VM 크기
 
-애플리케이션 설계를 시작할 때 실행할 첫 번째 작업 중 하나는 애플리케이션을 호스팅할 VM을 선택하는 것입니다. Premium Storage는 높은 컴퓨팅 능력 및 높은 로컬 디스크 I/O 성능이 필요한 애플리케이션을 실행할 수 있는 높은 확장성의 VM 크기와 함께 제공됩니다. 이러한 VM은 로컬 디스크에 대한 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. Premium Storage를 지 원하는 대규모 Vm의 예는 DS, DSv2 및 GS 시리즈 Vm입니다.
+애플리케이션 설계를 시작할 때 실행할 첫 번째 작업 중 하나는 애플리케이션을 호스팅할 VM을 선택하는 것입니다. Premium Storage는 높은 컴퓨팅 능력 및 높은 로컬 디스크 I/O 성능이 필요한 애플리케이션을 실행할 수 있는 높은 확장성의 VM 크기와 함께 제공됩니다. 이러한 VM은 로컬 디스크에 대한 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. Premium Storage를 지 원하는 대규모 Vm의 예는 DS 및 GS 시리즈 Vm입니다.
 
-높은 규모의 Vm은 CPU 코어 수, 메모리, OS 및 임시 디스크 크기와 같은 다양 한 크기로 사용할 수 있습니다. 각 VM 크기에는 또한 VM에 연결할 수 있는 데이터 디스크의 최대 수가 있습니다. 따라서 선택한 VM 크기는 애플리케이션에 대해 사용할 수 있는 프로세스, 메모리 및 스토리지 용량에 영향을 줍니다. Compute 및 Storage 비용에도 영향을 줍니다. 예를 들어 아래는 DS 시리즈, DSv2 시리즈 및 GS 시리즈에서 가장 큰 VM 크기의 사양입니다.
+높은 규모의 Vm은 CPU 코어 수, 메모리, OS 및 임시 디스크 크기와 같은 다양 한 크기로 사용할 수 있습니다. 각 VM 크기에는 또한 VM에 연결할 수 있는 데이터 디스크의 최대 수가 있습니다. 따라서 선택한 VM 크기는 애플리케이션에 대해 사용할 수 있는 프로세스, 메모리 및 스토리지 용량에 영향을 줍니다. Compute 및 Storage 비용에도 영향을 줍니다. 예를 들어, 다음은 DS 시리즈 및 GS 시리즈에서 가장 큰 VM 크기의 사양입니다.
 
 | VM 크기 | CPU 코어 수 | 메모리 | VM 디스크 크기 | 최대 데이터 디스크 | 캐시 크기 | IOPS | 대역폭 캐시 IO 제한 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -256,7 +256,7 @@ BlobCache를 작동하는 방법에 대한 자세한 내용은 내부 [Azure Pre
 | ReadOnly |읽기 전용 및 읽기-쓰기 디스크에 대해 ReadOnly로 호스트-캐시를 구성합니다. |
 | ReadWrite |애플리케이션이 필요할 때 영구 디스크에 캐시된 데이터 쓰기를 올바르게 처리하는 경우 ReadWrite로 호스트-캐시를 구성합니다. |
 
-*ReadOnly*  
+*읽기 전용*  
 Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 읽기 대기 시간을 달성하고 애플리케이션에 대한 매우 높은 읽기 IOPS 및 처리량을 얻을 수 있습니다. 다음 두 가지 이유로 인한 것입니다.
 
 1. Python에서 Azure File Storage를 사용하는 방법 | Microsoft Azure  
@@ -292,29 +292,31 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 
 | 유통 | 버전 | 지원되는 커널 | 세부 정보 |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 이상| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 이상| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Ubuntu | 12.04 이상| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14.04 이상| 3.13.0-44.73+  | &nbsp; |
 | Debian | 4.x, .x 이상| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 이상| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12 이상| 3.12.36-38.1+ | &nbsp; |
 | SUSE | SLES 11 SP4 이상| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0 + 이상| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 또는 이상| &nbsp; | [LIS4 필요](https://www.microsoft.com/download/details.aspx?id=51612) <br> *다음 섹션의 참고를 참조하세요.* |
-| CentOS | 7.1 이상| 3.10.0-229.1.2.el7+ | [LIS4 권장](https://www.microsoft.com/download/details.aspx?id=51612) <br> *다음 섹션의 참고를 참조하세요.* |
+| CoreOS | 584.0.0 + 이상| 3.18.4+ | &nbsp; |
+| CentOS | 6.5, 6.6, 6.7, 7.0 또는 이상| &nbsp; | [LIS4 필요](https://www.microsoft.com/download/details.aspx?id=55106) <br> *다음 섹션의 참고를 참조하세요.* |
+| CentOS | 7.1 이상| 3.10.0-229.1.2.el7+ | [LIS4 권장](https://www.microsoft.com/download/details.aspx?id=55106) <br> *다음 섹션의 참고를 참조하세요.* |
 | RHEL(Red Hat Enterprise Linux) | 6.8 +, 7.2 이상 이상 | &nbsp; | &nbsp; |
 | Oracle | 6.0 이상, 7.2 이상 | &nbsp; | UEK4 또는 RHCK |
-| Oracle | 7.0-7.1 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6.7 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0-7.1 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS용 LIS 드라이버
 
 OpenLogic CentOS VM을 실행하는 경우 다음 명령을 실행하여 최신 드라이버를 설치합니다.
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-새 드라이버를 활성화하려면 VM을 다시 시작합니다.
+경우에 따라 위의 명령을 통해 커널을 업그레이드할 수도 있습니다. 커널 업데이트가 필요한 경우에는 다시 부팅 한 후 위의 명령을 다시 실행 하 여 microsoft hyper-v 패키지를 완전히 설치 해야 할 수 있습니다.
+
 
 ## <a name="disk-striping"></a>디스크 스트라이프
 
@@ -382,4 +384,3 @@ SQL Server에 [병렬 처리의 정도](https://technet.microsoft.com/library/ms
 Azure Premium Storage는 선택한 VM 크기 및 디스크 크기에 따라 지정된 IOPS 수 및 처리량을 프로비전합니다. 애플리케이션이 VM 또는 디스크가 처리할 수 있는 한도를 초과하여 IOPS 또는 처리량을 구동하려 할 때 Premium Storage는 이를 제한합니다. 이는 애플리케이션에서 성능 저하의 형태로 나타납니다. 이는 더 높은 대기 시간, 낮은 처리량 또는 낮은 IOPS를 의미할 수 있습니다. Premium Storage가 제한하지 않는 경우 애플리케이션은 리소스가 달성할 수 있는 한도를 초과하여 완전히 실패할 수 있습니다. 따라서 제한으로 인한 성능 문제를 방지하려면 항상 애플리케이션에 대한 충분한 리소스를 프로비전합니다. 위의 VM 크기 및 디스크 크기 섹션에서 설명한 것을 고려합니다. 벤치마킹은 애플리케이션을 호스팅하는데 필요한 리소스를 찾는데 가장 적합합니다.
 
 ## <a name="next-steps"></a>다음 단계
-

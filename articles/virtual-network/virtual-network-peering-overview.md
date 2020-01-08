@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328360"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646747"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -91,9 +91,9 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 * 한 가상 네트워크의 리소스는 전역적으로 피어 링 된 가상 네트워크에 있는 ILB (기본 내부 Load Balancer)의 프런트 엔드 IP 주소와 통신할 수 없습니다.
 * 기본 부하 분산 장치를 사용 하는 일부 서비스는 글로벌 가상 네트워크 피어 링을 통해 작동 하지 않습니다. 자세한 내용은 [글로벌 VNet 피어 링 및 부하 분산 장치와 관련 된 제약 조건](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 참조 하세요.
 
-자세한 내용은 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조 하세요. 지원 되는 피어 링 수에 대 한 자세한 내용은 [네트워킹 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요.
+자세한 내용은 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조 하세요. 지원 되는 피어 링 수에 대 한 자세한 내용은 [네트워킹 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 가상 네트워크 피어 링을 만드는 데 필요한 사용 권한에 대 한 자세한 내용은 [사용 권한](virtual-network-manage-peering.md#permissions)을 참조 하세요.
 
@@ -110,7 +110,7 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 * 두 가상 네트워크 간에 피어 링을 만들 수 있습니다. 네트워크는 동일한 구독, 동일한 구독에 있는 다른 배포 모델 또는 다른 구독에 속할 수 있습니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
 
-    |Azure 배포 모델             | 구독  |
+    |Azure 배포 모델             | Subscription  |
     |---------                          |---------|
     |둘 다 Resource Manager              |[동일](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[다름](create-peering-different-subscriptions.md)|

@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84a17cb4468f60abf2463e6aa3ca331466aad247
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 340a1927f62d6a398994b457e351ad41d5e76d19
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850145"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659766"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -270,9 +270,9 @@ The job was tried three times but it failed
 
 다음 문제 중 하나로 인해 이 오류가 발생합니다.
 
-* 메모리 제한. 샌드박스에 대한 메모리 할당량의 문서화된 제한은 [Automation 서비스 제한](../../azure-subscription-service-limits.md#automation-limits)에서 확인할 수 있습니다. 400MB를 초과하는 메모리를 사용하는 경우 작업에 실패할 수 있습니다.
+* 메모리 제한. 샌드박스에 대한 메모리 할당량의 문서화된 제한은 [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)에서 확인할 수 있습니다. 400MB를 초과하는 메모리를 사용하는 경우 작업에 실패할 수 있습니다.
 
-* 네트워크 소켓입니다. [Automation 서비스 제한](../../azure-subscription-service-limits.md#automation-limits)에 설명된 대로 Azure 샌드박스에서는 동시 네트워크 소켓이 1000개로 제한됩니다.
+* 네트워크 소켓입니다. [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)에 설명된 대로 Azure 샌드박스에서는 동시 네트워크 소켓이 1000개로 제한됩니다.
 
 * 모듈이 호환되지 않음. 모듈 종속성이 올바르지 않은 경우에 이 오류가 발생할 수 있습니다. 일반적으로 Runbook에서 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인딩할 수 없습니다."라는 메시지를 반환합니다.
 

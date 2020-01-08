@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: a5af98aae420193b8316a48aa60550cef70a9c4a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c12e14b8b842e3ccf9f2bf9e0ab783d8852ee69b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671703"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659716"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
@@ -85,7 +85,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>다양한 App Service 계획의 할당량 및 한도에 대한 자세한 내용은 어디서 알아볼 수 있나요?
 
-할당량 및 한도에 대한 자세한 내용은 [App Service 한도](../azure-subscription-service-limits.md#app-service-limits)를 참조하세요. 
+할당량 및 한도에 대한 자세한 내용은 [App Service 한도](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)를 참조하세요. 
 
 ## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>유휴 시간 후 첫 번째 요청에 대한 응답 시간을 어떻게 줄일 수 있나요?
 

@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics에 입력으로 데이터 스트리밍
 description: Azure Stream Analytics에서 데이터 연결을 설정하는 방법을 알아보세요. 입력에는 이벤트의 데이터 스트림과 참조 데이터가 포함되어 있습니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606473"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646849"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -31,7 +30,7 @@ Stream Analytics는 모든 데이터 스트림 입력 원본에서 압축을 지
 
 ## <a name="create-edit-or-test-inputs"></a>입력 만들기, 편집 또는 테스트
 
-[Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)및 [Visual Studio Code](quick-create-vs-code.md) 를 사용 하 여 스트리밍 작업에서 기존 입력을 추가 하 고 보거나 편집할 수 있습니다. Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md)및 [Visual Studio Code](vscode-local-run.md)의 샘플 데이터에서 입력 연결을 테스트 하 고 [쿼리를 테스트할](stream-analytics-manage-job.md#test-your-query) 수도 있습니다. 쿼리를 작성 하는 경우 FROM 절에 입력을 나열 합니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
+[Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)및 [Visual Studio Code](quick-create-vs-code.md) 를 사용 하 여 스트리밍 작업에서 기존 입력을 추가 하 고 보거나 편집할 수 있습니다. Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md)및 [Visual Studio Code](visual-studio-code-local-run.md)의 샘플 데이터에서 입력 연결을 테스트 하 고 [쿼리를 테스트할](stream-analytics-manage-job.md#test-your-query) 수도 있습니다. 쿼리를 작성 하는 경우 FROM 절에 입력을 나열 합니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
 
 
 ## <a name="stream-data-from-event-hubs"></a>이벤트 허브에서 데이터 스트리밍
@@ -48,7 +47,7 @@ Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공
 
 다음 표는 이벤트 허브에서 데이터 입력을 스트리밍하는 Azure Portal의 **새 입력** 페이지의 각 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | **입력 별칭** |이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
 | **구독** | 이벤트 허브 리소스가 있는 구독을 선택합니다. | 
@@ -57,12 +56,12 @@ Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공
 | **이벤트 허브 정책 이름** | 이벤트 허브에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다.|
 | **이벤트 허브 소비자 그룹**(권장) | 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용하는 것이 좋습니다. 이 문자열은 이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 $Default 소비자 그룹을 사용합니다.  |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식 (JSON, CSV, Avro 또는 [기타 (Protobuf, XML, 독점적인 ...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
-| **Encoding** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
+| **인코딩** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
 | **이벤트 압축 유형** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
 
 데이터가 이벤트 허브 스트림 입력에서 오는 경우 Stream Analytics 쿼리의 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | **EventProcessedUtcTime** |이벤트가 Stream Analytics으로 처리되는 날짜 및 시간입니다. |
 | **EventEnqueuedUtcTime** |Event Hubs에서 이벤트를 받은 날짜 및 시간입니다. |
@@ -96,7 +95,7 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 
 
 다음 표에서는 스트림 입력으로 IoT Hub를 구성할 때 Azure Portal의 **새 입력** 페이지에서 각 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | **입력 별칭** | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 | **구독** | IoT Hub 리소스가 있는 구독을 선택합니다. | 
@@ -106,13 +105,13 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 
 | **공유 액세스 정책 키** | IoT Hub에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다.  IoT Hub 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
 | **소비자 그룹** | 각 Stream Analytics 작업마다 서로 다른 소비자 그룹을 사용하는 것이 좋습니다. 소비자 그룹은 IoT Hub에서 데이터를 수집하는 데 사용됩니다. Stream Analytics에서는 달리 지정하지 않는 한 $Default 소비자 그룹을 사용합니다.  |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식 (JSON, CSV, Avro 또는 [기타 (Protobuf, XML, 독점적인 ...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
-| **Encoding** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
+| **인코딩** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
 | **이벤트 압축 유형** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
 
 
 IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | **EventProcessedUtcTime** | 이벤트가 처리되는 날짜 및 시간입니다. |
 | **EventEnqueuedUtcTime** | IoT Hub에서 이벤트를 받은 날짜 및 시간입니다. |
@@ -148,23 +147,23 @@ CSV 형식의 입력은 데이터 집합에 대 한 필드를 정의 하는 머�
 
 다음 표에서는 스트림 입력으로 Blob Storage를 구성할 때 Azure Portal의 **새 입력** 페이지에서 각 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | **입력 별칭** | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
 | **구독** | IoT Hub 리소스가 있는 구독을 선택합니다. | 
-| **Storage 계정** | Blob 파일이 위치한 스토리지 계정의 이름입니다. |
+| **스토리지 계정** | Blob 파일이 위치한 스토리지 계정의 이름입니다. |
 | **Storage 계정 키** | 스토리지 계정과 연결된 비밀 키입니다. Blob Storage 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
 | **컨테이너** | Blob 입력에 대한 컨테이너입니다. 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Azure Blob Storage 서비스에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. **기존 컨테이너 사용** 또는 **새로 만들기**를 선택하여 새 컨테이너를 만들 수 있습니다.|
-| **경로 패턴**(선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 컨테이너의 루트에서 blob을 읽으려면 경로 패턴을 설정 하지 마십시오. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름은 포함하지 않습니다. |
+| **경로 패턴**(선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 컨테이너의 루트에서 blob을 읽으려면 경로 패턴을 설정 하지 마십시오. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름을 포함 하지 마세요. |
 | **날짜 형식**(선택 사항) | 경로에서 날짜 변수를 사용하는 경우 파일이 구성된 날짜 형식입니다. 예: `YYYY/MM/DD` |
 | **시간 형식**(선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 몇 시간 동안 `HH`입니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식 (JSON, CSV, Avro 또는 [기타 (Protobuf, XML, 독점적인 ...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
-| **Encoding** | CSV 및 JSON의 경우 UTF-8이 현재 지원되는 유일한 인코딩 형식입니다. |
+| **인코딩** | CSV 및 JSON의 경우 UTF-8이 현재 지원되는 유일한 인코딩 형식입니다. |
 | **압축** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
 
 데이터를 Blob Storage 원본에서 가져온 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | **BlobName** |이 이벤트가 발생한 입력 Blob의 이름입니다. |
 | **EventProcessedUtcTime** |이벤트가 Stream Analytics으로 처리되는 날짜 및 시간입니다. |
