@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
-ms.author: rosh
-ms.openlocfilehash: 55bf189195cc2d9eca0700fd703840da38c71592
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: e19f582084bec6915f95cf16fd8571b8d99da6fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383129"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379643"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>빠른 시작: Bing Visual Search REST API 및 Ruby를 사용하여 이미지 인사이트 가져오기
 
-이 빠른 시작에서는 Ruby 프로그래밍 언어를 사용하여 Bing Visual Search를 호출하고 결과를 표시합니다. POST 요청은 이미지를 API 엔드포인트에 업로드합니다. 결과는 업로드된 이미지와 비슷한 이미지의 URL과 설명 정보를 포함합니다.
+이 빠른 시작에서는 Ruby 프로그래밍 언어를 사용하여 Bing Visual Search를 호출하고 결과를 표시합니다. POST 요청은 API 엔드포인트에 이미지를 업로드합니다. 결과는 업로드된 이미지와 비슷한 이미지의 URL과 설명 정보를 포함합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 실행하려면
 
 * [Ruby 2.4 이상 설치](https://www.ruby-lang.org/en/downloads/)을 설치합니다.
 * 구독 키를 가져옵니다.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-required-modules"></a>프로젝트 및 필수 모듈
 
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>변수 정의
 
-다음 코드는 필수 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 구독 키로 바꿉니다.  `batchNumber`는 POST 데이터의 선행 및 후행 경계에 필요한 GUID입니다.  `fileName` 변수는 POST에 대한 이미지 파일을 식별합니다.  `if`는 유효한 구독 키에 대한 테스트를 차단합니다.
+다음 코드는 필수 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 구독 키로 바꿉니다.  `batchNumber`는 POST 데이터의 선행 및 후행 경계에 필요한 GUID입니다.  `fileName` 변수는 POST의 이미지 파일을 식별합니다.  `if`는 유효한 구독 키에 대한 테스트를 차단합니다.
 
 ```
 accessKey = "ACCESS-KEY"

@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric에서 Java를 사용하여 서비스 원격 호출 | Microsoft Docs
+title: Azure Service Fabric에서 Java를 사용 하 여 서비스 원격
 description: 서비스 패브릭 원격 호출을 사용하면 클라이언트와 서비스가 원격 프로시저 호출을 사용하여 Java 서비스와 통신할 수 있도록 합니다.
-services: service-fabric
-documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 51c8c689bd3fe3e8967bab77e776ad02f9cb59f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426629"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Reliable Services로 Java에서 서비스 원격 호출
 > [!div class="op_single_selector"]

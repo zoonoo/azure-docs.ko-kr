@@ -1,20 +1,18 @@
 ---
 title: Azure Stream Analytics 작업에서 강화 및 확장
 description: 이 아티클에서는 입력 데이터를 분할하고, 쿼리를 조정하고, 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 설명합니다.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: fe4d37563af159f566bc3fb03a3cfe136e7cb734
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4f89fb07fbbff3beee66f80675bb5c3a32136807
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458770"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>처리량을 높이도록 Azure Stream Analytics 작업 크기 조정
 이 문서에서는 Streaming Analytics 작업에 대한 처리량을 증가시키기 위해 Stream Analytics 쿼리를 조정하는 방법을 보여 줍니다. 다음 가이드를 사용하여 더 높은 부하를 처리하고 더 많은 시스템 리소스(예: 추가 대역폭, 추가 CPU 리소스, 추가 메모리)를 활용하도록 작업 크기를 조정할 수 있습니다.
@@ -34,7 +32,7 @@ ms.locfileid: "67621723"
 4.  6개 SU 작업이 도달할 수 있는 제한을 확인한 후에는, SU를 더 추가하면서 작업의 처리 용량을 선형으로 추론할 수 있습니다(특정 파티션의 “작업량을 높이는” 데이터 기울이기가 없다는 가정 하).
 
 > [!NOTE]
-> 적절한 스트리밍 단위 수 선택: Stream Analytics는 각 6개의 SU가 추가될 때마다 처리 노드를 만들기 때문에 노드 수를 입력 파티션 수의 제수로 사용하여 파티션을 노드 간에 균일하게 분산하는 것이 가장 좋습니다.
+> 적절한 스트리밍 단위 수를 선택합니다. Stream Analytics는 각 6개의 SU가 추가될 때마다 처리 노드를 만들기 때문에 노드 수를 입력 파티션 수의 제수로 사용하여 파티션을 노드 간에 균일하게 분산하는 것이 가장 좋습니다.
 > 예를 들어 6개 SU 작업이 4MB/s 처리 속도를 달성할 수 있다고 측정했고, 입력 파티션 수는 4개입니다. 약 8MB/s의 처리 속도를 얻기 위해서는 12개 SU, 16MB/s의 처리 속도를 얻기 위해서는 24개 SU의 작업을 선택하여 실행할 수 있습니다. 그런 후 입력 속도의 함수로서, 작업에 대한 SU 수를 특정 값으로 늘려야 하는 시기를 결정할 수 있습니다.
 
 
@@ -79,13 +77,13 @@ ms.locfileid: "67621723"
 
 
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

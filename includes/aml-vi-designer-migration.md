@@ -8,14 +8,14 @@ ms.topic: include
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
-ms.openlocfilehash: 08833f869a7838fe893b8e941072078f89033c2b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517853"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75541804"
 ---
-1. [Azure Machine Learning studio](https://ml.azure.com)에 로그인 합니다.
+1. [Azure Machine Learning Studio](https://ml.azure.com)에 로그인합니다.
 
 1. 작업 영역을 Enterprise edition으로 업그레이드 합니다.
 
@@ -38,5 +38,5 @@ ms.locfileid: "73517853"
 
 - **데이터 가져오기** 또는 **데이터 모듈 내보내기**
         
-    실험에서 **데이터 가져오기** 또는 **데이터 내보내기** 모듈이 있는 경우 데이터 원본을 업데이트 하 여 데이터 저장소를 사용 해야 합니다. 데이터 저장소를 만드는 방법에 대 한 자세한 내용은 [Azure storage 서비스의 데이터에 액세스 하는 방법](../articles/machine-learning/service/how-to-access-data.md)을 참조 하세요. 사용자 편의를 위해 클라우드 저장소 계정 정보가 **데이터 가져오기** 또는 **데이터 내보내기** 모듈의 설명에 추가 되었습니다. 
+    실험에서 **데이터 가져오기** 또는 **데이터 내보내기** 모듈이 있는 경우 데이터 원본을 업데이트 하 여 데이터 저장소를 사용 해야 합니다. 데이터 저장소를 만드는 방법에 대 한 자세한 내용은 [Azure storage 서비스의 데이터에 액세스 하는 방법](../articles/machine-learning/how-to-access-data.md)을 참조 하세요. 사용자 편의를 위해 클라우드 저장소 계정 정보가 **데이터 가져오기** 또는 **데이터 내보내기** 모듈의 설명에 추가 되었습니다. 
       

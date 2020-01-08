@@ -1,18 +1,17 @@
 ---
 title: 빠른 시작 - Visual Studio를 사용하여 Azure Stream Analytics 작업 만들기
 description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 출력을 구성하고, Visual Studio에서 쿼리를 정의하여 시작하는 방법을 보여줍니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: ec3318201fd3fe8f7daf78d05bf316fb88914daf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431535"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure Stream Analytics 작업 만들기
 

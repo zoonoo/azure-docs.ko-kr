@@ -1,18 +1,18 @@
 ---
 title: Dropbox에 연결
-description: Dropbox REST API 및 Azure Logic Apps를 사용하여 파일 업로드 및 관리
+description: Azure Logic Apps를 사용 하 여 Dropbox에서 파일을 업로드 하 고 관리 하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8f54f832884b172761f62b16db29d2f0abd0dd46
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789822"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665754"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Dropbox에서 파일 업로드 및 관리
 
@@ -20,9 +20,9 @@ Dropbox 커넥터 및 Azure Logic Apps를 사용 하 여 Dropbox 계정에서 �
 
 이 문서에서는 논리 앱에서 Dropbox에 연결 하 고, **파일을 만들 때** dropbox를 추가 하 고, 경로 작업을 **사용 하 여 Dropbox 파일 콘텐츠 가져오기** 작업을 수행 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * [Dropbox 계정](https://www.dropbox.com/)-무료로 등록할 수 있습니다. 계정 자격 증명은 논리 앱과 Dropbox 계정 간에 연결을 만드는 데 필요 합니다.
 
@@ -64,7 +64,7 @@ Dropbox 커넥터 및 Azure Logic Apps를 사용 하 여 Dropbox 계정에서 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI (이전의 Swagger) 파일에 설명 된 대로 트리거, 작업 및 제한과 같은 기술 세부 정보는 [커넥터의 참조 페이지](/connectors/dropbox/)를 참조 하세요.
+커넥터의 Swagger 파일에서 설명한 것처럼 트리거, 작업 및 제한과 같은 기술 세부 정보는 [커넥터의 참조 페이지](/connectors/dropbox/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

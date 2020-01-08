@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics 작업을 시작 하는 방법
 description: 이 문서에서는 Azure Portal, PowerShell 및 Visual Studio에서 Stream Analytics 작업을 시작 하는 방법을 설명 합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 1e4cb63accf7e89ac02451e9c25b9902a8a10812
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c393eb782c2ff16eb5b3e5967b39938dfe2f1534
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426459"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업을 시작 하는 방법
 
@@ -21,7 +20,7 @@ Azure Portal, Visual Studio 및 PowerShell을 사용 하 여 Azure Stream Analyt
 
 ## <a name="start-options"></a>시작 옵션
 작업을 시작 하는 데 사용할 수 있는 세 가지 옵션은 다음과 같습니다. 아래에 언급 된 모든 시간은 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)에 지정 된 것입니다. TIMESTAMP BY를 지정 하지 않으면 도착 시간이 사용 됩니다.
-* **현재**: 작업을 시작할 때 출력 이벤트 스트림의 시작 지점을 동일 하 게 만듭니다. Temporal 연산자 (예: 시간 창, 지연 또는 조인)를 사용 하는 경우 Azure Stream Analytics는 입력 원본의 데이터를 자동으로 다시 검색 합니다. 예를 들어, "Now" 작업을 시작 하 고 쿼리가 5 분 연속 창을 사용 하는 경우 Azure Stream Analytics는 입력에서 5 분 전에 데이터를 검색 합니다.
+* **Now**: 출력 이벤트 스트림의 시작 지점을 작업이 시작 될 때와 동일 하 게 만듭니다. Temporal 연산자 (예: 시간 창, 지연 또는 조인)를 사용 하는 경우 Azure Stream Analytics는 입력 원본의 데이터를 자동으로 다시 검색 합니다. 예를 들어, "Now" 작업을 시작 하 고 쿼리가 5 분 연속 창을 사용 하는 경우 Azure Stream Analytics는 입력에서 5 분 전에 데이터를 검색 합니다.
 첫 번째 가능한 출력 이벤트의 타임 스탬프는 현재 시간 보다 같거나 클 수 있으며,이 경우에는 논리적으로 출력에 기여할 수 있는 모든 입력 이벤트가 고려 됩니다. 예를 들어 부분 기간 이동 집계가 생성 되지 않습니다. 항상 완전 한 집계 값입니다.
 
 * **사용자 지정**: 출력의 시작 지점을 선택할 수 있습니다. **Now** 옵션과 마찬가지로 임시 연산자를 사용 하는 경우이 시간 전에 Azure Stream Analytics에서 데이터를 자동으로 읽습니다. 
@@ -39,7 +38,7 @@ Azure Portal에서 작업으로 이동 하 고 개요 페이지에서 **시작**
 
 작업 보기에서 녹색 화살표 단추를 선택 하 여 작업을 시작 합니다. **작업 출력 시작 모드** 를 설정 하 고 **시작**을 선택 합니다. 작업 상태가 **실행 중**으로 변경 됩니다.
 
-**작업 출력 시작 모드**에는 다음과 같은 세 가지 옵션이 있습니다. *Jobstarttime*, *Customtime*및 *LastOutputEventTime*입니다. 이 속성이 없으면 기본값은 *Jobstarttime*입니다. 이러한 옵션에 대 한 자세한 내용은 위의 항목을 참조 하세요.
+**작업 출력 시작 모드**에는 *jobstarttime*, *customtime*및 *LastOutputEventTime*의 세 가지 옵션이 있습니다. 이 속성이 없으면 기본값은 *Jobstarttime*입니다. 이러한 옵션에 대 한 자세한 내용은 위의 항목을 참조 하세요.
 
 
 ## <a name="powershell"></a>PowerShell
@@ -53,12 +52,12 @@ Start-AzStreamAnalyticsJob `
   -OutputStartMode 'JobStartTime'
 ```
 
-**OutputStartMode**에 대 한 세 가지 옵션이 있습니다. *Jobstarttime*, *Customtime*및 *LastOutputEventTime*입니다. 이 속성이 없으면 기본값은 *Jobstarttime*입니다. 이러한 옵션에 대 한 자세한 내용은 위의 항목을 참조 하세요.
+**OutputStartMode**에는 *jobstarttime*, *customtime*및 *LastOutputEventTime*의 세 가지 옵션이 있습니다. 이 속성이 없으면 기본값은 *Jobstarttime*입니다. 이러한 옵션에 대 한 자세한 내용은 위의 항목을 참조 하세요.
 
-`Start-AzStreamAnalyitcsJob` Cmdlet에 대 한 자세한 내용은 [AzStreamAnalyticsJob 참조를 참조](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob)하세요.
+`Start-AzStreamAnalyitcsJob` cmdlet에 대 한 자세한 내용은 [AzStreamAnalyticsJob 참조를 참조](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 * [빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
-* [빠른 시작: Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
+* [빠른 시작: Visual Studio 용 Azure Stream Analytics 도구를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)

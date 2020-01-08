@@ -1,6 +1,7 @@
 ---
-title: Database Migration Service 및 PowerShell을 사용하여 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션 | Microsoft Docs
-description: Azure PowerShell을 사용하여 온-프레미스 SQL Server에서 Azure SQL DB Managed Instance로 마이그레이션하는 방법을 알아봅니다.
+title: 'PowerShell: SQL 관리 되는 인스턴스로 SQL Server 마이그레이션'
+titleSuffix: Azure Database Migration Service
+description: Azure PowerShell 및 Azure Database Migration Service를 사용 하 여 온-프레미스 SQL Server Azure SQL Database 관리 되는 인스턴스로 마이그레이션하는 방법에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,17 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 426285340a9401aa6c84a7ee07f172eee6791d9e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: 227ef72b53b7334cffcb485e23c3e4227613b344
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437909"
 ---
-# <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 온-프레미스 SQL Server Azure SQL Database 관리 되는 인스턴스로 마이그레이션
+# <a name="migrate-sql-server-to-sql-database-managed-instance-with-powershell--azure-database-migration-service"></a>PowerShell &를 사용 하 여 SQL Server SQL Database 관리 되는 인스턴스로 마이그레이션 Azure Database Migration Service
 이 문서에서는 Microsoft Azure PowerShell를 사용 하 여 SQL Server 2005 이상의 온-프레미스 인스턴스로 복원 된 **Adventureworks2016** 데이터베이스를 관리 되는 Azure SQL Database 인스턴스로 마이그레이션합니다. Microsoft Azure PowerShell의 `Az.DataMigration` 모듈을 사용 하 여 온-프레미스 SQL Server 인스턴스에서 Azure SQL Database 관리 되는 인스턴스로 데이터베이스를 마이그레이션할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
@@ -41,10 +42,10 @@ ms.locfileid: "73163958"
 * [여기](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)에서 다운로드할 수 있는 **AdventureWorks2016** 데이터베이스의 로컬 복사본입니다.
 * SQL Server Express 설치에서 기본적으로 사용하지 않도록 설정된 TCP/IP 프로토콜을 사용하도록 설정합니다. [서버 네트워크 프로토콜 설정 또는 해제](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure) 문서에 따라 TCP/IP 프로토콜을 사용하도록 설정합니다.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성하려면
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+* Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 * Azure SQL Database 관리 되는 인스턴스입니다. [Azure SQL Database 관리 되는 인스턴스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)문서의 세부 정보를 따라 Azure SQL Database 관리 되는 인스턴스를 만들 수 있습니다.
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 이상을 다운로드 하 여 설치 합니다.
-* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 VPN을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Database Migration Service를 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 만든 Azure Virtual Network (VNet) [ ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Database Migration Service를 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 만든 Azure Virtual Network (VNet).
 * [SQL Server 마이그레이션 평가 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)문서에 설명 된 대로 Data Migration Assistant를 사용 하 여 온-프레미스 데이터베이스 및 스키마 마이그레이션의 평가를 완료 했습니다.
 * [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)을 사용 하 여 PowerShell 갤러리에서 `Az.DataMigration` 모듈 (버전 0.7.2 이상)을 다운로드 하 고 설치 합니다.
 * 원본 SQL Server 인스턴스에 연결 하는 데 사용 되는 자격 증명에 [CONTROL Server](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있는지 확인 합니다.
@@ -108,7 +109,7 @@ Azure Database Migration Service 인스턴스를 만든 후 마이그레이션 �
 * *ServerType*. SQL, Oracle 또는 MySQL 등 요청된 데이터베이스 연결 유형입니다. SQL Server 및 Azure SQL에 대해 SQL을 사용합니다.
 * *DataSource*. SQL Server 인스턴스 또는 Azure SQL Database 인스턴스의 이름 또는 IP입니다.
 * *AuthType*. 연결에 대한 인증 유형이며 SqlAuthentication 또는 WindowsAuthentication일 수 있습니다.
-* *Trustservercertificate*. 이 매개 변수는 신뢰의 유효성을 검사 하기 위해 인증서 체인을 우회 하는 동안 채널이 암호화 되는지 여부를 나타내는 값을 설정 합니다. 값은 `$true` 또는 `$false`수 있습니다.
+* *TrustServerCertificate*. 이 매개 변수는 신뢰의 유효성을 검사 하기 위해 인증서 체인을 우회 하는 동안 채널이 암호화 되는지 여부를 나타내는 값을 설정 합니다. 값은 `$true` 또는 `$false`수 있습니다.
 
 다음 예에서는 SQL 인증을 사용 하 여 *MySourceSQLServer* 라는 원본 SQL Server에 대 한 연결 정보 개체를 만듭니다.
 
@@ -413,7 +414,7 @@ $command = Invoke-AzDmsCommand -CommandType CompleteSqlMiSync `
 Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 추가 마이그레이션 시나리오 (원본/대상 쌍)에 대 한 자세한 내용은 Microsoft [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하십시오.
 

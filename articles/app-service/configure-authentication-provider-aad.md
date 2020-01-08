@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b833604ce18873e22c22990a26dcbae1d9928628
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: b85c68b19a44021710dbc9143e255600b43b2cba
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670882"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666145"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용 하도록 App Service 앱 구성
 
@@ -27,11 +27,11 @@ ms.locfileid: "74670882"
 - 자체 등록을 사용 하 여 각 App Service 앱을 구성 합니다.
 - 별도의 배포 슬롯에 별도의 앱 등록을 사용 하 여 환경 간의 사용 권한 공유를 방지 합니다. 새 코드를 테스트할 때이 방법을 통해 문제가 프로덕션 앱에 영향을 주는 것을 방지할 수 있습니다.
 
-## <a name="express"> </a>기본 설정을 사용하여 구성
+## <a name="express"> </a>Express 설정을 사용 하 여 구성
 
-1. [Azure 포털]에서 App Service 앱으로 이동 합니다.
-1. 왼쪽 창에서 설정 > **인증/권한 부여** 를 선택 하 고 **App Service 인증** 이 **설정** 되어 있는지 확인 **합니다.**
-1. **Azure Active Directory**를 선택한 다음 **관리 모드**에서 **Express**를 선택합니다.
+1. [Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다.
+1. 왼쪽 창의 **설정** 에서 **인증/권한 부여** 를 선택 하 고 **App Service 인증이** **설정**되어 있는지 확인 합니다.
+1. **Azure Active Directory**를 선택 하 고 **관리 모드** 에서 **Express**를 선택 합니다.
 1. **확인**을 선택하여 Azure Active Directory에 App Service 앱을 등록합니다. 새 앱 등록이 생성 됩니다.
 
    대신 기존 앱 등록을 선택 하려면 다음을 수행 합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "74670882"
     > 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지가 있는 앱에는 바람직하지 않을 수 있습니다. 이러한 응용 프로그램의 경우 **익명 요청 허용 (작업 없음)** 을 사용 하는 것이 좋습니다. 앱은 수동으로 로그인을 시작 합니다. 자세한 내용은 [인증 흐름](overview-authentication-authorization.md#authentication-flow)을 참조 하세요.
 1. **저장**을 선택합니다.
 
-## <a name="advanced"> </a>고급 설정을 사용하여 구성
+## <a name="advanced"> </a>고급 설정으로 구성
 
 Azure에 로그인 하는 데 사용 하는 것과 다른 Azure AD 테 넌 트를 사용 하려는 경우 앱 설정을 수동으로 구성할 수 있습니다. 이 사용자 지정 구성을 완료 하려면 다음을 수행 해야 합니다.
 
@@ -65,13 +65,13 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 
 다음 단계를 수행합니다.
 
-1. [Azure 포털] 에 로그인 하 여 App Service 앱으로 이동 합니다. 앱의 **URL**을 적어둡니다. 이를 사용 하 여 Azure Active Directory 앱 등록을 구성 합니다.
+1. [Azure Portal]에 로그인 하 여 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 앱의 **URL**을 적어둡니다. 이를 사용 하 여 Azure Active Directory 앱 등록을 구성 합니다.
 1. **새 등록** > **앱 등록** **Azure Active Directory** > 를 선택 합니다.
 1. **응용 프로그램 등록** 페이지에서 앱 등록에 대 한 **이름을** 입력 합니다.
-1. **리디렉션 URI**에서 **웹** 을 선택 하 고 App Service 앱의 URL을 입력 하 고 `/.auth/login/aad/callback`경로를 추가 합니다. 예: `https://contoso.azurewebsites.net/.auth/login/aad/callback` 
+1. **리디렉션 URI**에서 **웹** 을 선택 하 고 App Service 앱의 URL을 입력 하 고 `/.auth/login/aad/callback`경로를 추가 합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. 
 1. **만들기**를 선택합니다.
 1. 앱 등록을 만든 후 나중에 **응용 프로그램 (클라이언트) id** 와 **디렉터리 (테 넌 트) id** 를 복사 합니다.
-1. **브랜딩**을 선택 합니다. **홈 페이지 url**에서 App Service 앱의 url을 입력 하 고 **저장**을 선택 합니다.
+1. **브랜딩**을 선택합니다. **홈 페이지 url**에서 App Service 앱의 url을 입력 하 고 **저장**을 선택 합니다.
 1. API > **집합**표시 **를** 선택 합니다. App Service 앱의 URL에 붙여 넣고 **저장**을 선택 합니다.
 
    > [!NOTE]
@@ -86,13 +86,13 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 
 ### <a name="secrets"> </a>App Service 앱에 Azure Active Directory 정보 추가
 
-1. [Azure 포털]에서 App Service 앱으로 이동 합니다. 
-1. 왼쪽 창에서 **설정 > 인증/권한 부여** **를 선택**하 고 **App Service 인증** 이 설정 되어 있는지 확인 합니다.
+1. [Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다. 
+1. 왼쪽 창의 **설정**에서 **인증/권한 부여** 를 선택 하 고 **App Service 인증이** **설정**되어 있는지 확인 합니다.
 1. 필드 기본적으로 App Service 인증은 앱에 대 한 인증 되지 않은 액세스를 허용 합니다. 사용자 인증을 적용 하려면 **요청이 인증 되지 않은 경우 수행할 작업** 을 Azure Active Directory를 **사용 하 여 로그인**하도록 설정 합니다.
 1. 인증 공급자 아래에서 **Azure Active Directory**를 선택 합니다.
 1. **관리 모드**에서 **고급** 을 선택 하 고 다음 표에 따라 App Service 인증을 구성 합니다.
 
-    |필드|설명|
+    |필드|Description|
     |-|-|
     |클라이언트 ID| 앱 등록의 **응용 프로그램 (클라이언트) ID** 를 사용 합니다. |
     |발급자 ID| `https://login.microsoftonline.com/<tenant-id>`를 사용 하 *\<테 넌 트 id >* 를 앱 등록의 **디렉터리 (테 넌 트) id** 로 바꿉니다. |
@@ -109,9 +109,9 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 
 **Active Directory 인증 라이브러리**와 같은 클라이언트 라이브러리를 사용 하 여 인증을 허용 하도록 네이티브 클라이언트를 등록할 수 있습니다.
 
-1. [Azure 포털]에서 **Active Directory** > 를 선택 하 **앱 등록** **새 등록**을 > 합니다.
+1. [Azure Portal]에서 **Active Directory** > 를 선택 하 **앱 등록** **새 등록**을 > 합니다.
 1. **응용 프로그램 등록** 페이지에서 앱 등록에 대 한 **이름을** 입력 합니다.
-1. **리디렉션 URI**에서 **공용 클라이언트 (모바일 & 데스크톱)** 를 선택 하 고 App Service 앱의 URL을 입력 하 고 `/.auth/login/aad/callback`경로를 추가 합니다. 예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`
+1. **리디렉션 URI**에서 **공용 클라이언트 (모바일 & 데스크톱)** 를 선택 하 고 App Service 앱의 URL을 입력 하 고 `/.auth/login/aad/callback`경로를 추가 합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다.
 1. **만들기**를 선택합니다.
 
     > [!NOTE]
@@ -143,5 +143,5 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 
 <!-- URLs. -->
 
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [alternative method]:#advanced

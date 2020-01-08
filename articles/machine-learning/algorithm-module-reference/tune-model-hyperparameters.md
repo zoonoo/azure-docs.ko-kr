@@ -1,7 +1,7 @@
 ---
 title: 모델 하이퍼 매개 변수 튜닝
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 모델 하이퍼 매개 변수 조정 모듈을 사용 하 여 모델에 대 한 매개 변수 스윕을 수행 하 여 최적의 매개 변수 설정을 결정 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 모델 하이퍼 매개 변수 조정 모듈을 사용 하 여 모델에 대 한 매개 변수 스윕을 수행 하 여 최적의 매개 변수 설정을 결정 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428402"
 ---
 # <a name="tune-model-hyperparameters"></a>모델 하이퍼 매개 변수 튜닝
 
@@ -155,5 +155,5 @@ Azure Machine Learning의 거의 모든 학습자는 통합 매개 변수 스윕
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
 

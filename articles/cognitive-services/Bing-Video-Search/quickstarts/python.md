@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 270117430b997921e0df486b1760db317bcb1611
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fbf20c2d54506b0f314697d6df34f9a430e7c016
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382687"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>빠른 시작: Bing Video Search REST API 및 Python을 사용하여 비디오 검색
 
@@ -26,7 +26,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Python [2.x 또는 3.x](https://python.org)
 
@@ -40,7 +40,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     import requests
     from IPython.display import HTML
     ```
-2.  구독 키, 검색 엔드포인트 및 검색어에 대한 변수를 만듭니다.
+2.  구독 키, 검색 엔드포인트 및 검색어에 대한 변수를 만듭니다. `search_url`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
     
     ```python
     subscription_key = None

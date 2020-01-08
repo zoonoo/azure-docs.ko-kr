@@ -1,20 +1,16 @@
 ---
-title: Azure Service Fabric Mesh 앱의 확장성 | Microsoft Docs
+title: Azure Service Fabric 메시 앱의 확장성
 description: Service Fabric 메시에 응용 프로그램을 배포 하는 경우의 이점 중 하나는 수동으로 또는 자동 크기 조정 정책을 사용 하 여 서비스를 쉽게 확장 하는 기능입니다.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459004"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Service Fabric Mesh 애플리케이션 크기 조정
 

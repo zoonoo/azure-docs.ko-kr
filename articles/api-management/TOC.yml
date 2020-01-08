@@ -6,6 +6,8 @@
       href: api-management-key-concepts.md
     - name: API Management 기능 가용성
       href: api-management-features.md
+    - name: AKS에 배포된 마이크로서비스 관리
+      href: api-management-kubernetes.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -231,7 +233,7 @@
               href: ../service-fabric/service-fabric-api-management-overview.md
             - name: 자습서
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.apimanagement/?view=azps-2.6.0

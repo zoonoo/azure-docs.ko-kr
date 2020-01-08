@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/10/2019
 ms.author: wolfma
-ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7bd4541d135020e297bef26f234ae35d953abfce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819125"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446808"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
-음성 SDK(소프트웨어 개발 키트)를 사용하면 애플리케이션에서 Speech 서비스의 기능에 액세스할 수 있으므로 음성 지원 소프트웨어를 더 쉽게 개발할 수 있습니다. 현재, Sdk는 **음성 텍스트**, **텍스트 음성**변환, **음성 번역**, **의도 인식**및 **봇 프레임 워크의 직접 줄 음성 채널**에 대 한 액세스를 제공 합니다. 기능 및 지원 되는 플랫폼에 대 한 일반적인 개요는 설명서 [입력 페이지](https://aka.ms/csspeech)에서 찾을 수 있습니다.
+음성 SDK(소프트웨어 개발 키트)를 사용하면 애플리케이션에서 Speech 서비스의 기능에 액세스할 수 있으므로 음성 지원 소프트웨어를 더 쉽게 개발할 수 있습니다. 현재, Sdk는 **음성 텍스트**, **텍스트 음성**변환, **음성 번역**, **의도 인식**및 **봇 프레임 워크의 직접 줄 음성 채널**에 대 한 액세스를 제공 합니다.
+
+마이크에서 쉽게 오디오를 캡처하거나, 스트림에서 읽거나, 음성 SDK를 사용 하 여 저장소에서 오디오 파일에 액세스할 수 있습니다. Speech SDK는 음성 인식을 위해 WAV/PCM 16비트, 16kHz/8kHz, 단일 채널 오디오를 지원합니다. 추가 오디오 형식은 [음성-텍스트 REST 끝점](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) 또는 [배치 기록 서비스](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)를 사용 하 여 지원 됩니다.
+
+기능 및 지원 되는 플랫폼에 대 한 일반적인 개요는 설명서 [입력 페이지](https://aka.ms/csspeech)에서 찾을 수 있습니다.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -31,9 +35,9 @@ ms.locfileid: "74819125"
 
 Windows의 경우 다음 언어를 지원합니다.
 
-* C#(UWP 및.NET), C++: 최신 버전의 음성 SDK NuGet 패키지를 참조 및 사용할 수 있습니다. 이 패키지에는 관리(.NET) 라이브러리 외에도 32비트 및 64비트 클라이언트 라이브러리가 포함되어 있습니다. SDK는 NuGet을 사용하여 Visual Studio에서 설치할 수 있습니다. **Microsoft.CognitiveServices.Speech**를 검색합니다.
+* C#(UWP 및.NET), C++: 최신 버전의 음성 SDK NuGet 패키지를 참조 및 사용할 수 있습니다. 이 패키지에는 관리(.NET) 라이브러리 외에도 32비트 및 64비트 클라이언트 라이브러리가 포함되어 있습니다. NuGet, [cognitiveservices account](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech)를 사용 하 여 Visual STUDIO에 SDK를 설치할 수 있습니다.
 
-* Java: 최신 버전의 음성 SDK Maven 패키지를 참조 및 사용할 수 있으며, 이 패키지는 Windows x64만 지원합니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`을 종속성으로 참조합니다.
+* Java: 최신 버전의 음성 SDK Maven 패키지를 참조 및 사용할 수 있으며, 이 패키지는 Windows x64만 지원합니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0`을 종속성으로 참조합니다.
 
 ### <a name="linux"></a>Linux
 
@@ -45,7 +49,7 @@ Windows의 경우 다음 언어를 지원합니다.
 
 다음 셸 명령을 실행 하 여 필요한 라이브러리를 설치 했는지 확인 합니다.
 
-Ubuntu에서:
+Ubuntu:
 
 ```sh
 sudo apt-get update
@@ -62,16 +66,16 @@ sudo apt-get install libssl1.0.2 libasound2
 * C#: 최신 버전의 음성 SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
   ```
 
 * Java: 최신 버전의 음성 SDK Maven 패키지를 참조 및 사용할 수 있습니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`을 종속성으로 참조합니다.
 
 * C++: SDK를 [.tar package](https://aka.ms/csspeech/linuxbinary)로 다운로드하고 원하는 디렉터리에 파일의 압축을 풉니다. 다음 표는 SDK 폴더 구조를 보여줍니다.
 
-  |path|설명|
+  |경로|Description|
   |-|-|
-  |`license.md`|License|
+  |`license.md`|라이선스|
   |`ThirdPartyNotices.md`|타사 알림|
   |`include`|C 및 C++용 헤더 파일|
   |`lib/x64`|애플리케이션과 연결할 기본 x64 라이브러리|

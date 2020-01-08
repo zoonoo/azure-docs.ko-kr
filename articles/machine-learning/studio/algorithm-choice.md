@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: c69b4c15397dc13f36a707f932c2464a4ff94ca7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2073123a61e919c10caaaea141f776e842f4d717
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427745"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 대 한 알고리즘을 선택 하는 방법 (클래식)
 
@@ -23,7 +23,7 @@ ms.locfileid: "73838476"
 
 "어떤 기계 학습 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은 항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 얻은 답변으로 무슨 작업을 수행할지에 따라 다릅니다. 수학 알고리즘을 사용 중인 컴퓨터를 위한 명령어로 변환하는 방법에 따라 다릅니다. 시간이 얼마나 있는지에 따라 다릅니다. 아무리 숙련된 과학자라고 해도 대부분의 과학자는 직접 시도해보기 전에는 어떤 알고리즘이 최적으로 수행된다고 단언할 수 없습니다.
 
-Machine Learning Studio (클래식)은 Microsoft Research에서 개발 된 확장 가능한 승격 된 의사 결정 트리, Bayesian 추천 시스템, 심층 신경망 및 의사 결정 정글 같은 최신 알고리즘을 제공 합니다. Vowpal Wabbit과 같은 확장성 있는 오픈 소스 기계 학습 패키지도 포함되어 있습니다. Machine Learning Studio 클래식 버전은 다중 클래스 및 이진 분류, 회귀 및 클러스터링을 위한 기계 학습 알고리즘을 지원 합니다. 전체 목록은 [Machine Learning 모듈](/azure/machine-learning/studio-module-reference/index)을 참조하세요.
+Machine Learning Studio (클래식)은 Microsoft Research에서 개발 된 확장 가능한 승격 된 의사 결정 트리, Bayesian 추천 시스템, 심층 신경망 및 의사 결정 정글 같은 최신 알고리즘을 제공 합니다. Vowpal Wabbit과 같은 확장성 있는 오픈 소스 기계 학습 패키지도 포함되어 있습니다. Machine Learning Studio (클래식)은 다중 클래스 및 이진 분류, 회귀 및 클러스터링을 위한 기계 학습 알고리즘을 지원 합니다. 전체 목록은 [Machine Learning 모듈](/azure/machine-learning/studio-module-reference/index)을 참조하세요.
 문서에서는 각 알고리즘 및 용도에 맞게 알고리즘을 최적화하기 위해 매개 변수를 조정하는 방법에 대한 일부 정보를 제공합니다.  
 
 
@@ -49,17 +49,17 @@ Machine Learning Studio (클래식)은 Microsoft Research에서 개발 된 확�
 
 감독 학습 알고리즘은 예제 집합을 토대로 예측합니다. 예를 들어, 기록 주식 가격은 향후 가격을 추측 하는 데 사용할 수 있습니다. 학습에 사용된 각 예제는 관련 값으로 레이블(이 경우, 주가)이 표시됩니다. 감독 학습 알고리즘은 이러한 값 레이블에서 패턴을 찾습니다. 요일, 계절, 회사의 재무 데이터, 업종, 문제가 되는 지정학적 사건의 유무 등 관련될 수 있는 모든 정보를 사용할 수 있으며 각 알고리즘은 다양한 유형의 패턴을 찾습니다. 알고리즘이 가능한 최적의 패턴을 찾은 후에는 이러한 패턴을 사용하여 레이블이 지정되지 않은 테스트 데이터(오늘 가격)에 대해 예측을 합니다.
 
-감독 학습은 널리 사용되고 유용한 기계 학습 유형입니다. 한 가지 예외를 제외 하 고 Azure Machine Learning Studio 클래식 버전의 모든 모듈은 감독 학습 알고리즘입니다. Azure Machine Learning Studio (클래식) 내에 표시 되는 여러 특정 유형의 감독 된 학습은 분류, 회귀 및 변칙 검색입니다.
+감독 학습은 널리 사용되고 유용한 기계 학습 유형입니다. 한 가지 예외를 제외 하 고 Azure Machine Learning Studio (클래식)의 모든 모듈은 감독 학습 알고리즘입니다. Azure Machine Learning Studio (클래식) 내에 표시 되는 여러 특정 유형의 감독 된 학습은 분류, 회귀 및 변칙 검색입니다.
 
 * **분류**. 범주를 예측하는 데 데이터를 사용하는 감독 학습을 분류라고도 합니다. '고양이' 또는 '개' 그림으로 이미지를 할당하는 경우가 해당합니다. 선택 항목이 두 가지뿐인 경우 **2클래스** 또는 **이항 분류**라고 합니다. NCAA March Madness(미국 대학농구 토너먼트전) 대회의 승자를 예측하는 경우처럼 더 많은 범주가 있는 경우 이 문제를 **다중 클래스 분류**라고 합니다.
-* **회귀** 주가와 같은 값을 예측하는 경우 감독 학습을 회귀라고 합니다.
+* **회귀**. 주가와 같은 값을 예측하는 경우 감독 학습을 회귀라고 합니다.
 * **이상 감지**. 단순히 비정상적인 데이터 요소를 식별하는 것이 목표인 경우도 있습니다. 예를 들어 이상 금융 거래 감지에서 매우 비정상적인 신용 카드 지출 패턴이 의심 대상입니다. 가능한 변형 형태는 너무 많지만 학습 예제는 극히 적으므로 사기성 활동의 형태를 학습하기는 쉽지 않습니다. 변칙 검색을 사용 하는 방법은 일반적인 작업 (사기성이 아닌 트랜잭션 기록 사용)의 모습을 알아보고 크게 다른 모든 항목을 식별 하는 것입니다.
 
 ### <a name="unsupervised"></a>자율
 
 자율 학습에서는 데이터 요소에 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 이는 클러스터로 그룹화하거나 복잡한 데이터가 보다 단순하게 또는 조직화되어 표시되도록 데이터를 바라보는 다양한 방법을 찾는 것을 의미할 수 있습니다.
 
-### <a name="reinforcement-learning"></a>보충 학습
+### <a name="reinforcement-learning"></a>강화 학습
 
 보충 학습에서는 알고리즘이 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다.
 이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 현재 Azure Machine Learning Studio (클래식)에는 보충 학습 알고리즘 모듈이 없습니다. 보충 학습은 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학에서 일반적입니다. 사물 인터넷 애플리케이션에 적합한 학습이기도 합니다.
@@ -83,11 +83,11 @@ Machine Learning Studio (클래식)은 Microsoft Research에서 개발 된 확�
 
 ![비선형 클래스 경계](./media/algorithm-choice/image1.png)
 
-***비선형 클래스 경계*** *- 선형 분류 알고리즘에 의존하며 결과의 정확도가 떨어짐*
+비선형 ***클래스 경계*** *-선형 분류 알고리즘을 이용 하면 정확도가 낮아집니다* .
 
 ![비선형 추세 반영 데이터](./media/algorithm-choice/image2.png)
 
-***비선형 추세 반영 데이터*** *- 선형 회귀 방법을 사용하면 필요한 것보다 훨씬 많은 오류가 생성됨*
+***비선형 추세를 포함 하는 데이터*** *-선형 회귀 방법을 사용 하면 필요한 것 보다 훨씬 큰 오류가 생성 됩니다* .
 
 위험성에도 불구하고, 선형 알고리즘은 공격에 대한 최전선으로 매우 널리 사용됩니다. 알고리즘 방식으로 간단하고 학습 시간이 빠른 경향이 있습니다.
 
@@ -95,7 +95,7 @@ Machine Learning Studio (클래식)은 Microsoft Research에서 개발 된 확�
 
 매개 변수는 데이터 과학자가 알고리즘을 설정할 때 전환하기 위한 노브입니다. 허용 오차, 반복 횟수 또는 알고리즘이 동작하는 방식의 변형 간 옵션 등 알고리즘의 동작에 영향을 주는 숫자입니다. 알고리즘의 학습 시간 및 정확도는 적합한 설정에 따라 크게 좌우될 수 있습니다. 일반적으로 많은 수의 매개 변수를 포함 하는 알고리즘에서는 가장 많은 평가판 및 오류가 발생 하므로 좋은 조합을 찾을 수 있습니다.
 
-또는 선택한 세분성에서 모든 매개 변수 조합을 자동으로 시도 하는 Azure Machine Learning Studio 클래식 버전의 [매개 변수 스윕](algorithm-parameters-optimize.md) 모듈 블록이 있습니다. 이 방법은 매개 변수 공간을 스팬하는 데는 좋지만 모델을 학습하는 데 필요한 시간이 매개 변수 수에 따라 기하급수적으로 증가한다는 단점이 있습니다.
+또는 선택한 세분성에서 모든 매개 변수 조합을 자동으로 시도 하는 [매개 변수 스윕](algorithm-parameters-optimize.md) 모듈 블록이 Azure Machine Learning Studio (클래식)에 있습니다. 이 방법은 매개 변수 공간을 스팬하는 데는 좋지만 모델을 학습하는 데 필요한 시간이 매개 변수 수에 따라 기하급수적으로 증가한다는 단점이 있습니다.
 
 장점은 일반적으로 매개 변수를 많이 포함할수록 알고리즘의 유연성이 향상된다는 것입니다. 매개 변수 설정의 올바른 조합을 찾을 수 있다면 매우 좋은 정확도를 얻을 수 있는 경우가 많습니다.
 
@@ -161,7 +161,7 @@ Machine Learning Studio (클래식)은 Microsoft Research에서 개발 된 확�
 
 ![하나의 기능을 포함하는 2클래스 데이터에 대한 로지스틱 회귀](./media/algorithm-choice/image4.png)
 
-***한 가지 기능만 있는 2클래스 데이터에 대한 로지스틱 회귀 분석*** *- 클래스 경계가 로지스틱 곡선이 두 클래스에 가까운 지점임*
+***한 가지 기능만 있는 2 클래스 데이터에 대 한 로지스틱 회귀*** *-클래스 경계는 로지스틱 곡선이 두 클래스에 가까이 있는 지점* 입니다.
 
 ### <a name="trees-forests-and-jungles"></a>트리, 포리스트 및 정글
 
@@ -179,7 +179,7 @@ Machine Learning Studio (클래식)은 Microsoft Research에서 개발 된 확�
 
 ### <a name="neural-networks-and-perceptrons"></a>신경망 및 퍼셉트론
 
-신경망은 [다중 클래스](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [2클래스](/azure/machine-learning/studio-module-reference/two-class-neural-network) 및 [회귀](/azure/machine-learning/studio-module-reference/neural-network-regression)를 반영한 두뇌 영감 학습 알고리즘입니다. 이는 무한 하 게 다양 하지만 클래식 버전의 Azure Machine Learning Studio 내 신경망은 모두 방향이 지정 된 비순환 그래프 형태입니다. 따라서 입력 기능은 출력으로 전환되기 전에 계층 시퀀스를 통해 앞으로(뒤로는 불가능) 전달됩니다. 각 계층에서 입력은 다양한 조합으로 가중치가 부여되고 합계를 구한 후 다음 계층으로 전달됩니다. 이러한 단순한 조합의 계산으로 정교한 클래스 경계 및 데이터 추세를 겉보기에는 마법처럼 간단하게 학습할 수 있습니다. 이러한 종류의 다계층화된 네트워크는 수많은 기술 보고 및 공상 과학을 뒷받침하는 "심층 학습"을 수행합니다.
+신경망은 [다중 클래스](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [2클래스](/azure/machine-learning/studio-module-reference/two-class-neural-network) 및 [회귀](/azure/machine-learning/studio-module-reference/neural-network-regression)를 반영한 두뇌 영감 학습 알고리즘입니다. 이는 무한 하 게 다양 하지만 Azure Machine Learning Studio (클래식) 내의 신경망은 모두 방향이 지정 된 비순환 그래프 형태입니다. 따라서 입력 기능은 출력으로 전환되기 전에 계층 시퀀스를 통해 앞으로(뒤로는 불가능) 전달됩니다. 각 계층에서 입력은 다양한 조합으로 가중치가 부여되고 합계를 구한 후 다음 계층으로 전달됩니다. 이러한 단순한 조합의 계산으로 정교한 클래스 경계 및 데이터 추세를 겉보기에는 마법처럼 간단하게 학습할 수 있습니다. 이러한 종류의 다계층화된 네트워크는 수많은 기술 보고 및 공상 과학을 뒷받침하는 "심층 학습"을 수행합니다.
 
 하지만 이러한 높은 성능을 위해서는 대가가 따릅니다. 신경망은 학습 시간이 길며 특히 많은 기능을 포함하는 큰 데이터 집합인 경우 시간이 오래 걸릴 수 있습니다. 또한 대부분의 알고리즘보다 더 많은 매개 변수를 포함하므로 매개 변수 스위핑으로 학습 시간은 엄청나게 길어집니다.
 [자신의 고유한 네트워크 구조를 지정](azure-ml-netsharp-reference-guide.md)하고 싶어하는 과잉 성취자에게 가능성은 무궁무진합니다.
@@ -205,7 +205,7 @@ Microsoft Research의 다른 제품인 [2클래스 로컬 심층 SVM](/azure/mac
 
 ### <a name="bayesian-methods"></a>Bayesian 메서드
 
-Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 자랑합니다. 대답에 대한 가능한 분포에 대해 사전에 몇 가지 가정을 하여 이 작업을 수행합니다. 이 방법에 대한 다른 부산물은 매우 적은 매개 변수입니다. 클래식 버전의 Azure Machine Learning Studio에는 분류 ([2 클래스 Bayes ' point Machine](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine))와 회귀 ([Bayesian 선형 회귀](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)) 모두에 대 한 Bayesian 알고리즘이 있습니다.
+Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 자랑합니다. 대답에 대한 가능한 분포에 대해 사전에 몇 가지 가정을 하여 이 작업을 수행합니다. 이 방법에 대한 다른 부산물은 매우 적은 매개 변수입니다. Azure Machine Learning Studio (클래식)에는 분류 ([2 클래스 Bayes ' point Machine](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine))와 회귀 ([Bayesian 선형 회귀](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)) 모두에 대 한 Bayesian 알고리즘이 있습니다.
 여기서는 데이터를 분할하거나 직선에 맞출 수 있다고 가정합니다.
 
 역사를 거슬러 보면, Bayes 지점 컴퓨터는 Microsoft Research에서 개발되었습니다. 그 이면에는 매우 뛰어난 이론적인 작업을 포함하고 있습니다. 관심이 있는 학생은 [JMLR의 원본 문서](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf)와 [Chris Bishop의 유용한 블로그](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx)를 확인하세요.
@@ -220,7 +220,7 @@ Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 �
 
 ![PCA 기반 이상 감지](./media/algorithm-choice/image8.png)
 
-***PCA 기반 이상 감지*** *- 정형화된 분포에 속하는 대부분의 데이터의 경우 해당 분포에서 크게 벗어나는 지점이 의심 대상입니다*
+***PCA 기반 변칙 검색*** *-대부분의 데이터가 stereotypical 배포에 속합니다. 즉, 해당 배포에서 매우 벗어나기 하는 점이 주의 대상입니다.*
 
 ![K-means를 사용하여 그룹화된 데이터 집합](./media/algorithm-choice/image9.png)
 
@@ -232,7 +232,7 @@ Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 �
 
 ***2클래스 분류자 쌍을 결합하여 3클래스 분류자를 형성합니다.***
 
-클래식 버전의 Azure Machine Learning Studio에는 [Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model)의 제목 아래에 있는 강력한 기계 학습 프레임 워크에 대 한 액세스 권한도 포함 됩니다.
+Azure Machine Learning Studio (클래식)에는 [Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model)의 제목 아래에 있는 강력한 기계 학습 프레임 워크에 대 한 액세스도 포함 됩니다.
 VW는 분류 및 회귀를 모두 학습할 수 있으며 부분적으로 레이블이 지정되지 않은 데이터에서도 학습이 가능하므로 여기에서 분류를 거부합니다. 다양한 학습 알고리즘, 손실 함수 및 최적화 알고리즘 중 하나를 사용하도록 구성할 수 있습니다. 기초부터 효율적, 병렬, 초고속 형태로 설계되었습니다. 적은 작업으로 엄청나게 큰 기능 집합을 처리합니다.
 Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 알고리즘 분야에서 포뮬러 원(Formula One) 엔트리입니다. 모든 문제가 VW에 적합하지는 않지만 해당하는 경우 인터페이스에 대한 학습 곡선을 따른다면 도움이 될 수 있습니다. 또한 여러 언어로 된 [독립 실행형 오픈 소스 코드](https://github.com/JohnLangford/vowpal_wabbit) 도 제공됩니다.
 
@@ -242,4 +242,4 @@ Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 �
 
 * Machine Learning Studio (클래식)에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 Machine Learning Studio (클래식) 알고리즘 및 모듈 도움말에서 [모델 초기화](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) 를 참조 하세요.
 
-* Machine Learning Studio 클래식 버전의 알고리즘 및 모듈에 대 한 전체 목록은 Machine Learning Studio (클래식) 알고리즘 및 모듈 도움말에서 [Machine Learning Studio (클래식) 모듈의 a-z 목록](/azure/machine-learning/studio-module-reference/a-z-module-list) 을 참조 하세요.
+* Machine Learning Studio (클래식)의 알고리즘 및 모듈에 대 한 전체 사전순 목록은 Machine Learning Studio (클래식) 알고리즘 및 모듈 도움말에서 [Machine Learning Studio (클래식) 모듈의 a-z 목록](/azure/machine-learning/studio-module-reference/a-z-module-list) 을 참조 하세요.

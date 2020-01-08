@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6f2159ddf3e3039dc0c38fc8f942c508ac177f06
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460352"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -23,7 +23,7 @@ ms.locfileid: "72038160"
 
 * 파일의 내용을 가져옵니다.
 * 파일 공유의 최대 크기 또는 *할당량* 을 설정 합니다.
-* 공유에 정의된 공유 액세스 정책을 사용하는 파일에 대해 공유 액세스 서명(SAS 키) 만들기
+* 공유에 정의 된 저장 된 액세스 정책을 사용 하는 파일에 대 한 공유 액세스 서명 (SAS 키)을 만듭니다.
 * 동일한 스토리지 계정의 다른 파일로 파일 복사
 * 동일한 스토리지 계정의 blob으로 파일 복사
 * 문제 해결을 위해 Azure Storage 메트릭을 사용 합니다.
@@ -34,12 +34,12 @@ Azure Files에 대 한 자세한 내용은 [Azure Files 항목](storage-files-in
 
 ## <a name="understanding-the-net-apis"></a>.NET API 이해
 
-Azure Files는 클라이언트 애플리케이션에 광범위한 두 가지 방법을 제공합니다. SMB(서버 메시지 블록) 및 REST .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` Api는 이러한 접근 방식을 추상화 합니다.
+Azure Files는 클라이언트 애플리케이션에 SMB(서버 메시지 블록) 및 REST라는 광범위한 두 가지 방법을 제공합니다. .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` Api는 이러한 접근 방식을 추상화 합니다.
 
-API | 사용 시기 | 참고
+API | 사용하는 경우 | 메모
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 사용 하 여 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통해 Azure Files에서 구현 되는 파일 i/o는 일반적으로 네트워크 파일 공유 또는 로컬 저장 장치를 사용 하는 i/o와 동일 합니다. 파일 i/o를 비롯 한 .NET의 다양 한 기능에 대 한 소개는 [콘솔 응용 프로그램](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) 자습서를 참조 하십시오.
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | 사용자 애플리케이션의 경우: <ul><li>방화벽 또는 ISP 제약 조건으로 인해 445 포트에서 SMB를 사용 하 여 Azure Files에 액세스할 수 없음</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서에서는 SMB 및 파일 공유 관리 대신 REST를 사용 하 여 파일 i/o에 `Microsoft.Azure.Storage.File`을 사용 하는 방법을 보여 줍니다.
+[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | 사용자 애플리케이션의 경우: <ul><li>방화벽 또는 ISP 제약 조건으로 인해 445 포트에서 SMB를 사용 하 여 Azure Files에 액세스할 수 없음</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서에서는 SMB 및 파일 공유 관리 대신 REST를 사용 하 여 파일 i/o에 대 한 `Microsoft.Azure.Storage.File`를 사용 하는 방법을 보여 줍니다.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 애플리케이션 만들기 및 어셈블리 가져오기
 
@@ -84,7 +84,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>저장소 계정 자격 증명을 App.config 파일에 저장 합니다.
 
-그런 다음 프로젝트의 `App.config` 파일에 자격 증명을 저장 합니다. **솔루션 탐색기**에서 `App.config`을 두 번 클릭 하 고 파일을 편집 하 여 다음 예제와 유사 하 게 합니다. @No__t-0을 저장소 계정 이름으로 바꾸고 `mykey`을 저장소 계정 키로 바꿉니다.
+그런 다음 프로젝트의 `App.config` 파일에 자격 증명을 저장 합니다. **솔루션 탐색기**에서 `App.config`를 두 번 클릭 하 고 파일을 편집 하 여 다음 예제와 유사 하 게 합니다. `myaccount`를 저장소 계정 이름으로 바꾸고,을 저장소 계정 키로 `mykey` 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -192,9 +192,9 @@ if (share.Exists())
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>파일 또는 파일 공유에 대한 공유 액세스 서명 생성
 
-Azure Storage 클라이언트 라이브러리 버전 5.x부터 파일 공유 또는 개별 파일에 대해 SAS(공유 액세스 서명)를 생성할 수 있습니다. 또한 파일 공유에 대해 공유 액세스 정책을 만들어 공유 액세스 서명을 관리할 수도 있습니다. SAS가 손상 되 면 SAS를 해지할 수 있으므로 공유 액세스 정책을 만드는 것이 좋습니다.
+Azure Storage 클라이언트 라이브러리 버전 5.x부터 파일 공유 또는 개별 파일에 대해 SAS(공유 액세스 서명)를 생성할 수 있습니다. 또한 공유 액세스 서명을 관리 하기 위해 파일 공유에 저장 된 액세스 정책을 만들 수 있습니다. SAS가 손상 되 면 SAS를 해지할 수 있으므로 저장 된 액세스 정책을 만드는 것이 좋습니다.
 
-다음 예에서는 공유에 대 한 공유 액세스 정책을 만듭니다. 이 예제에서는 해당 정책을 사용 하 여 공유의 파일에 대 한 SAS에 대 한 제약 조건을 제공 합니다.
+다음 예에서는 공유에 저장 된 액세스 정책을 만듭니다. 이 예제에서는 해당 정책을 사용 하 여 공유의 파일에 대 한 SAS에 대 한 제약 조건을 제공 합니다.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -212,7 +212,7 @@ if (share.Exists())
 {
     string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-    // Create a new shared access policy and define its constraints.
+    // Create a new stored access policy and define its constraints.
     SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
         {
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
@@ -222,7 +222,7 @@ if (share.Exists())
     // Get existing permissions for the share.
     FileSharePermissions permissions = share.GetPermissions();
 
-    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    // Add the stored access policy to the share's policies. Note that each policy must have a unique name.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 
@@ -428,14 +428,14 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 
 다음 코드 예제에서는 .NET용 스토리지 클라이언트 라이브러리를 사용하여 Azure Files에 대한 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
 
-먼저 위에서 추가한 다음 `using` 지시문을 `Program.cs` 파일에 추가 합니다.
+먼저 위에서 추가한 것과 함께 다음 `using` 지시문을 `Program.cs` 파일에 추가 합니다.
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Azure Blob, Azure 테이블 및 Azure 큐는 `Microsoft.Azure.Storage.Shared.Protocol` 네임 스페이스에서 shared `ServiceProperties` 유형을 사용 하지만, Azure Files는 `Microsoft.Azure.Storage.File.Protocol` 네임 스페이스에는 `FileServiceProperties` 유형의 고유 유형을 사용 합니다. 그러나 다음 코드를 컴파일하려면 코드에서 두 네임 스페이스를 모두 참조 해야 합니다.
+Azure Blob, Azure 테이블 및 Azure 큐는 `Microsoft.Azure.Storage.Shared.Protocol` 네임 스페이스에서 공유 `ServiceProperties` 유형을 사용 하지만, Azure Files는 자체 형식인 `Microsoft.Azure.Storage.File.Protocol` 네임 스페이스의 `FileServiceProperties` 유형을 사용 합니다. 그러나 다음 코드를 컴파일하려면 코드에서 두 네임 스페이스를 모두 참조 해야 합니다.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -497,7 +497,7 @@ Azure Files에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
 ### <a name="reference"></a>참조
 
-* [.NET 용 Azure Storage Api](/dotnet/api/overview/azure/storage)
+* [.NET용 Azure Storage API](/dotnet/api/overview/azure/storage)
 * [파일 서비스 REST API](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>블로그 게시물

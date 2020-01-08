@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b0e4fcf771f2441d9e1061ee57e83e26b6b1a241
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 389125b1ce3ed43e16f2c9c481e26f1297785a6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922968"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439342"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 
@@ -36,7 +36,7 @@ ms.locfileid: "74922968"
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 ### <a name="azure-subscription"></a>Azure 구독
 시작하기 전에 Azure 구독이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -135,7 +135,7 @@ ms.locfileid: "74922968"
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령을 복사하고, [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고(큰따옴표로 묶임, 예: `"adfrg"`), 명령을 실행합니다. 
+1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령을 복사하고, [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름을 지정하고(큰따옴표로 묶임, 예: `"adfrg"`), 명령을 실행합니다. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -715,7 +715,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인은 Azure Blob Storage의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
+이 샘플의 파이프라인은 Azure Blob Storage의 위치 간에 데이터를 복사합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.

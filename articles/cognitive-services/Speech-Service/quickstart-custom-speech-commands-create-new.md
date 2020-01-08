@@ -10,24 +10,29 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446868"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>빠른 시작: 사용자 지정 명령 만들기 (미리 보기)
 
 이 문서에서는 호스트 된 사용자 지정 명령 응용 프로그램을 만들고 테스트 하는 방법을 배웁니다.
 응용 프로그램은 "tv 켜기"와 같은 utterance을 인식 하 고 간단한 메시지 "확인, tv 켜기"를 사용 하 여 응답 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-- 음성 구독. [음성 서비스를 무료로 사용해 보세요](~/articles/cognitive-services/speech-service/get-started.md).
+- 음성 구독. 
+
+음성 구독이 없는 경우 speech [Studio](https://speech.microsoft.com/) 로 이동 하 여 음성 **리소스 만들기**를 선택 하 여 만들 수 있습니다.
+
+  > [!div class="mx-imgBorder"]
+  > [프로젝트](media/custom-speech-commands/create-new-subscription.png) ![만듭니다.](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > 미리 보기 중에는 구독 키에 대해 westus2 지역만 지원 됩니다.
+  > 미리 보기 중에는 westus2 지역만 지원 됩니다.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>사용자 지정 명령을 위한 Speech Studio로 이동
 
@@ -66,6 +71,20 @@ ms.locfileid: "74976624"
 
 이제 사용자 지정 명령 응용 프로그램의 개요가 표시 됩니다.
 
+## <a name="update-luis-resources-optional"></a>LUIS 리소스 업데이트 (옵션)
+
+새 프로젝트 창에서 제작 리소스 집합을 업데이트 하 고 런타임 중에 입력을 인식 하는 데 사용 되는 예측 리소스를 설정할 수 있습니다. 
+
+> [!NOTE]
+> 응용 프로그램이 제작 리소스에서 제공 하는 1000 요청을 초과 하 여 예측을 요청 하기 전에 예측 리소스를 설정 해야 합니다.
+
+> [!div class="mx-imgBorder"]
+> LUIS 리소스를 설정 ![](media/custom-speech-commands/set-luis-resources.png)
+
+1. 왼쪽 창에서 **설정** 을 선택 하 여 LUIS 리소스 창으로 이동한 다음 가운데 창에서 **리소스를 LUIS** 합니다.
+1. 예측 리소스를 선택 하거나 **새 리소스 만들기** 를 선택 하 여 하나를 만듭니다.
+1. **저장**을 선택합니다.
+
 ## <a name="create-a-new-command"></a>새 명령 만들기
 
 이제 명령을 만들 수 있습니다. 단일 utterance를 사용 하 고 `turn on the tv``Ok, turning on the TV`메시지를 사용 하 여 응답 하는 예를 살펴보겠습니다.
@@ -78,10 +97,10 @@ ms.locfileid: "74976624"
 
 명령은 다음과 같은 집합입니다.
 
-| 그룹            | 설명                                                                                                                 |
+| 그룹            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 샘플 문장 | 예 길이 발언 사용자가이 명령을 트리거할 수 있습니다.                                                                 |
-| parameters       | 명령을 완료 하는 데 필요한 정보                                                                                |
+| 매개 변수       | 명령을 완료 하는 데 필요한 정보                                                                                |
 | 완료 규칙 | 명령을 수행 하기 위해 수행할 작업입니다. 예를 들어 사용자에 게 응답 하거나 다른 웹 서비스와 통신 하는 경우 |
 | 고급 규칙   | 보다 구체적인 또는 복잡 한 상황을 처리 하는 추가 규칙                                                              |
 
@@ -116,11 +135,10 @@ turn on the tv
 > [!div class="mx-imgBorder"]
 > ![완료 규칙을 만듭니다](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| 설정    | 제안 값                        | 설명                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| 규칙 이름  | "ConfirmationResponse"                 | 규칙의 용도를 설명 하는 이름입니다.          |
-| 조건 | 없음                                   | 규칙을 실행할 수 있는 시기를 결정 하는 조건    |
+| 설정    | 제안 값                          | Description                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| 규칙 이름  | "ConfirmationResponse"                   | 규칙의 용도를 설명 하는 이름입니다.          |
+| 조건 | 없음                                     | 규칙을 실행할 수 있는 시기를 결정 하는 조건    |
 | 작업    | SpeechResponse "-Ok, TV 켜기" | 규칙 조건이 참인 경우 수행할 동작입니다. |
 
 ## <a name="try-it-out"></a>사용해 보기

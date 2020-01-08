@@ -1,6 +1,7 @@
 ---
-title: Azure SQL Database로 SQL Server Integration Services 패키지를 다시 배포 | Microsoft Docs
-description: Azure SQL Database로 SQL Server Integration Services 패키지를 마이그레이션하는 방법에 알아봅니다.
+title: SSIS 패키지를 SQL 단일 데이터베이스에 다시 배포
+titleSuffix: Azure Database Migration Service
+description: Azure Database Migration Service 및 Data Migration Assistant를 사용 하 여 SQL Server Integration Services 패키지 및 프로젝트를 Azure SQL Database 단일 데이터베이스로 마이그레이션 또는 재배포 하는 방법에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,24 +9,24 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/08/2019
-ms.openlocfilehash: 603a9df8e3f499c832bbfdcbef966de86003d6b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1889410a6c6925ebba5632a08c34bc967ced627
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080645"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437981"
 ---
-# <a name="redeploy-sql-server-integration-services-packages-to-azure-sql-database"></a>Azure SQL Database로 SQL Server Integration Services 패키지를 다시 배포
+# <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 SSIS 패키지를 Azure SQL Database 다시 배포
 
-SQL Server Integration Services (SSIS)를 사용 하 고 대상 Azure SQL Database에서 호스팅되는 SSISDB에 SQL Server에서 호스팅되는 SSISDB 원본에서 SSIS 프로젝트/패키지를 마이그레이션할 경우 Integration Services 배포를 사용 하 여 배포할 수 있습니다. 마법사입니다. SSMS(SQL Server Management Studio) 내에서 마법사를 시작할 수 있습니다.
+SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스트 하는 원본 SSISDB에서 SSIS 프로젝트/패키지를 Azure SQL Database에서 호스트 되는 대상 SSISDB로 마이그레이션하려는 경우 Integration Services 배포 마법사를 사용 하 여 다시 배포할 수 있습니다. SSMS(SQL Server Management Studio) 내에서 마법사를 시작할 수 있습니다.
 
 사용하는 SSIS 버전이 2012 이전인 경우 SSIS 프로젝트/패키지를 프로젝트 배포 모델로 재배포하기 전에 먼저 SSMS에서 시작할 수도 있는 Integration Services 프로젝트 변환 마법사를 사용하여 변환해야 합니다. 자세한 내용은 문서 [프로젝트를 프로젝트 배포 모델로 변환](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert)을 참조하세요.
 
 > [!NOTE]
-> Azure 데이터베이스 마이그레이션 서비스 (DMS) 현재 Azure SQL Database 서버를 원본 SSISDB의 마이그레이션을 지원 하지 않습니다 하지만 SSIS 프로젝트/패키지 프로세스를 사용 하 여 다시 배포할 수 있습니다.
+> DMS (Azure Database Migration Service)는 현재 원본 SSISDB를 Azure SQL Database 서버로 마이그레이션하는 것을 지원 하지 않지만 다음 프로세스를 사용 하 여 SSIS 프로젝트/패키지를 다시 배포할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 > [!div class="checklist"]
@@ -38,20 +39,20 @@ SQL Server Integration Services (SSIS)를 사용 하 고 대상 Azure SQL Databa
 이러한 단계를 완료하려면 다음이 필요합니다.
 
 * SSMS 버전 17.2 이상
-* SSISDB를 호스트할 대상 데이터베이스 서버의 인스턴스 하면 이미 계정이 없는 경우 SQL Server (논리 서버에만 해당)로 이동 하 여 Azure portal을 사용 하 여 (데이터베이스 없이) Azure SQL Database 서버 만들기 [폼](https://ms.portal.azure.com/#create/Microsoft.SQLServer)합니다.
-* SSIS에서 Azure 데이터 팩터리 (ADF) 대상 Azure SQL Database 서버 인스턴스에서 호스팅되는 SSISDB 사용 하 여 Azure SSIS IR (Integration Runtime)을 포함 하 프로 비전 되어야 합니다 (이 문서에 설명 된 대로 [AZURE-SSIS 통합 프로 비전 Azure Data Factory에서 런타임](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)).
+* SSISDB를 호스트할 대상 데이터베이스 서버의 인스턴스 아직 없는 경우 SQL Server (논리 서버 전용) [양식](https://ms.portal.azure.com/#create/Microsoft.SQLServer)으로 이동 하 여 Azure Portal를 사용 하 여 Azure SQL Database 서버를 만듭니다 (데이터베이스 제외).
+* SSIS는 [Azure Data Factory에서 Azure-SSIS Integration Runtime 프로 비전](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)문서에 설명 된 대로 Azure SQL Database 서버 인스턴스에서 호스팅하는 대상 SSISDB와 IR (Azure-SSIS Integration Runtime)을 포함 하는 AZURE DATA FACTORY (ADF)에서 프로 비전 되어야 합니다.
 
 ## <a name="assess-source-ssis-projectspackages"></a>원본 SSIS 프로젝트/패키지 평가
 
-SSISDB 원본의 평가 아직 통합 되지 데이터베이스 마이그레이션 길잡이 (DMA) 또는 Azure 데이터베이스 마이그레이션 서비스 (DMS) 하는 동안 SSIS 프로젝트/패키지는 평가/유효성을 검사할 수 SSISDB에 호스팅된 대상 재배포 되는 Azure SQL Database 서버입니다.
+원본 SSISDB의 평가는 데이터베이스 Migration Assistant (DMA) 또는 Azure Database Migration Service (DMS)에 통합 되지 않지만 SSIS 프로젝트/패키지는 Azure SQL Database 서버에서 호스트 되는 대상 SSISDB에 다시 배포 될 때 평가/유효성 검사 됩니다.
 
 ## <a name="migrate-ssis-projectspackages"></a>SSIS 프로젝트/패키지 마이그레이션
 
-Azure SQL Database 서버에 SSIS 프로젝트/패키지를 마이그레이션하려면 다음 단계를 수행 합니다.
+SSIS 프로젝트/패키지를 Azure SQL Database 서버로 마이그레이션하려면 다음 단계를 수행 합니다.
 
 1. SSMS를 연 다음, **옵션**을 선택하여 **서버에 연결** 대화 상자를 표시합니다.
 
-2. 에 **로그인** 탭에서 대상 SSISDB를 호스트 하는 Azure SQL Database 서버에 연결 하는 데 필요한 정보를 지정 합니다.
+2. **로그인** 탭에서 대상 SSISDB를 호스트 하는 Azure SQL Database 서버에 연결 하는 데 필요한 정보를 지정 합니다.
 
     ![SSIS 로그인 탭](media/how-to-migrate-ssis-packages/dms-ssis-login-tab.png)
 
@@ -80,13 +81,13 @@ Azure SQL Database 서버에 SSIS 프로젝트/패키지를 마이그레이션�
 8. **다음**을 선택합니다.
 9. **대상 선택** 페이지에서 프로젝트에 대한 대상을 지정합니다.
 
-    a. 서버 이름 텍스트 상자에 정규화 된 Azure SQL Database 서버 이름 입력 (< 서버 _ 이름 >. database.windows.net).
+    a. 서버 이름 텍스트 상자에 정규화 된 Azure SQL Database 서버 이름 (< server_name >. net)을 입력 합니다.
 
     b. 인증 정보를 제공한 다음, **연결**을 선택합니다.
 
     ![배포 마법사 대상 선택 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-destination-page.png)
 
-    c. 선택 **찾아보기** SSISDB에서 대상 폴더를 지정 하 여 선택한 **다음**합니다.
+    다. **찾아보기** 를 선택 하 여 SSISDB에서 대상 폴더를 지정 하 고 **다음을 선택 합니다.**
 
     > [!NOTE]
     > **연결**을 선택한 후에만 **다음** 단추가 활성화됩니다.
@@ -100,7 +101,7 @@ Azure SQL Database 서버에 SSIS 프로젝트/패키지를 마이그레이션�
 12. **검토** 페이지에서 배포 설정을 검토합니다.
 
     > [!NOTE]
-    > 선택 하 여 설정을 변경할 수 있습니다 **이전** 또는 왼쪽 창의 단계 링크 중 하나를 선택 합니다.
+    > **이전** 을 선택 하거나 왼쪽 창에서 단계 링크를 선택 하 여 설정을 변경할 수 있습니다.
 
 13. **배포**를 선택하여 배포 프로세스를 시작합니다.
 

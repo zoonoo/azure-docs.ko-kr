@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: kumud
 ms.reviewer: annahar
-ms.openlocfilehash: e9bad6ad614855c543ee6d75d4e6f4dc8e2255aa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876219"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647325"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -97,7 +97,7 @@ ms.locfileid: "67876219"
 
 6. NIC에 대한 기본 IP 구성을 정의합니다. 이전에 정의된 값을 사용하지 않는 경우 10.0.0.4를 만든 서브넷의 올바른 주소로 변경합니다. 고정 IP 주소를 할당하기 전에 먼저 해당 주소를 이미 사용하고 있지 않은지 확인하는 것이 좋습니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` 명령을 입력합니다. 주소를 사용할 수 있는 경우 출력은 *True*를 반환합니다. 주소를 사용할 수 없는 경우 출력은 *False*와 사용할 수 있는 주소 목록을 반환합니다. 
 
-    다음 명령에서 replace- **name \<>을 사용할 고유한 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
+    다음 명령에서 \<를 **고유한 이름으로 바꿉니다 >를 사용할 고유한 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
 
     ```powershell
     
@@ -122,7 +122,7 @@ ms.locfileid: "67876219"
     NIC에 여러 IP 구성을 할당하는 경우 하나의 구성이 *기본*으로 할당되어야 합니다.
 
     > [!NOTE]
-    > 공용 IP 주소에는 명목 요금이 부과됩니다. IP 주소 가격에 대한 자세한 내용은 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한되어 있습니다. 이러한 한에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
+    > 공용 IP 주소에는 명목 요금이 부과됩니다. IP 주소 가격에 대한 자세한 내용은 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한되어 있습니다. 이러한 한에 대한 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
 
 7. NIC에 대한 보조 IP 구성을 정의합니다. 필요에 따라 구성을 추가 또는 제거할 수 있습니다. 각 IP 구성에 개인 IP 주소가 할당되어야 합니다. 경우에 따라 각 구성에 공용 IP 주소가 할당될 수 있습니다.
 
@@ -261,7 +261,7 @@ ms.locfileid: "67876219"
    공용 IP 주소 리소스를 새 IP 구성 또는 기존 IP 구성에 연결하면 공용 IP 주소가 추가됩니다. 필요에 따라 이후 섹션 중 하나에 나와 있는 단계를 완료합니다.
 
    > [!NOTE]
-   > 공용 IP 주소에는 명목 요금이 부과됩니다. IP 주소 가격에 대한 자세한 내용은 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한되어 있습니다. 이러한 한에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
+   > 공용 IP 주소에는 명목 요금이 부과됩니다. IP 주소 가격에 대한 자세한 내용은 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한되어 있습니다. 이러한 한에 대한 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
    >
 
    **새 IP 구성에 공용 IP 주소 리소스 연결**

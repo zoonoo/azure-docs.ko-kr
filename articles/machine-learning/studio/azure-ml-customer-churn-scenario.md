@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 8fd88c3bfad962f264efa030d0a3aea44e95dc8c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839756"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427696"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)를 사용 하 여 고객 이탈 분석
 ## <a name="overview"></a>개요
@@ -25,7 +25,7 @@ ms.locfileid: "73839756"
 이 실험은 Serge Berger, Microsoft의 Principal Data 과학자, Microsoft의 Roger Barga, 이전에 Microsoft Azure Machine Learning Studio (클래식)에 대 한 제품 관리자에 의해 개발 되 고 테스트 되었습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
 
 > [!NOTE]
-> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)의 [소매 변동 모델 템플릿](https://gallery.azure.ai/)을 참조하세요.
+> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](https://gallery.azure.ai/)의 [소매 변동 모델 템플릿](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)을 참조하세요.
 > 
 > 
 
@@ -71,7 +71,7 @@ ms.locfileid: "73839756"
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Machine Learning Studio 모델링 원형 (클래식) 구현
-설명된 문제를 감안할 때 통합 모델링 및 채점 방식을 구현하는 가장 좋은 방법은 무엇일까요? 이 섹션에서는 클래식 버전의 Azure Machine Learning Studio을 사용 하 여이를 수행 하는 방법을 설명 합니다.  
+설명된 문제를 감안할 때 통합 모델링 및 채점 방식을 구현하는 가장 좋은 방법은 무엇일까요? 이 섹션에서는 Azure Machine Learning Studio (클래식)를 사용 하 여이를 수행 하는 방법을 설명 합니다.  
 
 다중 모델 접근법은 이탈에 대한 전역적인 원형을 디자인할 때 필수 요소입니다. 접근법의 점수 매기기(예측) 부분도 다중 모델이어야 합니다.  
 
@@ -135,7 +135,7 @@ ms.locfileid: "73839756"
 이 섹션에서는 점수 데이터 세트에 따라 모델 정확도에 대한 결과를 제공합니다.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>점수 매기기의 정확도 및 정밀도
-일반적으로 Azure Machine Learning Studio 클래식 버전의 구현은 정확도가 10-15% (곡선 아래의 영역 또는 기타 영역)에 따라 정확도를 벗어났습니다.  
+일반적으로 Azure Machine Learning Studio (클래식)의 구현은 정확도가 10-15% (곡선 아래의 영역 또는 내부 영역)를 기준으로 합니다.  
 
 그러나 이탈의 가장 중요한 메트릭은 오분류 비율입니다. 즉, 분류자를 통해 예측된 상위 N명의 이탈자 가운데 실제로 이탈하지 **않았지만** 특별 대우를 받은 비율(%)입니다. 다음 다이어그램에서는 모든 모델에 대한 이 오분류 비율을 비교합니다.  
 
@@ -200,13 +200,13 @@ Machine Learning Studio (클래식)에서 호스트 되는 모델은 실행 속�
 
 그러나 Machine Learning Studio (클래식)를 사용 하 여 셀프 서비스 분석을 사용 하는 것은 부서와 부서 별로 등급이 변동 된 네 가지 정보 범주가 변동에 대 한 기계 학습에 중요 한 원본이 될 수 있다는 것입니다.  
 
-Azure Machine Learning Studio의 클래식 버전에서 제공 되는 또 다른 흥미로운 기능은 이미 사용 가능한 미리 정의 된 모듈의 리포지토리에 사용자 지정 모듈을 추가 하는 기능입니다. 이 기능은 기본적으로 라이브러리를 선택하고 수직적 시장에 대한 템플릿을 만들 기회를 제공합니다. 이는 시장에서 Azure Machine Learning Studio 클래식 버전의 중요 한 차이점입니다.  
+Azure Machine Learning Studio (클래식)에서 제공 하는 또 다른 흥미로운 기능은 이미 사용 가능한 미리 정의 된 모듈의 리포지토리에 사용자 지정 모듈을 추가 하는 기능입니다. 이 기능은 기본적으로 라이브러리를 선택하고 수직적 시장에 대한 템플릿을 만들 기회를 제공합니다. 이는 시장에서 Azure Machine Learning Studio (클래식)의 중요 한 차이점입니다.  
 
 특히 빅데이터 분석과 관련된 이 토픽은 나중에 설명할 기회가 있을 것입니다.
   
 
 ## <a name="conclusion"></a>결론
-이 문서에서는 일반 프레임워크를 사용하여 일반적인 문제인 고객 이탈을 방지하기 위한 합리적인 접근법에 대해 설명합니다. 모델 점수 매기기를 위한 프로토타입을 고려 하 고 클래식 버전의 Azure Machine Learning Studio을 사용 하 여 구현 했습니다. 마지막으로 SAS의 비슷한 알고리즘과 비교하여 프로토타입 솔루션의 정확도와 성능을 평가했습니다.  
+이 문서에서는 일반 프레임워크를 사용하여 일반적인 문제인 고객 이탈을 방지하기 위한 합리적인 접근법에 대해 설명합니다. 모델 점수 매기기를 위해 프로토타입을 고려 하 고 Azure Machine Learning Studio (클래식)를 사용 하 여 구현 했습니다. 마지막으로 SAS의 비슷한 알고리즘과 비교하여 프로토타입 솔루션의 정확도와 성능을 평가했습니다.  
 
  
 
@@ -219,7 +219,7 @@ Azure Machine Learning Studio의 클래식 버전에서 제공 되는 또 다른
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Azure AI 갤러리](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5)의 [Telco 변동 모델 템플릿](https://gallery.azure.ai/) 
+[5] [Azure AI 갤러리](https://gallery.azure.ai/)의 [Telco 변동 모델 템플릿](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
  
 
 ## <a name="appendix"></a>부록

@@ -1,19 +1,21 @@
 ---
-title: Azure Files에 대해 SMB를 통한 Azure Active Directory 인증 사용-Azure Storage
+title: Azure AD Domain Services를 사용 하 여 SMB를 통해 파일 데이터에 대 한 액세스 권한 부여
 description: Azure Active Directory Domain Services를 통해 Azure Files에 대해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 사용 하도록 설정 하는 방법에 대해 알아봅니다. 그런 다음 도메인에 가입 된 Windows Vm (가상 머신)은 Azure AD 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 886cacc5e90136380a183f6b9ddd1123d726dcf3
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.subservice: files
+ms.openlocfilehash: fd42a6ffa6ea46d49df673cde617c70ce7425d91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460379"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Azure Files SMB를 통한 Azure Active Directory Domain Services 인증 사용
+
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Azure Files SMB를 통한 Azure AD 인증에 대 한 개요는 [Azure Files에 대 한 smb를 통한 Azure Active Directory 인증 개요](storage-files-active-directory-overview.md)를 참조 하세요.
@@ -21,6 +23,7 @@ Azure Files SMB를 통한 Azure AD 인증에 대 한 개요는 [Azure Files에 �
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>워크플로의 개요
+
 Azure Files에 대해 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하기 전에 Azure AD 및 Azure Storage 환경이 제대로 구성 되어 있는지 확인 합니다. 필요한 모든 단계를 완료 했는지 확인 하기 위해 [필수 구성 요소](#prerequisites) 를 안내 하는 것이 좋습니다.
 
 그런 후에는 다음 단계를 수행하여 Azure AD 자격 증명을 사용한 Azure Files 리소스 액세스 권한을 부여합니다. 
@@ -30,11 +33,11 @@ Azure Files에 대해 SMB를 통해 Azure AD DS 인증을 사용 하도록 설�
 3. 디렉터리와 파일에 대해 SMB를 통한 NTFS 권한을 구성합니다.
 4. 도메인 조인 VM에서 Azure 파일 공유를 탑재합니다.
 
-다음 다이어그램에서는 Azure Files에 대해 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하는 종단 간 워크플로를 보여 줍니다. 
+다음 다이어그램에서는 Azure Files에 대해 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하는 종단 간 워크플로를 보여 줍니다.
 
 ![Azure Files용 SMB를 통한 Azure AD 워크플로를 보여 주는 다이어그램](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Files에 대한 SMB를 통한 Azure AD를 사용하도록 설정하기 전에 다음 필수 조건을 완료했는지 확인합니다.
 
@@ -150,7 +153,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한
 1. Azure Portal에서 파일 공유로 이동 하거나 [Azure Files에서 파일 공유를 만듭니다](storage-how-to-create-file-share.md).
 2. **Access Control(IAM)** 을 선택합니다.
 3. **역할 할당 추가** 선택
-4. **역할 할당 추가** 블레이드의 **역할** 목록에서 적절 한 기본 제공 역할 (저장소 파일 데이터 Smb 공유 판독기, 저장소 파일 데이터 smb 공유 참가자)을 선택 합니다. 기본 설정에서 다음 **에 대 한 액세스 권한 부여 옵션을** 유지 합니다. **AZURE AD 사용자, 그룹 또는 서비스 주체**입니다. 이름 또는 전자 메일 주소를 기준으로 대상 Azure AD id를 선택 합니다.
+4. **역할 할당 추가** 블레이드의 **역할** 목록에서 적절 한 기본 제공 역할 (저장소 파일 데이터 Smb 공유 판독기, 저장소 파일 데이터 smb 공유 참가자)을 선택 합니다. 기본 설정인 **AZURE AD 사용자, 그룹 또는 서비스 주체**에 대 **한 액세스 권한 부여 옵션을** 유지 합니다. 이름 또는 전자 메일 주소를 기준으로 대상 Azure AD id를 선택 합니다.
 5. **저장** 을 선택 하 여 역할 할당 작업을 완료 합니다.
 
 #### <a name="powershell"></a>PowerShell
@@ -245,5 +248,5 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 Azure Files 및 SMB를 통해 Azure AD를 사용 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
 - [Azure Files 소개](storage-files-introduction.md)
-- [Azure Files SMB를 통한 Azure Active Directory 인증 개요](storage-files-active-directory-overview.md)
+- [Azure Files용 SMB를 통한 Azure Active Directory 인증 개요](storage-files-active-directory-overview.md)
 - [FAQ](storage-files-faq.md)

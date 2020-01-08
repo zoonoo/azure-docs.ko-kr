@@ -1,25 +1,18 @@
 ---
-title: Service Fabric Azure Resource Manager deployment guardrails | Microsoft Docs
+title: Service Fabric Azure Resource Manager 배포 guardrails
 description: 이 문서에서는 Azure Resource Manager를 통해 Service Fabric 클러스터를 배포할 때 발생 하는 일반적인 실수와이를 방지 하는 방법에 대 한 개요를 제공 합니다.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: gamonroy
-editor: ''
-ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/30/2019
 ms.author: pepogors
-ms.openlocfilehash: 3ea6f850685a695644cfc3073fc939a58901658c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fe5ff2a5eeb4b2c73165d1577702eb6af7079b61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426745"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 Service Fabric 클러스터를 배포 하는 경우 guardrails이 배치 되며,이는 잘못 된 클러스터 구성의 경우 Azure Resource Manager 배포에 실패 합니다. 다음 섹션에서는 일반적인 클러스터 구성 문제와 이러한 문제를 완화 하는 데 필요한 단계에 대 한 개요를 제공 합니다. 
@@ -68,7 +61,7 @@ Service Fabric 노드 형식에 대 한 내구성 값은 Azure Resource Manager 
 * 가상 머신 확장 집합 내구성은 현재 Service Fabric 내구성 수준 또는 대상 Service Fabric 노드 유형 내구성 수준과 일치 합니다. 
 
 
-### <a name="mitigation"></a>해결 방법
+### <a name="mitigation"></a>완화 방법
 위의 오류 메시지에 표시 되는 내구성 불일치를 해결 하려면 다음을 수행 합니다.
 1. Azure Resource Manager 템플릿의 가상 머신 확장 집합 확장 또는 Service Fabric 노드 유형 섹션에서 내구성 수준을 업데이트 하 여 값이 일치 하는지 확인 합니다.
 2. 업데이트 된 값으로 Azure Resource Manager 템플릿을 다시 배포 합니다.

@@ -1477,6 +1477,9 @@
         - name: Databricks Connect
           href: /azure/databricks/dev-tools/databricks-connect
           maintainContext: true
+        - name: Jenkins를 사용하는 CI/CD
+          href: /azure/databricks/dev-tools/ci-cd
+          maintainContext: true
         - name: 데이터 파이프라인에서 종속성 관리
           href: /azure/databricks/dev-tools/data-pipelines
           maintainContext: true
@@ -1578,6 +1581,9 @@
           items:
             - name: 플랫폼 릴리스 정보
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: 2020년 1월
+              href: /azure/databricks/release-notes/product/2020/january
               maintainContext: true
             - name: 2019년 12월
               href: /azure/databricks/release-notes/product/2019/december

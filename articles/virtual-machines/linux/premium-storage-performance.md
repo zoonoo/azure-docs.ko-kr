@@ -1,18 +1,18 @@
 ---
-title: 'Azure Premium Storage: Windows Vm의 성능에 대 한 디자인 '
-description: Azure Premium Storage를 사용하여 고성능 애플리케이션을 설계합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
+title: 'Azure Premium Storage: Linux Vm의 성능 설계 | Microsoft Docs'
+description: Azure premium SSD 관리 디스크를 사용 하 여 고성능 응용 프로그램을 디자인 합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 56836b81ad63c3a2170606dc64988aab8dc7f47f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9940ee4cfce9721ac65f2b3cf1469e180adfa098
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035276"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458700"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "74035276"
 >
 > VM에서 가속화된 네트워킹을 지원하는 경우 VM이 활성화되어 있는지 확인해야 합니다. 활성화되어 있지 않으면 [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 및 [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 모두에 이미 배포된 VM에서 활성화할 수 있습니다.
 
-시작 하기 전에 Premium Storage을 처음 접하는 경우 먼저 [IaaS vm에 대 한 Azure 디스크 유형 선택](disks-types.md) 및 [저장소 계정에 대 한 확장성 및 성능 목표 Azure Storage](../../storage/common/storage-scalability-targets.md)를 참조 하세요.
+시작 하기 전에 Premium Storage을 처음 접하는 경우 먼저 [IaaS vm에 대 한 Azure 디스크 유형 선택](disks-types.md) 및 [프리미엄 페이지 blob 저장소 계정에 대 한 확장성 목표](../../storage/blobs/scalability-targets-premium-page-blobs.md)를 참조 하세요.
 
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

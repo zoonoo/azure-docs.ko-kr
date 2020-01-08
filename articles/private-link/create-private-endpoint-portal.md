@@ -2,17 +2,17 @@
 title: 빠른 시작 - Azure에서 프라이빗 엔드포인트 관리
 description: 이 빠른 시작에서 Azure Portal를 사용하여 프라이빗 엔드포인트를 만드는 방법 알아보기
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459940"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>빠른 시작: Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
@@ -20,9 +20,6 @@ ms.locfileid: "74899858"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-
-> [!NOTE]
-> 프라이빗 엔드포인트는 동일한 서브넷에 있는 서비스 엔드포인트와 함께 허용되지는 않습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -41,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork*를 입력합니다. |
+    | 속성 | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
@@ -144,7 +141,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 정보** |  |
-    | Name | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | 속성 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**WestCentralUS**를 선택합니다.|
     |||
 5. 완료되면 **다음: 리소스**를 선택합니다.
@@ -154,7 +151,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     |연결 방법  | 내 디렉터리의 Azure 리소스에 연결하도록 선택합니다.|
     | Subscription| 구독을 선택합니다. |
-    | 리소스 종류 | **Microsoft.Sql/servers**를 선택합니다. |
+    | 리소스 유형 | **Microsoft.Sql/servers**를 선택합니다. |
     | 리소스 |*myServer*를 선택합니다.|
     |대상 하위 리소스 |*sqlServer*를 선택합니다.|
     |||

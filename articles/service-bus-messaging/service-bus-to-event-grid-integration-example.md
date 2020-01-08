@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719013"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462093"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>자습서: Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 다음 단계를 수행합니다.
@@ -50,7 +50,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
 3. **MessageSender** 프로젝트로 이동한 다음, **Program.cs**를 선택합니다.
 4. 이전 단계에서 가져온 Service Bus 항목 이름 및 연결 문자열을 입력합니다.
 
-    ```CSharp
+    ```csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
@@ -69,7 +69,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
 
 1. 트리 보기에서 **함수**를 확장하고 함수를 선택합니다. 함수의 코드를 다음 코드로 바꿉니다. 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System.Net;
@@ -131,7 +131,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
     2. **런타임 버전**으로 **~1**을 선택합니다. 
 2. 트리 보기에서 **함수**를 확장하고 함수를 선택합니다. 함수의 코드를 다음 코드로 바꿉니다. 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using Newtonsoft.Json;
@@ -288,7 +288,7 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
     4. **항목 구독에서 메시지 가져오기(보기 잠금)** 를 선택합니다. 
 
         ![Logic Apps 디자이너 - 메시지 가져오기 작업](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. **연결의 이름**을 입력합니다. 예:  **항목 구독에서 메시지를 가져오고**, Service Bus 네임스페이스를 선택합니다. 
+    5. **연결의 이름**을 입력합니다. 다음은 그 예입니다.  **항목 구독에서 메시지를 가져오고**, Service Bus 네임스페이스를 선택합니다. 
 
         ![Logic Apps 디자이너 - Service Bus 네임스페이스 선택](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
     6. **RootManageSharedAccessKey**를 선택합니다.

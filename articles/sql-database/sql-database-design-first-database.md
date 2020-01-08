@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459635"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 Azure SQL Database 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 
@@ -35,7 +35,7 @@ Azure SQL 데이터베이스는 Microsoft Cloud(Azure)의 관계형 DBaaS(Databa
 > [!NOTE]
 > 이 자습서에서는 단일 데이터베이스를 사용하고 있습니다. 탄력적 풀의 풀링된 데이터베이스를 사용하거나 관리되는 인스턴스의 인스턴스 데이터베이스를 사용할 수도 있습니다. 관리되는 인스턴스에 대한 연결은 관리되는 인스턴스 빠른 시작을 참조하세요. [빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성](sql-database-managed-instance-configure-vm.md) 및 [빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 설치되어 있어야 합니다.
 
@@ -48,18 +48,18 @@ Azure SQL 데이터베이스는 Microsoft Cloud(Azure)의 관계형 DBaaS(Databa
 
 ## <a name="create-a-blank-single-database"></a>빈 단일 데이터베이스 만들기
 
-Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스토리지 리소스 세트를 사용하여 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에 만들어지고 [데이터베이스 서버](sql-database-servers.md)를 사용하여 관리됩니다.
+Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스토리지 리소스 세트를 사용하여 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에 만들어지고 [데이터베이스 서버](sql-database-servers.md)를 사용하여 관리됩니다.
 
 빈 단일 데이터베이스를 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
 2. **새로 만들기** 페이지의 Azure Marketplace 섹션에서 **데이터베이스**를 선택한 다음, **추천** 섹션에서 **SQL Database**를 클릭합니다.
 
    ![빈 데이터베이스 만들기](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. 위의 이미지에 표시된 대로 다음과 같은 정보를 사용하여 **SQL Database** 형식을 작성합니다.
 
-    | 설정       | 제안 값 | 설명 |
+    | 설정       | 제안 값 | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **데이터베이스 이름** | *yourDatabase* | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
     | **구독** | *yourSubscription*  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
@@ -68,7 +68,7 @@ Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스�
 
 4. **서버**를 클릭하여 기존 데이터베이스 서버를 사용하거나, 새 데이터베이스 서버를 만들어서 구성합니다. 기존 서버를 선택하거나 **새 서버 만들기**를 클릭하고 **새 서버** 양식에 다음 정보를 입력합니다.
 
-    | 설정       | 제안 값 | 설명 |
+    | 설정       | 제안 값 | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
     | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
@@ -125,9 +125,9 @@ SQL Database 서비스는 서버 수준에서 IP 방화벽을 만듭니다. 방�
 [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)를 사용하여 단일 데이터베이스에 대한 연결을 설정합니다.
 
 1. SQL Server Management Studio를 엽니다.
-2. **서버에 연결** 대화 상자에서 다음 정보를 입력합니다.
+2. **서버에 연결** 대화 상자에 다음 정보를 입력합니다.
 
-   | 설정       | 제안 값 | 설명 |
+   | 설정       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **서버 유형** | 데이터베이스 엔진 | 이 값은 필수입니다. |
    | **서버 이름** | 정규화된 서버 이름 | 예: *yourserver.database.windows.net*. |
@@ -135,7 +135,7 @@ SQL Database 서비스는 서버 수준에서 IP 방화벽을 만듭니다. 방�
    | **로그인** | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
    | **암호** | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
 
-   ![서버 연결](./media/sql-database-design-first-database/connect.png)
+   ![서버에 연결](./media/sql-database-design-first-database/connect.png)
 
 3. **서버에 연결** 대화 상자에서 **옵션**을 클릭합니다. **데이터베이스에 연결** 섹션에서 *yourDatabase*를 입력하여 이 데이터베이스에 연결합니다.
 
@@ -151,7 +151,7 @@ SQL Database 서비스는 서버 수준에서 IP 방화벽을 만듭니다. 방�
 
 [Transact-SQL](/sql/t-sql/language-reference)을 사용하여 대학의 학생 관리 시스템을 모델링하는 네 개의 테이블이 있는 데이터베이스 스키마 만들기
 
-- 사람
+- Person
 - 과정
 - 학생
 - 크레딧
@@ -270,7 +270,7 @@ SQL Database 서비스는 서버 수준에서 IP 방화벽을 만듭니다. 방�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 여러 가지 기본적인 데이터베이스 작업에 대해 알아보았습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 여러 가지 기본적인 데이터베이스 작업에 대해 알아보았습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > - 단일 데이터베이스 만들기

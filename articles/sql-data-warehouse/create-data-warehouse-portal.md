@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 841041cb9fa20b034dd4522a5231813b71558bd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815808"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457817"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse 생성 및 쿼리
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-data-warehouse"></a>데이터 웨어하우스 만들기
 
-정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트를 사용하여 Azure SQL Data Warehouse가 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-logical-servers.md)에 생성됩니다. 
+정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트를 사용하여 Azure SQL Data Warehouse가 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-logical-servers.md)에 생성됩니다. 
 
 다음 단계에 따라 AdventureWorksDW 샘플 데이터가 포함된 SQL Data Warehouse를 만듭니다. 
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 3. 다음 정보로 SQL Data Warehouse 양식을 작성합니다.
 
-    | 설정 | 제안 값 | 설명 |
+    | 설정 | 제안 값 | Description |
     | :------ | :-------------- | :---------- |
     | **구독** | 사용자의 구독 | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
     | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 기존 **서버**를 선택하거나 **새로 만들기**를 클릭하여 새 데이터베이스에 대한 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
 
-    | 설정 | 제안 값 | 설명 |
+    | 설정 | 제안 값 | Description |
     | :------ | :-------------- | :---------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
     | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
@@ -136,9 +136,9 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 1. SQL Server Management Studio를 엽니다.
 
-2. **서버에 연결** 대화 상자에서 다음 정보를 입력합니다.
+2. **서버에 연결** 대화 상자에 다음 정보를 입력합니다.
 
-   | 설정 | 제안 값 | 설명 |
+   | 설정 | 제안 값 | Description |
    | :------ | :-------------- | :---------- |
    | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
    | 서버 이름 | 정규화된 서버 이름 | 다음은 예제 **mynewserver-20180430.database.windows.net**입니다. |
@@ -147,7 +147,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
    | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
    ||||
 
-    ![서버 연결](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![서버에 연결](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
 3. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
 

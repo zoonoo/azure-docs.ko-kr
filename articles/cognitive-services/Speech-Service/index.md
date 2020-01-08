@@ -4,12 +4,12 @@ ms.date: 11-21-2019
 ms.topic: hub-page
 title: Speech Service 설명서
 description: Speech Service를 시작합니다. 음성을 인식하거나, 음성을 합성하거나, 실시간 번역을 받거나, 대화를 받아쓰거나, 음성을 봇 경험에 통합합니다.
-ms.openlocfilehash: df90416b9ef046d68b5785b1fcb203159831e8fd
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 7ae8f33e949519cc32d81b591503a159e045178b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381276"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -590,7 +590,7 @@ ms.locfileid: "74885902"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>사용자 지정 명령 사용</h3>
-                                                    <p>언어 이해 및 오류 수정을 통해 간단하고 강력한 명령을 빌드하고 상호 작용을 제어하는 방법을 알아봅니다.</p>
+                                                    <p>사용자가 음성을 사용하여 작업을 완료할 수 있도록 강력한 명령을 쉽게 빌드하고 음성 애플리케이션을 제어하는 방법을 알아봅니다.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -603,7 +603,7 @@ ms.locfileid: "74885902"
                         <a href="#support">지원</a>
                         <ul id="support" class="cardsC">
                             <li>
-                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
+                                <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -622,7 +622,7 @@ ms.locfileid: "74885902"
                                 </a>
                             </li>
                             <li>
-                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive">
+                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

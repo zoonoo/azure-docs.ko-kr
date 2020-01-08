@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7eeaadc80a97a96e6effdfc9e5cc76c201998f3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013973"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438051"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Azure Digital Twins에서 역할 할당 만들기 및 관리
 
@@ -36,13 +36,13 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 
 아래 표에서는 각 특성을 설명합니다.
 
-| 특성 | 이름 | 필수 | 형식 | 설명 |
+| attribute | 이름 | 필수 | 유형 | Description |
 | --- | --- | --- | --- | --- |
-| roleId | 역할 정의 식별자 | 예 | 문자열 | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
-| objectId | 개체 식별자 | 예 | 문자열 | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
-| objectIdType | 개체 식별자 유형 | 예 | 문자열 | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
-| path | 공간 경로 | 예 | 문자열 | `Space` 개체의 전체 액세스 경로입니다. 예는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
-| tenantId | 테넌트 식별자 | 다름 | 문자열 | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
+| roleId | 역할 정의 식별자 | 예 | String | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
+| objectId | 개체 식별자 | 예 | String | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
+| objectIdType | 개체 식별자 유형 | 예 | String | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
+| 경로 | 공간 경로 | 예 | String | `Space` 개체의 전체 액세스 경로입니다. 예제는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
+| tenantId | 테넌트 식별자 | 다양함 | String | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
 
 ### <a name="supported-role-definition-identifiers"></a>지원되는 역할 정의 식별자
 
@@ -163,10 +163,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **매개 변수 값** | **필수** |  **형식** |  **설명** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  true | 문자열 |   UserId objectIdType의 objectId입니다. |
-| YOUR_PATH | true | 문자열 |   액세스를 확인할 선택한 경로입니다. |
-| YOUR_ACCESS_TYPE |  true | 문자열 |   *읽기*, *만들기*, *업데이트*또는 *삭제* |
-| YOUR_RESOURCE_TYPE | true | 문자열 |  *장치*, *deviceblobmetadata*, *deviceblobmetadata*, *extendedpropertykey*, *extendedtype*, *Endpoint*, *키 저장소*, *선택기*, *Ontology*, *Report*, *roledefinition*, *센서*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*,  *UerDefinedFunction*, *User*, *Userblobmetadata*또는 *userblobmetadata* |
+| YOUR_USER_ID |  참 | String |   UserId objectIdType의 objectId입니다. |
+| YOUR_PATH | 참 | String |   액세스를 확인할 선택한 경로입니다. |
+| YOUR_ACCESS_TYPE |  참 | String |   *읽기*, *만들기*, *업데이트*또는 *삭제* |
+| YOUR_RESOURCE_TYPE | 참 | String |  *장치*, *deviceblobmetadata*, *deviceblobmetadata*, *extendedpropertykey*, *extendedtype*, *Endpoint*, *키 저장소*, *선택기*, *Ontology*, *Report*, *roledefinition*, *센서*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*,  *UerDefinedFunction*, *User*, *Userblobmetadata*또는 *userblobmetadata* |
 
 요청이 성공하면 지정된 경로 및 리소스의 사용자에게 액세스 형식이 할당되었는지 여부를 나타내기 위해 부울 `true` 또는 `false`가 반환됩니다.
 
@@ -204,7 +204,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
-| 매개 변수를 포함해야 합니다. | 다음 항목으로 교체 |
+| 매개 변수 | 다음 항목으로 교체 |
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | 제거할 역할 할당의 **id** |
 
@@ -236,7 +236,7 @@ JSON 본문이 다음 스키마를 준수하는지 확인합니다.
 "d92c7823-6e65-41d4-aaaa-f5b32e3f01b9"
 ```
 
-## <a name="configuration-examples"></a>구성 예제
+## <a name="configuration-examples"></a>구성 예
 
 다음 예제에서는 일반적으로 발생하는 몇 가지 역할 할당 시나리오에 JSON 본문을 구성하는 방법을 보여 줍니다.
 

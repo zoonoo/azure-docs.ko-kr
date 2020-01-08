@@ -1,23 +1,18 @@
 ---
-title: Azure App Configuration 지정 시간 스냅샷 | Microsoft Docs
+title: Azure 앱 구성 시점 스냅숏
 description: Azure App Configuration에서 지정 시간 스냅샷이 작동하는 방법에 대한 개요
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: fdbe4846700c690261dbc734063f4420478666a8
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 02/24/2019
+ms.openlocfilehash: 4db52ce1897aa5a2b809cb7044b9764baffd0767
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185211"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495267"
 ---
 # <a name="point-in-time-snapshot"></a>지정 시간 스냅샷
 
@@ -27,8 +22,10 @@ Azure App Configuration은 새 키-값 쌍을 만든 후 수정할 때의 정확
 
 지난 키-값을 검색하려면 REST API 호출의 HTTP 헤더에 키-값이 스냅샷으로 작성된 시간을 지정합니다. 예:
 
-        GET /kv HTTP/1.1
-        Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+```rest
+GET /kv HTTP/1.1
+Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+```
 
 현재 App Configuration에서는 7일간의 변경 기록을 유지합니다.
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a0917f2649f1b780429f78406900c599c5ac853e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472002"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442571"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>새 Azure API Management 서비스 인스턴스 만들기
 
@@ -47,15 +47,15 @@ Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내�
    
    ![새 인스턴스](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
    
-   | 설정                 | 제안 값                               | 설명                                                                                                                                                                                                                                                                                                                         |
+   | 설정                 | 제안 값                               | Description                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**                | API Management 서비스에 대한 고유한 이름 | 이 이름은 나중에 변경할 수 없습니다. 서비스 이름은 *{name}.azure-api.net* 형식의 기본 도메인 이름을 생성하는 데 사용됩니다. 사용자 지정 도메인 이름을 사용하려는 경우 [사용자 지정 도메인 구성](configure-custom-domain.md)을 참조하세요. <br/> 서비스 이름은 서비스 및 해당하는 Azure 리소스를 참조하는 데 사용됩니다. |
+| **이름**                | API Management 서비스에 대한 고유한 이름 | 이 이름은 나중에 변경할 수 없습니다. 서비스 이름은 *{name}.azure-api.net* 형식의 기본 도메인 이름을 생성하는 데 사용됩니다. 사용자 지정 도메인 이름을 사용하려는 경우 [사용자 지정 도메인 구성](configure-custom-domain.md)을 참조하세요. <br/> 서비스 이름은 서비스 및 해당하는 Azure 리소스를 참조하는 데 사용됩니다. |
 | **구독**        | 사용자의 구독                             | 이 새 서비스 인스턴스가 만들어질 구독입니다. 사용자가 액세스할 수 있는 다양한 Azure 구독 중에서 구독을 선택할 수 있습니다.                                                                                                                                                            |
-| **리소스 그룹**      | *apimResourceGroup*                           | 새 또는 기존 리소스를 선택할 수 있습니다. 리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.                                                                                                  |
+| **리소스 그룹**      | *apimResourceGroup*                           | 새 또는 기존 리소스를 선택할 수 있습니다. 리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.                                                                                                  |
 | **위치**            | *미국 서부*                                    | 가까운 지리적 지역을 선택합니다. 사용 가능한 API Management 서비스 지역만 드롭다운 목록 상자에 표시됩니다.                                                                                                                                                                                                          |
 | **조직 이름**   | 사용자 조직의 이름                 | 이 이름은 여러 개발자 포털 제목 및 알림 전자 메일의 보낸 사람을 비롯하여 여러 위치에 사용됩니다.                                                                                                                                                                                                             |
 | **관리자 전자 메일** | *admin\@org.com*                               | **API Management**에서 모든 알림이 전송될 이메일 주소를 설정합니다.                                                                                                                                                                                                                                              |
-| **가격 책정 계층**        | *Developer*                                   | 서비스를 평가할 **개발자** 계층을 설정합니다. 이 계층은 프로덕션 환경에서 사용할 수 없습니다. API Management 계층 크기 조정에 대한 자세한 내용은 [업그레이드 및 크기 조정](upgrade-and-scale.md)을 참조하세요.                                                                                                                                    |
+| **가격 책정 계층**        | *개발자*                                   | 서비스를 평가할 **개발자** 계층을 설정합니다. 이 계층은 프로덕션 환경에서 사용할 수 없습니다. API Management 계층 크기 조정에 대한 자세한 내용은 [업그레이드 및 크기 조정](upgrade-and-scale.md)을 참조하세요.                                                                                                                                    |
 
 3. **만들기**를 선택합니다.
 

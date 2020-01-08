@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: bf6efbdbe19be28c005e2081c99827734ef10174
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177003"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446466"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>자습서: Azure Logic Apps에서 Form Recognizer를 사용하여 청구서 분석
 
@@ -31,7 +31,7 @@ ms.locfileid: "73177003"
 > * Form Recognizer 리소스를 사용하도록 논리 앱 구성
 > * 논리 앱을 실행하여 워크플로 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
@@ -81,11 +81,11 @@ Azure Logic Apps를 사용하여 작업 및 워크플로를 자동화하고 오�
 
 1. 여기에 보이는 것처럼 **논리 앱 만들기** 아래에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **만들기**를 선택합니다.
 
-   | 자산 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
-   | **Name** | <*logic-app-name*> | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. |
+   | **이름** | <*logic-app-name*> | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. |
    | **구독** | <*Azure-subscription-name*> | Azure 구독 이름 |
-   | **리소스 그룹** | <*Azure-resource-group-name*> | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](./../../azure-resource-manager/resource-group-overview.md)의 이름입니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |
+   | **리소스 그룹** | <*Azure-resource-group-name*> | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](./../../azure-resource-manager/management/overview.md)의 이름입니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |
    | **위치** | <*Azure-region*> | 논리 앱 정보를 저장할 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. |
    | **Log Analytics** | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. |
    ||||

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428382"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure에서 Linux Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -24,14 +24,14 @@ ms.locfileid: "73929537"
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합을 분석 합니다. Spambase는 스팸 또는 ham (스팸이 아님)로 표시 된 전자 메일 집합입니다. Spambase에도 전자 메일의 내용에 대 한 일부 통계가 포함 되어 있습니다. 이 연습의 뒷부분에서 통계에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 Linux DSVM을 사용 하려면 먼저 다음과 같은 필수 구성 요소가 있어야 합니다.
 
 * **Azure 구독**. Azure 구독을 얻으려면 [지금 무료 azure 계정 만들기](https://azure.microsoft.com/free/)를 참조 하세요.
 * [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 가상 컴퓨터를 프로 비전 하는 방법에 대 한 자세한 내용은 [Linux Data Science Virtual Machine 프로 비전](linux-dsvm-intro.md)을 참조 하세요.
 * [**X2Go**](https://wiki.x2go.org/doku.php) 는 열려 있는 XFCE 세션을 사용 하 여 컴퓨터에 설치 됩니다. 자세한 내용은 [Install and configure The X2Go client](linux-dsvm-intro.md#x2go)을 참조 하세요.
-* 더 부드러운 스크롤 환경을 위해 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환 합니다. [자세히 알아봅니다](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `False``mousewheel.enable_pixel_scrolling`을 설정 하는 것이 좋습니다. [자세히 알아봅니다](https://support.mozilla.org/questions/981140).
+* 더 부드러운 스크롤 환경을 위해 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환 합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `False``mousewheel.enable_pixel_scrolling`을 설정 하는 것이 좋습니다. [자세히 알아보기](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning 계정**. 계정이 아직 없는 경우 [Azure Machine Learning 홈 페이지](https://azure.microsoft.com/free/services/machine-learning//)에서 새 계정을 등록 합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
@@ -174,17 +174,17 @@ R을 사용 하 여 데이터를 검토 하 고 몇 가지 기본 기계 학습�
 
 ## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 모델 배포 (클래식)
 
-[Azure Machine Learning Studio (클래식)](https://studio.azureml.net/) 은 예측 분석 모델을 쉽게 빌드하고 배포할 수 있도록 하는 클라우드 서비스입니다. Azure Machine Learning Studio 클래식 버전의 유용한 기능은 R 함수를 웹 서비스로 게시 하는 기능입니다. R 패키지 Azure Machine Learning Studio를 사용 하면 DSVM의 R 세션에서 바로 배포를 쉽게 수행할 수 있습니다.
+[Azure Machine Learning Studio (클래식)](https://studio.azureml.net/) 은 예측 분석 모델을 쉽게 빌드하고 배포할 수 있도록 하는 클라우드 서비스입니다. Azure Machine Learning Studio (클래식)의 유용한 기능은 R 함수를 웹 서비스로 게시 하는 기능입니다. Azure Machine Learning Studio (클래식) R 패키지를 사용 하 여 DSVM의 R 세션에서 바로 배포를 쉽게 수행할 수 있습니다.
 
 이전 섹션에서 의사 결정 트리 코드를 배포 하려면 Azure Machine Learning Studio (클래식)에 로그인 합니다. 로그인할 작업 영역 ID와 권한 부여 토큰이 필요합니다. 이러한 값을 찾고 Azure Machine Learning 변수를 초기화 하려면 다음 단계를 완료 합니다.
 
 1. 왼쪽 메뉴에서 **설정**을 선택 합니다. **작업 영역 ID**의 값을 확인 합니다.
 
-   ![Azure Machine Learning Studio 작업 영역 ID](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![Azure Machine Learning Studio (클래식) 작업 영역 ID](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 1. **권한 부여 토큰** 탭을 선택 합니다. **기본 권한 부여 토큰**에 대 한 값을 확인 합니다.
 
-   ![Azure Machine Learning Studio 기본 권한 부여 토큰](./media/linux-dsvm-walkthrough/workspace-token.png)
+   ![Azure Machine Learning Studio (클래식) 기본 권한 부여 토큰](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. **AzureML** 패키지를 로드 한 다음 Dsvm의 R 세션에서 토큰 및 작업 영역 ID를 사용 하 여 변수 값을 설정 합니다.
 
         if(!require("AzureML")) install.packages("AzureML")

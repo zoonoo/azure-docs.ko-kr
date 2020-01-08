@@ -1,42 +1,42 @@
 - name: 개요
   items:
-    - name: FarmBeats란?
-      href: overview.md
+    - name: Azure FarmBeats란?
+      href: overview-azure-farmbeats.md
 - name: 자습서
   expanded: true
   items:
     - name: 토양 수분 맴 생성
-      href: generate-soil-moisture-map.md
+      href: generate-soil-moisture-map-in-azure-farmbeats.md
     - name: 기록 원격 분석 데이터 수집
-      href: ingest-historical-telemetry-data.md
+      href: ingest-historical-telemetry-data-in-azure-farmbeats.md
 - name: 개념
   items:
     - name: 통합 패턴
-      href: integration-patterns.md
+      href: integration-patterns-in-azure-farmbeats.md
     - name: 센서 파트너 통합
-      href: sensor-partner-integration.md
+      href: sensor-partner-integration-in-azure-farmbeats.md
     - name: 이미지 파트너 통합
-      href: imagery-partner-integration.md
+      href: imagery-partner-integration-in-azure-farmbeats.md
 - name: 방법 가이드
   items:
-    - name: FarmBeats 배포
-      href: prepare-for-deployment.md
+    - name: Azure FarmBeats 설치
+      href: install-azure-farmbeats.md
     - name: 사용자 관리
-      href: manage-users.md
+      href: manage-users-in-azure-farmbeats.md
     - name: 팜 관리
-      href: manage-farms.md
+      href: manage-farms-in-azure-farmbeats.md
     - name: 센서 데이터 가져오기
       href: get-sensor-data-from-sensor-partner.md
     - name: 맵 생성
-      href: generate-maps.md
+      href: generate-maps-in-azure-farmbeats.md
     - name: 규칙 구성 및 경고 관리
-      href: configure-rules-alerts.md
+      href: configure-rules-alerts-in-azure-farmbeats.md
     - name: 드론 이미지 가져오기
-      href: get-drone-imagery.md
+      href: get-drone-imagery-in-azure-farmbeats.md
 - name: 문제 해결
   items:
-    - name: FarmBeats 문제 해결
-      href: troubleshoot-project-farmbeats.md
-- name: 참고 자료
+    - name: Azure FarmBeats 문제 해결
+      href: troubleshoot-azure-farmbeats.md
+- name: 참조
   items: null
-  href: references-for-farmbeats.md
+  href: references-for-azure-farmbeats.md

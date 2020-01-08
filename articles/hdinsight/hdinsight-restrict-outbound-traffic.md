@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621446"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646696"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성
 
@@ -61,22 +61,22 @@ Azure 방화벽을 사용 하 여 기존 HDInsight에서 송신을 잠그는 단
 
     | 속성|  값|
     |---|---|
-    |Name| FwAppRule|
+    |이름| FwAppRule|
     |우선 순위|200|
-    |액션(Action)|허용|
+    |실행력|허용|
 
     **FQDN 태그 섹션**
 
-    | Name | 원본 주소 | FQDN 태그 | 참고 사항 |
+    | 이름 | 소스 주소 | FQDN 태그 | 메모 |
     | --- | --- | --- | --- |
     | Rule_1 | * | Windowsupdate.log 및 HDInsight | HDI 서비스에 필요 합니다. |
 
     **대상 Fqdn 섹션**
 
-    | Name | 원본 주소 | 프로토콜: 포트 | 대상 FQDN | 참고 사항 |
+    | 이름 | 원본 주소 | 프로토콜: 포트 | 대상 FQDN | 메모 |
     | --- | --- | --- | --- | --- |
-    | Rule_2 | * | https: 443 | login.windows.net | Windows 로그인 작업을 허용 합니다. |
-    | Rule_3 | * | https: 443 | login.microsoftonline.com | Windows 로그인 작업을 허용 합니다. |
+    | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 작업을 허용 합니다. |
+    | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업을 허용 합니다. |
     | Rule_4 | * | https: 443, http: 80 | storage_account_name. windows .net | `storage_account_name`를 실제 저장소 계정 이름으로 바꿉니다. 클러스터가 WASB에서 지원 되는 경우 WASB에 대 한 규칙을 추가 합니다. Https 연결만 사용 하려면 저장소 계정에 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 가 설정 되어 있는지 확인 합니다. |
 
    ![제목: 응용 프로그램 규칙 컬렉션 정보 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -95,13 +95,13 @@ HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만�
 
     | 속성|  값|
     |---|---|
-    |Name| FwNetRule|
+    |이름| FwNetRule|
     |우선 순위|200|
-    |액션(Action)|허용|
+    |실행력|허용|
 
     **IP 주소 섹션**
 
-    | Name | 프로토콜 | 원본 주소 | 대상 주소 | 대상 포트 | 참고 사항 |
+    | 이름 | 프로토콜 | 원본 주소 | 대상 주소 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | 시간 서비스 |
     | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | * | Enterprise Security Package (ESP)를 사용 하는 경우 ESP 클러스터에 대해 AAD와 통신할 수 있도록 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 도메인 컨트롤러의 IP 주소는 포털의 AAD DS 섹션에서 찾을 수 있습니다. |
@@ -110,7 +110,7 @@ HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만�
 
     **서비스 태그 섹션**
 
-    | Name | 프로토콜 | 원본 주소 | 서비스 태그 | 대상 포트 | 참고 사항 |
+    | 이름 | 프로토콜 | 원본 주소 | 서비스 태그 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | HDInsight 서브넷에서 SQL Server에 대 한 서비스 끝점을 구성 하지 않은 경우 SQL 트래픽을 기록 하 고 감사할 수 있도록 SQL의 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다 .이 경우 방화벽을 무시 합니다. |
 
@@ -178,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그램의 모든 종속성을 인식 하지 못할 때 응용 프로그램을 처음 사용할 때 유용 합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
-Azure 방화벽의 규모 제한과 요청이 늘어남에 대 한 자세한 내용은 [이](../azure-subscription-service-limits.md#azure-firewall-limits) 문서를 참조 하거나 [faq](../firewall/firewall-faq.md)를 참조 하세요.
+Azure 방화벽의 규모 제한과 요청이 늘어남에 대 한 자세한 내용은 [이](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) 문서를 참조 하거나 [faq](../firewall/firewall-faq.md)를 참조 하세요.
 
 ## <a name="access-to-the-cluster"></a>클러스터에 대 한 액세스
 

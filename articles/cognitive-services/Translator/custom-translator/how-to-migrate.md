@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446775"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -27,7 +27,7 @@ ms.locfileid: "73836587"
 * 허브 학습에서 마이그레이션된 BLEU 점수는 언제든 "MT 허브의 Bleu 점수" 제목의 모델의 TrainingDetails 페이지에서 찾을 수 있습니다.
 
 > [!Note] 
-> 학습에 성공 하려면 사용자 지정 변환기에 1만의 고유 하 고 압축을 푼 문장이 필요 합니다. 사용자 지정 번역기는 [제안 된 최소값](sentence-alignment.md#suggested-minimum-number-of-sentences)보다 작은 학습을 수행할 수 없습니다.
+> 학습에 성공 하려면 사용자 지정 변환기에 1만의 고유 하 고 압축을 푼 문장이 필요 합니다. 사용자 지정 번역기는 [제안 된 최소값](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences)보다 작은 학습을 수행할 수 없습니다.
 
 ## <a name="find-custom-translator-workspace-id"></a>Custom Translator 작업 영역 ID 찾기
 
@@ -84,7 +84,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
     b. 모든 성공적인 학습: 이 옵션을 선택하면 성공적인 학습 및 관련된 문서가 모두 마이그레이션됩니다.
 
-    c. Custom Translator의 대상 작업 영역 ID를 입력합니다.
+    다. Custom Translator의 대상 작업 영역 ID를 입력합니다.
 
     ![허브에서 마이그레이션하는 방법](media/how-to/how-to-migrate-from-hub-screen.png)
 
@@ -134,10 +134,10 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2    | V3  |
-| SMT 사용자 지정 | 예   | 아니오 |
-| NMT 사용자 지정 | 아니오    | 예 |
-| 새로운 통합 Speech Service 사용자 지정 | 아니오    | 예 |
-| 추적 없음 | 예 | 예 |
+| SMT 사용자 지정 | 예   | 아닙니다. |
+| NMT 사용자 지정 | 아닙니다.    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 아닙니다.    | 예 |
+| 추적이 없음 | 예 | 예 |
 
 ## <a name="new-languages"></a>새 언어
 

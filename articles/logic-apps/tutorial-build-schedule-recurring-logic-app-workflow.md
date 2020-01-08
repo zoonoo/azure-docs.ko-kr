@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456625"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 일정 기반 되풀이 워크플로 만들기
 
 이 자습서에서는 [논리 앱](../logic-apps/logic-apps-overview.md)을 빌드하고 일정에 따라 실행되는 되풀이 워크플로를 자동화하는 방법을 보여 줍니다. 특히 이 논리 앱 예제는 평일 아침마다 실행되며, 두 위치 간의 트래픽을 포함하여 이동 시간을 확인합니다. 시간이 특정 제한을 초과하면 논리 앱에서는 이동 시간 및 목적지에 도달하는 데 걸리는 추가 시간이 포함된 이메일을 보냅니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 빈 논리 앱을 만듭니다.
@@ -32,9 +32,9 @@ ms.locfileid: "74790293"
 
 ![상위 수준 논리 앱 워크플로 개요](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에 가입합니다](https://azure.microsoft.com/free/).
+* Azure 구독 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에 가입합니다](https://azure.microsoft.com/free/).
 
 * Logic Apps에서 지원하는 이메일 공급자(예: Office 365 Outlook, Outlook.com 또는 Gmail)의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 빠른 시작에서는 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다를 수 있습니다.
 
@@ -54,11 +54,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![논리 앱에 대한 정보 제공](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | 자산 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
-   | **Name** | LA-TravelTime | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱의 이름입니다. 이 예에서는 "LA-TravelTime"을 사용합니다. |
+   | **이름** | LA-TravelTime | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱의 이름입니다. 이 예에서는 "LA-TravelTime"을 사용합니다. |
    | **구독** | <*your-Azure-subscription-name*> | Azure 구독 이름 |
-   | **리소스 그룹** | LA-TravelTime-RG | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. 이 예에서는 "LA-TravelTime-RG"를 사용합니다. |
+   | **리소스 그룹** | LA-TravelTime-RG | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 예에서는 "LA-TravelTime-RG"를 사용합니다. |
    | **위치** | 미국 서부 | 논리 앱 정보를 저장할 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. |
    | **Log Analytics** | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. |
    ||||
@@ -89,10 +89,10 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![되풀이 트리거의 간격 및 빈도 변경](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **간격** | 예 | 1 | 검사 간에 대기하는 간격의 수 |
-   | **Frequency(빈도)** | 예 | 주 | 되풀이에 사용할 시간 단위 |
+   | **간격** | yes | 1 | 검사 간에 대기하는 간격의 수 |
+   | **빈도** | yes | Week | 되풀이에 사용할 시간 단위 |
    |||||
 
 1. **간격** 및 **빈도** 아래에서 **새 매개 변수 추가** 목록을 열고, 다음 속성을 선택하여 트리거에 추가합니다.
@@ -107,7 +107,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![일정 및 되풀이 세부 정보 입력](./media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png)
 
-   | 자산 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | **요일 선택** | 월요일,화요일,수요일,목요일,금요일 | **빈도**가 "주"로 설정된 경우에만 사용 가능 |
    | **시간 선택** | 7,8,9 | **빈도**가 "주" 또는 "일"로 설정된 경우에만 사용할 수 있습니다. 이 되풀이를 실행할 시간을 선택합니다. 이 예에서는 7, 8 및 9시 표시에 실행됩니다. |
@@ -138,10 +138,10 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![Bing Maps API에 대한 연결 만들기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **연결 이름** | 예 | BingMapsConnection | 연결 이름을 입력합니다. 이 예에서는 "BingMapsConnection"을 사용합니다. |
-   | **API 키** | 예 | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](https://msdn.microsoft.com/library/ff428642.aspx)을 알아보세요. |
+   | **연결 이름** | yes | BingMapsConnection | 연결 이름을 입력합니다. 이 예에서는 "BingMapsConnection"을 사용합니다. |
+   | **API 키** | yes | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](https://msdn.microsoft.com/library/ff428642.aspx)을 알아보세요. |
    |||||
 
 1. `Get route and travel time with traffic` 설명이 포함되도록 작업 이름을 바꿉니다.
@@ -158,13 +158,13 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    !["경로 가져오기" 작업에 대한 세부 정보 제공](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **Waypoint 1** | 예 | <*시작 위치*> | 경로의 출발지 |
-   | **Waypoint 2** | 예 | <*마지막 위치*> | 경로의 도착지 |
-   | **Optimize** | 아니요 | timeWithTraffic | 거리, 현재 트래픽 하에서의 이동 시간 등 경로를 최적화하기 위한 매개 변수. "timeWithTraffic" 매개 변수를 선택합니다. |
-   | **Distance unit** | 아니요 | <*원하는 단위*> | 경로의 거리 단위. 이 예에서는 단위로 "마일"을 사용합니다. |
-   | **Travel mode** | 아니요 | Driving | 경로의 이동 모드. "구동" 모드를 선택합니다. |
+   | **Waypoint 1** | yes | <*시작 위치*> | 경로의 출발지 |
+   | **Waypoint 2** | yes | <*마지막 위치*> | 경로의 도착지 |
+   | **Optimize** | 예 | timeWithTraffic | 거리, 현재 트래픽 하에서의 이동 시간 등 경로를 최적화하기 위한 매개 변수. "timeWithTraffic" 매개 변수를 선택합니다. |
+   | **Distance unit** | 예 | <*원하는 단위*> | 경로의 거리 단위. 이 예에서는 단위로 "마일"을 사용합니다. |
+   | **Travel mode** | 예 | Driving | 경로의 이동 모드. "구동" 모드를 선택합니다. |
    ||||
 
    이러한 매개 변수에 대한 자세한 내용은 [경로 계산](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route)을 참조하세요.
@@ -189,11 +189,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 여기에 설명된 대로 변수에 대한 세부 정보를 입력합니다.
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **Name** | 예 | travelTime | 변수의 이름입니다. 이 예에서는 "travelTime"을 사용합니다. |
-   | **형식** | 예 | 정수 | 변수의 데이터 형식 |
-   | **값** | 아니요| 현재 이동 시간을 초 단위에서 분 단위로 변환하는 식입니다(이 표 아래의 단계 참조). | 변수의 초기 값 |
+   | **이름** | yes | travelTime | 변수의 이름입니다. 이 예에서는 "travelTime"을 사용합니다. |
+   | **형식** | yes | 정수 | 변수의 데이터 형식 |
+   | **값** | 예| 현재 이동 시간을 초 단위에서 분 단위로 변환하는 식입니다(이 표 아래의 단계 참조). | 변수의 초기 값 |
    ||||
 
    1. **값** 속성에 대한 식을 만들려면 동적 콘텐츠 목록이 표시되도록 상자 내부를 클릭합니다. 필요한 경우 목록이 나타날 때까지 브라우저를 확장합니다. 동적 콘텐츠 목록에서 **식**을 선택합니다.

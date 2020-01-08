@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17f02d38c77fce6a256e3c42d887f2b7d560add9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424231"
 ---
 # <a name="confidential-client-assertions"></a>기밀 클라이언트 어설션
 
@@ -42,7 +42,7 @@ MSAL.NET에는 기밀 클라이언트 앱에 자격 증명 또는 어설션을 �
 
 서명 된 클라이언트 어설션은 Azure AD, Base64로 인코딩된 필수 인증 클레임을 포함 하는 페이로드에 서명 된 JWT 형식을 사용 합니다. 이를 사용하려면:
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -51,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Azure AD에서 필요한 클레임은 다음과 같습니다.
 
-클레임 유형 | Value | 설명
+클레임 유형 | 값 | Description
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD) [RFC 7519, 섹션 4.1.3]을 참조 하세요.
 exp | 27 2019 15:04:17 GMT + 0200 (결혼 전 일광 절약 시간) | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, Section 4.1.4]를 참조 하세요.
@@ -62,7 +62,7 @@ sub | ClientID | "Sub" (주체) 클레임은 JWT의 주체를 식별 합니다. 
 
 이러한 클레임을 작성 하는 방법의 예는 다음과 같습니다.
 
-```CSharp
+```csharp
 private static IDictionary<string, string> GetClaims()
 {
       //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
@@ -88,7 +88,7 @@ private static IDictionary<string, string> GetClaims()
 
 서명 된 클라이언트 어설션을 특수 하 게 만드는 방법은 다음과 같습니다.
 
-```CSharp
+```csharp
 string Encode(byte[] arg)
 {
     char Base64PadCharacter = '=';
@@ -138,7 +138,7 @@ string GetSignedClientAssertion()
 
 Jsonwebtoken은를 사용 하 여 어설션을 만들 수도 있습니다. [system.identitymodel.](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) 코드는 아래 예제에 표시 된 것 처럼 더 세련 됩니다.
 
-```CSharp
+```csharp
         string GetSignedClientAssertion()
         {
             var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
@@ -171,7 +171,7 @@ Jsonwebtoken은를 사용 하 여 어설션을 만들 수도 있습니다. [syst
 
 서명 된 클라이언트 어설션이 있으면 아래와 같이 MSAL api와 함께 사용할 수 있습니다.
 
-```CSharp
+```csharp
             string signedClientAssertion = GetSignedClientAssertion();
 
             var confidentialApp = ConfidentialClientApplicationBuilder
@@ -184,7 +184,7 @@ Jsonwebtoken은를 사용 하 여 어설션을 만들 수도 있습니다. [syst
 
 기본적으로 `WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`는 Azure AD에서 예상한 클레임 및 보내려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다. 다음은이 작업을 수행 하는 방법에 대 한 코드 조각입니다.
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)

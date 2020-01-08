@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: wellsi
-ms.openlocfilehash: 3a74f3eb9aece3535f5505d69833a074c2dd0ed2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4d5d3cc6159a4601f0a398e87b89eea9b8d3aba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446953"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>릴리스 정보: 음성 장치 SDK
 
@@ -23,14 +23,14 @@ ms.locfileid: "74091191"
 
 ## <a name="speech-devices-sdk-170"></a>음성 장치 SDK 1.7.0:
 
-*   이제 Linux ARM이 지원 됩니다.
-*   Roobov2에 대 한 초기 이진 파일이 제공 됩니다 (Linux ARM64).
-*   Windows 사용자는 fromDefaultMicrophoneInput () 또는 fromMicrophoneInput (장치 이름)를 사용 하 여 사용할 마이크를 지정할 수 있습니다.
-*   라이브러리 크기가 최적화 되었습니다.
-*   동일한 음성/의도 인식기 개체를 사용 하 여 다중 전환 인식 지원.
-*   인식을 중지 하는 동안 발생 하는 때때로 중단을 해결 합니다.
-*   이제 샘플 앱에는 파일 형식을 보여 주는 샘플 참가자. 속성 파일이 포함 되어 있습니다.
-*   [SPEECH SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.7.0 버전으로 업데이트 되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
+- 이제 Linux ARM이 지원 됩니다.
+- Roobo v2의 초기 이진 파일이 제공 됩니다 (Linux ARM64).
+- Windows 사용자는 `AudioConfig.fromDefaultMicrophoneInput()` 또는 `AudioConfig.fromMicrophoneInput(deviceName)`를 사용 하 여 사용할 마이크를 지정할 수 있습니다.
+- 라이브러리 크기가 최적화 되었습니다.
+- 동일한 음성/의도 인식기 개체를 사용 하 여 다중 전환 인식 지원.
+- 인식을 중지 하는 동안 발생 하는 때때로 중단을 해결 합니다.
+- 이제 샘플 앱에는 파일 형식을 보여 주는 샘플 참가자. 속성 파일이 포함 되어 있습니다.
+- [SPEECH SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.7.0 버전으로 업데이트 되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 
 ## <a name="speech-devices-sdk-160"></a>음성 장치 SDK 1.6.0:
 
@@ -68,8 +68,8 @@ ms.locfileid: "74091191"
 
 - [키워드를 설치](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) 하는 것은 간소화 되었으므로 이제 앱의 일부 이며 장치에 별도로 설치할 필요가 없습니다.
 - 키워드 인식이 변경 되었으며 두 개의 이벤트가 지원 됩니다.
-  - RecognizingKeyword는 음성 결과에 (확인 되지 않은) 키워드 텍스트가 포함 되어 있음을 나타냅니다.
-  - RecognizedKeyword는 키워드 인식이 지정 된 키워드를 인식 하 여 완료 되었음을 나타냅니다.
+  - `RecognizingKeyword,`는 음성 결과에 (확인 되지 않은) 키워드 텍스트가 포함 되어 있음을 나타냅니다.
+  - `RecognizedKeyword`는 키워드 인식이 지정 된 키워드를 인식 하 여 완료 되었음을 나타냅니다.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>음성 장치 SDK 1.1.0:2018-11 월 릴리스
 

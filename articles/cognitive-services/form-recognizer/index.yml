@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Form Recognizer 설명서
-summary: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 및 유지 관리 작업 없이도 모델이 필드와 항목 간의 레이아웃 및 관계를 이해할 수 있습니다.
+summary: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 작업 없이도 모델이 레이아웃 및 필드 데이터를 이해할 수 있습니다. 수동으로 레이블이 지정된 데이터를 사용하여 감독된 학습을 수행할 수도 있습니다. 레이블이 지정된 데이터로 학습된 모델은 성능이 더 좋으며 더 복잡한 문서와 함께 사용할 수 있습니다.
 metadata:
   title: Form Recognizer 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
-  description: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 및 유지 관리 작업 없이도 모델이 필드와 항목 간의 레이아웃 및 관계를 이해할 수 있습니다.
+  description: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 작업 없이도 모델이 레이아웃 및 필드 데이터를 이해할 수 있습니다. 수동으로 레이블이 지정된 데이터를 사용하여 감독된 학습을 수행할 수도 있습니다. 레이블이 지정된 데이터로 학습된 모델은 성능이 더 좋으며 더 복잡한 문서와 함께 사용할 수 있습니다.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: form-recognizer
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 835eb7bece58e93375c09c51149381d7882702de
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931293"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75446501"
 landingContent:
 - title: Form Recognizer 정보
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: Form Recognizer란?
       url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: Form Recognizer의 새로운 기능
+      url: whats-new.md
   - linkListType: video
     links:
     - text: Form Recognizer를 사용하여 AI 지원 프로세스 자동화
@@ -38,18 +42,38 @@ landingContent:
       url: quickstarts/python-train-extract.md
     - text: REST API 사용(cURL)
       url: quickstarts/curl-train-extract.md
-- title: 수신 확인에서 데이터 추출
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: .NET SDK 사용
-      url: quickstarts/dotnet-sdk.md
 - title: 학습 데이터 세트 빌드
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 학습 데이터 세트 빌드
       url: build-training-data-set.md
+- title: 레이블을 사용하여 사용자 지정 모델 학습
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 레이블이 지정된 데이터
+      url: overview.md#train-with-labels
+  - linkListType: quickstart
+    links:
+    - text: 샘플 레이블 지정 도구를 사용하여 학습
+      url: quickstarts/label-tool.md
+    - text: REST API 및 Python을 사용하여 레이블로 학습
+      url: quickstarts/python-labeled-data.md
+- title: 수신 확인에서 데이터 추출
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: REST API 사용(Python)
+      url: quickstarts/python-receipts.md
+    - text: REST API 사용(cURL)
+      url: quickstarts/curl-receipts.md
+- title: 텍스트 레이아웃 정보 가져오기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: REST API 사용(Python)
+      url: quickstarts/python-layout.md
 - title: 컨테이너 사용
   linkLists:
   - linkListType: get-started
@@ -64,12 +88,14 @@ landingContent:
     links:
     - text: 컨테이너 인스턴스 사용
       url: deploy-form-recognizer-on-container-instances.md
-- title: 참고 자료
+- title: 참조
   linkLists:
   - linkListType: reference
     links:
-    - text: Form Recognizer API
-      url: https://aka.ms/form-recognizer/api
+    - text: Form Recognizer API v2.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+    - text: Form Recognizer API v1.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: .NET SDK
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
     - text: Azure PowerShell

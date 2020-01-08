@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Azure 보안 벤치마크 설명서
+summary: 모범 사례 및 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법을 알아봅니다.
+metadata:
+  title: Azure 보안 벤치마크
+  description: Azure 보안 컨트롤 벤치마크에는 Azure에서 애플리케이션 및 데이터의 보안을 개선하는 데 도움이 되는 권장 사항이 포함되어 있습니다.
+  services: security
+  ms.service: security
+  ms.subservice: fundamentals
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 12/23/2019
+  ms.openlocfilehash: 97f5463ee4348f8e17b8cf571262c361908d7265
+  ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75563865"
+landingContent:
+- title: Azure 보안 벤치마크 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 개요
+      url: overview.md
+    - text: 보안 컨트롤 소개
+      url: introduction.md
+    - text: 클라우드의 공동 책임
+      url: ../fundamentals/shared-responsibility.md
+- title: Single Sign On 설정
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 네트워크 보안
+      url: security-control-network-security.md
+    - text: 로깅 및 모니터링
+      url: security-control-logging-monitoring.md
+    - text: ID 및 Access Control
+      url: security-control-identity-access-control.md
+    - text: 데이터 보호
+      url: security-control-data-protection.md
+    - text: 취약성 관리
+      url: security-control-vulnerability-management.md
+    - text: 자세히 보기
+      url: security-control-inventory-asset-management.md
+- title: 추가 Azure 보안 정보
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Azure 보안 기본 사항
+      url: ../fundamentals/index.yml
+    - text: Azure Security Center
+      url: ../../security-center/index.yml
+    - text: Azure Key Vault
+      url: ../../key-vault/index.yml

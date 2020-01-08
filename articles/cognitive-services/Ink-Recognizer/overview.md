@@ -3,19 +3,19 @@ title: Ink Recognizer란? - Ink Recognizer API
 titleSuffix: Azure Cognitive Services
 description: Ink Recognizer를 애플리케이션, 웹 사이트, 도구 및 기타 솔루션과 통합하여 잉크 스트로크 데이터를 입력으로 식별하고 사용하도록 합니다.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 07/24/2019
-ms.author: erhopf
-ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448161"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Ink Recognizer API란?
 
@@ -28,7 +28,7 @@ Ink Recognizer Cognitive Service는 디지털 잉크 콘텐츠를 분석하고 �
 
 Ink Recognizer API를 사용하면 애플리케이션에서 필기 콘텐츠를 쉽게 인식할 수 있습니다. 
 
-|기능  |설명  |
+|기능  |Description  |
 |---------|---------|
 | 필기 인식 | 63개 주요 [언어 및 로캘](language-support.md)로 필기한 콘텐츠를 인식합니다. | 
 | 레이아웃 인식 | 디지털 잉크 콘텐츠에 대한 구조 정보를 가져옵니다. 콘텐츠를 쓰기 영역, 단락, 선, 단어, 글머리 기호 목록으로 구분합니다. 그러면 애플리케이션에서 레이아웃 정보를 사용하여 자동 목록 서식 지정, 도형 맞춤 같은 추가 기능을 빌드할 수 있습니다. |
@@ -52,7 +52,7 @@ Ink Recognizer API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 J
 다음 언어로 빠른 시작을 수행하여 Ink Recognizer API 호출을 시작합니다.
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
-* [JavaScript](quickstarts/csharp.md)
+* [JavaScript](quickstarts/javascript.md)
 
 Ink Recognizer API가 디지털 잉크 입력 앱에서 어떻게 작동하는지 알아보려면 GitHub에서 다음 샘플 애플리케이션을 살펴보세요.
 * [C# 및 UWP(유니버설 Windows 플랫폼)](https://go.microsoft.com/fwlink/?linkid=2089803)  

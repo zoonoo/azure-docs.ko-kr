@@ -4,23 +4,53 @@
   items:
     - name: Form Recognizer란?
       href: overview.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   expaned: true
   items:
+    - name: 샘플 레이블 지정 도구 사용
+      items:
+        - name: 레이블로 사용자 지정 모델 학습
+          href: quickstarts/label-tool.md
     - name: REST API 사용
       items:
-        - name: 사용자 지정 모델 학습 및 데이터 추출
+        - name: 레이블 없이 사용자 지정 모델 사용 및 학습
           items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract.md
+                - name: Python
+                  href: quickstarts/python-train-extract.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract-v1.md
+                - name: Python
+                  href: quickstarts/python-train-extract-v1.md
+        - name: 레이블로 사용자 지정 모델 사용 및 학습
+          items:
             - name: Python
-              href: quickstarts/python-train-extract.md
+              href: quickstarts/python-labeled-data.md
         - name: 미리 빌드된 수신 모델 사용
           items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts.md
+                - name: Python
+                  href: quickstarts/python-receipts.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts-v1.md
+                - name: Python
+                  href: quickstarts/python-receipts-v1.md
+        - name: 텍스트 레이아웃 정보 가져오기
+          items:
             - name: Python
-              href: quickstarts/python-receipts.md
+              href: quickstarts/python-layout.md
     - name: .NET SDK 사용
       href: quickstarts/dotnet-sdk.md
 - name: 자습서
@@ -41,10 +71,12 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: 컨테이너 인스턴스 사용
           href: deploy-form-recognizer-on-container-instances.md
-- name: 참고 자료
+- name: 참조
   items:
-    - name: Form Recognizer API
-      href: 'https://aka.ms/form-recognizer/api'
+    - name: Form Recognizer API v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
+    - name: Form Recognizer API v1.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDK
       items:
         - name: .NET
