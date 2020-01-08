@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: d800f20826723d3a626d9a0f5f83664927c1185c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4dbc830ea106dee7ef21a28eb3aee63c94680be2
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927591"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664848"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조하세요.
@@ -32,7 +32,7 @@ ms.locfileid: "74927591"
 
 다음 섹션에서는 System Center Service Manager 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 조건이 충족되는지 확인합니다.
 
@@ -160,7 +160,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 3. Azure 자격 증명으로 로그인하고 하이브리드 연결이 만들어진 구독을 선택합니다.
 
-4. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+4. **저장**을 클릭합니다.
 
 하이브리드 연결이 성공적으로 설정됩니다.
 
@@ -177,10 +177,10 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 섹션에서는 ServiceNow 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 다음 필수 조건이 충족되는지 확인합니다.
 - ITSMC가 설치되어 있습니다. 자세한 내용은 [IT Service Management Connector 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
-- ServiceNow 지원 버전: 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키, Geneva.
+- ServiceNow 지원 버전: 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키, Geneva.
 
 **ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.**
 - ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID와 비밀을 생성하는 방법에 대한 자세한 내용은 필요에 따라 다음을 참조하세요.
@@ -283,7 +283,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 섹션에서는 Provance 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 조건이 충족되는지 확인합니다.
 
@@ -336,7 +336,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 섹션에서는 Cherwell 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 조건이 충족되는지 확인합니다.
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d5e78c3ab08e791a5f484e45d487c3a85dc95de7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928371"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613094"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -32,7 +32,7 @@ ms.locfileid: "74928371"
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -166,7 +166,9 @@ public void keepAlive(
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) 특성을 사용합니다.
 
-특성의 생성자는 CRON 식 또는 `TimeSpan`을 사용합니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. 다음 예제는 CRON 식을 보여줍니다.
+특성의 생성자는 CRON 식 또는 `TimeSpan`을 사용합니다. 함수 앱이 App Service 계획에서 실행 되는 경우에만 `TimeSpan`을 사용할 수 있습니다. 소비 또는 탄력적 프리미엄 함수는 `TimeSpan` 지원 되지 않습니다.
+
+다음 예제는 CRON 식을 보여줍니다.
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -213,7 +215,7 @@ public void keepAlive(
 
 다음 표에서는 *function.json* 파일 및 `TimerTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | n/a | "timerTrigger"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | n/a | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
@@ -254,7 +256,7 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 각 필드에는 다음과 같은 형식의 값 중 하나가 포함될 수 있습니다.
 
-|Type  |예제  |트리거될 때  |
+|유형  |예  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>"0 5 * * * *"</nobr>|hh:05:00에서 hh는 매시간임(시간당 한 번)|
 |모든 값(`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm:00에서 mm은 해당 시간의 매분임(하루 60번)|
@@ -268,7 +270,7 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 Azure Functions에서 타이머 트리거에 사용할 수 있는 NCRONTAB 식의 몇 가지 예는 다음과 같습니다.
 
-|예제|트리거될 때  |
+|예|트리거될 때  |
 |---------|---------|
 |`"0 */5 * * * *"`|5분마다 한 번|
 |`"0 0 * * * *"`|1시간이 시작할 때마다 한 번|
@@ -302,7 +304,7 @@ CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)
 
 `WEBSITE_TIME_ZONE`을 사용하는 경우 일광 절약 시간제와 같은 특정 표준 시간대에서 시간 변경에 대해 시간이 조정됩니다. 
 
-## <a name="timespan"></a>timespan
+## <a name="timespan"></a>TimeSpan
 
  App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다.
 
@@ -310,7 +312,7 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 
 `hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
-|예제 |트리거될 때  |
+|예 |트리거될 때  |
 |---------|---------|
 |"01:00:00" | 매시간        |
 |"00:01:00"|매분         |

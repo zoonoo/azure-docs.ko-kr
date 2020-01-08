@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac539b44f09663e6eac5651646d3c9cd02e45b3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360007"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>StorSimple Device Manager를 사용하여 StorSimple Virtual Array의 스토리지 계정 자격 증명 관리
 
@@ -110,7 +110,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 4. 스토리지 계정 자격 증명 **속성** 블레이드에서 다음을 수행합니다.
    
    1. 필요에 따라 **SSL 사용** 모드 선택을 수정할 수 있습니다.
-   2. 스토리지 계정 자격 증명 선택키를 다시 생성하도록 선택할 수 있습니다. 자세한 내용은 [스토리지 계정 키 다시 생성](../storage/common/storage-account-manage.md#access-keys)을 참조하세요. 새 스토리지 계정 자격 증명 키를 제공합니다. Azure Storage 계정의 경우 이 키가 기본 선택키입니다.
+   2. 스토리지 계정 자격 증명 선택키를 다시 생성하도록 선택할 수 있습니다. 자세한 내용은 [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조 하세요. 새 스토리지 계정 자격 증명 키를 제공합니다. Azure Storage 계정의 경우 이 키가 기본 선택키입니다.
    3. **속성** 블레이드 맨 위에 있는 **저장**을 클릭하여 설정을 저장합니다. 설정은 **Storage 계정 자격 증명** 블레이드에서 업데이트됩니다.
       
       ![스토리지 계정 자격 증명 편집](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

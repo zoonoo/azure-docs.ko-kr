@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430209"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>관리자 동의 워크플로 구성 (미리 보기)
 
@@ -95,7 +95,7 @@ ms.locfileid: "74786438"
    * **요청을 거부**합니다. 요청을 거부 하려면 모든 요청자에 게 제공 되는 근거를 제공 해야 합니다. 요청이 거부 되 면 모든 요청자에 게 응용 프로그램에 대 한 액세스가 거부 되었다는 알림이 표시 됩니다. 요청을 거부 해도 사용자가 나중에 앱에 대 한 관리자 동의를 요청 하지 않습니다.  
    * **요청을 차단**합니다. 요청을 차단 하려면 모든 요청자에 게 제공 되는 근거를 제공 해야 합니다. 요청이 차단 되 면 모든 요청자에 게 응용 프로그램에 대 한 액세스가 거부 되었다는 알림이 표시 됩니다. 요청을 차단 하면 사용 하지 않도록 설정 된 상태에서 테 넌 트의 응용 프로그램에 대 한 서비스 주체 개체가 만들어집니다. 사용자는 나중에 응용 프로그램에 대 한 관리자 동의를 요청할 수 없습니다.
  
-## <a name="email-notifications"></a>전자 메일 알림
+## <a name="email-notifications"></a>이메일 알림
  
 구성 된 경우 모든 검토자는 다음과 같은 경우에 전자 메일 알림을 받게 됩니다.
 
@@ -153,8 +153,10 @@ ms.locfileid: "74786438"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-[동의 및 AzureAD와 앱 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+[최종 사용자가 응용 프로그램에 동의 하는 방식 구성](configure-user-consent.md)
 
-[AzureAD v2.0 수렴형 앱에 대한 동의 및 권한 부여](../develop/active-directory-v2-scopes.md)
+[응용 프로그램에 대 한 테 넌 트 전체 관리자 동의 부여](grant-admin-consent.md)
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Microsoft id 플랫폼에서 사용 권한 및 동의](../develop/active-directory-v2-scopes.md)
+
+[StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

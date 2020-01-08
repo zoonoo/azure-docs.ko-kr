@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f7554993e2e3d8d2f6bce71db57a746a4392ce1a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 32133fc5c01544250075ece2458babe2f0b6a62a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095082"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660701"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
 
@@ -45,7 +45,7 @@ Batch [관리 .net][api_mgmt_net] 라이브러리를 사용 하 여 batch 계정
 ## <a name="create-and-delete-batch-accounts"></a>Batch 계정을 만들고 삭제
 위에서 설명한 대로 Batch 관리 API의 주요 기능은 Azure 지역에서 Batch 계정을 만들고 삭제하는 것입니다. 이렇게 하려면 [Batchmanagementclient. Account. CreateAsync][net_create] 및 [DeleteAsync][net_delete]또는 동기 대응 항목을 사용 합니다.
 
-다음 코드 조각은 계정을 만들고 Batch 서비스에서 새로 만든 계정을 가져온 후 삭제합니다. 이 코드 조각과이 문서의 `batchManagementClient` 다른 항목은 [batchmanagementclient][net_mgmt_client]의 완전히 초기화 된 인스턴스입니다.
+다음 코드 조각은 계정을 만들고 Batch 서비스에서 새로 만든 계정을 가져온 후 삭제합니다. 이 코드 조각과이 문서의 다른 사용자가 `batchManagementClient`은 [Batchmanagementclient][net_mgmt_client]의 완전히 초기화 된 인스턴스입니다.
 
 ```csharp
 // Create a new Batch account
@@ -95,7 +95,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 > 
 
 ## <a name="check-azure-subscription-and-batch-account-quotas"></a>Azure 구독 및 Batch 계정 할당량 확인
-Azure 구독 및 Batch와 같은 개별 Azure 서비스는 모두 포함되는 특정 엔터티 수를 제한하는 기본 할당량이 있습니다. Azure 구독에 대한 기본 할당량의 경우 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요. Batch 서비스의 기본 할당량의 경우 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요. Batch 관리 .NET 라이브러리를 사용하여 애플리케이션에서 이러한 할당량을 확인할 수 있습니다. 계정 또는 풀과 같은 컴퓨팅 리소스 및 컴퓨팅 노드를 추가하기 전에 할당 결정을 내릴 수 있습니다.
+Azure 구독 및 Batch와 같은 개별 Azure 서비스는 모두 포함되는 특정 엔터티 수를 제한하는 기본 할당량이 있습니다. Azure 구독에 대한 기본 할당량의 경우 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요. Batch 서비스의 기본 할당량의 경우 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요. Batch 관리 .NET 라이브러리를 사용하여 애플리케이션에서 이러한 할당량을 확인할 수 있습니다. 계정 또는 풀과 같은 컴퓨팅 리소스 및 컴퓨팅 노드를 추가하기 전에 할당 결정을 내릴 수 있습니다.
 
 ### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Azure 구독에서 Batch 계정 할당량 확인
 지역에 Batch 계정을 만들기 전에 Azure 구독에서 해당 지역에 계정을 추가할 수 있는지 여부를 확인할 수 있습니다.
@@ -124,7 +124,7 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-위의 `creds` 코드 조각에서는 [tokencloudcredentials][azure_tokencreds]의 인스턴스입니다. 이 개체를 만드는 예제를 보려면 GitHub의 [Accountmanagement][acct_mgmt_sample] 코드 샘플을 참조 하세요.
+위의 코드 조각에서 `creds`은 [Tokencloudcredentials][azure_tokencreds]의 인스턴스입니다. 이 개체를 만드는 예제를 보려면 GitHub의 [Accountmanagement][acct_mgmt_sample] 코드 샘플을 참조 하세요.
 
 ### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Batch 계정에서 컴퓨팅 리소스 할당량 확인
 Batch 솔루션에서 컴퓨팅 리소스를 늘리기 전에 할당할 리소스가 해당 계정의 할당량을 초과하지 않는지 확인할 수 있습니다. 아래 코드 조각에서는 `mybatchaccount`라는 Batch 계정에 대한 할당량 정보를 간단히 출력합니다. 하지만 애플리케이션에서 이러한 정보를 사용하여 만들려는 추가 리소스를 계정에서 처리할 수 있는지 여부를 확인할 수 있습니다.
@@ -198,7 +198,7 @@ Batch 관리 .NET 라이브러리는 Azure 리소스 공급자 클라이언트 �
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
 [resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
-[resman_overview]: ../azure-resource-manager/resource-group-overview.md
+[resman_overview]: ../azure-resource-manager/management/overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png

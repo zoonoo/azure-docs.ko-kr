@@ -1,19 +1,14 @@
 ---
-title: Azure Service Fabric-Service Fabric 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한 부여 | Microsoft Docs
+title: 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한 부여
 description: 이 문서에서는 Azure Active Directory 기반 인증을 지 원하는 다른 Azure 리소스에 대 한 관리 id 사용 Service Fabric 응용 프로그램 액세스 권한을 부여 하는 방법을 설명 합니다.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2019
-ms.author: atsenthi
-ms.openlocfilehash: 467b202cf6b981969316a2646aac99f788f7a2f4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 12/09/2019
+ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091190"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614796"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Azure 리소스에 대 한 Service Fabric 응용 프로그램의 관리 되는 id 액세스 권한 부여 (미리 보기)
 
@@ -29,18 +24,18 @@ Service Fabric 응용 프로그램의 관리 되는 id (이 경우 사용자 할
 3. 필드 기존 액세스 확인: ' 찾기 ' 컨트롤에서 시스템 또는 사용자 할당 관리 id를 선택 합니다. 결과 결과 목록에서 적절 한 id를 선택 합니다.
 4. 페이지 맨 위에 있는 + 역할 할당 추가를 클릭 하 여 응용 프로그램 id에 대 한 새 역할 할당을 추가 합니다.
 역할 아래의 드롭다운에서 저장소 Blob 데이터 판독기를 선택 합니다.
-5. 다음 드롭다운에서 다음에 대 한 액세스 할당에서을 선택 `User assigned managed identity`합니다.
+5. 다음 드롭다운에서 다음에 대 한 액세스 할당에서 `User assigned managed identity`을 선택 합니다.
 6. 그런 다음 구독 드롭다운에 적절 한 구독이 나열 되는지 확인 하 고 리소스 그룹을 모든 리소스 그룹으로 설정 합니다.
 7. 선택에서 Service Fabric 응용 프로그램에 해당 하는 UAI를 선택 하 고 저장을 클릭 합니다.
 
-시스템 할당 Service Fabric 관리 id에 대 한 지원은 Azure Portal의 통합을 포함 하지 않습니다. 응용 프로그램에서 시스템에 할당 된 id를 사용 하는 경우 먼저 응용 프로그램 id의 클라이언트 id를 찾은 다음 위 단계를 반복 하 고 찾기 컨트롤에서 `Azure AD user, group, or service principal` 옵션을 선택 해야 합니다.
+시스템 할당 Service Fabric 관리 id에 대 한 지원은 Azure Portal의 통합을 포함 하지 않습니다. 응용 프로그램에서 시스템에 할당 된 id를 사용 하는 경우 먼저 응용 프로그램 id의 클라이언트 ID를 찾은 후 위의 단계를 반복 하 되 찾기 컨트롤에서 `Azure AD user, group, or service principal` 옵션을 선택 해야 합니다.
 
 ## <a name="granting-access-to-azure-key-vault"></a>Azure Key Vault에 대 한 액세스 권한 부여
 저장소에 액세스 하는 것과 마찬가지로 Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure key vault에 액세스할 수 있습니다. Azure Portal에서 액세스 권한을 부여 하는 단계는 위에 나열 된 것과 유사 하며 여기에서는 반복 되지 않습니다. 차이점은 아래 이미지를 참조 하세요.
 
 ![Key Vault 액세스 정책](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-다음 예제에서는 템플릿 배포를 통해 자격 증명 모음에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 아래 코드 조각을 템플릿의 `resources` 요소 아래에 있는 다른 항목으로 추가 합니다. 이 샘플에서는 사용자 할당 id 유형과 시스템 할당 id 유형 모두에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다.
+다음 예제에서는 템플릿 배포를 통해 자격 증명 모음에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 템플릿의 `resources` 요소 아래에 있는 다른 항목으로 아래 코드 조각을 추가 합니다. 이 샘플에서는 사용자 할당 id 유형과 시스템 할당 id 유형 모두에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다.
 
 ```json
     # under 'variables':

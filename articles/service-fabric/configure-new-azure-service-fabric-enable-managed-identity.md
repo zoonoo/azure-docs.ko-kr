@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric-관리 되는 Id를 지 원하는 새 Azure Service Fabric 클러스터 배포 | Microsoft Docs
+title: 관리 Id를 사용 하 여 새 Service Fabric 클러스터 배포
 description: 이 문서에서는 관리 되는 Id를 사용 하 여 새 Service Fabric 클러스터를 만드는 방법을 보여 줍니다.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: cb32251c2507f3def7f5e830af15828ff2f04c29
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 12/09/2019
+ms.openlocfilehash: 4893fe47de78445a7dccb4f5800498b30cd6c1f2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640715"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614862"
 ---
 # <a name="create-a-new-azure-service-fabric-cluster-with-managed-identity-support-preview"></a>관리 Id 지원 (미리 보기)을 사용 하 여 새 Azure Service Fabric 클러스터 만들기
 

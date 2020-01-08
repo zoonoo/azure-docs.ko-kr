@@ -1,26 +1,18 @@
 ---
-title: Threat Modeling Tool 릴리스 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool 릴리스 11/1/2018-Azure
 description: Threat Modeling Tool 릴리스 정보 문서화
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
-ms.author: jegeib
-ms.openlocfilehash: 2fb3756e153a52515e598bb31fea1e999144bb28
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a84d31df491a9cf455a21b9640df36ed29c83cbb
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934769"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552086"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool 업데이트 릴리스 7.1.51023.1 - 2018/11/1
 
@@ -36,7 +28,7 @@ ms.locfileid: "68934769"
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 
-- Supported Operating Systems
+- 지원되는 운영 체제
   - Microsoft Windows 10
 - 필요한 .NET 버전
   - .NET 3.5.2

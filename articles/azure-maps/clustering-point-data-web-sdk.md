@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 4a583f77aac036028fd75d3c05af805031f08ebd
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433024"
 ---
 # <a name="clustering-point-data"></a>클러스터링 지점 데이터
 
@@ -48,11 +48,11 @@ var datasource = new atlas.source.DataSource(null, {
 
 또한 `DataSource` 클래스에는 클러스터링과 관련 된 다음 메서드가 있습니다.
 
-| 메서드 | 반환 형식 | 설명 |
+| 방법 | 반환 형식 | Description |
 |--------|-------------|-------------|
-| getClusterChildren (clusterId: number) | &lt;배열&lt;기능&lt;기 하 도형,&gt; \| 셰이프&gt;&gt; | 다음 확대/축소 수준에서 지정 된 클러스터의 자식을 검색 합니다. 이러한 자식은 도형과 하위 클러스터의 조합일 수 있습니다. 하위 클러스터는 ClusteredProperties와 일치 하는 속성이 있는 기능입니다. |
+| getClusterChildren (clusterId: number) | &lt;배열&lt;기능&lt;기 하 도형,&gt; \| 셰이프&gt; | 다음 확대/축소 수준에서 지정 된 클러스터의 자식을 검색 합니다. 이러한 자식은 도형과 하위 클러스터의 조합일 수 있습니다. 하위 클러스터는 ClusteredProperties와 일치 하는 속성이 있는 기능입니다. |
 | getClusterExpansionZoom (clusterId: number) | 약속&lt;번호&gt; | 클러스터가 확장 또는 분리를 시작 하는 확대/축소 수준을 계산 합니다. |
-| getClusterLeaves (clusterId: number, limit: number, offset: number) | &lt;배열&lt;기능&lt;기 하 도형,&gt; \| 셰이프&gt;&gt; | 클러스터에 있는 모든 요소를 검색 합니다. `limit`를 설정 하 여 점의 하위 집합을 반환 하 고 `offset`를 사용 하 여 요소를 통해 페이지를 이동 합니다. |
+| getClusterLeaves (clusterId: number, limit: number, offset: number) | &lt;배열&lt;기능&lt;기 하 도형,&gt; \| 셰이프&gt; | 클러스터에 있는 모든 요소를 검색 합니다. `limit`를 설정 하 여 점의 하위 집합을 반환 하 고 `offset`를 사용 하 여 요소를 통해 페이지를 이동 합니다. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>거품형 계층을 사용 하 여 클러스터 표시
 
@@ -88,12 +88,12 @@ var datasource = new atlas.source.DataSource(null, {
 
 클러스터 된 데이터 요소를 포함 하는 계층에서 마우스 이벤트가 발생 하면 클러스터형 데이터 요소가 이벤트에 GeoJSON point 기능 개체로 반환 됩니다. 이 지점 기능에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름 | 에 | 설명 |
-|---------------|------|-------------|
-| cluster | boolean | 기능이 클러스터를 나타내는지 여부를 나타냅니다. |
-| cluster_id | string | DataSource `getClusterExpansionZoom`, `getClusterChildren`및 `getClusterLeaves` 메서드와 함께 사용할 수 있는 클러스터의 고유 ID입니다. |
-| point_count | number | 클러스터에 포함 된 지점의 수입니다. |
-| point_count_abbreviated | string | Long 인 경우 `point_count` 값을 줄여서 표시 하는 문자열입니다. (예를 들어 4000은 4K가 됨) |
+| 속성 이름             | 유형    | Description   |
+|---------------------------|---------|---------------|
+| `cluster`                 | boolean | 기능이 클러스터를 나타내는지 여부를 나타냅니다. |
+| `cluster_id`              | 문자열  | DataSource `getClusterExpansionZoom`, `getClusterChildren`및 `getClusterLeaves` 메서드와 함께 사용할 수 있는 클러스터의 고유 ID입니다. |
+| `point_count`             | number  | 클러스터에 포함 된 지점의 수입니다.  |
+| `point_count_abbreviated` | 문자열  | Long 인 경우 `point_count` 값을 줄여서 표시 하는 문자열입니다. (예를 들어 4000은 4K가 됨)  |
 
 이 예제에서는 클러스터 지점을 렌더링 하 고 클릭 한 다음 확대/축소 수준으로 지도를 트리거하고 계산 하 고 확대/축소 하는 거품형 계층을 사용 합니다 .이 경우에는 `DataSource` 클래스의 `getClusterExpansionZoom` 메서드를 사용 하 여 클러스터를 분리 하 고 클릭 한 클러스터형 데이터 요소의 `cluster_id` 속성을 사용 합니다. 
 

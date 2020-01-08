@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 019c44cedba166dc1ac06a0244fa2b2e7930e673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230363"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561870"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions 신뢰할 수 있는 이벤트 처리
 
@@ -59,7 +59,7 @@ Azure Functions는 성공 또는 실패에 관계 없이 스트림의 포인터�
 
 ### <a name="retry-mechanisms-and-policies"></a>다시 시도 메커니즘 및 정책
 
-일부 예외는 본래 일시적 이며 나중에 작업을 다시 시도 하는 경우 다시 표시 되지 않습니다. 첫 번째 단계는 항상 작업을 다시 시도 하는 것입니다. 다시 시도 처리 규칙을 직접 작성할 수 있지만 많은 도구를 사용 하는 것이 일반적입니다. 이러한 라이브러리를 사용 하 여 처리 순서를 유지 하는 데 도움이 되는 강력한 다시 시도 정책을 정의할 수 있습니다.
+일부 예외는 본래 일시적 이며 나중에 작업을 다시 시도 하는 경우 다시 표시 되지 않습니다. 첫 번째 단계는 항상 작업을 다시 시도 하는 것입니다. 재시도 처리 규칙을 직접 작성할 수 있지만 많은 도구를 사용할 수 있는 것이 일반적입니다. 이러한 라이브러리를 사용 하 여 처리 순서를 유지 하는 데 도움이 되는 강력한 다시 시도 정책을 정의할 수 있습니다.
 
 함수에 오류 처리 라이브러리를 도입 하면 기본 및 고급 재시도 정책을 모두 정의할 수 있습니다. 예를 들어 다음 규칙에 설명 된 워크플로를 따르는 정책을 구현할 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure Functions는 성공 또는 실패에 관계 없이 스트림의 포인터�
 - 그러면 손상 되거나 처리 되지 않은 메시지가 나중에 처리 됩니다.
 
 > [!NOTE]
-> 응용 프로그램에 대 한 C# 복원 력 및 일시적인 오류 처리 라이브러리의 한 가지 예입니다. [](https://github.com/App-vNext/Polly)
+> [Polly](https://github.com/App-vNext/Polly)는 응용 프로그램에 대한 C# 복원력 및 일시적인 오류 처리 라이브러리의 한 가지 예입니다.
 
 미리 컴파일된 C# 클래스 라이브러리로 작업할 때 [예외 필터](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) 를 사용 하면 처리 되지 않은 예외가 발생할 때마다 코드를 실행할 수 있습니다.
 
@@ -82,7 +82,7 @@ Azure Functions는 성공 또는 실패에 관계 없이 스트림의 포인터�
 
 ## <a name="stop-and-restart-execution"></a>실행 중지 및 다시 시작
 
-몇 가지 오류가 허용 될 수 있지만 앱에 심각한 오류가 발생 하는 경우 어떻게 되나요? 시스템이 정상 상태에 도달할 때까지 이벤트 트리거를 중지 하는 것이 좋습니다. 기회를 일시 중지 하는 것은 회로 차단기 패턴을 통해 수행 되는 경우가 많습니다. 회로 차단기 패턴을 사용 하면 앱이 이벤트 프로세스의 "회로를 중단" 하 고 나중에 다시 시작할 수 있습니다.
+몇 가지 오류가 허용 될 수 있지만 앱에 심각한 오류가 발생 하는 경우 어떻게 되나요? 시스템이 정상 상태에 도달할 때까지 이벤트 트리거를 중지 하는 것이 좋습니다. 일반적으로 회로 차단기 패턴을 사용 하 여 처리를 일시 중지할 수 있습니다. 회로 차단기 패턴을 사용 하면 앱이 이벤트 프로세스의 "회로를 중단" 하 고 나중에 다시 시작할 수 있습니다.
 
 이벤트 프로세스에서 회로 차단기를 구현 하는 데 필요한 두 가지 부분은 다음과 같습니다.
 
@@ -127,7 +127,7 @@ Azure Logic Apps는 다른 서비스에 대 한 기본 제공 커넥터, 기능 
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 - [Azure Functions 오류 처리](./functions-bindings-error-pages.md)
 - [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)

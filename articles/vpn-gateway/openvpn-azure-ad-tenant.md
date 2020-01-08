@@ -5,21 +5,21 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/03/2020
 ms.author: alzam
-ms.openlocfilehash: 73c379d914f37de351165c19e3d73425e9a202b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
-ms.translationtype: MT
+ms.openlocfilehash: 2e62708c98ac86354777cf1bdd93a3deff943b98
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151873"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665352"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기
 
 VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사용할 수 있습니다. 그러나 오픈 VPN 프로토콜을 사용 하는 경우 Azure Active Directory 인증을 사용할 수도 있습니다. 이 문서는 P2S 오픈 VPN 인증을 위해 Azure AD 테 넌 트를 설정 하는 데 도움이 됩니다.
 
 > [!NOTE]
-> Azure AD 인증은 OpenVPN® 프로토콜 연결에 대해서만 지원 됩니다.
+> Azure AD 인증은 OpenVPN® 프로토콜 연결에만 지원됩니다.
 >
 
 ## <a name="tenant"></a>1. Azure AD 테 넌 트 만들기
@@ -84,7 +84,7 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 
 6. 메시지가 표시 되 면 **동의** 를 선택 합니다.
 
-    ![허용](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![수락](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Azure AD의 **엔터프라이즈 응용 프로그램**에는 나열 된 **azure VPN** 이 표시 됩니다.
 
@@ -95,10 +95,10 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/"
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
     ```
 
-9. 다음 명령을 실행 하 여 프로필을 만들고 다운로드 합니다. -ResourcGroupName 및-Name 값을 사용자가 직접 일치 하도록 변경 합니다.
+9. 다음 명령을 실행 하 여 프로필을 만들고 다운로드 합니다. -ResourceGroupName 및-Name 값을 고유 하 게 일치 하도록 변경 합니다.
 
     ```azurepowershell-interactive
     $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"

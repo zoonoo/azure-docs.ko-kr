@@ -1,5 +1,5 @@
 ---
-title: Azure Files 확장성 및 성능 목표 | Microsoft Docs
+title: Azure Files 확장성 및 성능 목표
 description: 용량, 요청 속도 및 인바운드/아웃바운드 대역폭 제한을 포함하여 Azure Files의 확장성 및 성능 목표를 알아봅니다.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
-ms.translationtype: MT
+ms.openlocfilehash: 060b4a8992ab1c48cceb9506b4f556d9098b9be0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452944"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -24,7 +24,7 @@ ms.locfileid: "73615766"
 
 Azure 파일 공유에 대한 부모 리소스는 Azure Storage 계정입니다. 스토리지 계정은 Azure에 있는 스토리지 풀을 나타내며, Azure Files를 포함한 여러 스토리지 서비스에서 데이터를 저장하는 데 사용할 수 있습니다. 스토리지 계정에 데이터를 저장하는 다른 서비스로 Azure Blob Storage, Azure Queue Storage 및 Azure Table Storage가 있습니다. 스토리지 계정에 데이터를 저장하는 모든 스토리지 서비스를 적용하는 목표는 다음과 같습니다.
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -79,9 +79,9 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 |-|-|
 | CPU | 64개의 MiB L3 캐시를 포함한 64개의 가상 코어 |
 | 메모리 | 128GiB |
-| 디스크 | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
+| Disk | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
 | 네트워크 | 1Gbps 네트워크 |
-| 워크로드 | 범용 파일 서버|
+| 작업 | 범용 파일 서버|
 
 | 일회성 초기 프로비전  |  |
 |-|-|

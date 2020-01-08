@@ -1,25 +1,19 @@
 ---
-title: Azure NetApp Files를 사용 하 여 NFS 볼륨에 대 한 정책 내보내기 구성 Microsoft Docs
+title: NFS 볼륨에 대 한 내보내기 정책 구성-Azure NetApp Files
 description: Azure NetApp Files를 사용 하 여 NFS 볼륨에 대 한 액세스를 제어 하도록 내보내기 정책을 구성 하는 방법을 설명 합니다.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: b-juche
-ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: b96fca3a5627a1c6c96c8db5c1c209a51c5e102a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674920"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551561"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>NFS 볼륨에 대한 내보내기 정책 구성
 
@@ -39,7 +33,7 @@ ms.locfileid: "72674920"
         * IPv4 주소(예: `10.1.12.24`) 
         * 비트 수로 표현된 서브넷 마스크가 있는 IPv4 주소(예: `10.1.12.10/4`)
 
-    * **액세스 권한**  
+    * **Access**  
         다음 액세스 유형 중 하나를 선택합니다.  
         * 액세스 권한 없음 
         * 읽기 및 쓰기

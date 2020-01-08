@@ -1,6 +1,6 @@
 ---
-title: 사용자가 로그인 하는 웹 앱 작성-Microsoft id 플랫폼 | Microsoft
-description: 사용자 로그인 (로그인) 하는 웹 앱을 빌드하는 방법에 대해 알아봅니다.
+title: 사용자를 로그인/로그 아웃 하는 웹 앱 작성-Microsoft identity platform | Microsoft
+description: 사용자를 로그인/로그 아웃 하는 웹 앱을 빌드하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb32ae29c533b8ea27bf68e012040a17bb36355
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961984"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423497"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 
@@ -118,7 +118,7 @@ ASP.NET에서 웹 앱의 **로그인** 단추를 선택 하면 `AccountControlle
 
 ASP.NET에서 로그 아웃은 컨트롤러의 `SignOut()` 메서드에서 트리거됩니다 (예를 들어 [Accountcontroller. cs # L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). 이 메서드는 ASP.NET 프레임 워크의 일부가 아닙니다 (ASP.NET Core에서 발생 하는 것과 반대). 리디렉션 URI를 제안 하 고 나면 Openid connect 로그인 챌린지를 보냅니다.
 
-```CSharp
+```csharp
 public void SignIn()
 {
     // Send an OpenID Connect sign-in request.
@@ -342,7 +342,7 @@ ASP.NET에서 로그 아웃은 컨트롤러의 `SignOut()` 메서드에서 트�
 - 캐시를 지웁니다.
 - 원하는 페이지로 리디렉션합니다.
 
-```CSharp
+```csharp
 /// <summary>
 /// Send an OpenID Connect sign-out request.
 /// </summary>
@@ -396,7 +396,7 @@ def logout():
 
 ASP.NET Core Openid connect 연결 미들웨어를 사용 하면 앱이 `OnRedirectToIdentityProviderForSignOut`라는 Openid connect Connect 이벤트를 제공 하 여 Microsoft id 플랫폼 `logout` 끝점에 대 한 호출을 가로챌 수 있습니다. 이 이벤트를 구독 하는 방법에 대 한 예는 토큰 캐시를 지우는 방법에 대 한 예는 [WebAppServiceCollectionExtensions/L151 # L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156)를 참조 하세요.
 
-```CSharp
+```csharp
     // Handling the global sign-out
     options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
     {
@@ -408,7 +408,7 @@ ASP.NET Core Openid connect 연결 미들웨어를 사용 하면 앱이 `OnRedir
 
 ASP.NET에서 미들웨어에 위임 하 여 로그 아웃을 실행 하 고 세션 쿠키를 지웁니다.
 
-```CSharp
+```csharp
 public class AccountController : Controller
 {
  ...

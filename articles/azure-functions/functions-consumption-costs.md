@@ -3,18 +3,18 @@ title: Azure Functions에서 소비 계획 비용 예측
 description: Azure의 소비 계획에서 함수 앱을 실행할 때 발생할 수 있는 비용을 보다 정확 하 게 예측 하는 방법을 알아봅니다.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230868"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613061"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획의 비용 예측
 
 현재는 Azure Functions에서 실행 되는 앱에 대 한 호스팅 계획의 세 가지 유형이 있으며 각 계획에는 고유한 가격 책정 모델이 있습니다. 
 
-| 계획 | 설명 |
+| 요금제 | Description |
 | ---- | ----------- |
 | [**소비율**](functions-scale.md#consumption-plan) | 함수 앱이 실행 되는 시간에 대해서만 요금이 청구 됩니다. 이 요금제에는 구독 별로 [무료 부여][가격 책정 페이지] 포함 되어 있습니다.|
 | [**유료**](functions-scale.md#premium-plan) | 는 소비 계획과 동일한 기능 및 크기 조정 메커니즘을 제공 하지만 향상 된 성능 및 VNET 액세스를 제공 합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다. 자세한 내용은 [Azure Functions Premium 요금제](functions-premium-plan.md)를 참조 하세요. |
@@ -45,9 +45,9 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 함수 앱 및 관련 서비스의 전체 비용을 예측 하는 경우 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=functions)를 사용 합니다. 
 
-| 관련 비용 | 설명 |
+| 관련 비용 | Description |
 | ------------ | ----------- |
-| **Storage 계정** | 각 함수 앱에는 [별도로 청구](https://azure.microsoft.com/pricing/details/storage/)되는 연결 된 범용 [Azure Storage 계정이](../storage/common/storage-introduction.md#types-of-storage-accounts)있어야 합니다. 이 계정은 함수 런타임에서 내부적으로 사용 되지만 저장소 트리거 및 바인딩에 사용할 수도 있습니다. 저장소 계정이 없는 경우 함수 앱을 만들 때 하나씩 만들어집니다. 자세히 알아보려면 [Storage 계정 요구 사항](functions-scale.md#storage-account-requirements)을 참조 하세요.|
+| **스토리지 계정** | 각 함수 앱에는 [별도로 청구](https://azure.microsoft.com/pricing/details/storage/)되는 연결 된 범용 [Azure Storage 계정이](../storage/common/storage-introduction.md#types-of-storage-accounts)있어야 합니다. 이 계정은 함수 런타임에서 내부적으로 사용 되지만 저장소 트리거 및 바인딩에 사용할 수도 있습니다. 저장소 계정이 없는 경우 함수 앱을 만들 때 하나씩 만들어집니다. 자세히 알아보려면 [Storage 계정 요구 사항](functions-scale.md#storage-account-requirements)을 참조 하세요.|
 | **Application Insights** | 함수는 [Application Insights](../azure-monitor/app/app-insights-overview.md) 을 사용 하 여 함수 앱에 고성능 모니터링 환경을 제공 합니다. 필수는 아니지만 [Application Insights 통합을 사용 하도록 설정](functions-monitoring.md#enable-application-insights-integration)해야 합니다. 원격 분석 데이터의 무료 부여는 매달 포함 됩니다. 자세히 알아보려면 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조 하세요. |
 | **네트워크 대역폭** | 동일한 지역에 있는 Azure 서비스 간의 데이터 전송에 대해서는 지불 하지 않습니다. 그러나 다른 지역 또는 Azure 외부로 아웃 바운드 데이터 전송에 대 한 비용을 발생 시킬 수 있습니다. 자세한 내용은 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조 하세요. |
 
@@ -76,11 +76,11 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
     ![함수 앱 리소스 선택](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |설정  |제안 값  |설명  |
+    |설정  |제안 값  |Description  |
     |---------|---------|---------|
-    | 구독    |  사용자의 구독  | 함수 앱을 사용 하는 구독입니다.  |
+    | Subscription    |  사용자의 구독  | 함수 앱을 사용 하는 구독입니다.  |
     | 리소스 그룹     | 리소스 그룹  | 함수 앱을 포함 하는 리소스 그룹입니다.   |
-    | 리소스 형식     |  App Services | 함수 앱은 모니터의 App Services 인스턴스로 표시 됩니다. |
+    | 리소스 유형     |  App Services | 함수 앱은 모니터의 App Services 인스턴스로 표시 됩니다. |
     | 리소스     |  함수 앱  | 모니터링할 함수 앱입니다.        |
 
 1. **적용** 을 선택 하 여 모니터링할 리소스로 함수 앱을 선택 합니다.
@@ -188,7 +188,7 @@ az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resour
   ]
 }
 ```
-이 특정 응답은 `2019-09-11T21:46`에서 `2019-09-11T23:18`으로, 앱이 11억1000만 (1083.98 GB-초)를 사용 하는 시간을 보여 줍니다.
+이 특정 응답은 `2019-09-11T21:46`에서 `2019-09-11T23:18`까지 앱이 11억1000만 m b-밀리초 (1083.98 g b-초)를 사용 함을 보여 줍니다.
 
 ## <a name="determine-memory-usage"></a>메모리 사용량 확인
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: anavin
-ms.openlocfilehash: fcb9cc817128bce9498312d3fb016761b6382634
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 66cbb843369dee103f102c9c743da544a833ccf1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612749"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646395"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -40,7 +40,7 @@ ms.locfileid: "67612749"
 
 ### <a name="coreadd"></a>핵심 단계
 
-1. [https://portal.azure.com](https://portal.azure.com )의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
+1. https://portal.azure.com 의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
 2. 포털에서 **더 많은 서비스**를 클릭하고 필터 상자에 *가상 머신*를 입력하고 **가상 머신**를 클릭합니다.
 3. **가상 머신** 창에서 IP 주소를 추가할 VM을 클릭합니다. 표시되는 가상 머신 창에서 **네트워크 인터페이스**를 클릭하고 IP 주소를 추가할 네트워크 인터페이스를 선택합니다. 다음 그림의 예제에서는 *myVM*이라는 VM에서 *myNIC*라는 NIC가 선택됩니다.
 
@@ -69,14 +69,14 @@ ms.locfileid: "67612749"
 공용 IP 주소 리소스를 새 IP 구성 또는 기존 IP 구성에 연결하면 공용 IP 주소가 추가됩니다.
 
 > [!NOTE]
-> 공용 IP 주소에는 명목 요금이 부과됩니다. IP 주소 가격에 대한 자세한 내용은 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한되어 있습니다. 이러한 한에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
+> 공용 IP 주소에는 명목 요금이 부과됩니다. IP 주소 가격에 대한 자세한 내용은 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한되어 있습니다. 이러한 한에 대한 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
 > 
 
 ### <a name="create-public-ip"></a>공용 IP 주소 리소스 만들기
 
 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. IP 구성에 연결하려는 IP 구성에 현재 연결되어 있지 않은 공용 IP 주소 리소스가 있는 경우 다음 단계를 건너뛰고 필요에 따라 이어지는 섹션 중 하나에 나와 있는 단계를 완료합니다. 사용 가능한 공용 IP 주소 리소스가 없는 경우 다음 단계를 완료하여 리소스를 하나 만듭니다.
 
-1. [https://portal.azure.com](https://portal.azure.com )의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
+1. https://portal.azure.com 의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
 3. 포털에서 **리소스 만들기** > **네트워킹** > **공용 IP 주소**를 클릭합니다.
 4. 다음 그림과 같이 표시되는 **공용 IP 주소 만들기** 창에서 **이름**을 입력하고 **IP 주소 할당** 형식, **구독**, **리소스 그룹** 및 **위치**를 선택한 다음, **만들기**를 클릭합니다.
 

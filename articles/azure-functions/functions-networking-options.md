@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226806"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561935"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -28,13 +28,13 @@ ms.locfileid: "74226806"
 
 ## <a name="matrix-of-networking-features"></a>네트워킹 기능 매트릭스
 
-|                |[소비 계획](functions-scale.md#consumption-plan)|[프리미엄 요금제](functions-scale.md#premium-plan)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service 환경](../app-service/environment/intro.md)|
+|                |[소비 계획](functions-scale.md#consumption-plan)|[프리미엄 요금제](functions-scale.md#premium-plan)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[인바운드 IP 제한 & 개인 사이트 액세스](#inbound-ip-restrictions)|예 ✅|예 ✅|예 ✅|예 ✅|
-|[가상 네트워크 통합](#virtual-network-integration)|❌아니요|✅예 (지역)|✅예 (지역 및 게이트웨이)|예 ✅|
-|[가상 네트워크 트리거 (비 HTTP)](#virtual-network-triggers-non-http)|❌아니요| ❌아니요|예 ✅|예 ✅|
-|[하이브리드 연결](#hybrid-connections)|❌아니요|예 ✅|예 ✅|예 ✅|
-|[아웃 바운드 IP 제한](#outbound-ip-restrictions)|❌아니요| ❌아니요|❌아니요|예 ✅|
+|[인바운드 IP 제한 & 개인 사이트 액세스](#inbound-ip-restrictions)|✅예|✅예|✅예|✅예|
+|[가상 네트워크 통합](#virtual-network-integration)|❌아니요|✅예 (지역)|✅예 (지역 및 게이트웨이)|✅예|
+|[가상 네트워크 트리거 (비 HTTP)](#virtual-network-triggers-non-http)|❌아니요| ✅예 |✅예|✅예|
+|[하이브리드 연결](#hybrid-connections) (Windows에만 해당)|❌아니요|✅예|✅예|✅예|
+|[아웃 바운드 IP 제한](#outbound-ip-restrictions)|❌아니요| ❌아니요|❌아니요|✅예|
 
 ## <a name="inbound-ip-restrictions"></a>인바운드 IP 제한
 
@@ -68,7 +68,7 @@ IP 제한을 사용 하 여 앱에 대 한 액세스가 허용 되거나 거부 
 
 앱은 한 번에 한 가지 유형의 가상 네트워크 통합 기능만 사용할 수 있습니다. 여러 시나리오에는 두 가지 모두 유용 하지만 다음 표에서는 각각을 사용 해야 하는 위치를 나타냅니다.
 
-| 문제  | 해결 방법 |
+| 문제  | 솔루션 |
 |----------|----------|
 | 동일한 지역에서 RFC 1918 주소 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)에 도달 하려고 합니다. | 지역 가상 네트워크 통합 |
 | 클래식 가상 네트워크 또는 다른 지역의 가상 네트워크에 있는 리소스에 연결 하려고 합니다. | 게이트웨이는 가상 네트워크 통합 필요 |
@@ -123,19 +123,51 @@ Key Vault 서비스 끝점을 사용 하 여 보호 되는 경우 현재 [Key Va
 
 ## <a name="virtual-network-triggers-non-http"></a>가상 네트워크 트리거 (비 HTTP)
 
-현재 가상 네트워크 내에서 HTTP 이외의 함수 트리거를 사용 하려면 App Service 계획 또는 App Service Environment에서 함수 앱을 실행 해야 합니다.
+현재 다음 두 가지 방법 중 하나로 가상 네트워크 내에서 HTTP가 아닌 트리거 함수를 사용할 수 있습니다. 
++ 프리미엄 계획에서 함수 앱을 실행 하 고 가상 네트워크 트리거 지원을 사용 하도록 설정 합니다.
++ App Service 계획 또는 App Service Environment에서 함수 앱을 실행 합니다.
 
-예를 들어 가상 네트워크의 트래픽만 허용 하도록 Azure Cosmos DB를 구성 하려는 경우를 가정해 보겠습니다. 해당 리소스에서 Azure Cosmos DB 트리거를 구성 하려면 해당 가상 네트워크와 가상 네트워크 통합을 제공 하는 app service 계획에 함수 앱을 배포 해야 합니다. 미리 보기 중에는 가상 네트워크 통합을 구성할 때 프리미엄 계획에서 해당 Azure Cosmos DB 리소스를 트리거할 수 없습니다.
+### <a name="premium-plan-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용 하는 프리미엄 계획
 
-지원 되는 항목을 두 번 확인 하려면 [HTTP가 아닌 모든 트리거의 경우이 목록을](./functions-triggers-bindings.md#supported-bindings) 참조 하세요.
+프리미엄 계획에서 실행 하는 경우 HTTP가 아닌 트리거 함수를 가상 네트워크 내에서 실행 되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대 한 가상 네트워크 트리거 지원을 사용 하도록 설정 해야 합니다. **가상 네트워크 트리거 지원** 설정은 **함수 앱 설정**아래 [Azure Portal](https://portal.azure.com) 에 있습니다.
+
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+
+다음 Azure CLI 명령을 사용 하 여 가상 네트워크 트리거를 사용 하도록 설정할 수도 있습니다.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+```
+
+가상 네트워크 트리거는 함수 런타임의 버전 2.x 이상에서 지원 됩니다. 다음과 같은 HTTP가 아닌 트리거 형식이 지원 됩니다.
+
+| 확장 | 최소 버전 |
+|-----------|---------| 
+|[WebJobs. 확장명](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 이상 |
+|[WebJobs. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 이상|
+|[WebJobs. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 이상|
+|[WebJobs. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 이상|
+|[WebJobs. Microsoft.azure.webjobs.extensions.durabletask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 이상|
+
+> [!IMPORTANT]
+> 가상 네트워크 트리거 지원을 사용 하도록 설정 하면 위의 트리거 유형만 응용 프로그램을 사용 하 여 동적으로 확장 됩니다. 위에 나열 되지 않은 트리거는 계속 사용할 수 있지만 준비 인스턴스 개수 이상으로 크기가 조정 되지 않습니다. 트리거의 전체 목록은 [트리거 및 바인딩](./functions-triggers-bindings.md#supported-bindings) 을 참조 하세요.
+
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용 하 여 계획 및 App Service Environment App Service
+
+함수 앱이 App Service 계획 또는 App Service Environment에서 실행 되는 경우 HTTP가 아닌 트리거 함수를 사용할 수 있습니다. 함수가 올바르게 트리거되기 위해서는 트리거 연결에 정의 된 리소스에 대 한 액세스 권한이 있는 가상 네트워크에 연결 되어 있어야 합니다. 
+
+예를 들어 가상 네트워크의 트래픽만 허용 하도록 Azure Cosmos DB를 구성 하려는 경우를 가정해 보겠습니다. 이 경우 해당 가상 네트워크와 가상 네트워크 통합을 제공 하는 App Service 계획으로 함수 앱을 배포 해야 합니다. 이렇게 하면 해당 Azure Cosmos DB 리소스가 함수를 트리거할 수 있습니다. 
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 
-[하이브리드 연결](../service-bus-relay/relay-hybrid-connections-protocol.md) 는 다른 네트워크의 응용 프로그램 리소스에 액세스 하는 데 사용할 수 있는 Azure Relay의 기능입니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 응용 프로그램에 액세스 하는 데 사용할 수 없습니다. 하이브리드 연결는 소비 계획을 제외한 모든 함수에서 실행 되는 함수에 사용할 수 있습니다.
+[하이브리드 연결](../service-bus-relay/relay-hybrid-connections-protocol.md) 는 다른 네트워크의 응용 프로그램 리소스에 액세스 하는 데 사용할 수 있는 Azure Relay의 기능입니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 응용 프로그램에 액세스 하는 데 사용할 수 없습니다. 하이브리드 연결는 Windows에서 실행 되는 모든 기능에 사용할 수 있습니다.
 
 Azure Functions에서 사용 되는 것 처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합과 관련이 있습니다. 즉, TCP 수신 대기 포트에 액세스 하는 동안에는 하이브리드 연결의 끝점이 모든 운영 체제 및 응용 프로그램에 있을 수 있습니다. 하이브리드 연결 기능은 응용 프로그램 프로토콜이 무엇 인지 또는 사용자가 액세스 하 고 있는지 인식 하지 못합니다. 네트워크 액세스만 제공 합니다.
 
 자세히 알아보려면 [하이브리드 연결에 대 한 App Service 설명서](../app-service/app-service-hybrid-connections.md)를 참조 하세요. 이러한 동일한 구성 단계는 Azure Functions을 지원 합니다.
+
+>[!IMPORTANT]
+> 하이브리드 연결은 Windows 요금제 에서만 지원 됩니다. Linux는 지원 되지 않습니다.
 
 ## <a name="outbound-ip-restrictions"></a>아웃 바운드 IP 제한
 

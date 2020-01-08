@@ -11,20 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67b92c32d511300a0645b707f2a263b463937d1b
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430190"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 
-이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 자동 사용자 계정 프로비전 및 지원되는 애플리케이션에 대한 프로비전 해제를 관리하는 방법을 설명합니다. 자동 사용자 계정 프로비전 및 작동 방식에 대한 자세한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션에 사용자 프로비전 및 프로비전 해제 자동화](user-provisioning.md)를 참조하세요.
+이 문서에서는이를 지 원하는 응용 프로그램에 대 한 자동 사용자 계정 프로 비전 및 프로 비전 해제를 관리 하는 일반적인 단계에 대해 설명 합니다. *사용자 계정 프로비전*은 애플리케이션의 로컬 사용자 프로필 저장소에 사용자 계정 레코드를 생성, 업데이트 및/또는 비활성화하는 작업입니다. 대부분의 클라우드 및 SaaS 응용 프로그램은 사용자의 로컬 사용자 프로필 저장소에 사용자 역할 및 사용 권한을 저장 하며, Single Sign-On 하 고 작업에 액세스 하려면 사용자의 로컬 저장소에 해당 사용자 레코드가 *있어야* 합니다. 자동 사용자 계정 프로 비전에 대해 자세히 알아보려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전](user-provisioning.md)해제를 참조 하세요.
+
+> [!IMPORTANT]
+> Azure ad (Azure Active Directory)에는 Azure AD를 사용 하 여 자동으로 프로 비전 할 수 있는 수천 개의 사전 통합 응용 프로그램이 포함 된 갤러리가 있습니다. [SaaS 앱을 Azure Active Directory와 통합 하는 방법에 대 한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에서 응용 프로그램과 관련 된 프로 비전 설정 자습서를 먼저 찾아야 합니다. 프로 비전 연결을 만들기 위해 앱과 Azure AD를 구성 하는 방법에 대 한 단계별 지침을 찾을 수 있습니다.
 
 ## <a name="finding-your-apps-in-the-portal"></a>포털에서 앱 찾기
 

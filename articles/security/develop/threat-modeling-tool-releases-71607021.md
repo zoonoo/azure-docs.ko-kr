@@ -1,32 +1,24 @@
 ---
-title: Threat Modeling Tool 릴리스 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool 릴리스 7/2/2019-Azure
 description: Threat Modeling Tool 릴리스 정보 문서화
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: jegeib
-ms.openlocfilehash: 44fd84af629fadfc96d738e81f2568359ee19d66
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d26ff015156f5d050a74733ff82c811ff5f1700a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219839"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548764"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60702.1-7/2/2019
 
 TMT (Microsoft Threat Modeling Tool 버전 7.1.60702.1)는 7 월 2 2019에 출시 되었으며 다음과 같은 변경 내용이 포함 되어 있습니다.
 
-- 내게 필요한 옵션 개선 사항
+- 향상된 접근성 기능
 - 버그 수정
 - 오픈 소스 커뮤니티 제공 스텐실 집합 포함
 

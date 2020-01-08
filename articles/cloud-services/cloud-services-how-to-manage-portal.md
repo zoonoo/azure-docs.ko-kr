@@ -3,17 +3,17 @@ title: 일반적인 클라우드 서비스 관리 작업 | Microsoft Docs
 description: Azure Portal에서 Cloud Services를 관리하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359604"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360908"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Azure Portal에서 Cloud Services 관리
 Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습니다.
@@ -81,7 +81,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 
 게스트 OS 업데이트 및 서비스 복구 작업으로 인해 배포 교환이 실패할 수도 있습니다. 자세한 내용은 [클라우드 서비스 배포 문제 해결](cloud-services-troubleshoot-deployment-problems.md)을 참조하세요.
 
-**교체 시 애플리케이션 가동 중지가 발생할 수 있나요? 어떻게 처리해야 합니까?**
+**교환에 응용 프로그램에 대 한 가동 중지 시간이 발생 하나요? 어떻게 처리 해야 하나요?**
 
 이전 섹션에서 설명한 대로 배포 교환은 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 빠릅니다. 경우에 따라 10초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](../best-practices-retry-general.md) 구현을 고려해 보세요.
 
@@ -124,3 +124,6 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.
+
+
+

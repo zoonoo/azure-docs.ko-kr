@@ -1,25 +1,16 @@
 ---
-title: Service Fabric 클러스터에서 비정상 상황 유도 | Microsoft Docs
+title: Service Fabric 클러스터에서 비정상 상황 유도
 description: 오류 삽입 및 클러스터 분석 서비스 API를 사용하여 클러스터의 비정상 상황을 관리합니다.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: anmola
-editor: motanv
-ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 7a22b17d45218c2f78220f980605b3c211495606
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543731"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463177"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric 클러스터에서 제어되는 비정상 상황 유도
 클라우드 인프라와 같은 대규모 분산 시스템은 기본적으로 안정적이지 않습니다. Azure Service Fabric을 사용하면 개발자들은 불안정한 인프라 위에 안정적인 분산 서비스를 작성할 수 있습니다. 불안정한 인프라 위에 강력한 분산 서비스를 작성하려는 경우 기반이 되는 불안정한 인프라가 결함으로 인해 복잡한 상태 전환을 겪을 때 개발자는 서비스의 안정성을 테스트할 수 있어야 합니다.
@@ -34,7 +25,7 @@ ms.locfileid: "67543731"
 > 현재 양식에서, 비정상 상황은 안전 오류만 유도합니다. 즉, 외부 오류가 없으면 쿼럼 손실 또는 데이터 손실이 발생하지 않습니다.
 >
 
-비정상 상황이 실행되는 동안 현재 실행의 상태를 캡처하는 다양한 이벤트가 생성됩니다. 예를 들어 ExecutingFaultsEvent에는 비정상 상황이 해당 반복에서 실행하기로 결정한 모든 오류가 포함됩니다. ValidationFailedEvent에는 클러스터 유효성 검사 동안 발견된 유효성 검사 오류(상태 또는 안정성 문제)의 세부 정보가 포함됩니다. GetChaosReport API(C#, PowerShell 또는 REST)를 호출하여 비정상 상황 실행 보고서를 가져올 수 있습니다. 이러한 이벤트는 다음 두 가지 구성에 따라 잘림 정책이 적용되는 [신뢰할 수 있는 사전](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)에 유지됩니다. **MaxStoredChaosEventCount**(기본값 25000) 및 **StoredActionCleanupIntervalInSeconds**(기본값 3600). 가장 최근의 *MaxStoredChaosEventCount* 이벤트를 제외하고 비정상 상황이 확인하는 모든 *StoredActionCleanupIntervalInSeconds* 이벤트는 신뢰할 수 있는 사전에서 제거됩니다.
+비정상 상황이 실행되는 동안 현재 실행의 상태를 캡처하는 다양한 이벤트가 생성됩니다. 예를 들어 ExecutingFaultsEvent에는 비정상 상황이 해당 반복에서 실행하기로 결정한 모든 오류가 포함됩니다. ValidationFailedEvent에는 클러스터 유효성 검사 동안 발견된 유효성 검사 오류(상태 또는 안정성 문제)의 세부 정보가 포함됩니다. GetChaosReport API(C#, PowerShell 또는 REST)를 호출하여 비정상 상황 실행 보고서를 가져올 수 있습니다. 이러한 이벤트는 두 가지 구성 **MaxStoredChaosEventCount**(기본값 25000) 및 **StoredActionCleanupIntervalInSeconds**(기본값 3600)에 따라 잘림 정책이 적용되는 [신뢰할 수 있는 사전](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)에 유지됩니다. 가장 최근의 *MaxStoredChaosEventCount* 이벤트를 제외하고 비정상 상황이 확인하는 모든 *StoredActionCleanupIntervalInSeconds* 이벤트는 신뢰할 수 있는 사전에서 제거됩니다.
 
 ## <a name="faults-induced-in-chaos"></a>비정상 상황에서 유도되는 오류
 비정상 상황에서는 전체 Service Fabric 클러스터에서 오류가 생성되며 수개월 또는 수년에 걸쳐 확인된 오류가 몇 시간으로 압축됩니다. 인터리브 오류를 높은 오류 비율과 결합하면 놓치기 쉬운 특이한 사례를 발견할 수 있습니다. 이러한 비정상 상황에 대처하는 연습을 통해 서비스 코드 품질을 대폭 개선할 수 있습니다.

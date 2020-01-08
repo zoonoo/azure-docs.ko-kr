@@ -1,25 +1,16 @@
 ---
-title: Service Fabric 클러스터 리소스 관리자 - 관리 통합 | Microsoft Docs
+title: 클러스터 리소스 관리자-관리 통합
 description: 클러스터 리소스 관리자과 서비스 패브릭 관리 간에 통합 지점의 개요입니다.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196490"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614624"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>클러스터 리소스 관리자와 서비스 패브릭 클러스터 관리 통합
 Service Fabric 클러스터 리소스 관리자는 Service Fabric에서 업그레이드를 수행하지는 않지만 관련되어 있습니다. Cluster Resource Manager에서 관리에 유용하게 사용할 수 있는 첫 번째 방법은 내부에 있는 서비스와 클러스터의 필요한 상태를 추적하는 것입니다. Cluster Resource Manager는 원하는 구성에 클러스터를 배치할 수 없는 경우 상태 보고서를 보냅니다. 예를 들어 용량이 부족하면 클러스터 리소스 관리자에서 문제를 나타내는 상태 경고 및 오류를 보냅니다. 통합의 다른 부분은 업그레이드 작동 방법와 관련이 있습니다. 클러스터 리소스 관리자는 업그레이드 중에 해당 동작을 약간 변경합니다.  
@@ -77,7 +68,7 @@ HealthEvents          :
 2. 현재 업그레이드 도메인 분산 제약 조건이 위반되었습니다. 이는 특정 업그레이드 도메인에 이 파티션보다 더 많은 복제본이 있음을 의미합니다.
 3. 위반이 발생하는 복제본을 포함한 노드 - 이 경우 이름이 "Node.8"인 노드입니다.
 4. 이 파티션에서 현재 업그레이드가 진행 중인지 여부("현재 업그레이드 중 - false")
-5. 이 서비스에 대한 배포 정책("배포 정책 - 압축 중") - `RequireDomainDistribution` [배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)으로 관리됩니다. "압축 중"은 이 경우 DomainDistribution이 필요하지 _않음_을 나타냅니다. 따라서 이 서비스에 대해 배치 정책이 지정되지 않았습니다. 
+5. 이 서비스에 대한 배포 정책("배포 정책 - 압축 중") - 이는 `RequireDomainDistribution` [배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)에 의해 제어 됩니다. "압축 중"은 이 경우 DomainDistribution이 필요하지 _않음_을 나타냅니다. 따라서 이 서비스에 대해 배치 정책이 지정되지 않았습니다. 
 6. 보고서가 발생한 시기 - 2015년 8월 10일 오후 7:13:02
 
 이와 같은 정보는 무언가 문제가 발생했음을 알려주기 위해 프로덕션에서 실행되는 경고를 제공하며, 잘못된 업그레이드를 검색하고 중단하는 데에도 사용됩니다. 이 경우에 Resource Manager가 업그레이드 도메인에 복제본을 압축해야 했던 이유를 알아낼 수 있는지 확인하려고 합니다. 예를 들어 다른 업그레이드 도메인의 노드가 중단되었기 때문에 압축이 일반적으로 일시적일 수 있습니다.
@@ -114,7 +105,7 @@ HealthEvents          :
 
 이러한 모든 제약 조건을 고려할 때 "내 시스템에서 장애 도메인 제약 조건이 가장 중요하다고 생각합니다. 장애 도메인 제약 조건을 위반하지 않도록 보장하기 위해 다른 제약 조건을 위반하려고 합니다."라고 생각했을 수도 있습니다.
 
-제약 조건은 서로 다른 우선 순위 수준으로 구성할 수 있습니다. 이러한 항목은 다음과 같습니다.
+제약 조건은 서로 다른 우선 순위 수준으로 구성할 수 있습니다. 사용자는 다음과 같습니다.
 
    - "하드" (0)
    - "소프트" (1)
@@ -144,7 +135,7 @@ ClusterManifest.xml
         </Section>
 ```
 
-독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다.
+독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json를 통해 수행됩니다.
 
 ```json
 "fabricSettings": [
@@ -183,12 +174,12 @@ ClusterManifest.xml
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>장애 도메인 및 업그레이드 도메인 제약 조건
 클러스터 리소스 관리자에서 장애 도메인과 업그레이드 도메인 간에 서비스가 분산되도록 유지하려고 합니다. 이를 위해 클러스터 리소스 관리자 엔진 내부의 제약 조건으로 모델링합니다. 이들의 사용 방법과 특정 동작에 대한 자세한 내용은 [클러스터 구성](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior) 문서를 확인하세요.
 
-클러스터 리소스 관리자는 업그레이드, 오류 또는 다른 제약 조건 위반을 처리하기 위해 업그레이드 도메인에 몇 개의 복제본을 압축해야 할 수 있습니다. 장애 도메인 또는 업그레이드 도메인에 압축하는 것은 일반적으로 시스템에 여러 번의 실패 또는 다른 변동이 있어 올바르게 배치할 수 없는 경우에만 발생합니다. 이러한 상황에서도 압축을 방지하려면 `RequireDomainDistribution` [배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)을 활용할 수 있습니다. 이 경우 서비스 가용성 및 안정성에 부작용을 미칠 수 있으므로 신중하게 고려해야 합니다.
+클러스터 리소스 관리자는 업그레이드, 오류 또는 다른 제약 조건 위반을 처리하기 위해 업그레이드 도메인에 몇 개의 복제본을 압축해야 할 수 있습니다. 장애 도메인 또는 업그레이드 도메인에 압축하는 것은 일반적으로 시스템에 여러 번의 실패 또는 다른 변동이 있어 올바르게 배치할 수 없는 경우에만 발생합니다. 이러한 상황 에서도 압축을 방지 하려는 경우 `RequireDomainDistribution` [배치 정책을](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)활용할 수 있습니다. 이 경우 서비스 가용성 및 안정성에 부작용을 미칠 수 있으므로 신중하게 고려해야 합니다.
 
 환경이 올바르게 구성되면 업그레이드 중에도 모든 제약 조건이 완전히 준수됩니다. 클러스터 리소스 관리자에서 제약 조건을 감시하고 있다는 것이 중요합니다. 위반을 검색하는 즉시 문제를 보고하고 해결하려고 시도합니다.
 
 ## <a name="the-preferred-location-constraint"></a>기본 설정 위치 제약 조건
-PreferredLocation 제약 조건은 두 가지 용도로 사용되므로 약간 다릅니다. 이 제약 조건의 한 가지 용도는 애플리케이션 업그레이드 중에 있습니다. 클러스터 리소스 관리자는 업그레이드하는 동안 이 제약 조건을 자동으로 관리합니다. 업그레이드가 완료되면 해당 복제본이 초기 위치로 반환되는지 확인하는 데 사용됩니다. PreferredLocation 제약 조건의 다른 용도는 [ `PreferredPrimaryDomain`배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)에 대한 것입니다. 이러한 두 가지 용도가 모두 최적화이므로 PreferredLocation 제약 조건은 기본적으로 "Optimization(최적화)"으로 설정되는 유일한 제약 조건입니다.
+PreferredLocation 제약 조건은 두 가지 용도로 사용되므로 약간 다릅니다. 이 제약 조건의 한 가지 용도는 애플리케이션 업그레이드 중에 있습니다. 클러스터 리소스 관리자는 업그레이드하는 동안 이 제약 조건을 자동으로 관리합니다. 업그레이드가 완료되면 해당 복제본이 초기 위치로 반환되는지 확인하는 데 사용됩니다. PreferredLocation 제약 조건의 다른 용도는 [`PreferredPrimaryDomain`배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)에 대한 것입니다. 이러한 두 가지 용도가 모두 최적화이므로 PreferredLocation 제약 조건은 기본적으로 "Optimization(최적화)"으로 설정되는 유일한 제약 조건입니다.
 
 ## <a name="upgrades"></a>업그레이드
 애플리케이션 및 클러스터를 업그레이드하는 동안 Cluster Resource Manager가 유용합니다. 이 때 다음과 같은 두 개의 작업이 있습니다.
@@ -209,4 +200,4 @@ PreferredLocation 제약 조건은 두 가지 용도로 사용되므로 약간 �
 일반적으로 클러스터가 제한되거나 거의 가득 찬 경우에도 업그레이드를 완료할 수 있습니다. 업그레이드하는 동안 클러스터의 용량을 관리하는 것이 평소보다 훨씬 더 중요합니다. 업그레이드 도메인의 수에 따라 클러스터를 통해 업그레이드가 롤링함에 따라 용량의 5 ~ 20%가 마이그레이션되어야 합니다. 해당 작업은 어딘가로 이동해야 합니다. 이는 [버퍼링된 용량](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity)이라는 개념이 유용한 경우입니다. 버퍼링된 용량은 정상 작업 중에 적용됩니다. 클러스터 리소스 관리자에서 필요한 경우 업그레이드 중에 노드를 총 용량(버퍼 사용)까지 채울 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 처음부터 시작 및 [서비스 패브릭 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
+* 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)

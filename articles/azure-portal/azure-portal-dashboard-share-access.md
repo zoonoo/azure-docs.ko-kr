@@ -3,8 +3,8 @@ title: RBAC를 사용하여 Azure Portal 대시보드 공유 | Microsoft Docs
 description: 이 문서에서는 역할 기반 Access Control을 사용하여 Azure Portal에서 대시보드를 공유하는 방법을 설명합니다.
 services: azure-portal
 documentationcenter: ''
-author: tfitzmac
-manager: timlt
+author: mblythe
+manager: mtillman
 editor: tysonn
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.service: azure-portal
@@ -13,15 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: tomfitz
-ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: da983a6a3c86be87f1a24b67252a40adac2fa59d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551997"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641388"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 Access Control을 사용하여 Azure 대시보드 공유
+
 대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. 다른 사람이 Azure [역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 사용하여 대시보드를 볼 수 있도록 허용합니다. 역할에 사용자 또는 사용자 그룹을 할당하고 해당 역할이 사용자가 게시된 대시보드를 보거나 수정할 수 있는지 정의합니다. 
 
 모든 게시된 대시보드는 Azure 리소스로 구현됩니다. 따라서 구독 내에서 관리 가능한 항목으로 존재하며 리소스 그룹에 포함됩니다.  액세스 제어 관점에서 대시보드는 가상 머신 또는 스토리지 계정과 같은 다른 리소스와 차이가 없습니다.
@@ -40,7 +41,7 @@ RBAC(역할 기반 Access Control)를 사용하여 세 개의 다른 수준 범�
 
 할당한 사용 권한은 구독에서 리소스까지 상속됩니다. 게시된 대시보드는 리소스입니다. 따라서 게시된 대시보드에 대해서도 작동하는 구독의 역할에 할당된 사용자가 이미 있을 수도 있습니다. 
 
-다음은 예제입니다.  Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽기 권한자** 역할에 할당된 팀의 여러 멤버가 있다고 가정해 보겠습니다. 소유자 또는 참여자인 사용자는 구독 내에서 대시보드를 나열, 보기, 만들기, 수정 또는 삭제할 수 있습니다.  읽기 권한자인 사용자는 대시보드를 나열 및 볼 수 있지만 수정 또는 삭제할 수 없습니다.  읽기 권한자 액세스를 보유한 사용자는 게시된 대시보드에 대한 로컬 편집을 만들 수 있지만(예: 문제 해결 시) 해당 변경 내용을 서버로 다시 게시할 수 없습니다.  대시보드의 프라이빗 복사본을 직접 만들 수 있는 옵션을 갖게 됩니다.
+다음 예를 참조하세요.  Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽기 권한자** 역할에 할당된 팀의 여러 멤버가 있다고 가정해 보겠습니다. 소유자 또는 참여자인 사용자는 구독 내에서 대시보드를 나열, 보기, 만들기, 수정 또는 삭제할 수 있습니다.  읽기 권한자인 사용자는 대시보드를 나열 및 볼 수 있지만 수정 또는 삭제할 수 없습니다.  읽기 권한자 액세스를 보유한 사용자는 게시된 대시보드에 대한 로컬 편집을 만들 수 있지만(예: 문제 해결 시) 해당 변경 내용을 서버로 다시 게시할 수 없습니다.  대시보드의 프라이빗 복사본을 직접 만들 수 있는 옵션을 갖게 됩니다.
 
 그러나 여러 대시보드를 포함하는 리소스 그룹 또는 개별 대시보드에 대한 사용 권한을 할당할 수도 있습니다. 예를 들어, 사용자 그룹이 구독에 걸친 제한된 사용 권한을 갖지만 특정 대시보드에 더 큰 액세스 권한을 가져야 한다고 결정할 수 있습니다. 해당 대시보드에 대한 역할에 해당 사용자를 할당합니다. 
 
@@ -75,6 +76,6 @@ RBAC(역할 기반 Access Control)를 사용하여 세 개의 다른 수준 범�
      ![할당된 역할](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 역할의 목록을 참조 하세요. [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
+* 역할의 목록은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 * 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
 

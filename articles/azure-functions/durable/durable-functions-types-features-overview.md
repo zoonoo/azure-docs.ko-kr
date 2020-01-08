@@ -1,18 +1,18 @@
 ---
-title: Azure Functions Durable Functions 확장의 함수 형식
+title: Azure Durable Functions의 함수 형식
 description: Azure Functions의 Durable Functions 오케스트레이션에 서 함수 간 통신을 지 원하는 함수 및 역할 형식에 대해 알아봅니다.
 author: cgillum
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7a485f31ed7e112745cf3b45bbfe348e6a2e0fd3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433275"
 ---
-# <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions 형식 및 기능 (Azure Functions)
+# <a name="durable-functions-types-and-features"></a>Durable Functions 형식 및 기능
 
 Durable Functions은 [Azure Functions](../functions-overview.md)의 확장입니다. 함수 실행의 상태 저장 오케스트레이션에 Durable Functions를 사용할 수 있습니다. 지 속성 함수 앱은 다양 한 Azure 함수로 구성 된 솔루션입니다. 함수는 지 속성 함수 오케스트레이션에 서 다른 역할을 수행할 수 있습니다. 
 

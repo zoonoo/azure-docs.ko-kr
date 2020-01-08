@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: 135c760919f094f7b2d242ad37cc1cadb614e36e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/27/2019
+ms.openlocfilehash: 86ade45cd00e82e8787a117c23003d2a74750cf0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009997"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552171"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Azure Digital Twins 관리 API를 사용하는 방법
 
@@ -39,7 +39,7 @@ Azure Digital Twins 관리 API는 IoT 앱에 대한 강력한 기능을 제공�
 
 * [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): 이러한 api를 사용 하 여 들어오는 장치 데이터에서 평가 하려는 조건을 지정할 수 있습니다. 자세한 내용은 [이 문서](concepts-user-defined-functions.md#matchers)를 참조하세요. 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): 이러한 api를 사용 하면 *선택기* 에서 정의한 조건이 설치에서 제공 되는 데이터를 처리할 때 실행 되는 사용자 지정 함수를 만들거나 삭제 하거나 업데이트할 수 있습니다. [사용자 정의 함수](concepts-user-defined-functions.md#user-defined-functions)라고도 하는 이러한 사용자 지정 함수에 대한 자세한 내용은 *이 문서*를 참조하세요. 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): 이러한 api를 사용 하면 *선택기* 에서 정의한 조건이 설치에서 제공 되는 데이터를 처리할 때 실행 되는 사용자 지정 함수를 만들거나 삭제 하거나 업데이트할 수 있습니다. *사용자 정의 함수*라고도 하는 이러한 사용자 지정 함수에 대한 자세한 내용은 [이 문서](concepts-user-defined-functions.md#user-defined-functions)를 참조하세요. 
 
 * [/끝점](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints): 이러한 api를 사용 하 여 끝점을 만들 수 있습니다. 그러면 디지털 쌍 솔루션이 데이터 저장 및 분석을 위해 다른 Azure 서비스와 통신할 수 있습니다. 자세한 내용은 [이 문서](concepts-events-routing.md)를 참조하세요. 
 
@@ -56,7 +56,7 @@ Azure Digital Twins 관리 API는 IoT 앱에 대한 강력한 기능을 제공�
 
 Digital Twins API는 다음 매개 변수를 사용하여 공간 그래프 전체에 대한 필터링 및 탐색을 지원합니다.
 
-- **spaceId**: API는 지정 된 공간 ID를 기준으로 결과를 필터링 합니다. 또한 지정된 공간 ID가 현재 공간 대신 부모 공간을 나타냄을 표시하는 **/spaces** API에 부울 플래그 [useParentSpace](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces)를 적용할 수 있습니다. 
+- **spaceId**: API는 지정 된 공간 ID를 기준으로 결과를 필터링 합니다. 또한 지정된 공간 ID가 현재 공간 대신 부모 공간을 나타냄을 표시하는 [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces) API에 부울 플래그 **useParentSpace**를 적용할 수 있습니다. 
 
 - **minlevel** 및 **maxlevel**: 루트 공간은 수준 1에 있는 것으로 간주 됩니다. *n* 수준에서 부모 공간이 있는 공간은 수준 *n+1*입니다. 이러한 값을 설정하여 특정 수준에서 결과를 필터링 할 수 있습니다. 설정되었을 때 결과는 포괄적인 값입니다. 디바이스, 센서 및 기타 개체는 가장 가까운 공간과 동일한 수준으로 간주됩니다. 지정된 수준에서 모든 개체를 가져오려면 **minLevel** 및 **maxLevel**을 동일한 값으로 설정합니다.
 
@@ -72,7 +72,7 @@ Digital Twins API는 다음 매개 변수를 사용하여 공간 그래프 전�
    - **Span**: 지정 된 공간 ID와 동일한 수준에서 공간 그래프의 가로 부분을 필터링 합니다. **minRelative** 또는 **maxRelative**를 true로 설정해야 합니다. 
 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 목록은 [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) API를 통한 탐색의 몇 가지 예제를 보여줍니다. 자리 표시자 `YOUR_MANAGEMENT_API_URL`은 `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/` 양식으로 Digital Twins API의 URI를 나타냅니다. 여기서 `YOUR_INSTANCE_NAME`은 Azure Digital Twins 인스턴스의 이름이며, `YOUR_LOCATION`은 인스턴스가 호스팅되는 지역입니다.
 
@@ -99,7 +99,7 @@ Digital Twins API는 다음 매개 변수를 사용하여 공간 그래프 전�
 > [!NOTE]
 > 일부 OData 옵션 (예: 쿼리 옵션 **$count**, **$expand**및 **$search**)은 현재 지원 되지 않습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 목록에서는 유효한 OData 구문을 사용한 몇 가지 쿼리를 보여 줍니다.
 

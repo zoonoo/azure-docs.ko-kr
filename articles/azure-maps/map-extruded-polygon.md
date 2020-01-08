@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 입체 면 다각형 계층 추가 Microsoft Docs
-description: Azure Maps 웹 SDK에 입체 면 다각형 계층을 추가 하는 방법입니다.
+title: Azure Maps에 다각형 입체 면 계층 추가 | Microsoft Docs
+description: Azure Maps 웹 SDK에 다각형 밀어내기 계층을 추가 하는 방법입니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e6858359549f6a54513eda7bc692adcbc7d7e71b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a357545bedde6a4e859a671005083a0fc665340d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432848"
 ---
-# <a name="add-an-extrusion-polygon-layer-to-the-map"></a>지도에 입체 면 다각형 계층 추가
+# <a name="add-a-polygon-extrusion-layer-to-the-map"></a>지도에 다각형 입체 면 계층 추가
 
 이 문서에서는 다각형 입체 면 계층을 사용 하 여 `Polygon` 영역을 렌더링 하 고 기능 기 하 도형을 `MultiPolygon` 지도에서 입체 도형으로 렌더링 하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 만들기도 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 됩니다. Atlas로 래핑된 경우 모든 기능 기 하 도형을 쉽게 업데이트할 수도 있습니다 [. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스입니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "74484342"
 
 ## <a name="add-a-circle-to-the-map"></a>지도에 원 추가
 
-Azure Maps에는 [여기](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `Circle`의 `subType` 속성을 사용 하 여 `point` 기능을 만들고 **미터**단위를 나타내는 번호가 매겨진 `Radius` 속성을 만들어 표에서 돌출 원을 렌더링할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Azure Maps에는 [여기](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `Circle`의 `subType` 속성을 사용 하 여 `point` 기능을 만들고 **미터**단위를 나타내는 번호가 매겨진 `Radius` 속성을 만들어 표에서 돌출 원을 렌더링할 수 있습니다. 예:
 
 ```Javascript
 {

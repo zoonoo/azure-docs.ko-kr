@@ -1,22 +1,24 @@
 ---
-title: Azure의 Jupyter Notebook에서 데이터 리소스 액세스
-description: Jupyter Notebook에서 파일, REST API, 데이터베이스 및 다른 Azure Storage 리소스에 액세스하는 방법입니다.
-ms.topic: article
+title: Jupyter 노트북에서 데이터 액세스-Azure Notebooks 미리 보기
+description: Jupyter 노트북에서 파일, REST Api, 데이터베이스 및 다른 Azure Storage 리소스에 액세스 하는 방법에 대해 알아봅니다.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 23acdf99f6cb69f100e484e236580f3b2b43ba94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277694"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646350"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Notebook에서 클라우드 데이터 액세스
 
 Jupyter Notebook에서 흥미로운 작업을 하려면 데이터가 필요합니다. 데이터는 실제로 Notebook의 핵심 요소입니다.
 
-Notebook 내에서 [과 같은 명령을 사용하여 파일을 직접 다운로드할 수 있지만 ](work-with-project-data-files.md)데이터 파일을 프로젝트로 가져올`curl` 수 있습니다. 그러나 REST API, 관계형 데이터베이스 및 Azure 테이블과 같은 클라우드 스토리지와 같은 파일이 아닌 원본에서 사용할 수 있는 훨씬 더 광범위한 데이터를 사용해야 합니다.
+Notebook 내에서 `curl`과 같은 명령을 사용하여 파일을 직접 다운로드할 수 있지만 [데이터 파일을 프로젝트로 가져올](work-with-project-data-files.md) 수 있습니다. 그러나 REST API, 관계형 데이터베이스 및 Azure 테이블과 같은 클라우드 스토리지와 같은 파일이 아닌 원본에서 사용할 수 있는 훨씬 더 광범위한 데이터를 사용해야 합니다.
 
 이 문서에는 간단히 이러한 다양한 옵션을 설명합니다. 데이터 액세스는 작업에서 가장 잘 표시되므로 [Azure Notebooks 샘플 - 데이터 액세스](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb)에서 실행 가능한 코드를 찾을 수 있습니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>REST API
 

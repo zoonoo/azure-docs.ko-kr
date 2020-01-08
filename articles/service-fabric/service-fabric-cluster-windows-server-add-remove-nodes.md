@@ -1,25 +1,16 @@
 ---
-title: 독립 실행형 Service Fabric 클러스터에 노드 추가 또는 제거 | Microsoft Docs
+title: 독립 실행형 Service Fabric 클러스터에 노드 추가 또는 제거
 description: Windows Server를 실행하는 실제 또는 가상 머신에서 Azure 서비스 패브릭 클러스터에 노드를 추가하거나 제거하는 방법(온-프레미스 또는 클라우드에 위치 가능)을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa9550d1ec6201f7cbaf552fac5f71c875428e21
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711036"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458246"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server가 실행되는 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Azure
 [Windows Server 컴퓨터에 독립 실행형 Service Fabric 클러스터를 만든](service-fabric-cluster-creation-for-windows-server.md) 후 비즈니스 요구는 변경될 수 있으며 클러스터에 노드를 추가 또는 제거해야 할 수 있습니다. 이 문서에서는 이 목표를 달성하는 자세한 단계를 제공합니다. 노드 추가/제거 기능은 로컬 개발 클러스터에서 지원되지 않습니다.
@@ -38,7 +29,7 @@ ms.locfileid: "60711036"
     ```
     스크립트가 실행을 완료하면 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet을 실행하여 새 노드가 추가됐는지 확인할 수 있습니다.
 
-7. 클러스터의 서로 다른 노드 간에 일관성을 보장하려면 구성 업그레이드를 시작해야 합니다. [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps)을 실행하여 최신 구성 파일을 가져오고 새로 추가된 노드를 "노드" 섹션에 추가합니다. 또한 항상 동일한 구성 사용 하 여 클러스터를 다시 배포 해야 하는 경우 사용할 수 있는 최신 클러스터 구성으로는 것이 좋습니다.
+7. 클러스터의 서로 다른 노드 간에 일관성을 보장하려면 구성 업그레이드를 시작해야 합니다. [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps)을 실행하여 최신 구성 파일을 가져오고 새로 추가된 노드를 "노드" 섹션에 추가합니다. 또한 동일한 구성으로 클러스터를 다시 배포 해야 하는 경우 항상 최신 클러스터 구성을 사용 하는 것이 좋습니다.
 
     ```
         {

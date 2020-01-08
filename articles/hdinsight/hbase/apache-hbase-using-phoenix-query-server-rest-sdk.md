@@ -1,19 +1,19 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight
 description: Azure HDInsight에서 Phoenix Query Server를 위한 REST SDK를 설치 및 사용합니다.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311687"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612260"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
@@ -71,10 +71,10 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 다음은 중요한 일부 속성입니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | -- | -- |
 | AutoCommit | `autoCommit`이 Phoenix 트랜잭션에 사용되도록 설정되어 있는지 여부를 나타내는 부울입니다. |
-| 읽기 전용 | 연결이 읽기 전용인지 여부를 나타내는 부울입니다. |
+| ReadOnly | 연결이 읽기 전용인지 여부를 나타내는 부울입니다. |
 | TransactionIsolation | JDBC 사양에 따른 트랜잭션 격리 수준을 나타내는 정수입니다. 다음 표를 참조하세요.|
 | 카탈로그 | 연결 속성을 가져올 때 사용할 카탈로그의 이름입니다. |
 | 스키마 | 연결 속성을 가져올 때 사용할 스키마의 이름입니다. |
@@ -82,9 +82,9 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 `TransactionIsolation` 값은 다음과 같습니다.
 
-| 격리 값 | 설명 |
+| 격리 값 | Description |
 | -- | -- |
-| 0 | 트랜잭션이 지원되지 않습니다. |
+| 0 | 트랜잭션은 지원 되지 않습니다. |
 | 1 | 더티 읽기, 반복 불가능 읽기 및 가상 읽기가 발생할 수 있습니다. |
 | 2 | 더티 읽기는 금지되지만 반복 불가능 읽기 및 가상 읽기는 발생할 수 있습니다. |
 | 4 | 더티 읽기 및 반복 불가능 읽기는 금지되지만 가상 읽기는 발생할 수 있습니다. |
@@ -94,7 +94,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 다른 RDBMS와 마찬가지로 HBase는 데이터를 테이블에 저장합니다. Phoenix는 기본 키 및 열 형식을 정의하면서, 표준 SQL 쿼리를 사용하여 새 테이블을 만듭니다.
 
-이 예제 및 모든 후속 예제는 [새 PhoenixClient 개체 인스턴스화](#instantiate-new-phoenixclient-object)에 정의된 대로 인스턴스화된 `PhoenixClient` 개체를 사용합니다.
+이 예제 및 이후의 모든 예제에서는 [새 PhoenixClient 개체 인스턴스화](#instantiate-new-phoenixclient-object)에 정의 된 대로 인스턴스화된 `PhoenixClient` 개체를 사용 합니다.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -170,7 +170,7 @@ finally
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-테이블의 `StateProvince` 열 값은 후속 선택 작업에서 사용됩니다.
+테이블의 `StateProvince` 열 값은 이후 select 작업에 사용 됩니다.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,7 +277,7 @@ finally
 }
 ```
 
-insert 문을 실행하기 위한 구조체는 새 테이블을 만드는 것과 비슷합니다. `try` 블록 끝에서 트랜잭션이 명시적으로 커밋됩니다. 이 예제에서는 insert 트랜잭션을 300번 반복합니다. 다음 예제에서는 좀 더 효율적인 일괄 처리 삽입 프로세스를 보여 줍니다.
+insert 문을 실행하기 위한 구조체는 새 테이블을 만드는 것과 비슷합니다. `try` 블록의 끝에서 트랜잭션은 명시적으로 커밋됩니다. 이 예제에서는 insert 트랜잭션을 300번 반복합니다. 다음 예제에서는 좀 더 효율적인 일괄 처리 삽입 프로세스를 보여 줍니다.
 
 ## <a name="batch-insert-data"></a>데이터 삽입 일괄 처리
 
@@ -393,7 +393,7 @@ finally
 
 하나의 테스트 환경에서 300개의 새 레코드를 개별적으로 삽입하는 데 약 2분이 소요되었습니다. 반면, 300개 레코드를 일괄로 삽입하는 데는 6초만 필요했습니다.
 
-## <a name="select-data"></a>데이터를 선택합니다.
+## <a name="select-data"></a>데이터 선택
 
 이 예제에서는 하나의 연결을 다시 사용해서 여러 쿼리를 실행하는 방법을 보여 줍니다.
 
@@ -537,7 +537,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
 
 * [HDInsight의 Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
 * [Apache HBase REST SDK 사용](apache-hbase-rest-sdk.md)

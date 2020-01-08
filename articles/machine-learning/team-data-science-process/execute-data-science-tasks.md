@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a6b463c4a1d0e640cc6c2a380ee978fcafa2877e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0bb928fe23fcfc3580b0c3951c48f2636ab86c81
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670347"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526705"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
@@ -61,12 +61,12 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 - 학습 및 테스트에 사용되는 부분
 - 실행할 알고리즘 
 - 모델 최적화에 대한 제어 매개 변수 선택:
-    - 교차 유효성 검사 
+    - 교차 검증 
     - 부트스트래핑
-    - 교차 유효성 검사 접기
+    - 교차 검증 겹(폴드)
 - 각 알고리즘에 대한 하이퍼 파라미터 집합 
 
-또한 모델을 빠르게 실행하기 위해 Yaml 파일에서 알고리즘 수, 최적화 겹(폴드) 횟수, 하이퍼 파라미터 및 스윕하도록 설정된 하이퍼 파라미터 집합 수를 수정할 수 있습니다. 예를 들어 더 적은 수의 CV 접기와 매개 변수 집합으로 실행할 수 있습니다. 신뢰할 수 있는 경우 CV 접기 수를 높이거나 매개 변수 집합을 더 많이 사용하면 더 포괄적으로 실행할 수도 있습니다.
+또한 모델을 빠르게 실행하기 위해 Yaml 파일에서 알고리즘 수, 최적화 겹(폴드) 횟수, 하이퍼 파라미터 및 스윕하도록 설정된 하이퍼 파라미터 집합 수를 수정할 수 있습니다. 예를 들어 더 적은 수의 CV(교차 검증) 겹과 파라미터 집합으로 모델을 실행할 수 있습니다. 신뢰할 수 있는 경우 CV 접기 수를 높이거나 매개 변수 집합을 더 많이 사용하면 더 포괄적으로 실행할 수도 있습니다.
 
 자세한 내용은 [TDSP 데이터 과학 유틸리티의 자동화된 모델링 및 보고 유틸리티](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling)를 참조하세요.
 
@@ -86,7 +86,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 모델을 프로덕션으로 전환하기 위한 여러 접근법과 플랫폼이 있습니다. 다음은 몇 가지 옵션입니다.
 
 
-- [Azure Machine Learning에서 배포 모델링](../service/how-to-deploy-and-where.md)
+- [Azure Machine Learning에서 배포 모델링](../how-to-deploy-and-where.md)
 - [SQL-Server의 모델 배포](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

@@ -1,18 +1,15 @@
 ---
-title: Webhook를 사용 하 여 기존 문제 관리 시스템에 대 한 Azure Service Health 알림 구성
+title: Webhook를 사용 하 여 Azure Service Health 알림 보내기
 description: 서비스 상태 이벤트에 대 한 개인 설정 알림을 기존 문제 관리 시스템에 보냅니다.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 8f84b43519c197797b39397cfd15c4f90444177c
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 95926185057d9fc1177b974fe76b2da18ebfc124
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854377"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551678"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Webhook를 사용 하 여 문제 관리 시스템에 대 한 상태 알림 구성
 
@@ -36,7 +33,7 @@ Azure 서비스 인시던트가 영향을 받는 경우 텍스트 메시지나 �
 
 [예제](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook 페이로드를 참조 하세요.
 
-를 살펴보면 `context.eventSource == "ServiceHealth"`서비스 상태 경고 인지 확인할 수 있습니다. 가장 관련성이 높은 속성은 다음과 같습니다.
+`context.eventSource == "ServiceHealth"`를 살펴보면 서비스 상태 경고 인지 확인할 수 있습니다. 가장 관련성이 높은 속성은 다음과 같습니다.
 - **데이터. 컨텍스트-activityLog. 상태**
 - **data. activityLog. 수준**
 - **data. activityLog. subscriptionId**
@@ -49,7 +46,7 @@ Azure 서비스 인시던트가 영향을 받는 경우 텍스트 메시지나 �
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>인시던트의 Service Health 대시보드에 대 한 링크 만들기
 특수 URL을 생성 하 여 데스크톱 또는 모바일 장치에서 Service Health 대시보드에 대 한 직접 링크를 만들 수 있습니다. *TrackingId* 및 *subscriptionId* 의 처음 3 자리 및 마지막 3 자리를이 형식으로 사용 합니다.
 
-https<i></i>:///app.azure.com/h/ *&lt;&gt;trackingId*/*first 3 및 last 3 digits&gt; of subscriptionId&lt;*
+https<i></i>://App.azure.com/h/ *&lt;trackingId&gt;* / *&lt;처음 3 자리부터&gt;subscriptionId의 마지막 3 자리까지*
 
 예를 들어 *subscriptionId* 가 bba14129-e895-429b-8809-278e836ecdb3이 고 *trackingId* 가 0DET-URB 인 경우 Service Health URL은 다음과 같습니다.
 
@@ -59,9 +56,9 @@ https<i></i>://app.azure.com/h/0DET-URB/bbadb3
 가장 낮은 심각도에서 가장 높은 심각도부터 페이로드의 **수준** 속성은 *정보*, *경고*, *오류*또는 *중요*일 수 있습니다.
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>영향을 받는 서비스를 구문 분석 하 여 인시던트 범위 결정
-Service Health 경고는 여러 지역 및 서비스에서 발생 한 문제를 알려 줍니다. 전체 세부 정보를 얻으려면의 `impactedServices`값을 구문 분석 해야 합니다.
+Service Health 경고는 여러 지역 및 서비스에서 발생 한 문제를 알려 줍니다. 전체 세부 정보를 얻으려면 `impactedServices`의 값을 구문 분석 해야 합니다.
 
-내부 콘텐츠는 이스케이프 되지 않은 경우 정기적으로 구문 분석할 수 있는 다른 JSON 개체를 포함 하는 이스케이프 된 [json](https://json.org/) 문자열입니다. 예를 들어:
+내부 콘텐츠는 이스케이프 되지 않은 경우 정기적으로 구문 분석할 수 있는 다른 JSON 개체를 포함 하는 이스케이프 된 [json](https://json.org/) 문자열입니다. 예:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
@@ -99,7 +96,7 @@ Service Health 경고는 여러 지역 및 서비스에서 발생 한 문제를 
 
 ## <a name="test-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 webhook 통합 테스트
 
-다음 단계를 수행하십시오.
+다음 단계를 수행하세요.
 
 1. 보내려는 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대 한 웹 후크에](../azure-monitor/platform/activity-log-alerts-webhook.md)서비스 상태 webhook 페이로드의 예를 참조 하세요.
 

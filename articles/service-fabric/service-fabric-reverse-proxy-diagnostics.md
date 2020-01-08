@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric 역방향 프록시 진단 | Microsoft Docs
-description: 역방향 프로세스에서의 요청 처리 모니터링 및 진단 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 역방향 프록시 진단
+description: Azure Service Fabric 응용 프로그램에 대 한 역방향 프록시에서 요청 처리를 모니터링 하 고 진단 하는 방법을 알아봅니다.
 author: kavyako
-manager: vipulm
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933962"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645466"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>역방향 프로세스에서의 요청 처리 모니터링 및 진단
 

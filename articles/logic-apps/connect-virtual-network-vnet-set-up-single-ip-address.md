@@ -1,23 +1,25 @@
 ---
-title: 여러 ISEs에 대 한 액세스 설정
-description: ISEs (여러 integration service environment)의 경우 단일 공용 아웃 바운드 IP 주소를 설정 하 여 Azure Logic Apps에서 외부 시스템에 액세스할 수 있습니다.
+title: ISEs에 대 한 공용 아웃 바운드 IP 주소 설정
+description: Azure Logic Apps에서 integration service environment (ISEs)에 대 한 단일 공용 아웃 바운드 IP 주소를 설정 하는 방법에 대해 알아봅니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792692"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453476"
 ---
-# <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>Azure Logic Apps에서 여러 통합 서비스 환경에 대 한 액세스 설정
+# <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Azure Logic Apps에서 하나 이상의 통합 서비스 환경에 대해 단일 IP 주소를 설정 합니다.
 
-Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)의 리소스에 액세스 해야 하는 논리 앱을 호스팅하기 위한 [ISE ( *통합 서비스 환경* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 를 설정할 수 있습니다. IP 제한이 있는 다른 끝점에 액세스 해야 하는 ISE 인스턴스가 여러 개 있는 경우 [Azure 방화벽](../firewall/overview.md) 또는 [네트워크 가상 어플라이언스](../virtual-network/virtual-networks-overview.md#filter-network-traffic) 를 가상 네트워크에 배포 하 고 해당 방화벽 또는 네트워크 가상 어플라이언스를 통해 아웃 바운드 트래픽을 라우팅합니다. 그런 다음 가상 네트워크의 모든 ISE 인스턴스가 대상 시스템과 통신 하는 단일의 예측 가능 하 고 공용 IP 주소를 사용할 수 있습니다. 이렇게 하면 각 ISE에 대해 대상 시스템에서 추가 방화벽을 설정할 필요가 없습니다. 이 항목에서는 Azure 방화벽을 통해 아웃 바운드 트래픽을 라우팅하는 방법을 보여 주지만, Azure Marketplace에서 타사 방화벽과 같은 가상 네트워크 가상 어플라이언스에 비슷한 개념을 적용할 수 있습니다.
+Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)의 리소스에 액세스 해야 하는 논리 앱을 호스팅하기 위한 [ISE ( *통합 서비스 환경* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 를 설정할 수 있습니다. IP 제한이 있는 다른 끝점에 액세스 해야 하는 ISE 인스턴스가 여러 개 있는 경우 [Azure 방화벽](../firewall/overview.md) 또는 [네트워크 가상 어플라이언스](../virtual-network/virtual-networks-overview.md#filter-network-traffic) 를 가상 네트워크에 배포 하 고 해당 방화벽 또는 네트워크 가상 어플라이언스를 통해 아웃 바운드 트래픽을 라우팅합니다. 그런 다음 가상 네트워크의 모든 ISE 인스턴스가 대상 시스템과 통신 하는 데 사용할 수 있는 단일 공용, 정적 및 예측 가능한 IP 주소를 사용할 수 있습니다. 이런 방식으로 각 ISE에 대 한 해당 대상 시스템에서 추가 방화벽을 설정할 필요가 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+이 항목에서는 Azure 방화벽을 통해 아웃 바운드 트래픽을 라우팅하는 방법을 보여 주지만, Azure Marketplace에서 타사 방화벽과 같은 네트워크 가상 어플라이언스에 비슷한 개념을 적용할 수 있습니다. 이 항목에서는 여러 ISE 인스턴스의 설치에 중점을 둔 반면, 시나리오에서 액세스 해야 하는 IP 주소의 수를 제한 해야 하는 경우 단일 ISE에 대해이 방법을 사용할 수도 있습니다. 방화벽 또는 가상 네트워크 어플라이언스에 대 한 추가 비용이 시나리오에 적합 한지 여부를 고려 합니다. [Azure 방화벽 가격 책정](https://azure.microsoft.com/pricing/details/azure-firewall/)에 대해 자세히 알아보세요.
+
+## <a name="prerequisites"></a>필수 조건
 
 * ISE와 동일한 가상 네트워크에서 실행 되는 Azure 방화벽. 방화벽이 없으면 먼저 `AzureFirewallSubnet` 이라는 [서브넷을](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) 가상 네트워크에 추가 합니다. 그런 다음 가상 네트워크에서 [방화벽을 만들고 배포할](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) 수 있습니다.
 
@@ -47,7 +49,7 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
 
    ![아웃 바운드 트래픽 전송 규칙 설정](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | 자산 | Value | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | **경로 이름** | <*고유 경로 이름*> | 경로 테이블의 경로에 대 한 고유 이름입니다. |
    | **주소 접두사** | <*대상-주소*> | 트래픽을 이동할 대상 시스템 주소입니다. 이 주소에 대해 [클래스 없는 CIDR (도메인 간 라우팅) 표기법](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 을 사용 해야 합니다. |
@@ -69,18 +71,18 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
 
    **네트워크 규칙 컬렉션 속성**
 
-   | 자산 | Value | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
-   | **Name** | <*네트워크-컬렉션-이름*> | 네트워크 규칙 컬렉션의 이름입니다. |
+   | **이름** | <*네트워크-컬렉션-이름*> | 네트워크 규칙 컬렉션의 이름입니다. |
    | **우선 순위** | <*우선 순위 수준*> | 규칙 컬렉션을 실행 하는 데 사용할 우선 순위의 순서입니다. 자세한 내용은 [몇 가지 Azure 방화벽 개념은 무엇](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)인가요?를 참조 하세요. |
-   | **작업** | **허용** | 이 규칙에 대해 수행할 동작 유형입니다. |
+   | **동작** | **허용** | 이 규칙에 대해 수행할 동작 유형입니다. |
    |||
 
    **네트워크 규칙 속성**
 
-   | 자산 | Value | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
-   | **Name** | <*네트워크-이름*> | 네트워크 규칙의 이름 |
+   | **이름** | <*네트워크-이름*> | 네트워크 규칙의 이름 |
    | **프로토콜** | <*연결-프로토콜*> | 사용할 연결 프로토콜입니다. 예를 들어 NSG 규칙을 사용 하는 경우 **tcp 뿐만 아니라** **tcp** 와 **UDP**를 모두 선택 합니다. |
    | **원본 주소** | <*ISE-서브넷 주소*> | ISE를 실행 하는 서브넷 IP 주소와 논리 앱의 트래픽이 발생 하는 위치 |
    | **대상 주소** | <*대상-IP 주소*> | 트래픽을 이동 하려는 대상 시스템의 IP 주소 |

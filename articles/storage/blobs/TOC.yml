@@ -115,11 +115,11 @@
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 보안
           items:
-            - name: 보안 개요
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 보안 권장 사항
+              href: security-recommendations.md
             - name: Azure Storage 암호화
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 권한 부여
+            - name: 데이터 작업 권한 부여
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
                 - name: Azure AD를 사용하여 권한 부여
@@ -130,6 +130,8 @@
                   href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Blob에 대한 익명 액세스
                   href: storage-manage-access-to-resources.md
+            - name: 관리 작업 권한 부여
+              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 변경이 불가능한 Blob
               href: storage-blob-immutable-storage.md
             - name: Advanced Threat Protection
@@ -165,8 +167,6 @@
               href: storage-lifecycle-management-concepts.md
         - name: '성능, 크기 조정 및 비용 최적화'
           items:
-            - name: 확장성 및 성능 대상
-              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 성능 및 확장성 검사 목록
               href: storage-performance-checklist.md
             - name: Blob 스토리지의 대기 시간
@@ -259,11 +259,9 @@
           items:
             - name: 범용 스토리지 계정 만들기
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
-              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 블록 Blob 스토리지 계정 만들기
               href: storage-blob-create-account-block-blob.md
-            - name: 스토리지 계정 관리
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 스토리지 계정 업그레이드
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 계정 유형 및 SKU 이름 가져오기(.NET)
@@ -276,8 +274,6 @@
               href: storage-blob-containers-list.md
             - name: 속성 및 메타데이터 관리(.NET)
               href: storage-blob-container-properties-metadata.md
-            - name: 불변성 정책 설정 및 관리
-              href: storage-blob-immutability-policies-manage.md
         - name: Blob 만들기 및 관리
           items:
             - name: Blob 나열(.NET)
@@ -296,8 +292,10 @@
                   items:
                     - name: 포털
                       href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell 또는 Azure CLI
-                      href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell
+                      href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Azure CLI
+                      href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: RBAC를 사용하여 액세스 권한 관리
                   items:
                     - name: 포털
@@ -314,6 +312,8 @@
                       href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 공유 키로 권한 부여
                   items:
+                    - name: 계정 키 보기 및 관리
+                      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 연결 문자열 구성
                       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Azure Storage REST API 사용
@@ -368,6 +368,8 @@
                   href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 전송 계층 보안 사용
                   href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 불변성 정책 설정 및 관리
+              href: storage-blob-immutability-policies-manage.md
         - name: 재해 복구
           items:
             - name: 계정 장애 조치(failover) 시작
@@ -440,8 +442,20 @@
           items:
             - name: 대기 시간 문제
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 참고 자료
+    - name: 참조
       items:
+        - name: 확장성 및 성능 대상
+          items:
+            - name: Blob Storage
+              href: scalability-targets.md
+            - name: 표준 스토리지 계정
+              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 프리미엄 블록 Blob Storage 계정
+              href: scalability-targets-premium-block-blobs.md
+            - name: 프리미엄 페이지 Blob Storage 계정
+              href: scalability-targets-premium-page-blobs.md
+            - name: 스토리지 리소스 공급자
+              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: /powershell/module/az.storage
         - name: Azure CLI
@@ -472,7 +486,7 @@
               href: /rest/api/storageservices
             - name: 스토리지 리소스 공급자
               href: /rest/api/storagerp
-            - name: Import/Export
+            - name: 가져오기/내보내기
               href: /rest/api/storageimportexport
         - name: C++
           href: 'https://azure.github.io/azure-storage-cpp'
@@ -675,8 +689,6 @@
           items:
             - name: Data Lake에 대한 스토리지 계정 만들기
               href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 스토리지 계정 관리
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Storage Explorer로 데이터 관리
               href: ../blobs/data-lake-storage-explorer.md
             - name: 스토리지 계정 업그레이드
@@ -743,18 +755,6 @@
               href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: HDInsight의 Storm 최적화
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 파일(Blob) 관리
-          items:
-            - name: 개요
-              href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: HDInsight의 Spark 최적화
-              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: HDInsight의 Hive 최적화
-              href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: HDInsight의 MapReduce 최적화
-              href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: HDInsight의 Storm 최적화
-              href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 데이터 마이그레이션
           items:
             - name: Data Lake Storage Gen1에서 업그레이드
@@ -765,7 +765,7 @@
           href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Power BI와 함께 사용
           href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 참고 자료
+    - name: 참조
       items:
         - name: PowerShell
           href: /powershell/module/azure.storage
@@ -799,7 +799,7 @@
               href: /rest/api/storageservices/data-lake-storage-gen2
             - name: 리소스 공급자
               href: /rest/api/storagerp
-            - name: Import/Export
+            - name: 가져오기/내보내기
               href: /rest/api/storageimportexport
         - name: Resource Manager 템플릿
           displayName: ARM

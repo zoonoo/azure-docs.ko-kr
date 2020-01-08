@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric Reliable Services의 수명 주기 개요 | Microsoft Docs
-description: Service Fabric Reliable Services의 다른 수명 주기 이벤트에 대해 알아보기
-services: Service-Fabric
-documentationcenter: .net
+title: Reliable Services 수명 주기 개요
+description: 상태 저장 및 상태 비저장 서비스에 대 한 Azure Service Fabric Reliable Services 응용 프로그램의 수명 주기 이벤트에 대해 알아봅니다.
 author: masnider
-manager: chackdan
-editor: vturecek;
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ebc7aec63b34630b606178aa17e2ae7fdd0fc87f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe338ca3f25cd606da7f95f6c9437a3cd3dc4e69
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723569"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645500"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 수명 주기 개요
 > [!div class="op_single_selector"]
@@ -71,7 +62,7 @@ Azure Service Fabric Reliable Services의 수명 주기를 고려할 경우 수�
 상태 저장 서비스는 몇 가지를 변경한 상태 비저장 서비스 패턴과 비슷합니다. 상태 저장 서비스를 시작하면 이벤트의 순서는 다음과 같습니다.
 
 1. 서비스가 생성됩니다.
-2. `StatefulServiceBase.OnOpenAsync()`가 호출된 경우 이 호출은 서비스에서 드물게 재정의됩니다.
+2. `StatefulServiceBase.OnOpenAsync()`을 호출합니다. 이 호출은 서비스에서 드물게 재정의됩니다.
 3. 다음과 같은 작업이 동시에 수행됩니다.
     - `StatefulServiceBase.CreateServiceReplicaListeners()`가 호출됩니다. 
       - 서비스가 주 서비스인 경우 반환된 모든 수신기가 열립니다. `ICommunicationListener.OpenAsync()`가 각 수신기에서 호출됩니다.

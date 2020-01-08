@@ -1,25 +1,16 @@
 ---
-title: Service Fabric Backup 및 복원 | Microsoft Docs
-description: 서비스 패브릭 Backup 및 복원에 관한 개념 설명서
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric 백업 및 복원
+description: 안정적인 상태 저장 서비스 및 Reliable Actors의 백업 구성에 대 한 서비스인 Service Fabric 백업 및 복원에 대 한 개념 설명서입니다.
 author: mcoskun
-manager: chackdan
-editor: subramar,zhol
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 712069a34b6bc5d8aa4bcbab3fdbf9fc9cd8958b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723877"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645551"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Reliable Services 및 Reliable Actors 백업 및 복원
 Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고가용성을 유지하는 고가용성 플랫폼입니다.  따라서 클러스터의 한 노드에서 오류가 발생해도 서비스를 지속적으로 사용할 수 있습니다. 많은 경우 플랫폼에서 제공하는 이러한 기본 제공 중복성으로 충분하지만 어떤 경우에는 서비스를 위해 (외부 저장소에) 데이터를 백업하는 것이 바람직합니다.
@@ -44,7 +35,7 @@ Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고�
 Backup/복원 기능을 사용하면 Reliable Services API에 구축된 서비스로 백업을 만들고 복원할 수 있습니다. 플랫폼에서 제공하는 백업 API를 사용하면 읽기 또는 쓰기 작업을 차단하지 않고 서비스 파티션 상태를 백업할 수 있습니다. 복원 API를 사용하면 선택한 백업에서 서비스 파티션의 상태를 복원할 수 있습니다.
 
 ## <a name="types-of-backup"></a>Backup 유형
-백업 옵션은 두 가지입니다. 전체 및 증분.
+백업 옵션에는 전체 및 증분이라는 두 가지가 있습니다.
 전체 백업은 검사점 및 모든 로그 레코드처럼 복제본의 상태를 다시 만드는 데 필요한 모든 데이터를 포함하는 백업입니다.
 전체 백업은 검사점 및 로그를 포함하므로 자체적으로 복원할 수 있습니다.
 

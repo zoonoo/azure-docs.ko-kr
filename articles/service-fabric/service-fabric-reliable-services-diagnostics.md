@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 상태 저장 Reliable Services 진단 | Microsoft Docs
+title: Azure Service Fabric 상태 저장 Reliable Services 진단
 description: Azure Service Fabric 상태 저장 Reliable Services의 진단 기능
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462923"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
@@ -30,7 +21,7 @@ Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래�
 EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예로 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Microsoft TraceEvent 라이브러리](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
 
 ## <a name="events"></a>이벤트
-| 이벤트 이름 | 이벤트 ID | Level | 이벤트 설명 |
+| 이벤트 이름 | 이벤트 ID | 수준 | 이벤트 설명 |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |정보 제공 |서비스 RunAsync 작업이 시작되면 내보내집니다. |
 | StatefulRunAsyncCancellation |2 |정보 제공 |서비스 RunAsync 작업이 취소되면 내보내집니다. |
@@ -50,7 +41,7 @@ RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 State
 ## <a name="performance-counters"></a>성능 카운터
 Reliable Services 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| 범주 | 설명 |
+| 범주 | Description |
 | --- | --- |
 | Service Fabric 트랜잭션 복제기 |Azure Service Fabric 트랜잭션 복제기 관련 카운터 |
 | Service Fabric TStore |Azure Service Fabric TStore 관련 카운터 |
@@ -104,11 +95,11 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 Reliable Services 런타임은 `Service Fabric Transactional Replicator` 범주 아래에 다음 이벤트를 내보냅니다.
 
- 카운터 이름 | 설명 |
+ 카운터 이름 | Description |
 | --- | --- |
 | Begin Txn Operations/sec | 초당 만들어진 새 쓰기 트랜잭션의 수입니다.|
 | Txn Operations/sec | 초당 신뢰할 수 있는 컬렉션에 대해 수행된 추가/업데이트/삭제 작업의 수입니다.|
-| 로그 플러시 바이트/초 | 트랜잭션 복제기가 초당 디스크에 플러시하는 바이트 수입니다. |
+| Log Flush Bytes/sec | 트랜잭션 복제기가 초당 디스크에 플러시하는 바이트 수입니다. |
 | Throttled Operations/sec | 제한 때문에 트랜잭션 복제기가 초당 거부한 작업 수입니다. |
 | 평균 트랜잭션 밀리초/커밋 | 트랜잭션당 평균 커밋 대기 시간(밀리초)입니다. |
 | 평균 플러시 대기 시간 (밀리초) | 트랜잭션 복제기가 시작한 디스크 플러시 작업의 평균 지속 시간(밀리초)입니다. |
@@ -117,7 +108,7 @@ Reliable Services 런타임은 `Service Fabric Transactional Replicator` 범주 
 
 Reliable Services 런타임은 `Service Fabric TStore` 범주 아래에 다음 이벤트를 내보냅니다.
 
- 카운터 이름 | 설명 |
+ 카운터 이름 | Description |
 | --- | --- |
 | 항목 개수 | 스토어에 있는 항목의 수|
 | 디스크 크기 | 저장소에 대한 검사점 파일의 전체 디스크 크기(바이트)|

@@ -1,20 +1,21 @@
 ---
-title: 저장소 계정에 사용 중인 암호화 키 모델 결정-Azure Storage
+title: 저장소 계정에 사용 중인 암호화 키 모델 확인
+titleSuffix: Azure Storage
 description: Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 저장소 계정에 대해 암호화 키를 관리 하는 방법을 확인 합니다. 키는 Microsoft (기본값) 또는 고객에 의해 관리 될 수 있습니다. 고객 관리 키는 Azure Key Vault에 저장 되어야 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 967e6f278008a59721d8d0c74e34c0252eeb1138
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3806fead9226978c277e87f3d97b14ee38d9552d
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666599"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665418"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>저장소 계정에 사용 중인 Azure Storage 암호화 키 모델 확인
 
@@ -31,7 +32,7 @@ ms.locfileid: "74666599"
 
 저장소 계정에서 암호화를 위해 Microsoft 관리 키 또는 고객이 관리 하는 키를 사용 하 고 있는지 확인 하려면 다음 방법 중 하나를 사용 합니다.
 
-# <a name="azure-portaltabportal"></a>[Azure 포털](#tab/portal)
+# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
 
 Azure Portal를 사용 하 여 저장소 계정에 대 한 암호화 모델을 확인 하려면 다음 단계를 수행 합니다.
 

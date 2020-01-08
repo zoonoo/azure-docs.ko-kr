@@ -3,14 +3,14 @@ title: Azure Functions에 대한 모범 사례
 description: Azure Functions에 대한 모범 사례 및 패턴에 알아봅니다.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227379"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433305"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -62,7 +62,7 @@ Idempotent 함수는 특히 타이머 트리거 사용이 권장됩니다. 예�
 
 큐 항목을 이미 처리한 경우 함수는 수행되지 않습니다.
 
-Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 **Azure Storage 큐 트리거 및 바인딩**을 위한 설명서에서 [포이즌 큐 메시지 처리](functions-bindings-storage-queue.md#trigger---poison-messages)를 참조하세요. 
+Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거 및 바인딩](functions-bindings-storage-queue.md#trigger---poison-messages)을 위한 설명서에서 **포이즌 큐 메시지 처리**를 참조하세요. 
 
 ## <a name="scalability-best-practices"></a>확장성 모범 사례
 
@@ -70,7 +70,11 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 ### <a name="share-and-manage-connections"></a>연결 공유 및 관리
 
-가능 하면 외부 리소스에 대 한 연결을 다시 사용 합니다.  [Azure Functions에서 연결을 관리하는 방법](./manage-connections.md)을 참조하세요.
+가능 하면 외부 리소스에 대 한 연결을 다시 사용 합니다. [Azure Functions에서 연결을 관리하는 방법](./manage-connections.md)을 참조하세요.
+
+### <a name="avoid-sharing-storage-accounts"></a>저장소 계정 공유 방지
+
+함수 앱을 만들 때이를 저장소 계정과 연결 해야 합니다. 저장소 계정 연결은 [Azurewebjobsstorage 응용 프로그램 설정](./functions-app-settings.md#azurewebjobsstorage)에서 유지 관리 됩니다. 성능을 최대화 하려면 각 함수 앱에 대해 별도의 저장소 계정을 사용 합니다. 이는 특히 많은 양의 저장소 트랜잭션을 생성 하는 Durable Functions 또는 이벤트 허브 트리거 함수가 있는 경우에 특히 중요 합니다. 응용 프로그램 논리가 직접 (저장소 SDK를 사용 하 여) 또는 저장소 바인딩 중 하나를 통해 Azure Storage와 상호 작용 하는 경우 전용 저장소 계정을 사용 해야 합니다. 예를 들어 blob 저장소에 일부 데이터를 기록 하는 이벤트 허브 트리거 함수가 있는 경우 두 개의 저장소 계정을 사용 합니다. 하나는 함수 앱에 대 한 것이 고 다른 하나는 함수에 의해 저장 되는 blob에 대 한&mdash;합니다.
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>동일한 함수 앱에서 테스트와 프로덕션 코드의 혼합 금지
 
@@ -84,13 +88,21 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>비동기 코드는 사용, 호출 차단 방지
 
-비동기 프로그래밍은 권장되는 최상의 방법입니다. 그러나 `Result` 인스턴스의 `Wait` 속성을 참조하거나 `Task` 메서드를 호출하는 것은 항상 피하세요. 이 방법은 스레드를 소진시킬 수 있습니다.
+비동기 프로그래밍은 특히 i/o 작업을 차단 하는 경우 권장 되는 모범 사례입니다.
+
+에서 C#항상 `Result` 속성을 참조 하거나 `Task` 인스턴스에서 `Wait` 메서드를 호출 하지 않도록 합니다. 이 방법은 스레드를 소진시킬 수 있습니다.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
+### <a name="use-multiple-worker-processes"></a>여러 작업자 프로세스 사용
+
+기본적으로 함수에 대 한 모든 호스트 인스턴스는 단일 작업자 프로세스를 사용 합니다. 특히 Python과 같은 단일 스레드 런타임을 사용 하 여 성능을 향상 시키려면 [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 를 사용 하 여 호스트 당 작업자 프로세스 수를 늘립니다 (최대 10 개). 그런 다음 Azure Functions는 이러한 작업자 간에 동시 함수 호출을 균등 하 게 분산 하려고 시도 합니다. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT는 요구를 충족 하도록 응용 프로그램을 확장할 때 함수가 만드는 각 호스트에 적용 됩니다. 
+
 ### <a name="receive-messages-in-batch-whenever-possible"></a>가능하면 항상 일괄 처리로 메시지를 수신합니다.
 
-Event Hub와 같은 일부 트리거는 단일 호출에서 일괄 처리 메시지를 수신할 수 있습니다.  메시지를 일괄 처리하면 성능이 향상됩니다.  `host.json`host.json 참조 설명서[에 설명된 대로 ](functions-host-json.md) 파일에서 최대 일괄 처리 크기를 구성할 수 있습니다.
+Event Hub와 같은 일부 트리거는 단일 호출에서 일괄 처리 메시지를 수신할 수 있습니다.  메시지를 일괄 처리하면 성능이 향상됩니다.  [host.json 참조 설명서](functions-host-json.md)에 설명된 대로 `host.json` 파일에서 최대 일괄 처리 크기를 구성할 수 있습니다.
 
 함수의 C# 경우 형식을 강력한 형식의 배열로 변경할 수 있습니다.  예를 들어 메서드 서명은 `EventData sensorEvent` 대신 `EventData[] sensorEvent`일 수 있습니다.  다른 언어의 경우 [다음과 같이](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10)일괄 처리를 사용 하도록 설정 하려면 `function.json`의 카디널리티 속성을 `many`로 명시적으로 설정 해야 합니다.
 
@@ -104,7 +116,7 @@ Event Hub와 같은 일부 트리거는 단일 호출에서 일괄 처리 메시
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure Functions에서 연결을 관리하는 방법](manage-connections.md)
 * [Azure App Service 모범 사례](../app-service/app-service-best-practices.md)

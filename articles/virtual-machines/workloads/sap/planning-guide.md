@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 12/13/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 863070eb025d8ac58f6a0946d49732dc6b2842b8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d9c5556934b31144e66f0985ab32d4e2cf759774
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951754"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643273"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -76,8 +76,8 @@ ms.locfileid: "74951754"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -235,7 +235,7 @@ ms.locfileid: "74951754"
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "74951754"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -311,7 +311,7 @@ ms.locfileid: "74951754"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 [capture-image-linux-step-2-create-vm-image]:../../linux/capture-image.md#step-2-create-vm-image
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+
 
 Microsoft Azure를 사용하여 회사에서는 긴 조달 주기를 거치지 않고도 최단 시간에 컴퓨팅 및 스토리지 리소스를 가져올 수 있습니다. 회사에서는 Azure Virtual Machines 서비스를 사용하여 SAP NetWeaver 기반 애플리케이션과 같은 클래식 애플리케이션을 Azure에 배포하고 온-프레미스에서 사용할 수 있는 추가 리소스를 확보하지 않고도 안정성과 가용성을 확장할 수 있습니다. 또한 Azure Virtual Machines 서비스는 프레미스 간 연결도 지원하므로 기업에서 Azure Virtual Machines를 온-프레미스 도메인, 프라이빗 클라우드 및 SAP 시스템 지형에 적극적으로 통합할 수 있습니다.
 이 백서에서는 Microsoft Azure Virtual Machine의 기본 사항에 대해 설명하고 Azure의 SAP NetWeaver 설치에 대한 계획 연습 과정 및 구현 고려 사항을 제공하므로 Azure에서 SAP NetWeaver의 실제 배포를 시작하기 전에 이 문서를 읽으면 도움이 됩니다.
@@ -329,7 +329,7 @@ Microsoft Azure Virtual Machine 서비스와 함께 Microsoft는 포괄적인 Ia
 또한 다음 두 가지 주요 측면을 집중적으로 설명합니다.
 
 * 첫 번째 부분에서는 Azure의 SAP NetWeaver 기반 애플리케이션에 대해 지원되는 두 가지 배포 패턴을 설명합니다. 또한 SAP 배포를 고려한 Azure의 일반적인 사용에 대해서도 설명합니다.
-* 두 번째 부분에서는 첫 번째 부분에서 설명하는 두 가지 다른 시나리오의 구현에 대해 자세히 설명합니다.
+* 두 번째 부분에서는 첫 번째 부분에 설명 된 다양 한 시나리오를 구현 하는 방법에 대해 설명 합니다.
 
 추가 리소스는이 문서의 [리소스][planning-guide-1.2] 챕터를 참조 하세요.
 
@@ -386,13 +386,12 @@ Azure 설명서에서 SAP 워크로드에 대한 진입점은 [여기](https://d
 
 Linux용 SAP 정보를 모두 포함하는 [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)도 확인해 보세요.
 
-Azure 구독의 일반적인 기본 제한 및 최대 제한은 [이 문서][azure-subscription-service-limits-subscription]에서 찾을 수 있습니다.
+Azure 구독의 일반적인 기본 제한 및 최대 제한은 [이 문서][azure-resource-manager/management/azure-subscription-service-limits-subscription]에서 찾을 수 있습니다.
 
 ## <a name="possible-scenarios"></a>가능한 시나리오
 SAP는 기업 내에서 중요 업무용 애플리케이션 중 하나로 보는 경우가 많습니다. 이러한 애플리케이션의 아키텍처 및 작업은 대부분 복잡하며, 가용성 및 성능에 대한 요구를 충족하는 것이 매우 중요합니다.
 
-따라서 기업은 이러한 비즈니스에 중요 한 비즈니스 프로세스를 실행 하기 위해 선택할 클라우드 공급자에 대해 신중 하 게 고려해 야 합니다. Azure는 업무상 중요 한 SAP 응용 프로그램 및 비즈니스 프로세스를 위한 이상적인 공용 클라우드 플랫폼입니다. 다양 한 Azure 인프라를 제공 하는 경우 거의 모든 기존 SAP NetWeaver 및 S/4HANA 시스템을 Azure에서 호스트할 수 있습니다. Azure는 수많은 메모리와 200 개 이상의 Cpu를 포함 하는 Vm을 제공 합니다. 그 외에도 Azure는 [Hana 큰 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 제공 하 여 최대 24tb의 스케일 아웃 hana 배포를 허용 하 고 최대 120TB의 ANA 배포를 확장 합니다. 
-
+따라서 기업은 이러한 비즈니스에 중요 한 비즈니스 프로세스를 실행 하기 위해 선택할 클라우드 공급자에 대해 신중 하 게 고려해 야 합니다. Azure는 업무상 중요 한 SAP 응용 프로그램 및 비즈니스 프로세스를 위한 이상적인 공용 클라우드 플랫폼입니다. 다양 한 Azure 인프라를 제공 하는 경우 거의 모든 기존 SAP NetWeaver 및 S/4HANA 시스템을 Azure에서 호스트할 수 있습니다. Azure는 수많은 메모리와 200 개 이상의 Cpu를 포함 하는 Vm을 제공 합니다. 그 외에도 Azure는 [Hana 큰 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 제공 하 여 최대 24tb의 스케일 아웃 hana 배포를 허용 하 고 최대 120TB의 ANA 배포를 확장 합니다. Azure 에서도 거의 모든 온-프레미스 SAP 시나리오를 실행할 수 있다는 것을 확인할 수 있습니다. 
 
 Azure IaaS 또는 일반적인 IaaS에 SAP 시스템을 성공적으로 배포하려면 전형적인 외주 업체나 호스팅 서비스 공급자 및 IaaS 제품 간의 주요 차이점을 이해해야 합니다. 기존 호스팅 서비스 공급자 또는 외주 업체는 고객이 호스트 하려는 워크 로드에 대 한 인프라 (네트워크, 저장소 및 서버 유형)를 조정 하지만 워크 로드의 특징을 파악 하 고 올바른 Azure를 선택 하는 것은 고객 또는 파트너의 책임입니다. IaaS 배포를 위한 Vm, 저장소 및 네트워크의 구성 요소입니다.
 
@@ -457,6 +456,18 @@ Azure에 SAP 시스템을 성공적으로 배포하려면 온-프레미스 SAP �
 * 지원되는 운영 체제 릴리스, SAP 소프트웨어와 연계해서 Azure Virtual Machine 서비스에서 지원되는 데이터베이스 시스템 릴리스는 SAP 정보 [1928533]에 설명되어 있습니다.
 * Azure Virtual Machine 서비스에서 지원되는 SAP 애플리케이션 및 릴리스는 SAP 정보 [1928533]에 설명되어 있습니다.
 * SAP용 Azure 시나리오에서는 64비트 이미지만 게스트 VM으로 실행될 수 있습니다. 결과적으로 64비트 SAP 애플리케이션 및 데이터베이스만 지원됩니다.
+
+
+## <a name="first-steps-planning-a-deployment"></a>배포를 계획 하는 첫 번째 단계
+배포 계획의 첫 번째 단계는 SAP를 실행 하는 데 사용할 수 있는 Vm을 확인 하는 것이 아닙니다. 첫 번째 단계는 시간이 오래 걸릴 수 있지만, 가장 중요 한 단계는 공용 클라우드에 SAP 워크 로드 또는 비즈니스 프로세스 유형을 배포 하는 경계 조건에 대 한 경계 조건에 대해 회사의 규정 준수 및 보안 팀과 함께 작업 하는 것입니다. 회사에서 Azure에 이전에 다른 소프트웨어를 배포한 경우 프로세스를 쉽게 수행할 수 있습니다. 회사의 경험을 시작할 때 특정 SAP 데이터 및 SAP 비즈니스 프로세스를 공용 클라우드에서 호스팅할 수 있도록 하는 경계 조건, 보안 상태를 파악 하는 데 필요한 대규모 토론이 있을 수 있습니다.
+
+Microsoft에서 제공 하는 규정 준수 [제품 목록을 보려면 microsoft 규정 준수 제품](https://docs.microsoft.com/microsoft-365/compliance/offering-home) 을 참조 하세요. 
+
+휴지 상태의 데이터에 대 한 데이터 암호화 또는 Azure 서비스의 기타 암호화와 같은 다른 문제 영역은 [azure 암호화 개요](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview)에 설명 되어 있습니다.
+
+계획에서 프로젝트의이 단계를 간과 해서는 안 됩니다. 이 항목에 대 한 계약 및 규칙이 있는 경우에만 Azure에서 배포 하는 네트워크 아키텍처를 계획 하는 다음 단계로 이동 해야 합니다.
+
+
 
 ## <a name="microsoft-azure-virtual-machine-services"></a>Microsoft Azure Virtual Machine 서비스
 Microsoft Azure Platform은 Microsoft 데이터 센터에서 호스트되고 작동되는 인터넷 규모 클라우드 서비스 플랫폼입니다. 이 플랫폼에는 Microsoft Azure Virtual Machine Services(Infrastructure as a Service 또는 IaaS) 및 풍부한 PaaS(Platform as a Service) 기능 집합이 포함되어 있습니다.
@@ -586,7 +597,7 @@ Premium Storage에 관한 자세한 내용은 다음 항목에서 찾을 수 있
 
 Azure에서 서비스 또는 VM을 배포할 때 VHD 및 VM 이미지의 배포는 Azure Storage 계정이라는 단위로 구성할 수 있습니다. Azure 배포를 계획할 때는 Azure의 제한 사항을 신중히 고려해야 합니다. 한쪽 측면에서는 Azure 구독당 Storage 계정 수가 제한되어 있습니다. 각 Azure Storage 계정은 많은 수의 VHD 파일을 보유할 수 있지만 Storage 계정당 총 IOPS 수의 한도는 고정되어 있습니다. DBMS 시스템에 수백 개의 SAP VM을 배포하여 많은 I/O 호출을 발생하는 경우 여러 Azure Storage 계정 간에 높은 IOPS DBMS VM을 배포하는 것이 좋습니다. 구독당 적용되는 Azure Storage 계정의 현재 제한을 초과하지 않도록 주의해야 합니다. 저장소는 SAP 시스템의 데이터베이스 배포에서 중요 한 부분 이므로이 개념은 이미 참조 된 [DBMS 배포 가이드][dbms-guide]에 자세히 설명 되어 있습니다.
 
-Azure Storage 계정에 대 한 자세한 내용은 [이 문서][storage-scalability-targets]에서 찾을 수 있습니다. 이 문서를 읽으면 Azure Standard Storage 계정과 Premium Storage 계정에서 제한 사항이 서로 다르다는 것을 알게 될 것입니다. 주요 차이점은 이러한 Storage 계정 내에 저장할 수 있는 데이터의 볼륨입니다. Standard Storage에서 이 볼륨은 Premium Storage를 사용할 때보다 훨씬 더 큽니다. 그 밖에도 Standard Storage 계정은 IOPS에서 크게 제한되지만(**총 요청 속도** 열 참조) Azure Premium Storage 계정에는 이러한 제한이 없습니다. SAP 시스템, 특히 DBMS 서버의 배포를 설명할 때 이러한 차이점의 세부 정보 및 결과를 살펴보겠습니다.
+Azure Storage 계정에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 목표](../../../storage/common/scalability-targets-standard-account.md) 및 [프리미엄 페이지 blob Storage 계정에 대 한 확장성 목표](../../../storage/blobs/scalability-targets-premium-page-blobs.md)에서 찾을 수 있습니다. 이러한 문서를 읽으면 Azure Standard Storage 계정과 Premium Storage 계정 간의 제한 사항에 차이가 있다는 것을 알 수 있습니다. 주요 차이점은 이러한 Storage 계정 내에 저장할 수 있는 데이터의 볼륨입니다. Standard Storage에서 이 볼륨은 Premium Storage를 사용할 때보다 훨씬 더 큽니다. 그 밖에도 Standard Storage 계정은 IOPS에서 크게 제한되지만(**총 요청 속도** 열 참조) Azure Premium Storage 계정에는 이러한 제한이 없습니다. SAP 시스템, 특히 DBMS 서버의 배포를 설명할 때 이러한 차이점의 세부 정보 및 결과를 살펴보겠습니다.
 
 Storage 계정 내에서는 여러 다른 VHD를 구성하고 분류하기 위해 다른 컨테이너를 만들 수 있습니다. 이러한 컨테이너는 다른 VM의 VHD를 분리하는 등의 용도로 사용됩니다. 단일 Azure Storage 계정 아래에서 컨테이너를 하나만 사용하거나 여러 개를 사용할 경우 성능상의 문제는 없습니다.
 
@@ -942,7 +953,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 ##### <a name="uploading-a-vhd-and-making-it-an-azure-disk"></a>VHD를 업로드한 후 Azure 디스크로 만들기
 이러한 경우 OS를 포함하거나 포함하지 않는 VHD를 업로드하려고 하며 VM을 데이터 디스크로 탑재하거나 OS 디스크로 사용할 것입니다. 이 작업은 다중 단계로 진행됩니다.
 
-**PowerShell**
+**Powershell**
 
 * *AzAccount* 를 사용 하 여 구독에 로그인 합니다.
 * *AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName를 사용 하 여 컨텍스트의 구독을 설정 합니다. <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext> 참조
@@ -1574,7 +1585,7 @@ az vm unmanaged-disk attach --resource-group $rgName --vm-name SAPERPDemo --size
 az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 --disk datadisk --new
 ```
 
-##### <a name="template"></a>Template
+##### <a name="template"></a>템플릿
 
 GitHub의 azure-빠른 시작-템플릿 리포지토리에서 샘플 템플릿을 사용할 수 있습니다.
 
@@ -1620,8 +1631,6 @@ SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역,
 크로스-프레미스 또는 하이브리드 시나리오는 아래 그래픽과 같이 대략적으로 나타낼 수 있습니다.
 
 ![온-프레미스와 Azure 자산 간의 사이트 간 연결][planning-guide-figure-2100]
-
-위에 나와 있는 시나리오는 온-프레미스에 있는 시나리오를 설명 합니다.
 
 최소 요구 사항은 Azure 서비스의 브라우저 액세스를 위해서는 SSL/TLS, 시스템 액세스를 위해서는 VPN 기반 연결과 같은 보안 통신 프로토콜의 사용입니다. 단, 회사에서는 회사 네트워크와 Azure 간의 VPN 연결을 다르게 처리하는 것을 전제로 합니다. 일부 회사에서는 모든 포트를 완전히 열어둘 수 있습니다. 또 다른 회사에서는 열어야 하는 포트를 정확하게 지정하려고 할 수 있습니다.
 
@@ -1871,7 +1880,7 @@ Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 
 가상 머신의 가용성에 영향을 줄 수 있는 두 가지 유형의 Azure 플랫폼 이벤트인 계획된 유지 관리와 계획되지 않은 유지 관리가 있습니다.
 
 * 계획된 유지 관리 이벤트는 가상 머신이 실행 중인 플랫폼 인프라의 전체적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft가 기본 Azure 플랫폼에 적용하는 주기적인 업데이트입니다.
-* 계획되지 않은 유지 관리 이벤트는 가상 컴퓨터의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 머신을 호스트 중인 비정상 물리적 서버에서 정상 물리적 서버로 가상 머신을 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 컴퓨터가 재부팅되도록 할 수도 있습니다.
+* 계획되지 않은 유지 관리 이벤트는 가상 컴퓨터의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 머신을 호스트 중인 비정상 물리적 서버에서 정상 물리적 서버로 가상 머신을 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 머신이 재부팅되도록 할 수도 있습니다.
 
 자세한 내용은 <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability> 설명서를 참조하세요.
 
@@ -2002,7 +2011,7 @@ SAP 인스턴스의 자동 시작과 관련된 자세한 내용은 다음 항목
 
 * [Unix 서버 시작/중지에 따른 SAP 시작/중지](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
 * [SAP NetWeaver 관리 에이전트 시작 및 중지](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-* [HANA 데이터베이스의 자동 시작을 사용하도록 설정하는 방법](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+* [HANA 데이터베이스의 자동 시작을 사용하도록 설정하는 방법](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### <a name="larger-3-tier-sap-systems"></a>대형 3계층 SAP 시스템
 3계층 SAP 구성의 고가용성 측면은 이전 섹션에서 이미 설명되었습니다. 그러나 DBMS 서버 요구 사항이 너무 커서 Azure에 포함할 수 없는 시스템의 경우는 어떨까요? SAP 애플리케이션 계층을 Azure에 배포할 수 있을까요?

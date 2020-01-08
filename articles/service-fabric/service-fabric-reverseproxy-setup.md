@@ -1,24 +1,15 @@
 ---
-title: Azure Service Fabric에서 역방향 프록시 설정 | Microsoft Docs
-description: Service Fabric의 역방향 프록시를 설정하고 구성하는 방법을 이해합니다.
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
+title: Azure Service Fabric 역방향 프록시 설정
+description: Azure Service Fabric 응용 프로그램에 대 한 역방향 프록시 서비스를 설정 하 고 구성 하는 방법을 이해 합니다.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933908"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645449"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
 역방향 프록시는 Service Fabric 클러스터에서 실행되는 마이크로 서비스를 통해 http 엔드포인트가 있는 다른 서비스를 검색하고 통신할 수 있도록 하는 선택적 Azure Service Fabric 서비스입니다. 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 이 문서에서는 클러스터에서 역방향 프록시를 설정하고 구성하는 방법에 대해 설명합니다. 
@@ -50,7 +41,7 @@ GitHub의 [보안 역방향 프록시 템플릿 샘플](https://github.com/Azure
 
 Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방향 프록시를 사용하도록 설정할 수 있습니다.
 
-1. 템플릿의 [매개 변수 섹션](../azure-resource-manager/resource-group-authoring-templates.md) 에서 역방향 프록시에 대한 포트를 정의합니다.
+1. 템플릿의 [매개 변수 섹션](../azure-resource-manager/templates/template-syntax.md) 에서 역방향 프록시에 대한 포트를 정의합니다.
 
     ```json
     "SFReverseProxyPort": {
@@ -61,7 +52,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         }
     },
     ```
-2. [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [리소스 종류 섹션](../azure-resource-manager/resource-group-authoring-templates.md)에서 각 노드 유형 개체에 대한 포트를 지정합니다.
+2. [**ServiceFabric/클러스터**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)에서 각 nodetype 개체의 포트를 지정 합니다.
 
     포트는 reverseProxyEndpointPort라는 매개 변수 이름으로 식별됩니다.
 
@@ -83,7 +74,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         ...
     }
     ```
-3. 역방향 프록시에 대한 포트에 SSL 인증서를 구성하려면 **Microsoft.ServiceFabric/clusters** [리소스 종류 섹션](../resource-group-authoring-templates.md)에서 해당 인증서를 ***reverseProxyCertificate*** 속성에 추가합니다.
+3. 역방향 프록시에 대 한 포트에서 SSL 인증서를 구성 하려면 **ServiceFabric/클러스터** [리소스 종류 섹션](../resource-group-authoring-templates.md)의 ***reverseProxyCertificate*** 속성에 인증서를 추가 합니다.
 
     ```json
     {
@@ -107,7 +98,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>클러스터 인증서와 다른 역방향 프록시 인증서 지원
- 역방향 프록시 인증서가 클러스터를 보호하는 인증서와 다른 경우 이전에 지정한 인증서를 가상 머신에 설치하고 ACL(액세스 제어 목록)에 추가하여 Service Fabric에서 액세스할 수 있게 합니다. 이 작업은 [**Microsoft.Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [리소스 종류 섹션](../resource-group-authoring-templates.md)에서 수행할 수 있습니다. 설치하려면 해당 인증서를 osProfile에 추가합니다. 템플릿의 확장 섹션은 ACL의 인증서를 업데이트할 수 있습니다.
+ 역방향 프록시 인증서가 클러스터를 보호하는 인증서와 다른 경우 이전에 지정한 인증서를 가상 머신에 설치하고 ACL(액세스 제어 목록)에 추가하여 Service Fabric에서 액세스할 수 있게 합니다. 이 작업은 [**virtualMachineScaleSets/** ](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [리소스 형식 섹션](../resource-group-authoring-templates.md)에서 수행할 수 있습니다. 설치하려면 해당 인증서를 osProfile에 추가합니다. 템플릿의 확장 섹션은 ACL의 인증서를 업데이트할 수 있습니다.
 
   ```json
   {
@@ -261,7 +252,7 @@ Azure 클러스터 외부에서 역방향 프록시를 처리하려면 역방향
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Resource Manager 템플릿을 통해 역방향 프록시 노출
 
-다음 JSON에서는 [Azure Resource Manager 템플릿을 통해 역방향 프록시 사용](#enable-reverse-proxy-via-azure-resource-manager-templates)에서 사용한 것과 동일한 템플릿을 참조합니다. Resource Manager 템플릿을 만들거나 기존 클러스터에 대한 템플릿을 내보내는 방법에 대한 자세한 내용은 이 문서의 해당 섹션을 참조하세요.  [**Microsoft.Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [리소스 종류 섹션](../resource-group-authoring-templates.md)이 변경되었습니다.
+다음 JSON에서는 [Azure Resource Manager 템플릿을 통해 역방향 프록시 사용](#enable-reverse-proxy-via-azure-resource-manager-templates)에서 사용한 것과 동일한 템플릿을 참조합니다. Resource Manager 템플릿을 만들거나 기존 클러스터에 대한 템플릿을 내보내는 방법에 대한 자세한 내용은 이 문서의 해당 섹션을 참조하세요.  [**Microsoft. 네트워크/loadBalancers 조정기**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [리소스 유형 섹션](../resource-group-authoring-templates.md)에 변경 내용이 적용 됩니다.
 
     ```json
     {

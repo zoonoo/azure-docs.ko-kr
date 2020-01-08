@@ -16,18 +16,18 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcdad9b1ea56a41613c5d8d815d1418783fea4ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 156917a011be2909ecca8ca14c98feb360f7831a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423922"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 디먼 앱-앱 등록
 
 디먼 응용 프로그램의 경우 앱을 등록할 때 알아야 할 사항은 다음과 같습니다.
 
-## <a name="supported-account-types"></a>Támogatott fióktípusok
+## <a name="supported-account-types"></a>지원되는 계정 유형
 
 디먼 응용 프로그램은 Azure AD 테 넌 트에만 적합 한 경우 응용 프로그램을 만들 때 다음을 선택 해야 합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "74965588"
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [디먼 앱-앱 코드 구성](./scenario-daemon-app-configuration.md)

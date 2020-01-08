@@ -1,25 +1,16 @@
 ---
-title: Service Fabric 애플리케이션의 업그레이드 구성 | Microsoft Docs
+title: Service Fabric 애플리케이션의 업그레이드 구성
 description: Microsoft Visual Studio를 사용하여 Service Fabric 애플리케이션을 업그레이드하기 위한 설정을 구성하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: na
 author: mikkelhegn
-manager: mfussell
-editor: tglee
-ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: 5979541146b7cd7b854f35c5bf204e71208f066b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876751"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464070"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 Service Fabric 애플리케이션의 업그레이드 구성
 Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 클러스터에 게시하기 위한 업그레이드를 지원합니다. 테스트 및 디버그 중에 애플리케이션을 바꾸지 않고 새 버전으로 업그레이드하려는 세 가지 시나리오가 있습니다.
@@ -31,7 +22,7 @@ Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 
 ## <a name="parameters-needed-to-upgrade"></a>업그레이드하기 위해 필요한 매개 변수
 두 가지의 배포 형식(일반 또는 업그레이드)에서 선택할 수 있습니다. 일반 배포는 클러스터에서 이전 배포 정보 및 데이터를 지우는 반면 업그레이드 배포는 이러한 정보 및 데이터를 유지합니다. Visual Studio에서 Service Fabric 애플리케이션을 업그레이드하는 경우 애플리케이션 업그레이드 매개 변수 및 상태 검사 정책을 제공해야 합니다. 애플리케이션 업그레이드 매개 변수는 업그레이드를 제어하는 반면 상태 검사 정책은 업그레이드가 성공적인지 여부를 확인합니다. 자세한 내용은 [Service Fabric 애플리케이션 업그레이드: 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 참조하세요.
 
-세 가지 업그레이드 모드가 있습니다. *모니터링*됨, *unmonitoredauto*및 *unmonitoredauto*.
+*Monitored*, *UnmonitoredAuto* 및 *UnmonitoredManual*의 세 가지 업그레이드 모드가 있습니다.
 
 * Monitored 업그레이드는 업그레이드 및 애플리케이션 상태 검사를 자동화합니다.
 * UnmonitoredAuto 업그레이드는 업그레이드를 자동화하지만 애플리케이션 상태 검사는 건너뜁니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 057bd18c50d7074e8a88b8273bec766a306a3776
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b44b48b504fc080971a2797b89026e14be5cdd17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433001"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -21,11 +21,11 @@ Azure Maps 계정을 만든 후에는 Azure Active Directory (Azure AD) 또는 �
 
 ## <a name="view-authentication-details"></a>인증 정보 보기
 
+Azure Maps 계정을 만든 후에는 기본 키와 보조 키가 생성 됩니다. [공유 키 인증](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication)을 사용 하 여 Azure Maps를 호출할 때 기본 키를 구독 키로 사용 하는 것이 좋습니다. 키 롤링 변경 등의 시나리오에서 보조 키를 사용할 수 있습니다. 자세히 알아보려면 [Azure Maps 인증](https://aka.ms/amauth)을 참조 하세요.
+
 Azure Portal에 대 한 인증 세부 정보를 볼 수 있습니다. 계정으로 이동 하 고 **설정** 메뉴에서 **인증** 을 선택 합니다.
 
 ![인증 세부 정보](./media/how-to-manage-authentication/how-to-view-auth.png)
-
- 자세히 알아보려면 [Azure Maps 인증](https://aka.ms/amauth)을 참조 하세요.
 
 
 ## <a name="set-up-azure-ad-app-registration"></a>Azure AD 앱 등록 설정
@@ -91,7 +91,7 @@ Azure Maps에 RBAC가 부여 된 사용자 및 앱을 보려면 **Access Control
 
 * 응용 프로그램에서 Azure Maps 웹 SDK를 사용 하 여 사용자 토큰 인증을 사용 하는 경우 Azure Maps 클라이언트 ID 및 Azure AD 앱 ID를 사용 하 여 HTML 페이지를 구성 해야 합니다.
 
-* 응용 프로그램에서 서버/응용 프로그램 인증을 사용 하는 경우 azure ad 리소스 ID `https://atlas.microsoft.com/`, Azure Maps 클라이언트 ID, Azure AD 앱 ID 및 Azure AD 앱 등록 암호를 사용 하 여 `https://login.microsoftonline.com` Azure AD 토큰 끝점에서 토큰을 요청 해야 합니다. 인증서.
+* 응용 프로그램에서 서버/응용 프로그램 인증을 사용 하는 경우 azure ad 리소스 ID `https://atlas.microsoft.com/`, Azure Maps 클라이언트 ID, Azure AD 앱 ID 및 Azure AD 앱 등록 암호 또는 인증서를 사용 하 여 azure AD 토큰 끝점 `https://login.microsoftonline.com`에서 토큰을 요청 해야 합니다.
 
 | Azure 환경   | Azure AD 토큰 끝점 | Azure 리소스 ID |
 | --------------------|-------------------------|-------------------|

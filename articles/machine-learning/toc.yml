@@ -1,6 +1,399 @@
-- name: Azure Machine Learning
-  href: service/overview-what-is-azure-ml.md
-- name: Azure Machine Learning Studio
-  href: studio/index.yml
-- name: Microsoft의 ML 제품 비교
-  href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
+- name: Azure Machine Learning 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Azure Machine Learning이란?
+      displayName: 'AML, services, overview, introduction'
+      href: overview-what-is-azure-ml.md
+    - name: Azure Machine Learning 및 Studio
+      displayName: 'AML, Studio, designer'
+      href: compare-azure-ml-to-studio-classic.md
+    - name: 아키텍처 및 용어
+      displayName: 'architecture, concepts, definitions, glossary'
+      href: concept-azure-machine-learning-architecture.md
+- name: 자습서
+  items:
+    - name: Studio 및 Designer
+      items:
+        - name: 'Designer: 1. 회귀 모델 학습'
+          displayName: studio
+          href: tutorial-designer-automobile-price-train-score.md
+        - name: 'Designer: 2. 해당 모델 배포'
+          displayName: studio
+          href: tutorial-designer-automobile-price-deploy.md
+        - name: 자동화된 ML 실험 만들기
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-first-experiment-automated-ml.md
+    - name: Python SDK
+      items:
+        - name: 첫 번째 ML 실험 만들기
+          items:
+            - name: 1. 작업 영역 및 개발 환경 설정
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. 첫 번째 모델 학습
+              href: tutorial-1st-experiment-sdk-train.md
+        - name: 이미지 분류(MNIST 데이터)
+          items:
+            - name: 1. 모델 학습
+              displayName: build modeling
+              href: tutorial-train-models-with-aml.md
+            - name: 2. 모델 배포
+              href: tutorial-deploy-models-with-aml.md
+        - name: 자동화된 ML을 사용하는 회귀(뉴욕시 택시 데이터)
+          items:
+            - name: ML 모델 자동 학습
+              displayName: 'automl, automated, auto ml,'
+              href: tutorial-auto-train-models.md
+        - name: Machine Learning 파이프라인(고급)
+          items:
+            - name: 분류 모델 일괄 처리 점수 매기기
+              displayName: pipelines
+              href: tutorial-pipeline-batch-scoring-classification.md
+    - name: R SDK
+      items:
+        - name: 첫 번째 ML 실험 만들기(R)
+          href: tutorial-1st-r-experiment.md
+    - name: Machine Learning CLI
+      href: tutorial-train-deploy-model-cli.md
+- name: 샘플
+  items:
+    - name: Jupyter Notebook
+      displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
+      href: samples-notebooks.md
+    - name: Azure Open Datasets
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: 엔드투엔드 MLOps 예제
+      href: 'https://github.com/microsoft/MLOps'
+- name: 개념
+  items:
+    - name: 작업 영역
+      href: concept-workspace.md
+    - name: 환경
+      href: concept-environments.md
+    - name: data
+      href: concept-data.md
+    - name: 모델 학습
+      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      href: concept-train-machine-learning-model.md
+    - name: 모델 관리(MLOps)
+      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
+      href: concept-model-management-and-deployment.md
+    - name: 해석력
+      displayName: explainability
+      href: how-to-machine-learning-interpretability.md
+    - name: '디자이너: ML 코드 없음'
+      displayName: studio
+      href: concept-designer.md
+    - name: 알고리즘 치트 시트
+      href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context
+    - name: 자동화된 기계 학습
+      displayName: 'automl, auto ml'
+      href: concept-automated-ml.md
+    - name: 컴퓨팅 인스턴스
+      displayName: 'resource, dsvm, Data Science Virtual Machine'
+      href: concept-compute-instance.md
+    - name: 컴퓨팅 대상
+      displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
+      href: concept-compute-target.md
+    - name: ML 파이프라인
+      href: concept-ml-pipelines.md
+    - name: ONNX
+      href: concept-onnx.md
+    - name: 엔터프라이즈 준비 및 보안
+      items:
+        - name: 엔터프라이즈 보안
+          items:
+            - name: 엔터프라이즈 보안 개요
+              displayName: authorization authentication encryption aad azure active directory
+              href: concept-enterprise-security.md
+            - name: 사용자 및 역할 관리
+              href: how-to-assign-roles.md
+            - name: 가상 네트워크 사용
+              displayName: 'vnet, blob'
+              href: how-to-enable-virtual-network.md
+            - name: SSL로 웹 서비스 보호
+              href: how-to-secure-web-service.md
+            - name: 스토리지 액세스 키 다시 생성
+              href: how-to-change-storage-access-key.md
+        - name: 인증 설정
+          displayName: 'authentication, auth, oauth'
+          href: how-to-setup-authentication.md
+        - name: Azure Machine Learning 모니터링
+          href: monitor-azure-machine-learning.md
+        - name: 이벤트 표 통합
+          href: concept-event-grid-integration.md
+    - name: 심층 학습
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
+- name: 방법 가이드
+  items:
+    - name: 작업 영역 만들기 및 관리
+      items:
+        - name: Azure Portal 사용
+          href: how-to-manage-workspace.md
+        - name: Azure CLI 사용
+          href: how-to-manage-workspace-cli.md
+        - name: Resource Manager 템플릿 사용
+          displayName: arm
+          href: how-to-create-workspace-template.md
+    - name: 환경 설정
+      items:
+        - name: 개발 환경 설정
+          displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
+          href: how-to-configure-environment.md
+        - name: 소프트웨어 환경 설정
+          displayName: 'pip, Conda, anaconda'
+          href: how-to-use-environments.md
+        - name: 로깅 사용
+          displayName: 'troubleshoot, log, files, tracing'
+          href: how-to-enable-logging.md
+        - name: 입력 및 출력 디렉터리 설정
+          displayName: 'large data, write, experiment files, size limit'
+          href: how-to-save-write-experiment-files.md
+        - name: VS Code 확장 사용
+          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
+          href: how-to-vscode-tools.md
+        - name: 대화형 디버깅
+          displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
+          href: how-to-set-up-vs-code-remote.md
+        - name: Git 통합
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
+    - name: 데이터 작업
+      items:
+        - name: Azure Storage의 데이터에 연결
+          displayName: 'blob, get, fileshare, access storage, mount, download'
+          href: how-to-access-data.md
+        - name: 데이터 저장소에서 데이터 가져오기
+          displayName: 'data, data set, register, access data'
+          href: how-to-create-register-datasets.md
+        - name: 데이터 세트로 학습
+          displayName: 'data, dataset, mount'
+          href: how-to-train-with-datasets.md
+        - name: 데이터 세트에 대한 드리프트 탐지
+          displayName: 'data, dataset'
+          href: how-to-monitor-datasets.md
+        - name: 데이터 세트 버전 지정 및 추적
+          displayName: 'data, data set'
+          href: how-to-version-track-datasets.md
+        - name: 레이블이 지정된 데이터 가져오기
+          displayName: 'data, dataset, labeling'
+          href: how-to-create-labeling-projects.md
+        - name: 이미지 레이블 지정
+          displayName: 'data, dataset, labeling'
+          href: how-to-label-images.md
+    - name: 모델 학습
+      items:
+        - name: 디자이너 사용
+          displayName: sample designer experiments
+          items:
+            - name: 가격 예측
+              displayName: 'regression, studio'
+              href: how-to-designer-sample-regression-automobile-price-basic.md
+            - name: 가격 예측(고급)
+              displayName: 'regression, studio'
+              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
+            - name: 수입 예측
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-classification-predict-income.md
+            - name: 신용 위험 예측(고급)
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
+            - name: 이탈 예측
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-classification-churn.md
+            - name: 비행 지연 예측
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-classification-flight-delay.md
+            - name: 텍스트 분류
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-text-classification.md
+        - name: ML용 추정기 사용
+          items:
+            - name: 학습에서 추정 만들기
+              href: how-to-train-ml-models.md
+            - name: 학습 환경 설정
+              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+              href: how-to-set-up-training-targets.md
+            - name: hyperparameters 조정
+              displayName: parameter
+              href: how-to-tune-hyperparameters.md
+            - name: 학습 시 Key Vault 사용
+              displayName: secrets keyvault
+              href: how-to-use-secrets-in-runs.md
+        - name: Scikit-learn
+          href: how-to-train-scikit-learn.md
+        - name: TensorFlow
+          href: how-to-train-tensorflow.md
+        - name: Keras
+          href: how-to-train-keras.md
+        - name: PyTorch
+          href: how-to-train-pytorch.md
+        - name: Chainer
+          href: how-to-train-chainer.md
+    - name: 모델 해석
+      displayName: interpretability
+      items:
+        - name: 로컬 및 원격 모델 해석
+          displayName: 'SDK, interpret'
+          href: how-to-machine-learning-interpretability-aml.md
+        - name: 자동화된 ML 모델 해석
+          displayName: 'SDK, interpret, automl'
+          href: how-to-machine-learning-interpretability-automl.md
+    - name: 기계 학습 자동화
+      displayName: 'automl, auto ml'
+      items:
+        - name: 자동화된 ML 사용(Python)
+          displayName: SDK automl
+          href: how-to-configure-auto-train.md
+        - name: 자동화된 ML 사용(인터페이스)
+          href: how-to-create-portal-experiments.md
+        - name: 원격 컴퓨팅 대상 사용
+          displayName: automl automated auto ml
+          href: how-to-auto-train-remote.md
+        - name: ML 작업 정의
+          displayName: 'machine learning, task type'
+          href: how-to-define-task-type.md
+        - name: 예측 모델 자동 학습
+          displayName: time series
+          href: how-to-auto-train-forecast.md
+        - name: 차트 및 메트릭 이해
+          href: how-to-understand-automated-ml.md
+    - name: 실험 추적 및 모니터링
+      items:
+        - name: '시작, 모니터링 또는 실행 취소'
+          displayName: 'cancel, fail, status, child run'
+          href: how-to-manage-runs.md
+        - name: 학습 실행에 대한 메트릭 로그
+          href: how-to-track-experiments.md
+        - name: MLflow로 실험 추적
+          displayName: 'log, monitor, metrics'
+          href: how-to-use-mlflow.md
+        - name: TensorBoard로 시각화 실행
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
+    - name: 모델 배포 및 제공
+      items:
+        - name: 배포 위치 및 방법
+          displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
+          href: how-to-deploy-and-where.md
+        - name: Azure Kubernetes Service
+          displayName: 'aks, aad, authentication, azure active directory'
+          href: how-to-deploy-azure-kubernetes-service.md
+        - name: Azure Container Instances
+          displayName: aci
+          href: how-to-deploy-azure-container-instance.md
+        - name: IoT Edge
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: FPGA 유추
+          href: how-to-deploy-fpga-web-service.md
+        - name: GPU 유추
+          href: how-to-deploy-inferencing-gpus.md
+        - name: Azure App Service
+          displayName: web app
+          href: how-to-deploy-app-service.md
+        - name: Azure 기능
+          displayName: functions app
+          href: how-to-deploy-functions.md
+        - name: 컴퓨팅 인스턴스
+          href: how-to-deploy-local-container-notebook-vm.md
+        - name: 사용자 지정 Docker 이미지 사용
+          href: how-to-deploy-custom-docker-image.md
+        - name: 기존 모델 사용
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
+        - name: 문제 해결 및 디버그
+          href: how-to-troubleshoot-deployment.md
+    - name: 웹 서비스 사용
+      items:
+        - name: 실시간 사용
+          displayName: create client consume request response synchronous
+          href: how-to-consume-web-service.md
+        - name: 일괄 처리 예측 실행
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-run-batch-predictions.md
+        - name: 디자이너 일괄 처리 예측
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
+        - name: 일괄 처리 예측 디버그 및 문제 해결
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-batch-predictions.md
+    - name: 모델 모니터링
+      items:
+        - name: 모델 데이터 수집 및 평가
+          displayName: track production
+          href: how-to-enable-data-collection.md
+        - name: 데이터 드리프트 검색
+          href: how-to-monitor-data-drift.md
+        - name: Application Insights로 모니터링
+          href: how-to-enable-app-insights.md
+    - name: ML 파이프라인 작성 및 사용
+      displayName: pipelines
+      items:
+        - name: ML 파이프라인 만들기(Python)
+          href: how-to-create-your-first-pipeline.md
+        - name: 파이프라인 예약(Python)
+          href: how-to-schedule-pipelines.md
+        - name: 파이프라인 디버그 및 문제 해결
+          href: how-to-debug-pipelines.md
+        - name: CI/CD용 Azure Pipelines
+          displayName: 'continuous, integration, delivery'
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: 'Designer: 게시된 파이프라인을 사용하여 다시 학습'
+          displayName: 'retrain, designer, published pipeline'
+          href: how-to-retrain-designer.md
+    - name: 리소스 할당량 관리
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: 데이터 내보내기 및 삭제
+      displayName: GDPR
+      href: how-to-export-delete-data.md
+    - name: 이벤트 기반 워크플로 만들기
+      displayName: event grid
+      href: how-to-use-event-grid.md
+- name: 참조
+  items:
+    - name: Python SDK
+      displayName: 'api, core, package, python, class'
+      href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
+    - name: R SDK
+      displayName: 'api, core, package, R, class'
+      href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
+    - name: CLI
+      displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
+      href: reference-azure-machine-learning-cli.md
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/azureml/'
+    - name: 디자이너 모듈 참조
+      displayName: 'module, reference, algorithm, studio'
+      href: algorithm-module-reference/module-reference.md
+    - name: 규모에 따른 ML
+      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
+    - name: 데이터 참조 모니터링
+      href: monitor-resource-reference.md
+    - name: Machine Learning 파이프라인 YAML 참조
+      href: reference-pipeline-yaml.md
+- name: 리소스
+  items:
+    - name: 릴리스 정보
+      displayName: 'what''s, new, issues, bugs'
+      href: azure-machine-learning-release-notes.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 알려진 문제
+      displayName: 'bugs, errors, troubleshoot'
+      href: resource-known-issues.md
+    - name: 사용자 포럼
+      href: 'https://aka.ms/aml-forum-service'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
+    - name: ML 제품 비교
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Workbench의 변경된 내용
+      displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
+      href: overview-what-happened-to-workbench.md

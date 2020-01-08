@@ -1,31 +1,22 @@
 ---
-title: Azure Service Fabric Linux 클러스터에서 암호화 인증서 설정 및 비밀 암호화 | Microsoft Docs
+title: Linux 클러스터에서 암호화 인증서 설정
 description: Linux 클러스터에서 암호화 인증서를 설정하고 비밀을 암호화하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: shsha
-manager: ''
-editor: ''
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/04/2019
 ms.author: shsha
-ms.openlocfilehash: 9589d6ea69a2293d592a9e63f2b726f1a620bb9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 350718e4ce890fcbfaa7f2b10cc4c47dfac4da90
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126990"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614709"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Linux 클러스터에서 암호화 인증서 설정 및 비밀 암호화
-이 문서에서는 Linux 클러스터에서 암호화 인증서를 설정하고 이를 사용하여 비밀을 암호화하는 방법을 알아봅니다. Windows 클러스터의 경우 [Windows 클러스터에서 암호화 인증서 설정 및 비밀 암호화][secret-management-windows-specific-link]를 참조하세요.
+이 문서에서는 Linux 클러스터에서 암호화 인증서를 설정하고 이를 사용하여 비밀을 암호화하는 방법을 알아봅니다. Windows 클러스터의 경우 [windows 클러스터에서 암호화 인증서 설정 및 암호 암호화][secret-management-windows-specific-link]를 참조 하세요.
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>데이터 암호화 인증서 가져오기
-데이터 암호화 인증서는 서비스의 Settings.xml에 포함된 [매개 변수][parameters-link] 및 서비스의 ServiceManifest.xml에 있는 [환경 변수][environment-variables-link]를 암호화 및 해독하는 용도로만 엄격하게 사용됩니다. 인증 또는 암호화 텍스트의 서명에는 사용되지 않습니다. 인증서는 다음 요구 사항을 충족해야 합니다.
+데이터 암호화 인증서는 서비스의 Servicemanifest.xml에 있는 서비스의 설정 .xml 및 [환경 변수][environment-variables-link] 에서 [매개 변수의][parameters-link] 암호화 및 암호 해독에 엄격 하 게 사용 됩니다. 인증 또는 암호화 텍스트의 서명에는 사용되지 않습니다. 인증서는 다음 요구 사항을 충족해야 합니다.
 
 * 인증서에 프라이빗 키가 포함되어 있어야 합니다.
 * 인증서 키 사용에는 데이터 암호화(10)가 포함되어야 하며, 서버 인증 또는 클라이언트 인증은 포함되면 안 됩니다.
@@ -54,7 +45,7 @@ user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der 
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[애플리케이션에서 암호화된 비밀을 지정하는][secret-management-specify-encrypted-secrets-link] 방법을 알아봅니다.
+[응용 프로그램에서 암호화 된 암호를 지정][secret-management-specify-encrypted-secrets-link] 하는 방법을 알아봅니다.
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

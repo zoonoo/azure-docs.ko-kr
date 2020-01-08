@@ -1,26 +1,18 @@
 ---
-title: Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool 기능 개요-Azure
 description: 위협 모델링 도구에서 사용할 수 있는 모든 기능에 대해 알아보기
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: e3c6769cc832a897cfbab5548de5328d743884b2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728434"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552120"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
 
@@ -49,7 +41,7 @@ ms.locfileid: "68728434"
 
 | 레이블                               | 세부 정보      |
 | --------------------------------------- | ------------ |
-| **파일** | <ul><li>파일 열기, 저장 및 닫기</li><li>OneDrive 계정에 로그인 및 로그아웃합니다.</li><li>링크를 공유합니다(보기 및 편집).</li><li>파일 정보를 봅니다.</li><li>기존 모델에 새 템플릿을 적용합니다.</li></ul> |
+| **최근에 사용한 파일** | <ul><li>파일 열기, 저장 및 닫기</li><li>OneDrive 계정에 로그인 및 로그아웃합니다.</li><li>링크를 공유합니다(보기 및 편집).</li><li>파일 정보를 봅니다.</li><li>기존 모델에 새 템플릿을 적용합니다.</li></ul> |
 | **편집** | 작업을 실행 취소 및 다시 실행하고, 복사하고, 붙여넣고, 삭제합니다. |
 | **보기** | <ul><li>**분석** 및 **디자인** 보기 사이를 전환합니다.</li><li>닫힌 창을(예: 스텐실, 요소 속성 및 메시지) 엽니다.</li><li>레이아웃을 기본 설정으로 다시 설정합니다.</li></ul> |
 | **다이어그램** | 다이어그램을 추가하고 삭제하며, 다이어그램의 탭을 통해 이동합니다. |
@@ -58,9 +50,9 @@ ms.locfileid: "68728434"
 
 아이콘은 최상위 메뉴에 대한 바로 가기입니다.
 
-| Symbol                               | 세부 정보      |
+| 기호                               | 세부 정보      |
 | --------------------------------------- | ------------ |
-| **파일** | 새 파일을 엽니다. |
+| **열기** | 새 파일을 엽니다. |
 | **저장** | 현재 파일을 저장합니다. |
 | **디자인** | 모델을 만들 수 있는 **디자인** 보기를 엽니다. |
 | **분석** | 생성된 위협과 그 속성을 표시합니다. |
@@ -71,7 +63,7 @@ ms.locfileid: "68728434"
 | **확대/축소** | 잘 볼 수 있도록 다이어그램을 확대하고 축소합니다. |
 | **사용자 의견** | MSDN 포럼을 엽니다. |
 
-### <a name="canvas"></a>Canvas
+### <a name="canvas"></a>캔버스
 
 캔버스는 요소를 끌어서 놓는 공간입니다. 끌어서 놓기는 모델을 작성하는 신속하고 가장 효율적인 방법입니다. 그림과 같이 마우스 오른쪽 단추로 클릭하여 메뉴에서 항목을 선택하여 요소의 일반 버전을 추가할 수도 있습니다.
 
@@ -100,7 +92,7 @@ ms.locfileid: "68728434"
 | 구성 요소                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **메시지** | 요소 간 데이터 흐름 없음과 같은 오류가 발생할 때마다 사용자에게 알리는 내부 도구 논리입니다. |
-| **참고** | 수동 참고 사항은 디자인 및 검토 프로세스에 걸쳐 엔지니어링 팀에 의해 파일에 추가됩니다. |
+| **참고 사항** | 수동 참고 사항은 디자인 및 검토 프로세스에 걸쳐 엔지니어링 팀에 의해 파일에 추가됩니다. |
 
 ### <a name="element-properties"></a>요소 속성
 
@@ -120,7 +112,7 @@ ms.locfileid: "68728434"
 
 ### <a name="open-a-model"></a>모델 열기
 
-**모델 열기** 위로 마우스를 가져가 두 옵션, **이 컴퓨터에서 열기** 및 **OneDrive에서 열기**를 표시합니다. 첫 번째 옵션은 **파일 열기** 화면이 열립니다. 두 번째 옵션은 OneDrive에 대한 로그인 프로세스로 이동합니다. 인증이 성공하면 파일과 폴더를 선택할 수 있습니다.
+**모델 열기** 위로 마우스로 가리키면 **이 컴퓨터에서 열기**와 **OneDrive에서 열기** 등 두 가지 옵션이 표시됩니다. 첫 번째 옵션은 **파일 열기** 화면이 열립니다. 두 번째 옵션은 OneDrive에 대한 로그인 프로세스로 이동합니다. 인증이 성공하면 파일과 폴더를 선택할 수 있습니다.
 
 ![모델 열기](./media/threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -130,7 +122,7 @@ ms.locfileid: "68728434"
 
 **피드백, 제안 및 문제**를 선택하는 경우 SDL 도구에 관한 MSDN 포럼으로 이동합니다. 해결 방법 및 새로운 아이디어를 포함하여 도구에 대한 다른 사용자의 의견을 읽을 수 있습니다.
 
-![사용자 의견](./media/threat-modeling-tool-feature-overview/feedback.png)
+![피드백](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>디자인 보기
 
@@ -168,7 +160,7 @@ ms.locfileid: "68728434"
 
 ![메시지](./media/threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>참고
+### <a name="notes"></a>메모
 
 다이어그램에 메모를 추가하려면 **메시지** 탭에서 **메모** 탭으로 전환합니다.
 

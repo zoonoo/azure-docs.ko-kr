@@ -1,10 +1,10 @@
 ---
 title: Azure 대시보드를 프로그래밍 방식으로 만들기 | Microsoft Docs
-description: 이 문서에서는 Azure 대시보드를 프로그래밍 방식으로 만다는 방법을 설명합니다.
+description: Azure Portal 대시보드를 템플릿으로 사용 하 여 프로그래밍 방식으로 Azure 대시보드를 만들 수 있습니다. JSON 참조를 포함 합니다.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552201"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640349"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 

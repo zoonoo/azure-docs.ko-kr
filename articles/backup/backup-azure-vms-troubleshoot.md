@@ -2,14 +2,14 @@
 title: Azure Vm을 사용 하 여 백업 오류 문제 해결
 description: 이 문서에서는 Azure 가상 컴퓨터의 백업 및 복원에서 발생 하는 오류를 해결 하는 방법에 대해 알아봅니다.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e5ee0e06d444db809ce3e168f8883048eaf45e27
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172457"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664636"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -35,7 +35,7 @@ ms.locfileid: "74172457"
     ![Windows Server 백업 실패](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Azure Backup 실패 하면이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
 
-## <a name="common-issues"></a>일반적인 문제
+## <a name="common-issues"></a>일반 문제
 
 다음은 Azure virtual machines에서의 백업 실패와 관련 된 일반적인 문제입니다.
 
@@ -61,7 +61,6 @@ VM이 실패 상태 여 서 백업 작업이 실패 했습니다. 백업이 성�
 오류 코드: UserErrorFsFreezeFailed <br/>
 오류 메시지: 파일 시스템 일치 스냅숏을 만들기 위해 VM의 탑재 위치를 하나 이상 고정 하지 못했습니다.
 
-* **Tune2fs** 명령을 사용 하 여 탑재 된 모든 장치의 파일 시스템 상태를 확인 합니다 (예: **tune2fs-l/dev/sdb1 \\)** . grep **파일 시스템 상태**를\| 합니다.
 * **분리할** 명령을 사용 하 여 파일 시스템 상태가 정리 되지 않은 장치를 분리 합니다.
 * **Fsck** 명령을 사용 하 여 이러한 장치에 대 한 파일 시스템 일관성 검사를 실행 합니다.
 * 장치를 다시 탑재 하 고 백업 작업을 다시 시도 하세요.</ol>
@@ -184,7 +183,6 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | 오류 세부 정보 | 해결 방법 |
 | ------ | --- |
 | **오류 코드**: 320001, ResourceNotFound <br/> **오류 메시지**: VM이 더 이상 존재 하지 않으므로 작업을 수행할 수 없습니다. <br/> <br/> **오류 코드**: 400094, BCMV2VMNotFound <br/> **오류 메시지**: 가상 머신이 존재 하지 않습니다. <br/> <br/>  Azure 가상 머신을 찾을 수 없습니다.  |이 오류는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 여전히 VM을 검색할 때 발생합니다. 이 오류를 해결하려면 다음 단계를 수행합니다. <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름, **클라우드 서비스 이름**으로 가상 머신을 다시 만듭니다.<br>**or**</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 머신의 보호를 중지합니다. 자세한 내용은 [가상 머신 보호 중지](backup-azure-manage-vms.md#stop-protecting-a-vm)를 참조하세요.</li></ol>|
-| **오류 코드**: UserErrorVmProvisioningStateFailed<br/> **오류 메시지**: VM이 프로 비전 실패 상태: <br>VM을 다시 시작하고 VM이 실행 중이거나 종료되었는지 확인합니다. | 이 오류는 확장 오류 중 하나로 인해 VM 상태가 실패한 프로비전 상태가 될 때 발생합니다. 확장 목록으로 이동하고, 실패한 확장이 있는지 확인하고, 제거한 후 가상 머신을 다시 시작해 봅니다. 모든 확장이 실행 중 상태인 경우 VM 에이전트 서비스가 실행 중인지 확인합니다. 실행 중이 아니면 VM 에이전트 서비스를 다시 시작합니다. |
 |**오류 코드**: UserErrorBCMPremiumStorageQuotaError<br/> **오류 메시지**: 저장소 계정에 사용 가능한 공간이 부족 하 여 가상 머신의 스냅숏을 복사할 수 없습니다. | VM 백업 스택 V1에 있는 프리미엄 VM의 경우 스토리지 계정에 스냅샷을 복사합니다. 이 단계는 스냅샷에서 작동하는 백업 관리 트래픽이 프리미엄 디스크를 사용하는 애플리케이션에서 사용 가능한 IOPS 수를 제한하지 않도록 하기 위한 것입니다. <br><br>총 스토리지 계정 공간의 50%, 17.5TB만을 할당하는 것이 좋습니다. 그런 다음, Azure Backup 서비스에서 스토리지 계정에 스냅샷을 복사하고 스토리지 계정의 복사된 위치에서 자격 증명 모음으로 데이터를 전송할 수 있습니다. |
 | **오류 코드**: 380008, AzureVmOffline <br/> **오류 메시지**: 가상 머신이 실행 되 고 있지 않으므로 Microsoft Recovery Services 확장을 설치 하지 못했습니다. | VM 에이전트는 Azure Recovery Services 확장에 대한 필수 구성 요소입니다. Azure Virtual Machine 에이전트를 설치하고 등록 작업을 다시 시작합니다. <br> <ol> <li>VM 에이전트가 제대로 설치되었는지 확인합니다. <li>VM 구성의 플래그가 올바르게 설정되었는지 확인합니다.</ol> VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법에 대해 자세히 알아보세요. |
 | **오류 코드**: ExtensionSnapshotBitlockerError <br/> **오류 메시지**: 볼륨 섀도 복사본 서비스 (VSS) 작업 오류로 인해 스냅숏 작업이 실패 했습니다 **.이 드라이브는 BitLocker 드라이브 암호화에 의해 잠겼습니다. 제어판에서이 드라이브의 잠금을 해제 해야 합니다.** |VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되었는지 확인합니다. |
@@ -193,7 +191,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | **오류 코드**: ExtensionSnapshotFailedNoSecureNetwork <br/> **오류 메시지**: 보안 네트워크 통신 채널을 만드는 동안 오류가 발생 하 여 스냅숏 작업이 실패 했습니다. | <ol><li> 관리자 권한 모드에서 **regedit.exe**를 실행하여 레지스트리 편집기를 엽니다. <li> 시스템에 있는 모든 버전의 .NET Framework를 파악합니다. 이러한 버전은 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**의 계층 구조 아래에 있습니다. <li> 레지스트리 키에 있는 각 .NET Framework에 대해 다음 키를 추가합니다. <br> **SchUseStrongCrypto"=dword:00000001** </ol>|
 | **오류 코드**: ExtensionVCRedistInstallationFailure <br/> **오류 메시지**: visual Studio 2012에 대 한 시각적 C++ 재배포 가능 패키지 설치에 실패 하 여 스냅숏 작업에 실패 했습니다. | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동 하 여 vcredist2013_x64를 설치 합니다.<br/>서비스 설치를 허용 하는 레지스트리 키 값이 올바른 값으로 설정 되어 있는지 확인 합니다. 즉, **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** 의 **시작** 값을 **4**가 아닌 **3** 으로 설정 합니다. <br><br>설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 **MSIEXEC /UNREGISTER**를 실행한 후 **MSIEXEC /REGISTER**를 실행하여 설치 서비스를 다시 시작합니다.  |
 
-## <a name="jobs"></a>에서
+## <a name="jobs"></a>작업
 
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |

@@ -4,17 +4,17 @@ description: 포함 파일
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 12/31/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: be46a0dda24dc990e895a3e983c730337f9cf31d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 90e6e5c8d6d4f10e2d63f80b9c0840854424f5a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981499"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75616217"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>일반 가용성 및 미리 보기 비교
 
@@ -49,6 +49,8 @@ Time Series Insights 속성 제한은 GA에서 800의 최대 캡에서 1000로 �
 
 * [이벤트 허브 원본을 추가](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)하는 방법에 대해 알아봅니다.
 * [IoT hub 원본을](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)구성 합니다.
+
+기본적으로 [미리 보기 환경](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress) 에서는 **환경 당 초당**최대 1mb의 수신 속도를 지원 합니다. 고객은 필요한 경우 최대 **16mb/초** 처리량까지 미리 보기 환경을 확장할 수 있습니다. 또한 **0.5 m b/s**의 파티션당 제한이 있습니다. 
 
 ### <a name="api-limits"></a>API 제한
 

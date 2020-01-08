@@ -1,27 +1,20 @@
 ---
-title: Azure NetApp Files에 대 한 성능 벤치 마크 테스트 권장 사항 | Microsoft Docs
-description: Azure NetApp Files를 사용 하 여 볼륨 성능 및 메트릭에 대 한 벤치 마크 테스트 권장 사항을 제공 합니다.
-services: azure-netapp-files
-documentationcenter: ''
+title: 권장 되는 성능 벤치 마크 테스트-Azure NetApp Files
+description: Azure NetApp Files 사용 하는 볼륨 성능 및 메트릭에 대 한 벤치 마크 테스트 권장 사항에 대해 알아봅니다.
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: b-juche
-ms.openlocfilehash: 1969b3c237a4133df6f53bd6426ca4d50581cbcb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881725"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551525"
 ---
-# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 성능 벤치 마크 테스트 권장 사항
+# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Azure NetApp Files의 성능 벤치마크 테스트 추천 사항
 
 이 문서에서는 Azure NetApp Files를 사용 하 여 볼륨 성능 및 메트릭에 대 한 벤치 마크 테스트 권장 사항을 제공 합니다.
 
@@ -56,20 +49,20 @@ FIO는 Linux 및 Windows 모두에서 이진 형식으로 사용할 수 있습�
 
 다음 예제에서는 FIO 임의 읽기 및 쓰기를 보여 줍니다.
 
-### <a name="fio-8k-block-size-100-random-reads"></a>FIO 8k 블록 크기 100% 임의 읽기
+### <a name="fio-8k-block-size-100-random-reads"></a>FIO: 8k 블록 크기 100% 임의 읽기
 
 `fio --name=8krandomreads --rw=randread --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128 --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-68k-read-iops-displayed"></a>출력: 68k 읽기 IOPS 표시
+### <a name="output-68k-read-iops-displayed"></a>출력: 68k 읽기 IOPS가 표시 됨
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
 
-### <a name="fio-8k-block-size-100-random-writes"></a>FIO 8k 블록 크기 100% 임의 쓰기
+### <a name="fio-8k-block-size-100-random-writes"></a>FIO: 8k 블록 크기 100% 임의 쓰기
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-73k-write-iops-displayed"></a>출력: 73k 쓰기 IOPS 표시
+### <a name="output-73k-write-iops-displayed"></a>출력: 73k write IOPS 표시
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [w(4)][26.7%][r=0KiB/s,w=571MiB/s][r=0,w=73.0k IOPS][eta 00m:22s]`
@@ -78,20 +71,20 @@ FIO는 Linux 및 Windows 모두에서 이진 형식으로 사용할 수 있습�
 
 이 단원의 예제에서는 FIO 순차 읽기 및 쓰기를 보여 줍니다.
 
-### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO 64k 블록 크기 100% 순차 읽기
+### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO: 64k 블록 크기 100% 순차 읽기
 
 `fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-118-gbits-throughput-displayed"></a>출력: 11.8 1gb/s 처리량 표시
+### <a name="output-118-gbits-throughput-displayed"></a>출력: 11.8 1Gb/s 처리량이 표시 됩니다.
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [R(4)][40.0%][r=1313MiB/s,w=0KiB/s][r=21.0k,w=0 IOPS][eta 00m:09s]`
 
-### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO 64k 블록 크기 100% 순차 쓰기
+### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO: 64k 블록 크기 100% 순차 쓰기
 
 `fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-122-gbits-throughput-displayed"></a>출력: 12.2 1gb/s 처리량 표시
+### <a name="output-122-gbits-throughput-displayed"></a>출력: 12.2 1Gb/s 처리량이 표시 됩니다.
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [W(4)][85.7%][r=0KiB/s,w=1356MiB/s][r=0,w=21.7k IOPS][eta 00m:02s]`
@@ -120,7 +113,7 @@ Azure NetApp Files 성능 데이터는 Azure Monitor 카운터를 통해 사용�
 
 ### <a name="azure-monitor-api-access"></a>Azure Monitor API 액세스
 
-REST API 호출을 사용 하 여 Azure NetApp Files 카운터에 액세스할 수 있습니다. Azure Monitor [지원 되는 메트릭을 참조 하세요. 용량 풀 및 볼륨에 대 한 카운터에 대 한 Microsoft](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) netapp/netappaccounts/capacityPools/볼륨
+REST API 호출을 사용 하 여 Azure NetApp Files 카운터에 액세스할 수 있습니다. 용량 풀 및 볼륨에 대 한 카운터는 [Azure Monitor에서 지원 되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) 을 참조 하세요.
 
 다음 예제에서는 논리 볼륨 크기를 보기 위한 GET URL을 보여 줍니다.
 

@@ -1,19 +1,16 @@
 ---
-title: 웹 후크를 사용 하 여 ServiceNow를 사용 하 여 Azure 서비스 상태 경고를 보냅니다
+title: ServiceNow를 사용 하 여 Azure 서비스 상태 경고 보내기
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다.
-author: stephbaron
-ms.author: stbaron
 ms.topic: article
-ms.service: service-health
 ms.date: 06/10/2019
-ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f332b1e0e188797da172b4ae63f6e5ef1a97e59c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067114"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551610"
 ---
-# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹 후크를 사용 하 여 ServiceNow를 사용 하 여 Azure 서비스 상태 경고를 보냅니다
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹 후크를 사용 하 여 ServiceNow로 Azure 서비스 상태 경고 보내기
 
 이 문서에서는 웹후크를 사용하여 ServiceNow와 Azure 서비스 상태 경고를 통합하는 방법을 보여 줍니다. ServiceNow 인스턴스로 웹후크 통합을 설정한 후 Azure 서비스 문제에 영향을 받는 경우 기존 알림 인프라를 통해 경고를 받습니다. Azure 서비스 상태 경고가 발생할 때마다 ServiceNow의 스크립팅된 REST API를 통해 웹후크를 호출합니다.
 
@@ -153,11 +150,11 @@ ms.locfileid: "67067114"
 
 1. **작업** 목록에서 다음을 정의합니다.
 
-    a. **작업 유형:** *웹후크*
+    a. **작업 유형:** *Webhook*
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -170,11 +167,11 @@ ms.locfileid: "67067114"
 
 1. **작업** 목록에 다음을 추가합니다.
 
-    a. **작업 유형:** *웹후크*
+    a. **작업 유형:** *Webhook*
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 

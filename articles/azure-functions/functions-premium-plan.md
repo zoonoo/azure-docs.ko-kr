@@ -5,16 +5,16 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532893"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561957"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
-Azure Functions Premium 요금제는 함수 앱에 대 한 호스팅 옵션입니다. 프리미엄 요금제는 VNet 연결, 콜드 부팅 및 프리미엄 하드웨어와 같은 기능을 제공 합니다.  여러 함수 앱을 동일한 프리미엄 계획에 배포할 수 있으며,이 계획을 통해 계산 인스턴스 크기, 기본 계획 크기 및 최대 계획 크기를 구성할 수 있습니다.  프리미엄 계획과 기타 계획 및 호스팅 유형을 비교 하는 방법에 대해서는 [함수 크기 조정 및 호스팅 옵션](functions-scale.md)을 참조 하세요.
+Azure Functions 프리미엄 요금제 (탄력적 프리미엄 요금제 라고도 함)는 함수 앱에 대 한 호스팅 옵션입니다. 프리미엄 요금제는 VNet 연결, 콜드 부팅 및 프리미엄 하드웨어와 같은 기능을 제공 합니다.  여러 함수 앱을 동일한 프리미엄 계획에 배포할 수 있으며,이 계획을 통해 계산 인스턴스 크기, 기본 계획 크기 및 최대 계획 크기를 구성할 수 있습니다.  프리미엄 계획과 기타 계획 및 호스팅 유형을 비교 하는 방법에 대해서는 [함수 크기 조정 및 호스팅 옵션](functions-scale.md)을 참조 하세요.
 
 ## <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
 
@@ -45,7 +45,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 ![탄력적 크기 조정 설정](./media/functions-premium-plan/scale-out.png)
 
-Azure CLI를 사용 하 여 앱에 대 한 사전 준비 인스턴스를 구성할 수도 있습니다.
+Azure CLI를 사용 하 여 앱에 대해 사전 준비 인스턴스를 구성할 수도 있습니다.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -76,7 +76,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 앱이 계획 크기를 초과 하는 인스턴스를 필요로 하는 경우 인스턴스 수가 최대 버스트 제한에 도달할 때까지 계속 규모를 확장할 수 있습니다.  실행 되 고 있는 동안 계획 크기를 초과 하는 인스턴스에 대해서만 요금이 청구 됩니다.  앱을 정의 된 최대 제한까지 확장 하는 것이 가장 좋습니다. 반면 최소 계획 인스턴스는 앱에 대해 보장 됩니다.
 
-계획에서 **Scale Out** 옵션을 선택 하 여 Azure Portal에서 계획 크기 및 최대값을 구성할 수 있습니다 ( **플랫폼 기능**아래).
+계획의 **Scale Out** 옵션 또는 해당 계획에 배포 된 함수 앱 ( **플랫폼 기능**아래)을 선택 하 여 Azure Portal의 계획 크기 및 최대값을 구성할 수 있습니다.
 
 Azure CLI에서 최대 버스트 제한을 늘릴 수도 있습니다.
 
@@ -88,11 +88,11 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어 수|메모리|스토리지|
+|SKU|코어 수|메모리|Storage|
 |--|--|--|--|
-|EP1|1|3.5 g b|250GB|
-|E P 2|2|7GB|250GB|
-|노출할|4|14GB|250GB|
+|EP1|1|3.5GB|250GB|
+|EP2|2|7GB|250GB|
+|EP3|4|14GB|250GB|
 
 ## <a name="regions"></a>개 지역
 
@@ -103,27 +103,28 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |오스트레일리아 중부| ✔<sup>1</sup> | |
 |오스트레일리아 중부 2| ✔<sup>1</sup> | |
 |오스트레일리아 동부| ✔ | |
-|오스트레일리아 남동부 | ✔ | ✔ |
+|오스트레일리아 남동부 | ✔ | ✔<sup>1</sup> |
 |브라질 남부| ✔<sup>2</sup> |  |
 |캐나다 중부| ✔ |  |
 |미국 중부| ✔ |  |
 |동아시아| ✔ |  |
-|미국 동부 | ✔ | ✔ |
+|미국 동부 | ✔ | ✔<sup>1</sup> |
 |미국 동부 2| ✔ |  |
 |프랑스 중부| ✔ |  |
-|일본 동부| ✔ | ✔ |
+|독일 중서부| ✔ | |
+|일본 동부| ✔ | ✔<sup>1</sup> |
 |일본 서부| ✔ | |
 |한국 중부| ✔ |  |
 |미국 중북부| ✔ |  |
-|북유럽| ✔ | ✔ |
-|미국 중남부| ✔ |  |
+|북유럽| ✔ | ✔<sup>1</sup> |
+|미국 중남부| ✔ | ✔<sup>1</sup> |
 |인도 남부 | ✔ | |
-|동남아시아| ✔ | ✔ |
+|동남아시아| ✔ | ✔<sup>1</sup> |
 |영국 남부| ✔ | |
 |영국 서부| ✔ |  |
-|서유럽| ✔ | ✔ |
+|서유럽| ✔ | ✔<sup>1</sup> |
 |인도 서부| ✔ |  |
-|미국 서부| ✔ | ✔ |
+|미국 서부| ✔ | ✔<sup>1</sup> |
 |미국 서부 2| ✔ |  |
 
 <sup>1</sup> 최대 확장은 20 개 인스턴스로 제한 됩니다.  

@@ -1,133 +1,109 @@
-### YamlMime:Landing
+### YamlMime:Hub
 title: Azure Resource Manager 설명서
-summary: Resource Manager 템플릿은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다.
+summary: Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. 인프라를 코드로 사용하여 Azure 솔루션을 안정적으로 배포하고 관리합니다.
+brand: azure
 metadata:
   title: Azure Resource Manager 설명서
-  description: Azure Resource Manager 템플릿을 개발하고 이를 사용하여 Azure 리소스를 배포하는 방법 알아보기
-  services: azure-resource-manager
+  description: Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다.
   ms.service: azure-resource-manager
-  ms.subservice: na
-  ms.topic: landing-page
-  ms.collection: na
-  author: mumian
-  ms.author: jgao
-  ms.date: 09/25/2019
-  ms.openlocfilehash: 1d50556eb09a35857ed9db4ccbbba99397606f8b
-  ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+  ms.topic: hub-page
+  ms.collection: collection
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 2910576517be35652d8e1ed1e82687a56a10467e
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/25/2019
-  ms.locfileid: "74483433"
-landingContent:
-- title: Resource Manager 정보
-  linkLists:
-  - linkListType: overview
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75642475"
+highlightedContent:
+  items:
+  - title: 템플릿이란?
+    itemType: overview
+    url: templates/overview.md
+  - title: 첫 번째 템플릿 만들기
+    itemType: tutorial
+    url: templates/template-tutorial-create-first-template.md
+  - title: Resource Manager란?
+    itemType: overview
+    url: management/overview.md
+conceptualContent:
+  items:
+  - title: Resource Manager 템플릿 배포
     links:
-    - text: Resource Manager란?
-      url: resource-group-overview.md
-    - text: Resource Manager 템플릿이란?
-      url: template-deployment-overview.md
-  - linkListType: concept
+    - url: templates/overview.md
+      itemType: overview
+      text: 개요
+    - url: templates/template-tutorial-create-first-template.md
+      itemType: tutorial
+      text: 초보자를 위한 자습서 시리즈
+    - url: templates/template-syntax.md
+      itemType: reference
+      text: 템플릿 파일 구조
+    - url: templates/template-functions.md
+      itemType: reference
+      text: 템플릿 함수
+    - url: templates/deploy-powershell.md
+      itemType: how-to-guide
+      text: 배포
+    - url: templates/template-best-practices.md
+      itemType: concept
+      text: 모범 사례
+    footerLink:
+      url: templates/index.yml
+      text: 자세히 보기
+  - title: 리소스 관리
     links:
-    - text: 모범 사례
-      url: template-best-practices.md
-    - text: 배포 모드
-      url: deployment-modes.md
-    - text: 연결된 템플릿
-      url: resource-group-linked-templates.md
-    - text: 구독 수준 배포
-      url: deploy-to-subscription.md
-    - text: 배포 관리자
-      url: deployment-manager-overview.md
-  - linkListType: video
+    - url: management/overview.md
+      itemType: overview
+      text: 개요
+    - url: management/tag-resources.md
+      itemType: how-to-guide
+      text: 리소스 태그 지정
+    - url: management/move-resource-group-and-subscription.md
+      itemType: concept
+      text: 리소스 이동
+    - url: management/lock-resources.md
+      itemType: how-to-guide
+      text: 리소스 잠금
+    - url: management/resource-providers-and-types.md
+      itemType: concept
+      text: 리소스 공급자 및 형식
+    footerLink:
+      url: management/index.yml
+      text: 자세히 보기
+  - title: Managed Applications
     links:
-    - text: 새로운 기능
-      url: https://youtu.be/3D-JIKShrws
-- title: 시작하기
-  linkLists:
-  - linkListType: quickstart
+    - url: managed-applications/overview.md
+      itemType: overview
+      text: 개요
+    - url: managed-applications/publish-service-catalog-app.md
+      itemType: tutorial
+      text: 서비스 카탈로그 앱 게시
+    - url: managed-applications/create-uidefinition-overview.md
+      itemType: how-to-guide
+      text: UI 정의 만들기
+    - url: managed-applications/publish-marketplace-app.md
+      itemType: tutorial
+      text: Marketplace에 추가
+    footerLink:
+      url: managed-applications/index.yml
+      text: 자세히 보기
+  - title: Azure 사용자 지정 공급자
     links:
-    - text: 템플릿 만들기 - 포털
-      url: resource-manager-quickstart-create-templates-use-the-portal.md
-    - text: 템플릿 만들기 - VS Code
-      url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - text: 템플릿 만들기 - Visual Studio
-      url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-  - linkListType: tutorial
-    links:
-    - text: 초보자를 위한 자습서
-      url: template-tutorial-create-first-template.md
-    - text: 여러 인스턴스 배포
-      url: resource-manager-tutorial-create-multiple-instances.md
-    - text: 배포 순서 설정
-      url: resource-manager-tutorial-create-templates-with-dependent-resources.md
-    - text: Key Vault 통합
-      url: resource-manager-tutorial-use-key-vault.md
-- title: 템플릿 개발
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: VS Code 사용
-      url: resource-manager-tools-vs-code.md
-    - text: 함수 사용
-      url: resource-group-template-functions.md
-    - text: 매개 변수 정의
-      url: template-parameters.md
-    - text: 변수 정의
-      url: template-variables.md
-    - text: 리소스 정의
-      url: child-resource-name-type.md
-    - text: 출력 정의
-      url: template-outputs.md
-  - linkListType: reference
-    links:
-    - text: Azure 빠른 시작 템플릿
-      url: template-deployment-overview.md
-- title: 템플릿 배포
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: PowerShell 사용
-      url: resource-group-template-deploy.md
-    - text: CLI 사용
-      url: resource-group-template-deploy-cli.md
-    - text: 포털 사용
-      url: resource-group-template-deploy-portal.md
-    - text: REST API 사용
-      url: resource-group-template-deploy-rest.md
-- title: 템플릿 관리
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 템플릿 내보내기
-      url: export-template-portal.md
-    - text: CI/CD
-      url: vs-resource-groups-project-devops-pipelines.md
-- title: 리소스 관리
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 리소스 이동
-      url: resource-group-move-resources.md
-    - text: 리소스 태그 지정
-      url: resource-group-using-tags.md
-    - text: 리소스 잠금
-      url: resource-group-lock-resources.md
-- title: 모니터링 및 문제 해결
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 활동 로그 보기
-      url: resource-group-audit.md
-    - text: 배포 작업 보기
-      url: resource-manager-deployment-operations.md
-    - text: 배포 오류 문제 해결
-      url: resource-manager-common-deployment-errors.md
-- title: 참조 콘텐츠 탐색
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: 리소스 공급자 및 형식
-      url: resource-manager-supported-services.md
-    - text: 템플릿 참조
-      url: /azure/templates/
+    - url: custom-providers/overview.md
+      itemType: overview
+      text: 개요
+    - url: custom-providers/create-custom-provider.md
+      itemType: quickstart
+      text: 사용자 지정 공급자 만들기
+    - url: custom-providers/tutorial-get-started-with-custom-providers.md
+      itemType: tutorial
+      text: 사용자 지정 작업 및 리소스 만들기
+    - url: custom-providers/custom-providers-action-endpoint-how-to.md
+      itemType: how-to-guide
+      text: Azure REST API에 사용자 지정 작업 추가
+    footerLink:
+      url: custom-providers/index.yml
+      text: 자세히 보기

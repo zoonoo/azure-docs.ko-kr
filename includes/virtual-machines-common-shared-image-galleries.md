@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875403"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663184"
 ---
 공유 이미지 갤러리는 관리 되는 이미지에 대 한 구조와 조직을 구축 하는 데 도움이 되는 서비스입니다. 공유 이미지 갤러리는 다음을 제공 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "74875403"
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
 
-| 리소스 | 설명|
+| 리소스 | Description|
 |----------|------------|
 | **관리되는 이미지** | 단독으로 사용 하거나 이미지 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 기본 이미지입니다. 관리 되는 이미지는 [일반화](#generalized-and-specialized-images) 된 vm에서 만들어집니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
 | **스냅샷** | **이미지 버전**을 만드는 데 사용할 수 있는 VHD의 복사본입니다. 스냅숏은 [특수 한 VM (](#generalized-and-specialized-images) 일반화 되지 않은 VM)에서 가져올 수 있으며 단독으로 사용 하거나 데이터 디스크의 스냅숏으로 사용 하 여 특수 이미지 버전을 만들 수 있습니다.
@@ -107,7 +107,7 @@ ms.locfileid: "74875403"
 
 
 
-## <a name="limits"></a>Limits 
+## <a name="limits"></a>제한 
 
 공유 이미지 갤러리를 사용 하 여 리소스를 배포 하기 위해 구독 당 제한이 있습니다.
 - 100 공유 이미지 갤러리, 구독 당, 지역별
@@ -150,8 +150,8 @@ ms.locfileid: "74875403"
 
 | 공유한 항목     | 공유 이미지 갤러리 | 이미지 정의 | 이미지 버전 |
 |----------------------|----------------------|--------------|----------------------|
-| 공유 이미지 갤러리 | yes                  | yes          | yes                  |
-| 이미지 정의     | 아닙니다.                   | yes          | yes                  |
+| 공유 이미지 갤러리 | 예                  | 예          | 예                  |
+| 이미지 정의     | 아닙니다.                   | 예          | 예                  |
 
 최상의 환경을 위해 갤러리 수준에서 공유 하는 것이 좋습니다. 개별 이미지 버전을 공유 하지 않는 것이 좋습니다. RBAC에 대 한 자세한 내용은 [rbac를 사용 하 여 Azure 리소스에 대 한 액세스 관리](../articles/role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
@@ -167,12 +167,12 @@ ms.locfileid: "74875403"
 만든 후에는 이미지 갤러리 리소스를 변경할 수 있습니다. 이러한 제한 사항은 다음과 같습니다.
  
 공유 이미지 갤러리:
-- 설명
+- Description
 
 이미지 정의:
 - 권장 vCPU
 - 권장 메모리
-- 설명
+- Description
 - 수명 주기 끝
 
 이미지 버전:
@@ -187,7 +187,7 @@ ms.locfileid: "74875403"
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
+- [Node.JS](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 
@@ -239,9 +239,9 @@ Azure Portal에 대 한 액세스 권한이 있는 모든 구독에서 공유 �
  
 예. 가지고 있는 이미지의 유형에 따라 3가지 시나리오가 있습니다.
 
- 시나리오 1: 관리되는 이미지가 있는 경우 이를 통해 이미지 정의와 이미지 버전을 만들 수 있습니다.
+ 시나리오 1: SIG와 동일한 구독에 관리 되는 이미지가 있는 경우 여기에서 이미지 정의와 이미지 버전을 만들 수 있습니다.
 
- 시나리오 2: 관리 되지 않는 이미지가 있는 경우 해당 이미지에서 관리 되는 이미지를 만든 다음 여기에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 
+ 시나리오 2: SIG와 동일한 구독에 관리 되지 않는 이미지가 있는 경우 해당 이미지에서 관리 되는 이미지를 만든 다음 여기에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 
 
  시나리오 3: 로컬 파일 시스템에 VHD가 있는 경우 관리 되는 이미지에 VHD를 업로드 해야 합니다. 그런 다음 이미지 정의 및 이미지 버전을 만들 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 2bd25ad823217c5e9260142912a3d2d748b9c15a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0f444838c87e14fa88f2785030c29915df637cf8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767708"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552205"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
 
@@ -65,18 +65,18 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     |리소스 그룹 | 위치 |
     |---|---|
-    | kafka-기본-rg | 미국 중부 |
-    | kafka-보조-rg | 미국 중북부 |
+    | kafka-primary-rg | 미국 중부 |
+    | kafka-secondary-rg | 미국 중북부 |
 
 1. **Kafka-기본-rg**에서 새 가상 네트워크 **kafka-기본-vnet** 을 만듭니다. 기본 설정을 그대로 둡니다.
 1. 기본 설정을 사용 하 여 **kafka-보조-rg**에 새 가상 네트워크 **kafka-보조-vnet** 을 만듭니다.
 
 1. 두 개의 새 Kafka 클러스터를 만듭니다.
 
-    | 클러스터 이름 | 리소스 그룹 | Virtual Network | 스토리지 계정 |
+    | 클러스터 이름 | 리소스 그룹 | Virtual Network | Storage 계정 |
     |---|---|---|---|
-    | kafka-기본-클러스터 | kafka-기본-rg | kafka-기본-vnet | kafkaprimarystorage |
-    | kafka-보조-클러스터 | kafka-보조-rg | kafka-보조-vnet | kafkasecondarystorage |
+    | kafka-기본-클러스터 | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
+    | kafka-secondary-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
 
 1. 가상 네트워크 피어 링을 만듭니다. 이 단계에서는 두 개의 피어 링을 만듭니다. 하나는 **kafka-기본-vnet** 에서 **kafka 두-보조-vnet** 으로, 하나는 kafka- **기본-vnet** **에서 다시** 만듭니다.
     1. **Kafka-기본-vnet** 가상 네트워크를 선택 합니다.
@@ -86,36 +86,41 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
         ![HDInsight Kafka 추가 vnet 피어 링](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
-1. IP 광고를 구성 합니다.
-    1. `https://PRIMARYCLUSTERNAME.azurehdinsight.net`기본 클러스터에 대 한 Ambari 대시보드로 이동 합니다.
-    1. **서비스** > **kafka**을 선택 합니다. **CliSelectck** 탭을 차례로 탭 합니다.
-    1. 아래쪽 **kafka-env 템플릿** 섹션에 다음 구성 줄을 추가 합니다. **저장**을 선택합니다.
+### <a name="configure-ip-advertising"></a>IP 광고 구성
 
-        ```
-        # Configure Kafka to advertise IP addresses instead of FQDN
-        IP_ADDRESS=$(hostname -i)
-        echo advertised.listeners=$IP_ADDRESS
-        sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-        echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
-        ```
+클라이언트에서 도메인 이름 대신 broker IP 주소를 사용 하 여 연결할 수 있도록 IP 광고를 구성 합니다.
 
-    1. **구성 저장** 화면에서 메모를 입력 하 고 **저장**을 클릭 합니다.
-    1. 구성 경고를 표시 하는 메시지가 표시 되 면 **계속**을 클릭 합니다.
-    1. **구성 변경 내용 저장**에서 **확인을** 선택 합니다.
-    1. 다시 **시작을 선택 하** > 다시 시작 **필요** 알림에서 **영향을 받는 모든 항목을** 다시 시작 합니다. **모두 다시 시작 확인**을 선택합니다.
+1. `https://PRIMARYCLUSTERNAME.azurehdinsight.net`기본 클러스터에 대 한 Ambari 대시보드로 이동 합니다.
+1. **서비스** > **kafka**을 선택 합니다. **CliSelectck** 탭을 차례로 탭 합니다.
+1. 아래쪽 **kafka-env 템플릿** 섹션에 다음 구성 줄을 추가 합니다. **저장**을 선택합니다.
 
-        ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    ```
+    # Configure Kafka to advertise IP addresses instead of FQDN
+    IP_ADDRESS=$(hostname -i)
+    echo advertised.listeners=$IP_ADDRESS
+    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    ```
 
-1. 모든 네트워크 인터페이스에서 수신 대기 하도록 Kafka을 구성 합니다.
-    1. **Configs** 탭의 **서비스** > **kafka**을 그대로 유지 합니다. **Kafka Broker** 섹션에서 **listeners** 속성을 `PLAINTEXT://0.0.0.0:9092`로 설정 합니다.
-    1. **저장**을 선택합니다.
-    1. **다시 시작**을 선택 하 고 **모두 다시 시작을 확인**합니다.
+1. **구성 저장** 화면에서 메모를 입력 하 고 **저장**을 클릭 합니다.
+1. 구성 경고를 표시 하는 메시지가 표시 되 면 **계속**을 클릭 합니다.
+1. **구성 변경 내용 저장**에서 **확인을** 선택 합니다.
+1. 다시 **시작을 선택 하** > 다시 시작 **필요** 알림에서 **영향을 받는 모든 항목을** 다시 시작 합니다. **모두 다시 시작 확인**을 선택합니다.
 
-1. 기본 클러스터에 대 한 Broker IP 주소 및 사육 아웃 주소를 기록 합니다.
-    1. Ambari 대시보드에서 **호스트** 를 선택 합니다.
-    1. 브로커 및 Zookeeper의 IP 주소를 기록해 둡니다. 브로커 노드는 호스트 이름의 처음 두 문자로 **w)** , 사육 아웃 노드에는 호스트 이름의 처음 두 문자로 **zk** 가 있습니다.
+    ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
-        ![Apache Ambari view 노드 ip 주소](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>모든 네트워크 인터페이스에서 수신 대기 하도록 Kafka을 구성 합니다.
+    
+1. **Configs** 탭의 **서비스** > **kafka**을 그대로 유지 합니다. **Kafka Broker** 섹션에서 **listeners** 속성을 `PLAINTEXT://0.0.0.0:9092`로 설정 합니다.
+1. **저장**을 선택합니다.
+1. **다시 시작**을 선택 하 고 **모두 다시 시작을 확인**합니다.
+
+### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>기본 클러스터에 대 한 Broker IP 주소 및 사육 아웃 주소를 기록 합니다.
+
+1. Ambari 대시보드에서 **호스트** 를 선택 합니다.
+1. 브로커 및 Zookeeper의 IP 주소를 기록해 둡니다. 브로커 노드는 호스트 이름의 처음 두 문자로 **w)** , 사육 아웃 노드에는 호스트 이름의 처음 두 문자로 **zk** 가 있습니다.
+
+    ![Apache Ambari view 노드 ip 주소](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. 두 번째 클러스터에 대해 앞의 세 단계를 반복 합니다. **kafka 두-보조-클러스터**: IP 보급을 구성 하 고, 수신기를 설정 하 고, Broker 및 사육 아웃 ip 주소를 기록 합니다.
 
@@ -263,7 +268,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     이 예제에 사용된 매개 변수는 다음과 같습니다.
 
-    |매개 변수를 포함해야 합니다. |설명 |
+    |매개 변수 |Description |
     |---|---|
     |--consumer|소비자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *기본* kafka 클러스터에서 읽는 소비자를 만드는 데 사용 됩니다.|
     |--생산자 .config|생산자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *보조* kafka 클러스터에 쓰는 생산자를 만드는 데 사용 됩니다.|

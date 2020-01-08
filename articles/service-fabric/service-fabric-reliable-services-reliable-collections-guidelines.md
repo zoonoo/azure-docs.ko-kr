@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항 | Microsoft Docs
-description: Service Fabric의 신뢰할 수 있는 컬렉션을 사용하기 위한 지침 및 권장 사항
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 신뢰할 수 있는 컬렉션에 대 한 지침
+description: Azure Service Fabric 응용 프로그램에서 Service Fabric 신뢰할 수 있는 컬렉션을 사용 하기 위한 지침과 권장 사항입니다.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 12/10/2017
-ms.author: atsenthi
-ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599345"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645483"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
 이 섹션에서는 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션을 사용하기 위한 지침을 제공합니다. 목표는 사용자에게 일반적인 문제가 발생하지 않도록 방지하는 것입니다.
@@ -32,7 +21,7 @@ ms.locfileid: "68599345"
 * 트랜잭션을 커밋, 중단 또는 삭제한 후에는 사용하지 마십시오.
 * 열거형이 만들어진 트랜잭션 범위 외부에서는 해당 열거형을 사용하지 마세요.
 * 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마세요. 교착 상태가 발생할 수 있습니다.
-* 를 사용 하 여 `IReliableStateManager.GetOrAddAsync` 신뢰할 수 있는 상태를 만들지 말고 동일한 트랜잭션에서 신뢰할 수 있는 상태를 사용 합니다. 이로 인해 InvalidOperationException이 발생 합니다.
+* `IReliableStateManager.GetOrAddAsync`를 사용 하 여 신뢰할 수 있는 상태를 만들지 말고 동일한 트랜잭션에서 신뢰할 수 있는 상태를 사용 합니다. 이로 인해 InvalidOperationException이 발생 합니다.
 * `IComparable<TKey>` 구현이 올바른지 확인하세요. 시스템은 검사점 및 행 병합을 위해 `IComparable<TKey>`에 대한 종속성을 보유합니다.
 * 특정 유형의 교착 상태를 방지하기 위해 항목을 업데이트하려는 경우에는 항목을 읽을 때 업데이트 잠금을 사용하지 마세요.
 * 파티션당 신뢰할 수 있는 컬렉션 수를 1,000개 미만으로 유지하세요. 항목 수가 더 적은 신뢰할 수 있는 컬렉션보다 항목 수가 더 많은 신뢰할 수 있는 컬렉션이 우선됩니다.
@@ -56,7 +45,7 @@ ms.locfileid: "68599345"
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 데이터 관리
-  * [Backup 및 Restore 메서드](service-fabric-reliable-services-backup-restore.md)
+  * [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
   * [알림](service-fabric-reliable-services-notifications.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)

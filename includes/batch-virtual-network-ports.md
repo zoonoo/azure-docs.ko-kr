@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 98f5269c27643e7ce6c0aaf9b359503a124d9232
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322638"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663119"
 ---
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -46,7 +46,7 @@ ms.locfileid: "68322638"
 
 **사용 권한** - VNet 구독에서 보안 정책이나 잠금 또는 리소스 그룹이 VNet 관리를 위한 사용자 권한을 제한하고 있는지 확인합니다.
 
-**추가 네트워킹 리소스** - Batch는 VNet을 포함하는 리소스 그룹에서 추가 네트워킹 리소스를 자동으로 할당합니다. 각 50 전용 노드 (또는 각각 20 개의 낮은 우선 순위 노드)에 대해 일괄 처리는 다음을 할당 합니다. 1 NSG (네트워크 보안 그룹), 1 공용 IP 주소 및 부하 분산 장치 1 개 이러한 리소스는 구독의 [리소스 할당량](../articles/azure-subscription-service-limits.md)으로 제한됩니다. 대형 풀의 경우 하나 이상의 리소스에 대한 할당량 증대를 요청해야 할 수 있습니다.
+**추가 네트워킹 리소스** - Batch는 VNet을 포함하는 리소스 그룹에서 추가 네트워킹 리소스를 자동으로 할당합니다. 50개 전용 노드 각각에 대해(또는 우선 순위가 낮은 노드 20개 각각) Batch는 NSG(네트워크 보안 그룹) 1개, 공용 IP 주소 1개, 부하 분산 장치 1개를 할당합니다. 이러한 리소스는 구독의 [리소스 할당량](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대형 풀의 경우 하나 이상의 리소스에 대한 할당량 증대를 요청해야 할 수 있습니다.
 
 #### <a name="network-security-groups"></a>네트워크 보안 그룹
 
@@ -64,16 +64,16 @@ Batch 구성에는 자체 NSG가 있으므로 서브넷 수준에서 NSG를 지�
 
 **인바운드 보안 규칙**
 
-| 원본 IP 주소 | 원본 서비스 태그 | 원본 포트 | Destination | 대상 포트 | 프로토콜 | Action |
+| 원본 IP 주소 | 원본 서비스 태그 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 실행력 |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/A | `BatchNodeManagement`[서비스 태그](../articles/virtual-network/security-overview.md#service-tags) | * | 임의의 값 | 29876-29877 | TCP | Allow |
-| 필요한 경우 컴퓨터에 원격으로 액세스 하기 위한 사용자 원본 Ip 및 Linux 다중 인스턴스 작업을 위한 계산 노드 서브넷 | N/A | * | 임의의 값 | 3389(Windows), 22(Linux) | TCP | Allow |
+| N/A | `BatchNodeManagement` [서비스 태그](../articles/virtual-network/security-overview.md#service-tags) | * | 모두 | 29876-29877 | TCP | 허용 |
+| 필요한 경우 컴퓨터에 원격으로 액세스 하기 위한 사용자 원본 Ip 및 Linux 다중 인스턴스 작업을 위한 계산 노드 서브넷 | N/A | * | 모두 | 3389(Windows), 22(Linux) | TCP | 허용 |
 
 **아웃바운드 보안 규칙**
 
-| Source | 원본 포트 | Destination | 대상 서비스 태그 | 대상 포트 | 프로토콜 | Action |
+| 원본 | 원본 포트 | 대상 | 대상 서비스 태그 | 대상 포트 | 프로토콜 | 실행력 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 임의의 값 | * | [Service 태그](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(Batch 계정과 VNet과 동일한 지역) | 443 | TCP | Allow |
+| 모두 | * | [Service 태그](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (Batch 계정과 VNet과 동일한 지역) | 443 | TCP | 허용 |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Cloud Services 구성의 풀
 
@@ -97,13 +97,13 @@ Batch는 Batch IP 주소로부터 풀 노드로 가는 인바운드 통신만 �
 
 **인바운드 보안 규칙**
 
-| 원본 IP 주소 | 원본 포트 | Destination | 대상 포트 | 프로토콜 | Action |
+| 원본 IP 주소 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 실행력 |
 | --- | --- | --- | --- | --- | --- |
-임의의 값 <br /><br />이렇게 하면 결과적으로 “모두 허용”이 필요하지만 Batch 서비스는 모든 Batch 외 서비스 IP 주소를 필터링하는 각 노드 수준에서 ACL을 적용합니다. | * | 임의의 값 | 10100, 20100, 30100 | TCP | Allow |
-| 선택 사항으로, RDP에서 계산 노드에 대 한 액세스를 허용 합니다. | * | 임의의 값 | 3389 | TCP | Allow |
+모두 <br /><br />이렇게 하면 결과적으로 “모두 허용”이 필요하지만 Batch 서비스는 모든 Batch 외 서비스 IP 주소를 필터링하는 각 노드 수준에서 ACL을 적용합니다. | * | 모두 | 10100, 20100, 30100 | TCP | 허용 |
+| 선택 사항으로, RDP에서 계산 노드에 대 한 액세스를 허용 합니다. | * | 모두 | 3389 | TCP | 허용 |
 
 **아웃바운드 보안 규칙**
 
-| Source | 원본 포트 | Destination | 대상 포트 | 프로토콜 | Action |
+| 원본 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 실행력 |
 | --- | --- | --- | --- | --- | --- |
-| 임의의 값 | * | 임의의 값 | 443  | 임의의 값 | Allow |
+| 모두 | * | 모두 | 443  | 모두 | 허용 |

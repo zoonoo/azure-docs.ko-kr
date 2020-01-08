@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63a2a3a68adaa2e389cc2af173c8f75a18fbc36d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e4de954d55725f36d48d09ac46ef3700787d937b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078701"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647648"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
 
@@ -34,8 +34,8 @@ ms.locfileid: "70078701"
 [sap-installation-guides]:http://service.sap.com/instguides
 [tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -154,7 +154,7 @@ ms.locfileid: "70078701"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -164,7 +164,7 @@ ms.locfileid: "70078701"
 
 이 문서에서는 SAP ASCS 인스턴스를 클러스터링하는 옵션으로서 *클러스터 공유 디스크*를 사용하여 Windows 장애 조치(Failover) 클러스터에서 고가용성 SAP 시스템을 설치 및 구성하기 위해 Azure 인프라를 준비하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
@@ -194,9 +194,9 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
   템플릿은 다음을 만듭니다.
 
   * **가상 머신**:
-    * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-di-\<Number\>
-    * ASCS/SCS 클러스터 가상 머신: \<SAPSystemSID\>-ascs-\<Number\>
-    * DBMS 클러스터: \<SAPSystemSID\>-db-\<Number\>
+    * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-di-\<번호\>
+    * ASCS/SCS 클러스터 가상 머신: \<SAPSystemSID\>-ascs-\<번호\>
+    * DBMS 클러스터: \<SAPSystemSID\>-db-\<번호\>
 
   * **연결된 IP 주소를 갖는 모든 가상 머신에 대한 네트워크 카드**:
     * \<SAPSystemSID\>-nic-di-\<번호\>
@@ -296,13 +296,13 @@ ASCS/SCS 템플릿은 여러 ASCS/SCS 인스턴스를 호스팅하는 Windows �
 
 Ascs/scs 다중 sid 템플릿을 설정 하려면 [Ascs/scs][sap-templates-3-tier-multisid-xscs-marketplace-image] 다중 sid 템플릿 또는 [Managed Disks를 사용 하 여 ASCS/scs 다중 sid 템플릿][sap-templates-3-tier-multisid-xscs-marketplace-image-md]에서 다음 매개 변수에 대 한 값을 입력 합니다.
 
-- **리소스 접두사**:  배포 중에 만들어진 모든 리소스 앞에 붙는 접두사로 사용되는 리소스 접두사를 설정합니다. 리소스는 하나의 SAP 시스템에만 속하지 않으므로 리소스의 접두사는 SAP 시스템 하나의 SID가 아닙니다.  접두사는 3~6자 사이여야 합니다.
-- **스택 유형**: SAP 시스템의 스택 유형을 선택합니다. 스택 유형에 따라 Azure Load Balancer에는 SAP 시스템당 하나(ABAP 또는 Java 중 하나만) 또는 둘(ABAP 및 Java 각각 하나씩)의 개인 IP 주소가 있습니다.
-- **OS 유형**: 가상 머신의 운영 체제를 선택합니다.
-- **SAP 시스템 수**: 이 클러스터에 설치하려는 SAP 시스템 수를 선택합니다.
+- **리소스 접두사**: 배포 중에 만들어진 모든 리소스 앞에 붙는 접두사로 사용되는 리소스 접두사를 설정합니다. 리소스는 하나의 SAP 시스템에만 속하지 않으므로 리소스의 접두사는 SAP 시스템 하나의 SID가 아닙니다.  접두사는 3~6자 사이여야 합니다.
+- **스택 유형**: 스택의 스택 유형을 선택합니다. 스택 유형에 따라 Azure Load Balancer에는 SAP 시스템당 하나(ABAP 또는 Java 중 하나만) 또는 둘(ABAP 및 Java 각각 하나씩)의 개인 IP 주소가 있습니다.
+- **OS 종류**: 가상 머신의 운영 체제를 선택합니다.
+- **SAP 시스템의 수**: 이 클러스터에 설치하려는 SAP 시스템의 수를 선택합니다.
 - **시스템 가용성**: **HA**를 선택합니다.
 - **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자를 만듭니다.
-- **새 서브넷 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들지 아니면 기존 서브넷을 사용할지 설정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존** 항목을 선택합니다.
+- **신규 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들지 기존 서브넷을 사용할지 설정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존** 항목을 선택합니다.
 - **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 나타납니다.
 
   /subscriptions/\<구독 ID\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름\>/subnets/\<서브넷 이름\>
@@ -335,7 +335,7 @@ Ascs/scs 다중 sid 템플릿을 설정 하려면 [Ascs/scs][sap-templates-3-tie
 데이터베이스 다중 sid 템플릿을 설정 하려면 데이터베이스 [다중][sap-templates-3-tier-multisid-db-marketplace-image] sid 템플릿 또는 [Managed Disks를 사용 하 여 데이터베이스 다중 sid 템플릿][sap-templates-3-tier-multisid-db-marketplace-image-md]에서 다음 매개 변수에 대 한 값을 입력 합니다.
 
 - **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
-- **OS 유형**: 가상 머신의 운영 체제를 선택합니다.
+- **OS 종류**: 가상 머신의 운영 체제를 선택합니다.
 - **Dbtype**: 클러스터에 설치하려는 데이터베이스의 유형을 선택합니다. Microsoft SQL Server를 설치하려는 경우 **SQL**을 선택합니다. 가상 머신에 SAP HANA를 설치하려는 경우 **HANA**를 선택합니다. 올바른 운영 체제 종류를 선택했는지 확인합니다. SQL에는 **Windows**를 선택하고 HANA에는 Linux 배포판을 선택합니다. 가상 머신에 연결되는 Azure Load Balancer는 선택한 다음 데이터베이스 형식을 지원하도록 구성됩니다.
   * **SQL**: 부하 분산 장치에서 1433 포트의 부하를 균형 조정합니다. SQL Server AlwaysOn 설정에 이 포트를 사용해야 합니다.
   * **HANA**: 부하 분산 장치에서 35015 및 35017 포트의 부하를 균형 조정합니다. **50** 인스턴스 번호의 SAP HANA를 설치합니다.
@@ -352,8 +352,8 @@ Ascs/scs 다중 sid 템플릿을 설정 하려면 [Ascs/scs][sap-templates-3-tie
 응용 프로그램 서버 다중 SID 템플릿을 설정 하려면 [응용 프로그램 서버][sap-templates-3-tier-multisid-apps-marketplace-image] 다중 sid 템플릿 또는 [Managed Disks를 사용 하 여 응용 프로그램 서버 다중 sid 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수에 대 한 값을 입력 합니다.
 
   -  **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
-  -  **OS 유형**: 가상 머신의 운영 체제를 선택합니다.
-  -  **SAP 시스템 크기**: 새 시스템에서 제공하는 SAP의 수입니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
+  -  **OS 종류**: 가상 머신의 운영 체제를 선택합니다.
+  -  **SAP 시스템 크기**: 새 시스템에서 제공하는 SAP 수를 설정합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
   -  **시스템 가용성**: **HA**를 선택합니다.
   -  **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자를 만듭니다.
   -  **서브넷 ID**: ASCS/SCS 템플릿 배포 중에 사용된 서브넷의 ID 또는 ASCS/SCS 템플릿 배포의 일부로 만든 서브넷의 ID를 입력합니다.
@@ -372,10 +372,10 @@ Ascs/scs 다중 sid 템플릿을 설정 하려면 [Ascs/scs][sap-templates-3-tie
 필요한 DNS IP 주소를 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 **DNS 서버** 패널에서 가상 네트워크 **DNS 서버** 옵션이 **사용자 지정 DNS**로 설정되어 있는지 확인합니다.
-2. 사용 중인 네트워크의 종류에 따라 설정을 선택합니다. 자세한 내용은 다음 리소스를 참조하십시오.
-   * [회사 네트워크 연결 (크로스-프레미스)][planning-guide-2.2]: 온-프레미스 DNS 서버의 IP 주소를 추가합니다.  
+2. 사용 중인 네트워크의 종류에 따라 설정을 선택합니다. 자세한 내용은 다음 리소스를 참조하세요.
+   * [회사 네트워크 연결 (크로스-프레미스)][planning-guide-2.2]: 온-프레미스 DNS 서버의 IP 주소를 추가 합니다.  
    Azure에서 실행되는 가상 머신으로 온-프레미스 DNS 서버를 확장할 수 있습니다. 이 시나리오에서는 DNS 서비스를 실행하는 Azure Virtual Machines의 IP 주소를 추가할 수 있습니다.
-   * Azure에서 격리된 VM 배포의 경우: DNS 서버 역할을 하는 동일한 Virtual Network 인스턴스에 추가 가상 머신을 배포합니다. DNS 서비스를 실행하도록 설정한 Azure Virtual Machines의 IP 주소를 추가합니다.
+   * Azure에서 격리 된 VM 배포의 경우: DNS 서버 역할을 하는 동일한 Virtual Network 인스턴스에 추가 가상 컴퓨터를 배포 합니다. DNS 서비스를 실행하도록 설정한 Azure Virtual Machines의 IP 주소를 추가합니다.
 
    ![그림 2: Azure Virtual Network에 대해 DNS 서버 구성][sap-ha-guide-figure-3001]
 
@@ -418,9 +418,9 @@ DNS 서버에서 다른 두 가상 호스트 이름 pr1-ascs-sap 및 pr1-dbms-sa
    >
    >
 
-   ![그림 3: 각 가상 머신의 네트워크 카드에 대해 고정 IP 주소 설정][sap-ha-guide-figure-3002]
+   ![그림 3: 각 가상 머신의 네트워크 카드에 대한 고정 IP 주소 설정][sap-ha-guide-figure-3002]
 
-   _**그림 3:** 각 가상 머신의 네트워크 카드에 대해 고정 IP 주소 설정_
+   _**그림 3:** 각 가상 컴퓨터의 네트워크 카드에 대한 고정 IP 주소 설정_
 
    모든 네트워크 인터페이스, 즉 Active Directory 또는 DNS 서비스에 사용하려는 가상 머신을 비롯한 모든 가상 머신에 대해 이 단계를 반복합니다.
 
@@ -511,9 +511,9 @@ SAP ASCS/SCS 인스턴스를 설치하면 ABAP ASCS 인스턴스에 대해 기�
 
 **표 2:** SAP NetWeaver Java SCS 인스턴스의 포트 번호
 
-![그림 5: Azure 내부 부하 분산 장치에 대한 기본 ASCS/SCS 부하 분산 규칙][sap-ha-guide-figure-3004]
+![그림 5: Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙][sap-ha-guide-figure-3004]
 
-_**그림 5:** Azure 내부 부하 분산 장치에 대한 기본 ASCS/SCS 부하 분산 규칙_
+_**그림 5:** Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙_
 
 부하 분산 장치 pr1-lb-dbms의 IP 주소를 DBMS 인스턴스의 가상 호스트 이름 IP 주소로 설정합니다.
 
@@ -525,16 +525,16 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 2. SAP ASCS 또는 SCS 인스턴스에 속하는 모든 부하 분산 규칙에 대해 다음 값을 변경합니다.
 
    * 이름
-   * 포트
+   * Port
    * 백 엔드 포트
 
    예를 들어 기본 ASCS 인스턴스 번호를 00에서 31로 변경하려는 경우 표 1에 나열된 모든 포트에 대해 이러한 변경을 수행해야 합니다.
 
    다음은 포트 *lbrule3200*에 대한 업데이트 예제입니다.
 
-   ![그림 6: Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경][sap-ha-guide-figure-3005]
+   ![그림 6: Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 변경][sap-ha-guide-figure-3005]
 
-   _**그림 6:** Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경_
+   _**그림 6:** Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 변경_
 
 ## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> 도메인에 Windows 가상 컴퓨터 추가
 
@@ -542,7 +542,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 
 ![그림 7: 도메인에 가상 머신 추가][sap-ha-guide-figure-3006]
 
-_**그림 7:** 도메인에 가상 머신 추가_
+_**그림 7:** 도메인에 가상 컴퓨터 추가_
 
 ## <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> SAP ASCS/SCS 인스턴스의 클러스터 노드 둘 다에 대한 레지스트리 항목 추가
 
@@ -586,7 +586,7 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
    ![그림 8: 첫 번째 클러스터 노드의 서버 또는 가상 머신 이름 추가][sap-ha-guide-figure-3007]
 
-   _**그림 8:** 첫 번째 클러스터 노드의 서버 또는 가상 머신 이름 추가_
+   _**그림 8:** 첫 번째 클러스터 노드의 서버 또는 가상 컴퓨터 이름 추가_
 
 3. 클러스터의 네트워크 이름(가상 호스트 이름)을 입력합니다.
 

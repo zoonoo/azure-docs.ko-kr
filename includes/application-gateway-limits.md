@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74174982"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75662936"
 ---
 | 리소스 | 기본/최대 제한 | 참고 |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "74174982"
 | 최대 SSL 인증서 크기 |V1 SKU-10 KB<br>V2 SKU-16KB| |
 | 인증 인증서 |100 | |
 | 신뢰할 수 있는 루트 인증서 |100 | |
-| 요청 시간 제한 최소값 |1 초 | |
+| 요청 시간 제한 최소값 |1초 | |
 | 요청 시간 제한 최대값 |24시간 | |
 | 사이트 수 |100<sup>1</sup> |HTTP 수신기 당 1 개 |
 | 수신기당 URL 맵 |1 | |
@@ -35,8 +35,8 @@ ms.locfileid: "74174982"
 | 동시 WebSocket 연결 |중간 게이트웨이 20k<br> 대량 게이트웨이 50k| |
 | 최대 URL 길이|32KB| |
 | HTTP/2에 대 한 최대 헤더 크기 |4KB| |
-| 최대 파일 업로드 크기, 표준 |2 GB | |
-| 최대 파일 업로드 크기 WAF |중간 WAF 게이트웨이, 100 m b<br>초대형 WAF 게이트웨이, 500 m b| |
+| 최대 파일 업로드 크기, 표준 |2GB | |
+| 최대 파일 업로드 크기 WAF |v1 Medium WAF 게이트웨이, 100 m b<br>v1 Large WAF 게이트웨이, 500 MB<br>v2 WAF, 750 m b| |
 | 파일이 없는 WAF 본문 크기 제한|128KB||
 | 최대 WAF 사용자 지정 규칙|100||
 | 최대 WAF 제외|100||

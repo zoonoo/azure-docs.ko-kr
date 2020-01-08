@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: f0937ee53e66cb1bf0c5d6b55a8dde045570e924
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309817"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551389"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -22,19 +22,21 @@ Application Gateway는 메트릭 이라는 데이터 요소를 게시 하 여 Ap
 
 ### <a name="timing-metrics"></a>타이밍 메트릭
 
-요청 및 응답의 타이밍과 관련 된 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭을 분석 하 여 WAN, Application Gateway, Application Gateway와 백 엔드 간의 네트워크 또는 응용 프로그램 성능으로 인해에서 응용 프로그램의 속도가 느려지는 지 여부를 확인할 수 있습니다.
+요청 및 응답의 타이밍과 관련 된 다음 메트릭을 사용할 수 있습니다. 특정 수신기에 대해 이러한 메트릭을 분석 하 여 WAN, Application Gateway, Application Gateway와 백 엔드 응용 프로그램 간 네트워크 또는 백 엔드 응용 프로그램 성능으로 인해에서 응용 프로그램의 속도가 느려지는 지 여부를 확인할 수 있습니다.
+
+> [!NOTE]
+>
+> Application Gateway에 수신기가 두 개 이상인 경우에는 항상 *수신기* 차원을 기준으로 필터링 하 여 의미 있는 유추를 얻기 위해 다른 대기 시간 메트릭을 비교 합니다.
 
 - **클라이언트 RTT**
 
-  클라이언트와 Application Gateway 사이의 평균 왕복 시간입니다. 이 메트릭은 연결을 설정 하 고 승인을 반환 하는 데 걸리는 시간을 나타냅니다.
+  클라이언트와 Application Gateway 사이의 평균 왕복 시간입니다. 이 메트릭은 연결을 설정 하 고 승인을 반환 하는 데 걸리는 시간을 나타냅니다. 
 
 - **Application gateway 총 시간**
 
   요청을 처리 하는 데 걸리는 평균 시간 및 응답을 보내는 데 걸리는 시간입니다. 이는 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 수신 하는 시점부터 응답 전송 작업이 완료 되는 시간 까지의 평균 간격으로 계산 됩니다. 일반적으로 처리 시간, 요청 및 응답 패킷이 네트워크를 통해 이동 하는 시간 및 백 엔드 서버에서 응답 하는 데 걸린 시간을 Application Gateway 포함 하는 것이 중요 합니다.
-
-- **백 엔드 연결 시간**
-
-  백 엔드 서버와의 연결을 설정 하는 데 걸린 시간입니다. 
+  
+*클라이언트 RTT* 가 *Application gateway 총 시간*보다 훨씬 많은 경우 클라이언트에서 관찰 한 대기 시간이 클라이언트와 Application Gateway 간의 네트워크 연결로 인해 발생 하는 것으로 추론할 수 있습니다. 두 대기 시간을 모두 비교할 수 있는 경우에는 Application Gateway, Application Gateway와 백 엔드 응용 프로그램 간의 네트워크 또는 백 엔드 응용 프로그램 성능 중 하나가 원인일 수 있습니다.
 
 - **백 엔드 첫 번째 바이트 응답 시간**
 
@@ -43,6 +45,13 @@ Application Gateway는 메트릭 이라는 데이터 요소를 게시 하 여 Ap
 - **백 엔드 마지막 바이트 응답 시간**
 
   백 엔드 서버에 대 한 연결을 설정 하 고 응답 본문의 마지막 바이트를 받는 시작 사이의 시간 간격입니다.
+  
+*응용 프로그램 게이트웨이 총 시간이* 특정 수신기의 *백 엔드 마지막 바이트 응답 시간* 보다 훨씬 많은 경우 Application Gateway 대기 시간이 긴 것으로 추론할 수 있습니다. 반면에 두 메트릭을 비교할 수 있는 경우 Application Gateway와 백 엔드 응용 프로그램 간의 네트워크 또는 백 엔드 응용 프로그램의 성능 때문에 문제가 될 수 있습니다.
+
+- **백 엔드 연결 시간**
+
+  백 엔드 응용 프로그램과의 연결을 설정 하는 데 걸린 시간입니다. SSL의 경우 핸드셰이크에 소요 된 시간을 포함 합니다. 이 메트릭은 연결 시간을 측정 하 여 다른 대기 시간과 직접 비교할 수 없기 때문에 다른 대기 시간 메트릭과는 다릅니다. 그러나 *백엔드 연결 시간* 패턴을 다른 대기 시간 패턴과 비교 하면 응용 프로그램 gateway 및 백 엔드 응용 프로그램의 변형으로 인해 다른 대기 시간의 증가가 추론 될 수 있는지 여부를 나타낼 수 있습니다. 
+  
 
 ### <a name="application-gateway-metrics"></a>Application Gateway 메트릭
 
@@ -62,7 +71,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 - **현재 용량 단위**
 
-   소비 된 용량 단위 개수입니다. 용량 단위는 고정 비용 외에도 요금이 부과 되는 소비 기반 비용을 측정 합니다. 용량 단위 계산 단위, 영구 연결 및 처리량의 세 가지 택배 있습니다. 각 용량 단위는 최대 1 compute 단위 또는 2500 영구 연결 또는 2.22-Mbps 처리량입니다.
+   소비 된 용량 단위 개수입니다. 용량 단위는 고정 비용 외에도 요금이 부과 되는 소비 기반 비용을 측정 합니다. 용량 단위 계산 단위, 영구 연결 및 처리량의 세 가지 택배 있습니다. 각 용량 단위는 1 개의 compute 단위 또는 2500 영구 연결 또는 2.22 Mbps 처리량으로 구성 됩니다.
 
 - **현재 계산 단위**
 
@@ -115,6 +124,10 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 Application Gateway에는 다음 메트릭이 지원됩니다.
 
+- **CPU 사용률**
+
+  Application Gateway 할당 된 Cpu의 사용률을 표시 합니다.  정상적인 조건에서 CPU 사용량은 Application Gateway에 호스트 되는 웹 사이트에서 대기 시간이 발생 하 고 클라이언트 환경에 방해가 될 수 있으므로 정기적으로 90%를 초과 해서는 안 됩니다. 인스턴스 수를 늘리거나 더 큰 SKU 크기로 이동 하거나 둘 모두를 수행 하 여 Application Gateway 구성을 수정 하 여 CPU 사용률을 간접적으로 제어 하거나 향상 시킬 수 있습니다.
+
 - **현재 연결**
 
   Application Gateway와 설정된 현재 연결 수
@@ -157,7 +170,7 @@ Application gateway로 이동 하 고 **모니터링** 에서 **메트릭**을 �
 
 다음 이미지에서는 최근 30분 동안 표시된 세 가지 메트릭을 포함한 예제가 표시됩니다.
 
-[![](media/application-gateway-diagnostics/figure5.png "메트릭 보기")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 현재 지원되는 메트릭 목록을 보려면 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 
@@ -173,7 +186,7 @@ Application gateway로 이동 하 고 **모니터링** 에서 **메트릭**을 �
 
 2. **규칙 추가** 페이지에서 이름, 조건 및 알림 섹션을 입력 하 고 **확인**을 선택 합니다.
 
-   * **조건** 선택기에서 허용되는 값은 **보다 큼**, **보다 크거나 같음**, **보다 작음**, **보다 작거나 같음**의 4가지입니다.
+   * **조건** 선택기에서 **보다 큼**, **보다 크거나 같음**, **보다 작음**, **보다 작거나 같음**의 네 가지 값 중 하나를 선택합니다.
 
    * **기간** 선택기에서 5분에서 6시간 사이의 기간까지 선택합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802720"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646492"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -29,7 +29,7 @@ ms.locfileid: "73802720"
 
 모든 Azure 리소스에는 이름이 있습니다. 이름은 각 리소스 종류에 따라 다를 수 있는 범위 내에서 고유해야 합니다. 예를 들어 가상 네트워크의 이름은 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 내에서 고유해야 하지만 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 또는 Azure [지역](https://azure.microsoft.com/regions/#services) 내에서는 중복될 수 있습니다. 리소스 이름을 지정할 때 일관적으로 사용할 수 있는 명명 규칙을 정의하면 시간이 지남에 따라 여러 네트워크 리소스를 관리할 때 유용합니다. 권장 사항은 [명명 규칙](/azure/architecture/best-practices/resource-naming#networking)을 참조하세요.
 
-## <a name="regions"></a>영역
+## <a name="regions"></a>개 지역
 
 모든 Azure 리소스는 Azure 지역 및 구독에서 만들어집니다. 리소스는 해당 리소스와 동일한 지역 및 구독에 있는 가상 네트워크에서만 만들 수 있습니다. 그러나 다른 구독 및 지역에 있는 가상 네트워크를 연결할 수 있습니다. 자세한 내용은 [연결](#connectivity)을 참조하세요. 리소스를 배포할 지역을 결정할 때는 리소스 사용자가 실제로 있는 위치를 고려해야 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "73802720"
 
 ## <a name="subscriptions"></a>구독
 
-각 구독 내에서 [한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)를 참조하세요.
+각 구독 내에서 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)를 참조하세요.
 
 ## <a name="segmentation"></a>분할
 
@@ -51,14 +51,14 @@ ms.locfileid: "73802720"
 
 - 트래픽을 별도의 가상 네트워크로 격리하기 위해 존재하는 조직의 보안 요구 사항이 있나요? 가상 네트워크의 연결 여부를 선택할 수 있습니다. 가상 네트워크를 연결하는 경우 방화벽과 같은 네트워크 가상 어플라이언스를 구현하여 가상 네트워크 간의 트래픽 흐름을 제어할 수 있습니다. 자세한 내용은 [보안](#security) 및 [연결](#connectivity)을 참조하세요.
 - 가상 네트워크를 별도의 [구독](#subscriptions) 또는 [지역](#regions)으로 격리하기 위해 존재하는 조직의 요구 사항이 있나요?
-- [네트워크 인터페이스](virtual-network-network-interface.md)를 사용하면 VM에서 다른 리소스와 통신할 수 있습니다. 각 네트워크 인터페이스에는 하나 이상의 개인 IP 주소가 할당되어 있습니다. 가상 네트워크에 필요한 네트워크 인터페이스 및 [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)는 몇 개인가요? 가상 네트워크에서 유지할 수 있는 네트워크 인터페이스 및 개인 IP 주소의 개수에는 [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)이 있습니다.
+- [네트워크 인터페이스](virtual-network-network-interface.md)를 사용하면 VM에서 다른 리소스와 통신할 수 있습니다. 각 네트워크 인터페이스에는 하나 이상의 개인 IP 주소가 할당되어 있습니다. 가상 네트워크에 필요한 네트워크 인터페이스 및 [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)는 몇 개인가요? 가상 네트워크에서 유지할 수 있는 네트워크 인터페이스 및 개인 IP 주소의 개수에는 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)이 있습니다.
 - 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결하고 싶으신가요? 일부 가상 네트워크는 서로 또는 온-프레미스 네트워크에 연결하고, 나머지 가상 네트워크는 연결하지 않을 수 있습니다. 자세한 내용은 [연결](#connectivity)을 참조하세요. 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결하는 각 가상 네트워크에는 고유한 주소 공간이 있어야 합니다. 각 가상 네트워크에는 해당 주소 공간에 할당된 하나 이상의 공용 또는 프라이빗 주소 범위가 있습니다. 주소 범위는 CIDR(클래스 없는 인터넷 도메인 라우팅) 형식(예: 10.0.0.0/16)으로 지정됩니다. 가상 네트워크의 [주소 범위](manage-virtual-network.md#add-or-remove-an-address-range)에 대해 자세히 알아보세요.
 - 여러 가상 네트워크의 리소스에 대한 조직의 관리 요구 사항이 있나요? 그렇다면 리소스를 별도의 가상 네트워크로 구분하여 조직의 개인에 대한 [사용 권한 할당](#permissions)을 간소화하거나 가상 네트워크마다 다른 정책을 할당할 수 있습니다.
 - 일부 Azure 서비스 리소스를 가상 네트워크에 배포하는 경우 고유한 가상 네트워크가 만들어집니다. Azure 서비스에서 자체 가상 네트워크를 만들지 여부를 결정하면 [가상 네트워크에 배포할 수 있는 각 Azure 서비스](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)에 대한 정보를 참조하세요.
 
 ### <a name="subnets"></a>서브넷
 
-가상 네트워크를 [한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 하나 이상의 서브넷으로 분할할 수 있습니다. 하나의 서브넷을 만들지 또는 한 구독에 여러 가상 네트워크를 만들지 결정할 때 고려할 사항은 다음과 같습니다.
+가상 네트워크를 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 하나 이상의 서브넷으로 분할할 수 있습니다. 하나의 서브넷을 만들지 또는 한 구독에 여러 가상 네트워크를 만들지 결정할 때 고려할 사항은 다음과 같습니다.
 
 - 각 서브넷에는 가상 네트워크의 주소 공간 내에 CIDR 형식으로 지정된 고유한 주소 범위가 있어야 합니다. 주소 범위는 가상 네트워크의 다른 서브넷과 겹칠 수 없습니다.
 - 일부 Azure 서비스 리소스를 가상 네트워크에 배포하려는 경우 고유한 서브넷을 만들거나 필요할 수 있으므로 이를 위해 할당되지 않은 충분한 공간이 있어야 합니다. Azure 서비스에서 자체 서브넷을 만드는지 여부를 확인하려면 [가상 네트워크에 배포할 수 있는 각 Azure 서비스](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)에 대한 정보를 참조하세요. 예를 들어 Azure VPN 게이트웨이를 사용하여 온-프레미스 네트워크에 가상 네트워크를 연결하는 경우 가상 네트워크에 해당 게이트웨이 전용 서브넷이 있어야 합니다. 자세한 내용은 [게이트웨이 서브넷](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)을 참조하세요.

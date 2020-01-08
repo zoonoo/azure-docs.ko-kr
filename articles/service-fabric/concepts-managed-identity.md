@@ -1,18 +1,14 @@
 ---
-title: Service Fabric 관리 Id 개요 | Microsoft Docs
-description: 이 문서는 관리 되는 Id에 대 한 개요입니다.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
+title: Service Fabric 관리 Id 개요
+description: 이 문서는 Azure Service Fabric에 대 한 관리 되는 Id 및 해당 응용 프로그램에 대 한 개요입니다.
 ms.topic: conceptual
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 12/09/2019
+ms.openlocfilehash: dc7dafa59596537456accde66e878c06f9e5ca23
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243020"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528150"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Service Fabric 응용 프로그램에 대 한 관리 Id (미리 보기)
 

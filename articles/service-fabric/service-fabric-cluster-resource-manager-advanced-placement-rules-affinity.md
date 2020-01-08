@@ -1,25 +1,18 @@
 ---
-title: Service Fabric 클러스터 Resource Manager - 선호도 | Microsoft Docs
-description: 서비스 패브릭 서비스에 대한 선호도 구성의 개요
+title: Service Fabric 클러스터 리소스 관리자-선호도
+description: Azure Service Fabric 서비스에 대 한 서비스 선호도 개요 및 서비스 선호도 구성에 대 한 지침입니다.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118418"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551746"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>서비스 패브릭에서 서비스 선호도 구성 및 사용
 선호도는 주로 더 큰 모놀리식 애플리케이션을 클라우드 및 마이크로 서비스 환경으로 쉽게 전환하도록 해주는 컨트롤입니다. 또한 서비스의 성능 향상을 위한 최적화로 사용되지만 이 경우 부작용이 있을 수 있습니다.
@@ -34,7 +27,7 @@ ms.locfileid: "62118418"
 
 이러한 경우 리팩터링 작업을 손실하지 않으려고 하고 거대한 기념물로 남으려고 하지 않습니다. 마지막 조건은 일반 최적화로 바람직할 수도 있습니다. 그러나 자연스럽게 서비스로 작동하도록 구성 요소를 다시 디자인할 수 있거나 다른 방법으로 성능 기대치를 해결할 수 있게 될 때까지 어느 정도의 근접성이 필요합니다.
 
-그렇다면 어떻게 해야 할까요? 이제 선호도를 켤 수 있습니다.
+어떻게 해야 할까요? 이제 선호도를 켤 수 있습니다.
 
 ## <a name="how-to-configure-affinity"></a>선호도를 구성하는 방법
 선호도를 설정하려면 두 개의 서로 다른 서비스 간의 선호도 관계를 정의합니다. 선호도를 다른 서비스에 있는 한 서비스를 "가리키고" "이 서비스는 해당 서비스가 실행되고 있는 장소에서만 실행될 수 있습니다."라고 생각할 수 있습니다. 경우에 따라 부모 자식 관계(부모에 있는 자식을 가리키는 경우)를 의미하기도 합니다. 선호도는 한 서비스의 복제본 또는 인스턴스가 다른 서비스의 복제본 또는 인스턴스와 동일한 노드에 배치되도록 합니다.
@@ -60,8 +53,8 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 <center>
 
-![선호도 모드 및 그 영향][Image1]
-</center>
+선호도 모드 및 해당 효과][Image1]
+를 ![</center>
 
 ### <a name="best-effort-desired-state"></a>최상의 노력이 필요한 상태
 선호도 관계는 최상의 노력입니다. 동일한 실행 가능 프로세스에서 실행되는 배열 또는 안정성에 대해 동일한 보증을 제공하지 않습니다. 선호도 관계의 서비스는 실패할 수 있으며 독립적으로 이동할 수 있는 기본적으로 다른 엔터티입니다. 선호도 관계도 중단될 수 있지만 이러한 중단은 일시적입니다. 예를 들어 용량 제한은 선호도 관계에 있는 일부 서비스 개체만 지정된 노드에 맞출 수 있음을 의미할 수 있습니다. 이러한 경우 선호도 관계가 준비되었더라도 다른 제약 조건으로 인해 적용될 수 없습니다. 이렇게 할 수 있다면 나중에 위반이 자동으로 수정됩니다.
@@ -71,7 +64,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 <center>
 
-![체인 vs입니다. 별 모양의 비교][Image2]
+선호도 관계의 컨텍스트에서 ![체인 및 별][Image2]
 </center>
 
 또 다른 사항으로 현재의 선호도 관계에는 기본적으로 방향성이 있다는 점입니다. 즉 선호도 규칙은 자식이 부모와 함께 배치되도록 합니다. 부모가 자식과 함께 있도록 보장하지는 않습니다. 따라서 선호도 위반이 있고 어떤 이유로 위반을 정정하기 위해 자식을 부모 노드로 이동할 수 없는 경우에는, 부모를 자식 노드로 이동하면 위반이 정정되더라도, 부모는 자식 노드로 이동되지 않습니다. [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) 구성을 true로설정 하면 방향성이 제거됩니다. 또한 서로 다른 서비스에서 별도의 수명 주기를 가지고 있고 독립적으로 실패하고 이동할 수 있기 때문에 선호도 관계가 완벽하거나 즉시 적용될 수 없다는 점에 유의해야 합니다. 예를 들어 크래시로 인해 부모가 갑자기 다른 노드로 장애 조치되었다고 가정해 보겠습니다. 서비스를 계속, 일관성 있게, 사용할 수 있도록 유지하는 것이 우선 순위이므로 클러스터 리소스 관리자와 장애 조치(Failover) 관리자는 장애 조치를 먼저 처리합니다. 장애 조치가 완료되면 선호도 관계는 끊어지지만 클러스터 리소스 관리자에서는 자식이 부모와 함께 있지 않다는 알기 전까지 모든 것이 문제가 없다고 간주합니다. 이러한 종류의 검사는 정기적으로 수행됩니다. 클러스터 리소스 관리자에서 제약 조건을 평가하는 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md#constraint-types)에서 설명하고 있으며, [이 문서](service-fabric-cluster-resource-manager-balancing.md)에서는 이러한 제약 조건을 평가하는 빈도를 구성하는 방법에 대해 자세히 설명합니다.   

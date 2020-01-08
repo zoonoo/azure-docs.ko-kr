@@ -3,18 +3,18 @@ title: Socket.io를 사용하는 Node.js 애플리케이션 - Azure
 description: Azure에 호스트된 node.js 애플리케이션에서 socket.io를 사용하는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306753"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360772"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
@@ -24,7 +24,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 
 ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
 * [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -104,7 +104,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > 에뮬레이터를 시작 하는 데 문제가 발생 하면 다음을 수행 합니다. 시작-AzureEmulator: 예기치 않은 오류가 발생 했습니다.  세부 정보: 예기치 않은 오류가 발생 했습니다. 통신 개체 ServiceChannel는 오류가 발생 한 상태 이기 때문에 통신에 사용할 수 없습니다.
+   > 에뮬레이터 시작 문제가 발생하는 경우(예: Start-AzureEmulator: 예기치 않은 오류가 발생했습니다.  세부 정보: 예기치 않은 오류가 발생했습니다. 통신 개체 System.ServiceModel.Channels.ServiceChannel은(는) Faulted 상태이기 때문에 통신에 사용할 수 없습니다.)
    > 
    > AzureAuthoringTools v 2.7.1 및 azure Eemulator v 2.7을 다시 설치-버전이 일치 하는지 확인 합니다.
 
@@ -116,7 +116,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 4. 애플리케이션을 테스트한 후 다음 명령을 실행하여 에뮬레이터를 중지합니다.
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예를 들어:
+5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예:
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
@@ -166,5 +166,8 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+
+
+
 
 

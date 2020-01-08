@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 11/08/2019
-ms.openlocfilehash: 9c4dca6dc5def1b1c458f28aa2d3ab992bd705d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792722"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75527861"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
 경우에 따라 논리 앱 및 통합 계정에는 [Azure virtual network](../virtual-network/virtual-networks-overview.md)내에 있는 vm (가상 머신), 기타 시스템 또는 서비스와 같은 보안 리소스에 대 한 액세스 권한이 필요 합니다. 이 액세스를 설정 하기 위해 논리 앱을 실행 하 고 통합 계정을 만들 수 있는 [ISE ( *통합 서비스 환경* )를 만들](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 수 있습니다.
 
-ISE를 만들 때 Azure는이 ISE를 Azure 가상 네트워크에 *삽입* 하 여 azure 가상 네트워크에 Logic Apps 서비스의 전용 및 격리 된 인스턴스를 배포 합니다. 이 프라이빗 인스턴스는 스토리지 등의 전용 리소스를 사용하며, 공용 "글로벌" Logic Apps 서비스와는 별도로 실행됩니다. 또한 격리 된 개인 인스턴스와 공용 전역 인스턴스를 분리 하면 다른 Azure 테 넌 트가 응용 프로그램의 성능에 미치는 영향을 줄일 수 있습니다 .이는 ["잡음이 있는 환경" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)라고도 합니다.
+ISE를 만들 때 Azure는이 ISE를 Azure 가상 네트워크에 *삽입* 하 여 azure 가상 네트워크에 Logic Apps 서비스의 전용 및 격리 된 인스턴스를 배포 합니다. 이 전용 인스턴스는 저장소와 같은 전용 리소스를 사용 하며 공용, "전역", 다중 테 넌 트 Logic Apps 서비스와 별도로 실행 됩니다. 또한 격리 된 개인 인스턴스와 공용 전역 인스턴스를 분리 하면 다른 Azure 테 넌 트가 응용 프로그램의 성능에 미치는 영향을 줄일 수 있습니다 .이는 ["잡음이 있는 환경" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)라고도 합니다. 또한 ISE는 사용자 고유의 고정 IP 주소를 제공 합니다. 이러한 IP 주소는 공용 다중 테 넌 트 서비스의 논리 앱에서 공유 하는 고정 IP 주소와는 별개입니다.
 
 ISE를 만든 후 논리 앱 또는 통합 계정 만들기로 이동 하면 ISE를 논리 앱 또는 통합 계정의 위치로 선택할 수 있습니다.
 
@@ -47,7 +47,7 @@ ISE의 논리 앱은 전역 Logic Apps 서비스와 같은 사용자 환경과 �
 
 * Azure Blob Storage, File Storage 및 Table Storage
 * Azure Queues, Azure Service Bus, Azure Event Hubs 및 IBM MQ
-* 파일 시스템, FTP 및 SFTP-SSH
+* FTP 및 SFTP-SSH
 * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 및 EDIFACT
 
@@ -86,11 +86,13 @@ ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습�
 
 ## <a name="ise-endpoint-access"></a>ISE 끝점 액세스
 
-ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하도록 선택할 수 있습니다. 이러한 끝점은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. 이러한 끝점은 논리 앱 실행 기록의 입력 및 출력에 대 한 액세스에도 영향을 줍니다.
+ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하도록 선택할 수 있습니다. 선택은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다.
 
-* **내부**: ISE에서 논리 앱에 대 한 호출을 허용 하 고 *가상 네트워크 내부* 에서만 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 개인 끝점
+이러한 끝점은 논리 앱의 실행 기록에서 입/출력에 액세스할 수 있는 방법에도 영향을 줍니다.
 
-* **외부**: ISE에서 논리 앱에 대 한 호출을 허용 하 고 *가상 네트워크 외부에서* 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 공용 끝점
+* **내부**: *가상 네트워크 내부 에서만* 실행 기록에서 논리 앱의 입력 및 출력을 보고 액세스할 수 있는 ISE에서 논리 앱에 대 한 호출을 허용 하는 개인 끝점
+
+* **외부**: *가상 네트워크 외부의*실행 기록에서 논리 앱의 입력 및 출력을 보고 액세스할 수 있는 ISE에서 논리 앱에 대 한 호출을 허용 하는 공용 끝점입니다. NSGs (네트워크 보안 그룹)를 사용 하는 경우 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 인바운드 규칙으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [ISE에 대 한 액세스 사용](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)을 참조 하세요.
 
 > [!IMPORTANT]
 > 액세스 끝점 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다.

@@ -1,5 +1,6 @@
 ---
-title: Microsoft Azure Cloud Services FAQ에 대한 구성 및 관리 문제 | Microsoft Docs
+title: 구성 및 관리 문제 FAQ
+titleSuffix: Azure Cloud Services
 description: 이 문서는 Microsoft Azure Cloud Services의 구성 및 관리에 대한 질문과 대답을 나열합니다.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161757"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660616"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -195,7 +196,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 5. 서버를 다시 시작합니다.
 6. **기본 웹 사이트**로 이동하여 **바인딩**에서 방금 만든 자체 서명된 인증서와 새 TLS 바인딩을 만듭니다. 
 
-자세한 내용은
+자세한 내용은 다음을 참조하세요.
 
 - [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [동영상: Windows 10에서 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -276,7 +277,7 @@ IIS에서 설정으로도 추가할 수 있습니다. [일반적인 시작 작�
 [일반적인 시작 작업](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) 문서의 IIS 시작 스크립트를 사용합니다.
 
 ### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>클라우드 서비스에 대한 할당량 제한은 무엇인가요?
-[서비스 특정 제한](../azure-subscription-service-limits.md#subscription-limits)을 참조하세요.
+[서비스 특정 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits)을 참조하세요.
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>클라우드 서비스 VM의 드라이브에 사용 가능한 디스크 공간이 거의 표시되지 않는 이유는 무엇인가요?
 이 동작은 정상적이며 애플리케이션에 문제가 발생하지 않아야 합니다. 저널은 Azure PaaS VM에서 %approot% 드라이브에 설정되며 이 기능은 기본적으로 파일이 차지하는 공간의 두 배를 사용합니다. 그러나 이를 사소하게 만드는 몇 가지 사항이 있습니다.
@@ -310,7 +311,7 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
     
 [여기](https://technet.microsoft.com/library/ee790567.aspx)에 설명된 대로 $sslFlags는 다음과 같은 값 중 하나일 수 있습니다.
 
-|Value|의미|
+|값|의미|
 ------|------
 |0|SNI 없음|
 |1|SNI 사용|

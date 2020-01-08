@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b671fe9a4ecd35cbe9d70f398f8d39664203fc58
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8d28566cb10ddd1637eb81dffd102df6bd7b6e7a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782113"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663088"
 ---
 스폿 Vm을 사용 하면 비용을 크게 절약할 수 있는 사용 되지 않는 용량을 활용할 수 있습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 스폿 Vm을 제거 합니다. 따라서 지점 Vm은 일괄 처리 작업, 개발/테스트 환경, 대규모 계산 워크 로드 등의 중단을 처리할 수 있는 워크 로드에 적합 합니다.
 
@@ -78,7 +78,7 @@ Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수
 
 **Q:** 별색 Vm의 할당량은 어떻게 관리 되나요?
 
-**A:** 지점 Vm에는 별도의 할당량 풀이 있습니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 참조하세요.
+**A:** 지점 Vm에는 별도의 할당량 풀이 있습니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조하세요.
 
 
 **Q:** 추가 할당량을 요청할 수 있나요?
@@ -94,12 +94,12 @@ Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수
 
 | Azure 채널               | Azure 스폿 Vm 가용성       |
 |------------------------------|-----------------------------------|
-| 기업계약         | yes                               |
-| 종량제                | yes                               |
+| 기업계약         | 예                               |
+| 종량제                | 예                               |
 | CSP(클라우드 서비스 공급자) | [파트너에 게 문의](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | 혜택                     | 사용할 수 없음                     |
 | 스폰서                    | 사용할 수 없음                     |
-| 평가판                   | 사용할 수 없음                     |
+| 무료 평가판                   | 사용할 수 없음                     |
 
 
 **Q:** 어디에서 질문을 게시할 수 있나요?

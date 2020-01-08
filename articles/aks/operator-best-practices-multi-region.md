@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5fdb189fcab3da4dad52642571ac42e669828fe3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ff55257891ff379bea9ff44aa5136195ced44354
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971658"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613111"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -114,7 +114,7 @@ Container Registry 지역에서 복제를 사용 하 여 동일한 지역에서 
 
 Pod를 삭제 한 후에도 응용 프로그램에 영구적 저장소가 필요할 수 있습니다. Kubernetes에서 영구적 볼륨을 사용 하 여 데이터 저장소를 유지할 수 있습니다. 영구적 볼륨은 노드 VM에 탑재 된 다음 pod에 노출 됩니다. Pod가 동일한 클러스터 내의 다른 노드로 이동 하는 경우에도 영구 볼륨이 pod를 따릅니다.
 
-사용 하는 복제 전략은 저장소 솔루션에 따라 달라 집니다. [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/master/disaster-recovery.html)및 [portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) 와 같은 일반적인 저장소 솔루션은 재해 복구 및 복제에 대 한 자체 지침을 제공 합니다.
+사용 하는 복제 전략은 저장소 솔루션에 따라 달라 집니다. [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)및 [portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) 와 같은 일반적인 저장소 솔루션은 재해 복구 및 복제에 대 한 자체 지침을 제공 합니다.
 
 일반적인 전략은 응용 프로그램이 데이터를 쓸 수 있는 일반적인 저장소 지점을 제공 하는 것입니다. 이 데이터는 여러 Azure 지역에 복제된 후 로컬로 액세스됩니다.
 

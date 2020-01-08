@@ -9,27 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4c53d1c1ffbc80e694a9a7b423b2aaf9c6d38b48
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5f69bcafbc3abb39b4185e0144ff6029808c0704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432983"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스를 사용 하 여 실시간 데이터 요청
 
 이 문서에서는 Azure Maps [모바일 서비스](https://aka.ms/AzureMapsMobilityService) 를 사용 하 여 실시간 전송 데이터를 요청 하는 방법을 보여 줍니다.
 
-이 문서에서는 다음 방법에 대해 설명 합니다.
+이 문서에서는 다음 방법을 알아봅니다.
 
 
  * 지정 된 중지에 도착 하는 모든 줄에 대해 다음 실시간 도착 한를 요청 합니다.
  * 지정 된 자전거 도킹 스테이션에 대 한 실시간 정보를 요청 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 Maps 계정 및 키가 필요 합니다. 계정을 만드는 방법에 대 한 자세한 내용은 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) 의 지침에 따르고 [기본 키 가져오기](./tutorial-search-location.md#getkey) 의 단계에 따라 계정에 대 한 기본 구독 키를 검색 합니다.
+Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 Maps 계정 및 키가 필요 합니다. 계정을 만들고 키를 가져오는 방법에 대 한 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침에 따라 Azure Maps 계정 구독을 만들고 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증 관리](./how-to-manage-authentication.md)를 참조 하세요.
+
 
 이 문서에서는 [우체부 앱](https://www.getpostman.com/apps)을 사용하여 REST 호출을 빌드합니다. 선호하는 모든 API 개발 환경을 사용할 수 있습니다.
 
@@ -129,7 +130,7 @@ Azure Maps 모바일 서비스의 [전송 도크 정보 가져오기 API](https:
 
 **Dockid**를 얻으려면 다음 단계를 수행 하 여 주변 전송 API 가져오기에 대 한 요청을 수행 합니다.
 
-1. Postman에서 **새 요청** | **가져오기 요청** 을 클릭 하 고 이름을 **dock ID**로 표시 합니다.
+1. Postman에서 **요청 가져오기** | **새 요청** 을 클릭 하 고 이름을 **dock ID**로 표시 합니다.
 
 2.  작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 다음 요청 URL을 입력 한 후 **보내기**를 클릭 합니다.
  
@@ -178,7 +179,7 @@ Azure Maps 모바일 서비스의 [전송 도크 정보 가져오기 API](https:
 
 다음 단계를 수행 하 여 전송 도크 정보 가져오기 API에 대 한 요청을 수행 하 여 선택한 도크에 대 한 실시간 데이터를 가져옵니다.
 
-1. Postman에서 **새 요청** | **가져오기 요청** 을 클릭 하 고 이름을 **실시간 도크 데이터를 가져옵니다**.
+1. Postman에서 **요청 가져오기** | **새 요청** 을 클릭 하 고 **실시간 도크 데이터를 가져옵니다**.
 
 2.  작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 다음 요청 URL을 입력 한 후 **보내기**를 클릭 합니다.
  

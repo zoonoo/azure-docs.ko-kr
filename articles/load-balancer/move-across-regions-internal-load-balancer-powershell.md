@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 52a43dff5d2e740633675b71d5177d0df876d3cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f8e431124155fe23853fe61e985fe4db522c3f77
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092210"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644276"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>PowerShell을 사용 하 여 Azure 내부 Load Balancer을 다른 지역으로 이동
 
@@ -20,7 +20,7 @@ ms.locfileid: "71092210"
 Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 내부 부하 분산 장치의 기존 구성과 가상 네트워크를 내보낼 수 있습니다.  그런 다음 부하 분산 장치 및 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  리소스 관리자 및 템플릿에 대 한 자세한 내용은 [템플릿으로 리소스 그룹 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates) 를 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 내부 부하 분산 장치가 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -32,7 +32,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 - Azure 구독을 사용 하 여 사용 되는 대상 지역에 내부 부하 분산 장치를 만들 수 있는지 확인 합니다. 필요한 할당량을 사용하려면 지원 팀에 문의하세요.
 
-- 구독에이 프로세스에 대 한 부하 분산 장치 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조하세요.
+- 구독에이 프로세스에 대 한 부하 분산 장치 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)을 참조하세요.
 
 
 ## <a name="prepare-and-move"></a>준비 및 이동
@@ -60,7 +60,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **리소스 그룹-이름 >. json 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. \<**
+4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **\<리소스 그룹-이름 >** 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. 즉,
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -105,9 +105,9 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     Get-AzLocation | format-table
     
     ```
-8.  또한 선택 하는 경우  **\<리소스 그룹 이름 > json** 파일의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적입니다.
+8.  선택 하는 경우 **\<리소스 그룹 이름 >** 에 있는 다른 매개 변수를 변경할 수도 있습니다 .이 경우 요구 사항에 따라 선택적으로 선택 해야 합니다.
 
-    * **주소 공간** - **리소스** > **addressSpace**  **섹션을수정하고의addressPrefixes속성을변경하여저장하기전에VNET의주소공간을변경할수있습니다.\< 리소스 그룹 이름 > json** 파일:
+    * **주소 공간** - > **리소스** 를 저장 하기 전에 VNET의 주소 공간을 변경할 수 있습니다. **addressSpace** 섹션을 수정 하 고 **\<리소스 그룹 이름 >. json** 파일에서 **addressPrefixes** 속성을 변경 합니다.
 
         ```json
                 "resources": [
@@ -127,7 +127,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
         ```
 
-    * **서브넷** **- \<리소스 그룹 이름 >. json** 파일의 **서브넷** 섹션을 수정 하 여 서브넷 이름 및 서브넷 주소 공간을 변경 하거나 추가할 수 있습니다. **이름** 속성을 변경 하 여 서브넷의 이름을 변경할 수 있습니다. AddressPrefix 파일  **\<>** 에서 속성을 변경 하 여 서브넷 주소 공간을 변경할 수 있습니다.
+    * **서브넷** - **\<리소스 그룹 이름 >. json** 파일의 **서브넷** 섹션을 수정 하 여 서브넷 이름 및 서브넷 주소 공간을 변경 하거나 추가할 수 있습니다. **이름** 속성을 변경 하 여 서브넷의 이름을 변경할 수 있습니다. **\<리소스-그룹-이름 >. json** 파일에서 **addressPrefix** 속성을 변경 하 여 서브넷 주소 공간을 변경할 수 있습니다.
 
         ```json
                 "subnets": [
@@ -158,7 +158,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                 ]
         ```
 
-         주소 접두사를 변경 하려면  **리소스그룹이름>.json파일에서위에나열된섹션과아래에나열된형식섹션에서두위치를편집해야\<** 합니다.  **AddressPrefix** 속성을 위와 일치 하도록 변경 합니다.
+         **\<리소스-그룹-이름 > json** 파일에서 주소 접두사를 변경 하려면 위에 나열 된 섹션과 아래에 나열 된 **형식** 섹션에서 두 위치를 편집 해야 합니다.  **AddressPrefix** 속성을 위와 일치 하도록 변경 합니다.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -202,7 +202,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집  **\<된 리소스 그룹 이름 > json** 파일을 배포 합니다.
+11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 **\<리소스 그룹 이름 > json** 파일을 배포 합니다.
 
     ```azurepowershell-interactive
 
@@ -241,7 +241,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceIntLBID -IncludeParameterDefaultValue
    ```
-4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **리소스 그룹-이름 >. json 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. \<**
+4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **\<리소스 그룹-이름 >** 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. 즉,
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -263,7 +263,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
              }
     ```
  
-6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음  **\<리소스 그룹 이름 > json** 파일에 복사 하 여 붙여넣어야 합니다.  ID를 가져오려면 [AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)을 사용 합니다.
+6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음이를 복사 하 여 **\<리소스 그룹 이름 >. json** 파일에 붙여넣어야 합니다.  ID를 가져오려면 [AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)을 사용 합니다.
    
    ```azurepowershell-interactive
     $targetVNETID = (Get-AzVirtualNetwork -Name <target-vnet-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -275,7 +275,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-Move/providers/Microsoft.Network/virtualNetworks/myVNET2-Move
     ```
 
-7.  리소스 그룹 이름 **> json 파일에서 대상 가상 네트워크 ID에 대 한 두 번째 매개 변수에 defaultValue 대신 리소스 ID를 붙여 넣어 경로를 따옴표로 묶어야 \<** 합니다.
+7.  **\<리소스-그룹-이름 >** 파일에서 대상 가상 네트워크 ID에 대 한 두 번째 매개 변수에 **DEFAULTVALUE** 대신 **리소스 ID** 를 붙여 넣습니다. 경로를 따옴표로 묶어야 합니다.
    
     ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -291,7 +291,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
              }
     ```
 
-8. 내부 부하 분산 장치 구성을 이동할 대상 지역을 편집 하려면  **\<리소스 그룹 이름 >.** i n t 파일의 **리소스** 에서 **위치** 속성을 변경 합니다.
+8. 내부 부하 분산 장치 구성을 이동할 대상 지역을 편집 하려면 **\<리소스-그룹-이름 >.** i n t 파일의 **리소스** 에서 **위치** 속성을 변경 합니다.
 
     ```json
         "resources": [
@@ -315,7 +315,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     ```
 12. 또한 선택 하는 경우 템플릿의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택 사항입니다.
     
-    * **Sku** - >  **리소스 그룹 이름 >의 sku 이름 속성을 변경 하 여 구성의 내부 부하 분산 장치에 대 한 sku를 standard에서 basic 또는 basic에서 standard로 변경할 수 있습니다. \<** 파일:
+    * **Sku** - **\<리소스 그룹 이름 >. json** 파일에서 **Sku** > **name** 속성을 변경 하 여 구성의 내부 부하 분산 장치에 대 한 sku를 standard에서 basic 또는 basic으로 변경할 수 있습니다.
 
         ```json
         "resources": [
@@ -331,7 +331,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
         ```
       기본 및 표준 sku 부하 분산 장치 간의 차이점에 대 한 자세한 내용은 [Azure 표준 Load Balancer 개요](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) 를 참조 하세요.
 
-    * **부하 분산 규칙** -loadBalancingRules 파일  **\<>** 의 섹션에 항목을 추가 하거나 제거 하 여 구성에서 부하 분산 규칙을 추가 하거나 제거할 수 있습니다.
+    * **부하 분산 규칙** - **\<리소스 그룹 이름 >.** i n i 파일의 **loadBalancingRules** 섹션에 항목을 추가 하거나 제거 하 여 구성에서 부하 분산 규칙을 추가 하거나 제거할 수 있습니다.
 
         ```json
         "loadBalancingRules": [
@@ -363,7 +363,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
         ```
        부하 분산 규칙에 대 한 자세한 내용은 [Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 을 참조 하세요.
 
-    * **프로브** **- \<리소스 그룹 이름 >. json** 파일의 **프로브** 섹션에 항목을 추가 하거나 제거 하 여 구성의 부하 분산 장치에 대 한 프로브를 추가 하거나 제거할 수 있습니다.
+    * **프로브** - **\<리소스 그룹 이름 >. json** 파일의 **프로브** 섹션에 항목을 추가 하거나 제거 하 여 구성의 부하 분산 장치에 대 한 프로브를 추가 하거나 제거할 수 있습니다.
 
         ```json
         "probes": [
@@ -383,7 +383,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
         ```
        Azure Load Balancer 상태 프로브에 대 한 자세한 내용은 [상태 프로브 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) 를 참조 하세요.
 
-    * **인바운드 nat 규칙** -loadbalancer.inboundnatrules 파일  **\<>** 의 섹션에 항목을 추가 하거나 제거 하 여 부하 분산 장치에 대 한 인바운드 nat 규칙을 추가 하거나 제거할 수 있습니다.
+    * **인바운드 nat 규칙** - **\<리소스 그룹 이름 >. Json** 파일의 **loadbalancer.inboundnatrules** 섹션에 항목을 추가 하거나 제거 하 여 부하 분산 장치에 대 한 인바운드 nat 규칙을 추가 하거나 제거할 수 있습니다.
 
         ```json
         "inboundNatRules": [
@@ -405,7 +405,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                     }
                 ]
         ```
-        인바운드 NAT 규칙의 추가 또는 제거를 완료 하려면 규칙은  **\<리소스 그룹 이름 >. json** 파일의 끝에 **유형** 속성으로 표시 되거나 제거 되어야 합니다.
+        인바운드 NAT 규칙의 추가 또는 제거를 완료 하려면 **\<리소스 그룹 이름 >. json** 파일의 끝에 **유형** 속성으로 해당 규칙을 설치 하거나 제거 해야 합니다.
 
         ```json
         {
@@ -438,7 +438,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집  **\<된 리소스 그룹 이름 > json** 파일을 배포 합니다.
+11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 **\<리소스 그룹 이름 > json** 파일을 배포 합니다.
 
     ```azurepowershell-interactive
 
@@ -460,7 +460,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
     ```
 
-## <a name="discard"></a>삭제 
+## <a name="discard"></a>취소 
 
 배포 후에는 대상에서 가상 네트워크 및 부하 분산 장치를 시작 하거나 삭제 하려는 경우 대상에 생성 된 리소스 그룹을 삭제 하 고 이동한 가상 네트워크 및 부하 분산 장치를 삭제 합니다.  리소스 그룹을 제거 하려면 [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)를 사용 합니다.
 

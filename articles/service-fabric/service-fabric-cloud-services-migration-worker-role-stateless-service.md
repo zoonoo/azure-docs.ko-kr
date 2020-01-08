@@ -1,25 +1,16 @@
 ---
-title: Azure Cloud Services 앱을 Service Fabric으로 변환 | Microsoft Docs
+title: Azure Cloud Services apps를 Service Fabric으로 변환
 description: 이 가이드에서는 Cloud Services에서 서비스 패브릭으로 마이그레이션할 수 있도록 Cloud Services 웹과 작업자 역할 및 서비스 패브릭 상태 비저장 서비스를 비교합니다.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550378"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463332"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
 이 문서에서는 Cloud Services 웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 마이그레이션하는 방법을 설명합니다. Cloud Services에서 전반적인 아키텍처를 대략적으로 동일하게 유지하는 애플리케이션에 대한 Service Fabric으로의 가장 간단한 마이그레이션 경로입니다.
@@ -32,7 +23,7 @@ ms.locfileid: "67550378"
 ![서비스 패브릭 및 Cloud Services 프로젝트 비교][3]
 
 ## <a name="worker-role-to-stateless-service"></a>작업자 역할에서 상태 비저장 서비스
-개념적으로 작업자 역할은 모든 작업 인스턴스는 동일하고 언제든지 인스턴스에 요청을 라우팅할 수 있음을 의미하는 상태 비저장 작업을 나타냅니다. 각 인스턴스는 이전 요청을 기억하지 않습니다. 워크 로드에서 작동 하는 상태는 Azure Table Storage 또는 Azure Cosmos DB와 같은 외부 상태 저장소에 의해 관리 됩니다. 서비스 패브릭에서 이러한 유형의 작업은 상태 비저장 서비스에 의해 표시됩니다. 작업자 역할을 서비스 패브릭으로 마이그레이션하는 가장 간단한 방법은 작업자 역할 코드를 상태 비저장 서비스로 변환하여 수행할 수 있습니다.
+개념적으로 작업자 역할은 모든 작업 인스턴스는 동일하고 언제든지 인스턴스에 요청을 라우팅할 수 있음을 의미하는 상태 비저장 작업을 나타냅니다. 각 인스턴스는 이전 요청을 기억하지 않습니다. 작업이 수행 되는 상태는 Azure Table Storage 또는 Azure Cosmos DB와 같은 외부 상태 저장소를 통해 관리 됩니다. 서비스 패브릭에서 이러한 유형의 작업은 상태 비저장 서비스에 의해 표시됩니다. 작업자 역할을 서비스 패브릭으로 마이그레이션하는 가장 간단한 방법은 작업자 역할 코드를 상태 비저장 서비스로 변환하여 수행할 수 있습니다.
 
 ![작업자 역할에서 상태 비저장 서비스][4]
 
@@ -110,8 +101,8 @@ namespace Stateless1
 
 작업자 역할 및 서비스 패브릭 서비스의 수명 주기 및 수명 간에는 몇 가지 주요 차이점이 있습니다.
 
-* **수명 주기:** 가장 큰 차이점은 작업자 역할은 VM의 수명 주기 VM 시작 및 중지 시기에 대 한 이벤트를 포함 하는 VM에 연결 되어 있으므로. 서비스 패브릭 서비스는 VM 수명 주기와 별개의 수명 주기를 가지므로 관련되지 않으므로 호스트 VM 또는 컴퓨터의 시작 및 중지 시기에 대한 이벤트를 포함하지 않습니다.
-* **수명:** 작업자 역할 인스턴스를 재활용 하는 경우는 `Run` 메서드 종료 됩니다. 하지만 서비스 패브릭 서비스의 `RunAsync` 메서드는 완료될 때까지 실행할 수 있고 서비스 인스턴스는 제공됩니다. 
+* **수명 주기:** 가장 큰 차이점은 작업자 역할은 VM이므로 해당 수명 주기는 VM의 시작 및 중지 시기에 대한 이벤트를 포함하는 VM에 연결되어 있다는 점입니다. 서비스 패브릭 서비스는 VM 수명 주기와 별개의 수명 주기를 가지므로 관련되지 않으므로 호스트 VM 또는 컴퓨터의 시작 및 중지 시기에 대한 이벤트를 포함하지 않습니다.
+* **수명:** `Run` 메서드가 종료되는 경우 작업자 역할 인스턴스는 재활용됩니다. 하지만 서비스 패브릭 서비스의 `RunAsync` 메서드는 완료될 때까지 실행할 수 있고 서비스 인스턴스는 제공됩니다. 
 
 서비스 패브릭은 클라이언트 요청을 수신 대기하는 서비스에 대한 선택적 통신 설정 진입점을 제공합니다. RunAsync와 통신 진입점은 서비스 패브릭 서비스에서 선택적 재정의입니다. 서비스는 클라이언트 요청을 수신 대기하거나 처리 루프를 실행하거나 둘 다 수행하도록 선택할 수 있습니다. 클라이언트 요청을 계속해서 수신 대기할 수 있기 때문에 RunAsync 메서드가 서비스 인스턴스를 다시 시작하지 않고 종료하도록 허용되는 것은 이 때문입니다.
 

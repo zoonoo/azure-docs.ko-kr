@@ -1,14 +1,14 @@
 ---
 title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 하는 경우 발생할 수 있는 일반적인 오류를 해결 하는 방법을 설명 합니다.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892603"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664601"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure에서 SAP HANA 데이터베이스의 백업 문제 해결
 
@@ -84,27 +84,27 @@ HANA 용 단일 컨테이너 데이터베이스 (SDC)를 다른 SDC 컴퓨터로
 
 SDC HANA 인스턴스 "H21"이 백업 된 것으로 가정 합니다. 백업 항목 페이지에 백업 항목 이름이 **"h21 (sdc)"** 로 표시 됩니다. 이 데이터베이스를 다른 대상 SDC로 복원 하려고 시도 하는 경우 (예 H11) 다음 입력을 제공 해야 합니다.
 
-![SDC 복원 입력](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+![복원 된 SDC 데이터베이스 이름](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 다음 사항에 유의하세요.
 
-- 기본적으로 복원 된 db 이름에는 백업 항목 이름 (예: h21 (sdc))이 채워집니다.
+- 기본적으로 복원 된 db 이름에는 백업 항목 이름이 채워집니다. 이 경우 h21 (sdc)입니다.
 - H11로 대상을 선택 하면 복원 된 db 이름이 자동으로 변경 되지 않습니다. **H11 (sdc)로 편집 해야**합니다. SDC와 관련 하 여 복원 된 db 이름에는 소문자를 사용 하 고 ' sdc '를 포함 하는 대상 인스턴스 ID가 추가 됩니다.
 - SDC에는 단일 데이터베이스만 있을 수 있으므로이 확인란을 클릭 하 여 기존 데이터베이스 데이터를 복구 지점 데이터로 재정의 하도록 허용 해야 합니다.
 - Linux는 대/소문자를 구분 합니다. 따라서 대/소문자를 유지 해야 합니다.
 
 ### <a name="multiple-container-database-mdc-restore"></a>여러 컨테이너 데이터베이스 (MDC) 복원
 
-HANA에 대 한 여러 컨테이너 데이터베이스에서 표준 구성은 SYSTEMDB + 1 이상의 테 넌 트 DB입니다. 전체 SAP HANA 인스턴스를 복원 하는 것은 SYSTEMDB와 테 넌 트 DB를 모두 복원 하는 것입니다. 하나는 먼저 SYSTEMDB를 복원한 다음 테 넌 트 DB를 진행 합니다. 시스템 DB는 기본적으로 선택한 대상의 시스템 정보를 재정의 합니다. 또한이 복원은 대상 인스턴스의 BackInt 관련 정보를 재정의 합니다. 따라서 시스템 DB를 대상 인스턴스로 복원한 후에는 등록 전 스크립트를 다시 실행 해야 합니다. 이후 테 넌 트 DB 복원 작업이 성공 합니다.
+HANA에 대 한 여러 컨테이너 데이터베이스에서 표준 구성은 SYSTEMDB + 1 이상의 테 넌 트 DB입니다. 전체 SAP HANA 인스턴스를 복원 하는 것은 SYSTEMDB와 테 넌 트 DB를 모두 복원 하는 것입니다. 하나는 먼저 SYSTEMDB를 복원한 다음 테 넌 트 DB를 진행 합니다. 시스템 DB는 기본적으로 선택한 대상의 시스템 정보를 재정의 합니다. 또한이 복원은 대상 인스턴스의 BackInt 관련 정보를 재정의 합니다. 따라서 시스템 DB가 대상 인스턴스로 복원 된 후 등록 전 스크립트를 다시 실행 합니다. 이후 테 넌 트 DB 복원 작업이 성공 합니다.
 
 ## <a name="upgrading-from-sap-hana-10-to-20"></a>SAP HANA 1.0에서 2.0로 업그레이드
 
-SAP HANA 1.0 데이터베이스를 보호 하 고 2.0로 업그레이드 하려는 경우 아래에 설명 된 단계를 수행 합니다.
+SAP HANA 1.0 데이터베이스를 보호 하 고 2.0로 업그레이드 하려는 경우 다음 단계를 수행 합니다.
 
 - 이전 SDC 데이터베이스에 대 한 데이터 보존을 사용 하 여 [보호를 중지](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) 합니다.
 - 업그레이드를 수행 합니다. 완료 후 HANA는 이제 시스템 DB 및 테 넌 트 DB를 사용 하 여 MDC를 사용 합니다.
 - (Sid 및 mdc)의 올바른 세부 정보를 사용 하 여 [등록 전 스크립트](https://aka.ms/scriptforpermsonhana) 를 다시 실행 합니다.
-- Azure Portal에서 동일한 컴퓨터에 대 한 확장을 다시 등록 합니다 (백업 > 보기 세부 정보-관련 Azure VM-> 다시 등록 > 선택).
+- Azure Portal에서 동일한 컴퓨터에 대 한 확장을 다시 등록 합니다 (백업 > 보기 세부 정보-> 관련 Azure VM 선택-> 다시 등록).
 - 동일한 VM에 대해 Db 다시 검색을 클릭 합니다. 이 작업은 2 단계에서 새 Db를 표시 하 고, 올바른 세부 정보 (SYSTEMDB 및 SDC가 아닌 테 넌 트 DB)를 표시 합니다.
 - 이러한 새 데이터베이스에 대 한 백업을 구성 합니다.
 

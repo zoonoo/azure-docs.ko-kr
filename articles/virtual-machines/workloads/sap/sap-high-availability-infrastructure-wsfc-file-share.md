@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9b7ac97cb190073966f9be450e9f9e04014fbd7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078048"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647546"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 
@@ -39,8 +39,8 @@ ms.locfileid: "70078048"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -203,7 +203,7 @@ ms.locfileid: "70078048"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -213,7 +213,7 @@ ms.locfileid: "70078048"
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: 파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]
+* [아키텍처 가이드: Windows 장애 조치 (failover) 클러스터에서 파일 공유를 사용 하 여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>호스트 이름 및 IP 주소
@@ -226,13 +226,13 @@ ms.locfileid: "70078048"
 | SAP PR1 ASCS 클러스터 네트워크 이름 |pr1-ascs | 10.0.6.7 | n/a |
 
 
-**표 1**: ASCS/SCS 클러스터
+**테이블 1**: ASCS/SCS 클러스터
 
 | SAP \<SID> | SAP ASCS/SCS 인스턴스 번호 |
 | --- | --- |
 | PR1 | 00 |
 
-**표 2**: SAP ASCS/SCS 인스턴스 세부 정보
+**테이블 2:** SAP ASCS/SCS 인스턴스 세부 정보
 
 
 | 가상 호스트 이름 역할 | 가상 호스트 이름 | 고정 IP 주소 | 가용성 집합 |
@@ -322,9 +322,9 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 Managed Disks를 사용하는 것이 좋습니다.
 
-![그림 1: 관리 디스크를 사용 하는 스케일 아웃 파일 서버 리소스 관리자 템플릿에 대 한 UI 화면][sap-ha-guide-figure-8010]
+![그림 1: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8010]
 
-_**그림 1**: 관리 디스크를 사용 하는 스케일 아웃 파일 서버 리소스 관리자 템플릿에 대 한 UI 화면_
+_**그림 1**: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면_
 
 템플릿에서 다음 작업을 수행합니다.
 1. **VM 수** 상자에 **2**라는 최소 수를 입력합니다.
@@ -336,9 +336,9 @@ _**그림 1**: 관리 디스크를 사용 하는 스케일 아웃 파일 서버 
 
 스토리지 공간 다이렉트 및 Azure 관리 되지 않는 디스크를 사용 하 여 스케일 아웃 파일 서버를 배포 하기 위한 Azure Resource Manager 템플릿은 [GitHub][arm-sofs-s2d-non-managed-disks]에서 사용할 수 있습니다.
 
-![그림 2: 관리 디스크가 없는 스케일 아웃 파일 서버 Azure Resource Manager 템플릿에 대 한 UI 화면][sap-ha-guide-figure-8011]
+![그림 2: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8011]
 
-_**그림 2**: 관리 디스크가 없는 스케일 아웃 파일 서버 Azure Resource Manager 템플릿에 대 한 UI 화면_
+_**그림 2**: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면_
 
 **스토리지 계정 형식** 상자에서 **Premium Storage**를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
 

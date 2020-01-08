@@ -1,26 +1,18 @@
 ---
-title: Threat Modeling Tool 릴리스 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool 릴리스 4/9/2019-Azure
 description: Threat Modeling Tool 릴리스 정보 문서화
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: jegeib
-ms.openlocfilehash: 6992ac58ebf8976714e5a478dd7b886efab2a4b7
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 488168b1a17d3f5fac1ae7cca0a37676063bfe03
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934797"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552069"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60408.1-4/9/2019
 
@@ -47,11 +39,11 @@ Azure Key Vault 및 Azure Traffic Manager에 대 한 새로운 스텐실 및 위
 
 ### <a name="support-links-have-been-updated"></a>지원 링크가 업데이트 되었습니다.
 
-도구 내의 모든 지원 링크가 MSDN 포럼 대신 사용자에 [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) 게 직접 업데이트 되었습니다.
+도구 내의 모든 지원 링크가 사용자에 게 MSDN 포럼 대신 [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) 으로 안내 하도록 업데이트 되었습니다.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 
-- Supported Operating Systems
+- 지원되는 운영 체제
   - [Microsoft Windows 10 1주년 업데이트](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) 이상
 - 필요한 .NET 버전
   - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) 이상

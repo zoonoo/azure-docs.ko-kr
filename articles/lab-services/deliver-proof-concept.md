@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: takamath
-ms.openlocfilehash: 13e3f6be851e81b1186d55bb313dd23f1920f007
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ca843213760cee60799568a6f33059c2bd91c835
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616359"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643290"
 ---
 # <a name="deliver-a-proof-of-concept"></a>개념 증명 제공 
 
-Azure DevTest Labs에 대 한 주요 시나리오 중 하나는 클라우드에서 개발 및 테스트 환경을 사용 하도록 설정 하는 것입니다. 예를 들어 다음과 같습니다.
+Azure DevTest Labs에 대 한 주요 시나리오 중 하나는 클라우드에서 개발 및 테스트 환경을 사용 하도록 설정 하는 것입니다. 예를 들면 다음과 같습니다.
 
 * 클라우드에서 개발자 데스크톱을 만드는 중입니다.
 * 테스트 환경을 구성 하는 중입니다.
@@ -43,12 +43,12 @@ Azure DevTest Labs에 대 한 주요 시나리오 중 하나는 클라우드에�
 * [DevTest Labs enterprise 설명서](devtest-lab-guidance-prescriptive-adoption.md)
 * [Azure 네트워킹 소개](../virtual-network/virtual-networks-overview.md)
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 조건 
 
 DevTest Labs를 사용 하 여 파일럿 또는 개념 증명을 성공적으로 완료 하려면 몇 가지 필수 구성 요소가 있습니다. 
 
-* **Azure 구독**: 기업에는 Azure에 대 한 액세스를 가능 하 게 하는 기존 [기업계약](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) 있는 경우가 많으며, 기존 또는 새 구독을 사용 하 여 DevTest Labs를 사용할 수 있습니다. 또는 기업에서 파일럿 중에 [Visual Studio 구독](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) 을 사용할 수 있습니다 (무료 Azure 크레딧 활용). 이러한 옵션을 모두 사용할 수 없는 경우 기업은 [무료 Azure 계정을](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ)만들고 사용할 수 있습니다. 기업계약 있는 경우 [엔터프라이즈 개발/테스트 구독](https://azure.microsoft.com/offers/ms-azr-0148p/) 을 사용 하면 Windows 10/Windows 8.1 클라이언트 운영 체제에 액세스 하 고 개발 및 테스트 작업에 대 한 할인 된 요금을 얻을 수 있는 좋은 옵션입니다. 
-* **Azure Active Directory 테 넌 트**: 사용자 관리 (예: 사용자 추가 또는 랩 소유자 추가)를 사용 하도록 설정 하려면 해당 사용자가 파일럿을 위해 Azure 구독에 사용 되는 [Azure Active Directory 테 넌 트](https://azure.microsoft.com/services/active-directory/) 의 일부 여야 합니다. 기업에서는 사용자가 클라우드에서 온-프레미스 id를 사용할 수 있도록 [하이브리드 id](../active-directory/hybrid/whatis-hybrid-identity.md) 를 설정 하지만, DevTest Labs 파일럿에는이 작업이 필요 하지 않습니다. 
+* **Azure 구독**: 기업은 azure에 대 한 액세스를 가능 하 게 하는 기존 [기업계약](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) 을 보유 하 고 있으며, DevTest Labs에 대 한 기존 또는 새로운 구독을 사용할 수 있습니다. 또는 기업에서 파일럿 중에 [Visual Studio 구독](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) 을 사용할 수 있습니다 (무료 Azure 크레딧 활용). 이러한 옵션을 모두 사용할 수 없는 경우 기업은 [무료 Azure 계정을](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ)만들고 사용할 수 있습니다. 기업계약 있는 경우 [Enterprise 개발/테스트 구독](https://azure.microsoft.com/offers/ms-azr-0148p/) 을 사용 하면 Windows 10/Windows 8.1 클라이언트 운영 체제에 액세스 하 고 개발 및 테스트 작업에 대 한 할인 된 요금을 얻을 수 있습니다. 
+* **Azure Active Directory 테 넌 트**: 사용자를 추가 하거나 랩 소유자를 추가 하는 등의 사용자 관리를 사용 하도록 설정 하려면 해당 사용자가 파일럿을 위해 Azure 구독에 사용 되는 [Azure Active Directory 테 넌 트](https://azure.microsoft.com/services/active-directory/) 의 일부 여야 합니다. 기업에서는 사용자가 클라우드에서 온-프레미스 id를 사용할 수 있도록 [하이브리드 id](../active-directory/hybrid/whatis-hybrid-identity.md) 를 설정 하지만, DevTest Labs 파일럿에는이 작업이 필요 하지 않습니다. 
 
 ## <a name="scoping-of-the-pilot"></a>파일럿의 범위 지정 
 
@@ -124,9 +124,9 @@ Microsoft는 공급 업체가 회사 네트워크에서 격리 된 환경으로 
 
 전체 DevTest Labs 솔루션을 릴리스 하기 전에 몇 가지 중요 한 계획과 설계 결정을 내려야 합니다. 개념 증명을 사용 하 여 작업 하는 환경은 이러한 결정을 내리는 데 도움이 될 수 있습니다. 추가 고려 사항은 다음과 같습니다. 
 
-* **구독 토폴로지**: Azure의 리소스에 대 한 엔터프라이즈 수준의 요구 사항은 [단일 구독 내에서 사용 가능한 할당량](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 초과 하 여 확장할 수 있습니다. 이렇게 하면 초기 구독 제한을 늘리기 위해 여러 Azure 구독 및/또는 서비스 요청이 요구 됩니다. 구독에서 리소스를 배포 하는 방법을 앞에서 결정 하는 것이 중요 합니다. 한 가지 중요 한 리소스는 나중에 다른 구독으로 리소스를 이동 하기 어렵기 때문에 [구독 의사 결정 가이드](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) 입니다. 예를 들어 랩을 만든 후에는 다른 구독으로 이동할 수 없습니다.  
+* **구독 토폴로지**: Azure의 리소스에 대 한 엔터프라이즈 수준의 요구 사항은 [단일 구독 내에서 사용 가능한 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 초과 하 여 확장할 수 있습니다. 이렇게 하면 초기 구독 제한을 늘리기 위해 여러 Azure 구독 및/또는 서비스 요청이 요구 됩니다. 구독에서 리소스를 배포 하는 방법을 앞에서 결정 하는 것이 중요 합니다. 한 가지 중요 한 리소스는 나중에 다른 구독으로 리소스를 이동 하기 어렵기 때문에 [구독 의사 결정 가이드](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) 입니다. 예를 들어 랩을 만든 후에는 다른 구독으로 이동할 수 없습니다.  
 * **네트워크 토폴로지**: DevTest Labs에서 자동으로 만드는 [기본 네트워크 인프라](../app-service/networking-features.md) 는 엔터프라이즈 사용자에 대 한 요구 사항 및 제약 조건을 충족 하기에 충분 하지 않을 수 있습니다. 일반적으로 [Azure express 경로 연결 가상 네트워크](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/), 구독 간 연결에 대 한 [허브 및 스포크](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 및 온-프레미스 연결에 대해서만 [강제 라우팅을](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) 확인 하는 것이 일반적입니다. DevTest Labs는 랩에서 새 가상 컴퓨터를 만들 때 기존 가상 네트워크를 랩에 연결 하 여 사용할 수 있도록 합니다. 
-* **가상 컴퓨터의 원격 액세스**: DevTest Labs에 있는 가상 컴퓨터에 원격으로 액세스 하는 다양 한 옵션이 있습니다. 가장 쉬운 방법은 공용 Ip 또는 공유 공용 Ip를 사용 하는 것입니다. 이러한 [설정은 랩에서 사용할 수](devtest-lab-shared-ip.md)있습니다. 이러한 옵션이 충분 하지 않은 경우에는 원격 액세스 게이트웨이를 사용 하는 것도 옵션입니다. 이 옵션은 [DevTest labs enterprise 참조 아키텍처](devtest-lab-reference-architecture.md) 에 표시 되며 [DevTest labs 원격 데스크톱 게이트웨이 설명서](configure-lab-remote-desktop-gateway.md)에 추가로 설명 되어 있습니다. 또한 기업에서는 Express 경로 또는 사이트 간 VPN을 사용 하 여 랩을 온-프레미스 네트워크에 연결할 수 있습니다. 이 옵션은 인터넷에 노출 되지 않은 개인 IP 주소를 기반으로 가상 컴퓨터에 대 한 직접 원격 데스크톱 또는 SSH 연결을 사용 하도록 설정 합니다. 
+* **가상 컴퓨터 원격 액세스**: DevTest Labs에 있는 가상 컴퓨터에 원격으로 액세스 하는 다양 한 옵션이 있습니다. 가장 쉬운 방법은 공용 Ip 또는 공유 공용 Ip를 사용 하는 것입니다. 이러한 [설정은 랩에서 사용할 수](devtest-lab-shared-ip.md)있습니다. 이러한 옵션이 충분 하지 않은 경우에는 원격 액세스 게이트웨이를 사용 하는 것도 옵션입니다. 이 옵션은 [DevTest labs enterprise 참조 아키텍처](devtest-lab-reference-architecture.md) 에 표시 되며 [DevTest labs 원격 데스크톱 게이트웨이 설명서](configure-lab-remote-desktop-gateway.md)에 추가로 설명 되어 있습니다. 또한 기업에서는 Express 경로 또는 사이트 간 VPN을 사용 하 여 랩을 온-프레미스 네트워크에 연결할 수 있습니다. 이 옵션은 인터넷에 노출 되지 않은 개인 IP 주소를 기반으로 가상 컴퓨터에 대 한 직접 원격 데스크톱 또는 SSH 연결을 사용 하도록 설정 합니다. 
 * **권한 처리**: DevTest Labs에서 일반적으로 사용 되는 두 가지 주요 권한은 [소유자 및 랩 사용자](devtest-lab-add-devtest-user.md)입니다. 랩에서 각 액세스 수준으로 위임 하는 DevTest Labs를 배포 하기 전에 결정 하는 것이 중요 합니다. 일반적인 모델은 예산 소유자 (예: 팀 리더)를 랩 소유자로, 팀 멤버를 랩 사용자로 하는 것입니다. 이 모델은 예산을 담당 하는 사람 (팀 리더)이 정책 설정을 조정 하 고 팀을 예산 내에 유지할 수 있도록 합니다.  
 
 ## <a name="completing-the-proof-of-concept"></a>개념 증명 완료 

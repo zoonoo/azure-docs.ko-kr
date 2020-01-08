@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 8b089a1b32ee70479072522372c060713108957c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b63032baa60d18f3d9d98fc403bdc1087c6c9b6b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350103"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660684"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -41,13 +41,13 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>사용자 구독 모드에서 코어 할당량
 
-풀 할당 모드가 **사용자 구독**으로 설정된 Batch 계정을 만든 경우 할당량이 다르게 적용됩니다. 이 모드에서 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. Azure Batch 코어 할당량은 이 모드에서 생성된 계정에는 적용되지 않습니다. 대신, 지역별 컴퓨팅 코어 및 기타 리소스에 대한 구독의 할당량이 적용됩니다. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 이러한 할당량에 대해 자세히 알아보세요.
+풀 할당 모드가 **사용자 구독**으로 설정된 Batch 계정을 만든 경우 할당량이 다르게 적용됩니다. 이 모드에서 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. Azure Batch 코어 할당량은 이 모드에서 생성된 계정에는 적용되지 않습니다. 대신, 지역별 컴퓨팅 코어 및 기타 리소스에 대한 구독의 할당량이 적용됩니다. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)에서 이러한 할당량에 대해 자세히 알아보세요.
 
 ## <a name="pool-size-limits"></a>풀 크기 제한
 
 풀 크기 제한은 Batch 서비스에 의해 설정 됩니다. [리소스 할당량과](#resource-quotas)달리 이러한 값은 변경할 수 없습니다. 노드 간 통신 및 사용자 지정 이미지를 포함 하는 풀에만 표준 할당량과 다른 제한이 있습니다.
 
-| **Resource** | **최대 제한** |
+| **리소스** | **최대 제한** |
 | --- | --- |
 | **[노드 간 통신 사용 풀](batch-mpi.md)의 컴퓨팅 노드**  ||
 | Batch 서비스 풀 할당 모드 | 100 |
@@ -62,7 +62,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 일괄 처리 서비스에 의해 설정 된 추가 제한입니다. [리소스 할당량과](#resource-quotas)달리 이러한 값은 변경할 수 없습니다.
 
-| **Resource** | **최대 제한** |
+| **리소스** | **최대 제한** |
 | --- | --- |
 | 컴퓨팅 노드당 [동시 작업](batch-parallel-node-tasks.md) | 4 x 노드 코어 수 |
 | [애플리케이션](batch-application-packages.md) | 20 |
@@ -97,7 +97,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
    
     b. 구독을 선택합니다.
    
-    c. **할당량 유형** > **배치**
+    다. **할당량 유형** > **배치**
       
     **다음**을 선택합니다.
     
@@ -139,13 +139,13 @@ Azure 가상 네트워크에 배포된 Virtual Machine 구성의 Batch 풀은 �
 * 하나의 [공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * 하나의 [부하 분산 장치](../load-balancer/load-balancer-overview.md)
 
-이러한 리소스는 Batch 풀을 만들 때 제공되는 가상 네트워크가 포함된 구독에 할당됩니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-subscription-service-limits.md)으로 제한됩니다. 가상 네트워크에서 대형 풀 배포를 계획하는 경우 이러한 리소스에 대한 구독의 할당량을 확인합니다. 필요한 경우 **도움말 + 지원**을 선택하여 Azure Portal의 증가를 요청합니다.
+이러한 리소스는 Batch 풀을 만들 때 제공되는 가상 네트워크가 포함된 구독에 할당됩니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 가상 네트워크에서 대형 풀 배포를 계획하는 경우 이러한 리소스에 대한 구독의 할당량을 확인합니다. 필요한 경우 **도움말 + 지원**을 선택하여 Azure Portal의 증가를 요청합니다.
 
 
 ## <a name="related-topics"></a>관련 항목
 * [Azure Portal을 사용하여 Azure Batch 계정 만들기](batch-account-create-portal.md)
 * [Azure Batch 기능 개요](batch-api-basics.md)
-* [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)
+* [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

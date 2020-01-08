@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033780"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551984"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. Express 경로는 연결 공급자가 일반적으로 지 원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장 합니다. Express 경로 연결은 일반적으로 다음과 같은 세 가지 고유한 네트워크 영역을 포함 합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "74033780"
 -   Microsoft 데이터 센터
 
 > [!NOTE]
-> Express 경로 연결 모델 (10/100 g b p s의 대역폭에서 제공 됨)에서 cusomters는 MSEE (Microsoft Enterprise Edge) 라우터의 포트에 직접 연결할 수 있습니다. 따라서 직접 연결 모델에는 고객 및 Microsoft 네트워크 영역만 있습니다.
+> Express 경로에서 10/100 제공 하는 Express 경로 직접 연결 모델에서 고객은 MSEE (Microsoft Enterprise Edge) 라우터의 포트에 직접 연결할 수 있습니다. 따라서 직접 연결 모델에는 고객 및 Microsoft 네트워크 영역만 있습니다.
 >
 
 

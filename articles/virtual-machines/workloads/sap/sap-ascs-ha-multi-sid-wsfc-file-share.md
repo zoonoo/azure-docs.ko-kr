@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00c38c5c8140bffe0767ebe69470285bb15f5fc6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5638d71748c485c593dde8d9876400a40821ca28
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098710"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643154"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,9 +39,9 @@ ms.locfileid: "70098710"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 [sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -189,7 +189,7 @@ ms.locfileid: "70098710"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -215,9 +215,9 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 > 이 설명서에 도입한 구성은 아직 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 사용하도록 지원되지 않습니다.
 > 
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 사용도 고려하세요.
+부하 분산 장치 제한에 대 한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP" 섹션을 참조 하세요. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 사용도 고려하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 다이어그램처럼 **파일 공유**를 사용하는 한 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
 
@@ -240,7 +240,7 @@ _**그림 1:** 두 클러스터에 배포된 SAP ASCS/SCS 인스턴스 및 SOFS_
 
 _**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
 
-추가  **\<SAP SID2 >** 시스템의 설치는 하나의 \<SID > 시스템 설치와 동일 합니다. ASCS/SCS 클러스터 및 파일 공유 SOFS 클러스터에서 두 개의 추가 준비 단계가 필요합니다.
+추가 **SAP \<SID2 >** 시스템의 설치는 \<SID > 시스템 하나를 설치 하는 것과 동일 합니다. ASCS/SCS 클러스터 및 파일 공유 SOFS 클러스터에서 두 개의 추가 준비 단계가 필요합니다.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>SAP 다중 SID 시나리오에 대한 인프라 준비
 
@@ -260,7 +260,7 @@ _**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>기존 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
 
-첫 번째 SAP \<SID1 > \<시스템의 기존 SAPGlobalHost > 및 Volume1를 다시 사용할 수 있습니다.
+첫 번째 SAP \<SID1 > 시스템의 기존 \<SAPGlobalHost > 및 Volume1를 다시 사용할 수 있습니다.
 
 ![그림 3: 다중 SID SOFS가 SAP 글로벌 호스트 이름과 같음][sap-ha-guide-figure-8014]
 
@@ -270,7 +270,7 @@ _**그림 3:** 다중 SID SOFS가 SAP 글로벌 호스트 이름과 같음_
 >두 번째 **SAP \<SID2>** 시스템의 경우 동일한 Volume1 및 동일한 **\<SAPGlobalHost>** 네트워크 이름이 사용됩니다.
 >**SAPMNT**를 다양한 SAP 시스템의 공유 이름으로 이미 설정했으므로 **\<SAPGlobalHost>** 네트워크 이름을 다시 사용하려면 동일한 **Volume1**을 사용해야 합니다.
 >
->\<SID2 > 전역 호스트의 파일 경로는 c:\clusterstorage\\**Volume1**\usr\sap\<SID2 > \sys입니다.\.
+>\<SID2 > 전역 호스트의 파일 경로는 C:\ClusterStorage\\**Volume1**\USR\SAP\<SID2 > \sys\.
 >
 
 \<SID2> 시스템의 경우 SOFS 클러스터에서 SAP 글로벌 호스트 ..\SYS\.. 폴더를 준비해야 합니다.
@@ -403,19 +403,19 @@ _**그림 6:** "파일 공유 추가" 마법사 시작_
 
 <br>
 
-![그림 7: "SMB 공유 – 빠른" 선택][sap-ha-guide-figure-8018]
+![그림 7: "SMB 공유 – 빠른 선택"][sap-ha-guide-figure-8018]
 
 _**그림 7:** "SMB 공유 – 빠르게" 선택_
 
 <br>
 
-![그림 8: "Sapglobalhost2"를 선택 하 고 Volume2에 경로를 지정 합니다.][sap-ha-guide-figure-8019]
+![그림 8: "sapglobalhost2"를 선택 하 고 Volume2에 경로 지정][sap-ha-guide-figure-8019]
 
 _**그림 8:** "sapglobalhost2"를 선택하고 Volume2에 경로 지정_
 
 <br>
 
-![그림 9: 파일 공유 이름을 "sapmnt"로 설정 합니다.][sap-ha-guide-figure-8020]
+![그림 9: 파일 공유 이름을 "sapmnt"로 설정][sap-ha-guide-figure-8020]
 
 _**그림 9:** 파일 공유 이름을 "sapmnt"로 설정_
 
@@ -431,19 +431,19 @@ _**그림 10:** 모든 설정 사용 안 함_
 * **SAP_\<SID>_GlobalAdmin** 도메인 사용자 그룹
 * ASCS/SCS 클러스터 노드 **ascs-1$** 및 **ascs-2$** 의 컴퓨터 개체
 
-![그림 11: 사용자 그룹 및 컴퓨터 계정에 모든 권한 할당][sap-ha-guide-figure-8022]
+![그림 11: 사용자 그룹 및 컴퓨터 계정에 대한 모든 권한 할당][sap-ha-guide-figure-8022]
 
-_**그림 11:** 사용자 그룹 및 컴퓨터 계정에 "모든 권한" 할당_
+_**그림 11:** 사용자 그룹 및 컴퓨터 계정에 대한 "모든 권한" 할당_
 
 <br>
 
-![그림 12: “만들기” 선택][sap-ha-guide-figure-8023]
+![그림 12: "만들기" 선택][sap-ha-guide-figure-8023]
 
 _**그림 12:** "만들기" 선택_
 
 <br>
 
-![그림 13: 가 sapglobal2 host 및 Volume2에 바인딩된 두 번째 sapmnt 생성 됩니다.][sap-ha-guide-figure-8024]
+![그림 13: 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Volume2 생성][sap-ha-guide-figure-8024]
 
 _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Volume2 생성_
 
@@ -460,7 +460,7 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 
 ## <a name="next-steps"></a>다음 단계
 
-* [공유 디스크가 없는 장애 조치 (failover) 클러스터에 ASCS/SCS 인스턴스를 설치 합니다][sap-official-ha-file-share-document]. HA 파일 공유에 대한 공식 SAP 지침
+* [공유 디스크 없이 장애 조치 (failover) 클러스터에 ASCS/SCS 인스턴스 설치][sap-official-ha-file-share-document]: HA 파일 공유에 대 한 공식 SAP 지침
 
 * [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
 

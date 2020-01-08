@@ -1,6 +1,7 @@
 ---
-title: Azure SQL Database로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항에 대한 문서 | Microsoft Docs
-description: Azure SQL Database로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항에 대해 알아봅니다.
+title: '알려진 문제: SQL Database에 대 한 온라인 마이그레이션'
+titleSuffix: Azure Database Migration Service
+description: Azure Database Migration Service를 사용 하 여 Azure SQL Database에 대 한 온라인 마이그레이션과의 알려진 문제/마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,22 +9,22 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 07/27/2019
-ms.openlocfilehash: 7cd8b7c2accae097c971aec4b92cf38ed5d3af08
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf747b6deb4b3c25df74364143ac48c59eb48ae1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437838"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Azure SQL Database에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항
 
 SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련된 알려진 문제 및 제한 사항은 아래에 설명되어 있습니다.
 
 > [!IMPORTANT]
-> Azure SQL Database에 대 한 SQL Server의 온라인 마이그레이션을 통해 SQL_variant 데이터 형식의 마이그레이션은 지원 되지 않습니다.
+> Azure SQL Database에 대 한 SQL Server의 온라인 마이그레이션을 통해 SQL_variant 데이터 형식 마이그레이션은 지원 되지 않습니다.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>임시 테이블의 마이그레이션은 지원되지 않음
 

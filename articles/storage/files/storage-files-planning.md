@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fdfa01a45c0dd35da65b2ad7ce8b0d291148af1a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: a315b012cf103840eae6b141fe5177dfa709896d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463917"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -212,14 +212,19 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 |인도 중부  |LRS     |
 |미국 중부 *   |LRS     |
 |동아시아      |LRS     |
-|미국 동부 *        |LRS     |
+|미국 동부 *        |LRS, ZRS|
 |미국 동부 2 *      |LRS     |
 |프랑스 중부 |LRS, ZRS|
 |프랑스 남부   |LRS     |
-|미국 중북부 |LRS     |
+|일본 동부     |LRS     |
+|미국 중북부 |LRS   |
 |북유럽   |LRS     |
 |인도 남부    |LRS     |
+|미국 중남부 |LRS     |
 |동남아시아 |LRS, ZRS|
+|아랍에미리트 중부    |LRS     |
+|영국 남부   |LRS     |
+|영국 서부    |LRS     |
 |미국 중서부|LRS     |
 |유럽 서부 *    |LRS, ZRS|
 |미국 서 부 *        |LRS     |

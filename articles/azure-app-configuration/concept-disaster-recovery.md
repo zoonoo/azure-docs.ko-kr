@@ -1,23 +1,17 @@
 ---
-title: Azure App Configuration 복원력 및 재해 복구 | Microsoft Docs
-description: Azure App Configuration을 통해 복원력 및 재해 복구를 구현하는 방법에 대한 개요입니다.
-services: azure-app-configuration
-documentationcenter: ''
+title: Azure 앱 구성 복원 력 및 재해 복구
+description: Azure 앱 구성을 사용 하 여 복원 력 및 재해 복구를 구현 하는 방법에 대해 설명 합니다.
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 05/29/2019
+ms.openlocfilehash: f2f914ec993670b8ba7a596f873234afd9ffc8e8
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185271"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665064"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
 
@@ -29,7 +23,7 @@ ms.locfileid: "74185271"
 
 ![지역 중복 저장소](./media/geo-redundant-app-configuration-stores.png)
 
-애플리케이션은 기본 저장소와 보조 저장소 모두에서 해당 구성을 병렬로 로드합니다. 이렇게 하면 구성 데이터를 성공적으로 가져올 가능성이 높아집니다. 두 저장소 모두의 데이터를 동기화해야 합니다. 다음 섹션에서는 지역 복원력을 애플리케이션에 구축하는 방법에 대해 설명합니다.
+애플리케이션은 기본 저장소와 보조 저장소 모두에서 해당 구성을 병렬로 로드합니다. 이렇게 하면 구성 데이터를 성공적으로 가져올 가능성이 높아집니다. 두 저장소의 데이터를 동기화 된 상태로 유지 하는 일을 담당 합니다. 다음 섹션에서는 응용 프로그램에 지역 복원 력을 구축 하는 방법을 설명 합니다.
 
 ## <a name="failover-between-configuration-stores"></a>구성 저장소 간 장애 조치
 

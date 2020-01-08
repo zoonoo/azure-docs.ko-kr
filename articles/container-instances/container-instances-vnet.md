@@ -2,13 +2,14 @@
 title: Azure virtual network에 컨테이너 그룹 배포
 description: 신규 또는 기존 Azure Virtual Network에 컨테이너 그룹을 배포하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 07/11/2019
-ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533279"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442237"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -45,8 +46,8 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 ### <a name="unsupported-networking-scenarios"></a>지원 되지 않는 네트워킹 시나리오 
 
 * **Azure Load Balancer** -네트워크 컨테이너 그룹의 컨테이너 인스턴스 앞에 Azure Load Balancer를 배치 하는 것은 지원 되지 않습니다.
-* **가상 네트워크 피어 링** -다른 가상 네트워크에 Azure Container Instances 하도록 위임 된 서브넷이 포함 된 가상 네트워크를 피어 링 할 수 없습니다.
-* **경로 테이블** -사용자 정의 경로는 Azure Container Instances로 위임 된 서브넷에서 설정할 수 없습니다.
+* **가상 네트워크 피어 링** -aci vnet이 피어 링 중인 네트워크에서 공용 IP 공간을 사용 하는 경우에는 VNet에 대해 VNet 피어 링이 작동 하지 않습니다. 피어 링이 작동 하려면 피어 링 네트워크에 RFC1918 개인 IP 공간이 필요 합니다. 또한 현재 VNet을 다른 VNet에만 피어 링 할 수 있습니다.
+* **가상 네트워크 트래픽 라우팅** -공용 ip와 관련 하 여 고객 경로를 설정할 수 없습니다. ACI 리소스가 배포 된 위임 된 서브넷의 개인 IP 공간 내에서 경로를 설정할 수 있습니다. 
 * **네트워크 보안 그룹** -Azure Container Instances에 위임 된 서브넷에 적용 된 nsgs의 아웃 바운드 보안 규칙이 현재 적용 되지 않습니다. 
 * **공용 ip 또는 DNS 레이블** -가상 네트워크에 배포 된 컨테이너 그룹은 현재 공용 ip 주소 또는 정규화 된 도메인 이름으로 컨테이너를 인터넷에 직접 노출 하는 것을 지원 하지 않습니다.
 * **내부 이름 확인** -내부 Azure DNS을 통해 가상 네트워크의 Azure 리소스에 대 한 이름 확인은 지원 되지 않습니다.

@@ -1,19 +1,19 @@
 ---
 title: Visual Studio 및 C#을 사용하는 Apache Storm 토폴로지 - Azure HDInsight
 description: C#으로 Storm 토폴로지를 만드는 방법을 알아봅니다. Visual studio 용 Hadoop 도구를 사용 하 여 Visual Studio에서 단어 개수 토폴로지를 만듭니다.
-ms.service: hdinsight
+ROBOTS: NOINDEX
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: f59328c5894a53b6337ecc04e3daebb2ef180c59
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 12/31/2019
+ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927890"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612294"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 
@@ -21,20 +21,17 @@ Visual Studio용 Azure Data Lake(Apache Hadoop) 도구를 사용하여 C# Apache
 
 또한 C# 및 Java 구성 요소를 사용하는 하이브리드 토폴로지를 만드는 방법에 대해서도 배웁니다.
 
-> [!NOTE]  
-> 이 문서의 단계는 Visual Studio가 설치된 Windows 개발 환경을 사용하지만 컴파일된 프로젝트는 Linux 또는 Windows 기반 HDInsight 클러스터로 전송될 수 있습니다. 2016 년 10 월 28 일 이후에 만들어진 Linux 기반 클러스터만 SCP.NET 토폴로지를 지원 합니다.
-
-Linux 기반 클러스터 C# 에서 토폴로지를 사용 하려면 프로젝트에서 사용 하는 `Microsoft.SCP.Net.SDK` NuGet 패키지를 버전 0.10.0.6 이상 이상으로 업데이트 해야 합니다. 패키지 버전은 HDInsight에 설치된 Storm의 주 버전과도 일치해야 합니다.
+C#토폴로지에서는 .NET 4.5을 사용 하 고 Mono를 사용 하 여 HDInsight 클러스터에서 실행 합니다. 잠재적 호환성 문제에 대 한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조 하세요. C# 토폴로지를 사용 하려면 프로젝트에서 사용 하는 `Microsoft.SCP.Net.SDK` NuGet 패키지를 0.10.0.6 이상 이상 버전으로 업데이트 해야 합니다. 패키지 버전은 HDInsight에 설치된 Storm의 주 버전과도 일치해야 합니다.
 
 | HDInsight 버전 | Apache Storm 버전 | SCP.NET 버전 | 기본 모노 버전 |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(Windows 기반 HDInsight만 해당) | 해당 없음 |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-> [!IMPORTANT]  
-> Linux 기반 클러스터의 C# 토폴로지는 .NET 4.5를 사용해야 하며 Mono를 사용하여 HDInsight 클러스터에서 실행해야 합니다. 잠재적 호환성 문제에 대 한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조 하세요.
+## <a name="prerequisite"></a>필수 조건
+
+HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
 
 ## <a name="install-visual-studio"></a>Visual Studio 설치
 
@@ -52,7 +49,7 @@ Visual Studio에서 Storm 토폴로지를 제출하면 SCP.NET은 토폴로지 �
 
 2. `JAVA_HOME` 환경 변수를 Java가 포함 된 디렉터리로 설정 합니다.
 
-3. *% JAVA_HOME% \ bin* 디렉터리를 포함 하도록 `PATH` 환경 변수를 설정 하십시오.
+3. `%JAVA_HOME%\bin` 디렉터리를 포함 하도록 `PATH` 환경 변수를 설정 합니다.
 
 다음 C# 콘솔 응용 프로그램을 빌드하고 실행 하 여 JAVA와 JDK가 올바르게 설치 되었는지 확인할 수 있습니다.
 
@@ -145,8 +142,6 @@ Visual Studio에서 C# 토폴로지 프로젝트를 만들려면 다음을 수�
 
 프로젝트를 만들면 NuGet은 최신 [SCP.NET 패키지](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)를 다운로드합니다.
 
-[!INCLUDE [scp.net version important](../../../includes/hdinsight-storm-scpdotnet-version.md)]
-
 ### <a name="implement-the-spout"></a>spout 만들기
 
 다음으로 외부 원본에서 토폴로지의 데이터를 읽는 데 사용 되는 spout에 대 한 코드를 추가 합니다. 이 Spout는 문장을 토폴로지에 임의로 내보냅니다.
@@ -236,7 +231,7 @@ Visual Studio에서 C# 토폴로지 프로젝트를 만들려면 다음을 수�
 
 3. *Splitter.cs*를 엽니다. 기본적으로 `Execute`는 메서드가 하나 뿐입니다. `Execute` 메서드는 볼트가 처리할 튜플을 받을 때 호출 됩니다. 여기에서 들어오는 튜플을 읽고 처리하며 나가는 튜플을 내보낼 수 있습니다.
 
-4. `Splitter` 클래스의 내용을 다음 코드로 바꿉니다.
+4. `Splitter` 클래스의 콘텐츠를 다음 코드로 바꿉니다.
 
     ```csharp
     private Context ctx;
@@ -410,12 +405,13 @@ return topologyBuilder;
 
 이제 HDInsight 클러스터에 토폴로지를 제출할 준비가 되었습니다.
 
+1. **보기** > **서버 탐색기**로 이동 합니다.
+
+1. **Azure**를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결**...을 선택 하 여 로그인 프로세스를 완료 합니다.
+
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight의 스톰에 제출을**선택 합니다.
 
-    > [!NOTE]  
-    > 메시지가 표시되면 Azure 구독에 대한 자격 증명을 입력합니다. 하나 이상의 구독이 있는 경우 HDInsight 클러스터의 Storm을 포함하는 자격 증명으로 로그인합니다.
-
-2. **토폴로지 제출** 대화 상자의 **스톰 클러스터** 드롭다운 목록에서 HDInsight 클러스터의 스톰을 선택 하 고 **제출**을 선택 합니다. **출력** 창을 확인 하 여 전송의 성공 여부를 확인할 수 있습니다.
+1. **토폴로지 제출** 대화 상자의 **스톰 클러스터** 드롭다운 목록에서 HDInsight 클러스터의 스톰을 선택 하 고 **제출**을 선택 합니다. **출력** 창을 확인 하 여 전송의 성공 여부를 확인할 수 있습니다.
 
     토폴로지가 성공적으로 제출 되 면 클러스터에 대 한 **스톰 토폴로지 보기** 창이 표시 됩니다. 실행 중인 토폴로지에 대 한 정보를 보려면 목록에서 **WordCount** 토폴로지를 선택 합니다.
 
@@ -426,7 +422,7 @@ return topologyBuilder;
 
     토폴로지의 구성 요소에 대 한 정보를 보려면 다이어그램에서 구성 요소를 선택 합니다.
 
-3. **토폴로지 요약** 섹션에서 **Kill** 을 선택 하 여 토폴로지를 중지 합니다.
+1. **토폴로지 요약** 섹션에서 **Kill** 을 선택 하 여 토폴로지를 중지 합니다.
 
     > [!NOTE]  
     > Storm 토폴로지는 비활성화되거나 클러스터가 삭제될 때까지 계속 실행됩니다.
@@ -492,7 +488,7 @@ SCP.Net 버전 0.9.4.203은 Event Hub Spout(Event Hubs로부터 읽는 Java Spou
 > [!NOTE]  
 > Spout에서 생성 된 데이터를 serialize 하는 데에도 `CustomizedInteropJSONSerializer`를 사용 해야 합니다.
 
-## <a id="configurationmanager"></a>ConfigurationManager 사용
+## <a name="use-configurationmanager"></a>ConfigurationManager 사용
 
 Bolt 및 Spout 구성 요소에서 구성 값을 검색하는 데 **ConfigurationManager**를 사용하지 마세요. 이렇게 하면 null 포인터 예외가 발생할 수 있습니다. 대신, 프로젝트에 대 한 구성을 스톰 토폴로지에는 토폴로지 컨텍스트의 키 및 값 쌍으로 전달 합니다. 구성 값을 사용하는 각 구성 요소는 초기화 중에 컨텍스트에서 값을 검색해야 합니다.
 
@@ -552,7 +548,7 @@ Linux 기반 HDInsight 클러스터에서 C# 토폴로지를 사용 하는 경�
 
 프로젝트에 대한 구성이 토폴로지 컨텍스트의 키 및 값 쌍으로 Storm 토폴로지에 전달됩니다. 초기화 될 때 구성 요소에 전달 되는 사전 개체에서 검색할 수 있습니다.
 
-자세한 내용은이 문서의 [Use ConfigurationManager](#configurationmanager) 섹션을 참조 하세요.
+자세한 내용은이 문서의 [Use ConfigurationManager](#use-configurationmanager) 섹션을 참조 하세요.
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
@@ -725,7 +721,7 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 
 HDInsight에 토폴로지를 제출 하는 동안 오류가 발생 하는 경우 HDInsight 클러스터에서 토폴로지 제출을 처리 하는 서버 쪽 구성 요소에 대 한 로그를 찾을 수 있습니다. 이러한 로그를 다운로드 하려면 명령줄에서 다음 명령을 사용 합니다.
 
-```shell
+```cmd
 scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 ```
 

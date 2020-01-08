@@ -3,12 +3,12 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230336"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612890"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -78,7 +78,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 }
 ```
 
- 이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 **다운로드 센터 페이지**의 [세부 정보](https://www.microsoft.com/en-us/download/details.aspx?id=56519) 섹션을 펼쳐보세요.
+ 이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 [다운로드 센터 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=56519)의 **세부 정보** 섹션을 펼쳐보세요.
 
 ## <a name="inbound-ip-address-changes"></a>인바운드 IP 주소 변경
 
@@ -86,9 +86,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 - 함수 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다.
 - 리소스 그룹 및 지역 조합에서 마지막 함수 앱을 삭제하고 다시 만듭니다.
-- [인증서 갱신](../app-service/configure-ssl-certificate.md#renew-certificate) 중인 경우와 같이 SSL 바인딩을 삭제합니다.
+- [인증서 갱신](../app-service/configure-ssl-certificate.md#renew-certificate)중과 같은 SSL 바인딩을 삭제 합니다.
 
-함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행되는 경우 인바운드 IP 주소는 위에서 나열한 것과 같은 작업을 수행하지 않은 경우에도 변경될 수 있습니다.
+함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 인바운드 IP 주소가 변경 될 수도 있습니다.
 
 ## <a name="outbound-ip-address-changes"></a>아웃바운드 IP 주소 변경
 
@@ -97,7 +97,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 * 인바운드 IP 주소를 변경할 수 있는 작업을 수행합니다.
 * App Service 계획의 가격 책정 계층을 변경합니다. 모든 가격 책정 계층에 대해 앱에서 사용할 수 있는 모든 가능한 아웃바운드 IP 주소 목록은 `possibleOutboundIPAddresses` 속성에 있습니다. [아웃바운드 IP 찾기](#find-outbound-ip-addresses)를 참조하세요.
 
-함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행되는 경우 아웃바운드 IP 주소는 위에서 나열한 것과 같은 작업을 수행하지 않은 경우에도 변경될 수 있습니다.
+함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 아웃 바운드 IP 주소가 변경 될 수도 있습니다.
 
 의도적으로 아웃바운드 IP 주소를 강제로 변경하려면 다음을 수행합니다.
 

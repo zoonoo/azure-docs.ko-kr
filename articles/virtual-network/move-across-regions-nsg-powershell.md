@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 1be4882af781f884313fbc7b8e2f04f843b60068
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0cbd8f61cb1b4cb8eae6b30625fb3039ff75adde
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71038954"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641471"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure NSG (네트워크 보안 그룹)를 다른 지역으로 이동
 
@@ -20,7 +20,7 @@ ms.locfileid: "71038954"
 Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 NSG의 기존 구성 및 보안 규칙을 내보낼 수 있습니다.  그런 다음 NSG를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  리소스 관리자 및 템플릿에 대 한 자세한 내용은 [템플릿으로 리소스 그룹 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 네트워크 보안 그룹이 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -32,7 +32,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 
 - Azure 구독을 사용 하 여 사용 되는 대상 지역에서 NSGs를 만들 수 있는지 확인 합니다. 필요한 할당량을 사용하려면 지원 팀에 문의하세요.
 
-- 구독에이 프로세스에 대 한 NSGs 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조하세요.
+- 구독에이 프로세스에 대 한 NSGs 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)을 참조하세요.
 
 
 ## <a name="prepare-and-move"></a>준비 및 이동
@@ -61,7 +61,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
    ```
 
-4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **리소스 그룹-이름 >. json 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. \<**
+4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **\<리소스 그룹-이름 >** 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. 즉,
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -106,9 +106,9 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
     Get-AzLocation | format-table
     
     ```
-8. 또한 선택 하는 경우  **\<리소스 그룹 이름 >** 의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적입니다.
+8. **\<리소스 그룹 이름 >** 에서 다른 매개 변수를 변경할 수도 있습니다 .이 경우 요구 사항에 따라 선택적으로 선택 해야 합니다.
 
-    * **보안 규칙** -  **\<리소스 그룹 이름 >. json** 파일의 **securityrules** 섹션에 규칙을 추가 하거나 제거 하 여 대상 nsg에 배포 되는 규칙을 편집할 수 있습니다.
+    * **보안 규칙** - **\<리소스 그룹 이름 >** 파일의 **securityrules** 섹션에 규칙을 추가 하거나 제거 하 여 대상 nsg에 배포 되는 규칙을 편집할 수 있습니다.
 
         ```json
            "resources": [
@@ -144,7 +144,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
             
         ```
 
-        대상 nsg에서 규칙의 추가 또는 제거를 완료 하려면 아래 예제 형식의  **\<리소스 그룹 이름 >. json** 파일의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
+        대상 NSG에서 규칙의 추가 또는 제거를 완료 하려면 아래 예제 형식으로 **\<리소스 그룹 이름 >** 파일의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
 
         ```json
            {
@@ -179,7 +179,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집  **\<된 리소스 그룹 이름 > json** 파일을 배포 합니다.
+11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 **\<리소스 그룹 이름 > json** 파일을 배포 합니다.
 
     ```azurepowershell-interactive
 
@@ -201,7 +201,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 
     ```
 
-## <a name="discard"></a>삭제 
+## <a name="discard"></a>취소 
 
 배포 후 대상에서 NSG를 시작 하거나 삭제 하려는 경우 대상에 생성 된 리소스 그룹을 삭제 하면 이동 된 NSG가 삭제 됩니다.  리소스 그룹을 제거 하려면 [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)를 사용 합니다.
 

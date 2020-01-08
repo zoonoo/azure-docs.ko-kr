@@ -1,25 +1,25 @@
 ---
 title: Azure Marketplace에 관리형 서비스 솔루션 게시
 description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하는 관리형 서비스 제품을 게시하는 방법을 알아봅니다.
-ms.date: 11/15/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: be9d93c2b71bb3db7df86ddd44e0171bec522294
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d1eb06794551be498e05e2b9c3b893013b718ce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453528"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
-이 문서에서는 [Cloud 파트너 포털](https://azuremarketplace.microsoft.com)을 사용하여 [Azure Marketplace](https://cloudpartner.azure.com/)에 공용 또는 프라이빗 관리형 서비스 제품을 게시하여 제품을 구매하는 고객이 Azure 위임 리소스 관리를 위해 리소스를 온보딩할 수 있도록 하는 방법을 알아봅니다.
+이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)을 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com)에 공용 또는 프라이빗 관리형 서비스 제품을 게시하여 제품을 구매하는 고객이 Azure 위임 리소스 관리를 위해 리소스를 온보딩할 수 있도록 하는 방법을 알아봅니다.
 
 > [!NOTE]
-> 이러한 제품을 만들고 게시하려면 [파트너 센터에 유효한 계정](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)이 있어야 합니다. 계정이 아직 없는 경우 [등록 프로세스](https://aka.ms/joinmarketplace)를 통해 파트너 센터에서 계정을 만들고 상업적 Marketplace 프로그램에 등록하는 단계를 진행합니다. MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로 연결되어](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) 고객 계약에 미치는 영향을 추적합니다.
+> 이러한 제품을 만들고 게시하려면 [파트너 센터에 유효한 계정](../../marketplace/partner-center-portal/create-account.md)이 있어야 합니다. 계정이 아직 없는 경우 [등록 프로세스](https://aka.ms/joinmarketplace)를 통해 파트너 센터에서 계정을 만들고 상업적 Marketplace 프로그램에 등록하는 단계를 진행합니다. MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로 연결되어](../../billing/billing-partner-admin-link-started.md) 고객 계약에 미치는 영향을 추적합니다.
 >
 > Azure Marketplace에 제품을 게시하지 않으려는 경우 Azure Resource Manager 템플릿을 사용하여 수동으로 고객을 온보딩할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리에 고객 온보딩](onboard-customer.md)을 참조하세요.
 
-관리 서비스 제품 게시는 Azure Marketplace에 다른 유형의 제품을 게시하는 것과 비슷합니다. 해당 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 및 [Azure 및 AppSource Marketplace 제품 관리](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers)를 참조하세요. [상업 마켓플레이스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies), 특히 [관리 서비스](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
+관리 서비스 제품 게시는 Azure Marketplace에 다른 유형의 제품을 게시하는 것과 비슷합니다. 해당 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](../../marketplace/marketplace-publishers-guide.md) 및 [Azure 및 AppSource Marketplace 제품 관리](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md)를 참조하세요. [상업 마켓플레이스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies), 특히 [관리 서비스](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
 
 고객이 제품을 추가하면 하나 이상의 특정 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 리소스 관리에 온보딩](#the-customer-onboarding-process)됩니다. 구독(또는 구독 내의 리소스 그룹)을 온보딩하려면 먼저 **Microsoft.ManagedServices** 리소스 공급자를 수동으로 등록하여 온보딩에 대한 권한을 구독에 부여해야 합니다.
 
@@ -36,11 +36,11 @@ ms.locfileid: "74483173"
 
 **제품 설정** 섹션에서 다음을 제공합니다.
 
-|필드  |설명  |
+|필드  |Description  |
 |---------|---------|
-|**제품 ID**     | 게시자 프로필에 있는 제품의 고유 식별자입니다. 이 ID에는 소문자 영숫자, 대시 및 밑줄만 사용할 수 있으며 최대 50자로 제한됩니다. 제품 ID는 제품 URL 및 청구 보고서 등에 표시될 수 있습니다. 제품을 게시한 후에는 이 값을 변경할 수 없습니다.        |
+|**제안 ID**     | 게시자 프로필에 있는 제품의 고유 식별자입니다. 이 ID에는 소문자 영숫자, 대시 및 밑줄만 사용할 수 있으며 최대 50자로 제한됩니다. 제품 ID는 제품 URL 및 청구 보고서 등에 표시될 수 있습니다. 제품을 게시한 후에는 이 값을 변경할 수 없습니다.        |
 |**게시자 ID**     | 제품에 연결될 게시자 ID입니다. 게시자 ID가 둘 이상인 경우 이 제품에 사용할 ID를 선택할 수 있습니다.       |
-|**Name**     | 고객이 Azure Marketplace 및 Azure Portal에서 제품에 대해 보게 되는 이름(최대 50자)입니다. 고객이 이해할 수 있는 인식 가능한 브랜드 이름 사용합니다. 고유한 웹 사이트를 통해 이 제품을 홍보하는 경우 여기에 정확히 동일한 이름을 사용해야 합니다.        |
+|**이름**     | 고객이 Azure Marketplace 및 Azure Portal에서 제품에 대해 보게 되는 이름(최대 50자)입니다. 고객이 이해할 수 있는 인식 가능한 브랜드 이름 사용합니다. 고유한 웹 사이트를 통해 이 제품을 홍보하는 경우 여기에 정확히 동일한 이름을 사용해야 합니다.        |
 
 완료되면 **저장**을 선택합니다. 이제 **플랜** 섹션으로 이동할 준비가 되었습니다.
 
@@ -54,13 +54,16 @@ ms.locfileid: "74483173"
 
 **플랜 세부 정보** 섹션에서 다음 섹션을 완료합니다.
 
-|필드  |설명  |
+|필드  |Description  |
 |---------|---------|
 |**제목**     | 표시할 플랜의 이름입니다. 최대 길이는 50자입니다.        |
 |**요약**     | 제목 아래에 표시할 플랜에 대한 간결한 설명입니다. 최대 길이는 100자입니다.        |
 |**설명**     | 플랜에 대한 자세한 설명을 제공하는 설명 텍스트입니다.         |
 |**청구 모델**     | 여기에는 2개의 청구 모델이 있지만 관리형 서비스 제품에 대한 **사용자 라이선스 필요**를 선택해야 합니다. 즉, 고객에게 이 제품과 관련된 비용을 직접 청구할 것이며 Microsoft는 사용자에게 요금을 부과하지 않음을 의미합니다.   |
-|**프라이빗 플랜인가요?**     | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다. 이 선택을 그대로 두면 플랜이 특정 고객 또는 특정 수의 고객으로 제한되지 않습니다. 일단 퍼블릭 플랜을 게시하면 나중에 프라이빗으로 변경할 수 없습니다. 이 플랜을 특정 고객만 사용할 수 있도록 설정하려면 **예**를 선택합니다. 이렇게 하면 구독 ID를 제공하여 고객을 식별해야 합니다. 구독 ID를 하나씩(구독이 최대 10개인 경우) 입력하거나 .csv 파일을 업로드하여(구독이 최대 2만개인 경우)을 업로드하여 입력할 수 있습니다. 제품을 테스트하고 유효성을 검사할 수 있도록 여기에 고유한 구독을 포함해야 합니다. 자세한 내용은 [프라이빗 SKU 및 플랜](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus)을 참조하세요.  |
+|**프라이빗 플랜인가요?**     | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다. 이 선택을 그대로 두면 플랜이 특정 고객 또는 특정 수의 고객으로 제한되지 않습니다. 일단 퍼블릭 플랜을 게시하면 나중에 프라이빗으로 변경할 수 없습니다. 이 플랜을 특정 고객만 사용할 수 있도록 설정하려면 **예**를 선택합니다. 이렇게 하면 구독 ID를 제공하여 고객을 식별해야 합니다. 구독 ID를 하나씩(구독이 최대 10개인 경우) 입력하거나 .csv 파일을 업로드하여(구독이 최대 2만개인 경우)을 업로드하여 입력할 수 있습니다. 제품을 테스트하고 유효성을 검사할 수 있도록 여기에 고유한 구독을 포함해야 합니다. 자세한 내용은 [프라이빗 SKU 및 플랜](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)을 참조하세요.  |
+
+> [!IMPORTANT]
+> 계획이 공개로 게시 되 면 비공개로 변경할 수 없습니다. 제품을 수락 하 고 리소스를 위임할 수 있는 고객을 제어 하려면 비공개 요금제를 사용 합니다. 공개 계획을 사용 하면 특정 고객 또는 특정 수의 고객에 대 한 가용성을 제한할 수 없습니다 (이렇게 선택 하는 경우 계획을 완전히 판매 하지 않을 수 있음). 고객이 제품을 수락한 후에는 현재 고객에 게 연락 하 여 [액세스 권한을 제거](view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수 있는 경우에도 위임을 거부 하거나 제거할 수 있는 메커니즘이 없습니다.
 
 ### <a name="manifest-details"></a>매니페스트 세부 정보
 
@@ -79,8 +82,8 @@ ms.locfileid: "74483173"
 
 - **AZURE Ad 개체 ID**: 사용자, 사용자 그룹 또는 응용 프로그램의 azure ad 식별자 이며,이 식별자는 역할 정의에 설명 된 대로 고객의 리소스에 대 한 특정 사용 권한을 부여 받습니다.
 - **AZURE AD 개체 표시 이름**: 고객이이 권한 부여의 용도를 이해 하는 데 도움이 되는 친숙 한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
-- **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택 합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대한 설명은 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 및 [Azure 위임 리소스 관리에 대한 역할 지원](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)을 참조하세요.
-- **할당 가능한 역할**:이 권한 부여에 대 한 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 필요 합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)하는 데 필요한 [관리 ID](deploy-policy-remediation.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
+- **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택 합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대 한 설명은 [기본 제공 역할](../../role-based-access-control/built-in-roles.md) 및 [Azure 위임 된 리소스 관리에 대 한 역할 지원](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)을 참조 하세요.
+- **할당 가능한 역할**:이 권한 부여에 대 한 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 필요 합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
 
 > [!TIP]
 > 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다. 추가 권장 사항은 [Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자](../concepts/tenants-users-roles.md)를 참조하세요.
@@ -93,7 +96,7 @@ ms.locfileid: "74483173"
 
 **개요** 섹션에서 다음 필드를 완료합니다.
 
-|필드  |설명  |
+|필드  |Description  |
 |---------|---------|
 |**제목**     |  제안의 제목이며. 종종 긴 정식 이름입니다. 이 제목은 마켓플레이스에서 눈에 띄게 표시됩니다. 최대 길이는 50자입니다. 대부분의 경우 이 이름은 **제품 설정** 섹션에 입력한 **이름**과 동일해야 합니다.       |
 |**요약**     | 제품의 간략한 용도 또는 기능입니다. 일반적으로 제목 아래에 표시됩니다. 최대 길이는 100자입니다.        |
@@ -123,7 +126,7 @@ ms.locfileid: "74483173"
 
 **잠재 고객 관리** 섹션에서 잠재 고객이 저장될 CRM 시스템을 선택할 수 있습니다. [관리 서비스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)에 따라 **잠재 대상 고객**이 필요합니다.
 
-마지막으로 **법적 정보** 섹션에서 **개인정보취급방침 URL** 및 **사용 약관**을 제공합니다. 이 제품에 대해 [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)을 사용할지 여부를 여기에서 지정할 수도 있습니다.
+마지막으로 **법적 정보** 섹션에서 **개인정보취급방침 URL** 및 **사용 약관**을 제공합니다. 이 제품에 대해 [표준 계약](../../marketplace/standard-contract.md)을 사용할지 여부를 여기에서 지정할 수도 있습니다.
 
 **지원** 섹션으로 이동하기 전에 변경 내용을 저장해야 합니다.
 
@@ -133,18 +136,18 @@ ms.locfileid: "74483173"
 
 이 정보를 추가한 후에는 **저장**을 선택합니다.
 
-## <a name="publish-your-offer"></a>제품 게시
+## <a name="publish-your-offer"></a>제안 게시
 
-모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대한 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer)를 참조하세요.
+모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대한 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](../../marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer.md)를 참조하세요.
 
-언제든지 [제품의 업데이트된 버전을 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 [변경 내용을 검토](view-manage-service-providers.md#update-service-provider-offers)하고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다. 
+언제든지 [제품의 업데이트된 버전을 게시](../../marketplace/cloud-partner-portal/manage-offers/cpp-update-offer.md)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 [변경 내용을 검토](view-manage-service-providers.md#update-service-provider-offers)하고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다. 
 
 ## <a name="the-customer-onboarding-process"></a>고객 온보딩 프로세스
 
-고객이 제품을 추가하면 하나 이상의 특정 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 리소스 관리에 온보딩](view-manage-service-providers.md#delegate-resources)됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서서비스 공급자[**페이지의**공급자 제품](view-manage-service-providers.md) 섹션 맨 위에 메모가 표시됩니다.
+고객이 제품을 추가하면 하나 이상의 특정 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 리소스 관리에 온보딩](view-manage-service-providers.md#delegate-resources)됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다.
 
 > [!IMPORTANT]
-> 위임은 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+> 위임은 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보려면 고객 테 넌 트의 사용자가 Azure Portal에서 구독을 선택 하 고, **액세스 제어 (IAM)** 를 열고 [모든 역할을 나열](../../role-based-access-control/role-definitions-list.md#list-all-roles)한 다음 **소유자** 를 선택 하 여 해당 역할의 모든 사용자를 볼 수 있습니다.
 
 고객이 구독 또는 구독 내의 하나 이상의 리소스 그룹을 위임한 후에는 해당 구독에 대해 **Microsoft ManagedServices** 리소스 공급자가 등록되고, 테넌트의 사용자는 제품의 권한 부여에 따라 위임된 리소스에 액세스할 수 있습니다.
 
@@ -154,4 +157,4 @@ ms.locfileid: "74483173"
 ## <a name="next-steps"></a>다음 단계
 
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
-- Azure Portal의 [내 고객](view-manage-customers.md)으로 이동하여 **고객을 보고 관리**합니다.
+- Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.

@@ -3,12 +3,12 @@ title: Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 description: Durable Functions에 대한 자동 Azure Event Grid 게시를 구성하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: f0fbb46320b896008b6a1343357f016a9f57b0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231440"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613128"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74231440"
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Durable Functions 프로젝트에 [microsoft.azure.webjobs.extensions.durabletask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 를 설치 합니다.
 * [Azure Storage 에뮬레이터](../../storage/common/storage-use-emulator.md)를 설치합니다.
@@ -73,7 +73,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 Durable Functions 프로젝트에서 `host.json` 파일을 찾습니다.
 
-`eventGridTopicEndpoint` 속성에 `eventGridKeySettingName` 및 `durableTask`을 추가합니다.
+`durableTask` 속성에 `eventGridTopicEndpoint` 및 `eventGridKeySettingName`을 추가합니다.
 
 ```json
 {
@@ -86,7 +86,7 @@ Durable Functions 프로젝트에서 `host.json` 파일을 찾습니다.
 
 가능한 Azure Event Grid 구성 속성은 [호스트의 json 설명서](../functions-host-json.md#durabletask)에서 찾을 수 있습니다. `host.json` 파일을 구성한 후 함수 앱은 event grid 토픽에 수명 주기 이벤트를 보냅니다. 로컬 및 Azure에서 모두 함수 앱을 실행 하는 경우에 작동 합니다. ' ' '
 
-함수 앱 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
+함수 앱 및 `local.settings.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
 
 ```json
 {
@@ -147,7 +147,7 @@ public static void Run(JObject eventGridEvent, ILogger log)
 
 ![Event Grid 트리거 링크 선택](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-`Event Grid Topics`토픽 종류**에 대해** 를 선택합니다. Event grid 토픽에 대해 만든 리소스 그룹을 선택 합니다. 그런 다음 event grid 토픽의 인스턴스를 선택 합니다. `Create`를 누릅니다.
+**토픽 종류**에 대해 `Event Grid Topics`를 선택합니다. Event grid 토픽에 대해 만든 리소스 그룹을 선택 합니다. 그런 다음 event grid 토픽의 인스턴스를 선택 합니다. `Create`를 누릅니다.
 
 ![Event Grid 구독을 만듭니다.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -262,7 +262,7 @@ Azure Portal에서 만든 함수의 로그를 봅니다.
 다음 목록에서는 수명 주기 이벤트 스키마를 설명합니다.
 
 * **`id`** : event grid 이벤트에 대 한 고유 식별자입니다.
-* **`subject`** : 이벤트 주체에 대 한 경로입니다. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`는 `Running`, `Completed`, `Failed` 및 `Terminated`입니다.  
+* **`subject`** : 이벤트 주체에 대 한 경로입니다. `durable/orchestrator/{orchestrationRuntimeStatus}`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. `{orchestrationRuntimeStatus}`는 `Running`, `Completed`, `Failed` 및 `Terminated`입니다.  
 * **`data`** : 특정 매개 변수를 Durable Functions 합니다.
   * **`hubName`** : [taskhub](durable-functions-task-hubs.md) 이름입니다.
   * **`functionName`** : Orchestrator 함수 이름입니다.

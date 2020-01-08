@@ -1,5 +1,5 @@
 ---
-title: 단일 페이지 앱 로그인-Microsoft id 플랫폼 | Microsoft
+title: 단일 페이지 앱 로그인 & 로그 아웃-Microsoft identity platform | Microsoft
 description: 단일 페이지 응용 프로그램을 빌드하는 방법 알아보기 (로그인)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2494a7ad89c9e9b3a525ddd04290a08eb3af58
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b3d7afdc634649ca3baf5f43d5e2376fb5d8b05d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423638"
 ---
-# <a name="single-page-application-sign-in"></a>단일 페이지 응용 프로그램: 로그인
+# <a name="single-page-application-sign-in-and-sign-out"></a>단일 페이지 응용 프로그램: 로그인 및 로그 아웃
 
 단일 페이지 응용 프로그램에 대 한 코드에 로그인을 추가 하는 방법에 대해 알아봅니다.
 

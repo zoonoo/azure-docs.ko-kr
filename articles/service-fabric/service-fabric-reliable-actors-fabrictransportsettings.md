@@ -1,30 +1,21 @@
 ---
-title: Azure 서비스 패브릭 행위자에서 FabricTransport 설정 변경 | Microsoft Docs
-description: Azure Service Fabric 행위자 통신 설정에 대해 알아봅니다.
-services: Service-Fabric
-documentationcenter: .net
+title: FabricTransport 설정 변경
+description: 여러 행위자 구성에 대 한 Azure Service Fabric 행위자 통신 설정을 구성 하는 방법을 알아봅니다.
 author: suchiagicha
-manager: chackdan
-editor: ''
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: c840280e0a9662cd0175feed04f37119443efc3c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170561"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645585"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
 구성할 수 있는 설정은 다음과 같습니다.
-- C#:  [FabricTransportRemotingSettings](
+- C#: [FabricTransportRemotingSettings](
 https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 

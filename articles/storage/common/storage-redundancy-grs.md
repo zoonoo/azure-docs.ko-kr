@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c44c13f268a561e3094ae76757504a86627e1f58
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6bb93c3fb6599a05978e11ef5fbc179ccfaa9ec2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895214"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614895"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS(지역 중복 스토리지): Azure Storage에 대한 지역 간 복제
 
@@ -31,7 +31,7 @@ RA-GRS를 사용할 때 유의해야 할 몇 가지 고려 사항:
 
 - 애플리케이션은 RA-GRS를 사용하는 경우 상호 작용하는 엔드포인트를 관리해야 합니다.
 - 비동기 복제는 지연을 발생시키므로 주 지역에서 데이터를 복구할 수 없는 경우 보조 지역에 아직 복제되지 않은 변경 내용이 손실될 수 있습니다.
-- 스토리지 계정의 마지막 동기화 시간을 확인할 수 있습니다. 마지막 동기화 시간은 GMT 날짜/시간 값입니다. 마지막 동기화 시간 이전의 모든 기본 쓰기는 보조 위치에 성공적으로 기록되었으므로 보조 위치에서 읽을 수 있습니다. 마지막 동기화 시간 이후 기본 쓰기는 읽기에 사용할 수도 있고 사용하지 못할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md) 또는 Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 이 값을 쿼리할 수 있습니다.
+- 저장소 계정에 대 한 **마지막 동기화 시간** 속성을 확인할 수 있습니다. **마지막 동기화 시간은** GMT 날짜/시간 값입니다. **마지막 동기화 시간** 이전의 모든 주 쓰기는 보조 위치에 성공적으로 기록 되었으므로 보조 위치에서 읽을 수 있습니다. **마지막 동기화 시간** 이후 주 쓰기는 아직 읽기에 사용할 수도 있고 그렇지 않을 수도 있습니다. PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리 중 하나를 사용 하 여이 값을 쿼리할 수 있습니다. 자세한 내용은 [읽기 액세스 지역 중복 저장소를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](storage-designing-ha-apps-with-ragrs.md#getting-the-last-sync-time)에서 **마지막 동기화 시간 가져오기** 를 참조 하세요.
 - 보조 지역으로 GRS 또는 RA-GRS 계정의 계정 장애 조치(Failover)(미리 보기)를 시작하면 장애 조치가 완료된 후 해당 계정에 대한 쓰기 권한이 복원됩니다. 자세한 내용은 [재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)](storage-disaster-recovery-guidance.md)를 참조하세요.
 - RA-GRS는 높은 가용성을 위해 제공됩니다. 확장성 지침은 [성능 검사 목록](storage-performance-checklist.md)을 검토하세요.
 - RA-GRS를 사용하여 고가용성을 설계하는 방법에 대한 제안 사항은 [RA-GRS 스토리지를 사용하여 고가용성 애플리케이션 설계](storage-designing-ha-apps-with-ragrs.md)를 참조하세요.

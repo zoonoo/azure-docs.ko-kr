@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c86df7c50e59309f921c60738870407e74a23219
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435018"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리
 
@@ -41,11 +41,11 @@ ms.locfileid: "74555212"
 
 양식에 있는 모든 필드를 작성합니다. 이 양식은 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 응용 프로그램을 만들기 위해 작성 하는 양식과 비슷합니다. 자세한 내용은 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
 
-응용 프로그램 템플릿으로 **샘플 Contoso**, **사용자 지정 응용 프로그램** 및 **샘플 devkits** 를 선택 하 여 일반적으로 사용할 수 있는 기능으로 응용 프로그램을 IoT Central 만들 수 있으며, 다른 모든 응용 프로그램 템플릿은 공개 미리 보기 기능을 사용 합니다.
+응용 프로그램 템플릿으로 **레거시 응용 프로그램** 을 선택 하 여 일반 기능을 제공 하는 IoT Central 응용 프로그램을 만들 수 있습니다. 다른 모든 응용 프로그램 템플릿은 공개 미리 보기 기능을 사용 합니다.
 
 ![IoT Central 양식 만들기](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Location** 은 응용 프로그램을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/) 입니다. 일반적으로 최적의 성능을 얻으려면 장치에 물리적으로 가장 가까운 위치를 선택 해야 합니다. Azure IoT Central는 현재 **미국**, **오스트레일리아**, **아시아 태평양**또는 **유럽**에서 사용할 수 있습니다.  위치를 선택 하면 나중에 응용 프로그램을 다른 위치로 이동할 수 없습니다.
+**위치**는 애플리케이션을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. Azure IoT Central 공개 미리 보기는 현재 **미국**, **오스트레일리아**, **아시아 태평양** 또는 **유럽**에서 사용할 수 있습니다.  위치를 선택하면 나중에 다른 위치로 애플리케이션을 이동할 수 없습니다.
 
 > [!NOTE]
 > Preview 응용 프로그램 템플릿은 현재 **유럽** 및 **미국** 지역 에서만 사용할 수 있습니다.

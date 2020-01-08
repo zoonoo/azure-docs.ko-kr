@@ -2,32 +2,31 @@
 title: HBase 클러스터를 최신 버전으로 마이그레이션 - Azure HDInsight
 description: Azure HDInsight에서 Apache HBase 클러스터를 최신 버전으로 마이그레이션하는 방법입니다.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.author: ashishth
-ms.openlocfilehash: b03bbc7aacd3bfa2a8e29296a5fafed7d4e7e37a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: 30cda7a83feddaeb41385252a61d1dc68a881a47
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931525"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646509"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
 
 이 문서에서는 Azure HDInsight의 Apache HBase 클러스터를 최신 버전으로 업데이트 하는 데 필요한 단계를 설명 합니다.
 
-> [!NOTE]  
-> 업그레이드하는 동안 가동 중지 시간은 몇 분 정도로 최소이어야 합니다. 이 가동 중지 시간은 모든 메모리 내 데이터를 플러시하는 단계로 인해 발생하며, 그런 후에 새 클러스터에서 서비스를 구성하고 다시 시작합니다. 결과는 노드 수, 데이터 양 및 기타 변수에 따라 달라집니다.
+업그레이드하는 동안 가동 중지 시간은 몇 분 정도로 최소이어야 합니다. 이 가동 중지 시간은 모든 메모리 내 데이터를 플러시하는 단계로 인해 발생하며, 그런 후에 새 클러스터에서 서비스를 구성하고 다시 시작합니다. 결과는 노드 수, 데이터 양 및 기타 변수에 따라 달라집니다.
 
 ## <a name="review-apache-hbase-compatibility"></a>Apache HBase 호환성 검토
 
 Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 HBase 버전이 호환되는지 확인합니다. 자세한 내용은 [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전](../hdinsight-component-versioning.md)을 참조하세요.
 
 > [!NOTE]  
-> [HBase 도서](https://hbase.apache.org/book.html#upgrading)에서 버전 호환성 매트릭스를 검토하는 것이 좋습니다.
+> [HBase 도서](https://hbase.apache.org/book.html#upgrading)에서 버전 호환성 매트릭스를 검토하는 것이 좋습니다. 모든 주요 비호환성은 HBase 버전 릴리스 정보에 설명되어 있습니다.
 
 예제 버전 호환성 매트릭스는 다음과 같습니다. Y는 호환성을 나타내고 N은 잠재적인 비 호환성을 나타냅니다.
 
@@ -45,20 +44,17 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 | 종속성 호환성 | N | Y | Y |
 | 운영 호환성 | N | N | Y |
 
-> [!NOTE]  
-> 모든 주요 비호환성은 HBase 버전 릴리스 정보에 설명되어 있습니다.
-
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>동일한 Apache HBase 주 버전으로 업그레이드
 
 Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다음 단계를 완료 합니다.
 
 1. HBase 호환성 매트릭스 및 릴리스 정보에서 표시한 대로 애플리케이션이 새 버전과 호환되는지 확인합니다. HDInsight 및 HBase의 대상 버전을 실행하는 클러스터에서 애플리케이션을 테스트합니다.
 
-2. 동일한 스토리지 계정을 사용하지만 다른 컨테이너 이름으로 [새 대상 HDInsight 클러스터를 설정합니다](../hdinsight-hadoop-provision-linux-clusters.md).
+1. 동일한 스토리지 계정을 사용하지만 다른 컨테이너 이름으로 [새 대상 HDInsight 클러스터를 설정합니다](../hdinsight-hadoop-provision-linux-clusters.md).
 
     ![동일한 스토리지 계정을 사용하지만 다른 컨테이너 만들기](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-3. 업그레이드할 클러스터 인 원본 HBase 클러스터를 플러시합니다. HBase는 들어오는 데이터를 _memstore_라는 메모리 내 저장소에 씁니다. Memstore가 특정 크기에 도달 하면 HBase는 클러스터의 저장소 계정에 장기 저장을 위해 디스크에 플러시합니다. 이전 클러스터를 삭제하는 경우 memstore가 재활용되어 데이터가 잠재적으로 손실될 수 있습니다. 각 테이블에 대한 memstore를 디스크로 수동으로 플러시하려면 다음 스크립트를 실행합니다. 이 스크립트의 최신 버전은 Azure의 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)에 있습니다.
+1. 업그레이드 하는 클러스터 인 원본 HBase 클러스터를 플러시합니다. HBase는 들어오는 데이터를 _memstore_라는 메모리 내 저장소에 씁니다. Memstore가 특정 크기에 도달 하면 HBase는 클러스터의 저장소 계정에 장기 저장을 위해 디스크에 플러시합니다. 이전 클러스터를 삭제하는 경우 memstore가 재활용되어 데이터가 잠재적으로 손실될 수 있습니다. 각 테이블에 대한 memstore를 디스크로 수동으로 플러시하려면 다음 스크립트를 실행합니다. 이 스크립트의 최신 버전은 Azure의 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)에 있습니다.
 
     ```bash
     #!/bin/bash
@@ -175,41 +171,47 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
     ...
     
     ```
-    
-4. 이전 HBase 클러스터에 대한 수집을 중지합니다.
-5. memstore의 최근 데이터가 플러시되도록 하려면 이전 스크립트를 다시 실행합니다.
-6. 이전 클러스터에서 [Apache Ambari](https://ambari.apache.org/) 에 로그인 (https://OLDCLUSTERNAME.azurehdidnsight.net) 하 고 HBase 서비스를 중지 합니다. 서비스를 중지 하 시겠습니까를 확인 하는 메시지가 표시 되 면 해당 확인란을 선택 하 여 HBase에 대 한 유지 관리 모드를 설정 합니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+
+1. 이전 HBase 클러스터에 대한 수집을 중지합니다.
+
+1. memstore의 최근 데이터가 플러시되도록 하려면 이전 스크립트를 다시 실행합니다.
+
+1. 이전 클러스터 (`https://OLDCLUSTERNAME.azurehdidnsight.net`)에서 [Apache Ambari](https://ambari.apache.org/) 에 로그인 하 고 HBase 서비스를 중지 합니다. 서비스를 중지 하 시겠습니까를 확인 하는 메시지가 표시 되 면 해당 확인란을 선택 하 여 HBase에 대 한 유지 관리 모드를 설정 합니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
     ![Ambari에서 서비스 > HBase > 서비스 작업에서 중지를 클릭 합니다.](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
     ![HBase에 대한 [유지 관리 모드 켜기] 확인란을 선택한 다음, 확인함](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-7. 새 HDInsight 클러스터의 Ambari에 로그인 합니다. 원래 클러스터에서 사용한 컨테이너 이름을 가리키도록 `fs.defaultFS` HDFS 설정을 변경합니다. 이 설정은 **HDFS > 구성> 고급 > 고급 코어 사이트** 아래에 있습니다.
+1. 새 HDInsight 클러스터의 Ambari에 로그인 합니다. 원래 클러스터에서 사용한 컨테이너 이름을 가리키도록 `fs.defaultFS` HDFS 설정을 변경합니다. 이 설정은 **HDFS > 구성> 고급 > 고급 코어 사이트** 아래에 있습니다.
 
     ![Ambari에서 서비스 > HDFS > Configs > 고급을 클릭 합니다.](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
     ![Ambari에서 컨테이너 이름을 변경함](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. **향상 된 쓰기 기능으로 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 쓰기 기능이 향상 된 HBase 클러스터에만 필요 합니다.**
-   
+1. 향상 된 쓰기 기능으로 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 쓰기 기능이 향상 된 HBase 클러스터에만 필요 합니다.
+
    원본 클러스터의 컨테이너를 가리키도록 `hbase.rootdir` 경로를 변경 합니다.
 
     ![Ambari에서 HBase rootdir의 컨테이너 이름을 변경 합니다.](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+
 1. HDInsight 3.6을 4.0로 업그레이드 하는 경우 아래 단계를 수행 하 고, 그렇지 않은 경우에는 10 단계로 건너뜁니다.
     1. Ambari에서 > **서비스** 를 선택 하 여 필요한 모든 서비스를 다시 시작 하 고 **필요한 모든 서비스를 다시 시작**합니다.
     1. HBase 서비스를 중지 합니다.
     1. 아웃 들 노드에 대해 SSH를 수행 하 고 [Zkcli](https://github.com/go-zkcli/zkcli) 명령 `rmr /hbase-unsecure`를 실행 하 여 사육 사에서 HBase 루트 znode를 제거 합니다.
     1. HBase를 다시 시작 합니다.
+
 1. 4\.0 이외의 다른 HDInsight 버전으로 업그레이드 하는 경우 다음 단계를 수행 합니다.
     1. 변경 내용을 저장합니다.
     1. Ambari에서 표시한 대로 필요한 모든 서비스를 다시 시작합니다.
+
 1. 애플리케이션이 새 클러스터를 가리키도록 합니다.
 
     > [!NOTE]  
     > 업그레이드할 때 애플리케이션에 대한 고정 DNS가 변경됩니다. 이 DNS를 하드 코딩하는 대신, 도메인 이름의 DNS 설정에서 클러스터 이름을 가리키는 CNAME을 구성할 수 있습니다. 또 다른 옵션은 다시 배포하지 않고 업데이트할 수 있는 애플리케이션에 대한 구성 파일을 사용하는 것입니다.
 
-12. 수집을 시작하여 모든 항목이 예상대로 작동하는지 확인합니다.
-13. 새 클러스터가 만족스러운 경우 원래 클러스터를 삭제합니다.
+1. 수집을 시작하여 모든 항목이 예상대로 작동하는지 확인합니다.
+
+1. 새 클러스터가 만족스러운 경우 원래 클러스터를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

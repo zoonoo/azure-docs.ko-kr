@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a5e57d0ef37a3a2e758e42f122c8e014c94958
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fe727afcfdec204c92c82c3e695961707af90e65
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423818"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱-프로덕션으로 이동
 
@@ -50,7 +50,7 @@ V2.0 (Microsoft identity platform) 끝점을 사용 하면 한 번에 여러 리
 
 ### <a name="in-msalnet"></a>MSAL.NET에서
 
-```CSharp
+```csharp
 string[] scopesForCustomerApi = new string[]
 {
   "https://mytenant.onmicrosoft.com/customerapi/customer.read",
@@ -103,7 +103,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 두 번째 웹 API를 호출 해야 하는 경우 `AcquireTokenSilent` API를 호출할 수 있습니다.
 
-```CSharp
+```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
