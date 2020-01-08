@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: 리소스 관리 설명서
+summary: 리소스를 관리하고 사용하는 방법을 이해합니다.
+metadata:
+  title: Azure Resource Manager 설명서
+  description: Azure Resource Manager 템플릿을 개발하고 이를 사용하여 Azure 리소스를 배포하는 방법 알아보기
+  ms.service: azure-resource-manager
+  ms.subservice: management
+  ms.topic: landing-page
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: ba00994808e50f10c7153535f442e03f85fe2202
+  ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 01/04/2020
+  ms.locfileid: "75657935"
+landingContent:
+- title: Azure Resource Manager 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Resource Manager란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Resource Manager 및 클래식 배포
+      url: deployment-models.md
+- title: Azure 서비스 정보
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 구독 및 서비스 한도
+      url: azure-subscription-service-limits.md
+    - text: 리소스 공급자 및 형식
+      url: resource-providers-and-types.md
+    - text: 각 Azure 서비스의 리소스 공급자
+      url: azure-services-resource-providers.md
+- title: 리소스 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 리소스 그룹 및 구독 간 이동
+      url: move-resource-group-and-subscription.md
+    - text: 지역 간 이동
+      url: move-region.md
+    - text: 리소스 태그 지정
+      url: tag-resources.md
+    - text: 리소스 잠금
+      url: lock-resources.md
+    - text: 리소스 그룹 삭제
+      url: delete-resource-group.md
+  - linkListType: reference
+    links:
+    - text: 이동 지원
+      url: move-support-resources.md
+    - text: 태그 지원
+      url: tag-support.md
+    - text: 리소스 인스턴스 제한
+      url: resources-without-resource-group-limit.md
+- title: SDK 및 도구
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: Azure CLI
+      url: /cli/azure/resource
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.management.resourcemanager
+    - text: Java
+      url: /java/api/com.microsoft.azure.management.resources
+    - text: Python
+      url: /python/api/overview/azure/resources?view=azure-python
+- title: 작업 추적
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 활동 로그 보기
+      url: view-activity-logs.md
+    - text: 요청 제한
+      url: request-limits-and-throttling.md
+    - text: 비동기 작업
+      url: async-operations.md

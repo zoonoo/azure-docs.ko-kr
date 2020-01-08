@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: c29e687a787e59a03bb6825493d808ba036a1d68
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b28e09b2d304dc392442d98fe39654bab2c8d09c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975366"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645058"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service로 디바이스 프로비전
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 퍼블릭 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 프로비전이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 디바이스를 프로비전할 수 있습니다.
@@ -74,14 +74,14 @@ Device Provisioning Service는 제조 프로세스에 새 단계를 도입하지
 두 단계가 모두 완료되면 디바이스가 완벽히 프로비전된 것입니다. 일부 클라우드 서비스는 프로비전 프로세스의 첫 번째 단계만 제공하여 디바이스를 IoT 솔루션 엔드포인트에 등록하고 초기 구성은 제공하지 않습니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
 
 ## <a name="features-of-the-device-provisioning-service"></a>Device Provisioning Service의 기능
-Device Provisioning Service에는 장치 프로비전에 이상적인 여러 기능이 있습니다.
+Device Provisioning Service에는 디바이스 프로비전에 이상적인 여러 기능이 있습니다.
 
 * **보안 증명** X.509 및 TPM 기반 ID를 모두 지원합니다.
 * **등록 목록** 특정 시점에 등록된 디바이스/디바이스 그룹의 전체 레코드를 포함합니다. 등록 목록에는 디바이스를 등록한 후 디바이스의 원하는 구성에 대한 정보를 포함하며, 언제든지 업데이트할 수 있습니다.
 * **여러 할당 정책** 사용자 시나리오를 지원하기 위해 Device Provisioning Service에서 디바이스를 IoT 허브에 할당하는 방법을 제어할 수 있습니다. 등록 목록을 통한 가장 짧은 대기 시간, 균등 가중치 배포(기본값) 및 정적 구성입니다. 대기 시간은 [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance)와 동일한 방법을 사용하여 결정됩니다.
 * **모니터링 및 진단 로깅** 모든 과정이 제대로 작동되도록 보장합니다.
-* **다중 허브 지원** Device Provisioning Service가 장치를 둘 이상의 IoT Hub에 할당할 수 있습니다. Device Provisioning Service는 여러 Azure 구독에서 허브와 통신할 수 있습니다.
-* **지역 간 지원** Device Provisioning Service가 장치를 다른 지역의 IoT Hub에 할당할 수 있게 해줍니다.
+* **다중 허브 지원** Device Provisioning Service가 디바이스를 둘 이상의 IoT Hub에 할당할 수 있습니다. Device Provisioning Service는 여러 Azure 구독에서 허브와 통신할 수 있습니다.
+* **지역 간 지원** Device Provisioning Service가 디바이스를 다른 지역의 IoT Hub에 할당할 수 있게 해줍니다.
 
 [디바이스 개념](concepts-device.md), [서비스 개념](concepts-service.md) 및 [보안 개념](concepts-security.md)에서 디바이스 프로비저닝에 관련된 개념 및 디바이스에 대해 자세히 알아볼 수 있습니다.
 
@@ -111,7 +111,7 @@ Device Provisioning Service의 서비스 수준 계약은 99.9%이며, [SLA를 �
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
 할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
-* [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)
+* [Azure 구독 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
 Device Provisioning Service는 Azure IoT Hub를 통한 디바이스 프로비전을 자동화합니다. [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)에 대해 자세히 알아보세요.

@@ -2,18 +2,18 @@
 title: Azure Database Migration Service 설명서
 summary: Azure Database Migration Service를 사용하면 최소한의 가동 중지 시간으로 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있습니다. 이 서비스는 Data Migration Assistant를 사용하여 마이그레이션을 수행하기 전에 필요한 변경 사항을 설명하는 권장 사항을 제공하는 평가 보고서를 생성합니다. 마이그레이션 프로세스를 시작할 준비가 되면 Azure Database Migration Service는 필요한 단계를 모두 수행합니다.
 metadata:
-  description: " Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션하는 방법을 알아봅니다."
+  description: Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션하는 방법을 알아봅니다.
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/25/2019
+  ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 1d064144d040a45fbc655879a6869da4ceaa4b79
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 8ca7f2618c6415dd3dbe22cada35bccb56be50ee
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73584002"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75437876"
 landingContent:
 - title: Azure Database Migration Service 정보
   linkLists:
@@ -33,6 +33,10 @@ landingContent:
       url: quickstart-create-data-migration-service-portal.md
     - text: 하이브리드 모드에서 서비스 만들기 – 포털
       url: quickstart-create-data-migration-service-hybrid-portal.md
+  - linkListType: reference
+    links:
+    - text: 알려진 문제 - 하이브리드 모드 사용
+      url: known-issues-dms-hybrid-mode.md
   - linkListType: video
     links:
     - text: Azure Data Migration Service 소개
@@ -47,7 +51,7 @@ landingContent:
     links:
     - text: 블로그 보기
       url: https://techcommunity.microsoft.com/t5/Microsoft-Data-Migration/bg-p/MicrosoftDataMigration
-- title: Azure SQL Database로 SQL Server 마이그레이션
+- title: SQL Server를 Azure SQL Database로 마이그레이션
   linkLists:
   - linkListType: tutorial
     links:
@@ -65,6 +69,8 @@ landingContent:
     links:
     - text: 알려진 문제 - SQL Database 단일 데이터베이스로 온라인 마이그레이션
       url: known-issues-azure-sql-online.md
+    - text: 알려진 문제 - SQL Database 관리형 인스턴스로 온라인 마이그레이션
+      url: known-issues-azure-sql-db-managed-instance-online.md
     - text: SQL Database 관리형 인스턴스 마이그레이션에 대한 네트워크 토폴로지
       url: resource-network-topologies.md
     - text: SQL Server에서 SQL Database 관리형 인스턴스로의 온라인 마이그레이션에 대한 사용자 지정 역할

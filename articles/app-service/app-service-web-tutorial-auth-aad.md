@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 41e9ff79ad3f7abeda1b946295e8e0eb519c2554
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672061"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561760"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -42,7 +42,7 @@ ms.locfileid: "74672061"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -185,7 +185,7 @@ return new NoContentResult();
 
 첫 번째 줄은 백 엔드 API 앱에 `DELETE /api/Todo/{id}` 호출을 수행합니다.
 
-모든 변경 내용을 저장합니다. 로컬 터미널 창에서 다음 Git 명령을 사용하여 변경 내용을 프런트 엔드 앱에 배포합니다.
+변경 내용을 모두 저장합니다. 로컬 터미널 창에서 다음 Git 명령을 사용하여 변경 내용을 프런트 엔드 앱에 배포합니다.
 
 ```bash
 git add .
@@ -312,7 +312,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 
 이 코드는 표준 HTTP 헤더 `Authorization: Bearer <access-token>`를 모든 원격 API 호출에 추가합니다. ASP.NET Core MVC 요청 실행 파이프라인에서 `OnActionExecuting`은 각 작업 메서드(예: `GetAll()`)가 실행되기 직전에 실행되므로 나가는 API 호출 각각에 액세스 토큰이 표시됩니다.
 
-모든 변경 내용을 저장합니다. 로컬 터미널 창에서 다음 Git 명령을 사용하여 변경 내용을 프런트 엔드 앱에 배포합니다.
+변경 내용을 모두 저장합니다. 로컬 터미널 창에서 다음 Git 명령을 사용하여 변경 내용을 프런트 엔드 앱에 배포합니다.
 
 ```bash
 git add .
@@ -396,7 +396,7 @@ $routeProvider.when("/Home", {
 
 ### <a name="deploy-updates-and-test"></a>업데이트 배포 및 테스트
 
-모든 변경 내용을 저장합니다. 로컬 터미널 창에서 다음 Git 명령을 사용하여 변경 내용을 프런트 엔드 앱에 배포합니다.
+변경 내용을 모두 저장합니다. 로컬 터미널 창에서 다음 Git 명령을 사용하여 변경 내용을 프런트 엔드 앱에 배포합니다.
 
 ```bash
 git add .

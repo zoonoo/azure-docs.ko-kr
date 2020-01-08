@@ -63,6 +63,17 @@
         - name: 배포 단계
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
+    - name: HIPAA HITRUST
+      items:
+        - name: 개요
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/index.md
+        - name: 컨트롤 매핑
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/control-mapping.md
+        - name: 배포 단계
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/deploy.md
     - name: IRS 1075
       items:
         - name: 개요
@@ -203,7 +214,7 @@
 - name: 문제 해결
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'

@@ -9,14 +9,14 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203248"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382330"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>C#에서 콘솔 앱 검색 클라이언트 빌드
 
@@ -27,11 +27,11 @@ ms.locfileid: "67203248"
 - Bing Web Search API에 단순 쿼리 만들기
 - 순위대로 쿼리 결과 표시
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 자습서를 따르려면 다음을 수행해야 합니다.
 
-- 있습니다. 없는 경우 [무료 Visual Studio 2017 Community 버전을 다운로드하여 설치](https://www.visualstudio.com/downloads/)합니다.
+- Visual Studio. 없는 경우 [무료 Visual Studio 2017 Community 버전을 다운로드하여 설치](https://www.visualstudio.com/downloads/)합니다.
 - Bing Web Search API에 대한 구독 키입니다. 없는 경우 [평가판에 등록하세요](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 ## <a name="create-a-new-console-app-project"></a>새 콘솔 앱 프로젝트 만들기
@@ -139,7 +139,7 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 - `HttpClient`를 만들어 Web Search API를 쿼리
 - Bing이 요청을 인증하기 위해 사용하는 `Ocp-Apim-Subscription-Key` HTTP 헤더를 설정
-- 요청을 실행하고 JSON.net 결과를 사용하여 결과를 deserialize함
+- 요청을 실행하고 JSON.net 결과를 사용하여 결과를 역직렬화함
 - 순위대로 모든 결과를 표시하려면 `DisplayAllRankedResults(responseObjects)`를 호출
 
 구독 키에 `Ocp-Apim-Subscription-Key`의 값을 설정해야 입니다.

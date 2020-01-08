@@ -15,21 +15,21 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: c553e3f2de963abb4a3c23a4114eecfa33d0aa61
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 675c222bfbacf8207c7b3f906452251bedd64a66
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350180"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>가상 네트워크용 Azure Resource Manager 템플릿 샘플
 
-다음 표에는 Azure Resource Manager 템플릿 샘플 링크가 포함되어 있습니다. Azure [Portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), Azure [CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 Azure [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용하여 템플릿을 배포할 수 있습니다. 템플릿을 직접 작성하는 방법을 알아보려면 [첫 번째 템플릿 만들기](../azure-resource-manager/resource-manager-create-first-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+다음 표에는 Azure Resource Manager 템플릿 샘플 링크가 포함되어 있습니다. Azure [Portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), Azure [CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 Azure [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용하여 템플릿을 배포할 수 있습니다. 템플릿을 직접 작성하는 방법을 알아보려면 [첫 번째 템플릿 만들기](../azure-resource-manager/resource-manager-create-first-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.Network 리소스 종류](/azure/templates/microsoft.network/allversions)를 참조하세요.
 
 
-| Task | 설명 |
+| Task | Description |
 |----|----|
 |[두 서브넷이 있는 가상 네트워크 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| 두 개의 서브넷이 있는 가상 네트워크를 만듭니다.|
 |[네트워크 가상 어플라이언스를 통한 트래픽 라우팅](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| 세 개의 서브넷이 있는 가상 네트워크를 만듭니다. 각 서브넷에 가상 머신을 배포합니다. 세 번째 서브넷의 가상 머신을 통해 한 서브넷에서 다른 서브넷으로 트래픽을 보내는 경로가 포함된 경로 테이블을 만듭니다. 경로 테이블을 서브넷 중 하나에 연결합니다.|

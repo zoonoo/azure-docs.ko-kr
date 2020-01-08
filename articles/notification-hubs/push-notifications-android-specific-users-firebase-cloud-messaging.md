@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs를 사용하여 특정 Android 앱에 푸시 알림 보내기 | Microsoft Docs
+title: Azure Notification Hubs를 사용하여 특정 Android 앱에 푸시 알림 보내기
 description: Azure Notification Hubs를 사용하여 특정 사용자에게 푸시 알림을 보내는 방법을 알아봅니다.
 documentationcenter: android
 services: notification-hubs
@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 5bd709236667dd43e623047ad995b0a7b981e9cb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387416"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531125"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Android 앱에 푸시 알림 보내기
 
@@ -37,7 +37,7 @@ ms.locfileid: "72387416"
 > * Android 애플리케이션을 업데이트합니다.
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md)를 완료하세요.
 
@@ -261,7 +261,7 @@ ms.locfileid: "72387416"
     ```
 
     이 구성 요소는 푸시 알림을 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 구현합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)를 로컬로 저장합니다. 이 구성 요소는 **로그인** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
-4. `MainActivity` 클래스에서 `RegisterClient` 클래스에 대한 필드 및 ASP.NET 백 엔드의 엔드포인트에 대한 문자열을 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
+4. `MainActivity` 클래스에서 `RegisterClient` 클래스에 대한 필드 및 ASP.NET 백 엔드의 엔드포인트에 대한 문자열을 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. `http://mybackend.azurewebsites.net`)을 입력합니다.
 
     ```java
     private RegisterClient registerClient;
@@ -485,7 +485,7 @@ ms.locfileid: "72387416"
 
 1. Android Studio를 사용하여 디바이스 또는 에뮬레이터에서 애플리케이션을 실행합니다.
 2. Android 앱에서 사용자 이름과 암호를 입력합니다. 둘 다 동일한 문자열 값이어야 하며 공백이나 특수 문자를 포함해서는 안 됩니다.
-3. Android 앱에서 **Log in**을 클릭합니다. **로그인 및 등록됨**를 알리는 알림 메시지를 기다립니다. 이렇게 하면 **알림 보내기** 단추가 사용되도록 설정됩니다.
+3. Android 앱에서 **로그인**을 클릭합니다. **로그인 및 등록됨**를 알리는 알림 메시지를 기다립니다. 이렇게 하면 **알림 보내기** 단추가 사용되도록 설정됩니다.
 
     ![][A2]
 4. 토글 단추를 클릭하여 앱을 실행하고 사용자를 등록한 모든 플랫폼을 활성화합니다.

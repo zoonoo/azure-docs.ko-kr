@@ -8,12 +8,12 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
-ms.openlocfilehash: 96ede63b097999247675364217cf458a268e54d9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929651"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659878"
 ---
 >[!IMPORTANT]
 >직접 만든 리소스는 다른 Azure Machine Learning 자습서 및 방법 문서에 대한 필수 조건으로 사용할 수 있습니다.
@@ -42,7 +42,7 @@ ms.locfileid: "73929651"
 
 각 데이터 세트를 선택하고 **등록 취소**를 선택하여 작업 영역에서 데이터 세트를 등록 취소할 수 있습니다.
 
-![데이터 세트 등록 취소](./media/aml-ui-cleanup/unregister-dataset.png)
+![데이터 세트 등록 취소](./media/aml-ui-cleanup/unregister-dataset1225.png)
 
 데이터 세트를 삭제하려면 Azure Portal 또는 Azure Storage Explorer를 사용하여 스토리지 계정으로 이동하여 해당 자산을 수동으로 삭제합니다.
 

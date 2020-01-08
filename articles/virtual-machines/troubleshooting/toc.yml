@@ -159,6 +159,8 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
+    - name: '서비스 다시 시작, 종료 또는 중지'
+      href: boot-error-troubleshoot-windows.md
 - name: 디바이스 이름이 변경됨
   href: troubleshoot-device-names-problems.md
 - name: VM 복구 액세스

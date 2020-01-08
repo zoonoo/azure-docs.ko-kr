@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 1dfe4840d49983c4ae273c16ae16f6df253d509e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bbf2e3204cb1e703aba445822bfb699fae13a112
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770359"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454322"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -24,7 +24,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 웹 브라우저를 연 다음 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
-정의된 [컴퓨팅 및 스토리지 리소스](./concepts-compute-unit-and-storage.md) 세트를 사용하여 Azure Database for MySQL 서버를 만듭니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에 만듭니다.
+정의된 [컴퓨팅 및 스토리지 리소스](./concepts-compute-unit-and-storage.md) 세트를 사용하여 Azure Database for MySQL 서버를 만듭니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에 만듭니다.
 
 다음 단계에 따라 Azure Database for MySQL 서버를 만듭니다.
 
@@ -109,7 +109,7 @@ Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
-    mysql 매개 변수 |제안 값|설명
+    mysql 매개 변수 |제안 값|Description
     ---|---|---
     --host | *서버 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mysql.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mysql.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 
     --user | *서버 관리자 로그인 이름* |이전에 Azure Database for MySQL 서버를 만들 때 제공한 서버 관리자 로그인 사용자 이름입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
@@ -183,7 +183,7 @@ MySQL Workbench GUI 도구를 사용하여 서버에 연결하려면 다음 단�
     |---|---|---|
      연결 이름 | 데모 연결 | 이 연결에 대한 레이블입니다. |
     연결 방법 | 표준(TCP/IP) | 표준(TCP/IP)이면 충분합니다. |
-    호스트 이름 | *서버 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mysql.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mysql.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다.|
+    Hostname | *서버 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mysql.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mysql.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다.|
      포트 | 3306 | Azure Database for MySQL 서버에 연결할 때 사용할 포트입니다. |
     사용자 이름 |  *서버 관리자 로그인 이름* | 이전에 Azure Database for MySQL 서버를 만들 때 제공한 서버 관리자 로그인 정보입니다. 예제의 사용자 이름은 **myadmin\@mydemoserver**입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
     암호 | *사용자 암호* | **자격 증명 모음에 저장**을 선택하여 암호를 저장합니다. |
@@ -191,10 +191,10 @@ MySQL Workbench GUI 도구를 사용하여 서버에 연결하려면 다음 단�
 4. **연결 테스트**를 선택하여 모든 매개 변수가 올바르게 구성되었는지 테스트합니다. 그런 다음 **확인**을 클릭하여 해당 연결을 저장합니다. 
 
     > [!NOTE]
-    > SSL은 서버에서 기본적으로 적용되며 성공적으로 연결하려면 추가 구성이 필요합니다. 자세한 내용은 [MySQL용 Azure 데이터베이스에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. 이 빠른 시작에서 SSL을 사용하지 않도록 설정하려면 Azure Portal로 이동합니다. 그런 다음, [연결 보안] 페이지를 선택하여 **SSL 적용** 연결 토글 단추를 비활성화합니다.
+    > SSL은 서버에서 기본적으로 적용되며 성공적으로 연결하려면 추가 구성이 필요합니다. 자세한 내용은 [Azure Database for MySQL에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. 이 빠른 시작에서 SSL을 사용하지 않도록 설정하려면 Azure Portal로 이동합니다. 그런 다음, [연결 보안] 페이지를 선택하여 **SSL 적용** 연결 토글 단추를 비활성화합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 삭제할 수 있습니다. 다른 리소스를 그대로 유지하려면 하나의 서버 리소스만 삭제합니다.
+빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 삭제할 수 있습니다. 다른 리소스를 그대로 유지하려면 하나의 서버 리소스만 삭제합니다.
 
 > [!TIP]
 > 이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 하여 빌드됩니다. 빠른 시작을 계속 사용하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속 사용하지 않을 경우 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 삭제할 수 있습니다.

@@ -1,25 +1,18 @@
 ---
 title: Azure CLI 샘플 - Azure App Configuration | Microsoft Docs
 description: Azure App Configuration용 사용 가능한 샘플 스크립트에 대한 정보 제공
-services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 02/24/2019
 ms.author: yegu
+ms.service: azure-app-configuration
+ms.topic: sample
+ms.date: 02/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 9b9d4c6447b8030c2ae5f7dc22857f77b57f91ea
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c4cfd8e8d6e3f37d59165dff30d0c142f27bac90
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185316"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495290"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 
@@ -33,6 +26,6 @@ ms.locfileid: "74185316"
 | [키 값에 대한 작업](./scripts/cli-work-with-keys.md) | 키 값을 만들고, 확인하고, 업데이트하고, 삭제합니다. |
 | [키 값 가져오기](./scripts/cli-import.md) | 키 값을 다른 원본에서 가져옵니다. |
 | [키 값 내보내기](./scripts/cli-export.md) | 키 값을 다른 대상으로 내보냅니다. |
-|**삭제**||
+|**Delete**||
 | [App Configuration 저장소 삭제](./scripts/cli-delete-service.md) | App Configuration 저장소 인스턴스를 삭제합니다.  |
 | | |

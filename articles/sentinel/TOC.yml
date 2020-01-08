@@ -32,70 +32,78 @@
     - name: 데이터 원본 연결
       href: connect-data-sources.md
       items:
-        - name: Microsoft 서비스 연결
+        - name: 서비스 간 연결
           items:
-            - name: Azure AD 연결
+            - name: AWS
+              href: connect-aws.md
+            - name: Azure AD
               href: connect-azure-active-directory.md
-            - name: Office 365 연결
+            - name: Office 365
               href: connect-office-365.md
-            - name: Cloud App Security 연결
+            - name: Cloud App Security
               href: connect-cloud-app-security.md
-            - name: Azure 활동 로그 연결
+            - name: Azure 동작 로그
               href: connect-azure-activity.md
-            - name: Azure AD ID 보호 연결
+            - name: Azure AD ID 보호
               href: connect-azure-ad-identity-protection.md
-            - name: Azure Information Protection 연결
+            - name: Azure Information Protection
               href: connect-azure-information-protection.md
-            - name: Microsoft Defender ATP 연결
+            - name: Microsoft Defender ATP
               href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: Azure ATP 연결
+            - name: Azure ATP
               href: connect-azure-atp.md
-            - name: Azure Security Center 연결
+            - name: Azure Security Center
               href: connect-azure-security-center.md
-            - name: 도메인 이름 서버 연결
+            - name: 도메인 이름 서버
               href: connect-dns.md
-            - name: Microsoft 웹 애플리케이션 방화벽 연결
+            - name: Microsoft 웹 애플리케이션 방화벽
               href: connect-microsoft-waf.md
-            - name: Windows 방화벽 연결
+            - name: Windows 방화벽
               href: connect-windows-firewall.md
-            - name: Windows 보안 이벤트 연결
+            - name: Windows 보안 이벤트
               href: connect-windows-security-events.md
         - name: 외부 솔루션 연결
           items:
-            - name: 제네릭 CEF 연결
-              href: connect-common-event-format.md
-            - name: AWS 연결
-              href: connect-aws.md
-            - name: Barracuda 연결
+            - name: Barracuda
               href: connect-barracuda.md
-            - name: Check Point 연결
-              href: connect-checkpoint.md
-            - name: Palo Alto Networks 연결
-              href: connect-paloalto.md
-            - name: Fortinet 연결
-              href: connect-fortinet.md
-            - name: F5 연결
-              href: connect-f5.md
-            - name: F5 BIG-IP 연결
+            - name: F5 BIG-IP
               href: connect-f5-big-ip.md
-            - name: Syslog 연결
+            - name: syslog
               href: connect-syslog.md
-            - name: Symantec ICDX 연결
+            - name: Symantec ICDX
               href: connect-symantec.md
-            - name: Cisco 연결
-              href: connect-cisco.md
-            - name: Barracuda CloudGen Firewall 연결
+            - name: Barracuda CloudGen Firewall
               href: connect-barracuda-cloudgen-firewall.md
-            - name: Citrix Analytics 연결(보안)
+            - name: Citrix Analytics(보안)
               href: connect-citrix-analytics.md
-            - name: ExtraHop Reveal(x) 연결
-              href: connect-extrahop.md
-            - name: One Identity Safeguard
-              href: connect-one-identity.md
-            - name: Trend Micro Deep Security
-              href: connect-trend-micro.md
-            - name: Zscaler 연결
-              href: connect-zscaler.md
+            - name: CEF 기반 솔루션
+              href: connect-common-event-format.md
+              items:
+                - name: 1단계 에이전트 배포
+                  href: connect-cef-agent.md
+                - name: 2단계 보안 솔루션 구성
+                  href: connect-cef-solution-config.md
+                  items:
+                    - name: Check Point
+                      href: connect-checkpoint.md
+                    - name: 시스코
+                      href: connect-cisco.md
+                    - name: ExtraHop Reveal(x)
+                      href: connect-extrahop.md
+                    - name: F5
+                      href: connect-f5.md
+                    - name: Fortinet
+                      href: connect-fortinet.md
+                    - name: One Identity Safeguard
+                      href: connect-one-identity.md
+                    - name: Palo Alto Networks
+                      href: connect-paloalto.md
+                    - name: Trend Micro Deep Security
+                      href: connect-trend-micro.md
+                    - name: Zscaler
+                      href: connect-zscaler.md
+                - name: 3단계 연결 유효성 검사
+                  href: connect-cef-verify.md
         - name: 위협 인텔리전스 연결
           href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결

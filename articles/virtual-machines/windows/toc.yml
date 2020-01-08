@@ -141,7 +141,7 @@
 - name: 개념
   items:
     - name: Azure 리소스 관리자
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 영역
       href: regions.md
     - name: 가용성 및 성능
@@ -186,6 +186,8 @@
               href: sizes-gpu.md
             - name: GPU 드라이버 설정
               href: n-series-driver-setup.md
+            - name: AMD GPU 드라이버 설정
+              href: n-series-amd-driver-setup.md
         - name: 고성능 컴퓨팅
           displayName: H-series
           href: sizes-hpc.md
@@ -313,7 +315,7 @@
           href: security-recommendations.md
         - name: Just-In-Time 액세스
           href: ../../security-center/security-center-just-in-time.md
-        - name: 암호화
+        - name: Encrypt
           items:
             - name: Windows용 디스크 암호화 시나리오
               href: disk-encryption-windows.md
@@ -648,7 +650,7 @@
               href: migration-classic-resource-manager-faq.md
 - name: 문제 해결
   href: ../troubleshooting/index.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/vm
@@ -672,7 +674,7 @@
 - name: 리소스
   items:
     - name: 작성자 템플릿
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-virtual-machines
     - name: Azure 로드맵

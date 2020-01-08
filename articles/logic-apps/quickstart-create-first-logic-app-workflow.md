@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 45b9cdc74fc57e53ca2cd76f8b1f98671f5bbc7e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428755"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 워크플로 만들기 - Azure Portal
 
@@ -42,11 +42,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![새 논리 앱에 대한 세부 정보 제공](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | 자산 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
-   | **Name** | <*logic-app-name*> | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. |
+   | **이름** | <*logic-app-name*> | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. |
    | **구독** | <*Azure-subscription-name*> | Azure 구독 이름 |
-   | **리소스 그룹** | <*Azure-resource-group-name*> | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |
+   | **리소스 그룹** | <*Azure-resource-group-name*> | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |
    | **위치** | <*Azure-region*> | 논리 앱 정보를 저장할 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. |
    | **Log Analytics** | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. |
    ||||
@@ -77,11 +77,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![RSS 피드, 빈도 및 간격을 사용하여 트리거 설정](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | 자산 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | **RSS 피드 URL** | `http://feeds.reuters.com/reuters/topNews` | 모니터링하려는 RSS 피드에 대한 링크 |
    | **간격** | 1 | 검사 간에 대기하는 간격의 수 |
-   | **Frequency(빈도)** | 분 | 검사 간 간격의 시간 단위  |
+   | **빈도** | Minute | 검사 간 간격의 시간 단위  |
    ||||
 
    간격과 빈도는 논리 앱의 트리거에 대한 일정을 정의합니다. 이 논리 앱은 1분마다 피드를 확인합니다.
@@ -147,7 +147,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
       ![이메일 본문 콘텐츠에 대한 속성 선택](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | 자산 | 설명 |
+      | 속성 | Description |
       |----------|-------------|
       | **피드 제목** | 항목의 제목 |
       | **다음에 게시된 피드** | 항목의 게시 날짜 및 시간 |

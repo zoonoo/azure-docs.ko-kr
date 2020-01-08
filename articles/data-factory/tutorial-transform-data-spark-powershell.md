@@ -10,12 +10,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 62e760da58eeff265e560d7cbc5dc044bf053de2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e70a59a75531cb7c3a7e5c5573f9e50cc574ab09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439142"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Spark 작업 및 주문형 HDInsight 연결된 서비스를 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "74924948"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -90,10 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
       }
     }
 }
@@ -191,7 +188,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
     $resourceGroupName = "ADFTutorialResourceGroup" 
     ```
 
-    **데이터 팩터리 이름. 전역적으로 고유해야 합니다.** 
+    **Data Factory Name. 전역적으로 고유해야 합니다.** 
     ```powershell
     $dataFactoryName = "MyDataFactory09102017"
     ```
@@ -332,7 +329,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
 
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
+이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 구체적으로 다음 작업 방법을 알아보았습니다. 
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다. 

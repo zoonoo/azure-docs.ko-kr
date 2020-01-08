@@ -1,19 +1,18 @@
 ---
 title: 빠른 시작 - Azure Portal을 사용하여 Stream Analytics 작업 만들기
 description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 출력을 구성하고, 쿼리를 정의하여 시작하는 방법을 보여줍니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431543"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -78,7 +77,7 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
 
 ## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.  
 
@@ -133,7 +132,7 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    |---------|---------|---------|
    |출력 별칭 |   BlobOutput   |   작업의 출력을 식별하는 이름을 입력합니다. |
    |Subscription  |  \<구독\>  |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
-   |Storage 계정 |  asaquickstartstorage |   스토리지 계정의 이름을 선택하거나 입력합니다. 스토리지 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
+   |스토리지 계정 |  asaquickstartstorage |   스토리지 계정의 이름을 선택하거나 입력합니다. 스토리지 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
    |컨테이너 |   container1  |  스토리지 계정에서 만든 기존 컨테이너를 선택합니다.   |
 
 4. 다른 옵션을 기본값으로 유지하고 **저장**을 선택하여 설정을 저장합니다.  

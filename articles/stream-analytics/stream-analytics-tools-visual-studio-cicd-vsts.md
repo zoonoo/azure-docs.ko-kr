@@ -1,7 +1,6 @@
 ---
 title: CI/CD 및 Azure DevOps를 사용하여 Azure Stream Analytics 작업 배포
 description: 이 문서에서는 Azure DevOps Services를 사용하여 CI/CD로 Stream Analytics 작업을 배포하는 방법을 설명합니다.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -9,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354426"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>자습서: Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포
 이 자습서에서는 Azure Pipelines를 사용하여 Azure Stream Analytics 작업의 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 프로젝트에 소스 제어 추가
@@ -27,7 +26,7 @@ ms.locfileid: "72925077"
 > * Azure Pipelines에서 릴리스 파이프라인 만들기
 > * 애플리케이션 자동 배포 및 업그레이드
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음이 필요합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -152,7 +151,7 @@ Azure DevOps Services에 변경 내용을 푸시하면 빌드가 자동으로 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용되는 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 자습서에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 자습서에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.

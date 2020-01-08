@@ -56,6 +56,8 @@
           href: customize-rdp-properties.md
         - name: 풀링된 호스트 풀에 대한 부하 분산
           href: configure-host-pool-load-balancing.md
+        - name: 개인 데스크톱 할당 유형
+          href: configure-host-pool-personal-desktop-assignment-type.md
     - name: Windows Virtual Desktop 라이선스 사용
       href: apply-windows-license.md
     - name: 세션 호스트 이미지 사용자 지정
@@ -68,8 +70,12 @@
       href: set-up-scaling-script.md
     - name: 피드 사용자 지정
       href: customize-feed-for-virtual-desktop-users.md
-    - name: 진단 도구 배포
-      href: deploy-diagnostics.md
+    - name: 서비스 진단 사용
+      items:
+        - name: 진단 도구 배포
+          href: deploy-diagnostics.md
+        - name: Log Analytics에서 진단 사용
+          href: diagnostics-log-analytics.md
     - name: 기본 제공 앱 게시
       href: publish-apps.md
     - name: MSIX 앱 연결 설정
@@ -78,8 +84,6 @@
   items:
     - name: Windows Virtual Desktop 환경
       href: environment-setup.md
-    - name: 원격 세션에 대한 대역폭 권장 사항
-      href: bandwidth-recommendations.md
     - name: 사용자 연결 대기 시간 확인
       href: connection-latency.md
     - name: Windows Virtual Desktop에서 위임된 액세스
@@ -110,13 +114,15 @@
       href: troubleshoot-windows-7-vm.md
     - name: Windows Virtual Desktop 관리 도구 문제 해결
       href: troubleshoot-management-tool.md
-    - name: 원격 데스크톱 클라이언트 연결
-      href: troubleshoot-client-connection.md
+    - name: 원격 데스크톱 서비스 연결
+      href: troubleshoot-service-connection.md
+    - name: 원격 데스크톱 클라이언트 문제
+      href: troubleshoot-client.md
     - name: Windows Virtual Desktop PowerShell
       href: troubleshoot-powershell.md
     - name: 그래픽 성능 문제 진단
       href: remotefx-graphics-performance-counters.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: PowerShell
       href: /powershell/windows-virtual-desktop/overview

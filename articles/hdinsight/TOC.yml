@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: HDInsight 클러스터 관리 - Powershell
           href: ./hdinsight-administer-use-powershell.md
+        - name: Runbook을 사용하여 클러스터 만들기
+          href: ./manage-clusters-runbooks.md
         - name: ETL 파이프라인 빌드
           href: ./hdinsight-sales-insights-etl.md
     - name: 샘플
@@ -73,14 +75,29 @@
               href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
             - name: .NET을 사용하여 클러스터 만들기
               href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        - name: 클러스터 스토리지 사용
-          items:
-            - name: Azure Storage 사용
-              href: hdinsight-hadoop-use-blob-storage.md
-            - name: Azure Data Lake Storage Gen2 사용
-              href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Azure Data Lake Storage Gen1 사용
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: 클러스터 만들기 오류
+              href: ./create-cluster-error-dictionary.md
+              title: null
+              summary: null
+              abstract: null
+              achievement: null
+              iconUrl: null
+              levels:
+                - null
+              roles:
+                - null
+              products:
+                - null
+              units:
+                - null
+                - name: 클러스터 스토리지 사용
+                  items:
+                    - name: Azure Storage 사용
+                      href: hdinsight-hadoop-use-blob-storage.md
+                    - name: Azure Data Lake Storage Gen2 사용
+                      href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+                    - name: Azure Data Lake Storage Gen1 사용
+                      href: hdinsight-hadoop-use-data-lake-store.md
         - name: 클러스터 확장
           items:
             - name: HDInsight 앱 설치
@@ -201,7 +218,7 @@
               href: ./hdinsight-key-scenarios-to-monitor.md
             - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
               href: ./hdinsight-cluster-availability.md
-    - name: 참고 자료
+    - name: 참조
       items:
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
@@ -533,6 +550,8 @@
           href: ./hdinsight-apache-kafka-spark-structured-streaming.md
     - name: 개념
       items:
+        - name: Kafka 워크로드를 4.0으로 마이그레이션
+          href: ./kafka/migrate-versions.md
         - name: 스토리지 및 확장성
           href: ./kafka/apache-kafka-scalability.md
         - name: 데이터 고가용성
@@ -545,6 +564,8 @@
       items:
         - name: 개발
           items:
+            - name: Kafka REST 프록시 사용
+              href: ./kafka/rest-proxy.md
             - name: 자동 항목 만들기 사용
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: IoT Hub와 함께 Apache Kafka 사용
@@ -565,7 +586,7 @@
               href: ./kafka/apache-kafka-mirroring.md
             - name: Apache Kafka 로그 분석
               href: ./kafka/apache-kafka-log-analytics-operations-management.md
-            - name: Bring Your Own Key
+            - name: 사용자 고유 키 가져오기
               href: ./kafka/apache-kafka-byok.md
             - name: SSL 암호화 및 인증
               href: ./kafka/apache-kafka-ssl-encryption-authentication.md
@@ -707,6 +728,8 @@
               href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
             - name: 저속 reducer
               href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+            - name: Apache Hive 게이트웨이 시간 제한
+              href: ./interactive-query/troubleshoot-gateway-timeout.md
             - name: Apache Hive 보기 시간 제한
               href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
             - name: 테이블 만들기 권한 오류
@@ -835,14 +858,14 @@
           href: ./hdinsight-service-tags.md
     - name: 방법
       items:
+        - name: 자격 증명 관리에 ID 브로커 사용
+          href: ./domain-joined/identity-broker.md
         - name: ESP 클러스터 생성 및 온-프레미스와 동기화
           href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
         - name: HDInsight용 VNET 만들기
           href: ./hdinsight-create-virtual-network.md
         - name: 온-프레미스 네트워크와 HDInsight 연결
           href: ./connect-on-premises-network.md
-        - name: HDInsight에서 엔터프라이즈 보안 구성
-          href: ./domain-joined/apache-domain-joined-configure.md
         - name: Azure AD DS를 사용하여 ESP 클러스터 구성
           href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
         - name: Azure AD 사용자를 HDInsight 클러스터에 동기화

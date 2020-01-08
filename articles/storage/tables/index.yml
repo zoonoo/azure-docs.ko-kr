@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Azure Table Storage 설명서
+summary: Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스로, 스키마 없이 디자인된 키/특성 저장소를 제공합니다.
+metadata:
+  title: Azure Table Storage 설명서
+  description: Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스로, 스키마 없이 디자인된 키/특성 저장소를 제공합니다.
+  ms.service: storage
+  ms.subservice: tables
+  ms.topic: landing-page
+  ms.collection: collection
+  author: tamram
+  ms.author: tamram
+  ms.date: 12/23/2019
+  ms.openlocfilehash: 73dc70fb31508667ebcab4803a9263c716ce35c2
+  ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75551899"
+landingContent:
+- title: Table Storage 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Table Storage란?
+      url: table-storage-overview.md
+    - text: Table Storage 또는 Table API 선택
+      url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+- title: 테이블 디자인 지침
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 효율적인 읽기 및 쓰기를 위한 디자인
+      url: table-storage-design-guidelines.md
+    - text: 쿼리를 위한 디자인
+      url: table-storage-design-for-query.md
+    - text: 데이터 수정을 위한 디자인
+      url: table-storage-design-for-modification.md
+    - text: 테이블 디자인 패턴
+      url: table-storage-design-patterns.md
+- title: 성능, 크기 조정 및 비용 최적화
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Table Storage에 대한 성능 검사 목록
+      url: storage-performance-checklist.md
+    - text: 최적의 성능을 위한 디자인
+      url: table-storage-design.md
+  - linkListType: reference
+    links:
+    - text: Table Storage의 확장성 목표
+      url: scalability-targets.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal에서 테이블 만들기
+      url: table-storage-quickstart-portal.md

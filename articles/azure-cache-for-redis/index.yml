@@ -1,0 +1,100 @@
+### YamlMime:Landing
+title: Azure Cache for Redis 설명서
+summary: 애플리케이션의 데이터에 대한 많은 처리량을 짧은 대기 시간 동안 처리할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Cache for Redis를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Azure에 있는 애플리케이션의 Azure Cache for Redis를 사용하는 방법을 보여 줍니다.
+metadata:
+  title: Azure Cache for Redis 설명서
+  description: 애플리케이션이 데이터에 빠르게 액세스할 수 있도록 지원하는 보안 데이터 캐시 및 메시징 broker인 Azure Cache for Redis를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
+  ms.service: cache
+  ms.topic: landing-page
+  author: yegu-ms
+  ms.author: yegu
+  ms.date: 12/16/2019
+  ms.openlocfilehash: fad78db361927a14f393066fb088354552d880a9
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75470035"
+landingContent:
+- title: Azure Cache for Redis 소개
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Cache for Redis란?
+      url: cache-overview.md
+    - text: Azure Cache for Redis 프리미엄 계층에 대해 알아보기
+      url: cache-premium-tier-intro.md
+  - linkListType: video
+    links:
+    - text: 관리 옵션
+      url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
+    - text: 보안 캐싱
+      url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
+    - text: 모범 사례
+      url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
+    - text: 성능 향상
+      url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
+  - linkListType: whats-new
+    links:
+    - text: 질문과 대답
+      url: cache-faq.md
+    - text: Azure Cache for Redis의 모범 사례
+      url: cache-best-practices.md
+    - text: Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
+      url: cache-aspnet-session-state-provider.md
+- title: '빠른 시작: Azure Cache for Redis'
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: .NET Framework 앱 코딩
+      url: cache-dotnet-how-to-use-azure-redis-cache.md
+    - text: .NET Core 앱 코딩
+      url: cache-dotnet-core-quickstart.md
+    - text: ASP.NET 웹앱 코딩
+      url: cache-web-app-howto.md
+    - text: Java 앱 코딩
+      url: cache-java-get-started.md
+    - text: Node.js 앱 코딩
+      url: cache-nodejs-get-started.md
+    - text: Python 앱 코딩
+      url: cache-python-get-started.md
+  - linkListType: tutorial
+    links:
+    - text: ASP.NET에서 캐시 배제 순위표 만들기
+      url: cache-web-app-cache-aside-leaderboard.md
+  - linkListType: get-started
+    links:
+    - text: 샘플
+      url: cache-redis-samples.md
+- title: SDK 및 명령줄
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.management.redis
+    - text: Java
+      url: /java/api/com.microsoft.azure.management.redis.rediscache
+    - text: REST API
+      url: /rest/api/redis/
+    - text: Redis 클라이언트
+      url: https://redis.io/clients
+    - text: Redis 명령
+      url: https://redis.io/commands
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.rediscache
+    - text: Azure CLI
+      url: /cli/azure/redis
+- title: 문제 해결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 클라이언트 쪽 문제 해결
+      url: cache-troubleshoot-client.md
+    - text: 서버 쪽 문제 해결
+      url: cache-troubleshoot-server.md
+    - text: 시간 제한 문제 해결
+      url: cache-troubleshoot-timeouts.md
+    - text: 데이터 손실 문제 해결
+      url: cache-troubleshoot-data-loss.md

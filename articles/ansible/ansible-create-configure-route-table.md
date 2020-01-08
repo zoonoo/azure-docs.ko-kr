@@ -4,12 +4,12 @@ description: Ansible을 사용하여 Azure 경로 테이블을 생성, 관리 �
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, 네트워킹, 경로, 경로 테이블
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d1e44a98405bc1009f6f3d56d90fc1fd655d77d5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1f08aebe7e9dcc1c5687f50ac91c7cb8cc8a62eb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156499"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659800"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>자습서: Ansible을 사용하여 Azure 경로 테이블 구성
 
@@ -23,14 +23,14 @@ Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 
 >
 > 경로 테이블 만들기 가상 네트워크 및 서브넷 만들기 경로 테이블을 서브넷에 연결 서브넷에서 경로 테이블 분리 경로 삭제 경로 테이블 쿼리 경로 테이블 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
-이 섹션의 플레이북 코드는 경로 테이블을 만듭니다. 경로 테이블 제한에 대한 내용은 [Azure 제한](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
+이 섹션의 플레이북 코드는 경로 테이블을 만듭니다. 경로 테이블 제한에 대한 내용은 [Azure 제한](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
 
 다음 플레이북을 `route_table_create.yml`로 저장합니다.
 
@@ -46,7 +46,7 @@ Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 
         resource_group: "{{ resource_group }}"
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_create.yml
@@ -103,7 +103,7 @@ ansible-playbook route_table_create.yml
         route_table: "{ route_table_name }"
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_associate.yml
@@ -132,7 +132,7 @@ ansible-playbook route_table_associate.yml
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_dissociate.yml
@@ -160,12 +160,12 @@ ansible-playbook route_table_dissociate.yml
         route_table_name: "{{ route_table_name }}"
 ```
 
-플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
 
 * `virtual_network_gateway`는 `next_hop_type`으로 정의됩니다. Azure의 경로 선택 방법에 대한 자세한 내용은 [라우팅 개요](/azure/virtual-network/virtual-networks-udr-overview)를 참조하세요.
 * `address_prefix`는 `10.1.0.0/16`으로 정의됩니다. 경로 테이블 내에서 접두사는 중복될 수 없습니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_create.yml
@@ -192,7 +192,7 @@ ansible-playbook route_create.yml
         state: absent
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_delete.yml
@@ -220,7 +220,7 @@ ansible-playbook route_delete.yml
          var: query.route_tables[0]
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_facts.yml

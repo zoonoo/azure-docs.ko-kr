@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: 62a16a6a96fbfdfbb4ed2d70b74470e29efaa844
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 03464fca6d7e0694d9492de698c70d5caac89358
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849856"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644480"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Azure의 Azure 기업계약 관리자 역할 이해
 
@@ -38,10 +38,10 @@ ms.locfileid: "74849856"
 
 |역할| 사용자 제한|
 |---|---|
-|엔터프라이즈 관리자|Unlimited|
-|엔터프라이즈 관리자(읽기 전용)|Unlimited|
-|부서 관리자|Unlimited|
-|부서 관리자(읽기 전용)|Unlimited|
+|엔터프라이즈 관리자|제한 없음|
+|엔터프라이즈 관리자(읽기 전용)|제한 없음|
+|부서 관리자|제한 없음|
+|부서 관리자(읽기 전용)|제한 없음|
 |계정 소유자|계정당 1명<sup>1</sup>|
 
 <sup>1</sup> 각 계정마다 고유한 Microsoft 계정이나 회사 또는 학교 계정이 필요합니다.
@@ -95,9 +95,9 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 |---|---|---|---|
 |계정 소유자 또는 부서 관리자|✔ 사용|소유자|조직의 EA 가격|
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함|소유자|소매 가격|
-|계정 소유자 또는 부서 관리자|✔ 사용 |없음|가격 없음|
-|계정 소유자 또는 부서 관리자|✘ 사용 안 함 |없음|가격 없음|
-|없음|해당 없음 |소유자|소매 가격|
+|계정 소유자 또는 부서 관리자|✔ 사용 |none|가격 없음|
+|계정 소유자 또는 부서 관리자|✘ 사용 안 함 |none|가격 없음|
+|None|해당 없음 |소유자|소매 가격|
 
 엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. RBAC 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 

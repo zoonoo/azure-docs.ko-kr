@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 233d8f345eceb188fcc849457c5243a3c64aaec2
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977338"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548856"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>자습서: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 디바이스를 만들고 IoT Central 애플리케이션에 연결
 
@@ -21,14 +21,14 @@ ms.locfileid: "74977338"
 
 _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이](../../iot-pnp/overview-iot-plug-and-play.md) 디바이스의 기능을 설명합니다. 디바이스를 처음으로 연결할 때 IoT Central은 DCM을 사용하여 디바이스 템플릿을 만들고 디바이스를 시각화할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Visual Studio Code에서 DCM을 사용하여 IoT 플러그 앤 플레이 디바이스를 만듭니다.
 > * Windows에서 디바이스 코드를 실행하고 IoT Central 애플리케이션에 연결되는 것을 확인합니다.
 > * 디바이스가 전송하는 시뮬레이션된 원격 분석 데이터 보기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure IoT Central 애플리케이션 만들기(미리 보기 기능)](./quick-deploy-iot-central.md) 빠른 시작을 완료하고 **사용자 지정 앱 > 미리 보기 애플리케이션** 템플릿을 사용하여 IoT Central 애플리케이션을 만듭니다.
 
@@ -166,10 +166,10 @@ _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이](../../iot-pn
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. 빌드가 성공적으로 완료되면 동일한 명령 프롬프트에서 애플리케이션을 실행합니다. `<scopeid>`, `<devicekey>`를 이전에 적어 둔 값으로 바꿉니다.
+1. 빌드가 성공적으로 완료되면 동일한 명령 프롬프트에서 애플리케이션을 실행합니다. `<scopeid>`, `<primarykey>`를 이전에 적어 둔 값으로 바꿉니다.
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
     ```
 
 1. 디바이스 애플리케이션이 IoT Hub로 데이터를 보내기 시작합니다. 이전 명령을 처음 실행할 때 `Error registering device for DPS` 오류가 표시되는 경우도 있습니다. 이 오류가 표시되면 명령을 다시 시도합니다.

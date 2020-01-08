@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 277616d9fcd15affc7ddc8ede5d9af3ff68c62f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 31ae3483ca7cefbb65726f976244d582f1587aaf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926607"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439446"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -42,7 +42,7 @@ ms.locfileid: "74926607"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Storage 계정. Blob 스토리지를 원본 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * Azure Storage Explorer. 이 도구를 설치하려면 [Azure Storage Explorer](https://storageexplorer.com/)를 참조하세요.
@@ -453,9 +453,9 @@ Visual Studio에서 프로젝트로 돌아갑니다. 이제 복사 활동과 `De
 
 파이프라인 코드의 첫 번째 섹션에서는 매개 변수를 정의합니다.
 
-* `sourceBlobContainer`. 원본 Blob 데이터 세트는 파이프라인에서 이 매개 변수를 사용합니다.
-* `sinkBlobContainer`. 싱크 Blob 데이터 세트는 파이프라인에서 이 매개 변수를 사용합니다.
-* `receiver`. 성공 또는 실패 이메일을 받는 사람에게 보내는 파이프라인의 두 웹 활동에서 이 매개 변수를 사용합니다.
+* `sourceBlobContainer`입니다. 원본 Blob 데이터 세트는 파이프라인에서 이 매개 변수를 사용합니다.
+* `sinkBlobContainer`입니다. 싱크 Blob 데이터 세트는 파이프라인에서 이 매개 변수를 사용합니다.
+* `receiver`입니다. 성공 또는 실패 이메일을 받는 사람에게 보내는 파이프라인의 두 웹 활동에서 이 매개 변수를 사용합니다.
 
 ```csharp
 Parameters = new Dictionary<string, ParameterSpecification>
@@ -608,10 +608,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": {
-      "type": "SecureString",
-      "value": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
-    }
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...

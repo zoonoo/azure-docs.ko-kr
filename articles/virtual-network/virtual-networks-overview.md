@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 22c1e3050915fc697a62862620ef492ef22f80b8
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 3aee53b823af5929ce48045d1addcbc4881b2825
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542830"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638275"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -79,7 +79,7 @@ Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 
 
 ## <a name="azure-vnet-limits"></a>Azure VNet 제한
 
-배포할 수 있는 Azure 리소스 수와 관련된 특정 제한이 있습니다. 대부분의 Azure 네트워킹 제한은 최댓값으로 설정됩니다. 그러나 [VNet 제한 페이지](../azure-subscription-service-limits.md#networking-limits)에 지정된 대로 [특정 네트워킹 제한을 늘릴](../azure-supportability/networking-quota-requests.md) 수 있습니다. 
+배포할 수 있는 Azure 리소스 수와 관련된 특정 제한이 있습니다. 대부분의 Azure 네트워킹 제한은 최댓값으로 설정됩니다. 그러나 [VNet 제한 페이지](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)에 지정된 대로 [특정 네트워킹 제한을 늘릴](../azure-supportability/networking-quota-requests.md) 수 있습니다. 
 
 ## <a name="pricing"></a>가격
 

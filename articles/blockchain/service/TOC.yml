@@ -61,23 +61,23 @@
       href: data-manager-cosmosdb.md
 - name: 리소스
   items:
+    - name: Azure Blockchain 개발자 키트
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: Blockchain REST API
       href: 'https://docs.microsoft.com/rest/api/blockchain/'
-    - name: 블로그
-      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: Azure Blockchain Service Visual Studio Code 확장
-      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: 코드 샘플
       href: 'https://github.com/Azure-Samples/blockchain'
-    - name: 커뮤니티
-      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: 포럼
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: MSDN 지원 포럼
       href: 'https://aka.ms/workbenchforum'
+    - name: 커뮤니티 지원
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Stack Overflow 지원
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
     - name: 제품 사용자 의견
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

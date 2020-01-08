@@ -60,7 +60,7 @@
       items: null
     - name: 네트워킹
       href: concepts-network.md
-    - name: Storage
+    - name: 스토리지
       href: concepts-storage.md
     - name: 확장
       href: concepts-scale.md
@@ -218,6 +218,8 @@
           maintainContext: true
         - name: 인증서 회전
           href: certificate-rotation.md
+        - name: 프라이빗 클러스터 만들기
+          href: private-clusters.md
     - name: 모니터링 및 로깅
       items:
         - name: 컨테이너용 Azure Monitor
@@ -309,6 +311,9 @@
         - name: Azure Database for PostgreSQL 사용
           href: ../postgresql/concepts-aks.md
           maintainContext: true
+        - name: Azure API Management 사용
+          href: ../api-management/api-management-kubernetes.md
+          maintainContext: true
     - name: 서비스 메시 선택 및 배포
       items:
         - name: 서비스 메시 정보
@@ -355,7 +360,7 @@
           href: kube-advisor-tool.md
         - name: SSH 노드 액세스
           href: ssh.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/aks

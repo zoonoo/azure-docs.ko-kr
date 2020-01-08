@@ -14,14 +14,14 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 표준 부하 분산 장치 만들기 - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: 표준 Load Balancer 만들기 - 템플릿
+    - name: 표준 부하 분산 장치 만들기 - 템플릿
+      href: quickstart-load-balancer-standard-public-template.md
     - name: 기본 부하 분산 장치 만들기 - Portal
       href: quickstart-create-basic-load-balancer-portal.md
     - name: 기본 부하 분산 장치 만들기 - Azure CLI
       href: quickstart-create-basic-load-balancer-cli.md
     - name: 기본 부하 분산 장치 만들기 - Azure PowerShell
-      href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+      href: quickstart-create-basic-load-balancer-powershell.md
 - name: 자습서
   items:
     - name: VM에 내부 트래픽 부하 분산
@@ -140,7 +140,7 @@
       items:
         - name: Azure Load Balancer 문제 해결
           href: load-balancer-troubleshoot.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'

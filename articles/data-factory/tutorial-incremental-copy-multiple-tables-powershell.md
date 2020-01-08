@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 46e0815ea341b732e20ebe7ffa9af355e1f35e87
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f9d426562f4403776e3926564857b4cdbf0d4390
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439224"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 
@@ -52,7 +52,7 @@ ms.locfileid: "74926468"
 
     b. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
 
-    c. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 스토리지의 델타 데이터를 새 파일로 Azure Blob Storage에 복사합니다.
+    다. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 스토리지의 델타 데이터를 새 파일로 Azure Blob Storage에 복사합니다.
 
     d. 다음에 실행되는 파이프라인에 대한 워터마크 값을 업데이트하는 StoredProcedure 작업을 만듭니다. 
 
@@ -63,7 +63,7 @@ ms.locfileid: "74926468"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
 * **Azure SQL Database**. SQL 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요. 
 
@@ -229,8 +229,8 @@ END
 ### <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
-1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정한 다음 명령을 실행합니다. 예는 `"adfrg"`입니다. 
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
+1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름을 지정한 다음 명령을 실행합니다. 예제는 `"adfrg"`입니다. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -337,7 +337,7 @@ END
     > - Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 섹션을 선택합니다.
     > - &lt;integration runtime name>을 사용자의 통합 런타임 이름으로 바꿉니다.
     > - 파일을 저장하기 전에 &lt;servername>, &lt;databasename>, &lt;username> 및 &lt;password>를 SQL Server 데이터베이스 값으로 바꿉니다.
-    > - 슬래시 문자(`\`)를 사용자 계정 또는 서버 이름에 사용해야 할 경우 이스케이프 문자(`\`)를 사용합니다. 예는 `mydomain\\myuser`입니다.
+    > - 슬래시 문자(`\`)를 사용자 계정 또는 서버 이름에 사용해야 할 경우 이스케이프 문자(`\`)를 사용합니다. 예제는 `mydomain\\myuser`입니다.
 
 1. PowerShell에서 다음 cmdlet을 실행하여 C:\ADFTutorials\IncCopyMultiTableTutorial 폴더로 전환합니다.
 
@@ -520,7 +520,7 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset    
     ```
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. **ForEach 작업**은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
 
 1. **Lookup 작업**을 사용하여 이전 워터마크 값(초기 값 또는 마지막 반복에서 사용된 값)을 검색합니다.

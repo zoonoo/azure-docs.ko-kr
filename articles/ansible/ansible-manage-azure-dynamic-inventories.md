@@ -4,12 +4,12 @@ description: Ansible을 사용하여 Azure 동적 인벤토리를 관리하는 �
 keywords: Ansible, Azure, DevOps, Bash, Cloud Shell, 동적 인벤토리
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: dea6b47e5e263fdd2e048a0435efbebfa90fe69e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442778"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>자습서: Ansible을 사용하여 Azure 리소스의 동적 인벤토리 구성
 
@@ -24,7 +24,7 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
 > * 태그가 지정된 가상 머신에 Nginx 설치
 > * 구성된 Azure 리소스를 포함하는 동적 인벤토리 구성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -228,7 +228,7 @@ Ansible 2.8부터 Ansible은 [Azure 동적 인벤토리 플러그 인](https://g
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     
@@ -239,7 +239,7 @@ Ansible 2.8부터 Ansible은 [Azure 동적 인벤토리 플러그 인](https://g
 
 1. 파일을 저장하고 편집기를 종료합니다.
 
-1. `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+1. 다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
    - Ansible 2.8 이전 버전:
 

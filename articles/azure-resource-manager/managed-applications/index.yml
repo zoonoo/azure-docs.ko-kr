@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: 관리형 애플리케이션 설명서
+summary: 소비자가 손쉽게 배포하고 운영할 수 있는 클라우드 솔루션을 제공합니다.
+metadata:
+  title: Azure 관리형 애플리케이션 설명서
+  description: Azure 관리되는 애플리케이션을 사용하면 고객의 배포 및 운영이 용이한 클라우드 솔루션을 제공할 수 있습니다.
+  ms.service: managed-applications
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: 60f7d4b9c9bd9057e0869b3efe1843eeb8d873f8
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75648381"
+landingContent:
+- title: 관리형 애플리케이션 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 관리형 애플리케이션이란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 보기 정의 아티팩트
+      url: concepts-view-definition.md
+    - text: 연결에 대한 Azure Policy
+      url: concepts-built-in-policy.md
+    - text: 역할 정의 아티팩트
+      url: concepts-custom-role-definition.md
+- title: 관리형 애플리케이션 만들기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 애플리케이션 정의 게시
+      url: publish-managed-app-definition-quickstart.md
+    - text: 서비스 카탈로그 앱 배포
+      url: deploy-service-catalog-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: 정의 파일 만들기
+      url: publish-service-catalog-app.md
+    - text: 마켓플레이스 애플리케이션 게시
+      url: publish-marketplace-app.md
+    - text: 사용자 지정 공급자를 사용하여 관리되는 애플리케이션 만들기
+      url: tutorial-create-managed-app-with-custom-provider.md
+  - linkListType: how-to-guide
+    links:
+    - text: Key Vault의 암호 사용
+      url: key-vault-access.md
+    - text: 포털을 통해 게시
+      url: publish-portal.md
+- title: Access Control
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Just-In-Time 액세스 요청
+      url: request-just-in-time-access.md
+    - text: Just-In-Time 액세스 승인
+      url: approve-just-in-time-access.md
+    - text: 관리 ID를 사용하여 배포
+      url: publish-managed-identity.md
+- title: 포털 UI 만들기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 포털 인터페이스 만들기
+      url: create-uidefinition-overview.md
+    - text: 포털 인터페이스 테스트
+      url: test-createuidefinition.md
+    - text: 사용자 인터페이스 요소 아티팩트
+      url: reference-createuidefinition-artifact.md
+    - text: 인터페이스 요소
+      url: create-uidefinition-elements.md
+    - text: 인터페이스 함수
+      url: create-uidefinition-functions.md
+- title: 리소스 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 배포된 인스턴스 모니터링
+      url: monitor-managed-application-portal.md
+    - text: 알림을 사용하여 배포
+      url: publish-notifications.md
+    - text: 관리되는 리소스 업데이트
+      url: update-managed-resources.md

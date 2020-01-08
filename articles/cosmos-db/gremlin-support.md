@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 0c1ca054f9d28bb81c6f8acf6c0f43b134a596ed
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293772"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75499986"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
 Azure Cosmos DB는 [Apache Tinkerpop의](https://tinkerpop.apache.org) 그래프 순회 언어인 [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
@@ -48,7 +48,7 @@ TinkerPop은 광범위한 그래프 기술을 지원하는 표준입니다. 따�
 
 ## <a name="gremlin-wire-format-graphson"></a>Gremlin 통신 형식: GraphSON
 
-Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](http://tinkerpop.apache.org/docs/current/reference/#graphson)을 사용합니다. Azure Cosmos DB는 현재 "GraphSONv2" 버전을 지원합니다. GraphSON은 JSON을 사용하여 꼭짓점, 에지 및 속성(단일 및 다중 값 속성)을 나타내기 위한 Gremlin 표준 형식입니다.
+Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](https://tinkerpop.apache.org/docs/current/reference/#graphson)을 사용합니다. Azure Cosmos DB는 현재 "GraphSONv2" 버전을 지원합니다. GraphSON은 JSON을 사용하여 꼭짓점, 에지 및 속성(단일 및 다중 값 속성)을 나타내기 위한 Gremlin 표준 형식입니다.
 
 예를 들어 다음 코드 조각은 Azure Cosmos DB에서 *클라이언트로 반환되는* 꼭짓점의 GraphSON 표현을 보여 줍니다. 
 
@@ -91,7 +91,7 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 
 꼭짓점에 대해 GraphSON에서 사용되는 속성은 다음과 같습니다.
 
-| 자산 | 설명 | 
+| 속성 | Description | 
 | --- | --- | --- |
 | `id` | 꼭짓점의 ID입니다. 고유해야 합니다(해당되는 경우 `_partition` 값과 조합). 값이 제공되지 않으면 GUID가 자동으로 제공됩니다. | 
 | `label` | 꼭짓점의 레이블입니다. 이 속성은 엔터티 형식을 설명하는 데 사용됩니다. |
@@ -102,7 +102,7 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 
 또한 에지에는 그래프의 다른 부분으로 탐색하는 데 도움이 되는 다음 정보가 포함됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | `id` | 에지의 ID입니다. 고유해야 합니다(해당되는 경우 `_partition` 값과 조합). |
 | `label` | 에지의 레이블입니다. 이 속성은 선택 사항이며, 관계 유형을 설명하는 데 사용됩니다. |
@@ -111,14 +111,14 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 
 각 속성은 배열 내에 여러 값을 저장할 수 있습니다. 
 
-| 자산 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | `value` | 속성의 값입니다.
 
 ## <a name="gremlin-steps"></a>Gremlin 단계
 이제 Azure Cosmos DB에서 지원되는 Gremlin 단계를 살펴보겠습니다. Gremlin에 대한 전체 참조는 [TinkerPop 참조](https://tinkerpop.apache.org/docs/3.3.2/reference)를 참조하세요.
 
-| 단계 | 설명 | TinkerPop 3.2 설명서 |
+| 단계 | Description | TinkerPop 3.2 설명서 |
 | --- | --- | --- |
 | `addE` | 두 꼭짓점 사이에 에지를 추가합니다. | [addE 단계](https://tinkerpop.apache.org/docs/3.3.2/reference/#addedge-step) |
 | `addV` | 그래프에 꼭짓점을 추가합니다. | [addV 단계](https://tinkerpop.apache.org/docs/3.3.2/reference/#addvertex-step) |

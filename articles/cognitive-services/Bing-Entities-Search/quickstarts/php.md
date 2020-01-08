@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 2328313e15fafb3c0f96fdb77f3023afc1e4774f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383950"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>빠른 시작: PHP를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -23,7 +23,7 @@ ms.locfileid: "74323594"
 
 이 애플리케이션은 PHP로 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [PHP 5.6.x](https://php.net/downloads.php) 이상
 
@@ -36,7 +36,8 @@ ms.locfileid: "74323594"
 1. 즐겨 찾는 IDE에서 새 PHP 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+4. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
+5. 프로그램을 실행합니다.
 
 ```php
 <?php

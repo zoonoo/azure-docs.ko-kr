@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985765"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562139"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -22,7 +22,7 @@ Azure Key Vault의 일시 삭제 기능을 사용하면 삭제된 자격 증명 
 - Key Vault의 복구 가능한 삭제 지원
 - Key Vault 개체(예: 키, 비밀 및 인증서)의 복구 가능한 삭제를 지원
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,9 +39,9 @@ PowerShell에 대한 Key Vault 관련 참조 정보는 [Azure Key Vault PowerShe
 
 Key Vault 작업은 RBAC(역할 기반 액세스 제어) 권한을 통해 다음과 같이 별도로 관리됩니다.
 
-| 작업(Operation) | 설명 | 사용자 권한 |
+| 작업(Operation) | Description | 사용자 권한 |
 |:--|:--|:--|
-|나열|삭제된 Key Vault를 나열합니다.|Microsoft.KeyVault/deletedVaults/read|
+|목록|삭제된 Key Vault를 나열합니다.|Microsoft.KeyVault/deletedVaults/read|
 |복구|삭제된 Key Vault를 복구합니다.|Microsoft.KeyVault/vaults/write|
 |제거|삭제된 Key Vault 및 모든 콘텐츠를 영구적으로 제거합니다.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -160,7 +160,7 @@ Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
-**복구** 및 **제거** 작업은 Key Vault 액세스 정책에 연결된 자체 권한이 있습니다. 사용자 또는 서비스 주체가 **복구** 또는 **제거** 동작을 실행할 수 있도록 하려면 이들이 해당 키 또는 비밀에 대한 적절한 권한을 가지고 있어야 합니다. 기본적으로 '모든' 바로 가기를 사용하여 모든 사용 권한을 부여할 때 **제거**는 키 자격 증명 모음의 액세스 정책에 추가되지 않습니다. **제거** 사용 권한을 명시적으로 부여해야 합니다. 
+**복구** 및 **제거** 작업에는 키 자격 증명 모음 액세스 정책과 연결된 고유 권한이 있습니다. 사용자 또는 서비스 주체가 **복구** 또는 **제거** 동작을 실행할 수 있도록 하려면 이들이 해당 키 또는 비밀에 대한 적절한 권한을 가지고 있어야 합니다. 기본적으로 '모든' 바로 가기를 사용하여 모든 사용 권한을 부여할 때 **제거**는 키 자격 증명 모음의 액세스 정책에 추가되지 않습니다. **제거** 사용 권한을 명시적으로 부여해야 합니다. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Key Vault 액세스 정책 설정
 
@@ -257,4 +257,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## <a name="other-resources"></a>기타 리소스
 
 - Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](key-vault-ovw-soft-delete.md)를 참조하세요.
-- Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](key-vault-overview.md).ate=Succeeded}을 참조하세요.
+- Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요.

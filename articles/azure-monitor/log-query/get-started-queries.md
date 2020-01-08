@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b3b176a6027b0f03c3802867df7be1e339286df2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365328"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
@@ -105,7 +105,7 @@ SecurityEvent
 
 필터 조건을 작성하는 경우 다음 식을 사용할 수 있습니다.
 
-| 식 | 설명 | 예 |
+| 식 | Description | 예제 |
 |:---|:---|:---|
 | == | 같은지 여부를 확인<br>(대/소문자 구분) | `Level == 8` |
 | =~ | 같은지 여부를 확인<br>(대/소문자 구분하지 않음) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

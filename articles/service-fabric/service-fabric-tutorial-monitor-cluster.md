@@ -1,32 +1,23 @@
 ---
-title: Azure에서 Service Fabric 클러스터 모니터링 | Microsoft Docs
+title: Azure에서 Service Fabric 클러스터 모니터링
 description: 이 자습서에서는 Service Fabric 이벤트를 보고, EventStore API를 쿼리하고, 성능 카운터를 모니터링하고, 상태 보고서를 확인하여 클러스터를 모니터링하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385268"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376633"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 모니터링
 
 모니터링 및 진단은 모든 클라우드 환경에서 워크로드를 개발, 테스트 및 배포하는 데 중요합니다. 이 자습서는 시리즈의 2부로서 이벤트, 성능 카운터 및 상태 보고서를 사용하여 Service Fabric 클러스터를 모니터링하고 진단하는 방법을 보여 줍니다.   자세한 내용은 [클러스터 모니터링](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) 및 [인프라 모니터링](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring)에 대한 개요를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Service Fabric 이벤트 보기
@@ -45,7 +36,7 @@ ms.locfileid: "68385268"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -484,7 +475,7 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Service Fabric 이벤트 보기

@@ -7,18 +7,34 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 디바이스 만들기 - Windows
-      href: quickstart-create-pnp-device.md
-    - name: 디바이스 만들기 - Linux
-      href: quickstart-create-pnp-device-linux.md
-    - name: IoT Hub에 디바이스 연결 - Windows
-      href: quickstart-connect-pnp-device.md
-    - name: IoT Hub에 디바이스 연결 - Linux
-      href: quickstart-connect-pnp-device-linux.md
+    - name: 디바이스 만들기
+      items:
+        - name: C Linux
+          href: quickstart-create-pnp-device-linux.md
+        - name: C Windows
+          href: quickstart-create-pnp-device-windows.md
+    - name: 디바이스를 IoT Hub에 연결
+      items:
+        - name: C Linux
+          href: quickstart-connect-pnp-device-c-linux.md
+        - name: C Windows
+          href: quickstart-connect-pnp-device-c-windows.md
+        - name: 'C#'
+          href: quickstart-connect-pnp-device-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-node.md
     - name: 디바이스를 IoT Central에 연결
-      href: ../iot-central/preview/quick-create-pnp-device.md
+      href: ../iot-central/preview/tutorial-connect-pnp-device.md
     - name: 솔루션에서 디바이스에 연결
-      href: quickstart-connect-pnp-device-solution.md
+      items:
+        - name: 'C#'
+          href: quickstart-connect-pnp-device-solution-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-solution-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-solution-node.md
 - name: 자습서
   items:
     - name: VS Code를 사용하여 디바이스 만들기
@@ -53,7 +69,7 @@
       href: howto-manage-models.md
     - name: 디바이스에 연결 및 상호 작용
       href: howto-develop-solution.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: REST (영문)
       href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel'

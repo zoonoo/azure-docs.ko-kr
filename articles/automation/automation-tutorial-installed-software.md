@@ -3,20 +3,16 @@ title: Azure Automation을 사용하여 컴퓨터에 설치된 소프트웨어 �
 description: 인벤토리를 사용하여 환경 전체에서 컴퓨터에 설치된 소프트웨어를 검색합니다.
 services: automation
 keywords: 인벤토리, 자동화, 변경, 추적
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 04/11/2018
 ms.topic: tutorial
-ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 47313781756e460a8c30638661489874481b88a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476833"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420569"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure 및 비Azure 컴퓨터에 설치된 소프트웨어 검색
 
@@ -31,11 +27,11 @@ ms.locfileid: "67476833"
 > * 설치된 소프트웨어 보기
 > * 설치된 소프트웨어에 대한 인벤토리 로그 검색
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Azure 구독. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
+* Azure 구독 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 감시자, 작업 Runbook 및 Watcher 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
 * 등록할 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
 

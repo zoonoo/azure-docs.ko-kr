@@ -24,19 +24,19 @@
 - name: 개념
   items:
     - name: 심층 학습 및 AI 프레임워크
-      href: dsvm-deep-learning-ai-frameworks.md
+      href: dsvm-tools-deep-learning-frameworks.md
     - name: 프로그래밍 언어
-      href: dsvm-languages.md
+      href: dsvm-tools-languages.md
     - name: 개발 도구
       href: dsvm-tools-development.md
     - name: ML 및 데이터 과학 도구
-      href: dsvm-ml-data-science-tools.md
+      href: dsvm-tools-data-science.md
     - name: 데이터 플랫폼
-      href: dsvm-data-platforms.md
+      href: dsvm-tools-data-platforms.md
     - name: 데이터 수집 도구
       href: dsvm-tools-ingestion.md
-    - name: 데이터 탐색 및 시각화 도구
-      href: dsvm-tools-explore-and-visualize.md
+    - name: 생산성 도구
+      href: dsvm-tools-productivity.md
     - name: 엔터프라이즈 보안 및 지침
       href: dsvm-enterprise-overview.md
 - name: 샘플
@@ -63,7 +63,7 @@
       href: 'https://stackoverflow.com/search?q=dsvm'
     - name: R 개발자 가이드
       href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
-- name: 참고 자료
+- name: 참조
   items:
     - name: Ubuntu DSVM
       href: reference-ubuntu-vm.md
