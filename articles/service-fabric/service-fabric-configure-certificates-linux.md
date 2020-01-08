@@ -1,24 +1,15 @@
 ---
-title: Linux에서 Azure Service Fabric 애플리케이션에 대한 인증서 구성 | Microsoft Docs
+title: Linux에서 응용 프로그램에 대 한 인증서 구성
 description: Linux 클러스터에서 Service Fabric 런타임을 사용하여 앱에 대한 인증서 구성
-services: service-fabric
-documentationcenter: NA
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: 8ae25a02e6170972972c5b2b7e159ef39d1a3673
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167330"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614590"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 클러스터의 인증서 및 보안
 
@@ -26,7 +17,7 @@ ms.locfileid: "72167330"
 
 ## <a name="location-and-format-of-x509-certificates-on-linux-nodes"></a>Linux 노드에서 X.509 인증서의 위치 및 형식
 
-Service Fabric은 일반적으로 X.509 인증서가 Linux 클러스터 노드의 */var/lib/sfcerts* 디렉터리에 존재할 것으로 예상합니다. 클러스터 인증서, 클라이언트 인증서 등의 경우에 그렇습니다. 경우에 따라 인증서에 대해 *var/lib/sfcerts* 폴더 이외의 위치를 지정할 수 있습니다. 예를 들어 Service Fabric Java SDK를 사용하여 빌드된 Reliable Services를 사용하면 일부 애플리케이션 특정 인증서에 대한 구성 패키지(Settings.xml)를 통해 다른 위치를 지정할 수 있습니다. 자세히 알아보려면 [구성 패키지(Settings.xml)에서 참조되는 인증서](#certificates-referenced-in-the-configuration-package-settingsxml)를 참조하세요.
+Service Fabric은 일반적으로 X.509 인증서가 Linux 클러스터 노드의 */var/lib/sfcerts* 디렉터리에 존재할 것으로 예상합니다. 이는 클러스터 인증서, 클라이언트 인증서 등에 적용 됩니다. 경우에 따라 인증서에 대 한 *var/lib/sfcerts* 폴더 이외의 위치를 지정할 수 있습니다. 예를 들어 Service Fabric Java SDK를 사용하여 빌드된 Reliable Services를 사용하면 일부 애플리케이션 특정 인증서에 대한 구성 패키지(Settings.xml)를 통해 다른 위치를 지정할 수 있습니다. 자세히 알아보려면 [구성 패키지(Settings.xml)에서 참조되는 인증서](#certificates-referenced-in-the-configuration-package-settingsxml)를 참조하세요.
 
 Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 프라이빗 키를 포함하는 .pem 파일 또는 인증서를 포함하는 .crt 파일 및 프라이빗 키를 포함하는 .key 파일로 존재할 것으로 예상합니다. 모든 파일은 PEM 형식이어야 합니다. 
 

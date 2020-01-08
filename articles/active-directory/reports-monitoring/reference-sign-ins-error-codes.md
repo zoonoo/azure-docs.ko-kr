@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786370"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429461"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -36,9 +36,13 @@ ms.locfileid: "74786370"
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>실패한 로그인을 표시하려면 어떻게 해야 합니까? 
 
-[Azure Portal](https://portal.azure.com)에서 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)로 이동합니다.
+[Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory**를 선택 하거나 모든 페이지에서 **Azure Active Directory** 을 검색 하 여 선택 합니다.
 
-![로그인 활동](./media/reference-sign-ins-error-codes/61.png "로그인 작업")
+![Azure Active Directory 선택](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+**모니터링**에서 **로그인** 을 선택 하 여 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)를 엽니다.
+
+![로그인 활동](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "로그인 작업")
 
 **로그인 상태** 드롭다운 상자에서 **실패**를 선택하여 모든 실패한 로그인을 표시하도록 보고서를 필터링합니다.
 
@@ -53,7 +57,7 @@ ms.locfileid: "74786370"
 ## <a name="error-codes"></a>오류 코드
 
 
-|오류|설명|
+|오류|Description|
 |---|---|
 |16000|이것은 오류 조건이 아닌 내부 구현 세부 정보입니다. 이 참조를 무시해도 됩니다.|
 |20001|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|

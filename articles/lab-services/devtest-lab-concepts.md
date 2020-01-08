@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508378"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428909"
 ---
-# <a name="devtest-labs-concepts"></a>DevTest Lab 개념
+# <a name="devtest-labs-concepts"></a>DevTest Lab 컨셉
 ## <a name="overview"></a>개요
 다음은 DevTest Lab 개념 및 정의 목록입니다.
 
 ## <a name="labs"></a>랩
 랩은 VM(Virtual Machines)과 같은 리소스 그룹을 포함하는 인프라로서, 이를 통해 한도 및 할당량을 지정하여 해당 리소스를 더 잘 관리할 수 있습니다.
 
-## <a name="virtual-machine"></a>가상 컴퓨터
+## <a name="virtual-machine"></a>가상 머신
 Azure VM은 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](/azure/architecture/guide/technology-choices/compute-decision-tree) 중 하나입니다. Azure VM은 VM을 실행하는 실제 하드웨어를 구입 및 유지 관리할 필요가 없는 가상화의 유연성을 제공합니다. 하지만 VM에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 특정 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
 
 [Azure에서의 Windows 가상 머신 개요](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview)에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법을 설명합니다.
@@ -38,20 +38,20 @@ Azure Claimable VM은 권한이 있는 랩 사용자면 누구나 사용할 수 
 
 클레임할 수 있는 VM은 초기에 특정 사용자에게 할당되지 않지만 모든 사용자의 목록에 있는 "클레임할 수 있는 가상 머신"에 표시됩니다. VM이 사용자에 의해 클레임되면 해당 사용자의 “내 가상 머신” 영역으로 이동되며 더 이상 다른 사용자가 클레임할 수 없습니다.
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>환경
 DevTest 랩에서 환경은 랩에 있는 Azure 리소스 컬렉션을 나타냅니다. [이 블로그 게시물](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/)에서는 Azure Resource Manager 템플릿에서 다중 VM 환경을 만드는 방법을 설명합니다.
 
 ## <a name="base-images"></a>기본 이미지
 기본 이미지는 VM을 빠르게 만들기 위해 미리 설치되고 구성된 모든 도구와 설정이 포함된 VM 이미지입니다. 기존 기본 항목을 선택하고 테스트 에이전트를 설치하기 위한 아티팩트를 추가하여 VM을 프로비전할 수 있습니다. 그런 다음 프로비전된 VM을 기본으로 설정하면 프로비전된 각각의 VM에 대한 테스트 에이전트를 다시 설치하지 않고도 기본을 사용할 수 있습니다.
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>Artifacts
 VM이 프로비전된 후 애플리케이션을 배포하고 구성하기 위해 아티팩트가 사용됩니다. 아티팩트는 다음과 같을 수 있습니다.
 
 * VM에 설치하려는 도구(예: 에이전트, Fiddler 및 Visual Studio)
 * VM에서 실행하려는 작업(예: 리포지토리 복제)
 * 테스트하려는 애플리케이션.
 
-아티팩트는 배포를 수행하고 구성을 적용하기 위한 지침이 포함된 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) JSON 파일입니다.
+아티팩트는 배포를 수행하고 구성을 적용하기 위한 지침이 포함된 [Azure Resource Manager](../azure-resource-manager/management/overview.md) JSON 파일입니다.
 
 ## <a name="artifact-repositories"></a>아티팩트 리포지토리
 아티팩트 리포지토리는 아티팩트가 체크 인되는 Git 리포지토리입니다. 아티팩트 리포지토리를 조직에 있는 여러 개의 랩에 추가하면 다시 사용하거나 공유할 수 있습니다.
@@ -82,7 +82,7 @@ DevTest Lab에서 사용자 지정 역할을 만드는 방법을 보려면 [특�
 
 범위는 계층적이므로 사용자가 특정 범위에서 사용 권한을 가진 경우 포함된 모든 하위 수준 범위에서 해당 사용 권한이 자동으로 부여됩니다. 예를 들어 사용자가 구독 소유자의 역할에 할당되면 모든 가상 머신, 모든 가상 네트워크 및 모든 랩을 포함하는 구독의 모든 리소스에 대한 액세스를 가집니다. 따라서 구독 소유자는 자동으로 랩 소유자의 역할을 상속합니다. 그러나 반대의 경우는 적용되지 않습니다. 랩 소유자는 구독 수준보다 낮은 범위인 랩에 대한 액세스를 가집니다. 따라서 랩 소유자는 랩 외부에 있는 가상 머신 또는 가상 네트워크 또는 리소스를 볼 수 없습니다.
 
-## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+## <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 이 문서에 설명된 모든 개념은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. 이러한 템플릿에서는 Azure 솔루션의 인프라/구성을 정의하고 반복적으로 일관된 상태로 배포할 수 있습니다.
 
 [Azure Resource Manager 템플릿의 구조 및 구문 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format)에서는 Azure Resource Manager 템플릿의 구조 및 템플릿의 여러 섹션에서 사용 가능한 속성을 설명합니다.

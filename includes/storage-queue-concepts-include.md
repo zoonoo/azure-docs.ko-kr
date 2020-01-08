@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 24e755edbb18e85bcaa97435dee27418c1457221
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 59dd5d38b1cb89ce966a74284f0e392af52e9827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457663"
 ---
 ## <a name="what-is-queue-storage"></a>Queue storage 란?
 
@@ -22,14 +22,13 @@ Azure 큐 서비스에는 다음 구성 요소가 포함 되어 있습니다.
 
 ![Azure 큐 서비스 구성 요소](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
-* **URL 형식:** 다음 URL 형식을 사용하여 큐에 주소를 지정할 수 있습니다.   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+* **URL 형식:** 다음 URL 형식을 사용 하 여 큐에 주소를 지정할 수 있습니다. http://`<storage account>`. queue.core.windows.net/`<queue>`
   
     다음 URL은 다이어그램에 있는 큐의 주소를 지정합니다.  
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* **Storage 계정:** Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. Storage 계정 용량에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) (영문)를 참조하십시오.
+* **Storage 계정:** Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 저장소 계정에 대 한 자세한 내용은 [저장소 계정 개요] [.를 참조 하세요. /articles/storage/common/storage-account-overview.md].
 * **큐:** 큐에는 메시지 집합이 포함됩니다. 모든 메시지는 큐에 있어야 합니다. 큐 이름은 모두 소문자여야 합니다. 큐의 명명에 대한 자세한 내용은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/azure/dd179349.aspx)을 참조하세요.
 * **메시지:** 최대 64KB인 임의 형식의 메시지입니다. 메시지가 큐에 남아 있을 수 있는 최대 시간은 7일입니다. 2017-07-29 이상 버전에서 허용되는 최대 TTL(Time to Live)은 모든 양수 또는 메시지가 만료되지 않는 -1입니다. 이 매개 변수를 생략하면 기본 TTL(Time to Live)은 7일입니다.
 

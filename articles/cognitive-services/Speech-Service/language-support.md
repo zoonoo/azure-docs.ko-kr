@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381055"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 지역 지원
 
@@ -26,47 +26,47 @@ ms.locfileid: "74815375"
 
 Microsoft Speech SDK와 REST API는 모두 다음 언어 (로캘)를 지원 합니다. 정확도를 높이기 위해 오디오 + 사람이 레이블 지정 된 성적 증명서 또는 관련 텍스트: 문장을 업로드 하 여 언어의 하위 집합에 대 한 사용자 지정이 제공 됩니다.  음성 사용자 지정은 현재 `en-US` 및 `de-DE`에 대해서만 사용할 수 있습니다. [여기](how-to-custom-speech.md)에서 사용자 지정에 대해 자세히 알아보세요.
 
- Locale | 언어 | 지원됨 | 사용자 지정 가능
+ 로캘 | 언어 | 지원됨 | 사용자 지정 가능
 ------|------------|-----------|-------------
-`ar-EG` | 아랍어(이집트), 현대 표준 | yes | yes
-`ar-SA` | 아랍어(사우디아라비아) | yes | yes
-`ar-AE` | 아랍어 (아랍에미리트) | yes | yes
-`ar-KW` | 아랍어 (쿠웨이트) | yes | yes
-`ar-QA` | 아랍어 (카타르) | yes | yes
-`ca-ES` | 카탈로니아어 | yes | 아닙니다.
-`da-DK` | 덴마크어(덴마크) | yes | 아닙니다.
-`de-DE` | 독일어(독일) | yes | yes
-`en-AU` | 영어(오스트레일리아) | yes | yes
-`en-CA` | 영어(캐나다) | yes | yes
-`en-GB` | 영어(영국) | yes | yes
-`en-IN` | 영어(인도) | yes | yes
-`en-NZ` | 영어(뉴질랜드) | yes | yes
-`en-US` | 영어 (영국) | yes | yes
-`es-ES` | 스페인어(스페인) | yes | yes
-`es-MX` | 스페인어(멕시코) | yes | yes
-`fi-FI` | 핀란드어(핀란드) | yes | 아닙니다.
-`fr-CA` | 프랑스어(캐나다) | yes | yes
-`fr-FR` | 프랑스어(프랑스) | yes | yes
-`gu-IN` | 구자라트어 (인도) | yes | yes
-`hi-IN` | 힌디어(인도) | yes | yes
-`it-IT` | 이탈리아어(이탈리아) | yes | yes
-`ja-JP` | 일본어(일본) | yes | yes
-`ko-KR` | 한국어(한국) | yes | yes
-`mr-IN` | 마라티어 (인도) | yes | yes
-`nb-NO` | 노르웨이어(복말)(노르웨이) | yes | 아닙니다.
-`nl-NL` | 네덜란드어(네덜란드) | yes | yes
-`pl-PL` | 폴란드어(폴란드) | yes | 아닙니다.
-`pt-BR` | 포르투갈어 (브라질) | yes | yes
-`pt-PT` | 포르투갈어(포르투갈) | yes | yes
-`ru-RU` | 러시아어(러시아) | yes | yes
-`sv-SE` | 스웨덴어(스웨덴) | yes | 아닙니다.
-`ta-IN` | 타밀어(인도) | yes | yes
-`te-IN` | 텔루구어(인도) | yes | yes
-`zh-CN` | 중국어(북경어, 간체) | yes | yes
-`zh-HK` | 중국어(광동어, 번체) | yes | yes
-`zh-TW` | 중국어(대만어) | yes | yes
-`th-TH` | 태국어(태국) | yes | 아닙니다.
-`tr-TR` | 터키 | yes | yes
+`ar-EG` | 아랍어(이집트), 현대 표준 | 예 | 예
+`ar-SA` | 아랍어(사우디아라비아) | 예 | 예
+`ar-AE` | 아랍어 (아랍에미리트) | 예 | 예
+`ar-KW` | 아랍어(쿠웨이트) | 예 | 예
+`ar-QA` | 아랍어(카타르) | 예 | 예
+`ca-ES` | 카탈로니아어 | 예 | 아닙니다.
+`da-DK` | 덴마크어(덴마크) | 예 | 아닙니다.
+`de-DE` | 독일어(독일) | 예 | 예
+`en-AU` | 영어(오스트레일리아) | 예 | 예
+`en-CA` | 영어(캐나다) | 예 | 예
+`en-GB` | 영어(영국) | 예 | 예
+`en-IN` | 영어(인도) | 예 | 예
+`en-NZ` | 영어(뉴질랜드) | 예 | 예
+`en-US` | 영어 (영국) | 예 | 예
+`es-ES` | 스페인어(스페인) | 예 | 예
+`es-MX` | 스페인어(멕시코) | 예 | 예
+`fi-FI` | 핀란드어(핀란드) | 예 | 아닙니다.
+`fr-CA` | 프랑스어(캐나다) | 예 | 예
+`fr-FR` | 프랑스어(프랑스) | 예 | 예
+`gu-IN` | 구자라트어 (인도) | 예 | 예
+`hi-IN` | 힌디어(인도) | 예 | 예
+`it-IT` | 이탈리아어(이탈리아) | 예 | 예
+`ja-JP` | 일본어(일본) | 예 | 예
+`ko-KR` | 한국어(한국) | 예 | 예
+`mr-IN` | 마라티어(인도) | 예 | 예
+`nb-NO` | 노르웨이어(복말)(노르웨이) | 예 | 아닙니다.
+`nl-NL` | 네덜란드어(네덜란드) | 예 | 예
+`pl-PL` | 폴란드어(폴란드) | 예 | 아닙니다.
+`pt-BR` | 포르투갈어 (브라질) | 예 | 예
+`pt-PT` | 포르투갈어(포르투갈) | 예 | 예
+`ru-RU` | 러시아어(러시아) | 예 | 예
+`sv-SE` | 스웨덴어(스웨덴) | 예 | 아닙니다.
+`ta-IN` | 타밀어(인도) | 예 | 예
+`te-IN` | 텔루구어(인도) | 예 | 예
+`zh-CN` | 중국어(북경어, 간체) | 예 | 예
+`zh-HK` | 중국어(광동어, 번체) | 예 | 예
+`zh-TW` | 중국어(대만어) | 예 | 예
+`th-TH` | 태국어(태국) | 예 | 아닙니다.
+`tr-TR` | 터키 | 예 | 예
 
 ## <a name="text-to-speech"></a>텍스트 음성 변환
 
@@ -81,15 +81,17 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 신경망을 사용 하 여 자연 스런 봇 및 음성 도우미와의 상호 작용을 보다 자연스럽 게 만들고 활용할 수 있습니다. 예를 들어 전자 서적에서 오디오 책으로의 디지털 텍스트를 변환 하 고 자동차 탐색 시스템을 향상 시킬 수 있습니다. 인간과 유사한 자연스러운 운율 및 단어의 명확한 조음을 사용하면 사용자가 AI 시스템과 상호 작용할 때 인공신경망 음성은 수신 피로도를 현저히 줄일 수 있습니다.
 
-인공신경망 음성 및 국가별 가용성 전체 목록은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
+국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-Locale | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 음성 이름
+로캘 | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 음성 이름
 --------|----------|--------|---------|------------
 `de-DE` | 독일어(독일) | 여성 | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
 `en-US` | 영어(미국) | 남성 | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `en-US` | 영어(미국) | 여성 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-us-JessaNeural"
 `it-IT` | 이탈리아어(이탈리아) | 여성 |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
 `zh-CN` | 중국어(본토) | 여성 | "Microsoft Server Speech Text to Speech Voice(zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+
+신경망을 구성 하 고 조정 하는 방법을 알아보려면 [음성 합성 마크업 언어](speech-synthesis-markup.md#adjust-speaking-styles)를 참조 하세요.
 
 > [!NOTE]
 > 음성 합성 요청에서 전체 서비스 이름 매핑 또는 짧은 음성 이름을 사용할 수 있습니다.
@@ -98,9 +100,9 @@ Locale | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 음성 이름
 
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-Locale | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 이름
+로캘 | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 이름
 -------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | 아랍어(이집트) | 여성 | “Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)” | "ar-EG-Hoda"
+<sup>&dagger;</sup>`ar-EG` | 아랍어(이집트) | 여성 | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)" | "ar-EG-Hoda"
 `ar-SA` | 아랍어(사우디아라비아) | 남성 | “Microsoft Server Speech Text to Speech Voice(ar-SA, Naayf)” | "ar-Naayf"
 `bg-BG` | 불가리아어 | 남성 | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)” | "bg-BG-Ivan"
 `ca-ES` | 카탈로니아어(스페인) | 여성 | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)” | "HerenaRUS"
@@ -114,7 +116,7 @@ Locale | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 이름
 `el-GR` | 그리스어 | 남성 | “Microsoft Server Speech Text to Speech Voice(el-GR, Stefanos)” | "el-GR-Stefanos"
 `en-AU` | 영어(오스트레일리아) | 여성 | "Microsoft Server Speech Text to Speech Voice(en-AU, Catherine)" | "en-us-Catherine"
 | | | 여성 | “Microsoft Server Speech Text to Speech Voice(en-AU, HayleyRUS)” | "en-us-HayleyRUS"
-`en-CA` | 영어(캐나다) | 여성 | “Microsoft Server Speech Text to Speech Voice(en-CA, Linda)” | "Linda"
+`en-CA` | 영어(캐나다) | 여성 | "Microsoft Server Speech Text to Speech Voice(en-CA, Linda)" | "Linda"
 | | | 여성 | “Microsoft Server Speech Text to Speech Voice(en-CA, HeatherRUS)” | "HeatherRUS"
 `en-GB` | 영어(영국) | 여성 | “Microsoft Server Speech Text to Speech Voice(en-GB, Susan, Apollo)” | "en-us-김소미-아폴로"
 | | | 여성 | “Microsoft Server Speech Text to Speech Voice(en-GB, HazelRUS)” | "en-us-HazelRUS"
@@ -182,7 +184,7 @@ Locale | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 이름
 | | | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-TW, HanHanRUS)” | "zh-TW-HanHanRUS"
 | | | 남성 | “Microsoft Server Speech Text to Speech Voice(zh-TW, Zhiwei, Apollo)” | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-EG는 MSA(Modern Standard Arabic)를 지원합니다.*
+&dagger; *ar-예: 최신 표준 아랍어 (MSA)를 지원 합니다.*
 
 > [!NOTE]
 > 음성 합성 요청에서 전체 서비스 이름 매핑 또는 짧은 음성 이름을 사용할 수 있습니다.
@@ -248,7 +250,7 @@ Locale | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 이름
 | 루마니아어      | `ro`          |
 | 러시아어      | `ru`          |
 | 사모아어      | `sm`          |
-| 세르비아어(키릴자모)      | `sr-Cyrl`          |
+| 세르비아어(키릴 자모)      | `sr-Cyrl`          |
 | 세르비아어(라틴 문자)      | `sr-Latn`          |
 | 슬로바키아어     | `sk`          |
 | 슬로베니아어      | `sl`          |

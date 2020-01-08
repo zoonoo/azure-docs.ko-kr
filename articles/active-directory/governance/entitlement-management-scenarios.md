@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리의 일반적인 시나리오-Azure Active Directory
+title: 자격 관리의 일반적인 시나리오-Azure AD
 description: Azure Active Directory 자격 관리의 일반적인 시나리오에 대해 수행 해야 하는 개략적인 단계를 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d2dc82d0e81c9ac374d96387677774dc916b8c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d780e6e11d2c067261f6862e1678ef5de0aaa9bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173492"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422497"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 일반적인 시나리오
 
 여러 가지 방법으로 조직에 대 한 자격 관리를 구성할 수 있습니다. 그러나 처음 시작 하는 경우 관리자, 카탈로그 소유자, 액세스 패키지 관리자, 승인자 및 요청자에 대 한 일반적인 시나리오를 이해 하는 것이 좋습니다.
 
-## <a name="delegate"></a>대리자나
+## <a name="delegate"></a>대리자
 
 ### <a name="administrator-delegate-management-of-resources"></a>관리자: 리소스 관리 위임
 

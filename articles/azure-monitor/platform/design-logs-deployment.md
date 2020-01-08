@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Monitor 작업 영역을 배포 하기 �
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395749"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -63,7 +63,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 비율 | 설명 |
+| 요소 | Description |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -128,7 +128,9 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
 
 ## <a name="ingestion-volume-rate-limit"></a>수집 볼륨 률 제한
 
-Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 기본 수집 율 임계값은 작업 영역 당 **500 m b/분** 으로 설정 됩니다. 데이터를 더 높은 속도로 단일 작업 영역으로 보내는 경우 일부 데이터가 삭제 되 고, 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨이 계속 해 서 속도 제한을 초과 하거나 곧 도달할 것으로 예상 되는 경우 지원 요청을 열어 작업 영역에 대 한 증가를 요청할 수 있습니다.
+Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 기본 수집 율 임계값은 작업 영역 당 **6gb/분** 으로 설정 됩니다. 실제 크기는 로그 길이와 압축 비율에 따라 데이터 형식에 따라 달라질 수 있으므로이 값은 근사치입니다. 이 제한은 에이전트 또는 [데이터 수집기 API](data-collector-api.md)에서 전송 된 데이터에는 적용 되지 않습니다.
+
+데이터를 더 높은 속도로 단일 작업 영역으로 보내는 경우 일부 데이터가 삭제 되 고, 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨이 계속 해 서 속도 제한을 초과 하거나 곧 도달할 것으로 예상 되는 경우 지원 요청을 열어 작업 영역에 대 한 증가를 요청할 수 있습니다.
  
 작업 영역에서 이러한 이벤트에 대해 알리려면 0 보다 많은 결과 클 경고 논리 기반을 사용 하는 다음 쿼리를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다.
 

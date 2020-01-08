@@ -3,16 +3,16 @@ title: 개발자 가이드-IoT 플러그 앤 플레이 미리 보기 | Microsoft
 description: IoT 플러그 앤 플레이 개발자를 위한 장치 모델링에 대 한 설명
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/05/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 21001a22be6297595658ff347e9f8a7b04bb6faf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581618"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531397"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>IoT 플러그 앤 플레이 미리 보기 모델링 개발자 가이드
 
@@ -67,9 +67,9 @@ Implements 섹션에서 인터페이스 목록의 각 항목에는 다음이 포
 
 DTDL을 사용 하면 인터페이스를 사용 하 여 장치의 기능을 설명할 수 있습니다. 인터페이스는 장치에서 구현 하는 _속성_, _원격 분석_및 _명령을_ 설명 합니다.
 
-- `Properties`에 설정해야 합니다에 설정해야 합니다. 속성은 장치의 상태를 나타내는 데이터 필드입니다. 속성을 사용 하 여 냉각수 펌프의 꺼짐 상태와 같은 장치의 내구성이 있는 상태를 나타냅니다. 속성은 장치의 펌웨어 버전 같은 기본 장치 속성을 나타낼 수도 있습니다. 속성은 읽기 전용 또는 쓰기 가능으로 선언할 수 있습니다.
-- `Telemetry`에 설정해야 합니다에 설정해야 합니다. 원격 분석 필드는 센서의 측정값을 나타냅니다. 장치가 센서를 사용 하는 경우에는 센서 데이터를 포함 하는 원격 분석 이벤트를 전송 해야 합니다.
-- `Commands`에 설정해야 합니다에 설정해야 합니다. 명령은 장치의 사용자가 장치에서 실행할 수 있는 메서드를 나타냅니다. 예를 들면 reset 명령 또는 팬을 전환 하는 명령입니다.
+- `Properties`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 속성은 장치의 상태를 나타내는 데이터 필드입니다. 속성을 사용 하 여 냉각수 펌프의 꺼짐 상태와 같은 장치의 내구성이 있는 상태를 나타냅니다. 속성은 장치의 펌웨어 버전 같은 기본 장치 속성을 나타낼 수도 있습니다. 속성은 읽기 전용 또는 쓰기 가능으로 선언할 수 있습니다.
+- `Telemetry`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 원격 분석 필드는 센서의 측정값을 나타냅니다. 장치가 센서를 사용 하는 경우에는 센서 데이터를 포함 하는 원격 분석 이벤트를 전송 해야 합니다.
+- `Commands`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 명령은 장치의 사용자가 장치에서 실행할 수 있는 메서드를 나타냅니다. 예를 들면 reset 명령 또는 팬을 전환 하는 명령입니다.
 
 다음 예제에서는 자동 온도 조절기 장치에 대 한 인터페이스를 보여 줍니다.
 

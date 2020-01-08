@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos 컨테이너에 대 한 전역 분산 트랜잭션 및 분석 저장소
+title: Azure Cosmos 컨테이너에 대 한 전역 분산 트랜잭션 및 분석 (비공개 미리 보기) 저장소
 description: Azure Cosmos 컨테이너에 대 한 트랜잭션 및 분석 저장소와 해당 구성 옵션에 대해 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601226"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445397"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Azure Cosmos 컨테이너에 대 한 전역 분산 트랜잭션 및 분석 저장소
 
-Azure Cosmos 컨테이너는 내부적으로 트랜잭션 저장소 엔진과 업데이트 가능한 분석 저장소 엔진 이라는 두 가지 저장소 엔진으로 지원 됩니다. 저장소 엔진은 모두 더 빠른 업데이트를 위해 로그 구조 및 쓰기에 최적화 되어 있습니다. 그러나 각 항목은 서로 다르게 인코딩됩니다.
+Azure Cosmos 컨테이너는 내부적으로 두 개의 저장소 엔진 (트랜잭션 저장소 엔진) 및 업데이트 가능한 분석 저장소 엔진 (비공개 미리 보기)에서 지원 됩니다. 저장소 엔진은 모두 더 빠른 업데이트를 위해 로그 구조 및 쓰기에 최적화 되어 있습니다. 그러나 각 항목은 서로 다르게 인코딩됩니다.
 
 * **트랜잭션 저장소 엔진** – 빠른 트랜잭션 읽기 및 쿼리를 위해 행 기반 형식으로 인코딩됩니다.
 
@@ -29,8 +29,8 @@ Azure Cosmos 컨테이너는 내부적으로 트랜잭션 저장소 엔진과 �
 
 |기능  |트랜잭션 저장소  |분석 저장소 |
 |---------|---------|---------|
-|Azure Cosmos 컨테이너 당 최대 저장소 |   무제한      |    무제한     |
-|논리적 파티션 키 당 최대 저장소   |   10 GB      |   무제한      |
+|Azure Cosmos 컨테이너 당 최대 저장소 |   제한 없음      |    제한 없음     |
+|논리적 파티션 키 당 최대 저장소   |   10GB      |   제한 없음      |
 |저장소 인코딩  |   내부 형식을 사용 하는 행 기반입니다.   |   Apache Parquet format을 사용 하는 열 기반. |
 |저장소 위치 |   로컬/클러스터 간 Ssd에서 지원 되는 복제 된 저장소입니다. |  저렴 한 원격/오프 클러스터 Ssd에서 지원 되는 복제 된 저장소입니다.       |
 |내구성  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |

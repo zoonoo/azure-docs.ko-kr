@@ -1,14 +1,14 @@
 ---
 title: 관리 그룹으로 작업 하는 방법-Azure 거 버 넌 스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
-ms.date: 05/22/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3b5b67dbf1fad5c74570c4bf70401df1a5ed943f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436549"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "73960234"
 
 ### <a name="change-the-name-in-the-portal"></a>포털에서 이름 변경
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -64,15 +64,13 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 관리 그룹 아래에 자식 관리 그룹 또는 구독이 없습니다.
 
-   - 구독을 관리 그룹 외부로 이동하려면 [다른 관리 그룹으로 구독 이동](#move-subscriptions-in-the-hierarchy)을 참조하세요.
+   - 구독 또는 관리 그룹을 다른 관리 그룹으로 이동 하려면 [계층에서 관리 그룹 및 구독 이동](#moving-management-groups-and-subscriptions)을 참조 하세요.
 
-   - 관리 그룹을 다른 관리 그룹으로 이동하려면 [계층에서 관리 그룹 이동](#move-management-groups-in-the-hierarchy)을 참조하세요.
-
-1. 관리 그룹 ("소유자", "참가자" 또는 "관리 그룹 참가자")에 대 한 쓰기 권한이 있습니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. RBAC 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../../role-based-access-control/overview.md)를 참조하세요.  
+1. 관리 그룹 ("소유자", "참가자" 또는 "관리 그룹 참가자")에 대 한 쓰기 권한이 있어야 합니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. RBAC 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../../role-based-access-control/overview.md)를 참조하세요.  
 
 ### <a name="delete-in-the-portal"></a>포털에서 삭제
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -115,7 +113,7 @@ az account management-group delete --name 'Contoso'
 
 ### <a name="view-in-the-portal"></a>포털에서 보기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -194,27 +192,33 @@ az account management-group show --name 'Contoso'
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="move-subscriptions-in-the-hierarchy"></a>계층에서 구독 이동
+## <a name="moving-management-groups-and-subscriptions"></a>관리 그룹 및 구독 이동   
 
-관리 그룹을 만드는 한 가지 이유는 구독을 번들로 묶는 것입니다. 관리 그룹 및 구독만 다른 관리 그룹의 자식으로 만들 수 있습니다. 관리 그룹으로 이동되는 구독은 부모 관리 그룹에서 모든 사용자 액세스 및 정책을 상속합니다.
+관리 그룹을 만드는 한 가지 이유는 구독을 번들로 묶는 것입니다. 관리 그룹 및 구독만 다른 관리 그룹의 자식으로 만들 수 있습니다. 관리 그룹으로 이동 하는 구독은 부모 관리 그룹의 모든 사용자 액세스 및 정책을 상속 합니다.
 
-구독을 이동 하려면 다음 RBAC 권한이 모두 true 여야 합니다.
+관리 그룹 또는 구독을 다른 관리 그룹의 자식으로 이동 하는 경우 세 가지 규칙을 true로 평가 해야 합니다.
 
-- 자식 구독에 대한 "소유자" 역할
-- 대상 부모 관리 그룹에 대 한 "소유자", "참가자" 또는 "관리 그룹 참가자" 역할
-- 기존 부모 관리 그룹에 대 한 "소유자", "참가자" 또는 "관리 그룹 참가자" 역할
+이동 작업을 수행 하는 경우 다음이 필요 합니다. 
 
-대상 또는 기존 부모 관리 그룹이 루트 관리 그룹인 경우 권한 요구 사항이 적용 되지 않습니다. 루트 관리 그룹은 모든 새 관리 그룹 및 구독에 대 한 기본 랜딩 이므로 항목을 이동할 수 있는 권한이 필요 하지 않습니다.
+-  자식 구독 또는 관리 그룹에 대 한 관리 그룹 쓰기 및 역할 할당 쓰기 권한입니다.
+    - 기본 제공 역할 예제 **소유자**
+- 대상 부모 관리 그룹에 대 한 관리 그룹 쓰기 액세스입니다.
+    - 기본 제공 역할 예: **소유자**, **참가자**, **관리 그룹 참가자**
+- 기존 부모 관리 그룹에 대 한 관리 그룹 쓰기 액세스입니다.
+    - 기본 제공 역할 예: **소유자**, **참가자**, **관리 그룹 참가자**
 
-구독의 소유자 역할이 현재 관리 그룹에서 상속 되는 경우 이동 대상이 제한 됩니다. 소유자 역할이 있는 다른 관리 그룹 으로만 구독을 이동할 수 있습니다. 이를 참여자 인 관리 그룹으로 이동할 수 없습니다. 구독에 대 한 소유권이 손실 될 수 있기 때문입니다. 구독에 대 한 소유자 역할에 직접 할당 된 경우 (관리 그룹에서 상속 되지 않음) 참가자 인 모든 관리 그룹으로 이동할 수 있습니다.
+**예외**: 대상 또는 기존 부모 관리 그룹이 루트 관리 그룹인 경우 권한 요구 사항이 적용 되지 않습니다. 루트 관리 그룹은 모든 새 관리 그룹 및 구독에 대 한 기본 랜딩 이므로 항목을 이동할 수 있는 권한이 필요 하지 않습니다.
+
+구독의 소유자 역할이 현재 관리 그룹에서 상속 되는 경우 이동 대상이 제한 됩니다. 소유자 역할이 있는 다른 관리 그룹 으로만 구독을 이동할 수 있습니다. 이를 참여자 인 관리 그룹으로 이동할 수 없습니다. 구독에 대 한 소유권이 손실 될 수 있기 때문입니다. 구독에 대 한 소유자 역할에 직접 할당 하는 경우 (관리 그룹에서 상속 되지 않음) 참가자 인 모든 관리 그룹으로 이동할 수 있습니다. 
 
 Azure Portal에서 사용 권한을 확인 하려면 관리 그룹을 선택한 다음 **IAM**을 선택 합니다. RBAC 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../../role-based-access-control/overview.md)를 참조하세요.
 
-### <a name="move-subscriptions-in-the-portal"></a>포털에서 구독 이동
 
-#### <a name="add-an-existing-subscription-to-a-management-group"></a>관리 그룹에 기존 구독 추가
+## <a name="move-subscriptions"></a>구독 이동 
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>포털에서 관리 그룹에 기존 구독 추가
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -228,9 +232,9 @@ Azure Portal에서 사용 권한을 확인 하려면 관리 그룹을 선택한 
 
 1. “저장”을 선택합니다.
 
-#### <a name="remove-a-subscription-from-a-management-group"></a>관리 그룹에서 구독 제거
+#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>포털의 관리 그룹에서 구독 제거
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -276,13 +280,11 @@ az account management-group subscription add --name 'Contoso' --subscription '12
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## <a name="move-management-groups-in-the-hierarchy"></a>계층 구조에서 관리 그룹 이동  
-
-부모 관리 그룹을 이동 하면 해당 그룹 아래의 계층 구조가 함께 이동 합니다. 관리 그룹을 이동 하는 데 필요한 액세스 권한은 [관리 그룹 액세스](overview.md#management-group-access)를 참조 하세요.
+## <a name="move-management-groups"></a>관리 그룹 이동 
 
 ### <a name="move-management-groups-in-the-portal"></a>포털에서 관리 그룹 이동
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 

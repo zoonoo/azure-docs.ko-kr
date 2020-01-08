@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353511"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>VPN gateway에 대 한 패킷 캡처 구성
 
@@ -25,6 +25,8 @@ ms.locfileid: "74151847"
 VPN gateway 패킷 캡처는 고객의 요구에 따라 게이트웨이에서 또는 특정 연결에서 실행할 수 있습니다. 동시에 여러 터널에서 패킷 캡처를 실행할 수도 있습니다. VPN 게이트웨이에서 필터링과 함께 단일 또는 양방향 트래픽, IKE 및 ESP 트래픽 및 내부 패킷을 캡처할 수 있습니다.
 
 5 개 튜플 필터 (원본 서브넷, 대상 서브넷, 원본 포트, 대상 포트, 프로토콜) 및 TCP 플래그 (SYN, ACK, FIN, URG, PSH, RST)를 사용 하는 것은 대용량 트래픽에 대 한 문제를 격리 하는 데 유용 합니다.
+
+패킷 캡처를 실행 하는 동안 속성 마다 하나의 옵션만 사용할 수 있습니다.
 
 ## <a name="setup-packet-capture-using-powershell"></a>PowerShell을 사용 하 여 패킷 캡처 설정
 
@@ -62,7 +64,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 - 패킷 캡처 실행은 성능에 영향을 줄 수 있습니다. 필요 하지 않은 경우 패킷 캡처를 중지 해야 합니다.
 - 제안 된 최소 패킷 캡처 기간은 600 초입니다. 패킷 캡처 기간이 짧으면 경로에 있는 여러 구성 요소 간의 문제를 동기화 하기 때문에 전체 데이터를 제공 하지 못할 수 있습니다.
-- 패킷 캡처 데이터 파일은 PCAP 또는 ETL 형식으로 생성 됩니다. 데이터를 이해 하려면 Netmon 파서가 필요할 수 있습니다.
+- 패킷 캡처 데이터 파일은 PCAP 형식으로 생성 됩니다. Wireshark 또는 기타 일반적으로 사용할 수 있는 응용 프로그램을 사용 하 여 PCAP 파일을 엽니다.
 
 ## <a name="next-steps"></a>다음 단계
 

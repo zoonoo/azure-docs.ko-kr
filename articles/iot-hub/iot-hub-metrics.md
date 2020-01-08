@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: f0bcf12a43a4732b371dd2d64c0b174a0087bea9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 20a1ec4b8eb88f5914ce6b27acc8a472e58f5d29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457084"
 ---
 # <a name="understand-iot-hub-metrics"></a>IoT Hub 메트릭 이해
 
@@ -43,71 +43,73 @@ IoT Hub 메트릭은 Azure 구독의 Azure IoT 리소스 상태에 대한 더 �
 
 IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개요를 제공하는 몇 가지 메트릭을 제공합니다. IoT Hub 상태의 큰 그림을 그리기 위해 여러 가지 메트릭의 정보를 결합할 수 있습니다. 다음 테이블에는 각 IoT Hub가 추적하는 메트릭과 각 메트릭이 IoT hub의 전반적인 상태와 어떤 관련성이 있는지 설명합니다.
 
-|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
+|메트릭|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
-|d2c<br>.telemetry<br>.ingress.<br>allProtocol|원격 분석 메시지 보내기 시도|개수|Total|IoT Hub로 보내려 한 디바이스-클라우드 원격 분석 메시지 수|차원 없음|
-|d2c<br>.telemetry<br>.ingress<br>.success|보낸 원격 분석 메시지|개수|Total|IoT Hub로 보내기 성공한 디바이스-클라우드 원격 분석 메시지 수|차원 없음|
-|c2d<br>.commands<br>.egress<br>.complete<br>.success|완료된 명령|개수|Total|디바이스에서 성공적으로 완료한 클라우드-디바이스 명령 수|차원 없음|
-|c2d<br>.commands<br>.egress<br>.abandon<br>.success|중단된 명령|개수|Total|디바이스에서 중단한 클라우드-디바이스 명령 수|차원 없음|
-|c2d<br>.commands<br>.egress<br>.reject<br>.success|거부된 명령|개수|Total|디바이스에서 거부한 클라우드-디바이스 명령 수|차원 없음|
-|디바이스<br>.totalDevices|총 디바이스(사용되지 않음)|개수|Total|IoT 허브에 등록된 디바이스 수|차원 없음|
-|디바이스<br>.connectedDevices<br>.allProtocol|연결된 디바이스(사용되지 않음) |개수|Total|IoT 허브에 연결된 디바이스 수|차원 없음|
-|d2c<br>.telemetry<br>.egress<br>.success|라우팅: 배달된 원격 분석 메시지|개수|Total|IoT Hub 라우팅을 사용하여 모든 엔드포인트에 메시지가 성공적으로 배달된 횟수입니다. 메시지가 여러 엔드포인트로 라우팅되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다. 메시지가 동일한 엔드포인트로 여러 번 배달되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다.|차원 없음|
-|d2c<br>.telemetry<br>.egress<br>.dropped|라우팅: 삭제된 원격 분석 메시지 |개수|Total|데드 엔드포인트로 인해 IoT Hub 라우팅에서 메시지가 삭제된 횟수입니다. 삭제된 메시지는 배달되지 않으므로 이 값은 대체 경로에 배달된 메시지를 계산에 넣지 않습니다.|차원 없음|
-|d2c<br>.telemetry<br>.egress<br>.orphaned|라우팅: 분리된 원격 분석 메시지 |개수|Total|메시지가 라우팅 규칙(대체 규칙 포함)과 일치하지 않았으므로 IoT Hub 라우팅에 의해 분리된 횟수입니다. |차원 없음|
-|d2c<br>.telemetry<br>.egress<br>.invalid|라우팅: 원격 분석 메시지 호환되지 않음|개수|Total|IoT Hub 라우팅에서 엔드포인트와의 비호환성으로 인해 메시지를 배달하지 못한 횟수입니다. 이 값은 재시도를 포함하지 않습니다.|차원 없음|
-|d2c<br>.telemetry<br>.egress<br>.fallback|라우팅: 대체에 배달된 메시지|개수|Total|IoT Hub 라우팅에서 대체 경로와 연결된 엔드포인트에 메시지를 배달한 횟수입니다.|차원 없음|
-|d2c<br>.endpoints<br>.egress<br>.eventHubs|라우팅: 이벤트 허브에 배달된 메시지|개수|Total|IoT Hub 라우팅에서 이벤트 허브 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
-|d2c<br>.endpoints<br>.latency<br>.eventHubs|라우팅: 이벤트 허브에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 이벤트 허브 엔드포인트에 대한 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
-|d2c<br>.endpoints<br>.egress<br>.serviceBusQueues|라우팅: Service Bus 큐에 배달된 메시지|개수|Total|IoT Hub 라우팅에서 Service Bus 큐 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
-|d2c<br>.endpoints<br>.latency<br>.serviceBusQueues|라우팅: Service Bus 큐에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 큐 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
-|d2c<br>.endpoints<br>.egress<br>.serviceBusTopics|라우팅: Service Bus 토픽에 배달된 메시지|개수|Total|IoT Hub 라우팅에서 Service Bus 토픽 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
-|d2c<br>.endpoints<br>.latency<br>.serviceBusTopics|라우팅: Service Bus 토픽에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 토픽 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
-|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|라우팅: 메시지/이벤트에 배달된 메시지|개수|Total|IoT Hub 라우팅에서 기본 제공 엔드포인트(메시지/이벤트)에 메시지를 성공적으로 배달한 횟수입니다. 이 메트릭은 IoT hub https://aka.ms/iotrouting) 에 대해 라우팅이 사용 되는 경우에만 작동을 시작 합니다.|차원 없음|
-|d2c<br>.endpoints<br>.latency<br>. builtIn.events|라우팅: 메시지/이벤트에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 기본 제공 엔드포인트(메시지.이벤트)에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다. 이 메트릭은 IoT hub https://aka.ms/iotrouting) 에 대해 라우팅이 사용 되는 경우에만 작동을 시작 합니다.|차원 없음|
-|d2c<br>.endpoints<br>.egress<br>.storage|라우팅: 스토리지에 배달된 메시지|개수|Total|IoT Hub 라우팅에서 스토리지 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
-|d2c<br>.endpoints<br>.latency<br>.storage|라우팅: 스토리지에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 스토리지 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
-|d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|라우팅: 스토리지에 배달된 데이터|바이트|Total|IoT Hub 라우팅에서 스토리지 엔드포인트에 배달된 데이터 양입니다(바이트).|차원 없음|
-|d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|라우팅: 스토리지에 배달된 Blob|개수|Total|IoT Hub 라우팅에서 스토리지 엔드포인트에 Blob을 배달한 횟수입니다.|차원 없음|
-|EventGridDeliveries|Event Grid 배달 (미리 보기)|개수|Total|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 (https://aka.ms/ioteventgrid) 을 표시 합니다. 요청을 가져올 위치를 확인 하려면 EventType 차원을 사용 합니다.|Result, EventType|
-|EventGridLatency|Event Grid 대기 시간 (미리 보기)|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|이벤트 유형|
-|d2c<br>.twin<br>.read<br>.success|디바이스에서의 성공한 쌍 읽기|개수|Total|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
-|d2c<br>.twin<br>.read<br>.failure|디바이스에서의 실패한 쌍 읽기|개수|Total|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
-|d2c<br>.twin<br>.read<br>.size|디바이스에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
-|d2c<br>.twin<br>.update<br>.success|디바이스에서의 성공한 쌍 업데이트|개수|Total|성공한 모든 디바이스 시작 쌍 업데이트 수입니다.|차원 없음|
-|d2c<br>.twin<br>.update<br>.failure|디바이스에서의 실패한 쌍 업데이트|개수|Total|실패한 모든 디바이스 시작 쌍 업데이트 수입니다.|차원 없음|
-|d2c<br>.twin<br>.update<br>.size|디바이스에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|차원 없음|
-|c2d<br>.methods<br>.success|성공한 직접 메서드 호출|개수|Total|성공한 모든 직접 메서드 호출의 수입니다.|차원 없음|
-|c2d<br>.methods<br>.failure|실패한 직접 메서드 호출|개수|Total|실패한 모든 직접 메서드 호출의 수입니다.|차원 없음|
-|c2d<br>.methods<br>.requestSize|직접 메서드 호출의 요청 크기|바이트|평균|성공한 모든 직접 메서드 요청의 평균, 최소값, 최대값입니다.|차원 없음|
-|c2d<br>.methods<br>.responseSize|직접 메서드 호출의 응답 크기|바이트|평균|성공한 모든 직접 메서드 응답의 평균, 최소값, 최대값입니다.|차원 없음|
-|c2d<br>.twin<br>.read<br>.success|백 엔드에서의 성공한 쌍 읽기|개수|Total|성공한 모든 백 엔드 시작 쌍 읽기 수입니다. 이 수에는 쌍 쿼리에서 시작 된 쌍 읽기가 포함 되지 않습니다.|차원 없음|
-|c2d<br>.twin<br>.read<br>.failure|백 엔드에서의 실패한 쌍 읽기|개수|Total|실패한 모든 백 엔드 시작 쌍 읽기 수입니다.|차원 없음|
-|c2d<br>.twin<br>.read<br>.size|백 엔드에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
-|c2d<br>.twin<br>.update<br>.success|백 엔드에서의 성공한 쌍 업데이트|개수|Total|성공한 모든 백 엔드 시작 쌍 업데이트 수입니다.|차원 없음|
-|c2d<br>.twin<br>.update<br>.failure|백 엔드에서의 실패한 쌍 업데이트|개수|Total|실패한 모든 백 엔드 시작 쌍 업데이트 수입니다.|차원 없음|
-|c2d<br>.twin<br>.update<br>.size|백 엔드에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|차원 없음|
-|twinQueries<br>.success|성공한 쌍 쿼리|개수|Total|성공한 모든 쌍 쿼리의 수입니다.|차원 없음|
-|twinQueries<br>.failure|실패한 쌍 쿼리|개수|Total|실패한 모든 쌍 쿼리의 수입니다.|차원 없음|
-|twinQueries<br>.resultSize|쌍 쿼리 결과 크기|바이트|평균|성공한 모든 쌍 쿼리 결과 크기의 평균, 최소값 및 최대값입니다.|차원 없음|
-|작업<br>.createTwinUpdateJob<br>.success|쌍 업데이트 작업에 대한 성공한 만들기|개수|Total|쌍 업데이트 작업에 대한 성공한 모든 만들기의 수입니다.|차원 없음|
-|작업<br>.createTwinUpdateJob<br>.failure|쌍 업데이트 작업에 대한 실패한 만들기|개수|Total|쌍 업데이트 작업에 대한 실패한 모든 만들기의 수입니다.|차원 없음|
-|작업<br>.createDirectMethodJob<br>.success|메서드 호출 작업에 대한 성공한 만들기|개수|Total|직접 메서드 호출 작업에 대한 성공한 모든 만들기의 수입니다.|차원 없음|
-|작업<br>.createDirectMethodJob<br>.failure|실패한 메서드 호출 작업 만들기|개수|Total|직접 메서드 호출 작업에 대한 실패한 모든 만들기의 수입니다.|차원 없음|
-|작업<br>.listJobs<br>.success|목록 작업에 대한 성공한 호출|개수|Total|목록 작업에 대한 성공한 모든 호출 수입니다.|차원 없음|
-|작업<br>.listJobs<br>.failure|목록 작업에 대한 실패한 호출|개수|Total|목록 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
-|작업<br>.cancelJob<br>.success|성공한 작업 취소|개수|Total|작업 취소에 대한 성공한 모든 호출 수입니다.|차원 없음|
-|작업<br>.cancelJob<br>.failure|실패한 작업 취소|개수|Total|작업 취소에 대한 실패한 모든 호출 수입니다.|차원 없음|
-|작업<br>.queryJobs<br>.success|성공한 작업 쿼리|개수|Total|쿼리 작업에 대한 성공한 모든 호출 수입니다.|차원 없음|
-|작업<br>.queryJobs<br>.failure|실패한 작업 쿼리|개수|Total|쿼리 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
-|작업<br>.completed|완료된 작업|개수|Total|완료된 모든 작업의 수입니다.|차원 없음|
-|작업<br>.failed|실패한 작업|개수|Total|실패한 모든 작업의 수입니다.|차원 없음|
-|d2c<br>.telemetry<br>.ingress<br>.sendThrottle|제한 오류 수|개수|Total|디바이스 처리량 제한으로 인한 제한 오류 수|차원 없음|
-|dailyMessage<br>QuotaUsed|사용된 전체 메시지 수|개수|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|차원 없음|
-|deviceDataUsage|총 장치 데이터 사용량|바이트|Total|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
-|totalDeviceCount|총 디바이스(미리 보기)|개수|평균|IoT 허브에 등록된 디바이스 수|차원 없음|
-|연결됨<br>DeviceCount|연결된 디바이스(미리 보기)|개수|평균|IoT 허브에 연결된 디바이스 수|차원 없음|
-|구성|구성 메트릭|개수|Total|구성 작업에 대한 메트릭|차원 없음|
+|d2c.telemetry.ingress.allProtocol|원격 분석 메시지 보내기 시도|카운트|합계|IoT Hub로 보내려 한 디바이스-클라우드 원격 분석 메시지 수|없음|
+|d2c.telemetry.ingress.success|보낸 원격 분석 메시지|카운트|합계|IoT Hub로 보내기 성공한 디바이스-클라우드 원격 분석 메시지 수|없음|
+|c2d.commands.egress.complete.success|C2D 메시지 배달이 완료 됨|카운트|합계|장치에서 성공적으로 완료 한 클라우드-장치 메시지 배달 수|없음|
+|c2d.commands.egress.abandon.success|C2D 메시지 중단 됨|카운트|합계|장치에서 중단 한 클라우드-장치 메시지 수|없음|
+|c2d.commands.egress.reject.success|거부 된 C2D 메시지|카운트|합계|장치에서 거부 한 클라우드-장치 메시지 수|없음|
+|C2DMessagesExpired|C2D 메시지 만료 됨 (미리 보기)|카운트|합계|만료 된 클라우드-장치 메시지 수|없음|
+|devices.totalDevices|총 디바이스(사용되지 않음)|카운트|합계|IoT 허브에 등록된 디바이스 수|없음|
+|devices.connectedDevices.allProtocol|연결된 디바이스(사용되지 않음) |카운트|합계|IoT 허브에 연결된 디바이스 수|없음|
+|d2c.telemetry.egress.success|라우팅: 배달된 원격 분석 메시지|카운트|합계|IoT Hub 라우팅을 사용하여 모든 엔드포인트에 메시지가 성공적으로 배달된 횟수입니다. 메시지가 여러 엔드포인트로 라우팅되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다. 메시지가 동일한 엔드포인트로 여러 번 배달되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다.|없음|
+|d2c.telemetry.egress.dropped|라우팅: 삭제된 원격 분석 메시지 |카운트|합계|데드 엔드포인트로 인해 IoT Hub 라우팅에서 메시지가 삭제된 횟수입니다. 삭제된 메시지는 배달되지 않으므로 이 값은 대체 경로에 배달된 메시지를 계산에 넣지 않습니다.|없음|
+|d2c.telemetry.egress.orphaned|라우팅: 분리된 원격 분석 메시지 |카운트|합계|메시지가 라우팅 규칙(대체 규칙 포함)과 일치하지 않았으므로 IoT Hub 라우팅에 의해 분리된 횟수입니다. |없음|
+|d2c.telemetry.egress.invalid|라우팅: 원격 분석 메시지 호환되지 않음|카운트|합계|IoT Hub 라우팅에서 엔드포인트와의 비호환성으로 인해 메시지를 배달하지 못한 횟수입니다. 이 값은 재시도를 포함하지 않습니다.|없음|
+|d2c.telemetry.egress.fallback|라우팅: 대체에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 대체 경로와 연결된 엔드포인트에 메시지를 배달한 횟수입니다.|없음|
+|d2c.endpoints.egress.eventHubs|라우팅: 이벤트 허브에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 이벤트 허브 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|없음|
+|d2c.endpoints.latency.eventHubs|라우팅: 이벤트 허브에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 이벤트 허브 엔드포인트에 대한 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|없음|
+|d2c.endpoints.egress.serviceBusQueues|라우팅: Service Bus 큐에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 Service Bus 큐 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|없음|
+|d2c.endpoints.latency.serviceBusQueues|라우팅: Service Bus 큐에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 큐 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|없음|
+|d2c.endpoints.egress.serviceBusTopics|라우팅: Service Bus 토픽에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 Service Bus 토픽 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|없음|
+|d2c.endpoints.latency.serviceBusTopics|라우팅: Service Bus 토픽에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 토픽 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|없음|
+|d2c.endpoints.egress.builtIn.events|라우팅: 메시지/이벤트에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 기본 제공 엔드포인트(메시지/이벤트)에 메시지를 성공적으로 배달한 횟수입니다.|없음|
+|d2c.endpoints.latency.builtIn.events|라우팅: 메시지/이벤트에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 기본 제공 엔드포인트(메시지.이벤트)에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|없음|
+|d2c.endpoints.egress.storage|라우팅: 스토리지에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|없음|
+|d2c.endpoints.latency.storage|라우팅: 스토리지에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 스토리지 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|없음|
+|d2c.endpoints.egress.storage.bytes|라우팅: 스토리지에 배달된 데이터|바이트|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 배달된 데이터 양입니다(바이트).|없음|
+|d2c.endpoints.egress.storage.blobs|라우팅: 스토리지에 배달된 Blob|카운트|합계|IoT Hub 라우팅에서 스토리지 엔드포인트에 Blob을 배달한 횟수입니다.|없음|
+|EventGridDeliveries|Event Grid 배달 (미리 보기)|카운트|합계|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 (https://aka.ms/ioteventgrid) 을 표시 합니다.|ResourceId<br/>만들어집니다<br/>EventType|
+|EventGridLatency|Event Grid 대기 시간 (미리 보기)|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|ResourceId<br/>EventType|
+|d2c.twin.read.success|디바이스에서의 성공한 쌍 읽기|카운트|합계|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|없음|
+|d2c.twin.read.failure|디바이스에서의 실패한 쌍 읽기|카운트|합계|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|없음|
+|d2c.twin.read.size|디바이스에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|없음|
+|d2c.twin.update.success|디바이스에서의 성공한 쌍 업데이트|카운트|합계|성공한 모든 디바이스 시작 쌍 업데이트 수입니다.|없음|
+|d2c.twin.update.failure|디바이스에서의 실패한 쌍 업데이트|카운트|합계|실패한 모든 디바이스 시작 쌍 업데이트 수입니다.|없음|
+|d2c.twin.update.size|디바이스에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|없음|
+|c2d.methods.success|성공한 직접 메서드 호출|카운트|합계|성공한 모든 직접 메서드 호출의 수입니다.|없음|
+|c2d.methods.failure|실패한 직접 메서드 호출|카운트|합계|실패한 모든 직접 메서드 호출의 수입니다.|없음|
+|c2d.methods.requestSize|직접 메서드 호출의 요청 크기|바이트|평균|성공한 모든 직접 메서드 요청의 평균, 최소값, 최대값입니다.|없음|
+|c2d.methods.responseSize|직접 메서드 호출의 응답 크기|바이트|평균|성공한 모든 직접 메서드 응답의 평균, 최소값, 최대값입니다.|없음|
+|c2d.twin.read.success|백 엔드에서의 성공한 쌍 읽기|카운트|합계|성공한 모든 백 엔드 시작 쌍 읽기 수입니다.|없음|
+|c2d.twin.read.failure|백 엔드에서의 실패한 쌍 읽기|카운트|합계|실패한 모든 백 엔드 시작 쌍 읽기 수입니다.|없음|
+|c2d.twin.read.size|백 엔드에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|없음|
+|c2d.twin.update.success|백 엔드에서의 성공한 쌍 업데이트|카운트|합계|성공한 모든 백 엔드 시작 쌍 업데이트 수입니다.|없음|
+|c2d.twin.update.failure|백 엔드에서의 실패한 쌍 업데이트|카운트|합계|실패한 모든 백 엔드 시작 쌍 업데이트 수입니다.|없음|
+|c2d.twin.update.size|백 엔드에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|없음|
+|twinQueries.success|성공한 쌍 쿼리|카운트|합계|성공한 모든 쌍 쿼리의 수입니다.|없음|
+|twinQueries.failure|실패한 쌍 쿼리|카운트|합계|실패한 모든 쌍 쿼리의 수입니다.|없음|
+|twinQueries.resultSize|쌍 쿼리 결과 크기|바이트|평균|성공한 모든 쌍 쿼리 결과 크기의 평균, 최소값 및 최대값입니다.|없음|
+|jobs.createTwinUpdateJob.success|쌍 업데이트 작업에 대한 성공한 만들기|카운트|합계|쌍 업데이트 작업에 대한 성공한 모든 만들기의 수입니다.|없음|
+|jobs.createTwinUpdateJob.failure|쌍 업데이트 작업에 대한 실패한 만들기|카운트|합계|쌍 업데이트 작업에 대한 실패한 모든 만들기의 수입니다.|없음|
+|jobs.createDirectMethodJob.success|메서드 호출 작업에 대한 성공한 만들기|카운트|합계|직접 메서드 호출 작업에 대한 성공한 모든 만들기의 수입니다.|없음|
+|jobs.createDirectMethodJob.failure|실패한 메서드 호출 작업 만들기|카운트|합계|직접 메서드 호출 작업에 대한 실패한 모든 만들기의 수입니다.|없음|
+|jobs.listJobs.success|목록 작업에 대한 성공한 호출|카운트|합계|목록 작업에 대한 성공한 모든 호출 수입니다.|없음|
+|jobs.listJobs.failure|목록 작업에 대한 실패한 호출|카운트|합계|목록 작업에 대한 실패한 모든 호출 수입니다.|없음|
+|jobs.cancelJob.success|성공한 작업 취소|카운트|합계|작업 취소에 대한 성공한 모든 호출 수입니다.|없음|
+|jobs.cancelJob.failure|실패한 작업 취소|카운트|합계|작업 취소에 대한 실패한 모든 호출 수입니다.|없음|
+|jobs.queryJobs.success|성공한 작업 쿼리|카운트|합계|쿼리 작업에 대한 성공한 모든 호출 수입니다.|없음|
+|jobs.queryJobs.failure|실패한 작업 쿼리|카운트|합계|쿼리 작업에 대한 실패한 모든 호출 수입니다.|없음|
+|jobs.completed|완료된 작업|카운트|합계|완료된 모든 작업의 수입니다.|없음|
+|jobs.failed|실패한 작업|카운트|합계|실패한 모든 작업의 수입니다.|없음|
+|d2c.telemetry.ingress.sendThrottle|제한 오류 수|카운트|합계|디바이스 처리량 제한으로 인한 제한 오류 수|없음|
+|dailyMessageQuotaUsed|사용된 전체 메시지 수|카운트|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|없음|
+|deviceDataUsage|총 장치 데이터 사용량|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|없음|
+|deviceDataUsageV2|총 디바이스 데이터 사용량(미리 보기)|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|없음|
+|totalDeviceCount|총 디바이스(미리 보기)|카운트|평균|IoT 허브에 등록된 디바이스 수|없음|
+|connectedDeviceCount|연결된 디바이스(미리 보기)|카운트|평균|IoT 허브에 연결된 디바이스 수|없음|
+|구성|구성 메트릭|카운트|합계|구성 작업에 대한 메트릭|없음|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: ed00a9df46660cc6bfb4ec5fd9a93c80f5d6653e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ff8cdf78d923394caf36610534eb5dcc7de571a4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815321"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562547"
 ---
 # <a name="long-audio-api-preview"></a>긴 오디오 API (미리 보기)
 
@@ -42,15 +42,24 @@ ms.locfileid: "74815321"
 텍스트 파일을 준비 하는 경우 다음을 확인 합니다.
 
 * 일반 텍스트 (.txt) 또는 SSML 텍스트 (.txt) 중 하나입니다.
-  * 일반 텍스트의 경우 각 단락은 **Enter/Return** -View [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) 에 따라 구분 됩니다.
-  * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주 됩니다. SSML 부분은 다른 단락-뷰 [ssml 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)로 구분 해야 합니다. 언어 코드의 경우 [SSML (Speech 합성 Markup language)](speech-synthesis-markup.md) 을 참조 하세요.
 * 는 [BOM (바이트 순서 표시)을 사용 하 여 u t f-8](https://www.w3.org/International/questions/qa-utf8-bom.en#bom) 로 인코딩됩니다.
-* 1만 자 이상 또는 50 단락 이상 포함
 * 는 zip이 아니라 단일 파일입니다.
+* 일반 텍스트의 경우 400 자 보다 크거나, SSML 텍스트에 대 한 400 [청구 가능 문자](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) 를 포함 하며, 1만 단락 보다 작음
+  * 일반 텍스트의 경우 각 단락은 **Enter/Return** -View [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) 에 따라 구분 됩니다.
+  * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주 됩니다. [Ssml 부분은](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt) 다른 단락으로 구분 해야 합니다.
+> [!NOTE]
+> 중국어 (중국), 중국어 (홍콩), 중국어 (대만), 일본어 및 한국어의 경우 한 단어는 두 문자로 계산 됩니다. 
+
+## <a name="submit-synthesis-requests"></a>합성 요청 제출
+
+입력 콘텐츠를 준비한 후에는 [긴 형식의 오디오 합성 퀵 스타트](https://aka.ms/long-audio-python) 를 따라 요청을 제출 합니다. 둘 이상의 입력 파일이 있는 경우 여러 요청을 제출 해야 합니다. 유의 해야 할 몇 가지 제한 사항이 있습니다. 
+* 클라이언트는 각 Azure 구독 계정에 대해 초당 최대 5 개의 요청을 서버에 제출할 수 있습니다. 이 제한이 초과 되 면 클라이언트는 429 오류 코드 (너무 많은 요청)를 가져옵니다. 초당 요청 크기를 줄이십시오.
+* 서버를 실행 하 고 각 Azure 구독 계정에 대해 최대 120 요청을 큐에 대기 시킬 수 있습니다. 이 제한이 초과 되 면 서버는 429 오류 코드 (너무 많은 요청)를 반환 합니다. 잠시 후 요청이 완료 될 때까지 새 요청을 제출 하지 마세요.
+* 서버는 각 Azure 구독 계정에 대해 최대 2만 개의 요청을 유지 합니다. 제한을 초과 하는 경우 새 요청을 제출 하기 전에 일부 요청을 삭제 하세요.
 
 ## <a name="audio-output-formats"></a>오디오 출력 형식
 
-긴 오디오 API에서 지원 되는 오디오 출력 형식은 다음과 같습니다.
+유연한 오디오 출력 형식을 지원 합니다. 단락 당 오디오 출력을 생성 하거나 ' concatenateResult ' 매개 변수를 설정 하 여 오디오 출력을 하나의 출력에 연결할 수 있습니다. 긴 오디오 API에서 지원 되는 오디오 출력 형식은 다음과 같습니다.
 
 > [!NOTE]
 > 기본 오디오 형식은 riff-16khz-16 비트입니다.

@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics를 사용하여 Power BI 대시보드 통합
 description: 이 아티클에서는 실시간 Power BI 대시보드를 사용하여 Azure Stream Analytics 작업에서 데이터를 시각화하는 방법을 설명합니다.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431640"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 
@@ -24,7 +23,7 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 이 시나리오를 보여주는 [비디오](https://www.youtube.com/watch?v=SGUpT-a99MA)를 시청할 수 있습니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음이 필요합니다.
 
@@ -38,7 +37,7 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 
 1. Azure Portal에서 이전에 만든 Streaming Analytics 작업을 엽니다. 제안된 이름을 사용한 경우 작업 이름은 `sa_frauddetection_job_demo`입니다.
 
-2. 왼쪽된 메뉴에서 선택 **출력** 아래에서 **작업 토폴로지**합니다. 그런 다음 선택 **+ 추가** 선택한 **Power BI** 드롭다운 메뉴에서.
+2. 왼쪽 메뉴의 **작업 토폴로지**에서 **출력** 을 선택 합니다. 그런 다음 **+ 추가** 를 선택 하 고 드롭다운 메뉴에서 **Power BI** 를 선택 합니다.
 
 3. **+ 추가** > **Power BI**를 선택합니다. 다음 세부 정보로 양식을 채우고 **권한 부여**를 선택합니다.
 
@@ -46,7 +45,7 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
    |---------|---------|
    |출력 별칭  |  CallStream-PowerBI  |
    |데이터 세트 이름  |   sa-데이터 집합  |
-   |테이블 이름 |  fraudulent-calls  |
+   |테이블 이름 |  사기성 호출  |
 
    ![Stream Analytics 출력 구성](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
@@ -61,8 +60,8 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 
 데이터 세트는 다음과 같은 설정으로 만들어집니다.
 
-* **defaultRetentionPolicy: BasicFIFO** -데이터는 FIFO이 고, 최대 200,000 개 행입니다.
-* **defaultMode: pushStreaming** -스트리밍 타일 및 기존의 보고서 기반 시각적 개체 (푸시 라고도 함) 모두 데이터 집합을 지원 합니다.
+* **Defaultretentionpolicy: basicfifo** -데이터는 최대 20만 행이 포함 된 FIFO입니다.
+* **Defaultmode: pushstreaming** -데이터 집합은 스트리밍 타일과 기존 보고서 기반 시각적 개체 (푸시 라고도 함)를 모두 지원 합니다.
 
 지금은 다른 플래그로 데이터 세트를 만들 수 없습니다.
 
@@ -75,10 +74,10 @@ Power BI 데이터 세트에 대한 자세한 내용은 [Power BI REST API](http
 
 2. **쿼리** 상자를 클릭합니다. 
 
-3. 다음 쿼리를 입력합니다. 이 쿼리는 사기 감지 자습서에서 만든 셀프 조인 쿼리와 유사합니다. 차이점은 이 쿼리에서 사용자가 만든 새 출력(`CallStream-PowerBI`)으로 결과를 보낸다는 점입니다. 
+3. 다음 쿼리를 입력합니다. 이 쿼리는 사기 감지 자습서에서 만든 셀프 조인 쿼리와 유사합니다. 차이점은 이 쿼리에서 사용자가 만든 새 출력으로 결과는 보낸다는 점입니다(`CallStream-PowerBI`). 
 
     >[!NOTE]
-    >사기 감지 자습서에서 입력 `CallStream`에 이름을 지정하지 않았다면 쿼리에서 **FROM** 및 **JOIN** 절의 `CallStream` 이름을 바꿉니다.
+    >사기 감지 자습서에서 입력 `CallStream`에 이름을 지정하지 않으면 쿼리에서 **FROM** 및 **JOIN** 절의 `CallStream` 이름을 바꿉니다.
 
    ```SQL
    /* Our criteria for fraud:
@@ -100,7 +99,7 @@ Power BI 데이터 세트에 대한 자세한 내용은 [Power BI REST API](http
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. **Save**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
 
 ## <a name="test-the-query"></a>쿼리 테스트
@@ -111,21 +110,21 @@ Power BI 데이터 세트에 대한 자세한 내용은 [Power BI REST API](http
 
     * 명령 프롬프트를 엽니다.
     * telcogenerator.exe 및 수정된 telcodatagen.exe.config 파일이 있는 폴더로 이동합니다.
-    * 다음 명령을 실행합니다.
+    * 다음 명령 실행:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. 에 **쿼리** Stream Analytics 작업에 대 한 페이지에서 옆에 있는 점을 클릭 합니다 `CallStream` 입력 한 다음 선택 **입력의 샘플 데이터**합니다.
+2. Stream Analytics 작업에 대 한 **쿼리** 페이지에서 `CallStream` 입력 옆에 있는 점을 클릭 한 다음 **입력에서 샘플 데이터**를 선택 합니다.
 
 3. 3분 분량의 데이터를 원하는 것으로 지정하고 **확인**을 클릭합니다. 데이터가 샘플링되었다는 알림을 받을 때까지 기다립니다.
 
-4. 클릭 **테스트** 결과 검토 합니다.
+4. **테스트** 를 클릭 하 고 결과를 검토 합니다.
 
 ## <a name="run-the-job"></a>작업 실행
 
-1. TelcoStreaming 앱 실행 되 고 있는지 확인 하십시오.
+1. 지 수 공동 스트리밍 앱이 실행 되 고 있는지 확인 합니다.
 
-2. 로 이동 합니다 **개요** Stream Analytics 작업에 대 한 페이지를 선택 **시작**합니다.
+2. Stream Analytics 작업에 대 한 **개요** 페이지로 이동 하 고 **시작**을 선택 합니다.
 
     ![Stream Analytics 작업 시작](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -202,7 +201,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 ![값을 컴퓨팅하여 기간(초)을 제공하는 수식](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-예를 들어:
+예:
 
 * 1,000대의 디바이스가 1초 간격으로 데이터를 보내고 있습니다.
 * 시간당 1,000,000개의 행을 지원하는 Power BI Pro SKU를 사용하고 있습니다.
@@ -235,12 +234,12 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영역에 문제가 해결되었음을 나타내는 녹색 알림이 표시됩니다.
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 71922a9da594de3402caf778b1e066da9d20505c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28ab1eaa860c0d684182f5f1660daed2751a9c6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672538"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465072"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -377,7 +377,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure DevTest Lab       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아보기](/azure/devtest-lab/devtest-lab-overview). |
 | Azure Event Grid         | Microsoft.EventGrid        | Blob Storage 이벤트 게시를 사용하도록 설정하고 Event Grid가 스토리지 큐에 게시하도록 허용합니다. [Blob Storage 이벤트](/azure/event-grid/event-sources)와 [큐에 게시](/azure/event-grid/event-handlers)에 대해 알아봅니다. |
 | Azure Event Hubs         | Microsoft.EventHub         | Event Hubs 캡처로 데이터를 보관합니다. [자세한 정보](/azure/event-hubs/event-hubs-capture-overview). |
-| Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용 합니다. [자세한 정보](../files/storage-sync-files-planning.md) |
+| Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용 합니다. [자세히 알아보기](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대 한 기본 파일 시스템의 초기 콘텐츠를 프로 비전 합니다. [자세히 알아보기](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Azure Monitor            | Microsoft.Insights         | 보안 스토리지 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아보기](/azure/network-watcher/network-watcher-packet-capture-overview). |
@@ -389,10 +389,10 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | :----------------------------- | :------------------------------------- | :---------- |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 작업은 컨테이너 이미지를 빌드할 때 저장소 계정에 액세스할 수 있습니다. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | ADF 런타임을 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
-| Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. [자세히 알아보기](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
-| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 합니다. [자세히 알아보기](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. [자세히 알아보기](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
+| Azure Machine Learning | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 합니다. [자세히 알아보기](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | PolyBase를 사용 하 여 특정 SQL Database 인스턴스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 저장소에 쓸 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아보기](/azure/stream-analytics/blob-output-managed-identity.md). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 저장소에 쓸 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아보기](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Synapse/작업 영역          | Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |
 
 

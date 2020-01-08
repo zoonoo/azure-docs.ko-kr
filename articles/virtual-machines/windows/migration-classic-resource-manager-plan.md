@@ -1,5 +1,5 @@
 ---
-title: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
+title: 클래식에서 Azure Resource Manager로 마이그레이션 계획
 description: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 2c0f4924c41b36c306d4e6b9286105662744c4da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bebfcedcd2944e2c6b05c3203e67df7658dd751a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460057"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다.
@@ -31,7 +31,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
 ![마이그레이션 단계](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>계획
+## <a name="plan"></a>요금제
 
 ### <a name="technical-considerations-and-tradeoffs"></a>기술적 고려 사항 및 장단점
 
@@ -44,7 +44,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 5. 운영 팀이 이제 클래식 및 Azure Resource Manager에서 애플리케이션/VM을 지원하나요?
 6. Azure Resource Manager에서는 VM 배포, 관리, 모니터링 및 보고 프로세스를 어떻게 변경하나요(변경할 수 있는 경우)?  배포 스크립트를 업데이트해야 하나요?
 7. 이해 관계자(최종 사용자, 애플리케이션 소유자 및 인프라 소유자)에게 알릴 통신 계획은 무엇인가요?
-8. 환경의 복잡성에 따라 최종 사용자와 애플리케이션 소유자가 애플리케이션을 사용할 수 없는 유지 관리 기간이 있어야 하나요?  그 기간은 얼마나 되나요?
+8. 환경의 복잡성에 따라 최종 사용자와 애플리케이션 소유자가 애플리케이션을 사용할 수 없는 유지 관리 기간이 있어야 하나요?  있다면, 그 기간은 얼마나 되나요?
 9. 이해 관계자가 Azure Resource Manager에 정통하고 숙련되었는지 확인하기 위한 학습 계획은 무엇인가요?
 10. 마이그레이션을 위한 프로그램 관리 또는 프로젝트 관리 계획은 무엇인가요?
 11. Azure Resource Manager 마이그레이션 및 기타 관련 기술 로드맵의 일정은 무엇인가요?  최적으로 정렬되어 있나요?
@@ -139,13 +139,13 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
     Get-AzVMUsage -Location <azure-region>
     ```
 
-    **네트워크** *(Virtual Network, 고정 공용 IP, 공용 IP, 네트워크 보안 그룹, 네트워크 인터페이스, 부하 분산 장치, 경로 테이블)*
+    **네트워크** *(가상 네트워크, 고정 공용 Ip, 공용 Ip, 네트워크 보안 그룹, 네트워크 인터페이스, 부하 분산 장치, 경로 테이블)*
 
     ```powershell
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **스토리지** *(Storage 계정)*
+    **저장소** *(저장소 계정)*
 
     ```powershell
     Get-AzStorageUsage
@@ -190,7 +190,7 @@ _랩 테스트_ 섹션에서 언급한 기술 지침은 실제 마이그레이�
 
 ### <a name="technical-considerations-and-tradeoffs"></a>기술적 고려 사항 및 장단점
 
-Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하여 추가 혜택에 대해 알아봅니다.
+Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하여 추가 혜택에 대해 알아봅니다.
 
 고려 사항은 다음과 같습니다.
 

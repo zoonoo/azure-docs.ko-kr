@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d45cf8d951eb542e248a3ff4fe714b4d2af90cc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428720"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 배포를 자동화 하는 Azure Resource Manager 템플릿 만들기
 
-논리 앱 만들기 및 배포를 자동화 하는 데 도움이 되도록이 문서에서는 논리 앱에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md) 만들 수 있는 방법에 대해 설명 합니다. 워크플로 정의 및 배포에 필요한 기타 리소스를 포함 하는 템플릿의 구조 및 구문에 대 한 개요는 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
+논리 앱 만들기 및 배포를 자동화 하는 데 도움이 되도록이 문서에서는 논리 앱에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md) 만들 수 있는 방법에 대해 설명 합니다. 워크플로 정의 및 배포에 필요한 기타 리소스를 포함 하는 템플릿의 구조 및 구문에 대 한 개요는 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
 
 Azure Logic Apps는 다시 사용할 수 있는 [미리 빌드된 논리 앱 Azure Resource Manager 템플릿을](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 제공 합니다 .이 템플릿을 사용 하 여 논리 앱을 만들 뿐만 아니라 배포에 사용할 리소스와 매개 변수를 정의할 수 있습니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
@@ -24,8 +24,8 @@ Azure Logic Apps는 다시 사용할 수 있는 [미리 빌드된 논리 앱 Azu
 
 Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
-* [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
 * [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates-cloud-consistency.md)
 
 <a name="visual-studio"></a>
@@ -104,9 +104,9 @@ Azure Key Vault 참조 (정적 전용)를 사용 하 여 추출 하려면 다음
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| parameters | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 |------------|----------|-------------|
-| TemplateFile | yes | 템플릿 파일에 대 한 파일 경로입니다. |
+| TemplateFile | 예 | 템플릿 파일에 대 한 파일 경로입니다. |
 | KeyVault | 아닙니다. | 가능한 키 자격 증명 모음 값을 처리 하는 방법을 설명 하는 열거형입니다. 기본값은 `None`입니다. |
 ||||
 

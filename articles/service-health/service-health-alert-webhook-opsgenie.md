@@ -1,19 +1,17 @@
 ---
-title: 웹 후크를 사용 하 여 OpsGenie를 사용 하 여 Azure 서비스 상태 경고를 보냅니다
+title: 웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 OpsGenie 인스턴스로 가져옵니다.
-author: stephbaron
-ms.author: stbaron
-ms.topic: article
 ms.service: service-health
+ms.topic: article
 ms.date: 06/10/2019
-ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1f0ddb506b915697335ec71eab341a7cdb73dd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067159"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465237"
 ---
-# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹 후크를 사용 하 여 OpsGenie를 사용 하 여 Azure 서비스 상태 경고를 보냅니다
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.
 
 이 문서에서는 웹후크를 사용하여 OpsGenie로 Azure 서비스 상태 경고를 설정하는 방법을 보여 줍니다. [OpsGenie](https://www.opsgenie.com/)의 Azure 서비스 상태 통합을 사용하여 OpsGenie에 Azure 서비스 상태 경고를 전달할 수 있습니다. OpsGenie는 경고를 승인하거나 닫을 때까지 통화 일정과 메일, SMS(문자 메시지), 전화 통화, iOS 및 Android 푸시 알림 사용 및 경고 에스컬레이션을 기반으로 적절한 통보 대상을 결정할 수 있습니다.
 
@@ -44,11 +42,11 @@ ms.locfileid: "67067159"
 
 1. **작업** 목록에서 다음을 정의합니다.
 
-    a. **작업 유형:** *웹후크*
+    a. **작업 유형:** *Webhook*
 
     b. **세부 정보:** 이전에 저장한 OpsGenie **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -61,11 +59,11 @@ ms.locfileid: "67067159"
 
 1. **작업** 목록에 다음을 추가합니다.
 
-    a. **작업 유형:** *웹후크*
+    a. **작업 유형:** *Webhook*
 
     b. **세부 정보:** 이전에 저장한 OpsGenie **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 

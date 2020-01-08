@@ -2,19 +2,15 @@
 title: Chocolatey를 사용한 Azure Automation State Configuration 연속 배포
 description: Azure Automation State Configuration, DSC 및 Chocolatey 패키지 관리자를 사용한 DevOps 연속 배포  전체 JSON Resource Manager 템플릿 및 PowerShell 소스가 있는 예
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/08/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddbf652c35c4f1504e3253838a983fd0f6039401
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ad42d7c2257519c2622ba17f74f97b9521233850
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850366"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366433"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 
@@ -185,7 +181,7 @@ Get-AzureRmAutomationDscCompilationJob `
 각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다.
 해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Azure DevOps의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 이 [문서](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)에 자세한 내용이 나와 있습니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks) 는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
 
-## <a name="notes"></a>참고
+## <a name="notes"></a>메모
 
 이 사용 예에서는 Azure 갤러리의 일반 Windows Server 2012 R2 이미지에서 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다.
 그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.

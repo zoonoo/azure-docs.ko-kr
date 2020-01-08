@@ -1,5 +1,5 @@
 ---
-title: 액세스 검토를 사용 하 여 조건부 액세스 정책에서 제외 된 사용자 관리-Azure Active Directory | Microsoft Docs
+title: 조건부 액세스 정책에서 제외 된 사용자 관리-Azure AD
 description: Azure AD (Azure Active Directory) 액세스 검토를 사용 하 여 조건부 액세스 정책에서 제외 된 사용자를 관리 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 246503fec6436bf49dcd5fb89c2dc0ed345a43ca
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: d1d7bce940f2b614c239e8b5e5719d96da10a6c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422703"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Azure AD 액세스 검토를 사용 하 여 조건부 액세스 정책에서 제외 된 사용자 관리
 
@@ -56,7 +56,7 @@ Azure AD에서 조건부 액세스 정책의 범위를 사용자 집합으로 �
 
 ### <a name="create-an-exclusion-group"></a>제외 그룹 만들기
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 1. 왼쪽 탐색에서 **Azure Active Directory**를 클릭한 다음, **그룹**을 클릭합니다.
 
@@ -97,7 +97,7 @@ Azure AD에서 조건부 액세스 정책의 범위를 사용자 집합으로 �
 
 액세스 검토를 사용 하 여 조건부 액세스 정책에서 제외를 관리할 수 있는 두 가지 예를 살펴보겠습니다.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>예제 1: 차단 된 국가/지역에서 액세스 하는 사용자에 대 한 액세스 검토
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>예 1: 차단 된 국가/지역에서 액세스 하는 사용자에 대 한 액세스 검토
 
 특정 국가/지역에서 액세스를 차단 하는 조건부 액세스 정책이 있다고 가정해 보겠습니다. 여기에는 정책에서 제외된 그룹이 포함됩니다. 그룹의 멤버를 검토하는 권장되는 액세스 검토는 다음과 같습니다.
 

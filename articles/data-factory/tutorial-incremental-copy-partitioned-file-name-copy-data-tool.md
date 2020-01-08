@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b6826fa53e9810bdd30af4faf9fbf6bc3c3492e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928045"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439244"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사
 
@@ -30,11 +30,11 @@ ms.locfileid: "74928045"
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> * 데이터 팩터리를 만듭니다.
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure storage 계정**: Blob storage를 _원본_ 및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
@@ -64,7 +64,7 @@ ms.locfileid: "74928045"
    
    ![새 데이터 팩터리 오류 메시지](./media/doc-common-process/name-not-available-error.png)
    
-   이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
+   이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
 3. 새 데이터 팩터리를 만들 Azure **구독**을 선택합니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
      
@@ -72,7 +72,7 @@ ms.locfileid: "74928045"
 
     b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
          
-    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.
 
 5. **버전** 아래에서 버전에 대해 **V2**를 선택합니다.
 6. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 위치와 지역에 있을 수 있습니다.
@@ -102,7 +102,7 @@ ms.locfileid: "74928045"
     
     d. **되풀이**에서 **1 시간**을 입력 합니다. 
     
-    ㅁ. **다음**을 선택합니다. 
+    e. **다음**을 선택합니다. 
     
     Data Factory UI에서 지정한 작업 이름이 있는 파이프라인을 만듭니다. 
 
@@ -154,7 +154,7 @@ ms.locfileid: "74928045"
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    다. **다음**을 누릅니다.
+    다. **다음**을 클릭합니다.
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. **설정** 페이지에서 **다음**을 선택합니다. 
@@ -170,7 +170,7 @@ ms.locfileid: "74928045"
 10. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다.  파이프라인 실행이 자동으로 트리거될 때까지 대기 해야 합니다 (약 1 시간 후).  **작업** 열은 실행 될 때 작업 실행 세부 정보를 보고 파이프라인을 다시 실행할 수 있는 링크를 포함 합니다. **새로 고침** 을 선택 하 여 목록을 새로 고치고 **작업** 열에서 **활동 실행 보기** 링크를 선택 합니다. 
 
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. 파이프라인에는 하나의 활동(복사 활동)만 있으므로 하나의 항목만 표시됩니다. 원본 **/2019/02/26/14/** to **destination/2019/02/26/14** /에서 동일한 파일 이름으로 복사 된 원본 파일 (file1 .txt)을 볼 수 있습니다.  
+11. 파이프라인에는 하나의 작업(복사 작업)만 있으므로 하나의 항목만 표시됩니다. 원본 **/2019/02/26/14/** to **destination/2019/02/26/14** /에서 동일한 파일 이름으로 복사 된 원본 파일 (file1 .txt)을 볼 수 있습니다.  
 
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     

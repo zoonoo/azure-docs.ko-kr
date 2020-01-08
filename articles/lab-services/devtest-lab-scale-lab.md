@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 231a227cbccaa4cbf74f3b13839c0ba42895cf24
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623510"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644854"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>DevTest Labs의 할당량 및 한도 규모 조정
 DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 한도가 있으며 이 한도가 DevTest Labs 서비스에 영향을 미칠 수 있습니다. 이러한 한도를 **할당량**이라고 합니다.
@@ -30,7 +30,7 @@ DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 
 
 예를 들어 각 구독의 기본 할당량은 20 코어입니다. 따라서 랩에서 코어가 4개인 VM을 만드는 경우 총 5개의 VM을 만들 수 있습니다.
 
-[Azure 구독 및 서비스 한도](https://docs.microsoft.com/azure/azure-subscription-service-limits)에는 Azure 리소스에 대 한 가장 일반적인 할당량 중 일부가 나열되어 있습니다. 랩에서 가장 일반적으로 사용되며 사용자가 경험할 가능성이 있는 리소스에는 VM 코어, 공용 IP 주소, 네트워크 인터페이스, 관리되는 디스크, RBAC 역할 할당 및 ExpressRoute 회로가 포함됩니다.
+[Azure 구독 및 서비스 한도](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)에는 Azure 리소스에 대 한 가장 일반적인 할당량 중 일부가 나열되어 있습니다. 랩에서 가장 일반적으로 사용되며 사용자가 경험할 가능성이 있는 리소스에는 VM 코어, 공용 IP 주소, 네트워크 인터페이스, 관리되는 디스크, RBAC 역할 할당 및 ExpressRoute 회로가 포함됩니다.
 
 ## <a name="view-your-usage-and-quotas"></a>사용량 및 할당량 보기
 다음 단계에서는 특정 Azure 리소스에 대한 구독의 현재 할당량 그리고 사용한 각 할당량의 비율을 보는 방법을 보여 줍니다.
@@ -47,7 +47,7 @@ DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 
    ![할당량 및 사용량](./media/devtest-lab-scale-lab/devtestlab-view-quotas.png)
 
 ## <a name="requesting-more-resources-in-your-subscription"></a>구독에 더 많은 리소스 요청
-할당량 제한에 도달하는 경우 [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits)의 설명에 따라 구독의 기본 리소스 한도를 최대 한도까지 늘릴 수 있습니다.
+할당량 제한에 도달하는 경우 [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)의 설명에 따라 구독의 기본 리소스 한도를 최대 한도까지 늘릴 수 있습니다.
 
 다음 단계에서는 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)을 통해 할당량 증가를 요청하는 방법을 보여 줍니다.
 

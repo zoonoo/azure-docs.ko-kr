@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics의 출력 오류 정책
 description: Azure Stream Analytics에서 사용할 수 있는 출력 오류 처리 정책에 대해 알아봅니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b31530966d2c5ca9a3f82f3e74ba349e66053a83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22112272bb302769e5969cf6995d486438deb41f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431621"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Azure Stream Analytics 출력 오류 정책
 이 문서에서는 Azure Stream Analytics에서 구성할 수 있는 출력 데이터 오류 처리 정책에 대해 설명합니다.

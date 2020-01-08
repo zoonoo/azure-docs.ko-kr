@@ -1,18 +1,15 @@
 ---
 title: REST API를 사용하여 Azure 리소스 상태 이벤트 가져오기 | Microsoft Docs
 description: Azure REST API를 사용하여 Azure 리소스의 상태 이벤트를 가져오는 방법을 설명합니다.
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
 ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
-ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451385"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>REST API를 사용하여 리소스 상태 가져오기 
 
@@ -32,14 +29,14 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 다음과 같은 헤더가 필요합니다. 
 
-|요청 헤더|설명|  
+|요청 헤더|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
-|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
+|*권한 부여*|필수 사항입니다. 을 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정 합니다. |  
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-| 이름 | 설명 |
+| 이름 | Description |
 | :--- | :---------- |
 | subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. |
 | api-version | 요청에 사용할 API 버전입니다.<br /><br /> 이 문서에서는 위 URL에 포함되어 있는 api-version `2015-04-01`을 다룹니다.  |

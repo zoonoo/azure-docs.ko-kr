@@ -5,12 +5,12 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455007"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445744"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>컨테이너 이미지 태그 지정 및 버전 관리에 대 한 권장 사항
 
@@ -38,6 +38,10 @@ ms.locfileid: "74455007"
 
 이 경우 주 태그와 보조 태그는 계속 해 서 처리 됩니다. 기본 이미지 시나리오에서 이미지 소유자는 서비스 이미지를 제공할 수 있습니다.
 
+### <a name="delete-untagged-manifests"></a>태그가 없는 매니페스트 삭제
+
+안정적인 태그가 있는 이미지가 업데이트 되 면 이전에 태그가 지정 된 이미지에 태그가 지정 되어 분리 된 이미지가 생성 됩니다. 이전 이미지의 매니페스트와 고유 계층 데이터는 레지스트리에 남아 있습니다. 레지스트리 크기를 유지 하기 위해 안정적인 이미지 업데이트에서 발생 하는 태그가 없는 매니페스트를 주기적으로 삭제할 수 있습니다. 예를 들어 지정 된 기간 보다 오래 된 태그가 지정 된 매니페스트를 [자동으로 제거](container-registry-auto-purge.md) 하거나 태그가 지정 되지 않은 매니페스트에 대 한 [보존 정책을](container-registry-retention-policy.md) 설정 합니다.
+
 ## <a name="unique-tags"></a>고유 태그
 
 **권장 사항**: 특히 여러 노드에서 확장할 수 있는 환경에서 **배포**에 고유한 태그를 사용 합니다. 일관 된 버전의 구성 요소를 의도적으로 배포 하려는 경우가 있습니다. 컨테이너가 다시 시작 되거나 오 케 스트레이 터가 더 많은 인스턴스를 확장 하는 경우 호스트는 실수로 최신 버전을 풀 하지 않으며 다른 노드와 일치 하지 않습니다.
@@ -50,6 +54,12 @@ ms.locfileid: "74455007"
 * **빌드 ID** -이 옵션은 증분 가능성이 있으므로이 옵션을 사용 하는 것이 가장 좋을 수 있으며, 모든 아티팩트와 로그를 찾기 위해 특정 빌드와 다시 연관 시킬 수 있습니다. 그러나 매니페스트 다이제스트와 마찬가지로 사람이 읽기 어려울 수 있습니다.
 
   조직에 여러 빌드 시스템이 있는 경우, 빌드 시스템 이름으로 태그를 접두사로 사용 하는 것은이 옵션의 변형 `<build-system>-<build-id>`입니다. 예를 들어 API 팀의 Jenkins 빌드 시스템과 웹 팀의 Azure Pipelines 빌드 시스템의 빌드를 구분할 수 있습니다.
+
+### <a name="lock-deployed-image-tags"></a>배포 된 이미지 태그 잠금
+
+모범 사례로, `write-enabled` 특성을 `false`로 설정 하 여 배포 된 이미지 태그를 [잠그는](container-registry-image-lock.md) 것이 좋습니다. 이 방법을 통해 레지스트리에서 이미지를 실수로 제거 하 여 배포를 방해할 수 있습니다. 릴리스 파이프라인에 잠금 단계를 포함할 수 있습니다.
+
+배포 된 이미지를 잠그면 레지스트리를 유지 관리 하기 위해 Azure Container Registry 기능을 사용 하 여 레지스트리에서 배포 되지 않은 다른 이미지를 제거할 수 있습니다. 예를 들어 지정 된 기간 보다 오래 된 태그가 지정 되지 않은 매니페스트 또는 잠금 해제 된 이미지를 [자동으로 제거](container-registry-auto-purge.md) 하거나 태그가 지정 되지 않은 매니페스트에 대 한 [보존 정책을](container-registry-retention-policy.md) 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

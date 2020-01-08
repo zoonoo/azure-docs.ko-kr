@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443407"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -53,9 +53,9 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 아니요,이 시나리오는 지원 되지 않습니다. 커넥터 및 업데이트 서비스만 Azure로의 아웃 바운드 트래픽에 대해 전달 프록시를 사용 하도록 구성할 수 있습니다. [기존 온-프레미스 프록시 서버 작업을](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers) 참조 하세요.
 
-### <a name="is-ssl-termination-sslhhtps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>커넥터 서버에서 Azure로의 트래픽에 대 한 SSL 종료 (SSL/HHTPS 검사 또는 가속)가 지원 되나요?
+### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>커넥터 서버에서 Azure로의 트래픽에 대 한 SSL 종료 (SSL/HTTPS 검사 또는 가속)가 지원 되나요?
 
-응용 프로그램 프록시 커넥터는 Azure에 대 한 인증서 기반 인증을 수행 합니다. SSL 종료 (SSL/HHTPS 검사 또는 가속)는이 인증 방법을 중단 하며 지원 되지 않습니다. 커넥터에서 Azure로의 트래픽은 SSL 종료를 수행 하는 모든 장치를 무시 해야 합니다.  
+응용 프로그램 프록시 커넥터는 Azure에 대 한 인증서 기반 인증을 수행 합니다. SSL 종료 (SSL/HTTPS 검사 또는 가속)는이 인증 방법을 중단 하며 지원 되지 않습니다. 커넥터에서 Azure로의 트래픽은 SSL 종료를 수행 하는 모든 장치를 무시 해야 합니다.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시을 사용 하 여 커넥터를 등록 하기 위한 전용 계정을 만들어야 하나요?
 
@@ -63,7 +63,7 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 ### <a name="how-can-i-monitor-the-performance-of-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터의 성능을 모니터링 하려면 어떻게 해야 하나요?
 
-커넥터와 함께 설치 되는 성능 모니터 카운터가 있습니다. 표시 하려면 다음을 수행 합니다.  
+커넥터와 함께 설치 되는 성능 모니터 카운터가 있습니다. 이 내용을 확인하려면 다음을 수행하십시오.  
 
 1. **시작**을 선택 하 고 "Perfmon"을 입력 한 다음 enter 키를 누릅니다.
 2. **성능 모니터** 를 선택 하 고 녹색 **+** 아이콘을 클릭 합니다.
@@ -139,7 +139,7 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Azure AD 응용 프로그램 프록시을 AD FS 프록시 (예: 웹 응용 프로그램 프록시)로 사용할 수 있나요?
 
-아니요. Azure AD 응용 프로그램 프록시는 Azure AD와 함께 사용할 수 있도록 설계 되었으며 AD FS 프록시 역할을 하는 요구 사항을 충족 하지 않습니다.
+아닙니다. Azure AD 응용 프로그램 프록시는 Azure AD와 함께 사용할 수 있도록 설계 되었으며 AD FS 프록시 역할을 하는 요구 사항을 충족 하지 않습니다.
 
 ## <a name="websocket"></a>서버당
 

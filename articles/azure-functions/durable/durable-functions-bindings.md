@@ -2,14 +2,14 @@
 title: 지속성 함수의 바인딩 - Azure
 description: Azure Functions의 Durable Functions 확장에 트리거 및 바인딩을 사용하는 방법입니다.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233033"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410210"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -21,7 +21,7 @@ ms.locfileid: "74233033"
 
 Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레이션 트리거는 [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .NET 특성을 사용하여 구성됩니다.
 
-스크립팅 언어(예: JavaScript 또는 C# 스크립팅)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 `bindings`function.json*파일의* 배열에 있는 다음 JSON 개체에서 정의됩니다.
+스크립팅 언어(예: JavaScript 또는 C# 스크립팅)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 *function.json* 파일의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -128,7 +128,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Visual Studio를 사용 하는 경우 `ActivityTriggerAttribute` .NET 특성을 사용 하 여 작업 트리거를 구성 합니다.
 
-개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 `bindings`function.json*의*  배열에 있는 다음 JSON 개체에서 정의됩니다.
+개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -398,7 +398,7 @@ Azure Functions 용 Visual Studio 도구를 사용 하는 경우 엔터티 트�
 * **Deletestate ()** : 엔터티의 상태를 삭제 합니다. 
 * **Getinput\<TInput > ()** : 현재 작업에 대 한 입력을 가져옵니다. `TInput` 형식 매개 변수는 기본 형식 또는 JSON serializeable 형식 이어야 합니다.
 * **Return (arg)** : 작업을 호출한 오케스트레이션에 값을 반환 합니다. `arg` 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
-* **SignalEntity (EntityId, operation, input)** : 엔터티에 단방향 메시지를 보냅니다. `operation` 매개 변수는 null이 아닌 문자열 이어야 하 고 `input` 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
+* **SignalEntity (EntityId, scheduledTimeUtc, operation, input)** : 엔터티에 단방향 메시지를 보냅니다. `operation` 매개 변수는 null이 아닌 문자열 이어야 하 고, 선택적 `scheduledTimeUtc`는 작업을 호출 하는 UTC 날짜/시간 이어야 하 고, `input` 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
 * **CreateNewOrchestration (orchestratorFunctionName, input)** : 새 오케스트레이션을 시작 합니다. `input` 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
 
 `Entity.Current` async-local 속성을 사용 하 여 엔터티 함수에 전달 되는 `IDurableEntityContext` 개체에 액세스할 수 있습니다. 이 방법은 클래스 기반 프로그래밍 모델을 사용 하는 경우에 편리 합니다.
@@ -456,7 +456,7 @@ public class Counter
 클래스 기반 구문과 이를 사용하는 방법에 대한 자세한 내용은 [엔터티 클래스 정의](durable-functions-dotnet-entities.md#defining-entity-classes)를 참조하세요.
 
 > [!NOTE]
-> 엔터티 클래스를 사용하는 경우 `[FunctionName]` 특성이 있는 함수 진입점 메서드를 *으로* 선언해야`static` 합니다. 비정적 진입점 메서드를 사용하면 여러 개체가 초기화되고 잠재적으로 정의되지 않은 다른 동작이 발생할 수 있습니다.
+> 엔터티 클래스를 사용하는 경우 `[FunctionName]` 특성이 있는 함수 진입점 메서드를 `static`으로 *선언해야* 합니다. 비정적 진입점 메서드를 사용하면 여러 개체가 초기화되고 잠재적으로 정의되지 않은 다른 동작이 발생할 수 있습니다.
 
 엔터티 클래스에는 바인딩과 .NET 종속성 주입을 상호 작용 하기 위한 특수 메커니즘이 있습니다. 자세한 내용은 [엔터티 생성](durable-functions-dotnet-entities.md#entity-construction)을 참조 하세요.
 
@@ -500,7 +500,7 @@ module.exports = df.entity(function(context) {
 ```
 
 > [!NOTE]
-> 지속성 엔터티는 **npm 패키지의 버전**1.3.0`durable-functions`부터 JavaScript에서 사용할 수 있습니다.
+> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다.
 
 ## <a name="entity-client"></a>엔터티 클라이언트
 
@@ -519,7 +519,7 @@ Visual Studio를 사용 하는 경우 `DurableClientAttribute` .NET 특성을 �
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -535,6 +535,7 @@ Visual Studio를 사용 하는 경우 `DurableClientAttribute` .NET 특성을 �
 
 * **ReadEntityStateAsync\<t >** : 엔터티 상태를 읽습니다. 대상 엔터티가 있는지 여부를 나타내는 응답을 반환 하 고, 그럴 경우 상태를 반환 합니다.
 * **SignalEntityAsync**: 엔터티에 단방향 메시지를 보내고 큐에 대기 될 때까지 기다립니다.
+* **Listent활동 async**: 여러 엔터티의 상태를 쿼리 합니다. 엔터티는 *이름* 및 *마지막 작업 시간*으로 쿼리할 수 있습니다.
 
 신호를 보내기 전에 대상 엔터티를 만들 필요는 없습니다. 신호를 처리 하는 엔터티 함수 내에서 엔터티 상태를 만들 수 있습니다.
 
@@ -633,7 +634,7 @@ module.exports = async function (context) {
 ```
 
 > [!NOTE]
-> 지속성 엔터티는 **npm 패키지의 버전**1.3.0`durable-functions`부터 JavaScript에서 사용할 수 있습니다.
+> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>host.json 설정

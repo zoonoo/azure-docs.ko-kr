@@ -1,32 +1,23 @@
 ---
-title: Microsoft Azure Service Fabric CLI- sfctl 애플리케이션 | Microsoft Docs
-description: Service Fabric CLI sfctl 애플리케이션 명령을 설명합니다.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 응용 프로그램
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 응용 프로그램을 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 163faaab8fa2503458503d9f2b72d27a3e5856f0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901280"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645415"
 ---
 # <a name="sfctl-application"></a>sfctl application
 애플리케이션 및 애플리케이션 유형을 성, 삭제 및 관리합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | create | 지정한 설명을 사용하여 Microsoft Azure Service Fabric 애플리케이션을 만듭니다. |
 | delete | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
@@ -34,7 +25,7 @@ ms.locfileid: "72901280"
 | deployed-health | Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보를 가져옵니다. |
 | deployed-list | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목록을 가져옵니다. |
 | 의료 | Microsoft Azure Service Fabric 애플리케이션의 상태를 가져옵니다. |
-| info | Microsoft Azure Service Fabric 애플리케이션에 대한 정보를 가져옵니다. |
+| 정보 | Microsoft Azure Service Fabric 애플리케이션에 대한 정보를 가져옵니다. |
 | list | 지정된 필터와 일치하는 Service Fabric 클러스터에서 만든 애플리케이션 목록을 가져옵니다. |
 | load | Microsoft Azure Service Fabric 애플리케이션에 대한 로드 정보를 가져옵니다. |
 | manifest | 애플리케이션 유형을 설명하는 매니페스트를 가져옵니다. |
@@ -54,7 +45,7 @@ ms.locfileid: "72901280"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --app-name    [필수] | '패브릭\:' URI 체계를 포함하는, 애플리케이션의 이름입니다. |
 | --app-type    [필수] | 애플리케이션 매니페스트에 있는 애플리케이션 유형 이름입니다. |
@@ -67,13 +58,13 @@ ms.locfileid: "72901280"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-delete"></a>sfctl application delete
 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다.
@@ -82,7 +73,7 @@ ms.locfileid: "72901280"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --force-remove | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 애플리케이션이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 애플리케이션이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다. |
@@ -90,13 +81,13 @@ ms.locfileid: "72901280"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
 Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다.
@@ -105,7 +96,7 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name [필수] | 노드의 이름입니다. |
@@ -114,13 +105,13 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-deployed-health"></a>sfctl application deployed-health
 Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보를 가져옵니다.
@@ -129,7 +120,7 @@ Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id                     [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name                          [필수] | 노드의 이름입니다. |
@@ -140,13 +131,13 @@ Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-deployed-list"></a>sfctl application deployed-list
 Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목록을 가져옵니다.
@@ -155,7 +146,7 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --node-name [필수] | 노드의 이름입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
@@ -165,13 +156,13 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-health"></a>sfctl application health
 Microsoft Azure Service Fabric 애플리케이션의 상태를 가져옵니다.
@@ -180,7 +171,7 @@ Microsoft Azure Service Fabric 애플리케이션의 상태를 반환합니다. 
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id                 [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --deployed-applications-health-state-filter | 배포된 애플리케이션 상태 개체의 필터링이 상태를 기반으로 한 애플리케이션 상태 쿼리의 결과값으로 반환되도록 허용합니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 배포된 애플리케이션만 반환됩니다. 모든 배포된 애플리케이션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 배포된 애플리케이션의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
@@ -191,13 +182,13 @@ Microsoft Azure Service Fabric 애플리케이션의 상태를 반환합니다. 
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-info"></a>sfctl application info
 Microsoft Azure Service Fabric 애플리케이션에 대한 정보를 가져옵니다.
@@ -206,7 +197,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --exclude-application-parameters | 애플리케이션 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다. |
@@ -214,13 +205,13 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-list"></a>sfctl application list
 지정된 필터와 일치하는 Service Fabric 클러스터에서 만든 애플리케이션 목록을 가져옵니다.
@@ -229,7 +220,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-definition-kind-filter | Service Fabric 애플리케이션을 정의하는 데 사용되는 메커니즘인 ApplicationDefinitionKind에서 필터링하는 데 사용합니다.  <br> - 기본 - 기본값으로, “All”을 선택할 때와 동일한 함수를 수행합니다. 값은 0입니다.  <br> - All - 입력과 일치하는 모든 ApplicationDefinitionKind 값을 검색하는 필터입니다. 값은 65535입니다.  <br> - ServiceFabricApplicationDescription - 입력과 일치하는 ApplicationDefinitionKind 값 ServiceFabricApplicationDescription을 검색하는 필터입니다. 값은 1입니다.  <br> - Compose - 입력과 일치하는 ApplicationDefinitionKind 값 Compose를 검색하는 필터입니다. 값은 2입니다. |
 | --application-type-name | 쿼리할 애플리케이션을 필터링하는 데 사용되는 애플리케이션 유형 이름입니다. 이 값은 애플리케이션 유형 버전을 포함할 수 없습니다. |
@@ -240,13 +231,13 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-load"></a>sfctl application load
 Microsoft Azure Service Fabric 애플리케이션에 대한 로드 정보를 가져옵니다.
@@ -255,20 +246,20 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
 애플리케이션 유형을 설명하는 매니페스트를 가져옵니다.
@@ -277,7 +268,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 애플리케이션 유형의 버전입니다. |
@@ -285,13 +276,13 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
 외부 저장소의 '. .sfpkg ' 패키지를 사용 하는 클러스터 또는 이미지 저장소의 응용 프로그램 패키지를 사용 하 여 Service Fabric 응용 프로그램 유형을 프로 비전 하거나 등록 합니다.
@@ -300,7 +291,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --애플리케이션-패키지-다운로드-URI | HTTP 또는 HTTPS 프로토콜을 사용하여 애플리케이션 패키지를 다운로드할 수 있는 ‘.sfpkg’ 애플리케이션 패키지의 경로입니다. <br><br> 프로비전 종류 외부 저장소에만 해당합니다. 애플리케이션 패키지는 파일을 다운로드하도록 가져오기 작업을 제공하는 외부 저장소에 저장할 수 있습니다. 지원되는 프로토콜은 HTTP 및 HTTPS이며, 경로는 읽기 권한을 허용해야 합니다. |
 | --애플리케이션-형식-빌드-경로 | 프로비전 종류 이미지 저장소에만 해당합니다. 이전 업로드 작업 중 지정된 이미지 저장소에 있는 애플리케이션 패키지에 대한 상대 경로입니다. |
@@ -312,13 +303,13 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-report-health"></a>sfctl application report-health
 Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 보냅니다.
@@ -327,7 +318,7 @@ Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id  [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 'fabric\:/myapp/app1'인 경우 애플리케이션 ID가 6.0 이상에서는 'myapp\~app1'이고 이전 버전에서는 'myapp/app1'입니다. |
 | --health-property [필수] | 상태 정보의 속성입니다. <br><br> 엔터티는 서로 다른 속성에 대한 상태 보고서를 가질 수 있습니다. 속성은 문자열이며 보고자 유연성에서 보고서를 트리거하는 상태 조건을 분류하도록 허용하는 고정된 열거형이 아닙니다. 예를 들어 SourceId "LocalWatchdog"가 있는 보고자는 노드에서 사용 가능한 디스크의 상태를 모니터링할 수 있으므로 해당 노드에서 "AvailableDisk" 속성을 보고할 수 있습니다. 동일한 보고자는 노드 연결을 모니터링할 수 있으므로 동일한 노드에서 "Connectivity" 속성을 보고할 수 있습니다. Health 스토어에서 이러한 보고서는 지정된 노드에 대한 별도의 상태 이벤트로 처리됩니다. SourceId와 함께 속성은 상태 정보를 고유하게 식별합니다. |
@@ -342,13 +333,13 @@ Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-type"></a>sfctl application type
 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다.
@@ -357,7 +348,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-type-name [필수] | 애플리케이션 유형의 이름입니다. |
 | --애플리케이션-유형-버전 | 애플리케이션 유형의 버전입니다. |
@@ -368,13 +359,13 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-type-list"></a>sfctl application type-list
 Microsoft Azure Service Fabric 클러스터에서 애플리케이션의 유형 목록을 가져옵니다.
@@ -383,7 +374,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-type-definition-kind-filter | Service Fabric 애플리케이션 유형을 정의하는 데 사용되는 메커니즘인 ApplicationTypeDefinitionKind에서 필터링하는 데 사용합니다.  <br> - 기본 - 기본값으로, “All”을 선택할 때와 동일한 함수를 수행합니다. 값은 0입니다.  <br> - All - 입력과 일치하는 모든 ApplicationTypeDefinitionKind 값을 검색하는 필터입니다. 값은 65535입니다.  <br> - ServiceFabricApplicationPackage - 입력과 일치하는 ApplicationTypeDefinitionKind 값 ServiceFabricApplicationPackage를 검색하는 필터입니다. 값은 1입니다.  <br> - Compose - 입력과 일치하는 ApplicationTypeDefinitionKind 값 Compose를 검색하는 필터입니다. 값은 2입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
@@ -393,13 +384,13 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
 클러스터에서 Microsoft Azure Service Fabric 애플리케이션 유형을 제거하거나 등록 취소합니다.
@@ -408,7 +399,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 애플리케이션 매니페스트에서 정의된 애플리케이션 유형의 버전입니다. |
@@ -417,13 +408,13 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레이드를 시작합니다.
@@ -432,7 +423,7 @@ Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --application-version [필수] | 애플리케이션 업그레이드를 위한 대상 애플리케이션 유형 버전(애플리케이션 매니페스트에 있음)입니다. |
@@ -454,13 +445,13 @@ Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-upgrade-resume"></a>sfctl application upgrade-resume
 Microsoft Azure Service Fabric 클러스터에 애플리케이션을 다시 업그레이드하기 시작합니다.
@@ -469,7 +460,7 @@ Microsoft Azure Service Fabric 클러스터에 애플리케이션을 다시 업�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --upgrade-domain-name [필수] | 업그레이드를 다시 시작할 업그레이드 도메인의 이름입니다. |
@@ -477,13 +468,13 @@ Microsoft Azure Service Fabric 클러스터에 애플리케이션을 다시 업�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-upgrade-rollback"></a>sfctl application upgrade-rollback
 Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그레이드의 롤백을 시작합니다.
@@ -492,20 +483,20 @@ Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-upgrade-status"></a>sfctl application upgrade-status
 이 애플리케이션에 수행된 최신 업그레이드에 대한 세부 정보를 가져옵니다.
@@ -514,20 +505,20 @@ Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-upload"></a>sfctl application upload
 Microsoft Azure Service Fabric 애플리케이션 패키지를 이미지 저장소에 복사합니다.
@@ -536,7 +527,7 @@ Microsoft Azure Service Fabric 애플리케이션 패키지를 이미지 저장�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --path   [필수] | 로컬 애플리케이션 패키지 경로입니다. |
 | --imagestore-string | 애플리케이션 패키지를 업로드할 대상 이미지 저장소입니다.  기본값\: fabric\:ImageStore. <br><br> 파일 위치에 업로드 하려면 ' file\:'를 사용 하 여이 매개 변수를 시작 합니다. 그렇지 않으면 값이 기본값과 같은 이미지 저장소 연결 문자열 이어야 합니다. |
@@ -545,13 +536,13 @@ Microsoft Azure Service Fabric 애플리케이션 패키지를 이미지 저장�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

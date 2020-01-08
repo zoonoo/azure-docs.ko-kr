@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706083"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445258"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>분할 되지 않은 컨테이너를 분할 된 컨테이너로 마이그레이션
 
@@ -117,6 +117,14 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 이전 버전의 Azure Cosmos DB Sdk (예: V2. x. x) 및 V1. x. x는 시스템 정의 파티션 키 속성을 지원 하지 않습니다. 따라서 이전 SDK에서 컨테이너 정의를 읽으면 파티션 키 정의가 포함 되지 않으며 이러한 컨테이너는 이전과 정확히 동일 하 게 동작 합니다. 이전 버전의 Sdk를 사용 하 여 빌드된 응용 프로그램은 변경 없이 그대로 분할 된 상태에서 계속 작동 합니다. 
 
 마이그레이션된 컨테이너가 SDK의 최신/V3 버전에서 사용 되 고 새 문서 내에서 시스템 정의 파티션 키를 채우기 시작 하면 이전 Sdk에서 이러한 문서에 대 한 액세스 (읽기, 업데이트, 삭제, 쿼리)를 더 이상 사용할 수 없습니다.
+
+## <a name="known-issues"></a>알려진 문제
+
+**V3 SDK를 사용 하 여 파티션 키 없이 삽입 된 항목 수에 대 한 쿼리는 더 높은 처리량 사용을 포함할 수 있습니다.**
+
+V2 sdk를 사용 하 여 삽입 된 항목 또는 `PartitionKey.None` 매개 변수를 사용 하 여 V3 sdk를 사용 하 여 삽입 된 항목에 대해 V3 SDK에서 쿼리 하는 경우 `PartitionKey.None` 매개 변수가 FeedOptions에서 제공 되는 경우 count 쿼리는 더 많은 r u/초를 소비할 수 있습니다. 다른 항목이 파티션 키로 삽입 되지 않은 경우에는 `PartitionKey.None` 매개 변수를 제공 하지 않는 것이 좋습니다.
+
+파티션 키에 대해 다른 값을 사용 하 여 새 항목을 삽입 하는 경우 `FeedOptions`에 적절 한 키를 전달 하 여 이러한 항목 수를 쿼리하면 문제가 발생 하지 않습니다. 파티션 키를 사용 하 여 새 문서를 삽입 한 후에는 파티션 키 값을 사용 하지 않고 문서 개수만 쿼리해야 하는 경우 일반 분할 된 컬렉션과 비슷한 방식으로 쿼리를 다시 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,20 +1,18 @@
 ---
 title: Azure Stream Analytics에서 쿼리 병렬 처리 및 크기 조정 사용
 description: 이 문서에서는 입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 설명합니다.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 985746989af39aa55d5d8af735edf62f4c4b77b7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932279"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431571"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -32,13 +30,13 @@ Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티�
 모든 Azure Stream Analytics 입력은 분할을 사용할 수 있습니다.
 -   EventHub(PARTITION BY 키워드로 파티션 키를 명시적으로 설정해야 함)
 -   IoT Hub(PARTITION BY 키워드로 파티션 키를 명시적으로 설정해야 함)
--   Linux 사용자 그룹용 Azure Files는 Linux에서 File Storage를 평가하고 채택할 때 피드백을 공유할 수 있도록 포럼을 제공합니다.
+-   Blob Storage
 
-### <a name="outputs"></a>참조 영역
+### <a name="outputs"></a>outputs
 
 Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 있습니다.
--   Azure Data Lake 스토리지
--   Azure 기능
+-   Azure Data Lake Storage
+-   Azure Function
 -   Azure 테이블
 -   Blob Storage(파티션 키를 명시적으로 설정할 수 있음)
 -   Cosmos DB(파티션 키를 명시적으로 설정해야 함)
@@ -305,14 +303,14 @@ Stream Analytics의 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-sc
 
 Azure Stream Analytics 작업의 메트릭 창을 사용 하 여 파이프라인의 병목 상태를 식별할 수 있습니다. 처리량 및 ["워터 마크 지연"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그 이벤트** 에 대 한 **입/출력 이벤트** 를 검토 하 여 작업이 입력 속도를 유지 하는지 확인 합니다. 이벤트 허브 메트릭에 대해 **제한 된 요청** 을 찾아 임계값 단위를 적절 하 게 조정 합니다. Cosmos DB 메트릭은 처리량에서 **파티션 키 범위별 최대** 사용량을 검토 하 여 파티션 키 범위를 균등 하 게 사용 하는지 확인 합니다. Azure SQL DB의 경우 **로그 IO** 및 **CPU**를 모니터링 합니다.
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

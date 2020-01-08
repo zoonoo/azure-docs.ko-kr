@@ -4,15 +4,15 @@ description: 클라우드 서비스, 가상 머신 및 서비스 패브릭에서
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d1721411b57fc3542af48fc5f48eca7e4a2d06c8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1bdefc6b61e4e5cc5b8648880c5fdd8662af1bc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395363"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure Diagnostics 확장이란?
 Azure Diagnostics 확장은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. 현재 Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric이 지원됩니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](../../azure-monitor/overview.md)를 참조하세요.
@@ -23,10 +23,10 @@ Azure Diagnostics 확장은 배포된 애플리케이션에서 진단 데이터�
 ## <a name="data-you-can-collect"></a>수집할 수 있는 데이터
 Azure Diagnostics 확장은 다음과 같은 유형의 데이터를 수집할 수 있습니다.
 
-| 데이터 원본 | 설명 |
+| 데이터 원본 | Description |
 | --- | --- |
 | 성능 카운터 메트릭 |운영 체제 및 사용자 지정 성능 카운터 |
-| 애플리케이션 로그 |애플리케이션에서 작성한 메시지 추적 |
+| 애플리케이션 로그 전송 사용 |애플리케이션에서 작성한 메시지 추적 |
 | Windows 이벤트 로그 |Windows 이벤트 로깅 시스템으로 전송된 정보 |
 | .NET EventSource 로그 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
 | IIS 로그 |IIS 웹 사이트에 대한 정보 |
@@ -62,7 +62,7 @@ Azure Monitor 메트릭 시계열 데이터베이스에 데이터를 보낼 수�
 진단을 수집할 서비스를 선택하고 다음 문서를 사용하여 시작합니다. 특정 작업에 대한 참조로 일반 Azure 진단 링크를 사용합니다.
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Azure Diagnostics를 사용하는 Cloud Services
-* Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 Cloud Services 애플리케이션 추적](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.
+* Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 Cloud Services 애플리케이션 추적](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) 을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.
 * [Azure Diagnostics를 사용하여 클라우드 서비스를 모니터링하는 방법](../../cloud-services/cloud-services-how-to-monitor.md)
 * [Cloud Services 애플리케이션에서 Azure Diagnostics 설정](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 

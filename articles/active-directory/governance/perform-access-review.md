@@ -1,5 +1,5 @@
 ---
-title: 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스 검토-Azure Active Directory | Microsoft Docs
+title: 액세스 검토에서 응용 프로그램 & 그룹에 대 한 액세스 검토-Azure AD
 description: Azure Active Directory 액세스 검토에서 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스를 검토 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: msaburnley
@@ -15,14 +15,14 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51ad8faecd935ea999b1287e542e4b14d55290a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 8393a1e4719137aa09233d0a87dabdf81d8ccb59
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948236"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422447"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스 검토
+# <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토
 
 Azure ad (Azure Active Directory)는 기업에서 azure ad 액세스 검토 라는 기능을 사용 하 여 Azure AD 및 기타 Microsoft Online Services의 그룹 및 응용 프로그램에 대 한 액세스를 관리 하는 방법을 간소화 합니다.
 
@@ -40,7 +40,7 @@ Azure ad (Azure Active Directory)는 기업에서 azure ad 액세스 검토 라�
 
 전자 메일이 없는 경우 다음 단계를 수행 하 여 보류 중인 액세스 검토를 찾을 수 있습니다.
 
-1. [@No__t-1](https://myapps.microsoft.com)에서 myapps 포털에 로그인 합니다.
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에서 myapps 포털에 로그인 합니다.
 
     ![사용 권한이 있는 앱을 나열 하는 MyApps 포털](./media/perform-access-review/myapps-access-panel.png)
 

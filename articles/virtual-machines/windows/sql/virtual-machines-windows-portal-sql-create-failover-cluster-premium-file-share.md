@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465002"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure virtual machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 
@@ -55,7 +55,7 @@ Azure IaaS VM 장애 조치 (failover) 클러스터에서는 서버당 단일 NI
 
 프리미엄 파일 공유 성능에 대 한 자세한 내용은 [파일 공유 성능 계층](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers)을 참조 하세요.
 
-### <a name="licensing-and-pricing"></a>라이선싱 및 가격 책정
+### <a name="licensing-and-pricing"></a>라이선스 및 가격 책정
 
 Azure virtual machines에서 종 량 제 (PAYG) 또는 BYOL (사용자 라이선스) VM 이미지를 사용 하 여 SQL Server 라이선스를 부여할 수 있습니다. 선택한 이미지 유형은 요금이 부과 되는 방식에 영향을 줍니다.
 
@@ -67,11 +67,11 @@ Azure 가상 컴퓨터에서 SQL Server에 대 한 종 량 제 및 BYOL 라이�
 
 SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://www.microsoft.com/sql-server/sql-server-2017-pricing)을 참조하세요.
 
-### <a name="filestream"></a>파일스트림
+### <a name="filestream"></a>Filestream
 
 Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failover) 클러스터에 대해 지원 되지 않습니다. Filestream을 사용 하려면 [스토리지 공간 다이렉트](virtual-machines-windows-portal-sql-create-failover-cluster.md)를 사용 하 여 클러스터를 배포 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료 하기 전에 다음이 이미 있어야 합니다.
 
@@ -84,7 +84,6 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
    - 각 FCI에 대한 IP 주소
 - 도메인 컨트롤러를 가리키는 Azure 네트워크에 구성 된 DNS입니다.
 - 데이터 파일에 대 한 데이터베이스의 저장소 할당량을 기반으로 하는 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md) 입니다.
-- 데이터 파일에 사용 되는 프리미엄 파일 공유와 다른 백업에 대 한 파일 공유입니다. 이 파일 공유는 standard 또는 premium 중 하나일 수 있습니다.
 
 이러한 필수 구성 요소가 준비 되 면 장애 조치 (failover) 클러스터 빌드를 시작할 수 있습니다. 첫 번째 단계는 가상 머신을 만드는 것입니다.
 
@@ -152,7 +151,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 
    각 가상 컴퓨터의 Windows 방화벽에서 이러한 포트를 엽니다.
 
-   | 용도 | TCP 포트 | 참고
+   | 용도 | TCP 포트 | 메모
    | ------ | ------ | ------
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.
@@ -175,7 +174,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 1. RDP를 사용 하 여 SQL Server FCI가 서비스 계정에 사용할 계정을 사용 하 여 SQL Server VM에 연결 합니다.
 1. 관리 PowerShell 명령 콘솔을 엽니다.
 1. 포털에서 작업 하는 동안 이전에 저장 한 명령을 실행 합니다.
-1. 파일 탐색기 또는 **실행** 대화 상자 (Windows 로고 키 + r)를 사용 하 여 공유로 이동 합니다. 네트워크 경로 `\\storageaccountname.file.core.windows.net\filesharename`를 사용 합니다. 위치(예:`\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. 파일 탐색기 또는 **실행** 대화 상자 (Windows 로고 키 + r)를 사용 하 여 공유로 이동 합니다. 네트워크 경로 `\\storageaccountname.file.core.windows.net\filesharename`를 사용 합니다. 예를 들어 `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. 새로 연결 된 파일 공유에 SQL 데이터 파일을 저장할 폴더를 하나 이상 만듭니다.
 1. 클러스터에 참여 하는 각 SQL Server VM에 대해 이러한 단계를 반복 합니다.
@@ -297,7 +296,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. **새로 만들기 SQL Server 장애 조치 (failover) 클러스터 설치**를 선택 합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
-   FCI 데이터 디렉터리는 프리미엄 파일 공유에 있어야 합니다. 공유의 전체 경로를이 형식으로 입력 합니다 (예: `\\storageaccountname.file.core.windows.net\filesharename\foldername`). 파일 서버를 데이터 디렉터리로 지정 했음을 알려주는 경고가 표시 됩니다. 이 경고는 예상 됩니다. 파일 공유를 유지 하는 데 사용 된 계정이 SQL Server 서비스에서 가능한 오류를 방지 하는 데 사용 하는 계정과 동일 해야 합니다.
+   FCI 데이터 디렉터리는 프리미엄 파일 공유에 있어야 합니다. 공유의 전체 경로를이 형식으로 입력 합니다 (예: `\\storageaccountname.file.core.windows.net\filesharename\foldername`). 파일 서버를 데이터 디렉터리로 지정 했음을 알려주는 경고가 표시 됩니다. 이 경고는 정상적인 것입니다. 파일 공유를 유지 하는 데 사용 된 계정이 SQL Server 서비스에서 가능한 오류를 방지 하는 데 사용 하는 계정과 동일 해야 합니다.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="SQL 데이터 디렉터리로 파일 공유 사용":::
 

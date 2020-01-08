@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 89b86124d6da0d0d659ed0673585eadbf1008aa3
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: b45b27fd2e3dc6cf92d83934d571df25c2ce204f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847304"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644990"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -36,7 +36,7 @@ Data Lake Storage Gen2 사용 하 여 클러스터 만들기 옵션을 전체적
 
 사용자 할당 관리 ID가 아직 없는 경우 지금 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 위에서 **리소스 만들기**를 클릭 합니다.
 1. 검색 상자에 **사용자 할당** 을 입력 하 고 **사용자 할당 관리 id**를 클릭 합니다.
 1. **만들기**를 클릭합니다.
@@ -51,7 +51,7 @@ Azure HDInsight에서 관리 id가 작동 하는 방식에 대 한 자세한 내
 
 Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 위에서 **리소스 만들기**를 클릭 합니다.
 1. 검색 상자에 **저장소** 를 입력 하 고 **저장소 계정**을 클릭 합니다.
 1. **만들기**를 클릭합니다.
@@ -100,7 +100,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 
 [샘플 템플릿 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) 하 고 [샘플 매개 변수 파일을 다운로드할](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)수 있습니다. 템플릿 및 Azure CLI 코드 조각을 사용 하기 전에 다음 자리 표시자를 올바른 값으로 바꿉니다.
 
-| Placeholder | 설명 |
+| 자리 표시자 | Description |
 |---|---|
 | `<SUBSCRIPTION_ID>` | Azure 구독의 ID입니다. |
 | `<RESOURCEGROUPNAME>` | 새 클러스터 및 저장소 계정을 만들 리소스 그룹입니다. |
@@ -146,6 +146,10 @@ az group deployment create --name HDInsightADLSGen2Deployment \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```
+
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-azure-powershell"></a>Azure PowerShell를 통해 Data Lake Storage Gen2를 사용 하 여 클러스터 만들기
+
+Azure Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터를 만드는 데 PowerShell을 사용 하는 것은 현재 지원 되지 않습니다.
 
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>HDInsight의 Data Lake Storage Gen2에 대 한 액세스 제어
 

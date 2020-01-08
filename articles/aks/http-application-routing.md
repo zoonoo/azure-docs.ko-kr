@@ -8,14 +8,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: f0975d0a60081b66d3d5a513954deb0c4fa1b978
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: cfd69ebf6408acaa2938271ba87f36768416de80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442956"
 ---
-# <a name="http-application-routing"></a>http 애플리케이션 라우팅
+# <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
 HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션을 사용 하도록 설정 하면 AKS 클러스터에서 [수신 컨트롤러](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) 를 구성 합니다. 애플리케이션이 배포되면 솔루션에서 애플리케이션 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
@@ -33,7 +33,7 @@ HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes
 
 ## <a name="deploy-http-routing-cli"></a>HTTP 라우팅 배포: CLI
 
-AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 애플리케이션 라우팅 추가 기능을 사용하도록 설정할 수 있습니다. 이렇게 하려면 `--enable-addons` 인수를 사용 하 여 [az aks create][az-aks-create] 명령을 사용 합니다.
+AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 애플리케이션 라우팅 추가 기능을 사용하도록 설정할 수 있습니다. 이렇게 하려면 `--enable-addons` 인수와 함께 [az aks create][az-aks-create] 명령을 사용 합니다.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
@@ -51,14 +51,15 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 클러스터를 배포 하거나 업데이트 한 후에는 [az aks show][az-aks-show] 명령을 사용 하 여 DNS 영역 이름을 검색 합니다. 이 이름은 애플리케이션을 AKS 클러스터에 배포하는 데 필요합니다.
 
 ```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
-
-Result
------------------------------------------------------
-9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpapplicationrouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-## <a name="deploy-http-routing-portal"></a>HTTP 라우팅 배포: 포털
+결과
+
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+
+
+## <a name="deploy-http-routing-portal"></a>HTTP 라우팅 배포: Portal
 
 AKS 클러스터를 배포할 때 Azure Portal을 통해 HTTP 애플리케이션 라우팅 추가 기능을 사용하도록 설정할 수 있습니다.
 

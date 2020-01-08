@@ -1,35 +1,26 @@
 ---
-title: Azure Service Fabric CLI- sfctl is | Microsoft Docs
-description: Service Fabric CLI sfctl is 명령을 설명합니다.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl이
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 인프라를 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 9a09d8c36fd282450767880a9ad144e1192dcd2e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c3c98e8da0c2a5449296a0fd108977ec0633f83d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901578"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639125"
 ---
 # <a name="sfctl-is"></a>sfctl is
-인프라 서비스에 쿼리하고 명령을 보냅니다.
+쿼리하고 인프라 서비스에 명령을 보냅니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | command | 지정된 인프라 서비스 인스턴스에 대한 관리 명령을 호출합니다. |
-| 쿼리 | 지정된 인프라 서비스 인스턴스에 대한 읽기 전용 쿼리를 호출합니다. |
+| Query | 지정된 인프라 서비스 인스턴스에 대한 읽기 전용 쿼리를 호출합니다. |
 
 ## <a name="sfctl-is-command"></a>sfctl is 명령
 지정된 인프라 서비스 인스턴스에 대한 관리 명령을 호출합니다.
@@ -38,7 +29,7 @@ ms.locfileid: "72901578"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --command[필수] | 호출할 명령의 텍스트입니다. 명령의 콘텐츠는 인프라에 따라 다릅니다. |
 | --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric\:' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
@@ -46,13 +37,13 @@ ms.locfileid: "72901578"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-is-query"></a>sfctl is 쿼리
 지정된 인프라 서비스 인스턴스에 대한 읽기 전용 쿼리를 호출합니다.
@@ -61,7 +52,7 @@ ms.locfileid: "72901578"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --command[필수] | 호출할 명령의 텍스트입니다. 명령의 콘텐츠는 인프라에 따라 다릅니다. |
 | --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric\:' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
@@ -69,15 +60,15 @@ ms.locfileid: "72901578"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md).
+- Service Fabric CLI [설정](service-fabric-cli.md)
 - [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 0225405c5d3a511bbb2bbb08c1c13e5adedd5096
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad408df140be49da2e50ef810285dd850e9da6a1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903765"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638871"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
 
@@ -31,11 +31,11 @@ Data Lake Storage Gen1는 다음 원본에서 데이터를 복사할 수 있는 
 * **독립 실행형**, 여기서 도구는 Data Lake Storage Gen1 리소스를 사용하여 작업을 수행합니다.
 * **데이터 레이크 분석 계정 사용**, 여기서 데이터 레이크 분석 계정에 할당된 단위는 복사 작업을 수행하는 데 사용됩니다. 예측 가능한 방식으로 복사 작업을 수행하려는 경우 이 옵션을 사용 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 일부 데이터를 사용 하 여 blob 컨테이너를 **Azure Storage** 합니다.
 * **Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 * **Data Lake Analytics 계정 (선택 사항)** -Data Lake Analytics 계정을 만드는 방법에 대 한 지침은 [Azure Data Lake Analytics 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md) 을 참조 하세요.
@@ -49,13 +49,13 @@ Data Lake Storage Gen1는 다음 원본에서 데이터를 복사할 수 있는 
 
 이 구문에서 매개 변수는 다음과 같습니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 | --- | --- |
 | 원본 |Azure Storage Blob에서 원본 데이터의 위치를 지정합니다. 원본은 Blob 컨테이너, Blob 또는 다른 Data Lake Storage Gen1 계정일 수 있습니다. |
 | Dest |복사할 Data Lake Storage Gen1 대상을 지정합니다. |
 | SourceKey |Azure Storage Blob 원본에 대한 스토리지 액세스 키를 지정합니다. 원본이 Blob 컨테이너 또는 Blob인 경우에만 필요합니다. |
-| 계정 |**선택 사항**입니다. 복사 작업을 실행하기 위해 Azure 데이터 레이크 분석 계정을 사용하려는 경우 사용합니다. 구문에서 /Account 옵션을 사용하지만 데이터 레이크 분석 계정을 지정하지 않으면 AdlCopy는 기본 계정을 사용하여 작업을 실행합니다. 또한 이 옵션을 사용하는 경우 원본(Azure Storage Blob) 및 대상(Azure Data Lake Storage Gen1)을 Data Lake Analytics 계정에 대한 데이터 원본으로 추가해야 합니다. |
-| Units |복사 작업에 사용할 데이터 레이크 분석 단위의 수를 지정합니다. 이 옵션은 **/Account** 옵션을 사용하여 데이터 레이크 분석 계정을 지정하는 경우 필수입니다. |
+| 계정 |**선택 사항**. 복사 작업을 실행하기 위해 Azure 데이터 레이크 분석 계정을 사용하려는 경우 사용합니다. 구문에서 /Account 옵션을 사용하지만 데이터 레이크 분석 계정을 지정하지 않으면 AdlCopy는 기본 계정을 사용하여 작업을 실행합니다. 또한 이 옵션을 사용하는 경우 원본(Azure Storage Blob) 및 대상(Azure Data Lake Storage Gen1)을 Data Lake Analytics 계정에 대한 데이터 원본으로 추가해야 합니다. |
+| 단위 |복사 작업에 사용할 데이터 레이크 분석 단위의 수를 지정합니다. 이 옵션은 **/Account** 옵션을 사용하여 데이터 레이크 분석 계정을 지정하는 경우 필수입니다. |
 | 패턴 |복사할 Blob 또는 파일을 나타내는 regex 패턴을 지정합니다. AdlCopy는 대/소문자 구분 일치를 사용합니다. 지정 된 패턴이 없는 경우의 기본 패턴은 모든 항목을 복사 하는 것입니다. 여러 파일 패턴을 지정할 수는 없습니다. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>AdlCopy(독립 실행형)를 사용하여 Azure Storage Blob에서 데이터 복사
@@ -90,7 +90,7 @@ Data Lake Storage Gen1는 다음 원본에서 데이터를 복사할 수 있는 
 
 ### <a name="performance-considerations"></a>성능 고려 사항
 
-Azure Blob Storage 계정에서 복사할 경우 Blob Storage 쪽에서 복사하는 동안 제한될 수 있습니다. 이로 인해 복사 작업의 성능이 저하됩니다. Azure Blob Storage의 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)에서 Azure Storage 제한을 참조하세요.
+Azure Blob Storage 계정에서 복사할 경우 Blob Storage 쪽에서 복사하는 동안 제한될 수 있습니다. 따라서 복사 작업의 성능이 저하됩니다. Azure Blob Storage의 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)에서 Azure Storage 제한을 참조하세요.
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-storage-gen1-account"></a>AdlCopy(독립 실행형)를 사용하여 다른 Data Lake Storage Gen1 계정에서 데이터 복사
 
@@ -129,7 +129,7 @@ AdlCopy를 독립 실행형 도구로 사용 하는 경우 복사본은 Azure �
 
 Data Lake Analytics 계정을 사용하여 Azure Storage Blob에서 Data Lake Storage Gen1로 데이터를 복사하는 AdlCopy 작업을 실행할 수도 있습니다. 이동할 데이터가 기가바이트 및 테라바이트 범위에 있고 보다 향상되고 예측 가능한 성능 처리량을 원하는 경우 일반적으로 이 옵션을 사용합니다.
 
-AdlCopy와 함께 Data Lake Analytics 계정을 사용하여 Azure Storage Blob에서 복사하려면 원본(Azure Storage Blob)을 Data Lake Analytics 계정의 데이터 원본으로 추가해야 합니다. 데이터 레이크 분석 계정에 추가 데이터 원본을 추가하는 방법에 대한 지침은 [데이터 레이크 분석 계정 데이터 원본 관리](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources)를 참조하세요.
+AdlCopy와 함께 Data Lake Analytics 계정을 사용하여 Azure Storage Blob에서 복사하려면 원본(Azure Storage Blob)을 Data Lake Analytics 계정의 데이터 원본으로 추가해야 합니다. Data Lake Aanlytics 계정에 추가 데이터 원본을 추가하는 방법에 대한 지침은 [Data Lake Aanlytics 계정 데이터 원본 관리](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources)를 참조하세요.
 
 > [!NOTE]
 > Data Lake Analytics 계정을 사용하여 Azure Data Lake Storage Gen1 계정을 원본으로 데이터를 복사하는 경우 Data Lake Storage Gen1 계정을 Data Lake Analytics 계정에 연결할 필요가 없습니다. 원본 저장소를 Data Lake Analytics 계정에 연결하려는 경우 원본이 Azure Storage 계정이기만 하면 됩니다.
@@ -165,7 +165,7 @@ AdlCopy와 함께 Data Lake Analytics 계정을 사용하여 Azure Storage Blob�
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>청구
 
 * AdlCopy 도구를 독립 실행형으로 사용하는 경우 원본 Azure Storage 계정이 Data Lake Storage Gen1 계정과 동일한 지역에 없는 경우 데이터 이동에 따른 송신 비용이 청구됩니다.
 * 데이터 레이크 분석 계정과 함께 AdlCopy 도구를 사용하면 표준 [데이터 레이크 분석 청구 금액](https://azure.microsoft.com/pricing/details/data-lake-analytics/) 이 적용 됩니다.
@@ -186,4 +186,4 @@ AdlCopy는 수천 개의 파일 및 폴더가 포함된 데이터의 복사를 �
 
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
 * [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Data Lake Storage Gen1을 통해 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

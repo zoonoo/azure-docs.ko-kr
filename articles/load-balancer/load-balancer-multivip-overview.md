@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 58309133a46e32f409a0414be71791de73db9bed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075942"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644939"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
@@ -112,8 +112,8 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 
 | 규칙 | 프런트 엔드 | 백 엔드 풀에 매핑 |
 | --- | --- | --- |
-| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
-| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
+| 1 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
+| 2 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
 
 다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
 
@@ -133,7 +133,7 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 * 다중 프런트 엔드 구성은 IaaS VM에서만 지원됩니다.
 * 부동 IP 규칙을 사용 하는 경우 응용 프로그램은 아웃 바운드 SNAT 흐름에 기본 IP 구성을 사용 해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성 된 프런트 엔드 IP 주소에 바인딩하는 경우 아웃 바운드 흐름을 다시 작성 하는 데 Azure의 아웃 바운드 SNAT를 사용할 수 없으며 흐름이 실패 합니다.  [아웃 바운드 시나리오](load-balancer-outbound-connections.md)를 검토 합니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
+* 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

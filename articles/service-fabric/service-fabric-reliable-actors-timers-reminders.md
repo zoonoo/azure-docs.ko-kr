@@ -1,25 +1,16 @@
 ---
-title: Reliable Actors 타이머 및 미리 알림 | Microsoft Docs
-description: 서비스 패브릭 Reliable Actors의 타이머 및 미리 알림에 대해 소개합니다.
-services: service-fabric
-documentationcenter: .net
+title: Reliable Actors 타이머 및 미리 알림
+description: 각각의 사용 시기에 대 한 지침을 포함 하 여 Service Fabric Reliable Actors에 대 한 타이머 및 미리 알림을 소개 합니다.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726811"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639618"
 ---
 # <a name="actor-timers-and-reminders"></a>행위자 타이머 및 미리 알림
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.
@@ -167,7 +158,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-이 예제에서 `"Pay cell phone bill"` 은 미리 알림 이름입니다. 행위자가 미리 알림을 고유하게 식별하는 데 사용하는 문자열입니다. `BitConverter.GetBytes(amountInDollars)`(C#)는 해당 미리 알림에 연결되는 컨텍스트입니다. 이 변수로 전달할 수 다시 행위자 미리 알림 콜백의 인수 즉 `IRemindable.ReceiveReminderAsync`(C#) 또는 `Remindable.receiveReminderAsync`(Java).
+이 예제에서 `"Pay cell phone bill"` 은 미리 알림 이름입니다. 행위자가 미리 알림을 고유하게 식별하는 데 사용하는 문자열입니다. `BitConverter.GetBytes(amountInDollars)`(C#)는 해당 미리 알림에 연결되는 컨텍스트입니다. 또한 이 값은 미리 알림 콜백의 인수(`IRemindable.ReceiveReminderAsync`(C#) 또는 `Remindable.receiveReminderAsync`(Java))로 행위자에게 다시 전달됩니다.
 
 미리 알림을 사용하는 행위자는 아래 예제에 나온 대로 `IRemindable` 인터페이스를 구현해야 합니다.
 

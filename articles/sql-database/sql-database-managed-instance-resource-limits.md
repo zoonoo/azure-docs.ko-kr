@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548379"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443821"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -47,8 +47,8 @@ ms.locfileid: "74548379"
 
 | 메모리 내 OLTP 공간  | **Gen5** | **Gen4** |
 | --- | --- | --- |
-| 4 개 vCores  | 3.14 GB | |   
-| vCores 8 개  | 6.28 GB | 8GB |
+| vCore 4개  | 3.14 GB | |   
+| vCore 8개  | 6.28 GB | 8GB |
 | 16 개 vCores | 15.77 GB | 20GB |
 | 24 개 vCores | 25.25 GB | 36 GB |
 | 32 vCores | 37.94 GB | |
@@ -87,7 +87,7 @@ ms.locfileid: "74548379"
 > - 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
 > - 범용 계층의 처리량 및 IOPS는 관리 되는 인스턴스에 의해 명시적으로 제한 되지 않는 [파일 크기](#file-io-characteristics-in-general-purpose-tier) 에 따라서도 달라 집니다.
 > - 자동 장애 조치 그룹을 사용 하 여 다른 Azure 지역에서 읽을 수 있는 다른 복제본을 만들 수 있습니다.
-> - 최대 인스턴스 IOPS는 파일 레이아웃 및 워크 로드 배포에 따라 달라 집니다. 예를 들어 각각 최대 5K IOPS를 사용 하 여 7 x 1GB 파일을 만들고 각각 500 IOPS를 사용 하는 7 개의 작은 파일 (128 미만)을 만드는 경우 워크 로드에서 모든 파일을 사용할 수 있는 경우 인스턴스당 38500 IOPS (7x5000 + 7x500)를 가져올 수 있습니다. 일부 IOPS는 자동 백업에도 사용 됩니다.
+> - 최대 인스턴스 IOPS는 파일 레이아웃 및 워크 로드 배포에 따라 달라 집니다. 예를 들어 각각 최대 5K IOPS를 사용 하 여 7 x 1TB 파일을 만들고 각각 500 IOPS를 사용 하는 7 개의 작은 파일 (128 미만)을 만드는 경우 워크 로드에서 모든 파일을 사용할 수 있는 경우 인스턴스당 38500 IOPS (7x5000 + 7x500)를 가져올 수 있습니다. 일부 IOPS는 자동 백업에도 사용 됩니다.
 
 > [!NOTE]
 > [이 문서에서는 관리 되는 인스턴스 풀의 리소스 제한](sql-database-instance-pools.md#instance-pools-resource-limitations)에 대 한 자세한 정보를 확인 합니다.
@@ -98,7 +98,7 @@ ms.locfileid: "74548379"
 
 | 파일 크기           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0.5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| 파일당 IOPS       | 500   | 1100 | 2,300              | 5,000              | 7,500              | 7,500              | 12,500   |
+| 파일당 IOPS       | 500   | 1100 | 2300              | 5,000              | 7,500              | 7,500              | 12,500   |
 | 파일당 처리량 | 100MiB/초 | 125MiB/초 | 150MiB/초 | 200MiB/초 | 250MiB/초 | 250MiB/초 | 480 MiB/s | 
 
 일부 데이터베이스 파일에서 높은 IO 대기 시간이 발생 하거나 IOPS/처리량이 제한에 도달 하는 것을 확인 한 경우 [파일 크기를 늘려서](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337)성능을 향상 시킬 수 있습니다.
@@ -162,7 +162,7 @@ ms.locfileid: "74548379"
 
      ![문제점 유형 할당량](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. **다음**을 누릅니다.
+3. **다음**을 클릭합니다.
 4. 새 지원 요청에 대 한 **문제 탭** 에서 다음을 수행 합니다.
    - **심각도**에 대해 문제점의 심각도 수준을 선택합니다.
    - **세부 정보**에 대해 오류 메시지를 포함하여 문제점에 대한 추가 정보를 제공합니다.
@@ -176,7 +176,7 @@ ms.locfileid: "74548379"
      > - 할당량 증가 후 기존 서브넷의 서비스 계층 당 필요한 vCores 수 (기존 서브넷을 확장 해야 하는 경우)
      > - 필요한 새 서브넷 수 및 새 서브넷 내 서비스 계층 당 총 vCores 수 (새 서브넷에서 관리 되는 인스턴스를 배포 해야 하는 경우).
 
-5. **다음**을 누릅니다.
+5. **다음**을 클릭합니다.
 6. 새 지원 요청에 대한 [연락처 정보] 탭에서 기본 연락 방법(이메일 또는 전화)과 연락처 세부 정보를 입력합니다.
 7. **만들기**를 클릭합니다.
 

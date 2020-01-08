@@ -8,23 +8,23 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 21acbde147d5c1751480332e5cd9c89cdb43f8e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150043"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644956"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Apache Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계 대부분은 많은 시스템에 설치해야 할 수 있는 다음과 같은 유틸리티를 사용합니다.
 
 * [cURL](https://curl.haxx.se/) - 웹 기반 서비스와 통신하는 데 사용됩니다.
-* **jq**, 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)를 참조하세요.
+* **jq**, 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - Azure 서비스를 원격으로 관리하는 데 사용됩니다.
 * **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -52,7 +52,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 ## <a name="remote-access-to-services"></a>서비스에 대한 원격 액세스
 
-* **Ambari (웹)**  - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (웹)**  - `https://CLUSTERNAME.azurehdinsight.net`
 
     클러스터 관리자 사용자 및 암호를 사용 하 여 인증 한 다음 Ambari에 로그인 합니다.
 
@@ -63,14 +63,14 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
     >
     > Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Apache Ambari Web UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
-* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - `https://CLUSTERNAME.azurehdinsight.net/ambari`
 
     > [!NOTE]  
     > 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
     >
     > 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-* **Webhcat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **Webhcat (Templeton)**  - `https://CLUSTERNAME.azurehdinsight.net/templeton`
 
     > [!NOTE]  
     > 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
@@ -235,10 +235,10 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 
         매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10`은 토폴로지를 5개 작업자 프로세스, 파란색 spout 구성 요소를 3개 실행자 및 노란색 bolt 구성 요소를 10개 실행자로 다시 구성합니다.
 
-    * **Storm UI**: Storm UI를 사용하여 토폴로지의 균형을 다시 조정하려면 다음 단계를 사용합니다.
+    * **Storm UI**: Storm UI를 사용하여 토폴로지 균형을 다시 맞추려면 다음 단계를 사용합니다.
 
         1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/stormui`를 엽니다. 여기서 `CLUSTERNAME`은 스톰 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
-        2. 균형을 다시 조정하려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
+        2. 균형을 다시 맞추려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
 
 * **Kafka**: 크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka를 사용한 데이터의 고가용성](./kafka/apache-kafka-high-availability.md) 문서를 참조하세요.
 
@@ -258,7 +258,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
 
-사용자 고유의 스크립트 동작 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
 ### <a name="jar-files"></a>Jar 파일
 

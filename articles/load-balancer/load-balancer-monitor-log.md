@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428843"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>공용 기본 Load Balancer에 대 한 Azure Monitor 로그
 
@@ -41,7 +41,7 @@ Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다�
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 부하 분산 장치가 아직 없으면, 계속하기 전에 [부하 분산 장치를 만듭니다](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) .
 
 1. 포털에서 **리소스 그룹**을 클릭 합니다.
-2. 부하 분산 장치가 있는 **>\<리소스 그룹 이름** 을 선택 합니다.
+2. 부하 분산 장치가 있는 **\<리소스 그룹 이름** 을 선택 합니다.
 3. 부하 분산 장치를 선택 합니다.
 4. **모니터링** > **진단 설정**을 선택 합니다.
 5. **진단 설정** 창의 **진단 설정**에서 **+ 진단 설정 추가**를 선택 합니다.
@@ -58,7 +58,7 @@ Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다�
     2. **구성** 을 선택 하 여 **저장소 계정 선택** 창을 엽니다.
     3. 풀 다운 상자에서 저장소 계정이 만들어진 **구독** 을 선택 합니다.
     4. 풀 다운 상자 **에서 저장소 계정 아래에** 있는 저장소 계정의 이름을 선택 합니다. 
-    5. 확인을 선택 합니다.
+    5. 확인을 선택합니다.
 
     ### <a name="stream-to-an-event-hub"></a>이벤트 허브로 스트림
     이 프로세스에 대 한 이벤트 허브가 이미 생성 되어 있어야 합니다.  이벤트 허브를 만들려면 [빠른 시작: Azure Portal 사용 하 여 이벤트 허브 만들기](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) 를 참조 하세요.
@@ -68,7 +68,7 @@ Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다�
     3. 풀 다운 상자에서 이벤트 허브가 만들어진 **구독** 을 선택 합니다.
     4. 풀 다운 상자에서 **이벤트 허브 네임 스페이스를 선택** 합니다.
     5. 풀 다운 상자에서 **이벤트 허브 정책 이름을 선택** 합니다.
-    6. 확인을 선택 합니다.
+    6. 확인을 선택합니다.
 
     ### <a name="send-to-log-analytics"></a>Log Analytics에 보내기
     이 프로세스에 대 한 log analytics 작업 영역을 만들고 구성 해야 합니다.  Log Analytics 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 를 참조 하세요.
@@ -168,10 +168,10 @@ JSON 출력은 부하 분산 장치에서 경고를 만든 이유를 설명 하�
 저장소 계정에 연결 하 고 이벤트 및 상태 프로브 로그에 대 한 JSON 로그 항목을 검색 합니다. JSON 파일을 다운로드 한 후에는 CSV로 변환 하 고 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 
 > [!TIP]
-> Visual Studio 및 C# 상수와 변수의 값 변경에 대한 기본 개념을 잘 알고 있으면 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter) 를 사용할 수 있습니다.
+> Visual Studio를 익숙하게 사용할 수 있고 C#에서 상수 및 변수에 대한 값 변경에 대한 기본 개념이 있는 경우 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter)를 사용할 수 있습니다.
 
 ## <a name="stream-to-an-event-hub"></a>이벤트 허브로 스트림
-진단 정보는 이벤트 허브로 스트리밍되는 경우 타사 SIEM 도구에서 Azure Monitor 통합을 통해 중앙 집중식 로그 분석에 사용할 수 있습니다. 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration) 을 참조 하세요.
+진단 정보는 이벤트 허브로 스트리밍되는 경우 타사 SIEM 도구에서 Azure Monitor 통합을 통해 중앙 집중식 로그 분석에 사용할 수 있습니다. 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration) 을 참조 하세요.
 
 ## <a name="send-to-log-analytics"></a>Log Analytics에 보내기
 Azure의 리소스에는 문제 해결 및 분석을 위한 정보에 대해 복잡 한 쿼리를 실행할 수 있는 Log Analytics 작업 영역으로 직접 전송 되는 진단 정보가 있을 수 있습니다.  자세한 내용은 [Log Analytics 작업 영역에서 Azure 리소스 로그 수집](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace) 을 참조 하세요 Azure Monitor

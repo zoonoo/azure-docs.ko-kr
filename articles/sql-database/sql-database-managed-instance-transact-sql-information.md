@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova
-ms.date: 11/04/2019
+ms.reviewer: sstein, carlrab, bonova, danil
+ms.date: 12/30/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7319bb680e449a27fbe6f48c831d87d9c7b5ba4f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707638"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552749"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
@@ -57,7 +57,7 @@ Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며 SQL
   - `FILE`, `TAPE`및 백업 장치는 지원 되지 않습니다.
 - 대부분의 일반 `WITH` 옵션이 지원 됩니다.
   - `COPY_ONLY`은 필수입니다.
-  - `FILE_SNAPSHOT`은 지원되지 않습니다.
+  - `FILE_SNAPSHOT`는 지원되지 않습니다.
   - 테이프 옵션: `REWIND`, `NOREWIND`, `UNLOAD`및 `NOUNLOAD`은 지원 되지 않습니다.
   - 로그 관련 옵션: `NORECOVERY`, `STANDBY`및 `NO_TRUNCATE` 지원 되지 않습니다.
 
@@ -65,7 +65,7 @@ Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며 SQL
 
 - 관리 되는 인스턴스를 사용 하면 최대 32 개의 스트라이프를 사용 하 여 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 백업 압축을 사용 하는 경우 최대 2TB의 데이터베이스에 충분 합니다.
 - TDE (서비스 관리 투명한 데이터 암호화)를 사용 하 여 암호화 된 데이터베이스에서 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용 하 여 백업을 암호화 합니다. 키를 내보낼 수 없으므로 백업을 복원할 수 없습니다. 자동 백업 및 지정 시간 복원을 사용 하거나 대신 [고객 관리 (BYOK) TDE](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) 를 사용 합니다. 데이터베이스에서 암호화를 사용 하지 않도록 설정할 수도 있습니다.
-- 관리 되는 인스턴스에서 `BACKUP` 명령을 사용 하 여 최대 백업 스트라이프 크기는 최대 blob 크기인 195 GB입니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
+- 관리 되는 인스턴스에서 `BACKUP` 명령을 사용 하 여 최대 백업 스트라이프 크기는 최대 blob 크기인 195 GB입니다. 개별 스트라이프 크기를 줄이고 이 제한 내로 유지하려면 백업 명령에서 스트라이프 수를 늘립니다.
 
     > [!TIP]
     > 이 제한을 해결 하기 위해 온-프레미스 환경 또는 가상 머신에서 SQL Server에서 데이터베이스를 백업 하는 경우 다음 작업을 수행할 수 있습니다.
@@ -95,7 +95,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 - `.xel` 파일이 배치 되는 Azure Blob 저장소 컨테이너의 URL을 지정 하는 데 사용할 수 있는 `TO URL` 새 구문이 제공 됩니다.
 - 관리 되는 인스턴스에서 Windows 파일 공유에 액세스할 수 없으므로 구문 `TO FILE` 지원 되지 않습니다.
 
-자세한 내용은 
+자세한 내용은 다음을 참조하세요. 
 
 - [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -128,8 +128,8 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 
 관리 되는 인스턴스는 파일에 액세스할 수 없으므로 암호화 공급자를 만들 수 없습니다.
 
-- `CREATE CRYPTOGRAPHIC PROVIDER`은 지원되지 않습니다. [CREATE CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/create-cryptographic-provider-transact-sql)를 참조하세요.
-- `ALTER CRYPTOGRAPHIC PROVIDER`은 지원되지 않습니다. [ALTER CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql)를 참조하세요.
+- `CREATE CRYPTOGRAPHIC PROVIDER`는 지원되지 않습니다. [CREATE CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/create-cryptographic-provider-transact-sql)를 참조하세요.
+- `ALTER CRYPTOGRAPHIC PROVIDER`는 지원되지 않습니다. [ALTER CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql)를 참조하세요.
 
 ### <a name="logins-and-users"></a>로그인 및 사용자
 
@@ -189,9 +189,9 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 ### <a name="buffer-pool-extension"></a>버퍼 풀 확장
 
 - [버퍼 풀 확장](/sql/database-engine/configure-windows/buffer-pool-extension) 은 지원 되지 않습니다.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`은 지원되지 않습니다. [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql)을 참조하세요.
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`는 지원되지 않습니다. [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql)을 참조하세요.
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>데이터 정렬
 
 기본 인스턴스 데이터 정렬은 `SQL_Latin1_General_CP1_CI_AS`이며 생성 매개 변수로 지정할 수 있습니다. [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
 
@@ -208,7 +208,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 데이터베이스 미러링은 지원되지 않습니다.
 
 - `ALTER DATABASE SET PARTNER` 및 `SET WITNESS` 옵션은 지원되지 않습니다.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING`은 지원되지 않습니다.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING`는 지원되지 않습니다.
 
 자세한 내용은 [ALTER DATABASE SET PARTNER 및 SET WITNESS](/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) 및 [CREATE ENDPOINT … FOR DATABASE_MIRRORING](/sql/t-sql/statements/create-endpoint-transact-sql)을 참조하세요.
 
@@ -274,9 +274,9 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
 
-- SQL Server 에이전트 활성화 및 비활성화는 현재 관리 되는 인스턴스에서 지원 되지 않습니다. SQL 에이전트는 항상 실행되고 있습니다.
+- SQL Server 에이전트 활성화 및 비활성화는 현재 관리 되는 인스턴스에서 지원 되지 않습니다. SQL 에이전트는 항상 실행됩니다.
 - SQL Server 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 관리 되는 인스턴스에서 지원 되지 않습니다. 
-- 교육
+- 작업
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기
@@ -332,7 +332,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 관리 되는 인스턴스는 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 다음과 같은 제약 조건이 적용 됩니다.
 
 - `CREATE ASSEMBLY FROM BINARY`만 지원됩니다. [CREATE ASSEM 여 FROM BINARY를](/sql/t-sql/statements/create-assembly-transact-sql)참조 하세요. 
-- `CREATE ASSEMBLY FROM FILE`은 지원되지 않습니다. [CREATE ASSEMBLY FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql)을 참조하세요.
+- `CREATE ASSEMBLY FROM FILE`는 지원되지 않습니다. [CREATE ASSEMBLY FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql)을 참조하세요.
 - `ALTER ASSEMBLY`는 파일을 참조할 수 없습니다. [ALTER ASSEMBLY](/sql/t-sql/statements/alter-assembly-transact-sql)를 참조하세요.
 
 ### <a name="database-mail-db_mail"></a>데이터베이스 메일 (db_mail)
@@ -366,7 +366,7 @@ MSDTC 및 [탄력적 트랜잭션은](sql-database-elastic-transactions-overview
 
 - Filestream 데이터는 지원 되지 않습니다.
 - 데이터베이스에는 `FILESTREAM` 데이터가 있는 파일 그룹이 포함 될 수 없습니다.
-- `FILETABLE`은 지원되지 않습니다.
+- `FILETABLE`는 지원되지 않습니다.
 - 테이블에 `FILESTREAM` 형식을 사용할 수 없습니다.
 - 지원되지 않는 함수는 다음과 같습니다.
   - `GetPathLocator()`
@@ -394,7 +394,7 @@ MSDTC 및 [탄력적 트랜잭션은](sql-database-elastic-transactions-overview
 - 인스턴스 간 쓰기 트랜잭션은 지원되지 않습니다.
 - `sp_dropserver`는 연결된 서버를 삭제하는 데 지원됩니다. [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)를 참조하세요.
 - `OPENROWSET` 함수는 SQL Server 인스턴스에서만 쿼리를 실행 하는 데 사용할 수 있습니다. 관리, 온-프레미스 또는 가상 컴퓨터 중 하나를 사용할 수 있습니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
-- `OPENDATASOURCE` 함수는 SQL Server 인스턴스에서만 쿼리를 실행 하는 데 사용할 수 있습니다. 관리, 온-프레미스 또는 가상 컴퓨터 중 하나를 사용할 수 있습니다. `SQLNCLI`, `SQLNCLI11`및 `SQLOLEDB` 값만 공급자로 지원 됩니다. 예는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
+- `OPENDATASOURCE` 함수는 SQL Server 인스턴스에서만 쿼리를 실행 하는 데 사용할 수 있습니다. 관리, 온-프레미스 또는 가상 컴퓨터 중 하나를 사용할 수 있습니다. `SQLNCLI`, `SQLNCLI11`및 `SQLOLEDB` 값만 공급자로 지원 됩니다. 예제는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
 - 연결 된 서버를 사용 하 여 네트워크 공유에서 파일 (Excel, CSV)을 읽을 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) 을 사용 하십시오. [관리 되는 인스턴스 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청을 추적|
 
 ### <a name="polybase"></a>PolyBase
@@ -406,41 +406,12 @@ HDFS 또는 Azure Blob storage의 파일을 참조 하는 외부 테이블은 �
 - 스냅숏과 양방향 복제 유형이 지원 됩니다. 병합 복제, 피어 투 피어 복제 및 업데이트할 수 있는 구독은 지원 되지 않습니다.
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 는 다음과 같은 몇 가지 제약 조건으로 관리 되는 인스턴스에서 공개 미리 보기에 사용할 수 있습니다.
     - 모든 유형의 복제 참여자 (게시자, 배포자, 끌어오기 구독자 및 밀어넣기 구독자)는 관리 되는 인스턴스에 배치 될 수 있지만 게시자와 배포자는 모두 클라우드 또는 온-프레미스 모두에 있어야 합니다.
-    - 관리 되는 인스턴스는 최신 버전의 SQL Server와 통신할 수 있습니다. [여기](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)에서 지원 되는 버전을 참조 하세요.
+    - 관리 되는 인스턴스는 최신 버전의 SQL Server와 통신할 수 있습니다. 자세한 내용은 [지원 되는 버전 매트릭스](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems) 를 참조 하세요.
     - 트랜잭션 복제에는 몇 가지 [추가 네트워킹 요구 사항이](sql-database-managed-instance-transactional-replication.md#requirements)있습니다.
 
-복제를 구성 하는 방법에 대 한 자세한 내용은 [replication 자습서](replication-with-sql-database-managed-instance.md)를 참조 하십시오.
-
-
-[장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)의 데이터베이스에서 복제를 사용 하는 경우 관리 되는 인스턴스 관리자는 이전 주 데이터베이스에서 모든 게시를 정리 하 고 장애 조치 (failover)가 발생 한 후 새 주 데이터베이스에서 다시 구성 해야 합니다. 이 시나리오에는 다음과 같은 작업이 필요 합니다.
-
-1. 데이터베이스에서 실행 중인 모든 복제 작업을 중지 합니다 (있는 경우).
-2. 게시자 데이터베이스에서 다음 스크립트를 실행 하 여 게시자에서 구독 메타 데이터를 삭제 합니다.
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. 구독자에서 구독 메타 데이터를 삭제 합니다. 구독자 인스턴스의 구독 데이터베이스에서 다음 스크립트를 실행 합니다.
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. 게시 된 데이터베이스에서 다음 스크립트를 실행 하 여 게시자에서 모든 복제 개체를 강제로 삭제 합니다.
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. 원래 주 인스턴스에서 이전 배포자를 강제로 삭제 합니다 (배포자를 사용 하는 이전 주 복제본으로 장애 복구 (failback) 하는 경우). 이전 배포자 관리 인스턴스의 master 데이터베이스에서 다음 스크립트를 실행 합니다.
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+트랜잭션 복제를 구성 하는 방법에 대 한 자세한 내용은 다음 자습서를 참조 하세요.
+- [MI 게시자와 구독자 간 복제](replication-with-sql-database-managed-instance.md)
+- [MI 게시자, MI 배포자 및 SQL Server 구독자 간 복제](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### <a name="restore-statement"></a>RESTORE 문 
 
@@ -500,8 +471,8 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
   - `filestream_access_level`
   - `remote data archive`
   - `remote proc trans`
-- `sp_execute_external_scripts`은 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
-- `xp_cmdshell`은 지원되지 않습니다. [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
+- `sp_execute_external_scripts`는 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
+- `xp_cmdshell`는 지원되지 않습니다. [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
 - `sp_addextendedproc` 및 `sp_dropextendedproc`를 포함 하는 `Extended stored procedures` 지원 되지 않습니다. [확장 저장 프로시저](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조 하세요.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 
@@ -514,8 +485,8 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
 - `@@SERVERNAME`는 전체 DNS "연결 가능" 이름 (예: my-managed-instance.wcus17662feb9ce98.database.windows.net)을 반환 합니다. [@@SERVERNAME](/sql/t-sql/functions/servername-transact-sql)을 참조하세요. 
 - `SYS.SERVERS`는 "name" 및 "data_source" 속성의 `myinstance.domain.database.windows.net`와 같이 전체 DNS "연결 가능" 이름을 반환 합니다. [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요.
 - SQL Server에 대해 존재 하는 서비스 개념이 관리 되는 인스턴스에 적용 되지 않기 때문에 `@@SERVICENAME` NULL을 반환 합니다. [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.
-- `SUSER_ID`가 지원됩니다. Azure AD 로그인이 sys. syslogins에 없으면 NULL을 반환 합니다. [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요. 
-- `SUSER_SID`은 지원되지 않습니다. 잘못 된 데이터가 반환 됩니다 .이는 알려진 문제입니다. [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
+- `SUSER_ID`이 지원됩니다. Azure AD 로그인이 sys. syslogins에 없으면 NULL을 반환 합니다. [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요. 
+- `SUSER_SID`는 지원되지 않습니다. 잘못 된 데이터가 반환 됩니다 .이는 알려진 문제입니다. [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
 
 ## <a name="Environment"></a>환경 제약 조건
 
@@ -535,17 +506,61 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
 
 `tempdb`의 최대 파일 크기는 범용 계층에서 코어 당 24gb 보다 클 수 없습니다. 중요 비즈니스용 계층의 최대 `tempdb` 크기는 인스턴스 저장소 크기에 의해 제한 됩니다. `Tempdb` 로그 파일 크기는 일반적인 용도의 계층에서 120 GB로 제한 됩니다. `tempdb`에서 코어 당 24gb 이상을 필요로 하거나 120 이상의 로그 데이터를 생성 하는 경우 일부 쿼리는 오류를 반환할 수 있습니다.
 
+### <a name="msdb"></a>MSDB
+
+관리 되는 인스턴스의 다음 MSDB 스키마는 해당 하는 미리 정의 된 역할이 소유 해야 합니다.
+
+- 일반 역할
+  - TargetServersRole
+- [고정 데이터베이스 역할](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [Databasemail 역할](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+  - DatabaseMailUserRole
+- [Integration services 역할](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+  - msdb
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> 고객의 미리 정의 된 역할 이름, 스키마 이름 및 스키마 소유자를 변경 하면 서비스의 정상적인 작동에 영향을 줍니다. 이러한 변경 내용은 검색 되는 즉시 미리 정의 된 값으로 되돌리거나 정상적인 서비스 작업을 보장 하기 위해 최신의 다음 서비스 업데이트에서 다시 시도 됩니다.
+
 ### <a name="error-logs"></a>오류 로그
 
 관리 되는 인스턴스는 자세한 정보를 오류 로그에 배치 합니다. 오류 로그에 기록 되는 내부 시스템 이벤트가 많이 있습니다. 사용자 지정 프로시저를 사용 하 여 일부 관련이 없는 항목을 필터링 하는 오류 로그를 읽을 수 있습니다. 자세한 내용은 Azure Data Studio에 대 한 [관리 되는 인스턴스 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) 또는 [관리 되는 인스턴스 확장 (미리 보기)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) 을 참조 하세요.
 
-## <a name="Issues"></a>알려진 문제
+## <a name="Issues"></a> 알려진 문제
+
+### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>SQL 에이전트 역할에는 sysadmin이 아닌 로그인에 대 한 명시적 실행 권한이 필요 합니다.
+
+**날짜:** 12 월 2019
+
+[SQL 에이전트 고정 데이터베이스 역할](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles)중 하나에 sysadmin이 아닌 로그인을 추가 하면 이러한 로그인이 작동 하기 위해 마스터 저장 프로시저에 명시적 실행 권한을 부여 해야 하는 문제가 있습니다. 이 문제가 발생 하는 경우 개체에 대 한 EXECUTE 권한이 거부 되었습니다. 오류 메시지 < object_name > (Microsoft SQL Server, 오류: 229)가 표시 됩니다.
+
+**해결 방법**: SQL 에이전트 고정 데이터베이스 역할 중 하나에 로그인을 추가 하면 (SQLAgentUserRole, SQLAgentReaderRole 또는 SQLAgentOperatorRole) 이러한 역할에 추가 된 각 로그인에 대해 아래 t-sql 스크립트를 실행 하 여 나열 된 저장 프로시저에 대 한 실행 권한을 명시적으로 부여 합니다.
+
+```tsql
+USE [master]
+GO
+CREATE USER [login_name] FOR LOGIN [login_name]
+GO
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
+
+### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>에이전트 프로세스를 다시 시작 하 여 SQL 에이전트 작업을 중단할 수 있습니다.
+
+**날짜:** 12 월 2019
+
+SQL 에이전트는 작업이 시작 될 때마다 새 세션을 만들고 메모리 소비량을 점차적으로 늘립니다. 예약 된 작업의 실행을 차단 하는 내부 메모리 제한에 도달 하지 않도록 하기 위해 메모리 소비가 임계값에 도달 하면 에이전트 프로세스가 다시 시작 됩니다. 이로 인해 다시 시작 될 때 실행 중인 작업의 실행이 중단 될 수 있습니다.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>메모리 내 OLTP 메모리 제한이 적용 되지 않습니다.
 
 **날짜:** 10 월 2019
 
-경우에 따라 중요 비즈니스용 서비스 계층은 [메모리 액세스에 최적화 된 개체에 대 한 최대 메모리 제한을](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) 올바르게 적용 하지 않습니다. 관리 되는 인스턴스를 사용 하면 메모리 내 OLTP 작업에 더 많은 메모리를 사용 하 여 작업을 수행할 수 있으며이 경우 인스턴스의 가용성과 안정성에 영향을 줄 수 있습니다. 제한에 도달 하는 메모리 내 OLTP 쿼리는 즉시 실패 하지 않을 수 있습니다. 이 문제는 곧 해결 될 예정입니다. 메모리 내 OLTP 메모리를 더 많이 사용 하는 쿼리는 [제한](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space)에 도달 하면 더 빨리 장애 조치 (failover) 됩니다.
+경우에 따라 중요 비즈니스용 서비스 계층은 [메모리 액세스에 최적화 된 개체에 대 한 최대 메모리 제한을](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) 올바르게 적용 하지 않습니다. 관리 되는 인스턴스를 사용 하면 메모리 내 OLTP 작업에 더 많은 메모리를 사용 하 여 작업을 수행할 수 있으며이 경우 인스턴스의 가용성과 안정성에 영향을 줄 수 있습니다. 제한에 도달 하는 메모리 내 OLTP 쿼리는 즉시 실패 하지 않을 수 있습니다. 이 문제는 곧 해결될 것입니다. 메모리 내 OLTP 메모리를 더 많이 사용 하는 쿼리는 [제한](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space)에 도달 하면 더 빨리 장애 조치 (failover) 됩니다.
 
 **해결 방법:** [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) 를 사용 하 여 [메모리 내 OLTP 저장소 사용량을 모니터링](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) 하 여 워크 로드가 사용 가능한 메모리를 초과 하지 않는지 확인 합니다. VCores 수에 따라 달라 지는 메모리 제한을 늘리거나 메모리를 더 사용 하도록 작업을 최적화 합니다.
 

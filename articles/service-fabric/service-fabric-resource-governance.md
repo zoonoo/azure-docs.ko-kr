@@ -1,27 +1,16 @@
 ---
-title: 컨테이너 및 서비스에 대한 Azure Service Fabric 리소스 거버넌스 | Microsoft Docs
+title: 컨테이너 및 서비스에 대한 리소스 관리
 description: Azure Service Fabric을 사용하면 컨테이너 내부 또는 외부에서 실행 중인 서비스에 대해 리소스 제한을 지정할 수 있습니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/9/2017
-ms.author: atsenthi
-ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 0a4cdc7dd7c2e81447201ca85843c9ba4c7e2af4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242908"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609455"
 ---
-# <a name="resource-governance"></a>리소스 관리
+# <a name="resource-governance"></a>리소스 거버넌스
 
 동일한 노드 또는 클러스터에서 여러 서비스를 실행하는 경우 한 서비스가 프로세스의 다른 서비스보다 많은 리소스를 사용할 수 있습니다. 이 문제를 방해가 되는 이웃 문제라고 합니다. Azure Service Fabric을 사용하면 개발자가 서비스당 예약 및 제한을 지정하여 리소스를 보장하고 리소스 사용량을 제한할 수 있습니다.
 
@@ -206,7 +195,7 @@ Service Fabric 서비스에 리소스 관리를 적용 하는 동안 해당 리�
 * 비정상 상태에서 종료 되는 노드
 * 클러스터 관리 Api Service Fabric 응답 하지 않음
 
-이러한 상황이 발생 하는 것을 방지 하기 위해 Service Fabric를 사용 하면 *노드에서 실행 중인 모든 Service Fabric 사용자 서비스* (관리 되는 사용자 서비스와 비관리 모두)에 대해 리소스 제한을 적용 하 여 사용자 서비스에서 지정 된 리소스 크기입니다. 이는 ClusterManifest의 PlacementAndLoadBalancing 섹션에 있는 EnforceUserServiceMetricCapacities config 값을 true로 설정 하 여 수행 됩니다. 이 설정은 기본적으로 해제 되어 있습니다.
+이러한 상황이 발생 하는 것을 방지 하기 위해 Service Fabric를 사용 하면 *노드에서 실행 중인 모든 Service Fabric 사용자 서비스* (관리 및 비관리 모두)에 대해 리소스 제한을 적용 하 여 사용자 서비스가 지정 된 양의 리소스를 사용 하지 않도록 보장할 수 있습니다. 이는 ClusterManifest의 PlacementAndLoadBalancing 섹션에 있는 EnforceUserServiceMetricCapacities config 값을 true로 설정 하 여 수행 됩니다. 이 설정은 기본적으로 해제 되어 있습니다.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -217,7 +206,7 @@ Service Fabric 서비스에 리소스 관리를 적용 하는 동안 해당 리�
 추가 설명:
 
 * 리소스 제한 적용은 `servicefabric:/_CpuCores` 및 `servicefabric:/_MemoryInMB` 리소스 메트릭에만 적용 됩니다.
-* 리소스 한도 적용은 자동 검색 메커니즘을 통해 또는 사용자가 수동으로 노드 용량을 지정 하 여 ( [사용 하도록 설정 하기 위해 클러스터 설정에 설명 된 대로) 리소스 메트릭의 노드 용량을 Service Fabric 사용할 수 있는 경우에만 작동 합니다. 리소스 관리](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) 섹션). 노드 용량이 구성 되지 않은 경우 Service Fabric 사용자 서비스에 대해 예약할 리소스의 양을 알 수 없기 때문에 리소스 제한 적용 기능을 사용할 수 없습니다. "EnforceUserServiceMetricCapacities"가 true 이지만 노드 용량이 구성 되지 않은 경우 Service Fabric에서 상태 경고를 실행 합니다.
+* 리소스 한도 적용은 자동 검색 메커니즘을 통해 또는 사용자가 수동으로 노드 용량을 지정 하 여 ( [리소스 관리를 사용 하도록 설정 하기 위해 클러스터 설정](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) 섹션에서 설명한 대로) 리소스 메트릭의 노드 용량을 Service Fabric 사용할 수 있는 경우에만 작동 합니다. 노드 용량이 구성 되지 않은 경우 Service Fabric 사용자 서비스에 대해 예약할 리소스의 양을 알 수 없기 때문에 리소스 제한 적용 기능을 사용할 수 없습니다. "EnforceUserServiceMetricCapacities"가 true 이지만 노드 용량이 구성 되지 않은 경우 Service Fabric에서 상태 경고를 실행 합니다.
 
 ## <a name="other-resources-for-containers"></a>컨테이너에 대한 기타 리소스
 

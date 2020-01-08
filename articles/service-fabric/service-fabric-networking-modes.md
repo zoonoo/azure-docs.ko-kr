@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 컨테이너 서비스에 대한 네트워킹 모드 구성 | Microsoft Docs
+title: 컨테이너 서비스에 대 한 네트워킹 모드 구성
 description: Azure Service Fabric에서 지원하는 다양한 네트워킹 모드를 설정하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: aa7b63453a5147742e27b9bb32ad05221e745f8c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168797"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639805"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -30,7 +21,7 @@ ms.locfileid: "72168797"
 컨테이너 서비스가 다시 시작되거나 클러스터의 다른 노드로 이동하면 IP 주소가 변경됩니다. 따라서 동적으로 할당된 IP 주소를 사용하여 컨테이너 서비스를 검색하는 것을 좋지 않습니다. 서비스 검색에는 Service Fabric 명명 서비스 또는 DNS 서비스 만 사용해야 합니다. 
 
 >[!WARNING]
->Azure는 가상 네트워크 당 총 65356 Ip를 허용 합니다. 노드 수와 컨테이너 서비스 인스턴스 수 (열기 모드를 사용 하는)의 합계는 가상 네트워크 내에서 65356 Ip를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다. 또한 부하 분산 장치와 같은 다른 종속성에는 고려해 야 할 다른 [제한 사항이](https://docs.microsoft.com/azure/azure-subscription-service-limits) 있습니다. 현재 노드당 최대 50 개의 Ip가 테스트 되 고 안정적으로 검증 되었습니다. 
+>Azure는 가상 네트워크 당 총 65356 Ip를 허용 합니다. 노드 수와 컨테이너 서비스 인스턴스 수 (열기 모드를 사용 하는)의 합계는 가상 네트워크 내에서 65356 Ip를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다. 또한 부하 분산 장치와 같은 다른 종속성에는 고려해 야 할 다른 [제한 사항이](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) 있습니다. 현재 노드당 최대 50 개의 Ip가 테스트 되 고 안정적으로 검증 되었습니다. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>오픈 네트워킹 모드 설정
@@ -205,9 +196,9 @@ ms.locfileid: "72168797"
    |우선 순위 |2000 | |
    |이름 |Custom_Dns  | |
    |원본 |VirtualNetwork | |
-   |Destination | VirtualNetwork | |
+   |대상 | VirtualNetwork | |
    |서비스 | DNS(UDP/53) | |
-   |작업 | Allow  | |
+   |실행력 | 허용  | |
    | | |
 
 4. 각 서비스에 대해 애플리케이션 매니페스트에서 네트워킹 모드를 지정합니다. `<NetworkConfig NetworkType="Open">` **오픈** 네트워킹 모드에서는 서비스가 전용 IP 주소를 갖게 됩니다. 모드를 지정하지 않으면 서비스는 기본적으로 **nat** 모드가 됩니다. 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2` 서비스는 동일한 포트에서 각각 수신 대기할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 대기 중). 오픈 네트워킹 모드를 지정하면 `PortBinding` 구성을 지정할 수 없습니다.

@@ -1,5 +1,5 @@
 ---
-title: Logic Apps를 사용하여 Azure Application Insights 프로세스를 자동화합니다.
+title: Logic Apps를 사용 하 여 Azure 애플리케이션 Insights 프로세스 자동화
 description: 논리 앱에 Application Insights 커넥터를 추가하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/11/2019
-ms.openlocfilehash: 8211598071d0835a32f9e25cfcf4e34576702770
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 95a3577d352b6bc4b56d36b5b79658571a6be1ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677608"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407527"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps를 사용하여 Application Insights 프로세스 자동화
 
@@ -27,7 +27,7 @@ ms.locfileid: "72677608"
 이 자습서에서는 Analytics 자동 클러스터 알고리즘을 사용하여 웹 애플리케이션에 대한 데이터에서 특성을 그룹화하는 논리 앱을 만드는 방법을 알아봅니다. 흐름은 자동으로 메일을 통해 결과를 보내며, 이는 Application Insights Analytics와 Logic Apps를 함께 사용하는 방법의 한 가지 예일 뿐입니다. 
 
 ### <a name="step-1-create-a-logic-app"></a>1단계: 논리 앱 만들기
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **리소스 만들기**를 클릭하고 **웹 + 모바일**을 선택한 다음, **논리 앱**을 선택합니다.
 
     ![새 논리 앱 창](./media/automate-with-logic-apps/1createlogicapp.png)

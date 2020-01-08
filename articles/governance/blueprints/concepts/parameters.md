@@ -3,12 +3,12 @@ title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수와이를 사용 하 여 보안 및 동적 청사진을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128928"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644973"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -40,7 +40,7 @@ Resource Manager 템플릿 _아티팩트_가 **secureString** 및 **secureObject
 청사진 할당에 **사용자 할당 관리 id**가 사용 되는 경우 참조 되는 Key Vault는 중앙 집중식 구독에 있을 _수 있습니다_ . 관리 id에는 청사진 할당 이전에 Key Vault에 대 한 적절 한 권한을 부여 해야 합니다.
 
 > [!IMPORTANT]
-> 두 경우 모두 Key Vault는 **액세스 정책** 페이지에서 구성 된 **템플릿 배포에 대 한 Azure Resource Manager에 액세스할 수** 있어야 합니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요.
+> 두 경우 모두 Key Vault는 **액세스 정책** 페이지에서 구성 된 **템플릿 배포에 대 한 Azure Resource Manager에 액세스할 수** 있어야 합니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요.
 
 Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-vault/key-vault-overview.md)를 참조하세요.
 
@@ -64,7 +64,7 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 
    ![청사진 정의의 청사진 매개 변수](../media/parameters/parameter-column.png)
 
-1. **아티팩트 편집** 페이지에는 클릭한 아티팩트에 적절한 값 옵션이 표시됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수**로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 아래 예제에서는 _위치_가 선택 취소되고 **리소스 그룹 이름**이 선택되었기 때문에 위치만이 _정적 매개 변수_입니다.
+1. **아티팩트 편집** 페이지에는 클릭한 아티팩트에 적절한 값 옵션이 표시됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수**로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 아래 예제에서는 _위치_가 선택 취소되고 _리소스 그룹 이름_이 선택되었기 때문에 위치만이 **정적 매개 변수**입니다.
 
    ![청사진 아티팩트의 청사진 정적 매개 변수](../media/parameters/static-parameter.png)
 
@@ -73,7 +73,7 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
 - `{YourMG}` - 사용자의 관리 그룹 이름으로 대체
-- `{subscriptionId}` - 사용자의구독 ID로 대체
+- `{subscriptionId}` - 사용자의 구독 ID로 대체
 
 ##### <a name="blueprint-level-parameter"></a>청사진 수준 매개 변수
 
@@ -181,7 +181,7 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 
-할당 과정에서 **동적 매개 변수**를 설정하는 작업은 값을 직접 입력하는 방식으로 수행됩니다. [매개 변수 ()](../reference/blueprint-functions.md#parameters)와 같은 함수를 사용 하는 대신 제공 된 값이 적절 한 문자열입니다. 리소스 그룹에 대한 아티팩트는 “템플릿 이름”, **이름** 및 **위치** 속성으로 정의됩니다. 포함된 아티팩트에 대한 그 외의 매개 변수는이름 **\< 및 \>값** 키 쌍을 사용하여 **매개 변수** 아래에 정의됩니다. 할당 과정에서 제공하지 않는 동적 매개 변수에 대해 청사진이 구성된 경우 할당이 실패합니다.
+할당 과정에서 **동적 매개 변수**를 설정하는 작업은 값을 직접 입력하는 방식으로 수행됩니다. [매개 변수 ()](../reference/blueprint-functions.md#parameters)와 같은 함수를 사용 하는 대신 제공 된 값이 적절 한 문자열입니다. 리소스 그룹에 대한 아티팩트는 “템플릿 이름”, **이름** 및 **위치** 속성으로 정의됩니다. 포함된 아티팩트에 대한 그 외의 매개 변수는 **\<이름\>** 및 **값** 키 쌍을 사용하여 **매개 변수** 아래에 정의됩니다. 할당 과정에서 제공하지 않는 동적 매개 변수에 대해 청사진이 구성된 경우 할당이 실패합니다.
 
 - REST API URI
 

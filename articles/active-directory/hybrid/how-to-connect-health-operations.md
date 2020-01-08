@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 090a066afb24c4776f9844b8850264ffad842c59
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 57bc60cab7e6980f7051af6fc4685bd2a426f4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422427"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
 이 항목에서는 Azure AD(Azure Active Directory) Connect Health를 사용하여 수행할 수 있는 다양한 작업에 대해 설명합니다.
@@ -32,7 +32,6 @@ ID 인프라가 정상 상태가 아님을 나타내는 경고가 표시되면 �
 > [!NOTE]
 > 메일 알림은 기본적으로 사용됩니다.
 >
->
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Azure AD Connect Health 메일 알림을 사용하도록 설정하려면
 1. 메일 알림을 받으려는 서비스의 **경고** 블레이드를 엽니다.
@@ -41,6 +40,13 @@ ID 인프라가 정상 상태가 아님을 나타내는 경고가 표시되면 �
 4. 모든 전역 관리자가 메일 알림을 수신하도록 하려는 경우 확인란을 선택합니다.
 5. 다른 메일 주소로 메일 알림을 받으려는 경우 **추가 메일 받는 사람** 상자에 주소를 지정합니다. 이 목록에서 메일 주소를 제거하려면 항목을 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
 6. 변경을 완료하려면 **저장**을 클릭합니다. 변경 내용은 저장한 후에만 적용됩니다.
+
+>[!NOTE] 
+> 백 엔드 서비스에서 동기화 요청을 처리 하는 데 문제가 있는 경우이 서비스는 오류에 대 한 세부 정보와 함께 테 넌 트의 관리 담당자 전자 메일 주소로 알림 전자 메일을 보냅니다. 특정 한 경우에는 이러한 메시지의 양이 너무 크므로 이러한 메시지를 전송 하는 방식을 변경 하는 고객의 의견을 들었습니다. 
+>
+> 발생할 때마다 모든 동기화 오류에 대 한 메시지를 전송 하는 대신 백 엔드 서비스가 반환한 모든 오류의 일일 다이제스트를 전송 합니다. 이를 통해 고객은 보다 효율적인 방식으로 이러한 오류를 처리 하 고 중복 된 오류 메시지 수를 줄일 수 있습니다.
+>
+> 2020 년 1 월 15 일에이 변경 내용이 구현 될 예정입니다.
 
 ## <a name="delete-a-server-or-service-instance"></a>서버 또는 서비스 인스턴스 삭제
 
@@ -106,7 +112,7 @@ Azure AD Connect Health는 다음과 같은 기본 제공 역할을 지원합니
 | --- | --- |
 | 소유자 |소유자는 *액세스를 관리*(예: 사용자 또는 그룹에 역할 할당)하고, 포털에서 *모든 정보를 확인*(예: 경고 보기)하며, Azure AD Connect Health 내에서 *설정을 변경*(예: 메일 알림)할 수 있습니다. <br>기본적으로 Azure AD 전역 관리자에게 이 역할이 할당되며, 이 설정은 변경할 수 없습니다. |
 | 참가자 |참가자는 포털에서 *모든 정보를 확인*(예: 경고 보기)하고, Azure AD Connect Health 내에서 *설정을 변경*(예: 메일 알림)할 수 있습니다. |
-| 읽기 권한자 |구독자는 Azure AD Connect Health 내의 포털에서 *모든 정보를 확인*(예: 경고 보기)할 수 있습니다. |
+| 판독기 |구독자는 Azure AD Connect Health 내의 포털에서 *모든 정보를 확인*(예: 경고 보기)할 수 있습니다. |
 
 다른 모든 역할(예: 사용자 액세스 관리자 또는 DevTest 랩 사용자)은 포털 환경에서 사용할 수 있는 경우에도 Azure AD Connect Health 내의 액세스 권한에 영향을 주지 않습니다.
 

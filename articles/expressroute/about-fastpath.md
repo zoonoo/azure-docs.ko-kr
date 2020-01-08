@@ -5,16 +5,16 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ff1dac312bcb4df1e1afc9679df09fc8a2b28ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c03be46207e7698d0557729c546488412c0cc5dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437091"
 ---
-# <a name="about-expressroute-fastpath"></a>Express 경로 정보
+# <a name="about-expressroute-fastpath"></a>ExpressRoute FastPath 정보
 
 Express 경로 가상 네트워크 게이트웨이는 네트워크 경로를 교환 하 고 네트워크 트래픽을 라우팅하는 데 적합 합니다. FastPath는 온-프레미스 네트워크와 가상 네트워크 간의 데이터 경로 성능을 향상 시 키도 록 설계 되었습니다. 사용 하도록 설정 하면 FastPath는 게이트웨이를 우회 하 여 가상 네트워크의 가상 머신으로 네트워크 트래픽을 직접 보냅니다.
 
@@ -26,12 +26,22 @@ FastPath는 모든 Express 경로 회로에서 사용할 수 있습니다.
 
 ### <a name="gateways"></a>게이트웨이
 
-FastPath는 가상 네트워크와 온-프레미스 네트워크 간에 경로를 교환 하기 위해 가상 네트워크 게이트웨이를 만들어야 합니다. Virtual network 게이트웨이 및 Express 경로에 대 한 자세한 내용은 [express 경로 가상 네트워크 게이트웨이](expressroute-about-virtual-network-gateways.md)를 참조 하세요.
+FastPath는 가상 네트워크와 온-프레미스 네트워크 간에 경로를 교환 하기 위해 가상 네트워크 게이트웨이를 만들어야 합니다. 성능 정보 및 게이트웨이 Sku를 비롯 한 가상 네트워크 게이트웨이 및 Express 경로에 대 한 자세한 내용은 [express 경로 가상 네트워크 게이트웨이](expressroute-about-virtual-network-gateways.md)를 참조 하세요.
 
-가상 네트워크 게이트웨이는 다음 중 하나 여야 합니다.
+FastPath를 구성 하려면 가상 네트워크 게이트웨이가 다음 중 하나 여야 합니다.
 
 * Ultra Performance
 * ErGw3AZ
+
+#### <a name="aggthroughput"></a>게이트웨이 SKU에서 예상된 성능
+다음 표에서는 게이트웨이 형식과 예상된 성능을 보여줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
+> [!IMPORTANT]
+> 애플리케이션 성능은 엔드투엔드 대기 시간 및 애플리케이션을 여는 트래픽 흐름 수와 같은 여러 요인에 따라 달라집니다. 테이블의 숫자는 이상적인 환경에서 애플리케이션이 이론상 수행할 수 있는 상한값을 나타냅니다.
+>
+>
 
 ## <a name="supported-features"></a>지원되는 기능
 

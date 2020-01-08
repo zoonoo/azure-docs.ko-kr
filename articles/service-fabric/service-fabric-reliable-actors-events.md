@@ -1,25 +1,16 @@
 ---
-title: 행위자 기반 Azure 서비스 패브릭 행위자의 이벤트| Microsoft Docs
-description: 서비스 패브릭 Reliable Actors의 이벤트에 대해 소개합니다.
-services: service-fabric
-documentationcenter: .net
+title: 행위자 기반 Azure Service Fabric 행위자의 이벤트
+description: 행위자와 클라이언트 간에 통신 하는 효과적인 방법 인 Service Fabric Reliable Actors에 대 한 이벤트에 대해 알아봅니다.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726403"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639669"
 ---
 # <a name="actor-events"></a>행위자 이벤트
 행위자 이벤트는 행위자에서 클라이언트로 최상의 알림을 보낼 수 있는 방법을 제공합니다. 행위자 이벤트는 행위자-클라이언트 간 통신을 위해 디자인되었으며 행위자-행위자 간 통신에는 사용하지 않아야 합니다.

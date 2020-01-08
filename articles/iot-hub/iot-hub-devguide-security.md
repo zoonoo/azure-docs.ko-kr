@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429298"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -37,7 +37,7 @@ IoT Hub 엔드포인트에 액세스하려면 적절한 권한이 있어야 합�
 
 * **IoT hub 수준 공유 액세스 정책**. 공유 액세스 정책은 모든 조합의 [권한](#iot-hub-permissions)을 부여할 수 있습니다. [Azure Portal](https://portal.azure.com)에서, [IoT Hub 리소스 REST API](/rest/api/iothub/iothubresource)를 사용하여 프로그래밍 방식으로 또는 [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI를 사용하여 정책을 정의할 수 있습니다. 새로 만든 IoT Hub에는 다음과 같은 기본 정책이 있습니다.
   
-  | 공유 액세스 정책 | 사용 권한 |
+  | 공유 액세스 정책 | 권한 |
   | -------------------- | ----------- |
   | iothubowner | 모든 권한 |
   | 서비스 | **ServiceConnect** 권한 |
@@ -64,7 +64,7 @@ Azure IoT Hub는 공유 액세스 정책 및 ID 레지스트리 보안 자격 �
 대칭 키와 같은 보안 자격 증명은 통신 중에 전송되지 않습니다.
 
 > [!NOTE]
-> [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)의 모든 공급자처럼 Azure 구독을 통해 Azure IoT Hub 리소스 공급자를 보호합니다.
+> [Azure Resource Manager](../azure-resource-manager/management/overview.md)의 모든 공급자처럼 Azure 구독을 통해 Azure IoT Hub 리소스 공급자를 보호합니다.
 
 보안 토큰을 생성 및 사용하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰](iot-hub-devguide-security.md#security-tokens)을 참조하세요.
 
@@ -87,7 +87,7 @@ SASL PLAIN의 경우 **사용자 이름** 은 다음이 될 수 있습니다.
 
 HTTPS는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 사용자 이름(DeviceId는 대/소문자 구분): `iothubname.azure-devices.net/DeviceId`
 
@@ -134,10 +134,10 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 다음은 예상 값입니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다. |
-| {resourceURI} |이 토큰으로 액세스할 수 있는 엔드포인트의 URI 접두사(세그먼트별)이며 IoT Hub의 호스트 이름으로 시작합니다(프로토콜 없음). 예를 들면 `myHub.azure-devices.net/devices/device1` |
+| {resourceURI} |이 토큰으로 액세스할 수 있는 엔드포인트의 URI 접두사(세그먼트별)이며 IoT Hub의 호스트 이름으로 시작합니다(프로토콜 없음). 예를 들어 `myHub.azure-devices.net/devices/device1` |
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
 | {URL-encoded-resourceURI} |소문자 URL-소문자 리소스 URI의 인코딩 |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 토큰이 디바이스 레지스트리 자격 증명을 참조하는 경우 없습니다. |
@@ -441,7 +441,7 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 
 다음 테이블에는 IoT hub에 대한 액세스를 제어하는 데 사용할 수 있는 권한이 나열되어 있습니다.
 
-| 사용 권한 | 참고 |
+| 사용 권한 | 메모 |
 | --- | --- |
 | **RegistryRead** |ID 레지스트리에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 참조하세요. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
 | **RegistryReadWrite** |ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 참조하세요. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |

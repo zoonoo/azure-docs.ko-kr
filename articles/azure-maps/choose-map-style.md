@@ -1,5 +1,6 @@
 ---
-title: Azure Maps의 지도 스타일 기능 | Microsoft Docs
+title: Azure Maps에서 지도 스타일 선택
+titleSuffix: Azure Maps
 description: Azure Maps 스타일 관련 기능에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
@@ -8,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e1d3d1b5904eded9f35c5ba628bea6426e7afaf0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881976"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531550"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Azure Maps에서 지도 스타일 선택
 
@@ -21,7 +22,7 @@ ms.locfileid: "68881976"
 
 ## <a name="set-style-on-map-load"></a>지도 로드 시 스타일 설정
 
-다음 코드 `style` 에서 map의 옵션은 초기화 시로 `grayscale_dark` 설정 됩니다.
+다음 코드에서 맵의 `style` 옵션은 초기화할 때 `grayscale_dark`로 설정 됩니다.
 
 <br/>
 
@@ -30,7 +31,7 @@ ms.locfileid: "68881976"
 
 ## <a name="update-the-style"></a>스타일 업데이트
 
-다음 코드에서 map 인스턴스가 로드 된 후 지도의 [system.windows.forms.control.setstyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 함수를 사용 하 여 지도 스타일이 `road` 에서 `satellite` 로 업데이트 됩니다.
+다음 코드에서 map 인스턴스가 로드 된 후 맵의 [system.windows.forms.control.setstyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 함수를 사용 하 여 지도 스타일이 `road`에서 `satellite`로 업데이트 됩니다.
 
 <br/>
 
@@ -47,7 +48,7 @@ ms.locfileid: "68881976"
 </iframe>
 
 > [!TIP]
-> 기본적으로 스타일 선택 컨트롤은 기본적으로 Azure Maps의 S0 가격 책정 계층을 사용할 때 사용할 수 있는 모든 스타일을 나열 합니다. 이 목록에 있는 스타일의 수를 줄이려면 목록에 표시할 스타일의 배열을 스타일 선택기의 `mapStyle` 옵션에 전달 합니다. S1을 사용 중이 고 사용 가능한 모든 스타일을 표시 하려는 경우 스타일 선택기 `mapStyles` 의 옵션을로 `"all"`설정 합니다.
+> 기본적으로 스타일 선택 컨트롤은 기본적으로 Azure Maps의 S0 가격 책정 계층을 사용할 때 사용할 수 있는 모든 스타일을 나열 합니다. 이 목록에 있는 스타일의 수를 줄이려면 목록에 표시할 스타일의 배열을 스타일 선택기의 `mapStyle` 옵션으로 전달 합니다. S1을 사용 중이 고 사용 가능한 모든 스타일을 표시 하려면 스타일 선택기의 `mapStyles` 옵션을 `"all"`로 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,23 +1,15 @@
 ---
-title: Jenkins를 사용한 Azure Service Fabric Linux 애플리케이션 연속 빌드 및 통합 | Microsoft Docs
+title: Jenkins를 사용 하 여 Linux 응용 프로그램에 대 한 연속 빌드
 description: Jenkins를 사용한 Service Fabric Linux 애플리케이션 연속 빌드 및 통합
-services: service-fabric
-documentationcenter: java
 author: sayantancs
-manager: jpconnock
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/31/2018
-ms.author: jeconnoc
-ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 175338fef600f6e726fd02eee6b0f416181bd9dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875094"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610219"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 애플리케이션 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 애플리케이션을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -191,7 +183,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
       cat /var/jenkins_home/secrets/initialAdminPassword
       ```      
    1. Jenkins 대시보드에 로그인하려면 웹 브라우저에서 URL `http://<HOST-IP>:8080`을 엽니다. 이전 단계의 암호를 사용하여 Jenkins의 잠금을 해제합니다.
-   1. 선택 사항입니다. 처음으로 로그인한 후에 사용자만의 고유 계정을 만들어 다음 단계에서 사용하거나 관리자 계정을 계속 사용할 수 있습니다. 사용자를 만들면 해당 사용자를 계속 사용해야 합니다.
+   1. (선택 사항) 처음으로 로그인 한 후에 사용자 고유의 사용자 계정을 만들어 다음 단계에 사용 하거나 관리자 계정을 계속 사용할 수 있습니다. 사용자를 만들면 해당 사용자를 계속 사용해야 합니다.
 1. [새 SSH 키 생성 및 SSH 에이전트에 추가](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)의 단계를 사용하여 Jenkins를 사용하도록 GitHub을 설정합니다.
    * GitHub에서 제공되는 지침을 사용하여 SSH 키를 생성하고 SSH 키를 리포지토리를 호스팅하는 GitHub 계정에 추가합니다.
    * (호스트가 아닌) Jenkins Docker 셸에서 이전 링크에 언급된 명령을 실행합니다.
@@ -220,7 +212,7 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
 
    a. GitHub 리포지토리 페이지에서 **설정** > **통합 및 서비스**로 이동합니다.
 
-   나. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
+   b. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
 
    다. Jenkins Webhook URL을 입력합니다(기본적으로 `http://<PublicIPorFQDN>:8081/github-webhook/`이여야 함). **서비스 추가/업데이트**를 클릭합니다.
 
@@ -233,7 +225,7 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
 
      ![Service Fabric Jenkins 빌드 작업][build-step]
 
-   * **.NET Core 애플리케이션:** **빌드 단계 추가** 드롭다운 목록에서 **셸 실행**을 선택합니다. 표시되는 명령 상자에서 먼저 디렉터리를 build.sh 파일이 있는 경로로 변경해야 합니다. 디렉터리가 변경되면 build.sh 스크립트를 실행할 수 있으며 애플리케이션이 빌드됩니다.
+   * **.NET Core 애플리케이션:** **빌드 단계 추가** 드롭다운에서 **셸 실행**을 선택합니다. 표시되는 명령 상자에서 먼저 디렉터리를 build.sh 파일이 있는 경로로 변경해야 합니다. 디렉터리가 변경되면 build.sh 스크립트를 실행할 수 있으며 애플리케이션이 빌드됩니다.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
@@ -246,13 +238,13 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
 
 1. 빌드 후 작업에서 Service Fabric 클러스터에 앱을 배포하도록 Jenkins를 구성하려면 Jenkins 컨테이너에 해당 클러스터의 인증서 위치가 필요합니다. Jenkins 컨테이너를 클러스터 내부에서 실행할지 또는 외부에서 실행할지에 따라 다음 중 하나를 선택하고, 클러스터 인증서의 위치를 확인합니다.
 
-   * **클러스터 내부에서 실행되는 jenkins:** 인증서 경로는 컨테이너 내에서 *Certificates_JenkinsOnSF_Code_MyCert_PEM* 환경 변수 값을 에코하여 찾을 수 있습니다.
+   * **클러스터 내부에서 실행되는 Jenkins:** 인증서 경로는 컨테이너 내에서 *Certificates_JenkinsOnSF_Code_MyCert_PEM* 환경 변수의 값을 에코하여 찾을 수 있습니다.
 
       ```sh
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
       ```
    
-   * **클러스터 외부에서 실행되는 jenkins:** 다음 단계를 수행하여 클러스터 인증서를 컨테이너에 복사합니다.
+   * **클러스터 외부에서 실행되는 Jenkins:** 다음 단계를 수행하여 클러스터 인증서를 컨테이너에 복사합니다.
      1. 인증서는 PEM 형식이어야 합니다. PEM 파일이 없는 경우 인증서 PFX 파일에서 하나 만들 수 있습니다. PFX 파일이 암호로 보호되어 있지 않으면 호스트에서 다음 명령을 실행합니다.
 
         ```sh
@@ -298,7 +290,7 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
 
 1. Azure Active Directory 서비스 주체를 만들고 Azure 구독의 사용 권한을 할당하려면 [포털을 사용하여 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)의 단계를 따릅니다. 다음에 주의하세요.
 
-   * 이 토픽의 단계를 수행할 때 다음 값을 복사 및 저장합니다. *애플리케이션 ID*, *애플리케이션 키*, *디렉터리 ID (테넌트 ID)* 및 *구독 ID*. Jenkins에서 Azure 자격 증명을 구성하는 데 필요하기 때문입니다.
+   * 항목의 단계를 수행하면서 *애플리케이션 ID*, *애플리케이션 키*, *디렉터리 ID(테넌트 ID)* 및 *구독 ID*를 복사하고 저장해야 합니다. Jenkins에서 Azure 자격 증명을 구성하는 데 필요하기 때문입니다.
    * 디렉터리에 대해 [필요한 권한](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)이 없는 경우 관리자에게 사용 권한을 부여하거나 사용자를 위한 서비스 주체를 만들 것을 요청해야 합니다. 또는 Jenkins의 작업을 위해 **빌드 후 작업**에서 관리 엔드포인트를 구성해야 합니다.
    * [Azure Active Directory 애플리케이션 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) 섹션에서 **로그온 URL**에 대해 올바른 형식의 URL을 입력할 수 있습니다.
    * [역할에 애플리케이션 할당](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) 섹션에서 클러스터의 리소스 그룹에 대한 *읽기 권한자* 역할에 애플리케이션을 할당할 수 있습니다.
@@ -310,7 +302,7 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
 1. 1단계에서 서비스 주체를 설정할 때 저장한 값을 사용하여 다음 필드를 설정합니다.
 
    * **클라이언트 ID**: *애플리케이션 ID*
-   * **클라이언트 비밀**: *애플리케이션 키*
+   * **클라이언트 암호**: *애플리케이션 키*
    * **테넌트 ID**: *디렉터리 ID*
    * **구독 ID**: *구독 ID*
 1. Jenkins에서 자격 증명을 선택할 때 사용하는 설명이 포함된 **ID**와 간단한 **설명**을 입력합니다. 그런 후 **서비스 주체 확인**을 클릭합니다. 확인이 성공하면 **추가**를 클릭합니다.

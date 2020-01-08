@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 015aa4c209a99921a930a51b15c3d0230722519a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790543"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353878"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에서 SQL 가상 머신 대량 등록
 
@@ -30,7 +30,7 @@ ms.locfileid: "74790543"
 
 리소스 공급자에 대 한 자세한 내용은 [SQL VM 리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 리소스 공급자에 SQL Server VM을 등록 하려면 다음이 필요 합니다. 
 
@@ -232,8 +232,6 @@ GitHub에 대 한 전체 스크립트는 [Az PowerShell을 사용 하 여 SQL Vm
 전체 스크립트를 복사 하 고 `RegisterSqLVMs.psm1`로 저장 합니다.
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

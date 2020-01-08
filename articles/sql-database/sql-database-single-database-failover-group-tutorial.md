@@ -11,16 +11,16 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6e3b4be836699cc200d30168c14462f81136646b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8c4c346dd004e435846aff5592a20cd747c45df7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821090"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552630"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>자습서: 단일 데이터베이스를 장애 조치 (failover) 그룹에 추가 Azure SQL Database
 
-Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 구성 하 고 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 장애 조치 (failover)를 테스트 합니다.  이 자습서에서는 다음 방법을 알아봅니다.
+Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 구성 하 고 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 장애 조치 (failover)를 테스트 합니다.  이 자습서에서는 다음 작업 방법을 배웁니다.
 
 > [!div class="checklist"]
 > - Azure SQL Database 단일 데이터베이스를 만듭니다.
@@ -32,20 +32,20 @@ Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)입니다. 
 
 ---
@@ -60,7 +60,7 @@ Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 장애 조치 (failover) 그룹을 만들고 Azure Portal를 사용 하 여 단일 데이터베이스를 추가 합니다. 
 
-1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 섹션 1에서 만든 단일 데이터베이스 (예: `mySampleDatabase`)를 선택 합니다. 
 1. 서버 **이름** 아래에서 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
 
@@ -157,7 +157,7 @@ PowerShell을 사용 하 여 장애 조치 그룹을 만들고 단일 데이터�
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | 논리 서버에 대한 방화벽 규칙을 만듭니다. | 
@@ -217,7 +217,7 @@ AZ CLI를 사용 하 여 장애 조치 그룹을 만들고 단일 데이터베�
 
 자습서의이 부분에서는 다음 Az CLI cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | 서버의 방화벽 규칙을 만듭니다. | 
@@ -231,7 +231,7 @@ AZ CLI를 사용 하 여 장애 조치 그룹을 만들고 단일 데이터베�
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 Azure Portal를 사용 하 여 테스트 장애 조치 (failover) 
 
-1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. `mySampleDatbase`와 같이 섹션 2에서 만든 단일 데이터베이스를 선택 합니다. 
 1. 서버 **이름** 아래에서 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
 
@@ -306,7 +306,7 @@ PowerShell을 사용 하 여 테스트 장애 조치 (failover)
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Azure SQL Database 장애 조치(failover) 그룹을 가져오거나 나열합니다. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Azure SQL Database 장애 조치(failover) 그룹의 장애 조치(failover)를 실행합니다. |
@@ -366,7 +366,7 @@ AZ CLI를 사용 하 여 테스트 장애 조치 (failover)
 
 자습서의이 부분에서는 다음 Az CLI cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | 서버에 있는 장애 조치(failover) 그룹을 나열합니다. |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 현재 주 서버의 모든 데이터베이스를 장애 조치(failover)하여 주 장애 조치(failover) 그룹을 설정합니다. | 
@@ -400,7 +400,7 @@ PowerShell을 사용 하 여 리소스 그룹을 삭제 합니다.
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹을 제거합니다. | 
 
@@ -422,11 +422,15 @@ AZ CLI를 사용 하 여 리소스 그룹을 삭제 합니다.
 
 자습서의이 부분에서는 다음 Az CLI cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ---
+
+
+> [!IMPORTANT]
+> 리소스 그룹을 유지 하지만 보조 데이터베이스를 삭제 하려는 경우에는 장애 조치 (failover) 그룹을 삭제 하기 전에 해당 그룹에서 제거 합니다. 장애 조치 (failover) 그룹에서 보조 데이터베이스를 제거 하기 전에 삭제 하면 예기치 않은 동작이 발생할 수 있습니다. 
 
 
 ## <a name="full-scripts"></a>전체 스크립트
@@ -437,7 +441,7 @@ AZ CLI를 사용 하 여 리소스 그룹을 삭제 합니다.
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
@@ -456,7 +460,7 @@ AZ CLI를 사용 하 여 리소스 그룹을 삭제 합니다.
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | 현재 활성 구독이 되도록 구독을 설정합니다. | 
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
@@ -477,7 +481,7 @@ Azure Portal 사용할 수 있는 스크립트가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 장애 조치 (failover) 그룹에 Azure SQL Database 단일 데이터베이스를 추가 하 고 장애 조치 (failover)를 테스트 했습니다. 다음 방법에 대해 알아보았습니다. 
+이 자습서에서는 장애 조치 (failover) 그룹에 Azure SQL Database 단일 데이터베이스를 추가 하 고 장애 조치 (failover)를 테스트 했습니다. 구체적으로 다음 작업 방법을 알아보았습니다. 
 
 > [!div class="checklist"]
 > - Azure SQL Database 단일 데이터베이스를 만듭니다. 

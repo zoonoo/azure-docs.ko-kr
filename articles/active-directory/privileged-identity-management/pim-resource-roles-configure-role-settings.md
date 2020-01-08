@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74182734"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638683"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 설정 구성
 
@@ -58,10 +58,17 @@ Azure 리소스 역할 설정을 구성 하는 경우 Azure Active Directory (Az
 
 1. **알림** 탭 또는 페이지 맨 아래에 있는 **다음: 활성화** 단추를 사용 하 여이 역할에 대 한 알림 설정 탭으로 이동할 수 있습니다. 이러한 설정은이 역할과 관련 된 모든 전자 메일 알림을 제어 합니다.
 
-    > [!NOTE]
-    > 이 알림 UI는 현재 Azure 지역 및 구독 간에 롤오버 되 고 있습니다. 이러한 세부적인 알림을 구성할 수 없는 경우 하루 또는 두 번 다시 확인 하세요.
-
     ![역할 설정 페이지의 역할 알림 탭](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+    역할 설정 페이지의 **알림** 탭에서 알림을 받는 사람 및 수신 알림을 받는 사람 Privileged Identity Management을 세밀 하 게 제어할 수 있습니다.
+
+    - **전자 메일 해제**<br>기본 받는 사람 확인란의 선택을 취소 하 고 추가 받는 사람을 삭제 하 여 특정 메일을 해제할 수 있습니다.  
+
+    - **전자 메일을 지정 된 전자 메일 주소로 제한**<br>기본 받는 사람 확인란의 선택을 취소 하 여 기본 받는 사람에 게 보낸 전자 메일을 해제할 수 있습니다. 그런 다음 추가 전자 메일 주소를 추가 받는 사람으로 추가할 수 있습니다. 전자 메일 주소를 둘 이상 추가 하려면 세미콜론 (;)을 사용 하 여 구분 합니다.
+
+    - **기본 받는 사람과 추가 받는 사람 모두에 게 전자 메일 보내기**<br>기본 받는 사람 확인란을 선택 하 고 추가 받는 사람에 대 한 전자 메일 주소를 추가 하 여 기본 받는 사람과 추가 받는 사람에 게 전자 메일을 보낼 수 있습니다.
+
+    - **중요 전자 메일만**<br>각 전자 메일 형식에 대 한 확인란을 선택 하 여 중요 한 전자 메일을 받을 수 있습니다. 즉, 전자 메일에 즉각적인 조치가 필요한 경우에만 Privileged Identity Management가 구성 된 받는 사람에 게 전자 메일을 계속 보냅니다. 예를 들어 사용자가 역할 할당을 확장 하도록 요청 하는 전자 메일은 트리거되지 않으며 관리자가 확장 요청을 승인 해야 하는 메일이 트리거됩니다.
 
 1. 언제 든 지 **업데이트** 단추를 선택 하 여 역할 설정을 업데이트 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.-Azure Active Directory | Microsoft Docs
+title: 액세스 검토에서 앱 & 그룹에 대 한 액세스 검토-Azure AD
 description: Azure Active Directory 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 자신의 액세스를 검토 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: msaburnley
@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 0d75d7ffe28fa126ee5e359cba19e66e3c0f36e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422409"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
 전자 메일이 없는 경우 다음 단계를 수행 하 여 보류 중인 액세스 검토를 찾을 수 있습니다.
 
-1. [@No__t-1](https://myapps.microsoft.com)에서 myapps 포털에 로그인 합니다.
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에서 myapps 포털에 로그인 합니다.
 
     ![사용 권한이 있는 앱을 나열 하는 MyApps 포털](./media/review-your-access/myapps-access-panel.png)
 

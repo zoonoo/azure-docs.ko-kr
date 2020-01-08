@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748441"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352882"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
 
@@ -113,7 +113,7 @@ Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 
 아니요, Service Bus는 스토리지에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Service Bus 표준 네임 스페이스가 있습니다. 리소스 그룹 ' $system '에 요금이 표시 되는 이유는 무엇 인가요?
-최근 청구 구성 요소를 업그레이드 Azure Service Bus. 이로 인해 Service Bus 표준 네임 스페이스가 있는 경우 리소스 그룹 ' $ 아래에 리소스 '/subscriptions/< azure_subscription_id >/Hsourceg/$system/providers/Microsoft.ServiceBus/namespaces/$system '에 대 한 줄 항목이 표시 될 수 있습니다. 시스템 '.
+최근 청구 구성 요소를 업그레이드 Azure Service Bus. 이로 인해 Service Bus 표준 네임 스페이스가 있는 경우 리소스 그룹 ' $system ' 아래에 리소스 '/subscriptions/< azure_subscription_id >/Ssourceg/$system/providers/Microsoft.ServiceBus/namespaces/$system '에 대 한 줄 항목이 표시 될 수 있습니다.
 
 이러한 요금은 Service Bus 표준 네임 스페이스를 프로 비전 한 Azure 구독 당 기본 요금을 나타냅니다. 
 
@@ -135,7 +135,7 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>네임스페이스를 다른 구독에서 삭제한 후 만들 수 없는 이유는 무엇인가요? 
-구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `Namespace already exists`. 
+구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `Namespace already exists` 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API 및 해당 제안된 작업에 의해 생성된 일부 예외는 무엇인가요?
 가능한 Service Bus 예외의 목록은 [예외 개요][Exceptions overview]를 참조 하세요.
@@ -150,7 +150,7 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 
 #### <a name="portal"></a>포털
 
-Azure Portal을 사용하여 Service Bus 네임스페이스를 다른 구독으로 마이그레이션하려면 [여기](../azure-resource-manager/resource-group-move-resources.md#use-the-portal)에 있는 지침을 따르세요. 
+Azure Portal을 사용하여 Service Bus 네임스페이스를 다른 구독으로 마이그레이션하려면 [여기](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal)에 있는 지침을 따르세요. 
 
 #### <a name="powershell"></a>PowerShell
 

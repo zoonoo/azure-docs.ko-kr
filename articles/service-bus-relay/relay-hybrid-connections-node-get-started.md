@@ -1,5 +1,5 @@
 ---
-title: Node에서 Azure Relay 하이브리드 연결 Websocket 시작 | Microsoft Docs
+title: Azure Relay 하이브리드 연결-노드의 Websocket
 description: Azure Relay 하이브리드 연결 Websocket에 대한 Node.js 콘솔 애플리케이션 작성
 services: service-bus-relay
 documentationcenter: node
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: b4864673e25ba4f5a1f2e8629e0889863051bc07
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 818db4db082a441877b573fd52361e63becce374
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553884"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352666"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Node.js에서 Relay 하이브리드 연결 WebSockets 시작
 
@@ -38,7 +38,7 @@ ms.locfileid: "60553884"
 ## <a name="prerequisites"></a>필수 조건
 
 - [Node.js](https://nodejs.org/en/).
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

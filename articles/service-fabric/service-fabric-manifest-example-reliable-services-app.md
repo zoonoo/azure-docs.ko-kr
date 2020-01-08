@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric 신뢰할 수 있는 서비스 응용 프로그램 매니페스트 예제
+title: 신뢰할 수 있는 서비스 앱 매니페스트 예
 description: Reliable Services Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: na
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 9cc79610b6dc9f9d2869a41e0b483168087368cc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d5a03629a134a0b2c7d6ee95dba9ea3ad06e99ba
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013237"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609828"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 애플리케이션 및 서비스 매니페스트 예제
 다음은 ASP.NET Core 웹 프런트 엔드 및 상태 저장 백 엔드를 사용하는 Service Fabric 애플리케이션용 애플리케이션 및 서비스 매니페스트 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 애플리케이션 및 서비스 매니페스트는 [Service Fabric .NET 빠른 시작](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) 매니페스트를 기반으로 합니다.
@@ -33,7 +25,7 @@ ms.locfileid: "74013237"
 
 특정 XML 요소에 대한 자세한 내용은 [애플리케이션 매니페스트 요소](#application-manifest-elements), [VotingWeb 서비스 매니페스트 요소](#votingweb-service-manifest-elements) 및 [VotingData 서비스 매니페스트 요소](#votingdata-service-manifest-elements)를 참조하세요.
 
-## <a name="application-manifest"></a>애플리케이션 매니페스트
+## <a name="application-manifest"></a>애플리케이션 매니페스트.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

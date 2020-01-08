@@ -7,19 +7,19 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 94399490453c6a2774f71ef527fd24d543e2a7e2
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: c9781165affb1755e73919931d8d158ae9b535ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438776"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Azure CLI를 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 이 문서에서는 Azure CLI 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 계정을 만들고, USQL 작업 및 카탈로그를 제출하는 방법을 설명합니다. 작업은 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 작업을 시작하려면 다음 항목이 필요합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -49,7 +49,7 @@ az account set --subscription <subscription id>
 ## <a name="create-data-lake-analytics-account"></a>데이터 레이크 분석 계정 만들기
 모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. Data Lake Analytics 계정을 만들려면 다음 항목을 지정해야 합니다.
 
-* **Azure 리소스 그룹**. Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
+* **Azure 리소스 그룹**. Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/management/overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
 
 구독 중인 기존 리소스 그룹을 나열하려면
 
@@ -65,7 +65,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 * **Data Lake Analytics 계정 이름**. Data Lake Analytics 계정마다 이름이 있습니다.
 * **위치** - Data Lake Analytics를 지원하는 Azure 데이터 센터 중 하나를 사용합니다.
-* **기본 Data Lake Store 계정**: 모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
+* **기본 Data Lake Store 계정**: 각 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
 
 기존Data Lake Store 계정을 나열하려면
 
@@ -130,7 +130,7 @@ OUTPUT @a
 
 원본 파일을 다른 위치에 복사하지 않는 한 두 경로를 수정하지 마세요.  출력 폴더가 없는 경우 Data Lake Analytics에서 해당 폴더를 만듭니다.
 
-기본 Data Lake Store 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+기본 Data Lake Store 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예:
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -155,7 +155,7 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+예:
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -186,7 +186,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+예:
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/23/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.openlocfilehash: 7dfa3df078ffe8aac3e63f14624a65a47b11a56a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67056496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353598"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
 
@@ -35,6 +35,12 @@ ms.locfileid: "67056496"
 * iOS
 
 [!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
+
+### <a name="what-should-i-do-if-i-am-getting-a-certificate-mismatch-when-connecting"></a>연결할 때 인증서 불일치를 가져오는 경우 어떻게 해야 하나요?
+
+**"인증서의 유효성을 검사 하 여 서버의 Id 확인"** 을 선택 취소 하거나 수동으로 프로필을 만들 때 **인증서와 함께 서버 FQDN을 추가** 합니다. 명령 프롬프트에서 **rasphone** 를 실행 하 고 드롭다운 목록에서 프로필을 선택 하 여이 작업을 수행할 수 있습니다.
+
+![지점 및 사이트 간](./media/vpn-gateway-faq-p2s-all-include/servercert.png "서버 인증서")
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>지점 및 사이트 간 기능을 사용하여 프록시와 방화벽을 트래버스할 수 있습니까?
 

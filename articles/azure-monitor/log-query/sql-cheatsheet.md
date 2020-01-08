@@ -1,18 +1,17 @@
 ---
 title: SQL-Azure Monitor 로그 쿼리 참고 자료 | Microsoft Docs
 description: Azure Monitor에서 로그 쿼리를 작성하는 데 SQL에 익숙한 사용자를 위한 도움말입니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 4acf3c2f8cee3ca9e679915eec677b6dd92792bf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c76ab145fd2fdd077075b345ecac9c6a473f2369
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365192"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL-Azure Monitor 로그 쿼리 참고 자료 
 
@@ -20,7 +19,7 @@ ms.locfileid: "72932921"
 
 ## <a name="sql-to-azure-monitor"></a>SQL-Azure Monitor
 
-설명                             |SQL 쿼리                                                                                          |Azure Monitor 로그 쿼리
+Description                             |SQL 쿼리                                                                                          |Azure Monitor 로그 쿼리
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 테이블에서 모든 데이터 선택            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 테이블에서 특정 열 선택    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -37,7 +36,7 @@ Distinct                                |`SELECT DISTINCT name, type  FROM depen
 그룹화, 집계                   |`SELECT name, AVG(duration) FROM dependencies GROUP BY name`                                       |<code>dependencies <br>&#124; summarize avg(duration) by name </code>
 열 별칭, 확장                  |`SELECT operation_Name as Name, AVG(duration) as AvgD FROM dependencies GROUP BY name`             |<code>dependencies <br>&#124; summarize AvgD=avg(duration) by operation_Name <br>&#124; project Name=operation_Name, AvgD</code>
 측정값 별 상위 n 개 레코드                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
-통합                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
+Union                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
 통합: 조건 사용                  |`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions WHERE value < 5`                |<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
 Join                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 875d8f498fc8405a53d8fb60631c52ce09b30a62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431921"
 ---
 # <a name="live-transcription-preview"></a>라이브 기록 (미리 보기)
 
@@ -102,7 +102,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 * 이 기능은 미국 서 부 2 에서만 사용할 수 있습니다.
 * 응용 프로그램은 [Media Services V3 OpenAPI 사양](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json) 사양에 설명 된 미리 보기 api를 사용 해야 합니다.
-* 유일 하 게 지원 되는 언어는 영어입니다.
+* 유일 하 게 지원 되는 언어는 영어 (en-us)입니다.
 * 콘텐츠 보호와 관련 하 여 AES 봉투 암호화만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계

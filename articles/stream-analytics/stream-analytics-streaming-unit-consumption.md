@@ -1,20 +1,18 @@
 ---
 title: Azure Stream Analytics의 스트리밍 단위
 description: 이 문서에서는 Azure Stream Analytics에서 성능에 영향을 주는 스트리밍 단위 설정 및 다른 요소에 대해 설명합니다.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d270d38bce45c45f9323a971ad69dc2b931a9169
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369850"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -65,7 +63,7 @@ SU% 사용률은 잠시 동안 갑자기 0으로 떨어졌다가 정상 수준�
 ## <a name="stateful-query-logicin-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
 Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 이러한 연산자마다 상태 정보를 유지합니다. 이러한 쿼리 요소에 대 한 최대 창 크기는 7 일입니다. 
 
-임시 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 나타납니다.
+temporal 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 나타납니다.
 1. 기간 이동 집계: 연속, 도착 및 슬라이딩 시간 범위의 GROUP BY
 
 2. temporal 조인: DATEDIFF 함수를 사용한 JOIN

@@ -1,24 +1,14 @@
 ---
-title: Azure Service Fabric Linux 클러스터에 대해 디스크 암호화 사용 | Microsoft Docs
+title: Linux 클러스터에 대해 디스크 암호화 사용
 description: 이 문서에서는 Azure Resource Manager 및 Azure Key Vault를 사용 하 여 Linux에서 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화를 사용 하도록 설정 하는 방법을 설명 합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5bcfad63df69010851dde66b0c8935e63a509455
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d990cfdee9a497135c67d99431807a85f8105b3b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599599"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609896"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Linux에서 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화 사용 
 > [!div class="op_single_selector"]
@@ -39,13 +29,13 @@ ms.locfileid: "68599599"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
  **자체 등록**
 
 가상 머신 확장 집합에 대 한 디스크 암호화 미리 보기에는 자체 등록이 필요 합니다. 다음 단계를 사용합니다.
 
-1. 다음 명령을 실행합니다. 
+1. 다음 명령 실행: 
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
@@ -65,7 +55,7 @@ ms.locfileid: "68599599"
 3. Azure PowerShell 릴리스에서 최신 버전의 [AZURE SDK](https://github.com/Azure/azure-powershell/releases) 를 설치 합니다. 다음은 확장 집합 인스턴스에서 암호화를 사용 하도록 설정 하 고 ([설정](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) 암호화 상태를 검색 ([get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) 하 고 암호화를 제거 ([해제](/powershell/module/az.compute/disable-azvmssdiskencryption)) 하는 가상 머신 확장 집합 Azure Disk Encryption cmdlet입니다.
 
 
-| 명령 | 버전 |  Source  |
+| 명령 | 버전 |  원본  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |
@@ -187,7 +177,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 
 ### <a name="deploy-application-to-a-service-fabric-cluster-in-linux"></a>Linux에서 Service Fabric 클러스터에 응용 프로그램 배포
-클러스터에 응용 프로그램을 배포 하려면 [빠른 시작의 단계 및 지침을 따르십시오. Service Fabric](service-fabric-quickstart-containers-linux.md)에 Linux 컨테이너를 배포 합니다.
+클러스터에 응용 프로그램을 배포 하려면 [빠른 시작: Service Fabric에 Linux 컨테이너 배포](service-fabric-quickstart-containers-linux.md)에서 단계 및 지침을 따릅니다.
 
 
 ### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>이전에 만든 가상 머신 확장 집합에 대해 디스크 암호화 사용

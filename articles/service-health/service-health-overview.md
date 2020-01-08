@@ -1,18 +1,14 @@
 ---
 title: Service Health 개요 | Microsoft Docs
 description: Azure 앱이 현재 및 향후 Azure 서비스 문제 및 유지 관리에 의해 어떤 영향을 받는지에 대한 개인 설정된 정보입니다.
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6a06ae22493292e33c94cc83cba1f17361bce45f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451568"
 ---
 # <a name="service-health-overview"></a>Service Health 개요
 

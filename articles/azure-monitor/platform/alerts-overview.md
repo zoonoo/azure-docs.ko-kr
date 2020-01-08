@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396514"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -79,7 +79,7 @@ ms.locfileid: "74951142"
 
 다음은 지원되는 경고 상태입니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |:---|:---|
 | 신규 | 문제가 검색 되었으며 아직 검토 되지 않았습니다. |
 | 확인됨 | 관리자가 경고를 검토하고 작업을 시작했습니다. |
@@ -106,15 +106,15 @@ ms.locfileid: "74951142"
 
 페이지 위쪽의 드롭다운 메뉴에서 값을 선택 하 여이 뷰를 필터링 할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:---|:---|
 | Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
-| Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
+| 리소스 그룹 | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
 | 시간 범위 | 선택한 시간 범위 내에서 발생 한 경고만 보기에 포함 됩니다. 지원되는 값은 지난 1시간, 지난 24시간, 지난 7일 및 지난 30일입니다. |
 
 경고 페이지 위쪽에서 다음 값을 선택 하 여 다른 페이지를 엽니다.
 
-| Value | 설명 |
+| 값 | Description |
 |:---|:---|
 | 총 경고 수 | 선택한 조건과 일치하는 총 경고 수입니다. 이 값을 선택하면 필터 없이 [모든 경고] 보기가 열립니다. |
 | 스마트 그룹 | 선택한 조건과 일치하는 경고에서 만들어진 스마트 그룹의 총수입니다. 이 값을 선택하면 [모든 경고] 보기에 스마트 그룹 목록이 열립니다.
@@ -149,11 +149,11 @@ ms.locfileid: "74951142"
 
 페이지 맨 위에 있는 드롭다운 메뉴에서 다음 값을 선택 하 여 뷰를 필터링 할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:---|:---|
 | Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
-| Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
-| 리소스 종류 | 리소스 종류를 하나 이상 선택합니다. 선택한 형식의 대상이 있는 경고만 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. |
+| 리소스 그룹 | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
+| 리소스 유형 | 리소스 종류를 하나 이상 선택합니다. 선택한 형식의 대상이 있는 경고만 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. |
 | 리소스 | 리소스를 선택합니다. 해당 리소스가 대상으로 지정된 경고만 보기에 포함됩니다. 이 열은 리소스 종류를 지정한 후에만 사용할 수 있습니다. |
 | 심각도 | 경고 심각도를 선택하거나, 심각도에 상관없이 모든 경고를 포함하려면 **모두**를 선택합니다. |
 | 조건 모니터링 | 모니터 조건을 선택 하거나 **모두를 선택 하 여** 모든 조건의 경고를 포함 합니다. |
@@ -170,7 +170,7 @@ ms.locfileid: "74951142"
 
 경고 정보 페이지에는 다음과 같은 섹션이 포함 되어 있습니다.
 
-| 섹션 | 설명 |
+| 섹션 | Description |
 |:---|:---|
 | 요약 | 경고에 대한 속성과 기타 중요한 정보를 표시합니다. |
 | 내역 | 경고에서 수행한 각 작업과 경고의 변경 내용을 나열합니다. 현재는 상태 변경으로 제한되어 있습니다. |
@@ -184,23 +184,23 @@ ms.locfileid: "74951142"
 
 구독에 대해 생성 된 경고를 프로그래밍 방식으로 쿼리 하는 것이 좋습니다. 이는 Azure Portal 외부에서 사용자 지정 보기를 만들거나 패턴 및 추세를 식별 하기 위해 경고를 분석 하는 것일 수 있습니다.
 
-[경고 관리 REST API](https://aka.ms/alert-management-api) 사용 하거나 [경고에 대해 Azure 리소스 그래프 REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)를 사용 하 여 구독에 대해 생성 된 경고를 쿼리할 수 있습니다.
+[경고 관리 REST API](https://aka.ms/alert-management-api) 사용 하거나 [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 와 [리소스에 대 한 REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)사용 하 여 구독에 대해 생성 된 경고를 쿼리할 수 있습니다.
 
-[경고에 대 한 Azure 리소스 그래프 REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)를 사용 하 여 대규모 경고 인스턴스를 쿼리할 수 있습니다. 이는 여러 구독에서 생성 된 경고를 관리 해야 하는 경우에 권장 됩니다. 
+리소스에 대 한 리소스 그래프 REST API를 사용 하 여 대규모 경고 인스턴스를 쿼리할 수 있습니다. 이는 여러 구독에서 생성 된 경고를 관리 해야 하는 경우에 권장 됩니다. 
 
-API에 대 한 다음 샘플 요청은 한 구독 내의 경고 수를 반환 합니다.
+리소스 그래프에 대 한 다음 샘플 요청은 한 구독 내의 경고 수를 반환 REST API 합니다.
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+Azure 리소스 그래프 탐색기: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count()) 를 사용 하 여 포털에서이 리소스 그래프 쿼리 결과를 볼 수도 있습니다.
+
 해당 [필수](alerts-common-schema-definitions.md#essentials) 필드에 대 한 경고를 쿼리할 수 있습니다.
 
 [경고 관리 REST API](https://aka.ms/alert-management-api) 를 사용 하 여 [경고 컨텍스트](alerts-common-schema-definitions.md#alert-context) 필드를 포함 하 여 특정 경고에 대 한 자세한 정보를 얻을 수 있습니다.

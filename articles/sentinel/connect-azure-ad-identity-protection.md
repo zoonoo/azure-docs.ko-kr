@@ -1,26 +1,20 @@
 ---
-title: Azure 센티널에 Azure AD ID 보호 데이터 연결 | Microsoft Docs
+title: Azure 센티널에 Azure AD ID 보호 데이터 연결
 description: Azure 센티널에 Azure AD ID 보호 데이터를 연결 하는 방법에 대해 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: rkarlin
 manager: rkarlin
-editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d73ce12d509b2ccc534e19a27124980f3b60044
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 8d916606913b19a9eb15cb280defbeb0440565e4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158892"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563720"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Azure AD ID 보호에서 데이터 연결
 
@@ -29,7 +23,7 @@ ms.locfileid: "74158892"
 [Azure AD ID 보호](https://docs.microsoft.com/azure/information-protection/reports-aip) 에서 azure 센티널로 로그를 스트리밍하 여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Azure Active Directory Identity Protection 위험 사용자, 위험 검색 및 취약성에 대 한 통합 보기를 제공 하며, 위험을 즉시 수정 하 고 향후 이벤트를 자동 수정 하도록 정책을 설정할 수 있습니다. 이 서비스는 고객 id를 보호 하는 Microsoft의 경험을 바탕으로 구축 되었으며 하루에 130억 대 이상의 로그에서 발생 하는 신호의 정확성을 향상 시킵니다. 
 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [Azure Active Directory Premium P1 또는 P2 라이선스가](https://azure.microsoft.com/pricing/details/active-directory/) 있어야 합니다.
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
@@ -50,5 +44,5 @@ Azure AD ID 보호 배포 되 고 데이터를 가져오는 경우 경고 데이
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure AD ID 보호를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.

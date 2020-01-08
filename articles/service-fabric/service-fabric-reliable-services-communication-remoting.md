@@ -1,25 +1,16 @@
 ---
-title: Service Fabric에서 C#을 사용하여 서비스 원격 호출 | Microsoft Docs
+title: Service Fabric에서를 사용 C# 하 여 서비스 원격
 description: Service Fabric 원격 호출을 사용하면 클라이언트와 서비스가 원격 프로시저 호출을 사용하여 C# 서비스와 통신할 수 있습니다.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433878"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 
@@ -220,7 +211,7 @@ V1에서 V2로 업그레이드하려면 2단계 업그레이드가 필요합니�
     }
     ```
 
-    c. V1 및 V2 수신기와 V2 클라이언트를 사용하려면 원격 인터페이스에 어셈블리 특성을 추가합니다.
+    다. V1 및 V2 수신기와 V2 클라이언트를 사용하려면 원격 인터페이스에 어셈블리 특성을 추가합니다.
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2|RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2)]
 
@@ -322,7 +313,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드하려면 2단계 업그레이드가 필요합니다. 이 순서대로 단계를 따르세요.
 
 > [!NOTE]
-> V 1에서 v 2로 업그레이드 하는 경우 `Remoting` 네임 스페이스가 V2를 사용 하도록 업데이트 되었는지 확인 합니다. 예: ' ServiceFabric ' (' FabricTransport ')
+> V1에서 v 2로 업그레이드 하는 경우 `Remoting` 네임 스페이스가 V2를 사용 하도록 업데이트 되었는지 확인 합니다. 예: ' ServiceFabric ' (' FabricTransport ')
 >
 >
 
@@ -347,7 +338,7 @@ V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드
     }
     ```
 
-    c. V1 및 V2_1 수신기와 V2_1 클라이언트를 사용하기 위해 원격 인터페이스에 어셈블리 특성을 추가합니다.
+    다. V1 및 V2_1 수신기와 V2_1 클라이언트를 사용하기 위해 원격 인터페이스에 어셈블리 특성을 추가합니다.
     ```csharp
    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1 | RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2_1)]
 

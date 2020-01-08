@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: 1c990c864f9daa98460832166b31f43fece1ed15
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a153a8000552100d62807442d466c22cd0964e43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389845"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Batch 풀에 가상 파일 시스템 탑재
 
@@ -39,22 +39,22 @@ ms.locfileid: "70093851"
 
 풀에 가상 파일 시스템을 탑재 하면 풀의 모든 계산 노드에서 파일 시스템을 사용할 수 있습니다. 파일 시스템은 계산 노드가 풀에 조인 되거나 노드가 다시 시작 되거나 이미지로 다시 설치 때 구성 됩니다.
 
-풀에 파일 시스템을 탑재 하려면 `MountConfiguration` 개체를 만듭니다. 가상 `AzureBlobFileSystemConfiguration`파일 시스템 `AzureFileShareConfiguration` `CifsMountConfiguration`에 맞는 개체 (,, 또는)를 선택 합니다. `NfsMountConfiguration`
+풀에 파일 시스템을 탑재 하려면 `MountConfiguration` 개체를 만듭니다. `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`또는 `CifsMountConfiguration`가상 파일 시스템에 맞는 개체를 선택 합니다.
 
 모든 탑재 구성 개체에는 다음 기본 매개 변수가 필요 합니다. 일부 탑재 구성에는 사용 되는 파일 시스템에 해당 하는 매개 변수가 있습니다 .이에 대해서는 코드 예제에 자세히 설명 되어 있습니다.
 
 - **계정 이름 또는 원본**: 가상 파일 공유를 탑재 하려면 저장소 계정 또는 해당 원본의 이름이 필요 합니다.
-- **상대 탑재 경로 또는 원본**: 를 통해 `fsmounts` `AZ_BATCH_NODE_MOUNTS_DIR`노드에서 액세스할 수 있는 표준 디렉터리를 기준으로 계산 노드에 탑재 된 파일 시스템의 위치입니다. 정확한 위치는 노드에서 사용 되는 운영 체제에 따라 달라 집니다. 예를 들어 Ubuntu 노드의 물리적 위치는에 매핑되고 `mnt\batch\tasks\fsmounts` `mnt\resources\batch\tasks\fsmounts`매핑된 CentOS 노드에 매핑됩니다.
-- **탑재 옵션 또는 blobfuse 옵션**: 이러한 옵션은 파일 시스템을 탑재 하는 특정 매개 변수를 설명 합니다.
+- **상대 탑재 경로 또는 원본**: `AZ_BATCH_NODE_MOUNTS_DIR`를 통해 노드에서 액세스할 수 있는 표준 `fsmounts` 디렉터리를 기준으로 계산 노드에 탑재 된 파일 시스템의 위치입니다. 정확한 위치는 노드에서 사용 되는 운영 체제에 따라 달라 집니다. 예를 들어 Ubuntu 노드의 물리적 위치는 `mnt\batch\tasks\fsmounts`에 매핑되고 CentOS 노드에는 `mnt\resources\batch\tasks\fsmounts`매핑됩니다.
+- **탑재 옵션 또는 blobfuse 옵션**: 이러한 옵션은 파일 시스템을 탑재 하기 위한 특정 매개 변수를 설명 합니다.
 
-개체를 만든 후에는 풀을 만들 때 개체 `MountConfigurationList` 를 속성에 할당 합니다. `MountConfiguration` 노드가 풀에 조인 되거나 노드가 다시 시작 되거나 이미지로 다시 설치 될 때 파일 시스템이 탑재 됩니다.
+`MountConfiguration` 개체가 만들어지면 풀을 만들 때 개체를 `MountConfigurationList` 속성에 할당 합니다. 노드가 풀에 조인 되거나 노드가 다시 시작 되거나 이미지로 다시 설치 될 때 파일 시스템이 탑재 됩니다.
 
-파일 시스템이 탑재 되 면 탑재 된 파일 시스템의 `AZ_BATCH_NODE_MOUNTS_DIR` 위치 및 로그 파일을 가리키는 환경 변수가 만들어지며,이는 문제 해결 및 디버깅에 유용 합니다. 로그 파일은 [탑재 오류 진단](#diagnose-mount-errors) 섹션에 자세히 설명 되어 있습니다.  
+파일 시스템이 탑재 되 면 탑재 된 파일 시스템의 위치 및 로그 파일을 가리키는 환경 변수 `AZ_BATCH_NODE_MOUNTS_DIR` 만들어집니다 .이 변수는 문제 해결 및 디버깅에 유용 합니다. 로그 파일은 [탑재 오류 진단](#diagnose-mount-errors) 섹션에 자세히 설명 되어 있습니다.  
 
 > [!IMPORTANT]
 > 풀에 탑재 된 파일 시스템의 최대 수는 10 개입니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md#other-limits) 을 참조 하세요.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 다음 코드 예제에서는 계산 노드 풀에 다양 한 파일 공유를 탑재 하는 방법을 보여 줍니다.
 
@@ -85,7 +85,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Azure Blob 파일 시스템
 
-또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob storage를 사용 하는 것입니다. Blob 파일 시스템을 탑재 하려면 저장소 `AccountKey` 계정 `SasKey` 에 또는가 필요 합니다. 이러한 키를 가져오는 방법에 대 한 자세한 내용은 [계정 키 보기](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string)또는 [SAS (공유 액세스 서명) 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조 하세요. Blobfuse를 사용 하는 방법에 대 한 자세한 내용은 blobfuse [문제 해결 FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)를 참조 하세요. Blobfuse 탑재 된 디렉터리에 대 한 기본 액세스 권한을 얻으려면 **관리자 권한**으로 작업을 실행 합니다. Blobfuse는 사용자 공간에서 디렉터리를 탑재 하 고 풀을 만들 때 루트로 탑재 됩니다. Linux에서는 모든 **관리자** 작업이 루트입니다. 퓨즈 모듈의 모든 옵션은 [퓨즈 참조 페이지](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)에 설명 되어 있습니다.
+또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob storage를 사용 하는 것입니다. Blob 파일 시스템을 탑재 하려면 저장소 계정에 대 한 `AccountKey` 또는 `SasKey` 필요 합니다. 이러한 키를 가져오는 방법에 대 한 자세한 내용은 [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)또는 [SAS (공유 액세스 서명) 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조 하세요. Blobfuse를 사용 하는 방법에 대 한 자세한 내용은 blobfuse [문제 해결 FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)를 참조 하세요. Blobfuse 탑재 된 디렉터리에 대 한 기본 액세스 권한을 얻으려면 **관리자 권한**으로 작업을 실행 합니다. Blobfuse는 사용자 공간에서 디렉터리를 탑재 하 고 풀을 만들 때 루트로 탑재 됩니다. Linux에서는 모든 **관리자** 작업이 루트입니다. 퓨즈 모듈의 모든 옵션은 [퓨즈 참조 페이지](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)에 설명 되어 있습니다.
 
 문제 해결 가이드 외에도 blobfuse 리포지토리의 GitHub 문제는 현재 blobfuse 문제 및 해결 방법을 확인 하는 데 유용한 방법입니다. 자세한 내용은 [blobfuse 문제](https://github.com/Azure/azure-storage-fuse/issues)를 참조 하세요.
 
@@ -116,7 +116,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>네트워크 파일 시스템
 
-NFS (네트워크 파일 시스템)도 풀 노드에 탑재할 수 있으므로 기존 파일 시스템을 Azure Batch 노드에서 쉽게 액세스할 수 있습니다. 이는 클라우드에 배포 된 단일 NFS 서버 또는 가상 네트워크를 통해 액세스 하는 온-프레미스 NFS 서버 일 수 있습니다. 또는 온-프레미스 저장소에 원활한 연결을 제공 하 고, 주문형 데이터를 캐시로 읽고, 고성능을 제공 하 고, 클라우드 기반 계산에 크기를 조정 하는 [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) 분산 메모리 내 캐시 솔루션을 활용할 수 있습니다. 노드에.
+NFS (네트워크 파일 시스템)도 풀 노드에 탑재할 수 있으므로 기존 파일 시스템을 Azure Batch 노드에서 쉽게 액세스할 수 있습니다. 이는 클라우드에 배포 된 단일 NFS 서버 또는 가상 네트워크를 통해 액세스 하는 온-프레미스 NFS 서버 일 수 있습니다. 또는 온-프레미스 저장소에 원활한 연결을 제공 하 고, 주문형 데이터를 캐시로 읽고, 클라우드 기반 계산 노드에 고성능 및 규모를 제공 하는 [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed 메모리 내 캐시 솔루션을 활용할 수 있습니다.
 
 ```csharp
 new PoolAddParameter
@@ -164,20 +164,20 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>탑재 오류 진단
 
-탑재 구성에 실패 하면 풀의 계산 노드가 실패 하 고 노드 상태를 사용할 수 없게 됩니다. 탑재 구성 오류를 진단 하려면 속성에서 [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 오류에 대 한 세부 정보를 검사 합니다.
+탑재 구성에 실패 하면 풀의 계산 노드가 실패 하 고 노드 상태를 사용할 수 없게 됩니다. 탑재 구성 오류를 진단 하려면 오류에 대 한 자세한 내용은 [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 속성을 검사 합니다.
 
-디버그할 로그 파일을 가져오려면 [outputfiles](batch-task-output-files.md) 를 사용 하 여 `*.log` 파일을 업로드 합니다. 파일 `*.log` 에는 `AZ_BATCH_NODE_MOUNTS_DIR` 위치의 파일 시스템 탑재에 대 한 정보가 포함 되어 있습니다. 탑재 로그 파일의 형식은 각 탑재 `<type>-<mountDirOrDrive>.log` 에 대해입니다. 예를 `cifs` 들어 라는 `test` 탑재 디렉터리의 탑재에는 라는 `cifs-test.log`탑재 로그 파일이 있습니다.
+디버그할 로그 파일을 가져오려면 [Outputfiles](batch-task-output-files.md) 를 사용 하 여 `*.log` 파일을 업로드 합니다. `*.log` 파일에는 `AZ_BATCH_NODE_MOUNTS_DIR` 위치의 파일 시스템 탑재에 대 한 정보가 포함 되어 있습니다. 탑재 로그 파일은 각 탑재에 대 한 `<type>-<mountDirOrDrive>.log` 형식입니다. 예를 들어 `test` 이라는 탑재 디렉터리에 탑재 된 `cifs` 탑재 로그 파일은 `cifs-test.log`됩니다.
 
 ## <a name="supported-skus"></a>지원되는 SKU
 
-| 게시자 | 제공 | SKU | Azure Files 공유 | Blobfuse | NFS 탑재 | CIFS 탑재 |
+| 게시자 | 제품 | SKU | Azure Files 공유 | Blobfuse | NFS 탑재 | CIFS 탑재 |
 |---|---|---|---|---|---|---|
-| 일괄 처리(batch) | rendering-centos73 | 렌더링 | :heavy_check_mark: <br>참고: CentOS 7.7와 호환 됩니다.</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 정식 | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| batch | rendering-centos73 | 렌더링 | :heavy_check_mark: <br>참고: CentOS 7.7와 호환 됩니다.</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>참고: CentOS 7.4와 호환 됩니다. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>참고: A_8 또는 9 저장소 지원</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>참고: A_8 또는 9 저장소를 지원 합니다.</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

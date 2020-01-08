@@ -3,16 +3,16 @@ title: AKS 엔진에 대 한 Azure Policy 알아보기
 description: AKS 엔진을 사용 하 여 클러스터를 관리 하기 위해 CustomResourceDefinitions를 사용 하 고 게이트 키퍼 v3에서 정책 에이전트를 여 Azure Policy는 방법을 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c41a9d84dfe43e356e9a4a17af523a37209c2933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436435"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>AKS 엔진에 대 한 Azure Policy 이해
 
-Azure Policy는 Azure에서 자체 관리 되는 Kubernetes 클러스터를 신속 하 게 부트스트랩 하는 편리한 도구를 제공 하는 [AKS 엔진과](https://github.com/Azure/aks-engine/blob/master/docs/README.md)통합 됩니다. 이러한 통합을 통해 중앙 집중식으로 일관 된 방식으로 AKS 엔진 자체 관리 클러스터에 대 한 규모 사항을 및 보호 기능을 사용할 수 있습니다. Azure Policy Kubernetes에 대 한 _허용 컨트롤러 webhook_ 인 Opa ( [Open Policy Agent](https://www.openpolicyagent.org/) ) [게이트 키퍼](https://github.com/open-policy-agent/gatekeeper) v3 (베타)의 사용을 확장 하 여 Azure 리소스 및 AKS 엔진의 준수 상태에 대 한 관리 및 보고를 수행할 수 있습니다. 한 곳에서 자체 관리 되는 클러스터.
+Azure Policy는 Azure에서 자체 관리 되는 Kubernetes 클러스터를 신속 하 게 부트스트랩 하는 편리한 도구를 제공 하는 [AKS 엔진과](https://github.com/Azure/aks-engine/blob/master/docs/README.md)통합 됩니다. 이러한 통합을 통해 중앙 집중식으로 일관 된 방식으로 AKS 엔진 자체 관리 클러스터에 대 한 규모 사항을 및 보호 기능을 사용할 수 있습니다. Azure Policy Kubernetes에 대 한 _허용 컨트롤러 webhook_ 인 [Open Policy Agent](https://www.openpolicyagent.org/) (Opa) [게이트 키퍼](https://github.com/open-policy-agent/gatekeeper) v3 (베타)의 사용을 확장 하 여 Azure 리소스 및 AKS 엔진 자체 관리 클러스터의 준수 상태를 한 곳에서 관리 하 고 보고할 수 있습니다.
 
 > [!NOTE]
 > AKS 엔진에 대 한 Azure Policy는 공개 미리 보기로 제공 되며 SLA는 없습니다. 게이트 키퍼 v3은 베타 버전이 며 오픈 소스 커뮤니티에서 지원 됩니다. 서비스는 기본 제공 정책 정의 및 서비스 주체를 사용 하 여 구성 된 각 리소스 그룹에 대 한 단일 AKS Engine 클러스터만 지원 합니다.
@@ -24,16 +24,16 @@ Azure Policy는 Azure에서 자체 관리 되는 Kubernetes 클러스터를 신�
 
 Azure의 자체 관리 Kubernetes 클러스터에서 AKS 엔진에 대 한 Azure Policy를 사용 하도록 설정 하 고 사용 하려면 다음 작업을 수행 합니다.
 
-- [필수 조건](#prerequisites)
+- [필수 구성 요소](#prerequisites)
 - [Azure Policy 추가 기능 설치](#installing-the-add-on)
 - [AKS 엔진에 대 한 정책 정의 할당](#built-in-policies)
 - [유효성 검사 대기](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure Policy 추가 기능을 설치 하거나 서비스 기능을 사용 하도록 설정 하기 전에 구독은 **Microsoft. PolicyInsights** 리소스 공급자를 사용 하도록 설정 하 고 클러스터 서비스 주체에 대 한 역할 할당을 만들어야 합니다. 
 
-1. 리소스 공급자를 사용 하도록 설정 하려면 [리소스 공급자 및 형식](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) 의 단계를 수행 하거나 Azure CLI 또는 Azure PowerShell 명령을 실행 합니다.
+1. 리소스 공급자를 사용 하도록 설정 하려면 [리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) 의 단계를 수행 하거나 Azure CLI 또는 Azure PowerShell 명령을 실행 합니다.
 
    - Azure CLI
 
@@ -255,7 +255,7 @@ AKS 엔진 클러스터에서 Azure Policy 추가 기능 및 게이트 키퍼를
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Azure Policy 추가 기능으로 수집 된 진단 데이터
 
-Kubernetes 용 Azure Policy 추가 기능은 제한 된 클러스터 진단 데이터를 수집 합니다. 이 진단 데이터는 소프트웨어 및 성능과 관련 된 중요 한 기술 데이터입니다. 다음과 같은 방법으로 사용 됩니다.
+Kubernetes 용 Azure Policy 추가 기능은 제한 된 클러스터 진단 데이터를 수집 합니다. 이 진단 데이터는 소프트웨어 및 성능과 관련 된 중요 한 기술 데이터입니다. 다음과 같은 방식으로 사용됩니다.
 
 - Azure Policy 추가 기능을 최신 상태로 유지
 - 안전 하 고 신뢰할 수 있으며 성능이 뛰어난 추가 기능 Azure Policy 유지

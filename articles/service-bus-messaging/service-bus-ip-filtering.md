@@ -9,20 +9,20 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 59afdb0e273511f3d8255a9c859b86f93e0b7269
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462417"
 ---
-# <a name="use-firewall-rules"></a>방화벽 규칙 사용
+# <a name="azure-service-bus---use-firewall-rules"></a>Azure Service Bus 방화벽 규칙 사용
 
 잘 알려진 특정 사이트에서 Azure Service Bus만이 액세스 가능한 시나리오의 경우 방화벽 규칙을 사용하면 특정 IPv4 주소에서 시작된 트래픽을 허용하는 규칙을 구성할 수 있습니다. 예를 들어 이 주소는 회사 NAT 게이트웨이의 주소일 것입니다.
 
-## <a name="when-to-use"></a>사용 시기
+## <a name="when-to-use"></a>사용하는 경우
 
 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Service Bus를 설정하려는 경우 *방화벽*을 활용하여 다른 IP 주소의 Service Bus 엔드포인트를 차단할 수 있습니다. 예를 들어 [Azure Express 경로][express-route] 와 Service Bus를 사용 하 여 온-프레미스 인프라에 대 한 개인 연결을 만들 수 있습니다. 
 
@@ -53,7 +53,7 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 >
 > 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
 > - Azure App Service
-> - Azure 기능
+> - Azure Function
 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 가상 네트워크 및 방화벽 규칙 만들기
 
@@ -70,11 +70,11 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 > 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
 > Virtual Network 또는 방화벽 규칙을 만들 때 ***"defaultAction"*** 을 변경해야 합니다.
 > 
-> from
+> 원본
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 다음으로 변경:
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

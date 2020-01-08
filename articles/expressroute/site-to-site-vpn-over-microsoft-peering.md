@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 89c7e398e24fb48c1829dbaa2811f440c5485a60
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436804"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 
@@ -130,7 +130,7 @@ IPsec 터널 쌍을 통해 프라이빗 네트워크 경로를 교환하도록 e
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>Azure Resource Manager 템플릿 예제 정보
 
-이 예제에서는 Azure Resource Manager 템플릿을 사용하여 VPN Gateway 및 IPsec 터널이 종료되도록 구성됩니다. 처음 Resource Manager 템플릿을 사용하거나 Resource Manager 템플릿 기본 사항을 이해하려는 경우 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요. 이 섹션의 템플릿은 아직 개발되지 않은 Azure 환경(VNet)을 만듭니다. 그러나 기존 VNet이 있는 경우 템플릿에서 참조할 수 있습니다. VPN Gateway IPsec/IKE 사이트 간 구성에 익숙하지 않은 경우 [사이트 간 연결 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
+이 예제에서는 Azure Resource Manager 템플릿을 사용하여 VPN Gateway 및 IPsec 터널이 종료되도록 구성됩니다. 처음 Resource Manager 템플릿을 사용하거나 Resource Manager 템플릿 기본 사항을 이해하려는 경우 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)를 참조하세요. 이 섹션의 템플릿은 아직 개발되지 않은 Azure 환경(VNet)을 만듭니다. 그러나 기존 VNet이 있는 경우 템플릿에서 참조할 수 있습니다. VPN Gateway IPsec/IKE 사이트 간 구성에 익숙하지 않은 경우 [사이트 간 연결 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
 
 >[!NOTE]
 >이 구성을 만들기 위해 Azure Resource Manager 템플릿을 사용할 필요가 없습니다. Azure Portal 또는 PowerShell을 사용하여 이 구성을 만들 수 있습니다.
@@ -367,7 +367,7 @@ VPN 디바이스를 구성할 때 다음 항목이 필요합니다.
 
 ### <a name="cisco1"></a>Cisco CSR1000 예제
 
-다음 예제에서는 온-프레미스 VPN 디바이스인 Hyper-V 가상 머신에서 Cisco CSR1000에 대한 구성을 보여 줍니다.
+다음 예제에서는 온-프레미스 VPN 디바이스인 Hyper-V 가상 머신에서 Cisco CSR1000에 대한 구성을 보여줍니다.
 
 ```
 !

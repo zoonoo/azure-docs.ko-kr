@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228258"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457072"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -93,7 +93,7 @@ ms.locfileid: "74228258"
 
 IoT Hub에는 다른 작업 제한도 적용됩니다.
 
-| 작업(Operation) | 제한 |
+| 작업 | 제한 |
 | --------- | ----- |
 | 디바이스 | 단일 IoT hub에 등록할 수 있는 장치 및 모듈의 총 수는 100만로 표시 됩니다. 이 한도를 늘리는 유일한 방법은 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 연결 하는 것입니다.|
 | 파일 업로드 | 장치 당 10 개의 동시 파일 업로드. |
@@ -104,8 +104,8 @@ IoT Hub에는 다른 작업 제한도 적용됩니다.
 | 디바이스-클라우드 메시징 | 최대 메시지 크기 256KB |
 | 클라우드-디바이스 메시징<sup>1</sup> | 최대 메시지 크기 64KB 배달 보류 중인 최대 메시지 수는 장치당 50입니다. |
 | 직접 메서드<sup>1</sup> | 최대 직접 메서드 페이로드 크기는 128KB입니다. |
-| 자동 디바이스 구성<sup>1</sup> | 유료 SKU 허브당 100개 구성입니다. 체험 SKU 허브당 20개 구성입니다. |
-| 자동 배포 IoT Edge<sup>1</sup> | 배포당 20개의 모듈 유료 SKU 허브당 100개 배포입니다. 무료 SKU 허브 당 10 개의 배포. |
+| 자동 장치 및 모듈 구성<sup>1</sup> | 유료 SKU 허브당 100개 구성입니다. 체험 SKU 허브당 20개 구성입니다. |
+| 자동 배포 IoT Edge<sup>1</sup> | 배포당 20개의 모듈 100 유료 SKU 허브 당 배포 (계층화 된 배포 포함) 무료 SKU 허브 당 10 개의 배포. |
 | 쌍<sup>1</sup> | Desired 속성의 최대 크기 및 보고 된 속성 섹션은 각각 32 KB입니다. 태그 섹션의 최대 크기는 8kb입니다. |
 
 <sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요.

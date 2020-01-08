@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7c0b5cbfe77a39cbc8ac660178a1c573d1fe8f7d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1b042c0279e458cf83bd5c81147f4b1f25d7687d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139829"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645143"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [질문과 대답 - Data Factory](../frequently-asked-questions.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [질문과 대답 - Data Factory](../frequently-asked-questions.md)를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -44,19 +44,19 @@ Azure Data Factory에 대 한 가격 정보는 [Data Factory 가격 정보 페�
 Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 컴퓨팅 및 스토리지 서비스는 다른 지역에 있을 수 있습니다. [지원되는 지역](data-factory-introduction.md#supported-regions)을 참조하세요.
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>데이터 팩터리/파이프라인/작업/데이터 세트의 수에 대한 제한은 어떻게 되나요?
-**Azure 구독 및 서비스 제한, 할당량 및 제약 조건** 문서의 [Azure Data Factory 제한](../../azure-subscription-service-limits.md#data-factory-limits) 섹션을 참조하세요.
+**Azure 구독 및 서비스 제한, 할당량 및 제약 조건** 문서의 [Azure Data Factory 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 섹션을 참조하세요.
 
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Azure Data Factory 서비스를 사용한 제작/개발자 환경이란 무엇인가요?
 다음 도구/SDK 중 하나를 사용하여 데이터 팩터리를 작성/생성할 수 있습니다.
 
 * **Visual Studio** Visual Studio를 사용하여 Azure Data Factory를 만들 수 있습니다. 자세한 내용은 [Build your first data pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) (Visual Studio를 사용하여 첫 번째 데이터 파이프라인 빌드)를 참조하세요.
 * **Azure PowerShell** PowerShell을 사용하여 Data Factory를 만드는 자습서는 [Create and monitor Azure Data Factory using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) (Azure PowerShell을 사용하여 Azure Data Factory 만들기 및 모니터링)을 참조하세요. Data Factory cmdlet에 대 한 포괄적인 설명서는 MSDN 라이브러리의 [Data Factory Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조 하세요.
-* **.NET 클래스 라이브러리** Data Factory .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md) 를 참조하세요. Data Factory .NET SDK의 포괄적인 설명서는 [Data Factory 클래스 라이브러리 참조][msdn-class-library-reference] 를 참조 하세요.
+* **.NET 클래스 라이브러리** Data Factory .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md)를 참조하세요. Data Factory .NET SDK의 포괄적인 설명서는 [Data Factory 클래스 라이브러리 참조][msdn-class-library-reference] 를 참조 하세요.
 * **REST API** Azure Data Factory 서비스에 의해 노출된 REST API를 사용하여 데이터 팩터리를 만들고 배포할 수도 있습니다. Data Factory REST API에 대 한 포괄적인 설명서는 [Data Factory REST API 참조][msdn-rest-api-reference] 를 참조 하세요.
 * **Azure Resource Manager 템플릿** 자세한 내용은 [자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-arm.md) 를 참조하세요.
 
 ### <a name="can-i-rename-a-data-factory"></a>Data Factory의 이름을 바꿀 수 있나요?
-아니요. 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
+아닙니다. 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>데이터 팩터리를 Azure 구독 간에 이동할 수 있나요?
 예. 다음 다이어그램과 같이 데이터 팩터리 블레이드의 **이동** 단추를 사용합니다.
@@ -66,12 +66,12 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Data Factory에서 지원하는 컴퓨팅 환경은 무엇입니까?
 다음 표는 Data Factory 및 실행할 수 있는 작업에서 지원하는 컴퓨팅 환경 목록을 제공합니다.
 
-| 컴퓨팅 환경 | activities |
+| 컴퓨팅 환경 | 작업 |
 | --- | --- |
 | [주문형 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
-| [Azure 데이터 레이크 분석](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
+| [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Azure Data Factory를 SSIS(SQL Server Integration Services)와 비교하면 어떻게 다른가요? 
@@ -168,7 +168,7 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
 ### <a name="how-can-i-rerun-a-slice"></a>어떻게 조각을 다시 실행할 수 있나요?
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.
 
-* 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#perform-batch-actions) 을 참조하세요.   
+* 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#perform-batch-actions)을 참조하세요.   
 * Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다.
 * 상태를 조각 **대기 중** 으로 설정 하 여 **AzDataFactorySliceStatus** cmdlet을 실행 합니다.   
 

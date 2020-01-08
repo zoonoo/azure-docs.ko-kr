@@ -6,22 +6,22 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a3fcff9f895fba3574bbce976087295018ab51c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428738"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 및 Azure Functions를 사용 하 여 첫 번째 서버 리스 앱 빌드
 
 Azure에서 서버를 사용 하지 않는 도구 및 기능 (예: [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Azure Functions](../azure-functions/functions-overview.md))을 사용 하 여 클라우드 앱을 신속 하 게 개발 하 고 배포할 수 있습니다. 이 문서에서는 Visual Studio에서 Azure 함수를 호출하는 논리 앱을 사용하는 서버리스 앱의 빌드를 시작하는 방법을 보여 줍니다. Azure의 서버리스 솔루션에 대한 자세한 내용은 [Functions 및 Logic Apps가 있는 Azure Serverless](../logic-apps/logic-apps-serverless-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드하려면 다음이 필요 합니다.
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 다음 도구가 있습니다. 아직 설치 하지 않은 경우 다운로드 하 여 설치 합니다.
 
@@ -56,7 +56,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
 ## <a name="create-a-resource-group-project"></a>리소스 그룹 프로젝트 만들기
 
-시작하려면 서버리스 앱에 대한 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 만듭니다. Azure에서 단일 자산으로 전체 앱에 대 한 리소스를 구성, 관리 및 배포 하는 데 사용 하는 논리적 컬렉션인 *리소스 그룹*내에 리소스를 만듭니다. Azure에 있는 서버리스 앱의 경우 리소스 그룹에는 Azure Logic Apps 및 Azure Functions용 리소스가 포함되어 있습니다. [Azure 리소스 그룹 및 리소스](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
+시작하려면 서버리스 앱에 대한 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 만듭니다. Azure에서 단일 자산으로 전체 앱에 대 한 리소스를 구성, 관리 및 배포 하는 데 사용 하는 논리적 컬렉션인 *리소스 그룹*내에 리소스를 만듭니다. Azure에 있는 서버리스 앱의 경우 리소스 그룹에는 Azure Logic Apps 및 Azure Functions용 리소스가 포함되어 있습니다. [Azure 리소스 그룹 및 리소스](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.
 
 1. Visual Studio를 시작 하 고 Azure 계정을 사용 하 여 로그인 합니다.
 

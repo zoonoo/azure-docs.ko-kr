@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c699f9b392be5f2e2bc16b5729d6567ace7f17
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 9e80bc3e176f831f8609dd7f2a2ee22a2495e89b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428928"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
-Azure DevTest Labs 환경을 사용 하면 사용자가 랩의 범위 내에서 일관 된 방식으로 복잡 한 인프라를 쉽게 배포할 수 있습니다. [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md) 사용 하 여 DevTest Labs에서 리소스 집합으로 환경을 만들 수 있습니다. 이러한 환경에는 리소스 관리자 템플릿에서 만들 수 있는 모든 Azure 리소스가 포함 될 수 있습니다. 
+Azure DevTest Labs 환경을 사용 하면 사용자가 랩의 범위 내에서 일관 된 방식으로 복잡 한 인프라를 쉽게 배포할 수 있습니다. [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/template-syntax.md) 사용 하 여 DevTest Labs에서 리소스 집합으로 환경을 만들 수 있습니다. 이러한 환경에는 리소스 관리자 템플릿에서 만들 수 있는 모든 Azure 리소스가 포함 될 수 있습니다. 
 
 [Azure Portal](https://portal.azure.com)를 사용 하 여 랩에 [한 번에 하나의 VM (가상 머신)](devtest-lab-add-vm.md) 을 쉽게 추가할 수 있습니다. 그러나 다중 계층 웹 앱 또는 SharePoint 팜과 같은 시나리오에는 단일 단계에서 여러 Vm을 만드는 메커니즘이 필요 합니다. Azure Resource Manager 템플릿을 사용 하면 Azure 솔루션의 인프라와 구성을 정의 하 고 여러 Vm을 일관 된 상태로 반복적으로 배포할 수 있습니다. 
 
@@ -34,7 +34,7 @@ Azure DevTest Labs 환경을 사용 하면 사용자가 랩의 범위 내에서 
 - Azure Resource Manager 템플릿에서 Azure PaaS 리소스 및 IaaS Vm을 환경에서 프로 비전 할 수 있습니다.
 - 랩에서 환경의 비용을 추적할 수 있으며, 다른 종류의 기반이 만든 개별 Vm도 추적할 수 있습니다. PaaS 리소스가 만들어지고 비용 추적에 표시 됩니다. 하지만 VM 자동 종료는 PaaS 리소스에 적용되지 않습니다.
 
-단일 작업에서 여러 랩 리소스를 배포, 업데이트 또는 삭제 하는 리소스 관리자 템플릿을 사용 하는 이점에 대 한 자세한 내용은 [리소스 관리자 템플릿 사용의 이점](../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager)을 참조 하세요.
+단일 작업에서 여러 랩 리소스를 배포, 업데이트 또는 삭제 하는 리소스 관리자 템플릿을 사용 하는 이점에 대 한 자세한 내용은 [리소스 관리자 템플릿 사용의 이점](../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager)을 참조 하세요.
 
 > [!NOTE]
 > 리소스 관리자 템플릿을 기반으로 사용 하 여 랩 Vm을 만들 때 여러 Vm을 만드는 것과 단일 VM을 만드는 것 사이에는 몇 가지 차이점이 있습니다. 자세한 내용은 [가상 컴퓨터의 Azure Resource Manager 템플릿 사용](devtest-lab-use-resource-manager-template.md)을 참조 하세요.
@@ -89,12 +89,12 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
 1. **리포지토리** 창에서 다음 정보를 입력 합니다.
    
    - **이름**: 랩에서 사용할 리포지토리 이름을 입력 합니다.
-   - **Git 복제 URL**: GitHub 또는 Azure Repos에서 Git HTTPS 복제 URL을 입력 합니다. 
-   - **분기** (선택 사항): Azure Resource Manager 템플릿 정의에 액세스 하려면 분기 이름을 입력 합니다.
-   - **개인용 액세스 토큰**: 저장소에 안전 하 게 액세스 하는 데 사용 되는 개인 액세스 토큰을 입력 합니다.
-     - Azure Repos에서 토큰을 가져오려면 사용자 프로필에서 **사용자 설정** > **보안** > **개인용 액세스 토큰**을 선택 합니다.
-     - GitHub에서 토큰을 가져오려면 프로필에서 **설정** > **개발자 설정** > **개인 액세스 토큰**을 선택 합니다.
-   - **폴더 경로**: 아티팩트 정의 또는 Azure Resource Manager 템플릿 정의에 대 한 Git 클론 URI를 기준으로 폴더 경로를 입력 합니다. 
+   - **Git 복제 url**: GitHub 또는 Azure Repos에서 git HTTPS 복제 url을 입력 합니다. 
+   - **분기** (선택 사항): Azure Resource Manager 템플릿 정의에 액세스 하는 분기 이름을 입력 합니다.
+   - **개인용 액세스 토큰**: 리포지토리에 안전 하 게 액세스 하는 데 사용 되는 개인 액세스 토큰을 입력 합니다.
+     - Azure Repos에서 토큰을 가져오려면 사용자 프로필 아래에서 **사용자 설정** > **보안** > **개인용 액세스 토큰**을 선택 합니다.
+     - GitHub에서 토큰을 가져오려면 프로필 아래에서 **설정** > **개발자 설정** > **개인용 액세스 토큰**을 선택 합니다.
+   - **폴더 경로**: 아티팩트 정의 또는 Azure Resource Manager 템플릿 정의에 대 한 GIT 클론 URI에 상대적인 폴더 경로를 입력 합니다. 
    
 1. **저장**을 선택합니다.
    

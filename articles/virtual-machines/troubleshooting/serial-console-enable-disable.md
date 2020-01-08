@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: fa400d875a8f39d54d10820c603e12e97f0cd854
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451297"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Azure 직렬 콘솔 사용 및 사용 안 함
 
@@ -32,6 +32,9 @@ ms.locfileid: "74452224"
 
 
 ## <a name="subscription-level-enabledisable"></a>구독 수준 사용/사용 안 함
+
+> [!NOTE]
+> 이 명령을 실행 하기 전에 올바른 클라우드 (Azure 공용 클라우드, Azure 미국 정부 클라우드)에 있는지 확인 하세요. `az cloud list`를 확인 하 고 `az cloud set -n <Name of cloud>`를 사용 하 여 클라우드를 설정할 수 있습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -57,9 +60,6 @@ subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
-
-> [!NOTE]
-> 이 명령을 실행 하기 전에 올바른 클라우드 (Azure 공용 클라우드, Azure 미국 정부 클라우드)에 있는지 확인 하세요. `az cloud list`를 확인 하 고 `az cloud set -n <Name of cloud>`를 사용 하 여 클라우드를 설정할 수 있습니다.
 
 ### <a name="powershell"></a>PowerShell
 

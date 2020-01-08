@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7064496b89143f467ea63fe38233724a7b0af96d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d2404ee58f5f44fbe5625f267e6d1c504d0bd237
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465098"
 ---
-# <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
+# <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 Azure PowerShell 사용
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell이 사용됩니다. Azure Storage의 경우 이러한 cmdlet는 제어 평면과 데이터 평면 등, 두 범주로 나뉩니다. 제어 평면 cmdlet는 스토리지 계정 관리(스토리지 계정 만들기, 속성 설정, 스토리지 계정 삭제, 액세스 키 회전)에 사용됩니다. 데이터 평면 cmdlet는 스토리지 계정*에* 저장된 데이터를 관리하는 데 사용됩니다. 예를 들어 Blob 업로드, 파일 공유 만들기, 큐에 메시지 추가 등이 있습니다.
 
-이 방법 문서에서는 관리 평면 cmdlet를 사용하여 스토리지 계정을 관리 는 일반적인 작업에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+이 방법 문서에서는 관리 평면 cmdlet를 사용하여 스토리지 계정을 관리 는 일반적인 작업에 대해 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 스토리지 계정 나열
@@ -32,7 +32,7 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 
 이 문서에서는 스토리지 분석을 사용하고 액세스하는 방법, 데이터 평면 cmdlet을 사용하는 방법, China 클라우드, German 클라우드 및 Government 클라우드 같은 Azure 독립 클라우드에 액세스하는 방법 등, 스토리지에 대한 몇 가지 다른 PowerShell 문서에 대한 링크를 제공합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -139,7 +139,7 @@ SKU 이름은 LRS(로컬 중복 스토리지)처럼 스토리지 계정에 대�
 
 ### <a name="manage-the-access-keys"></a>액세스 키 관리
 
-Azure Storage 계정과 두 계정 키를 함께 제공합니다. 키를 검색하려면 [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey)를 사용합니다. 이 예에서는 첫 번째 키를 검색합니다. 다른 항목을 검색하려면 `Value[1]` 대신 `Value[0]`을 사용합니다.
+Azure Storage 계정과 두 계정 키를 함께 제공합니다. 키를 검색하려면 [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey)를 사용합니다. 이 예에서는 첫 번째 키를 검색합니다. 다른 항목을 검색하려면 `Value[0]` 대신 `Value[1]`을 사용합니다.
 
 ```powershell
 $storageAccountKey = `
@@ -156,12 +156,12 @@ New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -KeyName key1
 ```
 
-다른 키를 생성하려면 `key2` 대신 `key1`를 키 이름으로 사용합니다.
+다른 키를 생성하려면 `key1` 대신 `key2`를 키 이름으로 사용합니다.
 
 키 중 하나를 다시 생성한 다음 다시 검색하여 새 값을 확인합니다.
 
 > [!NOTE]
-> 프러덕션 스토리지 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 애플리케이션에 대한 액세스가 무효화됩니다. 자세한 내용은 [액세스 키](storage-account-manage.md#access-keys)를 참조하세요.
+> 프러덕션 스토리지 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 애플리케이션에 대한 액세스가 무효화됩니다. 자세한 내용은 [저장소 계정 액세스 키 관리](storage-account-keys-manage.md)를 참조 하세요.
 
 
 ### <a name="delete-a-storage-account"></a>스토리지 계정 삭제
@@ -214,7 +214,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 * [PowerShell을 사용하여 큐를 관리하는 방법](../queues/storage-powershell-how-to-use-queues.md)
 * [PowerShell을 사용하여 Azure Table Storage 작업 수행](../../storage/tables/table-storage-how-to-use-powershell.md)
 
-Azure Cosmos DB 테이블 API는 턴키 글로벌 배포, 짧은 대기 시간 읽기 및 쓰기, 자동 보조 인덱싱 및 전용 처리량과 같은 Table Storage를 위한 고급 기능을 제공 합니다.
+Azure Cosmos DB Table API는 턴키 전역 배포, 짧은 읽기 및 쓰기 대기 시간, 자동 보조 인덱싱 및 전용 처리량 등 Table Storage에 대한 프리미엄 기능을 제공합니다.
 
 * 자세한 내용은 [Azure Cosmos DB 테이블 API](../../cosmos-db/table-introduction.md)를 참조하세요.
 
@@ -237,7 +237,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## <a name="next-steps"></a>다음 단계
 
-이 방법 문서에서는 관리 평면 cmdlet를 사용하여 스토리지 계정을 관리 는 일반적인 작업에 대해 설명합니다. 다음 방법에 대해 알아보았습니다.
+이 방법 문서에서는 관리 평면 cmdlet를 사용하여 스토리지 계정을 관리 는 일반적인 작업에 대해 설명합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 스토리지 계정 나열

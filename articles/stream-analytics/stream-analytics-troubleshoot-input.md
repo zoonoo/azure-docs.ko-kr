@@ -1,7 +1,6 @@
 ---
 title: Azure Stream Analytics의 입력 문제 해결
 description: 이 문서에서는 Azure Stream Analytics 작업에서 입력 연결의 문제를 해결하는 기술에 대해 설명합니다.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354291"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 
@@ -69,7 +68,7 @@ Event Hubs를 사용하는 모범 사례는 여러 소비자 그룹을 사용하
 ### <a name="add-a-consumer-group-in-event-hubs"></a>Event Hubs에 소비자 그룹 추가
 Event Hubs 인스턴스에 새 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 2. Event Hubs를 찾습니다.
 
@@ -93,7 +92,7 @@ Event Hubs 인스턴스에 새 소비자 그룹을 추가하려면 다음 단계
 파티션당 읽기 권한자 수가 5개 Event Hubs 제한을 초과하는 시나리오에는 다음이 포함됩니다.
 
 * 여러 SELECT 문: **동일한** 이벤트 허브 입력을 참조하는 여러 SELECT 문을 사용하는 경우 각 SELECT 문으로 인해 새 수신기가 생성됩니다.
-* UNION: UNION을 사용하면 **동일한** 이벤트 허브 및 소비자 그룹을 참조하는 여러 입력이 발생할 수 있습니다.
+* UNION: UNION을 **동일한** 이벤트 허브 및 소비자 그룹을 참조하는 여러 입력이 발생할 수 있습니다.
 * SELF JOIN: SELF JOIN 작업을 사용하면 **동일한** 이벤트 허브를 여러 번 참조할 수 있습니다.
 
 다음 모범 사례는 파티션당 읽기 권한자 수가 5개 Event Hubs 제한을 초과하는 시나리오를 완화하는 데 도움이 될 수 있습니다.
@@ -136,7 +135,7 @@ FROM data
 
 세 개 이상의 입력이 동일한 Event Hubs 소비자 그룹에 연결된 쿼리의 경우 개별 소비자 그룹을 만듭니다. 이를 위해서는 추가 Stream Analytics 입력을 만들어야 합니다.
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 

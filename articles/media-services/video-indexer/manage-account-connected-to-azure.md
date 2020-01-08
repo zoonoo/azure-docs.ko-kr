@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/16/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3825f6c9186c5e04807dd3890a14fcc6d370989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892773"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454672"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Azure에 연결된 Video Indexer 계정 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "74892773"
 > [!NOTE]
 > 이 항목에서 설명하는 계정 구성 조정을 수행하려면 Video Indexer 계정 소유자여야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [Azure에 연결](connect-to-azure.md)에서 설명한 대로 Video Indexer 계정을 Azure에 연결합니다. 
 
@@ -49,6 +49,17 @@ Video Indexer 계정이 Azure에 연결되면 다음 항목이 표시됩니다.
 * 할당된 예약 단위의 유형 및 수
 
 계정에서 일부를 조정할 필요가 있으면 **설정** 페이지에서 계정 구성과 관련된 오류 및 경고를 볼 수 있습니다. 메시지에는 변경해야 하는 Azure Portal의 정확한 위치에 대한 링크가 포함되어 있습니다. 자세한 내용은 뒤에 나오는 [오류 및 경고](#errors-and-warnings) 섹션을 참조하세요.
+
+## <a name="repair-the-connection-to-azure"></a>Azure에 대 한 연결 복구
+
+[Video Indexer](https://www.videoindexer.ai/) 페이지의 **Azure Media Services에 대 한 연결 업데이트** 대화 상자에서 다음 설정에 대 한 값을 제공 하 라는 메시지가 표시 됩니다. 
+
+|설정|Description|
+|---|---|
+|Azure 구독 ID입니다.|구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스**를 클릭하고 "구독"을 검색합니다. **구독**을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
+|Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
+|애플리케이션 UI|이 Video Indexer 계정에 대해 만든 Azure AD 응용 프로그램 ID (지정 된 Media Services 계정에 대 한 사용 권한 포함)입니다. <br/><br/>앱 ID를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다. 서비스 사용자 -> **Azure AD 앱** **Media Services API에 연결을** 클릭 합니다. 관련 매개 변수를 복사 합니다.|
+|애플리케이션 키|위에서 지정한 Media Services 계정과 연결 된 Azure AD 응용 프로그램 키입니다. <br/><br/>앱 키를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다. **서비스 사용자 -> MEDIA SERVICES API에 연결을 클릭 하** 여 **응용 프로그램** -> **인증서 & 암호**를 관리 합니다. 관련 매개 변수를 복사 합니다.|
 
 ## <a name="auto-scale-reserved-units"></a>예약 단위 자동 크기 조정
 

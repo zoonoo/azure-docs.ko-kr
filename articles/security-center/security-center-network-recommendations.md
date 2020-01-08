@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 5d13e944cbc083b314c71936d181101ec13037b4
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 98001ba01c5dd29375a9af3af43a06f760e4f55f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997142"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552919"
 ---
 # <a name="protect-your-network-resources"></a>네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
 
-이 문서에서는 Azure Security Center 리소스 보안 섹션의 **네트워킹** 페이지와 여기에 표시 되는 권장 사항 중 일부에 대해 설명 합니다.
+이 문서에서는 Security Center 리소스 보안 섹션의 **네트워킹** 페이지에 대해 설명 합니다.
 
-네트워킹에 대 한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-network.md)을 참조 하세요.
+네트워킹에 대 한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-reference.md#recs-network)을 참조 하세요.
 
 이 문서에서는 네트워크 보안 관점에서 Azure 리소스에 적용되는 권장 사항을 설명합니다. 네트워킹 권장 사항은 차세대 방화벽, 네트워크 보안 그룹, JIT VM 액세스, 과도 하 게 허용 되는 인바운드 트래픽 규칙 등을 중심으로 합니다. 네트워킹 권장 사항 및 수정 작업 목록은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 
@@ -40,7 +40,7 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 - 네트워킹 보안 권장 사항
 - 레거시 **네트워킹** 블레이드(이전 네트워킹 블레이드) 
  
-![네트워킹 창](./media/security-center-network-recommendations/networking-pane.png)
+[![네트워킹 창](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
 
 ## <a name="network-map"></a>네트워크 맵
 대화형 네트워크 맵은 네트워크 리소스를 강화하기 위한 권장 사항 및 정보를 제공하는 보안 오버레이를 통해 그래픽 뷰를 제공합니다. 맵을 사용하면 Azure 워크로드의 네트워크 토폴로지, 가상 머신과 서브넷 간 연결, 맵에서 특정 리소스 및 해당 리소스에 대한 권장 사항으로 드릴다운하는 기능을 확인할 수 있습니다.
@@ -59,11 +59,11 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 - 인터넷 연결 리소스
 - 맵은 Azure에서 선택한 구독에 대해 최적화됩니다. 선택 항목을 수정하는 경우 맵이 다시 계산되고 새 설정을 기반으로 다시 최적화됩니다.  
 
-![네트워킹 토폴로지 맵](./media/security-center-network-recommendations/network-map-info.png)
+[![네트워킹 토폴로지 맵](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## <a name="understanding-the-network-map"></a>네트워크 맵 이해
 
-네트워크 맵은 Azure 리소스를 **토폴로지** 보기 및 **트래픽** 보기로 표시할 수 있습니다.
+네트워크 맵은 Azure 리소스를 **토폴로지** 보기 및 **트래픽** 보기로 표시할 수 있습니다. 
 
 ### <a name="the-topology-view"></a>토폴로지 보기
 
@@ -111,7 +111,8 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 **이 데이터는 크로스오버 및 상호 작용을 이해하기 위해 여러 규칙을 분석하는 고급 Machine Learning 알고리즘과 함께 네트워크 보안 그룹의 분석을 기반으로 합니다.** 
 
-![네트워킹 트래픽 맵](./media/security-center-network-recommendations/network-map-traffic.png)
+[![네트워킹 트래픽 맵](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+
 
 ## 레거시 네트워킹 <a name ="legacy-networking"></a>
 
@@ -119,7 +120,7 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 이 정보에 액세스하려면 네트워킹 블레이드에서 **레거시 네트워킹 보기**를 클릭합니다. 
 
-![레거시 네트워킹](./media/security-center-network-recommendations/legacy-networking.png)
+[![레거시 네트워킹](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
 
 ### <a name="internet-facing-endpoints-section"></a>인터넷 연결 엔드포인트 섹션
 **인터넷 연결 엔드포인트** 섹션에서 현재 인터넷 연결 엔드포인트로 구성된 가상 머신 및 해당 상태를 확인할 수 있습니다.
@@ -135,7 +136,8 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 세 번째 수준은 이전에 설명한 것과 유사한 가상 머신을 표시합니다. 리소스를 클릭 하 여 자세히 알아보거나 필요한 보안 제어 또는 구성을 적용할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
+
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)

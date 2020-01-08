@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 25e11ae1311df9d0392340b32e0691298f78ee1c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462284"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 나열
 
@@ -80,6 +80,32 @@ ms.locfileid: "74710426"
     ![할당 창](./media/role-assignments-list-portal/check-access-assignments.png)
 
     이 창에서 선택한 보안 주체 및 범위에 할당된 역할을 볼 수 있습니다. 이 범위에 거부 할당이 있거나 이 범위에 상속된 거부 할당이 있으면 나열됩니다.
+
+## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>시스템 할당 관리 id에 대 한 역할 할당 나열
+
+1. Azure Portal에서 시스템 할당 관리 id를 엽니다.
+
+1. 왼쪽 메뉴에서 **id**를 클릭 합니다.
+
+    ![시스템 할당 관리 ID](./media/role-assignments-list-portal/identity-system-assigned.png)
+
+1. **역할 할당**에서 **이 관리 되는 id에 할당 된 Azure RBAC 역할 표시**를 클릭 합니다.
+
+    관리 그룹, 구독, 리소스 그룹 또는 리소스와 같은 다양 한 범위에서 선택한 시스템 할당 관리 id에 할당 된 역할 목록이 표시 됩니다. 이 목록에는 읽을 수 있는 권한이 있는 모든 역할 할당이 포함 됩니다.
+
+    ![시스템 할당 관리 id에 대 한 역할 할당](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+
+## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>사용자 할당 관리 id에 대 한 역할 할당 나열
+
+1. Azure Portal에서 시스템 할당 관리 id를 엽니다.
+
+1. **Azure 리소스**를 클릭합니다.
+
+    관리 그룹, 구독, 리소스 그룹 또는 리소스와 같은 다양 한 범위에서 선택한 사용자 할당 관리 id에 할당 된 역할 목록이 표시 됩니다. 이 목록에는 읽을 수 있는 권한이 있는 모든 역할 할당이 포함 됩니다.
+
+    ![시스템 할당 관리 id에 대 한 역할 할당](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+
+1. 구독을 변경 하려면 **구독** 목록을 클릭 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

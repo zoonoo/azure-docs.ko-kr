@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
+title: Azure Cosmos DB에서 저장 프로시저, 트리거 및 Udf 작성
 description: Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 정의하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: ffe002e4dced5b5020eb1436ca6d7d577402b077
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441728"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 

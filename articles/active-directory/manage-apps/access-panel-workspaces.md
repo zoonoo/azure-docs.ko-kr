@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 12/19/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e8e1fd51e0190e0f8889112b17b58680ed9329e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443439"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>내 앱 (미리 보기) 포털에서 작업 영역 만들기
 
@@ -45,7 +45,7 @@ ms.locfileid: "73199835"
    ![사용자 미리 보기 기능](media/access-panel-workspaces/user-preview-features.png)
 
 > [!NOTE]
-> 사용자는 내 앱 포털을 열기 위해 `https://myapps.microsoft.com/contoso.com`와 같은 조직에 대 한 사용자 지정 링크 또는 링크 `https://myapps.microsoft.com` 사용할 수 있습니다. 사용자가 내 앱 미리 보기 버전으로 리디렉션되지 않는 경우 사용자는 `https://myapplications.microsoft.com` 또는 `https://myapplications.microsoft.com/contoso.com`를 시도해 야 합니다.
+> 사용자는 내 앱 포털을 열기 위해 `https://myapps.microsoft.com/contoso.com`와 같은 조직에 대 한 사용자 지정 링크 또는 링크 `https://myapps.microsoft.com` 사용할 수 있습니다. 새 내 앱 환경을 사용 하도록 설정 하 고 나면 **업데이트 된 내 응용 프로그램 환경을 사용할 수** 있습니다. 배너는 내 앱 페이지의 맨 위에 표시 되 고 사용자는 **체험을 선택 하** 여 새 환경을 볼 수 있습니다. 새 환경 사용을 중지 하기 위해 사용자는 페이지 맨 위에 있는 **새 환경 그대로** 배너에서 **예** 를 선택할 수 있습니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 생성
 
@@ -98,6 +98,15 @@ ms.locfileid: "73199835"
 
    ![사용자 및 그룹에 역할 할당](media/access-panel-workspaces/audit-log-myapps.png)
 
+## <a name="get-support-for-my-account-pages"></a>내 계정 페이지에 대 한 지원 받기
+
+내 앱 페이지에서 사용자 **는 내 계정을 선택 하** > **내 계정을 확인** 하 여 계정 설정을 열 수 있습니다. Azure AD **내 계정** 페이지에서 사용자는 보안 정보, 장치, 암호 등을 관리할 수 있습니다. 또한 회사 계정 설정에 액세스할 수 있습니다.
+
+Azure AD 계정 페이지 또는 Office 계정 페이지에서 문제에 대 한 지원 요청을 제출 해야 하는 경우 다음 단계에 따라 요청이 적절히 라우팅됩니다. 
+
+* **AZURE AD "내 계정"** 페이지의 문제에 대 한 자세한 내용은 Azure Portal 내에서 지원 요청을 여세요. **Azure Portal** > **Azure Active Directory** **새 지원 요청** > 로 이동 합니다.
+
+* **Office "내 계정"** 페이지의 문제를 보려면 Microsoft 365 관리 센터 내에서 지원 요청을 여세요. **Microsoft 365 관리 센터** > **지원**으로 이동 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory의 응용 프로그램에 대 한 최종 사용자 환경](end-user-experiences.md)

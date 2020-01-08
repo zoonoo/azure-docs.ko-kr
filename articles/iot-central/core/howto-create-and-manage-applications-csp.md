@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453966"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT Central 응용 프로그램 만들기 및 관리
 
@@ -33,7 +33,7 @@ Azure IoT Central 애플리케이션 관리자 페이지로 이동합니다. Azu
 
 ![CSP를 위한 관리자 만들기](media/howto-create-application-csp/image3.png)
 
-Azure IoT Central 응용 프로그램을 만들려면 왼쪽 메뉴에서 **빌드** 를 선택 합니다. 산업 템플릿 중 하나를 선택 하거나 응용 프로그램을 처음부터 만들려면 **사용자 지정 앱** 을 선택 합니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
+Azure IoT Central 응용 프로그램을 만들려면 왼쪽 메뉴에서 **빌드** 를 선택 합니다. 업계 템플릿 중 하나를 선택 하거나 **레거시 응용** 프로그램을 선택 하 여 응용 프로그램을 처음부터 만듭니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
 
 ![CSP에 대한 애플리케이션 페이지 만들기](media/howto-create-application-csp/image4.png)
 
@@ -85,13 +85,12 @@ Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 
 
 ## <a name="application-template"></a>애플리케이션 템플릿
 
-새 Azure IoT Central 애플리케이션에 사용 가능한 애플리케이션 템플릿 중 하나를 선택할 수 있습니다. 애플리케이션 템플릿에는 시작하는 데 도움이 되는 디바이스 템플릿이나 대시보드 같은 미리 정의된 항목이 포함될 수 있습니다.
+새 Azure IoT Central 응용 프로그램에 대해 아래 응용 프로그램 템플릿을 선택할 수 있습니다.
 
-| 애플리케이션 템플릿 | 설명 |
+| 애플리케이션 템플릿 | Description |
 | -------------------- | ----------- |
-| 사용자 지정 애플리케이션   | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다. |
-| 샘플 Contoso       | 간단한 연결된 디바이스를 만들 수 있는 디바이스 템플릿이 포함된 애플리케이션을 만듭니다. 이 템플릿을 사용하여 Azure IoT Central 탐색을 시작하세요. |
-| 샘플 Devkits       | MXChip 또는 Raspberry Pi 디바이스를 연결할 수 있는 디바이스 템플릿을 사용하여 애플리케이션을 만듭니다. 다음 디바이스 중 하나에서 코드를 실험하는 디바이스 개발자인 경우 이 템플릿을 사용하세요. |
+| 레거시 응용 프로그램   | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,17 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 9dd81484d8afab66fcb76f8fccdea348ef6a34c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90e51e8b56bd3fb63d56c630d47770e97f439796
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681495"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563544"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결 된 서비스
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-create-datasets.md)
-> * [현재 버전](concepts-datasets-linked-services.md)
+> * [현재 버전](concepts-linked-services.md)
 
 이 문서에서는 연결 된 서비스의 정의, JSON 형식으로 정의 되는 방법 및 Azure Data Factory 파이프라인에서 사용 하는 방법에 대해 설명 합니다.
 
@@ -61,12 +61,12 @@ Data Factory의 연결된 서비스는 다음과 같이 JSON 형식으로 정의
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | 설명 | 필수 |
+속성 | Description | 필수 |
 -------- | ----------- | -------- |
 name | 연결된 서비스의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 type | 연결된 서비스의 형식입니다. 예: AzureStorage(데이터 저장소) 또는 AzureBatch(컴퓨팅). typeProperties에 대한 설명을 참조하세요. | 예 |
 typeProperties | 형식 속성은 각 데이터 저장소 또는 컴퓨팅에 대해 다릅니다. <br/><br/> 지원되는 데이터 저장소 형식 및 해당 형식 속성은 [데이터 세트 형식](concepts-datasets-linked-services.md#dataset-type) 표를 참조하세요. 데이터 저장소 관련 형식 속성에 대해 알아보려면 데이터 저장소 커넥터 문서로 이동하세요. <br/><br/> 지원되는 컴퓨팅 형식 및 해당 형식 속성은 [컴퓨팅 연결 서비스](compute-linked-services.md)를 참조하세요. | 예 |
-connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요
+connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아닙니다.
 
 ## <a name="linked-service-example"></a>연결된 서비스 예제
 다음의 연결된 서비스는 Azure Storage 연결된 서비스입니다. 형식은 AzureStorage로 설정됩니다. Azure Storage 연결된 서비스의 형식 속성에는 연결 문자열이 포함됩니다. Data Factory 서비스는 이 연결 문자열을 사용하여 런타임에 데이터 저장소에 연결합니다.
@@ -77,10 +77,7 @@ connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runt
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -95,15 +92,15 @@ connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runt
 다음 도구 또는 Sdk 중 하나를 사용 하 여 연결 된 서비스를 만들 수 있습니다. [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal
 
 ## <a name="data-store-linked-services"></a>데이터 저장소 연결 된 서비스
-[커넥터 개요](copy-activity-overview.md#supported-data-stores-and-formats) 문서에서 Data Factory 하 여 지원 되는 저장 된 데이터 목록을 찾을 수 있습니다. 데이터 저장소를 클릭 하 여 지원 되는 연결 속성을 알아봅니다.
+[커넥터 개요](copy-activity-overview.md#supported-data-stores-and-formats) 문서에서 Data Factory 지원 되는 데이터 저장소 목록을 찾을 수 있습니다. 데이터 저장소를 클릭 하 여 지원 되는 연결 속성을 알아봅니다.
 
-## <a name="compute-linked-services"></a>컴퓨팅 연결 서비스
+## <a name="compute-linked-services"></a>연결된 서비스 Compute
 데이터 팩터리에서 다른 구성에 연결할 수 있는 다양 한 계산 환경에 대 한 세부 정보를 위해 [지원 되는 참조 계산 환경](compute-linked-services.md) 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 도구 또는 SDK 중 하나를 사용하여 파이프라인 및 데이터 세트를 만들기 위한 단계별 지침은 다음 자습서를 참조하세요.
 
-- [빠른 시작:.NET를 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
+- [빠른 시작: .NET을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
 - [빠른 시작: PowerShell을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)
 - [빠른 시작: REST API를 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md)
 - [빠른 시작: Azure Portal을 사용 하 여 데이터 팩터리 만들기](quickstart-create-data-factory-portal.md)

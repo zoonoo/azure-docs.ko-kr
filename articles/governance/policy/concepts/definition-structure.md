@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f1baffb60234a154df544552dba3c34ced25b518
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436404"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -19,8 +19,8 @@ ms.locfileid: "74894298"
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
-- 모드
-- parameters
+- mode
+- 매개 변수
 - 표시 이름
 - description
 - 정책 규칙
@@ -90,7 +90,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 > [!NOTE]
 > 리소스 공급자 모드는 기본 제공 정책 정의만 지원 하 고 미리 보기에서는 이니셔티브를 지원 하지 않습니다.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
 매개 변수는 정책 정의의 수를 줄여 정책 관리를 간소화하는 데 도움이 됩니다. 양식의 필드 `name`, `address`, `city`, `state`와 같은 매개 변수에 관해 생각해 봅니다. 이러한 매개 변수는 항상 그대로 유지되지만, 그 값은 양식을 작성하는 개별 값에 기초하여 달라집니다.
 매개 변수는 정책을 만들 때와 같은 방법으로 작동합니다. 정책 정의에 매개 변수를 포함함으로써 서로 다른 값을 사용하여 다양한 시나리오에 대해 해당 정책을 재사용할 수 있습니다.
@@ -308,7 +308,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>값
 
 **value**를 사용하여 조건을 구성할 수도 있습니다. **value**는 [매개 변수](#parameters), [지원되는 템플릿 함수](#policy-functions) 또는 리터럴에 대해 조건을 확인합니다.
 **value**는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
@@ -318,7 +318,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 #### <a name="value-examples"></a>값 예제
 
-이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 `*netrg`의 **like** 조건과 비교합니다. 규칙은 이름이 `*netrg`로 끝나는 리소스 그룹에서 `Microsoft.Network/*` **type**이 아닌 리소스를 모두 거부합니다.
+이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 `*netrg`의 **like** 조건과 비교합니다. 규칙은 이름이 `*netrg`로 끝나는 모든 리소스 그룹에서 `Microsoft.Network/*` **유형이** 아닌 리소스를 거부 합니다.
 
 ```json
 {
@@ -339,7 +339,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-이 정책 규칙 예제에서는 **value**를 사용하여 여러 중첩 함수의 결과가 **equals** `true`인지 확인합니다. 이 규칙은 최소 3개의 태그가 없는 리소스를 모두 거부합니다.
+이 정책 규칙 예제에서는 **값** 을 사용 하 여 여러 중첩 함수의 결과가 `true`**같은지** 확인 합니다. 이 규칙은 최소 3개의 태그가 없는 리소스를 모두 거부합니다.
 
 ```json
 {
@@ -374,9 +374,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-위의 예제 정책 규칙은 [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) 을 사용 하 여 **이름의** 처음 세 문자를 **abc**와 비교 합니다. **Name** 이 3 자 보다 짧으면 `substring()` 함수는 오류를 발생 합니다. 이 오류가 발생 하면 정책이 **거부** 효과가 됩니다.
+위의 예제 정책 규칙은 [substring ()](../../../azure-resource-manager/templates/template-functions-string.md#substring) 을 사용 하 여 **이름의** 처음 세 문자를 **abc**와 비교 합니다. **Name** 이 3 자 보다 짧으면 `substring()` 함수는 오류를 발생 합니다. 이 오류가 발생 하면 정책이 **거부** 효과가 됩니다.
 
-대신 [if ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) 함수를 사용 하 여 **이름이** 3 자 **보다 짧아 오류를 발생** 시 키 지 않고 abc의 처음 세 문자가 **abc** 와 같은지 확인 합니다.
+대신 [if ()](../../../azure-resource-manager/templates/template-functions-logical.md#if) 함수를 사용 하 여 **이름이** 3 자 **보다 짧아 오류를 발생** 시 키 지 않고 abc의 처음 세 문자가 **abc** 와 같은지 확인 합니다.
 
 ```json
 {
@@ -592,7 +592,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 }
 ```
 
-## <a name="aliases"></a>Aliases
+## <a name="aliases"></a>별칭
 
 리소스 유형에 대한 특정 속성에 액세스하려면 속성 별칭을 사용합니다. 별칭을 사용하면 리소스의 속성에 허용되는 값이나 조건을 제한할 수 있습니다. 각 별칭은 주어진 리소스 유형에 대해 서로 다른 API 버전의 경로에 매핑됩니다. 정책 평가 중에 정책 엔진은 해당 API 버전에 대한 속성 경로를 가져옵니다.
 
@@ -655,7 +655,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 **\[\*\]** 연결 된 버전이 있습니다. 다음은 그 예입니다.
+사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 **\[\*\]** 연결 된 버전이 있습니다. 예:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -1,24 +1,14 @@
 ---
-title: Azure Service Fabric Windows 클러스터에 대해 디스크 암호화 사용 | Microsoft Docs
+title: Windows 클러스터에 대해 디스크 암호화 사용
 description: 이 문서에서는 Azure Resource Manager의 Azure Key Vault를 사용 하 여 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화를 사용 하도록 설정 하는 방법을 설명 합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 64abc48d57196fe20466032652c4b9bfb2e6c71f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599536"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614454"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Windows에서 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화 사용 
 > [!div class="op_single_selector"]
@@ -37,7 +27,7 @@ ms.locfileid: "68599536"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 **자체 등록** 
 
@@ -61,7 +51,7 @@ ms.locfileid: "68599536"
 2. 새 암호화 명령이 있는 [Azure CLI](/cli/azure/install-azure-cli)의 최신 버전을 설치 합니다.
 3. Azure PowerShell 릴리스에서 최신 버전의 [AZURE SDK](https://github.com/Azure/azure-powershell/releases) 를 설치 합니다. 다음은 확장 집합 인스턴스에서 암호화를 사용 하도록 설정 하 고 ([설정](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) 암호화 상태를 검색 ([get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) 하 고 암호화를 제거 ([해제](/powershell/module/az.compute/disable-azvmssdiskencryption)) 하는 가상 머신 확장 집합 Azure Disk Encryption cmdlet입니다.
 
-| 명령 | 버전 |  Source  |
+| 명령 | 버전 |  원본  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |

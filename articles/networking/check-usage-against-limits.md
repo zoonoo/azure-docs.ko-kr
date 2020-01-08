@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jeconnoc
-ms.openlocfilehash: b8bcbabe4b355e4e9cd617e9003902885b8edd88
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5c807397af3ee06b490017b7e14f7b64123b5075
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872448"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645228"
 ---
 # <a name="check-resource-usage-against-limits"></a>제한에 대해 리소스 사용량 확인
 
-이 문서에서는 구독에서 배포한 각 네트워크 리소스 종류의 수를 확인하는 방법과 [구독 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)이란 무엇인지에 대해 알아봅니다. 제한에 대한 리소스 사용량을 볼 수 있는 기능은 현재 사용량을 추적하고 향후 사용량을 계획하는 데 유용합니다. [Azure Portal](#azure-portal), [PowerShell](#powershell) 또는 [Azure CLI](#azure-cli)을 사용하여 사용량을 추적할 수 있습니다.
+이 문서에서는 구독에서 배포한 각 네트워크 리소스 종류의 수를 확인하는 방법과 [구독 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)이란 무엇인지에 대해 알아봅니다. 제한에 대한 리소스 사용량을 볼 수 있는 기능은 현재 사용량을 추적하고 향후 사용량을 계획하는 데 유용합니다. [Azure Portal](#azure-portal), [PowerShell](#powershell) 또는 [Azure CLI](#azure-cli)을 사용하여 사용량을 추적할 수 있습니다.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -35,7 +35,7 @@ ms.locfileid: "67872448"
 5. **설정**에서 **사용량 + 할당량**을 선택합니다.
 6. 다음 옵션을 선택할 수 있습니다.
    - **리소스 종류**: 모든 리소스 종류를 선택하거나 확인하려는 특정 유형의 리소스를 선택할 수 있습니다.
-   - **공급자**: 모든 리소스 공급자를 선택하거나 **계산**, **네트워크** 또는 **스토리지**를 선택할 수 있습니다.
+   - **공급자**: 모든 리소스 공급자를 선택하거나 **컴퓨팅**, **네트워크** 또는 **스토리지**를 선택할 수 있습니다.
    - **위치**: 모든 Azure 위치를 선택하거나 특정 위치를 선택할 수 있습니다.
    - 모든 리소스 또는 하나 이상 배포되는 리소스만 표시하도록 선택할 수 있습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "67872448"
 
        ![사용 현황 데이터 보기](./media/check-usage-against-limits/view-usage.png)
 
-     열 머리글을 선택하여 열을 정렬할 수 있습니다. 표시된 제한은 구독에 대한 제한입니다. 기본 제한을 늘려야 할 경우 **요청 증가**를 선택한 다음, 지원 요청을 완료하고 제출합니다. 모든 리소스에는 Azure [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)에 나열된 최대 한도가 있습니다. 현재 제한이 이미 최대 수인 경우에는 제한을 늘릴 수 없습니다.
+     열 머리글을 선택하여 열을 정렬할 수 있습니다. 표시된 제한은 구독에 대한 제한입니다. 기본 제한을 늘려야 할 경우 **요청 증가**를 선택한 다음, 지원 요청을 완료하고 제출합니다. 모든 리소스에는 Azure [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)에 나열된 최대 한도가 있습니다. 현재 제한이 이미 최대 수인 경우에는 제한을 늘릴 수 없습니다.
 
 ## <a name="powershell"></a>PowerShell
 

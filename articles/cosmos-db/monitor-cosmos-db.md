@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 9a36b46d11657ef52051f8bf8df1e4944051da23
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c166811bbfd27691f9a01a944d304d06560b0232
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445188"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>모니터링 Azure Cosmos DB
 Azure 리소스를 사용 하는 중요 한 응용 프로그램 및 비즈니스 프로세스를 사용 하는 경우 해당 리소스의 가용성, 성능 및 작업을 모니터링 하려고 합니다. 이 문서에서는 Azure Cosmos 데이터베이스에서 생성 되는 모니터링 데이터와 Azure Monitor 기능을 사용 하 여이 데이터를 분석 하 고 경고 하는 방법을 설명 합니다.
@@ -37,61 +37,30 @@ Azure 서비스를 모니터링 하는 방법을 잘 모르는 경우 다음을 
 ![Cosmos DB에 대 한 Azure Monitor](media/monitor-cosmos-db/azure-monitor-cosmos-db.png)
 
 ## <a name="monitoring-data-collected-from-azure-cosmos-db"></a>Azure Cosmos DB에서 수집한 데이터 모니터링
+
 Azure Cosmos DB는 [azure 리소스의 데이터 모니터링](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)에 설명 된 다른 azure 리소스와 동일한 종류의 모니터링 데이터를 수집 합니다. Azure Cosmos DB에서 만든 로그 및 메트릭에 대 한 자세한 내용은 [Azure Cosmos DB 모니터링 데이터 참조](monitor-cosmos-db-reference.md) 를 참조 하세요.
 
 각 Azure Cosmos 데이터베이스에 대 한 Azure Portal의 **개요** 페이지에는 요청 및 시간별 청구 사용량을 포함 하 여 데이터베이스 사용에 대 한 간략 한 보기가 포함 되어 있습니다. 이 정보는 유용 하지만 적은 양의 모니터링 데이터만 사용할 수 있습니다. 일부 구성에서 추가 데이터 수집을 사용 하도록 설정 하는 동안 데이터베이스를 만드는 즉시 이러한 데이터 중 일부가 자동으로 수집 되 고 분석에 사용할 수 있습니다.
 
 ![개요 페이지](media/monitor-cosmos-db/overview-page.png)
 
-
-
-## <a name="diagnostic-settings"></a>진단 설정
-플랫폼 메트릭과 활동 로그는 자동으로 수집 되지만 리소스 로그를 수집 하거나 Azure Monitor 외부로 전달 하려면 진단 설정을 만들어야 합니다. Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기를](../azure-monitor/platform/diagnostic-settings.md) 참조 하세요.
-
-진단 설정을 만들 때 수집할 로그 범주를 지정 합니다. Azure Cosmos DB 범주는 샘플 데이터와 함께 아래에 나열 되어 있습니다.
-
- * **DataPlaneRequests**: AZURE COSMOS DB에서 SQL, Graph, MongoDB, Cassandra 및 Table API 계정을 포함 하는 모든 api에 백 엔드 요청을 기록 하려면이 옵션을 선택 합니다. 유의 해야 할 주요 속성은 Requestcharge, statusCode, clientIPaddress 및 partitionID입니다.
-
-    ```
-    { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
-    ```
-
-* **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MONGODB의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. MongoDB 요청은 MongoRequests 및 DataPlaneRequests에도 표시 됩니다. 유의 해야 할 주요 속성은 Requestcharge, opCode입니다.
-
-    ```
-    { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
-    ```
-
-* **Queryruntimestatistics**: 실행 된 쿼리 텍스트를 기록 하려면이 옵션을 선택 합니다. 
-
-    ```
-    { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
-    ```
-
-* 파티션 **키 통계를**기록 하려면이 옵션을 선택 합니다. 이는 현재 파티션 키의 저장소 크기 (KB)로 표시 됩니다. 대부분의 데이터 저장소를 차지 하는 처음 세 개의 파티션 키에 대해 로그를 내보냅니다.
-
-    ```
-    { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
-    ```
-
-* **메트릭 요청**: Azure Cosmos DB에서 진단 설정의 대상으로 메트릭 데이터를 수집 하려면이 옵션을 선택 합니다. Azure 메트릭에 의해 자동으로 수집 되는 동일한 데이터입니다. 리소스 로그를 사용 하 여 메트릭 데이터를 수집 하 여 두 종류의 데이터를 함께 분석 하 고 Azure Monitor 외부에서 메트릭 데이터를 보냅니다.
-
 ## <a name="analyzing-metric-data"></a>메트릭 데이터 분석
+
 Azure Cosmos DB는 메트릭을 사용 하기 위한 사용자 지정 환경을 제공 합니다. 이 경험을 사용 하 고 다양 한 Azure Cosmos DB 시나리오를 분석 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 Azure Cosmos DB 메트릭 모니터링 및 디버그](cosmos-db-azure-monitor-metrics.md) 를 참조 하세요.
 
 **Azure Monitor** 메뉴에서 **메트릭을 열어 메트릭 탐색기를 사용** 하 여 다른 Azure 서비스의 메트릭과 함께 Azure Cosmos DB에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md) 을 참조 하세요. Azure Cosmos DB에 대 한 모든 메트릭은 **표준 메트릭에 Cosmos DB**네임 스페이스에 있습니다. 차트에 필터를 추가할 때 이러한 메트릭에 다음 차원을 사용할 수 있습니다.
 
 - CollectionName
-- 결과,
+- DatabaseName
 - OperationType
-- Region
+- 지역
 - StatusCode
 
 
 ## <a name="analyzing-log-data"></a>로그 데이터 분석
 Azure Monitor 로그의 데이터는 각각 고유한 속성 집합이 있는 테이블에 저장 됩니다. Azure Cosmos DB은 다음 테이블에 데이터를 저장 합니다.
 
-| 테이블 | 설명 |
+| Table | Description |
 |:---|:---|
 | AzureDiagnostics | 여러 서비스에서 리소스 로그를 저장 하는 데 사용 하는 공통 테이블입니다. Azure Cosmos DB의 리소스 로그는 `MICROSOFT.DOCUMENTDB`를 통해 식별할 수 있습니다.   |
 | AzureActivity    | 활동 로그의 모든 레코드를 저장 하는 공통 테이블입니다. 
@@ -199,7 +168,7 @@ Azure Monitor 로그의 데이터는 각각 고유한 속성 집합이 있는 �
 포털에서 제공되는 계정 수준 메트릭(예: 계정 스토리지 사용 및 총 요청)은 SQL API를 통해 사용할 수 없습니다. 그러나 SQL API를 사용하여 컬렉션 수준에서 사용량 현황 데이터를 검색할 수 있습니다. 컬렉션 수준 데이터를 검색하려면 다음을 수행합니다.
 
 * REST API를 사용하려면 [컬렉션에 대해 GET을 수행](https://msdn.microsoft.com/library/mt489073.aspx)합니다. 컬렉션에 대한 할당량 및 사용량 정보는 응답의 x-ms-resource-quota 및 x-ms-resource-usage 헤더에서 반환됩니다.
-* .NET SDK를 사용하려면 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 메서드를 사용합니다. 이 메서드는 [CollectionSizeUsage](https://msdn.microsoft.com/library/dn799209.aspx), **DatabaseUsage**, **DocumentUsage** 등의 여러 사용량 속성이 포함된 **ResourceResponse**를 반환합니다.
+* .NET SDK를 사용하려면 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 메서드를 사용합니다. 이 메서드는 **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** 등의 여러 사용량 속성이 포함된 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)를 반환합니다.
 
 추가 메트릭에 액세스하려면 [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)를 사용하세요. 가용 메트릭 정의는 다음을 호출하면 검색할 수 있습니다.
 

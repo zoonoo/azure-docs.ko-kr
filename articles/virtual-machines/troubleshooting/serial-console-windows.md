@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0d48f3eacad86dac520d837b80605a75cce8cfd5
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451247"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows 용 Azure 직렬 콘솔
 
@@ -29,10 +29,10 @@ Azure Portal의 직렬 콘솔은 Windows Vm (가상 머신) 및 가상 머신 �
 Linux에 대 한 직렬 콘솔 설명서는 [linux 용 Azure 직렬 콘솔](serial-console-linux.md)을 참조 하세요.
 
 > [!NOTE]
-> 직렬 콘솔은 일반적으로 글로벌 Azure 지역에서 사용할 수 있습니다. 아직 Azure Government 또는 Azure 중국 클라우드에서는 지원되지 않습니다.
+> 직렬 콘솔은 일반적으로 글로벌 Azure 지역 및 Azure Government의 공개 미리 보기에서 사용할 수 있습니다. Azure 중국 클라우드에서는 아직 사용할 수 없습니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * VM 또는 가상 머신 확장 집합 인스턴스는 리소스 관리 배포 모델을 사용 해야 합니다. 클래식 배포는 지원되지 않습니다.
 
@@ -104,7 +104,7 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 
 1.  `cmd`를 입력하여 CMD 인스턴스가 있는 채널을 만듭니다.
 
-1.  @No__t_0를 입력 하거나 `<esc>+<tab>` 바로 가기 키를 눌러 CMD 인스턴스를 실행 하는 채널로 전환 합니다.
+1.  `ch -si 1`를 입력 하거나 `<esc>+<tab>` 바로 가기 키를 눌러 CMD 인스턴스를 실행 하는 채널로 전환 합니다.
 
 1.  **Enter** 키를 누른 다음, 관리자 권한으로 로그인 자격 증명을 입력합니다.
 
@@ -124,7 +124,7 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 NMI를 받을 때 크래시 덤프 파일을 만들도록 Windows 구성에 대한 정보는 [NMI를 사용하여 크래시 덤프 파일을 생성하는 방법](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)을 참조하세요.
 
 ### <a name="use-function-keys-in-serial-console"></a>직렬 콘솔에 기능 키 사용
-기능 키는 Windows VM의 직렬 콘솔의 사용량에 대해 사용하도록 설정됩니다. 직렬 콘솔 드롭다운의 F8은 고급 부팅 설정 메뉴를 쉽게 입력하는 편리함을 제공하지만 직렬 콘솔은 다른 모든 기능 키와 호환됩니다. 직렬 콘솔을 사용 하는 컴퓨터에 따라 키보드에서 **Fn**  + **F1** (또는 F2, F3 등)를 눌러야 할 수 있습니다.
+기능 키는 Windows VM의 직렬 콘솔의 사용량에 대해 사용하도록 설정됩니다. 직렬 콘솔 드롭다운의 F8은 고급 부팅 설정 메뉴를 쉽게 입력하는 편리함을 제공하지만 직렬 콘솔은 다른 모든 기능 키와 호환됩니다. 직렬 콘솔을 사용 하는 컴퓨터에 따라 키보드에서 **Fn** + **F1** (또는 F2, F3 등)를 눌러야 할 수 있습니다.
 
 ### <a name="use-wsl-in-serial-console"></a>직렬 콘솔에서 WSL 사용
 Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사용하도록 설정됐으므로 Windows Server 2019 이상을 실행하는 경우 직렬 콘솔 내에서 사용을 위해 WSL을 사용하도록 설정할 수 있습니다. 이 기능은 또한 Linux 명령에 익숙한 사용자에게 유용할 수 있습니다. Windows Server용 WSL를 사용하도록 설정하는 지침은 [설치 가이드](https://docs.microsoft.com/windows/wsl/install-on-server)를 참조하세요.
@@ -145,7 +145,7 @@ Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사�
 직렬 콘솔에 대한 액세스는 가상 머신에 대해 [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 이상의 액세스 역할을 가지고 있는 사용자로 제한됩니다. Azure Active Directory 테넌트에는 MFA(Multi-Factor Authentication)가 필요한 경우 직렬 콘솔이 [Azure Portal](https://portal.azure.com)을 통해 액세스되었기 때문에 직렬 콘솔에 대한 액세스에는 MFA가 필요합니다.
 
 ### <a name="channel-security"></a>채널 보안
-주고 받는 모든 데이터는 전송 중에 암호화됩니다.
+주고받는 모든 데이터는 전송 중에 암호화됩니다.
 
 ### <a name="audit-logs"></a>감사 로그
 직렬 콘솔에 대한 모든 액세스는 현재 가상 머신의 [부트 진단](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) 로그에 기록됩니다. 이러한 로그에 대한 액세스 권한은 Azure 가상 머신 관리자가 소유하며 제어합니다.
@@ -181,7 +181,7 @@ RDP 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 
 ## <a name="known-issues"></a>알려진 문제
 직렬 콘솔과 VM의 운영 체제에 대 한 몇 가지 문제를 알고 있습니다. 다음은 이러한 문제 및 Windows Vm에 대 한 완화 단계 목록입니다. 이러한 문제와 완화는 Vm과 가상 머신 확장 집합 인스턴스 모두에 적용 됩니다. 표시 되는 오류와 일치 하지 않는 경우 일반적인 직렬 콘솔 서비스 오류에서 [일반적인 직렬 콘솔 오류](./serial-console-errors.md)를 참조 하세요.
 
-문제                             |   해결 방법
+문제                             |   완화 방법
 :---------------------------------|:--------------------------------------------|
 연결 배너에서 로그인 프롬프트가 표시되지 않으면 **Enter** 키를 누릅니다. | 자세한 내용은 [Enter를 누르면 아무 작업도 수행되지 않습니다](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)를 참조하세요. 이 오류는 Windows가 직렬 포트에 제대로 연결하지 못하게 하는 사용자 지정 VM, 강화된 어플라이언스 또는 부팅 구성을 실행하는 경우 발생할 수 있습니다. Windows Server Vm만 EMS를 사용 하도록 구성 되어 있기 때문에 Windows 10 VM을 실행 하는 경우에도이 오류가 발생 합니다.
 Windows VM에 연결할 때 상태 정보만 표시됩니다.| 이 오류는 Windows 이미지에 대해 특별 한 관리 콘솔을 사용 하도록 설정 하지 않은 경우에 발생 합니다. Windows VM에서 SAC를 수동으로 설정하는 방법에 대한 정보는 [사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용](#enable-the-serial-console-in-custom-or-older-images)을 참조하세요. 자세한 내용은 [Windows 상태 신호](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)를 참조하세요.
@@ -211,7 +211,7 @@ A. VM의 직렬 콘솔에 액세스하려면 VM의 Virtual Machine Contributor �
 
 **Q. 직렬 콘솔에 아무것도 표시 되지 않습니다. 어떻게 해야 하나요?**
 
-A. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성됐습니다. 직렬 콘솔을 사용하도록 이미지를 구성하는 방법에 대한 자세한 내용은 [사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용](#enable-the-serial-console-in-custom-or-older-images)을 참조하세요.
+A. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성되었습니다. 직렬 콘솔을 사용하도록 이미지를 구성하는 방법에 대한 자세한 내용은 [사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용](#enable-the-serial-console-in-custom-or-older-images)을 참조하세요.
 
 **Q. 직렬 콘솔은 가상 머신 확장 집합에 사용할 수 있나요?**
 

@@ -1,5 +1,6 @@
 ---
-title: '자습서: Azure Database Migration Service를 사용하여 SQL Server를 Azure SQL Database 관리형 인스턴스로 온라인 마이그레이션 | Microsoft Docs'
+title: '자습서: 온라인으로 SQL Server SQL 관리 되는 인스턴스로 마이그레이션'
+titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database 관리형 인스턴스로 온라인 마이그레이션하는 방법을 알아봅니다.
 services: dms
 author: HJToland3
@@ -8,23 +9,23 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 12/04/2019
-ms.openlocfilehash: 53c0601be29c5cac9bddc37158d705f07349323d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: HT
+ms.date: 12/27/2019
+ms.openlocfilehash: 05cf7f1c69c6118d39efb72185443e1fad072209
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975026"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531465"
 ---
-# <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database 관리형 인스턴스로 온라인 마이그레이션
+# <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용 하 여 온라인으로 Azure SQL Database 관리 되는 인스턴스로 SQL Server 마이그레이션
 
 Azure Database Migration Service를 사용하면 최소한의 가동 중지 시간으로 데이터베이스를 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database 관리형 인스턴스](../sql-database/sql-database-managed-instance.md)로 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Database 관리형 인스턴스로 마이그레이션](../sql-database/sql-database-managed-instance-migrate.md) 문서를 참조하세요.
 
 이 자습서에서는 Azure Database Migration Service를 사용하여 최소한의 가동 중지 시간으로 **Adventureworks2012** 데이터베이스를 SQL Server의 온-프레미스 인스턴스에서 SQL Database 관리형 인스턴스로 마이그레이션합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 >
 > * Azure Database Migration Service 인스턴스를 만듭니다.
@@ -41,6 +42,9 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 Microsoft는 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것을 권장합니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
+
+> [!IMPORTANT]
+> 인스턴스 재구성 또는 계획 된 유지 관리로 인 한 중단 위험을 최소화 하기 위해 가능한 한 온라인 마이그레이션 프로세스의 기간을 줄이는 것이 중요 합니다. 이러한 이벤트의 경우 처음부터 마이그레이션 프로세스가 시작 됩니다. 계획 된 유지 관리의 경우 마이그레이션 프로세스를 다시 시작 하기 전에 36 시간 유예 기간이 있습니다.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -68,7 +72,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
     > * 모든 네트워크에서 스토리지 계정에 액세스할 수 있도록 허용합니다.
     > * VNet에 대한 ACL을 설정합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security) 문서를 참조하세요.
 
-* VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
+* VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service: 443, 53, 9354, 445, 12000에 대해 다음 인바운드 통신 포트를 차단 하지 않는지 확인 합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 * [소스 데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Azure Database Migration Service가 원본 SQL Server(기본적으로 1433 TCP 포트)에 액세스할 수 있도록 Windows 방화벽을 엽니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고, 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.

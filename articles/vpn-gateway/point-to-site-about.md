@@ -1,47 +1,47 @@
 ---
 title: Azure 지점 및 사이트 간 VPN 연결 정보 | Microsoft Docs
-description: 이 문서는 지점 및 사이트 간 연결을 이해 하 고 사용할 P2S VPN gateway 인증 유형을 결정 하는 데 도움이 됩니다.
+description: 이 문서에서는 지점 및 사이트 간 연결을 이해하고 P2S VPN 게이트웨이 인증 유형을 결정합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7305976060cb5df01f683b3310e59644d7e45b35
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 55433efabea516151cfb858bb61f504e180f5fb7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353586"
 ---
-# <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 정보
+# <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
 
-A pont–hely (P2S) VPN-átjátókapcsolat lehetővé teszi biztonságos kapcsolat létesítését a virtuális hálózattal egy különálló ügyfélszámítógépről. A P2S-kapcsolat létesítéséhez a kapcsolatot az ügyfélszámítógépről kell elindítani. Ez a megoldás főleg távmunkások számára hasznos, akik egy távoli helyről szeretnének csatlakozni egy Azure virtuális hálózatokhoz, például otthonról vagy konferenciáról. A pont–hely VPN emellett akkor is hasznos megoldás lehet a helyek közötti VPN helyett, ha csak néhány ügyfelet szeretne egy virtuális hálózathoz csatlakoztatni. Ez a cikk a Resource Manager-alapú üzemi modell vonatkozik.
+P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다. 이 문서는 Resource Manager 배포 모델에 적용됩니다.
 
-## <a name="protocol"></a>P2S에서 사용 하는 프로토콜
+## <a name="protocol"></a>P2S는 어떤 프로토콜을 사용합니까?
 
-지점 및 사이트 간 VPN은 다음 프로토콜 중 하나를 사용할 수 있습니다.
+지점 및 사이트 간 VPN에서는 다음 프로토콜 중 하나를 사용할 수 있습니다.
 
 * **Openvpn® 프로토콜**, SSL/TLS 기반 vpn 프로토콜입니다. 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
 
-* 독점 SSL 기반 VPN 프로토콜인 SSTP (Secure Socket Tunneling Protocol) 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. SSTP는 Windows 장치 에서만 지원 됩니다. Azure는 SSTP를 포함 하는 모든 버전의 Windows (Windows 7 이상)를 지원 합니다.
+* SSTP(Secure Socket Tunneling Protocol) - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
 
-* IKEv2 VPN, egy szabványalapú IPsec VPN-megoldás. Az IKEv2 VPN segítségével Macről is lehetségessé válik a csatlakozás (OSX 10.11-es vagy újabb verziók használata esetén).
+* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
 
 >[!NOTE]
->P2S에 대 한 IKEv2 및 OpenVPN은 리소스 관리자 배포 모델에만 사용할 수 있습니다. 클래식 배포 모델에 대해서는 사용할 수 없습니다.
+>P2S용 IKEv2 및 OpenVPN은 Resource Manager 배포 모델에서만 사용할 수 있습니다. 클래식 배포 모델에서는 사용할 수 없습니다.
 >
 
-## <a name="authentication"></a>P2S VPN 클라이언트는 어떻게 인증 됩니까?
+## <a name="authentication"></a>P2S VPN 클라이언트는 어떻게 인증됩니까?
 
-Azure가 P2S VPN 연결을 허용 하기 전에 먼저 사용자를 인증 해야 합니다. Azure에서 연결 하는 사용자를 인증 하기 위해 제공 하는 두 가지 메커니즘이 있습니다.
+Azure에서 P2S VPN 연결을 허용하기 전에 먼저 사용자를 인증해야 합니다. 연결하는 사용자를 인증하기 위해 Azure에서 제공하는 두 가지 메커니즘이 있습니다.
 
-### <a name="authenticate-using-native-azure-certificate-authentication"></a>네이티브 Azure 인증서 인증을 사용 하 여 인증
+### <a name="authenticate-using-native-azure-certificate-authentication"></a>Azure 기본 인증서 인증을 사용하여 인증
 
-네이티브 Azure 인증서 인증을 사용 하는 경우 장치에 있는 클라이언트 인증서가 연결 하는 사용자를 인증 하는 데 사용 됩니다. 클라이언트 인증서는 신뢰할 수 있는 루트 인증서에서 생성 된 후 각 클라이언트 컴퓨터에 설치 됩니다. 엔터프라이즈 솔루션을 사용 하 여 생성 된 루트 인증서를 사용 하거나 자체 서명 된 인증서를 생성할 수 있습니다.
+Azure 기본 인증서 인증을 사용하는 경우 디바이스에 있는 클라이언트 인증서가 연결하는 사용자를 인증하는 데 사용됩니다. 클라이언트 인증서는 신뢰할 수 있는 루트 인증서에서 생성되어 각 클라이언트 컴퓨터에 설치됩니다. 엔터프라이즈 솔루션을 사용하여 생성된 루트 인증서를 사용하거나 자체 서명된 인증서를 생성할 수 있습니다.
 
-클라이언트 인증서의 유효성 검사는 VPN 게이트웨이에서 수행 되며 P2S VPN 연결을 설정 하는 동안 발생 합니다. 루트 인증서는 유효성 검사에 필요 하며 Azure에 업로드 해야 합니다.
+클라이언트 인증서의 유효성 검사는 VPN 게이트웨이에서 수행되며, P2S VPN 연결을 설정하는 동안 발생합니다. 루트 인증서는 유효성 검사에 필요하며 Azure에 업로드해야 합니다.
 
 ### <a name="authenticate-using-native-azure-active-directory-authentication"></a>네이티브 Azure Active Directory 인증을 사용 하 여 인증
 
@@ -51,54 +51,50 @@ Azure AD 인증을 사용 하면 사용자가 Azure Active Directory 자격 증�
 
 개략적인 수준에서 다음 단계를 수행 하 여 Azure AD 인증을 구성 해야 합니다.
 
-[1. Azure AD 테 넌 트 구성](openvpn-azure-ad-tenant.md)
+1. [Azure AD 테 넌 트 구성](openvpn-azure-ad-tenant.md)
 
-[2. 게이트웨이에서 Azure AD 인증을 사용 하도록 설정](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [게이트웨이에서 Azure AD 인증을 사용 하도록 설정](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
 
-[3. Azure VPN 클라이언트 (미리 보기) 다운로드 및 구성](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+3. [Azure VPN 클라이언트 (미리 보기) 다운로드 및 구성](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
 
 
-### <a name="authenticate-using-active-directory-ad-domain-server"></a>AD (Active Directory) 도메인 서버를 사용 하 여 인증
+### <a name="authenticate-using-active-directory-ad-domain-server"></a>Azure AD(Active Directory) 도메인 서버를 사용하여 인증
 
-AD 도메인 인증을 사용 하면 사용자가 조직 도메인 자격 증명을 사용 하 여 Azure에 연결할 수 있습니다. AD 서버와 통합 되는 RADIUS 서버가 필요 합니다. 조직에서 기존 RADIUS 배포를 활용할 수도 있습니다.   
+AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자격 증명을 사용하여 Azure에 연결할 수 있습니다. AD 서버와 통합되는 RADIUS 서버가 필요합니다. 또한 조직에서 기존 RADIUS 배포를 활용할 수도 있습니다.   
   
-RADIUS 서버는 온-프레미스 또는 Azure VNET에 배포할 수 있습니다. 인증 하는 동안 Azure VPN Gateway는 통과 역할을 하며 RADIUS 서버와 연결 하는 장치 간에 인증 메시지를 전달 합니다. 따라서 RADIUS 서버에 대 한 게이트웨이 연결이 중요 합니다. RADIUS 서버가 온-프레미스에 있는 경우 연결을 위해 Azure에서 온-프레미스 사이트로의 VPN S2S 연결이 필요 합니다.  
+RADIUS 서버를 온-프레미스 또는 Azure VNET에 배포할 수 있습니다. 인증하는 동안 Azure VPN Gateway에서 통과 역할을 수행하여 RADIUS 서버와 연결된 디바이스 간에 인증 메시지를 전달합니다. 따라서 RADIUS 서버에 대한 게이트웨이 연결 가능성이 중요합니다. RADIUS 서버가 온-프레미스에 있는 경우 연결 가능성을 위해 Azure에서 온-프레미스 사이트로의 VPN S2S 연결이 필요합니다.  
   
-또한 RADIUS 서버는 AD 인증서 서비스와 통합할 수 있습니다. 이렇게 하면 P2S 인증서 인증에 대 한 RADIUS 서버 및 엔터프라이즈 인증서 배포를 Azure 인증서 인증에 대 한 대 안으로 사용할 수 있습니다. 루트 인증서 및 해지 된 인증서를 Azure에 업로드할 필요가 없다는 장점이 있습니다.
+RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇게 하면 Azure 인증서 인증 대신 P2S 인증서 인증용 RADIUS 서버 및 엔터프라이즈 인증서 배포를 사용할 수 있습니다. 장점은 루트 인증서와 해지된 인증서를 Azure에 업로드할 필요가 없다는 것입니다.
 
-또한 RADIUS 서버는 다른 외부 id 시스템과 통합할 수 있습니다. 그러면 multi-factor options를 포함 하 여 P2S VPN에 대 한 다양 한 인증 옵션이 열립니다.
+또한 RADIUS 서버는 다른 외부 ID 시스템과 통합할 수도 있습니다. 이렇게 하면 다단계 옵션을 포함하여 P2S VPN에 대한 많은 인증 옵션이 제공됩니다.
+
+![지점 및 사이트 간](./media/point-to-site-about/p2s.png "지점 및 사이트 간")
+
+## <a name="what-are-the-client-configuration-requirements"></a>클라이언트 구성 요구 사항은 어떻게 되나요?
 
 >[!NOTE]
->**Openvpn® 프로토콜** 은 RADIUS 인증에서 지원 되지 않습니다.
+>Windows 클라이언트의 경우 클라이언트 디바이스에서 Azure로 VPN 연결을 시작하려면 클라이언트 디바이스에 대한 관리자 권한이 있어야 합니다.
 >
 
-![지점 및 사이트 간](./media/point-to-site-about/p2s.png "Külső végpont és telephely közötti")
+사용자는 P2S용 Windows 및 Mac 디바이스에서 VPN 기본 클라이언트를 사용합니다. Azure는 이러한 기본 클라이언트에서 Azure에 연결하는 데 필요한 설정을 포함하고 있는 VPN 클라이언트 구성 zip 파일을 제공합니다.
 
-## <a name="what-are-the-client-configuration-requirements"></a>클라이언트 구성 요구 사항은 무엇 인가요?
+* Windows 디바이스의 경우 VPN 클라이언트 구성은 사용자가 자신의 디바이스에 설치하는 설치 관리자 패키지로 구성됩니다.
+* Mac 디바이스의 경우 사용자가 디바이스에 설치하는 mobileconfig 파일로 구성됩니다.
 
->[!NOTE]
->Windows 클라이언트의 경우 클라이언트 장치에서 Azure로의 VPN 연결을 시작 하려면 클라이언트 장치에 대 한 관리자 권한이 있어야 합니다.
->
-
-사용자는 Windows 및 Mac 장치에서 P2S에 대 한 기본 VPN 클라이언트를 사용 합니다. Azure는 이러한 네이티브 클라이언트가 Azure에 연결 하는 데 필요한 설정을 포함 하는 VPN 클라이언트 구성 zip 파일을 제공 합니다.
-
-* Windows 장치의 경우 VPN 클라이언트 구성은 사용자가 장치에 설치 하는 설치 관리자 패키지로 구성 됩니다.
-* Mac 장치의 경우 사용자가 장치에 설치 하는 mobileconfig 파일로 구성 됩니다.
-
-또한 zip 파일은 이러한 장치에 대 한 사용자 고유의 프로필을 만드는 데 사용할 수 있는 Azure 쪽의 중요 한 설정 중 일부에 대 한 값을 제공 합니다. 일부 값에는 VPN gateway 주소, 구성 된 터널 유형, 경로 및 게이트웨이 유효성 검사에 대 한 루트 인증서가 포함 됩니다.
+또한 zip 파일에서 중요한 Azure 쪽 설정 일부에 대한 값을 제공하므로 이러한 디바이스에 대한 사용자 고유의 프로필을 만들 수 있습니다. 일부 값에는 VPN 게이트웨이 주소, 구성된 터널 종류, 경로 및 게이트웨이 유효성 검사용 루트 인증서가 포함됩니다.
 
 >[!NOTE]
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>어떤 게이트웨이 Sku에서 P2S VPN을 지원 하나요?
+## <a name="gwsku"></a>어떤 게이트웨이 SKU에서 P2S VPN을 지원하나요?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* 게이트웨이 SKU 권장 사항은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조 하세요.
+* 게이트웨이 SKU 권장 사항에 대해서는 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
 >[!NOTE]
->Az alapszintű termékváltozat nem támogatja az IKEv2- vagy RADIUS-hitelesítést.
+>기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다.
 >
 
 ## <a name="IKE/IPsec policies"></a>P2S에 대 한 VPN 게이트웨이에서 구성 된 IKE/IPsec 정책은 무엇 인가요?
@@ -128,7 +124,7 @@ RADIUS 서버는 온-프레미스 또는 Azure VNET에 배포할 수 있습니�
 
 **Ip**
 
-|**암호** | **무결성** | **PFS-csoport** |
+|**암호** | **무결성** | **PFS 그룹** |
 |---        | ---           | ---       |
 |GCM_AES256 | GCM_AES256 | GROUP_NONE |
 |GCM_AES256 | GCM_AES256 | GROUP_24 |
@@ -145,7 +141,7 @@ RADIUS 서버는 온-프레미스 또는 Azure VNET에 배포할 수 있습니�
 ## <a name="TLS policies"></a>P2S에 대 한 VPN 게이트웨이에서 구성 된 TLS 정책은 무엇 인가요?
 **TLS**
 
-|**Házirendek** |
+|**정책** |
 |---| 
 |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 |
 |TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
@@ -163,13 +159,13 @@ RADIUS 서버는 온-프레미스 또는 Azure VNET에 배포할 수 있습니�
 
 
 
-## <a name="configure"></a>P2S 연결 어떻게 할까요? 구성 하 시겠습니까?
+## <a name="configure"></a>P2S 연결은 어떻게 구성하나요?
 
-P2S 구성에는 몇 가지 특정 단계가 필요 합니다. 다음 문서에는 P2S 구성을 단계별로 안내 하는 단계와 VPN 클라이언트 장치를 구성 하기 위한 링크가 포함 되어 있습니다.
+P2S 구성에는 몇 가지 특정한 단계가 필요합니다. 다음 문서에는 P2S 구성을 수행하는 단계와 VPN 클라이언트 디바이스를 구성하기 위한 링크가 포함되어 있습니다.
 
-* [P2S 연결 구성-RADIUS 인증](point-to-site-how-to-radius-ps.md)
+* [P2S 연결 구성 - RADIUS 인증](point-to-site-how-to-radius-ps.md)
 
-* [P2S 연결 구성-Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [P2S 연결 구성 - Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 * [OpenVPN 구성](vpn-gateway-howto-openvpn.md)
 
@@ -179,18 +175,18 @@ P2S 구성은 az cli 및 다음 명령을 사용 하 여 제거할 수 있습니
 
 `az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
  
-## <a name="faqcert"></a>네이티브 Azure 인증서 인증에 대 한 FAQ
+## <a name="faqcert"></a>네이티브 Azure 인증서 인증에 대한 FAQ
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>RADIUS 인증에 대 한 FAQ
+## <a name="faqradius"></a>RADIUS 인증에 대한 FAQ
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
-* [P2S 연결 구성-RADIUS 인증](point-to-site-how-to-radius-ps.md)
+* [P2S 연결 구성 - RADIUS 인증](point-to-site-how-to-radius-ps.md)
 
-* [P2S 연결 구성-Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [P2S 연결 구성 - Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 **"OpenVPN"은 OpenVPN i n c .의 상표입니다.**

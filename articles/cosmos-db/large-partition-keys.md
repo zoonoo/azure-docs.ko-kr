@@ -1,17 +1,17 @@
 ---
-title: Azure Portal 및 다양 한 Sdk를 사용 하 여 파티션 키가 많은 Azure Cosmos 컨테이너를 만듭니다.
+title: 대량 파티션 키를 사용 하 여 Azure Cosmos 컨테이너 만들기
 description: Azure Portal 및 다른 Sdk를 사용 하 여 파티션 키가 Azure Cosmos DB 컨테이너를 만드는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 42e92fa2b088fc04d4aa670e6586fcfe26ff3a70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441694"
 ---
 # <a name="create-containers-with-large-partition-key"></a>파티션 키가 많은 컨테이너 만들기
 
@@ -68,7 +68,7 @@ database,
 
 |SDK 형식  | 최소 버전   |
 |---------|---------|
-|.Net     |    1.18     |
+|.NET     |    1.18     |
 |Java 동기화     |   2.4.0      |
 |Java Async   |  2.5.0        |
 | REST API | `x-ms-version` 요청 헤더를 사용 하 여 `2017-05-03` 보다 높은 버전입니다.|

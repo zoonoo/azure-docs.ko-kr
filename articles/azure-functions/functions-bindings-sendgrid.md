@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a96cd537328a1a9edeeb03f81350ed5393806765
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a0731a66af32b45215145c1d4f4404eb008cf897
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927573"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410036"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -33,20 +33,13 @@ SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
-언어 관련 예제를 참조하세요.
-
-* [C#](#c-example)
-* [C# 스크립트(.csx)](#c-script-example)
-* [JavaScript](#javascript-example)
-* [Java](#java-example)
-
-### <a name="c-example"></a>C# 예제
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음 예제에서는 Service Bus 큐 트리거와 SendGrid 출력 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
-#### <a name="synchronous-c-example"></a>동기 C# 예제:
+### <a name="synchronous"></a>동기
 
 ```cs
 [FunctionName("SendEmail")]
@@ -71,7 +64,8 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
-#### <a name="asynchronous-c-example"></a>비동기 C# 예제:
+
+### <a name="asynchronous"></a>비동기
 
 ```cs
 [FunctionName("SendEmail")]
@@ -101,7 +95,7 @@ public class OutgoingEmail
 
 "AzureWebJobsSendGridApiKey"라는 앱 설정에 API 키가 있는 경우 특성의 `ApiKey` 속성 설정을 생략할 수 있습니다.
 
-### <a name="c-script-example"></a>C# 스크립트 예제
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 SendGrid 출력 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다.
 
@@ -160,34 +154,7 @@ public class Message
 }
 ```
 
-### <a name="java-example"></a>Java 예제
-
-다음 예제에서는 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 `@SendGridOutput` 주석을 사용 하 여 SendGrid 출력 바인딩을 사용 하는 전자 메일을 보냅니다.
-
-```java
-@FunctionName("SendEmail")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
-            @SendGridOutput(
-                name = "email", dataType = "String", apiKey = "SendGridConnection", to = "test@example.com", from = "test@example.com",
-                subject= "Sending with SendGrid", text = "Hello from Azure Functions"
-                ) OutputBinding<String> email
-            )
-    {
-        String name = request.getBody().orElse("World");
-
-        final String emailBody = "{\"personalizations\":" +
-                                    "[{\"to\":[{\"email\":\"test@example.com\"}]," +
-                                    "\"subject\":\"Sending with SendGrid\"}]," +
-                                    "\"from\":{\"email\":\"test@example.com\"}," +
-                                    "\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello" + name + "\"}]}";
-
-        email.setValue(emailBody);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-    }
-```
-
-### <a name="javascript-example"></a>JavaScript 예제
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 SendGrid 출력 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다.
 
@@ -214,10 +181,10 @@ public class Message
 JavaScript 코드는 다음과 같습니다.
 
 ```javascript
-module.exports = function (context, input) {    
+module.exports = function (context, input) {
     var message = {
          "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
-        from: { email: "sender@contoso.com" },        
+        from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
             type: 'text/plain',
@@ -229,7 +196,120 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a name="attributes"></a>특성
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+다음 예제에서는 SendGrid 바인딩을 사용 하 여 전자 메일을 보내는 HTTP 트리거 함수를 보여 줍니다. 바인딩 구성에서 기본값을 제공할 수 있습니다. 예를 들어 *보낸* 사람 전자 메일 주소는 *함수 json*에서 구성 됩니다. 
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "authLevel": "function",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "sendGrid",
+      "name": "sendGridMessage",
+      "direction": "out",
+      "apiKey": "SendGrid_API_Key",
+      "from": "sender@contoso.com"
+    }
+  ]
+}
+```
+
+다음 함수는 선택적 속성에 대 한 사용자 지정 값을 제공 하는 방법을 보여 줍니다.
+
+```python
+import logging
+import json
+import azure.functions as func
+
+def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResponse:
+
+    value = "Sent from Azure Functions"
+
+    message = {
+        "personalizations": [ {
+          "to": [{
+            "email": "user@contoso.com"
+            }]}],
+        "subject": "Azure Functions email with SendGrid",
+        "content": [{
+            "type": "text/plain",
+            "value": value }]}
+
+    sendGridMessage.set(json.dumps(message))
+
+    return func.HttpResponse(f"Sent")
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+다음 예제에서는 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 `@SendGridOutput` 주석을 사용 하 여 SendGrid 출력 바인딩을 사용 하는 전자 메일을 보냅니다.
+
+```java
+package com.function;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerSendGrid {
+
+    @FunctionName("HttpTriggerSendGrid")
+    public HttpResponseMessage run(
+
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.GET, HttpMethod.POST },
+            authLevel = AuthorizationLevel.FUNCTION)
+                HttpRequestMessage<Optional<String>> request,
+
+        @SendGridOutput(
+            name = "message",
+            dataType = "String",
+            apiKey = "SendGrid_API_Key",
+            to = "user@contoso.com",
+            from = "sender@contoso.com",
+            subject = "Azure Functions email with SendGrid",
+            text = "Sent from Azure Functions")
+                OutputBinding<String> message,
+
+        final ExecutionContext context) {
+
+        final String toAddress = "user@contoso.com";
+        final String value = "Sent from Azure Functions";
+
+        StringBuilder builder = new StringBuilder()
+            .append("{")
+            .append("\"personalizations\": [{ \"to\": [{ \"email\": \"%s\"}]}],")
+            .append("\"content\": [{\"type\": \"text/plain\", \"value\": \"%s\"}]")
+            .append("}");
+
+        final String body = String.format(builder.toString(), toAddress, value);
+
+        message.setValue(body);
+
+        return request.createResponseBuilder(HttpStatus.OK).body("Sent").build();
+    }
+}
+```
+
+---
+
+## <a name="attributes-and-annotations"></a>특성 및 주석
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) 특성을 사용합니다.
 
@@ -245,22 +325,42 @@ public static void Run(
 }
 ```
 
-전체 예제는 [C# 예제](#c-example)를 참조하세요.
+전체 예제는 [C# 예제](#example)를 참조하세요.
+
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+스크립트에서 C# 특성을 지원 하지 않습니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원 하지 않습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python에서 특성을 지원 하지 않습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+[Sendgridoutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) 주석을 사용 하면 구성 값을 제공 하 여 SendGrid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조 하세요.
+
+---
 
 ## <a name="configuration"></a>구성
 
-다음 표에서는 *function.json* 파일 및 `SendGrid` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *함수 json* 파일 및 `SendGrid` 특성/주석에서 사용할 수 있는 바인딩 구성 속성을 보여 줍니다.
 
-|function.json 속성 | 특성 속성 |설명|
-|---------|---------|----------------------|
-|**type**|| 필수 - `sendGrid`으로 설정해야 합니다.|
-|**direction**|| 필수 - `out`으로 설정해야 합니다.|
-|**name**|| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 ```$return```입니다. |
-|**apiKey**|**ApiKey**| API 키가 포함 된 앱 설정의 이름입니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsSendGridApiKey"입니다.|
-|**to**|**To**| 수신자의 전자 메일 주소입니다. |
-|**from**|**From**| 발신자의 전자 메일 주소입니다. |
-|**subject**|**제목**| 메일의 제목입니다. |
-|**text**|**Text**| 전자 메일 내용입니다. |
+| *function. json* 속성 | 특성/주석 속성 | Description | 선택 사항 |
+|--------------------------|-------------------------------|-------------|----------|
+| type || `sendGrid`로 설정해야 합니다.| 아닙니다. |
+| direction || `out`로 설정해야 합니다.| 아닙니다. |
+| name || 요청 또는 요청 본문의 함수 코드에 사용 되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | 아닙니다. |
+| apiKey | ApiKey | API 키가 포함 된 앱 설정의 이름입니다. 설정 되지 않은 경우 기본 앱 설정 이름은 *Azurewebjobssendgridapikey*입니다.| 아닙니다. |
+| to| - | 받는 사람의 이메일 주소입니다. | 예 |
+| 원본| 최저 | 보낸 사람의 전자 메일 주소입니다. |  예 |
+| subject| 제목 | 전자 메일의 제목입니다. | 예 |
+| text| 텍스트 | 전자 메일 내용입니다. | 예 |
+
+선택적 속성은 바인딩에 정의 된 기본값을 포함 하 고 프로그래밍 방식으로 추가 또는 재정의 될 수 있습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -284,9 +384,9 @@ public static void Run(
 }
 ```  
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
-|from|n/a|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
+|원본|n/a|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
 
 ## <a name="next-steps"></a>다음 단계

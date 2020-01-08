@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9e749297d831aeae7d785a9a9a29bea1f8c6d5e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454629"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>물리적 서버 평가 및 마이그레이션을 위한 지원 매트릭스
 
@@ -24,7 +24,7 @@ ms.locfileid: "74196346"
 
 이 표에는 물리적 서버에 대해 지원 되는 시나리오가 요약 되어 있습니다.
 
-**배포웹사이트를** | **세부 정보***
+**배포** | **세부 정보***
 --- | ---
 **온-프레미스 물리적 서버 평가** | 첫 번째 평가를 [설정](tutorial-prepare-physical.md) 합니다.<br/><br/> 평가를 [실행](tutorial-assess-physical.md) 합니다.
 **Azure에 물리적 서버 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-physical-virtual-machines.md) 합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "74196346"
 
   **지리** | **메타데이터 스토리지 위치**
   --- | ---
-  Azure Government | 미국 정부 버지니아
+  Azure Government | US Gov 버지니아
   아시아 태평양 | 동아시아 또는 동남 아시아
   오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
   브라질 | 브라질 남부
@@ -64,7 +64,7 @@ ms.locfileid: "74196346"
 | :-------------------       | :------------------- |
 | **물리적 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
 | **권한**           | **Windows:** 검색에 포함 하려는 모든 Windows 서버에서 로컬 사용자 계정을 설정 합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 해야 합니다. <br/> **Linux:** 검색 하려는 Linux 서버에 루트 계정이 필요 합니다. |
-| **운영 체제** | 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제는 다음을 제외 하 고 지원 됩니다.<br/> Windows Server 2003 <br/> SUSE Linux|
+| **운영 체제** | 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제는 다음을 제외 하 고 지원 됩니다.<br/> Windows Server 2003 <br/> SUSE, Linux|
 
 
 ## <a name="assessment-appliance-requirements"></a>평가-어플라이언스 요구 사항
@@ -73,9 +73,9 @@ ms.locfileid: "74196346"
 
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
-| **어플라이언스 배포**   |  어플라이언스는 물리적 서버 또는 가상 머신에 배포 합니다.<br/>  호스트 컴퓨터에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 호스트는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
+| **어플라이언스 배포**   |  어플라이언스 설치 관리자 스크립트는 포털 (zip 폴더)에서 다운로드할 수 있습니다. <br/> 폴더의 압축을 풀고 전용 물리적 서버나 가상 머신에서 PowerShell 스크립트 (AzureMigrateInstaller)를 실행 하 여 어플라이언스를 설정할 수 있습니다.<br/>  어플라이언스를 설치 하도록 선택한 컴퓨터는 Windows Server 2016를 실행 해야 합니다.<br/> 컴퓨터에 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
 | **Azure Migrate 프로젝트**  |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다.<br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 프로젝트에서 최대 35000 대의 컴퓨터를 평가할 수 있습니다.
-| **조사**              | 단일 어플라이언스에서 최대 250 서버를 검색할 수 있습니다.
+| **검색**              | 단일 어플라이언스에서 최대 250 서버를 검색할 수 있습니다.
 | **평가 그룹**       | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.
 | **평가**             | 단일 평가에서 최대 35000 대의 컴퓨터를 평가할 수 있습니다.
 
@@ -92,7 +92,7 @@ Vm을 평가 하려면 Azure Migrate 어플라이언스에서 인터넷에 연�
 **URL** | **세부 정보**  
 --- | ---
 *.portal.azure.com | Azure Portal 탐색
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Azure 구독에 로그인합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Azure 구독에 로그인
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에서 서비스 통신에 대 한 Azure Active Directory 응용 프로그램 만들기
 management.azure.com | 어플라이언스에서 서비스 통신에 대 한 Azure Active Directory 응용 프로그램 만들기
 dc.services.visualstudio.com | 로깅 및 모니터링
@@ -109,7 +109,7 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 **디바이스** | **연결**
 --- | ---
 **기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ``` https://<appliance-ip-or-name>:44368 ```<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
-**물리적 서버** | **Windows:** Windows 서버에서 끌어오기 구성 및 성능 메타 데이터에 대 한 포트 443, 5989에서 인바운드 연결 <br/> **Linux:**  Linux 서버에서 구성 및 성능 메타 데이터를 가져오기 위해 포트 22 (UDP)에서 인바운드 연결 |
+**물리적 서버** | **Windows:** Windows 서버에서 구성 및 성능 메타 데이터를 가져오기 위해 포트 443, WinRM 포트 5985 (HTTP) 및 5986 (HTTPS)에서 인바운드 연결 <br/> **Linux:**  Linux 서버에서 구성 및 성능 메타 데이터를 가져오기 위해 포트 22 (UDP)에서 인바운드 연결 |
 
 
 ## <a name="next-steps"></a>다음 단계

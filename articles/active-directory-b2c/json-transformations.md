@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ff6f24e30febd57a3a9740ec72a927225b37933
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948897"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367130"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
 
@@ -24,11 +24,77 @@ ms.locfileid: "74948897"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 Id 경험 프레임 워크 스키마의 JSON 클레임 변환을 사용 하는 예제를 제공 합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
 
+## <a name="generatejson"></a>GenerateJson
+
+클레임 값 또는 상수를 사용 하 여 JSON 문자열을 생성 합니다. 점 표기법 다음의 경로 문자열은 JSON 문자열에 데이터를 삽입할 위치를 나타내는 데 사용 됩니다. 점으로 분할 한 후에는 모든 정수가 JSON 배열의 인덱스로 해석 되 고 비 정수는 JSON 개체의 인덱스로 해석 됩니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | 점 표기법 다음에 나오는 문자열 | 문자열 | 클레임 값이 삽입 될 JSON의 JsonPath입니다. |
+| InputParameter | 점 표기법 다음에 나오는 문자열 | 문자열 | 상수 문자열 값이 삽입 될 JSON의 JsonPath입니다. |
+| OutputClaim | outputClaim | 문자열 | 생성 된 JSON 문자열입니다. |
+
+다음 예제에서는 "email" 및 "otp"의 클레임 값 및 상수 문자열을 기반으로 하는 JSON 문자열을 생성 합니다.
+
+```XML
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-4c56ffb40fa648b1aa6822283df94f60"/>
+    <InputParameter Id="from.email" DataType="string" Value="service@contoso.com"/>
+    <InputParameter Id="personalizations.0.subject" DataType="string" Value="Contoso account email verification code"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예
+
+다음 클레임 변환은 SendGrid (타사 전자 메일 공급자)로 전송 되는 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 합니다. JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 점 표기법의 숫자는 배열을 의미 합니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다.
+
+- 입력 클레임:
+  - **전자 메일**, 변환 클레임 유형 개인 설정을. 0. **to. 0. 전자 메일**: "someone@example.com"
+  - **otp**, 변환 클레임 유형 **개인 설정을. 0. dynamic_template_data otp** "346349"
+- 입력 매개 변수:
+  - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
+  - **보낸 사람: 전자 메일**: "service@contoso.com"
+  - **개인 설정은. 0. 제목** "Contoso 계정 전자 메일 확인 코드"
+- 출력 클레임:
+  - **Requestbody**: JSON 값
+
+```JSON
+{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "someone@example.com"
+        }
+      ],
+      "dynamic_template_data": {
+        "otp": "346349",
+        "verify-email" : "someone@example.com"
+      },
+      "subject": "Contoso account email verification code"
+    }
+  ],
+  "template_id": "d-989077fbba9746e89f3f6411f596fb96",
+  "from": {
+    "email": "service@contoso.com"
+  }
+}
+```
+
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
 JSON 데이터에서 지정된 요소를 가져옵니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | 문자열 | 클레임 변환에서 항목을 가져오는 데 사용하는 ClaimType입니다. |
 | InputParameter | claimToExtract | 문자열 | 추출할 JSON 요소의 이름입니다. |
@@ -50,7 +116,7 @@ JSON 데이터에서 지정된 요소를 가져옵니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
@@ -64,10 +130,10 @@ JSON 데이터에서 지정된 요소를 가져옵니다.
 
 JSON 데이터에서 지정된 요소의 목록을 가져옵니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | 문자열 | 클레임 변환에서 클레임을 가져오는 데 사용하는 ClaimType입니다. |
-| InputParameter | errorOnMissingClaims | 부울 | 클레임 중 하나가 없으면 오류를 throw할지 여부를 지정합니다. |
+| InputParameter | errorOnMissingClaims | boolean | 클레임 중 하나가 없으면 오류를 throw할지 여부를 지정합니다. |
 | InputParameter | includeEmptyClaims | 문자열 | 빈 클레임을 포함할지 여부를 지정합니다. |
 | InputParameter | jsonSourceKeyName | 문자열 | 요소 키 이름입니다. |
 | InputParameter | jsonSourceValueName | 문자열 | 요소 값 이름입니다. |
@@ -118,7 +184,7 @@ JSON 데이터에서 지정된 요소의 목록을 가져옵니다.
 
 JSON 데이터에서 지정된 숫자 (long) 요소를 가져옵니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | 문자열 | 클레임 변환에서 클레임을 가져오는 데 사용하는 ClaimType입니다. |
 | InputParameter | claimToExtract | 문자열 | 추출할 JSON 요소의 이름입니다. |
@@ -148,7 +214,7 @@ JSON 데이터에서 지정된 숫자 (long) 요소를 가져옵니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
@@ -161,7 +227,7 @@ JSON 데이터에서 지정된 숫자 (long) 요소를 가져옵니다.
 
 JSON 데이터 배열에서 첫 번째 요소를 가져옵니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJsonClaim | 문자열 | 클레임 변환에서 JSON 배열의 항목을 가져오는 데 사용하는 ClaimType입니다. |
 | OutputClaim | extractedClaim | 문자열 | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다(JSON 배열의 첫 번째 요소). |
@@ -179,7 +245,7 @@ JSON 데이터 배열에서 첫 번째 요소를 가져옵니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
   - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
@@ -190,7 +256,7 @@ JSON 데이터 배열에서 첫 번째 요소를 가져옵니다.
 
 XML 데이터를 JSON 형식으로 변환합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Xml | 문자열 | 클레임 변환에서 데이터를 XML에서 JSON 형식으로 변환하는 데 사용하는 ClaimType입니다. |
 | OutputClaim | json : | 문자열 | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다(JSON 형식의 데이터). |
@@ -208,7 +274,7 @@ XML 데이터를 JSON 형식으로 변환합니다.
 
 다음 예제에서는 클레임 변환이 다음 XML 데이터를 JSON 형식으로 변환합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 입력 클레임:
 
 ```XML
@@ -228,4 +294,3 @@ XML 데이터를 JSON 형식으로 변환합니다.
   }
 }
 ```
-

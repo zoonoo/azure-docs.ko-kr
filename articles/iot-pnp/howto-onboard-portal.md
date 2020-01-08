@@ -6,16 +6,16 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 77559636dab00a570db416118b047200320c0308
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73848af299f87edf60ab36713d09ad4421b18fd
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978988"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531233"
 ---
-# <a name="onboard-to-the-azure-certified-for-iot-portal"></a>Regisztráció az Azure Certified for IoT-portálon
+# <a name="onboard-to-the-azure-certified-for-iot-portal"></a>IoT용 Azure Certified 포털에 온보딩
 
 [IoT용 Azure Certified 포털](https://aka.ms/ACFI) 을 사용 하 여 다음을 수행할 수 있습니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "74978988"
 - IoT 플러그 앤 플레이 미리 보기 장치 기능 모델을 찾습니다. 이러한 모델을 사용 하 여 IoT 준비 장치를 신속 하 게 빌드하고 솔루션과 통합할 수 있습니다.
 - 공용 리포지토리에 장치 기능 모델을 게시 합니다.
 
-## <a name="sign-in"></a>Bejelentkezés
+## <a name="sign-in"></a>로그인
 
 Microsoft _회사 계정을_ 사용 하 여 [IoT용 Azure Certified 포털](https://aka.ms/ACFI) 포털에 로그인 합니다. 포털은 사용자가 로그인 할 때 Microsoft 파트너 센터를 사용 하 여 멤버 자격을 확인 합니다.
 
@@ -33,6 +33,6 @@ Microsoft _회사 계정을_ 사용 하 여 [IoT용 Azure Certified 포털](http
 
 IoT 인증 장치 카탈로그에 장치를 게시 하기 전에 프로그램 계약을 읽고 동의 합니다. 규약은 IoT용 Azure Certified 포털의 설정 페이지에서 찾을 수 있습니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 제안 된 다음 단계는 [인증을 위해 IoT 플러그 앤 플레이 장치를 제출](tutorial-certification-test.md)하는 방법을 배우는 것입니다.

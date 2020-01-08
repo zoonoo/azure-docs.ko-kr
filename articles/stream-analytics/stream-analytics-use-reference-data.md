@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics에서 조회에 대한 참조 데이터 사용
 description: 이 문서에서는 Azure Stream Analytics 작업의 쿼리 디자인에서 조회 또는 상관 관계 데이터에 대한 참조 데이터를 사용하는 방법을 설명합니다.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d058fdd48b8a271c8a2db7d327267de053c02c44
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369567"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
@@ -21,7 +20,7 @@ ms.locfileid: "72244849"
 
 Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure Blob 스토리지 및 Azure SQL Database를 지원합니다. 또한 참조 데이터를 Azure Data Factory에서 Blob Storage로 변환 및/또는 복사하여 [여러 클라우드 기반 및 온-프레미스 데이터 저장소](../data-factory/copy-activity-overview.md)를 사용할 수 있습니다.
 
-## <a name="azure-blob-storage"></a>Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.
+## <a name="azure-blob-storage"></a>Azure Blob Storage
 
 참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것**만** 지원됩니다.
 
@@ -32,14 +31,14 @@ Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure B
 |**속성 이름**  |**설명**  |
 |---------|---------|
 |입력 별칭   | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.   |
-|스토리지 계정   | Blob이 위치한 스토리지 계정의 이름입니다. Stream Analytics 작업과 동일한 구독에 있으면 드롭다운에서 선택할 수 있습니다.   |
+|Storage 계정   | Blob이 위치한 스토리지 계정의 이름입니다. Stream Analytics 작업과 동일한 구독에 있으면 드롭다운에서 선택할 수 있습니다.   |
 |Storage 계정 키   | 스토리지 계정과 연결된 비밀 키입니다. 스토리지 계정이 Stream Analytics 작업과 동일한 구독에 있으면 자동으로 채워집니다.   |
 |스토리지 컨테이너   | 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다.   |
 |경로 패턴   | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 경로입니다. 경로 내에서 다음 두 변수의 인스턴스 중 하나 이상을 지정하도록 선택할 수도 있습니다.<BR>{date}, {time}<BR>예 1: products/{date}/{time}/product-list.csv<BR>예 2: products/{date}/product-list.csv<BR>예 3: product-list.csv<BR><br> Blob이 지정된 경로에 없는 경우, Stream Analytics 작업은 Blob이 사용 가능해질 때까지 무기한 대기합니다.   |
 |날짜 형식[선택 사항]   | 지정한 경로 패턴 내에서 {date}를 사용한 경우 Blob이 구성되는 날짜 형식을 지원되는 형식 드롭다운에서 선택할 수 있습니다.<BR>예: YYYY/MM/DD, MM/DD/YYYY 등   |
-|시간 형식[선택 사항]   | 지정한 경로 패턴 내에서 {time}을 사용한 경우 Blob이 구성되는 시간 형식을 지원되는 형식 드롭다운에서 선택할 수 있습니다.<BR>예: HH, HH/mm 또는 HH-mm  |
+|시간 형식[선택 사항]   | 지정한 경로 패턴 내에서 {time}을 사용한 경우 Blob이 구성되는 시간 형식을 지원되는 형식 드롭다운에서 선택할 수 있습니다.<BR>예: HH, HH/mm 또는 HH-mm.  |
 |이벤트 직렬화 형식   | 쿼리가 예상대로 작동하는지 확인하려면 Stream Analytics은 들어오는 데이터 스트림으로 사용 중인 직렬화 형식을 알고 있어야 합니다. 참조 데이터에 대해 지원되는 형식은 CSV 및 JSON입니다.  |
-|인코딩   | 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.  |
+|Encoding   | 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.  |
 
 ### <a name="static-reference-data"></a>정적 참조 데이터
 
@@ -54,13 +53,13 @@ Azure Stream Analytics는 1분 간격으로 새로 고친 참조 데이터 Blob�
 > [!NOTE]
 > 현재 Stream Analytics 작업은 컴퓨터 시간이 Blob 이름에 인코딩된 시간으로 진행하는 경우에만 Blob 새로 고침을 찾습니다. 예를 들어 작업은 가능한 빨리 `sample/2015-04-16/17-30/products.csv`를 찾지만 표준 시간대 2015년 4월 16일 오후 5시 30분보다 이르지 않습니다. 마지막으로 검색된 것보다 이전에 인코딩된 시간으로 Blob을 찾지 *않습니다* .
 > 
-> 예를 들어 작업에서 blob을 찾은 `sample/2015-04-16/17-30/products.csv`은 5:30 년 4 월 16 2015 일 오후 오후 이전에 인코딩된 날짜의 파일을 무시 하므로, 지연 된 `sample/2015-04-16/17-25/products.csv` blob이 작업에서 사용 하지 않는 동일한 컨테이너에 생성 됩니다.
+> 예를 들어 작업에서 `sample/2015-04-16/17-30/products.csv` blob을 찾은 후 5:30 년 4 월 16 2015 일 오후에 인코드된 날짜로 파일을 무시 하 게 됩니다. 따라서 지연 되는 `sample/2015-04-16/17-25/products.csv` blob이 작업에서 사용 하지 않는 동일한 컨테이너에서 생성 됩니다.
 > 
 > 마찬가지로 `sample/2015-04-16/17-30/products.csv`가 2015년 4월 16일 오후 10시 3분에 생성되었지만 컨테이너에 이전 날짜의 Blob이 없는 경우 작업은 2015년 4월 16일 오후 10시 3분에 시작하는 이 파일을 사용하고 그때까지 이전 참조 데이터를 사용합니다.
 > 
 > 이에 대한 예외는 시간을 거슬러 데이터를 재처리해야 하는 작업이거나 작업을 최초로 시작할 때입니다. 시작 시점에 작업은 지정된 작업 시작 시간 이전에 생성된 가장 최근 Blob을 찾습니다. 이렇게 하면 작업을 시작할 때 **비어 있지 않은** 참조 데이터가 설정됩니다. 찾을 수 없는 경우 작업은 다음 진단 `Initializing input without a valid reference data blob for UTC time <start time>`을 표시합니다.
 
-Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요한 업데이트된 Blob을 만드는 작업을 오케스트레이션하는 데 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)를 사용할 수 있습니다. 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 데이터 팩터리는 [많은 수의 클라우드 기반 및 온-프레미스 데이터 저장소 연결](../data-factory/copy-activity-overview.md) 을 지원하고 사용자가 지정한 정기적인 일정으로 데이터를 쉽게 이동할 수 있도록 지원합니다. 미리 정의된 일정에 따라 새로 고쳐지는 Stream Analytics를 위한 참조 데이터를 생성하는 데이터 팩터리 파이프라인 설정 방법에 대한 단계별 지침과 자세한 내용은 이 [GitHub 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs)을 확인하세요.
+Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요한 업데이트된 Blob을 만드는 작업을 오케스트레이션하는 데 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)를 사용할 수 있습니다. Data Factory는 데이터 이동 및 변환을 오케스트레이션하고 자동화하는 클라우드 기반 데이터 통합 서비스입니다. 데이터 팩터리는 [많은 수의 클라우드 기반 및 온-프레미스 데이터 저장소 연결](../data-factory/copy-activity-overview.md) 을 지원하고 사용자가 지정한 정기적인 일정으로 데이터를 쉽게 이동할 수 있도록 지원합니다. 미리 정의된 일정에 따라 새로 고쳐지는 Stream Analytics를 위한 참조 데이터를 생성하는 데이터 팩터리 파이프라인 설정 방법에 대한 단계별 지침과 자세한 내용은 이 [GitHub 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs)을 확인하세요.
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Blob 참조 데이터 새로 고침 팁
 
@@ -72,7 +71,7 @@ Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요�
 3. 참조 데이터 Blob은 Blob의 “마지막 수정” 시간 순서가 **아니라** {date} 및 {time}을 대체하여 Blob 이름에 지정한 날짜와 시간으로만 순서가 지정됩니다.
 3. 많은 수의 BLOB을 표시하지 않으려면 더 이상 처리 작업이 수행되지 않는 아주 오래된 BLOB을 삭제합니다. 재시작 같은 일부 시나리오에서는 ASA가 소량을 다시 처리해야 할 수도 있습니다.
 
-## <a name="azure-sql-database"></a>Azure SQL 데이터베이스
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL Database 참조 데이터는 Stream Analytics 작업에서 검색되고 처리를 위해 메모리에 스냅샷으로 저장됩니다. 또한 참조 데이터의 스냅샷은 구성 설정에서 지정하는 스토리지 계정의 컨테이너에 저장됩니다. 컨테이너는 작업을 시작할 때 자동 생성됩니다. 작업이 중지되거나 실패 상태가 되면, 작업을 다시 시작할 때 자동 생성된 컨테이너가 삭제됩니다.  
 
@@ -91,7 +90,7 @@ SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입
 |**속성 이름**|**설명**  |
 |---------|---------|
 |입력 별칭|이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
-|구독|구독 선택|
+|Subscription|구독 선택|
 |데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. Azure SQL Database Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver, 3342* 입니다.|
 |사용자 이름|Azure SQL Database와 연결된 사용자 이름입니다.|
 |암호|Azure SQL Database와 연결된 암호입니다.|

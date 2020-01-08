@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 12/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4effd14029eaaee1e1c22cdb814096820e19e089
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ddf2cb5730f123038c5dbde7ab07b4022f021ced
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381123"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -26,13 +26,23 @@ ms.locfileid: "73794022"
 
 기술 자료의 최대 수는 [Azure Cognitive Search 계층 제한을](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)기반으로 합니다.
 
-|**Azure Cognitive Search 계층** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |게시할 수 있는 기술 자료의 최대 수|2|14|49|199|199|2,999|
 
- 예를 들어 계층에 허용되는 인덱스가 15개 있으면 기술 자료 14개를 게시할 수 있습니다(게시되는 기술 자료당 인덱스 1개). 15번째 인덱스(`testkb`)는 모든 기술 자료에서 작성 및 테스트용으로 사용됩니다. 
+ 예를 들어 계층에 허용되는 인덱스가 15개 있으면 기술 자료 14개를 게시할 수 있습니다(게시되는 기술 자료당 인덱스 1개). 15번째 인덱스(`testkb`)는 모든 기술 자료에서 작성 및 테스트용으로 사용됩니다.
 
 ## <a name="extraction-limits"></a>추출 제한
+
+### <a name="maximum-file-size"></a>최대 파일 크기
+
+|형식|최대 파일 크기 (MB)|
+|--|--|
+|`.docx`|10|
+|`.pdf`|25|
+|`.tsv`|10|
+|`.txt`|10|
+|`.xlsx`|3|
 
 ### <a name="maximum-number-of-files"></a>최대 파일 수
 
@@ -48,7 +58,7 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 기술 자료 당 최대 메타 데이터 필드 수는 **[Azure Cognitive Search 계층 제한을](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** 기반으로 합니다.
 
-|**Azure Cognitive Search 계층** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
 
@@ -58,7 +68,7 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 |항목|허용 되는 문자|Regex 패턴 일치|최대 문자|
 |--|--|--|--|
-|Name|수 있습니다<br>영숫자 (문자와 숫자)<br>`_` (밑줄)|`^[a-zA-Z0-9_]+$`|100|
+|이름|수 있습니다<br>영숫자 (문자와 숫자)<br>`_` (밑줄)|`^[a-zA-Z0-9_]+$`|100|
 |값|제외한 모든 항목 허용<br>`:` (콜론)<br>`|` (수직 파이프)|`^[^:|]+$`|500|
 |||||
 
@@ -67,12 +77,12 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 * 답변 텍스트 길이: 25,000
 * 질문 텍스트 길이: 1,000
 * 메타데이터 키/값 텍스트 길이: 100
-* 메타 데이터 이름에 대해 지원 되는 문자: 영문자, 숫자 및 `_`  
-* 메타 데이터 값에 대해 지원 되는 문자: `:` 및 `|`를 제외한 모든 값 
+* 메타 데이터 이름에 대해 지원 되는 문자: 영문자, 숫자 및 `_`
+* 메타 데이터 값에 대해 지원 되는 문자: `:` 및 `|`를 제외한 모든 값
 * 파일 이름 길이: 200
 * 지원되는 파일 형식: “.tsv”, “.pdf”, “.txt”, “.docx”, “.xlsx”
 * 최대 대체 질문 수: 300
-* 질문과 대답 쌍의 최대 수: 선택한 **[Azure Cognitive Search 계층](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** 에 따라 달라 집니다. 질문 및 답변 쌍은 Azure Cognitive Search 인덱스의 문서에 매핑됩니다. 
+* 질문과 대답 쌍의 최대 수: 선택한 **[Azure Cognitive Search 계층](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** 에 따라 달라 집니다. 질문 및 답변 쌍은 Azure Cognitive Search 인덱스의 문서에 매핑됩니다.
 * URL/HTML 페이지: 100만 문자
 
 ## <a name="create-knowledge-base-call-limits"></a>기술 자료 호출 제한 만들기

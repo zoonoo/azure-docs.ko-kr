@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics에서 작업 모니터링 이해
 description: 이 문서에서는 Azure Portal에서 Azure Stream Analytics 작업을 모니터링하는 방법을 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9432b43498cd48352427bf1ec2709a2d0f13a797
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431644"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
@@ -33,9 +32,9 @@ Azure Portal는 쿼리 및 작업 성능을 모니터링 하 고 문제를 해�
 | 백로그된 입력 이벤트       | 백로그된 입력 이벤트의 수입니다. 이 메트릭의 값이 0이 아니면 작업이 수신 이벤트 수를 적시에 처리할 수 없음을 의미합니다. 이 값이 천천히 증가하거나 일관되게 0이 아닌 경우 작업을 확장해야 합니다. [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md)에서 자세히 알아볼 수 있습니다. |
 | 데이터 변환 오류 | 예상 출력 스키마로 변환할 수 없는 출력 이벤트의 수입니다. 이 시나리오에서 발생하는 이벤트를 삭제하기 위해 오류 정책을 ‘삭제’로 변경할 수 있습니다. |
 | 초기 입력 이벤트       | 애플리케이션 타임스탬프가 도착 시간보다 5분 넘게 이전인 이벤트입니다. |
-| 실패한 함수 요청 | 실패한 Azure Machine Learning 함수 호출(있는 경우) 수입니다. |
+| 실패한 기능 요청 | 실패한 Azure Machine Learning 함수 호출(있는 경우) 수입니다. |
 | 함수 이벤트        | Azure Machine Learning 함수(있는 경우)에 전송된 이벤트 수입니다. |
-| 함수 요청      | Azure Machine Learning 함수(있는 경우)에 대한 호출 수입니다. |
+| 기능 요청      | Azure Machine Learning 함수(있는 경우)에 대한 호출 수입니다. |
 | 입력 역직렬화 오류       | 역직렬화할 수 없는 입력 이벤트 수입니다.  |
 | 입력 이벤트 바이트      | Stream Analytics 작업이 받은 데이터의 양(바이트)입니다. 입력 소스로 전송되는 이벤트의 유효성을 검사하는 데 사용할 수 있습니다. |
 | 입력 이벤트           | 입력 이벤트에서 역직렬화된 레코드 수입니다. Deserialization 오류가 발생 하는 들어오는 이벤트는이 수에 포함 되지 않습니다. |
@@ -59,7 +58,7 @@ Azure Portal는 쿼리 및 작업 성능을 모니터링 하 고 문제를 해�
 사용자 작업을 모니터링하기 위한 또 다른 흥미로운 데이터 요소는 개요 페이지에 표시되는 마지막 출력 시간입니다.
 이 시간은 작업의 최신 출력에 대한 애플리케이션 시간(즉, 이벤트 데이터의 타임스탬프를 사용한 시간)입니다.
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계

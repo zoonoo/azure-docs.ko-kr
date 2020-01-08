@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c19d32f0be2eb817f9f7d73e6c6eaad8d90ce350
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1fdd68bd0f817e4749c759a8f844eeac34599f02
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607792"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552800"
 ---
 # <a name="cicd-for-azure-spring-cloud"></a>Azure 스프링 클라우드 용 CI/CD
 
@@ -25,7 +25,7 @@ Azure DevOps 프로젝트에 대 한 Azure Resource Manager 서비스 연결을 
 
 ### <a name="deploy-artifacts"></a>아티팩트 배포
 
-일련의 `tasks`을 사용 하 여 프로젝트를 빌드하고 배포할 수 있습니다. 이 코드 조각은 먼저 응용 프로그램을 빌드하는 Maven 작업을 정의 하 고, Azure 스프링 클라우드 Azure CLI 확장을 사용 하 여 JAR 파일을 배포 하는 두 번째 작업을 정의 합니다.
+일련의 `tasks`를 사용 하 여 프로젝트를 빌드하고 배포할 수 있습니다. 이 코드 조각은 먼저 응용 프로그램을 빌드하는 Maven 작업을 정의 하 고, Azure 스프링 클라우드 Azure CLI 확장을 사용 하 여 JAR 파일을 배포 하는 두 번째 작업을 정의 합니다.
 
 ```yaml
 steps:
@@ -37,7 +37,7 @@ steps:
     azureSubscription: <your service connection name>
     scriptLocation: inlineScript
     inlineScript: |
-      az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+      az extension add -y --name spring-cloud
       az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name> --jar-path ./target/your-result-jar.jar
       # deploy other app
 ```
@@ -52,7 +52,7 @@ steps:
     azureSubscription: <your service connection name>
     scriptLocation: inlineScript
     inlineScript: |
-      az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+      az extension add -y --name spring-cloud
       az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name>
 
       # or if it is a multi-module project

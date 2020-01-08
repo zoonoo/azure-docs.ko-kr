@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: b1506c40d83e1483980c368db1659c9470b9a46a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: eb6119584787973f097f496fd24064a65383fecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368150"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
 
@@ -31,7 +31,7 @@ ms.locfileid: "74185466"
 
 PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell를 사용 하 여이 미리 보기 기능에 대 한 구독을 구성 해야 합니다.
 
 다음과 같이 등록 합니다.
@@ -130,7 +130,11 @@ $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
 $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 -Name "dsLbBackEndPool_v6"
 ```
-
+### <a name="create-a-health-probe"></a>상태 프로브 만들기
+[AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) 를 사용 하 여 vm의 상태를 모니터링 하는 상태 프로브를 만듭니다.
+```azurepowershell
+$probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
+```
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
 부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 Vm만 트래픽을 수신할 수 있도록 하려면 상태 프로브를 선택적으로 정의할 수 있습니다. 기본 부하 분산 장치는 IPv4 프로브를 사용 하 여 Vm의 IPv4 및 IPv6 끝점 모두에 대 한 상태를 평가 합니다. 표준 부하 분산 장치에는 명시적 IPv6 상태 프로브에 대 한 지원이 포함 됩니다.
@@ -144,7 +148,8 @@ $lbrule_v4 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv4 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+   -probe $probe
 
 $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -Name "dsLBrule_v6" `
@@ -152,7 +157,8 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv6 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+   -probe $probe
 ```
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기

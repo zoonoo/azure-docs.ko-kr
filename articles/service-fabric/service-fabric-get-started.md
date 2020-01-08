@@ -1,25 +1,15 @@
 ---
-title: Azure 마이크로 서비스에 대한 Windows 개발 환경 설정 | Microsoft Docs
+title: Windows 개발 환경 설정
 description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Windows에서 애플리케이션을 빌드할 수 있습니다.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/18/2019
-ms.author: atsenthi
-ms.openlocfilehash: 1eb8e5893d93ef0261d68df4629b072876096711
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 9e055a0674804a15d307a879fd8cb609e3c2631d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185669"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614386"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -31,7 +21,7 @@ ms.locfileid: "74185669"
 
 Windows 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램][1] 을 빌드하고 실행 하려면 Service Fabric 런타임, SDK 및 도구를 설치 합니다. 또한 SDK에 포함된 [Windows PowerShell 스크립트의 실행을 사용하도록 설정](#enable-powershell-script-execution)해야 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 개발을 위해 다음 운영 체제 버전이 지원됩니다.
 
@@ -39,7 +29,7 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램][1] 을
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* Windows 10
+* Windows 10
 
 > [!NOTE]
 > Windows 7 지원:

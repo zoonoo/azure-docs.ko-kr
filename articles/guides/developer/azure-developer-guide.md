@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c8ab954471e597cfea5c6f56cd45b2191aa73242
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 92ff08d460e9bf11b49700570a156a101811a533
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435999"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
+# <a name="get-started-guide-for-azure-developers"></a>Azure 개발자용 시작 가이드
 
 ## <a name="what-is-azure"></a>Azure란?
 
@@ -92,11 +92,11 @@ VM에 대한 제어 수준으로 인해 Azure에서 PaaS 모델에 적합하지 
 
 Azure Service Fabric는 분산 시스템 플랫폼입니다. 이 플랫폼을 사용 하면 확장 가능 하 고 안정적인 마이크로 서비스를 쉽게 빌드, 패키징, 배포 및 관리할 수 있습니다. 또한 다음과 같은 포괄적인 응용 프로그램 관리 기능을 제공 합니다. 
 
-* 프로비전
+* 프로비저닝
 * 배포 중 
 * 모니터링
 * 업그레이드/패치
-* 삭제 
+* 삭제 중 
 
 컴퓨터의 공유 풀에서 실행하는 앱은 작게 시작하고 필요에 따라 수백 또는 수천 대의 컴퓨터로 확장할 수 있습니다.
 
@@ -104,7 +104,7 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
 > **사용 시기:** Service Fabric은 애플리케이션을 만들거나 마이크로 서비스 아키텍처를 사용하도록 기존 애플리케이션을 다시 작성하는 경우에 적합합니다. 기본 인프라에 대한 더 많은 제어 기능 또는 직접 액세스가 필요한 경우에 Service Fabric을 사용합니다.
 > 
-> **시작하기:** [첫 번째 Azure Service Fabric 애플리케이션을 만듭니다](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+> **시작 하기:** [첫 번째 Azure Service Fabric 응용 프로그램을 만듭니다](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Azure 서비스를 사용하여 애플리케이션 개선
 
@@ -207,7 +207,7 @@ VM을 프로비전하든 연속 통합을 사용하여 웹앱을 게시하든, A
 
 > **시작하기**: App Service 앱의 DevOps 옵션을 보려면 [Azure App Service에 연속 배포](../../app-service/deploy-continuous-deployment.md)를 참조하세요.
 > 
-> **지금 사용해 보기:** [다양한 DevOps 통합을 사용해 봅니다](https://azure.microsoft.com/try/devops/).
+> **지금 사용해 보세요.** [몇 가지 devops 통합을 사용해 보세요](https://azure.microsoft.com/try/devops/).
 
 
 ## <a name="azure-regions"></a>Azure 지역
@@ -238,7 +238,7 @@ Azure는 명령줄에서 응용 프로그램 및 서비스를 관리 하는 두 
 
 -   [Azure PowerShell](../../powershell-install-configure.md): Windows PowerShell을 사용하여 Azure 리소스를 관리할 수 있도록 하는 cmdlet이 포함된 모듈 집합을 제공합니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 [Azure Portal](https://portal.azure.com) 은 웹 기반 응용 프로그램입니다. Azure Portal를 사용 하 여 Azure 리소스 및 서비스를 만들고, 관리 하 고, 제거할 수 있습니다. 다음을 포함합니다.
 
@@ -266,7 +266,7 @@ REST Api와 함께 많은 Azure 서비스를 사용 하면 다음과 같은 개�
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-Azure에서 앱을 실행 하는 경우 여러 Azure 서비스를 사용 하는 것이 포함 될 수 있습니다. 이러한 서비스는 동일한 수명 주기를 따르고 논리적 단위로 간주할 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
+Azure에서 앱을 실행 하는 경우 여러 Azure 서비스를 사용 하는 것이 포함 될 수 있습니다. 이러한 서비스는 동일한 수명 주기를 따르고 논리적 단위로 간주할 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
 에는 관련 된 리소스를 논리적으로 그룹화 및 관리 하는 것과 함께 Azure Resource Manager에는 관련 리소스의 배포 및 구성을 사용자 지정할 수 있는 배포 기능이 포함 되어 있습니다. 예를 들어 리소스 관리자를 사용 하 여 응용 프로그램을 배포 하 고 구성할 수 있습니다. 이 응용 프로그램은 여러 가상 머신, 부하 분산 장치 및 Azure SQL database를 단일 단위로 구성할 수 있습니다.
 
@@ -324,7 +324,7 @@ Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태�
 
 각 리소스에 여러 태그를 할당할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../../resource-group-using-tags.md)을 참조하세요.
 
-### <a name="billing"></a>결제
+### <a name="billing"></a>청구
 
 온-프레미스 컴퓨팅에서 클라우드에 호스트된 서비스로 이동 시 서비스 사용량 및 관련 비용을 추적하고 예측하는 것은 중요합니다. 월 기준으로 실행 될 새 리소스의 비용을 예측 하는 것이 중요 합니다. 또한 현재 지출에 따라 특정 월에 대 한 대금 청구의 모양을 지정할 수 있습니다.
 

@@ -8,26 +8,27 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: d76ea317271ae0e8eb0d54fcfee5dc005d836fc1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 156999c6b6d8451516ac1c0f095e1a864420d0b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984949"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354824"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Power BI를 사용 하 여 Azure Data Lake Storage Gen2 데이터 분석
 
 이 문서에서는 Power BI Desktop를 사용 하 여 계층적 네임 스페이스 (Azure Data Lake Storage Gen2)가 있는 저장소 계정에 저장 된 데이터를 분석 하 고 시각화 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 > [!div class="checklist"]
-> * Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+> * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 > * 계층적 네임 스페이스를 포함 하는 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
-> 이 문서에서는 라는 `myadlsg2`계정을 만들었다고 가정 합니다.
-> * 저장소 계정에 있는 라는 `Drivers.txt` 샘플 데이터 파일
+> 이 문서에서는 `myadlsg2`라는 계정을 만들었다고 가정 합니다.
+> * 저장소 계정에 대 한 **Blob 데이터 판독기**, **blob 데이터 참가자**또는 **blob 데이터 소유자**역할 중 하나가 부여 됩니다.
+> * 저장소 계정에 있는 `Drivers.txt` 이라는 샘플 데이터 파일
 > [Azure Data Lake Git 리포지토리에서](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)이 샘플을 다운로드 한 다음 해당 파일을 저장소 계정에 업로드할 수 있습니다.
 > * **Power BI Desktop**. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=45331)에서 다운로드할 수 있습니다. 
 
@@ -39,7 +40,7 @@ ms.locfileid: "70984949"
 
     ![데이터 가져오기 페이지](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. **Azure Data Lake Storage Gen2** 대화 상자에서 컨테이너 끝점 형식을 사용 하 여 Azure Data Lake Storage Gen2 계정, 파일 시스템 또는 하위 폴더에 대 한 URL을 제공할 수 있습니다. Data Lake Storage Gen2에 대 한 url에는 `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` 다음 패턴이 있으며 **확인**을 클릭 합니다.
+4. **Azure Data Lake Storage Gen2** 대화 상자에서 컨테이너 끝점 형식을 사용 하 여 Azure Data Lake Storage Gen2 계정, 파일 시스템 또는 하위 폴더에 대 한 URL을 제공할 수 있습니다. Data Lake Storage Gen2에 대 한 Url의 패턴 `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` 다음 **확인**을 클릭 합니다.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

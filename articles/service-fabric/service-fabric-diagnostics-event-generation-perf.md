@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 성능 모니터링 | Microsoft Docs
+title: Azure Service Fabric 성능 모니터링
 description: Azure Service Fabric 클러스터를 모니터링하고 진단하기 위한 성능 카운터에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464711"
 ---
 # <a name="performance-metrics"></a>성능 메트릭
 
@@ -34,8 +25,8 @@ ms.locfileid: "60392894"
 | 논리 디스크 | 논리적 디스크에서 사용 가능한 공간 |
 | PhysicalDisk(디스크당) | 평균 디스크 읽기 큐 길이 |
 | PhysicalDisk(디스크당) | 평균 디스크 쓰기 큐 길이 |
-| PhysicalDisk(디스크당) | 평균 디스크 초/읽기 |
-| PhysicalDisk(디스크당) | 평균 디스크 초/쓰기 |
+| PhysicalDisk(디스크당) | Avg. Disk sec/Read |
+| PhysicalDisk(디스크당) | Avg. Disk sec/Write |
 | PhysicalDisk(디스크당) | 디스크 읽기/초 |
 | PhysicalDisk(디스크당) | 디스크 읽기 바이트/초 |
 | PhysicalDisk(디스크당) | 디스크 쓰기/초 |

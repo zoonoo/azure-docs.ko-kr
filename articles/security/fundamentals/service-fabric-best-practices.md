@@ -1,31 +1,23 @@
 ---
-title: Azure Service Fabric 보안 모범 사례 | Microsoft Docs
+title: Azure Service Fabric 보안에 대 한 모범 사례
 description: 이 문서에서는 Azure Service Fabric 보안을 위한 여러 모범 사례를 제공합니다.
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-ms.assetid: ''
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-ms.openlocfilehash: dc063621e6b3e1d0d3e1a51d744ca9d9a6ef8c8d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934621"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548822"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 애플리케이션을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 애플리케이션을 배포하기 전에 애플리케이션에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
 
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다.
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고, 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다.
 
 각 모범 사례에 대해 다음과 같이 설명합니다.
 
@@ -65,13 +57,13 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 다양한 기술을 사용하여 클러스터 보안을 구현하기 위해 세 가지 [시나리오](../../service-fabric/service-fabric-cluster-security.md)가 있습니다.
 
--   노드-노드 보안: 이 시나리오는 VM과 클러스터 내 컴퓨터 간의 통신을 보호합니다. 이러한 보안 형태는 클러스터에 가입하도록 인증된 컴퓨터만 클러스터에서 애플리케이션 및 서비스를 호스팅할 수 있습니다.
+-   노드 - 노드 보안: 이 시나리오는 VM과 클러스터 내 컴퓨터 간의 통신을 보호합니다. 이러한 보안 형태는 클러스터에 가입하도록 인증된 컴퓨터만 클러스터에서 애플리케이션 및 서비스를 호스팅할 수 있습니다.
 이 시나리오에서 Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 Windows Server 컴퓨터에 대해 [인증서 보안](../../service-fabric/service-fabric-windows-cluster-x509-security.md) 또는 [Windows 보안](../../service-fabric/service-fabric-windows-cluster-windows-security.md)을 사용할 수 있습니다.
--   클라이언트-노드 보안: 이 시나리오는 클라이언트를 인증하고 Service Fabric 클라이언트와 클러스터의 개별 노드 간 통신을 보호합니다.
--   RBAC(역할 기반 액세스 제어): 이 시나리오는 클러스터에 액세스하는 각 관리자와 사용자 클라이언트 역할에 대해 별도의 ID(인증서, Azure AD 인증서 등)를 사용합니다. 클러스터를 만들 때 역할 ID를 지정합니다.
+-   클라이언트 - 노드 보안: 이 시나리오는 클라이언트를 인증하고 Service Fabric 클라이언트와 클러스터의 개별 노드 간 통신을 보호합니다.
+-   역할 기반 액세스 제어(RBAC): 이 시나리오는 클러스터에 액세스하는 각 관리자와 사용자 클라이언트 역할에 대해 별도의 ID(인증서, Azure AD 인증서 등)를 사용합니다. 클러스터를 만들 때 역할 ID를 지정합니다.
 
 >[!NOTE]
->**Azure 클러스터에 대한 보안 권장 사항:** Azure AD 보안을 사용하여 노드 간 보안에 대해 클라이언트 및 인증서를 인증합니다.
+>**Azure 클러스터를 위한 보안 권장:** Azure AD 보안을 사용하여 노드 간 보안에 대해 클라이언트 및 인증서를 인증합니다.
 
 독립 실행형 Windows 클러스터를 구성하려면 [독립 실행형 Windows 클러스터에 대한 설정 구성](../../service-fabric/service-fabric-cluster-manifest.md)을 참조하세요.
 
@@ -133,7 +125,7 @@ Service Fabric의 경우 행위자는 Reliable Actors 애플리케이션 프레�
 애플리케이션에 대해 SSL을 구성하려면 먼저 CA에서 서명한 SSL 인증서를 얻어야 합니다. CA가 SSL 보안 목적을 위해 인증서를 발급하는 신뢰할 수 있는 타사입니다. SSL 인증서가 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
 
 인증서는 Azure의 SSL 인증서에 대한 다음 요구 사항을 충족해야 합니다.
--   인증서에 개인 키가 있어야 합니다.
+-   인증서에 프라이빗 키가 포함되어 있어야 합니다.
 
 -   인증서는 키 교환을 위해 만들어야 하며 개인 정보 교환(.pfx) 파일로 내보낼 수 있어야 합니다.
 
@@ -152,7 +144,7 @@ HTTP 프로토콜은 보안되지 않으며 도청 공격을 받기 쉽습니다
 SSL 인증서 사용에 대한 자세한 내용은 [Azure 애플리케이션에 대 한 SSL 구성](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md)을 참조하세요.
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Azure Service Fabric을 통한 네트워크 격리 및 보안 사용
-[Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 샘플로 사용하여 3 nodetype 보안 클러스터를 설정합니다. 템플릿 및 네트워크 보안 그룹을 사용하여 인바운드 및 아웃바운드 네트워크 트래픽을 제어합니다.
+[Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 샘플로 사용하여 3 nodetype 보안 클러스터를 설정합니다. 템플릿 및 네트워크 보안 그룹을 사용하여 인바운드 및 아웃바운드 네트워크 트래픽을 제어합니다.
 
 템플릿에는 각 가상 머신 확장 집합(VMSS)에 대한 NSG가 있으며, 이 집합을 드나드는 트래픽을 제어하는 데 사용됩니다. 규칙은 기본적으로 템플릿에서 지정된 시스템 서비스와 애플리케이션 포트에 필요한 모든 트래픽을 허용하도록 구성됩니다. 이러한 규칙을 검토하고 애플리케이션에 대한 새 규칙을 추가하는 등 필요에 따라 변경합니다.
 
@@ -177,7 +169,7 @@ Service Fabric은 클러스터에 보안을 적용하고 애플리케이션 보�
 키 자격 증명 모음 설정 방법에 대한 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
 
 ## <a name="assign-users-to-roles"></a>역할에 사용자 할당
-클러스터를 나타내는 애플리케이션을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. Azure Portal을 사용하여 역할을 할당할 수 있습니다.
+클러스터를 나타내는 응용 프로그램을 만든 후에는 Service Fabric에서 지 원하는 역할 (읽기 전용 및 관리자)에 사용자를 할당 합니다. Azure Portal를 사용 하 여 이러한 역할을 할당할 수 있습니다.
 
 >[!NOTE]
 > Service Fabric에서 역할 사용에 대한 자세한 내용은 [Service Fabric 클라이언트의 역할 기반 액세스 제어](../../service-fabric/service-fabric-cluster-security-roles.md)를 참조하세요.

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f55b8963ad9f940202816704c5818c6853ffcde
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353694"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -29,9 +29,11 @@ P2S VPN 연결은 Windows 및 Mac 디바이스에서 시작됩니다. 다음 인
 
 ![연결 다이어그램 - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
-P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol) 또는 IKEv2를 통한 VPN 연결을 만듭니다.
+P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP (Secure Socket Tunneling Protocol), OpenVPN 또는 IKEv2를 통해 VPN 연결을 만듭니다.
 
 * SSTP는 Windows 클라이언트 플랫폼에서만 지원되는 SSL 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Azure에 연결할 수 있는 이상적인 옵션입니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다.
+
+* OpenVPN® 프로토콜, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
@@ -77,16 +79,16 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **서브넷 이름: GatewaySubnet**<br>서브넷 이름 *GatewaySubnet*은 VPN Gateway가 작동하기 위한 필수 항목입니다.
   * **GatewaySubnet 주소 범위: 192.168.200.0/24** 
 * **VPN 클라이언트 주소 풀: 172.16.201.0/24**<br>이 지점 및 사이트 간 연결을 사용하여 VNet에 연결되는 VPN 클라이언트는 VPN 클라이언트 주소 풀에서 IP 주소를 받습니다.
-* **구독:** 구독이 둘 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
+* **구독:** 구독이 2개 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
 * **리소스 그룹: TestRG**
 * **위치: 미국 동부**
-* **DNS 서버: VNet에 대한 이름 확인에 사용하려는 DNS 서버의 IP 주소**입니다. (선택 사항)
+* **DNS 서버:** VNet에 대한 이름 확인에 사용하려는 DNS 서버의 IP 주소 (선택 사항)
 * **GW 이름: Vnet1GW**
 * **공용 IP 이름: VNet1GWPIP**
-* **VpnType: 경로 기반**
+* **VpnType: RouteBased**
 
 
-## <a name="signin"></a>로그인 및 변수를 설정 합니다.
+## <a name="signin"></a>로그인 및 변수 설정
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -112,7 +114,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
   $GWIPconfName = "gwipconf"
   ```
 
-## 1. <a name="vnet"></a>리소스 그룹, VNet 및 공용 IP 주소 만들기
+## 1. <a name="vnet"> </a>리소스 그룹, VNet 및 공용 IP 주소를 만듭니다.
 
 다음 단계에서는 세 개의 서브넷이 있는 리소스 그룹과 리소스 그룹의 가상 네트워크를 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 'GatewaySubnet'이라고 구체적으로 지정해야 합니다. 다른 이름을 지정하면 게이트웨이 만들기가 실패합니다.
 
@@ -146,7 +148,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## 2. <a name="radius"></a>RADIUS 서버 설정
+## 2. <a name="radius"> </a>RADIUS 서버 설정
 
 가상 네트워크 게이트웨이를 만들고 구성하기 전에 인증을 위한 RADIUS 서버를 올바르게 구성해야 합니다.
 
@@ -156,7 +158,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 [NPS(네트워크 정책 서버)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) 문서에서는 AD 도메인 인증을 위해 Windows RADIUS 서버(NPS)를 구성하는 방법에 대한 지침을 제공하고 있습니다.
 
-## 3. <a name="creategw"></a>VPN 게이트웨이 만들기
+## 3. <a name="creategw"> </a>VPN gateway 만들기
 
 VNet에 대한 VPN 게이트웨이를 구성하고 만듭니다.
 
@@ -169,11 +171,11 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## 4. <a name="addradius"></a>RADIUS 서버 및 클라이언트 주소 풀 추가
+## 4. <a name="addradius"> </a>RADIUS 서버 및 클라이언트 주소 풀 추가
  
 * -RadiusServer는 이름 또는 IP 주소로 지정할 수 있습니다. 이름을 지정하고 서버가 온-프레미스에 있으면 VPN 게이트웨이에서 해당 이름을 확인할 수 없습니다. 이러한 경우에는 서버의 IP 주소를 지정하는 것이 좋습니다. 
 * -RadiusSecret은 RADIUS 서버에 구성된 것과 일치해야 합니다.
-* -VpnCientAddressPool은 연결하는 VPN 클라이언트에서 IP 주소를 받는 범위입니다. 연결 원본이 되는 온-프레미스 위치 또는 연결 대상이 되는 VNet과 겹치지 않는 개인 IP 주소 범위를 사용합니다. 충분한 크기의 주소 풀을 구성했는지 확인합니다.  
+* -VpnCientAddressPool은 연결하는 VPN 클라이언트에서 IP 주소를 받는 범위입니다. 연결할 온-프레미스 위치와 겹치지 않는 개인 IP 주소 범위 또는 연결 하려는 VNet과 겹치지 않는 개인 IP 주소 범위를 사용 합니다. 충분한 크기의 주소 풀을 구성했는지 확인합니다.  
 
 1. RADIUS 비밀의 보안 문자열을 만듭니다.
 
@@ -197,6 +199,17 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
+   OpenVPN® 구성의 경우:
+
+    ```azurepowershell-interactive
+    $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientRootCertificates @()
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "OpenVPN" `
+    -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+    ```
+
+
    IKEv2 구성:
 
     ```azurepowershell-interactive
@@ -215,9 +228,9 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## 5. <a name="vpnclient"></a>VPN 클라이언트 구성 패키지 다운로드 및 VPN 클라이언트 설정
+## 5. <a name="vpnclient"> </a>vpn 클라이언트 구성 패키지를 다운로드 하 고 vpn 클라이언트를 설정 합니다.
 
-VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 디바이스를 연결할 수 있습니다. VPN 클라이언트 구성 패키지를 생성하고 VPN 클라이언트를 설정하려면 [RADIUS 인증에 대한 VPN 클라이언트 구성 만들기](point-to-site-vpn-client-configuration-radius.md)를 참조하세요.
+VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 디바이스를 연결할 수 있습니다. Vpn 클라이언트 구성 패키지를 생성 하 고 VPN 클라이언트를 설정 하려면 [RADIUS 인증에 대 한 Vpn 클라이언트 구성 만들기](point-to-site-vpn-client-configuration-radius.md)를 참조 하세요.
 
 ## <a name="connect"></a>6. Azure에 연결
 

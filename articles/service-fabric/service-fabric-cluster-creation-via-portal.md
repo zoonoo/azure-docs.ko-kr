@@ -1,30 +1,19 @@
 ---
-title: Azure Portal에서 Service Fabric 클러스터 만들기 | Microsoft Docs
+title: Azure Portal에서 Service Fabric 클러스터 만들기
 description: Azure Portal 및 Azure Key Vault를 사용하여 Azure에서 보안 Service Fabric 클러스터를 설정하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
-ms.author: atsenthi
-ms.openlocfilehash: ca050e19ed37e2895507507338ebf4b4217851b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452312"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -79,7 +68,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>서비스 패브릭 클러스터 리소스 검색
 
-[Azure portal][azure-portal]에 로그인합니다.
+[Azure Portal][azure-portal]에 로그인합니다.
 **리소스 만들기**를 클릭하여 새 리소스 템플릿을 추가합니다. **Marketplace**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
 목록에서 **서비스 패브릭 클러스터** 를 선택합니다.
 
@@ -210,7 +199,7 @@ Powershell 또는 CLI를 사용하여 클러스터에 대한 관리 작업을 �
 클러스터에서 지정한 각 NodeType에 따라 Virtual Machine Scale Set가 설정됩니다. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
 ## <a name="next-steps"></a>다음 단계
-이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
+이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

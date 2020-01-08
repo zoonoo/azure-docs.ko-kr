@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric에 기존 실행 파일 패키지 Microsoft Docs
+title: 기존 실행 파일을 Azure에 패키지 Service Fabric
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/15/2018
-ms.author: atsenthi
-ms.openlocfilehash: bd6984db67a8a7b9c38988558ada51e12d337f52
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013269"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457825"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric에 배포
 Azure Service Fabric에서 Node.js, Java 또는 C++과 같은 모든 종류의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 게스트 실행 파일이라고 합니다.

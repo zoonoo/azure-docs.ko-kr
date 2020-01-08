@@ -1,32 +1,23 @@
 ---
-title: Azure Service Fabric CLI- sfctl store| Microsoft Docs
-description: Service Fabric CLI sfctl store 명령을 설명합니다.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 저장소
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 클러스터 이미지 저장소에서 파일 수준 작업을 수행 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: e8a085c4aa6df34441f22da5542231999930d89f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 64a8ea963afa9e20dfafb71db69b2baf66959369
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900949"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645262"
 ---
 # <a name="sfctl-store"></a>sfctl store
 클러스터 이미지 저장소에서 기본 파일 수준 작업을 수행합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | delete | 기존 이미지 저장소 콘텐츠를 삭제합니다. |
 | root-info | 이미지 저장소의 루트에서 콘텐츠 정보를 가져옵니다. |
@@ -39,20 +30,20 @@ ms.locfileid: "72900949"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --content-path [필수] | 루트에서 이미지 저장소의 파일 또는 폴더에 대한 상대 경로입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-store-root-info"></a>sfctl 저장소 루트 정보
 이미지 저장소의 루트에서 콘텐츠 정보를 가져옵니다.
@@ -61,19 +52,19 @@ ms.locfileid: "72900949"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-store-stat"></a>sfctl store stat
 이미지 저장소 콘텐츠 정보를 가져옵니다.
@@ -82,20 +73,20 @@ ms.locfileid: "72900949"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --content-path [필수] | 루트에서 이미지 저장소의 파일 또는 폴더에 대한 상대 경로입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

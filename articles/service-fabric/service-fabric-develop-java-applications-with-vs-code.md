@@ -1,25 +1,16 @@
 ---
-title: Visual Studio Code를 사용하여 Java Azure Service Fabric 애플리케이션 개발 | Microsoft Docs
+title: Visual Studio Code를 사용 하 여 Java 응용 프로그램 개발
 description: 이 문서에서는 Visual Studio Code를 사용하여 Java Service Fabric 애플리케이션을 빌드, 배포 및 디버그하는 방법을 보여 줍니다.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 7f60371fb533526ef5bdb154d0c08dface9c0d1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393951"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610049"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Java Service Fabric 애플리케이션 개발
 
@@ -52,7 +43,7 @@ VS Code를 엽니다.  **작업 막대**에서 탐색기 아이콘을 클릭하�
 ## <a name="build-the-application"></a>애플리케이션 빌드
 
 1. VS Code에서 (Ctrl + Shift + p)를 눌러 **명령 팔레트**를 엽니다.
-2. **Service Fabric: Build Application** 명령을 검색하고 선택합니다. 빌드 출력이 통합된 터미널로 전송됩니다.
+2. **Service Fabric: Build Application** 명령을 검색한 후 선택합니다. 빌드 출력이 통합된 터미널로 전송됩니다.
 
    ![VS Code의 Build Application 명령](./media/service-fabric-develop-java-applications-with-vs-code/sf-build-application.png)
 
@@ -62,7 +53,7 @@ VS Code를 엽니다.  **작업 막대**에서 탐색기 아이콘을 클릭하�
 > [!IMPORTANT]
 > Windows 컴퓨터에서는 로컬 클러스터로 Java 애플리케이션을 배포할 수 없습니다.
 
-1. **명령 팔레트**에서 **Service Fabric: 애플리케이션 배포(Localhost) 명령**을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
+1. **명령 팔레트**에서 **Service Fabric: Deploy Application (Localhost) 명령**을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
 
    ![VS Code의 Deploy Application 명령](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +65,7 @@ VS Code를 엽니다.  **작업 막대**에서 탐색기 아이콘을 클릭하�
 
    ![브라우저의 Voting 애플리케이션](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. 클러스터에서 응용 프로그램을 제거 하려면 선택 하 여 **Service Fabric: 응용 프로그램 제거** 에서 명령을 합니다 **명령 팔레트**합니다. 제거 프로세스의 출력이 통합된 터미널로 전송됩니다. Service Fabric Explorer를 사용하여 애플리케이션이 로컬 클러스터에서 제거되었는지 확인할 수 있습니다.
+5. 클러스터에서 애플리케이션을 제거하려면 **명령 팔레트**에서 **Service Fabric: Remove Application** 명령을 선택합니다. 제거 프로세스의 출력이 통합된 터미널로 전송됩니다. Service Fabric Explorer를 사용하여 애플리케이션이 로컬 클러스터에서 제거되었는지 확인할 수 있습니다.
 
 ## <a name="debug-the-application"></a>애플리케이션 디버그
 VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로컬 클러스터에서 실행되고 있어야 합니다. 그래야 코드에 중단점을 추가할 수 있습니다.
@@ -105,7 +96,7 @@ VotingDataService 및 Voting 애플리케이션을 디버그할 수 있게 준�
 
    ![launch.json에 대한 디버그 구성](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
-4. 사용 하 여 로컬 클러스터에 응용 프로그램 배포는 **Service Fabric: 배포 응용 프로그램 (Localhost)** 명령입니다. 애플리케이션이 Service Fabric Explorer에서 실행되고 있는지 확인합니다. 애플리케이션을 디버그할 준비가 되었습니다.
+4. **Service Fabric: Deploy Application (Localhost)** 명령을 사용하여 로컬 클러스터에 애플리케이션을 배포합니다. 애플리케이션이 Service Fabric Explorer에서 실행되고 있는지 확인합니다. 애플리케이션을 디버그할 준비가 되었습니다.
 
 중단점을 설정하려면 다음 단계를 수행합니다.
 
@@ -127,7 +118,7 @@ VotingDataService 및 Voting 애플리케이션을 디버그할 수 있게 준�
    
    ![디버거에서 연결 끊기](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. 디버깅을 완료하면 **Service Fabric: 응용 프로그램 제거** 명령 Voting 응용 프로그램이 로컬 클러스터에서 제거 합니다. 
+5. 디버깅을 완료한 경우 **Service Fabric: Remove Application** 명령을 사용하여 로컬 클러스터에서 Voting 애플리케이션이 제거할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

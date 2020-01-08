@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 891f680485ec3ee65c0bef102eb7f52cea0611c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 57bc5739d8e6b1fa30482de69285c8895294cfa8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839642"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454752"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>배포 된 Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 끝점 만들기
 
@@ -39,7 +39,7 @@ Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스에 엔
 
 ## <a id="scaling"></a> 엔드포인트를 더 추가하여 웹 서비스 확장
 
-기본적으로 게시된 각각의 웹 서비스는 20개의 동시 요청을 지원하고 최대 200개의 동시 요청을 지원할 수 있도록 구성됩니다. Azure Machine Learning Studio의 클래식 버전은 웹 서비스에 대 한 최상의 성능을 제공 하기 위해 설정을 자동으로 최적화 하 고 포털 값은 무시 됩니다.
+기본적으로 게시된 각각의 웹 서비스는 20개의 동시 요청을 지원하고 최대 200개의 동시 요청을 지원할 수 있도록 구성됩니다. Azure Machine Learning Studio (클래식)은 웹 서비스에 대 한 최상의 성능을 제공 하기 위해 설정을 자동으로 최적화 하 고 포털 값은 무시 됩니다.
 
 최대 동시 호출 값인 200에서 지원하는 것보다 많은 부하를 사용하여 API를 호출하려는 경우 동일한 웹 서비스에서 여러 엔드포인트를 만들어야 합니다. 그런 다음 모든 끝점에 부하를 무작위로 분산해야 합니다.
 

@@ -5,17 +5,17 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9ec3a6b39a857f888514b0a3872ae411e1819f3a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422129"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](https://azure.microsoft.com/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 애플리케이션의 프로비전 및 배포하는 방법을 보여줍니다. 
 
-고도로 분리된 마이크로 서비스로 구성된 고확장성 애플리케이션을 프로비전 및 배포할 때 반복성과 예측 가능성이 관건입니다. [Azure App Service](https://azure.microsoft.com/services/app-service/)를 사용하면 웹앱, 모바일 백 엔드 및 API 앱을 포함한 마이크로 서비스를 만들 수 있습니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)는 데이터베이스와 소스 제어 설정과 같은 리소스 종속성과 함께 모든 마이크로 서비스를 하나의 유닛으로 관리할 수 있도록 해줍니다. 이제 JSON 템플릿과 간단한 PowerShell 스크립팅을 사용하여 이러한 애플리케이션을 배포할 수 있습니다. 
+고도로 분리된 마이크로 서비스로 구성된 고확장성 애플리케이션을 프로비전 및 배포할 때 반복성과 예측 가능성이 관건입니다. [Azure App Service](https://azure.microsoft.com/services/app-service/)를 사용하면 웹앱, 모바일 백 엔드 및 API 앱을 포함한 마이크로 서비스를 만들 수 있습니다. [Azure Resource Manager](../azure-resource-manager/management/overview.md)는 데이터베이스와 소스 제어 설정과 같은 리소스 종속성과 함께 모든 마이크로 서비스를 하나의 유닛으로 관리할 수 있도록 해줍니다. 이제 JSON 템플릿과 간단한 PowerShell 스크립팅을 사용하여 이러한 애플리케이션을 배포할 수 있습니다. 
 
 ## <a name="what-you-will-do"></a>수행할 사항
 자습서에서는 포함된 애플리케이션을 배포합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "74671820"
 이 자습서에서는 다음 도구를 사용합니다. 도구에 대한 포괄적인 설명이 아니기 때문에 엔드투엔드 시나리오를 그대로 유지하고 각각에 대해 간단히 소개하고 이에 대한 자세한 정보를 찾을 수 있는 곳을 알려드립니다. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure 리소스 관리자 템플릿(JSON)
-예를 들어 Azure App Service에서 앱을 만들 때마다 Azure Resource Manager는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [Azure Marketplace](/azure/marketplace)의 복잡한 템플릿은 데이터베이스, 스토리지 계정, App Service 계획, 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 등을 포함할 수 있으며 이러한 템플릿은 PowerShell을 통해 제공됩니다. Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)
+예를 들어 Azure App Service에서 앱을 만들 때마다 Azure Resource Manager는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [Azure Marketplace](/azure/marketplace)의 복잡한 템플릿은 데이터베이스, 스토리지 계정, App Service 계획, 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 등을 포함할 수 있으며 이러한 템플릿은 PowerShell을 통해 제공됩니다. Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Visual Studio용 Azure SDK 2.6
 최신 SDK는 JSON 편집기에서 리소스 관리자 템플릿 지원에 향상된 기능을 포함합니다. 이것을 사용하여 신속하게 리소스 그룹 템플릿을 처음부터 만들고, 수정을 위한 기존 JSON 템플릿(예: 다운로드한 갤러리 템플릿)을 열고, 매개 변수 파일을 채우고, Azure 리소스 그룹 솔루션에서 직접 리소스 그룹을 배포할 수 있습니다.
@@ -87,7 +87,7 @@ Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모
 
 JSON 형식의 모든 세부 정보를 설명하지 않겠지만 [더 리소스](#resources) 섹션에 리소스 그룹 템플릿 언어 학습을 위한 링크가 있습니다. 여기에서 앱 배포에 대한 고유의 사용자 지정 템플릿을 만들기 시작하는데 도움이 되는 흥미로운 기능을 보여 주겠습니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 이러한 대부분의 매개 변수가 **Azure에 배포** 단추로 입력하려는 것임을 확인하려면 매개 변수 섹션을 살펴보세요. **Azure에 배포** 버튼 뒤에 사이트는 azuredeploy.json에 정의된 매개 변수를 사용하는 입력 UI를 채웁니다. 이러한 매개 변수는 리소스 이름, 속성 값 등의 리소스 정의 전체에서 사용됩니다.
 
 ### <a name="resources"></a>리소스
@@ -117,7 +117,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 * 데이터베이스 및 방화벽 규칙이 정의된 `“resources”: […]` 내부의 중첩된 리소스가 루트 수준의 SQLServer 리소스의 리소스 ID를 지정 하는 `dependsOn` 요소입니다. 이는 Azure 리소스 관리자에게 다음과 같은 사실을 알려줍니다. "이 리소스를 만들기 전에 다른 리소스가 이미 존재해야 합니다. 그 다른 리소스가 템플릿에 정의된 경우 그 하나를 먼저 만듭니다".
   
   > [!NOTE]
-  > `resourceId()` 함수를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid)를 참조하세요.
+  > `resourceId()` 함수를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](../azure-resource-manager/templates/template-functions-resource.md#resourceid)를 참조하세요.
   > 
   > 
 * `dependsOn` 요소의 효과로 Azure 리소스 관리자가 어떤 리소스를 동시에 만들 수 있고 어떤 리소스를 순차적으로 만들어야 하는지 알 수 있습니다. 
@@ -138,7 +138,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 `config/appsettings`를 위한 `properties` 요소에서 `"<name>" : "<value>"` 형식에 두 개의 앱 설정이 있습니다.
 
 * `PROJECT` 은 다중 프로젝트 Visual Studio 솔루션에서 어떤 프로젝트를 사용할지를 Azure 배포를 지시하는 [KUDU 설정](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) 입니다. 소스 제어가 어떻게 구성되는지 나중에 설명하겠지만 ToDoApp 코드가 다중 프로젝트 Visual Studio 솔루션에 존재하므로 이 설정이 필요합니다.
-* `clientUrl`은 애플리케이션 코드가 사용할 단순한 앱 설정입니다.
+* `clientUrl` 은 애플리케이션 코드가 사용할 단순한 앱 설정입니다.
 
 ##### <a name="connection-strings"></a>연결 문자열
 연결 문자열은 중첩된 리소스로 정의됩니다.
@@ -152,14 +152,14 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 > 
 > 
 
-##### <a name="source-control"></a>소스 제어
-소스 제어 설정은 중첩된 리소스로 정의됩니다. JSON 파일을 처리하는 동안 Azure 리소스 관리자가 연속 게시를 구성하고(나중에 `IsManualIntegration`에서 caveat 참조) 자동으로 애플리케이션 코드의 배포를 시작하려면 이 리소스를 사용합니다.
+##### <a name="source-control"></a>원본 제어
+소스 제어 설정은 중첩된 리소스로 정의됩니다. JSON 파일을 처리하는 동안 Azure 리소스 관리자가 연속 게시를 구성하고 ( `IsManualIntegration` 나중에서 caveat을 참조) 자동으로 애플리케이션 코드의 배포를 시작하려면 이 리소스를 사용합니다.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
 `RepoUrl` 및 `branch`는 매우 직관적이어야 하며 Git 리포지토리와 게시하려는 분기의 이름을 가리켜야 합니다. 다시, 입력 매개 변수에 의해 정의됩니다. 
 
-`dependsOn` 요소에서 앱 리소스 자체 외에도 `sourcecontrols/web`은 `config/appsettings` 및 `config/connectionstrings`에 따라 달라집니다. 일단 `sourcecontrols/web`가 구성되기 때문에 Azure 배포 프로세스는 애플리케이션 코드를 자동으로 배포, 빌드 및 시작하려 합니다. 따라서 이 종속성을 삽입하면 애플리케이션 코드를 실행하기 전에 애플리케이션이 필요한 앱 설정 및 연결 문자열에 액세스할 수 있는지 확인할 수 있습니다. 
+`dependsOn` 요소에서 앱 리소스 자체 외에도 `sourcecontrols/web`은 `config/appsettings` 및 `config/connectionstrings`에 따라 달라집니다. 일단 `sourcecontrols/web` 가 구성되기 때문에 Azure 배포 프로세스는 애플리케이션 코드를 자동으로 배포, 빌드 및 시작하려 합니다. 따라서 이 종속성을 삽입하면 애플리케이션 코드를 실행하기 전에 애플리케이션이 필요한 앱 설정 및 연결 문자열에 액세스할 수 있는지 확인할 수 있습니다. 
 
 > [!NOTE]
 > 또한 `IsManualIntegration`은 `true`로 설정됩니다. 실제로 GitHub 리포지토리를 소유하지 않기 때문에 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp)에서 연속 게시를 구성할 권한을 Azure에 실제로 부여할 수 없기 때문에 이 자습서에서는 이 속성이 필요합니다(즉, Azure에 자동 저장소 업데이트 밀어넣기). 이전에 [Azure portal](https://portal.azure.com/)에서 소유자의 GitHub 자격 증명을 사용하도록 구성한 경우에만 지정된 리포지토리에 기본값 `false`을 사용할 수 있습니다. 즉, 이전에 [Azure Portal](https://portal.azure.com/)에서 사용자 자격 증명을 사용하여 모든 앱용 GitHub 또는 BitBucket에 대한 원본 제어를 설정하는 경우 Azure에서는 해당 자격 증명을 기억하고 이후에 GitHub 또는 BitBucket에서 모든 앱을 배포할 때마다 사용합니다. 그러나 이 작업을 미리 수행하지 않은 경우 Azure Resource Manager가 리포지토리 소유자의 자격 증명으로 GitHub 또는 BitBucket에 로그인할 수 없기 때문에 앱의 소스 제어 설정을 구성할 때 JSON 템플릿 배포에 실패합니다.
@@ -230,7 +230,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
     > 
 16. **배포**을 참조하십시오. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다. 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
 
-끝났습니다. 이제 애플리케이션에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure Portal](https://portal.azure.com/) 및 [Azure 리소스 탐색기](https://resources.azure.com) 도구로 이동해야 합니다.
+끝났습니다. 이제 애플리케이션에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure Portal](https://portal.azure.com/) 및 [Azure Resource Explorer](https://resources.azure.com) 도구로 이동해야 합니다.
 
 이 섹션의 단계에서 주로 다음을 수행합니다.
 
@@ -250,11 +250,11 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>추가 리소스
-* [Azure 리소스 관리자 템플릿 언어](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿 언어](../azure-resource-manager/templates/template-syntax.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
 * [Azure 리소스 관리자 템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)
 * [Azure 리소스 관리자 템플릿으로 애플리케이션 배포](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure Resource Manager로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 ## <a name="next-steps"></a>다음 단계

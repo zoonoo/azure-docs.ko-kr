@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441247"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
 
@@ -23,7 +23,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 - 쿼리 평가 시 기본 데이터 형식의 상수 값을 포함 하는 상수 값입니다.
   
-- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 다음은 그 예입니다.
+- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예:
   
   ```
     family.Id;
@@ -64,7 +64,7 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
 - **OrderBy** 및 **OrderByDescending**: ASC 또는 DESC를 사용 하 여 ORDER by로 변환 합니다.
 - 집계를 위한 **Count**, **Sum**, **Min**, **Max** 및 **Average** 연산자와 해당 비동기 동급 연산자 **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** 및 **AverageAsync**
 - **CompareTo**: 범위 비교로 변환합니다. .NET에서는 비교할 수 없기 때문에 일반적으로 문자열에 사용 됩니다.
-- **Take**: 쿼리에서 결과를 제한 하기 위해 SQL TOP으로 변환 합니다.
+- **Skip** 및 **TAKE**: SQL 오프셋으로 변환 하 고 쿼리 결과를 제한 하 고 페이지 매김을 수행 합니다.
 - **수치 연산 함수**: .net `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다.
 - **문자열 함수**: .net `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`및 `TrimStart`에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다.
 - **배열 함수**: .net `Concat`, `Contains`및 `Count`에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다.

@@ -2,17 +2,17 @@
 title: 클라우드 서비스를 사용자 지정 도메인 컨트롤러에 연결 | Microsoft Docs
 description: PowerShell 및 AD 도메인 확장을 사용하여 사용자 지정 AD 도메인에 웹/작업자 역할을 연결하는 방법을 알아봅니다.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 97a24720e65539a68745a5a1bb3f13ce1cafb9be
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: d40e392984d2675c748bda00c61cdaeb1c0932da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387023"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services 역할을 Azure에서 호스팅되는 사용자 지정 AD 도메인 컨트롤러에 연결
 먼저 Azure에서 Virtual Network(VNet)를 설정합니다. 그런 다음 VNet에 Active Directory 도메인 컨트롤러(Azure Virtual Machine에서 호스팅되는)를 추가합니다. 그런 다음, 기존 클라우드 서비스 역할을 사전에 만든 VNet에 추가한 후 도메인 컨트롤러에 연결합니다.
@@ -56,7 +56,7 @@ $vnetConfigPath = "<path-to-vnet-config>"
 Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
-## <a name="create-a-virtual-machine"></a>Virtual Machine 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 Virtual Network 설정을 완료한 후에 AD 도메인 컨트롤러를 만들어야 합니다. 이 자습서는 Azure Virtual Machine에서 AD 도메인 컨트롤러를 설정합니다.
 
 이 작업을 수행하려면 다음 명령을 사용하여 PowerShell을 통해 가상 머신을 만듭니다.
@@ -141,7 +141,7 @@ $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd
 Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35
 ```
 
-지금까지 전반적인 내용을 알아보았습니다.
+이것으로 끝입니다.
 
 Cloud Services가 사용자 지정 도메인 컨트롤러에 가입되어 있어야 합니다. AD 도메인 확장을 구성하는 방법에 대해 사용할 수 있는 다른 옵션에 대한 자세한 내용을 보려면 PowerShell 도움말을 사용합니다. 다음은 몇 가지 예제입니다.
 
@@ -149,3 +149,6 @@ Cloud Services가 사용자 지정 도메인 컨트롤러에 가입되어 있어
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
+
+
+

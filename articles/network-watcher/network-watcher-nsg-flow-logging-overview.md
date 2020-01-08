@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1da1bc330af9d2b652c44114e44dc6d6c9f0d575
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 2530c9b2f366bd64013c7125b4d7984ca2a69248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559177"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454282"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -36,7 +36,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 [트래픽 분석](traffic-analytics.md)을 사용하여 흐름 로그를 분석하고 네트워크 트래픽에 대한 인사이트를 얻을 수 있습니다.
 
-다른 로그에서 보듯이 흐름 로그에 동일한 보존 정책을 적용합니다. 1일에서 2147483647일까지 로그 보존 정책을 설정할 수 있습니다. 보존 정책을 설정하지 않으면 로그는 영구적으로 보관됩니다.
+다른 로그에서 보듯이 흐름 로그에 동일한 보존 정책을 적용합니다. 로그 보존 정책은 1 일에서 365 일로 설정할 수 있습니다. 보존 정책을 설정하지 않으면 로그는 영구적으로 보관됩니다.
 
 > [!NOTE] 
 > NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다.
@@ -95,14 +95,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 3. 서비스 끝점 없음: 현재 제한으로 인해 로그는 서비스 끝점을 통해서만 저장소 계정으로 직접 내보낼 수 있습니다. 기존 서비스 끝점을 제거 하는 방법에 대 한 도움말은 [서비스 엔드포인트를 사용 하 여 NSG 흐름 로그 사용 어떻게 할까요?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) 을 참조 하세요.
 4. 자체 관리 키 회전: 액세스 키를 저장소 계정으로 변경/회전 하는 경우 NSG 흐름 로그가 작동을 중지 합니다. 이 문제를 해결 하려면 NSG 흐름 로그를 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 해야 합니다.
 
-**리소스에 연결 된 모든 nsg에 대해 Nsg 흐름 로깅을 사용 하도록 설정**: Azure의 흐름 로깅은 nsg 리소스에 구성 됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 모든 NSG가 활용되는 시나리오에서는 리소스의 서브넷 또는 네트워크 인터페이스가 적용된 모든 NSG에서 NSG 흐름 로깅을 사용하도록 설정하여 모든 트래픽이 기록되도록 하는 것이 좋습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [트래픽 평가 방식](../virtual-network/security-overview.md#how-traffic-is-evaluated)참조하세요. 
+**리소스에 연결 된 모든 nsg에 대해 Nsg 흐름 로깅을 사용 하도록 설정**: Azure의 흐름 로깅은 nsg 리소스에 구성 됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 모든 NSG가 활용되는 시나리오에서는 리소스의 서브넷 또는 네트워크 인터페이스가 적용된 모든 NSG에서 NSG 흐름 로깅을 사용하도록 설정하여 모든 트래픽이 기록되도록 하는 것이 좋습니다. 자세한 내용은 네트워크 보안 그룹에서 [트래픽 평가 방법](../virtual-network/security-overview.md#how-traffic-is-evaluated) 을 참조 하세요.
 
-**흐름 로깅 비용**: nsg 흐름 로깅은 생성 된 로그의 양에 따라 청구 됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
-
-> [!IMPORTANT]
-> 현재는 Network Watcher에 대한 [NSG(네트워크 보안 그룹) 흐름 로그](network-watcher-nsg-flow-logging-overview.md)가 보존 정책 설정에 따라 Blob 스토리지에서 자동으로 삭제되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 요금이 발생하지 않도록 보존 기간이 지난 스토리지 blob을 주기적으로 삭제하는 것이 좋습니다. NSG 흐름 로그 스토리지 blob을 삭제하는 방법에 대한 자세한 내용은 [NSG 흐름 로그 스토리지 blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조하세요.
+**흐름 로깅 비용**: nsg 흐름 로깅은 생성 된 로그의 양에 따라 청구 됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격](https://azure.microsoft.com/pricing/details/network-watcher/) 책정 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조 하세요.
 
 **인터넷 ip에서 공용 ip가 없는 vm으로 로그온 하는 인바운드 흐름**: 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 ip 주소를 통해 할당 되거나 기본 부하 분산 장치 백 엔드 풀의 일부인 vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) 를 사용 하 고 AZURE에서 할당 된 IP 주소를 사용 하 여 아웃 바운드 연결을 용이 하 게 합니다. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
+
+**상태 비저장 흐름의 바이트 및 패킷 수가 잘못 되었습니다**. [nsgs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview) 는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현 됩니다. 그러나 트래픽 흐름을 제어 하는 많은 기본/내부 규칙은 상태 비저장 방식으로 구현 됩니다. 플랫폼 제한으로 인해 바이트 및 패킷 수는 상태 비저장 흐름 (즉, 상태 비저장 규칙을 통과 하는 트래픽 흐름)에 대해 기록 되지 않으며 상태 저장 흐름에 대해서만 기록 됩니다. 결과적으로 NSG 흐름 로그 (및 트래픽 분석)에서 보고 되는 바이트 및 패킷 수가 실제 흐름과 다를 수 있습니다. 이 제한은 6 월 2020 일에 수정 될 예정입니다.
 
 ## <a name="sample-log-records"></a>샘플 로그 레코드
 

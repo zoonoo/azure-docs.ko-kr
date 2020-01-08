@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a55e1453fe7fe4d135286b22dabf58d434762581
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014999"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645109"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>가상 허브 경로 테이블을 생성하여 네트워크 가상 어플라이언스에 대한 트래픽 조정
 
@@ -116,7 +116,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 변경 내용을 가상 허브에 커밋합니다.
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
+Update-AzVirtualHub -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="next-steps"></a>다음 단계

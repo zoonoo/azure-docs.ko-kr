@@ -4,19 +4,19 @@ description: 이 항목에서는 Log Analytics를 사용하여 Azure, 온-프레
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 11/21/2019
-ms.openlocfilehash: 33ba07ac8d89546856666cc7ab94fae650020001
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+author: bwren
+ms.author: bwren
+ms.date: 12/24/2019
+ms.openlocfilehash: 58d6c8d18e03ab248cfbebcf910ae13c5fee439e
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306535"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530972"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 로그 데이터 수집
 
-Azure Log Analytics 에이전트(이전 명칭은 MMA(Microsoft Monitoring Agent) 또는 OMS Linux 에이전트)는 온-프레미스 머신, [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)로 모니터링되는 컴퓨터, 클라우드에 있는 가상 머신을 종합적으로 관리하기 위해 개발되었습니다. Windows 및 Linux 에이전트는 Azure Monitor에 연결 하 고, 모니터링 솔루션에 정의 된 대로 고유한 로그 나 메트릭 뿐만 아니라 Log Analytics 작업 영역의 다양 한 원본에서 수집 된 로그 데이터를 저장 합니다. 
+Azure Log Analytics 에이전트(이전 명칭은 MMA(Microsoft Monitoring Agent) 또는 OMS Linux 에이전트)는 온-프레미스 머신, [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)로 모니터링되는 컴퓨터, 클라우드에 있는 가상 머신을 종합적으로 관리하기 위해 개발되었습니다. Windows 및 Linux 에이전트는 Azure Monitor에 연결 되 고, Log Analytics 작업 영역의 다양 한 원본에서 수집 된 로그 데이터를 저장 하 고, 모니터링 솔루션에 정의 된 대로 고유한 로그 나 메트릭을 저장 합니다. 
 
 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 다양한 배포 모델을 상세히 살펴봅니다.
 
@@ -85,7 +85,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 다음 표에서는 에이전트가 설치 될 지원 되는 Linux 배포판에 필요한 패키지를 강조 표시 합니다.
 
-|필수 패키지 |설명 |최소 버전 |
+|필수 패키지 |Description |최소 버전 |
 |-----------------|------------|----------------|
 |Glibc |    GNU C 라이브러리 | 2.5-12 
 |Openssl    | OpenSSL 라이브러리 | 1.0. x 또는 1.1. x |
@@ -98,17 +98,17 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
 
-Azure Monitor 로그로 전송 중인 데이터의 보안을 보장 하려면 TLS (전송 계층 보안) 1.2 이상을 사용 하도록 에이전트를 구성 하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
+Azure Monitor 로그로 전송 중인 데이터의 보안을 보장 하려면 TLS (전송 계층 보안) 1.2 이상을 사용 하도록 에이전트를 구성 하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
 
 ## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
 
 아래 정보는 Linux 및 Windows 에이전트가 Azure Monitor 로그와 통신 하는 데 필요한 프록시 및 방화벽 구성 정보를 나열 합니다.  
 
-|에이전트 리소스|포트 |방향 |HTTPS 검사 무시|
+|에이전트 리소스|포트 |Direction |HTTPS 검사 무시|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |포트 443 |아웃바운드|예 |  
 |*.oms.opinsights.azure.com |포트 443 |아웃바운드|예 |  
-|*.blob.core.windows.net |포트 443 |아웃바운드|예 |  
+|\*.blob.core.windows.net |포트 443 |아웃바운드|예 |  
 
 Azure Government에 필요한 방화벽 정보는 [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)를 참조 하세요. 
 
@@ -123,13 +123,13 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 > [!NOTE]
 > 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
-|속성| 설명 |
+|속성| Description |
 |--------|-------------|
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
 |password | 프록시 인증을 위한 선택적 암호 |
 |proxyhost | 프록시 서버/Log Analytics 게이트웨이의 주소 또는 FQDN |
-|port | 프록시 서버/Log Analytics 게이트웨이 대한 선택적 포트 번호 |
+|포트 | 프록시 서버/Log Analytics 게이트웨이 대한 선택적 포트 번호 |
 
 예: `https://user01:password@proxy01.contoso.com:30443`
 
@@ -140,17 +140,17 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 
 사용자의 요구 사항에 따라 다른 방법을 사용 하 여 Azure 구독 또는 하이브리드 환경의 컴퓨터를 Azure Monitor 로그에 직접 연결할 수 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.
 
-|원본 | 메서드 | 설명|
+|원본 | 방법 | Description|
 |-------|-------------|-------------|
-|Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>[Azure Portal에서 수동으로](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) - <br>[자동 프로 비전 - Azure Security Center](../../security-center/security-center-enable-data-collection.md)| -확장은 Azure 가상 컴퓨터에 Log Analytics 에이전트를 설치 하 고 기존 Azure Monitor 작업 영역에 등록 합니다.<br>-Azure Security Center은 지원 되는 모든 Azure Vm 및 새로 생성 된 Vm에 대 한 Log Analytics 에이전트를 프로 비전 할 수 있습니다 .이 에이전트를 사용 하 여 보안 취약성 및 위협을 모니터링할 수 있습니다. 사용 하도록 설정 하면 설치 된 에이전트가 없는 기존 또는 새 VM이 프로 비전 됩니다.|
+|Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>[Azure Portal에서 수동으로](../../azure-monitor/learn/quick-collect-azurevm.md) - <br>[자동 프로 비전 - Azure Security Center](../../security-center/security-center-enable-data-collection.md)| -확장은 Azure 가상 컴퓨터에 Log Analytics 에이전트를 설치 하 고 기존 Azure Monitor 작업 영역에 등록 합니다.<br>-Azure Security Center은 지원 되는 모든 Azure Vm 및 새로 생성 된 Vm에 대 한 Log Analytics 에이전트를 프로 비전 할 수 있습니다 .이 에이전트를 사용 하 여 보안 취약성 및 위협을 모니터링할 수 있습니다. 사용 하도록 설정 하면 설치 된 에이전트가 없는 기존 또는 새 VM이 프로 비전 됩니다.|
 | 하이브리드 Windows 컴퓨터|- [수동 설치](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) 또는 Azure Resource Manager 템플릿(데이터 센터에 Microsoft Azure Stack을 배포한 경우)과 같은 자동화된 방법을 사용하거나 명령줄에서 Microsoft Monitoring Agent를 설치합니다.| 
-| 하이브리드 Linux 컴퓨터| [수동 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)|GitHub에 호스트된 래퍼 스크립트를 호출하는 Linux용 에이전트를 설치합니다. | 
-| System Center Operations Manager|[Operations Manager를 Log Analytics와 통합](../../azure-monitor/platform/om-agents.md) | Operations Manager와 Azure Monitor 로그 간의 통합을 구성 하 여 Windows 컴퓨터 보고에서 수집 된 데이터를 관리 그룹으로 전달 합니다.|  
+| 하이브리드 Linux 컴퓨터| [수동 설치](agent-linux.md)|GitHub에 호스트 된 래퍼 스크립트를 호출 하는 Linux 용 에이전트를 설치 하거나 에이전트를 수동으로 다운로드 하 여 설치 합니다. | 
+| System Center Operations Manager|[Operations Manager를 Log Analytics와 통합](om-agents.md) | Operations Manager와 Azure Monitor 로그 간의 통합을 구성 하 여 Windows 컴퓨터 보고에서 수집 된 데이터를 관리 그룹으로 전달 합니다.|  
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데이터 원본](../../azure-monitor/platform/agent-data-sources.md)을 검토하여 Windows 또는 Linux 시스템에서 데이터를 수집할 수 있는 데이터 원본을 이해하세요. 
+* [데이터 원본](agent-data-sources.md)을 검토하여 Windows 또는 Linux 시스템에서 데이터를 수집할 수 있는 데이터 원본을 이해하세요. 
 
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../../azure-monitor/log-query/log-query-overview.md)에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다. 
 
-* Azure Monitor에 기능을 추가하고 Log Analytics 작업 영역으로 데이터를 수집하는 [모니터링 솔루션](../../azure-monitor/insights/solutions.md)에 대해 알아봅니다.
+* Azure Monitor에 기능을 추가하고 Log Analytics 작업 영역으로 데이터를 수집하는 [모니터링 솔루션](../insights/solutions.md)에 대해 알아봅니다.

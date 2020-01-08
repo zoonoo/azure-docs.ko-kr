@@ -3,25 +3,25 @@ title: 정책 할당 구조의 세부 정보
 description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 매개 변수를 연결 하는 데 사용 하는 정책 할당 정의에 대해 설명 합니다.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5f6b097b82d31926b7b5d3099d1f3f23669e78c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279477"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436371"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
-정책 할당은 정책이 나 이니셔티브 중에 할당 되는 리소스를 정의 하는 Azure Policy에서 사용 됩니다. 정책 할당은 할당 시 해당 리소스 그룹에 대 한 매개 변수 값을 결정할 수 있으므로 준수에 대 한 다른 요구 사항과 동일한 리소스 속성을 처리 하는 정책 정의를 다시 사용할 수 있습니다.
+정책 할당은 Azure Policy에서 사용 하 여 정책이 나 이니셔티브에 할당 되는 리소스를 정의 합니다. 정책 할당은 할당 시 해당 리소스 그룹에 대 한 매개 변수 값을 결정할 수 있으므로 준수에 대 한 다른 요구 사항과 동일한 리소스 속성을 처리 하는 정책 정의를 다시 사용할 수 있습니다.
 
 JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음에 대 한 요소가 포함 됩니다.
 
 - 표시 이름
-- 설명
+- description
 - metadata
 - 적용 모드
 - 정책 정의
-- parameters
+- 매개 변수
 
 예를 들어 다음 JSON은 동적 매개 변수를 사용 하는 _DoNotEnforce_ 모드의 정책 할당을 보여 줍니다.
 
@@ -59,10 +59,10 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 속성의 값은 다음과 같습니다.
 
-|Mode |JSON 값 |에 |수동으로 재구성 |활동 로그 항목 |설명 |
+|Mode |JSON 값 |유형 |수동으로 재구성 |활동 로그 항목 |Description |
 |-|-|-|-|-|-|
-|Enabled |기본값 |string |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
-|사용 안 함 |DoNotEnforce |string |예 |아니오 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
+|사용 |기본값 |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
+|사용 안 함 |DoNotEnforce |문자열 |예 |아닙니다. | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
 
 **EnforcementMode** 가 정책 또는 이니셔티브 정의에 지정 되지 않은 경우에는 _기본값_ 을 사용 합니다. **EnforcementMode** 가 _DoNotEnforce_로 설정 된 경우에도 [deployifnotexists](./effects.md#deployifnotexists) 정책에 대해 [재구성 작업](../how-to/remediate-resources.md) 을 시작할 수 있습니다.
 

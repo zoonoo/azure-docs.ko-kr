@@ -1,23 +1,16 @@
 ---
-title: Azure Service Fabric에서 매개 변수를 사용하여 서비스의 포트 번호를 지정하는 방법
+title: 매개 변수를 사용 하 여 서비스의 포트 번호를 지정 합니다.
 description: 매개 변수를 사용하여 Service Fabric에서 애플리케이션에 대한 포트를 지정하는 방법을 보여 줍니다.
-documentationcenter: .net
 author: mikkelhegn
-manager: markfuss
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720249"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609862"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Service Fabric에서 매개 변수를 사용하여 서비스의 포트 번호를 지정하는 방법
 

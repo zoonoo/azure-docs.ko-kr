@@ -1,5 +1,5 @@
 ---
-title: Azure AD Access Control Service에서 SAS로 마이그레이션
+title: Azure Service Bus-공유 액세스 서명 권한 부여로 마이그레이션
 description: Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fe0acedeb65f010f9af2ea55cd37e6fe3046d989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790340"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462168"
 ---
-# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
+# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus-Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
 
 기존에는 Service Bus 애플리케이션에서 두 가지 권한 부여 모델 중 하나를 선택하여 사용할 수 있었습니다. 그 중 하나는 Service Bus에서 직접 제공되는 [SAS(공유 액세스 서명)](service-bus-sas.md) 토큰 모델이고, 다른 하나는 페더레이션 모델입니다. 페더레이션 모델에서는 권한 부여 규칙 관리 작업이 [Azure Active Directory](/azure/active-directory/) ACS(Access Control Service)를 통해 내부에서 관리되며, 원하는 기능에 대한 액세스 권한을 부여하기 위해 ACS에서 가져온 토큰이 Service Bus로 전달됩니다.
 

@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc948629784254c9153f7f48ead7ff253e5f4453
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7f51021df2234438eb81a29887a714b0f09d0998
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806391"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563193"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
-QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FAQ, 제품 설명서, 지침, 지원 문서 및 정책 등의 반 구조화된 콘텐츠에서 질문-대답 쌍을 자동으로 추출합니다. 구조화된 QnA 콘텐츠 파일의 콘텐츠를 기술 자료에 추가할 수도 있습니다. 
+QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FAQ, 제품 설명서, 지침, 지원 문서 및 정책 등의 반 구조화된 콘텐츠에서 질문-대답 쌍을 자동으로 추출합니다. 구조화된 QnA 콘텐츠 파일의 콘텐츠를 기술 자료에 추가할 수도 있습니다.
 
 <a name="data-types"></a>
 
@@ -36,22 +36,22 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 
 ### <a name="import-and-export-knowledge-base"></a>기술 자료 가져오기 및 내보내기
 
-내보낸 기술 자료의 **TSV 및 XLS 파일**은 QnA Maker 포털의 **설정** 페이지에서 파일을 가져오는 방법 으로만 사용할 수 있습니다. 이러한 파일은 기술 자료 생성 중에 데이터 원본으로 사용 하거나 **설정** 페이지의 **+ 파일 추가** 또는 **+ URL 추가** 기능에서 사용할 수 없습니다. 
+내보낸 기술 자료의 **TSV 및 XLS 파일**은 QnA Maker 포털의 **설정** 페이지에서 파일을 가져오는 방법 으로만 사용할 수 있습니다. 이러한 파일은 기술 자료 생성 중에 데이터 원본으로 사용 하거나 **설정** 페이지의 **+ 파일 추가** 또는 **+ URL 추가** 기능에서 사용할 수 없습니다.
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
 
-데이터 원본 위치는 인증이 필요 하지 않은 **공용 url 또는 파일**입니다. 
+데이터 원본 위치는 인증이 필요 하지 않은 **공용 url 또는 파일**입니다.
 
 데이터 원본에 대 한 인증이 필요한 경우 다음 방법을 고려 하 여 데이터를 QnA Maker으로 가져와야 합니다.
 
 * [수동으로 파일 다운로드](#download-file-from-authenticated-data-source-location) 및 QnA Maker로 가져오기
-* 인증 된 [Sharepoint 위치의](#import-file-from-authenticated-sharepoint) 파일 가져오기 
+* 인증 된 [Sharepoint 위치의](#import-file-from-authenticated-sharepoint) 파일 가져오기
 
 ### <a name="download-file-from-authenticated-data-source-location"></a>인증 된 데이터 원본 위치에서 파일 다운로드
 
 인증 된 파일 (인증 된 Sharepoint 위치에 없음) 또는 URL이 있는 경우 인증 된 사이트의 파일을 로컬 컴퓨터에 다운로드 한 다음 로컬 컴퓨터의 파일을 기술 자료에 추가 하는 것이 또 다른 옵션입니다.
 
-### <a name="import-file-from-authenticated-sharepoint"></a>인증 된 Sharepoint에서 파일 가져오기 
+### <a name="import-file-from-authenticated-sharepoint"></a>인증 된 Sharepoint에서 파일 가져오기
 
 [Sharepoint 데이터 원본 위치](../How-to/add-sharepoint-datasources.md) 는 인증 된 **파일**을 제공할 수 있습니다. Sharepoint 리소스는 웹 페이지가 아닌 파일 이어야 합니다. URL이와 같은 웹 확장명으로 끝나는 경우 **입니다. ASPX**는 Sharepoint에서 QnA Maker으로 가져오지 않습니다.
 
@@ -62,29 +62,29 @@ QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈
 
 ### <a name="plain-faq-pages"></a>일반 FAQ 페이지
 
-가장 일반적인 형식의 FAQ 페이지로, 동일한 페이지에서 답변이 질문 바로 뒤에 표시됩니다. 
+가장 일반적인 형식의 FAQ 페이지로, 동일한 페이지에서 답변이 질문 바로 뒤에 표시됩니다.
 
 아래는 일반 FAQ 페이지의 예입니다.
 
-![기술 자료를 위한 일반 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![기술 자료를 위한 일반 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/plain-faq.png)
 
- 
-### <a name="faq-pages-with-links"></a>링크가 포함된 FAQ 페이지 
+
+### <a name="faq-pages-with-links"></a>링크가 포함된 FAQ 페이지
 
 이러한 종류의 FAQ 페이지에서는 질문이 함께 집계되어 동일한 페이지의 다른 섹션 또는 다른 페이지에 있는 답변에 연결됩니다.
 
 아래는 동일한 페이지에 있는 섹션의 링크가 포함된 FAQ 페이지의 예입니다.
 
- ![기술 자료를 위한 섹션 링크 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![기술 자료를 위한 섹션 링크 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>토픽 홈페이지가 포함된 FAQ 페이지
 
 이러한 종류의 FAQ에는 토픽이 포함된 홈페이지가 있으며 각 토픽은 다른 페이지에 있는 관련 QnA에 대한 링크입니다. 여기서 QnA Maker는 연결된 모든 페이지를 크롤링하여 해당하는 질문과 답변을 추출합니다.
 
-아래는 토픽 홈페이지에 다른 페이지의 FAQ 섹션에 대한 링크가 있는 FAQ 페이지의 예입니다. 
+아래는 토픽 홈페이지에 다른 페이지의 FAQ 섹션에 대한 링크가 있는 FAQ 페이지의 예입니다.
 
- ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/topics-faq.png)
 
 
 ### <a name="support-urls"></a>지원 URL
@@ -109,7 +109,7 @@ QnA Maker 글꼴 크기, 글꼴 스타일, 번호 매기기, 색 등의 시각�
 
 아래는 인덱스 페이지와 계층적 콘텐츠가 포함된 설명서의 예입니다.
 
- ![기술 자료를 위한 제품 설명서 예제](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![기술 자료를 위한 제품 설명서 예제](../media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
 > 추출은 목차 및/또는 색인 페이지와 계층적 제목이 있는 명확한 구조를 가진 설명서에서 가장 잘 작동합니다.
@@ -120,11 +120,11 @@ QnA Maker 글꼴 크기, 글꼴 스타일, 번호 매기기, 색 등의 시각�
 
 아래는 인덱스 없는 반 구조화된 문서의 예입니다.
 
- ![Azure Blob Storage 반 구조화된 Doc](../media/qnamaker-concepts-datasources/semi-structured-doc.png) 
+ ![Azure Blob Storage 반 구조화된 Doc](../media/qnamaker-concepts-datasources/semi-structured-doc.png)
 
 ### <a name="structured-qna-document"></a>구조화된 QnA 문서
 
-DOC 파일에서 구조화된 질문-답변의 형식은 줄마다 질문과 답변이 번갈아 반복되는 양식으로, 아래와 같이 한 줄에 질문이 하나 나오면 그 다음 줄에 답변이 나옵니다. 
+DOC 파일에서 구조화된 질문-답변의 형식은 줄마다 질문과 답변이 번갈아 반복되는 양식으로, 아래와 같이 한 줄에 질문이 하나 나오면 그 다음 줄에 답변이 나옵니다.
 
 ```text
 Question1
@@ -138,11 +138,11 @@ Answer2
 
 아래는 구조화된 QnA Word 문서의 예입니다.
 
- ![기술 자료를 위한 구조화된 QnA 문서 예제](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![기술 자료를 위한 구조화된 QnA 문서 예제](../media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>구조화된 *TXT*, *TSV* 및 *XLS* 파일
 
-또한 구조화된 *.txt*, *.tsv* 또는 *.xls* 파일 양식의 QnA를 QnA Maker에 업로드하여 기술 자료를 만들거나 보강할 수 있습니다.  이러한 자료는 일반 텍스트일 수도 있고, RTF 또는 HTML 콘텐츠를 가질 수도 있습니다. 
+또한 구조화된 *.txt*, *.tsv* 또는 *.xls* 파일 양식의 QnA를 QnA Maker에 업로드하여 기술 자료를 만들거나 보강할 수 있습니다.  이러한 자료는 일반 텍스트일 수도 있고, RTF 또는 HTML 콘텐츠를 가질 수도 있습니다.
 
 | 질문  | 답변  | 메타 데이터 (1 개 키: 1 값) |
 |-----------|---------|-------------------------|
@@ -171,7 +171,7 @@ Answer2
 
 기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 데이터 원본 정보를 포함하는 구조화된 .tsv 파일이 필요합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속하는 데 도움이 됩니다.
 
-| 질문  | 답변  | 원본| 메타 데이터 (1 개 키: 1 값) |          
+| 질문  | 답변  | 원본| 메타 데이터 (1 개 키: 1 값) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
@@ -184,11 +184,11 @@ Answer2
 
 ## <a name="formatting-considerations"></a>서식 지정 고려 사항
 
-파일이 나 URL을 가져온 후 QnA Maker는 콘텐츠를 [markdown 형식](https://en.wikipedia.org/wiki/Markdown)으로 변환 하 고 저장 합니다. 변환 프로세스는 텍스트에 `\n\n`와 같은 새 줄을 추가 합니다. Markdown 형식에 대 한 정보는 변환 된 콘텐츠를 이해 하 고 기술 자료 콘텐츠를 관리 하는 데 도움이 됩니다. 
+파일이 나 URL을 가져온 후 QnA Maker는 콘텐츠를 [markdown 형식](https://en.wikipedia.org/wiki/Markdown)으로 변환 하 고 저장 합니다. 변환 프로세스는 텍스트에 `\n\n`와 같은 새 줄을 추가 합니다. Markdown 형식에 대 한 정보는 변환 된 콘텐츠를 이해 하 고 기술 자료 콘텐츠를 관리 하는 데 도움이 됩니다.
 
-기술 자료에서 직접 콘텐츠를 추가 하거나 편집 하는 경우 **markdown 서식 지정** 을 사용 하 여 서식 있는 텍스트 콘텐츠를 만들거나 답변에 이미 있는 markdown 서식 콘텐츠를 변경 합니다. QnA Maker는 풍부한 텍스트 기능을 콘텐츠에 제공 하는 많은 markdown 형식을 지원 합니다. 그러나 채팅 봇과 같은 클라이언트 응용 프로그램은 동일한 markdown 형식 집합을 지원 하지 않을 수 있습니다. 클라이언트 응용 프로그램의 답변 표시를 테스트 하는 것이 중요 합니다. 
+기술 자료에서 직접 콘텐츠를 추가 하거나 편집 하는 경우 **markdown 서식 지정** 을 사용 하 여 서식 있는 텍스트 콘텐츠를 만들거나 답변에 이미 있는 markdown 서식 콘텐츠를 변경 합니다. QnA Maker는 풍부한 텍스트 기능을 콘텐츠에 제공 하는 많은 markdown 형식을 지원 합니다. 그러나 채팅 봇과 같은 클라이언트 응용 프로그램은 동일한 markdown 형식 집합을 지원 하지 않을 수 있습니다. 클라이언트 응용 프로그램의 답변 표시를 테스트 하는 것이 중요 합니다.
 
-다음은 QnA Maker에서 사용할 수 있는 markdown 형식 목록입니다. 
+다음은 QnA Maker에서 사용할 수 있는 markdown 형식 목록입니다.
 
 |용도|형식|예제 Markdown|렌더링<br>채팅 봇에 표시 된 대로|
 |--|--|--|--|
@@ -197,48 +197,48 @@ Answer2
 |기울임꼴 |`*text*`|`How do I create a bot with *QnA Maker*?`|![기울임꼴로 서식 지정](../media/qnamaker-concepts-datasources/format-italics.png)|
 |문자열 (굵게)|`**text**`|`How do I create a bot with **QnA Maker**?`|![굵은 글꼴로 표시 된 서식](../media/qnamaker-concepts-datasources/format-strong.png)|
 |링크 URL|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![URL 형식 (하이퍼링크)](../media/qnamaker-concepts-datasources/format-url.png)|
-|\* 공용 이미지에 대 한 URL|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![공용 이미지 URL의 형식 ](../media/qnamaker-concepts-datasources/format-image-url.png)|
+|\* 공용 이미지에 대 한 URL|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![공용 이미지 URL의 형식 ](../media/qnamaker-concepts-datasources/format-image-url.png)|
 |취소선|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![취소선 서식](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |굵게 및 기울임꼴|`***text***`|`How can I create a ***QnA Maker*** bot?`|![굵게 및 기울임꼴 서식 지정](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |링크의 굵은 URL|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![굵게 표시 되는 URL의 형식](../media/qnamaker-concepts-datasources/format-bold-url.png)|
 |링크에 대 한 기울임꼴 URL|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![기울임꼴 URL 형식](../media/qnamaker-concepts-datasources/format-url-italics.png)|
 |이스케이프 markdown 기호|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![기울임꼴 URL 형식](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |정렬된 목록|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>앞의 예제에서는 markdown에 기본 제공 되는 자동 번호 매기기를 사용 합니다.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>앞의 예제에서는 명시적 번호 매기기를 사용 합니다.|![정렬 된 목록의 형식](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
-|정렬되지 않은 목록|`\n * item1 \n * item2`<br>or<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![순서가 지정 되지 않은 목록의 서식](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|정렬되지 않은 목록|`\n * item1 \n * item2`<br>또는<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![순서가 지정 되지 않은 목록의 서식](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
 |중첩된 목록|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>정렬 된 목록과 순서가 지정 되지 않은 목록을 함께 중첩할 수 있습니다. `\t`탭은 자식 요소의 들여쓰기 수준을 나타냅니다.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![순서가 지정 되지 않은 중첩 된 목록의 형식](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![중첩 된 정렬 된 목록의 형식](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
-\* QnA Maker는 어떤 방식으로든 이미지를 처리 하지 않습니다. 이미지를 렌더링 하는 클라이언트 응용 프로그램의 역할입니다. 
+\* QnA Maker는 어떤 방식으로든 이미지를 처리 하지 않습니다. 이미지를 렌더링 하는 클라이언트 응용 프로그램의 역할입니다.
 
 업데이트/교체 기술 자료 Api를 사용 하 여 콘텐츠를 추가 하 고 콘텐츠/파일이 html 태그를 포함 하는 경우 태그를 열고 닫는 것이 인코딩된 형식으로 변환 되도록 하 여 파일에 HTML을 유지할 수 있습니다.
 
 | HTML 유지  | API 요청의 표현  | 표시 (KB) |
 |-----------|---------|-------------------------|
-| yes | \&l t; br\&gt; | &lt;br&gt; |
-| yes | \&l t; h3\&gt; 헤더\&l t;/h 3\&gt; | &lt;h3&gt;헤더&lt;/h 3&gt; |
+| 예 | \&l t; br\&gt; | &lt;br&gt; |
+| 예 | \&l t; h3\&gt; 헤더\&l t;/h 3\&gt; | &lt;h3&gt;헤더&lt;/h 3&gt; |
 
 또한 CR LF (\r\n)는 KB의 \n로 변환 됩니다. LF (\n)는 그대로 유지 됩니다. \T 또는 \n과 같은 이스케이프 시퀀스를 이스케이프 하려면 백슬래시를 사용할 수 있습니다 (예: '\\\\r\\\\n ' 및 '\\\\t ').
 
 ## <a name="editing-your-knowledge-base-locally"></a>로컬로 기술 자료 편집
 
-기술 자료를 만든 후에는 로컬 파일을 통해 내보냈다가 다시 가져오는 것보다는 [QnA Maker 포털](https://qnamaker.ai)에서 기술 자료 텍스트를 편집하는 것이 좋습니다. 그러나 로컬로 기술 자료를 편집해야 하는 경우가 있을 수 있습니다. 
+기술 자료를 만든 후에는 로컬 파일을 통해 내보냈다가 다시 가져오는 것보다는 [QnA Maker 포털](https://qnamaker.ai)에서 기술 자료 텍스트를 편집하는 것이 좋습니다. 그러나 로컬로 기술 자료를 편집해야 하는 경우가 있을 수 있습니다.
 
-**설정** 페이지에서 기술 자료를 내보낸 후 Microsoft Excel을 사용하여 기술 자료를 편집합니다. 다른 애플리케이션을 사용하여 내보낸 TSV 파일을 편집하도록 선택할 경우 애플리케이션이 완전히 TSV 호환이 아니기 때문에 구문 오류가 발생할 수 있습니다. Microsoft Excel의 TSV 파일의 경우 일반적으로 서식 지정 오류가 발생하지 않습니다. 
+**설정** 페이지에서 기술 자료를 내보낸 후 Microsoft Excel을 사용하여 기술 자료를 편집합니다. 다른 애플리케이션을 사용하여 내보낸 TSV 파일을 편집하도록 선택할 경우 애플리케이션이 완전히 TSV 호환이 아니기 때문에 구문 오류가 발생할 수 있습니다. Microsoft Excel의 TSV 파일의 경우 일반적으로 서식 지정 오류가 발생하지 않습니다.
 
-편집을 완료했으면 **설정** 페이지를 통해 TSV 파일을 다시 가져옵니다. 그러면 현재 기술 자료가 가져온 기술 자료로 완전히 바뀝니다. 
+편집을 완료했으면 **설정** 페이지를 통해 TSV 파일을 다시 가져옵니다. 그러면 현재 기술 자료가 가져온 기술 자료로 완전히 바뀝니다.
 
 ## <a name="testing-your-markdown"></a>Markdown 테스트
 
-**[CommonMark](https://commonmark.org/help/tutorial/index.html)** 자습서를 사용하여 Markdown의 유효성을 검사합니다. 이 자습서에는 빠른 복사/붙여넣기 유효성 검사를 위한 **사용해보기** 기능이 있습니다. 
+**[CommonMark](https://commonmark.org/help/tutorial/index.html)** 자습서를 사용하여 Markdown의 유효성을 검사합니다. 이 자습서에는 빠른 복사/붙여넣기 유효성 검사를 위한 **사용해보기** 기능이 있습니다.
 
 ## <a name="version-control-for-data-in-your-knowledge-base"></a>기술 자료에서 데이터에 대 한 버전 제어
 
-데이터에 대 한 버전 제어는 **설정** 페이지의 [가져오기/내보내기 기능](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) 을 통해 제공 됩니다. 
+데이터에 대 한 버전 제어는 **설정** 페이지의 [가져오기/내보내기 기능](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) 을 통해 제공 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [QnA Maker 서비스 설정](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>참고 항목 
+## <a name="see-also"></a>참고 항목
 
 [QnA Maker 개요](../Overview/overview.md)

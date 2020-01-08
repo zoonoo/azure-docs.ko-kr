@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 1a567e8f910ccf539038a19eef0319f21833f336
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a53128605e1f124cbd26fb679e799822b8abad29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454803"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스를 사용 하는 방법
 
@@ -32,7 +32,7 @@ Machine Learning 웹 서비스를 만들고 배포 하는 방법에 대 한 자�
 ## <a name="overview"></a>개요
 Azure Machine Learning 웹 서비스를 통해 외부 애플리케이션에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 애플리케이션에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
-클래식 버전의 Azure Machine Learning Studio에는 두 가지 유형의 서비스가 있습니다.
+Azure Machine Learning Studio (클래식)에는 두 가지 유형의 서비스가 있습니다.
 
 * RR (요청-응답 서비스)-대기 시간이 짧고 확장성이 뛰어난 서비스로, Machine Learning Studio (클래식)에서 생성 및 배포 된 상태 비저장 모델에 대 한 인터페이스를 제공 합니다.
 * BES(일괄 처리 실행 서비스) – 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
@@ -63,7 +63,7 @@ Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning �
 ### <a name="classic-web-service"></a>기존 웹 서비스
  Machine Learning Studio에서 클래식 웹 서비스에 대 한 키를 검색할 수도 있습니다 (클래식).
 
-#### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (클래식)
+#### <a name="machine-learning-studio-classic"></a>Machine Learning Studio(클래식)
 1. Machine Learning Studio (클래식)의 왼쪽에서 **웹 서비스** 를 클릭 합니다.
 2. 웹 서비스를 클릭합니다. **API 키**는 **대시보드** 탭에 있습니다.
 

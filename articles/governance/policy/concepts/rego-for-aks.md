@@ -3,12 +3,12 @@ title: Azure Kubernetes Service에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego를 사용 하 여 Azure Kubernetes Service에서 클러스터를 관리 하는 방법에 대해 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4dd6bbc71c66c3ff37200ed57859b309909ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279388"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436401"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 Azure Policy 이해
 
@@ -29,11 +29,11 @@ AKS 클러스터에서 AKS에 대 한 Azure Policy를 사용 하도록 설정 �
 
 ## <a name="opt-in-for-preview"></a>미리 보기용 옵트인
 
-Azure Policy 추가 기능을 설치 하거나 서비스 기능을 사용 하도록 설정 하기 전에 구독에서 **ContainerService** 리소스 공급자와 **microsoft policyinsights** 리소스 공급자를 사용 하도록 설정 하 고 나 서 다음으로 승인 해야 합니다. 미리 보기에 조인 합니다. 미리 보기에 조인 하려면 Azure Portal 또는 Azure CLI에서 다음 단계를 수행 합니다.
+Azure Policy 추가 기능을 설치 하거나 서비스 기능을 사용 하도록 설정 하기 전에 구독에서 **ContainerService** 리소스 공급자와 **microsoft policyinsights** 리소스 공급자를 사용 하도록 설정 하 고 미리 보기에 참여 하도록 승인 해야 합니다. 미리 보기에 조인 하려면 Azure Portal 또는 Azure CLI에서 다음 단계를 수행 합니다.
 
 - Azure Portal:
 
-  1. **ContainerService** 및 **microsoft policyinsights** 리소스 공급자를 등록 합니다. 단계는 [리소스 공급자 및 형식](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)을 참조 하세요.
+  1. **ContainerService** 및 **microsoft policyinsights** 리소스 공급자를 등록 합니다. 단계는 [리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조 하세요.
 
   1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
@@ -89,7 +89,7 @@ Kubernetes에 대 한 _Azure Policy 추가 기능_ 에서 게이트 키퍼 허�
 
 ### <a name="installing-the-add-on"></a>추가 기능 설치
 
-#### <a name="prerequisites"></a>선행 조건
+#### <a name="prerequisites"></a>필수 조건
 
 AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장을 설치 해야 합니다. 이 단계는 Azure CLI를 통해 수행 됩니다.
 
@@ -123,7 +123,7 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
 
 필수 구성 요소가 완료 되 면 관리 하려는 AKS 클러스터에 Azure Policy 추가 기능을 설치 합니다.
 
-- Azure 포털
+- Azure Portal
 
   1. **모든 서비스**를 클릭 한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
@@ -206,7 +206,7 @@ Kubernetes controller/container Azure Policy 추가 기능이 AKS 클러스터�
 
 AKS 클러스터에서 Azure Policy 추가 기능을 제거 하려면 Azure Portal 또는 Azure CLI를 사용 합니다.
 
-- Azure 포털
+- Azure Portal
 
   1. **모든 서비스**를 클릭 한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
@@ -230,7 +230,7 @@ AKS 클러스터에서 Azure Policy 추가 기능을 제거 하려면 Azure Port
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Azure Policy 추가 기능으로 수집 된 진단 데이터
 
-Kubernetes 용 Azure Policy 추가 기능은 제한 된 클러스터 진단 데이터를 수집 합니다. 이 진단 데이터는 소프트웨어 및 성능과 관련 된 중요 한 기술 데이터입니다. 다음과 같은 방법으로 사용 됩니다.
+Kubernetes 용 Azure Policy 추가 기능은 제한 된 클러스터 진단 데이터를 수집 합니다. 이 진단 데이터는 소프트웨어 및 성능과 관련 된 중요 한 기술 데이터입니다. 다음과 같은 방식으로 사용됩니다.
 
 - 최신 버전 Azure Policy 추가 기능 유지
 - 안전 하 고 신뢰할 수 있으며 성능이 뛰어난 추가 기능 Azure Policy 유지

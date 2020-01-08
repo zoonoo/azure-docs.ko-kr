@@ -1,5 +1,5 @@
 ---
-title: 그룹 또는 응용 프로그램에 대 한 액세스 검토 완료-Azure Active Directory | Microsoft Docs
+title: 그룹 & 응용 프로그램에 대 한 액세스 검토 완료-Azure AD
 description: Azure Active Directory 액세스 검토에서 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 완료 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,20 +16,20 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0c6f3405354136e11600ae059f3e05890d3534ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422734"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스 검토 완료
+# <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 완료
 
 관리자는 [그룹 또는 응용 프로그램](create-access-review.md) 에 대 한 액세스 검토를 만들고 검토자 [는 액세스 검토를 수행](perform-access-review.md)합니다. 이 문서에서는 액세스 검토 결과를 확인 하 고 결과를 적용 하는 방법을 설명 합니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure AD Premium P2
 - 전역 관리자, 사용자 관리자, 보안 관리자 또는 보안 읽기 권한자

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리 문제 해결-Azure Active Directory
+title: 자격 관리 문제 해결-Azure AD
 description: Azure Active Directory 자격 관리에 대 한 문제 해결에 도움이 되는 몇 가지 항목에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f7e5e6168e8b365a04040f595f30e68e4e82f0a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422488"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 

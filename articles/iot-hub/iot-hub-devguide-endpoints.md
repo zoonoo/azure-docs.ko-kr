@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457112"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -31,7 +31,7 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
 다음 목록에서는 엔드포인트를 설명합니다.
 
-* **리소스 공급자**. IoT Hub 리소스 공급자는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 인터페이스를 노출합니다. 이 인터페이스를 통해 Azure 구독 소유자는 IoT Hub를 생성 및 삭제하고 IoT Hub 속성을 업데이트할 수 있습니다. IoT Hub 속성은 디바이스 수준 액세스 제어와는 달리 [허브 수준 보안 정책](iot-hub-devguide-security.md#access-control-and-permissions)과 클라우드-디바이스 및 디바이스-클라우드 메시징을 위한 기능 옵션을 관리합니다. 또한 IoT Hub 리소스 공급자는 사용자가 [디바이스 ID를 내보낼](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 수 있도록 합니다.
+* **리소스 공급자**. IoT Hub 리소스 공급자는 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 인터페이스를 노출합니다. 이 인터페이스를 통해 Azure 구독 소유자는 IoT Hub를 생성 및 삭제하고 IoT Hub 속성을 업데이트할 수 있습니다. IoT Hub 속성은 디바이스 수준 액세스 제어와는 달리 [허브 수준 보안 정책](iot-hub-devguide-security.md#access-control-and-permissions)과 클라우드-디바이스 및 디바이스-클라우드 메시징을 위한 기능 옵션을 관리합니다. 또한 IoT Hub 리소스 공급자는 사용자가 [디바이스 ID를 내보낼](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 수 있도록 합니다.
 
 * **디바이스 ID 관리**. 각 IoT Hub는 HTTPS REST 엔드포인트 집합을 노출하여 디바이스 ID를 관리합니다(만들기, 검색, 업데이트 및 삭제). [디바이스 ID](iot-hub-devguide-identity-registry.md)는 디바이스 인증 및 액세스 제어에 사용됩니다.
 
@@ -84,9 +84,9 @@ IoT Hub는 현재 추가 엔드포인트로 다음과 같은 Azure 서비스를 
 
 REST API [가져오기 끝점 상태](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 를 사용 하 여 끝점 상태를 가져올 수 있습니다. 끝점이 이러한 상태 중 하나에 있을 때 대기 시간이 더 길어질 수 있으므로, 메시지 대기 시간과 관련 된 [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다.
 
-|상태|설명|
+|상태|Description|
 |---|---|
-|정상|끝점이 예상 대로 메시지를 수락 합니다.|
+|healthy|끝점이 예상 대로 메시지를 수락 합니다.|
 |상태가|끝점이 예상 대로 메시지를 수락 하지 않으며 IoT Hub이 끝점으로 데이터를 보내려고 시도 하는 중입니다. IoT Hub가 궁극적으로 일관 된 상태 상태를 설정 하면 비정상 끝점의 상태가 정상으로 업데이트 됩니다.|
 |알 수 없음|IoT Hub 끝점에 대 한 연결을 설정 하지 않았습니다. 이 끝점에서 전달 되거나 거부 된 메시지가 없습니다.|
 |무반응|IoT Hub에서 retrial 기간 동안 메시지 보내기를 다시 시도한 후에는 끝점에서 메시지를 수락 하지 않습니다.|

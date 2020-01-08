@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cd40c5d11414c91ff2f2febc0621e1e06f79e9cf
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646974"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613791"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -59,7 +59,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 
 ## <a name="azure-storage-account-size-limits"></a>Azure Storage 계정 크기 제한
 
-스토리지 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob Storage 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)로 이동합니다.
+스토리지 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob Storage 크기 조정 목표](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)로 이동합니다.
 
 | Azure Storage 계정에 복사되는 데이터의 크기                      | 기본 제한          |
 |---------------------------------------------------------------------|------------------------|
@@ -74,7 +74,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 |-------------------|-----------------------------------------------------------|
 | 블록 Blob        | ~ 4.75TiB                                                 |
 | 페이지 Blob         | 8TiB <br> (페이지 Blob 형식으로 업로드 되는 모든 파일은 512 바이트 정렬 되어야 하며, 그렇지 않은 경우 업로드가 실패 합니다. <br> VHD와 VHDX는 모두 512 바이트 정렬 됩니다. |
-|Azure 파일        | 1TiB <br> 최대 공유 크기는 5 TiB     |
+|Azure Files        | 1TiB <br> 최대 공유 크기는 5 TiB     |
 | Managed Disks     |4TiB <br> 크기 및 제한에 대 한 자세한 내용은 다음을 참조 하세요. <li>[관리 디스크에 대 한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 

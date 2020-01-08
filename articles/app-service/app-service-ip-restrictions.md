@@ -1,18 +1,18 @@
 ---
-title: IP 주소에 대 한 액세스 제한
-description: 클라이언트 IP 주소 또는 주소 범위를 명시적으로 허용 목록 하 여 Azure App Service에서 앱을 보호 하는 방법을 알아봅니다.
+title: Azure App Service 액세스 제한
+description: 액세스 제한을 지정 하 여 Azure App Service에서 앱을 보호 하는 방법을 알아봅니다.
 author: ccompy
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 64ce74c84f8f69e72510be76a1309e1a5ea42f2f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672174"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422231"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 #
 
@@ -24,7 +24,7 @@ ms.locfileid: "74672174"
 
 액세스 제한 기능은 코드가 실행 되는 작업자 호스트의 업스트림 인 App Service 프런트 엔드 역할에서 구현 됩니다. 따라서 액세스 제한은 사실상 네트워크 Acl입니다.
 
-Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는 기능을 [서비스 끝점][serviceendpoints]이라고 합니다. 서비스 끝점을 사용 하면 선택한 서브넷에서 다중 테 넌 트 서비스에 대 한 액세스를 제한할 수 있습니다. 사용 하도록 설정 된 서비스 뿐만 아니라 네트워킹 쪽에서 사용 하도록 설정 해야 합니다. App Service Environment에서 호스트 되는 앱에 대 한 트래픽을 제한 하는 것은 작동 하지 않습니다.  App Service Environment에 있는 경우 IP 주소 규칙을 사용 하 여 앱에 대 한 액세스를 제어할 수 있습니다.
+Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는 기능을 [서비스 끝점][serviceendpoints]이라고 합니다. 서비스 끝점을 사용 하면 선택한 서브넷에서 다중 테 넌 트 서비스에 대 한 액세스를 제한할 수 있습니다. 사용 하도록 설정 된 서비스 뿐만 아니라 네트워킹 쪽에서 사용 하도록 설정 해야 합니다. App Service Environment에서 호스트 되는 앱에 대 한 트래픽을 제한 하는 것은 작동 하지 않습니다. App Service Environment에 있는 경우 IP 주소 규칙을 사용 하 여 앱에 대 한 액세스를 제어할 수 있습니다.
 
 ![액세스 제한 흐름](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -58,7 +58,7 @@ IP 주소 기반 규칙을 설정 하려면 IPv4 또는 IPv6 유형을 선택 �
 
 서비스 끝점은 App Service Environment에서 실행 되는 앱에 대 한 액세스를 제한 하는 데 사용할 수 없습니다. 앱이 App Service Environment에 있는 경우 IP 액세스 규칙을 사용 하 여 앱에 대 한 액세스를 제어할 수 있습니다. 
 
-서비스 끝점을 사용 하면 응용 프로그램 게이트웨이 또는 기타 WAF 장치를 사용 하 여 앱을 구성할 수 있습니다. 또한 보안 백 엔드를 사용 하 여 다중 계층 응용 프로그램을 구성할 수 있습니다. 일부 가능성에 대 한 자세한 내용은 [네트워킹 기능 및 App Service](networking-features.md)를 참조 하세요.
+서비스 끝점을 사용 하면 응용 프로그램 게이트웨이 또는 기타 WAF 장치를 사용 하 여 앱을 구성할 수 있습니다. 또한 보안 백 엔드를 사용 하 여 다중 계층 응용 프로그램을 구성할 수 있습니다. 일부 가능성에 대 한 자세한 내용은 [네트워킹 기능 및 App Service](networking-features.md) 와 [서비스 끝점과의 통합 Application Gateway](networking/app-gateway-with-service-endpoints.md)을 참조 하세요.
 
 ## <a name="managing-access-restriction-rules"></a>액세스 제한 규칙 관리
 
@@ -90,34 +90,49 @@ IP 주소 기반 규칙을 설정 하려면 IPv4 또는 IPv6 유형을 선택 �
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>액세스 제한 규칙의 프로그래밍 방식 조작 ##
 
-현재 새 액세스 제한 기능에 대 한 CLI 또는 PowerShell은 없지만 리소스 관리자의 앱 구성에 대 한 [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT 작업을 사용 하 여 수동으로 값을 설정할 수 있습니다. 예를 들어, resources.azure.com을 사용하고, ipSecurityRestrictions 블록을 편집하여 필요한 JSON을 추가할 수 있습니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) 및 [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) 는 액세스 제한 편집을 지원 합니다. Azure CLI를 사용 하 여 액세스 제한을 추가 하는 예제:
+
+```azurecli-interactive
+az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
+    --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
+```
+Azure PowerShell를 사용 하 여 액세스 제한을 추가 하는 예제:
+
+```azurepowershell-interactive
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
+    -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
+```
+
+리소스 관리자 또는 Azure Resource Manager 템플릿을 사용 하 여 앱 구성에서 [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT 작업을 사용 하 여 수동으로 값을 설정할 수도 있습니다. 예를 들어, resources.azure.com을 사용하고, ipSecurityRestrictions 블록을 편집하여 필요한 JSON을 추가할 수 있습니다.
 
 Resource Manager에서 이 정보는 다음 위치에 제공됩니다.
 
 management.azure.com/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹**/providers/Microsoft.Web/sites/**웹앱 이름**/config/web?api-version=2018-02-01
 
 앞의 예제에 대한 JSON 구문은 다음과 같습니다.
-
-    {
-      "properties": {
-        "ipSecurityRestrictions": [
-          {
-            "ipAddress": "122.133.144.0/24",
-            "action": "Allow",
-            "tag": "Default",
-            "priority": 100,
-            "name": "IP example rule"
-          }
-        ]
+```json
+{
+  "properties": {
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "122.133.144.0/24",
+        "action": "Allow",
+        "priority": 100,
+        "name": "IP example rule"
       }
-    }
+    ]
+  }
+}
+```
 
-## <a name="function-app-ip-restrictions"></a>함수 앱 IP 제한
+## <a name="azure-function-app-access-restrictions"></a>Azure 함수 앱 액세스 제한
 
-App Service 계획과 동일한 기능을 사용 하는 두 함수 앱에 대해 IP 제한을 사용할 수 있습니다. IP 제한을 사용 하도록 설정 하면 허용 되지 않는 Ip에 대해 포털 코드 편집기가 사용 되지 않습니다.
+App Service 계획과 동일한 기능을 사용 하는 두 함수 앱에 대 한 액세스 제한을 사용할 수 있습니다. 액세스 제한을 사용 하도록 설정 하면 허용 되지 않는 Ip에 대해 포털 코드 편집기를 사용할 수 없습니다.
 
-[여기를 참조하세요](../azure-functions/functions-networking-options.md#inbound-ip-restrictions).
+## <a name="next-steps"></a>다음 단계
+[Azure 함수 앱에 대 한 액세스 제한](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
+[서비스 끝점과 Application Gateway 통합](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
 [serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

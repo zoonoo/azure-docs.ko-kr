@@ -7,18 +7,18 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585402"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645092"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Azure 애플리케이션 Gateway의 웹 응용 프로그램 방화벽 v2에 대 한 사용자 지정 규칙
 
 Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽) v2는 다양 한 유형의 공격 으로부터 보호 하는 미리 구성 된 플랫폼 관리 규칙 집합을 제공 합니다. 이러한 공격에는 사이트 간 스크립팅, SQL 삽입 및 기타 기능이 포함 됩니다. WAF 관리자 인 경우 CRS (핵심 규칙 집합) 규칙을 보강 하는 고유한 규칙을 작성 하는 것이 좋습니다. 규칙은 일치 조건에 따라 요청 된 트래픽을 차단 하거나 허용할 수 있습니다.
 
-사용자 지정 규칙을 사용 하면 WAF를 통과 하는 각 요청에 대해 평가 되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙은 관리 되는 규칙 집합의 나머지 규칙 보다 높은 우선 순위를 보유 합니다. 사용자 지정 규칙에는 규칙 이름, 규칙 우선 순위 및 일치 조건의 배열이 포함 되어 있습니다. 이러한 조건이 충족 되 면 허용 또는 차단에 대 한 작업이 수행 됩니다.
+사용자 지정 규칙을 사용 하면 WAF를 통과 하는 각 요청에 대해 평가 되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 사용자 지정 규칙에는 규칙 이름, 규칙 우선 순위 및 일치 조건의 배열이 포함 되어 있습니다. 이러한 조건이 충족 되 면 허용 또는 차단에 대 한 작업이 수행 됩니다.
 
 예를 들어 192.168.5.4/24 범위의 IP 주소에서 모든 요청을 차단할 수 있습니다. 이 규칙에서 연산자는 *Ipmatch*이 고 MATCHVALUES는 IP 주소 범위 (192.168.5.4/24) 이며 작업은 트래픽을 차단 하는 것입니다. 또한 규칙의 이름 및 우선 순위를 설정 합니다.
 
@@ -29,7 +29,7 @@ Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)
 **또는** 두 개의 다른 조건을 원할 경우 두 조건이 서로 다른 규칙에 있어야 합니다. 예를 들어 특정 브라우저를 사용 하는 경우 특정 IP 주소에서 트래픽을 차단 하거나 트래픽을 차단 합니다.
 
 > [!NOTE]
-> WAF 사용자 지정 규칙의 최대 수는 100입니다. Application Gateway 제한에 대 한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md#application-gateway-limits)을 참조 하세요.
+> WAF 사용자 지정 규칙의 최대 수는 100입니다. Application Gateway 제한에 대 한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)을 참조 하세요.
 
 정규식은 CRS 규칙 집합에서와 마찬가지로 사용자 지정 규칙 에서도 지원 됩니다. 이에 대 한 예제는 [사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용](create-custom-waf-rules.md)의 예제 3 및 5를 참조 하세요.
 
@@ -126,12 +126,12 @@ MatchVariable 컬렉션의 필드에 대해 설명 합니다. 예를 들어 matc
 
 - IPMatch-일치 변수가 *Remoteaddr* 인 경우에만 사용 됩니다.
 - Equals – 입력이 MatchValue와 동일 합니다.
-- contains
+- 포함
 - LessThan
 - GreaterThan
 - LessThanOrEqual
 - GreaterThanOrEqual
-- 시작 문자
+- BeginsWith
 - EndsWith
 - Regex
 - Geomatch (미리 보기)
@@ -180,7 +180,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | AM | 아르메니아|
 | AO | 앙골라|
 | AR | 아르헨티나|
-| AS | 아메리칸 사모아|
+| AS | 미국령 사모아|
 | AT | 오스트리아|
 | AU | 오스트레일리아|
 | AZ | 아제르바이잔|
@@ -215,7 +215,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | CU | 쿠바|
 | CV | 카보베르데|
 | CY | 키프로스|
-| CZ | 체코|
+| CZ | 체코 공화국|
 | DE | 독일|
 | DK | 덴마크|
 | DO | 도미니카 공화국|
@@ -338,7 +338,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | TZ | 탄자니아|
 | UA | 우크라이나|
 | UG | 우간다|
-| US | 미국|
+| 미국 | 미국|
 | UY | 우루과이|
 | UZ | 우즈베키스탄|
 | VC | 세인트 빈센트 그레나딘|
@@ -346,7 +346,7 @@ Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가
 | VG | 영국령 버진 아일랜드|
 | VI | 미국령 버진 아일랜드|
 | VN | 베트남|
-| ZA | 남아프리카|
+| ZA | 남아프리카 공화국|
 | ZM | 잠비아|
 | ZW | 짐바브웨|
 

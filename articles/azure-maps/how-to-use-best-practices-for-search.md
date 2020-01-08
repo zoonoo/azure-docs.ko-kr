@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: de9e484e43c87375c2fdf9b34dd2efce3bb8aa8c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408709"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure Maps Search Service를 사용 하는 모범 사례
 
@@ -25,9 +25,9 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) 에
 * 주소 검색 응답 구조 읽기
 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
-맵 서비스 API에 대한 호출을 생성하려면 맵 계정 및 키가 필요합니다. 계정을 만드는 방법에 대 한 자세한 내용은 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) 의 지침에 따르고 [기본 키 가져오기](./tutorial-search-location.md#getkey) 의 단계에 따라 계정에 대 한 기본 구독 키를 검색 합니다.
+맵 서비스 API에 대한 호출을 생성하려면 맵 계정 및 키가 필요합니다. 계정을 만드는 방법에 대 한 자세한 내용을 보려면 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침을 따르고 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키 (구독)를 검색 합니다. Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증 관리](./how-to-manage-authentication.md)를 참조 하세요.
 
 > [!Tip]
 > 검색 서비스를 쿼리하려면 [Postman 앱](https://www.getpostman.com/apps) 을 사용 하 여 REST 호출을 빌드하거나 선호 하는 모든 API 개발 환경을 사용할 수 있습니다.
@@ -684,7 +684,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 }
 ```
 
-### <a name="geometry"></a>기하학
+### <a name="geometry"></a>geometry
 
 응답 유형이 **geometry**인 경우 "geometry" 및 "ID"의 **데이터 원본** 개체에서 반환 되는 기 하 도형 ID를 포함할 수 있습니다. 예를 들어, [Get Polygon service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) 를 사용 하면 엔터티 집합에 대 한 도시 또는 공항 개요와 같은 GeoJSON 형식으로 geometry 데이터를 요청할 수 있습니다. [지 오 펜싱](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) 에이 경계 데이터를 사용 하거나 [기 하 도형 내에서 poi를 검색할](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)수 있습니다.
 

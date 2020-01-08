@@ -1,5 +1,6 @@
 ---
-title: CloudSimple 빠른 시작 별 Azure VMware 솔루션-서비스 만들기
+title: '빠른 시작: VMware CloudSimple 서비스 만들기'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: CloudSimple 서비스를 만들고, 노드를 구매 하 고, 노드를 예약 하는 방법에 대해 알아봅니다.
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828898"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452372"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>빠른 시작-CloudSimple service로 Azure VMware 솔루션 만들기
 
@@ -25,7 +26,7 @@ CloudSimple 서비스를 사용 하면 CloudSimple로 Azure VMware 솔루션을 
 
 CloudSimple 서비스를 추가 하려면 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은에 지 네트워크를 만들 때 사용 되며/28 CIDR 블록이 필요 합니다. 게이트웨이 서브넷 주소 공간은 고유 해야 합니다. 온-프레미스 네트워크 주소 공간 또는 Azure 가상 네트워크 주소 공간과 겹칠 수 없습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 게이트웨이 서브넷에 대 한/28 CIDR 블록을 할당 합니다.  게이트웨이 서브넷은 CloudSimple 서비스 마다 필요 하며 생성 된 지역에 대해 고유 합니다. 게이트웨이 서브넷은 CloudSimple edge network services에서 Azure VMware 솔루션에 사용 되며/28 CIDR 블록이 필요 합니다. 게이트웨이 서브넷 주소 공간은 고유 해야 합니다. CloudSimple 환경과 통신 하는 네트워크와 겹치지 않아야 합니다.  CloudSimple과 통신 하는 네트워크에는 온-프레미스 네트워크 및 Azure virtual network가 포함 됩니다.
 

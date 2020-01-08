@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565329"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644922"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -40,7 +40,7 @@ DevTest Labs 팀 블로그는 20 년 3 2019 월 20 일에 사용이 중지 되�
 이제 Twitter 핸들을 사용 하 여 중단 업데이트를 게시할 예정입니다. Twitter에서 팔 로우 하 여 중단 및 알려진 버그에 대 한 최신 업데이트를 받으세요.
 
 ### <a name="twitter"></a>Twitter
-Twitter 핸들:[@azlabservices](https://twitter.com/azlabservices)
+Twitter 핸들: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="general"></a>일반
 ### <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
@@ -50,7 +50,7 @@ Twitter 핸들:[@azlabservices](https://twitter.com/azlabservices)
 - 더 광범위한 대상에 도달하기 위해 [Azure DevTest Labs MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)에 질문을 게시하세요. Azure DevTest Labs 팀과 커뮤니티의 다른 구성원들이 참여합니다.
 - 기능 요청의 경우 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/forums/320373-azure-devtest-labs)으로 제출해 주세요.
 
-### <a name="what-is-a-microsoft-account"></a>Microsoft 계정이란 무엇입니까?
+### <a name="what-is-a-microsoft-account"></a>Microsoft 계정이란?
 Microsoft 계정이란 Microsoft 디바이스 및 서비스를 가지고 하는 거의 모든 것에 대해 사용하는 계정입니다. Skype, Outlook.com, OneDrive, Windows phone, Azure 및 Xbox Live에 로그인 하는 데 사용 하는 전자 메일 주소 및 암호입니다. 단일 계정은 파일, 사진, 연락처 및 설정이 모든 디바이스에서 사용자를 따를 수 있음을 의미합니다.
  
 > [!NOTE]
@@ -81,9 +81,9 @@ DevTest Labs는 무료 서비스입니다. 즉 DevTest Labs에서 랩을 만들�
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs의 다른 보안 수준은 무엇인가요?
 보안 액세스는 RBAC (역할 기반 Access Control)에 의해 결정 됩니다. 액세스의 작동 방식을 알아보기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 알아보는 데 도움을 줍니다.
 
-- **사용 권한**: 사용 권한은 특정 작업에 대해 정의된 액세스입니다. 예로 모든 VM에 대한 읽기 액세스가 있습니다.
-- **역할**: 역할은 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 세트입니다. 예를 들어 구독 소유자 역할이 있는 사용자는 구독 내의 모든 리소스에 대한 액세스를 보유합니다.
-- **범위**: 범위는 Azure 리소스의 계층 구조 내 수준입니다. 예를 들어 범위는 리소스 그룹, 단일 랩이거나 전체 구독일 수 있습니다.
+- **사용 권한**: 특정 작업에 대해 정의된 액세스입니다. 예로 모든 VM에 대한 읽기 액세스가 있습니다.
+- **역할**: 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 집합입니다. 예를 들어 구독 소유자 역할이 있는 사용자는 구독 내의 모든 리소스에 대한 액세스를 보유합니다.
+- **범위**: 범위는 Azure 리소스 계층 구조 내의 수준입니다. 예를 들어 범위는 리소스 그룹, 단일 랩이거나 전체 구독일 수 있습니다.
 
 DevTest Labs의 범위 내에 사용자 사용 권한을 정의하는 두 가지 유형의 역할이 있습니다.
 
@@ -162,11 +162,11 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 현재 엔터프라이즈 명명 규칙을 Azure 작업으로 확장 적용하고 DevTest Labs 환경에서도 일관되게 사용할 수 있습니다. DevTest Labs를 배포할 때는 구체적인 시작 정책을 결정하는 것이 좋습니다. 일관성을 유지하려면 중앙 스크립트와 JSON 템플릿을 사용하여 이러한 정책을 배포합니다. 구독 수준에서 적용된 Azure 정책을 통해 명명 정책을 구현할 수 있습니다. Azure Policy의 JSON 샘플은 [Azure Policy 샘플](../governance/policy/samples/index.md)을 참조하세요.
 
 ### <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>동일한 구독에서 얼마나 많은 랩을 만들 수 있습니까?
-구독당 만들 수 있는 랩의 수에는 특정 제한이 없습니다. 그러나 사용하는 리소스 양은 구독당 제한됩니다. [Azure 구독에 대한 한도 및 할당량](../azure-subscription-service-limits.md) 및 [이러한 한도를 늘리는 방법](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)에 대해 알아볼 수 있습니다.
+구독당 만들 수 있는 랩의 수에는 특정 제한이 없습니다. 그러나 사용하는 리소스 양은 구독당 제한됩니다. [Azure 구독에 대한 한도 및 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md) 및 [이러한 한도를 늘리는 방법](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)에 대해 알아볼 수 있습니다.
 
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>랩당 얼마나 많은 VM을 만들 수 있습니까?
-랩당 만들 수 있는 VM의 수에는 특정 제한이 없지만 하지만 사용하는 리소스(VM 코어, 공용 IP 주소 등)는 구독당 제한됩니다. [Azure 구독에 대한 한도 및 할당량](../azure-subscription-service-limits.md) 및 [이러한 한도를 늘리는 방법](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)에 대해 알아볼 수 있습니다.
+랩당 만들 수 있는 VM의 수에는 특정 제한이 없지만 하지만 사용하는 리소스(VM 코어, 공용 IP 주소 등)는 구독당 제한됩니다. [Azure 구독에 대한 한도 및 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md) 및 [이러한 한도를 늘리는 방법](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)에 대해 알아볼 수 있습니다.
 
 ### <a name="how-do-i-determine-the-ratio-of-users-per-lab-and-the-overall-number-of-labs-that-are-needed-across-an-organization"></a>랩 당 사용자의 비율과 조직 전체에 필요한 전체 랩 수를 결정 어떻게 할까요??
 동일 개발 프로젝트와 연결된 사업부와 개발 그룹은 같은 랩에 연결하는 것이 좋습니다. 그러면 같은 유형의 정책, 이미지 및 종료 정책을 두 그룹에 모두 적용할 수 있습니다.
@@ -176,7 +176,7 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 Azure DevOps Projects 내의 특정 프로젝트에 대 한 랩을 사용할 수도 있습니다. 그리고 지정된 Azure Active Directory 그룹을 통해 보안을 적용하면 두 리소스 집합에 모두 액세스할 수 있습니다. 랩에 할당된 가상 네트워크가 사용자를 통합하는 또 다른 경계로 사용될 수도 있습니다.
 
 ### <a name="how-can-we-prevent-the-deletion-of-resources-within-a-lab"></a>랩 내에서 리소스 삭제를 방지하려면 어떻게 해야 하나요?
-권한이 부여된 사용자만 리소스를 삭제하거나 랩 정책을 변경할 수 있도록 랩 수준에서 적절한 권한을 설정하는 것이 좋습니다. 개발자는 **DevTest Labs 사용자** 그룹 내에 포함되어야 합니다. 수석 개발자 또는 인프라 책임자는 **DevTest Labs 소유자**여야 합니다. 랩 소유자는 두 개만 있으면 좋습니다. 손상 방지를 위해 이 정책은 코드 리포지토리로 확대 적용됩니다. 랩 사용자에 게는 리소스를 사용할 수 있는 권한이 있지만 랩 정책을 업데이트할 수 없습니다. 각 기본 그룹이 랩 내에서 소유하는 역할과 권한 목록이 나열된 [Azure DevTest Labs에 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md) 문서를 참조하세요.
+권한이 부여된 사용자만 리소스를 삭제하거나 랩 정책을 변경할 수 있도록 랩 수준에서 적절한 권한을 설정하는 것이 좋습니다. 개발자는 **DevTest Labs 사용자** 그룹 내에 포함되어야 합니다. 수석 개발자 또는 인프라 책임자는 **DevTest Labs 소유자**여야 합니다. 랩 소유자는 두 개만 있으면 좋습니다. 손상 방지를 위해 이 정책은 코드 리포지토리로 확대 적용됩니다. 랩 사용자에 게는 리소스를 사용할 수 있는 권한이 있지만 랩 정책을 업데이트할 수 없습니다. 랩 내에서 각 기본 제공 그룹이 소유하는 역할과 권한을 설명하는 [Azure DevTest Labs에서 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md) 문서를 참조하세요.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>랩에 대한 직접 링크를 공유하려면 어떻게 합니까?
 
@@ -186,7 +186,7 @@ Azure DevOps Projects 내의 특정 프로젝트에 대 한 랩을 사용할 수
 > [!NOTE]
 > 랩 사용자가 Microsoft 계정 있지만 조직의 Active Directory 인스턴스의 멤버가 아닌 외부 사용자 인 경우 사용자는 공유 링크에 액세스 하려고 할 때 오류 메시지가 표시 될 수 있습니다. 외부 사용자가 오류 메시지를 확인하는 경우 사용자에게 먼저 Azure Portal의 오른쪽 위 모서리에서 해당 이름을 선택하도록 요청하세요. 그런 다음 메뉴의 디렉터리 섹션에서 사용자가 랩을 존재 하는 디렉터리를 선택할 수 있습니다.
 
-## <a name="virtual-machines"></a>가상 머신
+## <a name="virtual-machines"></a>Virtual Machines
 
 ### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>DevTest Labs에 표시 되는 Virtual Machines 페이지에 Vm이 표시 되지 않는 이유는 무엇 인가요?
 DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한이 부여 됩니다. 랩 페이지와 **Virtual Machines** 페이지 모두에서 VM을 볼 수 있습니다. **DevTest Labs 소유자** 역할에 할당 된 사용자는 랩의 **모든 Virtual Machines** 페이지에서 랩에서 만들어진 모든 vm을 볼 수 있습니다. 그러나 **DevTest Labs 사용자** 역할이 있는 사용자에 게는 다른 사용자가 만든 VM 리소스에 대 한 읽기 권한이 자동으로 부여 되지 않습니다. 따라서 이러한 Vm은 **Virtual Machines** 페이지에 표시 되지 않습니다.
@@ -304,7 +304,7 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 - 모든 시스템에 대해 규정 준수 또는 규제 조건(예: 보안 정책)을 적용해야 하는 경우
 - 사용자 지정 이미지를 사용 하는 것은 가볍게 고려 하지 않아야 합니다. 이제 이러한 기본 이미지에 대 한 VHD 파일을 관리 해야 하므로 추가 복잡성이 도입 됩니다. 그리고 소프트웨어 업데이트를 사용하여 해당 기본 이미지를 정기적으로 패치해야 합니다. 이러한 업데이트에는 새 OS(운영 체제) 업데이트와 소프트웨어 패키지 자체에 필요한 업데이트 또는 구성 변경 내용이 포함됩니다.
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>Artifacts
 
 ### <a name="what-are-artifacts"></a>아티팩트는 무엇입니까?
 아티팩트는 VM에 최신 비트 또는 개발 도구를 배포하는 데 사용할 수 있는 사용자 지정 가능한 요소입니다. VM을 만들 때 VM에 아티팩트를 연결합니다. VM이 프로비전되면 아티팩트는 VM을 배포하고 구성합니다. [공용 GitHub 리포지토리에서](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)다양 한 기존 아티팩트를 사용할 수 있습니다. [사용자 고유의 아티팩트를 작성](devtest-lab-artifact-author.md)할 수도 있습니다.
@@ -313,7 +313,7 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 실패한 아티팩트에 대한 로그를 얻는 방법을 알아보려면 [DevTest Labs에서 아티팩트 실패를 진단하는 방법](devtest-lab-troubleshoot-artifact-failure.md)을 참조하세요.
 
 ### <a name="when-should-an-organization-use-a-public-artifact-repository-vs-private-artifact-repository-in-devtest-labs"></a>조직은 DevTest Labs에서 프라이빗 아티팩트 리포지토리와 공용 아티팩트 리포지토리 중에서 어떤 것을 사용해야 하나요?
-[공용 아티팩트 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)는 가장 일반적으로 사용되는 초기 소프트웨어 패키지 집합을 제공합니다. 이것은 일반적인 개발자 도구와 추가 기능을 재현하는 데 시간을 들일 필요 없이 빠르게 배포하는 데 도움이 됩니다. 사용자 고유의 프라이빗 리포지토리를 배포하도록 선택할 수 있습니다. 공용 리포지토리와 프라이빗 리포지토리를 함께 사용할 수 있습니다. 공용 리포지토리를 사용하지 않도록 설정할 수도 있습니다. 프라이빗 리포지토리 배포 기준을 다음 질문 및 고려 사항에 따라 결정하는 것이 좋습니다.
+[공용 아티팩트 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)는 가장 일반적으로 사용되는 초기 소프트웨어 패키지 집합을 제공합니다. 일반적인 개발자 도구 및 추가 기능을 재현 하는 데 시간을 투자 하지 않고도 신속 하 게 배포할 수 있습니다. 자신의 개인 리포지토리를 배포 하도록 선택할 수 있습니다. 공용 리포지토리와 프라이빗 리포지토리를 함께 사용할 수 있습니다. 공용 리포지토리를 사용하지 않도록 설정할 수도 있습니다. 프라이빗 리포지토리 배포 기준을 다음 질문 및 고려 사항에 따라 결정하는 것이 좋습니다.
 
 - 조직이 해당 DevTest Labs 제안의 일부로 회사용 라이선스 소프트웨어를 보유해야 하나요? 대답이 예인 경우 프라이빗 리포지토리를 생성해야 합니다.
 - 조직이 전체 프로비전 프로세스의 일부로 필요한 특정 작업을 제공하는 사용자 지정 소프트웨어를 개발하고 있나요? 대답이 예인 경우 프라이빗 리포지토리를 배포해야 합니다.
@@ -324,7 +324,7 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 조직의 전반적인 거버넌스 및 구성 관리 전략의 일환으로, 중앙 집중식 리포지토리를 사용하는 것이 좋습니다. 여러 리포지토리를 사용하면 시간이 지나면서 관리되지 않는 소프트웨어의 사일로가 될 수 있습니다. 중앙 저장소를 사용하면 여러 팀이 프로젝트에서 이 리포지토리의 아티팩트를 사용할 수 있습니다. 또한 표준화, 보안, 관리 용이성이 구현되고, 중복 작업을 수행할 필요가 없어집니다. 중앙 집중화의 일환으로, 장기 관리 및 지속성을 위해 다음 사례가 권장됩니다.
 
 - Azure 구독이 인증 및 권한 부여에 사용하는 동일한 Azure Active Directory 테넌트에 Azure Repos를 연결합니다.
-- 중앙에서 관리 되 `All DevTest Labs Developers` 는 Azure Active Directory에서 라는 그룹을 만듭니다. 아티팩트 개발에 참여하는 모든 개발자는 이 그룹에 배치되어야 합니다.
+- 중앙에서 관리 되는 Azure Active Directory에 `All DevTest Labs Developers` 라는 그룹을 만듭니다. 아티팩트 개발에 참여하는 모든 개발자는 이 그룹에 배치되어야 합니다.
 - 동일한 Azure Active Directory 그룹을 사용하여 Azure Repos 리포지토리 및 랩에 대한 액세스 권한을 부여할 수 있습니다.
 - Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절한 코드 검토 후에 끌어오기 요청을 통해서만 마스터 분기에 추가됩니다. 코드 검토자가 변경을 승인하면 마스터 분기의 유지 관리를 담당하는 수석 개발자가 업데이트된 코드를 병합합니다.
 
@@ -352,7 +352,7 @@ Vm이 기존 인프라와 상호 작용 해야 하는 경우 DevTest Labs 환경
 
 여기에서 VNet 피어 링 패턴 ([허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke))을 사용 하는 것이 좋습니다. 이 방법은 구독에서 vnet/서브넷 통신을 가능 하 게 합니다. 각 DevTest Labs 환경에 자체 가상 네트워크가 있을 수도 있습니다. 
 
-구독 당 가상 네트워크 수에는 [제한이](../azure-subscription-service-limits.md) 있습니다. 기본 수는 50이지만 100까지 높일 수 있습니다.
+구독 당 가상 네트워크 수에는 [제한이](../azure-resource-manager/management/azure-subscription-service-limits.md) 있습니다. 기본 수는 50이지만 100까지 높일 수 있습니다.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>공유 IP, 공용 IP, 프라이빗 IP는 각각 어떠한 경우에 사용해야 하나요?
  

@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: ce8ea76cfc1f3f30418b66cd21de43d244da6764
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448252"
 ---
 # <a name="moderate-images-from-the-api-console"></a>API 콘솔에서 이미지 조정
 
-Azure Content Moderator의 [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)를 사용하여 이미지 콘텐츠에 대한 검사-검토 조정 워크플로를 시작합니다. 조정 작업은 콘텐츠에서 비속어를 검색하여 사용자 지정 및 공유 블랙리스트와 비교합니다.
+Azure Content Moderator의 [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)를 사용하여 이미지 콘텐츠에 대한 검사-검토 조정 워크플로를 시작합니다. 중재 작업을 통해 콘텐츠를 검색 하 여 사용자 지정 및 공유 블록 목록과 비교할 수 있습니다.
 
 ## <a name="use-the-api-console"></a>API 콘솔 사용
 온라인 콘솔에서 API를 테스트하려면 구독 키가 필요합니다. 구독 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.

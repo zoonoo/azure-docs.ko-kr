@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101416"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353227"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -112,9 +112,14 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 위반이 발생할 때 가상 위반 사고방식을 사용하여 손상된 사용자 자격 증명의 영향을 줄여야 합니다. 사용자 환경의 각 앱의 경우 권한이 있는 그룹, 네트워크, 디바이스 및 기타 요소가 무엇인지 유효한 사용 사례를 고려한 다음, 나머지를 차단합니다. [AZURE AD 조건부 액세스](../../active-directory/conditional-access/overview.md)를 사용 하 여 권한 있는 사용자가 정의한 특정 조건에 따라 앱 및 리소스에 액세스 하는 방법을 제어할 수 있습니다.
 
-### <a name="block-end-user-consent"></a>최종 사용자 동의 차단
+### <a name="restrict-user-consent-operations"></a>사용자 승인 작업 제한
 
-기본적으로 Azure AD의 모든 사용자는 OAuth 2.0 및 Microsoft ID [동의 프레임워크](../../active-directory/develop/consent-framework.md)를 활용하는 애플리케이션에 회사 데이터 액세스 권한을 부여할 수 있습니다. 동의를 통해 사용자는 Microsoft 365 및 Azure와 통합되는 유용한 애플리케이션을 쉽게 획득할 수 있지만, 신중하게 사용하고 모니터링하지 않으면 위험 요소로 작용할 수 있습니다. [향후 모든 사용자 동의 작업을 사용하지 않도록 설정](../../active-directory/manage-apps/methods-for-removing-user-access.md)하면 노출 영역을 줄이고 위험을 완화할 수 있습니다. 최종 사용자 동의를 사용하지 않도록 설정하면 기존 동의 부여는 계속 적용되지만, 이후부터는 모든 동의 작업을 관리자가 수행해야 합니다. 이 기능을 사용 하지 않도록 설정 하기 전에 사용자가 새 응용 프로그램에 대해 관리자 승인을 요청 하는 방법을 이해할 수 있도록 하는 것이 좋습니다. 이렇게 하면 사용자 마찰을 줄이고 지원 볼륨을 최소화 하 고 사용자가 비 Azure AD 자격 증명을 사용 하 여 응용 프로그램에 등록 하지 않도록 할 수 있습니다.
+다양 한 [AZURE AD 응용 프로그램 동의 환경](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), [사용 권한 및 동의 유형](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)및 조직의 보안 상태에 대 한 영향을 이해 하는 것이 중요 합니다. 기본적으로 Azure AD의 모든 사용자는 Microsoft id 플랫폼을 활용 하는 응용 프로그램에 조직의 데이터에 액세스할 수 있는 권한을 부여할 수 있습니다. 사용자가 자신에 게 동의할 수 있도록 허용 하는 경우에는 사용자가 Microsoft 365, Azure 및 기타 서비스와 통합 하는 유용한 응용 프로그램을 쉽게 획득할 수 있으며, 사용 하지 않거나 모니터링 하는 경우 위험을 나타낼 수 있습니다.
+
+사용자의 노출 영역을 줄이고이 위험을 완화 하기 위해 [향후 사용자 동의 작업을 사용 하지 않도록 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) 하는 것이 좋습니다. 최종 사용자 동의가 사용 하지 않도록 설정 된 경우 이전 동의 부여는 여전히 적용 되지만 관리자는 이후의 모든 승인 작업을 수행 해야 합니다. 사용자가 통합 [관리자 동의 요청 워크플로](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) 를 통하거나 사용자의 지원 프로세스를 통해 관리자 동의를 요청할 수 있습니다. 이 기능을 사용 하지 않도록 설정 하기 전에 감사 로그를 검토 하 여 사용자가 동의 응용 프로그램을 파악 하 고 그에 따라 변경을 계획 하는 것이 좋습니다. 모든 사용자가 액세스할 수 있도록 허용 하려는 응용 프로그램의 경우에는 [모든 사용자를 대신](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent)하 여 동의를 부여 하 여 개별적으로 동의한 않은 사용자가 앱에 액세스할 수 있도록 하는 것이 좋습니다. 모든 시나리오에서 이러한 응용 프로그램을 모든 사용자가 사용할 수 있도록 하려는 경우 [응용 프로그램 할당](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) 및 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) 를 사용 하 여 앱에 대 한 사용자 액세스를 제한 합니다.
+
+사용자의 수를 줄이고, 지원 볼륨을 최소화 하 고, 사용자가 비 Azure AD 자격 증명을 사용 하 여 응용 프로그램에 등록 하지 못하도록 하려면 사용자가 새 응용 프로그램에 대해 관리자 승인을 요청할 수 있는지 확인 합니다. 동의 작업을 제어 하 고 나면 관리자는 앱 및 동의한 권한을 정기적으로 감사 해야 합니다.
+
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 구현
 
@@ -173,7 +178,9 @@ Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중�
 
 ### <a name="audit-apps-and-consented-permissions"></a>감사 앱 및 승인된 권한
 
-사용자는 자신의 프로필 정보 및 사용자 데이터 (예: 전자 메일)에 대 한 액세스 권한을 얻을 수 있는 손상 된 웹 사이트에 대 한 탐색으로 속아 서 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자가 제공한 권한을 [검토 및 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)해야 합니다.
+사용자는 자신의 프로필 정보 및 사용자 데이터 (예: 전자 메일)에 대 한 액세스 권한을 얻을 수 있는 손상 된 웹 사이트에 대 한 탐색으로 속아 서 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자에 게 부여 된 사용 권한을 [검토 하 고 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하거나 사용자가 기본적으로 동의를 부여 하지 않도록 설정 해야 합니다. 
+
+사용자가 제공 하는 사용 권한을 감사 하는 것 외에도, 프리미엄 환경에서 사용할 수 있는 기능인 [위험한 또는 원치 않는 OAuth 응용 프로그램](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)을 쉽게 찾을 수 있습니다.
 
 ## <a name="step-5---enable-end-user-self-service"></a>5 단계-최종 사용자 셀프 서비스 사용
 

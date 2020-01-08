@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 823527af81e0cb22fb59421b84983684d4cdfffd
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 52314f0802acd6a296177d53ee9babb133172761
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407503"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -34,14 +34,14 @@ ms.locfileid: "74286257"
 > [!NOTE]
 > Application Insights와 함께 ASP.NET Core 3.0를 사용 하는 경우 [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 버전 이상을 사용 하세요. ASP.NET Core 3.0를 지 원하는 유일한 버전입니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](https://docs.microsoft.com/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 참조 하세요.
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>서버 쪽 원격 분석 Application Insights 사용 (Visual Studio)
 
-1. Visual Studio에서 프로젝트를 엽니다.
+1. Visual Studio에서 새 프로젝트를 엽니다.
 
     > [!TIP]
     > 원할 경우 프로젝트에 대 한 소스 제어를 설정 하 여 Application Insights에서 수행 하는 모든 변경 내용을 추적할 수 있습니다. 소스 제어를 사용 하도록 설정 하려면 **파일** > **소스 제어에 추가**를 선택 합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "74286257"
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.0" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
         </ItemGroup>
     ```
 
@@ -107,7 +107,7 @@ ms.locfileid: "74286257"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예를 들어 다음과 같은 가치를 제공해야 합니다.
+    예:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -195,7 +195,7 @@ public void ConfigureServices(IServiceCollection services)
 
 `ApplicationInsightsServiceOptions`의 전체 설정 목록
 
-|설정 | 설명 | 기본값
+|설정 | Description | 기본값
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용 안 함 | true
 |EnableAdaptiveSampling | 적응 샘플링 사용/사용 안 함 | true
@@ -349,7 +349,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 좋습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 ### <a name="does-application-insights-support-aspnet-core-30"></a>3\.0 ASP.NET Core Application Insights 지원 하나요?
 
@@ -406,7 +406,7 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>상태 모니터 같은 도구를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정할 수 있나요?
 
-아니요. [상태 모니터](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) 및 [상태 모니터 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 는 현재 ASP.NET 4.x만 지원 합니다.
+아닙니다. [상태 모니터](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) 및 [상태 모니터 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 는 현재 ASP.NET 4.x만 지원 합니다.
 
 ### <a name="is-application-insights-automatically-enabled-for-my-aspnet-core-20-application"></a>Application Insights ASP.NET Core 2.0 응용 프로그램에 대해 자동으로 사용 하도록 설정 되어 있습니까?
 
@@ -441,7 +441,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 
-[코드를 읽고 기여합니다](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates).
+[코드를 읽고 기여합니다](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
 
 ## <a name="video"></a>비디오
 

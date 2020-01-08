@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리에서 보고서 및 로그 보기-Azure Active Directory
+title: 자격 관리에서 로그 & 보고서 보기-Azure AD
 description: Azure Active Directory 자격 관리에서 사용자 할당 보고서 및 감사 로그를 보는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3302fc3b2513794cd66d1ebf6db2cbcdb0f713dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173890"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422562"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 보고서 및 로그 보기
 
@@ -85,7 +85,7 @@ Azure AD 자격 관리 보고서 및 Azure AD 감사 로그는 사용자가 액�
 
 1. 위쪽에서 검색 하려는 감사 레코드에 따라 **범주** 를 `EntitlementManagement` 또는 `UserManagement`로 변경 합니다.  
 
-1. **Apply**를 클릭합니다.
+1. **적용**을 클릭합니다.
 
 1. 로그를 다운로드 하려면 **다운로드**를 클릭 합니다.
 

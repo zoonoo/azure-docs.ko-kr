@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462446"
 ---
 # <a name="workflow-automation-preview"></a>워크플로 자동화 (미리 보기)
 
@@ -87,6 +87,9 @@ ms.locfileid: "74151700"
 
 [논리 앱을 수동으로 트리거하 ![](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
+## <a name="data-types-schemas"></a>데이터 형식 스키마
+
+논리 앱 인스턴스에 전달 되는 보안 경고 또는 권장 사항 이벤트의 원시 이벤트 스키마를 보려면 [워크플로 자동화 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)를 참조 하세요. 이는 위에서 언급 한 Security Center의 기본 제공 논리 앱 커넥터를 사용 하지 않고 논리 앱의 일반 HTTP 커넥터를 사용 하는 경우에 유용할 수 있습니다. 이벤트 JSON 스키마를 사용 하 여 적합 한 것 처럼 수동으로 구문 분석할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -98,3 +101,4 @@ ms.locfileid: "74151700"
 - [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
 - [Azure Logic Apps 정보](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Logic Apps 커넥터](https://docs.microsoft.com/connectors/)
+- [워크플로 자동화 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)

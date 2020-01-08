@@ -1,42 +1,41 @@
 ---
 title: 샘플 데이터를 사용하여 Azure Stream Analytics 작업 테스트
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Stream Analytics 작업을 테스트하고, 입력을 샘플링하고, 샘플 데이터를 업로드하는 방법을 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369867"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>샘플 데이터를 사용하여 Azure Stream Analytics 작업 테스트
 
-Azure Stream Analytics에서 작업을 시작 하거나 중지 하지 않고 쿼리를 테스트할 수 있습니다. 입력 싱크에서 들어오는 데이터에 대 한 쿼리를 테스트 하거나 Azure Portal의 로컬 파일에서 예제 데이터를 업로드할 수 있습니다. 또한 [Visual Studio](stream-analytics-live-data-local-testing.md) 의 로컬 샘플 데이터 또는 라이브 데이터에서 로컬로 쿼리를 테스트 하 고 [Visual Studio Code](vscode-local-run.md)수 있습니다. 
+Azure Stream Analytics에서 작업을 시작 하거나 중지 하지 않고 쿼리를 테스트할 수 있습니다. 입력 싱크에서 들어오는 데이터에 대 한 쿼리를 테스트 하거나 Azure Portal의 로컬 파일에서 예제 데이터를 업로드할 수 있습니다. 또한 [Visual Studio](stream-analytics-live-data-local-testing.md) 의 로컬 샘플 데이터 또는 라이브 데이터에서 로컬로 쿼리를 테스트 하 고 [Visual Studio Code](visual-studio-code-local-run-live-input.md)수 있습니다.
 
 ## <a name="sample-incoming-data-from-input"></a>입력에서 들어오는 데이터 샘플링
 
 Azure Stream Analytics은 자동으로 스트리밍 입력에서 이벤트를 페치합니다. 기본 샘플에서 쿼리를 실행 하거나 샘플에 대 한 특정 시간 프레임을 설정할 수 있습니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 2. 기존 Stream Analytics 작업을 찾아 선택 합니다.
 
 3. Stream Analytics 작업 페이지의 **작업 토폴로지** 제목 아래에서 **쿼리**를 선택하여 쿼리 편집기 창을 엽니다. 
 
-4. 들어오는 이벤트의 샘플 목록을 보려면 파일을 사용 하 여 입력 아이콘을 선택 합니다. 그러면 샘플 이벤트가 **입력 미리 보기**에 자동으로 표시 됩니다. 
+4. 들어오는 이벤트의 샘플 목록을 보려면 파일을 사용 하 여 입력 아이콘을 선택 합니다. 그러면 샘플 이벤트가 **입력 미리 보기**에 자동으로 표시 됩니다.
 
-   가. JSON 또는 CSV의 경우 데이터의 serialization 형식이 자동으로 검색 됩니다. 드롭다운 메뉴에서 옵션을 변경 하 여 JSON, CSV, AVRO를 수동으로 변경할 수 있습니다.
+   a. JSON 또는 CSV의 경우 데이터의 serialization 형식이 자동으로 검색 됩니다. 드롭다운 메뉴에서 옵션을 변경 하 여 JSON, CSV, AVRO를 수동으로 변경할 수 있습니다.
     
-   나. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다.
+   b. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다.
     
-   c. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
+   다. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
 
    다음 표는 **테이블 형식의**데이터에 대 한 예입니다.
 
@@ -72,7 +71,7 @@ Azure Stream Analytics은 자동으로 스트리밍 입력에서 이벤트를 �
 
 라이브 데이터를 사용 하는 대신 로컬 파일의 샘플 데이터를 사용 하 여 Azure Stream Analytics 쿼리를 테스트할 수 있습니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
    
 2. 기존 Stream Analytics 작업을 찾아서 선택합니다.
 
@@ -100,7 +99,7 @@ Azure Stream Analytics은 자동으로 스트리밍 입력에서 이벤트를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [일반적인 Stream Analytics 사용 패턴에 대 한 쿼리 예제](stream-analytics-stream-analytics-query-patterns.md)
 

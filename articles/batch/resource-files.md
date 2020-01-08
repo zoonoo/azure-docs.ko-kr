@@ -1,6 +1,6 @@
 ---
-title: 리소스 파일 만들기 및 사용-Azure Batch | Microsoft Docs
-description: 다양 한 입력 원본에서 Azure Batch 리소스 파일을 만드는 방법에 대해 알아봅니다.
+title: 리소스 파일 만들기 및 사용-Azure Batch
+description: 다양 한 입력 소스에서 배치 리소스 파일을 만드는 방법을 알아봅니다. 이 문서에서는 VM을 만들고 VM에 추가 하는 방법에 대 한 몇 가지 일반적인 방법을 설명 합니다.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 9c55b22d1cb85fb645087cf48b54f9d5ac12d58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e890bce378327fe5b1f4068d6719e6b905404f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322179"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390044"
 ---
 # <a name="creating-and-using-resource-files"></a>리소스 파일 만들기 및 사용
 
@@ -34,7 +34,7 @@ Azure Batch 태스크에는 처리 해야 하는 일종의 데이터가 필요 �
 
 - [저장소 컨테이너 URL](#storage-container-url): Azure의 모든 저장소 컨테이너에서 리소스 파일을 생성 합니다.
 - [저장소 컨테이너 이름](#storage-container-name): 일괄 처리에 연결 된 Azure 저장소 계정의 컨테이너 이름에서 리소스 파일을 생성 합니다.
-- [웹 끝점](#web-endpoint): 모든 유효한 HTTP URL에서 리소스 파일을 생성 합니다.
+- [웹 끝점](#web-endpoint): 유효한 모든 HTTP URL에서 리소스 파일을 생성 합니다.
 
 ### <a name="storage-container-url"></a>저장소 컨테이너 URL
 
@@ -53,9 +53,9 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 ```
 
 > [!NOTE]
-> 컨테이너 액세스의 경우 및 권한이 모두 `Read` 있어야 하 고 `List` blob `Read` 액세스를 사용 하려면 권한만 있으면 됩니다.
+> 컨테이너 액세스의 경우 `Read` 및 `List` 권한이 모두 있어야 하 고 blob 액세스를 사용 하려면 `Read` 권한만 있으면 됩니다.
 
-사용 권한이 구성 되 면 SAS 토큰을 만들고 저장소 컨테이너에 대 한 액세스를 위한 SAS URL의 형식을 지정 합니다. 저장소 컨테이너에 대해 형식이 지정 된 SAS URL을 사용 하 여 리소스 파일 [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet)을 생성 합니다.
+사용 권한이 구성 되 면 SAS 토큰을 만들고 저장소 컨테이너에 대 한 액세스를 위한 SAS URL의 형식을 지정 합니다. 저장소 컨테이너에 대해 형식이 지정 된 SAS URL을 사용 하 여 [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet)를 사용 하 여 리소스 파일을 생성 합니다.
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);

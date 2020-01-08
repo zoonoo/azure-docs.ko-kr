@@ -1,28 +1,26 @@
 ---
 title: Azure Stream Analytics 작업을 프로그래밍 방식으로 모니터링 및 관리
 description: 이 문서에서는 REST API, Azure SDK 또는 PowerShell을 통해 생성된 Stream Analytics 작업을 프로그래밍 방식으로 모니터링하는 방법에 대해 설명합니다.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 23c0cc0d0e4a007fdf46021f857b559266f6a193
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612248"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431664"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>프로그래밍 방식으로 Stream Analytics 작업 모니터 만들기
 
 이 문서에서는 Stream Analytics 작업에 대한 모니터링을 사용하는 방법을 보여줍니다. REST API, Azure SDK 또는 PowerShell을 통해 생성된 Stream Analytics 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure Portal에서 수동으로 설정하거나 이 문서의 단계를 수행하여 이 프로세스를 자동화할 수 있습니다. 모니터링 데이터는 Stream Analytics 작업에 대해 Azure Portal의 “모니터” 탭에서 볼 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-이 프로세스를 시작 하기 전에 다음 필수 조건이 있어야 합니다.
+이 프로세스를 시작 하기 전에 다음과 같은 필수 구성 요소가 있어야 합니다.
 
 * Visual Studio 2019 또는 2015
 * [Azure.NET SDK](https://azure.microsoft.com/downloads/) 다운로드 및 설치
@@ -137,7 +135,7 @@ ms.locfileid: "67612248"
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>기존 Stream Analytics 작업에 모니터링 사용
 
-다음 코드는 **기존** Stream Analytics 작업에 모니터링을 사용합니다. 코드의 첫 번째 부분은 Stream Analytics 서비스에 대해 GET 요청을 수행하여 특정 Stream Analytics 작업에 대한 정보를 검색합니다. 사용 된 *ID* 두 번째 Stream Analytics 작업에 대 한 모니터링을 사용 하도록 Insights 서비스에 요청을 PUT을 전송 하는 코드의 절반에서 Put 메서드에 매개 변수로 속성 (GET 요청에서 검색 됨).
+다음 코드는 **기존** Stream Analytics 작업에 모니터링을 사용합니다. 코드의 첫 번째 부분은 Stream Analytics 서비스에 대해 GET 요청을 수행하여 특정 Stream Analytics 작업에 대한 정보를 검색합니다. *ID* 속성 (GET 요청에서 검색 됨)을 코드의 두 번째 부분에서 put 메서드에 대 한 매개 변수로 사용 합니다. 그러면 put 요청을 Insights 서비스로 보내 Stream Analytics 작업에 대 한 모니터링을 사용 하도록 설정 합니다.
 
 > [!WARNING]
 > Azure Portal을 통해 또는 아래 코드를 통해 프로그래밍 방식으로 서로 다른 Stream Analytics 작업에 대한 모니터링을 이전에 설정한 경우, **이전에 모니터링을 활성화했을 때 사용했던 동일한 스토리지 계정 이름을 제공하는 것이 좋습니다.**

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: a1e75416db34514425436bc3ceae9f27b156b557
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792696"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563380"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각 기술을 비교하고 대조할 수 있으며 요구 사항에 가장 잘 맞는 솔루션을 더욱 합리적으로 결정할 수 있습니다.
@@ -175,7 +175,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 
 | 비교 기준 | Storage 큐 | Service Bus 큐 |
 | --- | --- | --- |
-| Authentication |**대칭 키** |**대칭 키** |
+| 인증 |**대칭 키** |**대칭 키** |
 | 보안 모델 |SAS 토큰을 통해 위임된 액세스. |SAS |
 | ID 공급자 페더레이션 |**아니요** |**예** |
 
@@ -194,7 +194,7 @@ Service Bus 큐의 경우 세션, 트랜잭션, 중복 검색, 배달 못한 메
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Queue Storage 서비스를 사용하는 방법](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례](service-bus-performance-improvements.md)
-* [Azure Service Bus의 큐 및 토픽 소개(블로그 게시물)](https://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Azure Service Bus의 큐 및 토픽 소개(블로그 게시물)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
 * [Service Bus에 대한 개발자 가이드](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [Azure에서 Queuing Service 사용하기](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 

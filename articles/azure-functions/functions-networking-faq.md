@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409537"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure Functions의 네트워킹에 대 한 질문과 대답
 
@@ -51,9 +51,7 @@ App Service Environment 사용에 대 한 자세한 내용은 App Service Enviro
 
 [서비스 끝점](./functions-networking-options.md#private-site-access)을 사용 하 여 가상 네트워크에서 HTTP 트리거를 호출 하도록 허용할 수 있습니다. 
 
-함수 앱을 App Service Environment에 배포 하 여 가상 네트워크의 리소스에서 함수를 트리거할 수도 있습니다. App Service Environment 사용에 대 한 자세한 내용은 [App Service Environment를 사용 하 여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)을 참조 하세요.
-
-Premium 및 App Service 요금제는 가상 네트워크에서 HTTP 트리거를 지원 하지만 App Service 환경 에서만 가상 네트워크를 통해 다른 모든 기능 트리거 형식을 지원 합니다.
+함수 앱을 프리미엄 계획, App Service 계획 또는 App Service Environment에 배포 하 여 가상 네트워크의 다른 모든 리소스에서 함수를 트리거할 수도 있습니다. 자세한 내용은 [비 HTTP 가상 네트워크 트리거](./functions-networking-options.md#virtual-network-triggers-non-http) 를 참조 하세요.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>가상 네트워크에서 함수 앱을 배포 하려면 어떻게 해야 하나요?
 

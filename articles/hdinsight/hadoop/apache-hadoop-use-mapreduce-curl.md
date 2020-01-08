@@ -2,25 +2,25 @@
 title: HDInsight에서 Apache Hadoop으로 MapReduce 및 Curl 사용 - Azure
 description: Curl을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업을 원격으로 실행하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 274d8dc80d9318aa3ddf4a904a5b623319ea01f4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716128"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645007"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
-Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터에는 Apache Hadoop에서 MapReduce 작업을 실행 하는 방법을 알아봅니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
+Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache Hadoop에서 MapReduce 작업을 실행 하는 방법에 대해 알아봅니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
 
 > [!NOTE]  
-> 하면 이미 익숙한 Linux 기반 Hadoop 서버를 사용 하지만 HDInsight는 처음인 경우 참조를 [Linux 기반 HDInsight에서 Apache Hadoop에 알아야 할 해야](../hdinsight-hadoop-linux-information.md) 문서.
+> Linux 기반 Hadoop 서버를 사용 하는 방법을 이미 잘 알고 있지만 HDInsight를 처음 사용 하는 경우 [hdinsight의 linux 기반 Apache Hadoop](../hdinsight-hadoop-linux-information.md) 에 대해 알아야 할 사항 문서를 참조 하세요.
 
 
 ## <a id="prereq"></a>필수 조건
@@ -77,7 +77,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터에는 Apac
    * **-u**: 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
    * **-G**: 이 작업이 GET 요청임을 나타냅니다.
 
-   URL의 시작 부분, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 은 모든 요청에 대해 동일합니다.
+   `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`URI의 시작은 모든 요청에 대해 동일 합니다.
 
 4. MapReduce 작업을 제출하려면 다음 명령을 사용합니다.
 
@@ -109,7 +109,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터에는 Apac
      * **user.name**: 명령을 실행하는 사용자입니다.
      * **jar**: 실행할 클래스가 포함된 jar 파일의 위치입니다.
      * **class**: MapReduce 논리가 포함된 클래스입니다.
-     * **arg**: MapReduce 작업에 전달할 인수입니다. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
+     * **arg**: MapReduce 작업에 전달할 인수. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
 
    이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다.
 

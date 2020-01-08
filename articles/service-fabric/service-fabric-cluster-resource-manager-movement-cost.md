@@ -1,28 +1,19 @@
 ---
-title: 'Service Fabric 클러스터 리소스 관리자: 이동 비용 | Microsoft Docs'
-description: Service Fabric 서비스의 이동 비용 개요
-services: service-fabric
-documentationcenter: .net
+title: 'Service Fabric 클러스터 리소스 관리자: 이동 비용'
+description: Service Fabric 서비스의 이동 비용 및 동적 구성을 비롯 하 여 아키텍처 요구에 맞게 지정 하는 방법에 대해 알아봅니다.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243004"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563346"
 ---
 # <a name="service-movement-cost"></a>서비스 이동 비용
-Service Fabric 클러스터 리소스 관리자에서 클러스터에 적용할 변경 내용을 결정할 때 고려할 요소는 이러한 변경에 소요되는 비용입니다. "비용"이라는 개념은 클러스터를 향상시킬 수 있는 정도와 절충됩니다. 분산, 조각 모음 및 기타 요구 사항을 위해 서비스를 이동할 때 비용이 고려됩니다. 목표는 최소 중단 또는 비용으로 요구 사항을 충족하는 것입니다. 
+Service Fabric 클러스터 리소스 관리자에서 클러스터에 적용할 변경 내용을 결정할 때 고려할 요소는 이러한 변경에 소요되는 비용입니다. "비용"이라는 개념은 클러스터를 향상시킬 수 있는 정도와 절충됩니다. 분산, 조각 모음 및 기타 요구 사항을 위해 서비스를 이동할 때 비용이 고려됩니다. 목표는 최소 중단 또는 비용으로 요구 사항을 충족하는 것입니다.
 
 서비스 이동에는 최소한의 CPU 시간과 네트워크 대역폭이 필요합니다. 상태 저장 서비스의 경우 해당 서비스의 상태를 복사하여 추가 메모리와 디스크를 사용해야 합니다. Service Fabric 클러스터 리소스 관리자에서 제공하는 솔루션 비용을 최소화하면 클러스터의 리소스가 불필요하게 낭비되지 않도록 할 수 있습니다. 그러나 클러스터에서 리소스 할당을 크게 향상시키는 솔루션도 고려해야 합니다.
 
@@ -76,7 +67,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>이동 비용의 영향
-MoveCost에는 5 개의 수준 (0, 낮음, 중간, 높음 및 VeryHigh)이 있습니다. 적용 되는 규칙은 다음과 같습니다.
+MoveCost에는 5 개의 수준 (0, 낮음, 중간, 높음 및 VeryHigh)이 있습니다. 다음 규칙이 적용됩니다.
 
 * Movecost는 0과 VeryHigh를 제외 하 고 서로 상대적입니다. 
 * 이동 비용 0은 이동 비용이 무료임을 의미하며 솔루션 점수 계산에 포함되지 않습니다.
@@ -111,7 +102,7 @@ ClusterManifest.xml:
         </Section>
 ```
 
-독립 실행형 배포의 경우 ClusterConfig.json, Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다.
+독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json를 통해 수행됩니다.
 
 ```json
 "fabricSettings": [

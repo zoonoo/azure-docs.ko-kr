@@ -1,5 +1,5 @@
 ---
-title: Node에서 Azure Relay 하이브리드 연결 HTTP 요청 시작 | Microsoft Docs
+title: Azure Relay 하이브리드 연결-노드의 HTTP 요청
 description: Node에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 Node.js 콘솔 애플리케이션을 작성합니다.
 services: service-bus-relay
 documentationcenter: node
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
-ms.openlocfilehash: e54a096bd27efddaa9eafb8619e787178550a6e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462032"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Node에서 Relay 하이브리드 연결 HTTP 요청 시작
 
@@ -37,7 +37,7 @@ ms.locfileid: "60553956"
 
 ## <a name="prerequisites"></a>필수 조건
 - [Node.js](https://nodejs.org/en/).
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 네임스페이스 만들기
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

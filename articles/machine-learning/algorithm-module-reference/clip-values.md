@@ -1,7 +1,7 @@
 ---
-title: 값 자르기
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 클립 값 모듈을 사용 하 여 이상 값을 검색 하 고 해당 값을 자르는 방법에 대해 알아봅니다.
+title: 값 잘라내기
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 클립 값 모듈을 사용 하 여 이상 값을 검색 하 고 해당 값을 자르는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 704b7c8a0c55bdcdd69bd8a44b0f9f44e8ddf457
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68f73afbf81914938f78baad2cacda7327e7789a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428598"
 ---
-# <a name="clip-values"></a>값 자르기
+# <a name="clip-values"></a>값 잘라내기
 
 이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
@@ -90,11 +90,11 @@ ms.locfileid: "73493838"
  
 ### <a name="examples-for-clipping-using-percentiles"></a>백분위 수를 사용 하 여 클리핑 예제
 
-백분위 수의 클리핑 방법을 이해 하려면 10 개의 행이 있는 데이터 집합을 고려 합니다. 여기에는 값이 각각 1-10입니다.  
+백분위수를 사용한 자르기의 작동 방식을 이해하기 위해 행이 10개인 데이터 집합의 각 행에 값 1-10이 하나씩 포함되어 있다고 가정해 보겠습니다.  
   
-- 상한 임계값으로 백분위 수를 사용 하는 경우 90 번째 백분위 수의 값에서 데이터 집합에 있는 모든 값의 90%는 해당 값 보다 작아야 합니다.  
+- 상한 임계값으로 백분위수를 사용하는 경우 90번째 백분위수의 값에서 데이터 집합 내 모든 값의 90%는 해당 값보다 작아야 합니다.  
   
-- 하위 임계값으로 백분위 수를 사용 하는 경우 10 번째 백분위 수의 값에서 데이터 집합에 있는 모든 값의 10%는 해당 값 보다 작아야 합니다.  
+- 하한 임계값으로 백분위수를 사용하는 경우 10번째 백분위수의 값에서 데이터 집합 내 모든 값의 10%는 해당 값보다 작아야 합니다.  
   
 1.  **임계값 집합**에 대해 **ClipPeaksAndSubPeaks**를 선택 합니다.  
   
@@ -108,16 +108,16 @@ ms.locfileid: "73493838"
   
 1.  **플래그 덮어쓰기**옵션을 선택 취소 하 고 **표시기 열 추가**옵션을 선택 합니다.  
   
-이제 60을 하위 백분위 수 임계값으로 사용 하 여 동일한 파이프라인을 시도 하 고 임계값을 대체 값으로 사용 합니다. 다음 표에서는 이러한 두 결과를 비교 합니다.  
+이제 60을 하위 백분위 수 임계값으로 사용 하 여 동일한 파이프라인을 시도 하 고 임계값을 대체 값으로 사용 합니다. 다음 표에는 두 결과를 비교한 내용이 나와 있습니다.  
   
 1.  Missing으로 바꾸기 상한 임계값 = 90; 하 한 임계값 = 20  
   
 1.  Threshold로 바꾸기 상한 백분위 수 = 60; 하위 백분위 수 = 40  
   
-|원본 데이터|Missing으로 바꾸기|임계값으로 바꾸기|  
+|원래 데이터|누락 값으로 바꾸기|임계값으로 바꾸기|  
 |-------------------|--------------------------|----------------------------|  
 |1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|TRUE<br /><br /> TRUE<br /><br /> 3, FALSE<br /><br /> 4, FALSE<br /><br /> 5, FALSE<br /><br /> 6, FALSE<br /><br /> 7, FALSE<br /><br /> 8, FALSE<br /><br /> 9, FALSE<br /><br /> TRUE|4, TRUE<br /><br /> 4, TRUE<br /><br /> 4, TRUE<br /><br /> 4, TRUE<br /><br /> 5, FALSE<br /><br /> 6, FALSE<br /><br /> 7, TRUE<br /><br /> 7, TRUE<br /><br /> 7, TRUE<br /><br /> 7, TRUE| 
  
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

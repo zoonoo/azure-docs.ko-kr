@@ -8,12 +8,12 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4544f42e7c024b21c4ae050d9b11e0f9e2786d57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432337"
 ---
 # <a id="troubleshooting"></a>Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다. 스냅숏이 생성 되지 않는 이유는 여러 가지가 있을 수 있습니다. 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
@@ -219,4 +219,4 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>네트워크 프록시 또는 방화벽 규칙 편집
 
-애플리케이션에서 프록시 또는 방화벽을 통해 인터넷에 연결하는 경우 애플리케이션이 스냅샷 디버거 서비스와 통신할 수 있도록 규칙을 편집해야 할 수 있습니다. [스냅샷 디버거에서 사용하는 IP 주소 및 포트 목록](../../azure-monitor/app/ip-addresses.md#snapshot-debugger)이 있습니다.
+애플리케이션에서 프록시 또는 방화벽을 통해 인터넷에 연결하는 경우 애플리케이션이 스냅샷 디버거 서비스와 통신할 수 있도록 규칙을 편집해야 할 수 있습니다. 스냅숏 디버거에서 사용 하는 Ip는 Azure Monitor 서비스 태그에 포함 됩니다.

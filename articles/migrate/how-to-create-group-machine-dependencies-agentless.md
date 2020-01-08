@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158427"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454649"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>평가에 대 한 에이전트 없는 종속성 시각화 설정
 
@@ -19,7 +19,7 @@ ms.locfileid: "74158427"
 
 > [!IMPORTANT]
 > 에이전트 없는 종속성 시각화는 현재 Azure Migrate 어플라이언스를 사용 하 여 검색 된 Azure VMware Vm에 대해 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 이 미리 보기는 고객 지원에 포함 되며 프로덕션 워크 로드에 사용할 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="about-dependency-mapping"></a>종속성 매핑 정보
@@ -39,7 +39,7 @@ ms.locfileid: "74158427"
     - TCP 연결
     - 활성 연결이 있는 프로세스의 이름
     - 위의 프로세스를 실행 하는 설치 된 응용 프로그램의 이름
-    - 아니요. 모든 폴링 간격에서 감지 된 연결
+    - 아닙니다. 모든 폴링 간격에서 감지 된 연결
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
@@ -53,7 +53,7 @@ ms.locfileid: "74158427"
 - Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
 - 에이전트 없는 종속성 분석은 현재 VMware 컴퓨터에 대해서만 사용할 수 있습니다.
 - 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
-- Azure Migrate에서 VMware 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아봅니다](migrate-appliance.md).
+- Azure Migrate에서 VMware 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아보기](migrate-appliance.md).
 - 아래 표에 요약 된 것 처럼 VMware Vm이 에이전트 없는 종속성 시각화에 대해 지원 되는지 확인 합니다.
 
 

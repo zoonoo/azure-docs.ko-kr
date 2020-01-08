@@ -3,19 +3,19 @@ title: Azure Cosmos DB에 대 한 Advanced Threat Protection
 description: 미사용 데이터의 암호화 및 구현 방법을 Azure Cosmos DB 하는 방법에 대해 알아봅니다.
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: c816c9877a9c796ee76310f2452f3505531c3018
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5cea2f1dac50744c974917347b4428bc39aa737d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445538"
 ---
-# <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection
+# <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection (미리 보기)
 
 Azure Cosmos DB에 대 한 Advanced Threat Protection은 Azure Cosmos DB 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 이 보호 계층을 사용 하면 보안 전문가 없이도 위협을 해결 하 고 중앙 보안 모니터링 시스템과 통합할 수 있습니다.
 
@@ -27,6 +27,14 @@ Azure Cosmos DB에 대 한 Advanced Threat Protection은 Azure Cosmos DB 계정�
 > * Azure Cosmos DB에 대 한 Advanced Threat Protection은 현재 Azure 정부 및 소 버린 클라우드 지역에서 사용할 수 없습니다.
 
 보안 경고에 대 한 전체 조사 환경을 위해 모든 문서, 컨테이너 및 데이터베이스에 대 한 CRUD 작업을 포함 하 여 데이터베이스 자체에 대 한 작업을 기록 하는 [Azure Cosmos DB에서 진단 로깅을](https://docs.microsoft.com/azure/cosmos-db/logging)사용 하는 것이 좋습니다.
+
+## <a name="threat-types"></a>위협 유형
+
+Azure Cosmos DB에 대 한 Advanced Threat Protection은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다. 현재 다음 경고를 트리거할 수 있습니다.
+
+- **비정상적인 위치에서 액세스**: 누군가가 비정상적인 지리적 위치에서 Azure Cosmos DB 끝점에 연결 하는 Azure Cosmos 계정에 대 한 액세스 패턴이 변경 된 경우이 경고가 트리거됩니다. 경우에 따라 경고는 합법적인 작업 (새 응용 프로그램 또는 개발자 유지 관리 작업)을 검색 합니다. 다른 경우에 경고는 이전 직원, 외부 공격자 등의 악의적인 작업을 검색 합니다.
+
+- **비정상적인 데이터 추출**:이 경고는 클라이언트가 Azure Cosmos DB 계정에서 비정상적인 양의 데이터를 추출 하는 경우에 트리거됩니다. 이는 계정에 저장 된 모든 데이터를 외부 데이터 저장소로 전송 하기 위해 수행 해야 하는 일부 데이터에 대 한 증상이 될 수 있습니다.
 
 ## <a name="set-up-advanced-threat-protection"></a>Advanced Threat Protection 설정
 
@@ -101,5 +109,5 @@ Azure Cosmos DB 작업에 대 한 예외가 발생할 경우 의심 스러운 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos DB의 진단 로깅](monitor-cosmos-db.md#diagnostic-settings) 에 대해 자세히 알아보세요.
+* [Azure Cosmos DB의 진단 로깅](cosmosdb-monitor-resource-logs.md) 에 대해 자세히 알아보세요.
 * [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보

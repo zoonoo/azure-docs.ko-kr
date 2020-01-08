@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 614d93a16b9149a217b5ff1004031e0a2d7337ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d430d7d94f8eed76bb78042a174aeddf2e6ccaa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410233"
 ---
 [지속형 함수](../articles/azure-functions/durable-functions-overview.md)에 대한 구성 설정입니다.
 
@@ -52,14 +52,15 @@ ms.locfileid: "73615039"
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
-      "controlQueueBatchSize": 32,
-      "partitionCount": 4,
-      "controlQueueVisibilityTimeout": "00:05:00",
-      "workItemQueueVisibilityTimeout": "00:05:00",
-      "maxQueuePollingInterval": "00:00:30",
       "connectionStringName": "AzureWebJobsStorage",
+      "controlQueueBatchSize": 32,
+      "controlQueueBufferThreshold": 256,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
-      "trackingStoreNamePrefix": "DurableTask"
+      "trackingStoreNamePrefix": "DurableTask",
+      "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -82,17 +83,19 @@ ms.locfileid: "73615039"
     "maxConcurrentActivityFunctions": 10,
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "extendedSessionIdleTimeoutInSeconds": 30,
+    "useGracefulShutdown": false
   }
 }
 ```
 
 작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub**입니다. 자세한 내용은 [작업 허브](../articles/azure-functions/durable-functions-task-hubs.md)를 참조하세요.
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|여러 Durable Functions 애플리케이션이 동일한 스토리지 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable-functions-task-hubs.md) 이름을 사용하면 이러한 애플리케이션을 서로 구분할 수 있습니다.|
 |controlQueueBatchSize|32|제어 큐에서 한 번에 끌어올 메시지의 수입니다.|
+|controlQueueBufferThreshold|256|한 번에 메모리에 버퍼링 될 수 있는 제어 큐 메시지 수입니다 .이 시점에서 디스패처는 추가 메시지를 큐에서 제거할 때까지 대기 합니다.|
 |partitionCount |4|제어 큐에 대한 파티션 수입니다. 1에서 16 사이의 양의 정수일 수 있습니다.|
 |controlQueueVisibilityTimeout |5분|큐에서 제거된 제어 큐 메시지의 표시 여부 시간 제한입니다.|
 |workItemQueueVisibilityTimeout |5분|큐에서 제거된 작업 항목 큐 메시지의 표시 여부 시간 제한입니다.|
@@ -109,5 +112,6 @@ ms.locfileid: "73615039"
 |eventGridPublishRetryCount|0|Event Grid 항목에 게시가 실패하는 경우 다시 시도 횟수입니다.|
 |eventGridPublishRetryInterval|5분|*hh:mm:ss* 형식의 Event Grid 게시 재시도 간격입니다.|
 |eventGridPublishEventTypes||Event Grid에 게시할 이벤트 유형 목록입니다. 지정 하지 않으면 모든 이벤트 유형이 게시 됩니다. 허용 되는 값은 `Started`, `Completed`, `Failed`, `Terminated`입니다.|
+|useGracefulShutdown|false|모드 호스트를 종료 하 여 in-process 함수 실행이 실패할 가능성을 줄이려면 정상적으로 종료를 사용 하도록 설정 합니다.|
 
 이러한 설정 중 상당수는 성능을 최적화 하기 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](../articles/azure-functions/durable-functions-perf-and-scale.md)을 참조하세요.

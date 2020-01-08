@@ -1,24 +1,16 @@
 ---
-title: Windows Server용 Azure Service Fabric 독립 실행형 패키지 | Microsoft Docs
+title: Windows Server 용 Azure Service Fabric 독립 실행형 패키지
 description: Windows Server용 Azure Service Fabric 독립 실행형 패키지의 설명 및 내용입니다.
-services: service-fabric
-documentationcenter: .net
 author: maburlik
-manager: chackdan
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: facdcd162826e6f77ace098391459cba00061c4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451839"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지의 내용
 [다운로드된](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric 독립 실행형 패키지에서 다음 파일을 찾을 수 있습니다.
@@ -57,6 +49,6 @@ ms.locfileid: "60711087"
 ## <a name="independent-runtime-package"></a>독립 런타임 패키지
 클러스터 배포 시 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 최신 런타임 패키지를 자동으로 다운로드합니다.
 
-## <a name="related"></a>관련 항목
+## <a name="related"></a>관련
 * [독립 실행형 Azure Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 * [Service Fabric 클러스터 보안 시나리오](service-fabric-windows-cluster-windows-security.md)

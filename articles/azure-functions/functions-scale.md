@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929724"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409114"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -126,7 +126,9 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 모든 계획에서 함수 앱에는 Azure Blob, 큐, 파일 및 테이블 저장소를 지 원하는 일반 Azure Storage 계정이 필요 합니다. Functions는 트리거 관리 및 함수 실행 기록과 같은 작업에 Azure Storage를 사용하지만 일부 스토리지 계정은 큐와 테이블을 지원하지 않기 때문입니다. Blob 전용 스토리지 계정(Premium Storage 포함) 및 영역 중복 스토리지 복제가 사용되는 범용 스토리지 계정을 포함한 계정은 함수 앱을 만들 때 기존 **스토리지 계정** 선택 항목에서 필터링됩니다.
 
-함수 앱에서 사용 하는 것과 동일한 저장소 계정을 사용 하 여 응용 프로그램 데이터를 저장할 수 있습니다. 그러나 저장소를 많이 사용 하는 작업의 경우에는 별도의 저장소 계정을 사용 해야 합니다.   
+함수 앱에서 사용 하는 것과 동일한 저장소 계정을 사용 하 여 응용 프로그램 데이터를 저장할 수 있습니다. 그러나 저장소를 많이 사용 하는 작업의 경우에는 별도의 저장소 계정을 사용 해야 합니다.  
+
+여러 함수 앱에서 문제 없이 동일한 저장소 계정을 공유할 수 있습니다. 이에 대 한 좋은 예는 단일 저장소 계정 처럼 작동 하는 Azure Storage 에뮬레이터를 사용 하 여 로컬 환경에서 여러 앱을 개발 하는 경우입니다. 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -161,6 +163,8 @@ Azure Functions 확장 단위는 함수 앱입니다. 함수 앱을 확장하면
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>확장성 있는 앱의 모범 사례 및 패턴
 
 함수 앱에는 호스트 구성, 런타임 공간 및 리소스 효율성을 비롯하여 규모 조정에 영향을 주는 여러 측면이 있습니다.  자세한 내용은 [성능 고려 사항 문서의 확장성 섹션](functions-best-practices.md#scalability-best-practices)을 참조하세요. 또한 함수 앱의 확장에 따라 연결이 어떻게 작동하는지도 알고 있어야 합니다. 자세한 내용은 [Azure Functions에서 연결을 관리하는 방법](manage-connections.md)을 참조하세요.
+
+Python 및 node.js에서 크기를 조정 하는 방법에 대 한 자세한 내용은 [Azure Functions python 개발자 가이드-크기 조정 및 동시성](functions-reference-python.md#scaling-and-concurrency) 및 [Azure Functions node.js 개발자 가이드-크기 조정 및 동시성](functions-reference-node.md#scaling-and-concurrency)을 참조 하세요.
 
 ### <a name="billing-model"></a>청구 모델
 

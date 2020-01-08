@@ -1,25 +1,14 @@
 ---
-title: 인증서 일반 이름을 사용하여 Azure Service Fabric 클러스터 만들기 | Microsoft Docs
+title: 인증서 일반 이름을 사용 하 여 클러스터 만들기
 description: 템플릿의 인증서 일반 이름을 사용하여 Service Fabric 클러스터를 만드는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
-ms.author: atsenthi
-ms.openlocfilehash: 73e02b4482f69ec0c9d5a602f30cefea77279778
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764736"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614556"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터 배포
 두 인증서가 동일한 지문을 사용하면 안 됩니다. 이렇게 될 경우 클러스터 인증서가 롤오버되거나 관리에 어려움이 발생합니다. 그러나 여러 인증서가 동일한 일반 이름 또는 제목을 사용하는 것은 가능합니다.  인증서 일반 이름을 사용하는 클러스터는 인증서 관리가 훨씬 간단합니다. 이 문서에서는 인증서 지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터를 배포하는 방법을 설명합니다.

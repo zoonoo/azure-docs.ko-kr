@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: a199821c4db7fd8131ec54700b8c999dfe604a6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1bde70dadbe1e5b8ba9bf90bd9ca2f48a4c65491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381803"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 작성 한 [datetimeV2](luis-reference-prebuilt-datetimev2.md)에 대 한 [맞춤법 수정](luis-tutorial-bing-spellcheck.md), 표준 시간대 문제 해결 등이 포함 됩니다. 
@@ -37,9 +37,9 @@ Usage of the key in the test panel and at the endpoint count toward the [key usa
 
 엔드포인트에서 맞춤법 수정이 작동하려면 두 개의 매개 변수가 필요합니다.
 
-|매개 변수|Value|
+|매개 변수|값|
 |--|--|
-|`spellCheck`|부울|
+|`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 엔드포인트 키|
 
 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 오류를 검색하면 원래 발화와 수정된 발화가 엔드포인트의 예측과 함께 반환됩니다.
@@ -87,7 +87,7 @@ LUIS 앱이 미리 작성 된 [datetimeV2](luis-reference-prebuilt-datetimev2.md
 ### <a name="endpoint-querystring-parameter"></a>엔드포인트 쿼리 문자열 매개 변수
 표준 시간대는 `timezoneOffset` 매개 변수를 사용하여 사용자의 표준 시간대를 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356)에 추가하여 수정합니다. 시간을 변경하려면 `timezoneOffset` 값이 분 단위의 양수 또는 음수여야 합니다.  
 
-|매개 변수|Value|
+|매개 변수|값|
 |--|--|
 |`timezoneOffset`|분 단위의 양수 또는 음수|
 
@@ -121,7 +121,7 @@ https://{region}. api-version/luis/v 3.0-preview/apps/{appId}/슬롯/production/
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>timezoneOffset에 올바른 값을 결정하는 C# 코드
 다음 C# 코드는 [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) 클래스의 [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) 메서드를 사용하여 시스템 시간을 기반으로 올바른 `timezoneOffset`을 결정합니다.
 
-```CSharp
+```csharp
 // Get CST zone id
 TimeZoneInfo targetZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
 

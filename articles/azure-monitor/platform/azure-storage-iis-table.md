@@ -4,15 +4,15 @@ description: 테이블 저장소 또는 blob 저장소에 기록 된 IIS 로그�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/12/2017
-ms.openlocfilehash: 2d2d8d43cb5ee91810d639c4ee8925d185987954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3e8968f544e347b7b4cfe6db484c2ce8bd404820
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893555"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396001"
 ---
 # <a name="collect-azure-resource-logs-from-azure-storage"></a>Azure Storage에서 Azure 리소스 로그 수집
 
@@ -33,7 +33,7 @@ Azure Diagnostics는 Azure에서 실행 중인 작업자 역할, 웹 역할 또�
 | 로그 형식 | 리소스 형식 | 위치 |
 | --- | --- | --- |
 | IIS 로그 |가상 머신 <br> 웹 역할 <br> 작업자 역할 |wad-iis-logfiles(Blob Storage) |
-| syslog |가상 머신 |LinuxsyslogVer2v0(Table Storage) |
+| Syslog |가상 머신 |LinuxsyslogVer2v0(Table Storage) |
 | Service Fabric 작업 이벤트 |Service Fabric 노드 |WADServiceFabricSystemEventTable |
 | Service Fabric Reliable Actor 이벤트 |Service Fabric 노드 |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable Service 이벤트 |Service Fabric 노드 |WADServiceFabricReliableServiceEventTable |

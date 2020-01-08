@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 3347cfee8b54efa9c52b23deff8c44387195fd63
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f503377984a347d85af04d85728c53eaad0c4c74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451348"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -38,7 +38,6 @@ Microsoft Azure의 VMware 수평 클라우드를 사용 하면 고유한 Microso
 
 - [Microsoft Azure에서 수평 클라우드의 기술 미리 보기에 등록](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)합니다.
 - [파트너 웹 사이트로 이동](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)합니다.
-
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -82,6 +81,16 @@ deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술�
 
 - [파트너 웹 사이트로 이동](https://devicetrust.com/wvd)합니다.
 
+## <a name="hp"></a>HP
+
+![HP 로고](./media/partners/hp.png)
+
+HP 씬 클라이언트는 Microsoft Azure 및 Windows 가상 데스크톱 서비스의 승인 되 고 확인 된 파트너입니다. Windows 10 IoT Enterprise를 사용 하는 HP 씬 클라이언트는 Azure 기반 워크 로드 및 Windows 가상 데스크톱 호스팅 데스크톱에 대 한 기본 지원을 제공 합니다. 하드웨어 및 OS는 OS 공간, 하드웨어 및 유지 관리 비용을 절감 하면서 원격 워크 로드를 효과적으로 제공 하는 최고 수준의 환경을 제공 하도록 최적화 되었습니다.
+
+업계 동향, 고객 과제 및 개발 프로세스 중에 제공 되는 솔루션 가상화를 통해 제공 되는 것 처럼 4 개 기둥 가치 제안을 사용 하 여 이상적인 클라우드 끝점을 고안 했습니다. 설계, 관리 효율성, 보안 및 융통성. 모든 HP 씬 클라이언트는 IT 의사 결정권자를 염두에 하 고 목적이 있습니다. HP 씬 클라이언트는 장기간, 안전 하 고 쉽게 배포 하 고 관리 하며 강력 하므로 VDI 또는 클라우드 컴퓨팅으로 손쉽게 전환할 수 있습니다. HP의 다양 한 포트폴리오를 통해 사용자에 게 적합 한 최신 끝점 솔루션을 자유롭게 선택할 수 있습니다.
+
+- [파트너 웹 사이트로 이동](https://hp.com/go/thin)합니다.
+
 ## <a name="igel"></a>IGEL
 
 ![IGEL 로고](./media/partners/igel.png)
@@ -90,7 +99,7 @@ IGEL은 Microsoft Azure 및 Windows 가상 데스크톱 서비스의 승인 되 
  
 IGEL OS는 Citrix, Microsoft 및 VMware에서 널리 사용 되는 모든 가상 앱, 데스크톱 및 클라우드 작업 영역 클라이언트 프로토콜을 지원 합니다. 여기에는 조직에서 고유한 사용자 환경에 Windows 가상 데스크톱 서비스를 신속 하 게 도입할 수 있도록 85 주변 장치, 인터페이스 및 프로토콜 파트너의 통합 기술이 포함 되어 있습니다. IGEL OS는 읽기 전용 모듈식 끝점 OS로, 변조 로부터 보호 하는 데 도움이 됩니다. 이제 끝점 하드웨어 (일부 선택 된 모델) 또는 UEFI 프로세스에서 Azure 클라우드 및 Windows 가상 데스크톱 서비스에 이르기까지 끝점에서 실행 되는 모든 주요 주요 프로세스의 무결성을 확인 하는 완전 한 "신뢰 체인"이 포함 됩니다. IGEL OS를 사용 하 여 기업은 사용자의 끝점 장치에 대 한 무결성, 보안 및 관리 효율성을 완벽 하 게 확신 하는 Azure 클라우드에서 Windows 가상 데스크톱을 구독할 수 있습니다.
 
-- [파트너 웹 사이트로 이동 합니다.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
+- [파트너 웹 사이트로 이동](https://www.igel.com/igel-os-universal-desktop-operating-system/)합니다.
 
 ## <a name="ivanti"></a>Ivanti
 

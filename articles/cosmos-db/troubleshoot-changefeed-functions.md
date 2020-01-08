@@ -1,5 +1,5 @@
 ---
-title: Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
+title: Cosmos DB에 대해 Azure Functions 트리거를 사용할 때 발생 하는 문제 해결
 description: Cosmos DB에 대 한 Azure Functions 트리거를 사용 하는 경우 일반적인 문제, 해결 방법 및 진단 단계
 author: ealsur
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064114"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441114"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
 
@@ -78,12 +78,12 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 
 대상에 일부 변경 내용이 없는 경우에는 변경 내용이 수신 된 후 Azure 함수를 실행 하는 동안 오류가 발생 하는 것을 의미할 수 있습니다.
 
-이 시나리오에서 가장 좋은 방법은 코드에 `try/catch` 블록을 추가 하 고, 변경 내용을 처리 하는 루프 내에 항목의 특정 하위 집합에 대 한 오류를 감지 하 여 적절 하 게 처리 하는 것입니다 (추가 작업을 위해 다른 저장소로 보내기). 분석 또는 다시 시도). 
+이 시나리오에서 가장 좋은 방법은 코드에 `try/catch` 블록을 추가 하 고, 변경 내용을 처리 하는 루프 내에 항목의 특정 하위 집합에 대 한 오류를 검색 하 여 그에 따라 처리 하는 것입니다. 추가 분석을 위해 다른 저장소로 전송 하거나 다시 시도 하는 것이 좋습니다. 
 
 > [!NOTE]
 > 코드를 실행 하는 동안 처리 되지 않은 예외가 발생 하면 기본적으로 Cosmos DB에 대 한 Azure Functions 트리거가 변경 내용 일괄 처리를 다시 시도 하지 않습니다. 즉, 변경 내용이 대상에 도착 하지 않은 이유는 처리에 실패 하기 때문입니다.
 
-트리거에서 일부 변경 내용이 수신 되지 않은 경우 가장 일반적인 시나리오는 **다른 Azure 함수가 실행**되 고 있다는 것입니다. Azure에 배포 된 다른 Azure 함수 또는 **정확히 동일한 구성** (동일한 모니터링 및 임대 컨테이너)이 있는 개발자 컴퓨터에서 로컬로 실행 되는 azure 함수 일 수 있으며,이 azure 함수는 변경 내용의 하위 집합을 도용 합니다. Azure 함수를 처리할 것으로 간주 합니다.
+트리거에서 일부 변경 내용이 수신 되지 않은 경우 가장 일반적인 시나리오는 **다른 Azure 함수가 실행**되 고 있다는 것입니다. Azure에 배포 된 다른 Azure 함수 또는 **정확히 동일한 구성** (동일한 모니터링 및 임대 컨테이너)이 있는 개발자 컴퓨터에서 로컬로 실행 되는 azure 함수 일 수 있으며,이 azure 함수는 azure function에서 처리할 것으로 간주 되는 변경 내용의 하위 집합을 도용 합니다.
 
 또한 실행 중인 Azure 함수 앱 인스턴스 수를 알고 있는 경우 시나리오의 유효성을 검사할 수 있습니다. 임대 컨테이너를 검사 하 고에서 임대 항목 수를 계산 하는 경우 `Owner` 속성의 고유 값은 함수 앱 인스턴스의 수와 같아야 합니다. 알려진 Azure 함수 앱 인스턴스보다 소유자가 더 많을 경우 추가 소유자는 변경 내용을 "도용하는" 소유자인 것을 의미합니다.
 

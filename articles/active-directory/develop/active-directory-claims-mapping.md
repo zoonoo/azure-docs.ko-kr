@@ -1,5 +1,5 @@
 ---
-title: Azure AD 테 넌 트 앱에 대 한 클레임 사용자 지정
+title: Azure AD 테 넌 트 앱 클레임 사용자 지정 (Powershell)
 titleSuffix: Microsoft identity platform
 description: 이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다.
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6ad2d6ec7a98a82917916bba2930149705ebfd87
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918426"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531074"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(미리 보기)
 
@@ -45,7 +45,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 
 토큰에 사용되는 시기와 방법을 정의하는 특정 클레임 집합이 있습니다.
 
-| 클레임 집합 | 설명 |
+| 클레임 집합 | Description |
 |---|---|
 | 핵심 클레임 집합 | 정책에 관계없이 모든 토큰에 포함됩니다. 또한 이러한 클레임은 제한된 것으로 간주되며 수정할 수 없습니다. |
 | 기본 클레임 집합 | 핵심 클레임 집합뿐 아니라 토큰에서 기본적으로 내보내지는 클레임을 포함합니다. 클레임 매핑 정책을 사용하여 기본 클레임을 생략하거나 수정할 수 있습니다. |
@@ -99,7 +99,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | domain_netbios_name |
 | e_exp |
 | 이메일 |
-| endpoint |
+| 엔드포인트(endpoint) |
 | enfpolids |
 | exp |
 | expires_on |
@@ -143,7 +143,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| 암호 |
+| password |
 | platf |
 | polids |
 | pop_jwk |
@@ -158,12 +158,12 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | refreshtoken |
 | request_nonce |
 | resource |
-| role |
+| 역할(role) |
 | roles |
 | scope |
 | scp |
 | sid |
-| signature |
+| 서명 |
 | signin_state |
 | src1 |
 | src2 |
@@ -178,7 +178,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| 사용자 이름 |
 | uti |
 | ver |
 | verified_primary_email |
@@ -285,15 +285,15 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-3-valid-id-values-per-source"></a>표 3: 원본별 유효한 ID 값
 
-| 원본 | ID | 설명 |
+| 원본 | ID | Description |
 |-----|-----|-----|
 | 사용자 | surname | 성 |
 | 사용자 | givenname | 이름 |
 | 사용자 | displayname | 표시 이름 |
-| 사용자 | objectId | ObjectID |
+| 사용자 | objectid | ObjectID |
 | 사용자 | mail | 메일 주소 |
 | 사용자 | userprincipalname | 사용자 계정 이름 |
-| 사용자 | department|부서|
+| 사용자 | department|department|
 | 사용자 | onpremisessamaccountname | 온-프레미스 SAM 계정 이름 |
 | 사용자 | netbiosname| NetBios 이름 |
 | 사용자 | dnsdomainname | DNS 도메인 이름 |
@@ -359,7 +359,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>표 4: 변환 메서드 및 예상 입력 및 출력
 
-|TransformationMethod|예상 입력|예상 출력|설명|
+|TransformationMethod|예상 입력|예상 출력|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, 구분 기호|outputClaim|구분 기호를 사용하여 입력 문자열을 조인합니다. 예: string1:"foo@bar.com" , string2:"sandbox" , separator:"."는 outputClaim:"foo@bar.com.sandbox"를 생성합니다.|
 |ExtractMailPrefix|mail|outputClaim|메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. \@ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
@@ -385,7 +385,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 
-|원본|ID|설명|
+|원본|ID|Description|
 |-----|-----|-----|
 | 사용자 | mail|메일 주소|
 | 사용자 | userprincipalname|사용자 계정 이름|
@@ -416,7 +416,13 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 ### <a name="custom-signing-key"></a>사용자 지정 서명 키
 
-클레임 매핑 정책을 적용하려면 사용자 지정 서명 키를 서비스 사용자 개체에 할당해야 합니다. 이렇게 하면 클레임 매핑 정책의 생성자가 토큰을 수정한 것을 인정하게 되며, 악의적인 행위자가 만든 클레임 매핑 정책을 사용하지 않도록 애플리케이션을 보호할 수 있습니다.  클레임 매핑을 사용 하도록 설정 된 앱은 [Openid connect Connect 메타 데이터 요청](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)에 `appid={client_id}`을 추가 하 여 해당 토큰 서명 키에 대 한 특수 URI를 확인 해야 합니다.  
+클레임 매핑 정책을 적용하려면 사용자 지정 서명 키를 서비스 사용자 개체에 할당해야 합니다. 이렇게 하면 클레임 매핑 정책의 생성자가 토큰을 수정한 것을 인정하게 되며, 악의적인 행위자가 만든 클레임 매핑 정책을 사용하지 않도록 애플리케이션을 보호할 수 있습니다. 사용자 지정 서명 키를 추가 하기 위해 Azure Powershell cmdlet `new-azureadapplicationkeycredential`를 사용 하 여 응용 프로그램 개체에 대 한 대칭 키 자격 증명을 만들 수 있습니다. 이 Azure Powershell cmdlet에 대 한 자세한 내용을 보려면 [여기](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)를 클릭 하세요.
+
+클레임 매핑을 사용 하도록 설정 된 앱은 [Openid connect Connect 메타 데이터 요청](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)에 `appid={client_id}`을 추가 하 여 해당 토큰 서명 키의 유효성을 검사 해야 합니다. 다음은 사용 해야 하는 Openid connect Connect 메타 데이터 문서의 형식입니다. 
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
 
 ### <a name="cross-tenant-scenarios"></a>교차 테넌트 시나리오
 
@@ -430,7 +436,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클레임을 사용자 지정할 수 있는 경우 많은 시나리오가 가능합니다. 이 섹션에서는 클레임 매핑 정책 형식을 사용하는 방법을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오를 설명합니다.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>필수 조건
 
 다음 예제에서는 서비스 주체에 대한 정책을 만들고, 업데이트, 연결 및 삭제합니다. Azure AD를 처음 접하는 분들은 [Azure AD 테넌트를 가져오는 방법](quickstart-create-new-tenant.md)을 살펴본 후 예제를 진행하는 것이 좋습니다.
 

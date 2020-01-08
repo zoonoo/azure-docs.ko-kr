@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB에서 변경 피드 프로세서 라이브러리 사용
-description: Azure Cosmos DB 변경 피드 프로세서 라이브러리를 사용 하 여 변경 피드, 변경 피드 프로세서의 구성 요소 및 구현 수명 주기를 읽는 방법에 대해 알아봅니다.
+title: Azure Cosmos DB의 변경 피드 프로세서 라이브러리
+description: Azure Cosmos DB 변경 피드 프로세서 라이브러리를 사용 하 여 변경 피드, 변경 피드 프로세서의 구성 요소를 읽는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ea2b72e926923357e9ee7dac87720292fbbf9696
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7f5e46068844da538864fdfaa03ca7023e4372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445573"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서 
 

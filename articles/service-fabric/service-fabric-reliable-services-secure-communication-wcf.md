@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric의 WCF 기반 서비스 통신 보호 | Microsoft Docs
+title: WCF 기반 서비스 통신 보안
 description: Azure Service Fabric 클러스터에서 실행되는 안정적인 서비스를 위해 WCF 기반 통신을 보호하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: vturecek
-ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: 31a7a3a42436f3a818fcf48f2af5ca395fa02386
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170409"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614165"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>서비스에 대한 WCF 기반 통신 보호
 통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 애플리케이션 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 이 아티클에서는 원격 서비스를 사용하는 경우 보안을 향상시키는 방법에 대해 설명합니다.

@@ -4,15 +4,15 @@ description: Azure Virtual Machines, VM Scale Sets, Service Fabric 및 Cloud Ser
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/04/2019
-ms.openlocfilehash: fe07c93ada2e8635d0f64caf8451ccdf530f6a22
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fe1c1018768c81248640521ae278bfb571934601
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552126"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395134"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure Diagnostics 확장 스키마 버전을 인덱스합니다.  
@@ -179,7 +179,7 @@ Azure SDK 2.4 이하와 Azure SDK 2.6 이상 버전에서 연결 문자열이 �
 
 * Azure SDK 2.4 이하 버전에서는 진단 로그를 전송하기 위한 스토리지 계정 정보를 가져오기 위해 진단 플러그인에 의해 런타임으로 연결 문자열이 사용되었습니다.
 * Azure SDK 2.6 이상 버전에서 Visual Studio는 게시하는 동안 진단 연결 문자열을 사용하여 적절한 스토리지 계정 정보로 진단 확장을 구성합니다. 연결 문자열을 통해 사용자는 Visual Studio에서 게시하는 동안 사용할 다양한 서비스 구성에 대해 서로 다른 스토리지 계정을 정의할 수 있습니다. 그러나 진단 플러그인을 더 이상 사용할 수 없으므로(Azure SDK 2.5 이후) .cscfg 파일 자체만으로 진단 확장을 활성화할 수 없습니다. Visual Studio 또는 PowerShell과 같은 도구를 통해 별도로 확장을 사용하도록 설정해야 합니다.
-* PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 각 역할에 대한 진단 확장의 공용 구성 XML이 포함됩니다. Visual Studio에서는 진단 연결 문자열을 사용하여 공용 구성에 있는 스토리지 계정 정보를 채웁니다. 공용 구성 파일은 Extensions 폴더에 생성 되 고 `PaaSDiagnostics.<RoleName>.PubConfig.xml` 패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
+* PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 각 역할에 대한 진단 확장의 공용 구성 XML이 포함됩니다. Visual Studio에서는 진단 연결 문자열을 사용하여 공용 구성에 있는 스토리지 계정 정보를 채웁니다. 공용 구성 파일은 Extensions 폴더에 생성 되 고 `PaaSDiagnostics.<RoleName>.PubConfig.xml`패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
 * .Cscfg 파일의 연결 문자열은 Azure Portal에서 진단 데이터에 액세스 하는 데도 사용 되므로 **모니터링** 탭에 나타날 수 있습니다. 연결 문자열은 포털에서 자세한 모니터링 데이터를 표시 하도록 서비스를 구성 하는 데 필요 합니다.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Azure SDK 2.6 이상으로 프로젝트 마이그레이션

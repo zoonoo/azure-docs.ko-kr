@@ -1,33 +1,24 @@
 ---
-title: Azure Service Fabric 리소스 모델 소개 | Microsoft Docs
+title: Azure Service Fabric 리소스 모델 소개
 description: Service Fabric Mesh 애플리케이션을 정의하는 간단한 방법인 Service Fabric 리소스 모델에 대해 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352449"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Service Fabric 리소스 모델 소개
 
 Service Fabric 리소스 모델에서는 Service Fabric Mesh 애플리케이션을 구성하는 리소스를 정의하는 간단한 방법을 설명합니다. 개별 리소스는 모든 Service Fabric 환경에 배포할 수 있습니다.  Service Fabric 리소스 모델은 Azure Resource Manager 모델과도 호환됩니다. 다음 형식의 리소스가 현재 이 모델에서 지원됩니다.
 
 - 애플리케이션 및 서비스
-- 네트워크
+- Networks
 - 게이트웨이
 - 비밀 및 비밀/값
 - 볼륨
@@ -53,7 +44,7 @@ Mesh 애플리케이션이 둘 이상의 서비스로 구성되면 동일한 노
 
 앞에서 언급한 대로 각 애플리케이션 인스턴스의 수명 주기를 독립적으로 관리할 수 있습니다. 예를 들어 하나의 애플리케이션 인스턴스는 다른 애플리케이션 인스턴스와 독립적으로 업그레이드될 수 있습니다. 일반적으로 애플리케이션에서 서비스 수를 적게 유지하고 애플리케이션에 서비스가 많을수록 서비스를 독립적으로 관리하기 어렵게 됩니다.
 
-## <a name="networks"></a>네트워크
+## <a name="networks"></a>Networks
 
 네트워크 리소스는 개별적으로 배포 가능한 리소스이며 해당 종속성으로 참조할 수 있는 애플리케이션 또는 서비스 리소스와 독립적입니다. 애플리케이션에 대한 네트워크를 만드는 데 사용됩니다. 다른 애플리케이션의 여러 서비스는 동일한 네트워크의 일부일 수 있습니다.  자세한 내용은 [Service Fabric Mesh 애플리케이션에서 네트워킹](service-fabric-mesh-networks-and-gateways.md)을 참조하세요.
 
@@ -84,7 +75,7 @@ Mesh 애플리케이션이 둘 이상의 서비스로 구성되면 동일한 노
 
 ## <a name="packaging-and-deployment"></a>패키징 및 배포
 
-리소스 모델을 기반으로 하는 Service Fabric Mesh 애플리케이션은 Docker 컨테이너로 패키징됩니다.  Service Fabric Mesh는 공유되는 다중 테넌트 환경이며 컨테이너는 높은 수준의 격리를 제공합니다.  이러한 애플리케이션은 JSON 형식 또는 YAML 형식(이후 JSON으로 변환됨)을 사용하여 설명됩니다. Azure Service Fabric 메시 망상 조직 응용 프로그램을 배포 하는 경우 응용 프로그램에 설명 하는 데 JSON은는 Azure Resource Manager 템플릿입니다. 리소스는 Azure 리소스에 매핑됩니다.  망상 조직 응용 프로그램을 Service Fabric 클러스터를 배포 하는 경우 (독립 실행형 또는 Azure 호스팅), 응용 프로그램에 설명 하는 데 JSON은 Azure Resource Manager 템플릿과 유사 합니다.  배포가 완료되면 Mesh 애플리케이션은 HTTP 인터페이스 또는 Azure CLI를 통해 관리할 수 있습니다. 
+리소스 모델을 기반으로 하는 Service Fabric Mesh 애플리케이션은 Docker 컨테이너로 패키징됩니다.  Service Fabric Mesh는 공유되는 다중 테넌트 환경이며 컨테이너는 높은 수준의 격리를 제공합니다.  이러한 애플리케이션은 JSON 형식 또는 YAML 형식(이후 JSON으로 변환됨)을 사용하여 설명됩니다. Azure Service Fabric 메시에 메시 응용 프로그램을 배포 하는 경우 응용 프로그램을 설명 하는 데 사용 되는 JSON은 Azure Resource Manager 템플릿입니다. 리소스는 Azure 리소스에 매핑됩니다.  Service Fabric 클러스터 (독립 실행형 또는 Azure 호스팅)에 메시 응용 프로그램을 배포 하는 경우 응용 프로그램을 설명 하는 데 사용 되는 JSON은 Azure Resource Manager 템플릿과 비슷한 형식입니다.  배포가 완료되면 Mesh 애플리케이션은 HTTP 인터페이스 또는 Azure CLI를 통해 관리할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계 

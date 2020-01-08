@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 32219eeaee7980b685ac3453c6af3beff716abe2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824078"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457016"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -97,9 +97,9 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
     이 단계에서는 Azure IoT 장치 SDK NuGet 패키지 및 해당 종속성에 대 한 참조를 다운로드, 설치 및 추가 합니다.
 
-1. `using`Program.cs**파일 위에 다음** 문을 추가합니다.
+1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
-    ```CSharp
+    ```csharp
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
         using System.Security.Cryptography.X509Certificates;
@@ -107,7 +107,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
 1. **Program** 클래스에 다음 필드를 추가 합니다.
 
-    ```CSharp
+    ```csharp
         private static int MESSAGE_COUNT = 5;
         private const int TEMPERATURE_THRESHOLD = 30;
         private static String deviceId = "<your-device-id>";
@@ -120,7 +120,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
 1. 다음 함수를 추가하여 온도 및 습도에 대한 임의의 숫자를 만들고 이 값을 허브에 보냅니다.
 
-    ```CSharp
+    ```csharp
     static async Task SendEvent(DeviceClient deviceClient)
     {
         string dataBuffer;
@@ -142,7 +142,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
 1. 마지막으로 **Main** 함수에 다음 코드 줄을 추가 하 여 설치 프로그램에서 요구 하는 대로 자리 표시자 _장치 id_, _-iot 허브 이름_및 _절대 경로-.pfx-파일_ 을 바꿉니다.
 
-    ```CSharp
+    ```csharp
     try
     {
         var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");

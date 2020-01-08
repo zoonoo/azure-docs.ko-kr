@@ -2,19 +2,15 @@
 title: Azure Automation Hybrid Runbook Worker에서 Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker 역할이 있는 로컬 데이터 센터 또는 클라우드 공급자의 컴퓨터에서 Runbook을 실행하는 방법에 대한 정보를 제공합니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/29/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c8da5736869a39815d9abf33cf4a03353681b193
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ac31783f0eb270823b71c86cc8d7f0975d3a586a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849720"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452273"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -141,7 +137,6 @@ This allows the use of the AzureRunAsConnection to authenticate to Azure and man
 .\Export-RunAsCertificateToHybridWorker
 
 .NOTES
-AUTHOR: Azure Automation Team
 LASTEDIT: 2016.10.13
 #>
 

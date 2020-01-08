@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 00d8546cb20d12c5f1a94bdcababa04a77c73133
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 9c2da82034a3742f789c736d8c0410f005f20edb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134412"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422306"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 인증서 회전
 
@@ -22,20 +22,7 @@ AKS (Azure Kubernetes Service)에서는 많은 구성 요소를 인증 하기 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Azure CLI 버전 2.0.76 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
-
-
-### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
-
-이 기능을 사용 하려면 *aks-preview* CLI extension version 0.4.21 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+이 문서에서는 Azure CLI 버전 2.0.77 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>인증서, 인증 기관 및 서비스 계정 AKS
 
@@ -51,7 +38,13 @@ AKS은 다음 인증서, 인증 기관 및 서비스 계정을 생성 하 고 �
 * `kubectl` 클라이언트에는 AKS 클러스터와 통신 하기 위한 인증서가 있습니다.
 
 > [!NOTE]
-> 3 월 2019 일 이전에 만든 AKS 클러스터에는 2 년 후에 만료 되는 인증서가 있습니다. 3 월 2019 일 이후에 생성 된 클러스터 또는 해당 인증서가 회전 된 클러스터에는 30 년 후에 만료 되는 인증서가 있습니다.
+> 3 월 2019 일 이전에 만든 AKS 클러스터에는 2 년 후에 만료 되는 인증서가 있습니다. 3 월 2019 일 이후에 생성 된 클러스터 또는 해당 인증서가 회전 된 클러스터에는 30 년 후에 만료 되는 인증서가 있습니다. 클러스터가 생성 된 시간을 확인 하려면 `kubectl get nodes`를 사용 하 여 노드 풀의 *기간* 을 확인 합니다.
+> 
+> 또한 클러스터 인증서의 만료 날짜를 확인할 수 있습니다. 예를 들어 다음 명령은 *myAKSCluster* 클러스터에 대 한 인증서 세부 정보를 표시 합니다.
+> ```console
+> kubectl config view --raw -o jsonpath='{.clusters[?(@.name == "myAKSCluster")].cluster.certificate-authority-data}' | base64 -d > my-cert.crt
+> openssl x509 -in my-cert.crt -text
+> ```
 
 ## <a name="rotate-your-cluster-certificates"></a>클러스터 인증서 회전
 
@@ -73,7 +66,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > `az aks rotate-certs`를 완료 하는 데 최대 30 분 정도 걸릴 수 있습니다. 완료 하기 전에 명령이 실패 하는 경우 `az aks show`를 사용 하 여 클러스터의 상태가 *인증서 회전*인지 확인 합니다. 클러스터가 실패 상태인 경우 `az aks rotate-certs`를 다시 실행 하 여 인증서를 다시 회전 합니다.
 
-`kubectl` 명령을 실행 하 여 이전 인증서가 더 이상 유효 하지 않은지 확인 합니다. `kubectl`에서 사용 하는 인증서를 업데이트 하지 않았으므로 오류가 표시 됩니다.  예를 들어:
+`kubectl` 명령을 실행 하 여 이전 인증서가 더 이상 유효 하지 않은지 확인 합니다. `kubectl`에서 사용 하는 인증서를 업데이트 하지 않았으므로 오류가 표시 됩니다.  예:
 
 ```console
 $ kubectl get no
@@ -86,7 +79,7 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-`kubectl` 명령을 실행 하 여 인증서가 업데이트 되었는지 확인 합니다. 그러면이 작업이 성공적으로 수행 됩니다. 예를 들어:
+`kubectl` 명령을 실행 하 여 인증서가 업데이트 되었는지 확인 합니다. 그러면이 작업이 성공적으로 수행 됩니다. 예:
 
 ```console
 kubectl get no

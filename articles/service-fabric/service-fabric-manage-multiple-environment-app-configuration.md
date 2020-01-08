@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric에서 여러 환경에 대한 애플리케이션 관리 | Microsoft Docs
+title: 여러 환경에 대 한 앱 관리
 description: 한 컴퓨터에서 수천 개의 컴퓨터에 이르는 클러스터에서 Azure Service Fabric 애플리케이션을 실행할 수 있습니다. 어떤 경우에 해당하는 다양한 환경에 대해 다르게 애플리케이션을 구성하려 합니다. 이 문서에서는 환경 당 다른 애플리케이션 매개 변수를 정의하는 방법을 설명합니다.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719229"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609845"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 애플리케이션 관리
 

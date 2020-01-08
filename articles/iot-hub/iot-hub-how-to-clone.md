@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976148"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429145"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Azure IoT hub를 다른 지역에 복제 하는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "74976148"
 허브를 복제 하려면 원본 허브에 대 한 관리자 액세스 권한이 있는 구독이 필요 합니다. 새 허브는 새 리소스 그룹 및 지역, 원본 허브와 동일한 구독 또는 새 구독에도 배치할 수 있습니다. 허브 이름은 전역적으로 고유 해야 하기 때문에 동일한 이름을 사용할 수 없습니다.
 
 > [!NOTE]
-> 지금은 IoT hub를 복제 하기 위한 첫 번째 클래스 기능이 없습니다. 주로 수동 프로세스 이므로 오류가 발생 하기 쉽습니다. 허브 복제의 복잡성은 허브의 복잡성에 비례 합니다. 예를 들어 메시지 라우팅을 사용 하지 않고 IoT hub를 복제 하는 것은 매우 간단 합니다. 메시지 라우팅을 하나의 복잡도로 추가 하는 경우 허브를 복제 하는 것이 보다 덜 복잡 합니다. 또한 라우팅 끝점에 사용 되는 리소스를 이동 하는 경우에는 magniture의 또 다른 순서가 더 복잡해 집니다. 
+> 지금은 IoT hub를 자동으로 복제 하는 데 사용할 수 있는 기능이 없습니다. 주로 수동 프로세스 이므로 오류가 발생 하기 쉽습니다. 허브 복제의 복잡성은 허브의 복잡성에 비례 합니다. 예를 들어 메시지 라우팅을 사용 하지 않고 IoT hub를 복제 하는 것은 매우 간단 합니다. 메시지 라우팅을 하나의 복잡도로 추가 하는 경우 허브를 복제 하는 것이 보다 덜 복잡 합니다. 또한 라우팅 끝점에 사용 되는 리소스를 이동 하는 경우에는 magniture의 또 다른 순서가 더 복잡해 집니다. 
 
 ## <a name="things-to-consider"></a>고려할 사항
 

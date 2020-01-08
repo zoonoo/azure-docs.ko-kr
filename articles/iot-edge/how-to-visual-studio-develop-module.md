@@ -1,6 +1,6 @@
 ---
-title: Visual Studio에서 모듈 개발 및 디버그-Azure IoT Edge | Microsoft Docs
-description: Visual Studio 2019을 사용 하 여 Azure IoT Edge에 대 한 모듈 개발 및 디버그
+title: Visual Studio에서 모듈 개발 및 디버그-Azure IoT Edge
+description: Visual Studio와 Azure IoT 도구를 사용 하 여 C 또는 C# IoT Edge 모듈을 개발 하 고 IoT Hub에서 iot 장치로 푸시합니다.
 services: iot-edge
 author: shizn
 manager: philmea
@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 9cec4c436c6e8ea08e37ec0ddd8a9a01e493447c
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a94bc4825f70b9858260feaadaeded6c76ba46e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561690"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457255"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019을 사용 하 여 Azure IoT Edge에 대 한 모듈 개발 및 디버그
 
@@ -28,7 +28,7 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 
 이 문서에서는 Visual Studio 2019 용 Azure IoT Edge 도구를 사용 하 여 IoT Edge 모듈을 개발 하는 방법을 보여 줍니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다. 현재 Visual Studio 2019는 C 및 C#로 작성 된 모듈을 지원 합니다. 지원 되는 장치 아키텍처는 Windows X64 및 Linux X64 또는 ARM32입니다. 지원 되는 운영 체제, 언어 및 아키텍처에 대 한 자세한 내용은 [언어 및 아키텍처 지원](module-development.md#language-and-architecture-support)을 참조 하세요.
   
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. Windows 컴퓨터에서는 Windows 또는 Linux 모듈을 개발할 수 있습니다. Windows 모듈을 개발 하려면 1809/build 17763 이상 버전을 실행 하는 Windows 컴퓨터를 사용 합니다. Linux 모듈을 개발 하려면 [Docker Desktop에 대 한 요구 사항을](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)충족 하는 Windows 컴퓨터를 사용 합니다. 
 
@@ -67,7 +67,7 @@ Visual Studio 2019이 준비 되 면 다음 도구 및 구성 요소도 필요 �
   > [!TIP]
   > 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다.
 
-- 디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md) 또는 [Windows](quickstart.md)용 빠른 시작의 단계에 따릅니다. 개발 머신에서 IoT Edge 디먼을 실행할 경우, Visual Studio에서 개발을 시작하기 전 EdgeHub 및 EdgeAgent를 중지해야 할 수도 있습니다.
+- 디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md) 또는 [Windows](quickstart.md)의 빠른 시작에서 단계를 수행합니다. 개발 머신에서 IoT Edge 디먼을 실행할 경우, Visual Studio에서 개발을 시작하기 전 EdgeHub 및 EdgeAgent를 중지해야 할 수도 있습니다.
 
 ### <a name="check-your-tools-version"></a>도구 버전 확인
 

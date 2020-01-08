@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 85fb67248a69a2726fef99ebe4749d61807631e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/30/2019
+ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010096"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562598"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
@@ -58,7 +58,7 @@ Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다
 
 공간 그래프는 Digital Twins 개체 모델에 정의된 공간, 디바이스 및 사람으로 구성되는 계층 그래프입니다. 공간 그래프는 상속, 필터링, 트래버스, 확장성 및 연장성을 지원합니다. REST API 컬렉션을 사용하여 공간 그래프를 관리하고 상호 작용할 수 있습니다.
 
-구독에 Digital Twins 서비스를 배포하면 루트 노드의 글로벌 관리자가 됩니다. 그런 다음, 전체 구조에 대한 모든 액세스 권한이 자동으로 부여됩니다. Space API를 사용하여 그래프에 공간을 프로비저닝합니다. Sensor API를 사용하여 Device API 및 센서를 통해 서비스를 프로비저닝합니다. [오픈 소스 도구](https://github.com/Azure-Samples/digital-twins-samples-csharp)를 사용하여 그래프를 대량으로 프로비저닝할 수도 있습니다.
+구독에 Digital Twins 서비스를 배포하면 루트 노드의 글로벌 관리자가 됩니다. 그런 다음, 전체 구조에 대한 모든 액세스 권한이 자동으로 부여됩니다. Space API를 사용하여 그래프에 공간을 프로비저닝합니다. Sensor API를 사용하여 Device API 및 센서를 통해 서비스를 프로비저닝합니다. [오픈 소스 도구](https://github.com/Azure-Samples/digital-twins-samples-csharp) 를 사용 하 여 그래프를 대량으로 프로 비전 할 수도 있습니다.
 
 **그래프 상속**. 상속은 부모 노드에서 해당 부모 노드에 속한 모든 노드로 전달되는 권한 및 속성에 적용됩니다. 예를 들어 특정 노드의 사용자에게 역할이 할당되면 사용자는 지정된 노드와 해당 노드에 속한 모든 노드에 대한 해당 역할의 권한을 가지게 됩니다. 지정된 노드에 대해 정의된 각 속성 키 및 확장 유형은 해당 노드 아래에 있는 모든 노드에 상속됩니다.
 

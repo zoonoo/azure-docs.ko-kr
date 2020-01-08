@@ -1,28 +1,30 @@
 ---
 title: 리소스를 구성 하는 관리 그룹 만들기-Azure 관리
 description: Azure 관리 그룹을 만들어 포털, Azure PowerShell 및 Azure CLI를 통해 여러 리소스를 관리하는 방법을 알아봅니다.
-ms.date: 04/05/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 335dd8f7f3a9ec20c2b7740e4ec97454489027f6
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436526"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
 관리 그룹은 여러 구독에서 액세스, 정책 및 규정 준수를 관리하는 데 도움이 되는 컨테이너입니다. 이러한 컨테이너를 만들어 [Azure 정책](../policy/overview.md) 및 [Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)와 함께 사용할 수 있는 효과적이고 효율적인 계층을 구축합니다. 관리 그룹에 대한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](overview.md)을 참조하세요.
 
-디렉터리에서 만드는 첫 번째 관리 그룹을 완료하려면 최대 15분이 소요될 수 있습니다. 디렉터리에 대해 Azure 내의 관리 그룹 서비스를 설정하기 위해 처음으로 실행되는 프로세스가 있습니다. 프로세스가 완료되면 알림이 수신됩니다.
+디렉터리에서 만드는 첫 번째 관리 그룹을 완료하려면 최대 15분이 소요될 수 있습니다. 디렉터리에 대해 Azure 내의 관리 그룹 서비스를 설정하기 위해 처음으로 실행되는 프로세스가 있습니다. 프로세스가 완료되면 알림이 수신됩니다. 자세한 내용은 [관리 그룹의 초기 설정](./overview.md#initial-setup-of-management-groups)을 참조 하세요. 
 
 ## <a name="create-a-management-group"></a>관리 그룹 만들기
+
+테 넌 트의 모든 Azure AD 사용자는 관리 그룹 쓰기 권한이 해당 사용자에 게 할당 되지 않은 상태에서 관리 그룹을 만들 수 있습니다.  이 새 관리 그룹은 루트 관리 그룹의 자식이 되 고 작성자는 "소유자" 역할 할당을 받습니다. 관리 그룹 서비스는이 기능을 허용 하 여 루트 수준에서 역할 할당이 필요 하지 않도록 합니다. 루트 관리 그룹을 만들 때 사용자에 게 액세스할 수 있는 권한이 없습니다.  관리 그룹 사용을 시작 하기 위해 Azure AD 전역 관리자를 찾을 장애물을 방지 하기 위해 루트 수준에서 초기 관리 그룹을 만들 수 있습니다.      
 
 포털, PowerShell 또는 Azure CLI를 사용하여 관리 그룹을 만들 수 있습니다. 현재 Resource Manager 템플릿을 사용하여 관리 그룹을 만들 수 없습니다.
 
 ### <a name="create-in-portal"></a>포털에서 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 + 거 버 넌 스**를 선택 합니다.
 

@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics를 사용하여 실시간 Twitter 감정 분석
 description: 이 아티클에서는 실시간 Twitter 감정 분석에 대해 Stream Analytics를 사용하는 방법을 설명합니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 8561789d53c3c1b00ac1477909bcbe356fe6a85d
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f3ab21d55b7d59bb58760bfba452b4ea2d103496
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369901"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -29,7 +28,7 @@ ms.locfileid: "70173176"
 
 Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 기업에서는 주요 토픽에 대한 트윗 볼륨 및 감정에 대한 실시간 분석이 필요합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 방법 가이드에서는 Twitter에 연결 하 고 특정 해시 태그 (설정할 수 있음)가 있는 트 윗를 찾는 클라이언트 응용 프로그램을 사용 합니다. Azure Streaming Analytics를 사용 하 여 응용 프로그램을 실행 하 고 트 윗를 분석 하려면 다음이 있어야 합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -114,7 +113,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 
 1. 웹 브라우저에서 [개발자용 Twitter](https://developer.twitter.com/en/apps)로 이동하여 **앱 만들기**를 선택합니다. Twitter 개발자 계정을 신청해야 한다는 메시지가 표시될 수 있습니다. 자유롭게 신청할 수 있으며, 신청이 승인되면 확인 이메일이 수신됩니다. 개발자 계정이 승인될 때까지 며칠이 걸릴 수 있습니다.
 
-   ![Twitter 개발자 계정 확인](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "twitter 개발자 계정 확인")
+   ![Twitter 개발자 계정 확인](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Twitter 개발자 계정 확인")
 
    ![Twitter 애플리케이션 세부 정보](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter 애플리케이션 세부 정보")
 
@@ -210,13 +209,13 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
 
 2. **입력** 블레이드에서 **+&nbsp;추가**를 클릭한 후 블레이드를 다음 값으로 채웁니다.
 
-   * **입력 별칭**: 이름 `TwitterStream`을 사용합니다. 다른 이름을 사용하는 경우 나중에 필요하므로 기록해 둡니다.
-   * **원본 유형**: **데이터 스트림**을 선택합니다.
+   * **입력 별칭**: 이름으로 `TwitterStream`을 사용합니다. 다른 이름을 사용하는 경우 나중에 필요하므로 기록해 둡니다.
+   * **원본 형식**: **데이터 스트림**을 선택합니다.
    * **원본**: **이벤트 허브**를 선택합니다.
-   * **가져오기 옵션**: **현재 구독에서 이벤트 허브 사용**을 선택합니다. 
-   * **Service Bus 네임스페이스**: 이전에 만든 이벤트 허브 네임스페이스(`<yourname>-socialtwitter-eh-ns`)를 선택합니다.
+   * **가져오기 옵션**: **현재 구독의 이벤트 허브 사용**을 선택합니다. 
+   * **서비스 버스 네임스페이스**: 이전에 만든 이벤트 허브 네임스페이스를 선택합니다(`<yourname>-socialtwitter-eh-ns`).
    * **이벤트 허브**: 이전에 만든 이벤트 허브를 선택합니다(`socialtwitter-eh`).
-   * **이벤트 허브 정책 이름**: 이전에 만든 액세스 정책을 선택합니다(`socialtwitter-access`).
+   * **이벤트 허브 정책 이름**: 앞부분에서 만든 액세스 정책을 선택합니다(`socialtwitter-access`).
 
      ![Streaming Analytics 작업에 대한 새 입력 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
@@ -265,7 +264,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 5. **테스트**를 클릭합니다. 샘플링된 데이터에 대해 쿼리가 실행됩니다.
     
-6. **Save**을 클릭합니다. 그러면 Streaming Analytics 작업의 일부로 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
+6. **저장**을 클릭합니다. 그러면 Streaming Analytics 작업의 일부로 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>스트림에서 서로 다른 필드를 사용하여 실험 
@@ -275,7 +274,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 |JSON 속성 | 정의|
 |--- | ---|
 |CreatedAt | 트윗을 만든 시간|
-|항목 | 지정된 키워드와 일치하는 항목|
+|주제 | 지정된 키워드와 일치하는 항목|
 |SentimentScore | Sentiment140의 관심도|
 |작성자 | 트윗을 보낸 Twitter 핸들|
 |텍스트 | 트윗의 전체 본문|
@@ -293,12 +292,12 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 2. **출력** 블레이드에서 **+&nbsp;추가**를 클릭한 후 블레이드를 다음 값으로 채웁니다.
 
-   * **출력 별칭**: 이름 `TwitterStream-Output`을 사용합니다. 
+   * **출력 별칭**: 이름으로 `TwitterStream-Output`를 사용합니다. 
    * **싱크**: **Blob Storage**를 선택합니다.
    * **가져오기 옵션**: **현재 구독의 Blob Storage 사용**을 선택합니다.
    * **Storage 계정**. **새 스토리지 계정 만들기**를 선택합니다.
    * **Storage 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
-   * **컨테이너**. `socialtwitter` 을 입력합니다.
+   * **컨테이너**. `socialtwitter`를 입력합니다.
      스토리지 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
 
      `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
@@ -358,7 +357,7 @@ Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라
     HAVING COUNT(*) > 20
     ```
 
-4. **Save**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
 5. TwitterWpfClient 애플리케이션이 실행되고 있는지 확인합니다. 
 

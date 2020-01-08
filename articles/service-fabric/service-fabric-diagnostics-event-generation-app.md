@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 애플리케이션 수준 모니터링 | Microsoft Docs
+title: Azure Service Fabric 응용 프로그램 수준 모니터링
 description: Azure Service Fabric 클러스터를 모니터링 및 진단하는 데 사용되는 애플리케이션 및 서비스 수준 이벤트와 로그에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464716"
 ---
 # <a name="application-logging"></a>애플리케이션 로깅
 

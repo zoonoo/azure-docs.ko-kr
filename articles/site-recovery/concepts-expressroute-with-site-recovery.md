@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: dcc5105fcf2ad7b6a9f0695b3086dc2956a76a50
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465209"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure ExpressRoute
 
@@ -31,11 +31,11 @@ Express 경로 회로에는 여러 개의 라우팅 도메인이 연결 되어 �
 
 Azure Site Recovery를 사용하면 온-프레미스 [Hyper-V 가상 머신](hyper-v-azure-architecture.md), [VMware 가상 머신](vmware-azure-architecture.md) 및 [물리적 서버](physical-azure-architecture.md)에 대해 Azure로 마이그레이션 및 재해 복구를 할 수 있습니다. 온-프레미스와 Azure 간 모든 시나리오의 경우 복제 데이터는 Azure Storage 계정에 전송돼 저장됩니다. 복제 동안 모든 가상 머신 요금을 지불하지 않습니다. Azure에 장애 조치를 실행하면 Site Recovery에서 Azure IaaS 가상 머신을 자동으로 만듭니다.
 
-Site Recovery는 공용 끝점을 통해 대상 Azure 지역에서 Azure Storage 계정 또는 복제본 관리 디스크로 데이터를 복제 합니다. Site Recovery 복제 트래픽에 대해 Express 경로를 사용 하려면 [Microsoft 피어](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) 링 또는 기존 [공용 피어 링](../expressroute/expressroute-circuit-peerings.md#publicpeering) (새 생성에 사용 되지 않음)을 활용할 수 있습니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 개인 피어 링을 통해 복제가 지원 되지 않습니다.
+Site Recovery는 공용 끝점을 통해 대상 Azure 지역에서 Azure Storage 계정 또는 복제본 관리 디스크로 데이터를 복제 합니다. Site Recovery 복제 트래픽에 대해 Express 경로를 사용 하려면 [Microsoft 피어](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) 링 또는 기존 [공용 피어 링](../expressroute/about-public-peering.md) (새 생성에 사용 되지 않음)을 활용할 수 있습니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 개인 피어 링을 통해 복제가 지원 되지 않습니다.
 
 구성 서버에 대 한 [네트워킹 요구 사항도](vmware-azure-configuration-server-requirements.md#network-requirements) 충족 되는지 확인 합니다. Site Recovery 복제 오케스트레이션에 대해 구성 서버에서 특정 Url에 연결 해야 합니다. 이 연결에는 Express 경로를 사용할 수 없습니다. 
 
-온-프레미스에서 프록시를 사용 하 고 복제 트래픽에 대해 Express 경로를 사용 하려는 경우 구성 서버 및 프로세스 서버에서 프록시 바이패스 목록을 구성 해야 합니다. 다음 단계를 따르세요.
+온-프레미스에서 프록시를 사용 하 고 복제 트래픽에 대해 Express 경로를 사용 하려는 경우 구성 서버 및 프로세스 서버에서 프록시 바이패스 목록을 구성 해야 합니다. 다음 단계를 수행합니다.
 
 - 시스템 사용자 컨텍스트에 액세스 하려면 [여기](https://aka.ms/PsExec) 에서 PsExec 도구를 다운로드 하세요.
 - 다음 명령줄 psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"를 실행 하 여 시스템 사용자 컨텍스트에서 Internet Explorer를 엽니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: b233c5dd639bb6652f201727748a081f6a8a4c64
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 382895c1b5a4cb2bc88ff2371cec59267ea4e176
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950329"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442932"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -23,10 +23,19 @@ ms.locfileid: "71950329"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워크 옵션 및 고려 사항에 대 한 자세한 내용은 [Kubernetes 및 AKS의 네트워크 개념][aks-network-concepts]을 참조 하세요.
 
+## <a name="prerequisites"></a>필수 조건
+
+* AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
+* 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
+* AKS 클러스터는 Kubernetes 서비스 주소 범위에 대 한 `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`또는 `192.0.2.0/24`를 사용 하지 않을 수 있습니다.
+* AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
+
 > [!WARNING]
 > Windows Server 노드 풀 (현재 AKS에서 미리 보기 상태)을 사용 하려면 Azure CNI를 사용 해야 합니다. 네트워크 모델로 kubenet를 사용 하는 것은 Windows Server 컨테이너에 사용할 수 없습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
 
@@ -139,7 +148,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>가상 네트워크에서 AKS 클러스터 만들기
 
-지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az AKS create][az-aks-create] 명령을 사용 하 여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 서비스 사용자 *\<appId >* 및 *\<password >* 를 정의 하 여 서비스 주체를 만듭니다.
+지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az AKS create][az-aks-create] 명령을 사용 하 여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 서비스 사용자 *\<appId >* 및 *\<암호 >* 를 정의 하 여 서비스 주체를 만듭니다.
 
 또한 다음 IP 주소 범위도 클러스터를 만드는 과정 중에 정의됩니다.
 

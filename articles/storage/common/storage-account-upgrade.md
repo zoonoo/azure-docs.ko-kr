@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e7228556659a7a4a9f01ea31f61e75b5e870d50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457426"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
@@ -24,9 +24,9 @@ ms.locfileid: "74892229"
 > [!IMPORTANT]
 > 범용 v1 또는 Blob storage 계정을 범용 v2로 업그레이드 하는 것은 영구적 이며 실행 취소할 수 없습니다.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 스토리지 계정으로 이동합니다.
 3. **설정** 섹션에서 **구성**을 클릭합니다.
 4. **계정 종류** 아래에서 **업그레이드**를 클릭합니다.
@@ -75,7 +75,7 @@ Blob 액세스 계층을 사용 하 여 예상 되는 사용량 패턴에 따라
 
 V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무료입니다. 업그레이드 프로세스 중에 원하는 계정 계층을 지정할 수 있습니다. 업그레이드 시 계정 계층을 지정 하지 않으면 업그레이드 된 계정의 기본 계정 계층이 `Hot`됩니다. 그러나 업그레이드 후 저장소 액세스 계층을 변경 하면 청구서가 변경 될 수 있으므로 업그레이드 하는 동안 새 계정 계층을 지정 하는 것이 좋습니다.
 
-모든 저장소 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 스토리지 계정을 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
+모든 스토리지 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 스토리지 계정을 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
 * **저장소 비용**: 저장 된 데이터의 양에 더하여 데이터 저장 비용은 저장소 액세스 계층에 따라 달라 집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
 
@@ -167,5 +167,4 @@ Blob Storage 계정에 대한 지역에서 복제 데이터 전송의 비용은 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스토리지 계정 만들기](storage-quickstart-create-account.md)
-* [Azure Storage 계정 관리](storage-account-manage.md)
+* [스토리지 계정을 만드는](storage-quickstart-create-account.md)

@@ -1,5 +1,6 @@
 ---
-title: Azure Storage에 대 한 Advanced threat protection
+title: Advanced threat protection 구성
+titleSuffix: Azure Storage
 description: Azure Storage에 대 한 고급 위협 방지를 구성 하 여 계정 활동의 변칙을 감지 하 고 잠재적으로 위험한 계정 액세스 시도에 대 한 통지를 받습니다.
 services: storage
 author: tamram
@@ -8,14 +9,14 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: b9413807cda096adf1056c07e026373ea19359b9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8efbf2107104f31bcfc5e4e5669dbed1835a034b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457404"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 Advanced threat protection
+# <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 advanced threat protection 구성
 
 Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 이 보호 계층을 사용 하면 보안 전문가가 되거나 보안 모니터링 시스템을 관리 하지 않고도 위협을 해결할 수 있습니다.
 
@@ -54,7 +55,7 @@ Azure Security Center 표준 계층을 구독할 때 advanced threat protection�
 1. **리소스 유형별 가격 책정 계층 선택** 섹션의 **저장소 계정** 행에서 **사용** 또는 **사용 안 함**을 클릭 합니다.
 
     ![Security Center에서 ATP 사용](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ### <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 

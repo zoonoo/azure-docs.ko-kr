@@ -1,26 +1,15 @@
 ---
-title: Azure에서 Service Fabric과 API Management 통합 | Microsoft Docs
+title: Azure에서 Service Fabric과 API Management 통합
 description: Azure API Management를 빠르게 시작하고 Service Fabric에서 백 엔드 서비스로 트래픽을 라우팅하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 201d617ce15216ba168bc484f644e165d5ae0e71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465349"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
@@ -36,7 +25,7 @@ Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오�
 > [!IMPORTANT]
 > 이 기능은 필수 가상 네트워크 지원으로 인해 API Management의 **프리미엄** 및 **개발자** 계층에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에
 
@@ -145,7 +134,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 * **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 문서에서는 "Service Fabric 앱"을 사용합니다.
 * **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 문서의 경우 (예: "http:\//servicefabric").
+* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 문서의 경우 "http:\//servicefabric"와 같습니다.
 * **path**는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
 * **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 문서에서는 **http** 및 **https**가 나열됩니다.
 * **path**는 API에 대한 접미사입니다. 이 문서에서는 "myapp"을 사용합니다.
@@ -201,7 +190,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
+|apimSku|개발자|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |

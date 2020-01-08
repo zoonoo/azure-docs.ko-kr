@@ -9,18 +9,21 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: a0b0d0d95e1ffd50faba19f1665ea5dae737b124
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379626"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form Recognizer 컨테이너 구성
 
 Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기능과에 지 집약성을 모두 활용 하도록 최적화 된 응용 프로그램 아키텍처를 구축할 수 있습니다.
 
 `docker run` 명령 인수를 사용 하 여 양식 인식기 컨테이너 런타임 환경을 구성 합니다. 이 컨테이너에는 몇 가지 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 예제는 ["예제 docker run 명령"](#example-docker-run-commands) 섹션을 참조 하세요. 청구 설정은 컨테이너별로 다릅니다.
+
+> [!IMPORTANT]
+> 양식 인식기 컨테이너는 현재 양식 인식기 API의 버전 1.0을 사용 합니다. 대신 관리 되는 서비스를 사용 하 여 최신 버전의 API에 액세스할 수 있습니다.
 
 ## <a name="configuration-settings"></a>구성 설정
 
@@ -45,9 +48,9 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 
 이 설정은 Azure Portal의 **폼 인식기 개요**, **끝점**아래에서 찾을 수 있습니다.
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| 이름 | 데이터 형식 | Description |
 |--|------|-----------|-------------|
-|예| `Billing` | 문자열 | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](form-recognizer-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
+|예| `Billing` | String | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](form-recognizer-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -74,10 +77,10 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정 권한 및 호스트 탑재 위치 권한 간의 충돌로 인해 [호스트 컴퓨터](form-recognizer-container-howto.md#the-host-computer) 의 탑재 위치에 액세스할 수 없는 경우도 있습니다.
 
-|옵션| Name | 데이터 형식 | 설명 |
+|선택 사항| 이름 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
-|필수| `Input` | 문자열 | 입력 탑재의 대상입니다. 기본값은 `/input`입니다.    <br><br>예:<br>`--mount type=bind,src=c:\input,target=/input`|
-|필수| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output`|
+|필수| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다.    <br><br>예:<br>`--mount type=bind,src=c:\input,target=/input`|
+|필수| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제
 
@@ -88,7 +91,7 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 
 다음 표의 {_argument_name_}을 사용자 고유의 값으로 바꿉니다.
 
-| Placeholder | 값 |
+| 자리 표시자 | 값 |
 |-------------|-------|
 | **{FORM_RECOGNIZER_API_KEY}** | 컨테이너를 시작 하는 데 사용 되는 키입니다. Azure Portal 폼 인식기 키 페이지에서 사용할 수 있습니다. |
 | **{FORM_RECOGNIZER_ENDPOINT_URI}** | 청구 끝점 URI 값은 Azure Portal 폼 인식기 개요 페이지에서 사용할 수 있습니다.|

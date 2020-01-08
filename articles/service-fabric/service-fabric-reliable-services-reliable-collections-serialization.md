@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serialization | Microsoft Docs
-description: Azure Service Fabric 신뢰할 수 있는 컬렉션 개체 serialization
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 신뢰할 수 있는 컬렉션 개체 serialization
+description: 기본 전략과 사용자 지정 serialization을 정의 하는 방법을 포함 하 여 Azure Service Fabric 신뢰할 수 있는 컬렉션 개체 serialization에 대해 알아봅니다.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/8/2017
-ms.author: atsenthi
-ms.openlocfilehash: d5e7dfb84f6e8a8fbd029ccc0b15c17f68216c33
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599298"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639550"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serialization
 신뢰할 수 있는 컬렉션은 해당 항목을 복제하고 유지하여 컴퓨터 장애 및 정전이 발생해도 지속되도록 합니다.
@@ -34,16 +23,16 @@ Reliable State Manager에는 일부 공용 형식에 대한 기본 제공 직렬
 기본 제공 직렬 변환기는 해당 형식이 변경될 수 없음을 알고 있으며 형식 이름 등의 형식 정보를 포함할 필요가 없으므로 더 효율적입니다.
 
 Reliable State Manager에는 다음 형식에 대한 기본 제공 직렬 변환기가 있습니다. 
-- Guid
+- GUID
 - bool
 - byte
 - sbyte
 - byte[]
 - char
-- string
-- Decimal
+- 문자열
+- decimal
 - double
-- FLOAT
+- float
 - int
 - uint
 - long
@@ -55,7 +44,7 @@ Reliable State Manager에는 다음 형식에 대한 기본 제공 직렬 변환
 
 사용자 지정 직렬 변환기는 성능 향상이나 네트워크 및 디스크의 데이터 암호화에 주로 사용됩니다. 무엇보다, 사용자 지정 직렬 변환기는 형식 정보를 직렬화해야 할 필요가 없기 때문에 일반적으로 제네릭 직렬 변환기보다 더 효율적입니다. 
 
-[IReliableStateManager. ireliablestatemanager.tryaddstateserializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) 는 지정 된 형식 T에 대 한 사용자 지정 serializer를 등록 하는 데 사용 됩니다. 이 등록은 StatefulServiceBase 생성 시 발생 하므로 복구가 시작 되기 전에 신뢰할 수 있는 모든 컬렉션은 해당 하는 직렬 변환기에 대 한 액세스 권한을 보유 하 여 지속형 데이터를 읽을 수 있도록 합니다.
+[IReliableStateManager. ireliablestatemanager.tryaddstateserializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) 는 지정 된 형식 t에 대 한 사용자 지정 serializer를 등록 하는 데 사용 됩니다. 이 등록은 StatefulServiceBase 생성 시 발생 하므로 복구가 시작 되기 전에 신뢰할 수 있는 모든 컬렉션은 해당 하는 직렬 변환기에 대 한 액세스 권한을 보유 하 여 지속형 데이터를 읽을 수 있도록 합니다.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,10 +62,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>사용자 지정 직렬 변환기를 구현하는 방법
 
-사용자 지정 serializer는 [\<IStateSerializer T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) 인터페이스를 구현 해야 합니다.
+사용자 지정 serializer는 [IStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) 인터페이스를 구현 해야 합니다.
 
 > [!NOTE]
-> IStateSerializer\<t >는 base 값 이라는 추가 T를 사용 하는 쓰기 및 읽기 오버 로드를 포함 합니다. 이 API는 차등 serialization에 사용됩니다. 현재 차등 serialization 기능은 노출되지 않습니다. 따라서 이러한 두 오버로드는 차등 serialization이 노출되고 사용될 때까지 호출되지 않습니다.
+> IStateSerializer\<T >에는 base 값 이라는 추가 T를 사용 하는 쓰기 및 읽기 오버 로드가 포함 됩니다. 이 API는 차등 serialization에 사용됩니다. 현재 차등 serialization 기능은 노출되지 않습니다. 따라서 이러한 두 오버로드는 차등 serialization이 노출되고 사용될 때까지 호출되지 않습니다.
 
 다음은 4가지 속성을 포함하는 OrderKey라는 사용자 지정 형식 예제입니다.
 
@@ -96,7 +85,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-다음은 > IStateSerializer\<orderkey의 구현 예제입니다.
+다음은 IStateSerializer\<OrderKey >의 구현 예제입니다.
 baseValue를 사용하는 읽기 및 쓰기 오버로드는 이후 버전과의 호환성을 위해 해당 오버로드를 호출합니다.
 
 ```csharp

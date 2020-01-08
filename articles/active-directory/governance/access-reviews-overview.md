@@ -16,12 +16,12 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65def17622f026aa4869a4c60e7cb5146d56c5b0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422756"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -58,19 +58,21 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 | --- | --- | --- | --- |
 | 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
 | 연결된 앱에 할당됨 | 지정된 검토자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
-| Azure AD 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 포털 |
-| Azure 리소스 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 포털 |
+| Azure AD 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Azure 리소스 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
 
 
 ## <a name="onboard-access-reviews"></a>액세스 검토 등록
 
 액세스 검토를 등록 하려면 다음 단계를 수행 합니다.
 
-1. 전역 관리자 또는 사용자 관리자는 액세스 검토를 사용 하려는 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 액세스 검토를 관리 하 고 전역 관리자 또는 사용자 관리자 권한으로 로그인 합니다.
 
-1. 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 클릭합니다.
+1. **Azure Active Directory**를 검색하고 선택합니다.
 
-1. 왼쪽 메뉴에서 **Id 거 버 넌 스**를 클릭 합니다.
+      ![Azure Active Directory Azure Portal 검색](media/access-reviews-overview/search-azure-active-directory.png)
+
+1. **Id 거 버 넌 스**를 선택 합니다.
 
 1. **액세스 검토**를 클릭 합니다.
  

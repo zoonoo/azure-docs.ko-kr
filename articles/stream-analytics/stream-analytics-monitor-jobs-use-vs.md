@@ -1,7 +1,6 @@
 ---
 title: Visual Studio를 사용 하 여 Azure Stream Analytics 모니터링 및 관리
 description: 이 문서에서는 Visual Studio를 사용하여 Azure Stream Analytics 작업을 모니터링하고 관리하는 방법을 설명합니다.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 684f034393dd3f53900100dd964d9ea07d200897
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e43a8d157baaf7e02ab7f8db4c777009d2a0abe9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934969"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431683"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Visual Studio를 사용하여 Stream Analytics 작업 모니터링 및 관리
 

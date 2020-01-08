@@ -1,25 +1,16 @@
 ---
-title: Application Insights를 사용하여 Azure Service Fabric 이벤트 분석 | Microsoft Docs
+title: Application Insights를 사용 하 여 Azure Service Fabric 이벤트 분석
 description: Azure Service Fabric 클러스터의 모니터링 및 진단을 위해 Application Insights를 사용하여 이벤트를 시각화 및 분석하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 8e682a5c768ed4b3f35382c87528c1b0d11a3c3d
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464760"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 

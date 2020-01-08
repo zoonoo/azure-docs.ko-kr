@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: ddc1c7f2dd207cba18a8c080c8b14cc53c149a39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 234c8be8c696ca7381b8860680d072e84820d424
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431969"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Media Services 계정 만들기
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 Azure Portal을 통해 AMS(Azure Media Services) 계정을 신속하게 만들 수 있습니다. 계정을 사용하여 Azure에서 미디어 콘텐츠를 저장, 암호화, 인코딩, 관리 및 스트리밍할 수 있는 Media Services에 액세스할 수 있습니다. Media Services 계정을 만들 때 연결된 스토리지 계정도 만듭니다(또는 기존 스토리지 계정 사용). Media Services 계정을 삭제하는 경우 관련 스토리지 계정의 Blob은 삭제되지 않습니다.
 
 범용 V1 또는 범용 V2를 기본 스토리지 계정으로 사용할 수 있습니다. 현재 Azure Portal을 사용하면 v1을 선택할 수 있습니다. 하지만 API 또는 PowerShell을 사용하여 계정을 만들 때 v2를 추가할 수 있습니다. 스토리지 유형에 대한 자세한 내용은 [Azure Storage 계정 정보](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)를 참조하세요.
 
-Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용이 발생하지 않도록 Media Services 계정과 동일한 위치에 스토리지 계정을 사용하는 것이 좋습니다.
+Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용이 발생하지 않도록 Media Services 계정과 동일한 위치에 있는 스토리지 계정을 사용하는 것이 좋습니다.
 
 이 문서에서는 Azure Portal을 사용하여 Media Services 계정을 만드는 방법을 보여줍니다.
 
@@ -39,7 +39,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오. 
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 
 ## <a name="create-an-ams-account"></a>AMS 계정 만들기
 
@@ -55,7 +55,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
    
    1. **계정 이름**에 새 AMS 계정의 이름을 입력합니다. Media Services 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
    2. 구독에서 액세스할 수 있는 다양한 Azure 구독 중에서 선택합니다.
-   3. **리소스 그룹**에서 새 또는 기존 리소스를 선택합니다.  리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../../azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.
+   3. **리소스 그룹**에서 새 또는 기존 리소스를 선택합니다.  리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
    4. **위치**에서 Media Services 계정에 대한 메타데이터 레코드 및 미디어를 저장하는 데 사용할 지리적 지역을 선택합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다. 사용 가능한 Media Services 지역만 드롭다운 목록 상자에 표시됩니다. 
    5. **Storage 계정**에서 Media Services 계정의 미디어 콘텐츠가 포함된 Blob 스토리지를 제공할 Storage 계정을 선택합니다. Media Services 계정과 동일한 지역의 기존 스토리지 계정을 선택하거나 스토리지 계정을 만들 수 있습니다. 동일한 지역에 새 스토리지 계정이 생성됩니다. 스토리지 계정 이름에 대한 규칙은 Media Services 계정의 경우와 같습니다.
       
@@ -82,6 +82,6 @@ AMS 계정을 관리하려면(예: 프로그래밍 방식으로 AMS API에 연�
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB의 MongoDB용 API에서 MongoDB 읽기 기본 설정 사용
+title: MongoDB에 대 한 Azure Cosmos DB API에서 읽기 기본 설정을 사용 합니다.
 description: Azure Cosmos DB의 MongoDB용 API에서 MongoDB 읽기 기본 설정을 사용하는 방법에 대한 자세한 정보
 author: sivethe
 ms.author: sivethe
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 8fc66d70b840578bff086519a7b39e5f389a3de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445172"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API를 사용하여 읽기를 전역 배포하는 방법
 

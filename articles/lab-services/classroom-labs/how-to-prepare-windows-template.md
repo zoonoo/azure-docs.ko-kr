@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: e8c0e67567bd5ddbfdd45762edd52112c1fd4c70
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d7cff4e2afff4678bf7aa437aefa9d8deea220bc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897274"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428940"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Azure Lab Services에서 Windows 템플릿 컴퓨터를 설정 하는 방법에 대 한 가이드
 
@@ -142,7 +142,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 
 ### <a name="change-the-microsoft-office-365-update-channel"></a>Microsoft Office 365 업데이트 채널 변경
 
-Office 구성 도구를 사용 하 여 Office에서 업데이트를 수신 하는 빈도를 설정할 수 있습니다.  그러나 설치 후 Office에서 업데이트를 수신 하는 빈도를 수정 해야 하는 경우에는 업데이트 채널 url을 변경할 수 있습니다.  업데이트 채널 url 주소 [는 Office 365 클라이언트가 Configuration Manager에서 업데이트를 받도록 설정한 후 업데이트 채널 변경](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager)에서 찾을 수 있습니다. 아래 예제에서는 월별 업데이트 채널을 사용 하도록 Office 365을 설정 하는 방법을 보여 줍니다.
+Office 구성 도구를 사용 하 여 Office에서 업데이트를 수신 하는 빈도를 설정할 수 있습니다.  그러나 설치 후 Office에서 업데이트를 수신 하는 빈도를 수정 해야 하는 경우에는 업데이트 채널 url을 변경할 수 있습니다.  업데이트 채널 url 주소는 [Office 365 클라이언트가 Configuration Manager의 업데이트를 받도록 설정한 후 업데이트 채널 변경]/configmgr/sum/deploy-use/manage-office-365-proplus-updates # bkmk_channel)에서 찾을 수 있습니다. 아래 예제에서는 월별 업데이트 채널을 사용 하도록 Office 365을 설정 하는 방법을 보여 줍니다.
 
 ```powershell
 # Update to the Office 365 Monthly Channel

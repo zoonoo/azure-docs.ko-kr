@@ -1,25 +1,17 @@
 ---
-title: 자습서 - Azure Service Fabric Mesh 애플리케이션 업그레이드 | Microsoft Docs
+title: 자습서-Azure Service Fabric 메시 응용 프로그램 업그레이드
 description: 이 자습서는 시리즈의 4부이며, Visual Studio에서 직접 Azure Service Fabric Mesh 애플리케이션을 업그레이드하는 방법을 보여 줍니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81f155d5708a2fca2fc1145feb20af12d2fd151e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686204"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351709"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>자습서: Visual Studio를 사용하여 Service Fabric 애플리케이션을 업그레이드하는 방법 알아보기
 
@@ -73,7 +65,7 @@ Service Fabric 메시 앱을 만들 때 Visual studio는 각 배포 환경 (클�
 
 ## <a name="modify-the-model"></a>모델 수정
 
-코드 변경을 도입하려면 `Category` 파일의 `ToDoItem` 클래스에 `ToDoItem.cs` 속성을 추가합니다.
+코드 변경을 도입하려면 `ToDoItem.cs` 파일의 `ToDoItem` 클래스에 `Category` 속성을 추가합니다.
 
 ```csharp
 public class ToDoItem

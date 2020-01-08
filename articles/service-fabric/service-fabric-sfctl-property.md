@@ -1,32 +1,23 @@
 ---
-title: Azure Service Fabric CLI- sfctl property | Microsoft Docs
-description: Service Fabric CLI sfctl property 명령을 설명합니다.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 속성
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 속성을 표시 하 고 쿼리 하는 명령 목록을 포함 합니다.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 368dad54c611e4532b46f11669bcf8e363b9a740
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901065"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639108"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | delete | 지정된 Service Fabric 속성을 삭제합니다. |
 | get | 지정된 Service Fabric 속성을 가져옵니다. |
@@ -40,7 +31,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | 가져올 속성의 이름을 지정합니다. |
@@ -48,13 +39,13 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-property-get"></a>sfctl property get
 지정된 Service Fabric 속성을 가져옵니다.
@@ -63,7 +54,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | 가져올 속성의 이름을 지정합니다. |
@@ -71,13 +62,13 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-property-list"></a>sfctl property list
 지정된 이름에서 모든 Service Fabric 속성에 대한 정보를 가져옵니다.
@@ -86,7 +77,7 @@ Service Fabric 이름에는 사용자 지정 정보를 저장하는 하나 이�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --name-id [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
@@ -95,13 +86,13 @@ Service Fabric 이름에는 사용자 지정 정보를 저장하는 하나 이�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-property-put"></a>sfctl property put
 Service Fabric 속성을 만들거나 업데이트합니다.
@@ -110,7 +101,7 @@ Service Fabric 속성을 만들거나 업데이트합니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | Service Fabric 속성의 이름입니다. |
@@ -120,15 +111,15 @@ Service Fabric 속성을 만들거나 업데이트합니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md).
+- Service Fabric CLI [설정](service-fabric-cli.md)
 - [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

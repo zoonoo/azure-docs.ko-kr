@@ -1,26 +1,25 @@
 ---
 title: Visual Studio에서 Edge 작업 Azure Stream Analytics
 description: 이 문서에서는 Visual Studio 용 Stream Analytics 도구를 사용 하 여 IoT Edge 작업에서 Stream Analytics를 작성 하 고, 디버그 하 고, 만드는 방법을 설명 합니다.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec4a4041378ce94ae70ba7a88b3fef80f7dcd193
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354558"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발
 
 이 자습서에서는 Visual Studio 용 Stream Analytics 도구를 사용 하는 방법에 대해 알아봅니다. Stream Analytics Edge 작업을 작성 하 고, 디버그 하 고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 디바이스에 배포할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 

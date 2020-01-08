@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric-관리 되는 id 지원을 사용 하도록 기존 Azure Service Fabric 클러스터 구성 | Microsoft Docs
+title: Azure Service Fabric-관리 되는 id 지원을 사용 하도록 기존 Azure Service Fabric 클러스터 구성
 description: 이 문서에서는 관리 되는 id에 대 한 지원을 사용 하도록 기존 Azure Service Fabric 클러스터를 구성 하는 방법을 보여 줍니다.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: adc21358011454c8687998dc5d257052959b933b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 12/09/2019
+ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640744"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351599"
 ---
 # <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>관리 되는 Id 지원을 사용 하도록 기존 Azure Service Fabric 클러스터 구성 (미리 보기)
 Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스 하려면 먼저 클러스터에서 **관리 되는 Id 토큰 서비스** 를 사용 하도록 설정 해야 합니다. 이 서비스는 관리 되는 id를 사용 하 여 Service Fabric 응용 프로그램을 인증 하 고 사용자 대신 액세스 토큰을 가져오는 일을 담당 합니다. 서비스를 사용 하도록 설정 하면 왼쪽 창에 있는 **시스템** 섹션의 이름 **Fabric:/System/ManagedIdentityTokenService**에서 실행 되는 Service Fabric Explorer에서 해당 서비스를 볼 수 있습니다.
@@ -42,7 +38,7 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
 ]
 ```
 
-변경 내용을 적용 하려면 업그레이드가 클러스터를 진행 하면서 각 노드에서 Service Fabric 런타임의 강제 다시 시작을 지정 하도록 업그레이드 정책을 변경 해야 합니다. 이렇게 다시 시작 하면 새로 활성화 된 시스템 서비스가 각 노드에서 시작 되 고 실행 됩니다. 아래 코드 조각에서 `forceRestart` 는 필수 설정입니다. 나머지 설정에 대해 기존 값을 사용 합니다.  
+변경 내용을 적용 하려면 업그레이드가 클러스터를 진행 하면서 각 노드에서 Service Fabric 런타임의 강제 다시 시작을 지정 하도록 업그레이드 정책을 변경 해야 합니다. 이렇게 다시 시작 하면 새로 활성화 된 시스템 서비스가 각 노드에서 시작 되 고 실행 됩니다. 아래 코드 조각에서 `forceRestart`은 필수 설정입니다. 나머지 설정에 대 한 기존 값을 사용 합니다.  
 
 ```json
 "upgradeDescription": {
@@ -57,7 +53,7 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
 ```
 
 > [!NOTE]
-> 업그레이드가 성공적으로 완료 되 면 이후 업그레이드의 영향을 최소화 하기 위해 `forceRestart` 설정을 롤백하는 것을 잊지 마세요. 
+> 업그레이드가 성공적으로 완료 되 면 후속 업그레이드의 영향을 최소화 하기 위해 `forceRestart` 설정을 롤백해야 합니다. 
 
 ## <a name="errors-and-troubleshooting"></a>오류 및 문제 해결
 

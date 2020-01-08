@@ -3,12 +3,12 @@ title: 포털에서 기존 할당 업데이트
 description: Azure 청사진의 포털에서 기존 청사진 할당을 업데이트 하는 메커니즘에 대해 알아봅니다.
 ms.date: 11/21/2019
 ms.topic: how-to
-ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436578"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -55,7 +55,7 @@ ms.locfileid: "74873168"
 
 ## <a name="possible-errors-on-updating-assignments"></a>할당 업데이트 시 발생 가능한 오류
 
-할당을 업데이트할 때 변경한 내용으로 인해 실행 시 오류가 발생할 수 있습니다. 이미 배포된 리소스 그룹의 위치를 변경하는 경우를 예로 들 수 있습니다. [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md)에서 지원되는 변경 작업을 수행할 수 있지만, Azure Resource Manager를 통해 오류로 이어지는 변경 작업은 할당 시에도 오류가 발생합니다.
+할당을 업데이트할 때 변경한 내용으로 인해 실행 시 오류가 발생할 수 있습니다. 이미 배포된 리소스 그룹의 위치를 변경하는 경우를 예로 들 수 있습니다. [Azure Resource Manager](../../../azure-resource-manager/management/overview.md)에서 지원되는 변경 작업을 수행할 수 있지만, Azure Resource Manager를 통해 오류로 이어지는 변경 작업은 할당 시에도 오류가 발생합니다.
 
 할당을 업데이트할 수 있는 횟수에는 제한이 없습니다. 오류가 발생할 경우 오류를 확인하고 할당에 대해 다른 업데이트를 수행합니다.  오류 시나리오 예제:
 

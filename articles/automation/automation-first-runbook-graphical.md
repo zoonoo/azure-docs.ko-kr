@@ -3,19 +3,15 @@ title: Azure Automation의 내 첫 번째 그래픽 Runbook
 description: 자습서는 간단한 그래픽 runbook의 생성, 테스트, 게시를 단계별로 안내합니다.
 keywords: runbook, runbook 템플릿, runbook 자동화, azure runbook
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/13/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1cdd015d9f29c3fb672d626f32a485271e2757c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a93263cf968fc4804d7bbc59e15121d6061dd40a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366535"
 ---
 # <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
@@ -28,7 +24,7 @@ ms.locfileid: "74850315"
 
 이 자습서는 Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적하는 방법을 알아보면서 테스트하고 게시하는 간단한 Runbook을 시작합니다. 그런 다음 실제로 Azure 리소스를 관리하도록 Runbook을 수정합니다. 이 경우에 Azure Virtual Machine을 시작합니다. 그리고 Runbook 매개 변수와 조건부 링크를 추가하여 Runbook을 더욱 강력하게 만들고 자습서를 완료합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -174,7 +170,7 @@ ms.locfileid: "74850315"
 1. 창을 닫습니다.
 1. **게시** 를 클릭하여 Runbook의 새 버전을 게시합니다.
 1. 이전 단계에서 실행시킨 가상 머신을 중지합니다.
-1. **시작**을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및 **ResourceGroupName**을 입력합니다.
+1. **시작** 을 클릭하여 runbook을 시작합니다. 시작하려는 가상 머신의 **VMName** 및 **ResourceGroupName**을 입력합니다.
 1. Runbook이 완료되면 가상 머신이 시작되었다는 것을 확인합니다.
 
 ## <a name="create-a-conditional-link"></a>조건부 링크 만들기

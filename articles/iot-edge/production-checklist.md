@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1213ab4c623cb1d475dff1d71e65439b1d08f5c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429443"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -39,7 +39,7 @@ IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는
 
 디바이스 CA 인증서의 역할을 이해하려면 [Azure IoT Edge에서 인증서를 사용하는 방법](iot-edge-certs.md)을 참조하세요.
 
-IoT Edge 디바이스에 인증서를 설치하고 config.yaml 파일에서 해당 인증서를 참조하는 방법에 대한 자세한 내용은 [투명한 게이트웨이로 작동하도록 IoT Edge 디바이스 구성](how-to-create-transparent-gateway.md)을 참조하세요. 인증서를 구성하는 단계는 디바이스가 게이트웨이로 사용되는지 여부에 관계없이 동일합니다. 이 문서에서는 테스트 전용으로 샘플 인증서를 생성하는 스크립트를 다룹니다. 프로덕션에서는 이러한 샘플 인증서를 사용하지 마세요. 
+IoT Edge 장치에 인증서를 설치 하 고이를 config.xml 파일에서 참조 하는 방법에 대 한 자세한 내용은 [IoT Edge 장치에 프로덕션 인증서 설치](how-to-create-transparent-gateway.md)를 참조 하세요. 
 
 ### <a name="have-a-device-management-plan"></a>디바이스 관리 계획 준비
 
@@ -233,7 +233,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 **옵션: 각 컨테이너 모듈에 대해 로그 설정 조정**
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 다음은 그 예입니다.
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예:
 
 ```yml
 "createOptions": {

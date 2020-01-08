@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: dcd2f5f00c00ce0f74c07bfb7ba8e81316d9a53e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8a7e5243428eb88a2757b675c7d66dbfb3c66a30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459989"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure에 vhd 업로드
 
@@ -23,11 +23,11 @@ Azure에서 IaaS Vm에 대 한 백업 솔루션을 제공 하는 경우 직접 �
 
 현재 직접 업로드는 표준 HDD, 표준 SSD 및 프리미엄 SSD 관리 디스크에 대해 지원 됩니다. 아직 ultra Ssd에 대해 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-Az-ps)합니다.
-- 온-pem에서 vhd를 업로드 하려는 경우: [Azure에 대해 준비](prepare-for-upload-vhd-image.md)된 vhd는 로컬에 저장 됩니다.
+- 온-프레미스에서 VHD를 업로드 하려는 경우: [Azure에 대해 준비](prepare-for-upload-vhd-image.md)된 vhd는 로컬에 저장 됩니다.
 - 또는 복사 작업을 수행 하려는 경우 Azure에서 관리 되는 디스크입니다.
 
 ## <a name="create-an-empty-managed-disk"></a>빈 관리 디스크 만들기

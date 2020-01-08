@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB의 다양한 API에 대한 질문과 대답
+title: Azure Cosmos DB의 다양 한 Api에 대 한 질문과 대답
 description: 전역적으로 분산된 다중 모델 데이터베이스 서비스인 Azure Cosmos DB에 대해 자주 묻는 질문에 대한 대답을 살펴봅니다. 용량, 성능 수준 및 크기 조정에 대해 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8c8d33a2cd9a25942e1df7eacc7a676debf29ec1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: dc627fc4bb7be449547a07cc34eb2cb3694964e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445428"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -228,7 +228,7 @@ Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 적용됩니�
 
 Azure Cosmos DB의 API for MongoDB는 일반적인 MongoDB 오류 코드 외에도 자체적인 특정 오류 코드를 갖고 있습니다.
 
-| Error               | 코드  | 설명  | 해결 방법  |
+| 오류               | 코드  | Description  | 솔루션  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 사용 된 총 요청 단위 수가 컨테이너에 대 한 프로 비전 된 요청 단위 요금 보다 더 많이 제한 되어 있습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
 | ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br>예: <em>&nbsp;&nbsp;&nbsp;&nbsp;db. getCollection (' users '). aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
@@ -268,8 +268,8 @@ REST API를 기준으로 Azure Cosmos DB Table API에서 지원하지 않는 많
 | Rest 메서드 | Rest 엔드포인트/쿼리 옵션 | 문서 URL | 설명 |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [테이블 서비스 속성 설정](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) 및 [테이블 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | 이 엔드포인트는 CORS 규칙, 스토리지 분석 구성 및 로깅 설정을 설정하는 데 사용됩니다. CORS는 현재 지원되지 않습니다. 또한 분석 및 로깅은 Azure Storage 테이블과 다르게 Azure Cosmos DB에서 처리됩니다. |
-| OPTIONS | /\<테이블-이름 > | [사전 CORS 테이블 요청](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Azure Cosmos DB에서 현재 지원하지 않는 CORS의 일부입니다. |
-| 가져오기 | /?restype=service@comp=stats | [테이블 서비스 통계 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | 주 데이터베이스와 보조 데이터베이스 간에 데이터를 신속하게 복제하는 방법을 제공합니다. 복제가 쓰기의 일부이기 때문에 Cosmos DB에서 필요하지 않습니다. |
+| OPTIONS | /\<table-resource-name> | [사전 CORS 테이블 요청](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Azure Cosmos DB에서 현재 지원하지 않는 CORS의 일부입니다. |
+| GET | /?restype=service@comp=stats | [테이블 서비스 통계 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | 주 데이터베이스와 보조 데이터베이스 간에 데이터를 신속하게 복제하는 방법을 제공합니다. 복제가 쓰기의 일부이기 때문에 Cosmos DB에서 필요하지 않습니다. |
 | GET, PUT | /mytable?comp=acl | [테이블 ACL 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) 및 [테이블 ACL 설정](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | SAS(공유 액세스 서명)을 관리하는 데 사용되는 저장 액세스 정책을 가져오고 설정합니다. SAS가 지원되지만 다른 방법으로 설정되고 관리됩니다. |
 
 또한 Azure Cosmos DB Table API는 ATOM이 아닌 JSON 형식만을 지원합니다.
@@ -315,7 +315,7 @@ Azure Portal의 연결 문자열 페이지에서 연결 문자열을 가져올 �
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>기존 Azure Table Storage SDK를 사용하는 고객에 대한 변동 사항이 있나요?
 
-없음 기존 Azure Table Storage SDK를 사용하는 기존 고객 또는 신규 고객에 대한 변동 사항은 없습니다.
+없음. 기존 Azure Table Storage SDK를 사용하는 기존 고객 또는 신규 고객에 대한 변동 사항은 없습니다.
 
 ### <a name="how-do-i-view-table-data-thats-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Table API와 함께 사용하기 위해 Azure Cosmos DB에 저장된 테이블 데이터를 보려면 어떻게 해야 하나요?
 
@@ -357,7 +357,7 @@ Table API **메트릭** 창에서 요청 및 스토리지 사용량을 모니터
 
 ### <a name="can-i-use-the-table-api-sdk-locally-with-the-emulator"></a>Table API SDK를 에뮬레이터에서 로컬로 사용할 수 있나요?
 
-지금은 없습니다.
+현재는 사용할 수 없습니다.
 
 ### <a name="can-my-existing-application-work-with-the-table-api"></a>기존 애플리케이션을 Table API에서 사용할 수 있나요?
 
@@ -476,7 +476,7 @@ Table API는 Azure Table Storage와 동일한 쿼리 기능을 제공합니다. 
 
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Azure Table Storage 서비스의 기존 고객에 대한 가격 책정에 변동 사항이 있나요?
 
-없음 기존 Azure Table Storage 고객을 위한 가격에는 변동 사항이 없습니다.
+없음. 기존 Azure Table Storage 고객을 위한 가격에는 변동 사항이 없습니다.
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Table API의 가격은 어떻게 계산하나요?
 

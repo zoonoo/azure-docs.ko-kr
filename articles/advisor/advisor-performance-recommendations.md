@@ -1,19 +1,14 @@
 ---
-title: Azure Advisor로 Azure 애플리케이션의 성능 향상 | Microsoft Docs
+title: Azure Advisor로 Azure 애플리케이션의 성능 향상
 description: Advisor를 사용하여 Azure 배포 성능을 최적화합니다.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 82c77568a2c62a0e02bf00c164f4600e221376da
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443051"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Advisor로 Azure 애플리케이션의 성능 향상
 

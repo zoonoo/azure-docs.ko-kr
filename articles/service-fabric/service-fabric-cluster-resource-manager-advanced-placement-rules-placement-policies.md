@@ -1,25 +1,16 @@
 ---
-title: Service Fabric 클러스터 리소스 관리자 - 배치 정책 | Microsoft Docs
+title: 클러스터 리소스 관리자 Service Fabric 배치 정책
 description: 서비스 패브릭 서비스에 대한 추가 배치 정책 및 규칙 개요
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: d5aea441f15cbf7a2a444439c06cd5f74a559d3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9861faeaf4ab4049de7404a9e6f8b59a9445fe5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452177"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
 배치 정책은 보다 덜 일반적인 일부 구체적인 시나리오에서 서비스 배치를 제어하는 데 사용할 수 있는 추가적인 규칙입니다. 이러한 시나리오의 몇 가지 예는 다음과 같습니다.
@@ -45,7 +36,7 @@ ms.locfileid: "60386468"
 
 <center>
 
-![잘못 된 도메인 예제][Image1]
+잘못 된 도메인 예제를 ![][Image1]
 </center>
 
 코드:
@@ -56,7 +47,7 @@ invalidDomain.DomainName = "fd:/DCEast"; //regulations prohibit this workload he
 serviceDescription.PlacementPolicies.Add(invalidDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
@@ -66,8 +57,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![필수 도메인 예제][Image2]
-</center>
+필요한 도메인 예][Image2]
+![</center>
 
 코드:
 
@@ -77,7 +68,7 @@ requiredDomain.DomainName = "fd:/DC01/RK03/BL2";
 serviceDescription.PlacementPolicies.Add(requiredDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
@@ -88,8 +79,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![기본 설정된 주 도메인 및 장애 조치][Image3]
-</center>
+기본 설정 주 도메인 및 장애 조치 (Failover)][Image3]
+![</center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
@@ -97,7 +88,7 @@ primaryDomain.DomainName = "fd:/EastUS/";
 serviceDescription.PlacementPolicies.Add(primaryDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
@@ -123,7 +114,7 @@ ServicePlacementRequireDomainDistributionPolicyDescription distributeDomain = ne
 serviceDescription.PlacementPolicies.Add(distributeDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")

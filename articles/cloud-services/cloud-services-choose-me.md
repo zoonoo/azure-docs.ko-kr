@@ -2,17 +2,17 @@
 title: Azure Cloud Services란 | Microsoft Docs
 description: Azure Cloud Services에 대해 알아봅니다.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 61369d51056607d8176d301afa945c7c77895b12
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386853"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Azure Cloud Services 개요
 Azure Cloud Services는 [PaaS(Platform-as-a-Service)](https://azure.microsoft.com/overview/what-is-paas/)의 예입니다. [Azure App Service](../app-service/overview.md)와 마찬가지로 이 기술은 확장성이 있고 안정적이며 운영 비용이 저렴한 애플리케이션을 지원하도록 설계되었습니다. App Service가 VM(가상 머신)에서 호스팅되는 것과 마찬가지로 Azure Cloud Services도 동일합니다. 하지만, VM보다 자세히 제어해야 합니다. 자체 소프트웨어를 Azure Cloud Services를 사용하는 VM에 설치하고 원격으로 액세스할 수 있습니다.
@@ -48,6 +48,9 @@ Azure Cloud Services의 PaaS 특성에는 다른 것도 있습니다. 가장 중
 * [Node.js로 클라우드 서비스 앱 만들기](cloud-services-nodejs-develop-deploy-app.md) 
 * [PHP로 클라우드 서비스 앱 만들기](../cloud-services-php-create-web-role.md) 
 * [Python에서 클라우드 서비스 앱 만들기](cloud-services-python-ptvs.md)
+
+
+
 
 
 

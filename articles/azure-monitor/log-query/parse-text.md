@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 5a3b6852563955bfac940073bdda7d0afa02e77f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 82ad197a1f64040dfb91aa73d7a6dfd4210f99a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900258"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365277"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Azure Monitor 로그에서 텍스트 데이터 구문 분석
 Azure Monitor에서 수집된 일부 데이터에는 하나의 속성에 여러 개의 정보 부분이 포함되어 있습니다. 이 데이터를 여러 속성으로 구문 분석하면 쿼리에서 더 쉽게 사용할 수 있습니다. 일반적인 예로, 여러 값이 있는 전체 로그 항목을 단일 속성으로 수집하는 [사용자 지정 로그](../../log-analytics/log-analytics-data-sources-custom-logs.md)가 있습니다. 서로 다른 값에 대해 별도의 속성을 만들면 각각을 검색하고 집계할 수 있습니다.

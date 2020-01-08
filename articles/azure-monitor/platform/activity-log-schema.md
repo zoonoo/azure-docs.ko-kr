@@ -1,22 +1,24 @@
 ---
 title: Azure 활동 로그 이벤트 스키마
 description: Azure 활동 로그의 각 범주에 대 한 이벤트 스키마를 설명 합니다.
-author: johnkemnetz
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 1/16/2019
-ms.author: dukek
+ms.date: 12/04/2019
+ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 73f6de80348b7d933e45a8145f6bdb8fe22b5954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: df2594165909c55de2de562c9717299d189a20d3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893606"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531023"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
-**Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 스토리지 또는 Event Hubs로 스트리밍](activity-log-export.md)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성을 [Azure 로그 스키마](diagnostic-logs-schema.md) 에 매핑하는 것은 문서의 끝에 제공 됩니다.
+Azure [활동 로그](activity-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 각 범주에 대 한 이벤트 스키마를 설명 합니다. 
+
+아래 예제는 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 스키마를 보여 줍니다. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](resource-logs-stream-event-hubs.md)때 스키마가 다릅니다. 이 문서의 끝에는 [리소스 로그 스키마](diagnostic-logs-schema.md) 에 대 한 속성 매핑이 제공 됩니다.
 
 ## <a name="administrative"></a>관리
 이 범주에는 Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 이 범주에 표시되는 이벤트의 유형의 예로는 "가상 머신 만들기", "네트워크 보안 그룹 삭제" 등이 있습니다. 사용자나 애플리케이션이 Resource Manager를 사용하여 취하는 모든 동작은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 범주에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다.
@@ -110,9 +112,9 @@ ms.locfileid: "74893606"
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
-| authorization |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
+| 권한 부여 |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
 | caller |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. |
 | channels |"Admin", "Operation" 값 중 하나여야 합니다. |
 | claims |Active Directory에서 사용자 또는 애플리케이션이 리소스 관리자를 통해 이 작업을 수행할 수 있도록 인증하는 데 사용하는 JWT 토큰입니다. |
@@ -130,7 +132,7 @@ ms.locfileid: "74893606"
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
-| status |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| 상태 |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드이지만 다음과 같이 하위 상태를 설명하는 다른 문자열을 포함할 수 있습니다. 예를 들어 이러한 일반적인 값은 다음과 같습니다. OK(HTTP 상태 코드: 200), Created(HTTP 상태 코드: 201), Accepted(HTTP 상태 코드: 202), No Content(HTTP 상태 코드: 204), Bad Request(HTTP 상태 코드: 400), Not Found(HTTP 상태 코드: 404), Conflict(HTTP 상태 코드: 409), Internal Server Error(HTTP 상태 코드: 500), Service Unavailable(HTTP 상태 코드:503), Gateway Timeout(HTTP 상태 코드: 504). |
 | eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
@@ -257,7 +259,7 @@ ms.locfileid: "74893606"
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
 | channels | 항상 "Admin, Operation"입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
@@ -272,7 +274,7 @@ ms.locfileid: "74893606"
 | resourceProviderName |항상 “Microsoft.Resourcehealth/healthevent/action”. |
 | resourceType | 리소스 상태 이벤트에 영향을 받은 리소스 유형입니다. |
 | resourceId | 영향을 받는 리소스의 리소스 ID 이름입니다. |
-| status |상태 이벤트의 상태를 설명하는 문자열입니다. 가능한 값은 활성, 해결됨, 진행 중, 업데이트됨입니다. |
+| 상태 |상태 이벤트의 상태를 설명하는 문자열입니다. 가능한 값은 활성, 해결됨, 진행 중, 업데이트됨입니다. |
 | subStatus | 경고의 경우 대개 null입니다. |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
@@ -350,7 +352,7 @@ ms.locfileid: "74893606"
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
 | caller | Always Microsoft.Insights/alertRules |
 | channels | 항상 "Admin, Operation"입니다. |
@@ -366,7 +368,7 @@ ms.locfileid: "74893606"
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
-| status |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| 상태 |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus | 경고의 경우 대개 null입니다. |
 | eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
@@ -376,7 +378,7 @@ ms.locfileid: "74893606"
 속성 필드에는 경고 이벤트의 원본에 따라 다른 값이 포함됩니다. 일반적으로 사용되는 두 경고 이벤트 공급자는 활동 로그 경고와 메트릭 경고입니다.
 
 #### <a name="properties-for-activity-log-alerts"></a>활동 로그 경고의 속성
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
 | properties.subscriptionId | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 구독 ID입니다. |
 | properties.eventDataId | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 이벤트 데이터 ID입니다. |
@@ -387,7 +389,7 @@ ms.locfileid: "74893606"
 | properties.status | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 상태입니다.|
 
 #### <a name="properties-for-metric-alerts"></a>메트릭 경고의 속성
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
 | properties.RuleUri | 메트릭 경고 규칙 자체의 리소스 ID입니다. |
 | properties.RuleName | 메트릭 경고 규칙의 이름입니다. |
@@ -460,7 +462,7 @@ ms.locfileid: "74893606"
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
 | caller | 항상 Microsoft.Insights/autoscaleSettings입니다. |
 | channels | 항상 "Admin, Operation"입니다. |
@@ -480,7 +482,7 @@ ms.locfileid: "74893606"
 | properties.OldInstancesCount | 자동 크기 조정 동작이 적용되기 전의 인스턴스 수입니다. |
 | properties.NewInstancesCount | 자동 크기 조정 동작이 적용된 후의 인스턴스 수입니다. |
 | properties.LastScaleActionTime | 자동 크기 조정이 수행된 시간의 타임스탬프입니다. |
-| status |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| 상태 |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus | 자동 크기 조정의 경우 대개 null입니다. |
 | eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
@@ -550,7 +552,7 @@ ms.locfileid: "74893606"
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
 | channels | 항상 “Operation”입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
@@ -558,7 +560,7 @@ ms.locfileid: "74893606"
 | eventDataId |보안 이벤트의 고유 식별자입니다. |
 | eventName |보안 이벤트의 이름입니다. |
 | category | 항상 "보안" |
-| id |보안 이벤트의 고유 리소스 식별자입니다. |
+| ID |보안 이벤트의 고유 리소스 식별자입니다. |
 | level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |Azure Security Center의 리소스 공급자 이름입니다. 항상 "Microsoft.Security"입니다. |
@@ -568,13 +570,13 @@ ms.locfileid: "74893606"
 | operationName |작업의 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. 이러한 속성은 보안 경고 유형에 따라 다릅니다. Security Center에서 제공되는 경고 유형에 대한 설명은 [이 페이지](../../security-center/security-center-alerts-overview.md)를 참조하세요. |
 | properties.Severity |심각도 수준입니다. 가능한 값은 "High", "Medium" 또는 "Low"입니다. |
-| status |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| 상태 |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus | 보안 이벤트의 경우 일반적으로 null입니다. |
 | eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 
-## <a name="recommendation"></a>권장 사항
+## <a name="recommendation"></a>권장
 이 범주에는 서비스에 대해 생성되는 새 권장 사항 레코드가 포함됩니다. 권장 사항의 예로 "내결함성을 향상하려면 가용성 집합을 사용하세요"를 들 수 있습니다. 생성할 수 있는 권장 사항 이벤트에는 고가용성, 성능, 보안 및 비용 최적화의 네 가지 유형이 있습니다. 
 
 ### <a name="sample-event"></a>샘플 이벤트
@@ -631,21 +633,21 @@ ms.locfileid: "74893606"
 
 ```
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
 | channels | 항상 “Operation”입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
 | description |권장 사항 이벤트에 대한 정적 텍스트 설명 |
 | eventDataId | 권장 사항 이벤트의 고유 식별자. |
 | category | 항상 "권장 사항" |
-| id |권장 사항 이벤트의 고유 리소스 식별자. |
+| ID |권장 사항 이벤트의 고유 리소스 식별자. |
 | level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
 | operationName |작업의 이름입니다.  항상 "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |이 권장 사항이 적용되는 리소스의 리소스 공급자 이름(예: "MICROSOFT.COMPUTE") |
 | resourceType |이 권장 사항이 적용되는 리소스의 리소스 종류 이름(예: "MICROSOFT.COMPUTE/virtualmachines") |
 | resourceId |권장 사항이 적용되는 리소스의 리소스 ID입니다. |
-| status | 항상 "활성" |
+| 상태 | 항상 "활성" |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 | properties |권장 사항에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍 집합(즉, 사전)입니다.|
@@ -741,9 +743,9 @@ ms.locfileid: "74893606"
 
 ### <a name="policy-event-property-descriptions"></a>Policy 이벤트 속성 설명
 
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
-| authorization | 이벤트의 RBAC 속성 배열입니다. 새 리소스의 경우 평가를 트리거한 요청의 작업 및 범위입니다. 기존 리소스의 경우 작업은 "Microsoft.Resources/checkPolicyCompliance/read"입니다. |
+| 권한 부여 | 이벤트의 RBAC 속성 배열입니다. 새 리소스의 경우 평가를 트리거한 요청의 작업 및 범위입니다. 기존 리소스의 경우 작업은 "Microsoft.Resources/checkPolicyCompliance/read"입니다. |
 | caller | 새 리소스의 경우 배포를 시작한 ID입니다. 기존 리소스의 경우 Microsoft Azure Policy Insights RP의 GUID입니다. |
 | channels | Policy 이벤트는 "Operation" 채널만 사용합니다. |
 | claims | Active Directory에서 사용자 또는 애플리케이션이 리소스 관리자를 통해 이 작업을 수행할 수 있도록 인증하는 데 사용하는 JWT 토큰입니다. |
@@ -753,7 +755,7 @@ ms.locfileid: "74893606"
 | eventName | "BeginRequest" 또는 "EndRequest"입니다. "BeginRequest"는 deployIfNotExists 적용이 템플릿 배포를 시작할 때, 지연된 auditIfNotExists 및 deployIfNotExists 평가에 사용됩니다. 다른 모든 작업은 "EndRequest"를 반환합니다. |
 | category | 활동 로그 이벤트를 "Policy"에 속하는 것으로 선언합니다. |
 | eventTimestamp | 이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
-| id | 특정 리소스에서 이벤트의 고유 식별자입니다. |
+| ID | 특정 리소스에서 이벤트의 고유 식별자입니다. |
 | level | 이벤트의 수준입니다. 감사는 "Warning"을 사용하고 거부는 "Error"를 사용합니다. AuditIfNotExists 또는 deployIfNotExists 오류는 심각도에 따라 "Warning" 또는 "Error"를 생성할 수 있습니다. 다른 모든 Policy 이벤트는 "Informational"을 사용합니다. |
 | operationId | 단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName | 작업의 이름으로, Policy 적용에 직접적으로 상관 관계가 있습니다. |
@@ -761,7 +763,7 @@ ms.locfileid: "74893606"
 | resourceProviderName | 평가된 리소스의 리소스 공급자 이름입니다. |
 | resourceType | 새 리소스의 경우 평가되는 형식입니다. 기존 리소스의 경우 "Microsoft.Resources/checkPolicyCompliance"를 반환합니다. |
 | resourceId | 평가된 리소스의 리소스 ID입니다. |
-| status | Policy 평가 결과의 상태를 설명하는 문자열입니다. 대부분의 Policy 평가는 "Succeeded"를 반환하지만 거부 적용은 "Failed"를 반환합니다. auditIfNotExists 또는 deployIfNotExists의 오류도 "Failed"를 반환합니다. |
+| 상태 | Policy 평가 결과의 상태를 설명하는 문자열입니다. 대부분의 Policy 평가는 "Succeeded"를 반환하지만 거부 적용은 "Failed"를 반환합니다. auditIfNotExists 또는 deployIfNotExists의 오류도 "Failed"를 반환합니다. |
 | subStatus | Policy 이벤트에 대한 필드가 비어 있습니다. |
 | submissionTimestamp | 이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId | Azure 구독 ID입니다. |
@@ -771,11 +773,15 @@ ms.locfileid: "74893606"
 | properties.policies | 이 Policy 평가 결과에 영향을 미치는 정책 정의, 할당, 적용 및 매개 변수에 대한 세부 정보를 포함합니다. |
 | relatedEvents | 이 필드는 Policy 이벤트에 대해 비어 있습니다. |
 
-## <a name="mapping-to-resource-logs-schema"></a>리소스 로그 스키마에 매핑
 
-Azure 활동 로그를 저장소 계정 또는 네임 스페이스 Event Hubs 스트리밍하는 경우 데이터는 [azure resource logs 스키마](./diagnostic-logs-schema.md)를 따릅니다. 위의 스키마에서 리소스 로그 스키마로의 속성 매핑은 다음과 같습니다.
+## <a name="schema-from-storage-account-and-event-hubs"></a>저장소 계정 및 event hubs의 스키마
+Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍하는 경우 데이터는 [리소스 로그 스키마](diagnostic-logs-schema.md)를 따릅니다. 아래 표에서는 위의 스키마에서 리소스 로그 스키마로의 속성 매핑을 제공 합니다.
 
-| 리소스 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 참고 |
+> [!IMPORTANT]
+> 11 월 1 일에 저장소 계정에 기록 된 활동 로그 데이터의 형식이 JSON 줄로 변경 되었습니다. 1, 2018. 이러한 형식 변경에 대 한 자세한 내용은 [저장소 계정에 보관 된 리소스 로그를 Azure Monitor 형식 변경 준비를](diagnostic-logs-append-blobs.md) 참조 하세요.
+
+
+| 리소스 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 메모 |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName은 모두 resourceId에서 유추됩니다. |
@@ -788,16 +794,77 @@ Azure 활동 로그를 저장소 계정 또는 네임 스페이스 Event Hubs �
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | ID | 클레임 및 권한 부여 속성 |  |
-| Level | Level |  |
-| location | N/A | 이벤트가 처리된 위치입니다. *이는 리소스의 위치가 아니라 이벤트를 처리 하는 위치입니다. 이 속성은 향후 업데이트에서 제거 될 예정입니다.* |
-| properties | properties.eventProperties |  |
+| 수준 | 수준 |  |
+| 위치 | N/A | 이벤트가 처리된 위치입니다. *이는 리소스의 위치가 아니라 이벤트를 처리 하는 위치입니다. 이 속성은 향후 업데이트에서 제거 될 예정입니다.* |
+| 속성 | properties.eventProperties |  |
 | properties.eventCategory | category | properties.eventCategory가 없을 경우, category는 “Administrative”입니다. |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
 
+다음은이 스키마를 사용 하는 이벤트의 예입니다.
+
+``` JSON
+{
+    "records": [
+        {
+            "time": "2015-01-21T22:14:26.9792776Z",
+            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+            "operationName": "microsoft.support/supporttickets/write",
+            "category": "Write",
+            "resultType": "Success",
+            "resultSignature": "Succeeded.Created",
+            "durationMs": 2826,
+            "callerIpAddress": "111.111.111.11",
+            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
+            "identity": {
+                "authorization": {
+                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+                    "action": "microsoft.support/supporttickets/write",
+                    "evidence": {
+                        "role": "Subscription Admin"
+                    }
+                },
+                "claims": {
+                    "aud": "https://management.core.windows.net/",
+                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "iat": "1421876371",
+                    "nbf": "1421876371",
+                    "exp": "1421880271",
+                    "ver": "1.0",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
+                    "puid": "20030000801A118C",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
+                    "name": "John Smith",
+                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
+                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
+                    "appidacr": "2",
+                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
+                }
+            },
+            "level": "Information",
+            "location": "global",
+            "properties": {
+                "statusCode": "Created",
+                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
+            }
+        }
+    ]
+}
+```
+
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * [활동 로그에 대한 자세한 내용](activity-logs-overview.md)
-* [활동 로그를 Azure Storage 또는 Event Hubs 내보냅니다.](activity-log-export.md)
+* [활동 로그를 Log Analytics 작업 영역, Azure storage 또는 event hubs로 보내는 진단 설정 만들기](diagnostic-settings.md)
 

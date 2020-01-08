@@ -1,7 +1,7 @@
 ---
 title: 수학 연산 적용
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 수학 연산 적용 모듈을 사용 하 여 파이프라인의 열 값에 수학적 연산을 적용 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 수학 연산 적용 모듈을 사용 하 여 파이프라인의 열 값에 수학적 연산을 적용 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428604"
 ---
 # <a name="apply-math-operation"></a>수학 연산 적용
 
@@ -32,7 +32,7 @@ ms.locfileid: "73493931"
 
 다음 범주에서 필요한 작업을 찾습니다.  
 
-- [Basic](#basic-math-operations)  
+- [기본](#basic-math-operations)  
   
      **기본** 범주의 함수는 단일 값 또는 값의 열을 조작 하는 데 사용할 수 있습니다. 예를 들어 열에 있는 모든 숫자의 절대값을 가져오거나 열에서 각 값의 제곱근을 계산할 수 있습니다.  
   
@@ -72,7 +72,7 @@ ms.locfileid: "73493931"
 1.  계산을 수행할 원본 열을 하나 이상 선택 합니다.   
   
     - 선택 하는 모든 열은 숫자 데이터 형식 이어야 합니다. 
-    - 선택한 수치 연산에 대해 데이터 범위가 유효 해야 합니다. 그렇지 않으면 오류 또는 NaN (숫자가 아님) 결과가 발생할 수 있습니다. 예를 들어, Ln (-1.0)은 잘못 된 연산이 며 `NaN`값이 반환 됩니다.
+    - 선택한 수치 연산에 대해 데이터 범위가 유효 해야 합니다. 그렇지 않으면 오류 또는 NaN(숫자 아님) 결과가 발생할 수 있습니다. 예를 들어, Ln (-1.0)은 잘못 된 연산이 며 `NaN`값이 반환 됩니다.
   
 1.  **범주** 를 클릭 하 여 수행할 수학 연산 **유형을** 선택 합니다.
     
@@ -82,7 +82,7 @@ ms.locfileid: "73493931"
   
 1.  **출력 모드** 옵션을 사용 하 여 수학 연산이 생성 되는 방식을 지정할 수 있습니다. 
 
-    - **추가**. 입력으로 사용 되는 모든 열이 출력 데이터 집합에 포함 되 고 수학 연산의 결과를 포함 하는 하나의 추가 열이 추가 됩니다.
+    - **Append**. 입력으로 사용 되는 모든 열이 출력 데이터 집합에 포함 되 고 수학 연산의 결과를 포함 하는 하나의 추가 열이 추가 됩니다.
     - **내부**. 입력으로 사용 된 열의 값은 새 계산 된 값으로 대체 됩니다. 
     - **Resultonly**. 수학 연산의 결과를 포함 하는 단일 열이 반환 됩니다.
   
@@ -92,8 +92,8 @@ ms.locfileid: "73493931"
 
 **추가** 또는 **resultonly** 옵션을 사용 하 여 결과를 생성 하는 경우 반환 된 데이터 집합의 열 머리글은 작업 및 사용 된 열을 표시 합니다. 예를 들어 **Equals** 연산자를 사용 하 여 두 개의 열을 비교 하는 경우 결과는 다음과 같습니다.  
   
--   는 Col1에 대해 Col2를 테스트 했음을 나타내는 **Equals (Col2_Col1)** 입니다.  
--   **Equals (Col2_ $10)** -2 열을 상수 10으로 비교 했음을 나타냅니다.  
+-   Col1에 대해 Col2를 테스트 했음을 나타내는 **Equals (Col2_Col1)** 입니다.  
+-   **같음 (Col2_ $10)** . 열 2를 상수 10으로 비교 했음을 나타냅니다.  
 
 **내부** 옵션을 사용 하는 경우에도 원본 데이터는 삭제 되거나 변경 되지 않습니다. 원본 데이터 집합의 열은 디자이너에서 계속 사용할 수 있습니다. 원본 데이터를 보려면 [열 추가](add-columns.md) 모듈을 연결 하 고 **Math 적용 작업**의 출력에 조인할 수 있습니다.  
     
@@ -109,11 +109,11 @@ ms.locfileid: "73493931"
   
 ### <a name="atan2"></a>Atan2
 
-4 사분면 역 탄젠트를 반환 합니다.  
+4사분면 역탄젠트를 반환합니다.  
 
 점 좌표가 포함 된 열을 선택 합니다. X 좌표에 해당 하는 두 번째 인수에 대해 상수를 지정할 수도 있습니다.  
 
-Matlab의 ATAN2 함수에 해당 합니다.  
+Matlab의 ATAN2 함수에 해당합니다.  
 
 ### <a name="conj"></a>Conj
 
@@ -128,9 +128,9 @@ Matlab의 ATAN2 함수에 해당 합니다.
 
 ### <a name="eps"></a>Eps
 
-현재 값과 다음으로 높은 배정밀도 숫자 사이의 간격 크기를 반환 합니다. Matlab의 EPS 함수에 해당 합니다.  
+현재 값과 다음으로 높은 배정밀도 값 사이의 크기 차이를 반환합니다. Matlab의 EPS 함수에 해당합니다.  
   
-### <a name="exp"></a>.Exp
+### <a name="exp"></a>Exp
 
 선택 된 열에서 값의 거듭제곱을 반환 합니다. 이는 Excel EXP 함수와 동일 합니다.  
 
@@ -151,7 +151,7 @@ Matlab의 ATAN2 함수에 해당 합니다.
 ### <a name="factorial"></a>계승값
 선택한 열에 있는 값의 계승값을 반환 합니다.  
 
-### <a name="hypotenuse"></a>나눈
+### <a name="hypotenuse"></a>빗변
 한 변의 길이가 값의 열로 지정 되 고 두 번째 변의 길이가 상수 또는 두 개의 열로 지정 된 삼각형의 빗변을 계산 합니다.  
 
 ### <a name="ln"></a>Ln
@@ -164,7 +164,7 @@ Matlab의 ATAN2 함수에 해당 합니다.
 
 ### <a name="log"></a>로그
 
-지정 된 밑이 지정 된 경우 선택한 열에 있는 값의 로그를 반환 합니다.  
+지정된 밑을 사용하여 선택한 열에 있는 값의 로그를 반환합니다.  
 
 기본 (두 번째 인수)을 상수로 지정 하거나 다른 값 열을 선택 하 여 지정할 수 있습니다.  
 
@@ -192,7 +192,7 @@ Matlab의 ATAN2 함수에 해당 합니다.
 
 **두 번째 인수 유형**에서 지 수를 포함 하는 열을 선택 하거나 지 수로 사용할 상수를 지정 합니다.  
 
-두 번째 인수가 열 이면 열의 각 값이 해당 행에 대 한 지 수로 사용 됩니다. 두 번째 인수가 상수 이면 **두 번째 인수** 텍스트 상자에 지 수의 값을 입력 합니다.  
+두 번째 인수가 열이면, 이 열의 각 값을 해당 행의 지수로 사용합니다. 두 번째 인수가 상수 이면 **두 번째 인수** 텍스트 상자에 지 수의 값을 입력 합니다.  
 
 ### <a name="sqrt"></a>Sqrt
 
@@ -206,7 +206,7 @@ Matlab의 ATAN2 함수에 해당 합니다.
 
 선택한 열의 값을 제곱 합니다.  
 
-## <a name="comparison-operations"></a>비교 작업  
+## <a name="comparison-operations"></a>비교 연산  
 
 언제 든 지 Azure Machine Learning 디자이너에서 비교 함수를 사용 하 여 서로에 대해 두 값 집합을 테스트 해야 합니다. 예를 들어 파이프라인에서 다음과 같은 비교 작업을 수행 해야 할 수 있습니다.  
 
@@ -253,7 +253,7 @@ Matlab의 ATAN2 함수에 해당 합니다.
 
 작업|Num1|Num2|결과 열|결과 값|
 ----|----|----|----|----
-|더하기|1|5|Add (Num2_Num1)| 4|
+|더하기|1|5|추가 (Num2_Num1)| 4|
 |곱하기|1|5|Multiple (Num2_Num1)|5|
 |빼기|1|5|빼기 (Num2_Num1)|4|
 |빼기|0|1|빼기 (Num2_Num1)|0|
@@ -298,7 +298,7 @@ Azure Machine Learning designer는 다양 한 반올림 작업을 지원 합니�
 
 **열 집합**에 있는 값의 바닥을 지정 된 전체 자릿수로 반환 합니다.  
 
-### <a name="mod"></a>연산을
+### <a name="mod"></a>Mod
 
 **열 집합**에 있는 값의 소수 부분을 지정 된 전체 자릿수로 반환 합니다.  
 
@@ -306,7 +306,7 @@ Azure Machine Learning designer는 다양 한 반올림 작업을 지원 합니�
 
 **열 집합**에 있는 값의 소수 부분을 지정 된 전체 자릿수로 반환 합니다.  
 
-### <a name="remainder"></a>남은
+### <a name="remainder"></a>나머지
 
 **열 집합**의 값에 대 한 나머지를 반환 합니다.  
 
@@ -330,7 +330,7 @@ Azure Machine Learning designer는 다양 한 반올림 작업을 지원 합니�
 
 **열 집합**의 값을 가장 가까운 정수로 반올림 하 여 반환 합니다.  
 
-### <a name="truncate"></a>잘라내야
+### <a name="truncate"></a>Truncate
 
 지정 된 정밀도로 허용 되지 않는 모든 숫자를 제거 하 여 **열 집합** 의 값을 자릅니다.  
   
@@ -340,7 +340,7 @@ Azure Machine Learning designer는 다양 한 반올림 작업을 지원 합니�
 
 ### <a name="beta"></a>베타
 
-오일러의 beta 함수 값을 반환 합니다.  
+오일러 베타 함수 값을 반환합니다.  
 
 ### <a name="ellipticintegrale"></a>EllipticIntegralE
 불완전 한 타원 정수 계열 값을 반환 합니다.  
@@ -348,75 +348,75 @@ Azure Machine Learning designer는 다양 한 반올림 작업을 지원 합니�
 
 ### <a name="ellipticintegralk"></a>EllipticIntegralK
 
-전체 타원 정수 (K)의 값을 반환 합니다.  
+완전한 타원 적분(K)의 값을 반환합니다.  
 
 ### <a name="erf"></a>Erf
 
-Error 함수의 값을 반환 합니다.  
+오차 함수의 값을 반환합니다.  
 
-오차 함수 (가우스 오류 함수 라고도 함)는 확률에 확산을 설명 하는 데 사용 되는 시그모이드 셰이프의 특수 한 기능입니다.  
+오차 함수(가우스 오차 함수라고도 함)는 확률에서 확산을 설명하기 위해 사용하는 시그모이드 셰이프의 특수 함수입니다.  
 
 ### <a name="erfc"></a>Erfc
 
-보완 오류 함수의 값을 반환 합니다.  
+보상 오차 함수의 값을 반환합니다.  
 
 Erfc는 1 – erf (x)로 정의 됩니다.  
 
 ### <a name="erfscaled"></a>ErfScaled
 
-크기 조정 된 오류 함수의 값을 반환 합니다.  
+축척 오차 함수의 값을 반환합니다.  
 
-확장 된 버전의 error 함수를 사용 하 여 산술 언더플로를 방지할 수 있습니다.  
+산술 연산 언더플로를 방지하기 위해 축척 버전의 오차 함수를 사용할 수 있습니다.  
 
 ### <a name="erfinverse"></a>ErfInverse
 
-역 erf 함수의 값을 반환 합니다.  
+역erf 함수의 값을 반환합니다.  
 
 ### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 
 지 수 정수 Ei의 값을 반환 합니다.  
 
-### <a name="gamma"></a>때는
+### <a name="gamma"></a>감마
 
-감마 함수의 값을 반환 합니다.  
+감마 함수의 값을 반환합니다.  
 
 ### <a name="gammaln"></a>GammaLn
 
-감마 함수의 자연 로그를 반환 합니다.  
+감마 함수의 자연 로그를 반환합니다.  
 
 ### <a name="gammaregularizedp"></a>GammaRegularizedP
 
-정칙 불완전 감마 함수의 값을 반환 합니다.  
+정규화된 불완전 감마 함수의 값을 반환합니다.  
 
 이 함수는 상수 또는 값의 열로 제공 될 수 있는 두 번째 인수를 사용 합니다.  
 
 ### <a name="gammaregularizedpinverse"></a>GammaRegularizedPInverse
 
-역 정칙 불완전 감마 함수의 값을 반환 합니다.  
+역으로 정규화된 불완전 감마 함수의 값을 반환합니다.  
 
 이 함수는 상수 또는 값의 열로 제공 될 수 있는 두 번째 인수를 사용 합니다.  
 
 ### <a name="gammaregularizedq"></a>GammaRegularizedQ  
 
-정칙 불완전 감마 함수의 값을 반환 합니다.  
+정규화된 불완전 감마 함수의 값을 반환합니다.  
 
 이 함수는 상수 또는 값의 열로 제공 될 수 있는 두 번째 인수를 사용 합니다.  
 
 ### <a name="gammaregularizedqinverse"></a>GammaRegularizedQInverse
 
-역 일반화 된 정칙 불완전 감마 함수의 값을 반환 합니다.
+역으로 일반화된 정규적인 불완전 감마 함수의 값을 반환합니다.
 
 이 함수는 상수 또는 값의 열로 제공 될 수 있는 두 번째 인수를 사용 합니다.  
 
 ### <a name="polygamma"></a>PolyGamma
 
-Polygamma 함수의 값을 반환 합니다.  
+폴리감마 함수의 값을 반환합니다.  
 
 이 함수는 상수 또는 값의 열로 제공 될 수 있는 두 번째 인수를 사용 합니다.
 
-##  <a name="trigonometric-functions"></a>삼각 함수 
+##  <a name="trigonometric-functions"></a>삼각함수 
 
-이 범주에는 대부분의 중요 한 삼각 함수 및 역 삼각 함수가 포함 됩니다. 모든 삼각 함수는 단항 이며 추가 인수를 요구 하지 않습니다.  
+이 범주에는 대부분의 중요 한 삼각 함수 및 역 삼각 함수가 포함 됩니다. 모든 삼각 함수는 단항이며 추가 인수가 필요하지 않습니다.  
 
 ### <a name="acos"></a>Acos
 
@@ -489,7 +489,7 @@ Polygamma 함수의 값을 반환 합니다.
 
 열 값의 코사인을 계산 합니다.  
 
-### <a name="cosdegrees"></a>공동
+### <a name="cosdegrees"></a>CosDegrees
 
 열 값에 대 한 코사인 (도)을 계산 합니다.  
 
@@ -508,7 +508,7 @@ Polygamma 함수의 값을 반환 합니다.
 ### <a name="coth"></a>Coth
 열 값의 쌍 곡 코탄젠트를 계산 합니다.  
 
-### <a name="csc"></a>Csc.exe
+### <a name="csc"></a>Csc
 
 열 값에 대 한 코시 컨 트를 계산 합니다.  
 
@@ -524,7 +524,7 @@ Polygamma 함수의 값을 반환 합니다.
 
 도를 라디안으로 변환합니다.  
 
-### <a name="sec"></a>초
+### <a name="sec"></a>보조
 
 열 값의 시 컨 트를 계산 합니다.  
 
@@ -540,7 +540,7 @@ Polygamma 함수의 값을 반환 합니다.
 
 열 값의 부호를 반환 합니다.  
 
-### <a name="sin"></a>사인
+### <a name="sin"></a>Sin
 
 열 값의 사인을 계산 합니다.  
 
@@ -556,7 +556,7 @@ Polygamma 함수의 값을 반환 합니다.
 
 열 값의 하이퍼볼릭 사인을 계산 합니다.  
 
-### <a name="tan"></a>tan
+### <a name="tan"></a>Tan
 
 열 값의 탄젠트를 계산 합니다.  
 
@@ -568,13 +568,13 @@ Polygamma 함수의 값을 반환 합니다.
 
 열 값의 하이퍼볼릭 탄젠트를 계산 합니다.  
   
-## <a name="technical-notes"></a>기술 참고 사항
+## <a name="technical-notes"></a>기술 정보
 
 두 개 이상의 열을 두 번째 연산자로 선택 하는 경우에는 주의 해야 합니다. 모든 열에 상수를 추가 하는 등의 작업을 간단 하 게 이해할 수 있습니다. 
 
 데이터 집합에 여러 열이 있고 그 자체로 데이터 집합을 추가 한다고 가정 합니다. 결과에서 각 열은 다음과 같이 자체에 추가 됩니다.  
   
-|Num1|Num2|Num3|Add (Num1_Num1)|Add (Num2_Num2)|Add (Num3_Num3)|
+|Num1|Num2|Num3|추가 (Num1_Num1)|추가 (Num2_Num2)|추가 (Num3_Num3)|
 |----|----|----|----|----|----|
 |1|5|2|2|10|4|
 |2|3|-1|4|6|-2|
@@ -590,4 +590,4 @@ Polygamma 함수의 값을 반환 합니다.
   
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

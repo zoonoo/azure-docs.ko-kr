@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB에서 가상 파티션 키를 만들어 데이터와 워크로드를 균등하게 분산시키는 방법을 설명합니다.
+title: Azure Cosmos DB에서 가상 파티션 키 만들기
 description: Azure Cosmos 컨테이너에서 가상 파티션 키를 사용 하 여 파티션 키 전체에 데이터 및 워크 로드를 균등 하 게 분산 하는 방법을 알아봅니다.
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 093610777b150c90ad55f1ce18337f1de8b17219
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441212"
 ---
 # <a name="create-a-synthetic-partition-key"></a>가상 파티션 키 만들기
 

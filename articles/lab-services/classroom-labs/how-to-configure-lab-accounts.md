@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1a1b1e662a2e9adedfc68f1818f868c0a5318652
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428978"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Azure Lab Services에서 랩 계정 구성 
 Azure Lab Services에서 랩 계정은 교실 labs와 같은 관리 되는 랩 형식에 대 한 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
@@ -133,6 +133,14 @@ Microsoft 계정 등록 하려면 강사는 [http://signup.live.com](http://sign
 
 마지막으로, GitHub 계정에 연결 된 Microsoft 계정를 만들라는 메시지가 표시 됩니다. 강사가 **다음**을 선택 하면 자동으로 발생 합니다.  강사가 즉시 로그인 하 여 교실 랩에 연결 됩니다.
 
+## <a name="automatic-shutdown-of-vms-on-disconnect"></a>연결을 끊을 때 Vm 자동 종료
+원격 데스크톱 연결을 끊은 후 Windows 랩 Vm (템플릿 또는 학생)의 자동 종료를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 또한 사용자가 자동으로 종료 되기 전에 사용자가 다시 연결 될 때까지 Vm에서 대기할 기간을 지정할 수 있습니다.
+
+![랩 계정에서 자동 종료 설정](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+이 설정은 랩 계정에 생성 된 모든 랩에 적용 됩니다. 랩 소유자는 랩 수준에서이 설정을 재정의할 수 있습니다. 랩 계정에서이 설정을 변경 하면 변경 후에 생성 된 랩에서만 영향을 받습니다.
+
+랩 소유자가 랩 수준에서이 설정을 구성할 수 있는 방법에 대해 알아보려면 [이 문서](how-to-enable-shutdown-disconnect.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

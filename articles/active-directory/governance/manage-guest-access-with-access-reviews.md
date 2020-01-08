@@ -1,5 +1,5 @@
 ---
-title: 액세스 검토를 사용 하 여 게스트 액세스 관리-Azure Active Directory | Microsoft Docs
+title: 액세스 검토를 사용 하 여 게스트 액세스 관리-Azure AD
 description: Azure Active Directory 액세스 검토를 사용하여 게스트 사용자를 그룹 구성원으로 또는 애플리케이션에 할당된 사용자로 관리합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a982b97bcef6a24f026bf6ad2943661db18d6af0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 562a94bbbd1999b9ca9cf0c65cdb816848648133
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499454"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422467"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../b2b/wh
 > [!NOTE]
 > 이 문서에서는 게스트 사용자의 액세스 검토에 중점을 둡니다. 게스트 뿐 아니라 모든 사용자의 액세스를 검토하려는 경우 [액세스 검토를 사용하여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)를 참조하세요. 전역 관리자와 같은 관리 역할의 사용자의 구성원 자격을 검토하려면 [Azure AD Privileged Identity Management에서 액세스 검토를 시작하는 방법](../privileged-identity-management/pim-how-to-start-security-review.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure AD Premium P2
 

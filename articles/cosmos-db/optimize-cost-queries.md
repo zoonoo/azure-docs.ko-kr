@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB에서 요청 단위 및 쿼리 실행 비용 최적화
+title: Azure Cosmos DB에서 쿼리를 실행 하는 데 드는 비용 및 o s/s를 최적화 합니다.
 description: 쿼리의 요청 단위 요금을 평가하고 성능 및 비용 측면에서 쿼리를 최적화하는 방법을 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445122"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 쿼리 비용 최적화
 

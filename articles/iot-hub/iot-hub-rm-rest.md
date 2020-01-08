@@ -8,12 +8,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 7d5e38e2ecfa2406ff0f58f73d828aa45d84c512
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890477"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429169"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>리소스 공급자 REST API(.NET)를 사용하여 IoT Hub 만들기
 
@@ -25,9 +25,9 @@ ms.locfileid: "73890477"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 있습니다.
+* Visual Studio.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
 * [1.0 이상 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 합니다.
 
@@ -176,7 +176,7 @@ ms.locfileid: "73890477"
 
 * [IoT Hub 리소스 공급자 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)의 기능에 대해 읽어 보세요.
 
-* Azure Resource Manager의 기능에 대해 자세히 알아보려면 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md) 를 참조 하세요.
+* Azure Resource Manager의 기능에 대해 자세히 알아보려면 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md) 를 참조 하세요.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
-title: 명령줄에서 모듈 배포 - Azure IoT Edge | Microsoft Docs
-description: Azure CLI용 IoT 확장을 사용하여 IoT Edge 디바이스에 모듈 배포
+title: Azure CLI 명령줄에서 모듈 배포-Azure IoT Edge
+description: Azure IoT 확장과 함께 Azure CLI를 사용 하 여 배포 매니페스트에 구성 된 대로 IoT Hub의 IoT Edge 모듈을 IoT Edge 장치로 푸시합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72535b69c81aee880eb16bf5d10e11dedb36f3a7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c63180e77a15c6fc7cbee06ad2eb344b50b97ab7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457467"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434336"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI를 사용하여 Azure IoT Edge 모듈 배포
 
@@ -22,9 +22,9 @@ ms.locfileid: "74457467"
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. 이 기능을 사용하면 Azure IoT Hub 리소스, 디바이스 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
 
-이 문서에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여 줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor-cli.md)을 참조하세요.
+이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor-cli.md)을 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-with-the-azure-cli)
@@ -39,75 +39,80 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 
 예를 들어 한 개의 모듈이 있는 기본 배포 매니페스트의 예제는 다음과 같습니다.
 
-   ```json
-   {
-     "modulesContent": {
-       "$edgeAgent": {
-         "properties.desired": {
-           "schemaVersion": "1.0",
-           "runtime": {
-             "type": "docker",
-             "settings": {
-               "minDockerVersion": "v1.25",
-               "loggingOptions": "",
-               "registryCredentials": {}
-             }
-           },
-           "systemModules": {
-             "edgeAgent": {
-               "type": "docker",
-               "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-                 "createOptions": "{}"
-               }
-             },
-             "edgeHub": {
-               "type": "docker",
-               "status": "running",
-               "restartPolicy": "always",
-               "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                 "createOptions": "{}"
-               }
-             }
-           },
-           "modules": {
-             "SimulatedTemperatureSensor": {
-               "version": "1.0",
-               "type": "docker",
-               "status": "running",
-               "restartPolicy": "always",
-               "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-                 "createOptions": "{}"
-               }
-             }
-           }
-         }
-       },
-       "$edgeHub": {
-         "properties.desired": {
-           "schemaVersion": "1.0",
-           "routes": {
-               "route": "FROM /* INTO $upstream"
-           },
-           "storeAndForwardConfiguration": {
-             "timeToLiveSecs": 7200
-           }
-         }
-       },
-       "SimulatedTemperatureSensor": {
-         "properties.desired": {}
-       }
-     }
-   }
-   ```
+```json
+{
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "runtime": {
+            "type": "docker",
+            "settings": {
+              "minDockerVersion": "v1.25",
+              "loggingOptions": "",
+              "registryCredentials": {}
+            }
+          },
+          "systemModules": {
+            "edgeAgent": {
+              "type": "docker",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "createOptions": "{}"
+              }
+            },
+            "edgeHub": {
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+              }
+            }
+          },
+          "modules": {
+            "SimulatedTemperatureSensor": {
+              "version": "1.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                "createOptions": "{}"
+              }
+            }
+          }
+        }
+      },
+      "$edgeHub": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "routes": {
+            "upstream": "FROM /messages/* INTO $upstream"
+          },
+          "storeAndForwardConfiguration": {
+            "timeToLiveSecs": 7200
+          }
+        }
+      },
+      "SimulatedTemperatureSensor": {
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
+      }
+    }
+  }
+}
+```
 
 ## <a name="deploy-to-your-device"></a>새 디바이스에 배포
 
 모듈 정보를 사용하여 구성한 배포 매니페스트를 적용하여 디바이스에 모듈을 배포합니다.
 
-배포 매니페스트가 저장된 폴더로 디렉터리를 변경합니다. VS Code IoT Edge 템플릿 중 하나를 사용한 경우 `deployment.json` 파일 대신 솔루션 디렉터리의 **config** 폴더에 있는 `deployment.template.json` 파일을 사용합니다.
+배포 매니페스트가 저장된 폴더로 디렉터리를 변경합니다. VS Code IoT Edge 템플릿 중 하나를 사용한 경우 `deployment.template.json` 파일 대신 솔루션 디렉터리의 **config** 폴더에 있는 `deployment.json` 파일을 사용합니다.
 
 다음 명령을 사용하여 IoT Edge 디바이스에 구성을 적용합니다.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438899"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -43,8 +43,8 @@ Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실�
 
 필요에 따라 Batch에 대해 자세히 알아보려면 [batch 설명서](https://docs.microsoft.com/azure/batch/)를 참조 하세요.
 
-## <a name="why-azure-data-factory"></a>Azure Data Factory를 사용해야 하는 이유
-데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. Data Factory를 사용하여 온-프레미스 및 클라우드 데이터 저장소에서 중앙 집중식 데이터 저장소로 데이터를 이동하는 관리되는 데이터 파이프라인을 만들 수 있습니다. 예제는 Azure Blob Storage입니다. Azure HDInsight 및 Azure Machine Learning과 같은 서비스를 사용하여 데이터를 처리/변환하는 데 Data Factory를 사용할 수 있습니다. 데이터 파이프라인을 예약된 방식(예: 매시간, 매일 및 매주)으로 실행되도록 예약할 수도 있습니다. 한 번에 파이프라인을 모니터링하고 관리하여 문제를 식별하고 조치를 취할 수 있습니다.
+## <a name="why-azure-data-factory"></a>Azure Data Factory를 사용해야 하는 이유는 무엇일까요?
+Data Factory는 데이터 이동 및 변환을 오케스트레이션하고 자동화하는 클라우드 기반 데이터 통합 서비스입니다. Data Factory를 사용하여 온-프레미스 및 클라우드 데이터 저장소에서 중앙 집중식 데이터 저장소로 데이터를 이동하는 관리되는 데이터 파이프라인을 만들 수 있습니다. 예제는 Azure Blob Storage입니다. Azure HDInsight 및 Azure Machine Learning과 같은 서비스를 사용하여 데이터를 처리/변환하는 데 Data Factory를 사용할 수 있습니다. 데이터 파이프라인을 예약된 방식(예: 매시간, 매일 및 매주)으로 실행되도록 예약할 수도 있습니다. 한 번에 파이프라인을 모니터링하고 관리하여 문제를 식별하고 조치를 취할 수 있습니다.
 
   Data Factory에 대해 잘 모르는 경우 다음 문서를 통해 이 문서에 설명된 솔루션의 아키텍처/구현을 이해할 수 있습니다.  
 
@@ -113,9 +113,9 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    b. **운영 체제 제품군** 설정에 **Windows Server 2012 R2**를 지정합니다.
 
-   c. **노드 가격 책정 계층**을 선택합니다.
+   다. **노드 가격 책정 계층**을 선택합니다.
 
-   ㄹ. **대상 전용** 설정 값으로 **2**를 입력합니다.
+   d. **대상 전용** 설정 값으로 **2**를 입력합니다.
 
    e. **노드당 최대 작업** 설정 값으로 **2**를 입력합니다.
 
@@ -170,7 +170,7 @@ public IDictionary<string, string> Execute(
 * 이 메서드는 다음과 같은 네 개의 매개 변수를 사용합니다.
 
   * **linkedServices**. 이 매개 변수는 입/출력 데이터 원본(예: Blob Storage)을 데이터 팩터리에 연결하는 연결된 서비스의 열거형 목록입니다. 이 샘플에서는 입력 및 출력 모두에 사용되는 Azure Storage 형식의 연결된 서비스가 하나만 있습니다.
-  * **datasets**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
+  * **데이터 세트**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
   * **activity**. 이 매개 변수는 현재 컴퓨팅 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
   * **logger**. 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 * 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
@@ -180,17 +180,17 @@ public IDictionary<string, string> Execute(
 
    a. Start Visual Studio 2012/2013/2015.
 
-   b. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+   b. **File** > **New** > **Project**를 선택합니다.
 
-   c. **템플릿**을 확장하고 **Visual C\#** 를 선택합니다. 이 연습에서는 C\#를 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.
+   다. **템플릿**을 확장하고 **Visual C\#** 를 선택합니다. 이 연습에서는 C\#를 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.
 
-   ㄹ. 오른쪽의 프로젝트 형식 목록에서 **클래스 라이브러리**를 선택합니다.
+   d. 오른쪽의 프로젝트 형식 목록에서 **클래스 라이브러리**를 선택합니다.
 
    e. **이름**에 **MyDotNetActivity**를 입력합니다.
 
    f. **C:\\ADF**를 **위치**로 선택합니다. 존재하지 않는 경우 폴더 **ADF**를 만듭니다.
 
-   g. **확인**을 클릭하여 프로젝트를 만듭니다.
+   g. **확인**을 선택하여 프로젝트를 만듭니다.
 
 1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다.
 
@@ -398,11 +398,11 @@ public IDictionary<string, string> Execute(
 
 1. Windows 탐색기를 시작하고, **bin\\debug** 또는 **bin\\release** 폴더로 이동합니다. 선택하는 폴더하는 빌드의 형식에 따라 달라집니다.
 
-1. bin**Debug\\ 폴더의 이진을 모두 포함하는 \\MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.**pdb** 파일을 포함할 수 있습니다.
+1. **\\bin\\Debug** 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.**pdb** 파일을 포함할 수 있습니다.
 
    ![Bin\Debug 폴더 목록](./media/data-factory-data-processing-using-batch/image5.png)
 
-1. ADFTutorialDataFactory의 연결된 서비스 StorageLinkedService가 사용하는 Blob Storage의 Blob 컨테이너 **에 Blob으로** MyDotNetActivity.zip`customactivitycontainer`을 업로드합니다. 아직 없는 경우 `customactivitycontainer` Blob 컨테이너를 만듭니다.
+1. ADFTutorialDataFactory의 연결된 서비스 StorageLinkedService가 사용하는 Blob Storage의 Blob 컨테이너 `customactivitycontainer`에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. 아직 없는 경우 `customactivitycontainer` Blob 컨테이너를 만듭니다.
 
 #### <a name="execute-method"></a>메서드 실행
 이 섹션에서는 Execute 메서드에서 코드에 대한 자세한 내용을 제공합니다.
@@ -530,7 +530,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    b. **새** 블레이드에서 **데이터 + 분석**을 선택합니다.
 
-   c. **데이터 분석** 블레이드에서 **Data Factory**를 선택합니다.
+   다. **데이터 분석** 블레이드에서 **Data Factory**를 선택합니다.
 
 1. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory**를 입력합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다. "Data Factory 이름 CustomActivityFactory를 사용할 수 없습니다."라는 오류를 수신하는 경우 Data Factory의 이름을 변경합니다. 예를 들어 yournameCustomActivityFactory를 사용하여 Data Factory를 다시 만듭니다.
 
@@ -556,7 +556,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![새 데이터 저장소](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. **계정 이름**을 스토리지 계정 이름으로 바꿉니다. **계정 키**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 확보하는 방법을 알아보려면 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
+1. **account name**을 스토리지 계정 이름으로 바꿉니다. **account key**를 스토리지 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법을 알아보려면 [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
@@ -573,12 +573,12 @@ test custom activity Microsoft test custom activity Microsoft
 
    b. **액세스 키**를 Batch 계정의 액세스 키로 대체합니다.
 
-   c. **poolName** 속성에 대한 풀 ID를 입력합니다. 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
+   다. **poolName** 속성에 대한 풀 ID를 입력합니다. 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
 
-   ㄹ. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
+   d. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
 
       > [!IMPORTANT]
-      > **Batch 계정** 블레이드의 URL은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
+      > **Batch 계정** 블레이드의 URL은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON 스크립트의 **Batchuri** 속성에 대해 a88 "accountname"을 제거 해야 합니다. * * URL에서 예제는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
       >
       >
 
@@ -659,7 +659,7 @@ test custom activity Microsoft test custom activity Microsoft
     }
     ```
 
-    이 연습에서는 나중에 시작 시간 2015-11-16T00:00:00Z 및 종료 시간 2015-11-16T05:00:00Z로 파이프라인을 만듭니다. 매시간 데이터를 생성하도록 예약됩니다. 따라서 5개의 입/출력 조각이 있습니다(**00**:00:00 -\> **05**:00:00 사이).
+    이 연습에서는 나중에 시작 시간 2015-11-16T00:00:00Z 및 종료 시간 2015-11-16T05:00:00Z로 파이프라인을 만듭니다. 매시간 데이터를 생성 하도록 예약 되어 있어 5 개의 입/출력 조각이 있습니다 ( **00**: 00:00-\> **05**: 00:00).
 
     입력 데이터 세트의 **빈도** 및 **간격**은 **시간** 및 **1**로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다.
 
@@ -828,7 +828,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. 포털을 사용하여 조각과 연결된 작업을 보고 각 조각이 실행된 VM을 확인합니다. 자세한 내용은 [Data Factory 및 Batch 통합](#data-factory-and-batch-integration) 섹션을 참조하세요.
 
-1. 출력 파일이 Blob Storage의 `mycontainer`에 있는 `outputfolder` 아래에 표시됩니다.
+1. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다.
 
    ![스토리지의 출력 파일](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -849,7 +849,7 @@ test custom activity Microsoft test custom activity Microsoft
 
     ![실행](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. 조각이 실행되고 해당 상태가 **준비** 상태가 된 후 이 조각에 대한 출력 파일(**2015-11-16-01.txt**)의 콘텐츠를 확인합니다. 출력 파일이 Blob Storage의 `mycontainer`에 있는 `outputfolder` 아래에 표시됩니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
+1. 조각이 실행되고 해당 상태가 **준비** 상태가 된 후 이 조각에 대한 출력 파일(**2015-11-16-01.txt**)의 콘텐츠를 확인합니다. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -965,7 +965,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 * [Azure 및 Power BI: 기본 개요](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>참조
-* [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Data Factory 서비스 소개](data-factory-introduction.md)
   * [Data Factory 시작](data-factory-build-your-first-pipeline.md)

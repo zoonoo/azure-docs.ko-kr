@@ -1,20 +1,16 @@
 ---
-title: Azure Service Fabric Mesh의 상태 스토리지 옵션 | Microsoft Docs
+title: Azure Service Fabric 메시의 상태 저장소 옵션
 description: Azure Service Fabric Mesh에서 실행되는 Service Fabric Mesh 애플리케이션에 상태를 안정적으로 저장하는 방법을 알아봅니다.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: ef51040d1bad74ee74d5901d1f5acbe875c02a07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352342"
 ---
 # <a name="state-management-with-service-fabric"></a>Service Fabric을 사용한 상태 관리
 

@@ -1,19 +1,14 @@
 ---
-title: Azure Advisor를 사용 하 여 Azure 구독에 대 한 운영 excellency 개선 Microsoft Docs
-description: Advisor를 사용 하 여 Azure 구독에 대해 뛰어난 운영을 최적화 하 고 최대한 활용 하세요.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
+title: Azure Advisor를 사용 하 여 Azure 구독에 대 한 운영 excellency 개선
+description: Advisor를 사용 하 여 Azure 구독에 대 한 운영 편의성을 최적화 하 고 최대한 활용 하세요.
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: sagupt
-ms.openlocfilehash: 7cf3d3b34d0921cd111f8111bc2008ef0eced962
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443067"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Azure Advisor로 뛰어난 운영
 
@@ -37,12 +32,12 @@ Azure Advisor는 해당 조건 섹션에 잘못 된 쿼리가 지정 된 경고 
 
 ## <a name="follow-best-practices-using-azure-policy"></a>Azure Policy 사용 모범 사례 준수
 
-Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다. 이러한 정책은 리소스에 대해 다양 한 규칙과 효과를 적용 합니다. 운영 excellency를 실현 하는 데 도움이 되는 Azure 정책 권장 사항은 다음과 같습니다. 
-1. Azure Policy를 사용 하 여 태그 관리:이 정책은 리소스가 만들어지거나 업데이트 될 때 지정 된 태그 및 값을 추가 하거나 바꿉니다. 기존 리소스는 재구성 작업을 트리거하여 수정할 수 있습니다. 또한 리소스 그룹의 태그는 수정 되지 않습니다.
+Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다. 이러한 정책은 리소스에 대해 다양한 규칙과 효과를 적용합니다. 운영 excellency를 실현 하는 데 도움이 되는 Azure 정책 권장 사항은 다음과 같습니다. 
+1. Azure Policy를 사용 하 여 태그 관리:이 정책은 리소스가 만들어지거나 업데이트 될 때 지정 된 태그 및 값을 추가 하거나 바꿉니다. 기존 리소스는 수정 작업을 트리거하여 수정할 수 있습니다. 또한 리소스 그룹의 태그는 수정 되지 않습니다.
 2. Azure Policy를 사용 하 여 지역 규정 준수 요구 사항 적용: 정책을 사용 하면 조직에서 리소스를 배포할 때 지정할 수 있는 위치를 제한할 수 있습니다. 
 3. 배포할 수 있는 가상 머신 Sku 지정:이 정책을 사용 하면 조직에서 배포할 수 있는 가상 머신 Sku 집합을 지정할 수 있습니다.
 4. Azure 정책을 사용 하 여 ' 관리 디스크를 사용 하지 않는 Vm 감사 ' 적용
-5. Azure 정책을 사용 하 여 ' 리소스 그룹에서 태그 상속 ' 사용: 정책이 만들어지거나 업데이트 될 때 부모 리소스 그룹의 지정 된 태그 및 값을 추가 하거나 대체 합니다. 기존 리소스는 재구성 작업을 트리거하여 수정할 수 있습니다.
+5. Azure 정책을 사용 하 여 ' 리소스 그룹에서 태그 상속 ' 사용: 정책이 만들어지거나 업데이트 될 때 부모 리소스 그룹의 지정 된 태그 및 값을 추가 하거나 대체 합니다. 기존 리소스는 수정 작업을 트리거하여 수정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

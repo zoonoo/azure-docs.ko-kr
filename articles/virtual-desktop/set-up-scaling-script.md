@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607451"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451330"
 ---
-# <a name="scale-session-hosts-dynamically"></a>동적으로 세션 호스트 크기 조정
+# <a name="scale-session-hosts-dynamically"></a>세션 호스트를 동적으로 크기 조정
 
 Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비용은 전체 Windows 가상 데스크톱 배포 비용의 상당 부분을 나타냅니다. 비용을 줄이려면 사용량이 적은 시간에 세션 호스트 Vm (가상 머신)을 종료 하 고 할당을 취소 한 다음 사용량이 가장 많은 시간에 다시 시작 하는 것이 가장 좋습니다.
 
@@ -50,7 +50,7 @@ Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비�
 
 1. 도메인 관리 계정을 사용 하 여 예약 된 작업을 실행할 VM (scaler VM)에 로그인 합니다.
 2. Scaler VM에서 크기 조정 스크립트와 해당 구성을 저장할 폴더를 만듭니다 (예 **: C:\\HostPool1**).
-3. [크기 조정 스크립트 리포지토리에서](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) **basicscale. ps1**, **Config.xml**및 **Functions-PSStoredCredentials** 파일 및 **powershellmodules** 폴더를 다운로드 하 고 2 단계에서 만든 폴더에 복사 합니다. Scaler VM에 복사 하기 전에 두 가지 주요 방법으로 파일을 가져올 수 있습니다.
+3. [크기 조정 스크립트 리포지토리에서](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) **basicscale. ps1** **,** Functions-PSStoredCredentials 및 파일 및 **powershellmodules** 폴더를 다운로드 하 고 2 단계에서 만든 폴더에 복사 합니다. Scaler VM에 복사 하기 전에 두 가지 주요 방법으로 파일을 가져올 수 있습니다.
     - 로컬 컴퓨터에 git 리포지토리를 복제 합니다.
     - 각 파일의 **원시** 버전을 확인 하 고 각 파일의 내용을 복사 하 여 텍스트 편집기에 붙여 넣은 다음 해당 파일 이름 및 파일 형식으로 파일을 저장 합니다. 
 
@@ -77,11 +77,11 @@ Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비�
     - 다른 서비스 주체 또는 표준 계정을 사용 하는 경우 각 계정에 대해 **StoredCredential-KeyPath \$KeyPath** cmdlet을 한 번 실행 하 여 로컬에 저장 된 자격 증명을 만듭니다.
 6. **StoredCredential** 를 실행 하 여 자격 증명이 성공적으로 만들어졌는지 확인 합니다.
 
-### <a name="configure-the-configxml-file"></a>Config.xml 파일 구성
+### <a name="configure-the-configjson-file"></a>구성 json 파일 구성
 
 다음 필드에 관련 값을 입력 하 여 config.xml에서 크기 조정 스크립트 설정을 업데이트 합니다.
 
-| 필드                     | 설명                    |
+| 필드                     | Description                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | 세션 호스트 Vm이 실행 되는 구독을 연결 하는 Azure AD 테 넌 트 ID     |
 | AADApplicationId              | 서비스 사용자 응용 프로그램 ID                                                       |
@@ -96,14 +96,14 @@ Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비�
 | EndPeakTime                   | 최대 사용 시간이 종료 되는 경우                                                              |
 | TimeDifferenceInHours         | 현지 시간과 UTC 사이의 시간 차이 (시간)입니다.                                   |
 | SessionThresholdPerCPU        | 최대 사용 시간 동안 새 세션 호스트 VM을 시작 해야 하는 시기를 결정 하는 데 사용 되는 CPU 임계값 당 최대 세션 수입니다.  |
-| 이상 번호           | 사용량이 적은 사용 시간 동안 계속 실행 되는 호스트 풀 Vm의 최소 수             |
+| MinimumNumberOfRDSH           | 사용량이 적은 사용 시간 동안 계속 실행 되는 호스트 풀 Vm의 최소 수             |
 | LimitSecondsToForceLogOffUser | 사용자가 로그 아웃 하도록 강제 하기 전에 대기 하는 시간 (초)입니다. 0으로 설정 하면 사용자가 강제로 로그 아웃 되지 않습니다.  |
 | LogOffMessageTitle            | 강제로 로그 아웃 하기 전에 사용자에 게 보내는 메시지의 제목입니다.                  |
 | LogOffMessageBody             | 로그 아웃 하기 전에 사용자에 게 보내는 경고 메시지의 본문입니다. 예를 들어 "이 컴퓨터가 X 분 후에 종료 됩니다. 작업 내용을 저장 하 고 로그 아웃 하세요. " |
 
 ### <a name="configure-the-task-scheduler"></a>작업 스케줄러 구성
 
-Config.xml 파일을 구성한 후에는 basicScaler 파일을 정기적으로 실행 하도록 작업 스케줄러를 구성 해야 합니다.
+구성 JSON 파일을 구성한 후에는 basicScaler 파일을 정기적으로 실행 하도록 작업 스케줄러를 구성 해야 합니다.
 
 1. **작업 스케줄러**를 시작 합니다.
 2. **작업 스케줄러** 창에서 **작업 만들기** ...를 선택 합니다.
@@ -117,13 +117,13 @@ Config.xml 파일을 구성한 후에는 basicScaler 파일을 정기적으로 �
 
 ## <a name="how-the-scaling-script-works"></a>크기 조정 스크립트 작동 방법
 
-이 크기 조정 스크립트는 하루 중 피크 사용 기간의 시작과 끝을 포함 하 여 config.xml 파일에서 설정을 읽습니다.
+이 크기 조정 스크립트는 하루 중 피크 사용 기간의 시작과 끝을 포함 하 여 구성 json 파일에서 설정을 읽습니다.
 
 최대 사용 시간 동안 스크립트는 현재 세션 수와 각 호스트 풀에 대해 현재 실행 중인 RDSH 용량을 확인 합니다. SessionThresholdPerCPU 파일에 정의 된 매개 변수를 기반으로 하 여 실행 중인 세션 호스트 Vm의 용량이 부족 하 여 기존 세션을 지원할 수 있는지 여부를 계산 합니다. 그렇지 않은 경우 스크립트는 호스트 풀에서 추가 세션 호스트 Vm을 시작 합니다.
 
-사용률이 낮은 사용 시간 동안 스크립트는 config.xml 파일의 최소 번호 Ofrvsh 매개 변수를 기반으로 종료 해야 하는 세션 호스트 Vm을 결정 합니다. 이 스크립트는 호스트에 연결 된 새 세션을 방지 하기 위해 세션 호스트 Vm을 드레이닝 모드로 설정 합니다. Config.xml 파일의 **LimitSecondsToForceLogOffUser** 매개 변수를 0이 아닌 값으로 설정 하는 경우 스크립트는 현재 로그인 한 사용자에 게 작업을 저장 하도록 알리고 구성 된 시간 동안 기다린 다음 사용자가 로그 아웃 하도록 합니다. 모든 사용자 세션이 세션 호스트 VM에서 로그 오프 된 후 스크립트는 서버를 종료 합니다.
+사용률이 낮은 사용 시간 동안 스크립트는 구성 json 파일의 최소 번호 Ofrvsh 매개 변수를 기반으로 종료 해야 하는 세션 호스트 Vm을 결정 합니다. 이 스크립트는 호스트에 연결 된 새 세션을 방지 하기 위해 세션 호스트 Vm을 드레이닝 모드로 설정 합니다. LimitSecondsToForceLogOffUser 파일의 매개 변수를 0이 아닌 값으로 설정 하는 경우 스크립트는 현재 로그인 한 사용자에 게 작업을 저장 하도록 알리고 구성 된 시간 동안 기다린 다음 사용자가 로그 아웃 하도록 합니다. 모든 사용자 세션이 세션 호스트 VM에서 로그 오프 된 후 스크립트는 서버를 종료 합니다.
 
-Config.xml 파일의 **LimitSecondsToForceLogOffUser** 매개 변수를 0으로 설정 하는 경우 스크립트는 호스트 풀 속성의 세션 구성 설정을 사용 하 여 사용자 세션 로그 오프를 처리 합니다. 세션 호스트 VM에 세션이 있는 경우 세션 호스트 VM이 실행 되는 상태로 유지 됩니다. 세션이 없으면 스크립트가 세션 호스트 VM을 종료 합니다.
+**LimitSecondsToForceLogOffUser** 파일에서 매개 변수를 0으로 설정 하면 스크립트에서 호스트 풀 속성의 세션 구성 설정이 사용자 세션 로그 오프를 처리 하도록 허용 합니다. 세션 호스트 VM에 세션이 있는 경우 세션 호스트 VM이 실행 되는 상태로 유지 됩니다. 세션이 없으면 스크립트가 세션 호스트 VM을 종료 합니다.
 
 이 스크립트는 작업 스케줄러을 사용 하 여 scaler VM 서버에서 정기적으로 실행 되도록 설계 되었습니다. 원격 데스크톱 서비스 환경의 크기에 따라 적절 한 시간 간격을 선택 하 고 가상 컴퓨터를 시작 하 고 종료 하는 데 시간이 걸릴 수 있습니다. 15 분 마다 크기 조정 스크립트를 실행 하는 것이 좋습니다.
 

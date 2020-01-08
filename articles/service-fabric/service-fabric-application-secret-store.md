@@ -1,18 +1,14 @@
 ---
-title: Service Fabric 비밀 저장소 | Microsoft Docs
+title: 비밀 저장소 Service Fabric
 description: 이 문서에서는 Service Fabric 비밀 저장소를 사용 하는 방법을 설명 합니다.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5315a8806f45e40204e8500e97c3440bfa9ab8b2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 16608d9eaf12fc9abc535ef316d7b5e8b74a8b37
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077350"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457514"
 ---
 #  <a name="service-fabric-secrets-store"></a>비밀 저장소 Service Fabric
 이 문서에서는 CSS (Service Fabric 암호 저장소)를 사용 하 여 Service Fabric 응용 프로그램에서 암호를 만들고 사용 하는 방법을 설명 합니다. CSS는 메모리에서 암호화 된 암호, 토큰 및 키와 같은 중요 한 데이터를 유지 하는 데 사용 되는 로컬 암호 저장소 캐시입니다.
@@ -24,8 +20,8 @@ ms.locfileid: "74077350"
     [
         ...
     {
+        "name":  "CentralSecretService",
         "parameters":  [
-            "name":  "CentralSecretService"
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -46,6 +42,9 @@ ms.locfileid: "74077350"
                 ],
             },
             ]
+     }
+        ...
+     ]
 ```
 ## <a name="declare-secret-resource"></a>비밀 리소스 선언
 리소스 관리자 템플릿을 사용 하거나 REST API를 사용 하 여 비밀 리소스를 만들 수 있습니다.

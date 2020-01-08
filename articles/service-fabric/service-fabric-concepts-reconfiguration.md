@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric의 재구성 | Microsoft Docs
-description: Service Fabric의 파티션 재구성 이해
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric의 재구성
+description: 상태 저장 서비스 복제본의 구성과 변경 중 일관성 및 가용성을 유지 하는 데 사용 하 Service Fabric 재구성 프로세스에 대해 알아봅니다.
 author: appi101
-manager: anuragg
-editor: ''
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882200"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609998"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric의 재구성
 *구성*은 상태 저장 서비스의 파티션에 대한 복제본과 그 역할로 정의됩니다.
@@ -32,28 +23,28 @@ ms.locfileid: "60882200"
 재구성은 두 가지 유형으로 분류할 수 있습니다.
 
 - 주 복제본이 변경 중인 재구성
-    - **장애 조치(failover)** : 장애 조치는 실행 중인 주의 오류에 대 한 응답으로 재구성 합니다.
-    - **SwapPrimary**: 교환에는 서비스 패브릭 부하 분산에 대 한 일반적인 응답을 실행 중인 주 노드에서 간에 이동 해야 하는 재구성 또는 업그레이드입니다.
+    - **장애 조치(failover)** : 장애 조치는 실행 중인 주 복제본의 오류에 대처하는 구성입니다.
+    - **SwapPrimary**: 교체는 보통 부하 분산이나 업그레이드 등의 이유로 Service Fabric이 한 노드에서 다른 노드로 주 복제본의 실행을 이동하는 재구성입니다.
 
 - 주 복제본이 변경되지 않는 재구성
 
 ## <a name="reconfiguration-phases"></a>재구성 단계
 재구성은 몇 가지 단계로 진행됩니다.
 
-- **Phase0**: 이 단계는 현재 주 복제본이 상태를 새 주 서버와 활성 보조로 전환 하는 스왑 주 재구성에서 발생 합니다.
+- **단계 0**: 이 단계는 현재 주 복제본이 상태를 새 주 복제본으로 전달하고 활성 보조로 전환하는 주 복제본 교체 재구성에서 발생합니다.
 
-- **Phase1**: 이 단계는 기본 변경 되는 재구성 하는 동안 발생 합니다. 이 단계 중에는 Service Fabric이 현재 복제본 중 어떤 것이 정확한 주 복제본인가를 식별합니다. 주 복제본 교체 재구성 중에는 새 주 복제본이 이미 선택되었으므로 이 단계가 필요하지 않습니다. 
+- **단계 1**: 이 단계는 주 복제본이 변경 중인 재구성에서 발생합니다. 이 단계 중에는 Service Fabric이 현재 복제본 중 어떤 것이 정확한 주 복제본인가를 식별합니다. 주 복제본 교체 재구성 중에는 새 주 복제본이 이미 선택되었으므로 이 단계가 필요하지 않습니다. 
 
-- **Phase2**: 이 단계에서는 Service Fabric 모든 데이터를 현재 구성의 복제본 대부분에서 사용할 수 있는지 확인 합니다.
+- **단계 2**: 이 단계 중에는 Service Fabric이 현재 구성의 복제본 대부분에서 모든 데이터를 사용할 수 있는지 확인합니다.
 
 내부 전용인 몇 가지 다른 단계가 있습니다.
 
 ## <a name="stuck-reconfigurations"></a>멈춘 재구성
 재구성은 다양한 이유로 *멈출 수* 있습니다. 몇 가지 일반적인 이유는 다음과 같습니다.
 
-- **복제본 다운**: 일부 재구성 단계에서는 구성에서 복제본 대부분이 가동 상태 여야 합니다.
-- **네트워크 또는 통신 문제**: 재구성에서는 서로 다른 노드 간의 네트워크 연결이 필요 합니다.
-- **API 오류**: 재구성 프로토콜은 서비스 구현이 특정 Api를 완료 해야 합니다. 예를 들어, 신뢰할 수 있는 서비스에서 토큰 취소를 적용하지 않으면 SwapPrimary 재구성이 멈춥니다.
+- **복제본 다운**: 일부 재구성 단계에서는 구성에서 복제본의 대부분이 가동 상태여야 합니다.
+- **네트워크 또는 통신 문제**: 재구성에서는 서로 다른 노드 간의 네트워크 연결이 필요합니다.
+- **API 오류**: 재구성 프로토콜에서는 서비스 구현이 특정 API를 완료해야 합니다. 예를 들어, 신뢰할 수 있는 서비스에서 토큰 취소를 적용하지 않으면 SwapPrimary 재구성이 멈춥니다.
 
 System.FM, System.RA, System.RAP 등과 같은 시스템 구성 요소의 상태 보고서를 사용하여 재구성이 멈춘 지점을 진단합니다. [시스템 상태 보고서 페이지](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)에서 이러한 상태 보고서를 설명합니다.
 

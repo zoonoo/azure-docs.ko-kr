@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
-ms.openlocfilehash: 03e5e1bc79702a979be352095bb4833a7f5fe1c6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: dec81bfde160cd9913db07bb99629b8fbcc37364
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365209"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위
 [Azure Portal에서 Log Analytics](get-started-portal.md)에 [로그 쿼리](log-query-overview.md) 를 실행 하는 경우 쿼리에 의해 평가 되는 데이터 집합은 선택한 범위와 시간 범위에 따라 달라 집니다. 이 문서에서는 범위 및 시간 범위와 요구 사항에 따라 각 범위를 설정 하는 방법을 설명 합니다. 또한 다양 한 유형의 범위 동작을 설명 합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "72900229"
 |:---|:---|:---|:---|
 | Log Analytics 작업 영역 | Log Analytics 작업 영역에 있는 모든 레코드 | **Azure Monitor** 메뉴 또는 **Log Analytics 작업 영역** 메뉴에서 **로그** 를 선택 합니다.  | 범위를 다른 리소스 유형으로 변경할 수 있습니다. |
 | 응용 프로그램 Application Insights | Application Insights 응용 프로그램의 모든 레코드 | Application Insights의 **개요** 페이지에서 **분석** 을 선택 합니다. | 범위만 다른 Application Insights 응용 프로그램으로 변경할 수 있습니다. |
-| Resource group | 리소스 그룹의 모든 리소스에 의해 생성 된 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 리소스 그룹 메뉴에서 **로그** 를 선택 합니다. | 범위를 변경할 수 없습니다.|
+| 리소스 그룹 | 리소스 그룹의 모든 리소스에 의해 생성 된 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 리소스 그룹 메뉴에서 **로그** 를 선택 합니다. | 범위를 변경할 수 없습니다.|
 | Subscription | 구독의 모든 리소스에서 만든 레코드 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 구독 메뉴에서 **로그** 를 선택 합니다.   | 범위를 변경할 수 없습니다. |
 | 기타 Azure 리소스 | 리소스에서 만든 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다.  | 리소스 메뉴에서 **로그** 를 선택 합니다.<br>또는<br>**Azure Monitor** 메뉴에서 **로그** 를 선택 하 고 새 범위를 선택 합니다. | 범위만 동일한 리소스 유형으로 변경할 수 있습니다. |
 
@@ -66,7 +66,7 @@ Log Analytics를 사용 하면 특정 개수의 지역이 사용 되는 경우 �
 ## <a name="time-range"></a>시간 범위
 시간 범위는 레코드를 만든 시간을 기준으로 쿼리를 평가 하는 레코드 집합을 지정 합니다. 이는 다음 표에 지정 된 대로 작업 영역 또는 응용 프로그램의 모든 레코드에 대 한 표준 속성에 의해 정의 됩니다.
 
-| 위치 | 자산 |
+| 위치 | 속성 |
 |:---|:---|
 | Log Analytics 작업 영역          | TimeGenerated |
 | 응용 프로그램 Application Insights | timestamp     |

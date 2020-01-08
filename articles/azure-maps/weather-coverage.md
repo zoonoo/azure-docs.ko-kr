@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: a197f95963e5a4138136f5d336e276ec1c7f7af7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769033"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407623"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps 날씨 범위
 
@@ -86,8 +86,8 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 | 수리남                                 | ✓ |   |  ✓| 
 | 트리니다드 토바고                      | ✓ |   |  ✓| 
 | 터크스 케이커스 제도                 | ✓ |   |  ✓| 
-| 미국 소수 외부 제도                    | ✓ |   |  ✓| 
-| 미국령 버진 아일랜드                      | ✓ |   |  ✓| 
+| 미국령 해외 제도                    | ✓ |   |  ✓| 
+| 미국령 버전 아일랜드                      | ✓ |   |  ✓| 
 | 미국                            | ✓ | ✓ |  ✓| 
 | 우루과이                                  | ✓ |   |  ✓| 
 | 베네수엘라                                | ✓ |   |  ✓| 
@@ -110,8 +110,8 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 | 중앙 아프리카 공화국    | ✓               |                              |        ✓| 
 | 차드                        | ✓               |                              |        ✓| 
 | 코모로                     | ✓               |                              |        ✓| 
-| 콩고 민주 공화국                 | ✓               |                              |        ✓|
-| 기타               | ✓               |                              |        ✓| 
+| 콩고민주공화국                 | ✓               |                              |        ✓|
+| 코트디부와르               | ✓               |                              |        ✓| 
 | 지부티                    | ✓               |                              |        ✓| 
 | 이집트                       | ✓               |                              |        ✓| 
 | 적도 기니           | ✓               |                              |        ✓| 

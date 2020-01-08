@@ -1,18 +1,18 @@
 ---
 title: Azure에서 실시간 및 스트림 처리 솔루션 선택
 description: Azure에서 응용 프로그램을 빌드하는 데 적합 한 실시간 분석 및 스트리밍 처리 기술을 선택 하는 방법에 대해 알아봅니다.
-author: zhongc
-ms.author: zhongc
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 3bde2964c40553d02a56f57f9c459cc6afa3f660
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f3ecb3bedb8e0f55590aca1aa1c0e0c185f9acc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369255"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Azure에서 실시간 분석 및 스트리밍 처리 기술 선택
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리에서 새 액세스 패키지 만들기-Azure Active Directory
+title: 자격 관리에서 새 액세스 패키지 만들기-Azure AD
 description: Azure Active Directory 자격 관리에서 공유 하려는 리소스의 새 액세스 패키지를 만드는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 68d34046a16787ca1c6790880592fb30667ff2dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422689"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 새 액세스 패키지 만들기
 
@@ -57,7 +57,7 @@ ms.locfileid: "73602715"
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "73602715"
 
     만든 액세스 패키지와 여기에 포함 된 리소스는 새 카탈로그에 추가 됩니다. 나중에 카탈로그 소유자를 더 추가할 수도 있습니다.
 
-1. **다음**을 누릅니다.
+1. **다음**을 클릭합니다.
 
 ## <a name="resource-roles"></a>리소스 역할
 
@@ -105,7 +105,7 @@ ms.locfileid: "73602715"
 
     ![액세스 패키지-리소스 역할 선택](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. **다음**을 누릅니다.
+1. **다음**을 클릭합니다.
 
 ## <a name="requests"></a>요청
 

@@ -1,25 +1,16 @@
 ---
-title: Azure 서비스 패브릭 행위자에서 KVSActorStateProvider 설정 변경 | Microsoft Docs
+title: KVSActorStateProvider 설정 변경
 description: "'KVSActorStateProvider' 형식의 Azure 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
-services: Service-Fabric
-documentationcenter: .net
 author: sumukhs
-manager: chackdan
-editor: ''
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728052"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609777"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors 구성--KVSActorStateProvider
 KVSActorStateProvider의 기본 구성은 지정된 행위자에 대해 Microsoft Visual Studio 패키지 루트의 Config 폴더에 생성된 settings.xml 파일을 변경하여 수정할 수 있습니다.
@@ -56,8 +47,8 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 | ReplicatorEndpoint |N/A |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
 | RetryInterval |초 |5 |작업에 대한 승인을 받지 못한 경우 복제자가 메시지를 다시 전송한 후의 시간 간격. |
 | MaxReplicationMessageSize |바이트 |50MB |단일 메시지에서 전송할 수 있는 복제 데이터의 최대 크기. |
-| MaxPrimaryReplicationQueueSize |작업의 수 |1024 |기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
-| MaxSecondaryReplicationQueueSize |작업의 수 |2048 |보조 큐의 최대 작업 수. 작업은 지속성을 통해 상태를 항상 사용 가능하도록 설정한 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
+| MaxPrimaryReplicationQueueSize |작업 수 |1024 |기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
+| MaxSecondaryReplicationQueueSize |작업 수 |2048 |보조 큐의 최대 작업 수. 작업은 지속성을 통해 상태를 항상 사용 가능하도록 설정한 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
 
 ## <a name="store-configuration"></a>저장소 구성
 저장소 구성은 복제 중인 상태를 유지하는 데 사용되는 로컬 저장소를 구성하는 데 사용됩니다.

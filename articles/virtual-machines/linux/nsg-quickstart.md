@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 424dfc1dac21f227869f23e7401a083b06cef1d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035564"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354042"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에 대한 엔드포인트 및 포트 열기
 
@@ -92,5 +92,5 @@ az network vnet subnet update \
 ## <a name="next-steps"></a>다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
-* [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
 * [NSG(네트워크 보안 그룹)란?](../../virtual-network/security-overview.md)

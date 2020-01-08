@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center에서 적응형 애플리케이션 제어 | Microsoft Docs
-description: 이 문서에서는 Azure Security Center에서 적응형 애플리케이션 제어를 사용하여 Azure VM에서 실행되는 애플리케이션의 허용 목록을 나열하는 방법이 설명되어 있습니다.
+title: Azure Security Center의 적응형 애플리케이션 제어
+description: 이 문서를 통해 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 컴퓨터에서 실행 되는 응용 프로그램을 허용 목록 수 있습니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2019
+ms.date: 12/23/2019
 ms.author: memildin
-ms.openlocfilehash: 46ab2fc5c796d960de8b1c5e3391a6356563b50a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 862fb4f8a9dcd357148f73a729ffc7e92ba0083a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353435"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Security Center의 적응형 애플리케이션 제어
+# <a name="adaptive-application-controls"></a>적응 애플리케이션 제어
 이 연습을 통해 Azure Security Center에서 애플리케이션 컨트롤을 구성하는 방법에 대해 알아봅니다.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Security Center의 적응형 애플리케이션 제어란 무엇입니까?
-적응 응용 프로그램 제어는 Azure 및 비 Azure Vm (Windows 및 Linux)에서 실행할 수 있는 응용 프로그램을 제어 하는 데 도움이 되는 Azure Security Center의 지능적이 고 자동화 된 종단 간 솔루션입니다. 다른 이점 중 하나는 맬웨어에 대해 Vm을 강화 하는 데 도움이 됩니다. Security Center는 machine learning을 사용 하 여 Vm에서 실행 되는 응용 프로그램을 분석 하 고이 인텔리전스에서 허용 목록을 만듭니다. 이 기능은 응용 프로그램 허용 목록 정책을 구성 하 고 유지 관리 하는 프로세스를 간소화 하 여 다음과 같은 작업을 수행할 수 있도록 합니다.
+적응 응용 프로그램 제어는 Azure 및 비 Azure 컴퓨터 (Windows 및 Linux)에서 실행할 수 있는 응용 프로그램을 제어 하는 데 도움이 되는 Azure Security Center의 지능적이 고 자동화 된 종단 간 솔루션입니다. 다른 이점 중 하나는 맬웨어에 대해 컴퓨터를 강화 하는 데 도움이 됩니다. Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인 응용 프로그램을 분석 하 고이 인텔리전스에서 허용 목록을 만듭니다. 이 기능은 응용 프로그램 허용 목록 정책을 구성 하 고 유지 관리 하는 프로세스를 간소화 하 여 다음과 같은 작업을 수행할 수 있도록 합니다.
 
 - 맬웨어 방지 솔루션에서 누락될 수 있는 것들을 포함하여 악성 애플리케이션 실행 시도를 차단하거나 경고합니다.
 - 사용이 허가된 소프트웨어만 사용하도록 규정된 조직의 보안 정책을 준수합니다.
@@ -34,15 +34,17 @@ ms.locfileid: "71202807"
 - IT 기술을 사용하여 앱 사용을 통해 중요한 데이터에 대한 액세스를 제어할 수 있습니다.
 
 > [!NOTE]
-> 비 Azure 및 Linux Vm의 경우에는 적응 응용 프로그램 컨트롤이 감사 모드 에서만 지원 됩니다.
+> 비 Azure 및 Linux 컴퓨터의 경우에는 적응 응용 프로그램 컨트롤이 감사 모드 에서만 지원 됩니다.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>적응형 애플리케이션 제어를 사용하는 방법은 무엇입니까?
-적응형 애플리케이션 제어는 구성된 VM 그룹에서 실행되도록 허용된 애플리케이션의 집합을 정의할 수 있습니다. 이 기능은 Azure 및 비 Azure Windows (모든 버전, 클래식 또는 Azure Resource Manager) 및 Linux Vm 및 서버에서 사용할 수 있습니다. 다음 단계를 사용 하 여 응용 프로그램 허용 목록을 구성 합니다.
+
+적응 응용 프로그램 컨트롤은 구성 된 컴퓨터 그룹에서 실행할 수 있는 응용 프로그램 집합을 정의 하는 데 도움이 됩니다. 이 기능은 Azure 및 비 Azure Windows (모든 버전, 클래식 또는 Azure Resource Manager) 및 Linux 컴퓨터에서 사용할 수 있습니다. 다음 단계를 사용 하 여 응용 프로그램 허용 목록을 구성 합니다.
 
 1. **Security Center** 대시보드를 엽니다.
-2. 왼쪽 창의 **고급 클라우드 방어** 아래에서 **적응형 애플리케이션 제어**를 선택합니다.
 
-    ![방어](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
+1. 왼쪽 창의 **고급 클라우드 방어** 아래에서 **적응형 애플리케이션 제어**를 선택합니다.
+
+    [![방어](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
 
 **적응형 애플리케이션 제어** 페이지가 표시됩니다.
 
@@ -60,20 +62,21 @@ ms.locfileid: "71202807"
 >
 
 ### <a name="configure-a-new-application-control-policy"></a>새 애플리케이션 컨트롤 정책 구성
-1. **권장** 탭을 클릭하여 애플리케이션 컨트롤 권장 사항이 있는 그룹 목록을 확인합니다.
+
+1. 응용 프로그램 제어 권장 사항이 있는 그룹 목록에 대해 **권장** 탭을 선택 합니다.
 
    ![권장](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
    이 목록에는 다음과 같은 정보가 포함됩니다.
 
    - **그룹 이름**: 구독 및 그룹의 이름입니다.
-   - **Vm 및 컴퓨터**: 그룹에 있는 가상 컴퓨터의 수
+   - **Vm 및 컴퓨터**: 그룹의 가상 머신 수
    - **상태**: 권장 구성의 상태
    - **심각도**: 권장 구성의 심각도 수준
 
 2. 그룹을 클릭하여 **애플리케이션 제어 규칙 만들기** 옵션을 엽니다.
 
-   ![애플리케이션 컨트롤 규칙](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   [![응용 프로그램 제어 규칙](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
 
 3. **VM 선택**에서 권장된 VM 목록을 검토하고 애플리케이션 허용 목록 정책을 적용하지 않을 항목을 선택 취소합니다. 다음으로, 다음과 같은 두 개의 목록이 표시됩니다.
 
@@ -132,7 +135,7 @@ ms.locfileid: "71202807"
 6. **게시자 허용 목록 규칙**, **허용 목록 규칙 경로** 및 **허용 목록 규칙 해시**에서 현재 그룹 내 VM에서 구성된 애플리케이션 허용 목록 규칙을 규칙 컬렉션 유형에 따라 확인할 수 있습니다. 각 규칙에 대해 다음을 확인할 수 있습니다.
 
    - **규칙**: AppLocker에서 어떤 애플리케이션을 검사하는지에 따라 애플리케이션의 실행이 허용되는지 여부를 검사하는 특정 매개 변수입니다.
-   - **파일 형식**: 특정 규칙에서 다루는 파일 형식입니다. 다음 중 하나일 수 있습니다. EXE, 스크립트, MSI 또는 이러한 형식의 모든 순열
+   - **파일 형식**: 특정 규칙에서 다루는 파일 형식입니다. EXE, 스크립트, MSI 또는 이러한 파일 유형의 모든 순열일 수 있습니다.
    - **사용자**: 애플리케이션 허용 목록 규칙에서 다루는 애플리케이션의 실행이 허용된 사용자의 이름 또는 번호입니다.
 
    ![허용 목록 규칙](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)

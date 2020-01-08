@@ -6,13 +6,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: nberdy
-ms.openlocfilehash: d7c63ffe5a318507053f59bf3a18242ee8c327a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rezas
+ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61327757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429277"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -36,7 +36,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
 > 디바이스에서 직접 메서드를 호출할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-직접 메서드는 동기식이며 제한 시간(기본값: 30초, 최대 300초 설정 가능)이 지나면 성공하거나 실패합니다. 직접 메서드는 디바이스가 온라인 상태에서 명령을 수신하는 경우에만 작동하기를 바라는 대화형 시나리오에서 유용합니다. 예를 들어 휴대폰에서 불을 켭니다. 이러한 시나리오에서는 클라우드 서비스가 결과에 최대한 빨리 대응할 수 있도록 즉각적인 성공이나 실패를 보려고 합니다. 디바이스는 메서드의 결과로 메시지 본문을 반환할 수 있지만 메서드가 반드시 그렇게 해야 하는 것은 아닙니다. 메서드 호출의 순서 지정 또는 동시성 의미 체계에 대한 보장은 없습니다.
+직접 메서드는 동기적 이며 시간 제한 기간 (기본값: 30 초, 최대 300 초) 후에 성공 하거나 실패 합니다. 직접 메서드는 디바이스가 온라인 상태에서 명령을 수신하는 경우에만 작동하기를 바라는 대화형 시나리오에서 유용합니다. 예를 들어 휴대폰에서 불을 켭니다. 이러한 시나리오에서는 클라우드 서비스가 결과에 최대한 빨리 대응할 수 있도록 즉각적인 성공이나 실패를 보려고 합니다. 디바이스는 메서드의 결과로 메시지 본문을 반환할 수 있지만 메서드가 반드시 그렇게 해야 하는 것은 아닙니다. 메서드 호출의 순서 지정 또는 동시성 의미 체계에 대한 보장은 없습니다.
 
 직접 메서드는 클라우드 쪽에서는 HTTPS 전용, 디바이스 쪽에서는 MQTT 또는 AMQP입니다.
 
@@ -94,7 +94,7 @@ curl -X POST \
 }'
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 백 엔드 앱은 다음 항목으로 구성된 응답을 받습니다.
 
@@ -142,7 +142,7 @@ IoT 디바이스에서 직접 메서드를 처리하는 방법을 살펴보겠�
 
 메서드 요청은 QoS 0입니다.
 
-#### <a name="response"></a>response
+#### <a name="response"></a>응답
 
 디바이스는 `$iothub/methods/res/{status}/?$rid={request id}`에 응답을 보내는데 여기서:
 
@@ -168,7 +168,7 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 
 * 메서드 페이로드가 JSON으로 포함된 AMQP 메시지 본문
 
-#### <a name="response"></a>response
+#### <a name="response"></a>응답
 
 디바이스는 `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` 주소에서 메서드 응답을 반환하기 위한 전송 링크를 만듭니다.
 

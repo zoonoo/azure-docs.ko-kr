@@ -1,20 +1,16 @@
 ---
-title: Service Fabric Mesh에서 기존 .NET 앱 컨테이너화 | Microsoft Docs
+title: Service Fabric Mesh에서 기존 .NET 앱 컨테이너화
 description: 전체 .NET framework를 사용 하는 ASP.NET 및 콘솔 프로젝트에 Service Fabric 메시 컨테이너 오케스트레이션 지원을 추가 합니다.
-services: service-fabric-mesh
-keywords: Service Fabric Mesh 컨테이너화
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 070d07316c0ff06a45e76936e75cb5345548e78f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686286"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462042"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Service Fabric Mesh에서 기존 .NET 앱 컨테이너화
 

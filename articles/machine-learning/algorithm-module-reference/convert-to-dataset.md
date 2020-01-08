@@ -1,7 +1,7 @@
 ---
 title: '데이터 집합으로 변환: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 데이터 집합으로 변환 모듈을 사용 하 여 데이터 입력을 Microsoft Azure Machine Learning에서 사용 하는 내부 데이터 집합 형식으로 변환 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 데이터 집합으로 변환 모듈을 사용 하 여 Microsoft Azure Machine Learning에서 사용 하는 내부 데이터 집합 형식으로 데이터 입력을 변환 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 81eb71da43623f6478e267f55d6576789d494f9b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717261"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428566"
 ---
-# <a name="convert-to-dataset"></a>데이터 집합으로 변환
+# <a name="convert-to-dataset"></a>데이터 세트로 변환
 
 이 문서에서는 Azure Machine Learning designer (미리 보기)에서 데이터 집합으로 변환 모듈을 사용 하 여 파이프라인에 대 한 모든 데이터를 디자이너의 내부 형식으로 변환 하는 방법을 설명 합니다.
   
@@ -57,7 +57,7 @@ ms.locfileid: "73717261"
 
 +  결과 데이터 집합을 새 이름으로 저장 하려면 데이터 집합으로 변환의 출력을 마우스 오른쪽 단추로 클릭 하 고 **데이터 집합으로 저장**을 선택 합니다.  
   
-## <a name="technical-notes"></a>기술 참고 사항  
+## <a name="technical-notes"></a>기술 정보  
 
 -   데이터 집합을 입력으로 사용 하는 모듈은 CSV 파일 또는 TSV 파일에서 데이터를 가져올 수도 있습니다. 모듈 코드를 실행 하기 전에 입력이 전처리 됩니다. 전처리는 입력에 대 한 데이터 집합으로 변환 모듈을 실행 하는 것과 같습니다.  
   
@@ -65,9 +65,9 @@ ms.locfileid: "73717261"
   
 -   사용자 지정 바꾸기 작업을 지정 하는 경우 검색 및 바꾸기 작업이 전체 값에 적용 됩니다. 부분 일치는 허용 되지 않습니다. 예를 들어 3을-1 또는 33로 바꿀 수 있지만, 3을 35와 같은 두 자리 숫자로 바꿀 수는 없습니다.  
   
--   사용자 지정 바꾸기 작업에서는 열의 현재 데이터 형식을 따르지 않는 문자를 대체 하는 것으로를 사용 하는 경우 대체가 자동으로 실패 합니다.  
+-   사용자 지정 바꾸기 작업에서는 열의 현재 데이터 형식을 따르지 않는 문자를 대체 값으로 사용하면 대체가 자동으로 실패합니다.  
 
   
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307316"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353313"
 ---
-# <a name="supported-platforms"></a>지원되는 플랫폼 
+# <a name="supported-platforms"></a>지원 플랫폼 
 
 ## 가상 컴퓨터/서버<a name="vm-server"></a>
 
@@ -56,7 +56,7 @@ Azure 구독에서 활성화 된 Azure 환경의 경우 Azure Security Center는
 
 * CentOS 6 및 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 및 7
+* Oracle Linux 6 및 Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 및 7
 * Debian GNU/Linux 8 및 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS, 18.04 LTS
@@ -95,13 +95,13 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * 함수
 * 클라우드 서비스
 * VNet
-* Subnet
+* 서브넷
 * NIC
 * NSG
 * Batch 계정
 * Service fabric 계정
 * Automation 계정
-* 부하 분산 장치
+* Load Balancer
 * 검색
 * Service Bus 네임스페이스
 * Stream Analytics
@@ -110,7 +110,7 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * Redis
 * Data Lake Analytics
 * Data Lake Store
-* 주요 자격 증명 모음
+* Key Vault
 
 위의 PaaS 리소스 목록에서 지원 되는 기능에 대해 자세히 알아보려면 [paas 서비스 지원 기능](security-center-services.md#paas-services)을 참조 하세요.
 

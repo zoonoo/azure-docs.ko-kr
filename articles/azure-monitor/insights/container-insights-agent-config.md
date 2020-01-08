@@ -1,18 +1,14 @@
 ---
 title: 컨테이너 에이전트 데이터 컬렉션에 대 한 Azure Monitor 구성 | Microsoft Docs
 description: 이 문서에서는 stdout/stderr 및 환경 변수 로그 수집을 제어 하기 위해 컨테이너 에이전트에 대 한 Azure Monitor를 구성 하는 방법을 설명 합니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 0d654dc05668a71b0fe69de32e5c09f8936951f8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0bde696f39af22f864500e0c79b5e03ca66cc7f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405672"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에 대 한 에이전트 데이터 수집 구성
 
@@ -31,15 +27,16 @@ ms.locfileid: "74951584"
 
 다음은 데이터 수집을 제어 하도록 구성할 수 있는 설정입니다.
 
-|키 |데이터 형식 |Value |설명 |
+|키 |데이터 형식 |값 |Description |
 |----|----------|------|------------|
 |`schema-version` |문자열 (대/소문자 구분) |v1 |이 ConfigMap을 구문 분석할 때 에이전트에서 사용 하는 스키마 버전입니다. 현재 지원 되는 스키마 버전은 v1입니다. 이 값 수정은 지원 되지 않으며 ConfigMap이 평가 될 때 거부 됩니다.|
-|`config-version` |string | | 소스 제어 시스템/리포지토리에서이 구성 파일의 버전을 추적 하는 기능을 지원 합니다. 허용 되는 최대 문자 수는 10이 고 다른 모든 문자는 잘립니다. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | true 또는 false | Stdout 컨테이너 로그 수집이 설정 되었는지 여부를 제어 합니다. `true`로 설정 되 고 stdout 로그 컬렉션에 대 한 네임 스페이스가 제외 되지 않은 경우 (`log_collection_settings.stdout.exclude_namespaces` 설정), stdout 로그는 클러스터에 있는 모든 pod/노드의 모든 컨테이너에서 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값은 `enabled = true`입니다. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|string | 쉼표로 구분 된 배열 |Stdout 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 `log_collection_settings.stdout.enabled`이 `true`으로 설정 된 경우에만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값은 `exclude_namespaces = ["kube-system"]`입니다.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | true 또는 false |Stderr 컨테이너 로그 수집이 사용 되는지 여부를 제어 합니다. `true`로 설정 된 경우 stdout 로그 수집 (`log_collection_settings.stderr.exclude_namespaces` 설정)에 대 한 네임 스페이스가 제외 되지 않으면 클러스터의 모든 pod/노드의 모든 컨테이너에서 stderr 로그가 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값은 `enabled = true`입니다. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |string |쉼표로 구분 된 배열 |Stderr 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 `log_collection_settings.stdout.enabled`이 `true`으로 설정 된 경우에만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값은 `exclude_namespaces = ["kube-system"]`입니다. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true 또는 false | 이 설정은 클러스터의 모든 pod/노드에 대 한 환경 변수 컬렉션을 제어 하 고 ConfigMaps에 지정 되지 않은 경우 기본값 `enabled = true`로 설정 합니다. 환경 변수의 컬렉션을 전역적으로 사용하도록 설정된 경우 Dockerfile 설정이나 **env:** 섹션아래에서 [Pod의 구성 파일](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)을 사용하여 환경 변수 `AZMON_COLLECT_ENV`을 **False**로 설정하여 특정 컨테이너에 대해 사용하지 않도록 설정할 수 있습니다. 환경 변수의 컬렉션을 전역적으로 사용 하지 않도록 설정 하면 특정 컨테이너에 대해 컬렉션을 사용 하도록 설정할 수 없습니다. 즉, 전역에서 이미 사용 하도록 설정 된 경우 컬렉션을 사용 하지 않도록 설정 하는 것은 컨테이너 수준에서 적용할 수 있는 유일한 재정의입니다. |
+|`config-version` |String | | 소스 제어 시스템/리포지토리에서이 구성 파일의 버전을 추적 하는 기능을 지원 합니다. 허용 되는 최대 문자 수는 10이 고 다른 모든 문자는 잘립니다. |
+|`[log_collection_settings.stdout] enabled =` |부울 | true 또는 false | Stdout 컨테이너 로그 수집이 설정 되었는지 여부를 제어 합니다. `true`로 설정 되 고 stdout 로그 컬렉션에 대 한 네임 스페이스가 제외 되지 않은 경우 (`log_collection_settings.stdout.exclude_namespaces` 설정), stdout 로그는 클러스터에 있는 모든 pod/노드의 모든 컨테이너에서 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값은 `enabled = true`입니다. |
+|`[log_collection_settings.stdout] exclude_namespaces =`|String | 쉼표로 구분 된 배열 |Stdout 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 `log_collection_settings.stdout.enabled`이 `true`으로 설정 된 경우에만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값은 `exclude_namespaces = ["kube-system"]`입니다.|
+|`[log_collection_settings.stderr] enabled =` |부울 | true 또는 false |Stderr 컨테이너 로그 수집이 사용 되는지 여부를 제어 합니다. `true`로 설정 된 경우 stdout 로그 수집 (`log_collection_settings.stderr.exclude_namespaces` 설정)에 대 한 네임 스페이스가 제외 되지 않으면 클러스터의 모든 pod/노드의 모든 컨테이너에서 stderr 로그가 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값은 `enabled = true`입니다. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |String |쉼표로 구분 된 배열 |Stderr 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 `log_collection_settings.stdout.enabled`이 `true`으로 설정 된 경우에만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값은 `exclude_namespaces = ["kube-system"]`입니다. |
+| `[log_collection_settings.env_var] enabled =` |부울 | true 또는 false | 이 설정은 클러스터의 모든 pod/노드에 대 한 환경 변수 컬렉션을 제어 하 고 ConfigMaps에 지정 되지 않은 경우 기본값 `enabled = true`로 설정 합니다. 환경 변수의 컬렉션을 전역적으로 사용하도록 설정된 경우 Dockerfile 설정이나 **env:** 섹션아래에서 [Pod의 구성 파일](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)을 사용하여 환경 변수 `AZMON_COLLECT_ENV`을 **False**로 설정하여 특정 컨테이너에 대해 사용하지 않도록 설정할 수 있습니다. 환경 변수의 컬렉션을 전역적으로 사용 하지 않도록 설정 하면 특정 컨테이너에 대해 컬렉션을 사용 하도록 설정할 수 없습니다. 즉, 전역에서 이미 사용 하도록 설정 된 경우 컬렉션을 사용 하지 않도록 설정 하는 것은 컨테이너 수준에서 적용할 수 있는 유일한 재정의입니다. |
+| `[log_collection_settings.enrich_container_logs] enabled =` |부울 | true 또는 false | 이 설정은 컨테이너 로그 보강를 제어 하 여 클러스터의 모든 컨테이너 로그에 대해 ContainerLog 테이블에 기록 된 모든 로그 레코드에 대 한 이름 및 이미지 속성 값을 채웁니다. ConfigMap에 지정 되지 않은 경우 기본값은 `enabled = false`입니다. |
 
 ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적용 될 수 있습니다. 컬렉션에서 다른 ConfigMaps을 과도 하 게 사용할 수 없습니다.
 

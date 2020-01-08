@@ -1,7 +1,6 @@
 ---
 title: Azure Stream Analytics 출력 문제 해결
 description: 이 문서에서는 Azure Stream Analytics 작업에서 출력 연결의 문제를 해결하는 기술에 대해 설명합니다.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 65d01c5c4dd852cb424c75f170ce52156f1633cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620800"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354100"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -23,7 +22,7 @@ ms.locfileid: "67620800"
 ## <a name="output-not-produced-by-job"></a>작업에 의해 생성되지 않은 출력 
 1.  각 출력에 대해 **테스트 연결** 단추를 사용하여 출력에 대한 연결을 확인합니다.
 
-2.  **모니터** 탭에서 [**모니터링 메트릭**](stream-analytics-monitoring.md)을 확인합니다. 값을 집계하기 때문에 메트릭이 몇 분 동안 지연됩니다.
+2.  **모니터** 탭에서 [**모니터링 메트릭**](stream-analytics-monitoring.md) 을 확인 합니다. 값이 집계 되므로 메트릭은 몇 분 정도 지연 됩니다.
     - 입력 이벤트가 0보다 큰 경우, 작업은 입력 데이터를 읽을 수 있습니다. 입력 이벤트가 0보다 크지 않으면 다음을 수행합니다.
       - 데이터 원본에 유효한 데이터가 있는지 확인하려면 [Service Bus 탐색기](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)를 사용하여 확인합니다. 이 확인은 작업이 입력으로 이벤트 허브를 사용하는 경우 적용됩니다.
       - 데이터 serialization 형식과 데이터 인코딩이 예상대로인지 확인합니다.
@@ -91,11 +90,11 @@ SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중�
 * 고유 인덱스에 ALTER INDEX를 사용하여 IGNORE_DUP_KEY 옵션을 설정할 수 있습니다. PRIMARY KEY/UNIQUE 제약 조건과 다르게 CREATE INDEX 또는 INDEX 정의를 사용하여 만듭니다.  
 * 이러한 인덱스에 고유성을 적용할 수 없기 때문에 IGNORE_DUP_KEY는 열 저장소 인덱스에 적용되지 않습니다.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>열 이름은 Azure Stream Analytics에서 소문자로 변환
-원래 호환성 수준 (1.0)를 사용 하면 Azure Stream Analytics는 열 이름을 소문자로 변경 하는 데 사용 합니다. 이 동작은 이후 호환성 수준에서 수정 되었습니다. 대/소문자를 유지 하기 위해 고객은 호환성 수준 1.1 이상으로 이동할 것이 좋습니다. 자세한 정보를 확인할 수 있습니다 [Azure Stream Analytics 작업에 대 한 호환성 수준을](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)합니다.
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>열 이름은 Azure Stream Analytics의 소문자를 구분 합니다.
+원래 호환성 수준 (1.0)을 사용 하는 경우 열 이름을 소문자로 변경 하는 데 사용 Azure Stream Analytics. 이 동작은 이후 호환성 수준에서 수정 되었습니다. 사례를 유지 하기 위해 고객은 호환성 수준 1.1 이상으로 이동 하는 것을 권장 합니다. [Azure Stream Analytics 작업에 대 한 호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)에 대 한 자세한 정보를 찾을 수 있습니다.
 
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 

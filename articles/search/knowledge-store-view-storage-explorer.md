@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ca2df05cf20ef51b2d5ca866f22bd9450dd6acaf
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 12/30/2019
+ms.openlocfilehash: 176f0f197db3393c4ef8c37d05234fce41a494e1
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406564"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563210"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Storage Explorer를 사용하여 지식 저장소 보기
 
@@ -22,9 +22,9 @@ ms.locfileid: "74406564"
 
 이 문서에서는 Azure Portal에서 Storage 탐색기를 사용 하 여 기술 자료 저장소에 연결 하 고 탐색 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
-+ [Azure Portal에서 기술 자료 저장소 만들기](knowledge-store-create-portal.md) 의 단계를 수행 하거나 [REST를 사용 하 여 Azure Cognitive Search 기술 자료](knowledge-store-create-rest.md) 저장소를 만들어이 연습에서 사용 되는 샘플 기술 자료 저장소를 만듭니다.
++ [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md)의 단계에 따라 이 연습에 사용되는 샘플 지식 저장소를 만듭니다.
 
 + 지식 저장소를 만들 때 사용한 Azure 스토리지 계정의 이름과 Azure Portal의 계정 액세스 키도 필요합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "74406564"
 
 1. **테이블** 목록을 확장하여 호텔 리뷰 샘플 데이터에서 **데이터 가져오기** 마법사를 실행할 때 생성된 Azure 테이블 프로젝션 목록을 표시합니다.
 
-핵심 구 감정 점수, 위도 및 경도 위치 데이터 등을 비롯한 보강 데이터를 보려면 원하는 테이블을 선택합니다.
+핵심 구와 감정 점수를 포함 하 여 보강 데이터를 보려면 테이블을 선택 합니다.
 
    ![Storage Explorer에서 테이블 보기](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Storage Explorer에서 테이블 보기")
 

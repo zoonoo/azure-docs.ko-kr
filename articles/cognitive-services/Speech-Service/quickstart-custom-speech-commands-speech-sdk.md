@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 3301c43aa71f041de1c53fb4083de73b6d2e4450
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381106"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결
 
@@ -23,10 +23,10 @@ ms.locfileid: "74976760"
 
 이 문서에서는 다음을 수행 합니다.
 
-- 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 id)
+- 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
 - 음성 SDK를 사용 하 여 클라이언트 앱을 만들어 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 아직 만들지 않은 경우 이러한 이전 빠른 시작에서 수행할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "74976760"
 다음도 필요 합니다.
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Speech Service에 대한 Azure 구독 키입니다. [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
+- Speech Service에 대한 Azure 구독 키. [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
 
 ## <a name="optional-get-started-fast"></a>선택 사항: 빠르게 시작
 
@@ -49,7 +49,7 @@ ms.locfileid: "74976760"
    > [!div class="mx-imgBorder"] 
    > 응용 프로그램](media/custom-speech-commands/fulfill-sdk-publish-application.png) ![게시
 
-1. 나중에 사용 하기 위해 게시 알림에서 앱 id를 복사 합니다.
+1. 나중에 사용 하기 위해 게시 알림에서 앱 ID를 복사 합니다.
 
 ## <a name="step-2-create-a-visual-studio-project"></a>2 단계: Visual Studio 프로젝트 만들기
 
@@ -309,7 +309,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
-   var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
+   var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```

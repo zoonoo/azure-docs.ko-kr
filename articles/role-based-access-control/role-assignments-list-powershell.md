@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c30f1246dccbe14445b0f7db8584e37c0f4be6ab
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f728338284c755116414a03cbc586915e1cc9325
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710413"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462208"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Azure RBAC 및 Azure PowerShell를 사용 하 여 역할 할당 나열
 
@@ -27,7 +27,7 @@ ms.locfileid: "74710413"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](/azure/cloud-shell/overview)
 
@@ -146,6 +146,22 @@ PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGr
 ```azurepowershell
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
+
+## <a name="list-role-assignments-for-a-managed-identity"></a>관리 id에 대 한 역할 할당 나열
+
+1. 시스템 할당 또는 사용자 할당 관리 id의 개체 ID를 가져옵니다. 
+
+    사용자 할당 관리 id의 개체 ID를 가져오려면 [AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)를 사용할 수 있습니다.
+
+    ```azurepowershell
+    Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
+    ```
+
+1. 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용 합니다.
+
+    ```azurepowershell
+    Get-AzRoleAssignment -ObjectId <objectid>
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

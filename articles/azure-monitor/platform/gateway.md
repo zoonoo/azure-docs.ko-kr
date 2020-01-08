@@ -4,15 +4,15 @@ description: Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 10/30/2019
-ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+author: bwren
+ms.author: bwren
+ms.date: 12/24/2019
+ms.openlocfilehash: 1811796de96e87343544f63fcee7acdd9907693c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847274"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530989"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -45,7 +45,7 @@ Log Analytics 게이트웨이를 실행 하는 컴퓨터에는 Log Analytics Win
 
 게이트웨이는 최대 4 개의 작업 영역으로 멀티홈 될 수 있습니다. Windows 에이전트가 지 원하는 총 작업 영역 수입니다.  
 
-각 에이전트는 게이트웨이에서 데이터를 자동으로 전송 하거나 게이트웨이로 전송할 수 있도록 게이트웨이에 네트워크를 연결 해야 합니다. 도메인 컨트롤러에 게이트웨이를 설치 하지 마세요.
+각 에이전트는 게이트웨이에서 데이터를 자동으로 전송 하거나 게이트웨이로 전송할 수 있도록 게이트웨이에 네트워크를 연결 해야 합니다. 도메인 컨트롤러에 게이트웨이를 설치 하지 마세요. 게이트웨이 서버 뒤에 있는 linux 컴퓨터는 [래퍼 스크립트 설치](agent-linux.md#install-the-agent-using-wrapper-script) 방법을 사용 하 여 linux 용 Log Analytics 에이전트를 설치할 수 없습니다. 게이트웨이는 앞에서 언급 한 Azure 서비스와의 통신만 지원 하기 때문에 에이전트를 수동으로 다운로드 하 여 컴퓨터에 복사 하 고 수동으로 설치 해야 합니다.
 
 다음 다이어그램에서는 게이트웨이를 통해 직접 에이전트에서 Azure Automation 하 고 Log Analytics 하는 데이터 흐름을 보여 줍니다. 에이전트 프록시 구성은 Log Analytics 게이트웨이에서 구성 된 포트와 일치 해야 합니다.  
 
@@ -61,7 +61,7 @@ Log Analytics 게이트웨이를 실행 하도록 지정 된 컴퓨터에는 다
 
 * Windows 10, Windows 8.1 또는 Windows 7
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 또는 Windows Server 2008
-* Microsoft .NET Framework 4.5
+* Microsoft .NET Framework 4.5도 필요합니다
 * 최소 4 코어 프로세서 및 8gb의 메모리 
 * 게이트웨이를 통해 통신 하는 에이전트와 동일한 작업 영역에 보고 하도록 구성 된 [Windows 용 Log Analytics 에이전트](agent-windows.md)
 
@@ -73,7 +73,7 @@ Log Analytics 게이트웨이는 다음 언어로 제공 됩니다.
 - 중국어 (번체)
 - 체코어
 - 네덜란드어
-- 영어
+- 한국어
 - 프랑스어
 - 독일어
 - 헝가리어
@@ -81,7 +81,7 @@ Log Analytics 게이트웨이는 다음 언어로 제공 됩니다.
 - 일본어
 - 한국어
 - 폴란드어
-- 포르투갈어(브라질)
+- 포르투갈어 (브라질)
 - 포르투갈어(포르투갈)
 - 러시아어
 - 스페인어 (국제)
@@ -135,9 +135,9 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
    a. 게이트웨이에 사용할 TCP 포트 번호를 입력 합니다. 설치 프로그램은이 포트 번호를 사용 하 여 Windows 방화벽에 대 한 인바운드 규칙을 구성 합니다.  기본값은 8080입니다.
       유효한 포트 번호 범위는 1 ~ 65535입니다. 입력한 내용이 이 범위를 벗어나면 오류 메시지가 표시됩니다.
 
-   b. 게이트웨이가 설치 되어 있는 서버에서 프록시를 통해 통신 해야 하는 경우 게이트웨이를 연결 해야 하는 프록시 주소를 입력 합니다. 예를 들어 `http://myorgname.corp.contoso.com:80`을 입력합니다.  이 필드를 비워 두면 게이트웨이가 인터넷에 직접 연결을 시도 합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.
+   b. 게이트웨이가 설치 되어 있는 서버에서 프록시를 통해 통신 해야 하는 경우 게이트웨이를 연결 해야 하는 프록시 주소를 입력 합니다. 예를 들어 다음과 같이 입력합니다. `http://myorgname.corp.contoso.com:80`  이 필드를 비워 두면 게이트웨이가 인터넷에 직접 연결을 시도 합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.
 
-   c. **다음**을 선택합니다.
+   다. **다음**을 선택합니다.
 
    ![게이트웨이 프록시에 대 한 구성 스크린샷](./media/gateway/gateway-wizard02.png)
 
@@ -149,17 +149,18 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
    ![OMS 게이트웨이가 실행 중임을 보여 주는 로컬 서비스의 스크린샷](./media/gateway/gateway-service.png)
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>명령줄을 사용 하 여 Log Analytics 게이트웨이 설치
+
 게이트웨이의 다운로드 된 파일은 명령줄 또는 다른 자동화 된 메서드에서 자동 설치를 지 원하는 Windows Installer 패키지입니다. Windows Installer에 대 한 표준 명령줄 옵션에 익숙하지 않은 경우 [명령줄 옵션](https://docs.microsoft.com/windows/desktop/Msi/command-line-options)을 참조 하세요.
  
 다음 표에서는 설치 프로그램에서 지 원하는 매개 변수를 보여 줍니다.
 
-|매개 변수| 참고 사항|
+|매개 변수| 메모|
 |----------|------| 
 |PORTNUMBER | 게이트웨이에서 수신 대기 하는 TCP 포트 번호 |
 |프록시 | 프록시 서버의 IP 주소 |
 |INSTALLDIR | 게이트웨이 소프트웨어 파일의 설치 디렉터리를 지정 하는 정규화 된 경로 |
-|이름 | 프록시 서버를 사용 하 여 인증할 사용자 Id |
-|암호 | 프록시를 사용 하 여 인증할 사용자 Id의 암호 |
+|USERNAME | 프록시 서버를 사용 하 여 인증할 사용자 ID |
+|PASSWORD | 프록시를 사용 하 여 인증할 사용자 ID의 암호 |
 |LicenseAccepted | 사용권 계약에 동의 하는지 확인 하려면 **1** 값을 지정 합니다. |
 |HASAUTH | 사용자 이름/암호 매개 변수가 지정 된 경우 값 **1** 을 지정 합니다. |
 |HASPROXY | **프록시** 매개 변수에 대 한 IP 주소를 지정할 때 값 **1** 을 지정 합니다. |
@@ -178,15 +179,17 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
-설치 후 다음 PowerShell cmdlet을 사용 하 여 설정이 수락 되었는지 확인할 수 있습니다 (사용자 이름 및 암호 사용).
+설치 후 다음 PowerShell cmdlet을 사용 하 여 설정이 허용 되는지 확인할 수 있습니다 (사용자 이름 및 암호 제외).
 
 - **Get OMSGatewayConfig** – 게이트웨이가 수신 대기 하도록 구성 된 TCP 포트를 반환 합니다.
 - **OMSGatewayRelayProxy** – 통신 하도록 구성한 프록시 서버의 IP 주소를 반환 합니다.
 
-## <a name="configure-network-load-balancing"></a>네트워크 부하 분산 구성 
+## <a name="configure-network-load-balancing"></a>네트워크 부하 분산 구성
+
 Microsoft [nlb (네트워크 부하 분산)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)또는 하드웨어 기반 부하 분산 장치를 사용 하 여 nlb (네트워크 부하 분산)를 사용 하 여 고가용성을 위해 게이트웨이를 구성할 수 있습니다. 부하 분산 장치는 노드 전반에 걸쳐 Log Analytics 에이전트 또는 Operations Manager 관리 서버에서 요청된 연결을 리디렉션하여 트래픽을 관리합니다. 게이트웨이 서버가 하나 다운되면 트래픽은 다른 노드로 리디렉션됩니다.
 
 ### <a name="microsoft-network-load-balancing"></a>Microsoft 네트워크 부하 분산
+
 Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배포하는 방법을 알아보려면 [네트워크 부하 분산](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)을 참조하세요. 다음 단계에서는 Microsoft 네트워크 부하 분산 클러스터를 구성하는 방법에 대해 설명합니다.  
 
 1. NLB 클러스터의 구성원인 Windows 서버에 관리 계정으로 로그인합니다.  
@@ -200,6 +203,7 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
     ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가: 연결](./media/gateway/nlb03.png) 
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
+
 Azure Load Balancer를 디자인 하 고 배포 하는 방법을 알아보려면 [Azure Load Balancer 무엇 인가요?](../../load-balancer/load-balancer-overview.md)를 참조 하세요. 기본 부하 분산 장치를 배포 하려면 **백 엔드 서버 만들기**섹션에 설명 된 단계를 제외 하 고이 [빠른](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) 시작에 설명 된 단계를 수행 합니다.   
 
 > [!NOTE]
@@ -213,18 +217,20 @@ Azure Load Balancer를 디자인 하 고 배포 하는 방법을 알아보려면
 >
 
 ## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>Log Analytics 에이전트 및 Operations Manager 관리 그룹 구성
+
 이 섹션에서는 Azure Automation 또는 Log Analytics와 통신 하기 위해 Log Analytics 게이트웨이로 직접 연결 된 Log Analytics 에이전트, Operations Manager 관리 그룹 Azure Automation 또는 하이브리드 Runbook Worker를 구성 하는 방법에 대해 알아봅니다.  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>독립 실행형 Log Analytics 에이전트 구성
+
 Log Analytics 에이전트를 구성 하는 경우 프록시 서버 값을 Log Analytics 게이트웨이 서버의 IP 주소 및 포트 번호로 바꿉니다. 부하 분산 장치 뒤에 여러 게이트웨이 서버를 배포한 경우 Log Analytics 에이전트 프록시 구성은 부하 분산 장치의 가상 IP 주소입니다.  
 
 >[!NOTE]
->Log Analytics에 직접 연결 하는 게이트웨이 및 Windows 컴퓨터에 Log Analytics 에이전트를 설치 하려면 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](agent-windows.md)을 참조 하세요. Linux 컴퓨터를 연결 하려면 [하이브리드 환경에서 linux 컴퓨터에 대 한 Log Analytics 에이전트 구성](../../azure-monitor/learn/quick-collect-linux-computer.md)을 참조 하세요. 
+>Log Analytics에 직접 연결 하는 게이트웨이 및 Windows 컴퓨터에 Log Analytics 에이전트를 설치 하려면 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](agent-windows.md)을 참조 하세요. Linux 컴퓨터를 연결 하려면 [Azure Monitor에 linux 컴퓨터 연결](agent-linux.md)을 참조 하세요. 
 >
 
 게이트웨이 서버에 에이전트를 설치한 후에는 게이트웨이와 통신 하는 작업 영역 또는 작업 영역 에이전트에 보고 하도록 구성 합니다. Log Analytics Windows 에이전트가 게이트웨이에 설치 되어 있지 않으면 OMS 게이트웨이 이벤트 로그에 이벤트 300이 기록 되어 에이전트가 설치 되어야 함을 나타냅니다. 에이전트가 설치 되어 있지만이를 통해 통신 하는 에이전트와 동일한 작업 영역에 보고 하도록 구성 되지 않은 경우 이벤트 105는 동일한 로그에 기록 됩니다 .이는 게이트웨이의 에이전트가 co 에이전트와 동일한 작업 영역에 보고 하도록 구성 해야 함을 나타냅니다. 게이트웨이와 mmunicate.
 
-구성을 완료 한 후 OMS 게이트웨이 서비스를 다시 시작 하 여 변경 내용을 적용 합니다. 그렇지 않으면 게이트웨이는 Log Analytics 통신 하려고 시도 하는 에이전트를 거부 하 고 OMS 게이트웨이 이벤트 로그에 이벤트 105을 보고 합니다. 이는 게이트웨이 서버의 에이전트 구성에서 작업 영역을 추가 하거나 제거 하는 경우에도 발생 합니다.   
+구성을 완료 한 후 **OMS 게이트웨이** 서비스를 다시 시작 하 여 변경 내용을 적용 합니다. 그렇지 않으면 게이트웨이는 Log Analytics 통신 하려고 시도 하는 에이전트를 거부 하 고 OMS 게이트웨이 이벤트 로그에 이벤트 105을 보고 합니다. 이는 게이트웨이 서버의 에이전트 구성에서 작업 영역을 추가 하거나 제거 하는 경우에도 발생 합니다.
 
 Automation Hybrid Runbook Worker와 관련 된 정보는 Hybrid Runbook Worker를 [사용 하 여 데이터 센터 또는 클라우드에서 리소스 자동화](../../automation/automation-hybrid-runbook-worker.md)를 참조 하세요.
 
@@ -249,7 +255,7 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 
 
    a. **시작** 을 선택 하 고 **cmd**를 입력 합니다.  
 
-   b. **명령 프롬프트** 를 마우스 오른쪽 단추로 클릭 하 고 **관리자 권한으로 실행**을 선택 합니다.  
+   b. **명령 프롬프트**를 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 선택합니다.  
 
 1. 다음 명령을 입력합니다.
 

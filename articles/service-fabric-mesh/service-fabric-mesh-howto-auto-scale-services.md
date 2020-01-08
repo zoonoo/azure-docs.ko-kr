@@ -1,29 +1,20 @@
 ---
-title: Azure Service Fabric Mesh에서 실행 중인 앱 자동 크기 조정 | Microsoft Docs
+title: Azure Service Fabric 메시에서 실행 되는 앱 자동 크기 조정
 description: Service Fabric Mesh 애플리케이션의 서비스에 대 한 자동 크기 조정 정책을 구성하는 방법에 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583607"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461981"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Service Fabric Mesh 애플리케이션에 대한 자동 크기 조정 정책 만들기
-Service Fabric Mesh에 애플리케이션을 배포하여 얻을 수 있는 주요 이점 중 하나는 서비스를 쉽게 확장 또는 축소하는 기능입니다. 이 기능을 사용하여 서비스에서 다양한 크기의 부하를 처리하거나 가용성을 향상할 수 있습니다. 수동으로 서비스를 확대 또는 축소하거나 자동 크기 조정 정책을 설정할 수 있습니다.
+Service Fabric 메시에 응용 프로그램을 배포 하는 주요 이점 중 하나는 서비스를 쉽게 확장 하거나 축소할 수 있는 기능입니다. 이는 서비스의 다양 한 부하를 처리 하거나 가용성을 향상 시키는 데 사용 됩니다. 수동으로 서비스를 확대 또는 축소하거나 자동 크기 조정 정책을 설정할 수 있습니다.
 
 [자동 크기 조정](service-fabric-mesh-scalability.md#autoscaling-service-instances)를 사용하여 서비스 인스턴스의 수를 동적으로 조정할 수 있습니다(수평 크기 조정). 자동 크기 조정은 탄력성이 뛰어나 CPU 또는 메모리 사용률에 따라 서비스 인스턴스를 프로비전하거나 제거할 수 있습니다.
 

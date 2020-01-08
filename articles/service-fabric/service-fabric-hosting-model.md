@@ -1,28 +1,21 @@
 ---
-title: Azure Service Fabric 호스팅 모델 | Microsoft Docs
+title: Azure Service Fabric 호스팅 모델
 description: 배포된 Service Fabric 서비스 및 서비스 호스트 프로세스 복제본(또는 인스턴스) 간의 관계에 대해 설명합니다.
-services: service-fabric
-documentationcenter: .net
 author: harahma
-manager: chackdan
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60483632"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464582"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 호스팅 모델
 이 아티클에서는 Azure Service Fabric에서 제공하는 애플리케이션 호스팅 모델을 간략하게 설명하고 **공유 프로세스** 및 **단독 프로세스** 모델 간의 차이점을 설명합니다. 배포된 애플리케이션이 Service Fabric 노드에 표시되는 방식과 서비스 복제본(또는 인스턴스) 및 서비스-호스트 프로세스 간의 관계를 설명합니다.
 
-계속하기 전에 [Service Fabric에서 애플리케이션 모델링][a1]에서 설명한 다양한 개념 및 관계를 이해해야 합니다. 
+계속 하기 전에 [Service Fabric에서 응용 프로그램 모델링][a1]에 설명 된 다양 한 개념 및 관계를 이해 하 고 있어야 합니다. 
 
 > [!NOTE]
 > 이 아티클에서는 다른 의미로 명시적으로 언급되지 않으면:
@@ -33,7 +26,7 @@ ms.locfileid: "60483632"
 
 호스팅 모델을 이해하기 위해 한 가지 예를 살펴보겠습니다. *ServiceType* 'MyServiceType'이 있는 *ApplicationType* 'MyAppType'이 있다고 가정합니다. 'MyServiceType'은 *CodePackage* 'MyCodePackage'가 있는 *ServicePackage* 'MyServicePackage'에서 제공됩니다. 'MyCodePackage'는 실행될 때 *ServiceType* 'MyServiceType'을 등록합니다.
 
-3개의 노드 클러스터가 있고, 'MyAppType' 형식의 *애플리케이션* **fabric:/App1**을 만든다고 가정합니다. 이 애플리케이션 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 애플리케이션이 노드에 배포된 상태 보기를 보여 줍니다.
+3 개 노드 클러스터가 있고 ' MyAppType ' 형식의 *응용 프로그램* **Fabric:/App1** 을 만든다고 가정 합니다. 이 애플리케이션 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 애플리케이션이 노드에 배포된 상태 보기를 보여 줍니다.
 
 
 ![배포된 애플리케이션의 노드 보기 다이어그램][node-view-one]
@@ -59,7 +52,7 @@ Service Fabric은 'MyCodePackage'의 새 복사본을 시작하는 'MyServicePac
 ## <a name="exclusive-process-model"></a>단독 프로세스 모델
 Service Fabric에서 제공하는 다른 호스팅 모델은 단독 프로세스 모델입니다. 이 모델에서 지정된 노드에 대해 각 복제본이 고유한 전용 프로세스에 상주합니다. Service Fabric은 *ServicePackage*의 새 복사본을 활성화합니다(포함된 모든 *CodePackages*를 시작). 복제본은 복제본이 속해 있는 서비스의 *ServiceType*을 등록한 *CodePackage*에 배치됩니다. 
 
-Service Fabric 버전 5.6 이상을 사용하는 경우 서비스를 만들 때 [PowerShell][p1], [REST][r1] 또는 [FabricClient][c1]를 사용하여 단독 프로세스 모델을 선택할 수 있습니다. **ServicePackageActivationMode**를 'ExclusiveProcess'으로 지정합니다.
+Service Fabric 버전 5.6 이상을 사용 하는 경우에는 [PowerShell][p1], [REST][r1]또는 [FabricClient][c1]를 사용 하 여 서비스를 만들 때 단독 프로세스 모델을 선택할 수 있습니다. **ServicePackageActivationMode**를 'ExclusiveProcess'으로 지정합니다.
 
 ```powershell
 PS C:\>New-ServiceFabricService -ApplicationName "fabric:/App1" -ServiceName "fabric:/App1/ServiceA" -ServiceTypeName "MyServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1 -ServicePackageActivationMode "ExclusiveProcess"
@@ -106,28 +99,28 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 >
 >- 단독 프로세스 호스팅 모델은 **ServicePackageActivationMode** = **ExclusiveProcess**에 해당합니다. 이 설정을 사용하려면 서비스를 만들 때 명시적으로 지정해야 합니다. 
 >
->- 서비스의 호스팅 모델을 보려면 [서비스 설명][p2]을 쿼리하고 **ServicePackageActivationMode**의 값을 확인합니다.
+>- 서비스의 호스팅 모델을 보려면 [서비스 설명을][p2]쿼리하고 **ServicePackageActivationMode**의 값을 확인 합니다.
 >
 >
 
 ## <a name="work-with-a-deployed-service-package"></a>배포된 서비스 패키지 작업
-노드에서 *ServicePackage*의 활성 복사본을 [배포된 서비스 패키지][p3]라고 합니다. 단독 프로세스 모델을 사용하여 서비스를 만든 경우 지정된 애플리케이션에 대해 동일한 *ServicePackage*에 배포된 서비스 패키지가 여러 개 있을 수 있습니다. 배포된 서비스 패키지에 특정된 작업을 수행하는 경우 **ServicePackageActivationId**를 제공하여 특정 배포된 서비스 패키지를 식별해야 합니다. 예를 들어 [배포된 서비스 패키지의 상태를 보고][p4]하거나 [배포된 서비스 패키지의 코드 패키지를 다시 시작][p5]하려는 경우 ID를 제공합니다.
+노드에 있는 *ServicePackage* 의 활성 복사본을 [배포 된 서비스 패키지][p3]라고 합니다. 단독 프로세스 모델을 사용하여 서비스를 만든 경우 지정된 애플리케이션에 대해 동일한 *ServicePackage*에 배포된 서비스 패키지가 여러 개 있을 수 있습니다. 배포된 서비스 패키지에 특정된 작업을 수행하는 경우 **ServicePackageActivationId**를 제공하여 특정 배포된 서비스 패키지를 식별해야 합니다. 예를 들어 배포 된 서비스 패키지의 [상태를 보고][p4] 하거나 [배포 된 서비스 패키지의 코드 패키지를 다시 시작][p5]하는 경우 ID를 제공 합니다.
 
-노드에서 [배포된 서비스 패키지][p3] 목록을 쿼리하여 배포된 서비스 패키지의 **ServicePackageActivationId**를 확인할 수 있습니다. 노드에서 [배포된 서비스 형식][p6], [배포된 복제본][p7] 및 [배포된 코드 패키지][p8]를 쿼리하는 경우 쿼리 결과에는 배포된 부모 서비스 패키지의 **ServicePackageActivationId**도 포함됩니다.
+노드에서 [배포 된 서비스 패키지][p3] 목록을 쿼리하여 배포 된 서비스 패키지의 **ServicePackageActivationId** 를 찾을 수 있습니다. 노드에서 배포 된 [서비스 유형][p6], [배포 된 복제본][p7]및 [배포 된 코드 패키지][p8] 를 쿼리 하는 경우 쿼리 결과에는 배포 된 부모 서비스 패키지의 **ServicePackageActivationId** 포함 됩니다.
 
 > [!NOTE]
 >- 공유 프로세스 호스팅 모델 아래의 지정된 노드에서 지정된 애플리케이션에 대해 *ServicePackage* 복사본 하나만 활성화됩니다. *빈 문자열*과 같은 **ServicePackageActivationId**가 있으며, 배포된 서비스 패키지와 관련된 작업을 수행할 때 지정할 필요가 없습니다. 
 >
-> - 단독 프로세스 호스팅 모델의 경우 지정된 노드에서 지정된 애플리케이션에 대해 하나 이상의 *ServicePackage* 복사본이 활성화될 수 있습니다. 각 활성화의 **ServicePackageActivationId**는 *비어 있지 않으며*, 배포된 서비스 패키지에 관련된 작업을 수행할 때 지정됩니다. 
+> - 단독 프로세스 호스팅 모델의 경우 지정된 노드에서 지정된 애플리케이션에 대해 하나 이상의 *ServicePackage* 복사본이 활성화될 수 있습니다. 각 활성화에는 배포 된 서비스 패키지와 관련 된 작업을 수행 하는 동안 지정 된 *비어 있지 않은* **ServicePackageActivationId**있습니다. 
 >
 > - **ServicePackageActivationId**를 생략하면 기본적으로 *빈 문자열*로 설정됩니다. 공유 프로세스 모델 아래에 활성화된 배포된 서비스 패키지가 있으면 해당 패키지에서 작업이 수행됩니다. 그렇지 않으면 작업이 실패합니다.
 >
-> - 한 번 쿼리하고 **ServicePackageActivationId**를 캐시하지 않습니다. ID는 동적으로 생성되며 다양한 이유로 변경할 수 있습니다. **ServicePackageActivationId**가 필요한 작업을 수행하기 전에 먼저 노드에서 [배포된 서비스 패키지][p3] 목록을 쿼리해야 합니다. 그런 다음, 쿼리 결과의 **ServicePackageActivationId**를 사용하여 원래 작업을 수행합니다.
+> - 한 번 쿼리하고 **ServicePackageActivationId**를 캐시하지 않습니다. ID는 동적으로 생성되며 다양한 이유로 변경할 수 있습니다. **ServicePackageActivationId**가 필요한 작업을 수행 하기 전에 먼저 노드에 [배포 된 서비스 패키지][p3] 목록을 쿼리해야 합니다. 그런 다음, 쿼리 결과의 **ServicePackageActivationId**를 사용하여 원래 작업을 수행합니다.
 >
 >
 
 ## <a name="guest-executable-and-container-applications"></a>게스트 실행 파일 및 컨테이너 애플리케이션
-Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리케이션을 자체 포함된 상태 비저장 서비스로 처리합니다. *ServiceHost*(프로세스 또는 컨테이너)에는 Service Fabric 런타임이 없습니다. 이러한 서비스가 자체 포함되기 때문에 *ServiceHost*당 복제본 수가 적용되지 않습니다. 이러한 서비스에 사용되는 가장 일반적인 구성은 [InstanceCount][c2]가 -1과 같은 단일 파티션입니다(클러스터의 각 노드에서 서비스 코드 복사본 하나가 실행되고 있음). 
+Service Fabric는 [게스트 실행 파일][a2] 및 [컨테이너][a3] 응용 프로그램을 자체 포함 된 상태 비저장 서비스로 처리 합니다. *ServiceHost*(프로세스 또는 컨테이너)에는 Service Fabric 런타임이 없습니다. 이러한 서비스가 자체 포함되기 때문에 *ServiceHost*당 복제본 수가 적용되지 않습니다. 이러한 서비스에 사용 되는 가장 일반적인 구성은 단일 파티션이 며 [InstanceCount][c2] 는-1 (클러스터의 각 노드에서 실행 되는 서비스 코드의 복사본 한 개)과 동일 합니다. 
 
 이러한 서비스에 대한 기본 **ServicePackageActivationMode**는 **SharedProcess**입니다. 이 경우에 Service Fabric은 지정된 애플리케이션에 대해 노드에서 *ServicePackage* 복사본 하나만을 활성화합니다.  즉, 서비스 코드 복사본 하나만 노드를 실행합니다. 서비스 코드의 여러 복사본을 노드에서 실행하려는 경우 서비스를 만들 때 **ServicePackageActivationMode**를 **ExclusiveProcess**로 지정합니다. 예를 들어 *ServiceType*(*ServiceManifest*에 지정)의 여러 서비스(*Service1*에서 *ServiceN*)를 만들 때 또는 서비스를 다중 분할할 때 수행할 수 있습니다. 
 

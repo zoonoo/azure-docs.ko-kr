@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 40025e2347fa80d2717ba292f6e3d74f5dda8e5c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ae71b71ad7c0425893391954f5ffe8b285370273
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931418"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531040"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 합니다.
 
@@ -47,7 +47,7 @@ Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 �
     ![작업 영역 연결](media/activity-log-export/connect-workspace.png)
 
 ## <a name="analyze-in-log-analytics-workspace"></a>Log Analytics 작업 영역에서 분석
-활동 로그를 Log Analytics 작업 영역에 연결 하면 [로그 쿼리](../log-query/log-query-overview.md)를 사용 하 여 검색할 수 있는 **azureactivity** 라는 테이블에 항목이 작업 영역에 기록 됩니다. 이 테이블의 구조는 [로그 항목의 범주](activity-logs-overview.md#categories-in-the-activity-log)에 따라 달라 집니다. 각 범주에 대 한 설명은 [Azure 활동 로그 이벤트 스키마](activity-log-schema.md) 를 참조 하세요.
+활동 로그를 Log Analytics 작업 영역에 연결 하면 [로그 쿼리](../log-query/log-query-overview.md)를 사용 하 여 검색할 수 있는 **azureactivity** 라는 테이블에 항목이 작업 영역에 기록 됩니다. 이 테이블의 구조는 [로그 항목의 범주](activity-log-view.md#categories-in-the-activity-log)에 따라 달라 집니다. 각 범주에 대 한 설명은 [Azure 활동 로그 이벤트 스키마](activity-log-schema.md) 를 참조 하세요.
 
 ## <a name="activity-logs-analytics-monitoring-solution"></a>활동 로그 분석 모니터링 솔루션
 Azure Log Analytics 모니터링 솔루션에는 Log Analytics 작업 영역에서 활동 로그 레코드를 분석 하기 위한 여러 로그 쿼리 및 뷰가 포함 되어 있습니다.
@@ -65,7 +65,7 @@ Azure **활동 로그** 타일을 클릭 하 여 **azure 활동 로그** 보기�
 
 ![Azure 활동 로그 대시보드](media/collect-activity-logs/activity-log-dash.png)
 
-| 시각화 요소 | 설명 |
+| 시각화 요소 | Description |
 | --- | --- |
 | Azure 활동 로그 항목 | 선택한 날짜 범위에 대 한 상위 Azure 활동 로그 항목 레코드 합계의 가로 막대형 차트를 표시 하 고 상위 10 개 활동 호출자의 목록을 표시 합니다. 가로 막대형 차트를 클릭하면 `AzureActivity`에 대한 로그 검색이 실행됩니다. 호출자 항목을 클릭 하면 해당 항목에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색이 실행 됩니다. |
 | 상태별 활동 로그 | 선택한 날짜 범위에 대 한 Azure 활동 로그 상태와 상위 10 개 상태 레코드의 목록에 대 한 도넛형 차트를 표시 합니다. 차트를 클릭 하 `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`에 대 한 로그 쿼리를 실행 합니다. 상태 항목을 클릭 하면 해당 상태 레코드에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색이 실행 됩니다. |

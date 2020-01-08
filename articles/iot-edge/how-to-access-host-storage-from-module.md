@@ -4,16 +4,16 @@ description: 환경 변수를 사용 하 고 IoT Edge 장치 로컬 저장소에
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72fb7cfad5683edeb3b3335c28c53a7e693d00d5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434534"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
 
@@ -23,14 +23,14 @@ Azure storage 서비스 또는 장치의 컨테이너 저장소에서 데이터�
 
 모듈 저장소에서 호스트 시스템의 저장소로의 링크를 사용 하도록 설정 하려면 컨테이너의 저장소 폴더를 가리키는 모듈에 대해 환경 변수를 만듭니다. 그런 다음, 만들기 옵션을 사용하여 해당 스토리지 폴더를 호스트 머신의 폴더에 바인딩합니다.
 
-예를 들어 IoT Edge 허브가 장치의 로컬 저장소에 메시지를 저장 하 고 나중에 검색할 수 있도록 하려면 **고급 Edge 런타임 설정 구성** 섹션의 Azure Portal에서 환경 변수와 만들기 옵션을 구성할 수 있습니다.
+예를 들어 IoT Edge 허브가 장치의 로컬 저장소에 메시지를 저장 하 고 나중에 검색할 수 있도록 하려면 **런타임 설정** 섹션의 Azure Portal에서 환경 변수와 만들기 옵션을 구성할 수 있습니다.
 
 1. IoT Edge 허브와 IoT Edge 에이전트 모두에서 모듈의 디렉터리를 가리키는 **Storagefolder** 라는 환경 변수를 추가 합니다.
-1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예를 들어:
+1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예:
 
    ![로컬 저장소에 대 한 만들기 옵션 및 환경 변수 추가](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예를 들어:
+또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예:
 
 ```json
 "systemModules": {

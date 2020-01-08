@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 42a8b53f8d1fee2d657ccaa2d57e72b3edfdd4f3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553715"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531057"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고 
 
@@ -31,7 +31,7 @@ ms.locfileid: "72553715"
 
 두 경우 모두 활동 로그 경고는 경고가 생성되는 구독의 이벤트만 모니터링합니다.
 
-활동 로그 이벤트에 대한 JSON 개체의 모든 최상위 속성에 따라 활동 로그 경고를 구성할 수 있습니다. 자세한 내용은 [Azure 활동 로그 개요](./activity-logs-overview.md#categories-in-the-activity-log)를 참조하세요. 서비스 상태 이벤트에 대한 자세한 내용은 [서비스 알림에서 활동 로그 경고 수신](./alerts-activity-log-service-notifications.md)을 참조하세요. 
+활동 로그 이벤트에 대한 JSON 개체의 모든 최상위 속성에 따라 활동 로그 경고를 구성할 수 있습니다. 자세한 내용은 [활동 로그의 범주](activity-log-view.md#categories-in-the-activity-log)를 참조 하세요. 서비스 상태 이벤트에 대한 자세한 내용은 [서비스 알림에서 활동 로그 경고 수신](alerts-activity-log-service-notifications.md)을 참조하세요. 
 
 활동 로그 경고에는 다음과 같은 몇 가지 공통 옵션이 있습니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: d8a1d64ac8e65fd52730ee1750c0b0b1949b3512
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443591"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM의 Windows 다시 부팅 루프
 이 문서에서는 Microsoft Azure의 Windows VM(Virtual Machine)에서 발생할 수 있는 다시 부팅 루프에 대해 설명합니다.
@@ -86,7 +86,7 @@ ms.locfileid: "71088462"
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. **BROKENSYSTEM** 키를 선택한 다음, 메뉴에서 **파일** > **하이브 로드**를 차례로 선택합니다.
+13. **BROKENSYSTEM** 키를 선택 하 고 메뉴에서 **파일** > **언로드 하이브** 를 선택 합니다.
 
 14. 문제 해결을 위한 VM에서 OS 디스크를 분리합니다.
 

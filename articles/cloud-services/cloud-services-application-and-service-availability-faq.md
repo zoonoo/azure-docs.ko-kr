@@ -1,5 +1,6 @@
 ---
-title: Microsoft Azure Cloud Services FAQ에 대한 애플리케이션 및 서비스 사용 가능성 문제 | Microsoft Docs
+title: 응용 프로그램 및 서비스 가용성 문제 FAQ
+titleSuffix: Azure Cloud Services
 description: 이 문서는 Microsoft Azure Cloud Services의 애플리케이션 및 서비스 사용 가능성에 대한 질문과 대답을 나열합니다.
 services: cloud-services
 documentationcenter: ''
@@ -14,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d229291793334964569f6c35eaec68a94ca6b69f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386921"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services에 대 한 응용 프로그램 및 서비스 가용성 문제: FAQ(질문과 대답)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 애플리케이션 및 서비스 사용 가능성 문제: FAQ(질문과 대답)
 
 이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 애플리케이션 및 서비스 사용 가능성 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>내 역할은 재활용되었습니다. 클라우드 서비스에 롤아웃된 업데이트가 있습니까?
-Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새 게스트 OS 버전을 릴리스합니다. 이러한 업데이트로 게스트 OS가 파이프라인에서 유일합니다. 릴리스는 다른 요인에 따라 달라질 수 있습니다. 또한 Azure는 수 천만 대의 컴퓨터에서 실행됩니다. 따라서 역할이 다시 부팅되는 정확한 날짜와 시간을 예측할 수 있습니다. 최신 정보로 게스트 OS 업데이트 RSS 피드를 업데이트하지만 보고된 시간은 대략적인 값을 고려해야 합니다. 고객에 문제가 있어 정확하게 재부팅 시간을 제한하도록 작업 중인 것으로 알고 있습니다.
+Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새 게스트 OS 버전을 릴리스합니다. 게스트 OS는 파이프라인의 이러한 업데이트 중 하나일 뿐입니다. 릴리스는 다른 요인에 따라 달라질 수 있습니다. 또한 Azure는 수 천만 대의 컴퓨터에서 실행됩니다. 따라서 역할이 다시 부팅되는 정확한 날짜와 시간을 예측할 수 있습니다. 최신 정보로 게스트 OS 업데이트 RSS 피드를 업데이트하지만 보고된 시간은 대략적인 값을 고려해야 합니다. 고객에 문제가 있어 정확하게 재부팅 시간을 제한하도록 작업 중인 것으로 알고 있습니다.
 
 최신 게스트 OS 업데이트에 대한 자세한 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.
 

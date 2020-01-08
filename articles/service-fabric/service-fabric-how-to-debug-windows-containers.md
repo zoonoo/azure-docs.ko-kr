@@ -1,30 +1,21 @@
 ---
-title: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버깅 | Microsoft Docs
+title: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버그
 description: Visual Studio 2019을 사용 하 여 Azure Service Fabric에서 Windows 컨테이너를 디버그 하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: msfussell
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: a5ccf527850e1c05c5d7e273ada905d65d64cee4
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464561"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>방법: Visual Studio 2019을 사용 하 여 Azure Service Fabric에서 Windows 컨테이너 디버그
 
 Visual Studio 2019을 사용 하면 Service Fabric 서비스로 컨테이너에서 .NET 응용 프로그램을 디버그할 수 있습니다. 이 문서에서는 환경을 구성한 다음, 로컬 Service Fabric 클러스터에서 실행되는 컨테이너의 .NET 애플리케이션을 디버그하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Windows 10에서 이 빠른 시작에 따라 [Windows 컨테이너를 실행하도록 Windows 10을 구성](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)합니다.
 * Windows Server 2016에서 이 빠른 시작에 따라 [Windows 컨테이너를 실행하도록 Windows 2016을 구성](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)합니다.
@@ -54,7 +45,7 @@ Visual Studio 2019을 사용 하면 Service Fabric 서비스로 컨테이너에�
 Service Fabric의 컨테이너 디버깅에 대해 알려진 제한 사항과 가능한 해결 방법은 다음과 같습니다.
 
 * ClusterFQDNorIP에 localhost를 사용 하는 것은 컨테이너에서 DNS 확인을 지원 하지 않습니다.
-    * 해결 방법: 머신 이름을 사용하여 로컬 클러스터를 설정합니다(위 참조).
+    * 해결 방법: 컴퓨터 이름을 사용하여 로컬 클러스터를 설정합니다(위 참조).
 * 가상 머신에서 Windows10를 실행 하면 컨테이너에 대 한 DNS 회신이 반환 되지 않습니다.
     * 해결 방법: Virtual Machines NIC에서 IPv4에 대한 UDP 체크섬 오프로드를 사용하지 않도록 설정합니다.
     * Windows10를 실행 하면 컴퓨터의 네트워킹 성능이 저하 됩니다.
@@ -63,9 +54,9 @@ Service Fabric의 컨테이너 디버깅에 대해 알려진 제한 사항과 �
     * 해결 방법: servicename.applicationname을 사용하여 서비스 엔드포인트를 확인합니다.
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * ClusterFQDNorIP에 IP-address를 사용하는 경우 호스트에서 주 IP를 변경하면 DNS 기능이 중단됩니다.
-    * 해결 방법: 호스트에서 새 기본 IP를 사용하여 클러스터를 다시 만들거나 머신 이름을 사용합니다. 이 중단은 의도 된 것입니다.
+    * 해결 방법: 호스트에서 새 주 IP를 사용하여 클러스터를 다시 만들거나 컴퓨터 이름을 사용합니다. 이 중단은 의도 된 것입니다.
 * 클러스터를 만든 FQDN을 네트워크에서 확인할 수 없는 경우 DNS가 실패 합니다.
-    * 해결 방법: 호스트의 기본 IP를 사용하여 로컬 클러스터를 다시 만듭니다. 이 오류는 의도적으로 설계 되었습니다.
+    * 해결 방법: 호스트의 주 IP를 사용하여 로컬 클러스터를 다시 만듭니다. 이 오류는 의도적으로 설계 되었습니다.
 * 컨테이너를 디버그하는 경우 Docker 로그는 Visual Studio 출력 창에서만 사용할 수 있으며 Service Fabric API(Service Fabric Explorer 포함)를 통해서는 사용할 수 없습니다
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Service Fabric을 통해 Docker 컨테이너에서 실행되는 .NET 애플리케이션 디버깅

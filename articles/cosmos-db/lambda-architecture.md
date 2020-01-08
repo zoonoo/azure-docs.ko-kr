@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB 및 HDInsight(Apache Spark)를 사용하는 람다 아키텍처
+title: Azure Cosmos DB 및 Apache Spark를 사용 하는 람다 아키텍처
 description: 이 문서에서는 Azure Cosmos DB, HDInsight 및 Spark를 사용하여 람다 아키텍처를 구현하는 방법을 설명합니다.
 ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 56f293600d876a5bc52b618ce8eed044e93f424d
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d16a9b07ffb77145a6903bfb0de387c2b94c964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441768"
 ---
-# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB는 Azure 플랫폼에 람다 아키텍처 구현 
+# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Azure 플랫폼에 람다 아키텍처 구현 
 
 람다 아키텍처는 대규모 데이터 집합의 효율적인 데이터 처리를 가능하게 합니다. 람다 아키텍처는 일괄 처리, 스트림 처리 및 서비스 계층을 사용하여 빅 데이터를 쿼리하는 데 관련된 대기 시간을 최소화합니다. 
 
@@ -59,7 +59,7 @@ Azure에서 람다 아키텍처를 구현하려면 다음 기술을 결합하여
  4. **속도 계층**은 HDInsight(Apache Spark)를 활용하여 Azure Cosmos DB 변경 피드를 읽습니다. 이렇게 하면 데이터를 유지하고 동시에 쿼리하고 처리할 수 있습니다.
  5. 일괄 처리 보기와 실시간 보기의 결과를 병합하거나 개별적으로 ping하여 모든 쿼리에 응답할 수 있습니다.
  
-### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>코드 예제: Azure Cosmos DB 변경 피드에 대한 Spark 구조적 스트리밍
+### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>코드 예제: Azure Cosmos DB 변경 피드에 대한 Spark 구조화 스트리밍
 Azure Cosmos DB 변경 피드의 빠른 프로토타입을 **속도 계층**의 일부로 실행하려면, Twitter 데이터를 [Azure Cosmos DB 변경 피드 및 Apache Spark를 사용하여 스트림 처리 변경](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark) 예제의 일부로 사용하여 테스트할 수 있습니다. Twitter 출력을 빠르게 시작하려면 [Twitter에서 Cosmos DB로 스트림 피드](https://github.com/tknandu/TwitterCosmosDBFeed)의 코드 샘플을 참조하세요. 앞의 예제를 사용하면 Twitter 데이터를 Azure Cosmos DB에 로드한 다음, HDInsight(Apache Spark) 클러스터를 변경 피드에 연결하도록 설정할 수 있습니다. 이 구성을 설정하는 방법에 대한 자세한 내용은 [Apache Spark-Azure Cosmos DB 커넥터 설정](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup)을 참조하세요.  
 
 다음 코드 조각에서는 실시간 Twitter 데이터 스트림을 검토하는 Azure Cosmos DB 변경 피드에 연결하기 위해 구조화된 스트리밍 작업을 실행하도록 `spark-shell`을 구성하여 실행 간격 수를 계산하는 방법을 보여 줍니다.
@@ -118,7 +118,7 @@ Azure Cosmos DB 변경 피드에 대한 자세한 내용은 다음을 참조하�
  4. **속도 계층**은 이 문서의 뒷부분에서 설명합니다.
  5. 일괄 처리 보기와 실시간 보기의 결과를 병합하거나 개별적으로 ping하여 모든 쿼리에 응답할 수 있습니다.
 
-### <a name="code-example-pre-computing-batch-views"></a>코드 예제: 사전 컴퓨팅 일괄 처리 보기
+### <a name="code-example-pre-computing-batch-views"></a>코드 예제: 미리 계산된 일괄 처리 보기
 Apache Spark에서 Azure Cosmos DB로 연결되는 **마스터 데이터 세트**에 대해 미리 계산된 보기를 실행하는 방법을 보여 주기 위해, 노트북에 있는 [람다 아키텍처 재개발 - 일괄 처리 계층](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) 및 [람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) 코드 조각을 사용합니다. 이 시나리오에서는 Azure Cosmos DB에 저장된 Twitter 데이터를 사용합니다.
 
 아래 PySpark 코드를 사용하여 Azure Cosmos DB 내의 Twitter 데이터에 대한 구성 연결을 만드는 것으로 시작해 보겠습니다.
@@ -259,11 +259,11 @@ var streamingQuery = streamingQueryWriter.start()
 ### <a name="resources"></a>리소스
 
 * **새 데이터**: 새 데이터를 Azure Cosmos DB로 푸시하는 메커니즘인 [Twitter에서 CosmosDB로의 스트림 피드](https://github.com/tknandu/TwitterCosmosDBFeed)입니다.
-* **일괄 처리 계층:** 일괄 처리 계층은 *마스터 데이터 세트*(변경 불가능한 추가 전용 원시 데이터 세트) 및 **서비스 계층**에 푸시된 데이터의 일괄 처리 보기를 미리 컴퓨팅할 수 있는 기능으로 구성됩니다.
+* **일괄 처리 계층:** 일괄 처리 계층은 *마스터 데이터 세트*(변경 불가능한 추가 전용 원시 데이터 세트) 및 **서비스 계층**에 푸시된 데이터의 일괄 처리 보기를 미리 계산할 수 있는 기능으로 구성됩니다.
    * **람다 아키텍처 재개발 - 일괄 처리 계층** 노트북 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html)은 일괄 처리 보기의 *마스터 데이터 세트*를 쿼리합니다.
-* **서비스 계층:** **서비스 계층**은 미리 컴퓨팅된 데이터로 구성되어 빠른 쿼리에 대한 일괄 처리 보기(예: 집계, 특정 슬라이서 등)를 생성합니다.
+* **서비스 계층:** **서비스 계층**은 미리 계산된 데이터로 구성되어 빠른 쿼리에 대한 일괄 처리 보기(예: 집계, 특정 슬라이서 등)를 생성합니다.
   * **람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층** 노트북 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html)은 일괄 처리 데이터를 서비스 계층으로 푸시합니다. 즉 Spark에서 트윗의 일괄 처리 컬렉션을 쿼리하고, 처리하고, 다른 컬렉션(계산된 일괄 처리)에 저장합니다.
-    * **속도 계층:** **속도 계층**은 Azure Cosmos DB 변경 피드를 활용하여 즉시 읽고 작업을 수행하는 Spark로 구성됩니다. 또한 데이터가 *계산된 RT*에 저장되어 다른 시스템에서 실시간 쿼리를 실행하는 것과 달리 처리된 실시간 데이터를 쿼리할 수 있습니다.
+    * **속도 계층:** **속도 계층**은 Azure Cosmos DB 변경 피드를 활용하여 즉시로 읽고 작업을 수행할 수 있는 Spark로 구성됩니다. 또한 데이터가 *계산된 RT*에 저장되어 다른 시스템에서 실시간 쿼리를 실행하는 것과 달리 처리된 실시간 데이터를 쿼리할 수 있습니다.
   * [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 간격 수를 컴퓨팅합니다.
   * [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 태그 간격 수를 컴퓨팅합니다.
   

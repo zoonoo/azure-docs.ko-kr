@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887763"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407667"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -69,13 +69,13 @@ ms.locfileid: "73887763"
 
 ![엔드투엔드 트랜잭션 세부 정보 스크린샷](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Analytics에서 보기
+### <a name="view-logs-analytics"></a>로그 보기 (분석)
 
-애플리케이션 데이터를 더 쿼리하고 조사하려면 **Analytics에서 보기**를 클릭합니다.
+응용 프로그램 데이터를 더 쿼리하고 조사 하려면 **로그에서 보기 (분석)** 를 클릭 합니다.
 
-![Analytics에서 보기 단추 스크린샷](media/app-map/view-in-analytics.png)
+![Analytics에서 보기 단추 스크린샷](media/app-map/view-logs.png)
 
-![Analytics 환경 스크린샷](media/app-map/analytics.png)
+![분석 환경의 스크린샷 지난 12 시간 동안의 요청 평균 응답 기간을 요약 하는 선 그래프입니다.](media/app-map/log-analytics.png)
 
 ### <a name="alerts"></a>경고
 
@@ -230,7 +230,7 @@ appInsights.addTelemetryInitializer((envelope) => {
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-또는 클라우드 역할 **이름이** 문제를 웹 프런트 엔드에 있는 것으로 알려주는 시나리오에서 클라우드 **역할 인스턴스** 를 사용할 수 있지만, 여러 부하 분산 된 서버에서 웹 프런트 엔드를 실행 하 여 다음을 수행할 수 있습니다. Kusto 쿼리를 통해 더 심층적으로 계층을 드릴 다운 하 고 문제가 모든 웹 프런트 엔드 서버/인스턴스에 영향을 주는지 아니면 하나만 매우 중요할 수 있는지 파악 합니다.
+또는 클라우드 역할 **인스턴스** 는 **클라우드 역할 이름이** 웹 프런트 엔드의 어딘가에 문제가 있음을 알리는 시나리오에 유용할 수 있습니다. 그러나 부하 분산 된 여러 서버에서 웹 프런트 엔드를 실행 하 여 kusto 쿼리를 통해 더 심층적으로 계층을 드릴 하 고 문제가 모든 웹 프런트 엔드 서버/인스턴스에 영향을 주는지 아니면 하나만 매우 중요할 수 있는지 확인할 수 있습니다.
 
 앱이 특정 문제를 찾기에 충분 한 정보가 없을 수 있는 컨테이너 화 된 환경에서 앱이 실행 되는 경우 클라우드 역할 인스턴스의 값을 재정의 하는 것이 좋습니다.
 

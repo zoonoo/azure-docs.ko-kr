@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d54ef06fd63a1064962aea6099a2289d04ff658
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 35700247eb2d0fb3026540776226a632122c63c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422381"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -57,11 +57,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 >[!IMPORTANT]
 >Small business server, server essentials 또는 server core에 Azure AD Connect를 설치 하는 것은 지원 되지 않습니다.
 
-* Azure AD Connect는 반드시 Windows Server 2008 R2 이상 버전에 설치되어야 합니다. 이 서버는 도메인에 가입 되어 있어야 하며 도메인 컨트롤러 또는 구성원 서버가 될 수 있습니다.
-* Windows Server 2008 R2에 Azure AD Connect를 설치하는 경우 Windows 업데이트에서 최신 핫픽스를 적용해야 합니다. 패치가 적용되지 않은 서버에서는 설치를 시작할 수 없습니다.
-* **암호 동기화**기능을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2008 R2 SP1 이상에 있어야 합니다.
-* **그룹 관리 서비스 계정**을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2012 이상이어야 합니다.
-* Azure AD Connect 서버에는 [.NET Framework 4.5.1](#component-prerequisites) 이상 및 [Microsoft PowerShell 3.0](#component-prerequisites) 이상이 설치되어 있어야 합니다.
+* Azure AD Connect는 Windows Server 2012 이상에 설치 해야 합니다. 이 서버는 도메인에 가입 되어 있어야 하며 도메인 컨트롤러 또는 구성원 서버가 될 수 있습니다.
 * Azure AD Connect 마법사를 사용 하 여 ADFS 구성을 관리 하는 경우에는 Azure AD Connect 서버에서 PowerShell 기록을 사용 하도록 설정 그룹 정책 하지 않아야 합니다. Azure AD Connect 마법사를 사용하여 동기화 구성을 관리하는 경우 PowerShell 기록을 사용하도록 설정할 수 있지만,
 * Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 애플리케이션 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. [Windows 원격 관리](#windows-remote-management) 를 사용할 수 있어야 합니다.
 * Active Directory Federation Services를 배포하고 있는 경우 [SSL 인증서](#ssl-certificate-requirements)가 필요합니다.
@@ -85,7 +81,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다. SQL Server 설치의 유형은 [Azure AD Connect의 성능](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors)에 영향을 줄 수 있습니다.
 * 다른 SQL Server 설치를 사용 하는 경우 다음 요구 사항이 적용 됩니다.
   * Azure AD Connect는 2008 R2 (최신 서비스 팩 포함)의 모든 버전 Microsoft SQL Server를 SQL Server 2019로 지원 합니다. Microsoft Azure SQL Database는 데이터베이스로 **지원되지 않습니다** .
-  * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 **CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은** 지원되지 않습니다\_.
+  * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 \_CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
   * SQL 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. SQL 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
 ### <a name="accounts"></a>계정
@@ -141,9 +137,9 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다릅니다. 서버에 이 버전 이상을 설치해야 합니다. Windows Server 버전에 따라 다음을 수행합니다.
 
 * Windows Server 2012R2
-  * Microsoft PowerShell은 기본적으로 설치되므로 추가적인 조치가 필요하지 않습니다.
+  * Microsoft PowerShell은 기본적으로 설치되므로 아무런 작업도 필요하지 않습니다.
   * .NET Framework 4.5.1 이후 릴리스는 Windows 업데이트를 통해 제공됩니다. 제어판에서 Windows Server에 최신 업데이트를 설치했는지 확인합니다.
-* Windows Server 2008 R2 및 Windows Server 2012
+* Windows Server 2012
   * 최신 버전의 Microsoft PowerShell은 **Windows Management Framework 4.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](https://www.microsoft.com/downloads)에서 찾을 수 있습니다.
   * .NET Framework 4.5.1과 이후 릴리스는 [Microsoft 다운로드 센터](https://www.microsoft.com/downloads)에서 찾을 수 있습니다.
 
@@ -151,81 +147,75 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Azure AD Connect에 TLS 1.2 사용
 1\.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진 서버와 Azure AD 간의 통신을 암호화합니다. 서버에서 기본적으로 TLS 1.2를 사용 하도록 .NET 응용 프로그램을 구성 하 여이를 변경할 수 있습니다. TLS 1.2에 대한 자세한 내용은 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)에서 찾을 수 있습니다.
 
-1. Windows Server 2008 R2 이전 버전 이전에서는 TLS 1.2을 사용 하도록 설정할 수 없습니다. 운영 체제에 대해 .NET 4.5.1 핫픽스를 설치 했는지 확인 하세요. [Microsoft 보안 공지 2960358](https://technet.microsoft.com/security/advisory/2960358)을 참조 하세요. 이 핫픽스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
-2. Windows Server 2008 R2를 사용하는 경우 TLS 1.2가 사용하도록 설정되어 있는지 확인합니다. Windows Server 2012 서버 및 이후 버전에서는 TLS 1.2가 이미 사용되도록 설정되어 있습니다.
+1.  운영 체제에 대해 .NET 4.5.1 핫픽스를 설치 했는지 확인 하세요. [Microsoft 보안 공지 2960358](https://technet.microsoft.com/security/advisory/2960358)을 참조 하세요. 이 핫픽스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
     ```
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+2. For all operating systems, set this registry key and restart the server.
     ```
-3. 모든 운영 체제에 대해 이 레지스트리 키를 설정하고 서버를 다시 시작합니다.
+    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "SchUseStrongCrypto" = dword: 00000001
     ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
-    "SchUseStrongCrypto"=dword:00000001
-    ```
-4. 동기화 엔진 서버와 원격 SQL Server 간에 TLS 1.2를 사용하도록 설정하려는 경우 [Microsoft SQL Server에 대한 TLS 1.2 지원](https://support.microsoft.com/kb/3135244)을 위해 필요한 버전이 설치되어 있는지 확인합니다.
+4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
-## <a name="prerequisites-for-federation-installation-and-configuration"></a>페더레이션 설치 및 구성을 위한 필수 조건
-### <a name="windows-remote-management"></a>Windows 원격 관리
-Azure AD Connect를 사용하여 웹 애플리케이션 프록시 또는 Active Directory Federation Services를 배포하는 경우 아래 요구 사항을 확인합니다.
+## Prerequisites for federation installation and configuration
+### Windows Remote Management
+When using Azure AD Connect to deploy Active Directory Federation Services or the Web Application Proxy, check these requirements:
 
-* 대상 서버가 도메인에 가입된 경우 Windows 원격 관리가 사용되는지 확인합니다.
-  * 관리자 권한 PSH 명령 창에서 `Enable-PSRemoting –force`
-* 대상 서버가 도메인에 연결된 WAP 컴퓨터가 아닌 경우, 몇 가지 추가 요구 사항이 있습니다.
-  * 대상 컴퓨터(WAP 컴퓨터):
-    * Winrm(Windows Remote Management / WS-Management) 서비스가 서비스 스냅인을 통해 실행되는지 확인합니다.
-    * 관리자 권한 PSH 명령 창에서 `Enable-PSRemoting –force`
-  * 마법사를 실행 중인 컴퓨터(대상 컴퓨터가 도메인에 가입되지 않거나 신뢰할 수 없는 도메인인 경우):
-    * 관리자 권한 PSH 명령 창에서 `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
-    * 서버 관리자:
-      * DMZ WAP 호스트를 컴퓨터 풀에 추가(서버 관리자 -> 관리 -> 서버 추가...DNS 탭 사용)
-      * 서버 관리자 모든 서버 탭: WAP 서버를 마우스 오른쪽 단추로 클릭하고 다음으로 관리...를 선택하고, WAP 컴퓨터에 대한 로컬(도메인이 아닌) 자격 증명을 입력합니다.
-      * 서버 관리자 모든 서버 탭에서 원격 PSH 연결 유효성을 검사하려면, WAP 서버를 마우스 오른쪽 단추로 클릭하고 Windows PowerShell을 선택합니다. 원격 PowerShell 세션을 설정할 수 있도록 원격 PSH 세션을 열어야 합니다.
+* If the target server is domain joined, then ensure that Windows Remote Managed is enabled
+  * In an elevated PSH command window, use command `Enable-PSRemoting –force`
+* If the target server is a non-domain joined WAP machine, then there are a couple of additional requirements
+  * On the target machine (WAP machine):
+    * Ensure the winrm (Windows Remote Management / WS-Management) service is running via the Services snap-in
+    * In an elevated PSH command window, use command `Enable-PSRemoting –force`
+  * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
+    * In an elevated PSH command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * In Server Manager:
+      * add DMZ WAP host to machine pool (server manager -> Manage -> Add Servers...use DNS tab)
+      * Server Manager All Servers tab: right click WAP server and choose Manage As..., enter local (not domain) creds for the WAP machine
+      * To validate remote PSH connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PSH session should open to ensure remote PowerShell sessions can be established.
 
-### <a name="ssl-certificate-requirements"></a>SSL 인증서 요구 사항
-* AD FS 팜의 모든 노드 및 모든 웹 애플리케이션 프록시 서버에서 동일한 SSL 인증서를 사용하는 것이 가장 좋습니다.
-* 인증서는 X509 인증서여야 합니다.
-* 테스트 랩 환경의 페더레이션 서버에서 자체 서명된 인증서를 사용할 수 있습니다. 그러나 프로덕션 환경에서는 공용 CA에서 인증서를 가져오는 것이 좋습니다.
-  * 공개적으로 신뢰할 수 없는 인증서를 사용하면 각 웹 애플리케이션 프록시 서버에 설치된 인증서가 모든 페더레이션 서버 및 로컬 서버에서 신뢰할 수 있는 지 확인합니다.
-* 인증서의 ID는 페더레이션 서비스 이름(예: sts.contoso.com)과 일치해야 합니다.
-  * ID는 dNSName 유형의 주체 대체 이름(SAN)의 확장 유형이거나, SAN 항목이 없는 경우 공통 이름으로 지정된 주제 이름입니다.  
-  * 그 중 하나가 페더레이션 서비스 이름과 일치하는 경우 여러 SAN 항목이 인증서에 있을 수 있습니다.
-  * 작업 공간 연결을 사용하도록 하려는 경우 **enterpriseregistration** 값과 함께 추가 SAN이 필요합니다. 이어서 조직의 사용자 이름(UPN) 접미사를(예: **enterpriseregistration.contoso.com**) 붙입니다.
-* CryptoAPI 다음 세대(CNG) 및 키 스토리지 공급자를 기반으로 하는 인증서는 지원되지 않습니다. 즉, KSP(키 스토리지 공급자)가 아닌 CSP(암호화 서비스 공급자)를 기반으로 인증서를 사용해야 합니다.
-* 와일드카드 인증서가 지원됩니다.
+### SSL Certificate Requirements
+* It’s strongly recommended to use the same SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
+* The certificate must be an X509 certificate.
+* You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
+  * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers
+* The identity of the certificate must match the federation service name (for example, sts.contoso.com).
+  * The identity is either a subject alternative name (SAN) extension of type dNSName or, if there are no SAN entries, the subject name specified as a common name.  
+  * Multiple SAN entries can be present in the certificate, provided one of them matches the federation service name.
+  * If you are planning to use Workplace Join, an additional SAN is required with the value **enterpriseregistration.** followed by the User Principal Name (UPN) suffix of your organization, for example, **enterpriseregistration.contoso.com**.
+* Certificates based on CryptoAPI next generation (CNG) keys and key storage providers are not supported. This means you must use a certificate based on a CSP (cryptographic service provider) and not a KSP (key storage provider).
+* Wild-card certificates are supported.
 
-### <a name="name-resolution-for-federation-servers"></a>페더레이션 서버에 대한 이름 확인
-* 인트라넷(내부 DNS 서버) 및 엑스트라넷(도메인 등록 기관을 통한 공용 DNS) 모두의 AD FS 페더레이션 서비스 이름(예: sts.contoso.com)에 대한 DNS 레코드를 설정합니다. 인트라넷 DNS 레코드의 경우, CNAME 레코드가 아닌 A 레코드를 사용해야 합니다. 도메인 연결된 컴퓨터에서 제대로 작동 하려면 windows 인증이 필요합니다.
-* 둘 이상의 AD FS 서버 또는 웹 애플리케이션 프록시 서버를 배포하는 경우 사용자 부하 분산 장치를 구성하고 AD FS 페더레이션 서비스 이름(예: sts.contoso.com)에 대한 DNS 레코드가 부하 분산 장치를 가리키는지 확인합니다.
-* Windows 통합된 인증이 인트라넷에서 Internet Explorer를 사용하여 브라우저 애플리케이션을 작동하려면 AD FS 페더레이션 서비스 이름(예: sts.contoso.com)이 IE에서 인트라넷 영역에 추가되었는지를 확인합니다. 그룹 정책을 통해 제어되고 모든 사용자 도메인에 가입된 컴퓨터에 배포될 수 있습니다.
+### Name resolution for federation servers
+* Set up DNS records for the AD FS federation service name (for example sts.contoso.com) for both the intranet (your internal DNS server) and the extranet (public DNS through your domain registrar). For the intranet DNS record, ensure that you use A records and not CNAME records. This is required for windows authentication to work correctly from your domain joined machine.
+* If you are deploying more than one AD FS server or Web Application Proxy server, then ensure that you have configured your load balancer and that the DNS records for the AD FS federation service name (for example sts.contoso.com) point to the load balancer.
+* For windows integrated authentication to work for browser applications using Internet Explorer in your intranet, ensure that the AD FS federation service name (for example sts.contoso.com) is added to the intranet zone in IE. This can be controlled via group policy and deployed to all your domain joined computers.
 
-## <a name="azure-ad-connect-supporting-components"></a>Azure AD Connect 지원 구성 요소
-다음은 Azure AD Connect를 설치한 서버에서 Azure AD Connect가 설치되는 데 필요한 구성 요소의 목록입니다. 이 목록은 기본 Express 설치에 해당합니다. 동기화 서비스 설치 페이지에서 다른 SQL Server를 사용하도록 선택하는 경우 SQL Express LocalDB는 로컬에 설치되지 않습니다.
+## Azure AD Connect supporting components
+The following is a list of components that Azure AD Connect installs on the server where Azure AD Connect is installed. This list is for a basic Express installation. If you choose to use a different SQL Server on the Install synchronization services page, then SQL Express LocalDB is not installed locally.
 
 * Azure AD Connect Health
-* Microsoft SQL Server 2012 명령줄 유틸리티
+* Microsoft SQL Server 2012 Command Line Utilities
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client
-* Microsoft Visual C++ 2013 재배포 패키지
+* Microsoft Visual C++ 2013 Redistribution Package
 
-## <a name="hardware-requirements-for-azure-ad-connect"></a>Azure AD Connect의 하드웨어 요구 사항
-아래 테이블은 Azure AD Connect 동기화 컴퓨터의 최소 요구 사항을 보여 줍니다.
+## Hardware requirements for Azure AD Connect
+The table below shows the minimum requirements for the Azure AD Connect sync computer.
 
-| Active Directory의 개체 수 | CPU | 메모리 | 하드 드라이브 크기 |
+| Number of objects in Active Directory | CPU | Memory | Hard drive size |
 | --- | --- | --- | --- |
-| 10,000개 미만 |1.6GHz |4GB |70GB |
-| 10,000–50,000개 |1.6GHz |4GB |70GB |
-| 50,000–100,000개 |1.6GHz |16GB |100GB |
-| 처음 사용자용 SQL Server가 필요한 100,000개 이상의 개체 | | | |
-| 100,000–300,000개 |1.6GHz |32GB |300GB |
-| 300,000–600,000개 |1.6GHz |32GB |450GB |
-| 600,000개 초과 |1.6GHz |32GB |500GB |
+| Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
+| 10,000–50,000 |1.6 GHz |4 GB |70 GB |
+| 50,000–100,000 |1.6 GHz |16 GB |100 GB |
+| For 100,000 or more objects the full version of SQL Server is required | | | |
+| 100,000–300,000 |1.6 GHz |32 GB |300 GB |
+| 300,000–600,000 |1.6 GHz |32 GB |450 GB |
+| More than 600,000 |1.6 GHz |32 GB |500 GB |
 
-AD FS 또는 웹 응용 프로그램 프록시 서버를 실행 하는 컴퓨터의 최소 요구 사항은 다음과 같습니다.
+The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
 
-* CPU: 듀얼 코어 1.6GHz 이상
-* 메모리: 2GB 이상
-* Azure VM: A2 구성 이상
+* CPU: Dual core 1.6 GHz or higher
+* MEMORY: 2 GB or higher
+* Azure VM: A2 configuration or higher
 
-## <a name="next-steps"></a>다음 단계
-[Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

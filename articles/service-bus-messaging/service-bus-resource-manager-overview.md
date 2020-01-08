@@ -14,21 +14,21 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 68b91566a3737cf44abe0c446b71d6845ecc299d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111127"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452332"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 리소스 만들기
 
 이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 Service Bus 리소스 공급자를 사용하여 Service Bus 리소스를 만들어 배포하는 방법을 설명합니다.
 
-Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 JSON에 작성되고 배포에 대한 값을 생성하는 데 사용할 수 있는 식으로 구성됩니다. Azure Resource Manager 템플릿 작성에 대한 자세한 내용과 템플릿 형식에 대한 논의는 [Azure Resource Manager 템플릿의 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
+Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 JSON에 작성되고 배포에 대한 값을 생성하는 데 사용할 수 있는 식으로 구성됩니다. Azure Resource Manager 템플릿 작성에 대한 자세한 내용과 템플릿 형식에 대한 논의는 [Azure Resource Manager 템플릿의 구조 및 구문](../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서의 예제에서는 Azure Resource Manager를 사용하여 Service Bus 네임스페이스와 메시징 엔터티(큐)를 만드는 방법을 보여 줍니다. 다른 템플릿 예제는 [Azure 퀵 스타트 템플릿 갤러리][Azure Quickstart Templates gallery]를 방문하여 **Service Bus**를 검색하세요.
+> 이 문서의 예제에서는 Azure Resource Manager를 사용하여 Service Bus 네임스페이스와 메시징 엔터티(큐)를 만드는 방법을 보여 줍니다. 다른 템플릿 예제를 보려면 [Azure 빠른 시작 템플릿 갤러리][Azure Quickstart Templates gallery] 를 방문 하 고 **Service Bus**를 검색 하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -42,7 +42,7 @@ Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 �
 * [큐 및 권한 부여 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
+## <a name="deploy-with-powershell"></a>Powershell을 사용하여 배포
 
 다음 절차에서는 표준 계층 Service Bus 네임스페이스와, 네임스페이스 안의 큐를 만드는 Azure Resource Manager 템플릿을 PowerShell을 사용하여 배포하는 방법을 설명합니다. 이 예제는 [큐가 있는 Service Bus 네임스페이스 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) 템플릿을 기초로 합니다. 대략적인 워크플로 다음과 같습니다.
 
@@ -157,7 +157,7 @@ Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resour
 }
 ```
 
-자세한 내용은 [매개 변수](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) 문서를 참조하세요.
+자세한 내용은 [매개 변수](../azure-resource-manager/templates/parameter-files.md) 문서를 참조하세요.
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Azure에 로그인하고 Azure 구독 설정
 
@@ -181,7 +181,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>리소스 그룹 설정
 
-기존 리소스 그룹에서 사용 하 여 새 리소스 그룹을 만들 수 없는 경우는 **새로 만들기-AzResourceGroup** 명령입니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예를 들면 다음과 같습니다.
+기존 리소스 그룹이 없는 경우 **AzResourceGroup** 명령을 사용 하 여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -257,9 +257,9 @@ Parameters        :
 
 * [Azure Resource Manager 개요][Azure Resource Manager overview]
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포][Deploy resources with Azure Resource Manager templates]
-* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
 * [Microsoft.ServiceBus 리소스 종류](/azure/templates/microsoft.servicebus/allversions)
 
-[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
+[Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus

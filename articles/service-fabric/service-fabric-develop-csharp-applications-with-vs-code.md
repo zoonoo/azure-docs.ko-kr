@@ -1,25 +1,16 @@
 ---
-title: Visual Studio Code를 사용하여 .NET Core Azure Service Fabric 애플리케이션 개발 | Microsoft Docs
+title: Visual Studio Code를 사용 하 여 .NET Core 응용 프로그램 개발
 description: 이 문서에서는 Visual Studio Code를 사용하여 .NET Core Service Fabric 애플리케이션을 빌드, 배포 및 디버그하는 방법을 보여 줍니다.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537770"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614526"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 C# Service Fabric 애플리케이션 개발
 
@@ -59,33 +50,33 @@ sudo code . --user-data-dir='.'
 
 ## <a name="build-the-application"></a>애플리케이션 빌드
 1. VS Code에서 (Ctrl + Shift + p)를 눌러 **명령 팔레트**를 엽니다.
-2. **Service Fabric: Build Application** 명령을 검색하고 선택합니다. 빌드 출력이 통합된 터미널로 전송됩니다.
+2. **Service Fabric: Build Application** 명령을 검색한 후 선택합니다. 빌드 출력이 통합된 터미널로 전송됩니다.
 
    ![VS Code의 Build Application 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-build-application.png)
 
 ## <a name="deploy-the-application-to-the-local-cluster"></a>로컬 클러스터에 애플리케이션 배포
 애플리케이션이 빌드되면 로컬 클러스터에 배포할 수 있습니다. 
 
-1. **명령 팔레트**에서 **Service Fabric: 애플리케이션 배포(Localhost) 명령**을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
+1. **명령 팔레트**에서 **Service Fabric: Deploy Application (Localhost) 명령**을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
 
    ![VS Code의 Deploy Application 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. 배포가 완료 되 면 브라우저를 시작 하 고 Service Fabric Explorer를 엽니다: http:\//localhost:19080 / 탐색기입니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
+4. 배포가 완료 되 면 브라우저를 시작 하 고 Service Fabric Explorer: http:\//localhost: 19080/Explorer를 엽니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
 
    ![Service Fabric Explorer의 Counter Service 애플리케이션](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. 응용 프로그램이 실행 중인지를 확인 한 후 브라우저를 시작 하 고이 페이지를 열려면: http:\//localhost:31002 합니다. 애플리케이션의 웹 프런트 엔드입니다. 증가하는 카운터의 현재 값을 확인하려면 페이지를 새로 고칩니다.
+4. 응용 프로그램이 실행 되 고 있는지 확인 한 후 브라우저를 시작 하 고 http:\//localhost: 31002 페이지를 엽니다. 애플리케이션의 웹 프런트 엔드입니다. 증가하는 카운터의 현재 값을 확인하려면 페이지를 새로 고칩니다.
 
    ![브라우저의 Counter Service 애플리케이션](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
 ## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에 응용 프로그램 게시
-로컬 클러스터에 응용 프로그램 배포와 함께 원격 Azure Service Fabric 클러스터에 응용 프로그램을 게시할 수도 있습니다. 
+로컬 클러스터에 응용 프로그램을 배포 하는 것과 함께 원격 Azure Service Fabric 클러스터에 응용 프로그램을 게시할 수도 있습니다. 
 
-1. 위의 지침을 사용 하 여 응용 프로그램을 빌드 했는지 확인 합니다. 생성된 된 구성 파일 업데이트 `Cloud.json` 게시 하려면 원격 클러스터의 세부 정보를 사용 하 여 합니다.
+1. 위의 지침을 사용 하 여 응용 프로그램을 빌드 했는지 확인 합니다. 게시 하려는 원격 클러스터의 세부 정보로 `Cloud.json` 생성 된 구성 파일을 업데이트 합니다.
 
-2. **명령 팔레트**에서 **Service Fabric: 응용 프로그램 명령 게시**합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
+2. **명령 팔레트**에서 **Service Fabric: 게시 응용 프로그램 명령을**선택 합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
 
-   ![VS Code에서 응용 프로그램 명령 게시](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+   ![VS Code에서 응용 프로그램 게시 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
 3. 배포가 완료되면 브라우저를 시작하고 `https:<clusterurl>:19080/Explorer`의 Service Fabric Explorer를 엽니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
 
@@ -102,7 +93,7 @@ VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로�
 
    ![VS Code 작업 영역의 디버그 아이콘](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. 브라우저에서 Service Fabric Explorer를 열어: http:\//localhost:19080 / 탐색기입니다. **애플리케이션**을 클릭하고 드릴다운하여 CounterService가 실행되고 있는 주 노드를 확인합니다. 아래 이미지에서 CounterService의 주 노드는 노드 0입니다.
+3. 브라우저에서 Service Fabric Explorer를 엽니다. http:\//srd: 19080/Explorer. **애플리케이션**을 클릭하고 드릴다운하여 CounterService가 실행되고 있는 주 노드를 확인합니다. 아래 이미지에서 CounterService의 주 노드는 노드 0입니다.
 
    ![CounterService의 주 노드](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 
@@ -118,7 +109,7 @@ VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로�
    
    ![디버거에서 연결 끊기](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-bar-disconnect.png)
        
-7. 디버깅을 완료하면 **Service Fabric: 애플리케이션 제거** 명령을 사용하여 로컬 클러스터에서 CounterService 애플리케이션을 제거할 수 있습니다. 
+7. 디버깅을 완료한 경우 **Service Fabric: Remove Application** 명령을 사용하여 로컬 클러스터에서 CounterService 애플리케이션이 제거할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

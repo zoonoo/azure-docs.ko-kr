@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: acac881a790644532121697e6b79e57a98b168fe
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3fc369c59626faae4c97f896650269820626b1ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839840"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454709"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>모델 결과 해석 Azure Machine Learning Studio (클래식)
 이 항목에서는 Azure Machine Learning Studio (클래식)에서 예측 결과를 시각화 하 고 해석 하는 방법에 대해 설명 합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
 
 
 
-클래식 버전의 Azure Machine Learning Studio에는 다음과 같은 네 가지 주요 종류의 기계 학습 모델이 있습니다.
+Azure Machine Learning Studio (클래식)에는 다음과 같은 네 가지 주요 종류의 기계 학습 모델이 있습니다.
 
 * 분류
-* 클러스터링
+* Clustering
 * 회귀
 * 추천 시스템
 
@@ -39,7 +39,7 @@ ms.locfileid: "73839840"
 
 이 항목에서는 예측 해석에 대해 다루지만 모델 평가는 다루지 않습니다. 모델을 평가 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning Studio에서 모델 성능을 평가 하는 방법 (클래식)](evaluate-model-performance.md)을 참조 하세요.
 
-Azure Machine Learning Studio의 클래식 버전을 처음 접하는 경우 간단한 실험을 만들어 시작 하는 데 도움이 필요 하면 [Azure Machine Learning Studio (클래식)에서 간단한 실험 만들기](create-experiment.md)를 참조 하세요.
+Azure Machine Learning Studio (클래식)을 처음 접하는 경우 간단한 실험을 만들어 시작 하는 데 도움이 필요 하면 [Azure Machine Learning Studio (클래식)에서 간단한 실험 만들기](create-experiment.md)를 참조 하세요.
 
 ## <a name="classification"></a>분류
 분류 문제의 하위 범주는 다음 두 가지가 있습니다.
@@ -52,7 +52,7 @@ Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 �
 ### <a name="two-class-classification"></a>2클래스 분류
 **예제 실험**
 
-2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning Studio 클래식 버전에 제공 된 Iri 데이터 집합은 두 개의 꽃 종류 (클래스 0 및 1)만 포함 하는 인기 있는 [iri 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set) 의 하위 집합입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
+2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning Studio (클래식)에 제공 되는 조리개 데이터 집합은 두 개의 꽃 종류 (클래스 0 및 1)만 포함 하는 인기 있는 [iri 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set) 의 하위 집합입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
 
 ![붓꽃 실험의 스크린샷](./media/interpret-model-results/1.png)
 
@@ -174,7 +174,7 @@ Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 �
 
 그림 14. 자동차 가격 회귀 문제의 웹 서비스 결과
 
-## <a name="clustering"></a>클러스터링
+## <a name="clustering"></a>Clustering
 **예제 실험**
 
 다시 붓꽃 데이터 집합을 사용하여 클러스터링 실험을 작성하겠습니다. 여기에서는 특징만 보유하고 클러스터링에 사용할 수 있도록 데이터 집합의 클래스 레이블을 필터링할 수 있습니다. 이 붓꽃 사용 사례에서는 학습 프로세스 중에 클러스터의 수를 2로 지정합니다. 즉, 꽃을 2클래스로 클러스터링합니다. 실험은 그림 15에 표시됩니다.
@@ -226,7 +226,7 @@ Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 �
 * 고객 특징 데이터
 * 음식점 기능 데이터
 
-Azure Machine Learning Studio 클래식 버전의에서 [Matchbox 학습 추천][train-matchbox-recommender] 모듈을 사용 하 여 수행할 수 있는 몇 가지 작업이 있습니다.
+Azure Machine Learning Studio (클래식)에서 [Matchbox 학습 추천][train-matchbox-recommender] 모듈을 사용 하 여 수행할 수 있는 몇 가지 작업이 있습니다.
 
 * 지정된 사용자와 항목의 등급 예측
 * 지정된 사용자를 위한 항목 추천

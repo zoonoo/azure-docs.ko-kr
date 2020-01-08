@@ -14,16 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 819aeb225c4f55f803a5fad19eff33bd1748bf46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368932"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 인프라 만들기
 
 Terraform을 사용하면 Azure에서 완전한 인프라를 정의하고 만들 수 있습니다. 일관되고 재현 가능한 방식으로 Azure 리소스를 만들고 구성하는 Terraform 템플릿을 이해하기 쉬운 형태로 빌드할 수 있습니다. 이 문서에서는 Terraform을 사용하여 전체 Linux 환경 및 지원 리소스를 만드는 방법을 보여 줍니다. 또한 [Terraform을 설치하고 구성하는](terraform-install-configure.md) 방법도 알아봅니다.
+
+> [!NOTE]
+> Terraform 특정 지원의 경우 커뮤니티 채널 중 하나를 사용 하 여 Terraform에 직접 문의 하세요.
+>
+>   • 커뮤니티 포털의 [Terraform 섹션](https://discuss.hashicorp.com/c/terraform-core) 에는 질문, 사용 사례 및 유용한 패턴이 포함 됩니다.
+>
+>   • 공급자 관련 질문에 대해서는 커뮤니티 포털의 [Terraform 공급자](https://discuss.hashicorp.com/c/terraform-providers) 섹션을 참조 하세요.
 
 
 ## <a name="create-azure-connection-and-resource-group"></a>Azure 연결 및 리소스 그룹 만들기
@@ -44,7 +51,7 @@ provider "azurerm" {
 }
 ```
 
-다음 섹션에서는 `myResourceGroup` 위치에 `eastus`이라는 리소스 그룹을 만듭니다.
+다음 섹션에서는 `eastus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```hcl
 resource "azurerm_resource_group" "myterraformgroup" {

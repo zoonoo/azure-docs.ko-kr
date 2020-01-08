@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리에서 리소스 카탈로그 만들기 및 관리-Azure Active Directory
+title: 자격 관리에서 리소스 만들기 & 관리-Azure AD
 description: Azure Active Directory 자격 관리에서 리소스의 새 컨테이너를 만들고 패키지에 액세스 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66e3dee83ccf4a857fda9d5804848108c0cc251
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 24e82abd2c95bcbfdde843a6636a809bb3aeb70c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174432"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422635"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 리소스 카탈로그 만들기 및 관리
 
@@ -129,7 +129,7 @@ ms.locfileid: "73174432"
 
     ![카탈로그 설정 편집](./media/entitlement-management-shared/catalog-edit.png)
 
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+1. **저장**을 클릭합니다.
 
 ## <a name="delete-a-catalog"></a>카탈로그 삭제
 

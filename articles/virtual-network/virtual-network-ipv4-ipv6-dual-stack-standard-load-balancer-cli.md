@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: c2f6c331e1f769f3d24fde9ab2adbd820b704d3b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f182ecc88f6b3362df4f3476a889fe15fb8e22e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186327"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368388"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI (미리 보기)
 
@@ -33,7 +33,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 Azure CLI를 로컬로 설치 하 고 사용 하도록 결정 한 경우이 빠른 시작을 사용 하려면 Azure CLI 버전 2.0.49 이상을 사용 해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 Azure virtual network에 대 한 IPv6 기능을 사용 하려면 다음과 같이 Azure CLI를 사용 하 여 구독을 구성 해야 합니다.
 
 ```azurecli
@@ -113,7 +113,7 @@ az network public-ip create \
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-이전 단계에서 만든 **DsPublicIP_v4** IPV4 공용 IP 주소와 연결 된 **dsLbBackEndPool_v4** 이라는 백 엔드 풀 인 **dsLbFrontEnd_v4**라는 프런트 엔드 풀을 포함 하는 이름이 **eslb** 인 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 표준 Load Balancer를 만듭니다. 
+**DsLbFrontEnd_v4** 라는 프런트 엔드 풀을 포함 하는라는 프런트 엔드 풀을 포함 하는 **dsLbBackEndPool_v4**이라는**dsLB**라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)를 사용 하 여 표준 Load Balancer를 만듭니다. 이전 단계에서 만든 **dsPublicIP_v4**입니다. 
 
 ```azurecli
 az network lb create \
@@ -150,6 +150,12 @@ az network lb address-pool create \
 --resource-group DsResourceGroup01
 ```
 
+### <a name="create-a-health-probe"></a>상태 프로브 만들기
+[az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
+
+```azurecli
+az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
+```
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
 부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 
@@ -165,6 +171,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80  \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v4
 
 
@@ -176,6 +183,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80 \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v6
 
 ```

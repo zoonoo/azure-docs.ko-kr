@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 9bfe88c34c78d18f2f5aefb8ae6946b9786030ad
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ecba85a859e902922dfa2b7563a3ceb96a9ef4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023507"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457463"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -58,7 +58,7 @@ Windows에서는 레지스트리에서 MIME 형식이 추출 됩니다.
 azcopy sync <source> <destination> [flags]
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 단일 파일 동기화:
 
@@ -78,7 +78,7 @@ azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[contai
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
 ```
 
-or
+또는
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
@@ -106,8 +106,9 @@ azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
 
-Sync a virtual directory:
+가상 디렉터리 동기화:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
@@ -138,6 +139,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude 특성** 문자열 (Windows에만 해당) 특성 목록과 일치 하는 특성을 가진 파일을 제외 합니다. 예: A; 삭제 &
 
+**--제외-경로 문자열은** 복사할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file .pdf)를 확인 합니다. 계정 순회와 함께 사용 하는 경우 경로는 컨테이너 이름을 포함 하지 않습니다.
+
 **--exclude-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일을 제외 합니다. 예: *.jpg;* . pdf; exactName
 
 **-h,--** 동기화 도움말 도움말
@@ -154,11 +157,11 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
 
-|옵션|설명|
+|옵션|Description|
 |---|---|
 |--0mbps uint32|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

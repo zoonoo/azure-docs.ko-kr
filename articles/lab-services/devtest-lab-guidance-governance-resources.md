@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561643"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644871"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Azure DevTest Labs 인프라의 거버넌스 - 리소스
 이 문서에서는 조직 내 DevTest Labs용으로 리소스를 조정하고 관리하는 방법을 설명합니다. 
@@ -44,7 +44,7 @@ Azure 구독 내에서 DevTest Labs 리소스를 조정하려면 어떻게 해�
 
 이 모델을 사용하는 조직은 Azure DevTest Labs를 원하는 규모로 유연하게 배포할 수 있습니다. 조직은 병렬로 실행되는 가상 머신 100~1,000개가 포함된 랩 수백 개를 여러 사업부용으로 지원할 수 있습니다. 따라서 동일한 구성 관리 및 보안 제어 원칙을 공유할 수 있는 중앙 집중식 엔터프라이즈 랩 솔루션의 개념을 더욱 확실하게 구축할 수 있습니다.
 
-또한 이 모델을 사용하는 조직에서는 Azure 구독과 연결된 리소스 한도가 소진되는 상황이 발생하지 않습니다. 구독 및 서비스 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요. DevTest Labs 프로비전 프로세스에서는 리소스 그룹을 많이 사용할 수 있습니다. Azure DevTest 구독의 지원 요청을 통해 한도 상향을 요청할 수 있습니다. 개발 구독 사용량이 늘어도 프로덕션 구독 내의 리소스에는 영향이 없습니다. DevTest Labs 크기 조정에 대한 자세한 내용은 [DevTest Labs의 할당량 및 한도 규모 조정](devtest-lab-scale-lab.md)을 참조하세요.
+또한 이 모델을 사용하는 조직에서는 Azure 구독과 연결된 리소스 한도가 소진되는 상황이 발생하지 않습니다. 구독 및 서비스 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요. DevTest Labs 프로비전 프로세스에서는 리소스 그룹을 많이 사용할 수 있습니다. Azure DevTest 구독의 지원 요청을 통해 한도 상향을 요청할 수 있습니다. 개발 구독 사용량이 늘어도 프로덕션 구독 내의 리소스에는 영향이 없습니다. DevTest Labs 크기 조정에 대한 자세한 내용은 [DevTest Labs의 할당량 및 한도 규모 조정](devtest-lab-scale-lab.md)을 참조하세요.
 
 일반적으로 고려해야 하는 구독 수준 제한은 프로덕션 구독과 개발 구독을 모두 지원하기 위해 네트워크 IP 범위가 할당되는 방식입니다. 기업이 Azure 구현을 기본적으로 사용하지 않고 네트워킹 스택을 직접 관리해야 하는 다른 네트워킹 토폴로지나 온-프레미스 연결이 사용된다고 가정할 때, 이러한 할당에서는 장기적인 확장을 고려해야 합니다. 권장 방식은 서브넷이 몇 개만 포함된 가상 네트워크를 여러 개 사용하는 대신 대규모 IP 주소 접두사가 할당되며 큰 서브넷 여러 개로 구분되는 적은 수의 가상 네트워크를 사용하는 것입니다. 예를 들어 구독이 10개이면 가상 네트워크를 구독당 하나씩 10개 정의할 수 있습니다. 격리하지 않아도 되는 모든 랩은 구독의 가상 네트워크에서 같은 서브넷을 공유할 수 있습니다.
 

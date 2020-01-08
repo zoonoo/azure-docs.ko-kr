@@ -5,35 +5,39 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894525"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530853"
 ---
-# <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그를 수집 합니다.
-Azure의 [리소스 로그](resource-logs-overview.md) 는 azure 리소스의 내부 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에서 리소스 로그를 수집 하는 방법에 대해 설명 합니다 .이를 통해 강력한 로그 쿼리를 사용 하 여 Azure Monitor 로그에 수집 된 다른 모니터링 데이터를 분석 하 고 경고와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다 가상화. 
+# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 플랫폼 로그를 수집 합니다.
+Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](resource-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에서 리소스 로그를 수집 하는 방법에 대해 설명 합니다 .이를 통해 강력한 로그 쿼리를 사용 하 여 Azure Monitor 로그에 수집 된 다른 모니터링 데이터를 분석 하 고 경고와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다 가상화. 
 
 
-## <a name="what-you-can-do-with-resource-logs-in-a-workspace"></a>작업 영역에서 리소스 로그로 수행할 수 있는 작업
-리소스 로그를 Log Analytics 작업 영역에 수집 하면 모든 Azure 리소스의 로그를 분석 하 고 다음을 포함 하는 [Azure Monitor 로그](data-platform-logs.md) 에 사용할 수 있는 모든 기능을 활용할 수 있습니다.
+## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>작업 영역에서 플랫폼 로그로 수행할 수 있는 작업
+Log Analytics 작업 영역에 플랫폼 로그를 수집 하 여 모든 Azure 리소스의 로그를 함께 분석 하 고 다음을 포함 하는 [Azure Monitor 로그](data-platform-logs.md) 에 사용할 수 있는 모든 기능을 활용할 수 있습니다.
 
 * **로그 쿼리** -강력한 쿼리 언어를 사용 하 여 [로그 쿼리](../log-query/log-query-overview.md) 를 만들어 진단 데이터를 신속 하 게 분석 하 고 통찰력을 얻고 Azure Monitor의 다른 원본에서 수집 된 데이터로 분석할 수 있습니다.
 * **경고** - [Azure Monitor의 로그 경고](alerts-log.md)를 사용 하 여 리소스 로그에서 식별 된 중요 한 조건 및 패턴에 대 한 사전 알림을 받습니다.
 * **시각화** -로그 쿼리 결과를 Azure 대시보드에 고정 하거나 대화형 보고서의 일부로 통합 문서에 포함 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 아직 없는 경우 [새 작업 영역을 만들어야](../learn/quick-create-workspace.md) 합니다. 설정을 구성 하는 사용자에 게 두 구독에 대 한 적절 한 RBAC 액세스 권한이 있는 한,이 작업 영역은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다.
 
 ## <a name="create-a-diagnostic-setting"></a>진단 설정 만들기
-리소스 로그는 기본적으로 수집 되지 않습니다. Azure 리소스에 대 한 진단 설정을 만들어 Log Analytics 작업 영역 및 기타 대상에서 수집 합니다. 자세한 내용은 [Azure에서 로그 및 메트릭을 수집 하는 진단 설정 만들기를](diagnostic-settings.md) 참조 하세요.
+Azure 리소스에 대 한 진단 설정을 만들어 Log Analytics 작업 영역 및 기타 대상에 플랫폼 로그를 보냅니다. 자세한 내용은 [Azure에서 로그 및 메트릭을 수집 하는 진단 설정 만들기를](diagnostic-settings.md) 참조 하세요.
 
-## <a name="collection-mode"></a>컬렉션 모드
-Log Analytics 작업 영역에 수집 된 데이터는 [Azure Monitor 로그 구조](../log-query/logs-structure.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
+
+## <a name="activity-log-collection"></a>활동 로그 수집
+단일 구독에서 최대 5 개의 Log Analytics 작업 영역으로 활동 로그를 보낼 수 있습니다. Log Analytics 작업 영역에서 수집 된 리소스 로그 데이터는 **Azureactivity** 테이블에 저장 됩니다. 
+
+## <a name="resource-log-collection-mode"></a>리소스 로그 수집 모드
+Log Analytics 작업 영역에서 수집 된 리소스 로그 데이터는 [Azure Monitor 로그 구조](../log-query/logs-structure.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
 
 - Azure 진단-기록 된 모든 데이터는 _Azurediagnostics_ 테이블에 저장 됩니다.
 - 리소스 관련 데이터는 리소스의 각 범주에 대 한 개별 테이블에 기록 됩니다.
@@ -51,7 +55,7 @@ Log Analytics 작업 영역에 수집 된 데이터는 [Azure Monitor 로그 구
 
 AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.  
 
-| ResourceProvider    | 범주     | 문자열(UTF-8 형식) 또는  | b  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | 범주     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
 | Microsoft Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -68,7 +72,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
  
 - *Service1AuditLogs* 테이블은 다음과 같습니다.
 
-    | 리소스 공급자 | 범주 | 문자열(UTF-8 형식) 또는 | b | C |
+    | 리소스 공급자 | 범주 | A | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x1 | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
@@ -120,5 +124,5 @@ Azure Data Factory은 매우 자세한 로그 집합으로 인해 많은 열을 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 리소스 로그에 대해 알아보려면 [Azure 리소스 로그 개요](resource-logs-overview.md)를 참조 하세요.
-* Log Analytics 작업 영역에 대 한 리소스 로그를 수집 하는 진단 설정을 만들려면 [Azure에서 로그 및 메트릭을 수집 하는 진단 설정 만들기](diagnostic-settings.md)를 참조 하세요.
+* [자세한 내용은 리소스 로그를 참조](resource-logs-overview.md)하세요.
+* [Azure에서 로그 및 메트릭을 수집 하는 진단 설정을 만듭니다](diagnostic-settings.md).

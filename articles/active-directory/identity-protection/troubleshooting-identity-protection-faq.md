@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d22973867782ddb64ced2ac95e84c0b27a3addd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443567"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
 
@@ -42,6 +42,14 @@ Id 보호에서 **사용자 위험 해제** 사용자 **의 블레이드\>를 �
 
 ## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
+### <a name="why-is-a-user-is-at-risk"></a>사용자가 위험에 노출 되는 이유는 무엇 인가요?
+
+Azure AD ID 보호 고객 인 경우 [위험한 사용자](howto-identity-protection-investigate-risk.md#risky-users) 보기로 이동 하 고 위험 사용자를 클릭 합니다. 아래쪽의 서랍에 ' 위험 기록 ' 탭에는 사용자 위험 변경에 대 한 모든 이벤트가 표시 됩니다. 사용자에 대 한 모든 위험한 로그인을 보려면 ' 사용자의 위험한 로그인 '을 클릭 합니다. 이 사용자에 대 한 모든 위험 검색을 보려면 ' 사용자의 위험 검색 '을 클릭 합니다.
+
+### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>특정 형식의 검색 보고서를 어떻게 가져올 수 있나요?
+
+위험 검색 보기로 이동 하 고 ' 검색 유형 '으로 필터링 합니다. 그런 다음에서이 보고서를 다운로드할 수 있습니다. CSV 또는 맨 위에 있는 **다운로드** 단추를 사용 하는 JSON 형식입니다. 자세한 내용은 [방법: 위험 조사](howto-identity-protection-investigate-risk.md#risk-detections)문서를 참조 하세요.
+
 ### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>각 위험 검색에 대해 고유한 위험 수준을 설정 하지 못한 이유는 무엇 인가요?
 
 검색 정밀도를 기준으로 하는 ID 보호의 위험 수준은 Microsoft에서 감독하는 기계 학습을 통해 제공됩니다. 사용자에게 제공되는 환경을 사용자 지정하려는 경우 관리자는 사용자 위험 및 로그인 위험 정책에서 특정 사용자/그룹을 포함/제외할 수 있습니다.
@@ -49,6 +57,20 @@ Id 보호에서 **사용자 위험 해제** 사용자 **의 블레이드\>를 �
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>사용자가 실제로 로그인한 위치와 로그인 위치가 일치하지 않는 이유는 무엇인가요?
 
 IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니다. 로그인 보고서에 나열 된 위치가 실제 위치와 일치 하지 않는 것으로 보이면 Microsoft 지원에 문의 하세요. 
+
+### <a name="how-can-i-close-specific-risk-detections-like-i-did-in-the-old-ui"></a>이전 UI에서와 같이 특정 위험 검색을 닫으려면 어떻게 해야 하나요?
+
+연결 된 로그인을 손상 또는 안전 하 게 확인 하 여 위험 검색에 대 한 피드백을 제공할 수 있습니다. 로그인에 지정 된 피드백은 해당 로그인에 대 한 모든 검색으로 trickles 됩니다. 로그인에 연결 되지 않은 검색을 종료 하려는 경우 사용자 수준에 대 한 피드백을 제공할 수 있습니다. 자세한 내용은 [방법: Azure AD ID 보호에서 위험 피드백 제공](howto-identity-protection-risk-feedback.md)문서를 참조 하세요.
+
+### <a name="how-far-can-i-go-back-in-time-to-understand-whats-going-on-with-my-user"></a>내 사용자의 진행 상황을 이해 하는 데 얼마나 많은 시간이 소요 될 수 있나요?
+
+- [위험한 사용자](howto-identity-protection-investigate-risk.md#risky-users) 보기에는 모든 이전 로그인에 따라 사용자의 위험이 표시 됩니다. 
+- [위험한 로그인](howto-identity-protection-investigate-risk.md#risky-sign-ins) 보기에는 지난 30 일 동안 위험에 노출 된 로그인이 표시 됩니다. 
+- [위험](howto-identity-protection-investigate-risk.md#risk-detections) 검색 보기에는 지난 90 일 동안 발생 한 위험 검색이 표시 됩니다.
+
+### <a name="how-can-i-learn-more-about-a-specific-detection"></a>특정 검색에 대해 자세히 알아보려면 어떻게 해야 하나요?
+
+모든 위험 검색은 [위험 이란?](concept-identity-protection-risks.md#risk-types-and-detection)문서에 설명 되어 있습니다. 검색에 대 한 자세한 내용을 보려면 Azure Portal 검색 옆의 (i) 기호를 마우스로 가리킵니다.
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>ID 보호의 피드백 메커니즘은 어떤 방식으로 작동하나요?
 

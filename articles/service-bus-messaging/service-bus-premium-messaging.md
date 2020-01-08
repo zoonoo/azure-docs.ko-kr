@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus 프리미엄 및 표준 메시지 가격 책정 계층 개요 | Microsoft Docs
+title: Azure Service Bus premium 및 standard 계층 Microsoft Docs
 description: Service Bus 프리미엄 및 표준 메시징 계층
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 7565ce24199dd8f86f756f01f66aa79e764a1a12
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: cc783dc4b2bf49724f4a2c7ab9cd9904ded2c703
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352854"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -29,7 +29,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 애플리케�
 
 다음 테이블에는 차이가 자세히 설명되어 있습니다.
 
-| Premium | Standard |
+| 프리미엄 | Standard |
 | --- | --- |
 | 높은 처리량 |가변 처리량 |
 | 예측 가능한 성능 |가변 대기 시간 |

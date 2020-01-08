@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad6c63ee15bc97ddd0ca6432f0b0f7b25a859804
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462202"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Azure RBAC 및 Azure Resource Manager 템플릿을 사용 하 여 역할 할당 추가
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Azure PowerShell 또는 Azure CLI를 사용 하는 것 외에도 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md)사용 하 여 역할을 할당할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 템플릿을 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Azure PowerShell 또는 Azure CLI를 사용 하는 것 외에도 [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/template-syntax.md)사용 하 여 역할을 할당할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 템플릿을 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
 ## <a name="get-object-ids"></a>개체 Id 가져오기
 
@@ -362,6 +362,6 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-- [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md)
+- [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)
 - [구독 수준에서 리소스 그룹 및 리소스 만들기](../azure-resource-manager/deploy-to-subscription.md)
 - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=rbac)

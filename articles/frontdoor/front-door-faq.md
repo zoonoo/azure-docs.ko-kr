@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: fa9de74c89ba3f0351169f143146dc21b80ee666
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790537"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639857"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure Front 도어 서비스에 대 한 질문과 대답
 
@@ -132,7 +132,7 @@ Azure 전면 도어 (AFD)에는 트래픽을 라우팅하는 공용 IP 또는 �
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door-service"></a>Azure Front 도어 서비스에 대 한 다양 한 시간 제한 및 제한은 무엇 인가요?
 
-[Azure Front 도어 서비스에 대해 문서화 된 시간 제한 및 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits)에 대해 알아봅니다.
+[Azure Front 도어 서비스에 대해 문서화 된 시간 제한 및 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits)에 대해 알아봅니다.
 
 ## <a name="performance"></a>성능 중심
 
@@ -215,5 +215,5 @@ Azure Front 도어 서비스에 감사 로그를 사용할 수 있습니다. 포
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
 - [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

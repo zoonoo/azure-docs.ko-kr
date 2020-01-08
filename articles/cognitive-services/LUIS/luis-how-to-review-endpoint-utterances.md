@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 67953f552b5b2bcdd7d13253548227e57dab8548
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: b04a17c893f748670eb1c79f0ada879c0d5c401f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381718"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>엔드포인트 길이 발언을 검토 하 여 LUIS 앱을 개선 하는 방법
 
 올바른 예측에 대 한 끝점 길이 발언를 검토 하는 프로세스를 [활성 학습](luis-concept-review-endpoint-utterances.md)이라고 합니다. 활성 학습은 끝점 쿼리를 캡처하고 사용자의 끝점 길이 발언를 선택 합니다. 이러한 길이 발언를 검토 하 여 이러한 읽기 전용 길이 발언에 대 한 의도 및 표시 엔터티를 선택 합니다. 예제에 이러한 변경 내용을 적용 한 다음 학습 및 게시 길이 발언. LUIS는 길이 발언를 보다 정확 하 게 식별 합니다.
-
-LUIS 앱에 기여 하는 사용자가 많은 경우 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -32,21 +30,21 @@ LUIS 앱에 기여 하는 사용자가 많은 경우
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>길이 발언를 맞추기 위한 올바른 의도 예측
 
-각 발화에는 **맞춤 의도** 열에 표시되는 제안된 의도가 포함됩니다. 
+각 발화에는 **맞춤 의도** 열에 표시되는 제안된 의도가 포함됩니다.
 
 > [!div class="mx-imgBorder"]
 > [LUIS가 확실 하지 않은 길이 발언 검토 끝점을 ![.](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-해당 의도에 동의 하면 확인 표시를 선택 합니다. 제안에 동의하지 않는 경우, 맞춤 의도 드롭다운 목록에서 올바른 의도를 선택한 다음, 맞춤 의도 오른쪽에 있는 확인 표시를 선택합니다. 확인 표시를 선택한 후에는 utterance이 의도 한 것으로 이동 하 고 **검토 끝점 길이 발언** 목록에서 제거 됩니다. 
+해당 의도에 동의 하면 확인 표시를 선택 합니다. 제안에 동의하지 않는 경우, 맞춤 의도 드롭다운 목록에서 올바른 의도를 선택한 다음, 맞춤 의도 오른쪽에 있는 확인 표시를 선택합니다. 확인 표시를 선택한 후에는 utterance이 의도 한 것으로 이동 하 고 **검토 끝점 길이 발언** 목록에서 제거 됩니다.
 
 > [!TIP]
 > **길이 발언 검토** 목록에서 모든 예제 길이 발언의 엔터티 예측을 검토 하 고 수정 하려면 의도 세부 정보 페이지로 이동 하는 것이 중요 합니다.
 
 ## <a name="delete-utterance"></a>발화 삭제
 
-검토 목록에서 각 발화를 삭제할 수 있습니다. 삭제되면 목록에 다시 나타나지 않습니다. 이는 사용자가 엔드포인트에서 동일한 발화를 입력하는 경우에도 적용됩니다. 
+검토 목록에서 각 발화를 삭제할 수 있습니다. 삭제되면 목록에 다시 나타나지 않습니다. 이는 사용자가 엔드포인트에서 동일한 발화를 입력하는 경우에도 적용됩니다.
 
-Utterance를 삭제 해야 하는지 확실 하지 않은 경우이를 없음 의도로 이동 하거나 `miscellaneous`와 같은 새 의도를 만들어 utterance을 해당 의도로 이동 합니다. 
+Utterance를 삭제 해야 하는지 확실 하지 않은 경우이를 없음 의도로 이동 하거나 `miscellaneous`와 같은 새 의도를 만들어 utterance을 해당 의도로 이동 합니다.
 
 ## <a name="disable-active-learning"></a>활성 학습 사용 안 함
 
