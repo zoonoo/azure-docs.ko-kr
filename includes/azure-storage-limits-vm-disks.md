@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 12/25/2019
 ms.locfileid: "68669753"
 ---
 Azure 가상 컴퓨터에 많은 데이터 디스크를 연결할 수 있습니다. VM의 데이터 디스크에 대 한 확장성 및 성능 목표에 따라 성능 및 용량 요구 사항을 충족 하는 데 필요한 디스크의 수와 유형을 결정할 수 있습니다.
@@ -24,7 +24,7 @@ Azure 가상 컴퓨터에 많은 데이터 디스크를 연결할 수 있습니�
 > | --- | --- | --- |
 > | 표준 관리 디스크 | 50,000 | 50,000 |
 > | 표준 SSD 관리 디스크 | 50,000 | 50,000 |
-> | 프리미엄 관리 디스크 | 50,000 | 50,000 |
+> | 프리미엄 managed disks | 50,000 | 50,000 |
 > | Standard_LRS 스냅숏 | 50,000 | 50,000 |
 > | Standard_ZRS 스냅숏 | 50,000 | 50,000 |
 > | 관리 이미지 | 50,000 | 50,000 |

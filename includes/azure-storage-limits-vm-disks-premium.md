@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 12/25/2019
 ms.locfileid: "67182192"
 ---
 **프리미엄 관리 되지 않는 가상 머신 디스크: 계정 당 제한**
@@ -19,9 +19,9 @@ ms.locfileid: "67182192"
 | 계정당 총 스냅샷 용량 |10TB |
 | 계정 당 최대 대역폭 (수신 + 송신)<sup>1</sup> |<=50 Gbps |
 
-<sup>1</sup> *수신* 은 저장소 계정에 전송 된 요청의 모든 데이터를 나타냅니다. *송신* 은 저장소 계정에서 받은 응답의 모든 데이터를 참조 합니다.
+<sup>1</sup>*수신* 은 저장소 계정에 전송 된 요청의 모든 데이터를 나타냅니다. *송신* 은 저장소 계정에서 받은 응답의 모든 데이터를 참조 합니다.
 
-**프리미엄 관리 되지 않는 가상 머신 디스크: 디스크당 제한**
+**프리미엄 관리 되지 않는 가상 머신 디스크: 디스크 단위 제한**
 
 | Premium Storage 디스크 유형 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
