@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 쿼리에서 문자열 작업 | Microsoft Docs
 description: Azure Monitor 로그 쿼리에서 문자열을 편집, 비교, 검색하고 다양한 기타 작업을 수행하는 방법을 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397459"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
 
@@ -47,39 +46,39 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>문자열 비교
 
-연산자       |설명                         |대/소문자 구분|예제(`true` 생성)
+연산자       |Description                         |대/소문자 구분|예제(`true` 생성)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |같음                              |yes           |`"aBc" == "aBc"`
-`!=`           |같지 않음                          |yes           |`"abc" != "ABC"`
+`==`           |같음                              |예           |`"aBc" == "aBc"`
+`!=`           |같지 않음                          |예           |`"abc" != "ABC"`
 `=~`           |같음                              |아닙니다.            |`"abc" =~ "ABC"`
 `!~`           |같지 않음                          |아닙니다.            |`"aBc" !~ "xyz"`
 `has`          |오른쪽이 왼쪽의 전체 항임 |아닙니다.|`"North America" has "america"`
 `!has`         |오른쪽이 왼쪽의 전체 항이 아님       |아닙니다.            |`"North America" !has "amer"` 
-`has_cs`       |오른쪽이 왼쪽의 전체 항임 |yes|`"North America" has_cs "America"`
-`!has_cs`      |오른쪽이 왼쪽의 전체 항이 아님       |yes            |`"North America" !has_cs "amer"` 
+`has_cs`       |오른쪽이 왼쪽의 전체 항임 |예|`"North America" has_cs "America"`
+`!has_cs`      |오른쪽이 왼쪽의 전체 항이 아님       |예            |`"North America" !has_cs "amer"` 
 `hasprefix`    |오른쪽이 왼쪽의 항 접두사임         |아닙니다.            |`"North America" hasprefix "ame"`
 `!hasprefix`   |오른쪽이 왼쪽의 항 접두사가 아님     |아닙니다.            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |오른쪽이 왼쪽의 항 접두사임         |yes            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |오른쪽이 왼쪽의 항 접두사가 아님     |yes            |`"North America" !hasprefix_cs "CA"` 
+`hasprefix_cs`    |오른쪽이 왼쪽의 항 접두사임         |예            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |오른쪽이 왼쪽의 항 접두사가 아님     |예            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |오른쪽이 왼쪽의 항 접미사임         |아닙니다.            |`"North America" hassuffix "ica"`
 `!hassuffix`   |오른쪽이 왼쪽의 항 접미사가 아님     |아닙니다.            |`"North America" !hassuffix "americ"`
-`hassuffix_cs`    |오른쪽이 왼쪽의 항 접미사임         |yes            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |yes            |`"North America" !hassuffix_cs "icA"`
+`hassuffix_cs`    |오른쪽이 왼쪽의 항 접미사임         |예            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |예            |`"North America" !hassuffix_cs "icA"`
 `contains`     |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |아닙니다.            |`"FabriKam" contains "BRik"`
 `!contains`    |오른쪽이 왼쪽에 발생하지 않음           |아닙니다.            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |yes           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |오른쪽이 왼쪽에 발생하지 않음           |yes           |`"Fabrikam" !contains_cs "Kam"`
+`contains_cs`   |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |예           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |오른쪽이 왼쪽에 발생하지 않음           |예           |`"Fabrikam" !contains_cs "Kam"`
 `startswith`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|아닙니다.            |`"Fabrikam" startswith "fab"`
 `!startswith`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|아닙니다.        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|yes            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|yes        |`"Fabrikam" !startswith_cs "fab"`
+`startswith_cs`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|예            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|예        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아닙니다.             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아닙니다.         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|yes             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|yes         |`"Fabrikam" !endswith "brik"`
-`matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |yes           |`"Fabrikam" matches regex "b.*k"`
-`in`           |요소 중 하나와 같음       |yes           |`"abc" in ("123", "345", "abc")`
-`!in`          |어떤 요소와도 같지 않음   |yes           |`"bca" !in ("123", "345", "abc")`
+`endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|예             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|예         |`"Fabrikam" !endswith "brik"`
+`matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |예           |`"Fabrikam" matches regex "b.*k"`
+`in`           |요소 중 하나와 같음       |예           |`"abc" in ("123", "345", "abc")`
+`!in`          |어떤 요소와도 같지 않음   |예           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof

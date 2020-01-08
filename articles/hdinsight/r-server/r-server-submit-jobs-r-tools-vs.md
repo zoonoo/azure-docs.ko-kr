@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 4c02632c44d095a6d1d1c583a1ab201acad63bf9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229008"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435264"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
-RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/vs/rtvs/))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다. RTVS는 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019)에서 사용할 수 없습니다.
+RTVS([Visual Studio용 R 도구](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다. RTVS는 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019)에서 사용할 수 없습니다.
 
-RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) 등을 통해 [R 대화형 창](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data)(REPL), intellisense(코드 완성), [플롯 시각화](https://docs.microsoft.com/visualstudio/rtvs/debugging)와 같은 도구를 제공하여 R 워크플로를 개선합니다.
+RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https://docs.microsoft.com/visualstudio/rtvs/debugging) 등을 통해 [R 대화형 창](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl)(REPL), intellisense(코드 완성), [플롯 시각화](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data)와 같은 도구를 제공하여 R 워크플로를 개선합니다.
 
 ## <a name="set-up-your-environment"></a>환경 설정
 
@@ -52,7 +52,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 2. [RTVS 확장](https://docs.microsoft.com/visualstudio/rtvs/installation)을 설치합니다.
 3. [샘플 zip 파일](https://github.com/Microsoft/RTVS-docs/archive/master.zip)을 다운로드합니다.
 4. Visual Studio에서 `examples/Examples.sln`을 열어 솔루션을 시작합니다.
-5. `1-Getting Started with R.R` 솔루션 폴더에서 `A first look at R` 파일을 엽니다.
+5. `A first look at R` 솔루션 폴더에서 `1-Getting Started with R.R` 파일을 엽니다.
 6. 파일 맨 위부터, Ctrl + Enter를 눌러 각 줄을 한 번에 하나씩 지나가면서 R 대화형 창까지 이동합니다. 일부 줄은 패키지를 설치하므로 다소 시간이 걸릴 수 있습니다.
     * 또는 R 파일의 모든 줄을 선택한 다음(Ctrl+A), 모든 줄을 실행하거나(Ctrl+Enter) 도구 모음에서 대화형으로 실행 아이콘을 선택합니다.
 

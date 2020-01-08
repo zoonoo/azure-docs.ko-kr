@@ -2,25 +2,21 @@
 title: Azure Automation Runbook 형식
 description: 'Azure Automation에서 사용할 수 있는 다양한 형식의 Runbook을 설명하고 사용할 형식을 결정할 때 고려해야 하는 사항을 설명합니다. '
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1991b7c227e62efcd8c0b637f3e732d737cabb34
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6346c29210b6390f11c884ff51e0b60af89bbbb7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850689"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420901"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
 Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 테이블에서는 각 유형에 대해 간략하게 설명합니다.  아래 섹션은 각각을 사용할 경우에 대한 고려 사항을 포함하여 각 형식에 대해 자세한 정보를 제공합니다.
 
-| Type | 설명 |
+| 유형 | Description |
 |:--- |:--- |
 | [그래픽](#graphical-runbooks)|Windows PowerShell을 기반으로 하며 Azure 포털의 그래픽 편집기로 완전하게 생성 및 편집됩니다. |
 | [그래픽 PowerShell 워크플로](#graphical-runbooks)|Windows PowerShell 워크플로를 기반으로 하며 Azure 포털의 그래픽 편집기로 완전하게 생성 및 편집됩니다. |
@@ -116,7 +112,7 @@ Python Runbook은 Python 2에서 컴파일됩니다.  Azure Portal의 텍스트 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 그래픽 Runbook 작성에 대한 자세한 내용은 [Azure Automation에서 그래픽 제작](automation-graphical-authoring-intro.md)
+* 그래픽 Runbook 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
 * Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)
 * Runbook을 만들거나 가져오는 방법에 대한 자세한 내용은 [Runbook 만들기 또는 가져오기](manage-runbooks.md)
 * 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/powershell/scripting/overview)를 참조 하세요.

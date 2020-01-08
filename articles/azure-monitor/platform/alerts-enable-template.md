@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: faeb4df915cc5c56e21d1857fe75a956d419c46e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: dd02fe17d5225a63f352069b3c6c5a47b7cbcb73
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397287"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
-이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
 
 > [!NOTE]
 > 
@@ -24,7 +24,7 @@ ms.locfileid: "71262099"
 >
 
 
-기본 단계는 다음과 같습니다.
+기본적인 단계는 다음과 같습니다.
 
 1. 경고를 만드는 방법을 설명하는 JSON 파일로 템플릿을 만듭니다.
 2. [배포 방법을 사용하여 템플릿을 배포합니다](../../azure-resource-manager/resource-group-template-deploy.md).

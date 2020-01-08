@@ -1,25 +1,14 @@
 ---
-title: 애플리케이션 업그레이드 문제 해결 | Microsoft Docs
+title: 애플리케이션 업그레이드 문제 해결
 description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: f5df528c7e46a5cb2a5df98f0088a451eb08cd6a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377925"
 ---
 # <a name="troubleshoot-application-upgrades"></a>애플리케이션 업그레이드 문제 해결
 

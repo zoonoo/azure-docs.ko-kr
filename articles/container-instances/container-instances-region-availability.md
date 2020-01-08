@@ -2,13 +2,14 @@
 title: 지역별 리소스 가용성
 description: 여러 다른 Azure 지역의 Azure Container Instances 서비스에 대한 컴퓨팅 및 메모리 리소스 가용성입니다.
 ms.topic: article
-ms.date: 05/14/2019
-ms.openlocfilehash: aef66a9fdbe73ccd4da79ce972b7beb061e9fe35
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 456b9754d7a6e88705853d4c4d701110e4841eb0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533478"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445821"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -25,24 +26,23 @@ ms.locfileid: "74533478"
 
 다음 지역 및 리소스는 Linux 및 [지원되는](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016 기반 컨테이너가 포함된 컨테이너 그룹에서 사용할 수 있습니다.
 
-| 위치 | OS | CPU | 메모리(GB) |
+| 개 지역 | OS | 최대 CPU | 최대 메모리 (GB) |
 | -------- | -- | :---: | :-----------: |
-| 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 미국 서부 | Linux | 4 | 16 |
-| 유럽 서부, 미국 서부 2 | Linux | 4 | 14 |
+| 브라질 남부, 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 서유럽, 미국 중부, 동남 아시아, 인도 남부, 영국 남부, 유럽 서부, 미국 서 부, 미국 서 부 2 | Linux | 4 | 16 |
 | 오스트레일리아 동부, 일본 동부 | Linux | 2 | 8 |
-| 미국 중북부, 인도 남부 | Linux | 2 | 3.5 |
-| 서유럽 | Windows | 4 | 16 |
+| 미국 중북부 | Linux | 2 | 3.5 |
+| 브라질 남부, 일본 동부, 유럽 서부 | Windows | 4 | 16 |
 | 미국 동부, 미국 서부 | Windows | 4 | 14 |
-| 오스트레일리아 동부, 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부 2, 일본 동부, 미국 중북부, 유럽 북부, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 미국 서부 2 | Windows | 2 | 3.5 |
+| 오스트레일리아 동부, 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부 2, 미국 중 북부, 유럽 북부, 남부 중부, 동남 아시아, 인도 남부, 영국 남부, 미국 서 부 2 | Windows | 2 | 3.5 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>가용성 - Windows Server 2019 LTSC, 1809 배포(미리 보기)
 
 다음 지역 및 리소스는 Windows Server 2019 기반 컨테이너(미리 보기)가 포함된 컨테이너 그룹에서 사용할 수 있습니다.
 
-| 위치 | OS | CPU | 메모리(GB) |
+| 개 지역 | OS | 최대 CPU | 최대 메모리 (GB) |
 | -------- | -- | :---: | :-----------: |
-| 동남 아시아, 북유럽, 서유럽, 미국 중부, 미국 동부, 미국 서부, 미국 서부 2 | Windows | 4 | 16 |
-| 미국 동부 2 | Windows | 2 | 3.5 |
+| 오스트레일리아 동부, 브라질 남부, 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부, 일본 동부, 미국 중 북부, 서유럽, 미국 중 북부, 동남 아시아, 인도 남부, 영국 남부, 유럽 서부 | Windows | 4 | 16 |
+| 미국 동부 2, 미국 서 부 2 | Windows | 2 | 3.5 |
 
 
 ## <a name="availability---virtual-network-deployment-preview"></a>가용성 - 가상 네트워크 배포(미리 보기)

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371397"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -56,16 +56,21 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 | **구문** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **예제** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
+> [!TIP]
+> 이 예에서는 경로 인수를 작은따옴표 (' ')로 묶습니다. Windows 명령 셸 (cmd.exe)을 제외한 모든 명령 셸에서 작은따옴표를 사용 합니다. Windows 명령 셸 (cmd.exe)을 사용 하는 경우 작은따옴표 (' ') 대신 경로 인수를 큰따옴표 ("")로 묶습니다.
+
 이 명령은 테스트 데이터를 지정 된 대상에 업로드 하 여 성능 벤치 마크를 실행 합니다. 테스트 데이터는 메모리에 생성 되 고 대상에 업로드 된 후 테스트가 완료 된 후 대상에서 삭제 됩니다. 선택적 명령 매개 변수를 사용 하 여 생성할 파일 수 및 원하는 크기를 지정할 수 있습니다.
+
+자세한 참조 문서는 [azcopy 도구](storage-ref-azcopy-bench.md)를 참조 하세요.
 
 이 명령에 대 한 자세한 도움말 지침을 보려면 `azcopy bench -h`를 입력 한 다음 ENTER 키를 누릅니다.
 
 ### <a name="optimize-throughput"></a>처리량 최적화
 
-`cap-mbps` 플래그를 사용 하 여 처리량 데이터 속도를 최대값으로 지정할 수 있습니다. 예를 들어 다음 명령은 초당 메가 비트 (MB)의 처리량을 `10` 합니다.
+명령에서 `cap-mbps` 플래그를 사용 하 여 처리량 데이터 속도의 최대값을 지정할 수 있습니다. 예를 들어 다음 명령은 작업 및 cap 처리량을 초당 `10` 메가 비트 (MB)로 다시 시작 합니다. 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 작은 파일을 전송할 때 처리량이 줄어들 수 있습니다. `AZCOPY_CONCURRENCY_VALUE` 환경 변수를 설정 하 여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정 합니다.  
@@ -146,6 +151,9 @@ azcopy jobs show <job-id> --with-status=Failed
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
+
+> [!TIP]
+> SAS 토큰과 같은 경로 인수를 작은따옴표 (' ')로 묶습니다. Windows 명령 셸 (cmd.exe)을 제외한 모든 명령 셸에서 작은따옴표를 사용 합니다. Windows 명령 셸 (cmd.exe)을 사용 하는 경우 작은따옴표 (' ') 대신 경로 인수를 큰따옴표 ("")로 묶습니다.
 
 작업을 다시 시작 하면 AzCopy에서 작업 계획 파일을 찾습니다. 계획 파일에는 작업을 처음 만들 때 처리를 위해 식별 된 모든 파일이 나열 됩니다. 작업을 다시 시작 하면 AzCopy는 아직 전송 되지 않은 계획 파일에 나열 된 모든 파일을 전송 하려고 시도 합니다.
 

@@ -1,6 +1,7 @@
 ---
-title: Azure Storage 클라이언트에 대한 보안 TLS 사용 | Microsoft Docs
-description: Azure Storage의 클라이언트에서 TLS 1.2를 사용하는 방법을 알아봅니다.
+title: .NET으로 보안 TLS 사용
+titleSuffix: Azure Storage
+description: Azure Storage 용 .NET 클라이언트 라이브러리를 사용 하 여 TLS 1.2을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +10,12 @@ ms.date: 06/25/2018
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 218708ffc9a680150d7b6bf559a00ca87054bbe8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81c9a8fe9513f1f8fc65ad64b34f0fb04383569b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65152960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371805"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Azure Storage 클라이언트에 대한 보안 TLS 사용
 

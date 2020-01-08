@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8bfff7790fa4984241e1c3dda19a20c8b13591fb
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 819929fb157444ae53df113c0318dd18146156c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442023"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
@@ -21,7 +21,6 @@ Azure Cosmos DB는 널리 사용 되는 데이터베이스에 대 한 유선 프
 SQL API, Gremlin API 및 Table API 사용 하는 경우 Azure Cosmos 계정에 구성 된 기본 일관성 수준이 사용 됩니다. 
 
 MongoDB에 대 한 Cassandra API 또는 Azure Cosmos DB의 API를 사용 하는 경우 응용 프로그램은 더 강력한 일관성 및 내구성 보증을 통해 각각 Apache Cassandra 및 MongoDB에서 제공 하는 일관성 수준의 전체 집합을 얻습니다. 이 문서에서는 Apache Cassandra 및 MongoDB 일관성 수준에 대 한 해당 Azure Cosmos DB 일관성 수준을 보여 줍니다.
-
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 및 Azure Cosmos DB 일관성 수준 간 매핑
 
@@ -57,6 +56,6 @@ MongoDB에 Azure Cosmos DB API를 사용 하는 동안:
 
 오픈 소스 API 및 Cosmos DB API 간의 일관성 수준 및 호환성에 대해 자세히 알아봅니다. 다음 문서를 참조하세요.
 
-* [다양한 일관성 수준에 대한 가용성 및 성능의 장단점](consistency-levels-tradeoffs.md)
+* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
 * [Azure Cosmos DB의 API for MongoDB에서 지원되는 MongoDB 기능](mongodb-feature-support.md)
 * [Azure Cosmos DB Cassandra API에서 지원된 Apache Cassandra 기능](cassandra-support.md)

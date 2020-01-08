@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure VM 운영 체제의 상태, 애플리케�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/02/2019
-ms.openlocfilehash: f6719a8c28571faceb6ebad0567d13a4edc60fe6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b59e2d1897557b47bcfeafbc17141f869e2f192e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450688"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)의 알려진 문제
 

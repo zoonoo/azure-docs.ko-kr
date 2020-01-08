@@ -7,17 +7,17 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 4a95804bcff3653df42186907f03d0bc27a603ea
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9a91f81c9d28f1b3c8d553a2a8a26d53ff1b2b3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869717"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444483"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [포털](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -26,7 +26,7 @@ ms.locfileid: "74869717"
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 
 
-이 문서에서는 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md)사용 하 여 Azure 데이터 탐색기 클러스터와 데이터베이스를 만듭니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성](/azure/azure-resource-manager/resource-group-authoring-templates)을 참조 하세요. 템플릿에 사용할 JSON 구문 및 속성은 [Microsoft. Kusto 리소스 유형](/azure/templates/microsoft.kusto/allversions)을 참조 하세요.
+이 문서에서는 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md)사용 하 여 Azure 데이터 탐색기 클러스터와 데이터베이스를 만듭니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성](/azure/azure-resource-manager/resource-group-authoring-templates)을 참조 하세요. 템플릿에 사용할 JSON 구문 및 속성은 [Microsoft. Kusto 리소스 유형](/azure/templates/microsoft.kusto/allversions)을 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -108,7 +108,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     **Azure에 배포** 단추를 선택하면 Azure Portal에서 배포 양식을 작성할 수 있는 페이지로 이동하게 됩니다.
 
-    ![Deploy to Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
+    ![Azure에 배포](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
     형식을 사용 하 여 [Azure Portal에서 템플릿을 편집 하 고 배포할](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) 수 있습니다.
 

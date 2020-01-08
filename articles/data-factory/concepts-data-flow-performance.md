@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444518"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
@@ -81,7 +81,7 @@ Integration Runtime를 만드는 방법에 대 한 자세한 내용은 [Azure Da
 
 ### <a name="disable-indexes-on-write"></a>쓰기 시 인덱스 사용 안 함
 
-파이프라인에서 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 을 추가 하 여 싱크에 의해 작성 된 대상 테이블의 인덱스를 비활성화 하는 데이터 흐름 작업 앞에 추가 합니다. 데이터 흐름 작업 후 해당 인덱스를 사용 하도록 설정 하는 다른 저장 프로시저 작업을 추가 합니다.
+파이프라인에서 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 을 추가 하 여 싱크에 의해 작성 된 대상 테이블의 인덱스를 비활성화 하는 데이터 흐름 작업 앞에 추가 합니다. 데이터 흐름 작업 후 해당 인덱스를 사용 하도록 설정 하는 다른 저장 프로시저 작업을 추가 합니다. 또는는 데이터베이스 싱크에서 전처리 및 후 처리 스크립트를 활용 합니다.
 
 ### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Azure SQL DB 및 DW의 크기를 늘립니다.
 
@@ -114,7 +114,7 @@ Blob 또는 ADLS 파일 저장소를 기록 하는 데이터 흐름 매핑에서
 
 ### <a name="looping-through-file-lists"></a>파일 목록 반복
 
-원본 변환이 각 작업에 대해를 통해 반복 하는 대신 여러 파일을 반복 하는 경우 매핑 데이터 흐름이 더 효율적으로 실행 됩니다. 원본 변환에서 와일드 카드 또는 파일 목록을 사용 하는 것이 좋습니다. 데이터 흐름 프로세스는 Spark 클러스터 내에서 루핑 발생을 허용 하 여 더 빨리 실행 됩니다. 자세한 내용은 [원본 변환에서 와일드 카드](data-flow-source.md#file-based-source-options)를 참조 하세요.
+원본 변환이 각 작업에 대해를 통해 반복 하는 대신 여러 파일을 반복 하는 경우 매핑 데이터 흐름이 더 효율적으로 실행 됩니다. 원본 변환에서 와일드 카드 또는 파일 목록을 사용 하는 것이 좋습니다. 데이터 흐름 프로세스는 Spark 클러스터 내에서 루핑 발생을 허용 하 여 더 빨리 실행 됩니다. 자세한 내용은 [원본 변환에서 와일드 카드](connector-azure-data-lake-storage.md#mapping-data-flow-properties)를 참조 하세요.
 
 예를 들어 7 월 2019의 데이터 파일 목록이 Blob Storage 폴더에서 처리 하려는 경우 다음은 원본 변환에서 사용할 수 있는 와일드 카드입니다.
 
@@ -128,7 +128,7 @@ CosmosDB 싱크에 대 한 처리량 및 일괄 처리 속성 설정은 파이�
 
 * 일괄 처리 크기: 데이터의 대략적인 행 크기를 계산 하 고 행 크기 * 일괄 처리 크기가 200만 보다 적은지 확인 합니다. 이 경우 일괄 처리 크기를 늘려 더 나은 처리량을 얻습니다.
 * 처리량: 문서를 CosmosDB에 더 빨리 쓸 수 있도록 여기에서 더 높은 처리량 설정을 설정 합니다. 높은 처리량 설정에 따라 높은 수준의 비용을 염두에 두십시오.
-*   쓰기 처리량 예산: 분당 총 RUs 보다 작은 값을 사용 합니다. Spark 파티션 수가 많은 데이터 흐름이 있는 경우 예산 처리량을 설정 하면 해당 파티션에 대 한 균형을 높일 수 있습니다.
+*   쓰기 처리량 예산: 분당 총 RUs 보다 작은 값을 사용 합니다. 많은 수의 Spark 파티션이 포함 된 데이터 흐름이 있는 경우 예산 처리량을 설정 하면 해당 파티션에 대 한 균형을 높일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

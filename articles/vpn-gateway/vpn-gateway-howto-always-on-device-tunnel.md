@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: f22b29cfcaf1d4c4ce28b2b0557d70b281b6891f
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6f0c33ee7fd5790a060574230f1156c569a63936
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425659"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Always On VPN 디바이스 터널 구성
 
@@ -37,7 +37,7 @@ Always On VPN 연결에는 두 가지 유형의 터널이 포함 됩니다.
 
 장치 터널을 성공적으로 설정 하려면 다음 요구 사항을 충족 해야 합니다.
 
-* 장치는 Windows 10 Enterprise 또는 교육용 버전 1709 이상을 실행 하는 도메인에 가입 된 컴퓨터 여야 합니다.
+* 장치는 Windows 10 Enterprise 또는 교육용 버전 1809 이상을 실행 하는 도메인에 가입 된 컴퓨터 여야 합니다.
 * 터널은 Windows 기본 제공 VPN 솔루션에 대해서만 구성할 수 있으며 컴퓨터 인증서 인증과 함께 IKEv2를 사용 하 여 설정 됩니다. 
 * 장치 마다 장치 터널을 하나만 구성할 수 있습니다.
 
@@ -139,15 +139,15 @@ Always On VPN 연결에는 두 가지 유형의 터널이 포함 됩니다.
 1. 관리자 CMD 프롬프트에서 다음을 실행 하 여 PowerShell을 시작 합니다.
 
    ```
-   C:\PsTools\PsExec.exe Powershell for 32-bit Windows
-   C:\PsTools\PsExec64.exe Powershell for 64-bit Windows
+   PsExec.exe Powershell for 32-bit Windows
+   PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![슬래시](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
+   ![PowerShell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
 1. PowerShell에서 **devicecert** 및 **VPNProfile** 가 있는 폴더로 전환 하 고 다음 명령을 실행 합니다.
 
    ```powershell
-   C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
+   .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-device-tunnel/machinecerttest.png)

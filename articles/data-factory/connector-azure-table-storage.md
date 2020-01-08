@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: e23bf7b3e111d9945ac3eaab942fa77ddba9d9ed
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b64b0f32b7e8d94115facf43646a5a030697d80f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444421"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사
 
@@ -24,7 +24,7 @@ ms.locfileid: "74929606"
 > * [버전 1](v1/data-factory-azure-table-connector.md)
 > * [현재 버전](connector-azure-table-storage.md)
 
-이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure Table Storage 간에 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 활동에 대한 일반적인 개요를 제공하는 [복사 활동 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure Table Storage 간에 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,18 +49,18 @@ ms.locfileid: "74929606"
 
 ### <a name="use-an-account-key"></a>계정 키 사용
 
-계정 키를 사용하여 Azure Storage 연결된 서비스를 만들 수 있습니다. 데이터 팩터리에 Storage에 대한 전역 액세스를 제공합니다. 지원되는 속성은 다음과 같습니다.
+계정 키를 사용하여 Azure Storage 연결된 서비스를 만들 수 있습니다. 데이터 팩터리에 Storage에 대한 전역 액세스를 제공합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |yes |
-| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |yes |
+| type | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |예 |
+| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 >[!NOTE]
 >"AzureStorage" 유형의 연결된 서비스를 사용하는 경우에도 있는 그대로 계속 지원되지만, 앞으로 이 새로운 "AzureTableStorage" 연결된 서비스 유형을 사용하는 것이 좋습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -68,10 +68,7 @@ ms.locfileid: "74929606"
     "properties": {
         "type": "AzureTableStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -89,10 +86,7 @@ ms.locfileid: "74929606"
     "properties": {
         "type": "AzureTableStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
-            },
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
             "accountKey": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -126,16 +120,16 @@ ms.locfileid: "74929606"
 
 공유 액세스 서명 인증을 사용하는 데 지원되는 속성은 다음과 같습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |yes |
-| sasUri | 테이블에 대한 공유 액세스 서명 URI의 SAS URI를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. SAS 토큰을 Azure Key Vault에 배치 하 여 자동 회전을 활용 하 고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | yes |
+| type | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |예 |
+| sasUri | 테이블에 대한 공유 액세스 서명 URI의 SAS URI를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. SAS 토큰을 Azure Key Vault에 배치 하 여 자동 회전을 활용 하 고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 >[!NOTE]
 >"AzureStorage" 유형의 연결된 서비스를 사용하는 경우에도 있는 그대로 계속 지원되지만, 앞으로 이 새로운 "AzureTableStorage" 연결된 서비스 유형을 사용하는 것이 좋습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -195,14 +189,14 @@ ms.locfileid: "74929606"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure Table 데이터 세트에서 지원되는 속성의 목록을 제공합니다.
 
-Azure Table 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **AzureTable**로 설정합니다. 지원되는 속성은 다음과 같습니다.
+Azure Table 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **AzureTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성은 **AzureTable**로 설정해야 합니다. |yes |
-| tableName |연결된 서비스에서 참조하는 Table Storage 데이터베이스 인스턴스의 테이블 이름입니다. |yes |
+| type | 데이터 세트의 type 속성은 **AzureTable**로 설정해야 합니다. |예 |
+| tableName |연결된 서비스에서 참조하는 Table Storage 데이터베이스 인스턴스의 테이블 이름입니다. |예 |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -235,11 +229,11 @@ Azure Table과 같이 스키마가 없는 데이터 저장소의 경우 Data Fac
 
 ### <a name="azure-table-as-a-source-type"></a>Azure Table을 원본 형식으로
 
-Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AzureTableSource**로 설정합니다. 복사 활동 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
+Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AzureTableSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 source의 type 속성은 **AzureTableSource**로 설정해야 합니다. |yes |
+| type | 복사 활동 source의 type 속성은 **AzureTableSource**로 설정해야 합니다. |예 |
 | AzureTableSourceQuery |사용자 지정 Table Storage 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |아닙니다. |
 | azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |아닙니다. |
 
@@ -261,11 +255,11 @@ Azure Table 열이 문자열 형식인 경우:
 
 ### <a name="azure-table-as-a-sink-type"></a>Azure Table을 싱크 형식으로
 
-Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식을 **AzureTableSink**로 설정합니다. 복사 활동 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
+Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식을 **AzureTableSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 sink의 type 속성은 **AzureTableSink**로 설정해야 합니다. |yes |
+| type | 복사 활동 sink의 type 속성은 **AzureTableSink**로 설정해야 합니다. |예 |
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |아닙니다. |
 | azureTablePartitionKeyName |값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 "AzureTableDefaultPartitionKeyValue"가 파티션 키로 사용됩니다. |아닙니다. |
 | azureTableRowKeyName |열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |아닙니다. |
@@ -273,7 +267,7 @@ Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식�
 | writeBatchSize |writeBatchSize 또는 writeBatchTimeout에 도달하면 Azure Table에 데이터를 삽입합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
 | writeBatchTimeout |writeBatchSize 또는 writeBatchTimeout에 도달하면 Azure Table에 데이터를 삽입합니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:20:00"(20 분)입니다. |아니요(기본값: 90초 - 스토리지 클라이언트의 기본 시간 제한) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -339,11 +333,11 @@ Azure Table에서 데이터를 이동하는 경우 Azure Table OData 형식에�
 | Edm.Binary |byte[] |바이트 배열은 최대 64KB입니다. |
 | Edm.Boolean |bool |부울 값입니다. |
 | Edm.DateTime |DateTime |UTC(협정 세계시)로 표현되는 64비트 값입니다. 지원되는 DateTime 범위는 서기 1601년 1월 1일 자정에 시작합니다. (서기), UTC입니다. 범위는 9999년 12월 31일 끝납니다. |
-| Edm.Double |Double |64비트 부동 소수점 값입니다. |
+| Edm.Double |double |64비트 부동 소수점 값입니다. |
 | Edm.Guid |GUID |전역적으로 고유한 128 비트 식별자입니다. |
 | Edm.Int32 |Int32 |32비트 정수입니다. |
 | Edm.Int64 |Int64 |64비트 정수입니다. |
-| Edm.String |string |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
+| Edm.String |String |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

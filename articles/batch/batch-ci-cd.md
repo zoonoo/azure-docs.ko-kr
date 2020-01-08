@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 47665171ee5ae137e0503b3e5fa1d369aeabb356
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449812"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용 하 여 HPC 솔루션 빌드 및 배포
 
@@ -27,7 +27,7 @@ Azure Pipelines은 소프트웨어 빌드, 배포, 테스트 및 모니터링을
 
 ![파이프라인의 배포 흐름을 보여 주는 다이어그램](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 이 문서의 단계를 수행 하려면 Azure DevOps 조직과 팀 프로젝트가 필요 합니다.
 
@@ -52,9 +52,9 @@ Azure Pipelines은 소프트웨어 빌드, 배포, 테스트 및 모니터링을
 이 섹션에서는 버전 제어 및 리소스 관리자 템플릿 디자인에 대해 잘 알고 있다고 가정 합니다. 이러한 개념을 잘 모르는 경우 자세한 내용은 다음 페이지를 참조 하세요.
 
 * [원본 제어 란?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)
 
-#### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+#### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 
 이 예제에서는 여러 리소스 관리자 템플릿을 활용 하 여 솔루션을 배포 합니다. 이렇게 하려면 특정 기능을 구현 하는 다양 한 기능 템플릿 (단위 또는 모듈과 유사)을 사용 합니다. 또한 이러한 기본 기능을 함께 사용 하는 종단 간 솔루션 템플릿을 사용 합니다. 이 방법에는 다음과 같은 몇 가지 이점이 있습니다.
 
@@ -303,7 +303,7 @@ Azure Pipelines은 소프트웨어 빌드, 배포, 테스트 및 모니터링을
 * 인프라를 코드로 저장 하는 **arm 템플릿** 폴더
 * Ffmpeg의 이진 파일이 포함 된 **hpc 응용 프로그램** 폴더
 * 빌드 파이프라인에 대 한 정의를 포함 하는 **파이프라인** 폴더입니다.
-* **선택 사항**: .NET 응용 프로그램에 대 한 코드를 저장 하는 **클라이언트 응용 프로그램** 폴더입니다. 샘플에서는이를 사용 하지 않지만 사용자의 프로젝트에서는 클라이언트 응용 프로그램을 통해 HPC Batch 응용 프로그램의 실행을 실행할 수 있습니다.
+* **선택 사항**: .net 응용 프로그램에 대 한 코드를 저장 하는 **클라이언트 응용 프로그램** 폴더입니다. 샘플에서는이를 사용 하지 않지만 사용자의 프로젝트에서는 클라이언트 응용 프로그램을 통해 HPC Batch 응용 프로그램의 실행을 실행할 수 있습니다.
 
 > [!NOTE]
 > 이는 코드 베이스에 대 한 구조체의 한 예제 일 뿐입니다. 이 방법은 응용 프로그램, 인프라 및 파이프라인 코드가 동일한 리포지토리에 저장 된다는 것을 보여 주는 용도로 사용 됩니다.
@@ -362,7 +362,7 @@ Azure DevOps Services 내에서 [Azure Pipelines](https://docs.microsoft.com/azu
 > [!NOTE]
 > 클라이언트 응용 프로그램을 사용 하 여 HPC Batch 응용 프로그램을 실행 하는 경우 해당 응용 프로그램에 대 한 별도의 빌드 정의를 만들어야 합니다. [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops) 설명서에서 다양 한 방법 가이드를 찾을 수 있습니다.
 
-## <a name="continuous-deployment"></a>지속적인 배포
+## <a name="continuous-deployment"></a>연속 배포
 
 응용 프로그램 및 기본 인프라를 배포 하는 데에도 사용 Azure Pipelines. [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release) 은 연속 배포를 사용 하 고 릴리스 프로세스를 자동화 하는 구성 요소입니다.
 
@@ -390,15 +390,15 @@ Azure DevOps Services 내에서 [Azure Pipelines](https://docs.microsoft.com/azu
 
 1. **변수** 섹션으로 이동 합니다. 파이프라인에서 여러 변수를 만드는 것이 좋습니다. 따라서 여러 작업에 동일한 정보를 입력 하지 않습니다. 이러한 변수는이 예제에서 사용 되는 변수 및 배포에 영향을 주는 방식입니다.
 
-    * **applicationStorageAccountName**: HPC 응용 프로그램 이진 파일을 저장할 저장소 계정의 이름
-    * **batchAccountApplicationName**: Azure Batch 계정의 응용 프로그램 이름
-    * **batchAccountName**: Azure Batch 계정의 이름입니다.
-    * **batchAccountPoolName**: 처리를 수행 하는 Vm의 풀 이름입니다.
-    * **batchApplicationId**: Azure Batch 응용 프로그램의 고유 ID
-    * **batchApplicationVersion**: Batch 응용 프로그램의 의미 체계 버전 (즉, ffmpeg 이진)
-    * **location**: 배포할 Azure 리소스의 위치
+    * **Applicationstorageaccountname**: HPC 응용 프로그램 이진 파일을 저장할 저장소 계정의 이름
+    * **Batchaccountapplicationname**: Azure Batch 계정의 응용 프로그램 이름
+    * **Batchaccountname**: Azure Batch 계정의 이름입니다.
+    * **batchAccountPoolName**: 처리를 수행 하는 vm의 풀 이름입니다.
+    * **Batchapplicationid**: Azure Batch 응용 프로그램의 고유 ID
+    * **Batchapplicationversion**: batch 응용 프로그램의 의미 체계 버전 (즉, ffmpeg 이진 파일)
+    * **위치**: 배포할 Azure 리소스의 위치
     * **resourceGroupName**: 만들 리소스 그룹의 이름 및 리소스를 배포할 위치
-    * **storageAccountName**: 연결 된 리소스 관리자 템플릿을 저장할 저장소 계정의 이름
+    * **Storageaccountname**: 연결 된 리소스 관리자 템플릿을 저장할 저장소 계정의 이름
 
     ![Azure Pipelines 릴리스에 대해 설정 된 변수의 예](media/batch-ci-cd/Release-4.jpg)
 
@@ -416,7 +416,7 @@ Azure DevOps Services 내에서 [Azure Pipelines](https://docs.microsoft.com/azu
     **Azure 리소스 그룹 배포** 작업을 추가 하 고 다음 속성을 설정 합니다.
     * **표시 이름:** 리소스 관리자 템플릿에 대 한 저장소 계정 배포
     * **Azure 구독:** 적절 한 Azure 구독을 선택 합니다.
-    * **작업**: 리소스 그룹을 만들기 또는 업데이트
+    * **작업**: 리소스 그룹 만들기 또는 업데이트
     * **리소스 그룹**: $ (resourceGroupName)
     * **위치**: $ (location)
     * **템플릿**: $ (System.servicemodel sdirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
@@ -439,11 +439,11 @@ Azure DevOps Services 내에서 [Azure Pipelines](https://docs.microsoft.com/azu
     **Azure 리소스 그룹 배포** 작업을 추가 하 고 다음 속성을 설정 합니다.
     * **표시 이름:** Azure Batch 배포
     * **Azure 구독:** 적절 한 Azure 구독을 선택 합니다.
-    * **작업**: 리소스 그룹을 만들기 또는 업데이트
+    * **작업**: 리소스 그룹 만들기 또는 업데이트
     * **리소스 그룹**: $ (resourceGroupName)
     * **위치**: $ (location)
     * **템플릿**: $ (System.servicemodel sdirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
-    * **템플릿 매개 변수 재정의**:```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
+    * **템플릿 매개 변수 재정의**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 일반적인 방법은 Azure Key Vault 작업을 사용 하는 것입니다. 서비스 주체 (Azure 구독에 대 한 연결)에 적절 한 액세스 정책이 설정 된 경우 Azure Key Vault에서 비밀을 다운로드 하 고 파이프라인에서 변수로 사용할 수 있습니다. 암호의 이름은 연결 된 값으로 설정 됩니다. 예를 들어 릴리스 정의에서 $ (sshPassword)를 사용 하 여 sshPassword의 암호를 참조할 수 있습니다.
 
@@ -453,7 +453,7 @@ Azure DevOps Services 내에서 [Azure Pipelines](https://docs.microsoft.com/azu
     * **표시 이름:** Azure Batch 계정에서 응용 프로그램 만들기
     * **Azure 구독:** 적절 한 Azure 구독을 선택 합니다.
     * **스크립트 위치**: 인라인 스크립트
-    * **인라인 스크립트**:```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **인라인 스크립트**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. 두 번째 단계는 응용 프로그램에 연결 된 패키지를 업로드 하는 데 사용 됩니다. 이 경우 ffmpeg 파일입니다.
 
@@ -461,7 +461,7 @@ Azure DevOps Services 내에서 [Azure Pipelines](https://docs.microsoft.com/azu
     * **표시 이름:** Azure Batch 계정에 패키지 업로드
     * **Azure 구독:** 적절 한 Azure 구독을 선택 합니다.
     * **스크립트 위치**: 인라인 스크립트
-    * **인라인 스크립트**:```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **인라인 스크립트**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > 응용 프로그램 패키지의 버전 번호는 변수로 설정 됩니다. 이 기능은 이전 버전의 패키지를 덮어쓰는 경우 편리 하며, Azure Batch으로 푸시되는 패키지의 버전 번호를 수동으로 제어 하려는 경우에 편리 합니다.
@@ -478,8 +478,8 @@ Azure DevOps Services 내에서 [Azure Pipelines](https://docs.microsoft.com/azu
 
 PowerShell 명령 프롬프트에서 Azure CLI를 사용 하 여 새 Azure Batch 계정에 연결 합니다.
 
-* 을 사용 `az login` 하 여 Azure 계정에 로그인 하 고 지침에 따라 인증 합니다.
-* 이제 Batch 계정 인증:`az batch account login -g <resourceGroup> -n <batchAccount>`
+* `az login`를 사용 하 여 Azure 계정에 로그인 하 고 지침에 따라 인증 합니다.
+* 이제 Batch 계정 인증: `az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>사용 가능한 응용 프로그램 나열
 
@@ -493,7 +493,7 @@ az batch application list -g <resourcegroup> -n <batchaccountname>
 az batch pool list
 ```
 
-이 명령의 출력 `currentDedicatedNodes` 에서 값을 확인 합니다. 이 값은 다음 테스트에서 조정 됩니다.
+이 명령의 출력에서 `currentDedicatedNodes` 값을 확인 합니다. 이 값은 다음 테스트에서 조정 됩니다.
 
 #### <a name="resize-the-pool"></a>풀 크기 조정
 

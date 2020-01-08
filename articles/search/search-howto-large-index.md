@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bd158eaf22025a64d7464c632d3f0fa510a4b5a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460733"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 대량 데이터 집합을 인덱싱하는 방법
 
@@ -74,7 +74,7 @@ ms.locfileid: "72793754"
 + 모든 인덱서가 동시에 실행되도록 예약합니다.
 
 > [!NOTE]
-> Azure Cognitive Search는 특정 워크 로드에 대 한 전용 복제본 또는 파티션을 지원 하지 않습니다. 동시 인덱싱이 과도할 경우 발생할 수 있는 문제는 시스템에 과부하가 발생하여 쿼리 성능이 저하되는 것입니다. 테스트 환경이 있는 경우, 먼저 장단점을 파악할 수 있도록 병렬 인덱싱을 구현하십시오.
+> Azure Cognitive Search에서는 개별 복제본 또는 파티션을 인덱싱 또는 쿼리 처리에 할당할 수 없습니다. 시스템은 리소스가 사용 되는 방법을 결정 합니다. 쿼리 성능에 미치는 영향을 이해 하려면 프로덕션 환경으로 롤링 하기 전에 테스트 환경에서 병렬 인덱싱을 시도할 수 있습니다.  
 
 ### <a name="how-to-configure-parallel-indexing"></a>병렬 인덱싱을 구성하는 방법
 

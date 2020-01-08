@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891415"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425940"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -77,7 +77,7 @@ ms.locfileid: "73891415"
     - Vm 및 기타 인프라 구성 요소 및/또는 논리적 이름의 명명 규칙
 5.  Microsoft 프리미어 지원 계약. Microsoft 기술 계정 관리자 (TAM)를 식별 합니다. SAP 지원 요구 사항에 대해서는 [sap support note #2015553](https://launchpad.support.sap.com/#/notes/2015553)를 참조 하세요.
 6.  구독에 대 한 Azure 구독 및 코어 할당량의 수입니다. 필요 [에 따라 Azure 구독의 할당량을 늘리려면 지원 요청을 여세요](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) .
-7.  SAP 데이터를 Azure로 마이그레이션하기 위한 데이터 절감 및 데이터 마이그레이션 계획. Sap NetWeaver 시스템의 경우 SAP는 대량의 데이터 볼륨을 제한 하는 방법에 대 한 지침을 포함 합니다. SAP ERP 시스템의 데이터 관리에 대 한 [sap 가이드](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) 를 참조 하세요. 일부 콘텐츠는 일반적으로 NetWeaver 및 S/4HANA 시스템에도 적용 됩니다.
+7.  SAP 데이터를 Azure로 마이그레이션하기 위한 데이터 절감 및 데이터 마이그레이션 계획. Sap NetWeaver 시스템의 경우 SAP는 대량의 데이터 볼륨을 제한 하는 방법에 대 한 지침을 포함 합니다. SAP ERP 시스템의 데이터 관리에 대 한 [sap 가이드](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) 를 참조 하세요. 일부 콘텐츠는 일반적으로 NetWeaver 및 S/4HANA 시스템에도 적용 됩니다.
 8.  자동화 된 배포 방법. Azure에서 인프라 배포를 자동화 하는 목표는 결정적 방식으로 배포 하 고 결정적 결과를 얻는 것입니다. 많은 고객이 PowerShell 또는 CLI 기반 스크립트를 사용 합니다. 하지만 SAP 용 Azure 인프라를 배포 하 고 SAP 소프트웨어를 설치 하는 데 사용할 수 있는 다양 한 오픈 소스 기술이 있습니다. GitHub에 대 한 예제를 찾을 수 있습니다.
     - [Azure Cloud의 자동화된 SAP 배포](https://github.com/Azure/sap-hana)
     - [SAP HANA 설치](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
@@ -111,7 +111,7 @@ ms.locfileid: "73891415"
         - 다양 한 DBMS 형식에 대해 일반적인 [SAP 관련 dbms 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) 및 일반 문서가 가리키는 dbms 관련 설명서를 확인 합니다.
         - SAP HANA에 대 한 자세한 내용은 [Azure에서 인프라 구성 및 작업 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)을 참조 하세요.
         - 디바이스 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /Etc/fstab의 항목을 두 번 확인 하 여 UUID가 디스크를 탑재 하는 데 사용 되는지 확인 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)에서 찾을 수 있습니다.
-   3. Lan.
+   3. 네트워킹
         - 가상 네트워크 인프라와 여러 Azure 가상 네트워크 내에서 또는 여러 Azure 가상 네트워크 내에서 SAP 응용 프로그램의 배포를 테스트 하 고 평가 합니다.
         -  단일 Azure 가상 네트워크 내에서 허브 및 스포크 가상 네트워크 아키텍처 접근 방식이 나 마이크로 분할 방법을 평가 합니다. 평가 기준:
                1. [피어 링 Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)간의 데이터 교환 비용 비용에 대 한 자세한 내용은 [Virtual Network 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network/)을 참조 하세요.
@@ -255,7 +255,7 @@ ms.locfileid: "73891415"
         - 개별 디스크당 디스크 쓰기 (KBps)
         - 디스크 쓰기/초, 개별 디스크당
         - 디스크 쓰기 (마이크로초/읽기, 개별 디스크 기준)
-    - Network.
+    - 네트워크:
         - 초당 네트워크 패킷
         - 초당 네트워크 패킷
         - 초당 네트워크 KB

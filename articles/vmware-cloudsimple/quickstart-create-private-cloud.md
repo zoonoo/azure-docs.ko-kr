@@ -1,5 +1,6 @@
 ---
-title: CloudSimple 빠른 시작에의 한 Azure VMware 솔루션-사설 클라우드 만들기
+title: '빠른 시작: 사설 클라우드 만들기'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: CloudSimple로 Azure VMware 솔루션을 사용 하 여 사설 클라우드를 만들고 구성 하는 방법을 알아봅니다.
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e4890186022842179ef4b66c03db03dd9b58a3d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901450"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452385"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
@@ -139,7 +140,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 5. 목록에서 VLAN ID를 선택 합니다.  
 6. 서브넷을 식별 하는 서브넷 이름을 입력 합니다.
 7. 서브넷 CIDR 범위와 마스크를 지정 하십시오.  이 범위는 기존 서브넷과 겹치지 않아야 합니다.
-8. **Submit**를 클릭합니다.
+8. **제출**을 클릭합니다.
 
     ![VLAN/서브넷 세부 정보 만들기](media/create-new-vlan-subnet-details.png)
 

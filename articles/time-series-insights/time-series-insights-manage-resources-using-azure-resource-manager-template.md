@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e04716ae67df94428a678f6572738d4ad46232
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901452"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452856"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
@@ -24,9 +24,9 @@ ms.locfileid: "74901452"
 
 Time Series Insights은 다음 리소스를 지원합니다.
 
-   | 리소스 | 설명 |
+   | 리소스 | Description |
    | --- | --- |
-   | Environment | Time Series Insights 환경은 이벤트 브로커에서 읽고, 저장 하 고, 쿼리에 사용할 수 있는 이벤트의 논리적 그룹입니다. 자세한 내용은 [Azure Time Series Insights 환경 계획](time-series-insights-environment-planning.md) 을 참조 하세요. |
+   | 환경 | Time Series Insights 환경은 이벤트 브로커에서 읽고, 저장 하 고, 쿼리에 사용할 수 있는 이벤트의 논리적 그룹입니다. 자세한 내용은 [Azure Time Series Insights 환경 계획](time-series-insights-environment-planning.md) 을 참조 하세요. |
    | 이벤트 원본 | 이벤트 원본은 Time Series Insights가 이벤트를 읽고 환경에 수집하는 이벤트 broker에 대한 연결입니다. 현재 지원되는 이벤트 원본은 IoT Hub 및 Event Hub입니다. |
    | 참조 데이터 집합 | 참조 데이터 집합은 환경에서 이벤트에 대한 메타데이터를 제공합니다. 참조 데이터 집합의 메타데이터는 수신 중에 이벤트와 함께 조인됩니다. 참조 데이터 집합은 해당 이벤트 키 속성에 의해 리소스로 정의됩니다. 참조 데이터 집합을 구성하는 실제 메타데이터는 데이터 평면 API를 통해 업로드되거나 수정됩니다. |
    | 액세스 정책 | 액세스 정책은 데이터 쿼리를 실행하고 환경에서 참조 데이터를 조작하며 환경과 관련된 저장된 쿼리 및 관심 사항을 공유 할 수 있는 권한을 부여합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Time Series Insights 환경에 대 한 데이터 액세스 권한 부여](time-series-insights-data-access.md) 를 참조 하세요. |
@@ -59,7 +59,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
    * 필수 매개 변수
 
-     | 매개 변수를 포함해야 합니다. | 설명 |
+     | 매개 변수 | Description |
      | --- | --- |
      | eventHubNamespaceName | 원본 Event Hub의 네임스페이스입니다. |
      | eventHubName | 원본 Event Hub의 이름입니다. |
@@ -71,7 +71,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
    * 선택적 매개 변수
 
-     | 매개 변수를 포함해야 합니다. | 설명 |
+     | 매개 변수 | Description |
      | --- | --- |
      | existingEventHubResourceId | 이벤트 원본을 통해 Time Series Insights 환경에 연결될 기존 Event Hub의 선택적 리소스 ID입니다. **참고:** 템플릿을 배포하는 사용자는 Event Hub에서 listkey 작업을 수행할 권한이 있어야 합니다. 값이 전달되지 않으면 새 Event Hub가 템플릿에 의해 만들어집니다. |
      | environmentDisplayName | 환경 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
@@ -119,7 +119,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
      }
      ```
   
-    * 자세한 내용은 [매개 변수](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) 문서를 참조하세요.
+    * 자세한 내용은 [매개 변수](../azure-resource-manager/templates/parameter-files.md) 문서를 참조하세요.
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>PowerShell을 사용하여 로컬로 빠른 시작 템플릿을 배포합니다
 
@@ -148,7 +148,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. 새 리소스 그룹이 아직 없으면 만듭니다.
 
-   * 기존 리소스 그룹이 없는 경우 **AzResourceGroup** 명령을 사용 하 여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 다음은 그 예입니다.
+   * 기존 리소스 그룹이 없는 경우 **AzResourceGroup** 명령을 사용 하 여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

@@ -3,22 +3,22 @@ title: 대규모로 위임된 구독에 Azure Policy 배포
 description: Azure 위임 리소스 관리를 통해 여러 테넌트에서 정책 정의 및 정책 할당을 배포하는 방법을 알아봅니다.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456849"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>대규모로 위임된 구독에 Azure Policy 배포
 
 서비스 공급자는 Azure 위임 리소스 관리를 위해 여러 고객 테넌트를 온보딩했을 수 있습니다. [Azure Lighthouse](../overview.md)를 사용하여 서비스 공급자는 여러 테넌트에 걸쳐 대규모로 작업을 한 번에 수행할 수 있으므로 관리 작업을 보다 효율적으로 수행할 수 있습니다.
 
-이 항목에서는 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/)를 사용하여 PowerShell 명령을 통해 여러 테넌트에서 정책 정의 및 정책 할당을 배포하는 방법을 보여 줍니다. 이 예제에서는 정책 정의를 통해 HTTPS 트래픽만 허용하여 스토리지 계정을 보호합니다.
+이 항목에서는 [Azure Policy](../../governance/policy/index.yml)를 사용하여 PowerShell 명령을 통해 여러 테넌트에서 정책 정의 및 정책 할당을 배포하는 방법을 보여 줍니다. 이 예제에서는 정책 정의를 통해 HTTPS 트래픽만 허용하여 스토리지 계정을 보호합니다.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Azure Resource Graph를 사용하여 고객 테넌트에서 쿼리
 
-[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/)를 사용하여 관리하는 고객 테넌트의 모든 구독에서 쿼리를 수행할 수 있습니다. 이 예제에서는 이러한 구독에서 현재 HTTPS 트래픽을 요구하지 않는 스토리지 계정을 식별합니다.  
+[Azure Resource Graph](../../governance/resource-graph/index.yml)를 사용하여 관리하는 고객 테넌트의 모든 구독에서 쿼리를 수행할 수 있습니다. 이 예제에서는 이러한 구독에서 현재 HTTPS 트래픽을 요구하지 않는 스토리지 계정을 식별합니다.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -90,5 +90,5 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy](https://docs.microsoft.com/azure/governance/policy/)에 대해 알아봅니다.
+- [Azure Policy](../../governance/policy/index.yml)에 대해 알아봅니다.
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.

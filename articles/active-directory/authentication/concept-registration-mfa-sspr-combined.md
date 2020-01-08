@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848632"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425338"
 ---
 # <a name="combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기)
 
@@ -49,15 +49,15 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일
 
 |   | 등록 | 변경 | 삭제 |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | 예 (최대 5 개) | 아닙니다. | yes |
-| 기타 authenticator 앱 | 예 (최대 5 개) | 아닙니다. | yes |
-| 하드웨어 토큰 | 아닙니다. | 아닙니다. | yes |
-| 전화 | yes | yes | yes |
-| 대체 전화 | yes | yes | yes |
+| Microsoft Authenticator | 예 (최대 5 개) | 아닙니다. | 예 |
+| 기타 authenticator 앱 | 예 (최대 5 개) | 아닙니다. | 예 |
+| 하드웨어 토큰 | 아닙니다. | 아닙니다. | 예 |
+| 전화 | 예 | 예 | 예 |
+| 대체 전화 | 예 | 예 | 예 |
 | 사무실 전화 | 아닙니다. | 아닙니다. | 아닙니다. |
-| 이메일 | yes | yes | yes |
-| 보안 질문 | yes | 아닙니다. | yes |
-| 앱 암호 | yes | 아닙니다. | yes |
+| 이메일 | 예 | 예 | 예 |
+| 보안 질문 | 예 | 아닙니다. | 예 |
+| 앱 암호 | 예 | 아닙니다. | 예 |
 
 > [!NOTE]
 > 앱 암호는 Multi-Factor Authentication에 대해 적용 된 사용자만 사용할 수 있습니다. 조건부 액세스 정책을 통해 Multi-Factor Authentication을 사용 하도록 설정 된 사용자는 앱 암호를 사용할 수 없습니다.
@@ -95,7 +95,7 @@ Azure AD에 더 많은 인증 방법을 추가 하기 때문에 이러한 메서
 
 등록이 적용 되 면 사용자는 대부분의 보안 수준에서 Multi-Factor Authentication 및 SSPR 정책을 준수 하는 데 필요한 최소 메서드 수를 표시 합니다.
 
-다음은 그 예입니다.
+예:
 
 - 사용자가 SSPR에 대해 사용 하도록 설정 되어 있습니다. SSPR 정책에서는 모바일 앱 코드, 전자 메일 및 휴대폰을 다시 설정 하 고 사용 하도록 설정 하는 두 가지 방법이 필요 합니다.
    - 이 사용자는 두 가지 메서드를 등록 해야 합니다.
@@ -108,7 +108,7 @@ Azure AD에 더 많은 인증 방법을 추가 하기 때문에 이러한 메서
 
 Multi-Factor Authentication 및 SSPR를 모두 사용 하는 경우 Multi-Factor Authentication 등록을 적용 하는 것이 좋습니다.
 
-SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 해야 하는 경우 로그인 중에 사용자가 중단 되 고 등록 된 모든 메서드를 표시 합니다. 최신 정보를 확인할 수 있습니다. 최신 정보를 확인 하거나 필요한 경우 변경할 수 있습니다.
+SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 해야 하는 경우 로그인 중에 사용자가 중단 되 고 등록 된 모든 메서드를 표시 합니다. 최신 정보를 확인할 수 있습니다. 최신 정보를 확인 하거나 필요한 경우 변경할 수 있습니다. 사용자는이 페이지에 액세스할 때 multi-factor authentication을 수행 해야 합니다.
 
 ### <a name="manage-mode"></a>관리 모드
 

@@ -1,33 +1,35 @@
 ---
 title: Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 titleSuffix: Azure Storage
-description: Azure CLI를 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS (미리 보기)를 만드는 방법에 대해 알아봅니다.
+description: Azure CLI를 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS를 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371992"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Azure CLI (미리 보기)를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 Azure CLI (미리 보기)를 통해 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만드는 방법을 보여 줍니다.
+이 문서에서는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만드는 방법을 보여 줍니다.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>최신 버전의 Azure CLI 설치
 
 Azure CLI를 사용 하 여 Azure AD 자격 증명으로 SAS를 보호 하려면 먼저 최신 버전의 Azure CLI를 설치 했는지 확인 합니다. Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
+
+Azure CLI를 사용 하 여 사용자 위임 SAS를 만들려면 버전 2.0.78 이상을 설치 했는지 확인 합니다. 설치 된 버전을 확인 하려면 `az --version` 명령을 사용 합니다.
 
 ## <a name="sign-in-with-azure-ad-credentials"></a>Azure AD 자격 증명으로 로그인
 

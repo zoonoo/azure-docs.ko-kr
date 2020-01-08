@@ -1,5 +1,6 @@
 ---
-title: Azure API Management에서 개발자 포털의 페이지 콘텐츠 수정 | Microsoft Docs
+title: API Management의 개발자 포털에서 페이지 내용 수정
+titleSuffix: Azure API Management
 description: Azure API Management에서 개발자 포털의 페이지 콘텐츠를 편집하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430626"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Azure API Management에서 개발자 포털의 페이지 콘텐츠 및 레이아웃 수정
 Azure API Management에는 개발자 포털을 사용자 지정하는 기본적인 방법이 세 가지 있습니다.
@@ -41,7 +42,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 일상적인 페이지 편집에서 콘텐츠 위젯만 편집하는 경우가 자주 있으며, 이로 인해 각 개별 페이지의 콘텐츠가 달라집니다.
 
-## <a name="modify-layout-widget"> </a>레이아웃 위젯의 콘텐츠 수정
+## <a name="modify-layout-widget"> </a>레이아웃 위젯의 내용 수정
 
 개발자 포털은 Azure Portal에서 액세스할 수 있습니다.
 

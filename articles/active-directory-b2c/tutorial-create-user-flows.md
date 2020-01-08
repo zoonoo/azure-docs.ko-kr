@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3633ffb09d71bd166cb7366f860662d9b91c7f07
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: cc492b29fd6bc4a820543740e9d1962fc74f2cfc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425492"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "71063391"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 만들려는 사용자 흐름에 속하는 [애플리케이션을 등록](tutorial-register-applications.md)합니다.
 
@@ -41,12 +41,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 등록 및 로그인 사용자 흐름은 단일 구성으로 가입 및 로그인 환경을 둘 다 처리합니다. 애플리케이션 사용자는 컨텍스트에 따라 올바른 경로로 안내됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 
-    ![B2C 테 넌 트가 선택 된 디렉터리 및 구독 필터](./media/tutorial-create-user-flows/switch-directories.PNG)
+    ![B2C 테 넌 트, 디렉터리 및 구독 창, Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **정책**아래의 왼쪽 메뉴에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
+1. **정책**에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
 
     ![새 사용자 흐름 단추가 강조 표시 된 포털의 사용자 흐름 페이지](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -82,8 +82,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 애플리케이션에서 프로필을 편집할 수 있도록 하려면 프로필 편집 사용자 흐름을 사용합니다.
 
-1. Azure AD B2C 테 넌 트 개요 페이지의 왼쪽 메뉴에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
-1. 권장 탭에서 **프로필 편집** 사용자 흐름을 선택합니다.
+1. Azure AD B2C 테 넌 트 개요 페이지의 메뉴에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
+1. **권장** 탭에서 **프로필 편집** 사용자 흐름을 선택 합니다.
 1. 사용자 흐름에 대한 **이름**을 입력합니다. 예를 들어 *profileediting1*과 같습니다.
 1. **ID 공급자**로 **로컬 계정 로그인**을 선택합니다.
 1. **사용자 특성**으로 고객이 프로필에서 편집할 수 있도록 하려는 특성을 선택합니다. 예를 들어 **자세히 표시**를 선택 하 고 **표시 이름** 및 **직위**에 대해 특성과 클레임을 모두 선택 합니다. **확인**을 클릭합니다.
@@ -100,8 +100,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 응용 프로그램 사용자가 암호를 재설정할 수 있도록 하려면 암호 재설정 사용자 흐름을 사용 합니다.
 
-1. 왼쪽 메뉴에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
-1. 권장 탭에서 **암호 재설정** 사용자 흐름을 선택합니다.
+1. Azure AD B2C 테 넌 트 개요 메뉴에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
+1. **권장** 탭에서 **암호 재설정** 사용자 흐름을 선택 합니다.
 1. 사용자 흐름에 대한 **이름**을 입력합니다. 예를 들어 *passwordreset1*과 같습니다.
 1. **ID 공급자**에서 **메일 주소를 사용하여 암호 재설정**을 사용하도록 설정합니다.
 1. 애플리케이션 클레임에서 **자세히 표시**를 클릭하고, 애플리케이션으로 다시 전송되는 인증 토큰에 반환하려는 클레임을 선택합니다. 예를 들어 **사용자의 개체 ID**를 선택합니다.

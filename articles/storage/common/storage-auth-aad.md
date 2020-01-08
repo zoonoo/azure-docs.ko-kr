@@ -6,24 +6,30 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 445d98ab07a91b056d4cf747f7c0f4cf1cdf9d53
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0678d437a5c24b8193e7440a62445fb30ec97759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460511"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
-Azure Storage는 AD (Azure Active Directory)를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 토큰을 사용 하 여 Blob 또는 큐 저장소에 있는 리소스에 액세스 하는 요청을 인증할 수 있습니다.
+Azure Storage에서는 Azure Active Directory (Azure AD)를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 그런 다음 토큰을 사용 하 여 Blob 또는 큐 저장소에 대 한 요청을 인증할 수 있습니다.
 
-Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하 여 사용자 또는 응용 프로그램에 권한을 부여 하면 공유 키 권한 부여 및 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하면 계정 액세스 키를 코드와 함께 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 스토리지 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다. 가능 하면 Azure Storage 응용 프로그램에 Azure AD 인증을 사용 하는 것이 좋습니다.
+Azure AD를 사용 하 여 Azure Storage에 대 한 요청을 승인 하면 공유 키 권한 부여를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. 가능 하면 blob 및 큐 응용 프로그램에 Azure AD 권한 부여를 사용 하 여 공유 키에 내재 된 잠재적 보안 취약성을 최소화 하는 것이 좋습니다.
 
-Azure AD를 사용한 권한 부여는 모든 공용 지역 및 국가 클라우드의 모든 범용 및 Blob 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델로 만든 저장소 계정만 Azure AD 권한 부여를 지원 합니다. Azure AD를 사용한 권한 부여는 Azure Table storage에 대해 지원 되지 않습니다.
+Azure AD를 사용한 권한 부여는 모든 공용 지역 및 국가 클라우드의 모든 범용 및 Blob 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델로 만든 저장소 계정만 Azure AD 권한 부여를 지원 합니다.
+
+또한 Blob storage는 Azure AD 자격 증명으로 서명 된 SAS (공유 액세스 서명) 만들기를 추가로 지원 합니다. 자세한 내용은 [공유 액세스 서명을 사용 하 여 데이터에 제한 된 액세스 권한 부여](storage-sas-overview.md)를 참조 하세요.
+
+Azure Files는 도메인에 가입 된 Vm에 대해서만 SMB를 통해 Azure AD에 대 한 권한 부여를 지원 합니다. Azure Files에 대해 SMB over SMB를 사용 하는 방법에 대 한 자세한 내용은 [Azure Files의 smb를 통한 Azure Active Directory 권한 부여 개요](../files/storage-files-active-directory-overview.md)를 참조 하세요.
+
+Azure AD를 사용한 권한 부여는 Azure Table storage에 대해 지원 되지 않습니다. 공유 키를 사용 하 여 테이블 저장소에 대 한 요청에 권한을 부여 합니다.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Blob 및 큐에 대 한 Azure AD 개요
 
@@ -78,10 +84,6 @@ Azure Portal는 컨테이너 또는 큐로 이동할 때 사용 중인 권한 �
 ### <a name="data-access-from-powershell-or-azure-cli"></a>PowerShell 또는 Azure CLI에서 데이터 액세스
 
 Azure CLI 및 PowerShell은 Azure AD 자격 증명으로 로그인을 지원 합니다. 로그인 하면 해당 자격 증명으로 세션이 실행 됩니다. 자세한 내용은 [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](storage-auth-aad-script.md)를 참조 하세요.
-
-## <a name="azure-ad-authorization-over-smb-for-azure-files"></a>SMB를 통한 Azure AD 권한 부여 Azure Files
-
-Azure Files는 도메인에 가입 된 Vm에 대해서만 SMB를 통해 Azure AD에 대 한 권한 부여를 지원 합니다 (미리 보기). Azure Files에 대해 SMB over SMB를 사용 하는 방법에 대 한 자세한 내용은 [Azure Files의 smb를 통한 Azure Active Directory 권한 부여 개요 (미리 보기)](../files/storage-files-active-directory-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

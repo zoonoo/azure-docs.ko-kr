@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0bfcb8c82d3f3caf90500e8852ca9e02c725aa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7547608e227ca6b8d57bc1d4384ccdee181d9970
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382965"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430849"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -28,7 +28,7 @@ ms.locfileid: "74382965"
 > [!IMPORTANT]
 > 일부 설정에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 자세한 내용은 [템플릿 설정](#template-settings) 표를 참조하세요.
 
-관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`Set-MSOLCompanySettings[에 설명된 대로](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 설정하세요.
+관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`를 설정하세요.
 
 Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 Office 365 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 Office 365 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 Office 365 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
@@ -36,7 +36,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 
 ## <a name="install-powershell-cmdlets"></a>PowerShell cmdlet 설치
 
-PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈에 대한 Azure Active Directory PowerShell의 이전 버전을 제거하고 [그래프용 Azure Active Directory PowerShell - 공용 미리 보기 릴리스 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)을 설치해야 합니다.
+PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Directory PowerShell for Graph 모듈의 모든 이전 버전을 제거 하 고 [그래프-공개 미리 보기 릴리스 (2.0.0.137 이후 버전) 용 powershell Azure Active Directory](https://www.powershellgallery.com/packages/AzureADPreview) 을 설치 해야 합니다.
 
 1. 관리자로 Windows PowerShell 앱을 엽니다.
 2. AzureADPreview의 이전 버전을 제거합니다.
@@ -53,7 +53,7 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
    ```
    
 ## <a name="create-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 만들기
-다음 단계는 디렉터리 수준에서 설정을 만드는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 365 그룹에 적용됩니다. Get-AzureADDirectorySettingTemplate cmdlet은 [Graph에 대한 Azure AD PowerShell 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)에서만 지원됩니다.
+다음 단계는 디렉터리 수준에서 설정을 만드는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 365 그룹에 적용됩니다. Get-AzureADDirectorySettingTemplate cmdlet은 [Graph에 대한 Azure AD PowerShell 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview)에서만 지원됩니다.
 
 1. DirectorySettings cmdlet에서 사용하려는 SettingsTemplate의 ID를 지정해야 합니다. 이 ID를 모르면 cmdlet이 모든 설정 템플릿 목록을 반환합니다.
   
@@ -76,12 +76,13 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
 2. 사용 지침 URL을 추가하려면 사용 지침 URL 값을 정의하는 SettingsTemplate 개체를 가져와야 합니다. 즉, Group.Unified 템플릿입니다.
   
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
+   $Template = Get-AzureADDirectorySettingTemplate -Id $TemplateId
    ```
 3. 다음에는 위 템플릿에 기초하여 새 설정 개체를 만듭니다.
   
    ```powershell
-   $Setting = $template.CreateDirectorySetting()
+   $Setting = $Template.CreateDirectorySetting()
    ```  
 4. 그런 다음 사용 지침 값을 업데이트합니다.
   
@@ -91,22 +92,57 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
 5. 그런 다음 설정을 적용 합니다.
   
    ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   New-AzureADDirectorySetting -DirectorySetting $Setting
    ```
 6. 다음을 사용 하 여 값을 읽을 수 있습니다.
 
    ```powershell
    $Setting.Values
-   ```  
+   ```
+   
 ## <a name="update-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 업데이트
-설정 템플릿에서 UsageGuideLinesUrl의 값을 업데이트 하려면 위의 4 단계를 사용 하 여 URL을 편집한 후 5 단계를 수행 하 여 새 값을 설정 하면 됩니다.
+설정 템플릿에서 UsageGuideLinesUrl에 대 한 값을 업데이트 하려면 Azure AD에서 현재 설정을 읽습니다. 그렇지 않으면 UsageGuideLinesUrl 이외의 기존 설정을 덮어쓸 수 있습니다.
 
-UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 URL을 빈 문자열로 편집 합니다.
-
+1. 그룹에서 현재 설정을 가져옵니다. 통합 SettingsTemplate:
+   
+   ```powershell
+   $Setting = Get-AzureADDirectorySetting | ? { $_.DisplayName -eq "Group.Unified"}
+   ```  
+2. 현재 설정을 확인 합니다.
+   
+   ```powershell
+   $Setting.Values
+   ```
+   
+   출력:
+   ```powershell
+    Name                          Value
+    ----                          -----
+    EnableMIPLabels               false
+    CustomBlockedWordsList
+    EnableMSStandardBlockedWords  False
+    ClassificationDescriptions
+    DefaultClassification
+    PrefixSuffixNamingRequirement
+    AllowGuestsToBeGroupOwner     False
+    AllowGuestsToAccessGroups     True
+    GuestUsageGuidelinesUrl
+    GroupCreationAllowedGroupId
+    AllowToAddGuests              True
+    UsageGuidelinesUrl            https://guideline.example.com
+    ClassificationList
+    EnableGroupCreation           True
+    ```
+3. UsageGuideLinesUrl의 값을 제거 하려면 URL을 빈 문자열로 편집 합니다.
+   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
-그런 다음 5 단계를 수행 하 여 새 값을 설정 합니다.
+4. 업데이트를 디렉터리에 저장 합니다.
+   
+   ```powershell
+   Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
+   ```  
 
 ## <a name="template-settings"></a>템플릿 설정
 다음은 Group.Unified 설정 템플릿에서 정의된 설정입니다. 달리 명시되지 않은 한 이 기능에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 

@@ -1,5 +1,6 @@
 ---
-title: 내부 가상 네트워크에서 Azure API Management를 사용하는 방법 | Microsoft Docs
+title: 내부 가상 네트워크에서 Azure API Management 사용
+titleSuffix: Azure API Management
 description: 내부 가상 네트워크에서 Azure API Management를 설정하고 구성하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 29c86363842299870179b35a0466d2e44d2e56e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c4607a2dce995e554f0426f1beb810fe213015de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430606"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -38,7 +39,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -62,7 +63,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 4. **저장**을 선택합니다.
 
-배포가 성공 하면 개요 블레이드에서 API Management 서비스의 **개인** 가상 ip 주소 및 **공용** 가상 ip 주소가 표시 됩니다. **개인** 가상 ip 주소는 `gateway`, `portal` `management` 및 `scm` 끝점에 액세스할 수 있는 API Management 위임 된 서브넷 내에서 부하가 분산 된 ip 주소입니다. **공용** 가상 IP 주소는 포트 3443을 통한 끝점에 `management` 대 한 제어 평면 트래픽용 **으로만** 사용 되며 [microsoft.apimanagement][ServiceTags] servicetag로 잠글 수 있습니다.
+배포가 성공 하면 개요 블레이드에서 API Management 서비스의 **개인** 가상 ip 주소 및 **공용** 가상 ip 주소가 표시 됩니다. **개인** 가상 ip 주소는 `gateway`, `portal`, `management` 및 `scm` 끝점에 액세스할 수 있는 API Management 위임 된 서브넷 내에서 부하가 분산 된 ip 주소입니다. **공용** 가상 IP 주소는 포트 3443을 통해 `management` 끝점에 대 한 제어 평면 트래픽용 **으로만** 사용 되며 [microsoft.apimanagement][ServiceTags] servicetag로 잠글 수 있습니다.
 
 ![내부 가상 네트워크를 구성한 API Management 대시보드][api-management-internal-vnet-dashboard]
 
@@ -75,9 +76,9 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 또한 PowerShell cmdlet을 사용하여 가상 네트워크 연결을 사용할 수 있습니다.
 
-* 가상 네트워크 내에 API Management 서비스를 만듭니다. [AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) cmdlet을 사용 하 여 가상 네트워크 내에 Azure API Management 서비스를 만들고 내부 가상 네트워크 유형을 사용 하도록 구성 합니다.
+* 가상 네트워크 내에 API Management 서비스 만들기: [AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) Cmdlet을 사용 하 여 가상 네트워크 내에 Azure API Management 서비스를 만들고 내부 가상 네트워크 유형을 사용 하도록 구성 합니다.
 
-* 가상 네트워크 내에서 API Management 서비스의 기존 배포를 업데이트 합니다. [AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) cmdlet을 사용 하 여 가상 네트워크 내에서 기존 API Management 서비스를 이동 하 고 내부 가상 네트워크 유형을 사용 하도록 구성 합니다.
+* 가상 네트워크 내의 API Management 서비스에 대 한 기존 배포 업데이트: cmdlet [AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) 을 사용 하 여 가상 네트워크 내의 기존 API Management 서비스를 이동 하 고 내부 가상 네트워크 유형을 사용 하도록 구성 합니다.
 
 ## <a name="apim-dns-configuration"></a>DNS 구성
 API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를 관리합니다. 내부 가상 네트워크 모드의 경우 자체의 라우팅을 관리해야 합니다.
@@ -121,7 +122,7 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 
 2. 그런 다음 DNS 서버에 레코드를 만들어 가상 네트워크 내에서만 액세스할 수 있는 이러한 엔드포인트에 액세스할 수 있습니다.
 
-## <a name="routing"> </a> 라우팅
+## <a name="routing"></a> 라우팅
 
 * 서브넷 범위에서 부하가 분산 된 *개인* 가상 IP 주소는 예약 되며 가상 네트워크 내에서 API Management 서비스 끝점에 액세스 하는 데 사용 됩니다. 이 *개인* IP 주소는 Azure Portal 서비스에 대 한 개요 블레이드에서 찾을 수 있습니다. 이 주소는 가상 네트워크에서 사용 하는 DNS 서버에 등록 해야 합니다.
 * 또한 부하 분산 된 *공용* IP 주소 (VIP)는 포트 3443을 통해 관리 서비스 끝점에 대 한 액세스를 제공 하도록 예약 됩니다. 이 *공용* IP 주소는 Azure Portal 서비스에 대 한 개요 블레이드에서 찾을 수 있습니다. *공용* IP 주소는 포트 3443을 통해 `management` 끝점에 대 한 제어 평면 트래픽용 으로만 사용 되며 [microsoft.apimanagement][ServiceTags] servicetag로 잠글 수 있습니다.
@@ -129,8 +130,8 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 * 부하 분산 된 공용 및 개인 IP 주소는 Azure Portal의 개요 블레이드에서 찾을 수 있습니다.
 * 에서 서비스를 제거한 다음 가상 네트워크에 다시 추가 하면 공용 및 개인 액세스용으로 할당 된 IP 주소가 변경 될 수 있습니다. 이 문제가 발생 하는 경우 가상 네트워크 내에서 DNS 등록, 라우팅 규칙 및 IP 제한 목록을 업데이트 해야 할 수 있습니다.
 
-## <a name="related-content"> </a>관련 콘텐츠
-자세한 내용은 다음 문서를 참조하세요.
+## <a name="related-content"> </a>관련 내용
+자세히 알아보려면 다음 아티클을 참조하세요.
 * [가상 네트워크에서 Azure API Management를 설정 하는 동안 발생 하는 일반적인 네트워크 구성 문제][Common network configuration problems]
 * [가상 네트워크 FAQ](../virtual-network/virtual-networks-faq.md)
 * [DNS에서 레코드 만들기](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))

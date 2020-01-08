@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9e8fdafc3e8f83cb529718993ffe9d0f7383c10c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70095686"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449816"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 컴퓨팅
 
@@ -28,7 +28,7 @@ Azure Batch의 애플리케이션 패키지 기능은 풀의 컴퓨팅 노드에
 이 문서에서는 Azure portal을 사용하여 애플리케이션 패키지를 업로드하고 관리하는 방법을 알아봅니다. 그런 다음 [Batch .net][api_net] 라이브러리를 사용 하 여 풀의 계산 노드에 설치 하는 방법을 알아봅니다.
 
 > [!NOTE]
-> 애플리케이션 패키지는 2017년 7월 5일 이후에 만든 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 애플리케이션 패키지를 지원하지 않습니다.
+> 애플리케이션 패키지는 2017년 7월 5일 이후에 만들어진 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 애플리케이션 패키지를 지원하지 않습니다.
 >
 > 응용 프로그램 패키지를 만들고 관리 하는 Api는 [Batch 관리 .net][api_net_mgmt] 라이브러리의 일부입니다. 계산 노드에 응용 프로그램 패키지를 설치 하기 위한 Api는 [Batch .net][api_net] 라이브러리의 일부입니다. 다른 언어의 경우 상응하는 기능을 Batch API에서 제공합니다. 
 >
@@ -94,7 +94,7 @@ Batch 서비스는 연결된 Storage 계정을 사용하여 애플리케이션 �
 > 현재 [방화벽 규칙](../storage/common/storage-network-security.md)이 구성된 Azure Storage 계정에는 애플리케이션 패키지를 사용할 수 없습니다.
 > 
 
-Batch 서비스는 Azure Storage를 사용하여 애플리케이션 패키지를 블록 Blob으로 저장합니다. 블록 blob 데이터의 경우 [정상으로 청구][storage_pricing] 되 고 각 패키지의 크기는 [최대 블록 blob 크기](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets)를 초과할 수 없습니다. 비용을 최소화할 수 있도록 애플리케이션 패키지의 크기와 숫자에 신경 쓰고, 사용하지 않는 패키지를 주기적으로 제거해 주세요.
+Batch 서비스는 Azure Storage를 사용하여 애플리케이션 패키지를 블록 Blob으로 저장합니다. 블록 blob 데이터의 경우 [정상으로 청구][storage_pricing] 되 고 각 패키지의 크기는 최대 블록 blob 크기를 초과할 수 없습니다. 자세한 내용은 [저장소 계정에 대 한 확장성 및 성능 목표 Azure Storage](../storage/blobs/scalability-targets.md)를 참조 하세요. 비용을 최소화할 수 있도록 애플리케이션 패키지의 크기와 숫자에 신경 쓰고, 사용하지 않는 패키지를 주기적으로 제거해 주세요.
 > 
 > 
 
@@ -182,13 +182,13 @@ Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는
 
 ![Azure portal에서 패키지 업데이트 또는 삭제][7]
 
-**업데이트**
+**Update**
 
 **업데이트**를 클릭하면 **패키지 업데이트** 창이 표시됩니다. 이 창은 **새 애플리케이션 패키지** 창과 비슷하지만, 패키지 선택 필드만 활성화되므로 업로드할 새 ZIP 파일을 지정할 수 있습니다.
 
 ![Azure portal의 패키지 업데이트 블레이드][11]
 
-**삭제**
+**Delete**
 
 **삭제**를 클릭하면 패키지 버전을 삭제할 것인지 묻는 메시지가 나타나고, Batch가 Azure Storage에서 패키지를 삭제합니다. 애플리케이션의 기본 버전을 삭제하면 해당 애플리케이션의 **기본 버전** 설정이 제거됩니다.
 
@@ -260,7 +260,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 애플리케이션 ID의 대/소문자는 유지됩니다. 다음은 그 예입니다.
+Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 애플리케이션 ID의 대/소문자는 유지됩니다. 예:
 
 ```
 Linux:

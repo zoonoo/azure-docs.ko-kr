@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 및 API Management 개요 | Microsoft Docs
+title: Azure Service Fabric API Management 개요
 description: 이 문서에서는 Service Fabric 애플리케이션에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900530"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378113"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
 
@@ -56,7 +47,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 가장 간단한 경우, 트래픽은 상태 비저장 서비스 인스턴스로 전달됩니다. 이를 위해 API Management 작업에는 Service Fabric 백 엔드에서 특정 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 해당 서비스에 전송 된 요청은 임의의 서비스 인스턴스로 전송 됩니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 다음 시나리오에서 Service Fabric 애플리케이션에는 내부 HTTP API를 노출하는 `fabric:/app/fooservice` 이름의 상태 비저장 서비스가 포함됩니다. 서비스 인스턴스 이름은 잘 알려져 있으며 API Management 인바운드 처리 정책에 직접 하드 코딩될 수 있습니다. 
 
 ![Service Fabric 및 Azure API Management 토폴로지 개요][sf-apim-static-stateless]
@@ -65,7 +56,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 상태 비저장 서비스 시나리오와 마찬가지로 트래픽을 상태 저장 서비스 인스턴스에 전달할 수 있습니다. 이 경우 API Management 작업에는 요청을 특정 *상태 저장* 서비스 인스턴스의 특정 파티션에 매핑하는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 각 요청을 매핑할 파티션은 들어오는 HTTP 요청에서 입력(예: URL 경로의 값)을 사용하는 람다 메서드를 통해 계산됩니다. 요청을 주 복제본에만 또는 읽기 작업을 위해 임의 복제본으로 보내도록 정책을 구성할 수 있습니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 다음 시나리오에서 Service Fabric 애플리케이션에는 내부 HTTP API를 노출하는 `fabric:/app/userservice` 이름의 분할된 상태 저장 서비스가 포함됩니다. 서비스 인스턴스 이름은 잘 알려져 있으며 API Management 인바운드 처리 정책에 직접 하드 코딩될 수 있습니다.  
 
@@ -79,13 +70,13 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 서비스에 대 한 요청은 임의의 서비스 인스턴스로 전송 됩니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 이 예제에서는 애플리케이션의 각 사용자에 대한 새로운 상태 비저장 서비스 인스턴스가 다음 수식을 사용하여 동적으로 생성된 이름으로 만들어집니다.
  
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들어:
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예:
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
@@ -98,13 +89,13 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 요청을 특정 서비스 인스턴스에 매핑하는 것 외에도, 요청을 서비스 인스턴스 내의 특정 파티션이나 필요에 따라 해당 파티션 내의 주 복제본 또는 임의 보조 복제본에 매핑할 수도 있습니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 이 예제에서는 애플리케이션의 각 사용자에 대한 새로운 상태 저장 서비스 인스턴스가 다음 수식을 사용하여 동적으로 생성된 이름으로 만들어집니다.
  
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들어:
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예:
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.

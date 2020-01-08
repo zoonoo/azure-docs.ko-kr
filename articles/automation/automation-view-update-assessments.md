@@ -2,19 +2,15 @@
 title: Azure 업데이트 관리 업데이트 평가 보기
 description: 이 문서에서는 업데이트 배포에 대 한 업데이트 평가를 보는 방법을 설명 합니다.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d27df57e9371f16a15d3a18b7722598062377d88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419894"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Azure 업데이트 관리 업데이트 평가 보기
 
@@ -38,7 +34,7 @@ Azure Automation 계정에서 **업데이트 관리** 를 선택 하 여 컴퓨�
 
 ### <a name="windows"></a>Windows
 
-|분류  |설명  |
+|분류  |Description  |
 |---------|---------|
 |중요 업데이트     | 보안 관련 중요 버그를 해결하는 특정 문제에 대한 업데이트입니다.        |
 |보안 업데이트     | 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.        |
@@ -51,7 +47,7 @@ Azure Automation 계정에서 **업데이트 관리** 를 선택 하 여 컴퓨�
 
 ### <a name="linux-2"></a>Linux
 
-|분류  |설명  |
+|분류  |Description  |
 |---------|---------|
 |중요 업데이트 및 보안 업데이트     | 특정 문제 또는 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.         |
 |다른 업데이트     | 기본적으로 중요 하지 않거나 보안 업데이트가 아닌 다른 모든 업데이트.        |

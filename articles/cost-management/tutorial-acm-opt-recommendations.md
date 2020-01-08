@@ -1,5 +1,5 @@
 ---
-title: 자습서 - 최적화 권장 사항으로 Azure 비용 절감 | Microsoft Docs
+title: 자습서-권장 사항을 사용 하 여 Azure 비용 절감
 description: 이 자습서는 최적화 권장 사항을 따를 경우 Azure 비용을 절감할 수 있도록 도와줍니다.
 services: cost-management
 keywords: ''
@@ -10,28 +10,28 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a9dbb121cab49024aaf0dc65bbac938764d9f8b2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c3fc60ca623649a175fb1078efc6903ebde2811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444580"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
 Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 권장 사항을 제공합니다. Azure Advisor는 유휴 리소스와 사용률이 낮은 리소스를 식별하여 최적화하고 효율성을 개선하는 데 도움이 됩니다. 이 자습서에서는 사용률이 낮은 Azure 리소스를 식별한 다음, 비용을 절감하기 위한 조치를 취하는 예를 안내합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 비용 최적화 권장 사항을 검토하여 잠재적인 사용 비효율성 확인인
 > * 가상 머신을 비용 효율적인 옵션으로 크기를 조정하는 권장 사항 이행
 > * 가상 머신의 크기가 성공적으로 조정되었는지 확인하기 위해 작업 확인
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 권장 사항은 다양 한 범위 및 Azure 계정 유형에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
-- 구독
+- Subscription
 - 리소스 그룹
 
 14일 이상 활동이 있는 활성 가상 머신이 있어야 합니다.
@@ -98,7 +98,7 @@ VM 크기 조정이 성공적으로 완료되면 Azure 알림이 표시됩니다
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 비용 최적화 권장 사항을 검토하여 잠재적인 사용 비효율성 확인인

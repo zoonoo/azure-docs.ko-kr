@@ -3,12 +3,12 @@ title: 권장 보안 방법
 description: Azure 위임 리소스 관리를 사용하는 경우 보안 및 액세스 제어를 고려하는 것이 중요합니다.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456872"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 
@@ -16,7 +16,7 @@ Azure 위임 리소스 관리를 사용하는 경우 보안 및 액세스 제어
 
 ## <a name="require-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 필요
 
-[Azure multi-factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)(2단계 인증이라고도 함)에서는 여러 인증 단계를 요구하여 공격자가 계정에 대한 액세스 권한을 얻지 못하게 합니다. 고객 리소스에 대한 액세스 권한이 있는 사용자를 포함하여 서비스 공급자 테넌트의 모든 사용자에 대해 Multi-factor Authentication을 요구해야 합니다.
+[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (2 단계 확인이 라고도 함)는 공격자가 여러 인증 단계를 수행 하 여 계정에 액세스 하는 것을 방지 하는 데 도움이 됩니다. 고객 리소스에 대한 액세스 권한이 있는 사용자를 포함하여 서비스 공급자 테넌트의 모든 사용자에 대해 Multi-factor Authentication을 요구해야 합니다.
 
 또한 고객에게 테넌트에서도 Azure Multi-Factor Authentication을 구현하도록 요청하는 것이 좋습니다.
 
@@ -28,12 +28,12 @@ Azure 위임 리소스 관리를 사용하는 경우 보안 및 액세스 제어
 
 예를 들어 다음과 같은 구조를 사용하려고 할 수 있습니다.
 
-|그룹 이름  |에  |principalId  |역할 정의  |역할 정의 ID  |
+|그룹 이름  |유형  |principalId  |역할 정의  |역할 정의 ID  |
 |---------|---------|---------|---------|---------|
-|설계자     |사용자 그룹         |\<principalId\>         |참여자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|평가     |사용자 그룹         |\<principalId\>         |읽기 권한자         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|설계자     |사용자 그룹         |\<principalId\>         |참가자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|평가     |사용자 그룹         |\<principalId\>         |판독기         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |VM 전문가     |사용자 그룹         |\<principalId\>         |VM 참가자         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automation     |SPN(서비스 주체 이름)         |\<principalId\>         |참여자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automation     |SPN(서비스 주체 이름)         |\<principalId\>         |참가자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 이러한 그룹을 만든 후 필요에 따라 사용자를 할당할 수 있습니다. 실제로 액세스 권한이 필요한 사용자만 추가합니다. 그룹 멤버 자격을 정기적으로 검토하고 더 이상 적절하지 않거나 포함할 필요가 없는 모든 사용자를 제거해야 합니다.
 

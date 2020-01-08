@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: MT
+ms.openlocfilehash: b2764e54d0938cbbdc00b19cf3ea1139d3d29828
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435279"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그
 
@@ -27,7 +27,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 1. IntelliJ IDEA에서 Scala 애플리케이션을 만든 다음, 원격 디버깅을 위해 구성합니다.
 1. 애플리케이션을 실행하고 디버그합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 * **HDInsight의 Apache Spark 클러스터**. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
@@ -69,7 +69,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 1. 헤드 노드의 IP 주소 및 호스트 이름을 Spark 작업을 실행하고 원격으로 디버그하려는 컴퓨터의 **호스트** 파일에 추가합니다. 이렇게 하면 IP 주소뿐만 아니라 호스트 이름을 사용하여 헤드 노드와 통신할 수 있습니다.
 
-   가. 관리자 권한으로 메모장 파일을 엽니다. **파일** 메뉴에서 **열기**를 선택한 다음 hosts 파일의 위치를 찾습니다. Windows 컴퓨터에서 이 위치는 **C:\Windows\System32\Drivers\etc\hosts**입니다.
+   a. 관리자 권한으로 메모장 파일을 엽니다. **파일** 메뉴에서 **열기**를 선택한 다음 hosts 파일의 위치를 찾습니다. Windows 컴퓨터에서 이 위치는 **C:\Windows\System32\Drivers\etc\hosts**입니다.
 
    b. **hosts** 파일에 다음 정보를 추가합니다.
 
@@ -98,7 +98,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![IntelliJ IDEA에서 새 프로젝트 템플릿 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png)
 
-    가. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
+    a. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
 
     b. **다음**을 선택합니다.
 1. 다음 **새 프로젝트** 대화 상자에서 다음을 수행한 후 **마침**을 선택합니다.
@@ -107,27 +107,27 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     - **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
 
-    - **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark 2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
+    - **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x**를 선택합니다. 그렇지 않으면 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
   
    ![프로젝트 SDK 및 Spark 버전 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
 1. Spark 프로젝트가 자동으로 아티팩트를 만듭니다. 이 아티팩트를 보려면 다음을 수행합니다.
 
-    가. **파일** 메뉴에서 **프로젝트 구조**를 선택합니다.
+    a. **파일** 메뉴에서 **프로젝트 구조**를 선택합니다.
 
-    b. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호( **+** )를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
+    b. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만든 기본 아티팩트를 봅니다. 더하기 기호( **+** )를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
 
    ![IntelliJ 아이디어 아티팩트 만들기 jar](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
 
 1. 프로젝트에 라이브러리를 추가합니다. 라이브러리를 추가하려면 다음을 수행합니다.
 
-    가. 프로젝트 트리에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **모듈 설정 열기**를 선택합니다.
+    a. 프로젝트 트리에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **모듈 설정 열기**를 선택합니다.
 
     b. **프로젝트 구조** 대화 상자에서 **라이브러리**를 선택하고 ( **+** ) 기호를 선택한 후 **Maven에서**를 선택합니다.
 
     ![IntelliJ 아이디어 다운로드 라이브러리](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
-    c. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
+    다. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
 
    * `org.scalatest:scalatest_2.10:2.2.1`
    * `org.apache.hadoop:hadoop-azure:2.7.1`
@@ -149,7 +149,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 1. `core-site.xml` 파일을 업데이트하여 다음과 같이 변경합니다.
 
-   가. 암호화된 키를 바꿉니다. `core-site.xml` 파일은 클러스터와 연결된 스토리지 계정에 암호화된 키를 포함합니다. 프로젝트에 추가한 `core-site.xml` 파일에서 암호화된 키를 기본 스토리지 계정과 연결된 실제 스토리지 키로 대체합니다. 자세한 내용은 [스토리지 액세스 키 관리](../../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
+   a. 암호화된 키를 바꿉니다. `core-site.xml` 파일은 클러스터와 연결된 스토리지 계정에 암호화된 키를 포함합니다. 프로젝트에 추가한 `core-site.xml` 파일에서 암호화된 키를 기본 스토리지 계정과 연결된 실제 스토리지 키로 대체합니다. 자세한 내용은 [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
 
     ```xml
     <property>
@@ -177,7 +177,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
     </property>
     ```
 
-   c. 파일을 저장합니다.
+   다. 파일을 저장합니다.
 
 1. 애플리케이션에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기**에서 **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 선택합니다.
 
@@ -187,7 +187,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![IntelliJ 아이디어 Create new Scala 클래스](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
-1. `MyClusterAppMain.scala` 파일에서 다음 코드를 붙여 넣습니다. 이 코드는 Spark 컨텍스트를 만들고 `executeJob` 개체에서 `SparkSample` 메서드를 엽니다.
+1. `MyClusterAppMain.scala` 파일에서 다음 코드를 붙여 넣습니다. 이 코드는 Spark 컨텍스트를 만들고 `SparkSample` 개체에서 `executeJob` 메서드를 엽니다.
 
     ```scala
     import org.apache.spark.{SparkConf, SparkContext}

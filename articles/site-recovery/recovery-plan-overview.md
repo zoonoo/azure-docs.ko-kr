@@ -1,41 +1,39 @@
 ---
 title: Azure Site Recovery 복구 계획 정보
-description: Azure Site Recovery 서비스를 사용하여 재해 복구에 대한 복구 계획을 사용하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+description: Azure Site Recovery에서 복구 계획에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: 640f7258821718c5d406dd581d1f9c503e0d41c2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 1dd83be03c5b412708e89058ce7667a2ddfef530
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953883"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497900"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
-이 문서는 [Azure Site Recovery](site-recovery-overview.md)에서 복구 계획을 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)의 복구 계획에 대 한 개요를 제공 합니다.
 
-복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 순서, 지침 및 수행할 작업을 추가하여 계획을 사용자 지정할 수 있습니다. 계획을 정의한 후에 장애 조치(failover)를 실행할 수 있습니다.  컴퓨터는 여러 복구 계획에서 참조 될 수 있으며, 이후 계획은 다른 복구 계획을 통해 이전에 배포 된 경우 컴퓨터의 배포/시작을 건너뜁니다.
+복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 복구 계획은 장애 조치(failover)할 수 있는 독립적인 작은 단위를 만들어서 체계적인 복구 프로세스를 정의하는 데 도움이 됩니다. 단위는 일반적으로 사용자 환경에서 앱을 나타냅니다.
+
+- 복구 계획은 컴퓨터가 장애 조치(failover)되는 방식 및 장애 조치(failover) 후 시작되는 순서를 정의합니다.
+- 최대 100 개의 보호 된 인스턴스를 하나의 복구 계획에 추가할 수 있습니다.
+- 순서, 지침 및 수행할 작업을 추가하여 계획을 사용자 지정할 수 있습니다.
+- 계획을 정의한 후에 장애 조치(failover)를 실행할 수 있습니다.
+- 컴퓨터는 여러 복구 계획에서 참조 될 수 있으며, 이후 계획은 다른 복구 계획을 사용 하 여 이전에 배포 된 컴퓨터의 배포/시작을 건너뜁니다.
 
 
-## <a name="why-use-a-recovery-plan"></a>복구 계획을 사용하는 이유는 무엇인가요?
+### <a name="why-use-a-recovery-plan"></a>복구 계획을 사용하는 이유는 무엇인가요?
 
-복구 계획은 장애 조치(failover)할 수 있는 독립적인 작은 단위를 만들어서 체계적인 복구 프로세스를 정의하는 데 도움이 됩니다. 단위는 일반적으로 사용자 환경에서 앱을 나타냅니다. 복구 계획은 컴퓨터가 장애 조치(failover)되는 방식 및 장애 조치(failover) 후 시작되는 순서를 정의합니다. 다음에 복구 계획을 사용합니다.
+다음에 복구 계획을 사용합니다.
 
 * 해당 종속성 주변의 앱을 모델링합니다.
-* RTO를 줄이기 위해 복구 작업을 자동화합니다.
+* 복구 작업을 자동화 하 여 RTO (복구 시간 목표)를 줄입니다.
 * 앱이 복구 계획의 일부인지 확인하여 마이그레이션 또는 재해 복구를 위해 준비되었는지 확인합니다.
-* 복구 계획에서 테스트 장애 조치(failover)를 실행하여 재해 복구 또는 마이그레이션이 예상대로 작동하는지 확인합니다.
+* 복구 계획에서 테스트 장애 조치 (failover)를 실행 하 여 재해 복구 또는 마이그레이션이 예상 대로 작동 하는지 확인 합니다.
 
 
-## <a name="model-apps"></a>앱 모델링
-
-> [!NOTE]
-> 최대 100 개의 보호 된 인스턴스를 하나의 복구 계획에 추가할 수 있습니다.
-
+## <a name="model-apps"></a>앱 모델링 
 앱 특정 속성을 캡처하도록 복구 그룹을 계획하고 만들 수 있습니다. 예를 들어 SQL 서버 백 엔드, 미들웨어 및 웹 프런트 엔드의 일반적인 3계층 애플리케이션을 생각해 봅시다. 일반적으로 각 계층의 컴퓨터에서 장애 조치(failover) 후 올바른 순서로 시작하도록 복구 계획을 사용자 지정합니다.
 
 - SQL 백 엔드를 먼저, 미들웨어를 다음으로, 웹 프런트 엔드를 마지막으로 시작해야 합니다.
@@ -44,7 +42,7 @@ ms.locfileid: "73953883"
 - 이 순서는 또한 모든 구성 요소가 시작되어 실행되고 앱이 요청을 수락할 준비가 되기 전에 최종 사용자가 앱 URL에 연결되지 않도록 프런트 엔드 서버가 마지막에 시작되도록 할 수도 있습니다.
 
 이 순서를 만들려면 복구 그룹에 그룹을 추가하고, 그룹에 컴퓨터를 추가합니다.
-- 순서가 지정되면 시퀀싱이 사용됩니다. 작업은 애플리케이션 복구 RTO를 향상시키도록 적절한 곳에서 병렬로 실행됩니다.
+- 순서가 지정되면 시퀀싱이 사용됩니다. 작업은 적절 하 게 병렬로 실행 되어 응용 프로그램 복구 RTO를 향상 시킵니다.
 - 단일 그룹의 컴퓨터는 병렬로 장애 조치(failover)됩니다.
 - 서로 다른 그룹의 컴퓨터는 그룹 1의 모든 컴퓨터가 장애 조치(failover)되고 시작된 후에만 그룹 2 컴퓨터가 해당 장애 조치(failover)를 시작하도록 그룹 순서로 장애 조치(failover)됩니다.
 
@@ -58,7 +56,7 @@ ms.locfileid: "73953883"
 4. 시작 그룹이 순서대로 실행되고 각 그룹에서 컴퓨터가 시작됩니다. 먼저 그룹 1이 실행된 다음, 그룹2, 마지막으로 그룹 3이 실행됩니다. 모든 그룹에 둘 이상의 컴퓨터가 있는 경우 모든 컴퓨터가 병렬로 시작됩니다.
 
 
-## <a name="automate-tasks"></a>작업 자동화
+## <a name="automate-tasks-in-recovery-plans"></a>복구 계획의 작업 자동화
 
 대규모 애플리케이션 복구는 복잡한 작업일 수 있습니다. 수동 단계는 프로세스를 오류가 발생하기 쉽게 만들고, 장애 조치(failover)를 실행하는 사용자는 모든 앱 복잡성을 인식하지 못할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다. 자동화할 수 없는 작업의 경우 복구 계획에 수동 작업에 대한 일시 중지를 삽입할 수 있습니다. 두 가지 유형의 작업을 구성할 수 있습니다.
 
@@ -71,21 +69,21 @@ ms.locfileid: "73953883"
     * 웹 서버 구성 또는 규칙을 변경합니다.
 
 
-## <a name="test-failover"></a>테스트 장애 조치(failover)
+### <a name="run-a-test-failover-on-recovery-plans"></a>복구 계획에서 테스트 장애 조치 (failover) 실행
 
 복구 계획을 사용하여 테스트 장애 조치(failover)를 트리거할 수 있습니다. 다음 모범 사례를 사용합니다.
 
 - 항상 전체 장애 조치(failover)를 실행하기 전에 앱에서 테스트 장애 조치(failover)를 완료합니다. 테스트 장애 조치(failover)는 앱이 복구 사이트에서 작동되는지 여부를 확인하는 데 도움이 됩니다.
-- 누락된 것을 발견한 경우 정리를 트리거한 다음, 테스트 장애 조치(failover)를 다시 실행합니다. 
+- 누락 된 항목이 있으면 정리를 트리거한 후 테스트 장애 조치 (failover)를 다시 실행 합니다. 
 - 앱이 원활하게 복구될 때까지 테스트 장애 조치(failover)를 여러 번 실행합니다.
 - 각 앱은 고유하기 때문에 각 애플리케이션에 맞게 사용자 지정된 복구 계획을 구축하고 각각에서 테스트 장애 조치(failover)를 실행해야 합니다.
-- 앱 및 해당 종속성은 자주 변경됩니다. 복구 계획을 최신 상태로 유지하려면 각 앱에 대해 매 분기별로 테스트 장애 조치(failover)를 실행합니다.
+- 앱 및 해당 종속성은 자주 변경됩니다. 복구 계획이 최신 상태 인지 확인 하려면 분기별로 각 앱에 대 한 테스트 장애 조치 (failover)를 실행 합니다.
 
     ![Site Recovery의 테스트 복구 계획 예제 스크린샷](./media/recovery-plan-overview/rptest.png)
 
-## <a name="watch-the-video"></a>비디오 보기
+## <a name="watch-a-recovery-plan-video"></a>복구 계획 비디오 보기
 
-2 계층 WordPress 앱에 대 한 클릭 하 여 장애 조치 (failover)를 보여 주는 간단한 예제 비디오를 시청 하세요.
+2 계층 WordPress 앱에 대 한 복구 계획에 대 한 클릭 시 장애 조치 (failover)를 보여 주는 간단한 예제 비디오를 시청 하세요.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
@@ -94,4 +92,4 @@ ms.locfileid: "73953883"
 ## <a name="next-steps"></a>다음 단계
 
 - 복구 계획을 [만듭니다](site-recovery-create-recovery-plans.md).
-- [장애 조치(failover) 실행](site-recovery-failover.md)에 대해 알아봅니다.  
+- 장애 조치 (failover)를 [실행](site-recovery-failover.md) 합니다. 

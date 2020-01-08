@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105328"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435387"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight에서 대규모 스트리밍
 
@@ -37,7 +37,7 @@ Apache Storm은 내결함성이 있는 오픈 소스 분산형 계산 시스템�
 
 ## <a name="spark-streaming"></a>Spark 스트리밍
 
-Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하는 것과 동일한 코드를 재사용할 수 있도록 합니다. 일괄 처리 및 대화형 쿼리를 모두 동일한 애플리케이션에서 결합할 수 있습니다. Storm과 달리 Spark 스트리밍은 정확히 한 번만 처리되는 상태 저장 의미 체계를 제공합니다. [Kafka 직접 API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html)와 함께 사용하는 경우 Spark 스트리밍에서 모든 Kafka 데이터를 정확히 한 번 받을 수 있으므로 단 한 번의 엔드투엔드 보장을 얻을 수 있습니다. Spark 스트리밍의 장점 중 하나는 클러스터 내에서 여러 노드를 사용할 때 장애가 발생한 노드를 빠르게 복구하는 내결함성 기능입니다.
+Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하는 것과 동일한 코드를 재사용할 수 있도록 합니다. 일괄 처리 및 대화형 쿼리를 모두 동일한 애플리케이션에서 결합할 수 있습니다. 폭풍과 달리 Spark 스트리밍은 처리 의미 체계를 정확히 한 번만 제공 합니다. [Kafka DIRECT API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html)와 함께 사용 하는 경우 Spark 스트리밍이 모든 kafka 데이터를 정확히 한 번만 수신 하도록 하는 것은 완벽 하 게 한 번의 종단 간 달성할 수 있습니다. Spark 스트리밍의 장점 중 하나는 클러스터 내에서 여러 노드를 사용할 때 장애가 발생한 노드를 빠르게 복구하는 내결함성 기능입니다.
 
 자세한 내용은 [Apache Spark 스트리밍이란?](hdinsight-spark-streaming-overview.md)을 참조하세요.
 
@@ -45,11 +45,11 @@ Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하�
 
 만드는 중에 클러스터의 노드 수를 지정할 수 있지만, 작업과 일치하도록 클러스터를 확장하거나 축소할 수 있습니다. 모든 HDInsight 클러스터를 사용하면 [클러스터의 노드 수를 변경](hdinsight-administer-use-portal-linux.md#scale-clusters)할 수 있습니다. 모든 데이터가 Azure Storage 또는 Data Lake Storage에 저장되므로 데이터 손실 없이 Spark 클러스터를 삭제할 수 있습니다.
 
-기술 분리에 대한 장점이 있습니다. 예를 들어 Kafka는 이벤트 버퍼링 기술이므로 매우 IO 집약적이고 많은 처리 능력이 필요하지 않습니다. 이와 비교하여 Spark 스트리밍과 같은 스트림 프로세서는 계산 집약적이므로 더 강력한 VM이 필요합니다. 이러한 기술을 다른 클러스터로 분리함으로써 VM을 최대한 활용하면서 독립적으로 확장할 수 있습니다.
+기술 분리에 대한 장점이 있습니다. 예를 들어 Kafka은 이벤트 버퍼링 기술 이므로 매우 IO 집약적 이며 많은 처리 성능이 필요 하지 않습니다. 이와 비교하여 Spark 스트리밍과 같은 스트림 프로세서는 계산 집약적이므로 더 강력한 VM이 필요합니다. 이러한 기술을 다른 클러스터로 분리함으로써 VM을 최대한 활용하면서 독립적으로 확장할 수 있습니다.
 
 ### <a name="scale-the-stream-buffering-layer"></a>스트림 버퍼링 계층의 크기 조정
 
-스트림 버퍼링 기술인 Event Hubs와 Kafka는 모두 파티션을 사용하고, 소비자는 이러한 파티션을 읽습니다. 입력 처리량을 조정하려면 파티션 수를 강화해야 하며, 파티션을 추가하면 병렬 처리가 증가합니다. Event Hubs에서는 배포 후에 파티션 수를 변경할 수 없으므로 대상 크기 조정을 염두에 두고 시작하는 것이 중요합니다. Kafka를 사용하면 Kafka에서 데이터를 처리하는 동안에도 [파티션을 추가](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)할 수 있습니다. Kafka는 파티션을 다시 할당하는 도구(`kafka-reassign-partitions.sh`)를 제공합니다. HDInsight는 [파티션 복제본의 균형을 다시 조정하는 도구](https://github.com/hdinsight/hdinsight-kafka-tools)(`rebalance_rackaware.py`)를 제공합니다. 이 재조정 도구는 각 복제본이 별도의 장애 도메인 및 업데이트 도메인에 있는 방식으로 `kafka-reassign-partitions.sh` 도구를 호출하여 Kafka 랙을 인식하고 내결함성을 향상시킵니다.
+스트림 버퍼링 기술인 Event Hubs와 Kafka는 모두 파티션을 사용하고, 소비자는 이러한 파티션을 읽습니다. 입력 처리량을 조정하려면 파티션 수를 강화해야 하며, 파티션을 추가하면 병렬 처리가 증가합니다. Event Hubs 배포 후에 파티션 수를 변경할 수 없으므로 대상 규모를 염두에 두어야 합니다. Kafka을 사용 하면 Kafka가 데이터를 처리 하는 동안에도 [파티션을 추가할](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)수 있습니다. Kafka는 파티션을 다시 할당하는 도구(`kafka-reassign-partitions.sh`)를 제공합니다. HDInsight는 [파티션 복제본의 균형을 다시 조정하는 도구](https://github.com/hdinsight/hdinsight-kafka-tools)(`rebalance_rackaware.py`)를 제공합니다. 이 재조정 도구는 각 복제본이 별도의 장애 도메인 및 업데이트 도메인에 있는 방식으로 `kafka-reassign-partitions.sh` 도구를 호출하여 Kafka 랙을 인식하고 내결함성을 향상시킵니다.
 
 ### <a name="scale-the-stream-processing-layer"></a>스트림 처리 계층의 크기 조정
 

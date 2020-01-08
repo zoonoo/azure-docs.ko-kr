@@ -1,5 +1,6 @@
 ---
-title: 데이터베이스 마이그레이션 시나리오 상태 | Microsoft Docs
+title: 데이터베이스 마이그레이션 시나리오 상태
+titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
@@ -11,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 9ea070ea86a4d0d5e7101e82450235a59c936d2d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 03fb6a1aff62df878417da55a7da7b42186b3462
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437684"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
 
@@ -44,7 +45,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 오프라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| 대상  | 원본 | 지원 | Status |
+| 대상 파악  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
@@ -64,7 +65,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 온라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| 대상  | 원본 | 지원 | Status |
+| 대상 파악  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |

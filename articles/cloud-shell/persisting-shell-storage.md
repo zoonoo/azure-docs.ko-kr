@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284823"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385559"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
 
 > [!NOTE]
 > Bash 및 PowerShell은 동일한 파일 공유를 공유합니다. 하나의 파일 공유는 Cloud Shell에서 자동 탑재와 연결될 수 있습니다.
+
+> [!NOTE]
+> Azure storage 방화벽은 cloud shell 저장소 계정에 대해 지원 되지 않습니다.
 
 ## <a name="create-new-storage"></a>새 스토리지 만들기
 
@@ -36,7 +39,7 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 
 ![구독 설정](media/persisting-shell-storage/basic-storage.png)
 
-파일 공유는 `clouddrive` 디렉터리에서 `$Home`로 마운트됩니다. 이것은 일회성 작업이며 파일 공유는 후속 세션에서 자동으로 마운트됩니다. 
+파일 공유는 `$Home` 디렉터리에서 `clouddrive`로 마운트됩니다. 이것은 일회성 작업이며 파일 공유는 후속 세션에서 자동으로 마운트됩니다. 
 
 파일 공유는 `$Home` 디렉터리에서 데이터를 자동으로 유지하기 위해 만든 5GB 이미지를 포함합니다. 이는 Bash 및 PowerShell 모두에 적용됩니다.
 
@@ -63,7 +66,7 @@ Cloud Shell는 지정 된 구독 내에서 저장소 계정에 Azure 파일 공�
 
 Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
 
-|영역|Region|
+|영역|지역|
 |---|---|
 |아메리카|미국 동부, 미국 중남부, 미국 서부|
 |유럽|북유럽, 서유럽|
@@ -74,8 +77,8 @@ Cloud Shell에서 생성된 Storage 계정에 `ms-resource-usage:azure-cloud-she
 
 ## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 스토리지 작동 방법 
 Cloud Shell은 다음 방법 모두를 통해 파일을 유지합니다. 
-* `$Home` 디렉터리 내에 모든 콘텐츠를 유지하기 위해 해당 디렉터리의 디스크 이미지를 만듭니다. 디스크 이미지는 `acc_<User>.img`에서 `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`로 지정된 파일 공유에 저장되고 변경 내용을 자동으로 동기화합니다. 
-* 직접 파일 공유의 상호 작용을 위해 `clouddrive` 디렉터리에서 지정된 파일 공유를 `$Home`로 마운트합니다. `/Home/<User>/clouddrive`은 `fileshare.storage.windows.net/fileshare`에 매핑됩니다.
+* `$Home` 디렉터리 내에 모든 콘텐츠를 유지하기 위해 해당 디렉터리의 디스크 이미지를 만듭니다. 디스크 이미지는 `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`에서 `acc_<User>.img`로 지정된 파일 공유에 저장되고 변경 내용을 자동으로 동기화합니다. 
+* 직접 파일 공유의 상호 작용을 위해 `$Home` 디렉터리에서 지정된 파일 공유를 `clouddrive`로 마운트합니다. `/Home/<User>/clouddrive`은 `fileshare.storage.windows.net/fileshare`에 매핑됩니다.
  
 > [!NOTE]
 > SSH 키와 같이 `$Home` 디렉터리의 모든 파일은 마운트된 파일 공유에 저장된 사용자 디스크 이미지에서 유지됩니다. `$Home` 디렉터리 및 마운트된 파일 공유에서 정보를 유지하는 경우 모범 사례를 적용합니다.
@@ -89,7 +92,7 @@ Cloud Shell에서 Cloud Shell에 탑재 된 파일 공유를 수동으로 업데
 ### <a name="list-clouddrive"></a>목록 `clouddrive`
 `clouddrive`로 마운트된 파일 공유를 확인하려면 `df` 명령을 실행합니다. 
 
-clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예: `//storageaccountname.file.core.windows.net/filesharename`
+clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들어 `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df

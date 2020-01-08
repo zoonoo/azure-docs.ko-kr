@@ -1,5 +1,5 @@
 ---
-title: Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링 | Microsoft Docs
+title: Application Insights를 사용 하 여 라이브 Azure Service Fabric 앱 프로 파일링
 description: Service Fabric 애플리케이션에 대해 Profiler 사용
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,16 +8,16 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a7a64be3c73ea82c6bf3d905772f3278f9bda5df
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 162a8c3f90b7adab356ebb07c80b8de283fd818d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432401"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링
 
-또한 다음과 같은 서비스에서 Application Insights Profiler를 배포할 수도 있습니다.
+다음과 같은 서비스에 Application Insights Profiler를 배포할 수도 있습니다.
 * [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)

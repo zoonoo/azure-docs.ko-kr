@@ -1,53 +1,56 @@
 ---
 title: Azure HDInsight에서 대화형 Spark 셸 사용
 description: 대화형 Spark 셸은 한 번에 하나의 Spark 명령을 실행하고 결과를 보기 위한 읽기 실행 인쇄 프로세스를 제공합니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/09/2018
-ms.openlocfilehash: 7aac2812787a7c14d99377754a4f85e699ef3f09
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.custom: hdinsightactive
+ms.date: 12/12/2019
+ms.openlocfilehash: f088b8210b8170d22e84d131f0a72f5f8caa3b92
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441885"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435218"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Spark 셸에서 Apache Spark 실행
 
 대화형 [Apache Spark](https://spark.apache.org/) 셸은 한 번에 하나의 Spark 명령을 실행하고 결과를 보기 위한 REPL(읽기 실행 인쇄 반복) 환경을 제공합니다. 이 프로세스는 개발 및 디버깅에 유용합니다. Spark는 지원되는 각 언어, Scala, Python 및 R에 대한 하나의 셸을 제공합니다.
 
-## <a name="get-to-an-apache-spark-shell-with-ssh"></a>SSH를 사용하여 Apache Spark 셸로 가져오기
-
-SSH를 사용해서 클러스터의 주 헤드 노드에 연결하여 HDInsight의 Apache Spark 셸에 액세스합니다.
-
-     ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
-
-Azure Portal에서 클러스터에 대한 전체 SSH 명령을 얻을 수 있습니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. HDInsight Spark 클러스터에 대한 창으로 이동합니다.
-3. SSH(Secure Shell)를 선택합니다.
-
-    ![Azure Portal의 HDInsight 창](./media/apache-spark-shell/hdinsight-spark-blade.png)
-
-4. 표시되는 SSH 명령을 복사하고 터미널에서 실행합니다.
-
-    ![Azure Portal의 HDInsight SSH 창](./media/apache-spark-shell/hdinsight-spark-ssh-blade.png)
-
-SSH를 사용하여 HDInsight에 연결에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
 ## <a name="run-an-apache-spark-shell"></a>Apache Spark 셸 실행
 
-Spark는 Scala(spark 셸), Python(pyspark) 및 R(sparkR)에 대한 셸을 제공합니다. HDInsight 클러스터 헤드 노드의 SSH 세션에서 다음 명령 중 하나를 입력합니다.
+1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
 
-    ./bin/spark-shell
-    ./bin/pyspark
-    ./bin/sparkR
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-이제 해당 언어로 Spark 명령을 입력할 수 있습니다.
+1. Spark는 Scala (spark-shell) 및 Python (pyspark)에 대 한 셸을 제공 합니다. SSH 세션에서 다음 명령 중 하나를 입력 합니다.
+
+    ```bash
+    spark-shell
+    pyspark
+    ```
+
+    이제 해당 언어로 Spark 명령을 입력할 수 있습니다.
+
+1. 몇 가지 기본적인 예제 명령은 다음과 같습니다.
+
+    ```scala
+    // Load data
+    var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+
+    // Show data
+    data.show()
+
+    // Select certain columns
+    data.select($"BuildingID", $"Country").show(10)
+
+    // exit shell
+    :q
+    ```
 
 ## <a name="sparksession-and-sparkcontext-instances"></a>SparkSession 및 SparkContext 인스턴스
 
@@ -57,7 +60,7 @@ SparkSession 인스턴스에 액세스하려면 `spark`를 입력합니다. Spar
 
 ## <a name="important-shell-parameters"></a>중요한 셸 매개 변수
 
-Spark 셸 명령(`spark-shell`, `pyspark` 또는 `sparkR`)은 여러 명령줄 매개 변수를 지원합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸에서 래핑하는 `spark-submit`에만 적용될 수 있습니다.
+Spark Shell 명령 (`spark-shell`또는 `pyspark`)은 많은 명령줄 매개 변수를 지원 합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸이 래핑하는 `spark-submit`에만 적용 될 수 있습니다.
 
 | 스위치 | description | 예제 |
 | --- | --- | --- |

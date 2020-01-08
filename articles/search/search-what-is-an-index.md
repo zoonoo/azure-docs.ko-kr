@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794204"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460754"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기본 인덱스 만들기
 
@@ -29,7 +29,7 @@ Azure Cognitive Search에서 *인덱스* 는 azure Cognitive Search 서비스에
 
 1. [인덱서](search-indexer-overview.md#supported-data-sources)를 사용할 수 있는지 확인하세요. 외부 데이터가 지원되는 데이터 원본 중 하나인 경우 [**데이터 가져오기**](search-import-data-portal.md) 마법사를 사용하여 인덱스의 프로토타입을 제작하고 로드할 수 있습니다.
 
-2. **데이터 가져오기**를 사용할 수 없는 경우 [인덱스 추가](search-create-index-portal.md) 페이지의 컨트롤을 사용하여 **포털에서 초기 인덱스를 만들고**, 필드 및 데이터 형식을 추가하고, 특성을 할당할 수 있습니다. 포털은 여러 데이터 형식에 사용할 수 있는 특성을 보여줍니다. 인덱스 설계를 처음 접하는 분들에게 유용합니다.
+2. **데이터 가져오기**를 사용할 수 없는 경우 **인덱스 추가** 페이지의 컨트롤을 사용하여 [포털에서 초기 인덱스를 만들고](search-create-index-portal.md), 필드 및 데이터 형식을 추가하고, 특성을 할당할 수 있습니다. 포털은 여러 데이터 형식에 사용할 수 있는 특성을 보여줍니다. 인덱스 설계를 처음 접하는 분들에게 유용합니다.
 
    ![데이터 유형별 특성을 보여 주는 인덱스 페이지 추가](media/search-create-index-portal/field-attributes.png "데이터 유형별 특성을 보여 주는 인덱스 페이지 추가")
   
@@ -37,7 +37,7 @@ Azure Cognitive Search에서 *인덱스* 는 azure Cognitive Search 서비스에
 
 3. [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index)와 [Postman](search-get-started-postman.md) 같은 웹 테스트 도구를 사용하여 인덱스 스키마를 다운로드할 수 있습니다. 이제 포털에서 만든 인덱스의 JSON 표현이 생겼습니다. 
 
-   지금부터는 코드 기반 접근 방식으로 전환하겠습니다. 포털은 이미 만들어진 인덱스를 편집할 수 없기 때문에 반복에 적합하지 않습니다. 하지만 나머지 작업에는 Postman 및 REST를 사용할 수 있습니다.
+   지금부터는 코드 기반 접근 방식으로 전환하겠습니다. 이미 만든 인덱스를 편집할 수 없기 때문에이 포털은 반복에 적합 하지 않습니다. 하지만 나머지 작업에는 Postman 및 REST를 사용할 수 있습니다.
 
 4. [데이터가 포함된 인덱스를 로드합니다](search-what-is-data-import.md). Azure Cognitive Search는 JSON 문서를 허용 합니다. 데이터를 프로그래밍 방식으로 로드하려면 요청 페이로드의 JSON 문서에 Postman을 사용하면 됩니다. 데이터를 JSON으로 표현하기가 쉽지 않은 경우 이 단계에 가장 많은 노력이 필요할 것입니다.
 
@@ -53,7 +53,7 @@ Azure Cognitive Search에서 *인덱스* 는 azure Cognitive Search 서비스에
 
 구조적으로 Azure Cognitive Search 인덱스는 다음 요소로 구성 됩니다. 
 
-일반적으로 [‘필드 컬렉션’*이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다.* ](#fields-collection) 기타 요소에는 [확인 기](#suggesters), [점수 매기기 프로필](#scoring-profiles), 사용자 지정, [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션을 지 원하는 구성 요소 부분이 포함 된 [분석기](#analyzers) 가 포함 됩니다.
+일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 기타 요소에는 [확인 기](#suggesters), [점수 매기기 프로필](#scoring-profiles), 사용자 지정, [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션을 지 원하는 구성 요소 부분이 포함 된 [분석기](#analyzers) 가 포함 됩니다.
 
 ```json
 {
@@ -145,7 +145,7 @@ Azure Cognitive Search에서 *인덱스* 는 azure Cognitive Search 서비스에
 스키마를 정의할 때 인덱스에서 각 필드의 이름, 형식 및 특성을 지정해야 합니다. 필드 형식은 해당 필드에 저장된 데이터를 분류합니다. 특성은 개별 필드에 설정되어 필드를 사용하는 방법을 지정합니다. 다음 표에서는 지정할 수 있는 형식 및 특성을 열거합니다.
 
 ### <a name="data-types"></a>데이터 형식
-| 형식 | 설명 |
+| 유형 | Description |
 | --- | --- |
 | *Edm.String* |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 텍스트입니다(단어 분리, 형태소 분석 등). |
 | *Collection(Edm.String)* |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 문자열 목록입니다. 컬렉션에 있는 항목 수에 이론적인 상한은 없지만 페이로드 크기의 16MB 상한이 컬렉션에 적용됩니다. |
@@ -166,7 +166,7 @@ Azure Cognitive Search [지원 되는 데이터 형식](https://docs.microsoft.c
 
 인덱스를 작성 하는 데 사용 하는 Api는 다양 한 기본 동작을 포함 합니다. [REST api](https://docs.microsoft.com/rest/api/searchservice/Create-Index)의 경우 대부분의 특성은 기본적으로 사용 하도록 설정 됩니다. 예를 들어, 문자열 필드에 대해 **검색** 가능 하 고 검색 가능 하 게 설정 하는 **것이 가능** 합니다. 이러한 특성을 해제 하려는 경우에는 자주 설정 해야 합니다. .NET SDK의 경우 반대의 경우도 마찬가지입니다. 명시적으로 설정 하지 않은 모든 속성에서 기본값은 명시적으로 사용 하도록 설정 하지 않은 경우 해당 검색 동작을 사용 하지 않도록 설정 하는 것입니다.
 
-| 특성 | 설명 |
+| attribute | Description |
 | --- | --- |
 | `key` |문서 조회에 사용하는 각 문서의 고유 ID를 제공하는 문자열입니다. 모든 인덱스에는 하나의 키가 있어야 합니다. 필드 한 개만 키가 될 수 있으며, 이 필드 형식을 Edm.String으로 설정해야 합니다. |
 | `retrievable` |검색 결과에서 필드를 반환할 수 있는지 여부를 지정합니다. |
@@ -175,28 +175,27 @@ Azure Cognitive Search [지원 되는 데이터 형식](https://docs.microsoft.c
 | `facetable` |사용자 자기 주도형 필터링을 위해 필드를 [패싯 탐색](search-faceted-navigation.md) 구조에 사용할 수 있습니다. 일반적으로 여러 문서(예를 들어 단일 브랜드 또는 서비스 범주에 속하는 여러 문서)를 그룹화하는 데 사용할 수 있는 반복되는 값을 포함한 필드는 패싯으로 가장 적합합니다. |
 | `searchable` |전체 텍스트 검색 가능 필드로 표시합니다. |
 
+## <a name="index-size"></a>인덱스 크기
 
-## <a name="storage-implications"></a>스토리지 영향
-
-선택하는 특성은 스토리지에 영향을 줍니다. 다음 스크린샷은 다양한 특성을 조합한 인덱스 스토리지 패턴을 보여줍니다.
+인덱스 크기는 업로드 하는 문서의 크기와 확인 기 포함 여부, 개별 필드에 대 한 특성 설정 방법 등의 인덱스 구성에 따라 결정 됩니다. 다음 스크린샷은 다양한 특성을 조합한 인덱스 스토리지 패턴을 보여줍니다.
 
 인덱스는 포털에서 인덱싱하고 쿼리할 수 있는 [기본 제공 부동산 샘플](search-get-started-portal.md) 데이터 소스를 기반으로 합니다. 인덱스 스키마는 표시되지 않지만, 인덱스 이름을 보고 특성을 유추할 수 있습니다. 예를 들어 *realestate-searchable* 인덱스에서는 **searchable** 특성만 선택되었고 그 외에는 아무 것도 선택되지 않았으며, *realestate-retrievable* 인덱스에서는 **retrievable** 특성만 선택되었고 그 외에는 아무 것도 선택되지 않았습니다.
 
 ![특성 선택에 따른 인덱스 크기](./media/search-what-is-an-index/realestate-index-size.png "특성 선택에 따른 인덱스 크기")
 
-이러한 인덱스 변형은 인위적이지만, 특성이 스토리지에 미치는 영향을 광범위하게 비교하는 데 참조할 수 있습니다. **retrievable**을 설정하면 인덱스 크기가 커지나요? 아니요. **Suggester**에 필드를 추가하면 인덱스 크기가 커지나요? 예.
+이러한 인덱스 변형은 인위적이지만, 특성이 스토리지에 미치는 영향을 광범위하게 비교하는 데 참조할 수 있습니다. **retrievable**을 설정하면 인덱스 크기가 커지나요? 아닙니다. **Suggester**에 필드를 추가하면 인덱스 크기가 커지나요? 예.
 
-필터 및 정렬을 지원하는 인덱스는 전체 텍스트 검색만 지원하는 인덱스보다 비례적으로 큽니다. 필터 및 정렬은 정확히 일치하는 항목을 쿼리하므로 문서가 그대로 저장됩니다. 반면 전체 텍스트 및 유사 항목 검색을 지원하는 검색 가능 필드는 반전 인덱스를 사용하며, 반전 인덱스는 전체 문서보다 공간을 적게 사용하는 토큰화된 용어로 채워집니다.
+필터와 정렬을 지 원하는 인덱스는 전체 텍스트 검색을 지 원하는 인덱스 보다 비례 하 게 커집니다. 필터 및 정렬 작업은 정확히 일치 하는 항목을 검색 하 여 손상 된 문서가 있는지 확인 합니다. 반면 전체 텍스트 및 유사 항목 검색을 지원하는 검색 가능 필드는 반전 인덱스를 사용하며, 반전 인덱스는 전체 문서보다 공간을 적게 사용하는 토큰화된 용어로 채워집니다. 
 
 > [!Note]
 > 저장소 아키텍처는 Azure Cognitive Search의 구현 세부 정보로 간주 되며, 예 고 없이 변경 될 수 있습니다. 현재 동작이 나중에도 유지된다는 보장은 없습니다.
 
-## <a name="suggesters"></a>확인기
-제안기는 검색에서 자동 완성 또는 자동 완성 쿼리를 지원하는 데 사용되는 인덱스의 필드를 정의하는 스키마 섹션입니다. 일반적으로 사용자가 검색 쿼리를 입력하는 동안 부분 검색 문자열이 [제안(REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions)으로 전송되고, API는 제안 문구 세트를 반환합니다. 
+## <a name="suggesters"></a>제안
+제안기는 검색에서 자동 완성 또는 자동 완성 쿼리를 지원하는 데 사용되는 인덱스의 필드를 정의하는 스키마 섹션입니다. 일반적으로 사용자가 검색 쿼리를 입력 하는 동안 부분 검색 문자열이 [제안 (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) 으로 전송 되 고 API는 제안 된 문서 또는 구의 집합을 반환 합니다. 
 
 제안기에 추가된 필드는 검색어 미리 입력 기능을 빌드하는 데 사용됩니다. 모든 검색어는 인덱싱 중에 생성되어 별도로 저장됩니다. 제안기 구조체를 만드는 방법에 대한 자세한 내용은 [제안기 추가](index-add-suggesters.md)를 참조하세요.
 
-## <a name="scoring-profiles"></a>점수 매기기 프로필
+## <a name="scoring-profiles"></a>평가 프로필
 
 [점수 매기기 프로필](index-add-scoring-profiles.md)은 검색 결과에서 더 위쪽에 표시할 항목을 제어할 수 있는 사용자 지정 채점 동작을 정의하는 스키마 섹션입니다. 점수 매기기 프로필은 필드 가중치와 함수로 구성됩니다. 사용하려면 쿼리 문자열에서 이름별로 프로필을 지정합니다.
 
@@ -214,13 +213,13 @@ CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
 
 + **allowedorigins** (필수): 인덱스에 대 한 액세스 권한이 부여 되는 원본 목록입니다. 이 원본에서 제공되는 모든 JavaScript 코드는 올바른 API 키를 제공하는 경우 인덱스를 쿼리하도록 허용됩니다. 각 원본은 보통 `protocol://<fully-qualified-domain-name>:<port>` 형식이지만 `<port>`는 대개 생략됩니다. 자세한 내용은 [원본 간 리소스 공유(위키백과)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 참조하세요.
 
-  모든 원본에 대한 액세스를 허용하려면 `*`allowedOrigins**배열에서**를 단일 항목으로 포함합니다. {b>프로덕션 검색 서비스에는 권장되지 않지만<b} 개발 및 디버깅에 유용한 경우가 많습니다.
+  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. *프로덕션 검색 서비스에는 권장되지 않지만* 개발 및 디버깅에 유용한 경우가 많습니다.
 
 + **maxAgeInSeconds** (선택 사항): 브라우저는이 값을 사용 하 여 CORS 실행 전 응답을 캐시할 기간 (초)을 결정 합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
 
 ## <a name="encryption-key"></a>암호화 키
 
-모든 Azure Cognitive Search 인덱스는 Microsoft 관리 키를 사용 하 여 기본적으로 암호화 되지만 Key Vault에서 **고객 관리 키** 를 사용 하 여 암호화 되도록 인덱스를 구성할 수 있습니다. 자세히 알아보려면 [Azure Cognitive Search에서 암호화 키 관리](search-security-manage-encryption-keys.md)를 참조 하세요.
+모든 Azure Cognitive Search 인덱스는 기본적으로 Microsoft 관리 키를 사용 하 여 암호화 되지만 Key Vault에서 **고객 관리 키** 를 사용 하 여 암호화 되도록 인덱스를 구성할 수 있습니다. 자세히 알아보려면 [Azure Cognitive Search에서 암호화 키 관리](search-security-manage-encryption-keys.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

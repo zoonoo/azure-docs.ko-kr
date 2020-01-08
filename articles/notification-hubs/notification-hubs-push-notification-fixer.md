@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378384"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Azure Notification Hubs에서 삭제 된 알림 진단
 
@@ -103,7 +103,7 @@ Notification Hubs은 "최대 한 번" 메시지 배달 모델에 대해 최적�
 
 이 경우 오류가 발생 한 등록이 데이터베이스에서 제거 됩니다. 그런 다음 해당 일괄 처리의 나머지 디바이스에 알림을 다시 배달합니다.
 
-등록에 대 한 실패 한 배달 시도에 대 한 자세한 오류 정보를 얻으려면 메시지 원격 분석 당 Notification Hubs REST Api를 사용 하면 됩니다 [. 알림 메시지 원격 분석](https://msdn.microsoft.com/library/azure/mt608135.aspx) 및 [PNS 피드백](https://msdn.microsoft.com/library/azure/mt705560.aspx)을 받습니다. 샘플 코드는 [REST 보내기 예제](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)를 참조하세요.
+등록에 대 한 실패 한 배달 시도에 대 한 자세한 오류 정보를 얻으려면 메시지 원격 분석 당 Notification Hubs REST Api를 사용 하면 됩니다 [. 알림 메시지 원격 분석](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry) 및 [PNS 피드백](https://msdn.microsoft.com/library/azure/mt705560.aspx)을 받습니다. 샘플 코드는 [REST 보내기 예제](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)를 참조하세요.
 
 ## <a name="push-notification-service-issues"></a>푸시 알림 서비스 문제
 
@@ -127,7 +127,7 @@ Notification Hubs에서 삭제 된 알림의 근본 원인을 진단 하는 경�
 
 각 푸시 알림 서비스 개발자 포털(APNs, FCM, Windows Notification Service 등)에서 자격 증명을 확인합니다. 자세한 내용은 [자습서: Azure Notification Hubs를 사용 하 여 유니버설 Windows 플랫폼 앱에 알림 보내기](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)를 참조 하세요.
 
-#### <a name="azure-portal"></a>Azure 포털 ####
+#### <a name="azure-portal"></a>Azure Portal ####
 
 푸시 알림 서비스 개발자 포털에서 얻은 자격 증명과 자격 증명을 검토 하 고 일치 시키려면 Azure Portal의 **액세스 정책** 탭으로 이동 합니다.
 
@@ -168,7 +168,7 @@ Visual Studio에서 서버 탐색기 통해 Azure에 연결 하 여 Notification
 
 ### <a name="verify-message-notifications"></a>알림 메시지 확인
 
-#### <a name="azure-portal"></a>Azure 포털 ####
+#### <a name="azure-portal"></a>Azure Portal ####
 
 서비스 백 엔드를 실행하지 않고 클라이언트에 테스트 알림을 보내려면 **지원 + 문제 해결**에서 **테스트 보내기**를 선택합니다.
 
@@ -196,7 +196,7 @@ Notification Hubs를 통해 알림을 보낼 때 알림은 처음에 큐에 대�
 
 푸시 알림 서비스 오류에 대한 정보를 얻으려면 [EnableTestSend] 속성을 사용합니다. 이 속성은 포털 또는 Visual Studio 클라이언트에서 테스트 메시지를 보낼 때 자동으로 활성화됩니다. 이 속성을 사용 하 여 자세한 디버깅 정보 및 Api를 통해 볼 수도 있습니다. 현재 이 속성은 .NET SDK에서 사용할 수 있습니다. 결국 모든 클라이언트 Sdk에 추가 됩니다.
 
-REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test*라는 쿼리 문자열 매개 변수를 추가합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test*라는 쿼리 문자열 매개 변수를 추가합니다. 예:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -214,7 +214,7 @@ Console.WriteLine(result.State);
 
 실행 마지막에 `result.State`가 간단히 `Enqueued`를 명시합니다. 결과는 푸시 알림에 발생 한 상황에 대 한 통찰력을 제공 하지 않습니다.
 
-다음으로 `EnableTestSend` 부울 속성을 사용할 수 있습니다. `EnableTestSend`를 초기화할 때 `NotificationHubClient` 속성을 사용하여 알림을 보낼 때 발생하는 푸시 알림 서비스 오류에 대한 자세한 상태를 가져올 수 있습니다. 푸시 알림 서비스에 알림을 배달 하기 위해 먼저 Notification Hubs 필요 하기 때문에 send 호출은 반환 시간이 더 오래 걸립니다.
+다음으로 `EnableTestSend` 부울 속성을 사용할 수 있습니다. `NotificationHubClient`를 초기화할 때 `EnableTestSend` 속성을 사용하여 알림을 보낼 때 발생하는 푸시 알림 서비스 오류에 대한 자세한 상태를 가져올 수 있습니다. 푸시 알림 서비스에 알림을 배달 하기 위해 먼저 Notification Hubs 필요 하기 때문에 send 호출은 반환 시간이 더 오래 걸립니다.
 
 ```csharp
     bool enableTestSend = true;
@@ -245,7 +245,7 @@ The Token obtained from the Token Provider is wrong
 
 ### <a name="review-telemetry"></a>원격 분석 검토 ###
 
-#### <a name="azure-portal"></a>Azure 포털 ####
+#### <a name="azure-portal"></a>Azure Portal ####
 
 포털에서 알림 허브의 모든 활동에 대한 간략한 개요를 확인할 수 있습니다.
 

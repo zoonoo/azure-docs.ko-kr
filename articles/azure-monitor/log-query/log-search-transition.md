@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: b738d532cb458506ca50a07dea11687040f99e02
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a8d0469d57901f53d8e615f800b5d804944163fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900336"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398152"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Log Analytics 로그 검색에서 Azure Monitor 로그로 전환
 Log Analytics의 로그 검색은 Azure Monitor 로그를 분석하기 위한 새로운 환경으로 바뀌었습니다. 로그 검색 페이지는 이제 Azure Portal의 **Log Analytics 작업 영역**에 있는 **로그(클래식)** 메뉴 항목을 통해 계속 액세스할 수 있지만 이 페이지는 2019년 2월 15일에 제거될 예정입니다. 이 문서에서는 두 환경 간의 차이점을 설명하여 로그 검색에서 전환할 수 있도록 지원합니다. 

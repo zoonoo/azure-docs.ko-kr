@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB SQL API 계정에서 지리 공간적 데이터 작업
+title: Azure Cosmos DB SQL API 계정에서 지리 공간적 데이터 사용
 description: Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들고 인덱싱 및 쿼리하는 방법을 이해합니다.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 1b26f78c6d44123ef1baa3c55fd16c3340d59dd4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e48f6c52aa2d633ea20fd0dae70c7aa1380bb50d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441880"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정에서 지리 공간 및 GeoJSON 위치 데이터 사용
 
@@ -94,7 +94,7 @@ Azure Cosmos DB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지
 ### <a name="coordinate-reference-systems"></a>좌표 참조 시스템
 지구 모양이 불규칙적이므로 지리 공간 데이터의 좌표는 각각 고유한 참조 프레임과 측정 단위가 있는 많은 CRS(좌표 참조 시스템)에 표시됩니다. 예를 들어 "National Grid of Britain"은 영국에서만 정확하고 그 밖의 지역에서는 정확하지 않은 참조 시스템입니다. 
 
-현재 가장 많이 사용되는 CRS는 World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/)입니다. GPS 디바이스와 Google Map 및 Bing 지도 API를 비롯한 많은 매핑 서비스는 WGS-84를 사용합니다. Azure Cosmos DB는 WGS-84 CRS만 사용하여 지리 공간 데이터의 인덱싱 및 쿼리를 지원합니다. 
+현재 가장 많이 사용되는 CRS는 World Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php)입니다. GPS 디바이스와 Google Map 및 Bing 지도 API를 비롯한 많은 매핑 서비스는 WGS-84를 사용합니다. Azure Cosmos DB는 WGS-84 CRS만 사용하여 지리 공간 데이터의 인덱싱 및 쿼리를 지원합니다. 
 
 ## <a name="creating-documents-with-spatial-data"></a>공간 데이터를 포함하는 문서 만들기
 GeoJSON 값을 포함하는 문서를 만드는 경우, 컨테이너의 인덱싱 정책에 따라 공간 인덱스를 사용하여 자동으로 인덱싱됩니다. Python 또는 Node.js와 같은 동적으로 형식화된 언어로 Azure Cosmos DB SDK 작업을 수행하는 경우 유효한 GeoJSON을 만들어야 합니다.
@@ -150,7 +150,7 @@ await client.CreateDocumentAsync(
 ### <a name="spatial-sql-built-in-functions"></a>공간 SQL 기본 제공 함수
 Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. SQL 언어의 전체 기본 제공 함수 집합에 대한 자세한 내용은 [Azure Cosmos DB 쿼리](how-to-sql-query.md)를 참조하세요.
 
-|**Usage**|**설명**|
+|**사용 현황**|**설명**|
 |---|---|
 | ST_DISTANCE(spatial_expr, spatial_expr) | 두 GeoJSON Point, Polygon 또는 LineString 식 사이의 거리를 반환합니다.|
 |ST_WITHIN(spatial_expr, spatial_expr) | 첫 번째 GeoJSON 개체(Point, Polygon 또는 LineString)가 두 번째 GeoJSON 개체(Point, Polygon 또는 LineString) 내에 있는지를 나타내는 부울 식을 반환합니다.|
@@ -160,7 +160,7 @@ Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geos
 
 공간 함수를 사용하여 공간 데이터에 대한 근접 쿼리를 수행할 수 있습니다. 예를 들어 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30km 이내에 있는 모든 제품군 문서를 반환하는 쿼리는 다음과 같습니다. 
 
-**데이터 집합 속성**
+**쿼리**
 
     SELECT f.id 
     FROM Families f 
@@ -178,7 +178,7 @@ ST_WITHIN을 사용하여 점이 다각형 내에 있는지 여부를 확인할 
 
 ST_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. 즉, 다각형에 구멍이 포함되지 않아야 합니다. 
 
-**데이터 집합 속성**
+**쿼리**
 
     SELECT * 
     FROM Families f 
@@ -200,7 +200,7 @@ ST_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. �
 
 Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB에서 다각형 또는 선을 인덱싱한 다음, 지정된 점이 포함된 영역을 쿼리할 수 있습니다. 이 패턴은 일반적으로 특정 시점(예: 지정된 영역에 트럭이 출입한 시점)을 식별하기 위해 물류에서 사용됩니다. 
 
-**데이터 집합 속성**
+**쿼리**
 
     SELECT * 
     FROM Areas a 
@@ -219,7 +219,7 @@ Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB
 
 ST_ISVALID 및 ST_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 확인할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. ST_ISVALID는 부울 값만 반환하고 ST_ISVALIDDETAILED는 부울 및 잘못된 것으로 간주된 이유를 포함하는 문자열을 반환합니다.
 
-**데이터 집합 속성**
+**쿼리**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -231,7 +231,7 @@ ST_ISVALID 및 ST_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 
 
 이러한 함수를 사용하여 다각형의 유효성을 검사할 수도 있습니다. 예를 들어 여기서는 ST_ISVALIDDETAILED를 사용하여 닫혀 있지 않은 다각형의 유효성을 검사합니다. 
 
-**데이터 집합 속성**
+**쿼리**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
         [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 

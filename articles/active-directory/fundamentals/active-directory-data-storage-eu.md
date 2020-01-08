@@ -1,5 +1,5 @@
 ---
-title: 유럽 고객에 대한 ID 데이터 스토리지 - Azure Active Directory | Microsoft Docs
+title: 유럽 고객용 id 데이터 저장소-Azure AD
 description: Azure Active Directory에서 유럽 고객의 ID 관련 데이터를 저장하는 위치에 대해 알아봅니다.
 services: active-directory
 author: msaburnley
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7360b11f41cc08c2beb3ffa227e1658881798502
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422996"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
 Id 데이터는 Office 365 및 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공 하는 주소에 따라 지리적 위치에 Azure AD에 저장 됩니다. Id 데이터가 저장 되는 위치에 대 한 자세한 내용은 Microsoft 보안 센터의 [어디에 있는 데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
@@ -30,11 +30,11 @@ Id 데이터는 Office 365 및 Azure와 같은 Microsoft 온라인 서비스를 
 - Microsoft Authenticator 앱을 사용한 푸시 알림은 미국 데이터 센터에서 시작 됩니다. 또한 장치 공급 업체의 특정 서비스를 재생할 수 있으며 이러한 서비스는 유럽 외부에서 제공 될 수도 있습니다.
 - OATH 코드는 미국에서 항상 유효성이 검사됩니다. 
 
-Azure Multi-factor Authentication 서버 (MFA 서버) 및 클라우드 기반 Azure MFA에서 수집 하는 사용자 정보에 대 한 자세한 내용은 [Azure Multi-factor authentication 사용자 데이터 수집](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection)을 참조 하세요.
+Azure Multi-Factor Authentication 서버 (MFA 서버) 및 클라우드 기반 Azure MFA에서 수집 하는 사용자 정보에 대 한 자세한 내용은 [azure Multi-Factor Authentication 사용자 데이터 컬렉션](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection)을 참조 하세요.
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 
-Azure AD B2C 정책 구성 데이터 및 키 컨테이너는 미국 데이터 센터에 저장 됩니다. 여기에는 사용자 개인 데이터가 포함 되지 않습니다. 정책 구성에 대한 자세한 내용은 [Azure Active Directory B2C: 기본 제공 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) 문서를 참조하세요.
+Azure AD B2C 정책 구성 데이터 및 키 컨테이너는 미국 데이터 센터에 저장 됩니다. 여기에는 사용자 개인 데이터가 포함 되지 않습니다. 정책 구성에 대한 자세한 내용은 [Azure Active Directory B2C: 기본 제공 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) 아티클을 참조하세요.
 
 ## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
@@ -50,7 +50,7 @@ Azure AD DS는 고객이 선택한 Azure Virtual Network와 동일한 위치에 
 - 응용 프로그램에 대해 승인 된 페더레이션된 도메인 목록
 - 응용 프로그램의 토큰 서명 공개 키 
 
-Microsoft Exchange server의 페더레이션에 대 한 자세한 내용은 [페더레이션: Exchange 2013 도움말](https://docs.microsoft.com/exchange/federation-exchange-2013-help) 문서입니다.
+Microsoft Exchange server의 페더레이션에 대 한 자세한 내용은 [페더레이션: Exchange 2013 도움말](https://docs.microsoft.com/exchange/federation-exchange-2013-help) 문서를 참조 하세요.
 
 
 ## <a name="other-considerations"></a>기타 고려 사항

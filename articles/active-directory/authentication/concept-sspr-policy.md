@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848547"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425334"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -54,7 +54,7 @@ ms.locfileid: "74848547"
   * 권한 있는 인증 관리자
 
 * 평가판 구독에서 30일이 경과한 경우 또는
-* contoso.com 같은 베니티 도메인이 있는 경우 또는
+* Azure AD 테 넌 트에 대해 사용자 지정 도메인 (예: *contoso.com*;)이 구성 되었습니다. 디스크나
 * Azure AD Connect가 온-프레미스 디렉터리에서 ID를 동기화하는 경우
 
 ### <a name="exceptions"></a>예외
@@ -62,14 +62,14 @@ ms.locfileid: "74848547"
 한 게이트 정책은 전자 메일 주소 *또는* 전화 번호 등, 한 가지 인증 데이터를 요구합니다. 다음과 같은 경우에 한 게이트 정책이 적용됩니다.
 
 * 평가판 구독의 처음 30일 이내인 경우 또는
-* 베니티 도메인이 없는 경우(*.onmicrosoft.com) 그리고
+* 사용자 지정 도메인은 Azure AD 테 넌 트에 대해 구성 되지 않았으므로 기본 * *. onmicrosoft.com*을 사용 합니다. 기본 * *. onmicrosoft.com* 도메인은 프로덕션에 사용 하지 않는 것이 좋습니다. 하거나
 * Azure AD Connect가 ID를 동기화하지 않는 경우
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>모든 사용자 계정에 적용되는 UserPrincipalName 정책
 
 Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정에 연결된 고유한 UPN(사용자 계정 이름) 특성 값이 있어야 합니다. 다음 표에서는 클라우드와 동기화되는 온-프레미스 Active Directory 사용자 계정 및 클라우드 전용 사용자 계정에 모두 적용되는 정책을 간략하게 요약하고 있습니다.
 
-| 자산 | UserPrincipalName 요구 사항 |
+| 속성 | UserPrincipalName 요구 사항 |
 | --- | --- |
 | 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | 허용되지 않는 문자 |<ul> <li>도메인에서 사용자 이름을 구분하지 않는 모든 "\@\"" 문자입니다.</li> <li>"\@\"" 기호 바로 앞에는 "."(마침표) 문자를 사용할 수 없습니다.</li></ul> |
@@ -79,7 +79,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 다음 표에서는 Azure AD에서 만들어지고 관리 되는 사용자 계정에 적용 되는 암호 정책 설정에 대해 설명 합니다.
 
-| 자산 | 요구 사항 |
+| 속성 | 요구 사항 |
 | --- | --- |
 | 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>공백</li></ul> |
 | 허용되지 않는 문자 | 유니코드 문자 |

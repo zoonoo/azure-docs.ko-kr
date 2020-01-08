@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3366f3470e01e455acacf8748830f2b15c826f49
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: f78f416aaeedb2905cd77e94589121050757a202
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425755"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대 한 OpenVPN 클라이언트 구성
 
@@ -55,7 +55,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
    $PRIVATEKEY
    </key>
    ```
-10. 다른 필드를 변경하지 마십시오. 클라이언트 입력의 채워진 구성을 사용하여 VPN에 연결합니다.
+10. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
 11. vpnconfig.ovpn 파일을 C:\Program Files\OpenVPN\config 폴더에 복사합니다.
 12. 시스템 트레이에서 OpenVPN 아이콘을 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
 
@@ -63,10 +63,10 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 
 1. [TunnelBlick](https://tunnelblick.net/downloads.html)와 같은 openvpn 클라이언트를 다운로드 하 여 설치 합니다. 
 2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
-3. 프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
+3. 프로필의 압축을 풉니다. 텍스트 편집기의 OpenVPN 폴더에서 vpnconfig 구성 파일을 엽니다.
 4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공용 키를 가져오는 방법에 대한 자세한 내용은 [공용 키 내보내기](vpn-gateway-certificates-point-to-site.md#cer)를 참조하세요.
 5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 프라이빗 키를 추출하는 방법에 대한 자세한 내용은 [프라이빗 키 내보내기](https://openvpn.net/community-resources/how-to/#pki)를 참조하세요.
-6. 다른 필드를 변경하지 마십시오. 클라이언트 입력의 채워진 구성을 사용하여 VPN에 연결합니다.
+6. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
 7. 프로필 파일을 두 번 클릭 하 여 Tunnelblick에서 프로필을 만듭니다.
 8. 응용 프로그램 폴더에서 Tunnelblick를 시작 합니다.
 9. 시스템 트레이에 있는 Tunnelblick 아이콘을 클릭 하 고 연결을 선택 합니다.
@@ -74,6 +74,39 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 > [!IMPORTANT]
 >OpenVPN 프로토콜에서는 IOS 11.0 이상 및 MacOS 10.13 이상만 지원됩니다.
 >
+## <a name="iOS"></a>iOS 클라이언트
+
+1. 앱 스토어에서 OpenVPN 클라이언트 (버전 2.4 이상)를 설치 합니다.
+2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
+3. 프로필의 압축을 풉니다. 텍스트 편집기의 OpenVPN 폴더에서 vpnconfig 구성 파일을 엽니다.
+4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공용 키를 가져오는 방법에 대한 자세한 내용은 [공용 키 내보내기](vpn-gateway-certificates-point-to-site.md#cer)를 참조하세요.
+5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 프라이빗 키를 추출하는 방법에 대한 자세한 내용은 [프라이빗 키 내보내기](https://openvpn.net/community-resources/how-to/#pki)를 참조하세요.
+6. 다른 필드는 변경하지 마세요.
+7. IPhone의 메일 앱에 구성 된 전자 메일 계정에 프로필 파일 (ovpn)을 전자 메일로 보냅니다. 
+8. IPhone의 메일 앱에서 전자 메일을 열고 첨부 된 파일을 탭 합니다.
+
+    ![전자 메일 열기](./media/vpn-gateway-howto-openvpn-clients/ios2.png)
+
+9. **OpenVPN에 복사** 옵션이 표시 되지 않으면 **자세히** 를 누릅니다.
+
+    ![OpenVPN에 복사](./media/vpn-gateway-howto-openvpn-clients/ios3.png)
+
+10. **OpenVPN에 복사를 탭 합니다** . 
+
+    ![OpenVPN에 복사](./media/vpn-gateway-howto-openvpn-clients/ios4.png)
+
+11. **프로필 가져오기** 페이지에서 **추가** 를 탭 합니다.
+
+    ![OpenVPN에 복사](./media/vpn-gateway-howto-openvpn-clients/ios5.png)
+
+12. **가져온 프로필** 페이지에서 **추가** 를 탭 합니다.
+
+    ![OpenVPN에 복사](./media/vpn-gateway-howto-openvpn-clients/ios6.png)
+
+13. OpenVPN 앱을 시작 하 고 **프로필** 페이지에서 스위치를 연결 하 여 연결 합니다.
+
+    ![연결](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
+
 
 ## <a name="linux"></a>Linux 클라이언트
 
@@ -117,7 +150,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
    </key>
    ```
 
-10. 다른 필드를 변경하지 마십시오. 클라이언트 입력의 채워진 구성을 사용하여 VPN에 연결합니다.
+10. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
 11. 명령줄을 사용하여 연결하려면 다음 명령을 입력합니다.
   
     ```

@@ -1,5 +1,6 @@
 ---
 title: Azure 구독 매핑을 사용 하 여 리소스 풀 만들기
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Azure 구독 매핑을 통해 사설 클라우드의 리소스 풀을 만드는 방법을 설명 합니다.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ea102ad8377da70b88a0e59834ebe3a09866632
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 474ef03d482288b6bf7b5a8b1c224349a8e2d3a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425810"
 ---
 # <a name="create-resource-pools-for-your-private-cloud-with-azure-subscription-mapping"></a>Azure 구독 매핑을 사용 하 여 사설 클라우드에 대 한 리소스 풀 만들기
 Azure 구독 매핑을 사용 하면 사용 가능한 vSphere 리소스 풀에서 사설 클라우드의 리소스 풀을 만들 수 있습니다. CloudSimple 포털에서 사설 클라우드에 대 한 Azure 구독을 보고 관리할 수 있습니다.

@@ -1,22 +1,23 @@
 ---
-title: Azure Storage에 대한 액세스 권한 부여 | Microsoft Docs
-description: Azure Active Directory, 공유 키 인증 또는 공유 액세스 서명을 포함하여 Azure Storage에 대한 액세스 권한을 부여하는 다양한 방법을 알아봅니다.
+title: 데이터 작업 권한 부여
+titleSuffix: Azure Storage
+description: Azure Active Directory, 공유 키 인증 또는 SAS (공유 액세스 서명)를 포함 하 여 Azure Storage에 대 한 액세스 권한을 부여 하는 다양 한 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b7669f9ec804a8fd2801474a845af7e029ee5235
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 783e8666e2602f9251d81e976a27fbce099defa2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460522"
 ---
-# <a name="authorizing-access-to-azure-storage"></a>Azure Storage에 대한 액세스 권한 부여
+# <a name="authorizing-access-to-data-in-azure-storage"></a>Azure Storage 데이터에 대 한 액세스 권한 부여
 
 스토리지 계정의 데이터에 액세스할 때마다 클라이언트에서 HTTP/HTTPS를 통해 Azure Storage에 요청합니다. 보안 리소스에 대한 모든 요청은 권한을 부여받아 클라이언트에서 데이터 액세스에 필요한 권한을 갖도록 해야 합니다.
 
@@ -24,19 +25,19 @@ ms.locfileid: "74664049"
 
 |  |공유 키 (저장소 계정 키)  |공유 액세스 서명(SAS)  |Azure AD(Azure Active Directory)  |익명 공용 읽기 액세스  |
 |---------|---------|---------|---------|---------|
-|Azure Blob     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |[지원됨](../blobs/storage-manage-access-to-resources.md)         |
-|SMB (Azure Files)     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |지원하지 않음         |[지원 됨, AAD 도메인 서비스에만 해당](../files/storage-files-active-directory-overview.md)         |지원하지 않음         |
-|Azure Files (REST)     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원하지 않음         |지원하지 않음         |
-|Azure 큐     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |지원하지 않음         |
-|Azure Tables     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원하지 않음         |지원하지 않음         |
+|Azure Blob     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |[지원됨](../blobs/storage-manage-access-to-resources.md)         |
+|SMB (Azure Files)     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |지원하지 않음         |[지원 됨, AAD 도메인 서비스에만 해당](../files/storage-files-active-directory-overview.md)         |지원하지 않음         |
+|Azure Files (REST)     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원하지 않음         |지원하지 않음         |
+|Azure 큐     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |지원하지 않음         |
+|Azure Tables     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원하지 않음         |지원하지 않음         |
 
 각 권한 부여 옵션에 대 한 간략 한 설명은 다음과 같습니다.
 
-- Blob 및 큐에 대 한 **Azure Active Directory (AZURE AD) 통합** . Azure AD는 스토리지 계정의 리소스에 대한 클라이언트 액세스를 자세히 제어하기 위해 RBAC(역할 기반 액세스 제어)를 제공합니다. Blob 및 큐에 대 한 Azure AD 통합에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 Azure Storage 요청 인증](storage-auth-aad.md)을 참조 하세요.
+- Blob 및 큐에 대 한 **Azure Active Directory (AZURE AD) 통합** . Azure AD는 스토리지 계정의 리소스에 대한 클라이언트 액세스를 자세히 제어하기 위해 RBAC(역할 기반 액세스 제어)를 제공합니다. Blob 및 큐에 대 한 Azure AD 통합에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 azure blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)를 참조 하세요.
 
-- 파일에 대 한 **DS (Azure AD Domain Services) 통합 (미리 보기)** Azure Files는 Azure AD DS를 통해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 지원 합니다. 이는 저장소 계정의 리소스에 대 한 클라이언트의 액세스를 세부적으로 제어 하기 위해 RBAC를 제공 합니다. 도메인 서비스를 사용 하는 파일에 대 한 Azure AD 통합에 대 한 자세한 내용은 [SMB 액세스를 위한 AAD DS (Azure Files Azure Active Directory 도메인 서비스) 인증 지원 개요 (미리 보기)](../files/storage-files-active-directory-overview.md)를 참조 하세요.
+- 파일에 대 한 **DS (Azure AD Domain Services) 통합 (미리 보기)** Azure Files는 Azure AD DS를 통해 SMB (서버 메시지 블록)를 통해 id 기반 권한 부여를 지원 합니다. 클라이언트의 액세스에 대 한 세분화 된 제어를 위해 RBAC를 사용 하 여 저장소 계정에서 리소스를 Azure Files 수 있습니다. 도메인 서비스를 사용 하는 파일에 대 한 Azure AD 통합에 대 한 자세한 내용은 [SMB 액세스를 위한 AAD DS (Azure Files Azure Active Directory 도메인 서비스) 인증 지원 개요 (미리 보기)](../files/storage-files-active-directory-overview.md)를 참조 하세요.
 
-- Blob, 파일, 큐 및 테이블에 대한 **공유 키 권한 부여**. 공유 키를 사용하는 클라이언트는 스토리지 계정 액세스 키를 사용하여 서명된 모든 요청에 헤더를 전달합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authenticate-with-shared-key/)를 참조하세요.
+- Blob, 파일, 큐 및 테이블에 대한 **공유 키 권한 부여**. 공유 키를 사용하는 클라이언트는 스토리지 계정 액세스 키를 사용하여 서명된 모든 요청에 헤더를 전달합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authorize-with-shared-key/)를 참조하세요.
 - Blob, 파일, 큐 및 테이블에 대한 **공유 액세스 서명**. SAS(공유 액세스 서명)는 스토리지 계정의 리소스에 대해 제한적으로 위임된 권한을 제공합니다. 서명이 유효한 시간 간격 또는 부여되는 권한에 제약 조건을 추가하면 액세스를 유연하게 관리할 수 있습니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-sas-overview.md)을 참조하세요.
 - 컨테이너 및 Blob에 대한 **익명 공용 읽기 액세스**. 권한 부여가 필요하지 않습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/storage-manage-access-to-resources.md)를 참조하세요.  
 
@@ -44,5 +45,6 @@ ms.locfileid: "74664049"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 설명서](/azure/active-directory/)
-- [Microsoft id 플랫폼의 진화](/azure/active-directory/develop/about-microsoft-identity-platform)
+- [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)
+- [공유 키를 사용 하 여 권한 부여](/rest/api/storageservices/authorize-with-shared-key/)
+- [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)

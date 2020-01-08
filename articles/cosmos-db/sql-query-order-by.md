@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444788"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 ORDER BY 절
 
@@ -45,11 +45,14 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   지정된 열의 값을 오름차순 또는 내림차순으로 정렬하도록 지정합니다. ASC는 가장 낮은 값에서 가장 높은 값으로 정렬합니다. DESC는 가장 높은 값에서 가장 낮은 값으로 정렬합니다. ASC가 기본 정렬 순서입니다. 널 값은 가능한 가장 낮은 값으로 처리됩니다.  
+   지정된 열의 값이 오름차순으로 정렬되는지 내림차순으로 정렬되는지를 지정합니다. ASC는 오름차순으로 정렬하고, DESC는 내림차순으로 정렬합니다. ASC가 기본 정렬 순서입니다. Null 값은 가능한 가장 작은 값으로 취급됩니다.  
   
 ## <a name="remarks"></a>설명  
   
    ORDER BY 절을 사용 하려면 정렬 중인 필드에 대 한 인덱스를 인덱싱 정책에 포함 해야 합니다. Azure Cosmos DB 쿼리 런타임은 계산 된 속성이 아닌 속성 이름에 대 한 정렬을 지원 합니다. Azure Cosmos DB는 여러 ORDER BY 속성을 지원 합니다. 여러 ORDER BY 속성을 사용 하 여 쿼리를 실행 하려면 정렬할 필드에 [복합 인덱스](index-policy.md#composite-indexes) 를 정의 해야 합니다.
+   
+> [!Note] 
+> .NET SDK 3.4.0 이상을 사용 하는 경우 정렬 기준이 되는 속성이 일부 문서에 대해 정의 되지 않은 경우 해당 속성에 대 한 인덱스를 명시적으로 만들어야 합니다. 기본 인덱싱 정책은 sort 속성이 정의 되지 않은 문서를 검색 하는 것을 허용 하지 않습니다.
 
 ## <a name="examples"></a>예시
 
@@ -76,7 +79,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-다음 쿼리는 항목을 만든 날짜를 기준으로 `id` 패밀리를 검색 합니다. 항목 `creationDate`은 *epoch 시간*또는 1970 년 1 월 1 일 이후 경과 된 시간 (초)을 나타내는 숫자입니다.
+다음 쿼리는 항목을 만든 날짜 순으로 패밀리 `id`를 검색 합니다. 항목 `creationDate`은 *epoch 시간*또는 1 월 1 1970 일 이후 경과 된 시간 (초)을 나타내는 숫자입니다.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -107,7 +110,7 @@ ORDER BY <sort_specification>
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-이 쿼리는 도시 이름의 오름차순으로 `id` 패밀리를 검색 합니다. 여러 항목의 도시 이름이 동일한 경우 쿼리는 `creationDate`을 기준으로 내림차순으로 정렬 됩니다.
+이 쿼리는 도시 이름 오름차순으로 제품군 `id`를 검색 합니다. 여러 항목에 동일한 도시 이름이 있는 경우 쿼리는 `creationDate` 기준으로 내림차순으로 정렬 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

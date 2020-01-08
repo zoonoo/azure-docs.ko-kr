@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d1218b10eadf0788752bab2aec4b21614666888c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671274"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372213"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>.NET을 사용 하 여 Azure Storage에서 컨테이너 만들기 또는 삭제
 
@@ -44,7 +44,7 @@ Azure Storage blob은 컨테이너로 구성 됩니다. Blob을 업로드 하려
 
 **Createifnotexists** 및 **CreateIfNotExistsAsync** 메서드는 컨테이너를 만들었는지 여부를 나타내는 부울 값을 반환 합니다. 이름이 같은 컨테이너가 이미 있으면이 메서드는 **False** 를 반환 하 여 새 컨테이너가 만들어지지 않았음을 표시 합니다.
 
-컨테이너는 저장소 계정 바로 아래에 생성 됩니다. 컨테이너 하나를 다른 컨테이너 아래에 중첩할 수 없습니다.
+컨테이너는 저장소 계정 아래에 즉시 생성됩니다. 컨테이너를 서로 중첩할 수는 없습니다.
 
 다음 예제에서는 컨테이너를 비동기식으로 만듭니다.
 
@@ -81,9 +81,9 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
 
 ## <a name="create-the-root-container"></a>루트 컨테이너 만들기
 
-루트 컨테이너는 저장소 계정에 대 한 기본 컨테이너 역할을 합니다. 각 저장소 계정에는 하나의 루트 컨테이너가 있을 수 있습니다. 여기에는 *$root*이름으로 이름을 지정 해야 합니다. 루트 컨테이너를 명시적으로 만들거나 삭제 해야 합니다.
+루트 컨테이너는 저장소 계정에 대한 기본 컨테이너 역할을 합니다. 각 저장소 계정에는 하나의 루트 컨테이너가 있을 수 있습니다. 여기에는 *$root*이름으로 이름을 지정 해야 합니다. 루트 컨테이너를 명시적으로 만들거나 삭제 해야 합니다.
 
-루트 컨테이너 이름을 포함 하지 않고 루트 컨테이너에 저장 된 blob을 참조할 수 있습니다. 루트 컨테이너를 사용 하면 저장소 계정 계층의 최상위 수준에서 blob을 참조할 수 있습니다. 예를 들어 다음과 같은 방식으로 루트 컨테이너에 있는 blob을 참조할 수 있습니다.
+루트 컨테이너 이름을 포함 하지 않고 루트 컨테이너에 저장 된 blob을 참조할 수 있습니다. 루트 컨테이너를 사용 하면 저장소 계정 계층의 최상위 수준에서 blob을 참조할 수 있습니다. 예를 들어 루트 컨테이너에 있는 Blob을 참조할 수 있는 방법은 다음과 같습니다.
 
 `https://myaccount.blob.core.windows.net/default.html`
 
@@ -126,7 +126,7 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 **Delete** 및 **DeleteAsync** 메서드는 컨테이너가 없는 경우 예외를 throw 합니다.
 
-**Deleteifnotexists** 및 **DeleteIfNotExistsAsync** 메서드는 컨테이너가 삭제 되었는지 여부를 나타내는 부울 값을 반환 합니다. 지정 된 컨테이너가 없으면이 메서드는 **False** 를 반환 하 여 컨테이너가 삭제 되지 않았음을 표시 합니다.
+**Deleteifexists** 및 **DeleteIfExistsAsync** 메서드는 컨테이너가 삭제 되었는지 여부를 나타내는 부울 값을 반환 합니다. 지정 된 컨테이너가 없으면이 메서드는 **False** 를 반환 하 여 컨테이너가 삭제 되지 않았음을 표시 합니다.
 
 컨테이너를 삭제 한 후에는 최소 30 초 동안 동일한 이름의 컨테이너를 만들 수 없으며, 더 길어질 수도 있습니다. 컨테이너를 삭제 하는 동안 동일한 이름의 컨테이너를 만들려고 하면 HTTP 오류 코드 409 (충돌)이 발생 합니다. 컨테이너 또는 컨테이너에 포함 된 blob에 대 한 다른 모든 작업은 컨테이너를 삭제 하는 동안 HTTP 오류 코드 404 (찾을 수 없음)와 함께 실패 합니다.
 
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [컨테이너 작업 만들기](/rest/api/storageservices/create-container)
 - [컨테이너 삭제 작업](/rest/api/storageservices/delete-container)

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 0b977cb9fe2df1627ad9a2e07b00ffb0e749ed39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 39f22cc3cb026d4bed1dbe937e0e220b7bdceec7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498258"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435568"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -25,16 +25,16 @@ Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML S
 Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머신(노드)로 구성됩니다. Azure HDInsight는 개별 노드의 설치 및 구현에 대한 세부 구현을 처리하므로 일반적인 구성 정보만 제공해야 합니다.
 
 > [!IMPORTANT]  
-> 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다. [클러스터 삭제](hdinsight-delete-cluster.md) 방법에 대해 알아보세요.
+> 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 청구는 분 단위에 비례 계산되므로 클러스터를 더 이상 사용하지 않을 경우 항상 클러스터를 삭제해야 합니다. [클러스터 삭제](hdinsight-delete-cluster.md) 방법에 대해 알아보세요.
 
 ## <a name="cluster-setup-methods"></a>클러스터 설정 방법
 
 다음 표는 HDInsight 클러스터를 설정하기 위해 사용할 수 있는 다양한 방법을 보여줍니다.
 
-| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령 줄 | REST API | SDK) |
+| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령줄 | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Azure 데이터 팩터리](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
@@ -53,11 +53,11 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 * [클러스터 유형 및 구성](#cluster-types)
 * [클러스터 이름](#cluster-name)
 * [클러스터 로그인 및 SSH 사용자 이름](#cluster-login-and-ssh-username)
-* [위치](#location):
+* [위치](#location)
 
 ## <a name="resource-group-name"></a>리소스 그룹 이름
 
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 Azure 리소스 그룹이라는 그룹으로서 애플리케이션에서 리소스로 작업할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md)를 사용하면 Azure 리소스 그룹이라는 그룹으로서 애플리케이션에서 리소스로 작업할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.
 
 ## <a name="cluster-types"></a> 클러스터 유형 및 구성
 
@@ -82,12 +82,12 @@ Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 
 
 ## <a name="cluster-name"></a>클러스터 이름
 
-HDInsight 클러스터 이름에는 다음과 같은 제한 사항이 있습니다.
+HDInsight 클러스터 이름에는 다음 제한 사항이 있습니다.
 
-* 허용 되는 문자: a-z, 0-9, a-z
+* 허용되는 문자: a-z, 0-9, A-Z
 * 최대 길이: 59
-* 예약 된 이름: 앱
-* 클러스터 명명 범위는 모든 구독에서 모든 Azure에 대 한 것입니다. 따라서 클러스터 이름은 전 세계에서 고유 해야 합니다.
+* 예약된 이름: apps
+* 클러스터 명명 범위는 모든 구독에서 모든 Azure에 해당합니다. 따라서 클러스터 이름은 전 세계에서 고유 해야 합니다.
 * 처음 6 자는 VNET 내에서 고유 해야 합니다.
 
 ## <a name="cluster-login-and-ssh-username"></a>클러스터 로그인 및 SSH 사용자 이름
@@ -124,8 +124,8 @@ HDInsight 클러스터는 다음과 같은 저장소 옵션을 사용할 수 있
 
 * Azure Data Lake Storage Gen2
 * Azure Data Lake Storage Gen1
-* Azure storage 범용 v2
-* Azure storage 범용 v1
+* Azure Storage 범용 v2
+* Azure Storage 범용 v1
 * Azure storage 블록 blob (**보조 저장소로만 지원 됨**)
 
 HDInsight의 저장소 옵션에 대 한 자세한 내용은 [Azure hdinsight 클러스터와 함께 사용 하기 위한 저장소 옵션 비교](hdinsight-hadoop-compare-storage-options.md)를 참조 하세요.
@@ -148,7 +148,7 @@ HDInsight의 저장소 옵션에 대 한 자세한 내용은 [Azure hdinsight �
 > [!IMPORTANT]  
 > 사용자 지정 Metastore를 만들 때 데이터베이스 이름에 대시, 하이픈 또는 공백을 포함하지 마세요. 이렇게 하면 클러스터 만들기 프로세스가 실패할 수 있습니다.
 
-### <a name="use-hiveoozie-metastore"></a>Hive metastore
+### <a name="use-hiveoozie-metastore"></a>Hive 메타스토어
 
 HDInsight 클러스터를 삭제한 후 Hive 테이블을 유지하려는 경우 사용자 지정 metastore를 사용하세요. 그런 다음 해당 metastore를 다른 HDInsight 클러스터에 연결할 수 있습니다.
 
@@ -185,9 +185,9 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
-| 형식 | 노드 | 다이어그램 |
+| 유형 | 노드 | 다이어그램 |
 | --- | --- | --- |
-| Hadoop은 |헤드 노드 (2), 작업자 노드 (1 +) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |헤드 노드 (2), 작업자 노드 (1 +) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus 노드(2), 감독자 서버(1+), ZooKeeper 노드(3) |![HDInsight 스톰 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |헤드 노드 (2), 작업자 노드 (1 +), 사육 사 노드 (3) (A1 사육 전 VM 크기의 경우 무료) |![HDInsight spark 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
@@ -243,7 +243,7 @@ HDInsight 애플리케이션 대부분은 빈 Edge 노드에 설치됩니다.  �
 
 ## <a name="advanced-settings-script-actions"></a>고급 설정: 스크립트 작업
 
-만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 작업**을 통해 호출됩니다. 스크립트 작업은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)(영문)을 참조하세요.
+만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 작업**을 통해 호출됩니다. 스크립트 작업은 Azure 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)(영문)을 참조하세요.
 
 Apache Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR(Java Archive) 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Storage에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440366"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
 Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다. 
@@ -51,21 +51,21 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | `Until` 작업의 이름입니다. | 문자열 | 예
-type | **Until**로 설정해야 합니다. | 문자열 | 예
+name | `Until` 작업의 이름입니다. | String | 예
+type | **Until**로 설정해야 합니다. | String | 예
 식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예
-시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니요
+시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아닙니다.
 활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예
 
 ## <a name="example-1"></a>예 1
 
 > [!NOTE]
-> 이 섹션에서는 JSON 정의 및 파이프라인을 실행하는 PowerShell 명령 예제를 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+> 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 ### <a name="pipeline-with-until-activity"></a>Until 작업이 포함된 파이프라인
-이 예제에서 파이프라인에는 **Until** 및 **대기**라는 두 개의 작업이 있습니다. Wait 작업은 반복의 웹 작업을 실행하기 전에 지정한 시간 동안 기다립니다. Data Factory 식 및 함수에 대한 자세한 내용은 [식 언어 및 함수](control-flow-expression-language-functions.md)를 참조하세요. 
+이 예제의 파이프라인에는 **Until** 및 **Wait**라는 두 개의 작업이 있습니다. Wait 작업은 반복의 웹 작업을 실행하기 전에 지정한 시간 동안 기다립니다. Data Factory 식 및 함수에 대한 자세한 내용은 [식 언어 및 함수](control-flow-expression-language-functions.md)를 참조하세요. 
 
 ```json
 {
@@ -115,7 +115,7 @@ type | **Until**로 설정해야 합니다. | 문자열 | 예
 
 ```
 
-## <a name="example-2"></a>예 2 
+## <a name="example-2"></a>예제 2 
 이 샘플의 파이프라인에서는 입력 폴더의 데이터를 반복의 출력 폴더로 복사합니다. repeat 매개 변수의 값이 false로 설정되거나 1분 후에 시간이 초과되면 반복이 종료됩니다.   
 
 ### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Until 작업이 포함된 파이프라인(Adfv2QuickStartPipeline.json)
@@ -199,10 +199,7 @@ type | **Until**로 설정해야 합니다. | 문자열 | 예
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

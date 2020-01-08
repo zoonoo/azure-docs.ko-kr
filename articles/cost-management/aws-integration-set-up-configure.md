@@ -1,21 +1,21 @@
 ---
-title: Azure Cost Management를 사용 하 여 AWS 비용 및 사용 현황 보고서 통합 설정 및 구성
+title: Azure Cost Management와 AWS 통합 설정
 description: 이 문서에서는 Azure Cost Management와의 AWS 비용 및 사용 보고서 통합을 설정 하 고 구성 하는 과정을 안내 합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/15/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 66dbe45ff1a8ee773fdf7fcb0aa7cfe8e6ad6437
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 77bc7772e1d9b8144199c865a8d82f818d5e1963
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444603"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 보고서 통합 설정 및 구성
 
@@ -68,7 +68,7 @@ Cost Management의 AWS 계정에 대 한 역할 기반 액세스를 사용 하�
 4. 다음 페이지에서 **다른 AWS 계정을**선택 합니다.
 5. **계정 ID**에 **432263259397**을 입력 합니다.
 6. **옵션**에서 **외부 ID 필요 (타사에서이 역할을 가정 하는 경우 모범 사례)** 를 선택 합니다.
-7. **외부 id**에 외부 id를 입력 합니다. 외부 ID는 AWS 역할과 Azure Cost Management 간의 공유 암호입니다. Cost Management의 **새 커넥터** 페이지 에서도 동일한 외부 ID를 사용 합니다. 예를 들어 외부 ID는 _Companyname1234567890123_와 비슷합니다.
+7. **외부 id**에 AWS 역할과 Azure Cost Management 간의 공유 암호를 입력 하는 외부 id를 입력 합니다. Cost Management의 **새 커넥터** 페이지 에서도 동일한 외부 ID를 사용 합니다. 외부 ID를 입력 하는 경우 강력한 암호 정책을 사용 하는 것이 좋습니다.
 
     > [!NOTE]
     > **MFA 요구**에 대 한 선택 항목을 변경 하지 마세요. 지워야 합니다.

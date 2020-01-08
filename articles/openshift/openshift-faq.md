@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b4e78db9f3aa3a8f678212c7fcd1b97ed4834b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582411"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378214"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -25,7 +25,7 @@ Azure Red Hat OpenShift가 지원 되는 글로벌 지역 목록은 지원 되�
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>클러스터를 기존 가상 네트워크에 배포할 수 있나요?
 
-아니요. 그러나 피어 링을 통해 Azure Red Hat OpenShift 클러스터를 기존 VNET에 연결할 수 있습니다. 자세한 내용은 [기존 가상 네트워크에 클러스터의 가상 네트워크 연결](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 을 참조 하세요.
+아닙니다. 그러나 피어 링을 통해 Azure Red Hat OpenShift 클러스터를 기존 VNET에 연결할 수 있습니다. 자세한 내용은 [기존 가상 네트워크에 클러스터의 가상 네트워크 연결](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 을 참조 하세요.
 
 ## <a name="what-cluster-operations-are-available"></a>사용할 수 있는 클러스터 작업은 무엇 인가요?
 
@@ -65,11 +65,11 @@ Docker 레지스트리는 `https://docker-registry.apps.<clustername>.<region>.a
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>클러스터가 여러 Azure 지역에 계산 노드를 가질 수 있나요?
 
-아니요. Azure Red Hat OpenShift 클러스터의 모든 노드는 동일한 Azure 지역에서 시작 되어야 합니다.
+아닙니다. Azure Red Hat OpenShift 클러스터의 모든 노드는 동일한 Azure 지역에서 시작 되어야 합니다.
 
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)를 사용 하는 경우 마스터 및 인프라 노드가 추출 되나요?
 
-아니요. 클러스터 마스터를 비롯 한 모든 리소스는 고객 구독에서 실행 됩니다. 이러한 유형의 리소스는 읽기 전용 리소스 그룹에 배치 됩니다.
+아닙니다. 클러스터 마스터를 비롯 한 모든 리소스는 고객 구독에서 실행 됩니다. 이러한 유형의 리소스는 읽기 전용 리소스 그룹에 배치 됩니다.
 
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>OSBA (Open Service Broker for Azure)가 지원 되나요?
 
@@ -77,13 +77,13 @@ Docker 레지스트리는 `https://docker-registry.apps.<clustername>.<region>.a
 
 ## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>다른 구독의 가상 네트워크에 피어 링 하려고 하지만 `Failed to get vnet CIDR` 오류가 발생 했습니다.
 
-가상 네트워크가 있는 구독에서 `Microsoft.ContainerService` 공급자 `az provider register -n Microsoft.ContainerService --wait`을 등록 해야 합니다. 
+가상 네트워크가 있는 구독에서 `Microsoft.ContainerService` 공급자를 `az provider register -n Microsoft.ContainerService --wait`에 등록 해야 합니다. 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>Azure Red Hat OpenShift (ARO) 유지 관리 프로세스는 무엇 인가요?
 
 ARO는 업그레이드, etcd 데이터 백업 및 복원, 클라우드 공급자 시작 유지 관리의 세 가지 유형이 있습니다.
 
-+ 업그레이드에는 소프트웨어 업그레이드와 CVEs가 포함 됩니다. CVE 업데이트는 `yum update`을 실행 하 여 시작 시 발생 하며 즉각적인 완화를 위해 제공 됩니다.  병렬로 새 이미지 빌드는 나중에 클러스터 만들기를 위해 만들어집니다.
++ 업그레이드에는 소프트웨어 업그레이드와 CVEs가 포함 됩니다. CVE 업데이트는 `yum update`를 실행 하 여 시작 시 발생 하며 즉각적인 완화를 위해 제공 됩니다.  병렬로 새 이미지 빌드는 나중에 클러스터 만들기를 위해 만들어집니다.
 
 + Etcd 데이터의 백업 및 관리는 작업에 따라 클러스터 가동 중지 시간이 필요할 수 있는 자동화 된 프로세스입니다. Etcd 데이터베이스가 백업에서 복원 되는 경우 가동 중지 시간이 발생 합니다. Etcd를 매시간 백업 하 고 최근 6 시간 동안 백업을 유지 합니다.
 
@@ -121,7 +121,7 @@ Syslog, docker 로그, 저널 및 dmesg는 관리 서비스에서 처리 되며 
 
 ## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>사용자가 노드 수준에서 CPU/메모리와 같은 메트릭에 액세스 하 여 확장, 문제 해결 등의 작업을 수행 하는 방법에 대해 알아봅니다. ARO 클러스터에서 `kubectl top`를 실행 하는 것으로 보일 수 없습니다.
 
-Red Hat OpenShift에서는 `kubectl top`을 사용할 수 없습니다. 지원 메트릭 원본 (Heapster (사용 되지 않음) 또는 메트릭-서버 (incubating 또는 alpha)이 필요 합니다 .이는 OpenShift 모니터링 스택에 포함 되지 않습니다.
+고객은 명령 `oc adm top nodes`를 사용 하 여 노드 수준에서 CPU/메모리 메트릭에 액세스 하거나 고객 관리 clusterrole를 `kubectl top nodes` 수 있습니다.  또한 고객은 명령 `oc adm top pods` 또는을 사용 하 여 `pods`의 CPU/메모리 메트릭에 액세스할 수 있습니다 `kubectl top pods`
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>ARO의 기본 pod 스케줄러 구성은 무엇입니까?
 
@@ -137,7 +137,7 @@ Azure에서 가상 머신 확장 집합을 사용 하는 경우 기본적으로 
 
 ## <a name="is-there-a-way-to-manage-pod-placement"></a>Pod 배치를 관리 하는 방법이 있나요?
 
-고객 관리 업데이트를 통해 고객은 노드를 가져오고 레이블을 볼 수 있습니다.  이렇게 하면 확장 집합의 모든 VM을 대상으로 지정할 수 있습니다.
+고객은 노드를 가져오고 레이블을 고객 관리로 볼 수 있습니다.  이렇게 하면 확장 집합의 모든 VM을 대상으로 지정할 수 있습니다.
 
 특정 레이블을 사용 하는 경우 주의 해야 합니다.
 
@@ -147,7 +147,7 @@ Azure에서 가상 머신 확장 집합을 사용 하는 경우 기본적으로 
 
 ## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>ARO 클러스터의 최대 pod 수는 얼마 인가요?  ARO의 노드당 최대 pod 수는 얼마 인가요?
 
-자세한 내용은 [업스트림 OpenShift 문서](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) 를 참조 하세요. Red Hat OpenShift 3.11은 250-pod/노드 제한을 포함 하는 반면, [aro는 20 개의 계산 노드 제한을 가지](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available)므로,이는 aro 클러스터에서 지원 되는 최대 pod 수를 250 * 20 = 5000로 제한 합니다.
+ Azure Red Hat OpenShift 3.11에는 [20 개의 계산 노드 제한이](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available)있는 pod의 노드당 50-pod가 있으므로, aro 클러스터에서 지원 되는 최대 수를 50 * 20 = 1000로 제한 합니다.
 
 ## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>사설 VNET에서 배포 하기 위한 IP 범위를 지정 하 여 다른 회사 Vnet 피어 링 한 후 충돌을 방지할 수 있나요?
 

@@ -1,18 +1,18 @@
 ---
 title: 풀 및 노드 오류 확인 - Azure Batch
-description: 풀과 노드를 만들 때 확인해야 하는 오류와 오류를 방지하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 수행할 수 있는 백그라운드 작업과 풀 및 노드를 만들 때 이러한 작업을 방지 하는 방법과 함께 수행할 수 있는 작업을 설명 합니다.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350056"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449781"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 

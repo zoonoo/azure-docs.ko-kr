@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435661"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -38,7 +38,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
@@ -51,7 +51,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 이 문서에서는 지역에서 복제 시나리오에 대해 설명합니다.
 
-환경 설정을 지원하기 위해 몇 가지 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md)을 만들었습니다. 다른 방법을 사용하여 환경을 설정하려면 다음을 참조하세요.
+환경 설정을 지원하기 위해 몇 가지 [Azure Resource Manager 템플릿](../../azure-resource-manager/management/overview.md)을 만들었습니다. 다른 방법을 사용하여 환경을 설정하려면 다음을 참조하세요.
 
 - [HDInsight에 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Azure Virtual Network에 Apache HBase 클러스터 만들기](apache-hbase-provision-vnet.md)
@@ -66,7 +66,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 **VNet 1**
 
-| 자산 | Value |
+| 속성 | 값 |
 |----------|-------|
 | 위치 | 미국 서부 |
 | VNet 이름 | &lt;ClusterNamePrevix>-vnet1 |
@@ -83,7 +83,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 **VNet 2**
 
-| 자산 | Value |
+| 속성 | 값 |
 |----------|-------|
 | 위치 | 미국 동부 |
 | VNet 이름 | &lt;ClusterNamePrevix>-vnet2 |
@@ -285,7 +285,7 @@ sudo service bind9 status
 
 **Azure Portal에서 HBase 복제를 사용하도록 설정하려면**
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 원본 HBase 클러스터를 엽니다.
 3. 클러스터 메뉴에서 **스크립트 동작**을 선택합니다.
 4. 페이지의 위쪽에서 **새로운 항목 제출**을 선택합니다.
@@ -307,7 +307,7 @@ sudo service bind9 status
 
 필수 인수:
 
-|name|설명|
+|이름|Description|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -316,7 +316,7 @@ sudo service bind9 status
 
 선택적 인수:
 
-|name|설명|
+|이름|Description|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
@@ -392,7 +392,7 @@ sudo service bind9 status
 - **모든 테이블에서 복제를 사용하지 않도록 설정**:
 
         -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
-  or
+  또는
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 

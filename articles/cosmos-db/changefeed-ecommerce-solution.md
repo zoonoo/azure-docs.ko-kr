@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
-description: 이 문서에서는 소매 회사에서 변경 피드를 사용하여 사용자 패턴을 파악하고 실시간 데이터 분석 및 시각화를 수행하는 방법에 대해 설명합니다.
+description: 이 문서에서는 소매점 회사에서 변경 피드를 사용 하 여 사용자 패턴을 이해 하 고 실시간 데이터 분석 및 시각화를 수행 하는 방법을 설명 합니다.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442062"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -45,15 +45,15 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 3. **변경 피드:** 변경 피드가 Azure Cosmos 컨테이너에 대 한 변경 내용을 수신 대기 합니다. 새 문서가 컬렉션에 추가될 때마다, 즉 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하는 것과 같은 이벤트가 발생하면 변경 피드에서 [Azure Function](../azure-functions/functions-overview.md)을 트리거합니다.  
 
-4. **Azure Function:** Azure Function은 새 데이터를 처리하여 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 보냅니다.  
+4. **Azure Function:** 새 데이터를 처리하여 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 보냅니다.  
 
-5. **Event Hub:** Azure Event Hub는 이러한 이벤트를 저장하고 추가 분석을 수행하기 위해 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)로 보냅니다.  
+5. **Event Hub:** 이러한 이벤트를 저장하고 추가 분석을 수행하기 위해 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)로 보냅니다.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics는 이벤트를 처리하고 실시간 데이터 분석을 수행하기 위한 쿼리를 정의합니다. 그런 다음, 이 데이터는 [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop)로 보내집니다.  
+6. **Azure Stream Analytics:** 이벤트를 처리하고 실시간 데이터 분석을 수행하기 위한 쿼리를 정의합니다. 그런 다음, 이 데이터는 [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop)로 보내집니다.  
 
-7. **Power BI:** Power BI는 Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
+7. **Power BI:** Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Microsoft.NET Framework 4.7.1 이상
 
@@ -208,7 +208,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
 5. 스트림 분석 작업 페이지로 돌아가서 **출력**을 선택합니다.  
 
-6. 선택 **+ 추가**합니다. 그런 다음, 드롭다운 메뉴에서 **Power BI**를 선택합니다.  
+6. **+추가**를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Power BI**를 선택합니다.  
 
 7. 새 Power BI 출력을 만들어 평균 가격을 시각화하려면 다음 작업을 수행합니다.
 
@@ -250,13 +250,13 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
  
 5. **데이터 세트**에서 **averagePrice**를 선택한 다음, **다음**을 선택합니다.  
 
-6. **시각화 형식** 필드의 드롭다운 메뉴에서 **묶은 가로 막대형 차트**를 선택합니다. **축** 아래에서 작업을 추가합니다. **범례**는 아무 것도 추가하지 않고 건너뜁니다. 그런 다음, **값**이라는 다음 섹션 아래에서 **avg**를 추가합니다. **다음**을 선택하고, 차트 제목을 지정한 다음, **적용**을 선택합니다. 대시보드에 새 차트가 표시됩니다!  
+6. **시각화 형식** 필드의 드롭다운 메뉴에서 **묶은 가로 막대형 차트**를 선택합니다. **축** 아래에서 작업을 추가합니다. **범례**는 아무 것도 추가하지 않고 건너뜁니다. 그런 다음 **값**이라는 다음 섹션에서 **avg**를 추가 합니다. **다음**을 선택한 다음, 차트 제목을 선택 하 고 **적용**을 선택 합니다. 대시보드에 새 차트가 표시됩니다!  
 
 7. 이제 더 많은 메트릭을 시각화하려면 **streamjob1**로 돌아가서 다음 필드를 통해 세 개의 출력을 추가로 만들 수 있습니다.
 
    a. **출력 별칭:** incomingRevenueOutput, 데이터 세트 이름: incomingRevenue, 테이블 이름: incomingRevenue  
    b. **출력 별칭:** top5Output, 데이터 세트 이름: top5, 테이블 이름: top5  
-   c. **출력 별칭:** uniqueVisitorCountOutput, 데이터 세트 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
+   다. **출력 별칭:** uniqueVisitorCountOutput, 데이터 세트 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
 
    그런 다음, **쿼리 편집**을 선택하고 이미 작성한 쿼리 **위에** 다음 쿼리를 붙여넣습니다.
 
@@ -328,7 +328,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 2. **topItems** 컬렉션을 선택하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초**로 설정합니다.
 
-   ![TTL(Time to Live)](./media/changefeed-ecommerce-solution/time-to-live.png)
+   ![TTL(Time to live)](./media/changefeed-ecommerce-solution/time-to-live.png)
 
 3. **topItems** 컬렉션을 가장 자주 구입한 항목으로 채우려면 **streamjob1**로 돌아가서 새 **출력**을 추가합니다. **Cosmos DB**를 선택합니다.
 
@@ -376,7 +376,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 6. **EcommerceWebApp.sln**을 열고, **솔루션 탐색기**에서 **Web.config** 파일로 이동합니다.  
 
-7. `<appSettings>` 블록 내의 **여기에 URI를 입력하십시오** 및 **여기에 기본 키를 입력하십시오**에서 이전에 저장한 **URI**와 **기본 키**를 추가합니다. 그런 다음, **데이터베이스 이름**과 **컬렉션 이름**을 표시된 대로 추가합니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection**여야 합니다.
+7. `<appSettings>` 블록 내의 **여기에 URI를 입력하십시오** 및 **여기에 기본 키를 입력하십시오**에서 이전에 저장한 **URI**와 **기본 키**를 추가합니다. 그런 다음, **데이터베이스 이름**과 **컬렉션 이름**을 표시된 대로 추가합니다. (이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection**이어야 합니다.)
 
    **제품 컬렉션 이름**, **범주 컬렉션 이름** 및 **상위 항목 컬렉션 이름**을 표시된 대로 채웁니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **products, categories 및 topItems**이어야 합니다.  
 

@@ -1,18 +1,18 @@
 ---
-title: 스마트 검색 - Azure Application Insights의 보안 검색 팩 | Microsoft Docs
-description: Azure Application Insights를 사용하여 애플리케이션의 잠재적 보안 문제를 모니터링합니다.
+title: Azure 애플리케이션 Insights를 사용 하는 보안 검색 팩
+description: 잠재적인 보안 문제에 대 한 Azure 애플리케이션 정보 및 스마트 검색을 사용 하 여 응용 프로그램을 모니터링 합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: 10c8a38af9e4f04b874bfa75e9e78d241b093117
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: ba35b3a3e1985f49ade468c4d2e82ca579fdac2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820656"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432467"
 ---
 # <a name="application-security-detection-pack-preview"></a>애플리케이션 보안 검색 팩(미리 보기)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: ad4a30b9bcd537a59f3d2ef17d3d2f215c1f4b98
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c51eff77c0375491f4376f12c9ff959f033e2ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848897"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425381"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용
 
@@ -31,7 +31,7 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 
 다음 감사 이벤트 범주를 사용할 수 있습니다.
 
-| 감사 범주 이름 | 설명 |
+| 감사 범주 이름 | Description |
 |:---|:---|
 | 계정 로그온|감사는 도메인 컨트롤러 또는 로컬 SAM (보안 계정 관리자)의 계정 데이터를 인증 하려고 시도 합니다.</p>로그온 및 로그 오프 정책 설정 및 이벤트 트랙은 특정 컴퓨터에 대 한 액세스를 시도 합니다. 이 범주의 설정 및 이벤트는 사용 되는 계정 데이터베이스에 중점을 둡니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[자격 증명 유효성 검사 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Kerberos 인증 서비스 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Kerberos 서비스 티켓 작업 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[기타 로그온/로그 오프 이벤트 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | 계정 관리|사용자 및 컴퓨터 계정 및 그룹에 대 한 변경 내용을 감사 합니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[응용 프로그램 그룹 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[컴퓨터 계정 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[배포 그룹 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[다른 계정 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[보안 그룹 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[사용자 계정 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
@@ -70,7 +70,7 @@ Azure AD DS 보안 감사에 대 한 대상 리소스로 Azure Storage, Azure Ev
 
 | 대상 리소스 | 시나리오 |
 |:---|:---|
-|Azure Storage| 이 대상은 보관 목적으로 보안 감사 이벤트를 저장 해야 하는 경우에 사용 해야 합니다. 다른 대상은 보관 목적으로 사용할 수 있지만 이러한 대상은 보관의 기본 요구를 벗어난 기능을 제공 합니다. Azure AD DS 보안 감사 이벤트를 사용 하도록 설정 하기 전에 [azure storage 계정을 만듭니다](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
+|Azure Storage| 이 대상은 보관 목적으로 보안 감사 이벤트를 저장 해야 하는 경우에 사용 해야 합니다. 다른 대상은 보관 목적으로 사용할 수 있지만 이러한 대상은 보관의 기본 요구를 벗어난 기능을 제공 합니다. Azure AD DS 보안 감사 이벤트를 사용 하도록 설정 하기 전에 먼저 [Azure Storage 계정을 만듭니다](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| 이 대상은 데이터 분석 소프트웨어 또는 SIEM (보안 정보 & 이벤트 관리) 소프트웨어와 같은 추가 소프트웨어를 사용 하 여 보안 감사 이벤트를 공유 해야 하는 경우에 사용 해야 합니다. Azure AD DS 보안 감사 이벤트를 사용 하도록 설정 하기 전에 [Azure Portal를 사용 하 여 이벤트 허브를 만듭니다](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) .|
 |Azure Log Analytics 작업 영역| 이 대상은 Azure Portal에서 직접 보안 감사를 분석 하 고 검토 해야 하는 경우에 주로 사용 해야 합니다. Azure AD DS 보안 감사 이벤트를 사용 하도록 설정 하기 전에 [Azure Portal에 Log Analytics 작업 영역을 만듭니다.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
@@ -81,8 +81,8 @@ Azure Portal를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용 하
 > [!IMPORTANT]
 > Azure AD DS 보안 감사는 소급 되지 않습니다. 과거에는 이벤트를 검색 하거나 과거의 이벤트를 재생할 수 없습니다. Azure AD DS는 사용 하도록 설정 된 후에 발생 하는 이벤트만 보낼 수 있습니다.
 
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
-1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 관리되는 도메인(예: *aadds.contoso.com*)을 선택합니다.
 1. Azure AD DS 창의 왼쪽에서 **진단 설정** 을 선택 합니다.
 1. 진단이 기본적으로 구성 되지 않습니다. 시작 하려면 **진단 설정 추가**를 선택 합니다.
 

@@ -1,5 +1,6 @@
 ---
 title: 온-프레미스에서 CloudSimple로 Azure VMware 솔루션 액세스
+titleSuffix: Azure VMware Solution by CloudSimple
 description: 방화벽을 통해 온-프레미스 네트워크에서 CloudSimple로 Azure VMware 솔루션에 액세스
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c0f575417819f0e2d46565ad15aaa23a04fd7cf1
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: df4c51953c6f50e30ba61b993cdb35856fcb8e25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972633"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452400"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>온-프레미스에서 CloudSimple 사설 클라우드 환경 및 응용 프로그램에 액세스
 
@@ -23,7 +24,7 @@ Azure Express 경로 또는 사이트 간 VPN을 사용 하 여 온-프레미스
 
 사설 클라우드 vCenter 및 NSX manager에 액세스 하려면 아래 테이블에 정의 된 포트를 온-프레미스 방화벽에서 열어야 합니다.  
 
-| 포트       | Source                           | Destination                      | 용도                                                                                                                |
+| Port       | 원본                           | 대상                      | 용도                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)   | 온-프레미스 DNS 서버          | 사설 클라우드 DNS 서버        | 온-프레미스 네트워크에서 사설 클라우드 DNS 서버로 *az.cloudsimple.io* 의 dns 조회를 전달 하는 데 필요 합니다.       |
 | 53 (UDP)   | 사설 클라우드 DNS 서버        | 온-프레미스 DNS 서버          | 사설 클라우드 vCenter에서 온-프레미스 DNS 서버로의 온-프레미스 도메인 이름을 조회 하는 데 필요 합니다. |
@@ -36,7 +37,7 @@ Azure Express 경로 또는 사이트 간 VPN을 사용 하 여 온-프레미스
 
 사설 클라우드 vCenter에서 온-프레미스 active directory를 id 원본으로 구성 하려면 테이블에 정의 된 포트를 열어야 합니다.  구성 단계는 [CloudSimple 사설 클라우드에서 vCenter 용 id 공급자로 AZURE AD 사용](https://docs.azure.cloudsimple.com/azure-ad/) 을 참조 하세요.
 
-| 포트         | Source                           | Destination                                         | 용도                                                                                                                                          |
+| Port         | 원본                           | 대상                                         | 용도                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)      | 사설 클라우드 DNS 서버        | 온-프레미스 DNS 서버                             | 온-프레미스 active directory 도메인 이름을 사설 클라우드 vCenter에서 온-프레미스 DNS 서버로 전달 하는 데 필요 합니다.          |
 | 389(TCP/UDP) | 사설 클라우드 관리 네트워크 | 온-프레미스 active directory 도메인 컨트롤러     | 사용자 인증을 위해 사설 클라우드 vCenter server에서 active directory 도메인 컨트롤러로의 LDAP 통신에 필요 합니다.                |
@@ -48,7 +49,7 @@ Azure Express 경로 또는 사이트 간 VPN을 사용 하 여 온-프레미스
 
 사설 클라우드에서 실행 되는 워크 로드 가상 컴퓨터에 액세스 하려면 온-프레미스 방화벽에서 포트를 열어야 합니다.  아래 표에서는 필요한 공통 포트와 용도를 보여 줍니다.  응용 프로그램 관련 포트 요구 사항은 응용 프로그램 설명서를 참조 하세요.
 
-| 포트         | Source                         | Destination                          | 용도                                                                              |
+| Port         | 원본                         | 대상                          | 용도                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | 온-프레미스 네트워크            | 사설 클라우드 워크 로드 네트워크       | 사설 클라우드에서 실행 되는 Linux 가상 머신에 대 한 보안 셸 액세스              |
 | 3389 (TCP)    | 온-프레미스 네트워크            | 사설 클라우드 워크 로드 네트워크       | 사설 클라우드에서 실행 되는 windows 가상 머신에 대 한 원격 데스크톱                 |

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ceee257cd09589fc953c2b32e978a35433b0a49b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371822"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
 
@@ -25,7 +25,7 @@ SAS (공유 액세스 서명)는 데이터의 보안을 손상 시 키 지 않�
 
 Azure Storage는 다음과 같은 세 가지 유형의 공유 액세스 서명을 지원 합니다.
 
-- **사용자 위임 SAS (미리 보기).** 사용자 위임 SAS는 Azure Active Directory (Azure AD) 자격 증명과 SAS에 대해 지정 된 사용 권한으로 보호 됩니다. 사용자 위임 SAS는 Blob 저장소에만 적용 됩니다.
+- **사용자 위임 SAS.** 사용자 위임 SAS는 Azure Active Directory (Azure AD) 자격 증명과 SAS에 대해 지정 된 사용 권한으로 보호 됩니다. 사용자 위임 SAS는 Blob 저장소에만 적용 됩니다.
 
     사용자 위임 SAS에 대 한 자세한 내용은 [사용자 위임 Sas 만들기 (REST API)](/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요.
 
@@ -122,9 +122,9 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 스토리�
 
 ### <a name="user-delegation-sas"></a>사용자 위임 SAS
 
-- [PowerShell (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
-- [Azure CLI (미리 보기)를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기](../blobs/storage-blob-user-delegation-sas-create-cli.md)
-- [.NET (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
+- [PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
+- [Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기](../blobs/storage-blob-user-delegation-sas-create-cli.md)
+- [.NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 
 ### <a name="service-sas"></a>서비스 SAS
 

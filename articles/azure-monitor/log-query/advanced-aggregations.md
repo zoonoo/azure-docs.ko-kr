@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f34e71c4e15e3bb09676e366313e90a7261439e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 882582191b5794e3978d955dfa9bded294064037
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900435"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398304"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 고급 집계
 
@@ -33,7 +33,7 @@ Event
 | summarize makelist(EventID) by Computer
 ```
 
-|컴퓨터|list_EventID|
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
 | computer2 | [326,105,302,301,300,102] |
@@ -50,7 +50,7 @@ Event
 | summarize makeset(EventID) by Computer
 ```
 
-|컴퓨터|list_EventID|
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
 | computer2 | [326,105,302,301,300,102] |
@@ -67,7 +67,7 @@ Heartbeat
 | project Computer, Solutions
 ```
 
-| 컴퓨터 | 솔루션 | 
+| Computer | 솔루션 | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
@@ -83,7 +83,7 @@ Heartbeat
 | mvexpand Solutions
 ```
 
-| 컴퓨터 | 솔루션 | 
+| Computer | 솔루션 | 
 |--------------|----------------------|
 | computer1 | "security" |
 | computer1 | "updates" |

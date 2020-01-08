@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB에서 TTL(Time to Live)을 구성하고 관리하는 방법 알아보기
+title: Azure Cosmos DB에서 라이브 시간 구성 및 관리
 description: 컨테이너와 항목에 대해 ttl (time to live)을 구성 하 고 관리 하는 방법에 대해 알아봅니다 Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 51022956ad32059771b8d56f0ae177fb5165b450
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 55f94257b604a87460caa279fc0995f1434ac92c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873610"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441773"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
 
@@ -21,7 +21,7 @@ Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성�
 
 컨테이너에서 만료 없이 TTL(Time to Live)을 사용하도록 설정하려면 다음 단계를 따르세요. 항목 수준에서 TTL이 재정의되도록 허용하려면 이 기능을 사용하세요. 초의 값으로 0이 아닌 값을 입력하여 TTL을 설정할 수도 있습니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. 새 Azure Cosmos 계정을 만들거나 기존 계정을 선택합니다.
 
@@ -133,7 +133,7 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 항목에 대해 TTL(Time to Live)을 사용하도록 설정하려면 다음 단계를 따르세요.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. 새 Azure Cosmos 계정을 만들거나 기존 계정을 선택합니다.
 

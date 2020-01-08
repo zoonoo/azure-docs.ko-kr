@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22efe84826684e37abee65d64df13d63081aa79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425468"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -59,7 +59,7 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 1. 확장이 설치된 NPS 서버에서 RD CAP 정책에 대한 RADIUS 액세스 허용 메시지를 원격 데스크톱 게이트웨이 서버로 보냅니다.
 1. 사용자에게 RD 게이트웨이를 통해 요청된 네트워크 리소스에 대한 액세스 권한이 부여됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 섹션에서는 Azure MFA와 원격 데스크톱 게이트웨이를 통합하기 전에 필요한 전제 조건에 대해 자세히 설명합니다. 이 문서를 시작하기 전에 다음과 같은 필수 구성 요소가 있어야 합니다.  
 
@@ -120,11 +120,11 @@ Azure AD 사용자가 MFA를 사용하도록 설정하려면 [클라우드에서
 NPS 확장 구성의 일환으로 Azure AD 테넌트에 대한 관리자 자격 증명과 Azure AD ID를 제공해야 합니다. 다음 단계에서는 테넌트 ID를 얻는 방법을 보여 줍니다.
 
 1. [Azure Portal](https://portal.azure.com)에 Azure 테넌트의 전역 관리자로 로그인합니다.
-1. 왼쪽 탐색 영역에서 **Azure Active Directory** 아이콘을 선택합니다.
+1. Azure Portal 메뉴에서 **Azure Active Directory**를 선택 하거나 모든 페이지에서 **Azure Active Directory** 을 검색 하 고 선택 합니다.
 1. **속성**을 선택합니다.
 1. [속성] 블레이드에서 아래와 같이 디렉터리 ID 옆에 있는 **복사** 아이콘을 클릭하여 클립보드에 해당 ID를 복사합니다.
 
-   ![Azure Portal에서 디렉터리 ID 가져오기](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Azure Portal에서 디렉터리 ID 가져오기](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>NPS 확장 설치
 
@@ -193,7 +193,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
    ![NPS 서버의 이름 또는 IP 주소 입력](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-1. **추가**으로 로그온합니다.
+1. **추가**를 클릭합니다.
 1. **공유 비밀** 대화 상자에서 공유 비밀을 입력한 다음 **확인**을 클릭합니다. 이 공유 비밀을 기록하여 안전하게 저장해 둡니다.
 
    >[!NOTE]
@@ -202,7 +202,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
    ![트러스트를 설정 하기 위해 공유 암호 만들기](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-1. **확인**을 클릭하여 대화 상자를 닫습니다.
+1. **확인** 을 클릭하여 대화 상자를 닫습니다.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>원격 데스크톱 게이트웨이 NPS에서 RADIUS 시간 제한 값 구성
 

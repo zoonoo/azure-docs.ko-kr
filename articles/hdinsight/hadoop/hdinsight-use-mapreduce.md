@@ -5,25 +5,25 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: c4f975b56d3658731b6dc165e01b54ac09f3b89c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 238f37cc1e8cbc8d3260693181d6e54ac5f592f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435715"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 사용
 
 HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 알아보세요.
 
-## <a id="data"></a>예제 데이터
+## <a name="example-data"></a>예제 데이터
 
 HDInsight는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 스토리지에 있습니다. 이 문서에서는 `/example/data/gutenberg/davinci.txt` 파일을 사용합니다. 이 파일에는 레오나르도 da 다빈치의 노트북이 포함 되어 있습니다.
 
-## <a id="job"></a>예제 MapReduce
+## <a name="example-mapreduce"></a>MapReduce 예
 
 MapReduce 단어 수 세기 애플리케이션 예가 HDInsight 클러스터에 포함되어 있습니다. 이 예제는 클러스터의 기본 스토리지인 `/example/jars/hadoop-mapreduce-examples.jar`에 있습니다.
 
@@ -101,35 +101,22 @@ public class WordCount {
 }
 ```
 
-고유한 MapReduce 응용 프로그램을 작성 하는 방법에 대 한 지침은 다음 문서를 참조 하세요.
+고유한 MapReduce 응용 프로그램을 작성 하는 방법에 대 한 지침은 [HDInsight 용 Java MapReduce 응용 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)을 참조 하세요.
 
-* [HDInsight용 Java MapReduce 애플리케이션 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-## <a id="run"></a>MapReduce 실행
+## <a name="run-the-mapreduce"></a>MapReduce 실행
 
 HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
-| **사용 기능**... | **...다음을 수행합니다** | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
+| **사용 기능**... | **...다음을 수행합니다** |  ... **클라이언트 운영 체제** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |**REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux, Unix, Mac OS X, 또는 Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |**REST** |Linux, Unix, Mac OS X, 또는 Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell**  |Windows |
 
-## <a id="nextsteps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 HDInsight에서 데이터를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
-
-* [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]
-
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: apache-hadoop-develop-deploy-java-mapreduce-linux.md
-[hdinsight-use-hive]:../hdinsight-use-hive.md
-[hdinsight-use-pig]:hdinsight-use-pig.md
-
-
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+* [HDInsight에서 Apache Hive 사용](./hdinsight-use-hive.md)

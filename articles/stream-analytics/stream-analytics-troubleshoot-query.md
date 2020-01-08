@@ -1,7 +1,6 @@
 ---
 title: Azure Stream Analytics 쿼리 문제 해결
 description: 이 문서에서는 Azure Stream Analytics 작업에서 쿼리 문제를 해결하는 기술에 대해 설명합니다.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 22e542715afa8c87ffb742bec6c22f758cd16587
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354274"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
 
@@ -90,7 +89,7 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 
 ![SELECT INTO 최종 테이블 Stream Analytics 쿼리](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 

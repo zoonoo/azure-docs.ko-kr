@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/6/2019
 ms.author: alsin
-ms.openlocfilehash: f17b96ad880742cf1232b074e4398f3b1d15e5ba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 11c2549d7282bae5654ede1ac34d63a43cd0f059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451194"
 ---
 # <a name="power-options-available-from-the-azure-serial-console"></a>Azure 직렬 콘솔에서 사용할 수 있는 전원 옵션
 
-Azure 직렬 콘솔은 VM 또는 가상 머신 확장 집합에서 전원 관리를 위한 여러 가지 강력한 도구를 제공 합니다. 이러한 전원 관리 옵션은 일부에 대해 혼란 스 러 울 수 있으므로이 문서는 각 도구와 의도 한 사용 사례에 대 한 개요입니다.
+Azure 직렬 콘솔은 VM 또는 가상 머신 확장 집합에서 전원 관리를 위한 여러 가지 강력한 도구를 제공 합니다. 이러한 전원 관리 옵션은 일부에 대해 혼란 스 러 울 수 있으므로 각 도구 및 해당 사용 사례에 대 한 개요를 제공 합니다.
 
 직렬 콘솔 기능 | Description | 사용 사례
 :----------------------|:------------|:---------

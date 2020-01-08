@@ -4,15 +4,15 @@ description: Map은 VM용 Azure Monitor의 기능입니다. Windows 및 Linux �
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199085"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450715"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>VM용 Azure Monitor (미리 보기)의 Map 기능을 사용 하 여 응용 프로그램 구성 요소 이해
 VM용 Azure Monitor에서 Azure 또는 사용자 환경에서 실행 되는 Windows 및 Linux Vm (가상 머신)에서 검색 된 응용 프로그램 구성 요소를 볼 수 있습니다. 두 가지 방법으로 Vm을 관찰할 수 있습니다. VM에서 직접 맵을 보거나 Azure Monitor에서 맵을 확인 하 여 Vm 그룹에서 구성 요소를 볼 수 있습니다. 이 문서는 이러한 두 가지 보기 방법과 지도 기능을 사용 하는 방법을 이해 하는 데 도움이 됩니다. 
@@ -20,7 +20,7 @@ VM용 Azure Monitor에서 Azure 또는 사용자 환경에서 실행 되는 Wind
 VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](vminsights-enable-overview.md)을 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
-[Azure portal](https://portal.azure.com)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="introduction-to-the-map-experience"></a>지도 환경 소개
 지도 환경에 대해 알아보기 전에 정보를 표시 하 고 시각화 하는 방법을 이해 해야 합니다. VM에서 직접 또는 Azure Monitor에서 맵 기능을 선택 하는 경우 맵 기능은 일관 된 환경을 제공 합니다. 유일한 차이점은 Azure Monitor에서 맵 하나는 다중 계층 응용 프로그램 또는 클러스터의 모든 멤버를 표시 한다는 것입니다.
@@ -115,7 +115,7 @@ VM에서 직접 VM용 Azure Monitor에 액세스 하려면 다음을 수행 합�
 ![직접 VM 맵 개요](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->가상 머신 확장 집합에 대 한 **인스턴스** 보기에서 특정 인스턴스에 대 한 맵에 액세스할 수도 있습니다. **설정** 섹션에서 **인스턴스**  > **Insights (미리 보기)** 로 이동 합니다.
+>가상 머신 확장 집합에 대 한 **인스턴스** 보기에서 특정 인스턴스에 대 한 맵에 액세스할 수도 있습니다. **설정** 섹션에서 **인스턴스** > **Insights (미리 보기)** 로 이동 합니다.
 
 ## <a name="view-a-map-from-azure-monitor"></a>Azure Monitor에서 맵 보기
 

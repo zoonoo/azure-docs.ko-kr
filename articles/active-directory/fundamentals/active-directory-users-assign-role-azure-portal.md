@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2df52969ea79e5d1af132aa82c2ec1ceedb92b82
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742555"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422931"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당
 조직의 사용자에게 Azure AD(Azure Active Directory) 리소스를 관리할 권한이 필요한 경우 사용자가 해당 권한으로 수행할 작업에 따라 Azure AD에서 사용자에게 적절한 역할을 할당해야 합니다.
@@ -31,17 +31,24 @@ Azure AD 역할을 사용자에게 할당하는 일반적인 방법은 사용자
 PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 있습니다. PIM을 사용하는 방법에 대한 자세한 내용은 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)를 참조하세요.
 
 ### <a name="to-assign-a-role-to-a-user"></a>사용자에게 역할을 할당하려면
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 디렉터리에 대 한 전역 관리자 계정을 사용 하 여 로그인 합니다. 
 
-2. **Azure Active Directory**를 선택하고, **사용자**를 선택한 후, 역할 할당을 받을 사용자를 검색하여 선택합니다. 예를 들면 _Alain Charon_이 있습니다.
+2. **Azure Active Directory**를 검색하고 선택합니다.
+
+      ![Azure Active Directory Azure Portal 검색](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
+
+
+3. **사용자**를 선택합니다.
+
+4. 역할 할당을 가져올 사용자를 검색 하 고 선택 합니다. 예를 들어 _Alain Charon_입니다.
 
       ![모든 사용자 페이지-사용자를 선택 합니다.](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-3. **Alain Charon 프로필** 페이지에서 **할당 된 역할**을 선택 합니다.
+5. **Alain Charon 프로필** 페이지에서 **할당 된 역할**을 선택 합니다.
 
     **Alain Charon - 디렉터리 역할** 페이지가 표시됩니다.
 
-4. **할당 추가**를 선택 하 고, alain (예: _응용 프로그램 관리자_)에 할당할 역할을 선택한 후 **선택**을 선택 합니다.
+6. **할당 추가**를 선택 하 고, alain (예: _응용 프로그램 관리자_)에 할당할 역할을 선택한 후 **선택**을 선택 합니다.
 
     ![할당 된 역할 페이지-선택한 역할을 표시 합니다.](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
@@ -52,7 +59,7 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>사용자에서 역할 할당을 제거하려면
 
-1. **Azure Active Directory**를 선택하고, **사용자**를 선택한 후, 역할 할당을 제거할 사용자를 검색하여 선택합니다. 예를 들면 _Alain Charon_이 있습니다.
+1. **Azure Active Directory**를 선택하고, **사용자**를 선택한 후, 역할 할당을 제거할 사용자를 검색하여 선택합니다. 예를 들어 _Alain Charon_입니다.
 
 2. **할당 된 역할**을 선택 하 고 **응용 프로그램 관리자**를 선택한 후 **할당 제거**를 선택 합니다.
 

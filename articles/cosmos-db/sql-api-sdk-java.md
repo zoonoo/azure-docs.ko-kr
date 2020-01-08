@@ -8,23 +8,23 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561884"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444835"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -48,8 +48,9 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * 최적화 된 파티션 키 범위 캐시 새로 고침입니다.
+* SDK가 서버에서 partition split 힌트를 즐거움 잘못 된 클라이언트 쪽 라우팅 캐시가 새로 고쳐지지 않는 시나리오를 수정 합니다.
 
-### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2 sections
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
 * 최적화 된 컬렉션 캐시 새로 고침입니다.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
@@ -253,7 +254,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 <br/>
 
-| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [2.1.3](#2.1.3) |3 월 13 일, 2018 |--- |
 | [2.1.2](#2.1.2) |3 월 9 일, 2018 |--- |

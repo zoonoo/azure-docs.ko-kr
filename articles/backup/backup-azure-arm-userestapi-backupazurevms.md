@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 �
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450155"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -41,7 +41,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -102,9 +102,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *GET* URI에는 필요한 모든 매개 변수가 있습니다. 추가 요청 본문이 필요없습니다.
 
-#### <a name="responses-1"></a>보낸
+#### <a name="responses-1"></a>응답
 
-|name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       확인 |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -208,7 +208,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  확인       |
 |202 수락됨     |         |     수락됨    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -319,7 +319,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -433,16 +433,38 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-### <a name="responses-2"></a>보낸
+#### <a name="responses-2"></a>응답
 
 보호 *DELETE* 작업은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |
+
+> [!IMPORTANT]
+> 실수로 인 한 삭제 시나리오 로부터 보호 하기 위해 Recovery services 자격 증명 모음에 대해 [일시 삭제 기능을 사용할 수](use-restapi-update-vault-properties.md#soft-delete-state) 있습니다. 자격 증명 모음의 일시 삭제 상태가 사용으로 설정 된 경우 삭제 작업은 데이터를 즉시 삭제 하지 않습니다. 14 일 동안 보관 되 고 영구적으로 제거 됩니다. 이 14 일 동안에는 저장소 요금이 청구 되지 않습니다. 삭제 작업을 실행 취소 하려면 [실행 취소-삭제 섹션](#undo-the-stop-protection-and-delete-data)을 참조 하세요.
+
+### <a name="undo-the-stop-protection-and-delete-data"></a>보호 중지 및 데이터 삭제 실행 취소
+
+실수로 삭제를 실행 취소 하는 것은 백업 항목을 만드는 것과 비슷합니다. 삭제를 취소 한 후에는 항목이 유지 되지만 이후의 백업은 트리거되지 않습니다.
+
+삭제 취소는 [정책을 변경](#changing-the-policy-of-protection) 하거나 [보호를 사용 하도록 설정](#enabling-protection-for-the-azure-vm)하는 것과 매우 유사한 *PUT* 작업입니다. [요청 본문](#example-request-body) 에서 *isRehydrate* 변수를 사용 하 여 삭제를 취소 하 고 요청을 제출 하는 의도를 제공 하기만 하면 됩니다. 예: testVM에 대 한 삭제를 실행 취소 하려면 다음 요청 본문을 사용 해야 합니다.
+
+```http
+{
+  "properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "protectionState": "ProtectionStopped",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "isRehydrate": true
+  }
+}
+```
+
+응답은 [주문형 백업 트리거하는 경우](#example-responses-3)에 설명된 것과 동일한 형식을 따릅니다. [REST API 문서를 사용한 모니터링 작업](backup-azure-arm-userestapi-managejobs.md#tracking-the-job)에 설명된 대로 결과 작업을 추적해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

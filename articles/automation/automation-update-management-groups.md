@@ -2,19 +2,15 @@
 title: Azure 업데이트 관리에서 동적 그룹 사용
 description: 이 문서에서는 Azure Automation 업데이트 관리에서 동적 그룹을 사용 하는 방법을 설명 합니다.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 022c2061febb54666acee1cfed4ec595421660a3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 678b3f361e4456a2c482896f7d7dc20d530b917b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420390"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>업데이트 관리에서 동적 그룹 사용
 
@@ -24,7 +20,7 @@ ms.locfileid: "74278754"
 
 이러한 그룹은 쿼리를 통해 정의되고, 업데이트 배포가 시작되면 해당 그룹의 멤버가 평가됩니다. 동적 그룹은 클래식 Vm에서 작동 하지 않습니다. 쿼리를 정의 하는 경우 다음 항목을 함께 사용 하 여 동적 그룹을 채울 수 있습니다.
 
-* 구독
+* Subscription
 * 리소스 그룹
 * 위치
 * 태그

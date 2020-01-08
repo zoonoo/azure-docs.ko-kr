@@ -1,17 +1,17 @@
 ---
-title: 값을 저장 하기 위한 변수 만들기 및 관리
-description: Azure Logic Apps 변수를 사용 하 여 값을 저장 하 고 관리 하는 방법
+title: 값 저장 및 전달에 대 한 변수 만들기 및 관리
+description: 를 사용 하 여 만든 자동화 된 작업 및 워크플로의 변수를 사용 하 여 값을 저장, 관리, 사용 및 전달 하는 방법에 대해 알아봅니다 Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456685"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Azure Logic Apps 변수를 사용 하 여 값 저장 및 관리
 
@@ -29,9 +29,9 @@ ms.locfileid: "74793161"
 > [!IMPORTANT]
 > 기본적으로 "For each" 루프의 주기는 병렬로 실행 됩니다. 루프에서 변수를 사용 하는 경우 변수가 예측 가능한 결과를 반환 하도록 루프를 [순차적](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) 으로 실행 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 변수를 만들려는 논리 앱
 
@@ -65,14 +65,14 @@ ms.locfileid: "74793161"
 
 1. 아래에서 설명 하는 대로 변수에 대 한 정보를 제공 합니다.
 
-   | 자산 | 필수 | Value |  설명 |
+   | 속성 | 필수 | 값 |  Description |
    |----------|----------|-------|--------------|
-   | **Name** | yes | <*variable-name*> | 증가할 변수의 이름입니다. |
-   | **형식** | yes | <*variable-type*> | 변수의 데이터 형식입니다. |
+   | **이름** | 예 | <*variable-name*> | 증가할 변수의 이름입니다. |
+   | **형식** | 예 | <*variable-type*> | 변수의 데이터 형식입니다. |
    | **값** | 아닙니다. | <*start-value*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
    |||||
 
-   다음은 그 예입니다.
+   예:
 
    ![변수 초기화](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -205,13 +205,13 @@ ms.locfileid: "74793161"
 
 1. 변수 증가에 대한 다음 정보를 입력합니다.
 
-   | 자산 | 필수 | Value |  설명 |
+   | 속성 | 필수 | 값 |  Description |
    |----------|----------|-------|--------------|
-   | **Name** | yes | <*variable-name*> | 증가할 변수의 이름입니다. |
+   | **이름** | 예 | <*variable-name*> | 증가할 변수의 이름입니다. |
    | **값** | 아닙니다. | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
    ||||
 
-   다음은 그 예입니다.
+   예:
 
    ![증가 값 예제](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -326,9 +326,9 @@ ms.locfileid: "74793161"
 
 다음은 **변수 감소** 작업의 속성입니다.
 
-| 자산 | 필수 | Value |  설명 |
+| 속성 | 필수 | 값 |  Description |
 |----------|----------|-------|--------------|
-| **Name** | yes | <*variable-name*> | 감소할 변수의 이름입니다. | 
+| **이름** | 예 | <*variable-name*> | 감소할 변수의 이름입니다. | 
 | **값** | 아닙니다. | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
 ||||| 
 
@@ -359,10 +359,10 @@ ms.locfileid: "74793161"
 
 다음은 **변수 설정** 작업의 속성입니다.
 
-| 자산 | 필수 | Value |  설명 |
+| 속성 | 필수 | 값 |  Description |
 |----------|----------|-------|--------------|
-| **Name** | yes | <*variable-name*> | 변경할 변수의 이름입니다. |
-| **값** | yes | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. |
+| **이름** | 예 | <*variable-name*> | 변경할 변수의 이름입니다. |
+| **값** | 예 | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. |
 ||||| 
 
 > [!NOTE]
@@ -417,10 +417,10 @@ ms.locfileid: "74793161"
 
 다음은 **추가...** 작업의 속성입니다.
 
-| 자산 | 필수 | Value |  설명 |
+| 속성 | 필수 | 값 |  Description |
 |----------|----------|-------|--------------|
-| **Name** | yes | <*variable-name*> | 변경할 변수의 이름입니다. |
-| **값** | yes | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. |
+| **이름** | 예 | <*variable-name*> | 변경할 변수의 이름입니다. |
+| **값** | 예 | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. |
 |||||
 
 디자이너에서 코드 뷰 편집기로 전환 하는 경우 다음은 JSON 형식인 논리 앱 정의 내 **에 배열 변수에 추가** 작업이 표시 되는 방법입니다. 이 예제에서는 배열 변수를 만들고 배열의 마지막 항목으로 다른 값을 추가합니다. 결과는 `[1,2,3,"red"]` 배열을 포함하는 업데이트된 변수입니다.

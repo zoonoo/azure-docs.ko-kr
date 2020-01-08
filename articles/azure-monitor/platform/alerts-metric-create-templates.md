@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/5/2019
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 496e8673e1cbf31f4c71db00b7eaf1c0618e509f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397349"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 알림 만들기
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 리소스 종류에 대 한 메트릭 경고를 만들기 위한 리소스 템플릿: Azure Log Analytics 작업 영역 (예: `Microsoft.OperationalInsights/workspaces`)에 추가 단계가 필요 합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
@@ -3552,6 +3552,11 @@ az group deployment create \
 ```
 
 명령줄 또는 매개 변수 파일을 통해 매개 변수의 값을 설정할 수 있습니다. 샘플 매개 변수 파일이 아래에 제공됩니다.
+
+
+> [!NOTE]
+>
+> `&amp`; &에 대 한 HTML 엔터티 참조입니다. URL 매개 변수는 여전히 단일 &으로 구분 되지만 HTML에서 URL을 언급 하는 경우 인코딩합니다. 따라서 원하는 Url 매개 변수 값에 "&"가 있는 경우 "`&amp`;"로 이스케이프 해야 합니다.
 
 Json을 availabilityalert로 저장 하 고 필요에 따라 수정 합니다.
 

@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric에서 백업 복원 | Microsoft Docs
+title: Azure Service Fabric에서 백업 복원
 description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 애플리케이션 데이터의 백업에서 데이터를 복구합니다.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377908"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
 
@@ -161,7 +152,7 @@ FailureError            :
 
 또한 [파티션 구성표](service-fabric-concepts-partitioning.md#get-started-with-partitioning)에 설명된 대로 다른 클러스터의 대상 파티션을 선택해야 합니다. 대체 클러스터 백업이 손실된 원래 클러스터에서 파티션 구성표에 지정된 파티션으로 복원됩니다.
 
-대체 클러스터의 파티션 ID가 `1c42c47f-439e-4e09-98b9-88b8f60800c6`인 경우, `974bd92a-b395-4631-8a7f-53bd4ae9cf22`범위 분할(UniformInt64Partition)_에 대한 상위 키 및 하위 키를 비교하여 원래 클러스터 파티션 ID_ 로 매핑할 수 있습니다.
+대체 클러스터의 파티션 ID가 `1c42c47f-439e-4e09-98b9-88b8f60800c6`인 경우, _범위 분할(UniformInt64Partition)_ 에 대한 상위 키 및 하위 키를 비교하여 원래 클러스터 파티션 ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`로 매핑할 수 있습니다.
 
 _이름 지정된 분할_의 경우 이름 값을 비교하여 대체 클러스터의 대상 파티션을 식별합니다.
 

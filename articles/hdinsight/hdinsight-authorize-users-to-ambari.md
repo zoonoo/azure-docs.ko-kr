@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: cbdf4a4c9e7f3816a0a5b280c81bfa60b65d9769
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3bb58334e96bf5378fb78b70125f9c7994a7c2fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687910"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435653"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
 
@@ -179,9 +179,9 @@ Ambari에는 [Apache Hive](https://hive.apache.org/) 및 [Apache TEZ](https://te
 
 3. 보기 페이지의 맨 아래로 스크롤합니다. *권한* 섹션 아래를 보면 도메인 사용자에게 보기에 대한 권한을 부여하는 두 가지 옵션이 있습니다.
 
-**다음 사용자에게 권한 부여** ![다음 사용자에게 권한 부여](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
+이러한 사용자에 게 권한을 부여 ![이러한 사용자에 게 권한을 부여할 **수 있습니다**](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**다음 그룹에게 권한 부여** ![다음 그룹에게 권한 부여](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
+이러한 **그룹에 권한을 부여 ![이러한** 그룹에 권한을 부여할 수 있습니다](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. 사용자를 추가하려면 **사용자 추가** 단추를 선택합니다.
 
@@ -248,7 +248,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
     ![Apache Ambari 역할 목록 뷰-사용자](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* 목록 보기의 그룹 범주에는 모든 그룹 그리고 각 그룹에 할당된 역할이 표시됩니다. 이 예제에서는 클러스터 도메인 설정의 **사용자 그룹 액세스** 속성에 지정된 Microsoft Azure Active Directory 그룹에서 그룹 목록이 동기화됩니다. [ESP 사용 HDInsight 클러스터 만들기](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)를 참조하세요.
+* 목록 보기의 그룹 범주에는 모든 그룹 그리고 각 그룹에 할당된 역할이 표시됩니다. 이 예제에서는 클러스터 도메인 설정의 **사용자 그룹 액세스** 속성에 지정된 Microsoft Azure Active Directory 그룹에서 그룹 목록이 동기화됩니다. [ESP 사용 HDInsight 클러스터 만들기](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)를 참조하세요.
 
     ![Apache Ambari 역할 목록 보기-그룹](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

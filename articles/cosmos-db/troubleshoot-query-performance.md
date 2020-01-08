@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB를 사용 하는 경우 쿼리 문제 진단 및 해결
+title: Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
 description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1859fa8f71b5c4c44d6e5da1b6a36ca9d9399516
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184724"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444717"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 쿼리 성능 문제 해결
 이 문서에서는 Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결 하는 방법을 설명 합니다. Azure Cosmos DB 쿼리에 대 한 최적의 성능을 얻으려면 아래 문제 해결 단계를 수행 합니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "74184724"
 
 ## <a name="log-the-executed-sql-query"></a>실행 된 SQL 쿼리 기록 
 
-실행 된 SQL 쿼리를 저장소 계정 또는 진단 로그 테이블에 기록할 수 있습니다. [진단 로그를 통해 SQL 쿼리 로그](monitor-cosmos-db.md#diagnostic-settings) 를 사용 하 여 선택한 저장소 계정에 난독 처리 된 쿼리를 기록할 수 있습니다. 이를 통해 로그를 확인 하 고 더 높은 RUs를 사용 하는 쿼리를 찾을 수 있습니다. 나중에 작업 ID를 사용 하 여 QueryRuntimeStatistics의 실제 쿼리를 일치 시킬 수 있습니다. 이 쿼리는 보안 목적 및 쿼리 매개 변수 이름에 대해 난독 처리 되며 where 절의 해당 값은 실제 이름 및 값과 다릅니다. 저장소 계정에 대 한 로깅을 사용 하 여 실행 된 쿼리의 장기 보존을 유지할 수 있습니다.  
+실행 된 SQL 쿼리를 저장소 계정 또는 진단 로그 테이블에 기록할 수 있습니다. [진단 로그를 통해 SQL 쿼리 로그](cosmosdb-monitor-resource-logs.md) 를 사용 하 여 선택한 저장소 계정에 난독 처리 된 쿼리를 기록할 수 있습니다. 이를 통해 로그를 확인 하 고 더 높은 RUs를 사용 하는 쿼리를 찾을 수 있습니다. 나중에 작업 ID를 사용 하 여 QueryRuntimeStatistics의 실제 쿼리를 일치 시킬 수 있습니다. 이 쿼리는 보안 목적 및 쿼리 매개 변수 이름에 대해 난독 처리 되며 where 절의 해당 값은 실제 이름 및 값과 다릅니다. 저장소 계정에 대 한 로깅을 사용 하 여 실행 된 쿼리의 장기 보존을 유지할 수 있습니다.  
 
 ## <a name="log-query-metrics"></a>로그 쿼리 메트릭
 
@@ -117,7 +117,7 @@ ms.locfileid: "74184724"
   * 가능한 경우 파티션 키에서 필터를 사용하는 쿼리를 작성합니다.
   * 성능 쿼리를 얻기 위해 필터에서 위쪽/아래쪽 호출을 수행 하지 않습니다. 대신 삽입 시 값의 대/소문자를 표준화 합니다. 각 값에 대해 원하는 대/소문자를 사용 하 여 값을 삽입 하거나 원래 값과 원하는 대/소문자를 사용 하 여 값을 삽입 합니다. 
 
-    예를 들어 다음과 같은 가치를 제공해야 합니다.
+    예:
     
     ```sql
 

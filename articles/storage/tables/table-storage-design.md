@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351167"
 ---
 # <a name="design-scalable-and-performant-tables"></a>확장 가능하고 성능이 우수한 테이블 설계
 
@@ -37,11 +37,11 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>타임 스탬프</th>
+<th>타임스탬프</th>
 <th></th>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>마케팅</td>
 <td>00001</td>
 <td>2014-08-22T00:50:32Z</td>
 <td>
@@ -49,8 +49,8 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
-<th>Email</th>
+<th>연령</th>
+<th>이메일</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -61,7 +61,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 </table>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>마케팅</td>
 <td>00002</td>
 <td>2014-08-22T00:50:34Z</td>
 <td>
@@ -69,11 +69,11 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
-<th>Email</th>
+<th>연령</th>
+<th>이메일</th>
 </tr>
 <tr>
-<td>Jun</td>
+<td>6월</td>
 <td>Cao</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -81,7 +81,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 </table>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>마케팅</td>
 <td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
@@ -91,14 +91,14 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>마케팅</td>
 <td>153</td>
 </tr>
 </table>
 </td>
 </tr>
 <tr>
-<td>Sales</td>
+<td>영업</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
@@ -106,8 +106,8 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
-<th>Email</th>
+<th>연령</th>
+<th>이메일</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -128,16 +128,16 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 테이블이 하나 이상의 파티션으로 구성되므로 디자인 의사 결정은 대부분 적절한 **PartitionKey** 및 **RowKey**를 선택하여 솔루션을 최적화하는 데 중점을 둡니다. 솔루션은 파티션으로 구성된 모든 엔터티를 포함하는 단일 테이블로 구성될 수 있지만 일반적으로 솔루션에는 여러 테이블이 있습니다. 테이블을 사용하면 엔터티를 논리적으로 구성하고, 액세스 제어 목록을 사용하여 데이터 액세스를 보다 쉽게 관리하며, 단일 스토리지 작업을 사용하여 전체 테이블을 삭제할 수 있습니다.  
 
 ## <a name="table-partitions"></a>테이블 파티션
-계정 이름, 테이블 이름 및 **PartitionKey**는 Table service가 엔터티를 저장하는 스토리지 서비스 내에서 파티션을 식별합니다. 파티션은 엔터티의 주소 지정 체계의 일부일 뿐만 아니라 트랜잭션의 범위를 정의(아래의 [EGT(엔터티 그룹 트랜잭션)](#entity-group-transactions) 참조)하며, 테이블 서비스를 확장하는 방법의 기초가 됩니다. 파티션에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)를 참조하세요.  
+계정 이름, 테이블 이름 및 **PartitionKey**는 Table service가 엔터티를 저장하는 스토리지 서비스 내에서 파티션을 식별합니다. 파티션은 엔터티의 주소 지정 체계의 일부일 뿐만 아니라 트랜잭션의 범위를 정의(아래의 [EGT(엔터티 그룹 트랜잭션)](#entity-group-transactions) 참조)하며, 테이블 서비스를 확장하는 방법의 기초가 됩니다. 파티션에 대 한 자세한 내용은 [테이블 저장소에 대 한 성능 및 확장성 검사 목록](storage-performance-checklist.md)을 참조 하세요.  
 
 Table service에서 개별 노드는 하나 이상의 전체 파티션을 지원하며, 서비스는 노드 간에 파티션 부하를 동적으로 분산하여 크기가 조정됩니다. 하나의 노드에 부하가 걸려 있는 경우 Table service는 해당 노드가 지원하는 파티션 범위를 여러 노드로 *분할*할 수 있습니다. 트래픽이 진정되면 서비스는 안정된 노드의 파티션 범위를 단일 노드로 다시*병합*할 수 있습니다.  
 
-Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 스토리지 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) 문서를 참조하세요.  
+Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 Storage 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.  
 
 ## <a name="entity-group-transactions"></a>EGT(엔터티 그룹 트랜잭션)
 Table service에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간에 원자성 업데이트를 수행하기 위한 유일한 기본 제공 메커니즘입니다. EGT를 *일괄 처리 트랜잭션*이라고도 합니다. EGT는 동일한 파티션에 저장된 엔터티에서만 작동할 수 있습니다(즉, 지정된 테이블에서 동일한 파티션 키를 공유함). 따라서 여러 엔터티 간에 원자성 트랜잭션 동작이 필요하면 언제든지 해당 엔터티가 동일한 파티션에 있도록 해야 합니다. 따라서 서로 다른 엔터티 유형에 여러 테이블을 사용하지 말고 여러 엔터티 유형을 동일한 테이블(및 파티션)에 유지하는 것이 좋습니다. 단일 EGT는 최대 100개의 엔터티에서 작동할 수 있습니다.  처리하기 위해 여러 개의 동시에 발생하는 EGT를 제출하는 경우 해당 EGT가 EGT에서 공통되는 엔터티에서 작동하지 않도록 해야 합니다. 그렇지 않으면 처리가 지연될 수 있습니다.
 
-EGT는 디자인을 평가하기 위해 잠재적인 장단점에 대해서도 소개합니다. 즉, Azure가 노드에 대한 요청의 부하를 용이하게 분산할 수 있기 때문에 더 많은 파티션을 사용하면 애플리케이션의 확장성을 증가시킵니다. 하지만 많은 파티션을 사용하면 원자성 트랜잭션을 수행하고 데이터에 강력한 일관성을 유지하는 애플리케이션의 기능을 제한할 수 있습니다. 또한 단일 노드에서 예상할 수 있는 트랜잭션 처리량을 제한할 수 있는 파티션 수준에서 특정 확장성 목표가 있습니다. Azure Storage 계정 및 Table service의 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)를 참조하세요.   
+EGT는 디자인을 평가하기 위해 잠재적인 장단점에 대해서도 소개합니다. 즉, Azure가 노드에 대한 요청의 부하를 용이하게 분산할 수 있기 때문에 더 많은 파티션을 사용하면 애플리케이션의 확장성을 증가시킵니다. 하지만 많은 파티션을 사용하면 원자성 트랜잭션을 수행하고 데이터에 강력한 일관성을 유지하는 애플리케이션의 기능을 제한할 수 있습니다. 또한 단일 노드에서 예상할 수 있는 트랜잭션 처리량을 제한할 수 있는 파티션 수준에서 특정 확장성 목표가 있습니다. Azure standard storage 계정에 대 한 확장성 목표에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 목표](../common/scalability-targets-standard-account.md)를 참조 하세요. Table service의 확장성 목표에 대 한 자세한 내용은 [테이블 저장소에 대 한 확장성 및 성능 목표](scalability-targets.md)를 참조 하세요.
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 다음 표에서는 Table service 솔루션을 디자인할 때 알아야 할 몇 가지 키 값을 설명합니다.  

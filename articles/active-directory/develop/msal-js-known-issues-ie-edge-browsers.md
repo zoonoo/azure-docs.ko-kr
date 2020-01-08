@@ -1,5 +1,5 @@
 ---
-title: Internet Explorer & Microsoft Edge에 대 한 MSAL js 문제 | Microsoft
+title: Internet Explorer & Microsoft Edge (MSAL .js)에서 발생 하는 문제 | Microsoft
 titleSuffix: Microsoft identity platform
 description: Internet Explorer 및 Microsoft Edge 브라우저에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 사용 하는 경우의 문제에 대해 알아봅니다.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9f8ff420698d5afe617973abc7874256efe260
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a3a4e847bc0d297f3aa41551fbf56242ae1a566f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424320"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>MSAL .js를 사용 하는 Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제 (MSAL .js)
 
 ## <a name="issues-due-to-security-zones"></a>보안 영역으로 인 한 문제
 *Microsoft edge 브라우저 버전을 40.15063.0.0로*업데이트 한 후 IE 및 microsoft edge에서 인증 관련 문제에 대 한 여러 보고서가 있습니다. Microsoft Edge 팀에 알려 주는 Microsoft Edge 팀을 추적 하 고 있습니다. Microsoft Edge는 해결 방법으로 작동 하지만, 여기에는 자주 발생 하는 문제 및 구현할 수 있는 가능한 해결 방법에 대 한 설명이 나와 있습니다.

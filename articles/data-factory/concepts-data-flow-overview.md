@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/7/2019
-ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444497"
 ---
 # <a name="what-are-mapping-data-flows"></a>데이터 흐름 매핑이란?
 
@@ -61,6 +61,8 @@ Azure IR 데이터 흐름 속성에서 TTL을 설정 하 여 Vm (클러스터 �
 
 이러한 세 가지 옵션 중에서이 옵션은 가장 짧은 시간에 실행할 수 있습니다. 그러나 각 병렬 데이터 흐름은 별도의 클러스터에서 동시에 실행 되므로 이벤트 순서는 결정적이 지 않습니다.
 
+파이프라인 내에서 데이터 흐름 작업을 병렬로 실행 하는 경우 TTL을 사용 하지 않는 것이 좋습니다. 이는 동일한 Azure Integration Runtime를 사용 하 여 동시에 데이터 흐름을 병렬로 실행 하면 데이터 팩터리에 대해 여러 웜 풀 인스턴스가 생성 되기 때문입니다.
+
 ##### <a name="overload-single-data-flow"></a>단일 데이터 흐름 오버 로드
 
 모든 논리를 단일 데이터 흐름 내에 배치 하는 경우 ADF는 모두 단일 Spark 클러스터 인스턴스에서 동일한 작업 실행 컨텍스트에서 실행 됩니다.
@@ -107,7 +109,7 @@ Azure IR 데이터 흐름 속성에서 TTL을 설정 하 여 Vm (클러스터 �
 
 라운드 로빈은 파티션에 데이터를 균등 하 게 자동으로 배포 하는 간단한 파티션입니다. 견고한 스마트 분할 전략을 구현 하는 데 좋은 핵심 후보가 없는 경우 라운드 로빈을 사용 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
-##### <a name="hash"></a>해시
+##### <a name="hash"></a>Hash
 
 Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 속하도록 균일한 파티션을 생성하기 위해 열 해시를 생성합니다. Hash 옵션을 사용 하는 경우 가능한 파티션 오차를 테스트 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 

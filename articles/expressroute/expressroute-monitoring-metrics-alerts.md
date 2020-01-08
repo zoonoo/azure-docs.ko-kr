@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083423"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436907"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -24,19 +24,19 @@ ms.locfileid: "74083423"
 
 ## <a name="expressroute-metrics"></a>Express 경로 메트릭
 
-**메트릭을**보려면 *Azure Monitor* 페이지로 이동 하 여 *메트릭*을 클릭 합니다. **Express** 경로 메트릭을 보려면 리소스 유형 *express 경로 회로*로 필터. **Global Reach** 메트릭을 보려면 리소스 유형 *express 경로 회로* 를 기준으로 필터링 하 고 Global Reach 사용 하도록 설정 된 express 경로 회로 리소스를 선택 합니다. Express 경로 **직접** 메트릭을 보려면 *express 경로 포트*를 기준으로 리소스 종류를 필터링 합니다. 
+**메트릭을**보려면 *Azure Monitor* 페이지로 이동 하 여 *메트릭*을 클릭 합니다. **Express** 경로 메트릭을 보려면 리소스 유형 *express 경로 회로*를 기준으로 필터링 합니다. **Global Reach** 메트릭을 보려면 리소스 유형 *express 경로 회로* 를 기준으로 필터링 하 고 Global Reach 사용 하도록 설정 된 express 경로 회로 리소스를 선택 합니다. Express 경로 **직접** 메트릭을 보려면 *express 경로 포트*를 기준으로 리소스 종류를 필터링 합니다. 
 
 메트릭을 선택 하면 기본 집계가 적용 됩니다. 필요에 따라 분할을 적용할 수 있습니다 .이 경우 다른 차원의 메트릭이 표시 됩니다.
 
 ### <a name="available-metrics"></a>사용 가능한 메트릭
 |**메트릭**|**범주**|**개 차원**|**기능**|
 | --- | --- | --- | --- |
-|ARP 가용성|가용성|<ui><li>피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형 (개인/공용/Microsoft)</ui></li>|ExpressRoute|
-|Bgp 가용성|가용성|<ui><li> 피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형</ui></li>|ExpressRoute|
-|BitsInPerSecond|트래픽|<ui><li> 피어 링 유형 (Express 경로)</ui></li><ui><li>Link (Express 경로 직접)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|트래픽| <ui><li>피어 링 유형 (Express 경로)</ui></li><ui><li> 링크 (Express 경로 직접) | <ui><li>Express 경로<ui><li>Express 경로 직접</ui></li> |
-|GlobalReachBitsInPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
-|GlobalReachBitsOutPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
+|ARP 가용성|가용성|<ui><li>피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형 (개인/공용/Microsoft)</ui></li>|Express Route|
+|Bgp 가용성|가용성|<ui><li> 피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형</ui></li>|Express Route|
+|BitsInPerSecond|교통|<ui><li> 피어 링 유형 (Express 경로)</ui></li><ui><li>Link (Express 경로 직접)</ui></li>| <li> Express Route</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|교통| <ui><li>피어 링 유형 (Express 경로)</ui></li><ui><li> 링크 (Express 경로 직접) | <ui><li>Express 경로<ui><li>Express 경로 직접</ui></li> |
+|GlobalReachBitsInPerSecond|교통|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|글로벌 접근|
+|GlobalReachBitsOutPerSecond|교통|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|글로벌 접근|
 |AdminState|실제 연결|링크|ExpressRoute Direct|
 |LineProtocol|실제 연결|링크|ExpressRoute Direct|
 |RxLightLevel|실제 연결|<ui><li>링크</ui></li><ui><li>레인</ui></li>|ExpressRoute Direct|
@@ -115,7 +115,7 @@ Express 경로 직접 포트 쌍의 각 링크에서 줄 프로토콜을 볼 수
 
 2. **+대상 선택**을 클릭하고 ExpressRoute 게이트웨이 연결 리소스를 선택합니다.
 
-   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![대상]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. 경고 세부 정보를 정의합니다.
 
    ![작업 그룹](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)

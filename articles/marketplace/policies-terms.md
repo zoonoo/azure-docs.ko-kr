@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 12/28/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 79891f6a4036a21be8edc70044a29cfb9cca4755
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4ff398c6e4208b7e55affe3fe8d6dd5efdce7bf7
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891064"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528235"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>상업적 marketplace 정책 및 약관
 
@@ -26,13 +26,13 @@ Marketplace에서 제공 하는 제품은 정책과 약관을 준수 해야 합�
 
 ## <a name="policies-and-terms"></a>정책 및 약관
 
-* [상업적 marketplace 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies)
+* [상업용 Marketplace 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
 * [참가 정책](https://docs.microsoft.com/legal/marketplace/participation-policy)
 
 * [등급 및 검토 정책](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
 
-* [Azure Marketplace 용어](https://docs.microsoft.com/legal/marketplace/terms)
+* [Azure Marketplace 약관](https://docs.microsoft.com/legal/marketplace/terms)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: f861303b7f3bc8d37caf6da0eaf2f4cef4b36ee5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425427"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>자습서: Azure Active Directory Domain Services (미리 보기)에서 온-프레미스 도메인에 아웃 바운드 포리스트 트러스트 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "74233598"
 
 ![Azure AD DS에서 온-프레미스 AD DS로의 포리스트 트러스트 다이어그램](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure AD DS 연결을 지원 하도록 온-프레미스 AD DS 환경에서 DNS 구성
@@ -33,18 +33,21 @@ ms.locfileid: "74233598"
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* 활성 Azure 구독.
+* 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * 리소스 포리스트를 사용 하 여 만들고 Azure AD 테 넌 트에서 구성 된 Azure Active Directory Domain Services 관리 되는 도메인입니다.
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance-advanced].
+    
+    > [!IMPORTANT]
+    > *리소스* 포리스트를 사용 하 여 Azure AD DS 관리 되는 도메인을 만들어야 합니다. 기본 옵션은 *사용자* 포리스트를 만듭니다. 리소스 포리스트만 온-프레미스 AD DS 환경에 대 한 트러스트를 만들 수 있습니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 이 자습서에서는 Azure Portal를 사용 하 여 Azure AD DS에서 아웃 바운드 포리스트 트러스트를 만들고 구성 합니다. 시작하려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -82,6 +85,10 @@ Azure AD DS에서 포리스트 트러스트를 구성 하기 전에 Azure 및 �
 1. 시작을 선택 합니다.  **관리 도구 | Active Directory 도메인 및 트러스트**
 1. 도메인 (예: *onprem.contoso.com*)을 마우스 오른쪽 단추로 선택 하 고 **속성** 을 선택 합니다.
 1. **트러스트** 탭, **새 트러스트** 를 차례로 선택 합니다.
+
+   > [!NOTE]
+   > **트러스트** 메뉴 옵션이 표시 되지 않으면 *포리스트 유형의* **속성** 에서를 선택 합니다. *리소스* 포리스트만 트러스트를 만들 수 있습니다. 포리스트 유형이 *사용자*인 경우 트러스트를 만들 수 없습니다. 현재 Azure AD DS 관리 되는 도메인의 포리스트 유형을 변경할 수 있는 방법은 없습니다. 리소스 포리스트로 관리 되는 도메인을 삭제 하 고 다시 만들어야 합니다.
+
 1. Azure AD DS 도메인 이름에 이름 (예: *aadds.contoso.com*)을 입력 하 고 **다음** 을 선택 합니다.
 1. **포리스트 트러스트**를 만드는 옵션을 선택한 다음 **단방향 (받는** 트러스트)을 만듭니다.
 1. **이 도메인**에 대해서만 트러스트를 만들도록 선택 합니다. 다음 단계에서는 Azure AD DS 관리 되는 도메인에 대 한 Azure Portal에서 트러스트를 만듭니다.
@@ -181,7 +188,7 @@ Azure AD DS 리소스 포리스트에 연결 된 Windows Server VM을 사용 하
 1. **그룹 또는 사용자 이름** 목록에서 *FileServerAccess* 를 선택 합니다. **FileServerAccess에 대 한 사용 권한** 목록에서 **수정** 및 **쓰기** 권한에 대해 *허용* 을 선택 하 고 **확인**을 선택 합니다.
 1. **공유** 탭을 선택 하 고 **고급 공유 ...** 를 선택 합니다.
 1. **이 폴더 공유**를 선택한 다음 **공유 이름** 에 파일 공유에 대 한 기억 하기 쉬운 이름 (예: *CrossForestShare*)을 입력 합니다.
-1. **권한**을 선택 합니다. **모든 사람에 대 한 사용 권한** 목록에서 **변경** 권한에 대해 **허용** 을 선택 합니다.
+1. **사용 권한**을 선택합니다. **모든 사람에 대 한 사용 권한** 목록에서 **변경** 권한에 대해 **허용** 을 선택 합니다.
 1. **확인** 을 두 번 선택 하 고 **닫기**를 선택 합니다.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>리소스에 대 한 크로스 포리스트 인증의 유효성 검사
@@ -197,7 +204,7 @@ Azure AD DS 리소스 포리스트에 연결 된 Windows Server VM을 사용 하
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure AD DS 연결을 지원 하도록 온-프레미스 AD DS 환경에서 DNS 구성

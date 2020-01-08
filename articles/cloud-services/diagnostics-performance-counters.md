@@ -3,17 +3,17 @@ title: Azure Cloud Services에서 성능 카운터 수집 | Microsoft Docs
 description: Azure Diagnostics 및 Application Insights를 사용하여 Cloud Services에서 성능 카운터를 검색, 사용 및 만드는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: gwallace
-ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: tagore
+ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68358941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385589"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
 
@@ -103,7 +103,7 @@ Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 �
 
 Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 
-* \Process(??APP_WIN32_PROC??)\% Processor Time
+* \Process (?? APP_WIN32_PROC?)\% 프로세서 시간
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -292,3 +292,6 @@ counterServiceUsed.Increment();
 - [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md)
 - [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure Diagnostics 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+
+
+

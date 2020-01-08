@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432598"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
@@ -154,7 +154,7 @@ namespace MyWebApp
 > [!NOTE]
 > `ISupportProperties`에 액세스할 수 없는 경우 Application Insights SDK의 안정적인 최신 릴리스를 확인 하 여 실행 중인지 확인 합니다. `ISupportProperties`는 높은 카디널리티 값을 위한 것 이지만 `GlobalProperties`는 지역 이름, 환경 이름 등과 같은 낮은 카디널리티 값에 더 적합 합니다. 
 
-### <a name="enable-telemetry-initializer-for-aspnet"></a>에 대 한 원격 분석 이니셜라이저를 사용 하도록 설정 합니다. ASP.NET
+### <a name="enable-telemetry-initializer-for-aspnet"></a>ASP.NET에 대 한 원격 분석 이니셜라이저 사용
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;

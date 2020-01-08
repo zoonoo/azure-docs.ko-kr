@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf826c47c61e3714a05dd81fe3eea4e6ee0b03f4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6fd8d6187c86306840c33b3aaf334e71086b20a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012506"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452751"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -23,23 +23,28 @@ ms.locfileid: "74012506"
 
 ## <a name="choose-a-time-series-id"></a>시계열 ID 선택
 
-시계열 ID 선택은 데이터베이스에 대한 파티션 키를 선택하는 것과 같습니다. Time Series Insights 미리 보기 환경을 만드는 동안이를 선택 해야 합니다. *변경할* 수 없는 속성입니다. 즉, 시계열 ID를 사용 하 여 Time Series Insights 미리 보기 환경을 만든 후에는 해당 환경에 대해 변경할 수 없습니다. 
+적절 한 시계열 ID를 선택 하는 것이 중요 합니다. 시계열 ID 선택은 데이터베이스에 대한 파티션 키를 선택하는 것과 같습니다. Time Series Insights 미리 보기 환경을 만들 때 필요 합니다. 
 
 > [!IMPORTANT]
-> 시계열 ID는 대/소문자를 구분 합니다.
+> 시계열 Id는 다음과 같습니다.
+> * *대/소문자를 구분* 하는 속성: 문자 및 문자/소문자나는 검색, 비교, 업데이트 및 분할 시 사용 됩니다.
+> * *변경할* 수 없는 속성: 만든 후에는 변경할 수 없습니다.
 
-적절 한 시계열 ID를 선택 하는 것이 중요 합니다. 다음은 수행할 수 있는 몇 가지 모범 사례입니다.
+> [!TIP]
+> 이벤트 원본이 IoT hub 인 경우 시계열 ID는 ***iothub***가 될 수 있습니다.
+
+주요 모범 사례는 다음과 같습니다.
 
 * 고유 값이 많은 파티션 키를 선택 합니다 (예: 수백 또는 수천). 대부분의 경우 JSON의 장치 ID, 센서 ID 또는 태그 ID 일 수 있습니다.
 * 시계열 ID는 [시계열 모델](./time-series-insights-update-tsm.md)의 리프 노드 수준에서 고유해야 합니다.
-* 이벤트 원본이 IoT hub 인 경우 시계열 ID는 *iothub*가 될 가능성이 높습니다.
 * 시계열 ID의 속성 이름 문자열에 대 한 문자 제한은 128입니다. 시계열 ID의 속성 값에 대 한 문자 제한은 1024입니다.
 * 시계열 ID의 고유한 속성 값이 누락 된 경우 null 값으로 처리 되 고 고유성 제약 조건의 동일한 규칙을 따릅니다.
 * 시계열 ID로 최대 *세 개의* 키 속성을 선택할 수도 있습니다. 해당 조합은 시계열 ID를 나타내는 복합 키가 됩니다.  
-
   > [!NOTE]
   > 세 가지 주요 속성은 문자열 이어야 합니다.
   > 한 번에 하나의 속성 대신이 복합 키에 대해 쿼리해야 합니다.
+
+## <a name="select-more-than-one-key-property"></a>키 속성을 두 개 이상 선택
 
 다음 시나리오에서는 시간 계열 ID로 둘 이상의 키 속성을 선택 하는 방법을 설명 합니다.  
 
@@ -67,9 +72,11 @@ ms.locfileid: "74012506"
 }
 ```
 
-Azure Portal에서 다음과 같이이 복합 키를 입력할 수 있습니다. 
+Azure Portal에서 다음과 같이 복합 키를 입력할 수 있습니다. 
 
-`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
+```JSON
+[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
+```
 
 ## <a name="next-steps"></a>다음 단계
 

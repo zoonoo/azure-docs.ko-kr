@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric에 행위자 기반 서비스 만들기 | Microsoft Docs
+title: Azure Service Fabric에서 행위자 기반 서비스 만들기
 description: Service Fabric Reliable Actors를 사용하여 C#에 행위자 기반 서비스를 처음 생성, 디버그 및 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: d870690416f96a2e1c24e6de16bdc8faa060f6bd
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225137"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466259"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
@@ -28,7 +19,7 @@ ms.locfileid: "68225137"
 
 이 문서에서는 Visual Studio에서 간단한 Reliable Actor 애플리케이션을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 컴퓨터에 Visual Studio를 비롯한 Service Fabric 개발 환경이 설정되어 있는지 확인합니다. 자세한 내용은 [개발 환경 설정 방법](service-fabric-get-started.md)을 참조하세요.
 
@@ -116,7 +107,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
     NuGet 패키지 및 모든 해당 종속성이 ActorClient 프로젝트에 설치됩니다.
 
-5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 마우스 오른쪽 단추로 **종속성**을 클릭한 다음 **참조 추가...** 를 클릭합니다.  **프로젝트 > 솔루션**(아직 선택하지 않은 경우)을 선택하고 **HelloWorld.Interfaces** 옆의 확인란을 선택합니다.  **확인**을 클릭합니다.
+5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 **종속성** 을 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**...를 클릭 합니다.  **프로젝트 > 솔루션** (아직 선택 하지 않은 경우)을 선택한 다음 **HelloWorld. 인터페이스**옆의 확인란을 선택 합니다.  **확인**을 클릭합니다.
     
     ![참조 추가 대화 상자][7]
 

@@ -1,20 +1,18 @@
 ---
 title: Azure Stream Analytics의 데이터 기반 디버깅
 description: 이 문서에서는 Azure Portal의 작업 다이어그램과 메트릭을 사용하여 Azure Stream Analytics 작업의 문제를 해결하는 방법에 대해 설명합니다.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 472d7fcbca1a221b69d681ce33d39978b53a3204
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426070"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>작업 다이어그램을 사용하여 데이터 기반 디버그
 
@@ -66,7 +64,7 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다.
 ### <a name="are-there-any-errors-in-the-input"></a>입력에 오류가 있습니까?
 
 *   **InputEventsEventDataNullTotal**은 null 데이터가 있는 이벤트의 개수입니다.
-*   **InputEventsSerializerErrorsTotal**은 올바르게 deserialize할 수 없는 이벤트의 개수입니다.
+*   **InputEventsSerializerErrorsTotal**은 올바르게 역직렬화할 수 없는 이벤트의 개수입니다.
 *   **InputEventsDegradedTotal**은 deserialization이 아닌 다른 문제가 있는 이벤트의 개수입니다.
  
 ### <a name="are-events-being-dropped-or-adjusted"></a>이벤트 삭제되거나 조정됩니까?
@@ -80,7 +78,7 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다.
 *   **총 백로그된 입력 이벤트 수**는 Event Hubs 및 Azure IoT Hub 입력에 대해 얼마나 많은 메시지를 읽어야 하는지 알려줍니다. 이 숫자가 0보다 크면 작업이 데이터가 들어오는 속도만큼 빠르게 데이터를 처리할 수 없다는 의미입니다. 이 경우 스트리밍 단위 수를 늘리거나 작업을 병렬 처리할 수 있도록 해야 합니다. 이에 대한 자세한 내용은 [쿼리 병렬화 페이지](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)를 참조하세요. 
 
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계

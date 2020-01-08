@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB를 사용하는 애플리케이션에 대한 올바른 일관성 수준 선택
+title: Azure Cosmos DB 앱에 대 한 올바른 일관성 수준 선택
 description: Azure Cosmos DB에서 애플리케이션에 대한 올바른 일관성 수준 선택
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 89c81e978c5f3dbbb8fac1ea5e75fc506612308f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: cea157e272a2bf464141e592b8e742f314a83233
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384911"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441913"
 ---
 # <a name="choose-the-right-consistency-level"></a>올바른 일관성 수준 선택 
 
@@ -52,7 +52,7 @@ SQL API 또는 Table API를 사용 하 여 응용 프로그램을 빌드하는 �
 
 * 나머지 세 가지 일관성 수준의 경우 부실 창은 워크로드에 따라 크게 달라집니다. 예를 들어 데이터베이스에서 발생하는 쓰기가 없는 경우 **최종**, **세션** 또는 **일관된 접두사** 일관성 수준이 있는 읽기 작업은 강력한 일관성 수준이 있는 읽기 작업과 동일한 결과를 발생할 수 있습니다.
 
-Azure Cosmos 계정이 강력한 일관성 이외의 일관성 수준으로 구성 된 경우, 확률적 경계를 살펴보면 클라이언트에서 워크 로드에 대해 강력 하 고 일관 된 읽기를 얻을 수 있는 확률을 확인할 수 있습니다.  *부실* (PBS) 메트릭입니다. 이 메트릭은 Azure Portal에서 노출됩니다. 자세히 알아보려면 [PBS(확률적 제한된 부실) 메트릭 모니터링](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)을 참조하세요.
+Azure Cosmos 계정이 강력한 일관성 이외의 일관성 수준으로 구성 된 경우에는 PBS ( *확률적 한정 된 부실* ) 메트릭을 살펴보면 클라이언트에서 작업에 대해 강력 하 고 일관 된 읽기를 수행할 수 있는 확률을 확인할 수 있습니다. 이 메트릭은 Azure Portal에서 노출됩니다. 자세히 알아보려면 [PBS(확률적 제한된 부실) 메트릭 모니터링](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)을 참조하세요.
 
 확률적 제한된 부실은 최종이 어떻게 최종 일관성인지 보여줍니다. 이 메트릭은 현재 Azure Cosmos 계정에 구성 된 일관성 수준 보다 더 강력한 일관성을 얻을 수 있는 빈도에 대 한 정보를 제공 합니다. 즉, 쓰기 및 읽기 영역 조합에 대한 강력한 일관성 읽기를 가져오는 확률(밀리초로 제한됨)을 확인할 수 있습니다.
 
@@ -61,6 +61,6 @@ Azure Cosmos 계정이 강력한 일관성 이외의 일관성 수준으로 구�
 다음 문서에서 일관성 수준에 대해 자세히 알아봅니다.
 
 * [Cosmos DB API에서 일관성 수준 매핑](consistency-levels-across-apis.md)
-* [다양한 일관성 수준에 대한 가용성 및 성능의 장단점](consistency-levels-tradeoffs.md)
+* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
 * [애플리케이션에 대한 세션 토큰을 관리하는 방법](how-to-manage-consistency.md#utilize-session-tokens)
 * [PBS(확률적 제한된 부실) 메트릭 모니터링](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

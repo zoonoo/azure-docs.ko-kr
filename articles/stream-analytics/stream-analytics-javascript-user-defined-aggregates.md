@@ -1,20 +1,18 @@
 ---
 title: Azure Stream Analytics의 JavaScript 사용자 정의 집계
 description: 이 문서에서는 Azure Stream Analytics에서 JavaScript 사용자 정의 집계로 고급 쿼리 역학을 수행하는 방법을 설명합니다.
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: d9b37810146f66806be9b8ce7a38f8dac31facb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489529"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426085"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>JavaScript 사용자 정의 집계 Azure Stream Analytics
  
@@ -80,9 +78,9 @@ function main() {
 
 ### <a name="function-alias"></a>함수 별칭
 
-함수 별칭은 UDA 식별자입니다. Stream Analytics 쿼리에서 호출되는 경우 항상 “uda”와 함께 UDA 별칭을 사용합니다. 식별됩니다.
+함수 별칭은 UDA 식별자입니다. Stream Analytics 쿼리에서 호출되는 경우 항상 “uda”와 함께 UDA 별칭을 사용합니다. 찾습니다.
 
-### <a name="function-type"></a>함수 형식
+### <a name="function-type"></a>함수 유형
 
 UDA의 경우 함수 유형은 **Javascript UDA**여야 합니다.
 
@@ -175,7 +173,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>ASA 쿼리에서 JavaScript UDA 호출
 
-Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예를 들어:
+Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예:
 
 ```SQL
 WITH value AS
@@ -225,7 +223,7 @@ GROUP BY TumblingWindow(minute, 5)
 ]
 ```
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 
 추가 도움이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
@@ -233,6 +231,6 @@ GROUP BY TumblingWindow(minute, 5)
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

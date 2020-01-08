@@ -1,5 +1,5 @@
 ---
-title: 그룹을 사용하여 앱 및 리소스 액세스 관리 - Azure Active Directory | Microsoft Docs
+title: 그룹을 사용 하 여 앱 & 리소스 액세스 관리-Azure AD
 description: Azure Active Directory 그룹을 사용하여 조직의 클라우드 기반 앱, 온-프레미스 앱 및 리소스에 대한 액세스를 관리하는 방법에 대해 알아봅니다.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acbc19c2148a2b62ff1aa28d705591430b4fad20
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8a90d54932561ed564a23d4d2785170aa85b5c9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561825"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422965"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리
 Azure AD(Azure Active Directory) 그룹은 조직의 그룹을 사용하여 클라우드 기반 앱, 온-프레미스 앱 및 리소스를 관리하는 데 유용합니다. 사용자 리소스는 디렉터리에서 역할을 통해 개체를 관리하는 권한과 같은 디렉터리에 포함되거나, SaaS(Software as a Service) 앱, Azure 서비스, SharePoint 사이트 및 온-프레미스 리소스와 같은 디렉터리의 외부에 있을 수 있습니다.
@@ -36,7 +36,7 @@ Azure AD는 단일 사용자 또는 전체 Azure AD 그룹에게 액세스 권�
 
 - **직접 할당.** 리소스 소유자는 사용자를 리소스에 직접 할당합니다.
 
-- **그룹 할당.** 리소스 소유자는 Azure AD 그룹을 리소스에 할당하여 자동으로 모든 그룹 구성원에게 리소스에 대한 액세스 권한을 부여합니다. 그룹 구성원 자격은 그룹 소유자 및 리소스 소유자 모두에 의해 관리되고,두 소유자 중 하나가 그룹에서 구성원을 추가하거나 제거할 수 있습니다. 그룹 멤버 자격 추가 또는 제거에 대한 자세한 내용은 [방법: Azure Active Directory 포털을 사용하여 다른 그룹에서 그룹 추가 또는 제거](active-directory-groups-membership-azure-portal.md)를 참조하세요. 
+- **그룹 할당.** 리소스 소유자는 Azure AD 그룹을 리소스에 할당하여 자동으로 모든 그룹 구성원에게 리소스에 대한 액세스 권한을 부여합니다. 그룹 구성원 자격은 그룹 소유자 및 리소스 소유자 모두에 의해 관리되고,두 소유자 중 하나가 그룹에서 구성원을 추가하거나 제거할 수 있습니다. 그룹 구성원 자격을 추가하거나 제거하는 방법에 대한 자세한 내용은 [방법: Azure Active Directory 포털을 사용하여 다른 그룹에서 그룹 추가 또는 제거](active-directory-groups-membership-azure-portal.md)를 참조하세요. 
 
 - **규칙 기반 할당.** 리소스 소유자는 그룹을 만들고 규칙을 사용하여 특정 리소스에 할당되는 사용자를 정의합니다. 규칙은 개별 사용자에게 할당되는 특성을 따릅니다. 리소스 소유자는 규칙을 관리하며, 리소스에 대한 액세스를 허용하는 데 필요한 특성 및 값을 결정합니다. 자세한 내용은 [동적 그룹 만들기 및 상태 확인](../users-groups-roles/groups-create-rule.md)을 참조하세요.
 
@@ -58,6 +58,6 @@ Azure AD는 단일 사용자 또는 전체 Azure AD 그룹에게 액세스 권�
 
 - [Azure Active Directory를 사용하여 새 그룹 만들기](active-directory-groups-create-azure-portal.md) 또는 [PowerShell cmdlet를 사용하여 새 그룹 만들기 및 관리](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
-- [그룹을 사용하여 통합 SaaS 앱에 액세스 할당](../users-groups-roles/groups-saasapps.md)
+- [그룹을 사용하여 통합 SaaS 앱에 대한 액세스 할당](../users-groups-roles/groups-saasapps.md)
 
 - [Azure AD Connect를 사용하여 Azure에 온-프레미스 그룹 동기화](../hybrid/whatis-hybrid-identity.md)

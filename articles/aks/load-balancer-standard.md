@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 43a2c64560b145531e15a35deb9321b6553782a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430815"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
@@ -22,7 +22,7 @@ Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사�
 
 이 문서에서는 Kubernetes 및 Azure Load Balancer 개념을 기본적으로 이해 하 고 있다고 가정 합니다. 자세한 내용은 [Kubernetes core 개념에 대 한 AKS (Azure Kubernetes Service)][kubernetes-concepts] 및 [Azure Load Balancer 정의][azure-lb]를 참조 하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -54,6 +54,10 @@ CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서�
 * 부하 분산 장치 SKU를 정의 하는 것은 AKS 클러스터를 만들 때만 수행할 수 있습니다. AKS 클러스터를 만든 후에는 부하 분산 장치 SKU를 변경할 수 없습니다.
 * 단일 클러스터에서 한 가지 유형의 부하 분산 장치 SKU (기본 또는 표준)만 사용할 수 있습니다.
 * *표준* SKU 부하 분산 장치는 *표준* Sku IP 주소만 지원 합니다.
+
+## <a name="use-the-standard-sku-load-balancer"></a>*표준* SKU 부하 분산 장치 사용
+
+AKS 클러스터를 만들 때 기본적으로 *표준* SKU 부하 분산 장치는 해당 클러스터에서 서비스를 실행할 때 사용 됩니다. 예를 들어 [Azure CLI를 사용 하는 빠른 시작은][aks-quickstart-cli] *표준* SKU 부하 분산 장치를 사용 하는 샘플 응용 프로그램을 배포 합니다. 
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>부하 분산 장치를 내부로 구성
 
@@ -177,12 +181,34 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 예제 출력에서 *AllocatedOutboundPorts* 는 0입니다. *AllocatedOutboundPorts* 값은 SNAT 포트 할당이 백 엔드 풀 크기에 따라 자동 할당으로 되돌아갑니다. 자세한 내용은 [Azure에서][azure-lb-outbound-connections] [아웃 바운드 규칙][azure-lb-outbound-rules] 및 아웃 바운드 연결 Load Balancer을 참조 하세요.
 
+## <a name="restrict-access-to-specific-ip-ranges"></a>특정 IP 범위에 대 한 액세스 제한
+
+부하 분산 장치에 대 한 가상 네트워크와 연결 된 NSG (네트워크 보안 그룹)에는 기본적으로 모든 인바운드 외부 트래픽을 허용 하는 규칙이 있습니다. 인바운드 트래픽에 대해 특정 IP 범위만 허용 하도록이 규칙을 업데이트할 수 있습니다. 다음 매니페스트에서는 *loadBalancerSourceRanges* 을 사용 하 여 인바운드 외부 트래픽에 대 한 새 IP 범위를 지정 합니다.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+  loadBalancerSourceRanges:
+  - MY_EXTERNAL_IP_RANGE
+```
+
+위의 예에서는 *MY_EXTERNAL_IP_RANGE* 범위에서 인바운드 외부 트래픽만 허용 하도록 규칙을 업데이트 합니다. 이 방법을 사용 하 여 부하 분산 장치 서비스에 대 한 액세스를 제한 하는 방법에 대 한 자세한 내용은 [Kubernetes 설명서][kubernetes-cloud-provider-firewall]에서 확인할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 Kubernetes services에 대 한 자세한 내용은 [Kubernetes services 설명서][kubernetes-services]를 참조 하세요.
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

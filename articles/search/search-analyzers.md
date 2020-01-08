@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/10/2019
+ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460723"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 텍스트 처리를 위한 분석기
 
@@ -39,7 +39,7 @@ Azure Cognitive Search는 [Apache Lucene 표준 분석기 (표준 Lucene)](https
 
 다음 목록에는 Azure Cognitive Search에서 사용할 수 있는 분석기에 대 한 설명이 나와 있습니다.
 
-| Category | 설명 |
+| 범주 | Description |
 |----------|-------------|
 | [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 대부분의 언어와 시나리오에서 잘 작동합니다.|
 | 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35 Lucene 언어 분석기 및 50 Microsoft 자연어 처리 분석기를 지원 합니다. |
@@ -55,12 +55,15 @@ Azure Cognitive Search는 [Apache Lucene 표준 분석기 (표준 Lucene)](https
 
 3. 필요에 따라 한 **analyzer** 속성 대신 **indexAnalyzer** 및 **searchAnalyzer** 필드 매개 변수를 사용하여 인덱싱 및 쿼리용으로 다른 분석기를 설정할 수 있습니다. 이러한 작업 중 하나에서 다른 작업에는 필요 없는 특정 변환이 필요한 경우 데이터 준비 및 검색에 다른 분석기를 사용할 것입니다.
 
+> [!NOTE]
+> 필드에 대 한 쿼리 시간에는 인덱싱 시 다른 [언어 분석기](index-add-language-analyzers.md) 를 사용할 수 없습니다. 이 기능은 [사용자 지정 분석기](index-add-custom-analyzers.md)에 대해 예약 되어 있습니다. 이러한 이유로 **searchanalyzer** 또는 **indexanalyzer** 속성을 언어 분석기의 이름으로 설정 하려고 하면 REST API 오류 응답이 반환 됩니다. 대신 **analyzer** 속성을 사용 해야 합니다.
+
 이미 물리적으로 생성된 필드에 **analyzer** 또는 **indexAnalyzer**를 할당하는 것은 허용되지 않습니다. 이해 되지 않는 부분이 있으면 다시 작성이 필요한 작업과 그 이유를 분류해 놓은 다음 표를 검토하세요.
  
  | 시나리오 | 영향 | 단계 |
  |----------|--------|-------|
  | 새 필드 추가 | 최소 | 스키마에 아직 필드가 존재하지 않으면 인덱스에 실제로 존재하는 필드가 없는 것이므로 변경할 필드가 없습니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)를 사용하여 기존 인덱스에 새 필드를 추가하고, [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다.|
- | 기존의 인덱싱된 필드에 **analyzer** 또는 **indexAnalyzer**를 추가합니다. | [다시 작성](search-howto-reindex.md) | 해당 필드에 대해 반전된 인덱스를 처음부터 다시 만들고 이 필드에 대한 콘텐츠를 다시 인덱싱해야 합니다. <br/> <br/>개발 중인 인덱스의 경우 인덱스를 [삭제하고](https://docs.microsoft.com/rest/api/searchservice/delete-index) [만들어](https://docs.microsoft.com/rest/api/searchservice/create-index) 새 필드 정의를 선택합니다. <br/> <br/>프로덕션 환경의 인덱스인 경우 수정된 정의를 제공하는 새 필드를 만들어서 기존 필드 대신 사용하면 다시 작성을 미룰 수 있습니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)를 사용하여 새 필드를 통합하고 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다. |
+ | 기존의 인덱싱된 필드에 **analyzer** 또는 **indexAnalyzer**를 추가합니다. | [다시 작성](search-howto-reindex.md) | 해당 필드에 대해 반전된 인덱스를 처음부터 다시 만들고 이 필드에 대한 콘텐츠를 다시 인덱싱해야 합니다. <br/> <br/>개발 중인 인덱스의 경우 인덱스를 [삭제하고](https://docs.microsoft.com/rest/api/searchservice/delete-index)[만들어](https://docs.microsoft.com/rest/api/searchservice/create-index) 새 필드 정의를 선택합니다. <br/> <br/>프로덕션 환경의 인덱스인 경우 수정된 정의를 제공하는 새 필드를 만들어서 기존 필드 대신 사용하면 다시 작성을 미룰 수 있습니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)를 사용하여 새 필드를 통합하고 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다. |
 
 ## <a name="when-to-add-analyzers"></a>분석기를 추가하는 시기
 

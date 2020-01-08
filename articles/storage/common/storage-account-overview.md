@@ -1,21 +1,22 @@
 ---
-title: Azure Storage 계정 개요 | Microsoft Docs
+title: Storage 계정 개요
+titleSuffix: Azure Storage
 description: Azure Storage 계정의 만들기 및 사용을 위한 옵션을 이해합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dc5869acffe9a42d154bca61b9de7821121c85ec
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460620"
 ---
-# <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
+# <a name="storage-account-overview"></a>Storage 계정 개요
 
 Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
 
@@ -55,11 +56,11 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 대부분의 경우 범용 v2 계정을 사용 해야 합니다. 이러한 시나리오에는 범용 v1 계정을 사용할 수 있습니다.
 
-* 애플리케이션에 Azure 클래식 배포 모델이 필요합니다. 범용 v2 계정 및 Blob Storage 계정은 Azure Resource Manager 배포 모델만 지원합니다.
+- 애플리케이션에 Azure 클래식 배포 모델이 필요합니다. 범용 v2 계정 및 Blob Storage 계정은 Azure Resource Manager 배포 모델만 지원합니다.
 
-* 응용 프로그램은 트랜잭션 집약적 이거나 상당한 지역 복제 대역폭을 사용 하지만 용량이 많이 필요 하지 않습니다. 이 경우 범용 v1이 가장 경제적인 선택이 될 수 있습니다.
+- 응용 프로그램은 트랜잭션 집약적 이거나 상당한 지역 복제 대역폭을 사용 하지만 용량이 많이 필요 하지 않습니다. 이 경우 범용 v1이 가장 경제적인 선택이 될 수 있습니다.
 
-* 2014-02-14 보다 이전 버전의 [저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 또는 보다 낮은 버전의 클라이언트 라이브러리를 사용 합니다. 응용 프로그램을 업그레이드할 수 없습니다.
+- 2014-02-14 보다 이전 버전의 [저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 또는 보다 낮은 버전의 클라이언트 라이브러리를 사용 합니다. 응용 프로그램을 업그레이드할 수 없습니다.
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 계정
 
@@ -86,12 +87,12 @@ FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을
 
 다음 성능 계층 중 하나에 대해 범용 스토리지 계정을 구성할 수 있습니다.
 
-* Blob, 파일, 테이블, 큐 및 Azure 가상 머신 디스크를 저장하기 위한 표준 성능 계층
-* 비관리형 가상 머신 디스크만 저장하기 위한 프리미엄 성능 계층
+- Blob, 파일, 테이블, 큐 및 Azure 가상 머신 디스크를 저장하기 위한 표준 성능 계층 Standard storage 계정의 확장성 목표에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 목표](scalability-targets-standard-account.md)를 참조 하세요.
+- 비관리형 가상 머신 디스크만 저장하기 위한 프리미엄 성능 계층 관리 디스크를 관리 되지 않는 디스크 대신 Azure virtual machines와 함께 사용 하는 것이 좋습니다. 프리미엄 성능 계층의 확장성 목표에 대 한 자세한 내용은 [프리미엄 페이지 blob storage 계정에 대 한 확장성 목표](../blobs/scalability-targets-premium-page-blobs.md)를 참조 하세요.
 
-BlockBlobStorage 저장소 계정은 블록 blob 및 추가 blob을 저장 하기 위한 프리미엄 성능 계층을 제공 합니다.
+BlockBlobStorage 저장소 계정은 블록 blob 및 추가 blob을 저장 하기 위한 프리미엄 성능 계층을 제공 합니다. 자세한 내용은 [프리미엄 블록 blob 저장소 계정에 대 한 확장성 목표](../blobs/scalability-targets-premium-block-blobs.md)를 참조 하세요.
 
-FileStorage 저장소 계정은 Azure 파일 공유에 대 한 프리미엄 성능 계층을 제공 합니다.
+FileStorage 저장소 계정은 Azure 파일 공유에 대 한 프리미엄 성능 계층을 제공 합니다. 자세한 내용은 [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)를 참조 하세요.
 
 ## <a name="access-tiers-for-block-blob-data"></a>블록 Blob 데이터를 위한 액세스 계층
 
@@ -99,9 +100,9 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 사용 가능한 액세스 계층은 다음과 같습니다.
 
-* **핫** 액세스 계층입니다. 이 계층은 저장소 계정의 개체에 대 한 자주 액세스 하도록 최적화 되어 있습니다. 핫 계층의 데이터에 액세스 하는 것은 가장 비용 효율적 이지만, 저장소 비용은 더 높습니다. 기본적으로 새 스토리지 계정은 핫 계층에 만들어집니다.
-* **쿨** 액세스 계층입니다. 이 계층은 드물게 액세스 되 고 최소 30 일 동안 저장 되는 대량의 데이터를 저장 하는 데 최적화 되어 있습니다. 쿨 계층에 데이터를 저장 하는 것이 더 비용 효율적 이지만 데이터에 액세스 하는 것이 핫 계층의 데이터에 액세스 하는 것 보다 비용이 더 많이 들 수 있습니다.
-* **보관** 계층입니다. 이 계층은 개별 블록 blob에 대해서만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고 최소 180 일 동안 보관 계층에 남아 있는 데이터에 대해 최적화 됩니다. 보관 계층은 데이터를 저장 하는 가장 비용 효율적인 옵션입니다. 그러나 해당 데이터에 액세스 하는 것은 핫 또는 쿨 계층의 데이터에 액세스 하는 것 보다 비용이 많이 듭니다.
+- **핫** 액세스 계층입니다. 이 계층은 저장소 계정의 개체에 대 한 자주 액세스 하도록 최적화 되어 있습니다. 핫 계층의 데이터에 액세스 하는 것은 가장 비용 효율적 이지만, 저장소 비용은 더 높습니다. 기본적으로 새 스토리지 계정은 핫 계층에 만들어집니다.
+- **쿨** 액세스 계층입니다. 이 계층은 드물게 액세스 되 고 최소 30 일 동안 저장 되는 대량의 데이터를 저장 하는 데 최적화 되어 있습니다. 쿨 계층에 데이터를 저장 하는 것이 더 비용 효율적 이지만 데이터에 액세스 하는 것이 핫 계층의 데이터에 액세스 하는 것 보다 비용이 더 많이 들 수 있습니다.
+- **보관** 계층입니다. 이 계층은 개별 블록 blob에 대해서만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고 최소 180 일 동안 보관 계층에 남아 있는 데이터에 대해 최적화 됩니다. 보관 계층은 데이터를 저장 하는 가장 비용 효율적인 옵션입니다. 그러나 해당 데이터에 액세스 하는 것은 핫 또는 쿨 계층의 데이터에 액세스 하는 것 보다 비용이 많이 듭니다.
 
 데이터의 사용 패턴이 변경 되 면 언제 든 지 이러한 액세스 계층 간을 전환할 수 있습니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조 하세요.
 
@@ -124,13 +125,13 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 예를 들어 범용 스토리지 계정의 이름이 *mystorageaccount*일 경우 이 스토리지 계정의 기본 엔드포인트는 다음과 같습니다.
 
-* Blob 스토리지: http://*mystorageaccount*.blob.core.windows.net
-* 테이블 스토리지: http://*mystorageaccount*.table.core.windows.net
-* 큐 스토리지: http://*mystorageaccount*.queue.core.windows.net
-* Azure Files: http://*mystorageaccount*.file.core.windows.net
+- Blob 저장소: `https://*mystorageaccount*.blob.core.windows.net`
+- 테이블 저장소: `https://*mystorageaccount*.table.core.windows.net`
+- 큐 저장소: `https://*mystorageaccount*.queue.core.windows.net`
+- Azure Files: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
-> 블록 blob 및 blob 저장소 계정은 blob service 끝점만 노출 합니다.
+> 블록 blob 및 blob 저장소 계정은 Blob service 끝점만 노출 합니다.
 
 저장소 계정의 개체 위치를 끝점에 추가 하 여 저장소 계정의 개체에 액세스 하기 위한 URL을 생성 합니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
@@ -171,7 +172,7 @@ AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계�
 
 범용 v1 저장소 계정에서 Blob storage 계정으로 데이터를 마이그레이션하는 사용자 지정 응용 프로그램을 만들 수 있습니다. Azure 클라이언트 라이브러리 또는 Azure storage 서비스 REST API 중 하나를 사용 합니다. Azure Storage는 NET, Java, C++, Node.JS, PHP, Ruby, Python 등, 여러 언어와 플랫폼을 위한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
 
-Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참조](https://docs.microsoft.com/rest/api/storageservices/)를 참조하세요. 
+Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참조](https://docs.microsoft.com/rest/api/storageservices/)를 참조하세요.
 
 > [!IMPORTANT]
 > 클라이언트 쪽 암호화를 사용하여 암호화된 Blob은 Blob에 암호화 관련 메타데이터를 저장합니다. 클라이언트 쪽 암호화를 사용하여 암호화된 Blob을 복사하는 경우 복사 작업에서 Blob 메타데이터, 특히 암호화 관련 메타데이터를 유지해야 합니다. 암호화 메타데이터 없이 Blob을 복사하면 Blob 콘텐츠를 다시 검색할 수 없습니다. 암호화 관련 메타데이터에 대한 자세한 내용은 [Azure Storage 클라이언트 쪽 암호화](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
@@ -182,6 +183,5 @@ Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스토리지 계정 만들기](storage-quickstart-create-account.md)
-* [블록 Blob 스토리지 계정 만들기](../blobs/storage-blob-create-account-block-blob.md)
-* [Azure Storage 계정 관리](storage-account-manage.md)
+- [스토리지 계정을 만드는](storage-quickstart-create-account.md)
+- [블록 Blob 스토리지 계정 만들기](../blobs/storage-blob-create-account-block-blob.md)

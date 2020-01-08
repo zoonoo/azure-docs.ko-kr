@@ -1,19 +1,19 @@
 ---
 title: Node.js 모범 사례 및 문제 해결
 description: Azure App Service에서 실행 되는 node.js 응용 프로그램에 대 한 모범 사례 및 문제 해결 단계를 알아봅니다.
-author: ranjithr
+author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bwren
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672036"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430556"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -172,7 +172,7 @@ site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
-`npm install v8-profiler`명령을 실행합니다.
+`npm install v8-profiler` 명령을 실행합니다.
 
 이 명령은 node\_modules 디렉터리에 v8-profiler와 모든 종속성을 설치합니다.
 이제 server.js를 편집하여 애플리케이션을 프로파일링합니다.
@@ -251,7 +251,7 @@ node.exe가 임의로 종료된 이유 몇 가지는 다음과 같습니다.
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http 상태 및 하위 상태
 
-이 `cnodeconstants`[원본 파일](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h)에는 오류로 인해 iisnode에서 반환할 수 있는 가능한 상태/하위 상태 조합이 모두 나열되어 있습니다.
+`cnodeconstants` [원본 파일](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) 에는 오류로 인해 iisnode에서 반환할 수 있는 모든 상태/하위 상태 조합이 나열 됩니다.
 
 win32 오류 코드를 표시하도록 애플리케이션에 대해 FREB를 사용하도록 설정합니다(성능상의 이유로 비프로덕션 사이트에서만 FREB를 사용하도록 설정하세요).
 

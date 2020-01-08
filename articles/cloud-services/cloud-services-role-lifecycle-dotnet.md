@@ -3,19 +3,19 @@ title: 클라우드 서비스 수명 주기 이벤트 처리 | Microsoft Docs
 description: .NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용할 수 있는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0a9c32affc50a6d357d4160e00486c896d762e3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385816"
 ---
-# <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
+# <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET에서 웹 및 작업자의 수명 주기 사용자 지정
 작업자 역할을 만들 때 수명 주기 이벤트에 응답할 수 있게 재정의하도록 메서드를 제공하는 [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 클래스를 확장합니다. 웹 역할의 경우, 이 클래스는 선택적이므로 수명 주기 이벤트에 응답하는 데 사용합니다.
 
 ## <a name="extend-the-roleentrypoint-class"></a>RoleEntryPoint 클래스 확장
@@ -76,4 +76,7 @@ public override bool OnStart()
 
 ## <a name="next-steps"></a>다음 단계
 [클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md)방법에 대해 알아봅니다.
+
+
+
 

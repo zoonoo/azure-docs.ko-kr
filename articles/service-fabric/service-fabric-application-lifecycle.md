@@ -1,25 +1,14 @@
 ---
-title: Service Fabric의 애플리케이션 수명 주기 | Microsoft Docs
+title: Service Fabric의 응용 프로그램 수명 주기
 description: 서비스 패브릭 애플리케이션 개발, 배포, 테스트, 업그레이드, 유지 관리 및 제거를 설명합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 1/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: 53cab3591ea11721e36b48438f35df016e2a9f3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378007"
 ---
 # <a name="service-fabric-application-lifecycle"></a>서비스 패브릭 애플리케이션 수명 주기
 다른 플랫폼과 마찬가지로, Azure 서비스 패브릭 기반의 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 애플리케이션의 전체 애플리케이션 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 애플리케이션 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. 이 문서에서는 서비스 패브릭 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용하는 방법 및 API에 대한 개요를 제공합니다.
@@ -29,7 +18,7 @@ ms.locfileid: "60621493"
 ## <a name="service-model-roles"></a>서비스 모델 역할
 서비스 모델은 다음과 같습니다.
 
-* **서비스 개발자**: 용도 변경 하 고 동일한 형식 또는 다른 형식의 여러 응용 프로그램에서 사용할 수 있는 모듈식 및 일반 서비스를 개발 합니다. 예를 들어 큐 서비스를 사용하여 발권 애플리케이션(헬프데스크) 또는 전자 상거래 애플리케이션(장바구니)을 만들 수 있습니다.
+* **서비스 개발자**: 동일한 형식이 나 다른 형식의 여러 응용 프로그램에서 사용 하 고 사용할 수 있는 모듈식 및 일반 서비스를 개발 합니다. 예를 들어 큐 서비스를 사용하여 발권 애플리케이션(헬프데스크) 또는 전자 상거래 애플리케이션(장바구니)을 만들 수 있습니다.
 * **애플리케이션 개발자**: 특정 요구 사항 또는 시나리오를 충족하도록 서비스 컬렉션을 통합하여 애플리케이션을 만듭니다. 예를 들어 전자 상거래 웹 사이트에 "JSON 상태 비저장 프런트엔드 서비스", "경매 상태 저장 서비스" 및 "큐 상태 저장 서비스"를 통합하여 경매 솔루션을 빌드합니다.
 * **애플리케이션 관리자**: 애플리케이션 구성(구성 템플릿 매개 변수를 입력), 배포(사용 가능한 리소스에 매핑) 및 서비스의 품질에 대한 결정을 내립니다. 예를 들어 애플리케이션 관리자가 애플리케이션의 언어 로캘을 결정합니다(예: 미국은 영어, 일본은 일본어). 배포된 다른 애플리케이션을 다르게 설정할 수 있습니다.
 * **운영자**: 애플리케이션 관리자가 지정한 애플리케이션 구성 및 요구 사항에 따라 애플리케이션을 배포합니다. 예를 들어 운영자가 애플리케이션을 프로비전 및 배포하고 Azure에서 실행되고 있는지 확인합니다. 운영자는 애플리케이션 상태 및 성능 정보를 모니터링 하고 필요에 따라 실제 인프라를 유지 관리합니다.
@@ -55,7 +44,7 @@ ms.locfileid: "60621493"
 ## <a name="test"></a>테스트
 1. 로컬 개발 클러스터 또는 클러스터에 배포한 후 *서비스 개발자*가 [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) 및 [**FailoverTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) 클래스 또는 [**Invoke-ServiceFabricFailoverTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps)를 사용하여 기본 제공 장애 조치(failover) 테스트 시나리오를 실행합니다. 장애 조치(failover) 테스트 시나리오는 중요한 전환 및 장애 조치(failover)를 통해 지정된 서비스를 실행하여 서비스가 중단 없이 작동되도록 보장합니다.
 2. 그런 다음 *서비스 개발자*가 [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) 및 [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) 클래스 또는 [**Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps)를 사용하여 기본 제공 비정상 상황 테스트 시나리오를 실행합니다. 비정상 상황 테스트 시나리오는 임의로 여러 노드, 코드 패키지 및 복제 오류를 클러스터로 유도합니다.
-3. 그런 다음 *service developer* [서비스 간 통신을 테스트](service-fabric-testability-scenarios-service-communication.md) 합니다.
+3. *서비스 개발자* 는 클러스터 주위에서 주 복제본을 이동 하는 테스트 시나리오를 작성 하 여 [서비스 간 통신을 테스트](service-fabric-testability-scenarios-service-communication.md) 합니다.
 
 자세한 내용은 [오류 분석 서비스 소개](service-fabric-testability-overview.md) 를 참조하세요.
 

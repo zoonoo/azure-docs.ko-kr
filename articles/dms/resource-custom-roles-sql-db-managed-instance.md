@@ -1,6 +1,7 @@
 ---
-title: SQL Database 관리 되는 인스턴스 온라인 마이그레이션에 SQL Server 하기 위한 사용자 지정 역할 | Microsoft Docs
-description: SQL Server에 대 한 사용자 지정 역할을 사용 하 여 관리 되는 인스턴스 온라인 마이그레이션을 SQL Database 하는 방법을 알아봅니다.
+title: '사용자 지정 역할: 온라인 SQL Server SQL 관리 되는 인스턴스 마이그레이션'
+titleSuffix: Azure Database Migration Service
+description: SQL Server에 대 한 사용자 지정 역할을 사용 하 여 관리 되는 인스턴스 온라인 마이그레이션을 Azure SQL Database 하는 방법을 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 8148e029bf343613a230b20d0397fa7851c96712
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 85c70968eb0f8a5752bbfa338918a8bba2fe7794
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437688"
 ---
 # <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>SQL Database 관리 되는 인스턴스 온라인 마이그레이션에 SQL Server 하기 위한 사용자 지정 역할
 
@@ -31,7 +32,7 @@ Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 
 > [!NOTE]
 > 새 SQL Database 관리 되는 인스턴스 코드를 Azure에 배포 하면 최종적으로 마지막 사용자 지정 역할 요구 사항이 제거 될 수 있습니다.
 
-**앱 ID에 대 한 사용자 지정 역할**입니다. 이 역할은 *리소스* 또는 *리소스 그룹* 수준에서 마이그레이션을 Azure Database Migration Service 하는 데 필요 합니다. 앱 ID에 대 한 자세한 내용은 포털을 [사용 하 여 Azure AD 응용 프로그램 및 서비스 주체 만들기 문서를 참조 하세요. 리소스에 액세스할 수 있음](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
+**앱 ID에 대 한 사용자 지정 역할**입니다. 이 역할은 *리소스* 또는 *리소스 그룹* 수준에서 마이그레이션을 Azure Database Migration Service 하는 데 필요 합니다. 앱 ID에 대 한 자세한 내용은 포털을 [사용 하 여 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)문서를 참조 하세요.
 
 ```json
 {

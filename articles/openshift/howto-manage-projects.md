@@ -8,12 +8,12 @@ ms.author: b-majude
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 5028ce3c71538e67b50a15abb6076871d5af7050
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: d88be50468f55a848b43613e1f7851621202052d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378231"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 프로젝트, 템플릿, 이미지 스트림 관리 
 
@@ -25,9 +25,9 @@ OpenShift 컨테이너 플랫폼에서 프로젝트는 관련 개체를 그룹�
 
 프로젝트 요청이 제출 되 면 API는 템플릿에서 다음 매개 변수를 대체 합니다.
 
-| 매개 변수               | 설명                                    |
+| 매개 변수               | Description                                    |
 | ----------------------- | ---------------------------------------------- |
-| PROJECT_NAME            | 프로젝트의 이름입니다. 필수 요소.             |
+| PROJECT_NAME            | 프로젝트의 이름입니다. 필수 사항입니다.             |
 | PROJECT_DISPLAYNAME     | 프로젝트의 표시 이름입니다. 비어 있을 수 있습니다. |
 | PROJECT_DESCRIPTION     | 프로젝트에 대한 설명입니다. 비어 있을 수 있습니다.  |
 | PROJECT_ADMIN_USER      | 관리 사용자의 사용자 이름입니다.       |
@@ -37,7 +37,7 @@ API에 대 한 액세스는 개발자에 게 자체 provisioners 클러스터 �
 
 ## <a name="modify-the-template-for-a-new-project"></a>새 프로젝트에 대 한 템플릿 수정 
 
-1. 권한이 있는 `customer-admin` 사용자로 로그인 합니다.
+1. `customer-admin` 권한이 있는 사용자로 로그인 합니다.
 
 2. 기본 프로젝트 요청 템플릿을 편집 합니다.
 
@@ -45,7 +45,7 @@ API에 대 한 액세스는 개발자에 게 자체 provisioners 클러스터 �
    oc edit template project-request -n openshift
    ```
 
-3. 다음 주석을 추가 하 여 Azure Red Hat OpenShift (ARO) 업데이트 프로세스에서 기본 프로젝트 템플릿을 제거 합니다.`openshift.io/reconcile-protect: "true"`
+3. 다음 주석을 추가 하 여 Azure Red Hat OpenShift (ARO) 업데이트 프로세스에서 기본 프로젝트 템플릿을 제거 합니다. `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -61,15 +61,15 @@ API에 대 한 액세스는 개발자에 게 자체 provisioners 클러스터 �
 
 인증 된 사용자 그룹이 새 프로젝트를 자동으로 프로 비전 하지 못하도록 방지할 수 있습니다.
 
-1. 권한이 있는 `customer-admin` 사용자로 로그인 합니다.
+1. `customer-admin` 권한이 있는 사용자로 로그인 합니다.
 
 2. 자체 provisioners 클러스터 역할 바인딩을 편집 합니다.
 
    ```
-   oc edit clusterrolebinding self-provisioners
+   oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
-3. 다음 주석을 `openshift.io/reconcile-protect: "true"`추가 하 여 ARO 업데이트 프로세스에서 역할을 제거 합니다.
+3. `openshift.io/reconcile-protect: "true"`주석을 추가 하 여 ARO 업데이트 프로세스에서 역할을 제거 합니다.
 
    ```
    ...
@@ -79,10 +79,10 @@ API에 대 한 액세스는 개발자에 게 자체 provisioners 클러스터 �
    ...
    ```
 
-4. 프로젝트를 만들지 못하도록 `system:authenticated:oauth` 클러스터 역할 바인딩을 변경 합니다.
+4. `system:authenticated:oauth` 프로젝트를 만들지 않도록 클러스터 역할 바인딩을 변경 합니다.
 
    ```
-   apiVersion: authorization.openshift.io/v1
+   apiVersion: rbac.authorization.k8s.io/v1
    groupNames:
    - osa-customer-admins
    kind: ClusterRoleBinding
@@ -101,18 +101,18 @@ API에 대 한 액세스는 개발자에 게 자체 provisioners 클러스터 �
 
 ## <a name="manage-default-templates-and-imagestreams"></a>기본 템플릿 및 imageStreams 관리
 
-Azure Red Hat openshift에서 네임 스페이스 내의 `openshift` 기본 템플릿 및 이미지 스트림의 업데이트를 사용 하지 않도록 설정할 수 있습니다.
-모든 `Templates` 및`ImageStreams` 네임 스페이스에 대 한 업데이트를 사용 하지 않도록 설정 하려면: `openshift`
+Azure Red Hat OpenShift에서 `openshift` 네임 스페이스 내에서 기본 템플릿 및 이미지 스트림의 업데이트를 사용 하지 않도록 설정할 수 있습니다.
+`openshift` 네임 스페이스의 모든 `Templates` 및 `ImageStreams`에 대 한 업데이트를 사용 하지 않도록 설정 하려면:
 
-1. 권한이 있는 `customer-admin` 사용자로 로그인 합니다.
+1. `customer-admin` 권한이 있는 사용자로 로그인 합니다.
 
-2. 네임 `openshift` 스페이스 편집:
+2. `openshift` 네임 스페이스를 편집 합니다.
 
    ```
    oc edit namespace openshift
    ```
 
-3. 다음 `openshift` 주석을 추가 하 여 ARO 업데이트 프로세스에서 네임 스페이스를 제거 합니다.`openshift.io/reconcile-protect: "true"`
+3. 다음 주석을 추가 하 여 ARO 업데이트 프로세스에서 `openshift` 네임 스페이스를 제거 합니다. `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -122,7 +122,7 @@ Azure Red Hat openshift에서 네임 스페이스 내의 `openshift` 기본 템�
    ...
    ```
 
-   `openshift` 네임 스페이스에 주석을 `openshift.io/reconcile-protect: "true"` 추가 하 여 해당 네임 스페이스의 개별 개체를 업데이트 프로세스에서 제거할 수 있습니다.
+   `openshift` 네임 스페이스의 개별 개체는 주석 `openshift.io/reconcile-protect: "true"`를 추가 하 여 업데이트 프로세스에서 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

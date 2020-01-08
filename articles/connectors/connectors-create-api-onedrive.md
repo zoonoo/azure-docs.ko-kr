@@ -1,22 +1,22 @@
 ---
-title: OneDrive에 연결
-description: OneDrive REST API 및 Azure Logic Apps를 사용하여 파일 업로드 및 관리
+title: Microsoft OneDrive에서 파일 액세스 및 관리
+description: Azure Logic Apps에서 자동화 된 워크플로를 만들어 OneDrive의 파일을 업로드 하 고 관리 합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 93528e257ab45644a79c58fbf600dca10317eb0b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378435"
 ---
-# <a name="get-started-with-the-onedrive-connector"></a>OneDrive 커넥터 시작
+# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 OneDrive 커넥터에서 파일 액세스 및 관리
 
-OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하여 파일을 관리합니다. OneDrive를 사용 하 여 다음 작업을 수행할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [OneDrive 커넥터](/connectors/onedriveconnector/)를 사용 하 여 파일 업로드, 가져오기, 삭제 등을 포함 하 여 파일을 관리 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. OneDrive를 사용 하 여 다음 작업을 수행할 수 있습니다.
 
 * OneDrive에서 파일을 저장하여 워크플로를 작성하거나 OneDrive의 기존 파일을 업데이트합니다. 
 * 트리거를 사용하여 OneDrive 내에서 파일이 만들어지거나 업데이트될 때 워크플로를 시작합니다.
@@ -36,9 +36,9 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 ## <a name="use-a-trigger"></a>트리거 사용
 
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. 원하는 간격 및 빈도로 서비스의 "폴링"을 트리거합니다. [트리거에 대해 자세히 알아보세요](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. 원하는 간격 및 빈도로 서비스의 "폴링"을 트리거합니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
-1. 논리 앱에서 트리거 목록을 가져오려면 "onedrive"를 입력합니다.  
+1. 논리 앱 디자이너에서 `onedrive`를 입력 하 여 트리거 목록을 가져옵니다.  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -58,7 +58,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 ## <a name="use-an-action"></a>작업 사용
 
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [동작에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 중 하나 등 몇 가지가 표시됩니다.
 
@@ -66,7 +66,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 2. **작업 추가**를 선택합니다.
 
-3. 텍스트 상자에 "onedrive"를 입력하여 사용 가능한 모든 작업의 목록을 표시합니다.
+3. 검색 상자에 `onedrive`를 입력 하 여 사용 가능한 모든 작업 목록을 가져옵니다.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

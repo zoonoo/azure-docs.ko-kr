@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425475"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에 응용 프로그램 등록
 
@@ -30,7 +30,7 @@ ms.locfileid: "74950785"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 아직 고유한 [Azure AD B2C 테넌트](tutorial-create-tenant.md)를 만들지 않았다면 지금 만듭니다. 기존 Azure AD B2C 테넌트를 사용해도 됩니다.
 
@@ -40,8 +40,9 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
 1. **애플리케이션**을 선택하고 **추가**를 선택합니다.
 1. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapp1*과 같습니다.
 1. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.
@@ -54,13 +55,13 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
     * 회신 URL은 `https`스키마로 시작 해야 합니다.
     * 회신 URL은 대/소문자를 구분 합니다. 해당 사례는 실행 중인 응용 프로그램의 URL 경로에 대 한 대/소문자와 일치 해야 합니다. 예를 들어 응용 프로그램의 경로 `.../abc/response-oidc`일부로를 포함 하는 경우 회신 URL에 `.../ABC/response-oidc`를 지정 하지 마십시오. 웹 브라우저에서 경로를 대/소문자를 구분 하므로 `.../abc/response-oidc`와 연결 된 쿠키는 대/소문자가 일치 하지 않는 `.../ABC/response-oidc` URL로 리디렉션되는 경우 제외 될 수 있습니다.
 
-1. **만들기** 를 클릭 하 여 응용 프로그램 등록을 완료 합니다.
+1. **만들기** 를 선택 하 여 응용 프로그램 등록을 완료 합니다.
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
 1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
 1. 애플리케이션의 **이름**을 입력합니다. 예를 들어 *webapp1*과 같습니다.
 1. **모든 조직 디렉터리 또는 모든 id 공급자에서 계정을**선택 합니다.

@@ -1,6 +1,7 @@
 ---
-title: '자습서: Azure Database Migration Service를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션 | Microsoft Docs'
-description: Azure Database Migration Service를 사용하여 오프라인으로 MongoDB 온-프레미스에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션하는 방법에 대해 알아봅니다.
+title: '자습서: MongoDB에 대 한 MongoDB offline을 Azure Cosmos DB API로 마이그레이션'
+titleSuffix: Azure Database Migration Service
+description: Azure Database Migration Service를 사용 하 여 MongoDB 온-프레미스에서 Azure Cosmos DB API를 MongoDB로 오프 라인으로 마이그레이션하는 방법을 알아봅니다.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 96540a8ea40efcc3a2d115980999c8d470b85180
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c4c34a3706e576f97c6822ffe9f8c8a30500095c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437623"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용 하 여 MongoDB를 Azure Cosmos DB의 MongoDB API 오프 라인으로 마이그레이션
 
 Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이터베이스를 MongoDB 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 >
 > * Azure Database Migration Service 인스턴스를 만듭니다.
@@ -49,7 +50,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-* VNet NSG(네트워크 보안 그룹) 규칙이 53, 443, 445, 9354 및 10000-20000 통신 포트를 차단하지 않는지 확인합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
+* VNet NSG (네트워크 보안 그룹) 규칙이 다음 통신 포트 (53, 443, 445, 9354 및 10000-20000)를 차단 하지 않는지 확인 합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 * Azure Database Migration Service에서 기본적으로 27017 TCP 포트인 원본 MongoDB 서버에 액세스할 수 있도록 Windows 방화벽을 엽니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 

@@ -4,15 +4,15 @@ description: HDInsight 서비스 태그를 사용 하 여 네트워크 보안 �
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/19/2019
-ms.openlocfilehash: 7e3ce33bdf0773ababe5eb190877a9288c094c5c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.custom: hdinsightactive
+ms.date: 12/05/2019
+ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187086"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435401"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG (네트워크 보안 그룹) 서비스 태그
 
@@ -26,11 +26,21 @@ NSGs (네트워크 보안 그룹)에 대 한 HDInsight 서비스 태그는 상�
 
 1. 단일 HDInsight 서비스 태그 사용-이 옵션은 HDInsight 서비스가 모든 지역에서 클러스터를 모니터링 하는 데 사용 하는 모든 IP 주소에 대 한 가상 네트워크를 엽니다. 이 옵션은 가장 간단한 방법 이지만 보안 요구 사항을 제한 하는 경우에는 적합 하지 않을 수 있습니다.
 
-1. 여러 지역 서비스 태그 사용-이 옵션은 HDInsight가 해당 특정 지역에서 사용 하는 IP 주소에 대해서만 가상 네트워크를 엽니다. 그러나 여러 지역을 사용 하는 경우에는 가상 네트워크에 여러 서비스 태그를 추가 해야 합니다.
+1. 여러 지역 서비스 태그 사용-이 옵션은 HDInsight가 해당 특정 지역에서 사용 하는 IP 주소에 대해서만 가상 네트워크를 엽니다. 그러나 여러 지역을 사용 하는 경우 가상 네트워크에 여러 서비스 태그를 추가 해야 합니다.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>단일 글로벌 HDInsight 서비스 태그 사용
 
-HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬운 방법은 `HDInsight` 전역 태그를 네트워크 보안 그룹 규칙에 추가 하는 것입니다. 네트워크 보안 그룹에 서비스 태그를 추가 하는 방법에 대 한 지침은 [보안 그룹: 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조 하세요.
+HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬운 방법은 `HDInsight` 전역 태그를 네트워크 보안 그룹 규칙에 추가 하는 것입니다.
+
+1. [Azure Portal](https://portal.azure.com/)에서 네트워크 보안 그룹을 선택 합니다.
+
+1. **설정**에서 **인바운드 보안 규칙**을 선택 하 고 **+ 추가**를 선택 합니다.
+
+1. **원본** 드롭다운 목록에서 **서비스 태그**를 선택 합니다.
+
+1. **원본 서비스 태그** 드롭다운 목록에서 **HDInsight**를 선택 합니다.
+
+    ![서비스 태그 추가 Azure Portal](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
 
 이 태그에는 HDInsight를 사용할 수 있는 모든 지역에 대 한 상태 및 관리 서비스의 IP 주소가 포함 되어 있으며, 클러스터가 만들어진 위치에 상관 없이 클러스터가 필요한 상태 및 관리 서비스와 통신할 수 있도록 합니다.
 
@@ -44,7 +54,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 서비스 태그 옵션을 2로 설정 하 고 클러스터가이 표에 나열 된 지역 중 하나에 있는 경우 단일 지역 서비스 태그를 네트워크 보안 그룹에 추가 하기만 하면 됩니다.
 
-| 국가 | Region | 서비스 태그 |
+| 국가 | 지역 | 서비스 태그 |
 | ---- | ---- | ---- |
 | 오스트레일리아 | 오스트레일리아 동부 | AustraliaEast |
 | &nbsp; | 오스트레일리아 남동부 | AustraliaSoutheast |
@@ -63,7 +73,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | 일본 | 일본 서부 | JapanWest |
 | 프랑스 | 프랑스 중부| FranceCentral |
 | 영국 | 영국 남부 | Storage.westcentralus |
-| Azure Government (Fairfax) | USDoD Central   | USDoDCentral |
+| Azure Government | USDoD Central   | USDoDCentral |
 | &nbsp; | USGov 텍사스 | HDInsight. USGovTexas |
 | &nbsp; | UsDoD 동부 | HDInsight. USDoDEast |
 
@@ -83,7 +93,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| 국가 | Region | 서비스 태그 |
+| 국가 | 지역 | 서비스 태그 |
 | ---- | ---- | ---- |
 | 미국 | 미국 동부 2 | EastUS2 |
 | &nbsp; | 미국 중부 | CentralUS |
@@ -92,7 +102,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | &nbsp; | 미국 동부 | HDInsight. EastUS |
 | &nbsp; | 미국 서부 | WestUS |
 | 일본 | 일본 동부 | JapanEast |
-| 유럽 | 유럽 북부 | NorthEurope |
+| 유럽 | 북유럽 | NorthEurope |
 | &nbsp; | 서유럽| WestEurope |
 | 아시아 | 동아시아 | HDInsight. E한글 |
 | &nbsp; | 동남아시아 | SoutheastAsia |
@@ -112,5 +122,5 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 ## <a name="next-steps"></a>다음 단계
 
-* [네트워크 보안 그룹-서비스 태그](../virtual-network/security-overview.md#security-rules)
-* [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)
+- [네트워크 보안 그룹-서비스 태그](../virtual-network/security-overview.md#security-rules)
+- [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)

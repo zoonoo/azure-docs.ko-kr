@@ -1,33 +1,33 @@
 ---
 title: PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 titleSuffix: Azure Storage
-description: PowerShell을 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS (미리 보기)를 만드는 방법에 대해 알아봅니다.
+description: PowerShell을 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS를 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 63075152ea4b3bf1a3aa208cf2a9642ef46642db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892518"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371781"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>PowerShell (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 Azure Active Directory (Azure AD) 자격 증명을 사용 하 여 Azure PowerShell (미리 보기)가 있는 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만드는 방법을 보여 줍니다.
+이 문서에서는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 Azure PowerShell 있는 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만드는 방법을 보여 줍니다.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-preview-module"></a>Preview 모듈 설치
+## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
-PowerShell을 사용 하 여 사용자 위임 SAS를 만들려면 먼저 Az. Storage 1.3.1-preview 모듈을 설치 해야 합니다. 다음 단계에 따라 모듈을 설치합니다.
+PowerShell을 사용 하 여 사용자 위임 SAS를 만들려면 Az. Storage 모듈의 버전 1.10.0 이상을 설치 합니다. 최신 버전의 모듈을 설치 하려면 다음 단계를 수행 합니다.
 
 1. 모든 이전 Azure PowerShell 설치를 제거합니다.
 
@@ -48,23 +48,18 @@ PowerShell을 사용 하 여 사용자 위임 SAS를 만들려면 먼저 Az. Sto
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. 사용자 위임 SAS를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다.
+1. Azure PowerShell 버전 3.2.0 이상을 설치 했는지 확인 합니다. 다음 명령을 실행 하 여 Azure Storage PowerShell 모듈의 최신 버전을 설치 합니다.
 
     ```powershell
-    Install-Module Az.Storage `
-        –Repository PSGallery `
-        -RequiredVersion 1.3.1-preview `
-        –AllowPrerelease `
-        –AllowClobber `
-        –Force
+    Install-Module -Name Az.Storage -Repository PSGallery -Force
     ```
 
 1. PowerShell 창을 닫았다가 다시 엽니다.
 
-PowerShell은 최신 Az. Storage 모듈을 기본적으로 로드 하므로 콘솔을 시작할 때 1.3.1-preview 모듈을 명시적으로 로드 해야 할 수도 있습니다. 미리 보기 모듈을 명시적으로 로드 하려면 [import-module](/powershell/module/microsoft.powershell.core/import-module) 명령을 실행 합니다.
+설치 된 Az. Storage 모듈의 버전을 확인 하려면 다음 명령을 실행 합니다.
 
 ```powershell
-Import-Module Az.Storage -RequiredVersion 1.3.1
+Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
 Azure PowerShell를 설치 하는 방법에 대 한 자세한 내용은 [PowerShellGet을 사용 하 여 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조 하세요.

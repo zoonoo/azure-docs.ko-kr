@@ -1,22 +1,24 @@
 ---
 title: 고객과 위임된 리소스 보기 및 관리
 description: Azure 위임 리소스 관리를 사용하는 서비스 공급자는 Azure Portal의 내 고객으로 이동하여 위임된 모든 고객 리소스 및 구독을 볼 수 있습니다.
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: f115ecad09b01869a465f50485e191671970d521
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456826"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>고객과 위임된 리소스 보기 및 관리
 
-[Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하는 서비스 공급자는 **Azure Portal**의 [내 고객](https://portal.azure.com) 페이지를 사용하여 위임된 고객 리소스 및 구독을 볼 수 있습니다. 여기서는 서비스 공급자 및 고객 관련 내용을 다루지만, 여러 테넌트를 관리하는 기업은 동일한 프로세스를 사용하여 관리 환경을 통합할 수 있습니다.
+[Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하는 서비스 공급자는 [Azure Portal](https://portal.azure.com)의 **내 고객** 페이지를 사용하여 위임된 고객 리소스 및 구독을 볼 수 있습니다. 여기서는 서비스 공급자 및 고객 관련 내용을 다루지만, 여러 테넌트를 관리하는 기업은 동일한 프로세스를 사용하여 관리 환경을 통합할 수 있습니다.
 
 Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비스**를 선택한 다음, **내 고객**을 검색하여 선택합니다. Azure Portal 맨 위에 있는 검색 상자에 "내 고객"을 입력하여 찾을 수도 있습니다.
 
-**내 고객** 페이지의 맨 위 섹션에는 구독 또는 리소스 그룹을 위임한 고객에 대한 정보만 표시됩니다. [클라우드 솔루션 공급자 프로그램](https://docs.microsoft.com/partner-center/csp-overview) 등을 통해 다른 고객과 작업하는 경우 위임된 리소스 관리를 위해 리소스를 온보딩하지 않으면 여기에서 해당 고객에 대한 정보를 볼 수 없습니다. 페이지의 아래쪽에 있는 **클라우드 솔루션 공급자(미리 보기)** 섹션에는 Azure 위임 리소스 관리에 온보딩되었는지 여부에 관계없이 [MCA(Microsoft 고객 계약)에 서명](https://docs.microsoft.com/partner-center/confirm-customer-agreement)하고 Azure 플랜에 속해 있는 CSP 고객에 대한 청구 정보 및 리소스가 표시됩니다. 자세한 내용은 [Microsoft 파트너 계약 청구 계정 시작](https://docs.microsoft.com/azure/billing/mpa-overview)을 참조하세요.
+**내 고객** 페이지의 상위 **고객** 섹션에는 위임 된 구독 또는 리소스 그룹이 있는 고객에 대 한 정보만 표시 됩니다. 다른 고객과 작업 하는 경우 (예: [클라우드 솔루션 공급자 프로그램](https://docs.microsoft.com/partner-center/csp-overview)을 통해) Azure 위임 된 리소스 관리에 대 한 리소스를 등록 하지 않는 한 **고객** 섹션에서 해당 고객에 대 한 정보를 볼 수 없습니다.
+
+페이지의 아래쪽에서 **클라우드 솔루션 공급자 (미리 보기)** 라는 별도의 섹션에는 [Microsoft MCA (고객 계약)에 서명](https://docs.microsoft.com/partner-center/confirm-customer-agreement) 하 고 [Azure 요금제](https://docs.microsoft.com/partner-center/azure-plan-get-started)에 있는 CSP 고객에 대 한 청구 정보 및 리소스가 표시 됩니다. 자세한 내용은 [Microsoft 파트너 계약 청구 계정 시작](../../billing/mpa-overview.md)을 참조하세요. 이러한 CSP 고객은 Azure 위임 된 리소스 관리를 위해 등록 여부에 관계 없이이 섹션에 표시 됩니다. 마찬가지로, CSP 고객은 Azure 위임 된 리소스 관리를 위해 등록 하기 위해 **고객** 의 **클라우드 솔루션 공급자 (미리 보기)** 섹션에 표시 하지 않아도 됩니다.
 
 > [!NOTE]
 > 고객은 Azure Portal의 **서비스 공급자**로 이동하여 서비스 공급자에 대한 정보를 볼 수 있습니다. 자세한 내용은 [서비스 공급자 보기 및 관리](view-manage-service-providers.md)를 참조하세요.
@@ -28,7 +30,7 @@ Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비�
 각 고객에 대해 고객의 이름, 고객 ID(테넌트 ID) 및 참여와 연결된 제품을 볼 수 있습니다. **위임** 열에는 위임된 구독의 수 및/또는 위임된 리소스 그룹의 수가 표시됩니다.
 
 > [!IMPORTANT]
-> 위임을 보려면 온보딩 프로세스에서 사용자에게 [읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) 역할(또는 읽기 권한자 액세스 권한을 포함하는 다른 기본 제공 역할)을 부여해야 합니다.
+> 위임을 보려면 온보딩 프로세스에서 사용자에게 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할(또는 읽기 권한자 액세스 권한을 포함하는 다른 기본 제공 역할)을 부여해야 합니다.
 
 페이지 맨 위에 있는 필터를 사용하여 고객 정보를 정렬 및 그룹화하거나 특정 고객, 제품 또는 키워드를 기준으로 필터링할 수 있습니다.
 
@@ -63,4 +65,4 @@ Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비�
 ## <a name="next-steps"></a>다음 단계
 
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
-- Azure Portal에서 [서비스 공급자](view-manage-service-providers.md)로 이동하여 고객이 **서비스 공급자를 보고 관리**하는 방법을 알아봅니다.
+- Azure Portal에서 **서비스 공급자**로 이동하여 고객이 [서비스 공급자를 보고 관리](view-manage-service-providers.md)하는 방법을 알아봅니다.

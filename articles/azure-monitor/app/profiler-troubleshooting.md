@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights Profiler 관련 문제 해결 | Microsoft Docs
+title: Azure 애플리케이션 Insights Profiler를 사용 하 여 문제 해결
 description: 이 문서에는 Application Insights Profiler를 사용하도록 설정하거나 사용하는 데 문제가 있는 개발자에게 도움이 되는 문제 해결 단계 및 정보가 나와 있습니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432377"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -65,7 +65,7 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 * 웹앱에서 Application Insights를 사용할 수 있어야 합니다.
 * 웹 앱에는 다음과 같은 앱 설정이 있어야 합니다.
 
-    |앱 설정    | Value    |
+    |앱 설정    | 값    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -97,7 +97,7 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 1. **무중단**을 **사용**으로 설정합니다.
 1. 다음 앱 설정을 만듭니다.
 
-    |앱 설정    | Value    |
+    |앱 설정    | 값    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -143,7 +143,7 @@ Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음
     ```
     c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
-    or
+    또는
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
@@ -163,6 +163,11 @@ Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음
     응용 프로그램에서 요청을 수신 하는 동안 프로파일러가 실행 중인 경우 *iKey에서 검색 된 작업*인 다음 메시지가 표시 됩니다. 
 
     추적을 업로드 하는 동안 다음 메시지가 표시 됩니다. *추적 업로드를 시작*합니다. 
+
+
+## <a name="edit-network-proxy-or-firewall-rules"></a>네트워크 프록시 또는 방화벽 규칙 편집
+
+응용 프로그램이 프록시 또는 방화벽을 통해 인터넷에 연결 하는 경우 응용 프로그램이 Application Insights Profiler 서비스와 통신할 수 있도록 규칙을 편집 해야 할 수 있습니다. Application Insights Profiler에서 사용 하는 Ip는 Azure Monitor 서비스 태그에 포함 됩니다.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

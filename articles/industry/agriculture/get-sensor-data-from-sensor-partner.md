@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ece310a248140b7913ffcc9f7146d382ee44fb5d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435165"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -18,16 +18,16 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
   ![FarmBeats 파트너](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
 
-장치 데이터를 Azure FarmBeats와 통합 하면 팜에 배포 된 IoT 센서에서 데이터 허브로의 그라운드 데이터를 가져올 수 있습니다. 데이터를 사용할 수 있게 되 면 FarmBeats accelerator를 통해 시각화할 수 있습니다. 데이터는 FarmBeats을 사용 하 여 데이터 fusion 및 기계 학습/인공 지능 (ML/AI) 모델을 빌드하는 데 사용할 수 있습니다.
+장치 데이터를 Azure FarmBeats와 통합 하면 팜에 배포 된 IoT 센서에서 datahub로의 그라운드 데이터를 가져올 수 있습니다. 데이터를 사용할 수 있게 되 면 FarmBeats accelerator를 통해 시각화할 수 있습니다. 데이터는 FarmBeats을 사용 하 여 데이터 fusion 및 기계 학습/인공 지능 (ML/AI) 모델을 빌드하는 데 사용할 수 있습니다.
 
 센서 데이터 스트리밍을 시작 하려면 다음을 확인 합니다.
 
 -  Azure Marketplace에 FarmBeats을 설치 했습니다.
 -  팜에 설치 하려는 센서 및 장치를 결정 했습니다.
--  토양 습기 센서를 사용 하려는 경우 FarmBeats 토양 습기 센서 배치 맵을 사용 하 여 센서 수에 대 한 권장 사항을 얻고 정확 하 게 배치 해야 합니다. 자세한 내용은 [맵 생성](generate-maps.md)을 참조 하세요.
+-  토양 습기 센서를 사용 하려는 경우 FarmBeats 토양 습기 센서 배치 맵을 사용 하 여 센서 수에 대 한 권장 사항을 얻고 정확 하 게 배치 해야 합니다. 자세한 내용은 [맵 생성](generate-maps-in-azure-farmbeats.md)을 참조 하세요.
 - 팜의 장치 파트너에서 장치 또는 센서를 구매 하 고 배포 합니다. 장치 파트너의 솔루션을 통해 센서 데이터에 액세스할 수 있는지 확인 합니다.
 
-## <a name="enable-device-integration-with-farmbeats"></a>FarmBeats와 장치 통합 사용 
+## <a name="enable-device-integration-with-farmbeats"></a>FarmBeats와 장치 통합 사용
 
 센서 데이터의 스트리밍을 시작한 후에는 FarmBeats 시스템으로 데이터를 가져오는 프로세스를 시작할 수 있습니다. FarmBeats에 대 한 통합을 사용 하도록 설정 하려면 장치 공급자에 게 다음 정보를 제공 합니다.
 
@@ -155,4 +155,4 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure FarmBeats 인스턴스로 흐르는 센서 데이터가 있습니다. 이제 팜에 대 한 [맵을 생성](generate-maps.md#generate-maps) 하는 방법에 대해 알아봅니다.
+이제 Azure FarmBeats 인스턴스로 흐르는 센서 데이터가 있습니다. 이제 팜에 대 한 [맵을 생성](generate-maps-in-azure-farmbeats.md#generate-maps) 하는 방법에 대해 알아봅니다.

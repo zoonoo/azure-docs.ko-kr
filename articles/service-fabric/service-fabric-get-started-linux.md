@@ -1,25 +1,14 @@
 ---
-title: Linux에서 개발 환경 설정 | Microsoft Docs
+title: Linux에서 개발 환경 설정
 description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 애플리케이션을 빌드할 수 있습니다.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 6471d3f58fbe0e19910f39e9527f193d00a228be
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457903"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -29,14 +18,14 @@ ms.locfileid: "72170615"
 >
 >  
 
-Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
+Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md)을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
 
 이 문서의 단계에서는 기본적으로 Linux에 설치하거나 Service Fabric OneBox 컨테이너 이미지 `microsoft/service-fabric-onebox`를 사용한다고 가정합니다.
 
 Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 지원되는 Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 개발을 위해 이러한 운영 체제 버전이 지원됩니다.
 
@@ -176,7 +165,7 @@ sudo yum install servicefabricsdkcommon
 
 SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 나온 패키지가 포함됩니다. 
 
- | | DotNetCore | Java | Python | NodeJS | 
+ | | DotNetCore | Java | Python | NodeJs | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | latest |
 RHEL | - | OpenJDK 1.8 | npm에서 암시적 | latest |
@@ -298,7 +287,7 @@ Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-Maven에서 Java SDK 이진 파일을 업데이트하려면 최신 버전을 가리키도록 ``build.gradle`` 파일에서 해당 이진 파일의 버전 정보를 업데이트해야 합니다. 버전을 업데이트해야 하는 위치를 알려면 ``build.gradle``Service Fabric 시작 샘플[에서 모든 ](https://github.com/Azure-Samples/service-fabric-java-getting-started) 파일을 참조하면 됩니다.
+Maven에서 Java SDK 이진 파일을 업데이트하려면 최신 버전을 가리키도록 ``build.gradle`` 파일에서 해당 이진 파일의 버전 정보를 업데이트해야 합니다. 버전을 업데이트해야 하는 위치를 알려면 [Service Fabric 시작 샘플](https://github.com/Azure-Samples/service-fabric-java-getting-started)에서 모든 ``build.gradle`` 파일을 참조하면 됩니다.
 
 > [!NOTE]
 > 패키지를 업데이트하면 로컬 개발 클러스터의 실행이 중지될 수 있습니다. 이 문서의 지침에 따라 업그레이드한 후에 로컬 클러스터를 다시 시작합니다.

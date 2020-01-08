@@ -4,15 +4,15 @@ description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: 5daa9e99ccf71da680dad00b06c4e53f6c8b4e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450624"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor의 Syslog 데이터 원본
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
@@ -48,7 +48,7 @@ Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심
 ### <a name="configure-syslog-in-the-azure-portal"></a>Azure Portal에서 Syslog 구성
 [고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Syslog를 구성합니다. 이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
 
-해당 이름을 입력하고 **+** 에서 Syslog를 구성합니다. 각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다. 이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
+먼저 **내 컴퓨터에 아래 구성 적용** 옵션을 선택한 다음 이름을 입력 하 고 **+** 를 클릭 하 여 새 기능을 추가할 수 있습니다. 각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다. 이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
 
 ![Syslog 구성](media/data-sources-syslog/configure.png)
 
@@ -195,9 +195,9 @@ Log Analytics 에이전트는 포트 25224에서 로컬 클라이언트의 Syslo
 ## <a name="syslog-record-properties"></a>Syslog 레코드 속성
 Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
-| 컴퓨터 |이벤트가 수집된 컴퓨터입니다. |
+| Computer |이벤트가 수집된 컴퓨터입니다. |
 | Facility |메시지를 생성한 시스템의 부분을 정의합니다. |
 | HostIP |메시지를 보내는 시스템의 IP 주소입니다. |
 | HostName |메시지를 보내는 시스템의 이름입니다. |
@@ -209,9 +209,9 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 ## <a name="log-queries-with-syslog-records"></a>Syslog 레코드를 포함하는 로그 쿼리
 다음 표에는 Syslog 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:--- |:--- |
-| syslog |모든 Syslog입니다. |
+| Syslog |모든 Syslog입니다. |
 | Syslog &#124; where SeverityLevel == "error" |심각도가 오류인 모든 Syslog 레코드입니다. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |컴퓨터별 Syslog 레코드 수입니다. |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |기능별 Syslog 레코드 수입니다. |

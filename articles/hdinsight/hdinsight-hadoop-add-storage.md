@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 86b9230dbdca82c5599c1839fd64bd3df4725051
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665486"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435584"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 스토리지 계정 추가
 
@@ -24,13 +24,13 @@ ms.locfileid: "73665486"
 ## <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
-* 저장소 계정 이름 및 키입니다. [Azure Portal에서 저장소 계정 설정 관리](../storage/common/storage-account-manage.md)를 참조 하세요.
+* 저장소 계정 이름 및 키입니다. [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조 하세요.
 * 적절 한 대/ [소문자 클러스터 이름](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name)입니다.
 * PowerShell을 사용 하는 경우 AZ module이 필요 합니다.  [Azure PowerShell 개요를](https://docs.microsoft.com/powershell/azure/overview)참조 하세요.
 * Azure CLI를 설치 하지 않은 경우 [Azure 명령줄 인터페이스 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 참조 하세요.
-* Bash 또는 windows 명령 프롬프트를 사용 하는 경우 명령줄 JSON 프로세서인 **jq**도 필요 합니다.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)를 참조하세요. Windows 10의 Ubuntu에 있는 bash의 경우 windows [10 용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)를 참조 하세요.
+* Bash 또는 windows 명령 프롬프트를 사용 하는 경우 명령줄 JSON 프로세서인 **jq**도 필요 합니다.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요. Windows 10의 Ubuntu에 있는 bash의 경우 windows [10 용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)를 참조 하세요.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 이 스크립트는 다음 매개 변수를 사용합니다.
 
@@ -100,7 +100,7 @@ az hdinsight script-action execute ^
     --script-parameters "ACCOUNTNAME ACCOUNTKEY"
 ```
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 [실행 중인 클러스터에 스크립트 작업 적용](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)을 참조 하세요.
 
@@ -108,7 +108,7 @@ az hdinsight script-action execute ^
 
 ### <a name="storage-firewall"></a>저장소 방화벽
 
-**선택한 네트워크**에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하도록 선택 하는 경우 HDInsight가 저장소에 액세스할 수 있도록 신뢰할 수 있는 **Microsoft 서비스 허용** 예외를 사용 하도록 설정 해야 합니다. 계정일.
+**선택한 네트워크**에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하도록 선택 하는 경우 HDInsight에서 저장소 계정에 액세스할 수 있도록 예외를 신뢰할 수 있는 **Microsoft 서비스 허용** 으로 설정 해야 합니다.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Azure Portal 또는 도구에 Storage 계정이 표시되지 않음
 

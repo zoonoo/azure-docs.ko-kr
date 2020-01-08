@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: allensu
-ms.openlocfilehash: 5d4cc57c4cb5db7f04d604c8ccbc408df1a3e707
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4e6b5dc200f49b34d8f808e5587b173197b9da8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437325"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure Portal에서 DNS 영역을 관리하는 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "74211905"
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인
 2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 > DNS 영역**으로 이동하여 **DNS 영역 만들기** 블레이드를 엽니다.
 
     ![DNS 영역](./media/dns-operations-dnszones-portal/openzone650.png)
@@ -41,9 +41,9 @@ ms.locfileid: "74211905"
 
    | **설정** | **값** | **세부 정보** |
    |---|---|---|
-   |**Name**|contoso.com|DNS 영역의 이름|
-   |**구독**|[사용자의 구독]|DNS 영역을 만들 구독을 선택합니다.|
-   |**리소스 그룹**|**새로 만들기:** contosoDNSRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
+   |**이름**|contoso.com|DNS 영역의 이름|
+   |**구독**|[구독 이름]|DNS 영역을 만들 구독을 선택합니다.|
+   |**리소스 그룹**|**새로 만들기:** contosoDNSRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
    |**위치**|미국 서부||
 
 > [!NOTE]

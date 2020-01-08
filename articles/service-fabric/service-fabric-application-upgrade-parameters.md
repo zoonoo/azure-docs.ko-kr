@@ -1,32 +1,21 @@
 ---
-title: '애플리케이션 업그레이드: 업그레이드 매개 변수 | Microsoft Docs'
+title: '애플리케이션 업그레이드: 업그레이드 매개 변수'
 description: 수행할 상태 확인 및 업그레이드를 자동으로 실행 취소하는 정책 등을 포함하여 서비스 패브릭 애플리케이션 업그레이드와 관련한 매개 변수를 설명합니다.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/08/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8503b3c8a630575b917e3710ce4d7c5d6fbe70cb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377976"
 ---
 # <a name="application-upgrade-parameters"></a>애플리케이션 업그레이드 매개 변수
 이 문서에서는 Azure Service Fabric 애플리케이션을 업그레이드하는 동안 적용되는 다양한 매개 변수를 설명합니다. 애플리케이션 업그레이드 매개 변수는 업그레이드 중에 적용되는 시간 제한 및 상태 확인을 제어하며, 업그레이드가 실패할 때 적용해야 하는 정책을 지정합니다. 애플리케이션 매개 변수는 다음을 사용하여 업그레이드에 적용됩니다.
 - PowerShell
 - Visual Studio
 - SFCTL
-- [REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
+- [REST (영문)](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 애플리케이션 업그레이드는 사용자가 선택할 수 있는 세 가지 업그레이드 모드 중 하나를 통해 시작됩니다. 각 모드에는 고유한 애플리케이션 매개 변수 집합이 있습니다.
 - Monitored
@@ -44,7 +33,7 @@ Visual Studio Service Fabric 애플리케이션 업그레이드 매개 변수는
 ### <a name="required-parameters"></a>필수 매개 변수
 (PS=PowerShell, VS=Visual Studio)
 
-| 매개 변수를 포함해야 합니다. | 적용 대상 | 설명 |
+| 매개 변수 | 적용 대상 | Description |
 | --- | --- | --- |
 ApplicationName |PS| 업그레이드될 애플리케이션의 이름입니다. 예: fabric:/VisualObjects, fabric:/ClusterMonitor |
 ApplicationTypeVersion|PS|업그레이드 대상인 애플리케이션 형식의 버전입니다. |
@@ -59,7 +48,7 @@ UnmonitoredManual | PS | 업그레이드 모드가 수동으로 모니터링되�
 상태 평가 매개 변수는 선택 사항입니다. 업그레이드 시작 시 상태 평가 조건이 지정되지 않으면 Service Fabric은 애플리케이션 인스턴스의 ApplicationManifest.xml에 지정된 애플리케이션 상태 정책을 사용합니다.
 
 > [!div class="mx-tdBreakAll"]
-> | 매개 변수를 포함해야 합니다. | 적용 대상 | 설명 |
+> | 매개 변수 | 적용 대상 | Description |
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| 애플리케이션 매개 변수에 대한 재정의를 지정합니다.<br>PowerShell 애플리케이션 매개 변수는 해시 테이블 이름/값 쌍으로 지정합니다. 예를 들어 @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }입니다.<br>Visual Studio 애플리케이션 매개 변수는 **애플리케이션 매개 변수 파일** 필드의 [Service Fabric 애플리케이션 게시] 대화 상자에서 지정할 수 있습니다.
 > | 확인 |PS| 허용되는 값은 **True** 및 **False**입니다. cmdlet를 실행하기 전에 확인 메시지를 표시합니다. |
@@ -79,7 +68,7 @@ UnmonitoredManual | PS | 업그레이드 모드가 수동으로 모니터링되�
 > | UpgradeDomainTimeoutSec |PS, VS |단일 업그레이드 도메인을 업그레이드 하는 최대 시간(초)입니다. 이 시간 제한에 도달하면 *FailureAction*에 대한 설정에 따라 업그레이드가 중지 및 진행됩니다. 기본값은 없음(무한)이며, 애플리케이션에 맞게 적절히 사용자 지정해야 합니다. |
 > | UpgradeReplicaSetCheckTimeoutSec |PS, VS |초 단위로 측정됩니다.<br>**상태 비저장 서비스**- 단일 업그레이드 도메인에서 서비스 패브릭은 서비스의 추가 인스턴스를 사용할 수 있는지 확인하려고 시도합니다. 대상 인스턴스의 수가 둘 이상인 경우 서비스 패브릭은 사용 가능한 인스턴스를 둘 이상, 최대 시간 제한 값까지 기다립니다. 이 시간 제한은 *UpgradeReplicaSetCheckTimeoutSec* 속성을 사용하여 지정합니다. 시간 제한이 만료되면 서비스 패브릭은 서비스 인스턴스의 수에 관계 없이 업그레이드를 진행합니다. 대상 인스턴스의 수가 하나인 경우 서비스 패브릭은 대기하지 않고 업그레이드를 즉시 진행합니다.<br><br>**상태 저장 서비스**- 단일 업그레이드 도메인에서 서비스 패브릭은 복제본 세트에 쿼럼이 있는지 확인하려고 합니다. Service Fabric에서 최대 시간 제한 값(*UpgradeReplicaSetCheckTimeoutSec* 속성으로 지정됨)까지 쿼럼을 사용할 수 있을 때까지 기다립니다. 시간 제한이 만료되면 서비스 패브릭은 쿼럼에 관계 없이 업그레이드를 진행합니다. 이 설정은 롤포워드 시 사용 안 함(무한)으로 설정되고, 롤백 시 1200초로 설정됩니다. |
 > | UpgradeTimeoutSec |PS, VS |전체 업그레이드에 적용되는 시간 제한(초)입니다. 이 시간 제한에 도달하면 업그레이드가 중지되고 *FailureAction*이 트리거됩니다. 기본값은 없음(무한)이며, 애플리케이션에 맞게 적절히 사용자 지정해야 합니다. |
-> | WhatIf | PS | 허용되는 값은 **True** 및 **False**입니다. cmdlet이 실행되는 경우 발생할 상황이 표시됩니다. cmdlet은 실행되지 않습니다. |
+> | WhatIf | PS | 허용되는 값은 **True** 및 **False**입니다. cmdlet을 실행할 경우 발생하는 일을 표시합니다. cmdlet은 실행되지 않습니다. |
 
 *MaxPercentUnhealthyServices*, *MaxPercentUnhealthyPartitionsPerService* 및 *MaxPercentUnhealthyReplicasPerPartition* 조건은 애플리케이션 인스턴스에 대한 서비스 유형별로 지정할 수 있습니다. 이러한 매개 변수를 서비스별로 설정하면 애플리케이션이 서로 다른 평가 정책을 갖는 다른 서비스 형식을 포함할 수 있습니다. 예를 들어 상태 비저장 게이트웨이 서비스 유형에는 특정 애플리케이션 인스턴스에 대한 상태 저장 엔진 서비스 유형과 다른 *MaxPercentUnhealthyPartitionsPerService*가 있을 수 있습니다.
 
@@ -89,15 +78,15 @@ Service Fabric CLI를 사용하는 Service Fabric 애플리케이션 업그레�
 
 ### <a name="required-parameters"></a>필수 매개 변수
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | application-id  |업그레이드될 애플리케이션의 ID입니다. <br> 일반적으로 'fabric:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ' fabric:/myapp/app1 ' 인 경우 응용 프로그램 id는 6.0 이상에서는 ' myapp\~app1 '이 고 이전 버전에서는 ' myapp/app1 '입니다.|
 application-version |업그레이드 대상인 애플리케이션 형식의 버전입니다.|
-parameters  |JSON 인코딩된 애플리케이션 매개 변수 목록은 애플리케이션을 업그레이드할 때 적용되기 위해 재정의합니다.|
+매개 변수  |JSON 인코딩된 애플리케이션 매개 변수 목록은 애플리케이션을 업그레이드할 때 적용되기 위해 재정의합니다.|
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 default-service-health-policy | 기본적으로 서비스 유형의 상태를 평가하는 데 사용되는 [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) 인코딩된 상태 정책 사양입니다. 맵은 기본적으로 비어 있습니다. |
 failure-action | 허용되는 값은 **Rollback**, **Manual** 및 **Invalid**입니다. *Monitored* 업그레이드에서 모니터링 정책 또는 상태 정책 위반이 발생하면 수행할 보정 작업입니다. <br>**Rollback**은 업그레이드가 업그레이드 이전 버전으로 자동으로 롤백되도록 지정합니다. <br>**Manual**은 업그레이드가 *UnmonitoredManual* 업그레이드 모드로 전환됨을 나타냅니다. <br>**Invalid**는 실패 작업이 유효하지 않음을 나타냅니다.|
@@ -106,7 +95,7 @@ health-check-retry-timeout | 애플리케이션이나 클러스터가 정상 상
 health-check-stable-duration | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 애플리케이션 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다. 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. 기본값: PT0H2M0S |
 health-check-wait-duration | 업그레이드 도메인을 완료한 후 상태 정책을 적용하기 전에 대기하는 시간입니다. 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. 기본값: 0.|
 max-unhealthy-apps | 기본 및 권장값은 0입니다. 애플리케이션이 비정상이고 업그레이드에 실패했다고 간주하기 전에 비정상이 될 수 있는 배포된 애플리케이션의 최대 수를 지정합니다( [상태 섹션](service-fabric-health-introduction.md)참조). 이 매개 변수는 노드는 애플리케이션 상태를 정의하고 업그레이드 동안 문제를 감지하는 데 도움을 줍니다. 일반적으로 애플리케이션의 복제본은 다른 노드에 부하를 분담하기 때문에 애플리케이션이 정상으로 나타나고 업그레이드를 진행할 수 있습니다. strict *max-unhealthy-apps* 상태를 지정하면 Service Fabric에서 애플리케이션 패키지 관련 문제를 빠르게 감지하고 페일 패스트 업그레이드를 수행할 수 있습니다. 0과 100 사이의 숫자로 표시합니다. |
-모드 | 허용되는 값은 **Monitored**, **UpgradeMode**, **UnmonitoredAuto**, **UnmonitoredManual**입니다. 기본값은 **UnmonitoredAuto**입니다. 이러한 값에 대한 설명은 Visual Studio 및 PowerShell ‘필수 매개 변수’ 섹션을 참조하세요.|
+mode | 허용되는 값은 **Monitored**, **UpgradeMode**, **UnmonitoredAuto**, **UnmonitoredManual**입니다. 기본값은 **UnmonitoredAuto**입니다. 이러한 값에 대한 설명은 Visual Studio 및 PowerShell ‘필수 매개 변수’ 섹션을 참조하세요.|
 replica-set-check-timeout |초 단위로 측정됩니다. <br>**상태 비저장 서비스**- 단일 업그레이드 도메인에서 서비스 패브릭은 서비스의 추가 인스턴스를 사용할 수 있는지 확인하려고 시도합니다. 대상 인스턴스의 수가 둘 이상인 경우 서비스 패브릭은 사용 가능한 인스턴스를 둘 이상, 최대 시간 제한 값까지 기다립니다. 이 시간 제한은 *replica-set-check-timeout* 속성을 사용하여 지정합니다. 시간 제한이 만료되면 서비스 패브릭은 서비스 인스턴스의 수에 관계 없이 업그레이드를 진행합니다. 대상 인스턴스의 수가 하나인 경우 서비스 패브릭은 대기하지 않고 업그레이드를 즉시 진행합니다.<br><br>**상태 저장 서비스**- 단일 업그레이드 도메인에서 서비스 패브릭은 복제본 세트에 쿼럼이 있는지 확인하려고 합니다. Service Fabric은 최대 시간 제한 값(*replica-set-check-timeout* 속성으로 지정됨)까지 쿼럼이 사용 가능해지기를 기다립니다. 시간 제한이 만료되면 서비스 패브릭은 쿼럼에 관계 없이 업그레이드를 진행합니다. 이 설정은 롤포워드 시 사용 안 함(무한)으로 설정되고, 롤백 시 1200초로 설정됩니다. |
 service-health-policy | 서비스 형식 이름 단위 서비스 형식 상태 정책으로 JSON 인코딩된 맵입니다. 맵은 기본적으로 비어 있습니다. [매개 변수 JSON 형식](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-applicationhealthpolicy#servicetypehealthpolicymap)입니다. “값” 부분의 JSON에는 **MaxPercentUnhealthyServices**, **MaxPercentUnhealthyPartitionsPerService** 및 **MaxPercentUnhealthyReplicasPerPartition**이 포함됩니다. 이러한 매개 변수에 대한 설명은 Visual Studio 및 PowerShell 선택적 매개 변수 섹션을 참조하세요.
 시간 제한 | 작업에 대한 시간 제한 기간(초)을 지정합니다. 기본값: 60. |
@@ -115,9 +104,9 @@ upgrade-timeout | *FailureAction*이 실행되기 전에 각 업그레이드 도
 warning-as-error | 허용되는 값은 **True** 및 **False**입니다. 기본값은 **False**입니다. 플래그로 전달될 수 있습니다. 업그레이드하는 동안 애플리케이션의 상태를 평가할 때 애플리케이션에 대한 경고 상태 이벤트를 오류로 처리합니다. 기본적으로 서비스 패브릭은 경고 상태 이벤트를 실패(오류)로 평가하지 않으므로 경고 이벤트가 발생해도 업그레이드를 진행할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md) 에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
 [Linux에서 Service Fabric CLI를 사용하여 애플리케이션 업그레이드](service-fabric-application-lifecycle-sfctl.md#upgrade-application)에서는 Service Fabric CLI를 사용하여 애플리케이션 업그레이드를 진행하는 과정을 안내합니다.
 

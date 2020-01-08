@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900276"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397823"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 조인
 
@@ -80,7 +80,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>조인 유형
 _kind_ 인수를 사용하여 조인 유형을 지정합니다. 다음 표에 설명된 대로 각 유형은 지정된 테이블의 레코드 간에 다른 일치를 수행합니다.
 
-| 조인 유형 | 설명 |
+| 조인 유형 | Description |
 |:---|:---|
 | innerunique | 기본 조인 모드입니다. 먼저 왼쪽 테이블에서 일치하는 열의 값이 검색되고 중복 값이 제거됩니다.  그런 후 고유 값 집합이 오른쪽 테이블과 일치하는지 확인합니다. |
 | inner | 두 테이블에서 일치하는 레코드만 결과에 포함됩니다. |

@@ -1,24 +1,21 @@
 ---
-title: 텍스트 변환 인식 기술 (미리 보기)
+title: 텍스트 변환 인식 기술
 titleSuffix: Azure Cognitive Search
-description: 텍스트를 평가 하 고 각 레코드에 대해 Azure Cognitive Search AI 보강 파이프라인의 지정 된 대상 언어로 번역 된 텍스트를 반환 합니다. 이 기술은 현재 공개 미리 보기로 제공 됩니다.
+description: 텍스트를 평가 하 고 각 레코드에 대해 Azure Cognitive Search AI 보강 파이프라인의 지정 된 대상 언어로 번역 된 텍스트를 반환 합니다.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c42c9033fac057c12426726a96ae6079f3080da
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5089174fcfd5a97128c1f789b818243243a5282f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715404"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460760"
 ---
 #   <a name="text-translation-cognitive-skill"></a>텍스트 변환 인식 기술
-
-> [!IMPORTANT] 
-> 이 기술은 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리](search-api-preview.md) 보기는 미리 보기 기능을 제공 합니다. 현재는 포털 지원이 제한적 이며 .NET SDK를 지원 하지 않습니다.
 
 **텍스트 번역** 기술은 텍스트를 평가 하 고 각 레코드에 대해 지정 된 대상 언어로 번역 된 텍스트를 반환 합니다. 이 기술은 Cognitive Services에서 사용할 수 있는 [Translator Text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) 을 사용 합니다.
 
@@ -27,9 +24,9 @@ ms.locfileid: "73715404"
 [Translator Text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 은 지역 인식 서비스 이며,이는 데이터가 Azure Cognitive Search 또는 연결 된 Cognitive Services 리소스와 동일한 지역에 유지 되는 것이 보장 되지 않는다는 것을 의미 합니다.
 
 > [!NOTE]
-> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 Api를 호출 하는 경우와 Azure Cognitive Search에서 문서 크랙 단계의 일부로 이미지 추출에 대 한 요금이 부과 됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 [Azure Cognitive Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명 되어 있습니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
 ## <a name="odatatype"></a>@odata.type  
 TranslationSkill.
@@ -41,7 +38,7 @@ TranslationSkill.
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력                | 설명 |
+| 입력                | Description |
 |---------------------|-------------|
 | defaultToLanguageCode | 하다 언어를 명시적으로 지정 하지 않는 문서의 문서를로 변환 하는 언어 코드입니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)을 참조합니다. |
 | defaultFromLanguageCode | 필드 에서 언어를 명시적으로 지정 하지 않는 문서의 문서를 변환 하는 언어 코드입니다.  DefaultFromLanguageCode가 지정 되지 않은 경우 Translator Text API에서 제공 하는 자동 언어 검색을 사용 하 여 from 언어를 결정 합니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)을 참조합니다. |
@@ -49,15 +46,15 @@ TranslationSkill.
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름     | 설명 |
+| 입력 이름     | Description |
 |--------------------|-------------|
-| 텍스트 | 변환할 텍스트입니다.|
+| text | 변환할 텍스트입니다.|
 | toLanguageCode    | 텍스트를 변환할 언어를 나타내는 문자열입니다. 이 입력을 지정 하지 않으면 defaultToLanguageCode 텍스트를 변환 하는 데 사용 됩니다. <br/>[지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) 참조|
 | fromLanguageCode  | 텍스트의 현재 언어를 나타내는 문자열입니다. 이 매개 변수를 지정 하지 않으면 defaultFromLanguageCode (또는 defaultFromLanguageCode가 제공 되지 않는 경우 자동 언어 검색)가 텍스트를 변환 하는 데 사용 됩니다. <br/>[지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) 참조|
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | 설명 |
+| 출력 이름    | Description |
 |--------------------|-------------|
 | translatedText | TranslatedFromLanguageCode에서 translatedToLanguageCode로 텍스트 변환의 문자열 결과입니다.|
 | translatedToLanguageCode  | 텍스트를 번역 한 언어 코드를 나타내는 문자열입니다. 여러 언어로 번역 하 고 어떤 언어가 어떤 언어로 된 텍스트를 추적할 수 있게 하려는 경우에 유용 합니다.|

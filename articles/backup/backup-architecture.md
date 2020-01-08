@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450191"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -44,8 +44,8 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
 - Azure [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS (로컬 중복 저장소)** : 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **GRS (지역 중복 저장소)** : 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **LRS (로컬 중복 저장소)** : 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+  - **GRS (지역 중복 저장소)** : 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
 
 ## <a name="backup-agents"></a>백업 에이전트
@@ -174,7 +174,7 @@ Azure VM은 디스크를 사용하여 운영 체제, 앱 및 데이터를 저장
 Azure Backup에서 premium storage를 사용 하 여 Azure Vm을 백업할 수 있습니다.
 
 - Premium storage를 사용 하 여 Vm을 백업 하는 과정에서 백업 서비스는 저장소 계정에 *azurebackup-* 이라는 임시 준비 위치를 만듭니다. 준비 위치의 크기는 복구 지점 스냅숏의 크기와 같습니다.
-- Premium Storage 계정에 임시 준비 위치를 수용할 충분한 여유 공간이 있어야 합니다. [자세히 알아봅니다](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). 준비 위치를 수정하지 마세요.
+- Premium Storage 계정에 임시 준비 위치를 수용할 충분한 여유 공간이 있어야 합니다. 자세한 내용은 [프리미엄 페이지 blob storage 계정에 대 한 확장성 목표](../storage/blobs/scalability-targets-premium-page-blobs.md)를 참조 하세요. 준비 위치를 수정하지 마세요.
 - 백업 작업이 완료되면 준비 위치가 삭제됩니다.
 - 준비 위치에 사용되는 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/windows/disks-types.md#billing)과 일관성이 있습니다.
 

@@ -2,19 +2,15 @@
 title: Azure의 업데이트 관리 솔루션
 description: 이 문서에서는 Azure 업데이트 관리 솔루션을 사용 하 여 Windows 및 Linux 컴퓨터에 대 한 업데이트를 관리 하는 방법을 설명 합니다.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/03/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420348"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -73,7 +69,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 run
 
 다음 표에는 업데이트 평가에 대해 지원 되는 운영 체제가 나와 있습니다. 패치를 적용 하려면 Hybrid Runbook Worker 필요 합니다. Hybrid Runbook Worker 요구 사항에 대 한 자세한 내용은 [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) 및 [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)설치를 위한 설치 가이드를 참조 하세요.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM 및 SP1 표준)||
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치를 적용 하려면 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환 `yum` 해야 합니다. CentOS의 분류 기반 패치에 대 한 자세한 내용은 [Linux의 업데이트 분류](#linux-2)를 참조 하세요.          |
@@ -89,7 +85,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 run
 
 다음 표에서는 지원 되지 않는 운영 체제를 보여 줍니다.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |Windows 클라이언트     | 클라이언트 운영 체제(예: Windows 7 및 Windows 10)는 지원되지 않습니다.        |
 |Windows Server 2016 Nano Server     | 지원되지 않습니다.       |
@@ -158,11 +154,11 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 다음 표에서는 솔루션이 지원하는 연결된 원본을 설명합니다.
 
-| 연결된 원본 | 지원됨 | 설명 |
+| 연결된 원본 | 지원됨 | Description |
 | --- | --- | --- |
-| Windows 에이전트 |yes |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |yes |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
-| Operations Manager 관리 그룹 |yes |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/><br/>Operations Manager 에이전트에서 Azure Monitor 로그로 직접 연결 하는 것은 필요 하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| Windows 에이전트 |예 |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |예 |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
+| Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/><br/>Operations Manager 에이전트에서 Azure Monitor 로그로 직접 연결 하는 것은 필요 하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 
@@ -183,7 +179,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |\*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|\* .azure-automation.net|*.azure-automation.us|
 
 Windows 컴퓨터의 경우 Windows 업데이트에 필요한 끝점에 대 한 트래픽만 허용 해야 합니다. [HTTP/프록시와 관련 된 문제](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)에서 필수 끝점의 업데이트 된 목록을 찾을 수 있습니다. 로컬 [Windows 업데이트 서버가](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)있는 경우 [WSUS 키](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)에 지정 된 서버에 대 한 트래픽만 허용 해야 합니다.
 
@@ -217,7 +213,7 @@ Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태
 
 ### <a name="windows"></a>Windows
 
-|분류  |설명  |
+|분류  |Description  |
 |---------|---------|
 |중요 업데이트     | 보안 관련 중요 버그를 해결하는 특정 문제에 대한 업데이트입니다.        |
 |보안 업데이트     | 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.        |
@@ -230,7 +226,7 @@ Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태
 
 ### <a name="linux-2"></a>Linux
 
-|분류  |설명  |
+|분류  |Description  |
 |---------|---------|
 |중요 업데이트 및 보안 업데이트     | 특정 문제 또는 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.         |
 |다른 업데이트     | 기본적으로 중요 하지 않거나 보안 업데이트가 아닌 다른 모든 업데이트.        |

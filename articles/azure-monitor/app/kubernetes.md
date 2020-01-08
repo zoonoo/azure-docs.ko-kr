@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 3056b6c56be32cf5c054c4526a88157650a3e30b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432514"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 호스팅된 응용 프로그램에 대 한 제로 계측 응용 프로그램 모니터링
 
@@ -21,12 +21,12 @@ ms.locfileid: "72820770"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure Monitor은 이제 Kubernetes 호스팅된 앱에 대 한 기본 응용 프로그램 모니터링을 제공 하기 위해 Kubernetes 클러스터에서 service 메시 기술을 활용 합니다. [응용 프로그램 맵과](../../azure-monitor/app/app-map.md) 같은 기본 응용 프로그램 정보 기능으로 종속성 [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md) 을 모델링 하 고, 실시간 모니터링, [기본 대시보드](../../azure-monitor/app/overview-dashboard.md)를 사용 하 여 강력한 시각화, [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)및 [ 통합 문서](../../azure-monitor/app/usage-workbooks.md). 이 기능을 통해 사용자는 선택한 Kubernetes 네임 스페이스 내의 모든 Kubernetes 워크 로드에서 성능 병목 및 오류 핫스팟을 발견할 수 있습니다. Istio와 같은 기술을 사용 하 여 기존 서비스 메시 투자에 대 한 대문자화를 통해 응용 프로그램 코드를 수정 하지 않고도 자동으로 계측 된 앱 모니터링을 사용할 수 Azure Monitor.
+Azure Monitor은 이제 Kubernetes 호스팅된 앱에 대 한 기본 응용 프로그램 모니터링을 제공 하기 위해 Kubernetes 클러스터에서 service 메시 기술을 활용 합니다. [응용 프로그램 맵과](../../azure-monitor/app/app-map.md) 같은 기본 응용 프로그램 정보 기능을 사용 하 여 종속성을 모델링 하 고, [기본 대시보드](../../azure-monitor/app/overview-dashboard.md), [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)및 [통합 문서](../../azure-monitor/app/usage-workbooks.md)를 사용 하 여 실시간 모니터링, 강력한 시각화를 [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md) 합니다. 이 기능을 통해 사용자는 선택한 Kubernetes 네임 스페이스 내의 모든 Kubernetes 워크 로드에서 성능 병목 및 오류 핫스팟을 발견할 수 있습니다. Istio와 같은 기술을 사용 하 여 기존 서비스 메시 투자에 대 한 대문자화를 통해 응용 프로그램 코드를 수정 하지 않고도 자동으로 계측 된 앱 모니터링을 사용할 수 Azure Monitor.
 
 > [!NOTE]
-> 이는 Kubernetes에서 응용 프로그램 모니터링을 수행 하는 다양 한 방법 중 하나입니다. 또한 서비스 메시 없이 [APPLICATION INSIGHTS SDK](../../azure-monitor/azure-monitor-app-hub.md) 를 사용 하 여 Kubernetes에서 호스트 되는 모든 앱을 계측할 수 있습니다. SDK를 사용 하 여 응용 프로그램을 계측 하지 않고 Kubernetes를 모니터링 하려면 아래 방법을 사용할 수 있습니다.
+> 이는 Kubernetes에서 응용 프로그램 모니터링을 수행 하는 다양 한 방법 중 하나입니다. 또한 서비스 메시 없이 [APPLICATION INSIGHTS SDK](../../azure-monitor/azure-monitor-app-hub.yml) 를 사용 하 여 Kubernetes에서 호스트 되는 모든 앱을 계측할 수 있습니다. SDK를 사용 하 여 응용 프로그램을 계측 하지 않고 Kubernetes를 모니터링 하려면 아래 방법을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [Kubernetes 클러스터](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)입니다.
 - *Kubectl*를 실행 하는 클러스터에 대 한 콘솔 액세스
@@ -41,7 +41,7 @@ Kubernetes 호스트 된 앱에 대해 제로 계측 응용 프로그램 모니�
 - [라이브 스트림 메트릭](../../azure-monitor/app/live-stream.md)
 - [대시보드](../../azure-monitor/app/overview-dashboard.md)
 - [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)
-- [분산-추적](../../azure-monitor/app/distributed-tracing.md)
+- [Distributed-tracing](../../azure-monitor/app/distributed-tracing.md)
 - [종단 간 트랜잭션 모니터링](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## <a name="installation-steps"></a>설치 단계
@@ -74,9 +74,9 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 
 1. [ *Application Insights 어댑터* 릴리스](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/)를 다운로드 하 고 압축을 풉니다.
 2. 릴리스 폴더 안에 있는 */src/kubernetes/* 로 이동 합니다.
-3. *응용 프로그램 편집-정보-istio-믹서-배포. yaml*
-    - *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* 환경 변수의 값을 편집 하 여 원격 분석을 포함 하는 Azure Portal Application Insights 리소스의 계측 키를 포함 합니다.
-    - 필요한 경우 *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* 환경 변수 값을 편집 하 여 모니터링을 사용 하도록 설정할 쉼표로 구분 된 네임 스페이스 목록을 포함 합니다. 모든 네임 스페이스를 모니터링 하려면 비워 둡니다.
+3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
+    - *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* 환경 변수의 값을 편집 하 여 원격 분석을 포함 하는 Azure Portal에 Application Insights 리소스의 계측 키를 포함 합니다.
+    - 필요한 경우 *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* 환경 변수의 값을 편집 하 여 모니터링을 사용 하도록 설정할 쉼표로 구분 된 네임 스페이스 목록을 포함 합니다. 모든 네임 스페이스를 모니터링 하려면 비워 둡니다.
 4. 다음을 실행 하 여 *src/kubernetes/* 아래에 있는 *모든* yaml 파일을 적용 합니다 (여전히 */src/kubernetes/* 안에 있어야 함).
 
    ```console
@@ -103,8 +103,8 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 다음은 원격 분석이 예상 대로 Azure Portal에 표시 되지 않는 경우 사용할 문제 해결 흐름입니다.
 
 1. 응용 프로그램이 부하 상태이 고 일반 HTTP에서 요청을 보내고 받고 있는지 확인 합니다. 원격 분석이 네트워크에서 리프트 되므로 암호화 된 트래픽은 지원 되지 않습니다. 들어오는 요청이 나 나가는 요청이 없는 경우에는 원격 분석을 사용할 수 없습니다.
-2. 올바른 계측 키가 *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* 환경 변수에서 제공 되는지 확인 합니다 ( *응용 프로그램-정보-istio-* ). 계측 키는 Azure Portal Application Insights 리소스의 *개요* 탭에 있습니다.
-3. 올바른 Kubernetes 네임 스페이스가 *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* 환경 변수 ( *application insights-istio-* )에 제공 되는지 확인 합니다. 모든 네임 스페이스를 모니터링 하려면 비워 둡니다.
+2. 올바른 계측 키가 *application insights-istio-* *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* 의 환경 변수에서 제공 되는지 확인 합니다. 계측 키는 Azure Portal Application Insights 리소스의 *개요* 탭에 있습니다.
+3. 올바른 Kubernetes 네임 스페이스가 *application insights-istio-* 의 *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* 환경 변수에 제공 되는지 확인 합니다. 모든 네임 스페이스를 모니터링 하려면 비워 둡니다.
 4. 응용 프로그램의 pod를 Istio에서 사이드카으로 삽입 했는지 확인 합니다. 각 pod에 Istio의 사이드카 있는지 확인 합니다.
 
    ```console

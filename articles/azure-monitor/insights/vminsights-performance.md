@@ -4,15 +4,15 @@ description: 성능은 Windows 및 Linux 시스템의 애플리케이션 구성 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: f8879ac2d7827732112fa1a7504484209461b196
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399288"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법
 
@@ -38,7 +38,7 @@ Azure Monitor에서 성능 기능은 구독 또는 사용자 환경에서 작업
 * 사용 가능한 메모리 - 사용 가능한 평균 메모리가 가장 적은 상위 5개 머신을 보여줍니다. 
 * 논리 디스크 공간 사용률(%) - 모든 디스크 볼륨에서 평균 디스크 공간 사용률(%)이 가장 높은 상위 5개 머신을 보여줍니다. 
 * 바이트 전송 속도 - 전송된 평균 바이트 수가 가장 높은 상위 5개 머신을 보여줍니다. 
-* 바이트 수신 속도 - 수신한 평균 바이트 수가 가장 높은 상위 5개 머신을 보여줍니다. 
+* 바이트 수신 요금-수신 된 평균 바이트 수가 가장 많은 상위 5 개 컴퓨터를 표시 합니다. 
 
 5 개 차트 중 하나의 오른쪽 위 모퉁이에 있는 고정 아이콘을 클릭 하면 선택한 차트가 마지막으로 본 Azure 대시보드에 고정 됩니다.  대시보드에서 차트의 크기를 조정 하 고 위치를 변경할 수 있습니다. 대시보드에서 차트를 선택 하면 VM용 Azure Monitor 이동 하 여 올바른 범위와 보기를 로드 합니다.  
 

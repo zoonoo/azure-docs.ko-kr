@@ -1,27 +1,27 @@
 ---
 title: .NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 titleSuffix: Azure Storage
-description: Azure Storage .NET 클라이언트 라이브러리를 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS (미리 보기)를 만드는 방법에 대해 알아봅니다.
+description: Azure Storage .NET 클라이언트 라이브러리를 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS를 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 915f2895fbc1e543fbbfbb408ba27eb758a40515
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 385d2c3b88bc2e4d653dae2dc9670cb9e9388faf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892535"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371839"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>.NET (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 .NET 용 Azure Storage 클라이언트 라이브러리를 통해 컨테이너 또는 blob에 대 한 사용자 위임 SAS (미리 보기)를 만드는 방법을 보여 줍니다.
+이 문서에서는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 .NET 용 Azure Storage 클라이언트 라이브러리에서 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만드는 방법을 보여 줍니다.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -215,7 +215,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
     }
     catch (RequestFailedException e)
     {
-        // Check for a 403 (Forbidden) error. If the SAS is invalid, 
+        // Check for a 403 (Forbidden) error. If the SAS is invalid,
         // Azure Storage returns this error.
         if (e.Status == 403)
         {

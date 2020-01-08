@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425393"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -72,7 +72,7 @@ Azure용 NPS 확장을 NPS와 통합한 경우 성공적인 인증 흐름 결과
 7. 연결 시도가 인증되고 권한이 부여된 후에 확장이 설치된 NPS에서 RADIUS *액세스 허용* 메시지를 VPN 서버(RADIUS 클라이언트)로 보냅니다.
 8. 사용자가 VPN 서버의 가상 포트에 대한 액세스 권한을 부여받고 암호화된 VPN 터널을 설정합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 섹션에서는 MFA를 VPN과 통합 하기 전에 완료 해야 하는 필수 구성 요소를 자세히 설명 합니다. 이 문서를 시작하기 전에 다음과 같은 필수 조건이 있어야 합니다.
 
@@ -167,7 +167,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
     ![새 RADIUS 클라이언트 창 만들기](./media/howto-mfa-nps-extension-vpn/image5.png)
 
-6. **확인**을 선택하고 **다음**을 선택합니다.
+6. **확인**선택하고 **다음**을 선택합니다.
 
 7. **인증 방법 구성** 창에서 기본 선택 사항(**Microsoft 암호화 인증 버전 2(MS-CHAPv2)** )을 그대로 적용하거나 다른 옵션을 선택하고 **다음**을 선택합니다.
 
@@ -326,13 +326,13 @@ NPS 확장 구성의 일환으로 Azure AD 테넌트의 관리자 자격 증명�
 
 1. [Azure Portal](https://portal.azure.com)에 Azure 테넌트의 전역 관리자로 로그인합니다.
 
-2. 왼쪽 창에서 **Azure Active Directory** 단추를 선택합니다.
+2. Azure Portal 메뉴에서 **Azure Active Directory**를 선택 하거나 모든 페이지에서 **Azure Active Directory** 을 검색 하 고 선택 합니다.
 
 3. **속성**을 선택합니다.
 
 4. Azure AD ID를 복사하려면 **복사** 단추를 선택합니다.
 
-    ![Azure Portal의 Azure AD 디렉터리 ID](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![Azure Portal의 Azure AD 디렉터리 ID](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>NPS 확장 설치
 

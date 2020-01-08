@@ -1,6 +1,6 @@
 ---
 title: 미리 보기 환경 계획-Azure Time Series Insights | Microsoft Docs
-description: Azure Time Series Insights 미리 보기 환경을 계획 하는 방법을 알아봅니다.
+description: Azure Time Series Insights 미리 보기 환경을 구성, 관리, 계획 및 배포 하는 모범 사례입니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9fb2dcf2c05b709340f8e9ae549bab5756e6abf2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420319"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452448"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure Time Series Insights 미리 보기 환경 계획
 
@@ -48,7 +48,7 @@ Time Series Insights 미리 보기 환경을 프로비전할 때는 다음 두 �
 웜 저장소에 대 한 쿼리는 무료 이지만 콜드 스토어의 쿼리는 비용이 발생 합니다. 쿼리 패턴을 이해 하 고 웜 저장소 구성을 적절 하 게 계획 하는 것이 중요 합니다. 최신 데이터에 대 한 대화형 분석은 웜 저장소에 있고 패턴 분석과 장기적 추세는 콜드에 상주 하는 것이 좋습니다.
 
 > [!NOTE]
-> 현재 웜 스토어에서 최대 1000 속성을 지원 합니다.
+> 웜 데이터를 쿼리 하는 방법에 대 한 자세한 [내용은 여기를 참조](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters)하세요.
 
 시작하려면 다음 세 개의 추가 항목이 필요합니다.
 

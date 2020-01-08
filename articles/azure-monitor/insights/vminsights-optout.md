@@ -4,15 +4,15 @@ description: 이 문서에서는 VM용 Azure Monitor에서 가상 컴퓨터의 �
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/05/2018
-ms.openlocfilehash: 70e71688fde5aff4002c7d49b1408bcefeab1eed
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b2d58b501429a47c3011fc727f756edeeb7775e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399297"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor에서 Vm 모니터링 사용 안 함 (미리 보기)
 
@@ -25,7 +25,7 @@ VM용 Azure Monitor는 해당 환경을 제공하기 위해 다음 구성 요소
 * Vm 및 기타 원본의 모니터링 데이터를 저장 하는 Log Analytics 작업 영역입니다.
 * 작업 영역에 구성 된 성능 카운터의 컬렉션입니다. 컬렉션은 작업 영역에 연결 된 모든 Vm의 모니터링 구성을 업데이트 합니다.
 * 작업 영역에 구성 된 모니터링 솔루션 인 `InfrastructureInsights` 및 `ServiceMap`. 이러한 솔루션은 작업 영역에 연결 된 모든 Vm의 모니터링 구성을 업데이트 합니다.
-* `MicrosoftMonitoringAgent` 및 `DependencyAgent` (Azure VM 확장). 이러한 확장은 데이터를 수집 하 고 작업 영역으로 보냅니다.
+* `MicrosoftMonitoringAgent` 및 `DependencyAgent`(Azure VM 확장). 이러한 확장은 데이터를 수집 하 고 작업 영역으로 보냅니다.
 
 Vm 모니터링을 사용 하지 않도록 준비할 때 다음 사항을 염두에 두어야 합니다.
 
@@ -43,7 +43,7 @@ Log Analytics 작업 영역이 필요한 경우 다음 단계에 따라 VM용 Az
 >VM용 Azure Monitor을 사용 하도록 설정 하기 전에 서비스 맵 모니터링 솔루션을 사용 하 고 있지만 계속 사용 하는 경우 다음 절차의 마지막 단계에 설명 된 대로 해당 솔루션을 제거 하지 마십시오.  
 >
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics**를 선택합니다.
 3. Log Analytics 작업 영역 목록에서 VM용 Azure Monitor을 사용 하도록 설정할 때 선택한 작업 영역을 선택 합니다.
 4. 왼쪽에서 **솔루션**을 선택 합니다.  
@@ -64,7 +64,7 @@ Log Analytics 작업 영역에서 여전히 다른 원본의 모니터링을 지
 >
 > Log Analytics 에이전트를 제거 하면 해당 서비스 및 솔루션이 VM을 사전에 관리 하지 못하게 됩니다. 
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. Azure Portal에서 **Virtual Machines**를 선택합니다. 
 3. 목록에서 VM을 선택합니다. 
 4. 왼쪽에서 **확장**을 선택 합니다. **확장** 페이지에서 **DependencyAgent**를 선택 합니다.

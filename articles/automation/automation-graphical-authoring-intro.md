@@ -2,19 +2,15 @@
 title: Azure Automation에서 그래픽 작성
 description: 그래픽 작성을 통해 코드 작업 없이 Azure Automation에 대한 Runbook을 만들 수 있습니다. 이 문서에서는 그래픽 작성을 소개하고 그래픽 Runbook 만들기를 시작하는 데 필요한 모든 세부 정보를 제공합니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 82a06510bd9d1e0de2b38260773cb4848156bf12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8c1b864eb83a9ffb69c0cb532dc2061636010c60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450740"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -44,7 +40,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 라이브러리 컨트롤은 Runbook에 추가할 [활동](#activities) 을 선택하는 곳입니다. 이를 다른 활동에 연결하는 캔버스에 추가할 수 있습니다. 라이브러리 컨트롤은 다음 표에 설명된 4개의 섹션으로 구성됩니다.
 
-| 섹션 | 설명 |
+| 섹션 | Description |
 |:--- |:--- |
 | Cmdlet |Runbook에서 사용할 수 있는 모든 cmdlet을 포함합니다. 이러한 cmdlet은 모듈별로 구성됩니다. 자동화 계정에 설치한 모든 모듈을 사용할 수 있습니다. |
 | Runbook |자동화 계정의 Runbook을 포함합니다. 이러한 runbook을 자식 runbook으로 사용될 캔버스에 추가할 수 있습니다. 편집 중인 runbook인 동일한 코어 유형의 runbook만 표시됩니다. 그래픽 runbook의 경우 PowerShell 기반 runbook만 표시되는 반면 그래픽 PowerShell 워크플로 runbook의 경우 PowerShell 워크플로 기반 runbook만 표시됩니다. |
@@ -109,7 +105,7 @@ Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있�
 
 매개 변수 값을 지정하려면 데이터 원본을 선택하여 값 지정 방법을 결정합니다. 특정 매개 변수에 사용할 수 있는 데이터 원본은 해당 매개 변수의 유효한 값에 따라 달라집니다. 예를 들어 Null은 null 값을 허용하지 않는 매개 변수에 사용 가능한 옵션이 아닙니다.
 
-| 데이터 원본 | 설명 |
+| 데이터 원본 | Description |
 |:--- |:--- |
 | 상수 값 |매개 변수 값을 입력합니다. 이는 Int32, Int64, String, Boolean, DateTime, Switch 데이터 형식에만 사용할 수 있습니다. |
 | 활동 출력 |워크플로에서 현재 활동 앞에 오는 활동의 출력입니다. 유효한 모든 활동이 나열됩니다. 매개 변수 값에 해당 출력을 사용할 활동만 선택하세요. 활동에서 여러 속성을 가진 개체를 출력하는 경우에는 활동을 선택한 후 속성 이름을 입력할 수 있습니다. |
@@ -139,7 +135,7 @@ Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있�
 
 다시 시도 조건은 작업 다시 시도에 대한 정보에 액세스를 제공하는 $RetryData라는 변수를 사용할 수 있습니다. 이 변수는 다음 테이블의 속성을 가집니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | NumberOfAttempts |활동이 실행된 횟수입니다. |
 | 출력 |활동의 마지막 실행에서 출력입니다. |
@@ -191,7 +187,7 @@ $DateTimeStart
 
 링크를 선택하여 구성 블레이드에서 해당 속성을 구성할 수 있습니다. 여기에는 다음 표에 설명된 링크 형식이 포함됩니다.
 
-| 링크 형식 | 설명 |
+| 링크 형식 | Description |
 |:--- |:--- |
 | 파이프라인 |대상 활동은 원본 활동의 각 개체 출력에 대해 한 번씩 실행됩니다. 원본 활동의 출력이 없는 경우에는 대상 활동이 실행되지 않습니다. 원본 활동의 출력은 개체로 제공됩니다. |
 | 시퀀스 |대상 활동이 한 번만 실행됩니다. 원본 활동에서 개체 배열을 받습니다. 원본 활동의 출력이 개체 배열로 제공됩니다. |
@@ -245,7 +241,7 @@ Both VMName and ResourceGroupName runbook input parameters have values
 
 ![분기 동기화](media/automation-graphical-authoring-intro/runbook-junction.png)
 
-### <a name="cycles"></a>주기
+### <a name="cycles"></a>Cycles
 
 주기는 대상 활동이 해당 원본 활동에 다시 연결되거나 최종적으로 해당 원본에 다시 연결되는 다른 활동에 연결된 경우를 의미합니다. 주기는 그래픽 작성에서 현재 허용되지 않습니다. Runbook에 주기가 있는 경우 정상적으로 저장되지만 실행하면 오류가 발생합니다.
 
@@ -322,11 +318,11 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 
 각 입력 매개 변수는 다음 표의 속성으로 정의됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
-| name |매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
-| 설명 |입력 매개 변수에 대한 선택적 설명입니다. |
-| Type |매개 변수 값에 필요한 데이터 형식입니다. Azure Portal에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
+| 이름 |매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
+| Description |입력 매개 변수에 대한 선택적 설명입니다. |
+| 유형 |매개 변수 값에 필요한 데이터 형식입니다. Azure Portal에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
 | 필수 |매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 기본값이 정의되지 않은 각 필수 매개 변수의 값을 제공하지 않으면 Runbook을 시작할 수 없습니다. |
 | 기본값 |값을 제공하지 않은 경우 매개 변수에 사용되는 값을 지정합니다. Null 또는 특정 값일 수 있습니다. |
 
@@ -400,7 +396,7 @@ $ActivityOutput['Get-AzureVm']
 $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
 ```
 
-다음 조건은 동일한 가상 컴퓨터가 *중지*이외의 상태인지를 확인합니다.
+다음 조건은 동일한 가상 머신이 *중지*이외의 상태인지를 확인합니다.
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"

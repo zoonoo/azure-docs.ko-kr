@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed35abd5b9bfb8b9a74d598f1fa93d8f1a985bfb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848275"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425285"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
 Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azure Portal을 통해 액세스하고 사용할 수 있는 다양한 보고서를 제공합니다. 다음 표에는 사용 가능한 보고서가 나와 있습니다.
 
-| 보고서 | 위치 | 설명 |
+| 보고서 | 위치 | Description |
 |:--- |:--- |:--- |
 | 차단된 사용자 기록 | Azure AD > 보안 > MFA > 사용자 차단/차단 해제 | 사용자를 차단 또는 차단 해제하도록 요청한 기록이 표시됩니다. |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
@@ -32,7 +32,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 
 ## <a name="view-mfa-reports"></a>MFA 보고서 보기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **Security** > **MFA**를 선택 합니다.
 3. 보려는 보고서를 선택합니다.
 
@@ -134,11 +134,21 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
 
 ```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
+등록 된 사용자 및 출력 메서드를 식별 합니다. 
+
+```PowerShell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
+
 ## <a name="possible-results-in-activity-reports"></a>활동 보고서에서 가능한 결과
 
 다음 표는 다운로드 된 버전의 multi-factor authentication 활동 보고서를 사용 하 여 다단계 인증 문제를 해결 하는 데 사용할 수 있습니다. Azure Portal에 직접 표시 되지 않습니다.
 
-| 호출 결과 | 설명 | 광범위 한 설명 |
+| 호출 결과 | Description | 광범위 한 설명 |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN이 입력됨 | 사용자가 PIN을 입력했습니다.  인증에 성공 하면 올바른 PIN을 입력 한 것입니다.  인증이 거부 된 경우 잘못 된 PIN을 입력 하거나 사용자가 표준 모드로 설정 됩니다. |
 | SUCCESS_NO_PIN | #만 입력 됨 | PIN 모드로 설정된 사용자의 인증이 거부되는 경우 사용자가 PIN을 입력하지 않고 #만 입력했음을 의미합니다.  표준 모드로 설정된 사용자가 인증에 성공하면 사용자가 표준 모드에서는 올바른 동작인 #만 입력했음을 의미합니다. |

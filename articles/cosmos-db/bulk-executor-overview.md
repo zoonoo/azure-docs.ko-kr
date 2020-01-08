@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB에서 Bulk Executor 라이브러리를 사용하여 데이터 대량 가져오기 및 업데이트
+title: Azure Cosmos DB 대량 실행기 라이브러리 개요
 description: Azure Cosmos DB에서 대량 가져오기를 통해 대량 작업을 수행하고 Bulk Executor 라이브러리에서 제공하는 API를 대량 업데이트합니다.
 author: tknandu
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442149"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -32,7 +32,7 @@ Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 스토
 
 * 애플리케이션 논리 작성의 지루한 작업을 추상화하여 요청의 속도 제한, 요청 시간 제한 및 다른 일시적 예외를 라이브러리 내에서 효과적으로 처리합니다.  
 
-* 애플리케이션이 스케일 아웃할 대량 작업을 수행할 수 있도록 간소화된 메커니즘을 제공합니다. Azure VM에서 실행하는 단일 Bulk Executor 인스턴스는 500K RU/s 이상을 사용할 수 있으며, 사용자는 개별 클라이언트 VM에서 추가 인스턴스를 추가하여 더 높은 처리량 속도를 얻을 수 있습니다.  
+* 규모 확장을 위해 대량 작업을 수행 하는 응용 프로그램을 단순화 하는 메커니즘을 제공 합니다. Azure VM에서 실행 되는 단일 대량 실행자 인스턴스는 500K r u/초 보다 큰 값을 사용할 수 있으며, 개별 클라이언트 Vm에 추가 인스턴스를 추가 하 여 더 높은 처리량 속도를 달성할 수 있습니다.  
  
 * 스케일 아웃 아키텍처를 사용하면 한 시간에 테라바이트 이상의 데이터를 대량으로 가져올 수 있습니다.  
 

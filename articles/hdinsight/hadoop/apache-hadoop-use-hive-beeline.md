@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 26a166e61086af8cf10f761b608fcf66eb8734fd
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 12/12/2019
+ms.openlocfilehash: 39217a883863fd663b02cafea699dcbc4e070dfb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435735"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
 [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell)을 사용하여 HDInsight에서 Apache Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 
-Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결하는 데 사용되는 가장 일반적인 연결 문자열을 제공합니다.
+Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. Beeline를 로컬로 설치 하려면 아래의 [Beeline Client 설치](#install-beeline-client)를 참조 하세요. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결하는 데 사용되는 가장 일반적인 연결 문자열을 제공합니다.
 
 ## <a name="types-of-connections"></a>연결 유형
 
@@ -46,7 +46,7 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Kerberos를 사용 하는 HDInsight Enterprise Security Package (ESP) 클러스터
 
-클라이언트에서 클러스터의 동일한 영역에 있는 컴퓨터의 Azure Active Directory (AAD)-DS에 연결 된 Enterprise Security Package (ESP) 클러스터에 연결 하는 경우 도메인 이름 `<AAD-Domain>` 및 사용 권한이 있는 도메인 사용자 계정의 이름을 지정 해야 합니다. 클러스터 `<username>`에 액세스 합니다.
+클라이언트에서 클러스터의 동일한 영역에 있는 컴퓨터의 Azure Active Directory (AAD)에 연결 된 Enterprise Security Package (AAD) 클러스터에 연결 하는 경우 클러스터 `<username>`에 대 한 액세스 권한이 있는 도메인 사용자 계정의 이름과 도메인 `<AAD-Domain>` 이름을 지정 해야 합니다.
 
 ```bash
 kinit <username>
@@ -59,19 +59,19 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 
 ### <a name="over-public-or-private-endpoints"></a>공용 또는 개인 끝점을 통해
 
-공용 또는 개인 끝점을 사용 하 여 클러스터에 연결 하는 경우 클러스터 로그인 계정 이름 (기본값 `admin`) 및 암호를 제공 해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `<clustername>.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
+공용 또는 개인 끝점을 사용 하 여 클러스터에 연결 하는 경우 클러스터 로그인 계정 이름 (기본값 `admin`) 및 암호를 제공 해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `clustername.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
 
 ```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
 ```
 
 또는 개인 끝점의 경우:
 
 ```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
 ```
 
-`clustername` 을 HDInsight 클러스터 이름으로 바꿉니다. `<username>`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. ESP 클러스터의 경우 전체 UPN (예: user@domain.com)을 사용 합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
+`clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `admin`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. ESP 클러스터의 경우 전체 UPN을 사용 합니다 (예: user@domain.com). `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
 개인 끝점은 동일한 지역의 Vnet 피어 링 에서만 액세스할 수 있는 기본 부하 분산 장치를 가리킵니다. 자세한 정보는 [글로벌 VNet 피어 링 및 부하 분산 장치에 대 한 제약 조건](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 을 참조 하세요. Beeline를 사용 하기 전에 `-v` 옵션과 함께 `curl` 명령을 사용 하 여 공용 또는 개인 끝점의 연결 문제를 해결할 수 있습니다.
 
@@ -86,16 +86,16 @@ Apache Spark는 자체적으로 HiveServer2를 구현하며, HiveServer2는 종�
 사용 된 연결 문자열은 약간 다릅니다. `httpPath=/hive2`를 포함 하는 대신 `httpPath/sparkhive2`합니다.
 
 ```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
 ```
 
 또는 개인 끝점의 경우:
 
 ```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
 ```
 
-`clustername` 을 HDInsight 클러스터 이름으로 바꿉니다. `<username>`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. ESP 클러스터의 경우 전체 UPN (예: user@domain.com)을 사용 합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
+`clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `admin`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. ESP 클러스터의 경우 전체 UPN (예: user@domain.com)을 사용 합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
 개인 끝점은 동일한 지역의 Vnet 피어 링 에서만 액세스할 수 있는 기본 부하 분산 장치를 가리킵니다. 자세한 정보는 [글로벌 VNet 피어 링 및 부하 분산 장치에 대 한 제약 조건](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 을 참조 하세요. Beeline를 사용 하기 전에 `-v` 옵션과 함께 `curl` 명령을 사용 하 여 공용 또는 개인 끝점의 연결 문제를 해결할 수 있습니다.
 
@@ -103,7 +103,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 #### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>Apache Spark를 사용 하 여 클러스터 헤드 또는 Azure Virtual Network 내에서
 
-클러스터 헤드 노드에서 직접 연결하거나 HDInsight 클러스터와 동일한 Azure Virtual Network 내부의 리소스에서 연결하는 경우 `10002` 포트 대신 `10001` 포트를 Spark Thrift 서버에 사용해야 합니다. 다음 예제에서는 헤드 노드에 직접 연결 하는 방법을 보여 줍니다.
+클러스터 헤드 노드에서 직접 연결하거나 HDInsight 클러스터와 동일한 Azure Virtual Network 내부의 리소스에서 연결하는 경우 `10001` 포트 대신 `10002` 포트를 Spark Thrift 서버에 사용해야 합니다. 다음 예제에서는 헤드 노드에 직접 연결 하는 방법을 보여 줍니다.
 
 ```bash
 /usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
@@ -238,7 +238,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 6. Beeline을 종료하려면 `!exit`을 사용합니다.
 
-## <a id="file"></a>HiveQL 파일 실행
+## <a name="run-a-hiveql-file"></a>HiveQL 파일 실행
 
 이전 예제에서 연속 된 작업입니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 
@@ -292,7 +292,64 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (0.813 seconds)
 
-## <a id="summary"></a><a id="nextsteps"></a>다음 단계
+## <a name="install-beeline-client"></a>Beeline client 설치
+
+Beeline는 HDInsight 클러스터의 헤드 노드에 포함 되지만 로컬 컴퓨터에 설치할 수도 있습니다.  로컬 컴퓨터에 Beeline를 설치 하는 단계는 [Linux 용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/install-win10)을 기반으로 합니다.
+
+1. 패키지 목록을 업데이트 합니다. Bash 셸에서 다음 명령을 입력 합니다.
+
+    ```bash
+    sudo apt-get update
+    ```
+
+1. 설치 되지 않은 경우 Java를 설치 합니다. `which java` 명령을 사용 하 여 확인할 수 있습니다.
+
+    1. Java 패키지를 설치 하지 않은 경우 다음 명령을 입력 합니다.
+
+        ```bash
+        sudo apt install openjdk-11-jre-headless
+        ```
+
+    1. .Bashrc 파일을 수정 합니다 (일반적으로 ~/.bashrc에 있음). `nano ~/.bashrc` 파일을 열고 파일의 끝에 다음 줄을 추가 합니다.
+
+        ```bash
+        export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+        ```
+
+        그런 다음 **ctrl + X**, **Y**를 차례로 누른 다음를 입력 합니다.
+
+1. Hadoop 및 Beeline 보관 파일을 다운로드 하 고 다음 명령을 입력 합니다.
+
+    ```bash
+    wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+    wget https://archive.apache.org/dist/hive/hive-1.2.1/apache-hive-1.2.1-bin.tar.gz
+    ```
+
+1. 보관 파일의 압축을 풀고 다음 명령을 입력 합니다.
+
+    ```bash
+    tar -xvzf hadoop-2.7.3.tar.gz
+    tar -xvzf apache-hive-1.2.1-bin.tar.gz
+    ```
+
+1. .Bashrc 파일을 추가로 수정 합니다. 보관 파일의 압축을 푼 경로를 확인 해야 합니다. [Linux 용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/install-win10)을 사용 하는 경우 단계를 정확 하 게 수행한 경우 경로는 `/mnt/c/Users/user/`됩니다. 여기서 `user`는 사용자 이름입니다.
+
+    1. 파일 열기: `nano ~/.bashrc`
+    1. 적절 한 경로를 사용 하 여 아래 명령을 수정한 후 .bashrc 파일의 끝에 입력 합니다.
+
+        ```bash
+        export HADOOP_HOME=/$(path_where_the_archives_were_unpacked)/hadoop-2.7.3
+        export HIVE_HOME=/$(path_where_the_archives_were_unpacked)/apache-hive-1.2.1-bin
+        PATH=$PATH:$HIVE_HOME/bin
+        ```
+
+    1. 그런 다음 **ctrl + X**, **Y**를 차례로 누른 다음를 입력 합니다.
+
+1. Bash 세션을 닫았다가 다시 엽니다.
+
+1. 연결을 테스트 합니다. 위의 [공용 또는 개인 끝점](#over-public-or-private-endpoints)에서 연결 형식을 사용 합니다.
+
+## <a name="next-steps"></a>다음 단계
 
 * HDInsight의 Hive에 대 한 일반적인 정보는 [hdinsight에서 Apache Hadoop와 Apache Hive 사용](hdinsight-use-hive.md) 을 참조 하세요.
 

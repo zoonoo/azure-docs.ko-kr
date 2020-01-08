@@ -1,25 +1,24 @@
 ---
 title: Azure Stream Analytics를 사용 하 여 실시간 IoT 데이터 스트림 처리
 description: 스트림 분석 및 실시간 데이터 처리와 IoT 센서 태그 및 데이터 스트림
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: 1cc9c6dbb700664e732a67245563e9a211456767
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426237"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Azure Stream Analytics를 사용 하 여 실시간 IoT 데이터 스트림 처리
 
 이 문서에서는 IoT (사물 인터넷) 장치에서 데이터를 수집 하는 스트림 처리 논리를 만드는 방법에 대해 알아봅니다. IoT (실제 사물 인터넷) 사용 사례를 사용 하 여 신속 하 고 경제적으로 솔루션을 구축 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 무료 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 * [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)에서 샘플 쿼리 및 데이터 파일을 다운로드 합니다.

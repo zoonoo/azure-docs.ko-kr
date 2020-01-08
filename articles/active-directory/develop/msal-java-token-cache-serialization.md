@@ -1,5 +1,5 @@
 ---
-title: Java 용 MSAL의 사용자 지정 토큰 캐시 serialization
+title: MSAL4j (사용자 지정 토큰 캐시 serialization)
 titleSuffix: Microsoft identity platform
 description: Java 용 MSAL에 대 한 토큰 캐시를 직렬화 하는 방법 알아보기
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2166cda772c358ed060b0e52a7410c7039fedf5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d80011d3fbf8973ce913ac885a7841fe19760c4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424312"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-java"></a>Java 용 MSAL의 사용자 지정 토큰 캐시 serialization
 

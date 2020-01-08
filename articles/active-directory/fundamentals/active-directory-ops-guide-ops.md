@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 46e5af9d54cf818366bd2730de0da85dcbe6cade
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422953"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 일반 작업 가이드 참조
 
@@ -31,7 +31,7 @@ ms.locfileid: "74535302"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| 작업 | 소유자 |
+| Task | 소유자 |
 | :- | :- |
 | Id 보안 점수에 대 한 향상 된 드라이브 | InfoSec 운영 팀 |
 | Azure AD Connect 서버 유지 관리 | IAM 운영 팀 |
@@ -107,7 +107,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 #### <a name="on-premises-agents-management-recommended-reading"></a>온-프레미스 에이전트 관리 권장 읽기
 
 - [Azure AD 애플리케이션 프록시 커넥터 이해](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
-- [Azure AD 통과 인증-빠른 시작](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start#step-5-ensure-high-availability)
+- [Azure AD 통과 인증-빠른 시작](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>규모에 맞게 관리
 
@@ -123,7 +123,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 현재 조직에 Id 보안 점수 변경을 모니터링할 프로그램이 없는 경우 계획을 구현 하 고 소유자를 할당 하 여 개선 작업을 모니터링 하 고 구동 하는 것이 좋습니다. 조직은 가능한 한 빨리 30 보다 큰 점수를 사용 하 여 개선 작업을 수정 해야 합니다.
 
-### <a name="notifications"></a>공지
+### <a name="notifications"></a>알림
 
 Microsoft는 관리자에 게 전자 메일 통신을 보내 서비스의 다양 한 변경 내용, 필요한 구성 업데이트 및 관리자 개입이 필요한 오류를 알립니다. 모든 알림을 승인 하 고 작업할 수 있는 적절 한 팀 구성원에 게 알림이 전송 되도록 고객은 알림 전자 메일 주소를 설정 하는 것이 중요 합니다. [Office 365 메시지 센터](https://docs.microsoft.com/office365/admin/manage/message-center) 에 여러 받는 사람을 추가 하 고 메일 그룹 또는 공유 사서함에 알림 (Azure AD Connect Health 알림 포함)을 보내도록 요청 하는 것이 좋습니다. 전자 메일 주소를 가진 전역 관리자 계정이 하나만 있는 경우 전자 메일을 사용할 수 있는 계정을 두 개 이상 구성 해야 합니다.
 
@@ -131,8 +131,8 @@ Azure AD에서 사용 되는 두 개의 "보낸 사람" 주소: <o365mc@email2.m
 
 - [Azure AD 액세스 검토](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
-- [Azure AD 권한 있는 ID 관리](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
+- [Azure AD ID 보호](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
+- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [엔터프라이즈 앱 만료 인증서 알림](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
 - 엔터프라이즈 앱 서비스 프로비저닝 알림
 
@@ -162,13 +162,13 @@ AD FS Azure AD 페더레이션에만 사용 되는 경우 공격 노출 영역�
 
 조직은 온-프레미스 도메인과 동일한 방식으로 온-프레미스 하이브리드 구성 요소를 사용 하 여 컴퓨터에 대 한 액세스를 잠가야 합니다. 예를 들어 백업 운영자 또는 Hyper-v 관리자는 Azure AD Connect 서버에 로그인 하 여 규칙을 변경할 수 없습니다.
 
-Active Directory 관리 계층 모델은 환경 (계층 0)의 모든 제어와 공격자가 자주 손상 시키는 높은 위험 수준의 워크스테이션 자산 사이에서 버퍼 영역 집합을 사용 하 여 id 시스템을 보호 하도록 설계 되었습니다. ![계층 모델의 3 계층을 보여 주는 다이어그램](./media/active-directory-ops-guide/active-directory-ops-img18.png)
+Active Directory 관리 계층 모델은 환경 (계층 0)의 모든 제어와 공격자가 자주 손상 시키는 높은 위험 수준의 워크스테이션 자산 사이에서 버퍼 영역 집합을 사용 하 여 id 시스템을 보호 하도록 설계 되었습니다. ![계층 모델의 세 가지 계층을 보여 주는 다이어그램](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
 [계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 은 세 가지 수준으로 구성 되며 표준 사용자 계정이 아닌 관리 계정만 포함 합니다.
 
-- **계층 0** -환경에서 엔터프라이즈 Id를 직접 제어 합니다. 계층 0에는 Active Directory 포리스트, 도메인 또는 도메인 컨트롤러와 모든 자산에 대 한 직접 또는 간접 관리 제어 권한이 있는 계정, 그룹 및 기타 자산이 포함 됩니다. 모든 계층 0 자산의 보안 민감도는 모두 효과적으로 제어 하는 것과 동일 합니다.
-- **계층 1** 엔터프라이즈 서버 및 응용 프로그램에 대 한 제어 권한입니다. 계층 1 자산에는 서버 운영 체제, 클라우드 서비스 및 엔터프라이즈 응용 프로그램이 포함 됩니다. 계층 1 관리자 계정은 이러한 자산에서 호스팅되는 상당한 양의 비즈니스 가치에 대 한 관리를 제어 합니다. 일반적인 예제 역할은 모든 엔터프라이즈 서비스에 영향을 줄 수 있는 기능을 사용 하 여 이러한 운영 체제를 유지 관리 하는 서버 관리자입니다.
-- **계층 2** 사용자 워크스테이션 및 장치를 제어 합니다. 계층 2 관리자 계정은 사용자 워크스테이션 및 장치에 호스트 되는 상당한 양의 비즈니스 가치에 대 한 관리를 제어 합니다. 예를 들면, 대부분의 사용자 데이터 무결성에 영향을 줄 수 있기 때문에 지원 센터 및 컴퓨터 지원 관리자가 있습니다.
+- **계층 0** -환경에서 엔터프라이즈 Id를 직접 제어 합니다. 계층 0에는 Active Directory 포리스트, 도메인 또는 도메인 컨트롤러와 그 속의 모든 자산에 대한 직접 또는 간접 관리 권한을 가진 계정, 그룹 및 기타 자산이 포함됩니다. 모든 계층 0 자산은 서로를 효과적으로 제어하므로 보안 민감도가 동일합니다.
+- **계층 1** 엔터프라이즈 서버 및 응용 프로그램에 대 한 제어 권한입니다. 계층 1 자산에는 서버 운영 체제, 클라우드 서비스 및 엔터프라이즈 애플리케이션이 포함됩니다. 계층 1 관리자 계정은 이러한 자산에서 호스트되는 상당한 양의 비즈니스 가치에 대한 관리 권한이 있습니다. 일반적인 역할 예로는 모든 엔터프라이즈 서비스에 영향을 줄 수 있는 기능으로 이러한 운영 체제를 유지 관리하는 서버 관리자가 있습니다.
+- **계층 2** 사용자 워크스테이션 및 장치를 제어 합니다. 계층 2 관리자 계정은 사용자 워크스테이션 및 디바이스에서 호스트되는 상당한 양의 비즈니스 가치에 대한 관리 권한이 있습니다. 예를 들어 지원 센터 및 컴퓨터 지원 관리자가 여기에 포함됩니다. 이들은 거의 모든 사용자 데이터의 무결성에 영향을 줄 수 있기 때문입니다.
 
 도메인 컨트롤러에 대해 수행 하는 것과 동일한 방식으로 Azure AD Connect, AD FS 및 SQL services와 같은 온-프레미스 id 구성 요소에 대 한 액세스를 잠급니다.
 

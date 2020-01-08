@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Gremlin API에 대 한 실행 프로필 함수를 사용 하 여 쿼리를 평가 합니다.
+title: 실행 프로필을 사용 하 여 Azure Cosmos DB Gremlin API의 쿼리를 평가 합니다.
 description: 실행 프로필 단계를 사용 하 여 Gremlin 쿼리 문제를 해결 하 고 개선 하는 방법에 대해 알아봅니다.
 services: cosmos-db
 author: luisbosquez
@@ -9,18 +9,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: ab5c55105eeb912281f35e3d6094c0c43a76f89a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5705ef4fb6aa895009d554617c968543cc3fcd63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441845"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>실행 프로필 단계를 사용 하 여 Gremlin 쿼리를 평가 하는 방법
 
 이 문서에서는 Azure Cosmos DB Gremlin API graph 데이터베이스에 대해 실행 프로필 단계를 사용 하는 방법에 대 한 개요를 제공 합니다. 이 단계에서는 문제 해결 및 쿼리 최적화에 대 한 관련 정보를 제공 하며, Cosmos DB Gremlin API 계정에 대해 실행할 수 있는 모든 Gremlin 쿼리와 호환 됩니다.
 
-이 단계를 사용 하려면 Gremlin 쿼리 끝 `executionProfile()` 에 함수 호출을 추가 하면 됩니다. **Gremlin 쿼리가 실행** 되 고 작업 결과가 쿼리 실행 프로필을 사용 하 여 JSON 응답 개체를 반환 합니다.
+이 단계를 사용 하려면 Gremlin 쿼리 끝에 `executionProfile()` 함수 호출을 추가 하면 됩니다. **Gremlin 쿼리가 실행** 되 고 작업 결과가 쿼리 실행 프로필을 사용 하 여 JSON 응답 개체를 반환 합니다.
 
 예:
 
@@ -140,8 +140,8 @@ ms.locfileid: "70915878"
 
 ExecutionProfile () 함수의 응답은 다음 구조를 사용 하 여 JSON 개체의 계층 구조를 생성 합니다.
   - **Gremlin operation 개체**: 실행 된 전체 Gremlin 작업을 나타냅니다. 에는 다음 속성이 포함 되어 있습니다.
-    - `gremlin`: 실행 된 명시적인 Gremlin 문입니다.
-    - `totalTime`: 단계 실행이에서 발생 한 시간 (밀리초)입니다. 
+    - `gremlin`: 실행 된 명시적 Gremlin 문입니다.
+    - `totalTime`: 단계 실행이에서 발생 하는 시간 (밀리초)입니다. 
     - `metrics`: 쿼리를 수행 하기 위해 실행 된 각 Cosmos DB 런타임 연산자를 포함 하는 배열입니다. 이 목록은 실행 순서 대로 정렬 됩니다.
     
   - **Cosmos DB 런타임 연산자**: 전체 Gremlin 작업의 각 구성 요소를 나타냅니다. 이 목록은 실행 순서 대로 정렬 됩니다. 각 개체에는 다음 속성이 포함 되어 있습니다.
@@ -149,19 +149,19 @@ ExecutionProfile () 함수의 응답은 다음 구조를 사용 하 여 JSON 개
     - `time`: 지정 된 연산자가 걸린 시간 (밀리초)입니다.
     - `annotations`: 실행 된 연산자와 관련 된 추가 정보를 포함 합니다.
     - `annotations.percentTime`: 특정 연산자를 실행 하는 데 걸린 총 시간의 백분율입니다.
-    - `counts`: 이 연산자가 저장소 계층에서 반환 된 개체 수입니다. 이는 내의 `counts.resultCount` 스칼라 값에 포함 되어 있습니다.
+    - `counts`:이 연산자에 의해 저장소 계층에서 반환 된 개체 수입니다. 이는 내의 `counts.resultCount` 스칼라 값에 포함 되어 있습니다.
     - `storeOps`: 하나 또는 여러 파티션에 걸쳐 있을 수 있는 저장소 작업을 나타냅니다.
-    - `storeOps.fanoutFactor`: 이 특정 저장소 작업에 액세스 한 파티션의 수를 나타냅니다.
-    - `storeOps.count`: 이 저장소 작업이 반환 하는 결과 수를 나타냅니다.
+    - `storeOps.fanoutFactor`:이 특정 저장소 작업에 액세스 한 파티션의 수를 나타냅니다.
+    - `storeOps.count`:이 저장소 작업이 반환 하는 결과 수를 나타냅니다.
     - `storeOps.size`: 지정 된 저장소 작업의 결과 크기 (바이트)를 나타냅니다.
 
-Cosmos DB Gremlin Runtime 연산자|설명
+Cosmos DB Gremlin Runtime 연산자|Description
 ---|---
 `GetVertices`| 이 단계에서는 지 속성 계층에서 예측 된 개체 집합을 가져옵니다. 
 `GetEdges`| 이 단계는 꼭 짓 점 집합에 인접 한 가장자리를 가져옵니다. 이 단계를 수행 하면 하나 이상의 저장소 작업이 발생할 수 있습니다.
 `GetNeighborVertices`| 이 단계에서는 가장자리 집합에 연결 된 꼭 짓 점을 가져옵니다. 가장자리에는 원본 및 대상 꼭 짓 점의 파티션 키와 ID가 포함 됩니다.
 `Coalesce`| 이 단계에서는 `coalesce()` Gremlin 단계가 실행 될 때마다 두 작업을 평가 하는 작업을 수행 합니다.
-`CartesianProductOperator`| 이 단계에서는 두 데이터 집합 간의 데카르트 곱을 계산 합니다. 일반적으로 조건자 `to()` 또는 `from()` 가 사용 될 때마다 실행 됩니다.
+`CartesianProductOperator`| 이 단계에서는 두 데이터 집합 간의 데카르트 곱을 계산 합니다. 일반적으로 조건자 `to()` 또는 `from()` 사용 될 때마다 실행 됩니다.
 `ConstantSourceOperator`| 이 단계에서는 상수 값을 생성 하는 식을 계산 합니다.
 `ProjectOperator`| 이 단계에서는 이전 작업의 결과를 사용 하 여 응답을 준비 하 고 직렬화 합니다.
 `ProjectAggregation`| 이 단계에서는 집계 작업에 대 한 응답을 준비 하 고 직렬화 합니다.
@@ -219,17 +219,17 @@ Cosmos DB Gremlin Runtime 연산자|설명
 ```
 
 여기에서 다음과 같은 결론을 수행할 수 있습니다.
-- 이 쿼리는 Gremlin 문이 패턴 `g.V('id')`을 따르며 단일 ID 조회입니다.
-- 메트릭에 심사이 쿼리의 대기 시간은 [단일 지점 읽기 작업의 10ms 보다 더](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide)많은 것 같습니다. `time`
-- `storeOps` 개체를 살펴보면 `fanoutFactor` 가 인 `5`것을 확인할 수 있습니다. 즉,이 작업에서 [5 개의 파티션을](https://docs.microsoft.com/azure/cosmos-db/partition-data) 액세스 했음을 의미 합니다.
+- Gremlin 문이 `g.V('id')`패턴을 따르며 쿼리는 단일 ID 조회입니다.
+- `time` 메트릭에서 심사이 쿼리의 대기 시간은 [단일 지점 읽기 작업의 10ms 보다 더](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide)많은 것 같습니다.
+- `storeOps` 개체를 살펴보면 `fanoutFactor` `5`되는 것을 볼 수 있습니다. 즉,이 작업에서 [5 개의 파티션을](https://docs.microsoft.com/azure/cosmos-db/partition-data) 액세스 했음을 의미 합니다.
 
-이 분석을 완료 하면 첫 번째 쿼리가 필요한 것 보다 더 많은 파티션에 액세스 하 고 있음을 확인할 수 있습니다. 쿼리에 조건자로 분할 키를 지정 하면이 문제를 해결할 수 있습니다. 이로 인해 대기 시간이 줄어들고 쿼리 당 비용이 줄어듭니다. [그래프 분할](graph-partitioning.md)에 대해 자세히 알아보세요. 더 최적의 쿼리 `g.V('tt0093640').has('partitionKey', 't1001')`는입니다.
+이 분석을 완료 하면 첫 번째 쿼리가 필요한 것 보다 더 많은 파티션에 액세스 하 고 있음을 확인할 수 있습니다. 쿼리에 조건자로 분할 키를 지정 하면이 문제를 해결할 수 있습니다. 이로 인해 대기 시간이 줄어들고 쿼리 당 비용이 줄어듭니다. [그래프 분할](graph-partitioning.md)에 대해 자세히 알아보세요. 더 최적의 쿼리를 `g.V('tt0093640').has('partitionKey', 't1001')`합니다.
 
 ### <a name="unfiltered-query-patterns"></a>필터링 되지 않은 쿼리 패턴
 
 다음 두 실행 프로필 응답을 비교 합니다. 간단한 설명을 위해이 예제에서는 분할 된 단일 그래프를 사용 합니다.
 
-이 첫 번째 쿼리는 레이블이 `tweet` 있는 모든 꼭 짓 점을 검색 한 다음 인접 한 꼭 짓 점을 가져옵니다.
+이 첫 번째 쿼리는 `tweet` 레이블이 있는 모든 꼭 짓 점을 검색 한 다음 인접 한 꼭 짓 점을 가져옵니다.
 
 ```json
 [
@@ -306,7 +306,7 @@ Cosmos DB Gremlin Runtime 연산자|설명
 ]
 ```
 
-인접 한 꼭 짓 점을 살펴보기 전에 동일한 쿼리의 프로필을 확인 하 고 이제 `has('lang', 'en')`추가 필터를 사용 합니다.
+동일한 쿼리의 프로필을 확인 하 고, 이제 추가 필터를 사용 하 여 인접 한 꼭 짓 점을 탐색 하기 전에 `has('lang', 'en')`합니다.
 
 ```json
 [
@@ -384,8 +384,8 @@ Cosmos DB Gremlin Runtime 연산자|설명
 ```
 
 이러한 두 쿼리는 동일한 결과에 도달 했지만, 첫 번째 쿼리는 인접 한 항목을 쿼리 하기 전에 더 큰 초기 데이터 집합을 반복 해야 하므로 더 많은 요청 단위가 필요 합니다. 두 응답에서 다음 매개 변수를 비교할 때이 동작의 표시기를 볼 수 있습니다.
-- 첫 번째 응답의 값이높을수록이단일단계를확인하는데더오래걸렸습니다.`metrics[0].time`
-- 초기 작업 데이터 집합이 더 크다는 것을 나타내는 첫 번째 응답의 값도높습니다.`metrics[0].counts.resultsCount`
+- 첫 번째 응답에서 `metrics[0].time` 값이 더 높습니다 .이 경우이 단일 단계를 확인 하는 데 시간이 오래 걸렸습니다.
+- 초기 작업 데이터 집합이 더 크다는 것을 나타내는 첫 번째 응답의 `metrics[0].counts.resultsCount` 값도 높습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB에서 [지원 되는 Gremlin 기능](gremlin-support.md) 에 대해 알아봅니다. 

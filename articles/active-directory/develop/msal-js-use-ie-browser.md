@@ -1,5 +1,5 @@
 ---
-title: MSAL .js를 사용 하는 Internet Explorer 사용 | Microsoft
+title: Internet Explorer에서 발생 하는 문제 (MSAL .js) | Microsoft
 titleSuffix: Microsoft identity platform
 description: Internet Explorer 브라우저에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL .js)를 사용 합니다.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715e92a10ca0b4cbe38119931bc66d36c3b9259a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4de918d87abca521f3b573f831f8bfd6a7e17728
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424287"
 ---
-# <a name="use-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>MSAL를 사용 하 여 Internet Explorer 및 Microsoft Edge 브라우저 사용
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제 (MSAL .js)
 
 Internet Explorer에서 실행할 수 있도록 javascript [ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) 용 Microsoft Authentication Library for javascript (msal .js)가 생성 됩니다. 그러나 알아야 할 몇 가지 사항이 있습니다.
 

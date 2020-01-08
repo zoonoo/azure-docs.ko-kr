@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB에서 고가용성 및 성능 최적화를 위한 사용자 지정 동기화 구현 방법
+title: Azure Cosmos DB에서 사용자 지정 동기화 구현
 description: Azure Cosmos DB에서 고가용성 및 성능 최적화를 위한 사용자 지정 동기화 구현 방법을 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 1fdd05f8a4757a49414a2a03c8f991a80186ed44
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2c989b352ef1b7800980c3a89b007c625198f822
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755053"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441809"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>고가용성 및 성능 최적화를 위한 사용자 지정 동기화 구현
 
@@ -133,7 +133,7 @@ class MyDataAccessLayer
 
 Azure Cosmos DB의 글로벌 배포 및 일관성에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Cosmos DB에서 적절한 일관성 수준 선택](consistency-levels-choosing.md)
+* [Azure Cosmos DB에서 올바른 일관성 수준 선택](consistency-levels-choosing.md)
 * [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
 * [Azure Cosmos DB에서 일관성 관리](how-to-manage-consistency.md)
 * [Azure Cosmos DB에서 분할 및 데이터 배포](partition-data.md)

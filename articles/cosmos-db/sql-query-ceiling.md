@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 상한
-description: Azure Cosmos DB의 천장 SQL 시스템 함수에서 y/x의 원호의 아크탄젠트 값을 라디안으로 표현 하 여 반환 하는 방법에 대해 알아봅니다.
+description: Azure Cosmos DB의 천장 SQL 시스템 함수에서 지정 된 숫자 식 보다 크거나 같은 최소 정수 값을 반환 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18462b152b698e7c6bc4c6c1e59511b4bacaa611
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2da7820a6c9f1f90585b4deb605bb99c7580b0e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444813"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>상한 (Azure Cosmos DB)
  지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다.  
@@ -28,7 +28,7 @@ CEILING (<numeric_expr>)
 *numeric_expr*  
    숫자 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   

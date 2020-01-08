@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 340c9192b43cbcf2daacfb791d85135518dd970c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6eab9ac7cf4547cb7fe3e736c16c3c0bd5f5bd9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425894"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>서브넷 위임 추가 또는 제거
 
@@ -27,7 +27,7 @@ ms.locfileid: "73747891"
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
@@ -38,9 +38,9 @@ ms.locfileid: "73747891"
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork*를 입력합니다. |
+    | 이름 | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.0.0.0/16*을 입력합니다. |
-    | 구독 | 사용 중인 구독을 선택합니다.|
+    | Subscription | 구독을 선택합니다.|
     | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
     | 위치 | **Eastus**를 선택 합니다.|
     | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
@@ -90,7 +90,7 @@ Azure CLI를 로컬로 설치 하 고 사용 하려는 경우이 문서에서는
 ```
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-**az network vnet create**를 사용하여 **myResourceGroup**에 **mySubnet**이라는 서브넷이 있는 [myVnet](https://docs.microsoft.com/cli/azure/network/vnet) 가상 네트워크를 만듭니다.
+[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 **myResourceGroup**에 **mySubnet**이라는 서브넷이 있는 **myVnet** 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -124,7 +124,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 위임이 적용 되었는지 확인 하려면 [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show)를 사용 합니다. 서비스가 속성 **serviceName**의 서브넷에 위임 되었는지 확인 합니다.
 
 ```azurecli-interactive
-  az network vnet show \
+  az network vnet subnet show \
   --resource-group myResourceGroup \
   --name mySubnet \
   --vnet-name myVnet

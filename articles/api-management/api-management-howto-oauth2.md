@@ -1,5 +1,6 @@
 ---
-title: Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한 부여 | Microsoft Docs
+title: API Management에서 OAuth 2.0을 사용 하 여 개발자 계정에 권한 부여
+titleSuffix: Azure API Management
 description: API Management에서 OAuth 2.0을 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 99a49aa4627dc23d5f7531ac961d63e3e75ccff9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430686"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -26,7 +27,7 @@ ms.locfileid: "73176622"
 > [!IMPORTANT]
 > OAuth 2.0 권한 부여는 새 개발자 포털의 대화형 콘솔에서 아직 사용할 수 없습니다.
 
-## <a name="prerequisites"> </a>필수 구성 요소
+## <a name="prerequisites"> </a>필수 조건
 
 이 가이드에서는 개발자 계정에 대해 OAuth 2.0 권한 부여를 사용하도록 API Management 서비스 인스턴스를 구성하는 방법을 설명합니다. 그러나 OAuth 2.0 공급자를 구성하는 방법은 설명하지 않습니다. 각 OAuth 2.0 공급자의 구성은 서로 다르지만 구성 단계는 비슷하며, API Management 서비스 인스턴스에서 OAuth 2.0을 구성하는 데 사용되는 필수 정보도 동일합니다. 이 항목에서는 OAuth 2.0 공급자로서 Azure Active Directory를 사용하는 예제를 설명합니다.
 
@@ -35,7 +36,7 @@ ms.locfileid: "73176622"
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"></a>API Management에서 OAuth 2.0 권한 부여 서버 구성
+## <a name="step1"> </a>API Management에서 OAuth 2.0 권한 부여 서버 구성
 
 > [!NOTE]
 > API Management 서비스 인스턴스를 아직 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조 하세요.
@@ -81,7 +82,7 @@ ms.locfileid: "73176622"
 
     양식에 필요한 정보를 모두 입력한 후 **만들기**를 클릭하여 API Management OAuth 2.0 권한 부여 서버 구성을 저장합니다. 서버 구성을 저장한 후에는 다음 섹션에서 설명하는 것처럼 이 구성을 사용하도록 API를 구성할 수 있습니다.
 
-## <a name="step2"> </a>OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성
+## <a name="step2"> </a>OAuth 2.0 사용자 권한 부여를 사용 하도록 API 구성
 
 1. 왼쪽의 **API Management** 메뉴에서 **API**를 클릭합니다.
 

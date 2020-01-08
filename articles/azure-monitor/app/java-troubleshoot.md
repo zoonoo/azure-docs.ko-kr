@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432529"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure 애플리케이션 정보][java]에 대 한 질문이 나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -52,7 +52,6 @@ ms.locfileid: "72820810"
 * [Java 에이전트 구성](java-agent.md)에 따라 Java 에이전트를 구성했나요?
 * Java 에이전트 jar 및 AI-Agent.xml 파일이 동일한 폴더에 있는지 확인합니다.
 * 자동 수집하려는 종속성에서 자동 수집이 지원되는지 확인합니다. 현재 MySQL, MsSQL, Oracle DB 및 Azure Cache for Redis 종속성 수집만 지원됩니다.
-* JDK 1.7 또는 1.8을 사용 중인가요? 현재 JDK 9에서 종속성 수집을 지원하지 않습니다.
 
 ## <a name="no-usage-data"></a>사용량 현황 데이터 없음
 **요청 및 응답 시간에 대한 데이터는 표시되는데 페이지 보기, 브라우저 또는 사용자 데이터는 표시되지 않습니다.**
@@ -75,7 +74,7 @@ ms.locfileid: "72820810"
     config.setTrackingIsDisabled(true);
 ```
 
-**또는**
+**Or**
 
 ApplicationInsights.xml(프로젝트의 리소스 폴더에 있음)을 업데이트합니다. 루트 노드 아래에 다음을 추가합니다.
 
@@ -194,7 +193,7 @@ Application Insights는 `org.apache.http`를 사용합니다. 이 모듈은 Appl
 * [진단 로그 캡처][javalogs]
 
 ## <a name="get-help"></a>도움 받기
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [GitHub에서 문제 제출](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

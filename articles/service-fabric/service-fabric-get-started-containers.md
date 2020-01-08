@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 컨테이너 애플리케이션 만들기 | Microsoft Docs
+title: Azure Service Fabric 컨테이너 응용 프로그램 만들기
 description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다. Python 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 애플리케이션을 빌드 및 배포합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6ff3fb3057b21f389d42ad98fe4ebb2803f5fc8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458021"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -48,8 +37,8 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
   
 클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
 
-* 버전에 *x.x.14323.x*가 포함되어 있으면 *클러스터를 만들* 때 운영 체제에 대해 [WindowsServer 2016-Datacenter-with-Containers](service-fabric-cluster-creation-via-portal.md)를 선택합니다.
-  * 버전에 *x.x.16299.x*가 포함되어 있으면 *클러스터를 만들* 때 운영 체제에 대해 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers](service-fabric-cluster-creation-via-portal.md)를 선택합니다.
+* 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택합니다.
+  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 선택합니다.
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
@@ -120,7 +109,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 다음 명령을 실행합니다.
+`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 다음 명령 실행:
 
 ```
 docker build -t helloworldapp .
@@ -200,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Visual Studio에서 컨테이너화된 서비스 만들기
 Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이너를 배포할 수 있는 서비스 템플릿을 제공합니다.
 
-1. Visual Studio를 시작합니다. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+1. Visual Studio를 시작합니다. **File** > **New** > **Project**를 선택합니다.
 2. **Service Fabric 애플리케이션**을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **확인**을 클릭합니다.
 3. **서비스 템플릿** 목록에서 **컨테이너**를 선택합니다.
 4. **이미지 이름**에서 컨테이너 리포지토리에 푸시된 이미지인 "myregistry.azurecr.io/samples/helloworldapp"을 입력합니다.
@@ -249,7 +238,7 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>컨테이너 포트-호스트 포트 매핑 및 컨테이너-컨테이너 검색 구성
-컨테이너와 통신하는 데 사용되는 호스트 포트를 구성합니다. 포트를 바인딩하면 서비스가 컨테이너 내에서 수신 대기 중인 포트를 호스트의 포트에 매핑합니다. ApplicationManifest.xml 파일의 `PortBinding` 요소에 `ContainerHostPolicies` 요소를 추가합니다. 이 문서에서 `ContainerPort`는 80(Dockerfile에서 지정된 대로 컨테이너에서 80 포트를 노출함)이고, `EndpointRef`는 "Guest1TypeEndpoint"(이전에 서비스 매니페스트에서 정의된 끝점임)입니다. 8081 포트에서 서비스로 들어오는 요청은 컨테이너의 80 포트에 매핑됩니다.
+컨테이너와 통신하는 데 사용되는 호스트 포트를 구성합니다. 포트를 바인딩하면 서비스가 컨테이너 내에서 수신 대기 중인 포트를 호스트의 포트에 매핑합니다. ApplicationManifest.xml 파일의 `ContainerHostPolicies` 요소에 `PortBinding` 요소를 추가합니다. 이 문서에서 `ContainerPort`는 80(Dockerfile에서 지정된 대로 컨테이너에서 80 포트를 노출함)이고, `EndpointRef`는 "Guest1TypeEndpoint"(이전에 서비스 매니페스트에서 정의된 엔드포인트임)입니다. 8081 포트에서 서비스로 들어오는 요청은 컨테이너의 80 포트에 매핑됩니다.
 
 ```xml
 <ServiceManifestImport>
@@ -294,7 +283,7 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 ```
 ## <a name="configure-docker-healthcheck"></a>Docker HEALTHCHECK 구성 
 
-v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. **health_status**가 [healthy](service-fabric-visualizing-your-cluster.md)이면 *Service Fabric Explorer*에서 *OK* 상태 보고서가 표시되고, **health_status**가 *unhealthy*이면 *경고*가 표시됩니다. 
+v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
 
 V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하도록 설정 하면 *health_status* *정상* **상태 이면 정상 상태** 보고서가 표시 되 고 *health_status* *비정상*상태 이면 **오류가** 표시 됩니다.
 
@@ -331,7 +320,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 ## <a name="deploy-the-container-application"></a>컨테이너 애플리케이션 배포
 모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예: `containercluster.westus2.cloudapp.azure.com:19000` [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. `containercluster.westus2.cloudapp.azure.com:19000`)을 입력합니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
 **게시**를 클릭합니다.
 

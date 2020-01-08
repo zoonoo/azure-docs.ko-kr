@@ -12,20 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 12/17/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 0725b4fc80fc3a41491bdb9ed084d33b36b490b8
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213096"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378265"
 ---
 # <a name="registration-management"></a>등록 관리
-
-## <a name="overview"></a>개요
 
 이 항목에서는 푸시 알림을 받기 위해 알림 허브에 디바이스를 등록하는 방법에 대해 설명합니다. 먼저 높은 수준에서 등록을 설명한 다음 디바이스를 등록하는 두 가지 주 패턴, 즉 디바이스에서 알림 허브에 직접 등록 및 애플리케이션 백 엔드를 통해 등록을 소개합니다.
 
@@ -35,22 +33,22 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 
 ### <a name="registrations"></a>등록
 
-등록은 태그 및 아마도 템플릿을 가진 디바이스에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 디바이스 토큰 또는 FCM 등록 ID일 수 있습니다. 태그는 디바이스 핸들의 정확한 집합에 알림을 올바른 디바이스 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
+등록은 태그 및 아마도 템플릿을 가진 디바이스에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 장치 토큰 또는 FCM 등록 id가 될 수 있습니다. 태그는 올바른 장치 핸들 집합으로 알림을 라우팅하는 데 사용 됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
 
 > [!NOTE]
 > Azure Notification Hubs은 장치당 최대 60 개의 태그를 지원 합니다.
 
 ### <a name="installations"></a>설치
 
-설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 디바이스 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다.  즉, 클라이언트 디바이스 자체에서 등록하는 경우 설치를 지원하기 위해 [Notification Hubs REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
+설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 디바이스 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다.  즉, 클라이언트 디바이스 자체에서 등록하는 경우 설치를 지원하기 위해 [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
 
 설치 사용의 몇 가지 주요 장점은 다음과 같습니다.
 
 - 설치 만들기 또는 업데이트가 완전히 멱등 상태입니다. 따라서 중복 등록을 걱정할 필요 없이 재시도할 수 있습니다.
-- 설치 모델은 특정 장치로 직접 알림을 보낼 수`$InstallationId:{INSTALLATION_ID}`있는 특수 태그 형식 ()을 지원 합니다. 예를 들어 앱의 코드가이 특정 장치에 대 한의 `joe93developer` 설치 ID를 설정 하는 경우 개발자는 `$InstallationId:{joe93developer}` 태그에 알림을 보낼 때이 장치를 대상으로 지정할 수 있습니다. 이렇게 하면 추가 코딩을 수행할 필요 없이 특정 장치를 대상으로 지정할 수 있습니다.
+- 설치 모델은 특정 장치로 직접 알림을 보낼 수 있는 특수 태그 형식 (`$InstallationId:{INSTALLATION_ID}`)을 지원 합니다. 예를 들어 앱의 코드가이 특정 장치에 대 한 `joe93developer`의 설치 ID를 설정 하는 경우 개발자는 `$InstallationId:{joe93developer}` 태그에 알림을 보낼 때이 장치를 대상으로 지정할 수 있습니다. 이렇게 하면 추가 코딩을 수행할 필요 없이 특정 장치를 대상으로 지정할 수 있습니다.
 - 또한 설치를 사용하여 부분적인 등록 업데이트를 수행할 수도 있습니다. 설치의 부분 업데이트는 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902)을 사용하여 PATCH 메서드에서 요청됩니다. 이는 등록 시 태그를 업데이트하려고 할 때 유용합니다. 전체 등록을 풀다운한 다음 모든 이전 태그를 다시 보낼 필요가 없습니다.
 
-설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 또는 [설치 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation)을 참조하세요.
+설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](/rest/api/notificationhubs/create-overwrite-installation) 또는 [설치 속성](/dotnet/api/microsoft.azure.notificationhubs.installation)을 참조하세요.
 
 ```json
 // Example installation format to show some supported properties
@@ -100,7 +98,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 
 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하려면 디바이스 설치에서 해당 디바이스와 연결된 모든 템플릿을 JSON 형식으로 유지합니다(위 샘플 참조). 템플릿 이름은는 동일한 디바이스에 대한 서로 다른 템플릿을 대상 도움이 됩니다.
 
-각 템플릿 이름은 템플릿 본문 및 선택적 태그 집합에 매핑됩니다. 또한 각 플랫폼이 추가 템플릿 속성을 가질 수 있습니다. Windows 스토어(WNS 사용) 및 Windows Phone 8(MPNS 사용)의 경우 추가 헤더 집합이 템플릿의 일부일 수 있습니다. APN의 경우 만료 속성을 상수 또는 템플릿 식으로 설정할 수 있습니다. 설치 속성의 전체 목록은 [REST를 사용하여 설치 만들기 또는 덮어쓰기](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 항목을 참조하세요.
+각 템플릿 이름은 템플릿 본문 및 선택적 태그 집합에 매핑됩니다. 또한 각 플랫폼이 추가 템플릿 속성을 가질 수 있습니다. Windows 스토어(WNS 사용) 및 Windows Phone 8(MPNS 사용)의 경우 추가 헤더 집합이 템플릿의 일부일 수 있습니다. APN의 경우 만료 속성을 상수 또는 템플릿 식으로 설정할 수 있습니다. 설치 속성의 전체 목록은 [REST를 사용하여 설치 만들기 또는 덮어쓰기](/rest/api/notificationhubs/create-overwrite-installation) 항목을 참조하세요.
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Windows 스토어 앱용 보조 타일
 
@@ -112,7 +110,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 클라이언트 앱에서 디바이스 등록을 관리하는 경우 백 엔드만는 알림을 보내기만 합니다. 클라이언트 앱은 PNS 핸들을 최신 상태로 유지하고 태그를 등록합니다. 다음 그림은 이 패턴을 보여 줍니다.
 
-![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
+![장치에서 등록](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 디바이스는 먼저 PNS에서 PNS 핸들을 검색한 다음 알림 허브에 직접 등록합니다. 등록이 성공한 후 앱 백 엔드는 해당 등록을 대상으로 지정하는 알림을 보낼 수 있습니다. 알림을 보내는 방법에 대한 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
@@ -125,11 +123,11 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>설치를 사용하여 디바이스에서 알림 허브에 등록하는 예제 코드
 
-현재 이 기능은 [Notification Hubs REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)를 사용해서만 지원됩니다.
+현재 이 기능은 [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation)를 사용해서만 지원됩니다.
 
 설치를 업데이트하는 경우 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902) 을 사용하여 PATCH 메서드를 사용할 수도 있습니다.
 
-```
+```csharp
 class DeviceInstallation
 {
     public string installationId { get; set; }
@@ -210,7 +208,7 @@ else
 
 이러한 메서드는 호출되는 디바이스에 대한 등록을 만들거나 업데이트합니다. 즉, 핸들이나 태그를 업데이트하려면 전체 등록을 덮어써야 합니다. 참고로 등록은 일시적이므로 언제나 특정 디바이스에 필요한 현재 태그와 함께 신뢰할 수 있는 저장소가 있어야 합니다.
 
-```
+```csharp
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
@@ -265,17 +263,17 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 백 엔드에서 등록을 관리하려면 추가 코드를 작성해야 합니다. 디바이스의 앱은 앱이 시작될 때마다 업데이트된 PNS 핸들을 백 엔드에 제공해야 하며(태그 및 템플릿과 함께), 백 엔드는 알림 허브에 대해 이 핸들을 업데이트해야 합니다. 다음 그림은 이 디자인을 보여 줍니다.
 
-![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
+![등록 관리](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
 백 엔드에서 등록을 관리할 경우의 이점은 디바이스의 해당 앱이 비활성화되었을 때에도 등록에 대한 태그를 수정할 수 있고 태그를 등록에 추가하기 전에 클라이언트 앱을 인증할 수 있다는 것입니다.
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>설치를 사용하여 백 엔드에서 알림 허브에 등록하는 예제 코드
 
-클라이언트 디바이스는 여전히 해당 PNS 핸들 및 관련 설치 속성을 전과 같이 가져오며 등록을 수행하고 태그 등에 권한을 부여할 수 있는 백 엔드의 사용자 지정 API를 호출합니다. 백 엔드는 [백 엔드 작업용 Notification Hub SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 활용할 수 있습니다.
+클라이언트 장치는 이전과 마찬가지로 PNS 핸들 및 관련 설치 속성을 가져오고, 등록 및 권한 부여를 수행할 수 있는 백 엔드에서 사용자 지정 API를 호출 합니다. 백 엔드는 [백 엔드 작업에 Notification HUBS SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 활용할 수 있습니다.
 
 설치를 업데이트하는 경우 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902) 을 사용하여 PATCH 메서드를 사용할 수도 있습니다.
 
-```
+```csharp
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
@@ -319,9 +317,9 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>등록 ID를 사용하여 디바이스에서 알림 허브에 등록하는 예제 코드
 
-앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예:
 
-```
+```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
 // create a registration description object of the correct type, e.g.
