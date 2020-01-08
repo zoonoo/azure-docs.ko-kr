@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372740"
 ---
 # <a name="vlans-and-subnets-overview"></a>Vlan 및 서브넷 개요
 
@@ -38,7 +38,7 @@ CloudSimple은 CloudSimple 서비스가 배포 되는 지역 당 네트워크를
 * 최소 vSphere/Vsphere 서브넷 CIDR 범위 접두사: **/24**
 * 최대 vSphere/Vsphere 서브넷 CIDR 범위 접두사: **/21**
 
-> [!IMPORTANT]
+> [!CAUTION]
 > VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다.  가상 머신에서는이 범위의 IP 주소를 사용 하지 마세요.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/Vsphere 서브넷 CIDR 범위 제한
@@ -58,7 +58,7 @@ VSphere/Vsphere 서브넷 CIDR 범위 크기를 선택 하면 사설 클라우�
 
 * **시스템 관리**. ESXi 호스트의 관리 네트워크, DNS 서버, vCenter server에 대 한 VLAN 및 서브넷.
 * **VMotion**. ESXi 호스트의 vMotion 네트워크에 대 한 VLAN 및 서브넷.
-* **VSAN**. ESXi 호스트의 vSAN 네트워크에 대 한 VLAN 및 서브넷.
+* **Vsan**. ESXi 호스트의 vSAN 네트워크에 대 한 VLAN 및 서브넷.
 * **NsxtEdgeUplink1**. Vlan 및 외부 네트워크에 대 한 VLAN 업링크 서브넷
 * **NsxtEdgeUplink2**. Vlan 및 외부 네트워크에 대 한 VLAN 업링크 서브넷
 * **NsxtEdgeTransport**. 전송 영역에 대 한 VLAN 및 서브넷은 NSX의 계층 2 네트워크에 대 한 연결을 제어 합니다.
@@ -68,7 +68,7 @@ VSphere/Vsphere 서브넷 CIDR 범위 크기를 선택 하면 사설 클라우�
 
 지정 된 vSphere/Vsphere 서브넷 CIDR 범위는 여러 서브넷으로 나뉩니다.  다음 표에서는 허용 된 접두사에 대 한 분석의 예를 보여 줍니다.  이 예에서는 CIDR 범위로 192.168.0.0을 사용 합니다.
 
-예제:
+예:
 
 | 지정 된 vSphere/Vsphere 서브넷 CIDR/접두사 | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
 |---------------------------------|----------------|----------------|----------------|----------------|

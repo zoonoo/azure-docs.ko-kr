@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: dd2c29632d70da64251c5e1736a9cb7d82f5d0dc
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440957"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>종동체 데이터베이스를 사용 하 여 Azure 데이터 탐색기에 데이터베이스 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "74667344"
 * 단일 클러스터는 여러 개의 리더 클러스터에서 데이터베이스를 따라갈 수 있습니다. 
 * 클러스터에는 종동체 데이터베이스와 리더 데이터베이스가 모두 포함 될 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 1. 리더 및 종동체에 대 한 [클러스터 및 DB를 만듭니다](/azure/data-explorer/create-cluster-database-portal) .
@@ -43,7 +43,7 @@ ms.locfileid: "74667344"
 * [Microsoft. ..kusto를](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)설치 합니다.
 * [인증을 위해 Microsoft Azure 인증을](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)설치 합니다.
 
-#### <a name="code-example"></a>코드 예제
+#### <a name="code-example"></a>코드 예
 
 ```Csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -86,7 +86,7 @@ pip install azure-common
 pip install azure-mgmt-kusto
 ```
 
-#### <a name="code-example"></a>코드 예제
+#### <a name="code-example"></a>코드 예
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 데이터베이스 연결
 
-이 섹션에서는 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md)사용 하 여 데이터베이스를 연결 하는 방법에 대해 알아봅니다. 
+이 섹션에서는 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md)사용 하 여 데이터베이스를 연결 하는 방법에 대해 알아봅니다. 
 
 ```json
 {
@@ -376,13 +376,13 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 
 |**종류** |**설명**  |
 |---------|---------|
-|**부분**     |   연결 된 데이터베이스 보안 주체에는 항상 원래 데이터베이스 보안 주체와 종동체 데이터베이스에 추가 된 새 보안 주체가 모두 포함 됩니다.      |
-|**Replace**   |    원본 데이터베이스의 보안 주체를 상속 하지 않습니다. 연결 된 데이터베이스에 대 한 새 보안 주체를 만들어야 합니다.     |
+|**Union**     |   연결 된 데이터베이스 보안 주체에는 항상 원래 데이터베이스 보안 주체와 종동체 데이터베이스에 추가 된 새 보안 주체가 모두 포함 됩니다.      |
+|**바꾸기**   |    원본 데이터베이스의 보안 주체를 상속 하지 않습니다. 연결 된 데이터베이스에 대 한 새 보안 주체를 만들어야 합니다.     |
 |**없음**   |   연결 된 데이터베이스 보안 주체에는 추가 보안 주체가 없는 원래 데이터베이스의 보안 주체만 포함 됩니다.      |
 
 제어 명령을 사용 하 여 권한이 부여 된 보안 주체를 구성 하는 방법에 대 한 자세한 내용은 [종동체 클러스터를 관리 하기 위한 제어 명령](/azure/kusto/management/cluster-follower)을 참조 하세요.
 
-### <a name="manage-permissions"></a>권한 관리
+### <a name="manage-permissions"></a>사용 권한 관리
 
 읽기 전용 데이터베이스 권한을 관리 하는 것은 모든 데이터베이스 유형의 경우와 동일 합니다. [Azure Portal에서 관리 권한을](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal)참조 하세요.
 

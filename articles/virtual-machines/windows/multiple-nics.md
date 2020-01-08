@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 0e826442c816f83c875b907bbf3054793ebb382a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358278"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>여러 NIC가 있는 Windows 가상 컴퓨터 만들기 및 관리
 Azure의 VM(가상 머신)에는 여러 가상 NIC(네트워크 인터페이스 카드)가 연결될 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 대한 다른 서브넷을 포함하는 것입니다. VM의 여러 NIC를 여러 서브넷에 연결할 수 있지만 해당 서브넷은 모두 동일한 가상 네트워크(vNet)에 상주해야 합니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 방법을 설명합니다. 또한 기존 VM에서 NIC를 추가하거나 제거하는 방법을 알아봅니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
@@ -139,7 +139,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. 다음 예제에서는 [mySubnetBackEnd](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface)에 연결된 *myNic3*이라는 *New-AzNetworkInterface*를 사용하여 가상 NIC를 만듭니다. 그런 다음, *Add-AzVMNetworkInterface*를 사용하여 *myResourceGroup*에서 [myVM](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)이라는 VM에 가상 NIC를 연결합니다.
+3. 다음 예제에서는 *mySubnetBackEnd*에 연결된 *myNic3*이라는 [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface)를 사용하여 가상 NIC를 만듭니다. 그런 다음, [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)를 사용하여 *myResourceGroup*에서 *myVM*이라는 VM에 가상 NIC를 연결합니다.
 
     ```powershell
     # Get info for the back end subnet
@@ -204,7 +204,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface)를 사용하여 NIC를 제거한 다음, [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm)을 사용하여 VM을 업데이트합니다. 다음 예제에서는 이전 단계에서 *를 사용하여 가져온* myNic3`$nicId`을 제거합니다.
+4. [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface)를 사용하여 NIC를 제거한 다음, [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm)을 사용하여 VM을 업데이트합니다. 다음 예제에서는 이전 단계에서 `$nicId`를 사용하여 가져온 *myNic3*을 제거합니다.
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
@@ -218,7 +218,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     ```   
 
 ## <a name="create-multiple-nics-with-templates"></a>템플릿을 사용하여 여러 NIC 만들기
-Azure Resource Manager 템플릿은 여러 NIC를 만드는 것과 같이 배포하는 동안 리소스의 여러 인스턴스를 만드는 방법을 제공합니다. Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경을 정의합니다. 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요. *복사* 를 사용하여 만들 인스턴스 수를 지정할 수 있습니다.
+Azure Resource Manager 템플릿은 여러 NIC를 만드는 것과 같이 배포하는 동안 리소스의 여러 인스턴스를 만드는 방법을 제공합니다. Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경을 정의합니다. 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요. *복사* 를 사용하여 만들 인스턴스 수를 지정할 수 있습니다.
 
 ```json
 "copy": {
@@ -291,7 +291,7 @@ Azure에서는 가상 머신에 연결된 첫 번째(기본) 네트워크 인터
               0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
     ```
 
-    *게이트웨이* 아래에 **192.168.1.1**로 나열된 경로는 기본적으로 기본 네트워크 인터페이스용 경로입니다. *게이트웨이* 아래에서 **192.168.2.1**인 경로가 추가한 경로입니다.
+    **게이트웨이** 아래에 *192.168.1.1*로 나열된 경로는 기본적으로 기본 네트워크 인터페이스용 경로입니다. **게이트웨이** 아래에서 *192.168.2.1*인 경로가 추가한 경로입니다.
 
 ## <a name="next-steps"></a>다음 단계
 여러 NIC가 있는 VM을 만들 때 [Windows VM 크기](sizes.md)를 검토합니다. 각 VM 크기가 지원하는 NIC의 최대 수에 유의합니다. 

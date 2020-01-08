@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe116b5ae26522c9bce0322123836a6e08d3cfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424488"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기
 
@@ -36,7 +36,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Azure Portal을 사용하여 앱 역할 선언
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 위쪽 막대에서 내 계정을 선택한 다음, **디렉터리 전환**을 선택합니다.
 1. **디렉터리 + 구독** 창이 열리면 **즐겨찾기** 또는 **모든 디렉터리** 목록에서 애플리케이션에 등록할 Active Directory 테넌트를 선택합니다.
 1. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
@@ -125,7 +125,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 - [Azure AD 애플리케이션 역할 &amp; 역할 클레임을 사용하여 웹 앱에서 권한 부여(샘플)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
 - [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
-- [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
+- [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [AAD 액세스 토큰](access-tokens.md)
 - [AAD `id_tokens`](id-tokens.md)

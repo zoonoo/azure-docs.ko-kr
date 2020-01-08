@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 068747fd51779bd8a20636355a9ce2b032f6151d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8a371f902703287ed3105ed53a57d6341b9528d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415102"
 ---
 # <a name="get-help-with-your-system"></a>시스템 지원 받기
 
@@ -19,13 +19,13 @@ Avere vFXT for Azure에 대한 도움이 필요한 경우 지원을 받을 수 �
 
 * **Avere vFXT 문제** - [아래](#open-a-support-ticket-for-your-avere-vfxt)에서 설명한 대로 Azure Portal을 사용하여 Avere vFXT에 대한 지원 티켓을 엽니다.
 * **할당량** - 할당량 관련 문제가 있으면 [할당량 증가를 요청](#request-a-quota-increase)합니다.
-* **설명서 및 예제** - 이 설명서 또는 예제에 문제가 있으면, 문제가 있는 페이지에서 아래쪽으로 스크롤하고 **피드백** 섹션을 사용하여 기존 문제를 검색하고 필요한 경우 새 문제를 제출합니다.  
+* **설명서 및 예제** - 이 설명서 또는 예제에 문제가 있으면, 문제가 있는 페이지에서 아래쪽으로 스크롤하고 **피드백** 섹션을 사용하여 기존 문제를 검색하고 필요한 경우 새 문제를 제출합니다.
 
 ## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Avere vFXT에 대한 지원 티켓 열기
 
-Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure Portal을 통해 지원을 요청합니다.  
+Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure Portal을 통해 지원을 요청합니다.
 
-다음 단계에 따라 지원 티켓의 태그가 클러스터의 리소스로 지정되었는지 확인합니다. 티켓에 태그를 지정하면 올바른 지원 리소스로 라우팅하는 데 도움이 됩니다. 
+다음 단계에 따라 지원 티켓의 태그가 클러스터의 리소스로 지정되었는지 확인합니다. 티켓에 태그를 지정하면 올바른 지원 리소스로 라우팅하는 데 도움이 됩니다.
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 **리소스 그룹**을 선택합니다.
 
@@ -43,7 +43,7 @@ Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure P
 
     !["기본 사항" 머리글 및 주위가 원으로 표시된 "서비스" 항목이 있는 Azure Portal 새 지원 요청 화면의 스크린샷. "모든 서비스" 단추가 선택되고 드롭다운 메뉴 필드의 값이 "Avere vFXT"입니다.](media/avere-vfxt-ticket-service.png)
 
-1. 두 번째 페이지에서 문제와 가장 가깝게 일치하는 문제 유형과 범주를 선택합니다. 문제가 발생한 시간이 포함된 짧은 제목과 설명을 추가합니다. 
+1. 두 번째 페이지에서 문제와 가장 가깝게 일치하는 문제 유형과 범주를 선택합니다. 문제가 발생한 시간이 포함된 짧은 제목과 설명을 추가합니다.
 
    !["문제" 머리글이 있는 새 지원 요청 화면의 스크린샷(완성해야 하는 많은 필드가 있음)](media/avere-vfxt-ticket-problem.png)
 

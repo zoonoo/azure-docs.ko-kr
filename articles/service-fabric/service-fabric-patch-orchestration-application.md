@@ -1,9 +1,9 @@
 ---
-title: Service Fabric 클러스터에서 Windows 운영 체제 패치 | Microsoft Docs
+title: Service Fabric 클러스터에서 Windows 운영 체제 패치
 description: 이 문서에서는 패치 오케스트레이션 응용 프로그램을 사용 하 여 Service Fabric 클러스터에서 운영 체제 패치를 자동화 하는 방법을 설명 합니다.
 services: service-fabric
 documentationcenter: .net
-author: khandelwalbrijeshiitr
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
-ms.author: brkhande
-ms.openlocfilehash: a02228593a9d8efc9fb363232da1cede3c80a8b3
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.author: atsenthi
+ms.openlocfilehash: 3115c65c7027f5624b7b60b9be702ee4192d8cb6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464455"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -63,7 +63,7 @@ POA는 다음과 같은 하위 구성 요소로 구성 됩니다.
 > [!NOTE]
 > POA는 Service Fabric Repair Manager 서비스를 사용 하 여 노드를 사용 하지 않도록 설정 하거나 사용 하도록 설정 하 고 상태 검사를 수행 합니다. POA에서 만든 복구 작업은 각 노드에 대 한 Windows 업데이트 진행률을 추적 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 > [!NOTE]
 > 필요한 최소 .NET Framework 버전은 4.6입니다.
@@ -98,7 +98,7 @@ POA를 사용 하려면 클러스터에서 Repair Manager 서비스를 사용 �
     }
     ```
 
-1. @No__t_1 섹션 뒤에 다음 `addonFeatures` 섹션을 추가 하 여 Repair Manager 서비스를 사용 하도록 설정 합니다.
+1. `fabricSettings` 섹션 뒤에 다음 `addonFeatures` 섹션을 추가 하 여 Repair Manager 서비스를 사용 하도록 설정 합니다.
 
     ```json
     "fabricSettings": [
@@ -153,20 +153,20 @@ Repair Manager 서비스를 사용 하도록 설정 하려면
 
 ## <a name="configure-poa-behavior"></a>POA 동작 구성
 
-요구 사항에 맞게 POA 동작을 구성할 수 있습니다. 응용 프로그램을 만들거나 업데이트 하는 동안 응용 프로그램 매개 변수를 전달 하 여 기본값을 재정의 합니다. @No__t_1 또는 `New-ServiceFabricApplication` cmdlet에 `ApplicationParameter`를 지정 하 여 응용 프로그램 매개 변수를 제공할 수 있습니다.
+요구 사항에 맞게 POA 동작을 구성할 수 있습니다. 응용 프로그램을 만들거나 업데이트 하는 동안 응용 프로그램 매개 변수를 전달 하 여 기본값을 재정의 합니다. `Start-ServiceFabricApplicationUpgrade` 또는 `New-ServiceFabricApplication` cmdlet에 `ApplicationParameter`를 지정 하 여 응용 프로그램 매개 변수를 제공할 수 있습니다.
 
-| 매개 변수를 포함해야 합니다.        | Type                          | 세부 정보 |
+| 매개 변수        | 유형                          | 세부 정보 |
 |:-|-|-|
-|MaxResultsToCache    |장기                              | 캐시 해야 하는 Windows 업데이트 결과의 최대 수입니다. <br><br>기본값은 3000입니다. <br> &nbsp; &nbsp;-노드 수는 20 개입니다. <br> &nbsp; &nbsp;-월별 노드에 대 한 업데이트 수는 5 개입니다. <br> &nbsp; &nbsp;-작업당 결과 수는 10 개입니다. <br> &nbsp; &nbsp;-지난 3 개월 동안의 결과를 저장 해야 합니다. |
-|TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br><br>허용 되는 값은 다음과 같습니다. <br>*Nodewise*: Windows update는 한 번에 하나의 노드에 설치 됩니다. <br> *Upgradedomainwise*: Windows 업데이트는 한 번에 하나의 업데이트 도메인에 설치 됩니다. (대부분의 경우 업데이트 도메인에 속하는 모든 노드에서 Windows 업데이트를 사용할 수 있습니다.)<br><br> 클러스터에 가장 적합 한 정책을 결정 하는 데 도움이 필요 하면 [FAQ](#frequently-asked-questions) 섹션을 참조 하세요.
+|MaxResultsToCache    |장기                              | 캐시 해야 하는 Windows 업데이트 결과의 최대 수입니다. <br><br>기본값은 3000입니다. <br> &nbsp;&nbsp;-노드 수는 20 개입니다. <br> &nbsp;&nbsp;-월별 노드에 대 한 업데이트 수는 5 개입니다. <br> &nbsp;&nbsp;-작업당 결과 수는 10 개입니다. <br> &nbsp;&nbsp;-지난 3 개월 동안의 결과를 저장 해야 합니다. |
+|TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br><br>허용되는 값은 다음과 같습니다. <br>*Nodewise*: Windows update는 한 번에 하나의 노드에 설치 됩니다. <br> *Upgradedomainwise*: Windows 업데이트는 한 번에 하나의 업데이트 도메인에 설치 됩니다. (대부분의 경우 업데이트 도메인에 속하는 모든 노드에서 Windows 업데이트를 사용할 수 있습니다.)<br><br> 클러스터에 가장 적합 한 정책을 결정 하는 데 도움이 필요 하면 [FAQ](#frequently-asked-questions) 섹션을 참조 하세요.
 |LogsDiskQuotaInMB   |장기  <br> (기본값: *1024*)               | 패치 오케스트레이션 앱 로그의 최대 크기 (MB)로, 노드에서 로컬로 유지 될 수 있습니다.
 | WUQuery               | 문자열<br>(기본값: *Isinstalled = 0*)                | Windows 업데이트를 가져올 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
 | InstallWindowsOSOnlyUpdates | *Boolean* <br> (기본값: false)                 | 이 플래그를 사용하여 다운로드하고 설치해야 하는 업데이트를 제어합니다. 다음 값이 허용됩니다. <br>true - Windows 운영 체제 업데이트만 설치합니다.<br>false - 컴퓨터에서 사용 가능한 모든 업데이트를 설치합니다.          |
 | WUOperationTimeOutInMinutes | Int <br>(기본값: *90*)                   | Windows 업데이트 작업에 대한 시간 제한을 지정합니다(검색, 다운로드 또는 설치). 지정된 시간 제한 내에 작업이 완료되지 않으면 중단됩니다.       |
 | WURescheduleCount     | Int <br> (기본값: *5*)                  | 작업이 영구적으로 실패 하는 경우 서비스에서 Windows 업데이트를 예약 하는 최대 횟수입니다.          |
 | WURescheduleTimeInMinutes | Int <br>(기본값: *30*) | 오류가 계속 발생 하는 경우 서비스에서 Windows 업데이트를 예약 하는 간격입니다. |
-| WUFrequency           | 쉼표로 구분 된 문자열 (기본값: *매주, 수요일, 7:00:00*)     | Windows 업데이트를 설치 하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>&nbsp; &nbsp;-매월: DD, HH: MM: SS (예: *매월, 5, 12:22:32*)<br>필드 DD (일)에 허용 되는 값은 1부터 28 까지의 숫자 이며 "last"입니다. <br> &nbsp; &nbsp;-주별, DAY, HH: MM: SS (예: *매주, 화요일, 12:22:32*)  <br> &nbsp; &nbsp;-매일, HH: MM: SS (예: *매일, 12:22:32*)  <br> &nbsp; &nbsp; -  *없음* 은 Windows 업데이트를 수행 하지 않음을 나타냅니다.  <br><br> 시간은 UTC 단위입니다.|
-| AcceptWindowsUpdateEula | Boolean <br>(기본값: *true*) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
+| WUFrequency           | 쉼표로 구분 된 문자열 (기본값: *매주, 수요일, 7:00:00*)     | Windows 업데이트를 설치 하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>&nbsp;&nbsp;-매월: DD, HH: MM: SS (예: *매월, 5, 12:22:32*)<br>필드 DD (일)에 허용 되는 값은 1부터 28 까지의 숫자 이며 "last"입니다. <br> &nbsp;&nbsp;-주별, DAY, HH: MM: SS (예: *매주, 화요일, 12:22:32*)  <br> &nbsp;&nbsp;-매일, HH: MM: SS (예: *매일, 12:22:32*)  <br> &nbsp;&nbsp;-  *없음* 은 Windows 업데이트를 수행 하지 않음을 나타냅니다.  <br><br> 시간은 UTC 단위입니다.|
+| AcceptWindowsUpdateEula | 부울 <br>(기본값: *true*) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
 
 > [!TIP]
 > Windows 업데이트를 즉시 수행 하려면 응용 프로그램 배포 시간을 기준으로 `WUFrequency`를 설정 합니다. 예를 들어 5노드 테스트 클러스터가 있고 약 5PM UTC에 앱을 배포할 계획이라고 가정할 수 있습니다. 응용 프로그램 업그레이드 또는 배포에 30 분이 소요 된다고 가정 하면 WUFrequency을 *매일, 17:30:00*로 설정 합니다.
@@ -248,7 +248,7 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
 업데이트가 아직 예약되어 있지 않으면 결과 JSON은 비어 있습니다.
 
-클러스터에 로그인 하 Windows 업데이트 결과를 쿼리 합니다. 코디네이터 서비스의 기본 주소에 대 한 복제본 IP 주소를 확인 하 고 브라우저에서 다음 URL을 엽니다. http://&lt;REPLICA-IP &gt;: &lt;ApplicationPort &gt;/PatchOrchestrationApplication/v1/ GetWindowsUpdateResults.
+클러스터에 로그인 하 Windows 업데이트 결과를 쿼리 합니다. 코디네이터 서비스의 기본 주소에 대 한 복제본 IP 주소를 확인 하 고 브라우저에서 다음 URL을 엽니다. http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
 코디네이터 서비스의 REST 엔드포인트에는 동적 포트가 있습니다. 정확한 URL을 확인 하려면 Service Fabric Explorer를 참조 하세요. 예를 들어 *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults* 에서 결과를 사용할 수 있습니다.
 
@@ -256,7 +256,7 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
 클러스터에서 역방향 프록시를 사용 하는 경우 클러스터 외부에서 URL에도 액세스할 수 있습니다.
 
-적중 해야 하는 끝점은 *http://&lt;SERVERURL &gt;: &lt;REVERSEPROXYPORT &gt;/patchorchestrationapplication/coordinatorservice/v1/getwindowsupdateresults*입니다.
+적중 해야 하는 끝점은 *http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*입니다.
 
 클러스터에서 역방향 프록시를 사용 하도록 설정 하려면 [Azure의 역방향 프록시 Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)에 있는 지침을 따르세요. 
 
@@ -277,15 +277,15 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
 1. NodeAgentNTService는 모든 노드에서 실행 되며 예약 된 시간에 사용 가능한 Windows 업데이트를 찾습니다. 업데이트를 사용할 수 있는 경우 해당 업데이트를 노드에서 다운로드 합니다.
 
-1. 업데이트를 다운로드 한 후 노드 에이전트 NTService는 *POS___ \<unique_id >* 이름으로 노드에 대 한 해당 복구 작업을 만듭니다. [ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) cmdlet을 사용 하거나 노드 세부 정보 섹션에서 SFX를 사용 하 여 이러한 복구 작업을 볼 수 있습니다. 복구 작업을 만든 후에는 [ *요청* 된 상태로](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet)신속 하 게 이동 합니다.
+1. 업데이트를 다운로드 한 후 노드 에이전트 NTService는 *POS___\<unique_id >* 이름으로 노드에 대 한 해당 복구 작업을 만듭니다. [ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) cmdlet을 사용 하거나 노드 세부 정보 섹션에서 SFX를 사용 하 여 이러한 복구 작업을 볼 수 있습니다. 복구 작업을 만든 후에는 [ *요청* 된 상태로](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet)신속 하 게 이동 합니다.
 
 1. 코디네이터 서비스는 주기적으로 *요청* 된 상태에서 복구 작업을 찾은 다음 TaskApprovalPolicy에 따라 상태를 *준비* 하도록 업데이트 합니다. TaskApprovalPolicy가 NodeWise로 구성 된 경우에는 현재 준비, *승인 됨*, *실행* *중*또는 *복원* 중인 다른 복구 작업이 없는 경우에만 노드에 해당 하는 복구 작업이 준비 됩니다. 
 
    마찬가지로 UpgradeWise TaskApprovalPolicy의 경우 동일한 업데이트 도메인에 속하는 노드에 대해서만 위의 상태에 있는 태스크가 있습니다. 복구 작업이 상태 *준비* 로 이동 된 후에는 해당 하는 Service Fabric 노드가 *다시 시작*되도록 설정 된 상태로 [사용 하지 않도록](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) 설정 됩니다.
 
-   1\.4.0 나중에 ClusterPatchingStatus 속성을 사용 하 여 이벤트를 게시 하 여 패치 중인 노드를 표시 합니다. 업데이트는 다음 이미지에 표시 된 것 처럼 _poanode_0에 설치 됩니다.
+   1\.4.0 나중에 ClusterPatchingStatus 속성을 사용 하 여 이벤트를 게시 하 여 패치 중인 노드를 표시 합니다. 업데이트는 다음 이미지와 같이 _poanode_0에 설치 됩니다.
 
-    [클러스터 패치 상태 ![Image](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+    [클러스터 패치 상태의 ![이미지](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
 
 1. 노드를 사용 하지 않도록 설정 하면 복구 작업이 *실행* 중 상태로 이동 합니다. 
    
@@ -294,15 +294,15 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
 1. 복구 작업이 *실행* 중 상태 이면 해당 노드에 대 한 패치 설치가 시작 됩니다. 패치를 설치 하 고 나면 패치에 따라 노드가 다시 시작 되거나 다시 시작 되지 않을 수 있습니다. 그런 다음 복구 작업을 *복원* 상태로 이동 하 여 노드를 다시 합니다. 그런 다음 복구 작업이 완료로 표시 됩니다.
 
-   POA 버전 1.4.0 이상에서는 \<NodeName WUOperationStatus > 속성을 사용 하 여 NodeAgentService에서 상태 이벤트를 확인 하 여 업데이트 상태를 찾을 수 있습니다. 다음 이미지의 강조 표시 된 섹션에서는 *poanode_0* 및 *poanode_2*노드의 Windows 업데이트 상태를 보여 줍니다.
+   POA 버전 1.4.0 이상에서는 WUOperationStatus\<NodeName > 속성을 사용 하 여 NodeAgentService에서 상태 이벤트를 확인 하 여 업데이트 상태를 찾을 수 있습니다. 다음 이미지의 강조 표시 된 섹션에서는 *poanode_0* 및 *poanode_2*노드의 Windows 업데이트 상태를 보여 줍니다.
 
-   [Windows 업데이트 작업 상태 ![Image](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [Windows 업데이트 작업 상태의 ![이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [Windows 업데이트 작업 상태 ![Image](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [Windows 업데이트 작업 상태의 ![이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    PowerShell을 사용 하 여 세부 정보를 가져올 수도 있습니다. 이렇게 하려면 클러스터에 연결 하 고 [ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps)을 사용 하 여 복구 작업의 상태를 가져옵니다. 
    
-   다음 예에서 "POS__poanode_2_125f2969-933c-4774-ebdf85e79f15" 작업은 *Downloadcomplete* 상태에 있습니다. 즉, *poanode_2* 노드에 업데이트가 다운로드 되었으며, 작업을 *실행* 중 상태로 이동할 때 설치를 시도 합니다.
+   다음 예제에서 "POS__poanode_2_125f2969-933c-4774-ebdf85e79f15" 작업은 *Downloadcomplete* 상태에 있습니다. 즉, *poanode_2* 노드에 업데이트가 다운로드 되었으며, 작업을 *실행* 중 상태로 이동할 때 설치를 시도 합니다.
 
    ``` powershell
     D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
@@ -313,22 +313,22 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
    문제가 계속 발생 하면 VM (가상 머신)에 로그인 하 고 Windows 이벤트 로그를 사용 하 여 해당 vm에 대해 알아보세요. 앞에서 언급 한 복구 작업은 다음 executor 하위 작업에만 존재할 수 있습니다.
 
-      ExecutorSubState 방법 | 설명
+      ExecutorSubState 방법 | Description
     -- | -- 
       없음 = 1 |  는 노드에서 진행 중인 작업이 없음을 의미 합니다. 상태가 전환 중일 수 있습니다.
       DownloadCompleted = 2 | 다운로드 작업이 성공, 부분 실패 또는 실패와 함께 완료 되었음을 의미 합니다.
       승인 된 설치 = 3 | 다운로드 작업을 이전에 완료 했으며 Repair Manager 설치를 승인한 것을 의미 합니다.
       설치 Inprogress = 4 | 복구 작업의 실행 상태에 해당 합니다.
       설치 완료 됨 = 5 | 설치 완료 성공, 부분 성공 또는 실패를 의미 합니다.
-      RestartRequested = 6 | 패치 설치가 완료 되었으며 노드에 보류 중인 다시 시작 작업이 있음을 의미 합니다.
-      RestartNotNeeded = 7 |  패치 설치가 완료 된 후 다시 시작이 필요 하지 않음을 의미 합니다.
+      RestartRequested=6 | 패치 설치가 완료 되었으며 노드에 보류 중인 다시 시작 작업이 있음을 의미 합니다.
+      RestartNotNeeded=7 |  패치 설치가 완료 된 후 다시 시작이 필요 하지 않음을 의미 합니다.
       RestartCompleted = 8 | 다시 시작이 성공적으로 완료 되었음을 의미 합니다.
       OperationCompleted = 9 | Windows 업데이트 작업이 성공적으로 완료 되었습니다.
-      OperationAborted 됨 = 10 | Windows 업데이트 작업이 중단 되었음을 나타냅니다.
+      OperationAborted=10 | Windows 업데이트 작업이 중단 되었음을 나타냅니다.
 
 1. POA 버전 1.4.0 이상에서 노드 업데이트 시도가 완료 되 면, 다음에 Windows 업데이트를 다운로드 하 고 설치 하는 시도가 시작 될 때 알리도록 "WUOperationStatus-[NodeName]" 속성이 포함 된 이벤트가 NodeAgentService에 게시 됩니다. 다음 그림에 표시 됩니다.
 
-     [Windows 업데이트 작업 상태 ![Image](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [Windows 업데이트 작업 상태의 ![이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>진단 로그
 

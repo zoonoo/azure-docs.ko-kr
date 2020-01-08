@@ -1,6 +1,6 @@
 ---
-title: .NET에서 Azure 릴레이 하이브리드 연결 Websocket을 사용 하 여 시작 | Microsoft Docs
-description: 작성 된 C# 콘솔 응용 프로그램 Azure 릴레이 하이브리드 연결 Websocket에 대 한 합니다.
+title: Azure Relay 하이브리드 연결-.NET의 Websocket
+description: Azure Relay 하이브리드 연결 C# websocket에 대 한 콘솔 응용 프로그램을 작성 합니다.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13612f8ffa343e483165a8dbdd54d1b2b1f5e2cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355187"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>.NET에서 Relay 하이브리드 연결 WebSockets 시작
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "66428344"
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+* Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
@@ -64,7 +64,7 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이�
 
     ![애플리케이션 실행](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-축, 완전 한 하이브리드 연결 응용 프로그램을 만들었습니다!
+축 하 합니다. 전체 하이브리드 연결 응용 프로그램을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 메시지를 보내고 받는 데 WebSockets를 사용한 .NET 클라이언트 및 서버 애플리케이션을 만들었습니다. Azure Relay의 하이브리드 연결 기능은 HTTP를 사용하여 메시지를 보내고 받을 수도 있도록 지원합니다. Azure Relay 하이브리드 연결에 HTTP를 사용하는 방법에 대한 자세한 내용은 [HTTP 빠른 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)을 참조하세요.

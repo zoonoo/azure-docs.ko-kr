@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27753d965949d3e677606111139a5d86ccf26dbf
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382130"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430976"
 ---
 # <a name="how-to-investigate-risk"></a>방법: 위험 조사
 
@@ -30,7 +30,7 @@ Id 보호는 조직의 사용자 환경에서 id 위험을 조사 하는 데 사
 
 ## <a name="navigating-the-reports"></a>보고서 탐색
 
-각 보고서는 보고서 맨 위에 표시 되는 기간에 대 한 모든 검색 목록으로 시작 됩니다. 각 보고서에서는 관리자 기본 설정에 따라 열을 추가 하거나 제거할 수 있습니다. 관리자는에서 데이터를 다운로드 하도록 선택할 수 있습니다. CSV 형식입니다. 보고서의 맨 위에 있는 필터를 사용 하 여 보고서를 필터링 할 수 있습니다.
+각 보고서는 보고서 맨 위에 표시 되는 기간에 대 한 모든 검색 목록으로 시작 됩니다. 각 보고서에서는 관리자 기본 설정에 따라 열을 추가 하거나 제거할 수 있습니다. 관리자는에서 데이터를 다운로드 하도록 선택할 수 있습니다. CSV 또는 JSON 형식입니다. 보고서의 맨 위에 있는 필터를 사용 하 여 보고서를 필터링 할 수 있습니다.
 
 개별 항목을 선택 하면 보고서 맨 위에 추가 항목이 사용 될 수 있습니다. 예를 들어 손상 또는 안전 하 게 로그인을 확인 하거나, 사용자가 손상 된 것으로 확인 하거나, 사용자 위험을 해제할 수 있습니다.
 
@@ -44,7 +44,7 @@ Id 보호는 조직의 사용자 환경에서 id 위험을 조사 하는 데 사
 
 - 위험에 노출 된 사용자, 위험을 재구성 한 사용자 또는 위험이 해제 되었습니까?
 - 검색에 대 한 세부 정보
-- 위험한 로그인 기록
+- 모든 위험한 로그인 기록
 - 위험 기록
  
 그러면 관리자는 이러한 이벤트에 대해 작업을 수행 하도록 선택할 수 있습니다. 관리자는 다음을 선택할 수 있습니다.
@@ -66,7 +66,7 @@ Id 보호는 조직의 사용자 환경에서 id 위험을 조사 하는 데 사
 - 트리거된 검색 유형
 - 조건부 액세스 정책이 적용 됨
 - MFA 세부 정보
-- 장치 정보
+- 디바이스 정보
 - 애플리케이션 정보
 - 위치 정보
 

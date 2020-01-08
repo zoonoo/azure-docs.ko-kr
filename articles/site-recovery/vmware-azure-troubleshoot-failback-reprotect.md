@@ -7,18 +7,35 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b597ecb67ab30c8617029fe741af1014444a9b70
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693158"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498096"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
 
 이 아티클에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure로 장애 조치한 후 Azure VM을 온-프레미스 VMware 인프라로 장애 복구할 때 발생할 수 있는 문제를 해결하는 방법에 대해 설명합니다.
 
 장애 복구(failback)는 기본적으로 두 가지 기본 단계로 이루어집니다. 첫 번째 단계로 장애 조치 후에 Azure VM을 온-프레미스로 다시 보호해야 복제가 시작됩니다. 두 번째 단계는 Azure에서 장애 조치를 실행하여 온-프레미스 사이트로 장애 복구하는 것입니다.
+
+## <a name="common-issues"></a>일반 문제
+
+- 읽기 전용 사용자 vCenter 검색을 수행하고 가상 머신을 보호하면 보호에 성공하고 장애 조치가 작동합니다. 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치가 실패합니다. 증상은 다시 보호 중에 데이터 저장소가 나열되지 않는 것입니다. 이 문제를 해결하려면 vCenter 자격 증명을 권한이 있는 적절한 계정으로 업데이트한 다음, 작업을 다시 시도하면 됩니다.
+- Linux 가상 컴퓨터를 장애 복구하고 온-프레미스에서 실행하면 네트워크 관리자 패키지가 컴퓨터에서 제거되었음을 알 수 있습니다. Azure에서 가상 머신을 복구할 때 네트워크 관리자 패키지가 제거되었기 때문에 이 기능이 제거됩니다.
+- Linux 가상 머신을 고정 IP 주소로 구성하고 Azure로 장애 조치하면 DHCP에서 IP 주소를 가져옵니다. 온-프레미스로 장애 조치하면 가상 머신에서 계속 DHCP를 사용하여 IP 주소를 가져옵니다. 컴퓨터에 수동으로 로그인한 다음, 필요한 경우 IP 주소를 고정 주소로 다시 설정합니다. Windows 가상 머신에서는 고정 IP 주소를 다시 얻을 수 있습니다.
+- ESXi 5.5 체험 버전 또는 vSphere 6 하이퍼바이저 체험 버전을 사용하는 경우 장애 조치는 성공하지만 장애 복구가 실패합니다. 장애 복구를 사용하도록 설정하려면 평가판 라이선스로 업그레이드합니다.
+- 프로세스 서버에서 구성 서버에 연결할 수 없는 경우 텔넷을 사용하여 443 포트에서 구성 서버에 대한 연결을 확인합니다. 프로세스 서버에서 구성 서버를 ping할 수도 있습니다. 또한 프로세스 서버에는 구성 서버에 연결될 때 하트비트도 있어야 합니다.
+- 물리적 온-프레미스 서버로 보호되는 Windows Server 2008 R2 SP1 서버는 Azure에서 온-프레미스 사이트로 장애 복구할 수 없습니다.
+- 다음과 같은 경우에 장애 복구(failback)를 수행할 수 없습니다.
+    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아보기](migrate-overview.md#what-do-we-mean-by-migration).
+    - 다른 리소스 그룹으로 VM을 이동했습니다.
+    - Azure VM을 삭제했습니다.
+    - VM의 보호를 해제했습니다.
+    - Azure에서 VM을 수동으로 만들었습니다. 컴퓨터가 처음에 온-프레미스로 보호되고 다시 보호되기 전에 Azure로 장애 조치(failover)되었어야 합니다.
+    - ESXi 호스트에 대해서만 실패할 수 있습니다. VMware VM 또는 Hyper-V 호스트, 물리적 서버 또는 VMware 워크스테이션에 대한 물리적 서버를 장애 복구(failback)할 수 없습니다.
+
 
 ## <a name="troubleshoot-reprotection-errors"></a>다시 보호 오류 문제 해결
 
@@ -65,7 +82,7 @@ ms.locfileid: "73693158"
 
 **데이터 저장소가 ESXi 호스트에서 액세스할 수 없습니다.**
 
-장애 복구에 대해 [마스터 대상 필수 구성 요소 및 지원되는 데이터 저장소](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)를 확인합니다.
+장애 복구에 대해 [마스터 대상 필수 구성 요소 및 지원되는 데이터 저장소](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server)를 확인합니다.
 
 
 ## <a name="troubleshoot-failback-errors"></a>장애 복구 오류 문제 해결

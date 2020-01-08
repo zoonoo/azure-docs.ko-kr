@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 481e1762e805f162aa515dd4d12cc7b6b2e95d71
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847869"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560259"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "74847869"
 * 사용자는 보안 되지 않은 암호를 사용 하는 경우가 많습니다.
 * 사용자에 게 보안 적용의 예정 된 변경 내용, 영향을 받는 보안 암호를 선택 하는 방법에 대 한 정보를 알려 주어 야 합니다.
 
-기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 미리 파악 하기 위해 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다.  자세한 내용은
+기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 미리 파악 하기 위해 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다.  자세한 내용은 다음을 참조하세요.
 
 * [Ntdsutil.exe에서 weak 디렉터리 서비스 복구 모드 암호를 설정할 수 없습니다.](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [취약 한 디렉터리 서비스 복구 모드 암호로 인해 도메인 컨트롤러 복제본 수준을 올리지 못했습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -55,7 +55,7 @@ ms.locfileid: "74847869"
 * 각 도메인에 있는 하나 이상의 도메인 컨트롤러와 암호 보호를 위해 프록시 서비스를 호스팅하는 하나 이상의 서버 간에 네트워크 연결이 존재 해야 합니다. 이 연결을 통해 도메인 컨트롤러에서 RPC 끝점 매퍼 포트 135 및 프록시 서비스의 RPC 서버 포트에 액세스할 수 있어야 합니다. 기본적으로 RPC 서버 포트는 동적 RPC 포트 이지만 [정적 포트를 사용](#static)하도록 구성할 수 있습니다.
 * Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 다음 끝점에 대 한 네트워크 액세스 권한이 있어야 합니다.
 
-    |**엔드포인트**|**목적**|
+    |**엔드포인트**|**용도**|
     | --- | --- |
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
@@ -129,11 +129,13 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
      결과는 "실행 중" **상태** 를 표시 합니다.
 
 1. 프록시를 등록합니다.
-   * 3 단계를 완료 한 후에는 컴퓨터에서 프록시 서비스가 실행 됩니다. 하지만 서비스는 Azure AD와 통신 하는 데 필요한 자격 증명을 아직가지고 있지 않습니다. Azure AD에 등록 해야 합니다.
+   * 3 단계를 완료 한 후에는 프록시 서비스가 컴퓨터에서 실행 되지만 Azure AD와 통신 하는 데 필요한 자격 증명은 아직 없습니다. Azure AD에 등록 해야 합니다.
 
      `Register-AzureADPasswordProtectionProxy`
 
-     이 cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다. 또한 포리스트 루트 도메인에서 온-프레미스 Active Directory 도메인 관리자 권한이 필요 합니다. 프록시 서비스에 대해이 명령을 한 번 성공한 후에는 추가 호출이 성공 하지만 필요 하지 않습니다.
+     이 cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다. 또한 포리스트 루트 도메인에서 온-프레미스 Active Directory 도메인 관리자 권한이 필요 합니다. 또한 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet을 실행 해야 합니다.
+
+     프록시 서비스에 대해이 명령을 한 번 성공한 후에는 추가 호출이 성공 하지만 필요 하지 않습니다.
 
       `Register-AzureADPasswordProtectionProxy` cmdlet은 다음과 같은 세 가지 인증 모드를 지원 합니다. 처음 두 모드는 Azure Multi-Factor Authentication을 지원 하지만 세 번째 모드는 지원 하지 않습니다. 자세한 내용은 아래 설명을 참조 하세요.
 
@@ -177,7 +179,9 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
    > 특정 Azure 테 넌 트에 대해이 cmdlet이 처음으로 실행 될 때 완료 되기 전에 매우 많은 지연이 발생할 수 있습니다. 오류가 보고 되지 않으면 이러한 지연에 대해 걱정 하지 마세요.
 
 1. 포리스트를 등록합니다.
-   * `Register-AzureADPasswordProtectionForest` PowerShell cmdlet을 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 초기화 해야 합니다. Cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다. 또한 온-프레미스 Active Directory 엔터프라이즈 관리자 권한이 필요 합니다. 이 단계는 포리스트마다 한 번씩 실행됩니다.
+   * `Register-AzureADPasswordProtectionForest` PowerShell cmdlet을 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 초기화 해야 합니다.
+
+      Cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다.  또한 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet을 실행 해야 합니다. 또한 온-프레미스 Active Directory 엔터프라이즈 관리자 권한이 필요 합니다. 이 단계는 포리스트마다 한 번씩 실행됩니다.
 
       `Register-AzureADPasswordProtectionForest` cmdlet은 다음과 같은 세 가지 인증 모드를 지원 합니다. 처음 두 모드는 Azure Multi-Factor Authentication을 지원 하지만 세 번째 모드는 지원 하지 않습니다. 자세한 내용은 아래 설명을 참조 하세요.
 
@@ -302,7 +306,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    도메인 컨트롤러가 아닌 컴퓨터에는 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스가 시작 되어 실행 되지만 컴퓨터가 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 됩니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 다음은 그 예입니다.
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 

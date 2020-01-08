@@ -10,17 +10,59 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/5/2019
+ms.date: 12/13/2019
 ms.author: raiye
-ms.openlocfilehash: 027fb5176ecf1fdb32119c933d1b44eaf9f82bb8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 742f54ffb6c77d9f84582d6a68dff936fdbbe99c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386207"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 업데이트는 항상 도입 된 특정 [제품군][family-explain] 에 대해 항상 전달 됩니다.
+
+## <a name="december-2019-guest-os"></a>2019 년 12 월 게스트 OS
+
+>[!NOTE]
+>12월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 12월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
+
+| 제품 카테고리 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-12  |  [4530692]  |  Windows 보안  | 2.93 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 2.93 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 3.80 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4530698]  |  Windows 보안  | 3.80 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4530730]  |  Windows 보안  | 4.73 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 4.73 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4530689]  |  최신 누적 업데이트  | 5.38 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4530715]  |  최신 누적 업데이트  | 6.14 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4525235]  |  비보안  | 2.93 | 2019 년 11 월 12 일 |
+|  Rel 19-12  |  [4531786]  |  서비스 스택 업데이트  | 2.93 | 2019 년 12 월 10 일 |
+|  Rel 19-12  |  [4525246]  |  비보안  | 3.80 | 2019 년 11 월 12 일 |
+|  Rel 19-12  |  [4523208]  |  서비스 스택 업데이트  | 3.8 | 2019 년 11 월 12 일 |
+|  Rel 19-12  |  [4525243]  |  비보안  | 4.73 | 2019 년 11 월 12 일 |
+|  Rel 19-12  |  [4524445]  |  서비스 스택 업데이트  | 4.73 | 2019 년 11 월 12 일 |
+|  Rel 19-12  |  [4520724]  |  서비스 스택 업데이트  | 5.38 | 2019 년 11 월 12 일 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | 6.14 | 2019 년 11 월 12 일 |
+
+[4530692]: https://support.microsoft.com/kb/4530692
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530698]: https://support.microsoft.com/kb/4530698
+[4530730]: https://support.microsoft.com/kb/4530730
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530689]: https://support.microsoft.com/kb/4530689
+[4530715]: https://support.microsoft.com/kb/4530715
+[4525235]: https://support.microsoft.com/kb/4525235
+[4531786]: https://support.microsoft.com/kb/4531786
+[4525246]: https://support.microsoft.com/kb/4525246
+[4523208]: https://support.microsoft.com/kb/4523208
+[4525243]: https://support.microsoft.com/kb/4525243
+[4524445]: https://support.microsoft.com/kb/4524445
+[4520724]: https://support.microsoft.com/kb/4520724
+[4523204]: https://support.microsoft.com/kb/4523204
+
 
 ## <a name="november-2019-guest-os"></a>2019 년 11 월 게스트 OS
 

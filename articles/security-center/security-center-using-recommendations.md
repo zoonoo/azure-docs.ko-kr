@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 69fa9d24d24c26a7d945c27e86739475f9883b27
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b496523f6205532ea7a4278671e3be6986935a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200690"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355277"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
 보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다. 
@@ -63,7 +63,7 @@ Jeff는 다음 작업을 수행합니다.
 
 5. Jeff가 **Compute 및 apps**를 클릭 하면 권장 사항 목록이 표시 되 고 보안 점수 영향에 따라 처리 됩니다.
 
-6. Jeff에는 다양 한 인터넷 연결 Vm이 있으며 해당 포트가 노출 되기 때문에 공격자가 서버를 제어할 수 있습니다. 따라서 Jeff는 (**Just In Time VM 액세스**)[security-center-just-in-time.md]를 사용하기로 선택했습니다.
+6. Jeff에는 다양 한 인터넷 연결 Vm이 있으며 해당 포트가 노출 되기 때문에 공격자가 서버를 제어할 수 있습니다. 따라서 Jeff는 [**JUST-IN-TIME VM 액세스**](security-center-just-in-time.md)를 사용 하도록 선택 합니다.
 
 Jeff는 계속해서 높은 우선 순위 및 중간 우선 순위 권장 사항을 살펴보면서 구현할지 결정했습니다. 각 권장 사항에 대해 Jeff는 Security Center에서 제공한 세부 정보를 확인하여 영향을 받은 리소스, 보안 점수 영향, 각 권장 사항의 의미와 각 문제를 마이그레이션하는 방법에 대한 수정 단계를 이해합니다.
 

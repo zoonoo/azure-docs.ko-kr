@@ -1,18 +1,14 @@
 ---
 title: 배포 된 Azure Kubernetes 서비스 (AKS) 클러스터 모니터링 | Microsoft Docs
 description: 구독에 이미 배포 된 컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터의 모니터링을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/12/2019
-ms.openlocfilehash: 5d68c343fee5807c430ce42777b988a48b9227f8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: eced371f7d44b486d671c2c22ca9fbb4c0b65fbb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405481"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -25,9 +21,9 @@ ms.locfileid: "73478606"
 * [Azure Monitor에서](#enable-from-azure-monitor-in-the-portal) 또는 AZURE PORTAL의 [AKS 클러스터에서 직접](#enable-directly-from-aks-cluster-in-the-portal) 
 * 제공 된 [Azure Resource Manager 템플릿을](#enable-using-an-azure-resource-manager-template) 사용 하 여 Azure PowerShell cmdlet `New-AzResourceGroupDeployment` 또는 Azure CLI를 사용 합니다. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com)에 로그인합니다. 
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 ## <a name="enable-using-azure-cli"></a>Azure CLI 사용
 
@@ -45,7 +41,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>기존 작업 영역과 통합
 
-기존 작업 영역에 통합 하는 경우 다음 단계를 수행 하 여 `--workspace-resource-id` 매개 변수에 필요한 Log Analytics 작업 영역의 전체 리소스 ID를 먼저 확인 한 후 명령을 실행 하 여에 대해 모니터링 추가 기능을 사용 하도록 설정 합니다. 지정 된 작업 영역.  
+기존 작업 영역에 통합 하는 경우 다음 단계를 수행 하 여 먼저 `--workspace-resource-id` 매개 변수에 필요한 Log Analytics 작업 영역의 전체 리소스 ID를 확인 한 다음 명령을 실행 하 여 지정 된 작업 영역에 대해 모니터링 추가 기능을 사용 하도록 설정 합니다.  
 
 1. 다음 명령을 사용 하 여 액세스 권한이 있는 모든 구독을 나열 합니다.
 
@@ -91,7 +87,7 @@ provisioningState       : Succeeded
 
 ## <a name="enable-using-terraform"></a>Terraform 사용
 
-1. 기존 **azurerm_kubernetes_cluster 리소스**에 [oms_agent](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile) 추가 프로필을 추가합니다.
+1. 기존 [azurerm_kubernetes_cluster 리소스](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)에 **oms_agent** 추가 프로필을 추가합니다.
 
    ```
    addon_profile {

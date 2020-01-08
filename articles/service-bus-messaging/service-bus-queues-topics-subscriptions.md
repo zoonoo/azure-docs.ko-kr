@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus 메시지 큐, 토픽 및 구독 개요 | Microsoft Docs
+title: Azure Service Bus 메시징-큐, 토픽 및 구독
 description: Service Bus 메시징 엔터티의 개요
 services: service-bus-messaging
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
-ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc549f9bfbb48da9263493c21ec38735b3cc0c24
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426921"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
 
@@ -41,7 +41,7 @@ Service Bus에서 메시지 기능의 핵심이 되는 메시지 엔터티는 �
 
 ### <a name="receive-modes"></a>수신 모드
 
-Service Bus에서 메시지를 받는 두 가지 다른 모드 (*ReceiveAndDelete* 또는 *PeekLock*)를 지정할 수 있습니다. [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 수신은 1단계 작업입니다. 즉, Service Bus가 요청을 받으면 메시지를 이용되는 것으로 표시하고 애플리케이션에 반환합니다. **ReceiveAndDelete** 모드는 가장 간단한 모델이며, 오류가 발생할 경우 애플리케이션에서 메시지 처리를 허용할 수 없는 시나리오에 가장 적합합니다. 이 시나리오를 이해하려면 소비자가 수신 요청을 실행한 다음, 처리하기 전에 충돌하는 시나리오를 고려합니다. Service Bus가 메시지를 이용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
+Service Bus에서 메시지를 받는 두 가지 다른 모드(*ReceiveAndDelete* 또는 *PeekLock*)를 지정할 수 있습니다. [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 수신은 1단계 작업입니다. 즉, Service Bus가 요청을 받으면 메시지를 이용되는 것으로 표시하고 애플리케이션에 반환합니다. **ReceiveAndDelete** 모드는 가장 간단한 모델이며, 오류가 발생할 경우 애플리케이션에서 메시지 처리를 허용할 수 없는 시나리오에 가장 적합합니다. 이 시나리오를 이해하려면 소비자가 수신 요청을 실행한 다음, 처리하기 전에 충돌하는 시나리오를 고려합니다. Service Bus가 메시지를 이용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
 
 [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서는 수신 작업이 2단계이므로 메시지 누락이 허용되지 않는 애플리케이션을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션에서 메시지 처리가 완료되면(또는 추가 처리를 위해 안정적으로 저장되면), 수신된 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. Service Bus에서 **CompleteAsync** 호출이 확인되면 메시지를 사용 중인 것으로 표시합니다.
 
@@ -49,7 +49,7 @@ Service Bus에서 메시지를 받는 두 가지 다른 모드 (*ReceiveAndDelet
 
 메시지를 처리한 후 애플리케이션이 충돌하지만 **CompleteAsync** 요청이 실행되기 전에 메시지가 다시 시작되면 애플리케이션에 다시 전달됩니다. 이 프로세스는 종종 *한 번 이상* 처리라고 합니다. 즉, 각 메시지가 한 번 이상 처리됩니다. 그러나 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 시나리오가 중복 처리를 허용하지 않는 경우 메시지의 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 속성에 따라 얻을 수 있는 중복을 검색하려면 애플리케이션에 추가 논리가 필요하며 이는 전달 시도를 걸쳐 일관성을 유지합니다. 이 기능은 *정확히 한번* 처리라고 합니다.
 
-## <a name="topics-and-subscriptions"></a>토픽 및 구독
+## <a name="topics-and-subscriptions"></a>항목 및 구독
 
 각 메시지가 단일 소비자에 의해 처리되는 큐와 반대로, *토픽*과 *구독*은 *게시/구독* 패턴을 사용하여 일 대 다 형태의 통신을 제공합니다. 크기를 많은 수의 받는 사람으로 조정하는 데 유용하며, 게시된 각 메시지는 토픽에 등록된 각 구독에서 사용할 수 있습니다. 메시지를 토픽에 보내고 구독 단위로 설정할 수 있는 필터 규칙에 따라 하나 이상의 연결된 구독에 전달합니다. 구독은 추가 필터를 사용하여 수신하려는 메시지를 제한할 수 있습니다. 메시지는 큐로 전송된 것과 동일한 방식으로 토픽에 전송되지만 메시지는 토픽에서 직접 수신되지 않습니다. 대신 구독에서 수신합니다. 토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 메시지는 큐에서 수신하는 방식과 동일하게 구독에서 수신됩니다.
 
@@ -63,7 +63,7 @@ Service Bus에서 메시지를 받는 두 가지 다른 모드 (*ReceiveAndDelet
 
 ### <a name="rules-and-actions"></a>규칙 및 동작
 
-대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 처리를 사용하려면 desired 속성이 있는 메시지를 찾은 다음, 해당 속성에 대한 특정 수정 작업을 수행하도록 구독을 구성하면 됩니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 필터링은 구독 필터를 사용하여 수행됩니다. 이와 같은 수정을 *필터 동작*이라고 합니다. 구독을 만들 경우 메시지의 속성, 즉 시스템 속성(예: **Label**) 및 사용자 지정 애플리케이션 속성(예:**StoreName**) 모두에서 작동하는 필터 식을 제공할 수 있습니다. 이 경우에 SQL 필터 식은 선택 사항입니다. SQL 필터 식 없이 구독에 정의된 필터 작업을 구독에 대한 모든 메시지에서 수행합니다.
+대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 처리를 사용하려면 desired 속성이 있는 메시지를 찾은 다음, 해당 속성에 대한 특정 수정 작업을 수행하도록 구독을 구성하면 됩니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 필터링은 구독 필터를 사용하여 수행됩니다. 이와 같은 수정을 *필터 동작*이라고 합니다. 구독을 만들 때 메시지의 속성에 대해 작동 하는 필터 식을 제공할 수 있습니다. 여기에는 시스템 속성 (예: **Label**) 및 사용자 지정 응용 프로그램 속성 (예: **StoreName**)이 있습니다. 이 경우 SQL 필터 식은 선택 사항입니다. SQL 필터 식이 없으면 구독에 정의 된 모든 필터 동작이 해당 구독의 모든 메시지에 대해 수행 됩니다.
 
 전체 작업 예제를 보려면 GitHub의 [TopicSubscriptionWithRuleOperationsSample 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample)을 참조하세요.
 

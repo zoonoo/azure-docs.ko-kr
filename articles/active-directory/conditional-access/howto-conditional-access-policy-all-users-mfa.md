@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 52faa2b6167606a46bf189d514a1eb314b443783
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424930"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>조건부 액세스: 모든 사용자에 대해 MFA 필요
 
@@ -57,8 +57,24 @@ Alex Weinert, Microsoft의 Id 보안 디렉터리는 [Pa $ $word가 중요 하�
 1. 설정을 확인 하 고 **정책 사용** 을 **켜기**로 설정 합니다.
 1. 만들기 **를 선택 하** 여 정책을 사용 하도록 설정 합니다.
 
+### <a name="named-locations"></a>명명된 위치
+
+조직에서는 **명명 된 위치** 라고 하는 알려진 네트워크 위치를 조건부 액세스 정책에 통합 하도록 선택할 수 있습니다. 이러한 명명 된 위치에는 본사 위치에 대 한 것과 같은 신뢰할 수 있는 IPv4 네트워크가 포함 될 수 있습니다. 명명 된 위치를 구성 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건 이란?](location-condition.md) 문서를 참조 하세요.
+
+위의 예 정책에서 조직은 회사 네트워크에서 클라우드 앱에 액세스 하는 경우 multi-factor authentication을 요구 하지 않도록 선택할 수 있습니다. 이 경우 정책에 다음 구성을 추가할 수 있습니다.
+
+1. **할당**에서 **조건** > **위치**를 선택 합니다.
+   1. **예**를 구성 합니다.
+   1. **모든 위치**를 포함 합니다.
+   1. **모든 신뢰할 수 있는 위치**를 제외 합니다.
+   1. **완료** 를 선택합니다.
+1. **완료** 를 선택합니다.
+1. 정책 변경 내용을 **저장** 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 [조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+
+[조건부 액세스 보고서 전용 모드를 사용 하 여 영향 확인](howto-conditional-access-report-only.md)
 
 [조건부 액세스 What If 도구를 사용 하 여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

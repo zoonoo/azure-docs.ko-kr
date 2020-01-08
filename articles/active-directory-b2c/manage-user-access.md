@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98d3fa50f405658b33f879ed8e7b95667cddcedf
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e0fc09ca77e4fb0c3666478873d5d09a13d23ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064121"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367113"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -34,11 +34,11 @@ ms.locfileid: "71064121"
 
 사용자가 미성년자로 식별되면 Azure AD B2C에서 사용자 흐름을 다음 세 가지 옵션 중 하나로 설정할 수 있습니다.
 
-- **서명된 JWT id_token을 다시 애플리케이션으로 보내기**: 사용자는 디렉터리에 등록되고, 토큰은 애플리케이션으로 반환됩니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. 예를 들어, 애플리케이션이 보호자의 동의 프로세스를 진행할 수 있습니다. 이 방법을 사용하려면 프로그램으로부터 **ageGroup** 및 **consentProvidedForMinor** 클레임을 받도록 선택합니다.
+- **애플리케이션에 서명된 JWT id_token 보내기**: 사용자가 디렉터리에 등록되고, 토큰이 애플리케이션으로 반환됩니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. 예를 들어, 애플리케이션이 보호자의 동의 프로세스를 진행할 수 있습니다. 이 방법을 사용하려면 프로그램으로부터 **ageGroup** 및 **consentProvidedForMinor** 클레임을 받도록 선택합니다.
 
-- **서명되지 않은 JSON 토큰을 애플리케이션으로 보내기**: Azure AD B2C는 사용자가 미성년자라는 사실을 애플리케이션에 알리고 사용자의 보호자 동의 상태를 제공합니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. JSON 토큰이 애플리케이션 인증을 성공적으로 완료하지 못합니다. 애플리케이션은 JSON 토큰에 포함된 클레임에 따라 인증되지 않은 사용자를 처리해야 합니다. 여기에는 **name**, **email**, **ageGroup** 및 **consentProvidedForMinor**가 포함될 수 있습니다.
+- **애플리케이션에 서명되지 않은 JSON 토큰 보내기**: Azure AD B2C에서 사용자가 미성년자임을 애플리케이션에 알리고 사용자의 보호자 동의 상태를 제공합니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. JSON 토큰이 애플리케이션 인증을 성공적으로 완료하지 못합니다. 애플리케이션은 JSON 토큰에 포함된 클레임에 따라 인증되지 않은 사용자를 처리해야 합니다. 여기에는 **name**, **email**, **ageGroup** 및 **consentProvidedForMinor**가 포함될 수 있습니다.
 
-- **사용자 차단**: 사용자가 부이 고 보호자 동의가 제공 되지 않은 경우 사용자에 게 차단 됨을 알릴 수 Azure AD B2C. 토큰이 발급되지 않고 액세스가 차단되고 등록 과정에서 사용자 계정이 만들어지지 않습니다. 이 알림을 구현하려면 적합한 HTML/CSS 콘텐츠 페이지를 제공하여 사용자에게 알리고 적절한 옵션을 제시합니다. 애플리케이션에서 신규 등록을 위한 추가 작업이 필요하지 않습니다.
+- 사용자 **차단**: 사용자가 부이 고 보호자 동의가 제공 되지 않은 경우 사용자에 게 차단 됨을 알릴 수 Azure AD B2C. 토큰이 발급되지 않고 액세스가 차단되고 등록 과정에서 사용자 계정이 만들어지지 않습니다. 이 알림을 구현하려면 적합한 HTML/CSS 콘텐츠 페이지를 제공하여 사용자에게 알리고 적절한 옵션을 제시합니다. 애플리케이션에서 신규 등록을 위한 추가 작업이 필요하지 않습니다.
 
 ## <a name="get-parental-consent"></a>보호자 동의 얻기
 
@@ -56,7 +56,7 @@ ms.locfileid: "71064121"
 
 5. 미성년자 또는 성인이 동의를 철회하면 Azure AD Graph API를 사용하여 **consentProvidedForMinor**를 **denied**로 변경할 수 있습니다. 또는 애플리케이션이 동의가 철회된 미성년자를 삭제하도록 선택할 수도 있습니다. 필요에 따라 인증된 미성년자(또는 미성년자의 계정을 사용하는 보호자)가 동의를 철회할 수 있도록 사용자 흐름을 사용자 지정할 수도 있습니다. Azure AD B2C가 **consentProvidedForMinor**를 **denied**로 기록합니다.
 
-**legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](active-directory-b2c-reference-custom-attr.md)를 참조하세요. Azure AD Graph API를 사용하여 확장된 특성을 처리하는 경우 *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*처럼 긴 버전의 특성을 사용해야 합니다.
+**legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](active-directory-b2c-reference-custom-attr.md)를 참조하세요. Azure AD Graph API를 사용하여 확장된 특성을 처리하는 경우 긴 버전의 특성(예: *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*)을 사용해야 합니다.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>생년월일 및 국가/지역 데이터 수집
 
@@ -176,3 +176,4 @@ DOB 데이터 수집에 대한 자세한 내용은 [Azure AD B2C에서 나이 �
 ## <a name="next-steps"></a>다음 단계
 
 - 사용자 데이터를 삭제하고 내보내는 방법을 알아보려면 [사용자 데이터 관리](manage-user-data.md)를 참조하세요.
+- 사용 약관 프롬프트를 구현 하는 예제 사용자 지정 정책에 대 한 자세한 내용은 [B2C IEF 사용자 지정 정책-등록 하 고 ' 사용 약관 ' 프롬프트를 사용 하 여 로그인](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou)을 참조 하세요.

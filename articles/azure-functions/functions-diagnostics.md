@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 71edb9a32254eeee123b874305dd25b699e05cc1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227016"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562054"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Azure Functions 진단 개요
 
@@ -40,11 +40,11 @@ Azure Functions 진단에 액세스 하려면:
 
 ## <a name="view-a-diagnostic-report"></a>진단 보고서 보기
 
-항목을 선택한 후에는 함수 앱과 관련 된 진단 보고서를 볼 수 있습니다. 진단 보고서는 상태 아이콘을 사용 하 여 앱에 대 한 특정 문제가 있는지 여부를 표시 합니다. 문제에 대 한 자세한 설명, 권장 조치, 관련 메트릭 및 유용한 문서를 볼 수 있습니다. 사용자 지정 된 진단 보고서는 함수 앱에서 실행 되는 일련의 검사를 통해 생성 됩니다. 진단 보고서는 함수 앱에서 문제를 어설션 매크로나 하는 데 유용한 도구 이며 문제를 해결 하는 데 안내 합니다.
+항목을 선택한 후에는 함수 앱과 관련 된 진단 보고서를 볼 수 있습니다. 진단 보고서는 상태 아이콘을 사용 하 여 앱에 특정 문제가 있는지 여부를 표시 합니다. 문제에 대 한 자세한 설명, 권장 조치, 관련 메트릭 및 유용한 문서를 볼 수 있습니다. 사용자 지정 된 진단 보고서는 함수 앱에서 실행 되는 일련의 검사를 통해 생성 됩니다. 진단 보고서는 함수 앱에서 문제를 어설션 매크로나 하는 데 유용한 도구 이며 문제를 해결 하는 데 안내 합니다.
 
 ## <a name="find-the-problem-code"></a>문제 코드 찾기 
 
-스크립트 기반 함수의 경우 **함수 앱 다운 또는 오류 보고에서** **함수 실행** 및 오류를 사용 하 여 예외 또는 오류가 발생 하는 코드 줄의 범위를 좁힐 수 있습니다. 이 기능은 특정 코드 줄에서 근본 원인을 파악 하 고 문제를 해결 하는 데 유용한 도구 일 수 있습니다. 미리 컴파일된 C# 및 Java 함수에는이 옵션을 사용할 수 없습니다.
+스크립트 기반 함수의 경우 **함수 앱 다운 또는 오류 보고** 에서 **함수 실행** 및 **오류** 를 사용 하 여 예외 또는 오류가 발생 하는 코드 줄의 범위를 좁힐 수 있습니다. 이 기능은 특정 코드 줄에서 근본 원인을 파악 하 고 문제를 해결 하는 데 유용한 도구 일 수 있습니다. 미리 컴파일된 C# 및 Java 함수에는이 옵션을 사용할 수 없습니다.
 
 ![함수 실행 오류에 대 한 진단 보고서](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

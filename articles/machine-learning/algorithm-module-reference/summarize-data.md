@@ -1,7 +1,7 @@
 ---
 title: 데이터 요약
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 데이터 요약 모듈을 사용 하 여 데이터 집합의 열에 대 한 기본 설명 통계 보고서를 생성 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 데이터 요약 모듈을 사용 하 여 데이터 집합의 열에 대 한 기본 설명 통계 보고서를 생성 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492573"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428450"
 ---
 # <a name="summarize-data"></a>데이터 요약
 
@@ -22,9 +22,9 @@ ms.locfileid: "73492573"
 
 데이터 요약 모듈을 사용 하 여 입력 테이블의 각 열을 설명 하는 표준 통계 측정값 집합을 만들 수 있습니다.
 
-요약 통계는 전체 데이터 집합의 특성을 이해 하려는 경우에 유용 합니다. 예를 들어 다음 사항을 알고 있어야 합니다.
+요약 통계는 전체 데이터 집합의 특성을 이해 하려는 경우에 유용 합니다. 예를 들어, 다음을 알아야 합니다.
 
-- 각 열에 누락 값이 몇 개 있습니까?
+- 각 열에는 몇 개의 누락 값이 있나요?
 - 기능 열에 있는 고유한 값은 몇 개입니까?
 - 각 열에 대 한 평균과 표준 편차는 무엇 인가요?
 
@@ -46,18 +46,18 @@ ms.locfileid: "73492573"
 
 모듈의 보고서에는 다음 통계가 포함 될 수 있습니다. 
 
-|열 이름|설명|
+|열 이름|Description|
 |------|------|  
 |**기능**|열의 이름입니다.|
-|**개수**|모든 행 수|
+|**Count**|모든 행의 개수|
 |**고유 값 수**|열의 고유 값 수|
 |**누락 값 개수**|열의 고유 값 수|
-|**일별**|열에서 가장 낮은 값|  
-|**최대값**|열에서 가장 높은 값|
-|**되었음을**|모든 열 값의 평균|
+|**Min**|열에서 가장 낮은 값|  
+|**Max**|열에서 가장 높은 값|
+|**평균값**|모든 열 값의 평균|
 |**평균 편차**|열 값의 평균 편차|
 |**1 분 분**|처음 사분 위 값|
-|**중간값**|중앙값 열 값|
+|**Median**|중앙값 열 값|
 |**3 분 분**|3 분 분의 값|
 |**모드**|열 값 모드|
 |**Range**|최대값과 최 댓 값 사이의 값 수를 나타내는 정수입니다.|
@@ -65,7 +65,7 @@ ms.locfileid: "73492573"
 |**샘플 표준 편차**|열에 대 한 표준 편차 참고 참조|
 |**샘플 왜곡도**|열에 대 한 왜곡도 참고 참조|
 |**샘플 첨도**|열에 대 한 첨도 참고 참조|
-|**P 0.5**|0.5% 백분위 수|
+|**P 0.5**|0.5% 백분위수|
 |**P1**|1% 백분위 수|
 |**P5**|5% 백분위 수|
 |**P95**|95% 백분위 수|
@@ -73,4 +73,4 @@ ms.locfileid: "73492573"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.  
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.  

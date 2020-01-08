@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 82ac27e10a74dc99adb7615d604502e696aa9edb
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894318"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365311"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 JSON 및 데이터 구조 사용
 
@@ -55,7 +55,7 @@ print hosts_report
 ```
 
 
-## <a name="working-with-objects"></a>개체 사용
+## <a name="working-with-objects"></a>개체 작업
 
 ### <a name="parsejson"></a>parsejson
 JSON 구조에서 여러 요소에 액세스하려면 동적 개체로 액세스하는 것이 더 쉽습니다. 텍스트 데이터를 동적 개체로 캐스팅하려면 `parsejson`을 사용합니다. 동적 형식으로 변환되면 추가 함수를 사용하여 데이터를 분석할 수 있습니다.

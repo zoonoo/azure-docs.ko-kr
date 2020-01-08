@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 등록 된 앱 사용자 제한 | Microsoft
+title: Azure AD 앱을 사용자 집합으로 제한 | Microsoft
 titleSuffix: Microsoft identity platform
 description: Azure AD에 등록된 앱에 대한 액세스를 선택한 사용자 집합으로 제한하는 방법을 알아봅니다.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd52a62d5ab8185e18c849f6009e4632c96ede
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ff6e9d101159af33a05a2dc50e227bc97970b12d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917627"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424454"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>방법: 사용자 집합으로 Azure AD 앱 제한
 
@@ -46,7 +46,7 @@ Azure AD를 사용하면 테넌트 관리자 및 개발자는 앱을 테넌트�
 
 사용자 할당을 사용 하는 응용 프로그램을 만드는 방법에는 두 가지가 있습니다. **전역 관리자** 역할이 필요 하지만 두 번째 역할은 그렇지 않습니다.
 
-### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>엔터프라이즈 응용 프로그램 (전역 관리자 역할 필요)
+### <a name="enterprise-applications-requires-the-global-administrator-role"></a>엔터프라이즈 응용 프로그램 (전역 관리자 역할 필요)
 
 1. [**Azure Portal**](https://portal.azure.com/) 로 이동 하 여 **전역 관리자 권한**으로 로그인 합니다.
 1. 위쪽 바에서 로그인 계정을 선택합니다. 

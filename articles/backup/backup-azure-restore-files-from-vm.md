@@ -3,12 +3,12 @@ title: Azure VM 백업에서 파일 및 폴더 복구
 description: 이 문서에서는 Azure 가상 컴퓨터 복구 지점에서 파일 및 폴더를 복구 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4fd5de0c199bfe104b8bb4f5b33b9ed8a86924f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392556"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -176,8 +176,8 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
-| Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2019    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -211,9 +211,9 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>디스크가 많은 가상 컴퓨터 백업에서 파일 복구
 
-이 섹션에서는 Azure 가상 컴퓨터 백업에서 파일 복구를 수행 하는 방법에 대해 설명 합니다. 디스크 수는 16 >, 각 디스크 크기는 2TB >
+이 섹션에서는 Azure 가상 컴퓨터 백업에서 파일 복구를 수행 하는 방법에 대해 설명 합니다. 디스크 수는 16 >, 각 디스크 크기 >는 32 TB입니다.
 
-파일 복구 프로세스는 백업에서 모든 디스크를 연결 하므로 대량 디스크 수 (> 16) 또는 대량 디스크 > (각각 4 TB)를 사용 하는 경우 다음 작업을 수행 하는 것이 좋습니다.
+파일 복구 프로세스는 백업에서 모든 디스크를 연결 하므로 대량 디스크 수 (> 16) 또는 대량 디스크 > (각각 32 TB)를 사용 하는 경우 다음 작업을 수행 하는 것이 좋습니다.
 
 - 파일 복구를 위해 별도의 복원 서버 (Azure VM D2v3 Vm)를 유지 합니다. 파일 복구만 사용할 수 있으며 필요 하지 않은 경우에는 종료할 수 있습니다. VM 자체에 상당한 영향을 주므로 원래 컴퓨터에서 복원 하는 것은 권장 되지 않습니다.
 - 그런 다음 스크립트를 한 번 실행 하 여 파일 복구 작업이 성공 했는지 확인 합니다.

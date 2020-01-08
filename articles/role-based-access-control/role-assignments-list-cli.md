@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1a58d2170ec1107222f0e37e432063af23743e42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 12ecca5873ac7c2c3bfa30d4c73c7d8e268aabfb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710439"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355710"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Azure RBAC 및 Azure CLI를 사용 하 여 역할 할당 나열
 
 이 문서 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Azure CLI를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
 
@@ -37,7 +37,7 @@ ms.locfileid: "74710439"
 az role assignment list --assignee <assignee>
 ```
 
-기본적으로 구독으로 범위가 지정 된 직접 할당만 표시 됩니다. 리소스 또는 그룹별 범위가 지정 된 할당을 보려면 `--all`를 사용 하 고 상속 된 할당을 보려면 `--include-inherited`를 사용 합니다.
+기본적으로 현재 구독에 대 한 역할 할당만 표시 됩니다. 현재 구독 및 아래에 대 한 역할 할당을 보려면 `--all` 매개 변수를 추가 합니다. 상속 된 역할 할당을 보려면 `--include-inherited` 매개 변수를 추가 합니다.
 
 다음 예에서는 *patlong\@contoso.com* 사용자에 게 직접 할당 된 역할 할당을 나열 합니다.
 
@@ -110,6 +110,30 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 ```Example
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
+
+## <a name="list-role-assignments-for-a-managed-identity"></a>관리 id에 대 한 역할 할당 나열
+
+1. 시스템 할당 또는 사용자 할당 관리 id의 개체 ID를 가져옵니다. 
+
+    사용자 할당 관리 id의 개체 ID를 가져오려면 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) 또는 [az identity list](/cli/azure/identity#az-identity-list)를 사용할 수 있습니다.
+
+    ```azurecli
+    az ad sp list --display-name "<name>" --query [].objectId --output tsv
+    ```
+
+    시스템 할당 관리 id의 개체 ID를 가져오려면 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용할 수 있습니다.
+
+    ```azurecli
+    az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
+    ```
+
+1. 역할 할당을 나열 하려면 [az role 할당 list](/cli/azure/role/assignment#az-role-assignment-list)를 사용 합니다.
+
+    기본적으로 현재 구독에 대 한 역할 할당만 표시 됩니다. 현재 구독 및 아래에 대 한 역할 할당을 보려면 `--all` 매개 변수를 추가 합니다. 상속 된 역할 할당을 보려면 `--include-inherited` 매개 변수를 추가 합니다.
+
+    ```azurecli
+    az role assignment list --assignee <objectid>
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

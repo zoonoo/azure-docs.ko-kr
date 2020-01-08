@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Health 개요 | Microsoft Docs
+title: Azure Resource Health 개요
 description: Azure Resource Health 개요
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 05/10/2019
-ms.openlocfilehash: 9c2096f94f38d13288c6ce3742252bc6d576835a
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356786"
 ---
 # <a name="resource-health-overview"></a>Resource Health 개요
  
@@ -29,7 +26,7 @@ Azure Resource Health를 통해 Azure 리소스에 영향을 주는 서비스 �
 
 리소스 상태는 다음 상태 중 하나로 표시됩니다.
 
-### <a name="available"></a>사용 가능
+### <a name="available"></a>사용할 수 있음
 
 *사용 가능* 은 리소스의 상태에 영향을 주는 검색 된 이벤트가 없음을 의미 합니다. 지난 24 시간 동안 계획 되지 않은 가동 중지 시간에서 리소스가 복구 되는 경우 "최근에 해결 됨" 알림이 표시 됩니다.
 
@@ -83,11 +80,11 @@ Resource Health의 **상태 기록** 섹션에서 14 일 동안의 기록에 액
 
 ![지난 2주 동안의 Resource Health 이벤트 목록](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 하나의 리소스에 대한 Resource Health를 열려면:
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 2. 리소스를 찾습니다.
 3. 왼쪽 창의 리소스 메뉴에서 **Resource Health**를 선택합니다.
 

@@ -3,14 +3,14 @@ title: Azure Vm에서 백업 SAP HANA 데이터베이스 관리
 description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP HANA 데이터베이스를 관리 및 모니터링 하는 일반적인 작업에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f76054c7c78c55a9754975267ee4fa3caab968a3
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390586"
 ---
-# <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업 SAP HANA 데이터베이스 관리 및 모니터링
+# <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업한 SAP HANA 데이터베이스 관리 및 모니터링
 
 이 문서에서는 Azure VM (가상 컴퓨터)에서 실행 되 고 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) 서비스에서 Azure Backup Recovery Services 자격 증명 모음에 백업 되는 SAP HANA 데이터베이스를 관리 하 고 모니터링 하는 일반적인 작업에 대해 설명 합니다. 작업 및 경고를 모니터링 하 고, 요청 시 백업을 트리거하고, 정책을 편집 하 고, 데이터베이스 보호를 중지 한 후 다시 시작 하 고, 백업에서 VM의 등록을 취소 하는 방법을 알아봅니다.
 
@@ -75,25 +75,38 @@ Azure Backup를 사용 하 여 백업 되는 데이터베이스의 로컬 백업
 3. 이렇게 하려면 **systemdb** > **구성** >  > **데이터베이스 선택** **필터 (로그)** 를 차례로 선택 합니다.
 4. **Enable_auto_log_backup** 를 **아니요**로 설정 합니다.
 5. **Log_backup_using_backint** 을 **False**로 설정 합니다.
-6. 데이터베이스의 임시 전체 백업을 수행 합니다.
+6. 데이터베이스의 주문형 전체 백업을 수행 합니다.
 7. 전체 백업 및 카탈로그 백업이 완료 될 때까지 기다립니다.
 8. 이전 설정을 Azure에 대 한 설정을 다시 되돌립니다.
    * **Enable_auto_log_backup** 를 **예**로 설정 합니다.
    * **Log_backup_using_backint** 를 **True**로 설정 합니다.
 
-### <a name="edit-underlying-policy"></a>기본 정책 편집
+### <a name="change-policy"></a>정책 변경
 
-정책을 수정 하 여 백업 빈도 또는 보존 범위 변경:
+SAP HANA 백업 항목에 대 한 기본 정책을 변경할 수 있습니다.
 
-* 자격 증명 모음 대시보드에서 > **백업 정책** **관리** 로 이동 합니다.
+* 자격 증명 모음 대시보드에서 **백업 항목**으로 이동 합니다.
 
-  ![자격 증명 모음 대시보드의 백업 정책](./media/sap-hana-db-manage/backup-policies-dashboard.png)
+  ![백업 항목 선택](./media/sap-hana-db-manage/backup-items.png)
 
-* 편집할 정책을 선택 합니다.
+* **AZURE VM에서 SAP HANA** 선택
 
-  ![백업 정책 목록](./media/sap-hana-db-manage/backup-policies-list.png)
+  ![Azure VM에서 SAP HANA 선택](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
-  ![백업 정책 세부 정보](./media/sap-hana-db-manage/backup-policy-details.png)
+* 변경 하려는 기본 정책을 포함 하는 백업 항목을 선택 합니다.
+* 기존 백업 정책을 클릭 합니다.
+
+  ![기존 백업 정책 선택](./media/sap-hana-db-manage/existing-backup-policy.png)
+
+* 목록에서 선택 하 여 정책을 변경 합니다. 필요한 경우 [새 백업 정책을 만듭니다](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) .
+
+  ![드롭다운 목록에서 정책을 선택 합니다.](./media/sap-hana-db-manage/choose-backup-policy.png)
+
+* 변경 내용 저장
+
+  ![변경 내용 저장](./media/sap-hana-db-manage/save-changes.png)
+
+* 정책 수정은 관련 된 모든 백업 항목 및 트리거 **구성 보호** 작업에 영향을 줍니다.
 
 >[!NOTE]
 > 보존 기간을 변경 하면 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
@@ -175,4 +188,3 @@ SAP HANA 데이터베이스에 대 한 보호를 다시 시작 하려면:
 ## <a name="next-steps"></a>다음 단계
 
 * [SAP HANA 데이터베이스를 백업할 때 일반적인 문제를 해결](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot) 하는 방법에 대해 알아봅니다.
-

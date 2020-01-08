@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: 4b0dca1215cfecea5c9943bd27ee8a5c1de45311
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d88df0c7e17d297162a1921021b89f02077c2ac7
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893368"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560388"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -361,7 +361,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 사용량 및 예상 비용 페이지에서 샘플링 주기를 설정합니다.
 
-![애플리케이션 개요 블레이드에서 설정, 할당량, 샘플을 차례로 클릭한 다음, 샘플링 주기를 선택하고 업데이트를 클릭합니다.](./media/sampling/04.png)
+![애플리케이션 개요 블레이드에서 설정, 할당량, 샘플을 차례로 클릭한 다음, 샘플링 주기를 선택하고 업데이트를 클릭합니다.](./media/sampling/data-sampling.png)
 
 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다. 요청 빈도 및 예외 처리 빈도와 같은 메트릭 수는 올바르게 유지됩니다.
 
@@ -543,7 +543,7 @@ ASP.NET 버전 2.0.0 및 Java SDK 버전 2.0.1 이상에서 SDK의 고정 비율
         {
             if(somecondition)
             {
-                ((ISupportSampling)item).SamplingPercentage = 100;
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
             }
         }
       }

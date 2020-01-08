@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 1df0ff3b6fea335dde5a3200f824adf14f924d9c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1c12cf4a7bd097c6d33d032065734b477920644b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457005"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "74452356"
 
 Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 서비스에서 수행하는 변경 내용에 대한 자세한 내용은 [Key Vault 연결된 서비스 - 내 ASP.NET 4.7.1 프로젝트에서 변경된 내용](#how-your-aspnet-framework-project-is-modified) 또는 [Key Vault 연결된 서비스 - 내 ASP.NET Core 프로젝트에서 변경된 내용](#how-your-aspnet-core-project-is-modified)을 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 - **Azure 구독**. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록 합니다.
 - **웹 개발** 워크 로드가 설치 된 **visual studio 2019 버전 16.3** 이상 또는 **visual studio 2017 버전 15.7** 입니다. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -59,7 +59,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
    ![비밀 만들기](media/vs-key-vault-add-connected-service/azure-create-a-secret.png)
 
-1. (선택 사항) 다른 비밀을 입력합니다. 단, 이번에는 *비밀--MySecret*이라는 이름을 지정하여 범주에 포함시킵니다. 이 구문은 "MySecret" 비밀을 포함 하는 "암호" 범주를 지정 합니다.
+1. (선택 사항) 다른 비밀을 입력합니다. 단, 이번에는 *비밀-MySecret*이라는 이름을 지정하여 범주에 포함시킵니다. 이 구문은 "MySecret" 비밀을 포함 하는 "암호" 범주를 지정 합니다.
 
 이제 코드에서 비밀에 액세스할 수 있습니다. 다음 단계는 ASP.NET 4.7.1 또는 ASP.NET Core를 사용하는지에 따라 달라집니다.
 
@@ -112,7 +112,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     ```
 
 1. 그런 다음 *Index.cshtml.cs* 와 같은 페이지 파일 중 하나를 열고 다음 코드를 작성 합니다.
@@ -137,7 +137,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
        }
        ```
 
-   1. `OnGet` 메서드를 업데이트 합니다. 위의 명령에서 만든 비밀 이름을 사용 하 여 여기에 표시 된 자리 표시자 값을 업데이트 합니다.
+   1. `OnGet` 메서드를 업데이트합니다. 위의 명령에서 만든 비밀 이름을 사용 하 여 여기에 표시 된 자리 표시자 값을 업데이트 합니다.
 
        ```csharp
        public void OnGet()
@@ -205,7 +205,7 @@ Key Vault Visual Studio에 로그인 하는 것과 다른 Microsoft 계정에서
 
 프로젝트 파일 .NET 참조 및 NuGet 패키지 참조에 영향을 줍니다.
 
-| 에 | 참조 |
+| 유형 | 참조 |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -241,7 +241,7 @@ Key Vault Visual Studio에 로그인 하는 것과 다른 Microsoft 계정에서
 
 프로젝트 파일 .NET 참조 및 `packages.config` (NuGet 참조)에 영향을 줍니다.
 
-| 에 | 참조 |
+| 유형 | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

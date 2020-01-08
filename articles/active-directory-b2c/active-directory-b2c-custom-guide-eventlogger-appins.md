@@ -1,7 +1,7 @@
 ---
 title: Application Insights를 사용 하 여 사용자 동작 추적
 titleSuffix: Azure AD B2C
-description: 사용자 지정 정책을 사용하여 Azure AD B2C 사용자 경험에서 Application Insights의 이벤트 로그를 사용하도록 설정하는 방법을 알아봅니다(미리 보기).
+description: 사용자 지정 정책을 사용 하 여 Azure AD B2C 사용자 경험에서 Application Insights의 이벤트 로그를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8376deecb5e184c01b41495b868b57bd8fd745d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948949"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367963"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
@@ -33,11 +33,11 @@ Azure 애플리케이션 Insights와 함께 Azure Active Directory B2C (Azure AD
 
 Azure AD B2C에서 ID 경험 프레임워크는 공급자 `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`을 포함합니다. 이 공급자는 Azure AD B2C에 제공된 계측 키를 사용하여 Application Insights에 직접 이벤트 데이터를 보냅니다.
 
-기술 프로필은 이 공급자를 사용하여 Azure AD B2C에서 이벤트를 정의합니다. 이 프로필은 이벤트의 이름, 기록될 클레임 및 계측 키를 지정합니다. 이벤트를 게시하기 위해 기술 프로필이 `orchestration step` 또는 `validation technical profile`로 사용자 지정 사용자 경험에 추가됩니다.
+기술 프로필은 이 공급자를 사용하여 Azure AD B2C에서 이벤트를 정의합니다. 이 프로필은 이벤트의 이름, 기록될 클레임 및 계측 키를 지정합니다. 이벤트를 게시 하기 위해 기술 프로필은 사용자 지정 사용자 경험에 `orchestration step`로 추가 됩니다.
 
 Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기록하는 이벤트를 통합할 수 있습니다. Application Insights는 짧은 시간 안에 이벤트 및 세션을 사용할 수 있게 하며, 많은 시각화, 내보내기 및 분석 도구를 제공합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 이 문서에서는 사용자 지정 정책 시작 팩을 사용하고 있다고 가정합니다. 하지만 시작 팩은 필요하지 않습니다.
 
@@ -45,7 +45,7 @@ Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기
 
 Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 만들고 계측 키를 가져오기만 하면 됩니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 구독을 포함 하는 디렉터리를 선택 하 여 Azure 구독이 포함 된 디렉터리를 사용 하 고 있는지 확인 합니다. 이 테넌트는 Azure AD B2C 테넌트가 아닙니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **리소스 만들기**를 선택하고 **Application Insights**를 검색하여 선택합니다.
 4. **만들기**를 클릭합니다.
@@ -110,7 +110,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 기술 프로필은 Azure AD B2C의 ID 경험 프레임워크의 함수로 간주될 수 있습니다. 이 테이블은 세션을 열고 이벤트를 게시하는 데 사용되는 기술 프로필을 정의합니다.
 
-| 기술 프로필 | 작업 |
+| 기술 프로필 | Task |
 | ----------------- | -----|
 | AzureInsights-Common | 모든 Azure Insights 기술 프로필에 포함할 공통 매개 변수 집합을 만듭니다. |
 | AzureInsights-SignInRequest | 로그인 요청이 수신되었을 때 클레임 집합을 사용하여 SignIn 이벤트를 만듭니다. |
@@ -182,7 +182,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 </OrchestrationStep>
 ```
 
-`SendClaims` 오케스트레이션 단계 바로 *전에* `Azure-Insights-UserSignup`을 호출하는 새 단계를 추가합니다. 사용자가 등록/로그인 경험에서 등록 단추를 선택할 때 트리거됩니다.
+`SendClaims` 오케스트레이션 단계 바로 *전에*`Azure-Insights-UserSignup`을 호출하는 새 단계를 추가합니다. 사용자가 등록/로그인 경험에서 등록 단추를 선택할 때 트리거됩니다.
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->

@@ -1,23 +1,14 @@
 ---
 title: 컨테이너 상태 모니터 구성에 대 한 Azure Monitor | Microsoft Docs
 description: 이 문서는 컨테이너에 대 한 Azure Monitor에서 상태 모니터의 세부 구성을 설명 하는 콘텐츠를 제공 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.date: 12/01/2019
+ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405033"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>컨테이너 상태 모니터의 Azure Monitor 구성 가이드
 
@@ -29,13 +20,13 @@ ms.locfileid: "74664950"
 
 ## <a name="monitors"></a>모니터
 
-모니터는 관리 되는 개체의 일부 측면 상태를 측정 합니다. 모니터에는 두 가지 또는 세 가지 상태가 있습니다. 모니터는 지정 된 시간에 한 번만 발생할 수 있습니다. 컨테이너 화 된 에이전트에서 모니터를 로드 하면 모니터는 정상 상태로 초기화 됩니다. 상태는 다른 상태에 대해 지정 된 조건이 검색 되는 경우에만 변경 됩니다.
+모니터는 관리 개체의 특정 양상에 대한 성능을 측정합니다. 각 모니터는 두 개 또는 세 개의 성능 상태를 포함합니다. 모니터는 항상 한 가지 상태만 표시합니다. 컨테이너 화 된 에이전트에서 모니터를 로드 하면 모니터는 정상 상태로 초기화 됩니다. 상태는 다른 상태에 대해 지정 된 조건이 검색 되는 경우에만 변경 됩니다.
 
-특정 개체의 전반적인 상태는 각 모니터의 상태에서 결정 됩니다. 이 계층 구조는 컨테이너에 대 한 Azure Monitor의 상태 계층 구조 창에 설명 되어 있습니다. 상태 롤업 방식에 대 한 정책은 집계 모니터 구성의 일부입니다.
+특정 개체의 전반적인 상태는 각 모니터의 상태에서 결정됩니다. 이 계층 구조는 컨테이너에 대 한 Azure Monitor의 상태 계층 구조 창에 설명 되어 있습니다. 상태 롤업 방식에 대 한 정책은 집계 모니터 구성의 일부입니다.
 
 ## <a name="types-of-monitors"></a>모니터 유형
 
-|모니터 | 설명 | 
+|모니터 | Description | 
 |--------|-------------|
 | 유닛 모니터 |유닛 모니터는 리소스나 응용 프로그램의 일부 측면을 측정 합니다. 이는 성능 카운터를 확인 하 여 리소스의 성능 또는 가용성을 확인할 수 있습니다. |
 |집계 모니터 | 집계 모니터는 여러 모니터를 그룹화 하 여 단일 상태 집계 상태를 제공 합니다. 유닛 모니터는 일반적으로 특정 집계 모니터에서 구성 됩니다. 예를 들어 노드 집계 모니터는 노드 CPU 사용률, 메모리 사용률 및 노드 상태의 상태를 롤업 합니다.

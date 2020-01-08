@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: c3b4fabb319a3ea76ee62c8c699d4613184a4e76
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 4919c8f303488b583ea4d10dca87dd29bfb52e99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791055"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374083"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -53,7 +53,7 @@ ms.locfileid: "74791055"
 
    예, PowerShell을 사용하면 됩니다. PowerShell을 사용하여 SQL Server VM을 배포하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
 
-1. **내 SQL Server VM의 일반화 된 Azure SQL Server marketplace 이미지를 만들고이를 사용 하 여 Vm을 배포할 수 있나요?**
+1. **내 SQL Server VM의 일반화 된 Azure SQL Server Marketplace 이미지를 만들고이를 사용 하 여 Vm을 배포할 수 있나요?**
 
    예, 하지만 [SQL Server VM 리소스 공급자와 각 SQL Server VM를 등록](virtual-machines-windows-sql-register-with-resource-provider.md) 하 여 포털에서 SQL Server VM을 관리 하 고 자동화 된 패치 적용 및 자동 백업 등의 기능을 활용 해야 합니다. 리소스 공급자에 등록 하는 경우 각 SQL Server VM에 대 한 라이선스 형식을 지정 해야 합니다. 
 
@@ -84,12 +84,12 @@ ms.locfileid: "74791055"
 
 1. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**
 
-   대기 보조 가용성 그룹 또는 장애 조치 (failover) 클러스터형 인스턴스에 대 한 무료 수동 라이선스를 보유 하려면 [라이선스 가이드 PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf)의 설명에 따라 다음 조건을 모두 충족 해야 합니다.
+   대기 보조 가용성 그룹 또는 장애 조치 (failover) 클러스터형 인스턴스에 대 한 무료 수동 라이선스를 사용 하려면 [제품 사용 약관](https://www.microsoft.com/licensing/product-licensing/products)에 설명 된 대로 다음 조건을 모두 충족 해야 합니다.
 
    1. [소프트웨어 보증](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)을 통한 [라이선스](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) 이동이 있습니다. 
-   1. Passive SQL Server 인스턴스는 클라이언트에 SQL Server 데이터를 제공 하거나 활성 SQL Server 워크 로드를 실행 하지 않습니다. 주 서버와 동기화 하는 데만 사용 되 고 그렇지 않은 경우에는 수동 데이터베이스를 웜 대기 상태에서 유지 관리 합니다. 활성 SQL Server 워크 로드를 실행 하는 클라이언트에 대 한 보고서, 보조 서버의 추가 백업 등의 "작업"을 수행 하는 것과 같은 데이터를 제공 하는 경우 유료 라이선스 SQL Server 인스턴스여야 합니다. 
+   1. Passive SQL Server 인스턴스는 클라이언트에 SQL Server 데이터를 제공 하거나 활성 SQL Server 워크 로드를 실행 하지 않습니다. 주 서버와 동기화 하는 데만 사용 되 고 그렇지 않은 경우에는 수동 데이터베이스를 웜 대기 상태에서 유지 관리 합니다. 활성 SQL Server 워크 로드를 실행 하는 클라이언트에 대 한 보고서 또는 제품 약관에 지정 된 것 이외의 다른 작업을 수행 하는 것과 같은 데이터를 제공 하는 경우에는 유료 라이선스 SQL Server 인스턴스여야 합니다. 보조 인스턴스에서는 데이터베이스 일관성 검사 또는 CheckDB, 전체 백업, 트랜잭션 로그 백업 및 리소스 사용 현황 데이터 모니터링과 같은 작업을 수행할 수 있습니다. 90 일 마다 재해 복구 테스트를 잠깐 동안만 주 및 해당 재해 복구 인스턴스를 동시에 실행할 수도 있습니다. 
    1. 활성 SQL Server 라이선스는 소프트웨어 보증에 포함 되며, 사용이 허가 된 활성 서버와 동일한 양의 계산을 포함 하는 **하나의** 수동 보조 SQL Server 인스턴스를 허용 합니다. 
-   1. 보조 SQL Server VM는 BYOL (사용자 라이선스 보유) 또는 Azure 하이브리드 혜택 (AHB) [라이선스 모델](virtual-machines-windows-sql-ahb.md)을 활용 합니다. 
+   1. 보조 SQL Server VM는 Azure Portal에서 [재해 복구](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) 라이선스를 활용 합니다.
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
@@ -163,8 +163,8 @@ ms.locfileid: "74791055"
 
 1. **설치 미디어를 통해 SQL Server 버전 또는 버전을 변경할 수 있나요?**
 
-  [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) 있는 고객은 [볼륨 라이선스 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 가져올 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전의 marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
-
+   [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) 있는 고객은 [볼륨 라이선스 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 가져올 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전의 Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
+   
 1. **업데이트와 서비스 팩은 SQL Server VM에 어떻게 적용됩니까?**
 
    가상 머신에서는 호스트 컴퓨터에 업데이트를 적용할 시기와 방법 등을 제어할 수 있습니다. 운영 체제의 경우 Windows 업데이트를 수동으로 적용하거나 [자동 패칭](virtual-machines-windows-sql-automated-patching.md)이라는 예약 서비스를 사용할 수 있습니다. 자동 패칭은 해당 범주의 SQL Server 업데이트를 포함하여 중요함으로 표시된 업데이트를 설치합니다. SQL Server에 대한 기타 선택적 업데이트는 수동으로 설치해야 합니다.
@@ -172,6 +172,12 @@ ms.locfileid: "74791055"
 1. **SQL Server VM 리소스 공급자에 등록 한 후에 SQL Server 2008/2008 R2 인스턴스를 업그레이드할 수 있나요?**
 
    예. 설치 미디어를 사용 하 여 SQL Server 버전 및 버전을 업그레이드 한 후 _에이전트 없음_ 에서 _전체_로 [SQL IaaS 확장 모드](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)를 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화 된 백업 및 자동화 된 패치 등 SQL IaaS 확장의 모든 이점에 액세스할 수 있습니다. 
+
+1. **SQL Server 2008 및 SQL Server 2008 R2 인스턴스 지원 종료에 대 한 무료 확장 보안 업데이트를 얻으려면 어떻게 해야 하나요?**
+
+   SQL Server를 Azure SQL 가상 머신으로 그대로 이동 하 여 [확장 된 보안 업데이트를 무료로](virtual-machines-windows-sql-server-2008-eos-extend-support.md) 얻을 수 있습니다. 자세한 내용은 [지원 종료 옵션](/sql/sql-server/end-of-support/sql-server-end-of-life-overview)을 참조 하세요. 
+  
+   
 
 ## <a name="general"></a>일반
 

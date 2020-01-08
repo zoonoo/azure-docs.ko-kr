@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f5346f2f11df2282a1cd2592db930f7ff829a2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849244"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416771"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -118,7 +118,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 1. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning) 으로 이동 하 여 업데이트 관리 작동 하는 데 허용 되어야 하는 주소 및 포트에 대해 알아봅니다.
 2. 복제 된 이미지를 사용 하는 경우:
    1. Log Analytics 작업 영역에서 표시 되는 경우 `MicrosoftDefaultScopeConfig-Updates` 범위 구성에 대해 저장 된 검색에서 VM을 제거 합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
-   2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`.
+   2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`을 실행합니다.
    3. `Restart-Service HealthService`를 실행하여 `HealthService`를 다시 시작합니다. 그러면 키가 다시 만들어지고 새 UUID가 생성 됩니다.
    4. 이 방법이 작동 하지 않으면 먼저 이미지에서 sysprep을 실행 한 다음 MMA를 설치 합니다.
 
@@ -187,7 +187,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="resolution"></a>해상도
 
-해당 하는 경우 업데이트 배포에 [동적 그룹](../automation-update-management-groups.md) 을 사용 합니다. 또한
+해당 하는 경우 업데이트 배포에 [동적 그룹](../automation-update-management-groups.md) 을 사용 합니다. 또한 다음 작업도 수행해야 합니다.
 
 * 컴퓨터가 존재 하 고 연결할 수 있는지 확인 합니다. 존재 하지 않는 경우 배포를 편집 하 고 컴퓨터를 제거 합니다.
 * 업데이트 관리에 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-update-management.md#ports) 섹션을 참조 하 고 컴퓨터가 이러한 요구 사항을 충족 하는지 확인 합니다.
@@ -253,9 +253,13 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### <a name="cause"></a>원인
 
-프록시, 게이트웨이 또는 방화벽에서 네트워크 통신을 차단 하 고 있을 수 있습니다.
+프록시, 게이트웨이 또는 방화벽에서 네트워크 통신을 차단 하 고 있을 수 있습니다. 
 
 ### <a name="resolution"></a>해상도
 
@@ -325,9 +329,10 @@ HRESULT가 표시 되 면 빨간색으로 표시 된 예외를 두 번 클릭 �
 |`0x8024402C`     | WSUS 서버를 사용 하는 경우 `WUServer`에 대 한 레지스트리 값 및 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 레지스트리 키 아래 `WUStatusServer` 올바른 WSUS 서버를 지정 해야 합니다.        |
 |`0x80072EE2`|네트워크 연결 문제나 구성 된 WSUS 서버와 통신 하는 데 문제가 있습니다. WSUS 설정을 확인 하 고 클라이언트에서 서비스에 액세스할 수 있는지 확인 합니다.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Windows 업데이트 서비스 (wuauserv)가 실행 중이 고 사용 하지 않도록 설정 되어 있는지 확인 합니다.        |
+|`0x80070005`| 액세스 거부 오류는 다음 중 하나에 의해 발생할 수 있습니다.<br> 감염 된 컴퓨터<br> Windows 업데이트 설정이 올바르게 구성 되지 않음<br> %WinDir%\SoftwareDistribution 폴더에 파일 사용 권한 오류가 있습니다.<br> 시스템 드라이브 (C:)의 디스크 공간이 부족 합니다.
 |다른 제네릭 예외     | 인터넷에서 검색을 실행 하 여 가능한 해결 방법을 제공 하 고 로컬 IT 지원에 문의 하세요.         |
 
-Windowsupdate.log 파일을 검토 하면 가능한 원인을 확인 하는 데 도움이 될 수도 있습니다. 로그를 읽는 방법에 대 한 자세한 내용은 [windowsupdate.log 파일을 읽는 방법](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)을 참조 하세요.
+%Windir%\Windowsupdate.log 파일을 검토 하면 가능한 원인을 확인 하는 데 도움이 될 수도 있습니다. 로그를 읽는 방법에 대 한 자세한 내용은 [windowsupdate.log 파일을 읽는 방법](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)을 참조 하세요.
 
 [Windows 업데이트 문제 해결사](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) 를 다운로드 하 여 실행 하 여 컴퓨터에서 Windows 업데이트 관련 된 문제를 확인할 수도 있습니다.
 

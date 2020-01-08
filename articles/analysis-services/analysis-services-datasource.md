@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7616bcdaf2a2ae6f80b0c1e964f311ef5409a64f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442771"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -20,17 +20,17 @@ Analysis Services 프로젝트를 사용 하 여 Visual Studio에서 데이터 �
 
 ## <a name="azure-data-sources"></a>Azure 데이터 원본
 
-|데이터 원본  |메모리 내  |DirectQuery  |참고 |
+|데이터 원본  |메모리 내  |DirectQuery  |메모 |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   yes      |    yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse      |   yes      |   yes       |<sup>[2](#azprovider)</sup>|
-|Azure Blob Storage      |   yes       |    아닙니다.      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   yes       |    아닙니다.      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  yes        |  아닙니다.        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   yes       |    아닙니다.      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   yes       |    아닙니다.      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     yes     |   아닙니다.       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   yes       |   아닙니다.       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure SQL Database      |   예      |    예      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Azure SQL Data Warehouse      |   예      |   예       |<sup>[2](#azprovider)</sup>|
+|Azure Blob Storage      |   예       |    아닙니다.      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   예       |    아닙니다.      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  예        |  아닙니다.        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   예       |    아닙니다.      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   예       |    아닙니다.      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     예     |   아닙니다.       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   예       |   아닙니다.       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
 **참고:**    
@@ -42,37 +42,37 @@ Analysis Services 프로젝트를 사용 하 여 Visual Studio에서 데이터 �
 
 ## <a name="other-data-sources"></a>기타 데이터 원본
 
-|데이터 원본 | 메모리 내 | DirectQuery |참고   |
+|데이터 원본 | 메모리 내 | DirectQuery |메모   |
 |  --- | --- | --- | --- |
-|Access 데이터베이스     |  yes | 아닙니다. |  |
-|Active Directory     |  yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup>  |
-|Analysis Services     |  yes | 아닙니다. |  |
-|분석 플랫폼 시스템     |  yes | 아닙니다. |  |
-|CSV 파일  |yes | 아닙니다. |  |
-|PowerApps     |  yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|Excel 통합 문서     |  yes | 아닙니다. |  |
-|교환      |  yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|폴더      |yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|IBM Informix  |yes | 아닙니다. |  |
-|JSON 문서      |  yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|이진의 줄      | yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|MySQL Database     | yes | 아닙니다. |  |
-|OData 피드      |  yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|ODBC 쿼리     | yes | 아닙니다. |  |
-|OLE DB     |   yes | 아닙니다. |  |
-|Oracle  | yes  |yes  | <sup>[되었는지](#oracle)</sup> |
-|PostgreSQL Database   | yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|Salesforce 개체|  yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|Salesforce 보고서 |yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|SAP HANA     |  yes | 아닙니다. |  |
-|SAP Business Warehouse    |  yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
-|SharePoint 목록      |   yes | 아닙니다. | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |yes   | yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
-|SQL Server 데이터 웨어하우스 |yes   | yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Sybase 데이터베이스     |  yes | 아닙니다. |  |
-|Teradata | yes  | yes  | <sup>[5-10](#teradata)</sup> |
-|TXT 파일  |yes | 아닙니다. |  |
-|XML 테이블    |  yes | 아닙니다. | <sup>[6@@](#tab1400b)</sup> |
+|Access 데이터베이스     |  예 | 아닙니다. |  |
+|Active Directory     |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  예 | 아닙니다. |  |
+|분석 플랫폼 시스템     |  예 | 아닙니다. |  |
+|CSV 파일  |예 | 아닙니다. |  |
+|PowerApps     |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|Excel 통합 문서     |  예 | 아닙니다. |  |
+|교환      |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|폴더      |예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |예 | 아닙니다. |  |
+|JSON 문서      |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|이진의 줄      | 예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|MySQL Database     | 예 | 아닙니다. |  |
+|OData 피드      |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|ODBC 쿼리     | 예 | 아닙니다. |  |
+|OLE DB     |   예 | 아닙니다. |  |
+|Oracle  | 예  |예  | <sup>[9](#oracle)</sup> |
+|PostgreSQL 데이터베이스   | 예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|Salesforce 개체|  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|Salesforce 보고서 |예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  예 | 아닙니다. |  |
+|SAP Business Warehouse    |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|SharePoint 목록      |   예 | 아닙니다. | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|SQL Server |예   | 예  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
+|SQL Server 데이터 웨어하우스 |예   | 예  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Sybase 데이터베이스     |  예 | 아닙니다. |  |
+|Teradata | 예  | 예  | <sup>[10](#teradata)</sup> |
+|TXT 파일  |예 | 아닙니다. |  |
+|XML 테이블    |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **참고:**    
@@ -87,7 +87,7 @@ Azure Analysis Services 서버에서 온-프레미스 데이터 원본에 연결
 
 ## <a name="understanding-providers"></a>공급자 이해
 
-Visual Studio에서 테이블 형식 1400 이상 모델 프로젝트를 만들 때 기본적으로 데이터 **가져오기**를 사용 하 여 데이터 원본에 연결할 때 데이터 공급자를 지정 하지 않습니다. 테이블 형식 1400 이상 모델에서는 [파워 쿼리](/power-query/power-query-what-is-power-query.md) 커넥터를 사용 하 여 데이터 원본 및 Analysis Services 간의 연결, 데이터 쿼리 및 매시업을 관리 합니다. 이러한 연결 속성 설정이 사용자를 위해 설정 되는 경우 이러한 연결을 *구조화* 된 데이터 원본 연결이 라고도 합니다. 그러나 레거시 데이터 원본을 사용 하도록 설정할 수 있습니다. 이 기능을 사용 하는 경우 **테이블 가져오기 마법사** 를 사용 하 여 기존에는 테이블 형식 1200에서 지원 되는 특정 데이터 원본에 연결 하거나 *기존*모델 또는 *공급자* 데이터 원본으로 사용할 수 있습니다. 공급자 데이터 원본으로 지정 하는 경우 특정 데이터 공급자 및 기타 고급 연결 속성을 지정할 수 있습니다. 예를 들어 온-프레미스 SQL Server 데이터 웨어하우스 또는 레거시 데이터 원본으로 Azure SQL Database에 연결할 수 있습니다. 그런 다음 SQL Server MSOLEDBSQL 데이터 공급자에 대 한 OLE DB 드라이버를 선택할 수 있습니다. 이 경우 OLE DB 데이터 공급자를 선택 하면 파워 쿼리 커넥터 보다 향상 된 성능을 제공할 수 있습니다. 
+Visual Studio에서 테이블 형식 1400 이상 모델 프로젝트를 만들 때 기본적으로 데이터 **가져오기**를 사용 하 여 데이터 원본에 연결할 때 데이터 공급자를 지정 하지 않습니다. 테이블 형식 1400 이상 모델에서는 [파워 쿼리](/power-query/power-query-what-is-power-query) 커넥터를 사용 하 여 데이터 원본 및 Analysis Services 간의 연결, 데이터 쿼리 및 매시업을 관리 합니다. 이러한 연결 속성 설정이 사용자를 위해 설정 되는 경우 이러한 연결을 *구조화* 된 데이터 원본 연결이 라고도 합니다. 그러나 레거시 데이터 원본을 사용 하도록 설정할 수 있습니다. 이 기능을 사용 하는 경우 **테이블 가져오기 마법사** 를 사용 하 여 기존에는 테이블 형식 1200에서 지원 되는 특정 데이터 원본에 연결 하거나 *기존*모델 또는 *공급자* 데이터 원본으로 사용할 수 있습니다. 공급자 데이터 원본으로 지정 하는 경우 특정 데이터 공급자 및 기타 고급 연결 속성을 지정할 수 있습니다. 예를 들어 온-프레미스 SQL Server 데이터 웨어하우스 또는 레거시 데이터 원본으로 Azure SQL Database에 연결할 수 있습니다. 그런 다음 SQL Server MSOLEDBSQL 데이터 공급자에 대 한 OLE DB 드라이버를 선택할 수 있습니다. 이 경우 OLE DB 데이터 공급자를 선택 하면 파워 쿼리 커넥터 보다 향상 된 성능을 제공할 수 있습니다. 
 
 Visual Studio에서 테이블 가져오기 마법사를 사용 하는 경우 데이터 원본에 연결 하려면 데이터 공급자가 필요 합니다. 기본 데이터 공급자가 선택 됩니다. 필요한 경우 데이터 공급자를 변경할 수 있습니다. 모델에서 메모리 내 저장소 또는 DirectQuery를 사용 하 고 있는지 여부와 모델을 배포 하는 Analysis Services 플랫폼을 사용 하 여 성능에 따라 선택할 수 있습니다.
 

@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: b9b0ba85aed4d63fe6bb939c9ed3b99d3e789397
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/11/2019
+ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427001"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 트래픽 분석 구현
 
@@ -167,9 +167,7 @@ Application Insights 리소스에 이벤트를 보내는 개체입니다.
 
 ## <a name="3---analyze-in-power-bi"></a>3 - Power BI에서 분석
 
-앱을 계측 하 고 응용 프로그램이 Application Insights에 올바르게 연결 되었는지 확인 한 후에는 Power BI 데스크톱에 대해 Azure Cognitive Search에서 만든 미리 정의 된 템플릿을 사용할 수 있습니다. 
-
-Azure 인식 검색은 로그 데이터를 분석할 수 있도록 모니터링 [Power BI 콘텐츠 팩](https://app.powerbi.com/getdata/services/azure-search) 을 제공 합니다. 콘텐츠 팩에는 트래픽 분석 검색을 위해 캡처된 추가 데이터를 분석하는 데 유용한 미리 정의된 차트와 테이블이 추가되어 있습니다. 자세한 내용은 [콘텐츠 팩 도움말 페이지](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/)를 참조하세요. 
+앱을 계측 하 고 응용 프로그램이 Application Insights에 올바르게 연결 되었는지 확인 한 후 미리 정의 된 보고서 템플릿을 다운로드 하 여 Power BI desktop에서 데이터를 분석 합니다. 보고서에는 검색 트래픽 분석을 위해 캡처된 추가 데이터를 분석 하는 데 유용한 미리 정의 된 차트와 테이블이 포함 되어 있습니다. 
 
 1. Azure Cognitive Search 대시보드 왼쪽 탐색 창의 **설정**에서 **트래픽 분석 검색**을 클릭 합니다.
 
@@ -179,7 +177,7 @@ Azure 인식 검색은 로그 데이터를 분석할 수 있도록 모니터링 
 
 2. 동일한 페이지에서 **Power BI 보고서 다운로드**를 클릭 합니다.
 
-3. 보고서가 Power BI Desktop에서 열리고 Application Insights에 연결하라는 메시지가 표시됩니다. Application Insights 리소스에 대 한 Azure Portal 페이지에서이 정보를 찾을 수 있습니다.
+3. Power BI Desktop에서 보고서가 열리고 Application Insights에 연결 하 고 자격 증명을 제공 하 라는 메시지가 표시 됩니다. Application Insights 리소스에 대 한 Azure Portal 페이지에서 연결 정보를 찾을 수 있습니다. 자격 증명에는 포털 로그인에 사용 하는 것과 동일한 사용자 이름 및 암호를 제공 합니다.
 
    ![Application Insights에 연결](./media/search-traffic-analytics/connect-to-app-insights.png "Application Insights에 연결")
 
@@ -189,11 +187,8 @@ Azure 인식 검색은 로그 데이터를 분석할 수 있도록 모니터링 
 
 메트릭에 포함되는 항목은 다음과 같습니다.
 
-* CTR(클릭률): 특정 문서를 클릭한 사용자와 총 검색 수의 비율.
+* 검색 볼륨 및 가장 인기 있는 용어-문서 쌍: 같은 문서를 클릭 하 여 클릭을 기준으로 정렬 합니다.
 * 클릭 없이 검색: 클릭을 등록하지 않는 상위 쿼리를 일컫는 용어
-* 최다 클릭 문서: 최근 24시간, 7일 및 30일 동안 ID별로 클릭 횟수가 가장 많은 문서.
-* 인기 용어-문서 쌍: 같은 문서를 클릭하는 결과로 이어진 용어이며 클릭 수를 기준으로 정렬됩니다.
-* 시간 대비 클릭: 검색 쿼리 이후 시간 별로 버킷 구성된 클릭
 
 다음 스크린샷에서는 트래픽 분석 검색을 분석하기 위한 기본 제공 보고서와 차트를 보여 줍니다.
 

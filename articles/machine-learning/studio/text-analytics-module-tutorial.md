@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 2e5cebb05549c2bd3cd810da58930efdae1422e4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 313b9c92b10d3170eb71bb8290a9388bb8dcc67c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427515"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 감정 분석 모델 만들기
 
@@ -66,7 +66,7 @@ N-Gram 특성 추출을 사용하는 대신, 특성 해시 모듈을 사용할 �
 ## <a name="step-3-train-classification-or-regression-model"></a>3단계: 분류 또는 회귀 모델 학습
 이제 텍스트가 숫자 특성 열로 변환되었습니다. 데이터 세트에는 여전히 이전 단계의 문자열 열이 포함되어 있으므로 데이터 세트의 열 선택을 사용하여 제외시킵니다.
 
-[2클래스 로지스틱 회귀](https://msdn.microsoft.com/library/azure/dn905994.aspx) 를 사용하여 목표: 높음 또는 낮음 리뷰 점수를 예측합니다. 현재 텍스트 분석 문제가 일반 분류 문제로 변환되었습니다. 클래식 버전의 Azure Machine Learning Studio에서 사용 가능한 도구를 사용 하 여 모델을 개선할 수 있습니다. 예를 들어 다양한 분류자로 실험하여 얼마나 정확한 결과를 제공하는지 확인하거나, 하이퍼 매개 변수 조정을 사용하여 정확도를 향상시킬 수 있습니다.
+[2클래스 로지스틱 회귀](https://msdn.microsoft.com/library/azure/dn905994.aspx) 를 사용하여 목표: 높음 또는 낮음 리뷰 점수를 예측합니다. 현재 텍스트 분석 문제가 일반 분류 문제로 변환되었습니다. Azure Machine Learning Studio (클래식)에서 제공 하는 도구를 사용 하 여 모델을 개선할 수 있습니다. 예를 들어 다양한 분류자로 실험하여 얼마나 정확한 결과를 제공하는지 확인하거나, 하이퍼 매개 변수 조정을 사용하여 정확도를 향상시킬 수 있습니다.
 
 ![학습 및 점수 매기기](./media/text-analytics-module-tutorial/scoring-text.png)
 

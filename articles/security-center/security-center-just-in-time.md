@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 51b4ef06806e2a6647975a373f1bc4bd58740b7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355577"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 
@@ -99,7 +99,7 @@ Security Center에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 
       - 5986 - WinRM
 6. 사용자 지정 포트를 구성할 수도 있습니다.
 
-      1. **추가**으로 로그온합니다. **포트 구성 추가** 창이 열립니다.
+      1. **추가**를 클릭합니다. **포트 구성 추가** 창이 열립니다.
       2. 구성 하도록 선택한 각 포트 (기본 및 사용자 지정)에 대해 다음 설정을 사용자 지정할 수 있습니다.
 
     - **프로토콜 유형** - 요청이 승인될 때 이 포트에서 허용되는 프로토콜입니다.
@@ -108,7 +108,7 @@ Security Center에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 
 
      3. **확인**을 클릭합니다.
 
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+1. **저장**을 클릭합니다.
 
 > [!NOTE]
 >VM에 대 한 JIT VM 액세스를 사용 하도록 설정 하면 연결 된 네트워크 보안 그룹과 연결 된 Azure 방화벽에서 선택한 포트에 대 한 "모든 인바운드 트래픽 거부" 규칙을 Azure Security Center 만들어집니다. 선택한 포트에 대해 다른 규칙을 만든 경우 기존 규칙은 새 "모든 인바운드 트래픽 거부" 규칙 보다 우선적으로 적용 됩니다. 선택한 포트에 기존 규칙이 없는 경우 새 "모든 인바운드 트래픽 거부" 규칙은 네트워크 보안 그룹 및 Azure 방화벽에서 가장 높은 우선 순위를 사용 합니다.

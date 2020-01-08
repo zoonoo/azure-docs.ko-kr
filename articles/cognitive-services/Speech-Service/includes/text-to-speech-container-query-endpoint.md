@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: dapine
 ms.openlocfilehash: 8460ddca5cff2b3da540b5fa8cf66e0687892789
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 12/28/2019
 ms.locfileid: "73491118"
 ---
 컨테이너는 [REST 기반 끝점 api](../rest-text-to-speech.md)를 제공 합니다. 플랫폼, 프레임 워크 및 언어 변형을 사용할 수 있는 [샘플 소스 코드 프로젝트](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) 는 여러 가지가 있습니다.

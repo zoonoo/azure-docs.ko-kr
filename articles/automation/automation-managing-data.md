@@ -2,19 +2,15 @@
 title: Azure Automation 데이터 관리
 description: 이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.  현재 Azure Automation에 데이터 보존 및 Azure Automation 재해 복구 백업이 포함되어 있습니다.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: da1b151a150dfbf602593451d3d68043352b73eb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: daa5bab7c8d4cbe98ffe9a8a8a4b66da029fef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850774"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421901"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation 데이터 관리
 이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.
@@ -32,7 +28,7 @@ Azure Automation은 90일이 넘은 작업을 자동으로 삭제하고 영구�
 | 자산 |사용자가 자산을 삭제한 후 90일이 지나거나 사용자가 자산을 유지하는 계정을 삭제한 후 90일이 지나면 영구적으로 제거됩니다. |
 | 모듈 |사용자가 모듈을 삭제한 후 90일이 지나거나 사용자가 모듈을 유지하는 계정을 삭제한 후 90일이 지나면 영구적으로 제거됩니다. |
 | Runbook |사용자가 리소스를 제거한 후 90일이 지나거나 사용자가 리소스를 유지하는 계정을 삭제한 후 90일이 지나면 영구적으로 제거됩니다. |
-| 교육 |마지막으로 수정한지 90일이 지나면 삭제 및 영구 제거됩니다. 이는 작업이 완료되거나 중지되거나 일시 중단된 이후일 수 있습니다. |
+| 작업 |마지막으로 수정한지 90일이 지나면 삭제 및 영구 제거됩니다. 이는 작업이 완료되거나 중지되거나 일시 중단된 이후일 수 있습니다. |
 | 노드 구성/MOF 파일 |이전 노드 구성은 새 노드 구성이 생성된 후 90일이 지나면 영구적으로 제거됩니다. |
 | DSC 노드 |Azure 포털이나 Windows PowerShell에서 [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) cmdlet을 사용하여 자동화 계정에서 노드의 등록을 취소한 후 90일이 지나면 영구적으로 제거됩니다. 또한 사용자가 노드를 보유하는 계정을 삭제한 후 90일이 지나면 노드가 영구적으로 제거됩니다. |
 | 노드 보고서 |해당 노드에 대한 새 보고서가 생성된 후 90일이 지나면 영구적으로 제거됩니다. |
@@ -67,7 +63,7 @@ Azure Automation 계정의 표준인 지역에서 복제는 중복성을 위해 
 
 다음 테이블에서는 사용 가능한 기본 및 보조 지역 쌍을 보여 줍니다.
 
-| 보조 | 주 |
+| 주 | 보조 |
 | --- | --- |
 | 미국 중남부 |미국 중북부 |
 | 미국 동부 2 |미국 중부 |

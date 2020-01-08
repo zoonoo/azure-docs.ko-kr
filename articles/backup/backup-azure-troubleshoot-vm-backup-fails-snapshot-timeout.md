@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996275"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391838"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -28,6 +28,7 @@ Azure VM 에이전트가 중지 되었거나, 기한이 지난 상태 이거나,
 - Vm **> 설정 > 속성 블레이드** > Vm **상태가** **실행 중** 이 고 **에이전트 상태가** **준비**됨 인지 확인 하 > Azure Portal을 엽니다. VM 에이전트가 중지 되었거나 일관 되지 않은 상태에 있는 경우 에이전트를 다시 시작 하십시오.<br>
   - Windows Vm의 경우 다음 [단계](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.<br>
   - Linux Vm의 경우 다음 [단계](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.
+- **Azure Portal > VM > 설정 > 확장을 열고** 모든 확장이 **프로 비전 성공** 상태에 있는지 확인 > 합니다. 그렇지 않은 경우 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) 에 따라 문제를 해결 합니다.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다.
 
@@ -53,7 +54,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 이 오류는 확장 오류 중 하나에서 VM을 프로 비전 실패 상태로 전환 하는 경우에 발생 합니다.<br>**Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고** 모든 확장이 **프로 비전 성공** 상태 인지 확인 합니다.
 
-- VMSnapshot 확장이 실패 상태 이면 실패 한 확장을 마우스 오른쪽 단추로 클릭 하 고 제거 합니다. 임시 백업을 트리거합니다 .이는 확장을 다시 설치 하 고 백업 작업을 실행 합니다.  <br>
+- VMSnapshot 확장이 실패 상태 이면 실패 한 확장을 마우스 오른쪽 단추로 클릭 하 고 제거 합니다. 주문형 백업을 트리거 하면 확장을 다시 설치 하 고 백업 작업을 실행 합니다.  <br>
 - 다른 확장이 실패 상태 이면 백업을 방해할 수 있습니다. 이러한 확장 문제가 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 복원 지점 컬렉션이 최대 한도에 도달했습니다.
@@ -229,7 +230,7 @@ VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사
 1. [Azure Portal](https://portal.azure.com/)에서 백업 실패가 발생하는 VM으로 이동합니다.
 2. **설정**을 선택합니다.
 3. **확장**을 섡택합니다.
-4. **Vmsnapshot 확장**을 선택합니다.
+4. **스냅숏 확장**을 선택 합니다.
 5. **제거**를 선택합니다.
 
 Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [Azure Linux 에이전트를 업데이트](../virtual-machines/linux/update-agent.md)한 다음, 백업을 실행합니다.
@@ -238,7 +239,7 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>복구 지점 리소스 그룹에서 잠금 제거
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 리소스 옵션**으로 이동한 다음, AzureBackupRG_`<Geo>`_`<number>` 형식의 복원 지점 컬렉션 리소스 그룹을 선택합니다.
 3. **설정** 섹션에서 **잠금**을 선택하여 잠금을 표시합니다.
 4. 잠금을 제거하려면 줄임표를 선택하고 **삭제**를 클릭합니다.
@@ -267,7 +268,7 @@ VM의 리소스 그룹 또는 VM 자체를 삭제 하는 경우 관리 디스크
 
 리소스 그룹의 잠금으로 인해 제거 되지 않는 복원 지점의 컬렉션을 수동으로 지우려면 다음 단계를 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **허브** 메뉴에서 **모든 리소스**를 클릭하고 사용자 VM이 있는, AzureBackupRG_`<Geo>`_`<number>` 형식의 리소스 그룹을 선택합니다.
 
     ![잠금 삭제](./media/backup-azure-arm-vms-prepare/resource-group.png)

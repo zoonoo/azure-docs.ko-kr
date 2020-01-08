@@ -3,14 +3,14 @@ title: Azure Dev Spaces 도구를 업그레이드하는 방법
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-description: Azure에서 컨테이너 및 마이크로 서비스가 있는 Kubernetes 개발 환경을 빠르게 만듭니다.
+description: Azure Dev Spaces 명령줄 도구, Visual Studo 코드 확장 및 Visual Studio 확장을 업그레이드 하는 방법에 대해 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: 6ad28a5da05cf77cfaa834ed9752daefeb5f4fdb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 07d55689ac94a865527f4b595765d67b28ddb97a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438410"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Azure Dev Spaces 도구를 업그레이드하는 방법
 

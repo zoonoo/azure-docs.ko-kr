@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Log Analytics에 저장된 개인 데이�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7733b27bb5af01e55cd732c16f6c9cb1e9301819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7f8b40094b30a01e4189bcf04d4c194e5b0b4285
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394746"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -23,17 +23,17 @@ Log Analytics는 개인 데이터를 찾을 수 있는 데이터 저장소입니
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="strategy-for-personal-data-handling"></a>개인 데이터 처리를 위한 전략
+## <a name="strategy-for-personal-data-handling"></a>개인 데이터 처리 전략
 
-프라이빗 데이터를 처리할 전략을 결정하는 것은 궁극적으로 사용자 및 사용자의 회사에 달려 있지만(가능한 경우) 몇 가지 가능한 방법은 다음과 같습니다. 기술적 관점에서 최우선 순서대로 나열됩니다.
+프라이빗 데이터를 처리할 전략을 결정하는 것은 궁극적으로 사용자 및 사용자의 회사에 달려 있지만(가능한 경우) 몇 가지 가능한 방법은 다음과 같습니다. 기술적인 관점에서 우선 순위의 순서대로 나열되어 있습니다.
 
 * 가능한 경우 데이터를 수집 중지, 난독 처리, 익명화하거나, 그렇지 않으면 수집 중인 데이터를 "프라이빗"으로 간주되지 않도록 조정합니다. 이는 _훨씬_ 선호되는 방법이므로 비용이 많이 들고 영향력 있는 데이터 처리 전략을 만들 필요가 없습니다.
-* 가능하지 않은 경우 데이터 플랫폼 및 성능에 미치는 영향을 줄이려면 데이터 정규화를 시도하십시오. 예를 들어 명시적 사용자 ID를 로깅하는 대신 사용자 이름과 해당 세부 정보를 다른 곳에 기록할 수 있는 내부 ID와 상관 관계가 있는 조회 데이터를 만듭니다. 이렇게 하면 사용자 중 한 명이 자신의 개인 정보를 삭제하도록 요청하면 사용자에게 해당하는 조회 테이블에서 해당 행만 삭제하는 것으로 충분할 수 있습니다. 
+* 가능하지 않은 경우 데이터를 정규화하여 데이터 플랫폼 및 성능에 미치는 영향을 줄입니다. 예를 들어 명시적 사용자 ID를 로깅하는 대신 사용자 이름과 해당 세부 정보를 다른 곳에 기록할 수 있는 내부 ID와 상관 관계가 있는 조회 데이터를 만듭니다. 이렇게 하면 사용자 중 한 명이 자신의 개인 정보를 삭제하도록 요청하면 사용자에게 해당하는 조회 테이블에서 해당 행만 삭제하는 것으로 충분할 수 있습니다. 
 * 마지막으로 프라이빗 데이터를 수집해야 하는 경우 제거 API 경로 및 기존 쿼리 API 경로 주변의 프로세스를 빌드하여 사용자와 연결된 프라이빗 데이터를 내보내고 삭제해야 하는 모든 의무를 충족시킵니다. 
 
 ## <a name="where-to-look-for-private-data-in-log-analytics"></a>Log Analytics에서 프라이빗 데이터를 찾는 위치
 
-Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 사용자 지정 값으로 재정의할 수 있는 유연한 저장소입니다. 또한 모든 사용자 지정 스키마도 수집할 수 있습니다. 따라서 특정 작업 영역에서 프라이빗 데이터가 있는 위치를 정확하게 가리킬 수는 없습니다. 그러나 다음 위치는 인벤토리에서 좋은 시작점입니다.
+Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 사용자 지정 값으로 재정의할 수 있는 유연한 저장소입니다. 또한 모든 사용자 지정 스키마도 수집할 수 있습니다. 따라서 특정 작업 영역에서 프라이빗 데이터가 있는 위치를 정확하게 가리킬 수는 없습니다. 그러나 다음 위치는 인벤토리에서 훌륭한 시작 지점입니다.
 
 ### <a name="log-data"></a>로그 데이터
 
@@ -79,7 +79,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 
 ### <a name="view-and-export"></a>보기 및 내보내기
 
-데이터 보기 및 내보내기 요청 둘 다에서 [Log Analytics 쿼리 API](https://dev.loganalytics.io/) 또는 [Application Insights 쿼리 API](https://dev.applicationinsights.io/quickstart)를 사용해야 합니다. 사용자에게 전달될 데이터 형식을 적절한 형식으로 변환하는 논리의 구현은 사용자에게 달려 있습니다. [Azure Functions](https://azure.microsoft.com/services/functions/)는 이러한 논리를 호스팅하는 데 적합합니다.
+데이터 보기 및 내보내기 요청 둘 다에서 [Log Analytics 쿼리 API](https://dev.loganalytics.io/) 또는 [Application Insights 쿼리 API](https://dev.applicationinsights.io/quickstart)를 사용해야 합니다. 데이터의 모양을 적절한 형식으로 변환하여 사용자에게 전달하는 논리의 구현은 사용자에게 달려 있습니다. [Azure Functions](https://azure.microsoft.com/services/functions/)는 이러한 논리를 호스팅하는 데 적합합니다.
 
 > [!IMPORTANT]
 >  대부분의 제거 작업이 SLA 보다 훨씬 더 빠르게 완료 될 수 있지만 **제거 작업의 완료에 대 한 공식 SLA** 는 사용 되는 데이터 플랫폼에 미치는 영향 때문에 30 일 후에 설정 됩니다. 이는 자동화 된 프로세스입니다. 작업을 더 빠르게 처리 하도록 요청할 수 있는 방법은 없습니다.
@@ -87,11 +87,11 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 ### <a name="delete"></a>삭제
 
 > [!WARNING]
-> Log Analytics에서 삭제하는 작업은 파괴적이고 되돌릴 수 없습니다! 해당 실행에 각별히 주의하십시오.
+> Log Analytics에서 삭제하는 작업은 파괴적이고 되돌릴 수 없습니다! 실행에 각별히 주의하세요.
 
 *제거* API 경로를 처리하는 개인 정보의 일부로 사용할 수 있게 되었습니다. 이 경로는 이러한 작업과 관련된 위험, 잠재적인 성능 영향 및 Log Analytics 데이터의 총 집계, 측정 및 다른 측면을 왜곡할 수 있는 가능성으로 인해 드물게 사용해야 합니다. 프라이빗 데이터를 처리하는 다른 방법은 [개별 데이터 처리 전략](#strategy-for-personal-data-handling) 섹션을 참조하세요.
 
-제거는 Azure의 사용자나 앱(리소스 소유자 포함)이 Azure Resource Manager의 역할을 명시적으로 부여하지 않고서는 실행할 권한이 없는 높은 사용 권한이 필요한 작업입니다. 이 역할은 _데이터 제거자_이며, 데이터 손실 가능성 때문에 신중하게 위임해야 합니다. 
+제거는 높은 수준의 권한이 필요한 작업으로 Azure의 사용자(리소스 소유자도 포함) 또는 앱이 Azure Resource Manager에서 명시적으로 역할을 부여받아야 실행할 수 있습니다. 이 역할은 _데이터 제거자_이며, 데이터 손실 가능성 때문에 신중하게 위임해야 합니다. 
 
 > [!IMPORTANT]
 > 시스템 리소스를 관리 하기 위해 제거 요청은 시간당 50 요청에 의해 제한 됩니다. 제거 해야 하는 모든 사용자 id가 조건자에 포함 된 단일 명령을 보내서 제거 요청 실행을 일괄 처리 해야 합니다. 여러 id를 지정 하려면 [in 연산자](/azure/kusto/query/inoperator) 를 사용 합니다. 결과를 예상 하는지 확인 하려면 제거 요청을 실행 하기 전에 쿼리를 실행 해야 합니다. 
@@ -103,7 +103,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 #### <a name="log-data"></a>로그 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
-* 제거 상태 가져오기 - 게시 제거 호출은 제거 API의 상태를 확인하려면 호출할 수 있는 URL을 포함하는 'x-ms-status-location' 헤더를 반환합니다. 다음은 그 예입니다.
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -115,7 +115,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 #### <a name="application-data"></a>애플리케이션 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/application-insights/components/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다.
-* 제거 상태 가져오기 - 게시 제거 호출은 제거 API의 상태를 확인하려면 호출할 수 있는 URL을 포함하는 'x-ms-status-location' 헤더를 반환합니다. 다음은 그 예입니다.
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

@@ -8,20 +8,20 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3477bac051346e4b334ff3437085c402090b2c98
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356346"
 ---
 # <a name="coarse-relocalization"></a>광역 위치 재결정
 
-정교 하지 않은 지역화는 질문에 대 한 초기 답변을 제공 하는 기능입니다. *여기서 장치는* 언제 입니까? 응답은 정확 하지는 않지만 대신 다음 형식으로 되어 *있습니다. 이러한 앵커에 근접*하 고 있습니다.
+정교 하지 않은 지역화는 질문에 대 한 초기 답변을 제공 하는 기능입니다. *여기서 장치는* 언제 입니까? 응답은 정확 하지 않지만 대신 다음 형식으로 되어 있습니다. *이러한 앵커에 근접 하 고 있습니다. 그 중 하나를 찾아 보세요*.
 
-정교 하지 않은 다시 지역화는 생성 및 앵커 쿼리와 함께 다양 한 장치 센서 판독값을 연결 하는 방식으로 작동 합니다. 옥외 시나리오에서 센서 데이터는 일반적으로 장치의 GPS (글로벌 위치 시스템) 위치입니다. GPS를 사용할 수 없거나 신뢰할 수 없는 경우 (예: 실내) 센서 데이터는 WiFi 액세스 지점과 Bluetooth 오류 신호 (범위)로 구성 됩니다. 수집 된 모든 센서 데이터는 공간 인덱스를 유지 관리 하는 데 기여 합니다. 공간 인덱스는 앵커 서비스에서 장치의 약 100 미터 내에 있는 앵커를 빠르게 결정 하는 데 활용 됩니다.
+정교 하지 않은 다시 지역화는 생성 및 앵커 쿼리와 함께 다양 한 장치 센서 판독값을 연결 하는 방식으로 작동 합니다. 옥외 시나리오에서 센서 데이터는 일반적으로 장치의 GPS (글로벌 위치 시스템) 위치입니다. GPS를 사용할 수 없거나 신뢰할 수 없는 경우 (예: 실내) 센서 데이터는 범위의 WiFi 액세스 지점과 Bluetooth 신호로 구성 됩니다. 수집 된 모든 센서 데이터는 공간 인덱스를 유지 관리 하는 데 기여 합니다 .이는 Azure 공간 앵커에서 장치의 약 100 미터 이내에 있는 앵커를 빠르게 결정 하는 데 사용 됩니다.
 
-거칠게 다시 지역화를 통해 사용 하도록 설정 된 앵커의 빠른 조회는 수백만 개의 지리적으로 분산 된 앵커로 구성 된의 세계 규모 컬렉션에서 지원 되는 응용 프로그램 개발을 간소화 합니다. 고정 관리의 복잡성은 모두 숨겨져 있으므로 놀라운 응용 프로그램 논리에 더 집중할 수 있습니다. 모든 앵커는 서비스의 백그라운드에서 수행 됩니다.
+거칠게 다시 지역화에서 사용 하도록 설정 된 앵커의 빠른 조회는 전 세계 규모의 지리적으로 분산 된 컬렉션 (즉, 수백만 개의 지리적으로 분산 된) 앵커로 지원 되는 응용 프로그램 개발을 간소화 합니다. 고정 관리의 복잡성은 모두 숨겨져 있으므로 놀라운 응용 프로그램 논리에 더 집중할 수 있습니다. 모든 앵커는 Azure 공간 앵커에 의해 백그라운드에서 수행 됩니다.
 
 ## <a name="collected-sensor-data"></a>수집 된 센서 데이터
 
@@ -91,7 +91,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -118,7 +118,7 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-다음에는 거칠게 다시 지역화에 사용할 센서를 결정 해야 합니다. 이러한 결정은 일반적으로 개발 중인 응용 프로그램과 관련 된 것 이지만 다음 표의 권장 사항을 따르면 좋은 출발점을 얻을 수 있습니다.
+다음에는 거칠게 다시 지역화에 사용할 센서를 결정 해야 합니다. 이 결정은 개발 중인 응용 프로그램에 따라 달라 지 며, 다음 표의 권장 사항을 잘 알고 있어야 합니다.
 
 
 |             | 실내 | 야외 |
@@ -159,7 +159,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -182,8 +182,9 @@ sensors.GeoLocationEnabled(true);
 
 일반적으로 장치 OS와 Azure 공간 앵커는 이러한 문제를 완화 하기 위해 원시 GPS 신호에 대 한 몇 가지 필터링 및 보 외의 작업을 수행 합니다. 이러한 추가 처리에는 수렴에 추가 시간이 필요 하기 때문에 최상의 결과를 위해서는 다음을 수행 해야 합니다.
 
-* 응용 프로그램에서 가능한 한 빨리 센서 지문 공급자 만들기
-* 센서 지문 공급자를 활성 상태로 유지 하 고 여러 세션 간에 공유
+* 응용 프로그램에서 가능한 한 빨리 센서 지문 공급자를 만듭니다.
+* 여러 세션 사이에서 센서 지문 공급자를 유지 합니다.
+* 여러 세션 간에 센서 지문 공급자 공유
 
 앵커 세션 외부에서 센서 지문 공급자를 사용 하려는 경우 센서 추정치를 요청 하기 전에 먼저 시작 해야 합니다. 예를 들어 다음 코드는 맵의 장치 위치를 실시간으로 업데이트 하는 작업을 처리 합니다.
 
@@ -271,7 +272,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -344,7 +345,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -402,7 +403,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -418,7 +419,7 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-탐지 장치는 일반적으로 Uuid 및 MAC 주소를 포함 하 여 모든 항목을 구성할 수 있는 다양 한 장치입니다. 이러한 유연성은 Uuid에 의해 고유 하 게 식별 되는 오류 신호를 고려 하는 Azure 공간 앵커에 문제가 될 수 있습니다. 이러한 고유성이 대부분 공간 wormholes으로 변환 될 가능성이 있는지 확인 하는 데 실패 합니다. 최상의 결과를 위해서는 다음을 수행 해야 합니다.
+탐지 장치는 일반적으로 Uuid 및 MAC 주소를 포함 하 여 모든 항목을 구성할 수 있는 다양 한 장치입니다. 이러한 유연성은 사용자의 Uuid에 의해 고유 하 게 식별 되는 신호를 고려 하 여 Azure 공간 앵커에 문제가 될 수 있습니다. 이러한 고유성이 이러한 고유성이 보장 되지 않을 경우 공간 wormholes이 발생할 가능성이 높습니다. 최상의 결과를 위해서는 다음을 수행 해야 합니다.
 
 * 고유 Uuid를 오류 신호에 할당 합니다.
 * 일반적으로 grid와 같은 일반 패턴으로 배포 합니다.
@@ -466,7 +467,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -490,13 +491,13 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Azure 공간 앵커는 목록에 있는 Bluetooth 오류 표시만 추적 합니다. 허용 되는 Uuid를 포함 하도록 프로그래밍 된 악성 신호는 여전히 서비스 품질에 부정적인 영향을 줄 수 있습니다. 이러한 이유로 해당 배포를 제어할 수 있는 큐 레이트 공간 에서만 오류 신호를 사용 해야 합니다.
+Azure 공간 앵커는 알려진 오류 신호 근접 Uuid 목록에 있는 Bluetooth 오류 표시만 추적 합니다. 허용 되는 Uuid를 포함 하도록 프로그래밍 된 악성 신호는 여전히 서비스 품질에 부정적인 영향을 줄 수 있습니다. 이러한 이유로 해당 배포를 제어할 수 있는 큐 레이트 공간 에서만 오류 신호를 사용 해야 합니다.
 
 ## <a name="querying-with-sensor-data"></a>센서 데이터로 쿼리
 
-연결 된 센서 데이터로 앵커를 만든 후에는 장치에서 보고 한 센서 판독값을 사용 하 여 검색을 시작할 수 있습니다. 더 이상 찾을 것으로 예상 되는 앵커 목록에 서비스를 제공할 필요가 없습니다. 대신, 서비스에서 온보드 센서에서 보고 하는 장치의 위치를 알 수 있도록 합니다. 그런 다음 공간 앵커 서비스는 장치에 가까운 앵커 집합을 확인 하 고 시각적으로 일치 하려고 시도 합니다.
+연결 된 센서 데이터로 앵커를 만든 후에는 장치에서 보고 한 센서 판독값을 사용 하 여 검색을 시작할 수 있습니다. 더 이상 찾을 것으로 예상 되는 앵커 목록에 서비스를 제공할 필요가 없습니다. 대신, 서비스에서 온보드 센서에서 보고 하는 장치의 위치를 알 수 있도록 합니다. 그런 다음 Azure 공간 앵커는 장치에 가까운 앵커 집합을 파악 하 여 시각적으로 일치 시 키 려 고 합니다.
 
-쿼리를 사용 하 여 센서 데이터를 사용 하려면 먼저 찾기 조건을 만들어 시작 합니다.
+쿼리에서 센서 데이터를 사용 하도록 하려면 "주변 장치" 조건을 만들어 시작 합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -558,7 +559,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -593,9 +594,9 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 `DistanceInMeters` 매개 변수는 콘텐츠를 검색 하기 위해 앵커 그래프를 탐색 하는 정도를 제어 합니다. 모든 미터의 일정 한 밀도에서 앵커를 사용 하 여 일부 공간을 채운 경우를 가정 합니다. 또한 장치의 카메라는 단일 앵커를 관찰 하 고 서비스에서 성공적으로 찾았습니다. 현재 관찰 중인 단일 앵커 대신 가까이 배치 된 모든 앵커를 검색 하는 것이 가장 좋습니다. 사용자가 배치한 앵커를 그래프에 연결 했다고 가정할 경우, 서비스는 그래프의 가장자리를 따라 주변 앵커를 모두 검색할 수 있습니다. 그래프 트래버스의 양은 `DistanceInMeters`에 의해 제어 됩니다. 사용자가 찾은 앵커에 연결 된 모든 앵커를 지정 하 여 `DistanceInMeters`보다 더 가까운 곳에 연결 합니다.
 
-`MaxResultCount`에 대 한 값이 크면 성능에 부정적인 영향을 줄 수 있습니다. 응용 프로그램에 적합 한 적절 한 값으로 설정 해 봅니다.
+`MaxResultCount`에 대 한 값이 크면 성능에 부정적인 영향을 줄 수 있습니다. 응용 프로그램에 대 한 적절 한 값으로 설정 합니다.
 
-마지막으로, 센서 기반 조회를 사용 하도록 세션에 지시 해야 합니다.
+마지막으로 센서 기반 조회를 사용 하도록 세션에 지시 해야 합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -621,7 +622,7 @@ cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);

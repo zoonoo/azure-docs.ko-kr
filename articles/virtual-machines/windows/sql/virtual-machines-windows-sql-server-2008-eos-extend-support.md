@@ -14,22 +14,24 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7c93538982b7fd7bb2f5ac25027ed92cc6ccbfa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132765"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357852"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Azure를 사용 하 여 SQL Server 2008 및 SQL Server 2008 R2 지원 확장
 
-SQL Server 2008 및 SQL Server 2008 R2는 모두 [지원 (EOS) 수명 주기 끝](https://www.microsoft.com/sql-server/sql-server-2008)에 근접 하 고 있습니다. 많은 고객이 계속 해 서 두 버전을 모두 사용 하 고 있으므로 계속 지원을 받기 위한 몇 가지 옵션을 제공 하 고 있습니다. 온-프레미스 SQL Server 인스턴스를 Azure Vm (가상 머신)으로 마이그레이션하거나, Azure SQL Database로 마이그레이션하거나, 확장 된 보안 업데이트를 구매할 수 있습니다.
+SQL Server 2008 및 SQL Server 2008 R2는 모두 [해당 지원 (EOS) 수명 주기 끝](https://www.microsoft.com/sql-server/sql-server-2008)에 도달 했습니다. 많은 고객이 계속 해 서 두 버전을 모두 사용 하 고 있으므로 계속 지원을 받기 위한 몇 가지 옵션을 제공 하 고 있습니다. 온-프레미스 SQL Server 인스턴스를 Azure Vm (가상 머신)으로 마이그레이션하거나, Azure SQL Database로 마이그레이션하거나, 확장 된 보안 업데이트를 구매할 수 있습니다.
 
 관리 되는 인스턴스와 달리 Azure VM으로 마이그레이션하려면 응용 프로그램을 recertifying 필요가 없습니다. 온-프레미스를 유지 하는 것과 달리 Azure VM으로 마이그레이션하여 확장 된 보안 패치를 무료로 얻을 수 있습니다.
 
 이 문서의 나머지 부분에서는 SQL Server 인스턴스를 Azure VM으로 마이그레이션하기 위한 고려 사항을 제공 합니다.
 
-## <a name="provisioning"></a>프로비전
+지원 종료 옵션에 대 한 자세한 내용은 [지원 종료](/sql/sql-server/end-of-support/sql-server-end-of-life-overview)를 참조 하세요.
+
+## <a name="provisioning"></a>프로비저닝
 
 Azure Marketplace에서 제공 되는 **Windows Server 2008 r2의 종 량 제 SQL Server 2008 r2** 이미지가 있습니다.
 
@@ -87,3 +89,7 @@ Azure Virtual Machines에서 SQL Server 시작:
 SQL Server Vm에 대 한 일반적인 질문과 대답을 확인 합니다.
 
 * [Azure Virtual Machines의 SQL Server에 대 한 FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
+
+지원의 끝 옵션과 확장 된 보안 업데이트에 대해 자세히 알아보세요.
+
+* [확장 된 보안 업데이트](/sql/sql-server/end-of-support/sql-server-extended-security-updates) & [지원 종료](/sql/sql-server/end-of-support/sql-server-end-of-life-overview)

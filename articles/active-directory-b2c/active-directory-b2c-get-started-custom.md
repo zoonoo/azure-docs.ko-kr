@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f802c2d1f986f5da62f4ffd3205523423f04e49c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367895"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -23,7 +23,7 @@ ms.locfileid: "74664066"
 
 [사용자 지정 정책은](active-directory-b2c-overview-custom.md) Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 동작을 정의 하는 구성 파일입니다. 이 문서에서는 전자 메일 주소와 암호를 사용한 로콜 계정 등록 또는 로그인을 지원하는 사용자 지정 정책을 만듭니다. ID 공급자를 추가하기 위한 환경도 준비합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - 아직 없는 경우 Azure 구독에 연결 된 [Azure AD B2C 테 넌 트를 만듭니다](tutorial-create-tenant.md) .
 - Azure AD B2C와 통신할 수 있도록 만든 테 넌 트에 [응용 프로그램을 등록](tutorial-register-applications.md) 합니다.
@@ -31,24 +31,24 @@ ms.locfileid: "74664066"
 
 ## <a name="add-signing-and-encryption-keys"></a>서명 및 암호화 키 추가
 
-1. [Azure 포털](https://portal.azure.com)
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. 개요 페이지의 **정책** 창에서 **Id 경험 프레임 워크** 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
+1. 개요 페이지의 **정책**에서 **Id 경험 프레임 워크**를 선택 합니다.
 
 ### <a name="create-the-signing-key"></a>서명 키 만들기
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Generate`를 선택합니다.
+1. **옵션**으로는 `Generate`을 선택합니다.
 1. **이름**에 `TokenSigningKeyContainer`를 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
 1. **키 유형**으로는 **RSA**를 선택합니다.
-1. **키 사용**에서 **서명**을 선택합니다.
+1. **키 사용**으로는 **서명**을 선택합니다.
 1. **만들기**를 선택합니다.
 
 ### <a name="create-the-encryption-key"></a>암호화 키 만들기
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Generate`를 선택합니다.
+1. **옵션**으로는 `Generate`을 선택합니다.
 1. **이름**에 `TokenEncryptionKeyContainer`를 입력합니다. `B2C_1A`_ 접두사가 자동으로 추가될 수 있습니다.
 1. **키 유형**으로는 **RSA**를 선택합니다.
 1. **키 사용**에는 **암호화**를 선택합니다.
@@ -59,10 +59,10 @@ ms.locfileid: "74664066"
 Facebook 응용 프로그램의 [앱 암호](active-directory-b2c-setup-fb-app.md) 를 정책 키로 추가 합니다. 이 문서의 필수 구성 요소에 따라 만든 응용 프로그램의 앱 암호를 사용할 수 있습니다.
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Manual`를 선택합니다.
+1. **옵션**으로는 `Manual`을 선택합니다.
 1. **이름**에 `FacebookSecret`를 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
 1. **비밀**에서 Developers.facebook.com의 Facebook 응용 프로그램의 *앱 암호* 를 입력 합니다. 이 값은 응용 프로그램 ID가 아닌 암호입니다.
-1. **키 사용**에서 **서명**을 선택합니다.
+1. **키 사용**으로는 **서명**을 선택합니다.
 1. **만들기**를 선택합니다.
 
 ## <a name="register-identity-experience-framework-applications"></a>Identity Experience Framework 애플리케이션 등록
@@ -77,10 +77,9 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스** 를 선택 합니다.
-1. 검색 상자에 `Azure Active Directory`를 입력합니다.
-1. 검색 결과에서 **Azure Active Directory**를 선택합니다.
-1. 왼쪽 메뉴의 **관리** 에서 **앱 등록 (레거시)** 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
+1. **Azure Active Directory** 개요 메뉴의 **관리**에서 **앱 등록 (레거시)** 를 선택 합니다.
 1. **새 애플리케이션 등록**을 선택합니다.
 1. **이름**에 `IdentityExperienceFramework`를 입력합니다.
 1. **애플리케이션 종류**로 **웹앱/API**를 선택합니다.

@@ -1,5 +1,5 @@
 ---
-title: Java 용 Microsoft 인증 라이브러리의 AD FS 지원
+title: AD FS 지원 (Java 용 MSAL)
 titleSuffix: Microsoft identity platform
 description: Java 용 Microsoft Authentication Library (MSAL4j)의 Active Directory Federation Services (AD FS) 지원에 대해 알아봅니다.
 services: active-directory
@@ -14,16 +14,16 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 665cef55965f6871a654b9baceaad3e4f5d196c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 04079a6e284deac076d7e296cc44774c97462534
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424361"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Java 용 MSAL에서 Active Directory Federation Services 지원
 
-Windows Server의 Active Directory Federation Services (AD FS)를 사용 하 여 Java 용 MSAL 용 Microsoft 인증 라이브러리 앱에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 통합 된 앱은 Azure AD를 통해 페더레이션된 AD FS 사용자를 인증할 수 있습니다. 시나리오에 대 한 자세한 내용은 [개발자를 위한 AD FS 시나리오](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)를 참조 하십시오.
+Windows Server의 Active Directory Federation Services (AD FS)를 사용 하 여 Java 용 MSAL 용 Microsoft 인증 라이브러리 앱에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 통합 된 앱은 Azure AD를 통해 페더레이션된 AD FS 사용자를 인증할 수 있습니다. 시나리오에 대 한 자세한 내용은 [개발자를 위한 AD FS 시나리오](/windows-server/identity/ad-fs/ad-fs-development)를 참조 하십시오.
 
 Java 용 MSAL을 사용 하는 앱은 Azure Active Directory (Azure AD)와 통신 하 여 AD FS 페더레이션.
 

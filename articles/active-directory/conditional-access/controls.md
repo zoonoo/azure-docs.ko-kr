@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac92da744b3d5b7aeaa325c7cc564a3d7e2abdd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424962"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어 정의
 
@@ -51,7 +51,7 @@ ms.locfileid: "74380804"
 
 ![제어](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Multi-factor authentication
 
 이 컨트롤을 사용하여 지정된 클라우드 앱에 액세스하기 위해 다단계 인증을 요구할 수 있습니다. 이 컨트롤은 다음 다단계 공급자를 지원합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "74380804"
 
 ### <a name="compliant-device"></a>규정 준수 디바이스
 
-장치 기반 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목표는 관리 되는 [장치](require-managed-devices.md)에서 선택한 클라우드 앱에 대 한 액세스 권한만 부여 하는 것입니다. 디바이스를 규정 준수 상태로 표시하도록 요구하는 것은 관리 디바이스에 대한 액세스 권한을 제한해야 하는 한 가지 옵션입니다. 디바이스는 Intune(모든 디바이스 OS용) 또는 Windows 10 디바이스용 타사 MDM 시스템에서 규정 준수 상태로 표시할 수 있습니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다. 
+장치 기반 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목표는 관리 되는 [장치](require-managed-devices.md)에서 선택한 클라우드 앱에 대 한 액세스 권한만 부여 하는 것입니다. 디바이스를 규정 준수 상태로 표시하도록 요구하는 것은 관리 디바이스에 대한 액세스 권한을 제한해야 하는 한 가지 옵션입니다. 디바이스는 Intune(모든 디바이스 OS용) 또는 Windows 10 디바이스용 타사 MDM 시스템에서 규정 준수 상태로 표시할 수 있습니다. Windows 10 이외의 디바이스 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다. 
 
 먼저 디바이스를 Azure AD에 등록해야 규정 준수 상태로 표시할 수 있습니다. 디바이스를 등록하려면 다음 세 가지 옵션이 있습니다. 
 
@@ -76,7 +76,7 @@ ms.locfileid: "74380804"
 
 ### <a name="hybrid-azure-ad-joined-device"></a>하이브리드 Azure AD 조인 디바이스
 
-하이브리드 Azure AD 조인 장치를 요구 하는 것은 장치 기반 조건부 액세스 정책을 구성 해야 하는 또 다른 옵션입니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 이 옵션을 선택 하면 조건부 액세스 정책에서 온-프레미스 Active Directory 및 Azure Active Directory에 가입 된 장치에 대 한 액세스 시도에 대 한 액세스를 부여 합니다.  
+하이브리드 Azure AD 조인 장치를 요구 하는 것은 장치 기반 조건부 액세스 정책을 구성 해야 하는 또 다른 옵션입니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 이 옵션을 선택 하면 조건부 액세스 정책에서 온-프레미스 Active Directory 및 Azure Active Directory에 가입 된 장치에 대 한 액세스 시도에 대 한 액세스를 부여 합니다. Mac 장치는 하이브리드 Azure AD 조인을 지원 하지 않습니다.
 
 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조 하세요.
 
@@ -98,7 +98,7 @@ ms.locfileid: "74380804"
 
 지원 되는 정책으로 보호 된 클라이언트 앱의 목록은 [앱 보호 정책 요구 사항](technical-reference.md#app-protection-policy-requirement)을 참조 하세요.
 
-### <a name="terms-of-use"></a>서비스 계약
+### <a name="terms-of-use"></a>사용 조건
 
 테넌트의 사용자가 리소스에 대한 액세스 권한을 부여 받기 전에 사용 조건에 동의하도록 요구할 수 있습니다. 관리자는 PDF 문서를 업로드하여 사용 조건을 구성하고 사용자 지정할 수 있습니다. 사용자가 이 제어 범위에 해당하는 경우 사용 조건에 동의한 경우에만 애플리케이션에 대한 액세스가 부여됩니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "74380804"
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- RSA
+- [RSA](https://community.rsa.com/docs/DOC-81278)
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)

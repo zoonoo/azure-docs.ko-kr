@@ -2,17 +2,17 @@
 title: Cloud Services 역할 구성 XPath 참고 자료 | Microsoft Docs
 description: 클라우드 서비스 역할 구성에서 설정을 환경 변수로 노출하기 위해 사용할 수 있는 다양한 XPath 설정입니다.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: cd2bdc4fc4b2a135907851ca4d3034430618e0cd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 380b0be4e4e4b19d16cb611b0b472294339f2199
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359011"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386088"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>XPath를 사용하여 역할 구성 설정을 환경 변수로 노출
 클라우드 서비스 작업자 또는 웹 역할 서비스 정의 파일에서 런타임 구성 값을 환경 변수로 노출할 수 있습니다. 다음 XPath 값(API 값에 해당)을 사용할 수 있습니다.
@@ -22,7 +22,7 @@ ms.locfileid: "68359011"
 ## <a name="app-running-in-emulator"></a>앱이 에뮬레이터에서 실행 중임
 앱이 에뮬레이터에서 실행 중임을 나타냅니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | 코드 |var x = RoleEnvironment.IsEmulated; |
@@ -30,7 +30,7 @@ ms.locfileid: "68359011"
 ## <a name="deployment-id"></a>배포 ID
 인스턴스의 배포 ID를 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | 코드 |var deploymentId = RoleEnvironment.DeploymentId; |
@@ -38,7 +38,7 @@ ms.locfileid: "68359011"
 ## <a name="role-id"></a>역할 ID
 인스턴스의 현재 역할 ID를 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | 코드 |var id = RoleEnvironment.CurrentRoleInstance.Id; |
@@ -46,7 +46,7 @@ ms.locfileid: "68359011"
 ## <a name="update-domain"></a>도메인 업데이트
 인스턴스의 업데이트 도메인을 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | 코드 |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -54,7 +54,7 @@ ms.locfileid: "68359011"
 ## <a name="fault-domain"></a>장애 도메인
 인스턴스의 장애 도메인을 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | 코드 |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
@@ -62,7 +62,7 @@ ms.locfileid: "68359011"
 ## <a name="role-name"></a>역할 이름
 인스턴스의 역할 이름을 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | 코드 |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
@@ -70,7 +70,7 @@ ms.locfileid: "68359011"
 ## <a name="config-setting"></a>구성 설정
 지정된 구성 설정의 값을 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | 코드 |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
@@ -78,7 +78,7 @@ ms.locfileid: "68359011"
 ## <a name="local-storage-path"></a>로컬 스토리지 경로
 인스턴스에 대한 로컬 스토리지 경로를 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | 코드 |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
@@ -86,7 +86,7 @@ ms.locfileid: "68359011"
 ## <a name="local-storage-size"></a>로컬 스토리지 크기
 인스턴스의 로컬 스토리지 크기를 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | 코드 |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
@@ -94,7 +94,7 @@ ms.locfileid: "68359011"
 ## <a name="endpoint-protocol"></a>엔드포인트 프로토콜
 인스턴스의 엔드포인트 프로토콜을 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | 코드 |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
@@ -102,7 +102,7 @@ ms.locfileid: "68359011"
 ## <a name="endpoint-ip"></a>엔드포인트 IP
 지정된 엔드포인트의 IP 주소를 가져옵니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | 코드 |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
@@ -110,12 +110,12 @@ ms.locfileid: "68359011"
 ## <a name="endpoint-port"></a>엔드포인트 포트
 인스턴스의 엔드포인트 포트를 검색합니다.
 
-| 형식 | 예제 |
+| 유형 | 예 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | 코드 |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 다음은 [@emulated xpath 값](#app-running-in-emulator)으로 설정된 환경 변수 `TestIsEmulated`를 사용하여 시작 작업을 만드는 작업자 역할의 예입니다. 
 
 ```xml
@@ -161,4 +161,7 @@ ms.locfileid: "68359011"
 [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) 패키지를 만듭니다.
 
 역할에 대해 [원격 데스크톱](cloud-services-role-enable-remote-desktop-new-portal.md) 을 사용하도록 설정합니다.
+
+
+
 

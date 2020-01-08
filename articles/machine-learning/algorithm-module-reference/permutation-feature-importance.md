@@ -1,7 +1,7 @@
 ---
 title: '순열 기능 중요도: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: 학습 된 모델 및 테스트 데이터 집합을 사용 하 여 Azure Machine Learning 서비스에서 순열 기능 중요도 모듈을 사용 하 여 기능 변수의 순열 기능 중요도 점수를 계산 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: 학습 된 모델 및 테스트 데이터 집합을 사용 하 여 Azure Machine Learning에서 순열 기능 중요도 모듈을 사용 하 여 기능 변수의 순열 기능 중요도 점수를 계산 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b939e88606fba5d7759e55239838d5308bf0563c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428481"
 ---
 # <a name="permutation-feature-importance"></a>순열 기능 중요도
 
@@ -59,7 +59,7 @@ ms.locfileid: "73837548"
 7.  모듈은 기능 열 목록과 이와 연결 된 점수를 출력 합니다. 이 목록은 점수를 기준으로 내림차순으로 순위가 매겨집니다.  
 
 
-##  <a name="technical-notes"></a>기술 참고 사항
+##  <a name="technical-notes"></a>기술 정보
 
 순열 기능 중요도는 한 번에 하나의 열로 각 기능 열의 값을 임의로 변경 하 여 작동 합니다. 그런 다음 모델을 평가 합니다. 
 
@@ -69,4 +69,4 @@ ms.locfileid: "73837548"
   
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

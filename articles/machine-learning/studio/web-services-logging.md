@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 90ee036275e13b209d9f6c37aba6d16ed564cf5d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427407"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅 사용
 이 문서에서는 Machine Learning Studio (클래식) 웹 서비스의 로깅 기능에 대 한 정보를 제공 합니다. 로깅은 오류 번호 및 메시지 외에도 Machine Learning Studio (클래식) Api에 대 한 호출 문제를 해결 하는 데 도움이 될 수 있는 추가 정보를 제공 합니다.  
@@ -25,7 +25,7 @@ ms.locfileid: "73466950"
 
 [Azure Machine Learning Studio (클래식) 웹 서비스](https://services.azureml.net) 포털에서 로깅을 사용 하도록 설정 합니다. 
 
-1. [https://services.azureml.net](https://services.azureml.net)에서 Azure Machine Learning Studio (클래식) 웹 서비스 포털에 로그인 합니다. 클래식 웹 서비스의 경우 클래식 버전의 Machine Learning Studio에 있는 Machine Learning Studio (클래식) 웹 서비스 페이지에서 **새 웹 서비스 환경** 을 클릭 하 여 포털로 이동할 수도 있습니다.
+1. [https://services.azureml.net](https://services.azureml.net)에서 Azure Machine Learning Studio (클래식) 웹 서비스 포털에 로그인 합니다. 클래식 웹 서비스의 경우 Studio (클래식)의 Machine Learning Studio (클래식) 웹 서비스 페이지에서 **새 웹 서비스 환경** 을 클릭 하 여 포털로 이동할 수도 있습니다.
 
    ![새 웹 서비스 환경 링크](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "73466950"
 
    ![로깅 수준 선택](./media/web-services-logging/enable-logging.png)
 
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 7. 클래식 웹 서비스의 경우 **ml-diagnostics** 컨테이너를 만듭니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "73466950"
 
 > [!TIP]
 >
-> 클래식 웹 서비스의 경우 클래식 버전 Machine Learning Studio의 웹 서비스 대시보드에도 로깅을 사용 하도록 설정 하는 스위치가 있습니다. 그러나 이제 로깅은 웹 서비스 포털을 통해 관리되므로 이 문서에 설명된 대로 포털을 통해 로깅을 사용하도록 설정해야 합니다. 이미 Studio (클래식)에서 로깅을 사용 하도록 설정한 경우에는 웹 서비스 포털에서 로깅을 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 합니다.
+> 기존 웹 서비스의 경우 Machine Learning Studio (클래식)의 웹 서비스 대시보드에 로깅을 사용 하도록 설정 하는 스위치가 있습니다. 그러나 이제 로깅은 웹 서비스 포털을 통해 관리되므로 이 문서에 설명된 대로 포털을 통해 로깅을 사용하도록 설정해야 합니다. 이미 Studio (클래식)에서 로깅을 사용 하도록 설정한 경우에는 웹 서비스 포털에서 로깅을 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 합니다.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>로깅 활성화의 효과
@@ -80,7 +80,7 @@ Azure Storage 계정을 살펴보는 데 사용할 수 있는 여러 도구 중 
 
 _로그 형식_은 다음 값 중 하나를 사용합니다.  
 
-* 일괄 처리  
+* batch  
 * score/requests  
 * score/init  
 

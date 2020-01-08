@@ -1,19 +1,15 @@
 ---
 title: Azure Monitor의 자동 크기 조정 설정 이해
 description: 자동 크기 조정 설정 및 작동 방법을 자세히 설명합니다. Virtual Machines, Cloud Services 및 Web Apps에 적용
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364308"
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
 자동 크기 조정 설정은 애플리케이션의 변화하는 부하를 처리할 수 있는 적절한 양의 리소스가 실행되도록 하는 데 도움이 됩니다. 부하 또는 성능을 나타내는 메트릭을 기준으로 트리거되거나 예약된 날짜 및 시간에 트리거되도록 자동 크기 조정 설정을 구성할 수 있습니다. 이 문서에서는 자동 크기 조정 설정을 자세히 분석합니다. 이 문서는 스키마 및 설정의 속성부터 설명한 후, 구성할 수 있는 다른 프로필 유형에 대해서도 설명합니다. 마지막으로, 이 문서에서는 Azure의 자동 크기 조정 기능이 지정된 시간에 실행할 프로필을 평가하는 방법을 설명합니다.
@@ -89,28 +85,28 @@ ms.locfileid: "60787498"
 }
 ```
 
-| 섹션 | 요소 이름 | 설명 |
+| 섹션 | 요소 이름 | Description |
 | --- | --- | --- |
-| 설정 | id | 자동 크기 조정 설정의 리소스 ID입니다. 자동 크기 조정 설정은 Azure Resource Manager 리소스입니다. |
+| 설정 | ID | 자동 크기 조정 설정의 리소스 ID입니다. 자동 크기 조정 설정은 Azure Resource Manager 리소스입니다. |
 | 설정 | name | 자동 크기 조정 설정 이름입니다. |
-| 설정 | location | 자동 크기 조정 설정의 위치입니다. 이 위치는 크기가 조정되는 리소스의 위치와 다를 수 있습니다. |
+| 설정 | 위치 | 자동 크기 조정 설정의 위치입니다. 이 위치는 크기가 조정되는 리소스의 위치와 다를 수 있습니다. |
 | properties | targetResourceUri | 크기가 조정되는 리소스의 리소스 ID입니다. 리소스당 하나의 자동 크기 조정 설정만 있을 수 있습니다. |
-| properties | profiles | 자동 크기 조정 설정은 하나 이상의 프로필로 구성됩니다. 자동 크기 조정 엔진이 실행될 때마다 1개의 프로필이 실행됩니다. |
-| profiles | name | 프로필의 이름입니다. 프로필을 식별하는 데 도움이 되는 어떤 이름도 선택할 수 있습니다. |
-| profiles | Capacity.maximum | 허용되는 최대 용량입니다. 따라서 이 프로필 실행 시, 자동 크기 조정이 리소스를 이 수치보다 높게 조정하지 않게 됩니다. |
-| profiles | Capacity.minimum | 허용되는 최소 용량입니다. 따라서 이 프로필 실행 시, 자동 크기 조정이 리소스를 이 수치보다 낮게 조정하지 않게 됩니다. |
-| profiles | Capacity.default | 리소스 메트릭(이 경우 CPU “vmss1”)을 읽는 데 문제가 있고 현재 용량이 기본 용량보다 적으면, 자동 크기 조정 기능은 기본값으로 스케일 아웃합니다. 이를 통해 리소스의 가용성이 보장됩니다. 이미 현재 용량이 기본 용량보다 높아도 자동 크기 조정 기능이 스케일 인하지 않습니다. |
-| profiles | rules | 자동 크기 조정 기능은 프로필의 규칙을 사용하여 최대 및 최소 용량 간을 자동으로 조정합니다. 하나의 프로필에 여러 규칙이 포함될 수 있습니다. 일반적으로 2개의 규칙, 즉 스케일 아웃할 때를 결정하는 규칙과 스케일 인할 때를 결정하는 규칙이 있습니다. |
-| rules | metricTrigger | 규칙의 메트릭 조건을 정의합니다. |
+| properties | 프로필 | 자동 크기 조정 설정은 하나 이상의 프로필로 구성됩니다. 자동 크기 조정 엔진이 실행될 때마다 1개의 프로필이 실행됩니다. |
+| 프로필 | name | 프로필의 이름입니다. 프로필을 식별하는 데 도움이 되는 어떤 이름도 선택할 수 있습니다. |
+| 프로필 | Capacity.maximum | 허용되는 최대 용량입니다. 따라서 이 프로필 실행 시, 자동 크기 조정이 리소스를 이 수치보다 높게 조정하지 않게 됩니다. |
+| 프로필 | Capacity.minimum | 허용되는 최소 용량입니다. 따라서 이 프로필 실행 시, 자동 크기 조정이 리소스를 이 수치보다 낮게 조정하지 않게 됩니다. |
+| 프로필 | Capacity.default | 리소스 메트릭(이 경우 CPU “vmss1”)을 읽는 데 문제가 있고 현재 용량이 기본 용량보다 적으면, 자동 크기 조정 기능은 기본값으로 스케일 아웃합니다. 이를 통해 리소스의 가용성이 보장됩니다. 이미 현재 용량이 기본 용량보다 높아도 자동 크기 조정 기능이 스케일 인하지 않습니다. |
+| 프로필 | 규칙 | 자동 크기 조정 기능은 프로필의 규칙을 사용하여 최대 및 최소 용량 간을 자동으로 조정합니다. 하나의 프로필에 여러 규칙이 포함될 수 있습니다. 일반적으로 2개의 규칙, 즉 스케일 아웃할 때를 결정하는 규칙과 스케일 인할 때를 결정하는 규칙이 있습니다. |
+| rule(규칙) | metricTrigger | 규칙의 메트릭 조건을 정의합니다. |
 | metricTrigger | metricName | 메트릭의 이름입니다. |
 | metricTrigger |  metricResourceUri | 메트릭을 내보내는 리소스의 리소스 ID입니다. 대부분의 경우, 크기가 조정되는 리소스와 같습니다. 경우에 따라 메트릭을 내보내는 리소스와 크기가 조정되는 리소스가 서로 다를 수 있습니다. 예를 들어 스토리지 큐에 있는 메시지의 수에 따라 가상 머신 확장 집합의 크기를 조정할 수 있습니다. |
 | metricTrigger | timeGrain | 메트릭 샘플링 기간입니다. 예를 들어 **TimeGrain = “PT1M”** 은 statistic 요소에 지정된 집계 방법을 사용하여 매 1분마다 집계한다는 것을 의미합니다. |
 | metricTrigger | statistic | timeGrain 기간 내 집계 방법입니다. 예를 들어 **statistic = “Average”** 및 **timeGrain = “PT1M”** 은, 평균을 구하여 메트릭이 1분마다 집계되어야 함을 의미합니다. 이 속성은 메트릭이 샘플링되는 방식을 나타냅니다. |
 | metricTrigger | timeWindow | 메트릭을 다시 확인할 기간입니다. 예를 들어 **timeWindow = “PT10M”** 은 자동 크기 조정 기능이 실행될 때마다 지난 10분 동안의 메트릭을 쿼리하는 것을 의미합니다. 이 시간 창은 메트릭을 정규화할 수 있도록 하며 일시적인 스파이크에 대응하지 않도록 합니다. |
 | metricTrigger | timeAggregation | 샘플링된 메트릭을 집계하는 데 사용되는 집계 방법입니다. 예를 들어 **TimeAggregation = “Average”** 는 평균을 구하여 샘플링된 메트릭을 집계합니다. 앞의 경우에서 1분짜리 샘플을 10개 가져와서 평균을 구합니다. |
-| rules | scaleAction | 규칙의 metricTrigger가 트리거될 때 수행할 작업입니다. |
+| rule(규칙) | scaleAction | 규칙의 metricTrigger가 트리거될 때 수행할 작업입니다. |
 | scaleAction | direction | 스케일 아웃하려는 경우 "Increase"이고, 스케일 인하려는 경우 "Decrease"입니다.|
-| scaleAction | value | 늘리거나 줄일 리소스 용량 크기입니다. |
+| scaleAction | 값 | 늘리거나 줄일 리소스 용량 크기입니다. |
 | scaleAction | cooldown | 크기 조정 작업 후, 다시 크기를 조정하기 전에 대기하는 시간입니다. 예를 들어, **cooldown = “PT10M”** 인 경우 자동 크기 조정 기능은 추가로 10분 동안 다시 크기 조정을 시도하지 않습니다. cooldown은 인스턴스의 추가 또는 제거 후에 메트릭이 안정화될 수 있도록 합니다. |
 
 ## <a name="autoscale-profiles"></a>자동 크기 조정 프로필

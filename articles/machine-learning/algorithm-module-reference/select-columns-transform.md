@@ -1,7 +1,7 @@
 ---
 title: '열 변환 선택: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 열 변형 선택 모듈을 사용 하 여 지정 된 데이터 집합의 열과 동일한 하위 집합을 선택 하는 변환을 만드는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 열 변형 선택 모듈을 사용 하 여 지정 된 데이터 집합에서와 동일한 열의 하위 집합을 선택 하는 변환을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 383adeb2bd081893d4202239cb97c12bf9a5a170
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0dfbec3abd379c7bf8add6445296dff74d92a76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428464"
 ---
 # <a name="select-columns-transform"></a>열 변환 선택
 
@@ -55,4 +55,4 @@ ms.locfileid: "73717039"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

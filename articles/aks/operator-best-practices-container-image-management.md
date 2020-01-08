@@ -7,24 +7,26 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442911"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리 및 보안에 대한 모범 사례
 
 AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 경우 컨테이너 및 컨테이너 이미지의 보안 유지가 핵심 고려 사항입니다. 오래된 기본 이미지 또는 패치되지 않은 애플리케이션 런타임이 포함된 컨테이너는 보안 위험 및 가능한 공격 벡터를 초래합니다. 이러한 위험을 최소화하려면 빌드 타임 뿐만 아니라 런타임에 문제를 검색하고 해결하는 도구를 컨테이너에 통합해야 합니다. 프로세스에서 취약점 또는 오래된 기본 이미지를 더 일찍 찾아낼수록 클러스터가 더 안전해집니다. 이 문서에서 *컨테이너*는 컨테이너 레지스트리에 저장된 컨테이너와 실행 중인 컨테이너를 둘 다 의미합니다.
 
-이 문서에서는 AKS의 컨테이너 보안 유지 방법을 중점적으로 설명합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+이 문서에서는 AKS의 컨테이너 보안 유지 방법을 중점적으로 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 이미지 취약성 검색 및 해결
 > * 기본 이미지가 업데이트될 때 컨테이너 이미지를 자동으로 트리거하고 다시 배포
 
 [클러스터 보안][best-practices-cluster-security] 및 [pod 보안][best-practices-pod-security]에 대 한 모범 사례를 읽을 수도 있습니다.
+
+[Security Center의 컨테이너 보안][security-center-containers] 을 사용 하 여 컨테이너에서 취약점을 검색 하는 데 도움이 될 수도 있습니다.  또한 취약점 으로부터 이미지 및 레지스트리를 보호 하는 데 도움이 되는 Security Center와 [통합 Azure Container Registry][security-center-acr] 있습니다.
 
 ## <a name="secure-the-images-and-run-time"></a>이미지 및 런타임 보호
 
@@ -61,3 +63,5 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
+[security-center-containers]: /azure/security-center/container-security
+[security-center-acr]: /azure/security-center/azure-container-registry-integration

@@ -2,19 +2,15 @@
 title: Azure 업데이트 관리에서 작동 하도록 Windows 업데이트 설정 구성
 description: 이 문서에서는 Azure 업데이트 관리에서 작동 하도록 구성 하는 Windows 업데이트 설정에 대해 설명 합니다.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f6377012a2afd0fb36486edf0af0ac3591b5d1f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850417"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366858"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>업데이트 관리에 대 한 Windows 업데이트 설정 구성
 

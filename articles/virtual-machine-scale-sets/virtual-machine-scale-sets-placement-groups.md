@@ -1,6 +1,6 @@
 ---
-title: 대규모 Azure Virtual Machine Scale Sets와 작동 | Microsoft Docs
-description: 대규모 Azure 가상 머신 확장 집합을 사용할 때 알아야 할 내용
+title: 대량 Azure Virtual Machine Scale Sets 작업
+description: 응용 프로그램에서 사용 하기 위해 대규모 Azure virtual machine scale sets에 대해 알아야 할 사항입니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: rajsqr
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 839d889783a7ef3bcd602c37a4975ddeea4e2a16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459347"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 가상 머신 확장 집합과 작동
 이제 최대 1,000대 VM의 용량을 갖춘 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)을 만들 수 있습니다. 이 문서에서는 _대규모 가상 머신 확장 집합_이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다(_singlePlacementGroup=False_). 
@@ -50,7 +50,7 @@ Azure Portal에서 확장 집합을 만들 때 *인스턴스 수* 값을 최대 
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-[Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ 명령을 사용하여 대규모 가상 머신 확장 집합을 만들 수 있습니다. 이 명령은 _instance-count_ 인수를 기반으로 한 서브넷 크기와 같은 지능형 기본값을 설정합니다.
+[Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ 명령을 사용 하 여 대규모 가상 머신 확장 집합을 만들 수 있습니다. 이 명령은 _instance-count_ 인수를 기반으로 한 서브넷 크기와 같은 지능형 기본값을 설정합니다.
 
 ```bash
 az group create -l southcentralus -n biginfra
@@ -81,7 +81,7 @@ Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만�
 대규모 확장 집합 템플릿의 전체 예제는 [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json)을 참조하세요.
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>여러 배치 그룹을 확장하기 위해 기존 확장 집합을 변환
-기존의 가상 머신 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singlePlacementGroup_ 속성을 _false_로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 크기 집합을 찾아 _편집_을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 크기 집합을 볼 수 있습니다.
+기존의 가상 머신 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singlePlacementGroup_ 속성을 _false_로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 크기 집합을 찾아 _편집_을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 확장 집합을 볼 수 있습니다.
 
 > [!NOTE]
 > 단일 배치 그룹만 지원하는 것(기본 동작)에서 여러 배치 그룹을 지원하도록 확장 집합을 변경할 수 있지만 그 반대로는 변환할 수 없습니다. 따라서 변환하기 전에 대규모 확장 집합의 속성을 이해해야 합니다.

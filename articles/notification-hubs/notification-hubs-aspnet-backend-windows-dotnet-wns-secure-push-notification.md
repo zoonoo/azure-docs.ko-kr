@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs 보안 푸시
+title: Windows 용 Azure Notification Hubs 보안 푸시
 description: Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다.
 documentationcenter: windows
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5d1cf2a74d4fe85bb85eb244da3e3757f36fba0a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212039"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530734"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Azure Notification Hubs에서 안전하게 알림 푸시
 
@@ -159,7 +159,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
-11. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가...** 를 클릭합니다. 참조 관리자 대화 상자에서 **PushBackgroundComponent** 옆의 상자를 선택하고 **확인**을 클릭합니다.
+11. 솔루션 탐색기의 **NotifyUserWindowsPhone (Windows Phone 8.1)** 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**...를 클릭 합니다. 참조 관리자 대화 상자에서 **PushBackgroundComponent**옆의 상자를 선택 하 고 **확인**을 클릭 합니다.
 12. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **Package.appxmanifest**를 두 번 클릭합니다. **알림**에서 **알림 가능**을 **예**로 설정합니다.
 
     ![][3]

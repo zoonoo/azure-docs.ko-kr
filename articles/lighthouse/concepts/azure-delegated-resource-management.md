@@ -3,12 +3,12 @@ title: Azure 위임 리소스 관리
 description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketplace에서 고객에게 리소스 관리 제품을 판매할 수 있습니다.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453638"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
 
@@ -33,7 +33,7 @@ Azure 위임 리소스 관리에 고객을 온보딩하는 경우 Azure Portal�
 
 다음은 Azure 위임 리소스 관리의 작동 원리를 개괄적으로 설명한 것입니다.
 
-1. 서비스 공급자는 그룹, 서비스 주체 또는 사용자가 고객의 Azure 리소스를 관리하는 데 필요한 액세스 권한(역할)을 식별합니다. 액세스 정의에는 **기본 제공** roleDefinition[ 값 **(참가자, VM 참가자, 읽기 권한자 등)에 매핑된 테넌트의** principalId](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 사용하여 정의된 제품의 필수 액세스 권한과 서비스 공급자의 테넌트 ID가 포함됩니다.
+1. 서비스 공급자는 그룹, 서비스 주체 또는 사용자가 고객의 Azure 리소스를 관리하는 데 필요한 액세스 권한(역할)을 식별합니다. 액세스 정의에는 [기본 제공 **roleDefinition** 값](../../role-based-access-control/built-in-roles.md)(참가자, VM 참가자, 읽기 권한자 등)에 매핑된 테넌트의 **principalId**를 사용하여 정의된 제품의 필수 액세스 권한과 서비스 공급자의 테넌트 ID가 포함됩니다.
 2. 다음 두 가지 방법 중 하나를 사용하여 이 액세스 권한을 지정하고 고객을 Azure 위임 리소스 관리에 온보딩합니다.
    - 고객이 허용할 [Azure Marketplace 관리형 서비스 제품](../how-to/publish-managed-services-offers.md)(프라이빗 또는 퍼블릭) 게시
    - 하나 이상의 특정 구독 또는 리소스 그룹에 대해 [고객의 테넌트에 Azure Resource Manager 템플릿 배포](../how-to/onboard-customer.md)

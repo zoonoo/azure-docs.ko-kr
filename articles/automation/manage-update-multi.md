@@ -2,19 +2,15 @@
 title: 여러 Azure 가상 머신에 대한 업데이트 관리
 description: 이 문서에서는 Azure 및 비 Azure 가상 머신에 대 한 업데이트를 관리 하는 방법을 설명 합니다.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806510"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417835"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -25,7 +21,7 @@ ms.locfileid: "74806510"
 - 필수 업데이트의 설치 예약
 - 배포 결과를 검토하여 업데이트 관리를 사용하는 모든 가상 머신에 업데이트가 성공적으로 적용되었는지 확인
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 업데이트 관리를 사용하려면 다음이 필요합니다.
 
@@ -37,7 +33,7 @@ ms.locfileid: "74806510"
 
 업데이트 관리를 지원하는 운영 체제는 다음과 같습니다.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
 |Windows Server 2008 R2 SP1 이상     |Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다. ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))         |
@@ -99,11 +95,11 @@ Windows 및 Linux 용 Log Analytics 에이전트는 업데이트 관리를 사�
 
 다음 표에서는 솔루션이 지원하는 연결된 원본을 설명합니다.
 
-| 연결된 원본 | 지원됨 | 설명 |
+| 연결된 원본 | 지원됨 | Description |
 | --- | --- | --- |
-| Windows 에이전트 |yes |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |yes |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
-| Operations Manager 관리 그룹 |yes |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
+| Windows 에이전트 |예 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |예 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
+| Operations Manager 관리 그룹 |예 |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
 | Azure Storage 계정 |아닙니다. |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
@@ -121,7 +117,7 @@ Linux 컴퓨터의 경우 호환성 검사는 기본적으로 매시간 수행 �
 업데이트를 설치하려면 릴리스 일정 및 서비스 기간 이후로 배포를 예약합니다. 배포에 포함할 업데이트 형식을 선택할 수 있습니다. 예를 들어 중요 업데이트나 보안 업데이트를 포함하고 업데이트 롤업은 제외할 수 있습니다.
 
 >[!NOTE]
->업데이트 배포를 예약 하는 경우 대상 컴퓨터의 업데이트 배포를 처리 하는 **MicrosoftOMSComputers** runbook에 연결 된 [일정](shared-resources/schedules.md) 리소스를 만듭니다. 배포를 만든 후 Azure Portal에서 또는 PowerShell을 사용 하 여 일정 리소스를 삭제 하면 예약 된 업데이트 배포가 중단 되 고 포털에서 다시 구성 하려고 할 때 오류가 표시 됩니다. 해당 배포 일정을 삭제 하 여 일정 리소스를 삭제할 수 있습니다.
+>업데이트 배포를 예약하면 대상 머신에서 업데이트 배포를 처리하는 **MicrosoftOMSComputers** runbook에 연결된 [일정](shared-resources/schedules.md) 리소스가 만들어집니다. 배포를 만든 후 Azure Portal에서 또는 PowerShell을 사용하여 일정 리소스를 삭제하면 예약된 업데이트 배포가 중단되고 포털에서 다시 구성하려고 할 때 오류가 표시됩니다. 해당 배포 일정을 삭제해야만 일정 리소스를 삭제할 수 있습니다.
 >
 
 하나 이상의 가상 머신에 대해 새 업데이트 배포를 예약하려면 **업데이트 관리** 아래에서 **업데이트 배포 예약**을 선택합니다.
@@ -163,7 +159,7 @@ Linux 컴퓨터의 경우 호환성 검사는 기본적으로 매시간 수행 �
 
 - **다시 부팅 컨트롤** - 이 설정은 업데이트 배포에 대해 다시 부팅을 처리하는 방법을 결정합니다.
 
-   |옵션|설명|
+   |옵션|Description|
    |---|---|
    |필요한 경우 다시 부팅| **(기본값)** 필요한 경우 유지 관리 기간이 허용되면 다시 부팅이 시작됩니다.|
    |항상 다시 부팅|필요 여부에 관계없이 다시 부팅이 시작됩니다. |

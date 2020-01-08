@@ -2,19 +2,15 @@
 title: Azure Automation의 연결 자산
 description: Azure Automation의 연결 자산은 외부 서비스 또는 runbook이나 DSC 구성의 애플리케이션을 연결하는데 필요한 정보를 포함합니다. 이 문서에서는 연결에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 연결을 사용하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 621441afaa9bef08a8ebf3b0af082c6a17c77b1b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0843277ce74bcc10865792367096aefa7591b244
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850434"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366793"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
@@ -39,7 +35,7 @@ Azure Automation에서는 세 가지 유형의 기본 제공 연결을 사용할
 
 다음 테이블의 cmdlet은 Windows PowerShell을 사용하여 Automation 연결을 만들고 관리하는 데 사용됩니다. Automation runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azure/overview) 의 일부로 전송됩니다.
 
-|Cmdlet|설명|
+|Cmdlet|Description|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|연결을 검색합니다. 연결의 필드 값이 있는 해시 테이블을 포함합니다.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|새 연결을 만듭니다.|
@@ -50,7 +46,7 @@ Azure Automation에서는 세 가지 유형의 기본 제공 연결을 사용할
 
 다음 표의 활동은 runbook 또는 DSC 구성의 연결에 액세스하는데 사용됩니다.
 
-|활동|설명|
+|활동|Description|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
 
@@ -61,7 +57,7 @@ Azure Automation에서는 세 가지 유형의 기본 제공 연결을 사용할
 ## <a name="python2-functions"></a>Python2 함수
 다음 표의 함수는 Python2 Runbook의 연결에 액세스하는 데 사용됩니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |:---|:---|
 | automationassets.get_automation_connection | 연결을 검색합니다. 연결의 속성이 있는 사전을 반환합니다. |
 

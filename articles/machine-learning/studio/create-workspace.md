@@ -1,5 +1,5 @@
 ---
-title: 작업 영역 만들기
+title: 작업 영역 생성
 titleSuffix: ML Studio (classic) - Azure
 description: Azure Machine Learning Studio (클래식)을 사용 하려면 Machine Learning Studio (클래식) 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 91ba4d1f7d32071cce0de1de528abf02982ce7be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427630"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Azure Machine Learning Studio (클래식) 작업 영역 만들기 및 공유
 
@@ -47,7 +47,7 @@ Azure Machine Learning Studio (클래식)을 사용 하려면 Machine Learning S
 > Machine Learning Studio (클래식)는 워크플로를 실행할 때 중개 데이터를 저장 하기 위해 제공 하는 Azure storage 계정에 의존 합니다. 작업 영역을 만든 후 스토리지 계정을 삭제하거나 액세스 키를 변경하는 경우 해당 작업 영역의 작동이 중지되고 작업 영역의 모든 실험이 실패합니다.
 스토리지 계정을 실수로 삭제한 경우 삭제한 스토리지 계정과 동일한 지역에 동일한 이름으로 스토리지 계정을 다시 만들고 액세스 키를 다시 동기화합니다. 스토리지 계정 액세스 키를 변경한 경우에는, Azure Portal을 사용하여 작업 영역에서 액세스 키를 다시 동기화합니다.
 
-작업 영역이 배포 되 면 클래식 버전의 Machine Learning Studio에서 작업 영역을 열 수 있습니다.
+작업 영역이 배포 되 면 Machine Learning Studio (클래식)에서 작업 영역을 열 수 있습니다.
 
 1. [https://studio.azureml.net/](https://studio.azureml.net/)에서 Machine Learning Studio (클래식)으로 이동 합니다.
 
@@ -76,7 +76,7 @@ Machine Learning Studio (클래식) 작업 영역이 만들어지면 사용자�
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Studio (클래식) 작업 영역을 공유 하려면
 
-1. [https://studio.azureml.net/Home](https://studio.azureml.net/Home) 에서 Machine Learning Studio의 클래식 버전에 로그인
+1. [https://studio.azureml.net/Home](https://studio.azureml.net/Home) 에서 Machine Learning Studio (클래식)에 로그인 합니다.
 
 2. 왼쪽 패널에서 **설정**을 클릭합니다.
 

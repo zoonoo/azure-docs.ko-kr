@@ -1,5 +1,6 @@
 ---
-title: CloudSimple-Virtual machines의 Azure VMware 솔루션 개요
+title: Virtual machines 개요
+titleSuffix: Azure VMware Solution by CloudSimple
 description: CloudSimple 가상 머신과 그 이점에 대해 알아보세요.
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 213ab51dae20d281a1a0e0f8ea18f4bde888e64d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372792"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>CloudSimple virtual machines 개요
 
@@ -21,7 +22,7 @@ CloudSimple을 사용 하면 Azure Portal에서 VMware Vm (가상 머신)을 관
 
 Azure에서 CloudSimple VM을 만들려면 사설 클라우드 vCenter에 VM 템플릿이 있어야 합니다.  템플릿은 운영 체제 및 응용 프로그램을 사용자 지정 하는 데 사용 됩니다.  엔터프라이즈 보안 정책을 충족 하기 위해 템플릿 VM을 확정 시킬 수 있습니다.  템플릿을 사용 하 여 Vm을 만든 다음 셀프 서비스 모델을 사용 하 여 Azure Portal에서 사용할 수 있습니다.
 
-## <a name="benefits"></a>이점
+## <a name="benefits"></a>혜택
 
 Azure Portal의 CloudSimple 가상 머신은 사용자가 VMware 가상 머신을 만들고 관리 하는 셀프 서비스 메커니즘을 제공 합니다.
 

@@ -1,7 +1,7 @@
 ---
 title: 작업 영역 문제 해결
 titleSuffix: ML Studio (classic) - Azure
-description: 이 가이드에서는 Azure Machine Learning Studio 작업 영역의 클래식 버전을 설정할 때 자주 발생 하는 몇 가지 문제에 대 한 해결 방법을 제공 합니다.
+description: 이 가이드는 Azure Machine Learning Studio (클래식) 작업 영역을 설정할 때 자주 발생 하는 몇 가지 문제에 대 한 해결 방법을 제공 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 88f4e1edae84892892d1a8a9e76499d71d551abf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3f2cc3dcc5c9e34590d1cb2d0d3747fd1255f0e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838032"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427476"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>문제 해결 가이드: Azure Machine Learning Studio (클래식) 작업 영역 만들기 및 연결
 이 가이드는 Azure Machine Learning Studio (클래식) 작업 영역을 설정할 때 자주 발생 하는 몇 가지 문제에 대 한 해결 방법을 제공 합니다.
@@ -57,6 +57,6 @@ Machine Learning 서비스에서 데이터를 저장하려면 스토리지 계�
 
 쿠키를 삭제 한 후 브라우저를 다시 시작 하 고 [Microsoft Azure Machine Learning Studio (클래식)](https://studio.azureml.net) 페이지로 이동 합니다. 사용자 이름과 암호를 묻는 메시지가 표시되면 작업 영역을 만드는 데 사용한 동일한 Microsoft 계정을 입력합니다.
 
-## <a name="comments"></a>설명
+## <a name="comments"></a>의견
 
 Microsoft는 Machine Learning 환경을 가능한 한 원활하게 만들기 위해 노력하고 있습니다. 의견이나 문제가 있을 경우 더 나은 서비스를 제공할 수 있도록 [Azure Machine Learning 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)에 게시해 주세요.

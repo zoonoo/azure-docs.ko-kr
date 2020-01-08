@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394481"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor 통합 문서 시각화
 
@@ -60,7 +60,7 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
 
 #### <a name="log-chart-parameters"></a>로그 차트 매개 변수
 
-| 매개 변수를 포함해야 합니다. | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | ------------- |:-------------|:-------------|
 | `Query Type` | 사용할 쿼리 유형 | 로그, Azure 리소스 그래프 등 |
 | `Resource Type` | 대상으로 할 리소스 형식입니다. | Application Insights, Log Analytics 또는 Azure-first |
@@ -83,7 +83,7 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
 
 #### <a name="metric-chart-parameters"></a>메트릭 차트 매개 변수
 
-| 매개 변수를 포함해야 합니다. | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | ------------- |:-------------|:-------------|
 | `Resource Type` | 대상으로 할 리소스 형식입니다. | 저장소 또는 가상 머신. |
 | `Resources` | 메트릭 값을 가져올 리소스 집합입니다. | MyStorage1 |

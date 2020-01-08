@@ -14,19 +14,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: a7bb26cdfec4042a1963f929f92e5505045124a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2f15008149de00ba232824280c69bcf4da978f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749243"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459268"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure 포털을 사용하여 릴레이 네임스페이스 만들기
 
 네임스페이스는 모든 Azure Relay 구성 요소에 대한 영역 컨테이너입니다. 여러 릴레이는 단일 네임스페이스에 있을 수 있으며, 네임스페이스는 종종 애플리케이션 컨테이너로 사용됩니다. 현재 릴레이 네임스페이스를 만드는 방법은 두 가지입니다.
 
 1. Azure Portal(이 문서).
-2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿.
+2. [Azure Resource Manager](../azure-resource-manager/management/overview.md) 템플릿.
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure Portal에서 네임스페이스 만들기
 

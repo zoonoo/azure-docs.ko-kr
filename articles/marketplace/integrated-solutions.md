@@ -1,31 +1,33 @@
 ---
-title: 통합 솔루션 | Microsoft
+title: 통합 솔루션-Azure Marketplace
 description: Azure Marketplace 및 AppSource의 통합 솔루션
 services: Azure, Marketplace, Compute, Storage, Networking
 author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: v-chjen
-ms.openlocfilehash: 420dfbc117a45c325db8e9fa2a622414bc78bd07
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 11f1504e8bd57fe34eb7acdc50598403225adcd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427186"
 ---
-# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource의 통합 솔루션
+# <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Microsoft AppSource 및 Azure Marketplace의 통합 솔루션
 
-통합 솔루션은 Microsoft 파트너에서 제공 하는 최고의 기술을 제공 하며,이는 전문가 (전문가 시스템 통합 업체)에서 제공 하는 컨설팅, 배포 및 지원과 함께 제공 됩니다.
+통합 솔루션은 전문가 서비스 파트너에서 제공 하는 컨설팅, 배포 및 지원과 함께 Microsoft 파트너의 최고의 기술을 함께 제공 합니다.
 
-이러한 솔루션은 산업 챌린지 나 불만 사항을 이해 하기 시작 하는 특정 고객의 요구 또는 시나리오를 해결 하기 위해 구축 되었습니다. 두 개 이상의 최고 수준의 기술은 SI에 의해 통합 되어 고객을 위한 통합 및 반복 가능한 배포 환경을 만들기 때문에 신속 하 게 시작 하 고 실행 하는 데 도움이 됩니다. 또한 시스템 통합자는 솔루션에 대 한 관련 사용자 지정, 컨설팅 및 지원을 제공 하 여 고객을 위한 단일 연락 지점을 제공 합니다.  결과는 기술 및 서비스를 비롯 한 통합 솔루션입니다.
+두 개 이상의 Microsoft 파트너는 기술 및 서비스를 통합 하 여 고객을 신속 하 게 가동 하 고 실행 하기 위해 통합, 원활한 및 반복 가능한 배포 환경을 만듭니다.  솔루션의 리드 파트너 (일반적으로 서비스 파트너)는 솔루션에 대 한 관련 사용자 지정, 컨설팅 및 지원을 제공 하 여 고객을 위한 단일 연락 지점을 제공 합니다.
+
+다른 시나리오에서 파트너는 함께 솔루션을 공동 판매 하거나 공동 시장에 통합 하는 반면, 통합 솔루션은 파트너 간에 기술과 서비스를 통합 하는 통합 된 새 솔루션입니다.
 
 ## <a name="advantages"></a>장점
 
 통합 된 방법의 장점은 다음과 같습니다.
 
-* *업계 전문 지식*: 업계 고유의 솔루션 및 지식을 제공 하는 시스템 통합자
+* *업계 전문 지식*: 업계 고유의 솔루션과 지식을 제공 하는 서비스 파트너
 * *시간 값*: 즉각적인 혜택을 얻을 수 있는 통합 배포 방법
 * *최고의 솔루션*: 통합 구매 및 구현 경험의 용이성 살펴보기
 

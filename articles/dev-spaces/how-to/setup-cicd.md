@@ -6,14 +6,14 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
 manager: gwallace
-description: Azure에서 컨테이너 및 마이크로 서비스가 있는 Kubernetes 개발 환경을 빠르게 만듭니다.
+description: Azure Dev Spaces에서 Azure DevOps를 사용 하 여 연속 통합/연속 배포를 설정 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: 525e18cba48756e725cbc7d837c2352b0fec74fe
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438457"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "74280015"
 
 이 문서에서는 Azure DevOps를 기준으로 설명하지만 Jenkins, TeamCity 등의 CI/CD 시스템에도 동일한 개념이 적용됩니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 * [Azure Dev Spaces가 설정된 AKS(Azure Kubernetes Service) 클러스터](../get-started-netcore.md)
 * [Azure Dev Spaces CLI 설치](upgrade-tools.md)
 * [프로젝트가 있는 Azure DevOps 조직](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -32,10 +32,10 @@ ms.locfileid: "74280015"
 * [AKS 클러스터가 Azure Container Registry에서 끌어오도록 허가](../../aks/cluster-container-registry-integration.md)
 
 ## <a name="download-sample-code"></a>샘플 코드 다운로드
-이제 샘플 코드 GitHub 리포지토리의 포크를 만들어 보겠습니다. https://github.com/Azure/dev-spaces로 이동하여 **포크**를 선택합니다. 포크 프로세스가 완료되면 리포지토리의 포크된 버전을 로컬로 **복제**합니다. 기본적으로 _master_ 분기가 체크 아웃되지만, _azds_updates_ 분기에서도 마찬가지로 포크 동안 전송되어야 하는 시간 절감 변경 내용을 몇 가지 포함했습니다. _azds_updates_ 분기는 Dev Spaces 자습서 섹션에서 수동으로 수행하도록 요구되는 업데이트와 CI/CD 시스템 배포를 간소화하기 위해 미리 만든 일부 YAML 및 JSON 파일도 포함되어 있습니다. `git checkout -b azds_updates origin/azds_updates`와 같은 명령을 사용하여 로컬 리포지토리의 _azds_updates_ 분기를 체크 아웃할 수 있습니다.
+이제 샘플 코드 GitHub 리포지토리의 포크를 만들어 보겠습니다. https://github.com/Azure/dev-spaces 로 이동하여 **포크**를 선택합니다. 포크 프로세스가 완료되면 리포지토리의 포크된 버전을 로컬로 **복제**합니다. 기본적으로 _master_ 분기가 체크 아웃되지만, _azds_updates_ 분기에서도 마찬가지로 포크 동안 전송되어야 하는 시간 절감 변경 내용을 몇 가지 포함했습니다. _azds_updates_ 분기는 Dev Spaces 자습서 섹션에서 수동으로 수행하도록 요구되는 업데이트와 CI/CD 시스템 배포를 간소화하기 위해 미리 만든 일부 YAML 및 JSON 파일도 포함되어 있습니다. `git checkout -b azds_updates origin/azds_updates`와 같은 명령을 사용하여 로컬 리포지토리의 _azds_updates_ 분기를 체크 아웃할 수 있습니다.
 
 ## <a name="dev-spaces-setup"></a>Dev Spaces 설치
-_명령을 사용하여_dev`azds space select`라는 새 공간을 만듭니다. _dev_ 공간은 CI/CD 파이프라인에서 코드 변경 내용을 푸시하는 데 사용합니다. 또한 이 공간은 _dev_를 기준으로 하는 _자식 공간_을 만드는 데도 사용됩니다.
+`azds space select` 명령을 사용하여 _dev_라는 새 공간을 만듭니다. _dev_ 공간은 CI/CD 파이프라인에서 코드 변경 내용을 푸시하는 데 사용합니다. 또한 이 공간은 _dev_를 기준으로 하는 _자식 공간_을 만드는 데도 사용됩니다.
 
 ```cmd
 azds space select -n dev
@@ -68,7 +68,7 @@ _dev_ 공간은 항상 리포지토리의 최신 상태인 기준선을 포함�
 > [!Note]
 > Azure DevOps _새 YAML 파이프라인 생성 환경_ 미리 보기 기능은 현재, 미리 정의된 빌드 파이프라인 만들기와 충돌합니다. 현재는 미리 정의된 빌드 파이프라인을 배포하려면 이 옵션을 사용하지 않도록 설정해야 합니다.
 
-_azds_updates_ 분기에 [mywebapi](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) 및 *webfrontend*에 필요한 빌드 단계를 정의하는 간단한 *Azure 파이프라인 YAML*을 포함했습니다.
+_azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계를 정의하는 간단한 [Azure 파이프라인 YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema)을 포함했습니다.
 
 선택한 언어에 따라, 파이프라인 YAML은 `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`과 유사한 경로에서 체크 아웃되었습니다.
 
@@ -77,13 +77,13 @@ _azds_updates_ 분기에 [mywebapi](https://docs.microsoft.com/azure/devops/pipe
 1. **새** 빌드 파이프라인을 만드는 옵션을 선택 합니다.
 1. 원본으로 **github** 를 선택 하 고, 필요한 경우 github 계정에 대 한 권한을 부여 하 고, 분기 버전의 _개발-공간_ 예제 응용 프로그램 리포지토리의 _azds_updates_ 분기를 선택 합니다.
 1. 템플릿으로 **구성을 코드**또는 **yaml**로 선택 합니다.
-1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 위에서 설명한 것 처럼 **...** 단추를 사용 하 여 **yaml 파일 경로의** 언어별 경로로 이동 합니다. 예: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 위에서 설명한 것 처럼 **...** 단추를 사용 하 여 **yaml 파일 경로의** 언어별 경로로 이동 합니다. `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`)을 입력합니다.
 1. [ **변수** ] 탭으로 이동 합니다.
 1. 수동으로 _dockerId_를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 사용자 이름입니다. (필수 구성 요소 문서에 설명됨)
 1. 수동으로 _dockerPassword_를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 암호입니다. 보안상의 이유로 _dockerPassword_는 비밀로 지정해야 합니다(잠금 아이콘 선택).
 1. **& 큐에 저장**을 선택 합니다.
 
-이제 GitHub 포크의 *azds_updates* 분기에 푸시된 모든 업데이트에 대해 *mywebapi* 및 _webfrontend_를 자동으로 빌드하는 CI 솔루션이 구현되었습니다. Azure Portal로 이동 하 여 Azure Container Registry를 선택 하 고 **리포지토리** 탭을 탐색 하 여 Docker 이미지가 푸시 되었는지 확인할 수 있습니다. 이미지를 빌드하고 컨테이너 레지스트리에 표시 하는 데 몇 분 정도 걸릴 수 있습니다.
+이제 GitHub 포크의 _azds_updates_ 분기에 푸시된 모든 업데이트에 대해 *mywebapi* 및 *webfrontend*를 자동으로 빌드하는 CI 솔루션이 구현되었습니다. Azure Portal로 이동 하 여 Azure Container Registry를 선택 하 고 **리포지토리** 탭을 탐색 하 여 Docker 이미지가 푸시 되었는지 확인할 수 있습니다. 이미지를 빌드하고 컨테이너 레지스트리에 표시 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ![Azure Container Registry 리포지토리](../media/common/ci-cd-images-verify.png)
 
@@ -136,7 +136,7 @@ _azds_updates_ 분기에 [mywebapi](https://docs.microsoft.com/azure/devops/pipe
 이제 Dev Spaces 샘플 앱의 GitHub 포크에 대해 완전 자동화 CI/CD 파이프라인이 구현되었습니다. 코드를 커밋하고 푸시할 때마다 빌드 파이프라인은 *mywebapi* 및 *webfrontend* 이미지를 빌드한 후 사용자 지정 ACR 인스턴스로 푸시합니다. 그러면 릴리스 파이프라인은 각 앱의 Helm 차트를 Dev Spaces 지원 클러스터의 _dev_ 공간으로 배포합니다.
 
 ## <a name="accessing-your-_dev_-services"></a>_dev_ 서비스에 액세스
-배포 후에 _webfrontend_의 *dev* 버전은 `http://dev.webfrontend.fedcba098.eus.azds.io`와 같은 공용 URL을 통해 액세스할 수 있습니다. `azds list-uri` 명령을 실행 하 여이 URL을 찾을 수 있습니다. 
+배포 후에 *webfrontend*의 _dev_ 버전은 `http://dev.webfrontend.fedcba098.eus.azds.io`와 같은 공용 URL을 통해 액세스할 수 있습니다. `azds list-uri` 명령을 실행 하 여이 URL을 찾을 수 있습니다. 
 
 ```cmd
 $ azds list-uris

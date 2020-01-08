@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561912"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608740"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
@@ -112,5 +112,5 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [외부 사용자에 대 한 액세스 제어](entitlement-management-organization.md)
+- [외부 사용자에 대 한 액세스 제어](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
 - [디렉터리에 없는 사용자의 경우](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: e12fc5d92cfc850e1d049bc11286c0c863e718b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665072"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459193"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>보안 경고 및 권장 사항 내보내기 (미리 보기)
 
@@ -41,7 +41,7 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 
 1. "대상 내보내기" 영역에서 데이터를 저장 하려는 위치를 선택 합니다. 데이터는 다른 구독 (예: 중앙 이벤트 허브 인스턴스 또는 중앙 Log Analytics 작업 영역)의 대상에 저장할 수 있습니다.
 
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+1. **저장**을 클릭합니다.
 
 ## <a name="continuous-export-through-azure-event-hubs"></a>Azure Event Hubs를 통한 연속 내보내기  
 
@@ -50,6 +50,8 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 
 > [!NOTE]
 > Azure 활동 로그를 사용 하 여 이전에 Security Center 경고를 SIEM으로 내보낸 경우 아래 절차가 해당 방법론을 대체 합니다.
+
+내보낸 데이터 형식의 이벤트 스키마를 보려면 [이벤트 허브 이벤트 스키마](https://aka.ms/ASCAutomationSchemas)를 방문 하십시오.
 
 ### <a name="to-integrate-with-a-siem"></a>SIEM과 통합 하려면 
 
@@ -66,13 +68,17 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 또한 지속적으로 내보낸 데이터를 구성 된 이벤트 허브에서 Azure 데이터 탐색기로 자동으로 이동 하려면 [이벤트 허브에서 azure 데이터 탐색기로 데이터 수집](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub)의 지침을 사용 하세요.
 
 
-## <a name="continuous-export-to-log-analytics-workspace"></a>Log Analytics 작업 영역으로 연속 내보내기
+## <a name="continuous-export-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역으로 연속 내보내기
 
 Log Analytics 작업 영역으로 내보내려면 작업 영역에서 Security Center의 무료 또는 표준 계층 Log Analytics 솔루션을 사용 하도록 설정 해야 합니다. Azure Portal 사용 하는 경우 연속 내보내기를 사용 하도록 설정 하면 Security Center 무료 계층 솔루션이 자동으로 사용 하도록 설정 됩니다. 그러나 연속 내보내기 설정을 프로그래밍 방식으로 구성 하는 경우 **가격 책정 & 설정**에서 필수 작업 영역에 대 한 무료 또는 표준 가격 책정 계층을 수동으로 선택 해야 합니다.  
 
-보안 경고 및 권장 사항은 각각 *Securityalert* 및 *securityalert* 테이블에 저장 됩니다. 이러한 테이블을 포함 하는 Log Analytics 솔루션의 이름은 무료 또는 표준 계층에 있는지 여부에 따라 달라 집니다 ( [가격 책정](security-center-pricing.md)참조). Security 또는 Securitycenter free.
+### <a name="log-analytics-tables-and-schemas"></a>테이블 및 스키마 Log Analytics
+
+보안 경고 및 권장 사항은 각각 *Securityalert* 및 *securityalert* 테이블에 저장 됩니다. 이러한 테이블을 포함 하는 Log Analytics 솔루션의 이름은 무료 또는 표준 계층에 있는지 ( [가격 책정](security-center-pricing.md)참조) (보안 (' 보안 및 감사 ') 또는 Securitycenter free)에 따라 달라 집니다.
 
 ![Log Analytics의 * SecurityAlert * 테이블](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+내보낸 데이터 형식의 이벤트 스키마를 보려면 [Log Analytics 테이블 스키마](https://aka.ms/ASCAutomationSchemas)를 참조 하세요.
 
 ###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Azure Monitor에서 내보낸 보안 경고 및 권장 사항 보기
 
@@ -104,7 +110,7 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 [경고 데이터를 CSV 파일로 다운로드 ![](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
-> 이러한 보고서에는 Azure Portal의 디렉터리 + 구독 필터에서 현재 선택한 구독의 리소스에 대 한 경고 및 권장 사항이 포함 되어 있습니다. 디렉터리 + 구독을 선택 하는 필터를 ![](./media/continuous-export/filter-for-export-csv.png)
+> 이러한 보고서에는 현재 선택한 구독의 리소스에 대 한 경고 및 권장 사항이 포함 되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -115,3 +121,4 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 - [Azure Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)
 - [Azure 센티널 설명서](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Monitor 설명서](https://docs.microsoft.com/azure/azure-monitor/)
+- [워크플로 자동화 및 연속 내보내기 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)

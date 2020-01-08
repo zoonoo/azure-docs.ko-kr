@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 1c97fd4f4d5646b6654f5261abd99372c521c389
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427597"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (클래식) 웹 서비스: 배포 및 소비
 
@@ -41,13 +41,13 @@ Studio (클래식) 포털과 Microsoft Azure Machine Learning 웹 서비스 포�
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>웹 서비스 리소스 공급자 API(Azure Resource Manager API) 사용
 
-웹 서비스용 Azure Machine Learning Studio 리소스 공급자의 클래식 버전을 사용 하면 REST API 호출을 통해 웹 서비스를 배포 하 고 관리할 수 있습니다. 자세한 내용은 [Machine Learning 웹 서비스(REST)](/rest/api/machinelearning/index) 참조를 참조하세요.
+웹 서비스용 Azure Machine Learning Studio (클래식) 리소스 공급자를 사용 하면 REST API 호출을 통해 웹 서비스를 배포 하 고 관리할 수 있습니다. 자세한 내용은 [Machine Learning 웹 서비스(REST)](/rest/api/machinelearning/index) 참조를 참조하세요.
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>PowerShell cmdlet 사용
 
-웹 서비스용 Azure Machine Learning Studio 리소스 공급자의 클래식 버전을 사용 하면 PowerShell cmdlet을 사용 하 여 웹 서비스를 배포 하 고 관리할 수 있습니다.
+웹 서비스용 Azure Machine Learning Studio (클래식) 리소스 공급자를 사용 하면 PowerShell cmdlet을 사용 하 여 웹 서비스를 배포 하 고 관리할 수 있습니다.
 
 Cmdlet을 사용 하려면 먼저 [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 PowerShell 환경 내에서 Azure 계정에 로그인 해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/manage-resources-powershell.md)을 참조하세요.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: a0505b987deb67f93de6f6166154211359515ad7
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456979"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Azure DevTest Labs 가상 컴퓨터에서 아티팩트를 적용할 때 발생 하는 문제 해결
 가상 컴퓨터에 아티팩트를 적용 하는 것은 다양 한 이유로 실패할 수 있습니다. 이 문서에서는 가능한 원인을 식별 하는 데 도움이 되는 몇 가지 방법을 안내 합니다.
@@ -66,10 +66,10 @@ $vm.Properties.canApplyArtifacts
     - 활동 로그는 랩 VM 페이지 탐색 모음에서 액세스할 수 있습니다. 이 항목을 선택 하면 **가상 컴퓨터에 아티팩트를 적용 하** 는 항목 (아티팩트 적용 작업이 직접 트리거된 경우) 또는 **가상 컴퓨터 추가 또는 수정** (아티팩트 적용 작업이 VM 생성 프로세스의 일부인 경우)에 대 한 항목이 표시 됩니다.
     - 이러한 항목에서 오류를 찾습니다. 경우에 따라 오류의 태그가 지정 되지 않으므로 각 항목을 조사 해야 합니다.
     - 각 항목에 대 한 세부 정보를 조사할 때 JSON 페이로드의 내용을 검토 해야 합니다. 해당 문서의 맨 아래에 오류가 표시 될 수 있습니다.
-- **아티팩트를 실행 하려고**합니다. 네트워킹 또는 저장소 문제로 인 한 것일 수 있습니다. 자세한 내용은이 문서의 뒷부분에 있는 해당 섹션을 참조 하세요. 스크립트를 작성 하는 방식으로 인해 발생할 수도 있습니다. 다음은 그 예입니다.
+- **아티팩트를 실행 하려고**합니다. 네트워킹 또는 저장소 문제로 인 한 것일 수 있습니다. 자세한 내용은이 문서의 뒷부분에 있는 해당 섹션을 참조 하세요. 스크립트를 작성 하는 방식으로 인해 발생할 수도 있습니다. 예:
     - PowerShell 스크립트에는 **필수 매개 변수가**있지만 그 중 하나는 값을 비워 둘 수 있습니다. 그렇지 않으면 사용자가 값을 비워 둘 수 있습니다. 그렇지 않으면 artifactfile. json 정의 파일에 속성에 대 한 기본값이 없기 때문입니다. 사용자 입력을 대기 하는 중 이므로 스크립트가 중지 됩니다.
     - PowerShell 스크립트를 실행 하는 동안 **사용자 입력이 필요** 합니다. 사용자 개입 없이도 자동으로 작동 하도록 스크립트를 작성 해야 합니다.
-- **VM 에이전트가 준비 되는 데 시간이 오래 걸립니다**. VM을 처음 시작 하거나 아티팩트 적용 요청을 제공 하기 위해 사용자 지정 스크립트 확장을 처음 설치 하는 경우 vm에서 vm 에이전트를 업그레이드 하거나 VM 에이전트가 초기화 될 때까지 기다려야 할 수 있습니다. VM 에이전트가 초기화 하는 데 시간이 오래 걸리는 서비스가 있을 수 있습니다. 이러한 경우 추가 문제 해결을 위해 [Azure Virtual Machine 에이전트 개요](/virtual-machines/extensions/agent-windows.md) 를 참조 하세요.
+- **VM 에이전트가 준비 되는 데 시간이 오래 걸립니다**. VM을 처음 시작 하거나 아티팩트 적용 요청을 제공 하기 위해 사용자 지정 스크립트 확장을 처음 설치 하는 경우 vm에서 vm 에이전트를 업그레이드 하거나 VM 에이전트가 초기화 될 때까지 기다려야 할 수 있습니다. VM 에이전트가 초기화 하는 데 시간이 오래 걸리는 서비스가 있을 수 있습니다. 이러한 경우 추가 문제 해결을 위해 [Azure Virtual Machine 에이전트 개요](../virtual-machines/extensions/agent-windows.md) 를 참조 하세요.
 
 ### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>스크립트로 인해 아티팩트가 중단 된 것으로 표시 되는지 확인 하려면
 
@@ -101,7 +101,7 @@ $vm.Properties.canApplyArtifacts
     이 예에서는 하트 비트를 전송 했기 때문에 VM 에이전트 시작 시간이 10 분 20 초 소요 된 것을 볼 수 있습니다. 이 경우의 원인은 OOBE 서비스를 시작 하는 데 오랜 시간이 걸립니다.
 
 > [!TIP]
-> Azure 확장에 대 한 일반 정보는 [azure virtual machine 확장 및 기능](/virtual-machines/extensions/overview.md)을 참조 하세요.
+> Azure 확장에 대 한 일반 정보는 [azure virtual machine 확장 및 기능](../virtual-machines/extensions/overview.md)을 참조 하세요.
 
 ## <a name="storage-errors"></a>저장소 오류
 DevTest Labs를 사용 하려면 아티팩트를 캐시 하기 위해 만든 랩의 저장소 계정에 액세스 해야 합니다. DevTest Labs에서 아티팩트를 적용 하는 경우 구성 된 리포지토리에서 아티팩트 구성과 해당 파일을 읽습니다. 기본적으로 DevTest Labs는 **공용 아티팩트**리포지토리에 대 한 액세스를 구성 합니다.

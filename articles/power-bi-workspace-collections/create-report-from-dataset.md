@@ -1,5 +1,5 @@
 ---
-title: Power BI 작업 영역 컬렉션의 데이터 세트에서 새 보고서 만들기 | Microsoft Docs
+title: 데이터 집합에서 보고서 만들기-Power BI 작업 영역 컬렉션
 description: Power BI 작업 영역 컬렉션 보고서를 이제 자체 애플리케이션의 데이터 세트에서 만들 수 있습니다.
 services: power-bi-workspace-collections
 ms.service: power-bi-embedded
@@ -8,12 +8,12 @@ ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 2034c62a17b71b92b43a7afd794c2c172288d58c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: bcc6044d0f0f5270f81a619e4d1ad71ea35cc170
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427069"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 데이터 세트에서 새 보고서 만들기
 
@@ -196,7 +196,7 @@ var embedCreateConfiguration = {
 </script>
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 [샘플 시작](get-started-sample.md)  
 [보고서 저장](save-reports.md)  
@@ -207,4 +207,4 @@ var embedCreateConfiguration = {
 [Power BI Core NuGut 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Power BI JavaScript 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
-궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](https://community.powerbi.com/)
+궁금한 사항이 있으면 [Power BI 커뮤니티를 이용하세요.](https://community.powerbi.com/)

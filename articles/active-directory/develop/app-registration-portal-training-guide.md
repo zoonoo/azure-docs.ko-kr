@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션 등록 포털에서 Azure Portal의 새로운 앱 등록 환경으로 전환
+title: 새 Azure Portal 앱 등록 환경
 titleSuffix: Microsoft identity platform
 description: Azure Portal의 새로운 앱 등록 환경 소개
 services: active-directory
@@ -14,27 +14,27 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f7ed8902da40dc7b5783ebb116a6c993bbbba5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424648"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>애플리케이션 등록 포털에서 Azure Portal의 새로운 앱 등록 환경으로 전환
+# <a name="the-new-azure-portal-app-registration-experience"></a>새 Azure Portal 앱 등록 환경
 
 Azure Portal의 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서는 많은 기능이 향상 되었습니다. 이전 경험 이라고 하는 수렴 형 응용 프로그램을 등록 하거나 관리 하는 apps.dev.microsoft.com (응용 프로그램 등록 포털) 환경을 더 잘 알고 있다면이 교육 가이드에서 새로운 환경을 사용 하 여 시작 해 볼 수 있습니다.
 
 ## <a name="whats-not-changing"></a>변경 되지 않는 항목
 
--   응용 프로그램 및 관련 구성은 새 환경에서 있는 그대로 찾을 수 있습니다. 응용 프로그램을 다시 등록할 필요는 없으며, 응용 프로그램의 사용자는 다시 로그인 할 필요가 없습니다.
+- 응용 프로그램 및 관련 구성은 새 환경에서 있는 그대로 찾을 수 있습니다. 응용 프로그램을 다시 등록할 필요는 없으며, 응용 프로그램의 사용자는 다시 로그인 할 필요가 없습니다.
 
     > [!NOTE]
     > Azure Portal에서 찾을 수 있도록 응용 프로그램을 등록 하는 데 사용한 계정으로 로그인 해야 합니다. 사용자 프로필의 전자 메일 주소를 비교 하 여 응용 프로그램 등록 포털에 로그인 한 사용자와 일치 하는 Azure Portal의 로그인 사용자를 확인 하는 것이 좋습니다.
     > 
     > 경우에 따라, Azure AD 전자 메일 주소를 사용 하 여 개인 Microsoft 계정 (예: Outlook, Live, Xbox 등)을 사용 하 여 로그인 하는 경우, 이전 환경에서 Azure Portal로 이동 하면 동일한 계정으로 다른 계정으로 로그인 하는 것을 알 수 있습니다. Azure AD 테 넌 트에서 전자 메일을 보냅니다. 그래도 응용 프로그램이 없는 것으로 판단 되 면 로그 아웃 하 고 올바른 계정으로 로그인 합니다.
 
--   개인 Microsoft 계정을 사용 하 여 만든 라이브 SDK 앱은 Azure Portal에서 아직 지원 되지 않으며, 향후에는 이전 환경에서 계속 유지 됩니다.
+- 개인 Microsoft 계정을 사용 하 여 만든 라이브 SDK 앱은 Azure Portal에서 아직 지원 되지 않으며, 향후에는 이전 환경에서 계속 유지 됩니다.
 
 ## <a name="key-changes"></a>주요 변경 내용
 
@@ -83,12 +83,12 @@ Azure Portal의 새로운 환경은 이러한 기능을 개별 페이지로 나�
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>플랫폼/인증: 회신 Url/리디렉션 Uri
 이전 환경에서 앱은 웹, 네이티브 및 웹 API에 대 한 플랫폼 섹션을 포함 하 여 리디렉션 Url, 로그 아웃 URL 및 암시적 흐름을 구성 했습니다.
 
-새 환경에서 회신 Url은 앱\'s 인증 섹션에서 찾을 수 있습니다. 또한 리디렉션 Uri로 참조 되 고 리디렉션 Uri에 대 한 형식이 변경 되었습니다. 앱 유형 (웹 또는 공용 클라이언트-모바일 및 데스크톱)에 연결 해야 합니다. [자세한 정보](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+새 환경에서 회신 Url은 앱\'s 인증 섹션에서 찾을 수 있습니다. 또한 리디렉션 Uri로 참조 되 고 리디렉션 Uri에 대 한 형식이 변경 되었습니다. 앱 유형 (웹 또는 공용 클라이언트-모바일 및 데스크톱)에 연결 해야 합니다. [자세히 알아보기](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 웹 Api는 API 페이지 노출에서 구성 됩니다.
 
 > [!NOTE] 
-> 대상으로 지정할 플랫폼 또는 장치에 따라 응용 프로그램에 대 한 설정을 구성할 수 있는 새로운 인증 설정 환경을 사용해 보세요. [자세한 정보](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> 대상으로 지정할 플랫폼 또는 장치에 따라 응용 프로그램에 대 한 설정을 구성할 수 있는 새로운 인증 설정 환경을 사용해 보세요. [자세히 알아보기](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Microsoft Graph 사용 권한/a p i 권한
 

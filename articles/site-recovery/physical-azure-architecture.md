@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 23e8e4f9a092e871e62da27c8bf0c58a3bb8eb5b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f61d4beac5b5285b80fb05521cffc961f7f702c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084680"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356520"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>물리적 서버에서 Azure로의 재해 복구 아키텍처
 
@@ -45,7 +45,7 @@ ms.locfileid: "74084680"
     - 구성 서버는 HTTPS 443 아웃바운드 포트를 통해 Azure를 사용하는 복제 관리를 오케스트레이션합니다.
     - 프로세스 서버가 원본 컴퓨터에서 데이터를 수신하고 이를 최적화 및 암호화하며 443 아웃바운드 포트를 통해 Azure Storage로 전송합니다.
     - 다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다. 다중 VM은 장애 조치 시(failover) 크래시 일관성 및 앱 일관성 복구 지점을 공유하는 복제 그룹에 여러 컴퓨터를 그룹화하는 경우 사용됩니다. 이 기능은 컴퓨터가 동일한 워크로드를 실행하고 일관성을 유지해야 할 경우에 유용합니다.
-4. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. Azure ExpressRoute [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering)을 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN을 통한 트래픽 복제는 지원되지 않습니다.
+4. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. Azure ExpressRoute [공용 피어링](../expressroute/about-public-peering.md)을 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN을 통한 트래픽 복제는 지원되지 않습니다.
 
 
 **물리적 구성 요소에서 Azure로 복제 프로세스**
@@ -54,7 +54,7 @@ ms.locfileid: "74084680"
 
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
-복제가 설정되고 재해 복구 훈련(테스트 장애 조치)를 실행하여 모든 것이 예상대로 돌아가는 것을 확인한 후에는 필요에 따라 장애 조치와 장애 복구를 실행할 수 있습니다. 다음 사항에 유의합니다.
+복제가 설정되고 재해 복구 훈련(테스트 장애 조치)를 실행하여 모든 것이 예상대로 돌아가는 것을 확인한 후에는 필요에 따라 장애 조치와 장애 복구를 실행할 수 있습니다. 다음 사항에 유의하세요.
 
 - 계획된 장애 조치는 지원되지 않습니다.
 - 온-프레미스 VMware VM으로 장애 복구해야 합니다. 즉, 온-프레미스 물리적 서버를 Azure로 복제하는 경우에도 온-프레미스 VMware 인프라가 필요합니다.

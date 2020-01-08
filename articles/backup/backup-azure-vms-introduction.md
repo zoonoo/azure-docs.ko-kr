@@ -3,12 +3,12 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391891"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -109,7 +109,6 @@ VM 백업을 구성 하는 경우 다음 방법을 따르는 것이 좋습니다
 - 정책에 설정 된 기본 일정 시간을 수정 합니다. 예를 들어 정책의 기본 시간이 12:00 AM 인 경우 리소스가 최적으로 사용 되도록 몇 분 간격으로 시간을 증가 시킵니다.
 - 단일 자격 증명 모음에서 Vm을 복원 하는 경우에는 다른 [범용 v2 저장소 계정을](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 사용 하 여 대상 저장소 계정이 제한 되지 않도록 하는 것이 좋습니다. 예를 들어 각 VM에는 다른 저장소 계정이 있어야 합니다. 예를 들어 10 개의 Vm을 복원 하는 경우 10 개의 서로 다른 저장소 계정을 사용 합니다.
 - 즉시 복원을 사용 하 여 premium storage를 사용 하는 Vm 백업의 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업 **에서만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.
-- 스냅숏이 동일한 저장소 계정에 있으므로 범용 v1 저장소 계층 (스냅숏)의 복원이 몇 분 안에 완료 됩니다. 범용 v2 저장소 계층 (자격 증명 모음)에서 복원은 몇 시간이 걸릴 수 있습니다. 범용 v1 저장소에서 데이터를 사용할 수 있는 경우 빠른 복원 기능을 사용 하 여 빠른 [복원](backup-instant-restore-capability.md) 기능을 사용 하는 것이 좋습니다. 자격 증명 모음에서 데이터를 복원 해야 하는 경우에는 더 많은 시간이 소요 됩니다.
 - 저장소 계정 당 디스크 수 제한은 IaaS (infrastructure as a service) VM에서 실행 되는 응용 프로그램에서 디스크에 액세스 하는 정도를 기준으로 합니다. 일반적으로 단일 저장소 계정에 5-10 개의 디스크가 있는 경우 일부 디스크를 별도의 저장소 계정으로 이동 하 여 부하를 분산 합니다.
 
 ## <a name="backup-costs"></a>백업 비용
@@ -124,14 +123,14 @@ Azure Backup으로 백업된 Azure VM에는 [Azure Backup 가격 책정](https:/
 
 마찬가지로, 백업 저장소 요금은 Azure Backup에 저장 된 데이터의 양을 기준으로 합니다. 즉, 각 복구 지점에 있는 실제 데이터의 합계입니다.
 
-예를 들어 최대 크기가 각각 2TB 인 두 개의 추가 데이터 디스크가 있는 A2 표준 크기의 VM을 사용 합니다. 다음 표에서는 각 디스크에 저장 된 실제 데이터를 보여 줍니다.
+예를 들어 최대 크기가 32 TB 인 두 개의 추가 데이터 디스크가 있는 A2 표준 크기의 VM을 사용 합니다. 다음 표에서는 각 디스크에 저장 된 실제 데이터를 보여 줍니다.
 
 **디스크** | **최대 크기** | **표시되는 실제 데이터**
 --- | --- | ---
-OS 디스크 | 4,095GB | 17GB
+OS 디스크 | 32TB | 17GB
 로컬/임시 디스크 | 135GB | 5GB(백업에 포함되지 않음)
-데이터 디스크 1 | 4,095GB | 30GB
-데이터 디스크 2 | 4,095GB | 0GB
+데이터 디스크 1 | 32TB| 30GB
+데이터 디스크 2 | 32TB | 0GB
 
 이 경우 VM의 실제 크기는 17GB+30GB+0GB=47GB입니다. 이 보호 된 인스턴스 크기 (47 g b)는 월별 청구의 기반이 됩니다. VM의 데이터 양이 증가 함에 따라 청구 변경 내용이 일치 하는 데 사용 되는 보호 된 인스턴스 크기입니다.
 

@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390758"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -23,7 +23,7 @@ ms.locfileid: "74171896"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -110,7 +110,15 @@ ms.locfileid: "74171896"
 
 1. 복원 **구성** 메뉴의 **복원 위치**아래에서 **파일로 복원**을 선택 합니다.
 2. 백업 파일을 복원 하려는 SQL Server 이름을 선택 합니다.
-3. **서버의 대상 경로** 에서 2 단계에서 선택한 서버의 폴더 경로를 입력 합니다. 서비스에서 필요한 모든 백업 파일을 덤프 하는 위치입니다. 일반적으로 대상 경로로 지정 된 경우 네트워크 공유 경로 또는 탑재 된 Azure 파일 공유의 경로를 사용 하면 동일한 네트워크에 있거나 동일한 Azure 파일 공유에 탑재 된 다른 컴퓨터에서 이러한 파일에 쉽게 액세스할 수 있습니다.
+3. **서버의 대상 경로** 에서 2 단계에서 선택한 서버의 폴더 경로를 입력 합니다. 서비스에서 필요한 모든 백업 파일을 덤프 하는 위치입니다. 일반적으로 대상 경로로 지정 된 경우 네트워크 공유 경로 또는 탑재 된 Azure 파일 공유의 경로를 사용 하면 동일한 네트워크에 있거나 동일한 Azure 파일 공유에 탑재 된 다른 컴퓨터에서 이러한 파일에 쉽게 액세스할 수 있습니다.<BR>
+
+>대상으로 등록 된 VM에 탑재 된 Azure 파일 공유에서 데이터베이스 백업 파일을 복원 하려면 NT 권한 없음이 파일 공유에 액세스할 수 있는지 확인 합니다. 아래 지정 된 단계를 수행 하 여 VM에 탑재 된 AFS에 대 한 읽기/쓰기 권한을 부여할 수 있습니다.
+>- `PsExec -s cmd`를 실행 하 여 NT 권한 없는 셸에 입력
+>   - `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>` 실행
+>   - `dir \\<storageacct>.file.core.windows.net\<filesharename>` 사용 하 여 액세스 확인
+>- 백업 자격 증명 모음에서 파일로 복원을 시작 하 여 경로로 `\\<storageacct>.file.core.windows.net\<filesharename>` 합니다.<BR>
+<https://docs.microsoft.com/sysinternals/downloads/psexec>을 통해 Psexec를 다운로드할 수 있습니다.
+
 4. **확인**을 선택합니다.
 
 ![파일로 복원 선택](./media/backup-azure-sql-database/restore-as-files.png)
@@ -133,7 +141,7 @@ ms.locfileid: "74171896"
     ![일정 열기](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. 날짜를 선택한 후에는 타임라인 그래프에 사용 가능한 복구 지점이 연속적인 범위로 표시됩니다.
-1. 시간 표시 막대 그래프에서 복구 시간을 지정 하거나 시간을 선택 합니다. 그런 다음 **확인**을 선택합니다.
+1. 시간 표시 막대 그래프에서 복구 시간을 지정 하거나 시간을 선택 합니다. 그런 다음, **확인**을 선택합니다.
 
     ![복원 시간 선택](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 

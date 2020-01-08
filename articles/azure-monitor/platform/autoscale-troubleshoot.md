@@ -1,19 +1,15 @@
 ---
 title: Azure 자동 크기 조정 문제 해결
 description: Service Fabric, Virtual Machines, Web Apps 및 클라우드 서비스에서 사용 되는 Azure 자동 크기 조정 문제를 추적 합니다.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/4/2019
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: effef22bea0b4224f67737fe1c34c9758749c093
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364444"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Azure 자동 크기 조정 문제 해결
  

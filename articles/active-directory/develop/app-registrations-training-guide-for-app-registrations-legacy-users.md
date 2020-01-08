@@ -1,6 +1,6 @@
 ---
-title: 앱 등록 (레거시)에서 새로운 앱 등록 환경으로 전환 하기 위한 학습 가이드 Azure Portal
-description: Azure Portal의 새로운 앱 등록 환경 소개
+title: 새 Azure Portal 앱 등록 교육 가이드
+description: 새 Azure Portal 앱 등록 환경 소개
 services: active-directory
 author: archieag
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3726ebbe0ebc3725a885c847f33760ebd7e2e8b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424672"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>앱 등록(레거시)에서 Azure Portal의 새로운 앱 등록 환경으로 전환
+# <a name="new-azure-portal-app-registration-training-guide"></a>새 Azure Portal 앱 등록 교육 가이드
 
 Azure Portal에서 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 많은 향상 된 기능을 찾을 수 있습니다. Azure Portal에서 앱 등록 (레거시) 환경에 대해 잘 알고 있는 경우이 교육 가이드를 사용 하 여 새 환경 사용을 시작 하세요.
 
@@ -55,7 +55,7 @@ Azure Active Directory에서 여기에 설명 된 새 응용 프로그램 등록
 
 레거시 환경에는 **속성** 페이지가 있습니다. **속성** 에는 다음 필드가 있습니다.
 
-- **Name**
+- **이름**
 - **개체 ID**
 - **애플리케이션 ID**
 - **앱 ID URI**

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f693da11b5b850d8ebca637b426ac0748a4127ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6ca8dd08f3b6c1a7bc9a0b8c7ba853adb46fd30c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232417"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355971"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -36,7 +36,7 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 
 이 서비스는 일반 공급되는 Azure 지역에서 사용할 수 있습니다. 모든 API 버전을 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다.
 
-Regions                                        | 가용성                                 | 지원되는 버전
+개 지역                                        | 가용성                                 | 지원되는 버전
 -----------------------------------------------|-----------------------------------------------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
@@ -47,7 +47,7 @@ Regions                                        | 가용성                      
 
 Instance Metadata Service를 평가하려면 위 지역의 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 또는 [Azure Portal](https://portal.azure.com)에서 VM을 만들고 아래 예제를 따릅니다.
 
-## <a name="usage"></a>사용법
+## <a name="usage"></a>사용량
 
 ### <a name="versioning"></a>버전 관리
 
@@ -103,11 +103,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 API | 기본 데이터 형식 | 다른 형식
 --------|---------------------|--------------
-/instance | json : | 텍스트
-/scheduledevents | json : | 없음
-/attested | json : | 없음
+/instance | json : | text
+/scheduledevents | json : | none
+/attested | json : | none
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -121,11 +121,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소에서 실행 중인 가상 머신 인스턴스 내부에서만 액세스할 수 있습니다. 또한 `X-Forwarded-For` 헤더가 포함된 모든 요청은 서비스에 의해 거부됩니다.
 실제 요청이 의도치 않은 리디렉션의 일환이 아니라 직접적으로 의도된 것이라는 것을 확인하기 위해 요청에 `Metadata: true` 헤더가 포함되어야 합니다.
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
-찾을 수 없는 데이터 요소 또는 형식이 잘못된 요청이 있으면 Instance Metadata Service는 표준 HTTP 오류를 반환합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+찾을 수 없는 데이터 요소 또는 형식이 잘못된 요청이 있으면 Instance Metadata Service는 표준 HTTP 오류를 반환합니다. 예:
 
-HTTP 상태 코드 | Reason
+HTTP 상태 코드 | 이유
 ----------------|-------
 200 정상 |
 400 잘못된 요청 | 리프 노드를 쿼리할 때 `Metadata: true` 헤더가 없거나 형식이 누락 되었습니다.
@@ -134,7 +134,7 @@ HTTP 상태 코드 | Reason
 429 요청이 너무 많음 | API는 현재 초당 최대 5개의 쿼리를 지원함
 500 서비스 오류     | 잠시 후 다시 시도하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 > [!NOTE]
 > 모든 API 응답은 JSON 문자열입니다. 다음 모든 예제 응답은 가독성을 위해 매우 인쇄 됩니다.
@@ -337,11 +337,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="metadata-apis"></a>메타 데이터 Api
+## <a name="metadata-apis"></a>메타데이터 API
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>메타 데이터 끝점을 통해 사용할 수 있는 Api는 다음과 같습니다.
 
-Data | 설명 | 도입된 버전
+데이터 | Description | 도입된 버전
 -----|-------------|-----------------------
 attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 ID | Azure 리소스에 대한 관리 ID입니다. [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
@@ -354,11 +354,11 @@ scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/계산을 통해 액세스 됩니다.
 
-Data | 설명 | 도입된 버전
+데이터 | Description | 도입된 버전
 -----|-------------|-----------------------
 azEnvironment | VM이 실행 되는 Azure 환경 | 2018-10-01
 customData | [사용자 지정 데이터](#custom-data) 참조 | 2019-02-01
-location | VM을 실행하는 Azure 지역 | 2017-04-02
+위치 | VM을 실행하는 Azure 지역 | 2017-04-02
 name | VM의 이름 | 2017-04-02
 제품 | VM 이미지에 대 한 제품 정보 이며 Azure 이미지 갤러리에서 배포 된 이미지에 대해서만 제공 됩니다. | 2017-04-02
 osType | Linux 또는or Windows | 2017-04-02
@@ -369,13 +369,13 @@ platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability
 provider | VM의 공급자 | 2018-10-01
 publicKeys | VM 및 경로에 할당 된 [공개 키 컬렉션](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 publisher | VM 이미지 게시자 | 2017-04-02
-resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
+resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/management/overview.md) | 2017-08-01
 resourceId | 리소스 [의 정규화 된 ID입니다](https://docs.microsoft.com/rest/api/resources/resources/getbyid) . | 2019-03-11
 sku | VM 이미지에 해당하는 SKU | 2017-04-02
 subscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
-태그 | Virtual Machine에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 tagsList | 프로그래밍 방식의 구문 분석을 용이 하 게 하기 위해 JSON 배열로 형식이 지정 된 태그  | 2019-06-04
-version | VM 이미지의 버전 | 2017-04-02
+버전 | VM 이미지의 버전 | 2017-04-02
 vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 가상 머신 확장 집합의 [Virtual Machine ScaleSet 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [VM 크기](sizes.md) | 2017-04-02
@@ -386,7 +386,7 @@ vmSize | [VM 크기](sizes.md) | 2017-04-02
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/네트워크/인터페이스를 통해 액세스 됩니다.
 
-Data | 설명 | 도입된 버전
+데이터 | Description | 도입된 버전
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
@@ -412,7 +412,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 Api-version은 필수 필드입니다. 지원 되는 API 버전은 [서비스 가용성 섹션](#service-availability) 을 참조 하세요.
-Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추적하는 데 사용할 수 있으며, 제공하지 않을 경우 응답으로 인코드된 문자열에 현재 UTC 타임스탬프가 반환됩니다.
+Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추적하는 데 사용할 수 있으며, 제공하지 않을 경우 응답으로 인코딩된 문자열에 현재 UTC 타임스탬프가 반환됩니다.
 
  **응답**
 
@@ -425,7 +425,7 @@ Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추
 }
 ```
 
-> 서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 서명에 사용 되는 인증서가 포함 되어 있습니다 .이 인증서에는 vmId, nonce, subscriptionId, 타임 스탬프, 문서 생성 및 만료 및 이미지에 대 한 계획 정보가 포함 됩니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 인증서를 추출하고 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
+> 서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 서명에 사용 되는 인증서가 포함 되어 있습니다 .이 인증서에는 vmId, nonce, subscriptionId, 타임 스탬프, 문서 생성 및 만료 및 이미지에 대 한 계획 정보가 포함 됩니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 추출한 인증서를 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Windows 가상 머신에서 증명된 메타데이터 검색
 
@@ -444,7 +444,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 ```
 
 Api-version은 필수 필드입니다. 지원 되는 API 버전은 서비스 가용성 섹션을 참조 하세요.
-Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추적하는 데 사용할 수 있으며, 제공하지 않을 경우 응답으로 인코드된 문자열에 현재 UTC 타임스탬프가 반환됩니다.
+Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추적하는 데 사용할 수 있으며, 제공하지 않을 경우 응답으로 인코딩된 문자열에 현재 UTC 타임스탬프가 반환됩니다.
 
  **응답**
 
@@ -457,7 +457,7 @@ Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추
 }
 ```
 
-> 서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 서명에 사용 되는 인증서가 포함 되어 있습니다 .이 인증서에는 vmId, nonce, subscriptionId, 타임 스탬프, 문서 생성 및 만료 및 이미지에 대 한 계획 정보가 포함 됩니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 인증서를 추출하고 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
+> 서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 서명에 사용 되는 인증서가 포함 되어 있습니다 .이 인증서에는 vmId, nonce, subscriptionId, 타임 스탬프, 문서 생성 및 만료 및 이미지에 대 한 계획 정보가 포함 됩니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 추출한 인증서를 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
 
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
@@ -596,7 +596,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>VM이 Azure에서 실행 중인지 확인
 
-마켓플레이스 공급업체는 해당 소프트웨어가 Azure에서만 실행되도록 사용이 허가되었는지 확인하려고 합니다. 누군가가 VHD를 온-프레미스로 복사 하는 경우이를 검색할 수 있어야 합니다. Instance Metadata Service를 호출함으로써 Marketplace 공급업체는 Azure의 응답임을 보증하는 서명된 데이터를 얻을 수 있습니다.
+Marketplace 공급업체는 해당 소프트웨어가 Azure에서만 실행되도록 사용이 허가되었는지 확인하려고 합니다. 누군가가 VHD를 온-프레미스로 복사 하는 경우이를 검색할 수 있어야 합니다. Instance Metadata Service를 호출함으로써 Marketplace 공급업체는 Azure의 응답임을 보증하는 서명된 데이터를 얻을 수 있습니다.
 
 > [!NOTE]
 > jq를 설치해야 합니다.
@@ -640,11 +640,11 @@ Verification successful
 }
 ```
 
-Data | 설명
+데이터 | Description
 -----|------------
 nonce | 사용자가 요청과 함께 선택적 문자열을 제공했습니다. 요청에 nonce를 제공하지 않은 경우 현재 UTC 타임스탬프가 반환됩니다.
 계획 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
-timestamp/createdOn | 첫 번째 서명된 문서가 생성된 타임스탬프
+타임스탬프/createdOn | 첫 번째 서명된 문서가 생성된 타임스탬프
 timestamp/expiresOn | 서명된 문서가 만료되는 타임스탬프
 vmId |  VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
 subscriptionId | 에 도입 된 가상 컴퓨터에 대 한 Azure 구독 `2019-04-30`
@@ -785,13 +785,13 @@ Puppet | https://github.com/keirans/azuremetadata
 5. `500 Internal Server Error` 오류가 발생하는 이유가 무엇인가요?
    * 지수 백오프 시스템을 기반으로 요청을 다시 시도하세요. 문제가 지속되면 Azure 지원에 문의하세요.
 6. 추가 질문/의견은 어디에 공유하나요?
-   * https://feedback.azure.com에 대한 의견을 보내주세요.
+   * https://feedback.azure.com 에 대한 의견을 보내주세요.
 7. Virtual Machine Scale Set 인스턴스에 작동하나요?
    * 예, 메타데이터 서비스는 확장 집합 인스턴스에 사용할 수 있습니다.
 8. 서비스에 대한 지원을 받으려면 어떻게 하나요?
    * 서비스에 대한 지원을 받으려면 Azure Portal에서 긴 다시 시도 후 메타데이터 응답을 받을 수 없는 VM에 대한 지원 문제를 만듭니다.
 9. 서비스를 호출하는 데 요청 시간이 초과됩니다.
-   * 메타데이터 호출은 VM의 네트워크 카드에 할당된 기본 IP 주소로부터 수행되어야 하며, 경로를 변경한 경우에는 네트워크 카드에서 169.254.0.0/16 주소에 대한 경로도 있어야 합니다.
+   * 메타데이터 호출은 VM의 네트워크 카드에 할당된 기본 IP 주소로부터 수행되어야 합니다. 경로를 변경한 경우라면 사용 중인 네트워크 카드의 169.254.0.0/16 주소에 대한 경로도 있어야 합니다.
 10. 가상 머신 확장 집합에서 태그를 업데이트했는데 VM과 달리 인스턴스에 태그가 나타나지 않습니다.
     * 현재 ScaleSets의 경우 태그는 재부팅/이미지로 다시 설치/인스턴스에 대한 디스크 변경이 있을 때만 VM에 표시됩니다.
 

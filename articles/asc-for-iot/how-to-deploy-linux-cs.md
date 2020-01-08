@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367419"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Linux 용 IoT C# 기반 보안 에이전트에 대 한 Azure Security Center 배포
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Linux에 IoT용 Azure Security Center C# 기반 보안 에이전트 배포
 
 
 이 가이드에서는 Linux에서 IoT C#기반 보안 에이전트에 대 한 Azure Security Center를 설치 하 고 배포 하는 방법을 설명 합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "68596291"
 > * 에이전트 제거
 > * 문제 해결 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
 
@@ -52,7 +52,7 @@ ms.locfileid: "68596291"
 
 1. `chmod +x InstallSecurityAgent.sh`를 실행하여 **InstallSecurityAgent 스크립트**에 실행 권한을 추가합니다. 
 
-1. 다음으로, 다음을 실행합니다. 
+1. 다음으로 **루트 권한**으로 다음 명령을 실행 합니다. 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5c663bb507656dad6f073b9906fdbf104714c8f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450824"
 ---
 이 FAQ는 클래식 배포 모델을 사용하는 P2S 연결에 적용됩니다.
 
@@ -27,15 +27,16 @@ ms.locfileid: "67182070"
 * Windows 8.1(32비트 및 64비트)
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)
-* 윈도우 10
+* Windows 10
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>지점 및 사이트 간 SSTP를 지원하는 소프트웨어 VPN 클라이언트를 사용할 수 있습니까?
 
-아니요. 나열된 Windows 운영 체제 버전만 지원됩니다.
+아닙니다. 나열된 Windows 운영 체제 버전만 지원됩니다.
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에 존재할 수 있는 VPN 클라이언트 엔드포인트의 수는 어떻게 됩니까?
 
-최대 128개의 VPN 클라이언트에서 가상 네트워크에 동시에 연결할 수 있습니다.
+VPN 클라이언트 끝점의 양은 게이트웨이 sku 및 프로토콜에 따라 달라 집니다.
+[! SKU 별로 집계 된 처리량 포함]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>지점 및 사이트 간 연결에 내부 PKI 루트 CA를 사용할 수 있습니까?
 
@@ -51,7 +52,7 @@ ms.locfileid: "67182070"
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>지점 및 사이트 간 구성은 VPN 클라이언트에서 자동 다시 연결 및 DDNS를 지원합니까?
 
-아니요. 자동 다시 연결 및 DDNS는 현재 지점 및 사이트 간 VPN에서 지원되지 않습니다.
+아닙니다. 자동 다시 연결 및 DDNS는 현재 지점 및 사이트 간 VPN에서 지원되지 않습니다.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>동일한 가상 네트워크에 대해 사이트 간 구성과 지점 및 사이트 간 구성을 사용할 수 있습니까?
 

@@ -1,24 +1,14 @@
 ---
 title: 컨테이너의 Azure Monitor 사용 하 여 라이브 데이터 (미리 보기) 보기 | Microsoft Docs
 description: 이 문서에서는 컨테이너에 Azure Monitor kubectl을 사용 하지 않고 Kubernetes 로그, 이벤트 및 pod 메트릭에 대 한 실시간 보기를 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: 9c497c73d42e1fb8851c5293010098d843297250
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404750"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법
 
@@ -67,7 +57,7 @@ ms.locfileid: "73514421"
 4. 성능 표에서 개체를 선택 하 고 오른쪽에 있는 속성 창에서 **라이브 데이터 보기 (미리 보기)** 옵션을 선택 합니다. AKS 클러스터가 Azure AD를 사용 하 여 Single Sign-On 구성 된 경우 해당 브라우저 세션 중 처음 사용할 때 인증 하 라는 메시지가 표시 됩니다. 계정을 선택하고 Azure를 통해 인증을 수행합니다.  
 
     >[!NOTE]
-    >속성 창에서 **분석에서 보기** 옵션을 선택 하 여 Log Analytics 작업 영역에서 데이터를 볼 때 로그 검색 결과에 **노드**, **데몬 집합**, **복제본 집합**, **작업**등 **이 표시 될 수 있습니다. Cron 작업**, **Pod**및 **컨테이너** 는 더 이상 존재 하지 않을 수 있습니다. `kubectl`에서 사용할 수 없는 컨테이너에 대 한 로그 검색을 시도 해도 여기에서 오류가 발생 합니다. 기록 로그, 이벤트 및 메트릭을 보는 방법에 대 한 자세한 내용은 [analytics의 보기](container-insights-log-search.md#search-logs-to-analyze-data) 기능을 검토 하세요.  
+    >속성 창에서 **분석에서 보기** 옵션을 선택 하 여 Log Analytics 작업 영역에서 데이터를 볼 때 로그 검색 결과에 **노드**, **데몬 집합**, **복제본 집합**, **작업**, **Cron 작업**, **pod**및 **컨테이너가** 더 이상 없을 수 있습니다. `kubectl`에서 사용할 수 없는 컨테이너에 대 한 로그 검색을 시도 해도 여기에서 오류가 발생 합니다. 기록 로그, 이벤트 및 메트릭을 보는 방법에 대 한 자세한 내용은 [analytics의 보기](container-insights-log-search.md#search-logs-to-analyze-data) 기능을 검토 하세요.  
 
 성공적으로 인증 된 후에는 라이브 데이터 (미리 보기) 콘솔 창이 성능 데이터 표 아래에 표시 되며이 위치에서 연속 스트림에서 로그 데이터를 볼 수 있습니다. 인출 상태 표시기가 창의 맨 오른쪽에 있는 녹색 확인 표시를 표시 하는 경우 데이터를 검색 하 고 콘솔에 대 한 스트리밍을 시작 하는 것을 의미 합니다.  
 
@@ -77,7 +67,7 @@ ms.locfileid: "73514421"
 
 ## <a name="view-events"></a>이벤트 보기
 
-컨테이너, pod, node, ReplicaSet, DaemonSet, job, CronJob 또는를 사용할 때 **노드**, **컨트롤러**, **컨테이너**및 **배포 (미리 보기)** 보기에서 컨테이너 엔진에 의해 생성 되는 실시간 이벤트 데이터를 볼 수 있습니다. 배포를 선택 합니다. 이벤트를 보려면 다음 단계를 수행 합니다.
+컨테이너, pod, node, ReplicaSet, DaemonSet, 작업, CronJob 또는 배포가 선택 된 경우 **노드**, **컨트롤러**, **컨테이너**및 **배포 (미리 보기)** 보기에서 컨테이너 엔진에 의해 생성 되는 실시간 이벤트 데이터를 볼 수 있습니다. 이벤트를 보려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 AKS cluster 리소스 그룹으로 이동 하 여 AKS 리소스를 선택 합니다.
 
@@ -88,7 +78,7 @@ ms.locfileid: "73514421"
 4. 성능 표에서 개체를 선택 하 고 오른쪽에 있는 속성 창에서 **라이브 데이터 보기 (미리 보기)** 옵션을 선택 합니다. AKS 클러스터가 Azure AD를 사용 하 여 Single Sign-On 구성 된 경우 해당 브라우저 세션 중 처음 사용할 때 인증 하 라는 메시지가 표시 됩니다. 계정을 선택하고 Azure를 통해 인증을 수행합니다.  
 
     >[!NOTE]
-    >속성 창에서 **분석에서 보기** 옵션을 선택 하 여 Log Analytics 작업 영역에서 데이터를 볼 때 로그 검색 결과에 **노드**, **데몬 집합**, **복제본 집합**, **작업**등 **이 표시 될 수 있습니다. Cron 작업**, **Pod**및 **컨테이너** 는 더 이상 존재 하지 않을 수 있습니다. `kubectl`에서 사용할 수 없는 컨테이너에 대 한 로그 검색을 시도 해도 여기에서 오류가 발생 합니다. 기록 로그, 이벤트 및 메트릭을 보는 방법에 대 한 자세한 내용은 [analytics의 보기](container-insights-log-search.md#search-logs-to-analyze-data) 기능을 검토 하세요.  
+    >속성 창에서 **분석에서 보기** 옵션을 선택 하 여 Log Analytics 작업 영역에서 데이터를 볼 때 로그 검색 결과에 **노드**, **데몬 집합**, **복제본 집합**, **작업**, **Cron 작업**, **pod**및 **컨테이너가** 더 이상 없을 수 있습니다. `kubectl`에서 사용할 수 없는 컨테이너에 대 한 로그 검색을 시도 해도 여기에서 오류가 발생 합니다. 기록 로그, 이벤트 및 메트릭을 보는 방법에 대 한 자세한 내용은 [analytics의 보기](container-insights-log-search.md#search-logs-to-analyze-data) 기능을 검토 하세요.  
 
 성공적으로 인증 된 후에는 성능 데이터 표 아래에 라이브 데이터 (미리 보기) 콘솔 창이 나타납니다. 인출 상태 표시기가 창의 맨 오른쪽에 있는 녹색 확인 표시를 표시 하는 경우 데이터를 검색 하 고 콘솔에 대 한 스트리밍을 시작 하는 것을 의미 합니다. 
     
@@ -115,7 +105,7 @@ ms.locfileid: "73514421"
 4. 성능 표에서 **Pod** 개체를 선택 하 고 오른쪽에 있는 속성 창에서 **라이브 데이터 보기 (미리 보기)** 옵션을 선택 합니다. AKS 클러스터가 Azure AD를 사용 하 여 Single Sign-On 구성 된 경우 해당 브라우저 세션 중 처음 사용할 때 인증 하 라는 메시지가 표시 됩니다. 계정을 선택하고 Azure를 통해 인증을 수행합니다.  
 
     >[!NOTE]
-    >속성 창에서 **분석에서 보기** 옵션을 선택 하 여 Log Analytics 작업 영역에서 데이터를 볼 때 로그 검색 결과에 **노드**, **데몬 집합**, **복제본 집합**, **작업**등 **이 표시 될 수 있습니다. Cron 작업**, **Pod**및 **컨테이너** 는 더 이상 존재 하지 않을 수 있습니다. `kubectl`에서 사용할 수 없는 컨테이너에 대 한 로그 검색을 시도 해도 여기에서 오류가 발생 합니다. 기록 로그, 이벤트 및 메트릭을 보는 방법에 대 한 자세한 내용은 [analytics의 보기](container-insights-log-search.md#search-logs-to-analyze-data) 기능을 검토 하세요.  
+    >속성 창에서 **분석에서 보기** 옵션을 선택 하 여 Log Analytics 작업 영역에서 데이터를 볼 때 로그 검색 결과에 **노드**, **데몬 집합**, **복제본 집합**, **작업**, **Cron 작업**, **pod**및 **컨테이너가** 더 이상 없을 수 있습니다. `kubectl`에서 사용할 수 없는 컨테이너에 대 한 로그 검색을 시도 해도 여기에서 오류가 발생 합니다. 기록 로그, 이벤트 및 메트릭을 보는 방법에 대 한 자세한 내용은 [analytics의 보기](container-insights-log-search.md#search-logs-to-analyze-data) 기능을 검토 하세요.  
 
 성공적으로 인증 된 후에는 성능 데이터 표 아래에 라이브 데이터 (미리 보기) 콘솔 창이 나타납니다. 메트릭 데이터가 검색 되 고 두 차트에 표시 하기 위해 콘솔에 대 한 스트리밍을 시작 합니다. 창 제목은 컨테이너를 그룹화 할 pod의 이름을 표시 합니다.
 

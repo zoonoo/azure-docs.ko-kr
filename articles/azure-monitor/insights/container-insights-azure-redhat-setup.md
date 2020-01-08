@@ -1,18 +1,14 @@
 ---
 title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터 구성 | Microsoft Docs
 description: 이 문서에서는 Azure Red Hat OpenShift에서 호스트 되는 Kubernetes 클러스터를 모니터링 하는 컨테이너에 대 한 Azure Monitor를 구성 하는 방법을 설명 합니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/21/2019
-ms.openlocfilehash: 07d84175325226af755712ec38ab93b901bbd361
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6922cb7b143989ba329df972a06825629c4c5020
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707520"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405570"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터 구성
 
@@ -31,12 +27,12 @@ ms.locfileid: "74707520"
 
 컨테이너에 대 한 Azure Monitor는 [개요](container-insights-overview.md) 문서에 설명 된 대로 Azure Red Hat openshift의 모니터링을 지원 합니다. 단, 다음 기능은 제외 됩니다.
 
-- 라이브 데이터
+- 사용 중인 데이터
 - 프로메테우스 메트릭 스크랩
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 - 상태 기능
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버 여야 하 고 컨테이너에 대 한 Azure Monitor로 구성 된 Log Analytics 작업 영역의 구성원 인 [*Log Analytics 참가자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
 
@@ -100,7 +96,7 @@ Azure PowerShell 또는 CLI를 사용 하 여 모니터링을 사용 하도록 �
 
 4. JSON 매개 변수 파일 **newClusterWithMonitoringParam** 를 편집 하 고 다음 값을 업데이트 합니다.
 
-    - *위치*
+    - *location*
     - *clusterName*
     - *aadTenantId*
     - *aadClientId*
@@ -129,7 +125,7 @@ Azure에 배포 된 Azure Red Hat OpenShift 클러스터의 모니터링을 사�
 
 ### <a name="from-the-azure-portal"></a>Azure Portal에서
  
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. Azure Portal 메뉴 또는 홈 페이지에서 **Azure Monitor**를 선택 합니다. **인사이트** 섹션에서 **컨테이너**를 선택합니다. 
 

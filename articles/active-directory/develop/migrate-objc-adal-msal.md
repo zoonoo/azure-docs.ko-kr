@@ -1,5 +1,5 @@
 ---
-title: MSAL으로 앱 마이그레이션 (iOS/macOS) | Microsoft
+title: ADAL에서 MSAL 마이그레이션 가이드 (MSAL iOS/macOS) | Microsoft
 titleSuffix: Microsoft identity platform
 description: IOS/macOS에 대 한 MSAL과 ObjectiveC 용 Azure AD 인증 Library (ADAL)의 차이점에 대해 알아봅니다. ObjC) 및 iOS/macOS 용 MSAL으로 마이그레이션하는 방법을 설명 합니다.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fcb3422c900419abf68173ff5026a7dd0b87ea
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f35243e29755c42dbe8e3a696f2718ee3d10178c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424424"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
 
@@ -62,11 +62,11 @@ MSAL에서 기본 상호 작용은 [OAuth 2.0 공용 클라이언트](https://to
 
 ADAL에서 앱은 Azure Active Directory v1.0 끝점에서 토큰을 획득 하기 위해 `https://graph.microsoft.com`와 같은 *리소스* 식별자를 제공 해야 했습니다. 리소스는 응용 프로그램 매니페스트에서 파악 하는 다양 한 범위 또는 oAuth2Permissions를 정의할 수 있습니다. 이로 인해 클라이언트 앱은 앱 등록 중에 미리 정의 된 특정 범위의 범위에 대해 해당 리소스의 토큰을 요청할 수 있습니다.
 
-MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 위치(예:`https://graph.microsoft.com/user.read`
+MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 예를 들어 `https://graph.microsoft.com/user.read`
 
 MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
-* 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 다음은 그 예입니다. 
+* 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 예: 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -76,7 +76,7 @@ MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
 이는 모든 응용 프로그램에 대해 기본 제공 되는 범위입니다. 응용 프로그램을 등록할 때 구성 된 사용 권한의 정적 목록을 참조 합니다. 해당 동작은 `resource`와 비슷합니다. 이는 유사한 범위 및 사용자 경험 집합이 유지 되도록 마이그레이션하는 경우에 유용할 수 있습니다.
 
-`/.default` 범위를 사용 하려면 리소스 식별자에 `/.default`를 추가 합니다. 예: `https://graph.microsoft.com/.default`. 리소스가 슬래시 (`/`)로 끝나는 경우에도 선행 슬래시를 포함 하 여 `/.default`를 추가 해야 합니다 .이 경우에는 이중 슬래시 (`//`)를 포함 하는 범위가 생성 됩니다.
+`/.default` 범위를 사용 하려면 리소스 식별자에 `/.default`를 추가 합니다. 예: `https://graph.microsoft.com/.default` 리소스가 슬래시 (`/`)로 끝나는 경우에도 선행 슬래시를 포함 하 여 `/.default`를 추가 해야 합니다 .이 경우에는 이중 슬래시 (`//`)를 포함 하는 범위가 생성 됩니다.
 
 여기에서 "/.default" 범위를 사용 하는 방법에 대 한 자세한 내용은 여기를 참조 [하세요](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope) .
 
@@ -147,7 +147,7 @@ V0.3.0 버전부터 MSAL은 Microsoft Authenticator 앱을 사용 하 여 조정
 
 1. 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식이 `msauth.<app.bundle.id>://auth`. `<app.bundle.id>`를 응용 프로그램의 번들 ID로 바꿉니다. ADAL에서 마이그레이션하는 경우 응용 프로그램을 이미 broker를 사용할 수 있는 경우에는 추가 작업이 필요 하지 않습니다. 이전 리디렉션 URI는 MSAL과 완전히 호환 되므로 3 단계로 건너뛸 수 있습니다.
 
-2. Info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. 기본 MSAL 리디렉션 URI의 경우 형식은 `msauth.<app.bundle.id>`입니다. 다음은 그 예입니다.
+2. Info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. 기본 MSAL 리디렉션 URI의 경우 형식은 `msauth.<app.bundle.id>`입니다. 예:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -227,7 +227,7 @@ MSAL으로 전환 하 고 AAD 계정을 사용 하도록 설정 하기 위해 �
 
 리디렉션 URI는 `msauth.<app.bundle.id>://auth`형식 이어야 합니다. `<app.bundle.id>`를 응용 프로그램의 번들 ID로 바꿉니다. [Azure Portal](https://aka.ms/MobileAppReg)에서 리디렉션 URI를 지정 합니다.
 
-IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 합니다. `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. 위치(예:`msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 합니다. `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. 예를 들어 `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 모든 앱에서 리디렉션 Uri를 모두 등록 하는 것이 좋습니다.
 

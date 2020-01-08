@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4ebde6295c3f3467dd615b58d2140302aa86a61
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: db222515dae51fa5e0334430a3578816b1e8813d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367657"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -58,7 +58,7 @@ B2clogin.com 리디렉션 Url에 사용할 수 있는 두 가지 형식이 있�
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-두 번째 옵션은 `your-tenant-name.onmicrosoft.com`형식으로 테 넌 트 도메인 이름을 사용 합니다. 다음은 그 예입니다.
+두 번째 옵션은 `your-tenant-name.onmicrosoft.com`형식으로 테 넌 트 도메인 이름을 사용 합니다. 예:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
@@ -93,7 +93,7 @@ Azure AD B2C에서 보호 하는 Azure API Management Api를 마이그레이션�
 
 [MSAL.NET][msal-dotnet] v2 이전 버전을 사용 하는 경우 *b2clogin.com*로 리디렉션을 허용 하도록 **validateauthority** 속성을 클라이언트 인스턴스화에 `false`로 설정 합니다. 이 설정은 MSAL.NET v3 이상에는 필요 하지 않습니다.
 
-```CSharp
+```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```

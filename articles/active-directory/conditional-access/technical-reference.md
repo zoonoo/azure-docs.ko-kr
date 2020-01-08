@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424800"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -71,7 +71,7 @@ Microsoft에서 다음 클라우드 앱에 조건부 액세스 정책을 할당�
 - Power BI 서비스
 - Project Online
 - 비즈니스 온라인용 Skype
-- VPN (가상 사설망)
+- VPN(가상 사설망)
 - Windows Defender ATP
 
 ### <a name="other-applications"></a>다른 애플리케이션
@@ -142,18 +142,18 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| name | 1 |
-| Type | REG_SZ (String) |
+| 경로 | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| 이름 | 1 |
+| 유형 | REG_SZ (String) |
 | 데이터 | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
 
 **Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| name | 1 |
-| Type | REG_SZ (String) |
+| 경로 | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| 이름 | 1 |
+| 유형 | REG_SZ (String) |
 | 데이터 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 이러한 브라우저는 디바이스 인증을 지원하므로 정책에 대해 디바이스 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 디바이스 검사가 실패합니다.
@@ -182,7 +182,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 | Outlook 2016(macOS용 Office) | Office 365 Exchange Online | macOS |
 | Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | Outlook 모바일 앱 | Office 365 Exchange Online | Android, iOS |
-| Power BI 앱 | Power BI 서비스 | Windows 10, Windows 8.1, Windows 7, Android 및 iOS |
+| Power BI 응용 프로그램 | Power BI 서비스 | Windows 10, Windows 8.1, Windows 7, Android 및 iOS |
 | 비즈니스용 Skype | Office 365 Exchange Online| Android, iOS |
 | Visual Studio Team Services 앱 | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS 및 Android |
 
@@ -230,11 +230,12 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 - Microsoft Word
 - Microsoft Yammer
 
-**설명**
+**주의**
 
 - 승인된 클라이언트 앱은 Intune 모바일 애플리케이션 관리 기능을 지원합니다.
 - **승인된 클라이언트 앱 필요** 요구 사항:
    - [디바이스 플랫폼 조건](#device-platform-condition)에서는 iOS 및 Android만 지원됩니다.
+- 조건부 액세스는 InPrivate 모드에서 승인 된 클라이언트 앱으로 Microsoft Edge를 고려할 수 없습니다.
 
 ## <a name="app-protection-policy-requirement"></a>앱 보호 정책 요구 사항 
 
@@ -249,7 +250,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 - Microsoft Outlook
 - Microsoft Planner
 
-**설명**
+**주의**
 
 - 앱 보호 정책에 대 한 앱은 정책 보호를 사용 하 여 Intune 모바일 응용 프로그램 관리 기능을 지원 합니다.
 - **앱 보호 정책** 요구 사항은 다음과 같습니다.

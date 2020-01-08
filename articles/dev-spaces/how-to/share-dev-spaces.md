@@ -3,14 +3,14 @@ title: Azure Dev Spaces 공유 하는 방법
 services: azure-dev-spaces
 ms.date: 05/11/2018
 ms.topic: conceptual
-description: Azure에서 컨테이너 및 마이크로 서비스가 있는 Kubernetes 개발 환경을 빠르게 만듭니다.
+description: Azure Dev Spaces를 사용 하 여 Azure Kubernetes Service의 개발 공간을 팀의 다른 사용자와 공유 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 2c85625a4f61b701bc1e8b0a4a06f71dc0989ce0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e3a18ea205eda5617eab094046ec6536e82d113
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438426"
 ---
 # <a name="share-azure-dev-spaces"></a>Azure Dev Spaces 공유
 

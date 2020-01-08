@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d85850fb18b80490bba44b293ece7765124133
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1d8d803a8256845c61def1b1df4d633ce95a3ce6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846116"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424981"
 ---
 # <a name="common-conditional-access-policies"></a>일반 조건부 액세스 정책
 
-기준 보호 정책은 유용 하지만 많은 조직에는 제공 되는 것 보다 더 많은 유연성이 필요 합니다. 예를 들어 많은 조직에서 multi-factor authentication을 요구 하는 조건부 액세스 정책에서 비상 액세스 또는 투명 효과 관리 계정과 같은 특정 계정을 제외 하는 기능이 필요 합니다. 이러한 조직에서는이 문서에서 참조 하는 일반적인 정책을 사용할 수 있습니다.
+[보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md) 은 일부 조직에는 유용 하지만 많은 조직에는 제공 되는 것 보다 더 많은 유연성이 필요 합니다. 예를 들어 다단계 인증을 요구 하는 조건부 액세스 정책에서 비상 액세스 또는 투명 효과 관리 계정과 같은 특정 계정을 제외 하는 기능이 많은 요구 사항이 필요 합니다. 이러한 조직에서는이 문서에서 참조 하는 일반적인 정책을 사용할 수 있습니다.
 
 ![Azure Portal의 조건부 액세스 정책](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 

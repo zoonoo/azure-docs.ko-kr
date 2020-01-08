@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 876e64cd29aabe1fd4274872800a29cf1a83a0d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350498"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 
@@ -33,7 +33,7 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 
 ## <a name="benefit"></a>혜택
 
-**더 높은 패킷 / 초 (PPS)** : 커널 및 사용자 공간 패킷 기록 제어를 우회 컨텍스트 스위치를 제거 하 여 주기 수를 줄입니다. 또한 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
+**초당 더 높은 패킷(PPS)** : 커널을 무시하고 사용자 공간에서 패킷을 제어하면 컨텍스트 스위치를 제거하여 주기 횟수를 줄입니다. 또한 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
@@ -73,6 +73,7 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev lib
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
+sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
 sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
@@ -133,7 +134,7 @@ zypper \
      > [!NOTE]
      > DPDK에 대한 [지침](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)을 따라 부팅 시 hugepage가 예약되도록 grub 파일을 수정할 방법이 있습니다. 지침은 페이지 맨 아래에 있습니다. Azure Linux 가상 머신에서 사용하는 경우 다시 부팅 시에 hugepage를 예약하려면 대신 **/etc/config/grub.d**에서 파일을 수정합니다.
 
-2. MAC 및 IP 주소: 사용 하 여 `ifconfig –a` 네트워크 인터페이스의 MAC 및 IP 주소를 봅니다. *VF* 네트워크 인터페이스 및 *NETVSC* 네트워크 인터페이스에는 동일한 MAC 주소가 있지만 *NETVSC* 네트워크 인터페이스에만 IP 주소가 있습니다. NETVSC 인터페이스는 NETVSC 인터페이스의 슬레이브 인터페이스로 실행됩니다.
+2. MAC 및 IP 주소: `ifconfig –a`를 사용하여 네트워크 인터페이스의 MAC 및 IP 주소를 확인합니다. *VF* 네트워크 인터페이스 및 *NETVSC* 네트워크 인터페이스에는 동일한 MAC 주소가 있지만 *NETVSC* 네트워크 인터페이스에만 IP 주소가 있습니다. NETVSC 인터페이스는 NETVSC 인터페이스의 슬레이브 인터페이스로 실행됩니다.
 
 3. PCI 주소
 
@@ -152,7 +153,7 @@ Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케�
 
 루트 모드에서 testpmd를 실행하려면 *testpmd* 명령 전에 `sudo`를 사용합니다.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>기본: 온전성을 검사 failsafe 어댑터 초기화
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>기초: 정상 여부 검사, failsafe 어댑터 초기화
 
 1. 단일 포트 testpmd 애플리케이션을 시작하려면 다음 명령을 실행합니다.
 
@@ -180,7 +181,7 @@ Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케�
 
 이전 명령은 testpmd에 권장되는 대화형 모드로 *testpmd*를 시작합니다.
 
-### <a name="basic-single-sendersingle-receiver"></a>기본: 단일 발신자/단일 수신기
+### <a name="basic-single-sendersingle-receiver"></a>기초: 단일 발신자/단일 수신자
 
 다음 명령은 초당 패킷 통계를 주기적으로 인쇄합니다.
 

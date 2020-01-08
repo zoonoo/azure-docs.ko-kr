@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d0ccfb00c4b45a2a29ccab74362a4296cdcd7cae
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595703"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644718"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 할당량 및 한도 조정
 
@@ -34,7 +34,7 @@ ADLA(Azure Data Lake Analytics) 계정에서 할당량 및 한도를 조정하�
 
 **계정 당 최대 au (분석 단위) 수:** 250, 기본 32
 
-이는 계정에서 동시에 실행할 수 있는 AU의 최대 개수입니다. 모든 작업에서 실행 중인 총 AU 수가 이 한도를 초과하면 최신 작업이 자동으로 큐에 대기됩니다. 다음은 그 예입니다.
+이는 계정에서 동시에 실행할 수 있는 AU의 최대 개수입니다. 모든 작업에서 실행 중인 총 AU 수가 이 한도를 초과하면 최신 작업이 자동으로 큐에 대기됩니다. 예:
 
 * 32AU로 실행되는 작업이 하나뿐인 경우 두 번째 작업을 제출하면 첫 번째 작업이 완료될 때까지 이 작업이 작업 큐에서 대기합니다.
 * 이미 4개의 작업이 실행 중이고 각각 8AU를 사용하는 경우 8AU가 필요한 5번째 작업을 제출하면 8AU가 사용 가능 상태가 될 때까지 작업 큐에서 대기합니다.
@@ -58,7 +58,7 @@ ADLA(Azure Data Lake Analytics) 계정에서 할당량 및 한도를 조정하�
 
 ## <a name="increase-maximum-quota-limits"></a>최대 할당량 한도 늘리기
 
-Azure 제한에 대한 자세한 정보는 [Azure 서비스 관련 제한 설명서](../azure-subscription-service-limits.md#data-lake-analytics-limits)에서 확인할 수 있습니다.
+Azure 제한에 대한 자세한 정보는 [Azure 서비스 관련 제한 설명서](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits)에서 확인할 수 있습니다.
 
 1. Azure Portal에서 지원 요청을 엽니다.
 

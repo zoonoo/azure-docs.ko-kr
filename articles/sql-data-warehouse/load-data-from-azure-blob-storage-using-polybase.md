@@ -11,12 +11,12 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5b33d8fc804d339d3808e5231998fbba41cd4ee9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8a7da1bf80025cfe9b59c42f3338254b86f2ff05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376344"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
@@ -39,25 +39,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
 
-## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
+## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>빈 SQL Data Warehouse 만들기
 
-Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집합으로 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에서 만들어집니다. 
+Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집합으로 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에 생성됩니다. 
 
 빈 SQL Data Warehouse를 만들려면 다음 단계를 수행 합니다. 
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
-2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기**페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
+2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기** 페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
 
     ![데이터 웨어하우스 만들기](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. 다음 정보로 SQL Data Warehouse 양식을 작성합니다.   
 
-   | 설정 | 제안 값 | 설명 | 
+   | 설정 | 제안 값 | Description | 
    | ------- | --------------- | ----------- | 
    | **데이터베이스 이름** | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
@@ -68,12 +68,12 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
 
 4. **서버**를 클릭하여 새 데이터베이스에 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
 
-    | 설정 | 제안 값 | 설명 | 
+    | 설정 | 제안 값 | Description | 
     | ------- | --------------- | ----------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. | 
-    | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
+    | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
-    | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+    | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![데이터베이스 서버 만들기](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
@@ -81,7 +81,7 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
 
 6. **성능 수준**을 클릭하여 데이터 웨어하우스가 Gen1 또는 Gen2 중 어느 것인지와 데이터 웨어하우스 단위의 수를 지정합니다. 
 
-7. 이 자습서에서는 **Gen2** of SQL Data Warehouse를 선택 합니다. 슬라이더는 기본적으로 **DW1000c** 로 설정 됩니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 **Gen2** SQL Data Warehouse를 선택합니다. 해당 슬라이더는 기본적으로 **DW1000c**로 설정되어 있습니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -120,7 +120,7 @@ SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 �
 
 4. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-5. **Save**를 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+5. **저장**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
 6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 
@@ -145,9 +145,9 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 1. SQL Server Management Studio를 엽니다.
 
-2. **서버에 연결** 대화 상자에서 다음 정보를 입력합니다.
+2. **서버에 연결** 대화 상자에 다음 정보를 입력합니다.
 
-    | 설정      | 제안 값 | 설명 | 
+    | 설정      | 제안 값 | Description | 
     | ------------ | --------------- | ----------- | 
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
     | 서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver-20180430.database.windows.net**과 비슷해야 합니다. |
@@ -155,9 +155,9 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     | 로그인 | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
     | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
 
-    ![서버 연결](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![서버에 연결](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. **Connect**를 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
+4. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
 
 5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **mySampleDatabase**를 확장하여 새 데이터베이스의 개체를 표시합니다.
 
@@ -208,7 +208,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 2. 정규화된 서버 이름을 입력하고, 로그인으로 **LoaderRC20**을 입력합니다.  LoaderRC20에 대한 암호를 입력합니다.
 
-3. **Connect**를 클릭합니다.
+3. **연결**을 클릭합니다.
 
 4. 연결이 준비되면 개체 탐색기에서 2개의 서버 연결이 표시됩니다. 한 연결은 ServerAdmin을 통한 연결이고 또 다른 연결은 MedRCLogin을 통한 연결입니다.
 
@@ -579,10 +579,10 @@ PolyBase를 사용 하 여 로드 하 고 관리 되는 id를 통해 인증 하�
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
     
-   1. 이 **가이드**를 사용하여 [범용 v2 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만듭니다.
+   1. 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)를 사용하여 **범용 v2 스토리지 계정**을 만듭니다.
 
    > [!NOTE]
-   > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 **가이드**를 사용하여 [v2로 업그레이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)해야 합니다.
+   > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 **v2로 업그레이드**해야 합니다.
     
 1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. SQL Database 서버에 **저장소 Blob 데이터 참가자** RBAC 역할을 할당 합니다.
 
@@ -611,7 +611,7 @@ SQL Data Warehouse에 대 한 가상 네트워크 서비스 끝점을 설정 하
 컴퓨팅 리소스 및 데이터 웨어하우스에 로드한 데이터에 대해 요금이 청구됩니다. 이러한 요금은 별도로 청구됩니다. 
 
 - 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 컴퓨팅을 일시 중지할 수 있습니다. 컴퓨팅을 일시 중지하면 데이터 스토리지에 대해서만 요금이 부과되며, 데이터를 사용할 준비가 될 때마다 컴퓨팅을 재개할 수 있습니다.
-- 앞으로 요금이 부과되지 않도록 하려면 데이터 웨어하우스를 삭제할 수 있습니다. 
+- 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다. 
 
 필요에 따라 다음 단계에 따라 리소스를 정리합니다.
 

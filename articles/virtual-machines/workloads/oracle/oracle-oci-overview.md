@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459308"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle 응용 프로그램 솔루션 Microsoft Azure 및 Oracle 클라우드 인프라 통합 (미리 보기)
 
@@ -50,7 +50,7 @@ Oracle 솔루션을 완전히 Azure 인프라에 배포 하는 데 관심이 있
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 미리 보기로 제공 되는 클라우드 간 연결은 Azure 미국 동부 (영국 남부 & estorage.westcentralus) 지역 및 OCI Ashburn (미국 동부) & 런던 (영국 남부) 지역으로 제한 됩니다. 영국 남부의 경우 대기 시간에 대 한 연결 간 연결을 배포할 때 OCI에서 가용성 도메인 1 (AD 1)을 사용 하세요.
+* 미리 보기로 제공 되는 클라우드 간 연결은 Azure 미국 동부 (eastus), 영국 남부 (storage.westcentralus) 및 캐나다 중부 (canadacentral) 지역 및 OCI Ashburn (미국 동부), 런던 (영국 남부) 및 (캐나다 남동쪽) 지역으로 제한 됩니다. 영국 남부의 경우 대기 시간에 대 한 연결 간 연결을 배포할 때 OCI에서 가용성 도메인 1 (AD 1)을 사용 하세요.
 
 ## <a name="networking"></a>네트워킹
 

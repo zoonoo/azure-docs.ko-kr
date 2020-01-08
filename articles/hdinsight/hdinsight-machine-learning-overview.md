@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 679b59ac786f863c8a5f34aec71f51c5dc75a167
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951788"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608706"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -64,4 +64,4 @@ Azure Machine Learning은 예측 분석을 모델링 하는 도구와 예측 모
 
 * [Azure HDInsight Spark 클러스터에서 Microsoft Cognitive Toolkit 심층 학습 모델 사용](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용](spark/apache-spark-deep-learning-caffe.md)
-* [Data Science Virtual Machine (DSVM)의 심층 학습 및 AI 프레임 워크](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Data Science Virtual Machine (DSVM)의 심층 학습 및 AI 프레임 워크](../machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks.md)

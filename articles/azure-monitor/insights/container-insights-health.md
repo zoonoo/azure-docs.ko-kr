@@ -1,25 +1,16 @@
 ---
 title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 상태 모니터링 | Microsoft Docs
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS 및 AKS 클러스터의 상태를 보고 분석 하는 방법을 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/18/2019
-ms.author: magoedte
-ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.date: 12/01/2019
+ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279648"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405088"
 ---
-# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 상태 이해
+# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 Kubernetes 클러스터 상태 파악
 
 컨테이너에 대 한 Azure Monitor를 사용 하 여 관리 인프라 구성 요소 및 컨테이너에 대 한 Azure Monitor에서 지 원하는 모든 Kubernetes 클러스터에서 실행 되는 모든 노드의 상태를 모니터링 하 고 보고 합니다. 이 환경은 클러스터 상태에 대해 계산 되 고 보고 된 클러스터 상태 [를 넘어](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)확장 됩니다. 이제 클러스터에 있는 하나 이상의 노드가 리소스 제한 인지 또는 큐 레이트 메트릭을 기반으로 하는 클러스터에서 실행 중인 응용 프로그램에 영향을 줄 수 있는 노드 또는 pod를 사용할 수 없는지 파악할 수 있습니다.
 
@@ -57,20 +48,20 @@ Kubernetes 클러스터 상태는 다음과 같은 Kubernetes 개체 및 추상�
 * 노드 및 컨테이너에서 메모리 사용률을 평가 합니다.
 * Kubernetes에서 보고 하는 준비 상태 계산을 기반으로 하는 Pod 및 노드의 상태입니다.
 
-상태를 나타내는 데 사용 되는 아이콘은 다음과 같습니다.
+상태를 표시하는 데 사용되는 아이콘은 다음과 같습니다.
 
 |아이콘|의미|  
 |--------|-----------|  
-|![정상 상태임을 나타내는 녹색 확인 아이콘](./media/container-insights-health/healthyicon.png)|성공, 상태 양호 (녹색)|  
-|![노란색 삼각형 및 느낌표는 경고입니다.](./media/container-insights-health/warningicon.png)|경고 (노란색)|  
-|![흰색 X가 있는 빨간색 단추는 위험 상태를 나타냅니다.](./media/container-insights-health/criticalicon.png)|위험 (빨간색)|  
+|![정상 상태를 나타내는 녹색 확인 아이콘](./media/container-insights-health/healthyicon.png)|성공, 상태 양호(녹색)|  
+|![노란색 삼각형과 느낌표(경고)](./media/container-insights-health/warningicon.png)|경고(노란색)|  
+|![흰색 X가 포함된 빨간색 단추(위험 상태를 나타냄)](./media/container-insights-health/criticalicon.png)|위험(빨간색)|  
 |![회색으로 표시 됨 아이콘](./media/container-insights-health/grayicon.png)|알 수 없음 (회색)|  
 
 ## <a name="monitor-configuration"></a>모니터 구성
 
 컨테이너 상태 기능에 대 한 Azure Monitor를 지 원하는 각 모니터의 동작 및 구성을 이해 하려면 [상태 모니터 구성 가이드](container-insights-health-monitors-config.md)를 참조 하세요.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 32dd3fa1fc137d786174e47d842f762c2a479d64
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9ba68e90b5ac64c7bdb08af2b567f00c1a076808
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848992"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453930"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>MXChip IoT DevKit 장치를 Azure IoT Central 응용 프로그램에 연결 (미리 보기 기능)
 
@@ -25,7 +25,7 @@ ms.locfileid: "74848992"
 - 장치를 준비 하 고 IoT Central 응용 프로그램에 연결 합니다.
 - IoT Central의 장치에서 원격 분석 및 속성을 확인 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료 하려면 다음 리소스가 필요 합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "74848992"
 
 ## <a name="prepare-the-device"></a>장치 준비
 
-1. GitHub에서 DevKit 장치에 대해 [미리 작성 된 최신 Azure IoT Central 플러그 앤 플레이 펌웨어](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) 를 다운로드 합니다.
+1. GitHub에서 DevKit 장치에 대해 [미리 작성 된 최신 Azure IoT Central 플러그 앤 플레이 펌웨어](https://github.com/Azure-Samples/mxchip-iot-devkit-pnp/raw/master/bin/iotc_devkit.bin) 를 다운로드 합니다.
 
 1. USB 케이블을 사용하여 DevKit 디바이스를 개발 컴퓨터에 연결합니다. Windows에서, DevKit 디바이스의 스토리지에 매핑된 드라이브에서 파일 탐색기 창이 열립니다. 예를 들어 드라이브 이름이 **AZ3166 (D:)** 일 수 있습니다.
 

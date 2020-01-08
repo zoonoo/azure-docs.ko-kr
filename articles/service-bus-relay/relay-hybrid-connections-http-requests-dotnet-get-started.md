@@ -1,5 +1,5 @@
 ---
-title: .NET에서 Azure Relay 하이브리드 연결 HTTP 요청 시작 | Microsoft Docs
+title: Azure Relay 하이브리드 연결-.NET의 HTTP 요청
 description: .NET에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 C# 콘솔 애플리케이션을 작성합니다.
 services: service-bus-relay
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355158"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET에서 Relay 하이브리드 연결 HTTP 요청 시작
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "66428255"
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+* Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
@@ -67,10 +67,10 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이�
 1. 클라이언트 애플리케이션을 실행합니다. 클라이언트 창에서 `hello!`가 표시됩니다. 클라이언트는 HTTP 요청을 서버에 보냈고, 서버는 `hello!`로 응답했습니다. 
 3. 이제 콘솔 창을 닫으려면 콘솔 창에서 **ENTER** 키를 누릅니다. 
 
-축, 완전 한 하이브리드 연결 응용 프로그램을 만들었습니다!
+축 하 합니다. 전체 하이브리드 연결 응용 프로그램을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 메시지를 보내고 받는 데 HTTP를 사용한 .NET 클라이언트 및 서버 애플리케이션을 만들었습니다. Azure Relay의 하이브리드 연결 기능은 또한 WebSocket을 사용하여 메시지를 보내고 받을 수 있도록 지원합니다. Azure Relay 하이브리드 연결에 WebSocket을 사용하는 방법에 대한 자세한 내용은 [Websocket 빠른 시작](relay-hybrid-connections-dotnet-get-started.md)을 참조하세요.
+이 빠른 시작에서는 메시지를 보내고 받는 데 HTTP를 사용한 .NET 클라이언트 및 서버 애플리케이션을 만들었습니다. Azure Relay의 하이브리드 연결 기능은 또한 WebSockets를 사용하여 메시지를 보내고 받을 수 있도록 지원합니다. Azure Relay 하이브리드 연결에 WebSockets를 사용하는 방법에 대한 자세한 내용은 [WebSockets 빠른 시작](relay-hybrid-connections-dotnet-get-started.md)을 참조하세요.
 
 이 빠른 시작에서는 클라이언트 및 서버 애플리케이션을 만드는 데 .NET Framework를 사용했습니다. Node.js를 사용하여 클라이언트 및 서버 애플리케이션을 작성하는 방법은 [Node.js WebSockets 빠른 시작](relay-hybrid-connections-node-get-started.md) 또는 [Node.js HTTP 빠른 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)을 참조하세요.

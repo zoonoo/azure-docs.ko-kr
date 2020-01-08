@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351272"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74666429"
 
 **한 컨테이너에서 다른 컨테이너로 파일을 복사하는 스크립트를 만들려면 어떻게 할까요?**
 
-컨테이너 간에 파일을 복사하려면 AzCopy를 사용할 수 있습니다. 다음 예제를 참조하세요.
+컨테이너 간에 파일을 복사하려면 AzCopy를 사용할 수 있습니다. 다음 예제를 참조하십시오.
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
@@ -259,7 +259,7 @@ Azure CLI를 사용할 수 있습니다.
 
 -   SAS(공유 액세스 서명) 토큰을 사용하여 리소스에 대한 액세스를 제공합니다. 
 
--   사용자에게 스토리지 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [스토리지 계정 관리](storage-account-manage.md#access-keys)를 참조하세요.
+-   사용자에게 스토리지 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [저장소 계정 액세스 키 관리](storage-account-keys-manage.md)를 참조 하세요.
 
 -   익명 액세스를 허용하도록 액세스 정책을 변경합니다. 자세한 내용은 [컨테이너 및 Blob에 익명의 사용자 권한 부여](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)를 참조하세요.
 
@@ -277,7 +277,7 @@ Azure CLI를 사용할 수 있습니다.
 
 -   읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
       
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 다음은 그 예입니다.  
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
@@ -298,6 +298,6 @@ Storage Explorer 또는 유사한 애플리케이션을 사용하지 않고 데�
 
  [Blob 마이그레이션 스크립트](../scripts/storage-common-transfer-between-storage-accounts.md)를 사용하여 이 작업을 수행할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하십니까? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 
 추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

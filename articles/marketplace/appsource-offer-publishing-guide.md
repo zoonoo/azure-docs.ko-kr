@@ -8,26 +8,26 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4a5d61d9434a73556d81010da7c7b3e96139a9e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 831da237c06657981e402fc1f8fd09ccd67f85fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427206"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Office 365, Dynamics 365, Power Apps 및 Power BI 제품 게시 가이드
 
 AppSource 상점에는 Dynamics 365, Office 365, Power BI 및 Power Apps에서 빌드하거나 확장하는 제품이 포함됩니다. 이러한 제품의 각각에는 게시 프로세스를 설명하는 특정 설명서가 있습니다. 각 제품 형식의 자세한 세부 정보에 대한 링크는 아래를 참조하세요. 
 
-AppSource에는 "연락처" 또는 "지금 사용해 보기"에 대한 호출을 포함한 목록 및 평가판 제품이 포함됩니다. 현재 AppSource에는 트랜잭션 기능이 없습니다.
+AppSource에는 유료, 목록 및 평가판 제품이 있습니다. 여기에는 "지금 받기", "연락처" 및 "지금 사용해 보세요."에 대 한 호출이 포함 됩니다. 
 
 ## <a name="product-specific-guides"></a>제품 특정 가이드
 
-### <a name="office-365"></a>Office 365
+### <a name="office-365"></a>PowerApps
 
 [게시 프로세스 및 지침](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)을 검토합니다.
 
-### <a name="power-apps"></a>Power Apps
+### <a name="power-apps"></a>PowerApps
 
 고객이 [AppSource에서 앱을 시험 사용](https://powerapps.microsoft.com/blog/appsource-test-drive/)하는 방법에 대해 알아봅니다.
 
@@ -35,7 +35,7 @@ AppSource에는 "연락처" 또는 "지금 사용해 보기"에 대한 호출을
 
 [게시 프로세스 및 지침](https://docs.microsoft.com/power-bi/developer/office-store)을 검토합니다.
 
-### <a name="dynamics-365"></a>Dynamics 365
+### <a name="dynamics-365"></a>PowerApps
 
 #### <a name="dynamics-365-for-finance-and-operations"></a>재무 및 운영을 위한 Dynamics 365
 엔터프라이즈 버전을 빌드하는 경우 [게시 프로세스 및 지침](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)을 검토합니다.

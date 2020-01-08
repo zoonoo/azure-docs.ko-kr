@@ -1,18 +1,14 @@
 ---
 title: 새 AKS (Azure Kubernetes Service) 클러스터 모니터링 | Microsoft Docs
 description: 컨테이너 구독에 대 한 Azure Monitor를 사용 하 여 새 AKS (Azure Kubernetes Service) 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 방법을 알아봅니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/25/2019
-ms.openlocfilehash: 01553eb020c1493488e941705d9df8c8c946340a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405442"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>새 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 1ec1856508588d07e55e60e251a1369ecc3fa985
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 7fd06a620c695b3be49a116c89f63507cee9c07c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174058"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355924"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
-이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
+이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요.  
 
 > [!NOTE]
 > 이 문서에서는 Azure 클래식 CLI라고도 하는 Azure CLI의 Resource Manager 모드 명령에 대해 설명합니다. Resource Manager 모델에서 작업하려는 경우 차세대 멀티 플랫폼 CLI인 [Azure CLI](/cli/azure/install-az-cli2)를 사용해 볼 수도 있습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "71174058"
 > 
 > 
 
-## <a name="azure-account-manage-your-account-information"></a>azure 계정: 계정 정보 관리
+## <a name="azure-account-manage-your-account-information"></a>Azure account: 계정 정보 관리
 Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 **가져온 구독 나열**
@@ -75,7 +75,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad-commands-to-display-active-directory-objects"></a>azure ad: Active Directory 개체를 표시 하는 명령
+## <a name="azure-ad-commands-to-display-active-directory-objects"></a>azure ad: Active Directory 개체를 표시하는 명령
 **Active Directory 애플리케이션을 표시하는 명령**
 
     ad app create [options]
@@ -150,7 +150,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group-commands-to-manage-your-resource-groups"></a>azure 그룹: 리소스 그룹을 관리 하는 명령
+## <a name="azure-group-commands-to-manage-your-resource-groups"></a>azure group: 리소스 그룹을 관리하는 명령
 **리소스 그룹 만들기**
 
     group create [options] <name> <location>
@@ -189,7 +189,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight: HDInsight 클러스터를 관리 하는 명령
+## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight: HDInsight 클러스터를 관리하는 명령
 **클러스터 구성 파일을 만들거나 클러스터 구성 파일에 추가하는 명령**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -205,7 +205,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     hdinsight cluster create [options] <clusterName>
 
-예: Linux 클러스터에서 스톰 만들기
+예: Linux 클러스터에 Storm을 만듭니다.
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 
@@ -213,7 +213,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     + Submitting the request to create cluster...
     info:    hdinsight cluster create command OK
 
-예: 스크립트 동작을 사용하여 클러스터 만들기
+예: 스크립트 동작으로 클러스터를 만듭니다.
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 
@@ -307,17 +307,17 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights: 정보 모니터링과 관련 된 명령 (이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭)
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insight: Insights 모니터링 관련 명령(이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭)
 **구독, 상관 관계 ID, 리소스 그룹, 리소스 또는 리소스 공급자에 대한 작업 로그 검색**
 
     insights logs list [options]
 
-## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>azure 위치: 모든 리소스 유형에 대해 사용 가능한 위치를 가져오는 명령
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location: 모든 리소스 유형에 사용 가능한 위치를 가져오는 명령
 **사용 가능한 위치 나열**
 
     location list [options]
 
-## <a name="azure-network-commands-to-manage-network-resources"></a>azure 네트워크: 네트워크 리소스를 관리 하는 명령
+## <a name="azure-network-commands-to-manage-network-resources"></a>azure network: 네트워크 리소스를 관리하는 명령
 **가상 네트워크를 관리하는 명령**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -1509,7 +1509,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>azure 공급자: 리소스 공급자 등록을 관리 하는 명령
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>azure provider: 리소스 공급자 등록을 관리하는 명령
 **Resource Manager에 현재 등록된 공급자 나열**
 
     provider list [options]
@@ -1526,7 +1526,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource-commands-to-manage-your-resources"></a>azure 리소스: 리소스를 관리 하는 명령
+## <a name="azure-resource-commands-to-manage-your-resources"></a>azure group: 리소스를 관리하는 명령
 **리소스 그룹에 리소스 만들기**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1547,7 +1547,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure 역할: Azure 역할을 관리 하는 명령
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>azure role: Azure 역할을 관리하는 명령
 **모든 사용 가능한 역할 정의 가져오기**
 
     role list [options]
@@ -1562,7 +1562,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure 저장소: 스토리지 개체를 관리하는 명령
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: 스토리지 개체를 관리하는 명령
 **Storage 계정을 관리하는 명령**
 
     storage account list [options]
@@ -1685,7 +1685,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>azure 태그: 리소스 관리자 태그를 관리 하는 명령
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>azure tag: 리소스 관리자 태그를 관리하는 명령
 **태그 추가**
 
     tag create [options] <name> <value>
@@ -1702,7 +1702,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: Azure Virtual Machines를 관리 하는 명령
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: Azure Virtual Machines를 관리하는 명령
 **VM 만들기**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1720,7 +1720,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     vm list [options]
 
-**리소스 그룹 내 한 가상 컴퓨터 가져오기**
+**리소스 그룹 내 한 가상 머신 가져오기**
 
     vm show [options] <resource-group> <name>
 
@@ -1732,7 +1732,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     vm stop [options] <resource-group> <name>
 
-**리소스 그룹 내 한 가상 컴퓨터 다시 시작**
+**리소스 그룹 내 한 가상 머신 다시 시작**
 
     vm restart [options] <resource-group> <name>
 
@@ -1744,7 +1744,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     vm deallocate [options] <resource-group> <name>
 
-**사용 가능한 가상 컴퓨터 크기 나열**
+**사용 가능한 가상 머신 크기 나열**
 
     vm sizes [options]
 

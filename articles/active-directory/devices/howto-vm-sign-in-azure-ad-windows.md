@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842410"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561153"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -24,7 +24,7 @@ ms.locfileid: "74842410"
 
 |     |
 | --- |
-| Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경우 다음과 같은 여러 가지 이점이 있습니다.
@@ -36,6 +36,9 @@ Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경
    - Multi-factor authentication
    - 로그인 위험 검사
 - VDI 배포에 포함 되는 Azure Windows Vm의 Azure AD 조인을 자동화 하 고 크기를 조정 합니다.
+
+> [!NOTE]
+> 이 기능을 사용 하도록 설정 하면 azure의 Windows Vm이 Azure AD에 조인 됩니다. 프레미스 AD 또는 Azure AD DS와 같은 다른 도메인에 조인할 수 없습니다. 이 작업을 수행 해야 하는 경우 확장을 제거 하 여 Azure AD 테 넌 트에서 VM의 연결을 끊어야 합니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -200,7 +203,7 @@ Azure AD 로그인을 사용 하도록 설정 된 Azure에서 Windows Vm에 대 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Azure AD 자격 증명을 사용 하 여 Windows VM에 로그인
 
 > [!IMPORTANT]
-> Azure ad에 가입 된 Vm에 대 한 원격 연결은 Azure AD에 가입 된 Windows 10 Pc 또는 VM과 **동일한** 디렉터리에 조인 된 하이브리드 Azure ad 에서만 허용 됩니다. 또한 Azure AD 자격 증명을 사용 하는 RDP에 대 한 사용자는 두 RBAC 역할, 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 중 하나에 속해야 합니다.
+> Azure ad에 가입 된 Vm에 대 한 원격 연결은 Azure AD에 가입 된 Windows 10 Pc 또는 VM과 **동일한** 디렉터리에 조인 된 하이브리드 Azure ad 에서만 허용 됩니다. 또한 Azure AD 자격 증명을 사용 하는 RDP에 대 한 사용자는 두 RBAC 역할, 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 중 하나에 속해야 합니다. 지금은 AADLoginForWindows 확장을 사용 하 여 Azure Active Directory 인증을 사용 하 여 로그인 하는 데 Azure 방호를 사용할 수 없습니다. 직접 RDP만 지원 됩니다.
 
 Azure AD를 사용 하 여 Windows Server 2019 가상 컴퓨터에 로그인 하려면 다음을 수행 합니다. 
 

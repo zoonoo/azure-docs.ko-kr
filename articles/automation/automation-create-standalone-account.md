@@ -2,19 +2,15 @@
 title: 독립 실행형 Azure Automation 계정 만들기
 description: 이 문서는 Azure Automation에서 예제 보안 주체 인증을 만들고 테스트하며 사용하는 과정을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/15/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 0dcfcfe5bc6e59eeb4ccb7272ed3f68edc9c4172
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366654"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -24,16 +20,16 @@ Automation 계정에서는 Azure Resource Manager 또는 클래식 배포 모델
 
 Azure Portal에서 Automation 계정을 만드는 경우 이러한 계정이 자동으로 생성됩니다.
 
-* **실행 계정**. 이 계정에서 수행하는 작업은 다음과 같습니다.
+* **실행 계정** 이 계정에서 수행하는 작업은 다음과 같습니다.
   * Azure AD(Azure Active Directory)에서 서비스 주체 만들기
-  * 인증서를 만듭니다.
+  * 인증서 만들기
   * Runbook을 사용하여 Azure Resource Manager 리소스를 관리하는 참가자 RBAC(역할 기반 액세스 제어)를 할당합니다.
 
 이러한 계정을 만들면 Runbook을 신속하게 빌드하고 배포하기 시작하여 자동화 요구 사항을 지원할 수 있습니다.
 
-## <a name="permissions-required-to-create-an-automation-account"></a>Automation 계정을 만드는 데 필요한 권한
+## <a name="permissions-required-to-create-an-automation-account"></a>Automation 계정을 만드는 데 필요한 사용 권한
 
-Automation 계정을 만들거나 업데이트하고 이 문서에서 설명하는 작업을 완료하는 데 필요한 권한은 다음과 같습니다.
+Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다.
 
 * Automation 계정을 만들려면 Azure AD 사용자 계정을 Microsoft의 소유자 역할과 동일한 권한을 가진 역할에 추가 해야 합니다 **. 자동화** 리소스. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
 * Azure Portal의 **Azure Active Directory** > **관리** > **사용자 설정**에서 **앱 등록** 가 **예**로 설정 된 경우 Azure AD 테 넌 트의 관리자가 아닌 사용자가 [응용 프로그램을 Active Directory 등록할](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
@@ -47,7 +43,7 @@ Automation 계정을 만들거나 업데이트하고 이 문서에서 설명하�
 1. Azure Portal에서 **Azure Active Directory** 창으로 이동합니다.
 1. **사용자 및 그룹**을 선택합니다.
 1. **모든 사용자**를 선택합니다.
-1. 특정 사용자를 선택한 후에 **프로필**을 선택합니다. 사용자 프로필의 **사용자 유형** 특성 값은 **Guest**가 아니어야 합니다.
+1. 특정 사용자를 선택한 후에 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 형식** 특성 값은 **게스트**가 아니어야 합니다.
 
 ## <a name="create-a-new-automation-account-in-the-azure-portal"></a>Azure Portal에서 새 Automation 계정 만들기
 
@@ -88,7 +84,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
 
 Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 이러한 Runbook을 만든 후 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
 
-| 리소스 | 설명 |
+| 리소스 | Description |
 | --- | --- |
 | AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 그래픽 Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
 | AzureAutomationTutorialScript Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 PowerShell Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |

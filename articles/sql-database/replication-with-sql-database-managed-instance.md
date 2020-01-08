@@ -1,26 +1,30 @@
 ---
 title: 관리 되는 인스턴스 데이터베이스에서 복제 구성
-description: Azure SQL Database 관리형 인스턴스 데이터베이스에서 트랜잭션 복제를 구성하는 방법 알아보기
+description: Azure SQL Database 관리 되는 인스턴스 게시자/배포자와 관리 되는 인스턴스 구독자 간에 트랜잭션 복제를 구성 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: MashaMSFT
+ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: f303a363fd4d42889e7817273be5d5e5440a2293
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fd881142e0260d313e197d5e40ae25a2621646df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372478"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리형 인스턴스 데이터베이스에서 복제 구성
 
 트랜잭션 복제를 사용하면 SQL Server 데이터베이스 또는 다른 인스턴스 데이터베이스에서 Azure SQL Database 관리형 인스턴스 데이터베이스로 데이터를 복제할 수 있습니다. 
+
+이 문서에서는 관리 되는 인스턴스 게시자/배포자와 관리 되는 인스턴스 구독자 간에 복제를 구성 하는 방법을 보여 줍니다. 
+
+![두 개의 관리 되는 인스턴스 간 복제](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
 
 또한 트랜잭션 복제를 사용 하 여 Azure SQL Database 관리 되는 인스턴스에서 인스턴스 데이터베이스의 변경 내용을 다음과 같이 푸시할 수 있습니다.
 
@@ -31,7 +35,8 @@ ms.locfileid: "73822585"
 트랜잭션 복제는 [Azure SQL Database 관리 되는 인스턴스에서](sql-database-managed-instance.md)공개 미리 보기로 제공 됩니다. 관리되는 인스턴스는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 사용 가능한 구성에 대해서는 [트랜잭션 복제 구성](sql-database-managed-instance-transactional-replication.md#common-configurations)을 참조하세요.
 
   > [!NOTE]
-  > 이 문서에서는 Azure Database 관리 되는 인스턴스를 사용 하 여 리소스 그룹을 만드는 것부터 끝까지 Azure Database 관리 되는 인스턴스를 사용 하 여 복제를 구성 하는 사용자를 안내 합니다. 관리 되는 인스턴스를 이미 배포한 경우에는 [4 단계로](#4---create-a-publisher-database) 이동 하 여 게시자 데이터베이스를 만들거나 6 단계를 진행 합니다. 게시자 및 구독자 데이터베이스가 이미 있고 복제 구성을 시작할 준비가 된 경우에는 [6 단계로](#6---configure-distribution) 건너뜁니다.  
+  > - 이 문서에서는 Azure Database 관리 되는 인스턴스를 사용 하 여 리소스 그룹을 만드는 것부터 끝까지 Azure Database 관리 되는 인스턴스를 사용 하 여 복제를 구성 하는 사용자를 안내 합니다. 관리 되는 인스턴스를 이미 배포한 경우에는 [4 단계로](#4---create-a-publisher-database) 이동 하 여 게시자 데이터베이스를 만들거나 6 단계를 진행 합니다. 게시자 및 구독자 데이터베이스가 이미 있고 복제 구성을 시작할 준비가 된 경우에는 [6 단계로](#6---configure-distribution) 건너뜁니다.  
+  > - 이 문서에서는 동일한 관리 되는 인스턴스에서 게시자와 배포자를 구성 합니다. 별도의 관리 되 인스턴스에 배포자를 추가 하려면 [mi와 mi 배포자 간의 복제 구성](sql-database-managed-instance-configure-replication-tutorial.md)자습서를 참조 하세요. 
 
 ## <a name="requirements"></a>요구 사항
 
@@ -67,10 +72,10 @@ Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이
 
 ## <a name="2---create-managed-instances"></a>2-관리 되는 인스턴스 만들기
 
-[Azure Portal](https://portal.azure.com) 를 사용 하 여 동일한 가상 네트워크 및 서브넷에 두 개의 [관리 되는 인스턴스](sql-database-managed-instance-create-tutorial-portal.md) 를 만듭니다. 두 개의 관리 되는 인스턴스 이름은 다음과 같아야 합니다.
+[Azure Portal](https://portal.azure.com) 를 사용 하 여 동일한 가상 네트워크 및 서브넷에 두 개의 [관리 되는 인스턴스](sql-database-managed-instance-create-tutorial-portal.md) 를 만듭니다. 예를 들어 두 개의 관리 되는 인스턴스의 이름을로 합니다.
 
-- `sql-mi-pub`
-- `sql-mi-sub`
+- `sql-mi-pub` (임의 임의 문자를 포함 하는 일부 문자 포함)
+- `sql-mi-sub` (임의 임의 문자를 포함 하는 일부 문자 포함)
 
 또한 Azure SQL Database 관리 되는 인스턴스에 [연결 하도록 AZURE VM을 구성](sql-database-managed-instance-configure-vm.md) 해야 합니다. 
 
@@ -80,9 +85,13 @@ Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이
 
 다음 형식으로 파일 공유 경로를 복사 합니다. `\\storage-account-name.file.core.windows.net\file-share-name`
 
+예: `\\replstorage.file.core.windows.net\replshare`
+
 `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net` 형식으로 저장소 액세스 키를 복사 합니다.
 
- 자세한 내용은 [스토리지 액세스 키 보기 및 복사](../storage/common/storage-account-manage.md#access-keys)를 참조하세요. 
+예: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
+
+자세한 내용은 [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조 하세요. 
 
 ## <a name="4---create-a-publisher-database"></a>4-게시자 데이터베이스 만들기
 
@@ -160,8 +169,9 @@ GO
 :setvar username loginUsedToAccessSourceManagedInstance
 :setvar password passwordUsedToAccessSourceManagedInstance
 :setvar file_storage "\\storage-account-name.file.core.windows.net\file-share-name"
+-- example: file_storage "\\replstorage.file.core.windows.net\replshare"
 :setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net"
-
+-- example: file_storage_key "DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net"
 
 USE [master]
 EXEC sp_adddistpublisher
@@ -173,6 +183,9 @@ EXEC sp_adddistpublisher
   @working_directory = N'$(file_storage)',
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
+
+   > [!NOTE]
+   > File_storage 매개 변수에는 백슬래시 (`\`)만 사용 해야 합니다. 슬래시 (`/`)를 사용 하면 파일 공유에 연결할 때 오류가 발생할 수 있습니다. 
 
 이 스크립트는 관리 되는 인스턴스에서 로컬 게시자를 구성 하 고, 연결 된 서버를 추가 하 고, SQL Server 에이전트 작업 집합을 만듭니다. 
 
@@ -322,10 +335,11 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-[리소스 그룹에서 관리 되는 인스턴스 리소스를 삭제](../azure-resource-manager/manage-resources-portal.md#delete-resources) 한 다음 `SQLMI-Repl`리소스 그룹을 삭제 하 여 Azure 리소스를 정리할 수 있습니다. 
+[리소스 그룹에서 관리 되는 인스턴스 리소스를 삭제](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) 한 다음 `SQLMI-Repl`리소스 그룹을 삭제 하 여 Azure 리소스를 정리할 수 있습니다. 
 
    
 ## <a name="see-also"></a>참고 항목
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
+- [자습서: MI 게시자와 SQL Server 구독자 간의 트랜잭션 복제 구성](sql-database-managed-instance-configure-replication-tutorial.md)
 - [Managed Instance란?](sql-database-managed-instance.md)

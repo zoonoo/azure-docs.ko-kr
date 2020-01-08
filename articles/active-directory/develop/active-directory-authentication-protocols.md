@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 인증 프로토콜 | Microsoft Docs
-description: Azure AD(Active Directory)에서 지원되는 인증 프로토콜 개요
+title: Microsoft id 플랫폼 인증 프로토콜 | Microsoft Docs
+description: Microsoft id 플랫폼에서 지원 되는 인증 프로토콜에 대 한 개요
 author: rwike77
 services: active-directory
 manager: CelesteDG
@@ -9,34 +9,33 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b370736a5e4994651499716e3a923cf59465ca96
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 94917d601de24388600bae3434f1d03a35bffd33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424771"
 ---
-# <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory 인증 프로토콜
+# <a name="microsoft-identity-platform-authentication-protocols"></a>Microsoft id 플랫폼 인증 프로토콜
 
-Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 및 권한 부여 프로토콜을 지원합니다. 이 섹션의 항목에서는 Azure AD에서 지원되는 프로토콜 및 이 프로토콜의 구현에 대해 설명합니다. 이 항목에서는 지원되는 클레임 유형을 검토하고, 페더레이션 메타데이터 사용에 대해 소개하고, 자세한 OAuth 2.0. 및 SAML 2.0 프로토콜 참조 설명서 및 문제 해결 섹션을 소개합니다.
+Microsoft id 플랫폼은 가장 널리 사용 되는 여러 가지 인증 및 권한 부여 프로토콜을 지원 합니다. 이 단원의 항목에서는 Microsoft id 플랫폼에서 지원 되는 프로토콜과 해당 구현에 대해 설명 합니다. 이 항목에서는 지원되는 클레임 유형을 검토하고, 페더레이션 메타데이터 사용에 대해 소개하고, 자세한 OAuth 2.0. 및 SAML 2.0 프로토콜 참조 설명서 및 문제 해결 섹션을 소개합니다.
 
 ## <a name="authentication-protocols-articles-and-reference"></a>인증 프로토콜 문서 및 참조
 
-* [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md) - Azure AD의 서명 키 롤오버 주기, 키를 자동으로 업데이트하기 위해 수행할 수 있는 변경 사항, 가장 일반적인 애플리케이션 시나리오를 업데이트하는 방법에 대해 알아봅니다.
-* [지원되는 토큰 및 클레임 유형](v1-id-and-access-tokens.md) - Azure AD에서 발급되는 토큰의 클레임에 대해 알아봅니다.
-* [페더레이션 메타데이터](azure-ad-federation-metadata.md) - Azure AD에서 생성되는 메타데이터 문서를 찾고 해석하는 방법을 알아봅니다.
-* [Azure AD의 OAuth 2.0](v1-protocols-oauth-code.md) - Azure AD의 OAuth 2.0 구현에 대해 알아봅니다.
-* [OpenID Connect 1.0](v1-protocols-openid-connect-code.md) - 권한 부여 프로토콜 OAuth 2.0을 인증에 사용하는 방법을 알아봅니다.
-* [클라이언트 자격 증명을 사용한 서비스 간 호출](v1-oauth2-client-creds-grant-flow.md) - 서비스 간 호출을 위해 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하는 방법을 알아봅니다.
-* [On-Behalf-Of 흐름을 사용한 서비스 간 호출](v1-oauth2-on-behalf-of-flow.md) - 서비스 간 호출을 위해 OAuth 2.0 On-Behalf-Of 흐름을 사용하는 방법을 알아봅니다.
-* [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md) - Azure AD의 Single Sign On 및 Single Sign Out SAML 프로필에 대해 알아봅니다.
+* [Microsoft id 플랫폼의 서명 키 롤오버에 대 한 중요 한 정보](active-directory-signing-key-rollover.md) – microsoft id 플랫폼의 서명 키 롤오버 주기, 키를 자동으로 업데이트 하기 위해 수행할 수 있는 변경 내용, 가장 일반적인 응용 프로그램 시나리오를 업데이트 하는 방법에 대 한 논의에 대해 알아봅니다.
+* [지원 되는 토큰 및 클레임 유형](id-tokens.md) -Microsoft id 플랫폼에서 발급 하는 토큰의 클레임에 대해 알아봅니다.
+* [Microsoft id 플랫폼의 oauth 2.0](v2-oauth2-auth-code-flow.md) -microsoft identity Platform의 oauth 2.0 구현에 대해 알아봅니다.
+* [OpenID Connect 1.0](v2-protocols-oidc.md) - 권한 부여 프로토콜 OAuth 2.0을 인증에 사용하는 방법을 알아봅니다.
+* [클라이언트 자격 증명을 사용한 서비스 간 호출](v2-oauth2-client-creds-grant-flow.md) - 서비스 간 호출을 위해 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하는 방법을 알아봅니다.
+* [On-Behalf-Of 흐름을 사용한 서비스 간 호출](v2-oauth2-on-behalf-of-flow.md) - 서비스 간 호출을 위해 OAuth 2.0 On-Behalf-Of 흐름을 사용하는 방법을 알아봅니다.
+* [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md) -Microsoft id 플랫폼의 single Sign-on 및 SINGLE sign-on SAML 프로필에 대해 알아봅니다.
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Active Directory 개발자 가이드](v1-overview.md)
-* [Active Directory 코드 샘플](sample-v1-code.md)
+* [Microsoft id 플랫폼 개요](v2-overview.md)
+* [Active Directory 코드 샘플](sample-v2-code.md)

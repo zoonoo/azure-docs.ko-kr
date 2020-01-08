@@ -1,5 +1,5 @@
 ---
-title: Azure의 Linux 가상 컴퓨터를 관리 되지 않는 디스크에서 managed disks로 변환-Azure Managed Disks
+title: Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 description: Resource Manager 배포 모델에서 Azure CLI를 사용하여 Linux VM을 비관리 디스크에서 관리 디스크로 변환하는 방법
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5464dd2ab2ab7c783945cc068a1347d7ef9ad3ab
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 24024bc66e10937f1ae2fdc5130ffcd8c76c1763
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430986"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 
@@ -30,7 +30,7 @@ ms.locfileid: "74036602"
 ## <a name="convert-single-instance-vms"></a>단일 인스턴스 VM 변환
 이 섹션에서는 단일 인스턴스 Azure VM을 비관리 디스크에서 Managed Disks로 변환하는 방법을 설명합니다. Vm이 가용성 집합에 있는 경우 다음 섹션을 참조 하세요. 이 프로세스를 사용 하 여 프리미엄 (SSD) 관리 되지 않는 디스크에서 프리미엄 managed disks로 또는 표준 (HDD) 관리 되지 않는 디스크에서 표준 managed disks로 Vm을 변환할 수 있습니다.
 
-1. [az vm deallocate](/cli/azure/vm)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myVM`에서 `myResourceGroup`이라는 VM의 할당을 취소합니다.
+1. [az vm deallocate](/cli/azure/vm)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다.
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -42,7 +42,7 @@ ms.locfileid: "74036602"
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. [az vm start](/cli/azure/vm)를 사용하여 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myVM`의 VM `myResourceGroup`을 시작합니다.
+3. [az vm start](/cli/azure/vm)를 사용하여 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -50,11 +50,11 @@ ms.locfileid: "74036602"
 
 ## <a name="convert-vms-in-an-availability-set"></a>가용성 집합의 VM 변환
 
-관리 디스크로 변환하려는 VM이 가용성 집합에 있는 경우 먼저 가용성 집합을 관리 가용성 집합으로 변환해야 합니다.
+관리되는 디스크로 변환하려는 VM이 가용성 집합에 있는 경우 먼저 가용성 집합을 관리되는 가용성 집합으로 변환해야 합니다.
 
 가용성 집합을 변환하기 전에 가용성 집합에 있는 모든 VM의 할당을 취소해야 합니다. 가용성 집합이 관리되는 가용성 집합으로 변환된 후 모든 VM을 관리되는 디스크로 변환하려고 합니다. 그런 다음 모든 VM을 시작하고 정상적으로 운영을 계속합니다.
 
-1. [az vm availability-set list](/cli/azure/vm/availability-set)를 사용하여 가용성 집합의 모든 VM을 나열합니다. 다음 예제에서는 리소스 그룹 `myAvailabilitySet`의 가용성 집합 `myResourceGroup`에 있는 모든 VM을 나열합니다.
+1. [az vm availability-set list](/cli/azure/vm/availability-set)를 사용하여 가용성 집합의 모든 VM을 나열합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`에 있는 모든 VM을 나열합니다.
 
     ```azurecli
     az vm availability-set show \
@@ -64,13 +64,13 @@ ms.locfileid: "74036602"
         --output table
     ```
 
-2. [az vm deallocate](/cli/azure/vm)를 사용하여 모든 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myVM`에서 `myResourceGroup`이라는 VM의 할당을 취소합니다.
+2. [az vm deallocate](/cli/azure/vm)를 사용하여 모든 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다.
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. [az vm availability-set convert](/cli/azure/vm/availability-set)를 사용하여 가용성 집합을 변환합니다. 다음 예제에서는 리소스 그룹 `myAvailabilitySet`의 가용성 집합 `myResourceGroup`을 변환합니다.
+3. [az vm availability-set convert](/cli/azure/vm/availability-set)를 사용하여 가용성 집합을 변환합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`을 변환합니다.
 
     ```azurecli
     az vm availability-set convert \
@@ -84,7 +84,7 @@ ms.locfileid: "74036602"
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. [az vm start](/cli/azure/vm)를 사용하여 모든 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myVM`의 VM `myResourceGroup`을 시작합니다.
+5. [az vm start](/cli/azure/vm)를 사용하여 모든 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM

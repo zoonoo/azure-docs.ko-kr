@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/04/2019
-ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 12/11/2019
+ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407243"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -77,9 +77,9 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 # <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
-다음 버전의 .NET Core가 지원 됩니다. ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
+다음 버전의 .NET Core가 지원 됩니다. ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
 
-.NET Core에서 전체 프레임 워크를 대상으로 하 고 자체 포함 된 배포 및 ASP.NET Core 3.0은 현재 에이전트/확장 기반 모니터링에서 **지원 되지 않습니다** . 코드를 통한[수동 계측](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 은 모든 이전 시나리오에서 작동 합니다.
+.NET Core, 자체 포함 배포 및 Linux 기반 응용 프로그램에서 전체 프레임 워크를 대상으로 지정 하는 것은 현재 에이전트/확장 기반 모니터링에서 **지원 되지 않습니다** . 코드를 통한[수동 계측](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 은 모든 이전 시나리오에서 작동 합니다.
 
 1. App Service의 Azure 제어판에서 **Application Insights를 선택**합니다.
 
@@ -92,11 +92,11 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
      ![웹앱 계측](./media/azure-web-apps/create-resource-01.png)
 
-2. 사용할 리소스를 지정한 후에는 응용 프로그램에 대 한 플랫폼별 데이터 수집 Application Insights 방법을 선택할 수 있습니다. .Net Core는 .NET Core 2.0, 2.1 및 2.2에 대해 **권장 되는 컬렉션** 을 제공 하거나 **사용 하지 않도록 설정** 합니다.
+2. 사용할 리소스를 지정한 후에는 응용 프로그램에 대 한 플랫폼별 데이터 수집 Application Insights 방법을 선택할 수 있습니다. .Net Core는 .NET Core 2.0, 2.1, 2.2 및 3.0에 대해 **권장 되는 컬렉션** 을 제공 하거나 **사용 하지 않도록 설정** 합니다.
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 
 App Service 웹 앱 내에서 **설정** > Application Insights > **사용**을 **선택** 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기 상태입니다.
 
@@ -146,7 +146,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
 ![응용 프로그램 설정 UI의 스크린샷](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 
 Node.js 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](https://docs.microsoft.com/azure/azure-monitor/app/javascript)해야 합니다.
 
@@ -168,7 +168,7 @@ Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 �
 
 ### <a name="application-settings-definitions"></a>응용 프로그램 설정 정의
 
-|앱 설정 이름 |  정의 | Value |
+|앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended`입니다. |
@@ -377,7 +377,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 아래 표에서는 이러한 값의 의미, 기본적인 원인 및 권장 픽스를 보다 자세히 설명 합니다.
 
-|문제 값|설명|해결
+|문제 값|설명|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 이 값은 확장에서 SDK의 일부 측면이 응용 프로그램에 이미 있고 백오프 됨을 감지 했음을 나타냅니다. `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`또는 `Microsoft.ApplicationInsights`에 대 한 참조가 원인일 수 있습니다.  | 참조를 제거 합니다. 이러한 참조 중 일부는 특정 Visual Studio 템플릿에서 기본적으로 추가 되며, 이전 버전의 Visual Studio에서는 `Microsoft.ApplicationInsights`에 대 한 참조를 추가할 수 있습니다.
 |`AppAlreadyInstrumented:true` | 응용 프로그램이 .NET Core 2.1 또는 2.2를 대상으로 하 고 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.All) 를 참조 하는 경우에는 Application Insights를 가져오고 확장이 백오프 됩니다. | .NET Core 2.1, 2.2의 고객은 AspNetCore를 대신 사용 하는 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/287) .|

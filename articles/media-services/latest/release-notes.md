@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427070"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
+
+>이 URL을 복사 하 여 붙여 넣는 방법으로 업데이트에 대 한이 페이지를 다시 방문 하는 시기에 대 한 알림 받기: RSS 피드 판독기에 `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` 합니다.
 
 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -33,6 +35,40 @@ ms.locfileid: "74420044"
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
+
+## <a name="november-2019"></a>2019년 11월
+
+### <a name="live-transcription-preview"></a>라이브 기록 미리 보기
+
+실시간 기록은 현재 공개 미리 보기로 제공 되며 미국 서 부 2 지역에서 사용할 수 있습니다.
+
+라이브 기록은 라이브 이벤트와 함께 추가 기능으로 작동 하도록 설계 되었습니다.  통과와 표준 또는 프리미엄 인코딩 라이브 이벤트 모두에서 지원 됩니다.  이 기능을 사용 하는 경우 서비스는 Cognitive Services의 [음성 텍스트](../../cognitive-services/speech-service/speech-to-text.md) 기능을 사용 하 여 들어오는 오디오의 음성 단어를 텍스트로 높여줄 합니다. 그런 다음이 텍스트는 MPEG-2 및 HLS 프로토콜의 비디오 및 오디오와 함께 배달할 수 있게 됩니다. 청구는 "실행 중" 상태인 라이브 이벤트의 추가 비용 인 새 추가 기능 측정기를 기준으로 합니다.  실시간 기록 및 대금 청구에 대 한 자세한 내용은 [라이브](live-transcription.md) 기록을 참조 하세요.
+
+> [!NOTE]
+> 현재 라이브 기록은 미국 서 부 2 지역 에서만 미리 보기 기능으로 사용할 수 있습니다. 이번에는 영어 (en-us)의 음성 단어 기록을 지원 합니다.
+
+### <a name="content-protection"></a>콘텐츠 보호
+
+9 월에 다시 제한 된 지역에서 릴리스된 *토큰 재생 방지* 기능을 이제 모든 지역에서 사용할 수 있습니다.
+이제 고객이 동일한 토큰을 사용 하 여 키 또는 라이선스를 요청 하는 횟수에 대 한 제한을 설정할 수 Media Services. 자세한 내용은 [토큰 재생 방지](content-protection-overview.md#token-replay-prevention)를 참조 하세요.
+
+### <a name="new-recommended-live-encoder-partners"></a>새 권장 라이브 인코더 파트너
+
+RTMP 라이브 스트리밍에 대 한 다음과 같은 새로운 권장 파트너 인코더에 대 한 지원이 추가 되었습니다.
+
+- [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
+- [GoPro Hero7/8 및 최대 작업 카메라](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
+- [Restream.io](https://restream.io/)
+
+### <a name="file-encoding-enhancements"></a>파일 인코딩 기능 향상
+
+- Media Encoder Standard의 sizer에 대 한 향상 된 성능 및 다중 스레딩 특정 조건에서 고객은 5-40% VOD 인코딩 사이의 성능 향상을 확인 해야 합니다. 여러 비트 전송률로 인코드된 복잡성이 낮은 콘텐츠가 있으면 성능이 가장 높습니다. 
+- 이제 표준 인코딩은 시간 기반 GOP 설정을 사용 하는 경우 VOD 인코딩에 대해 VFR (가변 프레임 요금) 콘텐츠에 대 한 일반 GOP 주기를 유지 관리 합니다.  즉, 15-30 fps 마다 다른 혼합 프레임 속도 콘텐츠를 제출 하는 고객이 적응 비트 전송률 스트리밍 MP4 파일에 대 한 출력에서 계산 되는 일반적인 GOP 거리가 표시 됩니다. 이렇게 하면 HLS 또는 대시를 통해 배달할 때 트랙 간에 원활 하 게 전환 하는 기능이 향상 됩니다. 
+-  VFR (가변 프레임 전송률) 원본 콘텐츠에 대해 향상 된 AV 동기화
+
+### <a name="video-indexer-video-analytics"></a>Video Indexer, 비디오 분석
+
+- 이제 VideoAnalyzer 사전 설정을 사용 하 여 추출 된 키프레임이 크기가 조정 되는 대신 비디오의 원래 해상도로 설정 됩니다. 고해상도 키 프레임 추출은 원본 품질 이미지를 제공 하 고 Microsoft Computer Vision 및 Custom Vision 서비스에서 제공 하는 이미지 기반 인공 지능 모델을 사용 하 여 비디오에서 더 많은 정보를 얻을 수 있도록 합니다.
 
 ## <a name="september-2019"></a>2019년 9월
 
@@ -74,7 +110,7 @@ Media Services v3은 라이브 이벤트의 라이브 선형 인코딩의 24 시
 
 토큰 제한으로 보호 된 콘텐츠를 스트리밍하는 경우 최종 사용자는 키 배달 요청의 일부로 전송 되는 토큰을 가져와야 합니다. *토큰 재생 방지* 기능을 사용 하면 고객이 동일한 토큰을 사용 하 여 키 또는 라이선스를 요청 하는 횟수에 대 한 제한을 설정할 수 Media Services 있습니다. 자세한 내용은 [토큰 재생 방지](content-protection-overview.md#token-replay-prevention)를 참조 하세요.
 
-이 기능은 현재 미국 중부 및 미국 서 부 중부에서 사용할 수 있습니다.
+7 월부터 미리 보기 기능은 미국 중부 및 미국 서 부 중부 에서만 사용할 수 있었습니다.
 
 ## <a name="june-2019"></a>2019년 6월
 
@@ -110,7 +146,7 @@ Media Services는 대한민국 중부 및 대한민국 남부 지역에서 사�
 
 자세한 내용은 [Media Services v3이 존재 하는 클라우드 및 지역](azure-clouds-regions.md)을 참조 하세요.
 
-### <a name="performance-improvements"></a>성능 개선
+### <a name="performance-improvements"></a>성능 향상
 
 Media Services 성능 개선을 포함 하는 업데이트를 추가 했습니다.
 
@@ -199,7 +235,7 @@ V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
 
 - ```--preset-names``` 인수가 ```--preset```으로 바뀌었습니다. 이제 한 번에 1개의 출력/사전 설정만 설정할 수 있습니다(더 추가하려면 ```az ams transform output add```를 실행해야 함). 또한 사용자 정의 JSON에 경로를 전달하여 사용자 정의 StandardEncoderPreset을 설정할 수 있습니다.
 - 제거할 출력 인덱스를 전달하여 ```az ams transform output remove```를 수행할 수 있습니다.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 및 ```az ams transform create``` 명령에 ```az ams transform output add``` 인수가 추가되었습니다.
+- ```az ams transform create``` 및 ```az ams transform output add``` 명령에 ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 인수가 추가되었습니다.
 
 ## <a name="october-2018---ga"></a>2018년 10월 - GA
 
@@ -258,7 +294,7 @@ Media Services v3에 지원되는 언어: .NET Core, Java, Node.js, Ruby, Typesc
 
 CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMAF 및 'cbcs' 암호화가 지원됩니다.
 
-### <a name="video-indexer"></a>비디오 인덱서
+### <a name="video-indexer"></a>Video Indexer
 
 Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)을 참조하세요. 
 

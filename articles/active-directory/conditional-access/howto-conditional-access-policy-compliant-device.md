@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a4323c2679bdf55709aeaed82134b7b4457fee
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 8a18f0b1f83ae02b06344c332cfdd1cc093f37fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424888"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>조건부 액세스: 준수 장치 필요
 
@@ -49,9 +49,15 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 1. 설정을 확인 하 고 **정책 사용** 을 **켜기**로 설정 합니다.
 1. 만들기 **를 선택 하** 여 정책을 사용 하도록 설정 합니다.
 
+### <a name="known-behavior"></a>알려진 동작
+
+Windows 7, iOS, Android, macOS 및 일부 타사 웹 브라우저에서 Azure AD는 장치가 Azure AD에 등록 될 때 프로 비전 되는 클라이언트 인증서를 사용 하 여 장치를 식별 합니다. 사용자가 브라우저를 통해 처음으로 로그인 하면 사용자에 게 인증서를 선택 하 라는 메시지가 표시 됩니다. 최종 사용자는이 인증서를 선택 해야 브라우저를 계속 사용할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 [조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+
+[조건부 액세스 보고서 전용 모드를 사용 하 여 영향 확인](howto-conditional-access-report-only.md)
 
 [조건부 액세스 What If 도구를 사용 하 여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 

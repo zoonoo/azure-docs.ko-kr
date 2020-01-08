@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: rohogue
-ms.openlocfilehash: 7839530463ea834ed5f8ae2ae06854985a77c673
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 5340952d6d30ae80d53234530a7e2ca6c067cf1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415349"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
 
@@ -25,7 +25,7 @@ Avere vFXT for Azure는 중요한 워크로드를 효율적으로 처리하기 �
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT는 스토리지 솔루션인가요?
 
-아니요. Avere vFXT는 EMC, NetApp NAS 또는 Azure Blob 컨테이너와 같은 스토리지 환경에 연결되는 파일 시스템 ‘캐시’입니다. Avere vFXT는 클라이언트의 데이터 요청을 간소화하고, 규모와 시간 경과에 따라 성능을 향상하기 위해 제공되는 데이터를 캐시합니다. Avere vFXT 자체는 데이터를 저장하지 않습니다. 백그라운드에서 저장된 데이터의 양에 대한 정보가 없습니다.
+아닙니다. Avere vFXT는 EMC, NetApp NAS 또는 Azure Blob 컨테이너와 같은 스토리지 환경에 연결되는 파일 시스템 ‘캐시’입니다. Avere vFXT는 클라이언트의 데이터 요청을 간소화하고, 규모와 시간 경과에 따라 성능을 향상하기 위해 제공되는 데이터를 캐시합니다. Avere vFXT 자체는 데이터를 저장하지 않습니다. 백그라운드에서 저장된 데이터의 양에 대한 정보가 없습니다.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT는 계층화 솔루션인가요?
 
@@ -33,7 +33,7 @@ Avere vFXT는 핫 계층과 쿨 계층 간에 데이터를 자동으로 계층�
 
 ### <a name="how-do-i-know-if-an-environment-is-right-for-avere-vfxt"></a>환경이 Avere vFXT에 적합한지 확인하려면 어떻게 할까요?
 
-이 질문에 대해 생각할 수 있는 가장 좋은 방법은 "캐시 가능한 워크로드인가요?"입니다. 즉, 워크로드의 읽기/쓰기 비율이 높은지 따져보는 것입니다. 80/20 또는 70/30 읽기/쓰기 비율을 예로 들 수 있습니다.
+이 질문에 답변하려면 워크로드가 캐시 가능한지 자문해보는 것이 좋습니다. 즉, 워크로드의 읽기/쓰기 비율이 높은지 따져보는 것입니다. 80/20 또는 70/30 읽기/쓰기 비율을 예로 들 수 있습니다.
 
 많은 수의 Azure 가상 머신에서 실행되는 파일 기반 분석 파이프라인이 있고 다음 조건 중 하나 이상이 충족되는 경우 Avere vFXT for Azure를 사용하는 것이 좋습니다.
 
@@ -77,12 +77,12 @@ Avere vFXT for Azure는 소 버린 지역 (중국, 독일)을 제외 하 고 모
 
 예, 고객은 둘 이상의 클라우드 공급자를 Avere vFXT 클러스터에 사용할 수 있습니다. AWS S3 표준 버킷, Google Cloud Services 표준 버킷 및 Azure Blob 컨테이너를 지원합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > AWS 또는 Google Cloud에서 Avere vFXT를 사용하면 소프트웨어 요금이 적용되지만, Azure에서는 적용되지 않습니다.
 
 ## <a name="technical-compute"></a>기술: Compute
 
-### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Avere vFXT 환경의 "모양"을 설명할 수 있나요?
+### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Avere vFXT 환경의 “모습”을 설명할 수 있나요?
 
 Avere vFXT는 여러 개의 Azure 가상 머신으로 클러스터된 어플라이언스입니다. Python 라이브러리에서 클러스터 만들기, 삭제 및 수정을 처리합니다. 자세한 내용은 [Aere vFXT for Azure란?](avere-vfxt-overview.md)을 참조하세요.
 
@@ -97,7 +97,6 @@ No, you must choose one virtual machine type or the other.
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
-
 -->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>Avere vFXT 환경의 크기를 조정할 수 있나요?
@@ -106,7 +105,7 @@ Avere vFXT 클러스터는 3개의 가상 머신 노드만큼 작거나 24개의
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>Avere vFXT 환경은 "자동으로 크기 조정"할 수 있나요?
 
-아니요. 클러스터 크기는 확장하거나 축소할 수 있지만, 클러스터 노드를 추가하거나 제거하는 작업은 수동 단계입니다.
+아닙니다. 클러스터 크기는 확장하거나 축소할 수 있지만, 클러스터 노드를 추가하거나 제거하는 작업은 수동 단계입니다.
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-as-a-virtual-machine-scale-set"></a>Avere vFXT 클러스터를 가상 머신 확장 집합으로 실행할 수 있나요?
 
@@ -126,11 +125,11 @@ Avere vFXT는 가상 머신 확장 집합 배포를 지원하지 않습니다. �
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>다른 가용성 영역에서 Avere vFXT 클러스터 머신을 실행할 수 있나요?
 
-아니요. Avere vFXT의 고가용성 모델은 현재 서로 다른 가용성 영역에 있는 개별 Avere vFXT 클러스터 멤버를 지원하지 않습니다.
+아닙니다. Avere vFXT의 고가용성 모델은 현재 서로 다른 가용성 영역에 있는 개별 Avere vFXT 클러스터 멤버를 지원하지 않습니다.
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Avere vFXT 가상 머신을 복제할 수 있나요?
 
-아니요, 지원되는 Python 스크립트를 사용하여 Avere vFXT 클러스터에서 노드를 추가하거나 제거해야 합니다. 자세한 내용은 [Avere vFXT 클러스터 관리](avere-vfxt-manage-cluster.md)를 참조하세요.  
+아니요, 지원되는 Python 스크립트를 사용하여 Avere vFXT 클러스터에서 노드를 추가하거나 제거해야 합니다. 자세한 내용은 [Avere vFXT 클러스터 관리](avere-vfxt-manage-cluster.md)를 참조하세요.
 
 ### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>내 로컬 환경에서 실행할 수 있는 소프트웨어의 "VM" 버전이 있나요?
 
@@ -254,7 +253,7 @@ Avere vFXT는 프라이빗 개체 스토리지를 지원하지 않습니다.
 
 ### <a name="can-i-use-archive-blob-storage"></a>보관 Blob Storage를 사용할 수 있나요?
 
-아니요. 보관 스토리지에 대한 SLA(서비스 수준 약정)는 Avere vFXT 시스템의 실시간 디렉터리 및 파일 액세스 요구 사항과 호환되지 않습니다.
+아닙니다. 보관 스토리지에 대한 SLA(서비스 수준 약정)는 Avere vFXT 시스템의 실시간 디렉터리 및 파일 액세스 요구 사항과 호환되지 않습니다.
 
 ### <a name="can-i-use-cool-blob-storage"></a>쿨 Blob Storage를 사용할 수 있나요?
 

@@ -10,14 +10,14 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 12/19/2019
 ms.author: kumud
-ms.openlocfilehash: 001a6d5ef742874698cd7a67014179a2f8528fc6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: a44f99b5a7f25a7350e6a63cf85c6b2287647162
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373250"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Azure Virtual Network에 대 한 i p v 6은 무엇 인가요? (Preview)
 
@@ -59,7 +59,7 @@ Azure VNet 용 IPv6에는 다음과 같은 기능이 포함 되어 있습니다.
     - 아웃 바운드 연결에 대 한 모든 선언적 제어를 제공 하는 선택적 아웃 바운드 규칙은 특정 요구에 맞게이 기능을 확장 하 고 조정 합니다.
     - 단일 부하 분산 장치에서 여러 IPv6 공용 IP 주소를 사용할 수 있도록 하는 선택적 다중 프런트 엔드 구성-프런트 엔드 주소에서 동일한 프런트 엔드 프로토콜 및 포트를 재사용할 수 있습니다.
     - 선택적 IPv6 포트는 부하 분산 규칙의 *부동 IP* 기능을 사용 하 여 백 엔드 인스턴스에서 재사용할 수 있습니다. 
-- [표준 IPV6 내부 Load Balancer](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) Azure vnet 내에서 복원 력 있는 다중 계층 응용 프로그램을 만들 수 있도록 지원 합니다.  
+- [표준 IPv6 내부 Load Balancer](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) Azure vnet 내에서 복원 력 있는 다중 계층 응용 프로그램을 만들 수 있도록 지원 합니다.  
 - 기본 IPv6 공용 Load Balancer 레거시 배포와의 호환성을 지원 합니다.
 - [예약 된 Ipv6 공용 IP 주소 및 주소 범위](ipv6-public-ip-address-prefix.md) 는 회사와 고객에 게 azure에서 호스트 되는 응용 프로그램의 허용 목록을 용이 하 게 하는 안정적이 고 예측 가능한 ipv6 주소를 제공 합니다.
 - 인스턴스 수준 공용 IP는 개별 Vm에 직접 IPv6 인터넷 연결을 제공 합니다.

@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 앱 및 서비스 설명 | Microsoft Docs
+title: Azure Service Fabric 앱 및 서비스 설명
 description: Service Fabric 애플리케이션 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349970"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
 이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [애플리케이션 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
@@ -74,7 +63,7 @@ ms.locfileid: "68977122"
 
 **EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. **SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다.  별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 프로세스가 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작).  
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예를 들어:
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예:
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
@@ -85,7 +74,7 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 
 이전 예제에서 설정되지 않은 **DataPackage**는 **Name** 특성을 통해 이름이 지정되고 런타임에 프로세스에서 사용할 임의의 정적 데이터를 포함하는 폴더를 선언합니다.
 
-**ConfigPackage**는 **Name** 특성을 통해 이름이 지정되고 *Settings.xml* 파일을 포함하는 폴더를 선언합니다. 설정 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 **ConfigPackage** **버전**만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 다음은 *Settings.xml* 파일의 예입니다.
+**ConfigPackage**는 **Name** 특성을 통해 이름이 지정되고 *Settings.xml* 파일을 포함하는 폴더를 선언합니다. 설정 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드 하는 동안 **Configpackage** **버전만** 변경 된 경우에는 실행 중인 프로세스가 다시 시작 되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 다음은 *Settings.xml* 파일의 예입니다.
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -170,7 +159,7 @@ For more information about other features supported by service manifests, refer 
 
 **배치 제약 조건은** 서비스를 실행할 위치를 정의 하는 문입니다. 이러한 문은 하나 이상의 노드 속성에 대해 선택한 개별 서비스에 연결 됩니다. 자세한 내용은 [배치 제약 조건 및 노드 속성 구문](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax) 을 참조 하세요.
 
-**정책** (이전 예제에서 설정 되지 않음)는 서비스에 Service Fabric 런타임에 대 한 액세스 권한이 있는지 여부를 포함 하 여 응용 프로그램 수준에서 설정 하는 로그 컬렉션, [기본 실행](service-fabric-application-runas-security.md), [상태](service-fabric-health-introduction.md#health-policies)및 [보안 액세스](service-fabric-application-runas-security.md) 정책에 대해 설명 합니다.
+**정책** (이전 예제에서 설정 되지 않음)은 서비스에 Service Fabric 런타임에 대 한 액세스 권한이 있는지 여부를 포함 하 여 응용 프로그램 수준에서 설정 되는 로그 컬렉션, [기본 실행](service-fabric-application-runas-security.md), [상태](service-fabric-health-introduction.md#health-policies)및 [보안 액세스](service-fabric-application-runas-security.md) 정책에 대해 설명 합니다.
 
 > [!NOTE] 
 > 기본적으로 Service Fabric 응용 프로그램은 응용 프로그램별 요청을 수락 하는 끝점의 형식 및 패브릭 및 응용 프로그램별 파일이 포함 된 호스트의 파일 경로를 가리키는 환경 변수를 사용 하 여 Service Fabric 런타임에 액세스할 수 있습니다. . 응용 프로그램이 신뢰할 수 없는 코드를 호스트 하는 경우 (즉, provenance를 알 수 없거나 응용 프로그램 소유자가 안전 하 게 실행 되지 않도록 하는 코드)이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 자세한 내용은 [Service Fabric의 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)를 참조 하세요. 

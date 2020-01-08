@@ -1,24 +1,14 @@
 ---
 title: 컨테이너에 대 한 Azure Monitor를 실시간으로 메트릭 보기 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 Azure Monitor with kubectl를 사용 하지 않고 메트릭의 실시간 보기에 대해 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: 4608058d347888ab77bd4303600f00b270d6fed5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404942"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>실시간으로 메트릭을 보는 방법
 
@@ -34,7 +24,7 @@ ms.locfileid: "73514603"
 
 라이브 데이터 (미리 보기) 기능 설정 또는 문제 해결에 대 한 도움말은 [설치 가이드](container-insights-livedata-setup.md)를 참조 하세요.
 
-## <a name="how-it-works"></a>작동 방법 
+## <a name="how-it-works"></a>적용 방법 
 
 라이브 데이터 (미리 보기) 기능은 Kubernetes API에 직접 액세스할 수 있으며 인증 모델에 대 한 추가 정보는 [여기](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)에서 찾을 수 있습니다. 
 

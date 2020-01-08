@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832701"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608723"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 외부 사용자에 대 한 액세스 제어
 
@@ -105,7 +105,7 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 ### <a name="review-your-office-365-group-sharing-settings"></a>Office 365 그룹 공유 설정 검토
 
-- 외부 사용자에 대 한 액세스 패키지에 Office 365 그룹을 포함 하려는 경우 게스트 **액세스를 허용 하도록** **사용자가 조직에 새 게스트를 추가** 하도록 허용이 설정 되어 있는지 확인 합니다. 자세한 내용은 [Office 365 그룹에 대 한 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups)를 참조 하세요.
+- 외부 사용자에 대 한 액세스 패키지에 Office 365 그룹을 포함 하려는 경우 게스트 **액세스를 허용 하도록** **사용자가 조직에 새 게스트를 추가** 하도록 허용이 설정 되어 있는지 확인 합니다. 자세한 내용은 [Office 365 그룹에 대 한 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)를 참조 하세요.
 
 - 외부 사용자가 SharePoint Online 사이트 및 Office 365 그룹에 연결 된 리소스에 액세스할 수 있도록 하려면 SharePoint Online 외부 공유를 설정 해야 합니다. 자세한 내용은 [외부 공유 설정 또는 해제](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)를 참조 하세요.
 
@@ -143,7 +143,7 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 1. 이 디렉터리에서 게스트 사용자 계정을 제거 하려면 제거 전 일 수를 설정할 수 있습니다. 액세스 패키지에 대 한 마지막 할당이 손실 되는 즉시 게스트 사용자 계정을 제거 하려면 **이 디렉터리에서 외부 사용자를 제거 하기 전까지 남은 일 수** 를 **0**으로 설정 합니다.
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

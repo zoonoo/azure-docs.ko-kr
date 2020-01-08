@@ -1,20 +1,19 @@
 ---
 title: ODBC 드라이버를 사용 하 여 Excel & Apache Hadoop-Azure HDInsight
 description: Excel용 Microsoft Hive ODBC 드라이버를 설정하고 Microsoft Excel의 HDInsight 클러스터에서 데이터를 쿼리하는 데 사용하는 방법에 대해 알아봅니다.
-keywords: hadoop excel, hive excel, hive odbc
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.openlocfilehash: 37cb05c4bf3822c9dc21b1fa9cd0ea4a2ba6d933
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/11/2019
+ms.openlocfilehash: 883192e1d041014c23445b7a2fa0ece45eb76f10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435823"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
 
@@ -24,7 +23,7 @@ Microsoft의 빅 데이터 솔루션은 Microsoft BI(비즈니스 인텔리전�
 
 Excel에서 Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클러스터 및 기타 데이터 원본 (비 HDInsight) Hadoop 클러스터와 연결 된 데이터를 연결할 수도 있습니다. 파워 쿼리 설치 및 사용에 대 한 자세한 내용은 [파워 쿼리를 사용 하 여 HDInsight에 Excel 연결](../hdinsight-connect-excel-power-query.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -41,7 +40,7 @@ ODBC 드라이버를 사용할 응용 프로그램 버전과 일치 하는 [Micr
 
 1. Windows에서 시작 > Windows 관리 도구 > ODBC 데이터 원본(32비트)/(64비트)으로 이동합니다.  그러면 **ODBC 데이터 원본 관리자** 창이 열립니다.
 
-    ![OBDC 데이터 원본 관리자](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "ODBC 데이터 원본 관리자를 사용 하 여 DSN 구성")
+    ![OBDC 데이터 원본 관리자](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "ODBC 데이터 원본 관리자를 사용하여 DSN 구성")
 
 1. **사용자 DSN** 탭에서 **추가**를 선택하여 **새 데이터 원본 만들기** 창을 엽니다.
 
@@ -49,10 +48,10 @@ ODBC 드라이버를 사용할 응용 프로그램 버전과 일치 하는 [Micr
 
 1. 다음 값을 입력하거나 선택합니다.
 
-   | 자산 | 설명 |
+   | 속성 | Description |
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
-   |  호스트 |[https://slack.botframework.com](`HDInsightClusterName.azurehdinsight.net`) 을 입력합니다. 위치(예:`myHDICluster.azurehdinsight.net` |
+   |  호스트 |`HDInsightClusterName.azurehdinsight.net`를 입력합니다. `myHDICluster.azurehdinsight.net`)을 입력합니다. 참고: 클라이언트 VM이 동일한 가상 네트워크에 피어 링 되는 한 `HDInsightClusterName-int.azurehdinsight.net` 지원 됩니다. |
    |  Port |**443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
    |  데이터베이스 |**기본값**을 사용합니다. |
    |  메커니즘 |**Windows Azure HDInsight Service**를 선택합니다. |
@@ -61,7 +60,7 @@ ODBC 드라이버를 사용할 응용 프로그램 버전과 일치 하는 [Micr
 
 1. 선택 사항: **고급 옵션** ...을 선택 합니다.  
 
-   | 매개 변수를 포함해야 합니다. | 설명 |
+   | 매개 변수 | Description |
    | --- | --- |
    |  Use Native Query |선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수한 HiveQL 문을 전송 하 고 있는지 100% 인 경우에만이를 사용 해야 합니다. SQL Server 또는 Azure SQL Database에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다. |
    |  Rows fetched per block |많은 수의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다. |

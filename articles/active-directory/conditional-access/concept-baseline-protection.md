@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a15b55aa3d8cc8f16a35c858d11e3d20c260bff8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420573"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425004"
 ---
 # <a name="what-are-baseline-policies"></a>기준 정책 이란?
 
-기준 정책은 여러 일반적인 공격 으로부터 조직을 보호 하는 데 도움이 되는 미리 정의 된 정책 집합입니다. 이러한 일반적인 공격은 암호 스프레이, 재생 및 피싱을 포함할 수 있습니다. 기본 정책은 모든 버전의 Azure AD에서 사용할 수 있습니다. Microsoft는 id 기반 공격이 지난 몇 년 동안 증가 하 여 모든 사용자에 게 이러한 기본 보호 정책을 사용할 수 있도록 합니다. 이러한 네 가지 정책의 목표는 모든 조직에서 추가 비용 없이 기본 보안 수준을 사용 하도록 설정 하는 것입니다.  
+기준 정책은 여러 일반적인 공격 으로부터 조직을 보호 하는 데 도움이 되는 미리 정의 된 정책 집합입니다. 이러한 일반적인 공격은 암호 스프레이, 재생 및 피싱을 포함할 수 있습니다. 기본 정책은 모든 버전의 Azure AD에서 사용할 수 있습니다. 지난 몇 년 동안 ID 기반 공격이 증가해 왔기 때문에 Microsoft는 이러한 기준 보호 정책을 모든 사용자에게 제공하고 있습니다. 이러한 네 가지 정책의 목표는 모든 조직에서 추가 비용 없이 기본 보안 수준을 사용 하도록 설정 하는 것입니다.
 
 사용자 지정 된 조건부 액세스 정책을 관리 하려면 Azure AD Premium 라이선스가 필요 합니다.
 
+> [!IMPORTANT]
+> 기준 정책을 depricated 하 고 있습니다. 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) 을 참조 하세요.
+
 ## <a name="baseline-policies"></a>기준 정책
 
-![Azure Portal의 조건부 액세스 기준 정책](./media/concept-baseline-protection/conditional-access-policies.png)
+![Azure Portal의 조건부 액세스 기준 정책](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 다음 네 가지 기준 정책이 있습니다.
 
@@ -36,6 +39,10 @@ ms.locfileid: "74420573"
 * 서비스 관리를 위해 MFA 필요 (미리 보기)
 
 이러한 정책 중 4 개는 POP, IMAP 및 이전 Office 데스크톱 클라이언트와 같은 레거시 인증 흐름에 영향을 줍니다.
+
+### <a name="exclusions"></a>제외
+
+기준 정책이 초기 공개 미리 보기로 전환 되 면 정책에서 사용자를 제외 하는 옵션이 있습니다. 이 기능은 미리 보기를 통해 진화 되었으며 7 월 2019 일에 제거 되었습니다. 이미 제외를 만든 조직에서는 계속 해 서 새 사용자가 정책에 제외를 추가할 수 없었습니다.
 
 ### <a name="require-mfa-for-admins-preview"></a>관리자 용 MFA 필요 (미리 보기)
 
@@ -52,16 +59,16 @@ ms.locfileid: "74420573"
 * 대금 청구 관리자
 * 사용자 관리자
 
-조직에서 스크립트나 코드에 이러한 계정을 사용 하는 경우 [관리 되는 id](../managed-identities-azure-resources/overview.md)로 대체 하는 것이 좋습니다.
+조직에서 스크립트 또는 코드에 이러한 계정을 사용 중인 경우 이를 [관리 ID](../managed-identities-azure-resources/overview.md)로 바꾸는 것이 좋습니다.
 
 ### <a name="end-user-protection-preview"></a>최종 사용자 보호 (미리 보기)
 
 권한이 높은 관리자는 공격 대상이 되는 유일한 관리자가 아닙니다. 잘못 된 행위자는 일반 사용자를 대상으로 하는 경향이 있습니다. 액세스 권한을 획득 한 후 이러한 잘못 된 행위자는 원래 계정 소유자를 대신 하 여 권한 있는 정보에 대 한 액세스를 요청 하거나 전체 디렉터리를 다운로드 하 고 전체 조직에서 피싱 공격을 수행할 수 있습니다. 모든 사용자에 대 한 보호를 개선 하는 일반적인 방법 중 하나는 위험한 로그인이 감지 될 때 더 강력한 형태의 계정 확인을 요구 하는 것입니다.
 
-**최종 사용자 보호 (미리 보기)** 는 디렉터리의 모든 사용자를 보호 하는 기준 정책입니다. 이 정책을 사용 하도록 설정 하려면 모든 사용자가 14 일 이내에 Azure Multi-Factor Authentication에 등록 해야 합니다. 등록 한 후에는 사용자에 게 위험한 로그인 시도 중에만 MFA를 입력 하 라는 메시지가 표시 됩니다. 손상 된 사용자 계정은 암호 재설정 및 위험 해제 될 때까지 차단 됩니다. 
+**최종 사용자 보호 (미리 보기)** 는 디렉터리의 모든 사용자를 보호 하는 기준 정책입니다. 이 정책을 사용 하도록 설정 하려면 모든 사용자가 14 일 이내에 Azure Multi-Factor Authentication에 등록 해야 합니다. 등록된 사용자에게는 위험한 로그인 시도 중에만 MFA를 묻는 메시지가 표시됩니다. 손상된 사용자 계정은 암호를 다시 설정하고 위험을 해제할 때까지 차단됩니다. 
 
-[!NOTE]
-이전에 위험 플래그가 지정 된 사용자는 암호 재설정 및 정책 활성화 시 해제 위험에 도달할 때까지 차단 됩니다.
+> [!NOTE]
+> 이전에 위험 플래그가 지정 된 사용자는 암호 재설정 및 정책 활성화 시 해제 위험에 도달할 때까지 차단 됩니다.
 
 ### <a name="block-legacy-authentication-preview"></a>레거시 인증 차단 (미리 보기)
 
@@ -75,7 +82,7 @@ ms.locfileid: "74420573"
 
 조직에서는 다양 한 Azure 서비스를 사용 하 고 다음과 같은 Azure Resource Manager 기반 도구에서 관리 합니다.
 
-* Azure 포털
+* Azure Portal
 * Azure PowerShell
 * Azure CLI
 
@@ -85,8 +92,8 @@ ms.locfileid: "74420573"
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은
+자세한 내용은 다음을 참조하세요.
 
+* [보안 기본값 사용](../fundamentals/concept-fundamentals-security-defaults.md)
 * [일반적인 조건부 액세스 정책](concept-conditional-access-policy-common.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/fundamentals/steps-secure-identity.md)
-* [Azure Active Directory의 조건부 액세스란?](overview.md)

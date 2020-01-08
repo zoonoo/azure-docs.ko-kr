@@ -1,20 +1,21 @@
 ---
-title: Azure Diagnostics로 Cloud Services 애플리케이션의 흐름 추적 | Microsoft Docs
+title: Azure 진단를 사용 하 여 Cloud Services 응용 프로그램에서 흐름 추적
+titleSuffix: Azure Cloud Services
 description: Azure 애플리케이션에 추적 메시지를 추가하여 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 할 수 있습니다.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: gwallace
-ms.openlocfilehash: b8d195fba934ceae98af383b96a8c0d9a9b88c5f
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.author: tagore
+ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808097"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386513"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Azure Diagnostics로 Cloud Services 애플리케이션의 흐름 추적
 추적은 실행되는 동안 애플리케이션의 실행을 모니터링하는 방법입니다. [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) 및 [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) 클래스를 사용하여 로그의 오류 및 애플리케이션 실행, 텍스트 파일 또는 차후 분석을 위한 다른 디바이스에 대한 정보를 기록할 수 있습니다. 추적에 대한 자세한 내용은 [애플리케이션을 추적 및 계측](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications)을 참조하세요.
@@ -71,4 +72,7 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
     ```
 3. 애플리케이션의 상태에 대한 정보를 캡처하려는 추적 문을 추가합니다. 다양한 메서드를 사용하여 추적 문의 출력을 포맷할 수 있습니다. 자세한 내용은 [방법: 애플리케이션 코드에 추적 문 추가](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)를 참조하세요.
 4. 소스 파일을 저장합니다.
+
+
+
 

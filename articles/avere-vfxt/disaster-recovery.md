@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 4a8dbe9d1c66955e585f7b2cbf842193c965252e
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998772"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414232"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Azure 용 Avere vFXT에 대 한 재해 복구 지침
 
@@ -104,7 +104,7 @@ Azure 클러스터의 Avere vFXT에서 백업 컨테이너에 액세스 하려�
 1. 필요한 경우 영향을 받지 않는 지역에서 Azure 클러스터에 대 한 새 Avere vFXT를 만듭니다.
 
    > [!TIP]
-   > Azure 클러스터에 대해 Avere vFXT를 만들 때 생성 템플릿 및 매개 변수의 복사본을 저장할 수 있습니다. 주 클러스터를 만들 때이 정보를 저장 하는 경우이 정보를 사용 하 여 동일한 속성을 가진 교체 클러스터를 만들 수 있습니다. [유효성 검사 및 요약](avere-vfxt-deploy.md#validation-and-purchase) 페이지에서 **템플릿 및 매개 변수 다운로드** 링크를 클릭 합니다. **확인** 단추를 클릭 하 여 클러스터를 만들려면 먼저 정보를 파일에 저장 합니다.
+   > Azure 클러스터에 대해 Avere vFXT를 만들 때 생성 템플릿 및 매개 변수의 복사본을 저장할 수 있습니다. 주 클러스터를 만들 때이 정보를 저장 하는 경우이 정보를 사용 하 여 동일한 속성을 가진 교체 클러스터를 만들 수 있습니다. [요약](avere-vfxt-deploy.md#validation-and-purchase) 페이지에서 **템플릿 및 매개 변수 다운로드** 링크를 클릭 합니다. 클러스터를 만들기 전에 정보를 파일에 저장 합니다.
 
 1. 중복 Blob 컨테이너를 가리키는 새 cloud core 필터를 추가 합니다.
 
@@ -112,12 +112,12 @@ Azure 클러스터의 Avere vFXT에서 백업 컨테이너에 액세스 하려�
 
 1. 필요한 경우 새 클러스터를 탑재 하거나 원본 대신 새 핵심 필터 클라이언트를 업데이트 합니다. 원본 컨테이너와 동일한 이름 및 병합 경로를 사용 하 여 교체 코어 필터를 추가 하는 경우 새 IP 주소에 새 클러스터를 탑재 해야 할 경우를 제외 하 고는 클라이언트 프로세스를 업데이트할 필요가 없습니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 * Azure의 Avere vFXT에 대 한 설정을 사용자 지정 하는 방법에 대 한 자세한 내용은 [클러스터 튜닝](avere-vfxt-tuning.md)을 참조 하세요.
 * Azure에서 재해 복구 및 복원 력 있는 응용 프로그램 빌드에 대해 자세히 알아보세요.
 
-  * [Műszaki útmutató az Azure rugalmasságáról](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
+  * [Azure 복구력 기술 지침](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
   * [지역 전체의 서비스 중단에서 복구](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
-  * [Vészhelyreállítás és magas szintű rendelkezésre állás az Azure-alkalmazásokhoz](<https://docs.microsoft.com/azure/resiliency/resiliency-disaster-recovery-high-availability-azure-applications>)
+  * [Azure 애플리케이션에 대한 재해 복구 및 고가용성](<https://docs.microsoft.com/azure/resiliency/resiliency-disaster-recovery-high-availability-azure-applications>)
   <!-- can't find these in the source tree to use relative links -->

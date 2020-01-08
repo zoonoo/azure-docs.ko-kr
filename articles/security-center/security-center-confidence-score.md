@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558971"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355640"
 ---
-# <a name="alert-confidence-score"></a>경고 신뢰도 점수 
+# <a name="alert-confidence-score-preview"></a>경고 신뢰 점수 (미리 보기)
 
 Azure Security Center는 Azure에서 실행하는 리소스 전반에 대한 가시성을 제공하고 잠재적인 문제를 발견하면 알려줍니다. 보안 운영 팀이 개별적으로 해결하기에 경고의 양이 너무 많을 수 있으며 조사할 경고의 우선 순위를 정하는 작업이 필요할 수 있습니다. 경고를 조사하는 작업은 복잡하고 시간이 오래 걸릴 수 있기 때문에 일부 경고는 무시됩니다.
 
-Security Center의 신뢰도 점수를 사용하면 팀에서 경고를 심사하여 우선 순위를 정할 수 있습니다. Security Center는 분석가가 사용하는 업계 모범 사례, 지능형 알고리즘 및 프로세스를 적용하여 위협이 합법적인지 여부를 판단하고 신뢰도 점수의 형태로 유용한 인사이트를 제공합니다.
+Security Center의 신뢰도 점수 (현재 미리 보기 상태)는 팀이 경고를 심사 하 고 우선 순위를 정하는 데 도움이 될 수 있습니다. Security Center는 분석가가 사용하는 업계 모범 사례, 지능형 알고리즘 및 프로세스를 적용하여 위협이 합법적인지 여부를 판단하고 신뢰도 점수의 형태로 유용한 인사이트를 제공합니다.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>신뢰도 점수가 트리거되는 방법
 

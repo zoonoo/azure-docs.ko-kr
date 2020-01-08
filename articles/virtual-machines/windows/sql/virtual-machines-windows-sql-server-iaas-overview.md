@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: baa3444773c41bc91de7e35d2c80f066b96b9ed5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374309"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란? (Windows)
 
@@ -103,14 +103,16 @@ SQL Server VM을 만든 후에는 SSMS(SQL Server Management Studio)와 같은 �
 
 Azure Portal는 SQL 가상 머신을 비롯 한 [모든 AZURE sql 리소스](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) 를 관리할 수 있는 단일 페이지를 제공 합니다.
 
-**AZURE sql 리소스** 페이지에 액세스 하려면 Azure Portal의 왼쪽 메뉴에서 **azure sql** 을 선택 합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 *Azure SQL*을 입력합니다.
+**AZURE sql 리소스** 페이지에 액세스 하려면 Azure Portal 메뉴에서 **azure sql** 을 선택 하거나, 모든 페이지에서 **azure sql** 을 검색 하 고 선택 합니다.
+
+![Azure SQL 검색](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
 
 > [!NOTE]
 > **AZURE sql** 은 모든 sql 데이터베이스, 탄력적 풀, 데이터베이스 서버, sql 관리 되는 인스턴스 및 sql 가상 컴퓨터에 쉽고 빠르게 액세스할 수 있는 방법을 제공 합니다. Azure SQL은 서비스 또는 리소스가 아닙니다. 
 
 기존 리소스를 관리 하려면 목록에서 원하는 항목을 선택 합니다. 새 Azure SQL 리소스를 만들려면 **+ 추가**를 선택 합니다. 
 
-![Azure SQL 포털 페이지](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+![Azure SQL 리소스 만들기](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
 
 **+ 추가**를 선택한 후 타일에 대 한 **자세한 정보 표시** 를 선택 하 여 여러 옵션에 대 한 추가 정보를 봅니다.
 
@@ -130,10 +132,10 @@ Azure는 지원되는 각 운영 체제, 버전 및 버전 조합에 대한 하�
 CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 데이터 수집에 대한 자세한 내용은 [SQL Server 개인정보처리방침](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement)을 참조하세요.
 
 ## <a name="related-products-and-services"></a>관련 제품 및 서비스
-### <a name="windows-virtual-machines"></a>Windows 가상 머신
+### <a name="windows-virtual-machines"></a>Windows Virtual Machines
 * [Virtual Machines 개요](../overview.md)
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 * [Microsoft Azure Storage 소개](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>네트워킹

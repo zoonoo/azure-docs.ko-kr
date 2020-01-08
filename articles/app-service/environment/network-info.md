@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375018"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -87,7 +87,7 @@ ASE는 다음 포트에서 인터넷에 액세스할 수 있는 주소를 전달
 | 용도 | 포트 |
 |-----|------|
 | DNS | 53 |
-| 있고 | 123 |
+| NTP | 123 |
 | 8CRL, Windows 업데이트, Linux 종속성, Azure 서비스 | 80/443 |
 | Azure SQL | 1433 | 
 | 모니터링 | 12000 |
@@ -152,7 +152,7 @@ NSG는 Azure Portal 또는 PowerShell을 통해 구성할 수 있습니다. 이 
 
 ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 하는 것입니다.
 
-**인바운드만**
+**인바운드**
 * 포트 454455의 IP 서비스 태그 AppServiceManagement에서
 * 16001 포트의 부하 분산 장치에서
 * ASE 서브넷에서 모든 포트의 ASE 서브넷으로
@@ -244,7 +244,7 @@ Azure SQL 인스턴스를 통해 서브넷에서 서비스 엔드포인트가 �
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

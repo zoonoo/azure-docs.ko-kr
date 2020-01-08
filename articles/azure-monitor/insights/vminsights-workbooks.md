@@ -4,15 +4,15 @@ description: VM용 Azure Monitor에 대해 미리 정의 되 고 사용자 지�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b89e61f0c268df0ed6dd69ae1c6d97f00678fc32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365923"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>통합 문서를 사용 하 여 대화형 보고서 VM용 Azure Monitor 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "73200539"
 
 VM용 Azure Monitor는 시작 하기 위한 몇 가지 통합 문서가 포함 되어 있으며 다음 표에 요약 되어 있습니다.
 
-| 통합 문서 | 설명 | 범위 |
+| 통합 문서 | Description | 범위 |
 |----------|-------------|-------|
 | 성능 중심 | 사용 하도록 설정한 모든 Log Analytics 성능 카운터를 활용 하는 단일 통합 문서에서 상위 N 개 목록 및 차트 보기의 사용자 지정 가능한 버전을 제공 합니다.| 규모에 맞게 |
 | 성능 카운터 | 광범위 한 성능 카운터 집합에 대 한 상위 N 개 차트 뷰입니다. | 규모에 맞게 |
@@ -45,7 +45,7 @@ VM용 Azure Monitor는 시작 하기 위한 몇 가지 통합 문서가 포함 �
 
 통합 문서는 독립적으로 편집할 수 있는 차트, 테이블, 텍스트 및 입력 컨트롤로 구성된 섹션으로 구성됩니다. 통합 문서에 대 한 이해를 돕기 위해 먼저 템플릿을 열고 사용자 지정 통합 문서를 만드는 과정을 살펴보겠습니다. 
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **Virtual Machines**를 선택합니다.
 
@@ -160,7 +160,7 @@ VMConnection
 
 |                  |      |
 | ---------------- |:-----|
-| **Text**    | 사용자가 텍스트 상자를 편집할 수 있으며, 선택적으로 기본값을 입력할 쿼리를 제공할 수 있습니다. |
+| **텍스트**    | 사용자가 텍스트 상자를 편집할 수 있으며, 선택적으로 기본값을 입력할 쿼리를 제공할 수 있습니다. |
 | **드롭다운** | 사용자가 값 집합에서 선택할 수 있습니다. |
 | **시간 범위 선택기**| 사용자가 미리 정의 된 시간 범위 값 집합에서 선택 하거나 사용자 지정 시간 범위에서 선택할 수 있습니다.|
 | **리소스 선택기** | 사용자가 통합 문서에 대해 선택한 리소스에서 선택할 수 있습니다.|

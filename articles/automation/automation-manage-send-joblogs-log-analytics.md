@@ -2,19 +2,15 @@
 title: Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 description: 이 문서에서는 작업 상태 및 runbook 작업 스트림을 Azure Monitor 로그에 보내서 추가 정보 및 관리를 제공 하는 방법을 보여 줍니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849737"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421909"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달
 
@@ -89,7 +85,7 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 가지 유형의 레�
 
 ### <a name="job-logs"></a>작업 로그
 
-| 자산 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
@@ -111,7 +107,7 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 가지 유형의 레�
 
 
 ### <a name="job-streams"></a>작업 스트림
-| 자산 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |

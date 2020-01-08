@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452404"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424810"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위한 관리 되는 장치 요구
 
@@ -24,7 +24,7 @@ ms.locfileid: "74452404"
 
 이 문서에서는 관리 장치가 사용자 환경의 특정 클라우드 앱에 액세스 하도록 요구 하는 조건부 액세스 정책을 구성 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 클라우드 앱 액세스를 위한 관리 되는 장치 요구는 **AZURE Ad 조건부 액세스** 와 **azure ad 장치 관리** 를 함께 연결 합니다. 이러한 내용에 익숙하지 않은 경우 먼저 다음 항목을 읽어보세요.
 
@@ -80,7 +80,7 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 이 옵션을 사용하려면 디바이스를 Azure AD에 등록해야 하며 다음과 같이 준수 상태로도 표시되어야 합니다.
          
 - Intune
-- Azure AD 통합을 통해 Windows 10 디바이스를 관리하는 타사 MDM(모바일 디바이스 관리) 시스템입니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
+- Azure AD 통합을 통해 Windows 10 디바이스를 관리하는 타사 MDM(모바일 디바이스 관리) 시스템입니다. Windows 10 이외의 디바이스 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다.
  
 ![디바이스 기반 조건](./media/require-managed-devices/46.png)
 
@@ -91,8 +91,9 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 - 직원이 정보에 액세스하고 공유하는 방식을 제어함으로써 회사 정보가 보호됩니다.
 - 디바이스와 해당 앱은 회사 보안 요구 사항을 준수합니다.
 
-> [!NOTE]
-> 규격 장치를 요구 하는 정책을 구성 하는 경우 사용자에 게 Mac, iOS 및 Android에서 정책 평가 중에 장치 인증서를 선택 하 라는 메시지가 표시 될 수 있습니다. 이것은 알려진 동작입니다.
+### <a name="known-behavior"></a>알려진 동작
+
+Windows 7, iOS, Android, macOS 및 일부 타사 웹 브라우저에서 Azure AD는 장치가 Azure AD에 등록 될 때 프로 비전 되는 클라이언트 인증서를 사용 하 여 장치를 식별 합니다. 사용자가 브라우저를 통해 처음으로 로그인 하면 사용자에 게 인증서를 선택 하 라는 메시지가 표시 됩니다. 최종 사용자는이 인증서를 선택 해야 브라우저를 계속 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

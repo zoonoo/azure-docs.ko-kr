@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 69e9e09b3f2c488f62732e0a74d212126826e8bf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 246af99cfec5ca41347da70e80bfc6dfff448eb3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368038"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -38,13 +38,13 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 | --- | --- | --- |
 | 동일한 클라우드 서비스의 Azure Cloud Services 역할 인스턴스 또는 동일한 가상 네트워크에 위치한 VM 간 이름을 확인합니다. | [Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) |호스트 이름 또는 FQDN |
 | 다른 클라우드 서비스의 역할 인스턴스 또는 다른 가상 네트워크의 VM 간 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 머신 간에 쿼리를 전달하는 [Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| 동일한 가상 네트워크에 있는 VM 또는 역할 인스턴스에 대한 가상 네트워크 통합을 사용하여 Azure App Service(웹앱, 함수, 봇)에서 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 머신 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| App Service Web Apps로부터 동일한 가상 네트워크의 VM에 대한 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 머신 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| 한 가상 네트워크의 App Service Web Apps로부터 다른 가상 네트워크의 VM까지 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 머신 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예:온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
+| 동일한 가상 네트워크에 있는 VM 또는 역할 인스턴스에 대한 가상 네트워크 통합을 사용하여 Azure App Service(웹앱, 함수, 봇)에서 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
+| App Service Web Apps로부터 동일한 가상 네트워크의 VM에 대한 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
+| 한 가상 네트워크의 App Service Web Apps로부터 다른 가상 네트워크의 VM까지 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
+| Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인. |해당 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server) |적용되지 않음 |
-| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |사용할 수 없습니다. 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |적용되지 않음|
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |적용되지 않음|
 
 ## <a name="azure-provided-name-resolution"></a>Azure에서 제공하는 이름 확인
 
@@ -193,22 +193,16 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 
 > [!NOTE]
 > DNS 서버 Ip와 같은 네트워크 연결 속성은 Vm 내에서 직접 편집 하면 안 됩니다. 가상 네트워크 어댑터가 교체될 때 서비스 복구 동안 지워질 수 있기 때문입니다. 이는 Windows 및 Linux Vm 둘 다에 적용 됩니다.
->
->
 
 Azure Resource Manager 배포 모델을 사용하는 경우 가상 네트워크 및 가상 인터페이스에 대해 DNS 서버를 지정할 수 있습니다. 자세한 내용은 [가상 네트워크 관리](manage-virtual-network.md) 및 [네트워크 인터페이스 관리](virtual-network-network-interface.md)를 참조합니다.
 
 > [!NOTE]
 > 가상 네트워크에 사용자 지정 DNS 서버를 포함하려는 경우에는 DNS 서버 IP 주소를 하나 이상 지정해야 합니다. 이렇게 하지 않으면 가상 네트워크에서 구성을 무시하고 Azure에서 제공하는 DNS를 대신 사용합니다.
->
->
 
 클래식 배포 모델을 사용할 때 Azure Portal 또는 [네트워크 구성 파일](https://msdn.microsoft.com/library/azure/jj157100)에서 가상 네트워크에 대한 DNS 서버를 지정할 수 있습니다. 클라우드 서비스의 경우 DNS 서버는 [서비스 구성 파일](https://msdn.microsoft.com/library/azure/ee758710)을 통해 또는 [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm)을 사용하여 지정할 수 있습니다.
 
 > [!NOTE]
-> 이미 배포 된 가상 네트워크 또는 가상 머신에 대 한 DNS 설정을 변경 하는 경우 새 DNS 설정을 적용 하려면 가상 네트워크에서 영향을 받는 모든 Vm에 대해 DHCP 임대 갱신을 수행 해야 합니다. Windows OS를 실행 하는 Vm의 경우 VM에서 직접 `ipconfig /renew`를 입력 하 여이 작업을 수행할 수 있습니다. 이러한 단계는 OS에 따라 달라 집니다. 해당 OS 유형에 대 한 관련 설명서를 참조 하세요. 
->
->
+> 이미 배포 된 가상 네트워크 또는 가상 머신에 대 한 DNS 설정을 변경 하는 경우 새 DNS 설정을 적용 하려면 가상 네트워크에서 영향을 받는 모든 Vm에 대해 DHCP 임대 갱신을 수행 해야 합니다. Windows OS를 실행 하는 Vm의 경우 VM에서 직접 `ipconfig /renew`를 입력 하 여이 작업을 수행할 수 있습니다. 이러한 단계는 OS에 따라 달라 집니다. 해당 OS 유형에 대 한 관련 설명서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

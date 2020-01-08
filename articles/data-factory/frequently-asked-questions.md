@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674723"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644701"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
@@ -81,8 +81,8 @@ SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS
 -   프로젝트/패키지의 SSISDB (SSIS 데이터베이스)를 호스트 하는 Azure SQL Database의 세 가지 구성/변형 지원:
 -   가상 네트워크 서비스 끝점을 사용 하 여 SQL Database
 -   Managed Instance
--   탄력적 풀
--   Azure SSIS 통합 런타임을 가상 네트워크 서비스를 사용 하 여 SQL Database에 대해 구성 된 가상 네트워크에 삽입/조인할 수 있는 기존 가상 네트워크를 기반으로 하는 Azure Resource Manager 가상 네트워크에 대 한 지원은 나중에 사용 되지 않습니다. 엔드포인트/MI/온-프레미스 데이터 액세스 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md)을 참조 하세요.
+-   Elastic Pool
+-   Azure SSIS 통합 런타임을 가상 네트워크 서비스 엔드포인트/MI/온-프레미스 데이터 액세스를 사용 하 여 SQL Database에 대해 구성 된 가상 네트워크에 삽입/조인할 수 있도록 하는, 향후에는 클래식 가상 네트워크를 기반으로 하는 Azure Resource Manager 가상 네트워크가 지원 되지 않습니다. 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md)을 참조 하세요.
 -   Azure 리소스에 대 한 Data Factory 관리 id로 azure AD 인증을 허용 하 여 SSISDB에 연결할 수 있는 azure AD (Azure Active Directory) 인증 및 SQL 인증 지원
 -   Azure 하이브리드 혜택 옵션을 사용 하 여 비용을 크게 절감할 수 있도록 온-프레미스 SQL Server 라이선스 가져오기 지원
 -   고급/프리미엄 기능, 추가 구성 요소/확장을 설치 하기 위한 사용자 지정 설치 인터페이스 및 파트너 에코 시스템을 사용할 수 있는 Azure SSIS 통합 런타임의 Enterprise Edition에 대 한 지원입니다. 자세한 내용은 [Enterprise Edition, 사용자 지정 설정 및 ADF의 SSIS에 대 한 타사 확장성](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/)을 참조 하세요. 
@@ -101,7 +101,7 @@ Integration runtime은 다양 한 네트워크 환경에서 다음과 같은 데
 자세한 내용은 [Azure Data Factory의 Integration Runtime](concepts-integration-runtime.md)을 참조하세요.
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>통합 런타임의 수 제한은 얼마입니까?
-Data Factory에서 사용할 수 있는 Integration Runtimes 인스턴스의 수에는 엄격한 제한이 없습니다. 하지만 Integration Runtime이 SSIS 패키지 실행을 위해 구독당 사용할 수 있는 VM 코어 수는 제한되어 있습니다. 자세한 내용은 [Data Factory 제한](../azure-subscription-service-limits.md#data-factory-limits)을 참조하세요.
+Data Factory에서 사용할 수 있는 Integration Runtimes 인스턴스의 수에는 엄격한 제한이 없습니다. 하지만 Integration Runtime이 SSIS 패키지 실행을 위해 구독당 사용할 수 있는 VM 코어 수는 제한되어 있습니다. 자세한 내용은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)을 참조하세요.
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Azure Data Factory의 최상위 개념은 무엇인가요?
 Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data Factory)가 있을 수 있습니다. Azure Data Factory는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼으로서 함께 작동하는 네 가지 핵심 구성 요소로 구성됩니다.
@@ -252,22 +252,22 @@ ADF (Azure Data Factory)는 데이터 엔지니어와 시민 데이터 통합자
 * nchar
 * varchar
 * nvarchar
-* 정수
+* integer
 * int
 * bit
-* 부울
+* boolean
 * smallint
 * tinyint
 * bigint
 * long
-* 텍스트
+* text
 * date
-* datetime
+* Datetime
 * datetime2
 * smalldatetime
 * timestamp
 * uniqueidentifier
-* xml
+* Xml
 
 다른 데이터 형식은 나중에 지원 될 예정입니다.
 

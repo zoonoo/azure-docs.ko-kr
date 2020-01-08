@@ -1,25 +1,14 @@
 ---
-title: PowerShell을 사용하여 Service Fabric 앱 업그레이드 | Microsoft Docs
+title: PowerShell을 사용하여 Service Fabric 앱 업그레이드
 description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 애플리케이션의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: db0627c72ea6e7e3b272b818697b8e61b485be78
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: b113b5a1042518e3b0d86e53796c5fe49afed418
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426794"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 애플리케이션 업그레이드
 > [!div class="op_single_selector"]
@@ -34,7 +23,7 @@ ms.locfileid: "72167523"
 
 모니터링되는 애플리케이션 업그레이드는 관리 또는 네이티브 API, PowerShell, Azure CLI, Java 또는 REST를 사용하여 수행할 수 있습니다. Visual Studio를 사용하여 업그레이드를 수행하는 지침은 [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
-서비스 패브릭 모니터링되는 롤링 업그레이드는 애플리케이션 관리자가 서비스 패브릭이 사용하여 애플리케이션이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패했을 때 자동 롤백과 같은 수행할 작업을 구성할 수 있습니다. 이 섹션에서는 PowerShell을 사용하는 SDK 샘플 중 하나에 대해 모니터링되는 업그레이드를 연습합니다. 
+서비스 패브릭 모니터링되는 롤링 업그레이드는 애플리케이션 관리자가 서비스 패브릭이 사용하여 애플리케이션이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패할 경우 수행할 작업을 구성할 수 있습니다 (예: 자동 롤백 수행). 이 섹션에서는 PowerShell을 사용 하는 SDK 샘플 중 하나에 대해 모니터링 되는 업그레이드를 안내 합니다. 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 배포
 애플리케이션 프로젝트, **VisualObjectsApplication**을 마우스 오른쪽 단추로 클릭하고 **게시** 명령을 선택하여 애플리케이션을 빌드 및 게시합니다.  자세한 내용은 [서비스 패브릭 애플리케이션 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.  또는 PowerShell을 사용하여 애플리케이션을 배포할 수 있습니다.
@@ -74,7 +63,7 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 
 이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **Build** 옵션을 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드**를 선택한 경우 코드가 변경되었으므로 모든 프로젝트의 버전을 업데이트해야 합니다. 다음으로, ***VisualObjectsApplication***을 마우스 오른쪽 단추로 클릭하고, 서비스 패브릭 메뉴를 선택하고, **패키지**를 선택하여 업데이트된 애플리케이션을 패키지해 봅니다. 이 작업을 수행하면 배포 가능한 애플리케이션 패키지가 만들어집니다.  업데이트된 애플리케이션의 배포 준비가 되었습니다.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3단계:  상태 정책 결정 및 매개 변수 업그레이드
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3단계: 상태 정책 결정 및 매개 변수 업그레이드
 [애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하세요. 이 연습에서는 서비스 상태 평가 조건이 모든 서비스 및 인스턴스가 업그레이드 후에 *정상* 이 되어야 함을 의미하는 기본값(및 권장값)으로 설정됩니다.  
 
 그러나 *HealthCheckStableDuration*을 180초로 증가시켜 보겠습니다(그러면 서비스는 다음 업데이트 도메인으로 업그레이드를 진행하기 전에 적어도 120초간 정상이 됩니다).  또한 *UpgradeDomainTimeout*을 1200초로, *UpgradeTimeout*을 3000초로 설정해 보겠습니다.

@@ -11,14 +11,14 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/05/2017
+ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 231c8cb8e66d658ad49e02fd585f6c8a1593cb2d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374003"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 
@@ -28,7 +28,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 자동화된 스토리지 구성 설정을 사용하려면 가상 머신에는 다음과 같은 특성이 필요합니다.
 
@@ -96,7 +96,7 @@ Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내�
 
 기존 SQL Server VM의 경우 Azure 포털에서 일부 스토리지 설정을 수정할 수 있습니다. [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)를 열고 **개요**를 선택 합니다. SQL Server 개요 페이지에는 VM의 현재 저장소 사용량이 표시 됩니다. VM에 있는 모든 드라이브는 이 차트에 표시됩니다. 각 드라이브의 경우 스토리지 공간은 네 개의 섹션에 표시됩니다.
 
-* SQL 데이터
+* SQL data
 * SQL 로그
 * 기타(비 SQL 스토리지)
 * 사용할 수 있음
@@ -110,8 +110,7 @@ SQL Server VM 만들기 프로세스 중에 구성 된 드라이브에 대 한 �
 ![기존 SQL Server VM에 대한 스토리지 구성](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-
-## <a name="storage-configuration"></a>Storage 구성
+## <a name="storage-configuration"></a>스토리지 구성
 
 이 섹션에서는 SQL VM을 프로 비전 하는 동안 Azure에서 자동으로 수행 하는 저장소 구성 변경 내용 및 Azure Portal 구성에 대 한 참조를 제공 합니다.
 
@@ -124,7 +123,7 @@ SQL Server VM 만들기 프로세스 중에 구성 된 드라이브에 대 한 �
 
 Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만듭니다.
 
-| 설정 | Value |
+| 설정 | 값 |
 | --- | --- |
 | 스트라이프 크기 |256KB(데이터 웨어하우징); 64KB(트랜잭션) |
 | 디스크 크기 |각각 1TB |
@@ -141,7 +140,7 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만�
 
 다음 테이블에서는 사용할 수 있는 세 가지 워크로드 유형 옵션 및 이에 해당하는 최적화를 설명합니다.
 
-| 워크로드 유형 | 설명 | 최적화 |
+| 워크로드 유형 | Description | 최적화 |
 | --- | --- | --- |
 | **일반** |대부분의 워크로드를 지원하는 기본 설정 |없음 |
 | **트랜잭션 처리** |기존의 데이터베이스 OLTP 워크로드용으로 스토리지를 최적화합니다. |추적 플래그 1117<br/>추적 플래그 1118 |

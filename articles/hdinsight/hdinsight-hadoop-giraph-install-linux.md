@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/22/2019
-ms.openlocfilehash: f1ca536ffa2166df4ef6cf51654b7b410e72ea66
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.date: 12/26/2019
+ms.openlocfilehash: 1f6fd88ec492f26f6819dff099ec8fe53364ba0b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962053"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552256"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Apache Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
 HDInsight 클러스터에 Apache Giraph를 설치하는 방법을 알아봅니다. Hdinsight의 스크립트 작업 기능을 사용하면 bash 스크립트를 실행하여 클러스터를 사용자 지정할 수 있습니다. 클러스터를 만드는 도중 및 만든 후에 클러스터를 사용자 지정하는 데 스크립트를 사용할 수 있습니다.
 
-## <a name="whatis"></a>Giraph 정의
+## <a name="what-is-giraph"></a>Giraph 정의
 
 [Apache Giraph](https://giraph.apache.org/)를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다. Graph는 개체 간의 관계를 모델링합니다. 예를 들어 인터넷 또는 소셜 네트워크 상의 사람들 간 관계와 같은 대규모 네트워크의 라우터 간의 연결입니다. 그래프 처리를 통해 그래프의 개체 간 관계를 추론하여 다음을 수행할 수 있습니다.
 
@@ -31,22 +31,19 @@ HDInsight 클러스터에 Apache Giraph를 설치하는 방법을 알아봅니�
 > [!WARNING]  
 > HDInsight 클러스터와 함께 제공되는 구성 요소는 완벽하게 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하는 데 도움이 됩니다.
 >
-> Giraph와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원은 문제를 해결할 수 있습니다. 그렇지 않으면 해당 기술에 대한 전문 지식을 찾을 수 있는 오픈 소스 커뮤니티를 참조해야 합니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/)).
-
+> Giraph와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원은 문제를 해결할 수 있습니다. 그렇지 않으면 해당 기술에 대한 전문 지식을 찾을 수 있는 오픈 소스 커뮤니티를 참조해야 합니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. 또한 Apache 프로젝트에는 [https://apache.org](https://apache.org)에 대 한 프로젝트 사이트가 있습니다 (예: [Hadoop](https://hadoop.apache.org/)).
 
 ## <a name="what-the-script-does"></a>스크립트가 수행하는 작업
 
 이 스크립트는 다음 작업을 수행합니다.
 
-* Giraph를 `/usr/hdp/current/giraph`에 설치합니다.
+* `/usr/hdp/current/giraph`에 Giraph를 설치 합니다.
 
-* 클러스터에 대한 기본 스토리지(WASB)에 `giraph-examples.jar` 파일을 복사합니다. `/example/jars/giraph-examples.jar`
+* `giraph-examples.jar` 파일을 클러스터의 기본 저장소 (WASB)에 복사 합니다. `/example/jars/giraph-examples.jar`.
 
-## <a name="install"></a>스크립트 동작을 사용하여 Giraph 설치
+## <a name="install-giraph-using-script-actions"></a>스크립트 작업을 사용 하 여 Giraph 설치
 
-HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다음 위치에서 사용할 수 있습니다.
-
-    https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+HDInsight 클러스터에 Giraph를 설치 하는 샘플 스크립트는에서 제공 됩니다 `https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`
 
 이 섹션에서는 Azure 포털을 사용하여 클러스터를 만들면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
@@ -55,41 +52,37 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 > * Azure PowerShell
 > * Azure CLI
 > * HDInsight .NET SDK
-> * Azure 리소스 관리자 템플릿
+> * Azure Resource Manager 템플릿
 > 
 > 이미 실행 중인 클러스터에도 스크립트 동작을 적용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-1. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)의 단계를 사용하여 클러스터를 만들기 시작하지만 완료하지 마세요.
+1. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)의 단계를 사용 하 여 클러스터 만들기를 시작 합니다. 만들기를 완료 하지 마세요. **클래식 환경 만들기** 및 **사용자 지정 (크기, 설정, 앱)** 을 사용 해야 합니다.
 
-2. **선택적 구성** 섹션에서 **스크립트 동작**을 선택하고 다음 정보를 제공합니다.
+1. 이 예에서는 **클러스터 크기** 섹션에서 **작업자 노드 수** 는 2 이상 인지 확인 합니다.
 
-   * **이름**: 스크립트 동작의 이름을 입력합니다.
+1. **스크립트 동작** 섹션에서 다음 정보를 제공 합니다.
 
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+    |속성 |값 |
+    |---|---|
+    |스크립트 유형|- 사용자 지정|
+    |이름|Giraph 설치|
+    |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`|
+    |노드 유형|Head|
+    |매개 변수|비워 둠|
 
-   * **HEAD**: 이 항목을 선택합니다.
+    자세한 내용은 [클러스터를 만드는 동안 스크립트 작업 사용](./hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)을 참조 하세요.
 
-   * **WORKER**: 이 항목을 선택 취소된 상태로 둡니다.
+1. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)에서 설명한 대로 클러스터를 계속 만듭니다.
 
-   * **ZOOKEEPER**: 이 항목을 선택 취소된 상태로 둡니다.
-
-   * **PARAMETERS**: 이 필드는 공백으로 둡니다.
-
-3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 섹션의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
-
-4. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)에서 설명한 대로 클러스터를 계속 만듭니다.
-
-## <a name="usegiraph"></a>HDInsight에서 Giraph를 사용하는 방법
+## <a name="how-do-i-use-giraph-in-hdinsight"></a>HDInsight에서 Giraph을 사용 어떻게 할까요??
 
 클러스터를 만든 후 다음 단계를 사용하여 Giraph에 포함된 SimpleShortestPathsComputation 예제를 실행합니다. 이 예제는 그래프의 개체 간 가장 짧은 경로를 찾기 위한 기본 [Pregel](https://people.apache.org/~edwardyoon/documents/pregel.pdf) 구현을 사용합니다.
 
-1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.
+1. [Ssh 명령을](./hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
 
-    ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
-
-    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 **tiny_graph.txt**라는 파일을 만듭니다.
 
@@ -127,23 +120,26 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
     yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
     ```
 
+    > [!IMPORTANT]
+    > `-w`에 전달 된 값은 실제 작업자 노드 수보다 작거나 같아야 합니다.
+
     이 명령에 사용되는 매개 변수를 다음 테이블에서 설명합니다.
 
-   | 매개 변수 | 기능 |
+   | 매개 변수 | 수행하는 작업 |
    | --- | --- |
-   | `jar` |예를 포함하는 jar 파일입니다. |
-   | `org.apache.giraph.GiraphRunner` |예를 시작하는 데 사용되는 클래스입니다. |
-   | `org.apache.giraph.examples.SimpleShortestPathsCoputation` |사용되는 예제입니다. 이 예제에서는 그래프에서 ID 1과 다른 모든 ID 사이의 최단 경로를 계산합니다. |
-   | `-ca mapred.job.tracker` |클러스터에 대한 헤드 노드입니다. |
-   | `-vif` |입력 데이터에 사용할 입력 형식입니다. |
-   | `-vip` |입력 데이터 파일입니다. |
-   | `-vof` |출력 형식입니다. 이 예제에서는 일반 텍스트인 ID 및 값입니다. |
-   | `-op` |출력 위치입니다. |
-   | `-w 2` |사용할 작업자의 수입니다. 이 예제에서는 2입니다. |
+   | 파일로 |예를 포함하는 jar 파일입니다. |
+   | giraph. GiraphRunner |예를 시작하는 데 사용되는 클래스입니다. |
+   | giraph. Simpleshortestpathscomputation 예제. |사용되는 예제입니다. 이 예제에서는 그래프에서 ID 1과 다른 모든 ID 사이의 최단 경로를 계산합니다. |
+   | -ca mapred. job. tracker |클러스터에 대한 헤드 노드입니다. |
+   | -vif |입력 데이터에 사용할 입력 형식입니다. |
+   | -vip |입력 데이터 파일입니다. |
+   | -vof |출력 형식입니다. 이 예제에서는 일반 텍스트인 ID 및 값입니다. |
+   | -op |출력 위치입니다. |
+   | -w 2 |사용할 작업자의 수입니다. 이 예제에서는 2입니다. |
 
     이 밖에 Giraph 샘플과 함께 사용된 기타 매개 변수에 대한 자세한 내용은 [Giraph 빠른 시작](https://giraph.apache.org/quick_start.html)을 참조하세요.
 
-6. 작업이 완료 되 면 결과는 **/example/out/shortestpaths** 디렉터리에 저장 됩니다. 출력 파일 이름은 **part-m-** 으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 다음 명령을 사용하여 출력을 봅니다.
+6. 작업이 완료 되 면 결과는 **/example/output/shortestpaths** 디렉터리에 저장 됩니다. 출력 파일 이름은 **부분-m** 으로 시작 하 고 첫 번째, 두 번째 등을 나타내는 숫자로 끝납니다. 다음 명령을 사용하여 출력을 봅니다.
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*
@@ -151,18 +147,20 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
     출력은 다음 텍스트와 유사합니다.
 
-        0    1.0
-        4    5.0
-        2    2.0
-        1    0.0
-        3    1.0
+    ```output
+    0    1.0
+    4    5.0
+    2    2.0
+    1    0.0
+    3    1.0
+    ```
 
     SimpleShortestPathComputation 예제는 개체 ID 1로 시작하도록 하드 코딩되며 다른 개체에 대한 가장 짧은 경로를 찾습니다. 출력은 `destination_id` 및 `distance` 형식입니다. `distance`는 가장자리를 기준으로 개체 ID 1과 대상 ID 간의 거리 값(또는 가중치)입니다.
 
-    이 데이터를 시각화하면 ID 1과 다른 모든 개체 간의 가장 짧은 경로를 이동하여 결과를 확인할 수 있습니다. ID 1과 ID 4 간의 가장 짧은 경로는 5입니다. 이 값은 <span style="color:orange">ID 1과 3</span> 사이의 총 거리와 <span style="color:red">ID 3과 4</span> 사이의 총 거리입니다.
+    이 데이터를 시각화하면 ID 1과 다른 모든 개체 간의 가장 짧은 경로를 이동하여 결과를 확인할 수 있습니다. ID 1과 ID 4 간의 가장 짧은 경로는 5입니다. 이 값은 ID 1과 3 사이의 총 거리 이며 그 다음에는 ID 3과 4 사이의 총 거리입니다.
 
     ![가장 짧은 경로와 함께 원으로 그린 개체](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph-out.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다.
+[HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다.

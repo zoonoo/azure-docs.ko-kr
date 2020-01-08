@@ -1,5 +1,6 @@
 ---
-title: CloudSimple CloudSimple 유지 관리 및 업데이트용 Azure VMware 솔루션
+title: CloudSimple 유지 관리 및 업데이트
+titleSuffix: Azure VMware Solution by CloudSimple
 description: 예약 된 유지 관리 및 업데이트에 대 한 CloudSimple 서비스 프로세스를 설명 합니다.
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877942"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372826"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 유지 관리 및 업데이트
 
@@ -38,7 +39,7 @@ CloudSimple은 다음 오류를 지속적으로 모니터링 합니다.
 * 실제 NIC 포트
 * 서버
 * 팬
-* 전원
+* Power
 * 스위치
 * 스위치 포트
 

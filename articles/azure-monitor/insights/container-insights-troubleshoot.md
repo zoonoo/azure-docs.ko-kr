@@ -1,31 +1,27 @@
 ---
 title: 컨테이너용 Azure Monitor 문제 해결 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor의 문제를 해결하는 방법을 설명합니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 3d6ed3b13c134d8e9c1df72ae2cb880a477a803a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17a2817b320599b2aa2c331c354d316b9d864a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403374"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 문제 해결
 
 컨테이너용 Azure Monitor로 Azure Kubernetes Service(AKS) 클러스터 모니터링을 구성할 때 데이터 컬렉션 또는 상태 보고를 방지하는 문제가 발생할 수 있습니다. 이 문서에서는 몇 가지 일반적인 문제 및 문제 해결 단계를 자세히 설명합니다.
 
 ## <a name="authorization-error-during-onboarding-or-update-operation"></a>등록 또는 업데이트 작업 중에 권한 부여 오류가 발생 했습니다.
-컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하거나 메트릭을 수집 하도록 클러스터를 업데이트 하는 동안 다음과 유사한 오류가 표시 될 수 있습니다. *개체 id가 ' < 사용자의 objectId > ' 인 클라이언트 < 사용자의 id > '에 대 한 권한이 부여 되지 않습니다. 범위에 대해 ' Microsoft Authorization/roleAssignments/write ' 작업을 수행* 합니다.
+컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하거나 메트릭을 수집 하도록 클러스터를 업데이트 하는 동안 다음과 유사한 오류가 발생할 수 있습니다. *개체 id가 ' < 사용자의 objectId > ' 인 클라이언트 < 사용자 id > '은 (는) 범위에 대해 ' Microsoft 권한 부여/roleAssignments/write ' 작업을 수행할 수 있는 권한이 없습니다* .
 
 온 보 딩 또는 업데이트 프로세스 중에 클러스터 리소스에서 **모니터링 메트릭 게시자** 역할 할당을 시도 합니다. 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 프로세스를 시작 하거나 메트릭을 수집 하도록 업데이트 하는 프로세스를 시작 하는 사용자는 AKS 클러스터 리소스 범위에 대 한 **Microsoft Authorization/roleAssignments/write** 권한에 액세스할 수 있어야 합니다. **소유자** 및 **사용자 액세스 관리자** 기본 제공 역할의 멤버만이 사용 권한에 대 한 액세스 권한을 부여 받습니다. 보안 정책에서 세부적인 수준 권한 할당을 요구 하는 경우 [사용자 지정 역할](../../role-based-access-control/custom-roles.md) 을 보고 필요한 사용자에 게 할당 하는 것이 좋습니다. 
 
 다음 단계를 수행 하 여 Azure Portal에서이 역할을 수동으로 부여할 수도 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Kubernetes**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Azure Kubernetes**를 선택 합니다.
 3. Kubernetes 클러스터 목록에서 목록 중 하나를 선택 합니다.
 2. 왼쪽 메뉴에서 **액세스 제어 (IAM)** 를 클릭 합니다.

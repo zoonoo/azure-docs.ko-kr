@@ -1,5 +1,6 @@
 ---
-title: Microsoft Azure Cloud Services FAQ에 대한 연결 및 네트워킹 문제 | Microsoft Docs
+title: 연결 및 네트워킹 문제
+titleSuffix: Azure Cloud Services
 description: 이 문서는 Microsoft Azure Cloud Services의 연결 및 네트워킹에 대한 질문과 대답을 나열합니다.
 services: cloud-services
 documentationcenter: ''
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386751"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services에 대 한 연결 및 네트워킹 문제: FAQ(질문과 대답)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 연결 및 네트워킹 문제: FAQ(질문과 대답)
 
 이 문서는 [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 연결 및 네트워킹에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md)를 참조하세요.
 
@@ -71,7 +72,7 @@ IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 
-기본 URL/클라우드 서비스의 이름에 들어오는 트래픽을 방지할 수 있습니다(예를 들어 \*.cloudapp.net). 표시 된 대로 클라우드 서비스 정의 (* .csdef) 파일의 사이트 바인딩\.구성에서 호스트 헤더를 사용자 지정 DNS 이름 (예: www MyCloudService.com)으로 설정 합니다.
+기본 URL/클라우드 서비스의 이름에 들어오는 트래픽을 방지할 수 있습니다(예를 들어 \*.cloudapp.net). 표시 된 대로 클라우드 서비스 정의 (* .csdef) 파일의 사이트 바인딩 구성에서 호스트 헤더를 사용자 지정 DNS 이름 (예: www\.MyCloudService.com)으로 설정 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

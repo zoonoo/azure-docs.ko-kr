@@ -3,21 +3,21 @@ title: Azure 클라우드 서비스 모니터링 | Microsoft Docs
 description: Azure 클라우드 서비스에 포함되는 모니터링 기능과 사용 가능한 일부 옵션에 대해 설명합니다.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
-ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359104"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386071"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
 
-클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 모든 클라우드 서비스 역할은 CPU 사용량, 네트워크 사용량, 디스크 사용률 등의 최소 데이터를 수집합니다. `Microsoft.Azure.Diagnostics` 확장이 적용된 클라우드 서비스 역할은 추가 데이터 요소를 수집할 수 있습니다. 이 문서에서는 Cloud Services용 Azure Diagnostics 기능을 소개합니다.
+클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 모든 클라우드 서비스 역할은 최소 데이터에 해당하는 CPU 사용량, 네트워크 사용량 및 디스크 사용률을 수집합니다. `Microsoft.Azure.Diagnostics` 확장이 적용된 클라우드 서비스 역할은 추가 데이터 요소를 수집할 수 있습니다. 이 문서에서는 Cloud Services용 Azure Diagnostics 기능을 소개합니다.
 
 기본 모니터링을 사용할 경우 역할 인스턴스의 성능 카운터 데이터는 3분 간격으로 샘플링되고 수집됩니다. 이 기본 모니터링 데이터는 스토리지 계정에 저장되지 않으며, 추가 비용도 부과되지 않습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "68359104"
 각 역할을 만들 때 Visual Studio는 역할에 Azure Diagnostics 확장을 추가합니다. 이 진단 확장은 다음과 같은 유형의 정보를 수집할 수 있습니다.
 
 * 사용자 지정 성능 카운터
-* 응용 프로그램 로그
+* 애플리케이션 로그 전송 사용
 * Windows 이벤트 로그
 * .NET 이벤트 원본
 * IIS 로그
@@ -96,4 +96,7 @@ Application Insights를 사용하여 Microsoft Azure Diagnostics 확장을 통�
 
 - [Application Insights 및 Cloud Services에 대한 자세한 정보](../azure-monitor/app/cloudservices.md)
 - [성능 카운터 설정](diagnostics-performance-counters.md)
+
+
+
 

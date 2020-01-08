@@ -1,19 +1,14 @@
 ---
 title: 컨테이너 배포에 대 한 Azure Monitor 보기 (미리 보기) | Microsoft Docs
 description: 이 문서에서는 컨테이너에 Azure Monitor kubectl을 사용 하지 않고 Kubernetes 배포에 대 한 실시간 보기를 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: c7135aec98936b5247b39ae659e21735168bd289
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404766"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>실시간으로 배포 (미리 보기)를 보는 방법
 
@@ -27,7 +22,7 @@ ms.locfileid: "73514382"
 
 자세히 알아보려면 [배포](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)에 대 한 Kubernetes 설명서를 검토 하세요. 
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 라이브 데이터 (미리 보기) 기능은 Kubernetes API에 직접 액세스할 수 있으며 인증 모델에 대 한 추가 정보는 [여기](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)에서 찾을 수 있습니다. 
 

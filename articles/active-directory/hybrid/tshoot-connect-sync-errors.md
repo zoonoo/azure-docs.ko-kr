@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d824606b1b602d006e53be619d6d955ac2cfb71f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 745ddcc95bb91e61478307265aec1ac8a7ebba54
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213024"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609199"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -29,7 +29,7 @@ ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure A
 
 Azure AD Connect \(2016년 8월 이상\)의 최신 버전에서는 [Azure Portal](https://aka.ms/aadconnecthealth)에서 동기화에 대한 Azure AD Connect Health의 일환으로 동기화 오류 보고서를 제공합니다.
 
-2016년 9월 1일부터 모든 [새](how-to-connect-syncservice-duplicate-attribute-resiliency.md) Azure Active Directory 테넌트에 대해 *Azure Active Directory Duplicate Attribute Resiliency* 기능이 기본적으로 활성화됩니다. 향후 몇 달 안에 기존 테넌트에 대해 이 기능이 자동으로 활성화될 것입니다.
+2016년 9월 1일부터 모든 *새* Azure Active Directory 테넌트에 대해 [Azure Active Directory Duplicate Attribute Resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) 기능이 기본적으로 활성화됩니다. 향후 몇 달 안에 기존 테넌트에 대해 이 기능이 자동으로 활성화될 것입니다.
 
 Azure AD Connect는 가져오기, 동기화, 내보내기 등, 동기 상태를 유지하는 디렉터리로부터 3가지 유형의 작업을 수행합니다. 오류는 모든 작업에서 발생할 수 있습니다. 이 문서는 주로 Azure AD로 내보내는 중 발생하는 오류에 초점을 맞춥니다.
 
@@ -41,7 +41,7 @@ Azure AD로 내보내는 중 오류는 Azure Active Directory에서 Azure AD Con
 
 ## <a name="data-mismatch-errors"></a>데이터 불일치 오류
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
-#### <a name="description"></a>설명
+#### <a name="description"></a>Description
 * Azure AD Connect \(동기화 엔진\)이 Azure Active Directory에 개체 추가 또는 업데이트를 지시하면 Azure AD는 **sourceAnchor** 특성을 사용하여 들어오는 개체를 Azure AD 개체의 **immutableId** 특성과 일치시킵니다. 이 일치를 **하드 일치**라고 합니다.
 * Azure AD가 **immutableId** 특성과 들어오는 개체의 **sourceAnchor** 특성이 일치하는 개체를 **찾지 못하면** 새 개체를 프로비전하기 전에 다시 ProxyAddresses 및 UserPrincipalName 특성을 사용하여 일치를 찾습니다. 이 일치를 **소프트 일치**라고 합니다. 소프트 일치는 Azure AD에 이미 있는 개체(Azure AD가 출처)를, 온-프레미스에서 동일한 엔터티(사용자, 그룹)를 나타내는 동기화 중에 추가/업데이트되는 새 개체와 일치시키도록 설계되었습니다.
 * **InvalidSoftMatch** 오류는 하드 일치에서 일치하는 개체를 찾지 **못했고,** 소프트 매치에서는 일치하는 개체를 찾았으나 이 개체에 이미 수신 개체의 *SourceAnchor*와 다른 *immutableId* 값이 있어 이 일치하는 개체가 온-프레미스 Active Directory의 다른 개체와 동기화되었음을 나타내는 경우에 발생합니다.
@@ -109,7 +109,7 @@ InvalidSoftMatch 오류가 발생하는 가장 일반적인 원인은 SourceAnch
 * [Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
-#### <a name="description"></a>설명
+#### <a name="description"></a>Description
 Azure AD가 두 개체의 소프트 일치를 시도할 때 "개체 유형"(예: 사용자, 그룹, 연락처 등)이 다른 두 개체가 소프트 일치 수행에 사용된 특성에 대해 동일한 값을 가질 수 있습니다. 이러한 특성의 중복은 Azure AD에서 허용되지 않으므로 이 작업에서 "ObjectTypeMismatch" 동기화 오류가 발생합니다.
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>ObjectTypeMismatch 오류의 예제 시나리오
@@ -130,7 +130,7 @@ ObjectTypeMismatch 오류의 가장 일반적인 원인은 두 개체의 다른 
 
 ## <a name="duplicate-attributes"></a>중복 특성
 ### <a name="attributevaluemustbeunique"></a>AttributeValueMustBeUnique
-#### <a name="description"></a>설명
+#### <a name="description"></a>Description
 Azure Active Directory 스키마에서는 다음 특성의 값이 둘 이상의 개체에서 동일할 수 없습니다. Azure AD의 각 개체는 특정 인스턴스에서 다음 특성에 대해 고유한 값을 가져야 합니다.
 
 * ProxyAddresses
@@ -168,21 +168,21 @@ AttributeValueMustBeUnique 오류가 발생하는 가장 일반적인 원인은 
 
 ## <a name="data-validation-failures"></a>데이터 유효성 검사 실패
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
-#### <a name="description"></a>설명
+#### <a name="description"></a>Description
 Azure Active Directory는 데이터를 디렉터리에 쓰도록 허용하기 전에 데이터 자체에 다양한 제약을 적용합니다. 이러한 제한은 애플리케이션을 사용하는 동안 최종 사용자에게 가능한 최적의 환경을 제공하기 위한 것으로, 이 데이터가 환경을 좌우합니다.
 
 #### <a name="scenarios"></a>시나리오
-가. UserPrincipalName 특성 값에 잘못된/지원되지 않는 문자가 있습니다.
+a. UserPrincipalName 특성 값에 잘못된/지원되지 않는 문자가 있습니다.
 b. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
 
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>IdentityDataValidationFailed 오류 해결 방법
-가. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르는지 확인합니다.
+a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르는지 확인합니다.
 
 #### <a name="related-articles"></a>관련 문서
 * [Office 365 디렉터리 동기화를 통한 사용자 프로비전 준비](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
-#### <a name="description"></a>설명
+#### <a name="description"></a>Description
 이 경우는 사용자의 UserPrincipalName 접미사가 한 페더레이션된 도메인에서 다른 페더레이션된 도메인으로 변경되었을 때 **“FederatedDomainChangeError”** 동기화 오류를 초래합니다.
 
 #### <a name="scenarios"></a>시나리오
@@ -204,7 +204,7 @@ b. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
 * [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 한 특성이 Azure Active Directory 스키마에서 정한 허용된 크기 제한, 길이 제한 또는 수 제한을 초과할 경우 동기화 작업에서 **LargeObject** 또는 **ExceededAllowedLength** 동기화 오류가 발생합니다. 일반적으로 이 오류는 다음 특성에 대해 발생합니다.
 
 * userCertificate
@@ -223,7 +223,7 @@ b. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
 
 ## <a name="existing-admin-role-conflict"></a>기존 관리자 역할 충돌
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 **기존 관리자 역할 충돌**은 해당 사용자 개체에 다음이 있는 경우 동기화하는 동안 사용자 개체에서 발생합니다.
 
 - 관리자 권한 및
@@ -235,16 +235,16 @@ Azure AD Connect는 온-프레미스 AD의 사용자 개체를 관리자 역할�
 
 
 ### <a name="how-to-fix"></a>해결 방법
-이 문제를 해결하려면 다음 중 하나를 수행합니다.
+이 문제를 해결하려면 다음을 수행합니다.
 
- - 모든 관리자 역할에서 Azure AD 계정 (소유자)을 제거 합니다. 
- - 클라우드에서 격리 된 개체를 **하드 삭제** 합니다. 
- - 다음 동기화 주기는 클라우드 계정에 대 한 온-프레미스 사용자의 소프트 일치를 처리 합니다 (클라우드 사용자는 이제 더 이상 전역 GA는 아님). 
- - 소유자의 역할 멤버 자격을 복원 합니다. 
+1. 모든 관리자 역할에서 Azure AD 계정 (소유자)을 제거 합니다. 
+2. 클라우드에서 격리 된 개체를 **하드 삭제** 합니다. 
+3. 다음 동기화 주기는 클라우드 계정에 대 한 온-프레미스 사용자의 소프트 일치를 처리 합니다 (클라우드 사용자는 이제 더 이상 전역 GA는 아님). 
+4. 소유자의 역할 멤버 자격을 복원 합니다. 
 
 >[!NOTE]
 >온-프레미스 사용자 개체와 Azure AD 사용자 개체 간의 소프트 일치가 완료된 후 기존 사용자 개체에 관리자 역할을 다시 할당할 수 있습니다.
 
-## <a name="related-links"></a>관련 링크
+## <a name="related-links"></a>관련된 링크
 * [Active Directory 관리 센터에서 Active Directory 개체 찾기](https://technet.microsoft.com/library/dd560661.aspx)
 * [Azure Active Directory PowerShell을 사용하여 개체에 대해 Azure Active Directory를 쿼리하는 방법](https://msdn.microsoft.com/library/azure/jj151815.aspx)

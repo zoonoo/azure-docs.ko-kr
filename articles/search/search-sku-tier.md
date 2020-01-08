@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d691759f1075a08ad13ec1199eb8af7fd634f5a1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427024"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -26,8 +26,6 @@ Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된
 > [!NOTE] 
 > 패리티 기능에 대 한 예외는 S3 HD에서 사용할 수 없는 [인덱서](search-indexer-overview.md)입니다.
 >
-
-<!-- For Basic tier and up, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with more resources/replicas offers better value and performance than a higher tier with fewer resources. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md). -->
 
 ## <a name="available-tiers"></a>사용 가능한 계층
 
@@ -78,7 +76,7 @@ Azure Cognitive Search을 기반으로 하는 솔루션은 다음과 같은 방�
 
 [AI 보강](cognitive-search-concept-intro.md)의 경우 azure Cognitive Search와 동일한 지역에 종 량 제 처리를 위한 S0 가격 책정 계층에서 [청구 가능한 azure Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)하도록 계획 해야 합니다. 연결 Cognitive Services와 관련 된 고정 비용은 없습니다. 필요한 처리에 대해서만 비용을 지불 하면 됩니다.
 
-| 작업(Operation) | 청구 영향 |
+| 작업 | 청구 영향 |
 |-----------|----------------|
 | 문서 크랙, 텍스트 추출 | 체험판 |
 | 문서 크랙, 이미지 추출 | 문서에서 추출 된 이미지의 수에 따라 요금이 청구 됩니다. [인덱서 구성](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageaction** 은 이미지 추출을 트리거하는 매개 변수입니다. **Imageaction** 이 "none" (기본값)으로 설정 된 경우 이미지 추출에 대 한 요금이 청구 되지 않습니다. 이미지 추출 율은 Azure Cognitive Search에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명 되어 있습니다.|
@@ -124,35 +122,6 @@ Azure Cognitive Search에서 용량은 *복제본* 및 *파티션으로*구성 �
 > [!NOTE]
 > 모든 표준 및 저장소 최적화 계층은 [복제본과 파티션의 유연한 조합을](search-capacity-planning.md#chart) 지원 하므로 잔액을 변경 하 여 [시스템을 속도 또는 저장소에 맞게 최적화할](search-performance-optimization.md) 수 있습니다. 기본 계층은 고가용성을 위해 최대 3 개의 복제본을 제공 하지만 파티션이 하나 뿐입니다. 무료 계층은 전용 리소스를 제공 하지 않습니다. 컴퓨팅 리소스는 여러 구독자가 공유 합니다.
 
-<!-- ## Consumption patterns
-
-On the low and high ends, Basic and S3 HD are for important but atypical consumption patterns. Basic is for small production workloads. It offers SLAs, dedicated resources, and high availability, but it provides modest storage, topping out at 2 GB total. This tier was engineered for customers that consistently underutilize available capacity. At the high end, S3 HD is for workloads typical of ISVs, partners, [multitenant solutions](search-modeling-multitenant-saas-applications.md), or any configuration that calls for a large number of small indexes. It's often clear when Basic or S3 HD is the right tier. If you want confirmation, you can post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) or [contact Azure support](https://azure.microsoft.com/support/options/) for guidance.
-
-The more commonly used standard tiers, S1 through S3, make up a progression of increasing levels of capacity. There are inflection points on partition size and limits on numbers of indexes, indexers, and corollary resources:
-
-|  | S1 | S2 | S3 |  |  |  |  |
-|--|----|----|----|--|--|--|--|
-| Partition size|  25 GB | 100 GB | 200 GB |  |  |  |  |
-| Index and indexer limits| 50 | 200 | 200 |  |  |  |  |
-
-S1 is a common choice for customers that need dedicated resources and multiple partitions. S1 offers partitions of 25 GB and up to 12 partitions, providing a per-service limit of 300 GB if you maximize partitions over replicas. (See [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced allocations.)
-
-The portal and pricing pages put the focus on partition size and storage, but, for each tier, all compute capabilities (disk capacity, speed, CPUs) generally increase linearly with price. An S2 replica is faster than S1, and S3 is faster than S2. S3 tiers break from the linear compute-pricing pattern with disproportionately faster I/O. If you expect I/O to be the bottleneck, keep in mind that you can get much more IOPS with S3 than you can get with lower tiers.
-
-S3 and S3 HD are backed by identical high-capacity infrastructure, but they reach their maximum limits in different ways. S3 targets a smaller number of very large indexes, so its maximum limit is resource-bound (2.4 TB for each service). S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limits in the form of index constraints. If you're an S3 HD customer and you need more than 1,000 indexes, contact Microsoft Support for information about how to proceed.
-
-> [!NOTE]
-> Document limits were a consideration at one time, but they're no longer applicable for new services. For information about conditions in which document limits still apply, see [Document limits](search-limits-quotas-capacity.md#document-limits).
->
-
-Storage Optimized tiers, L1 and L2, are ideal for applications with large data requirements but a relatively low number of end users, when minimizing query latency isn't the top priority.  
-
-|  | L1 | L2 |  |  |  |  |  |
-|--|----|----|--|--|--|--|--|
-| Partition size|  1 TB | 2 TB |  |  |  |  |  |
-| Index and indexer limits| 10 | 10 |  |  |  |  |  |
-
-L2 offers twice the overall storage capacity of L1.  Choose your tier based on the maximum amount of data that you think your index needs. The L1 tier partitions scale up in 1-TB increments to a maximum of 12 TB. The L2 partitions increase by 2 TBs per partition up to a maximum of 24 TB. -->
 
 ### <a name="evaluating-capacity"></a>용량 평가
 
@@ -160,7 +129,9 @@ L2 offers twice the overall storage capacity of L1.  Choose your tier based on t
 
 비즈니스 요구 사항에 따라 일반적으로 필요한 인덱스 수가 결정 됩니다. 예를 들어 문서에 대 한 많은 리포지토리의 전역 인덱스가 필요할 수 있습니다. 또는 지역, 응용 프로그램 또는 비즈니스 틈새을 기반으로 하는 인덱스가 여러 개 필요할 수 있습니다.
 
-인덱스의 크기를 결정하려면 [하나를 빌드](search-create-index-portal.md)해야 합니다. Azure Cognitive Search의 데이터 구조는 주로 원본 데이터와 특성이 다른 [반전 된 인덱스](https://en.wikipedia.org/wiki/Inverted_index) 구조입니다. 반전 된 인덱스의 경우 크기와 복잡성은 내용에 따라 결정 되며,이는 사용자가 제공 하는 데이터의 양이 아닐 수도 있습니다. 중복성이 높은 큰 데이터 원본을 사용 하면 가변 콘텐츠를 포함 하는 작은 데이터 집합 보다 더 작은 인덱스가 생성 될 수 있습니다. 따라서 원래 데이터 집합의 크기에 따라 인덱스 크기를 유추할 수 있는 경우는 거의 없습니다.
+인덱스의 크기를 결정하려면 [하나를 빌드](search-create-index-portal.md)해야 합니다. 이 크기는 확인 기, 필터링, 정렬 등을 사용 하도록 설정 했는지 여부와 같은 인덱스 구성과 가져온 데이터를 기반으로 합니다. 크기에 대 한 구성 영향에 대 한 자세한 내용은 [기본 인덱스 만들기 ](search-what-is-an-index.md)를 참조 하세요.
+
+전체 텍스트 검색의 경우 주 데이터 구조는 원본 데이터와 특성이 다른 [반전 된 인덱스](https://en.wikipedia.org/wiki/Inverted_index) 구조입니다. 반전 된 인덱스의 경우 크기와 복잡성은 내용에 따라 결정 되며,이는 사용자가 제공 하는 데이터의 양이 아닐 수도 있습니다. 중복성이 높은 큰 데이터 원본을 사용 하면 가변 콘텐츠를 포함 하는 작은 데이터 집합 보다 더 작은 인덱스가 생성 될 수 있습니다. 따라서 원래 데이터 집합의 크기에 따라 인덱스 크기를 유추할 수 있는 경우는 거의 없습니다.
 
 > [!NOTE] 
 > 인덱스 및 저장소에 대 한 향후 수요를 예측 하는 것이 추측 처럼 느껴질 수 있지만이 경우에는 충분 합니다. 계층의 용량이 너무 낮을 경우 더 높은 계층에서 새 서비스를 프로 비전 한 다음 [인덱스를 다시 로드](search-howto-reindex.md)해야 합니다. 한 SKU에서 다른 SKU로의 서비스 전체 업그레이드는 없습니다.
@@ -172,7 +143,7 @@ L2 offers twice the overall storage capacity of L1.  Choose your tier based on t
 
 + [무료 서비스를 만드세요](search-create-service-portal.md).
 + 작은 대표적인 데이터 집합을 준비 합니다.
-+ [포털에서 초기 인덱스를 작성](search-create-index-portal.md) 하 고 크기를 확인 합니다. 기능 및 특성은 저장소에 영향을 줍니다. 예를 들어 확인 기 (형식 미리)를 추가 하면 저장소 요구 사항이 증가 합니다. 동일한 데이터 집합을 사용 하면 각 필드에 서로 다른 특성을 사용 하 여 여러 버전의 인덱스를 만들어 저장소 요구 사항이 어떻게 달라 지는 지 확인할 수 있습니다. 자세한 내용은 [기본 인덱스 만들기의 "저장소 영향"](search-what-is-an-index.md#storage-implications)을 참조 하세요.
++ [포털에서 초기 인덱스를 작성](search-create-index-portal.md) 하 고 크기를 확인 합니다. 기능 및 특성은 저장소에 영향을 줍니다. 예를 들어 확인 기 (형식 미리)를 추가 하면 저장소 요구 사항이 증가 합니다. 동일한 데이터 집합을 사용 하면 각 필드에 서로 다른 특성을 사용 하 여 여러 버전의 인덱스를 만들어 저장소 요구 사항이 어떻게 달라 지는 지 확인할 수 있습니다. 자세한 내용은 [기본 인덱스 만들기의 "저장소 영향"](search-what-is-an-index.md#index-size)을 참조 하세요.
 
 대략적인 추정치를 사용 하는 경우 두 인덱스 (개발 및 프로덕션)에 대 한 예산에 해당 하는 금액을 두 배로 확보 하 고 그에 따라 계층을 선택할 수 있습니다.
 
@@ -216,7 +187,7 @@ QPS (초당 쿼리 수)는 성능 튜닝 중에 중요 한 메트릭입니다. �
 
 + 메트릭을 사용 하 여 쿼리를 작성 하 고 사용 패턴 (업무 시간 동안 쿼리, 사용량이 적은 시간 동안 인덱싱)에 대 한 데이터를 수집 합니다. 이 데이터를 사용 하 여 서비스 프로 비전 결정을 알립니다. 시간별 또는 일별 주기에서는 실용적이 지 않지만 쿼리 볼륨의 계획 된 변경 내용을 수용 하기 위해 파티션 및 리소스를 동적으로 조정할 수 있습니다. 또한 수준에서 조치를 취하는 데 충분 한 시간을 보유 하는 경우 계획 되지 않았지만 지속적으로 변경 될 수 있습니다.
 
-+ 프로 비전 중에는 실제 요구 사항이 예측 보다 큰 경우에만 서비스를 종료 해야 한다는 단점이 있습니다. 서비스 중단을 방지 하려면에서 상위 계층의 새 서비스를 만들고 모든 앱 및 요청이 새 끝점을 대상으로 할 때까지 함께 실행 합니다.
++ 프로 비전 중에는 실제 요구 사항이 예측 보다 큰 경우에만 서비스를 종료 해야 한다는 단점이 있습니다. 서비스 중단을 방지 하기 위해 더 높은 계층에서 새 서비스를 만들고 모든 앱 및 요청이 새 끝점을 대상으로 할 때까지 함께 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

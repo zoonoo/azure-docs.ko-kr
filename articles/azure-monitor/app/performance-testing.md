@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 9c86b69239bed1a15c754ce28232b97e8439942b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: db23fae6bb15e851d22e54b323428c061f55b34f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406560"
 ---
 # <a name="performance-testing"></a>성능 테스트
 
@@ -38,7 +38,7 @@ Azure Portal에서 **리소스 만들기** > **개발자 도구** > **Applicatio
 
 기본 성능 테스트를 만들려면 테스트 형식의 **수동 테스트** 를 선택 하 고 테스트에 필요한 설정을 입력 합니다.
 
-|설정| 최 댓 값
+|설정| 최댓값
 |----------|------------|
 | 사용자 부하 | 20,000 |
 | 기간 (분)  | 60 |  

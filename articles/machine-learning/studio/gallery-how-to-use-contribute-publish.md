@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 9fe52fc16b763a03738442bb49a4969244a1d3c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 492f6ed2775004c6fb013c6a9ead602cb3d2cea0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427551"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 
@@ -24,7 +24,7 @@ ms.locfileid: "73837591"
 
 ## <a name="what-can-i-find-in-the-gallery"></a>갤러리에는 어떤 응용 프로그램이 있습니까?
 
-Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 내용은 다음과 같습니다.
+Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 해당 지역은 다음과 같습니다.
 
 * **실험** -갤러리에는 Azure Machine Learning Studio (클래식)에서 개발 된 다양 한 실험이 포함 되어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
 * **자습서** - Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning 문제를 해결하기 위한 고급 방법을 설명하는 다양한 자습서가 있습니다.
@@ -59,15 +59,15 @@ AI Gallery 내에서 리소스를 다운로드하려면
 
 ![AI Gallery에서 항목 열기](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-클래식 버전의 Studio 내에서 리소스를 다운로드 하려면 다음을 수행 합니다.
+Studio (클래식) 내에서 리소스를 다운로드 하려면 다음을 수행 합니다.
 
-1. 클래식 버전의 Studio에서 **새로 만들기**를 선택 합니다.
+1. Studio (클래식)에서 **새로 만들기**를 선택 합니다.
 1. **모듈**, **실험** 또는 **노트**를 선택합니다.
 1. Gallery 리소스를 찾아보거나 검색합니다.
 1. 마우스로 리소스를 가리킨 다음, **Studio에서 열기**를 선택합니다.
     ![갤러리 내부 Machine Learning Studio (클래식)에서 갤러리 실험을 엽니다](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-리소스가 작업 영역에 있으면 클래식 버전의 Studio에서 만든 것과 같은 방식으로 사용자 지정 하 여 사용할 수 있습니다.
+리소스가 작업 영역에 있으면 Studio (클래식)에서 만든 것과 같은 방식으로 사용자 지정 하 여 사용할 수 있습니다.
 
 가져온 사용자 지정 모듈을 사용하려면
 
@@ -77,12 +77,12 @@ AI Gallery 내에서 리소스를 다운로드하려면
 
 ## <a name="contribute-experiments"></a>실험 기여
 
-분석 기법을 시연 하거나 다른 사용자에 게 솔루션에 대 한 빠른 시작을 제공 하기 위해 클래식 버전의 Studio에서 개발한 **실험** 에 기여할 수 있습니다.
+분석 기법을 시연 하거나 다른 사용자에 게 솔루션에 대 한 빠른 시작을 제공 하기 위해 스튜디오 (클래식)에서 개발한 **실험** 에 기여할 수 있습니다.
 다른 사용자가 Gallery에서 기고 내용을 찾으면 해당 기고 내용의 보기 및 다운로드 횟수를 확인할 수 있습니다.
 또한 사용자는 주석을 추가하고 자신의 기고 내용을 데이터 과학 커뮤니티의 다른 구성원과 공유할 수 있습니다.
 또한 Disqus와 같은 토론 도구에 로그인하여 기고 내용의 주석에 대한 알림을 받을 수 있습니다.
 
-1. 클래식 버전의 Studio에서 실험을 엽니다.
+1. Studio (클래식)에서 실험을 엽니다.
 
 1. 실험 캔버스 아래의 작업 목록에서 **Gallery에 게시**를 선택합니다.
 
@@ -149,9 +149,9 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 
 1. **새 항목**을 선택합니다.
 
-1. **설명** 페이지에서 **항목 형식**에 대해 **자습서** 또는 **컬렉션**을 선택합니다. 다른 사용자가 자습서를 찾는 데 도움이 되는 이름, 간략한 요약, 자세한 설명 및 태그를 입력합니다. 그런 후 **Next**를 클릭합니다.
+1. **설명** 페이지에서 **항목 형식**에 대해 **자습서** 또는 **컬렉션**을 선택합니다. 다른 사용자가 자습서를 찾는 데 도움이 되는 이름, 간략한 요약, 자세한 설명 및 태그를 입력합니다. 그런 후 **Next** 를 클릭합니다.
 
-1. **이미지 선택** 페이지에서 기고 내용과 함께 표시되는 이미지를 선택합니다. 사용자 고유의 이미지 파일을 업로드하거나 스톡 이미지를 선택할 수 있습니다. 사용자가 기고 내용의 콘텐츠 및 목적을 식별하는 데 도움이 될 수 있는 이미지를 선택합니다. 그런 후 **Next**를 클릭합니다.
+1. **이미지 선택** 페이지에서 기고 내용과 함께 표시되는 이미지를 선택합니다. 사용자 고유의 이미지 파일을 업로드하거나 스톡 이미지를 선택할 수 있습니다. 사용자가 기고 내용의 콘텐츠 및 목적을 식별하는 데 도움이 될 수 있는 이미지를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
 1. **설정** 페이지의 **표시 유형**에 대해 컬렉션이 **공개**(누구나 볼 수 있음)인지 또는 **비공개**(직접 링크가 있는 사람만 볼 수 있음)인지를 선택합니다.
 
@@ -177,7 +177,7 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 * 컬렉션의 항목에 메모를 추가하려면 항목의 오른쪽 위 모서리를 선택하고 **메모 추가/편집**을 선택합니다.
 * 컬렉션에서 항목을 제거하려면 항목의 오른쪽 위 모서리를 선택하고 **제거**를 선택합니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 **이미지 제출 또는 편집에 대한 요구 사항은 무엇인가요?**
 
@@ -195,10 +195,10 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 
 태그를 입력한 후 또 다른 태그를 입력하려면 Tab 키를 누릅니다.
 
-## <a name="we-want-to-hear-from-you"></a>사용자의 의견을 듣고 싶습니다!
+## <a name="we-want-to-hear-from-you"></a>많은 의견 부탁드립니다!
 
 사용자가 주도하는 사용자를 위한 갤러리를 원합니다. 오른쪽에 있는 웃는 얼굴을 사용하여 갤러리가 마음에 드는지 아니면 싫어하는지 알려주세요.  
 
-![사용자 의견](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![피드백](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[갤러리로 이동 >>](https://gallery.azure.ai)**

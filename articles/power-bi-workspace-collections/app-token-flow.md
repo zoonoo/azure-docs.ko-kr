@@ -1,5 +1,5 @@
 ---
-title: Power BI 작업 영역 컬렉션으로 인증 및 권한 부여 | Microsoft Docs
+title: 인증 및 권한 부여-Power BI 작업 영역 컬렉션
 description: Power BI 작업 영역 컬렉션으로 인증 및 권한 부여.
 services: power-bi-workspace-collections
 author: rkarlin
@@ -8,12 +8,12 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 713c56904769c133272db4fb65f8b596ab66804b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 8fcd7caffb041c57090d7256361421cb49a9a5fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427106"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 인증 및 권한 부여
 
@@ -36,7 +36,7 @@ REST 호출에서 키를 사용하려면 다음 권한 부여 헤더를 추가�
 
 앱 토큰은 다음 클레임을 포함할 수 있습니다.
 
-| 클레임 | 설명 |    
+| 클레임 | Description |    
 | --- | --- |
 | **ver** |앱 토큰의 버전으로 현재 버전은 0.2.0입니다. |
 | **aud** |토큰의 의도한 수신자입니다. Power BI 작업 영역 컬렉션의 경우 *https:\//analysis.windows.net/powerbi/api*를 사용합니다. |
@@ -140,10 +140,10 @@ Body
 
 ### <a name="operations-and-scopes"></a>작업 및 범위
 
-|연산|대상 리소스|토큰 사용 권한|
+|작업|대상 리소스|토큰 사용 권한|
 |---|---|---|
-|데이터 세트를 기반으로 새 메모리 내 보고서를 만듭니다.|데이터 집합|Dataset.Read|
-|데이터 세트를 기반으로 새 메모리 내 보고서를 만들고 보고서를 저장합니다.|데이터 집합|* Dataset.Read<br>* Workspace.Report.Create|
+|데이터 세트를 기반으로 새 메모리 내 보고서를 만듭니다.|데이터 세트|Dataset.Read|
+|데이터 세트를 기반으로 새 메모리 내 보고서를 만들고 보고서를 저장합니다.|데이터 세트|* Dataset.Read<br>* Workspace.Report.Create|
 |기존 메모리 내 보고서를 보고 탐색/편집합니다. Report.Read는 Dataset.Read를 의미합니다. Report.Read는 편집 내용 저장을 허용하지 않습니다.|보고서|Report.Read|
 |기존 보고서를 편집하고 저장합니다.|보고서|Report.ReadWrite|
 |보고서(다른 이름으로 저장)의 복사본을 저장합니다.|보고서|* Report.Read<br>* Workspace.Report.Copy|
@@ -172,7 +172,7 @@ Body
 
 ![애플리케이션에 포함된 보고서 샘플](media/get-started-sample/sample-web-app.png)
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Microsoft Power BI 작업 영역 컬렉션 시작 샘플](get-started-sample.md)  
@@ -180,4 +180,4 @@ Body
 [Microsoft Power BI 작업 영역 컬렉션 시작](get-started.md)  
 [PowerBI-CSharp Git 리포지토리](https://github.com/Microsoft/PowerBI-CSharp)
 
-궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](https://community.powerbi.com/)
+궁금한 사항이 있으면 [Power BI 커뮤니티를 이용하세요.](https://community.powerbi.com/)

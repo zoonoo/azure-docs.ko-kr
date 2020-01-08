@@ -4,15 +4,15 @@ description: 모니터의 용량 및 성능 솔루션을 사용 하 여 Hyper-v 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c444991166d9c7d3f1d8ed39e19e333d3c27f982
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899053"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405735"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션을 사용 하 여 Hyper-v 가상 머신 용량 계획 (사용 되지 않음)
 
@@ -40,14 +40,14 @@ ms.locfileid: "72899053"
 
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 지원 | 설명 |
+| 연결된 소스 | 지원 | Description |
 |---|---|---|
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | yes | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
+| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다.    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
-| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | yes |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
+| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
 | [Azure Storage 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - Windows 또는 Operations Manager 에이전트는 가상 머신이 아닌 Windows Server 2012 이상의 Hyper-V 호스트에 설치해야 합니다.
 
@@ -118,7 +118,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 다음 표는 이 솔루션에서 수집하고 계산한 용량 및 성능 데이터에 대한 샘플 로그 검색을 제공합니다.
 
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:--- |:--- |
 | 모든 호스트 메모리 구성 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | 모든 VM 메모리 구성 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |

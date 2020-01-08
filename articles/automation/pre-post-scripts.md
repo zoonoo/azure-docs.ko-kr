@@ -2,19 +2,15 @@
 title: Azure에서 업데이트 관리 배포에 대 한 사전 및 사후 스크립트 구성
 description: 이 문서에서는 업데이트 배포에 대 한 사전 스크립트 및 사후 스크립트를 구성 하 고 관리 하는 방법을 설명 합니다.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: a5d68b64fc24577621c82be62f833c356e8fb9c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 35fba966fcdb6d1c5cd7c531bb22c9c78ae16ff3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850247"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417793"
 ---
 # <a name="manage-pre-and-post-scripts"></a>사전 및 사후 스크립트 관리
 
@@ -72,7 +68,7 @@ Runbook을 사전 또는 사후 스크립트로 사용 하려면 runbook을 Auto
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 속성
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | 소프트웨어 업데이트 구성의 이름입니다.        |
 |SoftwareUpdateConfigurationRunId     | 실행의 고유 ID입니다.        |

@@ -1,19 +1,20 @@
 ---
-title: PowerShell을 사용 하 여 역할에 대해 원격 데스크톱을 사용 하도록 설정 합니다 (Azure Cloud Services).
+title: PowerShell을 사용 하 여 역할에 대해 원격 데스크톱을 사용 하도록 설정
+titleSuffix: Azure Cloud Services
 description: 원격 데스크톱 연결을 허용하기 위해 PowerShell을 사용하여 Azure 클라우드 서비스 애플리케이션을 구성하는 방법
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: cd36188cba91ad8a97e3f97896cf215a5f0220c2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.author: tagore
+ms.openlocfilehash: e4e8dca6c5359e865e6a17fc47fe47802b0ee9e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298413"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386122"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>PowerShell을 사용하여 Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
 
@@ -97,6 +98,8 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 >
 > **UninstallConfiguration** 매개 변수는 서비스에 적용된 모든 확장 구성을 제거합니다. 모든 확장 구성은 서비스 구성과 연결됩니다. **UninstallConfiguration** 없이 *remove* cmdlet을 호출하면 확장 구성에서 <mark>배포</mark>가 분리되어 확장이 효과적으로 제거됩니다. 그러나 확장 구성은 서비스와 연결된 상태로 유지됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure-portal.md)
+
+

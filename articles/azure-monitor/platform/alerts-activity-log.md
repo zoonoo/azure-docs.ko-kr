@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552805"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364801"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 활동 로그 경고 만들기, 보기 및 관리  
 
@@ -38,9 +38,9 @@ Azure Portal를 사용 하 여 활동 로그 경고 규칙을 만들고 수정�
 
 ### <a name="create-with-the-azure-portal"></a>Azure Portal를 사용 하 여 만들기
 
-다음 절차를 사용 합니다.
+다음 절차를 사용합니다.
 
-1. Azure Portal에서 **모니터**  > **경고**를 선택 합니다.
+1. Azure Portal에서 **모니터** > **경고**를 선택 합니다.
 2. **경고** 창의 왼쪽 위 모서리에서 **새 경고 규칙** 을 선택 합니다.
 
      ![새 경고 규칙](media/alerts-activity-log/AlertsPreviewOption.png)
@@ -51,11 +51,11 @@ Azure Portal를 사용 하 여 활동 로그 경고 규칙을 만들고 수정�
 
 3. **경고 조건 정의**에서 다음 정보를 입력 하 고 **완료**를 선택 합니다.
 
-   - **경고 대상:** 새 경고에 대 한 대상을 확인 하 고 선택 하려면 **구독으로 필터링**  / **리소스 유형별로 필터링**을 사용 합니다. 표시 된 목록에서 리소스 또는 리소스 그룹을 선택 합니다.
+   - **경고 대상:** 새 경고에 대 한 대상을 확인 하 고 선택 하려면 **구독으로 필터링** / **리소스 유형별로 필터링**을 사용 합니다. 표시 된 목록에서 리소스 또는 리소스 그룹을 선택 합니다.
 
      > [!NOTE]
      > 
-     > 활동 로그 신호의 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 추적 된 리소스, 리소스 그룹 또는 전체 구독만을 선택할 수 있습니다. 
+     > 활동 로그 신호의 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 추적 된 리소스, 리소스 그룹 또는 전체 구독만을 선택할 수 있습니다. 
 
      **경고 대상 샘플 보기**
 
@@ -92,7 +92,7 @@ Azure Portal를 사용 하 여 활동 로그 경고 규칙을 만들고 수정�
 5. **작업 그룹** 아래의 드롭다운 메뉴에서 이 새 경고 규칙에 할당할 작업 그룹을 지정합니다. 또는 [새 작업 그룹을 만들고](../../azure-monitor/platform/action-groups.md) 새 규칙에 할당 합니다. 새 그룹을 만들려면 **+ 새 그룹**을 선택 합니다.
 
 6. 규칙을 만든 후에 설정 하려면 규칙을 만들 **때 규칙 사용** 옵션에 대해 **예** 를 선택 합니다.
-7. **경고 규칙 만들기**를 선택 합니다.
+7. **경고 규칙 만들기**를 선택합니다.
 
     활동 로그에 대 한 새 경고 규칙이 생성 되 고 창의 오른쪽 위 모퉁이에 확인 메시지가 표시 됩니다.
 
@@ -106,7 +106,7 @@ Azure Portal를 사용 하 여 활동 로그 경고 규칙을 만들고 수정�
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Azure Portal 보기 및 관리
 
-1. Azure Portal에서 **모니터**  > **경고**를 선택 합니다. 창의 왼쪽 위 모서리에서 **경고 규칙 관리** 를 선택 합니다.
+1. Azure Portal에서 **모니터** > **경고**를 선택 합니다. 창의 왼쪽 위 모서리에서 **경고 규칙 관리** 를 선택 합니다.
 
     ![경고 규칙 관리](media/alerts-activity-log/manage-alert-rules.png)
 
@@ -130,7 +130,7 @@ Azure Portal를 사용 하 여 활동 로그 경고 규칙을 만들고 수정�
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
-Azure Resource Manager 템플릿을 사용 하 여 활동 로그 경고를 만들려면 `microsoft.insights/activityLogAlerts` 유형의 리소스를 만듭니다. 그런 다음 모든 관련된 속성을 입력합니다. 활동 로그 경고를 만드는 템플릿은 다음과 같습니다.
+Azure Resource Manager 템플릿을 사용 하 여 활동 로그 경고를 만들려면 `microsoft.insights/activityLogAlerts`유형의 리소스를 만듭니다. 그런 다음 모든 관련된 속성을 입력합니다. 활동 로그 경고를 만드는 템플릿은 다음과 같습니다.
 
 ```json
 {

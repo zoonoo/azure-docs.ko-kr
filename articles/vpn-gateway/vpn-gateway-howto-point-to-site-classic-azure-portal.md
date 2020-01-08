@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 01327d24aebee02c3b14594c2b0b2f2f175211fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450822"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>인증서 인증을 사용하여 지점 및 사이트 간 연결 구성(클래식)
 
@@ -31,7 +31,7 @@ ms.locfileid: "74424166"
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Azure 포털(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Azure Portal(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
 P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라이언트 컴퓨터에서 가상 네트워크로의 보안 연결을 만듭니다. 지점 및 사이트 간 VPN 연결은 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. VNet에 연결해야 하는 클라이언트가 몇 개뿐이면 사이트 간 VPN 대신 P2S VPN을 사용하는 것이 좋습니다. 클라이언트 컴퓨터에서 시작하여 P2S VPN 연결을 설정합니다.
@@ -43,7 +43,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라�
 
 ![지점 및 사이트 간 다이어그램](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 지점 및 사이트 간 인증서 인증 연결을 사용하려면 다음 필수 조건이 필요합니다.
 
@@ -101,7 +101,7 @@ VNet(가상 네트워크)이 아직 없는 경우 만듭니다. 스크린샷은 
 
 5. 드롭다운 목록에서 사용할 **구독**을 선택합니다.
 
-6. 기존 **리소스 그룹**을 선택합니다. 또는 **새로 만들기**를 선택하고 이름을 입력하여 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 만드는 경우 계획된 구성 값에 따라 리소스 그룹의 이름을 지정합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.
+6. 기존 **리소스 그룹**을 선택합니다. 또는 **새로 만들기**를 선택하고 이름을 입력하여 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 만드는 경우 계획된 구성 값에 따라 리소스 그룹의 이름을 지정합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
 
 7. VNet의 **위치**를 선택합니다. 이 설정은 이 VNet에 배포하는 리소스의 지리적 위치를 결정합니다.
 
@@ -280,7 +280,7 @@ Azure에 최대 20개의 신뢰할 수 있는 루트 인증서 .cer 파일을 �
 3. 클래식 가상 네트워크로 이동 합니다. **지점 및 사이트 간 VPN 연결**을 선택한 다음, **인증서 관리**를 선택하여 **인증서** 페이지를 엽니다.
 4. **해지 목록**을 선택하여 **해지 목록** 페이지를 엽니다. 
 5. **인증서 추가**를 선택하여 **해지 목록에 인증서 추가** 페이지를 엽니다.
-6. **지문**에서 인증서 지문을 공백 없이한 줄의 텍스트로 붙여넣습니다. **확인**을 선택하여 마칩니다.
+6. **지문**에서 인증서 지문을 공백 없이한 줄의 텍스트로 붙여넣습니다. **확인** 을 선택하여 작업을 마칩니다.
 
 업데이트가 완료된 후에는 인증서를 더 이상 연결에 사용할 수 없습니다. 이 인증서를 사용하여 연결하려는 클라이언트는 인증서가 더 이상 유효하지 않다는 메시지를 받습니다.
 

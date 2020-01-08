@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 자격 증명 모음
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: cbd958dd71d2d62f7b4c7e8d66ab7e56dc679a51
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390548"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
@@ -33,21 +33,21 @@ ms.locfileid: "74998746"
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-GET URI에는 `{subscriptionId}`, `{vaultName}``{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예에서 `{vaultName}`는 "testVault"이 고 `{vaultresourceGroupName}`은 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에 제공 되므로 별도의 요청 본문이 필요 하지 않습니다.
+GET URI에는 `{subscriptionId}`, `{vaultName}``{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예에서 `{vaultName}`는 "testVault"이 고 `{vaultresourceGroupName}`은 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에서 지정되므로 별도 요청 본문이 필요 없습니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-#### <a name="responses"></a>Válaszok
+#### <a name="responses"></a>응답
 
 ' GET ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|Név  |Type (Típus)  |Leírás  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 정상     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 확인        |
 
-##### <a name="example-response"></a>Példaválasz
+##### <a name="example-response"></a>예제 응답
 
 ' GET ' 요청이 제출 되 면 200 (성공) 응답이 반환 됩니다.
 
@@ -83,16 +83,16 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
 
-|Név  |Szükséges  |Type (Típus)  |Leírás  |
+|이름  |필수  |유형  |Description  |
 |---------|---------|---------|---------|
-|ETag     |         |   Sztring      |  선택적 eTag       |
-|location     |  igaz       |Sztring         |   리소스 위치      |
+|eTag     |         |   String      |  선택적 eTag       |
+|위치     |  true       |String         |   리소스 위치      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
-|tags     |         | Objektum        |     Erőforráscímkék    |
+|tags     |         | 개체        |     리소스 태그    |
 
-#### <a name="example-request-body"></a>예제 요청 본문
+#### <a name="example-request-body"></a>요청 본문 예제
 
-다음 예제는 일시 삭제 있으면 정책이를 ' disabled '로 업데이트 하는 데 사용 됩니다.
+다음 예제는 일시 삭제 상태를 ' 사용 안 함 '으로 업데이트 하는 데 사용 됩니다.
 
 ```json
 {
@@ -103,15 +103,15 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-#### <a name="responses"></a>Válaszok
+#### <a name="responses"></a>응답
 
 ' PATCH ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|Név  |Type (Típus)  |Leírás  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 정상     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 확인        |
 
-##### <a name="example-response"></a>Példaválasz
+##### <a name="example-response"></a>예제 응답
 
 ' PATCH ' 요청이 제출 되 면 200 (성공) 응답이 반환 됩니다.
 
@@ -127,11 +127,11 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
-[이 자격 증명 모음에서 AZURE VM을 백업 하기 위한 백업 정책을 만듭니다](backup-azure-arm-userestapi-createorupdatepolicy.md).
+[이 자격 증명 모음의 Azure VM을 백업하기 위한 백업 정책을 만듭니다](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
-Azure REST Api에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+Azure REST API에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Recovery Services 공급자 REST API](/rest/api/recoveryservices/)
-- [Bevezetés az Azure REST API használatába](/rest/api/azure/)
+- [Azure REST API 시작하기](/rest/api/azure/)

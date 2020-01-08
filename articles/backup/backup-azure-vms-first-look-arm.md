@@ -3,12 +3,12 @@ title: VM 설정에서 Azure VM 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 단일 Azure VM 또는 여러 Azure vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1895f27370e6f928ce2183798dd892a2ff7225c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172509"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391444"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
@@ -56,15 +56,11 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 8. 포털 알림에서 구성 진행률을 추적할 수 있습니다.
 9. 작업이 완료되면 VM 메뉴에서 **백업**을 클릭합니다. 이 페이지는 VM의 백업 상태, 복구 지점에 대한 정보, 실행 중인 작업 및 발생한 경고를 표시합니다.
 
-   ![백업 상태](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Backup 상태](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. 백업을 사용 하도록 설정 하면 초기 백업이 실행 됩니다. 초기 백업을 즉시 시작하거나, 백업 일정에 따라 시작될 때까지 기다릴 수 있습니다.
     - 초기 백업이 완료될 때까지 **마지막 백업 상태**는 **경고(초기 백업 보류 중)** 으로 표시됩니다.
     - 예약된 다음 백업이 실행될 시기를 보려면 백업 정책 이름을 클릭합니다.
-
-> [!NOTE]
-> Azure Backup 서비스는 명명 형식 **AzureBackupRG_geography_number** (예: AzureBackupRG_northeurope_1)를 사용 하 여 스냅숏을 저장할 별도의 리소스 그룹 (VM 리소스 그룹 제외)을 만듭니다. 이 리소스 그룹의 데이터는 Azure 가상 머신 백업 정책의 "즉시 복구 스냅숏 유지" 섹션에 지정 된 기간 (일) 동안 보존 됩니다. 이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.<br>
-또한이 리소스 그룹은 모든 이름/태그 제한에서 제외 되어야 합니다. 제한 정책에 따라 다시 백업 오류가 발생 하 여 리소스 지점 컬렉션 만들기가 차단 됩니다.
 
 ## <a name="run-a-backup-immediately"></a>백업 즉시 실행
 

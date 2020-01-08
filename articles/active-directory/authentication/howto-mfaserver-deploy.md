@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848139"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608757"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -30,9 +30,6 @@ ms.locfileid: "74848139"
 > 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="plan-your-deployment"></a>배포 계획
-
-> [!WARNING]
-> 2019 년 3 월부터 MFA 서버 다운로드는 유료 테 넌 트에만 사용할 수 있습니다. 무료/평가판 테 넌 트는 더 이상 활성화 자격 증명을 다운로드 하거나 생성 하 고 사용할 수 없습니다.
 
 Azure Multi-Factor Authentication 서버를 다운로드하기 전에 로드 및 고가용성 요구 사항에 대해 알아봅니다. 이 정보를 사용하여 배포 방법 및 위치를 결정합니다.
 
@@ -54,7 +51,7 @@ Azure Multi-Factor Authentication 서버를 다운로드하기 전에 로드 및
 
 Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사항을 충족하는지 확인합니다.
 
-| Azure Multi-Factor Authentication 서버 요구 사항 | 설명 |
+| Azure Multi-Factor Authentication 서버 요구 사항 | Description |
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
 | 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
@@ -96,9 +93,6 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 ## <a name="download-the-mfa-server"></a>MFA 서버를 다운로드합니다.
 
-> [!WARNING]
-> 2019 년 3 월부터 MFA 서버 다운로드는 유료 테 넌 트에만 사용할 수 있습니다. 무료/평가판 테 넌 트는 더 이상 활성화 자격 증명을 다운로드 하거나 생성 하 고 사용할 수 없습니다.
-
 다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -122,6 +116,9 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
    ![인증 구성 마법사 사용 건너뛰기](./media/howto-mfaserver-deploy/skip2.png)
 
 5. 서버를 다운로드한 페이지로 돌아가서 **정품 인증 자격 증명 생성** 버튼을 클릭합니다. 이 정보를 제공된 상자의 Azure MFA 서버에 복사하고 **활성화**를 클릭합니다.
+
+> [!NOTE]
+> 전역 관리자만 Azure Portal에서 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="send-users-an-email"></a>사용자에게 전자 메일 보내기
 

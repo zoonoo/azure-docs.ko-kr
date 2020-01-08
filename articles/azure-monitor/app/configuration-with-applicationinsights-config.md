@@ -8,17 +8,17 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 94ae9035c1657c1ce20c40234ddca95ae30d9edd
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f7f32cc7f160a7ac9253b60e8c0c13926c110ac2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677529"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407096"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 원격 분석 모듈 및 이니셜라이저를 사용 하거나 사용 하지 않도록 설정 하 고 그 중 일부에 대 한 매개 변수를 설정할 수 있습니다.
 
-구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분의 SDK 버전을 설치할][start]때 프로젝트에 자동으로 추가 됩니다. 기본적으로 **> Application Insights 원격 분석 추가**를 지 원하는 Visual Studio 템플릿 프로젝트에서 자동화 된 환경을 사용 하는 경우 프로젝트 루트 폴더에 applicationinsights .config 파일이 생성 되 고, bin 폴더. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
+구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분의 SDK 버전을 설치할][start]때 프로젝트에 자동으로 추가 됩니다. 기본적으로 **> Application Insights 원격 분석 추가**를 지 원하는 Visual Studio 템플릿 프로젝트에서 자동화 된 환경을 사용 하는 경우 프로젝트 루트 폴더에 applicationinsights .config 파일이 생성 되 고이를 bin 폴더에 복사 합니다. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
 
 [웹 페이지에서 SDK][client]를 제어 하는 것과 동일한 파일이 없습니다.
 
@@ -57,7 +57,7 @@ IIS 설치에서 CPU, 메모리 및 네트워크 부하와 같은 [시스템 성
 ```
 
 ### <a name="developer-mode"></a>개발자 모드
-`DeveloperModeWithDebuggerAttachedTelemetryModule`이 Application Insights `TelemetryChannel`를 적용하여 디버거가 애플리케이션 프로세스에 연결될 때 한번에 원격 분석 항목을 하나씩 즉시 보냅니다. 애플리케이션이 원격 분석을 추적할 때와 Application insights 포털에 나타날 때의 간격의 시간차를 감소시킵니다. CPU 및 네트워크 대역폭에 상당한 오버 헤드가 발생합니다.
+`DeveloperModeWithDebuggerAttachedTelemetryModule`이 Application Insights`TelemetryChannel`를 적용하여 디버거가 애플리케이션 프로세스에 연결될 때 한번에 원격 분석 항목을 하나씩 즉시 보냅니다. 애플리케이션이 원격 분석을 추적할 때와 Application insights 포털에 나타날 때의 간격의 시간차를 감소시킵니다. CPU 및 네트워크 대역폭에 상당한 오버 헤드가 발생합니다.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 패키지
@@ -230,47 +230,23 @@ SDK의 메모리 내 스토리지에 저장할 수 있는 원격 분석 항목�
    </ApplicationInsights>
 ```
 
-#### <a name="local-forwarder"></a>로컬 전달자
-
-[로컬 전달자](opencensus-local-forwarder.md)는 다양한 SDK 및 프레임워크에서 Application Insights 또는 [OpenCensus](https://opencensus.io/) 원격 분석을 수집하고 Application Insights로 경로를 지정하는 에이전트입니다. Windows 및 Linux에서 실행할 수 있습니다. 로컬 전달자는 Application Insights Java SDK와 함께 사용하는 경우 [라이브 메트릭](../../azure-monitor/app/live-stream.md) 및 적응 샘플링을 완벽하게 지원합니다.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-SpringBoot 스타터를 사용하는 경우 구성 파일(application.properties)에 다음을 추가합니다.
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-기본값은 SpringBoot application.properties 및 applicationinsights.xml 구성에 모두 동일합니다.
-
 ## <a name="instrumentationkey"></a>InstrumentationKey
 데이터가 표시되는 Application Insights 리소스를 결정합니다. 일반적으로 각 애플리케이션에 대해 별도 키를 사용하여 별도 리소스를 만듭니다.
 
 키를 동적으로 설정하려는 경우, 예를 들어 애플리케이션의 결과를 다른 리소스로 보내려는 경우 구성 파일에서 키를 생략하고 대신 코드에 설정할 수 있습니다.
 
-표준 원격 분석 모듈을 포함 하 여 TelemetryClient의 모든 인스턴스에 대 한 키를 설정 하려면 TelemetryConfiguration에서 키를 설정 합니다. ASP.NET 서비스의 global.aspx.cs와 같은 초기화 메서드에 키를 설정합니다.
+표준 원격 분석 모듈을 포함 하 여 TelemetryClient의 모든 인스턴스에 대 한 키를 설정 합니다. ASP.NET 서비스의 global.aspx.cs와 같은 초기화 메서드에 키를 설정합니다.
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights;
 
     protected void Application_Start()
     {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey =
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      //...
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+        var telemetryClient = new TelemetryClient(configuration);
+   
 ```
 
 특정 이벤트 집합을 다른 리소스로 보내려는 경우 특정 TelemetryClient에 대한 키를 설정할 수 있습니다.

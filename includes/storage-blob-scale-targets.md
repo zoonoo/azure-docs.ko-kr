@@ -4,14 +4,14 @@ ms.service: storage
 ms.topic: include
 ms.date: 11/08/2019
 ms.author: tamram
-ms.openlocfilehash: 0fda881b805eb3a967cf3b05f6c6df8c65d20730
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 2ed88d8abb7cbe96093b68d89030e6e464a35541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392377"
 ---
-| 리소스 | 대상        |
+| 리소스 | 대상 파악        |
 |----------|---------------|
 | 단일 blob 컨테이너의 최대 크기 | 최대 저장소 계정 용량과 동일 |
 | 블록 blob 또는 추가 blob의 최대 블록 수 | 50,000개 블록 |
@@ -25,4 +25,4 @@ ms.locfileid: "73905790"
 |단일 페이지 blob에 대 한 대상 처리량 | 초당 최대 60MiB |
 |단일 블록 blob에 대 한 대상 처리량 |최대 저장소 계정 수신/송신 제한<sup>1</sup> |
 
-<sup>1</sup> 단일 개체 처리량은 동시성, 요청 크기, 성능 계층, 업로드할 원본 속도, 다운로드 대상 등 여러 가지 요인에 따라 달라 집니다. [높은 처리량 블록 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) 성능 향상 기능을 활용 하려면 put blob을 사용 하거나 > 4 MiB의 블록 요청 크기를 설정 합니다 (프리미엄 성능 블록 blob 저장소의 경우 또는 Data Lake Storage Gen2의 경우 > 256 KiB).
+<sup>1</sup> 단일 blob에 대 한 처리량은 동시성, 요청 크기, 성능 계층, 업로드할 원본 속도, 다운로드 대상 등 여러 가지 요인에 따라 달라 집니다. [처리량이 높은 블록 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)의 성능 향상을 활용 하려면 더 큰 blob 또는 블록을 업로드 합니다. 구체적으로, standard storage 계정에 대해 4 MiB 보다 큰 blob 또는 블록 크기를 사용 하 여 [Put blob](/rest/api/storageservices/put-blob) 또는 [put block](/rest/api/storageservices/put-block) 작업을 호출 합니다. 프리미엄 블록 blob 또는 Data Lake Storage Gen2 저장소 계정의 경우 256 KiB 보다 큰 블록 또는 blob 크기를 사용 합니다.

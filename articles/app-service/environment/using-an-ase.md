@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e5c127673e4b0cb6c68aaf0a9790abbf78758670
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 806d6ddb09cbaf14c9c488e3d3b39909c22ef284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687086"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374933"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -63,7 +63,7 @@ ASE에서 앱을 만들려면
     
     d. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
 
-    ㅁ. **확인**을 선택합니다.
+    e. **확인**을 선택합니다.
     
     ![격리 가격 책정 계층][2]
 
@@ -172,7 +172,7 @@ ASE를 삭제하려면 다음을 수행합니다.
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md

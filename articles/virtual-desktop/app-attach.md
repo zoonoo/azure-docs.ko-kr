@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356241"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -172,8 +172,8 @@ Windows 가상 데스크톱 환경에서 네트워크 공유를 만들고 해당
 앱이 공개적으로 신뢰할 수 없는 인증서 또는 자체 서명 된 인증서를 사용 하는 경우 설치 하는 방법은 다음과 같습니다.
 
 1. 패키지를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
-2. 표시 되는 창에서 **디지털 서명** 탭을 선택 합니다. 다음 그림에 표시 된 것 처럼 탭의 목록에는 하나의 항목만 있어야 합니다. 해당 항목을 선택 하 여 항목을 강조 표시 한 다음 * * De를 선택 합니다.
-3. 디지털 신호 정보 창이 표시 되 면 **일반** 탭을 선택 하 고 **인증서 설치**를 선택 합니다.
+2. 표시 되는 창에서 **디지털 서명** 탭을 선택 합니다. 다음 그림에 표시 된 것 처럼 탭의 목록에는 하나의 항목만 있어야 합니다. 해당 항목을 선택 하 여 항목을 강조 표시 하 고 **세부 정보**를 선택 합니다.
+3. 디지털 서명 정보 창이 표시 되 면 **일반** 탭을 선택 하 고 **인증서 설치**를 선택 합니다.
 4. 설치 관리자가 열리면 **로컬 컴퓨터** 를 저장소 위치로 선택 하 고 **다음**을 선택 합니다.
 5. 응용 프로그램에서 장치를 변경할 수 있도록 허용할지 묻는 메시지가 표시 되 면 **예**를 선택 합니다.
 6. **모든 인증서를 다음 저장소에**저장을 선택한 다음 **찾아보기**를 선택 합니다.
@@ -199,14 +199,14 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
 
 2.  VHD를 마우스 오른쪽 단추로 클릭 하 고 **탑재**를 선택 합니다. 그러면 VHD가 드라이브 문자에 탑재 됩니다.
 
-3.  VHD를 탑재 한 후에는 **파일 탐색기** 창이 열립니다. 부모 폴더를 캡처하고 **\$parentfolder** 변수를 업데이트 합니다.
+3.  VHD를 탑재 한 후에는 **파일 탐색기** 창이 열립니다. 부모 폴더를 캡처하고 **$parentFolder** 변수를 업데이트 합니다.
 
     >[!NOTE]
     >부모 폴더가 표시 되지 않으면 MSIX이 제대로 확장 되지 않았음을 의미 합니다. 이전 섹션을 다시 실행 하 고 다시 시도 하세요.
 
-4.  부모 폴더를 엽니다. 올바르게 확장 된 경우 패키지와 이름이 같은 폴더가 표시 됩니다. 이 폴더의 이름과 일치 하도록 **\$packageName** 변수를 업데이트 합니다.
+4.  부모 폴더를 엽니다. 올바르게 확장 된 경우 패키지와 이름이 같은 폴더가 표시 됩니다. 이 폴더의 이름과 일치 하도록 **$packageName** 변수를 업데이트 합니다.
 
-    예: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`
+    `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`)을 입력합니다.
 
 5.  명령 프롬프트를 열고 **mountvol**을 입력 합니다. 이 명령은 볼륨과 해당 Guid의 목록을 표시 합니다. 2 단계에서 드라이브 문자가 VHD를 탑재 한 드라이브와 일치 하는 볼륨의 GUID를 복사 합니다.
 
@@ -227,7 +227,7 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
     ```
 
 
-6.  방금 복사한 볼륨 GUID를 사용 하 여 **\$volumeGuid** 변수를 업데이트 합니다.
+6.  방금 복사한 볼륨 GUID를 사용 하 여 **$volumeGuid** 변수를 업데이트 합니다.
 
 7. 관리자 PowerShell 프롬프트를 열고 사용자 환경에 적용 되는 변수를 사용 하 여 다음 PowerShell 스크립트를 업데이트 합니다.
 
@@ -256,9 +256,9 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
 
     {
 
-    Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
 
-    Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor Green
+    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
     }
 
@@ -266,7 +266,7 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
 
     {
 
-    Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
+    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
 
     }
 
@@ -298,8 +298,8 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
+    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
+    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
 
     $asTaskAsyncOperation =
     $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
@@ -344,7 +344,7 @@ Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 ### <a name="deregister-powershell-script"></a>PowerShell 스크립트 등록 취소
 
-이 스크립트의 경우 **\$packageName** 의 자리 표시자를 테스트 중인 패키지의 이름으로 바꿉니다.
+이 스크립트의 경우 **$packageName** 자리 표시자를 테스트 중인 패키지의 이름으로 바꿉니다.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -364,7 +364,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>디 스테이지 PowerShell 스크립트
 
-이 스크립트의 경우 **\$packageName** 의 자리 표시자를 테스트 중인 패키지의 이름으로 바꿉니다.
+이 스크립트의 경우 **$packageName** 자리 표시자를 테스트 중인 패키지의 이름으로 바꿉니다.
 
 ```powershell
 #MSIX app attach de staging sample

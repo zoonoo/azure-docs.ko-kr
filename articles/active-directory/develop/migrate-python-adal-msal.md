@@ -1,5 +1,5 @@
 ---
-title: Python에 대 한 ADAL to MSAL 마이그레이션 가이드 | Microsoft
+title: Python ADAL에서 MSAL 마이그레이션 가이드 | Microsoft
 description: ADAL (Azure Active Directory Authentication Library) Python 앱을 Python 용 MSAL (Microsoft 인증 라이브러리)로 마이그레이션하는 방법에 대해 알아봅니다.
 services: active-directory
 titleSuffix: Microsoft identity platform
@@ -15,12 +15,12 @@ ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72a4af690a1433f6a185ab17f06748d67927edea
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 110c719eaf68e8be618e5c865f1ac7a2cf917719
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917236"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424410"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Python에 대 한 ADAL에서 MSAL 마이그레이션 가이드
 

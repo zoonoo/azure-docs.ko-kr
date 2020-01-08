@@ -1,6 +1,6 @@
 ---
 title: 미리 보기의 데이터 쿼리-Azure Time Series Insights | Microsoft Docs
-description: 데이터 쿼리 Azure Time Series Insights 미리 보기에 대해 알아봅니다.
+description: Azure Time Series Insights Preview의 데이터 쿼리 개념 및 HTTP REST API 개요.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53693c64ff03146619e17b276a1f817e69f5ed6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374581"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 쿼리
 
@@ -39,7 +39,7 @@ Time Series Insights은 계산을 표현 하는 데 사용 되는 다양 한 문
 
 다음과 같은 Environment API를 사용할 수 있습니다.
 
-* [환경 API 가져오기](/rest/api/time-series-insights/management/environments/get): 호출자에 게 액세스 권한이 부여 된 환경 목록을 반환 합니다.
+* [환경 가져오기 API](/rest/api/time-series-insights/management/environments/get): 호출자에 게 액세스 권한이 부여 된 환경 목록을 반환 합니다.
 * [환경 가용성 API 가져오기](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): `$ts`이벤트 타임 스탬프에 대 한 이벤트 수의 분포를 반환 합니다. 이 API는 이벤트가 있는 경우 이벤트 수를 반환하여 타임스탬프에 이벤트가 있는지 확인합니다.
 * [이벤트 스키마 가져오기 API](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): 지정 된 검색 범위에 대 한 이벤트 스키마 메타 데이터를 반환 합니다. 이 API는 지정된 검색 범위의 스키마에서 사용 가능한 모든 메타데이터 및 속성을 검색할 수 있습니다.
 

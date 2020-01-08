@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7113fd7f17fd7695e25489931d7a6cbf35e334ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442811"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -26,6 +26,7 @@ AKS 클러스터의 수명 주기의 일환으로, 최신 Kubernetes 버전으�
 
 > [!WARNING]
 > AKS 클러스터 업그레이드는 노드의 cordon 드레이닝을 트리거합니다. 사용 가능한 계산 할당량이 낮은 경우 업그레이드가 실패할 수 있습니다.  자세한 내용은 [할당량 늘리기](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) 를 참조 하세요.
+> 사용자 고유의 클러스터 autoscaler 배포를 실행 하는 경우 업그레이드 프로세스를 방해할 가능성이 있으므로 업그레이드 하는 동안이를 사용 하지 않도록 설정 하세요 (0 개의 복제본으로 크기를 조정할 수 있음). 관리 되는 autoscaler이이를 자동으로 처리 합니다. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>사용할 수 있는 AKS 클러스터 업그레이드를 위한 확인
 

@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b95fb8d5a0c05d2d66744a91f4200d58a71470d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427373"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
 
-이 문서에서는 ADF(Azure Data Factory)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server Database에서 SQL Azure Database로 데이터를 이동하는 방법을 보여 줍니다.
+이 문서에서는 Azure Data Factory (ADF)를 사용 하 여 Azure Blob Storage를 통해 온-프레미스 SQL Server 데이터베이스에서 SQL Azure 데이터베이스로 데이터를 이동 하는 방법을 보여 줍니다 .이 방법은 복제 된 준비 복사본의 이점을 제공 하는 지원 되는 레거시 방법입니다. [최신 옵션에 대 한 microsoft.datamigration 페이지를 살펴보겠습니다](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Azure SQL Database로 데이터를 이동하는 다양한 옵션을 요약한 표는 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md)을 참조하세요.
 
@@ -43,7 +43,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 * Azure Blob Storage 계정에서 Azure SQL Database로 데이터를 복사합니다.
 
 > [!NOTE]
-> 여기에 표시된 단계는 ADF 팀이 제공하는 자세한 자습서 [온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/)에서 조정되었습니다. 필요한 경우 해당 항목의 관련 섹션에 대한 참조가 제공됩니다.
+> 여기에 표시 된 단계는 ADF 팀에서 제공 하는 보다 자세한 자습서에서 적용 됩니다. [온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) 는 해당 항목의 관련 섹션에 대 한 참조를 제공 합니다.
 >
 >
 
@@ -51,8 +51,8 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 이 자습서에서는 사용자가 다음을 보유하고 있다고 가정합니다.
 
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-* **Azure Storage 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [스토리지 액세스 키 관리](../../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
-* **Azure SQL Database**에 대한 액세스. Azure SQL Database에 항목을 설정 해야 합니다 [Getting Started with Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) Azure SQL Database의 새 인스턴스를 프로 비전 하는 방법에 대해 설명 합니다.
+* **Azure Storage 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
+* **Azure SQL Database**에 대한 액세스. Azure SQL Database를 설정 해야 하는 경우 [Microsoft Azure SQL Database 시작](../../sql-database/sql-database-get-started.md) 항목에서 Azure SQL Database의 새 인스턴스를 프로 비전 하는 방법에 대 한 정보를 제공 합니다.
 * 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/overview)을 참조하세요.
 
 > [!NOTE]
@@ -71,7 +71,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Azure Data Factory 통합 런타임 설치 및 구성
 통합 런타임은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 고객 관리형 데이터 통합 인프라입니다. 이전에는 이 런타임을 “데이터 관리 게이트웨이”라고 했습니다.
 
-설정할 [파이프라인을 만드는 방법에 대 한 지침](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+설정 하려면 [파이프라인 만들기에 대 한 지침을 따르세요](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline) .
 
 ## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.

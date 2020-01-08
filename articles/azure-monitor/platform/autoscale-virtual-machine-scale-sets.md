@@ -1,19 +1,15 @@
 ---
 title: Azure Virtual Machines를 사용한 고급 자동 크기 조정
 description: 크기 조정 작업에 대한 전자 메일을 전송하고 웹후크 URL을 호출하는 여러 규칙 및 프로필에 Resource Manager 및 VM Scale Sets를 사용합니다.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/22/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364223"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 Virtual Machine Scale Sets의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 확장 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
@@ -35,7 +31,7 @@ ms.locfileid: "60787804"
 
 3. 이제 일정 또는 특정 요구 사항에 따라 프로필 및 규칙을 추가할 수 있습니다. 3개의 프로필로 자동 크기 조정 설정을 만듭니다. 자동 크기 조정의 프로필 및 규칙을 이해하려면 [자동 크기 조정 모범 사례](autoscale-best-practices.md)를 검토하세요.  
 
-    | 프로필 및 규칙 | 설명 |
+    | 프로필 및 규칙 | Description |
     |--- | --- |
     | **프로필** |**성능/메트릭 기반** |
     | 규칙 |Service Bus 큐 메시지 수 > x |
@@ -51,7 +47,7 @@ ms.locfileid: "60787804"
    * **메시지 큐 크기** - 애플리케이션으로 들어오는 메시지에 Service Bus 큐를 사용합니다. 큐의 메시지 수 및 CPU%를 사용하고, 메시지 수 또는 CPU가 임계값에 도달하면 크기 조정 동작을 트리거하도록 기본 프로필을 구성합니다.\*
    * **요일과 시간** - '평일 오전 시간'이라는 매주 되풀이되는 '시간' 기반 프로필을 사용합니다. 기록 데이터를 통해, 이 시간 동안 특정 개수의 VM 인스턴스에서 애플리케이션 부하를 처리하는 것이 더 효율적임을 알고 있습니다.\*
    * **특정 날짜** - '제품 출시일' 프로필을 추가했습니다. 애플리케이션이 마케팅 알림으로 인한 부하 및 애플리케이션에 새 제품이 추가될 경우의 부하를 처리할 준비가 되도록 특정 날짜에 대해 미리 계획합니다.\*
-   * *마지막 두 프로필 내에도 다른 성능 메트릭 기반 규칙이 있을 수 있습니다. 이 경우 성능 메트릭 기반 규칙을 하나만 유지할 필요가 없으며, 기본 성능 메트릭 기반 규칙에 의존할 수 있습니다. 되풀이 및 날짜 기반 프로필의 경우에는 규칙이 선택 사항입니다.*
+   * *마지막 두 프로필에는 다른 성능 메트릭 기반 규칙이 포함 될 수도 있습니다. 이 경우 기본 성능 메트릭 기반 규칙을 사용 하지 않고 대신 사용 하지 않기로 결정 했습니다. 되풀이 및 날짜 기반 프로필에 대 한 규칙은 선택 사항입니다.*
 
      프로필 및 규칙에 대한 자동 크기 조정 엔진의 우선 순위 지정은 [자동 크기 조정 모범 사례](autoscale-best-practices.md) 문서에도 설명되어 있습니다.
      자동 크기 조정에 대한 공통 메트릭 목록은 [자동 크기 조정에 대한 공통 메트릭](autoscale-common-metrics.md)을 참조하세요.

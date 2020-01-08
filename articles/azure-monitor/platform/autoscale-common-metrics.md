@@ -1,19 +1,15 @@
 ---
 title: 자동 크기 조정 공통 메트릭
 description: Cloud Services, Virtual Machines 및 Web Apps의 자동 크기 조정에 일반적으로 사용되는 메트릭에 대해 알아봅니다.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364597"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
 
@@ -53,33 +49,33 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 | 메트릭 이름 | 단위 |
 | --- | --- |
-| \Processor(_Total)\% 프로세서 시간 |Percent |
-| \Processor(_Total)\% 시스템 시간 |Percent |
-| \Processor(_Total)\% 사용자 시간 |Percent |
-| \Processor Information(_Total)\Processor Frequency |개수 |
-| \System\Processes |개수 |
-| \Process(_Total)\Thread Count |개수 |
-| \Process(_Total)\Handle Count |개수 |
-| \Memory\% 사용 중인 커밋된 바이트 |Percent |
+| \Processor(_Total)\% 프로세서 시간 |백분율 |
+| \Processor(_Total)\% 시스템 시간 |백분율 |
+| \Processor(_Total)\% 사용자 시간 |백분율 |
+| \Processor Information(_Total)\Processor Frequency |카운트 |
+| \System\Processes |카운트 |
+| \Process(_Total)\Thread Count |카운트 |
+| \Process(_Total)\Handle Count |카운트 |
+| \Memory\% 사용 중인 커밋된 바이트 |백분율 |
 | \Memory\Available Bytes |바이트 |
 | \Memory\Committed Bytes |바이트 |
 | \Memory\Commit Limit |바이트 |
 | \Memory\Pool Paged Bytes |바이트 |
 | \Memory\Pool Nonpaged Bytes |바이트 |
-| \PhysicalDisk(_Total)\% 디스크 시간 |Percent |
-| \PhysicalDisk(_Total)\% 디스크 읽기 시간 |Percent |
-| \PhysicalDisk(_Total)\% 디스크 쓰기 시간 |Percent |
-| \PhysicalDisk(_Total)\디스크 전송/초 |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
+| \PhysicalDisk(_Total)\% 디스크 시간 |백분율 |
+| \PhysicalDisk(_Total)\% 디스크 읽기 시간 |백분율 |
+| \PhysicalDisk(_Total)\% 디스크 쓰기 시간 |백분율 |
+| \PhysicalDisk(_Total)\디스크 전송/초 |초당 개수 |
+| \PhysicalDisk(_Total)\Disk Reads/sec |초당 개수 |
 | \PhysicalDisk(_Total)\Disk Writes/sec |초당 개수 |
-| \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Avg. 디스크 큐 길이 |개수 |
-| \PhysicalDisk(_Total)\Avg. 디스크 읽기 큐 길이 |개수 |
-| \PhysicalDisk(_Total)\Avg. 디스크 쓰기 큐 길이 |개수 |
-| \LogicalDisk(_Total)\% 사용 가능한 공간 |Percent |
-| \LogicalDisk(_Total)\Free Megabytes |개수 |
+| \PhysicalDisk(_Total)\Disk Bytes/sec |초당 바이트 수 |
+| \PhysicalDisk(_Total)\Disk Read Bytes/sec |초당 바이트 수 |
+| \PhysicalDisk(_Total)\Disk Write Bytes/sec |초당 바이트 수 |
+| \PhysicalDisk (_Total) \Avg. Disk Queue Length |카운트 |
+| \PhysicalDisk (_Total) \Avg. Disk 읽기 큐 길이 |카운트 |
+| \PhysicalDisk (_Total) \Avg. Disk Write Queue Length |카운트 |
+| \LogicalDisk(_Total)\% 사용 가능한 공간 |백분율 |
+| \LogicalDisk(_Total)\Free Megabytes |카운트 |
 
 ### <a name="guest-os-metrics-linux-vms"></a>게스트 OS 메트릭 Linux VM
 Azure에서 VM을 만들 때 진단 확장을 사용하여 기본적으로 진단을 사용하도록 설정합니다.
@@ -95,43 +91,43 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | 메트릭 이름 | 단위 |
 | --- | --- |
 | \Memory\AvailableMemory |바이트 |
-| \Memory\PercentAvailableMemory |Percent |
+| \Memory\PercentAvailableMemory |백분율 |
 | \Memory\UsedMemory |바이트 |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
-| \Memory\PagesPerSec |CountPerSecond |
-| \Memory\PagesReadPerSec |CountPerSecond |
-| \Memory\PagesWrittenPerSec |CountPerSecond |
+| \Memory\PercentUsedMemory |백분율 |
+| \Memory\PercentUsedByCache |백분율 |
+| \Memory\PagesPerSec |초당 개수 |
+| \Memory\PagesReadPerSec |초당 개수 |
+| \Memory\PagesWrittenPerSec |초당 개수 |
 | \Memory\AvailableSwap |바이트 |
-| \Memory\PercentAvailableSwap |Percent |
+| \Memory\PercentAvailableSwap |백분율 |
 | \Memory\UsedSwap |바이트 |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
-| \PhysicalDisk\BytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
-| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
-| \PhysicalDisk\WritesPerSecond |CountPerSecond |
+| \Memory\PercentUsedSwap |백분율 |
+| \Processor\PercentIdleTime |백분율 |
+| \Processor\PercentUserTime |백분율 |
+| \Processor\PercentNiceTime |백분율 |
+| \Processor\PercentPrivilegedTime |백분율 |
+| \Processor\PercentInterruptTime |백분율 |
+| \Processor\PercentDPCTime |백분율 |
+| \Processor\PercentProcessorTime |백분율 |
+| \Processor\PercentIOWaitTime |백분율 |
+| \PhysicalDisk\BytesPerSecond |초당 바이트 수 |
+| \PhysicalDisk\ReadBytesPerSecond |초당 바이트 수 |
+| \PhysicalDisk\WriteBytesPerSecond |초당 바이트 수 |
+| \PhysicalDisk\TransfersPerSecond |초당 개수 |
+| \PhysicalDisk\ReadsPerSecond |초당 개수 |
+| \PhysicalDisk\WritesPerSecond |초당 개수 |
 | \PhysicalDisk\AverageReadTime |초 |
 | \PhysicalDisk\AverageWriteTime |초 |
 | \PhysicalDisk\AverageTransferTime |초 |
-| \PhysicalDisk\AverageDiskQueueLength |개수 |
+| \PhysicalDisk\AverageDiskQueueLength |카운트 |
 | \NetworkInterface\BytesTransmitted |바이트 |
 | \NetworkInterface\BytesReceived |바이트 |
-| \NetworkInterface\PacketsTransmitted |개수 |
-| \NetworkInterface\PacketsReceived |개수 |
+| \NetworkInterface\PacketsTransmitted |카운트 |
+| \NetworkInterface\PacketsReceived |카운트 |
 | \NetworkInterface\BytesTotal |바이트 |
-| \NetworkInterface\TotalRxErrors |개수 |
-| \NetworkInterface\TotalTxErrors |개수 |
-| \NetworkInterface\TotalCollisions |개수 |
+| \NetworkInterface\TotalRxErrors |카운트 |
+| \NetworkInterface\TotalTxErrors |카운트 |
+| \NetworkInterface\TotalCollisions |카운트 |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>일반적으로 사용되는 웹(서버 팜) 메트릭
 Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에는 사용 가능한 서버 팜(Web Apps) 메트릭이 나열되어 있습니다.
@@ -147,10 +143,10 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 | 메트릭 이름 | 단위 |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
-| DiskQueueLength |개수 |
-| HttpQueueLength |개수 |
+| CpuPercentage |백분율 |
+| MemoryPercentage |백분율 |
+| DiskQueueLength |카운트 |
+| HttpQueueLength |카운트 |
 | BytesReceived |바이트 |
 | BytesSent |바이트 |
 

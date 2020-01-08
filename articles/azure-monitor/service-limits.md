@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: 37401a8eb2a8da82cef4854ab41e40b81ba429fa
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 236e41bcbb7055c4fda55ecd535bb0eccf224bcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597266"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394248"
 ---
 # <a name="azure-monitor-service-limits"></a>Azure Monitor 서비스 제한
 
@@ -40,6 +40,6 @@ ms.locfileid: "72597266"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)
+- [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)
 - [Azure Monitor의 사용량 및 예상 비용 모니터링](platform/usage-estimated-costs.md)
-- [Application Insights에 대 한 사용량 및 비용 관리](app/pricing.md)
+- [Application Insights의 사용량 및 비용 관리](app/pricing.md)

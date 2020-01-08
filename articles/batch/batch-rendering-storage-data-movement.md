@@ -1,18 +1,18 @@
 ---
 title: 렌더링을 위한 스토리지 및 데이터 이동 - Azure Batch
-description: 워크로드를 렌더링하기 위한 스토리지 및 데이터 이동 옵션
+description: 자산 및 출력 파일 작업을 렌더링 하기 위한 다양 한 저장소 및 데이터 이동 옵션에 대해 알아봅니다.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1076fc152ddf2c3a2d4f2346262ca90215d68ddf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773998"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390395"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션
 
@@ -132,6 +132,6 @@ Azure Files는 Azure Storage를 지원하는 기본 API 및 도구에서 지원�
 
 스토리지 옵션에 대한 자세한 내용은 심층 설명서를 참조하세요.
 
-* [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+* [Azure Blob 스토리지](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
 * [Azure 파일](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)

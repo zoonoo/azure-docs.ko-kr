@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684013"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421958"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -71,7 +71,7 @@ static void Main(string[] args)
 
 로컬 개발을 보다 효율적으로 수행하기 위해 개발 모드에서 호스트를 실행할 수 있습니다. 개발 모드에서를 실행할 때 변경 되는 일부 설정은 다음과 같습니다.
 
-| 자산 | 개발 설정 |
+| 속성 | 개발 설정 |
 | ------------- | ------------- |
 | `Tracing.ConsoleLevel` | 로그 출력을 최대화하는 `TraceLevel.Verbose`. |
 | `Queues.MaxPollingInterval`  | 값이 작으면 큐 메서드가 즉시 트리거됩니다.  |
@@ -84,7 +84,7 @@ static void Main(string[] args)
 버전 3. *x* 는 표준 ASP.NET Core api를 사용 합니다. [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 인스턴스에서 [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) 메서드를 호출 합니다. 다음 예제와 같이 `development`라는 문자열을 전달 합니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.UseEnvironment("development");
@@ -95,7 +95,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -236,7 +236,7 @@ static void Main(string[] args)
 버전 3 *x*는 `Microsoft.Azure.WebJobs.Extensions.Storage` 패키지에 저장소 바인딩이 포함 되어 있습니다. 다음과 같이 `ConfigureWebJobs` 메서드에서 `AddAzureStorage` 확장 메서드를 호출 합니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -247,7 +247,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -255,7 +255,7 @@ static void Main()
 다른 트리거 및 바인딩 형식을 사용하려면 해당 항목을 포함하는 NuGet 패키지를 설치하고 확장에서 구현된 `Add<binding>` 확장 메서드를 호출합니다. 예를 들어 Azure Cosmos DB 바인딩을 사용 하려는 경우 `Microsoft.Azure.WebJobs.Extensions.CosmosDB`를 설치 하 고 다음과 같이 `AddCosmosDB`를 호출 합니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -266,7 +266,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -318,7 +318,7 @@ public class Functions
 다음과 같이 `ConfigureWebJobs` 메서드에서 `AddExecutionContextBinding` 확장 메서드를 호출 합니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -329,7 +329,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -373,7 +373,7 @@ class Program
 이 예제에서는 Azure Cosmos DB 트리거를 구성 하는 방법을 보여 줍니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -390,8 +390,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -403,7 +402,7 @@ static void Main()
 이 예제에서는 Event Hubs 트리거를 구성 하는 방법을 보여 줍니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -419,8 +418,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -434,7 +432,7 @@ static void Main()
 #### <a name="version-3x"></a>버전 3. *x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -450,8 +448,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -480,7 +477,7 @@ static void Main(string[] args)
 이 예제에서는 SendGrid 출력 바인딩을 구성 하는 방법을 보여 줍니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -495,8 +492,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -508,7 +504,7 @@ static void Main()
 이 예제에서는 Service Bus 트리거를 구성 하는 방법을 보여 줍니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -523,8 +519,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -538,7 +533,7 @@ static void Main()
 #### <a name="version-3x"></a>버전 3. *x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -549,8 +544,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -749,9 +743,9 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 
 일부 트리거는 동시성 관리를 기본적으로 지원합니다.
 
-* **QueueTrigger**. `JobHostConfiguration.Queues.BatchSize`을 `1`로 설정합니다.
-* **ServiceBusTrigger**. `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls`을 `1`로 설정합니다.
-* **FileTrigger**. `FileProcessor.MaxDegreeOfParallelism`을 `1`로 설정합니다.
+* **QueueTrigger**. `JobHostConfiguration.Queues.BatchSize`를 `1`로 설정합니다.
+* **ServiceBusTrigger**. `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls`를 `1`로 설정합니다.
+* **FileTrigger**. `FileProcessor.MaxDegreeOfParallelism`를 `1`로 설정합니다.
 
 이러한 설정을 사용하여 함수가 단일 인스턴스에서 싱글톤으로 실행되도록 할 수 있습니다. 웹 앱이 여러 인스턴스로 확장 될 때 함수의 단일 인스턴스만 실행 되도록 하려면 함수 (`[Singleton(Mode = SingletonMode.Listener)]`)에 수신기 수준 singleton 잠금을 적용 합니다. JobHost를 시작 하면 수신기 잠금이 획득 됩니다. 확장된 인스턴스 3개가 동시에 시작되면 인스턴스 중 하나만 잠금을 획득하고 하나의 수신기만 시작됩니다.
 
@@ -924,7 +918,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 작성기에서 [`ConfigureServices`]를 호출하여 파이프라인에 사용자 지정 [`ITelemetryInitializer`]를 추가합니다.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -951,8 +945,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -1009,4 +1002,4 @@ config.LoggerFactory = new LoggerFactory()
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[' JobHostConfiguration ']: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

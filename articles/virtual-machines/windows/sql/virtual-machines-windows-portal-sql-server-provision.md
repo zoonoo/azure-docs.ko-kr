@@ -15,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28f00db3b604534be5ff9cee79c0aacc41f066b5
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350899"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "74464155"
 > [!TIP]
 > SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a id="select"></a>SQL Server 가상 머신 갤러리 이미지
 
@@ -64,10 +64,10 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 * **프로젝트 세부 정보**아래에서 올바른 구독을 선택 했는지 확인 합니다. 
 *  **리소스 그룹** 섹션의 목록에서 기존 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 내 관련 리소스의 컬렉션입니다(가상 머신, 스토리지 계정, 가상 네트워크 등). 
 
-    ![구독](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > 새 리소스 그룹을 사용하면 Azure에서 SQL Server 배포를 테스트하거나 알아보는 경우에 유용합니다. 테스트를 완료한 후 리소스 그룹을 삭제하면 VM과 해당 리소스 그룹과 연결된 모든 리소스가 자동으로 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+  > 새 리소스 그룹을 사용하면 Azure에서 SQL Server 배포를 테스트하거나 알아보는 경우에 유용합니다. 테스트를 완료한 후 리소스 그룹을 삭제하면 VM과 해당 리소스 그룹과 연결된 모든 리소스가 자동으로 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/management/overview.md)를 참조하세요.
 
 
 * **인스턴스 세부 정보**에서
@@ -137,7 +137,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 | [연결](#connectivity) |
 | [인증](#authentication) |
 | [Azure Key Vault 통합](#azure-key-vault-integration) |
-| [Storage 구성](#storage-configuration) |
+| [스토리지 구성](#storage-configuration) |
 | [자동화된 패치](#automated-patching) |
 | [자동화된 Backup](#automated-backup) |
 | [Machine Learning Services](#machine-learning-services) |
@@ -167,7 +167,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 SQL Server 인증이 필요한 경우 **SQL Server 설정** 탭의 **SQL 인증** 에서 **사용** 을 클릭 합니다.
 
-![SQL Server Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
+![SQL Server 인증](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 > [!NOTE]
 > 인터넷(공용 연결 옵션)을 통해 SQL Server에 액세스하려는 경우 여기에서 SQL 인증을 사용해야 합니다. SQL Server에 대한 공용 액세스를 위해서는 SQL 인증을 사용해야 합니다.
@@ -185,7 +185,7 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 다음 표에서는 Azure Key Vault 통합을 구성하는 데 필요한 매개 변수를 나열합니다.
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
 | **주요 자격 증명 모음 URL** |주요 자격 증명 모음의 위치입니다. |https:\//contosokeyvault.vault.azure.net/ |
 | **주체 이름** |Azure Active Directory 서비스 주체 이름. 이 이름을 클라이언트 ID라고도 합니다. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
@@ -194,15 +194,15 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성](virtual-machines-windows-ps-sql-keyvault.md)을 참조하세요.
 
-### <a name="storage-configuration"></a>Storage 구성
+### <a name="storage-configuration"></a>스토리지 구성
 
 **SQL Server 설정** 탭의 **저장소 구성**에서 **구성 변경** 을 선택 하 여 성능 최적화 저장소 구성 페이지를 열고 저장소 요구 사항을 지정 합니다.
 
 ![SQL VM 저장소 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-**다음에 대해 Storage 최적화**에서 다음 옵션 중 하나를 선택합니다.
+**다음에 대해 스토리지 최적화**에서 다음 옵션 중 하나를 선택합니다.
 
-* **일반** 은 기본 설정이며 대부분의 워크로드를 지원합니다.다.
+* **일반**은 기본 설정이며 대부분의 워크로드를 지원합니다.
 * **트랜잭션 처리** 는 기존의 데이터베이스 OLTP 워크 로드에 대 한 저장소를 최적화 합니다.
 * **데이터 웨어하우징** 은 분석 및 보고 워크로드용으로 스토리지를 최적화합니다.
 
@@ -242,7 +242,7 @@ SQL 자동화된 백업을 사용하도록 설정하면 다음 설정을 구성�
 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
 
-### <a name="machine-learning-services"></a>Machine Learning Services
+### <a name="machine-learning-services"></a>Machine Learning 서비스
 
 [Machine Learning Services](/sql/advanced-analytics/)를 사용 하도록 설정 하는 옵션이 있습니다. 이 옵션을 사용 하면 SQL Server 2017에서 Python 및 R에서 기계 학습을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용** 을 선택 합니다.
 

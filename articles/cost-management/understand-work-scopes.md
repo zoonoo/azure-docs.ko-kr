@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 91a71f914cff25dcdf4a85f3baafcfd9bc96b104
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63b778379dda39a795cccdcfa0c1443870d50365
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218884"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440987"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -45,7 +45,7 @@ Azure는 리소스 관리를 위해 세 가지 범위를 지원 합니다. 각 �
 
     리소스 종류: [Microsoft .resources/subscription](/rest/api/resources/subscriptions)
 
-- [**리소스 그룹**](../azure-resource-manager/resource-group-overview.md#resource-groups) -동일한 수명 주기를 공유 하는 Azure 솔루션에 대 한 관련 리소스의 논리적 그룹화입니다. 배포 하 고 함께 삭제 되는 리소스를 예로 들 수 있습니다.
+- [**리소스 그룹**](../azure-resource-manager/management/overview.md#resource-groups) -동일한 수명 주기를 공유 하는 Azure 솔루션에 대 한 관련 리소스의 논리적 그룹화입니다. 배포 하 고 함께 삭제 되는 리소스를 예로 들 수 있습니다.
 
     리소스 종류: [Microsoft .resources/subscription/resourceGroups](/rest/api/resources/resourcegroups)
 
@@ -234,7 +234,7 @@ Cost Management Api를 사용 하는 경우 범위를 아는 것이 중요 합�
 3. 테이블에서 관리 그룹 ID를 복사 합니다.
 4. 범위: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>구독
+### <a name="subscription"></a>Subscription
 
 1. Azure Portal를 열고 서비스 목록에서 **구독** 으로 이동 합니다.
 2. 테이블에서 구독 ID를 복사 합니다.

@@ -3,19 +3,15 @@ title: Azure Automation의 내 첫 번째 PowerShell 워크플로 Runbook
 description: PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook의 생성, 테스트, 게시 과정을 안내하는 자습서입니다.
 keywords: Powershell 워크플로, Powershell 워크플로 예제, 워크플로 Powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: dea13d084d80ce787cb8d6cf6146325d8c556b37
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: cdaadcfa3108ca847443e100bc624c2458c34115
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365957"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
 
@@ -27,7 +23,7 @@ ms.locfileid: "74850842"
 
 이 자습서는 Azure Automation에서 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적하는 방법을 설명하면서 테스트하고 게시하는 간단한 Runbook으로 시작합니다. 그런 다음 실제로 Azure 리소스를 관리하도록 Runbook을 수정합니다. 이 경우에 Azure Virtual Machine을 시작합니다. 마지막으로 Runbook 매개 변수를 추가하여 Runbook을 더 강력하게 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -117,7 +113,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. MyFirstRunbook 페이지로 돌아가려면 스트림 페이지와 작업 페이지를 닫습니다.
 1. **작업** 을 클릭 하 여이 runbook에 대 한 작업 페이지를 엽니다. 이 페이지에는 Runbook에서 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.
 
-   ![교육](media/automation-first-runbook-textual/runbook-control-job-tile.png)
+   ![작업](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
 1. 이 작업을 클릭 하 여 runbook을 시작할 때 표시 된 것과 동일한 작업 페이지를 열 수 있습니다. 이 작업을 통해 예전으로 돌아가 특정 Runbook에 대해 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
@@ -150,7 +146,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 1. **시작** 을 클릭하여 테스트를 시작합니다. 일단 완료되면 다음과 비슷한 출력을 수신하여 계정의 기본 정보를 표시해야 합니다. 이 작업은 자격 증명이 유효한 지 확인 합니다.
 
-   ![인증](media/automation-first-runbook-textual/runbook-auth-output.png)
+   ![Authenticate](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6단계 - 가상 머신을 시작하기 위한 코드 추가
 
@@ -202,7 +198,7 @@ Runbook은 현재 Runbook에 하드 코딩된 가상 머신을 시작하지만, 
 3. 창을 닫습니다.
 4. **게시** 를 클릭하여 Runbook의 새 버전을 게시합니다.
 5. 이전 단계에서 실행시킨 가상 머신을 중지합니다.
-6. **시작**을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및 **ResourceGroupName**을 입력합니다.
+6. **시작** 을 클릭하여 runbook을 시작합니다. 시작하려는 가상 머신의 **VMName** 및 **ResourceGroupName**을 입력합니다.
 
    ![Runbook 시작](media/automation-first-runbook-textual/automation-pass-params.png)
 

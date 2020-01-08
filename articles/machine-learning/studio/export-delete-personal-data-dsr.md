@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 9d17ff38ad521dcc282be4f06d33021faeb495b8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 51aad01d5b03335bd1b57f6e5a9c775556187cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427584"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 제품 내 사용자 데이터 내보내기 및 삭제 (클래식)
 
@@ -70,7 +70,7 @@ Machine Learning Studio (클래식)에는 세 가지 종류의 계정이 있습�
 ![Machine Learning Studio에서 사용 가능한 작업 영역 삭제 (클래식)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-classic-data-with-powershell"></a>PowerShell을 사용 하 여 Studio (클래식) 데이터 내보내기
-PowerShell을 사용 하 여 클래식 버전의 Azure Machine Learning Studio 명령을 사용 하 여 모든 정보를 휴대용 형식으로 내보낼 수 있습니다. 자세한 내용은 [Azure Machine Learning Studio PowerShell 모듈 (클래식)](powershell-module.md) 문서를 참조 하세요.
+PowerShell을 사용 하 여 Azure Machine Learning Studio (클래식)에서 명령을 사용 하 여 모든 정보를 휴대용 형식으로 내보낼 수 있습니다. 자세한 내용은 [Azure Machine Learning Studio PowerShell 모듈 (클래식)](powershell-module.md) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

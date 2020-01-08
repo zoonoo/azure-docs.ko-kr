@@ -5,15 +5,15 @@ ms.date: 08/22/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 081155c8984f39cc9cc8e905eb108c07dee98d2e
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 12/28/2019
 ms.locfileid: "70034421"
 ---
 ## <a name="validate-that-a-container-is-running"></a>컨테이너가 실행 중인지 확인 
 
-컨테이너가 실행되고 있는지 확인하는 방법은 여러 가지가 있습니다. 해당 하는 컨테이너의 *외부 IP* 주소 및 노출 된 포트를 찾아 즐겨 찾는 웹 브라우저를 엽니다. 아래에서 다양 한 요청 Url을 사용 하 여 컨테이너가 실행 중인지 확인 합니다. 아래 나열 된 예제 요청 url은 `http://localhost:5000`이지만 특정 컨테이너는 다를 수 있습니다. 컨테이너의 *외부 IP* 주소 및 노출 된 포트를 사용 해야 한다는 점에 유의 하세요.
+컨테이너가 실행되고 있는지 확인하는 방법은 여러 가지가 있습니다. 해당 하는 컨테이너의 *외부 IP* 주소 및 노출 된 포트를 찾아 즐겨 찾는 웹 브라우저를 엽니다. 아래에서 다양 한 요청 Url을 사용 하 여 컨테이너가 실행 중인지 확인 합니다. 아래 나열 된 예제 요청 Url은 `http://localhost:5000`있지만 특정 컨테이너는 다를 수 있습니다. 컨테이너의 *외부 IP* 주소 및 노출 된 포트를 사용 해야 한다는 점에 유의 하세요.
 
 | 요청 URL | 용도 |
 |--|--|

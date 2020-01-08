@@ -4,15 +4,15 @@ description: Active Directory Health Check 솔루션을 사용하여 일정한 �
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406129"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Azure Monitor에서 Active Directory 상태 검사 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
@@ -34,9 +34,9 @@ Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 �
 
 ![AD Health Check 대시보드의 이미지](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Active Directory Health Check 솔루션을 사용 하려면 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.5.2 이상이 설치 되어 있어야 합니다.  에이전트는 System Center 2016-Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용 됩니다.
+* Active Directory Health Check 솔루션을 사용 하려면 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.6.2 이상이 설치 되어 있어야 합니다.  에이전트는 System Center 2016-Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용 됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
 * Azure Marketplace로부터 Active Directory Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역. 추가 구성은 필요 하지 않습니다.
 
@@ -64,7 +64,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 - ADSI(Active Directory 서비스 인터페이스)
 - Windows PowerShell
 - 파일 데이터
-- WMI(Windows Management Instrumentation)
+- Windows Management Instrumentation(WMI)
 - DCDIAG 도구 API
 - NTFRS(파일 복제 서비스) API
 - 사용자 지정 C# 코드

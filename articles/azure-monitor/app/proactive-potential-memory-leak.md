@@ -1,5 +1,5 @@
 ---
-title: 스마트 검색 - Azure Application Insights에서 검색된 잠재적인 메모리 누수 | Microsoft Docs
+title: 메모리 누수 탐지-Azure 애플리케이션 Insights 스마트 검색
 description: Azure Application Insights를 사용하여 애플리케이션의 잠재적 메모리 누수를 모니터링합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: f07da754c6c9e0ad0541db12740c1d80f7f884fd
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cc6074732a86be02a8d8c596c46e154db4e8ad7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818796"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406455"
 ---
 # <a name="memory-leak-detection-preview"></a>메모리 누수 검색(미리 보기)
 

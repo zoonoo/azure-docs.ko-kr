@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 원격 분석 데이터 모델 - 추적 원격 분석 | Microsoft Docs
+title: Azure 애플리케이션 Insights 데이터 모델-원격 분석 추적
 description: 추적 원격 분석을 위한 Azure Application Insights 데이터 모델
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 855a93d8a6350c625fe0820fae83644aec3459ed
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 6e188039a86f4c655df3098be1d769668dcf3571
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678110"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407130"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>추적 원격 분석: Application Insights 데이터 모델
 

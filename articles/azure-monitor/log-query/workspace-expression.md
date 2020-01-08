@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 쿼리의 workspace() 식 | Microsoft Docs
 description: workspace 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 작업 영역에서 데이터를 검색하기 위해 Azure Monitor 로그 쿼리에서 사용됩니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364954"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
 
@@ -27,7 +26,7 @@ ms.locfileid: "72932848"
 
 - *Identifier*: 아래 표에 있는 형식 중 하나를 사용하여 작업 영역을 식별합니다.
 
-| 식별자 | 설명 | 예제
+| ID | Description | 예
 |:---|:---|:---|
 | 리소스 이름 | 사용자가 읽을 수 있는 작업 영역의 이름(즉, “구성 요소 이름”) | workspace(“contosoretail”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 작업 영역의 전체 이름 | workspace(‘Contoso/ContosoResource/ContosoWorkspace’) |
@@ -35,7 +34,7 @@ ms.locfileid: "72932848"
 | Azure 리소스 ID | Azure 리소스의 식별자 | workspace(“/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail”) |
 
 
-## <a name="notes"></a>참고
+## <a name="notes"></a>메모
 
 * 작업 영역에 대한 읽기 권한이 있어야 합니다.
 * 관련 식은 Application Insights 애플리케이션 전체에서 쿼리할 수 있는 `app`입니다.

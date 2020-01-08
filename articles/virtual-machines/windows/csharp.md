@@ -1,6 +1,6 @@
 ---
 title: 을 사용 하 여 Azure 가상 컴퓨터 만들기 및 관리C#
-description: C# 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 모든 지원 리소스를 배포합니다.
+description: C# 및 Azure Resource Manager를 사용하여 가상 머신 및 모든 지원 리소스를 배포합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bb0962991701dc780e50fec60982083b20d4ab0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358380"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>C#을 사용하여 Azure에서 Windows VM 생성 및 관리 #
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 C#을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 C#을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Visual Studio 프로젝트 만들기
@@ -55,11 +55,11 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ## <a name="create-credentials"></a>자격 증명 만들기
 
-이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해야 합니다.
+이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
 
 ### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 **Visual C# 항목**에서 *텍스트 파일*을 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
 2. 다음과 같은 권한 부여 속성을 추가합니다.
 
     ```
@@ -94,7 +94,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
     ```
 
-2. 관리 클라이언트를 만들려면 다음 코드를 Main 메서드에 추가합니다.
+2. 관리 클라이언트를 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
     ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
@@ -111,7 +111,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
-모든 리소스는 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)에 포함되어야 합니다.
+모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/overview.md)에 포함되어야 합니다.
 
 애플리케이션의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
@@ -174,7 +174,7 @@ var network = azure.Networks.Define("myVNet")
 
 ### <a name="create-the-network-interface"></a>네트워크 인터페이스 만들기
 
-가상 컴퓨터는 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
+가상 머신은 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
 
 네트워크 인터페이스를 만들려면 Main 메서드에 다음 코드를 추가합니다.
 

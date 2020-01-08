@@ -2,19 +2,15 @@
 title: Azure Automation에서 원본 제어 통합
 description: 이 문서에서는 Azure Automation에서 GitHub를 사용하는 원본 제어 통합을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 837ebd71886e9435a44080b06c079623c3936c69
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417063"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -45,7 +41,7 @@ Automation 계정 내에서 **원본 제어** 를 선택 하 고 **+ 추가** �
 
 **소스 제어 요약** 페이지에서 정보를 입력하고 **저장**을 클릭합니다. 다음 표는 사용 가능한 필드에 대한 설명을 보여 줍니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
 |소스 제어 이름     | 소스 컨트롤에 대 한 친숙 한 이름입니다. *이 이름에는 문자와 숫자만 포함 되어야 합니다.*        |
 |소스 제어 형식     | 소스 제어 소스의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
@@ -54,7 +50,7 @@ Automation 계정 내에서 **원본 제어** 를 선택 하 고 **+ 추가** �
 |폴더 경로     | 동기화 할 runbook을 포함 하는 폴더입니다. 예:/Runbooks </br>*지정 된 폴더의 runbook만 동기화 됩니다. 재귀는 지원 되지 않습니다.*        |
 |Auto Sync<sup>1</sup>     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 설정 또는 해제합니다.         |
 |Runbook 게시     | **On**으로 설정 된 경우 runbook이 원본 제어에서 동기화 된 후 자동으로 게시 됩니다.         |
-|설명     | 추가 정보를 제공하는 텍스트 필드        |
+|Description     | 추가 정보를 제공하는 텍스트 필드        |
 
 <sup>1</sup> Azure Repos와 원본 제어 통합을 구성할 때 자동 동기화를 사용 하도록 설정 하려면 프로젝트 관리자 여야 합니다.
 
@@ -93,7 +89,7 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 GitHub에서 개인용 액세스 토큰을 만드는 방법에 대 한 자세한 내용은 [명령줄에 대 한 개인용 액세스 토큰 만들기](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)를 참조 하세요.
 
-|범위  |설명  |
+|범위  |Description  |
 |---------|---------|
 |**리포지토리**     |         |
 |repo:status     | 커밋 상태 액세스         |

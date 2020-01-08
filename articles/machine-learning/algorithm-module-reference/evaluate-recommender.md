@@ -1,7 +1,7 @@
 ---
 title: '추천 평가: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 Evaluate 추천 모듈을 사용 하 여 추천 모델 예측의 정확도를 평가 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 Evaluate 추천 모듈을 사용 하 여 추천 모델 예측의 정확도를 평가 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9a80fce04aa939895d1dc9572714046d9203bad7
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428545"
 ---
 # <a name="evaluate-recommender"></a>추천 평가
 
@@ -39,11 +39,11 @@ ms.locfileid: "73717168"
 
 추천 평가에는 다음 데이터 집합이 입력으로 필요 합니다. 
   
-#### <a name="test-dataset"></a>테스트 데이터 집합
+#### <a name="test-dataset"></a>테스트 데이터 집합입니다.
 
 테스트 데이터 집합은 사용자-항목-등급 삼중 쌍 형식의 "그라운드" 데이터를 포함 합니다.  
 
-#### <a name="scored-dataset"></a>점수가 매겨진 데이터 집합
+#### <a name="scored-dataset"></a>점수가 매겨진 데이터 집합입니다.
 
 점수가 매겨진 데이터 집합에는 권장 사항 모델이 생성 한 예측이 포함 됩니다.  
   
@@ -90,4 +90,4 @@ ms.locfileid: "73717168"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

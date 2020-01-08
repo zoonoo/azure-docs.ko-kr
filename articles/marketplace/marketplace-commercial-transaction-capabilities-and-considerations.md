@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791359"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427168"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>상업적 marketplace 트랜잭션 기능 및 고려 사항
 
@@ -163,7 +163,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 예를 들어, 고객이 신용 카드를 사용하여 구매하는 경우:
 
-|설명    |    날짜  |
+|Description    |    날짜  |
 |----------|----------|
 |주문 기간   | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(월)   | 2018년 8월 30일 |
@@ -177,7 +177,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 고객이 기업 계약을 사용하여 구매하는 경우:
 
-| 설명 |    날짜  |
+| Description |    날짜  |
 |----------|----------|
 |주문 기간 | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(분기) | 2018년 9월 30일 |
@@ -223,7 +223,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 - 제품의 가격 책정 모델에 관계 없이 Microsoft 계정 및 재무 정보는 transact-sql 게시 옵션에 필요 합니다.
 - 필수 금융 정보에는 지급 계정 및 세금 프로필이 포함 됩니다.
 
-이러한 계정을 설정 하는 방법에 대 한 자세한 내용은 [파트너 센터 계정 관리](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details)를 참조 하세요.
+이러한 계정을 설정 하는 방법에 대 한 자세한 내용은 [파트너 센터 계정 관리](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)를 참조 하세요.
 
 
 ### <a name="requirements-for-specific-offer-types"></a>특정 제품 유형에 대한 요구 사항

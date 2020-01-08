@@ -1,5 +1,5 @@
 ---
-title: Azure VM 및 Azure virtual machine scale sets에서 호스트 되는 응용 프로그램 성능 모니터링 | Microsoft Docs
+title: Azure Vm에서 성능 모니터링-Azure 애플리케이션 정보
 description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프로그램 성능 모니터링. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: 248dfb83c26d3f49fb492272ee3bd87d1e34fefa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 2fdd07d01e6bb1258a3f2ae2e856e440e5ed2818
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407347"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
 
@@ -50,7 +50,7 @@ Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프�
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>PowerShell을 사용 하 여 Azure virtual machines에서 .NET 응용 프로그램에 대 한 Application Insights 에이전트 관리
 
 > [!NOTE]
-> Application Insights 에이전트를 설치 하기 전에 계측 키가 필요 합니다. [새 Application Insights 리소스를 만들거나](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 기존 application Insights 리소스에서 계측 키를 복사 합니다.
+> Application Insights 에이전트를 설치 하기 전에 연결 문자열이 필요 합니다. [새 Application Insights 리소스를 만들거나](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 기존 application Insights 리소스에서 연결 문자열을 복사 합니다.
 
 > [!NOTE]
 > Powershell을 처음 접하는 가요? [시작 가이드](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0)를 확인 하세요.
@@ -65,8 +65,9 @@ $publicCfgJsonString = '
         {
           "appFilter": ".*",
           "machineFilter": ".*",
+          "virtualPathFilter": ".*",
           "instrumentationSettings" : {
-            "instrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }
       ]
@@ -105,7 +106,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 포털의 [Azure virtual machine 블레이드에서](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) 설치 된 확장을 볼 수도 있습니다.
 
 > [!NOTE]
-> Application Insights 에이전트 확장을 배포 하는 데 사용한 계측 키와 연결 된 Application Insights 리소스 내의 라이브 메트릭 스트림를 클릭 하 여 설치를 확인 합니다. 여러 Virtual Machines에서 데이터를 보내는 경우 서버 이름 아래에서 대상 Azure Virtual Machines를 선택 합니다. 데이터 흐름이 시작 되는 데 최대 1 분 정도 걸릴 수 있습니다.
+> Application Insights 에이전트 확장을 배포 하는 데 사용한 연결 문자열과 연결 된 Application Insights 리소스 내의 라이브 메트릭 스트림를 클릭 하 여 설치를 확인 합니다. 여러 Virtual Machines에서 데이터를 보내는 경우 서버 이름 아래에서 대상 Azure Virtual Machines를 선택 합니다. 데이터 흐름이 시작 되는 데 최대 1 분 정도 걸릴 수 있습니다.
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machine-scale-sets-using-powershell"></a>Powershell을 사용 하 여 Azure 가상 머신 확장 집합에서 .NET 응용 프로그램에 대 한 Application Insights 에이전트 관리
 
@@ -119,8 +120,9 @@ $publicCfgHashtable =
         @{
           "appFilter"= ".*";
           "machineFilter"= ".*";
-          "instrumentationSettings"= @{
-            "instrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "virtualPathFilter": ".*",
+          "instrumentationSettings" : {
+            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )

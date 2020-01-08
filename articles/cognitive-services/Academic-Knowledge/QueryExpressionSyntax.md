@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 4056ecba7ac80436952228da9e1b74dc7382448c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448960"
 ---
 # <a name="query-expression-syntax"></a>쿼리 식 구문
 
@@ -26,8 +26,9 @@ ms.locfileid: "68704919"
 
 쿼리 식에 포함할 수 있는 각 엔터티 특성에는 특정 데이터 형식 및 가능한 쿼리 연산자 집합이 있습니다. 엔터티 특성 및 각 특성에 지원되는 연산자 집합은 [엔터티 특성](EntityAttributes.md)에서 지정됩니다. 단일 값 쿼리는 특성에서 *Equals* 연산을 지원해야 합니다. 접두사 쿼리는 특성에서 *StartsWith* 연산을 지원해야 합니다. 숫자 범위 쿼리는 특성에서 *IsBetween* 연산을 지원해야 합니다.
 
-엔터티 데이터 중 일부는 복합 특성으로 저장되고 특성 이름에서 점('.')으로 표시됩니다. 예를 들어 작성자/소속 정보는 복합 특성으로 표시됩니다. 4개의 구성 요소가 포함됩니다. AuN, AuId, AfN, AfId 이러한 구성 요소는 단일 엔터티 특성 값을 구성하는 별도의 데이터 조각입니다.
+엔터티 데이터 중 일부는 복합 특성으로 저장되고 특성 이름에서 점('.')으로 표시됩니다. 예를 들어 작성자/소속 정보는 복합 특성으로 표시됩니다. 여기에는 AuN, AuId, AfN, AfId의 4가지 구성 요소가 포함됩니다. 이러한 구성 요소는 단일 엔터티 특성 값을 구성하는 별도의 데이터 조각입니다.
 
+참고: 모든 쿼리 식은 특수 문자 없이 소문자 여야 합니다.
 
 **문자열 특성: 단일 값**(동의어에 대한 일치 항목 포함)  
 Ti='indexing by latent semantic analysis'  

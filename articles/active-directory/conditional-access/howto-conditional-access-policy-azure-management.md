@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d0a1f56624314ff0cebe93a46027d3ca5b6a838
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e6c4e5d90704e847b3bcd033a20311cc6c69cfe7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803719"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424910"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>조건부 액세스: Azure 관리를 위해 MFA 필요
 
@@ -57,5 +57,7 @@ ms.locfileid: "74803719"
 ## <a name="next-steps"></a>다음 단계
 
 [조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+
+[조건부 액세스 보고서 전용 모드를 사용 하 여 영향 확인](howto-conditional-access-report-only.md)
 
 [조건부 액세스 What If 도구를 사용 하 여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

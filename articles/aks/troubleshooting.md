@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5652c5035c2e4cd35ac6943ef90c8bcc02b95dba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442884"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -30,7 +30,7 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>AKS의 노드당 최대 Pod 설정이란?
 
 노드당 최대 Pod 설정은 Azure Portal에서 AKS 클러스터를 배포하는 경우 기본적으로 30입니다.
-노드당 최대 Pod 설정은 Azure CLI에서 AKS 클러스터를 배포하는 경우 기본적으로 110입니다. Azure CLI의 최신 버전을 사용하도록 합니다. 이 기본 설정은 `–-max-pods` 명령에서 `az aks create` 플래그를 사용하여 변경할 수 있습니다.
+노드당 최대 Pod 설정은 Azure CLI에서 AKS 클러스터를 배포하는 경우 기본적으로 110입니다. Azure CLI의 최신 버전을 사용하도록 합니다. 이 기본 설정은 `az aks create` 명령에서 `–-max-pods` 플래그를 사용하여 변경할 수 있습니다.
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 insufficientSubnetSize 오류가 발생합니다. 어떻게 해야 하나요?
 
@@ -73,18 +73,18 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>내 클러스터가 실패 상태에 있는 오류를 수신 하 고 있으며, 문제가 해결 될 때까지 업그레이드 또는 확장이 작동 하지 않습니다.
 
-*이 문제 해결 지원은 https://aka.ms/aks-cluster-failed에서 전송 됩니다.*
+*이 문제 해결 지원은 https://aka.ms/aks-cluster-failed 에서 전송 됩니다.*
 
 이 오류는 여러 가지 이유로 클러스터가 실패 상태를 입력 하는 경우에 발생 합니다. 이전에 실패 한 작업을 다시 시도 하기 전에 다음 단계를 수행 하 여 클러스터 실패 상태를 확인 합니다.
 
 1. 클러스터가 `failed` 상태가 될 때까지 `upgrade` 및 `scale` 작업이 성공 하지 않습니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
     * **계산 (CRP) 할당량이 부족**한 크기 조정 문제를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 다시 확장 합니다. 그런 다음 초기 할당량 한도를 초과 하 여 다시 확장 하기 전에 [계산 할당량 증가를 요청 하려면 다음 단계를](../azure-supportability/resource-manager-core-quotas-request.md) 수행 합니다.
-    * 고급 네트워킹으로 클러스터 크기를 조정 하 고 **서브넷 (네트워킹) 리소스가 부족**합니다. 문제를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 다시 확장 합니다. 그런 후에 다음 단계에 따라 초기 할당량 한도를 초과 하 여 다시 확장 하기 전에 [리소스 할당량 증가를 요청](../azure-resource-manager/resource-manager-quota-errors.md#solution) 합니다.
+    * 고급 네트워킹으로 클러스터 크기를 조정 하 고 **서브넷 (네트워킹) 리소스가 부족**합니다. 문제를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 다시 확장 합니다. 그런 후에 다음 단계에 따라 초기 할당량 한도를 초과 하 여 다시 확장 하기 전에 [리소스 할당량 증가를 요청](../azure-resource-manager/templates/error-resource-quota.md#solution) 합니다.
 2. 업그레이드 실패의 근본 원인이 해결 되 면 클러스터가 성공 상태 여야 합니다. 성공 상태가 확인 되 면 원래 작업을 다시 시도 합니다.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>클러스터가 현재 업그레이드 중이거나 업그레이드에 실패 한 상태를 업그레이드 하거나 크기를 조정 하려고 할 때 오류가 발생 합니다.
 
-*이 문제 해결 지원은 https://aka.ms/aks-pending-upgrade에서 전송 됩니다.*
+*이 문제 해결 지원은 https://aka.ms/aks-pending-upgrade 에서 전송 됩니다.*
 
 단일 노드 풀 또는 [여러 노드 풀](use-multiple-node-pools.md) 을 포함 하는 클러스터에서 클러스터에 대 한 업그레이드 및 크기 조정 작업은 함께 사용할 수 없습니다. 클러스터 또는 노드 풀을 동시에 업그레이드 하 고 확장할 수 없습니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 따라서 활성 업그레이드 또는 크기 조정 작업이 발생 하거나 시도한 후에 실패 하는 경우 작업이 제한 됩니다. 
 
@@ -193,7 +193,7 @@ Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.Wait
 | -- | :--: |
 | 1.10 | 1.10.2 이상 |
 | 1.11 | 1.11.0 이상 |
-| 1.12 이상 | 해당 없음 |
+| 1.12 이상 | N/A |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Azure 디스크에 대해 mountOptions에서 uid 및 gid를 설정 하는 동안 오류가 발생 했습니다.
 
@@ -267,7 +267,7 @@ MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c2
 | 1.11 | 1.11.5 이상 |
 | 1.12 | 1.12.3 이상 |
 | 1.13 | 1.13.0 이상 |
-| 1.14 이상 | 해당 없음 |
+| 1.14 이상 | N/A |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes 버전을 사용 하는 경우 몇 분 동안 기다린 후 다시 시도 하 여 문제를 완화할 수 있습니다.
 
@@ -288,7 +288,7 @@ Kubernetes 버전 1.9.2부터 여러 연결/분리 작업을 병렬로 실행 �
 | 1.11 | 1.11.6 이상 |
 | 1.12 | 1.12.4 이상 |
 | 1.13 | 1.13.0 이상 |
-| 1.14 이상 | 해당 없음 |
+| 1.14 이상 | N/A |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes 버전을 사용 하는 경우 다음을 시도 하 여 문제를 완화할 수 있습니다.
 
@@ -309,7 +309,7 @@ Kubernetes 버전 1.9.2부터 여러 연결/분리 작업을 병렬로 실행 �
 | 1.11 | 1.11.9 이상 |
 | 1.12 | 1.12.7 이상 |
 | 1.13 | 1.13.4 이상 |
-| 1.14 이상 | 해당 없음 |
+| 1.14 이상 | N/A |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes 버전을 사용 하는 경우 디스크를 수동으로 분리 하 여 문제를 완화할 수 있습니다.
 
@@ -324,7 +324,7 @@ Azure 디스크를 분리 하지 못하면 지 수 백오프를 사용 하 여 �
 | 1.12 | 1.12.9 이상 |
 | 1.13 | 1.13.6 이상 |
 | 1.14 | 1.14.2 이상 |
-| 1.15 이상 | 해당 없음 |
+| 1.15 이상 | N/A |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes의 버전을 사용 하는 경우 노드 VM에 사용 되지 않는 디스크 목록이 있으면 VM의 모든 비 기존 디스크를 단일 대량 작업으로 분리 하 여 문제를 완화할 수 있습니다. **존재 하지 않는 디스크를 개별적으로 분리 하면 실패할 수 있습니다.**
 
@@ -344,7 +344,7 @@ Azure 디스크를 분리 하지 못하면 지 수 백오프를 사용 하 여 �
 | 1.12 | 1.12.10 이상 |
 | 1.13 | 1.13.8 이상 |
 | 1.14 | 1.14.4 이상 |
-| 1.15 이상 | 해당 없음 |
+| 1.15 이상 | N/A |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes의 버전을 사용 중이 고 노드 VM이 실패 한 상태 이면 아래 중 하나를 사용 하 여 VM 상태를 수동으로 업데이트 하 여 문제를 완화할 수 있습니다.
 
@@ -461,7 +461,7 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 | -- | :--: |
 | 1.12 | 1.12.6 이상 |
 | 1.13 | 1.13.4 이상 |
-| 1.14 이상 | 해당 없음 |
+| 1.14 이상 | N/A |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>저장소 계정 키가 변경 되어 Azure Files 탑재 실패
 
@@ -482,3 +482,17 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 몇 분 후에 에이전트 노드에서 업데이트 된 저장소 키로 azure 파일 탑재를 다시 시도 합니다.
+
+### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>노드 그룹 크기를 수정 하지 못했습니다. 오류가 발생 하 여 클러스터 autoscaler 크기를 조정 하지 못함
+
+클러스터 autoscaler 확장/축소 되지 않고 [클러스터 autoscaler 로그][view-master-logs]에 아래와 같은 오류가 표시 됩니다.
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+이 오류는 클러스터 autoscaler가 실제로 클러스터에 있는 값과 다른 값으로 끝나는 업스트림 클러스터 autoscaler 경합 상태 때문에 발생 합니다. 이 상태를 확인 하려면 [클러스터 autoscaler][cluster-autoscaler]를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 하면 됩니다.
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

@@ -4,15 +4,15 @@ description: Azure Monitor Logs Analytics 서비스에 대 한 자주 묻는 질
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/01/2019
-ms.openlocfilehash: 9eb921fc8ea19486db0fc3311764931f09e11464
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 77159e0fa73a1f56688c867c55ae46f28016992c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394795"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 
@@ -31,42 +31,42 @@ A: 이들은 같습니다. [Log Analytics는 Azure Monitor의 기능으로 통�
 
 A: 로그 검색은 현재 OMS 포털과 Azure Portal에서 **로그(클래식)** 라는 이름으로 계속 제공됩니다. OMS 포털은 2019년 1월 15일에 공식적으로 사용이 중지됩니다. Azure Portal의 클래식 로그 환경은 점차적으로 사용이 중지되고 새로운 로그 환경으로 대체될 예정입니다. 
 
-### <a name="q-can-i-still-use-advanced-analytics-portal"></a>Q. 고급 분석 포털을 계속 사용할 수 있나요? 
+### <a name="q-can-i-still-use-advanced-analytics-portal"></a>17. 고급 분석 포털을 계속 사용할 수 있나요? 
 Azure Portal의 새로운 로그 환경은 고급 분석 포털을 기반으로 하지만 Azure Portal 외부에서 여전히 액세스할 수 있습니다. 이 외부 포털의 사용 중지에 대한 로드맵은 곧 발표될 예정입니다.
 
-### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>Q. 새 로그 환경에 쿼리 탐색기와 저장 단추가 표시되지 않는 이유는 무엇인가요?
+### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>17. 새 로그 환경에 쿼리 탐색기와 저장 단추가 표시되지 않는 이유는 무엇인가요?
 
 특정 리소스의 컨텍스트에서 로그를 살펴볼 때는 **쿼리 탐색기**, **저장** 및 **경고 설정** 단추를 사용할 수 없습니다. 경고를 생성하거나, 쿼리를 저장하거나 로드하려면 로그의 범위를 작업 영역으로 지정해야 합니다. 작업 영역 컨텍스트에서 로그를 열려면 **모든 서비스** > **모니터** > **로그**를 선택합니다. 마지막으로 사용한 작업 영역이 선택되지만 다른 작업 영역을 선택할 수 있습니다. 자세한 내용은 [Log Analytics에서 데이터 확인 및 분석](../log-query/portals.md)을 참조하세요.
 
-### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>Q. 새 로그 환경에서 사용자 지정 필드를 추출하려면 어떻게 하나요? 
+### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>17. 새 로그 환경에서 사용자 지정 필드를 추출하려면 어떻게 하나요? 
 
 A: 사용자 지정 필드 추출은 현재 클래식 로그 환경에서 지원됩니다. 
 
-### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. 새 로그의 목록 보기는 어디에 있나요? 
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>17. 새 로그의 목록 보기는 어디에 있나요? 
 
 A: 새 로그에서는 목록 보기를 사용할 수 없습니다. 결과 테이블의 각 레코드 왼쪽에 화살표가 있습니다. 특정 레코드에 대한 세부 정보를 열려면 이 화살표를 클릭합니다. 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>Q. 쿼리를 실행하면 추천 필터 목록이 제공됩니다. 필터를 확인하려면 어떻게 해야 하나요? 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>17. 쿼리를 실행하면 추천 필터 목록이 제공됩니다. 필터를 확인하려면 어떻게 해야 하나요? 
 
 A: 왼쪽 창에서 ' 필터 '를 클릭 하 여 새 필터 구현에 대 한 미리 보기를 확인 합니다. 이 기능은 현재 UI의 레코드 한도가 10,000개로 제한되는 대신 전체 결과 집합을 기반으로 합니다. 현재 가장 많이 사용되는 필터 목록과 각 필터의 가장 일반적인 10가지 값입니다. 
 
-### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. VM에서 드릴다운한 후에 로그에 "이 구독에 대한 리소스 공급 기업 'Microsoft.Insights'를 등록하여 이 쿼리를 사용하도록 설정" 오류가 표시되는 이유는 무엇인가요? 
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>17. VM에서 드릴다운한 후에 로그에 "이 구독에 대한 리소스 공급 기업 'Microsoft.Insights'를 등록하여 이 쿼리를 사용하도록 설정" 오류가 표시되는 이유는 무엇인가요? 
 
-A: 기본적으로 리소스 공급자는 대부분 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 이렇게 하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)을 참조하세요.
+A: 기본적으로 리소스 공급자는 대부분 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 이렇게 하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
 
-### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>Q. VM 페이지에서 로그에 액세스할 때 액세스 오류 메시지가 표시되지 않는 이유는 무엇인가요? 
+### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>17. VM 페이지에서 로그에 액세스할 때 액세스 오류 메시지가 표시되지 않는 이유는 무엇인가요? 
 
 A: VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽기 권한이 부여되야 합니다. 이런 경우 관리자가 Azure에서 내게 권한을 부여해 줘야 합니다.
 
-### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>Q. OMS 포털에서 내 작업 영역에 액세스할 수 있는데 Azure Portal에서 “액세스할 수 없습니다” 오류가 표시되는 이유가 무언인가요?  
+### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>17. OMS 포털에서 내 작업 영역에 액세스할 수 있는데 Azure Portal에서 “액세스할 수 없습니다” 오류가 표시되는 이유가 무언인가요?  
 
 A: Azure에서 작업 영역에 액세스하려면 Azure 권한을 할당 받아야 합니다. 적절한 액세스 권한이 없는 경우가 몇 가지 있습니다. 이런 경우에는 관리자가 Azure에서 내게 권한을 부여해야 합니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](oms-portal-transition.md)을 참조하세요.
 
-### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. 로그에서 보기 디자이너 항목을 볼 수 없는 이유는 무엇인가요?
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>17. 로그에서 보기 디자이너 항목을 볼 수 없는 이유는 무엇인가요?
 
 A: 보기 디자이너는 로그에서 기여자 권한 이상이 할당된 사용자만 사용할 수 있습니다.
 
-### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Azure 외부의 Analytics 포털을 계속 사용할 수 있나요?
+### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>17. Azure 외부의 Analytics 포털을 계속 사용할 수 있나요?
 
 A. 예, Azure의 로그 페이지와 고급 분석 포털은 동일한 코드를 기반으로 합니다. Log Analytics는 Azure Monitor의 기능으로 통합되어 보다 통합된 모니터링 환경을 제공합니다. URL을 사용 하 여 분석 포털에 액세스할 수 있습니다. https:\/\/resourceGroupName/subscription/{subscriptionId}/resourcegroups/{}/workspaces/{workspaceName}.
 
@@ -74,20 +74,15 @@ A. 예, Azure의 로그 페이지와 고급 분석 포털은 동일한 코드를
 
 ## <a name="general"></a>일반
 
-### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>Q. Azure Portal에서 내 보기와 솔루션은 어떻게 볼 수 있나요? 
+### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>17. Azure Portal에서 내 보기와 솔루션은 어떻게 볼 수 있나요? 
 
 A: 보기 및 설치된 솔루션 목록은 Azure Portal에서 사용할 수 있습니다. **모든 서비스**를 클릭합니다. 리소스 목록에서 **모니터**를 선택한 다음, **...추가**를 클릭합니다. 마지막으로 사용한 작업 영역이 선택되지만 다른 작업 영역을 선택할 수 있습니다. 
 
-### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>Q. 미국 중서부 지역에 작업 영역을 만들 수 없는 이유가 무엇인가요? 
-
-A: 이 지역은 임시 용량 한도에 도달했습니다. 이 한도는 2019 년 9 월 말에 해결 될 예정입니다.
-
-
-### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics는 Azure Security Center와 같은 에이전트를 사용합니까?
+### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>17. Log Analytics는 Azure Security Center와 같은 에이전트를 사용합니까?
 
 A: 2017년 6월 초에 Azure Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집하고 저장하기 시작했습니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션 FAQ](../../security-center/security-center-enable-data-collection.md)를 참조하세요.
 
-### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q. AD 및 SQL 평가 솔루션에서 수행하는 검사는 무엇입니까?
+### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>17. AD 및 SQL 평가 솔루션에서 수행하는 검사는 무엇입니까?
 
 A: 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여줍니다.
 
@@ -97,7 +92,7 @@ A: 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여
 
 추가 검토를 위해 결과를 Excel로 내보낼 수 있습니다.
 
-### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q. System Center Operations Manager 콘솔에 OMS와 다른 내용이 표시되는 이유는 무엇인가요?
+### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>17. System Center Operations Manager 콘솔에 OMS와 다른 내용이 표시되는 이유는 무엇인가요?
 
 A: 사용 중인 Operations Manager의 업데이트 롤업에 따라 *System Center Advisor*, *Operational Insights* 또는 *Log Analytics*에 대한 노드가 표시될 수 있습니다.
 
@@ -107,7 +102,7 @@ A: 사용 중인 Operations Manager의 업데이트 롤업에 따라 *System Cen
 
 A: 아니요. Log Analytics는 대량의 데이터를 처리 및 저장하는 확장성 있는 클라우드 서비스입니다. 
 
-### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. 데이터 수집이 중지될 때 알림을 받을 수 있는 방법은 무엇인가요?
+### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>17. 데이터 수집이 중지될 때 알림을 받을 수 있는 방법은 무엇인가요?
 
 A: [새 로그 경고 만들기](../../azure-monitor/platform/alerts-metric.md)에 설명한 단계를 사용하여 데이터 수집이 중단되는 경우 알림을 받을 수 있습니다.
 
@@ -117,8 +112,8 @@ A: [새 로그 경고 만들기](../../azure-monitor/platform/alerts-metric.md)�
 - **경고 조건**은 다음을 지정합니다.
    - **신호 이름**은 **사용자 지정 로그 검색**을 선택합니다.
    - **쿼리 검색**을 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`으로
-   - **경고 논리**는 **결과 수**에 *기반*하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
-   - **30**분의 *시간 범위* 및 매 **10**분의 *경고 주기*
+   - **경고 논리** 는 *결과 수* 를 **기반으로** 하며 **조건이** **임계값** *0* *보다 큽니다* .
+   - *30*분의 **시간 범위** 및 매 *10*분의 **경고 주기**
 - **경고 세부 정보 정의**는 다음을 지정합니다.
    - **이름**을 *데이터 수집 중지됨*으로
    - **심각도**를 *경고*로
@@ -127,23 +122,23 @@ A: [새 로그 경고 만들기](../../azure-monitor/platform/alerts-metric.md)�
 
 ## <a name="configuration"></a>구성
 
-### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Azure Diagnostics(WAD)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?
+### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>17. Azure Diagnostics(WAD)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?
 
 A. 아니요, 현재 Azure Storage의 임의 테이블 또는 컨테이너에서 읽을 수 없습니다.
 
-### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>Q. Log Analytics 서비스에서 사용하는 IP 주소는 무엇인가요? 내 방화벽에서 Log Analytics 서비스에 대한 트래픽만 허용하도록 하려면 어떻게 하나요?
+### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>17. Log Analytics 서비스에서 사용하는 IP 주소는 무엇인가요? 내 방화벽에서 Log Analytics 서비스에 대한 트래픽만 허용하도록 하려면 어떻게 하나요?
 
 A. Log Analytics 서비스는 Azure를 기반으로 빌드됩니다. Log Analytics IP 주소는 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 있습니다.
 
 서비스 배포가 수행되면서 Log Analytics 서비스의 실제 IP 주소가 변경됩니다. 방화벽을 통과하도록 허용하는 DNS 이름은 [네트워크 요구 사항](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)에 문서화됩니다.
 
-### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. ExpressRoute를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용하나요?
+### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>17. ExpressRoute를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용하나요?
 
 A. 여러 유형의 ExpressRoute 트래픽이 [ExpressRoute 설명서](../../expressroute/expressroute-faqs.md#supported-services)에 나와 있습니다.
 
 Log Analytics에 대한 트래픽은 공용 피어링 ExpressRoute 회로를 사용합니다.
 
-### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?
+### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>17. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?
 
 A. `Move-AzResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 Automation 계정도 이동할 수 있습니다. 자세한 내용은 [AzResource](https://msdn.microsoft.com/library/mt652516.aspx)를 참조 하세요.
 
@@ -191,18 +186,18 @@ A: API 본문에 ‘etag’를 추가하거나 Azure Resource Manager 템플릿 
 ```
 
 ## <a name="agent-data"></a>에이전트 데이터
-### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. 에이전트를 통해 Log Analytics로 얼마나 많은 데이터를 보낼 수 있나요? 고객 한 명당 최대 데이터 용량이 있나요?
+### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>17. 에이전트를 통해 Log Analytics로 얼마나 많은 데이터를 보낼 수 있나요? 고객 한 명당 최대 데이터 용량이 있나요?
 A. 업로드 되는 데이터의 양에는 제한이 없으며, 선택 하는 가격 책정 옵션 (용량 예약 또는 종 량 제)을 기반으로 합니다. Log Analytics 작업 영역은 고객의 볼륨을 처리할 수 있도록 자동으로 확장 되도록 설계 되었습니다 (하루에 테라바이트 단위). 자세한 내용은 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/monitor/)를 참조 하세요.
 
 Log Analytics 에이전트는 작은 공간을 갖도록 설계되었습니다. 데이터 볼륨은 사용하도록 설정한 솔루션에 따라 다릅니다. [사용량](../../azure-monitor/platform/data-usage.md) 페이지에서 데이터 볼륨에 대한 자세한 정보를 확인하고 솔루션별로 정리된 내용을 볼 수 있습니다.
 
 자세한 내용은 Log Analytics 에이전트의 리소스 사용률 (공간)을 평가한 후 결과를 표시 하는 [고객 블로그](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) 를 읽을 수 있습니다.
 
-### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. 데이터를 Log Analytics로 전송할 때 Microsoft Management Agent(MMA)에 사용된 네트워크 대역폭은 얼마나 되나요?
+### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>17. 데이터를 Log Analytics로 전송할 때 Microsoft Management Agent(MMA)에 사용된 네트워크 대역폭은 얼마나 되나요?
 
 A. 대역폭은 전송된 데이터 양에 대한 기능입니다. 네트워크를 통해 데이터가 전송되는 동안 데이터가 압축됩니다.
 
-### <a name="q-how-much-data-is-sent-per-agent"></a>Q. 에이전트당 얼마나 많은 데이터가 전송되나요?
+### <a name="q-how-much-data-is-sent-per-agent"></a>17. 에이전트당 얼마나 많은 데이터가 전송되나요?
 
 A. 에이전트당 전송되는 데이터의 양에 따라 달라집니다.
 

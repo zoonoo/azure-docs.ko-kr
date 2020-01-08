@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2251725597e44a15e421f33cc315be3fb1c7846f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459154"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
 
@@ -30,9 +30,9 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 각 격리 된 크기에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>2020 년 2 월 15 일 D15_v2/DS15_v2 격리 사용 중지
-최근 Azure 전용 호스트의 미리 보기를 발표 했습니다 .이를 통해 단일 테 넌 트 물리적 서버에서 조직의 Linux 및 Windows 가상 머신을 실행할 수 있습니다. 격리 된 Azure Vm을 Azure 전용 호스트로 완전히 바꿀 예정입니다. **2020 년 2 월 15 일** 이후 D15_v2/DS15_v2 Azure vm은 더 이상 하드웨어로 격리 되지 않을 수 있습니다.
+Azure 전용 호스트는 이제 GA로, 단일 테 넌 트 물리적 서버에서 조직의 Linux 및 Windows 가상 머신을 실행할 수 있습니다. 격리 된 Azure Vm을 Azure 전용 호스트로 완전히 바꿀 예정입니다. **2020 년 2 월 15 일** 이후 D15_v2/DS15_v2 Azure vm은 더 이상 하드웨어로 격리 되지 않을 수 있습니다.
 
-## <a name="how-does-this-affect-me"></a>이는 어떻게 영향을 미칩니까?
+## <a name="how-does-this-affect-me"></a>이 변경 사항은 어떤 영향을 미치나요?
 2020 년 2 월 15 일 이후에는 D15_v2/DS15_v2 Azure virtual machines에 대 한 격리 보증을 더 이상 제공 하지 않습니다. 
 
 ## <a name="what-actions-should-i-take"></a>어떤 작업을 수행 해야 하나요?
@@ -40,7 +40,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 
 2020 년 2 월 15 일 이전에 격리 해야 하는 경우 다음 중 하나를 수행 해야 합니다.
 
-• 워크 로드를 Azure 전용 호스트 미리 보기로 [마이그레이션](https://azure.microsoft.com/blog/introducing-azure-dedicated-host)
+• 워크 로드를 Azure 전용 호스트로 [마이그레이션합니다](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) .
 
 • D15i_v2에 대 한 [액세스를 요청](https://aka.ms/D15iRequestAccess) 하 고 Azure VM을 DS15i_v2 하 여 동일한 가격의 성능을 얻을 수 있습니다. 이 옵션은 종 량 제 및 1 년 예약 인스턴스 시나리오에만 사용할 수 있습니다.    
 
@@ -49,7 +49,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 자세한 내용은 다음을 참조 하세요.
 
 ## <a name="timeline"></a>타임라인
-| Date | 작업 | 
+| 날짜 | 실행력 | 
 | --- | --- |
 | 2019 년 11 월 18 일  | D/DS15i_v2의 가용성 (PAYG, 1 년 RI) |
 | 2 월 14 일, 2020  | D/DS15i_v2 1 년 RI의 최근 구매 날짜 | 
@@ -78,21 +78,21 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 
 | RI |  인스턴스 크기 유연성 | 혜택 자격 |   
 | --- | --- | --- |
-|   D15_v2  |   끄기     |   D15_v2 및 D15i_v2 |    
-|   D15_v2  |   다른  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
-|   D14_v2  |   다른  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
+|   D15_v2  |   해제     |   D15_v2 및 D15i_v2 |    
+|   D15_v2  |   설정  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
+|   D14_v2  |   설정  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
  
 Dsv2 시리즈의 경우에도 마찬가지입니다.
  
-### <a name="q-i-want-to-purchase-additional-reserved-instances-for-dv2-which-one-should-i-choose"></a>Q: Dv2에 대 한 추가 예약 인스턴스를 구매 하려고 합니다. 어떤 것을 선택 해야 하나요?
+### <a name="q-i-want-to-purchase-additional-reserved-instances-for-dv2-which-one-should-i-choose"></a>Q: Dv2에 대 한 추가 예약 인스턴스를 구매 하려고 합니다. 어떤 것을 선택해야 하나요?
 **A**: 2019 년 11 월 18 일 이후에 구매한 모든 RIs는 다음 동작을 수행 합니다. 
 
 | RI |  인스턴스 크기 유연성 | 혜택 자격 |   
 | --- | --- | --- |
-| D15_v2 |  끄기 |   D15_v2만  
-| D15_v2 |  다른 |    D15_v2 시리즈는 RI 혜택을 받습니다. 새 D15i_v2는이 RI 유형의 RI 혜택에 적합 하지 않습니다. | 
-| D15i_v2 |     끄기 | D15i_v2만 |  
-| D15i_v2 |     다른  | D15i_v2만 | 
+| D15_v2 |  해제 |   D15_v2만  
+| D15_v2 |  설정 |    D15_v2 시리즈는 RI 혜택을 받습니다. 새 D15i_v2는이 RI 유형의 RI 혜택에 적합 하지 않습니다. | 
+| D15i_v2 |     해제 | D15i_v2만 |  
+| D15i_v2 |     설정  | D15i_v2만 | 
  
 인스턴스 크기 유연성을 사용 하 여 D2_v2, D4_v2, D15_v2 등의 다른 크기에 적용할 수 없습니다. 마찬가지로 Dsv2 시리즈의 경우입니다.  
  

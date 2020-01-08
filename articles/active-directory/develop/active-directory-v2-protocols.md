@@ -1,5 +1,5 @@
 ---
-title: Microsoft id 플랫폼에서 지원 되는 권한 부여 프로토콜 | Microsoft
+title: OAuth 2.0 및 Openid connect 연결 프로토콜-Microsoft identity platform | Microsoft
 description: Microsoft id 플랫폼 끝점에서 지 원하는 OAuth 2.0 및 Openid connect Connect 프로토콜에 대 한 가이드입니다.
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7b25f1753e6dcb415927ee6278c36b3b179dd353
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424725"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Microsoft id 플랫폼 프로토콜
+# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Microsoft id 플랫폼의 OAuth 2.0 및 Openid connect Connect 프로토콜
 
 업계 표준 프로토콜, Openid connect Connect 및 OAuth 2.0를 사용 하는 id 인 서비스를 위한 Microsoft id 플랫폼 끝점입니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현 간에는 약간의 차이가 있을 수 있습니다. 여기에 있는 정보는 [오픈 소스 라이브러리](reference-v2-libraries.md) 중 하나를 사용하는 대신 HTTP 요청을 직접 전송 및 처리하여 코드를 작성하거나 타사 오픈 소스 라이브러리를 사용하도록 선택한 경우에 유용합니다.
 
@@ -60,7 +60,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 여기서 `{tenant}` 은 네 개의 서로 다른 값 중 하나를 가질 수 있습니다.
 
-| Value | 설명 |
+| 값 | Description |
 | --- | --- |
 | `common` | 개인 Microsoft 계정과 Azure AD의 회사/학교 계정이 모두 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` | Azure AD의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: f55b6e743ff82d4192cbdd91ba54c92efef432bc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 81e232e37e437c4fa9d23a49a720b88511423905
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838733"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427572"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 R 프로그래밍 언어 시작 (클래식)
 
@@ -23,9 +23,9 @@ ms.locfileid: "73838733"
 
 ## <a name="introduction"></a>소개
 
-이 자습서는 R 프로그래밍 언어를 사용 하 여 Azure Machine Learning Studio (클래식) 확장을 시작 하는 데 도움이 됩니다. 이 R 프로그래밍 자습서에 따라 Studio (클래식) 내에서 R 코드를 만들고 테스트 하 고 실행 합니다. 자습서를 진행 하면서 클래식 버전의 Studio에서 R 언어를 사용 하 여 완전 한 예측 솔루션을 만듭니다.  
+이 자습서는 R 프로그래밍 언어를 사용 하 여 Azure Machine Learning Studio (클래식) 확장을 시작 하는 데 도움이 됩니다. 이 R 프로그래밍 자습서에 따라 Studio (클래식) 내에서 R 코드를 만들고 테스트 하 고 실행 합니다. 자습서를 진행할 때 스튜디오에서 R 언어 (클래식)를 사용 하 여 완전 한 예측 솔루션을 만듭니다.  
 
-클래식 버전의 Azure Machine Learning Studio에는 많은 강력한 기계 학습 및 데이터 조작 모듈이 포함 되어 있습니다. 강력한 R 언어는 분석의 대표 언어라고 표현되어 왔습니다. R을 사용 하 여 클래식 버전의 Studio에서 다행히 분석 하 고 데이터 조작을 확장할 수 있습니다. 이 조합은 R의 유연성 및 심층 분석을 통해 클래식 버전의 Studio를 배포 하기 위한 확장성과 용이성을 제공 합니다.
+Azure Machine Learning Studio (클래식)에는 많은 강력한 기계 학습 및 데이터 조작 모듈이 포함 되어 있습니다. 강력한 R 언어는 분석의 대표 언어라고 표현되어 왔습니다. R을 사용 하 여 Studio (클래식)에서 다행히 분석 및 데이터 조작을 확장할 수 있습니다. 이 조합은 R의 유연성 및 심층 분석을 통해 Studio (클래식)를 배포 하는 확장성과 용이성을 제공 합니다.
 
 ### <a name="forecasting-and-the-dataset"></a>예측 및 데이터 세트
 
@@ -39,23 +39,23 @@ ms.locfileid: "73838733"
 
 ### <a name="organization"></a>조직
 
-Azure Machine Learning Studio 환경의 클래식 버전에서 분석 및 데이터 조작 R 코드를 만들고 테스트 하 고 실행 하는 방법을 배울 수 있는 몇 가지 단계를 진행 합니다.  
+Azure Machine Learning Studio (클래식) 환경에서 분석 및 데이터 조작 R 코드를 만들고 테스트 하 고 실행 하는 방법을 배울 때 몇 가지 단계를 진행 합니다.  
 
-* 먼저 클래식 버전의 Azure Machine Learning Studio 환경에서 R 언어를 사용 하는 기본 사항을 살펴보겠습니다.
-* 그런 다음 Azure Machine Learning Studio 환경의 클래식 버전에서 데이터, R 코드 및 그래픽에 대 한 i/o의 다양 한 측면을 논의 합니다.
+* 먼저 Azure Machine Learning Studio (클래식) 환경에서 R 언어를 사용 하는 기본 사항을 살펴보겠습니다.
+* 그런 다음 Azure Machine Learning Studio (클래식) 환경에서 데이터, R 코드 및 그래픽의 i/o에 대 한 다양 한 측면을 논의 합니다.
 * 그런 다음 데이터 정리 및 변환용 코드를 만들어 예측 솔루션의 첫 번째 부분을 만듭니다.
 * 준비된 데이터를 가지고 데이터 세트에서 여러 변수 간의 상관관계를 분석합니다.
 * 마지막으로 우유 생산의 계절성 시계열 예측 모델을 만듭니다.
 
 ## <a id="mlstudio"></a>Machine Learning Studio에서 R 언어와 상호 작용 (클래식)
 
-이 섹션에서는 Machine Learning Studio (클래식) 환경에서 R 프로그래밍 언어와 상호 작용 하는 데 필요한 몇 가지 기본 사항에 대해 설명 합니다. R 언어는 Azure Machine Learning Studio 환경의 클래식 버전 내에서 사용자 지정 분석 및 데이터 조작 모듈을 만드는 강력한 도구를 제공 합니다.
+이 섹션에서는 Machine Learning Studio (클래식) 환경에서 R 프로그래밍 언어와 상호 작용 하는 데 필요한 몇 가지 기본 사항에 대해 설명 합니다. R 언어는 Azure Machine Learning Studio (클래식) 환경 내에서 사용자 지정 분석 및 데이터 조작 모듈을 만드는 강력한 도구를 제공 합니다.
 
-작은 규모로 R 코드를 개발, 테스트 및 디버그하기 위해 RStudio를 사용합니다. 그런 다음이 코드를 잘라내어 [R 스크립트 실행][execute-r-script] 모듈에 붙여넣어 Machine Learning Studio의 클래식 버전에서 실행할 수 있습니다.  
+작은 규모로 R 코드를 개발, 테스트 및 디버그하기 위해 RStudio를 사용합니다. 그런 다음이 코드를 잘라내어 [R 스크립트 실행][execute-r-script] 모듈에 붙여넣어 Azure Machine Learning Studio (클래식)에서 실행할 수 있습니다.  
 
 ### <a name="the-execute-r-script-module"></a>R 스크립트 실행 모듈
 
-Machine Learning Studio 클래식 버전 내에서 R 스크립트는 [r 스크립트 실행][execute-r-script] 모듈 내에서 실행 됩니다. 클래식 버전 Machine Learning Studio에서 [R 스크립트 실행][execute-r-script] 모듈의 예는 그림 1에 나와 있습니다.
+Machine Learning Studio (클래식) 내에서 r 스크립트는 [r 스크립트 실행][execute-r-script] 모듈 내에서 실행 됩니다. Machine Learning Studio (클래식)에서 [R 스크립트 실행][execute-r-script] 모듈의 예는 그림 1에 나와 있습니다.
 
  ![R 프로그래밍 언어: Machine Learning Studio에서 선택 된 R 스크립트 실행 모듈 (클래식)](./media/r-quickstart/fig1.png)
 
@@ -69,7 +69,7 @@ Machine Learning Studio 클래식 버전 내에서 R 스크립트는 [r 스크�
 
 물론이 문서의 나머지 부분에서 [R 스크립트 실행][execute-r-script] 에 대해 더 자세히 설명 하겠습니다.
 
-복잡한 R 함수를 사용할 경우에는 RStudio에서 편집, 테스트 및 디버그하는 것이 좋습니다. 모든 소프트웨어 개발에서와 마찬가지로 코드를 점차적으로 확장하고 간단한 작은 테스트 사례에서 테스트하세요. 그런 다음 함수를 잘라내어 [r 스크립트 실행][execute-r-script] 모듈의 r 스크립트 창에 붙여넣습니다. 이 접근 방식을 사용 하면 RStudio IDE (통합 개발 환경)와 Azure Machine Learning Studio 클래식 버전의 기능을 모두 사용할 수 있습니다.  
+복잡한 R 함수를 사용할 경우에는 RStudio에서 편집, 테스트 및 디버그하는 것이 좋습니다. 모든 소프트웨어 개발에서와 마찬가지로 코드를 점차적으로 확장하고 간단한 작은 테스트 사례에서 테스트하세요. 그런 다음 함수를 잘라내어 [r 스크립트 실행][execute-r-script] 모듈의 r 스크립트 창에 붙여넣습니다. 이 접근 방식을 사용 하면 RStudio IDE (통합 개발 환경)와 Azure Machine Learning Studio (클래식)의 기능을 모두 사용할 수 있습니다.  
 
 #### <a name="execute-r-code"></a>R 코드 실행
 
@@ -77,17 +77,17 @@ Machine Learning Studio 클래식 버전 내에서 R 스크립트는 [r 스크�
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Azure Machine Learning용 방어 R 코딩
 
-Azure Machine Learning Studio 클래식 버전의를 사용 하 여 웹 서비스를 개발 하는 경우 코드에서 예기치 않은 데이터 입력 및 예외를 처리 하는 방법을 명확 하 게 계획 해야 합니다. 정확성을 유지하기 위해 표시된 대부분의 코드 예제에서 확인 또는 예외를 처리하는 데 필자는 거의 관여하지 않았습니다. 하지만 계속 진행하면서 R의 예외 처리 기능을 사용하는 몇 가지 함수 예를 제공하겠습니다.  
+Azure Machine Learning Studio (클래식)를 사용 하 여 웹 서비스에 대 한 R 코드를 개발 하는 경우 코드에서 예기치 않은 데이터 입력 및 예외를 처리 하는 방법을 명확 하 게 계획 해야 합니다. 정확성을 유지하기 위해 표시된 대부분의 코드 예제에서 확인 또는 예외를 처리하는 데 필자는 거의 관여하지 않았습니다. 하지만 계속 진행하면서 R의 예외 처리 기능을 사용하는 몇 가지 함수 예를 제공하겠습니다.  
 
 R 예외 처리를 보다 완벽 하 게 처리 해야 하는 경우에는 아래에 나열 된 Wickham에 따라 책의 해당 섹션을 [읽어 보는](#appendixb)것이 좋습니다.
 
 #### <a name="debug-and-test-r-in-machine-learning-studio-classic"></a>Machine Learning Studio에서 R 디버그 및 테스트 (클래식)
 
-다시 한 번 강조하지만 RStudio에서 작은 규모로 R 코드를 테스트 및 디버그하는 것이 좋습니다. 그러나 [r 스크립트 실행][execute-r-script] 자체에서 r 코드 문제를 추적 해야 하는 경우도 있습니다. 또한 Machine Learning Studio의 클래식 버전에서 결과를 확인 하는 것이 좋습니다.
+다시 한 번 강조하지만 RStudio에서 작은 규모로 R 코드를 테스트 및 디버그하는 것이 좋습니다. 그러나 [r 스크립트 실행][execute-r-script] 자체에서 r 코드 문제를 추적 해야 하는 경우도 있습니다. 또한 Machine Learning Studio (클래식)에서 결과를 확인 하는 것이 좋습니다.
 
-R 코드 실행의 출력과 Azure Machine Learning Studio 플랫폼의 클래식 버전은 주로 output .log에서 찾을 수 있습니다. 일부 추가 정보는 error.log에 표시됩니다.  
+R 코드 실행 및 Azure Machine Learning Studio (클래식) 플랫폼에서의 출력은 주로 출력 .log에서 찾을 수 있습니다. 일부 추가 정보는 error.log에 표시됩니다.  
 
-R 코드를 실행 하는 동안 클래식 버전의 Machine Learning Studio에서 오류가 발생 하는 경우 첫 번째 작업 과정은 오류 .log를 확인 해야 합니다. error.log에는 오류 메시지를 이해하고 수정하는 데 도움이 되는 유용한 오류 메시지가 포함될 수 있습니다. 오류 로그를 보려면 오류가 포함 된 [R 스크립트 실행][execute-r-script] 에 대 한 **속성 창** 에서 **오류 로그 보기** 를 선택 합니다.
+R 코드를 실행 하는 동안 Machine Learning Studio (클래식)에서 오류가 발생 하는 경우 첫 번째 작업 과정은 오류 .log를 확인 해야 합니다. error.log에는 오류 메시지를 이해하고 수정하는 데 도움이 되는 유용한 오류 메시지가 포함될 수 있습니다. 오류 로그를 보려면 오류가 포함 된 [R 스크립트 실행][execute-r-script] 에 대 한 **속성 창** 에서 **오류 로그 보기** 를 선택 합니다.
 
 예를 들어 [r 스크립트 실행][execute-r-script] 모듈에서 다음 r 코드를 정의 되지 않은 변수 y와 함께 실행 했습니다.
 
@@ -133,7 +133,7 @@ RStudio는 R에 널리 사용 되는 IDE입니다. 이 가이드에서 사용 �
 
 데스크톱 컴퓨터에 R 프로그래밍 언어가 설치되어 있지 않으면 지금 설치하는 것이 좋습니다. 오픈 소스 R 언어는 광범위한 R 보관 네트워크 또는 [https://www.r-project.org/](https://www.r-project.org/)의 CRAN에서 무료로 다운로드할 수 있습니다. Windows, Mac OS, Linux/UNIX용 다운로드가 있습니다. 인접한 미러를 선택하고 다운로드 지침을 따르세요. 또한 CRAN에는 유용한 분석 및 데이터 조작 패키지가 풍부하게 들어 있습니다.
 
-RStudio를 처음 사용하는 경우에는 데스크톱 버전을 다운로드하고 설치해야 합니다. Windows, Mac OS 및 Linux/UNIX용 RStudio 다운로드는 http://www.rstudio.com/products/RStudio/에서 찾을 수 있습니다. 제공된 지침에 따라 데스크톱 컴퓨터에 RStudio를 설치하세요.  
+RStudio를 처음 사용하는 경우에는 데스크톱 버전을 다운로드하고 설치해야 합니다. Windows, Mac OS 및 Linux/UNIX용 RStudio 다운로드는 http://www.rstudio.com/products/RStudio/ 에서 찾을 수 있습니다. 제공된 지침에 따라 데스크톱 컴퓨터에 RStudio를 설치하세요.  
 
 Rstudio [IDE를 사용 하 여](https://support.rstudio.com/hc/sections/200107586-Using-RStudio)에서 rstudio에 대 한 자습서를 소개 합니다.
 
@@ -149,9 +149,9 @@ Rstudio [IDE를 사용 하 여](https://support.rstudio.com/hc/sections/20010758
 
 #### <a id="loading"></a>데이터 세트 로드
 
-Azure Machine Learning Studio의 클래식 버전으로 **csdairydata .csv** 파일을 로드 하 여 시작 합니다.
+먼저 **csdairydata .csv** 파일을 Azure Machine Learning Studio (클래식)로 로드 합니다.
 
-1. 클래식 버전의 Azure Machine Learning Studio 환경을 시작 합니다.
+1. Azure Machine Learning Studio (클래식) 환경을 시작 합니다.
 1. 화면 왼쪽 아래에서 **+ 새로 만들기** 를 선택 하 고 **데이터 집합**을 선택 합니다.
 1. **로컬 파일에서**를 선택한 다음 **찾아보기**를 선택하여 파일을 선택합니다.
 1. **Generic CSV file with header (.csv)(헤더가 포함된 일반 CSV 파일(.csv))** 를 데이터 세트 형식으로 선택했는지 확인합니다.
@@ -160,11 +160,11 @@ Azure Machine Learning Studio의 클래식 버전으로 **csdairydata .csv** 파
 
 #### <a name="create-an-experiment"></a>실험 만들기
 
-이제 클래식 버전의 Machine Learning Studio에 일부 데이터가 있으므로 분석을 수행 하는 실험을 만들어야 합니다.  
+이제 Machine Learning Studio (클래식)에 일부 데이터가 있으므로 분석을 수행 하는 실험을 만들어야 합니다.  
 
 1. 왼쪽 아래에서 **+ 새로 만들기** 를 선택 하 고 **실험**, **빈 실험**을 차례로 선택 합니다.
 1. 페이지 위쪽에 있는 **Experiment created on ...(...에서 만든 실험)** 을 선택하고 수정하여 실험의 이름을 지정할 수 있습니다. 예를 들어 **CA Dairy Analysis**로 변경합니다.
-1. 실험 페이지의 왼쪽에서 **저장된 데이터 세트**, **내 데이터 세트**를 차례로 확장합니다. 이전에 업로드한 **cadairydata.csv** 가 표시되어야 합니다.
+1. 실험 페이지의 왼쪽에서 **저장된 데이터 세트**, **내 데이터 세트**를 차례로 확장합니다. 이전에 업로드한 **cadairydata.csv**가 표시되어야 합니다.
 1. **csdairydata.csv 데이터 세트**를 실험에 끌어다 놓습니다.
 1. 왼쪽 창 맨 위의 **실험 항목 검색** 상자에 [R 스크립트 실행][execute-r-script]을 입력 합니다. 검색 목록에 모듈이 표시됩니다.
 1. [R 스크립트 실행][execute-r-script] 모듈을 팔레트에 끌어다 놓습니다.  
@@ -185,11 +185,11 @@ Azure Machine Learning Studio의 클래식 버전으로 **csdairydata .csv** 파
 
 *그림 4. cadairydata.csv 데이터 세트 요약*
 
-여기에서 많은 유용한 정보를 볼 수 있습니다. 또한 해당 데이터 세트의 처음 몇 행도 볼 수 있습니다. 열을 선택하면 해당 열에 관한 추가 정보가 통계 섹션에 표시됩니다. 예를 들어 기능 유형 행에는 열에 할당 된 Azure Machine Learning Studio 클래식 버전의 데이터 형식이 표시 됩니다. 중요한 작업을 시작하기 전에 이렇게 빠르게 확인하면 온전성을 검사하는 데 좋습니다.
+여기에서 많은 유용한 정보를 볼 수 있습니다. 또한 해당 데이터 세트의 처음 몇 행도 볼 수 있습니다. 열을 선택하면 해당 열에 관한 추가 정보가 통계 섹션에 표시됩니다. 예를 들어 기능 유형 행에는 열에 할당 된 Azure Machine Learning Studio (클래식) 데이터 형식이 표시 됩니다. 중요한 작업을 시작하기 전에 이렇게 빠르게 확인하면 온전성을 검사하는 데 좋습니다.
 
 ### <a name="first-r-script"></a>첫 번째 R 스크립트
 
-Azure Machine Learning Studio의 클래식 버전에서 시험 하는 간단한 첫 번째 R 스크립트를 만들어 보겠습니다. RStudio에서 다음 스크립트를 만들고 테스트했습니다.  
+Azure Machine Learning Studio (클래식) 내에서 시험 하는 간단한 첫 번째 R 스크립트를 만들어 보겠습니다. RStudio에서 다음 스크립트를 만들고 테스트했습니다.  
 
 ```R
 ## Only one of the following two lines should be used
@@ -204,7 +204,7 @@ pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = c
 maml.mapOutputPort('cadairydata')
 ```
 
-이제이 스크립트를 Azure Machine Learning Studio 클래식 버전으로 전송 해야 합니다. 간단히 잘라내고 붙여넣을 수 있지만 이 경우에서는 R 스크립트를 zip 파일을 통해 전송하겠습니다.
+이제이 스크립트를 Azure Machine Learning Studio (클래식)로 전송 해야 합니다. 간단히 잘라내고 붙여넣을 수 있지만 이 경우에서는 R 스크립트를 zip 파일을 통해 전송하겠습니다.
 
 ### <a name="data-input-to-the-execute-r-script-module"></a>R 스크립트 실행 모듈에 데이터 입력
 
@@ -224,7 +224,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
 > [!NOTE]
-> Azure Machine Learning Studio의 클래식 버전은 파일을 src/디렉터리에 있는 것 처럼 zip의 파일을 처리 하므로 파일 이름 앞에이 디렉터리 이름을 붙여야 합니다. 예를 들어 zip 파일의 루트에 `yourfile.R` 및 `yourData.rdata` 파일이 포함된 경우 `src/yourfile.R` 및 `src/yourData.rdata`를 사용할 때 이러한 파일을 `source` 및 `load`로 처리합니다.
+> Azure Machine Learning Studio (클래식)은 파일 이름이 src/디렉터리에 있는 것 처럼 zip의 파일을 처리 하므로 파일 이름 앞에이 디렉터리 이름을 붙여야 합니다. 예를 들어 zip 파일의 루트에 `yourfile.R` 및 `yourData.rdata` 파일이 포함된 경우 `source` 및 `load`를 사용할 때 이러한 파일을 `src/yourfile.R` 및 `src/yourData.rdata`로 처리합니다.
 
 [데이터 집합 로드](#loading)에서 데이터 집합을 로드 하는 방법을 이미 설명 했습니다. 이전 섹션에 나와 있는 R 스크립트를 만들고 테스트한 후에는 다음을 수행하세요.
 
@@ -245,7 +245,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 1. Zip 파일을 만들고 스크립트를 이 zip 파일에 복사합니다. Windows에서 파일을 마우스 오른쪽 단추로 클릭 하 고 **보내기**를 선택한 다음 **압축 폴더**를 선택할 수 있습니다. 그러면 "simpleplot.R" 파일을 포함하는 zip 파일이 새로 만들어집니다.
 
-1. 유형을 **zip**으로 지정 하 여 Machine Learning Studio 클래식 버전의 **데이터 집합** 에 파일을 추가 합니다. 이제 데이터 세트에 zip 파일이 표시됩니다.
+1. 형식을 **zip**으로 지정 하 여 Azure Machine Learning Studio (클래식)의 **데이터 집합** 에 파일을 추가 합니다. 이제 데이터 세트에 zip 파일이 표시됩니다.
 
 1. Zip 파일을 **데이터 집합** 에서 **ML Studio (클래식) 캔버스로**끌어다 놓습니다.
 
@@ -374,7 +374,7 @@ R은 동적으로 입력되는 언어이므로 필요에 따라 데이터 형식
 
 우리가 이전 섹션에서 입력한 열의 데이터 유형을 보면 모든 열의 형식은 문자 형식인 'Month'라고 지정된 열을 제외하고는 모두 숫자 형식입니다. 이 형식을 요소로 변환하고 결과를 테스트해보겠습니다.  
 
-산점도 행렬을 만든 줄을 삭제하고 'Month' 열을 요소로 변환하는 줄을 추가했습니다. 내 실험에서 r 코드를 잘라내어 [r 스크립트 실행][execute-r-script] 모듈의 코드 창에 붙여넣습니다. Zip 파일을 업데이트 하 고 클래식 버전의 Azure Machine Learning Studio에 업로드할 수도 있지만이 경우 몇 가지 단계가 필요 합니다.  
+산점도 행렬을 만든 줄을 삭제하고 'Month' 열을 요소로 변환하는 줄을 추가했습니다. 내 실험에서 r 코드를 잘라내어 [r 스크립트 실행][execute-r-script] 모듈의 코드 창에 붙여넣습니다. Zip 파일을 업데이트 하 고 Azure Machine Learning Studio (클래식)에 업로드할 수도 있지만이 경우 몇 가지 단계가 필요 합니다.  
 
 ```R
 ## Only one of the following two lines should be used
@@ -468,7 +468,7 @@ R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이�
 이 데이터 세트에서 수행해야 하는 필터링이 하나 있습니다. cadairydata 데이터 프레임의 열을 살펴보면 두 개의 불필요한 열을 볼 수 있습니다. 첫 번째 열은 단지 행 번호만 가지고 있으며 그리 유용하지 않습니다. 두 번째 열인 Year.Month에는 불필요한 정보가 포함되어 있습니다. 다음 R 코드를 사용하여 이 두 열을 쉽게 제외시킬 수 있습니다.
 
 > [!NOTE]
-> 지금부터이 섹션에서 [R 스크립트 실행][execute-r-script] 모듈에 추가 하는 추가 코드를 표시 합니다. 새 줄은 **함수**앞`str()`에 추가합니다. 이 함수를 사용 하 여 Azure Machine Learning Studio 클래식 버전의 결과를 확인 합니다.
+> 지금부터이 섹션에서 [R 스크립트 실행][execute-r-script] 모듈에 추가 하는 추가 코드를 표시 합니다. 새 줄은 `str()` 함수 **앞**에 추가합니다. 이 함수를 사용 하 여 Azure Machine Learning Studio (클래식)에서 결과를 확인 합니다.
 
 [R 스크립트 실행][execute-r-script] 모듈의 r 코드에 다음 줄을 추가 합니다.
 
@@ -608,7 +608,7 @@ R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두
 
 1. 네 개 메시지의 벡터가 정의됩니다. 이러한 메시지는 이 코드에서 발생할 수 있는 일부 오류 및 예외에 대한 정보를 전달하는 데 사용됩니다.
 2. 각각의 경우에 대해 NA 값을 반환합니다. 부작용이 더 적을 수 있는 다른 가능성이 많습니다. 예를 들어 0의 벡터나 원래 입력 벡터를 반환할 수 있습니다.
-3. 함수에 대한 인수를 확인합니다. 오류가 감지되는 경우에는 기본값이 반환되며 `warning()` 함수가 메시지를 생성합니다. `warning()`은 실행을 종료하므로 방지하려는 경우에는 `stop()`을 사용합니다. 이 코드의 경우 함수 접근 방법으로 작성하면 복잡하고 난해해 보이므로 프로시저 방식으로 작성하였습니다.
+3. 함수에 대한 인수를 확인합니다. 오류가 감지되는 경우에는 기본값이 반환되며 `warning()` 함수가 메시지를 생성합니다. `stop()`은 실행을 종료하므로 방지하려는 경우에는 `warning()`을 사용합니다. 이 코드의 경우 함수 접근 방법으로 작성하면 복잡하고 난해해 보이므로 프로시저 방식으로 작성하였습니다.
 4. 예외가 발생해 프로세스를 갑자기 중단하지 않도록 로그 계산이 `tryCatch()` 로 래핑됩니다. `tryCatch()`가 없으면 R 함수에 의해 발생한 대부분의 오류는 중지 작업을 수행하는 중지 신호가 됩니다.
 
 자체 실험에서 이 R 코드를 실행하고 output.log 파일의 인쇄된 출력을 살펴보세요. 그림 13에서 볼 수 있듯이 이제 로그에 있는 네 개의 열 값이 변환된 것을 확인할 수 있습니다.
@@ -931,7 +931,7 @@ outframe
 코드의 첫 번째 줄이 조금 어려워서 약간의 설명이 줄을 이해하는 데 도움이 됩니다. 다음과 같이 안의 함수에서 바깥의 함수 순서로 처리합니다.
 
 1. 인수가 '**1**'인 ' **[[** ' 연산자는 ccf 개체 목록의 첫 번째 요소의 지연에서 상관관계의 벡터를 선택합니다.
-2. `do.call()` 함수는 `rbind()`가 반환하는 목록의 요소에 `lapply()` 함수를 적용합니다.
+2. `do.call()` 함수는 `lapply()`가 반환하는 목록의 요소에 `rbind()` 함수를 적용합니다.
 3. `data.frame()` 함수는 `do.call()`에 의해 생성된 결과를 데이터 프레임에 강제 반환합니다.
 
 행 이름은 데이터 프레임의 열에 있습니다. 이렇게 하면 [R 스크립트 실행][execute-r-script]에서 출력 될 때 행 이름이 유지 됩니다.
@@ -1030,7 +1030,7 @@ Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, t
 
 시계열 개체를 만들고 데이터를 살펴보았으면 캘리포니아 우유 생산 데이터의 추세 모델을 생성해 보겠습니다. 시계열 회귀로 이 작업을 수행할 수 있습니다. 하지만 도표에서 보면 학습 데이터에서 관찰한 추세를 정확하게 모델링하려면 기울기와 절편이 두 개 이상 필요하다는 사실을 알 수 있습니다.
 
-데이터의 작은 규모를 고려 하 여 RStudio에서 추세에 대 한 모델을 작성 한 다음 결과 모델을 잘라내어 Azure Machine Learning Studio의 클래식 버전으로 붙여넣습니다. RStudio는 이러한 유형의 대화형 분석에 대화형 환경을 제공합니다.
+데이터의 작은 규모를 고려 하 여 RStudio에서 추세에 대 한 모델을 작성 한 다음 결과 모델을 잘라내어 Azure Machine Learning Studio (클래식)에 붙여 넣습니다. RStudio는 이러한 유형의 대화형 분석에 대화형 환경을 제공합니다.
 
 먼저 최대 3의 멱수로 다항 회귀를 시도합니다. 이러한 종류의 모형을 과적합하게 하는 것은 매우 위험합니다. 따라서 고차항을 사용하지 않는 것이 좋습니다. `I()` 함수는 내용 해석을 금지하며('있는 그대로" 내용을 해석) 이 함수를 사용하여 문자 그대로 해석된 함수를 회귀 수식에 작성할 수 있습니다.
 
@@ -1094,7 +1094,7 @@ summary(milk.lm)
 
 보기가 더 낫습니다. 모든 항이 중요합니다. 하지만 2e-16 값은 기본값이며 너무 심각하게 실행해서는 안 됩니다.  
 
-온전성 테스트로서 추세선이 표시된 캘리포니아 유제품 생산 데이터의 시계열 도표를 만듭니다. [R 스크립트][execute-r-script] 모델 (rstudio 아님)을 실행 하 여 모델을 만들고 플롯을 만드는 Azure Machine Learning Studio 클래식 버전의에 다음 코드를 추가 했습니다. 그림 23은 그 결과입니다.
+온전성 테스트로서 추세선이 표시된 캘리포니아 유제품 생산 데이터의 시계열 도표를 만듭니다. 모델을 만들고 플롯 하도록 Azure Machine Learning Studio (클래식) [R 스크립트 모델 실행][execute-r-script] (rstudio 아님)에 다음 코드를 추가 했습니다. 그림 23은 그 결과입니다.
 
 ```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
@@ -1156,7 +1156,7 @@ summary(milk.lm2)
 
 모델에 절편항이 없고 12개의 중요한 월 요소가 있음을 알 수 있습니다. 이것이 바로 원했던 결과입니다.
 
-계절 모델이 얼마나 잘 작동하는지 확인하기 위해 캘리포니아 유제품 생산 데이터의 다른 시계열 도표를 만들어 보겠습니다. [R 스크립트를 실행][execute-r-script] 하 여 모델을 만들고 플롯을 만드는 Azure Machine Learning Studio 클래식 버전의에 다음 코드를 추가 했습니다.
+계절 모델이 얼마나 잘 작동하는지 확인하기 위해 캘리포니아 유제품 생산 데이터의 다른 시계열 도표를 만들어 보겠습니다. 모델을 만들고 플롯을 만들기 위해 Azure Machine Learning Studio (클래식) [R 스크립트를 실행][execute-r-script] 하는 다음 코드를 추가 했습니다.
 
 ```R
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
@@ -1165,7 +1165,7 @@ plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Mi
 lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 ```
 
-클래식 버전의 Azure Machine Learning Studio에서이 코드를 실행 하면 그림 24와 같은 그림이 생성 됩니다.
+Azure Machine Learning Studio (클래식)에서이 코드를 실행 하면 그림 24와 같은 그림이 생성 됩니다.
 
 ![계절의 영향이 포함된 캘리포니아 우유 생산 모델](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1310,7 +1310,7 @@ RStudio는 매우 잘 문서화 되어 있습니다. 다음은 시작 하는 데
 
 ## <a id="appendixb"></a>추가 정보
 
-이 R 프로그래밍 자습서에서는 클래식 버전의 Azure Machine Learning Studio에서 R 언어를 사용 하는 데 필요한 기본 사항을 설명 합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
+이 R 프로그래밍 자습서에서는 Azure Machine Learning Studio (클래식)에서 R 언어를 사용 하는 데 필요한 기본 사항을 설명 합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 
 * Emmanuel Paradis [의 초보자를 위한 R](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) 을 시작 하는 것이 좋습니다.  
 * W. N. N [의 R에 대 한 소개](https://cran.r-project.org/doc/manuals/R-intro.html) 입니다. Venables et. al. 좀 더 깊이 있게 이동 합니다.

@@ -3,21 +3,21 @@ title: 클라우드 서비스에 대해 SSL 구성 | Microsoft Docs
 description: 웹 역할에 대해 HTTPS 엔드포인트를 지정하는 방법 및 애플리케이션 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: gwallace
-ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: tagore
+ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469026"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386768"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Azure에서 애플리케이션에 대한 SSL 구성
 
-SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 엔드포인트를 지정하는 방법 및 애플리케이션 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
+SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송된 데이터를 보호하려고 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할의 HTTPS 엔드포인트를 지정하는 방법과 애플리케이션 보호를 위해 SSL 인증서를 업로드하는 방법을 설명합니다.
 
 > [!NOTE]
 > 이 작업의 절차는 Azure Cloud Services에 적용됩니다. App Services에 대해서는 [이 항목](../app-service/configure-ssl-bindings.md)을 참조하세요.
@@ -76,7 +76,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
    권한(`permissionLevel` 특성)은 다음 값 중 하나로 설정될 수 있습니다.
 
-   | 권한 값 | 설명 |
+   | 권한 값 | Description |
    | --- | --- |
    | limitedOrElevated |**(기본값)** 모든 역할 프로세스는 프라이빗 키에 액세스할 수 있습니다. |
    | elevated |승격된 프로세스만 프라이빗 키에 액세스할 수 있습니다. |
@@ -166,7 +166,7 @@ Azure Portal에 연결하고 다음을 수행합니다.
    ![사이트 미리 보기](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > 프로덕션 배포가 아닌 스테이징 배포에 SSL을 사용하려면 먼저 스테이징 배포에 사용된 URL을 확인해야 합니다. 클라우드 서비스가 배포되면 **형식의**배포 ID`https://deployment-id.cloudapp.net/` GUID에 따라 스테이징 환경에 대한 URL이 결정됩니다.  
+   > 프로덕션 배포가 아닌 스테이징 배포에 SSL을 사용하려면 먼저 스테이징 배포에 사용된 URL을 확인해야 합니다. 클라우드 서비스가 배포되면 `https://deployment-id.cloudapp.net/` 형식의 **배포 ID** GUID에 따라 스테이징 환경에 대한 URL이 결정됩니다.  
    >
    > GUID 기반 URL과 같은 CN(일반 이름)으로 인증서를 만듭니다(예: **328187776e774ceda8fc57609d404462.cloudapp.net**). 스테이징된 클라우드 서비스에 인증서를 추가하려면 포털을 사용합니다. 그런 다음 인증서 정보를 CSDEF 및 CSCFG 파일에 추가하고 애플리케이션을 다시 패키지하고 스테이징된 배포를 업데이트하여 새 패키지를 사용합니다.
    >
@@ -174,5 +174,8 @@ Azure Portal에 연결하고 다음을 수행합니다.
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
-* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
+
+
+

@@ -1,23 +1,23 @@
 ---
-title: 통합 솔루션 | Microsoft
+title: 통합 솔루션-Azure Marketplace
 description: Azure Marketplace 및 Microsoft AppSource의 통합 솔루션
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 12/16/2019
 ms.author: v-qiwe
-ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b00cc2917ac15797ed98af9793533d9bc12eeaaf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427197"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
-번들로 제공 되는 단일 제품에서 통합 솔루션은 소프트웨어 공급 업체의 지점 솔루션 기술을 서비스 파트너의 배포 및 지원과 결합 합니다. 서비스 파트너는 Azure Marketplace 또는 Microsoft AppSource의 제안을 [컨설팅 서비스로](https://docs.microsoft.com/azure/marketplace/consulting-services)나열 합니다.
+번들로 제공 되는 단일 제품에서 통합 솔루션은 소프트웨어 공급 업체의 지점 솔루션 기술을 서비스 파트너의 배포 및 지원과 결합 합니다. 서비스 파트너는 Microsoft AppSource 또는 Azure Marketplace의 제안을 [컨설팅 서비스로](https://docs.microsoft.com/azure/marketplace/consulting-services)나열 합니다.
 
 통합 솔루션은 특정 고객의 요구 또는 시나리오를 해결 하는 것을 목표로 합니다. 공급자는 업계 챌린지 나 불만 사항을 파악 하 여 시작 합니다. 그런 다음 두 개 이상의 최고의 기술을 통합 하 여 고객을 위한 통합 및 반복 가능한 배포 환경을 만듭니다. 공급자는 고객을 신속 하 게 시작 및 실행 합니다. 관련 사용자 지정, 컨설팅 및 솔루션 지원을 제공 하 여 고객에 게 단일 연락 지점을 제공 합니다. 결과는 기술 및 서비스를 비롯 한 통합 솔루션입니다.
 
@@ -39,17 +39,17 @@ ms.locfileid: "73818554"
 
     * 애플리케이션 개발
     * 애플리케이션 통합
-    * 응용 프로그램 수명 주기 관리
+    * 애플리케이션 수명 주기 관리(Application Lifecycle Management)
     * 클라우드 플랫폼
     * 데이터 분석
-    * 데이터 센터
+    * 데이터센터
     * 데이터 플랫폼
     * DevOps
 
 * 솔루션은 완벽 한 고객 솔루션 및 환경을 위해 IP와 서비스를 함께 제공 하는 두 개 이상의 파트너 조직을 포함 해야 합니다.
 * 파트너 IP는 Azure, Dynamics 365 또는 Power Platform에 구축 해야 합니다.
 * 통합 솔루션의 IP는 단순히 소프트웨어 공급 업체의 IP 및 기본 서비스 공급자 제공과 차별화 되어야 합니다.
-* 모든 파트너는 Azure Marketplace, Microsoft AppSource 또는 둘 다를 통해 나열 되 고 궁극적으로 트랜잭션 될 수 있는 반복 가능한 제품을 만드는 목표를 공유 합니다.
+* 모든 파트너는 나열 되 고 궁극적으로 Microsoft AppSource, Azure Marketplace 또는 둘 다를 통해 트랜잭션을 수행할 수 있는 반복 가능한 제품을 만드는 목표를 공유 합니다.
 
 ## <a name="submit-a-nomination"></a>추천 제출
 
@@ -93,9 +93,9 @@ ms.locfileid: "73818554"
 
 1. 솔루션의 완전 한 기술 통합을 개발 합니다.
 
-1. Azure Marketplace 또는 Microsoft AppSource에 대 한 솔루션 가격 책정 및 단일 가격표를 결정 합니다.
+1. Microsoft AppSource 또는 Azure Marketplace에 대 한 솔루션 가격 책정 및 단일 가격표를 결정 합니다.
 
-1. 다음을 포함 하 여 Azure Marketplace 또는 Microsoft AppSource 목록의 마케팅 참고 자료를 완료 합니다.
+1. 다음을 포함 하 여 Microsoft AppSource 또는 Azure Marketplace 목록의 마케팅 참고 자료를 완료 합니다.
 
     * 결합 된 솔루션 이름입니다.
     * 통합 솔루션에 대 한 설명 목록입니다. [제안 사항 나열 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)를 따릅니다.
@@ -105,13 +105,13 @@ ms.locfileid: "73818554"
 
 ## <a name="publish-your-integrated-solution"></a>통합 솔루션 게시 
 
-기술 통합 및 마케팅 참고 자료를 마친 후 [Azure Marketplace 및 Microsoft AppSource에 대 한 컨설팅 서비스](https://docs.microsoft.com/azure/marketplace/consulting-services)에 대 한 게시자 가이드를 참조 하세요. 이 리소스를 사용 하 여 솔루션을 Azure Marketplace 또는 Microsoft AppSource에 게시할지 여부를 결정할 수 있습니다. 또한 가이드를 사용 하 여 게시 아티팩트를 준비 하 고 게시 프로세스를 완료 합니다.
+기술 통합 및 마케팅 참고 자료를 마친 후 [Microsoft AppSource 및 Azure Marketplace에 대 한 컨설팅 서비스](https://docs.microsoft.com/azure/marketplace/consulting-services)에 대 한 게시자 가이드를 참조 하세요. 이 리소스를 사용 하 여 솔루션을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부를 결정할 수 있습니다. 또한 가이드를 사용 하 여 게시 아티팩트를 준비 하 고 게시 프로세스를 완료 합니다.
 
 컨설팅 서비스 제품에는 5 가지 서비스 유형을 사용할 수 있지만 통합 솔루션은 개념 증명 또는 전체 구현 이어야 합니다.
 
 ## <a name="go-to-market-with-your-integrated-solution"></a>통합 솔루션을 사용 하 여 시장으로 이동 
 
-솔루션이 Azure Marketplace 또는 AppSource에 살고 있으면 마케팅 활동을 통해 인식 및 수요를 추진 하는 것이 좋습니다. [프로젝트 계획 및 타임 라인](https://aka.ms/AA5qiuc)에 나열 된 작업을 검토 합니다. 이 리소스에는 파트너가 자신의 팀 내에서 서로 연결할 수 있는 활동이 포함 되어 있습니다. 그런 다음 marketplace에 게시 하는 파트너의 [시장 간 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) 에 액세스 합니다. 모든 통합 솔루션 제품은 평가판 수준의 혜택을 받을 자격이 있습니다.
+솔루션이 Microsoft AppSource 또는 Azure Marketplace에 살고 있는 경우 마케팅 활동을 통해 인식 및 수요를 추진 하는 것이 좋습니다. [프로젝트 계획 및 타임 라인](https://aka.ms/AA5qiuc)에 나열 된 작업을 검토 합니다. 이 리소스에는 파트너가 자신의 팀 내에서 서로 연결할 수 있는 활동이 포함 되어 있습니다. 그런 다음 marketplace에 게시 하는 파트너의 [시장 간 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) 에 액세스 합니다. 모든 통합 솔루션 제품은 평가판 수준의 혜택을 받을 자격이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

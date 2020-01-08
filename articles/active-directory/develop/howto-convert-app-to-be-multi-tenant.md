@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73a5d30761b25f6233e298cac2602fb701a2987f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c4e820867e22d23135f9c50255902447e6063ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424485"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -38,7 +38,7 @@ ms.locfileid: "74917780"
 3. [여러 발급자 값을 처리하도록 코드 업데이트](#update-your-code-to-handle-multiple-issuer-values)
 4. [사용자 및 관리자 동의를 이해하고 적절하게 코드 변경](#understand-user-and-admin-consent)
 
-각 단계를 자세히 살펴보겠습니다. [이 다중 테 넌 트 샘플 목록][AAD-Samples-MT]으로 바로 이동할 수도 있습니다.
+각 단계를 자세히 살펴보겠습니다. [이 다중 테 넌 트 샘플 목록](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)으로 바로 이동할 수도 있습니다.
 
 ## <a name="update-registration-to-be-multi-tenant"></a>등록을 다중 테넌트로 업데이트합니다.
 
@@ -135,7 +135,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>단일 테 넌 트의 여러 계층
 
-논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용 하도록 설정 하려면 리소스의 응용 프로그램 등록에 클라이언트의 앱 ID가 [응용 프로그램 매니페스트에][AAD-App-Manifest]`knownClientApplications` 포함 되어야 합니다. 다음은 그 예입니다.
+논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용 하도록 설정 하려면 리소스의 응용 프로그램 등록에 클라이언트의 앱 ID가 [응용 프로그램 매니페스트에][AAD-App-Manifest]`knownClientApplications` 포함 되어야 합니다. 예:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -177,7 +177,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 
 ## <a name="related-content"></a>관련 콘텐츠
 
-* [다중 테 넌 트 응용 프로그램 샘플][AAD-Samples-MT]
+* [다중 테 넌 트 응용 프로그램 샘플](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
 * [응용 프로그램에 대 한 브랜딩 지침][AAD-App-Branding]
 * [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]
 * [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]
@@ -196,7 +196,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
+[AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview

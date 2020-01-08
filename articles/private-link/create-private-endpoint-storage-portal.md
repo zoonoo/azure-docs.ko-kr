@@ -2,27 +2,29 @@
 title: Azure 개인 끝점을 사용 하 여 전용 저장소 계정에 연결
 description: 개인 끝점을 사용 하 여 Azure에서 저장소 계정에 개인적으로 연결 하는 방법을 알아봅니다.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899818"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357569"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Azure 개인 끝점을 사용 하 여 전용 저장소 계정에 연결
 Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다.
 
 이 빠른 시작에서는 Azure Portal를 사용 하 여 개인 끝점이 있는 저장소 계정인 Azure virtual network에서 VM을 만드는 방법에 대해 알아봅니다. 그런 다음 VM에서 저장소 계정에 안전 하 게 액세스할 수 있습니다.
 
+> [!NOTE]
+> 프라이빗 엔드포인트는 동일한 서브넷에 있는 서비스 엔드포인트와 함께 허용되지는 않습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 이 섹션에서는 개인 링크 리소스 (이 예제에서는 저장소 계정)에 액세스 하는 데 사용 되는 VM을 호스트 하는 가상 네트워크 및 서브넷을 만듭니다.
@@ -34,12 +36,12 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
-    | name | *MyVirtualNetwork*를 입력합니다. |
+    | 이름 | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
-    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
+    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
     | 위치 | **WestCentralUS**를 선택합니다.|
     | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
@@ -47,17 +49,17 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
 
-### <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+### <a name="create-virtual-machine"></a>가상 머신 만들기
 
 1. Azure Portal 화면 왼쪽 상단에서 **리소스 만들기** > **계산** > **가상 컴퓨터**를 선택 합니다.
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm*을 입력합니다. |
     | 지역 | **WestCentralUS**를 선택합니다. |
@@ -80,7 +82,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. **가상 머신 만들기 - 네트워킹**에서 다음 정보를 선택합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | 가상 네트워크 | 기본값인 **MyVirtualNetwork**를 그대로 둡니다.  |
     | 주소 공간 | 기본값인 **10.1.0.0/24**를 그대로 둡니다.|
@@ -101,13 +103,13 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. **저장소 계정 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 정보** |  |
-    | Storage 계정 이름  | *Mystorageaccount*를 입력 합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | 스토리지 계정 이름  | *Mystorageaccount*를 입력 합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     | 지역 | **WestCentralUS**를 선택합니다. |
     | 성능 중심| 기본값인 **표준**을 그대로 둡니다. |
     | 계정 종류 | 기본 **저장소 (범용 v2)** 를 그대로 둡니다. |
@@ -119,13 +121,13 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 5. **저장소 계정 만들기-네트워킹**에서 **개인 끝점 추가**를 선택 합니다. 
 6. **개인 끝점 만들기**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | Value |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     |위치|**WestCentralUS**를 선택합니다.|
-    |name| *MyPrivateEndpoint*를 입력 합니다.  |
+    |이름| *MyPrivateEndpoint*를 입력 합니다.  |
     |저장소 하위 리소스|기본 **Blob**을 그대로 둡니다. |
     | **네트워킹** |  |
     | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
@@ -149,9 +151,9 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결**이 열립니다.
 
-1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
-1. *다운로드 한 .rdp* 파일을 엽니다.
+1. *downloaded.rdp* 파일을 엽니다.
 
     1. 메시지가 표시되면 **연결**을 선택합니다.
 

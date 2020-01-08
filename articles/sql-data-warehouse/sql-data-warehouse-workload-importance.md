@@ -1,5 +1,5 @@
 ---
-title: Számítási feladat fontossága
+title: 워크로드 중요도
 description: Azure SQL Data Warehouse의 쿼리에 대한 중요도를 설정하기 위한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
@@ -11,12 +11,12 @@ ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28d239d47b46a5aafdf65c72ef826a0efb79f52b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 76a77c1833ae1827f2a6a9b577b3cca51b35a344
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974636"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351436"
 ---
 # <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL Data Warehouse 워크 로드 중요도
 
@@ -26,7 +26,7 @@ ms.locfileid: "74974636"
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-비즈니스 요구 사항에는 데이터 웨어하우징 워크로드가 다른 메트릭보다 더 중요해질 수 있습니다.  회계 기간이 끝나기 전에 중요한 판매 데이터를 로드하는 경우를 고려해 보십시오.  날씨 데이터와 같은 다른 원본에 대한 데이터 로드에는 엄격한 SLA가 없습니다. 판매 데이터를 로드하는 요청에 대한 높은 중요도 및 날씨 데이터를 로드하는 요청에 대한 낮은 중요도 설정은 판매 데이터가 먼저 리소스에 액세스하고 더 빠르게 완료하도록 합니다.
+비즈니스 요구 사항에는 데이터 웨어하우징 워크로드가 다른 메트릭보다 더 중요해질 수 있습니다.  회계 기간이 끝나기 전에 중요한 판매 데이터를 로드하는 경우를 고려해 보십시오.  날씨 데이터와 같은 다른 원본에 대한 데이터 로드에는 엄격한 SLA가 없습니다. 판매 데이터를 로드 하는 요청에 대해 높은 중요도를 설정 하 고 날씨 데이터를 로드 하는 요청에 중요도를 설정 하면 판매 데이터 로드에서 리소스에 처음으로 액세스 하 여 더 빨리 완료할 수 있습니다.
 
 ## <a name="importance-levels"></a>중요도 수준
 
@@ -38,13 +38,13 @@ ms.locfileid: "74974636"
 
 ### <a name="locking"></a>잠금
 
-읽기 및 쓰기에 대한 잠금 액세스는 자연스런 경합의 한 영역입니다. [파티션 전환을](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) 또는 [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) 같은 활동은 상승된 잠금이 필요합니다.  워크로드 중요도가 없으면, SQL Data Warehouse는 처리량에 대해 최적화합니다.  처리량을 최적화하는 것은, 실행 및 대기 중인 요청이 동일한 잠금이 필요하고 리소스를 사용할 수 있을 때, 대기 요청은 먼저 요청 큐에 도착한 높은 잠금 요구 요청을 무시할 수 있다는 것을 의미합니다.  잠금 요구 사항이 높은 요청에 워크 로드 중요도가 적용 되 면 중요도가 낮은 요청 보다 중요도가 높은 요청이 실행 됩니다.
+읽기 및 쓰기에 대한 잠금 액세스는 자연스런 경합의 한 영역입니다. [파티션 전환을](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) 또는 [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) 같은 활동은 상승된 잠금이 필요합니다.  워크로드 중요도가 없으면, SQL Data Warehouse는 처리량에 대해 최적화합니다. 처리량을 최적화하는 것은, 실행 및 대기 중인 요청이 동일한 잠금이 필요하고 리소스를 사용할 수 있을 때, 대기 요청은 먼저 요청 큐에 도착한 높은 잠금 요구 요청을 무시할 수 있다는 것을 의미합니다. 워크로드 중요도는 높은 잠금을 사용하는 요청에 적용됩니다. 높은 중요도를 가진 요청은 낮은 중요도를 가진 요청보다 먼저 실행됩니다.
 
-다음 예를 살펴 보십시오.
+다음과 같은 예제를 참조하세요.
 
-Q1은 실행 중이며 SalesFact에서 데이터를 조회합니다.
-Q2는 Q1이 완료될 때까지 대기 큐에 대기됩니다.  오전 9시에 전송되어 SalesFact에 새 데이터를 파티션 전환하려고 합니다.
-Q3는 오전 9:01분에 전송되어 SalesFact에서 데이터를 조회하려고 합니다.
+- Q1은 실행 중이며 SalesFact에서 데이터를 조회합니다.
+- Q2는 Q1이 완료될 때까지 대기 큐에 대기됩니다.  오전 9시에 전송되어 SalesFact에 새 데이터를 파티션 전환하려고 합니다.
+- Q3는 오전 9:01분에 전송되어 SalesFact에서 데이터를 조회하려고 합니다.
 
 Q2 및 Q3가 동일한 중요도를 가지고 있고 Q1이 계속 실행 중이라면, Q3가 실행을 시작합니다. Q2는 SalesFact에서 배타적 잠금으로 계속 기다립니다.  Q2가 Q3보다 중요도가 더 높다면, Q3는 실행을 시작하기 전에 Q2가 실행을 완료할 때까지 기다립니다.
 
@@ -54,16 +54,16 @@ Q2 및 Q3가 동일한 중요도를 가지고 있고 Q1이 계속 실행 중이�
   
 DW500c에 대 한 다음 예제를 살펴보십시오.
 
-Q1, Q2, Q3, 및 Q4가 smallrc 쿼리를 실행합니다.
-Q5가 오전 9시에 mediumrc 리소스 클래스를 사용하여 제출됩니다.
-Q6가 오전 9시 01분에 smallrc 리소스 클래스를 사용하여 제출됩니다.
+- Q1, Q2, Q3, 및 Q4가 smallrc 쿼리를 실행합니다.
+- Q5가 오전 9시에 mediumrc 리소스 클래스를 사용하여 제출됩니다.
+- Q6가 오전 9시 01분에 smallrc 리소스 클래스를 사용하여 제출됩니다.
 
 Q5가 mediumrc이기 때문에 두 개의 동시성 슬롯이 필요합니다. Q5는 두 실행 중인 쿼리를 완료할 때까지 대기해야 합니다.  그러나 실행 중인 쿼리(Q1-Q4) 중 하나가 완료되면, 쿼리를 실행하는 리소스가 존재하기 때문에 Q6가 즉시 예약됩니다.  Q5가 Q6보다 중요도가 더 높으면, Q6는 실행을 시작하기 전에 Q5가 실행될 때까지 대기합니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 - 분류자를 만드는 방법에 대 한 자세한 내용은 [워크 로드 분류자 만들기 (transact-sql)](/sql/t-sql/statements/create-workload-classifier-transact-sql)를 참조 하세요.  
 - 작업 분류 SQL Data Warehouse에 대 한 자세한 내용은 [작업 분류](sql-data-warehouse-workload-classification.md)를 참조 하세요.  
-- 작업 분류자를 만드는 방법에 대 한 빠른 시작 [작업 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md) 를 참조 하세요.
-- [작업 부하를 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 하는 방법 문서 및 [워크 로드 관리를 관리 하 고 모니터링](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)하는 방법 문서를 참조 하세요.
-- 쿼리 및 할당 된 중요도를 보려면 [dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 를 참조 하세요.
+- 작업 분류자를 만드는 방법에 대 한 빠른 시작 [작업 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md) 를 참조 하세요. 
+- [워크로드 중요도 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 및 [워크로드 관리 모니터링 및 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) 방법에 대한 문서를 참조하세요.
+- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)를 참조하세요.

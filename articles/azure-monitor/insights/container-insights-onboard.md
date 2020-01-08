@@ -1,18 +1,14 @@
 ---
 title: 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 작동 방식 및 식별 된 성능 관련 문제를 이해할 수 있도록 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 43016cfb72b90a74ce1313ad2d2316228d743f5f
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: fce2699c18f0fe426b85c165656100c097e69598
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404332"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법
 
@@ -32,7 +28,7 @@ ms.locfileid: "74195341"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -65,7 +61,7 @@ ms.locfileid: "74195341"
 |--------------|------|
 | *.ods.opinsights.azure.com | 443 |  
 | *.oms.opinsights.azure.com | 443 | 
-| *.blob.core.windows.net | 443 |
+| \*.blob.core.windows.net | 443 |
 | dc.services.visualstudio.com | 443 |
 | *.microsoftonline.com | 443 |
 | *.monitoring.azure.com | 443 |
@@ -73,21 +69,21 @@ ms.locfileid: "74195341"
 
 다음 표의 정보는 Azure 중국에 대 한 프록시 및 방화벽 구성 정보를 나열 합니다.
 
-|에이전트 리소스|포트 |설명 | 
+|에이전트 리소스|포트 |Description | 
 |--------------|------|-------------|
 | *. ods.opinsights.azure.cn | 443 | 데이터 수집 |
 | *. oms.opinsights.azure.cn | 443 | OMS 온 보 딩 |
-| *.blob.core.windows.net | 443 | 아웃 바운드 연결을 모니터링 하는 데 사용 됩니다. |
+| \*.blob.core.windows.net | 443 | 아웃 바운드 연결을 모니터링 하는 데 사용 됩니다. |
 | microsoft.com | 80 | 네트워크 연결에 사용 됩니다. 에이전트 이미지 버전이 ciprod09262019 이거나 이전 버전인 경우에만 필요 합니다. |
 | dc.services.visualstudio.com | 443 | Azure 공용 클라우드 Application Insights를 사용 하는 에이전트 원격 분석의 경우 |
 
 다음 표의 정보는 Azure 미국 정부에 대 한 프록시 및 방화벽 구성 정보를 나열 합니다.
 
-|에이전트 리소스|포트 |설명 | 
+|에이전트 리소스|포트 |Description | 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | 데이터 수집 |
 | *.oms.opinsights.azure.us | 443 | OMS 온 보 딩 |
-| *.blob.core.windows.net | 443 | 아웃 바운드 연결을 모니터링 하는 데 사용 됩니다. |
+| \*.blob.core.windows.net | 443 | 아웃 바운드 연결을 모니터링 하는 데 사용 됩니다. |
 | microsoft.com | 80 | 네트워크 연결에 사용 됩니다. 에이전트 이미지 버전이 ciprod09262019 이거나 이전 버전인 경우에만 필요 합니다. |
 | dc.services.visualstudio.com | 443 | Azure 공용 클라우드 Application Insights를 사용 하는 에이전트 원격 분석의 경우 |
 
@@ -107,7 +103,7 @@ ms.locfileid: "74195341"
 
 다음 표에서 설명 하는 다음 방법 중 하나를 사용 하 여 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정 합니다.
 
-| 배포 상태 | 메서드 | 설명 |
+| 배포 상태 | 방법 | Description |
 |------------------|--------|-------------|
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용 하 여 만든 새 AKS 클러스터의 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Terraform을 사용 하 여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용 하 여 만든 새 AKS 클러스터의 모니터링을 사용 하도록 설정할 수 있습니다. |

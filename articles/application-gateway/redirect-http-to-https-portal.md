@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dcbc20f768ae80404979d47f23e7e08098757b41
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012874"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613332"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -25,9 +25,9 @@ Azure Portal을 사용하여 SSL 종료를 위한 인증서로 [애플리케이�
 > * 네트워크 설정
 > * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀로 가상 머신 확장 집합 만들기
+> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,7 +63,7 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
-## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>Application Gateway 만들기
 
 가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
@@ -90,7 +90,7 @@ Export-PfxCertificate `
 7. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
 8. **프런트 엔드 IP 구성**에서 **IP 주소 형식**이 **공용**으로 설정되어 있고 **새로 만들기**가 선택되어 있는지 확인합니다. 이름으로 *myAGPublicIPAddress*를 입력합니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 9. **수신기 구성** 아래에서 **HTTPS**를 선택한 후 **파일 선택**을 선택하고 *c:\appgwcert.pfx* 파일로 이동한 다음, **열기**를 선택합니다.
-10. 인증서 이름으로 *appgwcert*를 입력하고 암호로 *Azure123456!* 을 입력합니다. 입력합니다.
+10. 인증서 이름으로 *appgwcert*를 입력하고 암호로 *Azure123456!* 을 입력합니다. 암호
 11. 웹 애플리케이션 방화벽을 사용하지 않도록 설정하고 **확인**을 선택합니다.
 12. 요약 페이지에서 설정을 검토한 다음, **확인**을 선택하여 네트워크 리소스와 애플리케이션 게이트웨이를 만듭니다. 애플리케이션 게이트웨이가 생성되는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
 
@@ -118,15 +118,15 @@ Export-PfxCertificate `
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>리디렉션 구성을 사용하여 라우팅 규칙 추가
 
-1. **myAppGateway**에서 **규칙**을 선택한 후 **+기본**을 선택합니다.
-2. **이름**으로 *Rule2*를 입력합니다.
+1. **MyAppGateway**에서 **규칙** 을 선택한 다음 **+ 라우팅 규칙 요청**을 선택 합니다.
+2. **규칙 이름**에 *Rule2*를 입력 합니다.
 3. 수신기에 대해 **MyListener**를 선택했는지 확인합니다.
-4. **리디렉션 구성** 확인란을 선택합니다.
+4. **백 엔드 대상** 탭을 클릭 하 고 **대상 유형** 을 *리디렉션*으로 선택 합니다.
 5. **리디렉션 유형**으로 **영구**를 선택합니다.
 6. **리디렉션 대상**으로 **수신기**를 선택합니다.
 7. **대상 수신기**가 **appGatewayHttpListener**로 설정되어 있는지 확인합니다.
-8. **쿼리 문자열 포함** 및 **경로 포함** 확인란을 선택합니다.
-9. **확인**을 선택합니다.
+8. **쿼리 문자열 포함** 및 **포함 경로** 에 대해 *예*를 선택 합니다.
+9. **추가**를 선택합니다.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
@@ -215,7 +215,7 @@ IIS 사용하여 인스턴스를 변경한 후에는 이 변경 내용으로 확
 1. **myAppGateway**를 선택합니다.
 2. **개요** 페이지에서 **프런트 엔드 공용 IP 주소** 아래의 IP 주소를 기록해 둡니다.
 
-3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http://52.170.203.149
+3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들어 http://52.170.203.149
 
    ![보안 경고](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 
