@@ -1,5 +1,6 @@
 ---
-title: .NET-Azure Storage를 사용 하 여 저장소 계정 유형 및 SKU 이름 가져오기
+title: .NET을 사용 하 여 저장소 계정 유형 및 SKU 이름 가져오기
+titleSuffix: Azure Storage
 description: .NET 클라이언트 라이브러리를 사용 하 여 계정 유형 및 SKU 이름을 Azure Storage 가져오는 방법에 대해 알아봅니다.
 services: storage
 author: mhopkins-msft
@@ -8,12 +9,12 @@ ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0008d8fa9a33db95b0695ce998d4fc267d6222da
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1cff950f2c420651ffa09ffe76a0d1389da84c10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457478"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>.NET을 사용 하 여 저장소 계정 유형 및 SKU 이름 가져오기
 
@@ -23,9 +24,9 @@ ms.locfileid: "68985357"
 
 ## <a name="about-account-type-and-sku-name"></a>계정 유형 및 SKU 이름 정보
 
-**계정 유형**: 유효한 계정 `BlobStorage`유형에는 `Storage`, `BlockBlobStorage`, `FileStorage`, 및`StorageV2`가 있습니다. [Azure storage 계정 개요](storage-account-overview.md) 에는 다양 한 저장소 계정에 대 한 설명을 포함 하 여 자세한 정보가 포함 되어 있습니다.
+**계정 유형**: 올바른 계정 유형에는 `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`및 `StorageV2`가 포함 됩니다. [Azure storage 계정 개요](storage-account-overview.md) 에는 다양 한 저장소 계정에 대 한 설명을 포함 하 여 자세한 정보가 포함 되어 있습니다.
 
-**SKU 이름**: 유효한 SKU 이름 `Premium_LRS` `Premium_ZRS` 에는`Standard_RAGZRS`,, `Standard_GZRS` `Standard_LRS` ,,`Standard_RAGRS`,, 및`Standard_ZRS`가포함됩니다. `Standard_GRS` SKU 이름은 대/소문자를 구분 하며, 지 수 [클래스](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet)의 문자열 필드입니다.
+**Sku 이름**: 유효한 sku 이름에는 `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`및 `Standard_ZRS`가 포함 됩니다. SKU 이름은 대/소문자를 구분 하며, 지 수 [클래스](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet)의 문자열 필드입니다.
 
 ## <a name="retrieve-account-information"></a>계정 정보 검색
 
@@ -63,6 +64,4 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
 
 [Azure Portal](https://portal.azure.com) 및 Azure REST API를 통해 저장소 계정에서 수행할 수 있는 다른 작업에 대해 알아봅니다.
 
-- [저장소 계정 관리](storage-account-manage.md)
-- [저장소 계정 업그레이드](storage-account-upgrade.md)
 - [계정 정보 가져오기 작업 (REST)](/rest/api/storageservices/get-account-information)

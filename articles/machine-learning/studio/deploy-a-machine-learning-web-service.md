@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851097"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454798"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
 
@@ -23,7 +23,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 예측 분석 솔루
 
 Machine Learning Studio (클래식) 웹 서비스는 응용 프로그램과 Machine Learning Studio (클래식) 워크플로 점수 매기기 모델 간의 인터페이스를 제공 합니다. 외부 응용 프로그램은 Machine Learning Studio (클래식) 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning Studio (클래식) 웹 서비스에 대 한 호출은 외부 응용 프로그램에 예측 결과를 반환 합니다. 웹 서비스를 호출하려면 웹 서비스를 배포할 때 만들어진 API 키를 전달합니다. Machine Learning Studio (클래식) 웹 서비스는 웹 프로그래밍 프로젝트용으로 널리 사용 되는 REST를 기반으로 합니다.
 
-클래식 버전의 Azure Machine Learning Studio에는 두 가지 유형의 웹 서비스가 있습니다.
+Azure Machine Learning Studio (클래식)에는 두 가지 유형의 웹 서비스가 있습니다.
 
 * RR (요청-응답 서비스): 단일 데이터 레코드를 점수가 낮은 대기 시간, 확장성이 뛰어난 서비스입니다.
 * BES (batch 실행 서비스): 데이터 레코드 일괄 처리의 점수를 나타내는 비동기 서비스입니다.
@@ -32,13 +32,13 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 
 고급 관점에서 모델을 다음과 같은 3단계로 배포합니다.
 
-* **[학습 실험 만들기]** -클래식 버전의 Studio에서 많은 기본 제공 기계 학습 알고리즘 집합을 사용 하 여 제공 하는 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트할 수 있습니다.
+* **[학습 실험 만들기]** -Studio (클래식)에서는 다양 한 기본 제공 기계 학습 알고리즘 집합을 사용 하 여 제공 하는 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트할 수 있습니다.
 * **[예측 실험으로 변환]** - 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 예측을 위해 실험을 준비하고 간소화합니다.
 * **[새 웹 서비스]** 또는 **[클래식 웹 서비스]** 로 **배포** - 예측 실험을 Azure 웹 서비스로 배포하는 경우 사용자는 데이터를 모델로 전송하고 모델의 예측을 수신할 수 있습니다.
 
 ## <a name="create-a-training-experiment"></a>학습 실험 만들기
 
-예측 분석 모델을 학습 하려면 클래식 버전의 Azure Machine Learning Studio을 사용 하 여 학습 데이터를 로드 하 고, 필요에 따라 데이터를 준비 하 고, 기계 학습 알고리즘을 적용 하는 다양 한 모듈을 포함 하는 학습 실험을 만듭니다. 결과를 평가 합니다. 실험은 반복할 수 있으며 여러 다른 기계 학습 알고리즘을 시도하여 결과를 비교하고 평가할 수 있습니다.
+예측 분석 모델을 학습 하려면 Azure Machine Learning Studio (클래식)를 사용 하 여 학습 데이터를 로드 하 고, 필요에 따라 데이터를 준비 하 고, 기계 학습 알고리즘을 적용 하 고, 검색. 실험은 반복할 수 있으며 여러 다른 기계 학습 알고리즘을 시도하여 결과를 비교하고 평가할 수 있습니다.
 
 학습 실험을 만들고 관리하는 프로세스는 다른 부분에서 더욱 철저히 다룹니다. 자세한 내용은 다음 문서를 참조하세요.
 
@@ -95,9 +95,9 @@ RRS를 테스트하려면 목록 보기 모드에서 입력에 적절한 값을 
 
 ![적절 한 값을 입력 하 여 웹 서비스를 테스트 합니다.](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-BES를 테스트하려면 **Batch**를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio 클래식 버전의를 사용 하 여 예측 실험을 만든 경우 예측 실험에 대 한 데이터 집합을 다운로드 하 여 사용할 수 있습니다.
+BES를 테스트하려면 **Batch**를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio (클래식)를 사용 하 여 예측 실험을 만든 경우 예측 실험에 대 한 데이터 집합을 다운로드 하 여 사용할 수 있습니다.
 
-데이터 집합을 다운로드 하려면 Machine Learning Studio의 클래식 버전을 엽니다. 예측 실험을 열고 실험에 대한 입력을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **데이터 세트**를 선택한 다음, **다운로드**를 선택합니다.
+데이터 집합을 다운로드 하려면 Machine Learning Studio (클래식)를 엽니다. 예측 실험을 열고 실험에 대한 입력을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **데이터 세트**를 선택한 다음, **다운로드**를 선택합니다.
 
 ![Studio (클래식) 캔버스에서 데이터 집합 다운로드](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -113,7 +113,7 @@ BES를 테스트하려면 **Batch**를 클릭합니다. Batch 테스트 페이�
 
 ### <a name="access-your-new-web-service"></a>새 웹 서비스 액세스
 
-Machine Learning Studio 클래식 버전에서 웹 서비스를 배포 하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
+Machine Learning Studio (클래식)에서 웹 서비스를 배포 하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
 
 **사용** 페이지에서는 웹 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다. 예를 들어, 서비스에 대한 권한이 부여된 액세스를 허용하도록 API 키를 제공합니다.
 
@@ -136,7 +136,7 @@ Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 �
 3. 보기 페이지의 계획에서 **새로 만들기**를 클릭합니다.
 4. **구독** 드롭다운에서 새 계획이 상주할 구독을 선택합니다.
 5. **지역** 드롭다운에서 새 계획에 대한 지역을 선택합니다. 선택한 영역에 대한 계획 옵션은 페이지의 **계획 옵션** 섹션에 표시됩니다.
-6. **리소스 그룹** 드롭다운에서 계획에 대한 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+6. **리소스 그룹** 드롭다운에서 계획에 대한 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
 7. **계획 이름** 에 계획의 이름을 입력합니다.
 8. **계획 옵션**에서 새 계획에 대한 청구 수준을 클릭합니다.
 9. **만들기**를 클릭합니다.
@@ -149,7 +149,7 @@ Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 �
 4. **웹 서비스 이름**에 웹 서비스의 새 이름을 입력합니다.
 5. **웹 서비스 설명**에 웹 서비스에 대한 설명을 입력합니다.
 6. **구독** 드롭다운에서 새 웹 서비스가 상주할 구독을 선택합니다.
-7. **리소스 그룹** 드롭다운에서 웹 서비스에 대한 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+7. **리소스 그룹** 드롭다운에서 웹 서비스에 대한 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
 8. **지역** 드롭다운에서 웹 서비스를 배포할 지역을 선택합니다.
 9. **Storage 계정** 드롭다운에서 웹 서비스에 저장할 Storage 계정을 선택합니다.
 10. **가격 계획** 드롭다운에서 8단계에서 선택한 영역에서 계획을 선택합니다.
@@ -169,9 +169,9 @@ Machine Learning Studio (클래식) 웹 서비스 포털 또는 Machine Learning
 
 리소스 요청 웹 서비스를 테스트하려면 웹 서비스 대시보드에서 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이러한 열이 점수 매기기 실험에 필요합니다. 데이터 집합을 입력하고 **확인**을 클릭합니다. 웹 서비스에서 생성된 결과가 대시보드 아래쪽에 표시됩니다.
 
-이전에 새 웹 서비스 섹션에 나와 있는 것 처럼 Azure Machine Learning Studio 웹 서비스 포털의 클래식 버전에서 서비스를 테스트 하려면 **테스트** 미리 보기 링크를 클릭 하면 됩니다.
+이전에 새 웹 서비스 섹션에 나와 있는 것 처럼 Azure Machine Learning Studio (클래식) 웹 서비스 포털에서 **테스트** 미리 보기 링크를 클릭 하 여 서비스를 테스트할 수 있습니다.
 
-Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio 클래식 버전의를 사용 하 여 예측 실험을 만든 경우 예측 실험에 대 한 데이터 집합을 다운로드 하 여 사용할 수 있습니다.
+Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio (클래식)를 사용 하 여 예측 실험을 만든 경우 예측 실험에 대 한 데이터 집합을 다운로드 하 여 사용할 수 있습니다.
 
 ![웹 서비스 테스트](./media/publish-a-machine-learning-web-service/figure-3.png)
 
@@ -187,7 +187,7 @@ Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클�
 
 ### <a name="access-your-classic-web-service"></a>기존 웹 서비스 액세스
 
-Machine Learning Studio 클래식 버전에서 웹 서비스를 배포 하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
+Azure Machine Learning Studio (클래식)에서 웹 서비스를 배포 하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
 
 대시보드에서는 웹 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다. 예를 들어, 서비스에 대해 권한 부여된 액세스가 가능하도록 API 키가 제공되고, 코드 작성을 시작하는 데 도움이 되도록 API 도움말 페이지가 제공됩니다.
 

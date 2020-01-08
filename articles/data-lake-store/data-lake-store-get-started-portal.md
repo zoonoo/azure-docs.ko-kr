@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: e5a3df82fae9d81a870d3dba929bc7e4cd4123d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904687"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438753"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
 
@@ -26,23 +26,23 @@ ms.locfileid: "73904687"
 
 Azure Portal 사용 하 여 Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행 하는 방법에 대해 알아봅니다. 자세한 내용은 [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 만들기
 
-1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. **리소스 만들기 > 저장소 > Data Lake Storage Gen1**을 클릭합니다.
+1. 새로운 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **리소스 만들기 &gt; 스토리지 &gt; Data Lake Storage Gen1**을 클릭합니다.
 3. **새 Data Lake Storage Gen1** 블레이드에서 아래 스크린샷에 표시된 대로 값을 제공합니다.
 
     ![새 Data Lake Storage Gen1 계정 만들기](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "새 Data Lake Storage Gen1 계정 만들기")
 
    * **이름**. Data Lake Storage Gen1 계정의 고유한 이름을 입력합니다.
    * **구독**. 새 Data Lake Storage Gen1 계정을 만들려는 구독을 선택합니다.
-   * **리소스 그룹**. 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 리소스 그룹을 만듭니다. 리소스 그룹은 애플리케이션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure의 리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 참조하세요.
+   * **리소스 그룹**. 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 리소스 그룹을 만듭니다. 리소스 그룹은 애플리케이션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure의 리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)을 참조하세요.
    * **위치**: Data Lake Storage Gen1 계정을 만들려는 위치를 선택합니다.
    * **암호화 설정**. 세 개의 옵션이 있습니다.
 
@@ -128,4 +128,4 @@ Data Lake Storage Gen1 계정을 삭제하려면 Data Lake Storage Gen1 블레�
 * [빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용](data-lake-store-data-scenarios.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
 * [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Data Lake Storage Gen1을 통해 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

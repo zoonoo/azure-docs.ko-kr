@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB에서 JavaScript LINQ(Language-Integrated Query) API 작업
+title: Azure Cosmos DB에서 JavaScript 통합 쿼리 API 사용
 description: 이 문서에서는 Azure Cosmos DB에서 저장 프로시저 및 트리거를 만들기 위한 JavaScript LINQ(Language-Integrated Query) API의 개념을 소개합니다.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 01e5e95da3c19c03d07c7f3c1d716f5f1e97de98
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8396608cdbc5638a3640f94c94b44ad7c5f52a73
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445322"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
 
@@ -20,7 +20,7 @@ Azure Cosmos DB의 SQL API를 사용하여 쿼리를 발급하는 방식과 더�
 
 ## <a name="supported-javascript-functions"></a>지원되는 JavaScript 함수
 
-| **함수** | **설명** |
+| **Function** | **설명** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|value()로 종료되어야 하는 연결된 호출을 시작합니다.|
 |`filter(predicateFunction [, options] [, callback])`|출력 문서를 결과 집합으로 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. 이 기능은 SQL의 WHERE 절과 유사하게 작동합니다.|
@@ -33,7 +33,7 @@ Azure Cosmos DB의 SQL API를 사용하여 쿼리를 발급하는 방식과 더�
 
 조건자 및/또는 선택기 함수 안에 포함된 경우 다음과 같은 JavaScript 구문이 Azure Cosmos DB 인덱스에서 직접 실행하도록 자동으로 최적화됩니다.
 
-- 단순 연산자: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
+- Simple operators: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
 - 개체 리터럴을 포함하는 리터럴: {}
 - var, 반환
 

@@ -1,21 +1,14 @@
 ---
-title: Azure Advisor 백업 소개 | Microsoft Docs
+title: Azure Advisor 소개
 description: Azure Advisor를 사용하여 Azure 배포를 최적화합니다.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: sagupt
-ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443087"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -37,7 +30,7 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 * **보안**: 보안 위반으로 이어질 수 있는 위협 및 취약점을 검색합니다. 자세한 내용은 [Advisor 보안 권장 사항](advisor-security-recommendations.md)을 참조하세요.
 * **성능**: 애플리케이션의 속도를 향상시킵니다. 자세한 내용은 [Advisor 성능 권장 사항](advisor-performance-recommendations.md)을 참조하세요.
 * **비용**: 전체 Azure 사용을 최적화하고 사용량을 줄입니다. 자세한 내용은 [Advisor 비용 권장 사항](advisor-cost-recommendations.md)을 참조하세요.
-* **운영 뛰어난**기능: 프로세스 및 워크플로 효율성, 리소스 관리 효율성 및 배포 모범 사례를 달성할 수 있도록 지원 합니다. 을 선택합니다. 자세한 내용은 Advisor 작동에 대 한 [권장 사항](advisor-operational-excellence-recommendations.md)을 참조 하세요.
+* **운영 뛰어난**기능: 프로세스 및 워크플로 효율성, 리소스 관리 효율성 및 배포 모범 사례를 달성할 수 있도록 지원 합니다. . 자세한 내용은 Advisor 작동에 대 한 [권장 사항](advisor-operational-excellence-recommendations.md)을 참조 하세요.
 
   ![Advisor 권장 사항 유형](./media/advisor-overview/advisor-dashboard.png)
 
@@ -49,7 +42,7 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
 권장 사항에 대해 즉각적인 작업을 수행하지 않으려는 경우 지정된 시간 후에 연기하거나 해제할 수 있습니다.  특정 구독 또는 리소스 그룹에 대한 권장 사항을 수신하지 않으려면 지정된 구독 및 리소스 그룹에 대한 권장 사항만 생성하도록 Advisor를 구성할 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 ### <a name="how-do-i-access-advisor"></a>Advisor에 액세스하려면 어떻게 해야 하나요?
 [Azure Portal](https://aka.ms/azureadvisordashboard)을 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor**를 찾거나 **모든 서비스** 메뉴에서 검색합니다.

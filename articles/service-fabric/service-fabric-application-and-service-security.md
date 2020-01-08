@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 애플리케이션 보안에 대해 자세히 알아보기 | Microsoft Docs
+title: Azure Service Fabric 응용 프로그램 보안에 대 한 자세한 정보
 description: Service Fabric에서 마이크로 서비스 애플리케이션을 안전하게 실행하는 방법의 개요 다른 보안 계정에서 서비스 및 시작 스크립트를 실행하고, 사용자를 인증하고 권한을 부여하고, 애플리케이션 암호를 관리하고, 서비스 통신의 보안을 유지하고, API 게이트웨이를 사용하고, 미사용 애플리케이션 데이터의 보안을 유지하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/16/2018
-ms.author: atsenthi
-ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600064"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452249"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 애플리케이션 및 서비스 보안
 마이크로 서비스 아키텍처는 [많은 이점](service-fabric-overview-microservices.md)을 제공할 수 있습니다. 그러나 마이크로 서비스의 보안을 관리하는 일은 기존의 모놀리식 애플리케이션 보안을 관리하는 것과는 다르며 어려울 수 있습니다. 
@@ -38,7 +27,7 @@ API 수준 신뢰를 결정하는 첫 번째 단계는 인증입니다. 인증�
 
 ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)하는 기본 메커니즘이 ASP.NET Core ID 멤버 자격 시스템입니다. ASP.NET Core ID는 개발자가 구성한 데이터 저장소에 사용자 정보(로그인 정보, 역할 및 클레임 포함)를 저장합니다. ASP.NET Core ID는 2단계 인증을 지원합니다.  외부 인증 공급자도 지원 되므로 사용자는 Microsoft, Google, Facebook 또는 Twitter와 같은 공급자의 기존 인증 프로세스를 사용 하 여 로그인 할 수 있습니다.
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>권한 부여
 인증 후에, 서비스는 사용자 액세스를 허가하거나 사용자가 수행할 수 있는 작업을 결정해야 합니다. 이 프로세스를 통해 전체가 아닌 일부 인증된 사용자만 서비스의 API를 사용할 수 있게 됩니다. 권한 부여는 인증과 일치하는 부분도 있고 독립된 부분도 있으며, 사용자가 누군지 확인하는 프로세스입니다. 인증으로 현재 사용자에 대해 하나 이상의 ID가 만들어질 수 있습니다.
 
 [ASP.NET Core 권한 부여](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)는 사용자의 역할 또는 사용자 지정 정책을 기준으로 수행될 수 있으며, 클레임 또는 기타 추론 검사가 포함될 수 있습니다.

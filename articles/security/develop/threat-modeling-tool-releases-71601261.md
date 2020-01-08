@@ -1,26 +1,18 @@
 ---
-title: Threat Modeling Tool 릴리스 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool 릴리스 1/29/2019-Azure
 description: Threat Modeling Tool 릴리스 정보 문서화
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
-ms.author: jegeib
-ms.openlocfilehash: d9c91752a599debcd8fda6c8396141e6a92e0f06
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: cec5abe358189184648c5a40a809b570f243fbf4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928094"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548789"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60126.1 - 2019/1/29
 
@@ -37,7 +29,7 @@ ms.locfileid: "68928094"
 
 ### <a name="model-validation-option"></a>모델 유효성 검사 옵션
 
-고객 피드백에 따라 모델 유효성 검사를 사용하거나 사용하지 않도록 설정하는 옵션이 도구에 추가되었습니다. 이전에 템플릿에서 두 개체 간의 단방향 데이터 흐름 하나를 사용했다면 메시지 프레임에 ObjectsName 'Any'가 하나 이상 필요하다는 오류 메시지가 표시되었을 수 있습니다. 모델 유효성 검사를 사용하지 않도록 설정하면 이러한 경고가 보기에 표시되지 않습니다.
+고객 피드백에 따라 모델 유효성 검사를 사용하거나 사용하지 않도록 설정하는 옵션이 도구에 추가되었습니다. 이전에는 템플릿에서 두 개체 사이에 단일 단방향 데이터 흐름을 사용 하는 경우 메시지 프레임에 ObjectsName가 하나 이상 필요 합니다. 라는 오류 메시지가 표시 될 수 있습니다. 모델 유효성 검사를 사용하지 않도록 설정하면 이러한 경고가 보기에 표시되지 않습니다.
 
 모델 유효성 검사를 설정/해제하는 옵션은 파일->설정->옵션 메뉴에 있습니다. 이 설정의 기본값은 사용 안 함입니다.
 
@@ -45,7 +37,7 @@ ms.locfileid: "68928094"
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 
-- Supported Operating Systems
+- 지원되는 운영 체제
   - [Microsoft Windows 10 1주년 업데이트](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) 이상
 - 필요한 .NET 버전
   - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) 이상
@@ -56,7 +48,7 @@ ms.locfileid: "68928094"
 
 ### <a name="unsupported-systems"></a>지원되지 않는 시스템
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 Windows 10 Enterprise LTSB(버전 1507)와 같이 .NET 4.7.1 이상을 설치할 수 없는 Windows 10 시스템 사용자는 업그레이드 후에 도구를 열 수 없습니다. 이러한 이전 버전 Windows는 Threat Modeling Tool용으로 더 이상 지원되지 않는 플랫폼이므로 최신 업데이트를 설치하면 안 됩니다.
 

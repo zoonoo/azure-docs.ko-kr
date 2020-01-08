@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB에서 일관성을 관리하는 방법 알아보기
+title: Azure Cosmos DB의 일관성 관리
 description: Azure Portal, .Net SDK, Java SDK 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB에서 일관성 수준을 구성 하 고 관리 하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 46c4c4afe737fd11c2e711a23a3355f48dbd6231
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 68be15e1ffd9093ab67fc046edaad991d633ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445375"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 

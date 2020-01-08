@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 69b25f22d448436db5e906a3b56b5e50ec412b40
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a4a4393a25bfa49a8074793b572111f69dcc17c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934670"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459645"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -66,11 +66,11 @@ Azure Monitor 로그를 사용 하면 경쟁 솔루션 보다 저렴 한 비용�
 
 Azure Monitor 로그의 핵심 기능은 Azure에서 실행 되는 서비스 집합을 통해 제공 됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
-| 서비스  | 설명|
+| 서비스  | Description|
 | :------------- | :-------------|
 | Azure Monitor 로그 | 실제 컴퓨터와 가상 머신을 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
-|자동화 | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
-| 백업 | 중요한 데이터를 백업하고 복원합니다. |
+|Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
+| Backup | 중요한 데이터를 백업하고 복원합니다. |
 | Site Recovery | 중요한 애플리케이션에 고가용성을 제공합니다. |
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor 로그
@@ -103,7 +103,7 @@ Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저
 [Azure Monitor](../../security-center/security-center-intro.md) 은 온-프레미스 및 클라우드 인프라를 관리 하 고 보호 하는 데 도움이 되는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.
 
 
-[관리 솔루션](../../monitoring/monitoring-solutions.md) 은 하나 이상의 Azure Monitor 서비스를 사용 하 여 특정 관리 시나리오를 구현 하는 논리의 미리 패키지 된 집합입니다. Microsoft 및 파트너 로부터 다양 한 솔루션을 사용할 수 있으며,이를 통해 Azure 구독에 쉽게 추가 하 여 Azure Monitor 투자 가치를 높일 수 있습니다. 파트너는 자체 솔루션을 만들어 애플리케이션과 서비스를 지원하고, Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에게 제공할 수 있습니다.
+[관리 솔루션](../../monitoring/monitoring-solutions.md) 은 하나 이상의 Azure Monitor 서비스를 사용 하 여 특정 관리 시나리오를 구현 하는 논리의 미리 패키지 된 집합입니다. Microsoft 및 파트너 로부터 다양 한 솔루션을 사용할 수 있으며,이를 통해 Azure 구독에 쉽게 추가 하 여 Azure Monitor 투자 가치를 높일 수 있습니다. 파트너는 응용 프로그램 및 서비스를 지원 하 고 Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에 게 제공 하는 고유한 솔루션을 만들 수 있습니다.
 
 
 ![관리 솔루션](./media/operational-security/azure-operational-security-fig4.png)
@@ -114,7 +114,7 @@ Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 서비스 내에서 Azure 구독에 대한 정책뿐만 아니라 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md#resource-groups)에 대한 정책도 정의할 수 있으므로 더욱 세분화할 수 있습니다.
+Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 서비스 내에서 Azure 구독에 대한 정책뿐만 아니라 [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)에 대한 정책도 정의할 수 있으므로 더욱 세분화할 수 있습니다.
 
 ### <a name="security-policies-and-recommendations"></a>보안 정책 및 권장 사항
 
@@ -142,23 +142,23 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 
 -   파트너 솔루션: 방화벽 및 맬웨어 방지 솔루션과 같은 통합된 파트너 솔루션의 보안 경고를 사용합니다.
 
--   사용자의 Virtual Machines: Windows 이벤트 및 감사 로그, IIS 로그, syslog 메시지 및 가상 머신의 크래시 덤프 파일과 같은 보안 이벤트에 대한 구성 정보 및 정보를 사용합니다.
+-   Virtual Machines: Windows 이벤트 및 감사 로그, IIS 로그, syslog 메시지 및 Virtual Machines의 크래시 덤프 파일과 같은 보안 이벤트에 대한 구성 정보 및 정보를 사용합니다.
 
 ### <a name="data-protection"></a>데이터 보호
 
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
 
--   **데이터 분리**: 데이터는 서비스 전체에서 각 구성 요소에 논리적으로 별도로 유지됩니다. 모든 데이터에는 조직별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다.
+-   **데이터 분리:** 데이터는 서비스 전체에서 각 구성 요소에 논리적으로 별도로 유지됩니다. 모든 데이터에는 조직별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다.
 
 -   **데이터 액세스**: Microsoft 직원은 보안 권장 사항을 제공하고 잠재적 보안 위협을 조사하기 위해 Azure 서비스에서 수집하거나 분석한 정보에 액세스할 수 있습니다. 이러한 정보에는 크래시 덤프 파일, 프로세스 생성 이벤트, VM 디스크 스냅샷 및 아티팩트 등이 포함되며, 가상 머신의 고객 데이터 또는 개인 데이터가 의도치 않게 포함될 수도 있습니다. Microsoft는 [Microsoft Online Services 약관 및 개인정보처리방침](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)을 준수하며, 고객 데이터를 사용하지 않거나 광고 또는 이와 유사한 상업적 목적으로 정보를 유출하지 않습니다.
 
--   **데이터 사용**: Microsoft는 여러 테넌트에 발생하는 패턴 및 위협 인텔리전스를 사용하여 방지 및 검색 기능을 향상시킵니다. [개인정보처리방침](https://www.microsoft.com/en-us/privacystatement/OnlineServices/)에 설명된 개인정보처리방침 약정에 따라 수행합니다.
+-   **데이터 사용**: Microsoft는 여러 테넌트에 발생하는 패턴 및 위협 인텔리전스를 사용하여 방지 및 검색 기능을 향상시킵니다. [개인 정보 취급 방침](https://www.microsoft.com/en-us/privacystatement/OnlineServices/)에 설명된 개인 정보 취급 방침 약정에 따라 수행합니다.
 
 ### <a name="data-location"></a>데이터 위치
 
 Azure Security Center는 크래시 덤프 파일의 임시 복사본을 수집하고 이용 시도 및 손상 성공의 증거를 찾기 위해 분석합니다. Azure Security Center는 작업 영역과 동일한 지역 내에서 이 분석을 수행하고 분석이 완료되면 임시 복사본을 삭제합니다. 컴퓨터 아티팩트는 VM과 동일한 지역에 중앙 집중식으로 저장됩니다.
 
--   **스토리지 계정**: 스토리지 계정은 가상 머신이 실행되는 각 지역에 대해 지정됩니다. 그러면 데이터를 수집하는 가상 머신과 동일한 지역에 데이터를 저장할 수 있습니다.
+-   **Storage 계정**: 가상 머신이 실행되는 각 지역에 대해 지정됩니다. 그러면 데이터를 수집하는 가상 머신과 동일한 지역에 데이터를 저장할 수 있습니다.
 
 -   **Azure Security Center Storage**: 보안 경고(파트너 경고 포함), 권장 사항 및 보안 상태에 대한 정보는 현재 미국에 있는 Azure Security Center Storage에 중앙 집중식으로 저장됩니다. 이 정보는 필요한 가상 머신에서 수집된 관련된 구성 정보 및 보안 이벤트를 포함하여 보안 경고, 권장 사항 또는 보안 상태를 제공할 수 있습니다.
 
@@ -197,7 +197,7 @@ Azure Monitor는 특정 유형의 리소스 정보에 대한 포인터를 제공
 
 진단 로그는 [활동 로그(이전의 감사 로그 또는 작업 로그)](../../azure-monitor/platform/activity-logs-overview.md)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>메트릭
 
 Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드의 상태와 성능에 대한 정보를 구할 수 있습니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 메트릭(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 [메트릭](../../monitoring/monitoring-data-collection.md)을 구성하고 사용하는 몇 가지 방법을 제공합니다. 메트릭은 원격 분석의 중요한 출처로, 다음 작업을 수행할 수 있습니다.
 
@@ -240,7 +240,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 [스토리지 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 Storage 서비스 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 스토리지 서비스 수준에서 모두 보고되며 용량은 스토리지 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 스토리지 서비스 사용량을 분석하고 스토리지 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 애플리케이션의 성능을 개선할 수 있습니다.
 
-[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 스토리지 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](../../storage/common/storage-introduction.md)에서 사용할 수 있습니다. 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
+[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고, 사용 추세를 분석하며, 스토리지 계정 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](../../storage/common/storage-introduction.md)에서 사용할 수 있습니다. 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정의 작업이 Blob 엔드포인트에는 있지만 테이블 또는 큐 엔드포인트에는 없는 경우 Blob service와 관련된 로그만 생성됩니다.
 
@@ -260,7 +260,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 > 최적의 성능을 얻기 위해 가상 머신에 연결되어 자주 활용되는 디스크의 수를 제한하여 가능한 제한을 방지하려고 합니다. 모든 디스크가 동시에 자주 활용되지 않으면 스토리지 계정에서 많은 디스크를 지원할 수 있습니다.
 
 > [!Note]
-> 스토리지 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)를 참조하세요.
+> 저장소 계정 제한에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 목표](../../storage/common/scalability-targets-standard-account.md)를 참조 하세요.
 
 
 다음과 같은 유형의 인증된 요청 및 익명 요청이 기록됩니다.
@@ -290,7 +290,7 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 |알 수 없는 원본에서 로그인 | 애플리케이션 사용: 요약 | 디렉터리 감사 보고서 |
 |여러 번의 실패 후 로그인 | 애플리케이션 사용: 세부 |   |
 |여러 지역에서의 로그인 | 애플리케이션 대시보드 |  |
-|의심스러운 활동을 포함하는 IP 주소에서의 로그인 |계정 프로비전 오류 |  |
+|의심스러운 작업이 있는 IP 주소에서 로그인 |계정 프로비전 오류 |  |
 |비정상적인 로그인 작업 |개별 사용자 디바이스 |  |
 |감염 가능성이 있는 디바이스에서 로그인 |개별 사용자 활동 |   |
 |비정상적인 로그인 활동을 포함하는 사용자 |그룹 활동 보고서 |   |
@@ -316,7 +316,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 -   Azure Monitor suite에서 데이터를 수집, 처리 및 보호 하는 방법입니다.
 
--   여러 데이터 원본에서 이벤트를 빠르게 분석합니다. 보안 위험을 식별하고 위협과 공격의 범위와 영향을 파악하여 보안 위반의 손해를 완화합니다.
+-   여러 데이터 원본에서 이벤트를 빠르게 분석합니다. 보안 위반의 손해를 완화할 수 있도록 보안 위험을 식별하고 위협과 공격의 범위와 영향을 파악합니다.
 
 -   아웃바운드 악성 IP 트래픽과 악성 위협 유형을 시각화하여 공격 패턴을 식별합니다. 플랫폼에 상관없이 전체 환경의 보안 상태를 파악합니다.
 

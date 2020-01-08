@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 4a6d733b490edd892136f6febcc90c29a5a865e1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b7e5b0286cdd15834b84e4fd3e619c6555054823
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766806"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553004"
 ---
 # <a name="protect-your-machines-and-applications"></a>컴퓨터 및 응용 프로그램 보호
-Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 필요한 컨트롤을 구성 하는 과정을 안내 하는 권장 사항을 만듭니다. 
+Azure Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 권장 사항을 만듭니다.
 
-이 문서에서는 Azure Security Center 리소스 보안 섹션의 **계산 및 앱** 페이지에 대해 설명 합니다. 여기에 표시 되는 권장 사항 중 일부에 대해서도 설명 합니다.
+이 문서에서는 Security Center 리소스 보안 섹션의 **계산 및 앱** 페이지에 대해 설명 합니다.
 
-Compute 및 App services에 대 한 권장 사항의 전체 목록은 [compute 및 앱 권장 사항](recommendations-compute-and-apps.md)을 참조 하세요.
+이 페이지에 표시 될 수 있는 권장 사항의 전체 목록은 [데이터 및 저장소 권장 사항](recommendations-reference.md#recs-computeapp)을 참조 하세요.
+
 
 ## <a name="view-the-security-of-your-compute-and-apps-resources"></a>계산 및 앱 리소스의 보안 보기
 
-![Security Center 대시보드](./media/security-center-virtual-machine-recommendations/overview.png)
+[![Security Center 대시보드](./media/security-center-virtual-machine-recommendations/overview.png)](./media/security-center-virtual-machine-recommendations/overview.png#lightbox)
 
 계산 및 앱 리소스의 상태를 보려면 Security Center 사이드바의 **리소스** 에서 **계산 & 앱** 을 선택 합니다. 다음 탭을 사용할 수 있습니다.
 
@@ -74,7 +75,8 @@ Vm 및 컴퓨터 섹션에서는 Vm 및 컴퓨터에 대 한 모든 보안 권�
 
 각 VM에 대한 보안 권장 사항으로 드릴다운하려면 VM을 클릭합니다.
 VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. 맨 아래에서 권장 되는 작업과 각 문제의 심각도를 볼 수 있습니다.
-![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
+
+[![클라우드 서비스](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
 ### <a name="cloud-services"></a>클라우드 서비스
 클라우드 서비스에는 운영 체제 버전이 오래된 경우 권장 사항이 표시됩니다.
@@ -141,6 +143,7 @@ Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 
 ## <a name="next-steps"></a>다음 단계
 다른 Azure 리소스 유형에 적용 되는 권장 사항에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
+* [Azure Security Center의 보안 권장 사항에 대 한 전체 참조 목록](recommendations-reference.md)
 * [Azure Security Center에서 ID 및 액세스 모니터링](security-center-identity-access.md)
 * [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)
 * [Azure Security Center에서 Azure SQL 서비스 보호](security-center-sql-service-recommendations.md)

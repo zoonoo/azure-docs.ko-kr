@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 39535a895dd0ec4a851f0576acf8696ae99e3259
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454207"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -24,38 +24,30 @@ Azure 네트워킹 MSPs는 클라우드 및 하이브리드 네트워킹의 모�
 
 고객은 Azure Marketplace 또는 MSP에서 직접 MSP 관리 서비스 제품을 구매할 수 있습니다. MSPs는 [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)를 사용 하 여 고객의 구독 및 리소스 그룹에서 azure 네트워킹 리소스를 배포 하 고 관리할 수 있습니다.
 
-## <a name="msp"></a>Azure 네트워킹 MSP 파트너
+## <a name="msp"></a>Azure 네트워킹 MSP 파트너에서 제공 하는 Azure Marketplace
 
 Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 네트워킹 서비스에 대 한 자세한 내용은이 섹션의 링크를 사용 하세요. 클라우드 네트워크 서비스 파트너가 아래 섹션에 나열 되어 있지 않으면 공급자에 게 문의 하세요. ManagedVirtualWAN@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다. 
 
-| **MSP** | **클라우드 네트워크 변환 서비스** | **관리 되는 Express 경로** | **관리 되는 가상 WAN** | **관리 되는 네트워크 보안 서비스** |**관리 되는 다중 액세스에 지 계산** |
-| ---| ---| ---| ---| ---| ---|
-|[Amdocs](https://www.amdocs.com/)|||||yes|
-|[ANS 그룹 영국](https://www.ans.co.uk/)|yes|yes||||
-|[Aryaka 네트워크](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|yes |yes |yes | | |
-|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|yes|yes|yes|||
-|[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|yes||yes|yes||
-|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|yes|||||
-|[차원 데이터](https://www.dimensiondata.com/)|yes|||||
-|[Equinix](https://www.equinix.com/)|yes|yes||||
-|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|yes|yes||||
-|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|yes||||yes|
-|[InterCloud](https://intercloud.com/partners/microsoft-azure/)|yes|yes||||
-|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|yes|yes||||
-|[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|yes|yes||||
-|[KINX](https://www.kinx.net/service/cloud/?lang=en)|yes|||||
-|[액체 텔레콤](https://liquidcloud.africa/azure-networking)|yes|yes||||
-|[Macquarie 통신](https://macquariecloudservices.com/azure-managed-services/)|yes|yes|yes|||
-|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|yes|yes||||
-|[OmniClouds](https://omniclouds.com/services/)|yes|yes||||
-|[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|yes|yes||||
-|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|yes|yes||||
-|[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|yes|yes||||
-|[Tata 통신](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|yes|yes|yes|yes||
-|[TCTS](https://www.tatacommunications-ts.com/index.php)|yes|yes|yes|||
-|[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|yes||||yes|
-|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|yes|yes|yes|||
-|[유의 IT](https://vigilant.it/manage-cloud-service/)|yes|yes||||
+| **MSP** | **클라우드 네트워크 변환 서비스** | **관리 되는 Express 경로** | **관리 되는 가상 WAN** |
+| ---| ---| ---| ---|
+|[ANS 그룹 영국](https://www.ans.co.uk/)|[Azure 관리 되는 Svc + ANS 투명 10wk 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|||||
+|[Aryaka 네트워크](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Azure Connect Aryaka](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Azure 가상 WAN Aryaka](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
+|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[네트워크 변환 컨설팅: 1-Hr 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting)|||||
+|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Azure의 네트워크 최적화: 2-hr 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
+|[NTT 데이터](https://us.nttdata.com/en/digital/cloud-transformation)|[관리 서비스: 10 주 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
+|[Equinix](https://www.equinix.com/)|[클라우드 최적화 WAN 참여: 4 일 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/equinix.cloud_optimized_wan_workshop)|[Express 경로 연결 전략: 3 일 워크숍](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/equinix.eps_expressroute)||||
+|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[Express 경로 구현: 1-Hr 브리핑](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[Express 경로: 2-Wk 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
+|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Azure 용 infosys 통합 +](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
+|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Azure 네트워킹 평가-5 일](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
+|[액체 텔레콤](https://liquidcloud.africa/azure-networking)|[클라우드 준비-2 시간 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
+|[Macquarie 통신](https://macquariecloudservices.com/azure-managed-services/)|[Macquarie Cloud Services 참조: 2-hr 워크숍](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/macquariecloudservices.clear_for_takeoff_consulting_service)||[SD-Macquarie 클라우드로 WAN 가상 Edge 설치](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
+|[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)||[Azure Express 경로에 대 한 UniversalEdge](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
+|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|||[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
+|[TCTS](https://www.tatacommunications-ts.com/index.php)|[Azure 마이그레이션: 3 주 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis 관리 되는 Express 경로](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Fortinet에서 제공 하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview) [Palo Alto 네트워크에서 제공 하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|||
+|[유의 IT](https://vigilant.it/manage-cloud-service/)|[Azure Health Check: 5 일 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[Express 경로: 5 일 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
+
+다음 Azure 네트워킹 MSP 파트너의 관리 되는 새 보안 서비스 및 관리 되는 MEC 서비스를 비롯 한 Azure Marketplace 제품은 로드맵에서 제공 [됩니다.](https://www.amdocs.com/)  [Coevolve](https://www.coevolve.com/services/azure-networking-services/)  [IX 도달](https://www.ixreach.com/services/sdn-cloud-connect/)  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [Megaport](https://www.megaport.com/services/microsoft-expressroute/);  [OmniClouds](https://omniclouds.com/services/);  [Sejong 텔레콤](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [소프트 뱅크](https://www.softbank.jp/biz/cloud/microsoft/azure/)  [Tata 통신](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/);  [Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
 
 ## <a name="expressroute"></a>Express 경로 파트너
 

@@ -1,19 +1,15 @@
 ---
 title: Azure 자동 크기 조정 로그 이벤트 스키마
 description: 자동 크기 조정 작업 모니터링 및 문제 해결을 위한 로그 형식
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 8b99cec69b05fc0f78dcf813e67e6b65ba50d819
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152932"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395940"
 ---
 # <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Azure Monitor 자동 크기 조정 작업 리소스 로그 스키마
 

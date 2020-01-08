@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ba903d75707be91bb8af1271b52eb260ffcde306
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d27f792b39a1809cde0f27186f343af7d7aef60a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951238"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454142"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Azure IoT Central 애플리케이션에 Raspberry Pi 연결(C#)
 
@@ -27,12 +27,12 @@ ms.locfileid: "72951238"
 
 이 문서의 단계를 완료하려면 다음 구성 요소가 필요합니다.
 
-* **샘플 Devkits** 애플리케이션 템플릿으로 만든 Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+* **레거시 응용** 프로그램 응용 프로그램 템플릿에서 만든 Azure IoT Central 응용 프로그램입니다. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 * Raspbian 운영 체제를 실행하는 Raspberry Pi 디바이스. Raspberry Pi는 인터넷에 연결할 수 있어야 합니다. 자세한 내용은 [Raspberry Pi 설정](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)을 참조 하세요.
 
-## <a name="sample-devkits-application"></a>**샘플 Devkits** 애플리케이션
+## <a name="add-a-device-template"></a>디바이스 템플릿 추가
 
-**샘플 Devkits** 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 **Raspberry Pi** 디바이스가 포함됩니다.
+Azure IoT Central 응용 프로그램에서 다음과 같은 특징을 가진 새 **Raspberry Pi** 장치 템플릿을 추가 합니다.
 
 * 디바이스가 수집하는 다음 측정값을 포함하는 원격 분석입니다.
   * 습도
@@ -43,12 +43,17 @@ ms.locfileid: "72951238"
   * 자이로스코프(X, Y, Z)
 * 설정
   * 전압
-  * Current
+  * 현재
   * 팬 속도
   * IR 토글.
-* properties
+* 속성
   * Die 번호 디바이스 속성
   * 위치 클라우드 속성
+
+1. 장치 템플릿 ![장치 템플릿에서 **+ 새로 만들기** 를 선택](media/howto-connect-raspberry-pi-csharp/adddevicetemplate.png)
+   
+
+2. **Raspberry pi** 를 선택 하 고 Raspberry pi 장치 템플릿을 만들어 장치 템플릿 추가 ![](media/howto-connect-raspberry-pi-csharp/newdevicetemplate.png)
 
 장치 템플릿 구성에 대 한 자세한 내용은 [Raspberry Pi 장치 템플릿 정보](#raspberry-pi-device-template-details)를 참조 하세요.
 
@@ -352,21 +357,21 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 | 표시 이름 | 필드 이름 | 단위 | 소수 자릿수 | 최소 | 최대 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
+| 현재      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
 | 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 설정 전환
 
 | 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 켜기      | 끄기      | 해제     |
+| IR           | activateIR | 켜기      | OFF      | 해제     |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>속성
 
-| Type            | 표시 이름 | 필드 이름 | 데이터 형식                              |
+| 유형            | 표시 이름 | 필드 이름 | 데이터 형식                              |
 | --------------- | ------------ | ---------- | -------------------------------------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number                                 |
-| 위치        | 위치     | location   | {lat: float, long: float, alt?: float} |
+| 위치        | 위치     | 위치   | {lat: float, long: float, alt?: float} |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: b77cb73f08852768d10de8c76cde5e299f0776c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559988"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408911"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>래스터 맵에서 사용자 지정 데이터 렌더링
 
@@ -22,12 +22,14 @@ ms.locfileid: "74559988"
 
 사용자 지정 압정, 레이블 및 기 하 도형 오버레이를 렌더링 하기 위해 Postman 응용 프로그램을 사용할 수 있습니다. Azure Maps [데이터 서비스 api](https://docs.microsoft.com/rest/api/maps/data) 를 사용 하 여 오버레이를 저장 하 고 렌더링할 수 있습니다.
 
+> [!Tip]
+> Azure Maps Web SDK를 사용 하 여 웹 페이지에 정적 이미지 서비스를 사용 하는 것 보다 간단한 지도를 표시 하는 것이 훨씬 더 비용 효율적인 경우가 종종 있습니다. 웹 SDK는 지도 타일을 사용 하며 사용자가 맵을 계획 하 고이를 확대/축소 하는 경우가 아니면 맵 부하 당 트랜잭션의 일부만 생성 합니다. Azure Maps 웹 SDK에는 패닝 및 확대/축소를 사용 하지 않도록 설정 하는 옵션이 있습니다. 또한 Azure Maps 웹 SDK는 정적 지도 웹 서비스와는 다른 다양 한 데이터 시각화 옵션 집합을 제공 합니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
 
-이 문서의 절차를 완료 하려면 먼저 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) 의 지침에 따라 Azure Maps 계정을 만들고 [기본 키 가져오기](./tutorial-search-location.md#getkey) 의 단계를 수행 하 여 계정에 대 한 기본 구독 키를 검색 해야 합니다.
+이 문서의 절차를 완료 하려면 먼저 Azure Maps 계정을 만들고 사용자에 게 매핑 계정 키를 가져와야 합니다. 계정 [만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침에 따라 Azure Maps 계정 구독을 만들고 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증 관리](./how-to-manage-authentication.md)를 참조 하세요.
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>레이블 및 사용자 지정 이미지를 사용 하 여 압정 렌더링

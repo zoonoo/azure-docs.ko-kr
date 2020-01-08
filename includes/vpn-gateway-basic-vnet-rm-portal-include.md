@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5bf93980a8be86c77240ab981eb812a738a96204
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 02297a45c9560f867e97d7024862ea0de5d3f7b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469541"
 ---
 다음 단계에 따라 Resource Manager 배포 모델과 Azure Portal을 사용하여 VNet을 만들 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Virtual Network 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
 
@@ -22,7 +22,7 @@ ms.locfileid: "74829098"
 >
 >
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.  Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택 합니다. **새로 만들기** 페이지가 열립니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택 합니다. **새로 만들기** 페이지가 열립니다.
 
 2. **Marketplace 검색**에서 *가상 네트워크* 를 입력 하 고 결과에서 **Virtual Network** 를 선택 합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "74829098"
 
    - **구독**: 나열된 구독이 올바른지 확인합니다. 드롭다운을 사용하여 구독을 변경할 수 있습니다.
 
-   - **리소스 그룹**: 기존 리소스 그룹을 선택 하거나 새 리소스 그룹의 이름을 입력 하 여 새 리소스 그룹을 만듭니다. 새 그룹을 만드는 경우 계획된 구성 값에 따라 리소스 그룹의 이름을 지정합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.
+   - **리소스 그룹**: 기존 리소스 그룹을 선택 하거나 새 리소스 그룹의 이름을 입력 하 여 새 리소스 그룹을 만듭니다. 새 그룹을 만드는 경우 계획된 구성 값에 따라 리소스 그룹의 이름을 지정합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../articles/azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
 
    - **위치**: VNet의 위치를 선택합니다. 이 위치는 이 VNet에 배포하는 리소스가 상주하는 위치를 결정합니다.
 

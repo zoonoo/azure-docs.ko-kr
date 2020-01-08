@@ -1,31 +1,20 @@
 ---
-title: Service Fabric 서비스 분할 | Microsoft Docs
+title: Service Fabric services 분할
 description: Service Fabric 상태 저장 서비스를 분할하는 방법을 설명합니다. 파티션을 사용하면 로컬 머신에 데이터가 스토리지되므로 데이터와 컴퓨팅을 함께 확장할 수 있습니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
-ms.author: atsenthi
-ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711888"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434072"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
 
 ## <a name="partitioning"></a>분할
-분할은 서비스 패브릭에만 있는 것이 아닙니다. 사실, 분할은 확장 가능한 서비스 구축의 코어 패턴입니다. 광범위한 의미로 분할을 상태(데이터) 분할의 개념으로 생각하고 확장성 및 성능 향상을 위해 더 작은 액세스 가능한 단위로 컴퓨팅할 수 있습니다. 분할의 잘 알려진 양식은 [데이터 분할][wikipartition]로서 분할이라고도 합니다.
+분할은 서비스 패브릭에만 있는 것이 아닙니다. 사실, 분할은 확장 가능한 서비스 구축의 코어 패턴입니다. 광범위한 의미로 분할을 상태(데이터) 분할의 개념으로 생각하고 확장성 및 성능 향상을 위해 더 작은 액세스 가능한 단위로 컴퓨팅할 수 있습니다. 잘 알려진 형태의 분할은 [데이터 분할][wikipartition](분할 라고도 함)입니다.
 
 ### <a name="partition-service-fabric-stateless-services"></a>서비스 패브릭 상태 비저장 분할 서비스
 상태 비저장 서비스의 경우 하나 이상의 서비스의 인스턴스를 포함하는 논리 단위가 되는 파티션으로 생각할 수 있습니다. 그림 1에서는 하나의 파티션을 사용하는 클러스터에 분산된 5개의 인스턴스로 상태 비저장 서비스를 보여 줍니다.
@@ -55,11 +44,11 @@ Service Fabric은 파티션 상태(데이터)에 최상의 방법을 제공하�
 결과적으로 클라이언트의 요청이 컴퓨터 간에 분산되므로 확장이 달성되고 애플리케이션의 전체 성능이 향상되며 데이터의 청크에 대한 액세스의 경합이 줄어듭니다.
 
 ## <a name="plan-for-partitioning"></a>분할에 대한 계획
-서비스를 구현하기 전에 확장하는 데 필요한 분할 전략을 항상 고려해야 합니다. 여러 가지 방법이 있지만 모든 방법은 애플리케이션이 달성해야 하는 것에 집중합니다. 이 문서의 컨텍스트에 대해 몇 가지 더 중요한 측면을 생각해 봅시다.
+서비스를 구현 하기 전에 규모를 확장 하는 데 필요한 분할 전략을 항상 고려해 야 합니다. 여러 가지 방법이 있지만 모든 응용 프로그램이 구현 해야 하는 작업에 중점을 둡니다. 이 문서의 컨텍스트에 대해 몇 가지 더 중요한 측면을 생각해 봅시다.
 
 첫 단계로 분할되어야 하는 상태의 구조에 대해 생각하는 것이 좋습니다.
 
-간단한 예를 살펴봅시다. County 전체 설문 조사에 대 한 서비스를 빌드 하려는 경우에 군에 있는 각 도시에 대 한 파티션을 만들 수 있습니다. 그런 다음 그 도시에 해당하는 파티션에 있는 도시에 속한 모든 사람의 투표 결과를 저장할 수 있습니다. 그림 3은 사람과 거주하는 도시의 집합을 보여 줍니다.
+간단한 예를 살펴봅시다. 관할지 전체 폴링에 대 한 서비스를 빌드하는 경우 관할지의 각 도시에 대 한 파티션을 만들 수 있습니다. 그런 다음 그 도시에 해당하는 파티션에 있는 도시에 속한 모든 사람의 투표 결과를 저장할 수 있습니다. 그림 3은 사람과 거주하는 도시의 집합을 보여 줍니다.
 
 ![간단한 파티션](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -163,9 +152,9 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
    
     이 서비스의 여러 복제본은 동일한 컴퓨터에서 호스팅될 수 있으므로 이 주소가 복제본에 고유해야 합니다. 이 때문에 URL에 파티션 ID와 복제본 ID가 있습니다. HttpListener는 URL 접두사가 고유하기만 하면 동일한 포트에서 여러 주소를 수신할 수 있습니다.
    
-    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. 여기서 '+'는 IP, FQDN, localhost 등의 사용 가능한 모든 호스트에서 복제본이 수신 대기할 수 있도록 주소로 사용됩니다. 아래 코드는 예제를 보여 줍니다.
+    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. ' + '는 사용 가능한 모든 호스트 (IP, FQDN, localhost 등)에서 수신 대기 하는 주소로 사용 됩니다. 아래 코드는 예제를 보여 줍니다.
    
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
          return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
@@ -193,7 +182,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     수신 대기 URL이 HttpListener에 제공됩니다. 게시된 URL은 서비스 검색에 사용되는 서비스 패브릭 이름 명명 서비스에 게시된 URL입니다. 클라이언트는 해당 검색 서비스를 통해 이 주소에 대해 요청합니다. 클라이언트가 가져오는 주소에 연결하려면 노드의 실제 IP 또는 FQDN이 필요합니다. 따라서 아래와 같이 '+'를 노드의 IP 또는 FQDN으로 바꿔야 합니다.
 9. 마지막 단계는 아래와 같이 서비스에 처리 논리를 추가하는 것입니다.
    
-    ```CSharp
+    ```csharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         string output = null;
@@ -249,7 +238,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     ```
 13. Web 클래스의 ServiceInstanceListeners 컬렉션을 반환해야 합니다. 다시 간단한 HttpCommunicationListener를 구현하도록 선택할 수 있습니다.
     
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
@@ -265,7 +254,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     ```
 14. 이제 처리 논리를 구현해야 합니다. HttpCommunicationListener는 요청이 들어올 때 `ProcessInputRequest` 를 호출합니다. 따라서 계속해서 아래 코드를 추가합니다.
     
-    ```CSharp
+    ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         String output = null;
@@ -311,7 +300,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     
     단계 별로 안내하겠습니다. 코드는 쿼리 문자열 매개 변수 `lastname` 의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 16진수 값에서 `A` 의 16진수 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
     
-    ```CSharp
+    ```csharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
@@ -320,19 +309,19 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     이 예제에서 파티션당 하나의 파티션 키를 가진 26개의 파티션을 사용합니다.
     그런 다음 `servicePartitionResolver` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `partition`을 가져옵니다. `servicePartitionResolver` 는 다음으로 정의됩니다.
     
-    ```CSharp
+    ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
     `ResolveAsync` 메서드는 매개 변수로 서비스 URI, 파티션 키 및 취소 토큰을 사용합니다. 처리 서비스의 서비스 URI는 `fabric:/AlphabetPartitions/Processing`입니다. 그런 다음 파티션의 엔드포인트를 가져옵니다.
     
-    ```CSharp
+    ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
     마지막으로 엔드포인트 URL 및 쿼리 문자열을 작성하고 처리 서비스를 호출합니다.
     
-    ```CSharp
+    ```csharp
     JObject addresses = JObject.Parse(ep.Address);
     string primaryReplicaAddress = (string)addresses["Endpoints"].First();
     

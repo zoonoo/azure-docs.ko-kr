@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428874"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Power Automate에서 흐름을 내보내고 Azure Logic Apps에 배포
 
@@ -22,9 +22,9 @@ ms.locfileid: "74792635"
 >
 > 전원 자동화에서 내보낸 OpenAPI 기반 흐름은 현재 논리 앱 템플릿으로 배포에 대해 지원 되지 않습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 전원 자동화에서 내보내려는 흐름
 
@@ -85,7 +85,7 @@ ms.locfileid: "74792635"
 
    1. 권한 있는 연결이 필요한 각 단계에 대해 해당 단계를 확장 하 고 **새로 추가**를 선택 합니다.
 
-      ![새 연결 추가](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![새 연결을 추가합니다.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. 각 서비스에 로그인 하거나 연결 권한을 부여 하는 데 필요한 자격 증명을 제공 합니다.
 
@@ -125,7 +125,7 @@ ms.locfileid: "74792635"
 
    1. 권한 있는 연결이 필요한 각 단계에 대해 해당 단계를 확장 하 고 **새로 추가**를 선택 합니다.
 
-      ![새 연결 추가](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
+      ![새 연결을 추가합니다.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
 
    1. 각 서비스에 로그인 하거나 연결 권한을 부여 하는 데 필요한 자격 증명을 제공 합니다.
 
@@ -133,7 +133,7 @@ ms.locfileid: "74792635"
 
 1. 솔루션 탐색기에서 프로젝트 바로 가기 메뉴를 열고 **배포** > **새로 만들기**를 선택 합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
 
-1. 메시지가 표시 되 면 Azure 구독, Azure 리소스 그룹 및 배포에 사용 하려는 기타 설정 (예: 템플릿 매개 변수 값을 전달 하는 데 사용할 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) )을 확인 한 후 **배포**를 선택 합니다.
+1. 메시지가 표시 되 면 Azure 구독, Azure 리소스 그룹 및 배포에 사용 하려는 기타 설정 (예: 템플릿 매개 변수 값을 전달 하는 데 사용할 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md) )을 확인 한 후 **배포**를 선택 합니다.
 
    ![배포 설정 확인](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 
@@ -141,7 +141,7 @@ ms.locfileid: "74792635"
 
    ![배포 매개 변수 편집](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 다음은 그 예입니다.
+   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 예:
 
    ![출력 창](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

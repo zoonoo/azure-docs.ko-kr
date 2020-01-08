@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1683b57aa50cff00d26cc3400b8ab7a903a2c8e0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: dbda73e022ebaad283641ce2f54a5962aeb4cb60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083236"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436834"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -23,8 +23,8 @@ ms.locfileid: "74083236"
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
+> * [공용 피어 링](about-public-peering.md)
 > * [비디오 - 프라이빗 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [비디오 - 공용 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
@@ -37,14 +37,14 @@ ms.locfileid: "74083236"
 
 이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다.
 
-ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다(Azure 프라이빗, Azure 공용 및 Microsoft). 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
+Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 구성할 수 있습니다 (Azure 공용 피어 링은 새 회로에서 사용 되지 않음). 피어 링은 선택 하는 순서에 관계 없이 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요. 공용 피어 링에 대 한 자세한 내용은 [express 경로 공용 피어 링](about-public-peering.md)을 참조 하세요.
 
 ## <a name="msft"></a>Microsoft 피어링
 
 이 섹션은 ExpressRoute 회로에 Microsoft 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
 > [!IMPORTANT]
-> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터가 회로에 연결될 때까지 접두사가 보급되지 않습니다. 자세한 내용은 [Microsoft 피어링에 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
+> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 자세한 내용은 [Microsoft 피어링에 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
 > 
 > 
 
@@ -325,139 +325,6 @@ az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGro
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-## <a name="public"></a>Azure 공용 피어링
-
-이 섹션은 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
-
-> [!Note]
-> Azure 공용 피어 링은 새로운 회로에서 사용 되지 않습니다. 자세한 내용은 [express 경로 피어 링](expressroute-circuit-peerings.md)을 참조 하세요.
->
-
-### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면
-
-1. Azure CLI 최신 버전 설치 최신 버전의 Azure CLI(명령줄 인터페이스)를 사용해야 합니다. *구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
-
-   ```azurecli-interactive
-   az login
-   ```
-
-   ExpressRoute 회로를 만들려는 구독을 선택합니다.
-
-   ```azurecli-interactive
-   az account set --subscription "<subscription ID>"
-   ```
-2. ExpressRoute 회로를 만듭니다.  지침에 따라 [ExpressRoute 회로](howto-circuit-cli.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 공용 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 다음 단계를 사용하여 구성을 계속합니다.
-
-3. 먼저 ExpressRoute 회로가 프로비전되고 사용 가능한지 확인합니다. 다음 예제를 사용합니다.
-
-   ```azurecli-interactive
-   az network express-route list
-   ```
-
-   응답은 다음 예제와 유사합니다.
-
-   ```azurecli
-   "allowClassicOperations": false,
-   "authorizations": [],
-   "circuitProvisioningState": "Enabled",
-   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
-   "gatewayManagerEtag": null,
-   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-   "location": "westus",
-   "name": "MyCircuit",
-   "peerings": [],
-   "provisioningState": "Succeeded",
-   "resourceGroup": "ExpressRouteResourceGroup",
-   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
-   "serviceProviderNotes": null,
-   "serviceProviderProperties": {
-    "bandwidthInMbps": 200,
-    "peeringLocation": "Silicon Valley",
-    "serviceProviderName": "Equinix"
-   },
-   "serviceProviderProvisioningState": "Provisioned",
-   "sku": {
-    "family": "UnlimitedData",
-    "name": "Standard_MeteredData",
-    "tier": "Standard"
-   },
-   "tags": null,
-   "type": "Microsoft.Network/expressRouteCircuits]
-   ```
-
-4. 회로에 Azure 공용 피어링을 구성합니다. 더 진행하기 전에 다음 정보가 있는지 확인합니다.
-
-   * 기본 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
-   * 보조 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
-   * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
-   * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
-   * **선택 사항 -** 사용하기로 선택한 경우 MD5 해시를 사용합니다.
-
-   다음 예제를 실행하여 회로에 Azure 공용 피어링을 구성합니다.
-
-   ```azurecli-interactive
-   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
-   ```
-
-   MD5 해시를 사용하려는 경우 다음 예제를 사용합니다.
-
-   ```azurecli-interactive
-   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
-   ```
-
-   > [!IMPORTANT]
-   > 고객 ASN이 아닌 피어링 ASN로 AS 번호를 지정했는지 확인합니다.
-
-### <a name="getpublic"></a>Azure 공용 피어링 세부 정보를 보려면
-
-다음 예제를 사용하여 구성 세부 정보를 가져올 수 있습니다.
-
-```azurecli
-az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
-```
-
-다음 예제와 유사하게 출력됩니다.
-
-```azurecli
-{
-  "azureAsn": 12076,
-  "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
-  "gatewayManagerEtag": "18",
-  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePublicPeering",
-  "lastModifiedBy": "Customer",
-  "microsoftPeeringConfig": null,
-  "name": "AzurePublicPeering",
-  "peerAsn": 7671,
-  "peeringType": "AzurePublicPeering",
-  "primaryAzurePort": "",
-  "primaryPeerAddressPrefix": "",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "routeFilter": null,
-  "secondaryAzurePort": "",
-  "secondaryPeerAddressPrefix": "",
-  "sharedKey": null,
-  "state": "Enabled",
-  "stats": null,
-  "vlanId": 100
-}
-```
-
-### <a name="updatepublic"></a>Azure 공용 피어링 구성을 업데이트하려면
-
-다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다. 이 예제에서는 회로의 VLAN ID를 200개에서 600개로 업데이트됩니다.
-
-```azurecli-interactive
-az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
-```
-
-### <a name="deletepublic"></a>Azure 공용 피어링을 삭제하려면
-
-다음 예제를 실행하여 피어링 구성을 제거할 수 있습니다.
-
-```azurecli-interactive
-az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
-```
 
 ## <a name="next-steps"></a>다음 단계
 

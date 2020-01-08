@@ -1,25 +1,14 @@
 ---
-title: 애플리케이션 시나리오 및 설계 | Microsoft Docs
+title: 응용 프로그램 시나리오 및 디자인
 description: 서비스 패브릭의 클라우드 애플리케이션 범주 개요 상태 저장 및 상태 비저장 서비스를 사용하는 애플리케이션 설계에 대해 논의합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 4/24/2019
-ms.author: atsenthi
-ms.openlocfilehash: d72e124248887690ca26c2676e8036cb1b5c4339
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: bdbbf81186463e1f645738b370662de9c13f5c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303506"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464915"
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 애플리케이션 시나리오
 Azure Service Fabric는 다양 한 유형의 비즈니스 응용 프로그램 및 서비스를 작성 하 고 실행할 수 있는 안정적이 고 유연한 플랫폼을 제공 합니다. 이러한 응용 프로그램 및 마이크로 서비스는 상태 비저장 또는 상태 저장 일 수 있으며 효율성을 최대화 하기 위해 가상 컴퓨터 간에 리소스가 분산 됩니다. 

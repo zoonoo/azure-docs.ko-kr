@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2019
+ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748436"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552936"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint protection 평가 및 권장 사항
 
-Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) 는 버전의 Endpoint protection 솔루션에 대 한 상태 평가를 제공 합니다. 이 문서에서는 다음 두 가지 권장 사항을 생성 하기 위해 Security Center 하는 시나리오를 설명 합니다.
+Azure Security Center은 [지원 되](security-center-services.md#supported-endpoint-protection-solutions-) 는 버전의 Endpoint protection 솔루션에 대 한 상태 평가를 제공 합니다. 이 문서에서는 다음 두 가지 권장 사항을 생성 하기 위해 Security Center 하는 시나리오를 설명 합니다.
 
 * **가상 컴퓨터에 endpoint protection 솔루션 설치**
 * **컴퓨터에서 endpoint protection 상태 문제 해결**
@@ -55,7 +55,7 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center endpoint protection
 
-* **SCEPMpModule ("$env:P Rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** 를 가져오고 실행 **하는 경우 "가상 컴퓨터에 endpoint protection 솔루션 설치"를 권장 Security Center**  **Amserviceenabled = False** 인 MProtComputerStatus 결과
+* **SCEPMpModule ("$env:P Rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** 를 가져오고, **amserviceenabled = false** 를 사용 하 여 **MProtComputerStatus** 결과를 실행 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 합니다. Security Center
 
 * **MprotComputerStatus** 실행 되 고 다음 중 하나가 발생할 때 **"컴퓨터에서 endpoint Protection 상태 문제 해결"** 을 권장 Security Center.
 
@@ -92,13 +92,13 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
 * **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 또는
 
 * **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 다음 검사 중 하나라도 충족 되지 않으면 **"컴퓨터에서 endpoint protection 상태 문제 해결"** 을 권장 Security Center.
 
@@ -123,9 +123,9 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
 다음 검사 중 하나가 충족 되지 않으면 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center.
 
-* **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
+* **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
-* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
 다음 검사 중 하나라도 충족 되지 않으면 **"컴퓨터에서 endpoint protection 상태 문제 해결"** 을 권장 Security Center.
 

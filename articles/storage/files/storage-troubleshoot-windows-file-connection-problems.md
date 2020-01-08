@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4a5ab0b0ae76f3c646df42953c1602c63a274824
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457400"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -151,7 +151,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
-Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [RBAC(역할 기반 액세스 제어)를 사용하여 스토리지 계정의 보안을 유지하는 방법](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac)을 참조하세요.
+Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [RBAC(역할 기반 액세스 제어)를 사용하여 스토리지 계정의 보안을 유지하는 방법](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection)을 참조하세요.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 저장소 계정에서 가상 네트워크 또는 방화벽 규칙이 사용 됩니다.
 
@@ -244,7 +244,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 ### <a name="solution"></a>솔루션
 
-다음 해결 방법 중 하나를 사용합니다.
+다음 솔루션 중 하나를 사용하세요.
 
 -   애플리케이션을 포함하는 동일한 사용자 계정에서 드라이브를 탑재합니다. PsExec와 같은 도구를 사용할 수 있습니다.
 - net use 명령의 사용자 이름 및 암호 매개 변수에 스토리지 계정 이름 및 키를 전달합니다.
@@ -318,5 +318,5 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 - 이름은 숫자로 시작할 수 없습니다.
 - 이름은 3 ~ 63 자 길이 여야 합니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하십니까? 지원에 문의하세요.
+## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

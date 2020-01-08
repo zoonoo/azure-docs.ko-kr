@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric에서 Java를 통한 서비스 원격 통신 보호 | Microsoft Docs
+title: Java와의 보안 서비스 원격 통신
 description: Azure Service Fabric 클러스터에서 실행되는 Java Reliable Services에서 서비스 원격 기반 통신을 보호하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: b465ab602a14285f8cf40b24ce1dfa9c763fecb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adefeadf939d398268624343d82c18cbf5ec87cd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773352"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609641"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Java 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]

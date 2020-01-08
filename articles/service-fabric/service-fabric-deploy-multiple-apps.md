@@ -1,25 +1,16 @@
 ---
-title: MongoDB를 사용하는 Node.js 애플리케이션을 Azure Service Fabric에 배포 | Microsoft Docs
+title: MongoDB를 사용 하는 node.js 응용 프로그램 배포
 description: 여러 게스트 실행 파일을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: chackdan
-editor: ''
-ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4538efc8a2426fc20dd20d1a85edaf6f76bfc649
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537712"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614471"
 ---
 # <a name="deploy-multiple-guest-executables"></a>여러 개의 게스트 실행 파일 배포
 이 문서에서는 여러 게스트 실행 파일을 패키징하고 Azure Service Fabric에 배포하는 방법을 보여 줍니다. 단일 Service Fabric 패키지를 빌드 및 배포하는 방법은 [Service Fabric에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
@@ -33,7 +24,7 @@ Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 애플
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>수동으로 여러 게스트 실행 애플리케이션 패키징
-또는 실행 게스트를 수동으로 패키징할 수 있습니다. 자세한 내용은 참조 하세요 [수동으로 패키징하고 기존 실행 파일 배포](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable)합니다.
+또는 실행 게스트를 수동으로 패키징할 수 있습니다. 자세한 내용은 [기존 실행 파일을 수동으로 패키지 및 배포](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable)를 참조 하세요.
 
 ### <a name="packaging-the-nodejs-application"></a>Node.js 애플리케이션 패키징
 이 문서에서는 서비스 패브릭 클러스터의 노드에 Node.js가 아직 설치되지 않은 것으로 가정합니다. 결과적으로 패키징 전에 노드 애플리케이션의 루트 디렉터리에 node.exe를 추가해야 합니다. Node.js 애플리케이션의 디렉터리 구조(Express 웹 프레임워크 및 Jade 템플릿 엔진 사용)는 다음과 비슷합니다.
@@ -204,7 +195,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-응용 프로그램이 성공적으로 로컬 클러스터에 게시 되 면에서는 Node.js 응용 프로그램-예를 들어 http의 서비스 매니페스트에 입력 한 포트에서 Node.js 응용 프로그램을 액세스할 수 있습니다:\//localhost:3000 합니다.
+응용 프로그램이 로컬 클러스터에 성공적으로 게시 되 면 node.js 응용 프로그램의 서비스 매니페스트에 입력 한 포트에서 node.js 응용 프로그램에 액세스할 수 있습니다 (예: http:\//wlocals: 3000).
 
 이 자습서에서는 간편하게 두 기존 애플리케이션을 하나의 서버 패브릭 애플리케이션으로 패키지하는 방법을 알아보았습니다. 또한 고가용성 및 상태 시스템 통합 같은 서비스 패브릭의 장점을 활용할 수 있도록 응용 프로그램을 서비스 패브릭에 배포하는 방법도 알아보았습니다.
 

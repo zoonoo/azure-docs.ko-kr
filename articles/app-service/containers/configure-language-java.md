@@ -1,6 +1,6 @@
 ---
 title: Linux Java 앱 구성
-description: 앱에 대해 미리 작성 된 Java 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여 줍니다.
+description: 앱에 대해 미리 작성 된 Java 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 keywords: azure app service, 웹 앱, linux, oss, java, java ee, jee, javaee
 author: bmitchell287
 manager: barbkess
@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422204"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -248,8 +248,7 @@ JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다.
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
-- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
-
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>수동으로 키 저장소 초기화 및 로드
 
@@ -294,7 +293,7 @@ JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다.
 
 기본적으로 App Service는 JAR 응용 프로그램의 이름을 *app.config*로 지정 합니다. 이 이름이 있으면 자동으로 실행 됩니다. Maven 사용자의 경우 *pom .xml*의 `<build>` 섹션에 `<finalName>app</finalName>`를 포함 하 여 JAR 이름을 설정할 수 있습니다. `archiveFileName` 속성을 설정 하 여 [Gradle에서 동일한 작업을 수행할 수](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) 있습니다.
 
-JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예: `java -jar my-jar-app.jar` 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 또는 `STARTUP_COMMAND`라는 응용 프로그램 설정으로 설정할 수 있습니다.
+JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. `java -jar my-jar-app.jar`)을 입력합니다. 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 또는 `STARTUP_COMMAND`라는 응용 프로그램 설정으로 설정할 수 있습니다.
 
 ### <a name="server-port"></a>서버 포트
 
@@ -663,7 +662,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
 
 다음 번에 App Service 다시 시작 하면 시작 스크립트가 실행 되 고 필요한 구성 단계가 수행 됩니다. 이 구성이 제대로 수행 되었는지 테스트 하려면 SSH를 사용 하 여 App Service에 액세스 한 다음 Bash 프롬프트에서 직접 시작 스크립트를 실행 하면 됩니다. App Service 로그를 검사할 수도 있습니다. 이러한 옵션에 대 한 자세한 내용은 [앱 로깅 및 디버깅](#logging-and-debugging-apps)을 참조 하세요.
 
-다음에는 앱에 대 한 WildFly 구성을 업데이트 하 고 다시 배포 해야 합니다. 다음 단계를 사용하세요.
+다음에는 앱에 대 한 WildFly 구성을 업데이트 하 고 다시 배포 해야 합니다. 다음 단계를 사용합니다.
 
 1. 앱에 대 한 *src/main/resources/META-INF/지 속성* 파일을 열고 `<jta-data-source>` 요소를 찾습니다. 다음과 같이 내용을 바꿉니다.
 
@@ -709,7 +708,7 @@ WildFly를 사용 하 여 데이터베이스 연결을 구성 하는 방법에 �
 
 1. Bash 터미널을 열고 다음 명령을 사용 하 여 Azure 리소스 정보를 환경 변수에 저장 합니다. 자리 표시자 (꺾쇠 괄호 포함)를 표시 된 값으로 바꿉니다.
 
-    | 변수            | Value                                                                      |
+    | 변수            | 값                                                                      |
     |---------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME  | App Service 인스턴스를 포함 하는 리소스 그룹의 이름입니다.       |
     | WEBAPP_NAME         | App Service 인스턴스의 이름입니다.                                     |
@@ -993,7 +992,7 @@ Redis와 함께 Tomcat를 사용 하려면 [PersistentManager](https://tomcat.ap
 
 1. Bash 터미널을 열고 `<variable>=<value>`를 사용 하 여 다음의 각 환경 변수를 설정 합니다.
 
-    | 변수                 | Value                                                                      |
+    | 변수                 | 값                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | App Service 인스턴스를 포함 하는 리소스 그룹의 이름입니다.       |
     | WEBAPP_NAME              | App Service 인스턴스의 이름입니다.                                     |

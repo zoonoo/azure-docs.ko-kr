@@ -1,17 +1,17 @@
 ---
-title: MongoDB 용 Azure Cosmos DB API에 대 한 Azure Resource Manager 템플릿
+title: MongoDB 용 Azure Cosmos DB API에 대 한 리소스 관리자 템플릿
 description: Azure Resource Manager 템플릿을 사용 하 여 MongoDB 용 Azure Cosmos DB API를 만들고 구성 합니다.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: e0d28de67082c4b4d582f62653ad474e9ad5dadd
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 66f1ea27692433b72fe05ea89454806bf851c519
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960574"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445246"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB MongoDB API 리소스 관리
 

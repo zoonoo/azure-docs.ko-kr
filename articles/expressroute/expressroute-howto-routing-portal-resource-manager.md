@@ -5,14 +5,14 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 02/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: 5fb728cccd77d0cefd10c124cb7215dc3b880fe3
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 18d2db18e9880028c60b4b545c3628f4a9cb4703
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083532"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436964"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -22,13 +22,13 @@ ms.locfileid: "74083532"
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
+> * [공용 피어 링](about-public-peering.md)
 > * [비디오 - 프라이빗 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [비디오 - 공용 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
 
-Express 경로 회로에 대해 Azure 개인 및 Microsoft 피어 링을 구성할 수 있습니다 (Azure 공용 피어 링은 새 회로에서 사용 되지 않음). 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [회로 및 피어링 정보](expressroute-circuit-peerings.md)를 참조하세요.
+Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 구성할 수 있습니다 (Azure 공용 피어 링은 새 회로에서 사용 되지 않음). 피어 링은 선택 하는 순서에 관계 없이 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요. 공용 피어 링에 대 한 자세한 내용은 [express 경로 공용 피어 링](about-public-peering.md)을 참조 하세요.
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
@@ -48,7 +48,7 @@ Express 경로 회로에 대해 Azure 개인 및 Microsoft 피어 링을 구성�
 이 섹션은 ExpressRoute 회로에 Microsoft 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
 > [!IMPORTANT]
-> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터가 회로에 연결될 때까지 접두사가 보급되지 않습니다. 자세한 내용은 [Microsoft 피어링에 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
+> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 자세한 내용은 [Microsoft 피어링에 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
 > 
 > 
 
@@ -100,7 +100,7 @@ Express 경로 회로에 대해 Azure 개인 및 Microsoft 피어 링을 구성�
 
 피어 링에 대 한 행을 선택 하 여 Microsoft 피어 링의 속성을 볼 수 있습니다.
 
-[![Microsoft 피어 링 속성 보기](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "보기 속성")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
+[![Microsoft 피어 링 속성 보기](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "속성 보기")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
 ### <a name="updatemsft"></a>Microsoft 피어링 구성을 업데이트하려면
 
 수정할 피어 링에 대 한 행을 선택 하 고 피어 링 속성을 수정 하 고 수정 내용을 저장할 수 있습니다.
@@ -172,25 +172,6 @@ Express 경로 회로에 대해 Azure 개인 및 Microsoft 피어 링을 구성�
 
 ![프라이빗 피어링 삭제](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
-## <a name="public"></a>Azure 공용 피어링
-
-이 섹션은 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
-
-> [!Note]
-> Azure 공용 피어 링은 새로운 회로에서 사용 되지 않습니다. 자세한 내용은 [express 경로 피어 링](expressroute-circuit-peerings.md)을 참조 하세요.
->
-
-### <a name="getpublic"></a>Azure 공용 피어링 세부 정보를 보려면
-
-피어 링을 선택 하 여 Azure 공용 피어 링의 속성을 봅니다.
-
-### <a name="updatepublic"></a>Azure 공용 피어링 구성을 업데이트하려면
-
-피어 링에 대 한 행을 선택 하 고 피어 링 속성을 수정 합니다.
-
-### <a name="deletepublic"></a>Azure 공용 피어링을 삭제하려면
-
-삭제 아이콘을 선택 하 여 피어 링 구성을 제거 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

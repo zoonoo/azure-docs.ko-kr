@@ -3,23 +3,23 @@ title: Visual Studio 및 Visual Studio Code를 사용 하 여 IoT 플러그 앤 
 description: Visual Studio 및 Visual Studio Code를 사용 하 여 IoT 플러그 앤 플레이 장치 모델을 신속 하 게 작성 하 고 장치 코드를 구현할 수 있습니다.
 author: liydu
 ms.author: liydu
-ms.date: 10/29/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b4325aa6f379dc0b281d06cb593c28448698c71b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748046"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531329"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Visual Studio 및 Visual Studio Code를 사용 하 여 IoT 플러그 앤 플레이 장치 빌드
 
 Visual Studio Code 용 Azure IoT 도구는 DCM (장치 기능 모델) 및 인터페이스를 작성 하 고, 모델 리포지토리에 게시 하 고, 기본 C 코드를 생성 하 여 장치 응용 프로그램을 구현 하는 통합 환경을 제공 합니다.
 
-이 문서에서는 다음 방법을 안내합니다.
+이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
 
 - 장치 코드 및 응용 프로그램 프로젝트를 생성 합니다.
 - 장치 프로젝트에서 생성 된 코드를 사용 합니다.
@@ -57,7 +57,7 @@ VS Code에서 **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고
     - **Linux의 Cmake 프로젝트**: Linux에서 [cmake](https://cmake.org/) 를 빌드 시스템으로 사용 하는 장치 프로젝트용입니다. 이 옵션은 C 코드와 동일한 폴더에 장치 SDK 구성을 사용 하 여 `CMakeLists.txt`를 생성 합니다.
     - **MXChip Iot devkit 프로젝트**: [MXChip iot devkit](https://aka.ms/iot-devkit) 장치에서 실행 되는 장치 프로젝트를 위한 것입니다. 이 옵션은 VS Code 또는 Arduino IDE에서 IoT DevKit 장치를 빌드하고 실행 하는 [데 사용할](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) 수 있는 Arduino 프로젝트를 생성 합니다.
 
-- **장치 SDK 유형**입니다. CMake 프로젝트 형식을 선택 하는 경우 생성 된 코드에서 Azure IoT C 장치 SDK를 `CMakeLists.txt`에 포함 하는 방법을 구성 하는 단계는 다음과 같습니다.
+- **장치 SDK 유형**입니다. CMake 프로젝트 형식을 선택 하는 경우 생성 된 코드에 Azure IoT C 장치 SDK를 `CMakeLists.txt`포함 하는 방법을 구성 하는 단계는 다음과 같습니다.
 
     - **소스 코드**사용: 생성 된 코드는 [장치 SDK 소스 코드](https://github.com/Azure/azure-iot-sdk-c) 를 사용 하 여에 포함 하 고 함께 빌드합니다. 장치 SDK 소스 코드를 사용자 지정한 경우에 권장 됩니다.
     - **Vcpkg**사용: 생성 된 코드는 [장치 SDK Vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) 를 사용 하 여에 포함 하 고 함께 빌드합니다. 이는 Windows, Linux 또는 macOS를 실행 하는 장치에 권장 되는 방법입니다.
@@ -99,7 +99,7 @@ Ubuntu 또는 Debian와 같은 Linux 환경에서 CMake를 사용 하 여 장치
     sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
     ```
 
-    `cmake` 버전이 **2.8.12** 이 고 **GCC** 버전이 **4.4.7**이상 인지 확인 합니다.
+    `cmake` 버전이 **2.8.12**보다 크고, **GCC** 버전이 **4.4.7**보다 큰지 확인합니다.
 
     ```bash
     cmake --version
@@ -121,7 +121,7 @@ Ubuntu 또는 Debian와 같은 Linux 환경에서 CMake를 사용 하 여 장치
     ./vcpkg integrate install
     ```
 
-1. Azure IoT C 장치 SDK Vcpkg를 설치 합니다.
+1. 다음과 같이 Azure IoT C 디바이스 SDK Vcpkg를 설치합니다.
 
     ```bash
     ./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
@@ -150,13 +150,13 @@ Ubuntu 또는 Debian와 같은 Linux 환경에서 CMake를 사용 하 여 장치
 
 ### <a name="windows"></a>Windows
 
-명령줄에서 CMake 및 Visual Studio C/C++ 컴파일러를 사용 하 여 Windows의 장치 C SDK와 함께 장치 코드를 빌드하려면 [IoT 플러그 앤 플레이 빠른](./quickstart-create-pnp-device.md)시작을 참조 하세요. 다음 단계에서는 Visual Studio에서 CMake 프로젝트로 장치 C SDK Vcpkg와 함께 장치 코드를 빌드하는 방법을 보여 줍니다.
+명령줄에서 CMake 및 Visual Studio C/C++ 컴파일러를 사용 하 여 Windows의 장치 C SDK와 함께 장치 코드를 빌드하려면 [IoT 플러그 앤 플레이 빠른](./quickstart-create-pnp-device-windows.md)시작을 참조 하세요. 다음 단계에서는 Visual Studio에서 CMake 프로젝트로 장치 C SDK Vcpkg와 함께 장치 코드를 빌드하는 방법을 보여 줍니다.
 
-1. [빠른](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device#prepare-the-development-environment) 시작의 단계에 따라 Vcpkg를 통해 C 용 Azure IOT 장치 SDK를 설치 합니다.
+1. [빠른](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device-windows#prepare-the-development-environment) 시작의 단계에 따라 Vcpkg를 통해 C 용 Azure IOT 장치 SDK를 설치 합니다.
 
 1. [Visual Studio 2019 (Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) 설치- **NuGet 패키지 관리자** 구성 요소와 워크 로드를 **사용한 C++ 데스크톱 개발** 을 포함 해야 합니다.
 
-1. Visual Studio를 열고 **파일 > 선택 > cmake .를 선택 합니다.** 폴더의 `CMakeLists.txt`를 열려면 생성 된 코드가 포함 됩니다.
+1. Visual Studio를 열고 **파일 > 열기 > cmake ...** 를 선택 하 여 폴더에 생성 된 코드를 포함 하는 `CMakeLists.txt`를 엽니다.
 
 1. **일반** 도구 모음에서 **구성** 드롭다운을 찾습니다. **구성 관리** 를 선택 하 여 프로젝트에 대 한 cmake 설정을 추가 합니다.
 

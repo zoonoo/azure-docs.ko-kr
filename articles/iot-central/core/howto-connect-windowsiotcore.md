@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 452d18908406214bb7e1253363a42d8ba8287d96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930203"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454016"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Windows IoT Core 디바이스 연결
 
@@ -25,19 +25,24 @@ ms.locfileid: "73930203"
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-- **샘플 Devkits** 애플리케이션 템플릿으로 만든 Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+- **레거시 응용** 프로그램 응용 프로그램 템플릿에서 만든 Azure IoT Central 응용 프로그램입니다. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 
 - Windows 10 IoT Core 운영 체제를 실행하는 디바이스. 자세한 내용은 [Windows 10 IoT Core 장치 설정](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup)을 참조 하세요.
 
 - [Node.js](https://nodejs.org/) 버전 8.0.0 이상이 설치 된 개발 컴퓨터. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
 
-## <a name="the-sample-devkits-application"></a>샘플 Devkits 응용 프로그램
+## <a name="add-a-device-template"></a>디바이스 템플릿 추가
 
-**샘플 Devkits** 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 **Windows IoT Core** 디바이스가 포함됩니다.
+Azure IoT Central 응용 프로그램에서 다음 특성을 사용 하 여 새 **Windows IoT Core** 장치 템플릿을 추가 합니다.
 
 - 장치에 대 한 원격 분석 측정: **습도**, **온도**및 **압력**.
 - **팬 속도**를 제어 하도록 설정 합니다.
 - 장치 속성 **주사위 번호** 및 클라우드 속성 **위치**입니다.
+
+1. 장치 템플릿 ![장치 템플릿에서 **+ 새로 만들기** 를 선택](media/howto-connect-windowsiotcore/adddevicetemplate.png)
+   
+
+2. **Windows Iot core** 를 선택 하 고 Windows iot core 장치 템플릿을 만들어 장치 템플릿 추가 ![](media/howto-connect-windowsiotcore/newdevicetemplate.png)
 
 장치 템플릿 구성에 대 한 자세한 내용은 [Windows IoT Core 장치 템플릿 정보](#device-template-details)를 참조 하세요.
 
@@ -104,7 +109,7 @@ Azure IoT Central 응용 프로그램에서 **Device Explorer** 페이지를 사
 
 ### <a name="telemetry-measurements"></a>원격 분석 측정값
 
-| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
+| 필드 이름     | 단위  | 최소 | 최대 | 소수 자릿수 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidity       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -114,16 +119,16 @@ Azure IoT Central 응용 프로그램에서 **Device Explorer** 페이지를 사
 
 숫자 설정
 
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| 표시 이름 | 필드 이름 | 단위 | 소수 자릿수 | 최소 | 최대 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>속성
 
-| 에            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| 유형            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | Location     | location   | 해당 없음       |
+| 텍스트            | 위치     | 위치   | N/A       |
 
 ## <a name="next-steps"></a>다음 단계
 

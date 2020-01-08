@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459451"
 ---
 # <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트 및 관련 세션 호스트 풀 인프라의 초기 설정 중에 발생 하는 문제에 대해 설명 합니다.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 
@@ -59,7 +59,7 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Windows 가상 데스크톱 세션 호스트 Vm 만들기
 
-세션 호스트 Vm은 여러 가지 방법으로 만들 수 있지만 원격 데스크톱 서비스/Windows 가상 데스크톱 팀은 Azure Resource Manager 템플릿과 관련 된 VM 프로 비전 문제도 지원 합니다. Azure Resource Manager 템플릿은 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 및 [GitHub](https://github.com/)에서 사용할 수 있습니다.
+세션 호스트 Vm은 여러 가지 방법으로 만들 수 있지만 Windows 가상 데스크톱 팀은 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 제공과 관련 된 VM 프로 비전 문제만 지원 합니다. 자세한 내용은 [Windows 가상 데스크톱을 사용 하 여 문제-호스트 풀 프로 비전 Azure Marketplace 제공](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering)을 참조 하세요.
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Windows 가상 데스크톱을 사용 하는 문제-호스트 풀 Azure Marketplace 제공 제공
 
@@ -87,6 +87,27 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
+
+### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>오류: "템플릿 배포가 잘못 되었습니다." 오류가 표시 됩니다.
+
+!["템플릿 배포"의 스크린샷 잘못 되었습니다. "오류](media/troubleshooting-marketplace-validation-error-generic.png)
+
+특정 작업을 수행 하기 전에 작업 로그를 확인 하 여 실패 한 배포 유효성 검사에 대 한 자세한 오류를 확인 해야 합니다.
+
+활동 로그에서 오류를 보려면 다음을 수행 합니다.
+
+1. 현재 Azure Marketplace 배포 제품을 종료 합니다.
+2. 위쪽 검색 창에서 **활동 로그**를 검색 하 고 선택 합니다.
+3. 상태가 **실패** 인 **배포 유효성 검사** 라는 작업을 찾아 작업을 선택 합니다.
+   \* * 실패 * * 상태가 포함 된 개별 * * 배포 유효성 검사 * * 작업의 ![스크린샷](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. JSON을 선택 하 고 "statusMessage" 필드가 표시 될 때까지 화면 아래쪽으로 스크롤합니다.
+   JSON 텍스트의 statusMessage 속성 주위에 빨간색 상자가 있는 실패 한 작업의 스크린샷을 ![합니다.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+작업 템플릿이 할당량 한도를 초과 하는 경우 다음 작업 중 하나를 수행 하 여 수정할 수 있습니다.
+
+ - 처음 사용 하는 매개 변수를 사용 하 여 Azure Marketplace를 실행 하지만 이번에는 Vm 및 VM 코어 수가 줄어듭니다.
+ - 브라우저의 **Statusmessage** 필드에 표시 되는 링크를 열어 지정 된 VM SKU에 대 한 Azure 구독의 할당량을 늘리는 요청을 제출 합니다.
 
 ## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Azure Resource Manager 템플릿 및 PowerShell DSC (필요한 상태 구성) 오류
 
@@ -346,9 +367,10 @@ GitHub Azure Resource Manager 템플릿을 실행 하는 경우 다음 매개 �
 
 - Windows 가상 데스크톱 및 에스컬레이션 트랙 문제 해결에 대 한 개요는 [문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview.md)을 참조 하세요.
 - Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요.
-- Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [원격 데스크톱 클라이언트 연결](troubleshoot-client-connection.md)을 참조 하세요.
+- Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md)을 참조 하세요.
+- 원격 데스크톱 클라이언트와 관련 된 문제를 해결 하려면 [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md) 을 참조 하세요.
 - Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
-- 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
-- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)을 참조 하세요.
-- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
-- 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 참조하세요.
+- 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](environment-setup.md)을 참조 하세요.
+- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md)을 참조 하세요.
+- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md)를 참조하세요.
+- 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](../azure-resource-manager/resource-manager-deployment-operations.md)를 참조하세요.

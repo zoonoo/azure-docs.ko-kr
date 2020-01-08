@@ -1,20 +1,14 @@
 ---
-title: GA (Service Fabric Azure Files 볼륨 드라이버) | Microsoft Docs
+title: GA (Service Fabric Azure Files 볼륨 드라이버)
 description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azure Files 사용을 지원합니다.
-services: service-fabric
-author: athinanthny
-manager: chackdan
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.author: atsenthi
-ms.openlocfilehash: 1287df567c60b7ad851c94a8ba787270255d0f35
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422789"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464795"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure Files 볼륨 드라이버
 Docker 컨테이너에 대 한 [Azure Files](/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공 하는 [docker 볼륨 플러그](https://docs.docker.com/engine/extend/plugins_volume/) 인 Azure Files 볼륨 플러그 인은 이제 **GA (일반적으로 사용 가능)** 입니다.
@@ -25,7 +19,7 @@ Docker 컨테이너에 대 한 [Azure Files](/azure/storage/files/storage-files-
 > Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 GA (일반 공급) 릴리스입니다. 
 >
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 * Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다.
 
 * Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.

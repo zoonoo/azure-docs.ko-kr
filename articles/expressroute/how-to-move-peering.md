@@ -5,15 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: f9ed841d347d99a2208971d164bbd7b9044e3b09
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031596"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436850"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>공용 피어링을 Microsoft 피어링으로 이동
 
@@ -83,9 +82,8 @@ Microsoft 피어링을 사용하도록 설정되고 보급된 공용 접두사�
 
 Microsoft 피어링이 구성되어 있고 사용하려는 접두사가 Microsoft 피어링에서 올바르게 보급되었는지 확인한 후에는 공용 피어링을 삭제할 수 있습니다. 공용 피어링을 삭제하려면 다음 문서 중 하나를 사용합니다.
 
-* [Azure Portal을 사용하여 Azure 공용 피어링 삭제](expressroute-howto-routing-portal-resource-manager.md#deletepublic)<br>
-* [Azure PowerShell을 사용하여 Azure 공용 피어링 삭제](expressroute-howto-routing-arm.md#deletepublic)<br>
-* [CLI를 사용하여 Azure 공용 피어링 삭제](howto-routing-cli.md#deletepublic)
+* [Azure PowerShell을 사용하여 Azure 공용 피어링 삭제](about-public-peering.md#powershell)
+* [CLI를 사용하여 Azure 공용 피어링 삭제](about-public-peering.md#cli)
   
 ## <a name="view"></a>5. 피어 링 보기
   

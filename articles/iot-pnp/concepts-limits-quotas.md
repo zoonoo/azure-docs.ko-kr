@@ -3,16 +3,16 @@ title: 제한 및 할당량 IoT 플러그 앤 플레이 미리 보기 | Microsof
 description: IoT 플러그 앤 플레이 미리 보기를 사용 하는 경우 적용 되는 제한, 할당량 및 제한에 대해 알아봅니다.
 author: miagdp
 ms.author: miag
-ms.date: 08/01/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2df8a8820422a22b0512e24c4b052377cb0e61e0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879566"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531380"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT 플러그 앤 플레이 미리 보기 제한, 할당량 및 제한
 
@@ -22,14 +22,14 @@ ms.locfileid: "69879566"
 
 공개 미리 보기의 경우 다음과 같은 제한과 할당량이 IoT hub에 적용 됩니다.
 
-| 제한, 제한 사항 및 제한 | 값 | 참고 |
+| 제한, 제한 사항 및 제한 | 값 | 메모 |
 |-----|-----|-----|
 | 허브 당 등록할 수 있는 DCMs (장치 기능 모델) 또는 인터페이스 수 | 1500 ||
 | 장치당 등록할 수 있는 최대 인터페이스 수 | 40 ||
 | 장치당 등록할 수 있는 최대 DCMs 수 | 1 ||
 | 인터페이스/DCM 파일의 최대 크기 | 512 문자 ||
 | 인터페이스 이름의 최대 크기 | 256 문자 ||
-| 속성 이름의 최대 크기  | 64 바이트, 심층 7 수준 (및 첫 번째 수준 예약 `$iotin`됨) | 허용 되는 문자: a-z, a-z, 0-9 (첫 번째 문자 아님) 및 밑줄 |
+| 속성 이름의 최대 크기  | 64 바이트, 심층 7 수준 (및 첫 번째 수준 `$iotin`에 예약 됨) | 허용 되는 문자: a-z, a-z, 0-9 (첫 번째 문자 아님) 및 밑줄 |
 | 속성 값의 최대 크기 | 512바이트 ||
 | 명령 이름의 최대 크기 | 100바이트 ||
 | 디바이스 쌍 크기 | [IoT Hub 제한과](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) 동일 ||

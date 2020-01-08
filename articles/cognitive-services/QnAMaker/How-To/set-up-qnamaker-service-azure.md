@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ec19f4b4140fb6f4a1dc968f4e2cac3c3d7a1e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447705"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -28,10 +28,10 @@ QnA Maker 서비스는 두 가지 종류의 키, 즉 **구독 키** 와 **끝점
 
 ![키 관리](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Name|위치|목적|
+|이름|위치|용도|
 |--|--|--|
-|구독 키|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
-|엔드포인트 키|[QnA Maker 포털](http://www.qnamaker.ai)|이러한 키는 게시 된 기술 자료 끝점에 액세스 하 여 사용자 질문에 대 한 응답을 가져오는 데 사용 됩니다. 일반적으로이 끝점은 채팅 봇 또는 QnA Maker 서비스에 연결 하는 클라이언트 응용 프로그램 코드에서 사용 합니다. 이러한 키는 QnA Maker 기술 자료를 게시할 때 생성 됩니다.<br><br>**서비스 설정** 페이지에서 이러한 키를 찾습니다. 드롭다운 메뉴의 페이지 오른쪽 위에 있는 사용자 메뉴에서이 페이지를 찾습니다.|
+|구독 키|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|이러한 키는 [QnA Maker management Service api](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스 하는 데 사용 됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
+|엔드포인트 키|[QnA Maker 포털](https://www.qnamaker.ai)|이러한 키는 게시 된 기술 자료 끝점에 액세스 하 여 사용자 질문에 대 한 응답을 가져오는 데 사용 됩니다. 일반적으로이 끝점은 채팅 봇 또는 QnA Maker 서비스에 연결 하는 클라이언트 응용 프로그램 코드에서 사용 합니다. 이러한 키는 QnA Maker 기술 자료를 게시할 때 생성 됩니다.<br><br>**서비스 설정** 페이지에서 이러한 키를 찾습니다. 드롭다운 메뉴의 페이지 오른쪽 위에 있는 사용자 메뉴에서이 페이지를 찾습니다.|
 
 ## <a name="create-a-new-qna-maker-service"></a>새 QnA Maker 서비스 만들기
 
@@ -63,7 +63,7 @@ QnA Maker 서비스는 두 가지 종류의 키, 즉 **구독 키** 와 **끝점
 
     * **Application Insights**사용 하도록 설정할지 여부를 선택 합니다. **Application Insights**를 사용하도록 설정하면 QnA Maker는 트래픽, 채팅 로그 및 오류에 대한 원격 분석을 수집합니다.
     * Application Insights 리소스를 배포할 **앱 정보 위치** 를 선택 합니다.
-    * 비용 절감 측정값의 경우, QnA Maker용으로 생성된 일부(전체는 아님) Azure 리소스를 [공유](#share-existing-services-with-qna-maker)할 수 있습니다. 
+    * 비용 절감 측정값의 경우, QnA Maker용으로 생성된 일부(전체는 아님) Azure 리소스를 [공유](#share-existing-services-with-qna-maker)할 수 있습니다.
 
 1. 모든 필드의 유효성을 검사 한 후 **만들기**를 선택 합니다. 프로세스를 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -106,7 +106,7 @@ QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 확인 하 고 �
 
 QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 공유를 활용 하려면 다음 표를 사용 하 여 공유할 수 있는 항목과 공유할 수 없는 항목을 이해 하십시오.
 
-|부여|공유|이유|
+|서비스|공유|이유|
 |--|--|--|
 |Cognitive Services|X|디자인에서 불가능|
 |App Service 계획|✔|App Service 계획에 할당 된 디스크 공간을 고정 했습니다. 동일한 App Service 계획을 공유 하는 다른 앱에서 상당한 디스크 공간을 사용 하는 경우 QnAMaker App Service 인스턴스에 문제가 발생 합니다.|
@@ -187,7 +187,7 @@ Azure Portal에서 App Service 리소스로 이동 하 고 필요에 따라 **�
 
 QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들](./set-up-qnamaker-service-azure.md) 때 배포 되는 Azure App Service 인스턴스의 일부입니다. 런타임은 주기적으로 업데이트됩니다. QnA Maker App Service 인스턴스는 4 월 2019 사이트 확장 릴리스 (버전 5 이상) 이후 자동 업데이트 모드에 있습니다. 이 업데이트는 업그레이드 하는 동안 가동 중지 시간을 0으로 처리 하도록 설계 되었습니다.
 
-https://www.qnamaker.ai/UserSettings에서 현재 버전을 확인할 수 있습니다. 버전이 버전 5.x 보다 이전 버전인 경우 App Service를 다시 시작 하 여 최신 업데이트를 적용 해야 합니다.
+https://www.qnamaker.ai/UserSettings 에서 현재 버전을 확인할 수 있습니다. 버전이 버전 5.x 보다 이전 버전인 경우 App Service를 다시 시작 하 여 최신 업데이트를 적용 해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 QnAMaker 서비스 (리소스 그룹)로 이동 합니다.
 

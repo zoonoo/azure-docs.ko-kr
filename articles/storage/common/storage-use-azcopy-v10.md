@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443731"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -34,14 +34,7 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 - [Linux](https://aka.ms/downloadazcopy-v10-linux)(tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac)(zip)
 
-이러한 파일은 zip 파일 (Windows 및 Mac) 또는 tar 파일 (Linux)로 압축 됩니다.
-
-이러한 명령을 사용 하 여 Linux에서 tar 파일을 다운로드 하 고 압축을 해제할 수 있습니다.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
-tar -xf azcopy.tar.gz
-```
+이러한 파일은 zip 파일 (Windows 및 Mac) 또는 tar 파일 (Linux)로 압축 됩니다. Linux에서 tar 파일을 다운로드 하 고 압축을 풀려면 Linux 배포에 대 한 설명서를 참조 하세요.
 
 > [!NOTE]
 > [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) 서비스로 데이터를 복사 하려면 [AzCopy 버전 7.3](https://aka.ms/downloadazcopynet)을 설치 합니다.
@@ -72,7 +65,7 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 
 | 스토리지 유형 | 현재 지원 되는 권한 부여 방법 |
 |--|--|
-|**Blob storage** | Azure AD & SAS |
+|**Blob Storage** | Azure AD & SAS |
 |**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |
 |**File Storage** | SAS 전용 |
 
@@ -98,7 +91,7 @@ Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하�
 
 - 컨테이너 (파일 시스템)
 - Storage 계정
-- Resource group
+- 리소스 그룹
 - Subscription
 
 역할을 확인 하 고 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

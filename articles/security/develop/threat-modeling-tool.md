@@ -1,26 +1,18 @@
 ---
-title: Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: 도구를 시작하는 정보 및 위협 모델링 프로세스를 포함하는 Microsoft 위협 모델링 도구에 대한 기본 페이지
-services: security
-documentationcenter: na
+title: Microsoft Threat Modeling Tool 개요-Azure
+description: 위협 모델링 프로세스를 포함 하 여 도구를 시작 하는 방법에 대 한 정보를 포함 하는 Microsoft Threat Modeling Tool의 개요입니다.
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: jegeib
-ms.openlocfilehash: 47ae7661874bec211935315679e6e2c79e6d59ef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727816"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548757"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구
 
@@ -34,12 +26,12 @@ ms.locfileid: "68727816"
 
 일부 도구 기능 및 혁신 기능은 다음과 같습니다.
 
-* **Automation:** 모델 그리기에 대한 지침 및 피드백
-* **요소 기준 STRIDE:** 위협 및 완화에 대한 단계별 분석
-* **보고:** 확인 단계의 보안 활동 및 테스트
-* **고유 방법론:** 사용자가 위협을 더욱 효율적으로 시각화하고 파악할 수 있도록 지원
+* **Automation:** 모형 그리기에 대한 지침 및 피드백
+* **요소 기준 STRIDE:** 위협 및 해결 방법에 대한 단계별 분석
+* **보고:** 확인 단계의 보안 작업 및 테스트
+* **고유한 방법:** 위협을 보다 잘 시각화하고 이해하도록 지원
 * **소프트웨어 중심의 개발자를 위한 설계:** 많은 접근 방식이 자산 또는 공격자에 주안점을 둡니다. Microsoft는 소프트웨어 중심 방식을 제공합니다. 소프트웨어 아키텍처에 대한 그림 그리기와 같이 모든 소프트웨어 개발자와 설계자에게 친숙한 작업을 토대로 기능을 구현하고 있습니다.
-* **설계 분석에 주력:** "위협 모델링"이라는 용어는 요구 사항 또는 설계 분석 기법을 지칭할 수 있습니다. 경우에 따라 두 가지가 복잡하게 혼합된 경우를 나타냅니다. Microsoft SDL의 위협 모델링 방법은 설계 분석 기법에 초점을 맞춥니다.
+* **설계 분석에 주력:** "위협 모델링"이라는 용어는 요구 사항 또는 설계 분석 기법을 나타낼 수 있습니다. 경우에 따라 두 가지가 복잡하게 혼합된 경우를 나타냅니다. Microsoft SDL의 위협 모델링 방법은 설계 분석 기법에 초점을 맞춥니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -57,7 +49,7 @@ ms.locfileid: "68727816"
 
 위협 모델링에 여전히 관련이 있는 몇 가지 이전 문서는 다음과 같습니다.
 
-* [위협 모델링의 중요성에 대한 문서](https://msdn.microsoft.com/magazine/dd347831.aspx)
+* [위협 모델링의 중요성에 대한 문서](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [신뢰할 수 있는 컴퓨팅으로 게시된 학습](https://www.microsoft.com/download/details.aspx?id=16420)
 
 몇 가지 위협 모델링 도구 전문가가 수행한 작업을 확인해 보세요.

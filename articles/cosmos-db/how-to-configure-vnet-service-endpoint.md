@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 기반 액세스 구성
+title: Azure Cosmos 계정에 대 한 가상 네트워크 기반 액세스 구성
 description: 이 문서에서는 Azure Cosmos DB의 가상 네트워크 서비스 엔드포인트에 필요한 단계를 설명합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: c399bed803145659bae1863e9e0b919f33254627
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 80e77e2caacfed7d662fdfa04aa9524bd7c2083a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445425"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 액세스 구성
 

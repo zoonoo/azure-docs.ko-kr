@@ -3,18 +3,18 @@ title: 용어 설명-IoT 플러그 앤 플레이 미리 보기 | Microsoft Docs
 description: 개념-IoT 플러그 앤 플레이 미리 보기와 관련 된 일반적인 용어의 용어입니다.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890351"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531204"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기용 용어 설명
 
@@ -105,7 +105,7 @@ IoT 플러그 앤 플레이 장치 클라이언트 응용 프로그램을 빌드
 
 ## <a name="device-certification"></a>장치 인증
 
-장치 인증은 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device) 를 인증 하 여 [IoT용 Certified 디바이스 카탈로그](#certified-for-iot-device-catalog) 에 추가 하 고 해당 [장치 기능 모델과](#device-capability-model) [인터페이스](#interface) 를 [공용 모델에 추가 하는 프로세스입니다. 리포지토리](#public-model-repository).
+장치 인증은 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device) 를 인증 하 여 [IoT용 Certified 디바이스 카탈로그](#certified-for-iot-device-catalog) 에 추가 하 고 해당 [장치 기능 모델과](#device-capability-model) [인터페이스](#interface) 를 [공용 모델 리포지토리에](#public-model-repository)추가할 수 있도록 하는 프로세스입니다.
 
 ## <a name="device-developer"></a>디바이스 개발자
 

@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 앱 패키징 | Microsoft Docs
-description: 클러스터에 배포하기 전에 Service Fabric 애플리케이션을 패키지하는 방법입니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Azure Service Fabric 앱 패키지
+description: Azure Service Fabric 응용 프로그램 패키징 및 클러스터에 배포를 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718386"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639686"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
 
@@ -54,7 +43,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들면 다음과 같습니다.
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예:
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
@@ -237,11 +226,11 @@ ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 
 ## <a name="next-steps"></a>다음 단계
 
-[애플리케이션 배포 및 제거][10]에서는 PowerShell을 사용하여 애플리케이션 인스턴스를 관리하는 방법을 설명합니다.
+응용 [프로그램 배포 및 제거][10] PowerShell을 사용 하 여 응용 프로그램 인스턴스를 관리 하는 방법을 설명 합니다.
 
-[여러 환경에 대한 애플리케이션 매개 변수 관리][11]에서는 여러 애플리케이션 인스턴스의 매개 변수 및 환경 변수를 구성하는 방법을 설명합니다.
+[여러 환경에 대 한 응용 프로그램 매개 변수 관리][11] 여러 응용 프로그램 인스턴스에 대 한 매개 변수 및 환경 변수를 구성 하는 방법을 설명 합니다.
 
-[애플리케이션에 대한 보안 정책 구성][12]에서는 액세스를 제한하는 보안 정책에 따라 서비스를 실행하는 방법을 설명합니다.
+[응용 프로그램에 대 한 보안 정책 구성][12] 보안 정책에서 서비스를 실행 하 여 액세스를 제한 하는 방법을 설명 합니다.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

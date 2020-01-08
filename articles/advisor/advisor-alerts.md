@@ -1,20 +1,14 @@
 ---
-title: 새 권장 사항에 대 한 Azure Advisor 경고 만들기 | Microsoft Docs
+title: 새 권장 사항에 대 한 Azure Advisor 경고 만들기
 description: 새 권장 사항에 대 한 Azure Advisor 경고 만들기
-services: advisor
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/09/2019
-ms.author: sagupt
-ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326608"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443164"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>새 권장 사항에 대 한 Azure Advisor 경고 만들기 
 
@@ -24,7 +18,7 @@ Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 �
 
 이러한 속성을 사용 하 여 권장 구성 유형을 확인할 수도 있습니다.
 
-* Category
+* 범주
 * 영향 수준
 * 권장 사항 유형
 
@@ -274,11 +268,11 @@ Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 �
 }
 ```
 
-어느 스키마에서 나 **eventSource** `Recommendation` 를 찾고 **operationName** 이 인 `Microsoft.Advisor/recommendations/available/action`경우 Advisor 추천 이벤트를 식별할 수 있습니다.
+어느 스키마에서 나 **eventSource** 가 `Recommendation` 고 **operationName** 이 `Microsoft.Advisor/recommendations/available/action`인지 확인 하 여 Advisor 추천 이벤트를 식별할 수 있습니다.
 
 사용할 수 있는 다른 중요 한 필드는 다음과 같습니다. 
 
-* *alertTargetIDs* (공통 스키마) 또는 *resourceId* (레거시 스키마)
+* *alertTargetIDs* (common schema) 또는 *resourceId* (레거시 스키마)
 * *recommendationType*
 * *recommendationName*
 * *recommendationCategory*

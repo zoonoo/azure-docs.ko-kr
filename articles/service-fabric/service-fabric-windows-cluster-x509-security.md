@@ -1,25 +1,16 @@
 ---
-title: 인증서를 사용하여 Windows에서 Azure Service Fabric 클러스터 보호 | Microsoft Docs
+title: 인증서를 사용 하 여 Windows에서 클러스터 보호
 description: 클라이언트와 클러스터 간 통신 보호 및 Azure Service Fabric 독립 실행형 클러스터 또는 온-프레미스 클러스터 내 통신 보호에 대해 설명합니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ee2ce03fccc3e6556f9d261687edb050c8cfa1cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5a18f957dfb7143f403d5ac30ea184023021f12c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628152"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613927"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
 이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간 통신을 보호하는 방법에 대해 설명합니다. 또한 X.509 인증서를 사용하여 이 클러스터에 연결하는 클라이언트를 인증하는 방법에 대해서도 설명합니다. 인증을 통해 권한 있는 사용자만 클러스터 및 배포된 애플리케이션에 액세스하고 관리 작업을 수행할 수 있습니다. 인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
@@ -262,7 +253,7 @@ ms.locfileid: "60628152"
 테스트 목적으로 사용하는 클러스터의 경우 자체 서명된 인증서를 사용하도록 선택할 수 있습니다.
 
 ## <a name="optional-create-a-self-signed-certificate"></a>선택 사항: 자체 서명된 인증서 만들기
-올바르게 보호할 수 있는 자체 서명된 인증서를 만드는 한 가지 방법은 C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure 디렉터리의 Service Fabric SDK 폴더에 있는 CertSetup.ps1 스크립트를 사용하는 것입니다. 이 파일을 편집하여 인증서의 기본 이름을 변경합니다. (CN=ServiceFabricDevClusterCert 값을 찾습니다.) 이 스크립트를 `.\CertSetup.ps1 -Install`로 실행합니다.
+올바르게 보호할 수 있는 자체 서명된 인증서를 만드는 한 가지 방법은 C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure 디렉터리의 Service Fabric SDK 폴더에 있는 CertSetup.ps1 스크립트를 사용하는 것입니다. 이 파일을 편집하여 인증서의 기본 이름을 변경합니다. (CN = ServiceFabricDevClusterCert 값을 찾습니다.) `.\CertSetup.ps1 -Install`으로이 스크립트를 실행 합니다.
 
 이제 보호된 암호로 .pfx 파일에 인증서를 내보냅니다. 먼저 인증서의 지문을 가져옵니다. 
 1. **시작** 메뉴에서 **컴퓨터 인증서 관리**를 실행합니다. 
@@ -301,7 +292,7 @@ ms.locfileid: "60628152"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. 이제 네트워크 서비스 계정에서 실행되는 Service Fabric 프로세스가 다음 스크립트를 실행하여 사용할 수 있도록 이 인증서에 액세스 제어를 설정해야 합니다. 서비스 계정에 인증서의 지문 및 **네트워크 서비스**를 제공합니다. **시작** > **컴퓨터 인증서 관리**에서 인증서를 열고 **모든 작업** > **개인 키 관리**를 보고 인증서의 ACL이 올바른지 확인할 수 있습니다.
+3. 이제 네트워크 서비스 계정에서 실행되는 Service Fabric 프로세스가 다음 스크립트를 실행하여 사용할 수 있도록 이 인증서에 액세스 제어를 설정해야 합니다. 서비스 계정에 인증서의 지문 및 **네트워크 서비스**를 제공합니다. **시작** > **컴퓨터 인증서 관리**에서 인증서를 열고 **모든 작업** > **프라이빗 키 관리**를 보고 인증서의 ACL이 올바른지 확인할 수 있습니다.
    
     ```powershell
     param
@@ -347,7 +338,7 @@ ClusterConfig.X509.MultiMachine.json 파일의 security 섹션을 구성한 후�
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-독립 실행형 Windows 보안 클러스터를 성공적으로 실행하고 인증된 클라이언트를 연결하도록 설정했으면 [PowerShell을 사용하여 보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) 섹션의 단계에 따라 연결합니다. 예를 들면 다음과 같습니다.
+독립 실행형 Windows 보안 클러스터를 성공적으로 실행하고 인증된 클라이언트를 연결하도록 설정했으면 [PowerShell을 사용하여 보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) 섹션의 단계에 따라 연결합니다. 예:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

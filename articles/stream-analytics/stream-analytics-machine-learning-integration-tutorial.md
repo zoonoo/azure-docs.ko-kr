@@ -1,20 +1,19 @@
 ---
 title: Azure Machine Learning과 Azure Stream Analytics 통합
 description: 이 아티클에서는 사용자 정의 함수를 사용하여 Azure Machine Learning을 통합하는 간단한 Azure Stream Analytics 작업을 신속하게 설정하는 방법을 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c683cfeadcc13e5112a4687e18db9338d3574cd3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467887"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459591"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>Azure Stream Analytics 및 Azure Machine Learning Studio (클래식) (미리 보기)를 사용 하 여 감정 분석을 수행 합니다.
 이 문서에서는 Azure Machine Learning Studio (클래식)을 통합 하는 간단한 Azure Stream Analytics 작업을 신속 하 게 설정 하는 방법을 설명 합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
@@ -139,13 +138,13 @@ ms.locfileid: "73467887"
    |필드  |값  |
    |---------|---------|
    |**입력 별칭** | 이름 `datainput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
-   |**Storage 계정**  |  이전에 만든 스토리지 계정을 선택합니다.  |
+   |**스토리지 계정**  |  이전에 만든 스토리지 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
    ![새 Stream Analytics 작업 입력에 대한 설정](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ### <a name="configure-the-job-output"></a>작업 출력 구성
 작업은 입력을 가져오는 동일한 Blob Storage에 결과를 보냅니다. 
@@ -159,13 +158,13 @@ ms.locfileid: "73467887"
    |필드  |값  |
    |---------|---------|
    |**출력 별칭** | 이름 `datamloutput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
-   |**Storage 계정**  |  이전에 만든 스토리지 계정을 선택합니다.  |
+   |**스토리지 계정**  |  이전에 만든 스토리지 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
    ![새 Stream Analytics 작업 출력에 대한 설정](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. **Save**를 클릭합니다.   
+4. **저장**을 클릭합니다.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Machine Learning 함수 추가 
@@ -183,11 +182,11 @@ ms.locfileid: "73467887"
    |---------|---------|
    | **함수 별칭** | 이름 `sentiment`를 사용하여 **Azure Machine Learning 함수 설정을 수동으로 제공합니다.** 를 선택합니다. 그러면 URL 및 키를 입력하기 위한 옵션이 제공됩니다.      |
    | **URL**| 웹 서비스 URL을 붙여넣습니다.|
-   |**키** | API 키를 붙여넣습니다. |
+   |**Key** | API 키를 붙여넣습니다. |
   
    ![Stream Analytics 작업에 Machine Learning 함수를 추가하는 설정](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 ### <a name="create-a-query-to-transform-the-data"></a>데이터를 변환하는 쿼리 만들기
 
@@ -252,7 +251,7 @@ Stream Analytics는 선언적인 SQL 기반 쿼리를 사용하여 입력을 검
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API 및 Machine Learning 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

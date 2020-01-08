@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB에서 변경 피드 지원 사용
-description: Azure Cosmos DB의 변경 피드 지원을 사용하여 문서에서 변경 내용을 추적하고 트리거와 마찬가지로 이벤트 기반 처리를 수행하고 캐시 및 분석 시스템을 최신 상태로 유지합니다.
+description: Azure Cosmos DB 변경 피드 지원을 사용 하 여 문서의 변경 내용 추적, 트리거와 같은 이벤트 기반 처리, 캐시 및 분석 시스템을 최신 상태로 유지
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bf36c0697b5e30c77610d30475be20adc18810cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445583"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 변경 피드 - 개요
 
@@ -35,10 +35,10 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 | **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra 용 Azure Cosmos DB API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 해당 없음 | yes | yes | yes | yes | 아닙니다. |
-|Java|해당 없음|yes|yes|yes|yes|아닙니다.|
-|파이썬|해당 없음|yes|yes|yes|yes|아닙니다.|
-|Node/JS|해당 없음|yes|yes|yes|yes|아닙니다.|
+| .NET | 해당 없음 | 예 | 예 | 예 | 예 | 아닙니다. |
+|Java|해당 없음|예|예|예|예|아닙니다.|
+|Python|해당 없음|예|예|예|예|아닙니다.|
+|Node/JS|해당 없음|예|예|예|예|아닙니다.|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 

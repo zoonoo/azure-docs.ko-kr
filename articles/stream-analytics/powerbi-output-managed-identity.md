@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0c5f64e08446698bbd8d1ee4af5454e3aa1dd5ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459680"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>관리 Id를 사용 하 여 Power BI에 Azure Stream Analytics 작업 인증 (미리 보기)
 
@@ -169,6 +169,29 @@ Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 �
 3. **추가** 를 선택 하 고 창을 닫습니다.
 
    ![Power BI 작업 영역에 Stream Analytics 작업 추가](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
+
+### <a name="use-the-power-bi-powershell-cmdlets"></a>Power BI PowerShell cmdlet 사용
+
+1. Power BI `MicrosoftPowerBIMgmt` PowerShell cmdlet을 설치 합니다.
+
+   > [!Important]
+   > Cmdlet의 버전 1.0.821 이상을 사용 하 고 있는지 확인 하세요.
+
+```powershell
+Install-Module -Name MicrosoftPowerBIMgmt
+```
+
+2. Power BI에 로그인 합니다.
+
+```powershell
+Login-PowerBI
+```
+
+3. 작업 영역에 Stream Analytics 작업을 참가자로 추가 합니다.
+
+```powershell
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
 
 ### <a name="use-the-power-bi-rest-api"></a>Power BI REST API 사용
 

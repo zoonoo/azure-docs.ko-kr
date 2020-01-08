@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric에서 C#을 통한 서비스 원격 통신 보호 | Microsoft Docs
+title: 의 보안 서비스 원격 통신C#
 description: Azure Service Fabric 클러스터에서 실행되는 C# Reliable Services에서 서비스 원격 기반 통신을 보호하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: vturecek
-ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: c252ec31a64fa3a11973db7a8de0a440d8eed6f5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166568"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609624"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>C# 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]

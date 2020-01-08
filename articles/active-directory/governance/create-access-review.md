@@ -1,5 +1,5 @@
 ---
-title: 그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기-Azure Active Directory | Microsoft Docs
+title: 그룹 & 응용 프로그램에 대 한 액세스 검토 만들기-Azure AD
 description: Azure Active Directory 액세스 검토에서 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 만드는 방법에 대해 알아봅니다.
 services: active-directory
 author: msaburnley
@@ -15,20 +15,20 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 230fb40c8e3a100d2fdfa0af6b40c93c3e5b47d2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 583eb62e6eeaaa799d2ea75261ee511fb8ddb7ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422682"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기
+# <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
 
 직원 및 게스트용 그룹과 애플리케이션에 대한 액세스는 시간이 지나면 변합니다. 관리자는 Azure AD(Azure Active Directory)를 사용하여 그룹 구성원 또는 애플리케이션 액세스에 대한 액세스 검토를 만들면 상태 액세스 할당과 관련된 위험을 줄일 수 있습니다. 일상적으로 액세스를 검토해야 하는 경우 되풀이 액세스 검토를 만들 수도 있습니다. 이러한 시나리오에 대한 자세한 내용은 [사용자 액세스 관리](manage-user-access-with-access-reviews.md) 및 [게스트 액세스 관리](manage-guest-access-with-access-reviews.md)를 참조하세요.
 
 이 문서에서는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure AD Premium P2
 - 전역 관리자 또는 사용자 관리자
@@ -87,7 +87,7 @@ ms.locfileid: "68499736"
 
     프로그램 목록을 보려면 액세스 검토 페이지로 이동 하 고 **프로그램**을 선택 합니다. 전역 관리자 또는 사용자 관리자 역할을 사용 하는 경우 추가 프로그램을 만들 수 있습니다. 예를 들어 준수 이니셔티브 또는 비즈니스 목표 각각에 대한 프로그램을 하나씩 선택할 수 있습니다. 프로그램이 더 이상 필요하지 않고 연결된 컨트롤이 없는 경우 해당 프로그램을 삭제할 수 있습니다.
 
-### <a name="upon-completion-settings"></a>설정 완료 시
+### <a name="upon-completion-settings"></a>완료 시 설정
 
 1. 검토가 완료된 후 수행할 작업을 지정하려면 **완료 시 설정** 섹션을 확장합니다.
 

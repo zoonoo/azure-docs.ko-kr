@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: 10714e155bebdd7acc5d7febb345c17fa81bab13
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d8b381c1afdea05618d9ad5d791a7597092c8519
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516293"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530785"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 Machine Learning 알고리즘 참고 자료 시트
 
@@ -50,16 +50,16 @@ Machine Learning의 세 가지 주요 범주는 *감독 학습*, *자율 학습*
 
 자율 학습에서는 데이터 요소에 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 이는 K-Means처럼 클러스터로 그룹화하거나 더 간단하게 표시되도록 복잡한 데이터를 보는 다양한 방법을 찾는 것을 의미할 수 있습니다.
 
-### <a name="reinforcement-learning"></a>보충 학습
+### <a name="reinforcement-learning"></a>강화 학습
 
 보충 학습에서는 알고리즘이 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 이는 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학의 일반적인 접근 방식입니다. 사물 인터넷의 애플리케이션에 적합한 학습이기도 합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다. 이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Machine Learning 및 Azure Portal의 스튜디오에 대해 알아봅니다](service/overview-what-is-azure-ml.md).
+* [Azure Machine Learning 및 Azure Portal의 스튜디오에 대해 알아봅니다](overview-what-is-azure-ml.md).
 
 * [알고리즘 및 모듈 참조](algorithm-module-reference/module-reference.md)에서 알고리즘 및 모듈의 목록을 참조 하세요.
 
 * [자습서: Azure Machine Learning designer에서 예측 모델을 작성](service/ui-tutorial-automobile-price-train-score.md)합니다.
 
-* [심층 학습 및 기계 학습에 대해 알아봅니다](service/concept-deep-learning-vs-machine-learning.md).
+* [심층 학습 및 기계 학습에 대해 알아봅니다](concept-deep-learning-vs-machine-learning.md).

@@ -1,24 +1,24 @@
 ---
-title: Azure Files에 대 한 SMB를 통한 Azure Active Directory 인증 개요-Azure Storage
+title: 개요-Azure AD Domain Services 권한 부여-Azure Files
 description: Azure Files은 Azure Active Directory (Azure AD) 도메인 서비스를 통해 SMB (서버 메시지 블록)를 통한 id 기반 인증을 지원 합니다. 도메인 가입 Windows VM(가상 머신)은 Azure AD 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 있습니다.
 author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cdee8f1ad59962822e9e0394547c395c13e4bd8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 93db726a2cac14109e542972ce851943b290962f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460294"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>SMB 액세스를 위한 Azure AD DS (Azure Files Azure Active Directory 도메인 서비스) 인증 지원 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Azure Files에 대해 Azure AD DS 인증을 사용 하도록 설정 하는 방법을 알아보려면 [Azure Files에 대해 SMB를 통한 Azure Active Directory 도메인 서비스 인증 사용](storage-files-active-directory-enable.md)을 참조 하세요.
 
-## <a name="glossary"></a>용어 설명 
+## <a name="glossary"></a>용어 
 Azure Files에 대해 SMB를 통한 Azure AD 도메인 서비스 인증과 관련 된 몇 가지 주요 용어를 이해 하는 것이 유용 합니다.
 
 -   **Azure AD(Azure Active Directory)**  
@@ -49,7 +49,7 @@ Azure Files에 대 한 Azure AD 도메인 서비스 인증은 공유 키 인증 
 -   **데이터와 함께 ACL 백업**  
     Azure Files를 사용하여 기존 온-프레미스 파일 공유를 백업할 수 있습니다. SMB를 통해 Azure Files로 파일 공유를 백업하는 경우 Azure Files에서는 데이터와 함께 ACL이 유지됩니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 Azure Files는 Azure AD Domain Services를 사용하여 도메인 가입 VM의 Azure AD 자격 증명을 사용한 Kerberos 인증을 지원합니다. Azure Files에서 Azure AD를 사용하려면 먼저 Azure AD Domain Services를 사용하도록 설정하고 파일 데이터에 액세스하려는 VM에서 도메인에 가입해야 합니다. 도메인에 가입 된 VM은 Azure AD Domain Services와 동일한 VNET (가상 네트워크)에 있어야 합니다. 
 
 VM에서 실행 중인 애플리케이션과 연결된 ID가 Azure Files의 데이터에 액세스하려고 시도하면 ID를 인증하도록 Azure AD Domain Services로 요청이 전송됩니다. 인증에 성공하면 Azure AD Domain Services가 Kerberos 토큰을 반환합니다. 애플리케이션에서 Kerberos 토큰이 포함된 요청을 보내면 Azure Files에서 해당 토큰을 사용하여 요청에 권한을 부여합니다. Azure Files는 토큰만 받고 Azure AD 자격 증명은 유지하지 않습니다.
@@ -80,7 +80,7 @@ Azure Files는 루트 디렉터리를 포함하여 디렉터리 및 파일 수�
 ### <a name="preserve-directory-and-file-acls-for-data-import-to-azure-file-shares"></a>Azure 파일 공유로 데이터를 가져오는 경우 디렉터리 및 파일 ACL 유지
 이제 Azure Files는 Azure 파일 공유에 데이터를 복사할 때 디렉터리 또는 파일 Acl 유지를 지원 합니다. 디렉터리 또는 파일의 Acl을 Azure Files에 복사할 수 있습니다. 예를 들어 [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy)를 `/copy:s` 플래그와 함께 사용하여 데이터와 ACL을 둘 다 Azure 파일 공유로 복사할 수 있습니다. ACL 보존은 기본적으로 설정 되어 있으며 저장소 계정에서 Azure AD 도메인 서비스 인증 기능을 명시적으로 사용 하도록 설정할 필요가 없습니다. 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 스토리지 계정에 대해 SMB를 통한 Azure AD 인증을 사용하도록 설정하는 데는 서비스 요금이 추가되지 않습니다. 가격에 대한 자세한 내용은 [Azure Files 가격](https://azure.microsoft.com/pricing/details/storage/files/) 및 [Azure AD Domain Services 가격](https://azure.microsoft.com/pricing/details/active-directory-ds/) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

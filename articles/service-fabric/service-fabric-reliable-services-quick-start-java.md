@@ -1,27 +1,18 @@
 ---
-title: Java에서 Azure Service Fabric Reliable Services 처음 만들기 | Microsoft Docs
+title: Java에서 첫 번째 신뢰할 수 있는 서비스 만들기
 description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure Service Fabric 애플리케이션 만들기 소개
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130129"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614216"
 ---
-# <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
+# <a name="get-started-with-reliable-services-in-java"></a>Java에서 Reliable Services 시작
 > [!div class="op_single_selector"]
 > * [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 > * [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
@@ -38,9 +29,9 @@ ms.locfileid: "62130129"
 Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 됩니다.
 
 * **서비스 유형**: 서비스 구현입니다. 이름 및 버전 번호와 함께 `StatelessService` 및 기타 코드 또는 여기에 사용된 종속성을 확장하도록 사용자가 작성한 클래스에 의해 정의됩니다.
-* **명명된 서비스 인스턴스**: 서비스를 실행하려는 경우 클래스 유형의 개체 인스턴스를 만드는 것처럼 서비스 유형의 명명된 인스턴스를 만듭니다. 서비스 인스턴스는 실제로 사용자가 작성한 서비스 클래스의 개체 인스턴스화입니다.
-* **서비스 호스트**: 생성한 명명된 서비스 인스턴스는 호스트 내에서 실행해야 합니다. 서비스 호스트는 서비스의 인스턴스에서 실행할 수 있는 프로세스일 뿐입니다.
-* **서비스 등록**: 서비스를 등록하면 모든 요소가 통합 등록됩니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
+* **명명된 서비스 인스턴스**: 서비스를 실행하려면 클래스 유형의 개체 인스턴스를 만드는 것처럼 서비스 유형의 명명된 인스턴스를 만듭니다. 서비스 인스턴스는 실제로 사용자가 작성한 서비스 클래스의 개체 인스턴스화입니다.
+* **서비스 호스트**: 호스트 내에서 실행해야 하는 사용자가 만든 명명된 서비스 인스턴스입니다. 서비스 호스트는 서비스의 인스턴스에서 실행할 수 있는 프로세스일 뿐입니다.
+* **서비스 등록**: 등록은 모든 항목을 함께 모읍니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
 
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
 Service Fabric 애플리케이션을 만드는 것으로 시작합니다. Linux용 Service Fabric SDK는 Service Fabric 애플리케이션용 스캐폴딩에 상태 비저장 서비스를 제공하기 위해 Yeoman 생성기를 포함합니다. 다음 Yeoman 명령을 실행하여 시작합니다.
@@ -96,7 +87,7 @@ public static void main(String[] args) throws Exception {
 
 **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**를 엽니다. 이 클래스는 서비스 유형을 정의하고 모든 코드를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
 
-* 장기 실행 계산 워크로드를 포함하여 모든 워크로드의 실행을 시작할 수 있는 `runAsync()`라는 개방형 진입점 메서드.
+* 장기 실행 컴퓨팅 워크로드를 포함하여 모든 워크로드의 실행을 시작할 수 있는 `runAsync()`라는 개방형 진입점 메서드.
 
 ```java
 @Override

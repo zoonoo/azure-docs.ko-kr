@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878961"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638938"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
 
@@ -33,7 +33,7 @@ Azure Data Lake Storage Gen1은 Azure AD(Azure Active Directory) 사용자, 그�
 
 Data Lake Storage Gen1에서 빅 데이터로 작업할 때는 대부분의 경우 Azure HDInsight와 같은 서비스가 데이터 작업을 수행할 수 있도록 서비스 사용자가 사용됩니다. 그러나 개별 사용자가 데이터에 액세스해야 하는 경우도 있을 수 있습니다. 이 경우 개별 사용자를 폴더 및 파일에 할당하는 대신 Azure Active Director [보안 그룹](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory)을 사용해야 합니다.
 
-보안 그룹에 권한이 할당되면 그룹에서 사용자를 추가하거나 제거할 때 Data Lake Storage Gen1을 업데이트할 필요가 없습니다. 이렇게 하면 [32개의 액세스 및 기본 ACL](../azure-subscription-service-limits.md#data-lake-store-limits) 제한을 초과하지 않는 데 도움이 됩니다(여기에는 항상 모든 파일 및 폴더과 연결된 4개의 POSIX 스타일 ACL, 즉 [소유 사용자](data-lake-store-access-control.md#the-owning-user), [소유 그룹](data-lake-store-access-control.md#the-owning-group), [마스크](data-lake-store-access-control.md#the-mask) 및 기타가 포함됨).
+보안 그룹에 권한이 할당되면 그룹에서 사용자를 추가하거나 제거할 때 Data Lake Storage Gen1을 업데이트할 필요가 없습니다. 이렇게 하면 [32개의 액세스 및 기본 ACL](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) 제한을 초과하지 않는 데 도움이 됩니다(여기에는 항상 모든 파일 및 폴더과 연결된 4개의 POSIX 스타일 ACL, 즉 [소유 사용자](data-lake-store-access-control.md#the-owning-user), [소유 그룹](data-lake-store-access-control.md#the-owning-group), [마스크](data-lake-store-access-control.md#the-mask) 및 기타가 포함됨).
 
 ### <a name="security-for-groups"></a>그룹에 대한 보안
 
@@ -47,7 +47,7 @@ Azure Active Directory 서비스 사용자는 일반적으로 Azure HDInsight와
 
 Data Lake Storage Gen1은 방화벽을 설정하고 액세스를 Azure 서비스만으로 제한하는 옵션을 지원합니다. 이 옵션은 외부 침입으로 인한 공격 벡터가 더 작은 경우에 사용하는 것이 좋습니다. Azure Portal의 **방화벽** > **방화벽 사용(켜기)**  > **Azure 서비스에 대한 액세스 허용** 옵션을 통해 Data Lake Storage Gen1 계정에서 방화벽을 사용하도록 설정할 수 있습니다.
 
-![Data Lake Storage Gen1의 방화벽 설정](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Data Lake Storage Gen1의 방화벽 설정")
+![Data Lake Storage Gen1 방화벽 설정](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Data Lake Storage Gen1 방화벽 설정")
 
 방화벽을 사용하도록 설정하면 HDInsight, Data Factory, SQL Data Warehouse 등과 같은 Azure 서비스만 Data Lake Storage Gen1에 액세스할 수 있습니다. Azure에서 사용하는 내부 네트워크 주소 변환으로 인해 Data Lake Storage Gen1 방화벽에서는 IP를 통해 특정 서비스를 제한할 수 없으며, 온-프레미스와 같은 Azure 외부 엔드포인트에 대한 제한에만 사용됩니다.
 
@@ -101,10 +101,10 @@ Data Lake Storage Gen1을 사용하여 데이터를 복원하는 경우 HA/DR �
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**크기 조정 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
-|**델타 복사 지원**     |   예      | 아니오         | 아닙니다.         |
+|**델타 복사 지원**     |   예      | 아닙니다.         | 아닙니다.         |
 |**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | 예        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
 |**지원되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
-|**OS 지원**     |Hadoop을 실행하는 모든 OS         | N/A          | 윈도우 10         |
+|**OS 지원**     |Hadoop을 실행하는 모든 OS         | N/A          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>두 위치 간 데이터 이동에 Distcp 사용
 
@@ -140,7 +140,7 @@ Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight�
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-속성이 설정되고 노드가 다시 시작되면 Data Lake Storage Gen1 진단이 노드의 YARN 로그(/tmp/\<user\>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. Azure Monitor 로그 또는 로그에 전달 되는 위치에서이 동일한 정보를 모니터링할 수도 있습니다는 [진단](data-lake-store-diagnostic-logs.md) 데이터 레이크 저장소 Gen1 계정 블레이드입니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Storage Gen1을 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
+속성이 설정되고 노드가 다시 시작되면 Data Lake Storage Gen1 진단이 노드의 YARN 로그(/tmp/\<user\>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 정보는 Azure Monitor 로그 나 로그가 Data Lake Storage Gen1 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에 전달 되는 위치 에서도 모니터링할 수 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Storage Gen1을 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
 
 ### <a name="run-synthetic-transactions"></a>가상 트랜잭션 실행
 

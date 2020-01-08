@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 17ba06d6ac09f220b4343092292275a1cc315377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489209"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494513"
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -32,14 +32,14 @@ ms.locfileid: "73489209"
 
 종속성 시각화를 배포 하기 위한 두 가지 옵션이 있습니다.
 
-- **에이전트 없는 종속성 시각화**:이 옵션은 현재 미리 보기 상태입니다. 컴퓨터에 에이전트를 설치 하지 않아도 됩니다. 
-    - 사용 하도록 설정 된 컴퓨터에서 TCP 연결 데이터를 캡처하여 작동 합니다. [자세히 알아봅니다](how-to-create-group-machine-dependencies-agentless.md).
+- **에이전트 없는 종속성 시각화**:이 옵션은 현재 미리 보기 상태 이며 VMware vm에 대해서만 사용할 수 있습니다. 컴퓨터에 에이전트를 설치 하지 않아도 됩니다. 
+    - 사용 하도록 설정 된 컴퓨터에서 TCP 연결 데이터를 캡처하여 작동 합니다. [자세히 알아보기](how-to-create-group-machine-dependencies-agentless.md).
 종속성 검색을 시작한 후에는 기기가 5 분의 폴링 간격으로 컴퓨터에서 데이터를 수집 합니다.
     - 수집 되는 데이터는 다음과 같습니다.
         - TCP 연결
         - 활성 연결이 있는 프로세스의 이름
         - 위의 프로세스를 실행 하는 설치 된 응용 프로그램의 이름
-        - 아니요. 모든 폴링 간격에서 감지 된 연결
+        - 아닙니다. 모든 폴링 간격에서 감지 된 연결
 - **에이전트 기반 종속성 시각화**: 에이전트 기반 종속성 시각화를 사용 하려면 분석 하려는 각 온-프레미스 컴퓨터에 다음 에이전트를 다운로드 하 여 설치 해야 합니다.  
     - 각 머신에 [MMA(Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)를 설치해야 합니다. MMA 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) .
     - 각 머신에 [종속성 에이전트](../azure-monitor/platform/agents-overview.md#dependency-agent)를 설치해야 합니다. 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) .
@@ -54,9 +54,9 @@ ms.locfileid: "73489209"
 도구를 추가 하 고 [hyper-v](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md)또는 물리적 서버용 어플라이언스를 배포 하는 방법에 [대해 자세히 알아보세요](how-to-assess.md) .
 
 
-### <a name="how-does-it-work"></a>작동 원리
+### <a name="how-does-it-work"></a>작동 방식
 
-Azure Migrate는 종속성 시각화를 위해 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 의 [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) 솔루션을 사용 합니다.
+Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../operations-management-suite/operations-management-suite-service-map.md)의 [서비스 맵](../log-analytics/log-analytics-overview.md) 솔루션을 사용합니다.
 
 - 종속성 시각화를 활용 하려면 Log Analytics 작업 영역 (신규 또는 기존)을 Azure Migrate 프로젝트와 연결 해야 합니다.
 - 작업 영역은 Azure Migrate 프로젝트를 만들 때와 동일한 구독에 있어야 합니다.

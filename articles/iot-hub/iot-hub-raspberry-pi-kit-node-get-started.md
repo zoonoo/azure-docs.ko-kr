@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457105"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -43,7 +43,7 @@ ms.locfileid: "73954553"
 
 * Pi에서 샘플 애플리케이션을 실행하여 센서 데이터를 수집하는 방법.
 
-* IoT Hub로 센서 데이터를 보내는 방법
+* IoT Hub로 센서 데이터를 보내는 방법.
 
 ## <a name="what-you-need"></a>필요한 항목
 
@@ -51,7 +51,7 @@ ms.locfileid: "73954553"
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 
@@ -104,9 +104,9 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
    b. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
 
-   c. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
+   다. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
 
-   ㄹ. Flash를 클릭하여 microSD 카드에 Raspbian을 설치합니다.
+   d. Flash를 클릭하여 microSD 카드에 Raspbian을 설치합니다.
 
    e. 설치가 완료되면 컴퓨터에서 microSD 카드를 제거합니다. 완료되면 Etcher가 microSD 카드를 자동으로 배출하거나 탑재를 해제하므로 microSD 카드를 바로 제거하는 것이 안전합니다.
 
@@ -148,7 +148,7 @@ BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 디�
 | LED VDD(18F 핀)        | GPIO 24(18 핀)       | 흰색 케이블   |
 | LED GND(17F 핀)        | GND(20 핀)           | 검은색 케이블   |
 
-참조용으로 [Raspberry Pi 2 및 3 핀 매핑](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)을 보려면 클릭하세요.
+참조용으로 [Raspberry Pi 2 및 3 핀 매핑](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi)을 보려면 클릭하세요.
 
 BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 보여야 합니다.
 

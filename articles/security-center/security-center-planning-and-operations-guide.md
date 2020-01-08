@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462462"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 IT (정보 기술) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자가 Azure Security Center 사용을 계획 하는 데 사용 됩니다.
@@ -27,7 +27,7 @@ ms.locfileid: "71996626"
 * 데이터 수집 및 스토리지
 * 진행 중인 비 Azure 리소스
 * 지속적인 보안 모니터링
-* 사고 대응
+* 인시던트 응답
 
 다음 섹션에서는 요구 사항에 따라 이러한 각각의 영역을 계획하고 권장 사항을 적용하는 방법에 대해 학습합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "71996626"
 
 ![역할](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예:
 
 **Jeff(워크로드 소유자)**
 
@@ -82,6 +82,10 @@ Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공
 **Jeff(워크로드 소유자)**
 
 * 리소스 그룹 소유자/기여자
+
+**Ellen(CISO/CIO)**
+
+* 구독 소유자/기여자 또는 보안 관리자
 
 **David(IT 보안)**
 
@@ -168,7 +172,7 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
 Security Center 개요는 모든 Azure 리소스 및 연결된 모든 비 Azure 리소스에 대한 보안의 통합된 보기를 제공합니다. 다음 예제에서는 많은 문제를 해결해야 하는 환경을 보여줍니다.
 
-![대시보드](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
+![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Security Center는 일반 작동 프로시저를 방해하지 않으면서 배포를 소극적으로 모니터링하고 사용자가 설정한 보안 정책에 따라 권장 사항을 제공합니다.
@@ -195,7 +199,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 또한 보안 위험을 생성 하 고, 권장 되는 기준에서 드리프트 하 고, 보안 경고를 발생 시킬 수 있는 구성 변경에 대 한 기존 리소스도 정기적으로 모니터링 해야 합니다. 보안 센터 대시보드에서 시작합니다. 여기에서 일관 된 기준으로 검토할 세 가지 주요 영역이 있습니다.
 
-![작업](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
+![운영](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. **방지** 섹션 패널은 주요 리소스에 대한 신속한 액세스를 제공합니다. 이 옵션을 사용하여 Compute, 네트워킹, Storage와 데이터 및 애플리케이션을 모니터링합니다.
 2. **권장 사항** 패널에서 Security Center 권장 사항을 검토할 수 있습니다. 진행 중인 모니터링을 수행 하는 동안에는 매일 권장 사항이 없다는 것을 알 수 있습니다. 초기 Security Center 설정에 대 한 모든 권장 사항을 해결 했기 때문에 정상입니다. 따라서 매일 이 섹션에 새 정보가 있는 것은 아니며 필요에 따라 액세스하면 됩니다.
@@ -229,7 +233,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 다음 예제에서는 미심쩍은 RDP 활동이 발생하고 있음을 보여줍니다.
 
-![의심스러운 활동](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
+![의심되는 활동](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
 이 페이지에서는 공격 발생 시간, 소스 호스트 이름, 대상 VM과 관련한 자세한 내용을 표시하며 권장 단계를 제공합니다. 경우에 따라 공격의 원본 정보가 비어 있을 수 있습니다. 이러한 동작 유형에 대한 자세한 내용은 [Azure Security Center 경고에 누락된 원본 정보](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) 를 참고하세요.
 
@@ -249,6 +253,6 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

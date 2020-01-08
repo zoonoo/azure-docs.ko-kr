@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 클러스터에서 EventStore API를 사용하여 클러스터 이벤트 쿼리 | Microsoft Docs
+title: EventStore Api를 사용 하 여 클러스터 이벤트 쿼리
 description: Azure Service Fabric EventStore API를 사용하여 플랫폼 이벤트를 쿼리하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: facbcd6def7451ca83bdf00fe9b7c7cac2c74945
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392877"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614403"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>EventStore API를 통한 클러스터 이벤트 쿼리
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 52f8dbfc8665fce832eaa60e204273368ae7485d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b17a126ac870e96c79c4c391f5f8381ce70f8d41
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462298"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure에서 Windows 가상 머신에 태그를 지정하는 방법
 이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Windows 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다. Linux 가상 머신에 태그를 지정하려는 경우 [Azure에서 Linux 가상 머신에 태그를 지정하는 방법](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
@@ -46,7 +46,7 @@ Virtual Machine에 이미 태그가 포함되어 있는 경우 해당 리소스�
 
 PowerShell을 통해 태그를 추가하려는 경우 `Set-AzResource` 명령을 사용할 수 있습니다. PowerShell을 통해 태그를 업데이트하는 경우 태그가 전체적으로 업데이트됩니다. 따라서 이미 태그가 있는 리소스에 하나의 태그를 추가하는 경우 리소스에 배치하려는 모든 태그를 포함해야 합니다. 다음은 PowerShell Cmdlet을 통해 리소스에 태그를 더 추가하는 방법의 예입니다.
 
-첫 번째 cmdlet은 *및* 속성을 사용하여 *MyTestVM*에 배치된 모든 태그를 `Get-AzResource`$tags`Tags` 변수로 설정합니다.
+첫 번째 cmdlet은 `Get-AzResource` 및 `Tags` 속성을 사용하여 *MyTestVM*에 배치된 모든 태그를 *$tags* 변수로 설정합니다.
 
         PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -95,7 +95,7 @@ PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/
-[Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
+[Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md

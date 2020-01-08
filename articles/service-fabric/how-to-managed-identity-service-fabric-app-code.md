@@ -1,19 +1,14 @@
 ---
-title: Azure Service Fabric-Service Fabric 응용 프로그램에서 관리 id 사용 | Microsoft Docs
-description: Service Fabric 응용 프로그램 코드에서 관리 id를 사용 하는 방법
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 응용 프로그램에서 관리 id 사용
+description: Azure Service Fabric 응용 프로그램 코드에서 관리 되는 id를 사용 하 여 Azure 서비스에 액세스 하는 방법입니다. 이 기능은 공개 미리 보기 상태입니다.
 ms.topic: article
-ms.date: 7/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6a3d33954bda0605e752555922914a9fd432d8c1
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.date: 10/09/2019
+ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968231"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610321"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법 (미리 보기)
 
@@ -33,15 +28,15 @@ Service Fabric 응용 프로그램은 관리 되는 id를 활용 하 여 Azure A
 - ' MSI_SECRET ': 불투명 문자열 이며 현재 노드의 서비스를 고유 하 게 나타내는 인증 코드입니다.
 
 > [!NOTE]
-> ' MSI_ENDPOINT ' 및 ' MSI_SECRET ' 이름은 이전에 관리 되는 id ("관리 서비스 ID")를 참조 하며,이는 이제 사용 되지 않습니다. 이 이름은 관리 되는 id를 지 원하는 다른 Azure 서비스에서 사용 하는 동일한 환경 변수 이름과도 일치 합니다.
+> ' MSI_ENDPOINT ' 및 ' MSI_SECRET ' 이름은 이전에 관리 되는 id ("관리 서비스 ID")를 지정 하며,이는 이제 사용 되지 않습니다. 이 이름은 관리 되는 id를 지 원하는 다른 Azure 서비스에서 사용 하는 동일한 환경 변수 이름과도 일치 합니다.
 
 > [!IMPORTANT]
-> 응용 프로그램 코드는 ' MSI_SECRET ' 환경 변수 값을 중요 한 데이터로 간주 해야 합니다 .이 변수는 로깅되지 않으며 그렇지 않으면 disseminated 합니다. 인증 코드에는 로컬 노드 외부의 값이 없지만 서비스를 호스팅하는 프로세스는 종료 된 후에는 Service Fabric 서비스의 id를 나타내므로 액세스 토큰 자체와 동일한 예방 조치를 사용 하 여 처리 해야 합니다.
+> 응용 프로그램 코드는 ' MSI_SECRET ' 환경 변수의 값을 중요 한 데이터로 간주 해야 합니다 .이는 로깅되지 않으며 그렇지 않은 경우에는 disseminated 합니다. 인증 코드에는 로컬 노드 외부의 값이 없지만 서비스를 호스팅하는 프로세스는 종료 된 후에는 Service Fabric 서비스의 id를 나타내므로 액세스 토큰 자체와 동일한 예방 조치를 사용 하 여 처리 해야 합니다.
 
 클라이언트는 토큰을 가져오기 위해 다음 단계를 수행 합니다.
 - 관리 되는 id 끝점 (MSI_ENDPOINT 값)을 API 버전 및 토큰에 필요한 리소스 (대상 사용자)와 연결 하 여 URI를 형성 합니다.
 - 지정 된 URI에 대 한 GET http 요청을 만듭니다.
-- 요청에 인증 코드 (MSI_SECRET value)를 헤더로 추가 합니다.
+- 요청에 인증 코드 (MSI_SECRET 값)를 헤더로 추가 합니다.
 - 요청을 제출 합니다.
 
 성공적인 응답에는 결과 액세스 토큰을 나타내는 JSON 페이로드 뿐만 아니라이를 설명 하는 메타 데이터가 포함 됩니다. 실패 한 응답에도 오류에 대 한 설명이 포함 됩니다. 오류 처리에 대 한 자세한 내용은 아래를 참조 하세요.
@@ -55,12 +50,12 @@ GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01
 ```
 각 항목이 나타내는 의미는 다음과 같습니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
-| `http://localhost:2377/metadata/identity/oauth2/token` | MSI_ENDPOINT 환경 변수를 통해 제공 되는 Service Fabric 응용 프로그램에 대 한 관리 되는 id 끝점입니다. |
-| `api-version` | 관리 되는 Id 토큰 서비스의 API 버전을 지정 하는 쿼리 문자열 매개 변수 현재 유일 하 게 허용 되 `2019-07-01-preview`는 값은 이며 변경 될 수 있습니다. |
-| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 발급 된 토큰의 `aud` (대상) 클레임으로 반영 됩니다. 이 예제에서는 앱 ID URI가 https:\//keyvault.azure.com/인 Azure Key Vault에 액세스 하는 토큰을 요청 합니다. |
+| `http://localhost:2377/metadata/identity/oauth2/token` | MSI_ENDPOINT 환경 변수를 통해 제공 되는 Service Fabric 응용 프로그램에 대 한 관리 id 끝점입니다. |
+| `api-version` | 관리 되는 Id 토큰 서비스의 API 버전을 지정 하는 쿼리 문자열 매개 변수 현재 유일 하 게 허용 되는 값은 `2019-07-01-preview`이며 변경 될 수 있습니다. |
+| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 발급 된 토큰의 `aud` (대상) 클레임으로 반영 됩니다. 이 예제에서는 앱 ID URI가 https:\//keyvault.azure.com/인 Azure Key Vault에 액세스 하기 위한 토큰을 요청 합니다. |
 | `Secret` | Service Fabric 서비스가 호출자를 인증 하기 위해 관리 되는 Service Fabric Id 토큰 서비스에서 요구 하는 HTTP 요청 헤더 필드입니다. 이 값은 MSI_SECRET 환경 변수를 통해 SF 런타임에서 제공 됩니다. |
 
 
@@ -77,12 +72,12 @@ Content-Type: application/json
 ```
 각 항목이 나타내는 의미는 다음과 같습니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | `token_type` | 토큰 형식입니다. 이 경우이 토큰의 프레 젠 터 (' 전달자 ')가 토큰의 의도 한 주체 임을 의미 하는 "전달자" 액세스 토큰입니다. |
 | `access_token` | 요청된 액세스 토큰입니다. 보안이 설정된 REST API를 호출할 때 토큰은 호출자를 인증하는 API를 허용하는 "전달자" 토큰으로 `Authorization` 요청 헤더 필드에 포함됩니다. | 
-| `expires_on` | 액세스 토큰이 만료 되는 타임 스탬프입니다. "1970-01-01t0:0: 0z UTC"의 초 수로 표시 되 고 토큰의 `exp` 클레임에 해당 합니다. 이 경우, 토큰은 2019-08-08T06:10:11 + 00:00 (RFC 3339)에 만료 됩니다.|
-| `resource` | 요청에 대 한 `resource` 쿼리 문자열 매개 변수를 통해 지정 된 액세스 토큰을 발급 한 리소스 이며, 토큰의 ' aud ' 클레임에 해당 합니다. |
+| `expires_on` | 액세스 토큰이 만료 되는 타임 스탬프입니다. "1970-01-01T0:0: 0Z UTC"의 초 수로 표시 되며 토큰의 `exp` 클레임에 해당 합니다. 이 경우, 토큰은 2019-08-08T06:10:11 + 00:00 (RFC 3339)에 만료 됩니다.|
+| `resource` | 요청에 대 한 `resource` 쿼리 문자열 매개 변수를 통해 지정 된 액세스 토큰을 발급 한 리소스입니다. 토큰의 ' aud ' 클레임에 해당 합니다. |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>을 사용 하 여 액세스 토큰 가져오기C#
@@ -328,9 +323,9 @@ HTTP 응답 헤더의 ' 상태 코드 ' 필드는 요청의 성공 상태를 나
 
 | 요소 | Description |
 | ------- | ----------- |
-| code | 오류 코드입니다. |
+| 코드 | 오류 코드 |
 | correlationId | 디버깅에 사용할 수 있는 상관 관계 ID입니다. |
-| message | 오류의 자세한 설명입니다. **오류 설명은 언제든지 변경할 수 있습니다. 오류 메시지 자체에 의존 하지 않습니다.**|
+| message | 오류의 자세한 설명입니다. **오류 설명은 언제 든 지 변경 될 수 있습니다. 오류 메시지 자체에 의존 하지 않습니다.**|
 
 샘플 오류:
 ```json
@@ -351,7 +346,7 @@ HTTP 응답 헤더의 ' 상태 코드 ' 필드는 요청의 성공 상태를 나
 
 일반적으로 다시 시도할 수 있는 오류 코드는 429 (너무 많은 요청)입니다. 내부 서버 오류/5xx 오류 코드는 다시 시도할 수 있지만 원인은 영구적 일 수 있습니다. 
 
-제한 제한은 관리 id 하위 시스템에 대 한 호출 수 (특히 ' 업스트림 ' 종속성 (관리 Id Azure 서비스 또는 보안 토큰 서비스)에 적용 됩니다. Service Fabric는 파이프라인의 다양 한 수준에서 토큰을 캐시 하지만 관련 된 구성 요소의 분산 특성을 제공 하는 경우 호출자는 응용 프로그램의 한 노드/인스턴스를 제한 하지만 동일한 id에 대 한 토큰을 요청 하는 동안 다른 노드입니다. 조정 조건이 설정 되 면 조건을 지울 때까지 동일한 응용 프로그램의 후속 요청이 HTTP 상태 코드 429 (너무 많은 요청)로 실패할 수 있습니다.  
+제한 제한은 관리 id 하위 시스템에 대 한 호출 수 (특히 ' 업스트림 ' 종속성 (관리 Id Azure 서비스 또는 보안 토큰 서비스)에 적용 됩니다. Service Fabric는 파이프라인의 다양 한 수준에서 토큰을 캐시 하지만 관련 된 구성 요소의 분산 특성을 제공 하는 경우 호출자는 일관성 없는 제한 응답을 경험할 수 있습니다 (즉, 응용 프로그램의 한 노드/인스턴스는 제한 되지만 동일한 id에 대 한 토큰을 요청 하는 동안 다른 노드에서는 제한 됨). 조정 조건이 설정 되 면 조건을 지울 때까지 동일한 응용 프로그램의 후속 요청이 HTTP 상태 코드 429 (너무 많은 요청)로 실패할 수 있습니다.  
 
 다음과 같이 지 수 백오프를 사용 하 여 제한으로 인해 실패 한 요청을 다시 시도 하는 것이 좋습니다. 
 

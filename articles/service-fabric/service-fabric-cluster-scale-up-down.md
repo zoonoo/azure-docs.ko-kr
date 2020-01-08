@@ -1,25 +1,14 @@
 ---
-title: Service Fabric 클러스터 규모 조정 | Microsoft Docs
+title: Service Fabric 클러스터 확장 또는 축소
 description: 각 노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙을 설정 하 여 수요에 맞게 Service Fabric 클러스터의 크기를 조정 합니다. 서비스 패브릭 클러스터에 노드 추가 또는 제거
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: b1b3c0e6440212474bf356d4204c0dd91c1491fa
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ef7d4c3d3d48bed790851834d848f05060243636
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451951"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>클러스터 규모 확장 또는 규모 감축
 

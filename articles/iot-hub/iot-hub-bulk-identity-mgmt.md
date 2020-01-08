@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809190"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429248"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 id 가져오기 및 내보내기
 
@@ -91,7 +91,7 @@ while(true)
 
 ## <a name="export-devices"></a>내보내기 디바이스
 
-**ExportDevicesAsync** 메서드를 사용하여 [공유 액세스 서명](../storage/index.yml)을 사용하는 [Azure Storage](../storage/common/storage-security-guide.md#authorization) Blob 컨테이너에 전체 IoT Hub ID 레지스트리를 내보냅니다.
+**ExportDevicesAsync** 메서드를 사용 하 여 SAS (공유 액세스 서명)를 사용 하 여 Azure Storage blob 컨테이너로 전체 IoT hub id 레지스트리를 내보낼 수 있습니다. 공유 액세스 서명에 대 한 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조 하세요.
 
 이 메서드를 사용하면 사용자가 제어하는 blob 컨테이너에 디바이스 정보의 신뢰할 수 있는 백업을 만들 수 있습니다.
 
@@ -257,7 +257,7 @@ JobProperties importJob =
 
 각 디바이스에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 디바이스별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
-| importMode | 설명 |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **create** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443874"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -48,7 +48,7 @@ IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데�
 
 Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계없이 모든 Azure Backup 구성 요소는 Azure에서 Azure Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다.
 
-자세한 내용은 [Azure Backup 구성 요소 표](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use)를 참조하세요.
+자세한 내용은 [Azure Backup 구성 요소 표](/azure/backup/backup-overview#what-can-i-back-up)를 참조하세요.
 
 ### <a name="site-recovery"></a>Site Recovery
 
@@ -64,7 +64,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 
 또한 Azure AD에는 다음을 비롯해 전체 [ID 관리 기능](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)이 포함되어 있습니다.
 
-- [Multi-Factor Authentication](/azure/multi-factor-authentication/multi-factor-authentication)
+- [다단계 인증](/azure/multi-factor-authentication/multi-factor-authentication)
 - [셀프 서비스 암호 관리](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [셀프 서비스 그룹 관리](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [권한 있는 계정 관리](/azure/active-directory/active-directory-privileged-identity-management-configure)
@@ -166,7 +166,7 @@ Blueprints는 다음과 같은 다양한 리소스 템플릿 및 기타 아티�
 
 - 역할 할당
 - 정책 할당
-- Azure 리소스 관리자 템플릿
+- Azure Resource Manager 템플릿
 - 리소스 그룹
 
 ## <a name="devops"></a>DevOps

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 5d55aafc29b3b022d1023077d2d8f459b0608ae7
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 6f72371077aab813cc22c9bbbe755fdfaa9ac00a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555653"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433831"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
@@ -80,7 +80,7 @@ HR 중심 IT 프로 비전의이 기능은 아래 나열 된 것 처럼 상당�
 
 또한 클라우드 HR 앱에서 소스인 AD 또는 Azure AD로 프로 비전 되는 모든 사용자에 대해 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요 합니다. 클라우드 HR 앱에서 소유 하 고 있는 라이선스 수가 잘못 된 경우 사용자 프로 비전 중에 오류가 발생할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 - Azure AD 전역 관리자 액세스를 사용 하 여 Azure AD Connect 프로 비전 에이전트를 구성 합니다.
 - 클라우드 HR 앱의 테스트 및 프로덕션 인스턴스입니다.
@@ -92,11 +92,11 @@ HR 중심 IT 프로 비전의이 기능은 아래 나열 된 것 처럼 상당�
 
 | **리소스** | **링크 및 설명** |
 |:-|:-|
-| 동영상 | [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) |
+| 비디오 | [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) |
 | | [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) |
 | 자습서 | [SaaS 앱을 AZURE AD와 통합 하는 방법에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 을 참조 하세요. |
 | | [자습서: 자동 사용자 프로 비전을 위한 Workday 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| FAQ | [자동화 된 사용자 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#frequently-asked-questions) |
+| FAQ | [자동화 된 사용자 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Workday에서 Azure AD로 프로 비전](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처
@@ -178,7 +178,7 @@ Azure AD Connect 프로 비전 에이전트 배포 토폴로지는 통합 하려
 
 다음 프로덕션 구성을 권장 합니다.
 
-|요구 사항|권장 사항|
+|요구 사항|권장|
 |:-|:-|
 |배포할 Azure AD Connect 프로 비전 에이전트 수|2 (고가용성 및 장애 조치 (failover))
 |구성할 프로 비전 커넥터 앱 수|자식 도메인당 하나의 앱|
@@ -192,7 +192,7 @@ Azure AD Connect 프로 비전 에이전트 배포 토폴로지는 통합 하려
 
 다음 프로덕션 구성을 권장 합니다.
 
-|요구 사항|권장 사항|
+|요구 사항|권장|
 |:-|:-|
 |온-프레미스로 배포할 Azure AD Connect 프로 비전 에이전트 수|분리형 AD 포리스트 당 2|
 |구성할 프로 비전 커넥터 앱 수|자식 도메인당 하나의 앱|
@@ -319,14 +319,14 @@ SSPR는 IT 관리자가 사용자가 암호를 재설정 하거나 계정의 잠
 
 ## <a name="plan-for-initial-cycle"></a>초기 주기 계획
 
-Azure AD 프로 비전 서비스를 처음 실행 하는 경우 클라우드 HR 앱에 대 한 [초기 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) 를 수행 하 여 cloud hr 앱에 모든 사용자 개체의 스냅숏을 만듭니다. 초기 주기에 소요 되는 시간은 원본 시스템에 있는 사용자 수에 직접적으로 종속 됩니다. 10만 명의 사용자가 있는 일부 클라우드 HR 앱 테 넌 트의 초기 주기는 오랜 시간이 걸릴 수 있습니다.
+Azure AD 프로 비전 서비스를 처음 실행 하는 경우 클라우드 HR 앱에 대 한 [초기 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) 를 수행 하 여 cloud hr 앱에 모든 사용자 개체의 스냅숏을 만듭니다. 초기 주기에 소요 되는 시간은 원본 시스템에 있는 사용자 수에 직접적으로 종속 됩니다. 10만 명의 사용자가 있는 일부 클라우드 HR 앱 테 넌 트의 초기 주기는 오랜 시간이 걸릴 수 있습니다.
 
 **대량 클라우드 HR 앱 테 넌 트 (> 3만 사용자)의 경우,** 다른 사용자 프로 비전 시나리오에 대 한 올바른 특성이 AD에 설정 되어 있는지 확인 한 후에만 점진적 단계에서 초기 주기를 실행 하 고 증분 업데이트를 실행 하는 것이 좋습니다. 다음 순서를 따르세요.
 
 1. [범위 지정 필터](#plan-scoping-filters-and-attribute-mapping)를 설정 하 여 제한 된 사용자 집합에 대해서만 초기 주기를 실행 합니다.
 2. 첫 번째 실행에 대해 선택한 사용자에 대해 AD 계정 프로 비전 및 특성 값이 설정 되었는지 확인 합니다. 결과가 예상과 일치 하는 경우 범위 지정 필터를 확장 하 여 더 많은 사용자를 점차적으로 포함 하 고 두 번째 실행에 대 한 결과를 확인 합니다.
 
-테스트 사용자에 대 한 초기 주기의 결과가 만족 스 러 우면 [증분 업데이트](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#incremental-cycles)를 시작할 수 있습니다.
+테스트 사용자에 대 한 초기 주기의 결과가 만족 스 러 우면 [증분 업데이트](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles)를 시작할 수 있습니다.
 
 ## <a name="plan-testing-and-security"></a>테스트 및 보안 계획
 
@@ -358,7 +358,7 @@ Azure AD 프로 비전 서비스를 처음 실행 하는 경우 클라우드 HR 
 
 클라우드 HR 사용자 프로 비전 구현이 프로덕션 환경에서 원하는 대로 작동 하지 않을 경우 다음 롤백 단계를 통해 이전에 알려진 양호한 상태로 되돌리는 데 도움이 될 수 있습니다.
 
-1. [프로 비전 요약 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#getting-provisioning-reports-from-the-azure-management-portal) 및 [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#provisioning-audit-logs) 를 검토 하 여 영향을 받는 사용자 및/또는 그룹에 대해 잘못 된 작업이 수행 된 것을 확인 합니다 ( [클라우드 HR 앱 사용자 프로 비전 관리](#manage-your-configuration)참조).
+1. [프로 비전 요약 보고서](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) 및 [프로 비전 로그](check-status-user-account-provisioning.md#provisioning-logs-preview) 를 검토 하 여 영향을 받는 사용자 및/또는 그룹에 대해 잘못 된 작업이 수행 된 것을 확인 합니다 ( [클라우드 HR 앱 사용자 프로 비전 관리](#manage-your-configuration)참조).
 2. 영향을 받는 사용자 및/또는 그룹의 마지막 정상 상태는 프로 비전 감사 로그를 통해 확인 하거나 대상 시스템 (Azure AD 또는 AD)을 검토 하 여 확인할 수 있습니다.
 3. 앱 소유자와 협력 하 여 마지막으로 알려진 양호한 상태 값을 사용 하 여 앱에서 직접 영향을 받는 사용자 및/또는 그룹을 업데이트 합니다.
 
@@ -374,7 +374,7 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 ### <a name="gain-insights-from-reports-and-logs"></a>보고서 및 로그에서 정보 얻기
 
-성공적인 [초기 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning)후에 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 앱에 대 한 자습서에 정의 된 간격에 따라 계속 백 엔드 증분 업데이트를 무기한으로 실행 합니다.
+성공적인 [초기 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle)후에 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 앱에 대 한 자습서에 정의 된 간격에 따라 계속 백 엔드 증분 업데이트를 무기한으로 실행 합니다.
 
 - 서비스를 수동으로 중지 하 고 [Azure Portal](https://portal.azure.com/) 를 사용 하거나 적절 한 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) 명령을 사용 하 여 새 초기 주기를 트리거 했습니다.
 - 특성 매핑 또는 범위 지정 필터의 변경으로 인해 새 초기 순환이 트리거됩니다.

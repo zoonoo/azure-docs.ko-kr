@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71203681"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454202"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 사용
 
 이 문서에서는 응용 프로그램을 등록 하는 방법과 OPC UA 장치에 대해 서명 된 응용 프로그램 인증서를 발급 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="deploy-the-certificate-management-service"></a>인증서 관리 서비스 배포
 
@@ -36,7 +36,7 @@ ms.locfileid: "71203681"
 > [!IMPORTANT]
 > 응용 프로그램을 등록 하려면 기록기 역할이 필요 합니다.
 
-1. @No__t_0에서 인증서 서비스를 열고 로그인 합니다.
+1. `https://myResourceGroup-app.azurewebsites.net`에서 인증서 서비스를 열고 로그인 합니다.
 2. **등록 새로 만들기**로 이동 합니다. 응용 프로그램 등록의 경우 사용자에 게 적어도 작성자 역할을 할당 해야 합니다.
 2. 항목 양식은 OPC UA의 명명 규칙을 따릅니다. 예를 들어 다음 스크린샷에서 OPC UA .NET Standard 스택의 [OPC Ua 참조 서버](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) 샘플에 대 한 설정이 표시 됩니다.
 
@@ -98,7 +98,7 @@ CSR (인증서 서명 요청)을 기반으로 서명 된 인증서를 발급 하
 
 이제 OPC UA 장치에 따라 새 인증서를 적용 하는 방법을 결정 합니다. 일반적으로 CA 인증서 및 CRL은 `trusted` 폴더에 복사 되 고 응용 프로그램 인증서는 인증서 저장소의 `own` 폴더에 적용 됩니다. 일부 장치는 인증서 업데이트를 위해 서버 푸시를 이미 지원할 수 있습니다. OPC UA 장치의 설명서를 참조 하세요.
 
-### <a name="step-4-device-secured"></a>4 단계: 장치 보안
+### <a name="step-3-device-secured"></a>3 단계: 장치 보안
 
 이제 OPC UA 장치는 추가 구성 없이 CA 서명 된 인증서로 보호 되는 다른 OPC UA 장치와 통신할 준비가 되었습니다.
 

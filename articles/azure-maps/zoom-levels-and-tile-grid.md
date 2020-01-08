@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6dced7106b59f0e5a05c7ed6ff3e3368978cb083
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407580"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 
-Mercator (구형 프로젝션 좌표계)를 사용할 Azure Maps. 3857). 프로젝션은 구형을 플랫 맵으로 변환 하는 데 사용 되는 수치 모델입니다. 구면 Mercator 프로젝션은 사각형 지도를 만들기 위해 극 지방에서 지도를 확장 합니다. 이렇게 하면 지도의 크기와 영역이 현저 하 게 왜곡 되지만이 왜곡 보다 중요 한 두 가지 중요 한 속성이 있습니다.
+Azure Maps에서는 구면 메르카토르 도법 구면좌표계를 사용합니다(EPSG: 3857). 프로젝션은 구형을 플랫 맵으로 변환 하는 데 사용 되는 수치 모델입니다. 구면 Mercator 프로젝션은 사각형 지도를 만들기 위해 극 지방에서 지도를 확장 합니다. 이렇게 하면 지도의 크기와 영역이 현저 하 게 왜곡 되지만이 왜곡 보다 중요 한 두 가지 중요 한 속성이 있습니다.
 
 - 이는 상대적으로 작은 개체의 모양을 유지 하는 conformal 프로젝션입니다. 이는 건물의 모양을 왜곡 하지 않도록 하기 위해 항공 이미지를 표시할 때 특히 중요 합니다. 정사각형 빌딩은 사각형이 아닌 사각형을 표시 해야 합니다.
 - 이는 원통형 프로젝션입니다. 즉, 북부 및 남부은 항상 수직 및 하향이 고 서 부 및 동부는 항상 바로 왼쪽 및 오른쪽입니다. 
@@ -78,11 +78,11 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-각 확대/축소 수준에서 지도 너비와 높이가 다르기 때문에 픽셀 좌표가 됩니다. 맵의 왼쪽 위 모퉁이에 있는 픽셀에는 항상 픽셀 좌표 (0, 0)가 있습니다. 지도의 오른쪽 아래 모퉁이에 있는 픽셀의 픽셀 좌표 *(너비-1, 높이-1)* 또는 이전 섹션의 방정식 *(tileSize \* 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)* 을 참조 합니다. 예를 들어 수준 2에서 512 정사각형 타일을 사용 하는 경우 픽셀 좌표는 (0, 0)에서 (2047, 2047)와 같이 범위를 조정 합니다.
+각 확대/축소 수준에서 지도 너비와 높이가 다르기 때문에 픽셀 좌표가 됩니다. 맵의 왼쪽 위 모퉁이에 있는 픽셀에는 항상 픽셀 좌표 (0, 0)가 있습니다. 지도의 오른쪽 아래 모퉁이에 있는 픽셀의 픽셀 좌표 *(width-1, height-1)* 또는 이전 섹션의 방정식 *(tileSize \* 2<sup>Zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)* 을 참조 합니다. 예를 들어 수준 2에서 512 정사각형 타일을 사용 하는 경우 픽셀 좌표는 (0, 0)에서 (2047, 2047)와 같이 범위를 조정 합니다.
 
 <center>
 
-![픽셀 차원을 표시 하는 맵](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+픽셀 차원을 표시 하는 ![지도](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
 
 지정 된 위도 및 경도 (도) 및 세부 정보 수준에서 픽셀 XY 좌표는 다음과 같이 계산할 수 있습니다.
 
@@ -110,7 +110,7 @@ var numberOfTilesHigh = numberOfTilesWide;
 
 <center>
 
-![타일 좌표의 맵](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+타일 좌표의 ![맵](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
 
 픽셀 XY 좌표 쌍이 지정 된 경우 해당 픽셀이 포함 된 타일의 타일 XY 좌표를 쉽게 확인할 수 있습니다.
 
@@ -126,7 +126,7 @@ var tileY = Math.floor(pixelY / tileSize);
 
 <center>
 
-![데모 배율 확대/축소](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+![확대/축소 데모 크기 조정](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
 
 확대/축소 수준이 결정되면 x 및 y 값을 계산할 수 있습니다. 각 확대/축소 모눈의 왼쪽 위 타일은 x = 0, y = 0;입니다. 오른쪽 아래에 있는 타일은 x = 2<sup>확대/축소-1</sup>, y = 2<sup>확대/축소-1</sup>입니다.
 
@@ -134,16 +134,16 @@ var tileY = Math.floor(pixelY / tileSize);
 
 <center>
 
-![확대/축소 수준 1에 대 한 확대/축소 모눈](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+확대/축소 수준 1에 대 한 확대/축소 그리드 ![](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
 
 ## <a name="quadkey-indices"></a>Quadkey 인덱스
 
-일부 매핑 플랫폼에서는 quadkey 인덱싱 명명 규칙을 사용 합니다 .이 규칙은 타일 ZY 좌표를 quadtree keys 라는 단일 차원 문자열 또는 short의 경우 "quadkeys"로 결합 합니다. 각 quadkey는 특정 수준의 세부 정보에서 단일 타일을 고유 하 게 식별 하며 일반적인 데이터베이스 B-트리 인덱스에서 키로 사용할 수 있습니다. Azure Maps Sdk는 [타일 계층 추가](map-add-tile-layer.md) 문서에 설명 된 대로 다른 명명 규칙 외에도 quadkey 명명 규칙을 사용 하는 타일 계층의 오버레이를 지원 합니다.
+일부 매핑 플랫폼에서는 `quadkey` 인덱싱 명명 규칙을 사용 합니다 .이 규칙은 타일 ZY 좌표를 `quadtree` 키 라고 하는 1 차원 문자열 또는 짧은 `quadkeys` 결합 합니다. 각 `quadkey`는 특정 세부 수준에서 단일 타일을 고유 하 게 식별 하며 일반적인 데이터베이스 B-트리 인덱스에서 키로 사용할 수 있습니다. Azure Maps Sdk는 [타일 계층 추가](map-add-tile-layer.md) 문서에 설명 된 대로 다른 명명 규칙 외에도 `quadkey` 명명 규칙을 사용 하는 타일 계층의 오버레이를 지원 합니다.
 
 > [!NOTE]
-> Quadkeys 명명 규칙은 하나 이상의 확대/축소 수준에 대해서만 작동 합니다. Azure Maps SDK의 지원 확대/축소 수준 0은 전 세계의 단일 지도 타일입니다. 
+> `quadkeys` 명명 규칙은 하나 이상의 확대/축소 수준 에서만 작동 합니다. Azure Maps SDK의 지원 확대/축소 수준 0은 전 세계의 단일 지도 타일입니다. 
 
-타일 좌표를 quadkey 변환 하기 위해 Y 및 X 좌표의 비트는 인터리브 되며 결과는 기본-4 숫자로 해석 되 고 (앞에 오는 0이 유지 됨) 문자열로 변환 됩니다. 예를 들어 수준 3에서 (3, 5)의 타일 XY 좌표가 지정 된 경우 quadkey는 다음과 같이 결정 됩니다.
+타일 좌표를 `quadkey`변환 하기 위해 Y 및 X 좌표의 비트는 인터리브 되며, 결과는 기본-4 숫자로 해석 되 고 (앞에 오는 0이 유지 됨) 문자열로 변환 됩니다. 예를 들어 수준 3에서 (3, 5)의 타일 XY 좌표를 지정 하는 경우 `quadkey`은 다음과 같이 결정 됩니다.
 
 ```
 tileX = 3 = 011 (base 2)
@@ -153,13 +153,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-Quadkeys에는 몇 가지 흥미로운 속성이 있습니다. 먼저 quadkey (자릿수)의 길이는 해당 타일의 확대/축소 수준과 같습니다. 둘째, 모든 타일의 quadkey 부모 타일 (이전 수준의 포함 하는 타일)의 quadkey 시작 됩니다. 아래 예제와 같이 타일 2는 20부터 23까지 타일의 부모입니다.
+`Qquadkeys`에는 여러 가지 흥미로운 속성이 있습니다. 첫째, `quadkey` (자릿수)의 길이는 해당 타일의 확대/축소 수준과 같습니다. 둘째, 모든 타일의 `quadkey` 부모 타일 (이전 수준의 포함 하는 타일)의 `quadkey` 시작 합니다. 아래 예제와 같이 타일 2는 20부터 23까지 타일의 부모입니다.
 
 <center>
 
 ![Quadkey 타일 피라미드](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-마지막으로 quadkeys는 일반적으로 XY 공간에서 타일의 근접성을 유지 하는 1 차원 인덱스 키를 제공 합니다. 즉, 인접 한 XY 좌표가 있는 두 타일에는 일반적으로 서로 가까운 quadkeys 있습니다. 이는 데이터베이스 성능을 최적화 하는 데 중요 합니다. 인접 한 타일은 종종 그룹에서 요청 되므로 디스크 읽기 수를 최소화 하기 위해 이러한 타일을 동일한 디스크 블록에 보관 하는 것이 좋습니다.
+마지막으로, 일반적으로 XY 공간에서 타일의 근접성을 유지 하는 1 차원 인덱스 키를 제공 `quadkeys` 합니다. 즉, XY 좌표가 가까운 두 타일에는 일반적으로 서로 가까운 `quadkeys` 있습니다. 이는 데이터베이스 성능을 최적화 하는 데 중요 합니다. 인접 한 타일은 종종 그룹에서 요청 되므로 디스크 읽기 수를 최소화 하기 위해 이러한 타일을 동일한 디스크 블록에 보관 하는 것이 좋습니다.
 
 ## <a name="tile-math-source-code"></a>수식 소스 코드 바둑판식 배열
 
@@ -422,6 +422,7 @@ namespace AzureMaps
             var sinLatitude = Math.Sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.Log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = MapSize(zoom, tileSize);
             tileX = (int)Math.Floor(Clip(x * mapSize + 0.5, 0, mapSize - 1) / tileSize);
             tileY = (int)Math.Floor(Clip(y * mapSize + 0.5, 0, mapSize - 1) / tileSize);
@@ -802,6 +803,7 @@ module AzureMaps {
             var sinLatitude = Math.sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = this.MapSize(zoom, tileSize);
 
             return {

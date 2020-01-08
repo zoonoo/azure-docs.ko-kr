@@ -1,25 +1,16 @@
 ---
-title: Azure 또는 독립 실행형 클러스터의 .NET Service Fabric 앱에서 로그 이벤트 생성
+title: .NET 앱에서 로그 이벤트 생성
 description: Azure 클러스터 또는 독립 실행형 클러스터에 호스트된 .NET Service Fabric 애플리케이션에 로깅을 추가하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: d1b3dc25dd9bda9d7f9d9152c2a94cea8321f5cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482610"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614369"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 로깅 추가
 

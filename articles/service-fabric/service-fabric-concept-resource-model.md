@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric 응용 프로그램 리소스 모델 | Microsoft Docs
+title: Azure Service Fabric 응용 프로그램 리소스 모델
 description: 이 문서에서는 Azure Resource Manager를 사용 하 여 Azure Service Fabric 응용 프로그램을 관리 하는 개요를 제공 합니다.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.author: atsenthi
-ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b3cf0b8f21565a8d51b16ff6c8b4c52bbfe8edc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752314"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464811"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Service Fabric 응용 프로그램 리소스 모델은 무엇 인가요?
 Service Fabric 응용 프로그램은 Azure Resource Manager를 통해 Service Fabric 클러스터에 배포 하는 것이 좋습니다. 이 방법을 사용 하면 JSON에서 응용 프로그램 및 서비스를 설명 하 고 클러스터와 동일한 리소스 관리자 템플릿에 배포할 수 있습니다. PowerShell 또는 Azure CLI를 통해 응용 프로그램을 배포 하 고 관리 하는 것과는 반대로 클러스터가 준비 될 때까지 기다릴 필요가 없습니다. 애플리케이션 등록, 프로비저닝 및 배포 프로세스를 모두 한 단계로 수행할 수 있습니다. 이 방식은 클러스터의 애플리케이션 수명 주기를 관리하는 모범 사례입니다. 자세한 내용은 [모범 사례](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)를 참조 하세요.
@@ -57,10 +53,10 @@ Azure Resource Manager 응용 프로그램 리소스 모델을 사용 하 여 �
 1. Visual Studio에서 투표 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 패키지를 선택 합니다.   
 ![패키지 응용 프로그램][PackageApplication]  
 2. 방금 만든 **.\service-fabric-dotnet-quickstart\Voting\pkg\Debug** 디렉터리를 열고 해당 콘텐츠를 **응답 .zip** 이라는 파일에 압축 합니다 .이 파일은 applicationmanifest이 zip 파일의 루트에 있습니다.  
-응용 프로그램 ][ZipApplication] ![Zip  
+![Zip 응용 프로그램][ZipApplication]  
 3. 파일 확장명을 .zip에서 **. .sfpkg**로 바꿉니다.
 4. Azure Portal의 저장소 계정에 대 한 **앱** 컨테이너에서 **업로드** 및 업로드 **.sfpkg**를 클릭 합니다.  
-앱 패키지 ![Upload ][UploadAppPkg]
+앱 패키지 업로드 ![][UploadAppPkg]
 
 이제 응용 프로그램이 준비 되었습니다. 이제 응용 프로그램을 배포 하는 Azure Resource Manager 템플릿을 만들 준비가 되었습니다.      
    
@@ -72,12 +68,12 @@ Azure Resource Manager 응용 프로그램 리소스 모델을 사용 하 여 �
 >
 >
 
-| 매개 변수를 포함해야 합니다.              | 설명                                 | 예제                                                      | 의견                                                     |
+| 매개 변수              | Description                                 | 예                                                      | 의견                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 배포 하는 클러스터의 이름 | sf-cluster123                                                |                                                              |
 | 애플리케이션            | 애플리케이션의 이름                 | 투표                                                       |
 | applicationTypeName    | 응용 프로그램의 형식 이름입니다.           | VotingType                                                   | ApplicationManifest .xml의 내용과 일치 해야 합니다.                 |
-| ApplicationTypeVersion | 응용 프로그램 유형의 버전입니다.         | 1.0.0                                                        | ApplicationManifest .xml의 내용과 일치 해야 합니다.                 |
+| applicationTypeVersion | 응용 프로그램 유형의 버전입니다.         | 1.0.0                                                        | ApplicationManifest .xml의 내용과 일치 해야 합니다.                 |
 | serviceName            | 서비스 서비스의 이름입니다.         | 투표 ~ VotingWeb                                             | ApplicationName ~ ServiceType 형식 이어야 합니다.            |
 | serviceTypeName        | 서비스의 형식 이름입니다.                | VotingWeb                                                    | Servicemanifest.xml에 있는 것과 일치 해야 합니다.                 |
 | appPackageUrl          | 응용 프로그램의 blob 저장소 URL     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | Blob storage에 있는 응용 프로그램 패키지의 URL (아래에서 설명 하는 절차는 아래에 설명 되어 있습니다.) |

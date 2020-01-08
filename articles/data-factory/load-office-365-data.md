@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 896265311a67b74ccf9d0226a2969284ee491c9b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443920"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 
@@ -32,9 +32,9 @@ ms.locfileid: "74931431"
       
    ![새 데이터 팩터리 페이지](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "Data factory name *LoadFromOffice365Demo* 를 사용할 수 없습니다." 오류가 표시 되 면 데이터 팩터리에 대해 다른 이름을 입력 합니다. 예를 들어 _**yourname**_ **LoadFromOffice365Demo**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
+    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "Data factory name *LoadFromOffice365Demo* 를 사용할 수 없습니다." 오류가 표시 되 면 데이터 팩터리에 대해 다른 이름을 입력 합니다. 예를 들어 _**yourname**_ **LoadFromOffice365Demo**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
-    * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
+    * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
     * **버전**: **V2**를 선택합니다.
     * **위치**: 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 이러한 데이터 저장소는 Azure Data Lake Store, Azure Storage, Azure SQL Database 등을 포함합니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "74931431"
 
 ![작업 모니터링](./media/load-office-365-data/activity-status.png) 
 
-이 컨텍스트에 대 한 데이터를 처음으로 요청 하는 경우 (액세스 하는 데이터 테이블의 조합, 데이터 액세스를 요청 하는 대상 계정 및 데이터 액세스 요청을 만드는 사용자 id) 복사 작업 상태는 **진행**중으로 표시 되며, 작업 아래에서 "세부 정보" 링크를 클릭 하면 상태가 **RequesetingConsent**로 표시 됩니다.  데이터 액세스 승인자 그룹의 멤버가 데이터 추출이 진행되기 전에 Privileged Access Management에서 요청을 승인해야 합니다.
+이 컨텍스트에 대 한 데이터를 처음으로 요청 하는 경우 (액세스 하는 데이터 테이블의 조합, 데이터 액세스를 요청 하는 대상 계정 및 데이터 액세스 요청을 만드는 사용자 id) 복사 작업 상태는 **진행**중으로 표시 되며, 작업 아래에서 "세부 정보" 링크를 클릭 하면 상태가 **RequesetingConsent**로 표시 됩니다.  데이터 액세스 승인자 그룹의 구성원이 Privileged Access Management에서 요청을 승인해야 데이터 추출을 진행할 수 있습니다.
 
 _동의 요청 중 상태:_ 
 ![활동 실행 세부 정보 - 요청 동의](./media/load-office-365-data/activity-details-request-consent.png) 

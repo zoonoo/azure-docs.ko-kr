@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 0b1d9fad2992397a3a6768d0f5e7ff26a400a2b3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e4301afafb48fb9a1b0c9e36dde9800e2b8390f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889318"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443931"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -30,7 +30,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 
 > [!NOTE]
-> 이 문서에서 설명하는 통합은 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)에 따라 달라집니다. 구독이 Event Grid 리소스 공급자에 등록되어 있는지 확인합니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/resource-manager-supported-services.md#azure-portal)을 참조하세요.
+> 이 문서에서 설명하는 통합은 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)에 따라 달라집니다. 구독이 Event Grid 리소스 공급자에 등록되어 있는지 확인합니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
 
 ## <a name="data-factory-ui"></a>Data Factory UI
 
@@ -53,8 +53,8 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 1. **Blob 경로는로 시작** 하 고 **blob 경로는 속성으로 끝남** 이벤트를 수신 하려는 컨테이너, 폴더 및 blob 이름을 지정할 수 있습니다. 이벤트 트리거를 사용 하려면 이러한 속성 중 하나 이상을 정의 해야 합니다. **Blob path begins with**(Blob 경로 시작 문자) 및 **Blob path ends with**(Blob 경로 마지막 문자) 속성 모두에 대해 이 문서의 뒷부분에 나오는 예제와 같이 다양한 패턴을 사용할 수 있습니다.
 
-    * **다음으로 시작 하는 Blob 경로:** Blob 경로는 폴더 경로로 시작 해야 합니다. 유효한 값에는 `2018/` 및 `2018/april/shoes.csv`이 있습니다. 컨테이너를 선택 하지 않은 경우에는이 필드를 선택할 수 없습니다.
-    * **Blob 경로가 다음으로 끝남:** Blob 경로는 파일 이름 또는 확장명으로 끝나야 합니다. 유효한 값에는 `shoes.csv` 및 `.csv`이 있습니다. 컨테이너 및 폴더 이름은 선택 사항 이지만 지정 된 경우 `/blobs/` 세그먼트로 구분 되어야 합니다. 예를 들어 ' orders ' 라는 컨테이너는 `/orders/blobs/2018/april/shoes.csv`값을 가질 수 있습니다. 컨테이너에 폴더를 지정 하려면 선행 '/' 문자를 생략 합니다. 예를 들어 `april/shoes.csv`은 모든 컨테이너에서 ' 4 월 ' 이라는 폴더의 `shoes.csv` 이라는 모든 파일에서 이벤트를 트리거합니다. 
+    * **다음으로 시작 하는 Blob 경로:** Blob 경로는 폴더 경로로 시작 해야 합니다. 유효한 값은 `2018/` 및 `2018/april/shoes.csv`이고 컨테이너를 선택 하지 않은 경우에는이 필드를 선택할 수 없습니다.
+    * **Blob 경로가 다음으로 끝남:** Blob 경로는 파일 이름 또는 확장명으로 끝나야 합니다. 유효한 값은 `shoes.csv` 및 `.csv`이고 컨테이너 및 폴더 이름은 선택 사항 이지만 지정 된 경우 `/blobs/` 세그먼트로 구분 되어야 합니다. 예를 들어 ' orders ' 라는 컨테이너는 `/orders/blobs/2018/april/shoes.csv`값을 가질 수 있습니다. 컨테이너에 폴더를 지정 하려면 선행 '/' 문자를 생략 합니다. 예를 들어 `april/shoes.csv`은 모든 컨테이너에서 ' 4 월 ' 이라는 폴더의 `shoes.csv` 이라는 모든 파일에서 이벤트를 트리거합니다. 
 
 1. 트리거가 **blob created** 이벤트, **blob deleted** 이벤트 또는 둘 다에 응답할지 여부를 선택 합니다. 지정 된 저장소 위치에서 각 이벤트는 트리거와 연결 된 Data Factory 파이프라인을 트리거합니다.
 
@@ -80,11 +80,11 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 | **JSON 요소** | **설명** | **형식** | **허용되는 값** | **필수** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | 스토리지 계정의 Azure Resource Manager 리소스 ID입니다. | 문자열 | Azure Resource Manager ID | 예 |
+| **범위** | 스토리지 계정의 Azure Resource Manager 리소스 ID입니다. | String | Azure Resource Manager ID | 예 |
 | **events** | 이 트리거를 발생시키는 이벤트 유형입니다. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | 예, 이러한 값의 조합입니다. |
-| **blobPathBeginsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 시작해야 합니다. 예를 들어 `/records/blobs/december/`는 `december` 컨테이너 아래의 `records` 폴더에서 Blob에 대한 트리거만을 시작합니다. | 문자열   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
-| **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어 `december/boxes.csv`는 `boxes` 폴더에서 `december`라는 이름의 Blob에 대한 트리거만을 시작합니다. | 문자열   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
-| **ignoreEmptyBlobs** | 0 바이트 blob이 파이프라인 실행을 트리거할 지 여부입니다. 이는 기본적으로 true로 설정 됩니다. | 부울 | true 또는 false | 아니오 |
+| **blobPathBeginsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 시작해야 합니다. 예를 들어 `/records/blobs/december/`는 `records` 컨테이너 아래의 `december` 폴더에서 Blob에 대한 트리거만을 시작합니다. | String   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
+| **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어 `december/boxes.csv`는 `december` 폴더에서 `boxes`라는 이름의 Blob에 대한 트리거만을 시작합니다. | String   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
+| **ignoreEmptyBlobs** | 0 바이트 blob이 파이프라인 실행을 트리거할 지 여부입니다. 이는 기본적으로 true로 설정 됩니다. | 부울 | true 또는 false | 아닙니다. |
 
 ## <a name="examples-of-event-based-triggers"></a>이벤트 기반 트리거의 예
 
@@ -93,15 +93,15 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 > [!IMPORTANT]
 > 다음 예제에 표시된 대로 컨테이너 및 폴더, 컨테이너 및 파일, 컨테이너, 폴더 및 파일을 지정할 때마다 경로의 `/blobs/` 세그먼트를 포함해야 합니다. **BlobPathBeginsWith**의 경우 Data Factory UI는 JSON 트리거의 폴더와 컨테이너 이름 사이에 `/blobs/`를 자동으로 추가 합니다.
 
-| 속성 | 예 | 설명 |
+| 속성 | 예 | Description |
 |---|---|---|
 | **다음으로 Blob 경로 시작** | `/containername/` | 컨테이너에서 모든 Blob에 대한 이벤트를 받습니다. |
 | **다음으로 Blob 경로 시작** | `/containername/blobs/foldername/` | `containername` 컨테이너 및 `foldername` 폴더에서 모든 Blob에 대한 이벤트를 받습니다. |
 | **다음으로 Blob 경로 시작** | `/containername/blobs/foldername/subfoldername/` | 하위 폴더를 참조할 수도 있습니다. |
-| **다음으로 Blob 경로 시작** | `/containername/blobs/foldername/file.txt` | `file.txt` 컨테이너 아래의 `foldername` 폴더에서 `containername`라는 Blob에 대한 이벤트를 받습니다. |
+| **다음으로 Blob 경로 시작** | `/containername/blobs/foldername/file.txt` | `containername` 컨테이너 아래의 `foldername` 폴더에서 `file.txt`라는 Blob에 대한 이벤트를 받습니다. |
 | **다음으로 끝나는 Blob 경로** | `file.txt` | 모든 경로에서 `file.txt`라는 Blob에 대한 이벤트를 받습니다. |
-| **다음으로 끝나는 Blob 경로** | `/containername/blobs/file.txt` | `file.txt` 컨테이너 아래에서 `containername`라는 이름의 Blob에 대한 이벤트를 받습니다. |
-| **다음으로 끝나는 Blob 경로** | `foldername/file.txt` | 모든 컨테이너 아래의 `file.txt` 폴더에서 `foldername`라는 이름의 Blob에 대한 이벤트를 받습니다. |
+| **다음으로 끝나는 Blob 경로** | `/containername/blobs/file.txt` | `containername` 컨테이너 아래에서 `file.txt`라는 이름의 Blob에 대한 이벤트를 받습니다. |
+| **다음으로 끝나는 Blob 경로** | `foldername/file.txt` | 모든 컨테이너 아래의 `foldername` 폴더에서 `file.txt`라는 이름의 Blob에 대한 이벤트를 받습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md#triggers)를 참조하세요.

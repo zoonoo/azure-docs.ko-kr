@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: db67defc72dcc7d913f897c6fb61548c5c33cf52
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 548ebfca9a937e58dfc5c1aff1adf6f6cb2dcc5d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278324"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454604"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
@@ -55,7 +55,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 설정과 일치 해야 합니다.
+3.  최신 어플라이언스 버전의 경우 생성된 해시는 다음 설정과 일치해야 합니다.
 
   **알고리즘** | **해시 값**
   --- | ---
@@ -69,7 +69,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 - 물리적 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아봅니다](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 지정된 경로에 다음 파일을 만듭니다.
     - **구성 파일**: %Programdata%\Microsoft Azure\Config
@@ -82,7 +82,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 스크립트를 실행합니다.
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    AzureMigrateInstaller.ps1
     ```
 스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
 
@@ -117,7 +117,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 3. 성공적으로 로그인하면 웹앱으로 돌아갑니다.
 4. Azure Migrate 프로젝트가 만들어진 구독을 선택합니다. 그런 다음, 해당 프로젝트를 선택합니다.
 5. 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
-6. **Register**를 클릭합니다.
+6. **등록**을 클릭합니다.
 
 
 ## <a name="start-continuous-discovery"></a>연속 검색 시작

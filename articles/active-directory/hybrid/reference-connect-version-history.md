@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922286"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422352"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -38,9 +38,20 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 이 프로세스를 진행 하는 동안 릴리스 버전 번호는 "1.3. X. 0"과 같이 부 릴리스 번호 위치에 "X"가 표시 됩니다 .이는이 문서의 릴리스 정보가 "1.3"로 시작 하는 모든 버전에 대해 유효 함을 나타냅니다. 릴리스 프로세스를 완료 하는 즉시 릴리스 버전 번호는 가장 최근에 릴리스된 버전으로 업데이트 되 고 릴리스 상태는 "다운로드 및 자동 업그레이드를 위해 릴리스"로 업데이트 됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md)에 대한 자세한 내용은 이 링크 참조
 
+>[!IMPORTANT]
+> 2020 년 11 월 1 일부 터 사용 중단 프로세스를 구현 하기 시작 합니다. 18 개월 전에 릴리스된 Azure AD Connect 버전은 더 이상 사용 되지 않습니다. 이번에는 버전 1.1.751.0 (4/12/2018에 릴리스 됨)와 이전 버전의 Azure AD Connect 모든 릴리스를 사용 중단 하 여이 프로세스를 시작 하 고, 새 버전이 출시 될 때마다 이전 버전의 Azure AD Connect 사용 중단을 평가 합니다.
+>
+> 최적의 지원 환경을 받으려면 최신 버전의 Azure AD Connect를 실행 하 고 있는지 확인 해야 합니다. 
+>
+>사용 되지 않는 버전의 Azure AD Connect를 실행 하는 경우 최신 보안 수정, 성능 향상, 문제 해결 및 진단 도구 및 서비스가 향상 되지 않을 수 있습니다. 지원이 필요한 경우에는의 수준을 제공 하지 못할 수 있습니다. 조직에서 요구 하는 서비스입니다.
+>
+>동기화를 위해 Azure AD Connect를 사용 하도록 설정한 경우 이전 버전 중 하나를 실행할 때 예정 된 결함에 대해 경고 하는 상태 알림을 자동으로 수신 하는 즉시 시작 됩니다.
+>
+>Azure AD Connect를 최신 버전으로 업그레이드 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) 를 참조 하세요.
+
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>릴리스 상태
-12/6/2019: 다운로드를 위한 릴리스입니다. 자동 업그레이드를 통해 사용할 수 없습니다.
+12/9/2019: 다운로드를 위한 릴리스입니다. 자동 업그레이드를 통해 사용할 수 없습니다.
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 - Azure AD Domain Services에 대 한 암호 해시 동기화가 Kerberos 해시의 패딩에 적절 한 계정으로 업데이트 되었습니다.  이를 통해 AAD에서 Azure AD Domain Services로 암호를 동기화 하는 동안 성능을 향상 시킬 수 있습니다.
 - 인증 에이전트와 service bus 간에 신뢰할 수 있는 세션에 대 한 지원이 추가 되었습니다.
@@ -49,7 +60,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 에이전트 연결을 테스트 하기 위해 클라우드에서 특정 에이전트를 대상으로 하는 기능을 추가 했습니다.
 
 ### <a name="fixed-issues"></a>해결된 문제
-- 릴리스 1.4.18.0에는 ps를 실행 하는 동안 제공 되는 admin credentialss 대신 로그인 windows 자격 증명을 사용 하는 DSSO에 대 한 PowerShell cmdlet이 있습니다. AADConnect 사용자 인터페이스를 통해 여러 포리스트에서 DSSO 사용 하도록 설정할 수 없는 경우에 발생 합니다. 
+- Release 1.4.18.0에는 ps를 실행 하는 동안 제공 된 관리자 자격 증명 대신 로그인 windows 자격 증명을 사용 하는 cmdlet에 대 한 PowerShell cmdlet이 포함 되어 있습니다. AADConnect 사용자 인터페이스를 통해 여러 포리스트에서 DSSO 사용 하도록 설정할 수 없는 경우에 발생 합니다. 
 - AADConnect 사용자 인터페이스를 통해 모든 포리스트에서 동시에 DSSO 사용 하도록 수정 되었습니다.
 
 ## <a name="14320"></a>1.4.32.0
@@ -483,7 +494,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | name                          | 액세스               | 적용 대상
+유형     | 이름                          | 액세스               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
 허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -517,7 +528,7 @@ Where
 >[!NOTE] 
 >$credential.UserName은 FQDN\username 형식이어야 합니다. 예: contoso.com\admin 
 
-##### <a name="example"></a>예제:
+##### <a name="example"></a>예:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 

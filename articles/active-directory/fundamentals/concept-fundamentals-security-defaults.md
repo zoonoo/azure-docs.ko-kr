@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d899f477612e4c738314187f61551fe5c0b17f8d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932412"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422851"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값 이란?
 
@@ -73,6 +73,9 @@ Multi-Factor Authentication 등록을 완료 한 후에는 다음 9 개의 Azure
 
 테 넌 트에서 보안 기본값을 사용 하도록 설정한 후에는 이전 프로토콜을 통해 수행 된 모든 인증 요청이 차단 됩니다. 보안 기본값은 Exchange ActiveSync를 차단 하지 않습니다.
 
+> [!WARNING]
+> 보안 기본값을 사용 하도록 설정 하기 전에 관리자가 이전 인증 프로토콜을 사용 하지 않는지 확인 합니다. 자세한 내용은 [기존 인증에서 밖으로 이동 하는 방법](concept-fundamentals-block-legacy-authentication.md)을 참조 하세요.
+
 ### <a name="protecting-privileged-actions"></a>권한 있는 작업 보호
 
 조직에서는 다음을 포함 하 여 Azure Resource Manager API를 통해 관리 되는 다양 한 Azure 서비스를 사용 합니다.
@@ -89,22 +92,30 @@ Azure Resource Manager에 액세스 하 고 구성을 업데이트 하려는 사
 
 사용자가 Multi-Factor Authentication 등록 되지 않은 경우 계속 진행 하려면 Microsoft Authenticator 앱을 사용 하 여 등록 해야 합니다. 14 일 Multi-Factor Authentication 등록 기간이 제공 되지 않습니다.
 
+> [!NOTE]
+> Azure AD Connect 동기화 계정은 보안 기본값에서 제외 되며 등록 하거나 multi-factor authentication을 수행 하 라는 메시지가 표시 되지 않습니다. 조직에서는 다른 용도로이 계정을 사용 하지 않아야 합니다.
+
 ## <a name="deployment-considerations"></a>배포 고려 사항
 
 다음의 추가 고려 사항은 테 넌 트에 대 한 보안 기본값 배포와 관련이 있습니다.
 
-### <a name="older-protocols"></a>이전 프로토콜
+### <a name="authentication-methods"></a>인증 방법
 
-메일 클라이언트는 이전 인증 프로토콜 (예: IMAP, SMTP 및 POP3)을 사용 하 여 인증 요청을 만듭니다. 이러한 프로토콜은 Multi-Factor Authentication를 지원 하지 않습니다. 대부분의 계정 손상은 Microsoft에서 Multi-Factor Authentication 바이패스를 시도 하는 이전 프로토콜에 대 한 공격 으로부터 손상 된 것입니다. 
+보안 기본값 **은 알림을 사용 하 여 Microsoft Authenticator 앱만 사용 하는**Azure Multi-Factor Authentication의 등록과 사용을 허용 합니다. 조건부 액세스를 사용 하면 관리자가 사용 하도록 선택 하는 모든 인증 방법을 사용할 수 있습니다.
 
-관리 계정에 로그인 하는 데 Multi-Factor Authentication 필요 하 고 공격자가 무시할 수 없도록 하기 위해 보안 기본값은 이전 프로토콜의 관리자 계정에 대 한 모든 인증 요청을 차단 합니다.
+|   | 보안 기본값 | 조건부 액세스 |
+| --- | --- | --- |
+| 모바일 앱을 통한 알림 | X | X |
+| 모바일 앱 또는 하드웨어 토큰의 확인 코드 |   | X |
+| 휴대폰에 문자 메시지 전송 |   | X |
+| 휴대폰에 전화 걸기 |   | X |
+| 앱 암호 |   | X * * |
 
-> [!WARNING]
-> 이 설정을 사용 하도록 설정 하기 전에 관리자가 이전 인증 프로토콜을 사용 하지 않는지 확인 합니다. 자세한 내용은 [기존 인증에서 밖으로 이동 하는 방법](concept-fundamentals-block-legacy-authentication.md)을 참조 하세요.
+\* * 앱 암호는 관리자가 사용 하도록 설정한 경우에만 레거시 인증 시나리오를 사용 하 여 사용자별 MFA에서 사용할 수 있습니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
 
-조건부 액세스를 사용 하 여 보안 기본값에서 사용 하도록 설정 된 것과 동일한 동작을 제공 하는 정책을 구성할 수 있습니다. 조건부 액세스를 사용 하 고 사용자 환경에서 조건부 액세스 정책을 사용 하는 경우 보안 기본값을 사용할 수 없습니다. 조건부 액세스를 제공 하는 라이선스가 있지만 사용자 환경에서 조건부 액세스 정책을 사용 하도록 설정 하지 않은 경우 조건부 액세스 정책을 사용 하도록 설정할 때까지 보안 기본값 사용을 시작 합니다.
+조건부 액세스를 사용 하 여 보안 기본값과 유사한 정책을 구성할 수 있지만 보안 기본값에서는 사용할 수 없는 사용자 제외를 포함 하 여 더 많은 세분성을 사용할 수 있습니다. 조건부 액세스를 사용 하 고 사용자 환경에서 조건부 액세스 정책을 사용 하는 경우 보안 기본값을 사용할 수 없습니다. 조건부 액세스를 제공 하는 라이선스가 있지만 사용자 환경에서 조건부 액세스 정책을 사용 하도록 설정 하지 않은 경우 조건부 액세스 정책을 사용 하도록 설정할 때까지 보안 기본값 사용을 시작 합니다. Azure AD 라이선스에 대 한 자세한 내용은 [AZURE ad 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
 
 ![보안 기본값 또는 조건부 액세스 둘 다를 사용할 수 없다는 경고 메시지](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

@@ -1,32 +1,21 @@
 ---
-title: Azure에서 Linux Service Fabric 클러스터 만들기 | Microsoft Docs
+title: Azure에서 Linux Service Fabric 클러스터 만들기
 description: Azure CLI를 사용하여 기존 Azure 가상 네트워크에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 059f0f4b1eac9546f1adc05bf1f2799affc0dd8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465400"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
 이 문서에서는 Azure CLI 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에
 
@@ -47,7 +36,7 @@ ms.locfileid: "68598844"
 
 이 템플릿은 7개 가상 머신 및 3개 노드 유형의 보안 클러스터를 가상 네트워크에 배포합니다.  다른 예제 템플릿은 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)에 있을 수 있습니다. [Azuredeploy. json][template] 은 다음을 비롯 한 숫자 리소스를 배포 합니다.
 
-### <a name="service-fabric-cluster"></a>서비스 패브릭 클러스터
+### <a name="service-fabric-cluster"></a>Service Fabric 클러스터
 
 **Microsoft.ServiceFabric/clusters** 리소스에서 다음과 같은 특성이 있는 Linux 클러스터가 배포됩니다.
 
@@ -55,18 +44,18 @@ ms.locfileid: "68598844"
 * 기본 노드 유형의 5개 노드(템플릿 매개 변수에서 구성 가능), 다른 두 노드 유형의 각 1개 노드
 * OS: Ubuntu 16.04 LTS(템플릿 매개 변수에서 구성 가능)
 * 보안된 인증서(템플릿 매개 변수에서 구성 가능)
-* [DNS 서비스](service-fabric-dnsservice.md) 사용함
+* [DNS 서비스](service-fabric-dnsservice.md) 사용
 * 브론즈의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 실버의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
-* HTTP 게이트웨이 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
+* 클라이언트 연결 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
 **Microsoft.Network/loadBalancers** 리소스에서 부하 분산 장치가 구성되고 다음 포트에 대한 프로브 및 규칙이 설정됩니다.
 
 * 클라이언트 연결 엔드포인트: 19000
-* HTTP 게이트웨이 엔드포인트: 19080
+* HTTP 게이트웨이 엔드포인트 19080
 * 애플리케이션 포트: 80
 * 애플리케이션 포트: 443
 

@@ -1,17 +1,17 @@
 ---
-title: 여러 개의 독립적인 Cosmos DB용 Azure Functions 트리거를 만드는 방법
+title: Cosmos DB에 대해 독립적인 Azure Functions 트리거를 여러 개 만듭니다.
 description: 여러 개의 독립적인 Cosmos DB용 Azure Functions 트리거를 구성하여 이벤트 기반 아키텍처를 만드는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 987136bf8aba1313e1bef21f58691bf9a860ea32
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbf1e11d7a283ca6c93356f055198c35350e0332
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445348"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
 
@@ -31,14 +31,14 @@ Cosmos DB용 Azure Functions 트리거의 *요구 사항*을 고려할 때, 상�
 
 여기에는 다음 두 가지 옵션이 있습니다.
 
-* **Function당 하나의 임대 컨테이너 만들기**: 이 방법은 [공유 처리량 데이터베이스](./set-throughput.md#set-throughput-on-a-database)를 사용하지 않으면 추가 비용으로 이어질 수 있습니다. 컨테이너 수준의 최소 처리량은 400개 [요청 단위](./request-units.md)이며, 임대 컨테이너의 경우 진행률 검사점을 확인하고 상태를 유지하는 데만 사용됩니다.
-* **하나의 컨테이너를 임대하여 모든 Function에서 공유**: 이 두 번째 옵션에서는 여러 Azure Function에서 동일한 프로비저닝된 처리량을 공유하고 사용할 수 있으므로 컨테이너에서 프로비저닝된 요청 단위를 더 효율적으로 사용할 수 있습니다.
+* **함수 당 하나의 임대 컨테이너**만들기:이 접근 방식은 [공유 처리량 데이터베이스](./set-throughput.md#set-throughput-on-a-database)를 사용 하지 않는 한 추가 비용으로 변환 될 수 있습니다. 컨테이너 수준의 최소 처리량은 400개 [요청 단위](./request-units.md)이며, 임대 컨테이너의 경우 진행률 검사점을 확인하고 상태를 유지하는 데만 사용됩니다.
+* **하나의 임대 컨테이너를 포함 하 고** 모든 함수를 공유 합니다 .이 두 번째 옵션을 사용 하면 여러 Azure Functions가 프로 비전 된 처리량을 공유 하 고 사용할 수 있으므로 컨테이너에서 프로 비전 된 요청 단위를 더 효율적으로 사용할 수 있습니다.
 
 이 문서의 목표는 두 번째 옵션을 수행하도록 안내하는 것입니다.
 
 ## <a name="configuring-a-shared-leases-container"></a>공유 임대 컨테이너 구성
 
-공유 임대 컨테이너를 구성하기 위해 트리거에 필요한 유일한 추가 구성은 C#을 사용하는 경우 `LeaseCollectionPrefix` [특성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes)을 추가하거나, JavaScript를 사용하는 경우 `leaseCollectionPrefix` [특성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example)을 추가하는 것입니다. 특성 값은 해당 특정 트리거의 논리적 설명자여야 합니다.
+공유 임대 컨테이너를 구성 하기 위해, JavaScript를 사용 하는 경우 `leaseCollectionPrefix` 또는 [특성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) 을 사용 C# 하는 경우에는 `LeaseCollectionPrefix` [특성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) 을 추가 해야 합니다. 특성 값은 해당 특정 트리거의 논리적 설명자여야 합니다.
 
 예를 들어 세 개의 트리거, 즉 이메일을 보내는 트리거, 구체화된 보기를 만들기 위해 집계를 수행하는 트리거 및 변경 내용을 다른 스토리지에 보내는 트리거가 있는 경우, 나중에 분석하기 위해 첫 번째 트리거에는 "emails"인 `LeaseCollectionPrefix`를, 두 번째 트리거에는 "materialized"를, 세 번째 트리거에는 "analytics"를 할당할 수 있습니다.
 

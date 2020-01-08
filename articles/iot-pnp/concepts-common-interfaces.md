@@ -3,16 +3,16 @@ title: 공통 인터페이스-IoT 플러그 앤 플레이 미리 보기 | Micros
 description: IoT 플러그 앤 플레이 개발자를 위한 일반적인 인터페이스 설명
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2eae778230fa5fce1be095106a02b2b643ff436e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f697a0d6aba4f137b75faa2a200424c72aa78c3b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935335"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531414"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT 플러그 앤 플레이 미리 보기 공통 인터페이스
 
@@ -22,14 +22,14 @@ ms.locfileid: "70935335"
 
 | 이름 | ID | Description | Azure IoT SDK에 의해 구현 됨 | 기능 모델에서 선언 해야 합니다. |
 | -------- | -------- | -------- | -------- | -------- | -------- |
-| 모델 정보 | urn: azureiot: ModelDiscovery: Modeldiscovery: 1 | 장치에서 기능 모델 ID 및 인터페이스를 선언 합니다. 모든 IoT 플러그 앤 플레이 장치에 필요 합니다. | 예 | 아니요 |
-| 디지털 쌍 클라이언트 SDK 정보 | urn: azureiot: 클라이언트: SDKInformation: 1 | Azure에 장치를 연결 하기 위한 클라이언트 SDK [인증](tutorial-build-device-certification.md) 에 필요 | 예 | 아니요 |
-| 디바이스 정보 | urn: azureiot: DeviceManagement: DeviceInformation: 1 | 장치에 대 한 하드웨어 및 운영 체제 정보 [인증](tutorial-build-device-certification.md) 에 필요 | 아니요 | 예 |
-| 모델 정의 | urn: azureiot: ModelDiscovery: Modeldiscovery: 1 | 장치에서 해당 기능 모델 및 인터페이스에 대 한 전체 정의를 선언 합니다. 모델 리포지토리에서 모델 정의를 호스팅하지 않는 경우에는를 구현 해야 합니다. | 아니요 | 예 |
-| 디지털 쌍 | urn: azureiot: ModelDiscovery: DigitalTwin: 1 | 솔루션 개발자가 디지털 쌍의 기능 모델 ID 및 인터페이스 Id를 검색 하는 데 사용할 수 있습니다. IoT 플러그 앤 플레이 장치에서이 인터페이스를 선언 하거나 구현 하지 않습니다. | 아니요 | 아니요 |
+| 모델 정보 | urn: azureiot: ModelDiscovery: Modeldiscovery: 1 | 장치에서 기능 모델 ID 및 인터페이스를 선언 합니다. 모든 IoT 플러그 앤 플레이 장치에 필요 합니다. | 예 | 아닙니다. |
+| 디지털 쌍 클라이언트 SDK 정보 | urn: azureiot: 클라이언트: SDKInformation: 1 | Azure에 장치를 연결 하기 위한 클라이언트 SDK [인증](tutorial-build-device-certification.md) 에 필요 | 예 | 아닙니다. |
+| 디바이스 정보 | urn: azureiot: DeviceManagement: DeviceInformation: 1 | 장치에 대 한 하드웨어 및 운영 체제 정보 [인증](tutorial-build-device-certification.md) 에 필요 | 아닙니다. | 예 |
+| 모델 정의 | urn: azureiot: ModelDiscovery: Modeldiscovery: 1 | 장치에서 해당 기능 모델 및 인터페이스에 대 한 전체 정의를 선언 합니다. 모델 리포지토리에서 모델 정의를 호스팅하지 않는 경우에는를 구현 해야 합니다. | 아닙니다. | 예 |
+| 디지털 쌍 | urn: azureiot: ModelDiscovery: DigitalTwin: 1 | 솔루션 개발자가 디지털 쌍의 기능 모델 ID 및 인터페이스 Id를 검색 하는 데 사용할 수 있습니다. IoT 플러그 앤 플레이 장치에서이 인터페이스를 선언 하거나 구현 하지 않습니다. | 아닙니다. | 아닙니다. |
 
 - Azure IoT SDK에서 구현-Azure IoT SDK가 인터페이스에 선언 된 기능을 구현 하는지 여부입니다. Azure IoT SDK를 사용 하는 IoT 플러그 앤 플레이 장치는이 인터페이스를 구현할 필요가 없습니다.
-- 기능 모델에서 선언 해야 합니다. ' 예 ' 인 경우이 인터페이스는이 IoT 플러그 앤 플레이 장치 `"implements":` 에 대 한 장치 기능 모델의 섹션 내에서 선언 되어야 합니다.
+- 기능 모델에서 선언 해야 합니다. ' 예 ' 인 경우이 인터페이스는이 IoT 플러그 앤 플레이 장치에 대 한 장치 기능 모델의 `"implements":` 섹션 내에서 선언 해야 합니다.
 
 ## <a name="retrieve-interface-definitions-from-the-public-repository"></a>공용 리포지토리에서 인터페이스 정의 검색
 
@@ -49,7 +49,7 @@ az iot pnp capability-model show --model {ModelID}
 
 1. **Ctrl+Shift+P**를 사용하여 명령 팔레트를 엽니다.
 
-1. **플러그 앤 플레이** 를 입력 한 다음 IoT **플러그 앤 플레이를 선택 합니다. 모델 리포지토리 열기** 명령을 선택합니다. **공용 리포지토리**를 선택 합니다. VS Code에서 공용 모델 리포지토리가 열립니다.
+1. **플러그 앤 플레이** 를 입력 한 다음 **IoT 플러그 앤 플레이: 모델 리포지토리 열기** 명령을 선택 합니다. **공용 리포지토리**를 선택 합니다. VS Code에서 공용 모델 리포지토리가 열립니다.
 
 1. 공용 모델 리포지토리의 검색 필드에 인터페이스 이름을 입력 합니다.
 

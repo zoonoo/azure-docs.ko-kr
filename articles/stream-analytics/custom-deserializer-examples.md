@@ -1,25 +1,24 @@
 ---
-title: Azure Stream Analytics 작업에 .NET deserializers 사용
+title: Azure Stream Analytics에서 .NET 사용자 지정 deserializers를 사용 하 여 모든 형식의 입력 읽기
 description: 이 문서에서는 Azure Stream Analytics 클라우드 및에 지 작업에 대 한 사용자 지정 .NET deserializers를 정의 하는 serialization 형식 및 인터페이스에 대해 설명 합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 12/30/2019
+ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024933"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553021"
 ---
-# <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 .NET deserializers 사용
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 deserializers를 사용 하 여 모든 형식의 입력 읽기
 
-사용자 지정 .NET deserializers를 사용 하면 Azure Stream Analytics 작업에서 세 가지 [기본 제공 데이터 형식](stream-analytics-parsing-json.md)외부의 형식에서 데이터를 읽을 수 있습니다. 이 문서에서는 Azure Stream Analytics 클라우드 및에 지 작업에 대 한 사용자 지정 .NET deserializers를 정의 하는 serialization 형식 및 인터페이스에 대해 설명 합니다. 프로토콜 버퍼 및 CSV 형식에 대 한 예제 deserializers도 있습니다.
+.NET 사용자 지정 deserializers를 사용 하면 Azure Stream Analytics 작업을 통해 세 가지 [기본 제공 데이터 형식](stream-analytics-parsing-json.md)외부의 형식에서 데이터를 읽을 수 있습니다. 이 문서에서는 Azure Stream Analytics 클라우드 및에 지 작업에 대해 .NET 사용자 지정 deserializers를 정의 하는 serialization 형식 및 인터페이스에 대해 설명 합니다. 프로토콜 버퍼 및 CSV 형식에 대 한 예제 deserializers도 있습니다.
 
-## <a name="custom-net-deserializer"></a>사용자 지정 .NET 역직렬 변환기
+## <a name="net-custom-deserializer"></a>.NET 사용자 지정 역직렬 변환기
 
 다음 코드 샘플은 사용자 지정 역직렬 변환기를 정의 하 고 `StreamDeserializer<T>`를 구현 하는 인터페이스입니다.
 
@@ -226,12 +225,12 @@ namespace ExampleCustomCode.Serialization
 
 이 기능은 다음 지역에서 제공 됩니다.
 
-* 미국 서 부 중부 (사용 가능)
-* 서유럽 (사용 가능)
-* 미국 동부 (사용 가능)
-* 미국 서 부 (출시 예정)
-* 미국 동부 2 (출시 예정)
-* 유럽 서부 (출시 예정)
+* 미국 중서부
+* 북유럽
+* 미국 동부
+* 미국 서부
+* 미국 동부 2
+* 서유럽
 
 추가 영역에 대 한 [지원을 요청할](https://aka.ms/ccodereqregion) 수 있습니다.
 
@@ -239,11 +238,11 @@ namespace ExampleCustomCode.Serialization
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>언제 모든 Azure 지역에서이 기능을 사용할 수 있나요?
 
-이 기능은 6 개 지역 (#region 지원)에서 사용할 수 있습니다. 다른 지역에서이 기능을 사용 하는 데 관심이 있는 경우 [요청을 제출할](https://aka.ms/ccodereqregion)수 있습니다. 모든 Azure 지역에 대 한 지원은 로드맵에 있습니다.
+이 기능은 [6 개 지역](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support)에서 사용할 수 있습니다. 다른 지역에서이 기능을 사용 하는 데 관심이 있는 경우 [요청을 제출할](https://aka.ms/ccodereqregion)수 있습니다. 모든 Azure 지역에 대 한 지원은 로드맵에 있습니다.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>GetMetadataPropertyValue 함수와 유사한 내 입력에서 MetadataPropertyValue에 액세스할 수 있나요?
 
-이 기능은 지원 되지 않습니다. 이 기능이 필요한 경우 [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese)에서이 요청에 대해 응답할 수 있습니다.
+이제는 이 기능이 지원되지 않습니다. 이 기능이 필요한 경우 [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese)에서이 요청에 대해 응답할 수 있습니다.
 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>다른 사용자가 혜택을 받을 수 있도록 내 역직렬 변환기 구현을 커뮤니티와 공유할 수 있나요?
 
@@ -251,4 +250,4 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Stream Analytics 클라우드 작업에 대 한 사용자 지정 .NET deserializers](custom-deserializer.md)
+* [Azure Stream Analytics 클라우드 작업에 대 한 .NET 사용자 지정 deserializers](custom-deserializer.md)

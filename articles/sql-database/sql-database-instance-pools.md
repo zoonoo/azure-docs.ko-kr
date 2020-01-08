@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810401"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552783"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>SQL Database 인스턴스 풀 (미리 보기) 이란 무엇 인가요?
 
@@ -61,7 +61,7 @@ ms.locfileid: "73810401"
 
 인스턴스 풀의 아키텍처는 일반적인 관리 되는 인스턴스 (*단일 인스턴스*)와 유사 합니다.  [Azure vnet (가상 네트워크 ) 내에서 배포](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공 하기 위해 인스턴스 풀은 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)를 사용 하기도 합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타냅니다.
 
-두 배포 모델의 주요 차이점은 인스턴스 풀은 [Windows 작업 개체](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)를 사용 하 여 리소스를 관리 하는 동일한 가상 컴퓨터 노드에서 여러 SQL Server 프로세스 배포를 허용 하지만, 단일 인스턴스는 항상 독립적입니다. 가상 컴퓨터 노드입니다.
+두 배포 모델의 주요 차이점은 인스턴스 풀이 [Windows 작업 개체](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)를 사용 하 여 리소스를 관리 하는 동일한 가상 컴퓨터 노드에서 여러 SQL Server 프로세스 배포를 허용 하는 반면 단일 인스턴스는 항상 가상 컴퓨터 노드에 있는 경우입니다.
 
 다음 다이어그램에서는 인스턴스 풀과 동일한 서브넷에 배포 된 두 개의 개별 인스턴스를 보여 주고 두 배포 모델에 대 한 주요 아키텍처 세부 정보를 보여 줍니다.
 
@@ -126,7 +126,7 @@ ms.locfileid: "73810401"
 
 풀 내의 단일 인스턴스 또는 데이터베이스와 관련 된 문제가 발생 하는 경우 Azure SQL Database 관리 되는 인스턴스에 대 한 일반 지원 티켓을 만들어야 합니다.
 
-인스턴스 풀을 사용 하거나 사용 하지 않고 더 큰 관리 되는 인스턴스 배포를 만들려면 더 큰 지역 할당량을 얻어야 할 수 있습니다. [표준 관리 되는 인스턴스](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance)를 사용 하 여 더 큰 할당량을 요청 하지만 인스턴스 풀을 사용 하는 경우 배포 논리는 *풀 수준의* 총 vcore 사용량과 할당량을 비교 하 여 할당량을 더 이상 늘리지 않고 새 리소스를 만들 수 있습니다.
+인스턴스 풀을 사용 하거나 사용 하지 않고 더 큰 관리 되는 인스턴스 배포를 만들려면 더 큰 지역 할당량을 얻어야 할 수 있습니다. [더 큰 할당량을 요청 하기 위해 표준 관리 되는 인스턴스 절차](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance)를 사용 합니다. 그러나 인스턴스 풀을 사용 하는 경우 배포 논리는 할당량을 기준으로 *풀 수준의* 총 vcore 사용량을 비교 하 여 할당량을 늘리지 않고 새 리소스를 만들 수 있는지 여부를 확인 합니다.
 
 ## <a name="instance-pool-billing"></a>인스턴스 풀 청구
 
@@ -136,7 +136,7 @@ ms.locfileid: "73810401"
 
 계산 가격 (vCores로 측정)의 경우 두 가지 가격 책정 옵션을 사용할 수 있습니다.
 
-  1. *라이선스 포함*: 소프트웨어 보증이 있는 기존 SQL Server 라이선스를 적용 합니다.
+  1. *라이선스 포함*: SQL 라이선스 가격이 포함 됩니다. 이는 소프트웨어 보증이 적용 되는 기존 SQL Server 라이선스를 적용 하지 않도록 선택 하는 고객을 위한 것입니다.
   2. *Azure 하이브리드 혜택*: SQL Server의 Azure 하이브리드 혜택를 포함 하는 절감 된 가격입니다. 고객은 소프트웨어 보증이 있는 기존 SQL Server 라이선스를 사용 하 여이 가격을 옵트인 (opt in) 할 수 있습니다. 자격 및 기타 세부 정보는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 참조 하세요.
 
 풀의 개별 인스턴스에 대해 다른 가격 책정 옵션을 설정할 수 없습니다. 부모 풀의 모든 인스턴스는 라이선스 포함 가격 또는 Azure 하이브리드 혜택 가격 중 하나 여야 합니다. 풀을 만든 후에 풀의 라이선스 모델을 변경할 수 있습니다.

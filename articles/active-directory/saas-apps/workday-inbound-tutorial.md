@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 94fc50bf238a74b7d8b45625d88b2d23d7dd1a13
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849340"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613768"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -93,7 +93,7 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 * [여러 Active Directory 도메인과 통합](#integrating-with-multiple-active-directory-domains)
 * [Workday-Active Directory 사용자 특성 매핑 및 변환 계획](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -120,7 +120,7 @@ Workday와 Active Directory 간에 프로비전 워크플로를 용이하게 하
 > 일반 "Workday" 앱은 Workday와 Azure Active Directory 간의 Single Sign-On을 설정하는 데 사용됩니다.
 
 아래 의사 결정 순서도를 사용하여 시나리오와 관련된 Workday 프로비전 앱을 확인합니다.
-    ![의사 결정 순서도](./media/workday-inbound-tutorial/wday_app_flowchart.png "Decis이온 순서도 ")
+    ![의사 결정 순서도](./media/workday-inbound-tutorial/wday_app_flowchart.png "의사 결정 순서도")
 
 목차를 사용하여 이 자습서의 관련 섹션으로 이동합니다.
 
@@ -308,7 +308,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 6. 이러한 나머지 보안 정책 각각에 대해 위의 3-5단계를 반복합니다.
 
-   | 작업(Operation) | 도메인 보안 정책 |
+   | 작업 | 도메인 보안 정책 |
    | ---------- | ---------- |
    | 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
    | 가져오기 및 넣기 | 개인 데이터: 작업 연락처 정보 |
@@ -366,9 +366,9 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **Workday에서 Active Directory로의 프로비전을 구성하려면:**
 
-1. <https://portal.azure.com>(으)로 이동
+1. [https://editor.swagger.io](<https://portal.azure.com>) 로 이동합니다.
 
-2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
+2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
 3. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
 
@@ -376,9 +376,9 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 5. **Active Directory에 Workday 프로비전**을 검색하고, 갤러리에서 해당 앱을 추가합니다.
 
-6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
+6. 앱이 추가 되 고 앱 세부 정보 화면이 표시 되 면 **프로 비전**을 선택 합니다.
 
-7. **프로비전** **모드**를 **자동**으로 변경합니다.
+7. **프로 비전** **모드** 를 **자동**으로 변경 합니다.
 
 8. 표시 된 정보 배너를 클릭 하 여 프로 비전 에이전트를 다운로드 합니다. 
 
@@ -442,7 +442,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
    
 1. 에이전트 설치를 확인하고 “서비스” 스냅인을 열고 “Microsoft Azure AD Connect Provisioning Agent”라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
   
-   ![Services](./media/workday-inbound-tutorial/services.png)
+   ![서비스](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>3 부: 프로 비전 앱에서 Workday 및 Active Directory에 대 한 연결 구성
 이 단계에서는 Azure Portal에서 Workday 및 Active Directory와의 연결을 설정 합니다. 
@@ -468,7 +468,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
 
      > [!NOTE]
-     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) 상태가 되면 이메일 알림을 보냅니다.
+     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패한 경우 에이전트 설치 시 구성된 Workday 자격 증명과 AD 자격 증명이 유효한지 재차 확인하세요.
 
@@ -557,14 +557,14 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 | **FirstName**   | givenName       |     |    만들기 + 업데이트 |
 | **LastName**   |   sn   |     |  만들기 + 업데이트 |
 | **PreferredNameData**  |  displayName |     |   만들기 + 업데이트 |
-| **Company**         | company   |     |  만들기 + 업데이트 |
+| **회사**         | company   |     |  만들기 + 업데이트 |
 | **SupervisoryOrganization**  | department  |     |  만들기 + 업데이트 |
 | **ManagerReference**   | manager  |     |  만들기 + 업데이트 |
 | **BusinessTitle**   |  title     |     |  만들기 + 업데이트 | 
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
 | **Municipality**   |   l   |     | 만들기 + 업데이트 |
 | **CountryReferenceTwoLetter**      |   co |     |   만들기 + 업데이트 |
-| **CountryReferenceTwoLetter**    |  C  |     |         만들기 + 업데이트 |
+| **CountryReferenceTwoLetter**    |  c  |     |         만들기 + 업데이트 |
 | **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  만들기 + 업데이트 |
 | **PostalCode**  |   postalCode  |     | 만들기 + 업데이트 |
@@ -593,7 +593,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 1. [https://editor.swagger.io](<https://portal.azure.com>) 로 이동합니다.
 
-2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
+2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
 3. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
 
@@ -601,9 +601,9 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 5. **Workday-Azure AD 프로비전**을 검색하고, 갤러리에서 해당 앱을 추가합니다.
 
-6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
+6. 앱이 추가 되 고 앱 세부 정보 화면이 표시 되 면 **프로 비전**을 선택 합니다.
 
-7. **프로비전** **모드**를 **자동**으로 변경합니다.
+7. **프로 비전** **모드** 를 **자동**으로 변경 합니다.
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
@@ -688,9 +688,9 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **Workday 쓰기 저장 커넥터를 구성하려면**
 
-1. <https://portal.azure.com>(으)로 이동
+1. [https://editor.swagger.io](<https://portal.azure.com>) 로 이동합니다.
 
-2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
+2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
 3. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
 
@@ -698,9 +698,9 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 5. **Workday 쓰기 저장**을 검색하고, 갤러리에서 해당 앱을 추가합니다.
 
-6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
+6. 앱이 추가 되 고 앱 세부 정보 화면이 표시 되 면 **프로 비전**을 선택 합니다.
 
-7. **프로비전** **모드**를 **자동**으로 변경합니다.
+7. **프로 비전** **모드** 를 **자동**으로 변경 합니다.
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
@@ -737,7 +737,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+2. **저장**을 클릭합니다.
 
 3. 이 작업을 수행하면 초기 동기화가 시작되고, Workday 테넌트에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다. 
 
@@ -905,7 +905,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* 표시되는 에이전트 목록에서 *resourceName*이 AD 도메인 이름과 같은 해당 리소스의 “id” 필드 값을 복사합니다.
+* 표시 되는 에이전트 목록 *에서 이름이 AD* 도메인 이름과 같은 리소스의 `id` 필드 값을 복사 합니다.
 * ID 값을이 명령에 붙여넣고 PowerShell에서 명령을 실행 합니다.
 
   ```powershell
@@ -946,7 +946,7 @@ Microsoft Graph API를 사용하여 Workday 사용자 프로비저닝 구성을 
 
 다음과 같이 **특성 매핑** 블레이드에서 **대상 개체 작업**을 설정하여 이 구성을 수행할 수 있습니다.
 
-![업데이트 작업](./media/workday-inbound-tutorial/wd_target_update_only.png)
+![업데이트 동작](./media/workday-inbound-tutorial/wd_target_update_only.png)
 
 업데이트 작업만 Workday에서 AD로 흐르도록 “업데이트” 확인란을 선택합니다. 
 
@@ -960,7 +960,7 @@ Microsoft Graph API를 사용하여 Workday 사용자 프로비저닝 구성을 
 * 특성 매핑을 클릭합니다. 
 * **매핑** 아래에서 **Synchronize Workday Workers to On Premises Active Directory**(온-프레미스 Active Directory에 Workday 작업자 동기화) 또는 **Synchronize Workday Workers to Azure AD**(Azure AD에 Workday 작업자 동기화)를 선택합니다.
 * 특성 매핑 페이지에서 아래로 스크롤하여 “고급 옵션 표시” 상자를 선택합니다.  **Workday의 특성 목록 편집**을 클릭합니다.
-* 열리는 블레이드에서 “Mobile” 특성을 찾고 행을 클릭하여 **API 식** ![모바일 GDPR](./media/workday-inbound-tutorial/mobile_gdpr.png)을 편집할 수 있습니다.
+* 열리는 블레이드에서 "Mobile" 특성을 찾고 해당 행을 클릭 하 여 ![Mobile GDPR **API 식을** 편집할 수 있습니다.
 
 * **API 식**을 다음 새 식으로 바꿉니다. 이 식은 Workday에서 “공개 사용 플래그”가 “True”로 설정된 경우에만 회사 휴대폰 번호를 검색합니다.
 
@@ -1191,7 +1191,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
 |1.| 프로 비전 에이전트를 설치 하는 동안 오류가 발생 했습니다. 오류 메시지: *서비스 ' Microsoft Azure AD 연결 프로 비전 에이전트 ' (AADConnectProvisioningAgent)를 시작 하지 못했습니다. 시스템을 시작할 수 있는 충분 한 권한이 있는지 확인 합니다.* | 이 오류는 일반적으로 도메인 컨트롤러에 프로비전 에이전트를 설치할 때 그룹 정책이 서비스 시작을 차단하는 경우 나타납니다.  이전 버전의 에이전트가 실행 중이고 새 설치를 시작하기 전에 해당 에이전트를 제거하지 않은 경우에도 나타납니다.| DC가 아닌 서버에 프로비전 에이전트를 설치합니다. 새 에이전트를 설치하기 전에 이전 버전의 에이전트가 제거되었는지 확인합니다.|
-|2.| Windows 서비스 ‘Microsoft Azure AD Connect Provisioning Agent’가 ‘시작하는 중’ 상태이고 ‘실행 중’ 상태로 전환되지 않습니다. | 설치의 일부로 에이전트 마법사는 서버에 로컬 계정(**NT 서비스\\AADConnectProvisioningAgent**)을 만들고 이 계정은 서비스를 시작하는 데 사용되는 **로그온** 계정입니다. Windows Server의 보안 정책이 로컬 계정의 서비스 실행을 차단하면 이 오류가 발생합니다. | ‘서비스 콘솔’을 엽니다. Windows 서비스 ‘Microsoft Azure AD Connect Provisioning Agent’를 마우스 오른쪽 단추로 클릭하고 [로그온] 탭에서 서비스를 실행할 도메인 관리자의 계정을 지정합니다. 서비스를 다시 시작합니다. |
+|2.| Windows 서비스 ‘Microsoft Azure AD Connect Provisioning Agent’가 ‘시작하는 중’ 상태이고 ‘실행 중’ 상태로 전환되지 않습니다. | 설치 과정에서 에이전트 마법사는 서버에 로컬 계정 (**NT Service\\AADConnectProvisioningAgent**)을 만들며 서비스를 시작 하는 데 사용 되는 로그온 계정입니다. Windows Server의 보안 정책이 로컬 계정의 서비스 실행을 차단하면 이 오류가 발생합니다. | ‘서비스 콘솔’을 엽니다. Windows 서비스 ' Microsoft Azure AD 프로 비전 에이전트 연결 '을 마우스 오른쪽 단추로 클릭 하 고 로그온 탭에서 서비스를 실행할 도메인 관리자의 계정을 지정 합니다. 서비스를 다시 시작합니다. |
 |3.| ‘Active Directory 연결’ 단계에서 AD 도메인을 사용하여 프로비전 에이전트를 구성할 때 마법사는 AD 스키마를 로드하는 데 시간이 오래 걸리고 결국 시간이 초과됩니다. | 일반적으로 이 오류는 방화벽 문제로 인해 마법사가 AD 도메인 컨트롤러 서버에 연결할 수 없는 경우에 나타납니다. | ‘Active Directory 연결’ 마법사 화면에서 AD 도메인의 자격 증명을 제공하는 동안 ‘도메인 컨트롤러 우선 순위 선택’ 옵션이 제공됩니다. 이 옵션을 사용하여 에이전트 서버와 동일한 사이트에 있는 도메인 컨트롤러를 선택하고 통신을 차단하는 방화벽 규칙이 없는지 확인합니다. |
 
 #### <a name="connectivity-errors"></a>연결 오류

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88094e7ade688505bb971dd85505ddfacb1d8859
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438932"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 
@@ -26,7 +26,7 @@ ms.locfileid: "74926793"
 > * [버전 2(현재 버전)](../copy-activity-performance.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에 대한 복사 작업 성능 및 조정 가이드](../copy-activity-performance.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에 대한 복사 작업 성능 및 조정 가이드](../copy-activity-performance.md)를 참조하세요.
 
 Azure Data Factory 복사 작업은 최고 수준의 보안, 안정성 및 고성능 데이터 로드 솔루션을 제공합니다. 풍부하게 다양한 클라우드 및 온-프레미스 데이터 저장소에서 매일 수십 테라바이트의 데이터를 복사할 수 있습니다. 초고속 데이터 로드 성능은 핵심적인 "빅 데이터" 문제인 고급 분석 솔루션을 구축하고 모든 데이터에서 깊은 통찰을 얻는 데 집중할 수 있도록 하는 열쇠입니다.
 
@@ -205,7 +205,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 ### <a name="configuration"></a>구성
 복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 스토리지에 로드하기 전에 Blob Storage에서 준비할지 여부를 지정합니다. **enableStaging** 을 TRUE로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. Azure Storage 또는 준비를 위한 Storage 공유 액세스 서명 연결된 서비스가 아직 없는 경우 만들어야 합니다.
 
-| 자산 | 설명 | 기본값 | 필수 |
+| 속성 | Description | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |거짓 |아닙니다. |
 | **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse로 데이터를 로드하는 데 공유 액세스 서명을 포함한 스토리지를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |N/A |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
@@ -379,7 +379,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 보이는 대로 데이터를 처리하고 다음 스트리밍 순으로 이동합니다. SQL Server -> LAN -> 게이트웨이 -> WAN -> Blob 저장소 **전반적인 성능은 파이프라인을 통해 최소 처리량에서 제어됩니다**.
 
-![데이터 흐름](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
+![디자이너의](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
 
 다음 중 하나 이상의 요인으로 성능 병목 현상이 발생할 수 있습니다.
 
@@ -416,7 +416,8 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 ## <a name="reference"></a>참조
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
-* Azure Storage(Blob 스토리지 및 테이블 스토리지 포함): [Azure Storage 확장성 목표](../../storage/common/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../../storage/common/storage-performance-checklist.md)
+* Azure Blob storage: blob 저장소에 [대 한 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md) 와 [blob 저장소에 대 한 성능 및 확장성 검사 목록](../../storage/blobs/storage-performance-checklist.md)입니다.
+* Azure 테이블 저장소: 테이블 저장소에 [대 한 확장성 및 성능 목표](../../storage/tables/scalability-targets.md) 와 [테이블 저장소에 대 한 성능 및 확장성 검사 목록](../../storage/tables/storage-performance-checklist.md)입니다.
 * Azure SQL Database: [성능을 모니터링](../../sql-database/sql-database-single-database-monitor.md) 하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
 * Azure SQL Data Warehouse: 해당 기능은 DWU(데이터 웨어하우스 단위)로 측정됩니다. [Azure SQL Data Warehouse의 컴퓨팅 능력 관리(개요)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 * Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../../cosmos-db/performance-levels.md)

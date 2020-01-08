@@ -1,17 +1,17 @@
 ---
-title: Azure Active Directory 통합으로 Azure Cosmos DB의 역할 기반 액세스 제어
+title: Azure Cosmos DB의 역할 기반 액세스 제어
 description: Azure Cosmos DB RBAC (Active directory 통합)를 사용 하 여 데이터베이스 보호를 제공 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: c7605bbc1824e2e859cc94296834daf4e4e0907b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0c7332a42751b35b6ad8ec3f88afb7bc78cc85e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445094"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 역할 기반 액세스 제어
 
@@ -23,8 +23,8 @@ Azure Cosmos DB에서 지 원하는 기본 제공 역할은 다음과 같습니�
 
 |**기본 제공 역할**  |**설명**  |
 |---------|---------|
-|[DocumentDB 계정 참여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다.|
-|[Cosmos DB 계정 판독기](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있습니다.|
+|[DocumentDB 계정 기여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다.|
+|[Cosmos DB 계정 판독기](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있음.|
 |[Cosmos Backup 운영자](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Azure Cosmos 데이터베이스 또는 컨테이너에 대 한 복원 요청을 제출할 수 있습니다.|
 |[Cosmos DB 연산자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|는 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로 비전 할 수 있지만 데이터에 액세스 하는 데 필요한 키에는 액세스할 수 없습니다.|
 

@@ -1,17 +1,17 @@
 ---
-title: 관리 되지 않는 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환-Azure Managed Disks
+title: 비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 description: Resource Manager 배포 모델에서 PowerShell을 사용하여 비관리 디스크에서 관리 디스크로 Windows VM을 변환하는 방법
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 92f70cbfcf261c218ea43b159ed49126f7b2ecd5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 8c180cfc597c0ade27b1fe8cca5a8751176ea12e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460119"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
@@ -34,7 +34,7 @@ ms.locfileid: "74033909"
 ## <a name="convert-single-instance-vms"></a>단일 인스턴스 VM 변환
 이 섹션에서는 단일 인스턴스 Azure VM을 비관리 디스크에서 Managed Disks로 변환하는 방법을 설명합니다. VM이 가용성 집합에 있는 경우 다음 섹션을 참조하세요. 
 
-1. [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet을 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myVM`에서 `myResourceGroup`이라는 VM의 할당을 취소합니다. 
+1. [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet을 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다. 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -52,9 +52,9 @@ ms.locfileid: "74033909"
 
 ## <a name="convert-vms-in-an-availability-set"></a>가용성 집합의 VM 변환
 
-관리 디스크로 변환하려는 VM이 가용성 집합에 있는 경우 먼저 가용성 집합을 관리 가용성 집합으로 변환해야 합니다.
+관리되는 디스크로 변환하려는 VM이 가용성 집합에 있는 경우 먼저 가용성 집합을 관리되는 가용성 집합으로 변환해야 합니다.
 
-1. [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet을 사용하여 가용성 집합을 변환합니다. 다음 예제에서는 리소스 그룹 `myAvailabilitySet`의 가용성 집합 `myResourceGroup`을 업데이트합니다.
+1. [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet을 사용하여 가용성 집합을 변환합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`을 업데이트합니다.
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'

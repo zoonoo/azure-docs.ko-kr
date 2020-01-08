@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 3368f72aeb7909c3e0a8653bb5b094729c4c45ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 44542fb299d769a3916407e09691a72efed01c79
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462422"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -99,7 +99,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 **세부 정보**: 모든 배포의 첫 번째 단계로 모든 Windows 업데이트 확인 및 설치 이 측정값은 사용자 또는 사용자의 고유한 라이브러리에서 제공되는 이미지를 배포할 때 적용하는 것이 특히 중요합니다. Azure Marketplace의 이미지가 기본적으로 자동으로 업데이트되지만 공용 릴리스 이후 최대 몇 주 동안 지연 시간이 발생할 수 있습니다.
 
 **모범 사례**: OS의 새 버전을 강제로 적용하기 위해 주기적으로 VM 다시 배포   
-**세부 정보**: [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
+**세부 정보**: [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
 
 **모범 사례**: vm에 보안 업데이트를 신속 하 게 적용 합니다.   
 **세부 정보**: Azure Security Center (무료 계층 또는 표준 계층)를 사용 하 여 [누락 된 보안 업데이트를 식별 하 고 적용](../../security-center/security-center-apply-system-updates.md)합니다.
@@ -181,7 +181,7 @@ VM 다이렉트 인터넷 연결을 모니터링 하 고 제한 합니다. 공�
 **세부 정보**: [JIT (just-in-time) vm 액세스](../../security-center/security-center-just-in-time.md) 를 사용 하 여 Azure vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요에 따라 vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다. JIT를 사용 하도록 설정 하면 Security Center 네트워크 보안 그룹 규칙을 만들어 Azure Vm에 대 한 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 이러한 포트는 JIT 솔루션에 의해 제어 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인/배포/관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 확인합니다.
+[Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
 
 Azure 보안 및 관련 Microsoft 서비스에 대한 보다 일반적인 정보를 제공하는 다음 리소스도 확인할 수 있습니다.
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/) – Azure Security 관련 최신 정보를 확인할 수 있습니다.

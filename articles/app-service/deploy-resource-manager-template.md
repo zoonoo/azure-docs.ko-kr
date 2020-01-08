@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670108"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422105"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 
@@ -94,7 +94,7 @@ Resource Manager 템플릿에서 MSDeploy를 사용하는 경우 배포 오류 �
 
 ## <a name="choose-a-unique-web-app-name"></a>고유한 웹앱 이름을 선택합니다.
 
-웹앱 이름은 전역적으로 고유해야 합니다. 고유한 명명 규칙을 사용할 수도 있고, [uniqueString 함수](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring)를 사용하여 고유 이름 생성을 지원할 수도 있습니다.
+웹앱 이름은 전역적으로 고유해야 합니다. 고유한 명명 규칙을 사용할 수도 있고, [uniqueString 함수](../azure-resource-manager/templates/template-functions-string.md#uniquestring)를 사용하여 고유 이름 생성을 지원할 수도 있습니다.
 
 ```json
 {

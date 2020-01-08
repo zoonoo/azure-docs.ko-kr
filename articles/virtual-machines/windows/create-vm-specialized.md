@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460196"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -70,7 +70,7 @@ VHD를 그대로 사용하여 새 VM을 만듭니다.
 
 VM의 스냅샷을 만든 다음, 이 스냅샷을 사용하여 새 관리 디스크 및 새 VM을 만드는 방식으로 관리 디스크를 사용하는 VM의 복사본을 만들 수 있습니다.
 
-기존 VM을 다른 지역에 복사 하려는 경우 azcopy를 사용 하 여 [다른 지역에 디스크의 복사본](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)을 만들어야 할 수 있습니다. 
+기존 VM을 다른 지역에 복사 하려는 경우 azcopy를 사용 하 여 [다른 지역에 디스크의 복사본을 만들](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)수 있습니다. 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅샷 만들기
 

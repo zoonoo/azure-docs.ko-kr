@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 독립 실행형 클러스터의 버전 업그레이드 | Microsoft Docs
+title: 독립 실행형 클러스터의 버전 업그레이드
 description: 독립 실행형 Service Fabric 클러스터를 실행하는 Azure Service Fabric 코드를 업그레이드합니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 29d034be5999d0bc3f0a244cfa7a5658a4ecce32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8c146d1a82fd745e6641ac2aea91aa34539d6f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711386"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610032"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 Service Fabric 버전 업그레이드 
 

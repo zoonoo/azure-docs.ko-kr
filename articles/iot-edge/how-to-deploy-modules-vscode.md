@@ -1,6 +1,6 @@
 ---
-title: Visual Studio Code에서 모듈 배포 - Azure IoT Edge | Microsoft Docs
-description: Visual Studio Code를 사용하여 IoT Edge 디바이스에 모듈 배포
+title: Visual Studio Code에서 모듈 배포-Azure IoT Edge
+description: Azure IoT 도구에서 Visual Studio Code를 사용 하 여 배포 매니페스트에 구성 된 대로 IoT Hub의 IoT Edge 모듈을 IoT Edge 장치로 푸시합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 415494fed0870a855a20314816bcebbe22680a98
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d1c5897240f627d52af056767943b59d85dd2d0c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434281"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio Code에서 Azure IoT Edge 모듈 배포
 
 비즈니스 논리를 사용하여 IoT Edge 모듈을 만들면 디바이스에 배포하여 에지에서 작동시킵니다. 데이터를 수집하고 처리하기 위해 다중 모듈을 사용한 경우 한 번에 모두 배포하고 여기에 연결된 회람 규칙을 선언할 수 있습니다.
 
-이 문서에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여 줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
+이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-with-visual-studio-code)
-* [Visual Studio Code](https://code.visualstudio.com/) -
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview)
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성

@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric에서 작업하도록 Mac OS X에서 개발 환경 설정 | Microsoft Docs
-description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 애플리케이션을 빌드할 수 있습니다.
-services: service-fabric
-documentationcenter: linux
+title: MacOS에서 개발 환경 설정
+description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정이 완료 되 면 macOS에서 응용 프로그램을 빌드할 준비가 됩니다.
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2ce8d944e7334b071a4a48f38f8c4fafaeff4c47
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 178b8c120bc7a886eaca94d1551e489f96ba22b2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035289"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609879"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -30,7 +22,7 @@ ms.locfileid: "69035289"
 
 Mac OS X를 사용하여 Azure Service Fabric 애플리케이션을 Linux 클러스터에서 실행하도록 빌드할 수 있습니다. 이 문서에서는 개발을 위해 Mac을 설정하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다. 로컬 Service Fabric 클러스터를 실행하기 위해 미리 구성된 Docker 컨테이너 이미지가 제공됩니다. 시작하기 전에 다음 항목이 필요합니다.
 
 * RAM 4GB 이상
@@ -174,7 +166,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     ```
 
     > [!IMPORTANT]
-    > 최신 버전의 `brew cask install java` JDK는 최신 버전의 JDK를 설치할 수 있습니다.
+    > 최신 버전의 `brew cask install java`는 JDK의 최신 버전을 설치할 수 있습니다.
     > JDK 8을 설치 해야 합니다.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>터미널에서 Mac에 애플리케이션 배포

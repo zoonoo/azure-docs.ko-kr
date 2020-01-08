@@ -1,25 +1,16 @@
 ---
-title: ASP.NET Core와 서비스 통신 | Microsoft Docs
-description: 상태 비저장 및 상태 저장 Reliable Services에서 ASP.NET Core를 사용하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
+title: ASP.NET Core와 서비스 통신
+description: 상태 비저장 및 상태 저장 Azure Service Fabric Reliable Services 응용 프로그램에서 ASP.NET Core를 사용 하는 방법을 알아봅니다.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: b2a1b1426af3e72756a7a85a173ef4a2a5671b02
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0d432bd19d0689ef508fca0bf24eed4406929f82
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900205"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639635"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>Azure Service Fabric에서 ASP.NET Core Reliable Services
 
@@ -64,10 +55,10 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 두 통신 수신기는 다음 인수를 사용하는 생성자를 제공합니다.
  - **`ServiceContext serviceContext`** : 실행 중인 서비스에 대 한 정보를 포함 하는 `ServiceContext` 개체입니다.
  - **`string endpointName`** : servicemanifest.xml에서 `Endpoint` 구성의 이름입니다. 주로 두 통신 수신기가 서로 다릅니다. Http.sys에는 `Endpoint` 구성이 *필요* 하지만, Kestrel은 그렇지 않습니다.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : `IWebHost`를 만들고 반환 하는 사용자가 구현 하는 람다입니다. 이를 통해 ASP.NET Core 응용 프로그램에서 정상적으로 작동 하는 방식으로 `IWebHost`을 구성할 수 있습니다. 람다는 사용 하는 Service Fabric 통합 옵션과 사용자가 제공 하는 `Endpoint` 구성에 따라 생성 되는 URL을 제공 합니다. 그런 다음 해당 URL을 수정 하거나 사용 하 여 웹 서버를 시작할 수 있습니다.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : `IWebHost`을 만들고 반환 하는 사용자가 구현 하는 람다입니다. 이를 통해 ASP.NET Core 응용 프로그램에서 정상적으로 `IWebHost`를 구성할 수 있습니다. 람다는 사용 하는 Service Fabric 통합 옵션과 사용자가 제공 하는 `Endpoint` 구성에 따라 생성 되는 URL을 제공 합니다. 그런 다음 해당 URL을 수정 하거나 사용 하 여 웹 서버를 시작할 수 있습니다.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 통합 미들웨어
-`Microsoft.ServiceFabric.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가 하는 `IWebHostBuilder`에 대 한 `UseServiceFabricIntegration` 확장 메서드가 포함 되어 있습니다. 이 미들웨어는 Kestrel 또는 HTTP.SYS `ICommunicationListener`을 구성 하 여 Service Fabric Naming Service에 고유한 서비스 URL을 등록 합니다. 그런 다음 클라이언트 요청의 유효성을 검사 하 여 클라이언트가 올바른 서비스에 연결 하는지 확인 합니다. 
+`Microsoft.ServiceFabric.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가 하는 `IWebHostBuilder`에 대 한 `UseServiceFabricIntegration` 확장 메서드가 포함 되어 있습니다. 이 미들웨어는 Kestrel 또는 HTTP.SYS `ICommunicationListener`를 구성 하 여 Service Fabric Naming Service에 고유한 서비스 URL을 등록 합니다. 그런 다음 클라이언트 요청의 유효성을 검사 하 여 클라이언트가 올바른 서비스에 연결 하는지 확인 합니다. 
 
 이 단계는 클라이언트가 잘못 된 서비스에 연결 되지 않도록 방지 하는 데 필요 합니다. 이는 Service Fabric 같은 공유 호스트 환경에서 여러 웹 응용 프로그램을 동일한 물리적 컴퓨터 또는 가상 컴퓨터에서 실행할 수 있지만 고유한 호스트 이름은 사용 하지 않기 때문입니다. 이 시나리오에 대해서는 다음 섹션에서 자세히 설명합니다.
 
@@ -101,7 +92,7 @@ Kestrel 및 HTTP.SYS `ICommunicationListener` 구현은 모두 똑같은 방식�
 따라서 Kestrel 및 HTTP.SYS `ICommunicationListener` 구현은 모두 `UseServiceFabricIntegration` 확장 메서드에서 제공 하는 미들웨어를 표준화 합니다. 따라서 클라이언트는 HTTP 410 응답에서 서비스 끝점 다시 확인 작업을 수행 하기만 하면 됩니다.
 
 ## <a name="httpsys-in-reliable-services"></a>Reliable Services에서 HTTP.SYS
-**ServiceFabric AspNetCore** NuGet 패키지를 가져와 Reliable Services에서 http.sys를 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener`의 구현인 `HttpSysCommunicationListener`이 포함 되어 있습니다. `HttpSysCommunicationListener`을 사용 하면 http.sys를 웹 서버로 사용 하 여 신뢰할 수 있는 서비스 내에서 ASP.NET Core WebHost를 만들 수 있습니다.
+**ServiceFabric AspNetCore** NuGet 패키지를 가져와 Reliable Services에서 http.sys를 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener`구현인 `HttpSysCommunicationListener`포함 되어 있습니다. `HttpSysCommunicationListener`를 사용 하면 http.sys를 웹 서버로 사용 하 여 신뢰할 수 있는 서비스 내에서 ASP.NET Core WebHost를 만들 수 있습니다.
 
 Http.sys는 [WINDOWS Http 서버 API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx)를 기반으로 합니다. 이 **API는 http.sys 커널 드라이버** 를 사용 하 여 http 요청을 처리 하 고 웹 응용 프로그램을 실행 하는 프로세스로 라우팅합니다. 이를 통해 동일한 물리적 컴퓨터 또는 가상 컴퓨터의 여러 프로세스가 동일한 포트에서 웹 응용 프로그램을 호스팅할 수 있으며,이는 고유한 URL 경로 또는 호스트 이름으로 명확 하 게 구분 됩니다. 이러한 기능은 동일한 클러스터에서 여러 웹 사이트를 호스팅하는 Service Fabric에서 유용합니다.
 
@@ -138,15 +129,15 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>상태 저장 서비스의 HTTP.SYS
 
-`HttpSysCommunicationListener`은 기본 **http.sys** 포트 공유 기능을 사용 하는 복잡 한 상태에서 현재 상태 저장 서비스에서 사용 하도록 설계 되지 않았습니다. 자세한 내용은 HTTP.SYS를 사용 하 여 동적 포트 할당에 대 한 다음 섹션을 참조 하세요. 상태 저장 서비스의 경우 Kestrel이 제안 된 웹 서버입니다.
+기본 **http.sys** 포트 공유 기능을 사용 하는 것이 복잡 하기 때문에 `HttpSysCommunicationListener`는 현재 상태 저장 서비스에서 사용 하도록 설계 되지 않았습니다. 자세한 내용은 HTTP.SYS를 사용 하 여 동적 포트 할당에 대 한 다음 섹션을 참조 하세요. 상태 저장 서비스의 경우 Kestrel이 제안 된 웹 서버입니다.
 
 ### <a name="endpoint-configuration"></a>엔드포인트 구성
 
 Http.sys를 포함 하 여 Windows HTTP 서버 API를 사용 하는 웹 서버에는 `Endpoint` 구성이 필요 합니다. Windows HTTP 서버 API를 사용 하는 웹 서버는 먼저 HTTP.SYS를 사용 하 여 URL을 예약 해야 합니다 .이는 일반적으로 [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) 도구를 사용 하 여 수행 됩니다. 
 
-이 작업을 수행 하려면 서비스에 기본적으로 포함 되지 않는 높은 권한이 필요 합니다. Servicemanifest.xml에서 `Endpoint` 구성의 `Protocol` 속성에 대 한 "http" 또는 "https" 옵션은 명시적으로 Service Fabric 런타임에 HTTP.SYS에 URL을 등록 하도록 지시 하는 데 사용 됩니다. [*강력한 와일드 카드*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) URL 접두사를 사용 하 여이를 수행 합니다.
+이 작업을 수행 하려면 서비스에 기본적으로 포함 되지 않는 높은 권한이 필요 합니다. Servicemanifest.xml의 `Endpoint` 구성에 대 한 `Protocol` 속성에 대 한 "http" 또는 "https" 옵션은 특히 Service Fabric 런타임에 HTTP.SYS에 URL을 등록 하도록 지시 하는 데 사용 됩니다. [*강력한 와일드 카드*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) URL 접두사를 사용 하 여이를 수행 합니다.
 
-예를 들어 서비스에 대 한 `http://+:80`을 예약 하려면 Servicemanifest.xml에서 다음 구성을 사용 합니다.
+예를 들어 서비스에 대 한 `http://+:80`를 예약 하려면 Servicemanifest.xml에서 다음 구성을 사용 합니다.
 
 ```xml
 <ServiceManifest ... >
@@ -174,7 +165,7 @@ Http.sys를 포함 하 여 Windows HTTP 서버 API를 사용 하는 웹 서버�
 ```
 
 #### <a name="use-httpsys-with-a-static-port"></a>정적 포트에서 http.sys 사용
-HTTP.SYS에서 정적 포트를 사용 하려면 `Endpoint` 구성에서 포트 번호를 제공 합니다.
+HTTP.SYS에서 정적 포트를 사용 하려면 `Endpoint` 구성에 포트 번호를 제공 합니다.
 
 ```xml
   <Resources>
@@ -195,10 +186,10 @@ HTTP.SYS에서 동적으로 할당 된 포트를 사용 하려면 `Endpoint` 구
   </Resources>
 ```
 
-`Endpoint` 구성에 의해 할당 된 동적 포트는 *호스트 프로세스 당*하나의 포트만 제공 합니다. 현재 Service Fabric 호스팅 모델을 사용 하면 여러 서비스 인스턴스 및/또는 복제본을 동일한 프로세스에서 호스팅할 수 있습니다. 즉, `Endpoint` 구성을 통해 할당 될 때 각 항목은 동일한 포트를 공유 합니다. 여러 **http.sys** 인스턴스는 기본 **http.sys** 포트 공유 기능을 사용 하 여 포트를 공유할 수 있습니다. 그러나 클라이언트 요청에 대 한 복잡성 때문에 `HttpSysCommunicationListener`에서 지원 되지 않습니다. 동적 포트 사용의 경우 Kestrel이 제안 된 웹 서버입니다.
+`Endpoint` 구성에 의해 할당 된 동적 포트는 *호스트 프로세스 당*하나의 포트만 제공 합니다. 현재 Service Fabric 호스팅 모델을 사용 하면 여러 서비스 인스턴스 및/또는 복제본을 동일한 프로세스에서 호스팅할 수 있습니다. 즉, `Endpoint` 구성을 통해 할당 될 때 각 항목은 동일한 포트를 공유 합니다. 여러 **http.sys** 인스턴스는 기본 **http.sys** 포트 공유 기능을 사용 하 여 포트를 공유할 수 있습니다. 그러나 클라이언트 요청에 대 한 복잡성으로 인해 `HttpSysCommunicationListener`에서 지원 되지 않습니다. 동적 포트 사용의 경우 Kestrel이 제안 된 웹 서버입니다.
 
 ## <a name="kestrel-in-reliable-services"></a>Reliable Services의 Kestrel
-**ServiceFabric. AspNetCore** NuGet 패키지를 가져와 Reliable Services에서 kestrel을 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener`의 구현인 `KestrelCommunicationListener`이 포함 되어 있습니다. `KestrelCommunicationListener`을 사용 하면 웹 서버로 Kestrel을 사용 하 여 신뢰할 수 있는 서비스 내에서 ASP.NET Core WebHost를 만들 수 있습니다.
+**ServiceFabric. AspNetCore** NuGet 패키지를 가져와 Reliable Services에서 kestrel을 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener`구현인 `KestrelCommunicationListener`포함 되어 있습니다. `KestrelCommunicationListener`를 사용 하면 웹 서버로 Kestrel을 사용 하 여 신뢰할 수 있는 서비스 내에서 ASP.NET Core WebHost를 만들 수 있습니다.
 
 Kestrel은 ASP.NET Core에 대 한 플랫폼 간 웹 서버입니다. HTTP.SYS와는 달리 Kestrel은 중앙 집중식 끝점 관리자를 사용 하지 않습니다. 또한 HTTP.SYS와는 달리 Kestrel은 여러 프로세스 간의 포트 공유를 지원 하지 않습니다. Kestrel의 각 인스턴스는 고유한 포트를 사용해야 합니다. Kestrel에 대 한 자세한 내용은 [구현 세부 정보](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2)를 참조 하세요.
 
@@ -260,7 +251,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 상태 저장 서비스에서는 `Endpoint` 구성 이름이 `KestrelCommunicationListener`에 제공되지 *않습니다*. 자세한 내용은 다음 섹션에서 설명합니다.
 
 ### <a name="configure-kestrel-to-use-https"></a>HTTPS를 사용하도록 Kestrel 구성
-서비스에서 Kestrel을 사용 하 여 HTTPS를 사용 하도록 설정 하는 경우 몇 가지 수신 대기 옵션을 설정 해야 합니다. *EndpointHttps* 끝점을 사용 하 고 특정 포트 (예: 포트 443)에서 수신 대기 하도록 `ServiceInstanceListener`을 업데이트 합니다. Kestrel 웹 서버를 사용 하도록 웹 호스트를 구성 하는 경우 모든 네트워크 인터페이스에서 IPv6 주소를 수신 하도록 Kestrel을 구성 해야 합니다. 
+서비스에서 Kestrel을 사용 하 여 HTTPS를 사용 하도록 설정 하는 경우 몇 가지 수신 대기 옵션을 설정 해야 합니다. *EndpointHttps* 끝점을 사용 하 고 특정 포트 (예: 포트 443)에서 수신 하도록 `ServiceInstanceListener`를 업데이트 합니다. Kestrel 웹 서버를 사용 하도록 웹 호스트를 구성 하는 경우 모든 네트워크 인터페이스에서 IPv6 주소를 수신 하도록 Kestrel을 구성 해야 합니다. 
 
 ```csharp
 new ServiceInstanceListener(
@@ -383,7 +374,7 @@ public void ConfigureServices(IServiceCollection services)
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```
 
-예를 들어 다음 콘텐츠를 사용 하 여 `MyConfigPackage` 이라는 구성 패키지가 있는 경우 ASP.NET Core `IConfiguration`에서 *Myconfigpackage: Myconfigpackage: MyParameter*에 구성 값을 사용할 수 있습니다.
+예를 들어 다음 콘텐츠를 사용 하 `MyConfigPackage` 이라는 구성 패키지가 있는 경우 *Myconfigpackage: Myconfigpackage: MyParameter*를 통해 ASP.NET Core `IConfiguration`에서 구성 값을 사용할 수 있습니다.
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
@@ -393,7 +384,7 @@ $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{Configuration
 </Settings>
 ```
 ### <a name="service-fabric-configuration-options"></a>Service Fabric 구성 옵션
-Service Fabric 구성 공급자는 키 매핑의 기본 동작을 변경 하는 `ServiceFabricConfigurationOptions`도 지원 합니다.
+또한 Service Fabric 구성 공급자는 키 매핑의 기본 동작을 변경 하는 `ServiceFabricConfigurationOptions` 지원 합니다.
 
 #### <a name="encrypted-settings"></a>암호화 된 설정
 Service Fabric는 Service Fabric 구성 공급자와 마찬가지로 암호화 된 설정을 지원 합니다. 암호화 된 설정은 기본적으로 ASP.NET Core `IConfiguration`로 해독 되지 않습니다. 대신 암호화 된 값이 저장 됩니다. 그러나 ASP.NET Core IConfiguration에 저장할 값을 해독 하려면 다음과 같이 `AddServiceFabricConfiguration` 확장에서 *DecryptValue* 플래그를 false로 설정할 수 있습니다.
@@ -420,9 +411,9 @@ public Startup()
 }
 ```
 #### <a name="custom-key-mapping-value-extraction-and-data-population"></a>사용자 지정 키 매핑, 값 추출 및 데이터 채우기
-또한 Service Fabric 구성 공급자는 `ExtractKeyFunc`으로 키 매핑을 사용자 지정 하 고 `ExtractValueFunc`로 값을 사용자 지정 하는 고급 시나리오를 지원 합니다. `ConfigAction`를 사용 하 여 Service Fabric 구성에서 ASP.NET Core 구성으로 데이터를 채우는 전체 프로세스를 변경할 수도 있습니다.
+또한 Service Fabric 구성 공급자는 `ExtractKeyFunc`를 사용 하 여 키 매핑을 사용자 지정 하 고 `ExtractValueFunc`를 사용 하 여 값을 사용자 지정 하는 고급 시나리오를 지원 합니다. `ConfigAction`를 사용 하 여 Service Fabric 구성에서 ASP.NET Core 구성으로 데이터를 채우는 전체 프로세스를 변경할 수도 있습니다.
 
-다음 예에서는 `ConfigAction`을 사용 하 여 데이터 채우기를 사용자 지정 하는 방법을 보여 줍니다.
+다음 예에서는 `ConfigAction`를 사용 하 여 데이터 채우기를 사용자 지정 하는 방법을 보여 줍니다.
 ```csharp
 public Startup()
 {
@@ -457,7 +448,7 @@ public Startup()
 ```
 
 ### <a name="configuration-updates"></a>구성 업데이트
-Service Fabric 구성 공급자는 구성 업데이트도 지원 합니다. ASP.NET Core `IOptionsMonitor`을 사용 하 여 변경 알림을 받은 다음 `IOptionsSnapshot`을 사용 하 여 구성 데이터를 다시 로드할 수 있습니다. 자세한 내용은 [ASP.NET Core 옵션](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)을 참조 하세요.
+Service Fabric 구성 공급자는 구성 업데이트도 지원 합니다. ASP.NET Core `IOptionsMonitor`를 사용 하 여 변경 알림을 받은 다음 `IOptionsSnapshot`를 사용 하 여 구성 데이터를 다시 로드할 수 있습니다. 자세한 내용은 [ASP.NET Core 옵션](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)을 참조 하세요.
 
 이러한 옵션은 기본적으로 지원 됩니다. 구성 업데이트를 사용 하도록 설정 하려면 추가 코딩이 필요 하지 않습니다.
 
@@ -509,7 +500,7 @@ Kestrel은 외부 인터넷 연결 HTTP 끝점을 노출 하는 프런트 엔드
 | 웹 서버 | Kestrel | 내부 상태 비저장 서비스에 HTTP.SYS를 사용할 수 있지만, Kestrel은 여러 서비스 인스턴스에서 호스트를 공유할 수 있도록 하는 최상의 서버입니다.  |
 | 포트 구성 | 동적으로 할당 | 상태 저장 서비스의 여러 복제본이 호스트 프로세스 또는 호스트 운영 체제를 공유할 수 있으므로 고유한 포트가 필요 합니다. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 동적 포트 할당으로 인해 이 설정은 앞에서 설명한 잘못된 ID 문제를 방지합니다. |
-| InstanceCount | 모든 | 인스턴스 수 설정은 서비스를 작동하는 데 필요한 모든 값으로 설정할 수 있습니다. |
+| InstanceCount | any | 인스턴스 수 설정은 서비스를 작동하는 데 필요한 모든 값으로 설정할 수 있습니다. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>내부 전용 ASP.NET Core 상태 저장 서비스
 클러스터 내에서만 호출되는 상태 저장 서비스는 동적으로 할당된 포트를 사용하여 여러 서비스 간의 공동 작업을 확인해야 합니다. 다음 구성이 권장됩니다.

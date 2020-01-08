@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: aa86d6cf22562fa1fac7d45de20b28aa0eec33aa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 616c5df38131d1b28387bcdda02c08b3a6825fb4
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261667"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530819"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -28,7 +28,7 @@ ms.locfileid: "71261667"
 
 ## <a name="batch-metrics"></a>일괄 처리 메트릭
 
-메트릭은 Azure Monitor 서비스에서 사용하는 Azure 리소스에서 내보낸 Azure 원격 분석 데이터(성능 카운터라고도 함)입니다. 일괄 처리 계정에 대한 예제 메트릭에는 풀 만들기 이벤트, 낮은 우선 순위 노드 수 및 작업 완료 이벤트가 있습니다. 
+메트릭은 Azure Monitor 서비스에서 사용하는 Azure 리소스에서 내보낸 Azure 원격 분석 데이터(성능 카운터라고도 함)입니다. 배치 계정에 대한 예제 메트릭에는 풀 만들기 이벤트, 낮은 우선 순위 노드 수 및 작업 완료 이벤트가 있습니다. 
 
 [지원되는 일괄 처리 메트릭 목록](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)을 참조하세요.
 
@@ -130,15 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-각 `PT1H.json` blob 파일에는 blob URL에 지정 된 시간 내에 발생 한 JSON 형식 이벤트가 포함 됩니다 ( `h=12`예:). 현재 시간 동안 이벤트가 발생 하면 `PT1H.json` 파일에 추가 됩니다. 진단 로그 이벤트는`m=00`시간당 개별 blob `00`으로 나뉘어 있으므로 분 값 ()은 항상입니다. (모든 시간은 UTC입니다.)
+각 `PT1H.json` blob 파일에는 blob URL에 지정 된 시간 내에 발생 한 JSON 형식 이벤트가 포함 됩니다 (예: `h=12`). 현재 시간 동안 이벤트가 발생 하면 `PT1H.json` 파일에 추가 됩니다. 진단 로그 이벤트는 시간당 개별 blob으로 분할 되므로 분 값 (`m=00`)은 항상 `00`입니다. (모든 시간은 UTC입니다.)
 
-로그`PT1H.json` 파일에 있는 `PoolResizeCompleteEvent` 항목의 예는 다음과 같습니다. 여기에는 작업의 시작 시간과 종료 시간 뿐만 아니라 전용 및 우선 순위가 낮은 노드의 현재 및 목표 수에 대 한 정보가 포함 됩니다.
+다음은 `PT1H.json` 로그 파일의 `PoolResizeCompleteEvent` 항목에 대 한 예입니다. 여기에는 작업의 시작 시간과 종료 시간 뿐만 아니라 전용 및 우선 순위가 낮은 노드의 현재 및 목표 수에 대 한 정보가 포함 됩니다.
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-스토리지 계정에서 진단 로그의 스키마에 대한 자세한 내용은 [Azure 진단 로그 보관](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-resource-logs-in-storage-account)을 참조하세요. 스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다. 
+스토리지 계정에서 진단 로그의 스키마에 대한 자세한 내용은 [Azure 진단 로그 보관](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account)을 참조하세요. 스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다. 
 
 ### <a name="service-log-events"></a>서비스 로그 이벤트
 Azure Batch 서비스 로그는 수집되는 경우 풀이나 작업 같은 개별 일괄 처리 리소스의 수명 주기 동안 Azure Batch 서비스가 내보낸 이벤트를 포함합니다. 일괄 처리에서 내보내는 각 이벤트는 JSON 형식으로 기록됩니다. 예를 들어 샘플 **풀 만들기 이벤트**의 본문은 다음과 같습니다.

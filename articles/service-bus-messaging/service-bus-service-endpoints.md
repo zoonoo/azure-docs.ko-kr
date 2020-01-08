@@ -1,6 +1,6 @@
 ---
 title: 가상 네트워크 서비스 끝점-Azure Service Bus
-description: 가상 네트워크에 Microsoft.ServiceBus 서비스 엔드포인트를 추가합니다.
+description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
 services: service-bus
 documentationcenter: ''
 author: axisc
@@ -8,18 +8,18 @@ editor: spelluru
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 99a705c3923821739ddc1dedd8f7c079dc534a1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5446ee12a6933a916444d4f64a0eb983a35a59f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462066"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Azure Service Bus에서 Virtual Network 서비스 엔드포인트 사용
 
-Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 컴퓨터와 같은 작업에서 메시징 기능에 안전 하 게 액세스할 수 있으며, 둘 다에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다. 종료.
+Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 머신과 같은 워크 로드에서 메시지 기능에 안전 하 게 액세스할 수 있으며, 두 쪽 모두에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다.
 
 적어도 하나의 가상 네트워크 서브넷 서비스 엔드포인트에 바인딩되도록 구성하면 해당하는 Service Bus 네임스페이스는 권한이 부여된 가상 네트워크를 제외한 곳의 트래픽을 더 이상 허용하지 않습니다. 가상 네트워크 큐브 뷰에서 Service Bus 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다.
 
@@ -38,7 +38,7 @@ Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 �
 >
 > 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
 > - Azure App Service
-> - Azure 기능
+> - Azure Function
 
 > [!IMPORTANT]
 > Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다.
@@ -76,11 +76,11 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
 > 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
 > Virtual Network 또는 방화벽 규칙을 만들 때 ***"defaultAction"*** 을 변경해야 합니다.
 > 
-> from
+> 원본
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 다음으로 변경:
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

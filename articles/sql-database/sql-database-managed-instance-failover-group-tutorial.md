@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286754"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552766"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Database 관리 되는 인스턴스 추가
 
@@ -26,25 +26,26 @@ ms.locfileid: "74286754"
 > [!div class="checklist"]
 > - 기본 관리 되는 인스턴스 만들기
 > - [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)의 일부로 보조 관리 되는 인스턴스를 만듭니다. 
-> - 테스트 장애 조치(failover)
+> - 테스트 장애 조치
 
   > [!NOTE]
   > - 이 자습서를 진행 하는 경우 [관리 되는 인스턴스에 대해 장애 조치 그룹을 설정 하기 위한 필수 구성 요소](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)를 사용 하 여 리소스를 구성 하 고 있는지 확인 합니다. 
   > - 관리 되는 인스턴스를 만드는 데는 상당한 시간이 걸릴 수 있습니다. 따라서이 자습서를 완료 하는 데 몇 시간 정도 걸릴 수 있습니다. 프로 비전 시간에 대 한 자세한 내용은 [관리 되는 인스턴스 관리 작업](sql-database-managed-instance.md#managed-instance-management-operations)을 참조 하세요. 
+  > - 장애 조치 (failover) 그룹에 참여 하는 관리 되는 인스턴스에는 [express](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 경로 또는 두 개의 연결 된 VPN 게이트웨이가 필요 이 자습서에서는 VPN 게이트웨이를 만들고 연결 하는 단계를 제공 합니다. 이미 Express 경로를 구성한 경우에는이 단계를 건너뜁니다. 
 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ---
@@ -381,7 +382,7 @@ PowerShell을 사용 하 여 리소스 그룹 및 기본 관리 되는 인스턴
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Azure 리소스 그룹을 만듭니다.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다.  |
@@ -422,7 +423,7 @@ Azure Portal를 사용 하 여 관리 되는 인스턴스를 만드는 경우 �
 
     | **필드** | 값 |
     | --- | --- |
-    | **Name** |  `vnet-sql-mi-secondary`와 같이 보조 관리 되는 인스턴스에서 사용할 가상 네트워크의 이름입니다. |
+    | **이름** |  `vnet-sql-mi-secondary`와 같이 보조 관리 되는 인스턴스에서 사용할 가상 네트워크의 이름입니다. |
     | **주소 공간** | `10.128.0.0/16`와 같은 가상 네트워크의 주소 공간입니다. | 
     | **구독** | 기본 관리 되는 인스턴스 및 리소스 그룹이 상주 하는 구독입니다. |
     | **지역** | 보조 관리 되는 인스턴스를 배포할 위치입니다. |
@@ -707,7 +708,7 @@ PowerShell을 사용 하 여 보조 관리 되는 인스턴스를 만듭니다.
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Azure 리소스 그룹을 만듭니다.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다.  |
@@ -728,7 +729,9 @@ PowerShell을 사용 하 여 보조 관리 되는 인스턴스를 만듭니다.
 ---
 
 ## <a name="4---create-primary-gateway"></a>4-기본 게이트웨이 만들기 
-두 개의 관리 되는 인스턴스가 장애 조치 (failover) 그룹에 참여 하려면 네트워크 통신을 허용 하도록 두 관리 되는 인스턴스의 가상 네트워크 간에 구성 된 게이트웨이가 있어야 합니다. Azure Portal를 사용 하 여 기본 관리 되는 인스턴스에 대 한 게이트웨이를 만들 수 있습니다. 
+장애 조치 (failover) 그룹에 참여 하는 두 개의 관리 되는 인스턴스는 네트워크 통신을 허용 하기 위해 두 개의 관리 되는 인스턴스의 가상 네트워크 간에 구성 된 Express 경로 또는 게이트웨이가 있어야 합니다. 두 VPN gateway를 연결 하는 대신 [express](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 경로를 구성 하도록 선택한 경우 [7 단계로](#7---create-a-failover-group)건너뜁니다.  
+
+이 문서에서는 두 VPN gateway를 만들고 연결 하는 단계를 제공 하지만 대신 Express 경로를 구성한 경우에는 장애 조치 (failover) 그룹 만들기로 건너뛸 수 있습니다. 
 
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
@@ -752,7 +755,7 @@ Azure Portal를 사용 하 여 기본 관리 되는 인스턴스의 가상 네�
     | **필드** | 값 |
     | --- | --- |
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
-    | **Name** | `primary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
+    | **이름** | `primary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
     | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반** 선택 |
@@ -807,7 +810,7 @@ PowerShell을 사용 하 여 기본 관리 되는 인스턴스의 가상 네트�
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 리소스 그룹의 가상 네트워크를 가져옵니다. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가합니다. | 
@@ -834,7 +837,7 @@ Azure Portal를 사용 하 여 이전 섹션의 단계를 반복 하 여 보조 
    | **필드** | 값 |
    | --- | --- |
    | **구독** |  보조 관리 되는 인스턴스가 있는 구독입니다. |
-   | **Name** | `secondary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
+   | **이름** | `secondary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
    | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN**을 선택합니다. |
    | **VPN 유형** | **경로 기반** 선택 |
@@ -888,7 +891,7 @@ PowerShell을 사용 하 여 보조 관리 되는 인스턴스의 가상 네트�
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 리소스 그룹의 가상 네트워크를 가져옵니다. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가합니다. | 
@@ -953,7 +956,7 @@ PowerShell을 사용 하 여 두 게이트웨이를 연결 합니다.
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | 두 가상 네트워크 게이트웨이를 연결합니다.   |
 
@@ -968,7 +971,7 @@ PowerShell을 사용 하 여 두 게이트웨이를 연결 합니다.
 Azure Portal를 사용 하 여 장애 조치 (failover) 그룹을 만듭니다. 
 
 
-1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. `sql-mi-primary`와 같이 첫 번째 섹션에서 만든 기본 관리 되는 인스턴스를 선택 합니다. 
 1. **설정**에서 **인스턴스 장애 조치 (failover) 그룹** 으로 이동한 다음 **그룹 추가** 를 선택 하 여 **인스턴스 장애 조치 (failover) 그룹** 페이지를 엽니다. 
 
@@ -995,7 +998,7 @@ PowerShell을 사용 하 여 장애 조치 (failover) 그룹을 만듭니다.
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| 새 Azure SQL Database 관리형 인스턴스 장애 조치(failover) 그룹을 만듭니다.  |
 
@@ -1061,7 +1064,7 @@ PowerShell을 사용 하 여 테스트 장애 조치 (failover)
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | 관리형 인스턴스 장애 조치(failover) 그룹을 가져오거나 나열합니다.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | 관리형 인스턴스 장애 조치(failover) 그룹의 장애 조치(failover)를 실행합니다. | 
@@ -1075,7 +1078,7 @@ PowerShell을 사용 하 여 테스트 장애 조치 (failover)
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 합니다. 
-1. 관리 되는 인스턴스를 선택 하 고 **삭제**를 선택 합니다. 텍스트 상자에 `yes`를 입력 하 여 리소스를 삭제할 것인지 확인 하 고 **삭제**를 선택 합니다. 이 프로세스는 백그라운드에서 완료 하는 데 약간의 시간이 걸릴 수 있으며, 완료 될 때까지 *가상 클러스터* 나 기타 종속 리소스를 삭제할 수 없습니다. 작업 탭에서 삭제를 모니터링 하 여 관리 되는 인스턴스가 삭제 되었는지 확인 합니다. 
+1. 관리 되는 인스턴스를 선택 하 고 **삭제**를 선택 합니다. 텍스트 상자에 `yes`를 입력 하 여 리소스를 삭제할 것인지 확인 하 고 **삭제**를 선택 합니다. 이 프로세스는 백그라운드에서 완료 하는 데 약간의 시간이 걸릴 수 있으며 완료 될 때까지 *가상 클러스터* 나 다른 종속 리소스를 삭제할 수 없습니다. 작업 탭에서 삭제를 모니터링 하 여 관리 되는 인스턴스가 삭제 되었는지 확인 합니다. 
 1. 관리 되는 인스턴스를 삭제 한 후에는 리소스 그룹에서 *가상 클러스터* 를 선택 하 고 **삭제**를 선택 하 여 삭제 합니다. 텍스트 상자에 `yes`를 입력 하 여 리소스를 삭제할 것인지 확인 하 고 **삭제**를 선택 합니다. 
 1. 나머지 리소스를 삭제 합니다. 텍스트 상자에 `yes`를 입력 하 여 리소스를 삭제할 것인지 확인 하 고 **삭제**를 선택 합니다. 
 1. 리소스 그룹 **삭제**를 선택 하 고 리소스 그룹 `myResourceGroup`의 이름을 입력 한 다음 **삭제**를 선택 하 여 리소스 그룹을 삭제 합니다. 
@@ -1093,7 +1096,7 @@ Write-host "Removing residual resources and resouce group..."
 
 자습서의이 부분에서는 다음 PowerShell cmdlet을 사용 합니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹을 제거합니다. |
 
@@ -1106,7 +1109,7 @@ Write-host "Removing residual resources and resouce group..."
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Azure 리소스 그룹을 만듭니다.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다.  |
@@ -1141,12 +1144,12 @@ Azure Portal 사용할 수 있는 스크립트가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 두 개의 관리 되는 인스턴스 간에 장애 조치 (failover) 그룹을 구성 했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 두 개의 관리 되는 인스턴스 간에 장애 조치 (failover) 그룹을 구성 했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > - 기본 관리 되는 인스턴스 만들기
 > - [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)의 일부로 보조 관리 되는 인스턴스를 만듭니다. 
-> - 테스트 장애 조치(failover)
+> - 테스트 장애 조치
 
 관리 되는 인스턴스에 연결 하는 방법 및 데이터베이스를 관리 되는 인스턴스로 복원 하는 방법에 대 한 다음 빠른 시작으로 이동 합니다. 
 

@@ -14,22 +14,22 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561613"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563397"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 .NET Core 콘솔 응용 프로그램을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
-- Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+- Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
 
   - Service Bus 큐에 대 한 간략 한 개요를 참조 하세요.
@@ -74,7 +74,7 @@ Visual Studio를 시작 하 고에 대 한 C#새 **콘솔 앱 (.net Core)** 프�
 
     네임 스페이스에 대 한 연결 문자열을 `ServiceBusConnectionString` 변수로 입력 합니다. 큐 이름을 입력 합니다.
 
-1. `Main()` 메서드를 다음 **비동기** `Main` 메서드로 바꿉니다. 큐에 메시지를 전송 하기 위해 다음 단계에서 추가 하는 SendMessagesAsync 메서드를 호출 합니다. 
+1. `Main()` 메서드를 다음 **비동기** `Main` 메서드로 바꿉니다. 큐에 메시지를 전송 하기 위해 다음 단계에서 추가 하는 `SendMessagesAsync()` 메서드를 호출 합니다. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -386,7 +386,7 @@ namespace CoreReceiverApp
 
 ![메시지를 받은 후 큐][queue-message-receive]
 
-축하합니다. 이제 큐를 만들고, 큐에 메시지 집합을 보내고, 동일한 큐에서 해당 메시지를 수신 했습니다.
+축하합니다! 이제 큐를 만들고, 큐에 메시지 집합을 보내고, 동일한 큐에서 해당 메시지를 수신 했습니다.
 
 > [!NOTE]
 > [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. 사용자는 Service Bus 탐색기를 사용 하 여 Service Bus 네임 스페이스에 쉽게 연결 하 고 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 토픽, 큐, 구독, 릴레이 서비스, notification hubs 및 event hubs를 테스트 하는 기능과 같은 고급 기능을 제공 합니다.

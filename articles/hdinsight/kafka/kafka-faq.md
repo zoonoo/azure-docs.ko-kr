@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 057c77d4ddb4a760e196c0dc8d508efe15e6699d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520128"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530938"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight의 Apache Kafka에 대 한 질문과 대답
 
@@ -38,7 +38,7 @@ HDInsight Kafka 클러스터에는 다음 리소스가 포함 됩니다.
 
 ## <a name="do-apache-kafka-apis-work-with-hdinsight"></a>Apache Kafka Api가 HDInsight에서 작동 하나요?
 
-예, HDInsight는 네이티브 Kafka Api를 사용 합니다. 클라이언트 응용 프로그램 코드를 변경할 필요가 없습니다. 단계별 지침은 [자습서: Apache Kafka 생산자 및 소비자 api](./apache-kafka-producer-consumer-api.md) 를 사용 하 여 클러스터에서 Java 기반 생산자/consumer api를 사용할 수 있는 방법을 확인 합니다.
+예, HDInsight는 네이티브 Kafka Api를 사용 합니다. 클라이언트 응용 프로그램 코드를 변경할 필요가 없습니다. [자습서: Apache Kafka 생산자 및 소비자 api를 사용](./apache-kafka-producer-consumer-api.md) 하 여 클러스터에서 Java 기반 생산자/consumer api를 사용 하는 방법을 참조 하세요.
 
 ## <a name="can-i-change-cluster-configurations"></a>클러스터 구성을 변경할 수 있나요?
 
@@ -46,7 +46,7 @@ HDInsight Kafka 클러스터에는 다음 리소스가 포함 됩니다.
 
 ## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>HDInsight에서 Apache Kafka에 대해 지원 되는 인증 유형은 무엇입니까?
 
-[Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md)를 사용 하 여 Kafka 클러스터에 대 한 토픽 수준 보안을 얻을 수 있습니다. 단계별 지침은 [자습서: 자세한 내용은 Enterprise Security Package (미리 보기)](../domain-joined/apache-domain-joined-run-kafka.md)를 사용 하 여 HDInsight에서 Apache Kafka 정책을 구성 합니다.
+[Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md)를 사용 하 여 Kafka 클러스터에 대 한 토픽 수준 보안을 얻을 수 있습니다. 자세한 내용은 [자습서: Enterprise Security Package를 사용 하 여 HDInsight에서 Apache Kafka 정책 구성 (미리 보기)](../domain-joined/apache-domain-joined-run-kafka.md)을 참조 하세요.
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>내 데이터가 암호화 되나요? 자신의 키를 사용할 수 있나요?
 
@@ -65,6 +65,10 @@ Kafka 클라이언트에서 Kafka broker와 통신 하려면 네트워크를 통
 ## <a name="can-i-add-more-disk-space-on-an-existing-cluster"></a>기존 클러스터에 더 많은 디스크 공간을 추가할 수 있나요?
 
 Kafka 메시지에 사용할 수 있는 공간의 크기를 늘리려면 노드 수를 늘릴 수 있습니다. 현재 기존 클러스터에 디스크를 더 추가 하는 것은 지원 되지 않습니다.
+
+## <a name="can-a-kafka-cluster-work-with-databricks"></a>Kafka 클러스터가 Databricks에서 작동할 수 있나요? 
+
+예, Kafka 클러스터는 동일한 VNet에 있는 한 Databricks에서 작동할 수 있습니다. Databricks와 함께 Kafka 클러스터를 사용 하려면 HDInsight Kafka 클러스터를 사용 하 여 VNet을 만든 다음 Databricks 작업 영역을 만들고 VNet 주입을 사용할 때 VNet을 지정 합니다. 자세한 내용은 [Azure Virtual Network(VNet 삽입)에서 Azure Databricks 배포](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)를 참조하세요. Databricks 작업 영역을 만들 때 Kafka 클러스터의 부트스트랩 broker 이름을 제공 해야 합니다. Kafka broker 이름을 검색 하는 방법에 대 한 자세한 내용은 [Apache 사육 아웃 및 broker 호스트 정보 가져오기](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo)를 참조 하세요.
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>데이터 내구성을 극대화 하려면 어떻게 해야 하나요?
 

@@ -1,25 +1,15 @@
 ---
-title: Azure Service Fabric 노드 형식 및 가상 머신 확장 집합 | Microsoft Docs
+title: 노드 유형과 가상 머신 확장 집합
 description: 가상 머신 확장 집합과 Azure Service Fabric 노드가 어떤 관련이 있으며 확장 집합 인스턴스 또는 클러스터를 원격으로 연결하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.openlocfilehash: cec134f9e71f86cd0ed17912f1a3c76adc9a4164
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d67a99be7b55cfa75980688ee30edc4fce7c0946
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167315"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610168"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합
 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets)은 Azure 컴퓨팅 리소스입니다. 확장 집합을 사용하여 가상 머신 컬렉션을 배포 및 관리할 수 있습니다. Azure Service Fabric 클러스터에서 정의한 각 노드 형식은 별도의 확장 집합을 설정합니다.  ServiceFabric 가상 머신 확장에 의해 확장 집합의 각 가상 머신에 설치 되는 Service Fabric 런타임입니다. 각 노드 형식을 독립적으로 확장 또는 축소하고, 각 클러스터 노드에서 실행되는 OS SKU를 변경하고, 다른 포트의 집합을 열고, 다른 용량 메트릭을 사용할 수 있습니다.
@@ -77,19 +67,19 @@ Service Fabric 가상 머신 확장을 사용 하 여 Azure Virtual Machines에 
 
 | **이름** | **허용되는 값** | ** --- ** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-| name | string | --- | 확장의 고유한 이름 |
+| name | 문자열 | --- | 확장의 고유한 이름 |
 | type | "ServiceFabricLinuxNode" 또는 "ServiceFabricWindowsNode" | --- | Service Fabric OS를 식별 합니다. |
 | autoUpgradeMinorVersion | true 또는 false | --- | SF 런타임 부 버전 자동 업그레이드 사용 |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric 확장 게시자의 이름입니다. |
-| clusterEndpont | string | --- | URI: 관리 끝점에 대 한 포트 |
-| nodeTypeRef | string | --- | nodeType의 이름 |
+| clusterEndpont | 문자열 | --- | URI: 관리 끝점에 대 한 포트 |
+| nodeTypeRef | 문자열 | --- | nodeType의 이름 |
 | durabilityLevel | bronze, silver, gold, platinum | --- | 변경할 수 없는 Azure 인프라를 일시 중지할 수 있는 시간 |
 | enableParallelJobs | true 또는 false | --- | VM 제거와 같은 계산 ParallelJobs를 사용 하도록 설정 하 고 동시에 동일한 확장 집합에서 VM 다시 부팅 |
-| nicPrefixOverride | string | --- | 서브넷 접두사 (예: "10.0.0.0/24") |
+| nicPrefixOverride | 문자열 | --- | 서브넷 접두사 (예: "10.0.0.0/24") |
 | commonNames | string[] | --- | 설치 된 클러스터 인증서의 일반 이름 |
-| x509StoreName | string | --- | 설치 된 클러스터 인증서가 있는 저장소의 이름 |
+| x509StoreName | 문자열 | --- | 설치 된 클러스터 인증서가 있는 저장소의 이름 |
 | typeHandlerVersion | 1.1 | --- | 확장의 버전입니다. 1.0 클래식 버전의 확장을 1.1로 업그레이드 하는 것이 좋습니다. |
-| dataPath | string | --- | Service Fabric 시스템 서비스 및 응용 프로그램 데이터의 상태를 저장 하는 데 사용 되는 드라이브의 경로입니다. 
+| dataPath | 문자열 | --- | Service Fabric 시스템 서비스 및 응용 프로그램 데이터의 상태를 저장 하는 데 사용 되는 드라이브의 경로입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * ["어디에나 배포" 기능의 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)를 참조하세요.

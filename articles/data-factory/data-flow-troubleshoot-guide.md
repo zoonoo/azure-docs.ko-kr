@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 12/06/2019
-ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443943"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>데이터 흐름 Azure Data Factory 문제 해결
 
@@ -92,8 +92,18 @@ ms.locfileid: "74930167"
 
 - **원인**: 조인 중인 스트림에 일반적인 열 이름이 있습니다.
 
-- **해결**방법: 조인 뒤에 Select transforamtion를 추가 하 고 입력 및 출력 모두에 대해 "중복 열 제거"를 선택 합니다.
+- **해결**방법: 조인 뒤에 선택 변환을 추가 하 고 입력 및 출력 모두에 대해 "중복 열 제거"를 선택 합니다.
 
+### <a name="error-message-possible-cartesian-product"></a>오류 메시지: 가능한 카티션 곱
+
+- **증상**: 조인 또는 조회 변환에서 데이터 흐름 실행 시 가능한 카티션 곱을 검색 했습니다.
+
+- **원인**: 크로스 조인을 사용 하도록 ADF에 명시적으로 지시 하지 않은 경우 데이터 흐름이 실패할 수 있습니다.
+
+- **해결**방법: 사용자 지정 cross join을 사용 하 여 조회 또는 조인 변환을 조인으로 변경 하 고 식 편집기에서 조회 또는 조인 조건을 입력 합니다. 전체 카티션 곱을 명시적으로 생성 하려면 조인 앞에 있는 두 개의 독립 스트림에서 파생 열 변환을 사용 하 여 일치 시킬 가상 키를 만들어야 합니다. 예를 들어 ```SyntheticKey``` 이라는 각 스트림의 파생 열에 새 열을 만들고 ```1```같도록 설정 합니다. 그런 다음 사용자 지정 조인 식으로 ```a.SyntheticKey == b.SyntheticKey```를 사용 합니다.
+
+> [!NOTE]
+> 사용자 지정 크로스 조인에서 왼쪽 및 오른쪽 관계의 양쪽에 있는 하나 이상의 열을 포함 해야 합니다. 각 쪽의 열 대신 정적 값을 사용 하 여 크로스 조인을 실행 하면 전체 데이터 집합을 전체 검색 하 여 데이터 흐름이 제대로 수행 되지 않게 됩니다.
 
 ## <a name="general-troubleshooting-guidance"></a>일반 문제 해결 지침
 

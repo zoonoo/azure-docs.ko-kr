@@ -1,27 +1,18 @@
 ---
-title: Service Fabric의 신뢰할 수 있는 서비스 프로그래밍 모델 개요 | Microsoft Docs
+title: 신뢰할 수 있는 서비스 프로그래밍 모델 개요
 description: 서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델에 대해 알아보고 사용자 고유의 서비스 작성을 시작합니다.
-services: Service-Fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: vturecek; mani-ramaswamy
-ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 1789c7489e58df09dccfde3e7ab106ef54b5c1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c8e4411c0bec23790b4f4c52fc4a3d1570edc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727015"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614250"
 ---
-# <a name="reliable-services-overview"></a>신뢰할 수 있는 서비스 개요
+# <a name="reliable-services-overview"></a>Reliable Services 개요
 Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 있는 서비스의 작성과 관리를 단순화합니다. 이 항목은 다음에 대해 설명합니다.
 
 * 상태 비저장 및 상태 저장 서비스를 위한 신뢰할 수 있는 서비스 프로그래밍 모델.
@@ -30,7 +21,7 @@ Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 �
 
 신뢰할 수 있는 서비스는 서비스 패브릭에서 사용할 수 있는 프로그래밍 모델 중 하나입니다. 다른 하나는 Reliable Actor 프로그래밍 모델로서 Reliable Services 모델을 기반으로 가상 행위자 프로그래밍 모델을 제공합니다. 신뢰할 수 있는 행위자 프로그래밍 모델에 대한 자세한 내용은 [서비스 패브릭 신뢰할 수 있는 행위자 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
-서비스 패브릭은 [서비스 패브릭 애플리케이션 관리](service-fabric-deploy-remove-applications.md)를 통해 프로비저닝 및 배포에서 업그레이드 및 삭제까지 서비스의 수명을 관리합니다.
+Service Fabric은 [Service Fabric 애플리케이션 관리](service-fabric-deploy-remove-applications.md)를 통해 프로비저닝 및 배포에서 업그레이드 및 삭제까지 서비스의 수명을 관리합니다.
 
 ## <a name="what-are-reliable-services"></a>신뢰할 수 있는 서비스는 무엇입니까?
 Reliable Services는 단순하고 강력한 최고 수준의 프로그래밍 모델을 제공하여 애플리케이션에 중요한 내용을 나타낼 수 있도록 합니다. 신뢰할 수 있는 서비스 프로그래밍 모델은 다음을 제공합니다.
@@ -70,7 +61,7 @@ Reliable Services는 단순하고 강력한 최고 수준의 프로그래밍 모
 
 예를 들어 메모리가 없고 모든 용어 및 수행할 작업을 한 번에 수신하는 계산기를 가정해 보겠습니다.
 
-이 경우 서비스가 수행해야 하는 백그라운드 작업 처리가 없으므로 서비스의 `RunAsync()`(C#) 또는 `runAsync()`(Java)는 비어 있을 수 있습니다. 계산기 서비스가 생성되면 일부 포트에서 수신 대기 엔드포인트를 여는 `ICommunicationListener`(C#) 또는 `CommunicationListener`(Java)(예: [Web API](service-fabric-reliable-services-communication-webapi.md))를 반환합니다. 이 수신 대기 엔드포인트는 계산기의 공용 API를 정의하는 다른 계산 메서드(예제: "Add(n1, n2)")에 연결됩니다.
+이 경우 서비스가 수행해야 하는 백그라운드 작업 처리가 없으므로 서비스의 `RunAsync()`(C#) 또는 `runAsync()`(Java)는 비어 있을 수 있습니다. 계산기 서비스가 생성되면 일부 포트에서 수신 대기 엔드포인트를 여는 `ICommunicationListener`(C#) 또는 `CommunicationListener`(Java)(예: [Web API](service-fabric-reliable-services-communication-webapi.md))를 반환합니다. 이 수신 대기 엔드포인트는 계산기의 공용 API를 정의하는 다른 계산 메서드(예: "Add(n1, n2)")에 연결됩니다.
 
 클라이언트에서 호출이 수행되면 적절한 메서드가 호출되고 계산기 서비스가 제공된 데이터에 대한 작업을 수행하고 결과를 반환합니다. 상태를 저장하지 않습니다.
 

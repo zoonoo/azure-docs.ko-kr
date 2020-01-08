@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795824"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531482"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -22,13 +22,13 @@ Cognitive Services는 감정적 감정의 텍스트 분석 또는 개체나 얼�
 
 [Cognitive Services](welcome.md) 는 각각 서로 다른 일반화 된 예측 기능을 지 원하는 서비스 그룹입니다. 서비스는 올바른 서비스를 찾는 데 도움이 되는 여러 범주로 나뉩니다. 
 
-|서비스 범주|목적|
+|서비스 범주|용도|
 |--|--|
-|[(A](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.|
+|[결정](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.|
 |[언어](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|앱에서 사전 구축된 스크립트를 통해 자연어를 처리하고, 감성을 평가하며, 사용자가 원하는 것을 인식하는 방법을 학습하도록 지원하세요.|
-|[이를 통해 검색](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Bing Search API를 앱에 추가하고, 단일 API 호출을 통해 수십억 개의 웹 페이지, 이미지, 비디오 및 뉴스를 검색하세요.|
-|[음성](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
-|[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱싱 및 조정합니다.|
+|[검색](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Bing Search API를 앱에 추가하고, 단일 API 호출을 통해 수십억 개의 웹 페이지, 이미지, 비디오 및 뉴스를 검색하세요.|
+|[음성](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어에서 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
+|[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱스 및 조정합니다.|
 ||||
 
 Cognitive Services 사용 하는 경우:
@@ -40,7 +40,7 @@ Cognitive Services 사용 하는 경우:
 
 * 알고리즘을 선택 하 고 매우 구체적인 데이터를 학습 해야 합니다.
 
-## <a name="what-is-machine-learning"></a>기계 학습이란 무엇인가요?
+## <a name="what-is-machine-learning"></a>기계 학습은 무엇인가요?
 
 Machine learning은 데이터와 알고리즘을 함께 가져와서 특정 요구를 해결 하는 개념입니다. 데이터 및 알고리즘을 학습 한 후에는 다른 데이터를 사용 하 여 다시 사용할 수 있는 모델을 출력 합니다. 학습 된 모델은 새 데이터를 기반으로 하는 정보를 제공 합니다. 
 
@@ -131,10 +131,10 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|Android 용 Tensorflow에 대 한 [내보내기](./Custom-Vision-Service/export-model-python.md) , IOS11 용 Coreml, Windows ML 용 onnx|
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 
 * [아키텍처 가이드-Microsoft에서 기계 학습 제품 이란?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [기계 학습-심층 학습 및 기계 학습 소개](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
+* [기계 학습-심층 학습 및 기계 학습 소개](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>다음 단계
 

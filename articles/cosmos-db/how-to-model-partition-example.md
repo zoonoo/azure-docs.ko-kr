@@ -1,17 +1,17 @@
 ---
-title: 실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
+title: 실제 예제를 사용 하 여 Azure Cosmos DB에서 데이터 모델링 및 분할
 description: Azure Cosmos DB Core API를 사용하여 실제 예제를 모델링하고 분할하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093425"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445388"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 
@@ -53,7 +53,7 @@ ms.locfileid: "70093425"
 - **[Q5]** 게시물에 대한 좋아요 나열
 - **[Q6]** 최근에 만든 *x*개 게시물을 약식으로 나열(피드)
 
-이 단계에서는 각 엔터티(사용자, 게시물 등)에 포함된 항목에 대한 세부 정보를 고려하지 않았습니다. 테이블, 열, 외래 키 등의 측면에서 해당 엔터티에서 변환하는 방법을 파악해야 하므로 이 단계는 일반적으로 관계형 저장소를 대상으로 설계할 때 가장 먼저 처리해야 하는 단계 중 하나입니다. 쓰기에서 스키마를 적용하지 않는 문서 데이터베이스의 경우에는 문제가 훨씬 적습니다.
+이 단계에서는 각 엔터티(사용자, 게시물 등)에 포함된 항목에 대한 세부 정보를 고려하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 디자인할 때 첫 번째 단계 중 하나는 테이블, 열, 외래 키 등을 기준으로 엔터티가 어떻게 변환 되는지 파악 해야 하기 때문에 세울. 쓰기 시 스키마를 적용 하지 않는 문서 데이터베이스의 경우에는 훨씬 더 중요 하지 않습니다.
 
 액세스 패턴을 처음부터 파악하는 것이 중요한 주된 이유는 이 요청 목록이 테스트 도구 모음이 되기 때문입니다. 데이터 모델을 반복할 때마다 각 요청을 검토하고 성능과 확장성을 확인합니다.
 
@@ -223,7 +223,7 @@ ms.locfileid: "70093425"
 
 ![최근 게시물 검색 및 추가 데이터 집계](./media/how-to-model-partition-example/V1-Q6.png)
 
-또 다시, 초기 쿼리에서 `posts` 컨테이너의 파티션 키를 필터링하지 않으므로 비용이 많이 드는 팬아웃이 트리거됩니다. 더욱이 훨씬 더 큰 결과 집합을 대상으로 하고 `ORDER BY` 절을 사용하여 결과를 정렬하므로 요청 단위 측면에서 비용이 더 많이 듭니다.
+다시 한 번, 초기 쿼리는 `posts` 컨테이너의 파티션 키를 필터링 하지 않으므로 비용이 많이 드는 팬이 트리거됩니다. 훨씬 더 큰 결과 집합을 대상으로 하 고 결과를 `ORDER BY` 절을 사용 하 여 정렬 하는 것 처럼이는 훨씬 더 악화 됩니다. 그러면 요청 단위 측면에서 비용이 더 많이 듭니다.
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ ms.locfileid: "70093425"
 
 첫 번째 문제부터 시작하여 각 문제를 해결해 보겠습니다.
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: 비정규화를 도입하여 읽기 쿼리 최적화
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: 읽기 쿼리를 최적화 하기 위한 비 정규화 소개
 
 초기 요청의 결과에 반환해야 하는 데이터가 모두 포함되어 있지 않으므로 경우에 따라 추가 요청을 발급해야 합니다. Azure Cosmos DB와 같은 비관계형 데이터 저장소를 사용하는 경우 이러한 유형의 문제는 일반적으로 데이터 세트에서 데이터를 정규화하여 해결됩니다.
 
@@ -394,7 +394,7 @@ function updateUsernames(userId, username) {
 | --- | --- | --- |
 | 4ms | 8.92RU | ✅ |
 
-## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: 모든 요청이 확장 가능한지 확인
+## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: 모든 요청을 확장 가능 하 게 합니다.
 
 전반적인 성능 향상을 살펴보면 아직 완전히 최적화되지 않은 **[Q3]** 와 **[Q6]** 의 두 가지 요청이 있습니다. 이는 대상 컨테이너의 파티션 키를 필터링하지 않는 쿼리와 관련된 요청입니다.
 
@@ -437,7 +437,7 @@ function updateUsernames(userId, username) {
       "creationDate": "<post-creation-date>"
     }
 
-다음 사항에 유의합니다.
+다음 사항에 유의하세요.
 
 - 사용자와 게시물을 구분하기 위해 `type` 필드를 사용자 항목에 도입했습니다.
 - `userId` 필드도 사용자 항목에 추가되었습니다. 이 필드는 `id` 필드와 중복되지만, 이제 `users` 컨테이너가 `userId`(앞서와 같이 `id`가 아님)로 분할되므로 필요합니다.

@@ -1,5 +1,5 @@
 ---
-title: 조직의 로그인 페이지에 브랜딩 추가 - Azure Active Directory | Microsoft Docs
+title: 조직의 로그인 페이지에 브랜딩 추가-Azure AD
 description: Azure Active Directory 로그인 페이지에 조직의 브랜딩을 추가하는 방법에 대한 지침입니다.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422829"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Office 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "70959050"
 > 모든 브랜딩 요소는 선택 사항입니다. 예를 들어 배경 이미지가 없는 배너 로고를 지정하는 경우 로그인 페이지는 대상 사이트(예: Office 365)의 기본 배경 이미지를 사용하여 로고를 표시합니다.<br><br>또한 로그인 페이지 브랜딩은 개인 Microsoft 계정에 적용되지 않습니다. 사용자 또는 비즈니스 게스트가 개인 Microsoft 계정을 사용하여 로그인하는 경우 로그인 페이지는 조직의 브랜딩을 반영하지 않습니다.
 
 ### <a name="to-customize-your-branding"></a>브랜딩을 사용자 지정하려면
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **Azure Active Directory**를 선택한 다음, **회사 브랜딩**을 선택하고, **구성**을 선택합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "70959050"
     
         - **사각형 로고 이미지, 어두운 테마** 위의 사각형 로고 이미지와 동일합니다. 이 로고 이미지는 기본 제공 환경(OOBE)에서 Windows 10 Azure AD 조인 화면을 사용하는 등 어두운 배경에서 사용될 때 사각형 로고 이미지를 대신합니다.  로고가 흰색, 어두운 파란색 및 검은색 배경에서 잘 보이면 이 이미지를 추가할 필요가 없습니다. 
         
-        - **로그인 상태를 유지하는 옵션 표시** 명시적으로 로그아웃될 때까지 사용자가 Azure AD에 로그인된 상태를 유지하도록 선택할 수 있습니다. **아니요**를 선택하면 이 옵션이 숨겨지고 사용자는 브라우저를 닫은 후 다시 열 때마다 로그인해야 합니다.
+        - **로그인 상태를 유지하는 옵션 표시** 명시적으로 로그 아웃할 때까지 사용자가 Azure AD에 로그인 된 상태를 유지 하도록 선택할 수 있습니다. **아니요**를 선택 하는 경우이 옵션은 숨겨지고 브라우저를 닫았다가 다시 열 때마다 사용자가 로그인 해야 합니다.
         
             >[!Note]
             >SharePoint Online과 Office 2010의 일부 기능은 로그인 상태를 유지하도록 선택할 수 있는 사용자에 따라 달라집니다. 이 옵션을 **아니요**로 설정하는 경우 사용자에게 로그인을 요청하는 예상치 못한 메시지가 추가로 표시될 수 있습니다.
@@ -93,7 +93,7 @@ ms.locfileid: "70959050"
 사용자 지정 브랜딩을 만든 후에 다시 돌아가서 원하는 대로 변경할 수 있습니다.
 
 ### <a name="to-edit-your-custom-branding"></a>사용자 지정 브랜딩을 편집하려면
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **Azure Active Directory**를 선택한 다음, **회사 브랜딩**을 선택하고, **구성**을 선택합니다.
 
@@ -110,7 +110,7 @@ ms.locfileid: "70959050"
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>언어별 브랜딩 구성을 추가하려면
 
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **Azure Active Directory**를 선택한 다음, **회사 브랜딩**을 선택하고, **새 언어**를 선택합니다.
 
@@ -129,10 +129,10 @@ ms.locfileid: "70959050"
 
 **예:**
 
-**원본 URL:** https://aka.ms/MFASetup<br>
+**원래 URL:** https://aka.ms/MFASetup<br>
 **사용자 지정 URL:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
 
-**원본 URL:** https://aka.ms/SSPR<br>
+**원래 URL:** https://aka.ms/SSPR<br>
 **사용자 지정 URL:** https://passwordreset.microsoftonline.com/?whr=contoso.com
 
  
