@@ -8,12 +8,14 @@
     - name: Azure Active Directory의 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 포털에 액세스 및 테넌트 만들기
       href: active-directory-access-create-new-tenant.md
     - name: 할당된 멤버를 사용하여 그룹 보기
       href: active-directory-groups-view-azure-portal.md
 - name: 개념
+  expanded: true
   items:
     - name: ID 보안 점수
       href: identity-secure-score.md
@@ -37,6 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: EU에 대한 ID 데이터 스토리지
       href: active-directory-data-storage-eu.md
+    - name: 오스트레일리아에 대한 ID 데이터 스토리지
+      href: active-directory-data-storage-australia.md
     - name: Microsoft 365 Government의 새로운 기능
       href: whats-new-microsoft-365-government.md
     - name: Azure AD 작업 참조
@@ -97,6 +101,7 @@
         - name: 삭제한 사용자 복원
           href: active-directory-users-restore.md
 - name: 리소스
+  expanded: true
   items:
     - name: Azure Active Directory에 대한 지원 받기
       href: active-directory-troubleshooting-support-howto.md

@@ -72,6 +72,8 @@
           href: devtest-lab-auto-startup-vm.md
         - name: 랩 크기 조정
           href: devtest-lab-scale-lab.md
+        - name: 랩 VM에서 관리 ID 사용
+          href: enable-managed-identities-lab-vms.md
         - name: 가상 머신 베이스 관리
           items:
             - name: Azure Marketplace 이미지 구성
@@ -241,7 +243,7 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: 아티팩트 오류 문제 해결
           href: devtest-lab-troubleshoot-artifact-failure.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: CLI
       href: /cli/azure/lab

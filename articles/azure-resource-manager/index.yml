@@ -11,23 +11,23 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 12/19/2019
-  ms.openlocfilehash: 2910576517be35652d8e1ed1e82687a56a10467e
-  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.openlocfilehash: d094dce17f9f79b37bc5a226d756713f6e57be6a
+  ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/03/2020
-  ms.locfileid: "75642475"
+  ms.lasthandoff: 01/06/2020
+  ms.locfileid: "75680650"
 highlightedContent:
   items:
+  - title: Resource Manager란?
+    itemType: overview
+    url: management/overview.md
   - title: 템플릿이란?
     itemType: overview
     url: templates/overview.md
   - title: 첫 번째 템플릿 만들기
     itemType: tutorial
     url: templates/template-tutorial-create-first-template.md
-  - title: Resource Manager란?
-    itemType: overview
-    url: management/overview.md
 conceptualContent:
   items:
   - title: Resource Manager 템플릿 배포
@@ -40,10 +40,13 @@ conceptualContent:
       text: 초보자를 위한 자습서 시리즈
     - url: templates/template-syntax.md
       itemType: reference
-      text: 템플릿 파일 구조
+      text: 템플릿 구문
     - url: templates/template-functions.md
       itemType: reference
       text: 템플릿 함수
+    - url: /azure/templates/
+      itemType: reference
+      text: 템플릿 참조
     - url: templates/deploy-powershell.md
       itemType: how-to-guide
       text: 배포
@@ -70,6 +73,9 @@ conceptualContent:
     - url: management/resource-providers-and-types.md
       itemType: concept
       text: 리소스 공급자 및 형식
+    - url: management/azure-subscription-service-limits.md
+      itemType: concept
+      text: 구독 및 서비스 한도
     footerLink:
       url: management/index.yml
       text: 자세히 보기
@@ -80,13 +86,13 @@ conceptualContent:
       text: 개요
     - url: managed-applications/publish-service-catalog-app.md
       itemType: tutorial
-      text: 서비스 카탈로그 앱 게시
+      text: 서비스 카탈로그에 앱 게시
     - url: managed-applications/create-uidefinition-overview.md
       itemType: how-to-guide
-      text: UI 정의 만들기
+      text: 앱을 만들기 위한 포털 창 정의
     - url: managed-applications/publish-marketplace-app.md
       itemType: tutorial
-      text: Marketplace에 추가
+      text: Marketplace에 앱 추가
     footerLink:
       url: managed-applications/index.yml
       text: 자세히 보기

@@ -47,6 +47,8 @@
       href: manage-feature-flags.md
     - name: ASP.NET Core에서 Key Vault 참조 사용
       href: use-key-vault-references-dotnet-core.md
+    - name: Spring Boot에서 키 자격 증명 모음 참조 사용
+      href: use-key-vault-references-spring-boot.md
     - name: CI/CD 파이프라인과 통합
       href: integrate-ci-cd-pipeline.md
 - name: 샘플

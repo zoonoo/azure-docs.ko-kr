@@ -32,6 +32,8 @@
       href: ingest-data-overview.md
     - name: 데이터 시각화 개요
       href: viz-overview.md
+    - name: 보안 개요
+      href: security.md
 - name: 방법 가이드
   items:
     - name: 클러스터 및 데이터베이스 만들기
@@ -126,7 +128,7 @@
               href: power-bi-connector.md
             - name: 가져온 쿼리
               href: power-bi-imported-query.md
-            - name: SQL 쿼리
+            - name: SQL 쿼리(SQL query)
               href: power-bi-sql-query.md
         - name: Excel
           items:
@@ -144,9 +146,21 @@
           href: sisense.md
         - name: Redash
           href: redash.md
+    - name: 보안
+      items:
+        - name: 클러스터 보안 관리
+          href: manage-cluster-security.md
+        - name: 관리되는 ID 구성
+          href: managed-identities.md
+        - name: 고객 관리 키 구성
+          items:
+            - name: 'C#'
+              href: customer-managed-keys-csharp.md
+            - name: Azure Resource Manager 템플릿
+              href: customer-managed-keys-resource-manager.md
     - name: 관리
       items:
-        - name: 프로비전
+        - name: 클러스터
           items:
             - name: 클러스터 VM SKU 선택
               href: manage-cluster-choose-sku.md
@@ -154,8 +168,6 @@
               href: manage-cluster-horizontal-scaling.md
             - name: 클러스터 수직적 크기 조정 관리
               href: manage-cluster-vertical-scaling.md
-            - name: 클러스터 보안 관리
-              href: manage-cluster-security.md
             - name: 클러스터 상태 확인
               href: check-cluster-health.md
         - name: 데이터베이스
@@ -170,7 +182,7 @@
                   href: database-table-policies-csharp.md
                 - name: Python
                   href: database-table-policies-python.md
-        - name: Data
+        - name: data
           items:
             - name: 데이터 삭제
               href: delete-data.md
@@ -212,7 +224,7 @@
           href: troubleshoot-connect-cluster.md
         - name: 데이터베이스 및 테이블 작업
           href: troubleshoot-database-table.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 쿼리 언어
       href: /azure/kusto/query/

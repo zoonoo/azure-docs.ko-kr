@@ -21,18 +21,27 @@
       items:
         - name: Draft 사용
           href: kubernetes-draft.md
-        - name: Visual Studio Code 및 Azure Dev Spaces 사용
-          href: ../dev-spaces/quickstart-netcore.md
-          maintainContext: true
-        - name: Visual Studio 및 Azure Dev Spaces 사용
-          href: ../dev-spaces/quickstart-netcore-visualstudio.md
-          maintainContext: true
-        - name: CLI 및 Azure Dev Spaces 사용
-          href: ../dev-spaces/quickstart-cli.md
-          maintainContext: true
-        - name: 팀 개발을 위해 Azure Dev Spaces 사용
-          href: ../dev-spaces/quickstart-team-development.md
-          maintainContext: true
+        - name: Azure Dev 공간
+          expanded: true
+          items:
+            - name: 팀 개발을 위해 Azure Dev Spaces 사용
+              href: ../dev-spaces/quickstart-team-development.md
+              maintainContext: true
+            - name: Visual Studio Code 사용
+              href: ../dev-spaces/quickstart-netcore.md
+              maintainContext: true
+            - name: Visual Studio 사용
+              href: ../dev-spaces/quickstart-netcore-visualstudio.md
+              maintainContext: true
+            - name: CLI 사용
+              href: ../dev-spaces/quickstart-cli.md
+              maintainContext: true
+            - name: Java와 Azure Dev Spaces 사용
+              href: ../dev-spaces/quickstart-java.md
+              maintainContext: true
+            - name: Azure Dev Spaces Node.js 사용
+              href: ../dev-spaces/quickstart-nodejs.md
+              maintainContext: true
 - name: 자습서
   items:
     - name: 1 - AKS를 위한 애플리케이션 준비

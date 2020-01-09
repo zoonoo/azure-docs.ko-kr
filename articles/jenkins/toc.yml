@@ -24,6 +24,10 @@
           href: jenkins-azure-vm-agents.md
     - name: 3. CI/CD 구현
       items:
+        - name: Azure Spring Cloud
+          items:
+            - name: Azure CLI를 사용하여 Azure Spring Cloud에 배포
+              href: tutorial-jenkins-deploy-cli-spring-cloud-service.md
         - name: AKS
           items:
             - name: Kubernetes에 대한 CI/CD

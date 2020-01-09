@@ -62,12 +62,12 @@
           href: migrate-support-matrix-hyper-v.md
         - name: 물리적 서버 평가 및 마이그레이션을 위한 지원 매트릭스
           href: migrate-support-matrix-physical.md
+        - name: Azure Migrate 어플라이언스 매트릭스 지원
+          href: migrate-appliance.md
     - name: Hyper-V 마이그레이션 아키텍처
       href: hyper-v-migration-architecture.md
     - name: 에이전트 기반 마이그레이션 아키텍처
       href: agent-based-migration-architecture.md
-    - name: Azure Migrate 어플라이언스
-      href: migrate-appliance.md
     - name: Azure Migrate 복제 어플라이언스
       href: migrate-replication-appliance.md
     - name: 평가 모범 사례
@@ -80,6 +80,8 @@
   items:
     - name: 이전 버전을 사용하여 작업
       href: migrate-v1.md
+    - name: Azure Migrate 프로젝트 만들기 및 관리
+      href: create-manage-projects.md
     - name: VMware 어플라이언스 배포
       href: how-to-set-up-appliance-vmware.md
     - name: Hyper-V 어플라이언스 배포
@@ -123,7 +125,13 @@
 - name: 문제 해결
   items:
     - name: Azure Migrate 문제 해결
-      href: troubleshooting-general.md
+      href: troubleshoot-general.md
+    - name: Azure Migrate 프로젝트 문제 해결
+      href: troubleshoot-project.md
+    - name: Azure Migrate 어플라이언스/검색 문제 해결
+      href: troubleshoot-appliance-discovery.md
+    - name: 평가/종속성 시각화 문제 해결
+      href: troubleshoot-assessment.md
 - name: 리소스
   items:
     - name: CAF(클라우드 채택 프레임워크)에 마이그레이션

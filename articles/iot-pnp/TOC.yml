@@ -71,8 +71,12 @@
       href: howto-develop-solution.md
 - name: 참조
   items:
-    - name: REST (영문)
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel'
+    - name: Digital Twin
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
+    - name: Digital Twin 서비스
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
+    - name: Digital Twin 모델 리포지토리
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
     - name: REST 보안 토큰 생성
       href: howto-generate-sas-token.md
 - name: 관련 항목

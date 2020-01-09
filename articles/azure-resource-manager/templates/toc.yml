@@ -10,10 +10,6 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: 템플릿 만들기 - VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: 템플릿 만들기 - Visual Studio
-      href: create-visual-studio-deployment-project.md
-    - name: 템플릿 만들기 - IntelliJ IDEA
-      href: create-templates-use-intellij.md
 - name: 자습서
   items:
     - name: 초급자
@@ -101,8 +97,9 @@
   items:
     - name: 템플릿 만들기
       items:
-        - name: VS Code 사용
-          href: use-vs-code-to-create-template.md
+        - name: 템플릿 파일 구조
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: template-syntax.md
         - name: 템플릿 식 작성
           href: template-expressions.md
         - name: 매개 변수
@@ -134,6 +131,14 @@
           href: deploy-to-subscription.md
         - name: 관리 그룹 수준 리소스
           href: deploy-to-management-group.md
+    - name: 제작 도구 사용
+      items:
+        - name: VS 코드
+          href: use-vs-code-to-create-template.md
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: 템플릿 배포
       items:
         - name: 배포 - 포털
@@ -206,9 +211,6 @@
           href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
 - name: 참조
   items:
-    - name: 템플릿 파일 구조
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: template-syntax.md
     - name: 템플릿 참조
       href: /azure/templates/
     - name: 템플릿 함수
