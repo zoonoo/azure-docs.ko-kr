@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22bf4dcd472cf2d7804b571e09093535f30b053f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498093"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647427"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결
 
@@ -47,7 +47,7 @@ HDInsight는 클러스터 문제를 식별하고 해결할 수 있는 여러 도
 
 중요한 클러스터 정보로 다음과 같은 것이 있습니다.
 
-* 클러스터 이름.
+* 클러스터 이름입니다.
 * 클러스터 지역 - [지역 중단](https://azure.microsoft.com/status/)을 확인합니다.
 * HDInsight 클러스터 유형 및 버전.
 * 헤드 및 작업자 노드에 대해 지정된 HDInsight 인스턴스의 유형 및 수입니다.
@@ -90,7 +90,7 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 
 #### <a name="check-azure-service-usage-limits"></a>Azure 서비스 사용 제한 확인
 
-대규모 클러스터를 시작하거나 많은 클러스터를 동시에 시작한 경우 Azure 서비스 제한을 초과하면 클러스터가 실패할 수 있습니다. 서비스 제한은 Azure 구독에 따라 다릅니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 참조하세요.
+대규모 클러스터를 시작하거나 많은 클러스터를 동시에 시작한 경우 Azure 서비스 제한을 초과하면 클러스터가 실패할 수 있습니다. 서비스 제한은 Azure 구독에 따라 다릅니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조하세요.
 [리소스 관리자 코어 할당량 증가 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)을 통해 Microsoft에 사용 가능한 HDInsight 리소스(예: VM 코어 및 VM 인스턴스) 수를 늘려 달라고 요청할 수 있습니다.
 
 #### <a name="check-the-release-version"></a>릴리스 버전 확인
@@ -202,7 +202,7 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
     WebHCat와의 상호 작용은 성공하지만 작업이 실패하는 경우가 있습니다.
 
-    Templeton은 작업 콘솔 출력을 `stderr`에 `statusdir`로 수집하며, 이 정보는 종종 문제 해결에 유용하게 활용됩니다. `stderr`에는 실제 쿼리의 YARN 애플리케이션 식별자가 포함됩니다.
+    Templeton은 작업 콘솔 출력을 `statusdir`에 `stderr`로 수집하며, 이 정보는 종종 문제 해결에 유용하게 활용됩니다. `stderr`에는 실제 쿼리의 YARN 애플리케이션 식별자가 포함됩니다.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>4단계: 환경 스택 및 버전 검토
 
