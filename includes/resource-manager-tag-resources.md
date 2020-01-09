@@ -5,17 +5,17 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 01/03/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6d8f29e9272f3e05bb585c032240cce67c37d2bf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451436"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665164"
 ---
-1. 리소스 또는 리소스 그룹에 대한 태그를 보려면 개요에서 기존 태그를 찾습니다. 이전에 태그를 적용하지 않은 경우 목록이 비어 있습니다.
+1. 리소스 또는 리소스 그룹에 대 한 태그를 보려면 개요에서 기존 태그를 찾습니다. 이전에 태그를 적용하지 않은 경우 목록이 비어 있습니다.
    
      ![리소스 또는 리소스 그룹에 대한 태그 보기](./media/resource-manager-tag-resources/view-tags.png)
 1. 태그를 추가하려면 **태그를 추가하려면 여기를 클릭**을 선택합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "74451436"
 
 태그가 있는 모든 리소스를 보려면
 
-1. Azure Portal 메뉴에서 **모든 서비스**를 선택 합니다. **일반**, **태그**를 차례로 선택 합니다.
+1. Azure Portal 메뉴에서 **모든 서비스**를 선택합니다. **일반**, **태그**를 차례로 선택 합니다.
 
      ![태그로 찾기](./media/resource-manager-tag-resources/find-tags-general.png)
 
@@ -63,11 +63,3 @@ ms.locfileid: "74451436"
 1. 해당 태그가 지정된 모든 리소스가 표시됩니다.
 
      ![태그로 리소스 보기](./media/resource-manager-tag-resources/view-resources-by-tag.png)
-
-1. 빠른 액세스를 위해 보기를 대시보드에 고정합니다.
-
-     ![대시보드에 고정](./media/resource-manager-tag-resources/pin-to-dashboard.png)
-
-1. 대시보드에서 해당 보기를 사용할 수 있습니다.
-
-     ![대시보드](./media/resource-manager-tag-resources/dashboard-with-view.png)
