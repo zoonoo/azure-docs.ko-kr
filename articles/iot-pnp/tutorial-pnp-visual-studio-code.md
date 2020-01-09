@@ -3,18 +3,18 @@ title: IoT 플러그 앤 플레이 미리 보기 디바이스 만들기 및 테�
 description: 디바이스 개발자가 VS Code를 사용하여 IoT 플러그 앤 플레이 미리 보기 디바이스의 새 디바이스 기능 모델을 만들고 테스트하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569895"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550318"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>자습서: Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트
 
@@ -22,7 +22,7 @@ ms.locfileid: "73569895"
 
 생성된 기본 코드를 빌드하는 방법을 설명하는 이 자습서의 섹션에서는 Windows를 사용하고 있다고 가정합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 디바이스 기능 모델 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "73569895"
 > * 생성된 코드에서 스텁 구현
 > * IoT Hub와의 상호 작용을 테스트하는 코드 실행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서 디바이스 기능 모델을 사용하려면 다음이 필요합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "73569895"
 이 자습서에서 디바이스 코드를 테스트하려면 다음이 필요합니다.
 
 * [Azure IoT 탐색기](https://github.com/Azure/azure-iot-explorer/releases)
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

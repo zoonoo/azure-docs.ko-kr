@@ -3,18 +3,18 @@ title: 즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바�
 description: 디바이스 개발자로서 즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스를 빌드하는 방법을 알아봅니다.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/28/2019
+ms.date: 12/28/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569631"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550269"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스 빌드
 
@@ -28,14 +28,14 @@ ms.locfileid: "73569631"
 - 디바이스 코드가 디바이스 정보 인터페이스를 구현합니다.
 - 기능 모델 및 디바이스 코드가 IoT Central과 호환됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 확장 팩
 
-[빠른 시작: 디바이스 기능 모델을 사용하여 디바이스 만들기](quickstart-create-pnp-device.md)에서 만든 IoT 플러그 앤 플레이 디바이스도 필요합니다.
+[빠른 시작: 디바이스 기능 모델을 사용하여 디바이스 만들기](quickstart-create-pnp-device-windows.md)에서 만든 IoT 플러그 앤 플레이 디바이스도 필요합니다.
 
 ## <a name="store-a-capability-model-and-interfaces"></a>기능 모델 및 인터페이스 저장
 
@@ -58,7 +58,7 @@ IoT 플러그 앤 플레이 디바이스의 경우 디바이스 기능을 JSON �
 ```
 
 > [!NOTE]
-> [빠른 시작: 디바이스 기능 모델을 사용하여 디바이스 만들기](quickstart-create-pnp-device.md)를 완료하셨다면 이미 모델에 **디바이스 정보** 인터페이스가 포함되어 있습니다.
+> [빠른 시작: 디바이스 기능 모델을 사용하여 디바이스 만들기](quickstart-create-pnp-device-windows.md)를 완료하셨다면 이미 모델에 **디바이스 정보** 인터페이스가 포함되어 있습니다.
 
 디바이스 모델에 **디바이스 정보** 인터페이스를 포함하려면 기능 모델의 `implements` 속성에 인터페이스 ID를 추가합니다.
 

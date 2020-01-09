@@ -4,17 +4,17 @@ description: 공간 인텔리전스를 위한 Azure IoT 솔루션인 Azure Digit
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
-ms.date: 11/05/2019
+ms.date: 12/30/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
-ms.openlocfilehash: 07065e891ec46f51636fad005ffeece976c9f2fa
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c0413e4b9b0995c6712d30bbc22550d0ae10183b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005949"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562190"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 개요
 

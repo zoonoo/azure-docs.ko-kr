@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c7c4da97101ae1277474e62466d78ffbc66b1ce0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406424"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563278"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>자습서: REST 및 Python을 사용하여 AI 보강 파이프라인 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "74406424"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 다음과 같은 서비스, 도구 및 데이터가 사용됩니다. 
 
@@ -87,7 +87,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 ## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
 
 > [!Note]
-> 이 문서에서는 일련의 Python 스크립트를 사용하여 데이터 원본, 인덱스, 인덱서 및 기술 세트를 빌드하는 방법을 보여줍니다. 전체 Notebook 예제를 다운로드하려면 [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook)로 이동하세요.
+> 이 문서에서는 일련의 Python 스크립트를 사용하여 데이터 원본, 인덱스, 인덱서 및 기술 세트를 빌드하는 방법을 보여줍니다. 전체 Notebook 예제를 다운로드하려면 [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)로 이동하세요.
 
 Anaconda Navigator를 사용하여 Jupyter Notebook을 시작하고 새로운 Python 3 Notebook을 만듭니다.
 
@@ -276,7 +276,7 @@ print(r.status_code)
 
 이 연습에서는 다음 필드와 필드 형식을 사용합니다.
 
-| 필드 이름: | id         | 콘텐츠   | languageCode | keyPhrases         | organizations     |
+| 필드 이름: | id         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | 필드 형식: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -498,7 +498,7 @@ r = requests.delete(endpoint + "/skillsets/" + skillset_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-코드가 완성될수록 다시 빌드 전략을 구체화하는 것이 좋습니다. 자세한 내용은 [인덱스 다시 작성](search-howto-reindex.md)을 참조하세요.
+코드가 완성될수록 다시 빌드 전략을 구체화하는 것이 좋습니다. 자세한 내용은 [인덱스를 다시 빌드하는 방법](search-howto-reindex.md)을 참조하세요.
 
 ## <a name="takeaways"></a>핵심 내용
 
@@ -517,4 +517,4 @@ pprint(json.dumps(r.json(), indent=1))
 사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [예제: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [예: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)

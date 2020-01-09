@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d1e21827dda26f1c577f6cc70a5e34bb09a34d9c
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873729"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500065"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
 
@@ -23,7 +23,7 @@ ms.locfileid: "74873729"
 이 가이드에 설명된 프로세스는 다음과 같은 가정을 기반으로 합니다.
  * 문제 공간의 **엔터티**가 식별되었습니다. 이러한 엔터티는 각 요청에 대해 원자 단위(_atomically_)로 소비됩니다. 즉, 데이터베이스 시스템은 여러 쿼리 요청에서 단일 엔터티의 데이터를 검색하도록 설계되지 않았습니다.
  * 데이터베이스 시스템에 대한 **읽기 및 쓰기 요구 사항**에 대한 이해가 있습니다. 이러한 요구 사항은 그래프 데이터 모델에 필요한 최적화를 안내합니다.
- * [Apache Tinkerpop 속성 그래프 표준](http://tinkerpop.apache.org/docs/current/reference/#graph-computing)의 원칙을 잘 이해하고 있습니다.
+ * [Apache Tinkerpop 속성 그래프 표준](https://tinkerpop.apache.org/docs/current/reference/#graph-computing)의 원칙을 잘 이해하고 있습니다.
 
 ## <a name="when-do-i-need-a-graph-database"></a>그래프 데이터베이스가 필요한 경우
 
@@ -41,18 +41,18 @@ ms.locfileid: "74873729"
 
 ## <a name="how-to-use-graph-objects"></a>그래프 개체를 사용하는 방법
 
-[Apache Tinkerpop 속성 그래프 표준](http://tinkerpop.apache.org/docs/current/reference/#graph-computing)은 **꼭짓점**과 **가장자리**라는 두 가지 유형의 개체를 정의합니다. 
+[Apache Tinkerpop 속성 그래프 표준](https://tinkerpop.apache.org/docs/current/reference/#graph-computing)은 **꼭짓점**과 **가장자리**라는 두 가지 유형의 개체를 정의합니다. 
 
 다음은 그래프 개체의 속성에 대한 모범 사례입니다.
 
-| Object | 자산 | Type | 메모 |
+| Object | 속성 | Type | 메모 |
 | --- | --- | --- |  --- |
-| 꼭짓점 | ID | 문자열 | 파티션별로 고유하게 적용됩니다. 삽입 시 값이 제공되지 않으면 자동 생성된 GUID가 저장됩니다. |
-| 꼭짓점 | label | 문자열 | 이 속성은 꼭짓점이 나타내는 엔터티 유형을 정의하는 데 사용됩니다. 값을 제공하지 않으면 기본값인 "꼭짓점"이 사용됩니다. |
+| 꼭짓점 | ID | String | 파티션별로 고유하게 적용됩니다. 삽입 시 값이 제공되지 않으면 자동 생성된 GUID가 저장됩니다. |
+| 꼭짓점 | label | String | 이 속성은 꼭짓점이 나타내는 엔터티 유형을 정의하는 데 사용됩니다. 값을 제공하지 않으면 기본값인 "꼭짓점"이 사용됩니다. |
 | 꼭짓점 | properties | 문자열, 부울, 숫자 | 꼭짓점마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
 | 꼭짓점 | 파티션 키 | 문자열, 부울, 숫자 | 이 속성은 꼭짓점과 나가는 가장자리를 저장할 위치를 정의합니다. [그래프 분할](graph-partitioning.md)에 대해 자세히 읽어보세요. |
-| Microsoft Edge | ID | 문자열 | 파티션별로 고유하게 적용됩니다. 기본적으로 자동 생성됩니다. 가장자리는 대개 ID로 고유하게 검색할 필요가 없습니다. |
-| Microsoft Edge | label | 문자열 | 이 속성은 두 꼭짓점의 관계 유형을 정의하는 데 사용됩니다. |
+| Microsoft Edge | ID | String | 파티션별로 고유하게 적용됩니다. 기본적으로 자동 생성됩니다. 가장자리는 대개 ID로 고유하게 검색할 필요가 없습니다. |
+| Microsoft Edge | label | String | 이 속성은 두 꼭짓점의 관계 유형을 정의하는 데 사용됩니다. |
 | Microsoft Edge | properties | 문자열, 부울, 숫자 | 가장자리마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
 
 > [!NOTE]

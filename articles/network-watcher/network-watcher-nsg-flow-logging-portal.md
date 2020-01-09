@@ -18,16 +18,16 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f6740076600854f612cfdd6324d93325f0cd5c05
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766602"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667505"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
-NSG(네트워크 보안 그룹)를 사용하면 VM(가상 머신)에 대한 인바운드 트래픽 및 VM(가상 머신)으로부터의 아웃바운드 트래픽을 필터링할 수 있습니다. Network Watcher의 NSG 흐름 기록 기능을 사용하여 NSG를 통해 흐르는 네트워크 트래픽을 기록할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+NSG(네트워크 보안 그룹)를 사용하면 VM(가상 머신)에 대한 인바운드 트래픽 및 VM(가상 머신)으로부터의 아웃바운드 트래픽을 필터링할 수 있습니다. Network Watcher의 NSG 흐름 기록 기능을 사용하여 NSG를 통해 흐르는 네트워크 트래픽을 기록할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 네트워크 보안 그룹을 사용하여 VM 만들기
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     |설정|값|
     |---|---|
-    |Name|myVm|
+    |속성|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
@@ -63,7 +63,7 @@ VM을 만드는 데 몇 분이 걸립니다. VM 만들기를 완료할 때까지
 
 미국 동부 지역에서 이미 Network Watcher를 사용하도록 설정한 경우 [정보 공급자 등록](#register-insights-provider)으로 건너뜁니다.
 
-1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
+1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 결과에 **Network Watcher**가 표시되면 이를 선택합니다.
 2. **지역**을 선택하여 확장하고, 다음 그림처럼 **미국 동부** 오른쪽에서 **...** 를 선택합니다.
 
     ![Network Watcher 사용](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
@@ -89,15 +89,11 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
     | 설정        | 값                                                        |
     | ---            | ---   |
-    | Name           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
+    | 속성           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
     | 위치       | **미국 동부**를 선택합니다.                                           |
     | Resource group | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
 
-    스토리지 계정을 만들 때 몇 분이 걸릴 수 있습니다. 스토리지 계정을 만들 때까지 나머지 단계를 계속하지 않습니다. 만들지 않고 기존 스토리지 계정을 사용하는 경우 스토리지 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크**에 **모든 네트워크**(기본값)가 선택된 스토리지 계정을 선택하도록 합니다. 모든 경우에 스토리지 계정은 NSG와 동일한 영역에 있어야 합니다. 
-    
-    > [!NOTE]
-    > Microsoft.Insight 및 Microsoft.Network 공급 기업은 현재 [Azure Storage에 대해 신뢰할 수 있는 Microsoft Services](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)로 지원되지만 NSG Flow 로그는 아직 완전히 온보딩되지 않았습니다. NSG Flow 로깅을 사용하도록 설정하려면 위에서 언급한 대로 **모든 네트워크**를 선택해야 합니다.
-    
+    스토리지 계정을 만들 때 몇 분이 걸릴 수 있습니다. 스토리지 계정을 만들 때까지 나머지 단계를 계속하지 않습니다. 만들지 않고 기존 스토리지 계정을 사용하는 경우 스토리지 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크**에 **모든 네트워크**(기본값)가 선택된 스토리지 계정을 선택하도록 합니다. 모든 경우에 스토리지 계정은 NSG와 동일한 영역에 있어야 합니다.     
 4. 포털의 맨 왼쪽 위에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
 5. **로그**에서 다음 그림에 표시된 대로 **NSG 흐름 로그**를 선택합니다.
 
@@ -116,8 +112,6 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
    > * 스토리지 계정은 [계층 구조 네임스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)를 사용하도록 설정되었습니다.
 1. 포털의 맨 왼쪽 위에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
 10. **보존(일)** 을 5로 선택한 다음, **저장**을 선택합니다.
-    > [!IMPORTANT]
-    > 현재는 Network Watcher에 대한 [NSG(네트워크 보안 그룹) 흐름 로그](network-watcher-nsg-flow-logging-overview.md)가 보존 정책 설정에 따라 Blob 스토리지에서 자동으로 삭제되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 요금이 발생하지 않도록 보존 기간이 지난 스토리지 blob을 주기적으로 삭제하는 것이 좋습니다. NSG 흐름 로그 스토리지 blob을 삭제하는 방법에 대한 자세한 내용은 [NSG 흐름 로그 스토리지 blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조하세요.
 
 ## <a name="download-flow-log"></a>흐름 로그 다운로드
 
@@ -217,8 +211,8 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 | 44931        | 원본 포트            | 흐름이 시작된 원본 포트입니다.                                           |
 | 443         | 대상 포트       | 흐름을 보낸 대상 포트입니다. 포트 443으로 트래픽을 보냈으므로 **UserRule_default-allow-rdp**라는 규칙이 로그 파일에서 흐름을 처리했습니다.                                                |
 | T            | 프로토콜               | 흐름의 프로토콜이 TCP(T) 또는 UDP(U)인지입니다.                                  |
-| O            | 방향              | 트래픽이 인바운드(I) 또는 아웃바운드(O)인지입니다.                                     |
-| A            | 조치                 | 트래픽을 허용했는지(A) 또는 거부했는지(D)입니다.  
+| O            | Direction              | 트래픽이 인바운드(I) 또는 아웃바운드(O)인지입니다.                                     |
+| A            | 작업                 | 트래픽을 허용했는지(A) 또는 거부했는지(D)입니다.  
 | C            | 흐름 상태 **버전 2만 해당** | 흐름의 상태를 캡처합니다. 가능한 상태는 다음과 같습니다. **B**: 흐름이 만들어질 때 시작합니다. 통계가 제공되지 않습니다. **C**: 지속적인 흐름에 대해 계속됩니다. 통계가 5분 간격으로 제공됩니다. **E**: 흐름이 종료되면 끝납니다. 통계가 제공됩니다. |
 | 30 | 보낸 패킷 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷의 총 수입니다. |
 | 16978 | 보낸 바이트 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다. |

@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure 엔터프라이즈 등록에 사용되는
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ea53ad91dcb411c43b367bfb43bc9dcea3d2bba7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 58f38cc3649c1d08187a4bb93be83422c8e7911b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841424"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644531"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 엔터프라이즈 REST API
 
@@ -75,13 +75,13 @@ Microsoft Enterprise Azure 고객은 REST API를 통해 사용량 및 청구 정
 
 ### <a name="swagger"></a>Swagger
 
-Swagger 엔드포인트는 다음 API에 대한 [엔터프라이즈 보고 v3 API](https://consumption.azure.com/swagger/ui/index)에서 사용할 수 있습니다. Swagger는 API를 검사하는 데 도움이 됩니다. Swagger를 사용하여 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger CodeGen](http://swagger.io/swagger-codegen/)을 통해 클라이언트 SDK를 생성합니다. 2014년 5월 1일 이후부터 사용 가능한 데이터는 API를 통해 사용할 수 있습니다.
+Swagger 엔드포인트는 다음 API에 대한 [엔터프라이즈 보고 v3 API](https://consumption.azure.com/swagger/ui/index)에서 사용할 수 있습니다. Swagger는 API를 검사하는 데 도움이 됩니다. Swagger를 사용하여 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger CodeGen](https://swagger.io/swagger-codegen/)을 통해 클라이언트 SDK를 생성합니다. 2014년 5월 1일 이후부터 사용 가능한 데이터는 API를 통해 사용할 수 있습니다.
 
 ### <a name="api-response-codes"></a>API 응답 코드
 
 API를 사용하는 경우 응답 상태 코드가 표시됩니다. 다음 표에서는 이러한 코드에 대해 설명합니다.
 
-| 응답 상태 코드 | Message | 설명 |
+| 응답 상태 코드 | 메시지 | Description |
 | --- | --- | --- |
 | 200 | 확인 | 오류 없음 |
 | 401 | 권한 없음 | API 키를 찾을 수 없음, 유효하지 않음, 만료됨 등 |
@@ -122,7 +122,7 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | 구독 이름 | SubscriptionName | SubscriptionName |   |
 | Date | Date | Date | 서비스 카탈로그 보고서가 실행된 날짜를 표시합니다. 형식은 타임스탬프 없는 날짜 문자열입니다. |
-| 월 | 월 | 월 |   |
+| Month | Month | Month |   |
 | 일 | 일 | 일 |   |
 | Year | Year | Year |   |
 | Product | BillableItemName | Product |   |
@@ -157,7 +157,7 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | 구독 이름 | SubscriptionName |  SubscriptionName |
 | Date | BillingCycle |  날짜(날짜 문자열만 있음. 타임스탬프 없음)
-| 월 | 월 |  월 |
+| Month | Month |  Month |
 | 일 | 일 |  일 |
 | Year | Year |  Year |
 | 측정기 ID | MeterResourceId |  MeterId |

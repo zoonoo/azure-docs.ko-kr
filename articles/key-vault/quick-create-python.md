@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: aeac3b5ab1894e4392152ff255d582c338ceff18
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a514dbce91a98bd51e51b1724d631bc224b2f33a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972428"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75527929"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 클라이언트 라이브러리
 
@@ -27,7 +27,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 
 [API 참조 설명서](/python/api/overview/azure/key-vault?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault/)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Python 2.7, 3.5.3 이상
@@ -103,7 +103,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>환경 변수 설정
 
-애플리케이션의 DefaultAzureCredential 메서드는 `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`및 `AZURE_TENANT_ID`의 세 가지 환경 변수를 사용합니다. 이러한 변수를 `export VARNAME=VALUE` 형식을 사용하여 [서비스 주체 만들기](#create-a-service-principal) 단계에서 적어 둔 clientId, clientSecret 및 tenantId 값으로 설정합니다. (이 메서드는 셸에서 만든 현재 셸 및 프로세스에 대한 변수만 설정됩니다. 이러한 변수를 환경에 영구적으로 추가하려면 `/etc/environment ` 파일을 편집합니다.) 
+애플리케이션의 DefaultAzureCredential 메서드는 `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`및 `AZURE_TENANT_ID`의 세 가지 환경 변수를 사용합니다. 이러한 변수를 `export VARNAME=VALUE` 형식을 사용하여 [서비스 주체 만들기](#create-a-service-principal) 단계에서 적어 둔 clientId, clientSecret 및 tenantId 값으로 설정합니다. (이 메서드는 현재 셸 및 셸에서 만든 프로세스에 대한 변수만 설정합니다. 이러한 변수를 환경에 영구적으로 추가하려면 `/etc/environment ` 파일을 편집합니다.) 
 
 또한 Key Vault 이름을 `KEY_VAULT_NAME`라는 환경 변수로 저장해야 합니다.
 
@@ -142,7 +142,7 @@ Key Vault 인증을 받고 Key Vault 클라이언트를 생성하는 작업은 �
 ```python
 credential = DefaultAzureCredential()
 
-client = SecretClient(vault_endpoint=KVUri, credential=credential)
+client = SecretClient(vault_url=KVUri, credential=credential)
 ```
 
 ### <a name="save-a-secret"></a>비밀 저장
@@ -150,7 +150,7 @@ client = SecretClient(vault_endpoint=KVUri, credential=credential)
 이제 애플리케이션이 인증되었으므로 client.SetSecret 메서드]를 사용하여 Key Vault에 비밀을 넣을 수 있습니다(/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). 이 작업을 위해 비밀 이름이 필요하며, 이 샘플에서는 "mySecret"을 사용하고 있습니다.  
 
 ```python
-client.set_secret(secretName, secretValue);
+client.set_secret(secretName, secretValue)
 ```
 
 [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용하여 비밀이 설정되었는지 확인할 수 있습니다.
@@ -174,7 +174,7 @@ retrieved_secret = client.get_secret(secretName)
 마지막으로 [client.DeleteSecret 메서드](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync)를 사용하여 Key Vault에서 비밀을 삭제해 보겠습니다.
 
 ```python
-client.delete_secret(secretName);
+client.delete_secret(secretName)
 ```
 
 [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용하여 비밀이 삭제되었는지 확인할 수 있습니다.
@@ -195,7 +195,7 @@ az group delete -g "myResourceGroup"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 ```python
 import os
@@ -203,44 +203,44 @@ import cmd
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
-keyVaultName = os.environ["KEY_VAULT_NAME"];
-KVUri = "https://" + keyVaultName + ".vault.azure.net";
+keyVaultName = os.environ["KEY_VAULT_NAME"]
+KVUri = "https://" + keyVaultName + ".vault.azure.net"
 
 credential = DefaultAzureCredential()
-client = SecretClient(vault_endpoint=KVUri, credential=credential)
+client = SecretClient(vault_url=KVUri, credential=credential)
 
-secretName = "mySecret";
+secretName = "mySecret"
 
-print("Input the value of your secret > ");
-secretValue = raw_input();
+print("Input the value of your secret > ")
+secretValue = raw_input()
 
-print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...")
 
-client.set_secret(secretName, secretValue);
+client.set_secret(secretName, secretValue)
 
-print(" done.");
+print(" done.")
 
-print("Forgetting your secret.");
-secretValue = "";
-print("Your secret is '" + secretValue + "'.");
+print("Forgetting your secret.")
+secretValue = ""
+print("Your secret is '" + secretValue + "'.")
 
-print("Retrieving your secret from " + keyVaultName + ".");
+print("Retrieving your secret from " + keyVaultName + ".")
 
 retrieved_secret = client.get_secret(secretName)
 
-print("Your secret is '" + retrieved_secret.value + "'.");
-print("Deleting your secret from " + keyVaultName + " ...");
+print("Your secret is '" + retrieved_secret.value + "'.")
+print("Deleting your secret from " + keyVaultName + " ...")
 
-client.delete_secret(secretName);
+client.delete_secret(secretName)
 
-print(" done.");
+print(" done.")
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 키 자격 증명 모음을 만들고, 비밀을 저장하고, 해당 비밀을 검색했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
-- [Azure Key Vault 개요](key-vault-overview.md) 읽기
+- [Azure Key Vault 개요](key-vault-overview.md) 참조
 - [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md) 참조
 - [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md) 알아보기
 - [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

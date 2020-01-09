@@ -2,17 +2,17 @@
 title: Azure Private Link란?
 description: 'Azure Private Link를 사용하여 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객/파트너 서비스에 액세스하는 방법을 알아봅니다.'
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 03fdd67adf5df440cafe4e7411064437b8ef89ac
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 127807a57598fcfe239db39cb9874bca955da44e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671551"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647359"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Azure Private Link란? (미리 보기)
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage, Azure Cosmos DB 및 SQL Database)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. VNet(가상 네트워크)에서 자체 [Private Link Service](private-link-service-overview.md)를 만들어 고객에게 개인적으로 제공할 수도 있습니다. Azure Private Link를 사용하는 설정 및 사용 환경은 Azure PaaS, 고객 소유/공유 파트너 서비스에서 일관적입니다.
@@ -65,7 +65,7 @@ Azure Private Link가 Azure Monitor와 통합되기 때문에 스토리지 계�
 FAQ는 [Azure Private Link FAQ](private-link-faq.md)를 참조하세요.
  
 ## <a name="limits"></a>제한  
-제한은 [Azure Private Link 제한](../azure-subscription-service-limits.md#private-link-limits)을 참조하세요.
+제한은 [Azure Private Link 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [포털을 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-portal.md)

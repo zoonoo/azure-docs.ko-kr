@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 095c591f63cb228b48681ffc67499820631bbaf5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 37b0deba6531c8e714b8786f8c815cf323c310ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816450"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467168"
 ---
 이 가이드에서는 Python용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "74816450"
   - Mac: macOS X 버전 10.12 이상
   - Linux: x64 기반의 Ubuntu 16.04, Ubuntu 18.04, Debian 9
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 지원되는 Linux 플랫폼에는 특정 라이브러리가 설치되어 있어야 합니다(보안 소켓 레이어 지원을 위한 `libssl` 및 사운드 지원을 위한 `libasound2`). 이러한 라이브러리의 올바른 버전을 설치하는 데 필요한 명령은 아래 배포를 참조하세요.
 
@@ -78,7 +78,7 @@ macOS를 사용하는 경우 위의 `pip` 명령을 실행하려면 다음 명�
 python3 -m pip install --upgrade pip
 ```
 
-`pip`를 사용하여 `azure-cognitiveservices-speech`를 성공적으로 설치한 후에는 Python 프로젝트에 네임스페이스를 가져와서 Speech SDK를 사용할 수 있습니다. 예:
+`pip`를 사용하여 `azure-cognitiveservices-speech`를 성공적으로 설치한 후에는 Python 프로젝트에 네임스페이스를 가져와서 Speech SDK를 사용할 수 있습니다. 다음은 그 예입니다.
 
 ```py
 import azure.cognitiveservices.speech as speechsdk

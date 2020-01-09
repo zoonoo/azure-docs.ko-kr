@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 78fda5785d85b728c897bf758bc2a3cdee768d02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1f421abf1c9cff545c77a9fcbbb4acfd76d1e1d0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849907"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644412"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 
@@ -271,5 +271,5 @@ OMS(Operations Management Suite) 구독을 예로 들 수 있습니다. OMS는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure EA 포털을 시작하려면 [Azure EA 포털 시작](billing-ea-portal-get-started.md)을 참조하세요.
-- Azure EA 포털 관리자는 [Azure EA 포털 관리](billing-ea-portal-administration.md)를 읽고 일반적인 관리 작업에 대해 알아보아야 합니다.
+- Azure EA Portal을 시작하려면 [Azure EA Portal 시작](billing-ea-portal-get-started.md)을 참조하세요.
+- Azure EA Portal 관리자는 [Azure EA Portal 관리](billing-ea-portal-administration.md)를 읽고 일반적인 관리 작업에 대해 알아보아야 합니다.

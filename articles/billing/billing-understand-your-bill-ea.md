@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: cc4b552143917f5a9ca66ad402cca79956186d08
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 112bcf7f5cb33fec56cdc36c5fe8cfe92145705a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841272"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644497"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure 기업계약 청구서 이해
 
@@ -105,7 +105,7 @@ Enterprise Portal의 **보고서** > **사용 요약**에 있는 총 사용량 �
 
 다음 표에는 청구서 및 Enterprise Portal의 **사용 요약**에 표시되는 용어 및 설명이 나와 있습니다.
 
-|청구서 용어|사용 요약 용어|설명|
+|청구서 용어|사용 요약 용어|Description|
 |---|---|---|
 |총 확장 금액|총 사용량|차변이 적용되기 전, 특정 기간에 대한 총 세전 사용량 요금입니다.|
 |약정 사용량|약정 사용량|해당 특정 기간에 적용된 크레딧입니다.|

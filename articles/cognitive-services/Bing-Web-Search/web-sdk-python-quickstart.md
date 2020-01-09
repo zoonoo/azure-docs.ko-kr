@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 0f6dceac3e46f8e36d2da52c15c0b0696e026a0e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 64ef052478bed627c896cd0e0b5301961a8b6f21
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977219"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562870"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>빠른 시작: Python용 Bing Web Search SDK 사용
 
@@ -23,7 +23,7 @@ Bing Web Search SDK를 사용하면 Bing Web Search를 Python 애플리케이션
 
 지금 코드를 보시겠나요? [Python용 Bing Web Search SDK 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)은 GitHub에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Bing Web Search SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다. 이 빠른 시작에서는 가상 환경을 사용하는 것이 좋습니다.
 
 * Python 2.7, 3.3, 3.4, 3.5 또는 3.6
@@ -63,6 +63,12 @@ Python 3.x의 경우 `venv`를 사용하여 가상 환경을 만듭니다.
 
 ```console
 python -m venv mytestenv
+```
+
+환경을 활성화합니다.
+
+```console
+mytestenv\Scripts\activate.bat
 ```
 
 Bing Web Search SDK 종속성을 설치합니다.

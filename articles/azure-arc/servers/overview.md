@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06e3b490f4f9cef64ae8bca5aed4d0518f10ba0e
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951431"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659624"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>서버용 Azure Arc란
 
@@ -41,7 +41,7 @@ ms.locfileid: "74951431"
 
 ## <a name="azure-subscription-and-service-limits"></a>Azure 구독 및 서비스 제한
 
-Azure Resource Manager 제한을 읽고 [구독](../../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) 및 [리소스 그룹](../../azure-subscription-service-limits.md#resource-group-limits)에 대해 나열된 지침에 따라 연결할 머신의 수를 계획하십시오. 특히, 기본적으로 리소스 그룹당 서버 수는 800개로 제한됩니다.
+Azure Resource Manager 제한을 읽고 [구독](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) 및 [리소스 그룹](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)에 대해 나열된 지침에 따라 연결할 머신의 수를 계획하십시오. 특히, 기본적으로 리소스 그룹당 서버 수는 800개로 제한됩니다.
 
 ## <a name="networking-configuration"></a>네트워킹 구성
 
@@ -107,7 +107,7 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-[Azure Portal](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)의 단계에 따라 포털을 사용하여 리소스 공급자를 등록할 수도 있습니다.
+[Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)의 단계에 따라 포털을 사용하여 리소스 공급자를 등록할 수도 있습니다.
 
 ## <a name="machine-changes-after-installing-the-agent"></a>에이전트 설치 후 머신 변경
 
