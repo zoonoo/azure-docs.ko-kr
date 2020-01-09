@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5cfccd6e79b7289b6fd59abcabba05abab6ab09b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443852"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>빠른 시작: Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 - 프로비저닝된 컴퓨팅 계층의 단일 데이터베이스에는 두 가지 [구매 모델](sql-database-purchase-models.md) 중 하나를 사용하여 CPU 및 메모리를 비롯한 정해진 양의 컴퓨팅 리소스가 미리 할당되어 있습니다.
 - 서버리스 컴퓨팅 계층의 단일 데이터베이스에는 자동으로 크기가 조정되고 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)에서만 제공되는, CPU 및 메모리를 비롯한 다양한 컴퓨팅 리소스가 있습니다.
 
-단일 데이터베이스를 만들 때 지정된 Azure 지역의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [SQL Database 서버](sql-database-servers.md)도 정의합니다.
+단일 데이터베이스를 만들 때 지정된 Azure 지역의 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [SQL Database 서버](sql-database-servers.md)도 정의합니다.
 
 > [!NOTE]
 > 이 빠른 시작에서는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하지만 [DTU 기반 구매 모델](sql-database-service-tiers-DTU.md)도 사용할 수 있습니다.

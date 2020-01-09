@@ -161,6 +161,8 @@
           href: how-to-deploy-monitor.md
         - name: Azure CLI
           href: how-to-deploy-monitor-cli.md
+        - name: Visual Studio Code
+          href: how-to-deploy-monitor-vscode.md
     - name: IoT Edge 디바이스를 게이트웨이로 사용
       items:
         - name: 투명 게이트웨이 구성

@@ -1,26 +1,17 @@
 ---
 title: '자습서: Azure Service Fabric에서 Java 앱 만들기'
 description: 이 자습서에서는 프런트 엔드를 사용하여 신뢰할 수 있는 서비스 Java 애플리케이션을 만들고 신뢰할 수 있는 상태 저장 백 엔드를 만들고 애플리케이션을 클러스터에 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5e9b94f0c67b4b4630d554f4dde22502c90e777c
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 019e50057497c9f98d303a93dfa3f905226fa246
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465458"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>자습서: Azure Service Fabric에서 Java API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기
 
@@ -45,7 +36,7 @@ ms.locfileid: "72376365"
 > * 원격 서비스를 사용하여 상태 저장 서비스와 통신
 > * 로컬 Service Fabric 클러스터에 애플리케이션 배포
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 

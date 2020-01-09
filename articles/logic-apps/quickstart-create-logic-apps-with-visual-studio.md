@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: bb284ad336e7110b0354450f3438fadb592370be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428644"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
 
@@ -26,9 +26,9 @@ Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 다음 도구가 없으면 다운로드하여 설치합니다.
 
@@ -61,7 +61,7 @@ Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 
 
 ## <a name="create-azure-resource-group-project"></a>Azure 리소스 그룹 프로젝트 만들기
 
-시작하려면 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 만듭니다. [Azure 리소스 그룹 및 리소스](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
+시작하려면 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 만듭니다. [Azure 리소스 그룹 및 리소스](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.
 
 1. Visual Studio를 시작합니다. Azure 계정으로 로그인합니다.
 
@@ -109,7 +109,7 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
 
    ![Azure 구독, 리소스 그룹 및 리소스 위치 선택](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | 설정 | 예제 값 | 설명 |
+   | 설정 | 예제 값 | Description |
    | ------- | ------------- | ----------- |
    | 사용자 계정 | Fabrikam <br> sophia-owen@fabrikam.com | Visual Studio에 로그인 할 때 사용한 계정 |
    | **구독** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | Azure 구독 및 연결된 계정에 대한 이름 |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/28/2019
+ms.date: 12/23/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 083ac49919bcf60fdd0b34a5007e03d215c23280
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7c5611a142087cff06eefb0277b12ff786074e1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815000"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446822"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 Swift로 음성 인식
 
@@ -23,7 +23,7 @@ ms.locfileid: "74815000"
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 Swift에서 마이크로 녹음한 음성을 텍스트로 변환하는 macOS 앱을 만드는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 필수 구성 요소 목록은 다음과 같습니다.
 

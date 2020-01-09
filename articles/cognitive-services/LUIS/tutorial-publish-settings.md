@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/03/2019
+ms.date: 12/13/2019
 ms.author: diberry
-ms.openlocfilehash: 0e105d70ff7f590a84e0a82c15bcdd83052b63a8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7683a73fd1f403847089dc722e5f6382acd948cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74808041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447703"
 ---
 # <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>자습서:  감정 분석을 게시 설정으로 추가
 
@@ -35,7 +35,7 @@ ms.locfileid: "74808041"
 
 다음 발언에서는 감정의 예제를 보여줍니다.
 
-|데이터|Score|발화|
+|데이터|점수|발화|
 |:--|:--|:--|
 |부정|0.01 |피자가 끔찍했습니다.|
 |긍정|0.97 |치즈 피자가 훌륭했습니다.|
@@ -46,7 +46,7 @@ ms.locfileid: "74808041"
 
 ## <a name="import-example-json-to-begin-app"></a>.json 예제를 가져와서 앱 시작
 
-1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)을 다운로드하고 저장합니다.
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.openlocfilehash: 4ead3472e1706742781cb64a12103f3dec1fd27a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: edf03b663383f10168ee5b78a3ad5f1a9fdac288
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440137"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 
@@ -54,7 +54,7 @@ ms.locfileid: "74922469"
    - **기존 항목 사용**을 선택하고 목록에서 기존 리소스 그룹을 선택합니다. 
    - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
-   리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
+   리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
 1. **버전**에서 **V2**를 선택합니다.
 1. **위치**에 데이터 팩터리의 위치를 선택합니다.
 

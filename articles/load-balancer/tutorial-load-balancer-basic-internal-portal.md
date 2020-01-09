@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453516"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 기본 부하 분산 장치로 내부 트래픽 부하 분산
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
 1. **가상 네트워크 만들기** 창에서 다음 값을 입력하거나 선택합니다.
    
-   - **이름**: *MyVNet*을 입력합니다.
+   - **Name**: *MyVNet*을 입력합니다.
    - **ResourceGroup**: **새로 만들기**를 선택하고 *MyResourceGroupLB*를 입력한 다음, **확인**을 선택합니다. 
    - **서브넷** > **이름**: *MyBackendSubnet*을 입력합니다.
    
@@ -87,21 +87,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 포털의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
    
-2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **리뷰 + 만들기**를 선택합니다.
+2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 유지한 다음, **검토 + 만들기**를 선택합니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
-    | Name                   | *myLoadBalancer*                                   |
-    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | 속성                   | *myLoadBalancer*                                   |
+    | 지역         | **미국 동부 2**를 선택합니다.                                        |
     | Type          | **내부**를 선택합니다.                                        |
     | SKU           | **기본**을 선택합니다.                          |
     | 가상 네트워크           | *MyVNet*을 선택합니다.                          |    
     | IP 주소 할당              | **고정**을 선택합니다.   |
     | 개인 IP 주소|가상 네트워크 및 서브넷의 주소 공간에 있는 주소를 입력합니다(예: *10.3.0.7*).  |
 
-3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다. 
+3. **검토 + 만들기** 탭에서 **만들기**를 클릭합니다. 
    
 
 ## <a name="create-basic-load-balancer-resources"></a>기본 부하 분산 장치 리소스 만들기
@@ -120,7 +120,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
 1. **백 엔드 풀 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
    
-   - **이름**: *MyBackendPool*을 입력합니다.
+   - **Name**: *MyBackendPool*을 입력합니다.
    - **연결 대상**: 드롭다운하고 **가용성 세트**를 선택합니다.
    - **가용성 집합**: **MyAvailabilitySet**를 선택합니다.
    
@@ -149,7 +149,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
 1. **상태 프로브 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
    
-   - **이름**: *MyHealthProbe*를 입력합니다.
+   - **Name**: *MyHealthProbe*를 입력합니다.
    - **프로토콜**: 드롭다운하고 **HTTP**를 선택합니다. 
    - **포트**: *80*을 입력합니다. 
    - **경로**: 기본 URI에 대해 */* 를 허용합니다. 이 값은 다른 URI로 바꿀 수 있습니다. 
@@ -174,7 +174,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
 1. **부하 분산 규칙 추가** 페이지에서 다음 값이 아직 없는 경우 입력하거나 선택합니다.
    
-   - **이름**: *MyLoadBalancerRule*을 입력합니다.
+   - **Name**: *MyLoadBalancerRule*을 입력합니다.
    - **프런트 엔드 IP 주소:** 아직 없는 경우 *LoadBalancerFrontEnd*를 입력합니다.
    - **프로토콜**: **TCP**를 선택합니다.
    - **포트**: *80*을 입력합니다.

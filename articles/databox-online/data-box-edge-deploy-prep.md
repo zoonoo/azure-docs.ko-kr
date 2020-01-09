@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438677"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>자습서: Azure Data Box Edge 배포 준비  
 
@@ -22,7 +22,7 @@ ms.locfileid: "66476782"
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 포털 준비에는 10분 미만이 소요됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 새 리소스 만들기
@@ -44,7 +44,7 @@ Data Box Edge를 배포하려면 다음 자습서를 지정된 순서대로 참�
 
 이제 Azure Portal 설치를 시작할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음은 Data Box Edge 리소스, Data Box Edge 디바이스 및 데이터 센터 네트워크에 대한 구성 필수 조건입니다.
 
@@ -107,14 +107,14 @@ Data Box Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수�
     
     |설정  |값  |
     |---------|---------|
-    |구독    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
-    |리소스 그룹  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.     |
+    |Subscription    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
+    |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
 
 4. 다음 **인스턴스 세부 정보**를 입력하거나 선택합니다.
 
     |설정  |값  |
     |---------|---------|
-    |이름   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
+    |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
     |지역     |이 릴리스는 미국 동부, 동남 아시아 및 서유럽에 리소스를 배포할 수 있습니다. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
     ![프로젝트 및 인스턴스 세부 정보](media/data-box-edge-deploy-prep/data-box-edge-resource.png)

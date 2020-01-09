@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/23/2019
 ms.author: chlandsi
-ms.openlocfilehash: be5f62a75d9a3998d843e9865768b46658b8386c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c2f0fbe66b26c6eca6e0c0b2530efacba9bae958
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380595"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 Objective-C로 음성 인식
 
@@ -23,7 +23,7 @@ ms.locfileid: "74815020"
 
 이 문서에서는 Azure Cognitive Services Speech SDK를 사용하여 Objective-C에서 마이크로 녹음한 음성을 텍스트로 변환하는 macOS 앱을 만드는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 필요합니다.
 
