@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961371"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495863"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure에 대 한 VMware 재해 복구를 위한 Deployment Planner 보고서 분석
 
@@ -40,7 +40,7 @@ ms.locfileid: "73961371"
 
 **관찰된 일반적 일일 데이터 변동량(GB)** : 모든 프로파일링 일 수 동안 관찰된 평균 데이터 변동량입니다. 이 숫자는 배포에서 사용되는 구성 서버 및 추가 프로세스 서버의 수를 결정하기 위한 입력 중 하나로 사용됩니다.
 
-## <a name="recommendations"></a>추천
+## <a name="recommendations"></a>권장 사항
 
 VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하는 RPO에 따라 다음과 같은 세부 정보가 포함됩니다.
 
@@ -178,7 +178,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름 또는 IP 주소입니다. 또한 이 열은 VM에 연결된 디스크(VMDK)를 나열합니다. 중복 이름 또는 IP 주소와 vCenter VM을 구분하기 위해 이름에 ESXi 호스트 이름을 포함합니다. 나열된 ESXi 호스트는 도구가 프로 파일링 기간 중에 발견한 VM을 배치하는 호스트입니다.
 
-**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [프리미엄 SSD](../virtual-machines/windows/disks-types.md)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예:
+**VM 호환성**: 값은 **예** 및 **예\*** 입니다. **예**\*는 VM이 [프리미엄 SSD](../virtual-machines/windows/disks-types.md)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예:
 * 128GB 미만은 P10입니다.
 * 128GB ~ 256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.
@@ -221,10 +221,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [스토리지 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
-* 디스크 크기가 4,095GB보다 큽니다. Azure Storage는 현재 4,095GB보다 큰 디스크 크기를 지원하지 않습니다.
-
-* OS 디스크는 2,048GB보다 큽니다. Azure Storage는 현재 2,048GB보다 큰 OS 디스크 크기를 지원하지 않습니다.
-
+* 데이터 디스크 크기가 잘못 되었거나 OS 디스크 크기가 잘못 되었습니다. 지원 제한을 [검토](vmware-physical-azure-support-matrix.md#azure-vm-requirements) 합니다. 
 * 총 VM 크기(복제 + TFO)가 지원되는 스토리지 계정 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 스토리지에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 Premium Storage 영역에 푸시합니다. 그러나 Premium Storage 계정의 최대 지원 크기는 35TB이며, 보호된 단일 VM을 여러 스토리지 계정에서 보호할 수 없습니다. 또한 보호되는 VM에 대해 테스트 장애 조치를 실행하면 복제가 진행 중인 스토리지 계정과 동일한 계정에서 실행된다는 점에 유의해야 합니다. 이 인스턴스에서 복제 진행과 테스트 장애 조치를 동시에 성공하려면 디스크 크기를 2배로 설정합니다.
 
 * 원본 IOPS가 디스크당 지원되는 스토리지 IOPS 한도(7500)를 초과합니다.

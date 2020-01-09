@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8cf2d75257bb3d751de1c3b251a9a3326bce0a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 75bb919b73791b78084e82351d7d6b7d93edc322
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423859"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 데스크톱 앱-web API 호출
 
@@ -100,7 +100,7 @@ task.resume()
 
 동일한 사용자에 대해 여러 Api를 호출 해야 하는 경우에는 첫 번째 API에 대 한 토큰을 가져온 후 `AcquireTokenSilent`만 호출할 수 있으며, 대부분의 시간에 자동으로 다른 Api에 대 한 토큰을 가져옵니다.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -113,7 +113,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 - 사용자가 첫 번째 API에 대해 동의한 이제 더 많은 범위 (증분 승인)에 동의 해야 합니다.
 - 첫 번째 API에는 multi-factor authentication이 필요 하지 않습니다.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
