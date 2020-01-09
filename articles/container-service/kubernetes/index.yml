@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Kubernetes를 사용한 Azure Container Service 설명서
 metadata:
-  document_id: null
   title: 'Kubernetes를 사용한 Azure Container Service 설명서 - 자습서, API 참조 | Microsoft Docs'
   meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.'
   services: container-service
@@ -47,7 +46,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/container-service/cli-samples">Azure CLI</a>
-  - title: 참고 자료
+  - title: 참조
     items:
       - type: list
         style: cards

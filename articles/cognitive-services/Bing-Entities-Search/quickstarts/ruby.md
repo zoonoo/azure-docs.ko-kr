@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 076fad8c1fc6fdd4bccf07f5eb3223800eddd4a0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 69e4d992e2ef89b4d3d9408d6e50591fb8166c79
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385782"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>빠른 시작: Ruby를 통해 Bing Entity Search API 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "74323551"
 
 이 애플리케이션은 Ruby에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 이상.
 
@@ -39,7 +39,7 @@ ms.locfileid: "74323551"
     require 'json'
     ```
 
-2. API 엔드포인트, News Search URL, 구독 키 및 검색 쿼리에 대한 변수를 만듭니다.
+2. API 엔드포인트, News Search URL, 구독 키 및 검색 쿼리에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'

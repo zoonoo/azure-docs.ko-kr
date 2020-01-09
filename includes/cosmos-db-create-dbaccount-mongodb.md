@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: cosmos-db
-author: rimman
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 12/26/2018
-ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: 33f08f22c3f09539dbe44098e3747f0ed7a8fe8c
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0acc989f558c5de4e8f52ba2c77f2842f8d5d70c
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541511"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75751947"
 ---
 1. 새 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 만들기**, **데이터베이스**를 차례로 선택한 다음, **Azure Cosmos DB**에서 **만들기**를 선택합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "69541511"
 
 3. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos DB 계정에 대한 설정을 입력합니다. 
  
-    설정|값|설명
+    설정|값|Description
     ---|---|---
     Subscription|사용자의 구독|이 Azure Cosmos DB 계정에 사용하려는 Azure 구독을 선택합니다. 
     리소스 그룹|새로 만들기<br><br>다음으로, ID에 제공된 것과 동일한 고유한 이름 입력|**새로 만들기**를 선택합니다. 그런 다음, 계정에 대한 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 ID와 동일한 이름을 사용합니다. 

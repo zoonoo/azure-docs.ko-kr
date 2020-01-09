@@ -10,18 +10,18 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c37d778fe9ad7d21943ed92452fae34b4b8771e7
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 8f937bcfb1bd03c970f21263c1cd09a1c3baba0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429431"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스를 위한 Python IoT Edge 모듈 개발 및 배포
 
 Visual Studio Code를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다. 
 
-비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 빠른 시작에서 설정한 IoT Edge 디바이스에서 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
+비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 빠른 시작에서 설정한 IoT Edge 디바이스에서 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.    
 
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 IoT Edge Python 모듈 만들기
@@ -34,9 +34,6 @@ Visual Studio Code를 사용하여 C 코드를 개발하고 Azure IoT Edge를 �
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
-> 다음 가이드는 더 이상 사용되지 않는 V1 Python SDK에 대한 것입니다. 현재 이 가이드 V2를 호환되도록 하기 위해 노력하고 있습니다. 업데이트에 위해 이 공간을 확인하세요.
-
 ## <a name="solution-scope"></a>솔루션 범위
 
 이 자습서는 **Visual Studio Code**를 사용하여 **Python**으로 모듈을 개발하는 방법과 **Linux 디바이스**에 배포하는 방법을 보여줍니다. IoT Edge는 Windows 디바이스용 Python 모듈을 지원하지 않습니다. 
@@ -48,7 +45,7 @@ Visual Studio Code를 사용하여 C 코드를 개발하고 Azure IoT Edge를 �
 | **Linux AMD64** | ![Linux AMD64에서 Python 모듈에 대한 VS Code 사용](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Linux ARM32에서 Python 모듈에 대한 VS Code 사용](./media/tutorial-c-module/green-check.png) |  |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이러한 자습서 중 하나를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다. 
 
@@ -212,7 +209,7 @@ VS 코드를 사용하여 빌드할 수 있는 Python 솔루션 템플릿을 만
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 2. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다.
 

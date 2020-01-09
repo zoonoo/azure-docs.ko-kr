@@ -7,17 +7,17 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d82b2904f16cc9816a22caadba598a7a44bfa007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466565"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 이상](https://www.python.org/downloads/)
@@ -27,7 +27,7 @@ ms.locfileid: "74818037"
     * Linux: x64 기반의 Ubuntu 16.04, Ubuntu 18.04, Debian 9.
 * Linux에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
 
-  * Ubuntu에서:
+  * Ubuntu:
 
     ```sh
     sudo apt-get update
@@ -73,7 +73,7 @@ python quickstart.py
 
 또는 [Speech SDK 샘플 리포지토리](https://github.com/Azure-Samples/cognitive-services-speech-sdk/)에서 [Jupyter](https://jupyter.org) Notebook으로 이 빠른 시작 자습서를 다운로드하고 노트북으로 실행할 수 있습니다.
 
-### <a name="sample-code"></a>샘플 코드
+### <a name="sample-code"></a>예제 코드
 
 ````Python
 

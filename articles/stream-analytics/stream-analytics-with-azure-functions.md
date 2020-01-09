@@ -1,21 +1,19 @@
 ---
 title: 자습서 - Azure Stream Analytics 작업에서 Azure Functions 실행
 description: 이 자습서에서는 Stream Analytics 작업에 대한 출력 싱크로 Azure Functions를 구성하는 방법에 대해 알아봅니다.
-services: stream-analytics
 author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.workload: data-services
 ms.date: 06/05/2019
 ms.author: mamccrea
-ms.reviewer: jasonh
-ms.openlocfilehash: 189f38c075c5faa91295633d1e4cbde1f7e573a2
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.reviewer: mamccrea
+ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369323"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -23,7 +21,7 @@ Functions를 Stream Analytics 작업에 대한 출력 싱크 중 하나로 구�
 
 Stream Analytics는 HTTP 트리거를 통해 Functions를 호출합니다. Functions 출력 어댑터를 통해 사용자는 Functions를 Stream Analytics에 연결할 수 있으므로, Stream Analytics 쿼리를 기준으로 그러한 이벤트를 트리거할 수 있습니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Stream Analytics 작업 만들기 및 실행
@@ -182,7 +180,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Azure Portal로 이동하여 Azure Cache for Redis를 찾습니다. **콘솔**을 선택합니다.  
 
-2. [Azure Cache for Redis 명령](https://redis.io/commands)을 사용하여 데이터가 Azure Cache for Redis에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 예:
+2. [Azure Cache for Redis 명령](https://redis.io/commands)을 사용하여 데이터가 Azure Cache for Redis에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 다음은 그 예입니다.
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
@@ -205,7 +203,7 @@ Azure Functions에서 [Http 라우팅](https://docs.microsoft.com/sandbox/functi
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용되는 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 필요할 때 나중에 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.

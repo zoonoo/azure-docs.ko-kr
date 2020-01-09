@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/19/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ab16a54269c2afe820d9d17d1400152d078186ed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: ce1ef2b6c586ddd688bacb755d7c6f2ffd16a0a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423684"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448541"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>빠른 시작: Ruby 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
@@ -24,13 +24,11 @@ ms.locfileid: "68423684"
 
 이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb)에 제공됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Ruby [2.4 이상](https://www.ruby-lang.org/en/downloads/)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
-
-[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
@@ -42,7 +40,7 @@ ms.locfileid: "68423684"
     require 'json'
     ```
 
-2. API 엔드포인트, News Search URL, 구독 키 및 검색 용어에 대한 변수를 만듭니다.
+2. API 엔드포인트, News Search URL, 구독 키 및 검색 용어에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```ruby
     accessKey = "enter key here"

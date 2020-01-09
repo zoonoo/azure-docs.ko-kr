@@ -1,7 +1,6 @@
 ---
 title: Azure Stream Analytics JavaScript 사용자 정의 함수
 description: 이 자습서에서는 JavaScript 사용자 정의 함수로 고급 쿼리 메커니즘을 수행합니다.
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,18 +8,18 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426053"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>자습서: Azure Stream Analytics JavaScript 사용자 정의 함수
  
 Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수를 지원합니다. JavaScript에서 제공하는 풍부한 메서드 집합(**String**, **RegExp**, **Math**, **Array**, **Date**)을 통해 Stream Analytics 작업에서 복잡한 데이터 변환을 쉽게 만들 수 있게 되었습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * JavaScript 사용자 정의 함수 정의
@@ -105,7 +104,7 @@ Stream Analytics | JavaScript
 bigint | Number(JavaScript에서는 정확히 최대 2^53의 정수만 표현할 수 있음)
 DateTime | Date(JavaScript에서는 밀리초만 지원)
 double | Number
-nvarchar(MAX) | 문자열
+nvarchar(MAX) | String
 레코드 | Object
 Array | Array
 NULL | Null
@@ -118,7 +117,7 @@ JavaScript | Stream Analytics
 --- | ---
 Number | Bigint(숫자를 반올림하여 long.MinValue와 long.MaxValue 사이에 있는 경우, 그렇지 않으면 double임)
 Date | DateTime
-문자열 | nvarchar(MAX)
+String | nvarchar(MAX)
 Object | 레코드
 Array | Array
 Null, Undefined | NULL
@@ -157,7 +156,7 @@ FROM
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용되는 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 필요할 때 나중에 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.

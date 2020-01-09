@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: d3c1070577ee57f18018e9b74be5e29998cc3e64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161479"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453674"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
@@ -25,7 +25,7 @@ ms.locfileid: "71161479"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -152,7 +152,7 @@ Write-Host "Press [ENTER] to continue..."
 
 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 키 자격 증명 모음 및 비밀을 만들고 배포의 유효성을 검사했습니다. Key Vault 및 Azure Resource Manager에 대한 자세한 내용은 아래 문서를 참조하세요.
 
-- [Azure Key Vault 개요](key-vault-overview.md) 읽기
-- [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아보기
+- [Azure Key Vault 개요](key-vault-overview.md) 참조
+- [Azure Resource Manager](../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기
 - [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md)에 대한 자세한 정보 보기
 - [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6e46965442e3f95c98a7d55a645b237c22740ff4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bfe786405ad32f68af33fcea1131fe856c9f38d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440046"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>빠른 시작: REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 
@@ -32,7 +32,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -494,7 +494,7 @@ $runId = $response.runId
 Azure Storage 탐색기를 사용하여 파이프라인 실행을 만들 때 지정한 대로 파일이 "inputPath"에서 "outputPath"로 복사되었는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 삭제할 수 있습니다. 다른 리소스를 그대로 유지하려면 이 자습서에서 만든 데이터 팩터리만 삭제합니다.
+빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 삭제할 수 있습니다. 다른 리소스를 그대로 유지하려면 이 자습서에서 만든 데이터 팩터리만 삭제합니다.
 
 다음 명령을 실행하여 전체 리소스 그룹을 삭제합니다.
 ```powershell

@@ -3,18 +3,18 @@ title: Azure IoT Central UI 둘러보기 | Microsoft Docs
 description: IoT 솔루션을 만들고, 관리하고, 활용하는 데 사용되는 Azure IoT Central UI의 주요 영역을 익힐 수 있습니다.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: f8aa467f95bb97c42e726d1392deca53e15df624
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 23deb77b6fda0b3801057d2ae97a740301449e28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896491"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434891"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Azure IoT Central UI 둘러보기(미리 보기 기능)
 
@@ -168,7 +168,7 @@ Explorer 페이지는 Azure IoT Central 애플리케이션의 _디바이스_를 
 디바이스 템플릿 페이지는 작성자가 애플리케이션에서 디바이스 템플릿을 만들고 관리하는 페이지입니다. 디바이스 템플릿은 다음과 같은 디바이스 특성을 지정합니다.
 
 * 원격 분석, 상태 및 이벤트 측정값
-* properties
+* 속성
 * 명령
 * 뷰
 

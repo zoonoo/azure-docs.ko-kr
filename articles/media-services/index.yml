@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Media Services 설명서
 metadata:
-  document_id: null
   title: Azure Media Services 설명서 | Microsoft Docs
   description: 'Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다.'
   services: media-services

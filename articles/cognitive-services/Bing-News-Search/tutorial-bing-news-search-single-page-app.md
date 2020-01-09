@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383118"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 
@@ -34,7 +34,7 @@ Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련
 > * JavaScript에서 Bing News Search API 호출 수행
 > * Bing News Search API에 검색 옵션 전달
 > * 24시간의 기간, 지난 주, 지난 달 또는 사용 가능한 모든 시간의 임의 유형, 비즈니스, 상태 또는 정책의 네 가지 범주에 해당하는 뉴스 검색 결과 표시
-> * 검색 결과 페이지 표시
+> * 검색 결과 페이징
 > * Bing 클라이언트 ID와 API 구독 키 처리
 > * 발생할 수 있는 오류 처리
 
@@ -59,9 +59,9 @@ Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련
 
 ## <a name="managing-subscription-key"></a>구독 키 관리
 
-코드에 Bing Search API 구독 키를 포함할 필요가 없도록, 브라우저의 영구 스토리지를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
+Bing Search API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 스토리지를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
 
-`localStorage` 개체(일부 브라우저에서만 지원) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다.
+`localStorage` 개체(일부 브라우저에서만 지원) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
 ``` javascript
 // Cookie names for data we store
@@ -101,7 +101,7 @@ HTML `<form>` 태그 `onsubmit`는 `bingWebSearch` 함수를 호출하여 검색
 
 HTML 양식에는 다음 이름의 요소가 포함됩니다.
 
-|요소|설명|
+|요소|Description|
 |-|-|
 | `where` | 검색에 사용되는 지역/국가(위치 및 언어)를 선택하기 위한 드롭다운 메뉴입니다. |
 | `query` | 검색어를 입력하기 위한 텍스트 필드입니다. |
@@ -267,7 +267,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> 성공적인 HTTP 요청이 반드시 검색 자체가 성공했음을 의미하는 것은 *아닙니다*. 검색 작업에 오류가 발생하는 경우 Bing News Search API는 200 이외의 HTTP 상태 코드를 반환하고 JSON 응답에 오류 정보를 포함합니다. 또한 요청의 속도가 제한되었으면 API는 빈 응답을 반환합니다.
+> 성공적인 HTTP 요청이 반드시 검색 자체가 성공했음을 의미하는 것은 *아닙니다*. 검색 작업에서 오류가 발생할 경우 Bing News Search API는 200 이외의 HTTP 상태 코드를 반환하고, JSON 응답에 오류 정보를 포함합니다. 또한 요청의 속도가 제한된 경우 API에서 빈 응답을 반환합니다.
 
 위의 두 함수에 포함된 코드는 대부분 오류 처리에만 사용됩니다. 다음 단계에서 오류가 발생할 수 있습니다.
 
@@ -296,7 +296,7 @@ function handleBingResponse() {
         showDiv("sidebar", renderRelatedItems(results.relatedSearches));
 }
 ```
-주 검색 결과는 JSON 응답에서 최상위 수준 `value` 개체로 반환됩니다. 이 결과를 `renderResults()` 함수에 전달하면 결과를 따라 반복되면서 별도 함수가 호출되고 각 항목이 HTML로 렌더링됩니다. 결과 HTML은 `renderSearchResults()`로 반환되고, 여기서 페이지의 `results` 부분에 삽입됩니다.
+주 검색 결과는 JSON 응답에서 최상위 수준 `value` 개체로 반환됩니다. 이 결과를 `renderResults()` 함수에 전달하면 결과를 따라 반복되면서 별도 함수가 호출되고 각 항목이 HTML로 렌더링됩니다. 결과 HTML은 `renderSearchResults()`에 반환되며, 페이지의 `results` 부분에 삽입됩니다.
 
 ```javascript
 function renderResults(items) {
@@ -315,7 +315,7 @@ function renderResults(items) {
 ```
 Bing News Search API는 최대 4가지 종류의 관련 검색을 각각 고유한 최상위 개체에 반환합니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-|관계|설명|
+|관계|Description|
 |-|-|
 |`pivotSuggestions`|원래 검색에 포함된 중심 단어를 다른 단어로 바꾸는 쿼리입니다. 예를 들어 “red flowers”를 검색하는 경우 중심 단어는 “red”일 수 있고, 중심 제안은 “yellow flowers”일 수 있습니다.|
 |`queryExpansions`|용어를 더 추가하여 원래 검색의 범위를 좁히는 쿼리입니다. 예를 들어 “Microsoft Surface”를 검색하는 경우 쿼리가 “Microsoft Surface Pro”로 확장될 수 있습니다.|
@@ -338,13 +338,13 @@ searchItemRenderers = {
 ```
 렌더러 함수는 다음 매개 변수를 사용할 수 있습니다.
 
-|매개 변수|설명|
+|매개 변수|Description|
 |-|-|
 |`item`| URL 및 해당 설명과 같은 항목의 속성을 포함하는 JavaScript 개체입니다.|
 |`index`| 해당 컬렉션 내에서 결과 항목의 인덱스입니다.|
 |`count`| 검색 결과 항목 컬렉션에 있는 항목 수입니다.|
 
-`index` 및 `count` 매개 변수는 결과에 번호를 지정하고, 컬렉션 시작 또는 끝에 대한 특수 HTML을 생성하고, 특정 개수의 항목 다음에 줄 바꿈을 삽입하는 등의 작업에 사용될 수 있습니다. 렌더러에서 이 기능이 필요하지 않은 경우 이러한 두 매개 변수를 수락할 필요가 없습니다.
+`index` 및 `count` 매개 변수는 결과에 번호를 지정하고, 컬렉션 시작 또는 끝에 대한 특수 HTML을 생성하고, 특정 개수의 항목 다음에 줄 바꿈을 삽입하는 등의 작업에 사용될 수 있습니다. 렌더러에 이 기능이 필요하지 않은 경우 이러한 두 매개 변수를 사용하지 않아도 됩니다.
 
 `news` 렌더러는 다음 javascript 발췌 내용이 나와 있습니다.
 ```javascript

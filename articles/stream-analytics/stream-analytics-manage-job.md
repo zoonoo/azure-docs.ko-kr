@@ -1,26 +1,24 @@
 ---
 title: 자습서 - Azure Portal을 사용하여 Stream Analytics 작업 만들기 및 관리
 description: 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 스트림의 사기성 호출을 분석하는 방법에 대한 엔드투엔드 데모를 제공합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: cca9f25fae9646b4207db7aa98f4c334457fc426
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459563"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>자습서: Stream Analytics를 사용하여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
 
 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 데이터를 분석하는 방법을 설명합니다. 클라이언트 애플리케이션에서 생성한 전화 통화 데이터에는 일부 사기성 호출이 포함되어 있으며 이러한 호출은 Stream Analytics 작업을 통해 필터링됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 샘플 전화 통화 데이터를 생성하여 Azure Event Hubs로 보내기
@@ -30,7 +28,7 @@ ms.locfileid: "74707390"
 > * 작업을 테스트 및 시작
 > * Power BI에서 결과 시각화
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 작업을 수행합니다.
 
@@ -53,7 +51,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 Azur
 
    |**설정**  |**제안 값** |**설명**  |
    |---------|---------|---------|
-   |Name     | myEventHubsNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
+   |속성     | myEventHubsNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
    |Subscription     |   \<구독\>      |   이벤트 허브를 만들 Azure 구독을 선택합니다.      |
    |Resource group     |   MyASADemoRG      |  **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다.       |
    |위치     |   미국 서부2      |    이벤트 허브 네임스페이스를 배포할 수 있는 위치입니다.     |

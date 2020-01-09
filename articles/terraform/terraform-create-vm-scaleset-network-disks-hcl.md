@@ -3,12 +3,12 @@ title: 자습서 - Terraform을 사용하여 Azure 가상 머신 확장 집합 �
 description: Terraform을 사용하여 Azure 가상 머신 확장 집합을 구성하고 버전을 지정하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: ef2ce0a3ea8c50123cd51ab60a6b98894739d859
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159086"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369476"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>자습서: Terraform을 사용하여 Azure 가상 머신 확장 집합 만들기
 
@@ -26,9 +26,9 @@ ms.locfileid: "74159086"
 > [!NOTE]
 > 이 문서에서 사용되는 Terraform 구성 파일의 최신 버전은 [GitHub의 Awesome Terraform 리포지토리](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss)에 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 - **Terraform 설치**: [Terraform 및 Azure에 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
 
@@ -424,7 +424,7 @@ SSH *jumpbox*는 네트워크의 다른 서버에 액세스하기 위해 "점프
     resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
-    tags                         = var.tags}
+    tags                         = var.tags
    }
 
    resource "azurerm_network_interface" "jumpbox" {

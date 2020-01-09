@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b905993c88bd4425215dd83962980d8e46a7b943
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 79f00e4138d0fecdc7320235dd9c496033693d2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383095"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>빠른 시작: PHP 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
@@ -24,7 +24,7 @@ ms.locfileid: "68423712"
 
 이 애플리케이션은 PHP에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * PHP 5.6 이상
 
@@ -40,6 +40,7 @@ ms.locfileid: "68423712"
 2. 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.
 3. 아래 제공된 코드를 추가합니다.
 4. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
+5. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 5. 프로그램을 실행합니다.
 
 ```php

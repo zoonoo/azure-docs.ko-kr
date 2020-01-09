@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: ccc6c2554576d91d2236fb84f81c8aeccdc07be7
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 2def0eaa2e1ee22498202228cf62257605d940e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380323"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 Speech Devices SDK 샘플 앱 실행
 
@@ -25,7 +25,7 @@ ms.locfileid: "74815346"
 
 샘플 애플리케이션의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 

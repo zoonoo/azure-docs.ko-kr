@@ -3,18 +3,18 @@ title: '빠른 시작: PowerShell로 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 PowerShell을 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436629"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>빠른 시작: PowerShell로 Azure Blueprint 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 알면 공통 패턴 정의를 통해 Resource Manager 템플릿, 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -379,7 +379,9 @@ PowerShell을 사용하여 청사진을 게시하고 나면 구독에 할당할 
      > [!IMPORTANT]
      > 청사진은 사용자가 할당한 관리형 ID를 관리하지 않습니다. 충분한 역할과 권한을 할당할 책임이 사용자에게 있으며, 그렇지 못하면 청사진 할당이 실패합니다.
 
-## <a name="unassign-a-blueprint"></a>청사진 할당 취소
+## <a name="clean-up-resources"></a>리소스 정리
+
+### <a name="unassign-a-blueprint"></a>청사진 할당 취소
 
 구독에서 청사진을 제거할 수 있습니다. 아티팩트 리소스가 더 이상 필요 없는 경우에 청사진을 제거하는 경우가 많습니다. 청사진을 제거해도 해당 청사진의 일부분으로 할당된 아티팩트는 남아 있습니다. 청사진 할당을 제거하려면 `Remove-AzBlueprintAssignment` cmdlet을 사용합니다.
 

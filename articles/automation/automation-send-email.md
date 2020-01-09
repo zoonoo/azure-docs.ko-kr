@@ -2,25 +2,21 @@
 title: Azure Automation Runbook에서 이메일 보내기
 description: SendGrid를 사용하여 Runbook 내에서 이메일을 보내는 방법에 대해 알아봅니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/15/2019
 ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 8550635b581eb944719c39cc8c195859a2c9e868
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6acb68b7bbaa54db2e4143a42e43aede2caed35f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420700"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>자습서: Azure Automation Runbook에서 이메일 보내기
 
 PowerShell을 통해 [SendGrid](https://sendgrid.com/solutions)를 사용하여 Runbook에서 이메일을 보낼 수 있습니다. 이 자습서에서는 [Azure KeyVault](/azure/key-vault/)에 저장된 API 키를 사용하여 이메일을 보내는 재사용 가능한 Runbook을 만드는 방법을 보여 줍니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -28,7 +24,7 @@ PowerShell을 통해 [SendGrid](https://sendgrid.com/solutions)를 사용하여 
 > * KeyVault에 SendGrid API 키 저장
 > * API 키를 검색하고 이메일을 보내는 Runbook 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 

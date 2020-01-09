@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 22fcf75ace672b1481228996d6e7efe9c73013e0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927269"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438910"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>자습서: Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
 
 이 자습서는 Azure Data Factory를 만들고, 복사 마법사를 실행하고, 데이터 수집/이동 시나리오에 대한 세부 정보를 제공하는 일련의 단계를 수행하는 방법을 보여줍니다. 마법사의 단계를 마치면, Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업이 있는 파이프라인이 마법사에서 자동으로 생성됩니다. 복사 활동에 대한 자세한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 수행하기 전에 [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서에 나열된 필수 구성 요소를 완료합니다.
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
@@ -61,7 +61,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
       - **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
           
-        이 자습서의 단계 중 일부에서는 리소스 그룹에 대해 **ADFTutorialResourceGroup**이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+        이 자습서의 단계 중 일부에서는 리소스 그룹에 대해 **ADFTutorialResourceGroup**이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../../azure-resource-manager/management/overview.md)를 참조하세요.
    4. Data Factory의 **위치**를 선택합니다.
    5. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.  
    6. **만들기**를 클릭합니다.

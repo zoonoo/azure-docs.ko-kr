@@ -1,31 +1,20 @@
 ---
-title: Azure Service Fabric에 컨테이너의 .NET 앱 배포 | Microsoft Docs
+title: Azure Service Fabric에 컨테이너의 .NET 앱 배포
 description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/08/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6e088d9ae201dc5a09de45b2a528b77400d8a111
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d1602d292af24d8c0bc9139debb3967aa7183a06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463054"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
 이 자습서에서는 기존 ASP.NET 애플리케이션을 컨테이너화하고 Service Fabric 애플리케이션으로 패키지하는 방법을 설명합니다.  Service Fabric 개발 클러스터에서 로컬로 컨테이너를 실행한 다음, Azure에 애플리케이션을 배포합니다.  애플리케이션은 [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)에 데이터를 유지합니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Visual Studio를 사용하여 기존 애플리케이션 컨테이너화
@@ -36,7 +25,7 @@ ms.locfileid: "70232400"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. Azure 구독이 없는 경우 [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Windows 10에서 컨테이너를 실행할 수 있도록 [Windows용 Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 설치합니다.
@@ -261,7 +250,7 @@ Remove-AzResourceGroup -Name $clusterresourcegroupname
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Visual Studio를 사용하여 기존 애플리케이션 컨테이너화

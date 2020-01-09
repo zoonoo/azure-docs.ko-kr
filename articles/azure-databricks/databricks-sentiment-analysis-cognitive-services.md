@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 13afdf4d6c45927c60e8de9fd228f70b7c0a3c68
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ff16458bb853323181ad8006e378a061572db463
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411124"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
 > 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-azure-portal)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 - Azure Event Hubs 네임스페이스.
@@ -73,11 +73,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 값을 제공합니다.
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
-    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
+    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요. |
     |**위치**     | **미국 동부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/?WT.mc_id=sparkeventhubs-docs-alehall)를 참조하세요.        |
     |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall)를 참조하세요.       |
 
@@ -625,7 +625,7 @@ streamingDataFrame.writeStream.outputMode("append").format("console").option("tr
 클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **비활성 \_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Databricks를 사용하여 Azure Event Hubs로 데이터를 스트리밍한 다음, Event Hubs에서 스트리밍 데이터를 실시간으로 읽는 방법을 알아보았습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure Databricks를 사용하여 Azure Event Hubs로 데이터를 스트리밍한 다음, Event Hubs에서 스트리밍 데이터를 실시간으로 읽는 방법을 알아보았습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 > [!div class="checklist"]
 > * Azure Databricks 작업 영역 만들기
 > * Azure Databricks에 Spark 클러스터 만들기

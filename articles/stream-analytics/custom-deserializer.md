@@ -1,19 +1,18 @@
 ---
 title: 자습서 - Azure Stream Analytics 클라우드 작업을 위한 사용자 지정 .NET 역직렬 변환기
 description: 이 자습서에서는 Visual Studio를 사용하여 Azure Stream Analytics 클라우드 작업을 위한 사용자 지정 .NET 역직렬 변환기를 만드는 방법을 보여줍니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443683"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>자습서: Azure Stream Analytics를 위한 사용자 지정 .NET 역직렬 변환기
 
@@ -21,7 +20,7 @@ Azure Stream Analytics에는 JSON, CSV 및 Avro라는 [세 가지 데이터 형�
 
 이 자습서에서는 Visual Studio를 사용하여 Azure Stream Analytics 클라우드 작업을 위한 사용자 지정 .NET 역직렬 변환기를 만드는 방법을 보여줍니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 프로토콜 버퍼에 대한 사용자 지정 역직렬 변환기를 만듭니다.
@@ -29,7 +28,7 @@ Azure Stream Analytics에는 JSON, CSV 및 Avro라는 [세 가지 데이터 형�
 > * 사용자 지정 역직렬 변환기를 사용하도록 Stream Analytics 작업을 구성합니다.
 > * Stream Analytics 작업을 로컬로 실행하여 사용자 지정 역직렬 변환기를 테스트합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -88,7 +87,7 @@ Azure Stream Analytics에는 JSON, CSV 및 Avro라는 [세 가지 데이터 형�
    |리소스|ASA 프로젝트 참조 또는 CodeBehind에서 로드|
    |CSharp 어셈블리 이름 입력|ProtobufDeserializer.dll|
    |클래스 이름|MessageBodyProto.MessageBodyDeserializer|
-   |이벤트 압축 유형|없음|
+   |이벤트 압축 유형|None|
 
 3. **Script.asaql** 파일에 다음 쿼리를 추가합니다.
 

@@ -2,17 +2,17 @@
 title: 빠른 시작 - Azure CLI를 사용하여 Azure 프라이빗 엔드포인트 만들기
 description: 이 빠른 시작에서는 Azure 프라이빗 엔드포인트에 대해 알아봅니다.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459966"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 프라이빗 엔드포인트 만들기
 프라이빗 엔드포인트는 Azure에서 Private Link의 기본 구성 요소입니다. 이를 사용하면 VM(가상 머신)과 같은 Azure 리소스에서 Private Link 리소스와 비공개로 통신할 수 있습니다. 이 빠른 시작에서는 Azure CLI를 사용하여 프라이빗 엔드포인트를 사용하는 SQL Database Server인 VM을 가상 네트워크에 만드는 방법에 대해 알아봅니다. 그런 다음, VM에 액세스하여 프라이빗 링크 리소스(여기서는 프라이빗 Azure SQL Database 서버)에 안전하게 액세스할 수 있습니다. 

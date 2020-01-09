@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 6d4076563ac803c72f3749399bed6aaa235a0343
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7f113a9f1cc13278b7949570fec394ccee7f7437
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446218"
 ---
 <a name="HOLTop"></a>
 
@@ -17,7 +17,7 @@ ms.locfileid: "74795967"
 [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -42,11 +42,15 @@ pip install --upgrade azure-cognitiveservices-language-textanalytics
 
 [!code-python[import statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
 
-리소스의 Azure 엔드포인트 및 구독 키에 대한 변수를 만듭니다. 환경 변수 TEXT_ANALYTICS_SUBSCRIPTION_KEY 및 TEXT_ANALYTICS_ENDPOINT에서 이러한 값을 가져옵니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
+리소스의 Azure 엔드포인트 및 구독 키에 대한 변수를 만듭니다.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-python[endpoint and key variables](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=initialVars)]
+```python
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
+```
+
 
 ## <a name="object-model"></a>개체 모델
 

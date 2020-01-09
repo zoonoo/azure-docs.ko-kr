@@ -82,22 +82,14 @@
               abstract: null
               achievement: null
               iconUrl: null
-              levels:
-                - null
-              roles:
-                - null
-              products:
-                - null
-              units:
-                - null
-                - name: 클러스터 스토리지 사용
-                  items:
-                    - name: Azure Storage 사용
-                      href: hdinsight-hadoop-use-blob-storage.md
-                    - name: Azure Data Lake Storage Gen2 사용
-                      href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-                    - name: Azure Data Lake Storage Gen1 사용
-                      href: hdinsight-hadoop-use-data-lake-store.md
+        - name: 클러스터 스토리지 사용
+          items:
+            - name: Azure Storage 사용
+              href: hdinsight-hadoop-use-blob-storage.md
+            - name: Azure Data Lake Storage Gen2 사용
+              href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+            - name: Azure Data Lake Storage Gen1 사용
+              href: hdinsight-hadoop-use-data-lake-store.md
         - name: 클러스터 확장
           items:
             - name: HDInsight 앱 설치

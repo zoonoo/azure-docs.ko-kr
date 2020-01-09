@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c00749191b83423e771535525afcbdd7892da88e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: a5b2c2610adb2754f378be4a06343537d5728196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895434"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461664"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작
 
@@ -19,7 +19,7 @@ Azure Spring Cloud를 사용하면 Azure에서 Spring Boot 기반 마이크로�
 
 이 빠른 시작에서는 Azure에 기존 Java Spring Cloud 애플리케이션을 배포하는 방법을 보여 줍니다. 완료되면 Azure CLI를 통해 애플리케이션을 계속 관리하거나 Azure Portal을 사용하도록 전환할 수 있습니다.
 
-이 빠른 시작을 따라 다음을 수행하는 방법을 알아봅니다.
+이 빠른 시작을 통해 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 서비스 인스턴스 프로비저닝
@@ -28,7 +28,7 @@ Azure Spring Cloud를 사용하면 Azure에서 Spring Boot 기반 마이크로�
 > * 각 마이크로서비스 배포
 > * 애플리케이션에 대한 공용 엔드포인트 할당
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 >[!Note]
 > Azure Spring Cloud는 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 검토하거나 [지원 요청](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하여 자세히 알아보세요.
@@ -69,7 +69,7 @@ az extension add --name spring-cloud
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
-    [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
+    [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.
 
 4. Azure CLI 창을 열고 다음 명령을 실행하여 Azure Spring Cloud의 인스턴스를 프로비저닝합니다.
 

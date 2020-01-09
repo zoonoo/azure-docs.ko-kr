@@ -9,22 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 2d3bffd025d484ac928e21003b7cba9c63d2c514
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e1709a5e86c8fed8d7f724ad1b105bd02df9fa56
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381769"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습된 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
 이 자습서에서는 기계 학습된 엔터티를 사용하여 발화에서 정형 데이터를 추출합니다.
 
 기계 학습된 엔터티는 하위 구성 요소 엔터티에 설명자와 제약 조건을 제공하여 [모델 분해 개념](luis-concept-model.md#v3-authoring-model-decomposition)을 지원합니다.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
@@ -66,7 +64,7 @@ ms.locfileid: "74885958"
 
 ## <a name="import-example-json-to-begin-app"></a>.json 예제를 가져와서 앱 시작
 
-1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json)을 다운로드하고 저장합니다.
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

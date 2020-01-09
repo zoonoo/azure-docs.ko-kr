@@ -14,12 +14,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: ff40867bc1e2778ec6f21f479360866b50d0c184
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f374bd386996cd02ab7e8bff975f757aec1a0bfc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439379"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>PowerShell을 사용하여 Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비전
 
@@ -35,13 +35,13 @@ ms.locfileid: "74926501"
 > * 전체 스크립트 검토
 > * SSIS 패키지 배포
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
-- **Azure SQL Database 서버(선택 사항)** . 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 그러면 ADF가 이 데이터베이스 서버에 SSISDB를 만듭니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 통합 런타임에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 
-    - 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스트할 데이터베이스 서버 유형을 선택하는 지침은 [Azure SQL Database 단일 데이터베이스, 탄력적 풀 및 관리형 인스턴스 비교](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance)를 참조하세요. Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/가상 네트워크의 Managed Instance와 함께 사용하여 SSISDB를 호스팅하거나 온-프레미스 데이터에 액세스하도록 요구하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
+- **Azure SQL Database 서버(선택 사항)** 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 그러면 ADF가 이 데이터베이스 서버에 SSISDB를 만듭니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 통합 런타임에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 
+    - 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스팅할 데이터베이스 서버 유형을 선택하기 위한 지침은 [Azure SQL Database 단일 데이터베이스, 탄력적 풀 및 관리형 인스턴스 비교](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance)를 참조하세요. Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/가상 네트워크의 Managed Instance와 함께 사용하여 SSISDB를 호스팅하거나 온-프레미스 데이터에 액세스하도록 요구하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
     - 데이터베이스 서버에 대해 **Azure 서비스 방문 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/가상 네트워크의 Managed Instance와 함께 사용하여 SSISDB를 호스팅하는 경우는 해당되지 않습니다. 자세한 내용은 [Azure SQL 데이터베이스 보호](../sql-database/sql-database-security-tutorial.md#create-firewall-rules)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)을 참조하세요.
     - 데이터베이스 서버에 대한 방화벽 설정에서 클라이언트 IP 주소 목록에 클라이언트 머신의 IP 주소를 포함하는 클라이언트 머신의 IP 주소 또는 IP 주소의 범위를 추가합니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](../sql-database/sql-database-firewall-configure.md)을 참조하세요.
     - 서버 관리자 자격 증명으로 SQL 인증을 사용하여 데이터베이스 서버에 연결하거나 ADF에 대한 관리 ID로 AAD(Azure Active Directory) 인증을 사용하여 데이터베이스 서버에 연결할 수 있습니다.  후자의 경우 ADF의 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [AAD 인증을 사용하여 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
@@ -49,7 +49,7 @@ ms.locfileid: "74926501"
 - **Azure PowerShell**. PowerShell 스크립트를 실행하여 Azure-SSIS IR을 프로비저닝하려는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-Az-ps)의 지침을 따릅니다.
 
 > [!NOTE]
-> - 현재 ADF 및 Azure-SSIS IR을 사용할 수 있는 Azure 지역의 목록은 [지역별 ADF + SSIS IR 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all)을 참조하세요. 
+> - ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지역별 ADF + SSIS IR 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all)을 참조하세요. 
 
 ## <a name="launch-windows-powershell-ise"></a>Windows PowerShell ISE 시작
 
@@ -133,7 +133,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
 
 스크립트의 일부로 Azure SQL Database를 만들려면 다음 예제를 참조하세요. 
 
-아직 정의하지 않은 변수의 값을 설정합니다. 예:  SSISDBServerName, FirewallIPAddress 
+아직 정의하지 않은 변수의 값을 설정합니다. 다음은 그 예입니다.  SSISDBServerName, FirewallIPAddress 
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $ResourceGroupName `
@@ -150,7 +150,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $S
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
 리소스 그룹이 이미 있는 경우 스크립트에 이 코드를 복사하지 마세요. 
 
@@ -381,7 +381,7 @@ SSIS 설명서에서 다음 문서도 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다. 
+이 자습서에서는 다음 작업 방법을 알아보았습니다. 
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 및 명령
+title: Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능
 description: Azure Cosmos DB Cassandra API에서 지원되는 Apache Cassandra 기능에 대해 알아봅니다.
 author: kanshiG
 ms.author: govindk
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: c0a47e922ae8cdca3c70cb53f9fa2f7dafe191c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445636"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -43,8 +43,8 @@ Azure Cosmos DB Cassandra API는 다음 CQL 데이터 형식을 지원합니다.
 
 * ascii  
 * bigint  
-* Blob  
-* 부울  
+* blob  
+* boolean  
 * counter  
 * date  
 * decimal  
@@ -151,7 +151,7 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 * SELECT 
 * UPDATE 
 * BATCH - 로깅되지 않는 명령만 지원됨 
-* 삭제
+* Delete
 
 CQL v4 호환 SDK를 통해 실행하는 모든 CRUD 작업에서는 오류, 사용한 요청 단위와 관련된 추가 정보가 반환됩니다. 프로비저닝된 처리량을 가장 효율적으로 사용하기 위해 리소스 거버넌스를 고려하면서 DELETE 및 UPDATE 명령을 처리해야 합니다.
 

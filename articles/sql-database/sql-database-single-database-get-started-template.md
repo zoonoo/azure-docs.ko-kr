@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: 5d090add7bdb2c3ee08f4c186bd57d63f14ab113
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: bc4a573ed81657eb39c27c5f2df68d12daf4009f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351387"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ## <a name="create-a-single-database"></a>단일 데이터베이스 만들기
 
-단일 데이터베이스는 두 [구매 모델](sql-database-purchase-models.md) 중 하나를 사용하여 컴퓨팅, 메모리, IO 및 스토리지 리소스 세트가 정의됩니다. 단일 데이터베이스를 만들 때 지정된 Azure 지역의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [SQL Database 서버](sql-database-servers.md)도 정의합니다.
+단일 데이터베이스는 두 [구매 모델](sql-database-purchase-models.md) 중 하나를 사용하여 컴퓨팅, 메모리, IO 및 스토리지 리소스 세트가 정의됩니다. 단일 데이터베이스를 만들 때 지정된 Azure 지역의 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [SQL Database 서버](sql-database-servers.md)도 정의합니다.
 
 다음 JSON 파일은 이 문서에 사용되는 템플릿입니다. 템플릿은 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json)에 저장됩니다. Azure SQL 데이터베이스 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)에서 확인할 수 있습니다.
 

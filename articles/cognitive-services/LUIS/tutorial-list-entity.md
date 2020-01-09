@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 83644ac7144adaa664b13b6e7d7993c50da0e779
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447779"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>자습서: 목록 엔터티를 사용하여 발화에서 텍스트가 정확히 일치하는 데이터 가져오기
 
 이 자습서에서는 미리 정의된 항목 목록과 정확히 일치하는 데이터를 가져오는 방법에 대해 알아봅니다.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
@@ -51,7 +49,7 @@ ms.locfileid: "74852499"
 
 ## <a name="import-example-json-and-add-utterances"></a>.json 예제 가져오기 및 발화 추가
 
-1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)을 다운로드하고 저장합니다.
 
     [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -195,7 +193,7 @@ ms.locfileid: "74852499"
 ## <a name="related-information"></a>관련 정보
 
 * [목록 엔터티](luis-concept-entity-types.md#list-entity) 개념 정보
-* [학습시키는 방법](luis-how-to-train.md)
+* [학습 방법](luis-how-to-train.md)
 * [게시 방법](luis-how-to-publish-app.md)
 * [LUIS 포털에서 테스트하는 방법](luis-interactive-test.md)
 * [개념 - 엔터티](luis-concept-entity-types.md)

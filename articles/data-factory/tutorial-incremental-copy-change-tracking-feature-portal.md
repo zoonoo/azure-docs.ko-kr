@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 1b619ca7bb3b095a5707077beb3e0750dee1c2b7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f7ad05402745f17ff60dbaab8d736acc8f92196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439398"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 
@@ -67,7 +67,7 @@ ms.locfileid: "74923473"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 * **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
 
@@ -169,7 +169,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
       - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
-        리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
+        리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
 4. **버전**에 **V2(미리 보기)** 를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
@@ -414,10 +414,10 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     2. **가져오기 매개 변수**를 선택합니다. 
     3. **저장 프로시저 매개 변수** 섹션에서 매개 변수에 대해 다음 값을 지정합니다. 
 
-        | Name | type | 값 | 
+        | 속성 | Type | 값 | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | 문자열 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![저장 프로시저 활동 - 매개 변수](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **복사 활동을 저장 프로시저 활동에 연결합니다**. 복사 활동에 연결된 **녹색** 단추를 저장 프로시저 활동으로 끌어서 놓습니다. 

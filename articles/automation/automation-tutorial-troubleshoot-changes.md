@@ -2,21 +2,17 @@
 title: Azure 가상 머신의 변경 내용 문제 해결 | Microsoft Docs
 description: 변경 내용 추적을 사용하여 Azure 가상 머신의 변경 내용 문제를 해결합니다.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: 변경 내용, 추적, 자동화
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420627"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>환경 변경 문제 해결
 
@@ -34,11 +30,11 @@ ms.locfileid: "67476852"
 > * 변경 내용 보기
 > * 경고 구성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Azure 구독. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
+* Azure 구독 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 감시자, 작업 Runbook 및 감시자 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
 * 등록할 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
 
@@ -53,7 +49,7 @@ ms.locfileid: "67476852"
 1. 왼쪽 메뉴에서 **가상 머신**을 선택하고 목록에서 VM을 선택합니다.
 1. 왼쪽 메뉴의 **작업** 섹션 아래에서 **인벤토리**를 클릭합니다. **변경 내용 추적** 페이지가 열립니다.
 
-![변경 설정](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) **변경 내용 추적** 화면이 열립니다. 사용할 위치, Log Analytics 작업 영역 및 Automation 계정을 구성하고 **사용**을 클릭합니다. 필드가 회색으로 표시되면 해당 VM에 대해 다른 자동화 솔루션을 사용하도록 설정하고 동일한 작업 영역과 Automation 계정을 사용해야 함을 의미합니다.
+![변경 설정](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)**변경 내용 추적** 화면이 열립니다. 사용할 위치, Log Analytics 작업 영역 및 Automation 계정을 구성하고 **사용**을 클릭합니다. 필드가 회색으로 표시되면 해당 VM에 대해 다른 자동화 솔루션을 사용하도록 설정하고 동일한 작업 영역과 Automation 계정을 사용해야 함을 의미합니다.
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역은 기능 및 서비스(예: 인벤토리)에서 생성된 데이터를 수집하는 데 사용됩니다.
 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
@@ -99,12 +95,12 @@ Azure Monitor 로그에서 로그 파일을 실행하고 검색하는 방법에 
 
 1. **변경 내용 추적에 대해 Windows 레지스트리 추가**에 추적할 키의 정보를 입력하고 **저장**을 클릭합니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
 |그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
-|Windows 레지스트리 키   | 파일을 확인할 경로입니다(예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup").      |
+|Windows 레지스트리 키   | 파일을 확인할 경로입니다(예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Windows 파일 추가
 
@@ -112,7 +108,7 @@ Azure Monitor 로그에서 로그 파일을 실행하고 검색하는 방법에 
 
 1. **변경 내용 추적에 대해 Windows 파일 추가**에 추적할 파일이나 디렉터리의 정보를 입력하고 **저장**을 클릭합니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
@@ -127,7 +123,7 @@ Azure Monitor 로그에서 로그 파일을 실행하고 검색하는 방법에 
 
 1. **변경 내용 추적에 대해 Linux 파일 추가**에 추적할 파일이나 디렉터리의 정보를 입력하고 **저장**을 클릭합니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |

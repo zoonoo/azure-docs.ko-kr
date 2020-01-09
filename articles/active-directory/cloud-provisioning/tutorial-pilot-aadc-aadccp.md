@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868765"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425090"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 프로비저닝 
 
@@ -35,7 +35,7 @@ ms.locfileid: "74868765"
 
 4. 이는 고급 시나리오입니다. 이 자습서에서 설명하는 단계를 정확히 수행해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 이 자습서를 완료하는 데 필요한 필수 구성 요소입니다.
 - Azure AD Connect 동기화 버전 1.4.32.0 이상인 테스트 환경
 - 동기화 범위에 속하고 파일럿 테스트에 사용할 수 있는 OU 또는 그룹. 작은 개체 세트로 시작하는 것이 좋습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "74868765"
 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0 이상이 있어야 합니다. Azure AD Connect 동기화를 업데이트하려면 [Azure AD Connect: 최신 버전으로 업그레이드](../hybrid/how-to-upgrade-previous-version.md)의 단계를 수행합니다.  
 
 ## <a name="stop-the-scheduler"></a>스케줄러 중지
-Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디렉터리에서 발생하는 변경 내용을 동기화합니다. 사용자 지정 규칙을 수정하고 추가하려면 스케줄러를 사용하지 않도록 설정하여 이 작업을 수행하는 동안 동기화가 실행되지 않도록 해야 합니다.  다음 단계를 사용하세요.
+Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디렉터리에서 발생하는 변경 내용을 동기화합니다. 사용자 지정 규칙을 수정하고 추가하려면 스케줄러를 사용하지 않도록 설정하여 이 작업을 수행하는 동안 동기화가 실행되지 않도록 해야 합니다.  다음 단계를 사용합니다.
 
 1.  Azure AD Connect 동기화를 실행하는 서버에서 PowerShell을 관리자 권한으로 엽니다.
 2.  `Stop-ADSyncSyncCycle`을 실행합니다.  Enter 키를 누릅니다.
@@ -70,7 +70,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
     **설명:** 의미 있는 설명을 추가합니다.<br> 
     **연결된 시스템:** 작성하는 사용자 지정 동기화 규칙의 대상이 되는 AD 커넥터를 선택합니다.<br>
     **연결된 시스템 개체 형식:** 사용자<br>
-    **메타버스 개체 형식:** 사람<br>
+    **메타버스 개체 형식:** Person<br>
     **링크 유형:** Join<br>
     **우선 순위:** 시스템에서 고유한 값을 제공합니다.<br>
     **태그:** 이 항목은 비워 둡니다.<br>
@@ -78,7 +78,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
  
  4. **범위 지정 필터** 페이지에서 파일럿 테스트 기반으로 사용할 OU 또는 보안 그룹을 입력합니다.  OU를 필터링하려면 고유 이름의 OU 부분을 추가합니다. 이 규칙은 해당 OU에 속한 모든 사용자에게 적용됩니다.  따라서 DN이 "OU=CPUsers,DC=contoso,DC=com"으로 끝나면 이 필터를 추가합니다.  그런 후 **Next** 를 클릭합니다. 
 
-    |규칙|특성|연산자|값|
+    |규칙|attribute|연산자|값|
     |-----|----|----|-----|
     |범위 지정 OU|DN|ENDSWITH|OU의 고유 이름입니다.|
     |범위 지정 그룹||ISMEMBEROF|보안 그룹의 고유 이름입니다.|
@@ -102,7 +102,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
     **설명:** 의미 있는 설명을 추가합니다.<br> 
     **연결된 시스템:** 작성하는 사용자 지정 동기화 규칙의 대상이 되는 AAD 커넥터를 선택합니다.<br>
     **연결된 시스템 개체 형식:** 사용자<br>
-    **메타버스 개체 형식:** 사람<br>
+    **메타버스 개체 형식:** Person<br>
     **링크 유형:** JoinNoFlow<br>
     **우선 순위:** 시스템에서 고유한 값을 제공합니다.<br>
     **태그:** 이 항목은 비워 둡니다.<br>
@@ -133,21 +133,6 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
 7. 이 작업이 완료되면 **확인했습니다** 알림이 표시됩니다.  **끝내기**를 클릭할 수 있습니다.</br>
 ![시작 화면](media/how-to-install/install5.png)</br>
-8. 초기 시작 화면이 계속 표시되면 **닫기**를 클릭합니다. 사용할 서버에 엔터프라이즈 관리자 권한으로 로그인합니다.
-2. [여기](https://go.microsoft.com/fwlink/?linkid=2109037)서 Azure AD Connect 클라우드 프로비저닝 에이전트를 다운로드합니다.
-3. Azure AD Connect 클라우드 프로비저닝을 실행합니다(AADConnectProvisioningAgent.Installer).
-3. 시작 화면에서 사용 조건을 **수락**하고 **설치**를 클릭합니다.</br>
-![시작 화면](media/how-to-install/install1.png)</br>
-
-4. 이 작업이 완료되면 구성 마법사가 시작됩니다.  Azure AD 글로벌 관리자 계정으로 로그인합니다.
-5. **Active Directory 연결** 화면에서 **디렉터리 추가**를 클릭한 다음, Active Directory 관리자 계정으로 로그인합니다.  이 작업을 수행하면 온-프레미스 디렉터리가 추가됩니다.  **다음**을 클릭합니다.</br>
-![시작 화면](media/how-to-install/install3.png)</br>
-
-6. **구성 완료** 화면에서 **확인**을 클릭합니다.  이 작업을 수행하면 에이전트가 등록되고 다시 시작됩니다.</br>
-![시작 화면](media/how-to-install/install4.png)</br>
-
-7. 이 작업이 완료되면 **확인했습니다** 알림이 표시됩니다.  **끝내기**를 클릭할 수 있습니다.</br>
-![시작 화면](media/how-to-install/install5.png)</br>
 8. 초기 시작 화면이 계속 표시되는 경우 **닫기**를 클릭합니다.
 
 ## <a name="verify-agent-installation"></a>에이전트 설치 확인
@@ -156,7 +141,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 ### <a name="azure-portal-agent-verification"></a>Azure Portal에서 에이전트 확인
 Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수행합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory**를 선택하고, **Azure AD Connect**를 클릭하고, 가운데에서 **프로비저닝 관리(미리 보기)** 를 선택합니다.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -171,7 +156,7 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 1.  관리자 계정으로 서버에 로그온합니다.
 2.  **서비스**를 탐색하거나 Services.msc를 시작하고 실행하여 엽니다.
 3.  **서비스** 아래에서 **Microsoft Azure AD Connect 에이전트 업데이트 프로그램** 및 **Microsoft Azure AD Connect 프로비저닝 에이전트**가 있고 상태가 **실행 중**인지 확인합니다.
-![서비스](media/how-to-troubleshoot/troubleshoot1.png)
+![Services](media/how-to-troubleshoot/troubleshoot1.png)
 
 ## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝 구성
 다음 단계를 사용하여 프로비저닝을 구성합니다.
@@ -207,7 +192,7 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 또한 사용자와 그룹이 Azure AD에 있는지도 확인할 수 있습니다.
 
 ## <a name="start-the-scheduler"></a>스케줄러 시작
-Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디렉터리에서 발생하는 변경 내용을 동기화합니다. 이제 규칙을 수정했으므로 스케줄러를 다시 시작할 수 있습니다.  다음 단계를 사용하세요.
+Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디렉터리에서 발생하는 변경 내용을 동기화합니다. 이제 규칙을 수정했으므로 스케줄러를 다시 시작할 수 있습니다.  다음 단계를 사용합니다.
 
 1.  Azure AD Connect 동기화를 실행하는 서버에서 PowerShell을 관리자 권한으로 엽니다.
 2.  `Set-ADSyncScheduler -SyncCycleEnabled $true`을 실행합니다.
@@ -231,7 +216,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
  5. **디렉터리 연결** 화면에서 **다음**을 클릭합니다.
  6. **도메인 및 OU 필터링** 화면에서 **선택한 도메인 및 OU 동기화**를 선택합니다.
  7. 도메인을 펼치고, **CPUsers** OU를 **선택 취소**합니다.  **다음**을 클릭합니다.
-![scope](media/tutorial-existing-forest/scope1.png)</br>
+![범위](media/tutorial-existing-forest/scope1.png)</br>
  9. **선택적 기능** 화면에서 **다음**을 클릭합니다.
  10. **구성 준비 완료** 화면에서 **구성**을 클릭합니다.
  11. 완료되면 **끝내기**를 클릭합니다. 

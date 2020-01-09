@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448352"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>빠른 시작: Bing Video Search REST API 및 PHP를 사용하여 비디오 검색
 
@@ -24,7 +24,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 
 API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * PHP 5.6 이상
 
@@ -37,7 +37,7 @@ API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/
 1. 코드 주석에 설명된 대로 `php.ini`에서 보안 HTTP 지원이 사용하도록 설정되었는지 확인합니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.
 3. 아래 제공된 코드를 추가합니다.
-4. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
+4. `$accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다. `$endpoint`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 5. 프로그램을 실행합니다.
 
 ```php

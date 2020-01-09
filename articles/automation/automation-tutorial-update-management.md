@@ -2,19 +2,16 @@
 title: Azure VM에 대한 업데이트 및 패치 관리
 description: 이 문서에서는 Azure Automation 업데이트 관리를 사용하여 Azure 및 비 Azure VM에 대한 업데이트 및 패치를 관리하는 방법에 대한 개요를 제공합니다.
 services: automation
-author: mgoedtel
-ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/03/2019
-ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806561"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420654"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Azure VM에 대한 업데이트 및 패치 관리
 
@@ -22,7 +19,7 @@ ms.locfileid: "74806561"
 
 가격 책정 정보에 대해서는 [업데이트 관리를 위한 Automation 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 업데이트 관리를 위한 VM 온보딩
@@ -31,11 +28,11 @@ ms.locfileid: "74806561"
 > * 업데이트 배포 예약
 > * 배포 결과 보기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Azure 구독. 구독이 아직 없는 경우 [Visual Studio 구독자를 위한 월간 Azure 크레딧을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
+* Azure 구독 구독이 아직 없는 경우 [Visual Studio 구독자를 위한 월간 Azure 크레딧을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 감시자, 작업 Runbook 및 Watcher 태스크를 보관할 [Azure Automation 계정](automation-offering-get-started.md)
 * 등록할 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
 
@@ -93,7 +90,7 @@ Automation 계정이 이미 리소스로 선택되었습니다. 변경하려면 
 
 **조건 추가**를 클릭하여 업데이트 배포에 적절한 신호를 선택합니다. 다음 표는 업데이트 배포에 사용 가능한 두 가지 신호의 세부 정보를 보여 줍니다.
 
-|신호 이름|차원|설명|
+|신호 이름|차원|Description|
 |---|---|---|
 |**총 업데이트 배포 실행**|- 업데이트 배포 이름</br>- 상태|이 신호는 업데이트 배포의 전체 상태를 알리는 데 사용됩니다.|
 |**총 업데이트 배포 머신 실행**|- 업데이트 배포 이름</br>- 상태</br>- 대상 컴퓨터</br>- 업데이트 배포 실행 ID|이 신호는 특정 머신을 대상으로 하는 업데이트 배포의 상태를 알리는 데 사용됩니다.|
@@ -136,7 +133,7 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 **새 업데이트 배포**에서 다음 정보를 지정합니다.
 
-* **이름**: 업데이트 배포에 대한 고유한 이름을 입력합니다.
+* **Name**: 업데이트 배포에 대한 고유한 이름을 입력합니다.
 
 * **운영 체제**: 업데이트 배포의 대상 OS를 선택합니다.
 
@@ -224,7 +221,7 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 업데이트 관리를 위한 VM 온보딩

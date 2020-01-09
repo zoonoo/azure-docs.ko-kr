@@ -12,93 +12,93 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: d9ff6c7d5fffd8ceb5d282b35db61e0ec0a0b7de
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 4324451c27342b96bedcfb420fe7ff1134624bde
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75428358"
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75771362"
 landingContent:
 - title: Azure ML 시작
   linkLists:
   - linkListType: tutorial
     links:
     - text: Python Notebooks에서 실험
-      url: service/tutorial-1st-experiment-sdk-setup.md
+      url: tutorial-1st-experiment-sdk-setup.md
     - text: RStudio에서 실험
-      url: service/tutorial-1st-r-experiment.md
+      url: tutorial-1st-r-experiment.md
     - text: 끌어서 놓기 디자이너를 사용한 실험
-      url: service/tutorial-designer-automobile-price-train-score.md
+      url: tutorial-designer-automobile-price-train-score.md
     - text: 자동화된 ML 실험
-      url: service/tutorial-first-experiment-automated-ml.md
+      url: tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
     - text: Azure ML이란?
-      url: service/overview-what-is-azure-ml.md
+      url: overview-what-is-azure-ml.md
     - text: 아키텍처 및 개념
-      url: service/concept-azure-machine-learning-architecture.md
+      url: concept-azure-machine-learning-architecture.md
   - linkListType: how-to-guide
     links:
     - text: 환경 설정
-      url: service/how-to-configure-environment.md
+      url: how-to-configure-environment.md
     - text: 학습 컴퓨팅 대상 설정
-      url: service/how-to-set-up-training-targets.md
+      url: how-to-set-up-training-targets.md
 - title: '실험: Python SDK'
   linkLists:
   - linkListType: tutorial
     links:
     - text: 첫 번째 ML 실험 만들기
-      url: service/tutorial-1st-experiment-sdk-setup.md
+      url: tutorial-1st-experiment-sdk-setup.md
     - text: 이미지 분류
-      url: service/tutorial-train-models-with-aml.md
+      url: tutorial-train-models-with-aml.md
     - text: 자동화된 ML로 택시 요금 예측
-      url: service/tutorial-auto-train-models.md
+      url: tutorial-auto-train-models.md
   - linkListType: how-to-guide
     links:
     - text: Scikit-learn을 사용하여 학습
-      url: service/how-to-train-scikit-learn.md
+      url: how-to-train-scikit-learn.md
     - text: TensorFlow로 학습
-      url: service/how-to-train-tensorflow.md
+      url: how-to-train-tensorflow.md
     - text: PyTorch로 학습
-      url: service/how-to-train-pytorch.md
+      url: how-to-train-pytorch.md
     - text: Keras로 학습
-      url: service/how-to-train-keras.md
+      url: how-to-train-keras.md
 - title: ML 파이프라인 사용
   linkLists:
   - linkListType: overview
     links:
     - text: ML 파이프라인이란?
-      url: service/concept-ml-pipelines.md
+      url: concept-ml-pipelines.md
     - text: "'끌어서 놓기' 디자이너"
-      url: service/concept-designer.md
+      url: concept-designer.md
   - linkListType: tutorial
     links:
     - text: 가격 예측을 위한 선형 회귀(디자이너)
-      url: service/tutorial-designer-automobile-price-train-score.md
+      url: tutorial-designer-automobile-price-train-score.md
     - text: ML 파이프라인 만들기(Python SDK)
-      url: service/tutorial-pipeline-batch-scoring-classification.md
+      url: tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: 파이프라인 일정 계획(Python SDK)
-      url: service/how-to-schedule-pipelines.md
+      url: how-to-schedule-pipelines.md
     - text: 지연 예측(디자이너)
-      url: service/how-to-designer-sample-classification-flight-delay.md
+      url: how-to-designer-sample-classification-flight-delay.md
     - text: 이탈 예측(디자이너)
-      url: service/how-to-designer-sample-classification-churn.md
+      url: how-to-designer-sample-classification-churn.md
 - title: 모델 배포 및 관리
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: MLOps란?
-      url: service/concept-model-management-and-deployment.md
+      url: concept-model-management-and-deployment.md
     - text: 배포 방법 및 배포 위치
-      url: service/how-to-deploy-and-where.md
+      url: how-to-deploy-and-where.md
     - text: 인증
-      url: service/how-to-setup-authentication.md
+      url: how-to-setup-authentication.md
     - text: 실시간 예측
-      url: service/how-to-consume-web-service.md
+      url: how-to-consume-web-service.md
     - text: 일괄 처리 예측
-      url: service/how-to-run-batch-predictions.md
+      url: how-to-run-batch-predictions.md
     - text: 엔드투엔드 예제(GitHub)
       url: https://github.com/microsoft/MLOps
 - title: 참조 문서로 이동

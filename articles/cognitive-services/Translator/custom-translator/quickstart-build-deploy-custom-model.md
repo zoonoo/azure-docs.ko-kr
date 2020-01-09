@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: d93c6333b811885eec37e8401bee27afeedf1475
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446742"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역용 사용자 지정 모델 빌드, 배포 및 사용
 
 이 문서에서는 Custom Translator를 사용하여 번역 시스템을 구축하는 단계별 지침을 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하려면 [Microsoft 계정](https://signup.live.com) 또는 [Azure AD 계정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)(Azure에 호스트되는 조직 계정)으로 로그인해야 합니다.
 
@@ -37,7 +37,7 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 ## <a name="upload-documents"></a>문서 업로드
 
-다음으로, [교육](training-and-model.md#training-dataset-for-custom-translator), [튜닝](training-and-model.md#tuning-dataset-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 문서 집합을 업로드합니다. 두 [병렬](what-are-parallel-documents.md) 및 콤보 문서를 모두 업로드할 수 있습니다. [사전](what-is-dictionary.md)도 업로드할 수 있습니다.
+다음으로, [교육](training-and-model.md#training-document-type-for-custom-translator), [튜닝](training-and-model.md#tuning-document-type-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 문서 집합을 업로드합니다. 두 [병렬](what-are-parallel-documents.md) 및 콤보 문서를 모두 업로드할 수 있습니다. [사전](what-is-dictionary.md)도 업로드할 수 있습니다.
 
 두 문서 탭 또는 특정 프로젝트 페이지의 문서를 업로드할 수 있습니다.
 
@@ -49,7 +49,7 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 필수 문서가 모두 업로드되면 그 다음 단계는 모델 빌드입니다.
 
-앞에서 만든 프로젝트를 선택합니다. 업로드한 모든 문서가 이 프로젝트와 언어 쌍을 공유하는 것을 볼 수 있습니다. 모델에 포함할 문서를 선택합니다. [교육](training-and-model.md#training-dataset-for-custom-translator), [튜닝](training-and-model.md#tuning-dataset-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 데이터를 선택할 수도 있고, 교육 데이터만 선택하고 Custom Translator가 자동으로 모델의 튜닝 및 테스트 세트를 빌드하게 할 수도 있습니다.
+앞에서 만든 프로젝트를 선택합니다. 업로드한 모든 문서가 이 프로젝트와 언어 쌍을 공유하는 것을 볼 수 있습니다. 모델에 포함할 문서를 선택합니다. [교육](training-and-model.md#training-document-type-for-custom-translator), [튜닝](training-and-model.md#tuning-document-type-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 데이터를 선택할 수도 있고, 교육 데이터만 선택하고 Custom Translator가 자동으로 모델의 튜닝 및 테스트 세트를 빌드하게 할 수도 있습니다.
 
 ![모델 만들기](media/quickstart/ct-how-to-train.png)
 

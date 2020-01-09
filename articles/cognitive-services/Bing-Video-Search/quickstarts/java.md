@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 30234758761e06c65e621c7f512ed8cafa02e090
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8cab88b9d3a861c72d382534705ea5c087fe9ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378657"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382653"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>빠른 시작: Bing Video Search REST API 및 Java를 사용하여 비디오 검색
 
 Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 확인하려면 이 빠른 시작을 사용합니다. 이 간단한 Java 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플에 대한 소스 코드는 추가 오류 처리, 기능 및 코드 주석과 함께 [GitHub에서](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
@@ -59,7 +59,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     }
     ```
 
-3. API 엔드포인트 호스트 및 경로, 사용자의 구독 키 및 검색어에 대한 변수를 사용하여 `SearchVideos()`라는 새 메서드를 만듭니다. `SearchResults` 개체를 반환합니다. 
+3. API 엔드포인트 호스트 및 경로, 사용자의 구독 키 및 검색어에 대한 변수를 사용하여 `SearchVideos()`라는 새 메서드를 만듭니다. `SearchResults` 개체를 반환합니다. `host`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {

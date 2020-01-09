@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/23/2019
 ms.author: chlandsi
-ms.openlocfilehash: 652754c31711df7b14c055b31d6d96a6b0217d29
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c1246b19670a18f8dadc0c5e1c64dd5af4c1b210
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380782"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
 
@@ -23,7 +23,7 @@ ms.locfileid: "74815597"
 
 이 문서에서는 Azure Cognitive Services Speech SDK를 사용하여 Objective-C에서 iOS 앱을 만들어 녹음된 오디오가 있는 파일이나 마이크에서 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 필요합니다.
 

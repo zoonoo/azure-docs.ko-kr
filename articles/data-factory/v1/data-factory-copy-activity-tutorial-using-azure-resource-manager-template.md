@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a4f1c2d128e41e13a6e57732e8f97ff4c250d0a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dd559a8dd0bd59b50f4a3fa663f57874d948bf71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438849"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -43,18 +43,18 @@ ms.locfileid: "73682900"
 > [!NOTE] 
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * [자습서 개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다. 이 자습서에서는 PowerShell을 사용하여 데이터 팩터리 엔터티를 배포합니다. 
-* (선택 사항) Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
+* (선택 사항) Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
 
 ## <a name="in-this-tutorial"></a>자습서 내용
 이 자습서에서는 다음 데이터 팩터리 엔터티로 데이터 팩터리를 만듭니다.
 
-| 엔터티 | 설명 |
+| 엔터티 | Description |
 | --- | --- |
 | Azure Storage 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage는 원본 데이터 저장소이고 Azure SQL 데이터베이스는 자습서의 복사 작업에 대한 싱크 데이터 저장소입니다. 복사 작업을 위한 입력 데이터가 포함된 스토리지 계정을 지정합니다. |
 | Azure SQL Database 연결된 서비스 |Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. 복사 작업에 대한 출력 데이터를 보유하는 Azure SQL 데이터베이스를 지정합니다. |

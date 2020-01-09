@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: e3ccc5a48251af181983624f0c8d0eed68c241da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439305"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 
@@ -54,7 +54,7 @@ ms.locfileid: "74926534"
 
     b. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
 
-    c. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 스토리지의 델타 데이터를 새 파일로 Azure Blob Storage에 복사합니다.
+    다. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 스토리지의 델타 데이터를 새 파일로 Azure Blob Storage에 복사합니다.
 
     d. 다음에 실행되는 파이프라인에 대한 워터마크 값을 업데이트하는 StoredProcedure 작업을 만듭니다. 
 
@@ -65,7 +65,7 @@ ms.locfileid: "74926534"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
 * **Azure SQL Database**. SQL 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요. 
 
@@ -246,7 +246,7 @@ END
      
     - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
     - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
-    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
+    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
 6. **버전**에 대해 **V2**를 선택합니다.
 7. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 8. **만들기**를 클릭합니다.      
@@ -295,7 +295,7 @@ END
     1. **서버 이름**의 경우 SQL Server 데이터베이스가 있는 컴퓨터의 이름을 입력합니다.
     1. **데이터베이스 이름**의 경우 원본 데이터가 있는 SQL Server에 데이터베이스의 이름을 입력합니다. 테이블을 만들었고 필수 구성 요소의 일부로 이 데이터베이스에 데이터를 삽입했습니다. 
     1. **인증 유형**의 경우 데이터베이스에 연결하는 데 사용하려는 **인증 유형**을 선택합니다. 
-    1. **사용자 이름**의 경우 SQL Server 데이터베이스에 대한 액세스가 있는 사용자의 이름을 입력합니다. 슬래시 문자(`\`)를 사용자 계정 또는 서버 이름에 사용해야 할 경우 이스케이프 문자(`\`)를 사용합니다. 예는 `mydomain\\myuser`입니다.
+    1. **사용자 이름**의 경우 SQL Server 데이터베이스에 대한 액세스가 있는 사용자의 이름을 입력합니다. 슬래시 문자(`\`)를 사용자 계정 또는 서버 이름에 사용해야 할 경우 이스케이프 문자(`\`)를 사용합니다. 예제는 `mydomain\\myuser`입니다.
     1. **암호**의 경우 사용자에 대한 **암호**를 입력합니다. 
     1. 데이터 팩터리가 SQL Server 데이터베이스에 연결할 수 있는지를 테스트하려면 **연결 테스트**를 클릭합니다. 연결이 성공할 때까지 모든 오류를 수정합니다. 
     1. 연결된 서비스를 저장하려면 **마침**을 클릭합니다.
@@ -467,10 +467,10 @@ END
     1. **가져오기 매개 변수**를 선택합니다. 
     1. 매개 변수에 대해 다음 값을 지정합니다. 
 
-        | Name | type | 값 | 
+        | 속성 | Type | 값 | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | 문자열 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. 만든 엔터티를 Data Factory에 게시하려면 **모두 게시**를 선택합니다. 
@@ -605,7 +605,7 @@ VALUES
 
 1. 왼쪽의 **모니터** 탭으로 전환합니다. **수동 트리거**로 트리거된 파이프라인 실행이 표시됩니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
 
-1. **작업** 열에서 **활동 실행 보기** 링크를 클릭합니다. 선택한 파이프라인 실행과 연결된 활동 실행이 표시됩니다. 
+1. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 선택한 파이프라인 실행과 연결된 활동 실행이 표시됩니다. 
 
 ## <a name="review-the-final-results"></a>최종 결과 검토
 SQL Server Management Studio에서 대상 SQL 데이터베이스에 대해 다음 쿼리를 실행하여 업데이트된/새로운 데이터가 원본 테이블에서 대상 테이블로 복사되었는지 확인합니다. 

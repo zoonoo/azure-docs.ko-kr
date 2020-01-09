@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5d82971cbd7781a298f3f3aeeba47e4be471e248
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c8df388bcd3956746edba9a721b0598025b827e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927987"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439188"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL 데이터베이스에서 Azure Blob 스토리지로 데이터 증분 로드
 
@@ -62,7 +62,7 @@ ms.locfileid: "74927987"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
 * **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우, 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 
@@ -165,7 +165,7 @@ END
       - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
-        리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
+        리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
 6. **버전**에 대해 **V2**를 선택합니다.
 7. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 8. **만들기**를 클릭합니다.      
@@ -216,7 +216,7 @@ END
 14. **속성 설정** 창에서 **이름**으로 **SourceDataset**를 입력합니다. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
 15. [테이블]에 대해 **[dbo].[data_source_table]** 을 선택합니다. 자습서의 뒷부분에서 이 데이터 세트에 대한 쿼리를 지정합니다. 쿼리는 이 단계에서 지정한 테이블보다 높은 우선 순위를 갖습니다.
 16. **마침**을 선택합니다. 
-17. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 파이프라인 편집기로 전환합니다. **조회** 활동에 대한 속성 창에서 **원본 데이터 세트** 필드에 대해 **SourceDataset**가 선택되어 있는지 확인합니다. 
+17. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 파이프라인 편집기로 전환합니다. **조회** 작업에 대한 속성 창에서 **원본 데이터 세트** 필드에 대해 **SourceDataset**가 선택되어 있는지 확인합니다. 
 18. **쿼리 사용** 필드에 대해 **쿼리**를 선택하고, **data_source_table**에서 **LastModifytime**의 최대값만 선택하는 다음 쿼리를 입력합니다. **첫 번째 행만** 선택했는지도 확인하세요.
 
     ```sql
@@ -270,10 +270,10 @@ END
     1. **저장 프로시저 이름**에 대해 **usp_write_watermark**를 선택합니다. 
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면, **가져오기 매개 변수**를 클릭하고 매개 변수에 대해 다음 값을 입력합니다. 
 
-        | Name | type | 값 | 
+        | 속성 | Type | 값 | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | 문자열 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. 파이프라인 설정에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서** 창을 닫으려면 >>를 클릭합니다.   

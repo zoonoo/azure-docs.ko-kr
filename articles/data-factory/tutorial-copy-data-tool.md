@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 4e71fc869a08192b756c37e5106568bdd36361bd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926570"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439421"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
 
@@ -36,9 +36,9 @@ ms.locfileid: "74926570"
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**: Blob 스토리지를 _원본_ 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 * **Azure SQL Database**: SQL 데이터베이스를 _싱크_ 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 참조하세요.
 
@@ -86,7 +86,7 @@ ms.locfileid: "74926570"
     
     ![새 데이터 팩터리 오류 메시지](./media/doc-common-process/name-not-available-error.png)
 
-    이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
+    이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
 1. 새 데이터 팩터리를 만들 Azure **구독**을 선택합니다.
 1. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
     
@@ -94,7 +94,7 @@ ms.locfileid: "74926570"
 
     b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
     
-    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.
 
 1. **버전** 아래에서 버전에 대해 **V2**를 선택합니다.
 1. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 위치와 지역에 있을 수 있습니다.
@@ -168,7 +168,7 @@ ms.locfileid: "74926570"
 1. 왼쪽의 **작성** 탭을 선택하여 편집기 모드로 전환합니다. 편집기를 사용하여 도구를 통해 만든 연결된 서비스, 데이터 세트 및 파이프라인을 업데이트할 수 있습니다. Data Factory UI에서 이러한 엔터티를 편집하는 방법에 대한 자세한 내용은 [이 자습서의 Azure Portal 버전](tutorial-copy-data-portal.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인이 Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
+이 샘플의 파이프라인이 Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.

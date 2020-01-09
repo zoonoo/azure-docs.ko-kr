@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Virtual Machines 설명서
 metadata:
-  document_id: na
   title: 'Azure Virtual Machine 설명서 - 자습서, API 참조'
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
@@ -103,7 +102,7 @@ sections:
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-  - title: 참고 자료
+  - title: 참조
     items:
       - type: list
         style: cards

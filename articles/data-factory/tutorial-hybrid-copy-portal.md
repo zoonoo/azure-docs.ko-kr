@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5b9bed971ff239c0c4b0d1cb923e845bd76957da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 099ff9b8d8a55456908748bee5779e4471d4bec6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439337"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "74922925"
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 ### <a name="azure-subscription"></a>Azure 구독
 시작하기 전에 Azure 구독이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -97,7 +97,7 @@ ms.locfileid: "74922925"
 
 1. **Blob service** 창에서 **컨테이너**를 선택합니다. 
 
-1. **새 컨테이너** 창의 **이름** 아래에서 **adftutorial**을 입력합니다. 그런 다음 **확인**을 선택합니다. 
+1. **새 컨테이너** 창의 **이름** 아래에서 **adftutorial**을 입력합니다. 그런 다음, **확인**을 선택합니다. 
 
 1. 컨테이너 목록에서 **adftutorial**을 선택합니다.
 
@@ -124,7 +124,7 @@ ms.locfileid: "74922925"
 
    - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
         
-     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.
 1. **버전**에서 **V2**를 선택합니다.
 1. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
 1. **만들기**를 선택합니다.
@@ -237,7 +237,7 @@ ms.locfileid: "74922925"
 
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인이 Blob Storage의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
+이 샘플의 파이프라인이 Blob Storage의 위치 간에 데이터를 복사합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.

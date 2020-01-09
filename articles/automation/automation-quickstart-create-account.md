@@ -2,19 +2,16 @@
 title: Azure 빠른 시작 - Azure Automation 계정 만들기 | Microsoft Docs
 description: Azure Automation 계정을 만들고 Runbook을 실행하는 방법을 알아봅니다.
 services: automation
-author: csand-msft
-ms.author: csand
 ms.date: 04/04/2019
 ms.topic: quickstart
-ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 80a175aad3c692a5dfd04c7399211c58134c5164
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: a2d15dd520db16012f530d2ac6188a4642c89795
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421650"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 

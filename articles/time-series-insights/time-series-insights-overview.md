@@ -8,18 +8,18 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 11/20/2019
+ms.date: 12/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 042e969b4a0dfea0910a0ef81fae264792cfd85f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9b9491a4438ff07222bb5ce5bd684964bdfc0031
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327649"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452825"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
-Azure Time Series Insights는 IoT 디바이스에서 생성된 것과 같은 대량의 시계열 데이터를 저장, 시각화 및 쿼리하도록 빌드되었습니다. 클라우드의 시계열 데이터를 저장, 관리, 쿼리 또는 시각화하려면 Time Series Insights를 사용하는 것이 좋습니다. 
+Azure Time Series Insights는 IoT 디바이스에서 생성된 것과 같은 대량의 시계열 데이터를 저장, 시각화 및 쿼리하도록 빌드되었습니다. 클라우드의 시계열 데이터를 저장, 관리, 쿼리 또는 시각화하려면 Time Series Insights를 사용하는 것이 좋습니다.
 
 [![Time Series Insights 순서도](media/overview/time-series-insights-flowchart.png)](media/overview/time-series-insights-flowchart.png#lightbox)
 
@@ -27,7 +27,7 @@ Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
 
 - Azure IoT Hub 및 Azure Event Hubs 같은 클라우드 게이트웨이와 완전히 통합되었습니다. 이러한 이벤트 소스에 쉽게 연결해서 깨끗한 행 및 열에 있는 데이터가 포함된 메시지 및 구조체에서 JSON을 구문 분석할 수 있습니다. 메타데이터를 원격 분석과 조인하고 열 형식 저장소에 데이터를 인덱싱합니다.
 - Time Series Insights는 데이터 스토리지를 관리합니다. 항상 데이터에 쉽게 액세스할 수 있도록 메모리 및 SSD에서 데이터를 최대 400일 동안 저장합니다. 요청 시 수십억 개의 이벤트를 대화형으로 수초 내에 쿼리할 수 있습니다.
-- Time Series Insights는 Time Series Insights 탐색기를 통해 즉시 사용 가능한 시각화를 제공합니다. 
+- Time Series Insights는 Time Series Insights 탐색기를 통해 즉시 사용 가능한 시각화를 제공합니다.
 - Time Series Insights는 Time Series Insights 탐색기 및 시계열 데이터를 사용자 지정 애플리케이션에 포함시켜 쉽게 통합할 수 있는 API를 사용하여 쿼리 서비스를 제공합니다.
 
 내부에서 사용하거나 외부 고객이 사용할 애플리케이션을 구축하는 경우 Time Series Insights를 백 엔드로 사용할 수 있습니다. 이를 사용하여 시계열 데이터를 인덱싱, 저장 및 집계할 수 있습니다. 또한 사용자 지정 시각화 및 사용자 환경을 빌드하기 위해 [클라이언트 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 사용합니다. 뿐만 아니라 Time Series Insights는 이러한 사용자 지정 시나리오를 지원하는 여러 [쿼리 API](how-to-shape-query-json.md)를 갖추고 있습니다.
@@ -45,23 +45,23 @@ Azure Time Series Insights는 새로운 모든 이벤트를 하나의 행으로 
 
 ## <a name="primary-scenarios"></a>기본 시나리오
 
-- 시계열 데이터를 확장 가능한 방식으로 저장합니다. 
+- 시계열 데이터를 확장 가능한 방식으로 저장합니다.
 
    기본적으로 Time Series Insights에서는 시계열 데이터를 고려해서 디자인된 데이터베이스를 제공합니다. Time Series Insights는 확장 가능하고 완벽하게 관리되므로 이벤트를 저장하고 관리하는 작업을 처리합니다.
 
-- 데이터를 거의 실시간으로 검색합니다. 
+- 데이터를 거의 실시간으로 검색합니다.
 
-   Time Series Insights는 환경으로 스트림되는 모든 데이터를 시각화하는 탐색기를 제공합니다. 이벤트 원본을 연결하는 즉시 Time Series Insights 내에서 이벤트 데이터를 보고, 검색하고, 쿼리할 수 있습니다. 이 데이터는 디바이스가 예상대로 데이터를 내보내는지 확인하고 IoT 자산의 상태, 생산성 및 전반적인 효율성을 모니터링하는 데 유용합니다. 
+   Time Series Insights는 환경으로 스트림되는 모든 데이터를 시각화하는 탐색기를 제공합니다. 이벤트 원본을 연결하는 즉시 Time Series Insights 내에서 이벤트 데이터를 보고, 검색하고, 쿼리할 수 있습니다. 이 데이터는 디바이스가 예상대로 데이터를 내보내는지 확인하고 IoT 자산의 상태, 생산성 및 전반적인 효율성을 모니터링하는 데 유용합니다.
 
 - 근본 원인 분석을 수행하고 이상 현상을 검색합니다.
 
-   Time Series Insights는 패턴 및 원근감 보기와 같은 도구를 통해 다단계 근본 원인 분석을 수행하고 저장합니다. 또한 Time Series Insights는 Azure Stream Analytics와 같은 경고 서비스에서 작동하므로 Time Series Insights 탐색기에서 경고 및 검색된 이상 현상을 거의 실시간으로 확인할 수 있습니다. 
+   Time Series Insights는 패턴 및 원근감 보기와 같은 도구를 통해 다단계 근본 원인 분석을 수행하고 저장합니다. 또한 Time Series Insights는 Azure Stream Analytics와 같은 경고 서비스에서 작동하므로 Time Series Insights 탐색기에서 경고 및 검색된 이상 현상을 거의 실시간으로 확인할 수 있습니다.
 
 - 여러 자산 또는 사이트를 비교하기 위해 서로 다른 위치에서 스트림하는 시계열 데이터에 대한 글로벌 보기를 얻습니다.
 
    여러 이벤트 원본을 Time Series Insights 환경에 연결할 수 있습니다. 이렇게 하면 서로 다른 여러 위치에서 스트림되는 데이터를 모두 거의 실시간으로 볼 수 있습니다. 사용자는 이러한 가시성을 활용하여 데이터를 비즈니스 리더와 공유할 수 있습니다. 또한 전문 지식을 적용하여 문제 해결, 모범 사례 적용 및 학습 공유를 지원할 수 있는 도메인 전문가와 더 효율적으로 협업할 수 있습니다.
 
-- Time Series Insights를 기반으로 하여 고객 애플리케이션을 빌드합니다. 
+- Time Series Insights를 기반으로 하여 고객 애플리케이션을 빌드합니다.
 
    Time Series Insights는 REST 쿼리 API를 공개하므로 시계열 데이터를 사용하는 애플리케이션을 빌드할 수 있습니다.
 
@@ -80,7 +80,7 @@ Azure Time Series Insights는 새로운 모든 이벤트를 하나의 행으로 
 시작하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Time Series Insights 환경을 프로비저닝합니다
-1. IoT Hub 또는 이벤트 허브와 같은 이벤트 원본에 연결합니다. 
+1. IoT Hub 또는 이벤트 허브와 같은 이벤트 원본에 연결합니다.
 1. 참조 데이터를 업로드합니다. 이는 추가 서비스가 아닙니다.
 1. Time Series Insights 탐색기를 사용하여 몇 분 만에 데이터를 볼 수 있습니다.
 

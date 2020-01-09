@@ -1,7 +1,6 @@
 ---
 title: 자습서 - Visual Studio에서 Azure Stream Analytics 작업에 대한 C# 사용자 정의 함수 작성(미리 보기)
 description: 이 자습서에서는 Visual Studio에서 Stream Analytics 작업용으로 C# 사용자 정의 함수를 작성하는 방법을 보여줍니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,25 +8,25 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1d71f4c5616efb05efe2733c49507b085ca2dcf6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707354"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426288"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>자습서: Azure Stream Analytics 작업용 C# 사용자 정의 함수 작성(미리 보기)
 
 Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원하는 함수로 Azure Stream Analytics 쿼리 언어를 확장할 수 있습니다. C#에서는 DLL을 비롯한 기존 코드를 다시 사용할 수 있으며 수학 논리나 복합 논리도 사용할 수 있습니다. UDF를 구현하는 다음 세 가지 방법이 있습니다. Stream Analytics 프로젝트의 CodeBehind 파일, 로컬 C# 프로젝트의 UDF 또는 스토리지 계정의 기존 패키지에 있는 UDF를 구현합니다. 이 자습서에서는 CodeBehind 방법을 사용하여 기본적인 C# 함수를 구현합니다. Stream Analytics 작업용 UDF 함수는 현재 미리 보기로 제공되며 프로덕션 워크로드에는 사용해서는 안 됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * CodeBehind를 사용하여 C# 사용자 정의 함수 작성
 > * 로컬에서 Stream Analytics 작업 테스트
 > * Azure에 작업 게시
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 필수 조건을 모두 갖추었는지 확인합니다.
 

@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435846"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
 ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정책을 구성하는 방법을 알아봅니다. ESP 클러스터는 도메인에 연결되므로 사용자가 도메인 자격 증명을 사용하여 인증할 수 있습니다. 이 자습서에서는 `sales` 및 `marketingspend` 항목 액세스를 제한하는 Range 정책 두 개를 만듭니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 도메인 사용자 만들기
@@ -57,7 +57,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    |정책 이름  |  hdi sales* policy   |
    |항목   |  sales* |
    |사용자 선택  |  sales_user1 |
-   |권한  | 게시, 사용, 만들기 |
+   |사용 권한  | 게시, 사용, 만들기 |
 
    항목 이름에 다음 와일드카드를 포함할 수 있습니다.
 
@@ -77,7 +77,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    |정책 이름  |  hdi marketing policy   |
    |항목   |  marketingspend |
    |사용자 선택  |  marketing_user1 |
-   |권한  | 게시, 사용, 만들기 |
+   |사용 권한  | 게시, 사용, 만들기 |
 
    ![Apache Ranger 관리 UI 정책 만들기2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
@@ -93,7 +93,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   `DOMAINADMIN`을 [클러스터 만들기](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp) 중 구성된 클러스터에 대한 관리 사용자로 바꾸고, `CLUSTERNAME`을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 관리 사용자 계정의 암호를 입력합니다. HDInsight에서의 `SSH` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+   `DOMAINADMIN`을 [클러스터 만들기](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp) 중 구성된 클러스터에 대한 관리 사용자로 바꾸고, `CLUSTERNAME`을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 관리 사용자 계정의 암호를 입력합니다. HDInsight에서의 `SSH` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 변수에 클러스터 이름을 저장하고 JSON 구문 분석 유틸리티 `jq`를 설치합니다. 메시지가 표시되면 Kafka 클러스터 이름을 입력합니다.
 
@@ -131,7 +131,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    ssh sales_user1@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-2. 다음 명령을 실행합니다.
+2. 다음 명령을 실행하십시오.
 
    ```bash
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
@@ -143,7 +143,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    export KAFKABROKERS=<brokerlist>:9092
    ```
 
-   예제: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
+   예: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
 4. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)를 사용하여 **sales_user**가 `kafka-producer-consumer.jar`도 사용할 수 있도록 합니다.
 

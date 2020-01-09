@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0dd25f5ff3767e65eeb293d6a046da034d5c8879
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9a5cce8102e3a1b3f9beaad8c42b278c56560be9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564667"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384937"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>빠른 시작: Bing Autosuggest REST API 및 Node.js로 검색 쿼리 제안
 
 이 빠른 시작을 사용하여 Bing Autosuggest API를 호출하고 JSON 응답을 받습니다. 이 간단한 Node.js 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 JavaScript에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub에](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js) 제공됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Node.js 6](https://nodejs.org/en/download/) 이상
 
@@ -37,7 +37,7 @@ ms.locfileid: "68564667"
     let https = require ('https');
     ```
 
-2. API 엔드포인트 호스트와 경로, 구독 키, [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) 및 검색어에 대한 변수를 만듭니다.
+2. API 엔드포인트 호스트와 경로, 구독 키, [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) 및 검색어에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.

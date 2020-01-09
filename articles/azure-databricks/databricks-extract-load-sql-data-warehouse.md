@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 11e5aac559370c478b774f2a503bde590dfeedf4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e0805a9827474e4f52a5a10e019f7dedd1ab45fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411039"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -32,7 +32,7 @@ ms.locfileid: "74707448"
 > * Azure Databricks에 Spark 클러스터 만들기
 > * Data Lake Storage Gen2 계정에서 파일 시스템 만들기
 > * Azure Data Lake Storage Gen2 계정에 샘플 데이터 업로드
-> * 서비스 주체 만들기
+> * 서비스 주체를 생성합니다.
 > * Azure Data Lake Storage Gen2 계정에서 데이터 추출
 > * Azure Databricks에서 데이터 변환
 > * Azure SQL Data Warehouse에 데이터 로드
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
 > 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
      
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 작업을 완료합니다.
 
@@ -101,11 +101,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 2. **Azure Databricks 서비스** 아래에서 다음 값을 입력하여 Databricks 서비스를 만듭니다.
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역에 대한 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
-    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
+    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요. |
     |**위치**     | **미국 서부 2**를 선택합니다.  사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.      |
     |**가격 책정 계층**     |  **표준**을 선택합니다.     |
 
@@ -343,7 +343,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Azure SQL Data Warehouse 인스턴스에 연결하기 위한 값을 입력합니다. 필수 구성 요소의 일부로 SQL 데이터 웨어하우스를 이미 만들어 두셨을 것입니다. **dwServer**에 대해 정규화된 서버 이름을 사용합니다. 예: `<servername>.database.windows.net`
+4. Azure SQL Data Warehouse 인스턴스에 연결하기 위한 값을 입력합니다. 필수 구성 요소의 일부로 SQL 데이터 웨어하우스를 이미 만들어 두셨을 것입니다. **dwServer**에 대해 정규화된 서버 이름을 사용합니다. `<servername>.database.windows.net`)을 입력합니다.
 
    ```scala
    //SQL Data Warehouse related settings
@@ -390,7 +390,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Databricks 서비스 만들기

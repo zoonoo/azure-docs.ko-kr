@@ -3,12 +3,12 @@ title: Azure Portal에서 Linux에 함수 앱 만들기
 description: Azure Portal를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.openlocfilehash: fdc2d9c7b5945e48cc87f3edd918498c3d45f55e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d48bfc8888afe6b7a46151d2030519f752169551
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410495"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
 
@@ -34,11 +34,11 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
     ![새 함수 앱 설정 정의](./media/create-function-app-linux-app-service-plan/function-app-create-flow2.png)
 
-    | 설정      | 제안 값  | 설명                                        |
+    | 설정      | 제안 값  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **앱 이름** | 전역적으로 고유한 이름 | 새 함수 앱을 식별하는 이름입니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다.  | 
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. | 
-    | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
+    | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
     | **OS** | Linux | Linux에서 함수 앱이 실행됩니다. |
     | **게시** | 코드 | **런타임 스택**의 기본 Linux 컨테이너가 사용됩니다. 함수 앱 프로젝트 코드만 제공하면 됩니다. 또 다른 옵션은 사용자 지정 [Docker 이미지](functions-create-function-linux-custom-image.md)를 게시하는 것입니다. |
     | **[호스팅 계획](functions-scale.md)** | App Service 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](functions-scale.md)을 제어할 수 있습니다.  |

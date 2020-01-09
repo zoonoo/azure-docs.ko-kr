@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 240329ba3dc50cef249716f951595fea0cdc67eb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9ba02f53ba5765d90e8bba80e4d99922d7eb7c46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432042"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버 만들기
 
-Azure Database for MariaDB 서버는 정의된 [컴퓨팅 및 스토리지 리소스](concepts-pricing-tiers.md) 세트를 사용하여 만듭니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에 만듭니다.
+Azure Database for MariaDB 서버는 정의된 [컴퓨팅 및 스토리지 리소스](concepts-pricing-tiers.md) 세트를 사용하여 만듭니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에 만듭니다.
 
 Azure Database for MariaDB 서버를 만들려면
 
@@ -40,7 +40,7 @@ Azure Database for MariaDB 서버를 만들려면
    
    ![서버 양식 만들기](./media/quickstart-create-mariadb-server-database-using-azure-portal/4-create-form.png)
 
-    설정 | 제안 값 | 설명
+    설정 | 제안 값 | Description
     ---|---|---
     서버 이름 | *고유 서버 이름* | Azure Database for MariaDB 서버를 식별하는 고유한 이름을 선택합니다. 예를 들어 **mydemoserver**가 있습니다. 입력한 서버 이름에 도메인 이름 *.mariadb.database.azure.com*이 추가됩니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자여야 합니다.
     Subscription | *구독* | 서버에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우 해당 리소스에 대해 요금이 청구되는 적절한 구독을 선택합니다.
@@ -123,7 +123,7 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
     mysql --host mydemoserver.mariadb.database.azure.com --user myadmin@mydemoserver -p
     ```
 
-    mysql 매개 변수 |제안 값|설명
+    mysql 매개 변수 |제안 값|Description
     ---|---|---
     --host | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다.
     --user | *서버 관리자 로그인 이름* |Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 이름 값입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
@@ -200,10 +200,10 @@ MySQL Workbench를 사용하여 서버에 연결하려면
     |---|---|---|
      연결 이름 | **데모 연결** | 이 연결에 대한 레이블입니다. |
     연결 방법 | **표준(TCP/IP)** | 표준(TCP/IP)이면 충분합니다. |
-    호스트 이름 | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다.|
+    Hostname | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다.|
      포트 | 3306 | Azure Database for MariaDB 서버에 연결할 때 사용할 포트입니다. |
     사용자 이름 |  *서버 관리자 로그인 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 정보입니다. 예제의 사용자 이름은 **myadmin\@mydemoserver**입니다. 사용자 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
-    암호 | *사용자 암호* | 암호를 저장하려면 **자격 증명 모음에 저장...** 을 선택합니다. |
+    암호 | *사용자 암호* | 암호를 저장하려면 **자격 증명 모음에 저장**을 선택합니다. |
 
 4. 모든 매개 변수가 올바르게 구성되었는지 테스트하려면 **연결 테스트**를 선택합니다. 그런 다음, **확인**을 클릭하여 해당 연결을 저장합니다. 
 
@@ -213,7 +213,7 @@ MySQL Workbench를 사용하여 서버에 연결하려면
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 삭제할 수 있습니다. 이 옵션은 리소스 그룹에 있는 모든 리소스를 삭제합니다. 다른 리소스를 그대로 유지하려면 하나의 서버 리소스만 삭제합니다.
+이 빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 삭제할 수 있습니다. 이 옵션은 리소스 그룹에 있는 모든 리소스를 삭제합니다. 다른 리소스를 그대로 유지하려면 하나의 서버 리소스만 삭제합니다.
 
 > [!TIP]
 > 이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 하여 빌드됩니다. Azure Database for MariaDB 빠른 시작을 계속 사용하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속 사용하지 않을 경우 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 삭제할 수 있습니다.

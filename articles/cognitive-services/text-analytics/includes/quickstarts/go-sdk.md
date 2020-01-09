@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9b148e413bc7dc6af7eff064e5ff3ec6385cfef4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75d32cc038d3dbf0f06a844d35a3e626ffaa67f9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446289"
 ---
 [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [패키지(Github)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 최신 버전의 [Go](https://golang.org/dl/)
@@ -90,13 +90,23 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [Bas
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
 
-새 함수에서 리소스의 Azure 엔드포인트 및 구독 키에 대한 변수를 만듭니다. 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`에서 이러한 값을 가져옵니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
+새 함수에서 리소스의 Azure 엔드포인트 및 구독 키에 대한 변수를 만듭니다.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 새 [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) 개체를 만듭니다. 키를 [autorest.NewCognitiveServicesAuthorizer()](https://godoc.org/github.com/Azure/go-autorest/autorest#NewCognitiveServicesAuthorizer) 함수에 전달하면 해당 키가 클라이언트의 `authorizer` 속성에 전달됩니다.
 
-[!code-go[Client creation ](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=client)]
+```go
+func GetTextAnalyticsClient() textanalytics.BaseClient {
+    var key string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
+
+    textAnalyticsClient := textanalytics.New(endpoint)
+    textAnalyticsClient.Authorizer = autorest.NewCognitiveServicesAuthorizer(key)
+
+    return textAnalyticsClient
+}
+```
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
@@ -119,13 +129,13 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## <a name="language-detection"></a>언어 검색
 
-`LanguageDetection()`이라는 새 함수를 만들고 이전에 만든 `GetTextAnalyticsClient()` 메서드를 사용하여 클라이언트를 만듭니다. 분석하려는 문서가 포함된 [LanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#LanguageInput) 개체 목록을 만듭니다. 각 개체에는 `id` 및 `text` 특성이 포함됩니다. `text` 특성은 분석할 텍스트를 저장하며, `id`는 임의의 값이 될 수 있습니다. 
+`LanguageDetection()`라는 새 함수를 만들고 이전에 만든 `GetTextAnalyticsClient()` 메서드를 사용하여 클라이언트를 만듭니다. 분석하려는 문서가 포함된 [LanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#LanguageInput) 개체 목록을 만듭니다. 각 개체에는 `id` 및 `text` 특성이 포함됩니다. `text` 특성은 분석할 텍스트를 저장하며, `id`는 임의의 값이 될 수 있습니다. 
 
 클라이언트의 [DetectLanguage()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.DetectLanguage)를 호출하고 결과를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 검색된 언어를 인쇄합니다.
 
 [!code-go[Language detection sample](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=languageDetection)]
 
-프로젝트에서 `LanguageDetection()`을 호출합니다.
+프로젝트에서 `LanguageDetection()`를 호출합니다.
 
 ### <a name="output"></a>출력
 

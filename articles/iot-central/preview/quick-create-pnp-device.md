@@ -3,17 +3,17 @@ title: 빠른 시작 - Azure IoT Central에 시뮬레이션된 디바이스 추�
 description: 이 빠른 시작에서는 디바이스 템플릿을 만들고 IoT Central 애플리케이션에 시뮬레이션된 디바이스를 추가하는 방법을 보여줍니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 669bdcddc7e4bb0c63250d9b571ff7ef4343ef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706705"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434835"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>빠른 시작: IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가(미리 보기 기능)
 
@@ -30,7 +30,7 @@ ms.locfileid: "74706705"
 * 명령(예: 설정 및 해제)에 응답합니다.
 * 일반 디바이스 속성(예: 펌웨어 버전 및 일련 번호)을 보고합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure IoT Central 애플리케이션 만들기(미리 보기 기능)](./quick-deploy-iot-central.md) 빠른 시작을 완료하고 **사용자 지정 앱 > 미리 보기 애플리케이션** 템플릿을 사용하여 IoT Central 애플리케이션을 만듭니다.
 
@@ -72,8 +72,8 @@ IoT Central에는 디바이스 기능 모델을 작성하기 위한 몇 가지 �
 
     | 표시 이름      | 의미 체계 유형 | 스키마 |
     | ----------------- | ------------- | ------ |
-    | 마지막 서비스 날짜 | 없음          | Date   |
-    | 고객 이름     | 없음          | 문자열 |
+    | 마지막 서비스 날짜 | None          | Date   |
+    | 고객 이름     | None          | String |
 
 1. **저장**을 선택하여 변경 내용을 저장합니다.
 

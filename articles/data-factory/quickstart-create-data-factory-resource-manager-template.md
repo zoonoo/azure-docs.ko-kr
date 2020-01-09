@@ -10,12 +10,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d7cafa6ec385ed296a5341efdaec1b16f7742683
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928802"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440067"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Data Factory 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "74928802"
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
-Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
+Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
 
 다음 섹션에서는 신속하게 자습서를 살펴보고 템플릿을 테스트할 수 있도록 데이터 팩터리 엔터티를 정의하기 위한 완전한 Resource Manager 템플릿을 제공합니다. 각 데이터 팩터리 엔터티를 정의하는 방법을 알아보려면 [템플릿의 데이터 팩터리 엔터티](#data-factory-entities-in-the-template) 섹션을 참조하세요.
 
@@ -287,7 +287,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 
 > [!IMPORTANT]
 > - 이 매개 변수 파일의 **storageAccountName** 및 **storageAccountKey** 매개 변수에 대한 Azure Storage 계정 이름과 키를 지정합니다. adftutorial 컨테이너를 만들고 이 Azure Blob Storage의 입력에 샘플 파일(emp.txt)을 업로드했습니다.
-> - **dataFactoryName** 매개 변수에 대한 데이터 팩터리의 전역적으로 고유한 이름을 지정합니다. 예:  ARMTutorialFactoryJohnDoe11282017.
+> - **dataFactoryName** 매개 변수에 대한 데이터 팩터리의 전역적으로 고유한 이름을 지정합니다. 다음은 그 예입니다.  ARMTutorialFactoryJohnDoe11282017.
 > - **triggerStartTime**에는 현재 요일을 `2019-09-08T00:00:00` 형식으로 지정합니다.
 > - **triggerEndTime**에는 다음 요일을 `2019-09-09T00:00:00` 형식으로 지정합니다. 또한 현재 UTC 시간을 확인하고 종료 시간으로 그 다음 한두 시간을 지정할 수 있습니다. 예를 들어 UTC 시간이 오전 1시 32분이면 종료 시간으로 `2019-09-09:03:00:00`를 지정합니다. 이 예에서는 트리거가 파이프라인을 두 번 실행합니다(오전 2시와 오전 3시).
 

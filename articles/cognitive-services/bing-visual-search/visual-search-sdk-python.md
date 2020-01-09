@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 4d5679e75f0feb4fd502abc92fc7c1de16b53bc8
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2a5fb6d72ab2259b2c11d1d71e93aa635da36946
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111575"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446559"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>빠른 시작: Bing Visual Search SDK for Python을 사용하여 이미지 인사이트 가져오기
 
 이 빠른 시작의 안내에 따라 Python SDK를 사용하여 Bing Visual Search 서비스에서 이미지 인사이트 가져오기를 시작하세요. Bing Visual Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있지만 SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py)에서 확인할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python](https://www.python.org/) 2.x 또는 3.x
 * [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것이 좋습니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화합니다.
@@ -29,9 +29,7 @@ ms.locfileid: "74111575"
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
 
-
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화

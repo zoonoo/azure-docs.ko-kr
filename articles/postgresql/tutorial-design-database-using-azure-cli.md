@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 0f1f4c07f3dc694bcae9b540c71a11e53a00eb7f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c79e64fddaf404b459dd2215e4a2e9236f1bc221
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773683"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459996"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
@@ -38,7 +38,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-[az group create](/cli/azure/group) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -199,7 +199,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 `az postgres server restore` 명령에는 다음 매개 변수가 필요합니다.
 
-| 설정 | 제안 값 | 설명  |
+| 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  원본 서버가 존재하는 리소스 그룹입니다.  |
 | name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |

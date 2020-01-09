@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 23d04062d5db7c944b7734f5e8339342548062fa
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c01e9f46df1df3edcb61726566c279e0dca17eb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410686"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Apache Spark 클러스터가 있는 Azure Databricks 작업 영역을 만듭니다. 클러스터에서 작업을 실행하고 사용자 지정 차트를 사용하여 보스턴 안전 데이터로 실시간 보고서를 작성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
@@ -47,11 +47,11 @@ ms.locfileid: "74706189"
 
     다음 값을 제공합니다.
     
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
-    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
+    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요. |
     |**위치**     | **미국 서부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
     |**가격 책정 계층**     |  **표준**, **프리미엄** 또는 **평가판** 중에서 선택합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
     |**Virtual Network**     |  사용자 고유의 VNet(Virtual Network)에 Azure Databricks 작업 영역을 배포하도록 선택합니다. 자세한 내용은 [Azure Virtual Network(VNet 삽입)에서 Azure Databricks 배포](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)를 참조하세요.        |
