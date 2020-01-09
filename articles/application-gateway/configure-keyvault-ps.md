@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: c40c4cf9f25ce17bc7042191324aeb864696995f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 50608365adcef47971a18589dce3a07abbeb7e8b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074591"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640553"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Key Vault 인증서로 SSL 종료 구성
 
@@ -23,11 +23,11 @@ ms.locfileid: "74074591"
 
 이 문서에서는 Azure PowerShell 스크립트를 사용 하 여 SSL 종료 인증서용 응용 프로그램 게이트웨이와 key vault를 통합 하는 방법을 보여 줍니다.
 
-이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 버전을 찾으려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 문서의 명령을 실행 하려면 `Connect-AzAccount`를 실행 하 여 Azure와의 연결도 만들어야 합니다.
+이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 문서의 명령을 실행 하려면 `Connect-AzAccount`를 실행 하 여 Azure와의 연결도 만들어야 합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작 하기 전에 ManagedServiceIdentity 모듈이 설치 되어 있어야 합니다.
 
@@ -65,10 +65,13 @@ Set-AzKeyVaultAccessPolicy -VaultName $kv -PermissionsToSecrets get -ObjectId $i
 $policy = New-AzKeyVaultCertificatePolicy -ValidityInMonths 12 `
   -SubjectName "CN=www.contoso11.com" -IssuerName self `
   -RenewAtNumberOfDaysBeforeExpiry 30
+Set-AzKeyVaultAccessPolicy -VaultName $kv -EmailAddress <your email address> -PermissionsToCertificates create,get,list
 $certificate = Add-AzKeyVaultCertificate -VaultName $kv -Name "cert1" -CertificatePolicy $policy
 $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
+> [!NOTE]
+> SSL 종료가 제대로 작동 하려면-EnableSoftDelete 플래그를 사용 해야 합니다.
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
