@@ -1,7 +1,7 @@
 ---
 title: 상태 구성에서 사용 하기 위한 STIG 기반 구성-Azure Automation
 description: Azure Automation에서 상태 구성을 위한 STIG를 기반으로 하는 구성에 대해 알아봅니다.
-keywords: dsc, powershell, 구성, 설정
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 224744bd49add514be165f4955739651fcbf6b61
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6215884a5f11e92d3a6ab61d86c338c30c090ee6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231670"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769985"
 ---
 # <a name="configuration-based-on-stig"></a>STIG 기반 구성
 
@@ -39,10 +39,10 @@ PowerSTIG는 단일 파일에서 전체 설정 범위를 처리 하지 않고 �
 구성이 생성 된 후에는 [DSC 구성 스크립트](/powershell/scripting/dsc/configurations/configurations) 를 사용 하 여 mof 파일을 생성 하 고 [Azure Automation에 mof 파일을 업로드할](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)수 있습니다.
 그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) 또는 [Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 에서 서버를 등록 하 여 구성을 가져옵니다.
 
-PowerSTIG를 사용해 보려면 [PowerShell 갤러리](http://www.powershellgallery.com) 를 방문 하 여 솔루션을 다운로드 하거나 "프로젝트 사이트"를 클릭 하 여 [설명서](https://github.com/microsoft/powerstig)를 확인 하세요.
+PowerSTIG를 사용해 보려면 [PowerShell 갤러리](https://www.powershellgallery.com) 를 방문 하 여 솔루션을 다운로드 하거나 "프로젝트 사이트"를 클릭 하 여 [설명서](https://github.com/microsoft/powerstig)를 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)
+- [Windows PowerShell Desired State Configuration 개요](/powershell/scripting/dsc/overview/overview)
 - [DSC 리소스](/powershell/scripting/dsc/resources/resources)
-- [로컬 Configuration Manager 구성](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [로컬 구성 관리자 구성](/powershell/scripting/dsc/managing-nodes/metaconfig)

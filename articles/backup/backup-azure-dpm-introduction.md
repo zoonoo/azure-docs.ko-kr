@@ -3,12 +3,12 @@ title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: c7b662c07caecb7871ec9f8be89ffc76b8f7f5fb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173145"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753953"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -51,7 +51,7 @@ VMware VM의 DPM | System Center 2012 R2 업데이트 롤업 5 이상
 Azure ExpressRoute | Azure Express 경로를 개인 또는 Microsoft 피어 링으로 구성 하면 데이터를 Azure에 백업 하는 데 사용할 수 없습니다.<br/><br/> Azure Express 경로를 공용 피어 링으로 구성 하면 데이터를 Azure에 백업 하는 데 사용할 수 있습니다.<br/><br/> **참고:** 공용 피어 링은 새 회로에서 사용 되지 않습니다.
 Azure Backup 에이전트 | DPM이 System Center 2012 SP1에서 실행 중인 경우 DPM SP1에 대한 롤업 2 이상을 설치합니다. 이 롤업은 에이전트 설치를 위해 반드시 필요합니다.<br/><br/> 이 문서에서는 MARS(icrosoft Azure Recovery Service) 에이전트라고도 하는 최신 버전의 Azure Backup 에이전트를 배포하는 방법을 설명합니다. 이전 버전을 배포한 경우 최신 버전으로 업데이트하여 백업이 예상대로 작동하도록 합니다.
 
-시작하기 전에 Azure Backup 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [Azure Backup 가격 정책](https://azure.microsoft.com/pricing/details/backup/)을 읽어보십시오.
+시작하기 전에 Azure Backup 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. [Azure Backup 가격 정책](https://azure.microsoft.com/pricing/details/backup/)을 읽어보십시오.
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
@@ -127,7 +127,7 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
 7. Azure Backup 에이전트가 .NET Framework 4.5 및 Windows PowerShell(설치되지 않은 경우)을 설치하여 설치를 완료합니다.
 8. 에이전트가 설치되면 창을 **닫습니다**.
 
-    ![닫습니다](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![닫기](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>자격 증명 모음에 VMM 서버 등록
 
@@ -165,7 +165,7 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
 
 7. **등록**을 클릭하여 자격 증명 모음에 DPM 서버를 등록합니다.
 
-서버가 자격 증명 모음에 성공적으로 등록되면 이제 Microsoft Azure에 백업을 시작할 준비가 완료된 것입니다.
+서버가 자격 증명 모음에 성공적으로 등록되면 이제 Microsoft Azure에 백업을 시작할 준비가 완료된 것입니다. Azure에 작업을 백업 하려면 DPM 콘솔에서 보호 그룹을 구성 해야 합니다. 보호 그룹을 배포 하 [는 방법을 알아봅니다](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) .
 
 ## <a name="troubleshoot-vault-credentials"></a>자격 증명 모음의 자격 증명 문제 해결
 

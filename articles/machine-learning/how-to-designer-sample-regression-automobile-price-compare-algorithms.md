@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: a4148389992bc100be66175a75b32d61acaf2f46
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f8cf20743ee5420312ed751a26796a0859956ae7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659879"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771447"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 여러 회귀 모델을 비교 하 여 자동차 가격 예측 & 학습
 
@@ -25,7 +25,7 @@ ms.locfileid: "75659879"
 
 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다. 이 샘플은 여러 회귀 모델을 학습 하 고 비교 하 여 기술 기능에 따라 자동차 가격을 예측 합니다. 사용자 고유의 기계 학습 문제를 다룰 수 있도록이 파이프라인에서 선택한 항목에 대 한 근거를 제공 합니다.
 
-기계 학습을 시작 하는 경우이 파이프라인의 [기본 버전](service/how-to-designer-sample-regression-automobile-price-basic.md) 을 살펴보세요.
+기계 학습을 시작 하는 경우이 파이프라인의 [기본 버전](how-to-designer-sample-regression-automobile-price-basic.md) 을 살펴보세요.
 
 이 파이프라인에 대 한 완료 된 그래프는 다음과 같습니다.
 
@@ -92,9 +92,9 @@ ms.locfileid: "75659879"
 
 디자이너에 사용할 수 있는 다른 샘플을 탐색 합니다.
 
-- [샘플 1-회귀: 자동차 가격 예측](service/how-to-designer-sample-regression-automobile-price-basic.md)
-- [샘플 3-기능 선택이 포함 된 분류: 수입 예측](service/how-to-designer-sample-classification-predict-income.md)
-- [샘플 4-분류: 신용 위험 예측 (비용 구분)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [샘플 5-분류: 변동 예측](service/how-to-designer-sample-classification-churn.md)
-- [샘플 6-분류: 비행 지연 예측](service/how-to-designer-sample-classification-flight-delay.md)
+- [샘플 1-회귀: 자동차 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
+- [샘플 3-기능 선택이 포함 된 분류: 수입 예측](how-to-designer-sample-classification-predict-income.md)
+- [샘플 4-분류: 신용 위험 예측 (비용 구분)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [샘플 5-분류: 변동 예측](how-to-designer-sample-classification-churn.md)
+- [샘플 6-분류: 비행 지연 예측](how-to-designer-sample-classification-flight-delay.md)
 - [샘플 7-텍스트 분류: 위키백과 SP 500 데이터 집합](how-to-designer-sample-text-classification.md)

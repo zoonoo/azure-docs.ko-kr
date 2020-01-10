@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644939"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771260"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
@@ -98,8 +98,28 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 * 프런트 엔드 1: 프런트 엔드 1의 IP 주소로 구성된 게스트 OS 내 루프백 인터페이스
 * 프런트 엔드 2: 프런트 엔드 2의 IP 주소로 구성된 게스트 OS 내 루프백 인터페이스
 
+백 엔드 풀의 각 VM에 대해 Windows 명령 프롬프트에서 다음 명령을 실행 합니다.
+
+VM에 있는 인터페이스 이름 목록을 가져오려면 다음 명령을 입력 합니다.
+
+    netsh interface show interface 
+
+VM NIC (Azure 관리)의 경우 다음 명령을 입력 합니다.
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+   (interfacename을이 인터페이스의 이름으로 바꿉니다.)
+
+추가한 각 루프백 인터페이스에 대해 다음 명령을 반복 합니다.
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+   (interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
+     
+    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+   (interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
+
 > [!IMPORTANT]
 > 루프백 인터페이스에 대한 구성은 게스트 OS 내에서 수행됩니다. 이 구성은 Azure에서 수행하거나 관리하지 않습니다. 이 구성 없이는 규칙이 작동하지 않습니다. 상태 프로브 정의에는 DSR 프런트 엔드를 나타내는 루프백 인터페이스가 아닌 VM의 DIP가 사용됩니다. 따라서 서비스는 DSR 프런트 엔드를 나타내는 루프백 인터페이스에서 제공되는 서비스의 상태를 반영하는 DIP 포트에서 프로브 응답을 제공해야 합니다.
+
 
 이전 시나리오에서와 동일한 프런트 엔드 구성을 가정해 보겠습니다.
 

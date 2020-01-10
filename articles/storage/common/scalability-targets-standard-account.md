@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bcf1c9eca91b73b8efb0a67f9fb532c62a2aa194
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 817e11fdf70c8043d2eb860fe15cc0a7907c6656
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486743"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750638"
 ---
 # <a name="scalability-and-performance-targets-for-standard-storage-accounts"></a>Standard storage 계정에 대 한 확장성 및 성능 목표
 
@@ -26,5 +26,5 @@ ms.locfileid: "75486743"
 
 ## <a name="see-also"></a>참고 항목
 
-- [프리미엄 블록 blob storage 계정에 대 한 확장성 목표](../blobs/scalability-targets-premium-block-blobs.md)
 - [Azure Storage 리소스 공급자에 대 한 확장성 목표](../common/scalability-targets-resource-provider.md)
+- [Azure 구독 제한 및 할당량](../../azure-resource-manager/management/azure-subscription-service-limits.md)

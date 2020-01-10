@@ -1,6 +1,6 @@
 ---
 title: Google Maps에서 마이그레이션 | Microsoft Docs
-description: Google Maps에서 Azure Maps로 마이그레이션하는 방법에 대 한 자습서입니다.
+description: Google Maps에서 Microsoft Azure 맵으로 마이그레이션하는 방법에 대 한 자습서입니다. 지침은 Azure Maps Api 및 Sdk로 전환 하는 방법을 안내 합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ea9afc413a7fb187042c9d832fa1c16802993eed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6709c42b19b18c8cae783a6b4ecc2c0721e1217d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75481231"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770308"
 ---
 # <a name="migrate-from-google-maps"></a>Google Maps에서 마이그레이션
 
@@ -22,7 +22,7 @@ ms.locfileid: "75481231"
 
 ## <a name="azure-maps-platform-overview"></a>Azure Maps 플랫폼 개요
 
-Azure Maps은 정기적으로 업데이트 된 지도 데이터로 압축 하 여 웹 및 모바일 응용 프로그램에 대 한 지리적 컨텍스트를 제공 하는 모든 업계 강력한 지리 공간 기능을 개발자에 게 제공 합니다. Azure Maps에는 지도, 검색, 라우팅, 트래픽, 표준 시간대, 지리적 위치, 지 오 펜싱, 지도 데이터 및 공간 작업을 위한 REST Api의 Azure One API 규격 집합이 있습니다. 여러 플랫폼.
+Azure Maps은 정기적으로 업데이트 된 지도 데이터로 압축 하 여 웹 및 모바일 응용 프로그램에 대 한 지리적 컨텍스트를 제공 하는 모든 업계 강력한 지리 공간 기능을 개발자에 게 제공 합니다. Azure Maps에는 지도, 검색, 라우팅, 트래픽, 표준 시간대, 지리적 위치, 지 오 펜싱, 지도 데이터, 날씨, 이동성 및 공간 작업을 위한 REST Api의 Azure One API 집합이 있습니다. 웹 및 Android Sdk를 함께 사용 하 여 개발을 쉽고 유연 하 고 유연 하 게 만들 수 있습니다. 여러 플랫폼에서 이식 가능.
 
 ## <a name="high-level-platform-comparison"></a>상위 수준 플랫폼 비교
 

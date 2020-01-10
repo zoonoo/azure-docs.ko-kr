@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: a91035773d4427f0f3c07097eb3e02fc08c5f375
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528762"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771822"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>VS Code 원격을 사용 하 여 Azure Machine Learning 계산 인스턴스에서 대화형으로 디버그
 
@@ -23,7 +23,7 @@ ms.locfileid: "75528762"
 > [!NOTE]
 > 컴퓨팅 인스턴스는 **미국 중북부** 또는 **영국 남부** 지역이 있는 작업 영역에서만 사용할 수 있습니다.
 
-+ [Azure Machine Learning 계산 인스턴스](/azure/machine-learning/service/concept-compute-instance) 는 데이터 과학자 완전히 관리 되는 클라우드 기반 워크스테이션 이며 IT 관리자에 게 관리 및 엔터프라이즈 준비 기능을 제공 합니다. 
++ [Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 는 데이터 과학자 완전히 관리 되는 클라우드 기반 워크스테이션 이며 IT 관리자에 게 관리 및 엔터프라이즈 준비 기능을 제공 합니다. 
 
 
 + [원격 Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview) 개발을 통해 컨테이너, 원격 컴퓨터 또는 WSL (Linux 용 Windows 하위 시스템)을 모든 기능을 갖춘 개발 환경으로 사용할 수 있습니다. 
@@ -117,4 +117,4 @@ Host azmlci1
 
 이제 원격 Visual Studio Code 설정 했으므로 계산 인스턴스를 Visual Studio Code의 원격 계산으로 사용 하 여 코드를 대화형으로 디버그할 수 있습니다. 
 
-[자습서: 첫 번째 ML 모델 학습](/azure/machine-learning/service/tutorial-1st-experiment-sdk-train) 은 통합 된 노트북으로 계산 인스턴스를 사용 하는 방법을 보여 줍니다.
+[자습서: 첫 번째 ML 모델 학습](tutorial-1st-experiment-sdk-train.md) 은 통합 된 노트북으로 계산 인스턴스를 사용 하는 방법을 보여 줍니다.

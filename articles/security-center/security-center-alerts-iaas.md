@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: b101fd30ddbdbf0f8fdf6e02394cb10b9af5f4b0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a5ed91cef6e49fcb71c35f2262479be45a018651
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666403"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754315"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Azure Security Center의 Vm 및 서버에 대 한 위협 감지
 
@@ -41,7 +41,7 @@ Azure Security Center는 Azure 서비스와 통합 되어 Windows 기반 컴퓨�
 
     그러나 메모리 분석을 사용 하면 이러한 종류의 공격을 감지할 수 있습니다. 크래시 덤프의 메모리를 분석 하 여 공격에 사용 되는 기술을 감지할 수 Security Center. 예를 들어 공격에서 소프트웨어의 취약성을 악용 하 고 기밀 데이터에 액세스 하 고 은밀가 손상 된 컴퓨터 내에서 지속 될 수 있습니다. 이 작업은 호스트에 대 한 성능에 최소한의 영향을 주므로 Security Center 합니다.
 
-    크래시 덤프 분석 경고 목록은 [경고의 참조 테이블](alerts-reference.md#alerts-crashdump)을 참조 하세요.
+    크래시 덤프 분석 경고에 대 한 자세한 내용은 [경고의 참조 테이블](alerts-reference.md#alerts-windows)을 참조 하세요.
 
 * **Fileless 공격 감지** <a name="windows-fileless"></a> -끝점을 대상으로 하는 Fileless 공격이 일반적입니다. 검색을 방지 하기 위해 fileless 공격은 악성 페이로드를 메모리에 삽입 합니다. 공격자 페이로드는 손상 된 프로세스의 메모리 내에 유지 되며 다양 한 악의적인 작업을 수행 합니다.
 
@@ -49,7 +49,7 @@ Azure Security Center는 Azure 서비스와 통합 되어 Windows 기반 컴퓨�
 
     악용에 대 한 증거, 코드 삽입 및 악성 페이로드의 실행을 찾습니다. Fileless 공격 감지는 경고 심사, 상관 관계 및 다운스트림 응답 시간을 가속화 하기 위한 자세한 보안 경고를 생성 합니다. 이 접근 방식은 이벤트 기반 EDR 솔루션을 보완 하 여 더 큰 검색 검사를 제공 합니다.
 
-    Fileless 공격 감지 경고 목록은 [경고의 참조 테이블](alerts-reference.md#alerts-filelessattackdetect)을 참조 하세요.
+    Fileless 공격 감지 경고에 대 한 자세한 내용은 [경고의 참조 테이블](alerts-reference.md#alerts-windows)을 참조 하세요.
 
 > [!NOTE]
 > [Azure Security Center 플레이 북: 보안 경고](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)를 다운로드 하 여 Windows 경고를 시뮬레이션할 수 있습니다.

@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 753c626fe44193b83cbd992f225fe01c2ff67f89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172409"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744811"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기
 
-때로는 감사, 문제 해결 등의 목적으로 Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 변경 내용과 관련된 정보가 필요합니다. 구독 내에서 누군가가 역할 할당 또는 역할 정의를 변경할 때마다 변경 내용이 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md)에 기록됩니다. 활동 로그를 보고 지난 90일 동안의 RBAC 변경 사항을 모두 확인할 수 있습니다.
+때로는 감사, 문제 해결 등의 목적으로 Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 변경 내용과 관련된 정보가 필요합니다. 구독 내에서 누군가가 역할 할당 또는 역할 정의를 변경할 때마다 변경 내용이 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에 기록됩니다. 활동 로그를 보고 지난 90일 동안의 RBAC 변경 사항을 모두 확인할 수 있습니다.
 
 ## <a name="operations-that-are-logged"></a>기록되는 작업
 
@@ -43,10 +43,10 @@ ms.locfileid: "70172409"
 
 포털에서 활동 로그에는 몇 가지 필터가 있습니다. 다음은 RBAC 관련 필터입니다.
 
-|Filter  |값  |
+|필터링  |값  |
 |---------|---------|
 |이벤트 범주     | <ul><li>관리</li></ul>         |
-|연산     | <ul><li>역할 할당 만들기</li> <li>역할 할당 삭제</li> <li>사용자 지정 역할 정의 만들기 또는 업데이트</li> <li>사용자 지정 역할 정의 삭제</li></ul>      |
+|작업     | <ul><li>역할 할당 만들기</li> <li>역할 할당 삭제</li> <li>사용자 지정 역할 정의 만들기 또는 업데이트</li> <li>사용자 지정 역할 정의 삭제</li></ul>      |
 
 
 활동 로그에 대한 자세한 내용은 [활동 로그의 이벤트 보기](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)를 참조하세요.

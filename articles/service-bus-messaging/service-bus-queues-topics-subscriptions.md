@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
-ms.openlocfilehash: bc549f9bfbb48da9263493c21ec38735b3cc0c24
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9ac8d95dda392bd3f2a438389f5f6aa434b8a2fa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426921"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772145"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
 
@@ -41,7 +41,7 @@ Service Bus에서 메시지 기능의 핵심이 되는 메시지 엔터티는 �
 
 ### <a name="receive-modes"></a>수신 모드
 
-Service Bus에서 메시지를 받는 두 가지 다른 모드(*ReceiveAndDelete* 또는 *PeekLock*)를 지정할 수 있습니다. [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 수신은 1단계 작업입니다. 즉, Service Bus가 요청을 받으면 메시지를 이용되는 것으로 표시하고 애플리케이션에 반환합니다. **ReceiveAndDelete** 모드는 가장 간단한 모델이며, 오류가 발생할 경우 애플리케이션에서 메시지 처리를 허용할 수 없는 시나리오에 가장 적합합니다. 이 시나리오를 이해하려면 소비자가 수신 요청을 실행한 다음, 처리하기 전에 충돌하는 시나리오를 고려합니다. Service Bus가 메시지를 이용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
+Service Bus에서 메시지를 받는 두 가지 다른 모드(*ReceiveAndDelete* 또는 *PeekLock*)를 지정할 수 있습니다. [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 수신 작업은 단일 샷입니다. 즉, Service Bus 소비자 로부터 요청을 받을 때 메시지를 사용 되는 것으로 표시 하 고 소비자 응용 프로그램에 반환 합니다. **ReceiveAndDelete** 모드는 가장 간단한 모델이며, 오류가 발생할 경우 애플리케이션에서 메시지 처리를 허용할 수 없는 시나리오에 가장 적합합니다. 이 시나리오를 이해하려면 소비자가 수신 요청을 실행한 다음, 처리하기 전에 충돌하는 시나리오를 고려합니다. Service Bus가 메시지를 이용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
 
 [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서는 수신 작업이 2단계이므로 메시지 누락이 허용되지 않는 애플리케이션을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션에서 메시지 처리가 완료되면(또는 추가 처리를 위해 안정적으로 저장되면), 수신된 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. Service Bus에서 **CompleteAsync** 호출이 확인되면 메시지를 사용 중인 것으로 표시합니다.
 

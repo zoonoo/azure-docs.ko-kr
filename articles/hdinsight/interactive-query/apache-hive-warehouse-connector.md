@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 47bcc9a4f906fa1e0cc0560cdbd2e0cebec481ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 765bbc352c493124c1adec68eff456f4d0de3d49
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435369"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744881"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive 웨어하우스 커넥터를 사용 하 여 Apache Spark 및 Apache Hive 통합
 
@@ -58,7 +58,7 @@ Azure HDInsight에서 Spark 및 대화형 쿼리 클러스터 간에 Hive 웨어
 
 1. **Hive** > **CONFIGS** > **고급** > **고급 hive-사이트** > **hive** 로 이동 하 여 값을 확인 합니다. 값은 `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`와 유사할 수 있습니다.
 
-1. **Hive** > **CONFIGS** > **고급** > **일반** > **metastore** 으로 이동 하 여 값을 확인 합니다. 값은 `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`와 유사할 수 있습니다.
+1. **Hive** > **CONFIGS** > **고급** > **일반** > **metastore** 으로 이동 하 여 값을 확인 합니다. 값은 `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`와 유사할 수 있습니다.
 
 #### <a name="from-your-apache-spark-cluster"></a>Apache Spark 클러스터에서
 

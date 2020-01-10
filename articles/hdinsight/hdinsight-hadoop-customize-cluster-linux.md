@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 6df7eebae0f0e7cfab790a4fca12dbb6ee5a5acf
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: df5dbfc9c86294c7ec046d3a02832192bf67b4ce
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638989"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747079"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 작업을 사용 하 여 Azure HDInsight 클러스터 사용자 지정
 
@@ -446,11 +446,11 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
     이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
 
-    * **헤드 노드**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **헤드 노드**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **작업자 노드**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+    * **작업자 노드**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Zookeeper 노드**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Zookeeper 노드**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * 해당 호스트의 모든 **stdout** 및 **stderr**이 스토리지 계정에 업로드됩니다. 각 스크립트 동작에 대해 **output-\*.txt** 및 **errors-\*.txt**가 하나씩 있습니다. **output-*.txt** 파일에는 호스트에서 실행된 스크립트의 URI 정보를 포함되어 있습니다. 다음 텍스트는 이 정보의 예제입니다.
 

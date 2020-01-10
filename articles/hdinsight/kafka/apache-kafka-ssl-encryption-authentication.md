@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5dd698b28a01ed251492cf34e9da2dda4d0c2580
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 180b7c203755553c343e0f7fc65c93092b330124
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241989"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751315"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 SSL(Secure Sockets Layer) (SSL) 암호화 및 인증 설정
 
 이 문서에서는 Apache Kafka 클라이언트와 Apache Kafka broker 간에 SSL 암호화를 설정 하는 방법을 보여 줍니다. 또한 클라이언트의 인증을 설정 하는 방법을 보여 줍니다 (양방향 SSL이 라고도 함).
 
 > [!Important]
-> Kafka 응용 프로그램에 사용할 수 있는 두 가지 클라이언트는 Java 클라이언트와 콘솔 클라이언트입니다. Java 클라이언트 `ProducerConsumer.java`만 생성 및 소비 둘 다에 SSL을 사용할 수 있습니다. 콘솔 생산자 클라이언트 `console-producer.sh`은 SSL에서 작동 하지 않습니다.
+> Kafka 응용 프로그램에 사용할 수 있는 두 가지 클라이언트는 Java 클라이언트와 콘솔 클라이언트입니다. Java 클라이언트 `ProducerConsumer.java`는 생성 및 소비 둘 다에 SSL을 사용할 수 있습니다. 콘솔 생산자 클라이언트 `console-producer.sh`는 SSL에서 작동 하지 않습니다.
 
 ## <a name="apache-kafka-broker-setup"></a>Apache Kafka Broker 설치
 
@@ -36,7 +36,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 
 1. 세 개의 작업자 노드 각각에 대해 다음 단계가 반복 됩니다.
 
-    1. 인증서를 생성 합니다.
+    1. 인증서를 생성합니다.
     1. 인증서 서명 요청을 만듭니다.
     1. 인증서 서명 요청을 CA (인증 기관)로 보냅니다.
     1. CA에 로그인 하 고 요청에 서명 합니다.
@@ -49,7 +49,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 다음 세부 지침을 사용 하 여 broker 설치를 완료 합니다.
 
 > [!Important]
-> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 `wn0`, `wn1` 또는 `wn2`로 대체 되어야 합니다. `WorkerNode0_Name` 및 `HeadNode0_Name`은 `wn0-abcxyz` 또는 `hn0-abcxyz`와 같이 해당 컴퓨터의 이름으로 대체 되어야 합니다.
+> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 `wn0``wn1` 또는 `wn2`로 대체 되어야 합니다. `WorkerNode0_Name` 및 `HeadNode0_Name`를 해당 컴퓨터의 이름으로 대체 해야 합니다.
 
 1. 헤드 노드 0에 대 한 초기 설치를 수행 합니다 .이 경우 HDInsight는 CA (인증 기관)의 역할을 채웁니다.
 
@@ -157,10 +157,10 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 
 클라이언트 설정을 완료 하려면 다음 단계를 완료 합니다.
 
-1. 클라이언트 컴퓨터 (h n 1)에 로그인 합니다.
+1. 클라이언트 컴퓨터 (대기 헤드 노드)에 로그인 합니다.
 1. Java 키 저장소를 만들고 서명된 브로커용 인증서를 가져옵니다. 그런 다음, CA가 실행 중인 VM에 인증서를 복사합니다.
-1. 클라이언트 인증서에 서명 하려면 CA 컴퓨터 (hn0)로 전환 합니다.
-1. 클라이언트 머신(hn1)으로 이동한 다음, `~/ssl` 폴더로 이동합니다. 서명된 인증서를 클라이언트 머신에 복사합니다.
+1. 클라이언트 인증서에 서명 하려면 CA 컴퓨터 (활성 헤드 노드)로 전환 합니다.
+1. 클라이언트 컴퓨터 (대기 헤드 노드)로 이동 하 여 `~/ssl` 폴더로 이동 합니다. 서명된 인증서를 클라이언트 머신에 복사합니다.
 
 ```bash
 cd ssl
@@ -174,11 +174,11 @@ keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-requ
 # Copy the cert to the CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (hn0) to sign the client certificate.
+# Switch to the CA machine (active head node) to sign the client certificate.
 cd ssl
 openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+# Return to the client machine (standby head node), navigate to ~/ssl folder and copy signed cert from the CA (active head node) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store

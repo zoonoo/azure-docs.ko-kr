@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: cdddf284028c6fc9749082e1991e5b9dee4acf99
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 7517c4d9b3f9b58d9cf745f5001078837e1fbfea
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560371"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748166"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -52,7 +52,7 @@ Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이
 각 중복 옵션에 대한 가격 책정 정보는 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 > [!NOTE]
-> Azure Premium 디스크 저장소는 현재 LRS (로컬 중복 저장소)만 지원 합니다. Azure Premium Block Blob Storage는 특정 지역의 LRS (로컬 redudant storage) 및 ZRS (zone redudant storage)를 지원 합니다.
+> Azure Premium 디스크 저장소는 현재 LRS (로컬 중복 저장소)만 지원 합니다. Azure Premium Block Blob Storage는 특정 지역의 LRS (로컬 중복 저장소) 및 ZRS (영역 중복 저장소)를 지원 합니다.
 
 ## <a name="changing-replication-strategy"></a>복제 전략 변경
 
@@ -76,7 +76,7 @@ GRS에서 GRS 또는 LRS로 저장소 계정을 마이그레이션하는 경우 
 - [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](storage-redundancy-zrs.md)
 - [GRS(지역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy-grs.md)
 - [고가용성 및 최대 내구성에 대 한 GZRS (지역 영역 중복 저장소) (미리 보기)](storage-redundancy-gzrs.md)
-- [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md)
+- [Standard storage 계정에 대 한 확장성 및 성능 목표](scalability-targets-standard-account.md)
 - [RA-GRS 스토리지를 사용하여 항상 사용 가능한 애플리케이션 설계](../storage-designing-ha-apps-with-ragrs.md)
 - [Microsoft Azure Storage 중복 옵션 및 읽기 액세스 지역 중복 저장소](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP 문서 - Azure Storage: 일관성과 가용성이 뛰어난 클라우드 스토리지 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

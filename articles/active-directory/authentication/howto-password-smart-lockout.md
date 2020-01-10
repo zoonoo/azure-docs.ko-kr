@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30006d0dcccdd1b160289c72769340d141198d3c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847595"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762878"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -67,8 +67,8 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [엑스�
 
 조직에 대한 스마트 잠금 값을 확인하거나 수정하려면 다음 단계를 사용합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
-1. *Azure Active Directory*를 검색하고 선택합니다. **인증 방법** > **암호 보호**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. *Azure Active Directory*를 검색하고 선택합니다. **보안** > **인증 방법** > **암호 보호**를 선택 합니다.
 1. 첫 번째 잠금 전에 계정에서 허용되는 실패한 로그인 횟수에 따라 **잠금 임계값**을 설정합니다. 기본값은 10입니다.
 1. **잠금 지속 기간(초)** 을 각 잠금의 길이(초)로 설정합니다. 기본값은 60초(1분)입니다.
 

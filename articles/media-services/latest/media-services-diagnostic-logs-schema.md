@@ -13,40 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5e416087df6c27eff42db487e90ff908d7d49df8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977695"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750879"
 ---
-# <a name="diagnostic-logs-schemas"></a>Diagnosztikai naplók sémái
+# <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
 [Azure Monitor](../../azure-monitor/overview.md) 를 사용 하면 응용 프로그램의 작동 방식을 이해 하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링할 수 있습니다. Media Services 진단 로그를 모니터링 하 고 수집 된 메트릭 및 로그에 대 한 경고 및 알림을 만들 수 있습니다. [Azure Storage](https://azure.microsoft.com/services/storage/)로 로그를 전송 하 고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하 고, [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보내거나 타사 서비스를 사용할 수 있습니다.
 
-자세한 내용은 [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md) 및 [Azure Monitor 진단 로그](../../azure-monitor/platform/resource-logs-overview.md)를 참조 하세요.
+자세한 내용은 [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md) 및 [Azure Monitor 진단 로그](../../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
 
 이 문서에서는 Media Services 진단 로그 스키마에 대해 설명 합니다.
 
-## <a name="top-level-diagnostic-logs-schema"></a>최상위 진단 로그 스키마
+## <a name="top-level-diagnostic-logs-schema"></a>최상위 수준 진단 로그 스키마
 
 최상위 진단 로그 스키마에 대 한 자세한 설명은 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](../../azure-monitor/platform/tutorial-dashboards.md)를 참조 하세요.
 
 ## <a name="key-delivery-log-schema"></a>키 배달 로그 스키마
 
-### <a name="properties"></a>Tulajdonságok
+### <a name="properties"></a>속성
 
 이러한 속성은 키 배달 로그 스키마에만 적용 됩니다.
 
-|Név|Leírás|
+|이름|Description|
 |---|---|
 |keyId|요청 된 키의 ID입니다.|
 |keyType|"Clear" (암호화 없음), "FairPlay", "PlayReady" 또는 "Widevine" 값 중 하나일 수 있습니다.|
 |policyName|정책의 Azure Resource Manager 이름입니다.|
-|tokenType|토큰 형식입니다.|
+|tokenType|토큰 유형입니다.|
 |statusMessage|상태 메시지입니다.|
 
-### <a name="examples"></a>Példák
+### <a name="examples"></a>예시
 
 키 배달 요청 스키마의 속성입니다.
 
@@ -108,10 +108,10 @@ ms.locfileid: "74977695"
 } 
 ```
 
-## <a name="additional-notes"></a>További megjegyzések
+## <a name="additional-notes"></a>추가적인 참고 사항
 
-* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 [Media Services 메트릭 및 진단 로그 모니터링](media-services-metrics-diagnostic-logs.md)

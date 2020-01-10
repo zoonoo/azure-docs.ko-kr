@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
-ms.openlocfilehash: 4f3236c0a167a2b6f7586c6cb5fea8e30f55a86c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954073"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769672"
 ---
 ## <a name="rest"></a>REST API를 사용하여 ZIP 파일 배포 
 
@@ -19,7 +19,7 @@ HTTP BASIC 인증의 경우 App Service 배포 자격 증명이 필요합니다.
 
 ### <a name="with-curl"></a>cURL 사용
 
-다음 예제에서는 cURL 도구를 사용하여 .zip 파일을 배포합니다. `<username>`, `<password>`, `<zip_file_path>` 및 `<app_name>` 자리 표시자를 바꿉니다. cURL에서 프롬프트가 표시되면 암호를 입력합니다.
+다음 예제에서는 cURL 도구를 사용하여 .zip 파일을 배포합니다. `<deployment_user>`, `<zip_file_path>` 및 `<app_name>` 자리 표시자를 바꿉니다. cURL에서 프롬프트가 표시되면 암호를 입력합니다.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 이 요청은 업로드된 .zip 파일에서 푸시 배포를 트리거합니다. 
 
-현재 및 과거 배포를 검토하려면 다음 명령을 실행합니다. 다시,, 및 `<deployment-user>` `<app-name>` 자리 `<deployment-password>`표시자를 바꿉니다.
+현재 및 과거 배포를 검토하려면 다음 명령을 실행합니다. 다시 `<deployment-user>`, `<deployment-password>`및 `<app-name>` 자리 표시자를 바꿉니다.
 
 ```bash
 $username = "<deployment-user>"

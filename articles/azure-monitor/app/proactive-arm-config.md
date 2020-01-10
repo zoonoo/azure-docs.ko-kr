@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aadf3a18d41d8dfe878439893c9d1ed25172fa2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406494"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749049"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
@@ -133,9 +133,12 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 
 ```
 
-### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>실패 변칙 v2 (비 클래식) 경고 규칙
+### <a name="failure-anomalies-alert-rule"></a>오류 비정상 경고 규칙
 
-이 Azure Resource Manager 템플릿에서는 심각도가 2 인 오류 비정상 v2 경고 규칙을 구성 하는 방법을 보여 줍니다. 이 새 버전의 오류 비정상 경고 규칙은 새 Azure 경고 플랫폼의 일부 이며, [클래식 경고](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)사용 중지 프로세스의 일부로 사용 중지 중인 클래식 버전을 대체 합니다.
+이 Azure Resource Manager 템플릿에서는 심각도가 2 인 오류 비정상 경고 규칙을 구성 하는 방법을 보여 줍니다. 이 새 버전의 오류 비정상 경고 규칙은 새 Azure 경고 플랫폼의 일부 이며, [클래식 경고](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)사용 중지 프로세스의 일부로 사용 중지 중인 클래식 버전을 대체 합니다.
+
+> [!NOTE]
+> 실패 이상은 글로벌 서비스 이므로 규칙 위치가 글로벌 위치에 생성 됩니다.
 
 ```json
 {
@@ -166,7 +169,7 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 ```
 
 > [!NOTE]
-> 이 Azure Resource Manager 템플릿은 오류 변칙 v2 경고 규칙에 고유 하며이 문서에 설명 된 다른 클래식 스마트 검색 규칙과 다릅니다.   
+> 이 Azure Resource Manager 템플릿은 오류 비정상 경고 규칙에 고유 하며이 문서에 설명 된 다른 클래식 스마트 검색 규칙과 다릅니다.
 
 ## <a name="smart-detection-rule-names"></a>스마트 검색 규칙 이름
 

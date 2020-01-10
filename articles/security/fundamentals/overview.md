@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: ed345fdf564c62e2d323b33013da784344c7a461
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8301dc779799ff67a348403e661fc7e66b9e721f
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595381"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750135"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -28,7 +28,7 @@ ms.locfileid: "72595381"
 
 이 문서에서는 Azure에서 사용할 수 있는 보안에 대해 포괄적으로 설명 합니다.
 
-### <a name="azure-platform"></a>Azure Platform
+### <a name="azure-platform"></a>Azure 플랫폼
 Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 퍼블릭 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 디바이스용 백 엔드를 빌드할 수 있습니다.
 
 Azure 퍼블릭 클라우드 서비스는 수백만의 개발자 및 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다. IT 자산을 만들거나 퍼블릭 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 애플리케이션과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
@@ -47,7 +47,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 ### <a name="features-to-secure-the-azure-platform"></a>Azure 플랫폼을 보호 하는 기능
 다음 기능은 Azure 플랫폼이 안전 하 게 관리 된다는 보증을 제공 하기 위해 검토할 수 있는 기능입니다. Microsoft가 보안 플랫폼, 개인 정보 & 제어, 규정 준수 및 투명도의 네 가지 영역에서 고객 신뢰 질문을 해결 하는 방법에 대 한 링크를 제공 합니다.
 
-| [보안 플랫폼](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [개인 정보 보호 및 제어](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[규정 준수](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [투명성](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
+| [보안 플랫폼](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [개인 정보 보호 및 제어](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[호환성](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [투명도](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [보안 개발 주기](https://www.microsoft.com/sdl/)(영문), 내부 감사 | [항상 사용자 데이터 관리](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data)(영문) | [보안 센터](https://www.microsoft.com/trustcenter/default.aspx) |[Microsoft Azure 서비스에서 고객 데이터를 보호하는 방법](https://www.microsoft.com/trustcenter/Transparency/default.aspx)(영문) |
 | [필수 보안 교육, 백그라운드 검사](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)(영문) |  [데이터 위치에서 제어](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [일반 컨트롤 허브](https://www.microsoft.com/trustcenter/Common-Controls-Hub)(영문) |[Microsoft Azure 서비스에서 데이터 위치를 관리하는 방법](https://azuredatacentermap.azurewebsites.net/)(영문)|
@@ -68,7 +68,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 
 또한 특정 이벤트가 검색되면 [특정 작업을 자동으로 수행](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)하도록 보안 및 규정 준수를 구성할 수 있습니다.
 
-### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 [Azure Resource Manager 템플릿](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/)을 사용하고, 해당 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 
 Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제어 설정을 표준화된 템플릿 기반 배포에 통합할 수 있기 때문에 Azure에 배포된 솔루션의 보안을 향상시킬 수 있습니다. 이렇게 하면 수동 배포 중에 발생할 수 있는 보안 구성 오류의 위험이 줄어듭니다.
@@ -81,7 +81,7 @@ Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제
 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 가용성과 성능에 변경 사항이 있는 경우 서비스에서 사용자에게 전자 메일을 보냅니다. 따라서 Application Insight는 기밀성, 무결성 및 가용성 보안 3요소를 한 조로 묶어 가용성을 높이는 데 도움이 되므로 중요한 보안 도구가 됩니다.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](../../azure-monitor/platform/activity-logs-overview.md))와 개별 Azure 리소스([진단 로그](../../azure-monitor/platform/resource-logs-overview.md)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](../../azure-monitor/platform/platform-logs-overview.md))와 개별 Azure 리소스([진단 로그](../../azure-monitor/platform/platform-logs-overview.md)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 [Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics/) – Azure 리소스 외에도 온-프레미스 및 타사 클라우드 기반 인프라 (예: AWS)에 대 한 IT 관리 솔루션을 제공 합니다. Azure Monitor의 데이터를 Azure Monitor 로그로 직접 라우팅할 수 있으므로 전체 환경에 대 한 메트릭과 로그를 한 곳에서 볼 수 있습니다.
@@ -138,14 +138,14 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 -   애플리케이션 오류(예외 이벤트 표시)
 -   성능(성능 이벤트 표시)
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 이 섹션에서는 Azure Storage 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
 RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 하여 액세스를 제한하는 것은 데이터 액세스에 대한 보안 정책을 시행하려는 조직에서 반드시 필요합니다. 특정 범위에서 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. Storage 계정 참여자와 같은 [기본 제공 RBAC 역할](../../role-based-access-control/built-in-roles.md)을 사용하여 사용자에게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/common/storage-security-guide.md) 모델을 사용하는 스토리지 계정의 스토리지 키에 대한 액세스는 RBAC(역할 기반 Access Control)를 통해 제어할 수 있습니다.
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
-[SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 는 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 스토리지 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
+[SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)는 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 스토리지 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
 전송 중 암호화는 네트워크를 통해 전송되는 경우 데이터 보호의 메커니즘입니다. Azure Storage를 사용하면 다음을 사용하여 데이터를 보호할 수 있습니다.
@@ -213,7 +213,7 @@ Azure 네트워킹은 다양한 보안 원격 액세스 시나리오를 지원�
 
 -   [전용 WAN 링크로 Azure Virtual Network에 온-프레미스 네트워크 연결](../../expressroute/expressroute-introduction.md)
 
--   [Azure Virtual Network 상호 연결](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+-   [Azure Virtual Networks 상호 연결](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 Azure Virtual Network와 온-프레미스 사이트 간에 네트워크 트래픽을 보내려면 Azure Virtual Network에 대한 가상 VPN Gateway를 만들어야 합니다. [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)는 공용 연결을 통해 암호화된 트래픽을 보내는 가상 네트워크 게이트웨이의 유형입니다. 또한 VPN Gateway를 사용하여 Microsoft 네트워크 패브릭을 통해 Azure Virtual Network 간에 트래픽을 보낼 수도 있습니다.
@@ -345,12 +345,12 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 
 | 평가판/일반 기능     | Basic 기능    |Premium P1 기능 |Premium P2 기능 | Azure Active Directory 조인 – Windows 10 전용 관련 기능|
 | :------------- | :------------- |:------------- |:------------- |:------------- |
-|   [디렉터리 개체](../../active-directory/active-directory-whatis.md), [사용자/그룹 관리 (추가/업데이트/삭제)/사용자 기반 프로 비전, 장치 등록](../../active-directory/active-directory-whatis.md), [sso (Single sign-on)](../../active-directory/active-directory-whatis.md), [클라우드 사용자를 위한 셀프 서비스 암호 변경](../../active-directory/active-directory-whatis.md), [연결 (동기화 엔진 온-프레미스 디렉터리를 Azure Active Directory)](../../active-directory/active-directory-whatis.md), [보안/사용 보고서](../../active-directory/active-directory-whatis.md) 로 확장 합니다.       |   [그룹 기반 액세스 관리/프로 비전](../../active-directory/active-directory-whatis.md), [클라우드 사용자를 위한 셀프 서비스 암호 재설정](../../active-directory/active-directory-whatis.md), [회사 브랜딩 (로그온 페이지/액세스 패널 사용자 지정)](../../active-directory/active-directory-whatis.md), [응용 프로그램 프록시](../../active-directory/active-directory-whatis.md), [SLA 99.9%](../../active-directory/active-directory-whatis.md) |  [셀프 서비스 그룹 및 앱 관리/셀프 서비스 응용 프로그램 추가/동적 그룹](../../active-directory/active-directory-whatis.md), [셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 복구로 잠금 해제](../../active-directory/active-directory-whatis.md), [Multi-Factor Authentication (클라우드 및 온-프레미스 (MFA 서버) )](../../active-directory/active-directory-whatis.md), [Mim CAL + MIM 서버](../../active-directory/active-directory-whatis.md), [Cloud App Discovery](../../active-directory/active-directory-whatis.md), [Connect Health](../../active-directory/active-directory-whatis.md), [그룹 계정에 대 한 자동 암호 롤오버](../../active-directory/active-directory-whatis.md)|    [Id 보호](../../active-directory/identity-protection/overview.md), [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)|   Azure ad에 [장치 연결, 데스크톱 SSO, AZURE ad에 대 한 Microsoft Passport, 관리자 bitlocker 복구](../../active-directory/active-directory-whatis.md), [MDM 자동 등록, 셀프 서비스 Bitlocker 복구, azure Ad 조인을 통해 Windows 10 장치에 로컬 관리자 추가](../../active-directory/active-directory-whatis.md)|
+|   [디렉터리 개체](../../active-directory/active-directory-whatis.md), [사용자/그룹 관리 (추가/업데이트/삭제)/사용자 기반 프로 비전, 장치 등록](../../active-directory/active-directory-whatis.md), [sso (Single sign-on](../../active-directory/active-directory-whatis.md)), [클라우드 사용자를 위한 셀프 서비스 암호 변경](../../active-directory/active-directory-whatis.md), [연결 (온-프레미스 디렉터리를 Azure Active Directory으로 확장 하는 동기화 엔진)](../../active-directory/active-directory-whatis.md), [보안/사용 보고서](../../active-directory/active-directory-whatis.md)       |   [그룹 기반 액세스 관리/프로 비전](../../active-directory/active-directory-whatis.md), [클라우드 사용자를 위한 셀프 서비스 암호 재설정](../../active-directory/active-directory-whatis.md), [회사 브랜딩 (로그온 페이지/액세스 패널 사용자 지정)](../../active-directory/active-directory-whatis.md), [응용 프로그램 프록시](../../active-directory/active-directory-whatis.md), [SLA 99.9%](../../active-directory/active-directory-whatis.md) |  [셀프 서비스 그룹 및 앱 관리/셀프 서비스 응용 프로그램 추가/동적 그룹](../../active-directory/active-directory-whatis.md), [셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 복원](../../active-directory/active-directory-whatis.md), [Multi-Factor Authentication (클라우드 및 온-프레미스 (MFA 서버))](../../active-directory/active-directory-whatis.md), [mim CAL + mim 서버](../../active-directory/active-directory-whatis.md), [Cloud App Discovery](../../active-directory/active-directory-whatis.md), [Connect Health](../../active-directory/active-directory-whatis.md), [그룹 계정에 대 한 자동 암호 롤오버](../../active-directory/active-directory-whatis.md)|    [Id 보호](../../active-directory/identity-protection/overview.md), [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)|   Azure ad에 [장치 연결, 데스크톱 SSO, AZURE ad에 대 한 Microsoft Passport, 관리자 bitlocker 복구](../../active-directory/active-directory-whatis.md), [MDM 자동 등록, 셀프 서비스 Bitlocker 복구, azure Ad 조인을 통해 Windows 10 장치에 로컬 관리자 추가](../../active-directory/active-directory-whatis.md)|
 
 
 - [클라우드 앱 검색](../../active-directory/cloudappdiscovery-get-started.md) - 조직의 직원이 사용하는 클라우드 애플리케이션을 식별할 수 있게 하는 Azure Active Directory의 프리미엄 기능입니다.
 
-- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) 은 Azure Active Directory 변칙 검색 기능을 사용 하 여 조직에 영향을 줄 수 있는 위험 검색 및 잠재적 취약성에 대 한 통합 보기를 제공 하는 보안 서비스입니다. 신원을.
+- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) 은 Azure Active Directory 변칙 검색 기능을 사용 하 여 조직의 id에 영향을 줄 수 있는 위험 검색 및 잠재적 취약성에 대 한 통합 보기를 제공 하는 보안 서비스입니다.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) - 도메인 컨트롤러를 배포하지 않아도 Azure VM을 도메인에 조인할 수 있게 합니다. 사용자는 회사 Active Directory 자격 증명을 사용하여 이러한 VM에 로그인하고 리소스에 원활하게 액세스할 수 있습니다.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c26e5c6b4bd484b643182e9e4ade3d71929fdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 638a90615d248b3c2829770432dd6a08eb4bb2fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486210"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771737"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services-관리자 가이드
 조직의 클라우드 리소스를 관리 하는 IT (정보 기술) 관리자는 일반적으로 조직의 랩 계정을 설정 해야 합니다. 관리자 또는 교육자가 랩 계정에 교실 랩을 만듭니다. 이 문서에서는 관련 된 Azure 리소스 및 해당 리소스를 만들기 위한 지침에 대 한 개략적인 개요를 제공 합니다.
@@ -68,7 +68,7 @@ ms.locfileid: "75486210"
 - **랩 계정 별로 예산 분리**
 
     단일 랩 계정에 대해 모든 교실 랩 비용을 보고 하는 대신, 보다 명확 하 게 분리 된 예산이 필요할 수 있습니다. 위의 글머리 기호 예제를 계속 진행 하면 각 대학 부서에 대 한 랩 계정을 만들어 예산을 적절 하 게 구분할 수 있습니다. 그런 다음 Azure Cost Management를 사용 하 여 각 개별 랩 계정에 대 한 비용을 볼 수 있습니다.
-• **파일럿 랩을 활성 랩에서 격리**
+- **활성 랩에서 파일럿 랩 격리**
 
     잠재적으로 활성 랩에 영향을 주지 않고 랩 계정에 대 한 정책 변경을 파일럿 하려는 경우가 있을 수 있습니다. 이러한 유형의 시나리오에서는 파일럿을 위해 별도의 랩 계정을 만들면 변경 내용을 격리할 수 있습니다. 
 

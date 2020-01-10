@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/09/2019
-ms.openlocfilehash: ce51923dbc6f909adad1df5a8c0bcd0723371970
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 125450394a829667d45479e6e0b7844a0357f009
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435842"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750007"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
 
@@ -86,7 +86,7 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
           <credential name="metastore_token" type="hcat">
              <property>
                 <name>hcat.metastore.uri</name>
-                <value>thrift://hn0-<clustername>.<Domain>.com:9083</value>
+                <value>thrift://<active-headnode-name>-<clustername>.<Domain>.com:9083</value>
              </property>
              <property>
                 <name>hcat.metastore.principal</name>
@@ -214,6 +214,23 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
 
 2. nano 편집기가 열리면 파일 내용으로 다음 XML을 사용합니다.
 
+<<<<<<< 헤드
+   ```bash
+       nameNode=adl://home
+       jobTracker=headnodehost:8050
+       queueName=default
+       examplesRoot=examples
+       oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+       hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+       hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
+       oozie.use.system.libpath=true
+       user.name=[domainuser]
+       jdbcPrincipal=hive/<active-headnode-name>.<Domain>.com@<Domain>.COM
+       jdbcURL=[jdbcurlvalue]
+       hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+       hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+   ```
+=======
     ```bash
     nameNode=adl://home
     jobTracker=headnodehost:8050
@@ -229,6 +246,7 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
     hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
     hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
     ```
+>>>>>>> 0650d78429b6d1b43cddf90fc713eb4050d71eef
 
    - Azure Data Lake Storage Gen1을 기본 클러스터 스토리지로 사용하는 경우 `nameNode` 속성에 대해 `adl://home` URI를 사용합니다. Azure Blob Storage 사용 하는 경우이를 `wasb://home`으로 변경 합니다. Azure Data Lake Storage Gen2 사용 하는 경우이를 `abfs://home`으로 변경 합니다.
    - `domainuser`를 도메인에 대한 사용자 이름으로 바꿉니다.  

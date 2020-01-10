@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 01/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3ce1096129d7fb45901d80b0173035dcca47c3ee
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ab44d5358154c17622eef68205ac2326e81377a0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74080373"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770971"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -282,7 +282,7 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
 ```azurepowershell-interactive
-get-help get-azurededicatedcircuit -detailed
+get-help Get-AzExpressRouteCircuit -detailed
 ```
 
 ## <a name="modify"></a>ExpressRoute 회로 수정

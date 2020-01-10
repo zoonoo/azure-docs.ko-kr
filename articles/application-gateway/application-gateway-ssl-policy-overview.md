@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 6b3d52f1f6bd0390ab6ccafa80b2979cb0e498fd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: fe70bd5994d835bdc2651a64d35c988ea38b8511
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130414"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770036"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Application Gateway SSL 정책 개요
 
@@ -39,7 +39,7 @@ Application Gateway에는 세 가지 미리 정의된 보안 정책이 있습니
 |   ---      |  ---       |
 |이름     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
-|기본값| False |
+|기본값| 거짓 |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
@@ -48,7 +48,7 @@ Application Gateway에는 세 가지 미리 정의된 보안 정책이 있습니
 |---|---|
 |이름     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
-|기본값| False |
+|기본값| 거짓 |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
 ## <a name="custom-ssl-policy"></a>SSL 정책 사용자 지정
@@ -97,6 +97,17 @@ Application Gateway는 사용자 지정 정책을 선택할 수 있는 다음과
 
 > [!NOTE]
 > 연결에 사용 되는 SSL 암호 그룹은 사용 중인 인증서의 형식에 따라 달라 집니다. 클라이언트에서 응용 프로그램 게이트웨이 연결에 사용 되는 암호 그룹은 application gateway 수신기의 서버 인증서 유형에 따라 달라 집니다. 백 엔드 풀 연결에 대 한 application gateway에서 사용 되는 암호 그룹은 백 엔드 풀 서버에 있는 서버 인증서의 유형을 기반으로 합니다.
+
+## <a name="known-issue"></a>알려진 문제
+Application Gateway v2는 현재 다음 암호화를 지원 하지 않습니다.
+- DHE-AES128-GCM-SHA256
+- DHE-RSA-AES128-SHA
+- DHE-GCM-SHA384
+- DHE-RSA-AES256-SHA
+- DHE-AES128-SHA256
+- DHE-AES128-SHA
+- DHE-AES256-SHA256
+- DHE-AES256-SHA
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 1/8/2020
 ms.author: sutalasi
-ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9fe3b4c0b7acc9c1e980d5885043d30503c211c4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954204"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754486"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -48,25 +48,26 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 **URL** | **세부 정보**  
 --- | ---
-*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있는 경우 *. blob.core.windows.net 대신 특정 저장소 계정 Url (예: cache1.blob.core.windows.net 및 cache2.blob.core.windows.net)에 대 한 액세스를 허용할 수 있습니다.
+\*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있는 경우 *. blob.core.windows.net 대신 특정 저장소 계정 Url (예: cache1.blob.core.windows.net 및 cache2.blob.core.windows.net)에 대 한 액세스를 허용할 수 있습니다.
 login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다.
-*.hypervrecoverymanager.windowsazure.com | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 Ip를 지 원하는 경우 해당 ' Site Recovery IP '를 사용할 수 있습니다.
-*.servicebus.windows.net | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시가 ip를 지 원하는 경우 해당 ' Site Recovery 모니터링 IP '를 사용할 수 있습니다.
+\*.hypervrecoverymanager.windowsazure.com | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 Ip를 지 원하는 경우 해당 ' Site Recovery IP '를 사용할 수 있습니다.
+\*.servicebus.windows.net | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시가 ip를 지 원하는 경우 해당 ' Site Recovery 모니터링 IP '를 사용할 수 있습니다.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
-IP 기반 방화벽 프록시 또는 NSG 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 IP 범위를 허용해야 합니다.
+IP 기반 방화벽 프록시 또는 NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 이러한 IP 범위를 허용 해야 합니다.
 
 - 원본 지역의 스토리지 계정 해당하는 모든 IP 주소 범위
     - 원본 지역에 대한 NSG 규칙을 기반으로 [스토리지 서비스 태그](../virtual-network/security-overview.md#service-tags)를 만듭니다.
     - VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 이러한 주소를 허용합니다.
 - AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
     - 나중에 AAD(Azure Active Directory)에 새 주소가 추가될 때 새 NSG 규칙을 만들어야 합니다.
-- Site Recovery 서비스 엔드포인트 IP 주소는 [XML 파일로 제공](https://aka.ms/site-recovery-public-ips)되며 대상 위치에 따라 달라집니다. 
+- 대상 지역에 대 한 EventsHub 서비스 태그 기반 NSG 규칙을 만들어 Site Recovery 모니터링에 대 한 액세스를 허용 합니다.
+- 모든 지역에서 Site Recovery 서비스에 대 한 액세스를 허용 하는 NSG 규칙을 기반으로 AzureSiteRecovery 서비스 태그를 만듭니다.
 - 프로덕션 NSG에서 규칙을 만들기 전에 테스트 NSG에서 필요한 NSG 규칙을 만들고 문제가 없는지 확인하는 것이 좋습니다.
 
 
-Site Recovery IP 주소 범위는 다음과 같습니다.
+Site Recovery IP 주소 범위 (권장 하지 않음)를 사용 하려는 경우 아래 표를 참조 하세요.
 
    **대상** | **Site Recovery IP** |  **Site Recovery 모니터링 IP**
    --- | --- | ---
@@ -75,7 +76,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    인도 중부 | 52.172.187.37 | 104.211.98.185
    인도 남부 | 52.172.46.220 | 104.211.224.190
    미국 중북부 | 23.96.195.247 | 168.62.249.226
-   유럽 북부 | 40.69.212.238 | 52.169.18.8
+   북유럽 | 40.69.212.238 | 52.169.18.8
    서유럽 | 52.166.13.64 | 40.68.93.145
    미국 동부 | 13.82.88.226 | 104.45.147.24
    미국 서부 | 40.83.179.48 | 104.40.26.199
@@ -101,14 +102,14 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    프랑스 남부 | 52.136.139.227 |52.136.136.62
    오스트레일리아 중부| 20.36.34.70 | 20.36.46.142
    오스트레일리아 중부 2| 20.36.69.62 | 20.36.74.130
-   남아프리카 서부 | 102.133.72.51 | 102.133.26.128
+   남아프리카 공화국 서부 | 102.133.72.51 | 102.133.26.128
    남아프리카 공화국 북부 | 102.133.160.44 | 102.133.154.128
-   미국 정부 버지니아 | 52.227.178.114 | 23.97.0.197
+   US Gov 버지니아 | 52.227.178.114 | 23.97.0.197
    US Gov 아이오와 | 13.72.184.23 | 23.97.16.186
-   미국 정부 애리조나 | 52.244.205.45 | 52.244.48.85
-   미국 정부 텍사스 | 52.238.119.218 | 52.238.116.60
-   미국 국방부 동부 | 52.181.164.103 | 52.181.162.129
-   미국 국방부 중부 | 52.182.95.237 | 52.182.90.133
+   US Gov 애리조나 | 52.244.205.45 | 52.244.48.85
+   US Gov 텍사스 | 52.238.119.218 | 52.238.116.60
+   US DoD 동부 | 52.181.164.103 | 52.181.162.129
+   US DoD 중부 | 52.182.95.237 | 52.182.90.133
    중국 북부 | 40.125.202.254 | 42.159.4.151
    중국 북부 2 | 40.73.35.193 | 40.73.33.230
    중국 동부 | 42.159.205.45 | 42.159.132.40
@@ -137,11 +138,9 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. 대상 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
+3. 위의 보안 규칙과 마찬가지로 대상 위치에 해당 하는 NSG에서 "CentralUS"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 Site Recovery 모니터링에 액세스할 수 있습니다.
 
-   **위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
-    --- | --- | ---
-   미국 중부 | 40.69.144.231 | 52.165.34.144
+4. NSG에서 "AzureSiteRecovery"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 모든 지역에서 Site Recovery 서비스에 액세스할 수 있습니다.
 
 ### <a name="nsg-rules---central-us"></a>NSG 규칙 - 미국 중부
 
@@ -151,12 +150,9 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
 2. NSG에서 “AzureActiveDirectory”에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다.
 
-3. 원본 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
+3. 위의 보안 규칙과 마찬가지로, 원본 위치에 해당 하는 NSG에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 Site Recovery 모니터링에 액세스할 수 있습니다.
 
-   **위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
-    --- | --- | ---
-   미국 동부 | 13.82.88.226 | 104.45.147.24
-
+4. NSG에서 "AzureSiteRecovery"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 모든 지역에서 Site Recovery 서비스에 액세스할 수 있습니다.
 
 ## <a name="network-virtual-appliance-configuration"></a>네트워크 가상 어플라이언스 구성
 
@@ -175,11 +171,11 @@ NVA(네트워크 가상 어플라이언스)를 사용하여 VM에서 아웃바�
 >[!NOTE]
 >ASR에 사용되는 스토리지 계정에 대한 가상 네트워크 액세스를 제한하지 마십시오. '모든 네트워크'에서 액세스를 허용해야 합니다.
 
-### <a name="forced-tunneling"></a>강제 터널링
+### <a name="forced-tunneling"></a>터널링 적용
 
 [사용자 지정 경로](../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 사용하여 Azure 기본 시스템 경로의 0.0.0.0/0 주소 접두사를 재정의하고 VM 트래픽을 온-프레미스 NVA(네트워크 가상 어플라이언스)로 우회시킬 수 있지만 Site Recovery 복제에는 이 구성이 권장되지 않습니다. 사용자 지정 경로를 사용하는 경우 복제 트래픽이 Azure 경계를 나가지 않도록 "Storage"에 대한 가상 네트워크에서 [가상 네트워크 서비스 엔드포인트를 생성](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Virtual Machines를 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
+- [Azure 가상 머신을 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
 - Azure 가상 머신 장애 조치(failover)를 위한 [IP 주소 보존](site-recovery-retain-ip-azure-vm-failover.md)에 대해 자세히 알아보세요.
 - [Express 경로를 사용 하 여 Azure virtual machines](azure-vm-disaster-recovery-with-expressroute.md)의 재해 복구에 대해 자세히 알아보세요.

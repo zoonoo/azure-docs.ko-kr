@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e9779f612bc4a2521459bf76a6e2b399fc89e07
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894133"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750991"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 데이터 플랫폼
 
@@ -48,7 +48,7 @@ Azure Monitor 메트릭은 타임 스탬프 데이터를 분석 하는 데 최�
 Azure Monitor의 로그는 강력한 분석 엔진과 [풍부한 쿼리 언어](/azure/kusto/query/)를 제공 하는 [Azure 데이터 탐색기](/azure/data-explorer/) 을 기반으로 하는 Log Analytics 작업 영역에 저장 됩니다. 일반적으로 로그는 식별 되는 문제의 전체 컨텍스트를 제공 하는 데 충분 한 정보를 제공 하며 문제의 근본 사례를 식별 하는 데 중요 합니다.
 
 > [!NOTE]
-> Azure에서 Azure Monitor 로그와 로그 데이터의 원본을 구분 하는 것이 중요 합니다. 예를 들어 Azure의 구독 수준 이벤트는 Azure Monitor 메뉴에서 볼 수 있는 [활동 로그](activity-logs-overview.md) 에 기록 됩니다. 대부분의 리소스는 다른 위치로 전달할 수 있는 [리소스 로그](resource-logs-overview.md) 에 작업 정보를 기록 합니다. Azure Monitor 로그는 다른 모니터링 데이터와 함께 활동 로그 및 리소스 로그를 수집 하 여 전체 리소스 집합에 대 한 심층 분석을 제공 하는 로그 데이터 플랫폼입니다.
+> Azure에서 Azure Monitor 로그와 로그 데이터의 원본을 구분 하는 것이 중요 합니다. 예를 들어 Azure의 구독 수준 이벤트는 Azure Monitor 메뉴에서 볼 수 있는 [활동 로그](platform-logs-overview.md) 에 기록 됩니다. 대부분의 리소스는 다른 위치로 전달할 수 있는 [리소스 로그](platform-logs-overview.md) 에 작업 정보를 기록 합니다. Azure Monitor 로그는 다른 모니터링 데이터와 함께 활동 로그 및 리소스 로그를 수집 하 여 전체 리소스 집합에 대 한 심층 분석을 제공 하는 로그 데이터 플랫폼입니다.
 
 
  Azure Portal에서 [Log Analytics](../log-query/portals.md) 를 사용 하 여 대화형으로 [로그 쿼리](../log-query/log-query-overview.md) 를 작업 하거나 다른 데이터와 함께 시각화를 위해 [Azure 대시보드에](../learn/tutorial-app-dashboards.md) 결과를 추가할 수 있습니다. 또한 일정 쿼리의 결과에 따라 경고를 트리거하는 [로그 경고](alerts-log.md) 를 만들 수 있습니다.
@@ -67,7 +67,7 @@ Azure Monitor의 분산 추적은 [APPLICATION INSIGHTS SDK](../app/distributed-
 
 다음 표에서는 Azure Monitor의 메트릭과 로그를 비교 합니다.
 
-| 특성  | 메트릭 | 로그 |
+| attribute  | 메트릭 | 로그 |
 |:---|:---|:---|
 | 혜택 | 경량 이며 경고와 같은 거의 실시간 시나리오를 지원 합니다. 문제를 신속 하 게 검색 하는 데 적합 합니다. | 풍부한 쿼리 언어를 사용 하 여 분석 됩니다. 심층 분석 및 근본 원인을 식별 하는 데 적합 합니다. |
 | 데이터 | 숫자 값만 | 텍스트 또는 숫자 데이터 |

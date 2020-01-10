@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 20d269c1614c82c8783d0e65149961c118c16a95
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 45b7b419277d338d70cf285838103f97d4eb5c3a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559226"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749672"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Azure Security Center에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 사용자 데이터 관리에는 데이터에 액세스하거나, 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
@@ -97,7 +97,7 @@ Security Center 사용자는 해당 [보안 연락처 데이터](security-center
 [경고 데이터](security-center-managing-and-responding-alerts.md)는 보안 데이터로 간주되고 2년 동안 유지됩니다.
 
 ## <a name="auditing-and-reporting"></a>감사 및 보고
-보안 연락처, just-in-time 및 경고 업데이트의 감사 로그는 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md)에서 유지 관리 됩니다.
+보안 연락처, just-in-time 및 경고 업데이트의 감사 로그는 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에서 유지 관리 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 사용자 데이터를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center 조사에서 찾은 사용자 데이터 관리](security-center-investigation-user-data.md)를 참조하세요.

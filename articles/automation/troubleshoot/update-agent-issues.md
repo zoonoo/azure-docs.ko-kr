@@ -1,6 +1,6 @@
 ---
-title: Azure의 Windows Hybrid Runbook Worker 상태 이해 업데이트 관리
-description: 업데이트 관리를 지 원하는 Windows에서 Hybrid Runbook Worker 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
+title: Windows Hybrid Runbook Worker 진단-Azure 업데이트 관리
+description: 업데이트 관리를 지 원하는 Windows의 Azure Automation Hybrid Runbook Worker 문제를 해결 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfc2c4a660afa4341a676fc79ab447c8cb86d5e1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850128"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769815"
 ---
-# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>업데이트 관리의 Windows Hybrid Runbook Worker 상태 이해
+# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>업데이트 관리에서 Windows Hybrid Runbook Worker 상태 이해 및 해결
 
 업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 Hybrid Runbook Worker 에이전트의 상태를 확인 하 여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다.
 
@@ -52,7 +52,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나를 실행 하 고 있는지 여부를 확인 합니다.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | 업데이트 평가만 지원합니다.         |
 |Windows Server 2008 R2 SP1 이상 |.NET Framework 4.6 이상이 필요 합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c72357b0e60f36082a468063ecf2bca329cd70be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68d37bfbc629062a788ba32793b95c6f1653ff42
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355297"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749646"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -44,7 +44,7 @@ Security Center는 Microsoft Monitoring Agent를 사용 하 여 데이터를 수
 
 ## <a name="audit-log"></a>감사 로그
 
-Security Center에서 수행되는 대부분의 문제 해결은 실패한 구성 요소에 대한 [감사 로그](../azure-monitor/platform/activity-logs-overview.md) 기록을 먼저 확인하여 수행됩니다. 감사 로그를 통해 다음을 확인할 수 있습니다.
+Security Center에서 수행되는 대부분의 문제 해결은 실패한 구성 요소에 대한 [감사 로그](../azure-monitor/platform/platform-logs-overview.md) 기록을 먼저 확인하여 수행됩니다. 감사 로그를 통해 다음을 확인할 수 있습니다.
 
 * 수행된 작업
 * 작업을 시작한 사람

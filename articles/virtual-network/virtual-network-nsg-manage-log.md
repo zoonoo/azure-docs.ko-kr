@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 55fc18a718d0c69ba90a86ff6aea00d32a8f465b
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196742"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751189"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 진단 로깅
 
@@ -29,7 +29,7 @@ NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 �
 
 진단 로그는 Azure Resource Manager 배포 모델을 통해 배포된 NSG에 대해서만 사용할 수 있습니다. 클래식 배포 모델을 통해 배포된 NSG에 대해 진단 로깅을 사용할 수 없습니다. 두 모델의 이해를 돕기 위해 [Azure 배포 모델 이해](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
-진단 로깅은 진단 데이터를 수집하려는 *각* NSG에 대해 별도로 활성화됩니다. 운영 또는 활동, 로그에 대신 관심이 있는 경우 Azure [활동 로깅](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+진단 로깅은 진단 데이터를 수집하려는 *각* NSG에 대해 별도로 활성화됩니다. 운영 또는 활동, 로그에 대신 관심이 있는 경우 Azure [활동 로깅](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 ## <a name="enable-logging"></a>로깅 사용
 
@@ -57,7 +57,7 @@ NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 컴퓨터에서 PowerShell을 실행하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우에는 `Connect-AzAccount`를 실행 하 여 [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 Azure에 로그인 해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우에는 `Connect-AzAccount`를 실행 하 여 [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 Azure에 로그인 해야 합니다.
 
 진단 로깅을 활성화하려면 기존 NSG의 ID가 필요합니다. 기존 NSG가 없는 경우 [AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)를 사용 하 여 만들 수 있습니다.
 
@@ -88,7 +88,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 `-Categories`NetworkSecurityGroupEvent*또는*NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에*  옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
+둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에 `-Categories` 옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
 
 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
 
@@ -138,7 +138,7 @@ az monitor diagnostic-settings create \
 
 JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
-### <a name="event"></a>행사
+### <a name="event"></a>이벤트
 
 이벤트 로그는 MAC 주소에 따라 VM에 적용될 NSG 규칙에 대한 정보를 포함합니다. 다음 데이터는 각 이벤트에 대해 기록됩니다. 다음 예제에서 데이터는 IP 주소 192.168.1.4 및 00-0D-3A-92-6A-7C의 MAC 주소로 가상 머신에 대해 기록됩니다.
 
@@ -198,7 +198,7 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
 ## <a name="view-and-analyze-logs"></a>로그 보기 및 분석
 
-진단 로그 데이터를 보는 방법을 알아보려면 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 다음으로 진단 데이터를 보내는 경우:
+진단 로그 데이터를 보는 방법을 알아보려면 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 다음으로 진단 데이터를 보내는 경우:
 - **Azure Monitor 로그**: 향상 된 정보를 위해 [네트워크 보안 그룹 분석](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) 솔루션을 사용할 수 있습니다. 솔루션은 가상 머신에서 네트워크 인터페이스의 MAC 주소당 트래픽을 허용하거나 거부하는 NSG 규칙에 대한 시각화를 제공합니다.
 - **Azure Storage 계정**: PT1H.json 파일에 데이터가 기록됩니다. 다음을 찾을 수 있습니다.
@@ -207,7 +207,7 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 이전에 감사 또는 작업 로그로 알려진 [작업 로깅](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아봅니다. 활동 로깅은 Azure 배포 모델 중 하나를 통해 만든 NSG에 대해 기본적으로 사용됩니다. 활동 로그의 NSG 내에서 완료된 작업을 확인하려면 다음과 같은 리소스 유형을 포함하는 항목을 찾습니다.
+- 이전에 감사 또는 작업 로그로 알려진 [작업 로깅](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아봅니다. 활동 로깅은 Azure 배포 모델 중 하나를 통해 만든 NSG에 대해 기본적으로 사용됩니다. 활동 로그의 NSG 내에서 완료된 작업을 확인하려면 다음과 같은 리소스 유형을 포함하는 항목을 찾습니다.
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

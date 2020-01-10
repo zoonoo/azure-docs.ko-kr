@@ -16,19 +16,19 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ff6466ddc6b64dfe85ebfb190205859aeb39ad17
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 12a20abb4014712f26e5827bcd1d3c822e8b25a1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260831"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750716"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
-* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
-* **[진단 로그](../azure-monitor/platform/resource-logs-overview.md)** : 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)** : 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
 
@@ -54,7 +54,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
 새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
 
-진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)를 참조하세요.
+진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
 
 ## <a name="diagnostic-logs-categories"></a>진단 로그 범주
 
@@ -71,7 +71,7 @@ Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니�
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-이름 | 설명
+이름 | Description
 ------- | -------
 TaskName | 실패한 작업에 대한 설명입니다.
 ActivityId | 추적에 사용되는 내부 ID입니다.
@@ -109,7 +109,7 @@ category | ArchiveLogs
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-이름 | 설명
+이름 | Description
 ------- | -------
 ActivityId | 추적 목적에 사용되는 내부 ID입니다.
 EventName | 작업 이름입니다.  
@@ -117,8 +117,8 @@ resourceId | Azure Resource Manager 리소스 ID입니다.
 SubscriptionId | 구독 ID가 표시됩니다.
 EventTimeString | 작업 시간입니다.
 EventProperties | 작업 속성입니다.
-Status | 작업 상태입니다.
-호출자 | 작업 호출자(Azure Portal 또는 관리 클라이언트)입니다.
+상태 | 작업 상태입니다.
+Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)입니다.
 category | OperationalLogs
 
 다음 코드는 작업 로그 JSON 문자열에 대한 예입니다.

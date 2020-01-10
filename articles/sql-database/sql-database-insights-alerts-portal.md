@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810378"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745945"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 
@@ -60,7 +60,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 6. 경고가 발생했을 때 관리자 및 공동 관리자에게 이메일을 보내려면 **소유자에게 이메일 보내기...** 를 선택합니다.
 7. 경고가 발생했을 때 다른 이메일 주소에서 알림을 받으려면 해당 이메일을 **추가 관리자 이메일** 필드에 추가합니다. 여러 전자 메일을 세미콜론으로 구분 하 여 *전자 메일\@email2\@contoso.com* 를 사용 합니다.
 8. 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
-9. 경고 만들기가 완료되면 **확인** 을 선택합니다.   
+9. 경고 만들기가 완료되면 **확인**을 선택합니다.   
 
 앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
@@ -74,7 +74,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 ## <a name="sql-database-alert-values"></a>SQL Database 경고 값
 
-| 리소스 종류 | 메트릭 이름 | 친숙한 이름 | 집계 형식 | 최소 경고 시간 창|
+| 리소스 형식 | 메트릭 이름 | 친숙한 이름 | 집계 형식 | 최소 경고 시간 창|
 | --- | --- | --- | --- | --- |
 | SQL 데이터베이스 | cpu_percent | CPU 비율 | 평균 | 5분 |
 | SQL 데이터베이스 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 5분 |
@@ -92,16 +92,16 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 | SQL 데이터베이스 | dtu_limit | DTU 제한 | 평균 | 5분 |
 | SQL 데이터베이스 | dtu_used | DTU 사용됨 | 평균 | 5분 |
 ||||||
-| 탄력적 풀 | cpu_percent | CPU 비율 | 평균 | 10분 |
-| 탄력적 풀 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |
-| 탄력적 풀 | log_write_percent | 로그 IO 비율 | 평균 | 10분 |
-| 탄력적 풀 | dtu_consumption_percent | DTU 비율 | 평균 | 10분 |
-| 탄력적 풀 | storage_percent | 스토리지 비율 | 평균 | 10분 |
-| 탄력적 풀 | workers_percent | 작업자 백분율 | 평균 | 10분 |
-| 탄력적 풀 | eDTU_limit | eDTU 제한 | 평균 | 10분 |
-| 탄력적 풀 | storage_limit | 스토리지 제한 | 평균 | 10분 |
-| 탄력적 풀 | eDTU_used | eDTU 사용 | 평균 | 10분 |
-| 탄력적 풀 | storage_used | 스토리지 사용됨 | 평균 | 10분 |
+| Elastic Pool | cpu_percent | CPU 비율 | 평균 | 10분 |
+| Elastic Pool | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |
+| Elastic Pool | log_write_percent | 로그 IO 비율 | 평균 | 10분 |
+| Elastic Pool | dtu_consumption_percent | DTU 비율 | 평균 | 10분 |
+| Elastic Pool | storage_percent | 스토리지 비율 | 평균 | 10분 |
+| Elastic Pool | workers_percent | 작업자 백분율 | 평균 | 10분 |
+| Elastic Pool | eDTU_limit | eDTU 제한 | 평균 | 10분 |
+| Elastic Pool | storage_limit | 스토리지 제한 | 평균 | 10분 |
+| Elastic Pool | eDTU_used | eDTU 사용 | 평균 | 10분 |
+| Elastic Pool | storage_used | 사용된 스토리지 | 평균 | 10분 |
 ||||||               
 | SQL 데이터 웨어하우스 | cpu_percent | CPU 비율 | 평균 | 10분 |
 | SQL 데이터 웨어하우스 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |
@@ -118,5 +118,5 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 ## <a name="next-steps"></a>다음 단계
 * [Azure 모니터링 개요](../monitoring-and-diagnostics/monitoring-overview.md) 를 확인합니다.
 * [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
-* 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그](../azure-monitor/platform/resource-logs-overview.md) 의 개요를 살펴봅니다.
+* 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그](../azure-monitor/platform/platform-logs-overview.md) 의 개요를 살펴봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.

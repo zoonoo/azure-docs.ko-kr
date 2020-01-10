@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: ff42c6e9bd3c25721d2b77e49c2dd98a3eebdb43
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f5fa39e07eba6bdf24d96e72c9229e215ff6730b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048737"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772043"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
 Azure 표준 Load Balancer는 다음과 같은 진단 기능을 제공 합니다.
 
-* **다차원 메트릭 및 경고**: 표준 부하 분산 장치 구성에 대 한 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 를 통해 새로운 다차원 진단 기능을 제공 합니다. 표준 부하 분산 장치 리소스를 모니터링 하 고 관리 하 고 문제를 해결할 수 있습니다.
+* **다차원 메트릭 및 경고**: 표준 부하 분산 장치 구성에 대 한 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 를 통해 다차원 진단 기능을 제공 합니다. 표준 부하 분산 장치 리소스를 모니터링 하 고 관리 하 고 문제를 해결할 수 있습니다.
 
 * **리소스 상태**: Azure Portal 및 Resource Health 페이지의 Load Balancer 페이지 (모니터 아래)는 표준 Load Balancer에 대 한 Resource Health 섹션을 노출 합니다. 
 
@@ -31,11 +31,11 @@ Azure 표준 Load Balancer는 다음과 같은 진단 기능을 제공 합니다
 
 ## <a name = "MultiDimensionalMetrics"></a>다차원 메트릭
 
-Azure Load Balancer은 Azure Portal에서 새로운 Azure 메트릭을 통해 새로운 다차원 메트릭을 제공 하며, 부하 분산 장치 리소스에 대 한 실시간 진단 정보를 얻을 수 있도록 도와줍니다. 
+Azure Load Balancer는 Azure Portal의 Azure 메트릭을 통해 다차원 메트릭을 제공 하 고 부하 분산 장치 리소스에 대 한 실시간 진단 정보를 얻을 수 있습니다. 
 
 다양한 표준 Load Balancer 구성에서는 다음 메트릭을 제공합니다.
 
-| 메트릭 | 리소스 형식 | 설명 | 권장 집계 |
+| 메트릭 | 리소스 유형 | Description | 권장 집계 |
 | --- | --- | --- | --- |
 | 데이터 경로 가용성 (VIP 가용성)| 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 지역 내에서 부하 분산 장치 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 애플리케이션 부하가 분산된 트래픽과 동일한 경로를 따릅니다. 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 애플리케이션에 표시되지 않으며 다른 작업을 방해하지 않습니다.| 평균 |
 | 상태 프로브 상태 (DIP 가용성) | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 구성 설정에 따라 애플리케이션 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 부하 분산 장치 풀에서 각 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다. 상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다. |  평균 |
@@ -193,9 +193,9 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
  
 다음 표에는 다양한 리소스 상태와 해당 설명이 나와 있습니다. 
 
-| Resource Health 상태 | 설명 |
+| Resource Health 상태 | Description |
 | --- | --- |
-| 사용 가능 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
+| 사용할 수 있음 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
 | 사용할 수 없음 | 표준 부하 분산 장치 리소스가 정상이 아닙니다. **Azure Monitor** > **메트릭**을 선택하여 상태를 진단합니다.<br>(*사용할 수 없음* 상태는 리소스가 표준 부하 분산 장치에 연결 되지 않은 것일 수도 있습니다.) |
 | 알 수 없음 | 표준 부하 분산 장치 리소스에 대 한 리소스 상태가 아직 업데이트 되지 않았습니다.<br>(*알 수 없음* 상태는 리소스가 표준 부하 분산 장치에 연결 되어 있지 않음을 의미할 수도 있습니다.)  |
 

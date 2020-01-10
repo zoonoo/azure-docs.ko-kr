@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 734bb48d1ddb50af7c28e948c8267b4cd88fcdf7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437037"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770988"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -48,6 +48,14 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 예. ExpressRoute 회로는 일단 설정되면 가상 네트워크 내 서비스와 다른 Azure 서비스에 동시에 액세스할 수 있습니다. 프라이빗 피어링 경로를 통해 가상 네트워크에 연결하고, Microsoft 피어링 경로를 통해 다른 서비스에 연결합니다.
 
+### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>Vnet는 Express 경로 개인 피어 링에서 보급 되는 방법
+
+Express 경로 게이트웨이는 Azure VNet의 *주소 공간* 을 보급 하므로 서브넷 수준에서 포함/제외할 수 없습니다. 항상 보급 된 VNet 주소 공간입니다. 또한 VNet 피어 링을 사용 하 고 피어 링 VNet에 "원격 게이트웨이 사용"이 사용 하도록 설정 된 경우 피어 링 VNet의 주소 공간도 보급 됩니다.
+
+### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>온-프레미스 네트워크에서 오는 경로를 필터링 할 수 있나요?
+
+경로를 필터링/포함 하는 유일한 방법은 온-프레미스에 지 라우터에 있습니다. VNet에서 사용자 정의 경로를 추가 하 여 특정 라우팅에 영향을 줄 수 있지만이 경로는 BGP 보급 알림의 일부가 아니라 정적입니다.
+
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute는 SLA(서비스 수준 약정)를 제공하나요?
 
 자세한 내용은 [ExpressRoute SLA](https://azure.microsoft.com/support/legal/sla/) 페이지를 참조하세요.
@@ -73,7 +81,8 @@ Azure Microsoft 피어 링에 대해 Express 경로 회로를 사용 하도록 �
 * Azure Active Directory
 * [Windows 가상 데스크톱](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
-* 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.
+* IaaS (Virtual Machines, Virtual Network 게이트웨이, 부하 분산 장치 등) 용 Azure 공용 IP 주소  
+* 대부분의 다른 Azure 서비스도 지원 됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.
 
 **지원 되지 않음:**
 

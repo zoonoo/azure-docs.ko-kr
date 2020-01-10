@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538784"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768720"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -48,9 +48,9 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 > [!NOTE]
 > 규칙 작성기가 텍스트 상자에 생성 된 일부 규칙을 표시 하지 못할 수 있습니다. 규칙 작성기에서 규칙을 표시할 수 없는 경우 메시지가 표시 될 수 있습니다. 규칙 빌더는 지원 되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경 하지 않습니다.
 
-자세한 단계별 지침은 [동적 그룹 업데이트](groups-update-rule.md)를 참조 하세요.
+자세한 단계별 지침은 [동적 그룹 만들기 또는 업데이트](groups-create-rule.md)를 참조 하세요.
 
-![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-update-rule/update-dynamic-group-rule.png)
+![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
 ### <a name="rule-syntax-for-a-single-expression"></a>단일 식에 대 한 규칙 구문
 
@@ -68,9 +68,9 @@ user.department -eq "Sales"
 
 사용자 또는 디바이스를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
 
-- 자산
+- 속성
 - 연산자
-- Value
+- 값
 
 식 내에서 이 세 부분의 순서는 구문 오류를 방지하는 데 중요합니다.
 
@@ -78,29 +78,29 @@ user.department -eq "Sales"
 
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
-- Boolean
-- string
+- 부울
+- String
 - 문자열 컬렉션
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.
 
 ### <a name="properties-of-type-boolean"></a>부울 형식의 속성
 
-| properties | 허용되는 값 | 사용량 |
+| 속성 | 허용되는 값 | 사용량 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>문자열 형식의 속성
 
-| properties | 허용되는 값 | 사용량 |
+| 속성 | 허용되는 값 | 사용량 |
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 *null*입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 *null*입니다. |(user.country -eq "value") |
 | companyName | 임의의 문자열 값 또는 *null*입니다. | (user.companyName -eq "value") |
 | department |임의의 문자열 값 또는 *null*입니다. |(user.department -eq "value") |
-| displayName |임의의 문자열 값입니다. |(user.displayName -eq "value") |
-| employeeId |임의의 문자열 값입니다. |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
+| displayName |임의의 문자열 값 |(user.displayName -eq "value") |
+| employeeId |임의의 문자열 값 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |임의의 문자열 값 또는 *null*입니다. |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |임의의 문자열 값 또는 *null*입니다. |(user.givenName -eq "value") |
 | jobTitle |임의의 문자열 값 또는 *null*입니다. |(user.jobTitle -eq "value") |
@@ -119,14 +119,14 @@ user.department -eq "Sales"
 | surname |임의의 문자열 값 또는 *null*입니다. |(user.surname-eq "value") |
 | telephoneNumber |임의의 문자열 값 또는 *null*입니다. |(user.telephoneNumber -eq "value") |
 | usageLocation |두 자로 된 국가 코드 |(user.usageLocation -eq "US") |
-| userPrincipalName |임의의 문자열 값입니다. |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |임의의 문자열 값 |(user.userPrincipalName -eq "alias@domain") |
 | userType |member guest *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
 
-| properties | 허용되는 값 | 사용량 |
+| 속성 | 허용되는 값 | 사용량 |
 | --- | --- | --- |
-| otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
+| otherMails |임의의 문자열 값 |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 디바이스 규칙에 사용되는 속성은 [디바이스에 대한 규칙](#rules-for-devices)을 참조하세요.
@@ -142,7 +142,7 @@ user.department -eq "Sales"
 | 다음으로 시작 안 함 |-notStartsWith |
 | 시작 단어 |-startsWith |
 | 포함하지 않음 |-notContains |
-| contains |-contains |
+| 포함 |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
 | 그런 다음 | -in |
@@ -249,7 +249,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. 이 속성은 -any 및 -all 논리 연산자를 사용하여 멤버 자격 규칙을 만드는 데 사용할 수 있습니다.
 
-| properties | 값 | 사용량 |
+| 속성 | 값 | 사용량 |
 | --- | --- | --- |
 | assignedPlans | 컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -271,7 +271,7 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 
 이와 같은 규칙은 Office 365(또는 다른 Microsoft 온라인 서비스) 기능을 사용하도록 설정된 모든 사용자를 그룹화하는 데 사용할 수 있습니다. 그러면 일단의 정책을 그룹에 적용할 수 있습니다.
 
-#### <a name="example-2"></a>예 2
+#### <a name="example-2"></a>예제 2
 
 다음 식은 Intune 서비스("SCO" 서비스 이름으로 식별)와 연결된 서비스 계획이 있는 모든 사용자를 선택합니다.
 
@@ -369,11 +369,11 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 
 다음과 같은 디바이스 특성을 사용할 수 있습니다.
 
- 디바이스 특성  | 값 | 예제
+ 디바이스 특성  | 값 | 예
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | 임의의 문자열 값입니다. |(장치. displayName-eq "Rob iPhone")
- deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "iPad") -또는 (device.deviceOSType -eq "iPhone")<br>(Device.deviceostype-"AndroidEnterprise" 포함)<br>(Device.deviceostype-eq "AndroidForWork")
+ displayName | 임의의 문자열 값입니다. |(device.displayName -eq "Rob iPhone")
+ deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "iPad") -또는 (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | 임의의 문자열 값입니다. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | 유효한 디바이스 범주 이름 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 임의의 문자열 값입니다. | (device.deviceManufacturer -eq "Samsung")
@@ -385,7 +385,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  deviceId | 유효한 Azure AD 디바이스 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 유효한 Azure AD 개체 ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | Autopilot에서 사용 하는 모든 문자열 값 (예: 모든 Autopilot devices, OrderID 또는 PurchaseOrderID)  | (devicePhysicalIDs-any _-contains "[Zt\]") (devicePhysicalIds-any _-eq "[OrderID]: 179887111881") (devicePhysicalIds-any _-eq "[PurchaseOrderId]: 76222342342")
- systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (장치간 레이블-"M365Managed" 포함)
+ systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > 디바이스용 동적 그룹을 만들 때 deviceOwnership의 경우 값을 “Company”로 설정해야 합니다. Intune에서 디바이스 소유권이 Corporate로 대신 표시됩니다. 자세한 내용은 [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes)를 참조하세요. 

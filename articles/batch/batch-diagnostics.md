@@ -14,17 +14,17 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 616c5df38131d1b28387bcdda02c08b3a6825fb4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9412107759e0aa068d982828d47b97822c09ae35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530819"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748092"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
  
-이 문서에서는 [Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 배치 계정을 모니터링하는 방법을 설명합니다. Azure Monitor는 배치 계정의 리소스에 대해 [메트릭](../azure-monitor/platform/data-platform-metrics.md) 및 [진단 로그](../azure-monitor/platform/resource-logs-overview.md)를 수집합니다. 이 데이터를 다양한 방법으로 수집하고 사용하여 배치 계정을 모니터링하고 문제를 진단합니다. 또한 메트릭이 지정된 값에 도달할 때 알림을 받을 수 있도록 [메트릭 경고](../azure-monitor/platform/alerts-overview.md)를 구성할 수 있습니다. 
+이 문서에서는 [Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 배치 계정을 모니터링하는 방법을 설명합니다. Azure Monitor는 배치 계정의 리소스에 대해 [메트릭](../azure-monitor/platform/data-platform-metrics.md) 및 [진단 로그](../azure-monitor/platform/platform-logs-overview.md)를 수집합니다. 이 데이터를 다양한 방법으로 수집하고 사용하여 배치 계정을 모니터링하고 문제를 진단합니다. 또한 메트릭이 지정된 값에 도달할 때 알림을 받을 수 있도록 [메트릭 경고](../azure-monitor/platform/alerts-overview.md)를 구성할 수 있습니다. 
 
 ## <a name="batch-metrics"></a>일괄 처리 메트릭
 
@@ -109,7 +109,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
     ![일괄 처리 진단](media/batch-diagnostics/diagnostics-portal.png)
 
-로그 컬렉션을 사용하도록 설정하는 다른 옵션으로는 포털에서 Azure Monitor를 사용하여 진단 설정을 구성하거나, [Resource Manager 템플릿](../azure-monitor/platform/diagnostic-settings-template.md)을 사용하거나, Azure PowerShell 또는 Azure CLI를 사용하는 방법이 있습니다. [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/resource-logs-overview.md)을 참조하세요.
+로그 컬렉션을 사용하도록 설정하는 다른 옵션으로는 포털에서 Azure Monitor를 사용하여 진단 설정을 구성하거나, [Resource Manager 템플릿](../azure-monitor/platform/diagnostic-settings-template.md)을 사용하거나, Azure PowerShell 또는 Azure CLI를 사용하는 방법이 있습니다. [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/platform-logs-overview.md)을 참조하세요.
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>스토리지에서 진단 로그에 액세스

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 1/08/2020
 ms.author: raynew
-ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e5fdf0a14586a0a2ea97d222f4be481e8fe31e51
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621116"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754506"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -97,13 +97,13 @@ Site Recovery는 다음과 같이 스냅샷을 생성합니다.
 
 ### <a name="crash-consistent"></a>크래시 일관성
 
-**설명** | **세부 정보** | **권장 사항**
+**설명** | **세부 정보** | **권장**
 --- | --- | ---
 크래시 일관성 스냅샷은 스냅샷을 만들 때 디스크에 있는 데이터를 캡처합니다. 메모리의 데이터를 포함하지 않습니다.<br/><br/> VM이 충돌하거나 스냅샷이 생성된 순간 전원 코드를 서버에서 가져온 경우 존재하는 디스크의 데이터에 해당합니다.<br/><br/> 크래시 일관성은 운영 체제 또는 VM의 앱에 대한 데이터 일관성을 보장하지 않습니다. | Site Recovery는 기본적으로 5분마다 크래시 일관성 복구 지점을 만듭니다. 이 설정은 수정할 수 없습니다.<br/><br/>  | 오늘날 대부분의 앱은 크래시 일관성 지점에서도 제대로 복구할 수 있습니다.<br/><br/> 크래시 일관성 복구 지점은 일반적으로 운영 체제 및 DHCP 서버 및 인쇄 서버와 같은 앱의 복제를 위해 충분합니다.
 
 ### <a name="app-consistent"></a>앱 일치
 
-**설명** | **세부 정보** | **권장 사항**
+**설명** | **세부 정보** | **권장**
 --- | --- | ---
 앱 일치 복구 지점은 앱 일치 스냅샷에서 생성됩니다.<br/><br/> 앱 일치 스냅샷은 크래시 일관성 스냅샷의 모든 정보와 메모리의 모든 데이터 및 진행 중인 트랜잭션을 포함합니다. | 앱 일치 스냅샷은 VSS(볼륨 섀도 복사본 서비스)를 사용합니다.<br/><br/>   1) 스냅샷이 시작되면 VSS는 볼륨에 COW(기록 중 복사) 작업을 수행합니다.<br/><br/>   2) COW를 수행하기 전에 VSS는 머신의 모든 앱에 해당 메모리 상주 데이터를 디스크에 플러시해야 함을 알립니다.<br/><br/>   3) 그런 다음, VSS는 백업/재해 복구 앱(이 경우 Site Recovery)에서 스냅샷 데이터를 읽고 진행하도록 허용합니다. | 앱 일치 스냅샷은 지정하는 빈도에 따라 생성됩니다. 이 빈도는 항상 복구 지점 유지에 대한 설정보다 작아야 합니다. 예를 들어 24시간의 기본 설정을 사용하여 복구 지점을 보존하는 경우 빈도를 24시간 미만으로 설정해야 합니다.<br/><br/>크래시 일관성 스냅샷보다 더 복잡하며 완료하는 데 시간이 더 걸립니다.<br/><br/> 복제에 대해 활성화된 VM에서 실행되는 앱의 성능에 영향을 미칩니다. 
 
@@ -131,10 +131,10 @@ VM에 대한 아웃바운드 액세스가 URL로 제어되는 경우 다음 URL�
 
 | **URL** | **세부 정보** |
 | ------- | ----------- |
-| *.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
+| \*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
 | login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
-| *.hypervrecoverymanager.windowsazure.com | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
-| *.servicebus.windows.net | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
+| \*.hypervrecoverymanager.windowsazure.com | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
+| \*.servicebus.windows.net | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
@@ -145,17 +145,19 @@ IP 주소를 사용하여 VM에 대한 아웃바운드 연결을 제어하려면
 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
-HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할.\<영역 이름 >입니다.
+HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할.\<영역 이름 >
 HTTPS 아웃바운드 허용: 포트 443 | Azure AD(Azure Active Directory)에 해당하는 범위를 허용합니다.<br/><br/> Azure AD 주소가 나중에 추가되는 경우 새 NSG(네트워크 보안 그룹) 규칙을 만들어야 합니다.  | AzureActiveDirectory
-HTTPS 아웃바운드 허용: 포트 443 | 대상 위치에 해당하는 [Site Recovery 엔드포인트](https://aka.ms/site-recovery-public-ips)에 대한 액세스를 허용합니다. 
+HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 이벤트 허브에 해당 하는 범위를 허용 합니다. | EventsHub.\<영역 이름 >
+HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 범위 허용  | AzureSiteRecovery
 
 #### <a name="target-region-rules"></a>대상 지역 규칙
 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
-HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할.\<영역 이름 >입니다.
+HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 저장소 계정에 해당 하는 범위 허용 | 저장할.\<영역 이름 >
 HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당하는 범위를 허용합니다.<br/><br/> Azure AD 주소가 나중에 추가되는 경우 새 NSG 규칙을 만들어야 합니다.  | AzureActiveDirectory
-HTTPS 아웃바운드 허용: 포트 443 | 원본 위치에 해당하는 [Site Recovery 엔드포인트](https://aka.ms/site-recovery-public-ips)에 대한 액세스를 허용합니다. 
+HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 이벤트 허브에 해당 하는 범위를 허용 합니다. | EventsHub.\<영역 이름 >
+HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 범위 허용  | AzureSiteRecovery
 
 
 #### <a name="control-access-with-nsg-rules"></a>NSG 규칙을 사용하여 액세스 제어

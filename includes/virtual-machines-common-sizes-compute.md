@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 21b982389b186e949b21352f4b11bd6b4aa06dcb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279198"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75751816"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -44,6 +44,15 @@ Premium Storage 캐싱: 지원 됨
 
 <sup>1</sup> Fsv2 시리즈 Vm은 Intel® 하이퍼 스레딩 기술을 기능 합니다.
 
-<sup>2</sup> vcpu를 64 이상 사용 하려면 지원 되는 게스트 운영 체제 (Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, Red Hat Enterprise Linux, CentOS 7.3 또는 LIS 4.2.1의 Oracle Linux 7.3) 중 하나가 필요 합니다.
+<sup>2</sup> vcpu를 64 이상 사용 하려면 지원 되는 다음 게스트 운영 체제 중 하나가 필요 합니다.
+- Windows Server 2016 이상
+- Ubuntu 16.04 LTS 이상, Azure에서 조정 된 커널 (4.15 kernel 이상)
+- SLES 12 SP2 이상
+- Microsoft에서 제공 하는 LIS package 4.3.1 이상이 설치 된 RHEL 또는 CentOS 버전 6.7 ~ 6.10
+- RHEL 또는 CentOS 버전 7.3, Microsoft에서 제공 하는 LIS 패키지 4.2.1 이상 설치 됨
+- RHEL 또는 CentOS 버전 7.6 이상
+- UEK4 이상을 사용 하 여 Oracle Linux
+- Debian 9 (backports 커널, Debian 10 이상)
+- 4\.14 커널을 CoreOS 이상
 
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.

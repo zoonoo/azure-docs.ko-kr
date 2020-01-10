@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 9cd6c2a39f72c47b06bebfa2a8c457a725484141
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: b71f5590f120e15bd4ea027bcf6132795dac3cb6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529986"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750565"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Azure 활동 로그를 storage 또는 Azure Event Hubs로 내보내기
 
 > [!WARNING]
 > 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](diagnostic-settings-subscription.md)을 참조 하세요.
 
-Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. Azure Portal에서 활동 로그를 보거나 Azure Monitor에서 수집 된 다른 데이터를 사용 하 여 분석할 수 있는 Log Analytics 작업 영역으로 복사 하는 것 외에도 활동 로그를 Azure storage 계정에 보관 하는 로그 프로필을 만들거나  이벤트 허브.
+Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. Azure Portal에서 활동 로그를 보거나 Azure Monitor에서 수집 된 다른 데이터를 사용 하 여 분석할 수 있는 Log Analytics 작업 영역으로 복사 하는 것 외에도 활동 로그를 Azure storage 계정에 보관 하는 로그 프로필을 만들거나  이벤트 허브.
 
 ## <a name="archive-activity-log"></a>활동 로그 보관
 저장소 계정에 활동 로그를 보관 하는 것은 감사, 정적 분석 또는 백업을 위해 90 일 (보존 정책에 대 한 모든 권한 포함) 보다 오래 된 로그 데이터를 보존 하려는 경우에 유용 합니다. 90 일 이하로만 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에서 유지 되므로 저장소 계정에 보관을 설정할 필요가 없습니다.

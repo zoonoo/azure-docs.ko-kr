@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 30a5058dc47bb9ef22ee3fddb9cc4c2b90271bc2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9bb324c3863a13e1f47e1b31f7656ab8c77a6f1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479164"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763150"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램 등록
 
@@ -273,7 +273,7 @@ Azure AD B2C 정책 메타 데이터는 다음 URL에서 사용할 수 있습니
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
 1. 애플리케이션의 **이름**을 입력합니다. 예를 들면 *SAMLApp1*입니다.
-1. **지원 되는 계정 유형**에서 **조직 디렉터리 또는 모든 Id 공급자의 계정을 선택 합니다.**
+1. **지원 되는 계정 유형**에서 **이 조직 디렉터리에만 계정** 을 선택 합니다.
 1. **URI 리디렉션**에서 **웹**을 선택 하 고 `https://localhost`를 입력 합니다. 이 값은 나중에 응용 프로그램 등록의 매니페스트에서 수정할 수 있습니다.
 1. **Openid connect 및 offline_access 권한에 대해 관리자 동의 부여를**선택 합니다.
 1. **등록**을 선택합니다.
@@ -285,11 +285,11 @@ SAML 앱의 경우 응용 프로그램 등록의 매니페스트에서 구성 �
 1. [Azure Portal](https://portal.azure.com)에서 이전 섹션에서 만든 응용 프로그램 등록으로 이동 합니다.
 1. **관리**아래에서 **매니페스트** 를 선택 하 여 매니페스트 편집기를 엽니다. 다음 섹션에서 몇 가지 속성을 수정 합니다.
 
-#### <a name="identifieruri"></a>IdentifierUri
+#### <a name="identifieruris"></a>identifierUris
 
-`IdentifierUri`은 Azure AD B2C 테 넌 트 내에서 웹 앱을 고유 하 게 식별 하는 사용자 정의 URI를 포함 하는 문자열 컬렉션입니다. 식별자 URI는 조직의 디렉터리 내에서 확인 된 도메인에 속해야 합니다. `https://contoso.onmicrosoft.com/app-name`)을 입력합니다. 서비스 공급자는 SAML 요청의 `Issuer` 요소에이 값을 설정 해야 합니다.
+`identifierUris`은 Azure AD B2C 테 넌 트 내에서 웹 앱을 고유 하 게 식별 하는 사용자 정의 URI를 포함 하는 문자열 컬렉션입니다. 서비스 공급자는 SAML 요청의 `Issuer` 요소에이 값을 설정 해야 합니다.
 
-#### <a name="samlmetadataurl"></a>SamlMetadataUrl
+#### <a name="samlmetadataurl"></a>samlMetadataUrl
 
 이 속성은 서비스 공급자가 공개적으로 사용할 수 있는 메타 데이터 URL을 나타냅니다. 메타 데이터 URL은 blob storage와 같이 익명으로 액세스할 수 있는 끝점에 업로드 된 메타 데이터 파일을 가리킬 수 있습니다.
 
@@ -303,7 +303,7 @@ SAML 테스트 응용 프로그램을 사용 하는이 자습서의 경우 `saml
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
-#### <a name="replyurlwithtype-optional"></a>ReplyUrlWithType (선택 사항)
+#### <a name="replyurlswithtype-optional"></a>replyUrlsWithType (선택 사항)
 
 메타 데이터 URI를 제공 하지 않는 경우 회신 URL을 명시적으로 지정할 수 있습니다. 이 선택적 속성은 `AssertionConsumerServiceUrl` (서비스 공급자 메타 데이터의`SingleSignOnService` URL)을 나타내며 `BindingType` `HTTP POST`것으로 간주 됩니다.
 

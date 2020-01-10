@@ -1,10 +1,10 @@
 ---
-title: Azure AD 웹 응용 프로그램 보안 개발 | Microsoft Docs
+title: 보안 Azure AD 웹 응용 프로그램 개발 | Microsoft Docs
 description: 이 간단한 샘플 앱은 Azure에서 개발할 때 응용 프로그램 및 조직의 보안 상태를 개선 하는 보안 모범 사례를 구현 합니다.
-keywords: 수치
+keywords: na
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
-ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: terrylan
+ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159843"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771277"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Azure AD 앱에 대 한 보안 앱 개발
 ## <a name="overview"></a>개요
@@ -39,7 +39,7 @@ ms.locfileid: "73159843"
 
 이 앱을 개발 하 고 배포한 후 설명 된 구성 및 보안 측정값과 함께 다음 샘플 웹 앱을 설정 합니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 앱은 3 개의 계층을 포함 하는 일반적인 n 계층 응용 프로그램입니다. 모니터링 및 비밀 관리 구성 요소가 통합 된 프런트 엔드, 백 엔드 및 데이터베이스 계층이 다음과 같이 표시 됩니다.
 
 ![앱 아키텍처](./media/secure-aad-app/architecture.png)
@@ -71,7 +71,7 @@ ms.locfileid: "73159843"
 
 ![위협 모델 출력](./media/secure-aad-app/threat-model-output.png)
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 응용 프로그램을 실행 하려면 다음과 같은 도구를 설치 해야 합니다.
 
 - 응용 프로그램 코드를 수정 하 고 볼 수 있는 코드 편집기입니다. [Visual Studio Code](https://code.visualstudio.com/) 는 오픈 소스 옵션입니다.
@@ -334,7 +334,7 @@ App Service 인스턴스를 가상 네트워크와 통합할 수 있습니다. �
 
 5. NSG의 서브넷 블레이드에서 **연결**을 선택 하 고, 배포에서 만든 가상 네트워크를 선택 하 고, **gw**이라는 게이트웨이 서브넷을 선택 합니다. NSG가 서브넷에 적용 됩니다.
 
-6. 이전 단계에서와 같이 App Service 인스턴스에 대 한 다른 NSG를 만듭니다. 이름을 지정 합니다. 응용 프로그램 게이트웨이 NSG와 마찬가지로 포트 443에 대 한 인바운드 규칙을 추가 합니다.
+6. 이전 단계에서와 같이 App Service 인스턴스에 대 한 다른 NSG를 만듭니다. 이름을 지정합니다. 응용 프로그램 게이트웨이 NSG와 마찬가지로 포트 443에 대 한 인바운드 규칙을 추가 합니다.
 
    이 앱의 경우를 포함 하지 않는 App Service Environment 인스턴스에 App Service 인스턴스가 배포 되어 있는 경우 App Service NSG의 인바운드 보안 그룹에서 포트 454-455를 열어 Azure Service Health 프로브를 허용 하는 인바운드 규칙을 추가할 수 있습니다. 구성:
 
@@ -358,7 +358,7 @@ Azure Disk Encryption는 Windows의 BitLocker 기능을 활용 하 여 데이터
 ### <a name="identity-management"></a>ID 관리
 다음 기술은 Azure 환경의 카드 소유자 데이터에 대 한 액세스를 관리 하는 기능을 제공 합니다.
 - Azure Active Directory는 Microsoft의 다중 테 넌 트 클라우드 기반 디렉터리 및 id 관리 서비스입니다. 이 솔루션에 대 한 모든 사용자는 Azure WebApp에 액세스 하는 사용자를 포함 하 여 Azure Active Directory에서 생성 됩니다.
-- 관리자는 Azure 역할 기반 액세스 제어를 통해 세분화 된 액세스 권한을 정의 하 여 사용자가 작업을 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 관리자는 모든 사용자에게 Azure 리소스에 대한 무제한 권한을 부여하는 대신 카드 소유자 데이터에 액세스하기 위한 특정 작업만 허용할 수 있습니다. 구독 액세스는 구독 관리자에게만 허용됩니다.
+- 관리자는 Azure 역할 기반 액세스 제어를 통해 세분화 된 액세스 권한을 정의 하 여 사용자가 작업을 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 관리자는 모든 사용자에게 Azure 리소스에 대한 무제한 권한을 부여하는 대신 카드 소유자 데이터에 액세스하기 위한 특정 작업만 허용할 수 있습니다. 구독 액세스는 구독 관리자로 제한됩니다.
 - Azure Active Directory Privileged Identity Management를 통해 고객은 카드 소유자 데이터와 같은 특정 정보에 대 한 액세스 권한이 있는 사용자 수를 최소화할 수 있습니다. 관리자는 Azure Active Directory Privileged Identity Management를 사용하여 권한 있는 ID와 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
 - Azure Active Directory Identity Protection는 조직의 id에 영향을 주는 잠재적 취약성을 검색 하 고, 조직의 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 하 고, 의심 스러운 조사 인시던트를 해결 하기 위해 적절 한 조치를 취해야 합니다.
 ### <a name="secrets-management"></a>비밀 관리
@@ -396,7 +396,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
    다음 Azure [모니터링 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) 은이 아키텍처의 일부로 포함 되어 있습니다.
 
-   - [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 표준 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
+   - [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 검사 솔루션은 표준 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
    - [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포 된 에이전트 수 및 해당 지리적 배포를 보고 하며, 응답 하지 않는 에이전트 수와 작업 데이터를 제출 하는 에이전트 수를 보고 합니다.
    - [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
 ### <a name="azure-monitor"></a>Azure Monitor
@@ -443,16 +443,16 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 1.  Azure Portal으로 다시 이동 합니다. 왼쪽 탐색 창에서 Azure Active Directory 서비스를 선택 하 고 앱 등록를 선택 합니다.
 2.  결과 화면에서 WebApp-OpenIDConnect-DotNet 응용 프로그램을 선택 합니다.
 3.  리디렉션 Uri 섹션의 인증 탭 o에서 콤보 상자에서 웹을 선택 하 고 다음 리디렉션 Uri를 추가 합니다.
-    고급 설정 섹션에서 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net 로그 아웃 URL을 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc 로 설정 합니다.
+    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc 고급 설정 섹션에서 로그 아웃 URL을로 설정 합니다. https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  브랜딩 탭에서 app service의 주소로 홈 페이지 URL을 업데이트 합니다 (예: https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ).
         o 구성을 저장 합니다.
 5.  응용 프로그램이 web api를 호출 하는 경우에는 프로젝트에 필요한 변경 내용을 적용 해야 합니다 .이 경우 localhost 대신 게시 된 API URL을 호출 합니다.
 샘플 게시
-    1.  App Service의 개요 탭에서 게시 프로필 가져오기 링크를 클릭 하 여 게시 프로필을 다운로드 하 고 저장 합니다. 원본 제어에서와 같은 다른 배포 메커니즘을 사용할 수도 있습니다.
+    1.  App Service의 개요 탭에서 게시 프로필 가져오기 링크를 클릭 하 여 게시 프로필을 다운로드 하 고 저장 합니다. 원본 제어에서와 같이 다른 배포 메커니즘도 사용할 수 있습니다.
     2.  Visual Studio로 전환 하 고 WebApp-OpenIDConnect-code-v2 프로젝트로 이동 합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 게시를 선택 합니다. 아래쪽 표시줄에서 프로필 가져오기를 클릭 하 고 이전에 다운로드 한 게시 프로필을 가져옵니다.
     3.  구성을 클릭 하 고 연결 탭에서 홈 페이지 url에 https가 되도록 대상 URL을 업데이트 합니다 (예: https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ). 다음을 클릭합니다.
-    4.  설정 탭에서 조직 인증 사용이 선택 되어 있지 않은지 확인 합니다. 저장을 클릭합니다. 주 화면에서 게시를 클릭 합니다.
-    5.  Visual Studio에서 프로젝트를 게시 하 고 프로젝트의 URL에 대 한 브라우저를 자동으로 엽니다. 프로젝트의 기본 웹 페이지가 표시 되 면 게시가 성공적으로 수행 된 것입니다.
+    4.  설정 탭에서 조직 인증 사용이 선택 되어 있지 않은지 확인 합니다. [저장]을 클릭합니다. 주 화면에서 게시를 클릭 합니다.
+    5.  Visual Studio에서 프로젝트를 게시하고 브라우저를 프로젝트의 URL로 자동으로 엽니다. 프로젝트의 기본 웹 페이지가 표시되면 게시가 성공적으로 수행된 것입니다.
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Azure Active Directory에 대 한 Multi-Factor Authentication 구현
    관리자는 포털의 구독 계정이 보호 되는지 확인 해야 합니다. 구독은 만든 리소스를 관리 하기 때문에 공격에 취약 합니다. 구독을 보호 하려면 구독의 **Azure Active Directory** 탭에서 Multi-Factor Authentication를 사용 하도록 설정 합니다.
 
@@ -465,7 +465,7 @@ Azure는 관리자가 포털에 로그인 하는 데 2 단계 인증이 필요 �
    1. Azure Portal에서 **Azure Active Directory** 탭으로 이동 합니다.
    2. 보안 범주 아래에서 조건부 액세스를 선택 합니다. 이 화면이 표시 됩니다.
 
-       ![조건부 액세스-정책](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![조건부 액세스 - 정책](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 새 정책을 만들 수 없는 경우
 
@@ -518,7 +518,7 @@ Azure 센티널을 설정 하려면 먼저 다양 한 리소스에서 수집 된
 
    3. 검색 상자를 사용 하 여 **Azure 센티널**을 검색 합니다.
 
-   ![Azure 센티널 검색](./media/secure-aad-app/sentinel-add.png)
+   ![Azure Sentinel 검색](./media/secure-aad-app/sentinel-add.png)
 
    *Azure 센티널 검색*
 

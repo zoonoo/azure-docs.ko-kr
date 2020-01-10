@@ -3,12 +3,12 @@ title: 컨테이너 및 서비스에 대한 리소스 관리
 description: Azure Service Fabric을 사용하면 컨테이너 내부 또는 외부에서 실행 중인 서비스에 대해 리소스 제한을 지정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 0a4cdc7dd7c2e81447201ca85843c9ba4c7e2af4
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609455"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772383"
 ---
 # <a name="resource-governance"></a>리소스 거버넌스
 
@@ -65,7 +65,7 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 </Section>
 ```
 
-노드 용량의 완전 수동 설정이 필요한 경우 클러스터의 노드를 설명하는 데 기본 메커니즘을 사용할 수도 있습니다. 다음은 2GB의 메모리와 4개 코어로 노드를 설정하는 방법의 예제입니다.
+대부분의 고객 및 시나리오의 경우 CPU 및 메모리에 대 한 노드 용량을 자동으로 검색 하는 것이 좋습니다 (자동 검색은 기본적으로 설정 됨). 그러나 노드 용량의 전체 수동 설정이 필요한 경우 클러스터의 노드를 설명 하는 메커니즘을 사용 하 여 노드 유형별을 구성할 수 있습니다. 4 개 코어와 2gb의 메모리를 사용 하 여 노드 형식을 설정 하는 방법의 예는 다음과 같습니다.
 
 ```xml
     <NodeType Name="MyNodeType">

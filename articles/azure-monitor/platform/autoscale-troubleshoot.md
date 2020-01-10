@@ -4,12 +4,12 @@ description: Service Fabric, Virtual Machines, Web Apps 및 클라우드 서비�
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: effef22bea0b4224f67737fe1c34c9758749c093
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364444"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751340"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Azure 자동 크기 조정 문제 해결
  
@@ -97,7 +97,7 @@ ms.locfileid: "75364444"
 
 ## <a name="autoscale-resource-logs"></a>자동 크기 조정 리소스 로그
 
-다른 Azure 리소스와 마찬가지로 자동 크기 조정 서비스에서 [리소스 로그](resource-logs-overview.md)를 제공 합니다. 로그에는 두 가지 범주가 있습니다.
+다른 Azure 리소스와 마찬가지로 자동 크기 조정 서비스에서 [리소스 로그](platform-logs-overview.md)를 제공 합니다. 로그에는 두 가지 범주가 있습니다.
 
 - **자동 크기 조정 평가** -자동 크기 조정 엔진은 검사할 때마다 모든 단일 조건 평가에 대 한 로그 항목을 기록 합니다.  항목에는 관찰 된 메트릭 값에 대 한 세부 정보, 평가 된 규칙 및 평가 결과 크기 조정 작업이 발생 하는 경우가 포함 됩니다.
 

@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10c778025c3def384f621cb5311d0d71ccb457d7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 4ef73abdd6bfdadd0078c30ad1b0145cdae41722
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951125"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767606"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝이란?
 Azure AD Connect 클라우드 프로 비전은 Azure AD에 대 한 사용자, 그룹 및 연락처의 동기화를 위해 하이브리드 id 목표를 충족 하 고 달성 하기 위해 설계 된 새로운 Microsoft 에이전트입니다.  Azure AD Connect sync와 함께 사용할 수 있으며 다음과 같은 이점을 제공 합니다.
@@ -61,8 +61,9 @@ Azure AD Connect 클라우드 프로 비전을 사용 하 여 AD에서 Azure AD�
 | 쓰기 저장 지원 (암호, 장치, 그룹) |● | |
 | 지원 Azure AD Domain Services|● | |
 | Exchange 하이브리드 구성 |● | |
+| AD 도메인당 5만 개 이상의 개체에 대 한 지원 |● | |
 
 ## <a name="next-steps"></a>다음 단계 
 
-- [프로 비전 이란?](what-is-provisioning.md)
-- [클라우드 프로 비전 설치](how-to-install.md)
+- [프로비저닝이란?](what-is-provisioning.md)
+- [클라우드 프로비저닝 설치](how-to-install.md)

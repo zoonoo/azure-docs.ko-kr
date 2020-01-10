@@ -12,30 +12,29 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058015"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749883"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP 클라이언트 서비스가 해제되어 Azure Virtual Machines에 RDP로 연결할 수 없음
 
 이 문서에서는 VM에서 DHCP 클라이언트 서비스가 해제된 후 Azure Windows VM(Virtual Machines)에 원격 데스크톱으로 연결할 수 없는 문제에 대해 설명합니다.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>증상
 VM에서 DHCP 클라이언트 서비스가 해제되어 Azure의 VM에 RDP로 연결할 수 없습니다. Azure Portal의 [부팅 진단](../troubleshooting/boot-diagnostics.md)에서 스크린샷을 확인하면 VM이 정상적으로 부팅되고 로그인 화면에서 자격 증명을 기다리는 것으로 표시됩니다. 이벤트 뷰어를 사용하여 이벤트 로그를 VM에서 원격으로 봅니다. DHCP 클라이언트 서비스가 시작되지 않거나 시작에 실패하는 것이 보입니다. 다음은 샘플 로그입니다.
 
 **로그 이름**: 시스템 </br>
 **원본**: 서비스 제어 관리자 </br>
-**날짜**: 2015/12/16 AM 11:19:36 </br>
+**날짜**: 2015/12/16 오전 11:19:36 </br>
 **이벤트 ID**: 7022 </br>
 **작업 범주**: 없음 </br>
 **수준**: 오류 </br>
 **키워드**: 클래식</br>
-**사용자**: 해당 사항 없음 </br>
+**사용자**: 해당 없음 </br>
 **컴퓨터**: myvm.cosotos.com</br>
 **설명**: DHCP 클라이언트 서비스가 시작 시 멈춥니다.</br>
 
@@ -61,7 +60,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
 1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
-)를 선택합니다. VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 다시 설정](reset-network-interface.md)을 참조하세요.
+). VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 다시 설정](reset-network-interface.md)을 참조하세요.
 2. 네트워크 인터페이스에서 DHCP를 사용할 수 없는지 확인합니다.
 
         sc query DHCP
@@ -123,7 +122,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).
-    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예를 들어, `copy C:\temp\ProcMonTrace.PML F:\`을 입력합니다. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다. 문자를 올바른 값으로 적절하게 바꿉니다.
+    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. `copy C:\temp\ProcMonTrace.PML F:\`)을 입력합니다. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다. 문자를 올바른 값으로 적절하게 바꿉니다.
     3. 데이터 드라이브를 분리하고 프로세스 모니터 ubstakke가 설치되어 있는 작동 중인 VM에 연결합니다.
 
 6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 그런 다음, 다음 스크린샷에 나온 것처럼  **결과가 액세스 거부됨**으로 필터링합니다.
@@ -183,7 +182,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 
 1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다. 디스크 관리 콘솔에서 연결된 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
-3.  관리자 권한 명령 프롬프트 인스턴스를 엽니다(**관리자 권한으로 실행**). 그런 다음, 다음 스크립트를 실행합니다. 이 스크립트는 연결된 OS 디스크에 할당된 드라이브 문자를 **F**라고 가정합니다. 문자를 해당 VM의 올바른 값으로 적절하게 바꿉니다.
+3.  관리자 권한 명령 프롬프트 인스턴스를 엽니다(**관리자 권한으로 실행**). 그런 다음, 다음 스크립트를 실행합니다. 이 스크립트는 연결 된 OS 디스크에 할당 된 드라이브 문자가 **F**인 것으로 가정 합니다. 해당 문자를 VM의 값으로 바꿉니다.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM

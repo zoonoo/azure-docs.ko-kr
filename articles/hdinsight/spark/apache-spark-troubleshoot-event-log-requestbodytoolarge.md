@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 2d2e929335f6af2ee24a81e719d9d0d899f7b8ef
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 114f710c9d0e85ecde4ab163401c714c5e28a708
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241847"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771601"
 ---
 # <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem... RequestBodyTooLarge "HDInsight의 Apache Spark 스트리밍 앱 로그에 표시 됩니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "73241847"
 
 Spark 이벤트 로그 파일은 WASB에 대 한 파일 길이 제한에 도달할 수 있습니다.
 
-Spark 2.3에서 각 Spark 앱은 하나의 Spark 이벤트 로그 파일을 생성 합니다. Spark 스트리밍 앱에 대 한 Spark 이벤트 로그 파일은 앱이 실행 되는 동안 계속 증가 합니다. 현재 WASB의 파일은 5만 블록 제한을 가지 며 기본 블록 크기는 4mb입니다. 따라서 기본 구성에서 최대 파일 크기는 195 GB입니다. 그러나 Azure storage는 최대 블록 크기를 100 MB로 늘려 효과적으로 단일 파일 제한을 4.75 TB까지 가져왔습니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)를 참조하세요.
+Spark 2.3에서 각 Spark 앱은 하나의 Spark 이벤트 로그 파일을 생성 합니다. Spark 스트리밍 앱에 대 한 Spark 이벤트 로그 파일은 앱이 실행 되는 동안 계속 증가 합니다. 현재 WASB의 파일은 5만 블록 제한을 가지 며 기본 블록 크기는 4mb입니다. 따라서 기본 구성에서 최대 파일 크기는 195 GB입니다. 그러나 Azure Storage는 최대 블록 크기를 100 MB로 늘려 효과적으로 단일 파일 제한을 4.75 TB로 가져옵니다. 자세한 내용은 [Blob 저장소에 대 한 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md)를 참조 하세요.
 
 ## <a name="resolution"></a>해상도
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 328e0c882ea2fb3860663e04b88488bd54339c75
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671506"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768489"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service에 대한 모범 사례
 이 문서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다. 
@@ -37,7 +37,7 @@ ms.locfileid: "74671506"
 아웃바운드 TCP 연결을 소모하는 일반적인 이유는 TCP 연결을 다시 사용하도록 구현되지 않는 클라이언트 라이브러리의 사용되지 않는 HTTP - Keep-Alive와 같은 높은 수준의 프로토콜의 경우입니다. 효율적인 아웃바운드 재사용에 대한 코드에서 구성 또는 액세스할 수 있도록 App Service 계획의 앱에서 참조하는 각 라이브러리에 대한 설명서를 검토하세요. 또한 연결 누수를 방지하도록 올바른 생성 및 릴리스 또는 정리에 대한 라이브러리 설명서 지침을 따릅니다. 이러한 클라이언트 라이브러리 조사 진행 중 여러 인스턴스로 확장하여 영향을 완화할 수 있습니다.
 
 ### <a name="nodejs-and-outgoing-http-requests"></a>Node.js 및 발신 HTTP 요청
-Node.js 및 다수의 발신 HTTP 요청을 수행하는 경우, HTTP - Keep-Alive를 처리하는 것이 중요합니다. [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` 패키지를 사용하면 코드로 더 쉽게 처리할 수 있습니다.
+Node.js 및 다수의 발신 HTTP 요청을 수행하는 경우, HTTP - Keep-Alive를 처리하는 것이 중요합니다. [Agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` 패키지를 사용 하 여 코드에서 더 쉽게 만들 수 있습니다.
 
 처리기에서는 아무 작업도 수행하지 않더라도 `http` 응답을 항상 처리해야 합니다. 응답을 제대로 처리하지 않으면 사용할 수 있는 소켓이 없어지기 때문에 애플리케이션이 결국 멈추게 됩니다.
 
@@ -65,3 +65,13 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="nodejs"></a>새 Node.js 앱이 Azure App Service에 배포되는 경우
 Node.js 앱에 대한 Azure App Service 기본 구성은 가장 일반적인 앱 요구에 가장 적합하게 지정되었습니다. Node.js 앱 구성이 개별화된 조정부터 성능 향상, CPU/메모리/네트워크 리소스에 대한 리소스 사용 최적화 등의 다양한 이점을 얻으려면 [Azure App Service의 Node 애플리케이션에 대한 모범 사례 및 문제 해결 가이드](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)를 참조하세요. 이 문서에서는 Node.js 앱에 대해 구성해야 하는 iisnode 설정에 대해 설명하고, 앱이 직면할 수 있는 다양한 시나리오 또는 문제에 대해 설명하고, 이러한 문제를 해결하는 방법을 보여 줍니다.
 
+
+## <a name="next-steps"></a>다음 단계
+모범 사례에 대 한 자세한 내용은 [App Service 진단을](https://docs.microsoft.com/azure/app-service/overview-diagnostics) 방문 하 여 리소스와 관련 하 여 조치 가능한 모범 사례를 확인 하세요.
+
+- [Azure Portal](https://portal.azure.com)에서 웹 앱으로 이동 합니다.
+- 왼쪽 탐색에서 **문제 진단 및 해결** 을 클릭 하면 App Service 진단이 열립니다.
+- **모범 사례** 홈 페이지 타일을 선택 합니다.
+- 모범 사례에 **대 한 모범 사례** 를 클릭 하 여 모범 사례에 대 한 응용 프로그램의 현재 상태를 확인 하는 **최적의 구성을 위한** 모범 사례를 & 합니다.
+
+또한이 링크를 사용 하 여 리소스에 대 한 App Service 진단을 직접 열 수 있습니다. `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 75b2120b9fef904114d532e83d571c08e1a1034d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494513"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772315"
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -93,6 +93,6 @@ Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../o
 
 ## <a name="next-steps"></a>다음 단계
 - [컴퓨터 종속성을 사용하여 컴퓨터 그룹화](how-to-create-group-machine-dependencies.md)
-- 종속성 시각화 관련 FAQ를 [자세히 확인](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization)해 보세요.
+- 종속성 시각화 관련 FAQ를 [자세히 확인](common-questions-discovery-assessment.md#what-is-dependency-visualization)해 보세요.
 
 

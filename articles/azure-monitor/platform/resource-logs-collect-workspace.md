@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530853"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750371"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 플랫폼 로그를 수집 합니다.
-Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](resource-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에서 리소스 로그를 수집 하는 방법에 대해 설명 합니다 .이를 통해 강력한 로그 쿼리를 사용 하 여 Azure Monitor 로그에 수집 된 다른 모니터링 데이터를 분석 하 고 경고와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다 가상화. 
+Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에서 리소스 로그를 수집 하는 방법에 대해 설명 합니다 .이를 통해 강력한 로그 쿼리를 사용 하 여 Azure Monitor 로그에 수집 된 다른 모니터링 데이터를 분석 하 고 경고와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다 가상화. 
 
 
 ## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>작업 영역에서 플랫폼 로그로 수행할 수 있는 작업
@@ -124,5 +124,5 @@ Azure Data Factory은 매우 자세한 로그 집합으로 인해 많은 열을 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자세한 내용은 리소스 로그를 참조](resource-logs-overview.md)하세요.
+* [자세한 내용은 리소스 로그를 참조](platform-logs-overview.md)하세요.
 * [Azure에서 로그 및 메트릭을 수집 하는 진단 설정을 만듭니다](diagnostic-settings.md).

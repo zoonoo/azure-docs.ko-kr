@@ -8,18 +8,18 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534301"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748265"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
 GZRS (지역 중복 저장소) (미리 보기)는 지역 중복 저장소 ( [GRS)](storage-redundancy-grs.md)에서 제공 하는 지역 가동 중단 으로부터 보호 하는 [ZRS (영역 중복 저장소)](storage-redundancy-zrs.md) 의 고가용성을 결혼 합니다. GZRS 저장소 계정의 데이터는 주 지역의 3 개 [Azure 가용성 영역](../../availability-zones/az-overview.md) 에 복제 되 고 지역 재해 로부터 보호 하기 위해 보조 지역에도 복제 됩니다. 각 Azure 지역은 동일한 지리적 위치 내의 다른 지역과 쌍을 이루어 함께 지역 쌍을 만듭니다. 자세한 내용 및 예외는 [설명서](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)를 참조 하세요.
 
-GZRS 저장소 계정을 사용 하 여 가용성 영역을 사용할 수 없게 되거나 복구할 수 없는 경우 계속 해 서 데이터를 읽고 쓸 수 있습니다. 또한 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해가 발생 한 경우에도 데이터를 지속적으로 사용할 수 있습니다. GZRS는 지정 된 연도 동안 최소 99.99999999999999% (16 9의) 개체 내 구성을 제공 하도록 설계 되었습니다. 또한 GZRS는 LRS, ZRS, GRS 또는 RA-GRS와 동일한 [확장성 목표](storage-scalability-targets.md) 를 제공 합니다. 응용 프로그램이 주 지역에서 재해가 발생 한 경우 데이터를 읽을 수 있어야 하는 경우 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 사용 하 여 보조 지역의 데이터에 대 한 읽기 액세스를 선택적으로 사용할 수 있습니다.
+GZRS 저장소 계정을 사용 하 여 가용성 영역을 사용할 수 없게 되거나 복구할 수 없는 경우 계속 해 서 데이터를 읽고 쓸 수 있습니다. 또한 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해가 발생 한 경우에도 데이터를 지속적으로 사용할 수 있습니다. GZRS는 지정 된 연도 동안 최소 99.99999999999999% (16 9의) 개체 내 구성을 제공 하도록 설계 되었습니다. 또한 GZRS는 LRS, ZRS, GRS 또는 RA-GRS와 동일한 확장성 목표를 제공 합니다. 응용 프로그램이 주 지역에서 재해가 발생 한 경우 데이터를 읽을 수 있어야 하는 경우 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 사용 하 여 보조 지역의 데이터에 대 한 읽기 액세스를 선택적으로 사용할 수 있습니다.
 
 일관성, 내구성, 고가용성, 뛰어난 성능 및 재해 복구에 대 한 복원 력을 필요로 하는 응용 프로그램에 GZRS를 사용 하는 것이 좋습니다. 지역 재해가 발생 한 경우 보조 지역에 대 한 읽기 액세스의 추가 보안을 위해 저장소 계정에 대해 RA GZRS을 사용 하도록 설정 합니다.
 
@@ -160,3 +160,4 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 - [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- [Standard storage 계정에 대 한 확장성 및 성능 목표](scalability-targets-standard-account.md)

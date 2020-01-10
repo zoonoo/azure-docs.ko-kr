@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: AKS 클러스터에 Azure Dev Spaces를 설치 하 고 클라이언트 쪽 도구를 설치 하는 방법에 대해 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 2649b36c96313d4a7d878a1c72c3b175ad0f4d30
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0fd4cce9d25922bea50963c4e87e110759673bbc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325774"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770631"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>AKS 및 클라이언트 쪽 도구에 Azure Dev Spaces 설치
 
@@ -19,7 +19,7 @@ ms.locfileid: "74325774"
 ## <a name="install-azure-dev-spaces-using-the-cli"></a>CLI를 사용 하 여 Azure Dev Spaces 설치
 
 CLI를 사용 하 여 Dev Spaces를 설치 하려면 다음이 필요 합니다.
-* Azure 구독. Azure 구독이 없는 경우 [체험 계정][az-portal-create-account]을 만들 수 있습니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 계정][az-portal-create-account]을 만들 수 있습니다.
 * [Azure CLI 설치][install-cli]되었습니다.
 * [지원 되는 지역의][supported-regions] [AKS 클러스터][create-aks-cli] .
 
@@ -54,7 +54,7 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 ## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Dev Spaces 설치
 
 Azure Portal를 사용 하 여 Dev Spaces를 설치 하려면 다음이 필요 합니다.
-* Azure 구독. Azure 구독이 없는 경우 [체험 계정][az-portal-create-account]을 만들 수 있습니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 계정][az-portal-create-account]을 만들 수 있습니다.
 * [지원 되는 지역의][supported-regions] [AKS 클러스터][create-aks-portal] .
 
 Azure Portal를 사용 하 여 Azure Dev Spaces를 설치 하려면:
@@ -86,7 +86,7 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
 [create-aks-portal]: ../../aks/kubernetes-walkthrough-portal.md#create-an-aks-cluster
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-qs]: ../quickstart-team-development.md
 
 [az-portal]: https://portal.azure.com

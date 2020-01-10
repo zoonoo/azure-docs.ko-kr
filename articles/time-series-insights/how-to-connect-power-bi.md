@@ -7,13 +7,13 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: ef7d78b292561e87eac12200bc0b9d68299759d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.openlocfilehash: 1f6b753052b882b75884503f8c05f34b8cead821
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443623"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749350"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Power BI의 Time Series Insights에서 데이터 시각화
 
@@ -41,8 +41,8 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
 
 Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계를 수행 합니다.
 
-1. Time Series Insights 탐색기 열기                      
-1. 데이터를 쿼리 또는 원시 데이터로 내보내기                       
+1. Time Series Insights 탐색기 열기
+1. 데이터를 쿼리 또는 원시 데이터로 내보내기
 1. Power BI Desktop 열기
 1. 사용자 지정 쿼리에서 로드
 
@@ -51,13 +51,14 @@ Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계를 수
 시작하려면:
 
 1. Time Series Insights Preview 탐색기를 열고 데이터를 만들어 둡니다.
-1. 만족 하는 보기를 만들었으면 **추가 작업** 드롭다운 메뉴로 이동 하 여 **Power BI에 연결**을 클릭 합니다. 
+1. 만족 하는 보기를 만들었으면 **추가 작업** 드롭다운 메뉴로 이동 하 여 **Power BI에 연결**을 클릭 합니다.
 
     [![Time Series Insights Preview 탐색기 내보내기](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. 이 탭 내에서 매개 변수를 설정 합니다.
 
-   1. 보려는 상대 기간을 지정 합니다. 기존 보기에 만족 하는 경우 **기존 기간**으로 그대로 둡니다. 
+   1. 보려는 상대 기간을 지정 합니다. 기존 보기에 만족 하는 경우 **기존 기간**으로 그대로 둡니다.
+   
    1. **집계** **이벤트와 원시 이벤트**중에서 선택 합니다. 
    
        > [!NOTE]

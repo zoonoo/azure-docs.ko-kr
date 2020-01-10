@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 2498711a5b7e5bce29cd0054ba40257f8f996d43
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266826"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750686"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>진단 설정에 대한 로깅 사용
 
@@ -37,7 +37,7 @@ ms.locfileid: "71266826"
 
 6. 모니터링하려는 작업을 선택하고 해당 작업에 대한 로그를 사용하도록 설정합니다. 진단 설정이 보고할 수 있는 작업은 같습니다.
 
-   * Connections
+   * 연결
    * 디바이스 원격 분석
    * 클라우드-디바이스 메시지
    * 디바이스 ID 작업
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-새 설정은 약 10분 후에 적용됩니다. 그런 다음, 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/resource-logs-overview.md)을 참조하세요.
+새 설정은 약 10분 후에 적용됩니다. 그런 다음, 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/platform-logs-overview.md)을 참조하세요.

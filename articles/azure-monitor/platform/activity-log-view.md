@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 54a1d3e503ddb8b11109596decde94a2834dbf47
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 46d26aa5dccd32438b2028e21eaa94f7993944d1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529969"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749509"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Azure 활동 로그 이벤트 보기 및 검색
 
-[Azure 활동 로그](activity-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 이벤트를 보고 검색 하는 다양 한 방법에 대 한 세부 정보를 제공 합니다.
+[Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 이벤트를 보고 검색 하는 다양 한 방법에 대 한 세부 정보를 제공 합니다.
 
 ## <a name="azure-portal"></a>Azure Portal
 Azure Portal **모니터** 메뉴의 모든 리소스에 대 한 활동 로그를 봅니다. 해당 리소스의 메뉴에 있는 **활동 로그** 옵션에서 특정 리소스에 대 한 활동 로그를 봅니다.

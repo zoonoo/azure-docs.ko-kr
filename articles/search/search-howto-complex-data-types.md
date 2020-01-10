@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c7578b84fe1d23d2b4d97aa263cac576305db240
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 657cded5e16897f9581bbcf365bacc2d2f1a821a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889926"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754362"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search에서 복합 데이터 형식을 모델링 하는 방법
 
@@ -65,12 +65,6 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
 모든 인덱스 정의와 마찬가지로, 포털, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)또는 [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 를 사용 하 여 복합 형식을 포함 하는 스키마를 만들 수 있습니다. 
 
 다음 예에서는 간단한 필드, 컬렉션 및 복합 형식을 사용 하는 JSON 인덱스 스키마를 보여 줍니다. 복합 형식 내에서 각 하위 필드는 형식을 가지 며 최상위 필드와 마찬가지로 특성을 가질 수 있습니다. 이 스키마는 위의 예제 데이터에 해당 합니다. `Address`은 컬렉션이 아닌 복합 필드입니다. 호텔에는 주소가 하나 있습니다. `Rooms`는 복합 컬렉션 필드입니다 (호텔에는 많은 방 있음).
-
-<!---
-For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Cognitive Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
-
-Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with knowledge store](knowledge-store-howto.md).
--->
 
 ```json
 {

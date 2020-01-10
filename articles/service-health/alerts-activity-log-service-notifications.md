@@ -3,19 +3,19 @@ title: Azure 서비스 알림에 대한 활동 로그 경고 수신
 description: Azure 서비스가 발생할 때 SMS, 전자 메일 또는 웹후크를 통해 알림을 받습니다.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: bc8e935b9d44cb5236c7a1ef38da24e12b877e14
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: d318adc76959ac24f4be9946167965a83053f632
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464030"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749312"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
 
 이 문서에서는 Azure Portal을 사용하여 서비스 상태 알림에 대한 활동 로그 경고를 설정하는 방법을 보여 줍니다.  
 
-서비스 상태 알림은 활동 로그에 저장 된 대용량 정보를 제공 하는 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md) 에 저장 됩니다. 서비스 상태 알림에 대 한 경고를 쉽게 확인 하 고 설정할 수 있는 별도의 사용자 인터페이스가 있습니다. 
+서비스 상태 알림은 활동 로그에 저장 된 대용량 정보를 제공 하는 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md) 에 저장 됩니다. 서비스 상태 알림에 대 한 경고를 쉽게 확인 하 고 설정할 수 있는 별도의 사용자 인터페이스가 있습니다. 
 
 Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 받을 수 있습니다. 다음 항목에 따라 경고를 구성할 수 있습니다.
 

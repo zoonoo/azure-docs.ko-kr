@@ -1,6 +1,6 @@
 ---
 title: Azure 변경 내용 추적을 사용하여 문제 해결
-description: 이 문서에서는 변경 내용 추적 문제 해결에 대한 정보를 제공합니다.
+description: Azure Automation 변경 내용 추적 및 인벤토리 기능을 사용 하 여 문제를 해결 하 고 문제를 해결 하는 방법을 알아봅니다.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 51a9dbf8be6538534c05a4b8b6fcd913ef8c6ae3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849397"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769934"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 문제 해결
 

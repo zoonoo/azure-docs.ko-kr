@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 4a6796c0a9a64bc40255de64b39ce881e1b8855c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9298b802417f5a7162ef74bb0f7906144aae4e35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934722"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745715"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
 Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제한하고 제어하는 데 사용할 수 있는 다양한 기본 제공 보안 컨트롤이 포함되어 있습니다.
 
-이러한 개체는 다음과 같습니다.
+해당 지역은 다음과 같습니다.
 
 -   IP 주소로 연결을 제한하는 [방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)을 만들 수 있는 방화벽
 -   Azure Portal에서 액세스할 수 있는 서버 수준 방화벽
@@ -53,7 +53,7 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 |<br> 데이터베이스 액세스 | <ul><li>[인증](../../sql-database/sql-database-control-access.md)(Azure Active Directory 인증) - AD 인증은 Azure Active Directory에서 관리되는 ID를 사용합니다.</li><li>[권한 부여](../../sql-database/sql-database-control-access.md) - 사용자에게 필요한 최소 권한을 부여합니다.</li></ul> |
 |<br>애플리케이션 액세스| <ul><li>[행 수준 보안](https://msdn.microsoft.com/library/dn765131) - 보안 정책을 사용하는 동시에 사용자의 ID, 역할 또는 실행 컨텍스트에 따라 행 수준 액세스를 제한합니다.</li><li>[동적 데이터 마스킹](../../sql-database/sql-database-dynamic-data-masking-get-started.md) - 권한 및 정책을 사용하여 권한이 없는 사용자에게 중요한 데이터를 마스킹함으로써 이러한 데이터의 노출을 제한합니다.</li></ul>|
 |**사전 모니터링**||  
-| <br>추적 및 검색| <ul><li>[감사](../../sql-database/sql-database-auditing.md) - 데이터베이스 이벤트를 추적하고 [Azure Storage 계정](../../storage/common/storage-create-storage-account.md)의 감사 로그/활동 로그에 이벤트를 기록합니다.</li><li>[Azure Monitor 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)를 사용하여 Azure 데이터베이스 상태를 추적합니다.</li><li>[위협 검색](../../sql-database/sql-database-threat-detection.md) - 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다. </li></ul> |
+| <br>추적 및 검색| <ul><li>[감사](../../sql-database/sql-database-auditing.md) - 데이터베이스 이벤트를 추적하고 [Azure Storage 계정](../../storage/common/storage-create-storage-account.md)의 감사 로그/활동 로그에 이벤트를 기록합니다.</li><li>[Azure Monitor 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)를 사용하여 Azure 데이터베이스 상태를 추적합니다.</li><li>[위협 검색](../../sql-database/sql-database-threat-detection.md) - 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다. </li></ul> |
 |<br>Azure Security Center| <ul><li>[데이터 모니터링](../../security-center/security-center-enable-auditing-on-sql-databases.md) - SQL 및 기타 Azure 서비스에 대한 중앙 집중식 보안 모니터링 솔루션으로 Azure Security Center를 사용합니다.</li></ul>|       
 
 ## <a name="conclusion"></a>결론

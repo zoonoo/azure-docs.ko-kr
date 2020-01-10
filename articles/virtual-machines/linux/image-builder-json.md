@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a411603ca5c3c79da0d596396d8fde80b568af2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159726"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763082"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -28,7 +28,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+             },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -275,7 +275,8 @@ OS 지원: Linux
 
 ```json 
      "customize": [ 
-            "type{ ": "WindowsRestart", 
+         {
+            "type": "WindowsRestart", 
             "restartCommand": "shutdown /r /f /t 0 /c", 
             "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
             "restartTimeout": "5m"
@@ -383,7 +384,7 @@ while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Window
 명령을 재정의 하려면 PowerShell 또는 Shell 스크립트 provisioners를 사용 하 여 정확한 파일 이름으로 명령 파일을 만들고 올바른 디렉터리에 배치 합니다.
 
 * Windows: c:\DeprovisioningScript.ps1
-* Linux:/tmp/DeprovisioningScript.sh
+* Linux: /tmp/DeprovisioningScript.sh
 
 이미지 작성기는 이러한 명령을 읽어 AIB 로그 (' 사용자 지정. 로그 ')에 기록 합니다. 로그를 수집 하는 방법에 대 한 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) 을 참조 하세요.
  
@@ -458,7 +459,7 @@ Azure 공유 이미지 갤러리는 이미지 영역 복제, 버전 관리 및 �
 
 공유 이미지 갤러리에 대 한 속성 배포:
 
-- **유형** -sharedImage  
+- **type** - sharedImage  
 - **galleryImageId** – 공유 이미지 갤러리의 ID입니다. 형식은 다음과 같습니다./subscriptions/\<subscriptionId >/Hsourceg/\<resourceGroupName >/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName >/images/\<imageGalleryName >.
 - **runOutputName** – 분포를 식별 하는 고유 이름입니다.  
 - **artifacttags** -선택적 사용자 지정 키 값 쌍 태그입니다.

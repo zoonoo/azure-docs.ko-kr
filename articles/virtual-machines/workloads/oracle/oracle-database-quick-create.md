@@ -14,20 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 6d43fa2621aa95bdcf18d5c033d1347e13dc3f67
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 53ffc6dd36dbf8588b5e1eb26b461e22c7445092
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101482"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747686"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
 이 가이드에서는 Oracle 12c 데이터베이스를 만들기 위해 Azure CLI를 사용하여 [Oracle 마켓플레이스 갤러리 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview)에서 Azure 가상 머신을 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포된 후 Oracle 데이터베이스를 구성하려면 SSH를 통해 연결합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -144,13 +142,13 @@ Oracle 소프트웨어는 이미 Marketplace 이미지에 설치되어 있습니
 
 3. Oracle 변수를 설정합니다.
 
-연결하기 전에 두 환경 변수를 설정해야 합니다. *ORACLE_HOME* 및 *ORACLE_SID*.
+연결하기 전에 먼저 두 환경 변수, 즉 *ORACLE_HOME* 및 *ORACLE_SID*를 설정해야 합니다.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-ORACLE_HOME 및 ORACLE_SID 변수를 .bashrc 파일에 추가할 수도 있습니다. 그러면 나중의 로그인을 위한 환경 변수가 저장됩니다. 선택한 편집기를 사용하여 다음 문이 `~/.bashrc`에 추가되었는지 확인합니다.
+ORACLE_HOME 및 ORACLE_SID 변수를 .bashrc 파일에 추가할 수도 있습니다. 이렇게 하면 이후 로그인을 위한 환경 변수가 저장 됩니다. 선택한 편집기를 사용 하 여 다음 문이 `~/.bashrc` 파일에 추가 되었는지 확인 하세요.
 
 ```bash
 # Add ORACLE_HOME. 

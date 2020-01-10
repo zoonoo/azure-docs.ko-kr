@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/30/2019
-ms.openlocfilehash: 176f0f197db3393c4ef8c37d05234fce41a494e1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563210"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754075"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Storage Explorer를 사용하여 지식 저장소 보기
 
@@ -62,4 +62,4 @@ ms.locfileid: "75563210"
 
 > [!div class="nextstepaction"]
 > [Power BI를 사용 하 여 연결](knowledge-store-connect-power-bi.md)
-> [REST에서 기술 자료 저장소 만들기](knowledge-store-howto.md)
+> [REST에서 기술 자료 저장소 만들기](knowledge-store-create-rest.md)

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2eabf0167865333131e0f8e5b0c4ccb409e40e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427070"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771243"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -61,7 +61,7 @@ RTMP 라이브 스트리밍에 대 한 다음과 같은 새로운 권장 파트�
 - [Restream.io](https://restream.io/)
 
 ### <a name="file-encoding-enhancements"></a>파일 인코딩 기능 향상
-
+- 이제 새로운 콘텐츠 인식 인코딩 사전 설정을 사용할 수 있습니다. 콘텐츠 인식 인코딩을 사용 하 여 GOP 정렬 Mp4 집합을 생성 합니다. 입력 콘텐츠가 지정 된 경우 서비스는 입력 콘텐츠에 대 한 초기 경량 분석을 수행 합니다. 이러한 결과를 사용 하 여 적응 스트리밍이 배달할 최적의 계층 수, 적절 한 비트 전송률 및 해상도 설정을 결정 합니다. 이 사전 설정은 덜 복잡 하 고 복잡성이 높은 비디오에 특히 효과적입니다 .이 비디오에서는 출력 파일이 더 낮은 비트 전송률이 고 여전히 좋은 경험을 제공 하는 품질로 제공 됩니다. 출력에는 비디오 및 오디오가 인터리브 된 MP4 파일이 포함 됩니다. 자세한 내용은 [OPEN API 사양](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)을 참조 하십시오.
 - Media Encoder Standard의 sizer에 대 한 향상 된 성능 및 다중 스레딩 특정 조건에서 고객은 5-40% VOD 인코딩 사이의 성능 향상을 확인 해야 합니다. 여러 비트 전송률로 인코드된 복잡성이 낮은 콘텐츠가 있으면 성능이 가장 높습니다. 
 - 이제 표준 인코딩은 시간 기반 GOP 설정을 사용 하는 경우 VOD 인코딩에 대해 VFR (가변 프레임 요금) 콘텐츠에 대 한 일반 GOP 주기를 유지 관리 합니다.  즉, 15-30 fps 마다 다른 혼합 프레임 속도 콘텐츠를 제출 하는 고객이 적응 비트 전송률 스트리밍 MP4 파일에 대 한 출력에서 계산 되는 일반적인 GOP 거리가 표시 됩니다. 이렇게 하면 HLS 또는 대시를 통해 배달할 때 트랙 간에 원활 하 게 전환 하는 기능이 향상 됩니다. 
 -  VFR (가변 프레임 전송률) 원본 콘텐츠에 대해 향상 된 AV 동기화

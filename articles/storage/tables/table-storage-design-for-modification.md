@@ -1,6 +1,6 @@
 ---
-title: 데이터 수정의 Azure Storage 테이블 디자인 | Microsoft Docs
-description: Azure Table Storage에서 데이터 수정을 위한 테이블을 디자인합니다.
+title: 데이터 수정을 위해 Azure Table storage 디자인 | Microsoft Docs
+description: Azure 테이블 저장소에서 데이터를 수정 하기 위한 테이블을 디자인 합니다.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325887"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771549"
 ---
 # <a name="design-for-data-modification"></a>데이터 수정을 위한 디자인
 이 아티클에서는 삽입, 업데이트 및 삭제를 최적화하기 위한 디자인 고려 사항을 중점적으로 알아봅니다. 관계형 데이터베이스의 디자인과 마찬가지로(관계형 데이터베이스의 경우 디자인 장단점을 관리하는 기술이 다름), 쿼리에 최적화된 디자인과 데이터 수정에 최적화된 디자인 간의 장단점을 평가해야 하는 경우가 있을 수 있습니다. 테이블 디자인 패턴 섹션은 Table service에 대한 몇 가지 자세한 디자인 패턴을 알아보고 이러한 패턴의 일부 장단점을 설명합니다. 실제로 엔터티 쿼리에 최적화된 디자인은 대부분 엔터티를 수정하는 데에도 효율적입니다.  

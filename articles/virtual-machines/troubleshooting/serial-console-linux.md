@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: abee04afca45a2d6f558858b4490c8be1f37a2f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1074c4bc561236039e6ee55ef2df4fc8bd8dbbfc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451290"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772519"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux 용 Azure 직렬 콘솔
 
@@ -63,6 +63,7 @@ Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](../windows/se
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 CentOS      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
+Debian      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 Ubuntu      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 CoreOS      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 직렬 콘솔 액세스가 기본적으로 활성화되어 있습니다. Azure에서 이전 버전의 SLES(10 이하)를 사용하는 경우[기술 자료 문서](https://www.novell.com/support/kb/doc.php?id=3456486)를 참고하여 직렬 콘솔을 사용하도록 설정합니다.

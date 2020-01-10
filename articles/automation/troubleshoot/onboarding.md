@@ -1,5 +1,5 @@
 ---
-title: 업데이트 관리, 변경 내용 추적 및 인벤토리 온보딩 오류 문제 해결
+title: 온 보 딩 Azure Automation 관리 솔루션 문제 해결
 description: 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션에 관한 온보딩 오류 문제를 해결하는 방법을 알아봅니다.
 services: automation
 author: mgoedtel
@@ -8,14 +8,14 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 737b963074a2bec851882bddd78ad0b89f48d1d9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849312"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769900"
 ---
-# <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
+# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>업데이트 관리, 변경 내용 추적 및 인벤토리를 등록 하는 경우 오류 문제 해결
 
 업데이트 관리나 변경 내용 추적 및 인벤토리와 같은 솔루션을 온보딩할 때 오류가 발생할 수 있습니다. 이 문서에서는 발생할 수 있는 다양한 오류와 이것을 해결하는 방법을 설명합니다.
 
@@ -140,7 +140,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>원인
 
-이 오류는 연결 된 Automation 계정 및 Log 분석 작업 영역에 따라 달라 지는 Log Analytics 작업 영역에서 솔루션을 활성 상태로 유지 하는 경우에 발생 합니다.
+이 오류는 연결 된 Log Analytics 작업 영역 및 Automation 계정에 종속 된 Log Analytics 작업 영역에서 솔루션을 활성 상태로 유지 하는 경우에 발생 합니다.
 
 ### <a name="resolution"></a>해상도
 

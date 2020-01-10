@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 3116b88cd50fa9f348b418cfc90fe21986944b74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539997"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771430"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 회사 범주를 예측 하는 분류자를 빌드합니다.
 
@@ -110,9 +110,9 @@ N-영문법은 지정 된 텍스트 시퀀스에서 n 항의 연속 시퀀스입
 ## <a name="next-steps"></a>다음 단계
 
 디자이너에 사용할 수 있는 다른 샘플을 탐색 합니다.
-- [샘플 1-회귀: 자동차 가격 예측](service/how-to-designer-sample-regression-automobile-price-basic.md)
-- [샘플 2-회귀: 자동차 가격 예측에 대 한 알고리즘 비교](service/how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [샘플 3-기능 선택이 포함 된 분류: 수입 예측](service/how-to-designer-sample-classification-predict-income.md)
-- [샘플 4-분류: 신용 위험 예측 (비용 구분)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [샘플 5-분류: 변동 예측](service/how-to-designer-sample-classification-churn.md)
-- [샘플 6-분류: 비행 지연 예측](service/how-to-designer-sample-classification-flight-delay.md)
+- [샘플 1-회귀: 자동차 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
+- [샘플 2-회귀: 자동차 가격 예측에 대 한 알고리즘 비교](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [샘플 3-기능 선택이 포함 된 분류: 수입 예측](how-to-designer-sample-classification-predict-income.md)
+- [샘플 4-분류: 신용 위험 예측 (비용 구분)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [샘플 5-분류: 변동 예측](how-to-designer-sample-classification-churn.md)
+- [샘플 6-분류: 비행 지연 예측](how-to-designer-sample-classification-flight-delay.md)

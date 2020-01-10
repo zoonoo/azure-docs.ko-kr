@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 12522de6bec4698f8a5b7a931bbc382f65a74265
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4ef268367d1c4c8808cbda3814c863940bcdc32b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537254"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771907"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>로컬 및 원격 실행에 대 한 모델 interpretability
 
@@ -362,7 +362,7 @@ ExplanationDashboard(global_explanation, model, x_test)
    [![시각화 대시보드 로컬 기능 중요도](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **모델** 창
-  1. [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)의 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.
+  1. [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)의 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.
   1. 모델을 선택한 다음 **설명 탭을 클릭 하 여 설명** 시각화 대시보드를 확인 합니다.
 
 ## <a name="interpretability-at-inference-time"></a>유추 시 Interpretability
@@ -427,7 +427,7 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 1. 다음 단계를 수행 하 여 계산 대상에 이미지를 배포 합니다.
 
-   1. 필요한 경우 [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)의 단계를 수행 하 여 원래 예측 모델을 등록 합니다.
+   1. 필요한 경우 [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)의 단계를 수행 하 여 원래 예측 모델을 등록 합니다.
 
    1. 점수 매기기 파일을 만듭니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2d150006fb4638d3efb15111013d17e43c8b125e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893589"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747011"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "74893589"
 
 ## <a name="old-and-new-alerting-capabilities"></a>이전 경고 및 새로운 경고 기능
 
-이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 경과함에 따라 Azure가 개선되어 여러 다른 경고 방법과 사용자 인터페이스를 결합했습니다. 통합은 여전히 진행 중입니다.
+이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 지나면서 Azure가 개선되고 사용자 인터페이스가 다른 여러 경고 방법과 결합되었습니다. 통합은 여전히 진행 중입니다.
 
 Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 볼 수 있습니다. 경고 화면의 **클래식 경고 보기** 단추를 누르면 이 화면을 표시할 수 있습니다. 
 
@@ -93,7 +93,7 @@ Webhook는 다음 예시 항목을 사용하여 자동화 및 조치를 활성�
 * [클래식 메트릭 경고 PowerShell](alerts-classic-portal.md) 구성
 * [클래식 메트릭 경고 CLI(명령줄 인터페이스)](alerts-classic-portal.md) 구성
 * [클래식 메트릭 경고 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx) 구성
-* [활동 로그](activity-logs-overview.md)에 대해 자세히 알아보기
+* [활동 로그](platform-logs-overview.md)에 대해 자세히 알아보기
 * [Azure Portal을 통해 활동 로그 경고](activity-log-alerts.md) 구성
 * [Resource Manager를 통해 활동 로그 경고](alerts-activity-log.md) 구성
 * [활동 로그 경고 웹후크 스키마](activity-log-alerts-webhook.md) 검토

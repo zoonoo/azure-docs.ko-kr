@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 92bfa4f13467763fd88b9ae993554aef69355d75
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 9d0919651842a6f6f935c9f1e338c9d335b80f47
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555226"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749164"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>변경할 수 없는 저장소로 비즈니스에 중요 한 blob 데이터 저장
 
@@ -42,9 +42,9 @@ Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용�
 
 - **모든 Blob 계층 지원:** WORM 정책은 Azure Blob Storage 계층과 별개이며, 모든 계층(핫, 쿨 및 보관)에 적용됩니다. 사용자가 데이터 불변성을 유지하면서 해당 워크로드에 대해 비용이 가장 최적화된 계층으로 데이터를 전환할 수 있습니다.
 
-- **컨테이너 수준 구성:** 사용자가 컨테이너 수준에서 시간 기준 보존 정책 및 법적 보존 태그를 구성할 수 있습니다. 사용자는 간단한 컨테이너 수준 설정을 사용 하 여 시간 기반 보존 정책을 만들고 잠그고, 보존 간격을 확장 하 고, 법적 보류를 설정 하 고 지울 수 있습니다. 이러한 정책은 컨테이너의 모든 Blob(기존 및 신규)에 적용됩니다.
+- **컨테이너 수준 구성:** 사용자가 컨테이너 수준에서 시간 기준 보존 정책 및 법적 보존 태그를 구성할 수 있습니다. 사용자는 간단한 컨테이너 수준 설정을 사용하여 시간 기준 보존 정책을 만들거나 잠그고, 보존 간격을 연장하고, 법적 보존을 설정 및 해제하는 등의 작업을 수행할 수 있습니다. 이러한 정책은 컨테이너의 모든 Blob(기존 및 신규)에 적용됩니다.
 
-- **감사 로깅 지원**: 각 컨테이너에는 정책 감사 로그가 포함 됩니다. 잠긴 시간 기반 보존 정책에 대 한 최대 7 개의 시간 기반 보존 명령을 표시 하 고 사용자 ID, 명령 유형, 타임 스탬프 및 보존 간격을 포함 합니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 초 17a-4 (f) 규정 지침에 따라 정책의 수명 동안 유지 됩니다. [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md) 에는 모든 제어 평면 활동의 포괄적인 로그가 표시 됩니다. [Azure 진단 로그](../../azure-monitor/platform/resource-logs-overview.md) 를 사용 하도록 설정 하는 동안 데이터 평면 작업을 유지 하 고 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
+- **감사 로깅 지원**: 각 컨테이너에는 정책 감사 로그가 포함 됩니다. 잠긴 시간 기반 보존 정책에 대 한 최대 7 개의 시간 기반 보존 명령을 표시 하 고 사용자 ID, 명령 유형, 타임 스탬프 및 보존 간격을 포함 합니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 초 17a-4 (f) 규정 지침에 따라 정책의 수명 동안 유지 됩니다. [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 에는 모든 제어 평면 활동의 포괄적인 로그가 표시 됩니다. [Azure 진단 로그](../../azure-monitor/platform/platform-logs-overview.md) 를 사용 하도록 설정 하는 동안 데이터 평면 작업을 유지 하 고 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
 
 ## <a name="how-it-works"></a>작동 원리
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Automation Runbook을 사용하여 오류 해결
-description: Azure Automation Runbook을 사용하여 문제를 해결하는 방법 알아보기
+description: Runbook Azure Automation에서 발생할 수 있는 문제를 해결 하 고 해결 하는 방법을 알아봅니다.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 340a1927f62d6a398994b457e351ad41d5e76d19
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 10152087b45a4048f30f382b237017efbbb63787
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659766"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769883"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 

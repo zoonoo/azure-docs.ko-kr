@@ -3,12 +3,12 @@ title: 정책 할당 구조의 세부 정보
 description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 매개 변수를 연결 하는 데 사용 하는 정책 할당 정의에 대해 설명 합니다.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f6b097b82d31926b7b5d3099d1f3f23669e78c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436371"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747211"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -55,7 +55,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 ## <a name="enforcement-mode"></a>적용 모드
 
-**EnforcementMode** 속성은 [Azure 활동 로그](../../../azure-monitor/platform/activity-logs-overview.md)에서 정책 효과를 시작 하거나 항목을 트리거하지 않고 기존 리소스에 대 한 정책 결과를 테스트 하는 기능을 고객에 게 제공 합니다. 이 시나리오를 일반적으로 "What If" 이라고 하며 안전 배포 방법에 맞춥니다. **enforcementMode** 는 [사용 하지 않도록 설정](./effects.md#disabled) 된 효과와 다릅니다. 이러한 효과는 리소스 평가가 전혀 발생 하지 않도록 방지 합니다.
+**EnforcementMode** 속성은 [Azure 활동 로그](../../../azure-monitor/platform/platform-logs-overview.md)에서 정책 효과를 시작 하거나 항목을 트리거하지 않고 기존 리소스에 대 한 정책 결과를 테스트 하는 기능을 고객에 게 제공 합니다. 이 시나리오를 일반적으로 "What If" 이라고 하며 안전 배포 방법에 맞춥니다. **enforcementMode** 는 [사용 하지 않도록 설정](./effects.md#disabled) 된 효과와 다릅니다. 이러한 효과는 리소스 평가가 전혀 발생 하지 않도록 방지 합니다.
 
 이 속성의 값은 다음과 같습니다.
 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d75f12953c0ec767dba8a49b3ed76c176223b30c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613893"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749223"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 저장소에 대 한 성능 및 확장성 검사 목록
 
 Microsoft는 Blob storage를 사용 하 여 고성능 응용 프로그램을 개발 하기 위한 다양 한 검증 사례를 개발 했습니다. 이 검사 목록에서는 개발자가 성능을 최적화하기 위해 수행할 수 있는 주요 사례를 식별합니다. 애플리케이션을 설계하는 동안 프로세스 전체에서 이러한 사례를 명심하세요.
 
-Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장성 및 성능 목표가 있습니다. Azure Storage 확장성 목표에 대한 자세한 내용은 [스토리지 계정에 대한 Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장성 및 성능 목표가 있습니다. Azure Storage 확장성 목표에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 및 성능 목표](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 및 [Blob 저장소에 대 한 확장성 및 성능 목표](scalability-targets.md)를 참조 하세요.
 
 ## <a name="checklist"></a>검사 목록
 
@@ -285,5 +285,6 @@ Azure Storage는 블록 blob, 추가 blob 및 페이지 blob을 지원 합니다
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스토리지 계정의 Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Blob 저장소에 대 한 확장성 및 성능 목표](scalability-targets.md)
+- [Standard storage 계정에 대 한 확장성 및 성능 목표](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [상태 및 오류 코드](/rest/api/storageservices/Status-and-Error-Codes2)

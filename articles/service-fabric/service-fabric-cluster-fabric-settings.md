@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: aab59af7031d8b2d8aa52e9ba13b73a204f19acc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458332"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772128"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -555,7 +555,7 @@ ms.locfileid: "75458332"
 |PlacementSearchTimeout | time(초), 기본값: 0.5 |동적| 시간 간격은 초 단위로 지정합니다. 서비스를 배치할 때 결과를 반환하기 전까지 이 기간에서 최대한 오랫동안 검색합니다. |
 |PLBRefreshGap | time(초), 기본값: 1 |동적| 시간 간격은 초 단위로 지정합니다. PLB에서 상태를 다시 새로 고치기 전에 경과해야 하는 최소 시간을 정의합니다. |
 |PreferredLocationConstraintPriority | int, 기본값: 2| 동적|권장되는 위치 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 2: 최적화, 음수: 무시). |
-|PreferUpgradedUDs|bool, 기본값: true|동적|기본적으로 이미 업그레이드된 UD로 전환하는 논리를 켜거나 끕니다.|
+|PreferUpgradedUDs|bool, 기본값: FALSE|동적|기본적으로 이미 업그레이드된 UD로 전환하는 논리를 켜거나 끕니다. SF 7.0부터이 매개 변수의 기본값은 TRUE에서 FALSE로 변경 됩니다.|
 |PreventTransientOvercommit | bool, 기본값: false | 동적|PLB에서 시작된 이동으로 인해 확보될 리소스를 즉시 계산해야 하는지 결정합니다. 기본적으로 PLB는 일시적인 초과 커밋을 만들 수 있는 동일한 노드에서 인출과 인입을 시작할 수 있습니다. 이 매개 변수를 true로 설정하면 이러한 종류의 초과 커밋을 방지하고 주문형 조각 모음, 즉 placementWithMove를 사용할 수 없게 됩니다. |
 |ScaleoutCountConstraintPriority | int, 기본값: 0 |동적| 확장 수 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
 |SwapPrimaryThrottlingAssociatedMetric | string, 기본값: ""|정적| 이 제한의 관련 메트릭 이름 |

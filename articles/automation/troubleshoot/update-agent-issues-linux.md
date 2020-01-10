@@ -1,6 +1,6 @@
 ---
-title: Azure 업데이트 관리에서 Linux Hybrid Runbook Worker 상태 이해
-description: 업데이트 관리을 지 원하는 Linux에서 Hybrid Runbook Worker 관련 된 문제를 해결 하는 방법을 알아봅니다.
+title: Linux Hybrid Runbook Worker 진단-Azure 업데이트 관리
+description: 업데이트 관리를 지 원하는 Linux의 Azure Automation Hybrid Runbook Worker 문제를 해결 하 고 문제를 해결 하는 방법을 알아봅니다.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849262"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769832"
 ---
-# <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>업데이트 관리의 Linux Hybrid Runbook Worker 상태 이해
+# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>업데이트 관리에 대 한 Linux Hybrid Runbook Worker 상태 이해 및 해결
 
 업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 Hybrid Runbook Worker 에이전트의 상태를 확인 하 여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다.
 
@@ -52,7 +52,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치에는 CentOS에 기본 제공되지 않은 보안 데이터를 반환하기 위해 'yum'이 필요합니다.         |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |

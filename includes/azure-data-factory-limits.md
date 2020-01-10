@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 5/30/2019
+ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: e1db978dbb7b63aaa4e9d189486faa0dfef520d1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 34e828a43567ffc701c1645c55f4ff0352b0e8d3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75662923"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75772956"
 ---
 Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 되도록 하기 위해 다음과 같은 기본 제한이 적용 되는 다중 테 넌 트 서비스입니다. 구독에 대 한 최대 제한 값을 높이려면 지원 담당자에 게 문의 하세요.
 
@@ -25,7 +25,7 @@ Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 
 | 데이터 팩터리 내에서 파이프라인, 데이터 집합, 트리거, 연결 된 서비스, 통합 런타임 등의 총 엔터티 수 | 5,000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Azure의 총 CPU 코어-한 구독에서 SSIS 통합 런타임 | 256 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 팩터리의 모든 파이프라인에서 공유 되는 데이터 팩터리 당 동시 파이프라인 실행 | 10000  | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| [Azure Integration Runtime 지역별](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 구독 당 동시 외부 활동 실행 수<br><small>외부 활동은 integration runtime에서 관리 되지만 Databricks, 저장 프로시저, HDInsights 등을 포함 하 여 연결 된 서비스에서 실행 됩니다.</small> | 3000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| [Azure Integration Runtime 지역별](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 구독 당 동시 외부 활동 실행 수<br><small>외부 활동은 integration runtime에서 관리 되지만 Databricks, 저장 프로시저, HDInsights, 웹 등을 비롯 한 연결 된 서비스에서 실행 됩니다.</small> | 3000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | [Azure Integration Runtime 지역별](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 구독 당 동시 파이프라인 작업 실행 수 <br><small>파이프라인 활동은 integration runtime (Lookup, GetMetadata 및 Delete 포함)에서 실행 됩니다.</small>| 1000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | [Azure Integration Runtime 지역별](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 구독 당 동시 작성 작업<br>연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 데이터 미리 보기를 포함 하는 <small>. | 200 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 동시 데이터 통합 단위 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 당 구독 당<sup>1</sup> 소비| 지역 그룹 1<sup>2</sup>: 6000<br>지역 그룹 2<sup>: 3000</sup><br>지역 그룹 3<sup>2</sup>: 1500 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

@@ -11,19 +11,19 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e9058fbbe9b238877b842e79d98041fa0b681bc8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539763"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771396"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> Azure Machine Learning 모니터링 SDK는 곧 사용이 중지 될 예정입니다. SDK는 현재 SDK를 사용 하 여 모델의 데이터 드리프트를 모니터링 하는 개발자에 게 적합 합니다. 그러나 새 고객의 경우 [Application Insights로 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)을 사용 하는 것이 좋습니다.
+> Azure Machine Learning 모니터링 SDK는 곧 사용이 중지 될 예정입니다. SDK는 현재 SDK를 사용 하 여 모델의 데이터 드리프트를 모니터링 하는 개발자에 게 적합 합니다. 그러나 새 고객의 경우 [Application Insights로 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)을 사용 하는 것이 좋습니다.
 
 이 문서에서는 Azure Machine Learning에서 입력 모델 데이터를 수집 하는 방법을 보여 줍니다. 또한 azure Kubernetes 서비스 (AKS) 클러스터에 입력 데이터를 배포 하 고 Azure Blob 저장소에 출력 데이터를 저장 하는 방법을 보여 줍니다.
 

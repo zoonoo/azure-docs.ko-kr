@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: cf79911c24998c3d00937937cce5c68bbb564f1e
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392253"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751988"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager 다음 제한은 구독 당 지역 별로 **Azure Resource Manager** 를 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -58,20 +58,29 @@ ms.locfileid: "75392253"
 #### <a name="load-balancer"></a>부하 분산 장치 제한
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
-| 리소스 | 기본/최대 제한 |
-| --- | --- |
-| 부하 분산 장치 | 1,000 | 
-| 리소스당 규칙 수, 기본 | 250 |
-| 리소스당 규칙 수, 표준 | 1,500 | 
-| Nic 당 규칙 (NIC의 모든 Ip에서) | 300 |
-| 프런트 엔드 IP 구성, 기본 | 200 |
-| 프런트 엔드 IP 구성, 표준 | 600 |
-| 백 엔드 풀, 기본 | 100, 단일 가용성 집합 |
-| 백 엔드 풀, 표준 | 1000, 단일 가상 네트워크 |
-| 부하 분산 장치당 백 엔드 리소스, 표준<sup>1</sup> | 150 |
-| 고가용성 포트, 표준 | 내부 프런트 엔드 당 1 |
+**표준 Load Balancer**
+
+| 리소스                                | 기본/최대 제한         |
+|-----------------------------------------|-------------------------------|
+| 부하 분산 장치                          | 1,000                         |
+| 리소스 당 규칙                      | 1,500                         |
+| Nic 당 규칙 (NIC의 모든 Ip에서) | 300                           |
+| 프런트 엔드 IP 구성             | 600                           |
+| 백 엔드 풀 크기                          | 1000 인스턴스, 단일 가상 네트워크 |
+| 부하 분산 장치당 백 엔드 리소스<sup>1<sup>   | 150                 |
+| 고가용성 포트                 | 내부 프런트 엔드당 1      |
 
 <sup>1</sup> 이 제한은 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 및 가상 머신 확장 집합 리소스의 조합에서 최대 150 리소스를 제공 합니다.
+
+**기본 Load Balancer**
+
+| 리소스                                | 기본/최대 제한        |
+|-----------------------------------------|------------------------------|
+| 부하 분산 장치                          | 1,000                        |
+| 리소스 당 규칙                      | 250                          |
+| Nic 당 규칙 (NIC의 모든 Ip에서) | 300                          |
+| 프런트 엔드 IP 구성             | 200                          |
+| 백 엔드 풀 크기                           | 100 인스턴스, 단일 가용성 집합 |
 
 #### <a name="virtual-networking-limits-classic"></a>다음 제한은 구독 당 **클래식** 배포 모델을 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 

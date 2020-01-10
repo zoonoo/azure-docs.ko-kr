@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed376a3f500f6d6af3d0eab7f98b68e856513600
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547025"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745454"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Azure Digital Twins에서 모니터링을 구성하는 방법
 
@@ -26,7 +26,7 @@ Azure Digital Twins는 강력한 로깅, 모니터링 및 분석을 지원합니
 
 ## <a name="review-activity-logs"></a>활동 로그 검토
 
-Azure [활동 로그](../azure-monitor/platform/activity-logs-overview.md)는 각 Azure 서비스 인스턴스의 구독 수준 이벤트 및 작업 기록에 대한 인사이트를 신속하게 제공합니다.
+Azure [활동 로그](../azure-monitor/platform/platform-logs-overview.md)는 각 Azure 서비스 인스턴스의 구독 수준 이벤트 및 작업 기록에 대한 인사이트를 신속하게 제공합니다.
 
 구독 수준 이벤트는 다음과 같습니다.
 
@@ -57,7 +57,7 @@ Azure Digital Twins에 대한 활동 로깅이 기본적으로 사용되며 다�
 
 ## <a name="enable-customer-diagnostic-logs"></a>고객 진단 로그 사용
 
-각 Azure 인스턴스에 대한 [진단 설정](../azure-monitor/platform/resource-logs-overview.md)을 설정하여 작업 로깅을 보완할 수 있습니다. 활동 로그는 구독 수준 이벤트와 관련이 있지만, 진단 로깅은 리소스 자체의 작업 기록에 대한 인사이트를 제공합니다.
+각 Azure 인스턴스에 대한 [진단 설정](../azure-monitor/platform/platform-logs-overview.md)을 설정하여 작업 로깅을 보완할 수 있습니다. 활동 로그는 구독 수준 이벤트와 관련이 있지만, 진단 로깅은 리소스 자체의 작업 기록에 대한 인사이트를 제공합니다.
 
 다음은 진단 로깅의 예입니다.
 
@@ -127,8 +127,8 @@ Azure Digital Twins는 애플리케이션별 로깅 및 보안 감사도 지원�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure [활동 로그](../azure-monitor/platform/activity-logs-overview.md)에 대해 자세히 알아보세요.
+- Azure [활동 로그](../azure-monitor/platform/platform-logs-overview.md)에 대해 자세히 알아보세요.
 
-- [진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)를 읽고 Azure 진단 설정에 대해 자세히 알아보세요.
+- [진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 읽고 Azure 진단 설정에 대해 자세히 알아보세요.
 
 - [Azure Monitor 로그](../azure-monitor/log-query/get-started-portal.md)에 대해 자세히 알아보세요.

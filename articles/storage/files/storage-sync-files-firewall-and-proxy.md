@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4f37c54699329f43a5bbdd5c4543ae3a7b2166f5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048840"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750455"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -89,7 +89,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
 
-| 부여 | 공용 클라우드 끝점 | Azure Government 엔드포인트 | 사용 |
+| 서비스 | 공용 클라우드 끝점 | Azure Government 엔드포인트 | 사용량 |
 |---------|----------------|---------------|------------------------------|
 | **Azure 리소스 관리자** | https://management.azure.com | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
 | **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
@@ -132,8 +132,8 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 | 공용 | 서유럽 | https:\//kailani6.one.microsoft.com | 북유럽 | https:\//tm-kailani6.one.microsoft.com |
 | 공용 | 미국 서부 | https:\//kailani.one.microsoft.com | 미국 동부 | https:\//tm-kailani.one.microsoft.com |
 | 공용 | 미국 서부 2 | https:\//westus201.afs.azure.net | 미국 중서부 | https:\//tm-westus201.afs.azure.net |
-| 정부 | 미국 정부 애리조나 | https:\//usgovarizona01.afs.azure.us | 미국 정부 텍사스 | https:\//tm-usgovarizona01.afs.azure.us |
-| 정부 | 미국 정부 텍사스 | https:\//usgovtexas01.afs.azure.us | 미국 정부 애리조나 | https:\//tm-usgovtexas01.afs.azure.us |
+| 정부/공공기관 | US Gov 애리조나 | https:\//usgovarizona01.afs.azure.us | US Gov 텍사스 | https:\//tm-usgovarizona01.afs.azure.us |
+| 정부/공공기관 | US Gov 텍사스 | https:\//usgovtexas01.afs.azure.us | US Gov 애리조나 | https:\//tm-usgovtexas01.afs.azure.us |
 
 - LRS(로컬 중복 스토리지) 또는 ZRS(영역 중복 스토리지) 스토리지 계정을 사용하는 경우 &quot;기본 엔드포인트 URL&quot; 아래에 나열된 URL을 사용하도록 설정하기만 하면 됩니다.
 
@@ -144,6 +144,15 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 > - https:\//kailani.one.microsoft.com (기본 끝점: 미국 서 부)
 > - https:\//kailani1.one.microsoft.com (페어링된 장애 조치 (failover) 지역: 미국 동부)
 > - https:\//tm-kailani.one.microsoft.com (주 지역의 검색 URL)
+
+## <a name="test-network-connectivity-to-service-endpoints"></a>서비스 끝점에 대 한 네트워크 연결 테스트
+서버를 Azure File Sync 서비스에 등록 한 후에는 테스트 StorageSyncNetworkConnectivity cmdlet 및 ServerRegistration을 사용 하 여이 서버와 관련 된 모든 끝점 (Url)과의 통신을 테스트할 수 있습니다. 이 cmdlet은 불완전 한 통신에서 서버가 Azure File Sync 완전히 작동 하지 않도록 하 고 프록시 및 방화벽 구성을 미세 조정 하는 데 사용할 수 있는 경우 문제를 해결 하는 데 도움이 됩니다.
+
+네트워크 연결 테스트를 실행 하려면 Azure File Sync 에이전트 버전 9.1 이상을 설치 하 고 다음 PowerShell 명령을 실행 합니다.
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Test-StorageSyncNetworkConnectivity
+```
 
 ## <a name="summary-and-risk-limitation"></a>요약 및 위험 제한
 이 문서의 앞부분에 나오는 목록에는 Azure 파일 동기화가 현재 통신하는 URL이 포함되어 있습니다. 방화벽은 이러한 도메인의 아웃바운드 트래픽을 허용할 수 있어야 합니다. Microsoft는 이 목록을 업데이트 상태로 유지하려고 합니다.

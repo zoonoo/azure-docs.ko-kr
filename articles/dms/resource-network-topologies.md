@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/07/2019
-ms.openlocfilehash: db875ea099b0093bf1d43bd64b1ae4c07db05b45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.date: 01/08/2020
+ms.openlocfilehash: 9a313ea798519273ce57961544ec5b37c4d9c5ca
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437709"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749259"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 Azure SQL DB Managed Instance 마이그레이션에 대 한 네트워크 토폴로지
 
@@ -31,8 +31,8 @@ Azure SQL Database Managed Instance가 온-프레미스 네트워크에 연결�
 
 **요구 사항**
 
-- 이 시나리오에서 Azure SQL Database 관리 되는 인스턴스와 Azure Database Migration Service 인스턴스는 동일한 Azure VNet에서 만들어지지만 다른 서브넷을 사용 합니다.  
-- 이 시나리오에 사용 된 VNet은 [express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 네트워크에도 연결 됩니다.
+- 이 시나리오에서는 Azure SQL Database 관리 되는 인스턴스와 Azure Database Migration Service 인스턴스가 동일한 Microsoft Azure Virtual Network에서 만들어지지만 다른 서브넷을 사용 합니다.  
+- 이 시나리오에서 사용 되는 가상 네트워크는 [express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 네트워크에도 연결 됩니다.
 
 ## <a name="azure-sql-database-managed-instance-isolated-from-the-on-premises-network"></a>온-프레미스 네트워크에서 격리된 Azure SQL Database Managed Instance
 
@@ -40,18 +40,18 @@ Azure SQL Database Managed Instance가 온-프레미스 네트워크에 연결�
 
 - Azure SQL Database 관리 되는 인스턴스는 온-프레미스 연결에서 격리 되지만 Azure Database Migration Service 인스턴스는 온-프레미스 네트워크에 연결 됩니다.
 - RBAC (역할 기반 Access Control) 정책이 적용 되는 경우 Azure SQL Database 관리 되는 인스턴스를 호스트 하는 동일한 구독에 액세스 하도록 사용자를 제한 해야 합니다.
-- Azure SQL Database Managed Instance 및 Azure Database Migration Service에 사용 되는 Vnet이 다른 구독에 있습니다.
+- Azure SQL Database Managed Instance 및 Azure Database Migration Service에 사용 되는 가상 네트워크가 서로 다른 구독에 있습니다.
 
 ![온-프레미스 네트워크에서 격리된 Managed Instance의 네트워크 토폴로지](media/resource-network-topologies/mi-isolated-workload.png)
 
 **요구 사항**
 
-- 이 시나리오에 사용 하 Azure Database Migration Service는 VNet은 (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)중 하나를 사용 하 여 온-프레미스 네트워크에도 연결 해야 합니다.
-- Azure SQL Database 관리 되는 인스턴스 및 Azure Database Migration Service에 사용 되는 VNet 간에 [vnet 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 설정 합니다.
+- 이 시나리오에 사용 Azure Database Migration Service 하는 가상 네트워크는 (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 네트워크에도 연결 되어야 합니다.
+- Azure SQL Database 관리 되는 인스턴스 및 Azure Database Migration Service에 사용 되는 가상 네트워크 간에 [VNet 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 설정 합니다.
 
-## <a name="cloud-to-cloud-migrations-shared-vnet"></a>클라우드-클라우드 마이그레이션: 공유 VNet
+## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>클라우드-클라우드 마이그레이션: 공유 가상 네트워크
 
-원본 SQL Server Azure VM에서 호스트 되 고 Azure SQL Database 관리 되는 인스턴스 및 Azure Database Migration Service와 동일한 VNET을 공유 하는 경우이 토폴로지를 사용 합니다.
+원본 SQL Server Azure VM에서 호스트 되 고 Azure SQL Database 관리 되는 인스턴스 및 Azure Database Migration Service와 동일한 가상 네트워크를 공유 하는 경우이 토폴로지를 사용 합니다.
 
 ![공유 VNet을 사용 하 여 클라우드-클라우드 마이그레이션에 대 한 네트워크 토폴로지](media/resource-network-topologies/cloud-to-cloud.png)
 
@@ -59,19 +59,19 @@ Azure SQL Database Managed Instance가 온-프레미스 네트워크에 연결�
 
 - 추가 요구 사항 없음
 
-## <a name="cloud-to-cloud-migrations-isolated-vnet"></a>클라우드-클라우드 마이그레이션: isolated VNet
+## <a name="cloud-to-cloud-migrations-isolated-virtual-network"></a>클라우드-클라우드 마이그레이션: 격리 된 가상 네트워크
 
 작업 환경에 다음과 같은 시나리오 중 하나 이상이 필요한 경우 이 네트워크 토폴로지를 사용합니다.
 
-- Azure SQL Database 관리 되는 인스턴스는 isolated VNet에서 프로 비전 됩니다.
+- Azure SQL Database 관리 되는 인스턴스는 격리 된 가상 네트워크에서 프로 비전 됩니다.
 - RBAC (역할 기반 Access Control) 정책이 적용 되는 경우 Azure SQL Database 관리 되는 인스턴스를 호스트 하는 동일한 구독에 액세스 하도록 사용자를 제한 해야 합니다.
-- Azure SQL Database Managed Instance 및 Azure Database Migration Service에 사용 되는 Vnet은 서로 다른 구독에 있습니다.
+- Azure SQL Database Managed Instance 및 Azure Database Migration Service에 사용 되는 가상 네트워크가 서로 다른 구독에 있습니다.
 
 ![Isolated VNet을 사용 하 여 클라우드-클라우드 마이그레이션에 대 한 네트워크 토폴로지](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
 **요구 사항**
 
-- Azure SQL Database 관리 되는 인스턴스 및 Azure Database Migration Service에 사용 되는 VNet 간에 [vnet 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 설정 합니다.
+- Azure SQL Database 관리 되는 인스턴스 및 Azure Database Migration Service에 사용 되는 가상 네트워크 간에 [VNet 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 설정 합니다.
 
 ## <a name="inbound-security-rules"></a>인바운드 보안 규칙
 
@@ -83,7 +83,7 @@ Azure SQL Database Managed Instance가 온-프레미스 네트워크에 연결�
 
 | **이름**                  | **포트**                                              | **프로토콜** | **원본** | **대상**           | **작업** | **규칙이 필요한 이유**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 관리                | 443,9354                                              | TCP          | 모두        | 모두                       | 허용      | Service Bus와 Azure Blob Storage를 통한 관리 평면 통신입니다. <br/>(Microsoft 피어링을 사용하도록 설정한 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                             |
+| 관리                | 443,9354                                              | TCP          | 모두        | 모두                       | 허용      | Service Bus 및 Azure blob storage를 통한 관리 평면 통신. <br/>(Microsoft 피어링을 사용하도록 설정한 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                             |
 | 진단               | 12000                                                 | TCP          | 모두        | 모두                       | 허용      | DMS는 이 규칙을 사용하여 문제 해결을 위한 진단 정보를 수집합니다.                                                                                                                      |
 | SQL 원본 서버         | 1433(또는 SQL Server가 수신 대기 중인 TCP IP 포트) | TCP          | 모두        | 온-프레미스 주소 공간 | 허용      | DMS의 SQL Server 원본 연결 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                                                       |
 | SQL Server 명명된 인스턴스 | 1434                                                  | UDP          | 모두        | 온-프레미스 주소 공간 | 허용      | DMS의 SQL Server 명명된 인스턴스 원본 연결 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                                        |

@@ -1,21 +1,20 @@
 ---
-title: 데이터 흐름 매개 변수 매핑 Azure Data Factory
+title: 매핑 데이터 흐름 매개 변수화
 description: 데이터 팩터리 파이프라인에서 매핑 데이터 흐름을 매개 변수화 하는 방법을 알아봅니다.
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 0a1051d67bf45e96f82833ef8190008204cdc90b
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 01/07/2020
+ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "72387548"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746158"
 ---
-# <a name="mapping-data-flow-parameters"></a>데이터 흐름 매개 변수 매핑
-
-
+# <a name="parameterizing-mapping-data-flows"></a>매핑 데이터 흐름 매개 변수화
 
 Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 합니다. 데이터 흐름 정의 내에서 매개 변수를 정의할 수 있습니다. 그러면 식 전체에서 사용할 수 있습니다. 매개 변수 값은 데이터 흐름 실행 작업을 통해 호출 파이프라인에서 설정할 수 있습니다. 데이터 흐름 활동 식의 값을 설정 하는 세 가지 옵션이 있습니다.
 
@@ -28,25 +27,33 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 > [!NOTE]
 > 파이프라인 제어 흐름 식을 사용 하려면 데이터 흐름 매개 변수가 문자열 유형 이어야 합니다.
 
-## <a name="create-parameters-in-mapping-data-flow"></a>매핑 데이터 흐름에서 매개 변수 만들기
+## <a name="create-parameters-in-a-mapping-data-flow"></a>매핑 데이터 흐름에서 매개 변수 만들기
 
-데이터 흐름에 매개 변수를 추가 하려면 데이터 흐름 캔버스의 빈 부분을 클릭 하 여 일반 속성을 표시 합니다. 설정 창에 ' Parameters ' 탭이 표시 됩니다. ' 새로 만들기 ' 단추를 클릭 하 여 새 매개 변수를 생성 합니다. 각 매개 변수에 대해 이름을 할당 하 고, 형식을 선택 하 고, 필요에 따라 기본값을 설정 해야 합니다.
+데이터 흐름에 매개 변수를 추가 하려면 데이터 흐름 캔버스의 빈 부분을 클릭 하 여 일반 속성을 표시 합니다. 설정 창에 **매개 변수**라는 탭이 표시 됩니다. 새로 **만들기를 선택 하** 여 새 매개 변수를 생성 합니다. 각 매개 변수에 대해 이름을 할당 하 고, 형식을 선택 하 고, 필요에 따라 기본값을 설정 해야 합니다.
 
 ![데이터 흐름 매개 변수 만들기](media/data-flow/create-params.png "데이터 흐름 매개 변수 만들기")
 
-모든 데이터 흐름 식에서 매개 변수를 활용할 수 있습니다. 매개 변수는 $ 및로 시작 되며 변경할 수 없습니다. ' 매개 변수 ' 탭 아래의 식 작성기 내에서 사용 가능한 매개 변수 목록을 찾을 수 있습니다.
+## <a name="use-parameters-in-a-mapping-data-flow"></a>매핑 데이터 흐름에서 매개 변수 사용 
+
+모든 데이터 흐름 식에서 매개 변수를 참조할 수 있습니다. 매개 변수는 $ 및로 시작 되며 변경할 수 없습니다. 식 작성기 내에서 사용할 수 있는 매개 변수 목록은 **매개 변수** 탭에서 찾을 수 있습니다.
 
 ![데이터 흐름 매개 변수 식](media/data-flow/parameter-expression.png "데이터 흐름 매개 변수 식")
 
-## <a name="use-parameters-in-your-data-flow"></a>데이터 흐름에서 매개 변수 사용
+**새 매개 변수** 를 선택 하 고 이름 및 유형을 지정 하 여 추가 매개 변수를 빠르게 추가할 수 있습니다.
 
-* 변환 식 내에서 매개 변수 값을 사용할 수 있습니다. 식 작성기의 매개 변수 탭에서 매개 변수 목록을 찾을 수 있습니다. ![데이터 흐름 매개 변수 사용](media/data-flow/params9.png "Use 데이터 흐름 매개 변수 ")
+![데이터 흐름 매개 변수 식](media/data-flow/new-parameter-expression.png "데이터 흐름 매개 변수 식")
 
-* 매개 변수는 원본 및 싱크 변환 설정에 대 한 동적 값을 구성 하는 데도 사용 됩니다. 구성 가능한 필드 내부를 클릭 하면 "동적 항목 추가" 링크가 표시 됩니다. 이 단추를 클릭 하면 매개 변수를 사용 하 여 동적 값을 사용할 수 있는 식 작성기로 이동 합니다. ![데이터 흐름 동적 콘텐츠](media/data-flow/params6.png "Data flow 동적 콘텐츠 ")
+### <a name="passing-in-a-column-name-as-a-parameter"></a>열 이름을 매개 변수로 전달
 
-## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>파이프라인에서 데이터 흐름 매개 변수 매핑 설정
+일반적인 패턴은 열 이름을 매개 변수 값으로 전달 하는 것입니다. 매개 변수와 연결 된 열을 참조 하려면 `byName()` 함수를 사용 합니다. `toString()`와 같은 캐스팅 함수를 사용 하 여 열을 적절 한 형식으로 캐스팅 해야 합니다.
 
-매개 변수를 사용 하 여 데이터 흐름을 만들었으면 데이터 흐름 실행 작업을 사용 하 여 파이프라인에서 실행할 수 있습니다. 파이프라인 캔버스에 활동을 추가 하면 활동의 ' 매개 변수 ' 탭에서 사용 가능한 데이터 흐름 매개 변수가 표시 됩니다.
+예를 들어 `columnName`매개 변수를 기반으로 문자열 열을 매핑하려는 경우 파생 열 변환을 `toString(byName($columnName))`에 추가할 수 있습니다.
+
+![열 이름을 매개 변수로 전달](media/data-flow/parameterize-column-name.png "열 이름을 paramete로 전달")
+
+## <a name="assign-parameter-values-from-a-pipeline"></a>파이프라인에서 매개 변수 값 할당
+
+매개 변수를 사용 하 여 데이터 흐름을 만들었으면 데이터 흐름 실행 작업을 사용 하 여 파이프라인에서 실행할 수 있습니다. 파이프라인 캔버스에 활동을 추가 하면 활동의 **매개 변수** 탭에서 사용 가능한 데이터 흐름 매개 변수가 표시 됩니다.
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/parameter-assign.png "데이터 흐름 매개 변수 설정")
 

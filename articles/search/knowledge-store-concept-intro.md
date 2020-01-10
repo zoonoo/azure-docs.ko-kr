@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2cde70579e61d1911008f7c8126ad7bda132eac1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 9a6fa62384615f60da88bb41da8ad3538d34e62a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563499"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754100"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소 소개
 
@@ -30,7 +30,7 @@ ms.locfileid: "75563499"
 
 ## <a name="benefits-of-knowledge-store"></a>지식 저장소의 이점
 
-지식 저장소는 blob, 분석 한 이미지 파일 또는 구조화 된 데이터와 같은 구조화 되지 않은 반 구조화 된 데이터 파일에서 구조, 컨텍스트 및 실제 콘텐츠를 통해 수집할 하 여 새 형식으로 바꿀 수 있습니다. 단계별 [연습](knowledge-store-howto.md)에서는 조밀한 JSON 문서를 하위 구조체로 분할 하는 방법, 다시 구성를 새 구조체로 분할 하는 방법, 그리고 machine learning 및 데이터 과학 워크 로드와 같은 다운스트림 프로세스에 사용할 수 있는 방법에 대해 알아봅니다.
+지식 저장소는 blob, 분석 한 이미지 파일 또는 구조화 된 데이터와 같은 구조화 되지 않은 반 구조화 된 데이터 파일에서 구조, 컨텍스트 및 실제 콘텐츠를 통해 수집할 하 여 새 형식으로 바꿀 수 있습니다. 단계별 [연습](knowledge-store-create-rest.md)에서는 조밀한 JSON 문서를 하위 구조체로 분할 하는 방법, 다시 구성를 새 구조체로 분할 하는 방법, 그리고 machine learning 및 데이터 과학 워크 로드와 같은 다운스트림 프로세스에 사용할 수 있는 방법에 대해 알아봅니다.
 
 AI 보강 파이프라인이 생성할 수 있는 작업을 확인 하는 것이 유용 하지만, 기술 자료 저장소의 실제 잠재력은 데이터를 변경 하는 기능입니다. 기본 기술 세트로 시작하고, 이를 반복하여 증가하는 수준의 구조를 추가한 다음, Azure Cognitive Search 이외의 다른 앱에서 사용할 수 있는 새 구조로 결합할 수 있습니다.
 

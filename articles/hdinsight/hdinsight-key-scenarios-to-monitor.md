@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: c6e60474f74a23add429bf13ca7744afb8e8e1a3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 72006f907a1c1641308c8ee43e7a405765410789
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777593"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770886"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Azure HDInsight에서 클러스터 성능 모니터링
 
@@ -27,7 +27,7 @@ Hadoop 클러스터는 클러스터의 부하가 모든 노드에 균등하게 �
 
 클러스터의 노드 및 해당 로드를 자세히 확인 하려면 [Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에 로그인 한 다음 **호스트** 탭을 선택 합니다. 호스트는 정규화 된 도메인 이름으로 나열 됩니다. 각 호스트의 운영 상태는 색이 지정된 상태 표시기로 표시됩니다.
 
-| 컬러 | 설명 |
+| 컬러 | Description |
 | --- | --- |
 | 빨강 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
 | Orange | 호스트에서 하나 이상의 보조 구성 요소가 다운 되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
@@ -72,7 +72,7 @@ Resource Manager UI의 왼쪽 메뉴에서 **스케줄러**를 선택합니다. 
 
 ## <a name="storage-throttling"></a>스토리지 제한
 
-스토리지 수준에서 클러스터의 성능 병목 상태가 발생할 수 있습니다. 이러한 유형의 병목 상태는 대부분의 경우 실행 중인 태스크가 저장소 서비스에서 처리할 수 있는 것 보다 많은 IO를 전송할 때 발생 하는 IO (입/출력) 작업 *차단* 때문에 발생 합니다. 작업이 차단되면 현재 IO를 처리한 후 처리될 때까지 대기하는 IO 요청 큐가 생성됩니다. 블록은 물리적 제한이 아니라 SLA (서비스 수준 계약)에 따라 저장소 서비스에 의해 제한 되는 *저장소 제한*때문입니다. 이 제한은 단일 클라이언트 또는 테넌트가 서비스를 독점하지 못하게 방지하는 역할을 합니다. SLA는 Azure Storage의 IOPS(초당 IO 수)를 제한하며, 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/storage-scalability-targets)를 참조하세요.
+스토리지 수준에서 클러스터의 성능 병목 상태가 발생할 수 있습니다. 이러한 유형의 병목 상태는 대부분의 경우 실행 중인 태스크가 저장소 서비스에서 처리할 수 있는 것 보다 많은 IO를 전송할 때 발생 하는 IO (입/출력) 작업 *차단* 때문에 발생 합니다. 작업이 차단되면 현재 IO를 처리한 후 처리될 때까지 대기하는 IO 요청 큐가 생성됩니다. 블록은 물리적 제한이 아니라 SLA (서비스 수준 계약)에 따라 저장소 서비스에 의해 제한 되는 *저장소 제한*때문입니다. 이 제한은 단일 클라이언트 또는 테넌트가 서비스를 독점하지 못하게 방지하는 역할을 합니다. SLA는 Azure Storage에 대 한 IOPS (초당 Io 수)를 제한 합니다. 자세한 내용은 [standard Storage 계정에 대 한 확장성 및 성능 목표](../storage/common/scalability-targets-standard-account.md)를 참조 하세요.
 
 Azure Storage 사용 하는 경우 제한을 포함 하 여 저장소 관련 문제를 모니터링 하는 방법에 대 한 자세한 내용은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting)을 참조 하세요.
 

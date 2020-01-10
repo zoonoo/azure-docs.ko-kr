@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffd459980c4750295e1045c3f8c1bb7fc18a25df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689354"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771924"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -228,7 +228,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
 
 ### <a name="azure-machine-learning-integration-with-event-grid"></a>Event Grid와 Azure Machine Learning 통합 
 
-현재 Event Grid에 대 한 리소스 공급자 Azure Machine Learning Azure Portal 또는 Azure CLI를 통해 Machine Learning 이벤트를 구성할 수 있습니다. 사용자는 실행 완료, 모델 등록, 모델 배포 및 데이터 드리프트 검색에 대 한 이벤트를 만들 수 있습니다. 이러한 이벤트는 Event Grid에서 지 원하는 이벤트 처리기로 라우팅될 수 있습니다. 자세한 내용은 machine learning 이벤트 [스키마](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [개념](https://docs.microsoft.com/azure/machine-learning/service/concept-event-grid-integration) 및 [자습서](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid) 문서를 참조 하세요.
+현재 Event Grid에 대 한 리소스 공급자 Azure Machine Learning Azure Portal 또는 Azure CLI를 통해 Machine Learning 이벤트를 구성할 수 있습니다. 사용자는 실행 완료, 모델 등록, 모델 배포 및 데이터 드리프트 검색에 대 한 이벤트를 만들 수 있습니다. 이러한 이벤트는 Event Grid에서 지 원하는 이벤트 처리기로 라우팅될 수 있습니다. 자세한 내용은 machine learning 이벤트 [스키마](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [개념](https://docs.microsoft.com/azure/machine-learning/concept-event-grid-integration) 및 [자습서](https://docs.microsoft.com/azure/machine-learning/how-to-use-event-grid) 문서를 참조 하세요.
 
 ## <a name="2019-10-31"></a>2019-10-31
 
@@ -236,7 +236,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
 
 + **새로운 기능**
   + [**Azureml datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift) 패키지를 통해 데이터 집합 모니터를 추가 하 여 데이터 드리프트 또는 시간에 따른 기타 통계적 변화에 대 한 시계열 데이터 집합 모니터링을 허용 합니다. 드리프트가 검색 되거나 데이터의 다른 조건이 충족 되는 경우 경고 및 이벤트를 트리거할 수 있습니다. 자세한 내용은 [설명서](https://aka.ms/datadrift) 를 참조 하세요.
-  + Azure Machine Learning에서 두 개의 새로운 버전 (SKU 라고도 함)을 발표 합니다. 이 릴리스에서는 이제 Basic 또는 Enterprise Azure Machine Learning 작업 영역을 만들 수 있습니다. 모든 기존 작업 영역은 기본 버전으로 기본 설정 되며, Azure Portal 또는 스튜디오로 이동 하 여 언제 든 지 작업 영역을 업그레이드할 수 있습니다. Azure Portal에서 기본 또는 엔터프라이즈 작업 영역을 만들 수 있습니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) 를 참조 하세요. SDK에서 작업 영역 개체의 "sku" 속성을 사용 하 여 작업 영역의 버전을 확인할 수 있습니다.
+  + Azure Machine Learning에서 두 개의 새로운 버전 (SKU 라고도 함)을 발표 합니다. 이 릴리스에서는 이제 Basic 또는 Enterprise Azure Machine Learning 작업 영역을 만들 수 있습니다. 모든 기존 작업 영역은 기본 버전으로 기본 설정 되며, Azure Portal 또는 스튜디오로 이동 하 여 언제 든 지 작업 영역을 업그레이드할 수 있습니다. Azure Portal에서 기본 또는 엔터프라이즈 작업 영역을 만들 수 있습니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) 를 참조 하세요. SDK에서 작업 영역 개체의 "sku" 속성을 사용 하 여 작업 영역의 버전을 확인할 수 있습니다.
   + 또한 Azure Machine Learning 계산에 대 한 향상 된 기능을 제공 했습니다. 이제 디버깅을 위한 진단 로그를 볼 수 있을 뿐 아니라 Azure Monitor에서 클러스터의 메트릭 (예: 총 노드, 실행 중인 노드, 총 코어 할당량)을 볼 수 있습니다. 또한 클러스터에서 현재 실행 중이거나 큐에 대기 중인 실행 및 클러스터에 있는 다양 한 노드의 Ip와 같은 세부 정보를 볼 수도 있습니다. 포털에서 또는 SDK 또는 CLI에서 해당 하는 함수를 사용 하 여 볼 수 있습니다.
 
   + **미리 보기 기능**
@@ -1031,7 +1031,7 @@ Azure Databricks를 사용 하는 일부 고객에 게 문제가 발생 하 여 
   + 자동화 된 machine learning 새로운 기능:
     + 예측을 위한 STL featurizer
     + KMeans 기능 해제에 대해 클러스터링을 사용할 수 있음을 의미 합니다.
-  + AmlCompute 할당량 승인이 빨라졌습니다. 이제 임계값 내에서 할당량 요청을 승인 하는 프로세스를 자동화 했습니다. 할당량의 작동 방식에 대 한 자세한 내용은 [할당량을 관리 하는 방법을](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas)알아보세요.
+  + AmlCompute 할당량 승인이 빨라졌습니다. 이제 임계값 내에서 할당량 요청을 승인 하는 프로세스를 자동화 했습니다. 할당량의 작동 방식에 대 한 자세한 내용은 [할당량을 관리 하는 방법을](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas)알아보세요.
 
 + **미리 보기 기능**
     + Azureml-mlflow 패키지를 통해 [Mlflow](https://mlflow.org) 1.0.0 추적과 통합 ([예: 노트북](https://aka.ms/azureml-mlflow-examples)).

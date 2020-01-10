@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b936c3a320a99d0853cb331fcd0bc44718527b9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468527"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751558"
 ---
 증분 스냅숏 (미리 보기)은 마지막 스냅숏 이후의 모든 변경 내용 으로만 구성 된 관리 디스크의 지정 시간 백업입니다. 증분 스냅숏을 다운로드 하거나 사용 하지 않으면 전체 VHD가 사용 됩니다. 관리 디스크 스냅숏에 대 한 이러한 새로운 기능을 사용 하면 필요한 경우를 제외 하 고 각 개별 스냅숏으로 전체 디스크를 저장 하는 것이 더 이상 필요 하지 않으므로 관리 디스크 스냅숏에 대 한 이러한 새로운 기능을 사용 하는 것이 더 비용 효율적입니다. 일반 스냅숏과 마찬가지로 증분 스냅숏은 전체 관리 디스크를 만드는 데 사용 하거나 일반 스냅숏을 만드는 데 사용할 수 있습니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "75468527"
 
 ## <a name="restrictions"></a>제한
 
-- 증분 스냅숏은 현재 미국 동부, 미국 중부, 캐나다 중부, 미국 서 부 및 유럽 서 부에서 사용할 수 있습니다.
+- 증분 스냅숏은 현재 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부 중부, 캐나다 동부, 캐나다 중부 및 서유럽 에서만 사용할 수 있습니다.
 - 디스크 크기를 변경한 후에는 현재 증분 스냅숏을 만들 수 없습니다.
 - 현재 증분 스냅숏은 구독 간에 이동할 수 없습니다.
 - 현재는 특정 시간에 특정 스냅숏 패밀리의 최대 5 개 스냅숏의 SAS Uri만 생성할 수 있습니다.

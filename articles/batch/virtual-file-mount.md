@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: a153a8000552100d62807442d466c22cd0964e43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d687f3f9039ca39440abab218d75e1d5c5db6df9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75389845"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770121"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Batch 풀에 가상 파일 시스템 탑재
 
@@ -85,7 +85,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Azure Blob 파일 시스템
 
-또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob storage를 사용 하는 것입니다. Blob 파일 시스템을 탑재 하려면 저장소 계정에 대 한 `AccountKey` 또는 `SasKey` 필요 합니다. 이러한 키를 가져오는 방법에 대 한 자세한 내용은 [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)또는 [SAS (공유 액세스 서명) 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조 하세요. Blobfuse를 사용 하는 방법에 대 한 자세한 내용은 blobfuse [문제 해결 FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)를 참조 하세요. Blobfuse 탑재 된 디렉터리에 대 한 기본 액세스 권한을 얻으려면 **관리자 권한**으로 작업을 실행 합니다. Blobfuse는 사용자 공간에서 디렉터리를 탑재 하 고 풀을 만들 때 루트로 탑재 됩니다. Linux에서는 모든 **관리자** 작업이 루트입니다. 퓨즈 모듈의 모든 옵션은 [퓨즈 참조 페이지](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)에 설명 되어 있습니다.
+또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob storage를 사용 하는 것입니다. Blob 파일 시스템을 탑재 하려면 저장소 계정에 대 한 `AccountKey` 또는 `SasKey` 필요 합니다. 이러한 키를 가져오는 방법에 대 한 자세한 내용은 [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)또는 [SAS (공유 액세스 서명) 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조 하세요. Blobfuse를 사용 하는 방법에 대 한 자세한 내용은 blobfuse [문제 해결 FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)를 참조 하세요. Blobfuse 탑재 된 디렉터리에 대 한 기본 액세스 권한을 얻으려면 **관리자 권한**으로 작업을 실행 합니다. Blobfuse는 사용자 공간에서 디렉터리를 탑재 하 고 풀을 만들 때 루트로 탑재 됩니다. Linux에서는 모든 **관리자** 작업이 루트입니다. 퓨즈 모듈의 모든 옵션은 [퓨즈 참조 페이지](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)에 설명 되어 있습니다.
 
 문제 해결 가이드 외에도 blobfuse 리포지토리의 GitHub 문제는 현재 blobfuse 문제 및 해결 방법을 확인 하는 데 유용한 방법입니다. 자세한 내용은 [blobfuse 문제](https://github.com/Azure/azure-storage-fuse/issues)를 참조 하세요.
 

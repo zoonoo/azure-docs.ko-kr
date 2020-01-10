@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a2e328c5cf65aa700676a8f6af78cc342f2f51a
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 03ea130011b23704731d68e5685e4ea0938e19b5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681449"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771805"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "75681449"
 
 **start_logging**은 노트북과 같은 시나리오에서 사용할 대화형 실행을 만듭니다. 세션 중에 기록된 모든 메트릭이 실험의 실행 기록에 추가됩니다.
 
-다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 학습을 위한 계산 대상 설정](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets)을 참조 하세요.
+다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 학습을 위한 계산 대상 설정](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets)을 참조 하세요.
 
 1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: b6ec1952d730b6515032572def65806a1ccbc0b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 386c44cbf7a86e1a1dc92b918d87d0d8c1e60dd2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810361"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744712"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
@@ -128,7 +128,7 @@ SQL 엔진에서 실행한 트랜잭션이 사용할 수 없도록 잠긴 리소
 
 자세한 제안 사항은 [SQL Server 잠금 에스컬레이션으로 인해 발생하는 차단 문제를 해결하는 방법](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)을 참조하세요.
 
-## <a name="increased-maxdop"></a>증가한 MAXDOP
+## <a name="increased-maxdop"></a>MAXDOP 증가
 
 ### <a name="what-is-happening"></a>설명
 
@@ -331,4 +331,4 @@ Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 �
 - [Intelligent Insights](sql-database-intelligent-insights.md) 개념을 알아봅니다.
 - [Intelligent Insights의 Azure SQL Database 성능 진단 로그](sql-database-intelligent-insights-use-diagnostics-log.md)를 사용합니다.
 - [Azure SQL 분석을 사용하여 Azure SQL Database](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)를 모니터링합니다.
-- [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/platform/resource-logs-overview.md)하는 방법을 알아봅니다.
+- [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/platform/platform-logs-overview.md)하는 방법을 알아봅니다.

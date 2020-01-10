@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: d8b381c1afdea05618d9ad5d791a7597092c8519
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b43f2f351345f05c3eb56a84fb1a0eadb4826707
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530785"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771515"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 Machine Learning 알고리즘 참고 자료 시트
 
@@ -60,6 +60,6 @@ Machine Learning의 세 가지 주요 범주는 *감독 학습*, *자율 학습*
 
 * [알고리즘 및 모듈 참조](algorithm-module-reference/module-reference.md)에서 알고리즘 및 모듈의 목록을 참조 하세요.
 
-* [자습서: Azure Machine Learning designer에서 예측 모델을 작성](service/ui-tutorial-automobile-price-train-score.md)합니다.
+* [자습서: Azure Machine Learning designer에서 예측 모델을 작성](tutorial-designer-automobile-price-train-score.md)합니다.
 
 * [심층 학습 및 기계 학습에 대해 알아봅니다](concept-deep-learning-vs-machine-learning.md).

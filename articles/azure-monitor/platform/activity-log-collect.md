@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: ae71b71ad7c0425893391954f5ffe8b285370273
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f4612232acfe6099c56d365e482cbc82c8436dee
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531040"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745618"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 합니다.
 
 > [!WARNING]
 > 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](diagnostic-settings-subscription.md)을 참조 하세요.
 
-Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에 활동 로그를 수집 하는 방법과이 데이터를 분석 하기 위한 로그 쿼리 및 보기를 제공 하는 활동 로그 분석 [모니터링 솔루션](../insights/solutions.md)을 사용 하는 방법을 설명 합니다. 
+Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에 활동 로그를 수집 하는 방법과이 데이터를 분석 하기 위한 로그 쿼리 및 보기를 제공 하는 활동 로그 분석 [모니터링 솔루션](../insights/solutions.md)을 사용 하는 방법을 설명 합니다. 
 
 활동 로그를 Log Analytics 작업 영역에 연결 하면 다음과 같은 이점이 있습니다.
 
@@ -74,6 +74,6 @@ Azure **활동 로그** 타일을 클릭 하 여 **azure 활동 로그** 보기�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [활동 로그](activity-logs-overview.md)에 대해 자세히 알아보세요.
+- [활동 로그](platform-logs-overview.md)에 대해 자세히 알아보세요.
 - [Azure Monitor data platform](data-platform.md)에 대해 자세히 알아보세요.
 - [로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 활동 로그에서 자세한 정보를 볼 수 있습니다.

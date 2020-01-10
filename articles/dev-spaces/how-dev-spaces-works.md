@@ -5,12 +5,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스 및 azds 구성 파일에서 구성 하는 방법에 대해 설명 합니다.
 keywords: azds, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 9efae0e9d6bc53e08dce604fa79aa29e158ecabd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e96541b0008dca9cbaeda92152f835c188036971
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280142"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771141"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 구성과 작동
 
@@ -205,7 +205,7 @@ azds up
 1. 응용 프로그램에 대 한 컨테이너를 빌드합니다.
 1. 개발 공간에 응용 프로그램을 배포 합니다.
 1. 구성 된 경우 응용 프로그램 끝점에 대해 공개적으로 액세스할 수 있는 DNS 이름을 만듭니다.
-1. 는 *포트 전달을* 사용 하 여 http://localhost사용 하 여 응용 프로그램 끝점에 대 한 액세스를 제공 합니다.
+1. 는 *포트 전달을* 사용 하 여 http://localhost 사용 하 여 응용 프로그램 끝점에 대 한 액세스를 제공 합니다.
 1. Stdout 및 stderr을 클라이언트 쪽 도구에 전달 합니다.
 
 
@@ -220,7 +220,7 @@ azds up
 1. 컨트롤러는 투구 차트에서 *$ (tag)* 자리 표시자를 고유한 세션 ID로 바꾸고 서비스에 대 한 투구 차트를 설치 합니다. 고유한 세션 ID에 대 한 참조를 투구 차트에 추가 하면이 특정 세션에 대 한 AKS 클러스터에 배포 된 컨테이너가 세션 요청 및 관련 정보에 다시 연결 될 수 있습니다.
 1. 투구 차트를 설치 하는 동안 Kubernetes webhook 허용 서버는 응용 프로그램의 pod에 추가 컨테이너를 추가 하 여 프로젝트의 소스 코드에 대 한 계측 및 액세스를 수행 합니다. HTTP 추적 및 공간 라우팅을 제공 하기 위해 devspaces 프록시 및 devspaces-프록시-init 컨테이너가 추가 됩니다. 응용 프로그램의 컨테이너를 빌드하기 위한 Docker 인스턴스 및 프로젝트 소스 코드에 대 한 액세스 권한이 pod에 제공 되도록 devspaces-빌드 컨테이너가 추가 됩니다.
 1. 응용 프로그램의 pod가 시작 되 면 응용 프로그램 컨테이너를 빌드하기 위해 devspaces-build 컨테이너와 devspaces-proxy-init 컨테이너가 사용 됩니다. 그러면 응용 프로그램 컨테이너와 devspaces 프록시 컨테이너가 시작 됩니다.
-1. 응용 프로그램 컨테이너가 시작 된 후 클라이언트 쪽 *기능은 Kubernetes 기능* 을 사용 하 여 http://localhost통해 응용 프로그램에 대 한 HTTP 액세스를 제공 합니다. 이 포트 전달은 개발 컴퓨터를 dev 공간의 서비스에 연결 합니다.
+1. 응용 프로그램 컨테이너가 시작 된 후 클라이언트 쪽 *기능은 Kubernetes 기능* 을 사용 하 여 http://localhost 통해 응용 프로그램에 대 한 HTTP 액세스를 제공 합니다. 이 포트 전달은 개발 컴퓨터를 dev 공간의 서비스에 연결 합니다.
 1. Pod의 모든 컨테이너가 시작 되 면 서비스가 실행 중입니다. 이 시점에서 클라이언트 쪽 기능은 HTTP 추적, stdout 및 stderr의 스트리밍을 시작 합니다. 이 정보는 개발자를 위한 클라이언트 쪽 기능에 의해 표시 됩니다.
 
 ### <a name="updating-a-running-service"></a>실행 중인 서비스 업데이트
@@ -267,7 +267,7 @@ Dockerfiles, .csproj 파일 또는 투구 차트의 일부와 같은 프로젝�
 
 ### <a name="how-routing-works"></a>라우팅 작동 방법
 
-Dev 공간은 AKS을 기반으로 구축 되며 동일한 [네트워킹 개념](../aks/concepts-network.md)을 사용 합니다. 또한 Azure Dev Spaces에는 중앙 집중식 *ingressmanager* 서비스가 있으며 자체 수신 컨트롤러를 AKS 클러스터에 배포 합니다. *Ingressmanager* 서비스는 dev 공간을 사용 하 여 AKS 클러스터를 모니터링 하 고, application pod로 라우팅하는 수신 개체를 사용 하 여 클러스터의 Azure Dev Spaces 수신 컨트롤러를 보강 합니다. 각 pod의 devspaces 프록시 컨테이너는 URL을 기반으로 하는 개발 공간에 HTTP 트래픽에 대 한 `azds-route-as` HTTP 헤더를 추가 합니다. 예를 들어 *http://azureuser.s.default.serviceA.fedcba09...azds.io* URL에 대 한 요청은 `azds-route-as: azureuser`를 사용 하 여 HTTP 헤더를 가져옵니다. Devspaces-proxy 컨테이너는 이미 있는 경우 `azds-route-as` 헤더를 추가 하지 않습니다.
+Dev 공간은 AKS을 기반으로 구축 되며 동일한 [네트워킹 개념](../aks/concepts-network.md)을 사용 합니다. 또한 Azure Dev Spaces에는 중앙 집중식 *ingressmanager* 서비스가 있으며 자체 수신 컨트롤러를 AKS 클러스터에 배포 합니다. *Ingressmanager* 서비스는 dev 공간을 사용 하 여 AKS 클러스터를 모니터링 하 고, application pod로 라우팅하는 수신 개체를 사용 하 여 클러스터의 Azure Dev Spaces 수신 컨트롤러를 보강 합니다. 각 pod의 devspaces 프록시 컨테이너는 URL을 기반으로 하는 개발 공간에 HTTP 트래픽에 대 한 `azds-route-as` HTTP 헤더를 추가 합니다. 예를 들어 *http://azureuser.s.default.serviceA.fedcba09...azds.io* URL에 대 한 요청은 `azds-route-as: azureuser` 를 사용 하 여 HTTP 헤더를 가져옵니다. Devspaces-proxy 컨테이너는 이미 있는 경우 `azds-route-as` 헤더를 추가 하지 않습니다.
 
 클러스터 외부에서 서비스에 대 한 HTTP 요청이 이루어지면 요청이 수신 컨트롤러로 이동 합니다. 수신 컨트롤러는 수신 개체 및 규칙에 따라 적절 한 pod로 직접 요청을 라우팅합니다. Pod의 devspaces-proxy 컨테이너는 요청을 수신 하 고 URL에 따라 `azds-route-as` 헤더를 추가한 다음 요청을 응용 프로그램 컨테이너로 라우팅합니다.
 
@@ -415,7 +415,7 @@ Java, .NET 및 node.js 응용 프로그램의 경우 Visual Studio Code 또는 V
 
 또한 파생 된 개발 공간은 자체 응용 프로그램과 부모에서 공유 되는 응용 프로그램 간에 요청을 지능적으로 라우팅합니다. 라우팅은 파생 된 개발 공간의 응용 프로그램에 요청을 라우팅하고 부모 개발 공간에서 공유 응용 프로그램으로 대체 하는 방식으로 작동 합니다. 응용 프로그램이 부모 공간에 있지 않은 경우 라우팅은 최상위 공간의 공유 응용 프로그램으로 대체 됩니다.
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+예:
 * 개발 공간 *기본값* 에는 응용 프로그램 *Servicea* 및 *servicea* 가 있습니다.
 * Dev space *azureuser* 는 *기본값*에서 파생 됩니다.
 * *Servicea* 의 업데이트 된 버전이 *azureuser*에 배포 됩니다.
@@ -440,4 +440,4 @@ Azure Dev Spaces 사용을 시작 하려면 다음 퀵 스타트를 참조 하�
 
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

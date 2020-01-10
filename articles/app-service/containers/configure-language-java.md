@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9c95772c8f10d7170a06d1d6793545a60fc8dd7c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422204"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750745"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -238,11 +238,9 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 
 ### <a name="using-the-java-key-store"></a>Java 키 저장소 사용
 
-기본적으로 [App Service Linux에 업로드](../configure-ssl-certificate.md) 된 공용 또는 개인 인증서는 컨테이너가 시작 될 때 Java 키 저장소에 로드 됩니다. 즉, 아웃 바운드 TLS 연결을 만들 때 업로드 된 인증서를 연결 컨텍스트에서 사용할 수 있습니다. 인증서를 업로드 한 후에는 Java 키 저장소에 로드 하기 위해 App Service를 다시 시작 해야 합니다.
+기본적으로 [App Service Linux에 업로드](../configure-ssl-certificate.md) 된 공용 또는 개인 인증서는 컨테이너가 시작 될 때 해당 Java 키 저장소에 로드 됩니다. 인증서를 업로드 한 후에는 Java 키 저장소에 로드 하기 위해 App Service를 다시 시작 해야 합니다. 공용 인증서는 `$JAVA_HOME/jre/lib/security/cacerts`에서 키 저장소로 로드 되 고 개인 인증서는 `$JAVA_HOME/lib/security/client.jks`에 저장 됩니다.
 
-App Service에 대 한 [SSH 연결을 열고](app-service-linux-ssh-support.md) 명령 `keytool`를 실행 하 여 Java 키 도구를 상호 작용 하거나 디버그할 수 있습니다. 명령 목록은 [키 도구 설명서](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) 를 참조 하세요. 인증서는 Java의 기본 키 저장소 파일 위치 `$JAVA_HOME/jre/lib/security/cacerts`에 저장 됩니다.
-
-JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다. 선택한 JDBC 드라이버에 대 한 설명서를 참조 하세요.
+Java 키 저장소의 인증서를 사용 하 여 JDBC 연결을 암호화 하려면 추가 구성이 필요할 수 있습니다. 선택한 JDBC 드라이버에 대 한 설명서를 참조 하세요.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
@@ -250,11 +248,27 @@ JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다.
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### <a name="manually-initialize-and-load-the-key-store"></a>수동으로 키 저장소 초기화 및 로드
+#### <a name="initializing-the-java-key-store"></a>Java 키 저장소 초기화
 
-키 저장소를 초기화 하 고 인증서를 수동으로 추가할 수 있습니다. `1` 값을 사용 하 여 키 저장소로 인증서를 자동으로 로드할 App Service 사용 하지 않도록 설정 하 `SKIP_JAVA_KEYSTORE_LOAD`앱 설정을 만듭니다. Azure Portal를 통해 App Service에 업로드 된 모든 공용 인증서는 `/var/ssl/certs/`에 저장 됩니다. 개인 인증서는 `/var/ssl/private/`에 저장 됩니다.
+`import java.security.KeyStore` 개체를 초기화 하려면 암호를 사용 하 여 키 저장소 파일을 로드 합니다. 두 키 저장소의 기본 암호는 "changeit"입니다.
 
-키 저장소 API에 대 한 자세한 내용은 [공식 설명서](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)를 참조 하세요.
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
+
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### <a name="manually-load-the-key-store"></a>수동으로 키 저장소 로드
+
+키 저장소에 인증서를 수동으로 로드할 수 있습니다. `1` 값을 사용 하 여 키 저장소로 인증서를 자동으로 로드할 App Service 사용 하지 않도록 설정 하 `SKIP_JAVA_KEYSTORE_LOAD`앱 설정을 만듭니다. Azure Portal를 통해 App Service에 업로드 된 모든 공용 인증서는 `/var/ssl/certs/`에 저장 됩니다. 개인 인증서는 `/var/ssl/private/`에 저장 됩니다.
+
+App Service에 대 한 [SSH 연결을 열고](app-service-linux-ssh-support.md) 명령 `keytool`를 실행 하 여 Java 키 도구를 상호 작용 하거나 디버그할 수 있습니다. 명령 목록은 [키 도구 설명서](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) 를 참조 하세요. 키 저장소 API에 대 한 자세한 내용은 [공식 설명서](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)를 참조 하세요.
 
 ## <a name="configure-apm-platforms"></a>APM 플랫폼 구성
 
@@ -372,7 +386,7 @@ JDBC (Java Database Connectivity) 또는 JPA (Java 지 속성 API)를 사용 하
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 예제 xsl 파일은 아래에 제공 되어 있습니다. 예제 xsl 파일은 Tomcat 서버에 새 커넥터 노드를 추가 합니다.

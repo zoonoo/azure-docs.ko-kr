@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: f5b3500e1e700abf894fc4e21fb540eb258d5e35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: da654beec730d0bfc04548402c1158ebaaf80c6f
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066068"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748358"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
@@ -23,19 +23,19 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 * [cURL](https://curl.haxx.se/). 이 문서에서는 cURL을 사용하여 HDInsight Spark 클러스터에 대해 REST API 호출을 수행하는 방법을 보여 줍니다.
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Apache Livy Spark 일괄 작업 제출
 
-배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 스토리지에 애플리케이션 jar을 업로드해야 합니다. 사용할 수 있습니다 [AzCopy](../../storage/common/storage-use-azcopy.md), 이렇게 하려면 명령줄 유틸리티를 합니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 스토리지에 애플리케이션 jar을 업로드해야 합니다. [AzCopy](../../storage/common/storage-use-azcopy.md)명령줄 유틸리티를 사용 하 여이 작업을 수행할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
 ```cmd
 curl -k --user "<hdinsight user>:<user password>" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 * jar 파일이 클러스터 스토리지(WASB)에 있는 경우
 
@@ -57,7 +57,7 @@ curl -k --user "<hdinsight user>:<user password>" -v -H "Content-Type: applicati
 curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 * 클러스터에서 실행 중인 모든 Livy Spark 배치를 검색하려는 경우:
 
@@ -79,7 +79,7 @@ curl -k --user "<hdinsight user>:<user password>" -v -X DELETE "https://<spark_c
 
 ### <a name="example"></a>예
 
-일괄 처리 ID 사용 하 여 일괄 처리 작업을 삭제 `5`합니다.
+일괄 처리 ID `5`를 사용 하 여 일괄 처리 작업을 삭제 합니다.
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
@@ -169,7 +169,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
     < Date: Fri, 20 Nov 2015 23:54:42 GMT
     < Content-Length: 509
     <
-    {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://hn0-myspar.lpel1gnnvxne3gwzqkfq5u5uzh.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
+    {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel1gnnvxne3gwzqkfq5u5uzh.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
     이제 출력은 작업이 성공적으로 완료됐음을 나타내는 **state:success**를 보여 줍니다.

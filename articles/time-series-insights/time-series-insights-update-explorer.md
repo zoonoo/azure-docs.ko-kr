@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 17ba808ebfabb68765cf35bbf0799d117bc6383b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d94daa5fbda4ee60ffc6671f7b50126662416043
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133442"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746472"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Azure Time Series Insights 미리 보기 탐색기
 
 이 문서에서는 Azure Time Series Insights Preview [demo 웹 응용 프로그램](https://insights.timeseries.azure.com/preview/demo)내에서 사용할 수 있는 다양 한 기능 및 옵션을 설명 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure Time Series Insights Preview 탐색기를 시작 하려면 다음을 수행 해야 합니다.
 
@@ -58,7 +58,7 @@ Azure Time Series Insights Preview 탐색기는 다음과 같은 7 개의 요소
 
 ## <a name="2-navigation-bar"></a>2. 탐색 모음
 
-  [탐색 모음 ![](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
+  [탐색 모음 ![](media/v2-update-explorer/tsi-preview-navigation-bar.png)](media/v2-update-explorer/tsi-preview-navigation-bar.png#lightbox)
 
 탐색 모음을 사용 하 여 두 뷰 중에서 선택 합니다.
 
@@ -79,9 +79,9 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. 계층 트리 및 검색 패널
 
-계층 구조 트리와 검색 패널을 사용 하면 시계열 [모델](./time-series-insights-update-tsm.md) 계층 구조를 쉽게 검색 하 고 탐색 하 여 차트에 표시할 특정 시계열 인스턴스를 찾을 수 있습니다. 인스턴스를 선택 하는 경우 해당 인스턴스는 현재 차트에 추가 될 뿐만 아니라 데이터 웰에도 추가 됩니다. 
+계층 구조 트리와 검색 패널을 사용 하 여 [시계열 모델](./time-series-insights-update-tsm.md) 계층 구조를 쉽게 검색 하 고 탐색 하 여 차트에 표시할 특정 시계열 인스턴스를 찾을 수 있습니다. 인스턴스를 선택 하는 경우 해당 인스턴스는 현재 차트에 추가 될 뿐만 아니라 데이터 웰에도 추가 됩니다. 
 
-[계층 구조 트리 및 검색 패널 ![](media/v2-update-explorer/hierarchy-search.png)](media/v2-update-explorer/hierarchy-search.png#lightbox)
+[계층 구조 트리 및 검색 패널 ![](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 검색 결과 창을 사용 하 여 계층 뷰나 목록 뷰에서 결과를 표시 하 여 표시 하려는 인스턴스를 쉽게 찾을 수도 있습니다.
  
@@ -89,7 +89,7 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 는 선택한 Time Series Insights 인스턴스와 연결 된 인스턴스 필드 및 기타 메타 데이터를 표시 합니다. 오른쪽에 있는 확인란을 선택 하 여 현재 차트의 특정 인스턴스를 숨기 거 나 표시할 수 있습니다. 
 
-  [미리 보기 웰 ![](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
+  [미리 보기 웰 ![](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
 요소의 왼쪽에 있는 빨간색 **삭제** (휴지통) 컨트롤을 선택 하 여 현재 데이터에서 특정 데이터 요소를 제거할 수 있습니다. 를 사용 하면 각 요소가 차트에 표시 되는 방식을 제어할 수도 있습니다. Min/max 그림자를 추가 하 고, 데이터 요소를 시간으로 이동 하 고, 인스턴스를 단계별 방식으로 시각화 하도록 선택할 수 있습니다. 
 
@@ -100,13 +100,13 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 > [!NOTE]
 > 다음 메시지가 표시 되 면 선택 된 시간 범위 동안 인스턴스에 데이터가 없는 것입니다. 이 문제를 해결 하려면 시간 범위를 늘리거나 인스턴스가 데이터를 푸시하는 지 확인 합니다.
 >
-> ![데이터 알림 없음](media/v2-update-explorer/no-data-warning.png)
+> ![데이터 알림 없음](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
 ## <a name="5-chart-panel"></a>5. 차트 패널
 
 차트를 사용 하면 시계열 인스턴스를 선으로 표시할 수 있습니다. 웹 컨트롤을 클릭해서 환경 패널, 데이터 모델 및 시간 범위 제어 패널을 접으면 차트를 확장할 수 있습니다. 
 
-  [![미리 보기 차트 개요](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
+  [![미리 보기 차트 개요](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
 1. **차트 종류**: 시각화에 사용할 수 있는 데이터 요소를 제어 합니다.
 
@@ -122,29 +122,29 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 1. **Marker 요소**: 현재 선택한 데이터 요소 및 관련 세부 정보입니다.
 
-마우스를 누른 채 선택한 영역을 선택한 끝점으로 끌어와 서 현재 그래프의 데이터 요소를 마우스 **왼쪽 단추로 클릭** 하 여 특정 데이터 조각을 자세히 살펴볼 수 있습니다. 회색으로 선택 된 영역을 **마우스 오른쪽 단추로 클릭** 하 고 아래와 같이 **확대/축소** 를 클릭 합니다. 선택한 timespan에서 원격 분석 이벤트를 보고 다운로드할 수도 있습니다.
+마우스를 누른 채 선택한 영역을 선택한 끝점으로 끌어와 서 현재 그래프의 데이터 요소를 마우스 **왼쪽 단추로 클릭** 하 여 특정 데이터 조각을 자세히 살펴볼 수 있습니다. 파란색의 선택 영역을 **마우스 오른쪽 단추로 클릭** 하 고 아래와 같이 **확대/축소** 를 클릭 합니다. 선택한 timespan에서 원격 분석 이벤트를 보고 다운로드할 수도 있습니다.
 
   [![미리 보기 차트 확대/축소](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
 **확대/축소** 작업을 수행 하면 선택한 데이터 집합이 표시 됩니다. 서식 컨트롤을 선택 하 여 Time Series Insights 데이터에 대 한 3 개의 y 축 표현을 순환 합니다.
 
-  [![미리 보기 차트 y 축](media/v2-update-explorer/standard-chart.png)](media/v2-update-explorer/standard-chart.png#lightbox)
+  [![미리 보기 차트 y 축](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
 **겹치는 차트**의 예를 볼 수 있습니다.
 
-  [![겹치는 차트 옵션](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
+  [![겹치는 차트 옵션](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-**추가 작업** 단추가 확장 되어 **CSV로 다운로드** 및 **Power BI로 내보내기** 옵션이 표시 됩니다.
+**추가 작업** 단추는 확장 되어 **CSV로 다운로드**를 표시 하 고, **Power BI에 연결**하 고, **차트 데이터를 테이블로 표시**하 고, **원시 이벤트** 옵션을 탐색 합니다.
 
   [![추가 작업 옵션](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-[Time Series Insights 기본 Power BI 커넥터](concepts-power-bi.md)에 대해 읽어 보세요.
+[Time Series Insights 기본 Power BI 커넥터](concepts-power-bi.md)에서 **Power BI에 연결** 옵션에 대해 자세히 알아보세요.
 
 ## <a name="6-time-editor-panel"></a>6. 시간 편집기 패널
 
 Time Series Insights 작업할 때 먼저 시간 범위를 선택 합니다. 선택한 시간 범위는 Time Series Insights 업데이트 위젯을 사용 하 여 조작에 사용할 수 있는 데이터 집합을 제어 합니다.
 
-  [![시간 선택 패널](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
+  [![시간 선택 패널](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png)](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png#lightbox)
 
 > [!TIP]
 > 타임 라인의 일부는 웜 저장소에서 사용할 수 있는 데이터의 범위를 나타내기 위해 주황색 또는 주황색으로 강조 표시 됩니다.
@@ -171,15 +171,15 @@ Time Series Insights Preview 탐색 패널이 Time Series Insights 앱의 맨 �
 
 ### <a name="current-session-share-link-control"></a>현재 세션 공유 링크 컨트롤
 
-  [![공유 아이콘](media/v2-update-explorer/share-icon.png)](media/v2-update-explorer/share-icon.png#lightbox)
+  [![공유 아이콘](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
 
 새 **공유** 아이콘을 선택 하 여 팀과 URL 링크를 공유 합니다.
 
-  [![인스턴스 URL 공유](media/v2-update-explorer/share-your-view.png)](media/v2-update-explorer/share-your-view.png#lightbox)
+  [![인스턴스 URL 공유](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png)](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png#lightbox)
 
 ### <a name="tenant-section"></a>테넌트 섹션
 
-  [![테 넌 트 선택](media/v2-update-explorer/tenant-selection.png)](media/v2-update-explorer/tenant-selection.png#lightbox)
+  [![테 넌 트 선택](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png)](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png#lightbox)
 
 * 현재 Time Series Insights 로그인 계정 정보를 표시 합니다.
 * 사용 가능한 Time Series Insights 테마 사이를 전환 하는 데 사용 합니다.
@@ -189,7 +189,7 @@ Time Series Insights Preview 탐색 패널이 Time Series Insights 앱의 맨 �
 
 새 테마를 선택 하려면 오른쪽 위 모퉁이에 있는 프로필 아이콘을 선택 합니다. 그런 다음 **테마 변경**을 선택 합니다.
 
-  [![테마 선택](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [![테마 선택](media/v2-update-explorer/tsi-preview-theme-selection.png)](media/v2-update-explorer/tsi-preview-theme-selection.png#lightbox)
 
 > [!TIP]
 > 프로필 아이콘을 선택 하 여 언어를 선택할 수도 있습니다.
@@ -199,7 +199,7 @@ Azure Time Series Insights 미리 보기는 다음 두 가지 테마를 지원�
 * **밝은 테마**:이 문서 전체에 표시 되는 기본 테마입니다.
 * **어두운 테마**: 다음과 같이 탐색기를 렌더링 합니다.
 
-  [선택한 짙은 테마 ![](media/v2-update-explorer/dark-theme-selected.png)](media/v2-update-explorer/dark-theme-selected.png#lightbox)
+  [선택한 짙은 테마 ![](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>S1/S2 환경 컨트롤
 
@@ -215,18 +215,18 @@ Time Series Insights 미리 보기 용어 편집기 패널은 다음 매개 변�
 
 **Where**: where 절을 사용 하 여 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 합니다. 피연산자를 선택하여 검색을 수행하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트됩니다. 지원 되는 피연산자 유형은 다음과 같습니다.
 
-| 작업(Operation) | 지원되는 형식   | 참고 사항 |
+| 작업 | 지원되는 형식   | 메모 |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | 모든 연산자는 같은 형식이거나 NULL 상수여야 합니다. |
-| `HAS` | 문자열 | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
+| `HAS` | String | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
 
 지원 되는 쿼리 작업 및 데이터 형식에 대 한 자세한 내용은 [TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)를 참조 하세요.
 
 ### <a name="examples-of-where-clauses"></a>Where 절의 예
 
-  [![Where 절 예제](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
+  [![Where 절 예제](media/v2-update-explorer/tsi-preview-example-queries.png)](media/v2-update-explorer/tsi-preview-example-queries.png#lightbox)
 
 **Measure**: 현재 차트의 요소로 사용할 수 있는 모든 숫자 열 (**double**)을 표시 하는 드롭다운 목록입니다.
 

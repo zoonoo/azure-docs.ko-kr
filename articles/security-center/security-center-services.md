@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 6325af9f577fbee1ab1621acbf10497fab2b78df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689155"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754216"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure Security Center에서 사용할 수 있는 지원 되는 기능
 
@@ -40,7 +40,7 @@ ms.locfileid: "75689155"
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 컴퓨터**|**가격**
 |[Microsoft Defender ATP 통합](security-center-wdatp.md)|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|Standard|
 |[가상 컴퓨터 동작 분석 위협 검색 경고](security-center-alerts-iaas.md)|✔|✔|✔|권장 사항 (무료) 위협 검색 (표준)|
-|[Fileless 위협 검색 경고](alerts-reference.md#alerts-filelessattackdetect)|✔|✔|✔|Standard|
+|[Fileless 위협 검색 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[네트워크 기반 위협 검색 경고](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|Standard|
 |[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
@@ -66,7 +66,7 @@ ms.locfileid: "75689155"
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 컴퓨터**|**가격**
 |[Microsoft Defender ATP 통합](security-center-wdatp.md)|-|-|-|Standard|
 |[가상 컴퓨터 동작 분석 위협 검색 경고](security-center-alerts-iaas.md)|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|권장 사항 (무료) 위협 검색 (표준)|
-|[Fileless 위협 검색 경고](alerts-reference.md#alerts-filelessattackdetect)|-|-|-|Standard|
+|[Fileless 위협 검색 경고](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[네트워크 기반 위협 검색 경고](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|Standard|
 |[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|Standard|

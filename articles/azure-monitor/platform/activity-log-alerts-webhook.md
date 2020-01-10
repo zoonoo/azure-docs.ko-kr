@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/31/2017
-ms.openlocfilehash: a79bf07c91ef80509355a10c1401d1ab94cc5118
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: eb43db7a67063622f6a6125178267573cd209471
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552744"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748808"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -131,7 +131,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 }
 ```
 
-### <a name="recommendation"></a>권장 사항
+### <a name="recommendation"></a>권장
 
 ```json
 {
@@ -257,13 +257,13 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 }
 ```
 
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
-| status |메트릭 경고에 사용됩니다. 활동 로그 경고에 대해서는 항상 “activated”로 설정합니다. |
-| context |이벤트에 대한 컨텍스트입니다. |
+| 상태 |메트릭 경고에 사용됩니다. 활동 로그 경고에 대해서는 항상 “activated”로 설정합니다. |
+| 컨텍스트 |이벤트에 대한 컨텍스트입니다. |
 | resourceProviderName |영향을 받는 리소스의 리소스 공급자입니다. |
 | conditionType |항상 "Event"입니다. |
-| 이름 |경고 규칙의 이름입니다. |
+| name |경고 규칙의 이름입니다. |
 | id |경고의 리소스 ID입니다. |
 | description |경고를 만들 때 설정하는 경고 설명입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
@@ -271,8 +271,8 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | resourceId |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
-| event |이벤트에 대한 메타데이터가 포함된 요소입니다. |
-| authorization |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
+| 이벤트 |이벤트에 대한 메타데이터가 포함된 요소입니다. |
+| 권한 부여 |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
 | category |이벤트의 범주. 지원되는 값으로 Administrative, Alert, Security, ServiceHealth, Recommendation이 있습니다. |
 | caller |가용성에 기반한 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. 특정 시스템 호출의 경우 null일 수 있습니다. |
 | correlationId |일반적으로 문자열 형식의 GUID. correlationId가 있는 이벤트는 동일한 상위 작업에 속하며 일반적으로 correlationId를 공유합니다. |
@@ -284,13 +284,13 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | operationId |일반적으로 이벤트 간에 공유되는 GUID로서 단일 작업에 해당합니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트의 속성입니다. |
-| status |문자열입니다. 작업의 상태입니다. 일반적인 값으로 Started, In Progress, Succeeded, Failed, Active 및 Resolved가 포함됩니다. |
+| 상태 |문자열입니다. 작업의 상태입니다. 일반적인 값으로 Started, In Progress, Succeeded, Failed, Active 및 Resolved가 포함됩니다. |
 | subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값으로 OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503) 및 Gateway Timeout (HTTP Status Code: 504)이 있습니다. |
 
-다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../../azure-monitor/platform/activity-logs-overview.md)를 참조하세요.
+다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그에 대해 자세히 알아보세요](../../azure-monitor/platform/activity-logs-overview.md).
+* [활동 로그에 대해 자세히 알아보세요](../../azure-monitor/platform/platform-logs-overview.md).
 * [Azure 경고에 대한 Azure Automation 스크립트(Runbook)를 실행하세요](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.

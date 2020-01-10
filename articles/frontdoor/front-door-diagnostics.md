@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e379e67fb733c968a755afd245d079239f559c89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677906"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751407"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Azure Front 도어 서비스에서 메트릭 및 로그 모니터링
 
@@ -25,20 +25,20 @@ Azure Front 도어 서비스를 사용 하 여 다음과 같은 방법으로 리
 - **메트릭**. Azure 전면 도어에는 현재 성능 카운터를 볼 수 있는 7 개의 메트릭이 있습니다.
 - **로그**. 활동 및 진단 로그를 사용 하면 모니터링 목적으로 리소스에서 성능, 액세스 및 기타 데이터를 저장 하거나 사용할 수 있습니다.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>메트릭
 
 메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대 한 기능입니다. 다음은 사용 가능한 전방 도어 메트릭입니다.
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 차원 | 설명 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 차원 | Description |
 | --- | --- | --- | --- | --- |
-| RequestCount | 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 제공하는 클라이언트 요청 수  |
+| RequestCount | 요청 수 | 카운트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 제공하는 클라이언트 요청 수  |
 | RequestSize | 요청 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트에서 Front Door로, 요청으로 전송된 바이트 수 |
 | ResponseSize | 응답 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 클라이언트로, 응답으로 전송된 바이트 수 |
 | TotalLatency | 총 대기 시간 | 밀리초 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 프런트 도어에서 클라이언트가 마지막 응답 바이트를 승인할 때까지 Front 도어가 받은 클라이언트 요청에서 계산 된 시간입니다. |
-| BackendRequestCount | 백 엔드 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>백 엔드 | Front Door에서 백 엔드로 전송된 요청 수 |
+| BackendRequestCount | 백 엔드 요청 수 | 카운트 | HttpStatus</br>HttpStatusGroup</br>백 엔드 | Front Door에서 백 엔드로 전송된 요청 수 |
 | BackendRequestLatency | 백 엔드 요청 대기 시간 | 밀리초 | 백 엔드 | Front Door에서 백 엔드의 마지막 응답 바이트를 받을 때까지 Front Door에서 백 엔드로 요청이 전송될 때 계산된 시간 |
-| BackendHealthPercentage | 백 엔드 상태 비율 | Percent | 백 엔드</br>BackendPool | Front Door에서 백 엔드로 성공한 상태 프로브의 비율 |
-| WebApplicationFirewallRequestCount | 웹 애플리케이션 방화벽 요청 수 | 개수 | PolicyName</br>RuleName</br>작업 | Front Door의 애플리케이션 계층 보안에 의해 처리된 클라이언트 요청 수 |
+| BackendHealthPercentage | 백 엔드 상태 비율 | 백분율 | 백 엔드</br>BackendPool | Front Door에서 백 엔드로 성공한 상태 프로브의 비율 |
+| WebApplicationFirewallRequestCount | 웹 애플리케이션 방화벽 요청 수 | 카운트 | PolicyName</br>RuleName</br>실행력 | Front Door의 애플리케이션 계층 보안에 의해 처리된 클라이언트 요청 수 |
 
 ## <a name="activity-log"></a>활동 로그
 
@@ -59,7 +59,7 @@ Azure Monitor에서 Azure 리소스의 모든 로그 또는 Front 도어 서비�
 ## <a name="diagnostic-logging"></a>진단 로그
 진단 로그는 감사 및 문제 해결에 중요 한 작업 및 오류에 대 한 다양 한 정보를 제공 합니다. 진단 로그는 활동 로그와 다릅니다.
 
-활동 로그는 Azure 리소스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 진단 로그는 리소스에서 수행한 작업에 대 한 통찰력을 제공 합니다. 자세한 내용은 [Azure Monitor 진단 로그](../azure-monitor/platform/resource-logs-overview.md)를 참조 하세요.
+활동 로그는 Azure 리소스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 진단 로그는 리소스에서 수행한 작업에 대 한 통찰력을 제공 합니다. 자세한 내용은 [Azure Monitor 진단 로그](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
 
 ![진단 로그](./media/front-door-diagnostics/diagnostic-log.png)
 
@@ -73,7 +73,7 @@ Azure Monitor에서 Azure 리소스의 모든 로그 또는 Front 도어 서비�
 
 현재 Front 도어 서비스는 진단 로그 (일괄 처리 시간)를 제공 합니다. 진단 로그는 각 항목에 대해 다음 스키마를 갖는 개별 API 요청을 제공 합니다.
 
-| 속성  | 설명 |
+| 속성  | Description |
 | ------------- | ------------- |
 | ClientIp | 요청한 클라이언트의 IP 주소입니다. |
 | ClientPort | 요청을 수행한 클라이언트의 IP 포트입니다. |

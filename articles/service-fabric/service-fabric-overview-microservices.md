@@ -2,15 +2,16 @@
 title: Azure의 마이크로 서비스 소개
 description: 마이크로 서비스 접근 방식을 통해 클라우드 애플리케이션을 빌드하는 것이 왜 현대 애플리케이션 개발에서 중요하며 Azure Service Fabric이 어떻게 이를 위한 플랫폼을 제공하는지에 대한 개요
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: e23c571d2000b5565da018d6ddf70a6388cb9226
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.date: 01/07/2020
+ms.custom: sfrev
+ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466312"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750625"
 ---
-# <a name="why-use-a-microservices-approach-to-building-applications"></a>응용 프로그램을 빌드하는 데 마이크로 서비스 접근 방식을 사용 하는 이유는 무엇 인가요?
+# <a name="why-use-a-microservices-approach-to-building-applications"></a>응용 프로그램을 빌드하는 데 마이크로 서비스 접근 방식을 사용 하는 이유
 
 소프트웨어 개발자의 경우 응용 프로그램을 구성 요소 파트로 팩터링 하는 것은 새로운 것이 아닙니다. 일반적으로 백 엔드 저장소, 중간 계층 비즈니스 논리 및 프런트 엔드 UI (사용자 인터페이스)를 사용 하 여 계층화 된 접근 방식이 사용 됩니다. 최근 몇 년 동안 변경 *된* 내용은 개발자가 클라우드 용 분산 응용 프로그램을 빌드하는 것입니다.
 
@@ -128,7 +129,8 @@ DNS가 특정 URL을 특정 머신으로 확인하는 것과 동일한 방법으
 
 상태는 진단과 다릅니다. 상태는 적절한 조치를 취하도록 마이크로 서비스가 현재 상태를 보고하는 것입니다. 좋은 예는 가용성 유지를 위한 업그레이드 및 배포 메커니즘과의 상호 작용입니다. 프로세스 충돌이 나 컴퓨터 재부팅으로 인해 현재 서비스가 비정상 상태가 될 수 있지만 서비스는 여전히 작동 하 고 있을 수 있습니다. 가장 중요 한 점은 업그레이드를 시작 하 여 상황을 악화 시키는 것입니다. 가장 좋은 방법은 먼저 조사 하거나 마이크로 서비스 복구할 시간을 허용 하는 것입니다. 마이크로 서비스의 상태 이벤트를 통해 정보에 입각한 의사 결정을 내리고 효과적인 자체 복구 서비스를 만들 수 있습니다.
 
-## <a name="guidance-for-designing-microservices-on-azure"></a>Azure에서 마이크로 서비스를 설계 하는 방법에 대 한 지침 
+## <a name="guidance-for-designing-microservices-on-azure"></a>Azure에서 마이크로 서비스를 설계 하는 방법에 대 한 지침
+
 Azure [에서 마이크로 서비스를 설계 하 고 구축 하](https://docs.microsoft.com/azure/architecture/microservices/)는 방법에 대 한 지침은 azure 아키텍처 센터를 참조 하세요.
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>마이크로 서비스 플랫폼으로서의 서비스 패브릭
@@ -185,7 +187,6 @@ Service Fabric를 사용 하 여 기존 코드를 다시 사용 하 고 새 마�
 아마도 그렇습니다. Microsoft에서 더 많은 팀이 비즈니스 상의 이유로 클라우드를 빌드하기 위해 빌드를 시작 했으므로 많은 팀이 마이크로 서비스 유사한 접근 방식을 사용 하는 이점을 실현 했습니다. 예를 들어 Bing은 몇 년간 마이크로 서비스를 사용 하 고 있습니다. 다른 팀의 경우 마이크로 서비스 접근 방식은 새로웠습니다. 팀은 핵심 역량이 아니면서 해결이 필요한 까다로운 문제를 찾았습니다. 이러한 이유 때문에 서비스를 빌드하기 위한 기술로 트랙 션을 얻을 Service Fabric 있습니다.
 
 Service Fabric의 목적은 마이크로 서비스 응용 프로그램 빌드에 대 한 복잡성을 줄여 많은 비용이 드는 재설계을 거칠 필요가 없도록 하는 것입니다. 처음에는 소규모로 시작해서 고객의 사용량에 따라 확장하고, 서비스를 중단하고, 새 서비스를 추가하고, 발전해 가는 것이 바로 이 접근 방식입니다. 대부분의 개발자들이 더 쉽게 마이크로 서비스에 접근할 수 있게 하기 위해서는 아직 많은 문제들을 해결해야 한다는 점도 알고 있습니다. 컨테이너와 행위자 프로그래밍 모델은 해당 방향의 작은 단계에 대 한 예입니다. 마이크로 서비스 접근 방식을 더 쉽게 만들기 위해 더 많은 혁신을 제공 하 고 있습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

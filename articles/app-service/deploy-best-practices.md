@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670082"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750473"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -66,3 +66,12 @@ Azure App Service의 콘텐츠는 Azure Storage에 저장되며 영구적 방식
 ### <a name="high-cpu-or-memory"></a>높은 CPU 또는 메모리
 
 App Service 계획에서 사용 가능한 CPU 또는 메모리의 90%를 초과 하 여 사용 하는 경우 기본 가상 컴퓨터에서 배포를 처리 하는 데 문제가 있을 수 있습니다. 이 경우 배포를 수행 하기 위해 인스턴스 수를 일시적으로 확장 합니다. 배포가 완료 되 면 인스턴스 수를 이전 값으로 반환할 수 있습니다.
+
+모범 사례에 대 한 자세한 내용은 [App Service 진단을](https://docs.microsoft.com/azure/app-service/overview-diagnostics) 방문 하 여 리소스와 관련 하 여 조치 가능한 모범 사례를 확인 하세요.
+
+- [Azure Portal](https://portal.azure.com)에서 웹 앱으로 이동 합니다.
+- 왼쪽 탐색에서 **문제 진단 및 해결** 을 클릭 하면 App Service 진단이 열립니다.
+- **모범 사례** 홈 페이지 타일을 선택 합니다.
+- 모범 사례에 **대 한 모범 사례** 를 클릭 하 여 모범 사례에 대 한 응용 프로그램의 현재 상태를 확인 하는 **최적의 구성을 위한** 모범 사례를 & 합니다.
+
+또한이 링크를 사용 하 여 리소스에 대 한 App Service 진단을 직접 열 수 있습니다. `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

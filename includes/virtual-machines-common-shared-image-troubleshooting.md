@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: cc35133df073eea056586dede62c451713e98c10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75663147"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772848"
 ---
 공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. CLI로 **-debug** 스위치를 전달하고 PowerShell로 **-Debug** 스위치를 전달하여 디버그 모드가 활성화됩니다. 오류를 찾은 후에는 이 문서의 지침에 따라 오류를 해결합니다.
 
@@ -96,7 +96,7 @@ RBAC ( [역할 기반 Access Control](https://docs.microsoft.com/azure/role-base
 
 ## <a name="azure-limits-and-quotas"></a>Azure 한도 및 할당량 
 
-[Azure 한도 및 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager/management/azure-subscription-service-limits)은 모든 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스에 적용됩니다. 구독의 한도 내에 있는지 확인하세요. 
+[Azure 한도 및 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)은 모든 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스에 적용됩니다. 구독의 한도 내에 있는지 확인하세요. 
 
 
 

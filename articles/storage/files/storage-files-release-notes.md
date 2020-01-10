@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cc919cabab94e078b8a212feec40047639a36341
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 67f04b3873da020853c2523f6acc8c7dc7dcdedc
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452924"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749608"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -142,6 +142,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
 - robocopy를 사용하여 파일을 복사할 때는 /MIR 옵션을 사용하여 파일 타임스탬프를 보존해야 합니다. 이렇게 하면 오래된 파일이 최근에 액세스한 파일보다 먼저 계층화됩니다.
+- 파일 시스템을 클라우드 계층화를 사용 하는 볼륨에 있는 경우 파일의 계층에 오류가 발생할 수 있습니다. 파일 시스템은 클라우드 계층화를 사용 하지 않도록 설정 된 볼륨에 있어야 합니다.
 
 ## <a name="agent-version-8000"></a>에이전트 버전 8.0.0.0
 다음 릴리스 정보는 Azure File Sync 에이전트의 버전 8.0.0.0 (10 월 8 2019 일에 출시 됨)에 대 한 정보입니다.

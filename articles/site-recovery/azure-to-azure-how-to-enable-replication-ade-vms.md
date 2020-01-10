@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954678"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772230"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption 사용 가능한 가상 컴퓨터를 다른 Azure 지역에 복제
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Vm (ADE)을 사용 하도록 설정 Azure Disk Encryption 된 Azure Vm을 복제 하는 방법을 설명 합니다.
 
 >[!NOTE]
-> Site Recovery는 현재 Windows를 실행 하는 Vm에 대해 AAD (Azure Active Directory)를 사용 하거나 사용 하지 않고 ADE를 지원 합니다.  AAD를 사용 하지 않고 ADE 1.1를 실행 하는 컴퓨터의 경우 Windows Vm에서 관리 디스크를 사용 해야 합니다. 관리 되지 않는 디스크가 있는 Vm은 지원 되지 않습니다. ADE 0.1 (AAD)에서 1.1로 전환 하는 경우에는 복제를 사용 하지 않도록 설정 하 고 1.1를 사용 하도록 설정한 후 VM에 대해 복제를 사용 하도록 설정 해야 합니다.
+> Site Recovery는 현재 Windows 및 Linux 운영 체제를 실행 하는 Vm에 대해 AAD (Azure Active Directory)를 사용 하거나 사용 하지 않고 ADE를 지원 합니다.  AAD를 사용 하지 않고 ADE 1.1를 실행 하는 컴퓨터의 경우 Vm은 관리 디스크를 사용 해야 합니다. 관리 되지 않는 디스크가 있는 Vm은 지원 되지 않습니다. ADE 0.1 (AAD)에서 1.1로 전환 하는 경우에는 복제를 사용 하지 않도록 설정 하 고 1.1를 사용 하도록 설정한 후 VM에 대해 복제를 사용 하도록 설정 해야 합니다.
 
 
 ## <a id="required-user-permissions"></a>필요한 사용자 권한
@@ -74,7 +74,7 @@ DR (재해 복구)을 사용 하도록 설정 하는 사용자에 게 키를 복
 
    기본적으로 Site Recovery는 대상 지역에 새 Key Vault를 만듭니다. 자격 증명 모음의 이름에는 원본 VM 디스크 암호화 키를 기반으로 하는 "asr" 접미사가 있습니다. Site Recovery에서 만든 키 자격 증명 모음이 이미 있는 경우 다시 사용 됩니다. 필요한 경우 목록에서 다른 키 자격 증명 모음을 선택 합니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 이 예에서는 기본 Azure 지역이 동아시아 되며 보조 지역은 남부 동아시아입니다.
 

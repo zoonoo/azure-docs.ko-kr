@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c1f3384b88de7b58457251cf72b2815267cb29
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9cde171f1c031b4b02a71fe0dac1a689e3ec0722
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541700"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772587"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -35,9 +35,9 @@ Azure Machine Learning는 다음과 같은 MLOps 기능을 제공 합니다.
 
 Azure Machine Learning의 ML 파이프라인을 사용 하 여 모델 학습 프로세스와 관련 된 모든 단계를 함께 연결 합니다.
 
-ML 파이프라인은 모델 평가에 대 한 하이퍼 매개 변수 조정에 대 한 데이터 준비의 단계를 포함할 수 있습니다. 자세한 내용은 [ML 파이프라인](service/concept-ml-pipelines.md)을 참조 하세요.
+ML 파이프라인은 모델 평가에 대 한 하이퍼 매개 변수 조정에 대 한 데이터 준비의 단계를 포함할 수 있습니다. 자세한 내용은 [ML 파이프라인](concept-ml-pipelines.md)을 참조 하세요.
 
-[디자이너](service/concept-designer.md) 를 사용 하 여 ML 파이프라인을 만드는 경우 언제 든 지 디자이너 페이지의 오른쪽 위에 있는 **"..."** 를 클릭 하 고 **복제**를 선택할 수 있습니다. 파이프라인을 복제 하면 이전 버전을 잃지 않고 파이프라인 디자인을 반복할 수 있습니다.  
+[디자이너](concept-designer.md) 를 사용 하 여 ML 파이프라인을 만드는 경우 언제 든 지 디자이너 페이지의 오른쪽 위에 있는 **"..."** 를 클릭 하 고 **복제**를 선택할 수 있습니다. 파이프라인을 복제 하면 이전 버전을 잃지 않고 파이프라인 디자인을 반복할 수 있습니다.  
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>어디에서 나 모델 등록, 패키징 및 배포
 

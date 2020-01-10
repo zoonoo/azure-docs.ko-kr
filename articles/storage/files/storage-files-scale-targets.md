@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 060b4a8992ab1c48cceb9506b4f556d9098b9be0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 211dafd1ad3e30d37cfee926a7c93ba541037f62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452944"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749496"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -115,4 +115,3 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 
 - [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
-- [다른 스토리지 서비스에 대한 확장성 및 성능 목표](../common/storage-scalability-targets.md)

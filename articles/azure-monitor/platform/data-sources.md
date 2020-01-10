@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 73aa4a8a5dad0e2839c6a643f2ab58494d55458a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 8f17a3ffbbee2bc702be1c2c690a1d6c85d792cb
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450639"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751047"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor에 대 한 모니터링 데이터의 원본
 Azure Monitor는 [로그](data-platform-logs.md) 및 [메트릭을](data-platform-metrics.md)포함 하는 [일반적인 모니터링 데이터 플랫폼](data-platform.md) 을 기반으로 합니다. 이 플랫폼에 데이터를 수집 하면 Azure Monitor의 공통 도구 집합을 사용 하 여 여러 리소스의 데이터를 함께 분석할 수 있습니다. 모니터링 데이터는 특정 시나리오를 지원 하기 위해 다른 위치로 전송 될 수도 있으며, 일부 리소스는 로그 나 메트릭에 수집 되기 전에 다른 위치에 기록 될 수 있습니다.
@@ -67,7 +67,7 @@ Azure 구독의 상태 및 작업과 관련 된 원격 분석입니다.
 ![Azure 구독](media/data-sources/azure-subscription.png)
 
 ### <a name="azure-activity-log"></a>Azure 활동 로그 
-Azure [활동 로그](activity-logs-overview.md) 에는 azure 구독의 리소스에 대 한 구성 변경에 대 한 기록과 함께 서비스 상태 레코드가 포함 됩니다. 활동 로그는 모든 Azure 리소스에 대해 사용할 수 있으며 해당 _외부_ 보기를 나타냅니다.
+Azure [활동 로그](platform-logs-overview.md) 에는 azure 구독의 리소스에 대 한 구성 변경에 대 한 기록과 함께 서비스 상태 레코드가 포함 됩니다. 활동 로그는 모든 Azure 리소스에 대해 사용할 수 있으며 해당 _외부_ 보기를 나타냅니다.
 
 | 대상 | Description | 참조 |
 |:---|:---|
@@ -100,7 +100,7 @@ Azure [활동 로그](activity-logs-overview.md) 에는 azure 구독의 리소�
 | Event Hubs | Event Hubs를 사용 하 여 다른 위치로 메트릭을 스트림 합니다. |[Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="resource-logs"></a>리소스 로그
-[리소스 로그](resource-logs-overview.md) 는 Azure 리소스의 _내부_ 작업에 대 한 통찰력을 제공 합니다.  리소스 로그는 자동으로 만들어지지만 각 리소스에 대해 수집할 대상을 지정 하려면 진단 설정을 만들어야 합니다.
+[리소스 로그](platform-logs-overview.md) 는 Azure 리소스의 _내부_ 작업에 대 한 통찰력을 제공 합니다.  리소스 로그는 자동으로 만들어지지만 각 리소스에 대해 수집할 대상을 지정 하려면 진단 설정을 만들어야 합니다.
 
 리소스 로그의 구성 요구 사항 및 내용은 리소스 유형에 따라 다르며, 일부 서비스에서는 아직 만들지 않습니다. 각 서비스에 대 한 자세한 내용과 자세한 구성 절차에 대 한 링크를 보려면 [Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주](diagnostic-logs-schema.md) 를 참조 하세요. 서비스가이 문서에 나열 되지 않은 경우 해당 서비스는 현재 리소스 로그를 만들지 않습니다.
 
