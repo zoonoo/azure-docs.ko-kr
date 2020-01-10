@@ -5,7 +5,7 @@ metadata:
   title: Windows Virtual Desktop 설명서 | Microsoft Docs
   description: Azure용 Windows Virtual Desktop은 클라우드에서 가상화된 다중 사용자 Windows 10 Enterprise 환경입니다.
   author: Heidilohr
-  manager: daveba
+  manager: lizross
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
@@ -33,7 +33,7 @@ sections:
           - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Azure Marketplace를 사용하여 호스트 풀 만들기</a>
           - html: <a href="/azure/virtual-desktop/manage-app-groups">Windows Virtual Desktop에 대한 앱 그룹 관리</a>
           - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당</a>
-  - title: 참고 자료
+  - title: 참조
     items:
       - type: list
         style: unordered

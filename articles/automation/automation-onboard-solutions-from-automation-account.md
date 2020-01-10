@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a63202fd5f29c3c2eee4ecaaae9a940078c15edc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421871"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834274"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -59,7 +59,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 **사용** �
 
 컴퓨터가 업데이트 관리 또는 변경 내용 추적 및 인벤토리 솔루션에 추가되면 작업 영역에서 두 가지 저장된 검색 중 하나에 추가됩니다. 이러한 저장된 검색은 이러한 솔루션을 대상으로 하는 컴퓨터가 포함된 쿼리입니다.
 
-Automation 계정 이동하고 **일반** 아래에서 **저장된 검색**을 선택합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
+Log Analytics 작업 영역으로 이동 하 고 **일반**아래에서 **저장 된 검색** 을 선택 합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
 
 |이름     |범주  |Alias  |
 |---------|---------|---------|

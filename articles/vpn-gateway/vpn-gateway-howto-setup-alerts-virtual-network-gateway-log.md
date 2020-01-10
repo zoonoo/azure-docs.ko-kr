@@ -1,5 +1,5 @@
 ---
-title: Azure VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정
+title: 'Azure VPN Gateway: 진단 로그 이벤트에 대 한 경고 구성'
 description: VPN Gateway 진단 로그 이벤트에 대 한 경고를 구성 하는 단계
 services: vpn-gateway
 author: anzaman
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: d914c020553bace7ea5ab8898ac4093fea30e6c9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e2d0227f7481f75c1b0a4e3fe9d0fa3134a7261c
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307002"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778603"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정
 
@@ -35,7 +35,7 @@ Azure에서 사용할 수 있는 로그는 다음과 같습니다.
 
 1. Azure Portal에서 **모든 서비스** 아래 **Log Analytics** 를 검색 하 고 **Log Analytics 작업 영역**을 선택 합니다.
 
-   ![Log Analytics 작업 영역으로 이동 하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "만들기")
+   ![Log Analytics 작업 영역으로 이동 하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
 
 2. **Log Analytics** 페이지에서 **만들기** 를 선택 합니다.
 
@@ -45,7 +45,7 @@ Azure에서 사용할 수 있는 로그는 다음과 같습니다.
 
    ![Log Analytics 작업 영역을 만드는 방법에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "선택")
 
-4. **진단 설정** **모니터링** > 블레이드에서 VPN gateway를 찾습니다.
+4. **모니터** > **진단 설정** 블레이드에서 VPN gateway를 찾습니다.
 
    ![진단 설정에서 VPN gateway를 찾기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "선택")
 
@@ -61,7 +61,7 @@ Azure에서 사용할 수 있는 로그는 다음과 같습니다.
 
    ![새 경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
 
-   ![지점 및 사이트 간 ](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
+   ![지점 및 사이트 간](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
 8. Log Analytics 작업 영역 및 리소스를 선택 합니다.
 
    ![작업 영역 및 리소스에 대 한 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "선택")

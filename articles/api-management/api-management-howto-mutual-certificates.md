@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 70c1e22fc7f1fb1cda3fd4af1c2d3aa2cd257201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39a1e224173dc021cf49b535957eb4b49f4c91ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442641"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834329"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법
 
@@ -30,9 +30,12 @@ API Management REST API를 사용하여 인증서를 관리하는 방법에 대�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 가이드에서는 클라이언트 인증서 인증을 사용하여 API의 백 엔드 서비스에 액세스하도록 API Management 서비스 인스턴스를 구성하는 방법을 설명합니다. 이 문서의 단계를 수행 하기 전에 클라이언트 인증서 인증에 대해 백 엔드 서비스를 구성 해야 합니다 ([Azure WebSites에서 인증서 인증을 구성 하려면이 문서 참조][to configure certificate authentication in Azure WebSites refer to this article]). API Management 서비스로 업로드하려면 인증서와 암호에 액세스해야 합니다.
+이 가이드에서는 클라이언트 인증서 인증을 사용하여 API의 백 엔드 서비스에 액세스하도록 API Management 서비스 인스턴스를 구성하는 방법을 설명합니다. 이 문서의 단계를 수행 하기 전에 클라이언트 인증서 인증에 대해 백 엔드 서비스를 구성 해야 합니다 ([Azure App Service에서 인증서 인증을 구성 하려면이 문서 참조][to configure certificate authentication in Azure WebSites refer to this article]). API Management 서비스로 업로드하려면 인증서와 암호에 액세스해야 합니다.
 
 ## <a name="step1"> </a>인증서 업로드
+
+> [!NOTE]
+> 이 [예제](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml)와 같이 업로드 된 인증서 대신 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 서비스에 저장 된 인증서를 사용할 수 있습니다.
 
 ![클라이언트 인증서 추가](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
 
@@ -40,9 +43,9 @@ API Management REST API를 사용하여 인증서를 관리하는 방법에 대�
 
 1. Azure Portal에서 Azure API Management 서비스 인스턴스로 이동합니다.
 2. 메뉴에서 **인증서** 를 선택 합니다.
-3. **+추가** 단추를 클릭합니다.  
-    ![클라이언트 인증서 추가](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
-4. 인증서를 찾아보아 해당 ID와 암호를 제공합니다.  
+3. **+추가** 단추를 클릭합니다.
+    ![클라이언트 인증서 추가](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+4. 인증서를 찾아보아 해당 ID와 암호를 제공합니다.
 5. **만들기**를 클릭합니다.
 
 > [!NOTE]
@@ -65,14 +68,14 @@ API Management REST API를 사용하여 인증서를 관리하는 방법에 대�
 
 ## <a name="step2"> </a>게이트웨이 인증에 클라이언트 인증서를 사용 하도록 API 구성
 
-1. 왼쪽의 **API Management 메뉴**에서 **API**를 클릭한 다음, API로 이동합니다.  
+1. 왼쪽의 **API Management 메뉴**에서 **API**를 클릭한 다음, API로 이동합니다.
     ![클라이언트 인증서 사용하도록 설정](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-2. **디자인** 탭에서 **백 엔드** 섹션의 연필 아이콘을 클릭합니다. 
-3. **게이트웨이 자격 증명**을 **클라이언트 인증서**로 변경하고 드롭다운 목록에서 인증서를 선택합니다.  
+2. **디자인** 탭에서 **백 엔드** 섹션의 연필 아이콘을 클릭합니다.
+3. **게이트웨이 자격 증명**을 **클라이언트 인증서**로 변경하고 드롭다운 목록에서 인증서를 선택합니다.
     ![클라이언트 인증서 사용하도록 설정](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. **저장**을 클릭합니다. 
+4. **저장**을 클릭합니다.
 
 > [!WARNING]
 > 이 변경 내용은 즉시 적용되며 해당 API의 작업 호출은 인증서를 사용하여 백 엔드 서버에서 인증됩니다.

@@ -93,7 +93,7 @@
       href: knowledge-store-concept-intro.md
     - name: 프로젝션
       href: knowledge-store-projection-overview.md
-    - name: 증분 인덱싱
+    - name: 증분 보강
       href: cognitive-search-incremental-indexing-conceptual.md
 - name: 방법 가이드
   items:
@@ -237,9 +237,9 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: 인덱스 필드에 매핑
               href: cognitive-search-output-field-mapping.md
-            - name: 이미지에서 정보 처리 및 추출
+            - name: 이미지에서 정보 추출
               href: cognitive-search-concept-image-scenarios.md
-            - name: 증분 인덱싱 설정
+            - name: 캐시(증분) 보강
               href: search-howto-incremental-index.md
         - name: 사용자 지정 기술
           items:
@@ -330,7 +330,11 @@
     - name: REST(관리)
       href: /rest/api/searchmanagement
     - name: REST(미리 보기)
-      href: search-api-preview.md
+      items:
+        - name: API 버전 2019-05-06-Preview
+          href: search-api-preview.md
+        - name: ResetSkills API
+          href: preview-api-resetskills.md
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.search/searchservices
     - name: OData 언어 참조

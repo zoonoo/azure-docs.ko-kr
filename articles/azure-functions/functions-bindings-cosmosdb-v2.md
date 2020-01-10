@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 0ad569977194441b026c2c987ecad544ce40cfa1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2e08c1c0fbd0962adee44af949be280701915a1e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227355"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834063"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
@@ -51,7 +51,7 @@ Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-트리거 건너뛰기 예제
+[트리거 건너뛰기 예제](#trigger---c-attributes)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
@@ -87,11 +87,11 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-트리거 건너뛰기 예제
+[트리거 건너뛰기 예제](#trigger---c-attributes)
 
 ### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
 
-다음 예에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 Cosmos DB 레코드가 수정될 때 로그 메시지를 작성합니다.
+다음 예에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 Cosmos DB 레코드가 추가 되거나 수정 될 때 로그 메시지를 기록 합니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -125,11 +125,11 @@ C# 스크립트 코드는 다음과 같습니다.
     }
 ```
 
-트리거 건너뛰기 예제
+[트리거 건너뛰기 예제](#trigger---c-attributes)
 
 ### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
 
-다음 예에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 이 함수는 Cosmos DB 레코드가 수정될 때 로그 메시지를 작성합니다.
+다음 예에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 Cosmos DB 레코드가 추가 되거나 수정 될 때 로그 메시지를 기록 합니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -156,9 +156,11 @@ JavaScript 코드는 다음과 같습니다.
     }
 ```
 
+[트리거 건너뛰기 예제](#trigger---c-attributes)
+
 ### <a name="trigger---java-example"></a>트리거 - Java 예제
 
-다음 예제에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [Java 함수](functions-reference-java.md)를 보여줍니다. 지정한 데이터베이스 및 컬렉션에서 삽입 또는 업데이트가 있을 때 함수가 호출됩니다.
+다음 예제에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [Java 함수](functions-reference-java.md)를 보여줍니다. 함수는 지정 된 데이터베이스 및 컬렉션에 삽입 또는 업데이트가 있을 때 호출 됩니다.
 
 ```json
 {
@@ -193,11 +195,12 @@ Java 코드는 다음과 같습니다.
 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 매개 변수에 대한 `@CosmosDBTrigger` 주석을 사용합니다.  이 주석은 기본 Java 형식, POJOs 또는 선택적\<T >를 사용 하는 nullable 값에 사용할 수 있습니다.
 
 
-트리거 건너뛰기 예제
+[트리거 건너뛰기 예제](#trigger---c-attributes)
+
 
 ### <a name="trigger---python-example"></a>트리거 - Python 예제
 
-다음 예제에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 이 함수는 Cosmos DB 레코드가 수정될 때 로그 메시지를 작성합니다.
+다음 예제에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 Cosmos DB 레코드가 추가 되거나 수정 될 때 로그 메시지를 기록 합니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -250,15 +253,15 @@ Java 코드는 다음과 같습니다.
 
 다음 표에서는 *function.json* 파일 및 `CosmosDBTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** || `cosmosDBTrigger`으로 설정해야 합니다. |
-|**direction** || `in`으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**type** || `cosmosDBTrigger`로 설정해야 합니다. |
+|**direction** || `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** || 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
 |**connectionStringSetting**|**ConnectionStringSetting** | 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. |
 |**databaseName**|**DatabaseName**  | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
 |**collectionName** |**CollectionName** | 모니터링되는 컬렉션의 이름입니다. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (선택 사항) 임대 컬렉션을 보유하고 있는 서비스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 설정하지 않으면 `connectionStringSetting` 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. 임대 컬렉션에 대한 연결 문자열에 쓰기 권한이 있어야 합니다.|
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | 필드 임대 컬렉션을 보유 하는 Azure Cosmos DB 계정에 대 한 연결 문자열을 포함 하는 앱 설정의 이름입니다. 설정하지 않으면 `connectionStringSetting` 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. 임대 컬렉션에 대한 연결 문자열에 쓰기 권한이 있어야 합니다.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션을 보유하는 데이터베이스의 이름입니다. 설정하지 않으면 `databaseName` 설정 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. |
 |**leaseCollectionName** | **LeaseCollectionName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션의 이름입니다. 설정하지 않으면 `leases` 값이 사용됩니다. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (선택 사항) `true`로 설정하면 임대 컬렉션이 없는 경우 자동으로 임대 컬렉션이 생성됩니다. 기본값은 `false`입니다. |
@@ -333,7 +336,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>큐 트리거, JSON에서 ID 조회(C#)
 
-다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 JSON 개체가 있는 큐 메시지에 의해 트리거됩니다. 큐 트리거는 검색할 ID 및 파티션 키 값을 포함 하는 `ToDoItemLookup`라는 개체로 JSON을 구문 분석 합니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 JSON 개체가 있는 큐 메시지에 의해 트리거됩니다. 큐 트리거는 검색할 ID 및 파티션 키 값을 포함 하는 `ToDoItemLookup`형식의 개체로 JSON을 구문 분석 합니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -1115,7 +1118,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>HTTP 트리거, 경로 데이터에서 ID 조회(JavaScript)
 
-다음 예제에서는 단일 문서를 검색하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 경로 데이터를 사용 하 여 조회할 ID와 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -1328,7 +1331,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>HTTP 트리거, 경로 데이터에서 ID 조회(Python)
 
-다음 예제에서는 단일 문서를 검색하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 경로 데이터를 사용 하 여 조회할 ID와 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -1451,7 +1454,7 @@ F# 코드는 다음과 같습니다.
     inputDocument?text <- "This has changed."
 ```
 
-이 예제에는 `project.json` 및 `FSharp.Interop.Dynamic` NuGet 종속성을 지정하는 `Dynamitey` 파일이 필요합니다.
+이 예제에는 `FSharp.Interop.Dynamic` 및 `Dynamitey` NuGet 종속성을 지정하는 `project.json` 파일이 필요합니다.
 
 ```json
 {
@@ -1682,7 +1685,7 @@ public class DocByIdFromRouteSqlQuery {
 
 #### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP 트리거, SqlQuery를 사용하여 경로 데이터에서 여러 문서 가져오기(Java)
 
-다음 예제에서는 여러 문서를 검색하는 Java 함수를 보여줍니다. 함수는 ```desc``` 필드에서 검색할 문자열을 지정하기 위해 경로 문자열 ```description```를 사용하는 HTTP 요청에 의해 트리거됩니다. 검색 용어는 지정한 데이터베이스 및 컬렉션에서 문서 컬렉션을 검색한 후 결과 세트를 ```ToDoItem[]```으로 변환하고 함수에 인수로 전달하는 데 사용됩니다.
+다음 예제에서는 여러 문서를 검색 하는 Java 함수를 보여 줍니다. 함수는 ```description``` 필드에서 검색할 문자열을 지정하기 위해 경로 문자열 ```desc```를 사용하는 HTTP 요청에 의해 트리거됩니다. 검색 용어는 지정한 데이터베이스 및 컬렉션에서 문서 컬렉션을 검색한 후 결과 세트를 ```ToDoItem[]```으로 변환하고 함수에 인수로 전달하는 데 사용됩니다.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1732,10 +1735,10 @@ public class DocsFromRouteSqlQuery {
 
 다음 표에서는 *function.json* 파일 및 `CosmosDB` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type**     || `cosmosDB`으로 설정해야 합니다.        |
-|**direction**     || `in`으로 설정해야 합니다.         |
+|**type**     || `cosmosDB`로 설정해야 합니다.        |
+|**direction**     || `in`로 설정해야 합니다.         |
 |**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
@@ -1767,7 +1770,7 @@ Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이
 * [JavaScript](#output---javascript-examples)
 * [Python](#output---python-examples)
 
-[을 사용하는 ](#input---c-examples)입력 예제`DocumentClient`도 참조하세요.
+`DocumentClient`을 사용하는 [입력 예제](#input---c-examples)도 참조하세요.
 
 [출력 건너뛰기 예제](#output---attributes)
 
@@ -2100,14 +2103,6 @@ F# 코드는 다음과 같습니다.
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
     open Microsoft.Extensions.Logging
-
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
-
     let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
       log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
@@ -2118,7 +2113,7 @@ F# 코드는 다음과 같습니다.
           address = employee?address }
 ```
 
-이 예제에는 `project.json` 및 `FSharp.Interop.Dynamic` NuGet 종속성을 지정하는 `Dynamitey` 파일이 필요합니다.
+이 예제에는 `FSharp.Interop.Dynamic` 및 `Dynamitey` NuGet 종속성을 지정하는 `project.json` 파일이 필요합니다.
 
 ```json
 {
@@ -2202,7 +2197,7 @@ public String cosmosDbQueryById(
 
 #### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>HTTP 트리거, OutputBinding을 통해 데이터베이스에 단일 문서 저장(Java)
 
-다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 문서를 쓰는 Java 함수를 보여줍니다. 이 설정에서는 함수 시그니처가 아니라 ```outputItem```을 주석으로 지정해야 하는 ```@CosmosDBOutput``` 매개 변수입니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
+다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 문서를 쓰는 Java 함수를 보여줍니다. 이 설정에서는 함수 시그니처가 아니라 ```@CosmosDBOutput```을 주석으로 지정해야 하는 ```outputItem``` 매개 변수입니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -2246,7 +2241,7 @@ public String cosmosDbQueryById(
 
 #### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>HTTP 트리거, OutputBinding을 통해 데이터베이스에 여러 문서 저장(Java)
 
-다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 여러 문서를 쓰는 Java 함수를 보여줍니다. 이 설정에서는 함수 시그니처가 아니라 ```outputItem```을 주석으로 지정해야 하는 ```@CosmosDBOutput``` 매개 변수입니다. 출력 매개 변수 ```outputItem```에는 ```ToDoItem``` 개체 목록이 템플릿 매개 변수 형식으로 포함되어 있습니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
+다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 여러 문서를 쓰는 Java 함수를 보여줍니다. 이 설정에서는 함수 시그니처가 아니라 ```@CosmosDBOutput```을 주석으로 지정해야 하는 ```outputItem``` 매개 변수입니다. 출력 매개 변수 ```outputItem```에는 ```ToDoItem``` 개체 목록이 템플릿 매개 변수 형식으로 포함되어 있습니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -2369,10 +2364,10 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 다음 표에서는 *function.json* 파일 및 `CosmosDB` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type**     || `cosmosDB`으로 설정해야 합니다.        |
-|**direction**     || `out`으로 설정해야 합니다.         |
+|**type**     || `cosmosDB`로 설정해야 합니다.        |
+|**direction**     || `out`로 설정해야 합니다.         |
 |**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
 |**collectionName** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
@@ -2417,7 +2412,7 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|

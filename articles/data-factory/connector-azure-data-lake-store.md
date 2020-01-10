@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 701695c849a7f94abdba83f962806ecab3f21282
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9329a389e61c456f1aa13314b6f5ffb6bac99ce9
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440862"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830244"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen1 간에 데이터 복사
 
@@ -202,7 +202,7 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 | 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | `storeSettings` 아래의 type 속성은 **AzureDataLakeStoreReadSetting**로 설정 해야 합니다. | 예                                           |
+| type                     | `storeSettings` 아래의 type 속성은 **AzureDataLakeStoreReadSettings**로 설정 해야 합니다. | 예                                           |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. Recursive가 true로 설정 되 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다.                                            |
 | wildcardFolderPath       | 원본 폴더를 필터링 할 와일드 카드 문자가 포함 된 폴더 경로입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 아닙니다.                                            |
 | wildcardFileName         | 소스 파일을 필터링 하기 위해 지정 된 folderPath/wildcardFolderPath 아래의 와일드 카드 문자가 포함 된 파일 이름입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | `fileName` 데이터 집합에 지정 되지 않은 경우에는 예입니다. |
@@ -233,11 +233,11 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AzureDataLakeStoreReadSetting",
+                    "type": "AzureDataLakeStoreReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -259,7 +259,7 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 | 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | `storeSettings` 아래의 type 속성은 **AzureDataLakeStoreWriteSetting**로 설정 해야 합니다. | 예      |
+| type                     | `storeSettings` 아래의 type 속성은 **AzureDataLakeStoreWriteSettings**로 설정 해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 아닙니다.       |
 | maxConcurrentConnections | 데이터 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아닙니다.       |
 
@@ -289,7 +289,7 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
             "sink": {
                 "type": "ParquetSink",
                 "storeSettings":{
-                    "type": "AzureDataLakeStoreWriteSetting",
+                    "type": "AzureDataLakeStoreWriteSettings",
                     "copyBehavior": "PreserveHierarchy"
                 }
             }

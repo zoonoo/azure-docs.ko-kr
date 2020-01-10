@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 7532db883b6267c402e380d865c917d16a7052da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6305a6e68f435c009fdfdea371e88f4a73c3d92
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440625"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830397"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -222,7 +222,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 | 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | `storeSettings` 아래의 type 속성은 **HttpReadSetting**로 설정 해야 합니다. | 예      |
+| type                     | `storeSettings` 아래의 type 속성은 **HttpReadSettings**로 설정 해야 합니다. | 예      |
 | requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아닙니다.       |
 | addtionalHeaders         | 추가 HTTP 요청 헤더입니다.                             | 아닙니다.       |
 | requestBody              | HTTP 요청의 본문입니다.                               | 아닙니다.       |
@@ -252,11 +252,11 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "HttpReadSetting",
+                    "type": "HttpReadSettings",
                     "requestMethod": "Post",
                     "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
                     "requestBody": "<body for POST HTTP request>"

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: b1df328f151a4085ec0aadd1b880048f81483a51
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
-ms.translationtype: MT
+ms.date: 01/07/2020
+ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901319"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834381"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -29,13 +29,19 @@ API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않
 
 ## <a name="feature-announcements"></a>기능 알림
 
-### <a name="december-2019"></a>12 월 2019
+### <a name="january-2020"></a>2020년 1월
+
++ [고객이 관리 하는 암호화 키](search-security-manage-encryption-keys.md) 가 이제 일반 공급 됩니다. REST를 사용 하는 경우 `api-version=2019-05-06`를 사용 하 여 기능에 액세스할 수 있습니다. 관리 코드의 경우에는 기능이 미리 보기 상태를 벗어나는 경우에도 올바른 패키지는 [.NET SDK 버전 8.0-미리 보기](search-dotnet-sdk-migration-version-9.md) 입니다. 
+
++ 검색 서비스 끝점에 대 한 *제한 된 IP 액세스 및 개인 끝점 (미리 보기)* 은 이제 **api-version = 2019-10-01.txt-preview**에서 사용할 수 있습니다. [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) 관리 REST API에서 new **IpRule** 및 **networkruleset** 속성을 사용 하 여 보안 끝점을 설정할 수 있습니다. API 버전 및 지역 가용성에 대 한 자세한 내용은 [How to use The Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)항목을 참조 하세요.
+
+### <a name="december-2019"></a>2019년 12월
 
 + [앱 만들기 (미리 보기)](search-create-app-portal.md) 는 다운로드 가능한 HTML 파일을 생성 하는 포털의 새 마법사입니다. 이 파일에는 검색 서비스의 인덱스에 바인딩된 운영 "localhost" 스타일 웹 앱을 렌더링 하는 포함 된 스크립트가 포함 되어 있습니다. 페이지는 마법사에서 구성할 수 있으며 검색 표시줄, 결과 영역, 사이드바 탐색 및 typeahead.js 쿼리 지원을 포함할 수 있습니다. HTML 오프 라인을 수정 하 여 워크플로 또는 모양을 확장 하거나 사용자 지정할 수 있습니다.
 
 ### <a name="november-2019---ignite-conference"></a>11 월 2019-Ignite 회의
 
-+ [증분 인덱싱 (미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 을 사용 하면 보강 파이프라인을 수정할 때 다시 처리할 단계를 선택 하 고 선택할 수 있습니다. 증분 인덱싱은 이전에 분석 한 이미지 내용이 있는 경우에 유용 합니다. 비용이 많이 드는 분석의 출력은 저장 된 후 추가 인덱싱 또는 보강의 기준으로 사용 됩니다.
++ [증분 보강 (미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 는 이미 처리 된 콘텐츠를 손실 하지 않고 특정 단계 또는 단계에 대 한 작업을 수행할 수 있도록 보강 파이프라인에 캐싱 및 statefullness을 추가 합니다. 이전에는 보강 파이프라인에 대 한 모든 변경에 전체 다시 작성이 필요 했습니다. 증분 보강을 사용 하면 비용이 많이 드는 분석 (특히 이미지 분석)의 출력이 보존 됩니다.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->

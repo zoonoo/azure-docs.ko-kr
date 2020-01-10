@@ -1,6 +1,7 @@
 ---
-title: 'S2S VPN 연결용 VPN 디바이스 구성 스크립트 다운로드: Azure Resource Manager | Microsoft Docs'
+title: S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트 다운로드
 description: 이 문서에서는 Azure Resource Manager를 사용하여 Azure VPN Gateway와의 S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트를 다운로드하는 과정을 안내합니다.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
 manager: rossort
@@ -8,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bce6a05938af9b8726b1b52ccb65d22d7492cfe
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157529"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778450"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트 다운로드
 

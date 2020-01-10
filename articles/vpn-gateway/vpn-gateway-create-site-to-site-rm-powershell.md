@@ -1,18 +1,19 @@
 ---
-title: 'Azure 가상 네트워크에 온-프레미스 네트워크 연결: 사이트 간 VPN: PowerShell | Microsoft Docs'
+title: '온-프레미스 네트워크를 Azure virtual network에 연결: 사이트 간 VPN: PowerShell'
 description: 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 PowerShell을 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: 69cdf248e299ce4fdf08540836d44958438a2665
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 85ea3855b13350901d85701e9bca8d87ff6632c3
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699892"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778807"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>PowerShell을 사용하여 사이트 간 VPN 연결로 VNet 만들기
 
@@ -136,7 +137,7 @@ New-AzResourceGroup -Name TestRG1 -Location 'East US'
    Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
 
-## 2. <a name="localnet"></a>로컬 네트워크 게이트웨이 만들기
+## 2. <a name="localnet"> </a>로컬 네트워크 게이트웨이 만들기
 
 LNG(로컬 네트워크 게이트웨이)는 일반적으로 온-프레미스 위치를 가리킵니다. 가상 네트워크 게이트웨이와 동일하지 않습니다. Azure가 참조할 수 있는 사이트 이름을 지정한 다음, 연결을 만들 온-프레미스 VPN 디바이스의 IP 주소를 지정합니다. 또한 VPN Gateway를 통해 VPN 디바이스로 라우팅될 IP 주소 접두사를 지정합니다. 사용자가 지정하는 주소 접두사는 온-프레미스 네트워크에 있는 접두사입니다. 온-프레미스 네트워크가 변경되면 이러한 접두사를 쉽게 업데이트할 수 있습니다.
 
@@ -175,7 +176,7 @@ VPN Gateway에는 공용 IP 주소가 있어야 합니다. 먼저 IP 주소 리�
 $gwpip= New-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>4. 게이트웨이 IP 주소 지정 구성 만들기
+## <a name="GatewayIPConfig"></a>4. 게이트웨이 IP 주소 지정 구성을 만듭니다.
 
 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷(‘GatewaySubnet’)을 정의합니다. 다음 예제를 사용하여 게이트웨이 구성을 만듭니다.
 
@@ -185,11 +186,11 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
 
-## <a name="CreateGateway"></a>5. VPN Gateway 만들기
+## <a name="CreateGateway"></a>5. VPN gateway 만들기
 
 가상 네트워크 VPN Gateway 만들기.
 
-다음 값을 사용 합니다.
+다음 값을 사용합니다.
 
 * 사이트 간 구성에 대한 *-GatewayType*은 *Vpn*입니다. 게이트웨이 유형은 항상 구현하는 구성에 따라 다릅니다. 예를 들어 다른 게이트웨이 구성인 GatewayType ExpressRoute가 필요할 수 있습니다.
 * *-VpnType*은 *경로 기반*(일부 설명서에서는 동적 게이트웨이라고도 함)이거나 *정책 기반*(일부 설명서에서는 고정 게이트웨이라고도 함)일 수 있습니다. VPN Gateway 형식에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
@@ -203,7 +204,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 
 이 명령을 실행한 후 게이트웨이 구성이 완료될 때까지 최대 45분이 걸릴 수 있습니다.
 
-## <a name="ConfigureVPNDevice"></a>6. VPN 디바이스 구성
+## <a name="ConfigureVPNDevice"></a>6. VPN 장치 구성
 
 온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음 항목이 필요합니다.
 
@@ -217,7 +218,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>7. VPN 연결 만들기
+## <a name="CreateConnection"></a>7. VPN 연결을 만듭니다.
 
 다음으로 가상 네트워크 게이트웨이와 VPN 디바이스 사이에 사이트 간 VPN 연결을 만듭니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 디바이스 구성에 사용한 값과 일치해야 합니다. 사이트 간 '-ConnectionType'은 **IPsec**입니다.
 

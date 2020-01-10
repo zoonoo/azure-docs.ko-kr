@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/13/2019
-ms.openlocfilehash: e1729d9e0c793b944b1e02d3108388f9d2533e5d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: b390dda64ab9ece9a426bec94f4d866e8e524bc7
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441076"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830261"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen2 데이터 복사 및 변환
 
@@ -119,7 +119,7 @@ Azure Data Lake Storage Gen2 커넥터는 다음 인증 유형을 지원 합니�
     - **Sink**: Storage 탐색기에서 싱크 폴더에 대 한 **쓰기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대 한 **실행** 권한을 하나 이상 부여 합니다. 또는 액세스 제어 (IAM)에서 적어도 **저장소 Blob 데이터 참가자** 역할을 부여 합니다.
 
 >[!NOTE]
->작성에 Data Factory UI를 사용 하 고 서비스 주체가 IAM의 "저장소 Blob 데이터 판독기/참가자" 역할로 설정 되지 않은 경우 연결 테스트 또는 폴더 탐색을 수행할 때 "파일 경로에 대 한 연결 테스트" 또는 "지정 된 경로에서 찾아보기"를 선택 하 고 읽기 + 실행 권한이 있는 경로를 지정 하 여 계속 합니다. 지금은 파일 시스템에 대 한 연결 테스트에 실패 하 고,이 작업을 테스트 하거나 건너뛸 하위 디렉터리를 지정 합니다.
+>작성에 Data Factory UI를 사용 하 고 서비스 주체가 IAM의 "저장소 Blob 데이터 판독기/참가자" 역할로 설정 되지 않은 경우 연결 테스트 또는 폴더 탐색을 수행할 때 "파일 경로에 대 한 연결 테스트" 또는 "지정 된 경로에서 찾아보기"를 선택 하 고 **읽기 + 실행** 권한이 있는 경로를 지정 하 여 계속 합니다.
 
 이러한 속성은 연결 된 서비스에 대해 지원 됩니다.
 
@@ -170,7 +170,7 @@ Azure 리소스 인증에 관리 되는 id를 사용 하려면 다음 단계를 
     - **Sink**: Storage 탐색기에서 싱크 폴더에 대 한 **쓰기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대 한 **실행** 권한을 하나 이상 부여 합니다. 또는 액세스 제어 (IAM)에서 적어도 **저장소 Blob 데이터 참가자** 역할을 부여 합니다.
 
 >[!NOTE]
->Data Factory UI를 사용 하 여 작성 하 고 관리 되는 id를 IAM의 "저장소 Blob 데이터 판독기/참가자" 역할로 설정 하지 않은 경우, 연결 테스트 또는 폴더 탐색을 수행 하는 경우 "파일 경로에 대 한 연결 테스트" 또는 "지정 된 경로에서 찾아보기"를 선택 하 고 읽기 + 실행 권한이 있는 경로를 지정 하 여 계속 합니다. 지금은 파일 시스템에 대 한 연결 테스트에 실패 하 고,이 작업을 테스트 하거나 건너뛸 하위 디렉터리를 지정 합니다.
+>Data Factory UI를 사용 하 여 작성 하 고 관리 되는 id를 IAM의 "저장소 Blob 데이터 판독기/참가자" 역할로 설정 하지 않은 경우, 연결 테스트 또는 폴더 탐색을 수행 하는 경우 "파일 경로에 대 한 연결 테스트" 또는 "지정 된 경로에서 찾아보기"를 선택 하 고 **읽기 + 실행** 권한이 있는 경로를 지정 하 여 계속 합니다.
 
 >[!IMPORTANT]
 >PolyBase를 사용 하 여 Data Lake Storage Gen2에서 SQL Data Warehouse로 데이터를 로드 하는 경우 Data Lake Storage Gen2에 대해 관리 id 인증을 사용 하는 경우 [이 가이드](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 의 1 단계와 2 단계를 수행 해야 합니다. 또한 Azure Active Directory (Azure AD)를 사용 하 여 SQL Database 서버를 등록 하 고 2) 저장소 Blob 데이터 참가자 역할을 SQL Database 서버에 할당 합니다. 나머지는 Data Factory에 의해 처리 됩니다. Data Lake Storage Gen2 Azure Virtual Network 끝점을 사용 하 여 구성 된 경우 PolyBase를 사용 하 여 데이터를 로드 하려면 PolyBase에서 요구 하는 대로 관리 되는 id 인증을 사용 해야 합니다.
@@ -255,7 +255,7 @@ Azure 리소스 인증에 관리 되는 id를 사용 하려면 다음 단계를 
 
 | 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | `storeSettings` 아래의 type 속성은 **Azureblobfsreadsetting**으로 설정 해야 합니다. | 예                                           |
+| type                     | `storeSettings` 아래의 type 속성은 **Azureblobfsreadsettings**로 설정 해야 합니다. | 예                                           |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. Recursive가 true로 설정 되 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다.                                            |
 | wildcardFolderPath       | 원본 폴더를 필터링 하기 위해 데이터 집합에 구성 된 지정 된 파일 시스템 아래에 와일드 카드 문자가 포함 된 폴더 경로입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 아닙니다.                                            |
 | wildcardFileName         | 소스 파일을 필터링 하는 지정 된 파일 시스템 + folderPath/wildcardFolderPath 아래의 와일드 카드 문자가 포함 된 파일 이름입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (0 개 또는 단일 문자와 일치)입니다. 실제 폴더 이름에 와일드 카드 또는이 이스케이프 문자가 포함 된 경우 `^`를 사용 하 여 이스케이프 합니다. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | `fileName` 데이터 집합에 지정 되지 않은 경우에는 예입니다. |
@@ -286,11 +286,11 @@ Azure 리소스 인증에 관리 되는 id를 사용 하려면 다음 단계를 
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AzureBlobFSReadSetting",
+                    "type": "AzureBlobFSReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -312,7 +312,7 @@ Azure 리소스 인증에 관리 되는 id를 사용 하려면 다음 단계를 
 
 | 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | `storeSettings` 아래의 type 속성은 **Azureblobfswritesetting**으로 설정 해야 합니다. | 예      |
+| type                     | `storeSettings` 아래의 type 속성은 **Azureblobfswritesettings**로 설정 해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 아닙니다.       |
 | maxConcurrentConnections | 데이터 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아닙니다.       |
 
@@ -342,7 +342,7 @@ Azure 리소스 인증에 관리 되는 id를 사용 하려면 다음 단계를 
             "sink": {
                 "type": "ParquetSink",
                 "storeSettings":{
-                    "type": "AzureBlobFSWriteSetting",
+                    "type": "AzureBlobFSWriteSettings",
                     "copyBehavior": "PreserveHierarchy"
                 }
             }

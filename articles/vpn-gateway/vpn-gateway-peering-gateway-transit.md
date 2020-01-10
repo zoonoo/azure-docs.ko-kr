@@ -1,26 +1,20 @@
 ---
-title: '가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성: Azure Resource Manager | Microsoft Docs'
+title: 가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 description: 가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c3d2352467a1ed8e7979acac403908303ba3bc4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457410"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834560"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 
@@ -63,7 +57,7 @@ ms.locfileid: "60457410"
 |허브-RM|Resource Manager|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |클래식|[클래식 네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |스포크-클래식|Resource Manager|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||클래식|[클래식 네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+||클래식|[클래식 네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 [기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당(Resource Manager만 해당)에 대해 자세히 알아보세요.
 

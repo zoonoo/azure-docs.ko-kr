@@ -1,18 +1,19 @@
 ---
-title: 'Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: PowerShell | Microsoft Docs'
+title: 'Azure Resource Manager Vnet에 클래식 가상 네트워크 연결: PowerShell'
 description: VPN Gateway 및 PowerShell을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결을 만듭니다.
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c11539460f1ef65f8cea3d36f1a017661133355
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62095593"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833951"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -66,7 +67,7 @@ Virtual Network Gateway name = RMGateway <br>
 게이트웨이 IP 주소 구성 = gwipconfig
 
 ## <a name="createsmgw"></a>섹션 1 - 클래식 VNet 구성
-### <a name="1-download-your-network-configuration-file"></a>1. 네트워크 구성 파일 다운로드
+### <a name="1-download-your-network-configuration-file"></a>1. 네트워크 구성 파일을 다운로드 합니다.
 1. 관리자 권한으로 PowerShell 콘솔에서 Azure 계정에 로그인합니다. 다음 cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다. 이 섹션에서는 클래식 SM(Service Management) Azure PowerShell cmdlet이 사용됩니다.
 
    ```azurepowershell
@@ -96,7 +97,7 @@ Virtual Network Gateway name = RMGateway <br>
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-**예제:**
+**예:**
 
     <VirtualNetworkSites>
       <VirtualNetworkSite name="ClassicVNet" Location="West US">
@@ -126,7 +127,7 @@ Virtual Network Gateway name = RMGateway <br>
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. 로컬 네트워크 사이트와 VNet 연결
+### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. VNet을 로컬 네트워크 사이트에 연결
 이 섹션에서는 VNet을 연결하려는 로컬 네트워크 사이트를 지정합니다. 이 경우에 앞서 참조한 Resource Manager VNet입니다. 이름이 일치해야 합니다. 이 단계에서는 게이트웨이를 만들지 않습니다. 게이트웨이를 연결할 로컬 네트워크를 지정합니다.
 
         <Gateway>
@@ -137,7 +138,7 @@ Virtual Network Gateway name = RMGateway <br>
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### <a name="5-save-the-file-and-upload"></a>5. 파일 저장 및 업로드
+### <a name="5-save-the-file-and-upload"></a>5. 파일을 저장 하 고 업로드 합니다.
 파일을 저장하고 다음 명령을 실행하여 Azure에 가져옵니다. 사용자 환경에 필요한 대로 파일 경로를 변경해야 합니다.
 
 ```azurepowershell
@@ -265,7 +266,7 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
 ## <a name="connect"></a>섹션 4 - 게이트웨이 간의 연결 만들기
 게이트웨이 간의 연결을 만들려면 PowerShell이 필요합니다. 클래식 버전의 PowerShell cmdlet을 사용하려면 Azure 계정을 추가해야 합니다. 이 작업에는 **Add-AzureAccount**를 사용합니다.
 
-1. PowerShell 콘솔에서 공유 키를 설정합니다. 이러한 cmdlet을 실행하기 전에 Azure에 필요한 정확한 이름에 대해서는 다운로드한 네트워크 구성 파일을 참조하세요. 공백이 포함된 VNet의 이름을 지정할 때는 값을 작은따옴표로 묶습니다.<br><br>다음 예제에서 **-VNetName**은 클래식 VNet의 이름이고 **-LocalNetworkSiteName**은 로컬 네트워크 사이트에 대해 지정한 이름입니다. **-SharedKey**는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했으나 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 연결을 만드는 다음 단계에서 지정한 것과 동일한 값이어야 한다는 것입니다. 반환 값에는 **상태: 성공**이 표시됩니다.
+1. PowerShell 콘솔에서 공유 키를 설정합니다. 이러한 cmdlet을 실행하기 전에 Azure에 필요한 정확한 이름에 대해서는 다운로드한 네트워크 구성 파일을 참조하세요. 공백이 포함된 VNet의 이름을 지정할 때는 값을 작은따옴표로 묶습니다.<br><br>다음 예제에서 **-VNetName**은 클래식 VNet의 이름이고 **-LocalNetworkSiteName**은 로컬 네트워크 사이트에 대해 지정한 이름입니다. **-SharedKey**는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했으나 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 연결을 만드는 다음 단계에서 지정한 것과 동일한 값이어야 한다는 것입니다. 반환 값에는 **상태:성공**이 표시됩니다.
 
    ```azurepowershell
    Set-AzureVNetGatewayKey -VNetName ClassicVNet `
@@ -297,7 +298,7 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
@@ -308,7 +309,7 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

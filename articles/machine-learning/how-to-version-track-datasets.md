@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: f70c826d839be1de82f3f21cf615f261a2193358
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4c8f3e7e47f9c8f924faf513d984d5474c105038
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536435"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834788"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -169,9 +169,9 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-[Azure Machine Learning Studio (클래식)](https://ml.azure.com/)를 사용 하 여 실험에서 `input_datasets`를 찾을 수도 있습니다. 
+[Azure Machine Learning studio](https://ml.azure.com/)를 사용 하 여 실험에서 `input_datasets`를 찾을 수도 있습니다. 
 
-다음 이미지는 Azure Machine Learning Studio (클래식)에서 실험의 입력 데이터 집합을 찾을 수 있는 위치를 보여 줍니다. 이 예에서는 **실험** 창으로 이동 하 고 `keras-mnist`실험의 특정 실행에 대 한 **속성** 탭을 엽니다.
+다음 이미지는 Azure Machine Learning studio에서 실험의 입력 데이터 집합을 찾을 수 있는 위치를 보여 줍니다. 이 예에서는 **실험** 창으로 이동 하 고 `keras-mnist`실험의 특정 실행에 대 한 **속성** 탭을 엽니다.
 
 ![입력 데이터 집합](./media/how-to-version-track-datasets/input-datasets.png)
 
@@ -183,7 +183,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-등록 후 Python 또는 [Azure Machine Learning Studio (클래식)](https://ml.azure.com/)를 사용 하 여 데이터 집합에 등록 된 모델의 목록을 볼 수 있습니다. 다음 뷰는 **자산**아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
+등록 후 Python 또는 [Azure Machine Learning studio](https://ml.azure.com/)를 사용 하 여 데이터 집합에 등록 된 모델 목록을 볼 수 있습니다. 다음 뷰는 **자산**아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
 
 ![입력 데이터 집합 모델](./media/how-to-version-track-datasets/dataset-models.png)
 

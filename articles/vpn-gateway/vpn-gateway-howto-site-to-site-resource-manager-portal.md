@@ -1,18 +1,19 @@
 ---
-title: 'Azure 가상 네트워크에 온-프레미스 네트워크 연결: 사이트 간 VPN: 포털 | Microsoft Docs'
+title: '온-프레미스 네트워크를 Azure virtual network에 연결: 사이트 간 VPN: 포털'
 description: 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 포털을 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다.
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 96a8b8d33f713faf96e7a96b32e9e41ca669e6cb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 31775286271ba45dd323ff02b405131e28ce9e23
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970829"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780320"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
 
@@ -30,7 +31,7 @@ ms.locfileid: "71970829"
 
 ![사이트 간 VPN Gateway 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -44,15 +45,15 @@ ms.locfileid: "71970829"
 
 * **가상 네트워크 이름:** VNet1
 * **주소 공간:** 10.1.0.0/16
-* **구독:** 사용할 구독
+* **구독:** 사용할 구독을 선택합니다.
 * **리소스 그룹:** TestRG1
-* **지역:** East US
+* **지역:** 미국 동부
 * **서브넷:** 프런트 엔드: 10.1.0.0/24, 백 엔드: 10.1.1.0/24(이 연습의 선택 사항)
 * **게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
 * **가상 네트워크 게이트웨이 이름:** VNet1GW
 * **공용 IP 주소 이름:** VNet1GWIP
 * **VPN 유형:** 경로 기반
-* **연결 형식:** 사이트 간(IPsec)
+* **연결 형식:** 사이트 간 (IPsec)
 * **게이트웨이 유형:** VPN
 * **로컬 네트워크 게이트웨이 이름:** Site1
 * **연결 이름:** VNet1toSite1
@@ -62,7 +63,7 @@ ms.locfileid: "71970829"
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
 
-## <a name="VNetGateway"></a>2. VPN Gateway 만들기
+## <a name="VNetGateway"></a>2. VPN gateway 만들기
 
 이 단계에서는 VNet용 가상 네트워크 게이트웨이를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
 
@@ -70,13 +71,13 @@ ms.locfileid: "71970829"
 
 ### <a name="example-settings"></a>예제 설정
 
-* **인스턴스 세부 정보 > 영역:** East US
+* **인스턴스 세부 정보 > 영역:** 미국 동부
 * **가상 네트워크 Virtual Network >:** VNet1
 * **인스턴스 세부 정보 > 이름:** VNet1GW
 * **인스턴스 세부 정보 > 게이트웨이 유형:** VPN
 * **인스턴스 세부 정보 > VPN 유형:** 경로 기반
 * **Virtual Network > 게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
-* **공용 ip 주소 > 공용 IP 주소 이름:** VNet1GWIP
+* 공용 ip **주소 > 공용 ip 주소 이름:** VNet1GWIP
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -89,14 +90,14 @@ ms.locfileid: "71970829"
 
 **예제 값**
 
-* **Name:** Site1
+* **이름:** Site1
 * **리소스 그룹:** TestRG1
-* **위치:** East US
+* **위치:** 미국 동부
 
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
-## <a name="VPNDevice"></a>4. VPN 디바이스 구성
+## <a name="VPNDevice"></a>4. VPN 장치 구성
 
 온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음이 필요합니다.
 
@@ -105,7 +106,7 @@ ms.locfileid: "71970829"
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="CreateConnection"></a>5. VPN 연결 만들기
+## <a name="CreateConnection"></a>5. VPN 연결을 만듭니다.
 
 가상 네트워크 게이트웨이와 온-프레미스 VPN 디바이스 사이의 사이트 간 VPN 연결을 만듭니다.
 

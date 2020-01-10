@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: d6370509b49ae464b53525e7320676b04912bd12
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1c06c1d0403e526e1ed58a193cfe9b57bb9fe561
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113716"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780245"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>보관 계층에서 blob 데이터 리하이드레이션
 
@@ -47,6 +47,68 @@ Blob이 보관 액세스 계층에 있는 동안에는 오프 라인으로 간�
 
 > [!NOTE]
 > 블록 blob 및 데이터 리하이드레이션의 가격 책정에 대 한 자세한 내용은 [가격 책정을 Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/)참조 하세요. 아웃 바운드 데이터 전송 요금에 대 한 자세한 내용은 [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/)를 참조 하세요.
+
+## <a name="quickstart-scenarios"></a>빠른 시작 시나리오
+
+### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>온라인 계층에 보관 blob 리하이드레이션
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+1. Azure Portal에서 **모든 리소스**를 검색 하 고 선택 합니다.
+
+1. 사용자의 스토리지 계정을 선택합니다.
+
+1. 컨테이너를 선택 하 고 blob을 선택 합니다.
+
+1. **Blob 속성**에서 **계층 변경**을 선택 합니다.
+
+1. **핫** 또는 **쿨** 액세스 계층을 선택 합니다. 
+
+1. **표준** 또는 **높음**의 리하이드레이션 우선 순위를 선택 합니다.
+
+1. 아래쪽에서 **저장** 을 선택 합니다.
+
+![저장소 계정 계층 변경](media/storage-tiers/blob-access-tier.png)
+
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+다음 PowerShell 스크립트를 사용 하 여 보관 blob의 blob 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다. `$containerName` 변수는 컨테이너 이름으로 초기화 해야 합니다. `$blobName` 변수는 blob 이름으로 초기화 해야 합니다. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to Hot using Standard priority rehydrate
+$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+```
+---
+
+### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>온라인 계층을 사용 하 여 새 blob에 보관 blob 복사
+다음 PowerShell 스크립트를 사용 하 여 보관 blob을 동일한 저장소 계정 내의 새 blob에 복사할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다. `$srcContainerName` 및 `$destContainerName` 변수를 컨테이너 이름으로 초기화 해야 합니다. `$srcBlobName` 및 `$destBlobName` 변수는 blob 이름으로 초기화 해야 합니다. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$srcContainerName = ""
+$destContainerName = ""
+$srcBlobName == ""
+$destBlobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Copy source blob to a new destination blob with access tier hot using standard rehydrate priority
+Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -DestContainer $destContainerName -DestBlob $destBlobName -StandardBlobTier Hot -RehydratePriority Standard -Context $ctx
+```
 
 ## <a name="next-steps"></a>다음 단계
 

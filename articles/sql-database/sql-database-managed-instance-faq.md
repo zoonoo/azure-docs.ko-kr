@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b409824c2adb544560dfa17b4871ba23760d35c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443869"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835008"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 
@@ -105,7 +105,7 @@ Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 간
 
 ## <a name="tune-performance"></a>성능 조정
 
-\* * 어떻게 할까요? 내 관리 되는 인스턴스의 성능을 조정할 까 요? **
+**관리 되는 인스턴스의 성능을 조정할 어떻게 할까요? 있나요?**
 
 범용 관리 되는 인스턴스는 성능에 중요 한 데이터 및 로그 파일의 크기 때문에 원격 저장소를 사용 합니다. 자세한 내용은 범용 [Managed Instance 성능에 대 한 로그 파일 크기의 영향](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)을 참조 하세요.
 
@@ -180,8 +180,8 @@ Azure SQL Database 관리 되는 인스턴스를 배포 하는 것과 관련 된
 
 ## <a name="dns-refresh"></a>DNS 새로 고침 
 
-\* * DNS 새로 고침을 수행할 수 있나요? **
-  
+**DNS 새로 고침을 수행할 수 있나요?**
+
 현재 관리 되는 인스턴스에 대 한 DNS 서버 구성을 새로 고치는 기능을 제공 하지 않습니다.
 
 DNS 구성은 결국 새로 고쳐집니다.

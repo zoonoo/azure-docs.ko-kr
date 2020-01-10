@@ -83,7 +83,9 @@
       href: tutorial-connectivity.md
 - name: 개념
   items:
-    - name: TLS 1.2 적용
+    - name: TLS 지원
+      href: iot-hub-tls.md
+    - name: TLS 1.0 및 1.1 사용 중단
       href: tls-1.2-everywhere.md
     - name: 메시지 보강 개요
       href: iot-hub-message-enrichments-overview.md

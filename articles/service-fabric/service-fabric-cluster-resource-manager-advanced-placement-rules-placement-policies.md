@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f9861faeaf4ab4049de7404a9e6f8b59a9445fe5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452177"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834454"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
 배치 정책은 보다 덜 일반적인 일부 구체적인 시나리오에서 서비스 배치를 제어하는 데 사용할 수 있는 추가적인 규칙입니다. 이러한 시나리오의 몇 가지 예는 다음과 같습니다.

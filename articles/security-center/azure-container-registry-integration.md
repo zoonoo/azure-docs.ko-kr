@@ -12,21 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 2d588d2707c267097e25176997e58f9573017582
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552681"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780048"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Security Center와 Azure Container Registry 통합 (미리 보기)
 
 ACR (Azure Container Registry)는 중앙 레지스트리에서 Azure 배포에 대 한 컨테이너 이미지를 저장 하 고 관리 하는 관리 되는 개인 Docker 레지스트리 서비스입니다. 오픈 소스 Docker 레지스트리 2.0을 기반으로 합니다.
 
-레지스트리 및 이미지의 취약성에 대 한 자세한 표시를 위해 Azure Security Center 표준 계층의 사용자는 선택적 컨테이너 레지스트리 번들을 사용 하도록 설정할 수 있습니다. 이 기능을 사용 하는 데 드는 비용은 검색 당이 아니라 이미지 별로 요금이 청구 됩니다. 자세한 내용은 [가격 책정](security-center-pricing.md)을 참조하세요. 번들을 사용 하도록 설정 하면 이미지가 레지스트리에 푸시 될 때마다에서 자동으로 레지스트리의 이미지를 검색 Security Center.
+Azure Security Center의 표준 계층에 있는 경우 컨테이너 레지스트리 번들을 추가할 수 있습니다. 이 선택적 기능을 통해 레지스트리의 이미지 취약점을 보다 자세히 파악할 수도 있습니다. 구독 수준에서 번들을 사용 하거나 사용 하지 않도록 설정 하 여 구독에 있는 모든 레지스트리를 포함 합니다. [가격 책정 페이지](security-center-pricing.md)에 표시 된 것 처럼이 기능은 이미지 별로 요금이 청구 됩니다. 
 
-> [!NOTE]
-> Security Center의 첫 번째 레지스트리 검사는 컨테이너 레지스트리 번들을 사용 하도록 설정 하 고 이미지가 레지스트리에 푸시되는 후에만 발생 합니다.
+컨테이너 레지스트리 번들을 사용 하도록 설정 하면 Security Center 레지스트리로 푸시되는 이미지를 검색할 준비가 된 것입니다. 검색은 이미지 수준에 있습니다. Security Center 레지스트리를 검사 하지 않으며 레지스트리에 저장 된 이미지를 검색 합니다. 
+
+이미지를 레지스트리에 푸시할 때마다 Security Center에서 해당 이미지를 자동으로 검색 합니다. 이미지 검색을 트리거하려면 리포지토리에 푸시합니다.
+
 
 검색이 완료 될 때 (일반적으로 약 10 분 후) 다음과 같은 Security Center 권장 사항에서 검색 결과를 사용할 수 있습니다.
 

@@ -1,15 +1,15 @@
 ---
 title: Azure Blockchain 워크 벤치 미리 보기 배포
 description: Azure Blockchain 워크 벤치 미리 보기를 배포 하는 방법
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 3b5d79fd5db9729e837b4fca89ca0eddd0f2cb20
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 190f780d7aed30667c23bb97f9ce7726da0f00ca
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326024"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779837"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Azure Blockchain 워크 벤치 미리 보기 배포
 
@@ -40,7 +40,7 @@ Blockchain Workbench의 구성 요소에 대한 자세한 내용은 [Azure Block
 
 블록체인 Workbench의 비용은 기본 Azure 서비스 비용의 집계입니다. Azure 서비스에 대한 가격 책정 정보는 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 계산할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케이션 등록이 필요합니다. 배포 또는 배포 후 스크립트를 실행하기 전에 Azure AD를 [구성을 수동으로](#azure-ad-configuration) 수행하도록 선택할 수 있습니다. Blockchain Workbench를 다시 배포하는 경우 [Azure AD 구성](#azure-ad-configuration)을 참조하여 Azure AD 구성을 확인합니다.
 
@@ -58,7 +58,7 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
 
     ![Azure Blockchain Workbench 만들기](media/deploy/blockchain-workbench-settings-basic.png)
 
-    | 설정 | 설명  |
+    | 설정 | Description  |
     |---------|--------------|
     | 리소스 접두사 | 배포에 사용할 짧고 고유한 ID입니다. 이 값은 리소스 이름 지정에 대한 기준으로 사용됩니다. |
     | VM 사용자 이름 | 사용자 이름은 모든 VM(가상 머신)에 대한 관리자로 사용됩니다. |
@@ -67,9 +67,9 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
     | SSH | **ssh-rsa**로 시작하는 한 줄 형식의 RSA 공개 키를 사용하거나 여러 줄 PEM 형식을 사용합니다. Linux 및 OS X에서는 `ssh-keygen`을, Windows에서는 PuTTYGen을 사용하여 SSH 키를 생성할 수 있습니다. SSH 키에 대한 자세한 정보는 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](../../virtual-machines/linux/ssh-from-windows.md)을 참조하세요. |
     | 데이터베이스 및 Blockchain 암호 | 배포의 일부로 생성된 데이터베이스에 대한 액세스에 사용할 암호를 지정합니다. 암호는 다음 4 가지 요구 사항 중 세 가지를 충족 해야 합니다. 길이는 12 & 72 자, 1 개의 소문자, 1 개의 대문자, 1 개의 숫자 및 1 개의 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 따옴표 (\`), 큰따옴표 ("), 작은따옴표 ('), 대시 (-) 및 semicolumn (;)) 사이 여야 합니다. |
     | 배포 지역 | Blockchain Workbench 리소스를 배포할 위치를 지정합니다. 최상의 가용성을 위해 이 위치는 **위치** 설정과 일치해야 합니다. |
-    | 구독 | 배포에 사용할 Azure 구독을 지정합니다. |
+    | Subscription | 배포에 사용할 Azure 구독을 지정합니다. |
     | 리소스 그룹 | **새로 만들기**를 선택하여 새 리소스 그룹을 만들고 고유한 리소스 그룹 이름을 지정합니다. |
-    | Location | 프레임워크를 배포할 영역을 지정합니다. |
+    | 위치 | 프레임워크를 배포할 영역을 지정합니다. |
 
 1. **확인**을 선택하여 기본 설정 구성 섹션을 완료합니다.
 
@@ -81,7 +81,7 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
 
     ![새 블록체인 네트워크에 대한 고급 설정](media/deploy/advanced-blockchain-settings-new.png)
 
-    | 설정 | 설명  |
+    | 설정 | Description  |
     |---------|--------------|
     | Azure Blockchain 서비스 가격 책정 계층 | 블록 체인 워크 벤치에 사용 되는 **기본** 또는 **표준** Azure blockchain 서비스 계층을 선택 합니다. |
     | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 재배포하는 경우 *지금 추가*하도록 선택합니다. |
@@ -100,9 +100,9 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
 
      ![기존 블록체인 네트워크에 대한 고급 설정](media/deploy/advanced-blockchain-settings-existing.png)
 
-     | 설정 | 설명  |
+     | 설정 | Description  |
      |---------|--------------|
-     | Ethereum RPC 엔드포인트 | 기존 PoA 블록체인 네트워크의 RPC 엔드포인트을 제공합니다. 엔드포인트는 https:// 또는 http://로 시작되고 포트 번호로 끝납니다. 예: `http<s>://<network-url>:<port>` |
+     | Ethereum RPC 엔드포인트 | 기존 PoA 블록체인 네트워크의 RPC 엔드포인트을 제공합니다. 엔드포인트는 https:// 또는 http://로 시작되고 포트 번호로 끝납니다. 예를 들어 `http<s>://<network-url>:<port>` |
      | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 재배포하는 경우 *지금 추가*하도록 선택합니다. |
      | VM 선택 | 블록 체인 네트워크에 대 한 기본 저장소 성능 및 VM 크기를 선택 합니다. Azure 무료 계층 같은 낮은 서비스 한도로 구독하는 경우 *표준 DS1 v2*와 같은 작은 크기의 VM을 선택합니다. |
 
@@ -127,7 +127,7 @@ Blockchain Workbench의 배포가 완료되면 새 리소스 그룹에 사용자
 1. 왼쪽 탐색 창에서 **리소스 그룹**을 선택 합니다.
 1. Blockchain Workbench를 배포할 때 지정한 리소스 그룹 이름을 선택합니다.
 1. 목록을 형식 기준으로 사전순으로 정렬하려면 **형식** 열 제목을 선택합니다.
-1. 형식이 **App Service**인 리소스가 두 개 있습니다. “-api” 접미사가 **없는** 리소스 유형 *App Service*를 선택합니다.
+1. 형식이 **App Service**인 리소스가 두 개 있습니다. "-Api" 접미사가 *없는* App Service 유형의 리소스를 선택 합니다.
 
     ![App Service 목록](media/deploy/resource-group-list.png)
 
@@ -147,7 +147,7 @@ Azure AD는 Blockchain Workbench 배포를 완료하도록 구성되어야 합�
     ![AAD 스크립트 시작](media/deploy/launch-aad-script.png)
 
 1. Blockchain Workbench를 배포한 Azure AD 테넌트를 선택합니다.
-1. Cloud Shell에서 명령을 붙여넣고 실행합니다.
+1. Cloud Shell PowerShell 환경에서 명령을 붙여넣고 실행 합니다.
 1. 메시지가 표시되면 Blockchain Workbench에 사용하려는 Azure AD 테넌트를 입력합니다. Blockchain Workbench에 대한 사용자를 포함하는 테넌트가 됩니다.
 
     > [!IMPORTANT]
@@ -166,6 +166,8 @@ Azure AD는 Blockchain Workbench 배포를 완료하도록 구성되어야 합�
      ![사용자 프로필 읽기에 대한 동의](media/deploy/graph-permission-consent.png)
 
 1. 동의 후에 Blockchain Workbench 웹앱을 사용할 수 있습니다.
+
+Azure Blockchain 워크 벤치 배포를 완료 했습니다. 배포 사용을 시작 하기 위한 제안 사항은 [다음 단계](#next-steps) 를 참조 하세요.
 
 ## <a name="azure-ad-configuration"></a>Azure AD 구성
 
@@ -249,7 +251,7 @@ API 애플리케이션은 디렉터리에 액세스하는 사용자로부터 사
 
     | 저장할 설정  | 배포에서 사용 |
     |------------------|-------------------|
-    | 응용 프로그램 (클라이언트) ID | Azure Active Directory 설정 &gt; 애플리케이션 ID |
+    | 애플리케이션(클라이언트) ID | Azure Active Directory 설정 &gt; 애플리케이션 ID |
 
 ### <a name="get-tenant-domain-name"></a>테넌트 도메인 이름 가져오기
 
@@ -275,8 +277,8 @@ Azure Blockchain Workbench가 배포되고 나면, 배포된 Blockchain Workbenc
 1. Azure AD 클라이언트 애플리케이션을 등록한 테넌트에 있는지 확인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다. **앱 등록**을 선택합니다.
 1. 필수 구성 요소 섹션에 등록한 Azure AD 클라이언트 애플리케이션을 선택합니다.
-1. **인증**을 선택 합니다.
-1. [Blockchain 워크 벤치 웹 url](#blockchain-workbench-web-url) 섹션에서 검색 한 Azure Blockchain 워크 벤치 배포의 주 웹 url을 지정 합니다. 회신 URL은 `https://`를 접두사로 사용합니다. 예: `https://myblockchain2-7v75.azurewebsites.net`
+1. **인증**을 선택합니다.
+1. [Blockchain 워크 벤치 웹 url](#blockchain-workbench-web-url) 섹션에서 검색 한 Azure Blockchain 워크 벤치 배포의 주 웹 url을 지정 합니다. 회신 URL은 `https://`를 접두사로 사용합니다. 예를 들어 `https://myblockchain2-7v75.azurewebsites.net`
 
     ![인증 회신 Url](media/deploy/configure-reply-url.png)
 

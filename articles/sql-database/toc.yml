@@ -504,6 +504,8 @@
           href: sql-database-security-tutorial.md
         - name: Stream Analytics로 데이터 스트리밍
           href: sql-database-stream-analytics.md
+        - name: SQLite 데이터베이스를 Azure SQL Database 서버리스로 마이그레이션
+          href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
     - name: 개념
       items:
         - name: 단일 데이터베이스 리소스

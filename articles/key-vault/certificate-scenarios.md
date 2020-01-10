@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 338619a13ec3f5fcd0d4fd62cf387f955c556a7c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b6a44bc31e21a63b12a0d06c537cc026ed77e386
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879315"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832847"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -38,10 +38,10 @@ ms.locfileid: "70879315"
 **1단계** - CA(인증 기관) 공급자  
 -   지정된 회사(예: Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
     다음 CA는 Key Vault와 현재 협력하는 공급자입니다.  
-    -   DigiCert - Key Vault는 DigiCert를 통해 OV SSL 인증서를 제공합니다.  
-    -   GlobalSign Key Vault는 GlobalSign을 사용 하 여 OV-ES SSL 인증서를 제공 합니다.  
+    -   DigiCert-Key Vault는 DigiCert와 OV-ES TLS/SSL 인증서를 제공 합니다.  
+    -   GlobalSign Key Vault는 GlobalSign을 사용 하 여 OV-ES TLS/SSL 인증서를 제공 합니다.  
 
-**2단계** - CA 공급자에 대한 계정 관리자는 Key Vault를 통해 SSL 인증서를 등록, 갱신 및 사용하도록 Key Vault에서 사용할 자격 증명을 만듭니다.
+**2 단계** -CA 공급자의 계정 관리자는 Key Vault에서 Key Vault를 통해 TLS/SSL 인증서를 등록 하 고 갱신 하 고 사용 하는 데 사용할 자격 증명을 만듭니다.
 
 **3단계** - CA에 따라 인증서를 소유하는 Contoso 직원(Key Vault 사용자)과 함께 Contoso 관리자는 관리자로부터 또는 CA로 계정에서 직접 인증서를 가져올 수 있습니다.  
 
@@ -62,9 +62,9 @@ ms.locfileid: "70879315"
 
 **4단계** - 다음 설명은 위의 다이어그램에서 녹색 숫자로 된 단계에 해당합니다.  
   (1) - 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.  
-  (2) - Key Vault에서 SSL 인증서 요청을 CA에 보냅니다.  
+  (2)-Key Vault는 CA에 TLS/SSL 인증서 요청을 보냅니다.  
   (3) - 애플리케이션이 인증서 완료를 위해 Key Vault에 대해 반복 및 대기 프로세스에서 폴링합니다. Key Vault가 x509 인증서를 통해 CA의 응답을 수신하는 경우 인증서 만들기가 완료됩니다.  
-  (4) - CA가 X509 SSL 인증서를 사용하여 Key Vault의 SSL 인증서 요청에 응답합니다.  
+  (4)-CA는 X509 TLS/SSL 인증서를 사용 하 여 Key Vault의 TLS/SSL 인증서 요청에 응답 합니다.  
   (5) - 새 인증서 만들기는 CA에 대한 X509 인증서를 병합하여 완료합니다.  
 
   Key Vault 사용자 - 정책을 지정하여 인증서를 만듭니다.

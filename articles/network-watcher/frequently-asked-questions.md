@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 97fcd3241be6dac81adfa8e17999d92d84abaa19
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 0eea6700b8b248a87666071ee02572d356110cd0
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647291"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830176"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Azure Network Watcher에 대 한 FAQ (질문과 대답)
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 서비스는 azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구 모음을 제공 합니다. 이 문서에서는 서비스에 대 한 일반적인 질문에 답변 합니다.
@@ -71,47 +71,17 @@ Network Watcher 확장은 VM에서 트래픽을 생성 하거나 가로채는 �
 ### <a name="what-does-nsg-flow-logs-do"></a>NSG 흐름 로그는 어떻게 되나요?
 Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview)를 통해 결합 및 관리할 수 있습니다. NSG 흐름 로그를 사용 하 여 Nsg를 통한 모든 트래픽에 대 한 5 튜플 흐름 정보를 기록할 수 있습니다. 원시 흐름 로그는 필요에 따라 추가로 처리, 분석, 쿼리 또는 내보낼 수 있는 Azure Storage 계정에 기록 됩니다.
 
-### <a name="are-there-any-caveats-to-using-nsg-flow-logs"></a>NSG 흐름 로그를 사용 하는 데 주의할 점이 있나요?
-NSG 흐름 로그를 사용 하기 위한 필수 구성 요소는 없습니다. 그러나 두 가지 제한 사항이 있습니다.
-- **서비스 끝점이 VNET에 없어야 함**: Nsg 흐름 로그는 vm의 에이전트에서 저장소 계정으로 내보내집니다. 그러나 현재는 저장소 계정에 직접 로그를 내보낼 수 있으며 VNET에 추가 된 서비스 끝점을 사용할 수 없습니다.
+### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall-or-through-a-service-endpoints"></a>방화벽이 있는 저장소 계정이 나 서비스 끝점을 통해 NSG 흐름 로그를 사용 어떻게 할까요??
 
-- **저장소 계정은 방화벽이 사용 하지 않아야 합니다**. 내부 제한 사항으로 인해 저장소 계정은 Nsg 흐름 로그를 사용 하 여 작업할 수 있도록 공용 인터넷을 통해 액세스할 수 있어야 합니다. 트래픽은 Azure를 통해 내부적으로 계속 라우팅됩니다. 추가 송신 요금이 발생 하지 않습니다.
-
-이러한 문제를 해결 하는 방법에 대 한 지침은 다음 두 질문을 참조 하세요. 이러한 제한 사항은 1 월 2020 일에 해결 될 것으로 예상 됩니다.
-
-### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>서비스 엔드포인트를 사용 하 여 NSG 흐름 로그를 사용 어떻게 할까요??
-
-*옵션 1: VNET 끝점이 없는 Azure Storage 계정으로 내보내기 위해 NSG 흐름 로그 다시 구성*
-
-* 엔드포인트를 사용하여 서브넷 찾기:
-
-    - Azure Portal의 맨 위에 있는 전역 검색에서 **리소스 그룹**을 검색합니다.
-    - 작업 중인 NSG를 포함하는 리소스 그룹으로 이동합니다.
-    - 두 번째 드롭다운을 사용 하 여 유형별로 필터링 하 고 **가상 네트워크** 를 선택 합니다.
-    - 서비스 엔드포인트를 포함한 가상 네트워크를 클릭합니다.
-    - 왼쪽 창에서 **설정** 아래에 있는 **서비스 엔드포인트**를 선택합니다.
-    - **Microsoft.Storage**를 사용하도록 설정된 서브넷을 기록해 둡니다.
-
-* 서비스 끝점 사용 안 함:
-
-    - 위에서 계속하여 왼쪽 창의 **설정** 아래에서 **서브넷**을 선택합니다.
-    * 서비스 엔드포인트가 포함된 서브넷을 클릭합니다.
-    - **서비스 엔드포인트** 섹션의 **서비스**에서 **Microsoft.Storage**를 선택 취소합니다.
-
-몇 분 후에 스토리지 로그를 확인할 수 있습니다. 그러면 업데이트된 타임스탬프 또는 새로 만든 JSON 파일이 표시됩니다.
-
-*옵션 2: NSG 흐름 로그 사용 안 함*
-
-Microsoft.Storage 서비스 엔드포인트가 꼭 있어야 하는 경우 NSG 흐름 로그를 사용하지 않도록 설정해야 합니다.
-
-### <a name="how-do-i-disable-the--firewall-on-my-storage-account"></a>저장소 계정에서 방화벽을 사용 하지 않도록 설정 어떻게 할까요??
-
-이 문제는 "모든 네트워크"에서 저장소 계정에 액세스할 수 있도록 설정 하 여 해결 됩니다.
+방화벽이 있는 저장소 계정이 나 서비스 끝점을 사용 하려면 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스 하도록 허용 해야 합니다.
 
 * [NSG 흐름 로그 개요 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)에서 NSG를 찾아 스토리지 계정의 이름을 찾습니다.
 * 포털의 전역 검색에서 스토리지 계정 이름을 입력하여 스토리지 계정으로 이동합니다.
 * **설정** 섹션 아래에서 **방화벽 및 가상 네트워크**를 선택합니다.
-* **모든 네트워크**를 선택하고 저장합니다. 이미 선택되어 있는 경우에는 변경할 필요가 없습니다.  
+* "액세스 허용"에서 **선택한 네트워크**를 선택 합니다. 그런 다음 **예외**아래에서 **"신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스할 수 있도록 허용"** 옆의 상자를 선택 합니다. 
+* 이미 선택되어 있는 경우에는 변경할 필요가 없습니다.  
+
+몇 분 후에 스토리지 로그를 확인할 수 있습니다. 그러면 업데이트된 타임스탬프 또는 새로 만든 JSON 파일이 표시됩니다.
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>흐름 로그 버전 1 & 2의 차이점은 무엇 인가요?
 흐름 로그 버전 2에는 전송 되는 바이트와 패킷에 대 한 정보를 저장 하 & *흐름 상태의* 개념이 도입 되었습니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

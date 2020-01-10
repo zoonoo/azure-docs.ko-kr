@@ -149,7 +149,7 @@
       href: billing-understand-mca-roles.md
     - name: 파트너 ID 연결
       href: billing-partner-admin-link-started.md
-    - name: 청구서 섹션으로 비용 구성
+    - name: 청구 계정을 사용자 지정하여 비용 구성 - Microsoft 고객 계약
       href: billing-mca-section-invoice.md
     - name: Microsoft 고객 계약의 EA 작업
       href: billing-mca-enterprise-operations.md

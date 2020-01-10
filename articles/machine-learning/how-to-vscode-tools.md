@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: d5843937233309e1b37f0127d364066a8a747e21
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 59002d0f17fc7213d8db0fad01b1f984542adbd5
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538242"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834817"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
@@ -332,5 +332,7 @@ ACI 컨테이너는 필요에 따라 만들어지므로 미리 테스트할 ACI 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Visual Studio Code 외부 Azure Machine Learning를 학습 하는 방법에 대 한 연습은 [자습서: Azure Machine Learning를 사용 하 여 모델 학습](tutorial-train-models-with-aml.md)을 참조 하세요.
-* 코드를 로컬로 편집, 실행 및 디버그 하는 방법에 대 한 연습은 [Python hello-세계 자습서](https://code.visualstudio.com/docs/Python/Python-tutorial)를 참조 하세요.
+* Visual Studio Code 외부 Azure Machine Learning를 학습 하는 방법에 대 한 연습은 [자습서: Azure Machine Learning를 사용 하 여 모델 학습](tutorial-train-models-with-aml.md) 을 참조 하세요.
+* 코드를 로컬로 편집, 실행 및 디버그 하는 방법에 대 한 연습은 [Python hello-세계 자습서](https://code.visualstudio.com/docs/Python/Python-tutorial) 를 참조 하세요.
+* Python 환경을 사용자 지정 하는 방법에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md) 를 참조 하세요.
+

@@ -61,6 +61,16 @@
           href: stream-analytics-sql-output-perf.md
         - name: Blob 사용자 지정 경로 패턴
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: Stream Analytics 작업 최적화
+      items:
+        - name: 스트리밍 단위 이해 및 조정
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: 쿼리 성능 향상
+          href: stream-analytics-parallelization.md
+        - name: 입력 다시 분할
+          href: repartition.md
+        - name: 작업 처리량 증가
+          href: stream-analytics-scale-jobs.md
     - name: 작업 상태
       href: job-states.md
     - name: 창 함수
@@ -148,20 +158,6 @@
           href: stream-analytics-monitor-jobs.md
         - name: 작업 모니터링 - Visual Studio
           href: stream-analytics-monitor-jobs-use-vs.md
-    - name: 확장
-      items:
-        - name: 스트리밍 단위로 크기 조정
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: 병렬화로 크기 조정
-          items:
-            - name: 쿼리 병렬 처리
-              href: stream-analytics-parallelization.md
-            - name: 처리량 증가
-              href: stream-analytics-scale-jobs.md
-        - name: ML 함수로 크기 조정
-          href: stream-analytics-scale-with-machine-learning-functions.md
-        - name: 다시 분할하여 크기 조정
-          href: repartition.md
     - name: 자동화
       items:
         - name: .NET SDK 사용
@@ -218,6 +214,8 @@
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: 작업 다이어그램을 사용하여 디버그
       href: stream-analytics-job-diagram-with-metrics.md
+    - name: ML 함수로 크기 조정
+      href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics 쿼리 언어
   items:
     - name: 기본 제공 함수

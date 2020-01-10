@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: e07bb6aa9d1fe22baaebb7bc7239ce03a728c6b9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dbfee5d897d54d68ea6471f0001793a905c95e62
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431805"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835065"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리 (미리 보기)
 
@@ -140,6 +140,9 @@ def delete_directory():
 
 **Get_access_control DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리의 acl (액세스 제어 목록)을 가져오고 **set_access_control DataLakeDirectoryClient** 메서드를 호출 하 여 acl을 설정 합니다.
 
+> [!NOTE]
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
+
 이 예제에서는 `my-directory`된 디렉터리의 ACL을 가져오고 설정 합니다. 문자열 `rwxr-xrw-` 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹만 읽기 및 실행 권한을 부여 하 고 다른 모든 읽기 및 쓰기 권한을 부여 합니다.
 
 ```python
@@ -195,6 +198,9 @@ def upload_file_to_directory():
 ## <a name="manage-file-permissions"></a>파일 사용 권한 관리
 
 **Get_access_control DataLakeFileClient** 메서드를 호출 하 여 파일의 acl (액세스 제어 목록)을 가져오고 **set_access_control DataLakeFileClient** 메서드를 호출 하 여 acl을 설정 합니다.
+
+> [!NOTE]
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
 
 이 예제에서는 `my-file.txt`이라는 파일의 ACL을 가져오고 설정 합니다. 문자열 `rwxr-xrw-` 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹만 읽기 및 실행 권한을 부여 하 고 다른 모든 읽기 및 쓰기 권한을 부여 합니다.
 

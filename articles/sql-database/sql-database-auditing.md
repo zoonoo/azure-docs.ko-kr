@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 70cbc761c7e334ed9b13e3cd7d915102917ff149
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551627"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780201"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -241,6 +241,8 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
     [Azure PowerShell을 사용하여 SQL 데이터베이스 감사 관리](#subheading-7) 섹션에 설명된 대로 PowerShell을 사용하여 다양한 형식의 작업 및 작업 그룹에 대한 감사를 구성할 수 있습니다.
 
 - AAD 인증을 사용하는 경우 실패한 로그인 레코드는 SQL 감사 로그에 나타나지 *않습니다*. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
+
+- Azure SQL Database 감사는 가용성 & 성능에 맞게 최적화 됩니다. 매우 높은 활동 Azure SQL Database 중에는 작업을 계속 진행 하 고 일부 감사 이벤트를 기록 하지 않을 수 있습니다.
 
 
 ## <a id="subheading-7"></a>Azure PowerShell를 사용 하 여 Azure SQL Server 및 데이터베이스 감사 관리

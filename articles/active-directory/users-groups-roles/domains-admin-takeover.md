@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 09012d93a1f9fd24427cb8b3937b3a36cf75d9e4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027383"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834178"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -87,7 +87,7 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 ### <a name="support-for-external-admin-takeover"></a>외부 관리자 인수에 대한 지원
 외부 관리자 인수는 다음과 같은 온라인 서비스에서 지원합니다.
 
-- Azure Rights Management
+- Azure Digital Rights Management
 - Exchange Online
 
 지원되는 서비스 계획은 다음과 같습니다.
@@ -113,7 +113,7 @@ SharePoint, OneDrive 또는 비즈니스용 Skype를 포함 하는 서비스 계
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.
 
-Cmdlet | 사용
+Cmdlet | 사용량
 ------- | -------
 `connect-msolservice` | 메시지가 표시되면 관리되는 테넌트에 로그인합니다.
 `get-msoldomain` | 현재 테넌트와 연결된 도메인 이름을 보여줍니다.
@@ -130,48 +130,48 @@ Cmdlet | 사용
 
 1. 셀프 서비스 제공 사항에 응답하는 데 사용된 자격 증명을 사용하여 Azure AD에 연결합니다.
    ```powershell
-    Install-Module -Name MSOnline
-    $msolcred = get-credential
+   Install-Module -Name MSOnline
+   $msolcred = get-credential
     
-    connect-msolservice -credential $msolcred
+   connect-msolservice -credential $msolcred
    ```
 2. 도메인 목록을 가져옵니다.
   
    ```powershell
-    Get-MsolDomain
+   Get-MsolDomain
    ```
 3. Get-MsolDomainVerificationDns cmdlet을 실행하여 챌린지를 만듭니다.
    ```powershell
-    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
-  
-    For example:
-  
-    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+   Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+   ```
+    예:
+   ```
+   Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
 4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예:
    ```powershell
-    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+   MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. 공용 DNS 네임스페이스에서 이전 단계에서 복사한 값이 포함된 DNS txt 레코드를 만듭니다. 이 레코드의 이름은 부모 도메인의 이름이므로 Windows Server의 DNS 역할을 사용하여 이 리소스 레코드를 만드는 경우 레코드 이름은 비워두고 값을 텍스트 상자에 붙여넣기만 하세요.
 6. Confirm-MsolDomain cmdlet을 실행하여 챌린지를 확인합니다.
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+   Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
    예:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+   Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
    ```
 
 챌린지가 성공하면 오류 없이 프롬프트로 돌아갑니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)
-* [Azure PowerShell을 설치하고 구성하는 방법](/powershell/azure/overview)
+* [Microsoft Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)
+* [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)

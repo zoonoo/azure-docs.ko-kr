@@ -1,30 +1,30 @@
 ---
 title: IoT Hub에서 Azure 데이터 탐색기로 데이터 수집
 description: 이 문서에서는 IoT Hub에서 Azure 데이터 탐색기로 데이터를 수집 (로드) 하는 방법에 대해 알아봅니다.
-author: oflipman
-ms.author: oflipman
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: cbad0e5409dfaa25eda040e3c7409b49728a4169
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: 1052ef799949550ddaf492b8aa5b77ab9526d092
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667419"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780286"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>IoT Hub에서 Azure 데이터 탐색기로 데이터 수집 (미리 보기)
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-iot-hub.md)
+> * [포털](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager 템플릿](data-connection-iot-hub-resource-manager.md)
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 빅 데이터 스트리밍 플랫폼과 IoT 수집 서비스인 IoT Hub에서 수집 (데이터 로드)을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 데이터베이스 이름이 *testdb*인 [테스트 클러스터 및 데이터베이스를](create-cluster-database-portal.md) 만듭니다.
@@ -103,6 +103,8 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     > [!NOTE]
     > * 동적 라우팅을 사용하려면 **라우팅 정보를 포함하는 내 데이터**를 선택합니다. [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) 주석에서 볼 수 있듯이 데이터에는 필수 라우팅 정보가 포함됩니다. 정적 및 동적 속성을 모두 설정하는 경우 동적 속성은 정적 속성을 재정의합니다. 
     > * 데이터 연결을 만든 후에 큐에 넣은 이벤트만 수집 됩니다.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="generate-sample-data-for-testing"></a>테스트용 샘플 데이터 생성
 

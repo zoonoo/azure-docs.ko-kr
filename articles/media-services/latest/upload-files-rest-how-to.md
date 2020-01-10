@@ -1,5 +1,5 @@
 ---
-title: REST를 사용하여 Azure Media Services 계정에 파일 업로드 | Microsoft Docs
+title: REST를 사용 하 여 Azure Media Services v3 계정에 파일 업로드 Microsoft Docs
 description: 자산을 만들고 업로드하여 Media Services에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389796"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779164"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 
@@ -26,7 +26,7 @@ Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일�
 
 이 문서에서는 REST를 사용 하 여 로컬 파일을 업로드 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
@@ -63,4 +63,4 @@ Azure Storage Api 또는 Sdk (예: [저장소 REST API](../../storage/common/sto
 
 ## <a name="next-steps"></a>다음 단계
 
-[자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST](stream-files-tutorial-with-rest.md)
+[자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트리밍-REST](stream-files-tutorial-with-rest.md)

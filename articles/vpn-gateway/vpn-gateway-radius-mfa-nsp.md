@@ -1,5 +1,5 @@
 ---
-title: Multi-Factor Authentication을 위해 NPS 서버에서 보안 Azure VPN Gateway RADIUS 인증 | Microsoft Docs
+title: NPS를 MFA에 대 한 VPN Gateway RADIUS 인증과 통합
 description: Multi-Factor Authentication을 위한 NPS 서버와 Azure 게이트웨이 RADIUS 인증 통합에 대해 설명합니다.
 services: vpn-gateway
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: ab152cca1d809d92803a3e50ea83da1cbcd8243c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 941b6ac86941824351f83592998e8735e3eb8ee5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174617"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780371"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Multi-Factor Authentication을 위한 NPS 서버와 Azure VPN Gateway RADIUS 인증 통합 
 
 이 문서에서는 NPS(네트워크 정책 서버)를 Azure VPN Gateway RADIUS 인증과 통합하여 지점과 사이트 간 VPN 연결에 MFA(Multi-Factor Authentication)를 제공하는 방법을 설명합니다. 
 
-## <a name="prerequisite"></a>사전 요구 사항
+## <a name="prerequisite"></a>필수 조건
 
 MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어야 하며 이는 온-프레미스 또는 클라우드 환경에서 동기화되어야 합니다. 또한 사용자가 MFA에 대한 자동 등록 프로세스를 이미 완료해 놓아야 합니다.  자세한 내용은 [2단계 인증에 내 계정 설정](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)을 참조하세요.
 

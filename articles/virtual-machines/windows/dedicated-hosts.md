@@ -4,26 +4,23 @@ description: 가상 컴퓨터를 배포 하는 데 Azure 전용 호스트를 사
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/25/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: cfcc8aeb3d1cc1f199b19abc16cc54db416a307e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 81749b8fb8b9e3f1a10b65b758b532773bdebdac
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033376"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833884"
 ---
-# <a name="preview-azure-dedicated-hosts"></a>미리 보기: Azure 전용 호스트
+# <a name="azure-dedicated-hosts"></a>Azure 전용 호스트
 
 Azure 전용 호스트는 단일 Azure 구독 전용 가상 머신을 하나 이상 호스트할 수 있는 물리적 서버를 제공 하는 서비스입니다. 전용 호스트는 데이터 센터에서 사용 되는 것과 동일한 물리적 서버 이며 리소스로 제공 됩니다. 지역, 가용성 영역 및 장애 도메인 내에서 전용 호스트를 프로 비전 할 수 있습니다. 그런 다음 사용자의 요구에 가장 적합 한 구성으로 Vm을 프로 비전 된 호스트에 직접 넣을 수 있습니다.
 
-[!INCLUDE [virtual-machines-common-dedicated-hosts-preview](../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: e77bf5226a216c04beae86a23f1c08303d56db94
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f10de425bf83720b06f3ea7772343edfefc8d952
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536552"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834818"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -188,11 +188,12 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## <a name="notebook-examples"></a>Notebook 예제
 
-[데이터 집합 노트북](https://aka.ms/dataset-tutorial) 은이 문서의 개념을 시연 하 고 확장 합니다. 
+[데이터 집합 노트북](https://aka.ms/dataset-tutorial) 은이 문서의 개념을 시연 하 고 확장 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* TabularDatasets를 사용 하 여 [기계 학습 모델을 자동으로 학습](how-to-auto-train-remote.md) 합니다.
+* TabularDatasets를 사용 하 여 [기계 학습 모델 자동 학습](how-to-auto-train-remote.md)
 
-* FileDatasets을 사용 하 여 [이미지 분류 모델을 학습](https://aka.ms/filedataset-samplenotebook) 합니다.
+* FileDatasets을 사용 하 여 [이미지 분류 모델 학습](https://aka.ms/filedataset-samplenotebook)
 
+* [학습 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)

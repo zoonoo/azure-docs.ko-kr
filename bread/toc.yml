@@ -108,6 +108,9 @@
     - name: Automation
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: 인터넷 피어링
+      tocHref: /azure/internet-peering/
+      topicHref: /azure/internet-peering/
     - name: 블록체인
       tocHref: /azure/blockchain/
       topicHref: /azure/blockchain/

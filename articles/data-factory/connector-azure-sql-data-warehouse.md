@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 02fb46fe764c8e34b440a1a0388fc31f7615cfb3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c23bba777a7a29f572764914cfa505d2b668683d
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440762"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830414"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)에서 데이터 복사 및 변환 
 
@@ -469,7 +469,7 @@ PolyBase SQL Data Warehouse Azure Blob, Azure Data Lake Storage Gen1 및 Azure D
             "source": {
                 "type": "ParquetSource",
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true
                 }
             },
@@ -653,7 +653,7 @@ COPY 문을 사용 하면 다음 구성이 지원 됩니다.
             "source": {
                 "type": "ParquetSource",
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true
                 }
             },

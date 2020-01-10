@@ -44,6 +44,9 @@
         - name: 리소스 배포 순서 설정
           displayName: 'dependent resources, dependency'
           href: template-tutorial-create-templates-with-dependent-resources.md
+        - name: 배포 스크립트 사용
+          displayName: custom script
+          href: template-tutorial-deployment-script.md
         - name: 조건 사용
           href: template-tutorial-use-conditions.md
         - name: 키 자격 증명 모음 통합
@@ -122,6 +125,9 @@
               href: add-resource-extensions.md
         - name: outputs
           href: template-outputs.md
+        - name: 배포 스크립트
+          displayName: custom script
+          href: deployment-script-template.md
         - name: 템플릿 모듈화
           displayName: 'linked templates, nested templates'
           href: linked-templates.md

@@ -10,18 +10,18 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 1a82b6592782973920f4381129e9659eaebca033
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/09/2020
+ms.openlocfilehash: cd9cada24ba5e7d2a2001d4ef0efef2a157b0fd6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537189"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834718"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Python 및 [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md) [용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 는 학습 및 실험을 위해 실행을 모니터링 하 고 구성 하 고 관리 하는 다양 한 방법을 제공 합니다.
+Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azure Machine Learning STUDIO](https://ml.azure.com) [용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)는 학습 및 실험을 위해 실행을 모니터링 하 고 구성 하 고 관리 하는 다양 한 방법을 제공 합니다.
 
 이 문서에서는 다음 작업의 예를 보여 줍니다.
 
@@ -105,6 +105,16 @@ notebook_run.log(name="message", value="Hello from run!")
 
     자세한 내용은 [az ml run submit-스크립트](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)를 참조 하세요.
 
+### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
+
+디자이너 (미리 보기)에서 파이프라인 전송 실행을 시작 하려면 다음 단계를 사용 합니다.
+
+1. 파이프라인의 기본 계산 대상을 설정 합니다.
+
+1. 파이프라인 캔버스 위쪽에서 **실행** 을 선택 합니다.
+
+1. 파이프라인 실행을 그룹화 할 실험을 선택 합니다.
+
 ## <a name="monitor-the-status-of-a-run"></a>실행 상태 모니터링
 
 ### <a name="using-the-sdk"></a>SDK 사용
@@ -160,6 +170,22 @@ print(notebook_run.get_status())
 
     자세한 내용은 [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show)를 참조 하세요.
 
+
+### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
+
+스튜디오에서 실험에 대 한 활성 실행 수를 확인 합니다.
+
+1. **실험** 섹션으로 이동 합니다. 
+
+1. 실험을 선택 합니다.
+
+    실험 페이지에서 활성 계산 대상 수와 각 실행에 대 한 기간을 볼 수 있습니다. 
+
+1. 특정 실행 번호를 선택 합니다.
+
+1. **로그** 탭에서 파이프라인 실행에 대 한 진단 및 오류 로그를 찾을 수 있습니다.
+
+
 ## <a name="cancel-or-fail-runs"></a>취소 또는 실패 실행
 
 오류가 발생 하거나 실행을 완료 하는 데 시간이 너무 오래 걸리는 경우 실행을 취소할 수 있습니다.
@@ -194,6 +220,17 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 자세한 내용은 [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel)을 참조 하십시오.
+
+### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
+
+스튜디오에서 실행을 취소 하려면 다음 단계를 사용 합니다.
+
+1. **실험** 또는 **파이프라인** 섹션에서 실행 중인 파이프라인으로 이동 합니다. 
+
+1. 취소 하려는 파이프라인 실행 번호를 선택 합니다.
+
+1. 도구 모음에서 **취소** 를 선택 합니다.
+
 
 ## <a name="create-child-runs"></a>자식 실행 만들기
 
@@ -331,6 +368,12 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 ```
 
 Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)을 참조 하세요.
+
+### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
+
+1. **파이프라인** 섹션으로 이동 합니다.
+
+1. 검색 표시줄을 사용 하 여 태그, 설명, 실험 이름 및 제출자 이름을 사용 하 여 파이프라인을 필터링 합니다.
 
 ## <a name="example-notebooks"></a>노트북 예제
 

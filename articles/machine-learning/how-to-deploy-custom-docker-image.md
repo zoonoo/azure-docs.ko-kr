@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 365692cccb3f1ed2646272521c84bdc4ef2b2147
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 66c5873749924df2133cb1ba4711b779e0aba24a
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538112"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834735"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -262,7 +262,9 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-배포에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](service/how-to-deploy-and-where.md)를 참조 하세요.
+배포에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+
+Python 환경을 사용자 지정 하는 방법에 대 한 자세한 내용은 [학습 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요. 
 
 ### <a name="use-an-image-with-the-machine-learning-cli"></a>Machine Learning CLI를 사용 하 여 이미지 사용
 
@@ -294,5 +296,5 @@ ML CLI를 사용 하 여 모델을 배포 하는 방법에 대 한 자세한 내
 
 ## <a name="next-steps"></a>다음 단계
 
-* [배포 위치 및 방법](service/how-to-deploy-and-where.md)에 대해 자세히 알아보세요.
+* [배포 위치 및 방법](how-to-deploy-and-where.md)에 대해 자세히 알아보세요.
 * [Azure Pipelines를 사용 하 여 기계 학습 모델을 학습 하 고 배포](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)하는 방법을 알아봅니다.

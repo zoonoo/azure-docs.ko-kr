@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 0c2441aaf0cffd357f917a8c600f7399b339bfb6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: b59600ffa6a83d00a83d642ab337df2e71cbee06
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689084"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777906"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -167,7 +167,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ### <a name="category"></a>범주
 
-제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하는 데 사용 되는 최소 1 개 (1) 및 최대 3 개 범주를 선택 합니다. 제품 설명에서 제품이 이러한 범주를 지 원하는 방식을 확인 합니다.
+제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하는 데 사용 되는 최소 1 개 (1) 및 최대 3 개 범주를 선택 합니다. 제품 설명에서 제품이 이러한 범주를 어떻게 지원 하는지 확인 하세요. 
 
 ### <a name="industry"></a>산업
 

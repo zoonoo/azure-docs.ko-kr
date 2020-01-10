@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
-ms.date: 12/11/2019
-ms.openlocfilehash: 4455181ddf69613ba07bcaeedb26273a4bb5a74d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.reviewer: carlrab
+ms.date: 01/09/2020
+ms.openlocfilehash: 27868f062cd628347e38b5fdb9f243347dea3e23
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647852"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834977"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>VCore 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 
@@ -322,9 +322,10 @@ SQL Database 서버에서 단일 데이터베이스에 대 한 DTU 구매 모델
 |TempDB 최대 데이터 크기 (GB)|333|
 |스토리지 유형|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|최대 데이터 IOPS *|23040|
+|최대 데이터 IOPS *|12,800|
 |최대 로그 전송률 (MBps)|30|
 |최대 동시 작업자(요청)|3600|
+|최대 동시 로그인|3600|
 |최대 동시 세션|30,000|
 |복제본 수|1|
 |다중 AZ|N/A|
@@ -448,21 +449,22 @@ SQL Database 서버에서 단일 데이터베이스에 대 한 DTU 구매 모델
 
 ### <a name="m-series-compute-generation-preview"></a>M 시리즈 계산 생성 (미리 보기)
 
-|컴퓨팅 크기|GP_M_128|
+|컴퓨팅 크기|BC_M_128|
 |:--- | --: |
 |컴퓨팅 세대|M 시리즈|
 |vCore 수|128|
-|메모리(GB)|3767|
+|메모리(GB)|3767.1|
 |Columnstore 지원 여부|예|
-|메모리 내 OLTP 스토리지(GB)|481|
+|메모리 내 OLTP 스토리지(GB)|1768|
 |최대 데이터 크기(GB)|4096|
 |최대 로그 크기(GB)|2048|
 |TempDB 최대 데이터 크기 (GB)|4096|
 |스토리지 유형|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|
-|최대 데이터 IOPS *|204800|
-|최대 로그 전송률 (MBps)|192|
-|최대 동시 작업자(요청)|12800|
+|최대 데이터 IOPS *|160,000|
+|최대 로그 전송률 (MBps)|264|
+|최대 동시 작업자(요청)|12,800|
+|최대 동시 로그인|12,800|
 |최대 동시 세션|30000|
 |복제본 수|4|
 |다중 AZ|예|

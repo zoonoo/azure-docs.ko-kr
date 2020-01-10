@@ -37,7 +37,17 @@
       href: howto-deploy-prometheus.md
     - name: Azure Red Hat OpenShift 클러스터에서 프로젝트 관리
       href: howto-manage-projects.md
-- name: 참고 자료
+    - name: 모니터링 및 로깅
+      items:
+        - name: 컨테이너용 Azure Monitor(미리 보기)
+          items:
+            - name: 컨테이너용 Azure Monitor 구성
+              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+              maintainContext: true
+            - name: 컨테이너용 Azure Monitor 사용 안 함
+              href: ../azure-monitor/insights/container-insights-optout-openshift.md
+              maintainContext: true
+- name: 참조
   items:
     - name: Azure Red Hat OpenShift CLI
       href: /cli/azure/openshift

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8b29bbce1511b022def522d46c74b99967a76ea3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: edb2d3fa670475d9b08fe05494035949181a9240
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204524"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834342"
 ---
 # <a name="sql-server-vm-on-an-azure-dedicated-host"></a>Azure 전용 호스트의 SQL Server VM 
 
@@ -28,15 +28,16 @@ ms.locfileid: "71204524"
 ## <a name="overview"></a>개요
 [Azure 전용 호스트](/azure/virtual-machines/windows/dedicated-hosts) 는 단일 azure 구독 전용 가상 머신을 하나 이상 호스트할 수 있는 물리적 서버를 제공 하는 서비스입니다. 전용 호스트는 Microsoft의 데이터 센터에서 사용 되는 것과 동일한 물리적 서버 이며 리소스로 제공 됩니다. 지역, 가용성 영역 및 장애 도메인 내에서 전용 호스트를 프로 비전 할 수 있습니다. 그런 다음 사용자의 요구에 가장 적합 한 구성으로 Vm을 프로 비전 된 호스트에 직접 넣을 수 있습니다.
 
+## <a name="limitations"></a>제한 사항
 
-[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
+- 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
+- 지원 되는 VM 시리즈: DSv3 및 ESv3. 
 
-
-## <a name="licensing"></a>라이선싱
+## <a name="licensing"></a>라이선스
 
 Azure 전용 호스트에 SQL Server VM를 추가할 때 두 가지 다른 라이선스 옵션 중에서 선택할 수 있습니다. 
 
-  - **SQL VM 라이선스**: 이 옵션은 각 SQL Server VM 라이선스에 대해 개별적으로 요금을 지불 하는 기존 라이선스 옵션입니다. 
+  - **SQL VM 라이선싱**: 각 SQL Server VM 라이선스에 대해 개별적으로 지불 하는 기존 라이선스 옵션입니다. 
   - **전용 호스트 라이선스**: Azure 전용 호스트에 사용할 수 있는 새 라이선스 모델 SQL Server 라이선스는 호스트 수준에서 번들로 묶여 지불 됩니다. 
 
 
@@ -53,7 +54,7 @@ Azure 전용 호스트에 SQL Server VM를 추가할 때 두 가지 다른 라�
 
 
 
-## <a name="provisioning"></a>프로비전  
+## <a name="provisioning"></a>프로비저닝  
 전용 호스트에 SQL Server VM를 프로 비전 하는 것은 다른 Azure 가상 머신과는 다릅니다. [Azure PowerShell](../dedicated-hosts-powershell.md), [Azure Portal](../dedicated-hosts-portal.md)및 [Azure CLI](../../linux/dedicated-hosts-cli.md)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 전용 호스트에 기존 SQL Server VM을 추가 하는 프로세스에는 가동 중지 시간이 필요 하지만 데이터에는 영향을 주지 않으며 데이터 손실이 발생 하지 않습니다. 그럼에도 불구 하 고 시스템 데이터베이스를 비롯 한 모든 데이터베이스를 이동 하기 전에 백업 해야 합니다.

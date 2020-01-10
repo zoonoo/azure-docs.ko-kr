@@ -2,38 +2,32 @@
 title: CLI를 사용 하 여 Azure 전용 호스트 배포
 description: Azure CLI를 사용 하 여 전용 호스트에 Vm을 배포 합니다.
 services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/29/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036413"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834931"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>미리 보기: Azure CLI을 사용 하 여 전용 호스트에 Vm 배포
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Azure CLI를 사용 하 여 전용 호스트에 Vm 배포
  
 
 이 문서에서는 Vm (가상 머신)을 호스트 하는 Azure [전용 호스트](dedicated-hosts.md) 를 만드는 방법을 안내 합니다. 
 
 Azure CLI 버전 2.0.70 이상을 설치 하 고 `az login`를 사용 하 여 Azure 계정에 로그인 했는지 확인 합니다. 
 
-> [!IMPORTANT]
-> Azure 전용 호스트는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
-> **알려진 미리 보기 제한 사항**
-> - 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
-> - Preview 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3 및 ESv3 
+
+## <a name="limitations"></a>제한 사항
+
+- 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
+- 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3 및 ESv3 
  
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기 
@@ -63,7 +57,7 @@ az vm host group create \
    --platform-fault-domain-count 2 
 ``` 
 
-### <a name="other-examples"></a>기타 예
+### <a name="other-examples"></a>다른 예제
 
 [Az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) 를 사용 하 여 가용성 영역 1에 호스트 그룹을 만들 수도 있습니다 (장애 도메인 없음).
 
@@ -86,8 +80,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>호스트 만들기 
 
-이제 호스트 그룹에서 전용 호스트를 만들어 보겠습니다. 호스트의 이름 외에 호스트의 SKU를 제공 해야 합니다. 호스트 SKU는 지원 되는 VM 시리즈 뿐만 아니라 전용 호스트의 하드웨어 생성도 캡처합니다.  미리 보기 중에는 DSv3_Type1 및 ESv3_Type1 호스트 SKU 값을 지원 합니다.
-
+이제 호스트 그룹에서 전용 호스트를 만들어 보겠습니다. 호스트의 이름 외에 호스트의 SKU를 제공 해야 합니다. 호스트 SKU는 지원 되는 VM 시리즈 뿐만 아니라 전용 호스트의 하드웨어 생성도 캡처합니다.  DSv3_Type1 및 ESv3_Type1 SKU 값이 지원 됩니다.
 
 호스트 Sku 및 가격 책정에 대 한 자세한 내용은 [Azure 전용 호스트 가격](https://aka.ms/ADHPricing)을 참조 하세요.
 
@@ -239,7 +232,7 @@ az vm host get-instance-view \
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-이 명령을 실행하면 `myDHResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `--include-parameter-default-value` 명령에 `az group export` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집 하 여 리소스 이름을 지정 하거나 리소스 이름을 지정 하는 매개 변수. json 파일을 만듭니다.
+이 명령을 실행하면 `myDHResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `az group export` 명령에 `--include-parameter-default-value` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집 하 여 리소스 이름을 지정 하거나 리소스 이름을 지정 하는 매개 변수. json 파일을 만듭니다.
  
 템플릿에서 환경을 만들려면 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create)를 사용 합니다.
 

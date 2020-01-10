@@ -5,18 +5,18 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 40037252ddf8e505ae7fe734813d598e7de96336
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612975"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834229"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"Functions 런타임에 연결할 수 없음" 문제를 해결하는 방법
 
 
 ## <a name="error-text"></a>오류 텍스트
-이 문서에서는 Functions 포털에 표시되는 다음 오류를 해결하는 방법을 설명합니다.
+이 문서는 함수 포털에 표시 될 때 다음 오류에 대 한 문제를 해결 하기 위한 것입니다.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
@@ -40,13 +40,13 @@ Azure Functions 런타임을 시작할 수 없으면 이 문제가 발생합니�
 
 ### <a name="how-to-find-your-storage-account"></a>스토리지 계정을 찾는 방법
 
-먼저 애플리케이션 설정에서 스토리지 계정 이름을 조회합니다. `AzureWebJobsStorage` 또는 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 중 하나에 스토리지 계정 이름이 연결 문자열에 래핑된 상태로 포함되어 있습니다. 자세한 내용은 [이 문서의 애플리케이션 설정 참조](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)에서 확인하세요.
+먼저 애플리케이션 설정에서 스토리지 계정 이름을 조회합니다. `AzureWebJobsStorage` 또는 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 중 하나에 스토리지 계정 이름이 연결 문자열에 래핑된 상태로 포함되어 있습니다. [응용 프로그램 설정 참조에 대](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)한 자세한 내용은 여기를 참조 하세요.
 
 Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는지 확인합니다. 계정이 삭제된 경우에는 스토리지 계정을 다시 만들고 스토리지 연결 문자열을 바꿔야 합니다. 그러면 함수 코드가 손실되므로 다시 배포해야 합니다.
 
 ## <a name="storage-account-application-settings-deleted"></a>스토리지 계정 애플리케이션 설정이 삭제됨
 
-이전 단계에서 스토리지 계정 연결 문자열을 찾지 못했다면 설정을 삭제했거나 덮어썼을 가능성이 높습니다. 일반적으로는 배포 슬롯 또는 Azure Resource Manager 스크립트를 사용하여 애플리케이션 설정을 지정할 때 앱 설정을 삭제합니다.
+이전 단계에서 저장소 계정 연결 문자열이 없는 경우 삭제 되거나 덮어쓴 것일 수 있습니다. 일반적으로는 배포 슬롯 또는 Azure Resource Manager 스크립트를 사용하여 애플리케이션 설정을 지정할 때 앱 설정을 삭제합니다.
 
 ### <a name="required-application-settings"></a>필수 애플리케이션 설정
 
@@ -56,7 +56,7 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
     * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-[이 문서에서 이러한 애플리케이션 설정에 대해 자세히 살펴보세요.](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+[여기에서 이러한 응용 프로그램 설정에 대해 읽어](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)보세요.
 
 ### <a name="guidance"></a>지침
 
@@ -66,7 +66,7 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 
 ## <a name="storage-account-credentials-invalid"></a>스토리지 계정 자격 증명이 잘못됨
 
-스토리지 키를 다시 생성하는 경우에는 위의 스토리지 계정 연결 문자열을 업데이트해야 합니다. [이 문서에서 스토리지 키 관리에 대해 자세히 살펴보세요.](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
+스토리지 키를 다시 생성하는 경우에는 위의 스토리지 계정 연결 문자열을 업데이트해야 합니다. [저장소 키 관리에 대 한 자세한 내용은 여기를 참조](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)하세요.
 
 ## <a name="storage-account-inaccessible"></a>스토리지 계정에 액세스할 수 없음
 
@@ -79,13 +79,13 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 
 매일 실행 할당량을 구성한 경우 함수 앱이 일시적으로 비활성화되고 포털 컨트롤은 대부분 사용할 수 없게 됩니다. 
 
-* 확인하려면 포털에서 플랫폼 기능 열기 &gt; 함수 앱 설정을 확인하세요. 할당량을 초과한 경우 다음 메시지가 표시됩니다.
+* 확인 하려면 포털에서 플랫폼 기능 > 함수 앱 설정을 엽니다. 할당량을 초과 하는 경우 다음 메시지가 표시 됩니다.
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * 할당량을 제거하고 앱을 다시 시작하여 문제를 해결합니다.
 
 ## <a name="app-is-behind-a-firewall"></a>앱이 방화벽 뒤에 있습니다.
 
-함수 앱이 [내부적으로 부하가 분산 된 App Service Environment](../app-service/environment/create-ilb-ase.md) 에서 호스트 되 고 인바운드 인터넷 트래픽을 차단 하도록 구성 되어 있거나 인터넷 액세스를 차단 하도록 구성 된 [인바운드 IP 제한이](functions-networking-options.md#inbound-ip-restrictions) 있는 경우 함수 런타임에 연결할 수 없게 됩니다. Azure Portal는 실행 중인 앱을 직접 호출 하 여 함수 목록을 가져오고 KUDU 끝점에 대 한 http 호출도 수행 합니다. `Platform Features` 탭의 플랫폼 수준 설정은 계속 사용할 수 있습니다.
+함수 앱이 [내부적으로 부하가 분산 된 App Service Environment](../app-service/environment/create-ilb-ase.md) 에서 호스트 되 고 인바운드 인터넷 트래픽을 차단 하도록 구성 되어 있거나 인터넷 액세스를 차단 하도록 구성 된 [인바운드 IP 제한이](functions-networking-options.md#inbound-ip-restrictions) 있는 경우 함수 런타임에 연결할 수 없게 됩니다. Azure Portal는 실행 중인 앱을 직접 호출 하 여 함수 목록을 가져오고 KUDU 끝점에 대 한 HTTP 호출도 수행 합니다. `Platform Features` 탭의 플랫폼 수준 설정은 계속 사용할 수 있습니다.
 
 * ASE 구성을 확인 하려면 ASE가 있는 서브넷의 NSG로 이동 하 고 인바운드 규칙의 유효성을 검사 하 여 응용 프로그램에 액세스 하는 컴퓨터의 공용 IP에서 들어오는 트래픽을 허용 합니다. 앱을 실행 하는 가상 네트워크에 연결 된 컴퓨터 또는 가상 네트워크에서 실행 되는 가상 컴퓨터에서 포털을 사용할 수도 있습니다. [인바운드 규칙 구성에 대 한 자세한 내용은 여기를 참조 하세요.](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
 

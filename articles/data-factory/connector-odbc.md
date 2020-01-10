@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 816009bb7481d93fd53011d067ab56cecbe8e3ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a5489b22ade2c661b2fae23c70440a29489e39f7
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440415"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830363"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ODBC 데이터 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -34,14 +34,14 @@ ms.locfileid: "75440415"
 
 ODBC 원본에서 지원되는 싱크 데이터 저장소로 또는 지원되는 원본 데이터 저장소에서 ODBC 싱크로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히 이 ODBC 커넥터는 **Basic** 또는 **Anonymous** 인증을 사용하여 **ODBC 호환 데이터 저장소** 간의 데이터 복사를 지원합니다.
+특히 이 ODBC 커넥터는 **Basic** 또는 **Anonymous** 인증을 사용하여 **ODBC 호환 데이터 저장소** 간의 데이터 복사를 지원합니다. **64 비트 ODBC 드라이버가** 필요 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 ODBC 커넥터를 사용하려면 다음을 수행해야 합니다.
 
 - 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
-- 통합 런타임 컴퓨터에 데이터 저장소에 대한 ODBC 드라이버를 설치합니다.
+- Integration Runtime 컴퓨터의 데이터 저장소에 대 한 64 비트 ODBC 드라이버를 설치 합니다.
 
 ## <a name="getting-started"></a>시작
 

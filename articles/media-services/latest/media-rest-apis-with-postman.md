@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services REST API 호출에 대해 Postman 구성
+title: Azure Media Services v3 REST API 호출에 대해 Postman 구성
 description: 이 문서에서는 AMS (Azure Media Services) REST Api를 호출 하는 데 사용할 수 있도록 Postman을 구성 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888107"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779640"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API 호출에 대해 Postman 구성
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Media Services v3 REST API 호출에 대해 Postman 구성
 
 이 문서에서는 AMS(Azure Media Services) REST API를 호출하는 데 사용할 수 있도록 **Postman**을 구성하는 방법을 보여 줍니다. 이 문서에서는 환경 및 컬렉션 파일을 **Postman**으로 가져오는 방법을 보여 줍니다. 컬렉션에는 AMS(Azure Media Services) REST API를 호출하는 HTTP 요청의 그룹화된 정의가 포함되어 있습니다. 환경 파일에는 컬렉션에 사용되는 변수가 포함되어 있습니다.
 
 개발을 시작 하기 전에 [Media Services V3 api를 사용 하 여 개발](media-services-apis-overview.md)을 검토 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
 - [API에 액세스](access-api-cli-how-to.md)하는 데 필요한 정보 가져오기

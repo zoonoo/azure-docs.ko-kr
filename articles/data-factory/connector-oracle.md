@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 5fd13531e438b8bcda8e3720758e338c964f77af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fd5843ecfd6585fb9c95168c6e55049fe0e27abb
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444249"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830312"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -69,7 +69,7 @@ Oracle 연결 된 서비스는 다음 속성을 지원 합니다.
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Oracle**로 설정해야 합니다. | 예 |
-| connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력 하 고 `password` 구성을 연결 문자열 외부로 끌어올 수도 있습니다. 자세한 내용은 다음 샘플을 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md) 하세요. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름**을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 예 |
+| connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력 하 고 `password` 구성을 연결 문자열 외부로 끌어올 수도 있습니다. 자세한 내용은 다음 샘플을 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md) 하세요. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름**을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>고급 Oracle 기본 연결 옵션의 경우 Tnsnames에 항목을 추가 하도록 선택할 수 있습니다 [. ](http://www.orafaq.com/wiki/Tnsnames.ora)Oracle 서버에 있는 ORA 파일을 선택 하 고 ADF oracle 연결 된 서비스에서 Oracle 서비스 이름 연결 유형을 사용 하도록 선택 하 고 해당 하는 서비스 이름을 구성 합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아닙니다. |
 
 >[!TIP]

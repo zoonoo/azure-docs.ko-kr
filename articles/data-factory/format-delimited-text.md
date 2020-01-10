@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2e70a7b900ad918cda05ce34204e2de1e6e67ef
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931253"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830193"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure Data Factory에서 분리 된 텍스트 형식
 
@@ -26,10 +26,10 @@ ms.locfileid: "74931253"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 구분 기호로 분리 된 텍스트 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 자산         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 type 속성은 **DelimitedText**로 설정 해야 합니다. | yes      |
-| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다.  | yes      |
+| type             | 데이터 집합의 type 속성은 **DelimitedText**로 설정 해야 합니다. | 예      |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다.  | 예      |
 | columnDelimiter  | 파일에서 열을 구분 하는 데 사용 되는 문자입니다. 현재 다중 문자 구분 기호는 데이터 흐름을 매핑하는 경우에만 지원 되 고 복사 작업은 지원 되지 않습니다. <br>기본값은 **쉼표 `,`** 입니다. 열 구분 기호가 빈 문자열 (구분 기호 없음)로 정의 된 경우 전체 줄은 단일 열로 사용 됩니다. | 아닙니다.       |
 | rowDelimiter     | 파일에서 행을 구분 하는 데 사용 되는 단일 문자 또는 "\r\n"입니다.<br>기본값은 **읽기의 경우 ["\r\n", "\r", "\n"]** , **"\n" 또는 "\r\n"** 의 값 중 하나는 각각 데이터 흐름 및 복사 작업을 매핑하는 것입니다. <br>`rowDelimiter` 구분 기호 없음 (빈 문자열)으로 설정 된 경우에는 `columnDelimiter`를 구분 기호 (빈 문자열)로 설정 하지 않아야 합니다 .이는 전체 콘텐츠를 단일 값으로 처리 하는 것을 의미 합니다. | 아닙니다.       |
 | quoteChar        | 열 구분 기호를 포함 하는 경우 열 값을 따옴표로 묶을 단일 문자입니다. <br>기본값은 `"`**큰따옴표** 입니다. <br>매핑 데이터 흐름의 경우 `quoteChar`는 빈 문자열일 수 없습니다. <br>복사 활동의 경우 `quoteChar`가 빈 문자열로 정의 되 면 따옴표 문자 및 열 값이 따옴표로 묶여 있지 않으며 `escapeChar`를 사용 하 여 열 구분 기호 및 자체를 이스케이프 합니다. | 아닙니다.       |
@@ -75,35 +75,35 @@ ms.locfileid: "74931253"
 
 복사 작업 ***\*원본\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 자산       | 설명                                                  | 필수 |
+| 속성       | Description                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | 복사 작업 원본의 type 속성은 **DelimitedTextSource**로 설정 해야 합니다. | yes      |
+| type           | 복사 작업 원본의 type 속성은 **DelimitedTextSource**로 설정 해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분 된 텍스트 읽기 설정** 표를 참조 하세요. | 아닙니다.       |
 | storeSettings  | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. | 아닙니다.       |
 
 `formatSettings`아래의 지원 되는 **구분 된 텍스트 읽기 설정** :
 
-| 자산      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | FormatSettings의 형식은 **DelimitedTextReadSetting**로 설정 해야 합니다. | yes      |
-| skipLineCount | 입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. <br>SkipLineCount와 firstRowAsHeader를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다. | 아닙니다.       |
+| type          | FormatSettings의 형식은 **DelimitedTextReadSettings**로 설정 해야 합니다. | 예      |
+| skipLineCount | 입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. <br>skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. | 아닙니다.       |
 
 ### <a name="delimited-text-as-sink"></a>싱크로 분리 된 텍스트
 
 복사 작업 ***\*싱크\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 자산       | 설명                                                  | 필수 |
+| 속성       | Description                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | 복사 작업 원본의 type 속성은 **DelimitedTextSink**로 설정 해야 합니다. | yes      |
+| type           | 복사 작업 원본의 type 속성은 **DelimitedTextSink**로 설정 해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분 된 텍스트 쓰기 설정** 표를 참조 하세요. |          |
 | storeSettings  | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다.  | 아닙니다.       |
 
 `formatSettings`에서 지원 되는 **구분 된 텍스트 쓰기 설정** :
 
-| 자산      | 설명                                                  | 필수                                              |
+| 속성      | Description                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | FormatSettings의 형식은 **DelimitedTextWriteSetting**로 설정 해야 합니다. | yes                                                   |
-| fileExtension | 출력 파일의 이름 (예: `.csv`, `.txt`)을 사용 하는 데 사용 되는 파일 확장명입니다. `fileName`를 출력 DelimitedText 데이터 집합에 지정 하지 않은 경우에는 지정 해야 합니다. | 출력 데이터 집합에 파일 이름이 지정 되지 않은 경우 예 |
+| type          | FormatSettings의 형식은 **DelimitedTextWriteSettings**로 설정 해야 합니다. | 예                                                   |
+| fileExtension | 출력 파일의 이름 (예: `.csv`, `.txt`)을 사용 하는 데 사용 되는 파일 확장명입니다. `fileName`를 출력 DelimitedText 데이터 집합에 지정 하지 않은 경우에는 지정 해야 합니다. 출력 데이터 집합에서 파일 이름이 구성 되 면 싱크 파일 이름으로 사용 되 고 파일 확장명 설정이 무시 됩니다.  | 출력 데이터 집합에 파일 이름이 지정 되지 않은 경우 예 |
 
 ## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
 

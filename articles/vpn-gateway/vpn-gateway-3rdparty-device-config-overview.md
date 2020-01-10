@@ -1,26 +1,18 @@
 ---
-title: Azure VPN Gateway에 연결하기 위한 파트너 VPN 디바이스 구성 | Microsoft Docs
+title: Azure VPN gateway에 연결 하기 위한 파트너 VPN 장치 구성
 description: 이 문서에서는 Azure VPN Gateway에 연결하기 위한 파트너 VPN 디바이스 구성에 대한 개요를 제공합니다.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 7d3a32b5f2b2742a36716bac9747f20c47c98858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150167"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778025"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>파트너 VPN 디바이스 구성의 개요
 이 문서에서는 Azure VPN Gateway에 연결하기 위한 온-프레미스 VPN 디바이스를 구성하는 개요를 제공합니다. 동일한 매개 변수를 사용하여 다양한 온-프레미스 VPN 디바이스 구성에 연결하는 방법을 보여주는 데 샘플 Azure Virtual Network 및 VPN Gateway 설정을 사용합니다.
@@ -128,7 +120,7 @@ VPN 디바이스에서 임의 트래픽 선택기(예: 경로 기반/VTI 기반 
 
 샘플 스크립트는 다음 알고리즘 및 매개 변수를 사용하여 IPsec/IKE 정책을 만듭니다.
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA1, PFS24, SA 수명 7,200초 및 20,480,000KB(20GB)
+* IPsec: AES256, SHA1, PFS24, SA Lifetime 7,200초 및 20,480,000KB(20GB)
 
 이 스크립트는 IPsec/IKE 정책을 적용하고 연결에서 **UsePolicyBasedTrafficSelectors** 옵션을 사용합니다.
 

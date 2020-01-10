@@ -1,18 +1,19 @@
 ---
-title: 'Azure 가상 네트워크에 온-프레미스 네트워크 연결: 사이트 간 VPN: CLI | Microsoft Docs'
+title: '온-프레미스 네트워크를 가상 네트워크에 연결: 사이트 간 VPN: CLI'
 description: 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 CLI를 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d28a5a37be2947ea6cc7019d2b3cc73932c60d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161517"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779113"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
@@ -67,7 +68,7 @@ GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. 구독에 연결
+## <a name="Login"></a>1. 구독에 연결 합니다.
 
 CLI를 로컬로 실행하기로 선택하는 경우 구독에 연결합니다. 브라우저에서 Azure Cloud Shell을 사용하는 경우 구독에 연결할 필요가 없습니다. Azure Cloud Shell에서 자동으로 연결됩니다. 하지만 연결 후 올바른 구독을 사용하고 있는지 확인하는 것이 좋습니다.
 
@@ -96,7 +97,7 @@ az group create --name TestRG1 --location eastus
 az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
-## 4. <a name="gwsub"></a>게이트웨이 서브넷 만들기
+## 4. <a name="gwsub"> </a>게이트웨이 서브넷 만들기
 
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
@@ -113,7 +114,7 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 
 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 가리킵니다. Azure가 참조할 수 있는 사이트 이름을 지정한 다음, 연결을 만들 온-프레미스 VPN 디바이스의 IP 주소를 지정합니다. 또한 VPN Gateway를 통해 VPN 디바이스로 라우팅될 IP 주소 접두사를 지정합니다. 사용자가 지정하는 주소 접두사는 온-프레미스 네트워크에 있는 접두사입니다. 온-프레미스 네트워크가 변경되면 이러한 접두사를 쉽게 업데이트할 수 있습니다.
 
-다음 값을 사용 합니다.
+다음 값을 사용합니다.
 
 * *--gateway-ip-address*는 온-프레미스 VPN 디바이스의 IP 주소입니다.
 * *--local-address-prefixes*는 온-프레미스 주소 공간입니다.
@@ -134,11 +135,11 @@ VPN Gateway에는 공용 IP 주소가 있어야 합니다. 먼저 IP 주소 리�
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
-## <a name="CreateGateway"></a>7. VPN Gateway 만들기
+## <a name="CreateGateway"></a>7. VPN gateway 만들기
 
 가상 네트워크 VPN Gateway 만들기. VPN Gateway 만들기를 완료하는 데 45분 이상 걸릴 수 있습니다.
 
-다음 값을 사용 합니다.
+다음 값을 사용합니다.
 
 * 사이트 간 구성에 대한 *--gateway-type*은 *Vpn*입니다. 게이트웨이 유형은 항상 구현하는 구성에 따라 다릅니다. 자세한 내용은 [게이트웨이 유형](vpn-gateway-about-vpn-gateway-settings.md#gwtype)을 참조하세요.
 * *--vpn-type*은 *경로 기반*(일부 설명서에서는 동적 게이트웨이라고도 함)이거나 *정책 기반*(일부 설명서에서는 고정 게이트웨이라고도 함)일 수 있습니다. 설정은 연결하는 디바이스의 요구 사항에 따라 좌우됩니다. VPN Gateway 유형에 대한 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조하세요.
@@ -150,7 +151,7 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
-## <a name="VPNDevice"></a>8. VPN 디바이스 구성
+## <a name="VPNDevice"></a>8. VPN 장치 구성
 
 온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음이 필요합니다.
 
@@ -165,7 +166,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>9. VPN 연결 만들기
+## <a name="CreateConnection"></a>9. VPN 연결을 만듭니다.
 
 가상 네트워크 게이트웨이와 온-프레미스 VPN 디바이스 사이의 사이트 간 VPN 연결을 만듭니다. VPN 디바이스에 구성된 공유 키 값과 일치하도록 공유 키 값에 특히 주의해야 합니다.
 

@@ -10,16 +10,18 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968726"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832302"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
+
+>이 URL을 복사 하 여 붙여 넣는 방법으로 업데이트에 대 한이 페이지를 다시 방문 하는 시기에 대 한 알림 받기: RSS 피드 판독기에 `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` 합니다.
 
 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -28,6 +30,53 @@ ms.locfileid: "72968726"
 * 버그 수정
 * 사용되지 않는 기능
 
+## <a name="december-2019"></a>2019년 12월
+
+### <a name="update-transcript-with-the-new-api"></a>새 API로 성적 증명서 업데이트
+
+[업데이트-비디오-인덱스](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) API를 사용 하 여 기록의 특정 섹션을 업데이트 합니다.
+
+### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Video Indexer 포털에서 계정 구성 수정
+
+이제 다음과 같은 문제를 쉽게 해결할 수 있도록 Media Services 연결 구성을 업데이트할 수 있습니다. 
+
+* 잘못 된 Azure Media Services 리소스
+* 암호 변경
+* Media Services 리소스가 구독 간에 이동 됨  
+
+계정 구성을 수정 하려면 Video Indexer 포털에서 설정 > 계정 탭 (소유자로)으로 이동 합니다.
+
+### <a name="configure-the-custom-vision-account"></a>사용자 지정 비전 계정 구성
+
+Video Indexer 포털을 사용 하 여 유료 계정에서 사용자 지정 비전 계정을 구성 합니다 (이전에는 API 에서만 지원 됨). 이렇게 하려면 Video Indexer 포털에 로그인 하 고 모델 사용자 지정 > 애니메이션 문자 > 구성을 선택 합니다. 
+
+### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>장면, 샷 및 키 프레임-이제 하나의 통찰력 창
+
+이제 장면, 샷 및 키 프레임은 더 쉽게 사용 하 고 탐색할 수 있도록 하나의 통찰력으로 병합 됩니다. 원하는 장면을 선택 하면 구성 된 샷 및 키 프레임을 볼 수 있습니다. 
+
+### <a name="notification-about-a-long-video-name"></a>긴 비디오 이름에 대 한 알림
+
+비디오 이름이 80 자 보다 길면 Video Indexer 업로드 시 설명 오류를 표시 합니다.
+
+### <a name="streaming-endpoint-is-disabled-notification"></a>스트리밍 끝점을 사용할 수 없습니다. 알림
+
+스트리밍 끝점이 사용 하지 않도록 설정 된 경우 플레이어 페이지에 설명 오류가 Video Indexer 표시 됩니다.
+
+### <a name="error-handling-improvement"></a>오류 처리 향상
+
+상태 코드 409은 이제 비디오를 인덱싱할 때 비디오를 [다시 인덱싱하고](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video? https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) 비디오 인덱스 Api를 [업데이트](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) 하는 방식으로 반환 됩니다 .이는 현재 다시 인덱스 변경 내용을 실수로 재정의 하지 않도록 하기 위해 비디오를 활발히 인덱싱하고 있습니다.
+
+## <a name="november-2019"></a>2019년 11월
+ 
+* 한국어 사용자 지정 언어 모델 지원
+
+    이제 Video 인덱서는 API와 포털 모두에서 한국어 (`ko-KR`)의 사용자 지정 언어 모델을 지원 합니다. 
+* 음성 텍스트에 대해 지원 되는 새 언어 (STT)
+
+    Video Indexer Api는 이제 아랍어 Levantine (ar SY), 영어 영국 언어 (en-us) 및 영어 오스트레일리아 언어 (en-us)로 STT을 지원 합니다.
+    
+    비디오 업로드의 경우 zh-cn-HANS를 zh-cn로 대체 했습니다. 둘 다 지원 되지만 zh-cn는 권장 되며 더 정확 합니다.
+    
 ## <a name="october-2019"></a>2019년 10월
  
 * 갤러리에서 애니메이션 문자 검색

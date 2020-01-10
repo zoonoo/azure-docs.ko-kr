@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/09/2020
+ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363373"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834217"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "75363373"
 
 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
 
-* 설정 가격 책정 계층을 포함하는 작업 영역 만들기 
+* 가격 책정 계층 및 용량 예약 설정을 포함 하는 작업 영역 만들기
 * 솔루션 추가
 * 저장된 검색 만들기
 * 컴퓨터 그룹 만들기
@@ -47,7 +47,19 @@ ms.locfileid: "75363373"
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-다음 예제에서는 로컬 컴퓨터에서 템플릿을 사용하여 작업 영역을 만듭니다. JSON 템플릿은 새 작업 영역의 이름과 위치만을 요구 하도록 구성 됩니다 (가격 책정 계층 및 보존과 같은 다른 작업 영역 매개 변수의 기본값 사용).  
+다음 예에서는 로컬 컴퓨터의 템플릿을 사용 하 여 작업 영역을 만듭니다. JSON 템플릿이 새 작업 영역의 이름과 위치만을 요구 하도록 구성 되어 있습니다. [액세스 제어 모드](design-logs-deployment.md#access-control-mode), 가격 책정 계층, 보존 및 용량 예약 수준과 같은 다른 작업 영역 매개 변수에 지정 된 값을 사용 합니다.
+
+용량 예약의 경우 SKU `CapacityReservation`를 지정 하 고 속성 `capacityReservationLevel`에 값 (GB)을 지정 하 여 수집 데이터에 대 한 선택 된 용량 예약을 정의 합니다. 다음 목록에서는이를 구성할 때 지원 되는 값과 동작을 자세히 설명 합니다.
+
+- 예약 제한을 설정한 후에는 31 일 이내에 다른 SKU로 변경할 수 없습니다.
+
+- 예약 값을 설정한 후에는 31 일 이내에만 값을 늘릴 수 있습니다.
+
+- `capacityReservationLevel` 값은 100의 배수로만 설정할 수 있으며 최대 값은 5만입니다.
+
+- 예약 수준을 늘리면 타이머가 다시 설정 되 고이 업데이트에서 31 일이 지나면 타이머가 변경 되지 않습니다.  
+
+- 작업 영역의 다른 속성을 수정 하지만 예약 제한을 동일한 수준으로 유지 하면 타이머가 다시 설정 되지 않습니다. 
 
 ### <a name="create-and-deploy-template"></a>템플릿 만들기 및 배포
 
@@ -64,6 +76,21 @@ ms.locfileid: "75363373"
               "description": "Specifies the name of the workspace."
             }
         },
+      "pricingTier": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+           }
+       },
         "location": {
             "type": "String",
             "allowedValues": [
@@ -101,11 +128,18 @@ ms.locfileid: "75363373"
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": 120,
                 "features": {
-                    "searchVersion": 1
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             }
           }
@@ -168,9 +202,9 @@ ms.locfileid: "75363373"
         "Standard",
         "Premium"
       ],
-      "defaultValue": "PerGB2018",
+      "defaultValue": "pergb2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "dataRetention": {
@@ -257,7 +291,7 @@ ms.locfileid: "75363373"
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -267,7 +301,9 @@ ms.locfileid: "75363373"
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('pricingTier')]",
+          "name": "CapacityReservation",
+          "capacityReservationLevel": 100
         }
       },
       "resources": [

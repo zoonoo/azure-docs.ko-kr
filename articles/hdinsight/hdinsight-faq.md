@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d9daefaec33c435ae9f8eceec370c83de4535f8b
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644599"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830380"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -84,23 +84,9 @@ Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 
 
 - 스크립트를 생성 합니다. 스크립트는 스크립트 작업을 통해 호출 됩니다. [스크립트 작업](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)은 Azure Portal, Hdinsight Windows PowerShell Cmdlet 또는 HDINSIGHT .net SDK에서 사용할 수 있는 구성 옵션입니다. 이 구성 옵션은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있습니다.
 
-- 클러스터를 프로 비전 한 후에 `sudo` 또는 기타 방법
-  
 - 에코 시스템 응용 프로그램을 설치 하는 [HDInsight 응용 프로그램 플랫폼](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 입니다.
 
-그러나 Microsoft 지원 팀은 다음과 같은 경우에만 지원을 제공할 수 있습니다.
-
-- 스크립트를 로드할 때 발생 하는 문제 또는 오류입니다. 사용자 지정 스크립트를 실행하는 동안 발생하는 오류는 지원 티켓 범위를 벗어납니다.
-
-- 클러스터 생성 프로세스에 포함 되는 추가 응용 프로그램입니다. 
-
 지원 되는 구성 요소 목록은 [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions) 을 참조 하세요.
-
-개별 구성 요소에 대한 지원은 클러스터 유형에 따라 다를 수도 있습니다. 예를 들어 Spark는 Kafka 클러스터에서 지원 되지 않으며 그 반대의 경우도 마찬가지입니다.
-
-클러스터 생성 프로세스 외부의 응용 프로그램 및 서비스에 대 한 지원은 공급 업체 또는 서비스 공급자에 게 문의 하세요. 여러 커뮤니티 지원 사이트를 사용할 수도 있습니다. 예제는 HDInsight 및 [Stack Overflow](https://stackoverflow.com/) [에 대 한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) 입니다. Apache 프로젝트에는 [Apache 웹 사이트](https://apache.org/)의 프로젝트 사이트도 있습니다. 예를 들어 [Hadoop](https://hadoop.apache.org/)이 있습니다. 
-
-Azure 지원에 대 한 자세한 내용은 [Azure 지원 faq](https://azure.microsoft.com/support/faq/)를 참조 하세요.
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>클러스터에 미리 설치 된 개별 구성 요소를 업그레이드할 수 있나요?
 

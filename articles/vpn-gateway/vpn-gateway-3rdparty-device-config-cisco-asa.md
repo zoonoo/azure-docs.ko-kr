@@ -1,5 +1,5 @@
 ---
-title: Azure VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성 | Microsoft Docs
+title: Azure VPN gateway에 Cisco GLOBAL.ASA 장치를 연결 하기 위한 샘플 구성
 description: 이 문서에서는 Azure VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성을 제공합니다.
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648762"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778085"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 디바이스(IKEv2/BGP 아님)
 이 문서에서는 Azure VPN Gateway에 Cisco ASA(적응 보안 어플라이언스) 디바이스를 연결하는 샘플 구성을 제공합니다. 이 예제는 BGP(경계 게이트웨이 프로토콜) 없이 IKEv2를 실행하는 Cisco ASA 디바이스에 적용됩니다. 
@@ -21,7 +21,7 @@ ms.locfileid: "60648762"
 
 |                        |                                   |
 | ---                    | ---                               |
-| 디바이스 공급 업체          | 시스코                             |
+| 디바이스 공급 업체          | Cisco                             |
 | 디바이스 모델           | ASA                               |
 | 대상 버전         | 8.4 이상                     |
 | 테스트 모델           | ASA 5505                          |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e833ca92004c678808ec5e294de2df7c90121be7
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462595"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835122"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리 (미리 보기)
 
@@ -201,6 +201,9 @@ az storage blob delete -c my-file-system -b my-file.txt --account-name mystorage
 ## <a name="manage-permissions"></a>사용 권한 관리
 
 디렉터리 및 파일의 액세스 권한을 가져오고 설정 하 고 업데이트할 수 있습니다.
+
+> [!NOTE]
+> Azure Active Directory (Azure AD)를 사용 하 여 명령에 권한을 부여 하는 경우 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
 
 ### <a name="get-directory-and-file-permissions"></a>디렉터리 및 파일 사용 권한 가져오기
 

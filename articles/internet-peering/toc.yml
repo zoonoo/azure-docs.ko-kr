@@ -1,0 +1,86 @@
+- name: 인터넷 피어링 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: 인터넷 피어링 정보
+      href: overview.md
+    - name: 인터넷 피어링과 Peering Service
+      href: overview-peering-service.md
+- name: 개념
+  items:
+    - name: 피어링 정책
+      href: policy.md
+- name: 방법 가이드
+  items:
+    - name: Microsoft와의 피어링을 설정하기 위한 필수 조건
+      href: prerequisites.md
+    - name: 직접 피어링 연습
+      href: walkthrough-direct-all.md
+    - name: Exchange 피어링 연습
+      href: walkthrough-exchange-all.md
+    - name: Peering Service 파트너 연습
+      href: walkthrough-peering-service-all.md
+    - name: 피어 ASN을 Azure 구독에 연결
+      items:
+        - name: 포털
+          href: howto-subscription-association-portal.md
+        - name: Azure PowerShell
+          href: howto-subscription-association-powershell.md
+    - name: 직접 피어링에 Peering Service 사용 설정
+      items:
+        - name: 포털
+          href: howto-peering-service-portal.md
+        - name: Azure PowerShell
+          href: howto-peering-service-powershell.md
+    - name: 직접 피어링 만들기 또는 수정
+      items:
+        - name: 포털
+          href: howto-direct-portal.md
+        - name: Azure PowerShell
+          href: howto-direct-powershell.md
+    - name: 레거시 직접 피어링을 Azure 리소스로 변환
+      items:
+        - name: 포털
+          href: howto-legacy-direct-portal.md
+        - name: Azure PowerShell
+          href: howto-legacy-direct-powershell.md
+    - name: Exchange 피어링 만들기 또는 수정
+      items:
+        - name: 포털
+          href: howto-exchange-portal.md
+        - name: Azure PowerShell
+          href: howto-exchange-powershell.md
+    - name: 레거시 Exchange 피어링을 Azure 리소스로 변환
+      items:
+        - name: 포털
+          href: howto-legacy-exchange-portal.md
+        - name: Azure PowerShell
+          href: howto-legacy-exchange-powershell.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/network'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.network'
+    - name: Java
+      href: 'https://docs.microsoft.com/java/api/'
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: Resource Manager 템플릿
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
+- name: 리소스
+  items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: 'https://docs.microsoft.com/learn/browse/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: 네트워킹 블로그
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: 네트워킹 피드백
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: 인터넷 피어링 FAQ
+      href: faqs.md
+    - name: Peering Service FAQ
+      href: service-faqs.md

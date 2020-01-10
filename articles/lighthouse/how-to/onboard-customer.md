@@ -1,14 +1,14 @@
 ---
 title: Azure 위임 리소스 관리에 고객 등록
 description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
-ms.date: 12/17/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 16d1b4d9d51c377c4aa09b5e35b02790d8a1b8dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 09e42a65891494370250fbab9b22cdf37a6fd318
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453547"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834121"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
@@ -32,9 +32,12 @@ ms.locfileid: "75453547"
 
 - 서비스 공급자 테넌트의 테넌트 ID(고객의 리소스를 관리하는 위치)
 - 고객 테넌트의 테넌트 ID(서비스 공급자가 관리하는 리소스 포함)
-- 서비스 공급자가 관리할(또는 서비스 공급자가 관리할 리소스 그룹을 포함하는) 고객 테넌트에 있는 각 특정 구독의 구독 ID
+- 서비스 공급자에 의해 관리 되는 고객 테 넌 트의 각 특정 구독에 대 한 구독 Id 또는 서비스 공급자가 관리 하는 리소스 그룹을 포함 하는 구독 Id입니다.
 
-이 정보가 아직 없는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다. 배포에서이 정확한 값을 사용 해야 합니다.
+> [!NOTE]
+> 구독 내에서 하나 이상의 리소스 그룹을 등록 하려는 경우에도 구독 수준에서 배포를 수행 해야 하므로 구독 ID가 필요 합니다.
+
+이러한 ID 값이 아직 없는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다. 배포에서이 정확한 값을 사용 해야 합니다.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -113,9 +116,9 @@ az role definition list --name "<roleName>" | grep name
 |필드  |정의  |
 |---------|---------|
 |**mspOfferName**     |이 정의를 설명하는 이름입니다. 이 값은 고객에게 제품의 제목으로 표시됩니다.         |
-|**mspOfferDescription**     |제품에 대 한 간단한 설명 (예: "Contoso VM 관리 제안")      |
+|**mspOfferDescription**     |제품에 대 한 간단한 설명입니다 (예: "Contoso VM 관리 제안").      |
 |**managedByTenantId**     |테넌트 ID          |
-|**권한 부여**     |각 테 넌 트의 사용자/그룹/Spn에 대 한 **Principalid** 값 이며, 각 테 넌 트의 용도를 **이해 하 고** 기본 제공 **roleDefinitionId** 값에 매핑하여 액세스 수준을 지정할 수 있습니다.         |
+|**권한 부여**     |각 테 넌 트의 사용자/그룹/Spn에 대 한 **Principalid** 값 이며, 각 테 넌 트의 용도를 **이해 하 고** 기본 제공 **roleDefinitionId** 값에 매핑하여 액세스 수준을 지정할 수 있습니다.      |
 
 > [!TIP]
 > **ManagedByTenantID**, **Principaliddisplayname**및 **roleDefinitionId** 항목은 Azure에서 사용 하는 값과 동일 해야 합니다. 이러한 값에는 대문자를 사용 하지 마십시오.
@@ -132,7 +135,7 @@ az role definition list --name "<roleName>" | grep name
 |구독(Azure Marketplace 게시된 제품을 사용하는 경우)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> 여기에 설명 된 프로세스에는 동일한 고객 테 넌 트에 있는 경우에도 등록 되는 각 구독에 대 한 별도의 배포가 필요 합니다. 동일한 고객 테 넌 트의 여러 구독 내에서 여러 리소스 그룹을 온 보 딩 하는 경우에도 별도의 배포가 필요 합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온보딩하는 것은 하나의 배포에서 수행할 수 있습니다.
+> 여기에 설명 된 프로세스에는 동일한 고객 테 넌 트에 구독을 등록 하는 경우에도 등록 되는 각 구독에 대 한 별도의 구독 수준 배포가 필요 합니다. 동일한 고객 테 넌 트의 여러 구독 내에서 여러 리소스 그룹을 온 보 딩 하는 경우에도 별도의 배포가 필요 합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온 보 딩 하는 것은 하나의 구독 수준 배포에서 수행할 수 있습니다.
 >
 > 동일한 구독 또는 구독 내의 리소스 그룹에 여러 제품이 적용되는 경우 별도의 배포도 필요합니다. 적용된 각 제품은 다른 **mspOfferName**을 사용해야 합니다.
 
@@ -198,7 +201,7 @@ az role definition list --name "<roleName>" | grep name
 이 배포는 구독 수준 배포이므로 Azure Portal에서 시작할 수 없습니다. 이 배포는 아래와 같이 PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 배포는 등록 중인 구독에 대 한 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 을 가진 고객 테 넌 트의 비 게스트 계정 (또는 등록 되는 리소스 그룹을 포함 하는)에 의해 수행 되어야 합니다. 구독을 위임할 수 있는 모든 사용자를 보려면 고객 테 넌 트의 사용자가 Azure Portal에서 구독을 선택 하 고, **액세스 제어 (IAM)** 를 열고 [모든 역할을 나열](../../role-based-access-control/role-definitions-list.md#list-all-roles)한 다음 **소유자** 를 선택 하 여 해당 역할의 모든 사용자를 볼 수 있습니다.
+> 이 구독 수준 배포는 등록 중인 구독에 대 한 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 을 가진 고객 테 넌 트의 비 게스트 계정 (또는 등록 되는 리소스 그룹을 포함 하는)에 의해 수행 되어야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 ### <a name="powershell"></a>PowerShell
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: c402d47f40a351d70f688aa93c5e1501c93b39dd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371958"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779881"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob storage: 핫, 쿨 및 보관 액세스 계층
 
@@ -61,7 +61,7 @@ Blob storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성�
 
 보관 액세스 계층의 저장소 비용은 가장 낮습니다. 그러나 핫 및 쿨 계층에 비해 데이터 검색 비용이 더 높습니다. 보관 계층의 데이터를 검색 하는 데 몇 시간 정도 걸릴 수 있습니다. 데이터는 최소 180 일 동안 보관 계층에 유지 되거나 초기 삭제 요금이 적용 되어야 합니다.
 
-Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태 이며 읽기, 복사, 덮어쓰기 또는 수정할 수 없습니다. 보관 저장소에서 blob의 스냅숏을 만들 수 없습니다. 그러나 Blob 메타데이터는 온라인 상태로 유지되며 사용할 수 있으므로 Blob 및 해당 속성을 나열할 수 있습니다. 보관에 있는 blob의 경우 유효한 유일한 작업은 GetBlobProperties, Getblobproperties, ListBlobs, SetBlobTier 및 DeleteBlob입니다.
+Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태 이며 읽거나 덮어쓰거나 수정할 수 없습니다. 보관에서 blob을 읽거나 다운로드 하려면 먼저 온라인 계층으로 리하이드레이션 해야 합니다. 보관 저장소에서 blob의 스냅숏을 만들 수 없습니다. 그러나 Blob 메타데이터는 온라인 상태로 유지되며 사용할 수 있으므로 Blob 및 해당 속성을 나열할 수 있습니다. 보관에 있는 blob의 경우 유효한 유일한 작업은 GetBlobProperties, Getblobproperties, ListBlobs, SetBlobTier, CopyBlob 및 DeleteBlob입니다. 자세한 내용은 [리하이드레이션 blob data in archive 계층](storage-blob-rehydration.md) 을 참조 하세요.
 
 보관 액세스 계층의 예제 사용 시나리오는 다음과 같습니다.
 
@@ -77,9 +77,9 @@ Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태
 
 ## <a name="blob-level-tiering"></a>Blob 수준 계층화
 
-Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier)이라는 단일 작업을 사용하여 개체 수준에서 데이터의 계층을 변경할 수 있습니다. 사용 패턴이 변경되면 계정 간에 데이터를 이동하지 않고 핫, 쿨 또는 보관 계층 간에 Blob의 액세스 계층을 쉽게 변경할 수 있습니다. 모든 계층 변경은 즉각 발생합니다. 그러나 보관에서 Blob을 리하이드레이션하는 데 몇 시간이 걸릴 수 있습니다.
+Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier)이라는 단일 작업을 사용하여 개체 수준에서 데이터의 계층을 변경할 수 있습니다. 사용 패턴이 변경되면 계정 간에 데이터를 이동하지 않고 핫, 쿨 또는 보관 계층 간에 Blob의 액세스 계층을 쉽게 변경할 수 있습니다. 모든 계층 변경 요청이 즉시 발생 하 고 핫 및 쿨 간의 계층 변경 내용이 즉시 발생 합니다. 그러나 보관에서 Blob을 리하이드레이션하는 데 몇 시간이 걸릴 수 있습니다.
 
-마지막 Blob 계층 변경 시간은 **액세스 계층 변경 시간** Blob 속성을 통해 노출됩니다. Blob이 보관 계층에 있는 경우 덮어쓸 수 없으므로 동일한 blob을 업로드 하는 것은이 시나리오에서 허용 되지 않습니다. 핫 또는 쿨 계층의 blob을 덮어쓸 때 새로 만든 blob은 새 blob 액세스 계층이 생성 시 명시적으로 설정 되지 않으면 덮어쓴 blob의 계층을 상속 합니다.
+마지막 Blob 계층 변경 시간은 **액세스 계층 변경 시간** Blob 속성을 통해 노출됩니다. 핫 또는 쿨 계층의 blob을 덮어쓸 때 새로 만든 blob은 새 blob 액세스 계층이 생성 시 명시적으로 설정 되지 않으면 덮어쓴 blob의 계층을 상속 합니다. Blob이 보관 계층에 있는 경우 덮어쓸 수 없으므로 동일한 blob을 업로드 하는 것은이 시나리오에서 허용 되지 않습니다. 
 
 > [!NOTE]
 > 보관 스토리지 및 Blob 수준 계층화는 블록 Blob만 지원합니다. 또한 스냅숏이 있는 블록 blob의 계층을 현재 변경할 수 없습니다.
@@ -127,17 +127,18 @@ Blob이 핫 계층으로 이동 하면 (archive-> 쿨, archive-> 핫 또는 쿨 
 <sup>2</sup> Archive Storage 현재는 서로 다른 검색 대기 시간을 제공 하는 2 리하이드레이션 우선 순위 (높음 및 표준)를 지원 합니다. 자세한 내용은 [리하이드레이션 blob data from the archive 계층](storage-blob-rehydration.md)항목을 참조 하세요.
 
 > [!NOTE]
-> Blob storage 계정은 범용 v2 저장소 계정과 동일한 성능 및 확장성 목표를 지원 합니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+> Blob storage 계정은 범용 v2 저장소 계정과 동일한 성능 및 확장성 목표를 지원 합니다. 자세한 내용은 [Blob 저장소에 대 한 확장성 및 성능 목표](scalability-targets.md)를 참조 하세요.
 
 ## <a name="quickstart-scenarios"></a>빠른 시작 시나리오
 
-이 섹션에서는 Azure Portal을 사용하여 다음 시나리오를 보여줍니다.
+이 섹션에서는 Azure Portal 및 powershell을 사용 하 여 다음 시나리오를 보여 줍니다.
 
 - GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경하는 방법입니다.
 - GPv2 또는 Blob Storage 계정의 계층을 변경하는 방법입니다.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경합니다.
 
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Portal에서 **모든 리소스**를 검색 하 고 선택 합니다.
@@ -150,11 +151,27 @@ Blob이 핫 계층으로 이동 하면 (archive-> 쿨, archive-> 핫 또는 쿨 
 
 1. 위쪽에서 **저장** 을 클릭합니다.
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob 저장소 계정에서 blob의 계층 변경
+![저장소 계정 계층 변경](media/storage-tiers/account-tier.png)
 
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+다음 PowerShell 스크립트를 사용 하 여 계정 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다. 
+```powershell
+#Initialize the following with your resource group and storage account names
+$rgName = ""
+$accountName = ""
+
+#Change the storage account tier to hot
+Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
+```
+---
+
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob 저장소 계정에서 blob의 계층 변경
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Portal에서 **모든 리소스**를 검색 하 고 선택 합니다.
+
+1. 사용자의 스토리지 계정을 선택합니다.
 
 1. 컨테이너를 선택 하 고 blob을 선택 합니다.
 
@@ -163,6 +180,29 @@ Blob이 핫 계층으로 이동 하면 (archive-> 쿨, archive-> 핫 또는 쿨 
 1. **핫**, **쿨**또는 **보관** 액세스 계층을 선택 합니다. Blob이 현재 보관 된 상태이 고 온라인 계층으로 리하이드레이션 하는 경우 **표준** 또는 **높음**의 리하이드레이션 우선 순위를 선택할 수도 있습니다.
 
 1. 아래쪽에서 **저장** 을 선택 합니다.
+
+![저장소 계정 계층 변경](media/storage-tiers/blob-access-tier.png)
+
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+다음 PowerShell 스크립트를 사용 하 여 blob 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다. `$containerName` 변수는 컨테이너 이름으로 초기화 해야 합니다. `$blobName` 변수는 blob 이름으로 초기화 해야 합니다. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to archive
+$blob.ICloudBlob.SetStandardBlobTier("Archive")
+```
+---
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -214,11 +254,11 @@ Blob 수준 계층화와 함께 핫 및 쿨 액세스 계층은 모든 지역에
 
 **보관 계층에서 핫 또는 쿨 계층으로 Blob을 리하이드레이션하는 경우 리하이드레이션이 완료되는 시간을 어떻게 알 수 있나요?**
 
-리하이드레이션 중에는 blob 속성 가져오기 작업을 사용 하 여 **보관 상태** 특성을 폴링하고 계층 변경이 완료 된 시간을 확인할 수 있습니다. 상태는 대상 계층에 따라 "rehydrate-pending-to-hot" 또는 "rehydrate-pending-to-cool"을 읽습니다. 완료되면 보관 상태 속성이 제거되고 **액세스 계층** Blob 속성은 새로운 핫 또는 쿨 계층을 반영합니다.  
+리하이드레이션 중에는 blob 속성 가져오기 작업을 사용 하 여 **보관 상태** 특성을 폴링하고 계층 변경이 완료 된 시간을 확인할 수 있습니다. 상태는 대상 계층에 따라 "rehydrate-pending-to-hot" 또는 "rehydrate-pending-to-cool"을 읽습니다. 완료되면 보관 상태 속성이 제거되고 **액세스 계층** Blob 속성은 새로운 핫 또는 쿨 계층을 반영합니다. 자세한 내용은 [리하이드레이션 blob data in archive 계층](storage-blob-rehydration.md) 을 참조 하세요.
 
 **Blob의 계층을 설정한 후에 언제부터 해당하는 요금이 청구되기 시작하나요?**
 
-각 Blob은 항상 Blob의 **액세스 계층** 속성에서 표시하는 계층에 따라 비용이 청구됩니다. Blob에 대해 새 계층을 설정한 경우 **액세스 계층** 속성은 모든 전환에 대 해 새 계층을 즉시 반영합니다. 그러나 보관 계층에서 핫 또는 쿨 계층으로 Blob을 리하이드레이션하는 데 몇 시간이 걸릴 수 있습니다. 이 경우 리하이드레이션 완료 될 때까지 보관 요금으로 요금이 청구 됩니다. 이때 **액세스 계층** 속성은 새 계층을 반영 합니다. 이 시점에서 핫 또는 쿨 속도로 해당 blob에 대 한 요금이 청구 됩니다.
+각 Blob은 항상 Blob의 **액세스 계층** 속성에서 표시하는 계층에 따라 비용이 청구됩니다. Blob에 대 한 새 온라인 계층을 설정 하는 경우 **액세스 계층** 속성은 모든 전환에 대 한 새 계층을 즉시 반영 합니다. 그러나 오프 라인 보관 계층에서 핫 또는 쿨 계층으로 blob을 리하이드레이션 하는 데는 몇 시간이 걸릴 수 있습니다. 이 경우 리하이드레이션 완료 될 때까지 보관 요금으로 요금이 청구 됩니다. 이때 **액세스 계층** 속성은 새 계층을 반영 합니다. 온라인 계층으로 전환 되 면 핫 또는 쿨 요금으로 해당 blob에 대 한 요금이 청구 됩니다.
 
 **쿨 또는 보관 계층에서 blob을 삭제 하거나 이동할 때 초기 삭제 요금이 발생 하는지 확인 하는 어떻게 할까요??**
 
@@ -230,7 +270,7 @@ Azure Portal, PowerShell과 CLI 도구 및 .NET, Java, Python과 Node.js 클라�
 
 **핫, 쿨 및 보관 계층에 저장할 수 있는 데이터의 양은 얼마인가요?**
 
-다른 제한과 함께 데이터 저장소는 계정 수준에서 설정 되며 액세스 계층 별로 설정 되지 않습니다. 한 계층 또는 3 계층 모두에서 한도를 모두 사용 하도록 선택할 수 있습니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+다른 제한과 함께 데이터 저장소는 계정 수준에서 설정 되며 액세스 계층 별로 설정 되지 않습니다. 한 계층 또는 3 계층 모두에서 한도를 모두 사용 하도록 선택할 수 있습니다. 자세한 내용은 [standard storage 계정에 대 한 확장성 및 성능 목표](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8aedb57f6fee68c4d11a123033d34bb58314eb8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 355bd75f865e821fa19fba0715cf5eca90a9a2d3
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367623"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829564"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -24,7 +24,7 @@ OpenID Connect는 웹 애플리케이션에 사용자를 안전하게 로그인�
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 *인증* 프로토콜로 사용하기 위해 OAuth 2.0 *권한 부여* 프로토콜을 확장합니다. 이 인증 프로토콜을 사용 하면 Single Sign-On을 수행할 수 있습니다. 클라이언트에서 사용자의 id를 확인 하 고 사용자에 대 한 기본 프로필 정보를 얻을 수 있도록 하는 *ID 토큰*의 개념을 소개 합니다.
 
-OAuth 2.0을 확장 하므로 응용 프로그램에서 *액세스 토큰*을 안전 하 게 가져올 수 있습니다. 액세스 토큰을 사용하여 [권한 부여 서버](active-directory-b2c-reference-protocols.md)로 보안이 유지되는 리소스에 액세스할 수 있습니다. 서버에서 호스트 되 고 브라우저를 통해 액세스 되는 웹 응용 프로그램을 빌드하는 경우 Openid connect 연결을 권장 합니다. Azure AD B2C를 사용 하 여 모바일 또는 데스크톱 응용 프로그램에 id 관리를 추가 하려면 Openid connect Connect 대신 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 을 사용 해야 합니다. 토큰에 대 한 자세한 내용은 Azure Active Directory B2C의 [토큰 개요](active-directory-b2c-reference-tokens.md) 를 참조 하세요.
+OAuth 2.0을 확장 하므로 응용 프로그램에서 *액세스 토큰*을 안전 하 게 가져올 수 있습니다. 액세스 토큰을 사용하여 [권한 부여 서버](active-directory-b2c-reference-protocols.md)로 보안이 유지되는 리소스에 액세스할 수 있습니다. 서버에서 호스트 되 고 브라우저를 통해 액세스 되는 웹 응용 프로그램을 빌드하는 경우 Openid connect 연결을 권장 합니다. 토큰에 대 한 자세한 내용은 Azure Active Directory B2C의 [토큰 개요](active-directory-b2c-reference-tokens.md) 를 참조 하세요.
 
 Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OpenID Connect 프로토콜을 확장합니다. Openid connect Connect를 사용 하 여 등록, 로그인 및 프로필 관리와 같은 사용자 환경을 응용 프로그램에 추가할 수 있는 [사용자 흐름 매개 변수](active-directory-b2c-reference-policies.md)를 소개 합니다.
 

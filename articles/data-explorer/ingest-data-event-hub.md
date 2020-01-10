@@ -3,28 +3,28 @@ title: Event Hub에서 Azure Data Explorer로 데이터 수집
 description: 이 문서에서는 이벤트 허브에서 Azure 데이터 탐색기로 데이터를 수집 (로드) 하는 방법에 대해 알아봅니다.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 13c0bf8d0829debaa4ae41c724aafdaf5891ce4d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667432"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779957"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Event Hub에서 Azure Data Explorer로 데이터 수집
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-hub.md)
+> * [포털](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
 > * [Azure Resource Manager 템플릿](data-connection-event-hub-resource-manager.md)
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 빅 데이스트리터 밍 플랫폼이자 이벤트 수집 서비스인 이벤트 허브에서 데이터를 수집(로드)하는 기능을 제공합니다. [Event Hubs](/azure/event-hubs/event-hubs-about)에서는 초당 수백만 개의 이벤트를 거의 실시간으로 처리할 수 있습니다. 이 문서에서는 이벤트 허브를 만들고, Azure 데이터 탐색기에서 연결 하 고, 시스템을 통해 데이터 흐름을 확인 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md).
@@ -33,7 +33,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure portal](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
@@ -45,7 +45,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
     **Azure에 배포** 단추를 선택하면 Azure Portal에서 배포 양식을 작성할 수 있는 페이지로 이동하게 됩니다.
 
-    ![Deploy to Azure](media/ingest-data-event-hub/deploy-to-azure.png)
+    ![Azure에 배포](media/ingest-data-event-hub/deploy-to-azure.png)
 
 1. 이벤트 허브를 만들려는 구독을 선택하고 이름이 *test-hub-rg*인 리소스 그룹을 만듭니다.
 
@@ -60,7 +60,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Subscription | 사용자의 구독 | 이벤트 허브에 사용할 Azure 구독을 선택합니다.|
-    | Resource group | *test-hub-rg* | 새 리소스 그룹을 만듭니다. |
+    | 리소스 그룹 | *test-hub-rg* | 새 리소스 그룹을 만듭니다. |
     | 위치 | *미국 서부* | 이 문서에 대 한 *미국 서 부* 를 선택 합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 지역을 선택합니다. 최상의 성능을 위해 Kusto 클러스터와 동일한 위치에 Event Hub 네임스페이스를 만듭니다(처리량이 높은 Event Hub 네임스페이스에 가장 중요).
     | 네임스페이스 이름 | 고유한 네임스페이스 이름 | 네임스페이스를 식별하는 고유한 이름을 선택합니다. 예를 들어 *mytestnamespace*를 선택합니다. 입력한 이름에 도메인 이름 *servicebus.windows.net*이 추가됩니다. 이 이름에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 이름은 문자로 시작하고 문자나 숫자로 끝나야 합니다. 값의 길이는 6자에서 50자 사이여야 합니다.
     | 이벤트 허브 이름 | *test-hub* | 이벤트 허브는 고유한 범위 지정 컨테이너 역할을 하는 네임스페이스 아래에 배치됩니다. 이벤트 허브 이름은 네임스페이스 내에서 고유해야 합니다. |
@@ -71,7 +71,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 1. 프로비전 프로세스를 모니터링하려면 도구 모음에서 **알림**을 선택합니다. 배포가 정상적으로 완료되려면 몇 분 정도 걸릴 수 있지만 이제 다음 단계를 진행해도 됩니다.
 
-    ![공지](media/ingest-data-event-hub/notifications.png)
+    ![알림](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 대상 테이블 만들기
 
@@ -109,7 +109,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
     ![이벤트 허브 연결](media/ingest-data-event-hub/event-hub-connection.png)
 
-    데이터 원본:
+    **데이터 원본:**
 
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
@@ -120,7 +120,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     | 이벤트 시스템 속성 | 관련 속성 선택 | [이벤트 허브 시스템 속성](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)입니다. 이벤트 메시지 마다 여러 레코드가 있는 경우 시스템 속성이 첫 번째 속성에 추가 됩니다. 시스템 속성을 추가 하는 경우 선택한 속성을 포함 하도록 테이블 스키마 및 [매핑을](/azure/kusto/management/mappings) [만들거나](/azure/kusto/management/tables#create-table) [업데이트](/azure/kusto/management/tables#alter-table-and-alter-merge-table) 합니다. |
     | | |
 
-    대상 테이블:
+    **대상 테이블:**
 
     수집된 데이터를 라우팅하기 위한 옵션으로는 *고정* 라우팅과 *동적* 라우팅이라는 두 가지 옵션이 있습니다. 
     이 문서에서는 고정 라우팅을 사용합니다. 이 경우 테이블 이름, 데이터 형식 및 매핑을 직접 지정합니다. 따라서 **내 데이터에 라우팅 정보 포함**을 선택 취소한 상태로 둡니다.
@@ -137,6 +137,8 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     > * 데이터 연결을 만든 후에 큐에 넣은 이벤트만 수집 됩니다.
     > * [Azure Portal에서 지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 열어 정적 라우팅에 대해 GZip 압축을 사용 하도록 설정 합니다. [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)에 표시 된 것 처럼 동적 라우팅에 대해 GZip 압축을 사용 하도록 설정 합니다. 
     > * Avro 형식 및 이벤트 시스템 속성은 압축 페이로드에 지원 되지 않습니다.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="copy-the-connection-string"></a>연결 문자열 복사
 

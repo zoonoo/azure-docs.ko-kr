@@ -41,11 +41,11 @@
       href: tutorial-monitor.md
     - name: 13 - VM 보안 관리
       href: tutorial-azure-security.md
-    - name: 14 - Jenkins 배포
+    - name: 14a - Jenkins로 빌드
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15a - Azure Pipelines를 사용하여 배포
+    - name: 14b - Azure Pipelines를 사용한 배포(기본)
       href: tutorial-build-deploy-jenkins.md
-    - name: 15b - Azure Pipelines를 사용하여 CI/CD
+    - name: 15 - Azure Pipelines를 사용한 CI/CD(YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - LAMP 스택 만들기
       href: tutorial-lamp-stack.md

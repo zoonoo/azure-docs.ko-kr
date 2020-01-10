@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5152859bec944c761d4608d1e039d56423d57bcd
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301056"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832747"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -34,8 +34,8 @@ Key Vault에 대한 액세스는 두 인터페이스, 즉 **관리 평면** 및 
 
 Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 자동으로 연결됩니다. 두 평면의 모든 호출자가 이 테넌트에 등록해야 하고, 해당 Key Vault에 액세스하기 위해 인증을 받아야 합니다. 두 경우 모두 애플리케이션에서 다음과 같은 두 가지 방법으로 Key Vault에 액세스할 수 있습니다.
 
-- **사용자 및 애플리케이션 액세스**: 로그인한 사용자를 대신하여 애플리케이션에서 Key Vault에 액세스합니다. Azure PowerShell과 Azure Portal이 이러한 액세스 유형의 예제입니다. 사용자 액세스는 두 가지 방법으로 부여됩니다. 사용자는 모든 애플리케이션에서 Key Vault에 액세스할 수 있거나 특정 애플리케이션만 사용해야 합니다(_복합 ID_라고도 함).
-- **애플리케이션 전용 액세스**: 애플리케이션은 데몬 서비스 또는 백그라운드 작업으로 실행됩니다. Key Vault에 대한 액세스 권한이 애플리케이션의 ID에 부여됩니다.
+- **사용자 및 응용 프로그램 액세스**: 응용 프로그램이 로그인 한 사용자를 대신 하 여 Key Vault에 액세스 합니다. Azure PowerShell과 Azure Portal이 이러한 액세스 유형의 예제입니다. 사용자 액세스는 두 가지 방법으로 부여됩니다. 사용자는 모든 애플리케이션에서 Key Vault에 액세스할 수 있거나 특정 애플리케이션만 사용해야 합니다(_복합 ID_라고도 함).
+- **응용 프로그램 전용 액세스**: 응용 프로그램은 디먼 서비스 또는 백그라운드 작업으로 실행 됩니다. Key Vault에 대한 액세스 권한이 애플리케이션의 ID에 부여됩니다.
 
 두 유형의 액세스에서 애플리케이션은 Azure AD에서 인증을 받습니다. 애플리케이션은 애플리케이션 유형에 따라 [지원되는 인증 방법](../active-directory/develop/authentication-scenarios.md)을 사용합니다. 애플리케이션은 액세스 권한을 부여하기 위해 평면의 리소스에 대해 토큰을 획득합니다. 리소스는 Azure 환경에 따라 관리 또는 데이터 평면의 엔드포인트입니다. 애플리케이션은 해당 토큰을 사용하고 REST API 요청을 Key Vault에 보냅니다. 자세한 내용은 [전체 인증 흐름](../active-directory/develop/v2-oauth2-auth-code-flow.md)을 참조하세요.
 
@@ -51,7 +51,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 다음 표에서는 관리 및 데이터 평면에 대한 엔드포인트를 보여 줍니다.
 
-| 액세스&nbsp;평면 | 액세스 엔드포인트 | 작업 | 액세스&nbsp;제어 메커니즘 |
+| 액세스&nbsp;평면 | 액세스 엔드포인트 | 운영 | 액세스&nbsp;제어 메커니즘 |
 | --- | --- | --- | --- |
 | 관리 평면 | **전역:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 | Key Vault 만들기, 읽기, 업데이트 및 삭제<br><br>Key Vault 액세스 정책 설정<br><br>Key Vault 태그 설정 | Azure Resource Manager RBAC |
 | 데이터 평면 | **전역:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure 미국 정부:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | 키: 암호 해독, 암호화,<br> 래핑 취소, 래핑, 확인, 서명,<br> 가져오기, 나열, 업데이트, 만들기,<br> 가져오기, 삭제, 백업, 복원<br><br> 비밀: 가져오기, 나열, 설정, 삭제 | Key Vault 액세스 정책 |
@@ -62,11 +62,11 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 Azure AD를 사용하여 리소스 그룹에 key vault를 만들고 액세스를 관리합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절한 RBAC 역할을 할당하여 특정 범위 수준에서 액세스 권한을 부여합니다. key vault를 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 사용자에게 미리 정의된 `key vault Contributor` 역할을 할당합니다. 다음 범위 수준을 RBAC 역할에 할당할 수 있습니다.
 
-- **구독**: 구독 수준에서 할당된 RBAC 역할은 해당 구독 내 모든 리소스 그룹 및 리소스에 적용됩니다.
-- **리소스 그룹**: 리소스 그룹 수준에서 할당된 RBAC 역할은 해당 리소스 그룹의 모든 리소스에 적용됩니다.
-- **특정 리소스**: 특정 리소스에 할당된 RBAC 역할이 해당 리소스에 적용됩니다. 이 경우 리소스는 특정 Key Vault입니다.
+- **구독**: 구독 수준에서 할당 된 RBAC 역할은 해당 구독 내의 모든 리소스 그룹 및 리소스에 적용 됩니다.
+- **리소스 그룹**: 리소스 그룹 수준에서 할당 된 RBAC 역할은 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
+- **특정 리소스**: 특정 리소스에 할당 된 RBAC 역할은 해당 리소스에 적용 됩니다. 이 경우 리소스는 특정 Key Vault입니다.
 
-미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
+미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > 사용자에게 Key Vault 관리 평면에 대한 `Contributor` 사용 권한이 있는 경우 이 사용자는 Key Vault 액세스 정책을 설정하여 스스로 데이터 평면에 대한 액세스 권한을 부여할 수 있습니다. Key Vault에 대한 `Contributor` 역할 액세스 권한이 있는 사용자를 긴밀하게 제어해야 합니다. 권한이 있는 사람만 키 자격 증명 모음, 키, 비밀 및 인증서에 액세스하고 관리할 수 있는지 확인합니다.
@@ -87,20 +87,20 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 
 [Azure Key Vault에 대한 가상 네트워크 서비스 엔드포인트](key-vault-overview-vnet-service-endpoints.md)를 사용하여 데이터 평면 액세스를 제어할 수 있습니다. 추가 보안 계층에 대한 [방화벽 및 가상 네트워크 규칙](key-vault-network-security.md)을 구성할 수 있습니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
-이 예제에서는 SSL에 인증서를, 데이터 저장에 Azure Storage를, 로그인 작업에 RSA 2048비트 키를 사용하는 애플리케이션을 개발합니다. 애플리케이션은 Azure VM(Virtual Machine)(또는 가상 머신 확장 집합)에서 실행됩니다. Key Vault를 사용하여 애플리케이션 비밀을 저장할 수 있습니다. 애플리케이션이 Azure AD에서 인증을 받는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
+이 예제에서는 TLS/SSL에 인증서를 사용 하는 응용 프로그램을 개발 하 고, Azure Storage 데이터를 저장 하 고, 서명 작업을 위한 RSA 2048 비트 키를 개발 합니다. 애플리케이션은 Azure VM(Virtual Machine)(또는 가상 머신 확장 집합)에서 실행됩니다. Key Vault를 사용하여 애플리케이션 비밀을 저장할 수 있습니다. 애플리케이션이 Azure AD에서 인증을 받는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
 
 다음 저장된 키와 비밀에 액세스해야 합니다.
-- **SSL 인증서**: SSL에 사용합니다.
-- **스토리지 키**: 스토리지 계정에 액세스하는 데 사용합니다.
-- **RSA 2048비트 키**: 서명 작업에 사용합니다.
-- **부트스트랩 인증서**: Azure AD를 사용하여 인증하는 데 사용합니다. 액세스 권한이 부여되면 스토리지 키를 가져오고 서명을 위해 RSA 키를 사용할 수 있습니다.
+- **Tls/ssl 인증서**: TLS/ssl에 사용 됩니다.
+- **저장소 키**: 저장소 계정에 액세스 하는 데 사용 됩니다.
+- **RSA 2048 비트 키**: 서명 작업에 사용 됩니다.
+- **부트스트랩 인증서**: Azure AD를 인증 하는 데 사용 됩니다. 액세스 권한이 부여되면 스토리지 키를 가져오고 서명을 위해 RSA 키를 사용할 수 있습니다.
 
 애플리케이션을 관리, 배포 및 감사할 수 있는 사용자를 지정하려면 다음 역할을 정의해야 합니다.
-- **보안 팀**: CSO(최고 보안 책임자) 사무실 IT 직원 또는 비슷한 참가자입니다. 이 보안 팀은 비밀의 적절한 보호를 담당합니다. 비밀에는 SSL 인증서, 서명용 RSA 키, 연결 문자열 및 스토리지 계정 키가 포함될 수 있습니다.
-- **개발자 및 운영자**: 애플리케이션을 개발하고 Azure에 배포하는 직원입니다. 이 팀의 멤버는 보안 담당자에 속하지 않습니다. 이러한 직원은 SSL 인증서 및 RSA 키와 같은 중요한 데이터에 액세스할 수 없어야 합니다. 배포하는 애플리케이션에서만 중요한 데이터에 액세스할 수 있어야 합니다.
-- **감사자**: 이 역할은 개발 팀의 멤버 또는 일반 IT 직원이 아닌 참가자입니다. 이들은 인증서, 키 및 비밀의 사용 및 유지 관리를 검토하여 보안 표준을 준수하도록 합니다. 
+- **보안 팀**: cso (최고 보안 책임자) 또는 유사한 참가자의 사무실에서 IT 직원. 이 보안 팀은 비밀의 적절한 보호를 담당합니다. 암호에는 TLS/SSL 인증서, 서명에 사용할 RSA 키, 연결 문자열 및 저장소 계정 키가 포함 될 수 있습니다.
+- **개발자 및 운영자**: 응용 프로그램을 개발 하 고 Azure에 배포 하는 직원입니다. 이 팀의 멤버는 보안 담당자에 속하지 않습니다. TLS/SSL 인증서 및 RSA 키와 같은 중요 한 데이터에는 액세스할 수 없습니다. 배포하는 애플리케이션에서만 중요한 데이터에 액세스할 수 있어야 합니다.
+- **감사자**:이 역할은 개발 또는 일반 IT 직원의 멤버가 아닌 참가자를 위한 것입니다. 이들은 인증서, 키 및 비밀의 사용 및 유지 관리를 검토하여 보안 표준을 준수하도록 합니다. 
 
 애플리케이션의 범위 외부에 있는 다른 역할, 즉 구독(또는 리소스 그룹) 관리자 역할이 있습니다. 구독 관리자는 보안 팀의 초기 액세스 권한을 설정합니다. 이들은 애플리케이션에 필요한 리소스가 있는 리소스 그룹을 사용하여 보안 팀에 액세스 권한을 부여합니다.
 
@@ -115,7 +115,7 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 - 키 및 비밀을 주기적으로 롤링합니다.
 
 **개발자 및 운영자**
-- 서명을 위해 보안 팀에서 부트스트랩 및 SSL 인증서(지문), 스토리지 키(비밀 URI) 및 RSA 키(키 URI)에 대한 참조를 가져옵니다.
+- 서명에 대 한 부트스트랩 및 TLS/SSL 인증서 (지문), 저장소 키 (비밀 URI) 및 RSA 키 (키 URI)에 대 한 보안 팀의 참조를 가져옵니다.
 - 프로그래밍 방식으로 키와 암호에 액세스하는 애플리케이션을 개발하고 배포합니다.
 
 **감사자**
@@ -126,8 +126,8 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 | 역할 | 관리 평면 사용 권한 | 데이터 평면 사용 권한 |
 | --- | --- | --- |
 | 보안 팀 | Key Vault 참가자 | 키: 백업, 만들기, 삭제, 권한 가져오기, 가져오기, 목록 표시, 복원<br>비밀: 모든 작업 |
-| 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**: 이 권한이 있으면 배포된 VM이 Key Vault에서 비밀을 가져올 수 있습니다. | 없음 |
-| 감사자 | 없음 | 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. |
+| 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**:이 사용 권한을 통해 배포 된 vm이 키 자격 증명 모음에서 암호를 가져올 수 있습니다. | 없음 |
+| 감사자 | 없음 | 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**:이 사용 권한을 통해 감사자는 로그에서 내보내지 않은 키와 비밀에 대 한 특성 (태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. |
 | 애플리케이션 | 없음 | 키: 로그인<br>암호: 권한 가져오기 |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. VM(또는 Azure App Service의 Web Apps 기능)을 배포하려면 개발자와 운영자는 해당 리소스 형식에 대한 `Contributor` 액세스 권한이 필요합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.
@@ -139,7 +139,7 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 Azure Portal을 사용하여 대부분의 액세스 권한을 부여할 수 있습니다. 세분화된 권한을 부여하려면 Azure PowerShell 또는 Azure CLI를 사용할 수 있습니다.
 
 이 섹션의 PowerShell 코드 조각은 다음과 같은 가정에 따라 빌드됩니다.
-- Azure AD 관리자가 세 가지 역할 Contoso Security Team, Contoso App DevOps 및 Contoso App Auditors를 나타내는 보안 그룹을 만들었습니다. 관리자가 해당 그룹에 사용자를 추가했습니다.
+- Azure AD 관리자는 세 가지 역할, 즉 Contoso 보안 팀, Contoso App DevOps 및 Contoso 앱 감사자를 나타내는 보안 그룹을 만들었습니다. 관리자가 해당 그룹에 사용자를 추가했습니다.
 - 모든 리소스는 **ContosoAppRG** 리소스 그룹에 있습니다.
 - Key Vault 로그는 **contosologstorage** 스토리지 계정에 저장됩니다. 
 - **ContosoKeyVault** Key Vault 및 **contosologstorage** 스토리지 계정이 동일한 Azure 위치에 있습니다.
@@ -183,7 +183,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 
 정의된 사용자 지정 역할은 **ContosoAppRG** 리소스 그룹을 만든 구독에만 할당할 수 있습니다. 다른 구독의 다른 프로젝트에 대한 사용자 지정 역할을 사용하려면 해당 역할의 범위에 다른 구독을 추가합니다.
 
-DevOps 직원의 경우 Key Vault `deploy/action` 권한에 대한 사용자 지정 역할 할당 범위는 해당 리소스 그룹으로 지정됩니다. **ContosoAppRG**에서 만든 VM만 비밀(SSL 및 부트스트랩 인증서)에 액세스할 수 있습니다. DevOps 멤버가 다른 리소스 그룹에서 만든 VM은 비밀 URI가 있더라도 이러한 비밀에 액세스할 수 없습니다.
+DevOps 직원의 경우 Key Vault `deploy/action` 권한에 대한 사용자 지정 역할 할당 범위는 해당 리소스 그룹으로 지정됩니다. **ContosoAppRG** 리소스 그룹에서 만든 vm만 암호 (TLS/SSL 및 부트스트랩 인증서)에 액세스할 수 있습니다. DevOps 멤버가 다른 리소스 그룹에서 만든 VM은 비밀 URI가 있더라도 이러한 비밀에 액세스할 수 없습니다.
 
 이 예제에서는 간단한 시나리오를 설명합니다. 실제 시나리오는 더 복잡할 수 있습니다. 필요에 따라 key vault에 대한 사용 권한을 조정할 수 있습니다. 보안 팀에서 DevOps 직원이 애플리케이션에서 사용하는 키 및 비밀 참조(URI 및 지문)를 제공한다고 가정합니다. 개발자 및 운영자에게는 데이터 평면 액세스가 필요하지 않습니다. Key Vault를 보호하는 방법을 집중적으로 살펴보았습니다. [VM](https://azure.microsoft.com/services/virtual-machines/security/), [스토리지 계정](../storage/common/storage-security-guide.md) 및 기타 Azure 리소스를 보호할 때도 비슷한 사항을 고려해야 합니다.
 
@@ -196,7 +196,7 @@ DevOps 직원의 경우 Key Vault `deploy/action` 권한에 대한 사용자 지
 
 * [Azure AD RBAC](../role-based-access-control/role-assignments-portal.md)
 
-* [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
+* [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)
 
 * [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md) 
 

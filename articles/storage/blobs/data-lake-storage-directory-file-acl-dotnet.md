@@ -3,26 +3,26 @@ title: Acl & 파일에 대 한 .NET SDK Azure Data Lake Storage Gen2 (미리 보
 description: Azure Storage 클라이언트 라이브러리를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정의 디렉터리 및 파일 및 디렉터리 ACL (액세스 제어 목록)을 관리 합니다.
 author: normesta
 ms.service: storage
-ms.date: 11/24/2019
+ms.date: 01/09/2020
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 7921b42475d92070884a4298f66411813c995452
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 76fab93543310252bb9003029573f9d3f1ff62b6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443777"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834991"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>.NET을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리 (미리 보기)
 
 이 문서에서는 .NET을 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
 > [!IMPORTANT]
-> 이 문서에 제공 되는 [DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) NuGet 패키지는 현재 공개 미리 보기로 제공 됩니다.
+> 이 문서에 제공 되는 [DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) NuGet 패키지는 현재 공개 미리 보기로 제공 됩니다.
 
-[패키지 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Storage.Files.DataLake/12.0.0-preview.6/api/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [피드백 제공](https://github.com/Azure/azure-sdk-for-net/issues)
+[패키지 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [API 참조](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [피드백 제공](https://github.com/Azure/azure-sdk-for-net/issues)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -47,9 +47,9 @@ using Azure;
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
-이 문서의 코드 조각을 사용 하려면 저장소 계정을 나타내는 **DataLakeServiceClient** 인스턴스를 만들어야 합니다. 하나를 가져오는 가장 쉬운 방법은 계정 키를 사용 하는 것입니다. 
+이 문서의 코드 조각을 사용 하려면 저장소 계정을 나타내는 [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들어야 합니다. 하나를 가져오는 가장 쉬운 방법은 계정 키를 사용 하는 것입니다. 
 
-이 예에서는 계정 키를 사용 하 여 **DataLakeServiceClient** 의 인스턴스를 만듭니다.
+이 예에서는 계정 키를 사용 하 여 [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) 의 인스턴스를 만듭니다.
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
@@ -67,7 +67,7 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 ## <a name="create-a-file-system"></a>파일 시스템 만들기
 
-파일 시스템은 파일의 컨테이너 역할을 합니다. **FileSystemClient CreateFileSystemAsync** 메서드를 호출 하 여 만들 수 있습니다.
+파일 시스템은 파일의 컨테이너 역할을 합니다. [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync) 메서드를 호출 하 여 만들 수 있습니다.
 
 이 예에서는 `my-file-system`이라는 파일 시스템을 만듭니다. 
 
@@ -81,7 +81,7 @@ public async Task<DataLakeFileSystemClient> CreateFileSystem
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
-**FileSystemClient. CreateDirectoryAsync** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
+[DataLakeFileSystemClient. CreateDirectoryAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync) 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
 
 이 예제에서는 `my-directory` 라는 디렉터리를 파일 시스템에 추가한 다음 `my-subdirectory`라는 하위 디렉터리를 추가 합니다. 
 
@@ -101,7 +101,7 @@ public async Task<DataLakeDirectoryClient> CreateDirectory
 
 ## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
 
-**RenameAsync** 메서드를 호출 하 여 디렉터리 이름을 바꾸거나 이동 합니다. 원하는 디렉터리의 경로를 매개 변수로 전달 합니다. 
+[DataLakeDirectoryClient RenameAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync) 메서드를 호출 하 여 디렉터리 이름을 바꾸거나 이동 합니다. 원하는 디렉터리의 경로를 매개 변수로 전달 합니다. 
 
 이 예에서는 `my-subdirectory-renamed`이름으로 하위 디렉터리의 이름을 바꿉니다.
 
@@ -131,7 +131,7 @@ public async Task<DataLakeDirectoryClient> MoveDirectory
 
 ## <a name="delete-a-directory"></a>디렉터리 삭제
 
-**Directoryclient. delete** 메서드를 호출 하 여 디렉터리를 삭제 합니다.
+[DataLakeDirectoryClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.delete) 메서드를 호출 하 여 디렉터리를 삭제 합니다.
 
 이 예에서는 `my-directory`라는 디렉터리를 삭제 합니다.  
 
@@ -147,7 +147,10 @@ public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="manage-a-directory-acl"></a>디렉터리 ACL 관리
 
-**Directoryclient. GetAccessControlAsync** 메서드를 호출 하 고 **SetAccessControl** 메서드를 호출 하 여 acl을 설정 하 여 디렉터리의 acl (액세스 제어 목록)을 가져옵니다.
+[DataLakeDirectoryClient. GetAccessControlAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.getaccesscontrolasync) 메서드를 호출 하 고 [DataLakeDirectoryClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.setaccesscontrollist) 를 호출 하 여 acl을 설정 하는 방법으로 디렉터리의 acl (액세스 제어 목록)을 가져옵니다.
+
+> [!NOTE]
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요. 
 
 이 예제에서는 `my-directory`된 디렉터리의 ACL을 가져오고 설정 합니다. 문자열 `user::rwx,group::r-x,other::rw-` 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹만 읽기 및 실행 권한을 부여 하 고 다른 모든 읽기 및 쓰기 권한을 부여 합니다.
 
@@ -160,9 +163,13 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
     PathAccessControl directoryAccessControl =
         await directoryClient.GetAccessControlAsync();
 
-    Console.WriteLine(directoryAccessControl.Acl);
+    Console.WriteLine(directoryAccessControl.AccessControlList);
 
-    directoryClient.SetAccessControl("user::rwx,group::r-x,other::rw-");
+    IList<PathAccessControlItem> accessControlList
+        = PathAccessControlExtensions.ParseAccessControlList
+        ("user::rwx,group::r-x,other::rw-");
+
+    directoryClient.SetAccessControlList(accessControlList);
 
 }
 
@@ -170,7 +177,7 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 
-먼저 **DataLakeFileClient** 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. **DataLakeFileClient async** 메서드를 호출 하 여 파일을 업로드 합니다. **DataLakeFileClient FlushAsync** 메서드를 호출 하 여 업로드를 완료 해야 합니다.
+먼저 [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient) 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. [DataLakeFileClient async](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) 메서드를 호출 하 여 파일을 업로드 합니다. [DataLakeFileClient FlushAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) 메서드를 호출 하 여 업로드를 완료 해야 합니다.
 
 이 예제에서는 `my-directory`라는 디렉터리에 텍스트 파일을 업로드 합니다.    
 
@@ -196,7 +203,10 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="manage-a-file-acl"></a>파일 ACL 관리
 
-**DataLakeFileClient** 메서드를 호출 하 여 파일의 acl (액세스 제어 목록)을 가져오고 **FileClient** 메서드를 호출 하 여 acl을 설정 합니다.
+[DataLakeFileClient. GetAccessControlAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.getaccesscontrolasync) 메서드를 호출 하 고 [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.setaccesscontrollist) 를 호출 하 여 acl을 설정 하는 방법으로 파일의 acl (액세스 제어 목록)을 가져옵니다.
+
+> [!NOTE]
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요. 
 
 이 예제에서는 `my-file.txt`이라는 파일의 ACL을 가져오고 설정 합니다. 문자열 `user::rwx,group::r-x,other::rw-` 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹만 읽기 및 실행 권한을 부여 하 고 다른 모든 읽기 및 쓰기 권한을 부여 합니다.
 
@@ -212,15 +222,19 @@ public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
     PathAccessControl FileAccessControl =
         await fileClient.GetAccessControlAsync();
 
-    Console.WriteLine(FileAccessControl.Acl);
+    Console.WriteLine(FileAccessControl.AccessControlList);
 
-    fileClient.SetAccessControl("user::rwx,group::r-x,other::rw-");
+    IList<PathAccessControlItem> accessControlList
+        = PathAccessControlExtensions.ParseAccessControlList
+        ("user::rwx,group::r-x,other::rw-");
+
+    fileClient.SetAccessControlList(accessControlList);
 }
 ```
 
 ## <a name="download-from-a-directory"></a>디렉터리에서 다운로드 
 
-먼저 다운로드 하려는 파일을 나타내는 **DataLakeFileClient** 인스턴스를 만듭니다. **FileClient ReadAsync** 메서드를 사용 하 고 반환 값을 구문 분석 하 여 [스트림](https://docs.microsoft.com/dotnet/api/system.io.stream) 개체를 가져옵니다. 모든 .NET 파일 처리 API를 사용 하 여 스트림에서 바이트를 파일에 저장 합니다. 
+먼저 다운로드 하려는 파일을 나타내는 [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient) 인스턴스를 만듭니다. [DataLakeFileClient ReadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) 메서드를 사용 하 고 반환 값을 구문 분석 하 여 [스트림](https://docs.microsoft.com/dotnet/api/system.io.stream) 개체를 가져옵니다. 모든 .NET 파일 처리 API를 사용 하 여 스트림에서 바이트를 파일에 저장 합니다. 
 
 이 예에서는 [BinaryReader](https://docs.microsoft.com/dotnet/api/system.io.binaryreader) 및 [FileStream](https://docs.microsoft.com/dotnet/api/system.io.filestream) 을 사용 하 여 바이트를 파일에 저장 합니다. 
 
@@ -259,7 +273,7 @@ public async Task DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="list-directory-contents"></a>디렉터리 콘텐츠 나열
 
-**FileSystemClient ListPathsAsync** 메서드를 호출 하 고 결과를 열거 하 여 디렉터리 내용을 나열 합니다.
+[FileSystemClient GetPathsAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getpathsasync) 메서드를 호출 하 고 결과를 열거 하 여 디렉터리 내용을 나열 합니다.
 
 이 예에서는 `my-directory`라는 디렉터리에 있는 각 파일의 이름을 인쇄 합니다.
 
@@ -267,7 +281,7 @@ public async Task DownloadFile(DataLakeFileSystemClient fileSystemClient)
 public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient)
 {
     IAsyncEnumerator<PathItem> enumerator = 
-        fileSystemClient.ListPathsAsync("my-directory").GetAsyncEnumerator();
+        fileSystemClient.GetPathsAsync("my-directory").GetAsyncEnumerator();
 
     await enumerator.MoveNextAsync();
 
@@ -290,8 +304,8 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 
 ## <a name="see-also"></a>참고 항목
 
-* [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Storage.Files.DataLake/12.0.0-preview.6/api/index.html)
-* [패키지 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6)
+* [API 참조 설명서](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
+* [패키지 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)
 * [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)

@@ -1,26 +1,19 @@
 ---
-title: 'Vnet 간 연결을 만듭니다: 클래식: Azure Portal | Microsoft Docs'
+title: 'Vnet: 클래식: Azure Portal 간의 연결을 만듭니다.'
 description: PowerShell 및 Azure Portal을 사용하여 Azure 가상 네트워크를 함께 연결합니다.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 8ebfe1bc2e578fa85f209f4dd67a00535e619c7e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407987"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834621"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
@@ -101,7 +94,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 **TestVNet1에 대한 값**
 
 이름: TestVNet1<br>
-주소 공간 10.11.0.0/16, 10.12.0.0/16 (선택 사항)<br>
+주소 공간: 10.11.0.0/16, 10.12.0.0/16(선택 사항)<br>
 서브넷 이름: 기본값<br>
 서브넷 주소 범위: 10.11.0.1/24<br>
 리소스 그룹: ClassicRG<br>
@@ -111,7 +104,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 **TestVNet4에 대한 값**
 
 이름: TestVNet4<br>
-주소 공간 10.41.0.0/16, 10.42.0.0/16 (선택 사항)<br>
+주소 공간: 10.41.0.0/16, 10.42.0.0/16(선택 사항)<br>
 서브넷 이름: 기본값<br>
 서브넷 주소 범위: 10.41.0.1/24<br>
 리소스 그룹: ClassicRG<br>
@@ -212,7 +205,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 ## <a name="getvalues"></a>7단계 - 네트워크 구성 파일에서 값 검색
 
-Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 PowerShell에 사용한 전체 이름이 아닙니다. 예를 들어 포털에 **TestVNet1**이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름이 있을 수 있습니다. 이름은 다음과 같이 표시될 수 있습니다. **ClassicRG TestVNet1 그룹**합니다. 연결을 만드는 경우 네트워크 구성 파일에 있는 값을 사용하는 것이 중요합니다.
+Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 PowerShell에 사용한 전체 이름이 아닙니다. 예를 들어 포털에 **TestVNet1**이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름이 있을 수 있습니다. 해당 이름은 **Group ClassicRG TestVNet1**과 같은 모양일 수 있습니다. 연결을 만드는 경우 네트워크 구성 파일에 있는 값을 사용하는 것이 중요합니다.
 
 다음 단계에서는 연결에 필요한 값을 확보하기 위해 Azure 계정에 연결하고 네트워크 구성 파일을 다운로드하여 살펴봅니다.
 

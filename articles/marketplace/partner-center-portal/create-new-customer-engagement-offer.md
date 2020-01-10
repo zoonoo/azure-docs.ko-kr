@@ -7,13 +7,13 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: b3aefb22f5b58d673d099e6b2b609b89b88c35c7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/31/2019
+ms.openlocfilehash: 354bd8520977ee7533f7902255a7c8ecbab11e19
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825609"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779997"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>고객 Engagement & PowerApps 제품에 대 한 새 Dynamics 365 만들기
 
@@ -52,7 +52,7 @@ ms.locfileid: "73825609"
 
 #### <a name="free-trial-listing"></a>무료 평가판 (목록)
 
-평가판을 받을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 나열 합니다.  예제: `https://contoso.com/trial/my-app`. 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
+평가판을 받을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 나열 합니다.  예: `https://contoso.com/trial/my-app` 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 응용 프로그램에서 수신 하는 토큰은 앱에서 계정 만들기를 자동화 하는 Azure Active Directory (Azure AD)를 통해 사용자 정보를 가져오는 데만 사용할 수 있습니다. 이 토큰을 사용 하는 인증에 대해서는 Microsoft 계정이 지원 되지 않습니다.
@@ -69,7 +69,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 #### <a name="type-of-test-drive"></a>테스트 드라이브의 유형입니다.
 
-다음 옵션 중에서 선택 합니다.
+다음 옵션 중에서 선택합니다.
 
 - **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : 솔루션을 구성 하는 모든 Azure 리소스를 포함 하는 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용 합니다.
 - **[Dynamics 365 For Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft는 회사 중앙 엔터프라이즈 리소스 계획 시스템 (재무, 운영, 공급망, CRM 등)에 대해 테스트 드라이브 서비스 (프로 비전 및 배포 포함)를 호스트 하 고 유지 관리 합니다.  
@@ -96,7 +96,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 **속성** 페이지를 통해 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주와 산업, 앱 버전 및 제품을 지 원하는 법적 계약을 정의할 수 있습니다. 이 페이지를 완료 한 후 **저장** 을 선택 합니다. 
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 최소 1 자에서 최대 3 개의 범주를 선택 합니다. 이러한 기능은 제품을 적절 한 마켓플레이스 검색 영역에 추가 하는 데 사용 됩니다. 제품이 제품 설명에서 이러한 범주를 어떻게 지원 하는지 확인 해야 합니다. 
 
@@ -118,11 +118,11 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며, 고객은 한 번만 심사 하 고 수락 하면 됩니다. 
 
-표준 계약은 https://go.microsoft.com/fwlink/?linkid=2041178에서 찾을 수 있습니다.
+표준 계약은 다음 위치에서 찾을 수 있습니다. https://go.microsoft.com/fwlink/?linkid=2041178
 
 표준 계약을 사용 하려면 **표준 계약 사용?** 상자를 선택 합니다.
 
-#### <a name="terms-of-use"></a>사용 약관
+#### <a name="terms-of-use"></a>사용 조건
 
 **표준 계약 사용** 확인란을 선택 하지 않은 경우 **사용 약관** 필드에서 사용자의 법적 사용 약관을 제공 해야 합니다. 최대 1만 문자 텍스트를 입력 하거나 사용 약관에 더 긴 설명이 필요한 경우 추가 사용 조건을 찾을 수 있는 URL을 입력 합니다. 고객은 앱을 사용해 볼 수 있도록 이러한 약관에 동의 해야 합니다.
 
@@ -135,7 +135,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 > [!NOTE]
 > 제품 설명 (예: 설명, 문서, 스크린샷, 사용 약관 등)은 영어로 시작 하지 않아도 됩니다. "이 응용 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다." 또한 제품 목록 콘텐츠에 사용 되는 것 이외의 언어로 콘텐츠를 제공 하는 *데 유용한 링크 URL* 을 제공 하는 것도 허용 됩니다.
 
-### <a name="name"></a>Name
+### <a name="name"></a>이름
 
 여기에 입력 하는 이름은 고객에 게 제품 목록의 제목으로 표시 됩니다. 이 필드는 제품을 만들 때 **제공 별칭** 에 입력 한 텍스트로 미리 채워져 있지만이 값을 변경할 수 있습니다. 이 이름은 상표 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다. 이름은 50 자를 초과할 수 없으며, 모든 emojis를 포함할 수 없습니다.
 
@@ -143,7 +143,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 제품에 대 한 간단한 설명을 제공 합니다 (최대 100 자). Marketplace 검색 결과에 사용할 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다. 
 
@@ -192,7 +192,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 이 섹션에서는 고객에 게 제품을 표시할 때 사용 되는 로고 및 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식 이어야 합니다.
 
-#### <a name="store-logos"></a>매장 로고
+#### <a name="store-logos"></a>Microsoft Store 로고
 
 **작은 (48 x 48)** , **큼 (216 x 216)** 및 **와이드 (255 x 115)** 의 세 가지 크기로 제품 로고를 제공할 수 있습니다. 작은 크기와 크기가 필요 합니다.
 
@@ -300,7 +300,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **테스트 드라이브 기간** (필수): 시간 수를 정의 하 여 테스트 드라이브가 활성 상태로 유지 되는 시간을 입력 합니다. 이 시간이 지난 후에는 세션이 종료 되 고 더 이상 라이선스 중 하나를 사용 하지 않습니다. 제품의 복잡도에 따라 2-24 시간 값을 설정 하는 것이 좋습니다. 이 기간은 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않음) 으로만 설정할 수 있습니다.  사용자는 시간이 부족 하 고 테스트 드라이브에 다시 액세스 하려는 경우 새 세션을 요청할 수 있습니다.
 
-- **인스턴스 URL** (필수): 고객이 테스트 드라이브를 시작 하는 url입니다. 일반적으로 샘플 데이터가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL (예: https://testdrive.crm.dynamics.com)입니다.
+- **인스턴스 URL** (필수): 고객이 테스트 드라이브를 시작 하는 url입니다. 일반적으로 샘플 데이터가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL입니다 (예: https://testdrive.crm.dynamics.com).
 
 - **인스턴스 웹 API url** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt;로 이동 하 여 DYNAMICS 365 인스턴스의 Web API url을 검색 합니다. **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 URL을 복사 합니다 (예: https://testdrive.crm.dynamics.com/api/data/v9.0).
 
@@ -350,7 +350,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **사용자 설명서** (필수): 테스트 드라이브 환경을 자세히 연습 합니다. 사용자 설명서는 시험 사용에 대 한 고객의 의견을 정확 하 게 파악 하 고 있을 수 있는 질문에 대 한 참조로 사용할 수 있습니다. 업로드 후 파일은 PDF 형식 이어야 하며 (최대 255 자) 이름이 지정 되어야 합니다.
 
-- **비디오: 비디오 추가** (선택 사항): 비디오를 YouTube 또는 Vimeo에 업로드 하 고 링크 및 미리 보기 이미지 (533 x 324 픽셀)를 사용 하 여 여기에서 참조할 수 있으므로 고객이 테스트 드라이브를 보다 잘 이해 하는 데 도움이 되는 정보를 볼 수 있습니다. 예를 들어 제품의 기능을 성공적으로 사용 하 고 혜택을 강조 하는 시나리오를 이해 하는 방법입니다.
+- **비디오: 비디오 추가** (선택 사항): 비디오를 YouTube 또는 Vimeo에 업로드 하 고 링크 및 미리 보기 이미지 (533 x 324 픽셀)를 사용 하 여 여기에서 참조할 수 있으므로 고객이 제품의 기능을 성공적으로 사용 하 고 혜택을 강조 하는 시나리오를 이해 하는 방법을 비롯 하 여 테스트 드라이브를 보다 잘 이해할 수 있도록 돕기 위해 정보를 단계별로 볼 수 있습니다.
   - **이름** (필수)
   - **URL (YouTube 또는 Vimeo만 해당)** (필수)
   - **축소판 그림 (533 x 324px)** : 이미지 파일은 PNG 형식 이어야 합니다.
@@ -380,4 +380,4 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상업적 Marketplace에서 기존 제품 업데이트](./update-existing-offer.md)
+- [상업용 Marketplace에서 기존 제품 업데이트](./update-existing-offer.md)

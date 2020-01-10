@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: 8af0f998df2a92e51078a2e23806cca07ff08ca3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6152becb8debd0700ddab6190284514c6d6cf69d
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480087"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830057"
 ---
 # <a name="public-preview---private-azure-kubernetes-service-cluster"></a>공개 미리 보기-개인 Azure Kubernetes 서비스 클러스터
 
@@ -81,16 +81,16 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 #### <a name="advanced-networking"></a>고급 네트워킹  
 
 ```azurecli-interactive
-az aks create \ 
-    --resource-group <private-cluster-resource-group>\ 
-    --name <private-cluster-name> \ 
-    --load-balancer-sku standard
-    --enable-private-cluster 
-    --network-plugin azure \ 
-    --vnet-subnet-id <subnet-id> \ 
-    --docker-bridge-address 172.17.0.1/16 \ 
-    --dns-service-ip 10.2.0.10 \ 
-    --service-cidr 10.2.0.0/24 \ 
+az aks create \
+    --resource-group <private-cluster-resource-group> \
+    --name <private-cluster-name> \
+    --load-balancer-sku standard \
+    --enable-private-cluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 
 ```
 여기서--enable-private-cluster는 개인 클러스터에 대 한 필수 플래그입니다. 
 
@@ -108,6 +108,11 @@ API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 사용자는 �
     * 사설 DNS 영역을 클릭 합니다. 
     * 왼쪽 창에서 Virtual network 링크를 선택 합니다.
     * VM의 VNET을 사설 DNS 영역에 추가 하는 새 링크를 만듭니다 *(DNS 영역 링크를 사용 가능 하 게 하는 데 몇 분이 소요 될 수 있음)* .
+    * 포털에서 MC_ * 리소스 그룹으로 돌아가기
+    * 오른쪽 창에서 가상 네트워크를 선택 합니다. 가상 네트워크 이름은 aks-* 형식으로 됩니다.
+    * 왼쪽 창에서 피어 링을 선택 합니다.
+    * 추가를 클릭 하 고 VM의 가상 네트워크를 추가 하 고 피어 링을 만듭니다.
+    * VM이 있는 Vnet으로 이동한 다음 피어 링을 클릭 하 고 AKS 가상 네트워크를 선택 하 고 피어 링을 만듭니다. AKS 가상 네트워크의 주소 범위와 VM의 가상 네트워크가 충돌 하는 경우 피어 링이 실패 합니다. 가상 네트워크 피어 링에 대 한 자세한 내용은이 [문서][virtual-network-peering] 를 참조 하세요.
 * VM에 대 한 SSH
 * Kubectl 도구를 설치 하 고 Kubectl 명령을 실행 합니다.
 
@@ -132,3 +137,5 @@ API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 사용자는 �
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+

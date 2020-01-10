@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43eae8b7308f71886d855bbc53f341bd674e6c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfe51558cf96e77288186c2ed2b4a2773cbc5cf2
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433805"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829870"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -62,15 +62,16 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Azure Active Directory 사용자 | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |활성 |
+|department|urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: 부서|
 | displayName |displayName |
+|employeeId|urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: 예제|
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
 | mail |emails[type eq "work"].value |
 | mailNickname |externalId |
-| manager |manager |
+| manager |urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
-| objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
 | physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
@@ -79,15 +80,16 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
 
+
 ### <a name="table-2-default-group-attribute-mapping"></a>테이블 2: 기본 그룹 특성 매핑
 
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
-| displayName |externalId |
+| displayName |displayName |
 | mail |emails[type eq "work"].value |
 | mailNickname |displayName |
 | members |members |
-| objectId |ID |
+| objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>2 단계: Azure AD SCIM 구현 이해

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828983"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772852"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN VPN Gateway의 차이는 무엇인가요?
 
@@ -22,6 +22,9 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 ### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>Virtual WAN은 Azure 가상 네트워크 게이트웨이와 어떻게 다른가요?
 
 가상 네트워크 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결에는 대규모 VPN을 위한 Virtual WAN을 사용해야 합니다. 허브당 20Gbps의 집계를 사용하여 지역(가상 허브)당 최대 1000개의 분기 연결을 연결할 수 있습니다. 연결은 온-프레미스 VPN 디바이스에서 가상 허브로의 활성-활성 터널입니다. 지역당 하나의 허브만 있을 수 있습니다. 즉 허브에서 1,000개가 넘는 분기를 연결할 수 있습니다.
+
+### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>가상 WAN 게이트웨이 확장 단위란?
+확장 단위는 가상 허브에서 게이트웨이의 집계 처리량을 선택하기 위해 정의된 단위입니다. VPN의 1개 확장 단위 = 500Mbps ExpressRoute의 1개 확장 단위 = 2Gbps 예제: VPN의 10개 확장 단위는 500Mbps * 10 = 5Gbps를 의미합니다.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>어떤 디바이스 공급자(Virtual WAN 파트너)가 지원되나요?
 
@@ -111,9 +114,11 @@ NVA(네트워크 가상 어플라이언스)는 가상 허브 내에 배포할 �
 
 Virtual WAN과 다른 지역의 VNet에 연결할 수 있습니다.
 
-### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>가상 허브에 연결된 VNet 스포크는 서로 통신할 수 있나요?
+### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>가상 허브에 연결된 VNet 스포크는 서로 통신(V2V 전송)할 수 있나요?
 
-예. 표준 Virtual WAN은 Vnet이 연결된 Virtual WAN 허브를 통해 Vnet 간 전이적 연결을 지원합니다. Virtual WAN 용어에서는 이러한 경로를 단일 지역 내의 Virtual WAN 허브에 연결된 VNet의 경우 "로컬 Virtual WAN VNet 전송"이라고 하며, 둘 이상의 지역에 걸친 여러 Virtual WAN 허브를 통해 연결된 VNet의 경우 "글로벌 Virtual WAN VNet 전송"이라고 합니다. VNet 전송은 공개 미리 보기 동안 최대 3Gbps의 처리량을 지원합니다. 글로벌 전송이 GA 상태가 되면 처리량이 확장됩니다.   
+예. 표준 Virtual WAN은 Vnet이 연결된 Virtual WAN 허브를 통해 Vnet 간 전이적 연결을 지원합니다. Virtual WAN 용어에서는 이러한 경로를 단일 지역 내의 Virtual WAN 허브에 연결된 VNet의 경우 "로컬 Virtual WAN VNet 전송"이라고 하며, 둘 이상의 지역에 걸친 여러 Virtual WAN 허브를 통해 연결된 VNet의 경우 "글로벌 Virtual WAN VNet 전송"이라고 합니다. VNet 전송은 공개 미리 보기 동안 최대 3Gbps의 처리량을 지원합니다. 글로벌 전송이 GA 상태가 되면 처리량이 확장됩니다.
+
+참고:  현재 V2V 전송 미리 보기를 사용하려면 실행할 라우팅 요소를 트리거하기 위해 가상 허브에 VPN GW를 배포해야 합니다. 이 VPN GW는 V2V 전송 경로에 사용되지 않습니다. 이는 알려진 제한 사항이며 V2V GA 시점에는 사라질 예정입니다. VPN Gateway는 V2V 전송 기능에 필요하지 않으므로 허브에서 VPN Gateway를 완전히 실행한 후 삭제할 수 있습니다. 
 
 일부 시나리오에서는 로컬 또는 글로벌 Virtual WAN VNet 전송 외에도 [가상 네트워크 피어링](../articles/virtual-network/virtual-network-peering-overview.md)을 사용하여 스포크 Vnet 간에 직접 피어링할 수도 있습니다. 이 경우 Vnet 피어링은 Virtual WAN 허브를 통한 전이적 연결보다 우선적으로 적용됩니다. 
 

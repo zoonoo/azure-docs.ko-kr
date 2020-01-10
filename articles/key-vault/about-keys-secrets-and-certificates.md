@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799404"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832930"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -85,7 +85,7 @@ Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하�
 Key Vault의 암호화 키는 JWK[JSON 웹 키] 개체로 표현됩니다. 또한 기본 JWK/JWA 사양을 확장하여 Key Vault 구현에 고유한 키 유형을 지원할 수 있습니다. 예를 들어 HSM 공급업체별 패키징을 사용하여 키를 가져오면 Key Vault HSM에서만 사용할 수 있는 키를 안전하게 전송할 수 있습니다.  
 
 - **"소프트" 키**: 소프트웨어에서 Key Vault를 통해 처리되지만, 사용되지 않을 때에는 HSM에 있는 시스템 키를 사용하여 암호화되는 키입니다. 클라이언트는 기존 RSA 또는 EC(타원 곡선) 키를 가져오거나 Key Vault에서 생성하도록 요청할 수 있습니다.
-- **"하드" 키**: HSM(하드웨어 보안 모듈)에서 처리되는 키입니다. 이러한 키는 Key Vault HSM 보안 권역 중 하나에서 보호됩니다(격리를 유지하기 위해 지역별로 보안 권역이 하나씩 있음). 클라이언트는 소프트 형식으로 또는 호환되는 HSM 디바이스에서 내보내는 방식으로 RSA 또는 EC 키를 가져올 수 있습니다. 클라이언트는 Key Vault에 키를 생성하라고 요청할 수도 있습니다. 이 키 유형은 key_hsm 특성을 JWK 가져오기에 추가 하 여 HSM 키 자료를 전달 합니다.
+- **"하드" 키**: HSM(하드웨어 보안 모듈)에서 처리되는 키입니다. 이러한 키는 Key Vault HSM 보안 권역 중 하나에서 보호됩니다(격리를 유지하기 위해 지역별로 보안 권역이 하나씩 있음). 클라이언트는 소프트 형식으로 또는 호환되는 HSM 디바이스에서 내보내는 방식으로 RSA 또는 EC 키를 가져올 수 있습니다. 클라이언트는 Key Vault에 키를 생성하라고 요청할 수도 있습니다. 이 키 유형은 JWK 가져오기에 key_hsm 특성을 추가 하 여 HSM 키 자료를 전달 합니다.
 
      지리적 경계에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/privacy/)를 참조하세요.  
 
@@ -376,7 +376,7 @@ Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해�
 
 Key Vault 인증서 개체에는 선택한 인증서 발급자 공급자와 통신하여 x509 인증서를 요청하는 데 사용되는 구성이 있습니다.  
 
--   Key Vault와 제휴 관계에 있는 SSL 인증서에 대한 인증서 발급자 공급자는 다음과 같습니다.
+-   TLS/SSL 인증서에 대 한 다음 인증서 발급자 공급자 Key Vault 파트너
 
 |**공급자 이름**|**위치**|
 |----------|--------|
@@ -389,7 +389,7 @@ Key Vault에 인증서 발급자를 만들려면 먼저 다음 필수 조건 1 �
 
     -   조직 관리자는 하나 이상의 CA 공급자와 함께 자신의 회사(예: Contoso)를 등록해야 합니다.  
 
-2. 관리자는 Key Vault에 대한 요청자 자격 증명을 만들어 SSL 인증서를 등록(및 갱신)합니다.  
+2. 관리자가 TLS/SSL 인증서를 등록 하 고 갱신 하는 Key Vault에 대 한 요청자 자격 증명을 만듭니다.  
 
     -   공급자의 발급자 개체를 만드는 데 사용할 구성을 키 자격 증명 모음에 제공합니다.  
 

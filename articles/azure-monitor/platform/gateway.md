@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 1811796de96e87343544f63fcee7acdd9907693c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8d48c889681eabc2519a0a60d0f9846b8f30bfd5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530989"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830142"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -103,7 +103,7 @@ Log Analytics 게이트웨이는 TLS (전송 계층 보안) 1.0, 1.1 및 1.2만 
 
 ## <a name="download-the-log-analytics-gateway"></a>Log Analytics 게이트웨이 다운로드
 
-[Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=54443) 또는 Azure Portal에서 Log Analytics gateway 설치 파일의 최신 버전을 가져옵니다.
+Microsoft 다운로드 센터 ([다운로드 링크](https://go.microsoft.com/fwlink/?linkid=837444)) 또는 Azure Portal에서 Log Analytics gateway 설치 파일의 최신 버전을 가져옵니다.
 
 Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단계를 수행 합니다.
 

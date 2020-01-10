@@ -1,19 +1,18 @@
 ---
-title: '지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기: MakeCert: Azure | Microsoft Docs'
+title: 'Azure VPN Gateway: P2S에 대 한 & 내보내기 인증서 생성: Makecert.exe'
 description: MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768109"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833981"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
@@ -28,7 +27,7 @@ ms.locfileid: "60768109"
 다음 단계에서는 MakeCert를 사용하여 자체 서명된 인증서를 만드는 방법을 보여 줍니다. 이러한 단계는 배포 모델에 한정되지 않습니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
 
 1. [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)를 다운로드 및 설치합니다.
-2. 설치가 끝나면 일반적으로이 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다. 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. 하지만 다른 위치에 설치되었을 수도 있습니다. 관리자 권한으로 명령 프롬프트를 열고 MakeCert 유틸리티의 위치로 이동합니다. 적절한 위치에 대해 조정하여 다음 예제를 사용할 수 있습니다.
+2. 설치가 끝나면 일반적으로 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>' 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다. 하지만 다른 위치에 설치되었을 수도 있습니다. 관리자 권한으로 명령 프롬프트를 열고 MakeCert 유틸리티의 위치로 이동합니다. 적절한 위치에 대해 조정하여 다음 예제를 사용할 수 있습니다.
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64

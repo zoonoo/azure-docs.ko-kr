@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7f6c7f22cef1cf49a9ff7b2cb87716abd61821c4
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396514"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830329"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -60,7 +60,7 @@ ms.locfileid: "75396514"
 
 ## <a name="what-you-can-alert-on"></a>경고 가능한 내용
 
-[데이터 원본 모니터링](../../azure-monitor/platform/data-sources-reference.md)에 설명 된 대로 메트릭과 로그에 대해 경고할 수 있습니다. 포함하지만 다음과 같이 제한되지 않습니다.
+[데이터 원본 모니터링](../../azure-monitor/platform/data-sources.md)에 설명 된 대로 메트릭과 로그에 대해 경고할 수 있습니다. 포함하지만 다음과 같이 제한되지 않습니다.
 - 메트릭 값
 - 로그 검색 쿼리
 - 활동 로그 이벤트

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 9ebe38b54c042a0c945200bc3d88076b16c2e6f9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c5876dd293a97414ff4f48dbb8645e64226a6ba8
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366382"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834116"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -31,8 +31,7 @@ Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 �
 
 - Azure 가상 머신
 - Azure 가상 머신(기본)
-- Amazon Web Services(AWS) EC2 인스턴스
-- 온-프레미스나 Azure/AWS 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
+- 온-프레미스에 있는 실제/가상 Windows 컴퓨터 (AWS EC2 인스턴스 포함) 또는 Azure 이외의 클라우드
 - 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
 
 또한 클라우드에서 머신 구성을 관리할 수 없는 경우 Azure Automation 상태 구성은 보고서 전용 엔드포인트로 사용될 수 있습니다.
@@ -82,11 +81,7 @@ AzAutomationDscNode cmdlet은 PowerShell을 사용 하 여 Azure에서 가상 �
 예는 [Azure Resource Manager 템플릿을 사용 하 여 필요한 상태 구성 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template)에서 제공 됩니다.
 템플릿에서 매개 변수로 사용할 등록 키와 등록 URL을 찾으려면 다음 [**보안 등록**](#secure-registration) 섹션을 참조 하세요.
 
-## <a name="amazon-web-services-aws-virtual-machines"></a>AWS(Amazon Web Services) 가상 머신
-
-AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 구성 관리를 위해 Amazon Web Services 가상 머신을 쉽게 온보드할 수 있습니다. 이러한 도구 키트에 대한 자세한 내용은 [여기](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/)에서 확인할 수 있습니다.
-
-## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>온-프레미스나 Azure/AWS 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
+## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances"></a>온-프레미스에 있는 실제/가상 Windows 컴퓨터 (AWS EC2 인스턴스 포함) 또는 Azure 이외의 클라우드
 
 온-프레미스 또는 다른 클라우드 환경에서 실행 되는 Windows 서버는 [Azure에 대 한 아웃 바운드 액세스](automation-dsc-overview.md#network-planning)권한이 있는 한 Azure Automation 상태 구성으로 등록 될 수도 있습니다.
 

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 17b7626f79d7d356e3e8f3440e4a6526f2df776d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a27d44a7684b4ad3d39d7fba50ca52e08e932971
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593814"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769774"
 ---
-Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 사용하여 리소스를 관리, 배포 및 공유하기 위한 논리적 단위로 함수를 그룹화할 수 있습니다.
+Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다.
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 차례로 선택합니다.
 
@@ -25,15 +25,15 @@ Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 �
 
 1. **새 Azure Functions 애플리케이션 만들기**에서 다음 옵션을 사용합니다.
 
-    + **Azure Functions v2(.NET Core)** 1
+    + **Azure Functions v2(.NET Core)**
     + **HTTP 트리거**
     + **스토리지 계정**: **Storage 에뮬레이터**
     + **권한 부여 수준**: **익명** 
 
-    | 옵션      | 제안 값  | 설명                      |
+    | 옵션      | 제안 값  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | 함수 런타임 | **Azure Functions 2.x<br />(.NET Core)** | .NET Core를 지원하는 Azure Functions 버전 2.x 런타임을 사용하는 함수 프로젝트를 만듭니다. Azure Functions 1.x는 .NET Framework를 지원합니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](../articles/azure-functions/functions-versions.md)을 참조하세요.   |
-    | 함수 템플릿 | **HTTP 트리거** | HTTP 요청에서 트리거되는 함수를 만듭니다. |
+    | **함수 런타임** | **Azure Functions 2.x<br />(.NET Core)** | .NET Core를 지원하는 Azure Functions 버전 2.x 런타임을 사용하는 함수 프로젝트를 만듭니다. Azure Functions 1.x는 .NET Framework를 지원합니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](../articles/azure-functions/functions-versions.md)을 참조하세요.   |
+    | **함수 템플릿** | **HTTP 트리거** | HTTP 요청에서 트리거되는 함수를 만듭니다. |
     | **Storage 계정**  | **Storage 에뮬레이터** | HTTP 트리거는 Azure Storage 계정 연결을 사용하지 않습니다. 다른 모든 트리거 유형은 유효한 스토리지 계정 연결 문자열이 필요합니다. 함수에는 스토리지 계정이 필요하기 때문에 Azure에 프로젝트를 게시할 때 할당되거나 생성됩니다. |
     | **권한 부여 수준** | **익명** | 만들어진 함수를 모든 클라이언트에서 키를 제공하지 않고 트리거할 수 있습니다. 이 권한 부여 설정을 통해 새 함수를 쉽게 테스트할 수 있습니다. 키 및 권한 부여에 대한 자세한 내용은 [HTTP 및 웹후크 바인딩](../articles/azure-functions/functions-bindings-http-webhook.md)에서 [권한 부여 키](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys)를 참조하세요. |
     

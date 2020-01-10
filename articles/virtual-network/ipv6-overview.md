@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/19/2019
 ms.author: kumud
-ms.openlocfilehash: a44f99b5a7f25a7350e6a63cf85c6b2287647162
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9214886f468a4a052328a99289845361a059b650
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373250"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780082"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Azure Virtual Network에 대 한 i p v 6은 무엇 인가요? (Preview)
 
@@ -75,7 +75,7 @@ Azure VNET 용 IPv6은 고객이 Azure에서 이중 스택 (IPv4 + IPv6) 응용 
 ## <a name="limitations"></a>제한 사항
 현재 Azure virtual network 릴리스에 대 한 IPv6에는 다음과 같은 제한 사항이 있습니다.
 - Azure 가상 네트워크 (미리 보기)에 대 한 IPv6은 모든 글로벌 Azure 지역에서 사용할 수 있지만, 전 세계 Azure 에서만 사용할 수 있습니다.
-- Express 경로 및 VPN 게이트웨이는 직접 또는 "UseRemoteGateway"로 피어 링 IPv6을 사용 하는 VNET에서 사용할 수 없습니다. 
+- Express 경로 및 VPN 게이트웨이는 직접 또는 피어 링 "UseRemoteGateway"로 사용 하는 VNET에서 사용할 수 없습니다. 
 - Azure platform (AKS 등)은 컨테이너에 대 한 IPv6 통신을 지원 하지 않습니다.  
 
 ## <a name="pricing"></a>가격

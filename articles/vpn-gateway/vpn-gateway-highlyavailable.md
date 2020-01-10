@@ -1,26 +1,18 @@
 ---
-title: Azure VPN Gateways로 항상 사용 가능한 구성의 개요 | Microsoft Docs
+title: 'Azure VPN Gateway: 개요-항상 사용 가능한 게이트웨이 구성'
 description: 이 문서에서는 Azure VPN Gateway를 사용하여 항상 사용 가능한 구성 옵션의 개요를 제공합니다.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60760326"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779623"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>항상 사용 가능한 크로스-프레미스 및 VNet 간 연결
 이 문서에서는 Azure VPN Gateway를 사용하여 크로스-프레미스 및 VNet 간 연결에 대해 항상 사용 가능한 구성 옵션의 개요를 제공합니다.

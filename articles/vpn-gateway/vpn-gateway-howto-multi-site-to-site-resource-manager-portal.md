@@ -1,19 +1,20 @@
 ---
-title: '여러 VPN 게이트웨이 사이트 간 연결을 VNet에 추가: Azure Portal: Resource Manager| Microsoft Docs'
+title: 'VNet에 여러 VPN gateway 사이트 간 연결 추가: Azure Portal'
 description: 기존 연결이 있는 VPN Gateway에 다중 사이트 S2S 연결 추가
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7b438f2b966dc43d41b91a138b39193d230d5546
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244614"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779691"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -45,14 +46,14 @@ ms.locfileid: "72244614"
 * VPN 디바이스에 대한 외부 연결 공용 IP 주소가 있습니다. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
 
 ## <a name="part1"></a>1부 - 연결 구성
-1. 브라우저에서 [Azure Portal](https://portal.azure.com) 로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 2. **모든 리소스**를 클릭하고 리소스 목록에서 **가상 네트워크 게이트웨이**를 찾아 클릭합니다.
 3. **가상 네트워크 게이트웨이** 페이지에서 **연결**을 클릭합니다.
    
     ![연결 페이지](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "연결 페이지")<br>
 4. **연결** 페이지에서 **+추가**를 클릭합니다.
    
-    ![연결 추가 버튼](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "연결 추가 버튼")<br>
+    ![연결 추가 단추](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "연결 단추 추가")<br>
 5. **연결 추가** 페이지에서 다음 필드에 정보를 입력합니다.
    
    * **이름:** 연결을 만들고자 하는 사이트에 부여하고자 하는 이름입니다.
@@ -61,7 +62,7 @@ ms.locfileid: "72244614"
      ![연결 추가 페이지](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "연결 추가 페이지")<br>
 
 ## <a name="part2"></a>2부 - 로컬 네트워크 게이트웨이 추가
-1. **로컬 네트워크 게이트웨이**를 클릭하고 ***로컬 네트워크 게이트웨이를 선택 합니다***. **로컬 네트워크 게이트웨이 선택** 페이지가 열립니다.
+1. **로컬 네트워크 게이트웨이** ***를 클릭 하 여 로컬 네트워크 게이트웨이를 선택***합니다. **로컬 네트워크 게이트웨이 선택** 페이지가 열립니다.
    
     ![로컬 네트워크 게이트웨이 선택](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "로컬 네트워크 게이트웨이 선택")<br>
 2. **새로 만들기**를 클릭하여 **로컬 네트워크 게이트웨이 만들기** 페이지를 엽니다.
@@ -77,7 +78,7 @@ ms.locfileid: "72244614"
 ## <a name="part3"></a>3부 - 공유 키 추가 및 연결 만들기
 1. **연결 추가** 페이지에서 연결을 만드는 데 사용할 공유 키를 추가합니다. 사용자가 VPN 디바이스에서 공유 키를 가져오거나, 여기서 공유 키를 만든 후 VPN 디바이스에서 동일한 공유 키를 사용하도록 구성할 수 있습니다. 중요한 것은 키가 정확히 동일하다는 것입니다.
    
-    ![공유 키](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
+    ![공유 키](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "공유 키")<br>
 2. 페이지의 맨 아래에서 **확인**을 클릭하여 연결을 만듭니다.
 
 ## <a name="part4"></a>4부 - VPN 연결 확인

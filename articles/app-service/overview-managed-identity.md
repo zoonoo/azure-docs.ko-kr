@@ -6,19 +6,19 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e2a76e40206e1562d565571dbe22e5d9d0e930e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422028"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834159"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
 > [!Important] 
 > 앱이 구독/테넌트 간에 마이그레이션되면 App Service 및 Azure Functions에 대한 관리 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
 
-이 항목에서는 App Service 및 Azure Functions 애플리케이션에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. Azure Active Directory의 관리 ID를 사용하면 앱이 AAD로 보호되는 다른 리소스(예: Azure Key Vault)에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+이 항목에서는 App Service 및 Azure Functions 애플리케이션에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. AAD (Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 Azure Key Vault 같은 AAD로 보호 되는 다른 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다. 
 - **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
@@ -77,7 +77,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
 
 다음 단계는 웹앱을 만들고 Azure PowerShell을 사용하여 ID를 할당하는 과정을 안내합니다.
 
-1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
+1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용 하 여 Azure PowerShell를 설치한 다음 `Login-AzAccount`를 실행 하 여 Azure와의 연결을 만듭니다.
 
 2. Azure PowerShell을 사용하여 웹앱을 만듭니다. App Service에서 Azure PowerShell을 사용하는 방법에 대한 예제는 [App Service PowerShell 샘플](../app-service/samples-powershell.md)을 참조하세요.
 
@@ -235,12 +235,12 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Azure 리소스 토큰 가져오기
 
-앱은 자체 ID를 사용하여 Azure Key Vault 같은 AAD로 보호되는 다른 리소스의 토큰을 가져올 수 있습니다. 이러한 토큰은 애플리케이션의 특정 사용자가 아닌 리소스에 액세스하는 애플리케이션을 나타냅니다. 
+앱은 관리 되는 id를 사용 하 여 Azure Key Vault와 같이 AAD로 보호 되는 다른 리소스에 액세스 하는 토큰을 가져올 수 있습니다. 이러한 토큰은 애플리케이션의 특정 사용자가 아닌 리소스에 액세스하는 애플리케이션을 나타냅니다. 
 
 > [!IMPORTANT]
-> 애플리케이션의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault 토큰을 요청할 때에는 애플리케이션의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+> 애플리케이션의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault에 액세스 하는 토큰을 요청 하는 경우 응용 프로그램의 id를 포함 하는 액세스 정책을 추가 했는지 확인 해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
-App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. 이는 모든 응용 프로그램 및 언어에 사용할 수 있습니다. 일부 .NET 및 Java의 경우 Azure SDK는이 프로토콜에 대 한 추상화를 제공 하 고 로컬 개발 환경을 용이 하 게 합니다.
+App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. 이는 모든 응용 프로그램 및 언어에 사용할 수 있습니다. .NET 및 Java의 경우 Azure SDK는이 프로토콜에 대 한 추상화를 제공 하 고 로컬 개발 환경을 용이 하 게 합니다.
 
 ### <a name="using-the-rest-protocol"></a>REST 프로토콜 사용
 

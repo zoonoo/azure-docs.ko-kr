@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/13/2019
-ms.openlocfilehash: 682bda67bb8b310608570062b81608e818b30d9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cfad657306d1073e16ac6f3197c96b4413e97bea
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440893"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830278"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 스토리지 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -154,7 +154,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성                 | Description                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | `storeSettings` 아래의 type 속성은 **AmazonS3ReadSetting**로 설정 해야 합니다. | 예                                                         |
+| type                     | `storeSettings` 아래의 type 속성은 **AmazonS3ReadSettings**로 설정 해야 합니다. | 예                                                         |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다.                                                          |
 | 접두사                   | 원본 개체를 필터링 하기 위해 데이터 집합에 구성 된 지정 된 버킷 아래에 있는 S3 개체 키의 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. <br>`wildcardFolderPath` 및 `wildcardFileName` 속성이 지정 되지 않은 경우에만 적용 됩니다. | 아닙니다.                                                          |
 | wildcardFolderPath       | 원본 폴더를 필터링 하기 위해 데이터 집합에 구성 된 지정 된 버킷 아래에 와일드 카드 문자가 있는 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 아닙니다.                                                          |
@@ -186,11 +186,11 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AmazonS3ReadSetting",
+                    "type": "AmazonS3ReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"

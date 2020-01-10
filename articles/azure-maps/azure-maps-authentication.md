@@ -1,20 +1,20 @@
 ---
 title: Azure Maps 인증 | Microsoft Docs
-description: Azure Maps 서비스 사용을 위한 인증입니다.
+description: Microsoft Azure Maps 서비스를 사용 하기 위한 Azure Active Directory (Azure AD) 또는 공유 키 인증. Azure Maps 구독 키를 가져오는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/24/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a58436063009b732a15e74c8a3fc3f95b8df29cf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575648"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834191"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -22,12 +22,14 @@ Azure Maps는 공유 키와 Azure Active Directory (Azure AD) 라는 두 가지 
 
 ## <a name="shared-key-authentication"></a>공유 키 인증
 
-공유 키 인증은 각 요청과 관련하여 Azure Maps 계정에서 생성한 키를 Azure Maps로 전달합니다.  Azure Maps 계정을 만들 때 두 개의 키가 생성 됩니다. Azure Maps 서비스에 요청할 때마다 구독 키를 URL에 매개 변수로 추가해야 합니다.
+공유 키 인증은 Azure Maps에 대 한 각 요청과 함께 Azure Maps 계정에서 생성 된 키를 전달 합니다. Azure Maps 서비스에 대 한 각 요청에 대해 *구독 키* 를 URL에 매개 변수로 추가 해야 합니다. Azure Maps 계정이 만들어진 후 기본 및 보조 키가 생성 됩니다. 공유 키 인증을 사용 하 여 Azure Maps를 호출할 때에는 기본 키를 구독 키로 사용 하는 것이 좋습니다. 키 롤링 변경 등의 시나리오에서 보조 키를 사용할 수 있습니다.  
+
+Azure Portal에서 키를 보는 방법에 대 한 자세한 내용은 [인증 관리](https://aka.ms/amauthdetails)를 참조 하세요.
 
 > [!Tip]
 > 키를 정기적으로 다시 생성하는 것이 좋습니다. 한 키를 다시 생성하는 동안 다른 키를 사용하여 연결을 유지할 수 있도록 두 개의 키가 제공됩니다. 키를 다시 생성하는 경우 이 계정에 액세스하는 모든 애플리케이션이 새 키를 사용하도록 업데이트해야 합니다.
 
-키를 보는 방법에 대한 내용은 [인증 세부 정보 보기](https://aka.ms/amauthdetails)를 참조하세요.
+
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Azure Active Directory 인증(미리 보기)
 

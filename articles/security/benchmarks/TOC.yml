@@ -4,7 +4,7 @@
   href: introduction.md
 - name: Single Sign On 설정
   items:
-    - name: 개요
+    - name: Azure 보안 컨트롤 개요
       href: overview.md
     - name: 네트워크 보안
       href: security-control-network-security.md

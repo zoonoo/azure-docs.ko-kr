@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 커뮤니티 개요 | Microsoft 문서
+title: Azure Media Services v3 커뮤니티 개요 | Microsoft Docs
 description: 이 Azure Media Services 커뮤니티 페이지에서는 질문을 하 고, 피드백을 제공 하 고, Media Services 대 한 업데이트를 가져올 수 있는 다양 한 방법을 설명 합니다.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: f241ac3e1369e32a1f2a4b9ac80492094105ff8c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 2bfa50068c5a61e8d6807da895dd5bf932ef05ba
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598340"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780354"
 ---
-# <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티  
+# <a name="azure-media-services-v3-community"></a>Azure Media Services v3 커뮤니티  
 
 이 Azure Media Services 커뮤니티 페이지에서는 질문을 하 고, 피드백을 제공 하 고, Media Services 대 한 업데이트를 가져올 수 있는 다양 한 방법을 설명 합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "72598340"
 
 ### <a name="twitter"></a>Twitter
 
-[@No__t_1](https://twitter.com/MSFTAzureMedia) twitter 핸들을 사용 하 여 microsoft에 문의 하거나 twitter의 업데이트를 팔 로우 할 수 있습니다. Twitter에서 지원을 요청 하려면 [@AzureSupport](https://twitter.com/azuresupport) twitter 핸들을 사용 합니다.  
+[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter 핸들을 사용 하 여 microsoft에 문의 하거나 twitter의 업데이트를 팔 로우 할 수 있습니다. Twitter에서 지원을 요청 하려면 [@AzureSupport](https://twitter.com/azuresupport) twitter 핸들을 사용 합니다.  
 
 ### <a name="online-forums"></a>온라인 포럼
 
