@@ -7,16 +7,18 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8f7cd864d90b8ab17a180a00a7a6d4bb683da9be
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 35efbb8d4d97ab52abb20487d15a80985946c499
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873304"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732606"
 ---
 # <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
  대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다.  
-  
+
+낮은 시스템 함수는 인덱스를 사용 하지 않습니다. 대/소문자를 구분 하지 않는 비교를 자주 수행 하려는 경우에는 낮은 시스템 함수에서 많은 양의를 사용할 수 있습니다. 이 경우 하위 시스템 함수를 사용 하 여 비교할 때마다 데이터를 정규화 하는 대신 삽입 시 대/소문자를 정규화 할 수 있습니다. 그런 다음 SELECT * FROM c WHERE (c. name) = ' bob '과 같은 쿼리는 단순히 SELECT * FROM c WHERE c.name = ' bob '이 됩니다.
+
 ## <a name="syntax"></a>구문
   
 ```sql
@@ -28,7 +30,7 @@ LOWER(<str_expr>)
 *str_expr*  
    는 문자열 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.  
   

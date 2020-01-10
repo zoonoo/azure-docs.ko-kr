@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873253"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732589"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 오프셋 제한 절
 
@@ -37,7 +37,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>설명
   
-  Offset LIMIT 절에는 오프셋과 제한 수가 모두 필요 합니다. 선택적 `ORDER BY` 절을 사용 하는 경우에는 정렬 된 값에 대해 skip을 수행 하 여 결과 집합을 생성 합니다. 그렇지 않은 경우 쿼리는 값의 고정 순서를 반환 합니다. 현재이 절은 단일 파티션 내의 쿼리에만 지원 되며 파티션 간 쿼리는 아직 지원 하지 않습니다.
+  Offset LIMIT 절에는 오프셋과 제한 수가 모두 필요 합니다. 선택적 `ORDER BY` 절을 사용 하는 경우에는 정렬 된 값에 대해 skip을 수행 하 여 결과 집합을 생성 합니다. 그렇지 않은 경우 쿼리는 값의 고정 순서를 반환 합니다. 이 절은 이제 단일 파티션 내의 쿼리와 파티션 간 쿼리를 지원 합니다.
 
 ## <a name="examples"></a>예시
 

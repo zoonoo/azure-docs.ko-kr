@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811359"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732402"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
-Azure SQL Database에서 고가용성 아키텍처의 목표는 유지 관리 작업 및 중단의 영향을 걱정 하지 않고 데이터베이스가 99.99%의 시간 동안 실행 되도록 보장 하는 것입니다. Azure는 패치, 백업, Windows 및 SQL 업그레이드와 같은 중요 한 서비스 작업 뿐만 아니라 기본 하드웨어, 소프트웨어, 네트워크 오류 등의 계획 되지 않은 이벤트도 자동으로 처리 합니다.  기본 SQL 인스턴스가 패치 되거나 장애 조치 (failover) 되 면 앱에서 [재시도 논리](sql-database-develop-overview.md#resiliency) 를 사용 하는 경우 가동 중지 시간이 눈에 띄지 않습니다. Azure SQL Database는 가장 심각한 상황에서도 신속한 복구가 가능하기 때문에 데이터를 항상 사용할 수 있습니다.
+Azure SQL Database의 고가용성 아키텍처는 데이터베이스가 가동 중 이며 최소 99.99%의 시간 동안 실행 되도록 보장 하는 것입니다. 다른 계층의 특정 SLA에 대 한 자세한 내용은 유지 관리 작업 및 중단의 영향을 걱정 하지 않고 [Azure SQL Database에 대 한 sla](https://azure.microsoft.com/support/legal/sla/sql-database/)를 참조 하세요. Azure는 패치, 백업, Windows 및 SQL 업그레이드와 같은 중요 한 서비스 작업 뿐만 아니라 기본 하드웨어, 소프트웨어, 네트워크 오류 등의 계획 되지 않은 이벤트도 자동으로 처리 합니다.  기본 SQL 인스턴스가 패치 되거나 장애 조치 (failover) 되 면 앱에서 [재시도 논리](sql-database-develop-overview.md#resiliency) 를 사용 하는 경우 가동 중지 시간이 눈에 띄지 않습니다. Azure SQL Database는 가장 심각한 상황에서도 신속한 복구가 가능하기 때문에 데이터를 항상 사용할 수 있습니다.
 
 고가용성 솔루션은 커밋된 데이터가 오류로 인해 손실 되지 않도록 하 고, 유지 관리 작업이 작업에 영향을 주지 않으며, 데이터베이스가 소프트웨어 아키텍처에서 단일 실패 지점이 되지 않도록 설계 되었습니다. 데이터베이스를 업그레이드하거나 유지 관리하는 동안 워크로드를 중지해야 하는 유지 관리 기간이나 가동 중지 시간이 없습니다. 
 
