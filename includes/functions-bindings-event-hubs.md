@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 27333f272ca5000fd3b09b305712875c065f6bc7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ab07e55606533390f6f3d2da3caf3ceee981e14
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924426"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75840649"
 ---
 ## <a name="trigger"></a>트리거
 
@@ -337,7 +337,7 @@ def main(event: func.EventHubEvent):
 
 ### <a name="trigger---java-example"></a>트리거 - Java 예제
 
-다음 예제에서는 *function.json* 파일의 Event Hub 트리거 바인딩 및 바인딩을 사용하는 [Java 함수](../articles/azure-functions/functions-reference-java.md)를 보여줍니다. 함수는 Event Hub 트리거의 메시지 본문을 기록합니다.
+다음 예제에서는 *함수. json* 파일의 이벤트 허브 트리거 바인딩과 바인딩을 사용 하는 [Java 함수](../articles/azure-functions/functions-reference-java.md) 를 보여 줍니다. 함수는 Event Hub 트리거의 메시지 본문을 기록합니다.
 
 ```json
 {
@@ -383,17 +383,16 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 다음 표에서는 *function.json* 파일 및 `EventHubTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | n/a | `eventHubTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | n/a | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | n/a | 함수 코드에서 이벤트 항목을 나타내는 변수의 이름입니다. |
 |**path** |**EventHubName** | Functions 1.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
-|**eventHubName** |**EventHubName** | 함수 2.x 이상 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
+|**eventHubName** |**EventHubName** | 함수 2.x 이상 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. 앱 설정% eventHubName%를 통해 참조할 수 있습니다. |
 |**consumerGroup** |**ConsumerGroup** | 허브에서 이벤트를 구독하는 데 사용되는 [소비자 그룹](../articles/event-hubs/event-hubs-features.md#event-consumers)을 설정하는 선택적 속성입니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다. |
-|**cardinality** | n/a | JavaScript의 경우 `many`로 설정하여 일괄 처리할 수 있도록 합니다.  생략되거나 `one`로 설정한 경우 단일 메시지가 함수에 전달됩니다. |
+|**cardinality** | n/a | JavaScript의 경우 `many`로 설정하여 일괄 처리할 수 있도록 합니다.  생략 하거나 `one`로 설정 하면 단일 메시지가 함수에 전달 됩니다. |
 |**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 [네임스페이스](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.|
-|**path**|**EventHubName**|이벤트 허브의 이름입니다. 앱 설정 `%eventHubName%`을 통해 참조할 수 있습니다.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -401,9 +400,9 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 Event Hubs 트리거는 몇 가지 [메타데이터 속성](../articles/azure-functions/./functions-bindings-expressions-patterns.md)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 클래스의 속성은 다음과 같습니다.
 
-|자산|Type|설명|
+|속성|유형|Description|
 |--------|----|-----------|
-|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 인스턴스|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 인스턴스입니다.|
 |`EnqueuedTimeUtc`|`DateTime`|큐에 대기된 시간(UTC)입니다.|
 |`Offset`|`string`|Event Hub 파티션 스트림을 기준으로 데이터의 오프셋 오프셋은 Event Hubs 스트림 내의 이벤트에 대한 표식 또는 식별자입니다. 식별자는 Event Hubs 스트림의 파티션 내에서 고유합니다.|
 |`PartitionKey`|`string`|이벤트 데이터를 전송해야 하는 파티션|
@@ -450,7 +449,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-다음 샘플에서는 `IAsyncCollector` 인터페이스를 사용 하 여 메시지 일괄 처리를 보내는 방법을 보여 줍니다. 이 시나리오는 하나의 이벤트 허브에서 들어오는 메시지를 처리 하 고 그 결과를 다른 이벤트 허브로 보내는 경우에 일반적입니다.
+다음 예제에서는 `IAsyncCollector` 인터페이스를 사용 하 여 메시지 일괄 처리를 보내는 방법을 보여 줍니다. 이 시나리오는 하나의 이벤트 허브에서 들어오는 메시지를 처리 하 고 그 결과를 다른 이벤트 허브로 보내는 경우에 일반적입니다.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -640,13 +639,13 @@ def main(timer: func.TimerRequest) -> str:
 
 ### <a name="output---java-example"></a>출력 - Java 예제
 
-다음 예제에서는 Event Hub에 현재 시간을 포함하는 메시지를 작성하는 Java 함수를 보여줍니다.
+다음 예에서는 현재 시간을 포함 하는 메시지를 이벤트 허브에 기록 하는 Java 함수를 보여 줍니다.
 
 ```java
 @FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
-   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 */5 * * * *") String timerInfo)  {
      return LocalDateTime.now().toString();
  }
 ```
@@ -674,7 +673,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 다음 표에서는 *function.json* 파일 및 `EventHub` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | n/a | "eventHub"로 설정해야 합니다. |
 |**direction** | n/a | "out"으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
@@ -721,7 +720,7 @@ JavaScript에서 `context.bindings.<name>`를 사용하여 출력 이벤트에 �
 }  
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |maxBatchSize|64|수신 루프 당 받은 최대 이벤트 수입니다.|
 |prefetchCount|n/a|기본 EventProcessorHost에서 사용할 기본 PrefetchCount입니다.|

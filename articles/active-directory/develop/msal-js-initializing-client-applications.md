@@ -14,17 +14,17 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916505"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777839"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 사용자 에이전트 응용 프로그램의 인스턴스에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 초기화 하는 방법을 설명 합니다. 사용자 에이전트 응용 프로그램은 클라이언트 코드가 웹 브라우저와 같은 사용자 에이전트에서 실행 되는 공용 클라이언트 응용 프로그램의 형태입니다. 브라우저 컨텍스트는 공개적으로 액세스할 수 있기 때문에 이러한 클라이언트는 비밀을 저장 하지 않습니다. 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 [Azure Portal에 등록](scenario-spa-app-registration.md) 해야 합니다. 등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
 
 - 클라이언트 ID (응용 프로그램의 GUID를 나타내는 문자열)
@@ -116,7 +116,7 @@ export type Configuration = {
         * `https://login.microsoftonline.com/common`-회사 및 학교 계정이 나 Microsoft 개인 계정으로 사용자를 로그인 하는 데 사용 됩니다.
         * `https://login.microsoftonline.com/organizations/`-회사 및 학교 계정으로 사용자를 로그인 하는 데 사용 됩니다.
         * `https://login.microsoftonline.com/consumers/`-개인 Microsoft 계정 (live)만 사용 하 여 사용자를 로그인 하는 데 사용 됩니다.
-    * Azure AD B2C에서 `https://<instance>/tfp/<tenant>/<policyName>/`형식입니다. 여기서 인스턴스는 Azure AD B2C 도메인이 고, 테 넌 트는 Azure AD B2C 테 넌 트의 이름이 며, policyName은 적용할 B2C 정책의 이름입니다.
+    * Azure AD B2C에서는 `https://<instance>/tfp/<tenant>/<policyName>/`형식입니다. 여기서 인스턴스는 Azure AD B2C 도메인입니다. 예를 들어, {policyName}. b2clogin는 테 넌 트가 Azure AD B2C 테 넌 트의 이름입니다 (예: {}. onmicrosoft,는 적용할 정책의 이름입니다.
 
 
 - **Validateauthority**: 선택 사항입니다.  토큰 발급자의 유효성을 검사 합니다. 기본값은 `true`입니다. B2C 응용 프로그램의 경우 기관 값이 알려져 있고 정책 마다 다를 수 있으므로 기관 유효성 검사가 작동 하지 않으며 `false`로 설정 되어야 합니다.
@@ -125,7 +125,7 @@ export type Configuration = {
 
 - **Postlogoutredirecturi**: 선택 사항입니다.  사용자를 로그 아웃 한 후 `postLogoutRedirectUri`으로 리디렉션합니다. 기본값은 `redirectUri`입니다.
 
-- **navigateToLoginRequestUrl**: 선택 사항입니다. 로그인 후 시작 페이지로의 기본 탐색을 해제할 수 있습니다. 기본값은 True입니다. 이는 리디렉션 흐름에만 사용 됩니다.
+- **navigateToLoginRequestUrl**: 선택 사항입니다. 로그인 후 시작 페이지로의 기본 탐색을 해제할 수 있습니다. 기본값은 true입니다. 이는 리디렉션 흐름에만 사용 됩니다.
 
 - **Cachelocation**: 선택 사항입니다.  브라우저 저장소를 `localStorage` 또는 `sessionStorage`로 설정 합니다. 기본값은 `sessionStorage`입니다.
 

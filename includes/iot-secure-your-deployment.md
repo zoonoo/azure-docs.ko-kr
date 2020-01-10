@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e696db3ad452152f6478701876b7760d7fed355b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793100"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75840642"
 ---
 이 문서에서는 Azure IoT 기반 IoT(사물 인터넷) 인프라를 보호하기 위한 세부 정보를 제공합니다. 또한 각 구성 요소의 구성 및 배포에 대한 구현 수준의 세부 정보에 연결됩니다. 그밖에도 다양한 경쟁 방법 간을 비교하고 선택 항목을 제공합니다.
 
@@ -77,7 +77,7 @@ IoT Hub와의 보안 TLS 연결을 설정하는 동안 IoT 디바이스는 디�
 
 ## <a name="securing-the-connection"></a>연결 보안
 
-IoT 디바이스와 IoT Hub 간 인터넷 연결은 TLS(전송 계층 보안) 표준을 사용하여 보안이 유지됩니다. Azure IoT는 [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 및 TLS 1.0을 순서대로 지원합니다. TLS 1.0에 대한 지원은 이전 버전과의 호환성을 위해서만 제공됩니다. 가능한 경우 최상의 보안을 제공하는 TLS 1.2를 사용합니다.
+IoT 디바이스와 IoT Hub 간 인터넷 연결은 TLS(전송 계층 보안) 표준을 사용하여 보안이 유지됩니다. Azure IoT는 [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 및 TLS 1.0을 순서대로 지원합니다. TLS 1.0에 대한 지원은 이전 버전과의 호환성을 위해서만 제공됩니다. 가능 하면 가장 높은 보안을 제공 하는 TLS 1.2를 사용 하도록 [허브를 구성](../articles/iot-hub/iot-hub-tls.md) 합니다.
 
 ## <a name="securing-the-cloud"></a>클라우드 보안
 

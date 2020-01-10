@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 2edb50910614b47aca5a4d8f7f02c2e3bc69b643
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448997"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832502"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 액세스할 수 있는 인증된 대화형 셸입니다.
@@ -40,11 +40,14 @@ Cloud Shell은 Azure 관리 작업을 사용하여 빌드된 브라우저 기반
 Cloud Shell을 활용하여 클라우드가 제공할 수 있는 방식으로 로컬 컴퓨터에서 제한되지 않고 작업할 수 있습니다.
 
 ### <a name="choice-of-preferred-shell-experience"></a>기본 설정된 셸 환경 선택
-사용자는 셸 드롭다운에서 Bash 또는 PowerShell 중 하나를 선택할 수 있습니다.
+사용자는 Bash 또는 PowerShell 중에서 선택할 수 있습니다.
+1. **Cloud Shell**를 선택 합니다.
 
-![Cloud Shell의 Bash](media/overview/overview-bash-pic.png)
+    ![Cloud Shell 아이콘](media/overview/overview-cloudshell-icon.png)
 
-![Cloud Shell의 PowerShell](media/overview/overview-ps-pic.png)
+2. **Bash** 또는 **PowerShell**을 선택 합니다.
+
+    ![Bash 또는 PowerShell 중 하나를 선택 합니다.](media/overview/overview-choices.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>인증 및 구성된 Azure 워크스테이션
 Cloud Shell은 Microsoft에서 관리되므로 널리 사용되는 명령줄 도구 및 언어 지원을 제공합니다. 또한 Cloud Shell은 Azure CLI 또는 Azure PowerShell cmdlet을 통해 리소스에 즉시 액세스하도록 자동으로 안전하게 인증합니다.

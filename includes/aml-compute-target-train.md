@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 12/04/2019
-ms.openlocfilehash: 2c275e1d8f54191e12454f7e97a8dd59e7c84be2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 06800e7bb18634f1cbe847ced5450172106ec6f9
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539386"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75840684"
 ---
 **계산 대상은 한 학습 작업에서 다음 학습 작업까지 다시 사용할 수 있습니다**. 예를 들어 원격 VM을 사용자의 작업 영역에 연결한 후에는 여러 작업에 다시 사용할 수 있습니다.  기계 학습 파이프라인의 경우 각 계산 대상에 대해 적절 한 [파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) 를 사용 합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "75539386"
 |[Azure Machine Learning 계산 인스턴스 (미리 보기)](../articles/machine-learning/concept-compute-instance.md) | | 예 |  |
 |[Azure Machine Learning 계산 클러스터](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute)| 예 & <br/>하이퍼 매개 변수&nbsp;튜닝 | 예 | 예 |
 |[원격 VM](../articles/machine-learning/how-to-set-up-training-targets.md#vm) | 예 & <br/>하이퍼 매개 변수 튜닝 | 예 | &nbsp; |
-|[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| 예 | 예 | &nbsp; |
+|[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| 예 (SDK 로컬 모드에만 해당) | 예 | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-create-your-first-pipeline.md#adla) | &nbsp; | 예 | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/how-to-set-up-training-targets.md#hdinsight) | &nbsp; | 예 | &nbsp; |
 |[Azure Batch](../articles/machine-learning/how-to-set-up-training-targets.md#azbatch) | &nbsp; | 예 | &nbsp; |

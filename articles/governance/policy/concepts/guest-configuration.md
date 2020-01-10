@@ -3,12 +3,12 @@ title: 가상 컴퓨터의 콘텐츠를 감사 하는 방법 알아보기
 description: Azure Policy 게스트 구성 에이전트를 사용 하 여 가상 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f3d99b32b952470f266ed2168d5760c2c72377c4
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 205aa5a9292d0f70fed8247a8af1fe575ad3614e
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666723"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830499"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -91,12 +91,8 @@ Windows Server Nano Server는 어떤 버전 에서도 지원 되지 않습니다
 
 ## <a name="guest-configuration-extension-network-requirements"></a>게스트 구성 확장 네트워크 요구 사항
 
-Azure에서 게스트 구성 리소스 공급자와 통신 하려면 컴퓨터에 포트 **443**에서 azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 합니다. 아웃 바운드 트래픽을 허용 하지 않는 Azure에서 개인 가상 네트워크를 사용 하는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용 하 여 예외를 구성 합니다. Azure Policy 게스트 구성에 대 한 서비스 태그가 현재 존재 하지 않습니다.
-
-IP 주소 목록에 대해 [AZURE Ip 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다. Vm이 배포 된 지역에서 Ip에 대 한 아웃 바운드 액세스를 허용 하기만 하면 됩니다.
-
-> [!NOTE]
-> Azure IP 범위 및 서비스 태그 JSON 파일은 Microsoft Azure 데이터 센터에서 사용 되는 IP 주소 범위를 나열 합니다. 이 파일에는 컴퓨팅, SQL 및 스토리지 범위가 포함되어 있습니다. 업데이트된 파일이 매주 게시됩니다. 이 파일에는 현재 배포된 범위 및 IP 범위에 대해 예정된 변경 내용이 반영됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다. 새 XML 파일을 매주 다운로드하는 것이 좋습니다. 그런 다음 Azure에서 실행되는 서비스를 올바르게 식별하도록 사이트를 업데이트합니다. Azure ExpressRoute 사용자는 이 파일을 사용해 Azure 공간에 대한 BGP(Border Gateway Protocol) 공지 사항을 매월 첫 주에 업데이트하고 있음에 유의해야 합니다.
+Azure에서 게스트 구성 리소스 공급자와 통신 하려면 컴퓨터에 포트 **443**에서 azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 합니다. 아웃 바운드 트래픽을 허용 하지 않는 Azure에서 개인 가상 네트워크를 사용 하는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용 하 여 예외를 구성 합니다.
+[서비스 태그](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement"는 게스트 구성 서비스를 참조 하는 데 사용할 수 있습니다.
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 

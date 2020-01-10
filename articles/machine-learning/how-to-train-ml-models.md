@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3205f853088245461e854562999164f9813f3bd5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f8f7d16c9fa5141add5c661c0e05cc93da436614
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536630"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834893"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,3 +158,4 @@ model = run.register_model(model_name='sklearn-sample')
 * [TensorFlow 모델 학습](how-to-train-tensorflow.md)
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 * [학습된 모델 배포](how-to-deploy-and-where.md)
+* [학습 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)

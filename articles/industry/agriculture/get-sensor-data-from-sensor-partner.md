@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9e20c8e5859efc8f1f8a5214e6837ad46d2980d
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435165"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777787"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -41,28 +41,36 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
 또는 Azure Cloud Shell에서이 스크립트를 실행 하 여 자격 증명을 생성할 수 있습니다. 다음 단계를 수행합니다.
 
-1. [Zip 파일](https://aka.ms/farmbeatspartnerscript)을 다운로드 하 고 로컬 드라이브에 압축을 풉니다. 두 파일은 zip 파일 내에 있습니다.
-2. https://portal.azure.com/ 에 로그인 하 여 Cloud Shell를 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
+1. [Zip 파일](https://aka.ms/farmbeatspartnerscriptv2)을 다운로드 하 고 로컬 드라이브에 압축을 풉니다. Zip 파일 안에는 파일이 하나 있습니다.
+2. https://portal.azure.com/ 에 로그인 하 고 Azure Active Directory-> 앱 등록으로 이동 합니다.
+
+3. FarmBeats 배포의 일부로 만들어진 앱 등록을 클릭 합니다. FarmBeats Datahub와 동일한 이름을 갖게 됩니다.
+
+4. "API 표시"를 클릭 하 > "클라이언트 응용 프로그램 추가"를 클릭 하 고 **04b07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 후 "범위 권한 부여"를 선택 합니다. 이렇게 하면 아래 단계를 수행 하기 위해 azure cli (Cloud shell)에 액세스할 수 있습니다.
+
+5. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
     ![Azure Portal 도구 모음](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. 환경이 **PowerShell**로 설정 되었는지 확인 합니다. 기본적으로 Bash로 설정 됩니다.
+6. 환경이 **PowerShell**로 설정 되었는지 확인 합니다. 기본적으로 Bash로 설정 됩니다.
 
     ![PowerShell 도구 모음 설정](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-4. Cloud Shell 인스턴스의 1 단계에서 가져온 두 파일을 업로드 합니다.
+7. Cloud Shell 인스턴스의 1 단계에서 파일을 업로드 합니다.
 
     ![업로드 도구 모음 단추](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. 파일이 업로드 된 디렉터리로 이동 합니다. 기본적으로 사용자 이름 아래의 홈 디렉터리에 업로드 됩니다.
-6. 다음 스크립트를 실행합니다.
+8. 파일이 업로드 된 디렉터리로 이동 합니다. 기본적으로 파일은 사용자 이름의 홈 디렉터리에 업로드 됩니다.
+
+9. 다음 스크립트를 실행합니다. 스크립트는 Azure Active Directory > 개요 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
 
     ```azurepowershell-interactive 
 
-    ./generateCredentials.ps1   
+    ./generatePartnerCredentials.ps1   
 
     ```
-7. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다. EventHub 연결 문자열은 Swagger에서 API 응답의 일부로 사용할 수 있습니다.
+
+10. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>생성 된 자격 증명을 사용 하 여 장치 데이터 통합
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551389"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777821"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -36,7 +36,7 @@ Application Gateway는 메트릭 이라는 데이터 요소를 게시 하 여 Ap
 
   요청을 처리 하는 데 걸리는 평균 시간 및 응답을 보내는 데 걸리는 시간입니다. 이는 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 수신 하는 시점부터 응답 전송 작업이 완료 되는 시간 까지의 평균 간격으로 계산 됩니다. 일반적으로 처리 시간, 요청 및 응답 패킷이 네트워크를 통해 이동 하는 시간 및 백 엔드 서버에서 응답 하는 데 걸린 시간을 Application Gateway 포함 하는 것이 중요 합니다.
   
-*클라이언트 RTT* 가 *Application gateway 총 시간*보다 훨씬 많은 경우 클라이언트에서 관찰 한 대기 시간이 클라이언트와 Application Gateway 간의 네트워크 연결로 인해 발생 하는 것으로 추론할 수 있습니다. 두 대기 시간을 모두 비교할 수 있는 경우에는 Application Gateway, Application Gateway와 백 엔드 응용 프로그램 간의 네트워크 또는 백 엔드 응용 프로그램 성능 중 하나가 원인일 수 있습니다.
+수신기를 기준으로 필터링 한 후 *클라이언트 RTT* 가 *Application gateway 총 시간*보다 훨씬 많은 경우 클라이언트에서 관찰 한 대기 시간이 클라이언트와 Application Gateway 간의 네트워크 연결로 인해 발생 하는 것으로 추론할 수 있습니다. 두 대기 시간을 모두 비교할 수 있는 경우에는 Application Gateway, Application Gateway와 백 엔드 응용 프로그램 간의 네트워크 또는 백 엔드 응용 프로그램 성능 중 하나가 원인일 수 있습니다.
 
 - **백 엔드 첫 번째 바이트 응답 시간**
 

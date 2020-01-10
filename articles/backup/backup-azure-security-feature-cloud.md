@@ -3,16 +3,16 @@ title: 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 �
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9a3c13856d3c130f2396488fed09313578dda79c
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: e3da4778a82cd5eb50fbb82c7f9f00cf6c6f1a85
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496931"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829632"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
-맬웨어, 랜섬웨어 및 침입 같은 보안 문제에 대한 우려가 증가하고 있습니다. 이 보안 문제는 비용과 데이터 측면 모두에서 지출이 클 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악성 행위자가 VM의 백업 (또는 실수로 삭제 됨)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. 이러한 추가 14 일 동안 "일시 삭제" 상태의 백업 데이터를 보존 하는 것은 고객에 게 비용을 부과 하지 않습니다. 또한 Azure는 데이터를 더욱 안전 하 게 보호 하기 위해 [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 를 사용 하 여 미사용 백업 된 모든 데이터를 암호화 합니다.
+맬웨어, 랜섬웨어 및 침입 같은 보안 문제에 대한 우려가 증가하고 있습니다. 이 보안 문제는 비용과 데이터 측면 모두에서 지출이 클 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악성 행위자가 VM의 백업 (또는 실수로 삭제 됨)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. 이러한 추가 14 일 동안 "일시 삭제" 상태의 백업 데이터를 보존 하는 것은 고객에 게 비용을 부과 하지 않습니다. 또한 Azure는 데이터를 더욱 안전 하 게 보호 하기 위해 [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 를 사용 하 여 미사용 백업 된 데이터를 모두 암호화 합니다.
 
 > [!NOTE]
 > 일시 삭제는 삭제 된 백업 데이터만 보호 합니다. 백업을 사용 하지 않고 VM을 삭제 하면 일시 삭제 기능은 데이터를 보존 하지 않습니다. 모든 리소스는 전체 복원 력을 보장 하기 위해 Azure Backup로 보호 되어야 합니다.
@@ -164,7 +164,7 @@ REST API를 사용 하 여 일시 삭제 기능을 사용 하지 않도록 설�
 다음 단계를 수행하세요.
 
 1. [일시 삭제를 사용 하지 않도록 설정](#disabling-soft-delete)하는 단계를 수행 합니다.
-2. Azure Portal에서 자격 증명 모음으로 이동 하 고, **백업 항목** 으로 이동 하 고, 일시 삭제 된 VM을 선택 합니다.
+2. Azure Portal에서 자격 증명 모음으로 이동 하 고, **백업 항목**으로 이동 하 고, 일시 삭제 된 VM을 선택 합니다.
 
 ![일시 삭제 된 VM 선택](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -232,19 +232,32 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 2. 그런 다음 [여기](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)에 설명 된 단계를 사용 하 여 REST API를 사용 하는 일시 삭제 기능을 비활성화 합니다.
 3. 그런 다음 [여기](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)에 설명 된 대로 REST API를 사용 하 여 백업을 삭제 합니다.
 
-## <a name="other-security-features"></a>기타 보안 기능
+## <a name="encryption"></a>암호화
 
-### <a name="storage-side-encryption"></a>스토리지 쪽 암호화
+### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>Microsoft 관리 키를 사용 하 여 백업 데이터 암호화
 
-Azure Storage는 클라우드로 데이터를 유지할 때 자동으로 데이터를 암호화 합니다. 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. Azure Storage의 데이터는 256 비트 AES 암호화를 사용 하 여 투명 하 게 암호화 되 고 해독 되며, 사용 가능한 가장 강력한 블록 암호화 중 하나 이며 FIPS 140-2 규격입니다. Azure Storage 암호화는 Windows의 BitLocker 암호화와 비슷합니다. Azure Backup은 데이터를 저장 하기 전에 자동으로 암호화 합니다. Azure Storage는 데이터를 검색하기 전에 데이터의 암호를 해독합니다.  
+백업 데이터는 Azure Storage 암호화를 사용 하 여 자동으로 암호화 됩니다. 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. 데이터는 256 비트 AES 암호화를 사용 하 여 투명 하 게 암호화 되 고 해독 되며, 사용 가능한 가장 강력한 블록 암호화 중 하나 이며 FIPS 140-2 규격입니다. Azure Storage 암호화는 Windows의 BitLocker 암호화와 비슷합니다.
 
 Azure 내에서 Azure storage와 자격 증명 모음 간의 전송 데이터는 HTTPS에 의해 보호 됩니다. 이 데이터는 Azure 백본 네트워크에 남아 있습니다.
 
-자세한 내용은 [미사용 데이터에 대 한 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조 하세요.  [AZURE BACKUP FAQ](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) 를 참조 하 여 암호화에 대해 발생할 수 있는 질문에 답변 하세요.
+자세한 내용은 [미사용 데이터에 대 한 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조 하세요. [AZURE BACKUP FAQ](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) 를 참조 하 여 암호화에 대해 발생할 수 있는 질문에 대 한 답변을 받을 수 있습니다.
 
-### <a name="vm-encryption"></a>VM 암호화
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
 
-Azure Backup 서비스를 사용 하 여 암호화 된 디스크로 Windows 또는 Linux Azure Vm (가상 머신)을 백업 하 고 복원할 수 있습니다. 자세한 내용은 [Azure Backup를 사용 하 여 암호화 된 가상 컴퓨터 백업 및 복원](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)을 참조 하세요.
+Azure Virtual Machines을 백업 하는 동안 Azure Key Vault에 저장 된 암호화 키를 사용 하 여 Recovery Services 자격 증명 모음에서 백업 데이터를 암호화 하는 옵션도 있습니다.
+
+>[!NOTE]
+>이 기능은 현재 초기 사용 중입니다. 고객 관리 키를 사용 하 여 백업 데이터를 암호화 하려는 경우 [이 설문 조사](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) 를 작성 합니다. 이 기능을 사용 하는 기능에는 Azure Backup 서비스의 승인이 적용 됩니다.
+
+### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 된 관리 되는 디스크 VM 백업
+
+Azure Backup를 사용 하면 고객이 관리 하는 키를 사용 하 여 암호화 된 디스크가 포함 된 Azure Virtual Machines를 백업할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 관리 디스크의 암호화](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview)를 참조 하세요.
+
+### <a name="backup-of-encrypted-vms"></a>암호화 된 Vm 백업
+
+Azure Backup 서비스를 사용 하 여 암호화 된 디스크로 Windows 또는 Linux Azure Vm (가상 머신)을 백업 하 고 복원할 수 있습니다. 지침은 [Azure Backup를 사용 하 여 암호화 된 가상 머신 백업 및 복원](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)을 참조 하세요.
+
+## <a name="other-security-features"></a>기타 보안 기능
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Azure Backup 복구 지점의 보호
 

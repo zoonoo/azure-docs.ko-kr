@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace에 관리형 서비스 솔루션 게시
 description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하는 관리형 서비스 제품을 게시하는 방법을 알아봅니다.
-ms.date: 12/16/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1eb06794551be498e05e2b9c3b893013b718ce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a1720a3bcfd0b08f8d9c8147b5e47ed42af6fda
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453528"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834102"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
@@ -63,7 +63,7 @@ ms.locfileid: "75453528"
 |**프라이빗 플랜인가요?**     | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다. 이 선택을 그대로 두면 플랜이 특정 고객 또는 특정 수의 고객으로 제한되지 않습니다. 일단 퍼블릭 플랜을 게시하면 나중에 프라이빗으로 변경할 수 없습니다. 이 플랜을 특정 고객만 사용할 수 있도록 설정하려면 **예**를 선택합니다. 이렇게 하면 구독 ID를 제공하여 고객을 식별해야 합니다. 구독 ID를 하나씩(구독이 최대 10개인 경우) 입력하거나 .csv 파일을 업로드하여(구독이 최대 2만개인 경우)을 업로드하여 입력할 수 있습니다. 제품을 테스트하고 유효성을 검사할 수 있도록 여기에 고유한 구독을 포함해야 합니다. 자세한 내용은 [프라이빗 SKU 및 플랜](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)을 참조하세요.  |
 
 > [!IMPORTANT]
-> 계획이 공개로 게시 되 면 비공개로 변경할 수 없습니다. 제품을 수락 하 고 리소스를 위임할 수 있는 고객을 제어 하려면 비공개 요금제를 사용 합니다. 공개 계획을 사용 하면 특정 고객 또는 특정 수의 고객에 대 한 가용성을 제한할 수 없습니다 (이렇게 선택 하는 경우 계획을 완전히 판매 하지 않을 수 있음). 고객이 제품을 수락한 후에는 현재 고객에 게 연락 하 여 [액세스 권한을 제거](view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수 있는 경우에도 위임을 거부 하거나 제거할 수 있는 메커니즘이 없습니다.
+> 계획이 공개로 게시 되 면 비공개로 변경할 수 없습니다. 제품을 수락 하 고 리소스를 위임할 수 있는 고객을 제어 하려면 비공개 요금제를 사용 합니다. 공개 계획을 사용 하면 특정 고객 또는 특정 수의 고객에 대 한 가용성을 제한할 수 없습니다 (이렇게 선택 하는 경우 계획을 완전히 판매 하지 않을 수 있음). 제품을 게시할 때 **역할 정의가** [관리 되는 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 로 설정 된 **권한 부여** 를 포함 한 경우에만 고객이 제안을 수락한 후 [에 위임에 대 한 액세스 권한을 제거할](onboard-customer.md#remove-access-to-a-delegation) 수 있습니다. 또한 고객에 게 연락 하 여 [액세스 권한을 제거](view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수 있습니다.
 
 ### <a name="manifest-details"></a>매니페스트 세부 정보
 
@@ -76,7 +76,10 @@ ms.locfileid: "75453528"
 
 그런 다음, **테넌트 ID**를 입력합니다. 이 GUID는 조직의 Azure Active Directory 테넌트 ID(예: 고객의 리소스를 관리하기 위해 작업할 테넌트)와 연결된 GUID입니다. 이 작업이 어려운 경우 Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환**을 선택하여 찾을 수 있습니다.
 
-마지막으로 플랜에 하나 이상의 **권한 부여** 항목을 추가합니다. 권한 부여는 플랜을 구매한 고객의 리소스 및 구독에 액세스할 수 있는 엔터티를 정의하고, 특정 수준의 액세스 권한을 부여하는 역할을 할당합니다. 지원되는 역할에 대한 자세한 내용은 [Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자](../concepts/tenants-users-roles.md)를 참조하세요.
+마지막으로 플랜에 하나 이상의 **권한 부여** 항목을 추가합니다. 권한 부여는 플랜을 구매한 고객의 리소스 및 구독에 액세스할 수 있는 엔터티를 정의하고, 특정 수준의 액세스 권한을 부여하는 역할을 할당합니다.
+
+> [!TIP]
+> 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다. 추가 권장 사항은 [Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자](../concepts/tenants-users-roles.md)를 참조하세요.
 
 각 **권한 부여**에 대해 다음을 제공해야 합니다. 그런 다음, 사용자 및 역할 정의를 더 추가하는 데 필요한 횟수만큼 **새 권한 부여**를 선택할 수 있습니다.
 
@@ -86,7 +89,7 @@ ms.locfileid: "75453528"
 - **할당 가능한 역할**:이 권한 부여에 대 한 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 필요 합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
 
 > [!TIP]
-> 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다. 추가 권장 사항은 [Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자](../concepts/tenants-users-roles.md)를 참조하세요.
+> 필요한 경우 [위임에 대 한 액세스를 제거할](onboard-customer.md#remove-access-to-a-delegation) 수 있도록 하려면 **역할 정의가** [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)로 설정 된 **권한 부여** 를 포함 합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
 
 정보를 완료한 후에는 추가 플랜을 만드는 데 필요한 만큼 **새 플랜**을 선택할 수 있습니다. 작업이 끝나면 **저장**을 선택한 후 **Marketplace** 섹션을 계속 진행합니다.
 
@@ -147,7 +150,7 @@ ms.locfileid: "75453528"
 고객이 제품을 추가하면 하나 이상의 특정 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 리소스 관리에 온보딩](view-manage-service-providers.md#delegate-resources)됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다.
 
 > [!IMPORTANT]
-> 위임은 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보려면 고객 테 넌 트의 사용자가 Azure Portal에서 구독을 선택 하 고, **액세스 제어 (IAM)** 를 열고 [모든 역할을 나열](../../role-based-access-control/role-definitions-list.md#list-all-roles)한 다음 **소유자** 를 선택 하 여 해당 역할의 모든 사용자를 볼 수 있습니다.
+> 위임은 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 고객이 구독 또는 구독 내의 하나 이상의 리소스 그룹을 위임한 후에는 해당 구독에 대해 **Microsoft ManagedServices** 리소스 공급자가 등록되고, 테넌트의 사용자는 제품의 권한 부여에 따라 위임된 리소스에 액세스할 수 있습니다.
 

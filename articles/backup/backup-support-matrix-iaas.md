@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 36fbc4813cdc9849b77e8309c97a2d42511a31d0
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996173"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829547"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -24,9 +24,9 @@ ms.locfileid: "74996173"
 
 다음은 Azure Backup 서비스를 사용하여 Azure VM을 백업 및 복원하는 방법입니다.
 
-**시나리오** | **Backup** | **에이전트** |**Restore**
+**시나리오** | **Backup** | **에이전트** |**복원**
 --- | --- | --- | ---
-Azure VM의 직접 백업  | 전체 VM을 백업 합니다.  | Azure VM에 에이전트가 필요하지 않습니다. Azure Backup는 VM에서 실행 되는 [AZURE vm 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 에 대 한 확장을 설치 하 고 사용 합니다. | 복원은 다음과 같이 수행됩니다.<br/><br/> - **기본 VM 만들기**. VM에 여러 IP 주소와 같은 특수 구성이 없는 경우에 유용 합니다.<br/><br/> - **VM 디스크 복원**. 디스크를 복원합니다. 그런 다음 기존 VM에 연결 하거나 PowerShell을 사용 하 여 디스크에서 새 VM을 만듭니다.<br/><br/> - **VM 디스크 바꾸기**. VM이 있으며 Managed Disks(암호화되지 않음)를 사용하는 경우 디스크를 복원하고 VM에서 기존 디스크 대신 사용할 수 있습니다.<br/><br/> - **특정 파일/폴더 복원**. 전체 VM이 아닌 VM에서 파일/폴더를 복원할 수 있습니다.
+Azure VM의 직접 백업  | 전체 VM을 백업 합니다.  | Azure VM에 에이전트가 필요하지 않습니다. Azure Backup는 VM에서 실행 되는 [AZURE vm 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 에 대 한 확장을 설치 하 고 사용 합니다. | 다음과 같이 복원합니다.<br/><br/> - **기본 VM 만들기**. VM에 여러 IP 주소와 같은 특수 구성이 없는 경우에 유용 합니다.<br/><br/> - **VM 디스크 복원**. 디스크를 복원합니다. 그런 다음 기존 VM에 연결 하거나 PowerShell을 사용 하 여 디스크에서 새 VM을 만듭니다.<br/><br/> - **VM 디스크 바꾸기**. VM이 있으며 Managed Disks(암호화되지 않음)를 사용하는 경우 디스크를 복원하고 VM에서 기존 디스크 대신 사용할 수 있습니다.<br/><br/> - **특정 파일/폴더 복원**. 전체 VM이 아닌 VM에서 파일/폴더를 복원할 수 있습니다.
 Azure Vm의 직접 백업 (Windows에만 해당)  | 특정 파일/폴더/볼륨을 백업 합니다. | [Azure Recovery Services 에이전트](backup-azure-file-folder-backup-faq.md)를 설치 합니다.<br/><br/> 파일/폴더 수준에서 VM을 백업하려면 Azure VM 에이전트에 대한 백업 확장과 함께 MARS 에이전트를 실행할 수 있습니다. | 특정 폴더/파일을 복원합니다.
 Backup server에 Azure VM 백업  | 파일/폴더/볼륨 백업 시스템 상태/운영 체제 미 설치 파일 응용 프로그램 데이터를 System Center DPM 또는 MABS (Microsoft Azure Backup 서버)에 연결할 수 있습니다.<br/><br/> 그런 다음 DPM/MABS는 백업 자격 증명 모음에 백업 합니다. | VM에 DPM/MABS 보호 에이전트를 설치 합니다. MARS 에이전트는 DPM/MABS에 설치됩니다.| 파일/폴더/볼륨, 시스템 상태/완전 파일 및 앱 데이터를 복원합니다.
 
@@ -34,7 +34,7 @@ Backup server에 Azure VM 백업  | 파일/폴더/볼륨 백업 시스템 상태
 
 ## <a name="supported-backup-actions"></a>지원되는 백업 작업
 
-**작업** | **지원**
+**동작** | **지원**
 --- | ---
 Microsoft Azure VM을 만들 때 백업 사용 | 지원 대상: <br/><br/> -Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM 및 SP1 Standard)
 Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> -Ubuntu 서버: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> -SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> -CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
@@ -68,7 +68,7 @@ Azure Backup은 32비트 운영 체제를 지원하지 않습니다.
 
 Linux 머신을 백업하려는 경우 지원되는 사항은 다음과 같습니다.
 
-**작업** | **지원**
+**동작** | **지원**
 --- | ---
 Linux Azure VM 에이전트를 사용하여 Linux Azure VM 백업 | 파일 일치 백업입니다.<br/><br/> [사용자 지정 스크립트](backup-azure-linux-app-consistent.md)를 사용하는 앱 일치 백업입니다.<br/><br/> 복원 중에는 새 VM을 만들고, 디스크를 복원 하 고이를 사용 하 여 VM을 만들거나, 디스크를 복원 하 고이를 사용 하 여 기존 VM의 디스크를 교체할 수 있습니다. 또한 개별 파일 및 폴더를 복원할 수도 있습니다.
 MARS 에이전트를 사용하여 Linux Azure VM 백업 | 지원되지 않습니다.<br/><br/> MARS 에이전트는 Windows 머신에만 설치할 수 있습니다.
@@ -107,7 +107,7 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64이 고, 앱
 
 ## <a name="support-for-file-level-restore"></a>파일 수준 복원에 대한 지원
 
-**Restore** | **지원됨**
+**복원** | **지원됨**
 --- | ---
 운영 체제에서 파일 복원 | 백업된 VM과 동일한(또는 호환되는) OS가 있는 모든 컴퓨터에서 파일을 복원할 수 있습니다. [호환 되는 OS 표](backup-azure-restore-files-from-vm.md#system-requirements)를 참조 하세요.
 클래식 VM에서 파일 복원 | 지원되지 않습니다.
@@ -121,7 +121,7 @@ LVM/RAID 배열을 사용하여 Linux VM에서 파일 복원 | 동일한 VM에�
 
 다음 표에는 vm 디스크 추가 또는 교체와 같은 VM 관리 작업을 수행 하는 동안 백업에 대 한 지원이 요약 되어 있습니다.
 
-**Restore** | **지원됨**
+**복원** | **지원됨**
 --- | ---
 구독/지역/영역에서의 복원 | 지원되지 않습니다.
 기존 VM에 복원 | 디스크 바꾸기 옵션을 사용합니다.
@@ -136,7 +136,7 @@ VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로
 
 ## <a name="vm-compute-support"></a>VM 컴퓨팅 지원
 
-**Compute** | **지원**
+**컴퓨팅** | **지원**
 --- | ---
 VM 크기 |CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM<br/><br/> [자세한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 [가용성 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets)의 VM 백업 | 지원됩니다.<br/><br/> VM을 신속 하 게 만드는 옵션을 사용 하 여 사용 가능한 집합에서 VM을 복원할 수 없습니다. 대신 VM을 복원 하는 경우 디스크를 복원 하 고이를 사용 하 여 VM을 배포 하거나 디스크를 복원 하 여 기존 디스크를 교체 하는 데 사용 합니다.
@@ -154,16 +154,16 @@ Gen2 Vm | 지원됨 <br> Azure Backup [Gen2 vm](https://azure.microsoft.com/upda
 
 **구성 요소** | **지원**
 --- | ---
-Azure VM 데이터 디스크 수 | 16개 이하의 데이터 디스크가 있는 VM을 백업합니다.
+Azure VM 데이터 디스크 수 | 16 개 이하의 데이터 디스크를 사용 하 여 VM을 백업 합니다.<BR> 16개 이상의 디스크(최대 32개 디스크)를 사용하여 VM의 프라이빗 미리 보기에 등록하려면 AskAzureBackupTeam@microsoft.com으로 이메일을 보내주세요.
 데이터 디스크 크기 | 개별 디스크 크기는 최대 32 TB 이며 VM의 모든 디스크에 대해 최대 256 TB를 결합할 수 있습니다.
 스토리지 유형 | 표준 HDD, 표준 SSD, 프리미엄 SSD.
-관리 디스크 | 지원됩니다.
-암호화된 디스크 | 지원 됨 (최대 4 TB)<br/><br/> Azure Disk Encryption에서 사용 하도록 설정 된 azure Vm은 Azure AD 앱을 사용 하거나 사용 하지 않고 백업할 수 있습니다.<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구 해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
+Managed Disks | 지원됩니다.
+암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption에서 사용 하도록 설정 된 azure Vm은 Azure AD 앱을 사용 하거나 사용 하지 않고 백업할 수 있습니다.<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구 해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
 Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> Azure backup은 백업 하는 동안 쓰기 가속기 사용 하도록 설정 된 디스크를 자동으로 제외 합니다. 이러한 디스크는 백업 되지 않으므로 VM의 복구 점에서 복원할 수 없습니다.
-중복 제거 된 Vm/디스크 백업 & 복원 | Azure Backup은 중복 제거를 지원 하지 않습니다. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) 를 참조 하세요. <br/> <br/>  -Azure Backup Recovery Services 자격 증명 모음의 Vm 간에 중복 제거 되지 않습니다. <br/> <br/>  -복원 중에 중복 제거 상태의 Vm이 있는 경우 자격 증명 모음에서 형식을 인식 하지 않으므로 파일을 복원할 수 없습니다.
+중복 제거 된 Vm/디스크 백업 & 복원 | Azure Backup은 중복 제거를 지원 하지 않습니다. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) 를 참조 하세요. <br/> <br/>  -Azure Backup Recovery Services 자격 증명 모음의 Vm 간에 중복 제거 되지 않습니다. <br/> <br/>  -복원 중에 중복 제거 상태의 Vm이 있는 경우 자격 증명 모음에서 형식을 인식 하지 않으므로 파일을 복원할 수 없습니다. 그러나 전체 VM 복원을 성공적으로 수행할 수 있습니다.
 보호된 VM에 디스크 추가 | 지원됩니다.
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.
-공유 저장소| CSV (클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버를 사용 하 여 Vm을 백업 하는 것은 권장 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함 하는 디스크가 제공 되지 않을 수 있습니다.
+공유 스토리지| CSV (클러스터 공유 볼륨 또는 스케일 아웃 파일 서버를 사용 하 여 Vm을 백업할 수 없습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함 하는 디스크가 제공 되지 않을 수 있습니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 
@@ -205,10 +205,10 @@ Azure로의 네트워크 트래픽:
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![yes][green] | ![yes][green]
-Azure VM | ![yes][green] | ![yes][green]
-온-프레미스/Azure VM(DPM 사용) | ![yes][green] | ![yes][green]
-온-프레미스/Azure VM(MABS 사용) | ![yes][green] | ![yes][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![예][green] | ![예][green]
+Azure VM | ![예][green] | ![예][green]
+온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
+온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
 
 ## <a name="vm-compression-support"></a>VM 압축 지원
 
@@ -219,10 +219,10 @@ Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지�
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | 해당 없음 | ![yes][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | 해당 없음 | ![예][green]
 Azure VM | 해당 없음 | 해당 없음
-온-프레미스/Azure VM(DPM 사용) | ![yes][green] | ![yes][green]
-온-프레미스/Azure VM(MABS 사용) | ![yes][green] | ![yes][green]
+온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
+온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
 
 ## <a name="next-steps"></a>다음 단계
 

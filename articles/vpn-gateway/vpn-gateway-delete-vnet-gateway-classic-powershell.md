@@ -1,26 +1,19 @@
 ---
-title: '가상 네트워크 게이트웨이 삭제: PowerShell: Azure 클래식 | Microsoft Docs'
+title: '가상 네트워크 게이트웨이 삭제: Azure 클래식'
 description: 클래식 배포 모델에서 PowerShell을 사용하여 가상 네트워크 게이트웨이를 삭제합니다.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ff8e42cecb705e57ce85c92e84a0ad9b78929a5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60863983"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778501"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>PowerShell(클래식)을 사용하여 가상 네트워크 삭제
 
@@ -34,11 +27,11 @@ ms.locfileid: "60863983"
 
 ## <a name="connect"></a>1단계: Azure에 연결
 
-### <a name="1-install-the-latest-powershell-cmdlets"></a>1. 최신 PowerShell cmdlet을 설치합니다.
+### <a name="1-install-the-latest-powershell-cmdlets"></a>1. 최신 PowerShell cmdlet을 설치 합니다.
 
 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 다운로드하여 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
-### <a name="2-connect-to-your-azure-account"></a>2. Azure 계정에 연결합니다. 
+### <a name="2-connect-to-your-azure-account"></a>2. Azure 계정에 연결 합니다. 
 
 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
@@ -56,7 +49,7 @@ Add-AzureAccount
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-텍스트 편집기로 파일을 열고 클래식 VNet의 이름을 확인합니다. Azure Portal에서 VNet을 만든 경우 Azure에서 사용되는 전체 이름은 포털에 표시되지 않습니다. 예를 들어 Azure Portal에서 'ClassicVNet1'이라는 이름의 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름으로 유지될 수 있습니다. 이름은 다음과 같이 표시될 수 있습니다. 'Group ClassicRG1 ClassicVNet1'. 가상 네트워크 이름은 **‘VirtualNetworkSite name =’** 으로 나열됩니다. PowerShell cmdlet을 실행할 때는 네트워크 구성 파일의 이름을 사용해야 합니다.
+텍스트 편집기로 파일을 열고 클래식 VNet의 이름을 확인합니다. Azure Portal에서 VNet을 만든 경우 Azure에서 사용되는 전체 이름은 포털에 표시되지 않습니다. 예를 들어 Azure Portal에서 'ClassicVNet1'이라는 이름의 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름으로 유지될 수 있습니다. 즉, 'Group ClassicRG1 ClassicVNet1'과 유사하게 표시될 수 있습니다. 가상 네트워크 이름은 **‘VirtualNetworkSite name =’** 으로 나열됩니다. PowerShell cmdlet을 실행할 때는 네트워크 구성 파일의 이름을 사용해야 합니다.
 
 ## <a name="delete"></a>3단계: 가상 네트워크 게이트웨이 삭제
 
@@ -92,7 +85,7 @@ Status : Successful
  </Gateway>
 ```
 
-예제:
+예:
 
 ```
 <Gateway>
@@ -148,7 +141,7 @@ P2S를 VNet에 연결한 경우 **VPNClientAddressPool**이 있습니다. 삭제
  </Gateway>
 ```
 
-예제:
+예:
 
 ```
 <Gateway>
@@ -171,7 +164,7 @@ VNet에 해당하는 **GatewaySubnet**을 삭제합니다.
  </Subnets>
 ```
 
-예제:
+예:
 
 ```
 <Subnets>
