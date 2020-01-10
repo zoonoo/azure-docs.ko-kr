@@ -6,17 +6,14 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f0d3d36d3489557f0a07e9400c59debb2dca7073
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671465"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728755"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.
-
-> [!NOTE] 
-> Key Vault 참조는 현재 Linux 소비 계획에서 사용할 수 없습니다.
 
 이 항목에서는 코드 변경 없이도 App Service 또는 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용하는 방법을 보여 줍니다. [Azure Key Vault](../key-vault/key-vault-overview.md)는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
 
@@ -41,7 +38,7 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
 Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여기서 `{referenceString}`은 다음 옵션 중 하나로 대체됩니다.
 
 > [!div class="mx-tdBreakAll"]
-> | 참조 문자열                                                            | 설명                                                                                                                                                                                 |
+> | 참조 문자열                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931 ).  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName**은 Key Vault 리소스의 이름이어야 합니다. **SecretName**은 대상 비밀의 이름이어야 합니다. **SecretVersion**은 사용할 비밀의 버전이어야 합니다. |
@@ -190,7 +187,7 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 ### <a name="using-the-detector-for-app-service"></a>App Service에 대 한 탐지기 사용
 
 1. 포털에서 앱으로 이동 합니다.
-2. **진단 및 문제 해결을**선택 합니다.
+2. **문제 진단 및 해결**을 선택합니다.
 3. **가용성 및 성능** 을 선택 하 고 **웹 앱 중단을 선택 합니다.**
 4. **Key Vault 응용 프로그램 설정 진단을** 찾고 **추가 정보**를 클릭 합니다.
 
@@ -199,6 +196,6 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 
 1. 포털에서 앱으로 이동 합니다.
 2. **플랫폼 기능으로 이동 합니다.**
-3. **진단 및 문제 해결을**선택 합니다.
+3. **문제 진단 및 해결**을 선택합니다.
 4. **가용성 및 성능** 을 선택 하 고 **함수 앱 중단 또는 오류 보고를 선택 합니다.**
 5. **Key Vault 응용 프로그램 설정 진단을 클릭 합니다.**

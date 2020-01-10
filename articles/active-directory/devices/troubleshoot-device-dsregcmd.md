@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379195"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707947"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결
 
@@ -28,10 +28,10 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 | AzureAdJoined | EnterpriseJoined 됨 | DomainJoined | 디바이스 상태 |
 | ---   | ---   | ---   | ---   |
-| 예 | 아니요 | 아니요 | Azure AD 조인 됨 |
-| 아니요 | 아니요 | 예 | 도메인 가입 |
-| 예 | 아니요 | 예 | 하이브리드 AD 조인 됨 |
-| 아니요 | 예 | 예 | 온-프레미스 DRS 조인 됨 |
+| YES | 아니요 | 아니요 | Azure AD 조인 됨 |
+| 아니요 | 아니요 | YES | 도메인에 가입된 경우 |
+| YES | 아니요 | YES | 하이브리드 AD 조인 됨 |
+| 아니요 | YES | YES | 온-프레미스 DRS 조인 됨 |
 
 > [!NOTE]
 > "사용자 상태" 섹션에 Workplace Join (Azure AD 등록 됨) 상태가 표시 됩니다.
@@ -81,7 +81,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>테 넌 트 세부 정보
+## <a name="tenant-details"></a>테넌트 세부 정보
 
 장치가 Azure AD에 가입 된 경우 또는 하이브리드 Azure AD에 가입 된 경우에만 표시 됩니다 (Azure AD가 등록 되지 않음). 이 섹션에서는 장치가 Azure AD에 가입 된 경우 일반적인 테 넌 트 세부 정보를 나열 합니다.
 
@@ -136,7 +136,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 - **WorkplaceJoined:** -Azure AD 등록 된 계정이 현재 ntuser.man 파일 컨텍스트의 장치에 추가 된 경우 "예"로 설정 합니다.
 - **WamDefaultSet:** -로그인 한 사용자에 대해 WAM default WebAccount가 생성 되 면 "예"로 설정 합니다. Dsreg/status를 관리자 컨텍스트에서 실행 하는 경우이 필드에 오류가 표시 될 수 있습니다. 
 - **WamDefaultAuthority:** -Azure AD의 "조직"으로 설정 합니다.
-- **WamDefaultId:** -Azure AD의 경우 항상 "https://login.microsoft.com"입니다.
+- **WamDefaultId:** -Azure AD “https://login.microsoft.com” 의 경우-항상 ""입니다.
 - **고 wamdefaultguid:** -기본 WAM WebAccount에 대 한 WAM 공급자의 (Azure AD/MICROSOFT 계정) GUID입니다. 
 
 ### <a name="sample-user-state-output"></a>샘플 사용자 상태 출력
@@ -297,10 +297,22 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ## <a name="ngc-prerequisite-check"></a>NGC 필수 구성 요소 확인
 
-이 섹션에서는 NGC 키의 프로 비전에 대 한 필수 검사를 수행 합니다. 
+이 섹션에서는 WHFB (비즈니스용 Windows Hello)를 프로 비전 하는 필수 검사를 수행 합니다. 
 
 > [!NOTE]
-> 사용자가 이미 NGC 자격 증명을 구성 했으면 dsregcmd.exe/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
+> 사용자가 이미 WHFB을 구성 했으면 dsregcmd.exe/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
+
+- **Isdevicejoined:** -장치가 Azure AD에 가입 되어 있는 경우 "예"로 설정 합니다.
+- **IsUserAzureAD:** -로그인 한 사용자가 Azure AD에 있는 경우 "예"로 설정 합니다.
+- **Policyenabled:** -WHFB 정책이 장치에서 사용 되는 경우 "예"로 설정 합니다.
+- **Postlogonenabled:** -WHFB 등록이 플랫폼에 의해 기본적으로 트리거되는 경우 "YES"로 설정 합니다. "아니요"로 설정 된 경우 비즈니스용 Windows Hello 등록이 사용자 지정 메커니즘에 의해 트리거됨을 나타냅니다.
+- **Deviceeligible:** -장치가 WHFB를 사용 하 여 등록 하기 위한 하드웨어 요구 사항을 충족 하는 경우 "예"로 설정 합니다.
+- **Sessionisnotremote:** -현재 사용자가 원격이 아닌 장치에 직접 로그인 한 경우 "예"로 설정 합니다.
+- **Certenrollment:** -WHFB 인증서 신뢰 배포와 관련 하 여 WHFB에 대 한 인증서 등록 기관을 나타냅니다. WHFB policy의 소스가 그룹 정책 경우 "등록 기관"으로 설정 하 고, 원본이 MDM 인 경우 "모바일 장치 관리"로 설정 합니다. 그렇지 않으면 "none"입니다.
+- **AdfsRefreshToken:** -WHFB 인증서 신뢰 배포에만 적용 됩니다. CertEnrollment "등록 기관" 인 경우에만 표시 됩니다. 장치에 사용자에 대 한 엔터프라이즈 PRT가 있는지 여부를 나타냅니다.
+- **AdfsRaIsReady:** -WHFB 인증서 신뢰 배포에만 적용 됩니다.  CertEnrollment "등록 기관" 인 경우에만 표시 됩니다. ADFS가 WHFB을 지원 하 *고* 로그온 인증서 템플릿을 사용할 수 있는 경우 "예"로 설정 합니다.
+- **LogonCertTemplateReady:** -WHFB 인증서 신뢰 배포에만 적용 됩니다. CertEnrollment "등록 기관" 인 경우에만 표시 됩니다. 로그온 인증서 템플릿의 상태가 유효 하 고 ADFS RA 문제를 해결 하는 데 도움이 되는 경우 "예"로 설정 합니다.
+- **PreReqResult:** -모든 WHFB 필수 구성 요소 평가의 결과를 제공 합니다. 사용자가 다음에 로그인 할 때 WHFB 등록을 사후 로그온 작업으로 시작 하는 경우 "프로 비전"으로 설정 합니다.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>샘플 NGC 필수 구성 요소 검사 출력
 

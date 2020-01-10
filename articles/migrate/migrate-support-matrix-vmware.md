@@ -1,18 +1,14 @@
 ---
-title: Azure Migrate에서 VMware 평가 및 마이그레이션에 대 한 지원
-description: Azure Migrate에서 VMware VM 평가/마이그레이션에 대 한 지원에 대해 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Azure Migrate의 VMware 지원
+description: Azure Migrate에서 VMware 평가/마이그레이션 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.date: 01/02/2020
+ms.openlocfilehash: b4d498b869bafe579e2539a049aae58ac6f26575
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196272"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719446"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 평가 및 마이그레이션 지원 매트릭스
 
@@ -23,7 +19,7 @@ ms.locfileid: "74196272"
 
 이 표에는 VMware Vm에 대해 지원 되는 시나리오가 요약 되어 있습니다.
 
-**배포웹사이트를** | **세부 정보**
+**배포** | **세부 정보**
 --- | ---
 **온-프레미스 VMware Vm 평가** | 첫 번째 평가를 [설정](tutorial-prepare-vmware.md) 합니다.<br/><br/> 대규모 평가를 [실행](scale-vmware-assessment.md) 합니다.
 **VMware VM 마이그레이션** | 에이전트 없는 마이그레이션을 사용 하 여 마이그레이션하거나 에이전트 기반 마이그레이션을 사용할 수 있습니다. [자세히 알아보기](server-migrate-overview.md)
@@ -39,7 +35,7 @@ ms.locfileid: "74196272"
 
 **지리** | **메타데이터 스토리지 위치**
 --- | ---
-Azure Government | 미국 정부 버지니아
+Azure Government | US Gov 버지니아
 아시아 태평양 | 동아시아 또는 동남 아시아
 오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
 브라질 | 브라질 남부
@@ -57,7 +53,7 @@ Azure Government | 미국 정부 버지니아
  > Azure Government에 대 한 지원은 현재 [이전 버전](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) 의 Azure Migrate 에서만 사용할 수 있습니다.
 
 
-## <a name="application-discovery"></a>응용 프로그램 검색
+## <a name="application-discovery"></a>애플리케이션 검색
 
 Azure Migrate: 서버 평가에서 앱, 역할 및 기능을 검색할 수 있습니다. 앱 인벤토리를 검색 하면 온-프레미스 워크 로드에 맞게 조정 된 마이그레이션 경로를 식별 하 고 계획할 수 있습니다. Azure Migrate: 서버 평가는 컴퓨터 게스트 자격 증명을 사용 하 여 WMI 및 SSH 호출을 통해 컴퓨터에 원격으로 액세스 하는 에이전트 없는 검색을 제공 합니다
 
@@ -80,11 +76,10 @@ Azure Migrate: 서버 평가에서 앱, 역할 및 기능을 검색할 수 있�
 
 평가 및 에이전트 없는 마이그레이션을 위해 VM을 검색하려면 Azure Migrate에서 vCenter Server에 액세스해야 합니다.
 
-- 응용 프로그램을 검색 하거나 에이전트 없는 방식으로 종속성을 시각화할 계획인 경우 **게스트 작업** > **가상 컴퓨터** 에 대해 사용 하도록 설정 된 권한과 함께 읽기 전용 액세스 권한이 있는 vCenter Server 계정을 만듭니다.
-
-  ![vCenter Server 계정 권한](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
-
-- 응용 프로그램 검색 및 에이전트 없는 종속성 시각화를 수행 하지 않으려는 경우 vCenter Server에 대 한 읽기 전용 계정을 설정 합니다.
+**Task** | **필요한 권한**
+--- | ---
+평가 전용 | 읽기 전용 계정을 vCenter Server 합니다.
+[앱 검색](how-to-discover-applications.md) 또는 [에이전트 없는 종속성 시각화](how-to-create-group-machine-dependencies-agentless.md) 를 사용한 평가 | 읽기 전용 액세스 권한이 있는 vCenter Server 계정 및 **가상 컴퓨터** 에 대 한 권한이 설정 된 **게스트 작업** > 합니다.
 
 ## <a name="assessment-appliance-requirements"></a>평가-어플라이언스 요구 사항
 
@@ -92,9 +87,9 @@ Azure Migrate는 경량 어플라이언스를 실행 하 여 VMware Vm을 검색
 
 **지원** | **세부 정보**
 --- | ---
-**어플라이언스 배포** | 어플라이언스를 VMware VM으로 배포 합니다. 32 g b RAM, 8 개 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/><br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/> 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.
+**어플라이언스 배포** | 어플라이언스를 VMware VM으로 배포 합니다. 32 GB RAM, 8 개 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/><br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/> 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 프로젝트에서 최대 35000 개의 Vm을 평가할 수 있습니다.
-**조사** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
+**검색** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **평가 그룹** | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.
 **평가** | 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
 
@@ -109,21 +104,21 @@ Azure Migrate 어플라이언스를 인터넷에 연결 해야 합니다.
 **URL** | **세부 정보**  
 --- | --- |
 *.portal.azure.com  | Azure Portal Azure Migrate으로 이동 합니다.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Azure 구독에 로그인합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Azure 구독에 로그인합니다.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
-*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
-*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
+\*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
+\*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
 https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 
 ## <a name="assessment-port-requirements"></a>평가-포트 요구 사항
 
 **디바이스** | **연결**
 --- | ---
-기기가 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
+어플라이언스 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
 vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메타 데이터를 수집할 수 있도록 TCP 포트 443에서 인바운드 연결 <br/><br/> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결 됩니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
 
 ## <a name="assessment-dependency-visualization"></a>평가-종속성 시각화
@@ -136,10 +131,10 @@ vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메
         - TCP 연결
         - 활성 연결이 있는 프로세스의 이름
         - 위의 프로세스를 실행 하는 설치 된 응용 프로그램의 이름
-        - 아니요. 모든 폴링 간격에서 감지 된 연결
+        - 아닙니다. 모든 폴링 간격에서 감지 된 연결
 - **에이전트 기반 종속성 시각화**: 에이전트 기반 종속성 시각화를 사용 하려면 분석 하려는 각 온-프레미스 컴퓨터에 다음 에이전트를 다운로드 하 여 설치 해야 합니다.
-    - 각 컴퓨터에 MMA (Microsoft Monitoring agent)를 설치 해야 합니다. MMA 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](how-to-create-group-machine-dependencies.md#install-the-mma) .
-    - 각 컴퓨터에 종속성 에이전트를 설치 해야 합니다. 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) .
+    - 각 컴퓨터에 MMA (Microsoft Monitoring agent)를 설치 합니다. MMA 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](how-to-create-group-machine-dependencies.md#install-the-mma) .
+    - 각 컴퓨터에 종속성 에이전트를 설치 합니다. 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) .
     - 또한 인터넷에 연결되지 않은 머신이 있으면 해당 머신에 Log Analytics 게이트웨이를 다운로드하여 설치해야 합니다.
 
 ## <a name="migration---limitations"></a>마이그레이션-제한 사항
@@ -182,12 +177,12 @@ VirtualMachine.SnapshotManagement.* | 복제에 대 한 VM 스냅숏 만들기 �
 **공유된 디스크 클러스터** | 지원되지 않습니다.
 **독립 디스크** | 지원되지 않습니다.
 **RDM/통과 디스크** | Vm에 RDM 또는 통과 디스크가 있는 경우 이러한 디스크는 Azure에 복제 되지 않습니다.
-**용** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
+**NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
 **iSCSI 대상** | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
 **다중 경로 IO** | 지원되지 않습니다.
 **저장소 vMotion** | 지원되지 않습니다. VM에서 저장소 vMotion를 사용 하는 경우 복제가 작동 하지 않습니다.
 **팀 Nic** | 지원되지 않습니다.
-**Ipv6)** | 지원되지 않습니다.
+**IPv6** | 지원되지 않습니다.
 **대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HDD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
 **동시 복제** | vCenter Server 당 Vm 100 더 많은 경우 100의 일괄 처리로 마이그레이션합니다.
 
@@ -212,14 +207,14 @@ Azure Migrate 어플라이언스는 인터넷에 인터넷으로 연결 되어�
 **URL** | **세부 정보**  
 --- | ---
 *.portal.azure.com | Azure Portal Azure Migrate으로 이동 합니다.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Azure 구독에 로그인합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Azure 구독에 로그인합니다.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
-*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
-*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
+\*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
+\*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
 https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 
 
@@ -227,7 +222,7 @@ https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/
 
 **디바이스** | **연결**
 --- | ---
-기기가 | 포트 443의 아웃 바운드 연결을 사용 하 여 복제 된 데이터를 Azure에 업로드 하 고, 복제 및 오케스트레이션 서비스를 사용 하 여 Azure Migrate 서비스와 통신 합니다.
+어플라이언스 | 포트 443의 아웃 바운드 연결을 사용 하 여 복제 된 데이터를 Azure에 업로드 하 고, 복제 및 오케스트레이션 서비스를 사용 하 여 Azure Migrate 서비스와 통신 합니다.
 vCenter Server | 어플라이언스에서 복제를 오케스트레이션 할 수 있도록 허용 하는 포트 443의 인바운드 연결-스냅숏 만들기, 데이터 복사, 릴리스 스냅숏
 vSphere/EXSI 호스트 | 어플라이언스의 TCP 포트 902에 대 한 인바운드는 스냅숏에서 데이터를 복제 합니다.
 
@@ -260,7 +255,7 @@ Azure Migrate 서버 마이그레이션과 함께 VMware Vm 및 물리적 서버
 PowerCLI | VMware VM에서 복제 어플라이언스를 실행 하는 경우에는 [Powercli 버전 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) 을 설치 해야 합니다.
 NIC 유형 | VMXNET3 (기기가 VMware VM 인 경우)
  | **하드웨어 설정**
-CPU 코어 | 8
+CPU 코어 수 | 8
 RAM | 16GB
 디스크 수 | 3: OS 디스크, 프로세스 서버 캐시 디스크, 보존 드라이브입니다.
 사용 가능한 디스크 공간 (캐시) | 600GB
@@ -328,12 +323,12 @@ Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 �
 **공유된 디스크 클러스터** | 지원되지 않습니다.
 **독립 디스크** | 지원됩니다.
 **통과 디스크** | 지원됩니다.
-**용** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
+**NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
 **iSCSI 대상** | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
 **다중 경로 IO** | 지원되지 않습니다.
 **저장소 vMotion** | 지원됨
 **팀 Nic** | 지원되지 않습니다.
-**Ipv6)** | 지원되지 않습니다.
+**IPv6** | 지원되지 않습니다.
 
 
 
@@ -353,9 +348,9 @@ VMware Vm에서 실행 되는 모바일 서비스는 인터넷에 연결 되어 
 management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
-*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
-*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
+\*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
+\*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
 
 ## <a name="agent-based-migration-port-requirements"></a>에이전트 기반 마이그레이션-포트 요구 사항
 
@@ -382,7 +377,7 @@ Azure로 복제 된 모든 온-프레미스 Vm은이 표에 요약 된 Azure VM 
 FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
 BitLocker | 지원되지 않습니다. | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.<br/> 사이트 간 VPN 액세스의 경우 RDP를 사용 하도록 설정 하 고 **Windows 방화벽** 에서 rdp를 허용 하 고, **도메인 및 개인** 네트워크에 대해 **허용 되는 앱 및 기능** -> 합니다. 또한 운영 체제의 SAN 정책이 **OnlineAll**으로 설정 되어 있는지 확인 합니다. [자세히 알아봅니다](prepare-for-migration.md). |
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.<br/> 사이트 간 VPN 액세스의 경우 RDP를 사용 하도록 설정 하 고 **Windows 방화벽** 에서 rdp를 허용 하 고, **도메인 및 개인** 네트워크에 대해 **허용 되는 앱 및 기능** -> 합니다. 또한 운영 체제의 SAN 정책이 **OnlineAll**으로 설정 되어 있는지 확인 합니다. [자세히 알아보기](prepare-for-migration.md). |
 마이그레이션 후 연결-Linux | SSH를 사용 하 여 마이그레이션한 후 Azure Vm에 연결 하려면:<br/> 마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정 되어 있고 방화벽 규칙에서 SSH 연결을 허용 하는지 확인 합니다.<br/> 장애 조치 (failover) 후에 Azure VM에서 장애 조치 (failover) 된 VM의 네트워크 보안 그룹 규칙에 대 한 SSH 포트 및 연결 된 Azure 서브넷에 대 한 들어오는 연결을 허용 합니다. 또한 VM에 대 한 공용 IP 주소를 추가 합니다. |  
 
 

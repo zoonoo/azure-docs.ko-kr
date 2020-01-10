@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7221619c8d9388a9f6d46ec1dfbb11e467db861a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: c597bc4430e4390f0e29e4fe8ae4014521e1ae74
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793296"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732258"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 아티팩트를 추가 합니다.
 
-[ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만든 후에는 Azure 가상 네트워크의 리소스에 액세스할 수 있도록 논리 앱, 통합 계정 및 커넥터와 같은 아티팩트를 추가 합니다.
+[ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만든 후에는 Azure 가상 네트워크의 리소스에 액세스할 수 있도록 논리 앱, 통합 계정 및 커넥터와 같은 아티팩트를 추가 합니다. 예를 들어 ISE를 만든 후에 사용할 수 있는 관리 되는 ISE 커넥터는 논리 앱 디자이너에 자동으로 표시 되지 않습니다. 이러한 ISE 커넥터를 사용 하려면 먼저 [해당 커넥터를 사용자의 ise에 추가 하 고 배포](#add-ise-connectors-environment) 하 여 논리 앱 디자이너에 표시 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 논리 앱을 실행 하기 위해 만든 ISE입니다. ISE가 없으면 [먼저 ise를 만듭니다](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
@@ -84,17 +84,17 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
 ## <a name="add-ise-connectors"></a>ISE 커넥터 추가
 
-ISE에서 사용 하기 위해 사용할 수 있지만 ISE에 배포 되지 않은 Microsoft 관리 커넥터를 추가할 수 있습니다.
+ISE를 만든 후 사용할 수 있게 되는 Microsoft 관리 커넥터는 논리 앱 디자이너의 커넥터 선택에 자동으로 표시 되지 않습니다. 이러한 ISE 커넥터를 사용 하려면 먼저 이러한 커넥터를 수동으로 추가 하 고 해당 커넥터를 해당 ISE에 배포 하 여 논리 앱 디자이너에 표시 해야 합니다.
 
 1. ISE 메뉴의 **설정**에서 **관리 되는 커넥터**를 선택 합니다. 도구 모음에서 **추가**를 선택합니다.
 
    ![관리 되는 커넥터 보기](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. **새 관리 커넥터 추가** 창에서 **커넥터 찾기** 목록을 엽니다. 원하는 커넥터를 사용할 수 있는 경우 해당 커넥터를 선택한 다음 **만들기**를 선택 합니다.
+1. **새 관리 커넥터 추가** 창에서 **커넥터 찾기** 목록을 엽니다. 사용할 ISE 커넥터를 선택 하지만 ISE에서 아직 배포 되지 않았습니다. **만들기**를 선택합니다.
 
-   이 목록에는 적격 하지만 ISE에 배포 되지 않은 커넥터만 표시 됩니다. ISE에 이미 배포 된 커넥터는 선택할 수 없는 것으로 나타납니다.
+   ![ISE에 배포할 ISE 커넥터를 선택 합니다.](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
-   ![적격 커넥터 선택](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+   ISE에 아직 배포 되지 않은 ISE 커넥터도 사용자가 선택할 수 있는 것으로 나타납니다. ISE에 이미 배포 된 커넥터는 선택할 수 없는 것으로 나타납니다.
 
 <a name="create-custom-connectors-environment"></a>
 

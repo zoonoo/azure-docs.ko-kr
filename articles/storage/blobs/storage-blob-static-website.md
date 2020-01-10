@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311226"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708165"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -50,7 +50,7 @@ ms.locfileid: "72311226"
 
 사용자는 웹 사이트의 공용 URL을 사용 하 여 브라우저에서 사이트 콘텐츠를 볼 수 있습니다. Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 URL을 찾을 수 있습니다. 이 표를 가이드로 참조하세요.
 
-|도구| 인도 |
+|도구| 지침 |
 |----|----|
 |**Azure Portal** | [Azure Portal를 사용 하 여 웹 사이트 URL을 찾습니다.](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Azure CLI** | [Azure CLI를 사용 하 여 웹 사이트 URL을 찾습니다.](storage-blob-static-website-how-to.md#cli-find-url) |
@@ -63,6 +63,9 @@ ms.locfileid: "72311226"
 정적 웹 사이트 호스팅을 사용 하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일을 지정 하지 않을 때 표시 됩니다 (예: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 서버에서 404 오류를 반환 하 고 웹 사이트를 사용 하도록 설정할 때 오류 문서를 지정 하지 않은 경우 기본 404 페이지가 사용자에 게 반환 됩니다.
+
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 는 정적 웹 사이트에서 지원 되지 않습니다.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>웹 컨테이너의 공용 액세스 수준을 설정 하는 경우의 영향
 
@@ -110,7 +113,7 @@ Azure에서 도메인을 호스트 하는 방법에 대 한 자세한 내용은 
 * [Azure Storage에서 정적 웹 사이트를 호스팅합니다.](storage-blob-static-website-how-to.md)
 * [Azure CDN를 사용 하 여 HTTPS를 통한 사용자 지정 도메인으로 blob 액세스](storage-https-custom-domain-cdn.md)
 * [Blob 또는 웹 엔드포인트에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)
-* [Azure 기능](/azure/azure-functions/functions-overview)
+* [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [자습서: Azure DNS에 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)

@@ -1,18 +1,14 @@
 ---
 title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 모니터링 | Microsoft Docs
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 성능을 확인 하 고 분석 하는 방법을 설명 합니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: 1cd0223a16a6308e777e4a0167154e975202df7b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 01/07/2020
+ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872981"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75731019"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링
 
@@ -24,17 +20,11 @@ ms.locfileid: "74872981"
 
 Azure Monitor는 구독에서 리소스 그룹에 배포 된 Linux 및 Windows Server 2019를 실행 하는 모든 모니터링 되는 Kubernetes 클러스터의 상태를 보여 주는 다중 클러스터 뷰를 제공 합니다. 솔루션에서 모니터링 되지 않는 모든 환경에서 검색 된 클러스터를 표시 합니다. 클러스터 상태를 즉시 이해할 수 있으며, 여기에서 노드 및 컨트롤러 성능 페이지로 드릴 다운 하거나 탐색 하 여 클러스터에 대 한 성능 차트를 볼 수 있습니다. 검색 되 고 모니터링 되지 않는 것으로 식별 된 AKS 클러스터의 경우 언제 든 지 모니터링을 사용 하도록 설정할 수 있습니다. 
 
-Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 포함 하는 Windows Server 클러스터 모니터링의 주요 차이점은 다음과 같습니다.
-
-- Windows 노드 및 컨테이너에는 메모리 RSS 메트릭을 사용할 수 없습니다.
-- Windows 노드에는 디스크 저장소 용량 정보를 사용할 수 없습니다.
-- 라이브 로그 지원은 Windows 컨테이너 로그를 제외 하 고 사용할 수 있습니다.
-- Pod 환경을 모니터링 하 고 Docker 환경만 모니터링 합니다.
-- Preview 릴리스를 사용 하는 경우 최대 30 개의 Windows Server 컨테이너가 지원 됩니다. 이 제한은 Linux 컨테이너에는 적용 되지 않습니다. 
+Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포함 된 Windows Server 클러스터 모니터링의 주요 차이점은 개요 문서 [에서 설명 합니다](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) .
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure portal](https://portal.azure.com)에 로그인합니다. 
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Azure Monitor에서 다중 클러스터 보기
 
@@ -90,7 +80,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 �
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**Node** | | |
 | |정상 |>85% |
-| |경고 |60-84% |
+| |경고 |60 - 84% |
 | |위험 |<60% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 
@@ -127,7 +117,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 �
 
 메트릭 탐색기에서 컨테이너에 대 한 Azure Monitor 집계 된 노드 및 pod 사용률 메트릭을 볼 수 있습니다. 다음 표에서는 메트릭 차트를 사용 하 여 컨테이너 메트릭을 시각화 하는 방법을 이해 하는 데 도움이 되는 세부 정보를 요약 하 여 보여 줍니다.
 
-|네임스페이스 | 메트릭 | 설명 | 
+|네임스페이스 | 메트릭 | Description | 
 |----------|--------|-------------|
 | insights.container/nodes | |
 | | cpuUsageMillicores | 클러스터 전반의 CPU 사용률 집계 측정. 1000 단위로 분할 된 CPU 코어 (밀리초 = 1000)입니다. 많은 응용 프로그램에서 코어 하나를 사용할 수 있는 컨테이너의 코어 사용량을 확인 하는 데 사용 됩니다.| 
@@ -142,7 +132,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 �
 
 메트릭을 [분할](../platform/metrics-charts.md#apply-splitting-to-a-chart) 하 여 차원 별로 표시 하 고 서로 다른 세그먼트의 서로 비교 하는 방법을 시각화할 수 있습니다. 노드의 경우 *호스트* 차원에 따라 차트를 분할할 수 있습니다. Pod에서 다음 차원으로 분할할 수 있습니다.
 
-* Controller
+* 컨트롤러
 * Kubernetes 네임 스페이스
 * 노드
 * 단계
@@ -199,15 +189,15 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 **노드** 탭을 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 | 
+| 열 | Description | 
 |--------|-------------|
-| name | 호스트의 이름입니다. |
+| 이름 | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
 | Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;%  | 선택한 기간 동안 백분위에 기반한 평균 노드 백분율입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값 | 선택한 기간 동안 백분위 수를 기준으로 하는 평균 노드 값입니다. Average 값은 노드에 대해 설정 된 CPU/메모리 제한에서 측정 됩니다. Pod 및 컨테이너의 경우 호스트에서 보고 하는 평균 값입니다. |
 | 컨테이너 | 컨테이너의 수입니다. |
 | 작동 시간 | 노드가 시작되었거나 다시 부팅된 이후 경과된 시간을 나타냅니다. |
-| Controller | 컨테이너 및 Pod용입니다. 컨트롤러가 있는 컨트롤러를 표시 합니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A**가 표시될 수 있습니다. | 
+| 컨트롤러 | 컨테이너 및 Pod용입니다. 컨트롤러가 있는 컨트롤러를 표시 합니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A**가 표시될 수 있습니다. | 
 | 추세 Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;% | 컨트롤러의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
 
 선택기에서 **컨트롤러**를 선택합니다.
@@ -228,9 +218,9 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 컨트롤러를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 | 
+| 열 | Description | 
 |--------|-------------|
-| name | 컨트롤러의 이름입니다.|
+| 이름 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 실행이 완료 된 후 *확인*, *종료*, *실패*, *중지*됨 또는 *일시 중지*됨과 같은 상태를 사용 하 여 컨테이너의 롤업 상태입니다. 컨테이너가 실행 되 고 있지만 에이전트가 제대로 표시 되지 않았거나 에이전트가 선택 하지 않았고 30 분 넘게 응답 하지 않은 경우 상태를 *알 수 없음*으로 표시 합니다. 상태 아이콘의 추가 세부 정보는 다음 표에 나와 있습니다.|
 | Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;%| 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 평균 롤업입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
@@ -265,9 +255,9 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 컨테이너를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 | 
+| 열 | Description | 
 |--------|-------------|
-| name | 컨트롤러의 이름입니다.|
+| 이름 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 롤업입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값 | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |

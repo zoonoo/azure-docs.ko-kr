@@ -3,12 +3,12 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 2c33c71e579cc6fa5d01ba086fb1a9a4fc9c142c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dc709294b92fd26343e9520e3775b9f079aba94f
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172078"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708483"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -45,8 +45,8 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 --- | --- | --- | ---
 **MARS 에이전트를 사용한 Windows 머신 직접 백업** | 파일, 폴더, 시스템 상태 | Recovery Services 자격 증명 모음에 백업 합니다. | 하루에 세 번 백업<br/><br/> 앱 인식 백업 없음<br/><br/> 파일, 폴더, 볼륨 복원
 **MARS 에이전트를 사용한 Linux 머신 직접 백업** | 백업이 지원 되지 않음
-**DPM에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | 로컬 DPM 스토리지에 백업됩니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Vm에 대해 지원 되는 Linux (Hyper-v/VMware)<br/><br/> Oracle은 지원 되지 않습니다.
-**MABS에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS 로컬 스토리지에 백업됩니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Vm에 대해 지원 되는 Linux (Hyper-v/VMware)<br/><br/> Oracle은 지원 되지 않습니다.
+**DPM에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | 로컬 DPM 스토리지에 백업합니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Vm에 대해 지원 되는 Linux (Hyper-v/VMware)<br/><br/> Oracle은 지원 되지 않습니다.
+**MABS에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS 로컬 스토리지에 백업합니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Vm에 대해 지원 되는 Linux (Hyper-v/VMware)<br/><br/> Oracle은 지원 되지 않습니다.
 
 ## <a name="azure-vm-backup-support"></a>Azure VM 백업 지원
 
@@ -54,7 +54,7 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 
 **제한** | **세부 정보**
 --- | ---
-**Azure VM 데이터 디스크** | 16 개로 제한
+**Azure VM 데이터 디스크** | 16 개로 제한 <br> 16개 이상의 디스크(최대 32개 디스크)를 사용하여 VM의 프라이빗 미리 보기에 등록하려면 AskAzureBackupTeam@microsoft.com으로 이메일을 보내주세요.
 **Azure VM 데이터 디스크 크기** | 개별 디스크 크기는 최대 32 TB 이며 VM의 모든 디스크에 대해 최대 256 TB를 결합할 수 있습니다.
 
 ### <a name="azure-vm-backup-options"></a>Azure VM 백업 옵션
@@ -135,12 +135,25 @@ Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지�
 **설정** | **제한**
 --- | ---
 **보호 된 인스턴스당 최대 복구 위치 (컴퓨터 또는 작업)** | 9999
-**복구 지점에 대 한 최대 만료 시간** | 제한 없음
+**복구 지점에 대 한 최대 만료 시간** | 무제한
 **DPM/MABS에 대 한 최대 백업 빈도** | SQL Server에 대해 15분마다<br/><br/> 다른 작업에 대해 한 시간에 한 번
 **자격 증명 모음에 대 한 최대 백업 빈도** | **MARS를 실행 하는 온-프레미스 Windows 컴퓨터 또는 Azure vm:** 하루 3 개<br/><br/> **DPM/MABS:** 하루에 2 개<br/><br/> **AZURE VM 백업:** 하루에 하나씩
 **복구 지점 보존** | 매일, 매주, 매월, 매년
 **최대 보존 기간** | 백업 빈도에 따라 다름
 **DPM/MABS 디스크의 복구 위치** | 파일 서버의 경우 64 448 앱 서버 <br/><br/>온-프레미스 DPM의 무제한 테이프 복구 시점
+
+## <a name="cross-region-restore"></a>지역 간 복원
+
+Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하는 지역 간 복원 기능을 추가 하 여 고객에 게 보조 지역으로 데이터를 복원할 수 있는 모든 권한을 제공 합니다. 이 기능을 구성 하려면 [지역 간 복원 설정 문서](backup-create-rs-vault.md#set-cross-region-restore)를 참조 하세요. 이 기능은 다음과 같은 관리 형식에 대해 지원 됩니다.
+
+| 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
+| ---------------------- | ------------------------------------------------------------ | ----------------- |
+| Azure VM               | 예. 1TB 미만의 디스크를 사용 하 여 암호화 된 Vm 및 Vm에 대해 지원 되는 공개 제한 된 미리 보기 | 미국 중서부   |
+| MARS 에이전트/온-프레미스 | 아닙니다.                                                           | N/A               |
+| SQL/SAP HANA          | 아닙니다.                                                           | N/A               |
+| AFS                    | 아닙니다.                                                           | N/A               |
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

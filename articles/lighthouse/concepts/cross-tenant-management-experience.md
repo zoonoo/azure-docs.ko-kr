@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 11/7/2019
+ms.date: 01/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f69fc6b606f2f848b9a14d29addbbde11f07a3e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 661ada4e5d620d4977290986f5649b91363202fe
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927998"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75706991"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -19,7 +19,7 @@ ms.locfileid: "74927998"
 
 ## <a name="understanding-customer-tenants"></a>고객 테넌트 이해
 
-Azure AD(Azure Active Directory) 테넌트는 조직을 나타냅니다. Azure, Microsoft 365 또는 기타 서비스에 가입하여 Microsoft와의 관계를 만들 때 조직이 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개이며 고유한 테넌트 ID(GUID)가 있습니다. 자세한 내용은 [Azure Active Directory란?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)을 참조하세요.
+Azure AD(Azure Active Directory) 테넌트는 조직을 나타냅니다. Azure, Microsoft 365 또는 기타 서비스에 가입하여 Microsoft와의 관계를 만들 때 조직이 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개이며 고유한 테넌트 ID(GUID)가 있습니다. 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
 
 일반적으로 고객의 Azure 리소스를 관리하기 위해 서비스 공급자는 고객의 테넌트와 연결된 계정을 사용하여 Azure Portal에 로그인해야 하며, 서비스 공급자의 사용자 계정을 만들고 관리하기 위해 고객 테넌트에 관리자가 필요합니다.
 
@@ -43,31 +43,31 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 
 대부분의 작업 및 서비스는 관리형 테넌트의 위임된 리소스에서 수행할 수 있습니다. 다음은 테넌트 간 관리를 효과적으로 수행할 수 있는 몇 가지 주요 시나리오입니다.
 
-[서버용 Azure Arc(미리 보기)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+[서버용 Azure Arc(미리 보기)](../../azure-arc/servers/overview.md):
 
-- [Azure 외부의 Windows Server 또는 Linux 컴퓨터를](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) Azure의 위임 구독 및/또는 리소스 그룹에 연결
+- [Azure 외부의 Windows Server 또는 Linux 컴퓨터를](../../azure-arc/servers/quickstart-onboard-portal.md) Azure의 위임 구독 및/또는 리소스 그룹에 연결
 - Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
 
-[Azure Automation](https://docs.microsoft.com/azure/automation/):
+[Azure Automation](../../automation/index.yml):
 
 - Automation 계정을 사용하여 위임된 고객 리소스를 액세스 및 사용합니다.
 
-[Azure Backup](https://docs.microsoft.com/azure/backup/):
+[Azure Backup](../../backup/index.yml):
 
 - 고객 테넌트의 고객 데이터를 백업 및 복원합니다.
 
-[AKS(Azure Kubernetes Service)](https://docs.microsoft.com//azure/aks/):
+[AKS(Azure Kubernetes Service)](../../aks/index.yml):
 
 - 호스트된 Kubernetes 환경 관리 및 고객 테넌트 내 컨테이너화된 애플리케이션을 배포 및 관리합니다.
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
+[Azure Monitor](../../azure-monitor/index.yml):
 
 - 모든 구독에서 경고를 볼 수 있는 기능을 사용하여 위임된 구독에 대한 경고를 봅니다.
 - 위임된 구독의 활동 로그 세부 정보를 봅니다.
 - Log analytics: 여러 테 넌 트의 원격 고객 작업 영역에서 데이터 쿼리
 - 웹 후크를 통해 서비스 공급자 테넌트에서 Azure Automation Runbook 또는 Azure Functions와 같은 자동화를 트리거하는 고객 테넌트에서 경고를 만듭니다.
 
-[Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
+[Azure Policy](../../governance/policy/index.yml):
 
 - 규정 준수 스냅샷에 위임된 구독 내에 할당된 정책에 대한 세부 정보를 표시합니다.
 - 위임된 구독 내에서 정책 정의를 만들고 편집합니다.
@@ -75,11 +75,11 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 - 고객은 자신이 직접 작성한 정책과 함께 서비스 공급자가 작성한 정책을 볼 수 있습니다.
 - [deployIfNotExists를 수정하거나 고객 테넌트 내에서 할당을 수정](../how-to/deploy-policy-remediation.md)할 수 있습니다.
 
-[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
+[Azure Resource Graph](../../governance/resource-graph/index.yml):
 
 - 이제 반환된 쿼리 결과에 테넌트 ID를 포함하여 구독이 고객 테넌트 또는 서비스 공급자 테넌트에 속하는지 여부를 식별할 수 있습니다.
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/):
+[Azure Security Center](../../security-center/index.yml):
 
 - 테넌트 간 표시 유형
   - 보안 정책에 대한 규정 준수를 모니터링하고 모든 테넌트의 리소스에서 보안 검사를 보장합니다.
@@ -96,27 +96,28 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
   - 적응형 애플리케이션 제어를 사용하여 서버가 필요한 애플리케이션 및 프로세스만 실행하는지 확인합니다.
   - FIM(파일 무결성 모니터링)을 사용하여 중요한 파일 및 레지스트리 항목의 변경 내용을 모니터링합니다.
 
-[Azure Sentinel](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
+[Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 
-- 고객 테넌트에서 Azure Sentinel 리소스 관리
+- [고객 테 넌](../../sentinel/multiple-tenants-service-providers.md) 트에서 Azure 센티널 리소스 관리
+- [여러 고객 테 넌 트에서 공격을 추적 하 고 보안 경고 확인](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
 
-[Azure Service Health](https://docs.microsoft.com/azure/service-health/):
+[Azure Service Health](../../service-health/index.yml):
 
 - Azure Resource Health를 사용하여 고객 리소스 상태를 모니터링합니다.
 - 고객이 사용하는 Azure 서비스의 상태를 추적합니다.
 
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/):
+[Azure Site Recovery](../../site-recovery/index.yml):
 
 - 고객 테넌트의 Azure Virtual Machines에 대해 재해 복구 옵션을 관리합니다(실행 계정을 사용하여 VM 확장을 복사할 수 없음).
 
-[Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/):
+[Azure Virtual Machines](../../virtual-machines/index.yml):
 
 - 가상 머신 확장을 사용하여 고객 테넌트의 Azure VM에서 배포 후 구성 및 자동화 작업을 제공합니다.
 - 부팅 진단을 사용하여 고객 테넌트의 Azure VM 문제를 해결합니다.
 - 고객 테넌트에서 직렬 콘솔을 사용하여 VM에 액세스합니다.
 - VM으로의 원격 로그인에 Azure Active Directory를 사용할 수 없으며, 디스크 암호화용 암호, 비밀 또는 암호화 키를 위해 VM을 Key Vault와 통합할 수 없습니다.
 
-[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
+[Azure Virtual Network](../../virtual-network/index.yml):
 
 - 고객 테넌트 내에서 가상 네트워크 및 vNIC(가상 네트워크 인터페이스 카드)를 배포하고 관리합니다.
 
@@ -128,9 +129,9 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 모든 시나리오에서 다음과 같은 현재 제한 사항을 알고 있어야 합니다.
 
 - Azure Resource Manager에서 처리되는 요청은 Azure 위임 리소스 관리를 사용하여 수행할 수 있습니다. 이러한 요청에 대한 작업 URI는 `https://management.azure.com`으로 시작합니다. 그러나 리소스 유형의 인스턴스가 처리하는 요청(예: KeyVault 비밀 액세스 또는 스토리지 데이터 액세스)은 Azure 위임 리소스 관리에서 지원되지 않습니다. 이러한 요청에 대한 작업 URI는 일반적으로 `https://myaccount.blob.core.windows.net` 또는 `https://mykeyvault.vault.azure.net/`과 같이 사용자 인스턴스에 고유한 주소로 시작합니다. 후자는 일반적으로 관리 작업이 아니라 데이터 작업입니다. 
-- 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 사용해야 합니다. 현재, 소유자 또는 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)은 지원되지 않습니다.
+- 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용해야 합니다. 현재, 소유자 또는 [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 - 현재, 구독에서 Azure Databricks를 사용하는 경우 Azure 위임 리소스 관리에 대 한 구독(또는 구독 내의 리소스 그룹)을 온보딩할 수 없습니다. 마찬가지로, **Microsoft.ManagedServices** 리소스 공급자에 온보딩하기 위해 구독을 등록한 경우 현재는 해당 구독에 대해 Databricks 작업 영역을 만들 수 없습니다.
-- 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
+- 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](../../role-based-access-control/deny-assignments.md)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

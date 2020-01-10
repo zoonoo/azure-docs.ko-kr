@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935059"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732385"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>다시 분할을 사용 하 여 Azure Stream Analytics 처리 최적화
 
@@ -21,11 +21,11 @@ ms.locfileid: "72935059"
 다음 경우에는 [병렬화](stream-analytics-parallelization.md) 를 사용 하지 못할 수 있습니다.
 
 * 입력 스트림에 대 한 파티션 키를 제어 하지 않습니다.
-* 원본 "sprays" 입력은 나중에 병합 해야 하는 여러 파티션에 걸쳐 입력 합니다. 
-
-## <a name="how-to-repartition"></a>다시 분할 하는 방법
+* 원본 "sprays" 입력은 나중에 병합 해야 하는 여러 파티션에 걸쳐 입력 합니다.
 
 단지 섞는 Event Hubs에 대 한 **PartitionId** 와 같은 자연 입력 체계에 따라 분할 된 되지 않는 스트림에서 데이터를 처리 하는 경우에는 다시 분할 또는가 필요 합니다. 다시 분할 하면 각 분할 영역을 독립적으로 처리할 수 있으므로 스트리밍 파이프라인을 선형으로 확장할 수 있습니다.
+
+## <a name="how-to-repartition"></a>다시 분할 하는 방법
 
 다시 분할 하려면 쿼리의 **PARTITION BY** 문 뒤 **에 키워드를** 사용 합니다. 다음 예에서는 **DeviceID** 로 데이터를 파티션 수 10으로 분할 합니다. **DeviceID** 의 해시를 사용 하 여 어떤 파티션이 어떤 파티션을 허용 해야 하는지 결정 합니다. 데이터가 분할 된 쓰기를 지원 하 고 10 개의 파티션이 있는 경우 분할 된 각 스트림에 대해 독립적으로 데이터가 플러시됩니다.
 

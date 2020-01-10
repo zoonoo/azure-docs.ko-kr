@@ -4,12 +4,12 @@ description: 이 문서에서는 백업 및 복구 지점이 저장 되는 Recov
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6a880f84d5e8626d36ac3f4b440436b479ec5f6d
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273387"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708531"
 ---
 # <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -27,7 +27,7 @@ Recovery Services 자격 증명 모음을 만들려면:
 
     ![Recovery Services 자격 증명 모음 입력 및 선택](./media/backup-create-rs-vault/all-services.png)
 
-    구독에 Recovery Services 자격 증명 모음 목록이 표시됩니다.
+    구독의 Recovery Services 자격 증명 모음 목록이 표시됩니다.
 
 4. **Recovery Services 자격 증명 모음** 대시보드에서 **추가**를 선택합니다.
 
@@ -73,12 +73,54 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 > [!NOTE]
 > Recovery services 자격 증명 모음에 대 한 **저장소 복제 유형** (로컬 중복/지역 중복) 변경은 자격 증명 모음에서 백업을 구성 하기 전에 수행 해야 합니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없으며 **저장소 복제 유형을**변경할 수 없습니다.
 
+## <a name="set-cross-region-restore"></a>지역 간 복원 설정
+
+복원 옵션 중 하나로, CRR (교차 지역 복원)을 사용 하면 azure [쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에 있는 보조 지역에서 azure vm을 복원할 수 있습니다. 이 옵션을 사용 하면 다음을 수행할 수 있습니다.
+
+- 감사 또는 규정 준수 요구 사항이 있는 경우 드릴 수행
+- 주 지역에 재해가 발생 한 경우 VM 또는 해당 디스크를 복원 합니다.
+
+이 기능을 선택 하려면 **백업 구성** 블레이드에서 **교차 영역 복원 사용** 을 선택 합니다.
+
+이 프로세스의 경우 저장소 수준에 따라 가격 책정이 영향을 미칩니다.
+
+>[!NOTE]
+>시작하기 전에
+>
+>- 지원 되는 관리 되는 형식 및 지역 목록은 [지원 매트릭스](backup-support-matrix.md#cross-region-restore) 를 검토 하세요.
+>- CRR (지역 간 복원) 기능은 현재 WCUS 지역 에서만 사용할 수 있습니다.
+>- CRR은 GRS 자격 증명 모음에 대 한 자격 증명 모음 수준 옵트인 기능입니다 (기본적으로 해제 됨).
+>- *"FeatureName": "지역 지역 복원"* 을 사용 하 여이 기능에 대 한 구독을 등록 하세요.
+>- 제한 된 공개 미리 보기 중에이 기능을 등록 하는 경우 승인 전자 메일 검토에 가격 정책 세부 정보가 포함 됩니다.
+>- 옵트인 후에는 보조 지역에서 백업 항목을 사용 하는 데 최대 48 시간이 걸릴 수 있습니다.
+>- 현재 CRR은 백업 관리 유형 ARM Azure VM에 대해서만 지원 됩니다 (클래식 Azure VM은 지원 되지 않음).  추가 관리 유형이 CRR을 지 원하는 경우 **자동으로** 등록 됩니다.
+
+### <a name="configure-cross-region-restore"></a>지역 간 복원 구성
+
+GRS 중복성으로 만든 자격 증명 모음에는 지역 간 복원 기능을 구성 하는 옵션이 포함 됩니다. 모든 GRS 자격 증명 모음에는 설명서에 연결 되는 배너가 있습니다. 자격 증명 모음에 대해 CRR을 구성 하려면이 기능을 사용 하도록 설정 하는 옵션이 포함 된 백업 구성 블레이드로 이동 합니다.
+
+ ![백업 구성 배너](./media/backup-azure-arm-restore-vms/banner.png)
+
+1. 포털에서 Recovery Services 자격 증명 모음 > 설정 > 속성으로 이동 합니다.
+2. **이 자격 증명 모음에서 교차 지역 복원 사용** 을 클릭 하 여 기능을 사용 하도록 설정 합니다.
+
+   ![이 자격 증명 모음에서 지역 간 복원 사용을 클릭 하기 전에](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+
+   ![이 자격 증명 모음에서 교차 영역 복원 사용을 클릭 한 후](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+
+[보조 지역에서 백업 항목을 보는](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region)방법에 대해 알아봅니다.
+
+[보조 지역에서 복원](backup-azure-arm-restore-vms.md#restore-in-secondary-region)하는 방법을 알아봅니다.
+
+[보조 지역 복원 작업을 모니터링](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs)하는 방법에 대해 알아봅니다.
+
 ## <a name="modifying-default-settings"></a>기본 설정 수정
 
-**저장소 복제 유형** 및 **보안 설정** 에 대 한 기본 설정은 자격 증명 모음에서 백업을 구성 하기 전에 검토 하는 것이 좋습니다. 
-* 기본적으로 **저장소 복제 유형은** **지역 중복**으로 설정 됩니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 를 수행 합니다. 
-* 새로 만든 자격 증명 모음에 대해 기본적으로 **일시 삭제** 를 **사용** 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) 를 수행 합니다.
+**저장소 복제 유형** 및 **보안 설정** 에 대 한 기본 설정은 자격 증명 모음에서 백업을 구성 하기 전에 검토 하는 것이 좋습니다.
 
+- 기본적으로 **저장소 복제 유형은** **지역 중복**으로 설정 됩니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 를 수행 합니다.
+
+- 새로 만든 자격 증명 모음에 대해 기본적으로 **일시 삭제** 를 **사용** 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) 를 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

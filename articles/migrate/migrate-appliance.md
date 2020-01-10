@@ -1,23 +1,20 @@
 ---
-title: Azure Migrate 어플라이언스 아키텍처
+title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용 되는 Azure Migrate 어플라이언스에 대 한 개요를 제공 합니다.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 49545ca6c43c272c3fd84f8bee59b8617aae136d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c3ac39759cc096bb27535877084e14f4ed50cea9
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232562"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719582"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
 이 문서에서는 Azure Migrate 어플라이언스를 설명 합니다. Azure Migrate 평가 및 마이그레이션 도구를 사용 하 여 앱, 인프라 및 워크 로드를 검색, 평가 및 마이그레이션할 때 어플라이언스를 배포 하는 경우 Microsoft Azure 합니다. 
 
-[Azure Migrate](migrate-services-overview.md) 는 Azure에 대 한 온-프레미스 앱 및 워크 로드 및 사설/공용 클라우드 vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
+[Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 프라이빗/퍼블릭 클라우드 VM의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
 
 
 
@@ -25,40 +22,88 @@ ms.locfileid: "74232562"
 
 Azure Migrate 어플라이언스 유형 및 사용법은 다음과 같습니다.
 
-**배포 된** | **용도** | **세부 정보**
---- | --- |  ---
-VMware VM | Azure Migrate 평가 도구를 사용 하 여 VMware VM 평가<br/><br/> Azure Migrate 서버 마이그레이션 도구를 사용 하 여 VMware VM 에이전트 없이 마이그레이션 | OVA 템플릿을 다운로드 하 고 vCenter Server로 가져와 어플라이언스 VM을 만듭니다.
-Hyper-V VM | Azure Migrate 평가 도구를 사용 하 여 hyper-v VM 평가 | 압축 된 VHD를 다운로드 하 고 Hyper-v로 가져와서 어플라이언스 VM을 만듭니다.
+**시나리오** | **도구** | **용도** 
+--- | --- 
+VMware VM | Azure Migrate: 서버 평가 Azure Migrate: 서버 마이그레이션 | VMware Vm 검색<br/><br/> 앱 및 종속성 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.<br/><br/> 에이전트 없는 마이그레이션을 사용 하 여 VMware Vm을 복제 합니다.
+Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.
+물리적 머신 |  Azure Migrate: 평가 도구 |  물리적 서버 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.
 
-## <a name="appliance-access"></a>어플라이언스 액세스
+## <a name="appliance---vmware"></a>어플라이언스-VMware 
 
-어플라이언스를 구성한 후에는 TCP 포트 3389을 통해 어플라이언스 VM에 원격으로 액세스할 수 있습니다. URL: `https://<appliance-ip-or-name>:44368`을 사용 하 여 포트 44368에서 어플라이언스에 대 한 웹 관리 앱에 원격으로 액세스할 수도 있습니다.
-
-## <a name="appliance-license"></a>어플라이언스 라이선스
-어플라이언스는 180 일 동안 유효한 Windows Server 2016 evaluation 라이선스와 함께 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
-
-## <a name="appliance-agents"></a>어플라이언스 에이전트
-어플라이언스에 이러한 에이전트가 설치 되어 있습니다.
-
-**에이전트** | **세부 정보**
+**요구 사항** | **VMware** 
 --- | ---
-검색 에이전트 | 온-프레미스 가상 컴퓨터의 구성 데이터 수집
-평가 에이전트 | VM 성능 데이터를 수집 하기 위해 온-프레미스 환경을 프로 파일링 합니다.
-마이그레이션 어댑터 | VM 복제를 오케스트레이션 하 고 Vm과 Azure 간의 통신을 조정 합니다.
-마이그레이션 게이트웨이 | 복제 된 VM 데이터를 Azure로 보냅니다.
+**다운로드 형식** | . OVA 
+**다운로드 링크** | https://aka.ms/migrate/appliance/vmware 
+**다운로드 크기** | 11.2 GB
+**라이선스** | 다운로드 한 어플라이언스 템플릿에는 180 일 동안 유효한 Windows Server 2016 평가판 라이선스가 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
+**하드웨어** | VCenter의 리소스를 사용 하 여 32 GB RAM 8 vCPUs, 80 GB의 디스크 저장소, 외부 가상 스위치를 사용 하 여 VM을 할당 합니다. 
+**해시 값** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+**vCenter 서버/호스트** | 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.<br/><br/> 5\.5, 6.0, 6.5 또는 6.7을 실행 하는 vCenter Server.
+**Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
+**검색** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
+**어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/> DRA: VM 복제를 오케스트레이션 하 고 컴퓨터/Azure 간의 통신을 조정 합니다.<br/> 게이트웨이: 복제 된 데이터를 Azure로 보냅니다.<br/> 자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
 
 
-## <a name="appliance-deployment-requirements"></a>어플라이언스 배포 요구 사항
+## <a name="appliance---hyper-v"></a>어플라이언스-Hyper-v
 
-- VMware 어플라이언스에 대 한 배포 요구 사항 및 어플라이언스에서 액세스 해야 하는 Url을 [검토](migrate-support-matrix-vmware.md#assessment-appliance-requirements) 합니다.
-- Hyper-v 어플라이언스에 대 한 배포 요구 사항 및 어플라이언스에서 액세스 해야 하는 Url을 [검토](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) 합니다.
+**요구 사항** | **Hyper-V** 
+--- | ---
+**다운로드 형식** | Zip 폴더 (VHD 포함)
+**다운로드 링크** | https://aka.ms/migrate/appliance/hyperv 
+**다운로드 크기** | 10GB
+**라이선스** | 다운로드 한 어플라이언스 템플릿에는 180 일 동안 유효한 Windows Server 2016 평가판 라이선스가 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
+**하드웨어** | Hyper-v 호스트의 리소스-16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 합니다.
+**해시 값** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+**Hyper-V 호스트** | Windows Server 2012 R2 이상 버전을 실행 하 고 있습니다.
+**Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
+**검색** | 어플라이언스는 vCenter Server에서 VMware Vm을 5000 개까지 검색할 수 있습니다.<br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
+**어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/>  자동 업데이트 서비스: 구성 요소 업데이트 (24 시간 마다 실행)
 
 
-## <a name="collected-performance-data-vmware"></a>수집 된 성능 데이터-VMware
+## <a name="appliance---physical"></a>어플라이언스-물리적
+
+**요구 사항** | **실제** 
+--- | ---
+**다운로드 형식** | 압축 폴더 (PowerShell 설치 관리자 스크립트 사용)
+**다운로드 링크** | [다운로드 링크](https://go.microsoft.com/fwlink/?linkid=2105112)
+**다운로드 크기** | 59.7 M B
+**하드웨어** | 어플라이언스를 실행 하는 컴퓨터에는 16gb RAM, 8 vCPUs, 80 GB의 저장소 공간이 필요 합니다.
+**해시 값** | MD5:96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+**소프트웨어** | 어플라이언스 컴퓨터는 Windows Server 2016를 실행 해야 합니다. 서버는 전용 물리적 서버 또는 VM 이어야 합니다.
+**Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
+**검색** | 어플라이언스는 최대 250 대의 물리적 서버를 검색할 수 있습니다.
+**어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/>  자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
+**액세스/포트** | 어플라이언스를 구성한 후에는 TCP 포트 3389에서 인바운드 연결을 사용 하 여 어플라이언스에 대 한 원격 데스크톱 연결을 허용 합니다.<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하려면 포트 44368에서 인바운드 연결: ' https://< >: 44368.<br/><br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
+
+## <a name="url-access"></a>URL 액세스
+
+Azure Migrate 어플라이언스를 인터넷에 연결 해야 합니다.
+
+- 어플라이언스를 배포 하는 경우 Azure Migrate 아래 표에 요약 된 Url에 대 한 연결 확인을 수행 합니다.
+- URL 기반 프록시를 사용 하 여 인터넷에 연결 하는 경우 이러한 Url에 대 한 액세스를 허용 하 여 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하 게 합니다.
+
+**URL** | **세부 정보**  
+--- | --- |
+*.portal.azure.com  | Azure Portal로 이동합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Azure 구독에 로그인합니다.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 기기가 Azure Migrate와 통신할 수 있도록 Active Directory 앱을 만듭니다.
+management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
+dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
+*.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
+aka.ms/* | 즉, 링크에 대 한 액세스를 허용 합니다.
+download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 수 있습니다.
+\*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
+\*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
+
+
+## <a name="collected-data---vmware"></a>수집 된 데이터-VMware
+
+### <a name="collected-performance-data-vmware"></a>수집 된 성능 데이터-VMware
 
 다음은 기기가 수집 하 여 Azure에 전송 하는 VMware VM 성능 데이터입니다.
 
-**데이터** | **카운터** | **평가 영향**
+**Data** | **카운터** | **평가 영향**
 --- | --- | ---
 CPU 사용률 | cpu.usage.average | 권장 되는 VM 크기/비용
 메모리 사용률 | mem.usage.average | 권장 되는 VM 크기/비용
@@ -70,14 +115,14 @@ NIC 읽기 처리량 (초당 MB) | net.received.average | VM 크기에 대 한 �
 NIC 쓰기 처리량 (초당 MB) | net.transmitted.average  |VM 크기에 대 한 계산
 
 
-## <a name="collected-metadata-vmware"></a>수집 된 메타 데이터-VMware
+### <a name="collected-metadata-vmware"></a>수집 된 메타 데이터-VMware
 
 > [!NOTE]
 > Azure Migrate 어플라이언스에서 검색 된 메타 데이터는 Azure로 마이그레이션할 때 응용 프로그램을 적절 하 게 크기를 조정 하 고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 하는 데 사용 됩니다. Microsoft에서는 모든 라이센스 규정 준수 감사와 관련하여 이 데이터를 사용하지 않습니다.
 
 다음은 기기가 수집 하 여 Azure에 전송 하는 VMware VM 메타 데이터의 전체 목록입니다.
 
-**데이터** | **카운터**
+**Data** | **카운터**
 --- | --- 
 **컴퓨터 세부 정보** | 
 VM ID | vm.Config.InstanceUuid 
@@ -88,7 +133,7 @@ VM 설명 | vm.Summary.Config.Annotation
 운영 체제 유형 | vm.SummaryConfig.GuestFullName
 부팅 유형 | vm.Config.Firmware
 코어 수 | vm.Config.Hardware.NumCPU
-메모리 (MB) | vm.Config.Hardware.MemoryMB
+메모리(MB) | vm.Config.Hardware.MemoryMB
 디스크 수 | vm. 구성 합니다. FindAll (x = >는 VirtualDisk). count
 디스크 크기 목록 | vm. 구성 합니다. FindAll (x = >는 VirtualDisk)
 네트워크 어댑터 목록 | vm. 구성 합니다. FindAll (x = >는 VirtualEthernet). count
@@ -122,9 +167,9 @@ VM 당 데이터 센터 정보 | ((Datacenter)container).VmFolder
 호스트 당 클러스터 세부 정보 | ((ClusterComputeResource)container).Host
 VM 당 호스트 세부 정보 | (HostSystem) 컨테이너). VM
 
+## <a name="collected-data---hyper-v"></a>수집 된 데이터-Hyper-v
 
-
-## <a name="collected-performance-data-hyper-v"></a>수집 된 성능 데이터-Hyper-v
+### <a name="collected-performance-data-hyper-v"></a>수집 된 성능 데이터-Hyper-v
 
 > [!NOTE]
 > Azure Migrate 어플라이언스에서 검색 된 메타 데이터는 Azure로 마이그레이션할 때 응용 프로그램을 적절 하 게 크기를 조정 하 고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 하는 데 사용 됩니다. Microsoft에서는 모든 라이센스 규정 준수 감사와 관련하여 이 데이터를 사용하지 않습니다.
@@ -137,18 +182,18 @@ Hyper-v 하이퍼바이저 가상 프로세서 | % 게스트 실행 시간 | 권
 Hyper-v 동적 메모리 VM | 현재 압력 (%)<br/> 게스트 표시 실제 메모리 (MB) | 권장 되는 VM 크기/비용
 Hyper-v 가상 저장 장치 | 읽은 바이트/초 | 디스크 크기, 저장소 비용, VM 크기에 대 한 계산
 Hyper-v 가상 저장 장치 | 쓰기 바이트/초 | 디스크 크기, 저장소 비용, VM 크기에 대 한 계산
-Hyper-v Virtual Network 어댑터 | 받은 바이트 수/초 | VM 크기에 대 한 계산
-Hyper-v Virtual Network 어댑터 | 보낸 바이트/초 | VM 크기에 대 한 계산
+Hyper-V 가상 네트워크 어댑터 | 받은 바이트 수/초 | VM 크기에 대 한 계산
+Hyper-V 가상 네트워크 어댑터 | 보낸 바이트/초 | VM 크기에 대 한 계산
 
 - CPU 사용률은 VM에 연결 된 모든 가상 프로세서에 대 한 모든 사용량의 합계입니다.
 - 메모리 사용률은 (현재 압력 * 게스트 표시 실제 메모리)/100입니다.
 - 디스크 및 네트워크 사용률 값은 나열 된 Hyper-v 성능 카운터에서 수집 됩니다.
 
-## <a name="collected-metadata-hyper-v"></a>수집 된 메타 데이터-Hyper-v
+### <a name="collected-metadata-hyper-v"></a>수집 된 메타 데이터-Hyper-v
 
 다음은 기기가 수집 하 여 Azure에 전송 하는 Hyper-v VM 메타 데이터의 전체 목록입니다.
 
-**데이터** | **WMI 클래스** | **WMI 클래스 속성**
+**Data** | **WMI 클래스** | **WMI 클래스 속성**
 --- | --- | ---
 **컴퓨터 세부 정보** | 
 BIOS의 일련 번호 _ Msvm_BIOSElement | BIOSSerialNumber
@@ -162,7 +207,7 @@ VM에서 사용할 수 있는 최대 메모리 | Msvm_MemorySettingData | 제한
 VM 전원 상태 | Msvm_ComputerSystem | EnabledState
 **디스크당 정보** | 
 디스크 식별자 | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-가상 하드 디스크 유형 | Msvm_VirtualHardDiskSettingData | 에
+가상 하드 디스크 유형 | Msvm_VirtualHardDiskSettingData | 유형
 가상 하드 디스크 크기 | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 가상 하드 디스크 부모 | Msvm_VirtualHardDiskSettingData | ParentPath
 **NIC 세부 정보** | 
@@ -180,18 +225,17 @@ NIC MAC ID (레거시 Nic) | MsvmEmulatedEthernetPortSetting 데이터 | 주소
 
 어플라이언스는 다음 프로세스를 사용 하 여 vCenter 서버 및 Hyper-v 호스트/클러스터와 통신 합니다.
 
-
 1. **검색 시작**:
     - Hyper-v 어플라이언스에서 검색을 시작 하면 WinRM 포트 5985 (HTTP) 및 5986 (HTTPS)에서 Hyper-v 호스트와 통신 합니다.
     - VMware 어플라이언스에서 검색을 시작 하면 기본적으로 TCP 포트 443의 vCenter server와 통신 합니다. VCenter server가 다른 포트에서 수신 대기 하는 경우 어플라이언스 웹 앱에서 구성할 수 있습니다.
 2. **메타 데이터 및 성능 데이터를 수집**합니다.
     - 어플라이언스는 CIM(Common Information Model) (CIM) 세션을 사용 하 여 hyper-v 호스트에서 5985 및 5986 포트의 hyper-v VM 데이터를 수집 합니다.
     - 어플라이언스는 기본적으로 포트 443와 통신 하 여 vCenter Server에서 VMware VM 데이터를 수집 합니다.
-3. **데이터 보내기**: 어플라이언스는 Azure Migrate 서버 평가를 위해 수집 된 데이터를 보내고 SSL 포트 443을 통해 서버 마이그레이션을 Azure Migrate 합니다.
+3. **데이터 보내기**: 어플라이언스는 Azure Migrate 서버 평가를 위해 수집 된 데이터를 보내고 SSL 포트 443을 통해 서버 마이그레이션을 Azure Migrate 합니다. 어플라이언스는 인터넷을 통해 Azure에 연결 하거나 공용/Microsoft 피어 링과 함께 Express 경로를 사용할 수 있습니다.
     - 성능 데이터의 경우 어플라이언스는 실시간 사용률 데이터를 수집 합니다.
         - 성능 데이터는 각 성능 메트릭에 대해 VMware에 대해 20 초 마다 수집 되 고 Hyper-v의 경우 30 초 마다 수집 됩니다.
         - 수집 된 데이터는 10 분 동안 단일 데이터 요소를 만들기 위해 롤업 됩니다.
-        - 최고 사용률 값은 모든 20/30 번째 데이터 요소에서 선택 되 고 평가 계산을 위해 Azure로 전송 됩니다.
+        - 최고 사용률 값은 모든 20/30 초 데이터 요소에서 선택 되 고 평가 계산을 위해 Azure로 전송 됩니다.
         - 평가 속성에 지정 된 백분위 수 값 (50 번째/90 번째/95 번째/99 초)에 따라 10 분 지점은 오름차순으로 정렬 되 고 적절 한 백분위 수 값은 평가를 계산 하는 데 사용 됩니다.
     - 서버 마이그레이션의 경우 어플라이언스는 VM 데이터 수집을 시작 하 여 Azure에 복제 합니다.
 4. **평가 및 마이그레이션**: 이제 Azure Migrate Server 평가를 사용 하 여 어플라이언스에서 수집한 메타 데이터에서 평가를 만들 수 있습니다. 또한 Azure Migrate 서버 마이그레이션을 사용 하 여 VMware Vm 마이그레이션을 시작 하 여 에이전트 없는 VM 복제를 오케스트레이션 할 수도 있습니다.

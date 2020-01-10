@@ -7,16 +7,18 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6b0f025948803a23c5b3c8bb6415c0e111b946b2
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9809a138a5e28eb069d545d39cfda815c915bd78
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349048"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728891"
 ---
 # <a name="upper-azure-cosmos-db"></a>UPPER (Azure Cosmos DB)
  소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다.  
-  
+
+상위 시스템 함수는 인덱스를 사용 하지 않습니다. 대/소문자를 구분 하지 않는 비교를 자주 수행 하려는 경우에는 상위 시스템 함수에서 매우 많은 양의를 사용할 수 있습니다. 이 경우 비교할 때마다 데이터를 정규화 하는 데 상위 시스템 함수를 사용 하는 대신 삽입 시 대/소문자를 정규화 할 수 있습니다. 그런 다음 SELECT * FROM c WHERE UPPER (c. name) = ' BOB '과 같은 쿼리는 단순히 SELECT * FROM c WHERE c.name = ' BOB '이 됩니다.
+
 ## <a name="syntax"></a>구문
   
 ```sql
@@ -28,13 +30,13 @@ UPPER(<str_expr>)
 *str_expr*  
    는 문자열 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
   
-  다음 예에서는 쿼리에서 `UPPER`을 사용 하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리에서 `UPPER`를 사용 하는 방법을 보여 줍니다.  
   
 ```sql
 SELECT UPPER("Abc") AS upper  

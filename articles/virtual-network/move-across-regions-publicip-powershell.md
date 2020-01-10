@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: d18dfa7ebed3aefbf6fdb3ffdb6fdd2cf2160cb4
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: c55b6011381d385fed7c7b8175ff02ec9be66fdb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71038928"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641556"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 공용 IP를 다른 지역으로 이동
 
@@ -20,7 +20,7 @@ ms.locfileid: "71038928"
 Azure 공용 Ip는 지역에만 해당 되며 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 공용 IP의 기존 구성을 내보낼 수 있습니다.  그런 다음 공용 IP를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  리소스 관리자 및 템플릿에 대 한 자세한 내용은 [템플릿으로 리소스 그룹 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates) 를 참조 하세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 공용 IP가 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -32,7 +32,7 @@ Azure 공용 Ip는 지역에만 해당 되며 한 지역에서 다른 지역으�
 
 - Azure 구독을 사용 하 여 사용 되는 대상 지역에서 공용 Ip를 만들 수 있는지 확인 합니다. 필요한 할당량을 사용하려면 지원 팀에 문의하세요.
 
-- 구독에이 프로세스에 대 한 공용 Ip 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조하세요.
+- 구독에이 프로세스에 대 한 공용 Ip 추가를 지원할 수 있는 충분 한 리소스가 있는지 확인 합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)을 참조하세요.
 
 
 ## <a name="prepare-and-move"></a>준비 및 이동
@@ -61,7 +61,7 @@ Azure 공용 Ip는 지역에만 해당 되며 한 지역에서 다른 지역으�
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **리소스 그룹-이름 >. json 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. \<**
+4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **\<리소스 그룹-이름 >** 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. 즉,
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -117,7 +117,7 @@ Azure 공용 Ip는 지역에만 해당 되며 한 지역에서 다른 지역으�
     ```
 8. 또한 선택 하는 경우 템플릿의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택 사항입니다.
 
-    * **Sku** - >  **리소스 그룹 이름 >. json 파일에서 Sku 이름 속성을 변경 하 여 구성의 공용 IP sku를 standard에서 basic 또는 basic으로 \<** 변경할 수 있습니다.
+    * **Sku** - **\<리소스 그룹 이름 >. json** 파일에서 **Sku** > **name** 속성을 변경 하 여 구성의 공용 IP sku를 standard에서 basic 또는 basic으로 변경할 수 있습니다.
 
          ```json
             "resources": [
@@ -134,7 +134,7 @@ Azure 공용 Ip는 지역에만 해당 되며 한 지역에서 다른 지역으�
 
          기본 및 표준 sku 공용 ip 간의 차이점에 대 한 자세한 내용은 [공용 IP 주소 만들기, 변경 또는 삭제](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)를 참조 하세요.
 
-    * **공용 IP 할당 방법** 및 **유휴 시간 제한** - **PublicIPAllocationMethod** 속성을 **동적** 에서 **정적** 으로 또는 **정적** 에서 동적으로 변경 하 여 템플릿에서 이러한 두 옵션을 모두 변경할 수 있습니다. **IdleTimeoutInMinutes** 속성을 원하는 양만큼 변경 하 여 유휴 시간 제한을 변경할 수 있습니다.  기본값은 **4**입니다.
+    * **공용 IP 할당 방법** 및 **유휴 시간 제한** - **PublicIPAllocationMethod** 속성을 **동적** 에서 **정적** 또는 **정적** 에서 **동적**으로 변경 하 여 템플릿에서 이러한 두 옵션을 모두 변경할 수 있습니다. **IdleTimeoutInMinutes** 속성을 원하는 양만큼 변경 하 여 유휴 시간 제한을 변경할 수 있습니다.  기본값은 **4**입니다.
 
          ```json
          "resources": [
@@ -169,7 +169,7 @@ Azure 공용 Ip는 지역에만 해당 되며 한 지역에서 다른 지역으�
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집  **\<된 리소스 그룹 이름 > json** 파일을 배포 합니다.
+11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 **\<리소스 그룹 이름 > json** 파일을 배포 합니다.
 
     ```azurepowershell-interactive
 
@@ -190,7 +190,7 @@ Azure 공용 Ip는 지역에만 해당 되며 한 지역에서 다른 지역으�
     Get-AzPublicIPAddress -Name <target-publicip-name> -ResourceGroupName <target-resource-group-name>
 
     ```
-## <a name="discard"></a>삭제 
+## <a name="discard"></a>취소 
 
 배포 후 대상에서 공용 ip를 시작 하거나 삭제 하려는 경우 대상에서 만든 리소스 그룹을 삭제 하면 이동 된 공용 IP가 삭제 됩니다.  리소스 그룹을 제거 하려면 [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)를 사용 합니다.
 

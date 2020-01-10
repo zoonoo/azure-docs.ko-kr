@@ -4,24 +4,37 @@ description: Azure 스프링 클라우드에서 진단 데이터를 분석 하�
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 01/06/2020
 ms.author: jeconnoc
-ms.openlocfilehash: ebe438bd2dc5b4921ce733001f3c9df19bc592fe
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 347867bc59206a24d32ca01f15bbff35fb73e1d0
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607853"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730045"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 
 Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스 중 하나를 사용 하 여 로그 및 메트릭을 분석할 수 있습니다.
 
-* 먼저 저장소에 기록 하지 않고 즉시 데이터를 기록 하는 Azure Log Analytics를 사용 합니다.
-* 감사 또는 수동 검사를 위해 저장소 계정에 저장 합니다. 보존 기간 (일)을 지정할 수 있습니다.
-* 타사 서비스 또는 사용자 지정 분석 솔루션에서 수집 하기 위해 이벤트 허브로 스트림 합니다.
+* 데이터가 Azure Storage에 기록 되는 Azure Log Analytics를 사용 합니다. Log Analytics로 로그를 내보낼 때 지연이 발생 합니다.
+* 감사 또는 수동 검사를 위해 저장소 계정에 로그를 저장 합니다. 보존 기간 (일)을 지정할 수 있습니다.
+* 타사 서비스 또는 사용자 지정 분석 솔루션에서 수집 하기 위해 이벤트 허브에 로그를 스트림 합니다.
 
-시작 하려면 이러한 서비스 중 하나를 사용 하도록 설정 하 여 데이터를 수신 합니다. Log Analytics를 구성 하는 방법에 대 한 자세한 내용은 [Azure Monitor의 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조 하세요. 
+모니터링할 로그 범주 및 메트릭 범주를 선택 합니다.
+
+## <a name="logs"></a>로그
+
+|로그 | Description |
+|----|----|
+| **ApplicationConsole** | 모든 고객 응용 프로그램의 콘솔 로그입니다. | 
+| **SystemLogs** | 현재이 범주에는 [스프링 클라우드 구성 서버](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) 로그만 있습니다. |
+
+## <a name="metrics"></a>메트릭
+
+메트릭의 전체 목록은 [스프링 클라우드 메트릭](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options) 을 참조 하세요.
+
+시작 하려면 이러한 서비스 중 하나를 사용 하도록 설정 하 여 데이터를 수신 합니다. Log Analytics를 구성 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조 하세요. 
 
 ## <a name="configure-diagnostics-settings"></a>진단 설정 구성
 
@@ -38,17 +51,44 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 > [!NOTE]
 > 로그 또는 메트릭이 내보내지고 저장소 계정, 이벤트 허브 또는 Log Analytics에 표시 될 때까지 최대 15 분 간격이 있을 수 있습니다.
 
-## <a name="view-the-logs"></a>로그 보기
+## <a name="view-the-logs-and-metrics"></a>로그 및 메트릭 보기
+다음 제목에 설명 된 것 처럼 다양 한 방법으로 로그 및 메트릭을 볼 수 있습니다.
+
+### <a name="use-logs-blade"></a>로그 블레이드 사용
+
+1. Azure Portal에서 Azure 스프링 클라우드 인스턴스로 이동 합니다.
+1. **로그 검색** 창을 열려면 **로그**를 선택 합니다.
+1. **로그** 검색 상자에
+   * 로그를 보려면 다음과 같은 간단한 쿼리를 입력 합니다.
+
+    ```sql
+    AppPlatformLogsforSpring
+    | limit 50
+    ```
+   * 메트릭을 보려면 다음과 같은 간단한 쿼리를 입력 합니다.
+
+    ```sql
+    AzureMetrics
+    | limit 50
+    ```
+1. 검색 결과를 보려면 **실행**을 선택 합니다.
 
 ### <a name="use-log-analytics"></a>Log Analytics 사용
 
 1. Azure Portal의 왼쪽 창에서 **Log Analytics**를 선택 합니다.
 1. 진단 설정을 추가할 때 선택한 Log Analytics 작업 영역을 선택 합니다.
 1. **로그 검색** 창을 열려면 **로그**를 선택 합니다.
-1. **로그** 검색 상자에 다음과 같은 간단한 쿼리를 입력 합니다.
+1. **로그** 검색 상자에
+   * 로그를 보려면 다음과 같은 간단한 쿼리를 입력 합니다.
 
     ```sql
     AppPlatformLogsforSpring
+    | limit 50
+    ```
+    * 메트릭을 보려면 다음과 같은 간단한 쿼리를 입력 합니다.
+
+    ```sql
+    AzureMetrics
     | limit 50
     ```
 
@@ -60,6 +100,8 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
+> [!NOTE]  
+> `==`는 대/소문자를 구분 하지만 `=~`는 그렇지 않습니다.
 
 Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [로그 쿼리 Azure Monitor](../azure-monitor/log-query/query-language.md)를 참조 하세요.
 
@@ -87,9 +129,9 @@ Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [
 
 ## <a name="analyze-the-logs"></a>로그 분석
 
-Azure Log Analytics는 분석을 위해 로그를 쿼리할 수 있도록 Kusto를 제공 합니다. Kusto를 사용 하 여 로그를 쿼리 하는 방법에 대 한 간략 한 소개는 [Log Analytics 자습서](../azure-monitor/log-query/get-started-portal.md)를 검토 하세요.
+Azure Log Analytics는 Kusto 엔진과 함께 실행 되므로 로그에서 분석을 쿼리할 수 있습니다. Kusto를 사용 하 여 로그를 쿼리 하는 방법에 대 한 간략 한 소개는 [Log Analytics 자습서](../azure-monitor/log-query/get-started-portal.md)를 검토 하세요.
 
-응용 프로그램 로그는 응용 프로그램의 상태, 성능 등에 대 한 중요 한 정보를 제공 합니다. 다음 섹션에서는 응용 프로그램의 현재 및 과거 상태를 이해 하는 데 도움이 되는 몇 가지 간단한 쿼리를 소개 합니다.
+응용 프로그램 로그는 응용 프로그램의 상태, 성능 등에 대해 중요 한 정보와 자세한 로그를 제공 합니다. 다음 섹션에서는 응용 프로그램의 현재 및 과거 상태를 이해 하는 데 도움이 되는 몇 가지 간단한 쿼리를 소개 합니다.
 
 ### <a name="show-application-logs-from-azure-spring-cloud"></a>Azure 스프링 클라우드의 응용 프로그램 로그 표시
 

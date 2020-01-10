@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 01/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37091b2551d68e241c7179949c3eb1db9a381de6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382171"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707008"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>방법: 위험 정책 구성 및 사용
 
@@ -31,7 +31,7 @@ ms.locfileid: "74382171"
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>선행 조건 
+## <a name="prerequisites"></a>필수 조건 
 
 사용자가 위험 검색 시 자체 재구성을 허용 하려는 경우 셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication 모두에 대해 사용자를 등록 해야 합니다. 최상의 환경을 위해 [결합 된 보안 정보 등록 환경을 사용 하는](../authentication/howto-registration-mfa-sspr-combined.md) 것이 좋습니다. 사용자가 직접 수정할 수 있도록 하면 관리자의 개입 없이도 신속 하 게 생산적인 상태로 다시 전환할 수 있습니다. 관리자는 이러한 이벤트를 계속 확인 하 고 팩트 후에 조사할 수 있습니다. 
 
@@ -46,6 +46,8 @@ Microsoft는 사용자 위험 정책 임계값을 **높음** 으로, 로그인 �
 ## <a name="exclusions"></a>제외
 
 모든 정책을 사용 하면 사용자가 [응급 액세스 또는](../users-groups-roles/directory-emergency-access.md)사용자에 게 투명 한 관리자 계정과 같은 사용자를 제외할 수 있습니다. 조직에서 계정이 사용 되는 방식에 따라 특정 정책에서 다른 계정을 제외 해야 하는지 결정할 수 있습니다. 모든 제외를 정기적으로 검토 하 여 해당 사항이 여전히 적용 되는지 확인 해야 합니다.
+
+구성 된 신뢰할 수 있는 [네트워크 위치](../conditional-access/location-condition.md) 는 거짓 긍정을 줄이기 위해 일부 위험 검색에서 id 보호에 사용 됩니다.
 
 ## <a name="enable-policies"></a>정책 사용
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: d4269480887dba994559271de7e68b2ba2b460b6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227819"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708260"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
@@ -42,7 +42,10 @@ ms.locfileid: "74227819"
 
 ![프리미엄 파일 공유 메트릭 옵션](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
-### <a name="solution"></a>해결 방법
+> [!NOTE]
+> 파일 공유를 제한 하는 경우 경고를 수신 하려면 [파일 공유를 제한 하는 경우 경고를 만드는 방법](#how-to-create-an-alert-if-a-file-share-is-throttled)을 참조 하세요.
+
+### <a name="solution"></a>솔루션
 
 - 공유에서 더 높은 할당량을 지정 하 여 공유 프로 비전 된 용량을 늘립니다.
 
@@ -63,7 +66,7 @@ ms.locfileid: "74227819"
 
 고객이 사용 하는 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라 허용 되는 최대 크기 보다 훨씬 낮은 IOPS/처리량이 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 고객은 Windows 클라이언트의 AzCopy 또는 RoboCopy를 사용 하거나 Linux 클라이언트에서 **parallel** 명령을 사용할 수 있습니다.
@@ -74,7 +77,7 @@ ms.locfileid: "74227819"
 
 클라이언트 VM은 파일 공유와 다른 지역에 있을 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 
@@ -157,7 +160,7 @@ DirectoryOpen/Directoryopen 호출 수가 최상위 API 호출 중에 있고 클
 
 ### <a name="workaround"></a>해결 방법
 
-- 없음
+- 없음.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Windows 8.1 또는 Server 2012 r 2의 성능 저하
 
@@ -168,3 +171,38 @@ IO를 많이 사용 하는 작업에 대 한 Azure Files 액세스 하는 데 �
 ### <a name="workaround"></a>해결 방법
 
 - 사용 가능한 [핫픽스](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)를 설치 합니다.
+
+## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>파일 공유를 제한 하는 경우 경고를 만드는 방법
+
+1. [Azure Portal](https://portal.azure.com)에서 **모니터**를 클릭 합니다. 
+
+2. **경고** 를 클릭 한 다음 **+ 새 경고 규칙**을 클릭 합니다.
+
+3. **선택** 을 클릭 하 여 경고 하려는 파일 공유가 포함 된 **저장소 계정/파일** 리소스를 선택한 다음 **완료**를 클릭 합니다. 예를 들어 저장소 계정 이름이 contoso 인 경우 contoso/file 리소스를 선택 합니다.
+
+4. **추가** 를 클릭 하 여 조건을 추가 합니다.
+
+5. 저장소 계정에 대해 지원 되는 신호 목록이 표시 되 면 **트랜잭션** 메트릭을 선택 합니다.
+
+6. **신호 논리 구성** 블레이드에서 **응답 유형** 차원으로 이동 하 여 **차원 값** 드롭다운을 클릭 하 고 **SUCCESSWITHTHROTTLING** (SMB) 또는 **ClientThrottlingError** (REST)를 선택 합니다. 
+
+  > [!NOTE]
+  > SuccessWithThrottling 또는 ClientThrottlingError 차원 값이 나열 되지 않은 경우 리소스가 제한 되지 않았음을 의미 합니다.  차원 값을 추가 하려면 **차원** 값 드롭다운 옆에 있는 **+** 를 클릭 하 고 **SuccessWithThrottling** 또는 **ClientThrottlingError**를 입력 한 다음 **확인** 을 클릭 하 고 #6 단계를 반복 합니다.
+
+7. **파일 공유** 차원으로 이동 하 여 **차원 값** 드롭다운을 클릭 하 고 경고를 표시 하려는 파일 공유를 선택 합니다. 
+
+  > [!NOTE]
+  > 파일 공유가 표준 파일 공유 인 경우 표준 파일 공유에 대 한 공유 메트릭을 사용할 수 없으므로 차원 값 드롭다운이 비어 있습니다. 저장소 계정 내에서 파일 공유를 제한 하 고 경고에서 제한 된 파일 공유를 식별 하지 않으면 표준 파일 공유에 대 한 제한 경고가 트리거됩니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 저장소 계정 마다 하나의 파일 공유를 사용 하는 것이 좋습니다. 
+
+8. 메트릭 경고 규칙을 평가 하는 데 사용 되는 **경고 매개 변수** (임계값, 연산자, 집계 세분성 및 frequency)를 정의 하 고 **완료**를 클릭 합니다.
+
+  > [!TIP]
+  > 정적 임계값을 사용 하는 경우 메트릭 차트는 파일 공유가 현재 제한 되는 경우 적절 한 임계값을 결정 하는 데 도움이 될 수 있습니다. 동적 임계값을 사용 하는 경우 메트릭 차트에는 최근 데이터를 기반으로 계산 된 임계값이 표시 됩니다.
+
+9. 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 **작업 그룹** (메일, SMS 등)을 추가 합니다.
+
+10. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
+
+11. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
+
+Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)를 참조 하세요.

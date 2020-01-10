@@ -1,16 +1,16 @@
 ---
-title: 질문과 대답
+title: FAQ(질문과 대답)
 description: Azure Container Registry 서비스와 관련 된 faq (질문과 대답)
 author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456398"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708311"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대해 자주 묻는 질문
 
@@ -32,7 +32,7 @@ ms.locfileid: "74456398"
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR에서 이미지를 검색 하는 보안 취약성이 있나요?
 
-예. [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 및 [바다색](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)의 설명서를 참조 하세요.
+예. [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 및 [바다색](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)의 설명서를 참조 하세요.
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Azure Container Registry를 사용 하 여 Kubernetes를 구성 어떻게 할까요??
 
@@ -101,14 +101,14 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 - [이미지를 삭제 한 후에도 레지스트리 할당량 사용량이 감소 하지 않는 이유는 무엇 인가요?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [저장소 할당량 변경 내용의 유효성을 검사 어떻게 할까요??](#how-do-i-validate-storage-quota-changes)
 - [컨테이너에서 CLI를 실행할 때 내 레지스트리를 사용 하 여 인증 어떻게 할까요??](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [TLS v 1.2만 구성 Azure Container Registry 제공 하 고 TLS v 1.2를 사용 하도록 설정 하는 방법을 설명 합니다.](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [TLS 1.2을 사용 하도록 설정 하는 방법](#how-to-enable-tls-12)
 - [Azure Container Registry 콘텐츠 신뢰를 지원 하나요?](#does-azure-container-registry-support-content-trust)
 - [레지스트리 리소스를 관리할 수 있는 권한 없이 풀 또는 푸시 이미지에 대 한 액세스 권한을 부여 어떻게 할까요??](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [레지스트리에 대해 자동 이미지 격리를 사용 하도록 설정 어떻게 할까요?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Docker 레지스트리 HTTP API v 2에 액세스 어떻게 할까요??
 
-ACR은 Docker 레지스트리 HTTP API v 2를 지원 합니다. Api는 `https://<your registry login server>/v2/`에서 액세스할 수 있습니다. 예제: `https://mycontainerregistry.azurecr.io/v2/`
+ACR은 Docker 레지스트리 HTTP API v 2를 지원 합니다. Api는 `https://<your registry login server>/v2/`에서 액세스할 수 있습니다. 예: `https://mycontainerregistry.azurecr.io/v2/`
 
 ### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>리포지토리의 태그에서 참조 하지 않는 모든 매니페스트를 삭제 어떻게 할까요?
 
@@ -181,9 +181,12 @@ apk --update add docker
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>TLS v 1.2만 구성 Azure Container Registry 제공 하 고 TLS v 1.2를 사용 하도록 설정 하는 방법을 설명 합니다.
+### <a name="how-to-enable-tls-12"></a>TLS 1.2을 사용 하도록 설정 하는 방법
 
-예. 최신 docker 클라이언트 (버전 18.03.0 이상)를 사용 하 여 TLS를 사용 하도록 설정 합니다. 
+최신 docker 클라이언트 (버전 18.03.0 이상)를 사용 하 여 TLS 1.2을 사용 하도록 설정 합니다. 
+
+> [!IMPORTANT]
+> 2020 년 1 월 13 일부 터 Azure Container Registry TLS 1.2을 사용 하려면 서버 및 응용 프로그램에서 모든 보안 연결이 필요 합니다. TLS 1.0 및 1.1에 대 한 지원은 사용이 중지 됩니다.
 
 ### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry는 콘텐츠 신뢰를 지원하나요?
 
@@ -305,7 +308,7 @@ unauthorized: authentication required
 ```
 
 오류를 해결하려면:
-1. `--signature-verification=false` 옵션을 Docker 디먼 구성 파일 `/etc/sysconfig/docker`에 추가 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+1. `--signature-verification=false` 옵션을 Docker 디먼 구성 파일 `/etc/sysconfig/docker`에 추가 합니다. 예:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -357,10 +360,10 @@ sudo service docker restart
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>업데이트 후 즉시 새 사용자 권한이 적용 되지 않을 수 있습니다.
 
-서비스 사용자에 게 새 권한 (새 역할)을 부여 하면 변경 내용이 즉시 적용 되지 않을 수 있습니다. 가능한 두 가지 원인은 다음과 같습니다.
+서비스 사용자에 게 새 권한 (새 역할)을 부여 하면 변경 내용이 즉시 적용 되지 않을 수 있습니다. 가능한 두 가지 이유는 다음과 같습니다.
 
 * Azure Active Directory 역할 할당 지연입니다. 일반적으로 속도가 빠르며 전파 지연으로 인해 몇 분 정도 걸릴 수 있습니다.
-* ACR 토큰 서버에 대 한 사용 권한 지연입니다. 최대 10 분 정도 걸릴 수 있습니다. 이를 완화 하려면 1 분 후에 동일한 사용자를 사용 하 여 다시 `docker logout` 다음 인증을 수행 하면 됩니다.
+* ACR 토큰 서버에 대 한 사용 권한 지연입니다. 최대 10분이 걸릴 수 있습니다. 이를 완화 하려면 1 분 후에 동일한 사용자를 사용 하 여 다시 `docker logout` 다음 인증을 수행 하면 됩니다.
 
   ```bash
   docker logout myregistry.azurecr.io
@@ -427,14 +430,14 @@ Microsoft Edge/IE 브라우저를 사용 하는 경우 최대 100 개의 리포�
 
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>끌어오기 또는 푸시 요청이 허용 되지 않는 작업으로 인해 실패 하는 이유는 무엇 인가요?
 
-다음은 작업이 허용 되지 않을 수 있는 몇 가지 senarios.
-* 클래식 레지스트리는 더 이상 지원 되지 않습니다. [Az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) 또는 azure portal을 사용 하 여 지원 되는 [sku](https://aka.ms/acr/skus) 로 업그레이드 하세요.
+다음은 작업이 허용 되지 않을 수 있는 몇 가지 시나리오입니다.
+* 클래식 레지스트리는 더 이상 지원 되지 않습니다. [Az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) 또는 Azure Portal를 사용 하 여 지원 되는 [sku](https://aka.ms/acr/skus) 로 업그레이드 하세요.
 * 이미지나 리포지토리가 삭제 되거나 업데이트 되지 않도록 잠글 수 있습니다. [Az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) 명령을 사용 하 여 현재 특성을 볼 수 있습니다.
 * 일부 작업은 이미지가 격리 된 경우에만 허용 됩니다. [격리](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)에 대해 자세히 알아보세요.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows에서 http 추적을 수집 어떻게 할까요?
 
-#### <a name="prerequisites"></a>선행 조건
+#### <a name="prerequisites"></a>필수 조건
 
 - Fiddler에서 https 암호 해독 사용: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Docker ui를 통해 프록시를 사용 하도록 Docker를 사용 하도록 설정: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -454,7 +457,7 @@ Docker vm 가상 스위치의 ip를 찾습니다.
 
 이전 명령의 출력 및 포트 8888 (예: 10.0.75.1:8888)에 대 한 Docker 프록시를 구성 합니다.
 
-## <a name="tasks"></a>태스크
+## <a name="tasks"></a>작업
 
 - [일괄 처리 취소가 실행 어떻게 할까요??](#how-do-i-batch-cancel-runs)
 - [Az acr build 명령에. a g 폴더를 포함 어떻게 할까요??](#how-do-i-include-the-git-folder-in-az-acr-build-command)
@@ -490,8 +493,8 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 |---|---|---|---|
 | GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | 예 | 예 |
 | Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | 예 | 예 |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 예 | 아니오 |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 예 | 아니오 |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 예 | 아닙니다. |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 예 | 아닙니다. |
 
 ## <a name="run-error-message-troubleshooting"></a>오류 메시지 실행 문제 해결
 
