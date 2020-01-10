@@ -7,25 +7,25 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: af47195a336739d604f0eb40ce6c5c54e15547cb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894082"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750945"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주
 
 > [!NOTE]
 > 이전에는 리소스 로그를 진단 로그 라고 했습니다.
 
-[Azure Monitor 리소스 로그](../../azure-monitor/platform/resource-logs-overview.md) 는 해당 서비스 또는 리소스의 작업을 설명 하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 최상위 스키마를 공유 하며 각 서비스는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성을 제공 합니다.
+[Azure Monitor 리소스 로그](../../azure-monitor/platform/platform-logs-overview.md) 는 해당 서비스 또는 리소스의 작업을 설명 하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 최상위 스키마를 공유 하며 각 서비스는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성을 제공 합니다.
 
 리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 이 문서에서는 리소스 로그의 최상위 스키마와 각 서비스에 대 한 schemata 링크를 설명 합니다.
 
 ## <a name="top-level-resource-logs-schema"></a>최상위 리소스 로그 스키마
 
-| name | 필수/선택 | 설명 |
+| 이름 | 필수/선택 | Description |
 |---|---|---|
 | time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
@@ -40,8 +40,8 @@ ms.locfileid: "74894082"
 | callerIpAddress | 선택 사항 | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
 | correlationId | 선택 사항 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: “시작됨” 및 “성공”) 경우, 동일한 상관 관계 ID를 공유합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
 | ID | 선택 사항 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
-| Level | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
-| location | 선택 사항 | 이벤트를 내보내는 리소스의 지역입니다(예: “미국 동부” 또는 “프랑스 남부”). |
+| 수준 | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| 위치 | 선택 사항 | 이벤트를 내보내는 리소스의 지역입니다(예: “미국 동부” 또는 “프랑스 남부”). |
 | properties | 선택 사항 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 사용자 지정/고유 속성은 스키마의 “파트 B”에 넣어야 합니다. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>리소스 로그의 서비스별 스키마
@@ -65,19 +65,19 @@ ms.locfileid: "74894082"
 | Data Factory | [Azure Monitor를 사용하여 데이터 팩터리 모니터링](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Azure Data Lake Analytics에 대 한 로그 액세스](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Azure Data Lake Store에 대 한 로그 액세스](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Event Hubs(영문) |[Azure Event Hubs 로그](../../event-hubs/event-hubs-diagnostic-logs.md) |
+| Event Hubs |[Azure Event Hubs 로그](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express 경로 | 스키마를 사용할 수 없음 |
 | Azure Firewall | 스키마를 사용할 수 없음 |
 | IoT Hub | [IoT Hub 작업](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault 로깅](../../key-vault/key-vault-logging.md) |
 | Kubernetes 서비스 |[Azure Kubernetes 로깅](../../aks/view-master-logs.md#log-event-schema) |
-| 부하 분산 장치 |[Azure Load Balancer에 대한 Log analytics](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Azure Load Balancer에 대한 Log analytics](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Protection | [Azure DDoS Protection 표준 관리](../../virtual-network/manage-ddos-protection.md) |
 | Power BI 전용 | [Azure의 Power BI Embedded에 대 한 로깅](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Azure Backup용 데이터 모델](../../backup/backup-azure-reports-data-model.md)|
-| Search |[검색 트래픽 분석 설정 및 사용](../../search/search-traffic-analytics.md) |
+| 검색 |[검색 트래픽 분석 설정 및 사용](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus 로그](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 로깅](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[작업 로그](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
@@ -307,13 +307,13 @@ ms.locfileid: "74894082"
 |microsoft.web/sites/slots|FunctionAppLogs|함수 응용 프로그램 로그|
 |microsoft.web/sites/slots|AppServiceHTTPLogs|HTTP 로그|
 |microsoft.web/sites/slots|AppServiceConsoleLogs|콘솔 로그|
-|microsoft.web/sites/slots|AppServiceAppLogs|애플리케이션 로그|
+|microsoft.web/sites/slots|AppServiceAppLogs|애플리케이션 로그 전송 사용|
 |microsoft.web/sites/slots|AppServiceFileAuditLogs|사이트 콘텐츠 변경 감사 로그|
 |microsoft.web/sites/slots|AppServiceAuditLogs|감사 로그 액세스|
 
 ## <a name="next-steps"></a>다음 단계
 
-* [리소스 로그에 대해 자세히 알아보기](../../azure-monitor/platform/resource-logs-overview.md)
+* [리소스 로그에 대해 자세히 알아보기](../../azure-monitor/platform/platform-logs-overview.md)
 * [**Event Hubs** 에 대 한 리소스 리소스 로그 스트림](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [Azure Monitor REST API를 사용 하 여 리소스 로그 진단 설정 변경](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../../azure-monitor/platform/collect-azure-metrics-logs.md)

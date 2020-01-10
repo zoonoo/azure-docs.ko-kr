@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/17/2019
-ms.openlocfilehash: 4b2f9e7f12b468f12fcfbe1b0af5c2918aa6c6ad
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4a8a548e6a073c38dbc1f5600d721a7cdb97f120
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541167"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762827"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -134,7 +134,7 @@ Azure에서 미사용 암호화가 작동 하는 방식에 대 한 자세한 내
 
 SSL을 사용 하 여 Azure Machine Learning 마이크로 서비스 간의 내부 통신을 보호 하 고 점수 매기기 끝점에 대 한 외부 호출의 보안을 유지할 수 있습니다. 모든 Azure Storage 액세스는 보안 채널을 통해 수행 됩니다.
 
-자세한 내용은 [Azure Machine Learning를 통해 SSL을 사용 하 여 웹 서비스 보호](https://docs.microsoft.com/azure/machine-learning/service/how-to-secure-web-service)를 참조 하세요.
+자세한 내용은 [Azure Machine Learning를 통해 SSL을 사용 하 여 웹 서비스 보호](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)를 참조 하세요.
 
 ### <a name="using-azure-key-vault"></a>Azure Key Vault 사용
 

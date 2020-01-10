@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: dbd6762906bc189cad74d78dcd8f28b0cfeba183
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6ccf9dce0fc119bd666871489a42a3ef734f81
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226982"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769203"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -21,11 +21,11 @@ Azure Functions는 클래스와 해당 종속성 간의 [IoC (제어 반전)](ht
 
 - 종속성 주입에 대 한 지원은 Azure Functions 2.x로 시작 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 종속성 주입을 사용 하려면 먼저 다음 NuGet 패키지를 설치 해야 합니다.
 
-- [Microsoft. Azure. 확장명](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - 1\.0.28 [패키지](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 버전 이상 (영문)
 
@@ -62,9 +62,9 @@ namespace MyNamespace
 }
 ```
 
-### <a name="caveats"></a>주의 사항
+### <a name="caveats"></a>제한 사항
 
-런타임이 시작 클래스를 처리 하기 전후에 일련의 등록 단계가 실행 됩니다. 따라서는 다음 항목을 염두에 두어야 합니다.
+런타임이 시작 클래스를 처리 하기 전후에 일련의 등록 단계가 실행 됩니다. 따라서 다음 항목을 염두에 두어야 합니다.
 
 - *Startup 클래스는 설치 및 등록을 위해서만 사용할 수 있습니다.* 시작 시 등록 된 서비스를 시작 프로세스 중에 사용 하지 마십시오. 예를 들어 시작 하는 동안 등록 되는로 거에 메시지를 기록 하지 않습니다. 등록 프로세스의이 시점에서 서비스를 사용할 수 있는 것은 너무 이릅니다. `Configure` 메서드를 실행 한 후에는 함수 런타임이 추가 종속성을 계속 등록 하 여 서비스가 작동 하는 방식에 영향을 줄 수 있습니다.
 
@@ -136,10 +136,10 @@ GitHub의 [다른 서비스 수명 샘플](https://aka.ms/functions/di-sample) �
 
 함수 호스트는 많은 서비스를 등록 합니다. 다음 서비스는 응용 프로그램에서 종속성으로 사용 하기에 안전 합니다.
 
-|서비스 유형|수명|설명|
+|서비스 유형|수명|Description|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|단일|런타임 구성|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|단일|호스트 인스턴스의 ID를 제공 해야 합니다.|
+|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|런타임 구성|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|호스트 인스턴스의 ID를 제공 해야 합니다.|
 
 종속성을 적용 하려는 다른 서비스가 있는 경우 [문제를 만들어 GitHub에서 제안](https://github.com/azure/azure-functions-host)합니다.
 
@@ -198,7 +198,7 @@ public class HttpTrigger
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 - [함수 앱을 모니터링 하는 방법](functions-monitoring.md)
 - [함수에 대 한 모범 사례](functions-best-practices.md)

@@ -1,19 +1,19 @@
 ---
 title: 검색 인덱스 다시 작성
 titleSuffix: Azure Cognitive Search
-description: 새 요소를 추가 하거나, 기존 요소나 문서를 업데이트 하거나, 전체 다시 빌드 또는 부분 증분 인덱싱에서 사용 되지 않는 문서를 삭제 하 여 Azure Cognitive Search 인덱스를 새로 고칩니다.
+description: 새 요소를 추가 하거나, 기존 요소나 문서를 업데이트 하거나, 전체 다시 빌드 또는 부분 인덱싱에서 사용 되지 않는 문서를 삭제 하 여 Azure Cognitive Search 인덱스를 새로 고칩니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 18cfa3c6fde399ea61e09c5788c72ce20e5570e8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112958"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754397"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱스를 다시 작성 하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "74112958"
 
 ## <a name="rebuild-conditions"></a>다시 작성 조건
 
-| 조건 | 설명 |
+| 조건 | Description |
 |-----------|-------------|
 | 필드 정의 변경 | 필드 이름, 데이터 형식 또는 특정 [인덱싱 특성](https://docs.microsoft.com/rest/api/searchservice/create-index)(검색 가능, 필터링 가능, 정렬 가능, 패싯 가능)을 수정하려면 전체적으로 다시 작성해야 합니다. |
 | 필드에 분석기 할당 | [분석기](search-analyzers.md)는 인덱스에 정의된 후 필드에 할당됩니다. 언제든지 새 분석기 정의를 인덱스에 추가할 수 있지만, 분석기 *할당*은 필드를 만들 때만 가능합니다. **분석기**와 **indexAnalyzer** 둘 다 그렇습니다. **searchAnalyzer** 속성은 예외입니다(이 속성을 기존 필드에 할당 가능). |
@@ -74,7 +74,7 @@ Azure Cognitive Search에서는 특정 필드를 삭제 하거나 다시 만들�
 
    해당 인덱스를 대상으로 하는 모든 쿼리는 즉시 삭제됩니다. 인덱스 삭제는 되돌릴 수 없으며, 필드 컬렉션 및 기타 구문의 실제 스토리지가 제거됩니다. 따라서 인덱스를 삭제하기 전에 삭제에 따른 결과를 명확히 인식해야 합니다. 
 
-2. 서비스 엔드포인트, API 키 및 [관리자 키](https://docs.microsoft.com/rest/api/searchservice/update-index)를 사용하여 [인덱스 업데이트](https://docs.microsoft.com/azure/search/search-security-api-keys) 요청을 작성합니다. 관리자 키는 쓰기 작업에 필요합니다.
+2. 서비스 엔드포인트, API 키 및 [관리자 키](https://docs.microsoft.com/azure/search/search-security-api-keys)를 사용하여 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 요청을 작성합니다. 관리자 키는 쓰기 작업에 필요합니다.
 
 3. 요청 본문에서, 변경된 또는 수정된 필드 정의를 인덱스 스키마에 제공합니다. 요청 본문은 인덱스 스키마와 프로필, 분석기, 제안기 및 CORS 옵션에 점수를 매기기 위한 구문을 포함합니다. 스키마 요구 사항은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)에 설명되어 있습니다.
 
@@ -93,7 +93,7 @@ Azure Cognitive Search에서는 특정 필드를 삭제 하거나 다시 만들�
 
 첫 번째 문서를 로드하는 즉시 인덱스 쿼리를 시작할 수 있습니다. 문서 ID를 알고 있는 경우 [문서 조회 REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document)가 특정 문서를 반환합니다. 보다 광범위한 테스트를 위해서는 인덱스가 완전히 로드될 때까지 기다린 다음, 쿼리를 사용하여 보려는 컨텍스트를 확인합니다.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 + [인덱서 개요](search-indexer-overview.md)
 + [대규모 데이터 집합 인덱싱](search-howto-large-index.md)

@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113294"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754316"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure Portal의 Azure Cognitive Search에 대 한 서비스 관리
 > [!div class="op_single_selector"]
@@ -71,11 +71,11 @@ Azure Cognitive Search는 데이터를 복구할 수 있지만 클러스터 나 
 
 Microsoft의 통제 범위를 벗어나는 치명적인 장애가 발생하더라도 지속적인 서비스가 필요한 경우 다른 하위 지역에서 [추가 서비스를 프로비전](search-create-service-portal.md)하고 지역에서 복제 전략을 구현하여 인덱스가 모든 서비스에서 완전히 중복되도록 해야 합니다.
 
-[인덱서](search-indexer-overview.md)를 사용하여 인덱스를 채우고 새로 고치는 고객은 동일한 데이터 원본을 활용하여 지역별 인덱서를 통해 재해 복구를 처리할 수 있습니다. 인덱서를 실행하는 서로 다른 지역의 두 서비스는 동일한 데이터 소스에서 인덱싱하여 지리적 중복을 적용할 수 있습니다. 지리적 중복 인 데이터 원본에서 인덱싱하는 경우 Azure Cognitive Search 인덱서는 주 복제본 에서만 증분 인덱싱을 수행할 수 있습니다. 장애 조치(failover) 이벤트에서 인덱서를 새로운 주 복제본으로 다시 지정하십시오. 
+[인덱서](search-indexer-overview.md)를 사용하여 인덱스를 채우고 새로 고치는 고객은 동일한 데이터 원본을 활용하여 지역별 인덱서를 통해 재해 복구를 처리할 수 있습니다. 인덱서를 실행하는 서로 다른 지역의 두 서비스는 동일한 데이터 소스에서 인덱싱하여 지리적 중복을 적용할 수 있습니다. 지리적 중복 인 데이터 원본에서 인덱싱하는 경우에는 Azure Cognitive Search 인덱서가 주 복제본에서 증분 인덱싱만 수행할 수 있습니다 (새 문서, 수정 된 문서 또는 삭제 된 문서에서 업데이트 병합). 장애 조치(failover) 이벤트에서 인덱서를 새로운 주 복제본으로 다시 지정하십시오. 
 
 인덱서를 사용하지 않는 경우, 애플리케이션 코드를 사용하여 개체 및 데이터를 여러 서비스에 동시에 푸시합니다. 자세한 내용은 [Azure Cognitive Search의 성능 및 최적화](search-performance-optimization.md)를 참조 하세요.
 
-## <a name="backup-and-restore"></a>Backup 및 Restore 메서드
+## <a name="backup-and-restore"></a>Backup 및 복원
 
 Azure Cognitive Search는 기본 데이터 저장소 솔루션이 아니므로 셀프 서비스 백업 및 복원에 대 한 공식적인 메커니즘을 제공 하지 않습니다. 그러나이 [Azure Cognitive Search .net 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용 하 여 인덱스 정의와 스냅숏을 일련의 JSON 파일에 백업 하 고 필요한 경우 이러한 파일을 사용 하 여 인덱스를 복원할 수 있습니다. 이 도구는 서비스 계층 간에 인덱스를 이동할 수도 있습니다.
 
@@ -83,7 +83,7 @@ Azure Cognitive Search는 기본 데이터 저장소 솔루션이 아니므로 �
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>확장 또는 축소
+## <a name="scale-up-or-down"></a>계층 및 성능 수준 변경
 모든 검색 서비스는 최소 복제본 한 개와 파티션 한 개로 시작됩니다. [전용 리소스를 제공하는 계층](search-limits-quotas-capacity.md)에 등록한 경우 서비스 대시보드에서 **확장** 타일을 클릭하여 리소스 사용량을 조정합니다.
 
 어느 하나의 리소스를 통해 용량을 추가하면 서비스에서 자동으로 사용합니다. 추가적인 조치가 필요하지 않지만 새 리소스의 영향이 나타나기 전에 잠시 지연이 있습니다. 추가 리소스를 프로비전하는 데 15분 이상 걸릴 수 있습니다.

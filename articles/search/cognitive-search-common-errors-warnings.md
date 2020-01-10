@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461069"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763167"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -144,7 +144,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 | --- | --- | --- |
 | 필드에 너무 많은 용어가 있습니다. | 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
 | 문서가 너무 커서 인덱싱할 수 없습니다. | 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
-| 문서에 컬렉션에 너무 많은 개체가 포함 되어 있습니다. | 문서의 컬렉션이 [모든 복합 컬렉션 제한에서 최대 요소](search-limits-quotas-capacity.md#index-limits) 를 초과 합니다. | 문서에 있는 복잡 한 컬렉션의 크기를 제한 아래로 줄여서 저장소 사용률을 줄이려면 권장 합니다.
+| 문서에 컬렉션에 너무 많은 개체가 포함 되어 있습니다. | 문서의 컬렉션이 [모든 복합 컬렉션 제한에서 최대 요소](search-limits-quotas-capacity.md#index-limits) 를 초과 합니다. "키 `'1000052'` 있는 문서에는 컬렉션의 `'4303'` 개체가 있습니다 (JSON 배열). 최대 `'3000'` 개체는 전체 문서에서 컬렉션에 있을 수 있습니다. 컬렉션에서 개체를 제거 하 고 문서 인덱싱을 다시 시도 하십시오. " | 문서에 있는 복잡 한 컬렉션의 크기를 제한 아래로 줄여서 저장소 사용률을 줄이려면 권장 합니다.
 | 쿼리가 나 인덱싱 등의 다른 부하에서 서비스를 하 고 있으므로 대상 인덱스에 연결 하는 데 문제가 있습니다 (재시도 후 지속 됨). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스의 부하가 높습니다. | [Search 서비스 확장](search-capacity-planning.md)
 | 서비스 업데이트를 위해 검색 서비스를 패치 하 고 있거나 토폴로지를 다시 구성 하는 중입니다. | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스가 현재 다운 되었거나 검색 서비스에서 전환 중입니다. | [SLA 설명서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 당 99.9%의 가용성을 위해 3 개 이상의 복제본을 사용 하 여 서비스를 구성 합니다.
 | 기본 계산/네트워킹 리소스에서 오류가 발생 했습니다 (드문 경우). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 알 수 없는 오류가 발생했습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다.

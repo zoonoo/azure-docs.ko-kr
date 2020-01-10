@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: c60cd631e703f929eaae56138a2acd3687121924
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a37fd886e1bc70226b2e54750540dfcb79ee5973
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226585"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768880"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
 이 문서에서는 Azure Functions에 대한 자동화된 테스트를 만드는 방법에 대해 설명합니다. 
 
-모든 코드를 테스트하는 것이 좋지만, Functions의 논리를 래핑하고 함수 외부에 테스트를 만들면 최상의 결과를 얻을 수 있습니다. 논리를 무시하면 Functions의 코드 줄이 제한되고 함수가 단독으로 다른 클래스 또는 모듈을 호출할 수 있습니다. 그러나 이 문서에서는 HTTP 및 타이머 트리거된 함수에 대한 자동화된 테스트를 만드는 방법을 설명합니다.
+모든 코드를 테스트하는 것이 좋지만, Functions의 논리를 래핑하고 함수 외부에 테스트를 만들면 최상의 결과를 얻을 수 있습니다. 논리를 무시하면 Functions의 코드 줄이 제한되고 함수가 단독으로 다른 클래스 또는 모듈을 호출할 수 있습니다. 그러나이 문서에서는 HTTP 및 타이머 트리거 함수에 대해 자동화 된 테스트를 만드는 방법을 보여 줍니다.
 
 다음에 나오는 내용은 서로 다른 언어 및 환경을 대상으로 하는 두 가지 섹션으로 분할됩니다. 테스트를 빌드하는 방법은 다음을 참조하세요.
 
@@ -30,16 +30,16 @@ ms.locfileid: "74226585"
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>설치
+### <a name="setup"></a>설치 프로그램
 
 환경을 설정하려면 함수 및 테스트 앱을 만듭니다. 다음 단계에서는 테스트를 지원하는 데 필요한 앱 및 함수를 만들 수 있습니다.
 
 1. [새 Functions 앱을 만들고](./functions-create-first-azure-function.md) 이름을 *Functions*로 지정합니다.
 2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 *HttpTrigger*로 지정합니다.
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 *TimerTrigger*로 지정합니다.
-4. Visual Studio에서 [파일 > 새로 만들기 > 프로젝트 > Visual C# > .NET Core > xUnit 테스트 프로젝트](https://xunit.github.io/docs/getting-started-dotnet-core)를 클릭하여 **xUnit 테스트 앱을 만들고** 이름을 *Functions.Test*로 지정합니다. 
-5. Nuget을 사용 하 여 AspNetCore 테스트 앱에서 참조를 추가 합니다 [.](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Functions.Test*앱에서*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)Functions *앱을 참조*합니다.
+4. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > Visual C# > .NET Core > xUnit 테스트 프로젝트**를 클릭하여 [xUnit 테스트 앱을 만들고](https://xunit.github.io/docs/getting-started-dotnet-core) 이름을 *Functions.Test*로 지정합니다. 
+5. NuGet을 사용 하 여 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 에 테스트 앱의 참조를 추가 합니다.
+6. *Functions.Test* 앱에서 [*Functions* 앱을 참조](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)합니다.
 
 ### <a name="create-test-classes"></a>테스트 클래스 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "74226585"
 
 각 함수는 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 인스턴스를 사용하여 메시지 로깅을 처리합니다. 일부 테스트는 메시지를 기록하지 않거나 로깅 구현 방법에 관여하지 않습니다. 기타 테스트는 테스트 통과 여부를 결정하기 위해 기록된 메시지를 평가해야 합니다.
 
-`ListLogger` 클래스는 `ILogger` 인터페이스를 구현하고 테스트 중에 평가를 위해 내부 메시지 목록에 포함하는 데 사용됩니다.
+`ListLogger` 클래스는 `ILogger` 인터페이스를 구현 하 고 테스트 중에 평가할 메시지의 내부 목록을 보유 합니다.
 
 NullScope.cs *응용 프로그램을* **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 합니다.
 
@@ -113,7 +113,7 @@ namespace Functions.Tests
 
 `Logs` 컬렉션은 `List<string>`의 인스턴스이고 생성자에서 초기화됩니다.
 
-그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **LoggerTypes.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **LoggerTypes.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 namespace Functions.Tests
@@ -127,7 +127,7 @@ namespace Functions.Tests
 ```
 이 열거형은 테스트에서 사용하는 로거 형식을 지정합니다. 
 
-그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **TestFactory.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **TestFactory.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -198,7 +198,7 @@ namespace Functions.Tests
 
 - **Createlogger**:로 거 형식을 기반으로 하는이 메서드는 테스트에 사용 되는로 거 클래스를 반환 합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
 
-그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **FunctionsTests.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **FunctionsTests.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -265,7 +265,7 @@ namespace Functions.Tests
 
 ![VS Code의 JavaScript를 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>설치
+### <a name="setup"></a>설치 프로그램
 
 환경을 설정하려면 `npm init`를 실행하여 빈 폴더에서 새 Node.js 앱을 초기화합니다.
 

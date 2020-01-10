@@ -7,32 +7,32 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: d4bcb8475f822675d39ca8e542155779384eacf1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 0b4975984abf4a36f7d61b42f365eeb1b2902abf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087841"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750033"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Ambari UI 502 오류
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
-HDInsight 클러스터에 대 한 Apache Ambari UI에 액세스 하려고 하면 다음과 유사한 메시지가 표시 됩니다. "502-웹 서버에서 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못 된 응답을 받았습니다."
+HDInsight 클러스터의 Apache Ambari UI에 액세스 하려고 하면 "502-웹 서버에서 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못 된 응답을 받았습니다."와 비슷한 메시지가 표시 됩니다.
 
 ## <a name="cause"></a>원인
 
 일반적으로 HTTP 502 상태 코드는 활성 헤드 노드에서 Ambari 서버가 제대로 실행 되 고 있지 않음을 의미 합니다. 가능한 근본 원인에는 몇 가지가 있습니다.
 
-## <a name="resolution"></a>해결 방법
+## <a name="resolution"></a>해상도
 
 대부분의 경우 문제를 완화 하기 위해 활성 헤드 노드를 다시 시작할 수 있습니다. 또는 헤드 노드에 대해 더 큰 VM 크기를 선택 합니다.
 
 ### <a name="ambari-server-failed-to-start"></a>Ambari 서버를 시작 하지 못함
 
-Ambari-서버 로그를 확인 하 여 Ambari 서버를 시작 하지 못한 이유를 확인할 수 있습니다. 한 가지 일반적인 이유는 데이터베이스 일관성 검사 오류입니다. 이 로그 파일 `/var/log/ambari-server/ambari-server-check-database.log`에서 찾을 수 있습니다.
+Ambari-서버 로그를 확인 하 여 Ambari 서버를 시작 하지 못한 이유를 확인할 수 있습니다. 한 가지 일반적인 이유는 데이터베이스 일관성 검사 오류입니다. 이 로그 파일에서 찾을 수 있습니다: `/var/log/ambari-server/ambari-server-check-database.log`.
 
 클러스터 노드를 수정한 경우 해당 노드를 취소 하십시오. 항상 Ambari UI를 사용 하 여 Hadoop/Spark 관련 구성을 수정 합니다.
 
@@ -52,7 +52,7 @@ service ambari-server start
 일부 시나리오에서는 헤드 노드의 메모리가 부족 하 고 Linux oom-킬러은 프로세스를 중단 하도록 선택 하기 시작 합니다. AmbariServer 프로세스 ID (찾을 수 없음)를 검색 하 여이 상황을 확인할 수 있습니다. 그런 다음 `/var/log/syslog`를 확인 하 고 다음과 같은 항목을 찾습니다.
 
 ```
-Jul 27 15:29:30 hn0-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
+Jul 27 15:29:30 xxx-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
 ```
 
 그런 다음, 메모리를 많이 차지 하는 프로세스를 식별 하 고 근본 원인을 추가로 시도 합니다.
@@ -71,6 +71,6 @@ Error Processing URI: /api/v1/clusters/xxxxxx/host_components - (java.lang.OutOf
 
 * Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-* 연결 방법 [@AzureSupport](https://twitter.com/azuresupport) -Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다.
+* [@AzureSupport](https://twitter.com/azuresupport) 연결-Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다.
 
 * 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

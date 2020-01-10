@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78f148f435edee16805cc8b0ae78652a17826727
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424800"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768151"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -29,8 +29,6 @@ ms.locfileid: "75424800"
 - 클라이언트 애플리케이션 조건
 - 승인된 클라이언트 애플리케이션 요구 사항
 
-찾고 있는 내용이 아니면 이 문서 하단에 의견을 남겨 주세요.
-
 ## <a name="cloud-apps-assignments"></a>클라우드 앱 할당
 
 조건부 액세스 정책을 사용 하 여 사용자가 [클라우드 앱](conditions.md#cloud-apps-and-actions)에 액세스 하는 방법을 제어할 수 있습니다. 조건부 액세스 정책을 구성 하는 경우 하나 이상의 클라우드 앱을 선택 해야 합니다. 
@@ -41,6 +39,7 @@ ms.locfileid: "75424800"
 
 Microsoft에서 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다.
 
+- Office 365 (미리 보기)
 - Azure Analysis Services
 - Azure DevOps
 - Azure SQL Database 및 데이터 웨어하우스- [자세한 정보](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
@@ -73,6 +72,22 @@ Microsoft에서 다음 클라우드 앱에 조건부 액세스 정책을 할당�
 - 비즈니스 온라인용 Skype
 - VPN(가상 사설망)
 - Windows Defender ATP
+
+### <a name="office-365-preview"></a>Office 365 (미리 보기)
+
+Office 365은 Exchange, SharePoint 및 Microsoft 팀과 같은 클라우드 기반 생산성 및 공동 작업 서비스를 제공 합니다. Office 365 클라우드 서비스는 원활한 공동 작업 환경을 보장 하기 위해 긴밀 하 게 통합 됩니다. Office 365 (미리 보기) 앱을 사용 하면 이러한 서비스를 한 번에 모두 대상으로 지정할 수 있습니다. 일관 되지 않은 정책 및 서비스 종속성으로 인해 발생할 수 있는 문제를 방지 하기 위해 Office 365 Exchange Online 및 Office 365 SharePoint Online과 같은 개별 클라우드 앱을 대상으로 지정 하는 대신 새 Office 365 (미리 보기) 앱을 사용 하는 것이 좋습니다.
+
+Office 365 (미리 보기) 클라이언트 앱에 포함 된 주요 응용 프로그램:
+
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Microsoft Teams
+- Office 365 Yammer
+- Office 포털
+- Microsoft Forms
+- Microsoft Power 자동화
+- Microsoft Planner
+- Microsoft PowerApps
 
 ### <a name="other-applications"></a>다른 애플리케이션
 

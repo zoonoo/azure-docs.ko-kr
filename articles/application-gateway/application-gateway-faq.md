@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658307"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770087"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -122,7 +122,7 @@ Traffic Manager를 사용 하 여 여러 데이터 센터의 여러 응용 프�
 
 예. Application Gateway v2 SKU는 자동 크기 조정을 지원합니다. 자세한 내용은 자동 크기 조정 [및 영역 중복 Application Gateway](application-gateway-autoscaling-zone-redundant.md)를 참조 하세요.
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>수동으로 확장 하거나 축소 하면 가동 중지 시간이 발생 하나요?
+### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>수동 또는 자동 확장 또는 규모 축소를 수행 하면 가동 중지 시간이 발생 하나요?
 
 아닙니다. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
 

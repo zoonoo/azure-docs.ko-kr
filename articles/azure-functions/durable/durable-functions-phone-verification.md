@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 인간 상호 작�
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232820"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769577"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -153,7 +153,7 @@ Content-Length: 145
 다음은 Visual Studio 프로젝트의 단일 C# 파일로서의 오케스트레이션입니다.
 
 > [!NOTE]
-> 아래의 샘플 코드를 실행하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 패키지를 설치해야 합니다.
+> 아래 샘플 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet 패키지를 설치 해야 합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 

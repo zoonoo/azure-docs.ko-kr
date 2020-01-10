@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: aelnably
-ms.openlocfilehash: 4ebf6ecea0b08f416bd1bd11382116dda2107ecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4af646569edc8a9274af752e7e4f2a36585ae4d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409645"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769101"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Azure Functions 모니터링
 
@@ -25,11 +25,11 @@ Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/a
 
 ## <a name="setting-up"></a>설치
 
-모니터링 섹션에서 **진단 설정** 을 선택 하 고 **추가**를 클릭 합니다.
+**모니터링** 섹션에서 **진단 설정** 을 선택 하 고 진단 설정 **추가**를 클릭 합니다.
 
 ![진단 설정 추가](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-설정 페이지에서 **Log Analytics 보내기**를 선택 하 고 **로그** 에서 **FunctionAppLogs**를 선택 합니다 .이 테이블에는 원하는 로그가 포함 되어 있습니다.
+**진단 설정** 페이지에서 **Log Analytics 보내기**를 선택 하 고 Log Analytics 작업 영역을 선택 합니다. **로그** 아래에서 **FunctionAppLogs**를 선택 합니다 .이 테이블에는 원하는 로그가 포함 됩니다.
 
 ![진단 설정 추가](media/functions-monitor-log-analytics/choose-table.png)
 
@@ -72,7 +72,7 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>로그 쿼리
 
-생성 된 로그를 쿼리하려면 log analytics 작업 영역으로 이동 하 여 **로그**를 클릭 합니다.
+생성 된 로그를 쿼리하려면 함수 로그를 보내도록 구성 된 Log Analytics 작업 영역으로 이동한 후 **로그**를 클릭 합니다.
 
 ![LA 작업 영역의 쿼리 창](media/functions-monitor-log-analytics/querying.png)
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5cf357f5f0c1d58c390cf48d636aadf059579396
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410140"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769628"
 ---
 # <a name="http-api-reference"></a>HTTP API 참조
 
@@ -105,7 +105,7 @@ Content-Length: 83
 }
 ```
 
-Http 응답은 *폴링 소비자 패턴과*호환 되도록 설계 되었습니다. 또한 다음과 같은 주목할 만한 응답 헤더를 포함 합니다.
+HTTP 응답은 *폴링 소비자 패턴과*호환 되도록 설계 되었습니다. 또한 다음과 같은 주목할 만한 응답 헤더를 포함 합니다.
 
 * **Location**: 상태 끝점의 URL입니다. 이 URL에는 `statusQueryGetUri` 필드와 동일한 값이 포함 됩니다.
 * **다시 시도-후**: 폴링 작업 사이에 대기 하는 시간 (초)입니다. 기본값은 `10`입니다.

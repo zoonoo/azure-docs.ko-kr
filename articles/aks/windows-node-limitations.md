@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 3a57fbb010f8a04352d09d4b6d57cf465e3e6988
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279149"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768574"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 및 응용 프로그램 작업에 대 한 현재 제한 사항
 
@@ -65,6 +65,10 @@ Windows 노드 풀을 사용 하는 AKS 클러스터는 Azure CNI (고급) 네�
 > [!NOTE]
 > 업데이트 된 Windows Server 이미지는 노드 풀을 업그레이드 하기 전에 클러스터 업그레이드 (제어 평면 업그레이드)를 수행한 경우에만 사용 됩니다.
 >
+
+## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Windows 노드 풀에 대 한 서비스 사용자를 회전 어떻게 할까요??
+
+미리 보기 중에는 Windows 노드 풀에서 서비스 사용자 회전을 미리 보기 제한으로 지원 하지 않습니다. 서비스 주체를 업데이트 하기 위해 새 Windows 노드 풀을 만들고 이전 풀에서 새 풀로 pod을 마이그레이션합니다. 이 작업이 완료 되 면 이전 노드 풀을 삭제 합니다.
 
 ## <a name="how-many-node-pools-can-i-create"></a>만들 수 있는 노드 풀은 몇 개입니까?
 

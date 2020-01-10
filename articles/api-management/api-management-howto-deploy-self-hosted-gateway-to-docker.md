@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b5acda30f7f4a01e1b7b6ac82652452c3c40e3bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747698"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768506"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Azure API Management 자체 호스팅 게이트웨이를 Docker에 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "73747698"
 - [API Management 인스턴스에서 게이트웨이 리소스 프로 비전](api-management-howto-provision-self-hosted-gateway.md)
 
 > [!NOTE]
-> 자체 호스팅 게이트웨이는 Linux 기반 Docker 컨테이너로 패키지 됩니다.
+> 자체 호스팅 게이트웨이는 x86-64 Linux 기반 Docker 컨테이너로 패키지 됩니다.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>자체 호스팅 게이트웨이를 Docker에 배포
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8cb328c36a1120e5a30732c36e53d9669fc6a67c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b6a687fc7ddf5eeacdfe3480a252598c6f9e773e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530870"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750380"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>저장소 계정에 Azure 리소스 로그 보관
-Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](resource-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다.  이 문서에서는 보관할 데이터를 유지 하기 위해 Azure storage 계정에 플랫폼 로그를 수집 하는 방법을 설명 합니다.
+Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다.  이 문서에서는 보관할 데이터를 유지 하기 위해 Azure storage 계정에 플랫폼 로그를 수집 하는 방법을 설명 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 아직 없는 경우 [Azure storage 계정을 만들어야](../../storage/common/storage-quickstart-create-account.md) 합니다. 설정을 구성 하는 사용자가 두 구독에 대 한 적절 한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다.
@@ -63,7 +63,7 @@ PT1H.JSON 파일 내에서 각 이벤트는 다음과 같은 형식으로 저장
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자세한 내용은 리소스 로그를 참조](resource-logs-overview.md)하세요.
+* [자세한 내용은 리소스 로그를 참조](platform-logs-overview.md)하세요.
 * [Azure에서 로그 및 메트릭을 수집 하는 진단 설정을 만듭니다](diagnostic-settings.md).
 * [분석을 위해 blob을 다운로드](../../storage/blobs/storage-quickstart-blobs-dotnet.md)합니다.
 * [Azure Monitor를 사용 하 여 Azure Active Directory 로그를 보관](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)합니다.

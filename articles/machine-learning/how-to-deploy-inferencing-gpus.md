@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 4edf17026384ad8a6bfe4ecea847f4a91076634f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 49ee2690a54e58eee85dd4f9c5b7ef460ac597cc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646577"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763592"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "75646577"
 > 이 문서의 코드 조각에서는 TensorFlow 모델을 사용 하지만 Gpu를 지 원하는 모든 기계 학습 프레임 워크에 정보를 적용할 수 있습니다.
 
 > [!NOTE]
-> 이 문서의 정보는 [Azure Kubernetes Service에 배포 하는 방법](service/how-to-deploy-azure-kubernetes-service.md) 문서에 있는 정보를 기반으로 합니다. 이 문서는 일반적으로 AKS에 대 한 배포를 다루는이 문서에서는 GPU 특정 배포에 대해 설명 합니다.
+> 이 문서의 정보는 [Azure Kubernetes Service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md) 문서에 있는 정보를 기반으로 합니다. 이 문서는 일반적으로 AKS에 대 한 배포를 다루는이 문서에서는 GPU 특정 배포에 대해 설명 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,7 +45,7 @@ ms.locfileid: "75646577"
 
     * 이 문서를 만드는 데 사용 되는 Tensorflow 모델을 만들고 등록 하려면 [Tensorflow 모델 학습 방법](how-to-train-tensorflow.md)을 참조 하세요.
 
-* [모델을 배포 하는 방법 및 위치](service/how-to-deploy-and-where.md)를 일반적으로 이해 합니다.
+* [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 일반적으로 이해 합니다.
 
 ## <a name="connect-to-your-workspace"></a>작업 영역에 연결
 
@@ -94,7 +94,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure는 AKS 클러스터가 있는 한 요금을 청구 합니다. 작업을 완료 하면 AKS 클러스터를 삭제 해야 합니다.
 
-Azure Machine Learning와 함께 AKS를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service에 배포 하는 방법](service/how-to-deploy-azure-kubernetes-service.md)을 참조 하세요.
+Azure Machine Learning와 함께 AKS를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md)을 참조 하세요.
 
 ## <a name="write-the-entry-script"></a>항목 스크립트 작성
 
@@ -135,7 +135,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-이 파일의 이름은 `score.py`입니다. 항목 스크립트에 대 한 자세한 내용은 [배포 방법 및 위치](service/how-to-deploy-and-where.md)를 참조 하세요.
+이 파일의 이름은 `score.py`입니다. 항목 스크립트에 대 한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="define-the-conda-environment"></a>Conda 환경 정의
 
@@ -289,6 +289,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>다음 단계
 
-* [FPGA에 모델 배포](service/how-to-deploy-fpga-web-service.md)
+* [FPGA에 모델 배포](how-to-deploy-fpga-web-service.md)
 * [ONNX를 사용 하 여 모델 배포](concept-onnx.md#deploy-onnx-models-in-azure)
 * [Tensorflow DNN 모델 학습](how-to-train-tensorflow.md)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 89364a3ee948abbe5d233052878abe92bc7663a7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241678"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744915"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -28,7 +28,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 > [!NOTE]  
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대 한 자세한 내용은 [Data Factory에서 Apache Pig 및 Apache Hive 사용][azure-data-factory-pig-hive]을 참조 하세요. Enterprise Security Package가 포함된 클러스터에서 Oozie를 사용하려면 [Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -61,7 +61,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ## <a name="create-the-working-directory"></a>작업 디렉터리 만들기
 
-Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제에서는 `wasbs:///tutorials/useoozie`를 사용 합니다. 이 디렉터리를 만들려면 다음 단계를 완료합니다.
+Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예에서는 `wasbs:///tutorials/useoozie`를 사용합니다. 이 디렉터리를 만들려면 다음 단계를 완료합니다.
 
 1. 아래 코드를 편집 하 여 `sshuser`를 클러스터의 SSH 사용자 이름으로 바꾸고 `CLUSTERNAME`를 클러스터의 이름으로 바꿉니다.  그런 다음 [SSH를 사용](hdinsight-hadoop-linux-use-ssh-unix.md)하 여 HDInsight 클러스터에 연결 하는 코드를 입력 합니다.  
 
@@ -296,11 +296,11 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
 2. 아래의 xml을 다음과 같이 편집 합니다.
 
-    |자리 표시자 값| 대체 값|
+    |자리 표시자 값| 대체된 값|
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| 1 단계에서 받은 값입니다.|
     |관리자| 관리자가 아닌 경우 HDInsight 클러스터의 로그인 이름입니다.|
-    |서버| Azure SQL 데이터베이스 서버 이름입니다.|
+    |serverName| Azure SQL 데이터베이스 서버 이름입니다.|
     |sqlLogin| Azure SQL database 서버 로그인.|
     |sqlPassword| Azure SQL database 서버 로그인 암호입니다.|
 
@@ -394,10 +394,10 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
     ```xml
     <name>oozie.base.url</name>
-    <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
+    <value>http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` 부분은 Oozie 명령에서 사용할 URL입니다.
+    `http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie` 부분은 Oozie 명령에서 사용할 URL입니다.
 
 2. 코드를 편집 하 여 이전에 받은 URL로 바꿉니다. URL에 대한 환경 변수를 만들려면 다음을 사용합니다. 모든 명령에 이렇게 입력할 필요는 없습니다.
 
@@ -480,7 +480,7 @@ Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 
 
 * **URI**: `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
 
-* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 다음은 그 예입니다.
+* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions

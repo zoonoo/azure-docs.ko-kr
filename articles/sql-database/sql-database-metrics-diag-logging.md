@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/16/2019
-ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 6a84dee783240f7f662dab2f04275ead3a3dfe09
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460649"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750780"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -33,7 +33,7 @@ ms.locfileid: "75460649"
 다양한 Azure 서비스에서 지원하는 메트릭 및 로그 범주에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)
+- [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)
 
 이 문서에서는 Azure SQL 데이터베이스, 탄력적 풀 및 관리되는 인스턴스에 대한 진단 원격 분석을 사용하도록 설정하는 데 도움이 되는 지침을 제공합니다. 또한 이를 통해 데이터베이스 진단 원격 분석을 보기 위한 모니터링 도구로 Azure SQL 분석을 구성하는 방법을 이해할 수 있습니다.
 
@@ -736,7 +736,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 로깅을 사용하도록 설정하는 방법을 알아보고 여러 Azure 서비스에서 지원되는 메트릭과 로그 범주를 이해하려면 다음을 참조하세요.
 
 - [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)
+- [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)
 
 Event Hubs에 대해 알아보려면 다음을 확인합니다.
 

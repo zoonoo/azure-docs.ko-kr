@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a15b55aa3d8cc8f16a35c858d11e3d20c260bff8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425004"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767571"
 ---
 # <a name="what-are-baseline-policies"></a>기준 정책 이란?
 
@@ -25,7 +25,7 @@ ms.locfileid: "75425004"
 사용자 지정 된 조건부 액세스 정책을 관리 하려면 Azure AD Premium 라이선스가 필요 합니다.
 
 > [!IMPORTANT]
-> 기준 정책을 depricated 하 고 있습니다. 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) 을 참조 하세요.
+> 기준 정책은 더 이상 사용 되지 않습니다. 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) 을 참조 하세요.
 
 ## <a name="baseline-policies"></a>기준 정책
 

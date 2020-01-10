@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/17/2019
+ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b2209e2ada2d825714d08b6ac3237583df28272a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459451"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749368"
 ---
 # <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
@@ -138,8 +138,16 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 **원인 2:** 도메인 이름이 확인 되지 않습니다.
 
-**수정 2:** Vm에 대 한 "도메인 이름 확인 안 함" 오류는 [세션 호스트 VM 구성](troubleshoot-vm-configuration.md)의 도메인에 가입 되지 않음을 참조 하세요.
+**수정 2:** [오류: 도메인 이름이](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) [세션 호스트 VM 구성](troubleshoot-vm-configuration.md)에서 확인 되지 않음을 참조 하세요.
 
+**원인 3:** 가상 네트워크 (VNET) DNS 구성이 **기본값으로**설정 되어 있습니다.
+
+이 문제를 해결 하려면 다음 작업을 수행 합니다.
+
+1. Azure Portal을 열고 **가상 네트워크** 블레이드로 이동 합니다.
+2. VNET을 찾은 후 **DNS 서버**를 선택 합니다.
+3. DNS 서버 메뉴가 화면 오른쪽에 표시 됩니다. 해당 메뉴에서 **사용자 지정**을 선택 합니다.
+4. 사용자 지정 아래에 나열 된 DNS 서버가 도메인 컨트롤러 또는 Active Directory 도메인과 일치 하는지 확인 합니다. DNS 서버가 표시 되지 않으면 **dns 서버 추가** 필드에 해당 값을 입력 하 여 추가할 수 있습니다.
 
 ### <a name="error-your-deployment-failedunauthorized"></a>오류: 배포에 실패 했습니다. ..\Unauthorized
 
@@ -159,7 +167,7 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 **원인 2:** 연결에 일시적인 오류가 발생 했습니다.
 
-**해결 방법:** PowerShell을 사용 하 여 로그인 하면 Windows 가상 데스크톱 환경이 정상 상태 인지 확인 합니다. [PowerShell을 사용 하 여 호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)에서 수동으로 VM 등록을 완료 합니다.
+**해결 방법:** PowerShell을 사용 하 여 로그인 하면 Windows 가상 데스크톱 환경이 정상 상태 인지 확인 합니다. [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md)에서 수동으로 VM 등록을 완료 합니다.
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>오류: 지정 된 관리자 사용자 이름이 허용 되지 않습니다.
 
@@ -347,7 +355,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 **원인:** 지정 된 Windows Virtual Desktop 테 넌 트 관리자에 게 로그인 하려면 MFA (Azure Multi-Factor Authentication)가 필요 합니다.
 
-**해결 방법:** [자습서: PowerShell을 사용 하 여 서비스 사용자 및 역할 할당 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)의 단계에 따라 서비스 주체를 만들고 Windows 가상 데스크톱 테 넌 트의 역할을 할당 합니다. 서비스 주체를 사용 하 여 Windows 가상 데스크톱에 로그인 할 수 있는지 확인 한 후에는 사용 중인 방법에 따라 Azure Marketplace 제공 또는 GitHub Azure Resource Manager 템플릿을 다시 실행 합니다. 메서드에 대 한 올바른 매개 변수를 입력 하려면 아래 지침을 따르세요.
+**해결 방법:** [자습서: PowerShell을 사용 하 여 서비스 사용자 및 역할 할당 만들기](create-service-principal-role-powershell.md)의 단계에 따라 서비스 주체를 만들고 Windows 가상 데스크톱 테 넌 트의 역할을 할당 합니다. 서비스 주체를 사용 하 여 Windows 가상 데스크톱에 로그인 할 수 있는지 확인 한 후에는 사용 중인 방법에 따라 Azure Marketplace 제공 또는 GitHub Azure Resource Manager 템플릿을 다시 실행 합니다. 메서드에 대 한 올바른 매개 변수를 입력 하려면 아래 지침을 따르세요.
 
 Azure Marketplace 제공을 실행 하는 경우 다음 매개 변수에 대 한 값을 제공 하 여 Windows 가상 데스크톱에 올바르게 인증 합니다.
 

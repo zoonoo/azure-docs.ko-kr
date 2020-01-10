@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: ec463efb1282c311757bb90fd614e1247459c80f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457332"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772417"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치
 
@@ -108,11 +108,11 @@ Apt 업데이트를 수행 합니다.
    sudo apt-get install iotedge
    ```
 
-IoT Edge 성공적으로 설치 되 면 구성 파일을 업데이트 하 라는 메시지가 출력에 표시 됩니다. [Azure IoT Edge 보안 디먼 구성](#configure-the-security-daemon) 섹션의 단계에 따라 장치 프로 비전을 완료 합니다. 
+IoT Edge 성공적으로 설치 되 면 구성 파일을 업데이트 하 라는 메시지가 출력에 표시 됩니다. [보안 디먼 구성](#configure-the-security-daemon) 섹션의 단계에 따라 장치 프로 비전을 완료 합니다. 
 
 ## <a name="install-a-specific-runtime-version"></a>특정 런타임 버전 설치
 
-특정 버전의 Azure IoT Edge 런타임을 설치 하려는 경우 IoT Edge GitHub 리포지토리에서 직접 구성 요소 파일을 대상으로 지정할 수 있습니다. 다음 단계를 사용 하 여 모든 IoT Edge 구성 요소를 장치에 가져옵니다. Moby 엔진과 CLI, libiothsm 및 IoT Edge security daemon.
+최신 버전을 사용 하는 대신 특정 버전의 Moby 및 Azure IoT Edge 런타임을 설치 하려는 경우 IoT Edge GitHub 리포지토리에서 직접 구성 요소 파일을 대상으로 지정할 수 있습니다. 다음 단계를 사용 하 여 모든 IoT Edge 구성 요소를 장치에 가져옵니다. Moby 엔진과 CLI, libiothsm 및 IoT Edge security daemon. 특정 런타임 버전으로 변경 하지 않으려는 경우 다음 섹션인 [보안 데몬 구성](#configure-the-security-daemon)으로 건너뜁니다.
 
 1. [Azure IoT Edge 릴리스로](https://github.com/Azure/azure-iotedge/releases)이동 하 고 대상으로 지정할 릴리스 버전을 찾습니다. 
 
@@ -265,7 +265,9 @@ journalctl -u iotedge --no-pager --no-full
 sudo iotedge check
 ```
 
-그리고 실행 중인 모듈을 나열 합니다.
+장치에서 IoT Edge 하기 위해 첫 번째 모듈을 배포할 때 까지는 **$edgeHub** 시스템 모듈이 장치에 배포 되지 않습니다. 따라서 자동 검사는 `Edge Hub can bind to ports on host` 연결 확인에 대 한 오류를 반환 합니다. 이 오류는 장치에 모듈을 배포한 후에 발생 하는 경우에만 ingored 수 있습니다.
+
+마지막으로 실행 중인 모듈을 나열 합니다.
 
 ```bash
 sudo iotedge list
@@ -275,9 +277,9 @@ sudo iotedge list
 
 ## <a name="tips-and-troubleshooting"></a>팁 및 문제 해결
 
-`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. 런타임을 설치한 후 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 **명령 앞에**sudo`iotedge`를 사용합니다.
+`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. 런타임을 설치한 후 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 `iotedge` 명령 앞에 **sudo**를 사용합니다.
 
-리소스가 제한된 디바이스에서는 *문제 해결 가이드*의 지침에 따라 *OptimizeForPerformance* 환경 변수를 [false](troubleshoot.md)로 설정하는 것이 좋습니다.
+리소스가 제한된 디바이스에서는 [문제 해결 가이드](troubleshoot.md)의 지침에 따라 *OptimizeForPerformance* 환경 변수를 *false*로 설정하는 것이 좋습니다.
 
 프록시 서버가 있는 네트워크의 경우 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)의 단계를 수행합니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 2b0343527aa97abfd1b239b4588806e79e0b820d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c93c936664f65e7846f6c4ad82d9aead973fa129
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644327"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772604"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -59,9 +59,9 @@ Azure Machine Learning 파이프라인은 전체 기계 학습 작업에 대해 
 
 파이프라인 설계 후에는 종종 파이프라인의 학습 루프를 미세 조정합니다. 파이프라인을 다시 실행 하면 실행이 업데이트 된 학습 스크립트와 같이 다시 실행 해야 하는 단계로 이동 합니다. 다시 실행할 필요가 없는 단계는 건너뜁니다. 단계의 이룰 있었습니다에 사용 되는 변경 되지 않은 스크립트에도 동일한 분석이 적용 됩니다. 이러한 재사용 기능을 사용 하면 기본 데이터가 변경 되지 않은 경우 데이터 수집 및 변환과 같은 비용이 많이 들고 시간이 많이 걸리는 단계를 실행 하지 않아도 됩니다.
 
-Azure Machine Learning를 사용 하 여 파이프라인의 각 단계에 대 한 다양 한 도구 키트와 프레임 워크 (예: PyTorch 또는 TensorFlow)를 사용할 수 있습니다. Azure는 사용 하는 다양 한 [계산 대상을](service/concept-azure-machine-learning-architecture.md) 조정 하므로 다운스트림 계산 대상과 중간 데이터를 공유할 수 있습니다.
+Azure Machine Learning를 사용 하 여 파이프라인의 각 단계에 대 한 다양 한 도구 키트와 프레임 워크 (예: PyTorch 또는 TensorFlow)를 사용할 수 있습니다. Azure는 사용 하는 다양 한 [계산 대상을](concept-azure-machine-learning-architecture.md) 조정 하므로 다운스트림 계산 대상과 중간 데이터를 공유할 수 있습니다.
 
-Azure Portal 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 직접 [파이프라인 실험의 메트릭을 추적할](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) 수 있습니다. 파이프라인이 게시 된 후에는 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있는 REST 끝점을 구성할 수 있습니다.
+Azure Portal 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 직접 [파이프라인 실험의 메트릭을 추적할](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments) 수 있습니다. 파이프라인이 게시 된 후에는 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있는 REST 끝점을 구성할 수 있습니다.
 
 간단히 말해서, 기계 학습 수명 주기의 모든 복잡 한 작업은 파이프라인에 도움이 될 수 있습니다. 다른 Azure 파이프라인 기술에는 데이터 작업을 위한 [파이프라인 Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) , 연속 통합 및 배포를 위한 [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) 등의 고유한 강도가 있습니다. 그러나 사용자의 포커스가 machine learning 인 경우 Azure Machine Learning 파이프라인이 워크플로 요구에 가장 적합 한 선택이 될 수 있습니다. 
 
@@ -109,7 +109,7 @@ Azure ML 파이프라인에서 종속성 분석은 단순한 타임 스탬프 �
 
 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)에서 파이프라인은 `azureml.pipeline.core` 모듈에 정의 된 python 개체입니다. [파이프라인](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) 개체는 하나 이상의 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) 개체의 순서가 지정 된 시퀀스를 포함 합니다. `PipelineStep` 클래스는 추상적 이며 실제 단계는 [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)또는 [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py)와 같은 서브 클래스입니다. [Modulestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) 클래스는 파이프라인 간에 공유할 수 있는 재사용 가능한 단계 시퀀스를 포함 합니다. `Pipeline` `Experiment`의 일부로 실행 됩니다.
 
-Azure ML 파이프라인은 Azure Machine Learning 작업 영역에 연결 되 고 파이프라인 단계는 해당 작업 영역 내에서 사용할 수 있는 계산 대상과 연결 됩니다. 자세한 내용은 [Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) 또는 [Azure Machine Learning에서 계산 대상 이란?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target)를 참조 하세요.
+Azure ML 파이프라인은 Azure Machine Learning 작업 영역에 연결 되 고 파이프라인 단계는 해당 작업 영역 내에서 사용할 수 있는 계산 대상과 연결 됩니다. 자세한 내용은 [Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) 또는 [Azure Machine Learning에서 계산 대상 이란?](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)를 참조 하세요.
 
 Azure Machine Learning에서 계산 대상은 ML 단계가 수행 되는 환경입니다. 소프트웨어 환경은 원격 VM, Azure Machine Learning 계산, Azure Databricks, Azure Batch 등이 될 수 있습니다. 또한 하드웨어 환경은 GPU 지원, 메모리, 저장소 등에 따라 크게 달라질 수 있습니다. 각 단계에 대 한 계산 대상을 지정 하 여 비용을 세밀 하 게 제어할 수 있습니다. 프로젝트의 특정 작업, 데이터 볼륨 및 성능 요구 사항에 대해 보다 강력 하거나 더 강력 하지 않은 리소스를 사용할 수 있습니다. 
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810345"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754047"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Azure SQL Database instance 풀 (미리 보기) 방법 가이드
 
@@ -26,13 +26,13 @@ ms.locfileid: "73810345"
 
 다음 표에서는 Azure Portal 및 PowerShell에서 인스턴스 풀 및 해당 가용성과 관련 된 사용 가능한 작업을 보여 줍니다.
 
-|명령|Azure portal|PowerShell|
+|명령|Azure Portal|PowerShell|
 |:---|:---|:---|
-|인스턴스 풀 만들기|아니요|예|
-|인스턴스 풀 업데이트 (제한 된 속성 수)|아니요 |예 |
-|인스턴스 풀 사용 및 속성 확인|아니요|예 |
-|인스턴스 풀 삭제|아니요|예|
-|인스턴스 풀 내에서 관리 되는 인스턴스 만들기|아니요|예|
+|인스턴스 풀 만들기|아닙니다.|예|
+|인스턴스 풀 업데이트 (제한 된 속성 수)|아닙니다. |예 |
+|인스턴스 풀 사용 및 속성 확인|아닙니다.|예 |
+|인스턴스 풀 삭제|아닙니다.|예|
+|인스턴스 풀 내에서 관리 되는 인스턴스 만들기|아닙니다.|예|
 |관리 되는 인스턴스 리소스 사용 현황 업데이트|예 |예|
 |관리 되는 인스턴스 사용 및 속성 확인|예|예|
 |풀에서 관리 되는 인스턴스 삭제|예|예|
@@ -41,7 +41,7 @@ ms.locfileid: "73810345"
 
 사용 가능한 [PowerShell 명령](https://docs.microsoft.com/powershell/module/az.sql/)
 
-|Cmdlet |설명 |
+|Cmdlet |Description |
 |:---|:---|
 |[AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Azure SQL Database 인스턴스 풀을 만듭니다. |
 |[AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Azure SQL 인스턴스 풀에 대 한 정보를 반환 합니다. |
@@ -92,11 +92,17 @@ PowerShell을 사용 하려면 [최신 버전의 Powershell Core를 설치](http
 
 - 공개 미리 보기에서는 범용 및 Gen5 사용할 수 있습니다.
 - 풀 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 하이픈으로 시작할 수 없습니다.
-- 서브넷 ID를 가져오려면 `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`를 사용 합니다.
 - AHB (Azure 하이브리드 혜택)를 사용 하려는 경우 인스턴스 풀 수준에서 적용 됩니다. 풀을 만드는 동안 라이선스 유형을 설정 하거나 생성 후 언제 든 지 업데이트할 수 있습니다.
 
 > [!IMPORTANT]
 > 인스턴스 풀을 배포 하는 작업은 약 4.5 시간이 소요 되는 장기 실행 작업입니다.
+
+네트워크 매개 변수를 가져오려면:
+
+```powershell
+$virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGroupName "myResourceGroup"
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
+```
 
 인스턴스 풀을 만들려면 다음을 수행 합니다.
 
@@ -104,7 +110,7 @@ PowerShell을 사용 하려면 [최신 버전의 Powershell Core를 설치](http
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `

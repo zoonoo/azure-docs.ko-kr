@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f84eba6b23278391afd2de11d9072c9a378db05
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5b2fa550029c35ca989d6746254298cf1e92992d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646594"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75764578"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
-* Azure Machine Learning SDK를 설치 하도록 [개발 환경을 구성](service/how-to-configure-environment.md) 하거나 sdk가 이미 설치 된 [Azure Machine Learning 계산 인스턴스 (미리 보기)](concept-compute-instance.md) 를 사용 합니다.
+* Azure Machine Learning SDK를 설치 하도록 [개발 환경을 구성](how-to-configure-environment.md) 하거나 sdk가 이미 설치 된 [Azure Machine Learning 계산 인스턴스 (미리 보기)](concept-compute-instance.md) 를 사용 합니다.
 
 > [!NOTE]
 > 컴퓨팅 인스턴스는 **미국 중북부** 또는 **영국 남부** 지역이 있는 작업 영역에서만 사용할 수 있습니다.
@@ -132,7 +132,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
  [From_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)를 사용 하 여 `FileDataset`를 만듭니다.
 
- 데이터 집합을 사용 하 여 작업 하는 방법에 대 한 자세한 내용은 [데이터 집합 추가 & 등록](service/how-to-create-register-datasets.md) 또는 [이 샘플 노트북](https://aka.ms/train-datasets)을 확인 하세요.
+ 데이터 집합을 사용 하 여 작업 하는 방법에 대 한 자세한 내용은 [데이터 집합 추가 & 등록](how-to-create-register-datasets.md) 또는 [이 샘플 노트북](https://aka.ms/train-datasets)을 확인 하세요.
 
 ## <a name="set-up-compute-target"></a>컴퓨팅 대상 설정
 

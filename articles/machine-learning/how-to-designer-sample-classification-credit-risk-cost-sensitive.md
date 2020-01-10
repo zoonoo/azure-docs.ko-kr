@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: bfa50665d427775b8b45d377869787086ca5bf3d
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 54ca0df005dccceacc88044a51f31ad784b7071b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660053"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763405"
 ---
 # <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 신용 위험을 예측 하는 Python 스크립트를 사용 하 & 분류자 빌드
 
@@ -165,6 +165,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 - [샘플 1-회귀: 자동차 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
 - [샘플 2-회귀: 자동차 가격 예측에 대 한 알고리즘 비교](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
 - [샘플 3-기능 선택이 포함 된 분류: 수입 예측](how-to-designer-sample-classification-predict-income.md)
-- [샘플 5-분류: 변동 예측](service/how-to-designer-sample-classification-churn.md)
+- [샘플 5-분류: 변동 예측](how-to-designer-sample-classification-churn.md)
 - [샘플 6-분류: 비행 지연 예측](how-to-designer-sample-classification-flight-delay.md)
 - [샘플 7-텍스트 분류: 위키백과 SP 500 데이터 집합](how-to-designer-sample-text-classification.md)

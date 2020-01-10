@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 4a41e5eda3ca2bd92d78a81d73c1ad4c859e25a3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764562"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747349"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
 
@@ -21,9 +21,9 @@ Azure Database for PostgreSQL에서 데이터베이스 활동에 대 한 감사 
 > pgAudit는 Azure Database for PostgreSQL 미리 보기 상태입니다.
 > 확장은 범용 및 메모리 액세스에 최적화 된 서버 에서만 사용 하도록 설정할 수 있습니다.
 
-계산 및 저장소 크기 조정과 같은 작업에 대 한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md)를 참조 하세요.
+계산 및 저장소 크기 조정과 같은 작업에 대 한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
 
-## <a name="usage-considerations"></a>사용 고려 사항
+## <a name="usage-considerations"></a>용도 고려 사항
 기본적으로 pgAudit 로그 문은 Postgres의 표준 로깅 기능을 사용하여 일반 로그 문과 함께 내보내집니다. Azure Database for PostgreSQL에서 이러한 .log 파일은 Azure Portal 또는 CLI를 통해 다운로드할 수 있습니다. 파일 컬렉션에 대 한 최대 저장소는 1gb이 고 각 파일은 최대 7 일 동안 사용할 수 있습니다 (기본값은 3 일). 이 서비스는 단기 저장소 옵션입니다.
 
 또는 Azure Monitor의 진단 로그 서비스에 내보내도록 모든 로그를 구성할 수 있습니다. Azure Monitor 진단 로깅을 사용 하는 경우 사용자의 선택에 따라 로그가 자동으로 (JSON 형식으로) Azure Storage, Event Hubs 및/또는 Azure Monitor 로그에 전송 됩니다.
@@ -39,10 +39,10 @@ Azure Storage, Event Hubs 또는 Azure Monitor 로그에 대 한 로깅을 설�
 
 PgAudit를 설치 하려면 서버 공유 미리 로드 라이브러리에이를 포함 해야 합니다. Postgres의 `shared_preload_libraries` 매개 변수를 변경 하려면 서버를 다시 시작 해야 적용 됩니다. [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)또는 [REST API](/rest/api/postgresql/configurations/createorupdate)를 사용 하 여 매개 변수를 변경할 수 있습니다.
 
-[Azure Portal](https://portal.azure.com)사용:
+[Azure portal](https://portal.azure.com) 사용:
 
    1. Azure Database for PostgreSQL 서버를 선택합니다.
-   2. 사이드바에서 **서버 매개 변수**를 선택 합니다.
+   2. 사이드바에서 **서버 매개 변수**를 선택합니다.
    3. `shared_preload_libraries` 매개 변수를 검색합니다.
    4. **Pgaudit**를 선택 합니다.
    5. 서버를 다시 시작 하 여 변경 내용을 적용 합니다.

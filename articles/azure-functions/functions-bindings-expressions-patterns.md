@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: f00637ff2c8cf39b683056b041fe0e991276a065
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a9c45321d12b659febfeb4913d66ea3732813918
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227218"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769526"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
@@ -115,7 +115,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, ILogger
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-바인딩 식 및 패턴을 사용하는 동일한 기능은 클래스 라이브러리의 특성에 적용됩니다. 다음 예제에서 특성 생성자 매개 변수는 앞의 `path`function.json*예제와 동일한* 값입니다. 
+바인딩 식 및 패턴을 사용하는 동일한 기능은 클래스 라이브러리의 특성에 적용됩니다. 다음 예제에서 특성 생성자 매개 변수는 앞의 *function.json* 예제와 동일한 `path` 값입니다. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -147,7 +147,7 @@ public static void Run(
 * NextVisibleTime
 * PopReceipt
 
-이러한 메타데이터 값은 *function.json* 파일 속성에서 액세스할 수 있습니다. 예를 들어 큐 트리거를 사용하고 큐 메시지는 읽으려는 Blob의 이름을 포함한다고 가정합니다. *function.json* 파일에서 다음 예제와 같이 Blob `queueTrigger` 속성에서 `path` 메타데이터 속성을 사용할 수 있습니다.
+이러한 메타데이터 값은 *function.json* 파일 속성에서 액세스할 수 있습니다. 예를 들어 큐 트리거를 사용하고 큐 메시지는 읽으려는 Blob의 이름을 포함한다고 가정합니다. *function.json* 파일에서 다음 예제와 같이 Blob `path` 속성에서 `queueTrigger` 메타데이터 속성을 사용할 수 있습니다.
 
 ```json
   "bindings": [
@@ -285,7 +285,7 @@ public class BlobName
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -298,7 +298,7 @@ public class BlobName
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## <a name="binding-at-runtime"></a>런타임에 바인딩

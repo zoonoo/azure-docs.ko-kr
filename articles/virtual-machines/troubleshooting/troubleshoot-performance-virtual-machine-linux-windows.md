@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615040"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772621"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Linux 또는 Windows에서 Azure 가상 머신 성능 문제 해결
 
@@ -212,11 +212,11 @@ Standard storage에서 새로운 디스크 제품을 사용 하는 경우 IOPS �
 
 #### <a name="references"></a>참조
 
-* [가상 머신 디스크에 대 한 확장성 목표](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [프리미엄 페이지 blob storage 계정에 대 한 확장성 및 성능 목표](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 저장소 계정의 대역폭은 저장소 계정 메트릭: TotalIngress 및 Totalingress로 측정 됩니다. 중복성 및 지역 유형에 따라 대역폭에 대해 서로 다른 임계값이 있습니다.
 
-* [Blob, 큐, 테이블 및 파일에 대 한 확장성 목표](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [Standard storage 계정에 대 한 확장성 및 성능 목표](../../storage/common/scalability-targets-standard-account.md)
 
 저장소 계정 중복 유형 및 지역에 대 한 수신 및 발신 한도에 대해 TotalIngress 및 Totalingress를 확인 합니다.
 

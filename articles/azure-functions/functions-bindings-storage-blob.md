@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 0c9534878dd1d53b9a11802a960f2ab345fde654
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 9ddf72e8e54245e3ce7ab9a926288587e205fc9c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551236"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769475"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -27,7 +27,7 @@ ms.locfileid: "75551236"
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Blob 저장소 바인딩은 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) Nuget 패키지 버전 2.x에서 제공 됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 리포지토리에 있습니다.
+Blob Storage 바인딩은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -35,7 +35,7 @@ Blob 저장소 바인딩은 [WebJobs](https://www.nuget.org/packages/Microsoft.A
 
 ## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
-Blob 저장소 바인딩은 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) Nuget 패키지, 버전 3.x에서 제공 됩니다 .입니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) GitHub 리포지토리에 있습니다.
+Blob 스토리지 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -328,7 +328,7 @@ Python에서 특성을 지원 하지 않습니다.
 |**direction** | n/a | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
 |**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
 |**path** | **BlobPath** |모니터링할 [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)입니다.  [Blob 이름 패턴](#trigger---blob-name-patterns)일 수 있습니다. |
-|**연결** | **연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
+|**연결** | **연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`를 "MyStorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -763,7 +763,7 @@ Python에서 특성을 지원 하지 않습니다.
 |**direction** | n/a | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
 |**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
-|**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
+|**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`를 "MyStorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
 |n/a | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1133,7 +1133,7 @@ Python에서 특성을 지원 하지 않습니다.
 |**direction** | n/a | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
 |**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**path** |**BlobPath** | Blob 컨테이너에 대 한 경로입니다. |
-|**연결** |**연결**| 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
+|**연결** |**연결**| 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`를 "MyStorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
 |n/a | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

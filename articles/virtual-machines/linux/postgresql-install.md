@@ -1,6 +1,6 @@
 ---
 title: Linux VM에서 PostgreSQL 설정
-description: Azure Linux 가상 컴퓨터에 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다.
+description: Azure Linux 가상 머신에 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,19 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: f6d521c7003583228990c80a90c1454821f584d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035273"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747807"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
 PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 애플리케이션에 대한 지원을 통해 확장성을 높일 수 있습니다.
 
 이 문서에서는 Linux를 실행하는 Azure 가상 머신에서 PostgreSQL을 설치 및 구성하는 방법을 알아봅니다.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-postgresql"></a>PostgreSQL 설치
 > [!NOTE]
@@ -36,7 +35,7 @@ PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이�
 
 이 경우 PostgreSQL 포트로 포트 1999를 사용하세요.  
 
-PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
+PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
 
 1. 다음 명령을 실행하여 루트(관리자)로 전환합니다.
    
@@ -64,7 +63,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. 설명서(HTML 및 man 페이지) 및 추가 모듈(contrib)을 비롯하여 빌드할 수 있는 모든 항목을 빌드하려는 경우에는 다음 명령을 실행합니다.
+5. 설명서 (HTML 및 man 페이지) 및 추가 모듈 (`contrib`)을 비롯 하 여 빌드할 수 있는 모든 항목을 빌드 하려는 경우 다음 명령을 대신 실행 합니다.
    
         # gmake install-world
    

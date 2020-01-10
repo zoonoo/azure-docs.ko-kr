@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 413301fd8b6b4b2a3b60501378cf6da23cc38d81
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 07580c8b8ea00039b48bd1f8765735ec5a5082ee
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018856"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746639"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -33,7 +33,7 @@ Azure는 주기적으로 업데이트를 수행하여 VM(가상 머신)에 대�
 
 다시 부팅해야 하는 계획된 유지 관리는 웨이브에서 예약됩니다. 각 웨이브에는 서로 다른 범위(지역)가 있습니다.
 
-- 웨이브는 고객에게 알림을 보내면서 시작합니다. 기본적으로 알림은 구독 소유자 및 공동 소유자에게 보내집니다. Azure [활동 로그 경고](../azure-monitor/platform/activity-logs-overview.md)를 사용하여 받는 사람 및 메시지 옵션(예: 이메일, SMS 및 웹후크)을 알림에 추가할 수 있습니다.  
+- 웨이브는 고객에게 알림을 보내면서 시작합니다. 기본적으로 알림은 구독 소유자 및 공동 소유자에게 보내집니다. Azure [활동 로그 경고](../azure-monitor/platform/platform-logs-overview.md)를 사용하여 받는 사람 및 메시지 옵션(예: 이메일, SMS 및 웹후크)을 알림에 추가할 수 있습니다.  
 - 알림을 통해 *셀프 서비스 기간*을 사용할 수 있습니다. 이 기간 동안 일반적으로 35 일 동안 웨이브에 포함 된 Vm을 찾을 수 있습니다. 사용자 고유의 일정 요구 사항에 따라 사전에 유지 관리를 시작할 수 있습니다.
 - 셀프 서비스 기간이 끝나면 *예약된 유지 관리 기간*이 시작됩니다. 이 기간 동안의 어떤 시점에서 Azure는 VM에 필요한 유지 관리를 예약하고 적용합니다. 
 
@@ -86,15 +86,15 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 
 이제 **셀프 서비스 유지 관리** 열이 가상 머신 확장 집합 목록에 나타납니다. 각 가상 머신 확장 집합의 셀프 서비스 유지 관리 열에는 다음 값 중 하나가 표시될 수 있습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 |-------|-------------|
 | 예 | 가상 머신 확장 집합에 있는 하나 이상의 VM이 셀프 서비스 기간에 있습니다. 이 셀프 서비스 기간 동안 언제든지 유지 관리를 시작할 수 있습니다. | 
-| 아니요 | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
+| 아닙니다. | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
 | - | 가상 머신 확장 집합이 계획된 유지 관리 웨이브에 속하지 않습니다.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>포털에서 알림 및 경고
 
-Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. 활동 로그 경고를 만들어 받는 사람 및 채널을 이 통신에 추가할 수 있습니다. 자세한 내용은 [Azure 활동 로그로 구독 활동 모니터링](../azure-monitor/platform/activity-logs-overview.md)을 참조하세요.
+Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. 활동 로그 경고를 만들어 받는 사람 및 채널을 이 통신에 추가할 수 있습니다. 자세한 내용은 [Azure 활동 로그로 구독 활동 모니터링](../azure-monitor/platform/platform-logs-overview.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모니터**를 선택합니다. 
@@ -127,7 +127,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 **MaintenanceRedeployStatus**로 반환되는 속성은 다음과 같습니다. 
 
-| 값 | 설명   |
+| 값 | Description   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -158,7 +158,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 **MaintenanceRedeployStatus**로 각 VM 인스턴스에 대해 반환되는 속성은 다음과 같습니다. 
 
-| 값 | 설명   |
+| 값 | Description   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -180,7 +180,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **Q: 지금 내 VM을 다시 부팅해야 하는 이유는 무엇인가요?**
 
-**A:** Azure 플랫폼에 대한 대부분의 업데이트와 업그레이드는 VM 가용성에 영향을 주지 않지만, Azure에서 호스트되는 VM을 다시 부팅해야 하는 경우도 있습니다. 서버를 다시 시작해야 하는 여러 변경이 누적되어 VM이 다시 부팅됩니다.
+**A:** Azure 플랫폼에 대한 대부분의 업데이트와 업그레이드는 VM 가용성에 영향을 주지 않지만, Azure에서 호스팅되는 VM을 다시 부팅해야 하는 경우도 있습니다. 서버를 다시 시작해야 하는 여러 변경이 누적되어 VM이 다시 부팅됩니다.
 
 **Q: 가용성 집합을 사용하여 고가용성 권장 사항을 따르는 경우 안전한가요?**
 
@@ -192,7 +192,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** 계획된 유지 관리 주기는 하나 이상의 Azure 지역에 예약을 설정하는 것에서 출발합니다. 곧 이메일 알림이 구독 소유자에게 전달됩니다(구독당 1개 이메일). 활동 로그 경고를 사용하여 이 알림에 대한 채널 및 받는 사람을 추가할 수 있습니다. 계획된 유지 관리가 이미 예약된 지역에 VM을 배포하는 경우 알림을 받지 못합니다. 대신 VM의 유지 관리 상태를 확인하세요.
 
-**Q: 포털, PowerShell 또는 CLI에서 계획된 유지 관리에 대한 표시가 전혀 나타나지 않습니다. 무엇이 문제인가요?**
+**Q: 포털, PowerShell 또는 CLI에서 계획 된 유지 관리의 표시가 표시 되지 않습니다. 뭐가 문제인가요?**
 
 **A:** 계획된 유지 관리와 관련된 정보는 계획된 유지 관리의 영향을 받는 VM에 대해서만 계획된 유지 관리 웨이브 동안 사용할 수 있습니다. 데이터가 표시되지 않으면 유지 관리 웨이브가 이미 완료되었거나, 시작되지 않았거나, VM이 업데이트된 서버에서 이미 호스팅되었을 수 있습니다.
 
@@ -202,16 +202,16 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **Q: 내 VM을 다시 부팅하는 데 얼마나 걸리나요?**
 
-**A:**  VM의 크기에 따라 셀프 서비스 유지 관리 기간 동안 다시 부팅하는 데 최대 몇 분이 걸릴 수 있습니다. Azure가 예약된 유지 관리 기간에서 다시 부팅을 시작하는 동안 일반적으로 다시 부팅하는 데 약 25분 정도 걸립니다. Cloud Services(웹/작업자 역할), 가상 머신 확장 집합 또는 가용성 집합을 사용하는 경우, 예약된 유지 관리 기간 동안 각 VM 그룹(도메인 업데이트) 간에 30분이 제공됩니다. 
+**A:** VM의 크기에 따라 셀프 서비스 유지 관리 기간 동안 다시 부팅하는 데 최대 몇 분이 걸릴 수 있습니다. Azure가 예약된 유지 관리 기간에서 다시 부팅을 시작하는 동안 일반적으로 다시 부팅하는 데 약 25분 정도 걸립니다. Cloud Services(웹/작업자 역할), 가상 머신 확장 집합 또는 가용성 집합을 사용하는 경우, 예약된 유지 관리 기간 동안 각 VM 그룹(도메인 업데이트) 간에 30분이 제공됩니다. 
 
-**Q: 내 VM에 관한 유지 관리 정보가 전혀 표시되지 않았습니다. 무엇이 문제인가요?**
+**Q: 내 Vm에 대 한 유지 관리 정보가 표시 되지 않습니다. 무엇이 문제 인가요?**
 
 **A:** VM에 대한 유지 관리 정보가 전혀 표시되지 않는 데는 다음과 같은 몇 가지 이유가 있습니다.
    - *Microsoft 내부*로 표시된 구독을 사용하고 있습니다.
    - VM에 대한 유지 관리가 예약되어 있지 않습니다. VM이 더 이상 영향을 받지 않도록 유지 관리 웨이브가 종료되었거나, 취소되었거나, 수정되었을 수 있습니다.
    - VM 목록 보기에 **유지 관리** 열을 추가할 필요는 없습니다. 이 열을 기본 보기에 추가했지만 기본이 아닌 열을 표시하도록 보기를 구성한 경우 **유지 관리** 열을 VM 목록 보기에 수동으로 추가해야 합니다.
 
-**Q: 내 VM에 두 번째 유지 관리가 예약되었습니다. 이유**
+**Q: 내 VM은 두 번째 유지 관리를 위해 예약 됩니다. 굳이?**
 
 **A:** 여러 사용 사례에서 이미 유지 관리를 완료하고 재배포한 후에 VM에 대한 유지 관리가 예약됩니다.
    - 유지 관리 주기를 취소하고 다른 페이로드에서 다시 시작합니다. 오류가 발생한 페이로드를 탐지했을 수 있으며, 추가 페이로드를 배포하기만 하면 됩니다.

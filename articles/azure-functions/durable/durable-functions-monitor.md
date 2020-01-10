@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장을 사용하여 상태 �
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9c8edf5e8fb32160280a1ce9bff827c2e3fa14f8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8a589bd4ab4de396c0688f8022515d6fbec96a2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232852"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769594"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
@@ -50,7 +50,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* `E3_Monitor`: `E3_GetIsClear`를 주기적으로 호출하는 오케스트레이터 함수입니다. `E3_SendGoodWeatherAlert`가 true를 반환하면 `E3_GetIsClear`를 호출합니다.
+* `E3_Monitor`: `E3_GetIsClear`를 주기적으로 호출하는 오케스트레이터 함수입니다. `E3_GetIsClear`가 true를 반환하면 `E3_SendGoodWeatherAlert`를 호출합니다.
 * `E3_GetIsClear`: 특정 위치의 현재 기상 조건을 확인하는 작업 함수입니다.
 * `E3_SendGoodWeatherAlert`: Twilio를 통해 SMS 메시지를 보내는 작업 함수입니다.
 
@@ -74,7 +74,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
-1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 *MonitorRequest*를 가져옵니다.
+1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 **MonitorRequest**를 가져옵니다.
 2. 모니터의 만료 시간을 결정합니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
 3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
 4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
@@ -174,7 +174,7 @@ POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a
 다음은 Visual Studio 프로젝트의 단일 C# 파일로서의 오케스트레이션입니다.
 
 > [!NOTE]
-> 아래의 샘플 코드를 실행하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 패키지를 설치해야 합니다.
+> 아래 샘플 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet 패키지를 설치 해야 합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 

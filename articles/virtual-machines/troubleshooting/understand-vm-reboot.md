@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384238"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749872"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -67,7 +67,7 @@ Microsoft Azure의 이 업데이트 클래스는 사용자가 실행 중인 VM�
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>사용자 시작 재부팅 또는 종료 작업
 
-Azure Portal, Azure PowerShell, 명령줄 인터페이스 또는 REST API에서 다시 부팅을 수행 하는 경우 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)에서 이벤트를 찾을 수 있습니다.
+Azure Portal, Azure PowerShell, 명령줄 인터페이스 또는 REST API에서 다시 부팅을 수행 하는 경우 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)에서 이벤트를 찾을 수 있습니다.
 
 VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 이벤트를 찾을 수 있습니다.
 
@@ -110,7 +110,7 @@ VM은 Azure 데이터 센터 내에서 실행되는 실제 서버에서 호스�
 
 VM 자체 내의 문제로 인해 VM이 다시 시작할 수 있습니다. VM에서 실행되는 작업 부하 또는 역할은 게스트 운영 체제 내에서 버그 검사를 트리거할 수 있습니다. 충돌에 대한 이유를 확인하는 도움말은 시스템 및 Windows VM에 대한 애플리케이션 로그와 Linux VM에 대한 직렬 로그에서 확인합니다.
 
-### <a name="storage-related-forced-shutdowns"></a>Storage 관련 강제 종료
+### <a name="storage-related-forced-shutdowns"></a>스토리지 관련 강제 종료
 
 Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 데이터 스토리지에 대한 가상 디스크를 사용합니다. VM 및 연결된 가상 디스크 간의 사용 가능성 또는 연결이 120초 이상 영향을 받을 때마다 Azure 플랫폼은 데이터 손상을 방지하기 위해 VM을 강제 종료합니다. 스토리지 연결이 복원된 후에 VM의 전원은 자동으로 다시 켜집니다. 
 
@@ -118,7 +118,7 @@ Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 �
 
 **IO 제한 초과**
 
-초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500 IOPS로 제한 됩니다.) 이 문제를 완화 하려면 워크 로드에 따라 디스크 스트라이프를 사용 하거나 게스트 VM 내에서 저장소 공간을 구성 합니다. 자세한 내용은 [Storage 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
+초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500 IOPS로 제한 됩니다.) 이 문제를 완화 하려면 워크 로드에 따라 디스크 스트라이프를 사용 하거나 게스트 VM 내에서 저장소 공간을 구성 합니다. 자세한 내용은 [스토리지 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
 
 ### <a name="other-incidents"></a>다른 인시던트
 

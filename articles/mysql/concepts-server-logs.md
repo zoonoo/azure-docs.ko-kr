@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: abb561658a189ce882bdad0a740ab5806b371bb5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 9b661a7fa6a7b9f079a3b24d1b83f27118c4bd23
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453027"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745858"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 저속 쿼리 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
@@ -49,7 +49,7 @@ Azure CLI에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 저속 쿼
 느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요.
 
 ## <a name="diagnostic-logs"></a>진단 로그
-Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버의 느린 쿼리 로그를 설정한 후에 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 내보내는 것을 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/resource-logs-overview.md)의 방법 섹션을 참조하세요.
+Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버의 느린 쿼리 로그를 설정한 후에 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 내보내는 것을 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/platform-logs-overview.md)의 방법 섹션을 참조하세요.
 
 > [!IMPORTANT]
 > 이 서버 로그에 대한 진단 기능은 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)에서만 사용할 수 있습니다.

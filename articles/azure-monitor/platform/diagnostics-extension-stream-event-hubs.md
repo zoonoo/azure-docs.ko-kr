@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 2b84f752467d630142f1920aac08bf5321b13acb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363730"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770172"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure Diagnostics 데이터 스트리밍
 Azure Diagnostics에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
@@ -21,8 +21,7 @@ Azure Diagnostics에서는 클라우드 서비스 VM(가상 머신)에서 메트
 
 * Windows (ETW) 이벤트에 대한 이벤트 추적
 * 성능 카운터
-* Windows 이벤트 로그
-* 애플리케이션 로그 전송 사용
+* Windows 이벤트 로그 (Windows 이벤트 로그의 응용 프로그램 로그 포함)
 * Azure Diagnostics 인프라 로그
 
 이 문서에서는 Event Hubs에 Azure Diagnostics를 구성하는 방법을 완벽하게 보여줍니다. 다음과 같은 일반적인 시나리오에 대한 지침도 제공됩니다.

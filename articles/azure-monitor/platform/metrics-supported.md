@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: af0c5a42b71829bbfd51d77c047af45c1df6fd4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363645"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750398"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -2324,4 +2324,4 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor의 메트릭에 대해 읽기](data-platform.md)
 * [메트릭에 대한 경고 만들기](alerts-overview.md)
-* [스토리지, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](resource-logs-overview.md)
+* [스토리지, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](platform-logs-overview.md)

@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Zip 푸시 배포
 description: Kudu 배포 서비스의 .zip 파일 배포 기능을 사용하여 Azure Functions를 게시합니다.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233055"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769673"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions에 대한 Zip 배포
 
@@ -16,7 +16,7 @@ ms.locfileid: "74233055"
 
 Azure Functions에는 Azure App Service에서 제공하는 전체 범위의 지속적인 배포 및 통합 옵션이 포함됩니다. 자세한 내용은 [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)를 참조하세요.
 
-개발 속도를 높이기 위해 .zip 파일에서 함수 앱 프로젝트 파일을 직접 손쉽게 배포할 수 있습니다. .zip 배포 API는 .zip 파일의 내용을 가져와 함수 앱의 `wwwroot` 폴더로 추출합니다. 이 .zip 파일 배포는 다음을 포함하여 지속적인 통합 기반 배포를 지원하는 동일한 Kudu 서비스를 사용합니다.
+개발 속도를 높이려면 .zip 파일에서 직접 함수 앱 프로젝트 파일을 배포 하는 것이 더 쉬울 수 있습니다. .zip 배포 API는 .zip 파일의 내용을 가져와 함수 앱의 `wwwroot` 폴더로 추출합니다. 이 .zip 파일 배포는 다음을 포함하여 지속적인 통합 기반 배포를 지원하는 동일한 Kudu 서비스를 사용합니다.
 
 + 이전 배포의 남은 파일 삭제.
 + 배포 스크립트 실행을 포함한 배포 사용자 지정.
@@ -66,10 +66,10 @@ GitHub 리포지토리에서도 .zip 파일을 다운로드할 수 있습니다.
 
 Azure CLI를 사용하여 푸시 배포를 트리거할 수 있습니다. [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) 명령을 사용하여 함수 앱에 .zip 파일을 푸시 배포합니다. 이 명령을 사용하려면 Azure CLI 버전 2.0.21 이상을 사용해야 합니다. 사용 중인 Azure CLI 버전을 확인하려면 `az --version` 명령을 사용합니다.
 
-다음 명령에서 `<zip_file_path>` 자리 표시자를 .zip 파일 위치의 경로로 바꿉니다. 또한 `<app_name>`을 함수 앱의 고유 이름으로 바꿉니다. 
+다음 명령에서 `<zip_file_path>` 자리 표시자를 .zip 파일 위치의 경로로 바꿉니다. 또한 `<app_name>`을 함수 앱의 고유한 이름으로 바꾸고 `<resource_group>`을 리소스 그룹의 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az functionapp deployment source config-zip  -g myResourceGroup -n \
+az functionapp deployment source config-zip -g <resource_group> -n \
 <app_name> --src <zip_file_path>
 ```
 

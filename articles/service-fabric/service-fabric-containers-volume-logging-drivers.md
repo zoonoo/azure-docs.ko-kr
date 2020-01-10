@@ -1,22 +1,21 @@
 ---
-title: GA (Service Fabric Azure Files 볼륨 드라이버)
+title: Service Fabric에 대 한 Azure Files 볼륨 드라이버
 description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azure Files 사용을 지원합니다.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464795"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750050"
 ---
-# <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure Files 볼륨 드라이버
-Docker 컨테이너에 대 한 [Azure Files](/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공 하는 [docker 볼륨 플러그](https://docs.docker.com/engine/extend/plugins_volume/) 인 Azure Files 볼륨 플러그 인은 이제 **GA (일반적으로 사용 가능)** 입니다.
+# <a name="azure-files-volume-driver-for-service-fabric"></a>Service Fabric에 대 한 Azure Files 볼륨 드라이버
 
-이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 애플리케이션으로 패키지됩니다. 용도는 클러스터에 배포되는 다른 Service Fabric 컨테이너 애플리케이션에 Azure Files 기반 볼륨을 제공하는 것입니다.
+Azure Files 볼륨 드라이버는 Docker 컨테이너에 대 한 [Azure Files](/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공 하는 [docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/) 입니다. 이 응용 프로그램은 클러스터 내의 다른 Service Fabric 컨테이너 응용 프로그램에 대 한 볼륨을 제공 하기 위해 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 응용 프로그램으로 패키지 됩니다.
 
 > [!NOTE]
-> Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 GA (일반 공급) 릴리스입니다. 
+> Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 일반 공급으로 릴리스 되었습니다.
 >
 
 ## <a name="prerequisites"></a>필수 조건
@@ -55,7 +54,6 @@ Azure Resource Manager 템플릿 (Azure 배포의 경우) 또는 ClusterConfig (
   }
 ]
 ```
-
 
 ## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Service Fabric Azure Files 볼륨 드라이버를 사용 하 여 샘플 응용 프로그램 배포
 

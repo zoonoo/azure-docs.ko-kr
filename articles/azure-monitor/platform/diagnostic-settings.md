@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 034ad7a074f60f1e2e9a0e6190f405972250c95d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529922"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751078"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기
-Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](resource-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 이 문서에서는 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
+Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 이 문서에서는 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
 
 > [!IMPORTANT]
 > 작업 로그를 수집 하는 진단 설정을 만들기 전에 먼저 레거시 구성을 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [레거시 설정을 사용 하 여 Azure 활동 로그 수집](diagnostic-settings-legacy.md) 을 참조 하세요.
@@ -136,4 +136,4 @@ az monitor diagnostic-settings create  \
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure platform Logs에 대해 자세히 알아보세요.](resource-logs-overview.md)
+* [Azure platform Logs에 대해 자세히 알아보세요.](platform-logs-overview.md)

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 2f5658d6df2b20e5bce0fab2ca1787ede5ab7883
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 77e23467551df8d72fd999049c490600eff11825
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540231"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763643"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker �
     > * `model`-배포 될 등록 된 모델입니다.
     > * `inference_config`-모델에 대 한 유추 구성입니다.
     >
-    > 이러한 변수를 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](service/how-to-deploy-and-where.md)를 참조 하세요.
+    > 이러한 변수를 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="prepare-for-deployment"></a>배포 준비
 
@@ -53,12 +53,12 @@ Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker �
     >
     > 요청 데이터가 모델에서 사용할 수 없는 형식인 경우 스크립트는이를 허용 되는 형식으로 변환할 수 있습니다. 클라이언트에 반환 하기 전에 응답을 변환할 수도 있습니다.
     >
-    > 기본적으로 함수를 패키징하는 경우 입력은 텍스트로 처리 됩니다. Blob 트리거의 경우와 같이 입력의 원시 바이트를 사용 하는 데 관심이 있는 경우에는 [Amlrequest를 사용 하 여 원시 데이터를 수락](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#binary-data)해야 합니다.
+    > 기본적으로 함수를 패키징하는 경우 입력은 텍스트로 처리 됩니다. Blob 트리거의 경우와 같이 입력의 원시 바이트를 사용 하는 데 관심이 있는 경우에는 [Amlrequest를 사용 하 여 원시 데이터를 수락](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data)해야 합니다.
 
 
 * 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**
 
-이러한 엔터티는 __유추 구성__에 캡슐화 됩니다. 유추 구성은 입력 스크립트 및 기타 종속성을 참조 합니다.
+이러한 엔터티는 __유추 구성__에 캡슐화 됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
 
 > [!IMPORTANT]
 > Azure Functions에 사용할 유추 구성을 만드는 경우 [환경](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version > = 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 웹 서비스로 모델을 호스트 하는 데 필요한 기능이 포함 되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
@@ -79,7 +79,7 @@ Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker �
 
 환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
 
-유추 구성에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](service/how-to-deploy-and-where.md)를 참조 하세요.
+유추 구성에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 > [!IMPORTANT]
 > 함수에 배포 하는 경우 __배포 구성을__만들 필요가 없습니다.
@@ -97,7 +97,7 @@ pip install azureml-contrib-functions
 Azure Functions에 배포 되는 Docker 이미지를 만들려면 사용 하려는 트리거에 대해 [azureml](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) 또는 특정 패키지 함수를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 blob 트리거를 사용 하 여 새 패키지를 만드는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 이 코드 조각은 `model`에 등록 된 모델이 포함 되어 있고 `inference_config` 유추 환경에 대 한 구성을 포함 하 고 있다고 가정 합니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](service/how-to-deploy-and-where.md)를 참조 하세요.
+> 이 코드 조각은 `model`에 등록 된 모델이 포함 되어 있고 `inference_config` 유추 환경에 대 한 구성을 포함 하 고 있다고 가정 합니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ```python
 from azureml.contrib.functions import package
@@ -238,6 +238,6 @@ print(blob.location)
 
 * [함수](/azure/azure-functions/functions-create-function-linux-custom-image) 설명서에서 함수 앱을 구성 하는 방법에 대해 알아봅니다.
 * Blob 저장소에 대 한 자세한 내용은 [Azure blob storage 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob)을 트리거합니다.
-* [Azure App Service에 모델을 배포](service/how-to-deploy-app-service.md)합니다.
+* [Azure App Service에 모델을 배포](how-to-deploy-app-service.md)합니다.
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
 * [API 참조](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)

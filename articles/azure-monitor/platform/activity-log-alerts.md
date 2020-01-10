@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: 42a8b53f8d1fee2d657ccaa2d57e72b3edfdd4f3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c42f72800a93de714f0cc126939a28a8a6b5fce4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531057"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747532"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고 
 
 ## <a name="overview"></a>개요
-활동 로그 경고는 경고에 지정 된 조건과 일치 하는 새 [활동 로그 이벤트가](activity-log-schema.md) 발생할 때 활성화 되는 경고입니다. [Azure 활동 로그](activity-logs-overview.md)에 기록 된 이벤트의 순서와 볼륨에 따라 경고 규칙이 실행 됩니다. 활동 로그 경고 규칙은 Azure 리소스 이므로 Azure Resource Manager 템플릿을 사용 하 여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 활동 로그 경고 규칙을 만들거나 사용 하는 방법에 대 한 자세한 내용은 [활동 로그 경고 만들기 및 관리](alerts-activity-log.md)를 참조 하세요.
+활동 로그 경고는 경고에 지정 된 조건과 일치 하는 새 [활동 로그 이벤트가](activity-log-schema.md) 발생할 때 활성화 되는 경고입니다. [Azure 활동 로그](platform-logs-overview.md)에 기록 된 이벤트의 순서와 볼륨에 따라 경고 규칙이 실행 됩니다. 활동 로그 경고 규칙은 Azure 리소스 이므로 Azure Resource Manager 템플릿을 사용 하 여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 활동 로그 경고 규칙을 만들거나 사용 하는 방법에 대 한 자세한 내용은 [활동 로그 경고 만들기 및 관리](alerts-activity-log.md)를 참조 하세요.
 
 > [!NOTE]
 > 활동 로그의 경고 범주에 있는 이벤트에 대 한 경고를 만들 수 **없습니다** .

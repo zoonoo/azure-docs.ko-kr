@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88f864abc82ea6ba70559c8db5db2d0fe07383b1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408709"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768829"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure Maps Search Service를 사용 하는 모범 사례
 
@@ -33,7 +33,7 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) 에
 > 검색 서비스를 쿼리하려면 [Postman 앱](https://www.getpostman.com/apps) 을 사용 하 여 REST 호출을 빌드하거나 선호 하는 모든 API 개발 환경을 사용할 수 있습니다.
 
 
-## <a name="best-practices-for-geocoding"></a>지 오 코딩에 대 한 모범 사례
+## <a name="best-practices-for-geocoding-address-search"></a>지 오 코딩에 대 한 모범 사례 (주소 검색)
 
 Azure Maps Search Service를 사용 하 여 전체 또는 부분 주소를 검색 하는 경우 검색 용어를 사용 하 고 주소의 경도 및 위도 좌표를 반환 합니다. 이 프로세스를 지 오 코딩 라고 합니다. 국가의 지오코딩하는 기능은 도로 데이터 검사 및 지오코딩 서비스의 지오코딩 정밀도에 따라 달라집니다.
 
@@ -58,10 +58,12 @@ Azure Maps Search Service를 사용 하 여 전체 또는 부분 주소를 검�
 
 
    **유사 항목 검색 매개 변수**
+   
+   Azure Maps [유사 항목 검색 API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) 는 검색 쿼리에 대 한 사용자 입력이 무엇 인지 모르는 경우 사용 하기에 권장 되는 서비스입니다. 이 API는 POI (Point Point) 검색 및 지 오 코딩를 정식 *단일 줄 검색*으로 결합 합니다. 
 
    1. `minFuzzyLevel` 및 `maxFuzzyLevel`는 쿼리 매개 변수가 원하는 정보와 정확히 일치 하지 않는 경우에도 관련 일치 항목을 반환 합니다. 대부분의 검색 쿼리는 기본적으로 `minFuzzyLevel=1` 및 `maxFuzzyLevel=2`를 통해 성능을 얻고 비정상적인 결과를 줄일 수 있습니다. 검색 단어 "restrant"의 예로, `maxFuzzyLevel` 2로 설정 된 경우 "식당"과 일치 합니다. 기본 유사 수준 수준은 요청 요구에 따라 재정의할 수 있습니다. 
 
-   2. `idxSet` 매개 변수를 사용 하 여 반환 되는 정확한 결과 형식 집합을 지정할 수도 있습니다. 이 목적을 위해 쉼표로 구분 된 인덱스 목록을 제출할 수 있습니다. 항목 순서는 중요 하지 않습니다. 다음은 지원 되는 인덱스입니다.
+   2. `idxSet` 매개 변수를 사용 하 여 반환 되는 정확한 결과 형식 집합의 우선 순위를 지정할 수도 있습니다. 이러한 목적을 위해 쉼표로 구분 된 인덱스 목록을 제출할 수 있습니다. 항목 순서는 중요 하지 않습니다. 지원 되는 인덱스는 다음과 같습니다.
 
        * `Addr` - **주소 범위**: 일부 거리의 경우 거리의 시작과 끝에서 보간된 주소 점이 있습니다. 이러한 점은 주소 범위로 표시 됩니다.
        * `Geo` - **지역**: 지도의 지역, 국가, 시/도, 구/군/시를 나타냅니다.
@@ -317,7 +319,10 @@ POI (관심 지점) 검색을 사용 하면 이름별로 비즈니스 검색과 
 
 응답의 결과와 정보의 관련성을 향상 시키기 위해 POI (관심 지점) 검색 응답에는 응답을 구문 분석 하는 데 추가로 사용할 수 있는 브랜드 정보가 포함 되어 있습니다.
 
+요청에서 쉼표로 구분 된 브랜드 이름 목록을 제출할 수도 있습니다. 이 목록을 사용 하 여 `brandSet` 매개 변수를 사용 하 여 특정 브랜드로 결과를 제한할 수 있습니다. 항목 순서는 중요 하지 않습니다. 여러 브랜드를 제공 하는 경우 제공 된 목록 중 하나 (이상)에 속하는 결과만 반환 됩니다.
+
 Microsoft 캠퍼스 (Redmond, WA) 근처 가스 스테이션에 대 한 [Poi 범주 검색](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) 요청을 만들어 보겠습니다. 응답을 관찰 하는 경우 반환 된 각 POI에 대 한 브랜드 정보를 볼 수 있습니다.
+
 
 **샘플 쿼리:**
 

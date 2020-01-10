@@ -4,12 +4,12 @@ description: Azure Functions, 포털 개발을 위한 Durable Functions 확장�
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: azfuncdf
-ms.openlocfilehash: eaa241eff6e1c359045a0ea3d8871fde6c60a059
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231476"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769645"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -22,7 +22,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 관리, 배포 및 리소스 공유할 수 있습니다. .NET 또는 JavaScript 앱을 만들 수 있습니다.
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화 하 여 리소스를 보다 쉽게 관리, 배포, 크기 조정 및 공유할 수 있습니다. .NET 또는 JavaScript 앱을 만들 수 있습니다.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -58,7 +58,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. 함수 앱을 확장한 후 **함수+ 옆의**  단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3단계로 이동합니다.
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
 
    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -68,7 +68,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 1. 검색 필드에서 `durable`를 입력한 다음, **Durable Functions HTTP 시작** 템플릿을 선택합니다.
 
-1. 메시지가 표시되면 **설치**를 선택하여 함수 앱에 Azure DurableTask 확장과 모든 종속성을 설치합니다. give 함수 앱에 대해 이 확장을 한 번만 설치해야 합니다. 설치가 완료되면 **계속**을 선택합니다.
+1. 메시지가 표시 되 면 **설치** 를 선택 하 여 Azure microsoft.azure.webjobs.extensions.durabletask 확장 및 함수 앱에 모든 종속성을 설치 합니다. give 함수 앱에 대해 이 확장을 한 번만 설치해야 합니다. 설치가 완료되면 **계속**을 선택합니다.
 
     ![바인딩 확장 설치](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
@@ -76,7 +76,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 1. 이번에는 **Durable Functions 오케스트레이터** 템플릿을 사용하여 이 함수 앱에서 다른 함수를 만듭니다. 새 오케스트레이션 함수 `HelloSequence`에 이름을 지정합니다.
 
-1. `Hello`Durable Functions 활동**템플릿을 사용하여**라는 이름의 세 번째 함수를 만듭니다.
+1. **Durable Functions 활동** 템플릿을 사용하여 `Hello`라는 이름의 세 번째 함수를 만듭니다.
 
 ## <a name="test-the-durable-function-orchestration"></a>Durable Functions 오케스트레이션 테스트
 
@@ -112,7 +112,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
         }
     ```
 
-1. 상태가 `statusQueryGetUri`완료됨**으로 변경될 때까지**  엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
+1. 상태가 **완료됨**으로 변경될 때까지 `statusQueryGetUri` 엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
 
     ```json
     {
@@ -133,4 +133,4 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [일반적인 Durable Functions 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)
+> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)

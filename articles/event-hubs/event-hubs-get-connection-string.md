@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158886"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771005"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
 
@@ -44,7 +44,7 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 6. **Event Hubs 네임스페이스** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책**을 선택합니다.
 
     ![공유 액세스 정책 메뉴 항목](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. 정책 목록에서 **공유 액세스 정책**을 선택합니다. 기본 정책의 이름은 **RootManageSharedAccessPolicy**입니다. 적절한 권한(읽기, 쓰기)으로 정책을 추가하고 해당 정책을 사용할 수 있습니다. 
+7. 정책 목록에서 **공유 액세스 정책**을 선택합니다. 기본 이름은 **RootManageSharedAccessPolicy**입니다. 적절한 권한(읽기, 쓰기)으로 정책을 추가하고 해당 정책을 사용할 수 있습니다. 
 
     ![Event Hubs 공유 액세스 정책](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. **연결 문자열 기본 키** 필드 옆에 있는 **복사** 단추를 선택합니다. 
@@ -66,6 +66,12 @@ Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummyname
 
 ```azurecli-interactive
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
+```
+
+또는 다음을 사용 하 여 EventHub 엔터티에 대 한 연결 문자열을 가져올 수 있습니다.
+
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
 ```
 
 Event Hubs에 대한 Azure CLI 명령과 관련된 자세한 내용은 [Event Hubs용 Azure CLI](/cli/azure/eventhubs)를 참조하세요.

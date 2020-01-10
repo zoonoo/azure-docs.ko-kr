@@ -3,7 +3,7 @@ title: Oracle Linux VHD 만들기 및 업로드
 description: Oracle Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -13,21 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/10/2019
-ms.author: szark
-ms.openlocfilehash: c1c70243748c1f8d3b93eac501bd50f8d80ecd75
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.author: mimckitt
+ms.openlocfilehash: e0250737f1f2934548a16ee42e9ff582f2403c48
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463813"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747732"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Oracle Linux 가상 머신을 Azure에 대해 준비
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>필수 조건
 이 문서에서는 가상 하드 디스크에 Oracle Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](https://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
 
-### <a name="oracle-linux-installation-notes"></a>Oracle Linux 설치 참고 사항
+## <a name="oracle-linux-installation-notes"></a>Oracle Linux 설치 참고 사항
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
 * Hyper-v 및 Azure는 UEK (Unbreakable Enterprise Kernel) 또는 Red Hat 호환 커널을 사용 하 여 Oracle Linux 합니다.
 * Oracle의 UEK2는 필수 드라이버를 포함하지 않으므로 Hyper-V 및 Azure에서 지원되지 않습니다.

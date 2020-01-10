@@ -8,22 +8,22 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 04206a45a3322a1b0d28e3dfeed65225773e9038
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: efca3dad6d8bfadbc334067b0189d2bea5aef445
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844851"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750513"
 ---
 # <a name="storage-analytics"></a>스토리지 분석
 
-Azure Storage 분석은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고, 사용 추세를 분석하며, 스토리지 계정 문제를 진단할 수 있습니다.
+Azure Storage 분석에서는 로깅을 수행하고 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고, 사용 추세를 분석하며, 스토리지 계정 문제를 진단할 수 있습니다.
 
 스토리지 분석을 사용하려면 모니터링할 각 서비스에 대해 스토리지 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure Portal](https://portal.azure.com)에서 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조 하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. [Blob 서비스](/rest/api/storageservices/set-blob-service-properties)속성 설정, [큐 서비스 속성](/rest/api/storageservices/set-queue-service-properties)설정, [테이블 서비스 속성 설정](/rest/api/storageservices/set-table-service-properties)및 [파일 서비스 속성](/rest/api/storageservices/Get-File-Service-Properties) 설정 작업을 사용 하 여 각 서비스에 대해 스토리지 분석를 사용 하도록 설정 합니다.
 
 집계된 데이터는 알려진 로깅용 Blob 및 알려진 메트릭용 테이블에 저장됩니다. Blob service 및 Table service API를 사용하면 이러한 Blob와 테이블에 액세스할 수 있습니다.
 
-스토리지 분석에 저장되는 데이터의 양은 20TB로 제한됩니다. 이 제한은 총 Storage 계정 제한과 관계없이 적용됩니다. 스토리지 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
+스토리지 분석에 저장되는 데이터의 양은 20TB로 제한됩니다. 이 제한은 총 Storage 계정 제한과 관계없이 적용됩니다. 저장소 계정 제한에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 및 성능 목표](scalability-targets-standard-account.md)를 참조 하세요.
 
 스토리지 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 

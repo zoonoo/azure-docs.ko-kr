@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8b914b8ffe995cf31f8a22b6f80250431facc770
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682243"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747867"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성
 
@@ -31,9 +31,9 @@ HDInsight 클러스터에 있는 노드는 Azure Virtual Machines를 사용하�
 
 ### <a name="head-nodes"></a>헤드 노드
 
-Hadoop 서비스의 고가용성을 보장하기 위해 HDInsight는 두 개의 헤드 노드를 제공합니다. 두 헤드 노드가 모두 활성화되어 HDInsight 클러스터 내에서 동시에 실행됩니다. 일부 서비스(예: Apache HDFS 또는 Apache Hadoop YARN)는 항상 헤드 노드 하나에서만 '활성' 상태입니다. 다른 서비스(예: HiveServer2 또는 Hive MetaStore)는 두 헤드 노드에서 동시에 활성화됩니다.
+Hadoop 서비스의 고가용성을 보장하기 위해 HDInsight는 두 개의 헤드 노드를 제공합니다. 두 헤드 노드가 모두 활성화되어 HDInsight 클러스터 내에서 동시에 실행됩니다. 일부 서비스(예: Apache HDFS 또는 Apache Hadoop YARN)는 항상 헤드 노드 하나에서만 '활성' 상태입니다. 다른 서비스(예: HiveServer2 또는 Hive 메타스토어)는 두 헤드 노드에서 동시에 활성화됩니다.
 
-헤드 노드(및 HDInsight의 다른 노드)에는 노드의 호스트 이름의 일부인 숫자 값이 있습니다. 예를 들면 `hn0-CLUSTERNAME` 또는 `hn4-CLUSTERNAME`과 같습니다.
+클러스터의 다른 노드 형식에 대 한 호스트 이름을 가져오려면 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes)를 사용 하세요.
 
 > [!IMPORTANT]  
 > 숫자 값을 노드가 기본 또는 보조 노드와 연결하지 마세요. 숫자 값은 각 노드에 대해 고유한 이름을 제공하기 위해 존재합니다.
@@ -64,7 +64,7 @@ Nimbus 노드는 Apache Storm 클러스터와 함께 사용할 수 있습니다.
 
 공용 게이트웨이를 통한 액세스는 포트 443 (HTTPS), 22, 23으로 제한 됩니다.
 
-|포트 |설명 |
+|Port |Description |
 |---|---|
 |443|헤드 노드에서 호스트 되는 Ambari 및 기타 웹 UI 또는 REST Api에 액세스 하는 데 사용 됩니다.|
 |22|SSH를 사용 하 여 기본 헤드 노드 또는에 지 노드에 액세스 하는 데 사용 됩니다.|
@@ -88,7 +88,7 @@ curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters
 이 명령은 `oozie` 명령에 사용할 내부 URL을 포함 하는 다음과 비슷한 값을 반환 합니다.
 
 ```output
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+"oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
 Ambari REST API 작업에 대한 자세한 내용은 [Apache Ambari REST API를 사용하여 HDInsight 모니터링 및 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요.
@@ -97,7 +97,7 @@ Ambari REST API 작업에 대한 자세한 내용은 [Apache Ambari REST API를 
 
 다음 방법을 사용 하 여 인터넷을 통해 직접 액세스할 수 없는 노드에 연결할 수 있습니다.
 
-|메서드 |설명 |
+|방법 |Description |
 |---|---|
 |SSH|SSH를 사용하여 헤드 노드에 연결되면 SSH를 사용하여 헤드 노드에서 클러스터의 다른 노드에 연결할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.|
 |SSH 터널|인터넷에 노출 되지 않는 노드 중 하나에서 호스팅되는 웹 서비스에 액세스 해야 하는 경우 SSH 터널을 사용 해야 합니다. 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.|
@@ -109,7 +109,7 @@ Ambari REST API 작업에 대한 자세한 내용은 [Apache Ambari REST API를 
 
 ### <a name="ambari-web-ui"></a>Ambari 웹 UI
 
-Ambari 웹 UI는 `https://CLUSTERNAME.azurehdinsight.net`에서 볼 수 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터의 HTTP 사용자 자격 증명을 입력합니다. 기본 HTTP 사용자 이름은 **admin** 이고 암호는 클러스터를 만들 때 입력한 암호입니다.
+Ambari 웹 UI는 `https://CLUSTERNAME.azurehdinsight.net`에서 볼 수 있습니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터의 HTTP 사용자 자격 증명을 입력합니다. 기본 HTTP 사용자 이름은 **admin** 이고 암호는 클러스터를 만들 때 입력한 암호입니다.
 
 Ambari 페이지로 이동하면 설치된 서비스가 페이지 왼쪽에 나열됩니다.
 
@@ -119,7 +119,7 @@ Ambari 페이지로 이동하면 설치된 서비스가 페이지 왼쪽에 나�
 
 다음 경고는 클러스터의 가용성을 모니터링 하는 데 도움이 됩니다.
 
-| 경고 이름                               | 설명                                                                                                                                                                                  |
+| 경고 이름                               | Description                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 메트릭 모니터 상태                    | 이 경고는 모니터 상태 스크립트에 의해 결정 된 메트릭 모니터 프로세스의 상태를 나타냅니다.                                                                                   |
 | Ambari 에이전트 하트 비트                   | 이 경고는 서버에서 에이전트와의 연결이 끊어진 경우에 트리거됩니다.                                                                                                                        |
@@ -194,7 +194,7 @@ curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycl
 
 ```json
 {
-    "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+    "href" : "http://mycluster.wutj3h4ic1zejluqhxzvckxq0g.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
     "ServiceInfo" : {
     "cluster_name" : "mycluster",
     "service_name" : "HDFS",
@@ -203,7 +203,7 @@ curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycl
 }
 ```
 
-URL은 현재 서비스가 **hn0-CLUSTERNAME**라는 헤드 노드에서 실행되고 있음을 알려줍니다.
+URL은 서비스가 현재 **mycluster. wutj3h4ic1zejluqhxzvckxq0g**이라는 헤드 노드에서 실행 중임을 알려 줍니다.
 
 상태는 현재 서비스가 실행되고 있음( **STARTED**)을 알려줍니다.
 
@@ -241,17 +241,17 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
 
 또한 SSH 파일 전송 프로토콜 또는 SFTP(보안 파일 전송 프로토콜)을 사용하여 헤드 노드에 연결하고 로그 파일을 직접 다운로드할 수 있습니다.
 
-클러스터의 SSH 사용자 계정 이름 및 SSH 주소를 제공해야 하는 클러스터에 연결하는 경우 SSH 클라이언트를 사용하는 것과 비슷합니다. 예: `sftp username@mycluster-ssh.azurehdinsight.net` 메시지가 표시되면 계정에 대한 암호를 제공하거나 `-i` 매개 변수를 사용하여 공개 키를 제공해야 합니다.
+클러스터의 SSH 사용자 계정 이름 및 SSH 주소를 제공해야 하는 클러스터에 연결하는 경우 SSH 클라이언트를 사용하는 것과 비슷합니다. `sftp username@mycluster-ssh.azurehdinsight.net`)을 입력합니다. 메시지가 표시되면 계정에 대한 암호를 제공하거나 `-i` 매개 변수를 사용하여 공개 키를 제공해야 합니다.
 
 연결 되 면 `sftp>` 프롬프트가 표시 됩니다. 이 프롬프트에서 디렉터리를 변경하고 파일을 업로드 및 다운로드할 수 있습니다. 예를 들어 다음 명령은 디렉터리를 **/var/log/hadoop/hdfs** 디렉터리고 변경하고 디렉터리에 있는 모든 파일을 다운로드합니다.
 
     cd /var/log/hadoop/hdfs
     get *
 
-사용 가능한 명령 목록의 경우 `help` 프롬프트에 `sftp>`을 입력합니다.
+사용 가능한 명령 목록의 경우 `sftp>` 프롬프트에 `help`을 입력합니다.
 
 > [!NOTE]  
-> 또한 SFTP를 사용하여 연결하는 경우 파일 시스템을 시각화할 수 있는 그래픽 인터페이스가 있습니다. 예를 들어 [MobaXTerm](https://mobaxterm.mobatek.net/) 을 사용하면 Windows 탐색기와 비슷한 인터페이스를 사용하는 파일 시스템을 찾아볼 수 있습니다.
+> 또한 SFTP를 사용하여 연결하는 경우 파일 시스템을 시각화할 수 있는 그래픽 인터페이스가 있습니다. 예를 들어 [MobaXTerm](https://mobaxterm.mobatek.net/)을 사용하면 Windows 탐색기와 비슷한 인터페이스를 사용하는 파일 시스템을 찾아볼 수 있습니다.
 
 ### <a name="ambari"></a>Ambari
 

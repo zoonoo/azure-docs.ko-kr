@@ -2,17 +2,17 @@
 title: 리소스 로그 수집 & 분석
 description: 인증, 이미지 푸시, 이미지 풀 등의 Azure Container Registry에 대 한 리소스 로그 이벤트를 기록 하 고 분석 합니다.
 ms.topic: article
-ms.date: 10/30/2019
-ms.openlocfilehash: ada8502724c1779b9bdab2e8ac7e8ea61c256e44
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/03/2020
+ms.openlocfilehash: 72d03149cd24636ba2086dfaaff0dbba16d30f1e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456416"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748007"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>진단 평가 및 감사에 대 한 Azure Container Registry 로그
 
-이 문서에서는 [Azure Monitor](../azure-monitor/overview.md)기능을 사용 하 여 Azure container registry에 대 한 로그 데이터를 수집 하는 방법을 설명 합니다. Azure Monitor는 레지스트리의 사용자 기반 이벤트에 대 한 [리소스 로그](../azure-monitor/platform/resource-logs-overview.md) (이전의 *진단 로그*)를 수집 합니다. 이 데이터를 수집 하 고 사용 하 여 다음과 같은 요구 사항을 충족 합니다.
+이 문서에서는 [Azure Monitor](../azure-monitor/overview.md)기능을 사용 하 여 Azure container registry에 대 한 로그 데이터를 수집 하는 방법을 설명 합니다. Azure Monitor는 레지스트리의 사용자 기반 이벤트에 대 한 [리소스 로그](../azure-monitor/platform/platform-logs-overview.md) (이전의 *진단 로그*)를 수집 합니다. 이 데이터를 수집 하 고 사용 하 여 다음과 같은 요구 사항을 충족 합니다.
 
 * 보안 및 규정 준수를 보장 하는 레지스트리 인증 이벤트 감사 
 
@@ -26,9 +26,14 @@ Azure Monitor를 사용 하 여 리소스 로그 데이터를 수집 하면 추�
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-리포지토리 수준 이벤트 로깅은 현재 delete 또는 태그 지정 해제 이벤트를 포함 하지 않습니다. 다음 리포지토리 이벤트만 기록 됩니다.
-* 이미지 및 기타 아티팩트의 **푸시 이벤트**
-* 이미지 및 기타 아티팩트에 대 한 **끌어오기 이벤트**
+현재 이미지 및 기타 아티팩트에 대해 다음과 같은 리포지토리 수준 이벤트가 기록 됩니다.
+
+* **푸시 이벤트**
+* **끌어오기 이벤트**
+* **태그 지정 해제 이벤트**
+* **이벤트 삭제** (리포지토리 삭제 이벤트 포함)
+
+현재 기록 되지 않은 리포지토리 수준 이벤트: 제거 이벤트
 
 ## <a name="registry-resource-logs"></a>레지스트리 리소스 로그
 
@@ -42,7 +47,7 @@ Azure Monitor를 사용 하 여 리소스 로그 데이터를 수집 하면 추�
   * 성공 또는 실패 상태
   * 시작 및 종료 타임 스탬프
 
-Azure는 리소스 로그 외에도 컨테이너 레지스트리의 생성 또는 삭제와 같은 Azure 관리 이벤트의 단일 구독 수준 레코드인 [활동 로그](../azure-monitor/platform/activity-logs-overview.md)를 제공 합니다.
+Azure는 리소스 로그 외에도 컨테이너 레지스트리의 생성 또는 삭제와 같은 Azure 관리 이벤트의 단일 구독 수준 레코드인 [활동 로그](../azure-monitor/platform/platform-logs-overview.md)를 제공 합니다.
 
 ## <a name="enable-collection-of-resource-logs"></a>리소스 로그 수집 사용
 

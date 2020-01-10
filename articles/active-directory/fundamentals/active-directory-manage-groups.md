@@ -8,30 +8,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 01/08/2020
 ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a90d54932561ed564a23d4d2785170aa85b5c9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 961444e15ae1c45db1fc7423a6ac3cc96cc7b3fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422965"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768013"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리
-Azure AD(Azure Active Directory) 그룹은 조직의 그룹을 사용하여 클라우드 기반 앱, 온-프레미스 앱 및 리소스를 관리하는 데 유용합니다. 사용자 리소스는 디렉터리에서 역할을 통해 개체를 관리하는 권한과 같은 디렉터리에 포함되거나, SaaS(Software as a Service) 앱, Azure 서비스, SharePoint 사이트 및 온-프레미스 리소스와 같은 디렉터리의 외부에 있을 수 있습니다.
+Azure Active Directory (Azure AD)를 사용 하면 그룹을 사용 하 여 클라우드 기반 앱, 온-프레미스 앱 및 리소스에 대 한 액세스를 관리할 수 있습니다. 리소스는 azure ad의 역할을 통해 개체를 관리 하는 권한, SaaS (Software as a Service) 앱, Azure 서비스, SharePoint 사이트 및 온-프레미스 리소스와 같은 조직 외부에 있는 Azure AD 조직의 일부일 수 있습니다.
 
 >[!NOTE]
 >Azure Active Directory를 사용하려면 Azure 계정이 필요합니다. 계정이 없으면 [무료 Azure 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
+>
+> Azure Portal에서는 포털에서 관리할 수 없는 멤버 자격 및 그룹 세부 정보를 포함 하는 일부 그룹을 볼 수 있습니다.
+>
+> - 온-프레미스 Active Directory에서 동기화 된 그룹은 온-프레미스 Active Directory 에서만 관리할 수 있습니다.
+> - 메일 그룹 및 메일 사용이 가능한 보안 그룹과 같은 다른 그룹 유형은 Exchange 관리 센터 또는 Microsoft 365 관리 센터 에서만 관리 됩니다. 이러한 그룹을 관리 하려면 Exchange 관리 센터 또는 Microsoft 365 관리 센터에 로그인 해야 합니다.
 
-## <a name="how-does-access-management-in-azure-ad-work"></a>Azure AD에서 액세스 관리는 어떻게 작동합니까?
+## <a name="how-access-management-in-azure-ad-works"></a>Azure AD에서 액세스 관리를 작동 하는 방법
+
 Azure AD는 단일 사용자 또는 전체 Azure AD 그룹에게 액세스 권한을 제공하여 조직의 리소스에 액세스하는 데 유용합니다. 그룹을 사용하면 리소스 소유자(또는 Azure AD 디렉터리 소유자)가 구성원 한 명씩에게 권한을 제공하는 대신 액세스 권한 집합을 그룹의 모든 구성원에게 할당할 수 있습니다. 리소스 또는 디렉터리 소유자는 부서 관리자 또는 기술 지원팀 관리자와 같은 다른 담당자에게 구성원 목록에 대한 관리 권한을 부여하면서, 해당 담당자가 필요에 따라 구성원을 추가하고 제거하도록 할 수 있습니다. 그룹 소유자 관리 방법에 대한 자세한 내용은 [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)를 참조
 
 ![Azure Active Directory 액세스 관리 다이어그램](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 
 ## <a name="ways-to-assign-access-rights"></a>액세스 권한을 할당하는 방법
+
 사용자에게 리소스 액세스 권한을 할당하는 방법은 다음과 같이 네 가지가 있습니다.
 
 - **직접 할당.** 리소스 소유자는 사용자를 리소스에 직접 할당합니다.

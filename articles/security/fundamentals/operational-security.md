@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a4a4393a25bfa49a8074793b572111f69dcc17c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459645"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749963"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -195,7 +195,7 @@ Azure Monitor는 특정 유형의 리소스 정보에 대한 포인터를 제공
 
 예를 들어, Windows 이벤트 시스템 로그는 VM 및 Blob에 대한 진단 로그의 범주이고 테이블 및 큐 로그는 스토리지 계정에 대한 진단 로그의 범주입니다.
 
-진단 로그는 [활동 로그(이전의 감사 로그 또는 작업 로그)](../../azure-monitor/platform/activity-logs-overview.md)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
+진단 로그는 [활동 로그(이전의 감사 로그 또는 작업 로그)](../../azure-monitor/platform/platform-logs-overview.md)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
 
 ### <a name="metrics"></a>메트릭
 

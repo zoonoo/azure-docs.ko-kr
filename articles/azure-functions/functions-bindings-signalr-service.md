@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 208b5462efeb579e30550824bd7ba931db1825b2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cbc45036497547b78514b1d175d67c6ed437ee2d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925625"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769492"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
@@ -20,7 +20,7 @@ ms.locfileid: "74925625"
 
 ## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
-SignalR 서비스 바인딩은 [WebJobs SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) Nuget 패키지, 버전 1. *에 제공 됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 리포지토리에 있습니다.
+SignalR 서비스 바인딩은 [WebJobs SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet 패키지, 버전 1. *에 제공 됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
@@ -1009,7 +1009,7 @@ public SignalRGroupAction removeFromGroup(
 
 다음 표에서는 *function.json* 파일 및 `SignalRConnectionInfo` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type**|| `signalRConnectionInfo`로 설정해야 합니다.|
 |**direction**|| `in`로 설정해야 합니다.|
@@ -1022,7 +1022,7 @@ public SignalRGroupAction removeFromGroup(
 
 다음 표에서는 *function.json* 파일 및 `SignalR` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type**|| `signalR`로 설정해야 합니다.|
 |**direction**|| `out`로 설정해야 합니다.|

@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전 개요
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. 버전 간 차이점과 적합한 버전을 선택하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1172f1cba3dfc10fe08863626db0aa8e7a4bf173
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433072"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769118"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -72,13 +72,13 @@ Azure Functions 1.x 실험적 언어는 새 모델을 사용할 수 없으므로
 
 * HTTP 동시성 제한은 기본값으로 인스턴스당 동시 요청 수 100개를 갖는 사용 계획 함수에 대해 기본적으로 구현됩니다. 이 설정은 host.json 파일의 [`maxConcurrentRequests`](functions-host-json.md#http) 설정에서 변경할 수 있습니다.
 
-* [.NET core 제한](https://github.com/Azure/azure-functions-host/issues/3414)때문에 F # 스크립트(.fsx) 함수에 대한 지원이 제거되었습니다. 컴파일된 F# 함수(.fs)는 계속 지원됩니다.
+* [.Net Core 제한 사항](https://github.com/Azure/azure-functions-host/issues/3414)때문에 스크립트 ( F# . .fsx) 함수에 대 한 지원이 제거 되었습니다. 컴파일된 F# 함수(.fs)는 계속 지원됩니다.
 
 * Event Grid 트리거 웹후크의 URL 형식은 `https://{app}/runtime/webhooks/{triggerName}`으로 변경되었습니다.
 
 ## <a name="migrating-from-2x-to-3x"></a>2\.x에서 2.x로 마이그레이션
 
-Azure Functions 버전 3(sp3)은 버전 2.x와 호환 되는 이전 버전입니다.  많은 앱은 코드를 변경 하지 않고 2.x로 안전 하 게 업그레이드할 수 있어야 합니다.  3\. x로 이동 하는 것이 좋습니다. 프로덕션 앱에서 주 버전을 변경 하기 전에 광범위 한 테스트를 실행 해야 합니다.
+Azure Functions 버전 3(sp3)은 이전 버전과 호환 됩니다. x. x.  많은 앱은 코드를 변경 하지 않고 2.x로 안전 하 게 업그레이드할 수 있어야 합니다.  3\. x로 이동 하는 것이 좋습니다. 프로덕션 앱에서 주 버전을 변경 하기 전에 광범위 한 테스트를 실행 해야 합니다.
 
 ### <a name="breaking-changes-between-2x-and-3x"></a>2\.x와 3(sp3)의 주요 변경 내용
 
@@ -119,7 +119,7 @@ Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTI
 
 #### <a name="visual-studio-runtime-versions"></a>Visual Studio 런타임 버전
 
-Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니다. Visual Studio용 Azure Functions 도구는 둘 다 주 런타임 버전을 지원합니다. 디버깅 및 게시를 수행할 때 프로젝트 설정에 따라 올바른 버전이 사용됩니다. 버전 설정은 `.csproj` 파일의 다음 속성에 정의됩니다.
+Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니다. Visual Studio 용 Azure Functions 도구는 세 가지 주요 런타임 버전을 지원 합니다. 디버깅 및 게시를 수행할 때 프로젝트 설정에 따라 올바른 버전이 사용됩니다. 버전 설정은 `.csproj` 파일의 다음 속성에 정의됩니다.
 
 ##### <a name="version-1x"></a>버전 1.x
 
@@ -147,10 +147,10 @@ Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니�
 
 ###### <a name="updating-2x-apps-to-3x-in-visual-studio"></a>Visual Studio에서 2.x 앱을 3. x로 업데이트
 
-`.csproj` 파일을 편집 하 고 위의 값을 업데이트 하 여 2.x를 대상으로 하는 기존 함수를 열고 에서처럼로 이동할 수 있습니다.  Visual Studio는 프로젝트 메타 데이터를 기반으로 런타임 버전을 자동으로 관리 합니다.  그러나 Visual Studio에서 3gb 앱을 만든 적이 없는 경우에는 컴퓨터에 2.x에 대 한 템플릿과 런타임이 아직 없는 경우에도 가능 합니다.  "프로젝트에 지정 된 버전과 일치 하는 사용할 수 있는 함수 런타임이 없습니다."와 같은 오류가 표시 될 수 있습니다.  최신 템플릿 및 런타임을 인출 하려면 새 함수 프로젝트를 만드는 환경을 살펴보겠습니다.  버전 및 템플릿 선택 화면에서 Visual Studio가 최신 템플릿 가져오기를 완료할 때까지 기다립니다.  최신 .NET Core 3 템플릿을 사용할 수 있고 표시 되 면 버전 3.x에 대해 구성 된 모든 프로젝트를 실행 하 고 디버그할 수 있어야 합니다.
+`.csproj` 파일을 편집 하 고 위의 값을 업데이트 하 여 2.x를 대상으로 하는 기존 함수를 열고 에서처럼로 이동할 수 있습니다.  Visual Studio는 프로젝트 메타 데이터를 기반으로 런타임 버전을 자동으로 관리 합니다.  그러나이 경우에는 Visual Studio가 컴퓨터에 3gb 용 템플릿과 런타임을 아직 보유 하지 않은 경우에만 3. x 앱을 만들 수 있습니다.  "프로젝트에 지정 된 버전과 일치 하는 사용할 수 있는 함수 런타임이 없습니다."와 같은 오류가 표시 될 수 있습니다.  최신 템플릿 및 런타임을 인출 하려면 새 함수 프로젝트를 만드는 환경을 살펴보겠습니다.  버전 및 템플릿 선택 화면에서 Visual Studio가 최신 템플릿 가져오기를 완료할 때까지 기다립니다.  최신 .NET Core 3 템플릿을 사용할 수 있고 표시 되 면 버전 3.x에 대해 구성 된 모든 프로젝트를 실행 하 고 디버그할 수 있어야 합니다.
 
 > [!IMPORTANT]
-> 버전 3.x 함수는 버전 16.4 이상을 사용 하는 경우에만 Visual Studio에서 개발할 수 있습니다.
+> 버전 3.x 함수는 visual studio 버전 16.4 이상을 사용 하는 경우에만 Visual Studio에서 개발할 수 있습니다.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code 및 Azure Functions 핵심 도구
 

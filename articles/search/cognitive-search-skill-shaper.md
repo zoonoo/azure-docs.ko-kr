@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791868"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754123"
 ---
 # <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 
@@ -249,7 +249,7 @@ Microsoft.Skills.Util.ShaperSkill
 ## <a name="see-also"></a>참고 항목
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [복합 형식을 사용 하는 방법](search-howto-complex-data-types.md)
-+ [지식 저장소 (미리 보기)](knowledge-store-concept-intro.md)
-+ [기술 자료 저장소를 시작 하는 방법](knowledge-store-howto.md)
++ [지식 저장소(미리 보기)](knowledge-store-concept-intro.md)
++ [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)

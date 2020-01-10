@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0bb928fe23fcfc3580b0c3951c48f2636ab86c81
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75526705"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772281"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
@@ -30,7 +30,7 @@ ms.locfileid: "75526705"
 
 데이터 과학자는 다양한 방법으로, 예를 들어 Python(예: matplotlib) 또는 R(예: ggplot 또는 lattice)과 함께 사용할 수 있는 라이브러리 및 패키지를 사용하여 탐색 및 보고를 수행할 수 있습니다. 데이터 과학자는 해당 코드를 사용자 지정하여 특정 시나리오의 데이터 탐색 요구에 맞출 수 있습니다. 구조화된 데이터를 다루기 위한 요구는 텍스트나 이미지 등 구조화되지 않은 데이터의 경우와 다릅니다. 
 
-Azure Machine Learning 등의 제품은 기능 생성을 포함 하 여 데이터 랭 글 링 및 탐색을 위한 [고급 데이터 준비](../service/how-to-transform-data.md) 도 제공 합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
+Azure Machine Learning 등의 제품은 기능 생성을 포함 하 여 데이터 랭 글 링 및 탐색을 위한 [고급 데이터 준비](../how-to-create-register-datasets.md) 도 제공 합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
 
 이 단계가 종료할 때의 결과물은 데이터 탐색 보고서입니다. 보고서는 모델링 및 데이터가 모델링 단계로 진행하는 데 적합한지 여부를 평가에 사용할 데이터의 매우 포괄적인 뷰를 제공해야 합니다. 반자동화 탐색, 모델링 및 보고에 대해 다음 섹션에서 설명하는 TDSP(팀 데이터 과학 프로세스) 유틸리티도 표준화된 데이터 탐색 및 모델링 보고서를 제공합니다. 
 

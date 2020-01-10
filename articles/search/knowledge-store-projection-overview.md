@@ -1,5 +1,5 @@
 ---
-title: 기술 자료 저장소에서 프로젝션 사용 (미리 보기)
+title: 기술 자료 저장소 (미리 보기)의 프로젝션
 titleSuffix: Azure Cognitive Search
 description: AI 보강 인덱싱 파이프라인의 보강 데이터를 전체 텍스트 검색 이외의 시나리오에서 사용할 정보 저장소로 저장 하 고 셰이프를 저장 합니다. 지식 저장소는 현재 공개 미리 보기로 제공됩니다.
 manager: nitinme
@@ -7,20 +7,20 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790013"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754530"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소에서 프로젝션 사용
+# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소에서의 프로젝션
 
 > [!IMPORTANT] 
 > 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
-Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되는 인식 기술 및 사용자 지정 기술을 통해 콘텐츠를 보강 수 있습니다. 강화를 사용 하 여 문서에 구조를 추가 하 고 검색을 더 효과적으로 수행할 수 있습니다. 대부분의 경우 보강 문서는 검색 이외의 시나리오 (예: 기술 자료 마이닝)에 유용 합니다.
+Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되는 인식 기술 및 사용자 지정 기술을 통해 콘텐츠를 보강 수 있습니다. 강화 이미지에서 정보를 추출 하 고, 감정, 키 구 및 텍스트에서 엔터티를 검색 하 고, 이름을 몇 개로 하 여 새 정보를 만듭니다. 강화는 구분 되지 않은 텍스트에도 구조체를 추가 합니다. 이러한 모든 프로세스는 전체 텍스트 검색을 보다 효율적으로 만드는 문서를 생성 합니다. 대부분의 경우 보강 문서는 검색 이외의 시나리오 (예: 기술 자료 마이닝)에 유용 합니다.
 
 [기술 자료 저장소](knowledge-store-concept-intro.md)의 구성 요소인 프로젝션은 기술 자료를 위해 실제 저장소에 저장할 수 있는 보강 문서에 대 한 뷰입니다. 프로젝션을 사용 하면 필요에 맞게 데이터를 "프로젝션" 하 여 Power BI 같은 도구에서 추가 작업 없이 데이터를 읽을 수 있도록 관계를 유지할 수 있습니다.
 
@@ -34,7 +34,7 @@ Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되
 
 + **파일**: 문서에서 추출한 이미지를 저장 해야 하는 경우 파일 프로젝션을 통해 정규화 된 이미지를 blob 저장소에 저장할 수 있습니다.
 
-컨텍스트에 정의 된 프로젝션을 보려면 [기술 자료 저장소를 시작 하는 방법을](knowledge-store-howto.md)단계별로 안내 합니다.
+컨텍스트에 정의 된 프로젝션을 보려면 [REST에서 기술 자료 저장소 만들기](knowledge-store-create-rest.md)를 단계별로 진행 합니다.
 
 ## <a name="projection-groups"></a>프로젝션 그룹
 
@@ -114,12 +114,6 @@ Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되
 
 이 예제에서 설명한 것 처럼 키 구와 엔터티는 서로 다른 테이블로 모델링 되며 각 행에 대 한 부모 (MainTable)에 대 한 참조를 포함 합니다.
 
-<!---
-The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
---->
-
 ## <a name="object-projections"></a>개체 프로젝션
 
 개체 프로젝션은 모든 노드에서 원본으로 사용할 수 있는 보강 트리의 JSON 표현입니다. 대부분의 경우 테이블 프로젝션을 만드는 동일한 **Shaper** 기술을 사용 하 여 개체 프로젝션을 생성할 수 있습니다. 
@@ -143,10 +137,8 @@ The following illustration is a reference to the Case-law exercise in [How to ge
         {
           "objects": [
             {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
+              "storageContainer": "hotelreviews", 
+              "source": "/document/hotel"
             }
           ]
         },
@@ -160,9 +152,8 @@ The following illustration is a reference to the Case-law exercise in [How to ge
 
 개체 프로젝션을 생성 하려면 몇 가지 개체 관련 특성이 필요 합니다.
 
-+ storageContainer: 개체가 저장 될 컨테이너입니다.
++ storageContainer: 개체가 저장 될 blob 컨테이너입니다.
 + source: 프로젝션의 루트인 보강 트리의 노드에 대 한 경로입니다.
-+ 키: 저장할 개체의 고유 키를 나타내는 경로입니다. 컨테이너에서 blob의 이름을 만드는 데 사용 됩니다.
 
 ## <a name="file-projection"></a>파일 프로젝션
 
@@ -219,4 +210,4 @@ The following illustration is a reference to the Case-law exercise in [How to ge
 다음 단계로 샘플 데이터 및 지침을 사용 하 여 첫 번째 정보 저장소를 만듭니다.
 
 > [!div class="nextstepaction"]
-> [기술 자료 저장소를 만드는 방법](knowledge-store-howto.md)
+> [REST에서 기술 자료 저장소를 만듭니다](knowledge-store-create-rest.md).

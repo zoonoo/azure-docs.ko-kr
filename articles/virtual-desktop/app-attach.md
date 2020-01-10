@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356241"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772553"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -40,7 +40,7 @@ ms.locfileid: "75356241"
      >[!NOTE]
      >Windows Insider portal에 액세스 하려면 Windows Insider program의 구성원 이어야 합니다. Windows 참가자 프로그램에 대해 자세히 알아보려면 [Windows 참가자 설명서](https://docs.microsoft.com/windows-insider/at-home/)를 확인 하세요.
 
-2. **선택 버전** 섹션으로 스크롤하고 **Windows 10 Insider PREVIEW Enterprise (FAST) – Build XXXXX**를 선택 합니다.
+2. **선택 버전** 섹션으로 스크롤하고 **Windows 10 Insider PREVIEW Enterprise (FAST) – Build 19035** 이상을 선택 합니다.
 
 3. **확인**을 선택 하 고 사용 하려는 언어를 선택한 후에 다시 **확인** 을 선택 합니다.
     

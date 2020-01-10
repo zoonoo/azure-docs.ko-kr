@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: d783751137510febf9fb2e31d9d44728a049d88d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: d8f0f6c63c584cacfa5c996bd541ce4dfc4bd289
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611819"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763932"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Azure Machine Learning에서 기존 모델 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Azure Machine Learning 외부에서 학습 된 machine learning 모델을 사용
 >
 > 여기에 사용 된 개념과 용어에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 >
-> 배포 프로세스에 대 한 일반 정보는 [Azure Machine Learning를 사용 하 여 모델 배포](service/how-to-deploy-and-where.md)를 참조 하세요.
+> 배포 프로세스에 대 한 일반 정보는 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -138,7 +138,7 @@ dependencies:
     - keras
 ```
 
-유추 구성에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](service/how-to-deploy-and-where.md)를 참조 하세요.
+유추 구성에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ### <a name="entry-script"></a>항목 스크립트
 
@@ -223,7 +223,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](service/how-to-deploy-and-where.md)를 참조 하세요.
+항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="define-deployment"></a>배포 정의
 
@@ -250,7 +250,7 @@ CLI는 YAML 파일에서 배포 구성을 로드 합니다.
 }
 ```
 
-Azure 클라우드에서 Azure Kubernetes Service와 같은 다른 계산 대상에 배포 하는 것은 배포 구성을 변경 하는 것 만큼 쉽습니다. 자세한 내용은 [모델을 배포 하는 방법 및 위치](service/how-to-deploy-and-where.md)를 참조 하세요.
+Azure 클라우드에서 Azure Kubernetes Service와 같은 다른 계산 대상에 배포 하는 것은 배포 구성을 변경 하는 것 만큼 쉽습니다. 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="deploy-the-model"></a>모델 배포
 
@@ -277,7 +277,7 @@ az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc de
 
 자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
 
-배포에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](service/how-to-deploy-and-where.md)를 참조 하세요.
+배포에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="request-response-consumption"></a>요청-응답 소비
 
@@ -304,5 +304,5 @@ print(response.json())
 
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
-* [모델을 배포 하는 방법 및 위치](service/how-to-deploy-and-where.md)
+* [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)
 * [배포 된 모델에 대 한 클라이언트를 만드는 방법](how-to-consume-web-service.md)

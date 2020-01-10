@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe0eb6c2305dd01d8ff3df5be7056cbeae92fff2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762720"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771294"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -32,11 +32,11 @@ Azure Logic Apps 커넥터: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>감사 및 보고
-Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md)에서 유지 관리 됩니다.
+Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에서 유지 관리 됩니다.
 
 다음과 같은 지원 되는 작업을 감사할 수 있습니다.
 
-|작업 이름|    리소스 종류|
+|작업 이름|    리소스 유형|
 |----|----|
 |통합 문서 만들기 또는 업데이트  |Microsoft Insights/통합 문서|
 |통합 문서 삭제    |Microsoft Insights/통합 문서|
@@ -44,8 +44,6 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 |워크플로 삭제    |Microsoft.Logic/workflows|
 |저장 된 검색 만들기    |OperationalInsights/작업 영역/savedSearches|
 |저장 된 검색 삭제    |OperationalInsights/작업 영역/savedSearches|
-|대시보드 설정  |Microsoft. 포털/대시보드|
-|대시보드 삭제   |Microsoft. 포털/대시보드|
 |경고 규칙 업데이트 |Microsoft SecurityInsights/alertRules|
 |경고 규칙 삭제 |Microsoft SecurityInsights/alertRules|
 |경고 규칙 응답 작업 업데이트 |Microsoft SecurityInsights/alertRules|
@@ -57,7 +55,7 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 |사례 설명 만들기   |Microsoft SecurityInsights/사례|
 |데이터 커넥터 업데이트 |Microsoft SecurityInsights/dataConnectors|
 |데이터 커넥터 삭제 |Microsoft SecurityInsights/dataConnectors|
-|설정 업데이트    |Microsoft SecurityInsights/설정|
+|업데이트 설정    |Microsoft SecurityInsights/설정|
 
 ### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Azure 센티널에서 감사 및 보고 데이터 보기
 

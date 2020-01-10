@@ -1,6 +1,6 @@
 ---
-title: 업데이트 관리 오류 문제 해결
-description: 업데이트 관리 관련 된 문제를 해결 하는 방법을 알아봅니다.
+title: Azure 업데이트 관리의 오류 문제 해결
+description: Azure의 업데이트 관리 솔루션 문제를 해결 하 고 문제를 해결 하는 방법을 알아봅니다.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5346f2f11df2282a1cd2592db930f7ff829a2d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416771"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769798"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 

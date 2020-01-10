@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821863"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771686"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
@@ -50,7 +50,7 @@ Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약
 -   자격 증명을 다른 단계로 변경합니다(예를 들어 설정에는 *credentials1*, 진행 중에는 *credentials2*).  
 -   자격 증명의 권한을 변경합니다(즉, 동기화를 설정한 후 사용 권한을 변경).
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 ### <a name="database-considerations-and-constraints"></a> 데이터베이스 고려 사항 및 제약 조건
 
@@ -96,7 +96,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 -   외래 키 제약 조건에 대한 UPDATE CASCADE 및 ON DELETE CASCADE 작업은 대상 테이블에서 다시 생성되지 않습니다.
 -   전체 자릿수가 28 보다 큰 decimal 또는 numeric 열이 있는 경우 동기화 중에 SQL 데이터 동기화 변환 오버플로 문제가 발생할 수 있습니다. Decimal 또는 numeric 열의 전체 자릿수를 28 이하로 제한 하는 것이 좋습니다.
 
-#### <a name="recommendations"></a>추천
+#### <a name="recommendations"></a>권장 사항
 
 -   SQL 데이터 동기화 자동 프로비전 기능은 서비스를 시험해 보는 경우에만 사용합니다.  
 -   프로덕션의 경우 데이터베이스 스키마를 프로비전합니다.
@@ -128,7 +128,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 데이터베이스가 여러 데이터 센터에 있는 경우 각 행은 여러 데이터 센터 사이를 이동해야 합니다. 이로 인해 초기 동기화의 비용이 증가합니다.
 
-#### <a name="recommendation"></a>권장 사항
+#### <a name="recommendation"></a>권장
 
 되도록이면 동기화 그룹의 여러 데이터베이스 중 특정 데이터베이스의 데이터부터 시작합니다.
 
@@ -157,7 +157,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 > [!NOTE]
 > 이러한 변경 내용은 전파되지 않습니다. 이 시나리오에서 유일한 복구 방법은 동기화 그룹을 다시 만드는 것입니다.
 
-#### <a name="recommendation"></a>권장 사항
+#### <a name="recommendation"></a>권장
 
 포털 및 로그 인터페이스를 통해 동기화 그룹 및 데이터베이스 상태를 정기적으로 모니터링합니다.
 
@@ -200,7 +200,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 3. 온-프레미스 데이터베이스를 로컬 에이전트 2에서 등록 취소하면 추적/메타 테이블이 온-프레미스 데이터베이스의 동기화 그룹에서 제거됩니다.
 4. “데이터베이스가 동기화에 대해 프로비전되지 않거나 동기화 구성 테이블에 대한 사용 권한이 없으므로 현재 작업을 완료할 수 없습니다.”라는 오류와 함께 동기화 그룹 A 작업에 실패합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 이 시나리오를 방지하려면 데이터베이스를 여러 에이전트에 등록하지 마세요.
 
@@ -218,6 +218,14 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 데이터베이스를 제거한 후 변경 내용 중 하나가 먼저 배포되기 전에 동기화 그룹을 편집하려고 하면 해당 작업 또는 다른 작업이 실패합니다. 포털 인터페이스가 불일치 상태가 될 수 있습니다. 이 상황이 발생하면 페이지를 새로 고쳐서 올바른 상태로 복원할 수 있습니다.
 
+### <a name="avoid-schema-refresh-timeout"></a>스키마 새로 고침 제한 시간 방지
+
+동기화 할 복잡 한 스키마가 있는 경우 동기화 메타 데이터 데이터베이스에 더 낮은 SKU (예: 기본)가 있는 경우 스키마를 새로 고치는 동안 "작업 시간 제한"이 발생할 수 있습니다. 
+
+#### <a name="solution"></a>솔루션
+
+이 문제를 완화 하려면 S3와 같이 더 높은 SKU를 갖도록 동기화 메타 데이터 데이터베이스를 확장 하세요. 
+
 ## <a name="next-steps"></a>다음 단계
 SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하세요.
 
@@ -227,14 +235,14 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하
     - PowerShell 사용
         -  [PowerShell을 사용하여 여러 Azure SQL 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
--   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 -   모니터 - [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 -   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 -   동기화 스키마 업데이트
     -   Transact-SQL 사용 - [Azure SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](sql-database-update-sync-schema.md)
     -   PowerShell 사용 - [PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트](scripts/sql-database-sync-update-schema.md)
 
-SQL Database에 대한 자세한 내용은 다음을 참조하세요.
+SQL Database에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 -   [SQL Database 개요](sql-database-technical-overview.md)
 -   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)

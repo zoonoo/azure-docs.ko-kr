@@ -1,28 +1,28 @@
 ---
-title: Azure Automation에서 SCCM 컬렉션을 사용하여 대상 업데이트 - 업데이트 관리
-description: 이 문서는 SCCM 관리되는 컴퓨터의 업데이트를 관리하는 이 솔루션으로 System Center Configuration Manager를 구성하는 데 도움을 주기 위해 작성되었습니다.
+title: Configuration Manager 클라이언트와 함께 Azure 업데이트 관리 사용
+description: 이 문서는이 솔루션을 사용 하 여 Microsoft 끝점 Configuration Manager 구성 하 여 소프트웨어 업데이트를 ConfigMgr 클라이언트에 배포 하는 데 도움을 주기 위한 것입니다.
 services: automation
 ms.subservice: update-management
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: b52db95b6a6ce21a5e5b68342ac123526d11ca62
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9df401ec9c6d11bfef5d1d60833c855029f8ca01
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75417632"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769951"
 ---
-# <a name="integrate-system-center-configuration-manager-with-update-management"></a>업데이트 관리와 System Center Configuration Manager 통합
+# <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>업데이트 관리를 사용 하 여 클라이언트 Configuration Manager Microsoft 끝점에 업데이트 배포
 
-PC, 서버 및 모바일 디바이스를 관리하기 위해 System Center Configuration Manager에 투자하는 고객들은 SUM(소프트웨어 업데이트 관리) 주기의 일환으로 이 강력하고 완성도 있는 소프트웨어 업데이트 관리를 신뢰합니다.
+Microsoft 끝점에 투자 하 여 Pc, 서버 및 모바일 장치를 관리 하는 고객은 소프트웨어 업데이트 관리 (SUM) 주기의 일부로 소프트웨어 업데이트를 관리 하는 데에도 강도 및 완성도를 Configuration Manager 합니다.
 
-Configuration Manager에서 소프트웨어 업데이트 배포를 만들고 미리 준비하여 관리되는 Windows 서버를 보고 및 업데이트하고, [업데이트 관리 솔루션](automation-update-management.md)을 사용하여 완료된 업데이트 배포에 대한 자세한 상태를 확인할 수 있습니다. Configuration Manager를 사용하여 업데이트 규정 준수 보고를 수행하지만 Windows 서버를 통해 업데이트 배포를 관리하지 않는 경우, 보안 업데이트가 업데이트 관리 솔루션으로 관리되는 동안 Configuration Manager에 계속 보고할 수 있습니다.
+Configuration Manager에서 소프트웨어 업데이트 배포를 만들고 미리 준비하여 관리되는 Windows 서버를 보고 및 업데이트하고, [업데이트 관리 솔루션](automation-update-management.md)을 사용하여 완료된 업데이트 배포에 대한 자세한 상태를 확인할 수 있습니다. 업데이트 준수 보고를 위해 Configuration Manager를 사용 하지만 Windows 서버를 사용 하 여 업데이트 배포를 관리 하지 않는 경우 보안 업데이트가 업데이트 관리 솔루션으로 관리 되는 동안 Configuration Manager에 대 한 보고를 계속할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Automation 계정에 추가된 [업데이트 관리 솔루션](automation-update-management.md)이 있어야 합니다.
-* 현재 System Center Configuration Manager 환경에서 관리되는 Windows 서버는 업데이트 관리 솔루션을 사용하도록 설정되어 있는 Log Analytics 작업 영역에 보고해야 합니다.
-* 이 기능은 System Center Configuration Manager 현재 분기 버전 1606 이상에서 사용할 수 있습니다. Configuration Manager 중앙 관리 사이트나 독립 실행형 기본 사이트를 Azure Monitor 로그 및 가져오기 컬렉션과 통합 하려면 [Azure Monitor 로그에 Configuration Manager 연결](../azure-monitor/platform/collect-sccm.md)을 검토 합니다.  
+* 현재 Configuration Manager 환경에서 관리 하는 Windows server도 업데이트 관리 솔루션이 사용 하도록 설정 된 Log Analytics 작업 영역에 보고 해야 합니다.
+* 이 기능은 Configuration Manager 현재 분기 버전 1606 이상에서 사용할 수 있습니다. Configuration Manager 중앙 관리 사이트나 독립 실행형 기본 사이트를 Azure Monitor 로그 및 가져오기 컬렉션과 통합 하려면 [Azure Monitor 로그에 Configuration Manager 연결](../azure-monitor/platform/collect-sccm.md)을 검토 합니다.  
 * Windows 에이전트는 WSUS(Windows Server Update Services) 서버와 통신하도록 구성되거나 Configuration Manager에서 보안 업데이트를 받지 않는 경우 Microsoft Update에 대한 액세스 권한이 있어야 합니다.   
 
 주로 기존 Configuration Manager 환경으로 Azure IaaS에 호스트되는 클라이언트를 관리하는 방법은 Azure 데이터 센터와 사용자 인프라 사이의 연결에 따라 달라집니다. 이 연결은 디자인 변경에 영향을 줍니다. 사용자는 Configuration Manager 인프라 및 그러한 필수 변경 사항을 지원하기 위해 관련된 비용을 마련해야 할 수도 있습니다. 계속하기 전에 평가해야 하는 계획 고려 사항에 대해 알아보려면 [Azure에서 Configuration Manager - 질문과 대답](/sccm/core/understand/configuration-manager-on-azure#networking)을 검토하세요.

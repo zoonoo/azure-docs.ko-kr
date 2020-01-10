@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230681"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769220"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 배포 슬롯
 
-Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라는 다른 인스턴스를 실행할 수 있습니다. 슬롯은 공개적으로 사용할 수 있는 끝점을 통해 노출 되는 다양 한 환경입니다. 앱 인스턴스 하나는 항상 프로덕션 슬롯에 매핑되고 요청 시 슬롯에 할당 된 인스턴스를 교환할 수 있습니다. 앱 서비스 계획에서 실행 되는 함수 앱에는 여러 슬롯이 있을 수 있으며, 사용 중인 경우 슬롯 하나만 허용 됩니다.
+Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라는 다른 인스턴스를 실행할 수 있습니다. 슬롯은 공개적으로 사용할 수 있는 끝점을 통해 노출 되는 다양 한 환경입니다. 앱 인스턴스 하나는 항상 프로덕션 슬롯에 매핑되고 요청 시 슬롯에 할당 된 인스턴스를 교환할 수 있습니다. 앱 서비스 계획에서 실행 되는 함수 앱에는 여러 슬롯이 있을 수 있으며 소비 계획에는 하나의 슬롯만 허용 됩니다.
 
 다음은 슬롯을 교환 하 여 함수에 영향을 주는 방법을 나타냅니다.
 
@@ -72,7 +72,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 - *플랫폼 기능 > 일반 설정*에서 **구성** 을 클릭 합니다.
 - 현재 슬롯과 함께 사용할 설정 이름을 클릭 합니다.
 - **배포 슬롯 설정** 확인란을 클릭 합니다.
-- **확인**
+- **확인**을 클릭합니다.
 - 설정 블레이드가 사라지면 **저장** 을 클릭 하 여 변경 내용을 유지 합니다.
 
 ![배포 슬롯 설정](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
@@ -81,7 +81,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 슬롯은 슬롯을 만들 때 비어 있습니다. [지원 되는 배포 기술](./functions-deployment-technologies.md) 중 하나를 사용 하 여 응용 프로그램을 슬롯에 배포할 수 있습니다.
 
-## <a name="scaling"></a>배율 조정
+## <a name="scaling"></a>크기 조정
 
 모든 슬롯은 프로덕션 슬롯과 동일한 수의 작업자로 확장 됩니다.
 
@@ -132,17 +132,17 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 - [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [스왑을](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [자동 교환](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## <a name="change-app-service-plan"></a>App service 계획 변경
+## <a name="change-app-service-plan"></a>App Service 계획 변경
 
-App Service 계획으로 실행 되는 함수 앱을 사용 하는 경우 슬롯에 대 한 기본 app Service 계획을 변경 하는 옵션이 있습니다.
+App Service 계획으로 실행 되는 함수 앱을 사용 하 여 슬롯에 대 한 기본 App Service 요금제를 변경할 수 있습니다.
 
 > [!NOTE]
 > 소비 계획에서 슬롯의 App Service 요금제를 변경할 수 없습니다.
 
-슬롯의 app service 계획을 변경 하려면 다음 단계를 사용 합니다.
+슬롯의 App Service 계획을 변경 하려면 다음 단계를 사용 합니다.
 
 1. 슬롯으로 이동
 
@@ -154,7 +154,7 @@ App Service 계획으로 실행 되는 함수 앱을 사용 하는 경우 슬롯
 
 1. 새 App Service 계획을 선택 하거나 새 계획을 만듭니다.
 
-1. **확인**
+1. **확인**을 클릭합니다.
 
     ![App service 계획 변경](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 

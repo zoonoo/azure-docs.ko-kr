@@ -1,15 +1,15 @@
 ---
 title: Linux ASP.NET Core 앱 구성
-description: 앱에 대해 미리 작성 된 ASP.NET Core 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여 줍니다.
+description: 앱에 대해 미리 작성 된 ASP.NET Core 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: cab99b9d20ce8a3190eb9aa59650dab32fca324d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670460"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768421"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux ASP.NET Core 앱 구성
 
@@ -41,10 +41,10 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서 앱 코드 외부에 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 ASP.NET Core 종속성 주입 패턴을 사용 하 여 모든 클래스에서 액세스할 수 있습니다.
+App Service에서, 앱 코드 외부에서 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 ASP.NET Core 종속성 주입 패턴을 사용 하 여 모든 클래스에서 액세스할 수 있습니다.
 
 ```csharp
-include Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace SomeNamespace 
 {
@@ -82,7 +82,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 사용자 요청이 암호화 되었는지 여부를 응용 프로그램 논리에서 알고 있어야 하는 경우 *Startup.cs*에서 전달 된 헤더 미들웨어를 구성 합니다.
 
-- `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달 하도록 [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) 를 사용 하 여 미들웨어를 구성 합니다.
+- `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달 하도록 [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)를 사용하여 미들웨어를 구성 합니다.
 - 미들웨어가 App Service 부하 분산 장치를 신뢰할 수 있도록 개인 IP 주소 범위를 알려진 네트워크에 추가 합니다.
 - 다른 미들웨어를 호출 하기 전에 `Startup.Configure`에서 [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) 메서드를 호출 합니다.
 
@@ -113,7 +113,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-자세한 내용은 [프록시 서버 및 부하 분산 장치를 사용 하도록 ASP.NET Core 구성](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer)을 참조 하세요.
+자세한 내용은 [프록시 서버 및 부하 분산 장치를 사용하도록 ASP.NET Core 구성](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer)을 참조하세요.
 
 ## <a name="deploy-multi-project-solutions"></a>다중 프로젝트 솔루션 배포
 

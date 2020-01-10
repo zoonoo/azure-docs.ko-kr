@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: d362512ac6d06577a5c46bb0c6dab461f07ae709
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: f963885f60116bf23087fceb6a92d18e71ac7f24
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457025"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745343"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
@@ -35,7 +35,7 @@ Azure Digital Twins는 강력한 로깅, 모니터링 및 분석을 지원합니
 
 * Azure Digital Twins에 특정 한 로깅 구성을 보려면 [모니터링 및 로깅을 구성 하는 방법](./how-to-configure-monitoring.md)을 참조 하세요.
 * Azure Monitor를 통해 사용 하도록 설정 된 강력한 로그 설정에 대 한 자세한 내용은 [Azure Monitor](../azure-monitor/overview.md) 개요를 참조 하세요.
-* Azure Portal, Azure CLI 또는 PowerShell을 통해 Azure Digital Twins에서 진단 로그 설정 구성에 대 한 [azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/resource-logs-overview.md) 문서를 검토 합니다.
+* Azure Portal, Azure CLI 또는 PowerShell을 통해 Azure Digital Twins에서 진단 로그 설정 구성에 대 한 [azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/platform-logs-overview.md) 문서를 검토 합니다.
 
 구성 된 후에는 모든 로그 범주 및 메트릭을 선택 하 고 강력한 Azure Monitor log analytics 작업 영역을 사용 하 여 디버깅 활동을 지원할 수 있습니다.
 
@@ -216,4 +216,4 @@ function process(telemetry, executionContext) {
 
 - Azure Digital Twins에서 [모니터링 및 로그](./how-to-configure-monitoring.md)를 사용하도록 설정하는 방법을 알아봅니다.
 
-- 자세한 Azure 로깅 옵션은 [Azure 활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md) 문서를 참조 하세요.
+- 자세한 Azure 로깅 옵션은 [Azure 활동 로그 개요](../azure-monitor/platform/platform-logs-overview.md) 문서를 참조 하세요.

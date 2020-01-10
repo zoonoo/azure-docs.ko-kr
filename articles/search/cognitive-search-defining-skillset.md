@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114543"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754557"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search에서 AI 보강 파이프라인에 기술를 만드는 방법 
 
@@ -171,7 +171,7 @@ Content-Type: application/json
 
 * 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
 
-* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들어:
+* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예:
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -229,13 +229,13 @@ Content-Type: application/json
 
 이 정의는 보강 절차의 일부로 웹 API를 호출하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)입니다. 이 기술은 엔터티 인식으로 식별 되는 각 조직에 대해 web API를 호출 하 여 해당 조직에 대 한 설명을 찾습니다. 웹 API를 호출할 때 및 받은 정보를 이동하는 방법의 오케스트레이션은 보강 엔진에서 내부적으로 처리합니다. 그러나 이 사용자 지정 API를 호출하는 데 필요한 초기화는 JSON(예: uri, httpHeaders 및 예상 입력)에서 제공되어야 합니다. 보강 파이프라인에 대한 사용자 지정 웹 API를 만드는 지침은 [사용자 지정 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)을 참조합니다.
 
-별표를 사용하여 "컨텍스트" 필드가 ```"/document/organizations/*"```로 설정되는 것은 보강 단계가 *에서* 각 조직에 대해```"/document/organizations"``` 호출된다는 의미입니다. 
+별표를 사용하여 "컨텍스트" 필드가 ```"/document/organizations/*"```로 설정되는 것은 보강 단계가 ```"/document/organizations"```에서 *각 조직에 대해* 호출된다는 의미입니다. 
 
 회사 설명의 경우 출력은 식별된 각 조직에 대해 생성됩니다. 다운스트림 단계에서 설명을 언급할 때(예: 핵심 구문 추출) 그렇게 하려면 경로 ```"/document/organizations/*/description"```을 사용합니다. 
 
 ## <a name="add-structure"></a>구조 추가
 
-기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예를 살펴 보십시오.
+기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음과 같은 예제를 참조하세요.
 
 *"네 번째 분기에서 Microsoft는 작년의 수익에서 $11억을 기록 하 고 작년에 구매한 소셜 네트워킹 회사를 구매 했습니다. 이를 통해 Microsoft는 LinkedIn 기능과 해당 CRM 및 Office 기능을 결합할 수 있습니다. 주주는 지금까지 진행 되 고 있습니다. "*
 
@@ -249,7 +249,7 @@ Content-Type: application/json
 
 [기술 자료 저장소](knowledge-store-concept-intro.md) 는 보강 문서를 저장 하기 위한 Azure Cognitive Search의 미리 보기 기능입니다. Azure storage 계정에 의해 생성 되는 기술 자료 저장소는 보강 데이터가 있는 리포지토리입니다. 
 
-기술 자료 저장소 정의가 기술에 추가 됩니다. 전체 프로세스에 대 한 연습은 [기술 자료 저장소를 시작 하는 방법](knowledge-store-howto.md)을 참조 하세요.
+기술 자료 저장소 정의가 기술에 추가 됩니다. 전체 프로세스에 대 한 연습은 [REST에서 기술 자료 저장소 만들기](knowledge-store-create-rest.md)를 참조 하세요.
 
 ```json
 "knowledgeStore": {

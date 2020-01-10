@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529697"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747301"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure 리소스 모니터링
 Azure 리소스를 사용 하는 중요 한 응용 프로그램 및 비즈니스 프로세스를 사용 하는 경우 해당 리소스의 가용성, 성능 및 작업을 모니터링 하려고 합니다. 이 문서에서는 Azure 리소스에서 생성 되는 모니터링 데이터와 Azure Monitor 기능을 사용 하 여이 데이터를 분석 하 고 경고 하는 방법에 대해 설명 합니다.
@@ -57,8 +57,8 @@ Azure의 리소스는 다음 다이어그램에 표시 된 [로그](../platform/
 
 
 - [플랫폼 메트릭](../platform/data-platform-metrics.md) -정기적으로 자동으로 수집 되는 숫자 값으로, 특정 시간에 리소스의 일부 측면을 설명 합니다. 
-- [리소스 로그](../platform/resource-logs-overview.md) -Azure 리소스 (데이터 평면) 내에서 수행 된 작업에 대 한 정보를 제공 합니다. 예를 들어 Key Vault에서 비밀을 가져오거나 데이터베이스를 요청 하는 등의 작업을 수행할 수 있습니다. 리소스 로그의 내용과 구조는 Azure 서비스 및 리소스 유형에 따라 달라 집니다.
-- [활동 로그](../platform/activity-logs-overview.md) -외부 (관리 평면)에서 구독의 각 Azure 리소스에 대 한 작업에 대 한 정보를 제공 합니다. 예를 들어 새 리소스를 만들거나 가상 머신을 시작 합니다. 구독에서 리소스에 대해 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대 한 정보입니다.
+- [리소스 로그](../platform/platform-logs-overview.md) -Azure 리소스 (데이터 평면) 내에서 수행 된 작업에 대 한 정보를 제공 합니다. 예를 들어 Key Vault에서 비밀을 가져오거나 데이터베이스를 요청 하는 등의 작업을 수행할 수 있습니다. 리소스 로그의 내용과 구조는 Azure 서비스 및 리소스 유형에 따라 달라 집니다.
+- [활동 로그](../platform/platform-logs-overview.md) -외부 (관리 평면)에서 구독의 각 Azure 리소스에 대 한 작업에 대 한 정보를 제공 합니다. 예를 들어 새 리소스를 만들거나 가상 머신을 시작 합니다. 구독에서 리소스에 대해 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대 한 정보입니다.
 
 
 ## <a name="configuration-requirements"></a>구성 요구 사항
@@ -67,8 +67,8 @@ Azure의 리소스는 다음 다이어그램에 표시 된 [로그](../platform/
 일부 모니터링 데이터는 자동으로 수집 되지만 요구 사항에 따라 일부 구성을 수행 해야 할 수도 있습니다. 각 유형의 모니터링 데이터에 대 한 구체적인 정보는 아래 정보를 참조 하세요.
 
 - [플랫폼 메트릭](../platform/data-platform-metrics.md) -플랫폼 메트릭은 구성이 필요 없는 [Azure Monitor 메트릭에](../platform/data-platform-metrics.md) 자동으로 수집 됩니다. Azure Monitor 로그에 항목을 보내거나 Azure 외부에서 전달 하는 진단 설정을 만듭니다.
-- [리소스 로그](../platform/resource-logs-overview.md) -리소스 로그는 Azure 리소스에 의해 자동으로 생성 되지만 진단 설정 없이는 수집 되지 않습니다.  Azure Monitor 로그에 항목을 보내거나 Azure 외부에서 전달 하는 진단 설정을 만듭니다.
-- [활동 로그](../platform/activity-logs-overview.md) -작업 로그는 구성이 필요 없는 자동으로 수집 되며 Azure Portal에서 볼 수 있습니다. 진단 설정을 만들어 Azure Monitor 로그에 복사 하거나 Azure 외부에서 전달 합니다.
+- [리소스 로그](../platform/platform-logs-overview.md) -리소스 로그는 Azure 리소스에 의해 자동으로 생성 되지만 진단 설정 없이는 수집 되지 않습니다.  Azure Monitor 로그에 항목을 보내거나 Azure 외부에서 전달 하는 진단 설정을 만듭니다.
+- [활동 로그](../platform/platform-logs-overview.md) -작업 로그는 구성이 필요 없는 자동으로 수집 되며 Azure Portal에서 볼 수 있습니다. 진단 설정을 만들어 Azure Monitor 로그에 복사 하거나 Azure 외부에서 전달 합니다.
 
 ### <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
 Azure Monitor 로그에 데이터를 수집 하려면 Log Analytics 작업 영역이 필요 합니다. 새 작업 영역을 만들어 서비스 모니터링을 신속 하 게 시작할 수 있지만 다른 서비스에서 데이터를 수집 하는 작업 영역을 사용 하는 경우에는 값이 있을 수 있습니다. 작업 영역 만들기 및 [Azure Monitor 로그 배포 디자인](../platform/design-logs-deployment.md) 에 대 한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md) 를 참조 하 여 요구 사항에 가장 적합 한 작업 영역 디자인을 결정 합니다. 조직에서 기존 작업 영역을 사용 하는 경우 [Azure Monitor의 로그 데이터 및 작업 영역에 대 한 액세스 관리](../platform/manage-access.md)에 설명 된 대로 적절 한 사용 권한이 필요 합니다. 

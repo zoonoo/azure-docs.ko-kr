@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b2c94e51e25fd34b7332e6653a9c2f2d5bb53139
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225383"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754242"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "74225383"
 * 프로브 구성: 가상 머신에 대한 상태 프로브.
 * 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙.
 
-부하 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
+부하 분산 장치 구성 요소에 대 한 자세한 내용은 [Azure Load Balancer 구성 요소](load-balancer-overview.md#load-balancer-components)를 참조 하세요.
 
 다음 단계에서는 두 개의 가상 머신 간에 부하 분산 장치를 구성하는 방법을 설명합니다.
 
@@ -295,7 +295,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
 
 ### <a name="step-1-assign-the-load-balancer-object-to-a-variable"></a>1단계: 부하 분산 장치 개체를 변수에 할당
 
-**명령을 사용하여 부하 분산 장치 개체(이전 예제의)를**$slb`Get-AzLoadBalancer` 변수에 할당합니다.
+`Get-AzLoadBalancer` 명령을 사용하여 부하 분산 장치 개체(이전 예제의)를 **$slb** 변수에 할당합니다.
 
 ```azurepowershell-interactive
 $slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
@@ -319,7 +319,7 @@ $slb | Set-AzLoadBalancer
 
 ## <a name="remove-an-existing-load-balancer"></a>기존 부하 분산 장치 제거
 
-**명령을 사용하여**NRP-RG**리소스 그룹에서**NRP-LB`Remove-AzLoadBalancer` 부하 분산 장치를 삭제합니다.
+`Remove-AzLoadBalancer` 명령을 사용하여 **NRP-RG** 리소스 그룹에서 **NRP-LB** 부하 분산 장치를 삭제합니다.
 
 ```azurepowershell-interactive
 Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG

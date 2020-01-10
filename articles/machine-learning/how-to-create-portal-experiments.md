@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 581b6b4143f5924c27bac726bbea823761574c1b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c05b29dd5909d1371c71bffb9db555c15c5d23ed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540725"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75764646"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 실험 만들기, 탐색 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -226,4 +226,4 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 * [Azure Machine Learning를 사용 하 여 첫 번째 자동화 된 ML 실험을 만드는 방법에 대 한](tutorial-first-experiment-automated-ml.md)종단 간 자습서를 사용해 보세요. 
 * [자동화 된 machine learning 및 Azure Machine Learning에 대해 자세히 알아보세요](concept-automated-ml.md) .
 * [자동화 된 machine learning 결과를 이해](how-to-understand-automated-ml.md)합니다.
-* [웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
+* [웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

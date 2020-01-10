@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24e16942410c72640628bd4120d05a85e68de993
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/04/2020
+ms.openlocfilehash: ee8e11670d5b3e0f0edd57e3f87566faa60d4bc4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720016"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754409"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Cognitive Search 서비스 REST api-버전 2019-05-06-미리 보기
 
@@ -25,11 +25,11 @@ ms.locfileid: "73720016"
 
 ## <a name="new-in-2019-05-06-preview"></a>2019-05-06의 새로운 기능-미리 보기
 
-+ [증분 인덱싱은](cognitive-search-incremental-indexing-conceptual.md) 기술에 상태 및 캐싱을 추가 하 여 원본 데이터, 인덱서 및 기술 정의를 변경 하지 않을 때 기존 출력을 다시 사용할 수 있도록 하는 인덱싱에 대 한 새로운 모드입니다. 이 기능은 강화 정의 된 인지 기술에만 적용 됩니다.
++ [증분 보강 (미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 는 보강 파이프라인에 캐싱을 추가 하 여 기술 또는 다른 개체에 대 한 업데이트와 같은 대상 수정에서 콘텐츠를 변경 하지 않는 경우 기존 출력을 다시 사용할 수 있도록 합니다. 캐싱은 기술에서 생성 된 보강 문서에만 적용 됩니다.
 
-+ [Cosmos DB 인덱서](search-howto-index-cosmosdb.md) 는 MongoDB Api, Gremlin api 및 Cassandra API를 지원 합니다.
++ [Cosmos DB 인덱서](search-howto-index-cosmosdb.md) 는 MongoDB api (미리 보기), Gremlin api (미리 보기) 및 Cassandra API (미리 보기)를 지원 합니다.
 
-+ [Azure Data Lake Storage Gen2 인덱서](search-howto-index-azure-data-lake-storage.md) 는 Data Lake Storage Gen2에서 콘텐츠 및 메타 데이터를 인덱싱할 수 있습니다.
++ [Azure Data Lake Storage Gen2 인덱서 (미리 보기)](search-howto-index-azure-data-lake-storage.md) 는 Data Lake Storage Gen2에서 콘텐츠 및 메타 데이터를 인덱싱할 수 있습니다.
 
 + [문서 추출 (미리 보기)](cognitive-search-skill-document-extraction.md) 은 기술 내에서 파일의 콘텐츠를 추출할 수 있는 인덱싱 중에 사용 되는 인식 기술입니다. 이전에는 문서 크랙 기술 실행 되기 전에 발생 했습니다. 이 기술 외에도 기술 실행 내에서이 작업을 수행할 수 있습니다.
 

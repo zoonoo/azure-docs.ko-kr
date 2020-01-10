@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 99141787c5133b578c943f0e11e5ab15171a2e3d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 03ed4731e59280a3879d77ca3fb82f0158313aeb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792983"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771566"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
@@ -25,7 +25,7 @@ ms.locfileid: "74792983"
 
 다음은 이 시나리오에 대한 사용 사례입니다. 
 
-유명한 의료 조직이 Microsoft Dynamics CRM Online을 사용하여 환자 포털을 만드는 Azure 솔루션을 개발하는 데 참여했습니다. Dynamics CRM Online 환자 포털과 Salesforce 간에 예약 기록을 보내야 했습니다. 모든 환자 기록에 [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) 표준을 사용하도록 요청을 받았습니다.
+유명한 의료 조직이 Microsoft Dynamics CRM Online을 사용하여 환자 포털을 만드는 Azure 솔루션을 개발하는 데 참여했습니다. Dynamics CRM Online 환자 포털과 Salesforce 간에 예약 기록을 보내야 했습니다. 모든 환자 기록에 [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) 표준을 사용하도록 요청을 받았습니다.
 
 이 프로젝트에는 두 가지 주요 요구 사항이 있었습니다.  
 

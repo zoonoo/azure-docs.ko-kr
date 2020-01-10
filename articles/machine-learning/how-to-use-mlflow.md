@@ -11,19 +11,19 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3af8f0768183c07bd656bbb50893985057e9e861
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6203d78ee8d9c0a9837d03859856c5d0265422ac
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536422"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772332"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 메트릭 추적 및 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 [mlflow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)URI 및 로깅 API를 사용 하도록 설정 하는 방법을 보여 줍니다. 이렇게 하면 다음 작업을 수행할 수 있습니다.
 
-+ [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)에서 실험 메트릭과 아티팩트를 추적 하 고 기록 합니다. 실험을 위해 MLflow 추적을 이미 사용 하 고 있는 경우 작업 영역에서 교육 메트릭과 모델을 저장할 중앙 집중화 된 안전 하 고 확장 가능한 위치를 제공 합니다.
++ [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces)에서 실험 메트릭과 아티팩트를 추적 하 고 기록 합니다. 실험을 위해 MLflow 추적을 이미 사용 하 고 있는 경우 작업 영역에서 교육 메트릭과 모델을 저장할 중앙 집중화 된 안전 하 고 확장 가능한 위치를 제공 합니다.
 
 + MLflow 실험을 Azure Machine Learning 웹 서비스로 배포 합니다. 웹 서비스로 배포 하 여 Azure Machine Learning 모니터링 및 데이터 드리프트 검색 기능을 프로덕션 모델에 적용할 수 있습니다. 
 

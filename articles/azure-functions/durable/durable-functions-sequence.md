@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e8c314b6288bc26ad48fd210e866b2b67e433e17
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: de2fd1a46d931c5d1b625094940a981509bf1488
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231334"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769560"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -51,7 +51,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-모든 C# 오케스트레이션 함수에는 `DurableOrchestrationContext` 어셈블리에 있는 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 유형 매개 변수가 있어야 합니다. C# 스크립트를 사용하는 경우 `#r` 표기법을 사용하여 어셈블리를 참조할 수 있습니다. 이 컨텍스트 개체를 사용 하면 `CallActivityAsync` 메서드를 사용 하 여 다른 *작업* 함수를 호출 하 고 입력 매개 변수를 전달할 수 있습니다.
+모든 C# 오케스트레이션 함수에는 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 어셈블리에 있는 `DurableOrchestrationContext` 유형 매개 변수가 있어야 합니다. C# 스크립트를 사용하는 경우 `#r` 표기법을 사용하여 어셈블리를 참조할 수 있습니다. 이 컨텍스트 개체를 사용 하면 `CallActivityAsync` 메서드를 사용 하 여 다른 *작업* 함수를 호출 하 고 입력 매개 변수를 전달할 수 있습니다.
 
 코드에서는 여러 매개 변수 값을 사용하여 `E1_SayHello`을 순서대로 세 번 호출합니다. 각 호출의 반환 값은 함수의 끝에서 반환되는 `outputs` 목록에 추가됩니다.
 
@@ -67,13 +67,13 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 2. 함수가 `durable-functions` 모듈의 `orchestrator` 호출에 래핑됩니다(여기서는 `df`).
 3. 동기 함수여야 합니다. '오케스트레이터' 메서드가 'context.done' 호출을 처리하므로 함수는 단순히 '반환'만 하면 됩니다.
 
-`context` 개체는 다른 `df`작업*함수를 호출하고 해당* 메서드를 사용하여 입력 매개 변수를 전달할 수 있는 `callActivity` 개체를 포함합니다. 코드는 다른 매개 변수 값을 사용하여 `E1_SayHello`를 순차적으로 3번 호출하고, `yield`를 사용하여 비동기 작업 함수 호출이 반환될 때까지 실행을 대기해야 함을 나타냅니다. 각 호출의 반환 값은 함수의 끝에서 반환되는 `outputs` 목록에 추가됩니다.
+`context` 개체는 다른 *작업* 함수를 호출하고 해당 `callActivity` 메서드를 사용하여 입력 매개 변수를 전달할 수 있는 `df` 개체를 포함합니다. 코드는 다른 매개 변수 값을 사용하여 `E1_SayHello`를 순차적으로 3번 호출하고, `yield`를 사용하여 비동기 작업 함수 호출이 반환될 때까지 실행을 대기해야 함을 나타냅니다. 각 호출의 반환 값은 함수의 끝에서 반환되는 `outputs` 목록에 추가됩니다.
 
 ## <a name="e1_sayhello"></a>E1_SayHello
 
 ### <a name="functionjson-file"></a>function.json 파일
 
-*작업 함수에 대한*function.json`E1_SayHello` 파일은 `E1_HelloSequence` 바인딩 형식 대신 `activityTrigger` 바인딩 형식을 사용한다는 점을 제외하고는 `orchestrationTrigger`의 것과 비슷합니다.
+`E1_SayHello` 작업 함수에 대한 *function.json* 파일은 `orchestrationTrigger` 바인딩 형식 대신 `activityTrigger` 바인딩 형식을 사용한다는 점을 제외하고는 `E1_HelloSequence`의 것과 비슷합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
@@ -92,7 +92,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-JavaScript 오케스트레이션 함수와 달리, 작업 함수는 특별한 설정이 필요 없습니다. 오케스트레이터 함수에 의해 전달되는 입력은 `context.bindings` 바인딩 이름(이 경우 `activityTrigger`) 아래의 `context.bindings.name` 개체에 있습니다. 바인딩 이름은 내보낸 함수의 매개 변수로 설정되고 직접 액세스될 수 있습니다. 샘플 코드는 이 작업을 수행합니다.
+JavaScript 오케스트레이션 함수와 달리, 작업 함수는 특별한 설정이 필요 없습니다. 오케스트레이터 함수에 의해 전달되는 입력은 `activityTrigger` 바인딩 이름(이 경우 `context.bindings.name`) 아래의 `context.bindings` 개체에 있습니다. 바인딩 이름은 내보낸 함수의 매개 변수로 설정되고 직접 액세스될 수 있습니다. 샘플 코드는 이 작업을 수행합니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
 
@@ -103,7 +103,7 @@ POST http://{host}/orchestrators/E1_HelloSequence
 ```
 
 > [!NOTE]
-> 이전 HTTP 코드 조각에서는 모든 HTTP 트리거 함수 URL에서 기본 `host.json` 접두사를 제거하는 항목이 `api/` 파일에 있다고 가정합니다. 샘플의 `host.json` 파일에서 이 구성에 대한 변경 내용을 찾을 수 있습니다.
+> 이전 HTTP 코드 조각에서는 모든 HTTP 트리거 함수 URL에서 기본 `api/` 접두사를 제거하는 항목이 `host.json` 파일에 있다고 가정합니다. 샘플의 `host.json` 파일에서 이 구성에 대한 변경 내용을 찾을 수 있습니다.
 
 예를 들어 "myfunctionapp"이라는 함수 앱에서 샘플을 실행하는 경우 "{host}"를 "myfunctionapp.azurewebsites.net"으로 바꿉니다.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: a6b696e16d2c946572cc213115fb440775fce3fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 349d7d8206cc4139de020234ee063e85f9a8f9ef
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442971"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768642"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -95,24 +95,24 @@ kubectl describe node [NODE_NAME]
 |---|---|---|---|---|---|---|---|
 |Kube-예약 (millicores)|60|100|140|180|260|420|740|
 
-- **메모리** -예약 된 메모리는 두 값의 합계를 포함 합니다.
+- **메모리** -AKS에서 사용 하는 메모리는 두 값의 합계를 포함 합니다.
 
-1. 컨테이너 만들기 및 종료를 관리 하기 위해 kubelet 데몬이 모든 Kubernetes agent 노드에 설치 됩니다. 기본적으로 AKS에서이 디먼은 다음 제거 규칙을 포함 합니다. 메모리. 750Mi < 사용할 수 있습니다. 즉, 항상 노드에 750 Mi를 항상 할당 해야 함을 의미 합니다.  호스트가 사용 가능한 메모리의 임계값 보다 낮은 경우 kubelet는 실행 중인 pod 중 하나를 종료 하 여 호스트 컴퓨터에서 메모리를 확보 하 고 보호 합니다.
+1. 컨테이너 만들기 및 종료를 관리 하기 위해 kubelet 데몬이 모든 Kubernetes agent 노드에 설치 됩니다. 기본적으로 AKS에서이 디먼은 다음 제거 규칙을 포함 합니다 *. 메모리. 750Mi < 사용할 수 있습니다*. 즉, 항상 노드에 750 mi를 항상 할당 해야 함을 의미 합니다.  호스트가 사용 가능한 메모리의 임계값 보다 낮은 경우 kubelet는 실행 중인 pod 중 하나를 종료 하 여 호스트 컴퓨터에서 메모리를 확보 하 고 보호 합니다. 이는 사용 가능한 메모리가 750Mi 임계값을 초과 하면 사후 대응 작업입니다.
 
-2. 두 번째 값은 kubelet 데몬이 제대로 작동 하기 위해 예약 된 메모리의 점진적 비율이 됩니다 (kube-reserved).
+2. 두 번째 값은 kubelet 데몬이 제대로 작동 하려면 (kube-reserved)에 대 한 메모리 예약의 점진적 률입니다.
     - 처음 4gb 메모리의 25%
     - 다음 4gb 메모리의 20% (최대 8gb)
     - 다음 8gb 메모리의 10% (최대 16gb)
     - 다음 112 g b 메모리의 6% (최대 128 GB)
     - 128 GB 이상의 메모리 중 2%
 
-Kubernetes 및 에이전트 노드를 정상 상태로 유지 하기 위해 정의 된 이러한 두 규칙의 결과로 할당 된 CPU 및 메모리의 양은 노드 자체가 제공할 수 있는 것 보다 작은 것으로 나타납니다. 위에서 정의한 리소스 예약은 변경할 수 없습니다.
+위의 메모리 및 CPU 할당 규칙은 에이전트 노드를 정상 상태로 유지 하는 데 사용 됩니다. 일부 호스팅 시스템은 클러스터 상태에 pod 중요 합니다. 이러한 할당 규칙으로 인해 노드가 Kubernetes 클러스터의 일부가 아닌 경우 보다 할당 되지 않은 메모리와 CPU를 보고 합니다. 위의 리소스 예약은 변경할 수 없습니다.
 
-예를 들어 노드가 7GB를 제공 하는 경우 할당 되지 않은 메모리의 34%를 보고 합니다.
+예를 들어 노드가 7GB를 제공 하는 경우 750Mi 하드 제거 임계값을 기반으로 할당 되지 않은 메모리의 34%를 보고 합니다.
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
 
-Kubernetes에 대 한 예약 외에도, 기본 노드 OS는 OS 함수를 유지 관리 하기 위해 CPU 및 메모리 리소스의 양을 예약 합니다.
+Kubernetes 자체를 예약 하는 것 외에도, 기본 노드 OS는 OS 함수를 유지 관리할 수 있는 CPU 및 메모리 리소스의 양을 예약 합니다.
 
 관련 모범 사례는 [AKS의 기본 scheduler 기능에 대 한 모범 사례][operator-best-practices-scheduler]를 참조 하세요.
 

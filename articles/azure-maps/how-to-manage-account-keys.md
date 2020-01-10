@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5697989696d0d375e52baeb9f7332e7013d16bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957301"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768846"
 ---
 # <a name="manage-your-azure-maps-account"></a>Azure Maps 계정 관리
 
@@ -43,7 +43,7 @@ Azure Portal에서 계정을 삭제할 수 있습니다. 계정 개요 페이지
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps를 사용 하 여 인증을 설정 합니다.
+Azure Maps를 사용 하 여 인증을 설정 하 고 Azure Maps 구독 키를 가져오는 방법을 알아봅니다.
 > [!div class="nextstepaction"]
 > [인증 관리](how-to-manage-authentication.md)
 

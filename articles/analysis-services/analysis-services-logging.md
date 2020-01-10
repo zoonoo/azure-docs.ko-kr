@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572784"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749755"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
-Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../azure-monitor/platform/resource-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure Monitor 로그](../azure-monitor/azure-monitor-log-hub.md)로 내보낼 수 있습니다.
+Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../azure-monitor/platform/platform-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure Monitor 로그](../azure-monitor/azure-monitor-log-hub.md)로 내보낼 수 있습니다.
 
 ![Storage, Event Hubs 또는 Azure Monitor 로그에 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -45,7 +45,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 |오류 및 경고     |   오류      |
 |검색     |   검색 종료      |
 |알림     |    알림     |
-|세션     |  세션 초기화       |
+|Session     |  세션 초기화       |
 |잠금    |  교착 상태       |
 |쿼리 처리     |   VertiPaq SE 쿼리 시작      |
 |쿼리 처리     |   VertiPaq SE 쿼리 종료      |
@@ -53,7 +53,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 |쿼리 처리     |   직접 쿼리 시작      |
 |쿼리 처리     |  직접 쿼리 종료       |
 
-### <a name="service"></a>부여
+### <a name="service"></a>서비스
 
 |작업 이름  |발생 시기  |
 |---------|---------|
@@ -70,7 +70,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 ## <a name="setup-diagnostics-logging"></a>진단 로깅 설정
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. [Azure Portal](https://portal.azure.com) > 서버의 왼쪽 탐색 영역에서 **진단 로그**를 클릭한 다음 **진단 로그 켜기**를 클릭합니다.
 
@@ -88,7 +88,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
     * **서비스**. 서비스 수준 이벤트를 기록하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **메트릭**. [Metrics](analysis-services-monitor.md#server-metrics)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
 
-3. **Save**를 클릭합니다.
+3. **저장**을 클릭합니다.
 
     “\<작업 영역 이름>의 진단을 업데이트하지 못했습니다. \<subscription id> 구독은 microsoft.insights를 사용하도록 등록되지 않았습니다.” 오류를 수신하는 경우 [Azure Diagnostics 문제 해결](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) 지침을 따라 계정을 등록한 다음, 이 절차를 다시 시도합니다.
 
@@ -164,7 +164,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 #### <a name="example-1"></a>예 1
 
-다음 쿼리는 모델 데이터베이스 및 서버에 대 한 각 쿼리 종료/새로 고침 종료 이벤트에 대 한 기간을 반환 합니다. 스케일 아웃 하는 경우 복제본 번호가 ServerName_s에 포함 되어 있으므로 결과는 복제본으로 구분 됩니다. RootActivityId_g를 기준으로 그룹화 하면 Azure 진단 REST API에서 검색 되는 행 수가 줄어들고 [Log Analytics Rate 제한](https://dev.loganalytics.io/documentation/Using-the-API/Limits)에 설명 된 대로 제한 내에서 유지 됩니다.
+다음 쿼리는 모델 데이터베이스 및 서버에 대 한 각 쿼리 종료/새로 고침 종료 이벤트에 대 한 기간을 반환 합니다. 스케일 아웃 하는 경우 복제본 번호가 ServerName_s에 포함 되기 때문에 복제본을 통해 결과가 구분 됩니다. RootActivityId_g 그룹화 하면 Azure 진단 REST API에서 검색 되는 행 수를 줄이고 [Log Analytics Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits)에 설명 된 대로 제한 내에서 유지 하는 데 도움이 됩니다.
 
 ```Kusto
 let window = AzureDiagnostics
@@ -177,9 +177,9 @@ window
 | order by StartTime_t asc
 ```
 
-#### <a name="example-2"></a>예 2
+#### <a name="example-2"></a>예제 2
 
-다음 쿼리는 서버에 대 한 메모리 및 QPU 소비량을 반환 합니다. 스케일 아웃 하는 경우 복제본 번호가 ServerName_s에 포함 되어 있으므로 결과는 복제본으로 구분 됩니다.
+다음 쿼리는 서버에 대 한 메모리 및 QPU 소비량을 반환 합니다. 스케일 아웃 하는 경우 복제본 번호가 ServerName_s에 포함 되기 때문에 복제본을 통해 결과가 구분 됩니다.
 
 ```Kusto
 let window = AzureDiagnostics
@@ -192,7 +192,7 @@ window
 | order by TimeGenerated asc 
 ```
 
-#### <a name="example-3"></a>예 3
+#### <a name="example-3"></a>예제 3
 
 다음 쿼리는 서버에 대 한 행 읽기/초 Analysis Services 엔진 성능 카운터를 반환 합니다.
 
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 리소스 진단 로그](../azure-monitor/platform/resource-logs-overview.md)에 대해 자세히 알아보기
+[Azure 리소스 진단 로그](../azure-monitor/platform/platform-logs-overview.md)에 대해 자세히 알아보기
 
 PowerShell 도움말에서 [AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) 을 참조 하세요.

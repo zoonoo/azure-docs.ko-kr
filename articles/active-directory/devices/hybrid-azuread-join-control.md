@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 18da289f9d364fa79023809324d59b89b8ac898c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073622"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768115"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
 
@@ -79,7 +79,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
 
 ### <a name="configure-ad-fs-settings"></a>AD FS 설정 구성
 
-AD FS를 사용 하는 경우 먼저 위에서 언급 한 지침을 사용 하 여 클라이언트 쪽 SCP를 구성 해야 하지만, GPO를 AD FS 서버에 연결 해야 합니다. SCP 개체는 장치 개체에 대 한 기관의 원본을 정의 합니다. 온-프레미스 또는 Azure AD 일 수 있습니다. 이를 AD FS에 대해 구성 하면 장치 개체의 소스가 Azure AD로 설정 됩니다.
+AD FS를 사용 하는 경우 먼저 AD FS 서버에 GPO를 연결 하 여 위에서 설명한 지침을 사용 하 여 클라이언트 쪽 SCP를 구성 해야 합니다. SCP 개체는 장치 개체에 대 한 기관의 원본을 정의 합니다. 온-프레미스 또는 Azure AD 일 수 있습니다. 클라이언트 쪽 SCP가 AD FS에 대해 구성 된 경우 장치 개체의 원본은 Azure AD로 설정 됩니다.
 
 > [!NOTE]
 > AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 됩니다. 그러면 adfs는 ADFS 장치 등록의 특성 "MaximumInactiveDays"에 정의 된 규정 된 기간 후 온-프레미스 디렉터리에서 장치 개체 삭제를 시작 합니다. ADFS 장치 등록 개체는 [합니다. cmdlet](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps)을 사용 하 여 찾을 수 있습니다.

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 49f4f5472d3e97d9003e099ced5e43386ad31070
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.date: 01/08/2020
+ms.openlocfilehash: 0930afeb02c79c9b3cf1da791e8cc5cda83c2820
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437524"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751274"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용 하 여 Azure Database for PostgreSQL online으로 RDS PostgreSQL 마이그레이션
 
@@ -51,12 +51,12 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
     또한 RDS PostgreSQL 버전은 Azure Database for PostgreSQL 버전과 일치해야 합니다. 예를 들어 RDS PostgreSQL 9.5.11.5는 Azure Database for PostgreSQL 9.5.11로만 마이그레이션할 수 있고, 버전 9.6.7로는 업그레이드할 수 없습니다.
 
 * [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)의 인스턴스를 만듭니다. pgAdmin을 사용하여 PostgreSQL 서버에 연결하는 방법에 대한 자세한 내용은 문서의 이 [섹션](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin)을 참조하세요.
-* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
-* VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대해 443, 53, 9354, 445 및 12000 인바운드 통신 포트를 차단 하지 않는지 확인 합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
+* [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)와 특히 단계별 정보를 포함 하는 빠른 시작 문서를 참조 하세요.
+* 가상 네트워크 네트워크 보안 그룹 규칙에서 Azure Database Migration Service에 대 한 인바운드 통신 포트 (443, 53, 9354, 445 및 12000)를 차단 하지 않는지 확인 합니다. Virtual network NSG 트래픽 필터링에 대 한 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)문서를 참조 하세요.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Windows 방화벽을 열고 Azure Database Migration Service가 기본적으로 5432 TCP 포트인 원본 PostgreSQL 서버에 액세스할 수 있도록 허용합니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure Database Migration Service가 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL 서버에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNet의 서브넷 범위를 입력합니다.
+* Azure Database Migration Service가 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL 서버에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용 되는 가상 네트워크의 서브넷 범위를 제공 합니다.
 
 ### <a name="set-up-aws-rds-postgresql-for-replication"></a>AWS RDS PostgreSQL에 복제 설정
 
@@ -166,11 +166,11 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 4. Azure Database Migration Service 인스턴스를 만들 위치를 선택합니다.
 
-5. 기존 VNet을 선택하거나 새로 만듭니다.
+5. 기존 가상 네트워크를 선택 하거나 새 가상 네트워크를 만드세요.
 
-    VNet은 원본 PostgreSQL 인스턴스 및 대상 Azure Database for PostgreSQL 인스턴스에 대한 액세스 권한을 Azure Database Migration Service에 제공합니다.
+    가상 네트워크는 원본 PostgreSQL 인스턴스 및 대상 Azure Database for PostgreSQL 인스턴스에 대 한 액세스 권한을 Azure Database Migration Service 제공 합니다.
 
-    Azure Portal에서 VNet을 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet) 문서를 참조하세요.
+    Azure Portal에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조 하세요.
 
 6. 가격 책정 계층을 선택 합니다. 이 온라인 마이그레이션의 경우 프리미엄: 4vCores 가격 책정 계층을 선택 해야 합니다.
 

@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433171"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769152"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -46,7 +46,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="download-the-publishing-profile"></a>게시 프로필 다운로드
 
-앱의 **개요** 페이지로 이동 하 고 **게시 프로필 가져오기**를 클릭 하 여 functionapp의 게시 프로필을 다운로드할 수 있습니다.
+앱의 **개요** 페이지로 이동 하 고 **게시 프로필 가져오기**를 클릭 하 여 함수 앱의 게시 프로필을 다운로드할 수 있습니다.
 
    ![게시 프로필 다운로드](media/functions-how-to-github-actions/get-publish-profile.png)
 
@@ -54,11 +54,14 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="configure-the-github-secret"></a>GitHub 암호 구성
 
-1. [GitHub](https://github.com)에서 리포지토리를 찾아보고 **설정** > **비밀** 을 선택 하 > **새 비밀을 추가**합니다.
+1. [GitHub](https://github.com)에서 리포지토리로 이동 하 고, **설정** > **비밀** > 선택 하 **여 새 비밀을 추가**합니다.
 
    ![비밀 추가](media/functions-how-to-github-actions/add-secret.png)
 
-1. 값에 대해 `AZURE_CREDENTIALS`를 사용 하 고 **암호 추가**를 선택 **하는 경우** **값**에 복사 된 명령 출력을 사용 합니다. 게시 프로필을 사용 하는 경우에는 **값**에 대 한 파일 내용 및 **이름** 에 `SCM_CREDENTIALS`를 사용 합니다.
+1. 새 비밀을 추가 합니다.
+
+   * Azure CLI를 사용 하 여 만든 서비스 주체를 사용 하는 경우 **이름**에 `AZURE_CREDENTIALS`를 사용 합니다. 그런 다음 **값**에 대 한 복사 된 JSON 개체 출력을 붙여넣고 **비밀 추가**를 선택 합니다.
+   * 게시 프로필을 사용 하는 경우 **이름**에 `SCM_CREDENTIALS`를 사용 합니다. 그런 다음 **값**에 대 한 게시 프로필의 파일 콘텐츠를 사용 하 고 **비밀 추가**를 선택 합니다.
 
 이제 GitHub에서 Azure의 함수 앱에 인증할 수 있습니다.
 

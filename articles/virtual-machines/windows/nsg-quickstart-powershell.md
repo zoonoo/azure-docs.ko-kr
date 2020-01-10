@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: ecc996cc07cfbf22a04a620ca426ca97056a9a9d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 547ca9c98d77b2aaa6d3630bff4b2ec10dcc5be0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371210"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754177"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>PowerShell을 사용하여 Azure에서 VM의 포트 및 엔드포인트를 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -97,5 +97,5 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 * [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
 * [네트워크 보안 그룹이란?](../../virtual-network/security-overview.md)
-* [부하 분산 장치에 대한 Azure Resource Manager 개요](../../load-balancer/load-balancer-arm.md)
+* [Azure Load Balancer 개요](../../load-balancer/load-balancer-overview.md)
 

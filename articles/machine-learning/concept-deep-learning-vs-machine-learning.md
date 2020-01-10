@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: cfcf63274fc4bd77e7cb8fd792ed7d2782b36003
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1217028dc6c206633f13fe44951732809cd72d22
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541245"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762799"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
 
@@ -110,14 +110,14 @@ Feedforward 신경망은 가장 기본적인 유형의 인공 신경망입니다
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서는 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri)에서 심층 학습 기술을 사용 하는 방법을 보여 줍니다.
+다음 문서에서는 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri)에서 심층 학습 기술을 사용 하는 방법을 보여 줍니다.
 
-- [TensorFlow 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+- [TensorFlow 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
-- [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Pytorch 모델을 사용 하 여 이미지 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+- [Pytorch 모델을 사용 하 여 이미지 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
-- [체 이너 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+- [체 이너 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
 
 또한 [Machine Learning Algorithm 참고 자료 시트](algorithm-cheat-sheet.md) 를 사용 하 여 모델에 대 한 알고리즘을 선택 합니다.

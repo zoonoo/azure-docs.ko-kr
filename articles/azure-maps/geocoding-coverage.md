@@ -1,23 +1,23 @@
 ---
 title: Azure Maps에서 지 오 코딩 검사 Microsoft Docs
-description: Azure Maps에서 지오코딩 검사에 대해 알아봅니다.
+description: Microsoft Azure 맵의 지 오 코딩 범위와 geocoder Azure Maps 사용할 수 있는 지역/국가에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/22/2019
+ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 999e545d49b11eef84d1a03401eb28cde36e82af
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 4def947c13588cde57b55aeaa9d958eafa923093
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991361"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768812"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 
-Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사용한 후 위도 및 경도 좌표를 반환합니다. 이 프로세스를 지오코딩이라고 합니다. 단, Maps에는 모든 지역 및 국가에 대해 동일한 수준의 정보 및 정확도가 없습니다. 이 문서를 사용하여 각 지역에서 안정적으로 검색할 수 있는 위치 종류를 확인하세요. 
+Azure Maps를 사용 하 여 위치를 검색 하는 경우 검색 서비스 (예: 검색 [주소 가져오기](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress))는 검색 용어를 사용 하 여 위도 및 경도 좌표를 반환 합니다. 이 프로세스를 지 오 코딩 라고 합니다. 그러나 Azure Maps은 모든 지역 및 국가에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다. 이 문서를 사용하여 각 지역에서 안정적으로 검색할 수 있는 위치 종류를 확인하세요. 
 
 국가/지역에서 코드를 geocode는 기능은 지 오 코딩 서비스의도로 데이터 검사 및 지 오 코딩 정밀도에 따라 달라 집니다. 각 국가/지역에서 지 오 코딩 지원 수준을 지정 하는 데 사용 되는 분류는 다음과 같습니다.
 * **주소 지점** - 주소 데이터는 주소 구획(속성 경계) 내에서 위도/경도 좌표로 확인할 수 있습니다. 정확하게 'Rooftop'으로 참조되는 경우도 있습니다. 주소에 대해 사용 가능한 가장 높은 수준의 정확도입니다. 
@@ -84,7 +84,7 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 우루과이                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 베네수엘라                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | 영국령 버진아일랜드                              |                 |                |              |      ✓     |          ✓         |
-| 미국령 버진 아일랜드                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 미국령 버전 아일랜드                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>아시아 태평양
 
@@ -212,7 +212,7 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 우크라이나                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 영국                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 우즈베키스탄                                          |                 |                |              |      ✓     |          ✓         |
-| 바티칸시                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| 바티칸 시국                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
 
 ## <a name="middle-east-and-africa"></a>중동 및 아프리카
@@ -240,7 +240,7 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 적도 기니 공화국                      |                 |                |       ✓      |      ✓     |          ✓         |
 | 에리트리아                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | 에티오피아                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| 프랑스 남쪽 영역|                        |                |              |      ✓     |          ✓         |
+| 프랑스 남부 지방|                        |                |              |      ✓     |          ✓         |
 | 가봉                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | 감비아                                              |                 |                |              |      ✓     |          ✓         |
 | 가나                                               |                 |                |       ✓      |      ✓     |          ✓         |

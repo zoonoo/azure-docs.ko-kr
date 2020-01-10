@@ -3,16 +3,16 @@ title: 서비스 공급자 작업 보기
 description: 고객은 Azure 위임 된 리소스 관리를 통해 서비스 공급자가 수행한 작업을 확인 하기 위해 기록 된 활동을 볼 수 있습니다.
 ms.date: 12/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: a6ae5668601e3587b7306ba1652f6b107800fcb3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 31a9e7ff80623cc59b0a2db5951dff95d3088b05
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527827"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749183"
 ---
 # <a name="view-service-provider-activity"></a>서비스 공급자 작업 보기
 
-Azure 위임 된 리소스 관리에 대 한 구독을 위임 받은 고객은 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md) 데이터를 확인 하 여 수행 된 모든 작업을 볼 수 있습니다. 이렇게 하면 고객의 azure AD (Azure Active Directory) 테 넌 트 내에서 사용자가 수행한 작업을 비롯 하 여 서비스 공급자가 Azure 위임 된 리소스 관리를 통해 수행 하는 작업을 완벽 하 게 파악할 수 있습니다.
+Azure 위임 된 리소스 관리에 대 한 구독을 위임 받은 고객은 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 데이터를 확인 하 여 수행 된 모든 작업을 볼 수 있습니다. 이렇게 하면 고객의 azure AD (Azure Active Directory) 테 넌 트 내에서 사용자가 수행한 작업을 비롯 하 여 서비스 공급자가 Azure 위임 된 리소스 관리를 통해 수행 하는 작업을 완벽 하 게 파악할 수 있습니다.
 
 ## <a name="view-activity-log-data"></a>활동 로그 데이터 보기
 

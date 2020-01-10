@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: df2594165909c55de2de562c9717299d189a20d3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531023"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749473"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
-Azure [활동 로그](activity-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 각 범주에 대 한 이벤트 스키마를 설명 합니다. 
+Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 각 범주에 대 한 이벤트 스키마를 설명 합니다. 
 
 아래 예제는 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 스키마를 보여 줍니다. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](resource-logs-stream-event-hubs.md)때 스키마가 다릅니다. 이 문서의 끝에는 [리소스 로그 스키마](diagnostic-logs-schema.md) 에 대 한 속성 매핑이 제공 됩니다.
 
@@ -865,6 +865,6 @@ Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍�
 
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그에 대한 자세한 내용](activity-logs-overview.md)
+* [활동 로그에 대한 자세한 내용](platform-logs-overview.md)
 * [활동 로그를 Log Analytics 작업 영역, Azure storage 또는 event hubs로 보내는 진단 설정 만들기](diagnostic-settings.md)
 

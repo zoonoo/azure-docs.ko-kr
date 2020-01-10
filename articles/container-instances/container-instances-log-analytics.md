@@ -1,28 +1,28 @@
 ---
-title: 컨테이너 그룹에 대 한 리소스 로그
+title: 리소스 로그 수집 & 분석
 description: Azure Container Instances의 컨테이너 그룹에서 리소스 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 01/08/2020
 ms.author: danlep
-ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533729"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770546"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
 
-Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 온-프레미스 리소스 및 다른 클라우드의 리소스에서도 로그 데이터를 저장 및 쿼리할 수 있는 중앙 집중식 위치를 제공합니다. Azure Container Instances는 Azure Monitor 로그로 로그 및 이벤트 데이터를 전송할 수 있는 기능을 기본 제공합니다.
+Log Analytics 작업 영역은 Azure 리소스 뿐만 아니라 다른 클라우드의 온-프레미스 리소스와 리소스에 대 한 로그 데이터를 저장 하 고 쿼리 하는 중앙 위치를 제공 합니다. Azure Container Instances는 Azure Monitor 로그로 로그 및 이벤트 데이터를 전송할 수 있는 기능을 기본 제공합니다.
 
-Azure Monitor 로그로 컨테이너 그룹 로그 및 이벤트 데이터를 전송하려면 컨테이너 그룹을 만들 때 Log Analytics 작업 영역 ID와 작업 영역 키를 지정해야 합니다. 다음 섹션에서는 로깅을 사용할 수 있는 컨테이너 그룹과 쿼리 로그를 만드는 방법을 설명합니다.
+컨테이너 그룹 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내려면 컨테이너 그룹을 만들 때 기존 Log Analytics 작업 영역 ID 및 작업 영역 키를 지정 합니다. 다음 섹션에서는 로깅 사용 컨테이너 그룹을 만드는 방법과 로그를 쿼리 하는 방법에 대해 설명 합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
 > 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
@@ -46,7 +46,7 @@ Azure Container Instances에 Log Analytics 작업 영역에 데이터를 전송�
 
 로그 분석 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용하도록 설정된 컨테이너 그룹을 만들 수 있습니다.
 
-다음 예제는 단일 [fluentd][fluentd] 컨테이너를 사용 하 여 컨테이너 그룹을 만드는 두 가지 방법, 즉 Azure CLI 및 yaml 템플릿이 있는 Azure CLI를 보여 줍니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
+다음 예제는 단일 [fluentd][fluentd] 컨테이너로 구성 된 컨테이너 그룹을 만드는 두 가지 방법, 즉 Azure CLI 및 yaml 템플릿이 있는 Azure CLI를 보여 줍니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성 합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
 
 ### <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
@@ -130,7 +130,7 @@ Azure Monitor 로그에는 약 수천 줄의 로그 출력에서 정보를 가�
 
 쿼리의 기본 구조는 원본 테이블(이 문서에서는 `ContainerInstanceLog_CL` 또는 `ContainerEvent_CL`)이며 그 뒤에 파이프 문자(`|`)로 구분된 일련의 연산자가 있습니다. 여러 연산자를 묶어 결과를 구체화하고 고급 기능을 수행할 수 있습니다.
 
-예제 쿼리 결과를 보려면 다음 쿼리를 쿼리 텍스트 상자에 붙여넣고 **실행** 단추를 선택하여 쿼리를 실행합니다. 이 쿼리는 "메시지" 필드에 "warn"이라는 단어가 포함된 모든 로그 항목을 표시합니다.
+쿼리 결과 예를 보려면 쿼리 텍스트 상자에 다음 쿼리를 붙여넣고 **실행** 단추를 선택 하 여 쿼리를 실행 합니다. 이 쿼리는 "메시지" 필드에 "warn"이라는 단어가 포함된 모든 로그 항목을 표시합니다.
 
 ```query
 ContainerInstanceLog_CL

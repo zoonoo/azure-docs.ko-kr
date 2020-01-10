@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e138e954501df3cf3c3c8819d0198ad9a9288f0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440359"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754467"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -252,6 +252,25 @@ Data Factory를 사용 하면 원본 데이터 저장소에서 싱크 데이터 
 이 샘플에서 복사를 실행 하는 동안 Data Factory는 싱크 Azure SQL Database에서 높은 DTU 사용률을 추적 합니다. 이 경우 쓰기 작업이 느려집니다. 권장 사항은 Azure SQL Database 계층에서 Dtu를 늘리는 것입니다.
 
 ![성능 튜닝 팁을 사용한 복사 모니터링](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+## <a name="resume-from-last-failed-run"></a>마지막으로 실패 한 실행에서 다시 시작
+
+복사 작업은 파일 기반 저장소 간에 이진 형식을 사용 하 여 큰 파일 크기를 그대로 복사 하 고, Amazon s 3에서 Azure Data Lake Storage Gen2로 데이터를 마이그레이션하기 위해 원본에서 싱크로 폴더/파일 계층 구조를 유지 하도록 선택 하는 경우 마지막으로 실패 한 실행에서 다시 시작을 지원 합니다. 이는 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md)및 [SFTP](connector-sftp.md)와 같은 파일 기반 커넥터에 적용 됩니다.
+
+다음 두 가지 방법으로 복사 작업 다시 시작을 활용할 수 있습니다.
+
+- **작업 수준 다시 시도:** 복사 작업에 대해 재시도 횟수를 설정할 수 있습니다. 파이프라인을 실행 하는 동안이 복사 작업이 실행 되지 않으면 다음 자동 다시 시도가 마지막 평가판의 오류 지점에서 시작 됩니다.
+- **실패 한 작업에서 다시 실행:** 파이프라인 실행이 완료 된 후 ADF UI 모니터링 보기의 실패 한 작업에서 다시 실행을 트리거하거나 프로그래밍 방식을 실행할 수도 있습니다. 실패 한 작업이 복사 작업 인 경우 파이프라인은이 작업에서 다시 실행 될 뿐만 아니라 이전 실행의 오류 지점에서 다시 시작 합니다.
+
+    ![이력서 복사](media/copy-activity-overview/resume-copy.png)
+
+유의 사항:
+
+- 다시 시작은 파일 수준에서 발생 합니다. 파일을 복사할 때 복사 작업이 실패 하는 경우 다음 실행에서이 특정 파일이 다시 복사 됩니다.
+- 다시 시작이 제대로 작동 하려면 다시 실행 간에 복사 작업 설정을 변경 하지 마십시오.
+- Amazon S3, Azure Blob, Azure Data Lake Storage Gen2 및 Google Cloud Storage에서 데이터를 복사 하는 경우 복사 작업은 복사 된 파일의 임의 수에서 다시 시작할 수 있습니다. 원본으로 사용 되는 파일 기반 커넥터의 나머지 부분에서는 현재 복사 작업이 제한 된 개수의 파일에서 다시 시작을 지원 합니다 .이는 일반적으로 수십의 범위에 있고 파일 경로의 길이에 따라 달라 집니다. 이 값을 초과 하는 파일은 다시 실행 하는 동안 다시 복사 됩니다.
+
+이진 파일 복사 이외의 다른 시나리오의 경우 복사 작업 다시 실행은 처음부터 시작 됩니다.
 
 ## <a name="preserve-metadata-along-with-data"></a>데이터와 함께 메타 데이터 유지
 

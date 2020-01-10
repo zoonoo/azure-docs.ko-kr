@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2019
-ms.openlocfilehash: 5e840960c66f586882e64a655ddbfa078dae51ef
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/08/2019
+ms.openlocfilehash: eb181cbf6c647c816886f330502a9a46cb956dee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646645"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763286"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -213,7 +213,7 @@ az ml computetarget create amlcompute -n cpu-cluster --max-nodes 4 --vm-size Sta
 `dataset.json` 파일을 사용 하 여 데이터 집합을 등록 하려면 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
-az ml dataset register -f dataset.json
+az ml dataset register -f dataset.json --skip-validation
 ```
 
 이 명령의 출력은 다음 JSON과 유사 합니다.
@@ -368,6 +368,9 @@ az ml model register -n mymodel -p "sklearn_mnist_model.pkl"
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
 
+> [!NOTE]
+> "LocalWebservice의 존재 여부를 확인 하지 못했습니다."에 대 한 경고가 표시 될 수 있습니다. 로컬 웹 서비스를 배포 하지 않으므로이를 무시 해도 안전 합니다.
+
 이 명령은 이전에 등록 한 모델의 버전 1을 사용 하 여 `myservice`라는 새 서비스를 배포 합니다.
 
 `inferenceConfig.yml` 파일은 입력 스크립트 (`score.py`) 및 소프트웨어 종속성과 같은 유추를 수행 하는 방법에 대 한 정보를 제공 합니다. 이 파일의 구조에 대 한 자세한 내용은 [유추 구성 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)를 참조 하세요. 항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md#prepare-to-deploy)를 참조 하세요.
@@ -413,6 +416,13 @@ REST 끝점을 사용 하 여 데이터를 서비스로 보낼 수 있습니다.
 ```azurecli-interactive
 az ml service run -n myservice -d @testdata.json
 ```
+
+> [!TIP]
+> PowerShell을 사용 하는 경우 다음 명령을 대신 사용 합니다.
+>
+> ```powershell
+> az ml service run -n myservice -d `@testdata.json
+> ```
 
 명령의 응답은 `[ 3 ]`와 비슷합니다.
 

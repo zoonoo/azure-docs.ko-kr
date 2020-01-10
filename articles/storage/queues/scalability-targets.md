@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 8f9592575da16b146423682d1250c577ab7c282e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 464807a7bf4a20b540e2d5344b721c8844bd7bca
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486275"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750494"
 ---
 # <a name="scalability-and-performance-targets-for-queue-storage"></a>큐 저장소에 대 한 확장성 및 성능 목표
 
@@ -29,3 +29,4 @@ ms.locfileid: "75486275"
 - [큐 저장소에 대 한 성능 및 확장성 검사 목록](storage-performance-checklist.md)
 - [Standard storage 계정에 대 한 확장성 목표](../common/scalability-targets-standard-account.md)
 - [Azure Storage 리소스 공급자에 대 한 확장성 목표](../common/scalability-targets-resource-provider.md)
+- [Azure 구독 제한 및 할당량](../../azure-resource-manager/management/azure-subscription-service-limits.md)

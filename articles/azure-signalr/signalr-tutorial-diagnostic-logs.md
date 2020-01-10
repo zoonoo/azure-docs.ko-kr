@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: c5def306e5aa874432ebb5f47f3fdd8b5234ffd7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33d9a338e12fa4b3d2449f0c5b0576895364c3cf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479554"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750272"
 ---
 # <a name="diagnostic-logs-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 진단 로그
 
@@ -50,7 +50,7 @@ Azure SignalR 서비스에 대 한 진단 로그를 볼 수 있습니다. 이러
 
 새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
 
-진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)를 참조하세요.
+진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
 
 ### <a name="diagnostic-logs-categories"></a>진단 로그 범주
 

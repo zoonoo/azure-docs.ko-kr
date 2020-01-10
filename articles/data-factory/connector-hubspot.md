@@ -9,21 +9,21 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: cb7091cf61efab8e5bd7e9321911980a1f681476
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ef8d6a8d97b2f2c2cff62c629219efb43077c77
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929292"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754143"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 HubSpot에서 데이터 복사(미리 보기)
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 HubSpot에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 > [!IMPORTANT]
-> 이 커넥터는 현재 미리 보기 상태입니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
+> 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -47,22 +47,22 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 HubSpot 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **Hubspot**으로 설정해야 합니다. | yes |
-| clientId | Hubspot 애플리케이션과 연결된 클라이언트 ID입니다.  | yes |
-| clientSecret | Hubspot 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| accessToken | OAuth 통합을 처음 인증할 때 얻은 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| refreshToken | OAuth 통합을 처음 인증할 때 얻은 새로 고침 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| type | type 속성은 **Hubspot**으로 설정해야 합니다. | 예 |
+| clientId | HubSpot 응용 프로그램에 연결 된 클라이언트 ID입니다. [여기](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot)에서 HubSpot 앱을 만드는 방법에 대해 알아봅니다. | 예 |
+| clientSecret | HubSpot 응용 프로그램에 연결 된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| accessToken | OAuth 통합을 처음 인증할 때 얻은 액세스 토큰입니다. [여기](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens)에서 클라이언트 ID 및 암호를 사용 하 여 액세스 토큰을 가져오는 방법을 알아보세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| refreshToken | OAuth 통합을 처음 인증할 때 얻은 새로 고침 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
 
-**예제:**
+**예:**
 
 ```json
 {
-    "name": "HubspotLinkedService",
+    "name": "HubSpotLinkedService",
     "properties": {
         "type": "Hubspot",
         "typeProperties": {
@@ -90,22 +90,22 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 HubSpot에서 데이터를 복사하려면 데이터 세트의 type 속성을 **HubspotObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **HubspotObject** 로 설정 해야 합니다. | yes |
+| type | 데이터 집합의 type 속성은 **HubspotObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
 ```json
 {
-    "name": "HubspotDataset",
+    "name": "HubSpotDataset",
     "properties": {
         "type": "HubspotObject",
         "typeProperties": {},
         "schema": [],        
         "linkedServiceName": {
-            "referenceName": "<Hubspot linked service name>",
+            "referenceName": "<HubSpot linked service name>",
             "type": "LinkedServiceReference"
         }
     }
@@ -120,12 +120,12 @@ HubSpot에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 HubSpot에서 데이터를 복사하려면 복사 작업의 원본 형식을 **HubspotSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **HubspotSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Companies where Company_Id = xxx"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성은 **HubspotSource**로 설정해야 합니다. | 예 |
+| Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Companies where Company_Id = xxx"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -134,7 +134,7 @@ HubSpot에서 데이터를 복사하려면 복사 작업의 원본 형식을 **H
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Hubspot input dataset name>",
+                "referenceName": "<HubSpot input dataset name>",
                 "type": "DatasetReference"
             }
         ],

@@ -4,12 +4,12 @@ description: JavaScript를 사용하여 함수를 개발하는 방법을 알아�
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: 506f71664616686a66227af7e55fe3f4046376f2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 30d69476c96017319842a424c26de29350ec1ef6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561918"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769050"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -371,9 +371,9 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 + **`context` 개체의 `req` 및 `res` 속성에서.** 이러한 방식으로 전체 `context.bindings.name` 패턴을 사용하지 않고 대신 기존 패턴을 사용하여 context 개체에서 HTTP 데이터에 액세스할 수 있습니다. 다음 예제에서는 `context`의 `req` 및 `res` 개체에 액세스하는 방법을 보여 줍니다.
 
     ```javascript
-    // You can access your http request off the context ...
+    // You can access your HTTP request off the context ...
     if(context.req.body.emoji === ':pizza:') context.log('Yay!');
-    // and also set your http response
+    // and also set your HTTP response
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: f1bb2731f5f14b80ca46f4fb28b9b9cb4284c4d7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d1def81a1f5d6b1b3a6d64d2d302ceb9d5f17dfb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972373"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769509"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -515,14 +515,14 @@ public HttpResponseMessage<String> HttpTrigger(
 
 다음 표에서는 *function.json* 파일 및 `HttpTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 | **type** | n/a| 필수 - `httpTrigger`으로 설정해야 합니다. |
 | **direction** | n/a| 필수 - `in`으로 설정해야 합니다. |
 | **name** | n/a| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |키가 있는 경우 함수를 호출하기 위해 요청에 포함되어야 하는 키를 결정합니다. 권한 부여 수준은 다음 값 중 하나일 수 있습니다. <ul><li><code>anonymous</code>&mdash;: API 키가 필요하지 않습니다.</li><li><code>function</code>&mdash;: 함수 전용 API 키가 필요합니다. authLevel 속성 값을 제공하지 않을 경우 기본값입니다.</li><li><code>admin</code>&mdash;: 마스터 키가 필요합니다.</li></ul> 자세한 내용은 [권한 부여 키](#authorization-keys)에 대한 섹션을 참조하세요. |
-| **methods** |**메서드** | 함수에서 응답할 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 함수에서 모든 HTTP 메서드에 응답합니다. [HTTP 엔드포인트 사용자 지정](#customize-the-http-endpoint)을 참조하세요. |
-| **route** | **Route** | 경로 템플릿을 정의하여 함수에서 응답할 요청 URL을 제어합니다. 값을 제공하지 않을 경우 기본값은 `<functionname>`입니다. 자세한 내용은 [HTTP 엔드포인트 사용자 지정](#customize-the-http-endpoint)을 참조하세요. |
+| **methods** |**메서드** | 함수에서 응답할 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 함수에서 모든 HTTP 메서드에 응답합니다. [HTTP 끝점 사용자 지정을](#customize-the-http-endpoint)참조 하세요. |
+| **route** | **Route** | 경로 템플릿을 정의하여 함수에서 응답할 요청 URL을 제어합니다. 값을 제공하지 않을 경우 기본값은 `<functionname>`입니다. 자세한 내용은 [HTTP 엔드포인트 사용자 지정](#customize-the-http-endpoint)을 참조 하세요. |
 | **webHookType** | **WebHookType** | _버전 1.x 런타임에서만 지원됩니다._<br/><br/>HTTP 트리거가 지정된 공급자의 [웹후크](https://en.wikipedia.org/wiki/Webhook) 수신기(receiver)로 작동하도록 구성합니다. 이 속성을 설정하면 `methods` 속성을 설정하지 마십시오. 웹후크 형식은 다음 값 중 하나일 수 있습니다.<ul><li><code>genericJson</code>&mdash;특정 공급자를 위한 논리가 없는 범용 webhook 엔드포인트입니다. 이 설정은 HTTP POST 및 `application/json` 콘텐츠 형식을 사용하는 요청으로만 제한됩니다.</li><li><code>github</code>&mdash;이 함수는 [GitHub 웹후크](https://developer.github.com/webhooks/)에 응답합니다. GitHub 웹후크에는 _authLevel_ 속성을 사용하지 마십시오. 자세한 내용은 이 문서의 뒷부분에서 GitHub 웹후크 섹션을 참조하세요.</li><li><code>slack</code>&mdash;이 함수는 [Slack 웹후크](https://api.slack.com/outgoing-webhooks)에 응답합니다. Slack 웹후크에는 _authLevel_ 속성을 사용하지 마십시오. 자세한 내용은 이 문서의 뒷부분에서 Slack 웹후크 섹션을 참조하세요.</li></ul>|
 
 ## <a name="trigger---usage"></a>트리거 - 사용
@@ -825,7 +825,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 키를 요구하지 않는 익명 요청을 허용할 수 있습니다. 마스터 키를 사용하도록 요구할 수도 있습니다. 바인딩 JSON에서 `authLevel` 속성을 사용하여 기본 권한 수준을 변경합니다. 자세한 내용은 [트리거 - 구성](#trigger---configuration)을 참조하세요.
 
 > [!NOTE]
-> 함수를 로컬로 실행할 때는 지정된 권한 부여 수준 설정에 관계없이 권한 부여가 사용하지 않도록 설정됩니다. Azure에 게시하고 나면 트리거의 `authLevel` 설정이 적용됩니다. [컨테이너에서 로컬로 실행 하](functions-create-function-linux-custom-image.md#run-the-image-locally)는 경우에도 키가 필요 합니다.
+> 함수를 로컬로 실행 하는 경우 지정 된 권한 부여 수준 설정에 관계 없이 권한 부여가 비활성화 됩니다. Azure에 게시하고 나면 트리거의 `authLevel` 설정이 적용됩니다. [컨테이너에서 로컬로 실행 하](functions-create-function-linux-custom-image.md#run-the-image-locally)는 경우에도 키가 필요 합니다.
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>프로덕션 환경에서 HTTP 엔드포인트 보호
@@ -838,7 +838,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 * Azure ASE(App Service Environment)에 함수 앱을 배포합니다. ASE는 함수를 실행할 전용 호스팅 환경을 제공합니다. ASE 사용 시에는 모든 수신 요청을 인증하는 데 사용할 수 있는 단일 프런트 엔드 게이트웨이를 구성할 수 있습니다. 자세한 내용은 [App Service Environment용 WAF(웹 애플리케이션 방화벽) 구성](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)을 참조하세요.
 
-이러한 함수 앱 수준 보안 방법 중 하나를 사용할 때는 HTTP 트리거 함수 인증 수준을 `anonymous`로 설정해야 합니다.
+이러한 함수 앱 수준 보안 방법 중 하나를 사용 하는 경우 HTTP로 트리거되는 함수 권한 부여 수준을 `anonymous`설정 해야 합니다.
 
 ### <a name="webhooks"></a>Webhook
 
@@ -878,7 +878,7 @@ HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
 | **type** |`http`로 설정해야 합니다. |
 | **direction** | `out`로 설정해야 합니다. |
@@ -917,12 +917,12 @@ HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# �
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
-| customHeaders|없음|HTTP 응답에서 사용자 지정 헤더를 설정할 수 있습니다. 이전 예제에서는 콘텐츠 형식 스니핑을 방지 하기 위해 `X-Content-Type-Options` 헤더를 응답에 추가 합니다. |
+| customHeaders|none|HTTP 응답에서 사용자 지정 헤더를 설정할 수 있습니다. 이전 예제에서는 콘텐츠 형식 스니핑을 방지 하기 위해 `X-Content-Type-Options` 헤더를 응답에 추가 합니다. |
 |dynamicThrottlesEnabled|true<sup>\*</sup>|사용 설정되면, 이 설정은 요청 처리 파이프라인에서 주기적으로 시스템 성능 카운터(연결/스레드/프로세스/메모리/cpu/등)를 확인하고 해당 카운터 중 하나가 기본 제공 임계값(80%)을 초과하는 경우, 요청은 카운터가 일반 수준으로 반환될 때까지 429 "작업 초과" 응답을 표시하여 거부됩니다.<br/><sup>\*</sup> 소비 계획의 기본값은 `true`입니다. 전용 계획의 기본값은 `false`입니다.|
-|hsts|사용 안 함|`isEnabled`을 `true`로 설정 하면 [`HstsOptions` 클래스](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)에 정의 된 대로 [.NET CORE의 Hsts (HTTP Strict Transport Security) 동작이](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) 적용 됩니다. 또한 위의 예제에서는 [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 속성을 10 일로 설정 합니다. `hsts` 지원 되는 속성은 다음과 같습니다. <table><tr><th>자산</th><th>설명</th></tr><tr><td>excludedHosts</td><td>HSTS 헤더가 추가 되지 않은 호스트 이름의 문자열 배열입니다.</td></tr><tr><td>includeSubDomains</td><td>엄격한 전송 보안 헤더의 includeSubDomain 도메인 매개 변수를 사용할 수 있는지 여부를 나타내는 부울 값입니다.</td></tr><tr><td>maxAge</td><td>엄격한 전송 보안 헤더의 최대 보존 기간 매개 변수를 정의 하는 문자열입니다.</td></tr><tr><td>preload</td><td>엄격한 전송 보안 헤더의 미리 로드 매개 변수를 사용할 수 있는지 여부를 나타내는 부울입니다.</td></tr></table>|
-|maxConcurrentRequests|100<sup>\*</sup>|병렬로 실행 되는 최대 http 함수 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 많은 시스템 리소스(메모리/cpu/소켓)를 사용하는 http 함수가 있으면 동시성이 너무 높은 문제가 발생할 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다. <br/><sup>*</sup> 소비 계획의 기본값은 100입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
+|hsts|사용 안 함|`isEnabled`을 `true`로 설정 하면 [`HstsOptions` 클래스](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)에 정의 된 대로 [.NET CORE의 Hsts (HTTP Strict Transport Security) 동작이](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) 적용 됩니다. 또한 위의 예제에서는 [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 속성을 10 일로 설정 합니다. `hsts` 지원 되는 속성은 다음과 같습니다. <table><tr><th>속성</th><th>Description</th></tr><tr><td>excludedHosts</td><td>HSTS 헤더가 추가 되지 않은 호스트 이름의 문자열 배열입니다.</td></tr><tr><td>includeSubDomains</td><td>엄격한 전송 보안 헤더의 includeSubDomain 도메인 매개 변수를 사용할 수 있는지 여부를 나타내는 부울 값입니다.</td></tr><tr><td>maxAge</td><td>엄격한 전송 보안 헤더의 최대 보존 기간 매개 변수를 정의 하는 문자열입니다.</td></tr><tr><td>preload</td><td>엄격한 전송 보안 헤더의 미리 로드 매개 변수를 사용할 수 있는지 여부를 나타내는 부울입니다.</td></tr></table>|
+|maxConcurrentRequests|100<sup>\*</sup>|병렬로 실행 되는 최대 HTTP 함수 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 많은 시스템 리소스 (메모리/c p u/소켓)를 사용 하는 HTTP 함수를 사용 하 여 동시성이 너무 높을 때 문제를 발생 시킬 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다. <br/><sup>*</sup> 소비 계획의 기본값은 100입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
 |maxOutstandingRequests|200<sup>\*</sup>|지정된 시간에 보유할 미해결 요청의 최대 수입니다. 이 제한에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 그러면 호출자가 시간 기반 다시 시도 전략을 사용할 수 있고 최대 요청 대기 시간을 제어할 수 있습니다. 이 옵션은 스크립트 호스트 실행 경로 내에서 발생하는 큐만을 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 여전히 적용되며 이 설정의 영향을 받지 않습니다. <br/>소비 계획의 <sup>\*</sup>\The 기본값은 200입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
 |routePrefix|api|모든 경로에 적용되는 경로 접두사입니다. 기본 접두사를 제거하려면 빈 문자열을 사용하십시오. |
 

@@ -3,12 +3,13 @@ title: Linux와 Windows 간의 Azure Service Fabric 차이점
 description: Linux의 Azure Service Fabric과 Windows의 Azure Service Fabric 간의 차이점입니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: bcb2b4b112cf5247da8ca6a5d735ca247b3c06f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.custom: sfrev
+ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463016"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748535"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux와 Windows의 Service Fabric 간의 차이점
 
@@ -77,9 +78,8 @@ ms.locfileid: "75463016"
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
 
-
-
 ## <a name="next-steps"></a>다음 단계
+
 * [Linux에서 개발 환경 준비](service-fabric-get-started-linux.md)
 * [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
 * [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)

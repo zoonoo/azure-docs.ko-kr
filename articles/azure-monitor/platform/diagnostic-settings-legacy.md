@@ -7,15 +7,15 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: 4c910fd72805ce8cb1e7baa6b4252d6b2192fe36
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541518"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750987"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>레거시 설정을 사용 하 여 Azure 활동 로그 수집
-[Azure 활동 로그](activity-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 최근 까지는 로그 프로필을 만들어 [이벤트 허브 또는 저장소 계정](activity-log-export.md) 에 활동 로그 항목을 보내고 커넥터를 사용 하 여 [Log Analytics 작업 영역](activity-log-collect.md)으로 수집 했습니다. 이 문서에서는 방법, 기존 레거시 설정을 사용 하는 방법 및 진단 설정 준비에서 레거시 설정을 지우는 방법 간의 차이점을 설명 합니다.
+[Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 최근 까지는 로그 프로필을 만들어 [이벤트 허브 또는 저장소 계정](activity-log-export.md) 에 활동 로그 항목을 보내고 커넥터를 사용 하 여 [Log Analytics 작업 영역](activity-log-collect.md)으로 수집 했습니다. 이 문서에서는 방법, 기존 레거시 설정을 사용 하는 방법 및 진단 설정 준비에서 레거시 설정을 지우는 방법 간의 차이점을 설명 합니다.
 
 
 ## <a name="differences-between-methods"></a>메서드 간 차이점

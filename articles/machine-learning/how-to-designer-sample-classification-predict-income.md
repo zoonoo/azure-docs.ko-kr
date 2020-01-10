@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: f65c93ac06da6512255a3380d5484c6285798098
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 227bf490d1ac264bb54ff3d1ecf0ccc2b3ef2e0e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659992"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763555"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>기능 선택을 사용 하 여 Azure Machine Learning 디자이너와 수입을 예측 & 분류자 빌드
 
@@ -79,7 +79,7 @@ ms.locfileid: "75659992"
 
 - [샘플 1-회귀: 자동차 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
 - [샘플 2-회귀: 자동차 가격 예측에 대 한 알고리즘 비교](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [샘플 4-분류: 신용 위험 예측 (비용 구분)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [샘플 5-분류: 변동 예측](service/how-to-designer-sample-classification-churn.md)
-- [샘플 6-분류: 비행 지연 예측](service/how-to-designer-sample-classification-flight-delay.md)
+- [샘플 4-분류: 신용 위험 예측 (비용 구분)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [샘플 5-분류: 변동 예측](how-to-designer-sample-classification-churn.md)
+- [샘플 6-분류: 비행 지연 예측](how-to-designer-sample-classification-flight-delay.md)
 - [샘플 7-텍스트 분류: 위키백과 SP 500 데이터 집합](how-to-designer-sample-text-classification.md)

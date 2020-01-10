@@ -5,24 +5,24 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2eba0c7ae546b5f5ab7525cc8c84e6b6de431085
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409114"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768925"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
-Azure에서 함수 앱을 만들 때 앱에 대 한 호스팅 계획을 선택 해야 합니다. Azure Functions에 사용할 수 있는 세 가지 호스팅 계획 ( [소비 계획](#consumption-plan), [프리미엄 계획](#premium-plan)및 [App Service 계획](#app-service-plan))이 있습니다.
+Azure에서 함수 앱을 만들 때 앱에 대 한 호스팅 계획을 선택 해야 합니다. Azure Functions는 [소비 계획](#consumption-plan), [프리미엄 계획](#premium-plan)및 [전용 (App Service) 계획](#app-service-plan)의 세 가지 호스팅 계획을 사용할 수 있습니다.
 
 선택한 호스팅 계획에 따라 다음과 같은 동작이 결정 됩니다.
 
 * 함수 앱의 크기를 조정 하는 방법입니다.
 * 각 함수 앱 인스턴스에 사용할 수 있는 리소스입니다.
-* VNET 연결과 같은 고급 기능을 지원 합니다.
+* Azure Virtual Network 연결과 같은 고급 기능을 지원 합니다.
 
-코드를 실행할 때 소비 및 프리미엄 계획 모두 자동으로 계산 기능을 추가 합니다. 앱이 로드를 처리 하는 데 필요한 경우 확장 되 고 코드 실행이 중지 되 면 축소 됩니다. 소비 계획의 경우 유휴 Vm에 대 한 비용을 지불할 필요도 없으며 사전에 용량을 예약 하지 않아도 됩니다.  
+코드를 실행할 때 소비 및 프리미엄 계획 모두 자동으로 계산 기능을 추가 합니다. 앱이 로드를 처리 하는 데 필요한 경우 확장 되 고 코드 실행이 중지 되 면에서 크기가 조정 됩니다. 소비 계획의 경우 유휴 Vm에 대 한 비용을 지불할 필요도 없으며 사전에 용량을 예약 하지 않아도 됩니다.  
 
 프리미엄 요금제는 프리미엄 계산 인스턴스, 인스턴스를 무기한으로 유지 하는 기능 및 VNet 연결 등의 추가 기능을 제공 합니다.
 
@@ -78,7 +78,7 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 * 적은 수의 작은 실행을 보유 하 고 있으며 소비 계획에 높은 실행 청구서가 있지만 낮은 GB의 두 번째 청구서가 있습니다.
 * 소비 계획에서 제공 하는 것 보다 더 많은 CPU 또는 메모리 옵션이 필요 합니다.
 * 코드는 소비 계획에서 [허용 되는 최대 실행 시간](#timeout) 보다 오래 실행 해야 합니다.
-* VNET/VPN 연결과 같은 프리미엄 요금제 에서만 사용할 수 있는 기능이 필요 합니다.
+* 프리미엄 요금제 (예: 가상 네트워크 연결) 에서만 사용할 수 있는 기능이 필요 합니다.
 
 프리미엄 계획에서 JavaScript 함수를 실행 하는 경우 vCPUs 수가 작은 인스턴스를 선택 해야 합니다. 자세한 내용은 [단일 코어 프리미엄 계획 선택](functions-reference-node.md#considerations-for-javascript-functions)을 참조 하세요.  
 

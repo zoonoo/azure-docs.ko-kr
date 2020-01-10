@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 55eb1fe53aa4256f1b7eee44547703328816cd32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: adea5603c997380dde6731b53bc99ba7443e310b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409097"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769007"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -100,8 +100,8 @@ Python 함수 프로젝트에 권장 되는 폴더 구조는 다음 예제와 �
 * *로컬*에서 실행 하는 경우 응용 프로그램 설정 및 연결 문자열을 저장 하는 데 사용 됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local. settings. 파일](functions-run-local.md#local-settings-file)을 참조 하세요.
 * *요구 사항 .txt*: Azure에 게시할 때 시스템이 설치 하는 패키지 목록을 포함 합니다.
 * *host. json*: 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션을 포함 합니다. 이 파일은 Azure에 게시됩니다. 모든 옵션은 로컬로 실행할 때 지원 되지 않습니다. 자세한 내용은 [호스트 json](functions-host-json.md)을 참조 하세요.
-* *funcignore*: (선택 사항) Azure에 게시 되지 않아야 하는 파일을 선언 합니다.
-* *.gitignore*: (선택 사항) git 리포지토리에서 제외 되는 파일을 선언 합니다 (예: 로컬 설정).
+* *. funcignore*: (선택 사항) Azure에 게시 되지 않아야 하는 파일을 선언 합니다.
+* *. .gitignore*: (선택 사항) git 리포지토리에서 제외 되는 파일을 선언 합니다 (예: 로컬 설정).
 
 각 함수에는 자체 코드 파일과 바인딩 구성 파일(function.json)이 있습니다. 
 
@@ -171,7 +171,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_ 를 기반으로 Azure Blob Storage에서 검색 되 고 함수 본문에서 `obj` 사용할 수 있게 됩니다.  여기서 지정 된 저장소 계정은 함수 앱에서 사용 하는 것과 동일한 저장소 계정인에 있는 연결 문자열입니다.
+함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_ 를 기반으로 Azure Blob Storage에서 검색 되 고 함수 본문에서 `obj` 사용할 수 있게 됩니다.  여기서 지정 된 저장소 계정은 AzureWebJobsStorage 앱 설정에 있는 연결 문자열로,이는 함수 앱에서 사용 하는 것과 동일한 저장소 계정입니다.
 
 
 ## <a name="outputs"></a>outputs
@@ -282,7 +282,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="scaling-and-concurrency"></a>크기 조정 및 동시성
 
-기본적으로 Azure Functions는 응용 프로그램의 부하를 자동으로 모니터링 하 고 필요에 따라 Python의 추가 호스트 인스턴스를 만듭니다. 함수는 다양 한 트리거 유형에 대해 기본 제공 (사용자 구성 불가능) 임계값을 사용 하 여 인스턴스를 추가할 시기를 결정 합니다. 예를 들어 QueueTrigger에 대 한 메시지의 보존 기간 및 큐 크기를 결정할 수 있습니다. 자세한 내용은 [소비 및 프리미엄 계획의 작동 방식](functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조 하세요.
+기본적으로 Azure Functions는 응용 프로그램의 부하를 자동으로 모니터링 하 고 필요에 따라 Python의 추가 호스트 인스턴스를 만듭니다. 함수는 다양 한 트리거 유형에 대해 기본 제공 (사용자 구성 불가능) 임계값을 사용 하 여 QueueTrigger에 대 한 메시지의 보존 기간 및 큐 크기와 같은 인스턴스를 추가할 시기를 결정 합니다. 자세한 내용은 [소비 및 프리미엄 계획의 작동 방식](functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조 하세요.
 
 이러한 크기 조정 동작은 많은 응용 프로그램에서 충분 합니다. 그러나 다음과 같은 특징을 가진 응용 프로그램은 효과적으로 확장 되지 않을 수 있습니다.
 
@@ -641,7 +641,7 @@ OPTIONS HTTP 메서드를 지원 하도록 함수인 json도 업데이트 해야
     ...
 ```
 
-이 메서드는 Chrome 브라우저에서 허용 된 원본 목록을 협상 하는 데 사용 됩니다. 
+이 HTTP 메서드는 웹 브라우저에서 허용 된 원본 목록을 협상 하는 데 사용 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9c72c8431907c52dab338114ce09be139608ab0a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996734"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768591"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -35,11 +35,11 @@ Azure CLI 버전 2.0.76 이상이 설치 및 구성 되어 있어야 합니다. 
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
 * AKS 클러스터는 표준 SKU 부하 분산 장치를 사용 하 여 여러 노드 풀을 사용 해야 합니다 .이 기능은 기본 SKU 부하 분산 장치에서 지원 되지 않습니다.
 * AKS 클러스터는 노드에 대 한 가상 머신 확장 집합을 사용 해야 합니다.
-* 대부분의 작업과 마찬가지로 기존 리소스 관리자 템플릿을 사용 하 여 노드 풀을 추가 하거나 삭제할 수 없습니다. 대신 [별도의 리소스 관리자 템플릿을 사용](#manage-node-pools-using-a-resource-manager-template) 하 여 AKS 클러스터의 노드 풀을 변경 합니다.
 * 노드 풀의 이름에는 소문자 영숫자만 사용할 수 있으며 소문자 문자로 시작 해야 합니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
 * AKS 클러스터에는 최대 8 개의 노드 풀이 있을 수 있습니다.
 * AKS 클러스터는 해당 8 개 노드 풀에서 최대 800 노드를 가질 수 있습니다.
-* 모든 노드 풀이 동일한 서브넷에 있어야 합니다.
+* 모든 노드 풀은 동일한 vnet 및 서브넷에 있어야 합니다.
+* 클러스터를 만들 때 여러 노드 풀을 만들 때 노드 풀에서 사용 하는 모든 Kubernetes 버전은 제어 평면에 대해 설정 된 버전과 일치 해야 합니다. 이는 클러스터를 프로 비전 한 후 노드당 풀 작업을 사용 하 여 업데이트할 수 있습니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151423"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745111"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
 
@@ -28,7 +28,7 @@ Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적�
 
 Intelligent Insights는 다음 값을 제공하는 Azure의 기본 제공 인텔리전스의 고유 기능입니다.
 
-- 사전 모니터링
+- 사전 대처식 모니터링
 - 맞춤형 성능 정보
 - 데이터베이스 성능 저하의 초기 검색
 - 검색된 문제의 근본 원인 분석
@@ -164,7 +164,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 - 탄력적 풀 리소스 제한에 도달
 - 과도한 작업자 또는 세션 스레드 수
 - 과도한 데이터베이스 잠금
-- 메모리 가중
+- 메모리 압력
 - 다른 대기 통계
 
 리소스 제한이나 탄력적 풀 리소스 제한에 도달하면 구독 또는 탄력적 풀에서 사용할 수 있는 리소스 소모량이 절대 임계값 이상으로 증가했음을 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다. 과도한 작업자 또는 세션 스레드 수는 시작된 작업자 스레드 또는 세션 수가 절대 임계값 이상에 도달한 상태를 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다.
@@ -190,4 +190,4 @@ Intelligent Insights 로그는 오류 발생 요청의 수를 출력합니다. �
 - [Intelligent Insights를 사용하여 SQL Database 성능 문제를 해결](sql-database-intelligent-insights-troubleshoot-performance.md)하는 방법을 알아봅니다.
 - [Intelligent Insights의 SQL Database 성능 진단 로그](sql-database-intelligent-insights-use-diagnostics-log.md)를 사용합니다.
 - [SQL Analytics를 사용하여 SQL Database를 모니터링](../azure-monitor/insights/azure-sql.md)하는 방법을 알아봅니다.
-- [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/platform/resource-logs-overview.md)하는 방법을 알아봅니다.
+- [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/platform/platform-logs-overview.md)하는 방법을 알아봅니다.

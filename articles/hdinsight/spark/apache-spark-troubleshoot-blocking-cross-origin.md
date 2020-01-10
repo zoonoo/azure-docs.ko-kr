@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 7f8eb000533673d243258d569834869bbb2a1778
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: df8f934cd7dad4e0c79c6f48d857967592e0e69e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241122"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751057"
 ---
 # <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 "크로스 원본 API 차단"으로 인해 Jupyter 서버 404 "찾을 수 없음" 오류가 발생 했습니다.
 
@@ -25,7 +25,7 @@ HDInsight에서 Jupyter 서비스에 액세스 하면 "찾을 수 없음" 이라
 ```log
 [W 2018-08-21 17:43:33.352 NotebookApp] 404 PUT /api/contents/PySpark/notebook.ipynb (10.16.0.144) 4504.03ms referer=https://pnhr01hdi-corpdir.msappproxy.net/jupyter/notebooks/PySpark/notebook.ipynb
 Blocking Cross Origin API request.  
-Origin: https://xxx.xxx.xxx, Host: hn0-pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.internal.cloudapp.net:8001
+Origin: https://xxx.xxx.xxx, Host: pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.internal.cloudapp.net:8001
 ```
 
 Jupyter 로그의 "원본" 필드에 IP 주소도 표시 될 수도 있습니다.

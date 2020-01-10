@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9582881626f58ebbbae5648fe5d4b46e14fd5850
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462284"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763330"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 나열
 
@@ -40,6 +40,22 @@ ms.locfileid: "75462284"
     ![사용자에 대한 역할 할당](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. 구독을 변경 하려면 **구독** 목록을 클릭 합니다.
+
+## <a name="list-owners-of-a-subscription"></a>구독의 소유자 나열
+
+구독에 대 한 [소유자](built-in-roles.md#owner) 역할이 할당 된 사용자는 구독의 모든 항목을 관리할 수 있습니다. 다음 단계를 수행 하 여 구독의 소유자를 나열 합니다.
+
+1. Azure Portal에서 **모든 서비스**, **구독**을 차례로 클릭합니다.
+
+1. 소유자를 나열 하려는 구독을 클릭 합니다.
+
+1. **액세스 제어(IAM)** 를 클릭합니다.
+
+1. **역할 할당** 탭을 클릭하여 이 구독의 모든 역할 할당을 봅니다.
+
+1. **소유자** 섹션으로 스크롤하여이 구독의 소유자 역할이 할당 된 모든 사용자를 확인 합니다.
+
+   ![구독 액세스 제어-역할 할당 탭](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>범위에서 역할 할당 나열
 

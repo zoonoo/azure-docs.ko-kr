@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 8bb30da9be5a025f87e5c6d17e0233d0793f3acb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230690"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769271"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Azure Functions에서 HTTP 끝점 사용자 지정
 
-이 문서에서는 Azure Functions를 사용 하 여 확장성이 뛰어난 Api를 빌드하는 방법을 알아봅니다. Azure Functions에는 Node.JS, C# 등을 비롯한 다양한 언어로 쉽게 엔드포인트를 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션이 제공됩니다. 이 문서에서는 API 디자인의 특정 작업을 처리 하도록 HTTP 트리거를 사용자 지정 합니다. 또한 Azure Functions 프록시와 통합하고 모의 API를 설정하여 API를 확장할 준비를 진행합니다. 이러한 모든 작업은 Functions의 서버리스 컴퓨팅 환경에서 수행되므로 리소스 확장 문제를 걱정할 필요가 없으며 API 논리에만 집중하면 됩니다.
+이 문서에서는 Azure Functions를 사용 하 여 확장성이 뛰어난 Api를 빌드하는 방법을 알아봅니다. Azure Functions은 node.js, C#등을 비롯 한 다양 한 언어로 끝점을 쉽게 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션과 함께 제공 됩니다. 이 문서에서는 API 디자인의 특정 작업을 처리 하도록 HTTP 트리거를 사용자 지정 합니다. 또한 Azure Functions 프록시와 통합하고 모의 API를 설정하여 API를 확장할 준비를 진행합니다. 이러한 모든 작업은 Functions의 서버리스 컴퓨팅 환경에서 수행되므로 리소스 확장 문제를 걱정할 필요가 없으며 API 논리에만 집중하면 됩니다.
 
-## <a name="prerequisites"></a>선행 조건 
+## <a name="prerequisites"></a>필수 조건 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -37,17 +37,17 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 
 1. 테이블에 지정된 것처럼 HTTP 트리거 설정을 사용합니다.
 
-    | 필드 | 샘플 값 | 설명 |
+    | 필드 | 샘플 값 | Description |
     |---|---|---|
     | 허용된 HTTP 메서드 | 선택된 메서드 | 이 함수를 호출하는 데 사용할 수 있는 HTTP 메서드 결정 |
-    | 선택한 HTTP 메서드 | 가져오기 | 선택한 HTTP 메서드만 이 함수를 호출하는 데 사용할 수 있도록 허용 |
+    | 선택한 HTTP 메서드 | GET | 선택한 HTTP 메서드만 이 함수를 호출하는 데 사용할 수 있도록 허용 |
     | 경로 템플릿 | /hello | 이 함수를 호출하는 데 사용할 경로 결정 |
     | 권한 부여 수준 | 익명 | 선택 사항: 함수가 API 키 없이 액세스할 수 있게 됩니다 |
 
     > [!NOTE] 
     > `/api` 기본 경로 접두사는 전역 설정에 의해 처리되므로 경로 템플릿에 포함하지 않았습니다.
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 [Azure Functions HTTP 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)에서 HTTP 함수 사용자 지정에 대해 자세히 알아보세요.
 
@@ -66,7 +66,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 다음 섹션에서는 프록시를 통해 API를 노출합니다. Azure Functions 프록시를 사용하면 요청을 다른 리소스로 전달할 수 있습니다. HTTP 트리거를 사용할 때처럼 HTTP 엔드포인트를 정의하지만, 해당 엔드포인트가 호출될 때 실행할 코드를 작성하지 않고 원격 구현에 대한 URL을 제공합니다. 이렇게 하면 여러 API 원본을 클라이언트가 쉽게 사용할 수 있는 단일 API 화면으로 작성할 수 있습니다. 이러한 방식은 API를 마이크로 서비스로 빌드하려는 경우에 특히 유용합니다.
 
 프록시는 다음과 같은 HTTP 리소스를 가리킬 수 있습니다.
-- Azure 기능 
+- Azure Function 
 - [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)의 API 앱
 - [Linux의 App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)에 있는 Docker 컨테이너
 - 기타 호스트된 API
@@ -88,7 +88,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
     > [!NOTE] 
     > 프록시에 대한 하드 코드된 환경 종속성을 방지하려면 호스트 구성에 대해 앱 설정이 권장됩니다. 앱 설정을 사용할 경우 환경 간에 프록시 구성을 이동할 수 있고 환경 관련 앱 설정이 적용됩니다.
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>프런트 엔드에 프록시 만들기
 
@@ -97,7 +97,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
     ![프록시 만들기](./media/functions-create-serverless-api/creating-proxy.png)
 1. 표에 지정된 것처럼 프록시 설정을 사용합니다. 
 
-    | 필드 | 샘플 값 | 설명 |
+    | 필드 | 샘플 값 | Description |
     |---|---|---|
     | 이름 | HelloProxy | 관리에 대해서만 사용되는 이름 |
     | 경로 템플릿 | /api/remotehello | 이 프록시를 호출하는 데 사용할 경로 결정 |

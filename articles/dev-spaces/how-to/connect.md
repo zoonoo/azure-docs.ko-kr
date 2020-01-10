@@ -5,12 +5,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: Azure Dev Spaces를 사용 하 여 개발 컴퓨터를 AKS 클러스터에 연결 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: c26d159d6f883e1c368b09a82bc53c621c70e281
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482245"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770682"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>개발 머신을 AKS 클러스터에 연결(미리 보기)
 
@@ -35,9 +35,9 @@ Azure Dev Spaces 연결 된 AKS 클러스터와 개발 컴퓨터 간의 트래�
 
 * UDP는 지금은 지원 되지 않습니다.
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치][azure-cli]
 * MacOS 또는 Windows 10에서 [Azure Dev Spaces][azds-vs-code] 확장을 설치 하 고 실행 하는 [Visual Studio Code][vs-code] .
 * [Azure Dev Spaces 자전거 공유 샘플 응용 프로그램](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) 또는 AKS 클러스터에서 실행 되는 자체 응용 프로그램입니다.
@@ -96,7 +96,7 @@ Azure Dev Spaces 확장을 사용 하려면 *보기* , *명령 팔레트*를 차
 
 Azure Dev Spaces AKS 클러스터에 대 한 연결을 설정한 후에 *AZDS* 라는 제목의 터미널 창이 열립니다. 이 터미널 창에는 AKS 클러스터에서 구성 된 모든 환경 변수 및 DNS 항목이 있습니다. 이 터미널 창에서 실행 하거나 Visual Studio Code 디버거를 사용 하 여 실행 하는 모든 코드는 AKS 클러스터에 연결 됩니다.
 
-![터미널과](../media/how-to-connect/connect-terminal.png)
+![터미널](../media/how-to-connect/connect-terminal.png)
 
 또한 Azure Dev Spaces는 *Dev Spaces* 가 모든 출력을 연결 하는 창을 만듭니다.
 
@@ -104,7 +104,7 @@ Azure Dev Spaces AKS 클러스터에 대 한 연결을 설정한 후에 *AZDS* �
 
 또한 Azure Dev Spaces에는 연결 상태를 보여 주는 상태 표시줄 항목이 있습니다.
 
-![가동 상태](../media/how-to-connect/connect-status.png)
+![상태](../media/how-to-connect/connect-status.png)
 
 상태 표시줄에 Dev Spaces가 표시 되는지 확인 합니다 *. 로컬 포트 3000에서 dev/bikes에 연결*됩니다.
 
@@ -254,6 +254,6 @@ Azure Dev Spaces 상태 표시줄을 클릭 하 고 *진단 정보 표시*를 �
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download
