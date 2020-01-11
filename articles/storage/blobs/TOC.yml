@@ -542,7 +542,7 @@
             - name: Storage Explorer 시작
               href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Storage Explorer 릴리스 정보
-              href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Storage Explorer 문제 해결
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Storage Explorer 접근성

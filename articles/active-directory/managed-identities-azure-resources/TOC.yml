@@ -20,8 +20,6 @@
           href: tutorial-windows-vm-access-datalake.md
         - name: Azure Storage 액세스
           href: tutorial-vm-windows-access-storage.md
-        - name: 액세스 키를 사용하여 Azure Storage 액세스
-          href: tutorial-windows-vm-access-storage.md
         - name: Azure SQL 액세스
           href: tutorial-windows-vm-access-sql.md
         - name: Azure Key Vault 액세스
