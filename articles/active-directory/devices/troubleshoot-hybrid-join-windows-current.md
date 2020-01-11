@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689130"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888790"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 연결 된 장치 문제 해결 
 
@@ -245,7 +245,7 @@ WamDefaultAuthority: organizations
 실패 이유:
 
 - DRS 리소스에 대 한 액세스 토큰을 자동으로 가져올 수 없습니다.
-   - Windows 10 장치는 활성 WS-TRUST 끝점에 Windows 통합 인증을 사용 하 여 페더레이션 서비스에서 인증 토큰을 가져옵니다. 세부 정보: [페더레이션 서비스 구성](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+   - Windows 10 장치는 활성 WS-TRUST 끝점에 Windows 통합 인증을 사용 하 여 페더레이션 서비스에서 인증 토큰을 가져옵니다. 세부 정보: [페더레이션 서비스 구성](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **일반적인 오류 코드:**
 

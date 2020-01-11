@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: f3f89de07e2e17a4dda47ce3650391af38663004
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087197"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894306"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
 
@@ -20,7 +20,7 @@ ms.locfileid: "71087197"
 
 ## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>시나리오: Apache Spark에 대 한 OutOfMemoryError 예외
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 OutOfMemoryError 처리 되지 않은 예외가 발생 하 여 Apache Spark 응용 프로그램이 실패 했습니다. 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
 
@@ -56,11 +56,11 @@ java.lang.OutOfMemoryError
 
 이 예외의 가장 가능성 높은 원인은 JVM(Java Virtual Machine)에 할당된 힙 메모리가 충분하지 않다는 것입니다. 이러한 Jvm는 실행 기 또는 드라이버를 Apache Spark 응용 프로그램의 일부로 실행 됩니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 1. Spark 애플리케이션에서 처리할 데이터의 최대 크기를 결정합니다. 입력 데이터의 최대 크기를 기준으로 크기를 예상 하 고, 입력 데이터를 변환 하 여 생성 된 중간 데이터와 중간 데이터를 추가로 변환 하 여 출력 데이터를 생성 합니다. 초기 예측이 충분 하지 않으면 크기를 약간 늘리고 메모리 오류가 감소 때까지 반복 합니다.
 
-1. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. 이는 클러스터의 YARN UI에 있는 클러스터 메트릭 섹션을 확인 하 여 **사용 된 메모리** 및 **사용 되는** **메모리 총** 및 vcores **VCores Total** 값을 검토하여 이를 확인할 수 있습니다.
+1. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. 이는 클러스터의 YARN UI에 있는 클러스터 메트릭 섹션에서 사용 하는 **메모리** 및 **총 메모리** 와 vcores의 **합계** **를 비교 하** 여 확인할 수 있습니다.
 
     ![yarn core 메모리 보기](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
@@ -92,7 +92,7 @@ java.lang.OutOfMemoryError
 
 ## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>시나리오: Apache Spark 기록 서버를 열려고 할 때 Java 힙 공간 오류가 발생 했습니다.
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 Spark 기록 서버에서 이벤트를 열 때 다음과 같은 오류가 표시 됩니다.
 
@@ -114,15 +114,15 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 **2.1 G**  wasb:///hdp/spark2-events/application_1503957839788_0264_1
 ```
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-Spark 구성에서 속성을 `SPARK_DAEMON_MEMORY` 편집 하 고 모든 서비스를 다시 시작 하 여 spark 기록 서버 메모리를 늘릴 수 있습니다.
+Spark 구성에서 `SPARK_DAEMON_MEMORY` 속성을 편집 하 고 모든 서비스를 다시 시작 하 여 Spark 기록 서버 메모리를 늘릴 수 있습니다.
 
 Spark2/Config/Advanced Spark2 섹션을 선택 하 여 Ambari 브라우저 UI 내에서이 작업을 수행할 수 있습니다.
 
 ![Advanced spark2-env 섹션](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
-다음 속성을 추가 하 여 Spark 기록 서버 메모리를 1g에서 4g:로 `SPARK_DAEMON_MEMORY=4g`변경 합니다.
+다음 속성을 추가 하 여 Spark 기록 서버 메모리를 1g에서 4g: `SPARK_DAEMON_MEMORY=4g`로 변경 합니다.
 
 ![Spark 속성](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
@@ -132,7 +132,7 @@ Ambari에서 영향을 받는 모든 서비스를 다시 시작 해야 합니다
 
 ## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>시나리오: Apache Spark 클러스터에서 Livy 서버를 시작 하지 못함
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 Livy 서버는 Apache Spark (Linux의 Spark 2.1 (HDI 3.6)]에서 시작할 수 없습니다. 다시 시작을 시도 하면 Livy 로그에서 다음 오류 스택이 생성 됩니다.
 
@@ -194,13 +194,13 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>원인
 
-`java.lang.OutOfMemoryError: unable to create new native thread`운영 체제에서 Jvm에 더 많은 네이티브 스레드를 할당할 수 없는 경우를 강조 표시 합니다. 프로세스별 스레드 수 제한 위반으로 인해이 예외가 발생 한 것으로 확인 되었습니다.
+`java.lang.OutOfMemoryError: unable to create new native thread` 강조 표시 OS는 Jvm에 더 많은 네이티브 스레드를 할당할 수 없습니다. 프로세스별 스레드 수 제한 위반으로 인해이 예외가 발생 한 것으로 확인 되었습니다.
 
 Livy 서버가 예기치 않게 종료 되 면 Spark 클러스터에 대 한 모든 연결이 종료 됩니다. 즉, 모든 작업 및 관련 데이터가 손실 됩니다. HDP 2.6 세션 복구 메커니즘이 도입 되었습니다. Livy는 Livy 서버를 다시 시작한 후에 복구 될 수 있도록 세션 세부 정보를 사육 사육에 저장 합니다.
 
 Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 한 고가용성의 일부로 ZK (HDInsight 클러스터)에 이러한 세션 상태를 저장 하 고 Livy 서비스가 다시 시작 될 때 해당 세션을 복구 합니다. 예기치 않게 종료 된 후 다시 시작 시 Livy은 세션당 스레드를 하나씩 만들지만이로 인해 너무 많은 스레드가 생성 될 수 있도록 특정 개수의 복구 된 세션이 누적 됩니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 아래에 설명 되어 있는 단계를 사용 하 여 모든 항목을 삭제 합니다.
 
@@ -239,7 +239,7 @@ Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 �
 1. 위의 명령이 완료 될 때까지 기다리거나 커서를 통해 프롬프트가 반환 되 면 성공 해야 하는 Ambari에서 Livy service를 다시 시작 합니다.
 
 > [!NOTE]
-> `DELETE`livy 세션이 실행을 완료 한 후 Livy batch 세션은 spark 앱이 완료 되 자 마자 자동으로 삭제 되지 않습니다. Livy 세션은 Livy Rest 서버에 대 한 POST 요청에 의해 생성 된 엔터티입니다. 해당 엔터티를 삭제 하려면 호출이필요합니다.`DELETE` 또는 GC가 시작 될 때까지 기다려야 합니다.
+> livy 세션의 실행이 완료 되 면 해당 세션을 `DELETE` 합니다. Livy batch 세션은 spark 앱이 완료 되 자 마자 자동으로 삭제 되지 않습니다. Livy 세션은 Livy Rest 서버에 대 한 POST 요청에 의해 생성 된 엔터티입니다. `DELETE` 호출은 해당 엔터티를 삭제 하는 데 필요 합니다. 또는 GC가 시작 될 때까지 기다려야 합니다.
 
 ---
 
@@ -253,6 +253,6 @@ Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 �
 
 * Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-* 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+* [@AzureSupport](https://twitter.com/azuresupport) 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

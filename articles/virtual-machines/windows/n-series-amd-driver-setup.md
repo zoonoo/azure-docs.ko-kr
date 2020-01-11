@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 6f0aa8a08b8a502edbd15d3ede157b78a13b8588
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7527cd59ef812c108cc53f84ad19f4d2cff9ec5e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479359"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893573"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행 하는 N 시리즈 Vm에 AMD GPU 드라이버 설치
 
@@ -37,7 +37,7 @@ Windows를 실행 하는 새로운 Azure NVv4 시리즈 Vm의 GPU 기능을 활�
 
 1. 원격 데스크톱을 통해 각 NVv4 시리즈 VM에 연결 합니다.
 
-1. Windows 운영 체제에 지원되는 드라이버를 다운로드, 추출 및 설치합니다.
+1. 드라이버 설치 파일을 다운로드 하 고 압축을 풉니다. 폴더로 이동한 후 ' setup.exe '를 실행 하 여 Windows 운영 체제에 대해 지원 되는 드라이버를 설치 합니다.
 
 ## <a name="verify-driver-installation"></a>드라이버 설치 확인
 

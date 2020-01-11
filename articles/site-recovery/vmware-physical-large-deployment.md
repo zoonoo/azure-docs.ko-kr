@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082216"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895787"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>VMware v m/물리적 서버에 대해 대규모 재해 복구 설정
 
@@ -83,9 +83,9 @@ Deployment Planner는 VMware 온-프레미스 환경에 대 한 정보를 수집
 
 대상 구독에서 사용 가능한 할당량이 장애 조치 (failover)를 처리 하기에 충분 한지 확인 하려고 합니다.
 
-**작업** | **세부 정보** | **동작**
+**Task** | **세부 정보** | **동작**
 --- | --- | ---
-**코어 확인** | 사용 가능한 할당량의 코어가 장애 조치 (failover) 시 전체 대상 수를 초과 하지 않는 경우 장애 조치 (failover)가 실패 합니다. | VMware Vm의 경우 대상 구독에 Deployment Planner 핵심 권장 사항을 충족 하는 코어가 충분 한지 확인 합니다.<br/><br/> 물리적 서버의 경우 Azure 코어가 수동 추정치를 충족 하는지 확인 합니다.<br/><br/> 할당량을 확인 하려면 Azure Portal > **구독**에서 **사용량 + 할당량**을 클릭 합니다.<br/><br/> 할당량 향상에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) .
+**코어 확인** | 사용 가능한 할당량의 코어가 장애 조치 (failover) 시 전체 대상 수를 초과 하지 않는 경우 장애 조치 (failover)가 실패 합니다. | VMware Vm의 경우 대상 구독에 Deployment Planner 핵심 권장 사항을 충족 하는 코어가 충분 한지 확인 합니다.<br/><br/> 물리적 서버의 경우 Azure 코어가 수동 추정치를 충족 하는지 확인 합니다.<br/><br/> 할당량을 확인 하려면 Azure Portal > **구독**에서 **사용량 + 할당량**을 클릭 합니다.<br/><br/> 할당량 향상에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) .
 **장애 조치 (failover) 제한 확인** | 장애 조치 (failover) 되어서는 안됩니다 수가 Site Recovery 장애 조치 (failover) 제한을 초과 합니다. |  장애 조치 (failover)가 제한을 초과 하는 경우 구독을 추가 하 고 여러 구독으로 장애 조치 (failover) 하거나 구독에 대 한 할당량을 늘릴 수 있습니다. 
 
 
@@ -95,13 +95,13 @@ Deployment Planner는 VMware 온-프레미스 환경에 대 한 정보를 수집
 
 의미는 무엇 인가요? Azure VM을 시작 하려면 일부 드라이버가 부팅 시작 상태 여야 하 고 DHCP와 같은 서비스가 자동으로 시작 되도록 설정 되어야 합니다.
 - 를 준수 하는 컴퓨터에는 이러한 설정이 이미 적용 되어 있습니다.
-- Windows를 실행 하는 컴퓨터의 경우 규정 준수를 사전에 확인 하 고 필요한 경우 정책을 준수 하도록 할 수 있습니다. [자세히 알아봅니다](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- Windows를 실행 하는 컴퓨터의 경우 규정 준수를 사전에 확인 하 고 필요한 경우 정책을 준수 하도록 할 수 있습니다. [자세히 알아보기](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
 - Linux 컴퓨터는 장애 조치 (failover) 시에만 준수 상태로 전환 됩니다.
 
 **컴퓨터가 Azure를 준수 하나요?** | **Azure VM 제한 (관리 디스크 장애 조치 (failover))**
 --- | --- 
 예 | 2000
-아니오 | 1000
+아닙니다. | 1000
 
 - 제한에는 구독에 대 한 대상 지역에서 최소한의 다른 작업이 진행 중 이라고 가정 합니다.
 - 일부 Azure 지역은 더 작으며 약간 낮은 제한이 있을 수 있습니다.
@@ -155,7 +155,7 @@ vCPU 8대<br> 2 개 소켓 * 4 코어 @ 2.5 g h z | 16GB | 600GB | 최대 550 �
 
 **CPU** | **메모리** | **캐시 디스크** | **변동 율**
  --- | --- | --- | --- 
-vCPU 12대<br> 2 개 소켓 * 6 코어 @ 2.5 g h z | 24GB | 1 GB | 하루 최대 2tb
+vCPU 12대<br> 2 개 소켓 * 6 코어 @ 2.5 g h z | 24GB | 1GB | 하루 최대 2tb
 
 다음과 같이 프로세스 서버를 설정 합니다.
 

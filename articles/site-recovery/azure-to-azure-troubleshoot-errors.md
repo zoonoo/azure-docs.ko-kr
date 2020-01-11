@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgang
-ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: asgangal
+ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084917"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895005"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "74084917"
 
 ### <a name="fix-the-problem"></a>문제 해결
 
-[Azure 청구 지원](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) 에 문의 하 여 구독에서 대상 위치에 필요한 크기의 vm을 만들 수 있도록 합니다. 그런 다음 실패 한 작업을 다시 시도 합니다.
+[Azure 청구 지원](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) 에 문의 하 여 구독에서 대상 위치에 필요한 크기의 vm을 만들 수 있도록 합니다. 그런 다음 실패 한 작업을 다시 시도 합니다.
 
 대상 위치에 용량 제약 조건이 있으면 복제를 사용 하지 않도록 설정 합니다. 그런 다음, 구독에 필요한 크기의 Vm을 만들 수 있는 충분 한 할당량이 있는 다른 위치로 복제를 사용 하도록 설정 합니다.
 
@@ -80,7 +80,7 @@ SuSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증�
 
 1. Symantec 루트 CA 인증서를 찾을 수 없는 경우 다음 명령을 실행 하 여 파일을 다운로드 합니다. 오류를 확인 하 고 네트워크 오류에 대 한 권장 조치를 따릅니다.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Baltimore 루트 CA 인증서가 있는지 확인 합니다.
 
@@ -88,7 +88,7 @@ SuSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증�
 
 1. Baltimore 루트 CA 인증서를 찾을 수 없는 경우 다음 명령을 실행 하 여 인증서를 다운로드 합니다.
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
 
 1. DigiCert_Global_Root_CA 인증서가 있는지 확인 합니다.
 

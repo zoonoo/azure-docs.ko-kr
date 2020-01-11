@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9b17548bf840ff0e2f94ed6933e5abdcc04110c8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286506"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887787"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(사용되지 않음) Container Service 질문과 대답
 
@@ -64,7 +64,7 @@ Azure Container Service에서 Kubernetes 클러스터를 만들려면 Azure Acti
 1, 3 또는 5개의 마스터 노드가 있는 클러스터를 만들 수 있습니다. 최대 100개의 에이전트 노드를 선택할 수 있습니다.
 
 > [!IMPORTANT]
-> 대규모 클러스터 및 노드에 선택한 VM 크기에 따라 구독에서 코어 할당량을 늘려야 합니다. 할당량 증가를 요청하려면 추가 비용 없이 [온라인 고객 지원 요청](../../azure-supportability/how-to-create-azure-support-request.md)을 개설합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 컴퓨팅 코어만 사용할 수 있습니다.
+> 대규모 클러스터 및 노드에 선택한 VM 크기에 따라 구독에서 코어 할당량을 늘려야 합니다. 할당량 증가를 요청하려면 추가 비용 없이 [온라인 고객 지원 요청](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 개설합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 컴퓨팅 코어만 사용할 수 있습니다.
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>클러스터를 만든 후 마스터 수는 어떻게 늘리나요? 
@@ -104,7 +104,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. **요약** 페이지의 **출력** 아래에 여러 개의 클러스터 링크가 제공됩니다. **SSHMaster0**은 컨테이너 서비스 클러스터의 첫 번째 마스트에 SSH 연결 문자열을 제공합니다. 
 
-이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

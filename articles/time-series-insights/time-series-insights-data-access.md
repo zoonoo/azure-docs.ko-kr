@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7a70d8209c5c349fc082d939a24deac23fa954d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863430"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894798"
 ---
 # <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 
@@ -103,7 +103,7 @@ ms.locfileid: "75863430"
 
     [![게스트가 수락 시작을 선택 합니다.](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
-1. **시작** 을 선택 하면 게스트 사용자에 게 관리자 조직과 연결 된 사용 권한 상자가 표시 됩니다. **수락**을 선택 하 여 권한을 부여 하면 로그인 됩니다.
+1. **시작**을 선택한 후에는 게스트 사용자에 게 관리자 조직과 연결 된 사용 권한 상자가 표시 됩니다. **수락**을 선택 하 여 권한을 부여 하면 로그인 됩니다.
 
     [![게스트 검토 권한 및 수락](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 

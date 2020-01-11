@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 42e92fa2b088fc04d4aa670e6586fcfe26ff3a70
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7184a6b85e93c41dfe914813301a4b1a0c88f2cd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441694"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887685"
 ---
 # <a name="create-containers-with-large-partition-key"></a>파티션 키가 많은 컨테이너 만들기
 
@@ -29,7 +29,7 @@ Azure Cosmos DB는 해시 기반 파티션 구성표를 사용 하 여 데이터
 
 대량 파티션 키를 지 원하는 컨테이너를 만들려면를 참조 하세요.
 
-* [큰 파티션 키 크기를 사용 하 여 Azure Cosmos 컨테이너 만들기](manage-with-powershell.md##create-container-big-pk)
+* [큰 파티션 키 크기를 사용 하 여 Azure Cosmos 컨테이너 만들기](manage-with-powershell.md#create-container-big-pk)
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>대량 파티션 키 만들기 (.Net SDK)
 

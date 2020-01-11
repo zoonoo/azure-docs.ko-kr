@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272749"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888883"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션 (미리 보기)
 |     |
@@ -31,7 +31,7 @@ ms.locfileid: "74272749"
 > 직접 페더레이션 게스트 사용자는 테 넌 트 컨텍스트를 포함 하는 링크 (예: `https://myapps.microsoft.com/?tenantid=<tenant id>` 또는 `https://portal.azure.com/<tenant id>`또는 확인 된 도메인의 경우 `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`)를 사용 하 여 로그인 해야 합니다. 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 직접 페더레이션 사용자는 현재 테 넌 트 컨텍스트가 없는 일반 끝점을 사용 하 여 로그인 할 수 없습니다. 예를 들어 `https://myapps.microsoft.com`, `https://portal.azure.com`또는 `https://teams.microsoft.com`를 사용 하면 오류가 발생 합니다.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>게스트 사용자가 직접 페더레이션을 사용 하 여 인증 된 경우는 언제 입니까?
-조직과의 직접 페더레이션을 설정한 후에는 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자가 인증 됩니다. 직접 페더레이션을 설정 해도 이미 초대를 받은 게스트 사용자에 대 한 인증 방법은 변경 되지 않습니다. 다음은 몇 가지 예입니다.
+조직과의 직접 페더레이션을 설정한 후에는 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자가 인증 됩니다. 직접 페더레이션을 설정 해도 이미 초대를 받은 게스트 사용자에 대 한 인증 방법은 변경 되지 않습니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
  - 게스트 사용자가 이미 사용자의 초대를 사용 하는 경우 이후에 조직과 직접 페더레이션을 설정 하면 해당 게스트 사용자는 직접 페더레이션을 설정 하기 전에 사용한 것과 동일한 인증 방법을 계속 사용 합니다.
  - 파트너 조직과의 직접 페더레이션을 설정 하 고 게스트 사용자를 초대 하는 경우 파트너 조직에서 나중에 Azure AD로 이동 하는 경우 초대를 이미 사용한 게스트 사용자는 직접 페더레이션을 계속 사용 합니다. 테 넌 트의 페더레이션 정책이 있습니다.
  - 파트너 조직과의 직접 페더레이션을 삭제 하는 경우 현재 직접 페더레이션을 사용 하는 모든 게스트 사용자는 로그인 할 수 없습니다.
@@ -64,7 +64,7 @@ Id 공급자 설정에서 메타 데이터 URL을 지정 하는 경우 Azure AD�
 
 ### <a name="limit-on-federation-relationships"></a>페더레이션 관계에 대 한 제한
 현재 최대 1000 페더레이션 관계가 지원 됩니다. 이 제한에는 [내부 페더레이션](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) 및 직접 페더레이션을 모두 포함 됩니다.
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>관리 되지 않는 (전자 메일 확인) 테 넌 트가 존재 하는 도메인을 사용 하 여 직접 페더레이션을 설정할 수 있나요? 
 예. 도메인을 확인 하지 않은 상태에서 테 넌 트가 [관리자 인수](../users-groups-roles/domains-admin-takeover.md)하지 않은 경우 해당 도메인을 사용 하 여 직접 페더레이션을 설정할 수 있습니다. 관리 되지 않거나 전자 메일 확인 됨은 사용자가 B2B 초대를 교환 현재 존재 하지 않는 도메인을 사용 하 여 Azure AD에 대 한 셀프 서비스 등록을 수행 하는 경우에 생성 됩니다. 이러한 도메인으로 직접 페더레이션을 설정할 수 있습니다. Azure Portal 또는 PowerShell을 통해 DNS 확인 도메인으로 직접 페더레이션을 설정 하려고 하면 오류가 표시 됩니다.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>직접 페더레이션 및 전자 메일 일회용 암호 인증을 둘 다 사용 하도록 설정 하는 경우 어떤 방법이 우선적으로 적용 되나요?
@@ -83,14 +83,14 @@ Id 공급자 설정에서 메타 데이터 URL을 지정 하는 경우 Azure AD�
 Azure AD B2B는 아래 나열 된 특정 요구 사항과 함께 SAML 프로토콜을 사용 하는 id 공급자와 페더레이션 하도록 구성할 수 있습니다. SAML id 공급자와 Azure AD 간의 트러스트를 설정 하는 방법에 대 한 자세한 내용은 [Single sign-on에 saml 2.0 Id 공급자 (IdP) 사용](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp)을 참조 하세요.  
 
 > [!NOTE]
-> 참고 직접 페더레이션을 위한 대상 도메인은 Azure AD에서 DNS로 확인 되지 않아야 합니다. 인증 URL 도메인은 대상 도메인과 일치 해야 합니다. 또는 허용 되는 id 공급자의 도메인 이어야 합니다. 자세한 내용은 [제한 사항](#limitations) 섹션을 참조 하세요. 
+> 직접 페더레이션을 위한 대상 도메인은 Azure AD에서 DNS를 확인 하지 않아야 합니다. 인증 URL 도메인은 대상 도메인과 일치 해야 합니다. 또는 허용 되는 id 공급자의 도메인 이어야 합니다. 자세한 내용은 [제한 사항](#limitations) 섹션을 참조 하세요. 
 
 #### <a name="required-saml-20-attributes-and-claims"></a>필요한 SAML 2.0 특성 및 클레임
 다음 표에서는 타사 id 공급자에서 구성 해야 하는 특정 특성 및 클레임에 대 한 요구 사항을 보여 줍니다. 직접 페더레이션을 설정 하려면 id 공급자의 SAML 2.0 응답에서 다음 특성을 받아야 합니다. 이러한 특성은 온라인 보안 토큰 서비스 XML 파일에 연결 하거나 수동으로 입력 하 여 구성할 수 있습니다.
 
 IdP의 SAML 2.0 응답에 필요한 특성:
 
-|특성  |값  |
+|attribute  |값  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |대상     |`urn:federation:MicrosoftOnline`         |
@@ -99,7 +99,7 @@ IdP의 SAML 2.0 응답에 필요한 특성:
 
 IdP에서 발급 한 SAML 2.0 토큰에 필요한 클레임:
 
-|특성  |값  |
+|attribute  |값  |
 |---------|---------|
 |NameID 형식     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,7 +116,7 @@ Azure AD B2B는 아래 나열 된 몇 가지 특정 요구 사항과 함께 WS-�
 
 IdP의 WS-급지됨 메시지에 필요한 특성:
  
-|특성  |값  |
+|attribute  |값  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |대상     |`urn:federation:MicrosoftOnline`         |
@@ -124,7 +124,7 @@ IdP의 WS-급지됨 메시지에 필요한 특성:
 
 IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 
-|특성  |값  |
+|attribute  |값  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

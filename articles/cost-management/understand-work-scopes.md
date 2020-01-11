@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 63b778379dda39a795cccdcfa0c1443870d50365
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 653e57a69e1c7ff8dbeadb14cda6e415ff3a9ee9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440987"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887566"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -110,7 +110,7 @@ Azure 구독은 등록 계정 아래에 중첩 됩니다. 청구 사용자는 �
 
 개별 Azure 구독 계정 관리자는 [Azure 계정 센터](https://account.azure.com/subscriptions)에서 송장, 지불 등의 청구 데이터를 보고 관리할 수 있습니다. 그러나 Azure Portal에서 비용 데이터를 보거나 리소스를 관리할 수 없습니다. 계정 관리자에 게 액세스 권한을 부여 하려면 앞에서 언급 한 Cost Management 역할을 사용 합니다.
 
-EA와 달리 개별 Azure 구독 계정 관리자는 Azure Portal에서 송장을 볼 수 있습니다. Cost Management 판독기와 Cost Management 참가자 역할은 청구서에 대 한 액세스 권한을 제공 하지 않습니다. 자세한 내용은 [청구서에 대 한 액세스 권한을 부여 하는 방법](../billing/billing-manage-access.md##give-read-only-access-to-billing)을 참조 하세요.
+EA와 달리 개별 Azure 구독 계정 관리자는 Azure Portal에서 송장을 볼 수 있습니다. Cost Management 판독기와 Cost Management 참가자 역할은 청구서에 대 한 액세스 권한을 제공 하지 않습니다. 자세한 내용은 [청구서에 대 한 액세스 권한을 부여 하는 방법](../billing/billing-manage-access.md#give-read-only-access-to-billing)을 참조 하세요.
 
 ## <a name="microsoft-customer-agreement-scopes"></a>Microsoft 고객 계약 범위
 

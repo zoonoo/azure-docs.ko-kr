@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: danlep
-ms.openlocfilehash: 456b9754d7a6e88705853d4c4d701110e4841eb0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9de5b08eed3aa10015813cbb4724ef4e947005fb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445821"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888008"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -45,9 +45,9 @@ ms.locfileid: "75445821"
 | 미국 동부 2, 미국 서 부 2 | Windows | 2 | 3.5 |
 
 
-## <a name="availability---virtual-network-deployment-preview"></a>가용성 - 가상 네트워크 배포(미리 보기)
+## <a name="availability---virtual-network-deployment"></a>가용성-가상 네트워크 배포
 
-다음 지역 및 리소스는 [Azure 가상 네트워크](container-instances-vnet.md)(미리 보기)에 배포된 컨테이너 그룹에서 사용할 수 있습니다.
+[Azure 가상 네트워크](container-instances-vnet.md)에 배포 된 컨테이너 그룹에서 사용할 수 있는 지역 및 리소스는 다음과 같습니다.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 

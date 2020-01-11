@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 90b871c2b75f7ed40c290231ef822258c6b4e6d4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28111e45d365069f80f10b88c38618dbb2b4651d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606881"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896213"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 배포
 
@@ -35,20 +35,21 @@ Windows 가상 데스크톱에서 Windows 7 VM을 설정 하려면 다음을 수
 5. VM의 Windows 업데이트로 이동 합니다.
 6. 중요 범주에 모든 Windows 업데이트를 설치 합니다.
 7. 선택적 범주 (언어 팩 제외)에 모든 Windows 업데이트를 설치 합니다. 이렇게 하면 이러한 지침을 완료 하는 데 필요한 원격 데스크톱 프로토콜 8.0 업데이트 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393))가 설치 됩니다.
-8. 로컬 그룹 정책 편집기를 열고 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** ** > 원격 데스크톱 서비스 > 으로** 이동 **원격 데스크톱 세션 호스트**  **원격 세션 환경을** > 합니다.
+8. 로컬 그룹 정책 편집기를 열고 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** ** > 원격 데스크톱 서비스 > 원격 데스크톱 세션 호스트** >  **원격 세션 환경**으로 이동 합니다.
 9. 원격 데스크톱 프로토콜 8.0 정책을 사용 하도록 설정 합니다.
-10. 다음 명령을 실행 하 여 가상 컴퓨터를 다시 시작 합니다.
+10. 이 VM을 Active Directory 도메인에 가입 시킵니다.
+11. 다음 명령을 실행 하 여 가상 컴퓨터를 다시 시작 합니다.
     
      ```cmd
      shutdown /r /t 0
      ```
     
-11. [여기](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) 의 지침에 따라 등록 토큰을 가져옵니다.
-12. Windows [7 용 Windows 가상 데스크톱 에이전트를 다운로드](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)합니다.
-13. Windows [7 용 Windows 가상 데스크톱 에이전트 관리자을 다운로드](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)합니다.
-14. Windows 가상 데스크톱 에이전트 설치 관리자를 열고 지침을 따릅니다. 메시지가 표시 되 면 11 단계에서 만든 등록 키를 제공 합니다.
-15. Windows 가상 데스크톱 설치 관리자를 열고 지침을 따릅니다.
-16. 필요에 따라 TCP/3389 포트를 차단 하 여 VM에 대 한 직접 원격 데스크톱 프로토콜 액세스를 제거 합니다.
+12. [여기](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) 의 지침에 따라 등록 토큰을 가져옵니다.
+13. Windows [7 용 Windows 가상 데스크톱 에이전트를 다운로드](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)합니다.
+14. Windows [7 용 Windows 가상 데스크톱 에이전트 관리자을 다운로드](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)합니다.
+15. Windows 가상 데스크톱 에이전트 설치 관리자를 열고 지침을 따릅니다. 메시지가 표시 되 면 12 단계에서 만든 등록 키를 제공 합니다.
+16. Windows 가상 데스크톱 설치 관리자를 열고 지침을 따릅니다.
+17. 필요에 따라 TCP/3389 포트를 차단 하 여 VM에 대 한 직접 원격 데스크톱 프로토콜 액세스를 제거 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

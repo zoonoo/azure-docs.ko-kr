@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: e8a2a00014d0118301193337cc9bb544e4a07690
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 1c5b2879659305e55bb01e4cfab27c7a1b343155
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770818"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894861"
 ---
 # <a name="monitoring-azure-machine-learning"></a>모니터링 Azure Machine Learning
 
@@ -25,7 +25,7 @@ ms.locfileid: "75770818"
 >
 > * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
 > * [학습 실행에 대 한 로그 메트릭](how-to-track-experiments.md)
-> * [MLflow를 사용 하 여 eexperiments 추적](how-to-use-mlflow.md)
+> * [MLflow를 사용 하 여 실험 추적](how-to-use-mlflow.md)
 > * [TensorBoard를 사용 하 여 실행 시각화](how-to-monitor-tensorboard.md)
 
 ## <a name="azure-monitor"></a>Azure Monitor

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e2cc9dd81a0bbefa5cf37facb6067bda07117eaf
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903717"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896014"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
 
-[Apache Ambari](https://storm.apache.org/)에서 [Apache Storm](https://ambari.apache.org/) 페이로드 작업에 대한 주요 문제 및 해결 방법을 알아봅니다.
+[Apache Ambari](https://ambari.apache.org/)에서 [Apache Storm](https://storm.apache.org/) 페이로드 작업에 대한 주요 문제 및 해결 방법을 알아봅니다.
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>클러스터에서 Storm UI에 액세스하는 방법
 
@@ -60,7 +60,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 내보내기 명령은 설정한 Azure Blob Storage 또는 Azure Data Lake Storage의 Apache HDFS(Hadoop 분산 파일 시스템) 경로에 메타데이터를 씁니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 #### <a name="export-offset-metadata"></a>오프셋 메타데이터 내보내기
 
@@ -127,7 +127,7 @@ HDInsight는 3 노드 ZooKeeper 쿼럼을 제공합니다. 쿼럼 크기는 고�
 ### <a name="worker-nodes"></a>작업자 노드
 
 Storm 작업자 노드에서 실행하는 서비스는 다음과 같습니다.
-* 감독자
+* Supervisor
 * 토폴로지를 실행하기 위한 작업자 JVM(Java Virtual Machines)
 * Ambari 에이전트
 
@@ -174,7 +174,7 @@ Worker Log4J 구성 파일은 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`�
 
 토폴로지를 제출 하는 경우 사용자에 게 다음과 유사한 오류 메시지가 표시 될 수 있습니다. `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
 
-이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)을 참조하세요.
+이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)를 참조하세요.
 
 ---
 
@@ -186,4 +186,4 @@ Worker Log4J 구성 파일은 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`�
 
 - [@AzureSupport](https://twitter.com/azuresupport) 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대한 액세스 권한은 Microsoft Azure 구독에 포함되어 있으며, [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

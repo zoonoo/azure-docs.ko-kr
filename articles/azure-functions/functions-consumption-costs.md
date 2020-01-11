@@ -3,12 +3,12 @@ title: Azure Functions에서 소비 계획 비용 예측
 description: Azure의 소비 계획에서 함수 앱을 실행할 때 발생할 수 있는 비용을 보다 정확 하 게 예측 하는 방법을 알아봅니다.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 6a68069ab9af54c1c8cfaf6c20727181e48ba1ec
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613061"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890311"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획의 비용 예측
 
@@ -22,7 +22,7 @@ ms.locfileid: "75613061"
 
 함수 성능 및 비용 요구 사항을 가장 잘 지 원하는 계획을 선택 했습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md)을 참조하세요.
 
-이 계획의 결과로 비용이 계산 되기 때문에이 문서에서는 소비 계획만 다룹니다. 
+이 계획의 결과로 비용이 계산 되기 때문에이 문서에서는 소비 계획만 다룹니다. 이 문서는 [소비 계획 비용 청구 FAQ](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ) 문서를 대체 합니다.
 
 Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Functions를 사용할 때의 비용 고려 사항에 대 한 자세한 내용은 [Durable Functions 청구](./durable/durable-functions-billing.md)를 참조 하세요.
 

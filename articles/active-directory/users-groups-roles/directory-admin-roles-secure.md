@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 12391df7e3b8540b775d8c56b5d5c4e648722faf
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900793"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889598"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -375,7 +375,7 @@ Office 365를 사용하는 경우
 
 3. Azure AD에 로그인하려면 "비상" 계정 사용자 이름/암호 조합에 액세스합니다. 
 
-4. [Azure 지원 요청을 열어](../../azure-supportability/how-to-create-azure-support-request.md) Microsoft로부터 도움을 받습니다.
+4. [Azure 지원 요청을 열어](../../azure-portal/supportability/how-to-create-azure-support-request.md) Microsoft로부터 도움을 받습니다.
 
 5. [Azure AD 로그인 보고서](../reports-monitoring/overview-reports.md)를 확인합니다. 이벤트가 발생하는 시점과 보고서에 포함되는 시점 사이에 지연이 있을 수 있습니다.
 

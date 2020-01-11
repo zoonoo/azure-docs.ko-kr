@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6835132192040b4b943b156fb78ae1547522be0c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 12786f59db9644fd54e812687d27443c250aec05
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229245"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891852"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -29,7 +29,7 @@ Azure 스프링 클라우드는 Azure Monitor, Application Insights 및 Log Anal
 
 Azure Spring Cloud는 미리 보기 기간 동안 하나의 서비스 계획을 제공합니다.  스프링 클라우드 배포에는 16 개 vCPU 코어 및 32 기가바이트 (GB)의 메모리가 포함 되어 있습니다.  배포 내의 각 마이크로 서비스 인스턴스에 대 한 상한은 8gb의 메모리를 포함 하는 4 개의 vCPU 코어입니다.
 
-리소스 | Amount
+리소스 | 금액
 ------- | -------
 Spring 애플리케이션당 앱 인스턴스 수 | 20
 Azure Spring Cloud 서비스 인스턴스당 총 앱 인스턴스 수 | 500
@@ -63,7 +63,7 @@ Preview 릴리스 중에 Azure 스프링 클라우드에는 다음과 같은 알
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>피드백 및 보고서 문제를 제출하려면 어떻게 해야 하나요?
 
-Azure 스프링 클라우드에 문제가 발생 한 경우 [Azure 지원 요청](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 만듭니다. 기능 요청을 제출 하거나 피드백을 제공 하려면 [Azure 사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)으로 이동 하세요.
+Azure 스프링 클라우드에 문제가 발생 한 경우 [Azure 지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 만듭니다. 기능 요청을 제출 하거나 피드백을 제공 하려면 [Azure 사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)으로 이동 하세요.
 
 ## <a name="development"></a>개발
 
@@ -100,7 +100,7 @@ Azure Cosmos DB, Azure Database for MySQL 및 Azure Cache for Redis의 세 가�
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>내 애플리케이션 컨테이너를 조작하기 위해 Kubernetes에 액세스할 수 있나요?
 
-아니요.  Azure Spring Cloud는 기본 아키텍처에서 개발자를 추상화하여 애플리케이션 코드와 비즈니스 논리에 집중할 수 있도록 합니다.
+아닙니다.  Azure Spring Cloud는 기본 아키텍처에서 개발자를 추상화하여 애플리케이션 코드와 비즈니스 논리에 집중할 수 있도록 합니다.
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure Spring Cloud는 원본에서 컨테이너를 빌드할 수 있도록 지원하나요?
 
@@ -108,7 +108,7 @@ Azure Cosmos DB, Azure Database for MySQL 및 Azure Cache for Redis의 세 가�
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud에서 앱 인스턴스의 자동 크기 조정을 지원하나요?
 
-아니요.
+아닙니다.
 
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 스프링 클라우드 마이크로 서비스를 Azure 스프링 클라우드로 마이그레이션하기 위한 모범 사례는 무엇 인가요?
 

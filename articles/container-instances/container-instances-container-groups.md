@@ -4,12 +4,12 @@ description: 저장소 및 네트워크와 같은 수명 주기 및 리소스를
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 19fa50f83a2593b8914931e25fa99cb2e4896227
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770274"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888059"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -32,7 +32,7 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 * 볼륨 탑재로 2개의 Azure 파일 공유가 포함되어 있으며, 각 컨테이너는 공유 중 하나를 로컬에서 탑재합니다.
 
 > [!NOTE]
-> 다중 컨테이너 그룹은 현재 Linux 컨테이너만 지원 합니다. Windows 컨테이너의 경우 Azure Container Instances는 단일 인스턴스의 배포만 지원 합니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 작업 하는 동안 서비스 [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이를 찾을 수 있습니다.
+> 다중 컨테이너 그룹은 현재 Linux 컨테이너만 지원 합니다. Windows 컨테이너의 경우 Azure Container Instances는 단일 컨테이너 인스턴스의 배포만 지원 합니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 작업 하는 동안 서비스 [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이를 찾을 수 있습니다.
 
 ## <a name="deployment"></a>배포
 
@@ -44,19 +44,19 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 
 ## <a name="resource-allocation"></a>리소스 할당
 
-Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청][resource-requests] 을 추가 하 여 cpu, 메모리, 선택적으로 [gpu][gpus] (미리 보기) 등의 리소스를 다중 컨테이너 그룹에 할당 합니다. CPU 리소스를 예로 들어 두 개의 인스턴스를 사용 하 여 1 개의 CPU를 요청 하는 컨테이너 그룹을 만드는 경우 컨테이너 그룹에 2 개의 cpu가 할당 됩니다.
+Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청][resource-requests] 을 추가 하 여 cpu, 메모리, 선택적으로 [gpu][gpus] (미리 보기) 등의 리소스를 다중 컨테이너 그룹에 할당 합니다. CPU 리소스를 예로 들어 두 개의 컨테이너 인스턴스를 사용 하 여 1 개의 CPU를 요청 하는 컨테이너 그룹을 만든 경우 컨테이너 그룹에는 2 개의 cpu가 할당 됩니다.
 
-### <a name="resource-usage-by-instances"></a>인스턴스에의 한 리소스 사용
+### <a name="resource-usage-by-container-instances"></a>컨테이너 인스턴스의 리소스 사용량
 
-그룹의 각 컨테이너 인스턴스에는 리소스 요청에 지정 된 리소스가 할당 됩니다. 그러나 선택적 [리소스 제한][resource-limits] 속성을 구성 하는 경우 그룹의 인스턴스에서 사용 되는 최대 리소스는 달라질 수 있습니다. 인스턴스의 리소스 제한은 필수 [리소스 요청][resource-requests] 속성 보다 크거나 같아야 합니다.
+그룹의 각 컨테이너 인스턴스에는 리소스 요청에 지정 된 리소스가 할당 됩니다. 그러나 선택적 [리소스 제한][resource-limits] 속성을 구성 하는 경우 그룹의 컨테이너 인스턴스에서 사용 되는 최대 리소스는 달라질 수 있습니다. 컨테이너 인스턴스의 리소스 제한은 필수 [리소스 요청][resource-requests] 속성 보다 크거나 같아야 합니다.
 
-* 리소스 제한을 지정 하지 않는 경우 인스턴스의 최대 리소스 사용량은 해당 리소스 요청과 동일 합니다.
+* 리소스 제한을 지정 하지 않는 경우 컨테이너 인스턴스의 최대 리소스 사용량은 해당 리소스 요청과 동일 합니다.
 
-* 인스턴스에 대 한 제한을 지정 하는 경우 인스턴스의 최대 사용량은 설정 하는 한도까지 요청 보다 클 수 있습니다. 마찬가지로 그룹의 다른 인스턴스에의 한 리소스 사용이 줄어들 수 있습니다. 인스턴스에 대해 설정할 수 있는 최대 리소스 제한은 해당 그룹에 할당 된 총 리소스입니다.
+* 컨테이너 인스턴스에 대 한 제한을 지정 하는 경우 인스턴스의 최대 사용량은 설정 하는 제한까지 요청 보다 클 수 있습니다. 따라서 그룹에 있는 다른 컨테이너 인스턴스의 리소스 사용이 줄어들 수 있습니다. 컨테이너 인스턴스에 대해 설정할 수 있는 최대 리소스 제한은 그룹에 할당 된 총 리소스입니다.
     
-예를 들어 각각 1 개의 CPU를 요청 하는 두 개의 인스턴스가 있는 그룹에서 컨테이너 중 하나가 다른 작업 보다 더 많은 Cpu를 실행 해야 하는 작업을 실행할 수 있습니다.
+예를 들어 각각 1 개의 CPU를 요청 하는 두 개의 컨테이너 인스턴스가 있는 그룹에서는 컨테이너 중 하나가 다른 작업 보다 더 많은 Cpu를 실행 해야 하는 작업을 실행할 수 있습니다.
 
-이 시나리오에서는 인스턴스에 대해 2 개 Cpu의 리소스 제한을 설정할 수 있습니다. 이 구성을 통해 컨테이너는 사용 가능한 경우 최대 2 개의 Cpu를 사용할 수 있습니다.
+이 시나리오에서는 컨테이너 인스턴스에 대해 2 개 Cpu의 리소스 제한을 설정할 수 있습니다. 이 구성을 통해 컨테이너 인스턴스는 사용 가능한 경우 최대 2 개의 Cpu를 사용할 수 있습니다.
 
 ### <a name="minimum-and-maximum-allocation"></a>최소 및 최대 할당
 
@@ -70,7 +70,7 @@ Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청
 
 컨테이너 그룹 내에서 컨테이너 인스턴스는 해당 포트가 그룹의 IP 주소 또는 컨테이너에서 외부에 노출 되지 않는 경우에도 모든 포트의 localhost를 통해 서로 연결할 수 있습니다.
 
-필요에 따라 컨테이너 그룹을 [Azure virtual network][virtual-network] (미리 보기)에 배포 하 여 컨테이너가 가상 네트워크의 다른 리소스와 안전 하 게 통신할 수 있도록 합니다.
+필요에 따라 컨테이너 그룹을 [Azure 가상 네트워크][virtual-network] 에 배포 하 여 컨테이너가 가상 네트워크의 다른 리소스와 안전 하 게 통신할 수 있도록 합니다.
 
 ## <a name="storage"></a>Storage
 

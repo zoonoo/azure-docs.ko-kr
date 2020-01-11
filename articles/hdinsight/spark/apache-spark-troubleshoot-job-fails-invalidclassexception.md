@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 124d5586180258589c5db17454b8fbf1e465fc24
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: be50f8716835b0842f854842e5340b0bb8594136
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106495"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894359"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Azure HDInsight에서 InvalidClassException, 클래스 버전이 일치 하지 않으므로 Apache Spark 작업이 실패 합니다.
 
@@ -39,7 +39,7 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 > [!TIP]
 > 라이브러리를 음영 처리 하려면 해당 패키지를 변경 하는 자체 jar에 해당 내용을 저장 합니다. 이는 라이브러리를 패키지화 하는 것과 다르며,이는 라이브러리를 다시 패키지 없이 고유한 jar에 배치 하는 것입니다.
 
-## <a name="resolution"></a>해결 방법
+## <a name="resolution"></a>해상도
 
 Jar를 제거 하거나 사용자 지정 된 jar (AzureLogAppender)을 다시 컴파일하고 [maven](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html) -를 사용 하 여 클래스의 위치를 다시 지정 합니다.
 
@@ -51,4 +51,4 @@ Jar를 제거 하거나 사용자 지정 된 jar (AzureLogAppender)을 다시 �
 
 * [@AzureSupport](https://twitter.com/azuresupport) 연결-Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 검토하세요. 구독 관리 및 청구 지원에 대한 액세스 권한은 Microsoft Azure 구독에 포함되어 있으며, [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

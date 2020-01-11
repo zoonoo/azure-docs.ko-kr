@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: aebd7b58a2107ac109a03d3ce12f27d65ba0ab90
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f34c5d5069a158579864320d0fbf965de8936d9c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769815"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896122"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Azure Data Lake Storage에 대 한 다중 프로토콜 액세스
 
@@ -52,12 +52,12 @@ Data Lake Storage에 대 한 다중 프로토콜 액세스를 사용 하면 Data
 |Blob Sdk |일반 공급|
 |[PowerShell (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |일반 공급|
 |[CLI (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |일반 공급|
+|[Azure Event Grid를 통한 알림](data-lake-storage-events.md)|일반 공급|
 |파일 시스템 의미 체계를 사용 하는 Blob Sdk ([.net](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|미리 보기|
 |[파일 시스템 의미 체계를 사용 하는 PowerShell](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|미리 보기|
 |[파일 시스템 의미 체계를 사용 하는 CLI](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|미리 보기|
 |[진단 로그](../common/storage-analytics-logging.md)| 미리 보기|
 |[수명 주기 관리 정책](storage-lifecycle-management-concepts.md)| 미리 보기|
-|[Azure Event Grid를 통한 알림](data-lake-storage-events.md)|미리 보기|
 |[보관 액세스 계층](storage-blob-storage-tiers.md)| 미리 보기|
 |[blobfuse](storage-how-to-mount-container-linux.md)|아직 지원 되지 않음|
 |[변경할 수 없는 저장소](storage-blob-immutable-storage.md)|아직 지원 되지 않음|

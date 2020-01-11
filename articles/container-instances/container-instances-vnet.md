@@ -2,14 +2,14 @@
 title: Azure virtual network에 컨테이너 그룹 배포
 description: 신규 또는 기존 Azure Virtual Network에 컨테이너 그룹을 배포하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442237"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887959"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -24,7 +24,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 * [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통한 온-프레미스 리소스와 컨테이너 간 통신
 
 > [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공되며 일부 [제한 사항이 적용](#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> 가상 네트워크에 대 한 컨테이너 그룹 배포는 **미국 동부, 미국 서 부 및 미국 서 부 2**지역 에서만 프로덕션 워크 로드에 대해 일반적으로 사용할 수 있습니다. 이 기능을 사용할 수 있는 다른 지역에서 가상 네트워크 배포는 현재 미리 보기 상태 이며,이는 가까운 장래에 출시 될 예정입니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 
 
 
 ## <a name="virtual-network-deployment-limitations"></a>가상 네트워크 배포 제한 사항
@@ -33,11 +33,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 * 컨테이너 그룹을 배포하려는 서브넷에는 다른 리소스 종류가 포함되어 있지 않아야 합니다. 컨테이너 그룹을 배포하기 전에 기존 서브넷에서 기존 리소스를 모두 제거하거나 새 서브넷을 만들어야 합니다.
 * 가상 네트워크에 배포된 컨테이너 그룹의 [관리 ID](container-instances-managed-identity.md)를 사용할 수 없습니다.
-* 가상 네트워크에 컨테이너 그룹을 배포할 때는 네트워킹 리소스가 추가로 사용되므로 대개 표준 컨테이너 인스턴스를 배포할 때보다 속도가 다소 느립니다.
-
-## <a name="preview-limitations"></a>미리 보기 제한 사항
-
-이 기능이 미리 보기 상태인 동안에는 가상 네트워크에 컨테이너 그룹을 배포할 때 다음 제한 사항이 적용 됩니다. 
+* 추가 네트워킹 리소스가 포함 되어 있으므로 컨테이너 그룹을 가상 네트워크에 배포 하는 것은 일반적으로 표준 컨테이너 인스턴스를 배포 하는 것 보다 느립니다.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -46,8 +42,10 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 ### <a name="unsupported-networking-scenarios"></a>지원 되지 않는 네트워킹 시나리오 
 
 * **Azure Load Balancer** -네트워크 컨테이너 그룹의 컨테이너 인스턴스 앞에 Azure Load Balancer를 배치 하는 것은 지원 되지 않습니다.
-* **가상 네트워크 피어 링** -aci vnet이 피어 링 중인 네트워크에서 공용 IP 공간을 사용 하는 경우에는 VNet에 대해 VNet 피어 링이 작동 하지 않습니다. 피어 링이 작동 하려면 피어 링 네트워크에 RFC1918 개인 IP 공간이 필요 합니다. 또한 현재 VNet을 다른 VNet에만 피어 링 할 수 있습니다.
-* **가상 네트워크 트래픽 라우팅** -공용 ip와 관련 하 여 고객 경로를 설정할 수 없습니다. ACI 리소스가 배포 된 위임 된 서브넷의 개인 IP 공간 내에서 경로를 설정할 수 있습니다. 
+* **가상 네트워크 피어링**
+  * ACI VNet에서 피어 링 하는 네트워크에서 공용 IP 공간을 사용 하는 경우에는 VNet 피어 링이 작동 하지 않습니다. 피어 링 네트워크에는 VNet 피어 링이 작동 하기 위해 RFC 1918 개인 IP 공간이 필요 합니다. 
+  * VNet을 다른 VNet 하나에만 피어 링 할 수 있습니다.
+* **가상 네트워크 트래픽 라우팅** -공용 ip에 대해 사용자 지정 경로를 설정할 수 없습니다. ACI 리소스가 배포 된 위임 된 서브넷의 개인 IP 공간 내에서 경로를 설정할 수 있습니다. 
 * **네트워크 보안 그룹** -Azure Container Instances에 위임 된 서브넷에 적용 된 nsgs의 아웃 바운드 보안 규칙이 현재 적용 되지 않습니다. 
 * **공용 ip 또는 DNS 레이블** -가상 네트워크에 배포 된 컨테이너 그룹은 현재 공용 ip 주소 또는 정규화 된 도메인 이름으로 컨테이너를 인터넷에 직접 노출 하는 것을 지원 하지 않습니다.
 * **내부 이름 확인** -내부 Azure DNS을 통해 가상 네트워크의 Azure 리소스에 대 한 이름 확인은 지원 되지 않습니다.
@@ -99,7 +97,7 @@ Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용�
 
 기존 가상 네트워크에 컨테이너 그룹을 배포하려면
 
-1. 기존 가상 네트워크 내에 서브넷을 만들거나 기존 서브넷에서 기타 리소스를 *모두* 비웁니다.
+1. 기존 가상 네트워크 내에서 서브넷을 만들거나, 컨테이너 그룹이 이미 배포 된 기존 서브넷을 사용 하거나, 다른 *모든* 리소스를 비운 기존 서브넷을 사용 합니다.
 1. [Az container create][az-container-create] 를 사용 하 여 컨테이너 그룹을 배포 하 고 다음 중 하나를 지정 합니다.
    * 가상 네트워크 이름 및 서브넷 이름
    * 다른 리소스 그룹의 가상 네트워크를 사용할 수 있는 가상 네트워크 리소스 ID 및 서브넷 리소스 ID
@@ -115,7 +113,7 @@ Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용�
 
 먼저 컨테이너 그룹을 배포하고 새 가상 네트워크와 서브넷의 매개 변수를 지정합니다. 이러한 매개 변수를 지정하면 가상 네트워크와 서브넷이 생성되고, Azure Container instances에 서브넷이 위임되며, 네트워크 프로필도 작성됩니다. 리소스를 만들고 나면 컨테이너 그룹이 서브넷에 배포됩니다.
 
-새 가상 네트워크 및 서브넷에 대 한 설정을 지정 하는 다음 [az container create][az-container-create] 명령을 실행 합니다. 가상 네트워크에서 컨테이너 그룹을 [지원](#preview-limitations)하는 지역에 만들어진 리소스 그룹의 이름을 제공해야 합니다. 이 명령은 정적 웹 페이지를 처리 하는 작은 node.js 웹 서버를 실행 하는 공용 Microsoft [aci-helloworld][aci-helloworld] 컨테이너를 배포 합니다. 다음 섹션에서는 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 테스트합니다.
+새 가상 네트워크 및 서브넷에 대 한 설정을 지정 하는 다음 [az container create][az-container-create] 명령을 실행 합니다. 가상 네트워크의 컨테이너 그룹 배포를 [사용할 수](#virtual-network-deployment-limitations)있는 지역에서 만든 리소스 그룹의 이름을 제공 해야 합니다. 이 명령은 정적 웹 페이지를 처리 하는 작은 node.js 웹 서버를 실행 하는 공용 Microsoft [aci-helloworld][aci-helloworld] 컨테이너를 배포 합니다. 다음 섹션에서는 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 테스트합니다.
 
 ```azurecli
 az container create \
@@ -180,7 +178,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 ### <a name="deploy-to-existing-virtual-network---yaml"></a>기존 가상 네트워크에 배포 - YAML
 
-YAML 파일을 사용하여 기존 가상 네트워크에 컨테이너 그룹을 배포할 수도 있습니다. 가상 네트워크의 서브넷에 배포하려면 YAML에서 몇 가지 추가 속성을 지정합니다.
+YAML 파일, 리소스 관리자 템플릿 또는 Python SDK를 사용 하는 등의 다른 프로그래밍 메서드를 사용 하 여 기존 가상 네트워크에 컨테이너 그룹을 배포할 수도 있습니다. 가상 네트워크의 서브넷에 배포하려면 YAML에서 몇 가지 추가 속성을 지정합니다.
 
 * `ipAddress`: 컨테이너 그룹의 IP 주소 설정입니다.
   * `ports`: 열려는 포트(있는 경우)입니다.
@@ -225,7 +223,7 @@ properties:
     - protocol: tcp
       port: '80'
   networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
 tags: null
@@ -263,9 +261,9 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> 네트워크 프로필을 제거 하는 동안 오류가 발생 하는 경우 플랫폼에서 2-3 일을 허용 하 여 자동으로 문제를 완화 하 고 삭제를 다시 시도 합니다. 네트워크 프로필을 제거 하는 동안 문제가 계속 되 면 [지원 reqest을 엽니다.](https://azure.microsoft.com/support/create-ticket/)
+> 네트워크 프로필을 제거 하는 동안 오류가 발생 하는 경우 플랫폼에서 2-3 일을 허용 하 여 자동으로 문제를 완화 하 고 삭제를 다시 시도 합니다. 네트워크 프로필을 제거 하는 문제가 여전히 발생 하는 경우 [지원 요청을 엽니다](https://azure.microsoft.com/support/create-ticket/).
 
-이 기능의 초기 미리 보기에서는 앞에서 만든 네트워크 리소스를 삭제하려면 여러 명령을 추가로 실행해야 합니다. 이 문서의 이전 섹션에 나왔던 예제 명령을 사용하여 가상 네트워크와 서브넷을 만들었다면 아래 스크립트를 사용하여 해당 네트워크 리소스를 삭제할 수 있습니다.
+이 기능에는 현재 이전에 만든 네트워크 리소스를 삭제 하기 위해 몇 가지 추가 명령이 필요 합니다. 이 문서의 이전 섹션에 나왔던 예제 명령을 사용하여 가상 네트워크와 서브넷을 만들었다면 아래 스크립트를 사용하여 해당 네트워크 리소스를 삭제할 수 있습니다.
 
 스크립트를 실행하기 전에 `RES_GROUP` 변수를 삭제해야 하는 가상 네트워크 및 서브넷이 포함된 리소스 그룹의 이름으로 설정합니다. 이전에 제안 된 `aci-vnet` 이름을 사용 하지 않은 경우 가상 네트워크의 이름을 업데이트 합니다. 스크립트는 Bash 셸에 대해 서식이 지정됩니다. PowerShell이나 명령 프롬프트 등의 다른 셸을 사용하려는 경우 해당 셸에 따라 변수 할당과 접근자를 조정해야 합니다.
 

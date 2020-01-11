@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 571962f69c0a9bbdb32e9790b1595af6a618697b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 65db6cfa64658edc4e604a009e672ba3aa5e86f3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771379"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893991"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Azure Machine Learning에서 로깅 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,22 +81,6 @@ from azureml.core.compute import ComputeTarget
 compute_target = ComputeTarget.attach(
     workspace=ws, name="example", attach_configuration=config)
 compute.wait_for_completion(show_output=True)
-```
-
-## <a name="logging-during-image-creation"></a>이미지 생성 중 로깅
-
-이미지 생성 중 로깅을 사용하면 빌드 프로세스 중에 오류를 확인할 수 있습니다. `wait_for_deployment()` 함수에 `show_output` 매개 변수를 설정합니다.
-
-```python
-from azureml.core.webservice import Webservice
-
-service = Webservice.deploy_from_image(deployment_config=your_config,
-                                       image=image,
-                                       name="example-image",
-                                       workspace=ws
-                                       )
-
-service.wait_for_deployment(show_output=True)
 ```
 
 ## <a name="logging-for-deployed-models"></a>배포된 모델에 대한 로깅

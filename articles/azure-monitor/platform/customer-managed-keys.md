@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/07/2020
-ms.openlocfilehash: 7a3749f61e6e656f750059ee76881a2e3f3b7912
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d6419e86e1a541638a7053654bfcd7945aa41ae7
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865039"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891068"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
-이 문서에서는 Log Analytics 작업 영역 및 Application Insights 구성 요소를 구성 하는 단계 및 배경 정보를 제공 합니다. 구성 된 후에는 작업 영역으로 전송 되는 모든 데이터가 Azure Key Vault 키로 암호화 됩니다.
+이 문서에서는 Log Analytics 작업 영역 및 Application Insights 구성 요소에 대 한 CMK (고객 관리 키)를 구성 하는 단계와 배경 정보를 제공 합니다. 구성 된 후에는 작업 영역으로 전송 되는 모든 데이터가 Azure Key Vault 키로 암호화 됩니다.
 
 구성 전에 [제한 사항 및 제약 조건을](#Limitations and constraints) 검토 하는 것이 좋습니다.
 

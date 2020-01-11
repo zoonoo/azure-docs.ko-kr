@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 7b511ab0c3093747d6e713754c04533e5f25b6ad
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 21269f7d5a9ec832a49a613351702dd24be156af
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087390"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894158"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Azure HDInsight에서 Data Lake 저장소 파일에 액세스할 수 없음
 
@@ -30,9 +30,9 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 사용자가 파일/폴더에 대해 SP (서비스 사용자)의 사용 권한을 취소 했을 수 있습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-1. SP에 경로를 따라 트래버스하는 ' x ' 권한이 있는지 확인 하십시오. 자세한 정보는 [사용 권한](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html)을 참조하십시오. Data Lake 저장소 계정의 파일/폴더에 대 한 액세스를 확인 하는 샘플 dfs 명령:
+1. SP에 경로를 따라 트래버스하는 ' x ' 권한이 있는지 확인 하십시오. 자세한 내용은 [사용 권한](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html)을 참조하세요. Data Lake 저장소 계정의 파일/폴더에 대 한 액세스를 확인 하는 샘플 dfs 명령:
 
     ```
     hdfs dfs -ls /<path to check access>
@@ -42,7 +42,7 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 ---
 
-## <a name="issue-service-principal-certificate-expiry"></a>문제: 서비스 사용자 인증서 만료
+## <a name="issue-service-principal-certificate-expiry"></a>문제: 서비스 주체 인증서 만료
 
 다음과 유사한 오류 메시지가 표시 됩니다.
 
@@ -66,7 +66,7 @@ Token Refresh failed - Received invalid http response: 500
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
     ```
 
-1. 에서 `core-site.xml property`  - url 중 하나 를가져옵니다.`fs.azure.datalake.token.provider.service.urls`
+1. `core-site.xml property` - `fs.azure.datalake.token.provider.service.urls`에서 url 중 하나를 가져옵니다.
 
 1. 다음 말아 넘기기 명령을 실행 하 여 OAuth 토큰을 검색 합니다.
 
@@ -99,7 +99,7 @@ Token Refresh failed - Received invalid http response: 500
     Error: java.lang.IllegalArgumentException: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://clustername.hmssomerandomstringc.cx.internal.cloudapp.net:909/api/oauthtoken}
     ```
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 다음 PowerShell 스크립트를 사용 하 여 새 인증서를 만들거나 기존 인증서를 할당 합니다.
 
@@ -171,6 +171,6 @@ Invoke-AzureRmResourceAction `
 
 * Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-* 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+* [@AzureSupport](https://twitter.com/azuresupport) 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

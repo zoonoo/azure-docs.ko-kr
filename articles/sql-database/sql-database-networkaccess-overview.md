@@ -12,20 +12,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 16de1d9fcf86459b6bcadd9d8c372e436aad0915
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 44fcaa0a4292ac86c7371c27f29faf0e7246e9d5
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802930"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894786"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
 
 > [!NOTE]
-> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다.
+> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 > [!IMPORTANT]
-> 이 문서는 *Azure SQL Database Managed Instance*에 적용되지 **않습니다**. 네트워킹 구성에 대 한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md) 을 참조 하세요.
+> 이 문서는 **Azure SQL Database Managed Instance**에 적용되지 *않습니다*. 네트워킹 구성에 대 한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md) 을 참조 하세요.
 
 [Azure Portal에서](sql-database-single-database-get-started.md)새 Azure SQL Server를 만들 때 결과는 *yourservername.database.windows.net*형식의 공용 끝점입니다. 설계상 공용 끝점에 대 한 모든 액세스는 거부 됩니다. 그런 다음, 다음 네트워크 액세스 제어를 사용 하 여 공용 끝점을 통해 SQl Database에 대 한 액세스를 선택적으로 허용할 수 있습니다.
 - Azure 서비스 허용: 사용으로 설정 되 면 azure 경계 내의 다른 리소스 (예: Azure Virtual Machine)는에 액세스할 수 있습니다 SQL Database
@@ -47,24 +47,53 @@ ms.locfileid: "73802930"
 
 Azure SQL Server **에서** 로 설정 하면 azure 경계 내의 모든 리소스에서 통신할 수 있으며,이는 구독의 일부가 될 수도 있고 그렇지 않을 수도 있습니다.
 
-대부분의 경우에는 대부분의 고객이 원하는 것 보다는 **ON** 설정이 더 허용 됩니다. 이 설정을 **OFF** 로 설정 하 고 더 제한적인 IP 방화벽 규칙 또는 Virtual Network 방화벽 규칙으로 대체 하는 것이 좋습니다. 이렇게 하면 다음 기능이 영향을 받습니다.
+대부분의 경우에는 대부분의 고객이 원하는 것 보다는 **ON** 설정이 더 허용 됩니다. 이 설정을 **OFF** 로 설정 하 고 더 제한적인 IP 방화벽 규칙 또는 Virtual Network 방화벽 규칙으로 대체 하는 것이 좋습니다. 이렇게 하면 VNet의 일부가 아닌 Azure의 Vm에서 실행 되는 다음 기능에 영향을 주므로 Azure IP 주소를 통해 Sql Database에 연결 합니다.
 
 ### <a name="import-export-service"></a>가져오기/내보내기 서비스
+가져오기/내보내기 서비스를 사용 **하면 Azure 서비스에서 서버를** OFF로 설정 하 여 액세스할 수 있습니다. 그러나 [AZURE VM에서 sqlpackage를 수동으로 실행 하거나](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) DACFx API를 사용 하 여 코드에서 직접 내보내기를 수행 하 여 문제를 해결할 수 있습니다.
 
-Azure SQL Database 가져오기/내보내기 서비스는 Azure의 VM에서 실행됩니다. 이러한 VM은 VNet에 있지 않으므로 데이터베이스에 연결할 때 Azure IP를 가져옵니다. **Azure 서비스의 서버 액세스 허용**을 제거하면 이러한 VM에서 데이터베이스에 액세스할 수 없게 됩니다.
-DACFx API를 사용 하 여 코드에서 직접 BACPAC 가져오기 또는 내보내기를 실행 하 여 문제를 해결할 수 있습니다.
+### <a name="data-sync"></a>데이터 동기화
+**Azure 서비스가 서버에 액세스할 수 있도록 허용** 하는 데이터 동기화 기능을 사용 하려면 **허브** 데이터베이스를 호스트 하는 지역에 대 한 **Sql 서비스 태그** 에서 [IP 주소를 추가](sql-database-server-level-firewall-rule.md) 하는 개별 방화벽 규칙 항목을 만들어야 합니다.
+**허브** 와 **구성원** 데이터베이스를 모두 호스팅하는 논리 서버에 이러한 서버 수준 방화벽 규칙을 추가 합니다 (다른 지역에 있을 수 있음).
 
-### <a name="sql-database-query-editor"></a>SQL Database 쿼리 편집기
+다음 PowerShell 스크립트를 사용 하 여 미국 서 부 지역에 대 한 Sql 서비스 태그에 해당 하는 IP 주소를 생성 합니다.
+```powershell
+PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
+PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
+PS C:\> $sql.Properties.AddressPrefixes.Count
+70
+PS C:\> $sql.Properties.AddressPrefixes
+13.86.216.0/25
+13.86.216.128/26
+13.86.216.192/27
+13.86.217.0/25
+13.86.217.128/26
+13.86.217.192/27
+```
 
-Azure SQL Database 쿼리 편집기는 Azure의 VM에 배포됩니다. 이러한 VM은 VNet에 있지 않습니다. 따라서 VM은 데이터베이스에 연결할 때 Azure IP를 가져옵니다. **Azure 서비스의 서버 액세스 허용**을 제거하면 이러한 VM에서 데이터베이스에 액세스할 수 없게 됩니다.
+> [!TIP]
+> AzNetworkServiceTag은 Location 매개 변수를 지정 하는 경우에도 Sql 서비스 태그의 전역 범위를 반환 합니다. 동기화 그룹에서 사용 하는 허브 데이터베이스를 호스트 하는 지역으로 필터링 해야 합니다.
 
-### <a name="table-auditing"></a>테이블 감사
+PowerShell 스크립트의 출력은 클래스를 사용 하지 않는 CIDR (도메인 간 라우팅) 표기법으로 되어 있으므로 Get-IPrangeStartEnd를 사용 하 여 시작 및 끝 IP 주소 형식으로 변환 해야 [합니다.](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) 예를 들면 다음과 같습니다.
+```powershell
+PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
+start        end
+-----        ---
+52.229.17.64 52.229.17.127
+```
 
-현재 SQL Database에서 감사를 사용 하도록 설정 하는 방법에는 두 가지가 있습니다. Azure SQL Server에서 서비스 엔드포인트를 활성화한 후에는 테이블 감사에 실패합니다. 여기서 완화책은 Blob 감사로 이동하는 것입니다.
+다음 추가 단계를 수행 하 여 모든 IP 주소를 CIDR에서 Start 및 End IP 주소 형식으로 변환 합니다.
 
-### <a name="impact-on-data-sync"></a>데이터 동기화에 대한 영향
+```powershell
+PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
+start          end
+-----          ---
+13.86.216.0    13.86.216.127
+13.86.216.128  13.86.216.191
+13.86.216.192  13.86.216.223
+```
+이제 이러한 규칙을 별도의 방화벽 규칙으로 추가한 다음 **Azure 서비스에서 서버에 액세스 하도록 허용** 을 OFF로 설정할 수 있습니다.
 
-Azure SQL Database에는 Azure IP를 사용하여 데이터베이스에 연결하는 데이터 동기화 기능이 있습니다. 서비스 끝점을 사용 하는 경우 Azure 서비스에서 SQL Database 서버에 대 한 **서버 액세스를 허용** 하도록 설정 하 고 데이터 동기화 기능을 중단 합니다.
 
 ## <a name="ip-firewall-rules"></a>IP 방화벽 규칙
 Ip 기반 방화벽은 클라이언트 컴퓨터의 [ip 주소](sql-database-server-level-firewall-rule.md) 를 명시적으로 추가할 때까지 데이터베이스 서버에 대 한 모든 액세스를 차단 하는 Azure SQL Server의 기능입니다.
@@ -108,7 +137,7 @@ VM에 대 한 *고정* IP 주소를 가져오면 이러한 제한을 해결할 �
 
 - 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL database에 연결 하는 데 도움이 필요한 경우 [클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조 하 여 SQL Database 합니다.
 
-- 열어야 할 수 있는 추가 포트에 대한 자세한 내용은 **ADO.NET 4.5와 SQL Database에 대한 1433 이외 포트**의 [SQL Database: 내부 및 외부](sql-database-develop-direct-route-ports-adonet-v12.md) 섹션을 참조하세요.
+- 열어야 할 수 있는 추가 포트에 대한 자세한 내용은 [ADO.NET 4.5와 SQL Database에 대한 1433 이외 포트](sql-database-develop-direct-route-ports-adonet-v12.md)의 **SQL Database: 내부 및 외부** 섹션을 참조하세요.
 
 - Azure SQL Database 연결에 대 한 개요는 [AZURE SQL 연결 아키텍처](sql-database-connectivity-architecture.md) 를 참조 하세요.
 

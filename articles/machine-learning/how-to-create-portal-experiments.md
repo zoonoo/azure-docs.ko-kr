@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c05b29dd5909d1371c71bffb9db555c15c5d23ed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764646"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894029"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 실험 만들기, 탐색 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -150,11 +150,12 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 왜곡도| 이 열의 데이터가 정규 분포에서 어떻게 다른 정도를 측정 합니다.
 첨도| 이 열의 데이터가 정규 분포와 비교 되는 정도를 측정 합니다.
 
+
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>고급 전처리 옵션
 
-실험을 구성할 때 고급 설정 `Preprocess`을 사용 하도록 설정할 수 있습니다. 이렇게 하면 다음 데이터 전처리 및 기능화 단계가 자동으로 수행 됩니다.
+실험을 구성할 때 고급 설정 `Preprocess`을 사용 하도록 설정할 수 있습니다. 즉, 다음 데이터 guardrails 및 기능화 단계가 자동으로 수행 됩니다.
 
 |전처리&nbsp;단계| Description |
 | ------------- | ------------- |
@@ -167,6 +168,20 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 |텍스트 대상 인코딩|텍스트 입력의 경우 단어 모음이 포함 된 누적 선형 모델을 사용 하 여 각 클래스의 확률을 생성 합니다.|
 |증명 정보 가중치 (WoE)|대상 열에 대 한 범주 열의 상관 관계를 측정 하는 WoE 계산 합니다. 이는 클래스 내 및 클래스 외부 확률의 비율로 계산 됩니다. 이 단계에서는 클래스 당 하나의 숫자 기능 열을 출력 하 고 누락 된 값 및 이상 값을 명시적으로 돌립니다 필요가 없습니다.|
 |클러스터 거리|K를 트레인 하 여 모든 숫자 열에 대 한 클러스터링 모델을 의미 합니다.  각 클러스터의 중심에 대 한 각 샘플의 거리를 포함 하는 새 기능 (클러스터당 새로운 숫자 기능)을 출력 합니다.|
+
+### <a name="data-guardrails"></a>데이터 guardrails
+
+자동화 된 machine learning은 데이터 guardrails을 제공 하 여 데이터에 대 한 잠재적인 문제 (예: 누락 된 값, 클래스 불균형)를 식별 하 고 향상 된 결과를 위해 정정 작업을 수행할 수 있도록 지원 합니다. 사용 가능한 모범 사례는 다양 하며, 신뢰할 수 있는 결과를 얻기 위해 적용할 수 있습니다. 
+
+다음 표에서는 현재 지원 되는 데이터 guardrails 및 사용자가 실험을 제출할 때 발생할 수 있는 연결 된 상태에 대해 설명 합니다.
+
+Guardrail|상태|&nbsp;트리거의 조건&nbsp;
+---|---|---
+대체&nbsp;&nbsp;값 누락 |**전달** <br> <br> **고정**|    입력&nbsp;열에 누락 값이 없습니다. <br> <br> 일부 열에 누락 된 값이 있습니다.
+교차 유효성 검사|**끝났습니다**|명시적 유효성 검사 집합이 제공 되지 않은 경우
+높은&nbsp;카디널리티&nbsp;기능&nbsp;검색|  **전달** <br> <br>**끝났습니다**|   높은 카디널리티 기능이 검색 되지 않았습니다. <br><br> 높은 카디널리티 입력 열이 검색 되었습니다.
+클래스 잔액 검색 |**전달** <br><br><br>**알림을** |클래스는 학습 데이터에서 균형을 유지 합니다. 데이터 집합은 샘플의 수 및 비율로 측정 된 데이터 집합에 각 클래스의 올바른 표현이 있는 경우 분산 된 것으로 간주 됩니다. <br> <br> 학습 데이터의 클래스가 불균형 합니다.
+시계열 데이터 일관성|**전달** <br><br><br><br> **고정** |<br> 선택한 {가로선, lag, 롤링 창} 값이 분석 되었으며 메모리 부족 문제가 검색 되었습니다. <br> <br>선택한 {가로선, lag, 롤링 창} 값이 분석 되어 실험에서 메모리가 부족 해질 수 있습니다. 지연 또는 롤링 창이 꺼져 있습니다.
 
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 

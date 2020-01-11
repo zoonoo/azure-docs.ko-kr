@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 0466b08e551a5fa9da37afe2e5ad175ef28c804e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529574"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887158"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Azure HDInsight의 Apache HBase 성능 문제 해결
 
@@ -57,7 +57,7 @@ Yahoo!와 같은 벤치 마크를 사용 하는 경우 클라우드를 제공 �
 
 ## <a name="migration-issues"></a>마이그레이션 문제
 
-Azure HDInsight로 마이그레이션하는 경우에는 자동화를 통해 매우 효율적이 고 정확 하 게 마이그레이션을 수행 해야 합니다. 수동 마이그레이션을 피합니다. 다음을 확인 합니다.
+Azure HDInsight로 마이그레이션하는 경우에는 자동화를 통해 매우 효율적이 고 정확 하 게 마이그레이션을 수행 해야 합니다. 수동 마이그레이션을 피합니다. 확인할 사항은 다음과 같습니다.
 
 - 테이블 특성은 정확 하 게 마이그레이션됩니다. 특성에는 압축, 블 룸 필터 등이 포함 될 수 있습니다.
 
@@ -67,11 +67,11 @@ Azure HDInsight로 마이그레이션하는 경우에는 자동화를 통해 매
 
 HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 캐시 누락이 있는 경우 온-프레미스 시스템의 데이터는 로컬 HDFS에서 지원 되기 때문에 읽기 비용은 온-프레미스 시스템 보다 높습니다. 대부분의 시나리오에서는이 문제를 피하기 위해 HBase 캐시 (블록 캐시 및 버킷 캐시)를 지능적으로 사용 합니다. 문제가 우회할 되지 않는 경우 프리미엄 블록 blob 계정을 사용 하면이 문제를 해결할 수 있습니다. Windows Azure Storage Blob 드라이버는 읽기 모드로 지정 된 항목 (순차 및 임의)을 기반으로 블록의 데이터를 인출 하는 `fs.azure.read.request.size`와 같은 특정 속성에 의존 하므로 읽기의 대기 시간이 길어질 수 있습니다. 경험적 실험을 통해 읽기 요청 블록 크기 (`fs.azure.read.request.size`)를 512 KB로 설정 하 고 HBase 테이블의 블록 크기와 일치 하는 항목을 동일한 크기로 설정 하 여 최상의 결과를 얻을 수 있습니다.
 
-대부분의 큰 노드 클러스터에 대해 HDInsight HBase는 `regionservers` 실행 되는 가상 머신에 연결 된 로컬 프리미엄 SSD의 파일로 `bucketcache`를 제공 합니다. 대신 off-힙 캐시를 사용 하면 몇 가지 개선 사항이 제공 될 수 있습니다. 이 해결 방법에는 사용 가능한 메모리 사용과 파일 기반 캐시 보다 작은 잠재적 크기의 제한이 있으므로 항상 가장 적합 한 선택이 아닐 수 있습니다.
+대부분의 큰 노드 클러스터에 대해 HDInsight HBase는 `regionservers`실행 되는 가상 머신에 연결 된 로컬 프리미엄 SSD의 파일로 `bucketcache`를 제공 합니다. 대신 off-힙 캐시를 사용 하면 몇 가지 개선 사항이 제공 될 수 있습니다. 이 해결 방법에는 사용 가능한 메모리 사용과 파일 기반 캐시 보다 작은 잠재적 크기의 제한이 있으므로 항상 가장 적합 한 선택이 아닐 수 있습니다.
 
 다음은 몇 가지 다른 특정 매개 변수를 조정 하 여 다양 한 수준에서 사용할 수 있도록 하는 것입니다.
 
-- @No__t_0 크기를 기본 128 MB에서 256 MB로 늘립니다. 일반적으로이 설정은 많은 쓰기 시나리오에 권장 됩니다.
+- `memstore` 크기를 기본 128 MB에서 256 MB로 늘립니다. 일반적으로이 설정은 많은 쓰기 시나리오에 권장 됩니다.
 
 - 기본 설정인 **1** 에서 **4**로 압축 전용 스레드 수를 늘립니다. 이 설정은 사소한 작업을 자주 관찰 하는 경우에 적합 합니다.
 
@@ -104,7 +104,7 @@ HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 캐시 누
 - RPC 시간 제한: **3 분**
 
    - RPC 시간 제한에는 HBase RPC 시간 제한, HBase 클라이언트 스캐너 시간 제한 및 Phoenix 쿼리 제한 시간이 포함 됩니다. 
-   - @No__t_0 매개 변수가 서버 end와 클라이언트 끝에서 같은 값으로 설정 되어 있는지 확인 합니다. 동일 하지 않은 경우이 설정은 `OutOfOrderScannerException`와 관련 된 클라이언트 종료 오류를 발생 시킵니다. 이 설정은 대량 검색에 대해 낮은 값으로 설정 해야 합니다. 이 값은 **100**로 설정 됩니다.
+   - `hbase.client.scanner.caching` 매개 변수가 서버 end와 클라이언트 끝에서 같은 값으로 설정 되어 있는지 확인 합니다. 동일 하지 않은 경우이 설정은 `OutOfOrderScannerException`와 관련 된 클라이언트 종료 오류를 발생 시킵니다. 이 설정은 대량 검색에 대해 낮은 값으로 설정 해야 합니다. 이 값은 **100**로 설정 됩니다.
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
@@ -122,6 +122,6 @@ HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 캐시 누
 
 - Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-- [@No__t_1](https://twitter.com/azuresupport)연결 합니다. 사용자 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+- [@AzureSupport](https://twitter.com/azuresupport)연결 합니다. 사용자 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. Microsoft Azure 구독에는 구독 관리 및 청구 지원에 대 한 액세스 권한이 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. Microsoft Azure 구독에는 구독 관리 및 청구 지원에 대 한 액세스 권한이 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893442"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889003"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>빠른 시작: 자체 Virtual Network에서 Azure Databricks 작업 영역 만들기
 
@@ -25,11 +25,11 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure portal](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 > [!Note]
 > 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
-> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
+> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -39,12 +39,12 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 2. **가상 네트워크 만들기** 아래에서, 다음 설정을 적용합니다. 
 
-    |설정|제안 값|설명|
+    |설정|제안 값|Description|
     |-------|---------------|-----------|
-    |name|databricks-quickstart|가상 네트워크에 대한 이름을 선택합니다.|
+    |이름|databricks-quickstart|가상 네트워크에 대한 이름을 선택합니다.|
     |주소 공간|10.1.0.0/16|CIDR 표기법으로 된 가상 네트워크의 주소 범위입니다. CIDR 범위는/16에서/24 사이 여야 합니다.|
     |Subscription|\<구독\>|사용할 Azure 구독을 선택합니다.|
-    |Resource group|databricks-quickstart|**새로 만들기** 를 선택 하 고 계정에 대 한 새 리소스 그룹 이름을 입력 합니다.|
+    |리소스 그룹|databricks-quickstart|**새로 만들기** 를 선택 하 고 계정에 대 한 새 리소스 그룹 이름을 입력 합니다.|
     |위치|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다.|
     |서브넷 이름|기본값|가상 네트워크에서 기본 서브넷의 이름을 선택 합니다.|
     |서브넷 주소 범위|10.1.0.0/24|CIDR 표기법의 서브넷의 주소 범위입니다. 가상 네트워크의 주소 공간에 포함 되어야 합니다. 사용 중인 서브넷의 주소 범위는 편집할 수 없습니다.|
@@ -63,14 +63,14 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 2. **Azure Databricks Service** 아래에서, 다음 설정을 적용합니다.
 
-    |설정|제안 값|설명|
+    |설정|제안 값|Description|
     |-------|---------------|-----------|
     |작업 영역 이름|databricks-quickstart|Azure Databricks 작업 영역에 대 한 이름을 선택 합니다.|
     |Subscription|\<구독\>|사용할 Azure 구독을 선택합니다.|
-    |Resource group|databricks-quickstart|가상 네트워크에 사용한 것과 동일한 리소스 그룹을 선택 합니다.|
+    |리소스 그룹|databricks-quickstart|가상 네트워크에 사용한 것과 동일한 리소스 그룹을 선택 합니다.|
     |위치|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크와 동일한 위치를 선택합니다.|
     |가격 책정 계층|표준 또는 프리미엄 중에서 선택.|가격 책정 계층에 대한 자세한 내용은 [Databricks 가격 책정 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조합니다.|
-    |VNet (Virtual Network)에 Azure Databricks 작업 영역 배포|yes|이 설정을 사용 하면 가상 네트워크에 Azure Databricks 작업 영역을 배포할 수 있습니다.|
+    |VNet (Virtual Network)에 Azure Databricks 작업 영역 배포|예|이 설정을 사용 하면 가상 네트워크에 Azure Databricks 작업 영역을 배포할 수 있습니다.|
     |Virtual Network|databricks-quickstart|이전 섹션에서 만든 가상 네트워크를 선택 합니다.|
     |공용 서브넷 이름|public-subnet|기본 공용 서브넷 이름을 사용 합니다.|
     |공용 서브넷 CIDR 범위|10.179.64.0/18|/26을 포함 하 여 CIDR 범위를 사용 합니다.|

@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7cb3b4d6b490d09d14046465e0fc58526be5b045
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b5a48a686a238d724680e806daaed431107ec72
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433840"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894815"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스의 연결 아키텍처
 
@@ -66,7 +66,7 @@ Microsoft management and deployment services는 가상 네트워크 외부에서
 
 ![가상 클러스터의 연결 아키텍처](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-클라이언트는 `<mi_name>.<dns_zone>.database.windows.net`형식의 호스트 이름을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 이 호스트 이름은 공용 DNS (Domain Name System) 영역에 등록 되어 있지만 공개적으로 확인할 수 있는 개인 IP 주소로 확인 됩니다. 클러스터를 만들 때 `zone-id` 자동으로 생성 됩니다. 새로 만든 클러스터가 보조 관리 되는 인스턴스를 호스트 하는 경우 주 클러스터와 해당 영역 ID를 공유 합니다. 자세한 내용은 [자동 장애 조치 그룹을 사용 하 여 여러 데이터베이스의 투명 한 장애 조치 (failover)를](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)사용 하도록 설정을 참조 하세요.
+클라이언트는 `<mi_name>.<dns_zone>.database.windows.net`형식의 호스트 이름을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 이 호스트 이름은 공용 DNS (Domain Name System) 영역에 등록 되어 있지만 공개적으로 확인할 수 있는 개인 IP 주소로 확인 됩니다. 클러스터를 만들 때 `zone-id` 자동으로 생성 됩니다. 새로 만든 클러스터가 보조 관리 되는 인스턴스를 호스트 하는 경우 주 클러스터와 해당 영역 ID를 공유 합니다. 자세한 내용은 [자동 장애 조치 그룹을 사용 하 여 여러 데이터베이스의 투명 한 장애 조치 (failover)를](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)사용 하도록 설정을 참조 하세요.
 
 이 개인 IP 주소는 관리 되는 인스턴스의 내부 부하 분산 장치에 속합니다. 부하 분산 장치는 트래픽을 관리 되는 인스턴스의 게이트웨이로 보냅니다. 여러 관리 되는 인스턴스는 동일한 클러스터 내에서 실행 될 수 있기 때문에 게이트웨이는 관리 되는 인스턴스의 호스트 이름을 사용 하 여 트래픽을 올바른 SQL 엔진 서비스로 리디렉션합니다.
 

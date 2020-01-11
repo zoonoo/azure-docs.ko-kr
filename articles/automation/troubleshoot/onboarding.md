@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 737b963074a2bec851882bddd78ad0b89f48d1d9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769900"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889325"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>업데이트 관리, 변경 내용 추적 및 인벤토리를 등록 하는 경우 오류 문제 해결
 
@@ -156,7 +156,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
   * Automation 계정에서 업데이트 배포 (일정) 제거
 * 작업이 없는 동안 VM 시작/중지
   * **설정** > **잠금**에서 Automation 계정의 솔루션 구성 요소에 대 한 잠금을 제거 합니다.
-  * 작업 시간 외 VM 시작/중지 솔루션을 제거 하는 추가 단계를 보려면 [작업 시간 외 VM 시작/중지 솔루션을 제거](../automation-solution-vm-management.md##remove-the-solution)합니다.
+  * 작업 시간 외 VM 시작/중지 솔루션을 제거 하는 추가 단계를 보려면 [작업 시간 외 VM 시작/중지 솔루션을 제거](../automation-solution-vm-management.md#remove-the-solution)합니다.
 
 ## <a name="mma-extension-failures"></a>MMA 확장 오류
 

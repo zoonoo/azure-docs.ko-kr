@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: c4177e4310be3e03b64c260d88239de71f70c17a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720143"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894895"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -95,7 +95,7 @@ ms.locfileid: "75720143"
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>고급 전처리: 선택적 기능화
 
-누락 값 대체, 인코딩 및 변환과 같은 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess). 다음을 사용 하 여이 설정 사용:
+데이터 guardrails, 인코딩, 변환 등의 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess). 다음을 사용 하 여이 설정 사용:
 
 + Azure Machine Learning studio: [다음 단계를 사용 하 여](how-to-create-portal-experiments.md) **구성 실행** 섹션에서 **기능화 설정 보기** 를 선택 합니다.
 
@@ -161,7 +161,7 @@ CV (교차 유효성 검사)는 전체 학습 데이터의 여러 하위 집합�
 
 * 휴일 검색 및 기능화
 * 시계열 및 DNN 학습자 (Auto-ARIMA, Prophet, ForecastTCN)
-* 그룹화를 통한 많은 모델 지원
+* 그룹화를 통해 많은 모델 지원
 * 롤링 원본 교차 유효성 검사
 * 구성 가능한 지연
 * 창 롤링 집계 기능

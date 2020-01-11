@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 971d7432c841c4ef984c7bbd7899fce733512303
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787185"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888144"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 HTTP 또는 HTTPS 끝점에 보내는 호출 보내기
 
@@ -26,9 +26,9 @@ ms.locfileid: "74787185"
 
 대상 끝점의 기능을 기반으로 하는 HTTP 커넥터는 TLS (전송 계층 보안) 버전 1.0, 1.1 및 1.2을 지원 합니다. 가능 하면 지원 되는 가장 높은 버전을 사용 하 여 끝점에 대 한 Logic Apps 협상 합니다. 따라서 예를 들어 끝점이 1.2을 지 원하는 경우 커넥터는 1.2를 먼저 사용 합니다. 그렇지 않으면 커넥터에서 지원 되는 가장 높은 다음 버전을 사용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 호출 하려는 대상 끝점의 URL입니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "74787185"
 
 이 기본 제공 트리거는 끝점에 대해 지정 된 URL에 대 한 HTTP 호출을 수행 하 고 응답을 반환 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
 1. **작업 선택**아래의 검색 상자에 "http"를 필터로 입력 합니다. **트리거** 목록에서 **HTTP** 트리거를 선택 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "74787185"
 
    이 예에서는 단계가 보다 설명적인 이름을 갖도록 "HTTP 트리거"로 트리거의 이름을 바꿉니다. 또한 나중에이 예제에서는 HTTP 작업을 추가 하 고 두 이름이 모두 고유 해야 합니다.
 
-1. 대상 끝점에 대 한 호출에 포함 하려는 [HTTP 트리거 매개 변수에](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) 대 한 값을 제공 합니다. 트리거가 대상 끝점을 확인 하는 빈도에 대 한 되풀이를 설정 합니다.
+1. 대상 끝점에 대 한 호출에 포함 하려는 [HTTP 트리거 매개 변수에](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) 대 한 값을 제공 합니다. 트리거가 대상 끝점을 확인 하는 빈도에 대 한 되풀이를 설정 합니다.
 
    **없음**이외의 인증 유형을 선택 하는 경우 인증 설정은 선택 사항에 따라 달라 집니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
 
@@ -64,7 +64,7 @@ ms.locfileid: "74787185"
 
 이 기본 제공 작업은 끝점에 대해 지정 된 URL에 대 한 HTTP 호출을 수행 하 고 응답을 반환 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 첫 번째 단계로 HTTP 트리거를 사용 합니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "74787185"
 
    이 예에서는 단계에 보다 설명적인 이름을 포함 하도록 동작의 이름을 "HTTP action"으로 바꿉니다.
 
-1. 대상 끝점에 대 한 호출에 포함 하려는 [HTTP 작업 매개 변수의](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) 값을 제공 합니다.
+1. 대상 끝점에 대 한 호출에 포함 하려는 [HTTP 작업 매개 변수의](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) 값을 제공 합니다.
 
    **없음**이외의 인증 유형을 선택 하는 경우 인증 설정은 선택 사항에 따라 달라 집니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
 
@@ -138,21 +138,21 @@ HTTP 요청에 `multipart/form-data` 형식이 있는 콘텐츠를 처리 하려
 
 트리거 및 동작 매개 변수에 대 한 자세한 내용은 다음 섹션을 참조 하십시오.
 
-* [HTTP 트리거 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [HTTP 동작 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [HTTP 트리거 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [HTTP 동작 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### <a name="output-details"></a>출력 세부 정보
 
 이 정보를 반환 하는 HTTP 트리거 또는 작업의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| 속성 이름 | Type | 설명 |
+| 속성 이름 | 유형 | Description |
 |---------------|------|-------------|
-| 헤더 | object | 요청의 헤더입니다. |
-| body | object | JSON 개체 | 요청의 본문 내용이 포함 된 개체입니다. |
+| headers | object | 요청의 헤더입니다. |
+| 본문 | object | JSON 개체 | 요청의 본문 내용이 포함 된 개체입니다. |
 | 상태 코드 | int | 요청의 상태 코드 |
 |||
 
-| 상태 코드 | 설명 |
+| 상태 코드 | Description |
 |-------------|-------------|
 | 200 | 확인 |
 | 202 | 수락됨 |

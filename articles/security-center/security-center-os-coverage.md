@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353313"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894617"
 ---
 # <a name="supported-platforms"></a>지원 플랫폼 
 
@@ -48,7 +48,7 @@ Azure 구독에서 활성화 된 Azure 환경의 경우 Azure Security Center는
 |Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
-위에 나열 된 Windows 운영 체제에 대해 지원 되는 기능에 대해 자세히 알아보려면 [가상 머신/서버 지원 기능](security-center-services.md##vm-server-features)을 참조 하세요.
+위에 나열 된 Windows 운영 체제에 대해 지원 되는 기능에 대해 자세히 알아보려면 [가상 머신/서버 지원 기능](security-center-services.md#vm-server-features)을 참조 하세요.
 
 ### Linux 운영 체제<a name="os-linux"></a>
 
@@ -72,7 +72,7 @@ Azure 구독에서 활성화 된 Azure 환경의 경우 Azure Security Center는
 > [!NOTE]
 > 지원 되는 Linux 운영 체제의 목록이 지속적으로 변경 되므로 원하는 경우 [여기](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) 를 클릭 하 여이 항목을 마지막으로 게시 한 후 변경 내용이 있는 경우 지원 되는 버전의 최신 목록을 확인 하세요.
 
-위에 나열 된 Linux 운영 체제에 대해 지원 되는 기능에 대 한 자세한 내용은 [가상 머신/서버 지원 기능](security-center-services.md##vm-server-features)을 참조 하세요.
+위에 나열 된 Linux 운영 체제에 대해 지원 되는 기능에 대 한 자세한 내용은 [가상 머신/서버 지원 기능](security-center-services.md#vm-server-features)을 참조 하세요.
 
 ### 관리 되는 가상 컴퓨터 서비스<a name="virtual-machine"></a>
 

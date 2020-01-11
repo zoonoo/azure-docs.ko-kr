@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/13/2019
-ms.openlocfilehash: 548b74dbaf36fa0a0b5f999d1de61a0c05241c61
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/03/2020
+ms.openlocfilehash: 333d7faacfb5965e74eae69f07ff974a8fff8f25
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690827"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894002"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>작업 영역에 대 한 저장소 계정 사용
 
-가상 네트워크의 작업 영역에 대 한 Azure storage 계정을 사용 하려면 다음을 수행 합니다.
+가상 네트워크의 작업 영역에 대 한 Azure storage 계정을 사용 하려면 다음 단계를 사용 합니다.
 
 1. 가상 네트워크 뒤에 계산 리소스 (예: Machine Learning 계산 인스턴스 또는 클러스터)를 만들거나 작업 영역 (예: HDInsight 클러스터, 가상 머신 또는 Azure Kubernetes Service 클러스터)에 계산 리소스를 연결 합니다. 실험 또는 모델 배포의 경우 계산 리소스를 사용할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
    ![Azure Portal Azure Storage 페이지의 "방화벽 및 가상 네트워크" 영역](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. __방화벽 및 가상 네트워크__ 페이지에서 다음을 수행 합니다.
+1. __방화벽 및 가상 네트워크__ 페이지에서 다음 작업을 수행 합니다.
     - __선택한 네트워크__를 선택합니다.
     - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 링크를 선택 합니다. 이 작업을 수행 하면 계산이 있는 가상 네트워크가 추가 됩니다 (1 단계 참조).
 
@@ -88,7 +88,8 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 * Azure 컨테이너 리포지토리 인스턴스에 대 한 암호
 * 데이터 저장소에 대 한 연결 문자열
 
-가상 네트워크 Azure Key Vault 뒤에 Azure Machine Learning 실험 기능을 사용 하려면 다음을 수행 합니다.
+가상 네트워크 뒤 Azure Key Vault에서 Azure Machine Learning 실험 기능을 사용 하려면 다음 단계를 사용 합니다.
+
 1. 작업 영역과 연결 된 주요 자격 증명 모음으로 이동 합니다.
 
    [Azure Machine Learning 작업 영역에 연결 된 키 자격 증명 모음 ![](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
@@ -97,7 +98,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
    ![Key Vault 창의 "방화벽 및 가상 네트워크" 섹션](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
-1. __방화벽 및 가상 네트워크__ 페이지에서 다음을 수행 합니다.
+1. __방화벽 및 가상 네트워크__ 페이지에서 다음 작업을 수행 합니다.
     - __다음에서 액세스 허용__에서 __선택한 네트워크__를 선택합니다.
     - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 를 선택 하 여 실험 계산이 있는 가상 네트워크를 추가 합니다.
     - __신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 무시 하도록 허용__에서 __예__를 선택 합니다.
@@ -158,11 +159,11 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
 ### <a id="limiting-outbound-from-vnet"></a>가상 네트워크에서 아웃 바운드 연결 제한
 
-기본 아웃 바운드 규칙을 사용 하지 않고 가상 네트워크의 아웃 바운드 액세스를 제한 하려는 경우 다음을 수행 합니다.
+기본 아웃 바운드 규칙을 사용 하지 않고 가상 네트워크에 대 한 아웃 바운드 액세스를 제한 하려는 경우 다음 단계를 사용 합니다.
 
 - NSG 규칙을 사용 하 여 아웃 바운드 인터넷 연결을 거부 합니다.
 
-- 아웃 바운드 트래픽을 다음으로 제한:
+- 아웃 바운드 트래픽을 다음 항목으로 제한:
    - 저장소의 __서비스 태그__ 를 사용 하 여 Azure Storage __Region_Name__ (예: 저장소. eastus)
    - Azure Container Registry AzureContainerRegistry의 __서비스 태그__ 를 사용 하 여 __Region_Name 합니다__ (예: AzureContainerRegistry).
    - __AzureMachineLearning__ 의 __서비스 태그__ 를 사용 하 여 Azure Machine Learning
@@ -223,13 +224,13 @@ UDRs를 추가 하는 경우 관련 된 각 Batch IP 주소 접두사에 대 한
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>가상 네트워크에서 계산 클러스터 만들기
 
-Machine Learning 컴퓨팅 클러스터를 만들려면 다음을 수행 합니다.
+Machine Learning 컴퓨팅 클러스터를 만들려면 다음 단계를 사용 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning 작업 영역을 선택 합니다.
 
 1. __응용 프로그램__ 섹션에서 __compute__를 선택 하 고 __계산 추가__를 선택 합니다.
 
-1. 가상 네트워크를 사용 하도록이 계산 리소스를 구성 하려면 다음을 수행 합니다.
+1. 이 계산 리소스에서 가상 네트워크를 사용 하도록 구성 하려면 다음 작업을 수행 합니다.
 
     a. __네트워크 구성__의 경우 __고급__을 선택 합니다.
 
@@ -297,14 +298,14 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure Machine Learning는 Ubuntu를 실행 하는 가상 컴퓨터만 지원 합니다.
 
-작업 영역을 사용 하 여 가상 네트워크에서 가상 컴퓨터 또는 Azure HDInsight 클러스터를 사용 하려면 다음을 수행 합니다.
+작업 영역을 사용 하 여 가상 네트워크에서 가상 컴퓨터 또는 Azure HDInsight 클러스터를 사용 하려면 다음 단계를 사용 합니다.
 
 1. Azure Portal 또는 Azure CLI를 사용 하 여 VM 또는 HDInsight 클러스터를 만들고, 클러스터를 Azure virtual network에 배치 합니다. 자세한 내용은 다음 문서를 참조하세요.
     * [Linux VM용 Azure 가상 네트워크 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Azure 가상 네트워크를 사용하여 HDInsight 확장](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-1. Azure Machine Learning VM 또는 클러스터의 SSH 포트와 통신할 수 있도록 하려면 네트워크 보안 그룹에 대 한 원본 항목을 구성 합니다. SSH 포트는 일반적으로 포트 22입니다. 이 원본의 트래픽을 허용 하려면 다음을 수행 합니다.
+1. Azure Machine Learning VM 또는 클러스터의 SSH 포트와 통신할 수 있도록 하려면 네트워크 보안 그룹에 대 한 원본 항목을 구성 합니다. SSH 포트는 일반적으로 포트 22입니다. 이 원본의 트래픽을 허용 하려면 다음 작업을 수행 합니다.
 
     * __원본__ 드롭다운 목록에서 __서비스 태그__를 선택 합니다.
 
@@ -332,7 +333,7 @@ except ComputeTargetException:
 
 ## <a name="use-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service) 사용
 
-가상 네트워크의 AKS를 작업 영역에 추가 하려면 다음을 수행 합니다.
+가상 네트워크의 AKS를 작업 영역에 추가 하려면 다음 단계를 사용 합니다.
 
 > [!IMPORTANT]
 > 다음 절차를 시작 하기 전에 [Azure Kubernetes 서비스에서 고급 네트워킹 구성 (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) 의 필수 구성 요소에 따라 클러스터에 대 한 IP 주소 지정을 계획 합니다.
@@ -347,7 +348,7 @@ except ComputeTargetException:
 
 1. __응용 프로그램__ 섹션에서 __compute__를 선택 하 고 __계산 추가__를 선택 합니다.
 
-1. 가상 네트워크를 사용 하도록이 계산 리소스를 구성 하려면 다음을 수행 합니다.
+1. 이 계산 리소스에서 가상 네트워크를 사용 하도록 구성 하려면 다음 작업을 수행 합니다.
 
     - __네트워크 구성__의 경우 __고급__을 선택 합니다.
 
@@ -393,6 +394,82 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 만들기 프로세스가 완료 되 면 가상 네트워크 뒤의 AKS 클러스터에서 유추 또는 모델 점수 매기기를 실행할 수 있습니다. 자세한 내용은 [AKS에 배포하는 방법](how-to-deploy-and-where.md)을 참조하세요.
 
+### <a name="use-private-ips-with-azure-kubernetes-service"></a>Azure Kubernetes Service에서 개인 Ip 사용
+
+기본적으로 공용 IP 주소는 AKS 배포에 할당 됩니다. 가상 네트워크 내에서 AKS를 사용 하는 경우 개인 IP 주소를 대신 사용할 수 있습니다. 개인 IP 주소는 가상 네트워크 또는 연결 된 네트워크 내 에서만 액세스할 수 있습니다.
+
+_내부 부하 분산 장치_를 사용 하도록 AKS를 구성 하 여 개인 IP 주소를 사용 하도록 설정 합니다. 
+
+> [!IMPORTANT]
+> Azure Kubernetes 서비스 클러스터를 만들 때 개인 IP를 사용 하도록 설정할 수 없습니다. 기존 클러스터에 대 한 업데이트로 사용 하도록 설정 되어야 합니다.
+
+다음 코드 조각에서는 **새 AKS 클러스터를 만든**다음 개인 IP/내부 부하 분산 장치를 사용 하도록 업데이트 하는 방법을 보여 줍니다.
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute, ComputeTarget
+
+# Verify that cluster does not exist already
+try:
+    aks_target = AksCompute(workspace=ws, name=aks_cluster_name)
+    print("Found existing aks cluster")
+
+except:
+    print("Creating new aks cluster")
+
+    # Create AKS configuration
+    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    # Set info for existing virtual network to create the cluster in
+    prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
+    prov_config.vnet_name = "myvnetname"
+    prov_config.service_cidr = "10.0.0.0/16"
+    prov_config.dns_service_ip = "10.0.0.10"
+    prov_config.subnet_name = "default"
+    prov_config.docker_bridge_cidr = "172.17.0.1/16"
+
+    # Create compute target
+    aks_target = ComputeTarget.create(workspace = ws, name = “myaks”, provisioning_configuration = prov_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+    
+    # Update AKS configuration to use an internal load balancer
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", "default")
+    aks_target.update(update_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+```
+
+__Azure CLI__
+
+```azurecli-interactive
+az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+```
+
+명령에서 참조 하는 `body.json` 파일의 내용은 다음 JSON 문서와 유사 합니다.
+
+```json
+{ 
+    "location": “<region>”, 
+    "properties": { 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "computeType": "AKS", 
+        "provisioningState": "Succeeded", 
+        "properties": { 
+            "loadBalancerType": "InternalLoadBalancer", 
+            "agentCount": <agent-count>, 
+            "agentVmSize": "vm-size", 
+            "clusterFqdn": "<cluster-fqdn>" 
+        } 
+    } 
+} 
+```
+
+> [!NOTE]
+> 현재는 기존 클러스터에서 __연결__ 작업을 수행할 때 부하 분산 장치를 구성할 수 없습니다. 먼저 클러스터를 연결 하 고 업데이트 작업을 수행 하 여 부하 분산 장치를 변경 해야 합니다.
+
+AKS에서 내부 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service에서 내부 부하 분산 장치 사용](/azure/aks/internal-lb)을 참조 하세요.
+
 ## <a name="use-azure-firewall"></a>Azure 방화벽 사용
 
 Azure 방화벽을 사용 하는 경우 다음 주소와의 트래픽을 허용 하도록 네트워크 규칙을 구성 해야 합니다.
@@ -414,4 +491,3 @@ Azure 방화벽을 사용 하는 경우 다음 주소와의 트래픽을 허용 
 * [학습 환경 설정](how-to-set-up-training-targets.md)
 * [모델 배포 위치](how-to-deploy-and-where.md)
 * [SSL을 사용하여 안전하게 모델 배포](how-to-secure-web-service.md)
-

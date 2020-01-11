@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2b2ea9d878db8284aa44cdbdacb92c8cd4fabe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7ff9e2015b4621c89b6a831cf7000aa32db5ea6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423996"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888935"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft id 플랫폼 인증 라이브러리
 
@@ -108,7 +108,7 @@ Microsoft id 플랫폼 끝점을 사용 하는 라이브러리 목록은 다음 
 * 라이브러리 코드에서 문제 및 새 기능 요청은 라이브러리 소유자에게 문의합니다.
 * 서비스 측 프로토콜 구현에서 문제 및 새 기능 요청은 Microsoft로 문의합니다.
 * 프로토콜에 표시 하려는 추가 기능에 대 한 [기능 요청을 파일](https://feedback.azure.com/forums/169401-azure-active-directory) 에 추가 합니다.
-* Microsoft id 플랫폼 끝점이 OAuth 2.0 또는 Openid connect Connect 1.0과 호환 되지 않는 문제를 발견 [한 경우 지원 요청을 만듭니다](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) .
+* Microsoft id 플랫폼 끝점이 OAuth 2.0 또는 Openid connect Connect 1.0과 호환 되지 않는 문제를 발견 [한 경우 지원 요청을 만듭니다](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) .
 
 ## <a name="related-content"></a>관련 콘텐츠
 
