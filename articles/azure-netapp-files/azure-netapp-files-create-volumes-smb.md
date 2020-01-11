@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 01/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300535"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867443"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -40,12 +40,12 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 * 해당 하는 Windows Active Directory (AD) 서버에서 적절 한 포트가 열려 있어야 합니다.  
     필요한 포트는 다음과 같습니다. 
 
-    |     서비스           |     포트     |     프로토콜     |
+    |     서비스           |     Port     |     프로토콜     |
     |-----------------------|--------------|------------------|
     |    AD 웹 서비스    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    해당 없음       |    Echo Reply    |
+    |    ICMPv4             |    N/A       |    Echo Reply    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -53,11 +53,9 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     |    LDAP               |    389       |    TCP           |
     |    LDAP               |    389       |    UDP           |
     |    LDAP               |    3268      |    TCP           |
-    |    NetBIOS 이름       |    138       |    UDP           |
+    |    NetBIOS이름       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    보안 LDAP        |    636       |    TCP           |
-    |    보안 LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
 * 대상 Active Directory Domain Services에 대 한 사이트 토폴로지는 Azure NetApp Files 배포 되는 Azure VNet의 모범 사례를 준수 해야 합니다.  

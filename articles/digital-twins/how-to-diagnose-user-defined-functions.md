@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f963885f60116bf23087fceb6a92d18e71ac7f24
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 94038d743bf0aafaadb4693ffc48108e5351bca4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745343"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863549"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
@@ -56,7 +56,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | 이벤트 데이터에 대해 지정된 상관 관계 ID |
 
-모든 최근 원격 분석 로그 쿼리를 보려면 다음을 수행 합니다.
+모든 최신 원격 분석 로그 쿼리를 읽으려면:
 
 ```Kusto
 AzureDiagnostics

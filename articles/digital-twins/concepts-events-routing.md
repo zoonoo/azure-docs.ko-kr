@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660327"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862359"
 ---
 # <a name="routing-iot-events-and-messages"></a>IoT 이벤트 및 메시지 라우팅
 
@@ -53,7 +53,7 @@ Azure Digital Twins는 현재 선택한 엔드포인트로 전송될 다음 **Ev
 
 > [!IMPORTANT]  
 > 일부 **EndpointTypes**는 모든 **EventTypes**를 지원합니다.
-> **EndpointType** 각각에 대해 허용되는 **EventTypes**는 아래 표를 참조하세요.
+> 각 **Endpointtype**에 대해 허용 되는 **eventtypes** 는 다음 표를 참조 하세요.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -62,10 +62,10 @@ Azure Digital Twins는 현재 선택한 엔드포인트로 전송될 다음 **Ev
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->이벤트 스키마의 엔드포인트 및 예제를 만드는 방법에 대한 자세한 내용은 [송신 및 엔드포인트](how-to-egress-endpoints.md)를 참조하세요.
+>끝점과 이벤트 스키마의 예제를 만드는 방법에 대 한 자세한 내용은 [송신 및 끝점](how-to-egress-endpoints.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Digital Twins 미리 보기 제한에 대해 알아보려면 [공개 미리 보기 서비스 제한](concepts-service-limits.md)을 참조하세요.
+- Azure Digital Twins 미리 보기 제한에 대해 알아보려면 [공개 미리 보기 서비스 제한](concepts-service-limits.md)을 참조 하세요.
 
-- Azure Digital Twins 샘플을 사용해 보려면 [빠른 시작: 사용 가능한 회의실 찾기](quickstart-view-occupancy-dotnet.md)를 참조하세요.
+- Azure Digital Twins 샘플을 사용해 보려면 빠른 시작을 참조 [하 여 사용 가능한 방을 찾으십시오](quickstart-view-occupancy-dotnet.md).

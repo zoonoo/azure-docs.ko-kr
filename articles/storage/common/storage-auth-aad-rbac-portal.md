@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891955"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867509"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 RBAC 역할을 할당 합니다.
 
@@ -45,7 +45,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 
 > [!NOTE]
 > Azure Storage 계정 소유자인 경우 자동으로 데이터에 액세스할 수 있는 권한이 할당되지 않습니다. Azure Storage에 RBAC 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
-> 
+>
 > 저장소 계정에 계층 네임 스페이스가 사용 하도록 설정 된 경우 컨테이너 또는 큐에 범위가 지정 된 역할을 할당할 수 없습니다.
 
 ### <a name="assign-a-built-in-rbac-role"></a>기본 제공 RBAC 역할 할당
@@ -66,7 +66,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 
     ![RBAC 역할을 할당하는 방법을 보여주는 스크린샷](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 추가된 사용자에게 이제 *sample-container*라는 컨테이너의 데이터에 대한 읽기 권한이 있음을 보여줍니다.
+1. **저장**을 클릭합니다. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 추가된 사용자에게 이제 *sample-container*라는 컨테이너의 데이터에 대한 읽기 권한이 있음을 보여줍니다.
 
     ![역할에 할당 된 사용자 목록을 보여 주는 스크린샷](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
@@ -75,7 +75,6 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 ### <a name="assign-the-reader-role-for-portal-access"></a>포털 액세스에 대 한 읽기 권한자 역할 할당
 
 Azure Storage에 대 한 기본 제공 또는 사용자 지정 역할을 보안 주체에 할당 하면 해당 보안 주체에 게 저장소 계정의 데이터에 대 한 작업을 수행할 수 있는 권한을 부여 하는 것입니다. 기본 제공 **데이터 판독기** 역할은 컨테이너 또는 큐에 있는 데이터에 대 한 읽기 권한을 제공 하 고, 기본 제공 **데이터 참가자** 역할은 컨테이너 또는 큐에 대 한 읽기, 쓰기 및 삭제 권한을 제공 합니다. 사용 권한은 지정 된 리소스로 범위가 지정 됩니다.  
-
 예를 들어 **sample 컨테이너**라는 컨테이너 수준에서 사용자 mary에 게 **저장소 Blob 데이터 참가자** 역할을 할당 하는 경우 mary에 게 해당 컨테이너의 모든 blob에 대 한 읽기, 쓰기 및 삭제 권한이 부여 됩니다.
 
 그러나 Mary가 Azure Portal blob을 보려는 경우에는 **저장소 Blob 데이터 참가자** 역할 자체에서 포털을 통해 blob로 이동 하는 데 필요한 권한이 제공 되지 않습니다. 포털을 탐색 하 고 여기에 표시 되는 다른 리소스를 보려면 추가 Azure AD 권한이 필요 합니다.
@@ -91,8 +90,10 @@ Azure Storage에 대 한 기본 제공 또는 사용자 지정 역할을 보안 
 1. 역할을 할당 하려는 보안 주체를 검색 하 여 검색 합니다.
 1. 역할 할당을 저장 합니다.
 
-> [!NOTE]
-> 판독기 역할 할당은 Azure Portal를 사용 하 여 blob 또는 큐에 액세스 해야 하는 사용자에 게 필요 합니다. 
+**판독기** 역할 할당은 Azure Portal를 사용 하 여 blob 또는 큐에 액세스 해야 하는 사용자에 게 필요 합니다.
+
+> [!IMPORTANT]
+> Azure Portal Storage 탐색기의 미리 보기 버전은 Azure AD 자격 증명을 사용 하 여 blob 또는 큐 데이터를 확인 하 고 수정 하는 것을 지원 하지 않습니다. Azure Portal Storage 탐색기는 항상 계정 키를 사용 하 여 데이터에 액세스 합니다. Azure Portal에서 Storage 탐색기를 사용 하려면 **Microsoft. Storage/storageAccounts/listkeys/action**이 포함 된 역할이 할당 되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

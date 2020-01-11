@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527861"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860755"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -23,7 +23,7 @@ ISE를 만든 후 논리 앱 또는 통합 계정 만들기로 이동 하면 ISE
 
 ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-이제 논리 앱에서 다음 항목 중 하나를 사용 하 여 가상 네트워크 내부 또는 연결 된 시스템에 직접 액세스할 수 있습니다.
+이제 논리 앱은 논리 앱과 동일한 ISE 내에서 실행 되는 이러한 항목 중 하나를 사용 하 여 가상 네트워크 내부 또는 연결 된 시스템에 직접 액세스할 수 있습니다.
 
 * 해당 시스템에 대 한 **ISE**레이블 커넥터
 * HTTP 트리거 또는 작업과 같은 **핵심**레이블이 지정 된 기본 제공 트리거 또는 동작입니다.
@@ -43,23 +43,21 @@ ISE를 만든 후 논리 앱 또는 통합 계정 만들기로 이동 하면 ISE
 
 Azure에서 ISE (통합 서비스 환경)를 만들 때 ISE를 *삽입* 하려는 azure virtual network를 선택할 수 있습니다. 그런 다음 Azure는 Logic Apps 서비스의 전용 인스턴스를 가상 네트워크에 삽입 하거나 배포 합니다. 이 작업을 통해 격리된 환경이 만들어지면 전용 리소스에서 논리 앱을 만들고 실행할 수 있습니다. 논리 앱을 만들 때 앱의 위치로 ISE를 선택 하면 논리 앱이 해당 네트워크의 가상 네트워크 및 리소스에 직접 액세스할 수 있습니다.
 
-ISE의 논리 앱은 전역 Logic Apps 서비스와 같은 사용자 환경과 비슷한 기능을 제공합니다. 동일한 기본 제공 트리거, 기본 제공 작업 및 글로벌 Logic Apps 서비스의 커넥터를 사용할 수 있을 뿐만 아니라 ISE 특정 커넥터를 사용할 수도 있습니다. 예를 들어 ISE에서 실행 되는 버전을 제공 하는 몇 가지 표준 커넥터는 다음과 같습니다.
+ISE의 논리 앱은 공용 글로벌 Logic Apps 서비스와 동일한 사용자 환경 및 유사한 기능을 제공 합니다. 전역 Logic Apps 서비스에서 사용할 수 있는 동일한 기본 제공 트리거, 작업 및 관리 되는 커넥터를 모두 사용할 수 있습니다. 일부 관리 되는 커넥터는 추가 ISE 버전을 제공 합니다. 사용자가 실행 되는 위치와 ISE 내에서 작업할 때 논리 앱 디자이너에 표시 되는 레이블에 차이가 있습니다.
 
-* Azure Blob Storage, File Storage 및 Table Storage
-* Azure Queues, Azure Service Bus, Azure Event Hubs 및 IBM MQ
-* FTP 및 SFTP-SSH
-* SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
-* AS2, X12 및 EDIFACT
+![ISE에 레이블이 있거나 없는 커넥터](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
 
-ISE 커넥터와 기타 커넥터의 차이는 트리거와 작업이 실행되는 위치입니다.
+* 기본 제공 트리거 및 작업은 **코어** 레이블을 표시 하 고, 항상 논리 앱과 동일한 ISE에서 실행 됩니다. **Ise** 레이블을 표시 하는 관리 커넥터는 논리 앱과 동일한 ISE 에서도 실행 됩니다.
 
-* ISE에서 기본 제공 트리거 및 HTTP와 같은 작업은 항상 논리 앱과 동일한 ISE에서 실행 되며 **핵심** 레이블을 표시 합니다.
+  예를 들어 ISE 버전을 제공 하는 일부 커넥터는 다음과 같습니다.
 
-  !["Core" 기본 제공 트리거 및 동작을 선택 합니다.](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  * Azure Blob Storage, File Storage 및 Table Storage
+  * Azure Queues, Azure Service Bus, Azure Event Hubs 및 IBM MQ
+  * FTP 및 SFTP-SSH
+  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * AS2, X12 및 EDIFACT
 
-* ISE에서 실행 되는 커넥터에는 전역 Logic Apps 서비스에서 사용할 수 있는 공개적으로 호스팅된 버전이 있습니다. 두 버전을 제공 하는 커넥터의 경우 **ise** 레이블이 있는 커넥터는 항상 논리 앱과 동일한 ise에서 실행 됩니다. **ISE** 레이블이 없는 커넥터는 전역 Logic Apps 서비스에서 실행됩니다.
-
-  ![ISE 커넥터 선택](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
+* 추가 레이블을 표시 하지 않는 관리 커넥터는 항상 공용 글로벌 Logic Apps 서비스에서 실행 되지만 ISE 기반 논리 앱에서 이러한 커넥터를 계속 사용할 수 있습니다.
 
 또한 ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답 시간 제한, 메시지 크기 및 사용자 지정 커넥터 요청에 대 한 증가 된 제한을 제공 합니다. 자세한 내용은 [Azure Logic Apps에 대 한 제한 및 구성](logic-apps-limits-and-config.md)을 참조 하세요.
 

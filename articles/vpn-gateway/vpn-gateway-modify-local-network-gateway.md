@@ -1,26 +1,19 @@
 ---
-title: 'VPN Gateway: 게이트웨이 IP 주소 설정 수정: Azure PowerShell'
+title: '게이트웨이 IP 주소 설정 수정: PowerShell'
 description: 이 문서에서는 PowerShell을 사용하여 로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 변경하는 방법을 안내합니다.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6aae2c87615ae0e250d7f9460bde483e3448c46e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dbaef6e0c81a9230b24aa1e85e7fdc421444047d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014895"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863998"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정
 

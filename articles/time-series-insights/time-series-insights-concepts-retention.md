@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: f479433ef486c12a00f74b220d46f84f5f979e7c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561290"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863464"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure Time Series Insights의 데이터 보존 이해
 
@@ -44,7 +44,7 @@ ms.locfileid: "74561290"
 ## <a name="purge-old-data"></a>이전 데이터 삭제
 
 - **이전 데이터 제거** 는 Azure Time Series Insights 환경의 기본 설정입니다.  
-- 사용자가 Time Series Insights 환경에서 항상 *최신 데이터* 를 볼 수 있도록 하려면 **이전 데이터 제거** 를 선택 하는 것이 좋습니다.
+- 사용자가 항상 *최신 데이터* 를 Time Series Insights 환경에 포함 하려는 경우에는 **오래 된 데이터를 제거** 하는 것이 좋습니다.
 - **이전 데이터 제거** 설정은 환경의 제한 (보존 시간, 크기 또는 개수 중 먼저 도달 하는 경우)에 도달 하면 데이터를 *제거* 합니다. 기본적으로 보존 기간은 30일로 설정됩니다.
 - 가장 오래 된 수집 데이터가 먼저 제거 됩니다 ("처음부터 시작" 접근 방식).
 

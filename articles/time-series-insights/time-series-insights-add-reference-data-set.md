@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: a810076c8836acccf83733df02fbd0a29a8eba9b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460308"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863498"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -72,7 +72,7 @@ ms.locfileid: "75460308"
 
    [참조 데이터 검토 ![](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. 각 열을 검토하여 예상되는 데이터 형식을 확인한 후, 필요에 따라 데이터 형식을 변경합니다.  열 머리글에서 데이터 형식 기호를 선택합니다. 예를 들어 double(숫자 데이터)의 경우 **#** 을 선택하고, 부울의 경우 **T|F**를 선택하고, 문자열의 경우 **Abc**를 선택합니다.
+1. 각 열을 검토 하 여 가정 된 데이터 형식을 이해 하 고 필요한 경우 데이터 형식을 변경 합니다.  열 머리글에서 데이터 형식 기호를 선택합니다. 예를 들어 double(숫자 데이터)의 경우 **#** 을 선택하고, 부울의 경우 **T|F**를 선택하고, 문자열의 경우 **Abc**를 선택합니다.
 
    [열 머리글에서 데이터 형식을 선택할 ![.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
@@ -116,4 +116,4 @@ ms.locfileid: "75460308"
 
 * 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.
 
-* 전체 API 참조는 [참조 데이터 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 문서를 참조하세요.
+* 전체 API 참조를 보려면 [참조 데이터 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 문서를 참조 하세요.

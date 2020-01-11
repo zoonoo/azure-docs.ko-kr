@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Azure Dev 공간에서 개인 투구 리포지토리를 사용 합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너, 투구
 manager: gwallace
-ms.openlocfilehash: f212df74ab8102391e4170ccef6b0c3b1129b046
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dddec69dc019f286c714a09e6f1a7e47240d5572
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279912"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867279"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Azure Dev Spaces에서 개인 투구 리포지토리 사용
 
@@ -35,6 +35,9 @@ helm repo update
 ```cmd
 azds prep --public
 ```
+
+> [!TIP]
+> `prep` 명령은 프로젝트에 대 한 [Dockerfile 및 투구 차트](../how-dev-spaces-works.md#prepare-your-code) 를 생성 하려고 시도 합니다. Azure Dev Spaces은 이러한 파일을 사용 하 여 코드를 빌드하고 실행 하지만 프로젝트를 빌드하고 실행 하는 방법을 변경 하려는 경우 이러한 파일을 수정할 수 있습니다.
 
 응용 프로그램의 차트 디렉터리에 차트를 사용 하 여 [요구 사항 .yaml][helm-requirements] 파일을 만듭니다. 예를 들어 응용 프로그램 이름이 *app1*인 경우 *차트/app1/요구 사항을 만듭니다. yaml*.
 

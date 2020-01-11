@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4902ff5194c1648a8353b2a21ea559d15d574b3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452856"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861849"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
@@ -75,8 +75,8 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
      | --- | --- |
      | existingEventHubResourceId | 이벤트 원본을 통해 Time Series Insights 환경에 연결될 기존 Event Hub의 선택적 리소스 ID입니다. **참고:** 템플릿을 배포하는 사용자는 Event Hub에서 listkey 작업을 수행할 권한이 있어야 합니다. 값이 전달되지 않으면 새 Event Hub가 템플릿에 의해 만들어집니다. |
      | environmentDisplayName | 환경 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
-     | environmentSkuName | SKU의 이름입니다. 자세한 내용은 [Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조하세요.  |
-     | environmentSkuCapacity | SKU의 단위 용량입니다. 자세한 내용은 [Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조하세요.|
+     | environmentSkuName | SKU의 이름입니다. 자세한 내용은 [Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조 하세요.  |
+     | environmentSkuCapacity | SKU의 단위 용량입니다. 자세한 내용은 [Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조 하세요.|
      | environmentDataRetentionTime | 환경의 이벤트를 쿼리에 사용할 수 있는 최소 시간 간격입니다. 값은 ISO 8601 형식으로 지정 해야 합니다. 예를 들어 30 일의 보존 정책에 대 한 `P30D` 합니다. |
      | eventSourceDisplayName | 이벤트 원본 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
      | eventSourceTimestampPropertyName | 이벤트 원본의 타임스탬프로 사용될 이벤트 속성입니다. timestampPropertyName에 대한 값을 지정하지 않은 경우 또는 null 또는 빈 문자열을 지정하는 경우 이벤트 생성 시간이 사용됩니다. |
@@ -86,7 +86,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
    * 예를 들어, 다음 매개 변수 파일은 기존 Event Hub의 이벤트를 읽는 환경 및 이벤트 원본을 만드는 데 사용할 수 있습니다. 또한 환경에 대한 참가자 액세스 권한을 부여하는 두 개의 액세스 정책을 만듭니다.
 
-     ```json
+     ```JSON
      {
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
          "contentVersion": "1.0.0.0",
@@ -119,7 +119,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
      }
      ```
   
-    * 자세한 내용은 [매개 변수](../azure-resource-manager/templates/parameter-files.md) 문서를 참조하세요.
+    * 자세한 내용은 [매개 변수](../azure-resource-manager/templates/parameter-files.md) 문서를 참조 하세요.
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>PowerShell을 사용하여 로컬로 빠른 시작 템플릿을 배포합니다
 
@@ -174,7 +174,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. 배포 만들기
 
-    * 새 배포를 만들려면 `New-AzResourceGroupDeployment` cmdlet을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/deployment-modes.md)를 참조하세요.
+    * 새 배포를 만들려면 `New-AzResourceGroupDeployment` cmdlet을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/deployment-modes.md)를 참조 하세요.
 
     * 다음 명령은 PowerShell 창에서 다섯 개의 필수 매개 변수를 입력하라는 메시지를 표시합니다.
 
@@ -252,4 +252,4 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 ## <a name="next-steps"></a>다음 단계
 
-- REST API를 사용하여 프로그래밍 방식으로 Time Series Insights 리소스를 관리하는 방법에 대한 자세한 내용은 [Time Series Insights 관리](https://docs.microsoft.com/rest/api/time-series-insights-management/)를 참조하세요.
+- REST Api를 사용 하 여 Time Series Insights 리소스를 프로그래밍 방식으로 관리 하는 방법에 대 한 자세한 내용은 [Time Series Insights 관리](https://docs.microsoft.com/rest/api/time-series-insights-management/)

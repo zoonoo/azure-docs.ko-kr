@@ -3,24 +3,24 @@ title: Azure에서 Team Data Science Process 실행 연습
 description: 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법입니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 98595ea0ef5b6d9d4cef0f239390b364fb1e4e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589053"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864080"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Azure에서 Team Data Science Process 실행 연습
 
-이러한 **엔드투엔드 연습**에서는 특정 시나리오에 대한 Team Data Science Process의 단계를 보여 줍니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 **지능형 애플리케이션**을 만드는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼**별로 그룹화됩니다.
+이러한 **포괄적인 연습** 에서는 특정 시나리오에 대 한 팀 데이터 과학 프로세스의 단계를 보여 줍니다. 클라우드, 온-프레미스 도구 및 서비스를 **지능형 응용 프로그램**의 워크플로로 결합 하는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼**별로 그룹화됩니다.
 
 
 ## <a name="walkthrough-descriptions"></a>연습 설명
@@ -40,7 +40,7 @@ ms.locfileid: "60589053"
 
 Team Data Science Process를 구성하는 주요 구성의 논의는 [Team Data Science Process 개요](overview.md)를 참조하세요.
 
-데이터 과학 프로젝트를 구성하는 데 사용할 수 있는 Team Data Science Process 수명 주기의 논의는 [Team Data Science Process 수명 주기](lifecycle.md)를 참조하세요. 수명 주기는 일반적으로 프로젝트가 실행될 때 시작부터 끝까지 따라야 하는 단계를 간략하게 설명합니다. 
+팀 데이터 과학 프로세스 수명 주기에 대 한 설명은 [팀 데이터 과학 프로세스 수명 주기](lifecycle.md)를 참조 하세요. 이 수명 주기에서는 프로젝트가 실행 될 때 일반적으로 수행 하는 단계를 처음부터 끝까지 간략하게 설명 합니다. 
 
-Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 토픽에 대한 개요는 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 참조하세요. 
+개요는 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 참조 하세요. 
 

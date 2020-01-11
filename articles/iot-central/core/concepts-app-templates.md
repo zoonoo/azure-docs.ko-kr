@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 85d882cff968c9b68ece104e850a7f16c33947b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435098"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867450"
 ---
 # <a name="what-are-application-templates"></a>애플리케이션 템플릿이란?
 
@@ -42,6 +42,7 @@ Azure IoT Central의 응용 프로그램 템플릿은 솔루션 빌더가 IoT �
 - 소매 > 디지털 배포 센터
 - 소매점 > 매장 분석-조건 모니터링
 - 소매점 > 매장 분석 – 체크 아웃
+- 소매 > 마이크로-배송 센터
 - 정품 > 스마트 재고 관리
 - 에너지 > 스마트 측정기 모니터링
 - 에너지 > 양력인 패널 모니터링

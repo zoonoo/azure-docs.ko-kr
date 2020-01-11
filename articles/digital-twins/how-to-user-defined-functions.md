@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7334d4292db710a32b888d9a3ad4e78872d15227
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383307"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863515"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 만드는 방법
 
@@ -126,7 +126,7 @@ function process(telemetry, executionContext) {
 
 ### <a name="example-functions"></a>예제 함수
 
-**에 해당하는** Temperature`sensor.DataType` 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
+`sensor.DataType`에 해당하는 **Temperature** 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -193,11 +193,11 @@ function process(telemetry, executionContext) {
 }
 ```
 
-더 복잡한 사용자 정의 함수 코드 예제에 대한 자세한 내용은 [사용 빠른 시작](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)을 참조하세요.
+더 복잡 한 사용자 정의 함수 코드 샘플을 보려면 [선점 빠른](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)시작을 참조 하세요.
 
 ## <a name="create-a-role-assignment"></a>역할 할당 만들기
 
-실행할 사용자 정의 함수에 대한 역할 할당을 만듭니다. 사용자 정의 함수에 대한 역할 할당이 없으면 관리 API와 상호 작용할 수 있는 적절한 권한을 갖지 못하거나 그래프 개체에서 작업을 수행할 수 있는 액세스 권한을 갖지 못합니다. 사용자 정의 함수를 통해 수행할 수 있는 작업은 Azure Digital Twins 관리 API 내 역할 기반 액세스 제어를 통해 지정 및 정의됩니다. 예를 들어 사용자 정의 함수는 특정 역할 또는 특정 액세스 제어 경로를 지정하여 범위를 제한할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어](./security-role-based-access-control.md) 설명서를 참조하세요.
+실행할 사용자 정의 함수에 대한 역할 할당을 만듭니다. 사용자 정의 함수에 대한 역할 할당이 없으면 관리 API와 상호 작용할 수 있는 적절한 권한을 갖지 못하거나 그래프 개체에서 작업을 수행할 수 있는 액세스 권한을 갖지 못합니다. 사용자 정의 함수를 통해 수행할 수 있는 작업은 Azure Digital Twins 관리 API 내 역할 기반 액세스 제어를 통해 지정 및 정의됩니다. 예를 들어 사용자 정의 함수는 특정 역할 또는 특정 액세스 제어 경로를 지정하여 범위를 제한할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어](./security-role-based-access-control.md) 설명서를 참조 하세요.
 
 1. 모든 역할에 대한 [시스템 API를 쿼리](./security-create-manage-role-assignments.md#retrieve-all-roles)하여 사용자 정의 함수에 할당할 역할 ID를 가져옵니다. 인증된 HTTP GET 요청을 수행함으로써 할 수 있습니다.
 
@@ -207,7 +207,7 @@ function process(telemetry, executionContext) {
    원하는 역할 ID를 유지합니다. 아래와 같이 JSON 본문 특성 **roleId**(`YOUR_DESIRED_ROLE_IDENTIFIER`)로 전달됩니다.
 
 1. **objectId**(`YOUR_USER_DEFINED_FUNCTION_ID`)는 앞서 만든 사용자 정의 함수 ID가 됩니다.
-1. **로 공백을 쿼리하여** path`YOUR_ACCESS_CONTROL_PATH`(`fullpath`) 값을 찾습니다.
+1. `fullpath`로 공백을 쿼리하여 **path**(`YOUR_ACCESS_CONTROL_PATH`) 값을 찾습니다.
 1. 반환된 `spacePaths` 값을 복사합니다. 아래와 같이 이 값을 사용합니다. 인증된 HTTP GET 요청을 확인합니다.
 
     ```URL

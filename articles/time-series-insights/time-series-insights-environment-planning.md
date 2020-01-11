@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452858"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863379"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Azure Time Series Insights GA 환경 계획
 
@@ -32,7 +32,7 @@ ms.locfileid: "75452858"
 
 Azure Time Series Insights를 시작 하려면 분 단위로 푸시 해야 하는 데이터의 양과 데이터를 저장 하는 데 걸리는 시간을 알고 있는 것이 가장 좋습니다.  
 
-두 Time Series Insights SKU의 용량 및 보존에 대한 자세한 내용은 [Time Series Insights 가격](https://azure.microsoft.com/pricing/details/time-series-insights/)을 참조하세요.
+Time Series Insights Sku에 대 한 용량 및 보존에 대 한 자세한 내용은 [Time Series Insights 가격 책정](https://azure.microsoft.com/pricing/details/time-series-insights/)을 참조 하세요.
 
 장기 성공을 위해 Time Series Insights 환경을 최적으로 계획 하려면 다음 특성을 고려 합니다.
 
@@ -71,7 +71,7 @@ Azure Portal의 환경 구성 페이지에서 보존 기간을 조정 하 고 �
    [보존 구성 ![](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
-> 적절 한 데이터 보존 정책을 구현 하는 방법에 대 한 자세한 내용은 [보존을 구성 하는 방법](./time-series-insights-how-to-configure-retention.md)을 참조 하세요.
+> 적절 한 데이터 보존 정책을 구현 하는 방법에 대해 자세히 알아보려면 [보존을 구성 하는 방법](./time-series-insights-how-to-configure-retention.md)을 참조 하세요.
 
 ## <a name="ingress-capacity"></a>수집 용량
 
@@ -103,7 +103,7 @@ Time Series Insights 환경을 계획 하는 데 중점을 두는 두 번째 영
 
 ### <a name="mitigate-throttling-and-latency"></a>제한 및 대기 시간에 대응하기
 
-제한 및 대기 시간을 방지하는 자세한 방법은 [대기 시간 및 제한 완화](time-series-insights-environment-mitigate-latency.md)를 참조하세요.
+제한 및 대기 시간을 방지 하는 방법에 대 한 자세한 내용은 [대기 시간 및 제한 감소](time-series-insights-environment-mitigate-latency.md)를 참조 하세요.
 
 ## <a name="shape-your-events"></a>이벤트 셰이핑
 
@@ -119,7 +119,7 @@ Time Series Insights에 이벤트를 전송 하는 방법이 프로 비전 하�
 > [!NOTE]
 > 참조 데이터는 소급 조인 되지 않습니다. 현재 및 이후의 수신 데이터만 일치 하 고 구성 및 업로드 후에 참조 데이터 집합에 조인 됩니다. Time Series Insights에 많은 양의 기록 데이터를 보내고 먼저 Time Series Insights에 참조 데이터를 업로드 하거나 만들지 않으려는 경우 작업을 다시 실행 해야 할 수 있습니다 (힌트: 재미 있지 않음).  
 
-Time Series Insights에서 참조 데이터를 만들고, 업로드 하 고, 관리 하는 방법에 대 한 자세한 내용은 [참조 데이터 집합 설명서](time-series-insights-add-reference-data-set.md)를 참조 하세요.
+Time Series Insights에서 참조 데이터를 만들고, 업로드 하 고, 관리 하는 방법에 대 한 자세한 내용은 [참조 데이터 집합 설명서를 참조](time-series-insights-add-reference-data-set.md)하세요.
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

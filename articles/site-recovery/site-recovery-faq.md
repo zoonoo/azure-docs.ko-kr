@@ -2,13 +2,14 @@
 title: Azure Site Recovery 서비스에 대 한 일반적인 질문
 description: 이 문서에서는 Azure Site Recovery에 대해 널리 사용 되는 일반적인 질문을 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 44abe9eafa9aef9e027778470d3f0483f99b0d32
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497541"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863566"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대 한 일반적인 질문
 
@@ -101,7 +102,8 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery는 복제를 암호화합니까?
 온-프레미스 사이트 간에 가상 머신과 물리적 서버를 복제할 때 전송 중 암호화가 지원됩니다. Azure에 복제되는 가상 머신과 물리적 서버의 경우 전송 중 암호화 및 [정지된 암호화(Azure 내)](https://docs.microsoft.com/azure/storage/storage-service-encryption)가 모두 지원됩니다.
 
-
+### <a name="how-can-i-enforce-tls-12-on-all-on-premises-azure-site-recovery-components"></a>모든 온-프레미스 Azure Site Recovery 구성 요소에서 TLS 1.2을 적용 하려면 어떻게 해야 하나요?
+복제 된 항목에 설치 된 모바일 에이전트는 TLS 1.2 에서만 프로세스 서버와 통신 합니다. 그러나 구성 서버에서 Azure로, 프로세스 서버에서 Azure로의 통신은 TLS 1.1 또는 1.0에 있을 수 있습니다. 모든 구성 서버 및 프로세스 서버에서 TLS 1.2을 적용 하는 [지침](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) 을 따르세요.
 
 
 ## <a name="disaster-recovery"></a>재해 복구

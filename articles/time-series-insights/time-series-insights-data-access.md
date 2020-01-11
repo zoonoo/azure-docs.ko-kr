@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b79ca1d93baf1941d5de8db0c314f9cd21e51056
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c7a70d8209c5c349fc082d939a24deac23fa954d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328262"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863430"
 ---
 # <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 
@@ -28,7 +28,7 @@ ms.locfileid: "74328262"
 ## <a name="sign-in-to-time-series-insights"></a>Time Series Insights에 로그인
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. Time Series Insights 환경을 찾습니다. `Time Series`검색**상자에**를 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다.
+1. Time Series Insights 환경을 찾습니다. **검색** 상자에 `Time Series`를 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다.
 1. 목록에서 Time Series Insights 환경을 선택합니다.
 
 ## <a name="grant-data-access"></a>데이터 액세스 권한 부여
@@ -113,7 +113,7 @@ ms.locfileid: "74328262"
 
 1. 이제 게스트가 관리자가 제공한 환경 URL을 사용 하 여 공유 환경에 액세스할 수 있습니다. 이러한 URL을 웹 브라우저에 입력 하 여 즉시 액세스할 수 있습니다.
 
-1. 게스트 사용자는 시계열 탐색기의 오른쪽 위 모퉁이에 있는 프로필 아이콘을 선택 하 여 관리자의 테 넌 트를 볼 수 있습니다.
+1. 시계열 탐색기의 오른쪽 위 모서리에서 프로필 아이콘을 선택한 후 관리자의 테 넌 트가 게스트 사용자에 게 표시 됩니다.
 
     [insights.azure.com에서 아바타 선택 ![](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 

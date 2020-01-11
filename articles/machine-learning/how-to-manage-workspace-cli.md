@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 11/05/2019
-ms.openlocfilehash: 307be6700317ef7c5a67bf08a67e6134f8985e32
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6243b702e38e2a2edbe17a665be1d57b3921b6fd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539503"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867102"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -340,6 +340,12 @@ az group delete -g <resource-group-name>
 ```
 
 자세한 내용은 [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) 설명서를 참조 하세요.
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="resource-provider-errors"></a>리소스 공급자 오류
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

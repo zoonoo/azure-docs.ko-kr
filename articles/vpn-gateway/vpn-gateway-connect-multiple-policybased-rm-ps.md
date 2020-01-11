@@ -2,18 +2,17 @@
 title: 'Azure VPN Gateway: 게이트웨이를 여러 온-프레미스 정책 기반 VPN 장치에 연결'
 description: Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 디바이스에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 029b7ce31e7e3f1c71d9fbe806b2d76d8a98d24b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146706"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863743"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
 
@@ -41,7 +40,7 @@ ms.locfileid: "74146706"
 
 |                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**       |**RouteBased VPN Gateway**                          |
 | ---                      | ---                         | ---                              |---                                                 |
-| **Azure Gateway SKU**    | 기본                       | 기본                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **Azure Gateway SKU**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
 | **IKE 버전**          | IKEv1                       | IKEv2                            | IKEv1 및 IKEv2                                    |
 | **최대값. S2S 연결** | **1**                       | 10                               |표준: 10<br> 기타 Sku: 30                     |
 |                          |                             |                                  |                                                    |
@@ -81,7 +80,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 이 섹션에 대해 [IPsec/IKE 정책 구성 문서의 3부](vpn-gateway-ipsecikepolicy-rm-powershell.md)를 완료했는지 확인하세요. 아래 예제에서는 동일한 매개 변수 및 단계를 사용합니다.
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>1단계 - 가상 네트워크, VPN 게이트웨이 및 로컬 네트워크 게이트웨이 만들기
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>1단계 - 가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
 
 #### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. 구독에 연결 하 고 변수를 선언 합니다.
 

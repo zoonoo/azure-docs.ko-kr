@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 673b74515ba03bc71e60a68b21b9330f9e62d424
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 38f424287788537cc5711bab8da60b5798a84b3a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647393"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867681"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -58,6 +58,9 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 테이블 (테이블, table_secondary)<BR> 큐 (큐, queue_secondary)<BR> 파일 (파일, file_secondary)<BR> 웹 (웹, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
 |**Azure Cosmos DB** | Microsoft.azurecosmosdb/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|
+|**Azure Database for PostgreSQL-단일 서버** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
+|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
+|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
  
 ## <a name="network-security-of-private-endpoints"></a>개인 끝점의 네트워크 보안 
 Azure 서비스에 대 한 개인 끝점을 사용 하는 경우 특정 개인 링크 리소스에 대 한 트래픽이 보호 됩니다. 플랫폼은 액세스 제어를 수행 하 여 지정 된 개인 링크 리소스에만 도달 하는 네트워크 연결의 유효성을 검사 합니다. 동일한 Azure 서비스 내에서 추가 리소스에 액세스 하려면 추가 개인 끝점이 필요 합니다. 
@@ -112,6 +115,9 @@ Azure 서비스의 경우 다음 표에 설명 된 대로 권장 된 영역 이�
 |Azure Cosmos DB (Microsoft.azurecosmosdb/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft.azurecosmosdb/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft.azurecosmosdb/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
+|Azure Database for PostgreSQL-단일 서버 (DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
+|Azure Database for MySQL (Microsoft DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
+|Azure Database for MariaDB (DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
  
 Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해결 방법을 제안 된 도메인 이름으로 리디렉션합니다. 개인 끝점의 개인 IP 주소를 사용 하 여 해상도를 재정의할 수 있습니다. 
  
@@ -136,3 +142,9 @@ Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해�
 - [포털을 사용하여 스토리지 계정용 프라이빗 엔드포인트 만들기](create-private-endpoint-storage-portal.md)
 - [포털을 사용하여 Azure Cosmos 계정용 프라이빗 엔드포인트 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Azure PowerShell를 사용하여 고유의 Private Link 서비스 만들기](create-private-link-service-powershell.md)
+- [포털을 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 사용자 고유의 개인 링크 만들기](../postgresql/howto-configure-privatelink-portal.md)
+- [CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 사용자 고유의 개인 링크 만들기](../postgresql/howto-configure-privatelink-cli.md)
+- [포털을 사용 하 여 Azure Database for MySQL에 대 한 사용자 고유의 개인 링크 만들기](../mysql/howto-configure-privatelink-portal.md)
+- [CLI를 사용 하 여 Azure Database for MySQL에 대 한 사용자 고유의 개인 링크 만들기](../mysql/howto-configure-privatelink-cli.md)
+- [포털을 사용 하 여 Azure Database for MariaDB에 대 한 사용자 고유의 개인 링크 만들기](../mariadb/howto-configure-privatelink-portal.md)
+- [CLI를 사용 하 여 Azure Database for MariaDB에 대 한 사용자 고유의 개인 링크 만들기](../mariadb/howto-configure-privatelink-cli.md)

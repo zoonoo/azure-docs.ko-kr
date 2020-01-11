@@ -3,25 +3,17 @@ title: S2S VPN & VNet 간 연결에 대 한 IPsec/IKE 정책
 titleSuffix: Azure VPN Gateway
 description: Azure Resource Manager 및 PowerShell을 사용하여 Azure VPN Gateways로 S2S 또는 VNet 간 연결에 대한 IPsec/IKE 정책을 구성합니다.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: b0dabf0ee3370abab3d0f9d6f1bf26dd622862cf
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ed7b12b24e6129d6cf609f4345203abc783e9f62
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151788"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864063"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성
 

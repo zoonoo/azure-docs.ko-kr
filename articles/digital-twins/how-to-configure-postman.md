@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d87112697bfa3aa7bb6b4c8f14420598ccd914cb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304802"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864318"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -37,7 +37,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
 1. 앱 등록을 위한 **API 사용 권한** 창을 엽니다. **사용 권한 추가** 단추를 선택합니다. **API 사용 권한 요청** 창에서 **내 조직이 사용하는 API** 탭을 선택한 후, 다음을 검색합니다.
     
-    1. `Azure Digital Twins`. **Azure Digital Twins** API를 선택합니다.
+    1. `Azure Digital Twins`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. **Azure Digital Twins** API를 선택합니다.
 
         [![Search API 또는 Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
@@ -99,7 +99,7 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
     | 인증 URL | **2 단계의** **권한 부여 URL** 사용 |
     | 클라이언트 ID | 이전 섹션에서 만들었거나 다시 사용한 Azure Active Directory 앱의 **응용 프로그램 ID** 를 사용 합니다. |
     | 범위 | 비워 둠 |
-    | State | 비워 둠 |
+    | 상태 | 비워 둠 |
     | 클라이언트 인증 | `Send as Basic Auth header` |
 
 1. 클라이언트는 이제 다음과 같아야 합니다.
@@ -130,7 +130,7 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
    > * 각 파트에 대해 해당 헤더를 지정할 필요가 없습니다.
    > * 전체 요청에 대해서는 `multipart/mixed` 또는 다른 적절한 **Content-Type**을 선택해야 합니다.
 
-1. 마지막으로, **보내기** 를 선택 하 여 MULTIPART HTTP POST 요청을 제출 합니다. `200` 또는 `201`의 상태 코드는 성공적인 요청을 나타냅니다. 또한 적절 한 응답 메시지가 표시 됩니다.
+1. 마지막으로, **보내기** 를 선택 하 여 MULTIPART HTTP POST 요청을 제출 합니다. `200` 또는 `201`의 상태 코드는 성공적인 요청을 나타냅니다. 적절 한 응답 메시지가 클라이언트 인터페이스에 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,16 +4,28 @@ description: Azure HPC 캐시 저장소 대상을 편집 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168526"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866997"
 ---
 # <a name="edit-storage-targets"></a>스토리지 대상 편집
+
+캐시의 **저장소** 대상 페이지에서 저장소 대상을 제거 하거나 수정할 수 있습니다.
+
+## <a name="remove-a-storage-target"></a>저장소 대상 제거
+
+저장소 대상을 제거 하려면 목록에서 해당 대상을 선택 하 고 **삭제** 단추를 클릭 합니다.
+
+이 작업은이 Azure HPC 캐시 시스템과의 저장소 대상 연결을 제거 하지만 백 엔드 저장소 시스템은 변경 하지 않습니다. 예를 들어 Azure Blob 저장소 컨테이너를 사용 하는 경우 캐시에서 컨테이너와 해당 콘텐츠를 삭제 한 후에도 컨테이너와 해당 콘텐츠는 계속 존재 합니다. 컨테이너를 다른 Azure HPC 캐시에 추가 하거나,이 캐시에 다시 추가 하거나, Azure Portal를 사용 하 여 삭제할 수 있습니다.
+
+저장소 대상이 제거 되기 전에 캐시에 저장 된 모든 파일 변경 내용이 백 엔드 저장소 시스템에 기록 됩니다. 변경 된 많은 데이터가 캐시에 있는 경우이 프로세스는 한 시간 이상 걸릴 수 있습니다.
+
+## <a name="update-storage-targets"></a>저장소 대상 업데이트
 
 저장소 대상을 편집 하 여 일부 속성을 수정할 수 있습니다. 다른 유형의 저장소에 대해 서로 다른 속성을 편집할 수 있습니다.
 

@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4470a89455fd4b49fb7bb5ae26375f9cf9884c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a14f3f6c17423dd9a86cbafe477fb8148932d43c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457000"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863532"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -50,9 +50,9 @@ Swagger는 Azure Digital Twins 관리 API에 대한 호출 테스트와 개발�
 
 키 특성의 더 자세한 요약은 각 나열된 개체 모델을 선택하면 됩니다.
 
-[모델 콘텐츠를 보기 위해 확장 된 ![Swagger 모델](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[모델의 콘텐츠를 읽도록 확장 된 ![Swagger 모델](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
-생성된 Swagger 개체 모델은 사용 가능한 모든 Azure Digital Twins [개체 및 API](./concepts-objectmodel-spatialgraph.md)를 보는 데 편리합니다. 개발자는 Azure Digital Twins에서 솔루션을 빌드할 때 이 리소스를 사용할 수 있습니다.
+생성 된 Swagger 개체 모델은 사용 가능한 모든 Azure Digital Twins [개체 및 api](./concepts-objectmodel-spatialgraph.md)를 읽는 데 편리 합니다. 개발자는 Azure Digital Twins에서 솔루션을 빌드할 때 이 리소스를 사용할 수 있습니다.
 
 ## <a name="endpoint-summary"></a>엔드포인트 요약
 
@@ -66,13 +66,13 @@ Swagger는 Azure Digital Twins 관리 API에 대한 호출 테스트와 개발�
 
 [Swagger UI에 표시 되는 ![Swagger 끝점](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
-더 자세한 개요를 보려면 각 리소스를 선택합니다.
+추가 내용을 표시 하려면 각 리소스를 선택 하 여 자세한 개요를 확인 하세요.
 
 ## <a name="use-swagger-to-test-endpoints"></a>Swagger를 사용하여 엔드포인트 테스트
 
 Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드포인트를 테스트할 수 있는 기능입니다.
 
-특정 엔드포인트를 선택하면 **사용해보기**가 표시됩니다.
+특정 끝점을 선택한 후에는 **사용해 보기** 단추가 표시 됩니다.
 
 [![Swagger 사용해 보기 단추](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
@@ -84,7 +84,7 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
 
 ## <a name="swagger-response-data"></a>Swagger 응답 데이터
 
-나열된 각 엔드포인트에는 개발 및 테스트의 유효성을 검사하는 응답 본문 데이터도 포함됩니다. 이러한 예제에는 성공적인 HTTP 요청에 대해 원하는 상태 코드 및 JSON이 포함됩니다.
+나열된 각 엔드포인트에는 개발 및 테스트의 유효성을 검사하는 응답 본문 데이터도 포함됩니다. 이러한 예제에는 성공적인 HTTP 요청에 대 한 상태 코드 및 JSON이 포함 됩니다.
 
 [![Swagger JSON 응답 예제](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
@@ -124,7 +124,7 @@ Azure Active Directory 등록을 완료 한 후:
 
     [![Swagger 리디렉션 모달](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
-OAuth 2.0으로 보호되는 요청을 대화형으로 테스트하는 방법에 대해 자세히 알아보려면 [공식 설명서](https://swagger.io/docs/specification/authentication/oauth2/)를 참조하세요.
+OAuth 2.0에 의해 보호 되는 대화형 테스트 요청에 대해 자세히 알아보려면 [공식 설명서](https://swagger.io/docs/specification/authentication/oauth2/)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

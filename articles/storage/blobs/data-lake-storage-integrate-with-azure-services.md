@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
-ms.openlocfilehash: c7223274417ef4c911c32acbcde1511682d6d9e0
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: de57776ea3bcc7486c5c26182c7e2a65e643d81c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796061"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863005"
 ---
 # <a name="integrate-azure-data-lake-storage-with-azure-services"></a>Azure 서비스와 Azure Data Lake Storage 통합
 
@@ -22,13 +22,13 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 
 다음 표에서는 Azure Data Lake Storage Gen2을 지 원하는 Azure 서비스를 나열 합니다.
 
-| Azure 서비스 |  관련된 문서 |
+| Azure 서비스 |  관련 문서 |
 |---------------|-------------------|
-|Azure 데이터 팩터리 | [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Data Factory | [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure Databricks | [Azure Databricks와 함께 사용](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [빠른 시작: Azure Databricks를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 분석](data-lake-storage-quickstart-create-databricks-account.md) <br>[자습서: Azure Databricks을 사용 하 여 데이터 추출, 변환 및 로드](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse) <br>[자습서: Spark를 사용 하 여 Azure Databricks으로 데이터 Data Lake Storage Gen2 액세스](data-lake-storage-use-databricks-spark.md) |
 |Azure Event Hubs 캡처| [Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트를 캡처합니다.](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
 |Azure Logic Apps | [개요-Azure Logic Apps 이란?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
-|Azure Machine Learning|[Azure storage 서비스의 데이터에 액세스](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data)|
+|Azure Machine Learning|[Azure storage 서비스의 데이터에 액세스](https://docs.microsoft.com/azure/machine-learning/how-to-access-data)|
 |Azure Cognitive Search | [문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
 |Azure Stream Analytics| [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Azure Data Lake Gen2로 송신](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2) |
 |Data Box|  [Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage 데이터를 마이그레이션합니다.](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
@@ -36,7 +36,7 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 |IoT Hub | [IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|
 |Power BI|  [Power BI를 사용 하 여 Data Lake Storage Gen2 데이터 분석](data-lake-storage-use-power-bi.md) |
 |SQL Data Warehouse | [Azure SQL Data Warehouse와 함께 사용](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)|
-|SQL Server 통합 서비스(SSIS) | [Azure Storage 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
+|SSIS(SQL Server Integration Services) | [Azure Storage 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
 
 ## <a name="next-steps"></a>다음 단계
 

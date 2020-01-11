@@ -1,25 +1,18 @@
 ---
-title: Azure 사이트 간 VPN 연결에서 연결할 수 없는 문제 해결 | Microsoft Docs
+title: 'TitleSuffix에 연결할 수 없는 Azure 사이트 간 VPN 연결 문제 해결: Azure VPN Gateway'
 description: 갑자기 작동 중단되어 다시 연결할 수 없는 사이트 간 VPN 연결 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058866"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862580"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
 

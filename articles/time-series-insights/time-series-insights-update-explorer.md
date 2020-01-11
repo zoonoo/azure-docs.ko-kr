@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d94daa5fbda4ee60ffc6671f7b50126662416043
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746472"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861764"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Azure Time Series Insights 미리 보기 탐색기
 
@@ -48,7 +48,7 @@ Azure Time Series Insights Preview 탐색기는 다음과 같은 7 개의 요소
 
 ## <a name="1-environment-panel"></a>1. 환경 패널
 
-환경 패널에는 액세스 권한이 있는 모든 Time Series Insights 환경이 표시됩니다. 이 목록에는 S1/S2 환경 뿐만 아니라 종 량 제 (미리 보기) 환경 (일반 공급)이 포함 되어 있습니다. 즉시 사용 하려는 Time Series Insights 환경을 클릭 하면 됩니다.
+환경 패널에는 액세스 권한이 있는 모든 Time Series Insights 환경이 표시됩니다. 이 목록에는 S1/S2 환경 뿐만 아니라 종 량 제 (미리 보기) 환경 (일반 공급)이 포함 되어 있습니다. 즉시 사용 하려는 Time Series Insights 환경을 선택 하기만 하면 됩니다.
 
 1. 표시 된 환경 옆에 있는 드롭다운 화살표를 선택 합니다.
 
@@ -75,7 +75,7 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 * **시계열 모델 계층 구조**: 계층은 데이터의 체계적 조직입니다. 계층 구조는 Time Series Insights 데이터에 있는 서로 다른 엔티티 간의 관계를 나타냅니다.
 * 시계열 **모델 인스턴스**: 인스턴스는 시계열입니다. 대부분의 경우에는 해당 환경에서 자산의 고유 식별자 인 **DeviceID** 또는 **AssetID**입니다.
 
-시계열 모델에 대한 자세한 내용은 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
+시계열 모델에 대 한 자세한 내용은 [시계열 모델](./time-series-insights-update-tsm.md)을 읽어 보세요.
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. 계층 트리 및 검색 패널
 
@@ -98,7 +98,7 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
   [![웰 레이아웃 옵션](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
 > [!NOTE]
-> 다음 메시지가 표시 되 면 선택 된 시간 범위 동안 인스턴스에 데이터가 없는 것입니다. 이 문제를 해결 하려면 시간 범위를 늘리거나 인스턴스가 데이터를 푸시하는 지 확인 합니다.
+> 다음 메시지가 표시 되 면 선택한 시간 범위 동안 인스턴스에 데이터가 없는 것입니다. 이 문제를 해결 하려면 시간 범위를 늘리거나 인스턴스가 데이터를 푸시하는 지 확인 합니다.
 >
 > ![데이터 알림 없음](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
@@ -110,9 +110,9 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 1. **차트 종류**: 시각화에 사용할 수 있는 데이터 요소를 제어 합니다.
 
-1. **간격 크기**: 간격 크기 슬라이더 도구를 사용 하면 동일한 시간 범위에서 간격을 확대 및 축소할 수 있습니다. 이렇게 하면 부드러운 추세 변화를 보여주는 긴 시간과 밀리초 단위의 짧은 시간 사이를 정밀하게 전환하며 데이터를 세밀하고 촘촘하게 살펴볼 수 있습니다. 슬라이더의 기본 시작점은 선택한 데이터를 최적으로 볼 수 있는 보기로 해상도, 쿼리 속도, 세분성이 균형을 이루도록 설정됩니다.
+1. **간격 크기**: 간격 크기 슬라이더 도구를 사용 하면 동일한 시간 범위에서 간격을 확대 및 축소할 수 있습니다. 이렇게 하면 데이터의 세부적인 고해상도 컷을 검토할 수 있도록, 밀리초 만큼 작은 조각으로 부드러운 추세를 표시 하는 큰 시간 조각 간의 움직임을 보다 정확 하 게 제어할 수 있습니다. 슬라이더의 기본 시작점은 선택한 데이터를 최적으로 볼 수 있는 보기로 해상도, 쿼리 속도, 세분성이 균형을 이루도록 설정됩니다.
 
-1. **확대/축소 및 이동**: 차트를 확대/축소 하 고 이동 하려면이 컨트롤을 클릭 합니다.
+1. **확대/축소 및 이동**: 차트를 확대/축소 하 고 이동 하려면이 컨트롤을 선택 합니다.
 
 1. **Y 축 컨트롤**: 사용 가능한 y 축 뷰 옵션을 순환 합니다.
 
@@ -122,7 +122,7 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 1. **Marker 요소**: 현재 선택한 데이터 요소 및 관련 세부 정보입니다.
 
-마우스를 누른 채 선택한 영역을 선택한 끝점으로 끌어와 서 현재 그래프의 데이터 요소를 마우스 **왼쪽 단추로 클릭** 하 여 특정 데이터 조각을 자세히 살펴볼 수 있습니다. 파란색의 선택 영역을 **마우스 오른쪽 단추로 클릭** 하 고 아래와 같이 **확대/축소** 를 클릭 합니다. 선택한 timespan에서 원격 분석 이벤트를 보고 다운로드할 수도 있습니다.
+마우스를 누른 채 선택한 영역을 선택한 끝점으로 끌어와 서 현재 그래프의 데이터 요소를 마우스 **왼쪽 단추로 클릭** 하 여 특정 데이터 조각을 자세히 살펴볼 수 있습니다. 파란색 선택 영역을 **마우스 오른쪽 단추로 클릭** 하 고 아래와 같이 **확대/축소** 를 선택 합니다. 선택한 timespan에서 원격 분석 이벤트를 보고 다운로드할 수도 있습니다.
 
   [![미리 보기 차트 확대/축소](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
@@ -130,7 +130,7 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
   [![미리 보기 차트 y 축](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
-**겹치는 차트**의 예를 볼 수 있습니다.
+여기에는 **겹치는 차트** 의 예가 제공 됩니다.
 
   [![겹치는 차트 옵션](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
@@ -207,7 +207,7 @@ Azure Time Series Insights 미리 보기는 다음 두 가지 테마를 지원�
 
 이 섹션은 업데이트된 UI에서 탐색기를 사용하려는 기존 S1/S2 환경에만 적용됩니다. 일반적으로 사용 가능한 제품 및 미리 보기를 함께 사용 하는 것이 좋습니다. 기존 U의 일부 기능을 업데이트된 탐색기에 추가했지만, 기존 Time Series Insights 탐색기에서 S1/S2 환경에 대한 전체 UI 환경을 이용할 수 있습니다. 
 
-계층 구조 대신 환경에서 쿼리를 정의 하는 Time Series Insights 용어 창이 표시 됩니다. 조건자를 기준으로 데이터를 필터링 하는 데 사용 합니다.
+계층 구조 대신 Time Series Insights 용어 패널이 표시 됩니다. 용어 패널을 사용 하 여 사용자 환경에서 쿼리를 정의할 수 있습니다. 조건자를 기준으로 데이터를 필터링 하는 데도 사용 됩니다.
 
   [쿼리 패널 ![](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
@@ -222,7 +222,7 @@ Time Series Insights 미리 보기 용어 편집기 패널은 다음 매개 변�
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | 모든 연산자는 같은 형식이거나 NULL 상수여야 합니다. |
 | `HAS` | String | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
 
-지원 되는 쿼리 작업 및 데이터 형식에 대 한 자세한 내용은 [TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)를 참조 하세요.
+지원 되는 쿼리 작업 및 데이터 형식에 대해 자세히 알아보려면 [TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)를 참조 하세요.
 
 ### <a name="examples-of-where-clauses"></a>Where 절의 예
 

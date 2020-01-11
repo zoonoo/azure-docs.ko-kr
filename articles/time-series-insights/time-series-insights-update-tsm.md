@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374738"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861390"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 시계열 모델
 
@@ -129,7 +129,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 ```
 
 > [!TIP]
-> Time Series Insights 인스턴스 API 및 CRUD (만들기, 읽기, 업데이트 및 삭제) 지원에 대해서는 [데이터 쿼리](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) 문서 및 [인스턴스 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)를 참조 하세요.
+> Time Series Insights Instance API 및 CRUD (만들기, 읽기, 업데이트 및 삭제) 지원에 대 한 자세한 내용은 [데이터 쿼리](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) 문서 및 [인스턴스 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)를 참조 하세요.
 
 ## <a name="time-series-model-hierarchies"></a>시계열 모델 계층 구조
 
@@ -231,7 +231,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 [![시계열 모델 유형 예](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Time Series Insights 인스턴스 API 및 CRUD 지원에 대해서는 [데이터 쿼리](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) 문서 및 [형식 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)를 참조 하세요.
+> Time Series Insights Instance API 및 CRUD 지원에 대 한 자세한 내용은 [데이터 쿼리](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) 문서 및 [형식 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)를 참조 하세요.
 
 ### <a name="type-properties"></a>형식 속성
 
@@ -391,7 +391,7 @@ Time Series Insights 형식에는 이벤트에 대 한 수식 및 계산 규칙�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Time Series Insights 미리 보기 스토리지 및 수신](./time-series-insights-update-storage-ingress.md)에 대해 알아보세요.
+- 읽기 [Azure Time Series Insights 미리 보기 저장소 및 수신](./time-series-insights-update-storage-ingress.md)합니다.
 
 - [Azure Time Series Insights 미리 보기로](./time-series-insights-update-how-to-tsm.md) 제공 되는 데이터 모델링의 일반적인 시계열 모델 작업에 대해 알아봅니다.
 

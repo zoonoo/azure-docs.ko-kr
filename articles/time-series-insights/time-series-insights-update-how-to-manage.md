@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f75e7112a8fc90c6c49ede7cd0ac726401fc1a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b70604c62ae21f9c433b3cd7d9e59f4ccebb61bd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452631"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861730"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Azure Time Series 미리 보기 프로비전 및 관리
 
@@ -86,7 +86,7 @@ Azure Time Series Insights 미리 보기 환경을 만들려면 다음을 수행
 
 ## <a name="manage-the-environment"></a>환경 관리
 
-Azure Portal을 사용하여 Azure Time Series Insights 미리 보기 환경을 관리할 수 있습니다. Azure Portal를 통해 관리 하는 경우 PAYG Azure Time Series Insights 미리 보기 환경과 일반적으로 사용 가능한 S1 또는 S2 환경 사이에 몇 가지 주요 차이점이 있습니다.
+Azure Portal을 사용하여 Azure Time Series Insights 미리 보기 환경을 관리할 수 있습니다. PAYG Azure Time Series Insights 미리 보기 환경과 일반적으로 사용할 수 있는 S1 또는 S2 환경 사이에는 몇 가지 주요 차이점이 있습니다. Azure Portal를 통해 환경을 관리할 때 주의 해야 합니다.
 
 * Azure Portal Preview **개요** 블레이드에서 다음과 같이 변경 되었습니다.
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3e73afa89ee61243784c5952eeda26a79d508dee
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900229"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863413"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "74900229"
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>원인 A: 이벤트 원본 데이터가 JSON 형식이 아닙니다.
 
-Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
+Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원 되는 json 셰이프](./how-to-shape-query-json.md)를 참조 하세요.
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>원인 B: 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
@@ -69,7 +69,7 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 - 이벤트 원본의 보존 제한을 변경하여 Time Series Insights에 표시하지 않으려는 이전 이벤트 제거
 - 더 큰 크기의 환경(단위 수)을 프로비전하여 이전 이벤트의 처리량 늘리기. 위 예제를 사용하는 경우 동일한 S1 환경을 하루에 5개 단위로 늘리면 해당 환경은 이제 하루 만에 따라잡을 수 있습니다. 안정 상태의 이벤트 생성이 하루에 백만 개 미만의 이벤트인 경우 처리량을 따라잡은 후에는 이벤트 용량을 다시 1개 단위로 줄일 수 있습니다.
 
-제한적 한도는 환경의 SKU 유형 및 용량을 기준으로 적용됩니다. 환경의 모든 이벤트 원본은 이 용량을 공유합니다. IoT Hub 또는 이벤트 허브에 대한 이벤트 원본이 적용된 한도를 초과하여 데이터를 푸시하는 경우 제한 및 지연될 수 있습니다.
+제한적 한도는 환경의 SKU 유형 및 용량을 기준으로 적용됩니다. 환경의 모든 이벤트 원본은 이 용량을 공유합니다. IoT hub 또는 이벤트 허브에 대 한 이벤트 원본이 적용 된 한도를 초과 하 여 데이터를 푸시하는 경우 제한 및 지연 시간이 발생 합니다.
 
 다음 그림에는 SKU S1 및 용량 3을 사용하는 Time Series Insights 환경이 나와 있습니다. 하루에 3백만 개의 이벤트를 수신할 수 있습니다.
 
@@ -82,11 +82,11 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 용량이 3인 S1 SKU 환경은 1분마다 2,100개 이벤트만 수신할 수 있습니다(일별 1백만개 이벤트 = 3 단위에서 분당 700개 이벤트 = 분당 2,100개 이벤트). 
 
-평면화 논리 작동 방식을 깊이 이해하기 위해서는 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
+평면화 논리 작동 방식에 대 한 개략적인 이해를 위해 [지원 되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조 하세요.
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>과도한 제한에 대한 권장 해결 방법
 
-지연을 해결하려면 사용자 환경의 SKU 용량을 늘립니다. 자세한 내용은 [Time Series Insights 환경 크기 조정](time-series-insights-how-to-scale-your-environment.md)을 참조하세요.
+지연을 해결하려면 사용자 환경의 SKU 용량을 늘립니다. 자세한 내용은 [Time Series Insights 환경 크기 조정](time-series-insights-how-to-scale-your-environment.md)을 참조 하세요.
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>원인 B: 기록 데이터의 초기 수집이 느리게 수신 됩니다.
 
@@ -109,9 +109,9 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 타임스탬프 속성 이름이 캡처되고 제대로 작동하는지 확인하는 가장 쉬운 방법은 Time Series Insights 탐색기를 사용하는 것입니다. Time Series Insights 탐색기 내에서 차트를 사용하고, 타임스탬프 속성 이름을 제공하기 전에 경과될 기간을 선택합니다. 선택 영역을 마우스 오른쪽 단추로 클릭하고 **이벤트 탐색** 옵션을 선택합니다.
 
-첫 번째 열 머리글에는 타임스탬프 속성 이름에 있어야 합니다. 단어 **타임스탬프** 옆에는 **($ts)** 가 표시됩니다.
+첫 번째 열 머리글에는 타임스탬프 속성 이름에 있어야 합니다. **타임 스탬프**옆에 **($ts)** 가 표시 됩니다.
 
-다음 값은 표시되지 않아야 합니다.
+다음 값은 표시 되지 않습니다.
 
 - *(abc)* : Time Series Insights에서 데이터 값을 문자열로 읽도록 지정 합니다.
 - *Calendar icon*: Time Series Insights에서 데이터 값을 *datetime*으로 읽도록 지정 합니다.

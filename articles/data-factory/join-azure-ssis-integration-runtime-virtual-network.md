@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: a4b0debc712504e8cb3c6d61372bd3a82c7932bb
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b068eeeada842f2439f6135bfa8567a6c9709d12
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497026"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862818"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -30,10 +30,20 @@ Azure Data Factory에서 SSIS (SQL Server Integration Services)를 사용 하는
 
 - Azure-SSIS IR에서 실행 되는 SSIS 패키지의 IP 방화벽 규칙을 사용 하 여 구성 된 데이터 저장소/리소스에 연결 하려고 합니다.
 
-Data Factory를 사용 하면 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 만든 가상 네트워크에 Azure-SSIS IR를 조인할 수 있습니다. 
+Data Factory를 사용 하면 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 만든 가상 네트워크에 Azure-SSIS IR를 조인할 수 있습니다.
 
 > [!IMPORTANT]
 > 클래식 가상 네트워크는 더 이상 사용 되지 않으므로 Azure Resource Manager 가상 네트워크를 대신 사용 하세요.  이미 클래식 가상 네트워크를 사용 하는 경우 가능한 한 빨리 Azure Resource Manager virtual network로 전환 합니다.
+
+[가상 네트워크에 가입 하기 위한 Azure SQL Server Integration Services (SSIS) Integration runtime (IR) 구성](tutorial-deploy-ssis-virtual-network.md) 자습서에서는 Azure Portal를 통해 최소 단계를 보여 줍니다. 이 문서는 자습서를 확장 하 고 모든 선택적 작업을 설명 합니다.
+
+- 가상 네트워크 (클래식)를 사용 하는 경우
+- Azure-SSIS IR에 대 한 사용자 고유의 공용 IP 주소를 가져옵니다.
+- 사용자 고유의 DNS (Domain Name System) 서버를 사용 하는 경우
+- 서브넷에 NSG (네트워크 보안 그룹)를 사용 하는 경우
+- Azure Express 경로 또는 UDR (사용자 정의 경로)를 사용 하는 경우.
+- 사용자 지정 된 Azure-SSIS IR를 사용 하는 경우
+- Azure Powershell 프로 비전을 사용 하는 경우.
 
 ## <a name="access-to-on-premises-data-stores"></a>온-프레미스 데이터 저장소 액세스
 
@@ -319,7 +329,7 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
    ![데이터 팩터리 목록](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. 목록에서 Azure-SSIS IR를 사용 하 여 데이터 팩터리를 선택 합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 및 배포** 타일을 선택합니다. 별도의 탭에 Data Factory UI가 표시됩니다. 
+1. 목록에서 Azure-SSIS IR를 사용 하 여 데이터 팩터리를 선택 합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 & 모니터** 타일을 선택 합니다. 별도의 탭에 Data Factory UI가 표시됩니다. 
 
    ![데이터 팩터리 홈페이지](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

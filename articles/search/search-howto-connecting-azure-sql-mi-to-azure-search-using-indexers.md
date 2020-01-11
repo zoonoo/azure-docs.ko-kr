@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 16daf4a79252134703715ccd88f0b10dda7f4fa6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0f91775e0175b4b4af9b57fa96e389c3a2a22564
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792165"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863124"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Azure Cognitive Search 인덱서에 SQL Managed Instance에 대 한 연결 구성
 
@@ -33,6 +33,13 @@ ms.locfileid: "72792165"
 네트워크 보안 그룹에 Azure 서비스 로부터의 연결을 허용 하는 올바른 **인바운드 보안 규칙이** 있는지 확인 합니다.
 
    ![NSG 인바운드 보안 규칙](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG 인바운드 보안 규칙")
+
+> [!NOTE]
+> 현재 규칙 (`public_endpoint_inbound`)을 두 개의 규칙으로 대체 하 여 관리 되는 SQL 인스턴스에 대 한 인바운드 액세스를 보다 제한적으로 선택할 수 있습니다.
+>
+> * `AzureCognitiveSearch` [service 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("SOURCE" = `AzureCognitiveSearch`)에서 인바운드 액세스 허용
+>
+> * 정규화 된 도메인 이름 (예: `<your-search-service-name>.search.windows.net`)을 ping 하 여 가져올 수 있는 검색 서비스의 IP 주소에서 인바운드 액세스를 허용 합니다. ("SOURCE" = `IP address`)
 
 ## <a name="get-public-endpoint-connection-string"></a>공용 끝점 연결 문자열 가져오기
 **공용 끝점** 에 대 한 연결 문자열을 사용 해야 합니다 (포트 1433이 아닌 포트 3342).

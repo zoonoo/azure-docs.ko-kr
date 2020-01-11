@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: 8d0c1edd2766d5fa46603d241c4f769fe5777cd1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dec7f022a73c5eb47c99b2d2d38e1a3258bcf14e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980958"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861468"
 ---
 ## <a name="business-disaster-recovery"></a>비즈니스 재해 복구
 
@@ -71,5 +71,5 @@ Time Series Insights 데이터, 앱 및 서비스가 중단 되더라도이를 �
 > * 지연이 발생할 수도 있습니다.
 > * 작업이 다시 라우팅될 때 메시지 처리에 일시적 스파이크가 발생할 수 있습니다.
 > 
-> 자세한 내용은 [Time Series Insights에서 대기 시간 완화](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency)를 참조하세요.
+> 자세한 내용은 [Time Series Insights에서 대기 시간 완화](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency)를 참조 하세요.
 

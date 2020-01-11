@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3aa6caa6266d2cd42e4783e8e39d5cc92c220
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452587"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861577"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>미리 보기 환경 진단 및 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "75452587"
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>문제: 미리 보기 탐색기에 데이터가 표시 되지 않습니다.
 
-[Azure Time Series Insights 미리 보기 탐색기](https://insights.timeseries.azure.com/preview)에 데이터가 표시되지 않을 경우 다음과 같은 몇 가지 일반적인 원인이 있습니다.
+데이터가 [Azure Time Series Insights 미리 보기 탐색기](https://insights.timeseries.azure.com/preview)에 표시 되지 않는 몇 가지 일반적인 이유가 있습니다.
 
 - 이벤트 원본이 데이터를 수신하지 않을 수 있습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "75452587"
 
 - 이벤트 원본 데이터가 JSON 형식이 아닙니다.
 
-    Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
+    Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원 되는 json 셰이프](./how-to-shape-query-json.md)를 참조 하세요.
 
 - 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
@@ -61,13 +61,13 @@ ms.locfileid: "75452587"
 
 - 프로비전 시 지정된 시계열 ID 속성이 잘못되었거나 누락되었거나 Null입니다.
 
-    이 문제는 환경 프로비전 시 시계열 ID 속성이 잘못 구성된 경우에 발생할 수 있습니다. 자세한 내용은 [시계열 ID 선택 모범 사례](./time-series-insights-update-how-to-id.md)를 참조하세요. 지금은 다른 시계열 ID를 사용하도록 기존 Time Series Insights 환경을 업데이트할 수 없습니다.
+    이 문제는 환경 프로비전 시 시계열 ID 속성이 잘못 구성된 경우에 발생할 수 있습니다. 자세한 내용은 [시계열 ID 선택을 위한 모범 사례](./time-series-insights-update-how-to-id.md)를 참조 하세요. 지금은 다른 시계열 ID를 사용하도록 기존 Time Series Insights 환경을 업데이트할 수 없습니다.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>문제: 일부 데이터가 표시 되지만 일부 데이터가 없습니다.
 
 시계열 ID 없이 데이터를 전송했을 수 있습니다.
 
-- 이 문제는 페이로드에 시계열 ID 필드가 없는 이벤트를 전송할 때 발생할 수 있습니다. 자세한 내용은 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
+- 이 문제는 페이로드에 시계열 ID 필드가 없는 이벤트를 전송할 때 발생할 수 있습니다. 자세한 내용은 [지원 되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조 하세요.
 - 이 문제는 사용자 환경이 제한적이기 때문에 발생할 수 있습니다.
 
     > [!NOTE]
@@ -107,7 +107,7 @@ ms.locfileid: "75452587"
 
 ## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>문제: 미리 보기 탐색기의 모든 내 인스턴스에서 부모가 부족 합니다.
 
-이 문제는 사용자 환경에 시계열 모델 계층 구조가 정의되지 않은 경우에 발생할 수 있습니다. 자세한 내용은 [시계열 모델 작업](./time-series-insights-update-how-to-tsm.md)을 참조하세요.
+이 문제는 사용자 환경에 시계열 모델 계층 구조가 정의되지 않은 경우에 발생할 수 있습니다. 자세한 내용은 [시계열 모델 작업](./time-series-insights-update-how-to-tsm.md)을 참조 하세요.
 
   [![Unparented 인스턴스는 경고를 표시 합니다.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 

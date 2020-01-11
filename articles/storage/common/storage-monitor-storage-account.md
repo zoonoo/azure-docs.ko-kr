@@ -4,16 +4,16 @@ description: Azure 포털을 사용하여 Azure에서 스토리지 계정을 모
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211861"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862835"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 스토리지 계정 모니터링
 
@@ -53,7 +53,7 @@ ms.locfileid: "71211861"
 **상태**를 **해제**로 설정하여 메트릭 수집 및 로깅을 사용하지 않도록 설정할 수 있습니다.
 
 > [!NOTE]
-> Azure Storage는 [테이블 스토리지](storage-introduction.md#table-storage)를 사용하여 스토리지 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은 다음을 참조하세요. [메트릭 저장 방법](storage-analytics-metrics.md#how-metrics-are-stored).
+> Azure Storage는 [테이블 스토리지](storage-introduction.md#table-storage)를 사용하여 스토리지 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은 다음을 참조하십시오. [메트릭 저장 방법](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>메트릭 차트 사용자 지정
@@ -129,7 +129,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 >
 
 1. [Azure Portal](https://portal.azure.com)에서 **Storage 계정**, Storage 계정 이름을 차례로 선택하여 Storage 계정 블레이드를 엽니다.
-1. 메뉴 블레이드의 **모니터링** 섹션에서 **진단**을 선택합니다.
+1. 메뉴 블레이드의 **모니터링 (클래식)** 섹션에서 **진단 설정 (클래식)** 을 선택 합니다.
 
     ![Azure Portal에서 모니터링 아래의 진단 메뉴 항목](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 

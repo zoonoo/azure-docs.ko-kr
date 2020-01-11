@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b25639b237979aff8980c1ff5b8787d298c157e1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452448"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861469"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure Time Series Insights 미리 보기 환경 계획
 
 이 문서에서는 Azure Time Series Insights 미리 보기를 사용 하 여 빠르게 계획 하 고 시작 하는 모범 사례를 설명 합니다.
 
 > [!NOTE]
-> 일반적인 가용성 Time Series Insights 인스턴스를 계획 하는 모범 사례는 [Azure Time Series Insights 일반 공급 환경 계획](time-series-insights-environment-planning.md)을 참조 하세요.
+> 일반 가용성 Time Series Insights 인스턴스를 계획 하는 모범 사례는 [Azure Time Series Insights 일반 공급 환경 계획](time-series-insights-environment-planning.md)을 참조 하세요.
 
 ## <a name="best-practices-for-planning-and-preparation"></a>계획 및 준비 모범 사례
 
@@ -34,7 +34,7 @@ ms.locfileid: "75452448"
 * [JSON에서 이벤트를 효율적으로 전송](#shape-your-events)하는 방법입니다.
 * [비즈니스 재해 복구 옵션](#business-disaster-recovery)을 Time Series Insights 합니다.
 
-Azure Time Series Insights은 종 량 제 비즈니스 모델을 채택 합니다. 요금 및 용량에 대한 자세한 내용은 [Time Series Insights 가격 책정](https://azure.microsoft.com/pricing/details/time-series-insights/)을 참조하세요.
+Azure Time Series Insights은 종 량 제 비즈니스 모델을 채택 합니다. 요금 및 용량에 대 한 자세한 내용은 [Time Series Insights 가격 책정](https://azure.microsoft.com/pricing/details/time-series-insights/)을 참조 하세요.
 
 ## <a name="the-preview-environment"></a>미리 보기 환경
 
@@ -48,7 +48,7 @@ Time Series Insights 미리 보기 환경을 프로비전할 때는 다음 두 �
 웜 저장소에 대 한 쿼리는 무료 이지만 콜드 스토어의 쿼리는 비용이 발생 합니다. 쿼리 패턴을 이해 하 고 웜 저장소 구성을 적절 하 게 계획 하는 것이 중요 합니다. 최신 데이터에 대 한 대화형 분석은 웜 저장소에 있고 패턴 분석과 장기적 추세는 콜드에 상주 하는 것이 좋습니다.
 
 > [!NOTE]
-> 웜 데이터를 쿼리 하는 방법에 대 한 자세한 [내용은 여기를 참조](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters)하세요.
+> 웜 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [API 참조를 참조](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters)하세요.
 
 시작하려면 다음 세 개의 추가 항목이 필요합니다.
 
@@ -80,7 +80,7 @@ Time Series Insights 미리 보기 환경을 프로비전할 때는 다음 두 �
 
 이제 Time Series Insights 환경의 시계열 모델을 구성할 수 있습니다. 새 모델을 사용하면 IoT 데이터를 쉽게 찾아서 분석할 수 있습니다. 시계열 데이터의 큐레이션, 유지 관리 및 보강을 가능하게 하며, 소비자가 바로 사용할 수 있는 데이터 세트를 준비하는 데 도움이 됩니다. 모델은 형식 및 계층 이라고 하는 변수와 고유 리소스를 연결 하는 인스턴스에 매핑되는 시계열 Id를 사용 합니다. 새로운 [시계열 모델](./time-series-insights-update-tsm.md)에 대해 읽어 보세요.
 
-모델은 동적이므로 언제든지 빌드할 수 있습니다. 빠르게 시작하려면 데이터를 Time Series Insights에 푸시하기 전에 빌드 및 업로드합니다. 모델을 빌드하려면 [시계열 모델 사용](./time-series-insights-update-how-to-tsm.md)을 참조하세요.
+모델은 동적이므로 언제든지 빌드할 수 있습니다. 빠르게 시작하려면 데이터를 Time Series Insights에 푸시하기 전에 빌드 및 업로드합니다. 모델을 작성 하려면 [시계열 모델 사용](./time-series-insights-update-how-to-tsm.md)을 참조 하세요.
 
 많은 고객의 경우, 시계열 모델은 이미 구현된 기존 자산 모델 또는 ERP 시스템에 매핑됩니다. 기존 모델이 없는 경우, 빠르게 시작하고 실행하도록 사전 빌드된 사용자 환경이 [제공](https://github.com/Microsoft/tsiclient)됩니다. 모델이 어떻게 도움이 되는지를 확인하려면 [샘플 데모 환경](https://insights.timeseries.azure.com/preview/demo)을 살펴보세요.
 
@@ -93,7 +93,7 @@ Time Series Insights에 이벤트를 보내는 방법을 확인할 수 있습니
 * 시계열 모델에 메타 데이터를 저장 합니다.
 * 시계열 모드, 인스턴스 필드 및 이벤트에 시계열 ID 또는 Timestamp 속성과 같은 필요한 정보만 포함 되어 있는지 확인 합니다.
 
-자세한 내용은 [이벤트 셰이핑](./time-series-insights-send-events.md#supported-json-shapes)을 참조하세요.
+자세한 내용은 [Shape 이벤트](./time-series-insights-send-events.md#supported-json-shapes)를 참조 하세요.
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

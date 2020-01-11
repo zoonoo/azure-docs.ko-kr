@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1deca696ba576849701eb8719de7fbaa7895a26a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615106"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861407"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -116,9 +116,9 @@ Time Series Insights 미리 보기 탐색기에 표시 되는 데이터에 액�
 
 다음과 같은 세 가지 일반적인 방법으로 데이터에 액세스할 수 있습니다.
 
-* Time Series Insights 미리 보기 탐색기 탐색기에서 CSV 파일로 데이터를 내보낼 수 있습니다. 자세한 내용은 [Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)를 참조하세요.
-* Time Series Insights 미리 보기 API. `/getRecorded`에서 API 끝점에 연결할 수 있습니다. 이 API에 대한 자세한 내용은 [시계열 쿼리](./time-series-insights-update-tsq.md)를 참조하세요.
-* Azure Storage 계정에서 직접. Time Series Insights 미리 보기 데이터에 액세스 하는 데 사용 중인 계정에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [스토리지 계정 리소스에 대한 액세스 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
+* Time Series Insights 미리 보기 탐색기 탐색기에서 CSV 파일로 데이터를 내보낼 수 있습니다. 자세한 내용은 [Time Series Insights Preview 탐색기](./time-series-insights-update-explorer.md)를 참조 하세요.
+* Time Series Insights 미리 보기 API. `/getRecorded`에서 API 끝점에 연결할 수 있습니다. 이 API에 대 한 자세한 내용을 보려면 시계열 [쿼리](./time-series-insights-update-tsq.md)를 참조 하세요.
+* Azure Storage 계정에서 직접. Time Series Insights 미리 보기 데이터에 액세스 하는 데 사용 중인 계정에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [저장소 계정 리소스에 대 한 액세스 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조 하세요.
 
 ### <a name="data-deletion"></a>데이터 삭제
 

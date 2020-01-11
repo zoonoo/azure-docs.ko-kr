@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 1f6b753052b882b75884503f8c05f34b8cead821
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749350"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863845"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Power BI의 Time Series Insights에서 데이터 시각화
 
@@ -51,7 +51,7 @@ Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계를 수
 시작하려면:
 
 1. Time Series Insights Preview 탐색기를 열고 데이터를 만들어 둡니다.
-1. 만족 하는 보기를 만들었으면 **추가 작업** 드롭다운 메뉴로 이동 하 여 **Power BI에 연결**을 클릭 합니다.
+1. 만족 하는 보기를 만들었으면 **추가 작업** 드롭다운 메뉴로 이동 하 여 **Power BI에 연결**을 선택 합니다.
 
     [![Time Series Insights Preview 탐색기 내보내기](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
@@ -118,7 +118,7 @@ Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계를 수
 
     [꺾은선형 차트를 만드는 ![](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  캔버스에 다른 차트를 추가 하려면 캔버스의 꺾은선형 차트 외부에서 아무 곳 이나 클릭 하 고이 프로세스를 반복 합니다.
+1.  캔버스에 다른 차트를 추가 하려면 캔버스에서 꺾은선형 차트 외부의 아무 곳 이나 선택 하 고이 프로세스를 반복 합니다.
 
     [공유할 추가 차트를 만들 ![](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
@@ -138,7 +138,7 @@ Power BI에서 데이터 집합을 이미 로드 했지만 쿼리를 수정 하�
 1. 필요에 따라 JSON 페이로드를 수정 합니다.
 1. **완료** 를 선택한 다음 **닫기 &** **파워 쿼리 편집기 창**에서 적용 합니다.
 
-원하는 변경 내용이 적용 된 것을 볼 수 있습니다.  
+이제 인터페이스에 적용 한 원하는 변경 내용이 반영 됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -146,4 +146,4 @@ Power BI에서 데이터 집합을 이미 로드 했지만 쿼리를 수정 하�
 
 * [Power BI desktop](https://docs.microsoft.com/power-bi/desktop-query-overview)에 대해 자세히 알아보세요.
 
-* [TIME SERIES INSIGHTS GA 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) 및 [Time Series Insights Preview 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)를 참조 하세요.
+* [TIME SERIES INSIGHTS GA 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) 및 [Time Series Insights Preview 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)를 읽습니다.

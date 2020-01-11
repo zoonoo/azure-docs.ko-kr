@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 38f5af3cb2006e4b029f8979a213c0af10f1ed8a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745454"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863583"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Azure Digital Twins에서 모니터링을 구성하는 방법
 
@@ -109,7 +109,7 @@ Azure Monitor에는 한 위치에서 로깅 원본을 보고 분석할 수 있�
 
    [![로그 관리](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
-강력한 쿼리 작업에 대한 자세한 내용은 [쿼리 시작하기](../azure-monitor/log-query/get-started-queries.md)를 참조하세요.
+강력한 쿼리 작업에 대 한 자세한 내용은 [쿼리 시작](../azure-monitor/log-query/get-started-queries.md)하기를 참조 하세요.
 
 > [!NOTE]
 > **Log Analytics 작업 영역** 에 처음으로 이벤트를 보낼 때 5 분의 지연이 발생할 수 있습니다.
@@ -123,7 +123,7 @@ Azure Monitor에는 한 위치에서 로깅 원본을 보고 분석할 수 있�
 
 ## <a name="other-options"></a>기타 옵션
 
-Azure Digital Twins는 애플리케이션별 로깅 및 보안 감사도 지원합니다. Azure Digital Twins 인스턴스에 제공되는 모든 Azure 로깅 옵션의 개요는 [Azure 로그 감사](../security/fundamentals/log-audit.md) 문서를 참조하세요.
+Azure Digital Twins는 애플리케이션별 로깅 및 보안 감사도 지원합니다. Azure Digital Twins 인스턴스에 사용할 수 있는 모든 Azure 로깅 옵션에 대 한 자세한 개요는 [azure 로그 감사](../security/fundamentals/log-audit.md) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

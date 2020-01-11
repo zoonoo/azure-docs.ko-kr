@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 6c2b0ec5165652e77c92426bb62a30468eef04c2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0aed84dc4d78f8e83f568ff3e73d1300aaedbcaa
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456903"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860965"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Api에 연결 및 인증
 
@@ -24,7 +24,7 @@ Azure AD 개요의 경우 단계별 가이드, 개념 및 빠른 시작은 [기�
 > [!TIP]
 > [자습서](tutorial-facilities-setup.md) 에 따라 Azure Digital twins 샘플 앱을 설정 하 고 실행 합니다.
 
-애플리케이션 또는 서비스를 Azure AD와 통합하려면 개발자가 먼저 Azure AD에 애플리케이션을 등록해야 합니다. 자세한 지침과 스크린샷은 [이 빠른 시작](../active-directory/develop/quickstart-register-app.md)을 참조하세요.
+애플리케이션 또는 서비스를 Azure AD와 통합하려면 개발자가 먼저 Azure AD에 애플리케이션을 등록해야 합니다. 자세한 지침 및 스크린샷을 보려면 [이 빠른](../active-directory/develop/quickstart-register-app.md)시작을 참조 하세요.
 
 Azure AD에서 지원되는 [5가지 기본 애플리케이션 시나리오](../active-directory/develop/v2-app-types.md)는 다음과 같습니다.
 
@@ -49,7 +49,7 @@ Azure AD에서 지원되는 [5가지 기본 애플리케이션 시나리오](../
 
 1. 획득한 토큰은 인증을 받거나 On-Behalf-Of 흐름을 사용하여 좀 더 다운스트림되는 API를 호출하는 데 사용됩니다.
 
-On-Behalf-Of 흐름을 오케스트레이션하는 방법에 대한 지침은 [OAuth 2.0 On-Behalf-Of 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)을 참조하세요. [다운스트림 웹 API 호출](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof)에서 코드 샘플을 볼 수도 있습니다.
+Just-in-time 흐름을 오케스트레이션 하는 방법에 대 한 자세한 내용은 [OAuth 2.0 for flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)를 참조 하세요. [다운스트림 웹 API 호출](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof)에서 코드 샘플을 볼 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

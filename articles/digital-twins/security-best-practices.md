@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229046"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860948"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Azure Digital Twins 보안 모범 사례
 
@@ -46,7 +46,7 @@ IoT 영역을 안전하게 보호하기 위한 몇 가지 주요 사례는 다�
 > [!div class="checklist"]
 > * 저장, 보관 또는 영구 데이터를 암호화합니다.
 > * 암호 또는 키를 주기적으로 변경하거나 새로 고쳐야 합니다.
-> * 역할에 따라 액세스 및 사용 권한을 신중하게 제한합니다. 아래의 [역할 기반 액세스 제어 모범 사례](#role-based-access-control-best-practices) 섹션을 참조하세요.
+> * 역할에 따라 액세스 및 사용 권한을 신중하게 제한합니다. 아래의 [역할 기반 액세스 제어 모범 사례](#role-based-access-control-best-practices) 섹션을 참조 하세요.
 > * 각 네트워크의 장치가 다른 네트워크와 격리 되도록 분할 된 네트워크 토폴로지를 고려 합니다.
 > * 강력한 암호화를 사용합니다. 긴 암호를 요구 하 고, 보안 프로토콜을 사용 하 고, [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)을 사용 합니다.
 
@@ -56,7 +56,7 @@ IoT 리소스를 [모니터링](./how-to-configure-monitoring.md)하여 일반�
 > 포괄적인 IoT 보안 전략을 시작 하려면 Azure [iot 보안 모범 사례](../iot-fundamentals/iot-security-best-practices.md) 를 참조 하세요.
 
 > [!NOTE]
-> 이벤트 처리 및 모니터링에 대한 자세한 내용은 [Azure Digital Twins를 사용하여 이벤트 및 메시지 라우팅](./concepts-events-routing.md)을 참조하세요.
+> 이벤트 처리 및 모니터링에 대 한 자세한 내용은 [Azure Digital Twins를 사용 하 여 경로 이벤트 및 메시지](./concepts-events-routing.md)를 참조 하세요.
 
 ## <a name="azure-active-directory-best-practices"></a>Azure Active Directory 모범 사례
 

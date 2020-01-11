@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/19/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 89816e3640c0afad6290e77faa3904c691df4318
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 602be49ef0c60274f1cd016c4f8e870cf033ec7b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892400"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866904"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Azure Portal를 사용 하 여 blob 또는 큐 데이터에 액세스
 
@@ -57,8 +57,10 @@ Blob 또는 큐 데이터에 대 한 액세스를 지 원하는 기본 제공 �
     
 사용자 지정 역할은 기본 제공 역할에서 제공 하는 것과 동일한 권한의 여러 조합을 지원할 수 있습니다. 사용자 지정 RBAC 역할을 만드는 방법에 대 한 자세한 내용은 [azure 리소스에 대 한 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 및 [azure 리소스에 대 한 역할 정의 이해](../../role-based-access-control/role-definitions.md)를 참조 하세요.
 
-> [!NOTE]
-> 클래식 구독 관리자 역할을 사용 하 여 큐를 나열 하는 것은 지원 되지 않습니다. 큐를 나열 하려면 사용자가 Azure Resource Manager **읽기 권한자** 역할, **저장소 큐 데이터 판독기** 역할 또는 **저장소 큐 데이터 참가자** 역할에 할당 되어 있어야 합니다.
+클래식 구독 관리자 역할을 사용 하 여 큐를 나열 하는 것은 지원 되지 않습니다. 큐를 나열 하려면 사용자가 Azure Resource Manager **읽기 권한자** 역할, **저장소 큐 데이터 판독기** 역할 또는 **저장소 큐 데이터 참가자** 역할에 할당 되어 있어야 합니다.
+
+> [!IMPORTANT]
+> Azure Portal Storage 탐색기의 미리 보기 버전은 Azure AD 자격 증명을 사용 하 여 blob 또는 큐 데이터를 확인 하 고 수정 하는 것을 지원 하지 않습니다. Azure Portal Storage 탐색기는 항상 계정 키를 사용 하 여 데이터에 액세스 합니다. Azure Portal에서 Storage 탐색기를 사용 하려면 **Microsoft. Storage/storageAccounts/listkeys/action**이 포함 된 역할이 할당 되어야 합니다.
 
 ## <a name="navigate-to-blobs-or-queues-in-the-portal"></a>포털에서 blob 또는 큐로 이동 합니다.
 

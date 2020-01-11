@@ -1,26 +1,19 @@
 ---
-title: Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정 | Microsoft Docs
+title: Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 장치 설정
 description: Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정에 대해 알아봅니다.
 services: vpn-gateway
-documentationcenter: ''
 author: chadmath
 manager: dcscontentpm
-editor: ''
-tags: azure-vpn-gateway
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aa4650897abcd38fec4d45f57969d4bf30b9d773
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: b87340fbb3f94eee106fc5d0d72117d30e331035
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058853"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862716"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정
 
@@ -33,13 +26,13 @@ ms.locfileid: "71058853"
 
 다음 표에는 몇 가지 일반적인 디바이스 및 관련 도움말이 나열되어 있습니다.
 
-|Product    |참조                                                |
+|제품    |참조                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[Azure VPN에 대해 커뮤니티에서 제안하는 Cisco ASA 솔루션](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Azure VPN에 대해 커뮤니티에서 제안하는 Cisco ISR 솔루션](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[Azure VPN에 대해 커뮤니티에서 제안하는 Cisco ASR 솔루션](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
 |Sonicwall |[Sonicwall 사이트](https://www.sonicwall.com/en-us/support)에서 **Azure VPN** 검색 |
-| 검사점    |[Checkpoint 사이트](https://supportcenter.checkpoint.com/supportcenter/portal)에서 **Azure VPN** 검색 |
+| Checkpoint    |[Checkpoint 사이트](https://supportcenter.checkpoint.com/supportcenter/portal)에서 **Azure VPN** 검색 |
 |Juniper |[Juniper 사이트]( https://www.juniper.net/search/public/)에서 **Azure VPN** 검색|
 |Barracuda  |[Azure VPN에 대해 커뮤니티에서 제안하는 Barracuda 솔루션](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
 |F5         |[Azure VPN에 대해 커뮤니티에서 제안하는 F5 솔루션](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support)          |

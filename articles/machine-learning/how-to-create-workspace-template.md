@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 63638dccbe489a6d63d4c1875d68ca12f0015836
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 275eb545b431085627658eb5d8ac0a065d0cb00e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689179"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867023"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -109,7 +109,13 @@ az group deployment create \
 
 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/secure-template-with-sas-token.md)를 참조하세요.
 
-## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault 액세스 정책 및 Azure Resource Manager 템플릿
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="resource-provider-errors"></a>리소스 공급자 오류
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault 액세스 정책 및 Azure Resource Manager 템플릿
 
 Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 리소스 (Azure Key Vault 포함)를 여러 번 만드는 경우 예를 들어 연속 통합 및 배포 파이프라인의 일부와 동일한 매개 변수를 사용 하 여 템플릿을 여러 번 사용 합니다.
 
@@ -201,8 +207,6 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
     ```
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

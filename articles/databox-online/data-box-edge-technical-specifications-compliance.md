@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326890"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863600"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge 기술 사양
 
@@ -35,7 +35,7 @@ ML (Machine Learning) 시나리오를 가능 하 게 하는 FPGA (필드 프로�
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> 사용 가능한 심층 신경망 (DNN) 모델은 [CLOUD FPGA 인스턴스에서 지 원하는](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure)것과 같습니다.| 
+| FPGA   | Intel Arria 10 <br> 사용 가능한 심층 신경망 (DNN) 모델은 [CLOUD FPGA 인스턴스에서 지 원하는](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure)것과 같습니다.| 
 
 
 ## <a name="power-supply-unit-specifications"></a>전원 공급 장치 사양
@@ -61,7 +61,7 @@ Data Box Edge 장치에는 각각 1.6 TB의 용량을 포함 하는 9 X 2.5 "NVM
 |--------------------------------------------|-----------------------|
 |    SSD(반도체 드라이브)의 수     |    8                  |
 |    단일 SSD 용량                     |    1.6TB             |
-|    총 용량                          |    12.8TB            |
+|    전체 용량                          |    12.8TB            |
 |    총 사용 가능한 용량 *                  |    ~ 12.5 TB            |
 
 **일부 공간은 내부용으로 예약 되어 있습니다.*
@@ -85,14 +85,14 @@ Data Box Edge 장치에는 각각 1.6 TB의 용량을 포함 하는 9 X 2.5 "NVM
 |     패키지     |     밀리미터     |     인치     |
 |-------------------|---------------------|----------------|
 |    높이         |    311.2            |    12.25인치          |
-|    너비          |    642.8          |    25.31"          |
+|    너비          |    642.8          |    25.31인치          |
 |    길이          |   1,051.1          |    41.38인치          |
 
 ### <a name="enclosure-weight"></a>엔클로저 무게
 
 장치 패키지 따져 66 및는이를 처리 하는 두 사람이 필요 합니다. 장치의 가중치는 인클로저 구성에 따라 달라 집니다.
 
-|     인클로저                                 |     Weight          |
+|     인클로저                                 |     무게          |
 |-----------------------------------------------|---------------------|
 |    패키징을 포함 한 총 무게       |    61.          |
 |    장치의 가중치                       |    35.          |
@@ -105,7 +105,7 @@ Data Box Edge 장치에는 각각 1.6 TB의 용량을 포함 하는 9 X 2.5 "NVM
 
 |     인클로저         |     주변 온도 범위     |     주변 상대 습도     |     최대 이슬점     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
-|    Operational        |    10 ° C-35 ° C (50 ° F-86 ° F)         |    10%-80% 비 비응축.         |    29°C(84°F)            |
+|    작동        |    10 ° C-35 ° C (50 ° F-86 ° F)         |    10%-80% 비 비응축.         |    29°C(84°F)            |
 |    작동 불가능    |    -40 ° C ~ 65 ° C (-40 ° F-149 ° F)     |    5%-95% 비응축.          |    33°C(91°F)            |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>기류, 고도, 충격, 진동, 방향, 안전성 및 EMC

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 1/10/2020
 ms.author: raynew
-ms.openlocfilehash: db334b873358fdab6671877dd66e7f49c334ac44
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133019"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863896"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -61,12 +61,12 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 호스트 네트워크: NIC 팀 | 예 | 예
 호스트 네트워크: VLAN | 예 | 예
 호스트 네트워크: IPv4 | 예 | 예
-호스트 네트워크: IPv6 | 아니오 | 아니오
-게스트 VM 네트워크: NIC 팀 | 아니오 | 아니오
+호스트 네트워크: IPv6 | 아닙니다. | 아닙니다.
+게스트 VM 네트워크: NIC 팀 | 아닙니다. | 아닙니다.
 게스트 VM 네트워크: IPv4 | 예 | 예
-게스트 VM 네트워크: IPv6 | 아니오 | 예
+게스트 VM 네트워크: IPv6 | 아닙니다. | 예
 게스트 VM 네트워크: 고정 IP(Windows) | 예 | 예
-게스트 VM 네트워크: 고정 IP(Linux) | 아니오 | 아니오
+게스트 VM 네트워크: 고정 IP(Linux) | 아닙니다. | 아닙니다.
 게스트 VM 네트워크: 다중 NIC | 예 | 예
 
 
@@ -84,38 +84,38 @@ Azure Traffic Manager | 예 | 예
 IPv4 | 예 | 예
 원본 IP 주소 유지 | 예 | 예
 Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 없음) | 예 | 예
-가속 네트워킹 | 아니오 | 아니오
+가속 네트워킹 | 아닙니다. | 아닙니다.
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 스토리지
 
-**저장소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**스토리지** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- 
-NFS | NA | NA
+NFS | 해당 없음 | 해당 없음
 SMB 3.0 | 예 | 예
 SAN(ISCSI) | 예 | 예
 다중 경로(MPIO). 테스트에 사용된 소프트웨어:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | 예 | 예
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 스토리지
 
-**저장소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**스토리지** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-VMDK | NA | NA
+VMDK | 해당 없음 | 해당 없음
 VHD/VHDX | 예 | 예
 2세대 VM | 예 | 예
 EFI/UEFI<br></br>Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다. VM은 Windows Server 2012 이상만 실행 해야 합니다. OS 디스크에는 최대 5 개의 파티션이 있어야 하 고 OS 디스크의 크기는 300 미만 이어야 합니다.| 예 | 예
-공유 클러스터 디스크 | 아니오 | 아니오
-암호화된 디스크 | 아니오 | 아니오
-NFS | NA | NA
-SMB 3.0 | 아니오 | 아니오
-RDM | NA | NA
+공유 클러스터 디스크 | 아닙니다. | 아닙니다.
+암호화된 디스크 | 아닙니다. | 아닙니다.
+NFS | 해당 없음 | 해당 없음
+SMB 3.0 | 아닙니다. | 아닙니다.
+RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
 디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
 디스크: 4K 논리/512바이트 물리 섹터 | 예 |  예
 논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | 예 | 예
 스트라이프 디스크 포함 볼륨 1TB 이상 | 예 | 예
-스토리지 공간 | 아니오 | 아니오
-디스크 핫 추가/제거 | 아니오 | 아니오
+스토리지 공간 | 아닙니다. | 아닙니다.
+디스크 핫 추가/제거 | 아닙니다. | 아닙니다.
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 예 | 예
 
@@ -126,15 +126,15 @@ RDM | NA | NA
 로컬 중복 스토리지 | 예 | 예
 지역 중복 스토리지 | 예 | 예
 읽기 액세스 지역 중복 스토리지 | 예 | 예
-쿨 스토리지 | 아니오 | 아니오
-핫 스토리지| 아니오 | 아니오
-블록 Blob | 아니오 | 아니오
+쿨 스토리지 | 아닙니다. | 아닙니다.
+핫 스토리지| 아닙니다. | 아닙니다.
+블록 Blob | 아닙니다. | 아닙니다.
 미사용 암호화(SSE)| 예 | 예
-미사용 암호화 (CMK)| 아니오 | 아니오
-Premium Storage | 예 | 예
-Import/Export 서비스 | 아니오 | 아니오
+미사용 암호화 (CMK) <br></br> (관리 디스크에 대 한 장애 조치 (failover)에만 해당)| 예 (PowerShell Az 3.3.0 모듈을 통해) | 예 (PowerShell Az 3.3.0 모듈을 통해)
+프리미엄 스토리지 | 예 | 예
+Import/Export 서비스 | 아닙니다. | 아닙니다.
 방화벽이 설정 된 Azure storage 계정 | 예. 대상 저장소 및 캐시 | 예. 대상 저장소 및 캐시
-저장소 계정 수정 | 아니요. 복제를 사용 하도록 설정한 후에는 대상 Azure storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 활성화 합니다. | 아니오
+저장소 계정 수정 | 아닙니다. 복제를 사용 하도록 설정한 후에는 대상 Azure storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 활성화 합니다. | 아닙니다.
 
 
 ## <a name="azure-compute-features"></a>Azure 컴퓨팅 기능
@@ -143,7 +143,7 @@ Import/Export 서비스 | 아니오 | 아니오
 --- | --- | ---
 가용성 집합 | 예 | 예
 HUB | 예 | 예  
-관리 디스크 | 예, 장애 조치(failover)용<br/><br/> 관리 디스크 장애 복구(failback)는 지원되지 않음 | 예, 장애 조치(failover)용<br/><br/> 관리 디스크 장애 복구(failback)는 지원되지 않음
+Managed Disks | 예, 장애 조치(failover)용<br/><br/> 관리 디스크 장애 복구(failback)는 지원되지 않음 | 예, 장애 조치(failover)용<br/><br/> 관리 디스크 장애 복구(failback)는 지원되지 않음
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 
@@ -158,19 +158,19 @@ Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azur
 데이터 디스크 수 | 16개 이하  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 데이터 디스크 VHD 크기 | 최대 4,095GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
-공유 VHD | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
-FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
+공유 VHD | 지원하지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
+FC 디스크 | 지원하지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 하드 디스크 형식 | VHD <br/><br/> VHDX | Azure로의 장애 조치(failover)를 수행하면 Site Recovery는 VHDX를 VHD로 자동 변환합니다. 온-프레미스에 장애 복구 시 가상 머신에서 계속해서 VHDX 형식을 사용합니다.
-BitLocker | 지원되지 않음 | VM의 복제를 사용하도록 설정하기 전에 BitLocker를 사용하지 않도록 설정해야 합니다.
+BitLocker | 지원하지 않음 | VM의 복제를 사용하도록 설정하기 전에 BitLocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1 자에서 63자 사이입니다. 문자, 숫자 및 하이픈으로 제한됩니다. VM 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. | Site Recovery에서 VM 속성의 값을 업데이트합니다.
-VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 있는 2세대 VM(VHDX로 포맷된 한 개 또는 두 개의 데이터 볼륨을 포함) 및 300GB 미만의 디스크 공간이 지원됩니다.<br></br>Linux 2세대 VM은 지원되지 않습니다. [자세히 알아봅니다](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 있는 2세대 VM(VHDX로 포맷된 한 개 또는 두 개의 데이터 볼륨을 포함) 및 300GB 미만의 디스크 공간이 지원됩니다.<br></br>Linux 2세대 VM은 지원되지 않습니다. [자세히 알아보기](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services 자격 증명 모음 작업
 
 **동작** |  **Hyper-V(VMM 포함)** | **VMM을 사용하지 않는 Hyper-V**
 --- | --- | ---
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오
-스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아닙니다. | 아닙니다.
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아닙니다. | 아닙니다.
 
 > [!NOTE]
 > 온-프레미스에서 Azure로 Hyper-v Vm을 복제 하는 경우 특정 환경에서 Hyper-v 사이트 또는 Hyper-v를 사용 하는 Hyper-v를 사용 하 여 하나의 AD 테 넌 트에만 복제할 수 있습니다.

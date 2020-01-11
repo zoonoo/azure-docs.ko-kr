@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfd9a8d2723136ef68d983eb99bf2391fb87879
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 159f79e61b43761db5a65c101928d4e6ac5b4d29
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894858"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861781"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 
@@ -24,7 +24,7 @@ ms.locfileid: "74894858"
 
 ## <a name="configure-an-event-hub"></a>이벤트 허브 구성
 
-1. 이벤트 허브를 만드는 방법을 알아보려면 [Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)를 참조하세요.
+1. 이벤트 허브를 만드는 방법에 대 한 자세한 내용은 [Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)를 참조 하세요.
 1. 검색 상자에서 **Event Hubs**를 검색합니다. 반환된 목록에서 **Event Hubs**를 선택합니다.
 1. 이벤트 허브를 선택합니다.
 1. 이벤트 허브를 만들 때 event hubs 네임 스페이스를 만듭니다. 네임 스페이스 내에서 이벤트 허브를 아직 만들지 않은 경우 메뉴의 **엔터티**아래에서 이벤트 허브를 만듭니다.  
@@ -55,13 +55,13 @@ ms.locfileid: "74894858"
 
 ## <a name="add-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 추가
 
-Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용 하는 샘플 windmills 프로젝트의 **시계열 ID** 는 `id`됩니다. 시계열 정보 인스턴스 및 **시계열 ID**에 대 한 자세한 내용은 시계열 [모델](./time-series-insights-update-tsm.md)을 참조 하세요.
+Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용 하는 샘플 windmills 프로젝트의 **시계열 ID** 는 `id`됩니다. 시계열 정보 인스턴스 및 **시계열 ID**에 대 한 자세한 정보는 시계열 [모델](./time-series-insights-update-tsm.md)을 참조 하세요.
 
 ### <a name="create-a-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
 
 1. 아직 이벤트 원본을 만들지 않은 경우 [이벤트 원본 만들기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)에 대한 단계를 완료합니다.
 
-1. `timeSeriesId`에 대한 값을 설정합니다. **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
+1. `timeSeriesId`에 대한 값을 설정합니다. 시계열 **ID**에 대 한 자세한 내용은 시계열 [모델](./time-series-insights-update-tsm.md)을 참조 하세요.
 
 ### <a name="push-events-to-windmills-sample"></a>Windmills 샘플로 이벤트 푸시
 
@@ -149,7 +149,7 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 * **출력**: 두 이벤트입니다. **location** 속성은 각 이벤트로 복사됩니다.
 
-    |location|events.id|events.timestamp|
+    |위치|events.id|events.timestamp|
     |--------|---------------|----------------------|
     |WestUs|device1|2016-01-08T01:08:00Z|
     |WestUs|device2|2016-01-08T01:17:00Z|
@@ -190,7 +190,7 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 * **출력**: 두 이벤트입니다.
 
-    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
+    |위치|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
     |---|---|---|---|---|---|---|---|
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|

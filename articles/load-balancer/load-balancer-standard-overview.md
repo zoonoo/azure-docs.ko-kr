@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 5a4240065039bd6e0633a19c8aad00604970c216
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
-ms.translationtype: HT
+ms.openlocfilehash: 68f95c893646d76a80a4edfeb557064660ff9f1c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834668"
+ms.locfileid: "75864267"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 표준 Load Balancer 개요
 
@@ -38,20 +38,6 @@ Load Balancer 리소스의 기능은 항상 프런트 엔드, 규칙, 상태 프
 한 가지 중요한 측면은 리소스에 대한 가상 네트워크 범위입니다.  기본 Load Balancer는 가용성 집합 범위 내에 존재하지만, 표준 Load Balancer는 가상 네트워크의 범위에 완전히 통합되며, 모든 가상 네트워크 개념이 적용됩니다.
 
 Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azure에서 다중 테넌트 인프라를 프로그래밍해야 하는 방법을 표현할 수 있는 개체입니다.  Load Balancer 리소스와 실제 인프라 사이에는 직접적인 관계가 없습니다. 따라서 Load Balancer를 만들어도 인스턴스가 만들어지지 않으며 용량은 항상 사용 가능하고, 고려해야 할 시작 또는 확장 지연도 없습니다. 
-
-## <a name="why-use-standard-load-balancer"></a>표준 Load Balancer를 사용해야 하는 이유
-
-표준 Load Balancer를 사용하면 크고 복잡한 다중 영역 아키텍처에 대한 소규모 배포에 맞게 애플리케이션의 크기를 조정하고 고가용성을 만들 수 있습니다.
-
-표준 Load Balancer 및 기본 Load Balancer 간의 차이점에 대한 개요는 아래 표를 검토하세요.
-
->[!NOTE]
-> 새 디자인에서는 표준 Load Balancer를 채택하는 것이 좋습니다. 
-
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
-
-[Load Balancer의 서비스 제한](https://aka.ms/lblimits)과 [가격 책정](https://aka.ms/lbpricing) 및 [SLA](https://aka.ms/lbsla)를 검토하세요.
-
 
 ### <a name="backend"></a>백 엔드 풀
 
@@ -184,12 +170,6 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 4. 새 표준 SKU 리소스에 모든 VM 인스턴스를 연결합니다.
 
 >[!IMPORTANT]
->
->기본 및 표준 SKU를 사용할 때 다음과 같은 제한 사항이 따릅니다.
->
->HA 포트 및 표준 SKU 진단은 표준 SKU에서만 사용할 수 있습니다. 표준 SKU에서 기본 SKU로 마이그레이션할 수 없으며 이러한 기능을 유지할 수도 없습니다.
->
->기본 및 표준 SKU는 이 문서에 설명된 것과 같은 많은 차이점을 갖습니다.  이러한 차이점을 이해하고 대비해야 합니다.
 >
 >SKU 일치는 Load Balancer 및 공용 IP 리소스에 대해 사용되어야 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.
 

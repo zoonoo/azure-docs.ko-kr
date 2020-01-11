@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: b59600ffa6a83d00a83d642ab337df2e71cbee06
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
-ms.translationtype: HT
+ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777906"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863808"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -374,7 +374,8 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 - **AZURE AD 앱 id** (필수): [응용 프로그램 id](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 및 인증 키도 필요 합니다. 이러한 값을 얻으려면 Azure Active Directory로 이동 하 여 **앱 등록**을 선택한 다음 나열 된 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다. 인증 키를 찾으려면 **설정** 으로 이동 하 고 **키**를 선택 합니다. 설명 및 기간을 제공 하 고 숫자 값이 제공 됩니다.
 
- Azure 응용 프로그램 ID가 게시자 ID와 연결 되어 있으므로 모든 제품에서 동일한 응용 프로그램 ID를 사용 해야 합니다.
+>[!Note]
+>Azure 응용 프로그램 ID는 게시자 ID와 연결 되므로 모든 제품에서 동일한 응용 프로그램 ID를 사용 해야 합니다.
 
 ## <a name="plan-overview"></a>계획 개요
 

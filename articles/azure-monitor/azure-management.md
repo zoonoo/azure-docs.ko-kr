@@ -1,18 +1,18 @@
 ---
-title: Azure 관리 및 OMS(Operations Management Suite) | Microsoft Docs
-description: 이전에 OMS(Operations Management Suite)에 번들된 Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
+title: Azure Management
+description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2018
-ms.openlocfilehash: 7f515c1c5d44058e14f02f7681bfbb7fd2787c6f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f68838e271e51c37985f55b40b140e279c1df2a4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597360"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862546"
 ---
 # <a name="azure-management---monitoring"></a>Azure Government - 모니터링
 

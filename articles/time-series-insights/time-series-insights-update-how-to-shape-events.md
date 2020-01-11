@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452606"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861662"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 
@@ -31,7 +31,7 @@ Time Series Insights 미리 보기로 이벤트를 보내는 방법에 대해 �
 최상의 쿼리 성능을 위해서는 다음을 수행 하십시오.
 
 * 불필요한 속성을 보내지 않습니다. Time Series Insights 미리 보기에서는 사용량에 따라 요금을 청구합니다. 쿼리할 데이터를 저장하고 처리하는 것이 가장 좋습니다.
-* 정적 데이터에 인스턴스 필드를 사용합니다. 이 방법은 네트워크를 통한 정적 데이터 전송을 방지하는 데 도움이 됩니다. 시계열 모델의 구성 요소인 인스턴스 필드는 일반 공급 되는 Time Series Insights 서비스의 참조 데이터와 같은 방식으로 작동 합니다. 인스턴스 필드에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조 하세요.
+* 정적 데이터에 인스턴스 필드를 사용합니다. 이 방법은 네트워크를 통한 정적 데이터 전송을 방지하는 데 도움이 됩니다. 시계열 모델의 구성 요소인 인스턴스 필드는 일반 공급 되는 Time Series Insights 서비스의 참조 데이터와 같은 방식으로 작동 합니다. 인스턴스 필드에 대 한 자세한 내용은 [시계열 모델](./time-series-insights-update-tsm.md)을 참조 하세요.
 * 둘 이상의 이벤트 간에 차원 속성을 공유합니다. 이 방법은 네트워크를 통해 보다 효율적으로 데이터를 보내는 데 도움이 됩니다.
 * 여러 배열 중첩을 사용하지 않습니다. Time Series Insights 미리 보기는 개체를 포함 하는 중첩 배열의 최대 두 수준을 지원 합니다. Time Series Insights 미리 보기에서는 메시지의 배열을 속성 값 쌍이 있는 여러 이벤트로 평면화합니다.
 * 대부분 또는 모든 이벤트에 몇 가지 측정값이 존재하는 경우 이러한 측정값을 동일한 개체 내에서 별도 속성으로 전송하는 것이 좋습니다. 이러한 이벤트를 개별적으로 전송 하면 이벤트 수가 감소 하 고 처리 해야 하는 이벤트 수가 줄어들기 때문에 쿼리 성능이 향상 될 수 있습니다.
@@ -156,5 +156,5 @@ Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 이러한 지침을 실행하려면 [Azure Time Series Insights 미리 보기 쿼리 구문](./time-series-insights-query-data-csharp.md)을 참조하세요. 데이터 액세스에 대 한 Time Series Insights 미리 보기 REST API의 쿼리 구문에 대해 자세히 알아보세요.
-- 지원되는 JSON 셰이프에 대한 자세한 내용은 [지원되는 JSON 셰이프](./time-series-insights-send-events.md#supported-json-shapes)를 참조하세요.
+- 이러한 지침을 적용 하려면 [쿼리 구문 미리 보기 Azure Time Series Insights](./time-series-insights-query-data-csharp.md)를 참조 하세요. 데이터 액세스에 대 한 Time Series Insights 미리 보기 REST API의 쿼리 구문에 대해 자세히 알아보세요.
+- 지원 되는 JSON 셰이프에 대 한 자세한 내용은 [지원 되는 json 셰이프](./time-series-insights-send-events.md#supported-json-shapes)를 참조 하세요.

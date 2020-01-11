@@ -11,18 +11,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: ebc616d07c24a02b71010e315f288543dfd92b74
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 964a3865fcb646a52822286e809703d507304ca6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705958"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861883"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>을 사용 하 여 Azure Time Series Insights 환경의 GA 참조 데이터 관리C#
 
 이 아티클에서는 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하기 위해 컴파일할 수 있는 예제 C# 프로젝트에 대해 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "74705958"
 
 1. 애플리케이션에 대한 인증 액세스 토큰을 구성합니다. Azure Active Directory API를 통해 토큰을 가져와야 합니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달합니다.
 
-   비대화형 애플리케이션을 설정하는 방법에 대한 내용은 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)를 참조하세요.
+   비 대화형 응용 프로그램을 설정 하는 방법에 대 한 자세한 내용은 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)를 참조 하세요.
 
 1. 샘플 코드를 편집하고 코드 시작 부분의 **#DUMMY#** 에 지정된 예제 상수를 바꿉니다.
 

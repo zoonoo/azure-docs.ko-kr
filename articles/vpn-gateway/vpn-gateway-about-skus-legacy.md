@@ -1,19 +1,18 @@
 ---
-title: 레거시 Azure Virtual Network VPN 게이트웨이 SKU | Microsoft Docs
+title: 레거시 Azure virtual network VPN gateway Sku
 description: 이전 버전의 가상 네트워크 게이트웨이 SKU인 Basic, Standard 및 HighPerformance를 사용하는 방법입니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5c745258929d495c1e568a156690f569de9f0e36
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533915"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861917"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>가상 네트워크 게이트웨이 SKU(레거시 SKU) 사용
 

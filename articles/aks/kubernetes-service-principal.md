@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913502"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867173"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -108,7 +108,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
   - *Microsoft.Network/publicIPAddresses/write*
 - 또는 가상 네트워크 내의 서브넷에서 [네트워크 기여자][rbac-network-contributor] 기본 제공 역할을 할당 합니다.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 다른 리소스 그룹에 있는 기존 디스크 리소스에 액세스해야 할 수 있습니다. 다음 역할 권한 집합 중 하나를 할당합니다.
 
@@ -121,7 +121,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도로 리소스 그룹에서 ACI(Azure Container Instances)를 실행하도록 선택하는 경우, AKS 서비스 주체에 ACI 리소스 그룹에 대한 ‘Contributor’ 권한을 부여해야 합니다.
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 유의하세요.
 
@@ -131,6 +131,8 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 - 서비스 주체 **클라이언트 ID**를 지정할 때 `appId` 값을 사용합니다.
 - Kubernetes 클러스터의 에이전트 노드 Vm에서 서비스 주체 자격 증명은 파일에 저장 됩니다 `/etc/kubernetes/azure.json`
 - [Az aks create][az-aks-create] 명령을 사용 하 여 서비스 주체를 자동으로 생성 하는 경우 서비스 주체 자격 증명은 명령을 실행 하는 데 사용 되는 컴퓨터의 파일 `~/.azure/aksServicePrincipal.json`에 기록 됩니다.
+- 추가 AKS CLI 명령에서 서비스 주체를 특별히 전달 하지 않으면 `~/.azure/aksServicePrincipal.json`에 있는 기본 서비스 주체가 사용 됩니다.  
+- 필요에 따라 aksServicePrincipal 파일을 제거 하 고 AKS가 새 서비스 주체를 만들 수도 있습니다.
 - [Az AKS create][az-aks-create]에서 만든 AKS 클러스터를 삭제 하는 경우 자동으로 생성 된 서비스 주체는 삭제 되지 않습니다.
     - 서비스 주체를 삭제 하려면 *servicePrincipalProfile* 클러스터에 대해 쿼리 한 다음 [az ad app delete][az-ad-app-delete]를 사용 하 여 삭제 합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.
 

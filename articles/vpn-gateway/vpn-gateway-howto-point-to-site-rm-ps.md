@@ -1,18 +1,19 @@
 ---
-title: 지점 및 사이트 간 VPN 및 네이티브 Azure 인증서 인증을 사용 하 여 컴퓨터에서 Azure virtual network에 연결 합니다. PowerShell | Microsoft Docs
+title: '컴퓨터에서 VNet에 연결-P2S VPN 및 네이티브 Azure 인증서 인증: PowerShell'
 description: P2S 및 자체 서명 또는 CA 발급 인증서를 사용하여 Windows 및 Mac OS X 클라이언트를 Azure 가상 네트워크에 안전하게 연결합니다. 이 문서에서는 PowerShell을 사용합니다.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 17d07b508c7ecd8b5750bf5f4108cb789a419c42
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b67c77f25b14263abe7207359c00660df635df13
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843544"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863794"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>네이티브 Azure 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 VPN 연결 구성: PowerShell
 
@@ -29,7 +30,7 @@ ms.locfileid: "70843544"
 * 루트 인증서에서 생성된 클라이언트 인증서. 클라이언트 인증서는 VNet에 연결할 각 클라이언트 컴퓨터에 설치됩니다. 클라이언트 인증에 사용됩니다.
 * VPN 클라이언트 구성 VPN 클라이언트 구성 파일에는 클라이언트를 VNet에 연결하는 데 필요한 정보가 포함됩니다. 파일은 운영 체제에 기본적으로 제공된 기존의 VPN 클라이언트를 구성합니다. 연결되는 각 클라이언트는 구성 파일에서 설정을 사용하여 구성해야 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,13 +53,13 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **서브넷 이름: GatewaySubnet**<br>서브넷 이름 *GatewaySubnet*은 VPN Gateway가 작동하기 위한 필수 항목입니다.
   * **GatewaySubnet 주소 범위: 192.168.200.0/24** 
 * **VPN 클라이언트 주소 풀: 172.16.201.0/24**<br>이 지점 및 사이트 간 연결을 사용하여 VNet에 연결되는 VPN 클라이언트는 VPN 클라이언트 주소 풀에서 IP 주소를 받습니다.
-* **구독:** 구독이 둘 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
+* **구독:** 구독이 2개 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
 * **리소스 그룹: TestRG**
 * **위치: 미국 동부**
-* **DNS 서버: 이름 확인에 사용할 DNS 서버의 IP 주소** (선택 사항)
+* **DNS 서버: 이름 확인에 사용할 DNS 서버의 IP 주소**. (선택 사항)
 * **GW 이름: Vnet1GW**
 * **공용 IP 이름: VNet1GWPIP**
-* **VpnType: 경로 기반** 
+* **VpnType: RouteBased** 
 
 ## <a name="declare"></a>1. 로그인 및 변수 설정
 
@@ -126,7 +127,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="creategateway"></a>3. VPN Gateway 만들기
+## <a name="creategateway"></a>3. VPN gateway 만들기
 
 VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다.
 
@@ -156,7 +157,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 
 자체 서명된 인증서를 사용하는 경우 특정 매개 변수를 사용하여 만들어야 합니다. [PowerShell 및 Windows 10](vpn-gateway-certificates-point-to-site.md)에 대한 지침을 사용하여 자체 서명된 인증서를 만들 수 있고 Windows 10을 사용하지 않는 경우 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)를 사용할 수 있습니다. 자체 서명된 루트 인증서 및 클라이언트 인증서를 생성할 때 지침에 나와 있는 단계를 따르는 것이 중요합니다. 그렇지 않으면 생성된 인증서가 P2S 연결과 호환되지 않으며 연결 오류가 발생하게 됩니다.
 
-### <a name="cer"></a>1. 루트 인증서용 .cer 파일 가져오기
+### <a name="cer"></a>1. 루트 인증서의 .cer 파일을 가져옵니다.
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
@@ -230,7 +231,7 @@ VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하�
 
   ![Mac 연결](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
-## <a name="verify"></a>연결을 확인하려면
+## <a name="verify"></a>연결 확인
 
 이러한 지침은 Windows 클라이언트에 적용됩니다.
 
@@ -406,4 +407,4 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 ## <a name="next-steps"></a>다음 단계
 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/)를 참조하세요. 네트워킹 및 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/linux/azure-vm-network-overview.md)를 참조하세요.
 
-P2S 문제 해결 정보는 [문제 해결: 지점 및 사이트 간 연결 문제](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)를 참조하세요.
+P2S 문제 해결 정보는 [Azure 지점 및 사이트 간 연결 문제 해결](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)을 참조하세요.

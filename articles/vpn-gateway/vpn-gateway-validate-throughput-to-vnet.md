@@ -1,20 +1,20 @@
 ---
-title: Microsoft Azure Virtual Network에 대한 VPN 처리량 유효성 검사 | Microsoft Docs
+title: Microsoft Azure Virtual Network에 대 한 VPN 처리량 확인
 description: 이 문서의 목적은 사용자가 온-프레미스 리소스에서 Azure 가상 머신으로의 네트워크 처리량을 유효성 검사하도록 돕는 것입니다.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058808"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860489"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -72,7 +72,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 
 1. 두 노드에서 모두 포트 5001에 대한 방화벽 예외를 사용하도록 설정합니다.
 
-   **Windows:** 관리자 권한으로 다음 명령을 실행 합니다.
+   **Windows:** 관리자 권한으로 다음 명령을 실행합니다.
 
    ```CMD
    netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -126,7 +126,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 
 최신 버전의 Latte를 다운로드 합니다 [.](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Latte를 별도의 폴더에 배치 하는 것이 좋습니다.`c:\tools`
+Latte를 별도의 폴더에 배치 하는 것이 좋습니다 (예: `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Windows 방화벽을 통해 Latte를 허용 합니다.
 
@@ -216,7 +216,7 @@ Bash 명령줄에서 (git가 설치 된 것으로 가정)
 
 > [!Note]
 > VM과 게이트웨이 간의 처리량 테스트 중에 중간 홉 (예: 가상 어플라이언스)이 없는지 확인 합니다.
-> 위의 iPERF/NTTTCP 테스트에서 발생 하는 결과가 나쁜 경우 (전체 처리량을 기준으로) 다음 문서를 참조 하 여 문제의 가능한 근본 원인에 대 한 주요 요인을 파악 하십시오. https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> 위의 iPERF/NTTTCP 테스트에서 발생 하는 결과가 좋지 않은 경우 다음 문서를 참조 하 여 문제의 가능한 근본 원인에 대 한 주요 요인을 파악 하십시오. https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
 
 특히, 이러한 테스트를 수행 하는 동안 클라이언트와 서버에서 병렬로 수집 된 Wireshark/네트워크 모니터 (패킷 캡처 추적)의 분석은 잘못 된 성능을 평가 하는 데 도움이 됩니다. 이러한 추적에는 패킷 손실, 긴 대기 시간, MTU 크기 등이 포함 될 수 있습니다. 조각화, TCP 0 창, 순서가 잘못 된 조각 등이 있습니다.
 
@@ -238,9 +238,9 @@ Bash 명령줄에서 (git가 설치 된 것으로 가정)
 
 Azure에서 로컬 네트워크 게이트웨이의 VPN을 통해 연결 하는 온-프레미스 범위의 서브넷을 언급 했습니다. 동시에 온-프레미스 장치에 대 한 Azure의 VNET 주소 공간을 정의 합니다.
 
-* **경로 기반 게이트웨이**: 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
+* **경로 기반 게이트웨이**: 경로 기반 vpn에 대 한 정책 또는 트래픽 선택기는 임의 또는 와일드 카드로 구성 됩니다.
 
-* **정책 기반 게이트웨이**: 정책 기반 VPN은 온-프레미스 네트워크와 Azure VNet 간의 주소 접두사의 조합에 따라 IPsec 터널을 통해 패킷을 암호화하고 전달합니다. 정책 또는 트래픽 선택기는 일반적으로 VPN 구성에서 액세스 목록으로 정의됩니다.
+* **정책 기반 게이트웨이**: 정책 기반 vpn은 온-프레미스 네트워크와 Azure VNet 간의 주소 접두사 조합에 따라 IPsec 터널을 통해 패킷을 암호화 하 고 전달 합니다. 정책 또는 트래픽 선택기는 일반적으로 VPN 구성에서 액세스 목록으로 정의됩니다.
 
 * **UsePolicyBasedTrafficSelector** connections: ("UsePolicyBasedTrafficSelectors"는 연결에 대해 $True 하기 위해 온-프레미스의 정책 기반 VPN 방화벽에 연결 하도록 Azure VPN gateway를 구성 합니다. PolicyBasedTrafficSelectors를 사용 하도록 설정한 경우 VPN 장치에 온-프레미스 네트워크 (로컬 네트워크 게이트웨이) 접두사와 Azure 가상 네트워크 접두사 간의 모든 조합으로 정의 된 일치 하는 트래픽 선택 기가 있는지 확인 해야 합니다. any-any.
 
@@ -252,7 +252,7 @@ Azure에서 로컬 네트워크 게이트웨이의 VPN을 통해 연결 하는 �
 
 * WinMTR
 * TCPTraceroute
-* `ping``psping` 이러한 도구는 RTT를 적절 하 게 예상 하지만 모든 경우에 사용할 수는 없습니다.
+* `ping` 및 `psping` (이러한 도구는 최적의 RTT를 제공할 수 있지만 모든 경우에 사용할 수는 없습니다.)
 
 ![대기 시간 확인](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 

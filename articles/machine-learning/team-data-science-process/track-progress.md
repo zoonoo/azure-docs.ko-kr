@@ -2,24 +2,24 @@
 title: 팀 데이터 과학 프로세스 프로젝트의 진행률 추적
 description: 데이터 과학 그룹 관리자, 팀 리더 및 프로젝트 리더가 데이터 과학 프로젝트의 진행률을 추적할 수 있는 방법을 설명 합니다.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244083"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864199"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>데이터 과학 프로젝트의 진행률 추적
 
-데이터 과학 그룹 관리자, 팀 리더 및 프로젝트 책임자는 수행 된 작업, 작업의 수행 및 남은 작업 등 프로젝트의 진행 상황을 추적할 수 있습니다. 
+데이터 과학 그룹 관리자, 팀 리더 및 프로젝트 리더는 프로젝트의 진행률을 추적할 수 있습니다.  관리자가 작업을 수행한 작업과 남은 작업을 파악 하려고 합니다.   기대치 관리는 성공의 중요 한 요소입니다.
 
 ## <a name="azure-devops-dashboards"></a>Azure DevOps 대시보드
 
@@ -50,4 +50,4 @@ Azure DevOps에서 대시보드 및 위젯을 만들고 사용자 지정 하는 
 
 ## <a name="next-steps"></a>다음 단계
 
-[팀 데이터 과학 프로세스를 실행](walkthroughs.md) 하는 연습에는 링크 및 미리 보기 설명과 함께 특정 시나리오에 대 한 프로세스의 모든 단계를 보여 주는 연습이 나열 되어 있습니다. 연결 된 시나리오에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합 하 여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
+[팀 데이터 과학 프로세스를 실행](walkthroughs.md) 하는 연습에서는 모든 프로세스 단계를 보여 주는 연습이 나열 됩니다. 연결 된 시나리오는 지능형 응용 프로그램에 클라우드 및 온-프레미스 리소스를 관리 하는 방법을 보여 줍니다. 

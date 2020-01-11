@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660344"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862478"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
@@ -21,7 +21,7 @@ ms.locfileid: "75660344"
 
 시작하려면 공간 그래프의 루트에서 Azure IoT Hub 리소스를 만듭니다. IoT Hub 리소스는 루트 공간 아래의 모든 디바이스가 메시지를 보낼 수 있도록 허용합니다. IoT Hub가 만들어지면 Azure Digital Twins 내의 센서에 디바이스를 등록합니다. 디바이스는 [Azure IoT 디바이스 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)를 통해 Digital Twins 서비스로 데이터를 보낼 수 있습니다.
 
-디바이스 온보딩에 대한 단계별 가이드는 [Digital Twins 배포 및 구성 자습서](tutorial-facilities-setup.md)를 참조하세요. 간략히 보면 단계는 다음과 같습니다.
+장치를 등록 하는 방법에 대 한 단계별 가이드는 [디지털 쌍 배포 및 구성 자습서](tutorial-facilities-setup.md)를 참조 하세요. 간략히 보면 단계는 다음과 같습니다.
 
 - [Azure Portal](https://portal.azure.com)에서 Digital Twins 인스턴스를 배포합니다.
 - 그래프에 공간을 만듭니다.

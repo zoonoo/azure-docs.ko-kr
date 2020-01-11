@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 426ec57b3dbce884e55ef7a11ccca32ed295d70d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 12e642e59a1341926a0c4d66533465cecfc21709
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111898"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863141"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Cognitive Search 인덱서에 SQL Server에 대 한 연결 구성
 
@@ -72,8 +72,12 @@ Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 �
 
 IP 주소 지정의 경우 몇 가지 문제를 내포할 수 있으며 사용자가 문제와 잠재적인 해결 방법을 인식하고 있는 경우 쉽게 극복할 수 있습니다. 나머지 섹션에서는 ACL에서 IP 주소와 관련된 문제 처리를 위한 권장 사항을 제공합니다.
 
-#### <a name="restrict-access-to-the-search-service-ip-address"></a>검색 서비스 IP 주소로 액세스 제한
-모든 연결 요청에 대해 SQL Azure VM이 연결되도록 허용하는 대신, ACL에 포함된 검색 서비스의 IP 주소로 액세스를 제한하는 것이 좋습니다. 검색 서비스의 FQDN(예: `<your-search-service-name>.search.windows.net`)을 ping하여 IP 주소를 쉽게 찾을 수 있습니다.
+#### <a name="restrict-access-to-the-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 액세스 제한
+모든 연결 요청에 대 한 SQL Azure Vm을 열도록 설정 하는 대신 검색 서비스의 IP 주소와 ACL에서 `AzureCognitiveSearch` [서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) 의 ip 주소 범위에 대 한 액세스를 제한 하는 것이 좋습니다.
+
+검색 서비스의 FQDN (예: `<your-search-service-name>.search.windows.net`)을 ping 하 여 IP 주소를 확인할 수 있습니다.
+
+[다운로드 가능한 JSON 파일](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) 을 사용 하거나 [서비스 태그 검색 API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)를 통해 Azure Cognitive Search 서비스가 위치한 특정 지역에 대 한 `AzureCognitiveSearch` [service 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) 의 IP 주소 범위를 확인할 수 있습니다. IP 주소 범위는 매주 업데이트 됩니다.
 
 #### <a name="managing-ip-address-fluctuations"></a>IP 주소 변동 관리
 검색 서비스에 검색 단위가 하나만 있으면(즉, 하나의 복제본과 하나의 파티션) 라우팅 서비스를 다시 시작하는 동안 IP 주소가 변경되어 검색 서비스 IP 주소를 사용하는 기존 ACL이 무효화됩니다.

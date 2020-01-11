@@ -5,12 +5,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Windows 컨테이너를 사용 하 여 기존 클러스터에서 Azure Dev Spaces를 실행 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Windows 컨테이너
-ms.openlocfilehash: 7410c0e38b84979f0977973b2d6ccf588e2b1230
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483991"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867301"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
 
@@ -146,7 +146,12 @@ azds prep --public
 azds up
 ```
 
-`azds prep --public` 명령은 응용 프로그램에 대 한 투구 차트 및 Dockerfiles를 생성 합니다. `azds up` 명령은 네임 스페이스에서 서비스를 실행 합니다.
+`azds prep --public` 명령은 응용 프로그램에 대 한 투구 차트 및 Dockerfiles를 생성 합니다.
+
+> [!TIP]
+> 프로젝트에 대 한 [Dockerfile 및 투구 차트](../how-dev-spaces-works.md#prepare-your-code) 는 Azure Dev Spaces에서 코드를 빌드하고 실행 하는 데 사용 되지만 프로젝트를 빌드하고 실행 하는 방법을 변경 하려면 이러한 파일을 수정할 수 있습니다.
+
+`azds up` 명령은 네임 스페이스에서 서비스를 실행 합니다.
 
 ```console
 $ azds up

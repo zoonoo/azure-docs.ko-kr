@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f25774f89182004e23605bf4c37d1e1d739df7
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084898"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867029"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
 
@@ -21,7 +21,7 @@ ms.locfileid: "74084898"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [시나리오 아키텍처 및 구성 요소](hyper-v-vmm-architecture.md)를 검토합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 검토합니다.
@@ -195,7 +195,15 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
+> [!NOTE]
+> Azure에서 CMK를 사용 하는 관리 디스크에 복제 하려는 경우 Az PowerShell 3.3.0을 사용 하 여 다음 단계를 수행 합니다.
+>
+> 1. VM 속성을 업데이트 하 여 관리 디스크에 대 한 장애 조치 (failover) 사용
+> 2. AsrReplicationProtectedItem cmdlet을 사용 하 여 보호 된 항목의 각 디스크에 대 한 디스크 ID를 가져옵니다.
+> 3. 디스크 ID를 디스크 암호화 집합으로 매핑하는 것을 포함 하는 새 개체 "System.web ' ' 2 [System.string, system.string]" cmdlet을 사용 하 여 사전 개체를 만듭니다. 이러한 디스크 암호화 집합은 대상 지역에서 미리 생성 됩니다.
+> 4. AsrReplicationProtectedItem cmdlet을 사용 하 여 사전 개체를 DiskIdToDiskEncryptionSetMap 매개 변수로 전달 하 여 VM 속성을 업데이트 합니다.
+
+## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 
 배포를 테스트하려면 단일 가상 머신에 대한 테스트 장애 조치(failover)를 실행합니다. 또한 여러 개의 VM이 포함된 복구 계획을 만들고 계획에 대한 테스트 장애 조치(failover)를 실행할 수 있습니다. 테스트 장애 조치(Failover)에서는 격리된 네트워크에서 장애 조치(Failover) 및 복구 메커니즘을 시뮬레이션합니다.
 

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 548fa8181c4841d8f57de485c0a4e714b5e9321a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082688"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863913"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -37,7 +37,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 ## <a name="before-you-start"></a>시작하기 전에
 다음 필수 조건이 충족되었는지 확인합니다.
 
-* [Microsoft Azure](https://azure.microsoft.com/) 계정. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
+* [Microsoft Azure](https://azure.microsoft.com/) 계정. [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
 * Azure PowerShell. 이 릴리스와 설치 방법에 대 한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
 또한 이 문서에 설명된 특정 예제에는 다음과 같은 필수 조건이 있습니다.
@@ -188,7 +188,13 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
 
         Succeeded
 
-
+> [!NOTE]
+> Azure에서 CMK를 사용 하는 관리 디스크에 복제 하려는 경우 Az PowerShell 3.3.0을 사용 하 여 다음 단계를 수행 합니다.
+>
+> 1. VM 속성을 업데이트 하 여 관리 디스크에 대 한 장애 조치 (failover) 사용
+> 2. AsrReplicationProtectedItem cmdlet을 사용 하 여 보호 된 항목의 각 디스크에 대 한 디스크 ID를 가져옵니다.
+> 3. 디스크 ID를 디스크 암호화 집합으로 매핑하는 것을 포함 하는 새 개체 "System.web ' ' 2 [System.string, system.string]" cmdlet을 사용 하 여 사전 개체를 만듭니다. 이러한 디스크 암호화 집합은 대상 지역에서 미리 생성 됩니다.
+> 4. AsrReplicationProtectedItem cmdlet을 사용 하 여 사전 개체를 DiskIdToDiskEncryptionSetMap 매개 변수로 전달 하 여 VM 속성을 업데이트 합니다.
 
 ## <a name="step-8-run-a-test-failover"></a>8단계: 테스트 장애 조치 실행
 1. 다음과 같이 테스트 장애 조치(failover)를 실행합니다.

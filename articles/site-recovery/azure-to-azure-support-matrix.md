@@ -2,13 +2,14 @@
 title: Azure Site Recovery를 사용 하 여 Azure VM 재해 복구를 위한 지원 매트릭스
 description: Azure Site Recovery를 사용 하 여 보조 지역에 대 한 Azure Vm 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: article
-ms.date: 12/23/2019
-ms.openlocfilehash: b8809682f4d2bed72eec1d64b2ac40b664237632
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 01/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1e30170f521fa21cb69fb1879ea4335025d8d959
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551593"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863930"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구를 위한 지원 매트릭스
 
@@ -202,7 +203,7 @@ Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 
 콜드 및 핫 스토리지 | 지원하지 않음 | VM 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
 스토리지 공간 | 지원됨 |
 미사용 암호화(SSE) | 지원됨 | SSE은 스토리지 계정의 기본 설정입니다.   
-미사용 암호화 (CMK) | 지원되지 않음 |   
+미사용 암호화 (CMK) | 지원됨 | 관리 디스크에는 소프트웨어 및 HSM 키가 모두 지원 됩니다.    
 Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크가 있는 Vm에 대해 지원 됩니다. 관리 되지 않는 디스크를 사용 하는 Vm은 지원 되지 않습니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 지원됨 |
 핫 추가 | 지원됨 | 복제 된 Azure VM에 추가 하는 데이터 디스크에 대 한 복제를 사용 하도록 설정 하는 것은 managed disks를 사용 하는 Vm에 대해 지원 됩니다.

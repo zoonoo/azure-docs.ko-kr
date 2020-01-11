@@ -3,12 +3,12 @@ title: 게스트 구성 정책을 만드는 방법
 description: Azure PowerShell를 사용 하 여 Windows 또는 Linux Vm에 대 한 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608527"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867334"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
@@ -65,7 +65,7 @@ ms.locfileid: "75608527"
 
 #### <a name="configuration-requirements"></a>구성 요구 사항
 
-사용자 지정 구성을 사용 하는 게스트 구성의 유일한 요구 사항은 구성의 이름이 사용 되는 모든 위치에서 일관 되도록 구성 하는 것입니다.  여기에는 콘텐츠 패키지에 대 한 .zip 파일의 이름, 콘텐츠 패키지 내에 저장 된 mof 파일의 구성 이름 및 ARM에서 게스트 할당 이름으로 사용 되는 구성 이름이 포함 됩니다.
+사용자 지정 구성을 사용 하기 위한 게스트 구성의 유일한 요구 사항은 구성의 이름이 사용 되는 모든 위치에서 일관성을 유지 하는 것입니다. 이 이름 요구 사항에는 콘텐츠 패키지에 대 한 .zip 파일의 이름, 콘텐츠 패키지 내에 저장 된 MOF 파일의 구성 이름 및 게스트 할당 이름으로 리소스 관리자 템플릿에 사용 되는 구성 이름이 포함 됩니다.
 
 #### <a name="get-targetresource-requirements"></a>Test-targetresource 요구 사항
 
@@ -181,7 +181,7 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 하는 가장 좋은 방법은 Azure Key Vault에 저장 하는 것입니다. 이 디자인은 사용자 지정 DSC 리소스 내에서 구현 됩니다.
 
-1. 먼저 Azure에서 사용자 할당 관리 id를 만듭니다.
+1. Azure에서 사용자 할당 관리 id를 만듭니다.
 
    Id는 컴퓨터에서 Key Vault에 저장 된 암호에 액세스 하는 데 사용 됩니다. 자세한 단계는 Azure PowerShell을 [사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조 하세요.
 
@@ -195,7 +195,7 @@ Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 
    자세한 단계는 PowerShell을 [사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)을 참조 하세요.
    대규모로 Azure Policy를 통해 Azure Resource Manager를 사용 하 여이 id를 할당 합니다. 자세한 단계는 [템플릿을 사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)을 참조 하세요.
 
-1. 마지막으로, 사용자 지정 리소스 내에서 위에 생성 된 클라이언트 ID를 사용 하 여 컴퓨터에서 사용할 수 있는 토큰을 사용 하 여 Key Vault에 액세스 합니다.
+1. 사용자 지정 리소스 내에서 위에서 생성 된 클라이언트 ID를 사용 하 여 컴퓨터에서 사용할 수 있는 토큰을 사용 하 여 Key Vault에 액세스 합니다.
 
    Key Vault 인스턴스에 대한 `client_id` 및 url을 리소스에 [속성](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema)으로 전달하여 여러 환경에 대해 리소스를 업데이트할 필요가 없도록하거나 값을 변경해야 할 수 있습니다.
 
@@ -305,7 +305,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Linux 정책의 경우 구성에 **AttributesYmlContent** 속성을 포함 하 고 적절 하 게 값을 덮어씁니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장 하는 데 사용 하는 YaML 파일을 자동으로 만듭니다. 아래 예를 참조하세요.
+Linux 정책의 경우 구성에 **AttributesYmlContent** 속성을 포함 하 고 필요에 따라 값을 덮어씁니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장 하는 데 사용 하는 YAML 파일을 자동으로 만듭니다. 아래 예를 참조하세요.
 
 ```powershell
 Configuration FirewalldEnabled {

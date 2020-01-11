@@ -3,13 +3,14 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: 752f2276f23aa22feac870493e1ea5c1fdc4ca98
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1d6f5df59a318388a7a5fea75d1fd17e18cb7745
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645942"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864335"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -226,7 +227,7 @@ ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 �
 핫 스토리지| 아닙니다.
 블록 Blob | 아닙니다.
 미사용 암호화 (SSE)| 예
-미사용 암호화 (CMK)| 아닙니다.
+미사용 암호화 (CMK)| 예 (Powershell Az 3.3.0 모듈을 통해)
 프리미엄 스토리지 | 예
 Import/Export 서비스 | 아닙니다.
 Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 하는 데 사용 되는 대상 저장소/캐시 저장소 계정에 구성 됩니다.

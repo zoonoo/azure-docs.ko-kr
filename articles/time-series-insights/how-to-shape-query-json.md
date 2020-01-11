@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3b8c25c09b87dc8e9874870881173944fea1ee73
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894905"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864352"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>JSON 셰이프 쿼리 성능 최대화 
 
@@ -50,7 +50,7 @@ Time Series Insights로 이벤트를 보내는 방법에 대해 생각해 보십
 
 ## <a name="example-overview"></a>예제 개요
 
-다음 두 예제에서는 이벤트를 전송 하 여 이전 권장 사항을 강조 표시 하는 방법을 보여 줍니다. 각 예제를 따라 권장 사항을 적용 한 방법을 확인할 수 있습니다.
+다음 두 예제에서는 이벤트를 전송 하 여 이전 권장 사항을 강조 표시 하는 방법을 보여 줍니다. 각 예제에 따라 권장 사항이 적용 된 방법을 검토할 수 있습니다.
 
 예제는 여러 디바이스가 측정값 또는 신호를 보내는 시나리오를 기반으로 합니다. 측정 또는 신호는 흐름 요금, 엔진 오일 압력, 온도 및 습도가 될 수 있습니다. 첫 번째 예제에는 모든 디바이스에 대한 몇 가지 측정값이 있습니다. 두 번째 예제에는 많은 장치가 있으며 각 장치는 여러 개의 고유한 측정값을 보냅니다.
 

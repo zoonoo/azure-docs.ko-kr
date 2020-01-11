@@ -3,16 +3,16 @@ title: Azure Notebooks 미리 보기에서 Azure Machine Learning 사용
 description: Azure Notebooks Preview에서 사용할 수 있는 Azure Machine Learning에 대 한 샘플 노트북의 개요입니다.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 3c0e0e9ccea079d7e8f4e35e9af2a0e1c1ec5051
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 435abca83255221d438d530b63c237c08bb0b672
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646955"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860574"
 ---
 # <a name="use-azure-machine-learning-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 Azure Machine Learning 사용
 
-Azure Notebooks은 [Azure Machine Learning](/azure/machine-learning/service/)작업 하는 데 필요한 환경으로 미리 구성 되어 있습니다. 샘플 프로젝트를 Notebooks 계정에 쉽게 복제하여 다양한 Machine Learning 시나리오를 살펴볼 수 있습니다.
+Azure Notebooks은 [Azure Machine Learning](/azure/machine-learning/)작업 하는 데 필요한 환경으로 미리 구성 되어 있습니다. 샘플 프로젝트를 Notebooks 계정에 쉽게 복제하여 다양한 Machine Learning 시나리오를 살펴볼 수 있습니다.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -39,9 +39,9 @@ Azure Notebooks은 [Azure Machine Learning](/azure/machine-learning/service/)작
 
 Azure Machine Learning 설명서에는 노트북 내에서 Machine Learning 작업 하는 과정을 안내 하는 다양 한 리소스가 포함 되어 있습니다.
 
-- [빠른 시작: Python을 사용 하 여 Azure Machine Learning 시작](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [자습서 #1: Azure Machine Learning를 사용 하 여 이미지 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [자습서 #2: ACI (Azure Container Instance)에서 이미지 분류 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [자습서: Azure Machine Learning에서 자동화 된 machine learning을 사용 하 여 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [빠른 시작: Python을 사용 하 여 Azure Machine Learning 시작](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#local)
+- [자습서 #1: Azure Machine Learning를 사용 하 여 이미지 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
+- [자습서 #2: ACI (Azure Container Instance)에서 이미지 분류 모델 배포](https://docs.microsoft.com/azure/machine-learning/tutorial-deploy-models-with-aml)
+- [자습서: Azure Machine Learning에서 자동화 된 machine learning을 사용 하 여 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/tutorial-auto-train-models)
 
 [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 문서도 참조하세요.

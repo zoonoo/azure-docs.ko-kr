@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
-ms.translationtype: HT
+ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834381"
+ms.locfileid: "75863090"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -38,6 +38,8 @@ API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않
 ### <a name="december-2019"></a>2019년 12월
 
 + [앱 만들기 (미리 보기)](search-create-app-portal.md) 는 다운로드 가능한 HTML 파일을 생성 하는 포털의 새 마법사입니다. 이 파일에는 검색 서비스의 인덱스에 바인딩된 운영 "localhost" 스타일 웹 앱을 렌더링 하는 포함 된 스크립트가 포함 되어 있습니다. 페이지는 마법사에서 구성할 수 있으며 검색 표시줄, 결과 영역, 사이드바 탐색 및 typeahead.js 쿼리 지원을 포함할 수 있습니다. HTML 오프 라인을 수정 하 여 워크플로 또는 모양을 확장 하거나 사용자 지정할 수 있습니다.
+
++ [안전한 연결을 위한 개인 끝점 만들기 (미리 보기)](service-create-private-endpoint.md) 는 검색 서비스에 대 한 보안 연결을 위한 개인 링크를 설정 하는 방법을 설명 합니다. 이 미리 보기 기능은 요청 시 사용할 수 있으며 솔루션의 일부로 [Azure 개인 링크](../private-link/private-link-overview.md) 및 [azure Virtual Network](../virtual-network/virtual-networks-overview.md) 를 사용 합니다.
 
 ### <a name="november-2019---ignite-conference"></a>11 월 2019-Ignite 회의
 

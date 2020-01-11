@@ -1,25 +1,19 @@
 ---
-title: Azure 사이트 간 VPN 일시적 연결 끊김 문제 해결 | Microsoft Docs
+title: 일시적으로 Azure 사이트 간 VPN의 연결 문제 해결
 description: 사이트 간 VPN 연결이 자주 끊어지는 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 394062257f09bb0b8cfa6875795b88d35404f87c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058830"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862563"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>문제 해결: Azure 사이트 간 VPN 일시적 연결 끊김
 

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6fafb2d4d363ee0d01d5bd9f18a1294ae8110b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 738f2fe028439601835f18a16a5d98cc2d6dc243
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327821"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863362"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
@@ -35,13 +35,13 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->위의 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Time Series Insights 시작"</a> 을 참조 하세요.
+>이전 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Time Series Insights 시작"을 재생 합니다.</a>
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니다.
 
-- Time Series Insights 환경을 만듭니다. 자세한 내용은 [Time Series Insights를 시작 하는 방법](./time-series-insights-get-started.md)을 참조 하세요.
+- Time Series Insights 환경을 만듭니다. 자세한 내용은 [Time Series Insights 시작 하는 방법](./time-series-insights-get-started.md)을 참조 하세요.
 - 환경에서 사용자 계정에 대 한 [액세스를 제공](time-series-insights-data-access.md) 합니다.
 - [IoT hub](time-series-insights-how-to-add-an-event-source-iothub.md) 또는 [이벤트 허브](time-series-insights-how-to-add-an-event-source-eventhub.md) 이벤트 원본을 추가 합니다.
 
@@ -51,7 +51,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
 1. 시작 하려면 웹 브라우저에서 [Time Series Insights 탐색기](https://insights.timeseries.azure.com/) 를 엽니다. 창 왼쪽에서 환경을 선택 합니다. 액세스 가능한 모든 환경이 알파벳 순으로 표시됩니다.
 
-1. 환경을 선택한 후에는 맨 위에서 **시작** 및 다음 구성 **을** 사용 하거나 원하는 timespan을 클릭 하 고 끕니다. 오른쪽 위 모서리에서 돋보기를 선택 하거나 선택한 timespan을 마우스 오른쪽 단추로 클릭 하 고 **검색**을 선택 합니다.
+1. 환경을 선택한 후에는 맨 위에서 **시작** 및 구성 **을** 사용 하거나 원하는 timespan을 선택 하 고 끕니다. 오른쪽 위 모서리에서 돋보기를 선택 하거나 선택한 timespan을 마우스 오른쪽 단추로 클릭 하 고 **검색**을 선택 합니다.
 
 1. **자동 켜기** 단추를 선택 하 여 1 분 마다 자동으로 가용성을 새로 고칠 수도 있습니다. **자동 켜기** 단추는 주 시각화의 내용이 아니라 가용성 차트에만 적용 됩니다.
 
@@ -59,7 +59,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
    [![Time Series Insights 환경 선택](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
-1. 선택한 시간 범위에 포함된 모든 이벤트의 개수가 표시된 차트를 보게 됩니다. 여기서 몇 가지 옵션을 사용할 수 있습니다.
+1. 다음으로, 선택한 timespan 동안의 모든 이벤트 수를 표시 하는 차트가 표시 됩니다. 여기서 몇 가지 옵션을 사용할 수 있습니다.
 
     - **용어 편집기 패널**: 용어 공간은 환경을 쿼리 하는 위치입니다. 화면 왼쪽에 있습니다.
       - **MEASURE**:이 드롭다운 목록에는 모든 숫자 열 (**double**)이 표시 됩니다.
@@ -71,7 +71,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
       - **조건자**: 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 하려면 조건자를 사용 합니다. 를 선택 하거나 클릭 하 여 검색을 수행 하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트 됩니다. 지원되는 연산자는 다음과 같습니다.
 
-         |작업(Operation)  |지원되는 형식  |참고 사항  |
+         |작업  |지원되는 형식  |메모  |
          |---------|---------|---------|
          |**<** , **>** , **<=** , **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
          |**=** , **! =** , **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
@@ -82,11 +82,11 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
          [![GA 쿼리 예제](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. **간격 크기** 슬라이더 도구를 사용 하 여 동일한 timespan을 기준으로 간격을 확대 및 축소할 수 있습니다. 슬라이더를 사용 하면 데이터의 세분화 된 고해상도 컷을 볼 수 있는 밀리초 만큼 작은 조각으로 부드러운 추세를 표시 하는 큰 시간 조각 간의 움직임을 보다 정확 하 게 제어할 수 있습니다. 슬라이더의 기본 시작 지점은 해상도, 쿼리 속도 및 세분성의 균형을 유지 하기 위해 선택에서 가장 최적의 데이터 뷰로 설정 됩니다.
+1. **간격 크기** 슬라이더 도구를 사용 하 여 동일한 timespan을 기준으로 간격을 확대 및 축소할 수 있습니다. 슬라이더를 사용 하면 데이터의 세부적인 고해상도 컷을 표시 하 고 분석할 수 있는 밀리초 만큼 작은 조각으로 부드러운 추세를 표시 하는 큰 시간 조각 간의 움직임을 보다 정확 하 게 제어할 수 있습니다. 슬라이더의 기본 시작 지점은 해상도, 쿼리 속도 및 세분성의 균형을 유지 하기 위해 선택에서 가장 최적의 데이터 뷰로 설정 됩니다.
 
 1. **시간 브러시** 도구를 사용 하면 한 timespan에서 다른 timespan으로 쉽게 이동할 수 있습니다.
 
-1. **저장** 아이콘을 선택 하 여 현재 쿼리를 저장 하 고 환경의 다른 사용자와 공유 합니다. **열기** 아이콘을 선택 하면 사용자가 액세스할 수 있는 환경에서 저장 된 쿼리 및 다른 사용자의 공유 쿼리를 모두 볼 수 있습니다.
+1. **저장** 아이콘을 선택 하 여 현재 쿼리를 저장 하 고 환경의 다른 사용자와 공유 합니다. **열기** 아이콘을 선택 하면 액세스 권한이 있는 환경에서 다른 사용자의 저장 된 쿼리 및 공유 쿼리를 모두 검토할 수 있습니다.
 
    [![쿼리](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
@@ -101,8 +101,8 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
     - 특정 timespan 또는 단일 데이터 계열을 **선택** 하거나 **클릭** 합니다.
     - Timespan 선택 내에서 이벤트를 확대/축소 하거나 탐색할 수 있습니다.
     - 하나의 데이터 계열에서 다른 열을 기준으로 계열을 분할하거나, 계열을 새 기간으로 추가하거나, 선택한 계열만 표시하거나, 선택한 계열을 제외하거나, 계열에 대해 ping을 보내거나 선택한 계열의 이벤트를 탐색할 수 있습니다.
-    - 차트 왼쪽의 필터 영역에서 표시 된 모든 데이터 계열을 확인 하 고 값 또는 이름별로 순서를 변경할 수 있습니다. 모든 데이터 계열이 나 고정 또는 고정 해제 된 계열을 볼 수도 있습니다. 단일 데이터 계열을 선택 하 고 다른 열을 기준으로 계열을 분할 하거나, 계열을 새 용어로 추가 하거나, 선택한 계열만 표시 하거나, 선택한 계열을 제외 하거나, 해당 계열을 고정 하거나, 선택한 계열의 이벤트를 탐색할 수 있습니다.
-    - 여러 용어를 동시에 볼 때 스택, 스택 제거, 데이터 계열에 대 한 추가 데이터 확인 및 모든 용어에서 동일한 y 축 사용을 수행할 수 있습니다. 차트의 오른쪽 위 모퉁이에 있는 단추를 사용 합니다.
+    - 차트 왼쪽의 필터 영역에서 표시 된 모든 데이터 계열을 검토 하 고 값 또는 이름별로 순서를 변경할 수 있습니다. 모든 데이터 계열이 나 고정 또는 고정 해제 된 계열을 볼 수도 있습니다. 단일 데이터 계열을 선택 하 고 다른 열을 기준으로 계열을 분할 하거나, 계열을 새 용어로 추가 하거나, 선택한 계열만 표시 하거나, 선택한 계열을 제외 하거나, 해당 계열을 고정 하거나, 선택한 계열의 이벤트를 탐색할 수 있습니다.
+    - 여러 용어를 동시에 표시 하는 경우 데이터 계열에 대 한 추가 데이터를 누적, 누적 및 검토 하 고 모든 용어에서 동일한 y 축을 사용할 수 있습니다. 차트의 오른쪽 위 모퉁이에 있는 단추를 사용 합니다.
 
     [![차트 도구 오른쪽 위 모퉁이 옵션 설정](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
@@ -110,7 +110,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
     [![GA 탐색기 열 지도 차트](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. 이벤트를 선택 하거나 마우스 오른쪽 단추로 클릭 하 여 이벤트를 탐색할 때 **이벤트** 패널을 사용할 수 있습니다. 여기에서 원시 이벤트를 보고 이벤트를 JSON 또는 CSV 파일로 내보낼 수 있습니다. Time Series Insights 모든 원시 데이터를 저장 합니다.
+1. 이벤트를 선택 하거나 마우스 오른쪽 단추로 클릭 하 여 이벤트를 탐색할 때 **이벤트** 패널을 사용할 수 있습니다. 여기에서 모든 원시 이벤트를 검토 하 고 이벤트를 JSON 또는 CSV 파일로 내보낼 수 있습니다. Time Series Insights 모든 원시 데이터를 저장 합니다.
 
     [![이벤트](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
@@ -121,7 +121,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
       [![통계 열 차트 및 옵션](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-이제 Time Series Insights explorer 웹 앱 내에서 사용할 수 있는 다양 한 기능 및 옵션을 살펴보았습니다.
+이제 Time Series Insights explorer 웹 앱에서 사용할 수 있는 주요 기능, 구성 설정 및 표시 옵션에 대해 알아보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54034dc8828fb8a96f488197e517ef07ed55ab5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460406"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863481"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -87,7 +87,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
    1. 응용 프로그램을 대신 하 여 토큰을 획득 하려면 Azure Active Directory 앱 등록 섹션에서 **응용 프로그램 ID** 및 **클라이언트 암호** (응용 프로그램 키)를 사용 합니다.
 
-   1. 에서 C#다음 코드는 응용 프로그램 대신 토큰을 가져올 수 있습니다. 전체 샘플은 [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)를 참조하세요.
+   1. 에서 C#다음 코드는 응용 프로그램 대신 토큰을 가져올 수 있습니다. 전체 샘플을 보려면를 [사용 하 여 C#쿼리 데이터 ](time-series-insights-query-data-csharp.md)를 참조 하세요.
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
@@ -107,7 +107,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 [TIME SERIES INSIGHTS Rest api](https://docs.microsoft.com/rest/api/time-series-insights/)에 대해 인증 된 쿼리를 수행 하려면 선택한 rest 클라이언트 (Postman, JavaScript, C#)를 사용 하 여 유효한 OAuth 2.0 전달자 토큰을 [인증 헤더](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) 에 전달 해야 합니다. 
 
 > [!TIP]
-> 차트 및 그래프와 함께 [JavaScript 클라이언트 sdk](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) 를 사용 하 여 프로그래밍 방식으로 Time Series Insights api를 사용 하 여 인증 하는 방법을 보려면 호스트 된 AZURE TIME SERIES INSIGHTS [클라이언트 sdk 샘플 시각화](https://tsiclientsample.azurewebsites.net/) 를 참조 하세요.
+> 호스팅된 Azure Time Series Insights [CLIENT sdk 샘플 시각화](https://tsiclientsample.azurewebsites.net/) 를 읽고 차트 및 그래프와 함께 [JavaScript 클라이언트 sdk](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) 를 사용 하 여 프로그래밍 방식으로 Time Series Insights api를 사용 하 여 인증 하는 방법을 알아봅니다.
 
 ### <a name="http-headers"></a>HTTP 헤더
 
@@ -161,7 +161,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 ## <a name="next-steps"></a>다음 단계
 
-- GA Time Series Insights API를 호출 하는 샘플 코드는를 [사용 하 여 C#데이터 쿼리 ](./time-series-insights-query-data-csharp.md)를 참조 하세요.
+- GA Time Series Insights API를 호출 하는 샘플 코드의 경우를 [사용 하 C#여 쿼리 데이터 ](./time-series-insights-query-data-csharp.md)를 읽습니다.
 
 - 미리 보기 Time Series Insights API 코드 샘플은를 [사용 하 여 C#쿼리 미리 보기 데이터 ](./time-series-insights-update-query-data-csharp.md)를 참조 하세요.
 

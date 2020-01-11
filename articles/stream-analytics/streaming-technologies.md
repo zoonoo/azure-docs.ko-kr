@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f3ecb3bedb8e0f55590aca1aa1c0e0c185f9acc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2146b1bd782aba5d98729a2d37d956744e469ba1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369255"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860251"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Azure에서 실시간 분석 및 스트리밍 처리 기술 선택
 
@@ -41,10 +41,6 @@ Azure Stream Analytics에는 풍부한 기본 환경이 있습니다. 추가 설
 * Event Hubs에서 도착 하는 입력에서의 100-밀리초의 종단 간 대기 시간 아래에서 Event Hubs에서의 네트워크 지연 및 지속적으로 높은 처리량을 포함 하 여 Event Hubs에 있는 출력
 
 ## <a name="when-to-use-other-technologies"></a>다른 기술을 사용 하는 경우
-
-### <a name="you-need-to-input-from-or-output-to-kafka"></a>Kafka에서 입력 하거나 출력 해야 합니다.
-
-Azure Stream Analytics에 Apache Kafka 입력 또는 출력 어댑터가 없습니다. 이벤트가 발생 하거나 Kafka으로 보내야 하는 경우 사용자 고유의 Kafka 클러스터를 실행 하는 데 필요한 요구 사항이 없으면 이벤트 전송자를 변경 하지 않고 Event Hubs Kafka API를 사용 하 여 Event Hubs에 이벤트를 전송 하 여 Stream Analytics을 계속 사용할 수 있습니다. 사용자 고유의 Kafka 클러스터를 실행 해야 하는 경우, [Azure Databricks](../azure-databricks/index.yml)에서 완전히 지원 되는 Spark 구조적 스트리밍 또는 [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md)의 스톰을 사용할 수 있습니다.
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>JavaScript 이외의 언어로 Udf, UDAs 및 사용자 지정 deserializers를 작성 하려고 합니다.C#
 

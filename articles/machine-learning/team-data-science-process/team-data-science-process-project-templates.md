@@ -2,21 +2,21 @@
 title: Team Data Science Process 프로젝트 계획
 description: 데이터 과학 프로젝트를 계획하고 관리하는 데 도움이 되는 Microsoft Project 및 Excel 템플릿
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253034"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864233"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 프로젝트 계획
 
@@ -48,7 +48,7 @@ Team Data Science Process용 Microsoft Project 서식 파일은 다음 위치에
 
 ## <a name="excel-template"></a>Excel 서식 파일
 
-Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이터가 모두 포함된 Excel 워크시트를 [Excel 서식 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx)에서 다운로드할 수도 있습니다. 원하는 도구로 끌어올 수 있습니다.
+Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이터가 모두 포함된 Excel 워크시트를 [Excel 서식 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx)에서 다운로드할 수도 있습니다. 이것을 원하는 도구로 끌어올 수 있습니다.
 
 이러한 서식 파일의 사용에 따른 모든 책임은 사용자에게 있습니다. [일반적인 고지 사항](https://www.gnu.org/licenses/gpl-3.0.en.html)이 적용됩니다.
 
@@ -58,7 +58,7 @@ Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 과학 프로젝트의 기민한 개발](agile-development.md) 이 문서는 Team Data Science Process를 사용하여 프로젝트 팀 내에서 체계적이고 버전이 관리되는 공동 작업 방식으로 데이터 과학 프로젝트를 실행하는 방법을 설명합니다.
+[데이터 과학 프로젝트의 Agile 개발](agile-development.md) 이 문서에서는 팀 데이터 과학 프로세스를 사용 하 여 체계적이 고 버전이 제어 되 고 공동 작업 방식으로 데이터 과학 프로젝트에 대해 설명 합니다.
 
 **특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 자료에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 보여 줍니다. 
 
