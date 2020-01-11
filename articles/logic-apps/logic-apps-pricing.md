@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 80eadcadad58cc126a9213c9e5bc5c65c1eb5c6c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 1c21a84bd9aaa259d0459b4e16c7a62aabaa615d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793434"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896393"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -29,7 +29,7 @@ ms.locfileid: "74793434"
 
 * 트리거는 특별 한 동작입니다. 모든 논리 앱에는 첫 번째 단계로 트리거가 필요 합니다.
 * ["기본 제공" 또는](../connectors/apis-list.md#built-in) HTTP와 같은 네이티브 작업, Azure Functions 및 API Management에 대 한 호출 등
-* Outlook 365, Dropbox 등과 같은 [관리 되는 커넥터](../connectors/apis-list.md##managed-connectors) 에 대 한 호출
+* Outlook 365, Dropbox 등과 같은 [관리 되는 커넥터](../connectors/apis-list.md#managed-connectors) 에 대 한 호출
 * 루프, 조건문 등의 제어 흐름 단계
 
 [표준 커넥터](../connectors/apis-list.md#managed-connectors) 는 [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 요금이 청구 됩니다. 일반적으로 사용할 수 있는 [엔터프라이즈 커넥터](../connectors/apis-list.md#managed-connectors) 는 [엔터프라이즈 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구 되 고, 공개 미리 보기 엔터프라이즈 커넥터는 [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구 됩니다.

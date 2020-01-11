@@ -3,12 +3,12 @@ title: 이동 오류 문제 해결
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 422ecb92e264d7e728282bbe8ee491a642cf013f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478345"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891269"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 하는 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "75478345"
 * 평가판을 업그레이드하려면 [평가판 또는 Microsoft Imagine Azure 구독을 종량제로 업그레이드](../../billing/billing-upgrade-azure-subscription.md)를 참조하세요.
 * 종량제 계정을 변경하려면 [다른 제안으로 Azure 종량제 구독 변경](../../billing/billing-how-to-switch-azure-offer.md)을 참조하세요.
 
-구독을 변환할 수 없으면 [Azure 지원 요청을 만듭니다](../../azure-supportability/how-to-create-azure-support-request.md). 문제 유형으로 **구독 관리**를 선택합니다.
+구독을 변환할 수 없으면 [Azure 지원 요청을 만듭니다](../../azure-portal/supportability/how-to-create-azure-support-request.md). 문제 유형으로 **구독 관리**를 선택합니다.
 
 ## <a name="service-limitations"></a>서비스 제한 사항
 
@@ -44,7 +44,7 @@ ms.locfileid: "75478345"
 
 원본 또는 대상 리소스 그룹에 가상 네트워크가 포함 된 경우 이동 하는 동안 가상 네트워크에 대 한 모든 종속 리소스의 상태를 확인 합니다. 이 검사에는 가상 네트워크에 직접적이 고 간접적으로 종속 된 리소스가 포함 되어 있습니다. 이러한 리소스 중 하나라도 실패 상태 이면 이동이 차단 됩니다. 예를 들어 가상 네트워크를 사용 하는 가상 머신이 실패 한 경우 이동이 차단 됩니다. 이동은 가상 머신이 이동 중인 리소스 중 하나가 아니며 이동에 대 한 리소스 그룹 중 하나가 아닌 경우에도 차단 됩니다.
 
-이 오류가 표시 되 면 두 가지 옵션이 있습니다. 가상 네트워크가 없는 리소스 그룹으로 리소스를 이동 하거나 [지원 담당자에 게 문의 하세요](../../azure-supportability/how-to-create-azure-support-request.md).
+이 오류가 표시 되 면 두 가지 옵션이 있습니다. 가상 네트워크가 없는 리소스 그룹으로 리소스를 이동 하거나 [지원 담당자에 게 문의 하세요](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>다음 단계
 

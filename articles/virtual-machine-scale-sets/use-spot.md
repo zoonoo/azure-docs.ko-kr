@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b57c13d4a5c671595a3e82ac7858c027456107f2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647631"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894067"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>미리 보기: 가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -156,7 +156,7 @@ $vmssConfig = New-AzVmssConfig `
 
 **Q:** 추가 할당량을 요청할 수 있나요?
 
-**A:** 예, [표준 할당량 요청 프로세스](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests)를 통해 지점 vm에 대 한 할당량을 늘리기 위해 요청을 제출할 수 있습니다.
+**A:** 예, [표준 할당량 요청 프로세스](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)를 통해 지점 vm에 대 한 할당량을 늘리기 위해 요청을 제출할 수 있습니다.
 
 
 **Q:** 기존 확장 집합을 별색 집합으로 변환할 수 있나요?

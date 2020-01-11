@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 39f22cc3cb026d4bed1dbe937e0e220b7bdceec7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e386aee68696a3b56036ec2dacc19fd9c138b88c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435568"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887260"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -208,7 +208,7 @@ HDInsight 클러스터의 비용은 노드 수와 노드에 대한 가상 머신
 HDInsight를 사용해 보려는 경우에는 하나의 작업자 노드를 사용 하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
 
 > [!NOTE]  
-> 클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 [Azure Billing Support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)에 문의하세요.
+> 클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 [Azure Billing Support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)에 문의하세요.
 
 Azure Portal를 사용 하 여 클러스터를 구성 하는 경우에는 **구성 + 가격 책정** 탭을 통해 노드 크기를 사용할 수 있습니다. 포털에서 다양 한 노드 크기와 관련 된 비용도 볼 수 있습니다.
 

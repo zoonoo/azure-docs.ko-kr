@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory를 사용 하 여 Amazon Redshift에서 데이터 이동
-description: Azure Data Factory 복사 활동을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c9e10df9f2be2a07bc7b7af0e01905d5b278d35
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924878"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894203"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -25,7 +25,7 @@ ms.locfileid: "74924878"
 > * [버전 2(현재 버전)](../connector-amazon-redshift.md)
 
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 Amazon Redshift 커넥터](../connector-amazon-redshift.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 Amazon Redshift 커넥터](../connector-amazon-redshift.md)를 참조하세요.
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
@@ -34,7 +34,7 @@ Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저�
 > [!TIP]
 > Amazon Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3(Amazon Simple Storage Service)를 통해 기본 제공 Redshift **UNLOAD**를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 * 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 지침은 [클러스터에 대한 액세스 권한 부여](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
 * Azure 데이터 저장소로 데이터를 이동하려면 [Microsoft Azure 데이터 센터에서 사용되는 컴퓨팅 IP 주소 및 SQL 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
 
@@ -59,14 +59,14 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 다음 표에 Amazon Redshift 연결된 서비스와 관련된 JSON 요소에 대한 설명이 나와 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
-| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |yes |
-| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |yes |
+| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |예 |
+| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | **port** |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
-| **database** |Amazon Redshift 데이터베이스의 이름입니다. |yes |
-| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |yes |
-| **암호** |사용자 계정의 암호입니다. |yes |
+| **database** |Amazon Redshift 데이터베이스의 이름입니다. |예 |
+| **username** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
+| **password** |사용자 계정의 암호입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -74,7 +74,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 세트를 포함)의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **tableName** |연결된 서비스가 참조하는 Amazon Redshift 데이터베이스에서 테이블의 이름입니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
@@ -84,7 +84,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 복사 활동의 경우 원본이 **AmazonRedshiftSource** 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **query** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 | **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아닙니다. |
@@ -93,13 +93,13 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 또는 **typeProperties** 섹션의 다음 속성과 함께 **RelationalSource**(Amazon Redshift 포함) 형식도 사용할 수 있습니다. 이 원본 유형은 Redshift **UNLOAD** 명령을 지원하지 않습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **query** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | 아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사
 
-Amazon Redshift [ **UNLOAD** ](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) 명령은 Amazon S3에서 하나 이상의 파일에 대한 쿼리 결과를 언로드합니다. 이 명령은 Redshift에서 큰 데이터 세트를 복사하기 위해 Amazon에서 권장하는 방법입니다.
+Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) 명령은 Amazon S3에서 하나 이상의 파일에 대한 쿼리 결과를 언로드합니다. 이 명령은 Redshift에서 큰 데이터 세트를 복사하기 위해 Amazon에서 권장하는 방법입니다.
 
 **예제: Amazon Redshift에서 Azure SQL Data Warehouse로 데이터 복사**
 
@@ -146,7 +146,7 @@ Amazon Redshift [ **UNLOAD** ](https://docs.aws.amazon.com/redshift/latest/dg/r_
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 * [RelationalTable](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
 * [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-create-pipelines.md)
+* [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-create-pipelines.md)
 
 샘플에서는 Amazon Redshift의 쿼리 결과에서 Azure Blob으로 매시간 데이터를 복사합니다. 샘플에 사용된 JSON 속성은 엔터티 정의 뒤에 나오는 섹션에서 설명됩니다.
 
@@ -329,18 +329,18 @@ Amazon Redshift [ **UNLOAD** ](https://docs.aws.amazon.com/redshift/latest/dg/r_
 
 | Amazon Redshift 형식 | .NET 형식 |
 | --- | --- |
-| SmallInt |Int16 |
+| SMALLINT |Int16 |
 | INTEGER |Int32 |
-| BIGINT |Int64 |
-| DECIMAL |10진수 |
-| Real |단일 |
-| double precision |DOUBLE |
-| BOOLEAN |string |
-| CHAR |string |
-| VARCHAR |string |
+| bigint |Int64 |
+| DECIMAL |Decimal |
+| real |단일 |
+| DOUBLE PRECISION |Double |
+| BOOLEAN |String |
+| CHAR |String |
+| VARCHAR |String |
 | DATE |DateTime |
-| TIMESTAMP |DateTime |
-| TEXT |string |
+| timestamp |DateTime |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 세트의 열을 싱크 데이터 세트의 열에 매핑하는 방법을 알아보려면 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.

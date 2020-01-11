@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6203d78ee8d9c0a9837d03859856c5d0265422ac
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 47d4c1de12823eaf0aae5beeff776d50f8f5a6a7
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772332"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896375"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 메트릭 추적 및 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -228,17 +228,17 @@ run.get_metrics()
 ws.get_details()
 ```
 
-## <a name="deploy-mlflow-models-as-a-web-service"></a>MLflow 모델을 웹 서비스로 배포
+<!-- ## Deploy MLflow models as a web service
 
-MLflow 실험을 Azure Machine Learning 웹 서비스로 배포 하면 Azure Machine Learning 모델 관리 및 데이터 드리프트 검색 기능을 활용 하 여 프로덕션 모델에 적용할 수 있습니다.
+Deploying your MLflow experiments as an Azure Machine Learning web service allows you to leverage the Azure Machine Learning model management and data drift detection capabilities and apply them to your production models.
 
-다음 다이어그램은 MLflow 배포 API를 사용 하 여 PyTorch, Tensorflow, scikit, ONNX 등의 프레임 워크에도 불구 하 고 기존 MLflow 모델을 Azure Machine Learning 웹 서비스로 배포할 수 있음을 보여 줍니다. 작업 영역.
+The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow models as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
 
-![azure machine learning 다이어그램을 사용한 mlflow](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
+![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
-### <a name="log-your-model"></a>모델 기록
+### Log your model
 
-를 배포 하려면 먼저 모델을 저장 하 여 배포할 수 있도록 모델을 저장 해야 합니다. 학습 스크립트에는 지정 된 출력 디렉터리에 모델을 저장 하는 다음과 같은 코드가 있어야 합니다. [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) 
+Before you can deploy, be sure that your model is saved so you can reference it and its path location for deployment. In your training script, there should be code similar to the following [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) method, that saves your model to the specified outputs directory. 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
@@ -248,11 +248,11 @@ import mlflow.sklearn
 mlflow.sklearn.log_model(regression_model, model_save_path)
 ```
 >[!NOTE]
-> 이 모델이 실행 되어야 하는 종속성 및 환경의 사전 표현을 전달 하려면 `conda_env` 매개 변수를 포함 합니다.
+> Include the `conda_env` parameter to pass a dictionary representation of the dependencies and environment this model should be run in.
 
-### <a name="retrieve-model-from-previous-run"></a>이전 실행에서 모델 검색
+### Retrieve model from previous run
 
-실행을 검색 하려면 모델을 저장 한 실행 기록의 실행 ID와 경로가 필요 합니다. 
+To retrieve the run, you need the run ID and the path in run history of where the model was saved. 
 
 ```python
 # gets the list of runs for your experiment as an array
@@ -265,11 +265,11 @@ runid = runs[0].id
 model_save_path = 'model'
 ```
 
-### <a name="create-docker-image"></a>Docker 이미지 만들기
+### Create Docker image
 
-`mlflow.azureml.build_image()` 함수는 저장 된 모델에서 프레임 워크를 인식 하는 방식으로 Docker 이미지를 작성 합니다. 자동으로 프레임 워크 별 추론 래퍼 코드를 만들고 패키지 종속성을 지정 합니다. 모델 경로, 작업 영역, 실행 ID 및 기타 매개 변수를 지정 합니다.
+The `mlflow.azureml.build_image()` function builds a Docker image from the saved model in a framework-aware manner. It automatically creates the framework-specific inferencing wrapper code and specifies package dependencies for you. Specify the model path, your workspace, run ID and other parameters.
 
-다음 코드에서는 Scikit 실험에 대 한 model_uri 경로로 *run:/< run. id >/tmodel* 을 사용 하 여 docker 이미지를 작성 합니다.
+The following code builds a docker image using *runs:/<run.id>/model* as the model_uri path for a Scikit-learn experiment.
 
 ```python
 import mlflow.azureml
@@ -280,17 +280,17 @@ azure_image, azure_model = mlflow.azureml.build_image(model_uri='runs:/{}/{}'.fo
                                                       image_name='sklearn-image',
                                                       synchronous=True)
 ```
-Docker 이미지를 만들려면 몇 분 정도 걸릴 수 있습니다. 
+The creation of the Docker image can take several minutes. 
 
-### <a name="deploy-the-docker-image"></a>Docker 이미지 배포 
+### Deploy the Docker image 
 
-이미지를 만든 후 Azure Machine Learning SDK를 사용 하 여 이미지를 웹 서비스로 배포 합니다.
+After the image is created, use the Azure Machine Learning SDK to deploy the image as a web service.
 
-먼저 배포 구성을 지정 합니다. ACI (azure Container Instance)는 빠른 개발-테스트 배포에 적합 한 선택이 고, AKS (Azure Kubernetes Service)는 확장 가능한 프로덕션 배포에 적합 합니다.
+First, specify the deployment configuration. Azure Container Instance (ACI) is a suitable choice for a quick dev-test deployment, while Azure Kubernetes Service (AKS) is suitable for scalable production deployments.
 
-#### <a name="deploy-to-aci"></a>ACI에 배포
+#### Deploy to ACI
 
-[Deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
+Set up your deployment configuration with the [deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. You can also add tags and descriptions to help keep track of your web service.
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -303,7 +303,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-그런 다음 Azure Machine Learning SDK [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) 메서드를 사용 하 여 이미지를 배포 합니다. 
+Then, deploy the image by using the Azure Machine Learning SDK [deploy_from_image()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
 webservice = Webservice.deploy_from_image( image=azure_image, 
@@ -313,11 +313,11 @@ webservice = Webservice.deploy_from_image( image=azure_image,
 
 webservice.wait_for_deployment(show_output=True)
 ```
-#### <a name="deploy-to-aks"></a>AKS에 배포
+#### Deploy to AKS
 
-AKS에 배포 하려면 먼저 AKS 클러스터를 만들고 배포 하려는 Docker 이미지를 가져옵니다. 이 예제에서는 ACI 배포에서 이전에 만든 이미지를 가져옵니다.
+To deploy to AKS, first create an AKS cluster and bring over the Docker image you want to deploy. For this example, bring over the previously created image from the ACI deployment.
 
-이전 ACI 배포에서 이미지를 가져오려면 [image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) 클래스를 사용 합니다. 
+To get the image from the previous ACI deployment use the [Image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) class. 
 
 ```python
 from azureml.core.image import Image
@@ -326,7 +326,7 @@ from azureml.core.image import Image
 myimage = Image(workspace=ws, name='sklearn-image') 
 ```
 
-[ComputeTarget ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) 메서드를 사용 하 여 AKS 클러스터를 만듭니다. 새 클러스터를 만드는 데 20-25 분이 걸릴 수 있습니다.
+Create an AKS cluster using the [ComputeTarget.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) method. It may take 20-25 minutes to create a new cluster.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -346,7 +346,7 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-[Deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
+Set up your deployment configuration with the [deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. You can also add tags and descriptions to help keep track of your web service.
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
@@ -359,7 +359,7 @@ aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
 service_name ='aks-service'
 ```
 
-그런 다음 Azure Machine Learning SDK [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) 메서드를 사용 하 여 이미지를 배포 합니다. 
+Then, deploy the image by using the Azure Machine Learning SDK [deploy_from_image()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
 # Webservice creation using single command
@@ -372,27 +372,28 @@ aks_service = Webservice.deploy_from_image( workspace=ws,
 aks_service.wait_for_deployment(show_output=True)
 ```
 
-서비스 배포에는 몇 분 정도 걸릴 수 있습니다.
+The service deployment can take several minutes.
 
-## <a name="clean-up-resources"></a>리소스 정리
+## Clean up resources
 
-작업 영역에서 기록 된 메트릭과 아티팩트를 사용 하지 않으려는 경우에는 개별적으로 삭제할 수 있는 기능을 현재 사용할 수 없습니다. 대신, 저장소 계정 및 작업 영역을 포함 하는 리소스 그룹을 삭제 하 여 요금이 발생 하지 않도록 합니다.
+If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is currently unavailable. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
 
-1. Azure Portal의 맨 왼쪽에서 **리소스 그룹**을 선택합니다.
+1. In the Azure portal, select **Resource groups** on the far left.
 
-   ![Azure Portal에서 삭제](./media/how-to-use-mlflow/delete-resources.png)
+   ![Delete in the Azure portal](./media/how-to-use-mlflow/delete-resources.png)
 
-1. 목록에서 만든 리소스 그룹을 선택합니다.
+1. From the list, select the resource group you created.
 
-1. **리소스 그룹 삭제**를 선택합니다.
+1. Select **Delete resource group**.
 
-1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제**를 선택합니다.
+1. Enter the resource group name. Then select **Delete**.
 
 
-## <a name="example-notebooks"></a>노트북 예제
+## Example notebooks
 
-[AZURE ML 노트북을 사용 하는 Mlflow](https://aka.ms/azureml-mlflow-examples) 는이 문서에 제시 된 개념을 시연 하 고 확장 합니다.
+The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate and expand upon concepts presented in this article.
 
-## <a name="next-steps"></a>다음 단계
-* [모델을 관리](concept-model-management-and-deployment.md)합니다.
-* [데이터 드리프트](how-to-monitor-data-drift.md)를 위해 프로덕션 모델을 모니터링 합니다.
+## Next steps
+* [Manage your models](concept-model-management-and-deployment.md).
+* Monitor your production models for [data drift](how-to-monitor-data-drift.md).
+ -->

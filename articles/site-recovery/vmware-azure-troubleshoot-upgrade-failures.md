@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 0e6631d36f8b8153c34f787f8941b45b7522aceb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083917"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893906"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery 공급 기업 업그레이드 오류 문제 해결
 
@@ -27,7 +27,7 @@ Microsoft Azure Site Recovery Provider(DRA)를 업그레이드하는 경우 통�
 업그레이드하려면 다음 단계를 수행합니다.
 
 1. Microsoft Azure Site Recovery 통합 설치를 다운로드합니다.
-   1. [Azure Site Recovery의 서비스 업데이트](service-updates-how-to.md##links-to-currently-supported-update-rollups) 문서, “현재 지원되는 업데이트 롤업에 대한 링크” 섹션에서 업그레이드할 공급자를 선택합니다.
+   1. [Azure Site Recovery의 서비스 업데이트](service-updates-how-to.md#links-to-currently-supported-update-rollups) 문서, “현재 지원되는 업데이트 롤업에 대한 링크” 섹션에서 업그레이드할 공급자를 선택합니다.
    2. 롤업 페이지에서 **업데이트 정보** 섹션을 찾아 Microsoft Azure Site Recovery 통합 설치용 업데이트 롤업을 다운로드합니다.
 
 2. 명령 프롬프트를 열고 통합 설치 파일을 다운로드한 폴더로 이동합니다. MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;folder path for the extracted files&gt; 명령을 사용하여 다운로드에서 설치 파일을 추출합니다.
@@ -51,7 +51,7 @@ Microsoft Azure Site Recovery Provider(DRA)를 업그레이드하는 경우 통�
 1. 레지스트리 편집기(regedit.exe)를 시작하고 HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 분기를 엽니다.
 1. `Build_Version` 키 값을 검사합니다. 최신 버전으로 설정된 경우 버전 번호를 낮춥니다. 예를 들어 최신 버전이 9.22.\*이고 `Build_Version` 키가 해당 값으로 설정된 경우 9.21.\*로 낮춥니다.
 1. 최신 Microsoft Azure Site Recovery 통합 설치를 다운로드합니다.
-   1. [Azure Site Recovery의 서비스 업데이트](service-updates-how-to.md##links-to-currently-supported-update-rollups) 문서, “현재 지원되는 업데이트 롤업에 대한 링크” 섹션에서 업그레이드할 공급자를 선택합니다.
+   1. [Azure Site Recovery의 서비스 업데이트](service-updates-how-to.md#links-to-currently-supported-update-rollups) 문서, “현재 지원되는 업데이트 롤업에 대한 링크” 섹션에서 업그레이드할 공급자를 선택합니다.
    2. 롤업 페이지에서 **업데이트 정보** 섹션을 찾아 Microsoft Azure Site Recovery 통합 설치용 업데이트 롤업을 다운로드합니다.
 1. 명령 프롬프트를 열고 통합 설치 파일을 다운로드한 폴더로 이동한 다음, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;folder path for the extracted files&gt; 명령을 사용하여 다운로드에서 설치 파일을 추출합니다.
 

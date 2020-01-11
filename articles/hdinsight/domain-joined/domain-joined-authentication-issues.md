@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 2ffc3ced360e1fdf00f69ea5826e6c6af7806f71
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215987"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896131"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Azure HDInsight의 인증 문제
 
@@ -36,7 +36,7 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 Azure AD 오류 코드 50126은 테 넌 트에서 `AllowCloudPasswordValidation` 정책이 설정 되지 않았음을 의미 합니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자에 대 한 암호 해시를 사용 하도록 설정 해야 합니다.  [HDInsight에서 Enterprise Security Package 사용](../domain-joined/apache-domain-joined-architecture.md)문서에 표시 된 대로 `AllowCloudPasswordValidationPolicy` 적용 합니다.
 
@@ -56,7 +56,7 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 사용자 이름이 잘못 되었습니다 (존재 하지 않음). 사용자가 Azure Portal에 사용 되는 것과 동일한 사용자 이름을 사용 하 고 있지 않습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 해당 포털에서 작동 하는 것과 동일한 사용자 이름을 사용 합니다.
 
@@ -76,7 +76,7 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 잘못 된 암호를 사용 하 여 로그인을 너무 많이 시도 했습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 30 분 정도 기다린 후 인증을 시도할 수 있는 응용 프로그램을 모두 중지 합니다.
 
@@ -96,7 +96,7 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 암호가 만료 되었습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 온-프레미스 시스템에서 Azure Portal의 암호를 변경한 다음 동기화가 완료 될 때까지 30 분 동안 기다립니다.
 
@@ -112,7 +112,7 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 조건부 액세스 정책 또는 MFA가 사용자에게 적용되고 있습니다. 대화형 인증은 아직 지원되지 않으므로 MFA/조건부 액세스에서 사용자 또는 클러스터를 제외해야 합니다. 클러스터 (IP 주소 기반 예외 정책)를 제외 하도록 선택한 경우 해당 vnet에 대해 AD `ServiceEndpoints`를 사용 하도록 설정 했는지 확인 합니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 [Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package를 사용 하 여 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)에 표시 된 대로 조건부 액세스 정책을 사용 하 고 MFA에서 HDInisght 클러스터를 제외 합니다.
 
@@ -128,7 +128,7 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 이 단계로 이동 하려면 OAuth 인증에 문제가 없지만 Kerberos 인증은입니다. 이 클러스터가 ADLS에서 지원 되는 경우 Kerberos 인증을 시도 하기 전에 OAuth 로그인이 성공 했습니다. WASB 클러스터에서 OAuth 로그인을 시도 하지 않습니다. 암호 해시가 동기화 되지 않은 경우, Azure AD DS에서 잠긴 사용자 계정 등의 여러 가지 Kerberos 오류가 발생할 수 있습니다. 암호 해시는 사용자가 암호를 변경 하는 경우에만 동기화 됩니다. Azure AD DS 인스턴스를 만들 때 생성 후 변경 된 암호의 동기화가 시작 됩니다. 처음에 설정 된 암호는 소급 하지 않습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 암호가 동기화 되지 않을 수 있다고 생각 되는 경우 암호를 변경 하 고 몇 분 후에 동기화 해 보세요.
 
@@ -144,9 +144,9 @@ Kinit가 실패 합니다.
 
 ### <a name="cause"></a>원인
 
-잠기기.
+다양함
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 Kinit에 성공 하려면 `sAMAccountName`을 알아야 합니다 (영역이 없는 짧은 계정 이름). `sAMAccountName`은 일반적으로 계정 접두사입니다 (예: `bob@contoso.com`의 bob). 일부 사용자의 경우 다를 수 있습니다. `sAMAccountName`학습 하려면 디렉터리를 찾아보거나 검색 하는 기능이 필요 합니다.
 
@@ -172,7 +172,7 @@ Kinit 실패 `Preauthentication` 실패 합니다.
 
 사용자 이름 또는 암호가 잘못 되었습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 사용자 이름 및 암호를 확인 합니다. 또한 위에서 설명한 다른 속성도 확인 하세요. 자세한 디버깅을 사용 하려면 kinit를 시도 하기 전에 세션에서 `export KRB5_TRACE=/tmp/krb.log`를 실행 합니다.
 
@@ -188,7 +188,7 @@ Kinit 실패 `Preauthentication` 실패 합니다.
 
 작업/명령이 성공 하기 위해 필요한 OAuth 액세스 토큰을 찾을 수 없습니다. ADLS/ABFS 드라이버는 저장소 요청을 만들기 전에 자격 증명 서비스에서 OAuth 액세스 토큰을 검색 합니다. 이 토큰은 동일한 사용자를 사용 하 여 Ambari 포털에 로그인 할 때 등록 됩니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 작업을 실행 하는 데 해당 id가 사용 되는 사용자 이름을 통해 Ambari 포털에 한 번 로그인 했는지 확인 합니다.
 
@@ -204,7 +204,7 @@ Kinit 실패 `Preauthentication` 실패 합니다.
 
 이 오류는 사용자가 Acl을 사용 하 여 ADLS Gen2에 액세스 하려고 할 때 간헐적으로 발생 하며, Kerberos 토큰이 만료 되었습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 * Azure Data Lake Storage Gen1의 경우 브라우저 캐시를 정리 하 고 다시 Ambari에 로그인 합니다.
 
@@ -220,4 +220,4 @@ Kinit 실패 `Preauthentication` 실패 합니다.
 
 * [@AzureSupport](https://twitter.com/azuresupport) 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대한 액세스 권한은 Microsoft Azure 구독에 포함되어 있으며, [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

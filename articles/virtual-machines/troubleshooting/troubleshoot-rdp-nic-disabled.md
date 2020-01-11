@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 666868d723b5e040b69762cdb39f472f2f8822c9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bc637976632551eb1afce1894714fc96baabfe03
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057914"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894227"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>네트워크 인터페이스를 사용하지 않기 때문에 원격 데스크톱을 VM에 사용할 수 없음
 
 이 문서에서는 네트워크 인터페이스가 해제되어 Azure Windows VM(Virtual Machines)에 원격 데스크톱 연결을 사용할 수 없는 문제 해결 방법을 보여줍니다.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
 ## <a name="symptoms"></a>증상
 
@@ -34,7 +34,7 @@ VM에서 네트워크 인터페이스를 사용하지 않기 때문에 Azure의 
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
-VM에 인터페이스를 사용하도록 설정하려면 VM에 직렬 컨트롤을 사용하거나 [네트워크 인터페이스를 다시 설정](##reset-network-interface)합니다.
+VM에 인터페이스를 사용하도록 설정하려면 VM에 직렬 컨트롤을 사용하거나 [네트워크 인터페이스를 다시 설정](#reset-network-interface)합니다.
 
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
@@ -58,7 +58,7 @@ VM에 인터페이스를 사용하도록 설정하려면 VM에 직렬 컨트롤�
 
         netsh interface show interface
 
-    이 시점에서 VM을 다시 시작할 필요가 없습니다. VM에 다시 연결할 수 있게 됩니다.
+    이 시점에서 VM을 다시 시작할 필요는 없습니다. VM에 다시 연결할 수 있게 됩니다.
 
 5.  VM에 연결하고 문제가 해결되었는지 확인합니다.
 

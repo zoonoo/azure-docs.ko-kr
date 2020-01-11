@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/23/2019
+ms.date: 01/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac85d0c74c8a510e14100a3c273afc18ec9b3fca
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5d4b6ba0c516e7c8c585f9364092403496a53139
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560202"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894663"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -120,6 +120,8 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
+- 01/10/2020: SLES에 [Azure NetApp Files 있는 Azure vm의 대기 노드를 사용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) 하 여 SAP HANA를 확장 하 고 [SAP HANA, RHEL의 Azure NetApp Files를 사용 하 여 azure vm의 대기 노드를 확장](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) 하 여 `nfs4_disable_idmapping` 변경 내용을 영구적으로 변경 하는 방법에 대 한 지침을 추가 합니다.
+- 01/10/2020: sap 응용 프로그램 및 [Azure NetApp Files Virtual Machines azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) 에서 sap [NetWeaver의 sap에 대 한](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) 고가용성의 변경 사항은 sap 응용 프로그램에 대해 Azure NetApp Files SLES를 사용 하 여 sap 응용 프로그램에서 Azure NetApp Files NFSv4 볼륨을 탑재 하는 방법에 대 한 지침을 추가할 수 있습니다.
 - 12/23/2019: [SLES 다중 SID 가이드의 Azure vm에서 SAP NetWeaver의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) 릴리스
 - 12/18/2019: RHEL의 [Azure NetApp Files를 사용 하 여 Azure vm에서 대기 노드를 사용 하 여 SAP HANA 스케일 아웃](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) 릴리스
 - 11/21/2019: SAP HANA의 변경 내용은 [Azure vm에서 SUSE Linux Enterprise Server Azure NetApp Files를 사용 하 여 Azure vm의 대기 노드로 확장](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) 되어 NFS ID 매핑의 구성을 간소화 하 고 권장 되는 기본 네트워크 인터페이스를 변경 하 여 라우팅을 간소화 합니다.

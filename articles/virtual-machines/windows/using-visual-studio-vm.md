@@ -3,7 +3,7 @@ title: Azure 가상 머신에서 Visual Studio 사용
 description: Azure 가상 머신에서 Visual Studio를 사용합니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: PhilLee-MSFT
+author: cathysull
 manager: cathys
 editor: tysonn
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: azure-vs
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 12/04/2019
-ms.author: phillee
+ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: 25e5cda3b91dd4b14d0a3d82963404dde7a80aa4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2977fb6f14468429eb651e4f8a6034c060cdee2f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851403"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895937"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)에서 사용할 수 있습니다.

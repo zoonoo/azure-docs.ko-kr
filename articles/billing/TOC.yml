@@ -232,7 +232,7 @@
     - name: Enterprise 비용 보기 사용 안 함
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: 지원에 문의
-      href: ../azure-supportability/how-to-create-azure-support-request.md
+      href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: 샘플
   items:
     - name: REST API

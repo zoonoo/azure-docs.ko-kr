@@ -59,6 +59,8 @@
           href: concepts-firewall-rules.md
         - name: Virtual Network
           href: concepts-data-access-security-vnet.md
+        - name: Private Link
+          href: concepts-data-access-security-private-link.md
         - name: 고급 위협 보호
           href: concepts-data-access-and-security-threat-protection.md
     - name: 비즈니스 연속성
@@ -66,7 +68,7 @@
         - name: 비즈니스 연속성 소개
           displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
           href: concepts-business-continuity.md
-        - name: Backup 및 복원
+        - name: 백업 및 복원
           href: concepts-backup.md
     - name: 모니터링 및 튜닝
       items:
@@ -176,13 +178,19 @@
           href: howto-manage-vnet-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-cli.md
+    - name: Private Link
+      items:
+        - name: Azure portal
+          href: howto-configure-privatelink-portal.md
+        - name: Azure CLI
+          href: howto-configure-privatelink-cli.md
     - name: 서버 다시 시작
       items:
         - name: Azure portal
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/mariadb

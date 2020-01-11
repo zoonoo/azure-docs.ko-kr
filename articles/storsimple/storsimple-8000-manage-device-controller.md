@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505992"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894837"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>StorSimple 디바이스 컨트롤러 관리
 
@@ -47,7 +47,7 @@ ms.locfileid: "60505992"
 
 > [!IMPORTANT]
 > * **이렇게 하면 중복 손실과 가동 중지 시간 위험 가능성이 높아져서 실행 중인 컨트롤러를 물리적으로 제거하지 말아야 합니다.**
-> * 다음 절차는 물리적 StorSimple 디바이스에만 적용됩니다. StorSimple Cloud Appliance를 시작, 중지 및 다시 시작하는 방법에 대한 자세한 내용은 [클라우드 어플라이언스로 작업](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance)을 참조하세요.
+> * 다음 절차는 물리적 StorSimple 디바이스에만 적용됩니다. StorSimple Cloud Appliance를 시작, 중지 및 다시 시작하는 방법에 대한 자세한 내용은 [클라우드 어플라이언스로 작업](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance)을 참조하세요.
 
 StorSimple용 Windows PowerShell 또는 StorSimple 디바이스 관리자 서비스의 Azure Portal을 통해 단일 디바이스 컨트롤러를 다시 시작하거나 종료할 수 있습니다.
 

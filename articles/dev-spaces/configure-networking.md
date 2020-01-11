@@ -1,0 +1,92 @@
+---
+title: 다른 네트워크 토폴로지에서 Azure Dev Spaces에 대 한 네트워킹 구성
+services: azure-dev-spaces
+ms.date: 01/10/2020
+ms.topic: conceptual
+description: Azure Kubernetes Services에서 Azure Dev Spaces를 실행 하기 위한 네트워킹 요구 사항을 설명 합니다.
+keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, CNI, kubenet, SDN, 네트워크
+ms.openlocfilehash: 51604e2862a4d2ff575906fa2ba480ddd10504ed
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75897924"
+---
+# <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>다른 네트워크 토폴로지에서 Azure Dev Spaces에 대 한 네트워킹 구성
+
+Azure Dev Spaces는 기본 네트워킹 구성을 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에서 실행 됩니다. 클러스터를 방화벽 뒤에 배치 하거나 네트워크 보안 그룹을 사용 하거나 네트워크 정책을 사용 하는 것과 같이 AKS 클러스터의 네트워킹 구성을 변경 하려면 Azure Dev Spaces를 실행 하기 위한 추가 고려 사항을 통합 해야 합니다.
+
+![가상 네트워크 구성](media/configure-networking/virtual-network-clusters.svg)
+
+## <a name="aks-clusters-with-different-virtual-network-or-subnet-configurations"></a>다른 가상 네트워크 또는 서브넷 구성을 사용 하 여 클러스터 AKS
+
+AKS 클러스터에는 AKS 클러스터에 대 한 수신 또는 송신 트래픽을 제한 하는 다른 가상 네트워크 또는 서브넷 구성이 있을 수 있습니다. 예를 들어 클러스터가 Azure 방화벽과 같은 방화벽 뒤에 있거나 네트워크 보안 그룹 또는 사용자 지정 역할을 사용 하 여 네트워크 트래픽을 제한할 수 있습니다.
+
+Azure Dev Spaces는 수신 *및 송신* 네트워크 트래픽과 *수신 전용* 트래픽만 위한 특정 요구 사항이 있습니다. AKS 클러스터에 대 한 트래픽을 제한 하는 가상 네트워크 또는 서브넷 구성을 사용 하 여 AKS 클러스터에서 Azure Dev Spaces를 사용 하는 경우 Azure Dev Spaces를 위해 다음 수신 전용 및 송신 트래픽 요구 사항을 따라야 합니다. 제대로 작동 합니다.
+
+### <a name="ingress-and-egress-network-traffic-requirements"></a>수신 및 송신 네트워크 트래픽 요구 사항
+
+다음 Fqdn에 대 한 수신 및 송신 트래픽이 Azure Dev Spaces 필요 합니다.
+
+| FQDN                       | Port       | 사용      |
+|----------------------------|------------|----------|
+| cloudflare.docker.com      | HTTPS: 443 | Azure Dev Spaces에 대 한 docker 이미지를 꺼내려면 |
+| gcr.io                     | HTTPS: 443 | Azure Dev Spaces에 대 한 투구 이미지를 꺼내려면 |
+| storage.googleapis.com     | HTTPS: 443 | Azure Dev Spaces에 대 한 투구 이미지를 꺼내려면 |
+| azds-*. azds             | HTTPS: 443 | Azure Dev Spaces 컨트롤러에 대 한 Azure Dev Spaces 백 엔드 서비스와 통신 하는 데 사용 됩니다. 정확한 FQDN은의 *Dataplanefqdn* 에서 찾을 수 있습니다 `USERPROFILE\.azds\settings.json` |
+
+위의 모든 Fqdn에 대 한 네트워크 트래픽을 허용 하도록 방화벽 또는 보안 구성을 업데이트 합니다. 예를 들어 방화벽을 사용 하 여 네트워크를 보호 하는 경우 이러한 도메인에 대 한 트래픽을 허용 하도록 위의 Fqdn을 방화벽의 응용 프로그램 규칙에 추가 해야 합니다.
+
+### <a name="ingress-only-network-traffic-requirements"></a>수신 전용 네트워크 트래픽 요구 사항
+
+Azure Dev Spaces는 Kubernetes 네임 스페이스 수준 라우팅 뿐만 아니라 자체 FQDN을 사용 하 여 서비스에 대 한 공용 액세스를 제공 합니다. 이러한 두 기능 모두 작동 하려면 클러스터에서 Azure Dev Spaces 수신 컨트롤러의 외부 IP 주소에 대 한 공용 수신을 허용 하도록 방화벽 또는 네트워크 구성을 업데이트 합니다. 또는 [내부 부하 분산 장치][aks-internal-lb] 를 만들고 방화벽의 공용 ip를 내부 부하 분산 장치의 ip로 변환 하는 NAT 규칙을 추가할 수 있습니다. [Traefik][traefik-ingress] 또는 [NGINX][nginx-ingress] 를 사용 하 여 사용자 지정 수신 컨트롤러를 만들 수도 있습니다.
+
+## <a name="aks-cluster-network-requirements"></a>AKS 클러스터 네트워크 요구 사항
+
+AKS를 사용 하면 [네트워크 정책을][aks-network-policies] 사용 하 여 pod의 송신 트래픽 뿐만 아니라 클러스터의 pod 간에 수신 및 송신 트래픽을 제어할 수 있습니다. Azure Dev Spaces는 수신 *및 송신* 네트워크 트래픽과 *수신 전용* 트래픽만 위한 특정 요구 사항이 있습니다. AKS 네트워크 정책을 사용 하 여 AKS 클러스터에서 Azure Dev Spaces를 사용 하는 경우 Azure Dev Spaces 제대로 작동 하려면 다음 수신과 수신 및 송신 트래픽 요구 사항을 따라야 합니다.
+
+### <a name="ingress-and-egress-network-traffic-requirements"></a>수신 및 송신 네트워크 트래픽 요구 사항
+
+Azure Dev Spaces를 사용 하면 디버깅을 위해 클러스터의 개발 공간에서 pod와 직접 통신할 수 있습니다. 이 기능이 작동 하려면 [지역에 따라 달라][dev-spaces-ip-auth-range-regions]지는 Azure Dev Spaces 인프라의 IP 주소에 수신 및 송신 통신을 허용 하는 네트워크 정책을 추가 합니다.
+
+### <a name="ingress-only-network-traffic-requirements"></a>수신 전용 네트워크 트래픽 요구 사항
+
+Azure Dev Spaces는 네임 스페이스 간 pod 간의 라우팅을 제공 합니다. 예를 들어 Azure Dev Spaces 사용 하도록 설정 된 네임 스페이스는 부모/자식 관계를 가질 수 있습니다 .이 관계를 사용 하면 부모/자식 네임 스페이스를 통해 pod 간에 네트워크 트래픽을 라우팅할 수 있습니다. 이 기능이 작동 하려면 부모/자식 네임 스페이스와 같이 네트워크 트래픽이 라우팅되는 네임 스페이스 간의 트래픽을 허용 하는 네트워크 정책을 추가 합니다. 또한 수신 컨트롤러가 *azds* 네임 스페이스에 배포 되는 경우 수신 컨트롤러는 다른 네임 스페이스의 Azure Dev 공간에 의해 계측 된 pod와 통신 해야 합니다. 수신 컨트롤러가 제대로 작동 하려면 *azds* 네임 스페이스에서 계측 된 pod가 실행 되는 네임 스페이스로 네트워크 트래픽이 허용 되어야 합니다.
+
+## <a name="using-azure-container-networking-with-azure-dev-spaces"></a>Azure Dev Spaces에서 Azure Container 네트워킹 사용
+
+기본적으로 AKS 클러스터는 Azure Dev Spaces와 작동 하는 네트워킹에 [kubenet][aks-kubenet] 를 사용 하도록 구성 됩니다. [CNI (Azure Container 네트워킹 인터페이스)][aks-cni]를 사용 하도록 AKS 클러스터를 구성할 수도 있습니다. AKS 클러스터에서 Azure CNI를 사용 하 여 Azure Dev Spaces를 사용 하려면 Azure Dev Spaces에서 배포 된 pod에 대 한 가상 네트워크 및 서브넷 주소 공간을 최대 10 개까지 허용 합니다. 개인 IP 주소를 허용 하는 방법에 대 한 자세한 내용은 [AKS Azure cni 설명서][aks-cni-ip-planning]에서 확인할 수 있습니다.
+
+## <a name="using-api-server-authorized-ip-ranges-with-azure-dev-spaces"></a>Azure Dev Spaces에서 API server 권한 있는 IP 범위 사용
+
+AKS 클러스터를 사용 하면 사용자 지정 가상 네트워크를 사용 하거나 [권한 있는 ip 범위를 사용 하 여 API 서버에][aks-ip-auth-ranges]대 한 액세스를 보호 하는 등 클러스터와 상호 작용할 수 있는 추가 보안을 구성할 수 있습니다. 클러스터를 [만드는][aks-ip-auth-range-create] 동안이 추가 보안을 사용 하는 경우 Azure Dev Spaces를 사용 하려면 [해당 지역에 따라 추가 범위를 허용][dev-spaces-ip-auth-range-regions]해야 합니다. 또한 기존 클러스터를 [업데이트][aks-ip-auth-range-update] 하 여 이러한 추가 범위를 허용할 수 있습니다. 또한 API 서버에 연결 하기 위해 AKS 클러스터에 연결 하는 모든 개발 컴퓨터의 IP 주소를 허용 해야 합니다.
+
+## <a name="using-aks-private-clusters-with-azure-dev-spaces"></a>Azure Dev Spaces에서 AKS 개인 클러스터 사용
+
+지금은 [AKS 개인 클러스터][aks-private-clusters]에서 Azure Dev Spaces 지원 되지 않습니다.
+
+## <a name="azure-dev-spaces-client-requirements"></a>Azure Dev Spaces 클라이언트 요구 사항
+
+Azure Dev Spaces는 Azure Dev Spaces CLI 확장, Visual Studio Code 확장 및 Visual Studio 확장과 같은 클라이언트 쪽 도구를 사용 하 여 디버깅을 위해 AKS 클러스터와 통신 합니다. Azure Dev Spaces 클라이언트 쪽 도구를 사용 하려면 개발 컴퓨터에서 *azds\*-azds.io* 도메인으로의 트래픽을 허용 합니다. 정확한 FQDN은 `USERPROFILE\.azds\settings.json`의 *Dataplanefqdn* 을 참조 하세요. [Api 서버에 권한 있는 ip 범위][auth-range-section]를 사용 하는 경우 api 서버에 연결 하기 위해 AKS 클러스터에 연결 하는 모든 개발 컴퓨터의 IP 주소도 허용 해야 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케이션을 개발할 수 있는 방법 및 사용자가 다양한 환경에서 다양한 코드 버전이나 분기로 작업하여 공동 개발을 간소화하는 방법을 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [Azure Dev Spaces에서 팀 개발][team-quickstart]
+
+[aks-cni]: ../aks/configure-azure-cni.md
+[aks-cni-ip-planning]: ../aks/configure-azure-cni.md#plan-ip-addressing-for-your-cluster
+[aks-kubenet]: ../aks/configure-kubenet.md
+[aks-internal-lb]: ../aks/internal-lb.md
+[aks-ip-auth-ranges]: ../aks/api-server-authorized-ip-ranges.md
+[aks-ip-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
+[aks-ip-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
+[aks-network-policies]: ../aks/use-network-policies.md
+[aks-private-clusters]: ../aks/private-clusters.md
+[auth-range-section]: #using-api-server-authorized-ip-ranges-with-azure-dev-spaces
+[dev-spaces-ip-auth-range-regions]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[traefik-ingress]: how-to/ingress-https-traefik.md
+[nginx-ingress]: how-to/ingress-https-nginx.md
+[team-quickstart]: quickstart-team-development.md

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658545"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889514"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -87,9 +87,9 @@ az aks create \
 
 ## <a name="ensure-valid-quotas"></a>유효한 할당량 확인
 
-마이그레이션 중에 추가 가상 머신이 구독에 배포되므로 할당량과 한도가 이러한 리소스에 충분한지 확인해야 합니다. [Vcpu 할당량](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests)증가를 요청 해야 할 수도 있습니다.
+마이그레이션 중에 추가 가상 머신이 구독에 배포되므로 할당량과 한도가 이러한 리소스에 충분한지 확인해야 합니다. [Vcpu 할당량](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)증가를 요청 해야 할 수도 있습니다.
 
-[네트워크 할당량](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) 에 대 한 증가를 요청 하 여 ip가 고갈 되지 않도록 해야 할 수도 있습니다. 추가 정보는 [AKS에 대 한 네트워킹 및 IP 범위](https://docs.microsoft.com/azure/aks/configure-kubenet) 를 참조 하세요.
+[네트워크 할당량](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) 에 대 한 증가를 요청 하 여 ip가 고갈 되지 않도록 해야 할 수도 있습니다. 추가 정보는 [AKS에 대 한 네트워킹 및 IP 범위](https://docs.microsoft.com/azure/aks/configure-kubenet) 를 참조 하세요.
 
 자세한 내용은 [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조 하세요. 현재 할당량을 확인 하려면 Azure Portal [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동 하 여 구독을 선택한 다음 **사용량 + 할당량**을 선택 합니다.
 

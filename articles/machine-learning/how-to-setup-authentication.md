@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: c3da9c6a49fd79946d62b0319bead1bd721f3aa6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ce85c45d80a776af84a0987cfbc3f496c2bbb72b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536708"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893952"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -170,7 +170,8 @@ ws.get_details()
 
 위의 단계에서 만든 서비스 주체를 사용 하 여 Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/)에 인증할 수도 있습니다. 자동화 된 워크플로에서 헤드리스 인증에 대 한 서비스 간 호출을 허용 하는 Azure Active Directory [클라이언트 자격 증명 부여 흐름](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)을 사용 합니다. 예제는 Python 및 node.js 둘 다에서 [ADAL 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) 를 사용 하 여 구현 되지만 openid connect Connect 1.0을 지 원하는 오픈 소스 라이브러리를 사용할 수도 있습니다. 
 
-> ! 두고 MSAL는 ADAL 보다 최신 라이브러리 이지만 MSAL와 클라이언트 자격 증명을 사용 하 여 서비스 간 인증을 수행할 수 없습니다 .이는 주로 특정 사용자에 연결 된 대화형/UI 인증을 위한 클라이언트 쪽 라이브러리 이기 때문입니다. REST API를 사용 하 여 자동화 된 워크플로를 빌드하려면 아래와 같이 ADAL을 사용 하는 것이 좋습니다.
+> [!NOTE]
+> MSAL는 ADAL 보다 최신 라이브러리 이지만 MSAL와 클라이언트 자격 증명을 사용 하 여 서비스 간 인증을 수행할 수 없습니다 .이는 주로 특정 사용자에 연결 된 대화형/UI 인증을 위한 클라이언트 쪽 라이브러리 이기 때문입니다. REST API를 사용 하 여 자동화 된 워크플로를 빌드하려면 아래와 같이 ADAL을 사용 하는 것이 좋습니다.
 
 ### <a name="nodejs"></a>Node.js
 
@@ -268,15 +269,19 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                 auth_enable=True)
 ```
 
-그런 다음 부모 `WebService` 클래스를 사용 하 여 배포에서 사용자 지정 ACI 구성을 사용할 수 있습니다.
+그런 다음 `Model` 클래스를 사용 하 여 배포에서 사용자 지정 ACI 구성을 사용할 수 있습니다.
 
 ```python
-from azureml.core.webservice import Webservice
+from azureml.core.model import Model, InferenceConfig
 
-aci_service = Webservice.deploy_from_image(deployment_config=aci_config,
-                                           image=image,
-                                           name="aci_service_sample",
-                                           workspace=ws)
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
+aci_service = Model.deploy(workspace=ws,
+                       name="aci_service_sample",
+                       models=[model],
+                       inference_config=inference_config,
+                       deployment_config=aci_config)
 aci_service.wait_for_deployment(True)
 ```
 
