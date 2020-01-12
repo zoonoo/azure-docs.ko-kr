@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery에서 Azure VM 복제 문제 해결
 description: 재해 복구를 위해 Azure 가상 머신을 복제할 때 발생 하는 오류 문제를 해결 합니다.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgangal
-ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: rochakm
+ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895005"
+ms.locfileid: "75902548"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -66,7 +66,7 @@ Windows 운영 체제를 실행 하는 VM의 경우 모든 신뢰할 수 있는 
 
 Linux 운영 체제 버전의 배포자가 제공한 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 VM의 최신 인증서 해지 목록을 가져옵니다.
 
-SuSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증서 목록을 유지 하기 때문에 다음 단계를 수행 합니다.
+SUSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증서 목록을 유지 하기 때문에 다음 단계를 수행 합니다.
 
 1. 루트 사용자로 로그인합니다.
 

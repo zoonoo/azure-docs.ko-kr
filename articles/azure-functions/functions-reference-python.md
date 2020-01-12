@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: adea5603c997380dde6731b53bc99ba7443e310b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 374770c50300b9ca37253b3323a02c3371bfa521
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769007"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903227"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -382,7 +382,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="python-version"></a>Python 버전 
 
-현재 Azure Functions는 Python 3.6 및 3.7 .x를 모두 지원 합니다 (공식 CPython 배포). 로컬로 실행 하는 경우 런타임은 사용 가능한 Python 버전을 사용 합니다. Azure에서 함수 앱을 만들 때 특정 Python 버전을 요청 하려면 [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) 명령의 `--runtime-version` 옵션을 사용 합니다.  
+현재 Azure Functions는 Python 3.6 및 3.7 .x를 모두 지원 합니다 (공식 CPython 배포). 로컬로 실행 하는 경우 런타임은 사용 가능한 Python 버전을 사용 합니다. Azure에서 함수 앱을 만들 때 특정 Python 버전을 요청 하려면 [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) 명령의 `--runtime-version` 옵션을 사용 합니다. 버전 변경은 함수 앱 만들기 에서만 허용 됩니다.  
 
 ## <a name="package-management"></a>패키지 관리
 

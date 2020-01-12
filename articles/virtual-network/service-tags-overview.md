@@ -13,19 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: b1219153b2b2a0246110d2d9a7a84d16cc2a25f0
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 95d0e1dfc977d77f7cd9853945dabefee3bb7bbd
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707562"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903397"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그 
 <a name="network-service-tags"></a>
 
-서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. 네트워크 보안 규칙에 대 한 빈번한 업데이트의 복잡성을 최소화 하는 데 도움이 됩니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 또는 [Azure 방화벽](https://docs.microsoft.com/azure/firewall/service-tags)에서 네트워크 액세스 제어를 정의할 수 있습니다. 
+서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고, 주소가 변경 될 때 서비스 태그를 자동으로 업데이트 하 여 network securitiy 규칙에 대 한 빈번한 업데이트의 복잡성을 최소화 합니다. 
 
-보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에서 서비스 태그 이름 (예: **microsoft.apimanagement**)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다.
+서비스 태그를 사용 하 여 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 또는 [Azure 방화벽](https://docs.microsoft.com/azure/firewall/service-tags)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용 합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에 서비스 태그 이름 (예: **microsoft.apimanagement**)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 
+
+공용 끝점이 있는 Azure 서비스에 액세스 하는 동안 서비스 태그를 사용 하 여 네트워크 격리를 수행 하 고 일반 인터넷에서 Azure 리소스를 보호할 수 있습니다. 인바운드/아웃 바운드 네트워크 보안 그룹 규칙을 만들어 **인터넷** 에서 트래픽을 거부 하 고 **azurecloud** 또는 특정 Azure 서비스의 다른 [사용 가능한 서비스 태그로]() 들어오고 나가는 트래픽을 허용 합니다. 
 
 ## <a name="available-service-tags"></a>사용 가능한 서비스 태그
 다음 표에는 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 규칙에서 사용할 수 있는 모든 서비스 태그가 나와 있습니다.

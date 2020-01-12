@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1fc63dc53d61a8b2e26f97cc09a359b3f2c7665c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67622111"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901669"
 ---
 | 리소스 | 기본/최대 제한 |
 | --- | --- |
@@ -42,4 +42,7 @@ ms.locfileid: "67622111"
 | 40 Gbps * |10 |100 |
 | 100 Gbps * |10 |100 |
 
-**100 Gbps Express 경로 직접만*
+**100 Gbps express 경로 직접만*
+
+> [!NOTE]
+> Global Reach 연결은 Express 경로 회로 당 가상 네트워크 연결의 제한에 따라 계산 됩니다. 예를 들어 10gbps 프리미엄 회로는 Express 경로 게이트웨이 또는 95 Global Reach 연결에 대 한 연결 및 95 연결, Express 경로 게이트웨이에 대 한 연결 5 개 또는 100 연결 제한 까지의 기타 조합에 대해 5 개의 Global Reach 연결 및 연결을 허용 합니다. 회로에 대 한입니다.

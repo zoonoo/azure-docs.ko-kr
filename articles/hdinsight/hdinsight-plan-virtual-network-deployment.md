@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: d337d026e89d2383e25498288ba11a9c60f77b39
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bb60d22c62096725e29b9351bf304504861d9bf1
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228988"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902526"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
 
@@ -252,6 +252,12 @@ HDInsight 클러스터에서 아웃 바운드 트래픽을 제어 하는 방법�
 ## <a name="load-balancing"></a>부하 분산
 
 HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다. 이 부하 분산 장치의 형식은 특정 제약 조건이 있는 [기본 SKU 수준](../load-balancer/load-balancer-overview.md#skus) 에 있습니다. 이러한 제약 조건 중 하나는 서로 다른 지역에 두 개의 가상 네트워크가 있는 경우 기본 부하 분산 장치에 연결할 수 없다는 것입니다. 자세한 내용은 [가상 네트워크 FAQ: 글로벌 vnet 피어 링의 제약 조건](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 참조 하세요.
+
+## <a name="transport-layer-security"></a>Transport Layer Security(전송 계층 보안)
+
+`https://<clustername>.azurehdinsight.net` 공용 클러스터 끝점을 통해 클러스터에 대 한 연결은 클러스터 게이트웨이 노드를 통해 프록시 됩니다. 이러한 연결은 TLS 라는 프로토콜을 사용 하 여 보호 됩니다. 게이트웨이에서 더 높은 버전의 TLS를 적용 하면 이러한 연결의 보안이 향상 됩니다. 최신 버전의 TLS를 사용 해야 하는 이유에 대 한 자세한 내용은 [tls 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)을 참조 하세요.
+
+배포 시 resource manager 템플릿에서 *Minsupportedtlsversion* 속성을 사용 하 여 HDInsight 클러스터의 게이트웨이 노드에서 지원 되는 최소 TLS 버전을 제어할 수 있습니다. 샘플 템플릿은 [HDInsight 최소 TLS 1.2 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls)을 참조 하세요. 이 속성은 "1.0", "1.1" 및 "1.2"의 세 가지 값을 지원 합니다 .이는 각각 TLS 1.0 +, TLS 1.1 + 및 TLS 1.2 +에 해당 합니다. 기본적으로이 속성을 지정 하지 않으면 Azure HDInsight 클러스터는 공용 HTTPS 끝점에서 TLS 1.2 연결을 허용 하 고 이전 버전과의 호환성을 위해 이전 버전을 허용 합니다. 결국 HDInsight는 모든 게이트웨이 노드 연결에 TLS 1.2 이상을 적용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

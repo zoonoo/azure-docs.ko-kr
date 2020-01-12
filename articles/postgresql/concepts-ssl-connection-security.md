@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 21b4dffa135e1311be8c738c634de22304665695
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 4f7fd3ea1c83e1bf5183aedf4fe894809884414c
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768149"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903500"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 SSL 연결 구성
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대한 Azure Database에서 SSL 연결 구성
 PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 애플리케이션을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간에 SSL 연결을 적용 하면 서버와 응용 프로그램 간에 데이터 스트림을 암호화 하 여 "메시지 가로채기 (man-in-the-middle)" 공격 으로부터 보호 합니다.
 
 기본적으로 PostgreSQL 데이터베이스 서비스는 SSL 연결을 요구하도록 구성됩니다. 클라이언트 응용 프로그램이 SSL 연결을 지원 하지 않는 경우 SSL 필요를 사용 하지 않도록 선택할 수 있습니다. 
@@ -25,6 +25,9 @@ Azure Portal 및 CLI를 통해 프로비전된 모든 MySQL용 Azure 데이터�
 
 ## <a name="configure-enforcement-of-ssl"></a>SSL 적용 구성
 필요에 따라 SSL 연결 적용을 사용하지 않도록 설정할 수 있습니다. Microsoft Azure는 항상 향상된 보안을 위해 **SSL 연결 적용** 설정을 사용하는 것을 권장합니다.
+
+> [!NOTE]
+> 현재 Azure Database for PostgreSQL에 대해 지원 되는 TLS 버전은 TLS 1.0, TLS 1.1, TLS 1.2입니다.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 PostgreSQL용 Azure 데이터베이스 서버를 방문하여 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정합니다. 그런 다음 **저장**을 클릭합니다. 
@@ -47,7 +50,7 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>SSL 연결을 위해 인증서 확인이 필요한 애플리케이션
 경우에 따라 안전한 연결을 위해 애플리케이션에 신뢰할 수 있는 CA(인증 기관) 인증서 파일(.cer)에서 생성되는 로컬 인증서 파일이 필요합니다. Azure Database for PostgreSQL 서버에 연결 하기 위한 인증서는 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem 에 있습니다. 인증서 파일을 다운로드 하 여 원하는 위치에 저장 합니다. 
 
-### <a name="connect-using-psql"></a>Psql을 사용 하 여 연결
+### <a name="connect-using-psql"></a>Psql을 사용하여 연결
 다음 예제에서는 psql 명령줄 유틸리티를 사용 하 여 PostgreSQL 서버에 연결 하는 방법을 보여 줍니다. `sslmode=verify-full` 연결 문자열 설정을 사용 하 여 SSL 인증서 확인을 적용 합니다. 로컬 인증서 파일 경로를 `sslrootcert` 매개 변수에 전달 합니다.
 
 다음은 psql 연결 문자열의 예입니다.

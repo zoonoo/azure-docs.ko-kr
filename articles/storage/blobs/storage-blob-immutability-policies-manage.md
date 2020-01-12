@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 79d7454722900eb1d9d6280e35313ef2f4a5cd54
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555679"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903493"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Blob 저장소에 대 한 불변성 정책 설정 및 관리
 
@@ -23,7 +23,7 @@ Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용�
 
 ## <a name="set-retention-policies-and-legal-holds"></a>보존 정책 및 법적 보류 설정
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 1. 변경할 수 없는 상태로 유지해야 하는 BLOB을 저장할 새 컨테이너를 만들거나 기존 컨테이너를 선택합니다. 컨테이너는 범용 v2 또는 Blob 저장소 계정에 있어야 합니다.
 
@@ -57,7 +57,7 @@ Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용�
 
     ![정책 유형 아래의 "태그 이름" 상자](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. 법적 보존을 취소 하려면 적용 된 법적 보류 식별자 태그를 제거 하면 됩니다.
+9. 법적 보류를 취소 하려면 적용 된 법적 보류 식별자 태그를 제거 합니다.
 
 ### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -73,7 +73,7 @@ Az. Storage 모듈은 변경할 수 없는 저장소를 지원 합니다.  기�
 2. Azure PowerShell의 이전 설치를 제거합니다.
 3. Azure PowerShell을 설치합니다. `Install-Module Az –Repository PSGallery –AllowClobber`
 
-다음 PowerShell 스크립트 샘플은 참조하기 위한 목적으로 제공되는 것입니다. 이 스크립트는 새 스토리지 계정과 컨테이너를 만듭니다. 그런 다음, 법적 보존 정책을 설정하고 지우고, 시간 기준 보존 정책(변경 불가능한 정책이라고도 함)을 만들고 잠그며, 보존 간격을 연장하는 방법을 보여 줍니다.
+다음 PowerShell 스크립트 샘플은 참조하기 위한 목적으로 제공되는 것입니다. 이 스크립트는 새 스토리지 계정과 컨테이너를 만듭니다. 그런 다음 법적 보류를 설정 및 해제 하 고, 시간 기반 보존 정책 (불변성 정책이 라고도 함)을 만들고 잠그고, 보존 간격을 연장 하는 방법을 보여 줍니다.
 
 먼저 Azure Storage 계정을 만듭니다.
 
@@ -165,6 +165,20 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
 
 ---
+
+## <a name="enabling-allow-protected-append-blobs-writes"></a>보호 된 추가 blob 쓰기 허용을 사용 하도록 설정
+
+지금은이 특정 [포털 링크](https://aka.ms/immutableappendblobs)를 통해 시간 기반 보존 정책에 대 한 `allowProtectedAppendWrites` 설정에만 액세스할 수 있습니다. 
+
+> [!IMPORTANT] 
+>  시간 기반 보존에서 보호 된 추가 blob 쓰기 허용 설정은 현재 사용할 수 있으며 다음 지역 에서만 표시 됩니다.
+> - 미국 동부
+> - 미국 중남부
+> - 미국 서부 2
+>
+> 자세한 내용은 [Protected 추가 Blob 쓰기 허용](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes)을 참조 하세요.
+
+![추가 추가 쓰기 허용](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ## <a name="next-steps"></a>다음 단계
 

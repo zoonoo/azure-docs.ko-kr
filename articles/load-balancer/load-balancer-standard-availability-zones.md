@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: e7ddb548d8dad5bdcc3021941877903377af9318
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771481"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903345"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -209,10 +209,6 @@ Load Balancer를 사용하면 단일 IP를 영역 중복 프런트 엔드로 간
 영역에 대 한 명시적 보증을 영역에 제공할 수 있으며 영역 상태와의 상태를 명시적으로 공유 합니다. 영역 IP 주소 프런트 엔드 또는 영역 내부 Load Balancer 프런트 엔드를 사용 하 여 Load Balancer 규칙을 만드는 것은 특히 연결 된 리소스가 동일한 영역에 있는 영역 가상 머신 인 경우에 적합할 수 있습니다.  또는 응용 프로그램에 리소스가 있는 영역에 대 한 명시적 지식이 필요한 경우에는 별도의 영역에서 명시적으로 가용성에 대해 설명 하고자 할 수 있습니다.  영역 전체에서 분산된 엔드투엔드 서비스에 대해 여러 영역 프런트 엔드를 공개하도록 선택할 수 있습니다(즉, 여러 영역 가상 머신 확장 집합에 대해 영역 프런트 엔드별).  그리고 영역 프런트 엔드가 공용 IP 주소인 경우, [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 서비스를 공개하는 데 이러한 여러 영역 프런트 엔드를 사용할 수 있습니다.  또는 여러 영역 프런트 엔드를 사용하여 타사 모니터링 솔루션을 통해 영역별 상태 및 성능 정보를 얻고, 영역 중복 프런트 엔드를 사용하여 전체 서비스를 공개할 수 있습니다. 동일한 영역에 맞게 조정된 영역 프런트 엔드가 있는 영역 리소스만 처리하고, 영역 리소스에 잠재적으로 위험한 영역 간 시나리오는 방지해야 합니다.  영역 리소스는 가용성 영역이 존재 하는 영역에만 존재 합니다.
 
 서비스 아키텍처를 알지 못하면 다른 서비스보다 더 나은 선택이라는 일반적인 지침이 없습니다.  [Azure 클라우드 디자인 패턴](https://docs.microsoft.com/azure/architecture/patterns/) 을 검토 하 여 응용 프로그램의 복원 력을 오류 시나리오로 향상 시킵니다.
-
-## <a name="limitations"></a>제한 사항
-
-- 데이터 평면은 완전히 영역 중복(영역 보증이 지정되지 않은 경우)이지만, 제어 평면 작업은 영역 중복이 될 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보기
