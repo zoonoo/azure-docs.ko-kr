@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 컨트롤 추가 | Microsoft Docs
-description: Azure Maps에서 지도에 확대/축소 컨트롤, 피치 컨트롤, 회전 컨트롤 및 스타일 선택기를 추가하는 방법입니다.
+title: 지도에 컨트롤 추가 | Microsoft Azure 맵
+description: Microsoft Azure 맵의 지도에 확대/축소 컨트롤, 피치 컨트롤, 회전 컨트롤 및 스타일 선택기를 추가 하는 방법입니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7267f77ed3d296ac586dcfd0f525b94d5e6eb7a0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976216"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911266"
 ---
 # <a name="add-controls-to-a-map"></a>지도에 컨트롤 추가
 
@@ -94,7 +94,7 @@ map.controls.add(new atlas.control.Compass(), {
 <a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>탐색 제어 옵션</a> 을 참조 하세요.
 </iframe>
 
-사용자 지정 된 탐색 컨트롤을 만들려면 `atlas.Control` 클래스에서 확장 하거나 HTML 요소를 만들고 지도 div 위에 배치 하는 클래스를 만듭니다. 이 UI 컨트롤이 map `setCamera` 함수를 호출 하 여 맵을 이동 하도록 합니다. 
+사용자 지정 된 탐색 컨트롤을 만들려면 `atlas.Control` 클래스에서 확장 하는 클래스를 만들거나 HTML 요소를 만들고 지도 div 위에 배치 합니다. 지도를 이동 하려면이 UI 컨트롤에서 map `setCamera` 함수를 호출 하도록 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

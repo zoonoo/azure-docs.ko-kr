@@ -1,18 +1,18 @@
 ---
 title: Python을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 description: Python을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법을 알아봅니다.
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: b3329ccb3edb3077a45e3bbf9ba7b48d7e3a93a2
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 5a3a7d79e43a4e0b4a160837be4d7f3cc33f4a91
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996239"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911947"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Python을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -24,9 +24,9 @@ ms.locfileid: "71996239"
 > * [Python](create-cluster-database-python.md)
 > * [ARM 템플릿](create-cluster-database-resource-manager.md)
 
-Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 Python을 사용 하 여 클러스터 및 데이터베이스를 만듭니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 수집된 대규모 데이터 스트리밍에 대한 실시간 분석을 제공하는 속도가 빠른 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 Python을 사용 하 여 클러스터 및 데이터베이스를 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -39,7 +39,7 @@ pip install azure-common
 pip install azure-mgmt-kusto
 ```
 ## <a name="authentication"></a>인증
-이 문서의 예제를 실행 하려면 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체가 필요 합니다. [AZURE ad 응용 프로그램 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 를 선택 하 여 무료 Azure Ad 응용 프로그램을 만들고 구독 범위에서 역할 할당을 추가 합니다. 또한 `Directory (tenant) ID`, `Application ID` 및 `Client Secret`를 가져오는 방법을 보여 줍니다.
+이 문서의 예제를 실행 하려면 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체가 필요 합니다. [AZURE ad 응용 프로그램 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 를 선택 하 여 무료 Azure Ad 응용 프로그램을 만들고 구독 범위에서 역할 할당을 추가 합니다. 또한 `Directory (tenant) ID`, `Application ID`및 `Client Secret`를 가져오는 방법도 보여 줍니다.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터 만들기
 

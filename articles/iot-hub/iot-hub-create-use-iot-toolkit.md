@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 3fe4dfae2e86d549056805e87c0fd3927697fe24
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 668087ae596688e86b7b84a16bc5c0fd0f9fcef6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890561"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912230"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>Visual Studio Code용 Azure IoT Tools를 사용하여 IoT Hub 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "73890561"
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -64,4 +64,4 @@ Visual Studio Code용 Azure IoT Tools를 사용하여 IoT Hub를 개발했습니
 
 * [Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리](iot-hub-device-management-iot-toolkit.md)
 
-* [Azure IoT Hub Toolkit에 대한 Wiki 페이지 참조](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).
+* [VS Code wiki 페이지 Azure IoT Hub를 참조 하세요](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).

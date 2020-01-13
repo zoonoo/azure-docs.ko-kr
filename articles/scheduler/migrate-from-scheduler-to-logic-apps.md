@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890169"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911989"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션
 
@@ -33,9 +33,9 @@ ms.locfileid: "73890169"
 
 자세한 내용은 [Azure Logic Apps 정의](../logic-apps/logic-apps-overview.md) 를 참조 하거나 첫 번째 논리 앱 만들기를 참조 하세요. [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * HTTP 요청을 전송하여 논리 앱을 트리거하려면 [Postman 데스크톱 앱](https://www.getpostman.com/apps) 같은 도구를 사용합니다.
 
@@ -106,7 +106,7 @@ ms.locfileid: "73890169"
 
 예를 들어 Postman 앱을 사용 하 여이 샘플과 유사한 설정을 사용 하 여 POST 요청을 만든 다음 **보내기** 를 선택 하 여 요청을 수행할 수 있습니다.
 
-| 요청 메서드 | URL | body | 헤더 |
+| 요청 메서드 | URL | 본문 | headers |
 |----------------|-----|------|---------|
 | **POST** | <*endpoint-URL*> | **원시** <p>**JSON(애플리케이션/json)** <p>**원시** 상자에 요청에서 보낼 페이로드를 입력 합니다. <p>**참고**: 이 설정은 자동으로 **헤더** 값을 구성합니다. | **키**: Content-Type <br>**값**: 애플리케이션/json |
 |||||
@@ -121,13 +121,13 @@ ms.locfileid: "73890169"
 >
 > 나중에 작업을 취소 하려면 **헤더** 탭을 선택 합니다. 응답에서 x-y-- **id** 헤더 값을 찾아 복사 합니다. 
 >
-> ![response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
+> ![응답](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## <a name="cancel-a-one-time-job"></a>일회성 작업 취소
 
 Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스로 실행됩니다. 일회성 작업을 취소하려면 Logic Apps REST API에서 [Workflow Runs - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel)을 사용하면 됩니다. 트리거 호출을 보낼 때 [워크플로 실행 ID](#workflow-run-id)를 제공해야 합니다.
 
-## <a name="schedule-recurring-jobs"></a>되풀이 작업 예약
+## <a name="schedule-recurring-jobs"></a>반복 작업 예약
 
 1. [Azure Portal](https://portal.azure.com)의 논리 앱 디자이너에서 빈 논리 앱을 만듭니다. 
 
@@ -191,7 +191,7 @@ Azure Scheduler에서 기본 작업이 실행에 실패하는 경우 오류 조�
 
 1. 완료되면 **완료**를 선택합니다.
 
-예외 처리에 대한 자세한 내용은 [오류 및 예외 처리 - RunAfter 속성](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property)을 참조하세요.
+예외 처리에 대한 자세한 내용은 [오류 및 예외 처리 - RunAfter 속성](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior)을 참조하세요.
 
 ## <a name="faq"></a>FAQ
 

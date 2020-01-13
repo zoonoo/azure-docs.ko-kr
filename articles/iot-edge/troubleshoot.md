@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 279b09250aaa3a87e066ade81fc63719adaf07b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429401"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912279"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -167,7 +167,7 @@ Windows에서:
 
 파일을 저장하고 IoT Edge 보안 관리자를 다시 시작합니다.
 
-IoT Hub 및 IoT Edge 디바이스 간에 전송되는 메시지를 확인할 수도 있습니다. Visual Studio Code용 [Azure IoT Hub 도구 키트](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 확장(이전 이름 Azure IoT 도구 키트 확장)을 사용하여 이러한 메시지를 확인합니다. 자세한 내용은 [Azure IoT로 개발할 때 사용할 수 있는 편리한 도구](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)를 참조하세요.
+IoT Hub 및 IoT Edge 디바이스 간에 전송되는 메시지를 확인할 수도 있습니다. [Visual Studio Code에 대 한 Azure IoT Hub 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용 하 여 이러한 메시지를 확인 합니다. 자세한 내용은 [Azure IoT로 개발할 때 사용할 수 있는 편리한 도구](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)를 참조하세요.
 
 ### <a name="restart-containers"></a>컨테이너 다시 시작
 

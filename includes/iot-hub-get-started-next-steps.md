@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: fc4b613eb9e77acef4568ef93b7606fb43568f82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8bf7f3a423b97f6cd84f0b575d00d60776c598c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475993"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911923"
 ---
 Azure IoT Hub를 계속 시작하고 모든 확장 IoT 시나리오를 살펴보려면 다음을 참조하세요.
 
-- [Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 클라우드 디바이스 메시징 관리](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
+- [Visual Studio Code Azure IoT Hub 확장을 사용 하 여 클라우드 장치 메시징 관리](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 
-- [Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 디바이스 관리](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
+- [Visual Studio Code Azure IoT Hub 확장을 사용 하 여 장치 관리](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
 
 - [메시지 라우팅 설정](../articles/iot-hub/tutorial-routing.md)
 

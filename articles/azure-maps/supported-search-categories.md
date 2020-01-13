@@ -1,6 +1,6 @@
 ---
-title: Azure Maps의 검색 범주 | Microsoft Docs
-description: Azure Maps의 검색 범주에 대해 알아보기
+title: 검색 범주 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps에서 지원 되는 검색 범주에 대해 알아봅니다.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de44d07b5ebc6a898e3c098f16e553e9d4a46150
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727152"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910421"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps에서 지원되는 범주
 
@@ -45,7 +45,7 @@ ms.locfileid: "64727152"
 | COLLEGE\_UNIVERSITY | 주니어 칼리지/커뮤니티 대학, 칼리지/대학, 칼리지, 대학 예비 학교, 대학 |
 | COMMERCIAL\_BUILDING | 사무실 건물, 공원 본부, 상업용 건물 |
 | COMMUNITY\_CENTER | 커뮤니티 센터 |
-| COMPANY | electronics, 제조, 컴퓨터 데이터 서비스, 공중 보건 기술, 분산된 금융, 동물 환경적인, 항공사, 장비 차량 대 여, 서비스, 운송/패키지/메일 배달, 버스 선, services, oem, 정리 홈 어플라이언스 복구 세금 서비스, 석유 천연 가스, 법률 서비스, 생성, 통신, 전송, 자동차 제조, 화학 물질, 장례식 서비스 영안실, 브리지 터널 작업, 자동차, 기계 공학, 서비스, 투자 조언자의 입장에서 광고/마케팅, 저장소, 비용 절감 교육 기관, 보험, 컴퓨터 소프트웨어 이동 pharmaceuticals 이며, 결혼 서비스, agricultural 기술, 부동산, 택시, 리무진 셔틀 서비스 버스 헌장에 자전거 대 여, 마이닝, 게시 기술, 케이블 전화, import/export 배포, 회사, asylum, 석탄 mine(s), estate(s), brewery, gold mine(s) |
+| COMPANY | 가전 제품, 제조, 컴퓨터 데이터 서비스, 공공 건강 기술, 다양 한 financials, 동물 집, 비행기, 장비 임대, 서비스, 메일/패키지/운임 배달, 버스 라인, 홈 어플라이언스 복구, 청소 서비스, oem, 세금 서비스, 석유 자연 가스, 법률 서비스, 건설, 통신, 전송, 자동차 제조, 화학 물질, funeral 서비스 mortuaries, 브리지 터널 작업, 자동차, 기계 공학, 서비스, 투자 관리자, 광고/마케팅, 이동 저장소, 절감 기관, 보험, 컴퓨터 소프트웨어, pharmaceuticals, 서비스, 결혼 서비스, agricultural 기술, 부동산, taxi, 리무진 셔틀 서비스, 버스 기본 대 여, 마이닝, 게시 기술, 케이블 전화, import/export 배포, 회사, asylum, 석탄 광산, 부동산,, 금 광산 |
 | COURTHOUSE | 법원 청사 |
 | CULTURAL\_CENTER | 문화 센터 |
 | DENTIST | 치과 |
@@ -105,12 +105,12 @@ ms.locfileid: "64727152"
 | REPAIR\_FACILITY | 자동차 차체 수리 공장, 타이어 서비스, 수리점, 차량 유리 교체 매장, 일반 자동차 수리 서비스, 자동차 부속품 판매 설비, 오토바이 수리, 트럭 수리 서비스, 수리 시설 |
 | RESEARCH\_FACILITY | 연구 시설 |
 | RESIDENTIAL\_ACCOMMODATION | 은퇴자 전용 주택지, 타운하우스 단지, 아파트식 주거지/아파트 단지, 공동주택단지, 주거지, 주거용 숙박 시설 |
-| RESTAURANT | 독일어 크리올 어 케이준, 네덜란드어, 일정상 방, 상사 (주), 이스라엘, 슬로바키아어, 자메이카, 야채, seafood, 베트남어, 몰타어가 어, 웨일스어, 중국어, 일본어, 알제리, Californian 융해, Shandong, 샐러드 모음 Savoy an 스페인어, 에티오피아, 대만어, 안에서, 이란, 캐나다, American, 노르웨이어, 프랑스어, Hunan, Polynesian, afghan에 대 한 아시아, 스위스, erotic crêperie, Surinamese, 이집트, 헝가리어, 네팔, 바비큐, 핫 pot, 햄버거, 지중해, 남미, tapas, 영국, 지주, 멕시코, 아시아 (기타), 뷔페, sushi, 몽골어, 국제 mussels, 태국어, 베네수엘라 화폐, Rumanian chicken soup kosher steak 집, 이탈리아어, 한국어, 키프로스 음절, 보스니아어, 볼리비아, 도미니카, 벨기에, 튀니지, 스코틀랜드, yogurt/쥬 스 잔 모음 중간 동부, 칠레, 상하이, 영어, 파키스탄 화폐, 체코어, 와이어, Maghrib, 티베트어, 아랍, 폴란드어, 필리핀어 수 단어, 아르메니아어, 버마어, 브라질, 스칸디나비아어, 불가리아어, 영혼 식품, 콜롬비아, 유대교, 피자 Sicilian 유기적, 그리스어, 바스크어, 우루과이 화폐를 카페테리아, 핀란드어, 아프리카, Corsican, 시리아, 카리브 해, Dongbei, 러시아어, 인 그릴, 소모할 패스트 푸드, 오스트레일리아, 아일랜드, pub food fondue, 레바논, 인도네시아어, 덴마크어, Provençal, teppanyaki, 인도어, 모리셔스, 서 부 대륙 페루 화폐, 캄보디아, snack, 스웨덴어, macrobiotic, 아이스크림 유용한 슬라브어, 터키어, 아르헨티나, 오스트리아, 특별, 포르투갈어, 룩셈부르크, 모로코, 샌드위치, 쿠바, 식당 |
+| RESTAURANT | 독일어, 크리올-Cajun, 네덜란드어, banquet 대화방, bistro, 이스라엘, 슬로바키아어, 자메이카, vegetarian, 해산물, 베트남어, 몰타어, Sichuan, 웨일스어, 중국어, Japanese, 알제리, Californian, fusion, Shandong, 샐러드 bar, Savoy an, 스페인어, 에티오피아, 대만, 도넛, 이란, 캐나다, 미국, 노르웨이어, 프랑스어, Hunan, Polynesian, af, roadside, 아시아, 스위스, erotic, crêperie, Surinamese, 이집트, 헝가리어, 네팔, barbecue, hot .pot, 햄버거, 지중해, 라틴 아메리카, tapas, 영국, 멕시코 , 광 동, 아시아 (기타), buffet, 초밥, 몽골어, 국제, mussels, 태국어, 베네수엘라, Rumanian, 치킨, 수프, kosher, steak house, yogurt/주스 bar, 이탈리아어, 한국어, Cypriot, 보스니아어, 볼리비아, 도미니카, 벨기에, 튀니지, 스코틀랜드, 영어, 파키스탄, 체코어, 하와이, Maghrib, 티베트어, 아랍어, 중동, 칠레, 상하이, 폴란드어, 필리핀어, 수단, 아르메니아어, Barmština, 브라질어, 스칸디나비아어, 불가리아어, 콜롬비아 우루과이, 카페테리아, 핀란드어, 아프리카, Corsican, 시리아, 카리브 해, Dongbei, 러시아, 그릴, take, fast 음식, 오스트레일리아, 아일랜드어, pub 음식, fondue, 레바논, 인도네시아어, 덴마크어, Provençal, teppanyaki, 인도, 모리셔스, western 본토, 페루, 캄보디아, snack, 스웨덴어, macrobiotic, 유용한, 슬라브어, 터키어, Argentinean, 오스트리아, exotic, 포르투갈어, Luxembourgian, 모로코, 샌드위치, Cuban |
 | RESTAURANT\_AREA | 식당 지역 |
 | REST\_AREA | 휴게소, 잠시 쉬는 장소 |
 | SCENIC\_PANORAMIC\_VIEW | 경치 좋은/탁 트인 전망, 관측 지점 |
 | SCHOOL | 요리 학교, 초등학교, 예술 학교, 고등학교, 자동차 운전 학원, 어학원, 스포츠 학교, 유치원, 고등학교, 중학교, 직업 훈련, 특수 학교, 보육 시설 학교, 기술 학교, 군사 학교, 농업 학교 |
-| SHOP | 공장 직판장, 보안 제품, 크리스마스/휴일 매장, 안경점, 집 정원: 조명, 복권 상점, 악기, 네일 샵, 집 정원: 그림 장식, 취미/자유 시간, 신문 및 담배 판매상, 의류 액세서리: 전문, 세탁소, 가방 가죽, 애완 동물 용품, 의류 액세서리: 어린이, 건축 자재 장비, 보석류, 회중시계, 의류 액세서리: 신발류 구두 수리, 집 정원: 커튼/직물, 전기, office it: 가전 제품, 전기, office it: 카메라 사진, CD, DVD 비디오, 세탁, 의류 액세서리: 남성, 꽃집, 전당포, 서점, 해양 전자 장비, 식음료: 식료품점, 집 정원: 카펫/바닥 깔개, 복사, 보트 장비 부속품, 휴대폰 가게, 장난감 게임, 전문 식품, 의류 액세서리: 일반, 식음료: 빵집, 양복점, 선물, 카드, 신기한 기념품, 동불 보호 센터, 스포츠 장비 의류, 스탬프 상점, 전기 기기, 전기, office it: 사무실 비품, 현상소/개발, 도매 클럽, 집 정원: 가구 설비, 지역 특산품, 식음료: 정육점, 잡화점, 식음료: 식품점, 식음료: 와인 증류주, 약국, 가구/가정용 가구, 전기, office it: 컴퓨터 용품, CD/비디오 대여, 의료 용품, 농업 용품, 미용실, 집 정원: 가든 센터 서비스, 식음료: 생선 가게, 미용 용품, 의류 액세서리: 여성, 여행사, 소매점, 재활용 상점, 집 정원: 창유리, 철물, 공인중개사, 유리 제품/도자기, 식품점, 집 정원: 부엌 욕실, 도박장, 미용사 이발사, 식음료: 식료품 잡화점, 식음료: 청과물 가게, 편의점, 드라이브 스루 주류 판매점, 집 정원: DIY 센터, 골동품/예술품, 상점, 매장 |
+| SHOP | 공장 유출, 보안 제품, 크리스마스/휴일 매장, opticians, 집 정원: 조명, 복권, 악기, 손톱 salon, 집 정원: 장식, 취미/무료 시간, newsagents tobacconists, 옷 액세서리: 전문, 마른 클리너, 가방 leatherwear, 애완 동물 제공, 옷 액세서리: 어린이, 건설 재질 장비, 장신구, 시계 감시, 옷 액세서리: 신발 신발 수리, 집 정원: curtains/섬유, 전기, 사무실 it: 소비자 전자 제품, 전기, 사무실 it:&#39;카메라 사진, cd&#39;s, DVD 비디오, laundry, 옷 액세서리: 남자, florists, 폰을 상점, 책 상점, 해병대 전자 장비, 음식 청량 음료: 음식 시장, 주택 정원: 카펫/바닥 coverings, 우편 번호, 보트 액세서리, 휴대폰 상점, 장난감 게임, 전문 foods, 옷 액세서리: 일반, 음식 청량 음료: bakers, 맞춤형 상점, 선물, 카드, novelties souvenirs, 동물 서비스, 스포츠 장비 옷, 스탬프 상점, 전기 어플라이언스, 전기, 사무실 it: 사무실 장비, 사진 랩/개발, 도매 클럽 집 정원: 가구 피팅, 지방 전문성, 음식 청량 음료: butchers, 다양 한 매장, 음식 청량 음료: 음식, 음식 청량 음료: 음료 spirits, 약품 매장, 가구/집 가구, 전기, 사무실 it: 컴퓨터 공급 장치, cd/비디오 임대, 의료 용품 장비, agricultural 용품, 장점 salon, 집 정원: 정원 센터 서비스, 음식 청량 음료: fishmongers, 장점 소모품, 옷 액세서리: 여자, 여행 에이전트, 소매 유출, 재활용 공장, 집 정원: 투명 효과 창, 하드웨어, 부동산 에이전트, glassware/ceramic, delicatessen, 집 정원: kitchens bathrooms, 대회 스테이션, hairdressers barbers, 음식 청량 음료: grocers, 음식 청량 음료: 녹색 grocers, 편의 매장, 드라이브를 통한 드라이브, 집 정원 |
 | SHOPPING\_CENTER | 쇼핑 몰, 쇼핑 센터 |
 | SPORTS\_CENTER | 주제별 스포츠, 스쿼시 코트, 헬스 클럽 센터, 스포츠 센터 |
 | STADIUM | 네트볼, 풋볼, 야구, 경마장, 다용도, 모터 스포츠, 크리켓 경기장, 럭비 그라운드, 아이스 하키, 운동, 경마, 농구, 축구, 스타디움, 운동장, 경마장 |

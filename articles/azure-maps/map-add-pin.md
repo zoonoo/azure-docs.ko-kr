@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 기호 계층 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 기호를 추가 하는 방법입니다.
+title: 지도에 기호 계층 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에서 기호를 사용자 지정 하 고 추가 하는 방법에 대해 설명 합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480621"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911169"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
@@ -61,7 +61,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 
 <br/>
 
-<iframe height='500' scrolling='no' title='핀 고정 위치 전환' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io'>핀 고정 위치 전환</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='핀 고정 위치 전환' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>핀 고정 위치 전환</a>을 참조하세요.
 </iframe>
 
 > [!TIP]
@@ -73,7 +73,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 
 <br/>
 
-<iframe height='500' scrolling='no' title='사용자 지정 기호 이미지 아이콘' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io'>사용자 지정 기호 이미지 아이콘</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='사용자 지정 기호 이미지 아이콘' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>사용자 지정 기호 이미지 아이콘</a>을 참조하세요.
 </iframe>
 
 > [!TIP]
@@ -85,7 +85,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 
 <br/>
 
-<iframe height='700' scrolling='no' title='기호 계층 옵션' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io/azuremaps/pen/PxVXje/'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io'>기호 계층 옵션</a>을 참조하세요.
+<iframe height='700' scrolling='no' title='기호 계층 옵션' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/PxVXje/'>기호 계층 옵션</a>을 참조하세요.
 </iframe>
 
 > [!TIP]

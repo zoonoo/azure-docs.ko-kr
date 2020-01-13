@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 열 지도 계층 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 열 지도 계층을 추가 하는 방법입니다.
+title: 지도에 열 지도 계층 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 열 지도 계층을 추가 하는 방법에 대해 설명 합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b0d07f18682bf39558180753de38a9c5ff106ee3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ead30a80a6568e72f922f355916d31121b49a93b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408533"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911215"
 ---
 # <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 

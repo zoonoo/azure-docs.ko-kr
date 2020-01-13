@@ -1,7 +1,6 @@
 ---
-title: Android SDK를 사용 하 여 Azure Maps 지도 스타일 설정
-titleSuffix: Azure Maps
-description: Android SDK에 대 한 Azure Maps 스타일 관련 기능에 대해 알아봅니다.
+title: Azure Maps Android SDK를 사용 하 여 지도 스타일 설정 Microsoft Azure 맵
+description: 이 문서에서는 Android SDK에 대 한 Microsoft Azure 맵 스타일 관련 기능에 대해 설명 합니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1a898508e5c99f6cb8be46605c156106b47c08f3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: fe0aa662234166249433634ccb45d1931d176319
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528099"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910478"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도 스타일 설정
 

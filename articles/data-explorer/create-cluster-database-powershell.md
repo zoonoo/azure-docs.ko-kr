@@ -1,18 +1,18 @@
 ---
 title: PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 description: PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법을 알아봅니다.
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1975125dd3bcd327ae7520e4cc413718e48d6ba9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b855fde88173fe9a14a964ba1f9fd07aa74d85eb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326745"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911971"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -24,9 +24,9 @@ ms.locfileid: "71326745"
 > * [Python](create-cluster-database-python.md)
 > * [ARM 템플릿](create-cluster-database-resource-manager.md)  
 
-Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 Powershell을 사용 하 여 클러스터 및 데이터베이스를 만듭니다. [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto)와 함께 [Azure Cloud Shell](../cloud-shell/overview.md)에서 또는 Windows, Linux에서 PowerShell cmdlet 및 스크립트를 실행하여 Azure Data Explorer 클러스터와 데이터베이스를 만들고 구성할 수 있습니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 수집된 대규모 데이터 스트리밍에 대한 실시간 분석을 제공하는 속도가 빠른 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 Powershell을 사용 하 여 클러스터 및 데이터베이스를 만듭니다. [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto)와 함께 [Azure Cloud Shell](../cloud-shell/overview.md)에서 또는 Windows, Linux에서 PowerShell cmdlet 및 스크립트를 실행하여 Azure Data Explorer 클러스터와 데이터베이스를 만들고 구성할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

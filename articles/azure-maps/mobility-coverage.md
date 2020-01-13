@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에서 이동성 검사 Microsoft Docs
-description: Azure Maps의 이동성 범위에 대해 알아봅니다.
+title: 모바일 (전송) 검사 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure 맵의 모바일 범위에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 06/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1fcad7d3d0cc45f0cfdc0d6523d5fdbc8f573fe2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 658d282260b6c9c427527fdc07bf05a0218fda4a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577005"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910710"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps 모바일 범위
 
@@ -35,7 +35,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 아르헨티나       | <p>Bahía Blanca, 부에노스아이레스, Caleta Olivia, Chivilcoy, Comodoro Rivadavia, 코르도바, Corrientes, General Pico, La Rioja-jp, Mar del Plata, 멘도사, MiNeuquén Ar, Oberá, Olavarría, Paraná, Posadas, Rio, Rosario Tercero, Salta, Carlos, San Bariloche de Luis, San, San Pedro, 산타 Fe, Tandil, Ushuaia, 빅토리아, Villa María</p>|
 | 바베이도스       |  바베이도스 |
 | 브라질         | <p>Angra dos Reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Bage, Araxa, Bauru, 벨렘, Belo Horizonte, Blumenau, 보아 비스타 Vista, 브라질리아, Caldas Novas, Campina 그란데, Campinas, 캄 푸 Belo, 캄 푸 그란데, Caraguatatuba, Cascavel, Cataguases,,,,,,, Leopoldina e Região, Catalão, Caxias do Sul, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, Cruzeiro do Sul, Cuiabá, Curitiba, Curitibanos, Curvelo, Diamantina, Divinópolis, Dourados, Estde a, 김철수 de 노로냐, Florianópolis, 포르탈레자, Anz do Iguaçu, 대표, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Ituiutaba, Jaraguá do Sul, Joao Pessoa, Joinville, Juazeiro do Norte, Juiz de Fora, Jundiaí, Lages, Londrina, Macapa, Macapa, Maceise, Mafra e Rio Negro, 마나우스, Manhuacu, Maringá, Marília, Monte Carmelo, Montes Claros, Mossoró, Natal, Osorio, Ourinhos, Ouro Preto, Palmas, Paracatu, Parnaíba, Patos, Patrocínio, Pelotas, Piracicaba,,,,,, Pocos de Caldas, Ponta Grossa, 포르토 Alegre, 포르토 Ferreira, 포르토 Seguro, 포르토 포르토, Praia 그란데, 레시페, Ribeirão Preto, Rio, Rio 리오, Rondonópolis, Salinas, 엘살바도르, 산타 Cruz do Sul, 산타 민, 산타 Rita do Sapucaí, Santarem, Santos, 상 Gabriel do Oeste, 상 Joao del Rei , Tiradentes e Regiao, 상 Jose do Rio Preto, 상 Mateus, 상 파울로, Sorocaba, 상투메 Carlos, 상투메 샌프란시스코 do Sul, 상투메 José dos Campos, 상투메 Lourenço, 상투메 Luís, Taubaté, Borba, Otoni, Teresina Lagoas, Tucurui, Toledo, Três, Uberlândia, Ubá, Uruguaiana, Varginha, Vicosa, Videira & Fraiburgo, Vitória, Vitória da Conquista, Volta Redonda, Votuporanga </p>|
-| 캐나다 | Banff (AB), Brandon (MB), 캘거리 (AB), Comox 계곡 (BC), Cowichan 유역 (BC), 에드먼턴 (AB), 요새 세인트 John, Frederi(NB), Sudbury (ON), 밴쿠버 (BC), Halifax (NS), 캠룹스 (BC), Kelowna (BC), Kingston (ON), 런던 (켜 드), Moncton (NB), 몬트리올 (QC), Nanaimo (BC), (), 프린스 George (BC), Québec City (QC), 레드 Deer (AB), 리자이나 (대만), Rimouski (QC), 새스커툰 (), Sherbrooke (QC), Squamish (BC), 상트페테르부르크 (NL), 햇빛과 해안, 썬 베이 (켜기), (설정), 빅토리아 (BC), 휘슬러 (bc), (bc) ), Windsor (ON), 위니펙 (MB), Woodstock</p>|
+| 캐나다 | Banff (AB), Brandon (MB), 캘거리 (AB), Comox 계곡 (BC), Cowichan 유역 (BC), 에드먼턴 (AB), 요새 세인트 John, Frederic7(NB), Sudbury (ON), 밴쿠버 (BC), Halifax (NS), 캠룹스 (BC), Kelowna (BC), Kingston (ON), 런던 (켜 드), Moncton (NB), 몬트리올 (QC), Nanaimo (BC), (), 프린스 George (BC), Québec City (QC), 레드 Deer (AB), 리자이나 (대만), Rimouski (QC), 새스커툰 (), Sherbrooke (QC), Squamish (BC), 상트페테르부르크 (NL), 햇빛과 해안, 썬 베이 (켜기), (설정), 빅토리아 (BC), 휘슬러 (bc), (bc) ), Windsor (ON), 위니펙 (MB), Woodstock</p>|
 | 칠레  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Iquique, Serena, Coquimbo, Linares, 로스앤젤레스 (칠레), 시야가 라고스, Punta 아레나스, Rancagua, 산티아고, Talca, Temuco, Valdivia, Valparaíso, Viña del Mar</p>|
 | 콜롬비아 | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, Popayán, Marta, 산타 Sincelejo,, Valledupa</p>|  
 | 코스타리카 | San José|
@@ -46,7 +46,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 페루 | Cusco, 리마 |
 | 푸에르토리코 | San Juan |
 | 우루과이 | 몬테비디오, Punta del Este |
-| 미합중국 | <p>올버니 (), Albuquerque (NM), Anchorage (AK), Oshkosh-Neenah (WI), Asheville (NC), 아테네 (), 애틀랜타 (GA), 오스틴 (TX), Bakersfield (CA), Baltimore), Bellevue (WA), Berkshire 군 (MA), 버밍엄 (AL), Bloomington (IN), Boise (ID), 보스턴 ( MA), 보 없는 (CO) Brevard 군 (FL), Buffalo (Cod), Ate (MT), 카보베르데), 중앙 관할지 (PA), Urbana-champaign (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattan Ga (TN), 샤이엔 (WY), 시카고 (IL), Cincinnati (오), Citrus 군 (FL), Cleveland (오), Coachella 유역 (CA), Colorado 스프링 (CO), 특별구 (TN), 콜럼버스 (오), 모음 Christi (TX), 달라스/A가치가 (TX), Dayton (오), Delaware, 덴버 (CO), Des Moines (IA), 디트로이트 (MI), Duluth (MN), El o (TX), Eugene (또는 ), Fairbanks (AK), Fargo (ND), Fayetteville (NC), 플래그 담당자 (AZ), Flint (MI) 요새 Collins (CO), 요새 포트웨인 (IN), Fresno (CA), Gainesville (FL), 그랜드 포크 (ND), 전체 Rapids (MI), 녹색 베이 (WI-FI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton ), Hanford (CA), Hartford (CT), Hernando 관할지 (FL), Honolulu (HI), Houston (TX), Humboldt 관할지 (캐나다), Huntsville (AL), 인디애나폴리스 (IN), Ithaca (), Jackson (MS), Jackson (TN), Jacksonville () Joplin (MO), Juneau (AK), Kalamazoo (MI), MO (캔자스 City), Kauai (HI), Ketchum (ID), 녹스빌 (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Las Vegas (NV), Lawrence (KS), Lee 관할지 (FL), Lexington (KY), Lincoln 관할지 (OR), 작은 바위 (AR), 로스앤젤레스 ( CA), 루이빌 (KY), Madison (WI), McAllen (TX), 멤피스에 (TN), 마이애미 (FL), Milwaukee/Waukesha (WI), Minneapolis-상트페테르부르크 (MN), Missoula (MT), Modeto(USA), Moline (IL), Monroe 군 (PA), Montgomery (AL), Morgantown (WV), 내슈빌 (TN), 나바호 국가), 새 (CT), New Orleans (LA), NYC-NJ), Ocala (FL), Okaloosa 군 (FL), Oklahoma City (OK), Omaha (NE), 올랜도 (FL), 파나마 City (FL), Pensacola (FL), Peoria (IL), 필라델피아 (PA), Phoenix (AZ), Pittsburgh (PA), 포틀랜드 (ME), 포틀랜드 (또는), Racine (WI), Raleigh (NC), Redding (CA), Reno & Lake Tahoe (NV), Roanoke 유역 (VA-Lynchburg), Rochester (), Rocky 산악용 국가 공원), Rogue 유역 (또는), Roseburg (또는), Roseville (CA), Sacramento (CA), Salem (또는), Salt Lake City (전 세계), San Antonio (TX), San Diego ( CA), San Luis Obispo (ca), 산타 Barbara (CA), 산타 Fe (NM), Sarasota (FL), 사바나 (GA), Seacoast Region (NH), 시애틀-Tacoma-Bellevue (WA), SF 베이 영역 (CA), Sioux 도시 (IA), Sioux가 (SD), Sitka (AK), Spokane (WA), 스프링 필드 (IL), 스프링 필드 (Mass), George (세계), Louis (MO), Stockton (CA), Syracuse-Utica (공동), Tallahassee (FL), Tampa (FL), Terre Haute (IN), Toledo (), Topever(KS), 통과 City (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (CA), Volusia 관할지 (FL), Waco (TX), 워싱턴 (DC), Waterbury (CT), Wichita (KS), Wilmington (NC), 야키마 (WA), 관할지 (PA), Yuma 군 (AZ)</p>|
+| 미합중국 | <p>올버니 (), Albuquerque (NM), Anchorage (AK), Oshkosh-Neenah (WI), Asheville (NC), 아테네 (), 애틀랜타 (GA), 오스틴 (TX), Bakersfield (CA), Baltimore), Bellevue (WA), Berkshire 군 (MA), 버밍엄 (AL), Bloomington (IN), Boise (ID), 보스턴 (MA), 고가 (CO) Brevard 군 (CO), Buffalo (Cod), Urbana-champaign (MT), 카보베르데 (), 중앙 관할지 (PA), Urbana-champaign-Charleston (IL), (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), 샤이엔 (WY), 시카고 (IL), Cincinnati (오), Citrus 군 (FL), Cleveland (오), Coachella 유역 (CA), Colorado 스프링 (CO), 특별구 (TN), 콜럼버스 (), 모음 Christi (TX), 달라스/분 (TX), Dayton (오), Delaware, 덴버 (CO), Des Moines (IA), 디트로이트 (MI), Duluth (MN), El o (TX), Eugene (OR), Fairbanks (AK), Fargo (ND), Fayetteville (NC), 직원 (AZ), Flint (MI) 요새 Collins (CO), 요새 포트웨인 (IN), Fresno (CA), Gainesville (FL), 여는 포크 (ND), 그랜드 Rapids (MI), 녹색 베이 (WI-FI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton도 (VA) ), Hanford (CA), Hartford (CT), Hernando 관할지 (FL), Honolulu (HI), Houston (TX), Humboldt 관할지 (), Huntsville (AL), 인디애나폴리스 (IN), Ithaca (), Jackson (MS), Jackson (TN), Jacksonville-상트페테르부르크의 군 (Johnson), TN city (JONESBORO), Joplin (AR), (MO), Juneau (AK), Kalamazoo (MI), 캔자스 City (MO), Kauai (HI), Ketchum (ID), 녹스빌 (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Las Vegas (NV), Lawrence (KS), Lee 관할지 (FL), Lexington (KY), Lincoln 관할지 (또는), 작은 바위 (AR), 로스앤젤레스 (캐나다), 루이빌 (KY), Madison (WI), McAllen (TX), 멤피스에 (TN), 마이애미 (FL), Milwaukee/Waukesha (WI-FI), Minneapolis-상트페테르부르크 (MN), Missoula (MT), Modeto(USA), Moline (IL), Monroe 관할지 (PA), Montgomery (AL), Morgantown (WV), 내슈빌 (TN), 나바호 국가), 새로운 (CT), New Orleans (LA), NYC-NJ), Ocala (FL), Okaloosa 군 (FL), Oklahoma City (OK), Omaha (NE), 올랜도 (FL), 파나마 City (FL), Pensacola (FL), Peoria (IL), 필라델피아 (PA), Phoenix (AZ), Pittsburgh (PA), 포틀랜드 (ME), 포틀랜드 (또는), Racine (WI), Raleigh (NC), Redding (CA), Reno & Lake Tahoe (NV), Roanoke 유역 (VA-Lynchburg), Rochester (), Rocky 산지 국가 공원), Rogue 유역 (또는), Roseburg (또는), Roseville (CA), Sacramento (CA), Salem (OR), Salt Lake City (세계), San Antonio (TX), san Diego (CA), san Luis Obispo (CA), 산타 Barbara (CA), 산타 Fe (NM), Sarasota (FL), 사바나 (GA), Seacoast Region (NH), 시애틀-Tacoma-Bellevue (WA), SF 베이 영역 (CA), Sioux City (IA), Sioux가 (SD), Sitou(AK), Spokane (WA), (IL), 스프링 필드 (질량), George (세계), Louis (MO), Stockton (CA), Syracuse-Utica (공동), Tallahassee (FL), Tampa-상트페테르부르크 (FL), Terre Haute (IN), Toledo (오), Topeka (KS), 통과 도시 (MI), 트레버스 Cson (AZ), Tulsa (OK), Vermont, Victorville (CA), Volusia 군 (FL), Waco (TX), 워싱턴 (DC), Waterbury (CT), Wichita (KS), Wilmington (NC), 야키마 (WA), 지방 지방 (PA), Yuma 군 (AZ)</p>|
 | \+ 미국령 버진 아일랜드 | 미국령 버진 아일랜드 * |
 
 
@@ -65,7 +65,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 뉴질랜드 | 오클랜드, Christchurch, Dunedin, Queenstown, Timaru, 웰링턴|
 | 필리핀 | 마닐라 |
 | 싱가포르 | 싱가포르 |
-| 대한민국 | 부산, 서울 |
+| 한국 | 부산, 서울 |
 | 대만 | Changhua 군, 타이베이 | 
 | 태국 | 방콕, Chiang Mai | 
 | 베트남 | 하노이, 호 카이 호치민 도시 | 
@@ -77,7 +77,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 |----------------|---------|
 | 안도라        | 간에 la Vella |
 | 아테네         | Chios | 
-| 오스트리아        | 빈 |
+| 오스트리아        | 비엔나 |
 | 벨로루시        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, 민스크, Rechytsa | 
 | 벨기에        | 벨기에 |
 | 볼리비아        | La, 산타 Cruz de la 시에라리온 | 
@@ -85,7 +85,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 불가리아       | <p>Balchik, Blagoevgrad, 삼 간, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, 소피아</P> |
 | 크로아티아 | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, 자그레브 | 
 | 키프로스 | Larnaca, Limassol, 니코시아 | 
-| 체코 | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, 프라하 | 
+| 체코 공화국 | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, 프라하 | 
 | 덴마크   | 덴마크 |
 | 에스토니아   | 에스토니아 |   
 | 핀란드   | Hämeenlinna, 헬싱키, Joensuu, Jyväskylä, Kajaani, Kouvola-k, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
@@ -95,7 +95,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 조지아 | 트빌리시 | 
 | 독일 | <p>베를린, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, 프랑크푸르트, 함부르크, Karlsruhe, Mainz, München-뮌헨, Rhein-Neckar Region, Rhein-Stuttgart Hr Region, Titisee, Neustadt-, Ulm</P> | 
 | 그리스 | <p>아테네, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Mykonos, Patra, Rethimno, Rhodes, 산토리니, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |
-| 헝가리 | 부다페스트, Szeged, Székesfehérvár |
+| 헝가리 | Budapest, Szeged, Székesfehérvár |
 | 아이슬란드 | Ísland-아이슬란드 * | 
 | 아일랜드 | 아일랜드 |   
 | 이탈리아   | <p>Agrigento, Alessandria, Ancona, 바 i, Bologna-Bologna, Cagliari-Sardinia, Campobasso, Cania e Messina, Cosenza, Crema, Cremona, Crotone, Cuneo, Firenze, Florence, Foggia, Genova-Genoa , Padova, Palermo, Parma, Perugia, Pescara, Pisa, Potenza, Roma-로마, Siena e Grosseto, Siracusa-Syracuse, Taranto, Torino-Trin, Trento, Trieste, Udce, Venezia-Venice, </p> |
@@ -119,7 +119,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 스위스 | Basel, Geneva, Yverdon, 취리히 | 
 | 터키 | Adana-Mersin, Ankara,,, Balıkesir, Bilecik, Bolu, 삼 간 Sa, Denizli, Duzce, Elazig, Eskisehir, 이스탄불, Izmir, Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
 | 영국 | 동부 Anglia, East Midlands, 런던 및 남부 동부, 북부 북부, 북부, 북부 아일랜드, 스코틀랜드, 남부 서 부, Wales, 서 부 Midlands, Yorkshire |
-| 우크라이나 | Kharkiv, Zhytomyr, 키예프, Lviv, Chernivtsi |
+| 우크라이나 | Kharkiv, Zhytomyr, Kiev, Lviv, Chernivtsi |
 
 
 ## <a name="middle-east-and-africa"></a>중동 및 아프리카
@@ -127,13 +127,13 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 국가/지역 |  도시 (지하철 면적) |
 |---------|---------|
 | 바레인 | 바레인 |
-| 이집트 | 카이로    |
+| 이집트 | Cairo    |
 | 이스라엘| 이스라엘  |
 | 케냐 | 나이로비  | 
 | 마다가스카르 | 안타나나리보 |
 | 모로코 | 카사블랑카, Khouribga, Tétouan|
 | 사우디아라비아 | Thuwal |
-| 남아프리카 | 케이프타운 |
+| 남아프리카 공화국 | 케이프타운 |
 | 튀니지 | Kairouan |
 | 아랍에미리트  | 아부다비, Dubai |
 

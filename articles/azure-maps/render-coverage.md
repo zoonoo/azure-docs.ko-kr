@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에서 렌더링 검사 | Microsoft Docs
-description: Azure Maps에서의 렌더링 검사에 대해 알아봅니다.
+title: 렌더링 검사 | Microsoft Azure 맵
+description: 이 문서에서는 렌더링 된 세부 정보와 함께 Microsoft Azure 지도 렌더링 범위를 사용 하는 영역에 대해 알아봅니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934289"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910663"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps 렌더링 검사
 
@@ -296,7 +296,7 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 터키                    | ✓ | ✓ |
 | 우크라이나                   | ✓ | ✓ |
 | 영국            | ✓ | ✓ |
-| 바티칸시              | ✓ | ✓ |
+| 바티칸 시국              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,7 +3,7 @@ title: GitHub에서 Azure Linux 에이전트 업데이트
 description: Azure Linux VM의 Azure Linux 에이전트를 업데이트하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: akjosh
-ms.openlocfilehash: 02180af0b388a8f10e0689bc4ea176ee60974666
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 03e1689ca495d3fd3c8efce6b039386711a49472
+ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359011"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75904899"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
 
@@ -88,77 +88,6 @@ initctl restart walinuxagent
 
 ```bash
 systemctl restart walinuxagent.service
-```
-
-## <a name="debian"></a>Debian
-
-### <a name="debian-7-wheezy"></a>Debian 7 “Wheezy”
-
-#### <a name="check-your-current-package-version"></a>현재 패키지 버전 확인
-
-```bash
-dpkg -l | grep waagent
-```
-
-#### <a name="update-package-cache"></a>패키지 캐시 업데이트
-
-```bash
-sudo apt-get -qq update
-```
-
-#### <a name="install-the-latest-package-version"></a>최신 패키지 버전 설치
-
-```bash
-sudo apt-get install waagent
-```
-
-#### <a name="enable-agent-auto-update"></a>에이전트 자동 업데이트 활성화
-이 버전의 Debian이 2.0.16 이상의 버전을 포함하지 않으므로 AutoUpdate를 사용할 수 없습니다. 위 명령의 출력에서 패키지가 최신 상태인지 표시합니다.
-
-### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 “Jessie” / Debian 9 “Stretch”
-
-#### <a name="check-your-current-package-version"></a>현재 패키지 버전 확인
-
-```bash
-apt list --installed | grep waagent
-```
-
-#### <a name="update-package-cache"></a>패키지 캐시 업데이트
-
-```bash
-sudo apt-get -qq update
-```
-
-#### <a name="install-the-latest-package-version"></a>최신 패키지 버전 설치
-
-```bash
-sudo apt-get install waagent
-```
-#### <a name="ensure-auto-update-is-enabled"></a>자동 업데이트가 활성화되었는지 확인 
-
-먼저 활성화되었는지 확인합니다.
-
-```bash
-cat /etc/waagent.conf
-```
-
-'AutoUpdate.Enabled'를 찾습니다. 이 출력이 표시되는 경우 활성화되었습니다.
-
-```bash
-# AutoUpdate.Enabled=y
-AutoUpdate.Enabled=y
-```
-
-실행을 활성화하려면:
-
-```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
-```
-
-### <a name="restart-the-waagent-service"></a>waagent 서비스 다시 시작
-
-```
-sudo systemctl restart walinuxagent.service
 ```
 
 ## <a name="red-hat--centos"></a>Red Hat/CentOS

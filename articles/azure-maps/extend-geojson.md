@@ -1,6 +1,6 @@
 ---
-title: Azure Maps의 확장 된 GeoJSON 기 하 도형 Microsoft Docs
-description: Azure Maps에서 GeoJSON 기하 도형을 확장하는 방법 알아보기
+title: 확장 된 GeoJSON 기 하 도형 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure 맵이 특정 기 하 도형을 나타내는 GeoJSON 사양을 확장 하는 방법에 대해 설명 합니다.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 52325248d21a5d5112c9a7f9497c3e03fdf102a4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 75ad83411edfdfe7545e8f80df17fea56e317ee0
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881993"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911645"
 ---
 # <a name="extended-geojson-geometries"></a>확장 된 GeoJSON 기 하 도형
 
@@ -28,21 +28,21 @@ Azure Maps에는 지리적 특징의 안팎을 검색할 수 있는 강력한 AP
 * MultiPoint
 * MultiPolygon
 * Point
-* 다각형
+* Polygon
 
-일부 Azure Maps Api (예: [기 하 도형 내 검색](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) [GeoJSON 사양의][1]일부가 아닌 "Circle"과 같은 기 하 도형을 허용 합니다.
+일부 Azure Maps Api (예: [기하학 내부 검색](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry))는 [GeoJSON 사양의][1]일부가 아닌 "Circle"과 같은 기 하 도형을 허용 합니다.
 
 이 문서에서는 Azure Maps 특정 기 하 도형을 나타내는 [GeoJSON 사양을][1] 확장 하는 방법에 대 한 자세한 설명을 제공 합니다.
 
-## <a name="circle"></a>원
+## <a name="circle"></a>Circle
 
-[GeoJSON 사양][1]에서 기하도형을지원하지않습니다.`Circle` 개체를 `GeoJSON Point Feature` 사용 하 여 원을 나타냅니다.
+`Circle` 기 하 도형은 [GeoJSON 사양][1]에서 지원 되지 않습니다. `GeoJSON Point Feature` 개체를 사용 하 여 원을 나타냅니다.
 
 `GeoJSON Feature` 개체를 사용하여 표현된 `Circle` 기하 도형은 다음 항목을 __반드시__ 포함해야 합니다.
 
-- 가운데
+- 중심
 
-    원 중심은 개체를 `GeoJSON Point` 사용 하 여 표현 됩니다.
+    원 중심은 `GeoJSON Point` 개체를 사용 하 여 표현 됩니다.
 
 - 반지름
 
@@ -50,11 +50,11 @@ Azure Maps에는 지리적 특징의 안팎을 검색할 수 있는 강력한 AP
 
 - 하위 유형
 
-    원 기하 도형에는 `subType` 속성도 포함되어야 합니다. 이 속성은 `GeoJSON Feature`의 속성에 포함 되 고 해당 값은 _원_ 이어야 합니다.
+    원 기하 도형에는 `subType` 속성도 포함되어야 합니다. 이 속성은 `GeoJSON Feature`속성의 일부 여야 하며 해당 값은 _원_ 이어야 합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
-다음은 중심으로 원을 표시 하는 방법입니다 (위도: 47.639754, 경도:-122.126986), 반지름은 100 미터와 같으며 개체를 `GeoJSON Feature` 사용 합니다.
+다음은 `GeoJSON Feature` 개체를 사용하여 반지름이 100미터이면서 위도: 47.639754, 경도: -122.126986에 중심을 둔 원을 나타내는 방법입니다.
 
 ```json            
 {
@@ -72,7 +72,7 @@ Azure Maps에는 지리적 특징의 안팎을 검색할 수 있는 강력한 AP
 
 ## <a name="rectangle"></a>직사각형
 
-[GeoJSON 사양][1]에서 기하도형을지원하지않습니다.`Rectangle` `GeoJSON Polygon Feature` 개체를 사용 하 여 사각형을 나타냅니다. 사각형 확장은 웹 SDK의 그리기 도구 모듈에서 주로 사용 됩니다.
+`Rectangle` 기 하 도형은 [GeoJSON 사양][1]에서 지원 되지 않습니다. `GeoJSON Polygon Feature` 개체를 사용 하 여 사각형을 나타냅니다. 사각형 확장은 웹 SDK의 그리기 도구 모듈에서 주로 사용 됩니다.
 
 `GeoJSON Polygon Feature` 개체를 사용하여 표현된 `Rectangle` 기하 도형은 다음 항목을 __반드시__ 포함해야 합니다.
 
@@ -82,9 +82,9 @@ Azure Maps에는 지리적 특징의 안팎을 검색할 수 있는 강력한 AP
 
 - 하위 유형
 
-    사각형 기 하 도형에도 `subType` 속성이 포함 되어야 합니다. 이 속성은 `GeoJSON Feature`의 속성에 포함 되 고 해당 값은 _사각형_ 이어야 합니다.
+    사각형 기 하 도형에도 `subType` 속성이 포함 되어야 합니다. 이 속성은 `GeoJSON Feature`속성의 일부 여야 하며 해당 값은 _사각형_ 이어야 합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```json
 {

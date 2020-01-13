@@ -1,6 +1,6 @@
 ---
-title: Azure Maps 인증 | Microsoft Docs
-description: Microsoft Azure Maps 서비스를 사용 하기 위한 Azure Active Directory (Azure AD) 또는 공유 키 인증. Azure Maps 구독 키를 가져오는 방법에 대해 알아봅니다.
+title: 인증 방법 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 서비스를 사용 하는 Azure Active Directory (Azure AD) 또는 공유 키 인증에 대해 알아봅니다. Azure Maps 구독 키를 가져오는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/30/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a58436063009b732a15e74c8a3fc3f95b8df29cf
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 006adae99b2430f4c08ce5fc692598e48f45c239
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834191"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911834"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 다각형 계층 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 다각형 계층을 추가 하는 방법입니다.
+title: 지도에 다각형 계층 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK에서 지도에 다각형 및 다중 다각형을 렌더링 하는 방법에 대해 설명 합니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ca6c0f5e6fde5a31655ed17f4a016bf44216643f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 77d952666be12d7dea780b3aa8f094cf5f70f2d3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976132"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911126"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>지도에 다각형 계층 추가
 
-이 문서에서는 다각형 계층을 사용 하 여 지도 `Polygon` 에 `MultiPolygon` 및 기능 기 하 도형 영역을 렌더링 하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 만들기도 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 됩니다. Atlas로 래핑된 경우 모든 기능 기 하 도형을 쉽게 업데이트할 수도 있습니다 [. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스입니다.
+이 문서에서는 다각형 계층을 사용 하 여 지도에 `Polygon`의 영역을 렌더링 하 고 기능 기 하 도형을 `MultiPolygon` 하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 만들기도 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 됩니다. Atlas로 래핑된 경우 모든 기능 기 하 도형을 쉽게 업데이트할 수도 있습니다 [. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스입니다.
 
 ## <a name="use-a-polygon-layer"></a>다각형 계층 사용 
 
-다각형 계층이 데이터 원본에 연결 되 고 지도에 로드 되 면 `Polygon` 및 `MultiPolygon` 기능의 영역을 렌더링 합니다. 다음 코드에서는 다각형을 만들어 데이터 소스에 추가 하 고 [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 클래스를 사용 하 여 polygon 계층으로 렌더링 하는 방법을 보여 줍니다.
+다각형 계층이 데이터 원본에 연결 되 고 지도에 로드 되 면 `Polygon` 영역을 렌더링 하 고 기능을 `MultiPolygon` 합니다. 다음 코드에서는 다각형을 만들어 데이터 소스에 추가 하 고 [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 클래스를 사용 하 여 polygon 계층으로 렌더링 하는 방법을 보여 줍니다.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -68,7 +68,7 @@ map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="다각형 채우기 패턴" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Polygon 채우기 패턴</a> 을 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Polygon 채우기 패턴</a> 을 참조 하세요.
 </iframe>
 
 
@@ -77,7 +77,7 @@ map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 
 ## <a name="customize-a-polygon-layer"></a>다각형 계층 사용자 지정
 
-다각형 계층에는 몇 가지 스타일 지정 옵션만 있습니다. 시도해볼 수 있는 도구는 다음과 같습니다.
+다각형 계층에는 몇 가지 스타일 지정 옵션만 있습니다. 사용할 도구는 다음과 같습니다.
 
 <br/>
 
@@ -88,7 +88,7 @@ map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 
 ## <a name="add-a-circle-to-the-map"></a>지도에 원 추가
 
-Azure Maps에는 [여기](extend-geojson.md#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `Point` `subType` 값 이인`"Circle"` 속성이 있는 기능을 만들고 미터 단위를 나타내는 숫자가 있는 속성을사용하여지도에서원을렌더링할수있습니다.`radius` 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+Azure Maps에는 [여기](extend-geojson.md#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. 값이 `"Circle"` 인 `subType` 속성이 있는 `Point` 기능을 만들고 미터 단위를 나타내는 숫자가 있는 `radius` 속성을 만들어 지도에서 원을 렌더링할 수 있습니다. 예:
 
 ```javascript
 {
@@ -104,7 +104,7 @@ Azure Maps에는 [여기](extend-geojson.md#circle)에 나와 있는 것 처럼 
 }  
 ```
 
-Azure Maps 웹 SDK는 다음 코드 `Point` 샘플에 `Polygon` 표시 된 것 처럼 이러한 기능을 내부적으로 기능으로 변환 하 고 다각형 및 선 계층을 사용 하 여 지도에서 렌더링할 수 있습니다.
+Azure Maps 웹 SDK는 다음 코드 샘플에 표시 된 것 처럼 이러한 `Point` 기능을 `Polygon` 기능으로 변환 하 고 다각형 및 선 계층을 사용 하 여 지도에서 렌더링할 수 있습니다.
 
 <br/>
 
@@ -113,7 +113,7 @@ Azure Maps 웹 SDK는 다음 코드 `Point` 샘플에 `Polygon` 표시 된 것 �
 
 ## <a name="make-a-geometry-easy-to-update"></a>업데이트 하기 쉬운 기 하 도형 만들기
 
-클래스 `Shape` 는 [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) 또는 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) 을 래핑하고 쉽게 업데이트 하 고 유지 관리할 수 있도록 합니다. 도형은 다음 코드와 같이 geometry 및 속성 집합을 전달 하거나 기능을 전달 하 여 만들 수 있습니다.
+`Shape` 클래스는 [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) 또는 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) 을 래핑하고 쉽게 업데이트 하 고 유지 관리할 수 있도록 합니다. 도형은 다음 코드와 같이 geometry 및 속성 집합을 전달 하거나 기능을 전달 하 여 만들 수 있습니다.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.

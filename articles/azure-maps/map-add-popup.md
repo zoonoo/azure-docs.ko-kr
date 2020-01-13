@@ -1,6 +1,6 @@
 ---
-title: Azure Maps로 팝업 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 팝업을 추가 하는 방법입니다.
+title: 맵의 점에 팝업 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지점에 팝업을 추가 하는 방법에 대해 설명 합니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cde6c745034d0963bd372e36e6e5a046113c202b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 79bafb331cb7ad38ea7cad9e510b22886b647764
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976561"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911143"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "68976561"
 
 ## <a name="understand-the-code"></a>코드 이해
 
-다음 코드에서는 기호 계층을 사용 하 여 `name` 및 `description` 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 마우스 이벤트가 기호 계층에 추가 되어 마우스로 기호 마커를 가리키거나 끌 때 팝업을 트리거하고 팝업을 닫습니다. 표식 기호가 가리킴 `position` 이면 팝업의 속성이 표식의 위치로 업데이트 되 `content` 고 옵션은 마우스가 가리키는 point 기능의 및 `description` 속성을 `name` 래핑하는 일부 HTML로 업데이트 됩니다. 그런 다음 `open` 함수를 사용 하 여 맵에 팝업을 표시 합니다.
+다음 코드에서는 기호 계층을 사용 하 여 `name` 및 `description` 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 마우스 이벤트가 기호 계층에 추가 되어 마우스로 기호 마커를 가리키거나 끌 때 팝업을 트리거하고 팝업을 닫습니다. 표식 기호가 가리킴 이면 팝업의 `position` 속성이 표식의 위치로 업데이트 되 고 `content` 옵션이 가리키고 있는 point 기능의 `name` 및 `description` 속성을 래핑하는 일부 HTML로 업데이트 됩니다. 그러면 팝업이 해당 `open` 함수를 사용 하 여 맵에 표시 됩니다.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -99,7 +99,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="사용자 지정 된 팝업" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>사용자 지정 팝업</a> 을 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 펜으로 <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>사용자 지정 된 팝업</a> 을 참조 하세요.
 </iframe>
 
 ## <a name="popup-events"></a>Popup 이벤트
@@ -109,7 +109,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Popup 이벤트" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>팝업 이벤트</a> 를 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>팝업 이벤트</a> 를 참조 하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계
@@ -117,7 +117,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)

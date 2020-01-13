@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 데이터 피드백을 제공 하는 방법 | Microsoft Docs
-description: Azure Maps 피드백 도구를 사용 하 여 데이터 피드백을 제공 합니다.
+title: Azure Maps에 대 한 데이터 피드백 제공 Microsoft Azure 맵
+description: Microsoft Azure Maps 피드백 도구를 사용 하 여 데이터 피드백을 제공 합니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/19/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 28c463204080296e431edb3c30b4fdd66f07a189
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 59670742586f596a817ad52383160a38358a6786
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776595"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911376"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Azure Maps에 대 한 데이터 피드백 제공
 
@@ -54,7 +54,7 @@ Azure Maps은 일반적으로 2018 년 5 월부터 사용할 수 있으며, 새�
 
 사용자 의견 도구를 사용 하 여 위치를 검색할 수 있을 뿐 아니라 위치와 관련 된 세부 정보에 대 한 자유 형식 텍스트 주석도 추가할 수도 있습니다. 위치에 대 한 주석을 추가 하거나 위치를 클릭 하 고 "주석 추가"를 클릭 하 고, 주석을 쓴 후 "제출"을 클릭 합니다. 
 
-  ![주석 추가](./media/how-to-use-feedback-tool/add-comment.png)
+  ![설명 추가](./media/how-to-use-feedback-tool/add-comment.png)
 
 ## <a name="track-status"></a>상태 추적 
 

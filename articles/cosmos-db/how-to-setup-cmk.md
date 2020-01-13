@@ -4,14 +4,15 @@ description: Azure Cosmos DB 계정에 대해 고객이 관리 하는 키를 구
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/11/2020
 ms.author: thweiss
-ms.openlocfilehash: 32266abd5bcf8d7e137095d130ee872cc07edaf0
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ROBOTS: noindex, nofollow
+ms.openlocfilehash: 964c3e4e2de43e6bcae353f0b525eb62e6613361
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904082"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911880"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정의 고객이 관리 하는 키 구성
 
@@ -30,13 +31,13 @@ Azure Cosmos DB 계정에 저장 된 데이터는 자동으로 암호화 됩니�
 
 ### <a name="1-make-sure-the-azure-cosmos-db-resource-provider-is-registered-for-your-azure-subscription"></a>1. Azure Cosmos DB 리소스 공급자가 Azure 구독에 등록 되어 있는지 확인 합니다.
 
-Azure Portal에서 Azure 구독으로 이동 하 고 왼쪽 메뉴에서 "리소스 공급자"를 선택 합니다.
+Azure Portal에서 Azure 구독으로 이동 하 고 왼쪽 메뉴에서 **리소스 공급자** 를 선택 합니다.
 
 ![왼쪽 메뉴의 "리소스 공급자" 항목](./media/how-to-setup-cmk/portal-rp.png)
 
-"Microsoft DocumentDB" 리소스 공급자를 검색 합니다.
+**Microsoft DocumentDB** 리소스 공급자를 검색 합니다.
 - 리소스 공급자가 이미 등록 된 것으로 표시 된 경우 아무 작업도 수행 하지 않아도 됩니다.
-- 그렇지 않은 경우 선택 하 고 "등록"을 클릭 합니다.
+- 그렇지 않으면 선택 하 고 **등록**을 클릭 합니다.
 
     ![Microsoft DocumentDB 리소스 공급자를 등록 하는 중](./media/how-to-setup-cmk/portal-rp-register.png)
 
@@ -50,34 +51,34 @@ Azure Cosmos DB에서 고객이 관리 하는 키를 사용 하려면 암호화 
 
 ### <a name="3-add-an-access-policy-to-your-azure-key-vault-instance"></a>3. Azure Key Vault 인스턴스에 액세스 정책을 추가 합니다.
 
-Azure Portal에서 암호화 키를 호스트 하는 데 사용할 Azure Key Vault 인스턴스로 이동 합니다. 그런 다음 왼쪽 메뉴에서 "액세스 정책"을 선택 합니다.
+Azure Portal에서 암호화 키를 호스트 하는 데 사용할 Azure Key Vault 인스턴스로 이동 합니다. 그런 다음 왼쪽 메뉴에서 **액세스 정책** 을 선택 합니다.
 
 ![왼쪽 메뉴의 "액세스 정책"](./media/how-to-setup-cmk/portal-akv-ap.png)
 
-- "+ 액세스 정책 추가"를 클릭 합니다.
-- "키 사용 권한" 드롭다운 메뉴에서 "가져오기", "키 래핑 해제" 및 "키 래핑"을 선택 합니다.
+- **+ 액세스 정책 추가** 를 선택 합니다.
+- **키 권한** 드롭다운 메뉴에서 **가져오기**, **키 래핑** 및 **키 래핑**을 선택 합니다.
 
     ![적절 한 사용 권한 선택](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-- "보안 주체 선택"에서 "선택 하지 않음"을 클릭 하 고 "Azure Cosmos DB" 보안 주체를 검색 하 여 선택한 다음 맨 아래에 있는 "선택"을 클릭 합니다. "Azure Cosmos DB" 보안 주체를 찾을 수 없는 경우 "Microsoft DocumentDB" 리소스를 다시 등록 해야 할 수 있습니다. 2 단계에서 제공 되는 공급자):
+- **보안 주체 선택**에서 선택 **안 함**을 선택 합니다. 그런 다음 **Azure Cosmos DB** 보안 주체를 검색 하 고 선택 합니다. 마지막으로 맨 아래에서 **선택** 을 클릭 합니다. **Azure Cosmos DB** 보안 주체가 없는 경우 1 단계에서 **Microsoft DocumentDB** 리소스 공급자를 다시 등록 해야 할 수 있습니다.
 
     ![Azure Cosmos DB 보안 주체 선택](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
-- "추가"를 클릭 하 여 새 액세스 정책을 추가 합니다.
+- **추가** 를 선택 하 여 새 액세스 정책을 추가 합니다.
 
 ### <a name="4-generate-a-key-in-azure-key-vault"></a>4. Azure Key Vault에서 키를 생성 합니다.
 
-Azure Portal에서 암호화 키를 호스트 하는 데 사용할 Azure Key Vault 인스턴스로 이동 합니다. 그런 다음 왼쪽 메뉴에서 "키"를 선택 합니다.
+Azure Portal에서 암호화 키를 호스트 하는 데 사용할 Azure Key Vault 인스턴스로 이동 합니다. 그런 다음 왼쪽 메뉴에서 **키** 를 선택 합니다.
 
 ![왼쪽 메뉴의 "키" 항목](./media/how-to-setup-cmk/portal-akv-keys.png)
 
-- "생성/가져오기"를 클릭 합니다.
-- 새 키의 이름을 제공 하 고, RSA 키 크기를 선택 하 고 (최상의 보안을 위해 최소 3072을 권장) "만들기"를 클릭 합니다.
+- **생성/가져오기** 선택
+- 새 키의 이름을 제공 하 고, RSA 키 크기를 선택 하 고 (최상의 보안을 위해 최소 3072을 권장), **만들기**를 선택 합니다.
 
     ![새 키 만들기](./media/how-to-setup-cmk/portal-akv-gen.png)
 
 - 키를 만든 후에는 새로 만든 키를 클릭 한 다음 현재 버전에서
-- 마지막 슬래시 뒤의 부분을 제외 하 고 키의 "키 식별자"를 복사 합니다.
+- 마지막 슬래시 뒤의 부분을 제외 하 고 키의 **키 식별자** 를 복사 합니다.
 
     ![키의 키 식별자 복사](./media/how-to-setup-cmk/portal-akv-keyid.png)
 
@@ -85,15 +86,18 @@ Azure Portal에서 암호화 키를 호스트 하는 데 사용할 Azure Key Vau
 
 #### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-Azure Portal에서 새 Azure Cosmos DB 계정을 만들 때 "암호화" 단계에서 "고객 관리 키"를 선택 합니다. "키 URI" 필드에서 4 단계에서 복사한 Azure Key Vault 키의 URI를 전달 합니다.
+Azure Portal에서 새 Azure Cosmos DB 계정을 만들 때 **암호화** 단계에서 **고객 관리 키** 를 선택 합니다. **키 uri** 필드에서 4 단계에서 복사한 Azure Key Vault 키의 URI를 전달 합니다.
 
 ![Azure Portal에서 CMK 매개 변수 설정](./media/how-to-setup-cmk/portal-cosmos-enc.png)
 
 #### <a name="using-powershell"></a>PowerShell 사용
 
 PowerShell을 사용 하 여 새 Azure Cosmos DB 계정을 만들 때
-- "PropertyObject"의 "keyVaultKeyUri" 속성 아래에서 4 단계에서 복사한 Azure Key Vault 키의 URI를 전달 합니다.
+- **Propertyobject**의 **keyVaultKeyUri** 속성 아래에서 4 단계에서 복사한 Azure Key Vault 키의 URI를 전달 합니다.
 - API 버전으로 "2019-12-12"을 사용 해야 합니다.
+
+> [!IMPORTANT]
+> CMK를 사용 하 여 계정을 성공적으로 만들려면 `Location` 매개 변수를 명시적으로 설정 해야 합니다.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -118,10 +122,13 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 #### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 
 Azure Resource Manager 템플릿을 통해 새 Azure Cosmos DB 계정을 만들 때:
-- "properties" 개체의 "keyVaultKeyUri" 속성 아래에서 4 단계에서 복사한 Azure Key Vault 키의 URI를 전달 합니다.
+- **속성** 개체의 **keyVaultKeyUri** 속성 아래에서 4 단계에서 복사한 Azure Key Vault 키의 URI를 전달 합니다.
 - API 버전으로 "2019-12-12"을 사용 해야 합니다.
 
-```
+> [!IMPORTANT]
+> CMK를 사용 하 여 계정을 성공적으로 만들려면 `location` 매개 변수를 명시적으로 설정 해야 합니다.
+
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",

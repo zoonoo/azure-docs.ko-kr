@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dd315277e6e8f29a103760d605a7da4603190c20
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639857"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908862"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure Front 도어 서비스에 대 한 질문과 대답
 
@@ -99,7 +99,7 @@ Azure Front 도어 서비스는 전역적으로 분산 된 다중 테 넌 트 �
     > 앞 도어의 백 엔드 IP 공간은 나중에 변경 될 수 있지만,이를 위해 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)와 통합 될 예정입니다. 변경 또는 업데이트에 대 한 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 를 구독 하는 것이 좋습니다.
 
 -   Front 도어가 보낸 들어오는 헤더 '**X-전달-호스트**'의 값을 필터링 합니다. 전면 도어 구성에 정의 된 대로 헤더에 대해 허용 되는 유일한 값은 모든 프런트 엔드 호스트 여야 합니다. 실제로는 사용자의이 특정 백 엔드에서 트래픽을 허용 하려는 호스트 이름만 있으면 됩니다.
-    - 예 – 프런트 도어 구성에 다음 프런트 엔드 호스트 _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C) 및 _`notifications.contoso.com`_ (D)가 있다고 가정 합니다. 두 개의 백 엔드 X와 Y가 있다고 가정해 보겠습니다. 
+    - 예 – 프런트 도어 구성에 다음 프런트 엔드 호스트 _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _`api.contoso.com`_ (C) 및 _`notifications.contoso.com`_ (D)가 있다고 가정 합니다. 두 개의 백 엔드 X와 Y가 있다고 가정해 보겠습니다. 
     - 백 엔드 X는 호스트 이름 A와 B의 트래픽만 사용 해야 합니다. 백 엔드 Y는 A, C, D에서 트래픽을 사용할 수 있습니다.
     - 따라서 백 엔드 X에서 헤더 '**X로 전달 된-Host**'가 _`contoso.azurefd.net`_ 또는 _`www.contoso.com`_ 로 설정 된 트래픽만 수락 해야 합니다. 다른 모든 항목에 대해 백 엔드 X는 트래픽을 거부 해야 합니다.
     - 마찬가지로, 백 엔드의 경우 헤더 "**X-전달-호스트**"가 _`contoso.azurefd.net`_ , _`api.contoso.com`_ 또는 _`notifications.contoso.com`_ 로 설정 된 트래픽만 수락 해야 합니다. 다른 모든 항목에 대해 백 엔드 Y는 트래픽을 거부 해야 합니다.

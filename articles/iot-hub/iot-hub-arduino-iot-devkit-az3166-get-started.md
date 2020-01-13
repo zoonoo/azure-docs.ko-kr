@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 3cdeecd5b7698274b899832d7a66a5572a114e4b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 139d1a470c67d5dab310c4fa2a9171f433df2061
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954509"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912370"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -36,7 +36,7 @@ DevKit가 아직 없으세요? [DevKit 시뮬레이터](https://azure-samples.gi
 
 * 마이크로 USB 케이블로 MXChip IoT DevKit 보드 [지금 사용해 보세요](https://aka.ms/iot-devkit-purchase).
 * Windows 10, macOS 10.10 + 또는 Ubuntu 18.04 +를 실행 하는 컴퓨터
-* 활성 Azure 구독. [30일 평가판 Microsoft Azure 계정](https://azureinfo.microsoft.com/us-freetrial.html) 활성화
+* 활성화된 Azure 구독. [30일 평가판 Microsoft Azure 계정](https://azureinfo.microsoft.com/us-freetrial.html) 활성화
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
   
@@ -174,7 +174,7 @@ DevKit는 IoT hub의 장치 특정 끝점에 연결 하 여 온도 및 습도 �
     > [Azure IoT Tools 확장 팩 설치](vscode:extension/vsciot-vscode.azure-iot-tools)
 
     > [!NOTE]
-    > Azure IoT Tools 확장 팩에는 다양 한 IoT devkit 장치에서 개발 하 고 디버그 하는 데 사용 되는 [Azure Iot 장치 워크 벤치](https://aka.ms/iot-workbench) 가 포함 되어 있습니다. Azure IoT Tools 확장 팩에도 포함 된 [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit)은 Azure iot hub를 관리 하 고 상호 작용 하는 데 사용 됩니다.
+    > Azure IoT Tools 확장 팩에는 다양 한 IoT devkit 장치에서 개발 하 고 디버그 하는 데 사용 되는 [Azure Iot 장치 워크 벤치](https://aka.ms/iot-workbench) 가 포함 되어 있습니다. Azure IoT Tools 확장 팩에도 포함 된 [Azure IoT Hub 확장](https://aka.ms/iot-toolkit)은 Azure iot hub를 관리 하 고 상호 작용 하는 데 사용 됩니다.
 
 5. Arduino 설정을 사용하여 VS Code를 구성합니다.
 
@@ -328,7 +328,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고, 이전에 만든 IoT Hub를 찾습니다.
 
-    ![Azure 포털](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
+    ![Azure Portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
 1. **공유 액세스 정책** 창에서 **iothubowner** 정책을 클릭하고, IoT Hub의 연결 문자열을 기록해 둡니다.
 

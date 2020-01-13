@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에서 웹 맵 컨트롤 시작 Microsoft Docs
-description: Azure Maps 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용 하는 방법에 대해 알아봅니다.
+title: 웹 맵 컨트롤 시작 | Microsoft Azure 맵
+description: Microsoft Azure 맵 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용 하 여 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링 하는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d70d0e1107a6ee1b53b178d8912c1b808472b142
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d50b97ad47f4b09ae4fec363e7d0a2c7f6b841df
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432906"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911348"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 

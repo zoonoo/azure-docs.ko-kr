@@ -1,7 +1,6 @@
 ---
-title: Azure Maps에서 지도 스타일 선택
-titleSuffix: Azure Maps
-description: Azure Maps 스타일 관련 기능에 대해 알아봅니다.
+title: 지도 스타일 기능 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK에서 제공 되는 스타일 관련 기능에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e1d3d1b5904eded9f35c5ba628bea6426e7afaf0
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b92e03c4e5346dd39eaba84cfeeedb93e418678c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531550"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911790"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Azure Maps에서 지도 스타일 선택
 

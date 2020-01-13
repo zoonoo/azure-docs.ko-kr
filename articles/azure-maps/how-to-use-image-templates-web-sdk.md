@@ -1,6 +1,6 @@
 ---
-title: Azure Maps 웹 SDK의 이미지 템플릿 | Microsoft Docs
-description: Azure Maps 웹 SDK에서 이미지 템플릿을 사용 하는 방법
+title: Azure Maps 웹 SDK의 이미지 템플릿 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK에서 HTML 표식 및 다양 한 계층으로 이미지 템플릿을 사용 하는 방법에 대해 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: b9b1543ca37c636f4a82ff9ada3dfe212fa9b8d0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976662"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911565"
 ---
 # <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용하는 방법
 
-Azure Maps 웹 SDK에서 이미지는 HTML 표식 및 다양 한 계층으로 사용할 수 있습니다.
+Azure Maps 웹 SDK 내에서 HTML 표식 및 다양 한 계층에 이미지를 사용할 수 있습니다.
 
  - 기호 레이어는 이미지 아이콘이 있는 지도에서 요소를 렌더링할 수 있습니다. 줄 경로를 따라 기호를 렌더링할 수도 있습니다.
  - 다각형 계층은 채우기 패턴 이미지를 사용 하 여 렌더링할 수 있습니다. 
@@ -26,13 +26,13 @@ Azure Maps 웹 SDK에서 이미지는 HTML 표식 및 다양 한 계층으로 �
 
 레이어를 사용 하 여 성능을 보장 하기 위해 이러한 이미지를 렌더링 하기 전에 지도 이미지 스프라이트 리소스에 로드 해야 합니다. 기호 계층의 [Iconoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) 는 기본적으로 몇 가지 색의 표식 이미지를 지도 이미지 스프라이트에 미리 로드 합니다. 이와 동일한 표식 이미지는 SVG 템플릿으로 사용할 수 있으며, 고객 기본 및 보조 색 뿐만 아니라 사용자 지정 눈금으로 이미지를 만드는 데 사용할 수 있습니다. 총 42 이미지 템플릿이 제공 되었습니다. 27 개의 기호 아이콘 및 15 개의 다각형 채우기 패턴.
 
-이미지 템플릿은 함수를 `map.imageSprite.createFromTemplate` 사용 하 여 지도 이미지 스프라이트 리소스에 추가할 수 있습니다. 이 함수를 사용 하면 최대 5 개의 매개 변수를 전달할 수 있습니다.
+`map.imageSprite.createFromTemplate` 함수를 사용 하 여 이미지 템플릿에 지도 이미지 스프라이트 리소스를 추가할 수 있습니다. 이 함수를 사용 하면 최대 5 개의 매개 변수를 전달할 수 있습니다.
 
 ```javascript
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-여기서는 `id` 맵 이미지 스프라이트에 추가 될 때 이미지에 할당 되는 고유 식별자입니다. 레이어에이 식별자를 사용 하 여 렌더링할 이미지 리소스를 지정 합니다. 는 `templateName` 사용할 이미지 템플릿을 지정 합니다. 옵션 `color` 은 이미지의 기본 색을 설정 하 고 옵션 `secondaryColor` 은 이미지의 보조 색을 설정 합니다. 옵션 `scale` 은 이미지 스프라이트에 이미지를 적용 하기 전에 이미지 템플릿을 확장 합니다. 이미지가 이미지 스프라이트에 적용 되 면 PNG로 변환 됩니다. 선명 하 게 렌더링 하려면 레이어에 크기를 조정 하는 것 보다 이미지를 스프라이트에 추가 하기 전에 이미지 템플릿을 확장 하는 것이 좋습니다.
+여기서 `id`는 맵 이미지 스프라이트에 추가 될 때 이미지에 할당 되는 고유 식별자입니다. 레이어에이 식별자를 사용 하 여 렌더링할 이미지 리소스를 지정 합니다. 사용할 이미지 템플릿을 지정 하 `templateName`입니다. `color` 옵션은 이미지의 기본 색을 설정 하 고 `secondaryColor` 옵션은 이미지의 보조 색을 설정 합니다. `scale` 옵션은 이미지 스프라이트에 이미지를 적용 하기 전에 이미지 템플릿의 크기를 조정 합니다. 이미지가 이미지 스프라이트에 적용 되 면 PNG로 변환 됩니다. 선명 하 게 렌더링 하려면 레이어에 크기를 조정 하는 것 보다 이미지를 스프라이트에 추가 하기 전에 이미지 템플릿을 확장 하는 것이 좋습니다.
 
 이 함수는 이미지 스프라이트에 이미지를 비동기적으로 로드 하므로이 함수가 완료 될 때까지 기다릴 수 있는 약속을 반환 합니다.
 
@@ -52,21 +52,21 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 ## <a name="use-an-image-template-with-a-symbol-layer"></a>기호 계층과 함께 이미지 템플릿 사용
 
-이미지 템플릿이 맵 이미지 스프라이트에 로드 되 면 `image` `iconOptions`의 옵션에서 이미지 리소스 ID를 참조 하 여 기호 계층에서 기호로 렌더링 될 수 있습니다.
+이미지 템플릿이 맵 이미지 스프라이트에 로드 되 면 `iconOptions`의 `image` 옵션에서 이미지 리소스 ID를 참조 하 여 기호 계층에서 기호로 렌더링할 수 있습니다.
 
-다음 샘플에서는 청록 기본 색과 흰색 보조 `marker-flat` 색을 사용 하 여 이미지 템플릿을 사용 하 여 기호 계층을 렌더링 합니다. 
+다음 샘플에서는 청록 기본 색과 흰색 보조 색을 사용 하 여 `marker-flat` 이미지 템플릿을 사용 하 여 기호 계층을 렌더링 합니다. 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿이 있는 기호 계층" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 사용 하 여 <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>기본 제공 아이콘 템플릿이 있는 펜 기호 계층</a> 을 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 사용 하 여 <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>기본 제공 아이콘 템플릿이 있는 펜 기호 계층</a> 을 참조 하세요.
 </iframe>
 
 ## <a name="use-an-image-template-along-a-lines-path"></a>선 경로를 따라 이미지 템플릿 사용
 
-이미지 템플릿이 맵 이미지 스프라이트에 로드 되 면 데이터 원본에 LineString를 추가 하 고 `lineSpacing`옵션을 사용 하 여 기호 계층을 사용 하 고 `image` 옵션에서 이미지 리소스의 ID를 참조 하 여 선 경로를 따라 렌더링할 수 있습니다. f 번째 `iconOptions`. 
+이미지 템플릿이 맵 이미지 스프라이트에 로드 되 면 데이터 원본에 LineString를 추가 하 고 `lineSpacing`옵션과 함께 기호 계층을 사용 하 고 `iconOptions`의 `image` 옵션에서 이미지 리소스의 ID를 참조 하 여 선 경로를 따라 렌더링할 수 있습니다. 
 
-다음 샘플에서는 지도의 분홍색 선을 렌더링 하 고 진한 하늘색 blue 기본 색과 흰색 보조 색 `car` 을 사용 하는 이미지 템플릿을 사용 하 여 기호 계층을 사용 합니다. 
+다음 샘플에서는 지도의 분홍색 선을 렌더링 하 고 진한 하늘색 blue 기본 색과 흰색 보조 색을 사용 하는 `car` 이미지 템플릿을 사용 하 여 기호 계층을 사용 합니다. 
 
 <br/>
 
@@ -75,18 +75,18 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 </iframe>
 
 > [!TIP]
-> 이미지 템플릿이 가리키는 경우 기호와 동일한 방향을 가리키도록 기호 `rotation` 계층의 아이콘 옵션을 90로 설정 합니다.
+> 이미지 템플릿이 가리키는 경우에는 기호와 동일한 방향을 가리키도록 기호 계층의 `rotation` 아이콘 옵션을 90로 설정 합니다.
 
 ## <a name="use-an-image-template-with-a-polygon-layer"></a>다각형 계층에 이미지 템플릿 사용
 
-이미지 템플릿이 지도 이미지 스프라이트에 로드 되 면 계층의 `fillPattern` 옵션에서 이미지 리소스 ID를 참조 하 여 다각형 계층에서 채우기 패턴으로 렌더링할 수 있습니다.
+이미지 템플릿이 지도 이미지 스프라이트에 로드 되 면 계층의 `fillPattern` 옵션에서 이미지 리소스 ID를 참조 하 여 polygon 계층에서 채우기 패턴으로 렌더링할 수 있습니다.
 
-다음 샘플에서는 빨강 기본 색과 투명 한 `dot` 보조 색을 사용 하 여 이미지 템플릿을 사용 하 여 다각형 계층을 렌더링 합니다.  
+다음 샘플에서는 빨강 기본 색과 투명 한 보조 색을 사용 하 여 `dot` 이미지 템플릿을 사용 하 여 다각형 계층을 렌더링 합니다.  
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿으로 다각형 채우기" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 사용 하 여 <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>기본 제공 아이콘 템플릿이 있는 펜 채우기 다각형</a> 을 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 사용 하 여 <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>기본 제공 아이콘 템플릿이 있는 펜 채우기 다각형</a> 을 참조 하세요.
 </iframe>
 
 > [!TIP]
@@ -94,29 +94,29 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 ## <a name="use-an-image-template-with-an-html-marker"></a>HTML 표식과 함께 이미지 템플릿 사용
 
-이미지 템플릿은 함수를 `altas.getImageTemplate` 사용 하 여 검색 하 고 HTML 표식의 콘텐츠로 사용할 수 있습니다. 템플릿은 표식의 `htmlContent` 옵션으로 전달 된 다음 `color`, `secondaryColor`및 `text` 옵션을 사용 하 여 사용자 지정할 수 있습니다.
+`altas.getImageTemplate` 함수를 사용 하 여 이미지 템플릿을 검색 하 여 HTML 표식의 내용으로 사용할 수 있습니다. 템플릿은 표식의 `htmlContent` 옵션으로 전달 된 다음 `color`, `secondaryColor`및 `text` 옵션을 사용 하 여 사용자 지정할 수 있습니다.
 
-다음 샘플에서는 빨강 기본 `marker-arrow` 색, 분홍색 보조 색 및 텍스트 값 "00"을 사용 하 여 템플릿을 사용 합니다.
+다음 샘플에서는 빨강 기본 색, 분홍색 보조 색 및 텍스트 값 "00"을 사용 하 여 `marker-arrow` 템플릿을 사용 합니다.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿이 있는 HTML 표식" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 사용 하 여 <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>기본 제공 아이콘 템플릿이 있는 Pen HTML 마커</a> 를 확인 합니다.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 사용 하 여 <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>기본 제공 아이콘 템플릿이 있는 Pen HTML 마커</a> 를 참조 하세요.
 </iframe>
 
 ## <a name="create-custom-reusable-templates"></a>재사용 가능한 사용자 지정 템플릿 만들기
 
-응용 프로그램에서 아이콘이 다른 아이콘을 사용 하거나 추가 이미지 템플릿을 추가 하는 모듈을 만드는 경우에는 `atlas` 다음 정적 함수를 사용 하 여 Azure Maps 웹 SDK에서 이러한 아이콘을 쉽게 추가 하 고 검색할 수 있습니다. 공간.
+응용 프로그램에서 아이콘이 다른 아이콘을 사용 하거나 추가 이미지 템플릿을 추가 하는 모듈을 만드는 경우 `atlas` 네임 스페이스에서 다음 정적 함수를 사용 하 여 Azure Maps 웹 SDK에서 이러한 아이콘을 쉽게 추가 하 고 검색할 수 있습니다.
 
-| 이름 | 반환 형식 | 설명 | 
+| 이름 | 반환 형식 | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Atlas 네임 스페이스에 사용자 지정 SVG 이미지 템플릿을 추가 합니다. |
-|  `getImageTemplate(templateName: string, scale?: number)`| string | 이름으로 SVG 템플릿을 검색 합니다. |
+|  `getImageTemplate(templateName: string, scale?: number)`| 문자열 | 이름으로 SVG 템플릿을 검색 합니다. |
 | `getAllImageTemplateNames()` | string[] |  이름으로 SVG 템플릿을 검색 합니다. |
 
 SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 
-| Placeholder | Description |
+| 자리 표시자 | Description |
 |-|-|
 | `{color}` | 기본 색입니다. | 
 | `{secondaryColor}` | 보조 색입니다. | 
@@ -128,7 +128,7 @@ SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Atlas 네임 스페이스에 사용자 지정 아이콘 템플릿 추가" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 통해 <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>atlas 네임 스페이스에 펜 사용자 지정 아이콘 템플릿 추가를</a> 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>를 통해 atlas 네임 스페이스에 펜 사용자 지정 아이콘 템플릿 추가를</a> 참조 하세요.
 </iframe>
 
 ## <a name="list-of-image-templates"></a>이미지 템플릿 목록
@@ -145,7 +145,7 @@ SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 | 표식-사각형 | 표식-제곱-클러스터 | 표식-화살표 | 표식-공 핀 | 
 |![표식-사각형 아이콘](./media/image-templates/marker-square.png)|![표식-사각형-클러스터 아이콘](./media/image-templates/marker-square-cluster.png)|![표식-화살표 아이콘](./media/image-templates/marker-arrow.png)|![표식-공 핀 아이콘](./media/image-templates/marker-ball-pin.png)|
 ||||
-| 표식-둥근 사각형 | 표식-둥근 사각형-클러스터 | 플래그만 | 플래그-삼각형 |
+| 표식-둥근 사각형 | 표식-둥근 사각형-클러스터 | 플래그입니다. | 플래그-삼각형 |
 | ![표식-둥근 사각형 아이콘](./media/image-templates/marker-square-rounded.png) | ![표식-둥근 모양-클러스터 아이콘](./media/image-templates/marker-square-rounded-cluster.png) | ![플래그 아이콘](./media/image-templates/flag.png) | ![플래그-삼각형 아이콘](./media/image-templates/flag-triangle.png) |
 ||||
 | 삼각형 | 삼각형-굵은 | 삼각형-위쪽 화살표 | 삼각형-왼쪽 화살표 |
@@ -157,14 +157,14 @@ SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 | 고정 | 핀 반올림 | 둥근 사각형 | 둥근 사각형-굵고 |
 | ![고정 아이콘](./media/image-templates/pin.png) | ![핀 둥근 모양 아이콘](./media/image-templates/pin-round.png) | ![둥근 사각형 아이콘](./media/image-templates/rounded-square.png) | ![둥근 사각형-굵은 아이콘](./media/image-templates/rounded-square-thick.png) |
 ||||
-| 위쪽 화살표 | 화살표-위쪽-씬 | car ||
+| 위쪽 화살표 | 화살표-위쪽-씬 | 차량 ||
 | ![화살표 아이콘](./media/image-templates/arrow-up.png) | ![화살표-위쪽 화살표 아이콘](./media/image-templates/arrow-up-thin.png) | ![자동차 아이콘](./media/image-templates/car.png) | |
 
 **다각형 채우기 패턴 템플릿**
 
 |||||
 |:-:|:-:|:-:|:-:|
-| 맞춤법 | 검사기 회전 | 원이 | 원-간격 |
+| 맞춤법 | 검사기 회전 | 원 | 원-간격 |
 | ![검사기 아이콘](./media/image-templates/checker.png) | ![검사기 회전 아이콘](./media/image-templates/checker-rotated.png) | ![원 아이콘](./media/image-templates/circles.png) | ![원-간격 아이콘](./media/image-templates/circles-spaced.png) |
 |||||
 | 대각선-위쪽 | 대각선 줄 다운 | 대각선-줄무늬-위쪽 | 대각선-아래쪽 줄무늬 |

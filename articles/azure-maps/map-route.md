@@ -1,6 +1,6 @@
 ---
-title: Azure Maps로 방향 표시 | Microsoft Docs
-description: Azure Maps 웹 SDK를 사용 하 여 맵의 두 위치 사이에 방향을 표시 하는 방법입니다.
+title: 지도에 경로 방향 표시 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 맵의 두 위치 사이에 방향을 표시 하는 방법을 알아봅니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: cf997d4ae120f3e9309892b112f9954bde97bc76
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 53e207e33c56455642edc9dcfcf328f5ca87945f
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976481"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910976"
 ---
 # <a name="show-directions-from-a-to-b"></a>A에서 B로의 방향 표시
 
@@ -29,7 +29,7 @@ ms.locfileid: "68976481"
 
 위의 코드에서 첫 번째 코드 블록은 맵 개체를 생성 하 고 액세스 토큰을 활용 하도록 인증 메커니즘을 설정 합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록은 액세스 토큰 `TokenCredential` 을 사용 하 여 Azure Maps 하기 위해 HTTP 요청을 인증 하는을 만듭니다. 그런 다음 `TokenCredential` 를에 `atlas.service.MapsURL.newPipeline()` 전달 하 고 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](https://docs.microsoft.com/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
+두 번째 코드 블록은 액세스 토큰을 사용 하 여 Azure Maps HTTP 요청을 인증 하는 `TokenCredential`을 만듭니다. 그런 다음 `atlas.service.MapsURL.newPipeline()`에 `TokenCredential`를 전달 하 고 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](https://docs.microsoft.com/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
 
 세 번째 코드 블록은 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 개체를 만들어 맵에 추가 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "68976481"
 
 [기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다. 다섯 번째 코드 블록은 지도에 기호 계층을 만들고 추가 합니다.
 
-여섯 번째 코드 블록은 [서비스 모듈](how-to-use-services-module.md)의 일부인 Azure Maps 라우팅 서비스를 쿼리 합니다. RouteURL의 [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) 메서드는 시작점과 끝점 간의 경로를 가져오는 데 사용 됩니다. 그런 다음 응답에서 GeoJSON feature 컬렉션은 메서드를 `geojson.getFeatures()` 사용 하 여 추출 되 고 datasource에 추가 됩니다. 그런 다음, 응답을 지도에 경로로 렌더링합니다. 지도에 선을 추가하는 방법에 대한 자세한 내용은 [지도에 선 추가](map-add-line-layer.md)를 참조하세요.
+여섯 번째 코드 블록은 [서비스 모듈](how-to-use-services-module.md)의 일부인 Azure Maps 라우팅 서비스를 쿼리 합니다. RouteURL의 [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) 메서드는 시작점과 끝점 간의 경로를 가져오는 데 사용 됩니다. 그런 다음 `geojson.getFeatures()` 메서드를 사용 하 여 응답에서 GeoJSON feature 컬렉션을 추출 하 고 데이터 원본에 추가 합니다. 그런 다음, 응답을 지도에 경로로 렌더링합니다. 지도에 선을 추가하는 방법에 대한 자세한 내용은 [지도에 선 추가](map-add-line-layer.md)를 참조하세요.
 
 마지막 코드 블록은 지도의 [Setcamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용 하 여 지도의 범위를 설정 합니다.
 

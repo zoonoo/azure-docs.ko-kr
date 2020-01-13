@@ -1,6 +1,6 @@
 ---
-title: Azure Maps 계정의 가격 책정 계층 관리 | Microsoft Docs
-description: Azure Portal을 사용하여 Azure Maps 계정 및 가격 책정 계층을 관리할 수 있습니다.
+title: Azure Maps 계정의 가격 책정 계층 관리 | Microsoft Azure 맵
+description: Azure Portal를 사용 하 여 Microsoft Azure Maps 계정 및 해당 가격 책정 계층을 관리할 수 있습니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 43f5c6ea42464a83d070775fae8c5befe35bf60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cba1e56b96f24764af00f04f399d0cdbe54be24
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794202"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911464"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Azure Maps 계정의 가격 책정 계층 관리
 

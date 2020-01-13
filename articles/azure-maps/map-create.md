@@ -1,6 +1,6 @@
 ---
-title: Azure Maps로 맵 만들기 | Microsoft Docs
-description: Azure Maps 웹 SDK를 사용 하 여 맵을 만드는 방법
+title: Azure Maps를 사용 하 여 맵 만들기 Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 웹 페이지에서 지도를 렌더링 하는 방법을 알아봅니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 932c244ff41e757413a05cde019ee7ee1a82232d
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 49c86f3e6c654ecbfcd07809f42a1b038ca3f8ab
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976113"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911117"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -22,12 +22,12 @@ ms.locfileid: "68976113"
 
 ## <a name="loading-a-map"></a>지도 로드
 
-지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 지도를 렌더링 하기 위한 DIV 요소 ID와 지도를 로드할 때 사용할 옵션 집합이 전달 됩니다. `atlas` 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 따라서 맵 인스턴스를 만든 후에 `ready` 또는 `load` 이벤트를 맵에 연결 하 고 해당 이벤트 처리기에서 맵과 상호 작용 하는 추가 코드를 추가 합니다. 이 `ready` 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. 이 `load` 이벤트는 초기 지도 보기의 로드가 완전히 완료 된 후에 발생 합니다. 
+지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 지도를 렌더링 하기 위한 DIV 요소 ID와 지도를 로드할 때 사용할 옵션 집합이 전달 됩니다. `atlas` 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 이와 같이 map 인스턴스를 만든 후 맵에 `ready` 또는 `load` 이벤트를 연결한 다음 해당 이벤트 처리기에서 맵과 상호 작용 하는 추가 코드를 추가 합니다. `ready` 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. `load` 이벤트는 초기 맵 뷰가 완전히 로드 된 후에 발생 합니다. 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="기본 지도 부하" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 펜 <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>기본 지도 로드</a> 를 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 펜 <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>기본 맵 로드</a> 를 참조 하세요.
 </iframe>
 
 > [!TIP]
@@ -35,7 +35,7 @@ ms.locfileid: "68976113"
 
 ## <a name="show-a-single-copy-of-the-world"></a>전 세계의 단일 복사본 표시
 
-넓은 화면에서 지도를 축소 하면 전 세계의 여러 복사본이 가로로 표시 됩니다. 이 방법은 대부분의 시나리오에서 유용 하지만 일부 응용 프로그램에서는 전 세계의 단일 복사본만 표시 하는 것이 바람직 할 수 있습니다. 이 작업을 수행 하려면 맵 `renderWorldCopies` 옵션을로 `false`설정 합니다.
+넓은 화면에서 지도를 축소 하면 전 세계의 여러 복사본이 가로로 표시 됩니다. 이 방법은 대부분의 시나리오에서 유용 하지만 일부 응용 프로그램에서는 전 세계의 단일 복사본만 표시 하는 것이 바람직 할 수 있습니다. 이 작업을 수행 하려면 맵 `renderWorldCopies` 옵션을 `false`로 설정 합니다.
 
 <br/>
 
@@ -45,7 +45,7 @@ ms.locfileid: "68976113"
 
 ## <a name="controlling-the-map-camera"></a>지도 카메라 제어
 
-카메라를 사용 하 여 지도의 표시 된 영역을 설정 하는 방법에는 두 가지가 있습니다. 지도를 로드할 때 중심 및 확대/축소와 같은 카메라 옵션을 설정 하거나 지도를 로드 한 `setCamera` 후에 언제 든 지 옵션을 호출 하 여 맵 뷰를 프로그래밍 방식으로 업데이트할 수 있습니다.  
+카메라를 사용 하 여 지도의 표시 된 영역을 설정 하는 방법에는 두 가지가 있습니다. 지도를 로드할 때 중심 및 확대/축소와 같은 카메라 옵션을 설정 하거나 지도를 로드 한 후에 언제 든 지 `setCamera` 옵션을 호출 하 여 맵 뷰를 프로그래밍 방식으로 업데이트할 수 있습니다.  
 
 <a id="setCameraOptions"></a>
 
@@ -55,18 +55,18 @@ ms.locfileid: "68976113"
 
 <br/>
 
-<iframe height='500' scrolling='no' title='CameraOptions를 통해 맵 만들기' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>의 Pen <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Azure Location Based Services에서 제공되는 `CameraOptions` </a>를 통해 맵 만들기(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
+<iframe height='500' scrolling='no' title='CameraOptions를 통해 맵 만들기' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>통해 `CameraOptions` via 맵 만들기 </a>를 참조 하세요.
 </iframe>
 
 <a id="setCameraBoundsOptions"></a>
 
 ### <a name="set-the-camera-bounds"></a>카메라 경계 설정
 
-다음 코드에서 [Map 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 는을 통해 `new atlas.Map()`생성 됩니다. `CameraBoundsOptions`와 같은 맵 속성은 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 함수를 통해 정의될 수 있습니다. 경계 및 안쪽 여백 속성은 `setCamera`를 사용하여 설정됩니다.
+다음 코드에서 [Map 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 는 `new atlas.Map()`를 통해 생성 됩니다. `CameraBoundsOptions`와 같은 맵 속성은 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 함수를 통해 정의될 수 있습니다. 경계 및 안쪽 여백 속성은 `setCamera`를 사용하여 설정됩니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='CameraBoundsOptions를 통해 맵 만들기' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>의 Pen <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>Azure Maps에서 제공되는 `CameraBoundsOptions`</a>를 통해 맵 만들기(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
+<iframe height='500' scrolling='no' title='CameraBoundsOptions를 통해 맵 만들기' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>통해 `CameraBoundsOptions` via 맵 만들기 </a>를 참조 하세요.
 </iframe>
 
 ### <a name="animate-map-view"></a>맵 보기 애니메이션

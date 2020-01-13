@@ -1,6 +1,6 @@
 ---
-title: Azure Maps |에서 그리기 도구 모듈 사용 Microsoft Docs
-description: Azure Maps 웹 SDK를 사용 하 여 그리기 옵션 데이터를 설정 하는 방법
+title: 그리기 도구 모듈 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 그리기 옵션 데이터를 설정 하는 방법을 설명 합니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0ac9bc775798a14e6431718bc602d8ff41288c10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2f23d4d7962fc4a01ac2f9d20dc834bcd2f08be5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408160"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910580"
 ---
 # <a name="use-the-drawing-tools-module"></a>그리기 도구 모듈 사용
 

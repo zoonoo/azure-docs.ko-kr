@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: d3737be5a3186774f230aef9d932464a27a764f4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775642"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912209"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>포털을 사용 하 여 피어 ASN을 Azure 구독에 연결
 
@@ -25,6 +25,34 @@ ms.locfileid: "75775642"
 
 ### <a name="sign-in-to-the-portal"></a>포털에 로그인
 [!INCLUDE [Account](./includes/account-portal.md)]
+
+### <a name="register-for-peering-resource-provider"></a>피어 링 리소스 공급자 등록
+다음 단계를 수행 하 여 구독에서 피어 링 리소스 공급자를 등록 합니다. 이 작업을 실행 하지 않으면 피어 링을 설정 하는 데 필요한 Azure 리소스에 액세스할 수 없습니다.
+
+1. 포털의 왼쪽 위 모서리에 있는 **구독** 을 클릭 합니다. 표시 되지 않는 경우 **더 많은 서비스** 를 클릭 하 여 검색 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > 열려 있는 구독을 ![](./media/rp-subscriptions-open.png)
+
+1. 피어 링에 사용 하려는 구독을 클릭 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > 구독을 시작 ![](./media/rp-subscriptions-launch.png)
+
+1. 구독이 열리면 왼쪽에서 **리소스 공급자**를 클릭 합니다. 그런 다음 오른쪽 창의 검색 창에서 *피어 링* 을 검색 하거나 스크롤 막대를 사용 하 여 **Microsoft 피어 링** 을 찾고 **상태**를 확인 합니다. 상태가 ***등록***됨 인 경우 아래 단계를 건너뛰고 **peerasn 만들기**섹션으로 이동 합니다. 상태가 ***Notregistered***인 경우에는 **Microsoft 피어 링** 을 선택 하 고 **등록**을 클릭 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![등록 시작](./media/rp-register-start.png)
+
+1. 상태가 ***등록***중으로 변경 되는지 확인 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![등록 진행 중](./media/rp-register-progress.png)
+
+1. 등록이 완료 될 때까지 최소 또는 시간 동안 기다립니다. 그런 다음 **새로 고침** 을 클릭 하 고 상태가 ***등록***됨 인지 확인 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![등록이 완료 되었습니다](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>PeerAsn 만들기
 Azure 구독과 함께 ASN (자치 시스템 번호)을 연결 하기 위한 새 PeerAsn 리소스를 만들 수 있습니다. 연결 해야 하는 각 ASN에 대해 **Peerasn** 을 만들어 여러 asns를 구독에 연결할 수 있습니다.

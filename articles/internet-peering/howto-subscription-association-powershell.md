@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e7239fdedafedc96a382de6c3c2f90b5da4df00c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774251"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908981"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>PowerShell을 사용 하 여 피어 ASN을 Azure 구독에 연결
 
@@ -29,7 +29,24 @@ ms.locfileid: "75774251"
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Azure 계정에 로그인하고 구독을 선택합니다.
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
+### <a name="register-for-peering-resource-provider"></a>피어 링 리소스 공급자 등록
+다음 명령을 사용 하 여 구독에서 피어 링 리소스 공급자를 등록 합니다. 이 작업을 실행 하지 않으면 피어 링을 설정 하는 데 필요한 Azure 리소스에 액세스할 수 없습니다.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+다음 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
+```powershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+> [!IMPORTANT]
+> 계속 하기 전에 *Registrationstate* 가 "등록 됨"으로 전환 될 때까지 기다립니다. 명령을 실행 한 후에는 5 ~ 30 분 정도 걸릴 수 있습니다.
+
 ### <a name="update-the-peer-information-associated-with-this-subscription"></a>이 구독과 연결 된 피어 정보 업데이트
+
+다음은 피어 정보를 업데이트 하는 예제입니다.
 
 ```powershell
 New-AzPeerAsn `

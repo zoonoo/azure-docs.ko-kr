@@ -1,6 +1,6 @@
 ---
-title: Azure Maps를 사용하여 트래픽 표시 | Microsoft Docs
-description: Azure Maps 웹 SDK에서 트래픽 데이터를 표시 하는 방법입니다.
+title: 지도에 트래픽 표시 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 트래픽 데이터를 표시 하는 방법에 대해 알아봅니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b765f6f35cecfdd3183b4432954fcfb2548de046
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874869"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910885"
 ---
 # <a name="show-traffic-on-the-map"></a>맵에 트래픽 표시
 
@@ -22,7 +22,7 @@ Azure Maps에서 사용할 수 있는 트래픽 데이터에는 두 가지 유�
 
 - 인시던트 데이터-생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다.
 - 흐름 데이터-도로의 트래픽 흐름에 대 한 메트릭을 제공 합니다. 트래픽 흐름 데이터는 속도 제한 또는 다른 메트릭을 기준으로 흐름의 속도를 저하 시키는 트래픽 양에 따라도로를 색으로 사용 하는 데 종종 사용 됩니다. Azure Maps의 트래픽 흐름 데이터에는 세 가지 측정 메트릭이 있습니다.
-    - `relative`-이동의 자유 흐름 속도를 기준으로 합니다.
+    - `relative`-도로의 자유 흐름 속도를 기준으로 합니다.
     - `absolute`-도로의 모든 자동차의 절대 속도입니다.
     - `relative-delay`-평균 예상 지연 시간 보다 느린 영역을 표시 합니다.
 

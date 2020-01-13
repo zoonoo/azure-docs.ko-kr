@@ -1,6 +1,6 @@
 ---
-title: Azure Maps 웹 SDK의 데이터 기반 스타일 식 | Microsoft Docs
-description: Azure Maps 웹 SDK에서 데이터 기반 스타일 식을 사용 하는 방법입니다.
+title: Azure Maps 웹 SDK의 데이터 기반 스타일 식 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK에서 데이터 기반 스타일 식을 사용 하는 방법에 대해 설명 합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480642"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911770"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -41,7 +41,7 @@ ms.locfileid: "74480642"
 
 Azure Maps 웹 SDK는 자체 또는 다른 식과 함께 사용할 수 있는 여러 형식을 지원 합니다.
 
-| 식 형식 | 설명 |
+| 식 형식 | Description |
 |---------------------|-------------|
 | [집계 식](#aggregate-expression) | 데이터 집합에 대해 처리 되 고 `DataSource`의 `clusterProperties` 옵션과 함께 사용할 수 있는 계산을 정의 하는 식입니다. |
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |
@@ -81,10 +81,10 @@ Azure Maps 웹 SDK는 자체 또는 다른 식과 함께 사용할 수 있는 �
 
 데이터 식은 기능에서 속성 데이터에 대 한 액세스를 제공 합니다. 
 
-| 식 | 반환 형식 | 설명 |
+| Expression | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['at', number, array]` | object | 배열에서 항목을 검색 합니다. |
-| `['geometry-type']` | string | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
+| `['geometry-type']` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
 | `['get', string]` | 값 | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['get', string, object]` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['has', string]` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
@@ -139,7 +139,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 수학 식은 식 프레임 워크 내에서 데이터 기반 계산을 수행 하는 수치 연산자를 제공 합니다.
 
-| 식 | 반환 형식 | 설명 |
+| Expression | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | number | 지정 된 숫자의 합계를 계산 합니다. |
 | `['-', number]` | number | 지정 된 수 만큼 0을 뺍니다. |
@@ -194,7 +194,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 값을 비교할 때 비교는 엄격 하 게 형식화 됩니다. 다른 형식의 값은 항상 동일 하지 않은 것으로 간주 됩니다. 구문 분석 시 형식이 다른 것으로 알려진 사례는 잘못 된 것으로 간주 되며 구문 분석 오류를 생성 합니다. 
 
-| 식 | 반환 형식 | 설명 |
+| Expression | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolean | 논리 부정. 입력이 `false`되 면 `true`을 반환 하 고 입력이 `true`되 면을 `false` 합니다. |
 | `['!= ', value, value]` | boolean | 입력 값이 같지 않으면 `true`을 반환 하 고, 그렇지 않으면 `false` 합니다. |
@@ -397,15 +397,15 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 형식 식은 문자열, 숫자, 부울 값 등의 다양 한 데이터 형식을 테스트 하 고 변환 하는 도구를 제공 합니다.
 
-| 식 | 반환 형식 | 설명 |
+| Expression | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | 배열 \| 개체 | 리터럴 배열 또는 개체 값을 반환 합니다. 배열이 나 개체가 식으로 계산 되지 않도록 하려면이 식을 사용 합니다. 배열 또는 개체를 식에서 반환 해야 하는 경우이 작업이 필요 합니다. |
-| `['image', string]` | string | 지정 된 이미지 ID가 맵 이미지 스프라이트에 로드 되는지 확인 합니다. 인 경우 ID가 반환 되 고, 그렇지 않으면 null이 반환 됩니다. |
+| `['image', string]` | 문자열 | 지정 된 이미지 ID가 맵 이미지 스프라이트에 로드 되는지 확인 합니다. 인 경우 ID가 반환 되 고, 그렇지 않으면 null이 반환 됩니다. |
 | `['to-boolean', value]` | boolean | 입력 값을 부울로 변환 합니다. 입력이 빈 문자열, `0`, `false`, `null`또는 `NaN`이면 결과가 `false` 됩니다. 그렇지 않으면 `true`합니다. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | 색 | 입력 값을 색으로 변환 합니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 `null` 또는 `false`이면 결과는 0입니다. 입력이 `true`이면 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
-| `['to-string', value]` | string | 입력 값을 문자열로 변환 합니다. 입력이 `null`이면 결과가 `""`됩니다. 입력이 부울 이면 결과가 `"true"` 되거나 `"false"`됩니다. 입력이 숫자 이면 ECMAScript 언어 사양의 [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number 함수를 사용 하 여 문자열로 변환 됩니다. 입력이 색 이면 CSS RGBA 색 문자열 `"rgba(r,g,b,a)"`로 변환 됩니다. 그렇지 않으면 ECMAScript 언어 사양의 [json.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) 함수를 사용 하 여 입력이 문자열로 변환 됩니다. |
-| `['typeof', value]` | string | 지정 된 값의 형식을 설명 하는 문자열을 반환 합니다. |
+| `['to-string', value]` | 문자열 | 입력 값을 문자열로 변환 합니다. 입력이 `null`이면 결과가 `""`됩니다. 입력이 부울 이면 결과가 `"true"` 되거나 `"false"`됩니다. 입력이 숫자 이면 ECMAScript 언어 사양의 [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number 함수를 사용 하 여 문자열로 변환 됩니다. 입력이 색 이면 CSS RGBA 색 문자열 `"rgba(r,g,b,a)"`로 변환 됩니다. 그렇지 않으면 ECMAScript 언어 사양의 [json.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) 함수를 사용 하 여 입력이 문자열로 변환 됩니다. |
+| `['typeof', value]` | 문자열 | 지정 된 값의 형식을 설명 하는 문자열을 반환 합니다. |
 
 > [!TIP]
 > `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].`와 유사한 오류 메시지가 브라우저 콘솔에 표시 되는 경우 코드에 첫 번째 값에 대 한 문자열이 없는 배열이 있는 식이 있음을 의미 합니다. 식이 배열을 반환 하도록 하려면 배열을 `literal` 식으로 래핑합니다. 다음 예에서는 `match` 식을 사용 하 여 두 개의 숫자를 포함 하는 배열인 기호 계층의 아이콘 `offset` 옵션을 설정 합니다 .이 옵션은 point 기능의 `entityType` 속성 값을 기반으로 두 오프셋 값 중 하나를 선택 하는 데 사용 됩니다.
@@ -433,7 +433,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 색 식을 사용 하면 색 값을 보다 쉽게 만들고 조작할 수 있습니다.
 
-| 식 | 반환 형식 | 설명 |
+| Expression | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | 색 | `0`와 `255`사이에 있어야 하는 *빨간색*, *녹색*및 *파랑* 구성 요소와 `1`의 알파 구성 요소에서 색 값을 만듭니다. 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
 | `['rgba', number, number, number, number]` | 색 | `0`와 `255`사이에 있어야 하는 *빨간색*, *녹색*, *파랑* 구성 요소에서 색 값을 만들고 `0` 및 `1`범위 내의 알파 구성 요소를 만듭니다. 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
@@ -461,11 +461,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 문자열 연산자 식은 사례를 연결 하 고 변환 하는 등의 문자열에 대해 변환 작업을 수행 합니다. 
 
-| 식 | 반환 형식 | 설명 |
+| Expression | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | string | 여러 문자열을 연결 합니다. 각 값은 문자열 이어야 합니다. 필요한 경우 `to-string` 형식 식을 사용 하 여 다른 값 형식을 문자열로 변환 합니다. |
-| `['downcase', string]` | string | 지정된 문자열을 소문자로 변환합니다. |
-| `['upcase', string]` | string | 지정된 문자열을 대문자로 변환합니다. |
+| `['concat', string, string, …]` | 문자열 | 여러 문자열을 연결 합니다. 각 값은 문자열 이어야 합니다. 필요한 경우 `to-string` 형식 식을 사용 하 여 다른 값 형식을 문자열로 변환 합니다. |
+| `['downcase', string]` | 문자열 | 지정된 문자열을 소문자로 변환합니다. |
+| `['upcase', string]` | 문자열 | 지정된 문자열을 대문자로 변환합니다. |
 
 **예제**
 
@@ -506,7 +506,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 다음은 이러한 여러 유형의 보간의 예입니다. 
 
-| 선형  | 지수 | 입방 형 3 차원 |
+| 선형  | 지수 | 입방형 3차원 |
 |---------|-------------|--------------|
 | ![선형 보간 그래프](media/how-to-expressions/linear-interpolation.png) | ![지 수 보간 그래프](media/how-to-expressions/exponential-interpolation.png) | ![입방 형 3 차원 보간 그래프](media/how-to-expressions/bezier-curve-interpolation.png) |
 
@@ -821,9 +821,9 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 변수 바인딩 식은 계산 결과를 변수에 저장 하 여 계산 결과를 식의 다른 위치에서 다시 계산 하지 않고 여러 번 참조할 수 있도록 합니다. 이는 많은 계산을 포함 하는 식에 대 한 유용한 최적화입니다.
 
-| 식 | 반환 형식 | 설명 |
+| Expression | 반환 형식 | Description |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: 문자열,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | 결과를 반환 하는 자식 식의 `var` 식에서 사용할 변수로 하나 이상의 값을 저장 합니다. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: 문자열,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | 결과를 반환 하는 자식 식의 `var` 식에서 사용할 변수로 하나 이상의 값을 저장 합니다. |
 | `['var', name: string]` | any | `let` 식을 사용 하 여 만든 변수를 참조 합니다. |
 
 **예제**

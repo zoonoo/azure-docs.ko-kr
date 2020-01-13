@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457057"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911886"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -208,15 +208,15 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 
 1. (선택 사항) 샘플링 비율을 다른 값으로 변경하고 애플리케이션 속성에서 메시지가 `tracestate`를 포함하는 빈도의 변화를 확인합니다.
 
-### <a name="update-using-azure-iot-hub-toolkit-for-vs-code"></a>VS Code용 Azure IoT Hub Toolkit을 사용하여 업데이트
+### <a name="update-using-azure-iot-hub-for-vs-code"></a>VS Code에 대 한 Azure IoT Hub를 사용 하 여 업데이트
 
-1. VS Code에 설치한 다음, [여기](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)에서 최신 버전의 VS Code용 Azure IoT Hub Toolkit를 설치합니다.
+1. VS Code를 설치 하 고 [여기](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)에서 VS Code에 대 한 Azure IoT Hub 최신 버전을 설치 합니다.
 
 1. VS Code를 열고 [IoT Hub 연결 문자열을 설정](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites)합니다.
 
 1. 디바이스를 확장하고 **분산 추적 설정(미리 보기)** 을 찾습니다. 이 설정 아래에서 하위 노드의 **분산 추적 설정(미리 보기) 업데이트**를 클릭합니다.
 
-    ![Azure IoT Hub Toolkit에서 분산 추적 사용](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Azure IoT Hub 확장에서 분산 추적 사용](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
 1. 팝업 창에서 **사용**을 선택한 후 Enter 키를 눌러 샘플링 비율이 100인지 확인합니다.
 

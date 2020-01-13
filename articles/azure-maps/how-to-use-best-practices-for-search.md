@@ -1,6 +1,6 @@
 ---
-title: Azure Maps Search 서비스를 사용 하 여 효율적으로 검색 하는 방법 | Microsoft Docs
-description: Azure Maps Search 서비스를 사용 하 여 검색에 대 한 모범 사례를 사용 하는 방법을 알아봅니다.
+title: Azure Maps Search Service를 사용 하 여 효율적으로 검색 | Microsoft Azure 맵
+description: Microsoft Azure Maps를 사용 하 여 검색에 대 한 모범 사례를 사용 하는 방법을 알아봅니다 Search Service
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 88f864abc82ea6ba70559c8db5db2d0fe07383b1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aa3c7b58b3a391de40940636a67a4a224c44fe10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768829"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911360"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure Maps Search Service를 사용 하는 모범 사례
 

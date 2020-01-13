@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7705ea3b60d8c8e2b189ad555d1b53fa395aa1fb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459154"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912523"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
 
@@ -30,7 +30,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 각 격리 된 크기에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>2020 년 2 월 15 일 D15_v2/DS15_v2 격리 사용 중지
-Azure 전용 호스트는 이제 GA로, 단일 테 넌 트 물리적 서버에서 조직의 Linux 및 Windows 가상 머신을 실행할 수 있습니다. 격리 된 Azure Vm을 Azure 전용 호스트로 완전히 바꿀 예정입니다. **2020 년 2 월 15 일** 이후 D15_v2/DS15_v2 Azure vm은 더 이상 하드웨어로 격리 되지 않을 수 있습니다.
+Azure 전용 호스트는 이제 GA로, 단일 테 넌 트 물리적 서버에서 조직의 Linux 및 Windows 가상 머신을 실행할 수 있습니다. 격리 된 Azure Vm을 Azure 전용 호스트로 완전히 바꿀 예정입니다. **2020 년 2 월 15 일** 이후 D15_v2/DS15_v2 Azure vm은 더 이상 하드웨어로 격리 되지 않습니다.
 
 ## <a name="how-does-this-affect-me"></a>이 변경 사항은 어떤 영향을 미치나요?
 2020 년 2 월 15 일 이후에는 D15_v2/DS15_v2 Azure virtual machines에 대 한 격리 보증을 더 이상 제공 하지 않습니다. 

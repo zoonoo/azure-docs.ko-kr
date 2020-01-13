@@ -1,6 +1,6 @@
 ---
-title: Azure Maps |에서 데이터 원본 만들기 Microsoft Docs
-description: 데이터 원본을 만들고 Azure Maps 웹 SDK와 함께 사용 하는 방법을 설명 합니다.
+title: 지도의 데이터 원본 만들기 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 데이터 원본을 만들고 맵에 추가 하는 방법에 대해 설명 합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: b83a66296d54a179a56e37de199ec900ae23a1db
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 74b45d3f7fa7d0e13b8767d4a887d8a22cad3a30
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433007"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911725"
 ---
 # <a name="create-a-data-source"></a>데이터 소스 만들기
 

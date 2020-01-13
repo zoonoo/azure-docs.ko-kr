@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에서 교통 상황 검사 | Microsoft Docs
-description: Azure Maps에서 교통 상황 검사에 대해 알아봅니다.
+title: 트래픽 범위 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure 맵의 트래픽 범위에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/22/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 544cae7f33bfb1077bfdf7f215fb313974334216
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958012"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910395"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 
@@ -67,7 +67,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |보스니아 헤르체고비나    |✓         |✓         |
 |불가리아     |✓         |✓         |
 |크로아티아     |✓         |✓         |
-|체코     |✓         |✓         |
+|체코 공화국     |✓         |✓         |
 |덴마크     |✓         |✓         |
 |에스토니아     |         | ✓        |
 |핀란드     |✓         |✓         |
@@ -130,7 +130,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |카타르     |✓         |✓         |
 |사우디아라비아     |✓         |✓         |
 |남아프리카 공화국     |✓         |✓         |
-|아랍 에미리트 연합국  |✓         |✓         |
+|아랍에미리트  |✓         |✓         |
 
 ## <a name="next-steps"></a>다음 단계
 

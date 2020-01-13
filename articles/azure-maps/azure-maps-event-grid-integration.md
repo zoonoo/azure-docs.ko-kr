@@ -1,6 +1,6 @@
 ---
-title: Event Grid를 사용하여 Azure Maps 이벤트에 대응 | Microsoft Docs
-description: Event Grid를 사용하여 Azure Maps 이벤트에 대응하는 방법을 알아봅니다.
+title: Event Grid를 사용 하 여 맵 이벤트에 대응 Microsoft Azure 맵
+description: 이 문서에서는 Event Grid를 사용 하 여 Microsoft Azure 맵 이벤트에 반응 하는 방법에 대해 설명 합니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799165"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911803"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid를 사용하여 Azure Maps 이벤트에 대응 
 
@@ -30,7 +30,7 @@ Azure Event Grid는 게시-구독 모델을 사용하는 완전 관리형 이벤
 
 Event Grid는 [이벤트 구독](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다. 
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | 수신된 좌표가 지정된 지오펜스 외부에서 내부로 이동한 경우에 발생합니다. |
 | Microsoft.Maps.GeofenceExited | 수신된 좌표가 지정된 지오펜스 내부에서 외부로 이동한 경우에 발생합니다. |

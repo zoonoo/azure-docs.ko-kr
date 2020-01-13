@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에서 Android maps에 타일 계층 추가 Microsoft Docs
-description: Azure Maps Android SDK를 사용 하 여 지도에 타일 계층을 추가 하는 방법
+title: Android maps에 타일 계층 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 지도에서 타일 계층을 렌더링 하는 방법을 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5d5f50a38db95f6e62bdd8c51aefd5957041e682
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886612"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911521"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 타일 계층 추가
 
@@ -37,7 +37,7 @@ ms.locfileid: "68886612"
 * `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
 * `{subdomain}` - 지정된 경우 하위 도메인 값이 추가될 자리 표시자입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "68886612"
 
 아래 단계를 수행 하 여 지도에 타일 계층을 추가할 수 있습니다.
 
-1. **Res > 레이아웃 > activity_main** 에서 다음과 같이 편집 합니다.
+1. **Res > 레이아웃 > activity_main xml** 을 편집 하 여 아래와 같이 표시 합니다.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ ms.locfileid: "68886612"
     </FrameLayout>
     ```
 
-2. 아래의 다음 코드 조각을 `MainActivity.java` 클래스의 **onCreate ()** 메서드에 복사 합니다.
+2. 다음 코드 조각을 `MainActivity.java` 클래스의 **onCreate ()** 메서드에 복사 합니다.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ ms.locfileid: "68886612"
     });
     ```
     
-    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 개체를 `TileLayer` 만들고 서식 지정 된 **xyz** `tileUrl` 타일 URL을 옵션으로 전달 합니다. 계층의 불투명도는로 `0.8` 설정 되 고, 사용 되는 타일 서비스의 타일은 256 픽셀 타일로 설정 되므로이 정보는 `tileSize` 옵션으로 전달 됩니다. 그러면 타일 계층이 지도 계층 관리자로 전달 됩니다.
+    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 `TileLayer` 개체를 만들고 서식 지정 된 **xyz** 타일 URL을 `tileUrl` 옵션으로 전달 합니다. 계층의 불투명도는 `0.8`로 설정 되 고, 사용 되는 타일 서비스의 타일은 256 픽셀 타일로 설정 되므로이 정보는 `tileSize` 옵션으로 전달 됩니다. 그러면 타일 계층이 지도 계층 관리자로 전달 됩니다.
 
-    위의 코드 조각을 추가한 후에 `MainActivity.java` 는 아래와 같이 표시 됩니다.
+    위의 코드 조각을 추가한 후 `MainActivity.java`은 아래와 같습니다.
     
     ```Java
     package com.example.myapplication;
@@ -172,7 +172,7 @@ ms.locfileid: "68886612"
 
 <center>
 
-![Android 지도 선](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+Android 지도 선](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center> ![
 
 ## <a name="next-steps"></a>다음 단계
 

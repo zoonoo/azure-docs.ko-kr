@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 적절한 가격 책정 계층 선택 | Microsoft Docs
-description: Azure Maps에서 제공하는 가격 책정 계층 알아보기
+title: 적절 한 가격 책정 계층 선택 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure 맵에서 제공 되는 가격 책정 계층에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 01/02/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ff774f9848db948058075a98504e6c13db5467a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60796295"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911758"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Azure Maps에서 적절한 가격 책정 계층 선택
 
@@ -29,16 +29,16 @@ S0 및 S1 가격 책정 계층이 처리할 수 있는 데이터 처리량은 �
 
 | 기능                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| 검색 (빨리 감기/rev 지 오 코딩, 관심 지점)  |        ✓           |     ✓    |
+| 검색 (fwd/rev 지 오 코딩, 관심 영역)  |        ✓           |     ✓    |
 | 일괄 처리 지오코딩(미리 보기)              |                   |     ✓    |
 | 검색의 다각형          |                   |     ✓    |
-| 라우팅                                 |        ✓           |     ✓    |
+| 경로                                 |        ✓           |     ✓    |
 | 경로 범위                    |                   |     ✓    |
 | 일괄 처리 라우팅(미리 보기)                |                   |     ✓    |
 | 매트릭스 라우팅(미리 보기)               |                   |     ✓    |
 | 렌더링                                  |        ✓           |     ✓    |
 | 이미지 및 하이브리드 이미지    |            |     ✓    |
-| 트래픽                                 |        ✓           |     ✓    |
+| 교통                                 |        ✓           |     ✓    |
 | 표준 시간대                              |        ✓           |     ✓    |
 | 지리적 위치(미리 보기)                |        ✓           |     ✓    |
 | 데이터(미리 보기)               |                   |     ✓    |

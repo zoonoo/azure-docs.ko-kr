@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에서 확대/축소 수준 및 타일 그리드 | Microsoft Docs
-description: Azure Maps에서 확대/축소 수준 및 타일 그리드에 대해 알아봅니다.
+title: 확대/축소 수준 및 타일 그리드 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure 맵의 확대/축소 수준 및 타일 그리드에 대해 알아봅니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407580"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910770"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 
@@ -26,7 +26,7 @@ Azure Maps에서는 구면 메르카토르 도법 구면좌표계를 사용합�
 
 <center>
 
-![세계 타일](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![세계 지도 타일](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 확대/축소 수준 1은 4개의 타일을 사용하여 전 세계를 2x2 사각형으로 렌더링합니다.
 

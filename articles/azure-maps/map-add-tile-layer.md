@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 타일 계층 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 타일 계층을 추가 하는 방법입니다.
+title: 지도에 타일 계층 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에서 타일 계층을 오버레이 하는 방법에 대해 설명 합니다. 타일 계층을 사용 하면 지도에서 이미지를 렌더링할 수 있습니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 83e8f6d684d6d39102fd682653cd19816a9f7b10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976447"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911101"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 계층 추가
 
@@ -40,7 +40,7 @@ ms.locfileid: "68976447"
 
 ## <a name="add-a-tile-layer"></a>타일 계층 추가
 
- 이 샘플은 x, y, 확대/축소 타일 배치 체계를 사용하는 타일 세트를 가리키는 타일 계층을 만드는 방법을 보여줍니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 방사형 데이터를 볼 때 가장 적합 한 사용자는 지도를 탐색할 때 도시 레이블을 명확 하 게 볼 수 있습니다 .이는 `labels` 계층 아래에 타일 계층을 삽입 하 여 수행할 수 있습니다.
+ 이 샘플은 x, y, 확대/축소 타일 배치 체계를 사용하는 타일 세트를 가리키는 타일 계층을 만드는 방법을 보여줍니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 방사형 데이터를 볼 때 가장 적합 한 사용자는 지도를 탐색할 때 도시 레이블을 명확 하 게 볼 수 있습니다 .이는 타일 계층을 `labels` 계층 아래에 삽입 하 여 수행할 수 있습니다.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.

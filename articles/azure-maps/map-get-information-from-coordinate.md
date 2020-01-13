@@ -1,6 +1,6 @@
 ---
-title: Azure Maps를 사용하여 좌표에 대한 정보 표시 | Microsoft Docs
-description: 사용자가 좌표를 선택할 경우 맵에서 주소에 대한 정보를 표시하는 방법
+title: 지도의 좌표에 대 한 정보 표시 | Microsoft Azure 맵
+description: 사용자가 좌표를 선택할 때 맵의 주소에 대 한 정보를 표시 하는 방법에 대해 알아봅니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: df0966569a753d5000414451a2b69f1e69449b2c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5450ada04a1af44a3fff0402b30540e899cc4dd5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638671"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911036"
 ---
 # <a name="get-information-from-a-coordinate"></a>좌표에서 정보 가져오기
 
@@ -29,11 +29,11 @@ ms.locfileid: "68638671"
 
 위의 코드에서 첫 번째 코드 블록은 맵 개체를 생성 하 고 액세스 토큰을 활용 하도록 인증 메커니즘을 설정 합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록은 액세스 토큰 `TokenCredential` 을 사용 하 여 Azure Maps 하기 위해 HTTP 요청을 인증 하는을 만듭니다. 그런 다음 `TokenCredential` 를에 `atlas.service.MapsURL.newPipeline()` 전달 하 고 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
+두 번째 코드 블록은 액세스 토큰을 사용 하 여 Azure Maps HTTP 요청을 인증 하는 `TokenCredential`을 만듭니다. 그런 다음 `atlas.service.MapsURL.newPipeline()`에 `TokenCredential`를 전달 하 고 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
 
 세 번째 코드 블록은 마우스 커서의 스타일을 포인터로 업데이트 하 고 [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) 개체를 만듭니다. [맵에서 팝업 추가](./map-add-popup.md)에서 지침을 확인할 수 있습니다.
 
-네 번째 코드 블록은 마우스 클릭 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가 합니다. 트리거되면 클릭 한 지점의 좌표를 사용 하 여 검색 쿼리를 만듭니다. 그런 다음 서비스 모듈의 [Getsearchaddressreverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) 메서드를 사용 하 여 좌표 주소에 대 한 [Get SEARCH Address 역방향 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 를 쿼리 합니다. 그런 다음 메서드를 `geojson.getFeatures()` 사용 하 여 응답에서 GeoJSON feature 컬렉션을 추출 합니다.
+네 번째 코드 블록은 마우스 클릭 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가 합니다. 트리거되면 클릭 한 지점의 좌표를 사용 하 여 검색 쿼리를 만듭니다. 그런 다음 서비스 모듈의 [Getsearchaddressreverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) 메서드를 사용 하 여 좌표 주소에 대 한 [Get SEARCH Address 역방향 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 를 쿼리 합니다. 그런 다음 `geojson.getFeatures()` 메서드를 사용 하 여 응답에서 GeoJSON feature 컬렉션을 추출 합니다.
 
 다섯 번째 코드 블록은 HTML 팝업 콘텐츠를 설정 하 여 클릭 한 좌표 위치의 응답 주소를 표시 합니다.
 
@@ -62,7 +62,7 @@ Fetch를 사용 하 여 해당 위치에 대 한 역방향 geocode 요청을 만
 > [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 전체 코드 예제는 다음 문서를 참조하세요.
 

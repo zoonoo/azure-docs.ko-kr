@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 선 계층 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 선 계층을 추가 하는 방법입니다.
+title: 지도에 선 계층 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 선 계층을 추가 하는 방법에 대해 설명 합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f07e36d82c9044a212cda8173df9fe0a9544393a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977327"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911179"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>지도에 선 계층 추가
 
-선 계층은 지도에서 및 `LineString` `MultiLineString` 기능을 경로 또는 경로로 렌더링 하는 데 사용할 수 있습니다. 선 계층은 `Polygon` 및 `MultiPolygon` 기능의 윤곽선을 렌더링 하는 데 사용할 수도 있습니다. 데이터 원본은 선 계층에 연결 되어 렌더링할 데이터를 제공 합니다. 
+선 계층은 지도에서 `LineString` 및 `MultiLineString` 기능을 경로 또는 경로로 렌더링 하는 데 사용할 수 있습니다. 선 계층을 사용 하 여 `Polygon` 및 `MultiPolygon` 기능의 개요를 렌더링할 수도 있습니다. 데이터 원본은 선 계층에 연결 되어 렌더링할 데이터를 제공 합니다. 
 
 > [!TIP]
-> 기본적으로 선 계층은 다각형의 좌표와 데이터 원본의 줄을 렌더링 합니다. LineString 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을 `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` 로 `['==', ['geometry-type'], 'LineString']` 설정 하 고 MultiLineString 기능을 포함 하려는 경우로 설정 합니다.
+> 기본적으로 선 계층은 다각형의 좌표와 데이터 원본의 줄을 렌더링 합니다. LineString 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을 `['==', ['geometry-type'], 'LineString']`로 설정 하거나 MultiLineString 기능을 포함 하려는 경우에는 `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` 합니다.
 
 다음 코드에서는 줄을 만들고 데이터 소스에 추가 하 고 [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 클래스를 사용 하 여 선 계층으로 렌더링 하는 방법을 보여 줍니다.
 
@@ -56,7 +56,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="선을 따라 화살표 표시" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 <a href='https://codepen.io/azuremaps/pen/drBJwX/'>따라 펜 표시 화살표</a> 를 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 따라 펜으로 펜 <a href='https://codepen.io/azuremaps/pen/drBJwX/'>표시 화살표</a> 를 참조 하세요.
 </iframe>
 
 > [!TIP]
@@ -66,17 +66,17 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>선에 선 그라데이션 추가
 
-선에 단일 스트로크 색을 적용 하는 것 외에도 색 그라데이션을 사용 하 여 선을 채워서 한 줄 세그먼트에서 다음 줄 세그먼트로의 전환을 표시할 수 있습니다. 예를 들어 선 그라데이션을 사용 하 여 시간 및 거리에 따른 변경 내용 또는 연결 된 개체 라인에서 서로 다른 온도를 나타낼 수 있습니다. 줄에이 기능을 적용 하려면 데이터 원본에 `lineMetrics` 옵션을 true로 설정 해야 합니다. 그런 다음 색 그라데이션 식을 줄의 `strokeColor` 옵션에 전달할 수 있습니다. 스트로크 그라데이션 식은 계산 된 선 메트릭을 식 `['line-progress']` 에 노출 하는 데이터 식을 참조 해야 합니다.
+선에 단일 스트로크 색을 적용 하는 것 외에도 색 그라데이션을 사용 하 여 선을 채워서 한 줄 세그먼트에서 다음 줄 세그먼트로의 전환을 표시할 수 있습니다. 예를 들어 선 그라데이션을 사용 하 여 시간 및 거리에 따른 변경 내용 또는 연결 된 개체 라인에서 서로 다른 온도를 나타낼 수 있습니다. 줄에이 기능을 적용 하려면 데이터 원본의 `lineMetrics` 옵션을 true로 설정 하 고 색 그라데이션 식을 줄의 `strokeColor` 옵션에 전달할 수 있어야 합니다. 스트로크 그라데이션 식은 계산 된 선 메트릭을 식에 노출 하는 `['line-progress']` 데이터 식을 참조 해야 합니다.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="스트로크 그라데이션을 사용 하는 선" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>획 그라데이션을 사용 하</a> 는 펜 선 Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>()를 참조 하세요.
+<a href='https://codepen.io'>CodePen</a>에서 <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>획 그라데이션을 사용</a> 하 여 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 펜 선을 참조 하세요.
 </iframe>
 
 ## <a name="customize-a-line-layer"></a>선 계층 사용자 지정
 
-선 계층 여러 스타일 지정 옵션입니다. 시도해볼 수 있는 도구는 다음과 같습니다.
+선 계층 여러 스타일 지정 옵션입니다. 사용할 도구는 다음과 같습니다.
 
 <br/>
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 HTML 표식 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 HTML 마커를 추가 하는 방법입니다.
+title: 지도에 HTML 표식 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 HTML 마커를 추가 하는 방법에 대해 설명 합니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ff18b8646a3845d029e9826c0895b9d3eb16bdde
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 5a15b3b9e51772d8c7e5312968fecb180069e2a7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976213"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911240"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 
@@ -82,7 +82,7 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 
 ## <a name="draggable-html-markers"></a>드래그할 수 있는 HTML 표식
 
-이 샘플에서는 HTML 표식을 드래그하는 방법을 보여줍니다. HTML 마커는 `drag`, `dragstart`및 `dragend` 이벤트를 지원 합니다.
+이 샘플에서는 HTML 표식을 드래그하는 방법을 보여줍니다. HTML 표식은 `drag`, `dragstart`및 `dragend` 이벤트를 지원 합니다.
 
 <br/>
 

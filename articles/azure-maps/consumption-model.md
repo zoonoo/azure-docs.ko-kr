@@ -1,6 +1,6 @@
 ---
-title: Azure Maps의 소비 모델 | Microsoft Docs
-description: Azure Maps의 소비 모델에 대해 알아봅니다.
+title: 라우팅에 대 한 차량 소비 모델 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps에서 라우팅하는 차량 소비 모델에 대해 알아봅니다.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60797906"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911708"
 ---
 # <a name="consumption-model"></a>소비 모델
 
 온라인 라우팅은 차량 관련 소비 모델에 대한 자세한 설명을 위한 매개 변수 집합을 제공합니다.
-**vehicleEngineType**의 값에 따라 다음의 두 가지 주요 소비 모델이 지원됩니다. _Combustion_ 및 _Electric_ 같은 요청에서 서로 다른 모델에 속해 있는 매개 변수를 지정하면 오류가 발생합니다.
+**vehicleEngineType**의 값에 따라 _Combustion_ 및 _Electric_ 의 두 가지 주요 소비 모델이 지원됩니다. 같은 요청에서 서로 다른 모델에 속해 있는 매개 변수를 지정하면 오류가 발생합니다.
 소비 모델은 **travelMode** 값 _bicycle_ 및 _pedestrian_과 함께 사용할 수 없습니다.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>소비 모델에 대한 매개 변수 제약 조건

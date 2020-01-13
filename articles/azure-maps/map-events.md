@@ -1,6 +1,6 @@
 ---
-title: Azure Maps를 사용 하 여 이벤트 처리 | Microsoft Docs
-description: 지도 이벤트를 사용 하 여 대화형 웹 SDK 맵을 만드는 방법
+title: 맵 이벤트 처리 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 map 이벤트를 사용 하 여 대화형 웹 SDK 맵을 만드는 방법을 알아봅니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 09/10/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 99ef5aa0ee8fa542b0aa807cc536ebfbee369e10
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484280"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911073"
 ---
 # <a name="interact-with-the-map"></a>맵과 상호 작용
 
@@ -26,7 +26,7 @@ ms.locfileid: "74484280"
 
 <br/>
 
-<iframe height='600' scrolling='no' title='맵 – 마우스 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io/azuremaps/pen/bLZEWd/'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io'>맵과 상호 작용 - 마우스 이벤트</a>를 참조하세요.
+<iframe height='600' scrolling='no' title='맵 – 마우스 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>맵과 상호 작용 - 마우스 이벤트</a>를 참조하세요.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>맵 계층과 상호 작용
@@ -35,7 +35,7 @@ ms.locfileid: "74484280"
 
 <br/>
 
-<iframe height='600' scrolling='no' title='맵 - 계층 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io/azuremaps/pen/bQRRPE/'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io'>맵 - 계층 이벤트와 상호 작용</a>을 참조하세요.
+<iframe height='600' scrolling='no' title='맵 - 계층 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>맵 - 계층 이벤트와 상호 작용</a>을 참조하세요.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>HTML 표식과 상호 작용
@@ -44,12 +44,12 @@ ms.locfileid: "74484280"
 
 <br/>
 
-<iframe height='500' scrolling='no' title='맵 - HTML 표식 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io/azuremaps/pen/VVzKJY/'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io'>맵 - HTML 표식 이벤트와 상호 작용</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='맵 - HTML 표식 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>맵 - HTML 표식 이벤트와 상호 작용</a>을 참조하세요.
 </iframe>
 
 다음 표에서는 지원 되는 모든 map 클래스 이벤트를 보여 줍니다.
 
-| 행사               | 설명 |
+| 이벤트               | Description |
 |---------------------|-------------|
 | `boxzoomend`        | "상자 확대/축소" 상호 작용이 종료 될 때 발생 합니다.|
 | `boxzoomstart`      | "상자 확대/축소" 조작이 시작 될 때 발생 합니다.|

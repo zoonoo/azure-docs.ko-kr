@@ -1,6 +1,6 @@
 ---
-title: Azure Maps를 사용하여 검색 결과 표시 | Microsoft Docs
-description: Azure Maps를 사용 하 여 검색 요청을 수행 하는 방법 Azure Maps 웹 SDK에 결과를 표시 합니다.
+title: 지도에 검색 결과 표시 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 검색 요청을 수행 하 고 지도에 결과를 표시 하는 방법을 알아봅니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7123bfda0baa3054dbed336dc4bed8958680cb62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975975"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910917"
 ---
 # <a name="show-search-results-on-the-map"></a>지도에 검색 결과 표시
 
@@ -29,7 +29,7 @@ ms.locfileid: "68975975"
 
 위의 코드에서 첫 번째 코드 블록은 맵 개체를 생성 하 고 액세스 토큰을 활용 하도록 인증 메커니즘을 설정 합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록은 액세스 토큰 `TokenCredential` 을 사용 하 여 Azure Maps 하기 위해 HTTP 요청을 인증 하는을 만듭니다. 그런 다음 `TokenCredential` 를에 `atlas.service.MapsURL.newPipeline()` 전달 하 고 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
+두 번째 코드 블록은 액세스 토큰을 사용 하 여 Azure Maps HTTP 요청을 인증 하는 `TokenCredential`을 만듭니다. 그런 다음 `atlas.service.MapsURL.newPipeline()`에 `TokenCredential`를 전달 하 고 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
 
 세 번째 코드 블록에서는[DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 데이터 원본 개체를 만들고 검색 결과를 추가합니다. [기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다.  기호 계층이 생성되고 데이터 원본이 기호 계층에 추가된 다음, 맵에 추가됩니다.
 

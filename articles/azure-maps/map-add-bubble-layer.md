@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에 거품형 계층 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 거품형 계층을 추가 하는 방법입니다.
+title: 지도에 거품형 계층 추가 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 거품형 계층을 추가 하는 방법에 대해 설명 합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5cc5dbdc89f629c09d47ef683b7ff7fff61d2f49
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976567"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911280"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>맵에 거품형 계층 추가
 
 이 문서에서는 데이터 원본의 점 데이터를 지도에서 거품형 계층으로 렌더링 하는 방법을 보여 줍니다. 거품형 계층은 고정된 픽셀 반경을 사용하여 요소를 맵에 원으로 렌더링합니다. 
 
 > [!TIP]
-> 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을로 `['==', ['geometry-type'], 'Point']` 설정 하 고, `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 다중 포인트 기능을 포함 하려는 경우로 설정 합니다.
+> 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. Point geometry 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을 `['==', ['geometry-type'], 'Point']`로 설정 하거나 MultiPoint 기능을 포함 하려는 경우 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 합니다.
 
 ## <a name="add-a-bubble-layer"></a>거품형 계층 추가
 
@@ -62,7 +62,7 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 
 ## <a name="show-labels-with-a-bubble-layer"></a>거품형 계층을 사용하여 레이블 표시
 
-다음 코드에서는 거품형 계층을 사용 하 여 지도에서 점을 렌더링 하 고 기호 계층을 사용 하 여 레이블을 렌더링 하는 방법을 보여 줍니다. 기호 계층의 아이콘을 숨기려면 아이콘 옵션의 `image` 속성을로 `'none'`설정 합니다.
+다음 코드에서는 거품형 계층을 사용 하 여 지도에서 점을 렌더링 하 고 기호 계층을 사용 하 여 레이블을 렌더링 하는 방법을 보여 줍니다. 기호 계층의 아이콘을 숨기려면 아이콘 옵션의 `image` 속성을 `'none'`로 설정 합니다.
 
 <br/>
 
