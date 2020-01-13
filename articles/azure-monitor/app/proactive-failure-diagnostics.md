@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 1eebb41c83071f34cf367826a21c4bfbf0189394
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748902"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912847"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 웹 앱에서 실패 한 요청 비율이 비정상적으로 증가 하는 경우 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 은 거의 실시간으로 자동으로 경고 합니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패 한 요청의 응답 코드는 일반적으로 400 이상입니다. 문제를 심사 하 고 진단 하는 데 도움이 되도록 오류 및 관련 응용 프로그램 데이터의 특징에 대 한 분석이 경고 세부 정보에 제공 됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
@@ -48,13 +48,11 @@ ms.locfileid: "75748902"
 
 위의 예에서 분석은 대부분의 오류가 특정 결과 코드, 요청 이름, 서버 URL 호스트 및 역할 인스턴스에 대한 것임을 발견했습니다. 
 
-반면 분석은 클라이언트 운영 체제 속성이 여러 값을 통해 배포되고 있으므로 나열되지 않음을 발견했습니다.
-
 이러한 호출을 사용 하 여 서비스를 계측 하는 경우 분석기는 해당 요청과 연결 된 추적 로그의 예제와 함께 확인 된 클러스터의 요청과 관련 된 예외 및 종속성 오류를 찾습니다.
 
 다르게 구성하지 않으면 결과 분석은 경고로 전송됩니다.
 
-[수동으로 설정한 경고](../../azure-monitor/app/alerts.md)와 마찬가지로, 경고 상태를 검사 하 고 Application Insights 리소스의 경고 페이지에서 구성할 수 있습니다. 하지만 다른 경고와 달리 스마트 감지를 설정하거나 구성할 필요가 없습니다. 원하는 경우 해당 대상 전자 메일 주소를 사용하지 않거나 변경할 수 있습니다.
+[수동으로 설정한 경고](../../azure-monitor/app/alerts.md)와 같이 문제가 해결 된 경우 해결 될 수 있는 발생 한 경고의 상태를 검사할 수 있습니다. Application Insights 리소스의 경고 페이지에서 경고 규칙을 구성 합니다. 하지만 다른 경고와 달리 스마트 감지를 설정하거나 구성할 필요가 없습니다. 원하는 경우 해당 대상 전자 메일 주소를 사용하지 않거나 변경할 수 있습니다.
 
 ### <a name="alert-logic-details"></a>경고 논리 세부 정보
 
@@ -63,6 +61,7 @@ ms.locfileid: "75748902"
 * 20분의 롤링 시간 범위에서 요청/종속성의 실패율을 분석합니다.
 * 최근 20분 동안 실패율을 최근 40분 및 최근 7일 동안과 비교하고 표준 편차의 X배를 초과한 심각한 편차를 찾습니다.
 * 최소 실패율에 대해 앱 요청/종속성의 볼륨에 따라 달라지는 적응형 제한을 사용합니다.
+* 8-24 시간 동안 문제가 더 이상 검색 되지 않는 경우 발생 하는 경고 모니터 조건을 자동으로 해결할 수 있는 논리가 있습니다.
 
 ## <a name="configure-alerts"></a>경고 구성
 
@@ -83,7 +82,7 @@ ms.locfileid: "75748902"
 
 [![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-스마트 감지를 비활성화할 수 있지만 삭제할 수 없습니다(또는 다른 스마트 감지를 만들 수 없음).
+오류 이상 경고 규칙을 사용 하지 않도록 설정 하거나 삭제할 수 있지만 동일한 Application Insights 리소스에서 다른 경고 규칙을 만들 수는 없습니다.
 
 ## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>오류 비정상 경고 webhook 페이로드의 예
 

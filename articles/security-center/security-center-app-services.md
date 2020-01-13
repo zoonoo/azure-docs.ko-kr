@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: be9331ccd548628bfc27172c4f6e625bdba1632c
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 81ef598c846d98548be2d3e7647166d655398921
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158907"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912807"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Azure App Service 웹 앱 및 Api 보호
 
@@ -29,7 +29,7 @@ Azure App Service 계획에 대 한 고급 위협 방지를 사용 하도록 설
 
 App Service 계획을 사용 하도록 설정 하면 Security Center App Service 계획에 포함 된 리소스를 평가 하 고 해당 결과에 따라 보안 권장 사항을 생성 합니다. Security Center App Service를 실행 하는 VM 인스턴스와 관리 인터페이스를 보호 합니다. 또한 App Service에서 실행 중인 앱에서 송수신한 요청 및 응답을 모니터링합니다.
 
-Security Center는 클라우드의 규모와 Azure에서 클라우드 공급자로의 표시 유형을 활용 하 여 일반적인 웹 앱 공격을 모니터링 합니다. 공격자가 정찰 단계에 있는 동안에도 응용 프로그램에 대 한 공격을 검색 하 고 새로운 공격을 식별할 수 Security Center. Azure native Security Center service로 서는이 PaaS의 기본 계산 노드를 포함 하는 호스트 기반 보안 분석을 제공 하는 고유한 위치에도 있으므로 이미 악용 된 웹 응용 프로그램에 대 한 공격을 검색할 Security Center 있습니다.
+Security Center는 클라우드의 규모와 Azure에서 클라우드 공급자로의 표시 유형을 활용 하 여 일반적인 웹 앱 공격을 모니터링 합니다. 공격자가 정찰 단계에 있는 동안에도 응용 프로그램에 대 한 공격을 검색 하 고 새로운 공격을 식별할 수 Security Center. Azure native Security Center service로 서는이 PaaS의 기본 계산 노드를 포함 하는 호스트 기반 보안 분석을 제공 하는 고유한 위치에도 있으므로 이미 악용 된 웹 응용 프로그램에 대 한 공격을 검색할 Security Center 있습니다. Azure App Service의 위협 검색 경고 Security Center에 대 한 자세한 내용은 [클라우드 네이티브 컴퓨팅에 대 한 위협 감지](security-center-alerts-compute.md#azure-app-service-)를 참조 하세요.
 
 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>App Service 모니터링 및 보호 사용
@@ -57,7 +57,7 @@ App Service에 대한 모니터링과 권장 사항을 사용하지 않도록 �
 
 
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.

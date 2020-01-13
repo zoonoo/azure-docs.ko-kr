@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center에서 Azure 보안 제품에 대 한 위협 감지
-description: 이 항목에서는 Azure Security Center 위협 검색을 제공할 수 있는 Azure 보안 제품을 제공 합니다.
+title: Azure Security Center의 Azure 보안 제품에서 발생 하는 위협 검색 경고
+description: 이 항목에서는 Azure Security Center 위협 경고를 표시할 수 있는 Azure 보안 제품을 제공 합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/12/2020
 ms.author: memildin
-ms.openlocfilehash: 1ea207f0ba09e0637a08632d5c56591fd1335b22
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 16cae819b1714c2b410cfa311a3602e0f4ed968a
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665710"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913030"
 ---
-# <a name="threat-detection-for-azure-waf-and-azure-ddos-protection"></a>Azure WAF 및 Azure DDoS Protection에 대 한 위협 감지
+# <a name="threat-detection-alerts-from-azure-waf-and-azure-ddos-protection"></a>Azure WAF 및 Azure DDoS Protection에서 위협 검색 경고
 
-Azure Security Center는 다음과 같은 Azure 보안 제품에 대 한 위협 감지를 제공할 수 있습니다 (각 제품에 대해 별도의 라이선스가 필요 함).
+다음 Azure 보안 제품에 의해 생성 된 위협 검색 경고를 표시 하 고 수집할 수 Azure Security Center (각 제품에 대해 별도의 라이선스가 필요 함):
 
 * [Azure WAF](#azure-waf)
 * [Azure DDoS Protection](#azure-ddos)

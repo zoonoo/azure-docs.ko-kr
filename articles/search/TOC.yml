@@ -113,6 +113,8 @@
       items:
         - name: 보안 개요
           href: search-security-overview.md
+        - name: 프라이빗 엔드포인트 만들기
+          href: service-create-private-endpoint.md
         - name: 서비스 키 관리
           href: search-security-api-keys.md
         - name: 역할 기반 관리자 액세스
@@ -333,7 +335,7 @@
       items:
         - name: API 버전 2019-05-06-Preview
           href: search-api-preview.md
-        - name: ResetSkills API
+        - name: Skill API 다시 설정
           href: preview-api-resetskills.md
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.search/searchservices
