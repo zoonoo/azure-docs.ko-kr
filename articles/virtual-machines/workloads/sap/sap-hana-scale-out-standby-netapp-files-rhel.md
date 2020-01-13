@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 059937cc390a15c986724b3107a7f64fb789fc92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 975f4940590bfbdab559122c68488c51c65d868e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480282"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896294"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 Azure NetApp Files를 사용 하 여 Azure Vm에 대기 노드로 SAP HANA 확장 시스템 배포 
 
@@ -435,7 +435,11 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     mount 10.9.0.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
+   `nfs4_disable_idmapping` 매개 변수를 변경 하는 방법에 대 한 자세한 내용은 https://access.redhat.com/solutions/1749883 을 참조 하세요.
 
 6. **[A]** 공유 Azure NetApp Files 볼륨을 탑재 합니다.  
 
@@ -569,14 +573,14 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
      * **시스템 사용량 선택/인덱스 [4] 입력**: **4** (사용자 지정)를 입력 합니다.
      * **데이터 볼륨의 위치** [/hana/data/HN1]: enter 키를 눌러 기본값을 적용 합니다.
      * **로그 볼륨의 위치** [/hana/log/HN1]: enter 키를 눌러 기본값을 적용 합니다.
-     * **최대 메모리 할당 제한** [n]\: **n** 을 입력 합니다.
+     * **최대 메모리 할당 제한** [n]: **n** 을 입력 합니다.
      * 호스트 hanadb1 [hanadb1] **에 대 한 인증서 호스트 이름** : 기본값을 적용 하려면 enter 키를 누릅니다.
      * 호스트 hanadb2 [hanadb2] **에 대 한 인증서 호스트 이름** : 기본값을 적용 하려면 enter 키를 누릅니다.
      * 호스트 hanadb3 [hanadb3] **에 대 한 인증서 호스트 이름** : 기본값을 적용 하려면 enter 키를 누릅니다.
      * **Hn1adm (시스템 관리자) 암호**: 암호를 입력 합니다.
      * 시스템 **데이터베이스 사용자 (시스템) 암호**: 시스템 암호를 입력 합니다.
      * **시스템 데이터베이스 사용자 (시스템) 암호 확인**: 시스템 암호 입력
-     * **컴퓨터를 다시 부팅 한 후 시스템을 다시 시작** 하려면 [n]\: **n** 을 입력 합니다. 
+     * **컴퓨터를 다시 부팅 한 후 시스템을 다시 시작** 하려면 [n]: **n** 을 입력 합니다. 
      * **계속 하 시겠습니까 (y/n)** : 요약의 유효성을 검사 하 고 모든 항목이 양호 하면 **y** 를 입력 합니다.
 
 

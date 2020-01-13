@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 649c7f620b83464d1bb56cf4b8191b0747105f01
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
-ms.translationtype: MT
+ms.openlocfilehash: 8a9f0008f1a1ea1a57f3c0e7e17b8cf3ae5e959c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434533"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>IoT Edge 디바이스 게이트웨이를 통해 Modbus TCP 디바이스 연결
 
-Modbus TCP 또는 RTU 프로토콜을 사용하는 IoT 디바이스를 Azure IoT Hub에 연결하려면 IoT Edge 디바이스를 게이트웨이로 사용합니다. 게이트웨이 디바이스는 Modbus 디바이스에서 데이터를 읽은 다음 지원되는 프로토콜을 사용하여 해당 데이터를 클라우드에 전달합니다.
+Modbus TCP 또는 RTU 프로토콜을 사용 하는 IoT 장치를 Azure IoT hub에 연결 하려는 경우 IoT Edge 장치를 게이트웨이로 사용할 수 있습니다. 게이트웨이 디바이스는 Modbus 디바이스에서 데이터를 읽은 다음 지원되는 프로토콜을 사용하여 해당 데이터를 클라우드에 전달합니다.
 
 ![Modbus 장치가 IoT Edge 게이트웨이를 통해 IoT Hub에 연결](./media/deploy-modbus-gateway/diagram.png)
 
@@ -25,14 +25,14 @@ Modbus TCP 또는 RTU 프로토콜을 사용하는 IoT 디바이스를 Azure IoT
 
 이 문서에서는 Modbus TCP 프로토콜을 사용한다고 가정합니다. Modbus RTU를 지원하도록 모듈을 구성하는 방법에 대한 자세한 내용은 GitHub의 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 * Azure IoT Edge 디바이스 설정 하는 방법에 대 한 연습은 Windows 또는 Linux [에서 Azure IoT Edge 배포](quickstart.md) 를 참조 [](quickstart-linux.md)하세요.
 * IoT Edge 디바이스에 대한 기본 키 연결 문자열입니다.
-* Modbus TCP를 지원하는 물리적 또는 시뮬레이션된 Modbus 디바이스
+* Modbus TCP를 지원하는 물리적 또는 시뮬레이션된 Modbus 디바이스 IPv4 주소를 알고 있어야 합니다.
 
 ## <a name="prepare-a-modbus-container"></a>Modbus 컨테이너 준비
 
-Modbus 게이트웨이 기능을 테스트하려는 경우 사용할 수 있는 샘플 모듈은 Microsoft에 있습니다. Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)또는 이미지 URI ( **mcr.microsoft.com/azureiotedge/modbus:1.0**)를 사용 하 여 모듈에 액세스할 수 있습니다.
+Modbus 게이트웨이 기능을 테스트하려는 경우 사용할 수 있는 샘플 모듈은 Microsoft에 있습니다. Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)또는 이미지 URI `mcr.microsoft.com/azureiotedge/modbus:1.0`를 사용 하 여 모듈에 액세스할 수 있습니다.
 
 사용자 고유의 모듈을 만들고 환경에 맞게 사용자 지정하려는 경우 GitHub에 오픈 소스 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트가 있습니다. 해당 프로젝트의 지침에 따라 사용자 고유의 컨테이너 이미지를 만듭니다. 컨테이너 이미지를 만들려면 [Visual Studio에서 모듈 개발 C# ](how-to-visual-studio-develop-csharp-module.md) 또는 [Visual Studio Code에서 모듈 개발](how-to-vs-code-develop-module.md)을 참조 하세요. 이러한 문서에서는 새 모듈을 만들고 레지스트리에 컨테이너 이미지를 게시 하는 방법에 대 한 지침을 제공 합니다.
 
@@ -46,62 +46,27 @@ Modbus 게이트웨이 기능을 테스트하려는 경우 사용할 수 있는 
 
 3. **모듈 설정**을 선택합니다.
 
-4. Modbus 모듈을 추가합니다.
+4. **모듈 IoT Edge** 섹션에서 modbus 모듈을 추가 합니다.
 
-   1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
+   1. **추가** 드롭다운을 클릭 하 고 **Marketplace 모듈**을 선택 합니다.
+   2. `Modbus`를 검색 하 고 Microsoft에서 **Modbus TCP 모듈** 을 선택 합니다.
+   3. 모듈은 IoT Hub에 대해 자동으로 구성 되며 IoT Edge 모듈 목록에 표시 됩니다. 또한 경로는 자동으로 구성 됩니다. **검토 + 만들기**를 선택합니다.
+   4. 배포 매니페스트를 검토 하 고 **만들기**를 선택 합니다.
 
-   2. **이름** 필드에 "modbus"를 입력합니다.
+5. `ModbusTCPModule`Modbus 모듈을 선택 하 고 목록에서 **모듈 쌍 설정** 탭을 선택 합니다. 모듈 쌍 desired 속성에 필요한 JSON이 자동으로 채워집니다.
 
-   3. **이미지** 필드에 샘플 컨테이너의 이미지 URI(`mcr.microsoft.com/azureiotedge/modbus:1.0`)를 입력합니다.
+6. JSON에서 **SlaveConnection** 속성을 찾고 해당 값을 modbus 장치의 IPv4 주소로 설정 합니다.
 
-   4. **사용** 상자를 선택하여 모듈 쌍의 desired 속성을 업데이트합니다.
+7. **업데이트**를 선택합니다.
 
-   5. 텍스트 상자에 다음 JSON을 복사합니다. **SlaveConnection**의 값을 Modbus 디바이스의 IPv4 주소로 변경합니다.
+8. **검토 + 만들기**를 선택 하 고 배포를 검토 한 다음 **만들기**를 선택 합니다.
 
-      ```JSON
-      {
-        "properties.desired":{
-          "PublishInterval":"2000",
-          "SlaveConfigs":{
-            "Slave01":{
-              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{
-                "Op01":{
-                  "PollingInterval": "1000",
-                  "UnitId":"1",
-                  "StartAddress":"40001",
-                  "Count":"2",
-                  "DisplayName":"Voltage"
-                }
-              }
-            }
-          }
-        }
-      }
-      ```
-
-   6. **저장**을 선택합니다.
-
-5. **모듈 추가** 단계로 돌아가서 **다음**을 선택합니다.
-
-7. **경로 지정** 단계에서 텍스트 상자에 다음 JSON을 복사합니다. 이 경로는 Modbus 모듈에서 수집된 모든 메시지를 IoT Hub로 보냅니다. 이 경로에서 **Modbusoutput** 은 modbus 모듈이 데이터를 출력 하는 데 사용 하는 끝점이 고 **$upstream** 는 IoT Edge 허브에 IoT Hub 메시지를 보내도록 지시 하는 특수 한 대상입니다.
-
-   ```JSON
-   {
-     "routes": {
-       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-     }
-   }
-   ```
-
-8. **다음**을 선택합니다.
-
-9. **배포 검토** 단계에서 **제출**을 선택합니다.
-
-10. 디바이스 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다. IoT Edge 런타임과 함께 실행되는 새 **modbus** 모듈이 표시됩니다.
+9. 디바이스 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다. IoT Edge 런타임과 함께 실행 되는 새 `ModbusTCPModule` 모듈이 표시 됩니다.
 
 ## <a name="view-data"></a>데이터 보기
+
 Modbus 모듈을 통해 들어오는 데이터를 봅니다.
+
 ```cmd/sh
 iotedge logs modbus
 ```
@@ -110,5 +75,5 @@ iotedge logs modbus
 
 ## <a name="next-steps"></a>다음 단계
 
-- IoT Edge 장치가 게이트웨이 역할을 할 수 있는 방법에 대 한 자세한 내용은 [투명 게이트웨이 역할을 하는 IoT Edge 장치 만들기](./how-to-create-transparent-gateway.md)를 참조 하세요.
-- IoT Edge 모듈의 작동 방식에 대 한 자세한 내용은 [Azure IoT Edge 모듈 이해](iot-edge-modules.md)를 참조 하세요.
+* IoT Edge 장치가 게이트웨이 역할을 할 수 있는 방법에 대 한 자세한 내용은 [투명 게이트웨이 역할을 하는 IoT Edge 장치 만들기](./how-to-create-transparent-gateway.md)를 참조 하세요.
+* IoT Edge 모듈의 작동 방식에 대 한 자세한 내용은 [Azure IoT Edge 모듈 이해](iot-edge-modules.md)를 참조 하세요.

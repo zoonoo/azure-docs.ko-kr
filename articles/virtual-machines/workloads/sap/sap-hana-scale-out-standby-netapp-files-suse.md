@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 49e7fd49e000a3d4475c60a0c58cf6a2c7455fa5
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 243bbd431b7332d06a4e14581aa5c02bae2b7cba
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531407"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896288"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용 하 여 Azure Vm에 대기 노드로 SAP HANA 확장 시스템 배포 
 
@@ -184,7 +184,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 | 볼륨 | 크기<br>Premium Storage 계층 | 크기<br>Ultra Storage 계층 | 지원 되는 NFS 프로토콜 |
 | --- | --- | --- | --- |
-| /hana/log | 4TiB | 2 TiB | v 4.1 |
+| /hana/log | 4TiB | 2TiB | v 4.1 |
 | /hana/data | 6.3 TiB | 3.2 TiB | v 4.1 |
 | /hana/shared | 최대 4 개의 작업자 노드당 최대 (512 g b, 1xRAM) | 최대 4 개의 작업자 노드당 최대 (512 g b, 1xRAM) | v3 또는 v 4.1 |
 
@@ -192,11 +192,11 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 | 볼륨 | 크기<br>Ultra Storage 계층 | 지원 되는 NFS 프로토콜 |
 | --- | --- | --- |
-| /hana/log/mnt00001 | 2 TiB | v 4.1 |
-| /hana/log/mnt00002 | 2 TiB | v 4.1 |
+| /hana/log/mnt00001 | 2TiB | v 4.1 |
+| /hana/log/mnt00002 | 2TiB | v 4.1 |
 | /hana/data/mnt00001 | 3.2 TiB | v 4.1 |
 | /hana/data/mnt00002 | 3.2 TiB | v 4.1 |
-| /hana/shared | 2 TiB | v3 또는 v 4.1 |
+| /hana/shared | 2TiB | v3 또는 v 4.1 |
 
 > [!NOTE]
 > 여기에 명시 된 Azure NetApp Files 크기 조정 권장 사항은 SAP에서 인프라 공급자에 대해 권장 하는 최소 요구 사항을 충족 하는 것입니다. 실제 고객 배포 및 워크 로드 시나리오에서는 이러한 크기가 충분 하지 않을 수 있습니다. 이러한 권장 사항을 시작 점으로 사용 하 고 특정 워크 로드의 요구 사항에 따라 조정 합니다.  
@@ -249,7 +249,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
     d. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 `storage` 및 `hana` 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다.  
     
-    ㅁ. **저장**을 선택합니다. 
+    e. **저장**을 선택합니다. 
  
     f. 나머지 가상 컴퓨터 (이 예제에서는 **hanadb2** 및 **hanadb3**)에 대해 b ~ e 단계를 반복 합니다.
  
@@ -429,7 +429,9 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
 
 5. **[A]** SAP HANA 그룹 및 사용자를 수동으로 만듭니다. 그룹 sapsys 및 사용자 **h n 1**Adm의 id는 온 보 딩 중에 제공 되는 것과 동일한 id로 설정 되어야 합니다. (이 예제에서는 Id가 **1001**으로 설정 됩니다.) Id가 올바르게 설정 되지 않은 경우에는 볼륨에 액세스할 수 없습니다. 그룹 sapsys 및 사용자 계정 **h n 1**adm 및 Sapadm의 id는 모든 가상 머신에서 동일 해야 합니다.  
 
@@ -817,7 +819,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     | hanadb3 | no     | ignore |          |        |         0 |         0 | default  | default  | master 3   | slave      | standby     | standby     | standby | standby | default | -       |
    </code></pre>
 
-   ㅁ. **Hanadb3**에서 SAP HANA를 시작 합니다 .이는 대기 노드로 사용할 준비가 됩니다.  
+   e. **Hanadb3**에서 SAP HANA를 시작 합니다 .이는 대기 노드로 사용할 준비가 됩니다.  
 
    <pre><code>
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB start

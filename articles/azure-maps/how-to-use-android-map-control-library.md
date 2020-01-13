@@ -1,6 +1,6 @@
 ---
-title: Azure Maps에서 Android 맵 컨트롤 시작 Microsoft Docs
-description: Azure Maps의 Android 맵 컨트롤입니다.
+title: Android 맵 컨트롤 시작 | Microsoft Azure 맵
+description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 Android 지도 컨트롤을 시작 하는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cb79b24a37758307657c1245622fa980123cc5c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: bb9dc16eabbd6065e05d26258c1421aa7a46dbd7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432929"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911408"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
@@ -43,7 +43,7 @@ Azure Maps Android SDK를 설치 하기 전에 Android Studio을 다운로드 �
 
 Android Studio를 설치 하 고 새 프로젝트를 만드는 방법에 대 한 자세한 내용은 [Android Studio 설명서](https://developer.android.com/studio/intro/) 를 참조 하세요.
 
-![프로젝트 만들기](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Android studio에서 프로젝트 만들기 ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>가상 디바이스 설정
 
@@ -217,7 +217,7 @@ Alt + Enter (Mac에서 옵션 + 반환)를 선택 하 여 이러한 클래스를
 
 <center>
 
-Android map](./media/how-to-use-android-map-control-library/android-map.png)</center> ![
+Android 응용 프로그램의 ![Azure Maps](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
@@ -263,8 +263,8 @@ mapControl.onReady(map -> {
 
 <center>
 
-프랑스어](./media/how-to-use-android-map-control-library/android-localization.png)
-의 레이블을 표시 하는 지도 이미지를 ![</center>
+Azure Maps ![프랑스어](./media/how-to-use-android-map-control-library/android-localization.png)
+레이블을 표시 하는 지도 이미지 </center>
 
 지원 되는 언어 및 지역 보기의 전체 목록은 [여기](supported-languages.md)에 설명 되어 있습니다.
 

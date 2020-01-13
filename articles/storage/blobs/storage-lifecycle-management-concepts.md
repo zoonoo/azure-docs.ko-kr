@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
-ms.translationtype: HT
+ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351364"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -32,7 +32,7 @@ ms.locfileid: "74851777"
 
 ## <a name="storage-account-support"></a>스토리지 계정 지원
 
-수명 주기 관리 정책은 범용 v2 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob storage 계정에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
+수명 주기 관리 정책은 범용 v2 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob storage 계정에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
 ## <a name="pricing"></a>가격
 
@@ -46,7 +46,7 @@ ms.locfileid: "74851777"
 
 다음 방법 중 하나를 사용 하 여 정책을 추가, 편집 또는 제거할 수 있습니다.
 
-* [Azure 포털](https://portal.azure.com)
+* [Azure Portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
@@ -58,7 +58,7 @@ ms.locfileid: "74851777"
 
 이 문서에서는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습니다. 
 
@@ -67,9 +67,9 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 #### <a name="azure-portal-list-view"></a>Azure Portal 목록 뷰
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모든 리소스** 를 선택한 다음, 저장소 계정을 선택 합니다.
+2. Azure Portal에서 저장소 계정을 검색 하 여 선택 합니다. 
 
 3. **Blob Service**에서 **수명 주기 관리** 를 선택 하 여 규칙을 보거나 변경 합니다.
 
@@ -88,9 +88,9 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 9. **추가** 를 선택 하 여 새 정책을 추가 합니다.
 
 #### <a name="azure-portal-code-view"></a>Azure Portal 코드 보기
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모든 리소스** 를 선택한 다음, 저장소 계정을 선택 합니다.
+2. Azure Portal에서 저장소 계정을 검색 하 여 선택 합니다.
 
 3. **Blob Service**에서 **수명 주기 관리** 를 선택 하 여 정책을 보거나 변경 합니다.
 
@@ -128,7 +128,7 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 6. 이 JSON 예제에 대 한 자세한 내용은 [정책](#policy) 및 [규칙](#rules) 섹션을 참조 하십시오.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
 
 다음 PowerShell 스크립트를 사용 하 여 저장소 계정에 정책을 추가할 수 있습니다. `$rgname` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다.
 
@@ -226,16 +226,16 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 정책은 규칙의 컬렉션입니다.
 
-| 매개 변수 이름 | 매개 변수 형식 | 참고 |
+| 매개 변수 이름 | 매개 변수 형식 | 메모 |
 |----------------|----------------|-------|
 | `rules`        | 규칙 개체의 배열 | 정책에 하나 이상의 규칙이 필요 합니다. 정책에서 최대 100 개의 규칙을 정의할 수 있습니다.|
 
 정책 내의 각 규칙에는 다음과 같은 몇 가지 매개 변수가 있습니다.
 
-| 매개 변수 이름 | 매개 변수 형식 | 참고 | 필수 |
+| 매개 변수 이름 | 매개 변수 형식 | 메모 | 필수 |
 |----------------|----------------|-------|----------|
-| `name`         | string |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | 참 |
-| `enabled`      | Boolean | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | 거짓 | 
+| `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | 참 |
+| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | 거짓 | 
 | `type`         | 열거형 값 | 현재 유효한 형식이 `Lifecycle`입니다. | 참 |
 | `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | 참 |
 
@@ -286,9 +286,9 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 필터에는 다음이 포함됩니다.
 
-| 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
+| 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는 `blockBlob`지원 됩니다. | yes |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는 `blockBlob`지원 됩니다. | 예 |
 | prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 `https://myaccount.blob.core.windows.net/container1/foo/...`에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 prefixMatch은 `container1/foo`됩니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 아닙니다. |
 
 ### <a name="rule-actions"></a>규칙 작업
@@ -308,7 +308,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 실행 조건은 age를 기준으로 합니다. 기본 Blob은 마지막으로 수정된 시간을 사용하여 보존 기간을 추적하고 Blob 스냅샷은 스냅샷 생성 시간을 사용하여 보존 기간을 추적합니다.
 
-| 작업 실행 조건             | 조건 값                          | 설명                             |
+| 작업 실행 조건             | 조건 값                          | Description                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 기본 blob 동작의 조건입니다.     |
 | daysAfterCreationGreaterThan     | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 스냅숏 작업 조건 |
@@ -350,7 +350,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 다음 수명 주기 정책은 수집 때 데이터를 보관 하도록 구성 됩니다. 이 예제에서는 컨테이너 `archivecontainer` 내의 저장소 계정에서 블록 blob을 보관 계층으로 전환 합니다. 전환은 마지막으로 수정한 시간 이후에 0 일 후에 blob에서 작동 하 여 수행 됩니다.
 
 > [!NOTE] 
-> Blob을 직접 업로드 하는 것이 더 효율적입니다. [Putblob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 에 대 한 [PUTBLOCKLIST](https://docs.microsoft.com/rest/api/storageservices/put-block-list) 또는 REST 버전 2018-11-09 이상 또는 최신 blob storage 클라이언트 라이브러리를 사용 하 여 에 대 한 액세스 계층 헤더를 사용할 수 있습니다. 
+> Blob을 직접 업로드 하는 것이 더 효율적입니다. [Putblob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 에 대 한 PUTBLOCKLIST 또는 REST 버전 2018-11-09 이상 또는 최신 blob storage 클라이언트 라이브러리를 사용 하 여 [](https://docs.microsoft.com/rest/api/storageservices/put-block-list) 에 대 한 액세스 계층 헤더를 사용할 수 있습니다. 
 
 ```json
 {

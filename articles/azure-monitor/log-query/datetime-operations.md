@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894222"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365345"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
 
@@ -33,8 +33,8 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 |:---|:---|
 |d           | 일          |
 |h           | 시간         |
-|m           | 분       |
-|초           | 초       |
+|m           | minute       |
+|초           | second       |
 |ms          | 밀리초  |
 |microsecond | microsecond  |
 |tick        | 나노초   |
@@ -149,11 +149,11 @@ Event
 
 | 범주 | 함수 |
 |:---|:---|
-| 데이터 형식 변환 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
+| 데이터 형식 변환 | [system.xml.xmlconvert.todatetime](/azure/kusto/query/todatetimefunction)  [system.xml.xmlconvert.totimespan](/azure/kusto/query/totimespanfunction)  |
 | 값을 bin 크기로 반올림 | [bin](/azure/kusto/query/binfunction) |
-| 특정 날짜 또는 시간 가져오기 | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
+| 특정 날짜 또는 시간 가져오기 | [](/azure/kusto/query/agofunction) [지금](/azure/kusto/query/nowfunction) 전   |
 | 값의 부분 가져오기 | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| 상대 날짜 값 가져오기  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| 상대 날짜 값 가져오기  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek startofmonth](/azure/kusto/query/startofweekfunction) [](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Monitor 로그 데이터에 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
