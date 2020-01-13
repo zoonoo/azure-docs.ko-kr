@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442912"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
 AKS(Azure Kubernetes Service)에서 클러스터를 관리할 때 워크로드 및 데이터의 보안은 주요 고려 사항입니다. 논리적 격리를 사용하여 다중 테넌트 클러스터를 실행하는 경우에 특히, 리소스 및 워크로드에 대한 액세스를 보호해야 합니다. 공격 위험을 최소화하려면 최신 Kubernetes 및 노드 OS 보안 업데이트를 적용하는지도 확인해야 합니다.
 
-이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Active Directory 및 역할 기반 액세스 제어를 사용하여 API 서버 액세스 보안 유지
@@ -27,6 +27,8 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 때 워크로드 �
 > * 노드 업데이트를 최신 상태로 유지하고 자동으로 보안 패치 적용
 
 [컨테이너 이미지 관리][best-practices-container-image-management] 및 [pod 보안][best-practices-pod-security]에 대 한 모범 사례를 읽을 수도 있습니다.
+
+또한 [Security Center와의 Azure Kubernetes Services 통합][security-center-aks] 을 사용 하 여 위협을 감지 하 고 AKS 클러스터를 보호 하기 위한 권장 사항을 확인할 수 있습니다.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>API 서버 및 클러스터 노드에 대한 액세스 보안 유지
 
@@ -235,3 +237,4 @@ Weaveworks가 보류 중인 노드 재부팅을 감시 하는 오픈 소스 [kur
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
+[security-center-aks]: /azure/security-center/azure-kubernetes-service-integration

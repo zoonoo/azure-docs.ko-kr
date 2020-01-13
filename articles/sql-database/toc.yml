@@ -337,6 +337,8 @@
               href: sql-database-design-first-database-csharp.md
         - name: 데이터 로드 및 이동
           items:
+            - name: Azure VM에서 가져오기 또는 내보내기
+              href: import-export-from-vm.md
             - name: BACPAC 파일에서 데이터베이스 가져오기
               href: sql-database-import.md
             - name: BACPAC 파일로 데이터베이스 내보내기

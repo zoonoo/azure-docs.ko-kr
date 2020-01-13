@@ -111,6 +111,8 @@
           href: connect-virtual-network-vnet-set-up-single-ip-address.md
         - name: 통합 서비스 환경에 아티팩트 추가
           href: add-artifacts-integration-service-environment-ise.md
+        - name: 통합 서비스 환경을 위한 고객 관리형 암호화 키 설정
+          href: customer-managed-keys-integration-service-environment.md
     - name: 온-프레미스 데이터 액세스
       items:
         - name: 데이터 게이트웨이 설치
@@ -197,7 +199,7 @@
           href: logic-apps-create-api-app.md
         - name: DB2
           href: ../connectors/connectors-create-api-db2.md
-        - name: 지연
+        - name: Delay
           href: ../connectors/connectors-native-delay.md
         - name: Dropbox
           href: ../connectors/connectors-create-api-dropbox.md
@@ -349,7 +351,7 @@
           href: logic-apps-scenario-error-and-exception-handling.md
         - name: B2B 처리
           href: logic-apps-enterprise-integration-b2b.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 아키텍처 패턴
       items:

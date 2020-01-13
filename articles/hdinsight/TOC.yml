@@ -848,6 +848,8 @@
           href: ./hdinsight-management-ip-addresses.md
         - name: Azure Firewall에 대한 서비스 태그
           href: ./hdinsight-service-tags.md
+        - name: 고객 관리형 키 디스크 암호화
+          href: ./disk-encryption.md
     - name: 방법
       items:
         - name: 자격 증명 관리에 ID 브로커 사용

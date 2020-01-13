@@ -1,19 +1,19 @@
 ---
 title: Azure Portal를 사용 하 여 검색 인덱스로 데이터 가져오기
 titleSuffix: Azure Cognitive Search
-description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 저장소, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
+description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 스토리지, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534546"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460706"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 데이터 가져오기 마법사
 
@@ -61,7 +61,7 @@ Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토
 
 마법사를 실행 하기 전에이 단일 테이블이 나 뷰를 만든 다음 내용을 포함 해야 합니다. 명확한 이유 때문에 빈 데이터 원본에서 **데이터 가져오기** 마법사를 실행 하는 것은 적합 하지 않습니다.
 
-|  선택 | 설명 |
+|  선택 | Description |
 | ---------- | ----------- |
 | **기존 데이터 원본** |검색 서비스에 이미 인덱서가 정의 되어 있는 경우 다시 사용할 수 있는 기존 데이터 원본 정의가 있을 수 있습니다. Azure Cognitive Search에서 데이터 원본 개체는 인덱서 에서만 사용 됩니다. 데이터 원본 개체를 프로그래밍 방식으로 만들거나 **데이터 가져오기** 마법사를 통해 만든 다음 필요에 따라 다시 사용할 수 있습니다.|
 | **샘플**| Azure Cognitive Search는 자습서 및 빠른 시작에서 사용 되는 두 개의 기본 제공 샘플 데이터 원본 (부동산 SQL 데이터베이스 및 Cosmos DB에 호스트 된 호텔 데이터베이스)을 제공 합니다. 호텔 샘플을 기반으로 하는 연습은 Azure Portal 빠른 시작 [에서 인덱스 만들기](search-get-started-portal.md) 를 참조 하세요. |
@@ -75,7 +75,7 @@ Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토
 
 마법사는 내부적으로 다음 개체를 만들고, 구성 하 고, 호출 합니다. 마법사를 실행 한 후 포털 페이지에서 해당 출력을 찾을 수 있습니다. 서비스의 개요 페이지에는 인덱스, 인덱서, 데이터 원본 및 기술력과 목록이 있습니다. 인덱스 정의는 포털의 전체 JSON에서 볼 수 있습니다. 다른 정의의 경우 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 를 사용 하 여 특정 개체를 가져올 수 있습니다.
 
-| Object | 설명 | 
+| 개체 | Description | 
 |--------|-------------|
 | [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 자격 증명을 포함 하 여 원본 데이터에 대 한 연결 정보를 유지 합니다. 데이터 원본 개체는 인덱서에 독점적으로 사용 됩니다. | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | 전체 텍스트 검색 및 기타 쿼리에 사용 되는 실제 데이터 구조입니다. | 
@@ -105,13 +105,13 @@ Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 
 
 1. 들어오는 데이터에 적합 한 데이터 형식 입니까? Azure Cognitive Search는 [EDM (엔터티 데이터 모델) 데이터 형식을](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)지원 합니다. Azure SQL 데이터의 경우 해당 값을 레이아웃 하는 [매핑 차트가](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) 있습니다. 자세한 배경 정보는 [필드 매핑 및 변환](search-indexer-field-mappings.md)을 참조 하세요.
 
-1. *키*로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우 `metadata-storage-path`일 수 있습니다. 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션**의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 억제해야 합니다.
+1. *키*로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우 `metadata-storage-path`일 수 있습니다. 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션**의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 비활성화해야 합니다.
 
 1. 특성을 설정 하 여 인덱스에서 필드가 사용 되는 방법을 결정 합니다. 
 
-   특성은 인덱스의 필드에 대 한 물리적 식을 결정 하기 때문에이 단계를 수행 합니다. 나중에 프로그래밍 방식으로 특성을 변경 하려는 경우에는 항상 인덱스를 삭제 하 고 다시 작성 해야 합니다. **검색** 가능 하 고 **검색할** 수 있는 것과 같은 핵심 특성은 [저장소에 미치는 영향을 무시](search-what-is-an-index.md#storage-implications)합니다. 필터를 사용 하도록 설정 하 고 확인 기를 사용 하면 저장소 요구 사항이 증가 합니다. 
+   특성은 인덱스의 필드에 대 한 물리적 식을 결정 하기 때문에이 단계를 수행 합니다. 나중에 프로그래밍 방식으로 특성을 변경 하려는 경우에는 항상 인덱스를 삭제 하 고 다시 작성 해야 합니다. **검색** 가능 하 고 **검색할** 수 있는 것과 같은 핵심 특성은 [저장소에 미치는 영향을 무시](search-what-is-an-index.md#index-size)합니다. 필터를 사용 하도록 설정 하 고 확인 기를 사용 하면 저장소 요구 사항이 증가 합니다. 
    
-   + **검색 가능**을 통해 전체 텍스트를 검색할 수 있습니다. 자유 형식 쿼리 또는 쿼리 식에 사용되는 모든 필드에는 이 특성이 있어야 합니다. **검색 가능**으로 표시한 각 필드에 대해 반전된 인덱스가 만들어집니다.
+   + **검색 가능**을 선택하면 전체 텍스트를 검색할 수 있습니다. 자유 형식 쿼리 또는 쿼리 식에 사용되는 모든 필드에는 이 특성이 있어야 합니다. **검색 가능**으로 표시한 각 필드에 대해 반전된 인덱스가 만들어집니다.
 
    + **검색 가능**은 검색 결과에 필드를 반환합니다. 검색 결과에 콘텐츠를 제공하는 모든 필드에는 이 특성이 있어야 합니다. 이 필드를 설정해도 인덱스 크기는 두드러지게 영향을 받지 않습니다.
 

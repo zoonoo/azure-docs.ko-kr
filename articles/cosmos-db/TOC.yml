@@ -82,6 +82,8 @@
       href: resource-manager-samples.md
 - name: 개념
   items:
+    - name: NoSQL Vs 관계형 데이터베이스
+      href: relational-nosql.md
     - name: 글로벌 분포
       items:
         - name: 개요
@@ -976,6 +978,8 @@
           href: certificate-based-authentication.md
         - name: 데이터 작업에 대해서만 사용자 액세스 제한
           href: how-to-restrict-user-data.md
+        - name: 고객 관리형 키 구성
+          href: how-to-setup-cmk.md
     - name: 엔터프라이즈 준비
       items:
         - name: 백업에서 데이터 복원
@@ -1058,6 +1062,8 @@
           href: cassandra-migrate-cosmos-db-blitzz.md
         - name: 수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션
           href: migrate-cosmosdb-data.md
+        - name: 일 대 다(one-to-few) 관계형 데이터 마이그레이션
+          href: migrate-relational-to-cosmos-db-sql-api.md
     - name: Bulk Executor 라이브러리
       items:
         - name: Bulk Executor 라이브러리 정보

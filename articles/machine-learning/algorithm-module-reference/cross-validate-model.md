@@ -1,7 +1,7 @@
 ---
 title: '모델 교차 유효성 검사: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 모델 교차 유효성 검사 모듈을 사용 하 여 데이터를 분할 하 여 분류 또는 회귀 모델에 대 한 매개 변수 예상치를 교차 유효성 검사 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 모델 교차 유효성 검사 모듈을 사용 하 여 데이터를 분할 하 여 분류 또는 회귀 모델에 대 한 매개 변수 예상치를 교차 유효성 검사 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d83a9b5df7acc9d626613e53369f483367e55a54
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717247"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428557"
 ---
 # <a name="cross-validate-model"></a>모델 교차 유효성 검사
 
@@ -28,7 +28,7 @@ ms.locfileid: "73717247"
 
 1. 교차 유효성 검사는 학습 데이터를 무작위로 접기로 나눕니다. 
 
-   이전에 데이터 집합을 분할 하지 않은 경우 알고리즘은 기본적으로 10 개의 접기로 설정 됩니다. 데이터 집합을 다른 접기 수로 나누려면 [파티션 및 샘플](partition-and-sample.md) 모듈을 사용 하 고 사용할 접기 수를 지정할 수 있습니다.  
+   이전에 데이터 집합을 분할하지 않은 경우 이 알고리즘은 기본적으로 10개의 접기가 됩니다. 데이터 집합을 다른 접기 수로 나누려면 [파티션 및 샘플](partition-and-sample.md) 모듈을 사용 하 고 사용할 접기 수를 지정할 수 있습니다.  
 
 2.  모듈은 유효성 검사에 사용할 데이터를 접기 1로 따로 설정 합니다. ( *홀드 아웃 접기*라고도 합니다.) 모듈은 나머지 접기를 사용 하 여 모델을 학습 합니다. 
 
@@ -88,7 +88,7 @@ ms.locfileid: "73717247"
 
 이러한 결과를 보려면 파이프라인에서 모델 교차 유효성 검사 모듈을 마우스 오른쪽 단추로 클릭 합니다. **점수가 매겨진 결과**를 선택한 다음 **시각화**를 선택 합니다.
 
-| 새 열 이름      | 설명                              |
+| 새 열 이름      | Description                              |
 | -------------------- | ---------------------------------------- |
 | 점수가 매겨진 레이블        | 이 열은 데이터 집합의 끝에 추가 됩니다. 각 행에 대 한 예측 값을 포함 합니다. |
 | 점수가 매겨진 확률 | 이 열은 데이터 집합의 끝에 추가 됩니다. **점수가 매겨진 레이블의**값에 대 한 예상 확률을 나타냅니다. |
@@ -103,7 +103,7 @@ ms.locfileid: "73717247"
 이러한 결과를 보려면 파이프라인에서 모델 교차 유효성 검사 모듈을 마우스 오른쪽 단추로 클릭 합니다. **접기 별 평가 결과**를 선택 하 고 **시각화**를 선택 합니다.
 
 
-|열 이름| 설명|
+|열 이름| Description|
 |----|----|
 |접기 번호| 각 접기에 대 한 식별자입니다. 5 개의 접기를 만든 경우에는 0에서 4 사이의 5 개의 데이터 하위 집합이 있습니다.
 |접기의 예제 수|각 접기에 할당 된 행 수입니다. 거의 같아야 합니다. |
@@ -116,7 +116,7 @@ ms.locfileid: "73717247"
 + **회귀 모델**: 절대 평균 오차, 제곱 평균 오차, 상대 절대 오차, 상대 제곱 오차 및 결정 계수
 
 
-## <a name="technical-notes"></a>기술 참고 사항  
+## <a name="technical-notes"></a>기술 정보  
 
 + 교차 유효성 검사에 사용 하기 전에 데이터 집합을 정규화 하는 것이 좋습니다. 
 
@@ -127,5 +127,5 @@ ms.locfileid: "73717247"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
 

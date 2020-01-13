@@ -177,6 +177,8 @@
               href: azure-to-azure-how-to-enable-replication.md
             - name: 암호화된 VM에 대한 Azure간 복제 활성화
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
+            - name: CMK 지원 디스크가 있는 VM에 대한 Azure 간 복제 활성화
+              href: azure-to-azure-how-to-enable-replication-cmk-disks.md
             - name: S2D VM에 대한 Azure간 복제 활성화
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
             - name: 추가된 디스크에 대한 복제 활성화

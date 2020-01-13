@@ -1,6 +1,6 @@
 ---
-title: 가상 머신 확장 집합 템플릿에 대해 알아보기 | Microsoft Docs
-description: 가상 머신 확장 집합에 대 한 기본 확장 집합 템플릿을 만드는 방법 알아보기
+title: 가상 머신 확장 집합 템플릿에 대해 알아보기
+description: 몇 가지 간단한 단계를 통해 Azure virtual machine scale sets에 대 한 기본 확장 집합 템플릿을 만드는 방법에 대해 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 267c715de67df57abd30ac18966b8b3b8440810c
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459379"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 기본 확장 집합 템플릿을 만드는 방법 및 다양 한 시나리오에 맞게이 템플릿을 수정 하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다.
@@ -131,7 +131,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ```
 
 ### <a name="choose-type-of-updates"></a>업데이트 유형 선택
-또한 확장 집합은 확장 집합의 업데이트 처리 방법을 알아야 합니다. 현재, `Manual` `Rolling` 및 의세가지옵션이있습니다.`Automatic` 두 옵션 사이의 차이점에 대한 자세한 내용은 [확장 집합을 업그레이드하는 방법](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)에 대한 설명서를 참조하세요.
+또한 확장 집합은 확장 집합의 업데이트 처리 방법을 알아야 합니다. 현재는 `Manual`, `Rolling` 및 `Automatic`의 세 가지 옵션이 있습니다. 두 옵션 사이의 차이점에 대한 자세한 내용은 [확장 집합을 업그레이드하는 방법](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)에 대한 설명서를 참조하세요.
 
 ```json
        "properties": {

@@ -32,6 +32,30 @@
       href: azure-portal-export-delete-settings.md
     - name: Azure Portal 방법 비디오 시리즈
       href: azure-portal-video-series.md
+    - name: 지원 요청 생성 및 관리
+      items:
+        - name: Azure 지원 요청 만들기
+          href: supportability/how-to-create-azure-support-request.md
+        - name: 지원 요청을 위한 파일 업로드
+          href: supportability/how-to-use-file-uploader.md
+        - name: 할당량 증가 요청
+          items:
+            - name: 컴퓨팅 vCPU 제한 증가
+              items:
+                - name: 리소스 관리자 배포 모델
+                  items:
+                    - name: VM 시리즈 vCPU 제한 증가
+                      href: supportability/per-vm-quota-requests.md
+                    - name: 지역별 총 vCPU 제한 증가
+                      href: supportability/regional-quota-requests.md
+                    - name: 스폿 할당량 제한 증가
+                      href: supportability/low-priority-quota.md
+                - name: 클래식 배포 모델
+                  href: supportability/classic-deployment-model-quota-increase-requests.md
+            - name: 네트워킹 제한 증가
+              href: supportability/networking-quota-requests.md
+        - name: 지역 또는 SKU 구독 문제 해결
+          href: supportability/sku-series-unavailable.md
 - name: 참조
   items:
     - name: 바로 가기 키

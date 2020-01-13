@@ -16,9 +16,7 @@
       href: manage-app-groups.md
     - name: 5. 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
       href: create-validation-host-pool.md
-    - name: 6. 관리 도구 배포
-      href: manage-resources-using-ui.md
-    - name: 7. 서비스 경고 설정
+    - name: 6. 서비스 경고 설정
       href: set-up-service-alerts.md
 - name: 방법
   items:
@@ -70,6 +68,12 @@
       href: set-up-scaling-script.md
     - name: 피드 사용자 지정
       href: customize-feed-for-virtual-desktop-users.md
+    - name: 관리 도구 배포
+      items:
+        - name: Azure Resource Manager 템플릿
+          href: manage-resources-using-ui.md
+        - name: PowerShell
+          href: manage-resources-using-ui-powershell.md
     - name: 서비스 진단 사용
       items:
         - name: 진단 도구 배포

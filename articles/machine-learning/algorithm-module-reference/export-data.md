@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5badcbe2a76c41bdc1431abae617e35b7555eb88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9544d086eb9535af779bf2febe0cc63c180f7fd3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497906"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529595"
 ---
 # <a name="export-data-module"></a>데이터 내보내기 모듈
 
@@ -26,10 +26,10 @@ ms.locfileid: "73497906"
 
 - Azure Blob 컨테이너
 - Azure 파일 공유
-- Azure 데이터 레이크
+- Azure Data Lake
 - Azure Data Lake Gen2
 
-데이터를 내보내기 전에 먼저 Azure Machine Learning 작업 영역에 데이터 저장소를 등록 해야 합니다. 자세한 내용은 [데이터에 액세스 하는 방법](../service/how-to-access-data.md)을 참조 하세요.
+데이터를 내보내기 전에 먼저 Azure Machine Learning 작업 영역에 데이터 저장소를 등록 해야 합니다. 자세한 내용은 [데이터에 액세스 하는 방법](../how-to-access-data.md)을 참조 하세요.
 
 ## <a name="how-to-configure-export-data"></a>내보내기 데이터를 구성 하는 방법
 
@@ -39,7 +39,7 @@ ms.locfileid: "73497906"
 
 1. **데이터 내보내기** 를 선택 하 여 **속성** 창을 엽니다.
 
-1. **데이터 저장소**의 경우 드롭다운 목록에서 기존 데이터 저장소를 선택 합니다. 새 데이터 저장소를 만들 수도 있습니다. [액세스 방법-데이터를](../service/how-to-access-data.md) 방문 하 여 방법 확인
+1. **데이터 저장소**의 경우 드롭다운 목록에서 기존 데이터 저장소를 선택 합니다. 새 데이터 저장소를 만들 수도 있습니다. [액세스 방법-데이터를](../how-to-access-data.md) 방문 하 여 방법 확인
 
 1. 데이터를 쓸 데이터 저장소의 경로를 정의 합니다. 
 

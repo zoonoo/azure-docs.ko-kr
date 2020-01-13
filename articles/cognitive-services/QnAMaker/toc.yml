@@ -147,6 +147,8 @@
       href: troubleshooting.md
     - name: 파일 형식
       items:
+        - name: Markdown 참조
+          href: reference-markdown-format.md
         - name: 일괄 처리 테스트 TSV
           href: reference-tsv-format-batch-testing.md
     - name: REST API 참조

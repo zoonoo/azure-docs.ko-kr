@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 모니터링 파트너 | Microsoft Docs
-description: 파트너 모니터링 솔루션을 사용하여 Azure Service Fabric을 모니터링하는 방법 알아보기
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 모니터링 파트너
+description: 파트너 모니터링 솔루션을 사용 하 여 Azure Service Fabric 응용 프로그램, 클러스터 및 인프라를 모니터링 하는 방법을 알아봅니다.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 8353c8846820aa996214e6b119a2f9027b8b6fe6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232443"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645721"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric 모니터링 파트너
 
@@ -43,11 +34,11 @@ New Relic은 Service Fabric 애플리케이션과 잘 통합되는 다른 애플
 
 ## <a name="elk"></a>ELK 
 
-ELK 스택은 오픈 소스 기술의 컬렉션입니다. Elasticsearch, Logstash 및 Kibana 이를 조합으로 사용하여 Service Fabric 모니터링 및 진단 데이터를 수집, 저장 및 분석할 수 있습니다. [여기](service-fabric-tutorial-java-elk.md)에 Service Fabric 네이티브 Java 애플리케이션을 사용하여 이 작업을 수행하는 방법에 대한 자습서가 있습니다. 
+ELK 스택은 오픈 소스 기술 (Elasticsearch, Logstash 및 Kibana)의 컬렉션입니다. 이러한 기술을 함께 사용 하 여 Service Fabric 모니터링 및 진단 데이터를 수집, 저장 및 분석할 수 있습니다. [여기](service-fabric-tutorial-java-elk.md)에 Service Fabric 네이티브 Java 애플리케이션을 사용하여 이 작업을 수행하는 방법에 대한 자습서가 있습니다. 
 
 ## <a name="humio"></a>Humio
 
-Humio은 클라우드 또는 온-프레미스의 Service Fabric에서 응용 프로그램 및 이벤트의 로그를 실시간으로 수집할 수 있는 로그 수집 서비스입니다. Live 관찰성 외에도 Humio는 진단에서 정보를 보고 수집 하기 위한 art 분석 및 시각화 기능의 상태를 제공 합니다. Humio는 비용 효율적인 요금제를 보유 하 고 있으며 빠른 속도를 유지 하면서 확장할 수 있습니다. Service Fabric 플랫폼 이벤트와 응용 프로그램 원격 분석과 직접 통합 됩니다. [여기](https://github.com/humio/service-fabric-humio)에서 Humio 및 Service Fabric 통합에 대해 자세히 알아볼 수 있습니다.
+Humio은 클라우드 또는 온-프레미스의 Service Fabric에서 응용 프로그램 및 이벤트의 로그를 실시간으로 수집할 수 있는 로그 수집 서비스입니다. Live 관찰성 외에도 Humio는 진단 정보를 보고 수집 하기 위한 최신 분석 및 시각화 기능을 제공 합니다. Humio는 비용 효율적인 요금제를 보유 하 고 있으며 빠른 속도를 유지 하면서 확장할 수 있습니다. Service Fabric 플랫폼 이벤트와 응용 프로그램 원격 분석과 직접 통합 됩니다. [여기](https://github.com/humio/service-fabric-humio)에서 Humio 및 Service Fabric 통합에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure Cosmos DB 계정에 보안 액세스
+title: 가상 네트워크 서비스 끝점을 사용 하 여 Azure Cosmos DB 계정에 안전 하 게 액세스
 description: 이 문서에서는 Azure Cosmos 계정에 대한 가상 네트워크 및 서브넷 액세스 제어를 설명합니다.
 author: kanshiG
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0023710ff3cfe180b628d1da14b8a3ea9c136026
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444613"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 Azure Cosmos DB 액세스
 

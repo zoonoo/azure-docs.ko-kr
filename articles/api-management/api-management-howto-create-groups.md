@@ -1,5 +1,6 @@
 ---
-title: Azure API Management에서 그룹을 사용하여 개발자 계정 관리 | Microsoft Docs
+title: Azure API Management에서 그룹을 사용 하 여 개발자 계정 관리
+titleSuffix: Azure API Management
 description: Azure API Management에서 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f83b91933e2aca4bf77fcab4a30f2123f4eb4ed0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430718"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 
@@ -37,9 +38,9 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-이 문서의 전체 작업: [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
+[Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 문서의 작업을 완료합니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -79,7 +80,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 > [!NOTE]
 > Azure Active Directory 그룹을 추가하려면 [Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법](api-management-howto-aad.md)을 참조하세요.
 
-## <a name="associate-group-developer"> </a>그룹과 개발자 연결
+## <a name="associate-group-developer"> </a>개발자와 그룹 연결
 
 이 섹션에서는 그룹과 구성원을 연결하는 방법을 보여 줍니다.
 

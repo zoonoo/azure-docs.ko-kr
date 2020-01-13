@@ -36,6 +36,8 @@
       href: architecture-smart-inventory-management-pnp.md
     - name: 스토어 분석 아키텍처
       href: store-analytics-architecture.md
+    - name: 마이크로 처리 센터 앱 템플릿 아키텍처
+      href: architecture-micro-fulfillment-center-pnp.md
     - name: 연결
       href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: 애플리케이션 템플릿이란?

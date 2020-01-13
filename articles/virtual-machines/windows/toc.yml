@@ -184,7 +184,7 @@
           items:
             - name: GPU에 최적화
               href: sizes-gpu.md
-            - name: GPU 드라이버 설정
+            - name: NVIDIA GPU 드라이버 설정
               href: n-series-driver-setup.md
             - name: AMD GPU 드라이버 설정
               href: n-series-amd-driver-setup.md

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dac941b621c8df6b5c242bb5d0e0d5cdd1f864a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451215"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생
 
 이 문서에서는 Microsoft Azure에서 VM(가상 머신)에 연결하려고 할 때 발생할 수 있는 오류에 대해 설명합니다.
 > [!NOTE]
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
 ## <a name="symptoms"></a>증상
 
@@ -135,7 +135,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
 4. VM을 다시 시작한 후 VM에 대한 원격 데스크톱 연결을 시작합니다. 오류가 여전히 발생하는 경우 다음 단계로 이동합니다.
 
-3단계: 지원되는 모든 TLS 버전 사용
+#### <a name="step-3-enable-all-supported-tls-versions"></a>3단계: 지원되는 모든 TLS 버전 사용
 
 RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러나 이 프로토콜을 TLS 1.1로 변경하여 새로운 표준으로 지정할 수 있습니다. VM에서 TLS 1.1을 사용하지 않도록 설정하면 연결이 실패합니다.
 1.  CMD 인스턴스에서 TLS 프로토콜을 사용하도록 설정합니다.
@@ -160,7 +160,7 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
 1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
-2. OS 디스크가 복구 VM에 연결되면 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 기록해 둡니다.
+2. OS 디스크가 복구 VM에 연결되면 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 3. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
 #### <a name="enable-dump-log-and-serial-console"></a>덤프 로그 및 직렬 콘솔을 사용하도록 설정

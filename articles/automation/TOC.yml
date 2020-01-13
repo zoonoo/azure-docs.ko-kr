@@ -15,6 +15,8 @@
       displayName: certificate renewal
     - name: AWS를 사용하여 인증 구성
       href: automation-config-aws-account.md
+    - name: Azure Automation의 보안 자산 암호화
+      href: automation-secure-asset-encryption.md
     - name: 역할 기반 액세스 제어 관리
       href: automation-role-based-access-control.md
       displayName: RBAC
@@ -286,7 +288,7 @@
         - name: 상태 구성(DSC) 문제 해결
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
-    - name: 참고 자료
+    - name: 참조
       items:
         - name: 커뮤니티 솔루션
           items:
@@ -306,7 +308,7 @@
   items:
     - name: 인증서
       href: automation-certificates.md
-    - name: 연결
+    - name: Connections
       href: automation-connections.md
     - name: 자격 증명
       href: automation-credentials.md
@@ -356,7 +358,7 @@
     - name: 조정자에서 마이그레이션
       href: automation-orchestrator-migration.md
       displayName: 'SCORCH, runbooks'
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation
