@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562a94bbbd1999b9ca9cf0c65cdb816848648133
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8bf2f9503ae704110786a1e73aec3da18c17e4ea
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422467"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932419"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../b2b/wh
 
 - Azure AD Premium P2
 
-자세한 내용은 [어떤 사용자에 게 라이선스가 있어야 하나요?](access-reviews-overview.md#which-users-must-have-licenses)를 참조 하세요.
+자세한 내용은 [라이선스 요구 사항](access-reviews-overview.md#license-requirements)을 확인 하세요.
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>게스트에 대한 액세스 검토 만들기 및 수행
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: c3251cb26f5ab6dc211c61bc0a6d02b283de6ae5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aaa083ef52dcf18fade3315f598b5f57e791cbe0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770342"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932964"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "75770342"
 > Azure AD 로그의 컬렉션은 Azure Monitor 가격 책정입니다.  자세한 내용은 [가격 책정 Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) 를 참조 하세요.
 >
 > Azure 센티널 Office 365 솔루션을 사용 하려면 다음을 수행 합니다.
-> 1. 이 커넥터를 사용 하면 작업 영역의 가격 책정에 영향을 줍니다. 자세한 내용은 [Azure 센티널 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel/)을 참조 하세요.
+> 1. Azure 센티널에서 Office 365 커넥터를 사용 하면 작업 영역에 대 한 가격 책정에 영향을 줍니다. 자세한 내용은 [Azure 센티널 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel/)을 참조 하세요.
 > 2. Azure Monitor Office 365 솔루션을 이미 사용 하 고 있는 경우 [아래 제거 섹션](#uninstall)의 스크립트를 사용 하 여 먼저 솔루션을 제거 해야 합니다.
 > 3. 작업 영역에서 [Azure 센티널 솔루션을 사용 하도록 설정](../../sentinel/quickstart-onboard.md) 합니다.
 > 4. Azure 센티널의 **데이터 커넥터** 페이지로 이동 하 여 **Office 365** 커넥터를 사용 하도록 설정 합니다.

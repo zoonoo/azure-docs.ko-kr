@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager 관리 | Microsoft Docs
 description: StorSimple 스냅샷 관리자 솔루션 관리 작업 및 워크플로에 대한 개요 및 자세한 정보 링크를 제공합니다.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
-ms.author: v-sharos
-ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: twooley
+ms.openlocfilehash: b8fe87a2df633af310bc661308813a60987e77d6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630022"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933269"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션 관리
 
@@ -49,16 +49,16 @@ StorSimple 스냅샷 관리자를 사용하여 현재 백업 작업, 예약된 �
 | 수행하려는 작업 | 자습서의 참조 위치 |
 |:--- |:--- |
 | StorSimple 스냅샷 관리자에 대해 자세히 알아봅니다. |[StorSimple Snapshot Manager란?](storsimple-what-is-snapshot-manager.md) |
-| StorSimple 스냅샷 관리자 설치<br>StorSimple Snapshot Manager 다시 설치<br>StorSimple 스냅샷 관리자 제거 |[StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md) |
-| StorSimple 스냅샷 관리자 메뉴 및 기능 사용:<ul><li>메뉴 모음</li><li>도구 모음</li><li>범위 창</li><li>결과 창</li><li>작업 창</li><li>키보드 탐색 및 바로 가기</li></ul> |[StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md) |
-| StorSimple 스냅샷 관리자에 포함된 일반적인 MMC 기능 사용:<ul><li>보기</li><li>여기에서 창 새로 만들기</li><li>새로 고침</li><li>목록 내보내기</li><li>도움말</li></ul> |[StorSimple 스냅숏 관리자에서 MMC 메뉴 작업 사용](storsimple-snapshot-manager-mmc-menu.md) |
+| StorSimple 스냅샷 관리자 설치<br>StorSimple Snapshot Manager 다시 설치<br>StorSimple 스냅샷 관리자 제거 |[StorSimple 스냅샷 관리자 배포](storsimple-snapshot-manager-deployment.md) |
+| StorSimple 스냅샷 관리자 메뉴 및 기능 사용:<ul><li>메뉴 모음</li><li>도구 모음</li><li>범위 창</li><li>결과 창</li><li>작업 창</li><li>키보드 탐색 및 바로 가기</li></ul> |[StorSimple 스냅샷 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md) |
+| StorSimple 스냅샷 관리자에 포함된 일반적인 MMC 기능 사용:<ul><li>보기</li><li>여기에서 창 새로 만들기</li><li>새로 고침</li><li>목록 내보내기</li><li>도움말</li></ul> |[StorSimple 스냅샷 관리자에서 MMC 메뉴 작업 사용](storsimple-snapshot-manager-mmc-menu.md) |
 | 디바이스 추가 또는 교체<br>디바이스 연결<br>가져온 볼륨 그룹 확인<br>연결된 디바이스 새로 고침<br>디바이스 인증<br>디바이스 세부 정보 보기<br>디바이스 구성 삭제<br>디바이스 암호 변경<br>실패한 디바이스 바꾸기<br> |[StorSimple Snapshot Manager를 사용하여 StorSimple 디바이스 연결 및 관리](storsimple-snapshot-manager-manage-devices.md) |
-| 볼륨 탑재<br>볼륨에 대한 정보 보기<br>볼륨 삭제<br>볼륨 다시 검사<br>기본 볼륨 구성 및 백업<br>동적 미러 볼륨 구성 및 백업 |[StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리](storsimple-snapshot-manager-manage-volumes.md) |
-| 볼륨 그룹 보기<br>볼륨 그룹 만들기<br>볼륨 그룹 백업<br>볼륨 그룹 편집<br>볼륨 그룹 삭제 |[StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리](storsimple-snapshot-manager-manage-volume-groups.md) |
-| 백업 정책 만들기 <br>백업 정책 편집<br>백업 정책 삭제 |[StorSimple 스냅숏 관리자를 사용하여 백업 정책 만들기 및 관리](storsimple-snapshot-manager-manage-backup-policies.md) |
-| 예약된 백업 작업 보기 및 관리<br>최근 백업 작업 보기 및 관리<br>현재 실행 중인 백업 작업 보기 및 관리 |[StorSimple 스냅숏 관리자를 사용하여 백업 작업 보기 및 관리](storsimple-snapshot-manager-manage-backup-jobs.md) |
-| 볼륨 복원<br>볼륨 또는 볼륨 그룹 복제<br>백업 삭제<br>파일 복구<br>StorSimple 스냅샷 관리자 데이터베이스 복원 |[StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그 관리](storsimple-snapshot-manager-manage-backup-catalog.md) |
+| 볼륨 탑재<br>볼륨에 대한 정보 보기<br>볼륨 삭제<br>볼륨 다시 검사<br>기본 볼륨 구성 및 백업<br>동적 미러 볼륨 구성 및 백업 |[StorSimple 스냅샷 관리자를 사용하여 볼륨 보기 및 관리](storsimple-snapshot-manager-manage-volumes.md) |
+| 볼륨 그룹 보기<br>볼륨 그룹 만들기<br>볼륨 그룹 백업<br>볼륨 그룹 편집<br>볼륨 그룹 삭제 |[StorSimple 스냅샷 관리자를 사용하여 볼륨 그룹 만들기 및 관리](storsimple-snapshot-manager-manage-volume-groups.md) |
+| 백업 정책 만들기 <br>백업 정책 편집<br>백업 정책 삭제 |[StorSimple 스냅샷 관리자를 사용하여 백업 정책 만들기 및 관리](storsimple-snapshot-manager-manage-backup-policies.md) |
+| 예약된 백업 작업 보기 및 관리<br>최근 백업 작업 보기 및 관리<br>현재 실행 중인 백업 작업 보기 및 관리 |[StorSimple 스냅샷 관리자를 사용하여 백업 작업 보기 및 관리](storsimple-snapshot-manager-manage-backup-jobs.md) |
+| 볼륨 복원<br>볼륨 또는 볼륨 그룹 복제<br>백업 삭제<br>파일 복구<br>StorSimple 스냅샷 관리자 데이터베이스 복원 |[StorSimple 스냅샷 관리자를 사용하여 백업 카탈로그 관리](storsimple-snapshot-manager-manage-backup-catalog.md) |
 
 ## <a name="next-steps"></a>다음 단계
-[StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
+[StorSimple 스냅샷 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220).
 

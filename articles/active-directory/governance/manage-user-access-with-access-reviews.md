@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57956573dfe913828fb20db08397fac52528403d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c307b349144974a4d38f937feeebb98f369d047
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422443"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932410"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
 
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 - Azure AD Premium P2
 
-자세한 내용은 [어떤 사용자에 게 라이선스가 있어야 하나요?](access-reviews-overview.md#which-users-must-have-licenses)를 참조 하세요.
+자세한 내용은 [라이선스 요구 사항](access-reviews-overview.md#license-requirements)을 참조하세요.
 
 ## <a name="create-and-perform-an-access-review"></a>액세스 검토 만들기 및 수행
 

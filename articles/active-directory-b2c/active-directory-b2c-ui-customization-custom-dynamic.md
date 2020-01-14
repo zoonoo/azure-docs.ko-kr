@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ae29a068ef29898c3fa27d3620d1e6be0be4bf3b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950241"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931195"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "74950241"
 
 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 애플리케이션에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서는 사용자 지정 정책을 사용하여 *동적 콘텐츠*로 Azure AD B2C 사용자 인터페이스를 사용자 지정하는 방법에 중점을 둡니다. 시작하려면 [사용자 지정 정책에서 UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)을 참조하세요.
 
 >[!NOTE]
@@ -40,7 +40,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 `ContentDefinitions` 섹션에는 일련의 `ContentDefinition` XML 요소가 포함됩니다. `ContentDefinition` 요소의 ID 특성은 콘텐츠 정의에 관련된 페이지의 형식을 지정합니다. 즉, 요소는 사용자 지정 HTML5/CSS 템플릿이 적용될 컨텍스트를 정의합니다. 다음 표에서는 IEF 엔진이 인식하는 콘텐츠 정의 ID 집합과 이에 관련된 페이지 형식을 설명합니다.
 
-| 콘텐츠 정의 ID | 기본 HTML5 템플릿| 설명 |
+| 콘텐츠 정의 ID | 기본 HTML5 템플릿| Description |
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지**입니다. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **ID 공급자 선택 페이지**입니다. 이 페이지에는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자가 나열됩니다. 이러한 옵션은 일반적으로 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |
@@ -180,7 +180,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 3. **CORS** 창의 **허용된 원본** 상자에 다음 중 하나를 수행합니다.
 
     * JavaScript 호출을 허용할 URL을 입력합니다. URL을 입력할 때는 모두 소문자를 사용해야 합니다.
-    * 별표(*)를 입력하여 모든 원본 도메인이 허용되도록 지정합니다.
+    * 별표( * )를 입력하여 모든 원본 도메인이 허용되도록 지정합니다.
 
 4. **저장**을 선택합니다.
 
@@ -217,17 +217,19 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
     ![LoadUri 요소가 강조 표시 된 예제 XML 코드 조각](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>6단계: 테넌트에 정책 업로드
-1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환한 다음 **Azure AD B2C**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 
-2. **ID 경험 프레임워크**를 선택합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
 
-3. **모든 정책**을 선택합니다.
+1. **ID 경험 프레임워크**를 선택합니다.
 
-4. **정책 업로드**를 선택합니다.
+1. **모든 정책**을 선택합니다.
 
-5. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+1. **정책 업로드**를 선택합니다.
 
-6. *TrustFrameworkExtensions.xml* 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
+1. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+
+1. *TrustFrameworkExtensions.xml* 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>7단계: 지금 실행을 사용하여 사용자 지정 정책 테스트
 1. **Azure AD B2C 설정**을 선택한 다음 **ID 경험 프레임워크**를 선택합니다.
@@ -345,7 +347,3 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항)완성 정책 파일 및 코드 다운로드
 * [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위한 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)이 제공됩니다.
 * [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)에서 전체 코드를 다운로드할 수 있습니다.
-
-
-
-

@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용 하 여 Azrue Vm의 지속적인 복제 문제 해결
 description: 재해 복구를 위해 Azure 가상 머신을 복제할 때 오류 및 문제 해결
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: asgang
-ms.openlocfilehash: 7b9da202704b20e5770343f857c044ea19ae696a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620893"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930735"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Azure 간 VM 복제에서 진행 중인 문제 해결
 
@@ -51,7 +51,7 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |10MB/초 | 디스크당 842GB
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 Azure Site Recovery에는 디스크 유형에 따라 데이터 변경률 제한이 있습니다. 이 문제가 되풀이되는지 또는 일시적인지 알려면 영향을 받는 가상 머신의 데이터 변동률을 찾으십시오. 원본 가상 머신으로 이동하여 **모니터링** 아래의 메트릭을 찾은 다음, 이 스크린샷과 같이 메트릭을 추가합니다.
 
 ![데이터 변경률을 찾기 위한 3단계 프로세스](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
@@ -132,8 +132,8 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 **해결 방법**: 응용 프로그램 일관성 태그를 생성 하려면 AZURE SITE RECOVERY Microsoft VSS (볼륨 섀도 복사본 서비스)를 사용 합니다. Azure Site Recovery VSS 공급자 서비스가 설치 되었는지 확인 합니다. </br>
 
 - 다음 명령을 사용 하 여 공급자 설치를 다시 시도 합니다.
-- 기존 공급자 제거: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
-- 다시 설치: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+- 기존 공급자 제거: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Uninstall .cmd
+- 다시 설치: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Install .cmd
  
 VSS 공급자 서비스의 시작 유형이 **자동**으로 설정 되어 있는지 확인 합니다.
     - 다음 서비스를 다시 시작 합니다.

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: c2b74830463702e7de02d00bcfe88521fce2c803
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063802"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932039"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**RelyingParty** 요소는 현재 요청 Azure Active Directory B2C (Azure AD B2C)에 적용할 사용자 경험을 지정 합니다. 또한 발급된 토큰의 일부로 RP(신뢰 당사자) 애플리케이션에 필요한 클레임 목록도 지정합니다. 웹, 모바일, 데스크톱 애플리케이션 등의 RP 애플리케이션은 RP 정책 파일을 호출합니다. RP 정책 파일은 로그인, 암호 재설정, 프로필 편집 등의 특정 작업을 실행합니다. 여러 애플리케이션이 동일한 RP 정책을 사용할 수도 있고 단일 애플리케이션이 여러 정책을 사용할 수도 있습니다. 모든 RP 애플리케이션은 클레임이 포함된 동일 토큰을 수신하며, 사용자는 같은 사용자 경험을 진행하게 됩니다.
+**RelyingParty** 요소는 현재 요청 Azure Active Directory B2C (Azure AD B2C)에 적용할 사용자 경험을 지정 합니다. 또한 발급된 토큰의 일부로 RP(신뢰 당사자) 애플리케이션에 필요한 클레임 목록도 지정합니다. 웹, 모바일, 데스크톱 애플리케이션 등의 RP 애플리케이션은 RP 정책 파일을 호출합니다. RP 정책 파일은 로그인, 암호 재설정 또는 프로필 편집과 같은 특정 작업을 실행합니다. 여러 애플리케이션이 동일한 RP 정책을 사용할 수도 있고 단일 애플리케이션이 여러 정책을 사용할 수도 있습니다. 모든 RP 애플리케이션은 클레임이 포함된 동일 토큰을 수신하며, 사용자는 같은 사용자 경험을 진행하게 됩니다.
 
 다음 예제에서는 *B2C_1A_signup_signin* 정책 파일의 **RelyingParty** 요소를 보여 줍니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "71063802"
 
 선택적 **RelyingParty** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | RP 애플리케이션의 기본 사용자 경험입니다. |
 | UserJourneyBehaviors | 0:1 | 사용자 경험 동작의 범위입니다. |
@@ -102,7 +102,7 @@ ms.locfileid: "71063802"
 
 **DefaultUserJourney** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | 예 | 정책의 사용자 경험 식별자입니다. 자세한 내용은 [사용자 경험](userjourneys.md)을 참조하세요. |
 
@@ -110,7 +110,7 @@ ms.locfileid: "71063802"
 
 **UserJourneyBehaviors** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | 사용자 경험의 SSO(Single Sign-On) 세션 동작 범위입니다. |
 | SessionExpiryType |0:1 | 세션의 인증 동작입니다. 가능한 값은 `Rolling` 또는 `Absolute`입니다. `Rolling` 값(기본값)은 사용자가 애플리케이션에서 계속 활성 상태이면 로그인된 상태로 유지됨 을 나타냅니다. `Absolute` 값은 애플리케이션 세션 수명에 따라 지정된 기간 후 사용자가 강제로 다시 인증을 해야 함을 나타냅니다. |
@@ -122,7 +122,7 @@ ms.locfileid: "71063802"
 
 **SingleSignOn** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 범위 | 예 | Single Sign-On 동작의 범위입니다. 가능한 값은 `Suppressed`, `Tenant`, `Application` 또는 `Policy`입니다. `Suppressed` 값은 동작이 표시되지 않음을 나타냅니다. 예를 들어 Single Sign-On 세션의 경우에는 사용자에 대해 세션이 유지되지 않으며 ID 공급자를 선택하라는 메시지가 항상 사용자에게 표시됩니다. `TrustFramework` 값은 보안 프레임워크의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Tenant` 값은 테넌트의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 테넌트의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Application` 값은 요청을 수행하는 애플리케이션의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 애플리케이션의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Policy` 값은 동작이 한 정책에만 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자가 정책 간을 전환할 때 ID 공급자를 선택하라는 메시지가 표시됩니다. |
 | KeepAliveInDays | 예 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 자세한 내용은 [로그인 유지](active-directory-b2c-reference-kmsi-custom.md)를 참조하세요. |
@@ -131,7 +131,7 @@ ms.locfileid: "71063802"
 
 **JourneyInsights** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | TelemetryEngine | 예 | 값은 `ApplicationInsights`여야 합니다. |
 | InstrumentationKey | 예 | Application Insights 요소의 계측 키를 포함하는 문자열입니다. |
@@ -152,13 +152,13 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **ContentDefinitionParameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | 콘텐츠 정의 로드 URI의 쿼리 문자열에 추가되는 키 값 쌍을 포함하는 문자열입니다. |
 
 **ContentDefinitionParameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 키 값 쌍의 이름입니다. |
 
@@ -168,13 +168,13 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **TechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 값은 `PolicyProfile`여야 합니다. |
 
 **TechnicalProfile**에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 사용자에게 표시되는 기술 프로필의 이름이 들어 있는 문자열입니다. |
 | Description | 0:1 | 사용자에게 표시되는 기술 프로필의 설명이 들어 있는 문자열입니다. |
@@ -185,7 +185,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OpenIdConnect` 또는 `SAML2`입니다. `OpenIdConnect` 값은 OpenID Foundation 사양에 따른 OpenID Connect 1.0 프로토콜 표준을 나타냅니다. `SAML2`는 OASIS 사양에 따른 SAML 2.0 프로토콜 표준을 나타냅니다. 프로덕션 환경에서는 SAML 토큰을 사용하지 마세요. |
 
@@ -193,27 +193,27 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 신뢰 당사자가 구독하는 정책에 대해 지원되는 목록에 필요한 클레임 형식의 이름입니다. 이 클레임은 기술 프로필의 출력으로 사용됩니다. |
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일의 **ClaimsSchema** 섹션에 이미 정의되어 있는 **ClaimType**에 대한 참조입니다. |
-| DefaultValue | 아니요 | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |
-| PartnerClaimType | 아니요 | ClaimType 정의에 구성되어 있는 다른 이름으로 클레임을 보냅니다. |
+| DefaultValue | 아닙니다. | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |
+| PartnerClaimType | 아닙니다. | ClaimType 정의에 구성되어 있는 다른 이름으로 클레임을 보냅니다. |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 **SubjectNameingInfo** 요소를 사용하여 토큰 제목의 값을 제어합니다.
-- **JWT 토큰** - `sub` 클레임입니다. 애플리케이션 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 토큰을 사용해 리소스에 액세스할 때 이 값을 사용하면 안전하게 권한 부여 확인을 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다. 자세한 내용은 [토큰, 세션 및 Single Sign-On 구성](active-directory-b2c-token-session-sso.md)을 참조하세요.
+- **JWT 토큰** -`sub` 클레임입니다. 애플리케이션 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 토큰을 사용해 리소스에 액세스할 때 이 값을 사용하면 안전하게 권한 부여 확인을 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다. 자세한 내용은 [토큰, 세션 및 Single Sign-On 구성](session-behavior.md)을 참조하세요.
 - **SAML 토큰** - subject 요소를 식별하는 `<Subject><NameID>` 요소입니다.
 
 **SubjectNamingInfo** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimType | 예 | 출력 클레임의 **PartnerClaimType**에 대한 참조입니다. 신뢰 당사자 정책 **OutputClaims** 컬렉션에서 출력 클레임을 정의해야 합니다. |
 
@@ -246,5 +246,3 @@ JWT 토큰에는 사용자 objectId가 들어 있는 `sub` 클레임이 포함�
   ...
 }
 ```
-
-

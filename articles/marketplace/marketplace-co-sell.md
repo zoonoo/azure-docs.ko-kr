@@ -1,19 +1,19 @@
 ---
 title: 공동 판매 파트너 참여 | Azure Marketplace
 description: 파트너를 위한 Microsoft의 공동 판매 프로그램은 방대한 고객 기반에 도달 하 고 새 판매를 창출 하는 데 도움이 됩니다.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: fcc275b7534ebbfd65b28cbfce170dc6e1b926d9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 389e6f512f05c7bd1a6e9963e60afbcf27067fb3
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823049"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934667"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 

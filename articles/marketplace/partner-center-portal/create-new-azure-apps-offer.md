@@ -1,19 +1,19 @@
 ---
 title: 상업적 Marketplace에서 새 Azure 앱 제품 만들기
 description: Microsoft 파트너 센터에서 상용 Marketplace 포털을 사용 하 여 Azure Marketplace, AppSource 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위해 새 Azure Apps 제품을 만드는 방법입니다.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d7e05f12c04136c8394dbcb27b7a950fc5ce85d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281273"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930704"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -57,7 +57,7 @@ Azure 응용 프로그램 계획, 관리 되는 응용 프로그램 및 솔루�
 * [Azure Resource Manager 템플릿 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 * 빠른 시작:
 
-    * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)
+    * [Azure Quickstart 템플릿](https://azure.microsoft.com/documentation/templates/)
     * [GitHub Azure 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates)
     * [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
     * [서비스 카탈로그 앱 배포](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
@@ -152,7 +152,7 @@ Azure 응용 프로그램 제품을 만들려면 먼저 [파트너 센터 계정
 
 **속성** 페이지를 통해 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주와 산업, 앱 버전 및 제품을 지 원하는 법적 계약을 정의할 수 있습니다. 이 페이지를 완료 한 후 **저장** 을 선택 합니다.
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 제품을 적절 한 마켓플레이스 검색 영역에 추가 하는 데 사용 되는 최소 1 개 및 최대 3 개 범주를 선택 합니다. 제품이 제품 설명에서 이러한 범주를 어떻게 지원 하는지 확인 해야 합니다. 
 
@@ -166,7 +166,7 @@ Azure 응용 프로그램 제품을 만들려면 먼저 [파트너 센터 계정
 
 표준 계약을 사용 하려면 **표준 계약 사용?** 상자를 선택 합니다.
 
-#### <a name="terms-of-use"></a>서비스 계약
+#### <a name="terms-of-use"></a>사용 조건
 
 **표준 계약 사용** 확인란을 선택 하지 않은 경우 **사용 약관** 필드에서 사용자의 법적 사용 약관을 제공 해야 합니다. 최대 1만 문자 텍스트를 입력 하거나 사용 약관에 더 긴 설명이 필요한 경우 추가 사용 조건을 찾을 수 있는 URL을 입력 합니다. 고객은 앱을 사용해 볼 수 있도록 이러한 약관에 동의 해야 합니다.
 
@@ -191,7 +191,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 제품에 대 한 더 긴 설명 (최대 256 자)을 제공 합니다. 설명은 marketplace 검색 결과에서 사용할 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다. 
 
@@ -232,7 +232,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 이 섹션에서는 고객에 게 제품을 표시할 때 사용 되는 로고 및 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식 이어야 합니다.
 
-#### <a name="store-logos"></a>매장 로고
+#### <a name="store-logos"></a>Microsoft Store 로고
 
 **소형 (48 x 48)** , **보통 (90 x 90)** 및 **큼 (216 x 216)** 의 세 가지 크기로 제품 로고를 제공 합니다.
 
@@ -287,7 +287,7 @@ Azure 구독 Id를 최대 10 개까지 수동으로 추가 하거나 CSV 파일�
 
 **계획 설정** 탭에서는 계획의 유형에 대 한 고급 구성을 설정 하 고, 다른 계획의 패키지를 다시 사용 하 고, 계획을 사용할 수 있는 클라우드를 설정할 수 있습니다.  이 탭에 대 한 답변은 동일한 계획에 대 한 다른 탭에 표시 되는 필드에 영향을 줍니다.
 
-#### <a name="plan-type"></a>계획 유형
+#### <a name="plan-type"></a>플랜 유형
 
 [Azure 응용 프로그램 계획의 유형에](#types-of-azure-application-plans)서 간략히 설명 된 대로 계획에 솔루션 템플릿 또는 관리 되는 응용 프로그램이 포함 될 지 여부를 선택 합니다.
 
@@ -327,7 +327,7 @@ Azure Government 서비스는 FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L
 
 소프트웨어 계획에 대 한 간략 한 요약을 제공 합니다.  최대 100 자까지 포함할 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 이 설명에서는이 소프트웨어 계획의 고유한 정의와 제품 내 다른 소프트웨어 요금제의 차이점을 설명할 수 있는 기회를 제공 합니다. 최대 2000 자까지 포함할 수 있습니다.
 
@@ -501,7 +501,7 @@ Azure 응용 프로그램은 기본적으로 Azure Resource Manager 테스트 �
 
 - **사용자 설명서** (필수): 테스트 드라이브 환경을 자세히 연습 합니다. 사용자 설명서는 시험 사용에 대 한 고객의 의견을 정확 하 게 파악 하 고 있을 수 있는 질문에 대 한 참조로 사용할 수 있습니다. 업로드 후 파일은 PDF 형식 이어야 하며 (최대 255 자) 이름이 지정 되어야 합니다.
 
-- **비디오: 비디오 추가** (선택 사항): 비디오를 YouTube 또는 Vimeo에 업로드 하 고 링크 및 미리 보기 이미지 (533 x 324 픽셀)를 사용 하 여 여기에서 참조할 수 있으므로 고객이 테스트 드라이브를 보다 잘 이해할 수 있도록 정보를 단계별로 볼 수 있습니다. 예를 들어 제품의 기능을 성공적으로 사용 하 고 혜택을 강조 하는 시나리오를 이해 하는 방법입니다.
+- **비디오: 비디오 추가** (선택 사항): 비디오를 YouTube 또는 Vimeo에 업로드 하 고 링크 및 미리 보기 이미지 (533 x 324 픽셀)를 사용 하 여 여기에서 참조할 수 있으므로 고객이 제품의 기능을 성공적으로 사용 하는 방법을 비롯 하 여 테스트 드라이브를 보다 잘 이해 하는 데 도움이 되는 정보를 볼 수 있습니다.
   - **이름** (필수)
   - **URL (YouTube 또는 Vimeo만 해당)** (필수)
   - **축소판 그림 (533 x 324 px)** : 이미지 파일은 PNG 형식 이어야 합니다.

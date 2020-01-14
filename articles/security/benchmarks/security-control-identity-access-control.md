@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 9081f74aee7ff503c7fe29cef6ca76e6d6b46a4f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 543573610c2ea3ab0bcd89e1b8f4ee5f5a34dbc0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564271"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934424"
 ---
 # <a name="security-control-identity-and-access-control"></a>보안 제어: Id 및 Access Control
 
@@ -63,7 +63,9 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 가능 하면 서비스 별로 개별 독립 실행형 자격 증명을 구성 하는 대신 Azure Active Directory SSO를 사용 합니다. Azure Security Center Id 및 액세스 관리 권장 사항을 사용 합니다.
 
-Azure AD를 사용 하 여 SSO 이해: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Azure AD를 사용 하 여 SSO 이해:
+
+https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 ## <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: 모든 Azure Active Directory 기반 액세스에 대해 multi-factor authentication을 사용 하십시오.
 
@@ -89,9 +91,13 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 MFA가 구성 된 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure 리소스에 로그인 하 고 구성 합니다.
 
-권한 있는 액세스 워크스테이션에 대 한 자세한 정보: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+권한 있는 액세스 워크스테이션에 대해 알아봅니다.
 
-Azure에서 MFA를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+
+Azure에서 MFA를 사용 하도록 설정 하는 방법:
+
+https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 ## <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: 관리 계정에서 의심 스러운 활동에 대 한 로그 및 경고
@@ -130,19 +136,25 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 
 Azure Active Directory (AAD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. AAD는 미사용 데이터 및 전송 중인 데이터에 대해 강력한 암호화를 사용 하 여 데이터를 보호 합니다. 또한 AAD는 사용자 자격 증명을 salts, 해시 및 안전 하 게 저장 합니다.
 
-AAD 인스턴스를 만들고 구성 하는 방법: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+AAD 인스턴스를 만들고 구성 하는 방법:
+
+https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 ## <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: 정기적으로 사용자 액세스를 검토 하 고 조정 합니다.
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.1 | 16.9, 16.10 | Customer |
+| 3.10 | 16.9, 16.10 | Customer |
 
 Azure AD는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다. 
 
-Azure AD Reporting https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Azure AD 보고:
 
-Azure Id 액세스 검토를 사용 하는 방법: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+
+Azure Id 액세스 검토를 사용 하는 방법:
+
+https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 ## <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: 비활성화 되는 계정에 대 한 액세스 시도를 모니터링 합니다.
 

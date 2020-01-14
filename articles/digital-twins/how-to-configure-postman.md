@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 8c358b727a436f1951337005883b5d577119fac1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/10/2020
+ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895614"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933452"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -131,6 +131,12 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
    > * 전체 요청에 대해서는 `multipart/mixed` 또는 다른 적절한 **Content-Type**을 선택해야 합니다.
 
 1. 마지막으로, **보내기** 를 선택 하 여 MULTIPART HTTP POST 요청을 제출 합니다. `200` 또는 `201`의 상태 코드는 성공적인 요청을 나타냅니다. 적절 한 응답 메시지가 클라이언트 인터페이스에 표시 됩니다.
+
+1. API 끝점을 호출 하 여 HTTP POST 요청 데이터의 유효성을 검사 합니다. 
+
+   ```URL
+   YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

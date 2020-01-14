@@ -11,21 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f728338284c755116414a03cbc586915e1cc9325
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462208"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931144"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Azure RBAC 및 Azure PowerShell를 사용 하 여 역할 할당 나열
 
 이 문서 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Azure PowerShell를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

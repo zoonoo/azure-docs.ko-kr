@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/03/2020
-ms.openlocfilehash: 333d7faacfb5965e74eae69f07ff974a8fff8f25
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/13/2020
+ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894002"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934372"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
    - 저장소의 __서비스 태그__ 를 사용 하 여 Azure Storage __Region_Name__ (예: 저장소. eastus)
    - Azure Container Registry AzureContainerRegistry의 __서비스 태그__ 를 사용 하 여 __Region_Name 합니다__ (예: AzureContainerRegistry).
    - __AzureMachineLearning__ 의 __서비스 태그__ 를 사용 하 여 Azure Machine Learning
-   - 계산 인스턴스, Azure Cloud의 경우 __Azurecloud__ 의 __서비스 태그__ 를 사용 하 여 Region_Name (예: azurecloud. NorthCentralUS)
+   - 계산 인스턴스, Azure Cloud의 경우 __AzureResourceManager__ 의 __서비스 태그__ 를 사용 합니다.
 
 Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 

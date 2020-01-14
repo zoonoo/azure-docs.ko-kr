@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: d052226470042d374544de0b7e1ced4ca0f48a14
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564154"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934325"
 ---
 # <a name="security-control-network-security"></a>보안 제어: 네트워크 보안
 
@@ -29,7 +29,9 @@ ms.locfileid: "75564154"
 
 또는 특정 사용 사례가 있는 경우 Azure 방화벽을 구현 하 여 요구 사항을 충족할 수 있습니다.
 
-개인 링크에 대 한 일반 정보: https://docs.microsoft.com/azure/private-link/private-link-overview
+개인 링크에 대 한 일반 정보:
+
+https://docs.microsoft.com/azure/private-link/private-link-overview
 
 Virtual Network를 만드는 방법:
 
@@ -97,11 +99,11 @@ Azure Security Center 통합 위협 인텔리전스 이해:
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-적응 네트워크 강화 Azure Security Center 이해
+적응 네트워크 강화 Azure Security Center 이해:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Azure Security Center Just-in-time 네트워크 Access Control 이해
+Just-in-time 네트워크 Access Control Azure Security Center 이해:
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -113,9 +115,13 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 저장소 계정에 NSG 흐름 로그를 기록 하 여 흐름 레코드를 생성 합니다. 비정상적인 활동을 조사 하는 데 필요한 경우 Network Watcher 패킷 캡처를 사용 하도록 설정 합니다.
 
-NSG 흐름 로그를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+NSG 흐름 로그를 사용 하도록 설정 하는 방법:
 
-Network Watcher를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+
+Network Watcher를 사용 하도록 설정 하는 방법:
+
+https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: 네트워크 기반 침입 감지/침입 방지 시스템 (IDS/IPS)을 배포 합니다.
 
@@ -137,11 +143,17 @@ Azure 방화벽을 사용 하 여 경고를 구성 하는 방법: https://docs.m
 
 신뢰할 수 있는 인증서에 대해 HTTPS/SSL을 사용 하도록 설정 된 웹 응용 프로그램용 Azure 애플리케이션 게이트웨이를 배포 합니다.
 
-Application Gateway를 배포 하는 방법: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
+Application Gateway를 배포 하는 방법:
 
-HTTPS를 사용 하도록 Application Gateway를 구성 하는 방법: https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
-Azure 웹 응용 프로그램 게이트웨이를 사용 하 여 계층 7 부하 분산 이해: https://docs.microsoft.com/azure/application-gateway/overview
+HTTPS를 사용 하도록 Application Gateway를 구성 하는 방법:
+
+https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+
+Azure 웹 응용 프로그램 게이트웨이를 사용 하 여 계층 7 부하 분산 이해:
+
+https://docs.microsoft.com/azure/application-gateway/overview
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: 네트워크 보안 규칙의 복잡성 및 관리 오버 헤드를 최소화 합니다.
 
@@ -149,9 +161,11 @@ Azure 웹 응용 프로그램 게이트웨이를 사용 하 여 계층 7 부하 
 |--|--|--|
 | 1.8 | 1.5 | Customer |
 
-Virtual Network 서비스 태그 &nbsp;를 사용 하 여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: Microsoft.apimanagement)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다.
+Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: Microsoft.apimanagement)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다.
 
-서비스 태그 이해 및 사용: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+서비스 태그 이해 및 사용:
+
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 장치에 대 한 표준 보안 구성 유지
 
@@ -161,7 +175,7 @@ Virtual Network 서비스 태그 &nbsp;를 사용 하 여 네트워크 보안 �
 
 Azure Policy를 사용 하 여 네트워크 리소스에 대 한 표준 보안 구성을 정의 하 고 구현 합니다.
 
-또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, RBAC 컨트롤 및 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독과 환경에 적용 하 고 버전 관리를 통해 제어 및 관리를 세부적으로 조정할 수 있습니다.
+또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, RBAC 컨트롤 및 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화할 수 있습니다. 버전 관리를 통해 새 구독에 청사진을 적용 하 고 제어 및 관리를 세부적으로 조정할 수 있습니다.
 
 Azure Policy를 구성 하 고 관리 하는 방법:
 

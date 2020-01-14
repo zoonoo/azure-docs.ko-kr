@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: b027a668403f47e9ffb824179ae54b89cded7a0c
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: fb3560aa2d3fbf48ab63c4da4d3a8d69cb677209
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564232"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934410"
 ---
 # <a name="security-control-incident-response"></a>보안 제어: 인시던트 응답
 
@@ -65,7 +65,7 @@ IT 계획 및 기능에 대 한 NIST의 게시: 테스트, 학습 및 실습 프
 
 https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10.4: 보안 인시던트에 대 한 정보를 제공 하 고 보안 인시던트에 대 한 경고 알림 &nbsp;구성 하십시오.
+## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: 보안 인시던트에 대 한 세부 정보를 제공 하 고 보안 인시던트에 대 한 경고 알림을 구성 하십시오.
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814847"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934120"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -79,7 +79,7 @@ ms.locfileid: "74814847"
 
 **Q: 이중 채널 오디오에 대 한 요금은 어떻게 청구 되나요?**
 
-**A**: 각 채널을 별도로 제출 하는 경우 (각 채널은 자체 파일에) 파일의 기간에 따라 요금이 청구 됩니다. 각 채널이 함께 멀티플렉싱 단일 파일을 제출 하면 단일 파일의 기간에 대 한 요금이 청구 됩니다.
+**A**: 각 채널을 별도로 제출 하는 경우 (각 채널은 자체 파일에) 각 파일의 기간에 대해 요금이 청구 됩니다. 각 채널이 함께 멀티플렉싱 단일 파일을 제출 하면 단일 파일의 기간에 대 한 요금이 청구 됩니다. 가격 책정에 대 한 자세한 내용은 [Azure Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)를 참조 하세요.
 
 > [!IMPORTANT]
 > 그 밖의 개인 정보 보호 문제로 인해 Custom Speech Service를 사용할 수 없는 경우에는 지원 채널 중 한 곳에 문의하세요.
@@ -110,7 +110,7 @@ ms.locfileid: "74814847"
 
 - 구독에 대 한 액세스 토큰 ( [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)참조)
 
-or
+또는
 
 - 구독에 대 한 리소스 ID:
   - [Azure Portal](https://portal.azure.com)로 이동 합니다.

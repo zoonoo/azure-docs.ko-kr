@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9389466b6291542563c068706479bf981c5880da
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692759"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933475"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>콘텐츠 인식 인코딩에 대 한 실험적 사전 설정
 
@@ -29,7 +29,9 @@ Netflix가 12 월 2015에 [블로그](https://medium.com/netflix-techblog/per-ti
 
 2017 초기에 Microsoft는 [적응 스트리밍](autogen-bitrate-ladder.md) 사전 설정을 출시 하 여 원본 비디오의 품질 및 해상도에 대 한 변동 문제를 해결 했습니다. 고객은 다양 한 콘텐츠를 포함 하 고 있습니다. 일부는 1080p, 720p에서는 몇 가지를 포함 하 고 있습니다. 또한 모든 소스 콘텐츠가 필름 또는 TV 스튜디오의 고품질 mezzanines. 적응 스트리밍 사전 설정은 비트 전송률 사다리가 입력 된 메자닌의 해상도 또는 평균 비트 전송률을 초과 하지 않도록 하 여 이러한 문제를 해결 합니다.
 
-실험적 콘텐츠 인식 인코딩 사전 설정은 인코더가 지정 된 해상도에 대 한 최적의 비트 전송률 값을 검색할 수 있도록 하는 사용자 지정 논리를 통합 하 여 광범위 한 계산 분석을 요구 하지 않고 해당 메커니즘을 확장 합니다. 결과적으로이 새로운 사전 설정은 적응 스트리밍 사전 설정 보다 높은 비트 전송률이 있는 출력을 생성 하지만 품질은 높아집니다. [Psnr](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) 및 [vmaf](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion)와 같은 품질 메트릭을 사용 하 여 비교를 보여 주는 다음 샘플 그래프를 참조 하세요. 소스는 인코더를 스트레스 하기 위해 영화 및 TV 쇼에서 복잡성이 높은 샷의 짧은 클립을 연결 하 여 만들어졌습니다. 정의에 따라이 미리 설정은 콘텐츠와 콘텐츠가 다른 결과를 생성 합니다. 또한 일부 콘텐츠의 경우 비트 전송률 또는 품질 향상을 크게 줄일 수 없습니다.
+새 콘텐츠 인식 인코딩 사전 설정은 인코더가 지정 된 해상도에 대 한 최적의 비트 전송률 값을 검색할 수 있도록 하는 사용자 지정 논리를 통합 하 여 해당 메커니즘을 확장 하지만 광범위 한 계산 분석이 필요 하지 않습니다. 이 사전 설정은 GOP 정렬 Mp4 집합을 생성 합니다. 입력 콘텐츠를 제공 하는 경우 서비스는 입력 콘텐츠에 대 한 초기 경량 분석을 수행 하 고 결과를 사용 하 여 최적의 계층 수, 적절 한 비트 전송률 및 적응 스트리밍을 통해 배달할 해상도 설정을 결정 합니다. 이 사전 설정은 저렴 하 고 보통 수준의 복잡 한 비디오에 특히 효과적입니다 .이 경우 출력 파일은 적응 스트리밍 사전 설정 보다 더 낮은 비트 전송률이 고 여전히 좋은 경험을 제공 하는 품질로 제공 됩니다. 출력에는 비디오 및 오디오가 있는 MP4 파일이 포함 됩니다.
+
+[Psnr](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) 및 [vmaf](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion)와 같은 품질 메트릭을 사용 하 여 비교를 보여 주는 다음 샘플 그래프를 참조 하세요. 소스는 인코더를 스트레스 하기 위해 영화 및 TV 쇼에서 복잡성이 높은 샷의 짧은 클립을 연결 하 여 만들어졌습니다. 정의에 따라이 미리 설정은 콘텐츠와 콘텐츠가 다른 결과를 생성 합니다. 또한 일부 콘텐츠의 경우 비트 전송률 또는 품질 향상을 크게 줄일 수 없습니다.
 
 ![PSNR을 사용 하는 TS (요율 비틀기) 곡선](media/cae-experimental/msrv1.png)
 
@@ -39,7 +41,7 @@ Netflix가 12 월 2015에 [블로그](https://medium.com/netflix-techblog/per-ti
 
 **그림 2: 높은 복잡성의 원본에 대 한 VMAF 메트릭을 사용 하는 TS (요율 비틀기) 곡선**
 
-현재 미리 설정은 높은 복잡성, 고품질 원본 비디오 (영화, TV 쇼)에 맞게 조정 됩니다. 쿼리보다 성능이 quality 비디오 뿐만 아니라 덜 복잡 한 콘텐츠 (예: PowerPoint 프레젠테이션)에 적용 하기 위한 작업이 진행 중입니다. 또한이 사전 설정은 적응 스트리밍 사전 설정으로 동일한 해상도 집합을 사용 합니다. Microsoft는 콘텐츠에 기반 하 여 최소 해상도 집합을 선택 하는 방법에 대해 작업 하 고 있습니다. 다음과 같이 인코더에서 입력의 품질이 저하 되었음을 확인할 수 있는 다른 범주의 원본 콘텐츠 (비트 전송률이 낮은 경우 많은 압축 아티팩트)의 결과입니다. 실험적 미리 설정을 사용 하는 경우 인코더는 하나의 출력 계층도 생성 하기로 결정 했습니다. 따라서 대부분의 클라이언트는 상태일 없이 스트림을 재생할 수 있습니다.
+다음은 다른 범주의 소스 콘텐츠에 대 한 결과입니다. 여기서 인코더는 입력의 품질이 저하 되었음을 확인할 수 있었습니다 (비트 전송률이 낮은 경우 많은 압축 아티팩트). 콘텐츠 인식 사전 설정을 사용 하는 경우 인코더는 하나의 출력 계층도 생성 하기로 결정 했습니다. 따라서 대부분의 클라이언트는 상태일 없이 스트림을 재생할 수 있습니다.
 
 ![PSNR을 사용 하는 RD 곡선](media/cae-experimental/msrv3.png)
 
@@ -62,16 +64,16 @@ TransformOutput[] output = new TransformOutput[]
       // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
       Preset = new BuiltInStandardEncoderPreset()
       {
-         // This sample uses the new experimental preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncodingExperimental
+         // This sample uses the new preset for content-aware encoding
+         PresetName = EncoderNamedPreset.ContentAwareEncoding
       }
    }
 };
 ```
 
 > [!NOTE]
-> "실험적" 접두사는 기본 알고리즘이 여전히 진화 하 고 있음을 알리기 위해 사용 됩니다. 비트 전송률 ladders를 생성 하는 데 사용 되는 논리에 따라 시간이 지남에 따라 변경 될 수 있으며, 강력한 알고리즘에서 수렴 하 고 다양 한 입력 조건에 적응 하는 목표가 있습니다. 이 사전 설정을 사용 하는 인코딩 작업에는 출력 시간 (분)을 기준으로 요금이 청구 되 고, 대시 및 HLS와 같은 프로토콜의 스트리밍 끝점에서 출력 자산이 배달 될 수 있습니다.
+> 기본 알고리즘에는 추가 개선 사항이 적용 됩니다. 시간이 지남에 따라 비트 전송률 ladders를 생성 하는 데 사용 되는 논리에 따라 변경 될 수 있으며, 강력한 알고리즘을 제공 하 고 다양 한 입력 조건에 맞게 조정 됩니다. 이 사전 설정을 사용 하는 인코딩 작업에는 출력 시간 (분)을 기준으로 요금이 청구 되 고, 대시 및 HLS와 같은 프로토콜의 스트리밍 끝점에서 출력 자산이 배달 될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 비디오를 최적화 하는이 새로운 옵션에 대해 알아보았습니다. 이제 사용해 볼 수 있습니다. 이 문서의 끝에 있는 링크를 사용 하 여 의견을 보내 주시기 바랍니다. 또는 <amsved@microsoft.com>에서 직접 도움을 받을 수 있습니다.
+이제 비디오를 최적화 하는이 새로운 옵션에 대해 알아보았습니다. 이제 사용해 볼 수 있습니다. 이 문서의 끝에 있는 링크를 사용 하 여 피드백을 보낼 수 있습니다.

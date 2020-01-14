@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290770"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932383"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -37,18 +37,18 @@ ms.locfileid: "71290770"
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>통과 인증은 [Microsoft Azure 독일 클라우드](https://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
 
-아니요. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
+아닙니다. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
 
 예. Azure Multi-Factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
-제한 된 범위까지 통과 인증은 Azure AD Connect에서 구성 된 경우 대체 ID를 사용자 이름으로 지원 합니다. 전제 조건으로 Azure AD Connect는 온-프레미스 Active Directory `UserPrincipalName` 특성을 Azure AD로 동기화해야 합니다. 이렇게 하면 온 `UserPrincipalName` -프레미스 AD와 Azure AD의가 동일 하 게 됩니다. 다른 특성을 사용 하 여 온-프레미스 AD에서 Azure AD로 동기화 하는 경우에는 암호 해시 동기화 또는 AD FS을 사용 해야 합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 특정 애플리케이션의 설명서 지원 부분을 참조하세요.
+제한 된 범위까지 통과 인증은 Azure AD Connect에서 구성 된 경우 대체 ID를 사용자 이름으로 지원 합니다. 전제 조건으로 Azure AD Connect는 온-프레미스 Active Directory `UserPrincipalName` 특성을 Azure AD로 동기화해야 합니다. 이렇게 하면 온-프레미스 AD 및 Azure AD에서 `UserPrincipalName`가 동일 하 게 됩니다. 다른 특성을 사용 하 여 온-프레미스 AD에서 Azure AD로 동기화 하는 경우에는 암호 해시 동기화 또는 AD FS을 사용 해야 합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 특정 애플리케이션의 설명서 지원 부분을 참조하세요.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
-아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
+아닙니다. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
 ## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>암호 해시 동기화에서 통과 인증으로 전환 하면 어떻게 되나요?
 
@@ -66,7 +66,7 @@ Azure AD Connect를 사용 하 여 암호 해시 동기화에서 통과 인증�
 
 특정 사용자에 대해 [비밀번호 쓰기 저장](../authentication/concept-sspr-writeback.md)이 구성되었고 이 사용자가 통과 인증을 사용하여 로그인하면 암호를 변경하거나 다시 설정할 수 있습니다. 암호는 예상대로 온-프레미스 Active Directory에 쓰기 저장됩니다.
 
-특정 사용자에 대해 비밀번호 쓰기 저장이 구성되지 않았거나 이 사용자에게 유효한 Azure AD 라이선스가 할당되어 있지 않으면 해당 사용자가 클라우드에서 암호를 업데이트할 수 없습니다. 암호가 만료된 경우에도 해당 암호를 업데이트할 수 없습니다. 대신에 다음과 같은 메시지가 사용자에게 표시됩니다. “조직이 이 사이트에서 암호 업데이트를 허용하지 않습니다. 조직에서 권장하는 방법에 따라 암호를 업데이트하거나 도움이 필요한 경우 관리자에게 문의하세요." 사용자 또는 관리자가 온-프레미스 Active Directory에서 해당 암호를 다시 설정해야 합니다.
+특정 사용자에 대해 비밀번호 쓰기 저장이 구성되지 않았거나 이 사용자에게 유효한 Azure AD 라이선스가 할당되어 있지 않으면 해당 사용자가 클라우드에서 암호를 업데이트할 수 없습니다. 암호가 만료된 경우에도 해당 암호를 업데이트할 수 없습니다. 대신에 다음과 같은 메시지가 사용자에게 표시됩니다. "조직이 이 사이트에서 암호 업데이트를 허용하지 않습니다. 조직에서 권장하는 방법에 따라 암호를 업데이트하거나 도움이 필요한 경우 관리자에게 문의하세요." 사용자 또는 관리자가 온-프레미스 Active Directory에서 해당 암호를 다시 설정해야 합니다.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>통과 인증을 통해 무차별 암호 대입 공격으로부터 사용자를 보호하려면 어떻게 할까요?
 
@@ -168,7 +168,7 @@ A: 다음과 같은 경우에 온-프레미스 UPN 변경 내용을 동기화할
 
 즉, 2015년 6월 15일 이전에 만들어진 테넌트의 기본 동작이 UPN 변경 내용을 차단하기 때문입니다.  UPN 변경 내용의 차단을 취소해야 하는 경우 다음 PowerShell cmdlt을 실행해야 합니다.  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 2015년 6월 15일 이후에 만든 테넌트에는 UPN 변경 내용을 동기화하는 기본 동작이 포함됩니다.   
 
@@ -176,12 +176,12 @@ A: 다음과 같은 경우에 온-프레미스 UPN 변경 내용을 동기화할
 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
-- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 준비하고 실행합니다.
+- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
 - [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
-- [보안 심층 분석](how-to-connect-pta-security-deep-dive.md): 통과 인증 기능에 대한 심층 기술 정보를 가져옵니다.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): 이 보완 기능을 자세히 알아봅니다.
+- [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 95c1834e997caae13e650df5b588df898a1e361d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 2f24012a69a7673426644a8ded6162cd1021938e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564180"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930070"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>보안 제어: 인벤토리 및 자산 관리
 
@@ -193,7 +193,9 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 운영 체제별 구성 또는 타사 리소스를 사용 하 여 Azure compute 리소스 내에서 스크립트를 실행 하는 사용자의 기능을 제한 합니다.
 
-예를 들어 Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법: https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
+예를 들어 Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법은 다음과 같습니다.
+
+https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 
 ## <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: 위험 수준이 높은 응용 프로그램을 물리적 또는 논리적으로 분리
 

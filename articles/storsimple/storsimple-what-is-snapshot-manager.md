@@ -3,7 +3,7 @@ title: StorSimple 스냅샷 관리자란? | Microsoft Docs
 description: StorSimple 스냅샷 관리자와 그 아키텍처, 해당 기능을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
-ms.author: v-sharos
+ms.author: twooley
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f7436bb63f52c9c2b697c8e7031922ce89d786b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789617"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933626"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager 소개
 
@@ -47,17 +47,17 @@ StorSimple 스냅샷 관리자는 로컬 및 클라우드 데이터의 일관된
 
 StorSimple Snapshot Manager는 호스트의 VSS 공급자에 등록된 애플리케이션 목록을 가져옵니다. 그런 다음, 애플리케이션에 일관된 백업을 만들려면 애플리케이션에서 사용하는 볼륨을 확인하고 구성할 볼륨 그룹을 제안합니다. StorSimple Snapshot Manager는 애플리케이션에 일관된 백업 복사본을 생성하기 위해 이러한 볼륨 그룹을 사용합니다. 모든 관련 파일과 데이터베이스가 동기화되고 특정 시점에서 애플리케이션의 실제 상태를 나타날 때 애플리케이션이 일관성 있는 것입니다. 
 
-StorSimple 스냅샷 관리자 백업은 마지막 백업 이후의 변경 내용만 캡처하는 증분 스냅샷의 형태입니다. 결과적으로, 백업 스토리지가 덜 필요 하고 신속하게 생성 및 복원할 수 있습니다. StorSimple Snapshot Manager는 스냅샷이 애플리케이션과 일관된 데이터를 캡처하도록 Windows 볼륨 섀도 복사본 서비스(VSS)를 사용합니다. 자세한 내용은 Windows 볼륨 섀도 복사본 서비스와 통합에서 제공합니다. StorSimple 스냅샷 관리자를 사용하여 백업 일정을 만들거나 필요에 따라 즉시 백업을 수행할 수 있습니다. 백업에서 데이터를 복원해야 하는 경우, StorSimple 스냅샷 관리자에서 로컬 또는 클라우드 스냅샷의 카탈로그 중에서 선택할 수 있습니다. Azure StorSimple은 필요에 따라 필요한 데이터만을 복원하므로 복원 작업 중의 데이터 가용성 지연을 방지합니다.
+StorSimple 스냅샷 관리자 백업은 마지막 백업 이후의 변경 내용만 캡처하는 증분 스냅샷의 형태입니다. 결과적으로, 백업 스토리지가 덜 필요 하고 신속하게 생성 및 복원할 수 있습니다. StorSimple Snapshot Manager는 스냅샷이 애플리케이션과 일관된 데이터를 캡처하도록 Windows 볼륨 섀도 복사본 서비스(VSS)를 사용합니다. 자세한 내용은 Windows 볼륨 섀도 복사본 서비스 통합 섹션을 참조 하세요. StorSimple Snapshot Manager를 사용 하 여 백업 일정을 만들거나 필요에 따라 즉시 백업을 수행할 수 있습니다. 백업에서 데이터를 복원해야 하는 경우, StorSimple 스냅샷 관리자에서 로컬 또는 클라우드 스냅샷의 카탈로그 중에서 선택할 수 있습니다. Azure StorSimple은 필요에 따라 필요한 데이터만을 복원하므로 복원 작업 중의 데이터 가용성 지연을 방지합니다.
 
 ![StorSimple 스냅샷 관리자 아키텍처](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**StorSimple 스냅숏 관리자 아키텍처** 
+**StorSimple 스냅샷 관리자 아키텍처** 
 
 ## <a name="support-for-multiple-volume-types"></a>여러 볼륨 유형에 대한 지원
 StorSimple 스냅샷 관리자를 사용하여 다음과 같은 유형의 볼륨을 백업할 수 있습니다. 
 
 * **기본 볼륨** – 기본 볼륨은 기본 디스크의 단일 파티션입니다. 
-* **단순 볼륨** – 단순 볼륨은 단일 동적 디스크의 디스크 공간을 포함하는 동적 볼륨입니다. 단순 볼륨은 디스크의 단일 영역 또는 동일한 디스크에 연결되는 여러 지역으로 구성되어 있습니다. 단순 볼륨은 동적 디스크에서만 만들 수 있습니다. 단순 볼륨은 내결함성이 없습니다.
+* **단순 볼륨** – 단순 볼륨은 단일 동적 디스크의 디스크 공간을 포함하는 동적 볼륨입니다. 단순 볼륨은 디스크의 단일 영역 또는 동일한 디스크에 연결되는 여러 지역으로 구성되어 있습니다. (단순 볼륨은 동적 디스크 에서만 만들 수 있습니다.) 단순 볼륨은 내결함성이 없습니다.
 * **동적 볼륨** – 동적 볼륨은 동적 디스크에서 만든 볼륨입니다. 동적 디스크는 데이터베이스를 사용하여 컴퓨터의 동적 디스크에 담긴 볼륨 관련 정보를 추적합니다. 
 * **미러링 있는 동적 볼륨** – 미러링 있는 동적 볼륨은 RAID 1 아키텍처에 구축됩니다. RAID 1에서는 동일한 데이터가 둘 이상의 디스크에 기록되어 미러링 세트를 이룹니다. 그러면 요청된 데이터가 포함된 어느 디스크에서나 읽기 요청을 처리할 수 있습니다.
 * **클러스터 공유 볼륨** – 클러스터 공유 볼륨(CSV)에서는 장애 조치(failover) 클러스터의 다중 노드가 동일한 디스크에 대해 동시에 읽거나 씁니다. 드라이버 소유권 변경, 마운트, 마운트 해제 또는 볼륨 제거 없이, 한 노드에서 다른 노드로의 장애 조치가 신속하게 이루어질 수 있습니다. 
@@ -112,8 +112,8 @@ StorSimple 스냅샷 관리자를 사용하여 데이터를 백업하고 로컬 
 ### <a name="backup-types"></a>Backup 유형
 StorSimple 스냅샷 관리자를 사용하여 다음 백업 유형을 만들 수 있습니다.
 
-* **로컬 스냅숏** – 로컬 스냅숏은 StorSimple 디바이스에 저장되는 볼륨 데이터의 지정 시간 복사본입니다. 일반적으로 이러한 유형의 백업은 신속하게 만들고 복원할 수 있습니다. 로컬 스냅샷은 로컬 백업 사본처럼 사용할 수 있습니다.
-* **클라우드 스냅숏** - 클라우드 스냅숏은 클라우드에 저장된 볼륨 데이터의 지정 시간 복사본입니다. 클라우드 스냅샷은 다른 오프 사이트 스토리지 시스템에 복제된 스냅샷과 같습니다. 클라우드 스냅샷은 특히 재해 복구 상황에서 유용합니다.
+* **로컬 스냅샷** – 로컬 스냅샷은 StorSimple 디바이스에 저장되는 볼륨 데이터의 지정 시간 복사본입니다. 일반적으로 이러한 유형의 백업은 신속하게 만들고 복원할 수 있습니다. 로컬 스냅샷은 로컬 백업 사본처럼 사용할 수 있습니다.
+* **클라우드 스냅샷** - 클라우드 스냅샷은 클라우드에 저장된 볼륨 데이터의 지정 시간 복사본입니다. 클라우드 스냅샷은 다른 오프 사이트 스토리지 시스템에 복제된 스냅샷과 같습니다. 클라우드 스냅샷은 특히 재해 복구 상황에서 유용합니다.
 
 ### <a name="on-demand-and-scheduled-backups"></a>주문 및 예약 백업
 StorSimple 스냅샷 관리자를 사용하여 즉시 생성되는 일회성 백업을 시작하거나, 백업 정책을 사용하여 반복 백업 작업을 예약할 수 있습니다.
@@ -125,7 +125,7 @@ StorSimple 스냅샷 관리자를 사용하여 필요할 때마다 백업 정책
 만드는 각 백업 정책에 대해 다음 정보를 구성합니다.
 
 * **이름** – 선택한 백업 정책의 고유 이름입니다.
-* **유형** – 백업 정책의 유형, 즉 로컬 스냅숏 또는 클라우드 스냅숏입니다.
+* **유형** – 백업 정책의 유형, 즉 로컬 스냅샷 또는 클라우드 스냅샷입니다.
 * **볼륨 그룹** – 선택한 백업 정책이 할당된 볼륨 그룹입니다.
 * **보존** – 보존할 백업 복사본의 수입니다. **모두** 확인란을 선택하면 볼륨당 최대 백업 복사본 수에 도달할 때까지 모든 백업 복사본을 유지하며, 이 시점이 되면 정책이 실패하고 오류 메시지가 생성됩니다. 또는 보존할 백업 수(1~64)를 지정할 수 있습니다.
 * **날짜** – 백업 정책을 만든 날짜입니다.
@@ -138,6 +138,6 @@ StorSimple 스냅샷 관리자를 사용하여 차후의 백업 작업, 예약�
 백업 작업 모니터링에 대한 내용은 [StorSimple 스냅샷 관리자를 사용한 백업 작업 보기 및 관리](storsimple-snapshot-manager-manage-backup-jobs.md)에서 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
-* [StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
+* [StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
+* [StorSimple 스냅샷 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220).
 

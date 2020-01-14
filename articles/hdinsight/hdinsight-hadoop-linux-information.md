@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 21acbde147d5c1751480332e5cd9c89cdb43f8e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644956"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934551"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -254,11 +254,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 * 서비스 또는 웹 사이트를 설치하고 구성합니다.
 * 클러스터의 여러 노드에 대한 구성을 변경할 필요가 있는 구성 요소를 설치하고 구성합니다.
 
-스크립트 동작은 Bash 스크립트입니다. 스크립트는 클러스터를 만드는 동안 실행되며, 추가 구성 요소를 설치 및 구성하는 데 사용됩니다. 다음 구성 요소를 설치하기 위한 예제 스크립트가 제공됩니다.
-
-* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-
-사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+스크립트 동작은 Bash 스크립트입니다. 스크립트는 클러스터를 만드는 동안 실행되며, 추가 구성 요소를 설치 및 구성하는 데 사용됩니다. 사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
 ### <a name="jar-files"></a>Jar 파일
 

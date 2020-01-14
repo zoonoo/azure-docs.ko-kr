@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422567"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932469"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -134,17 +134,32 @@ Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소�
 
 Azure Government, Azure 독일 및 Azure 중국 21Vianet과 같은 특수 클라우드는 현재 사용할 수 없습니다.
 
-### <a name="which-users-must-have-licenses"></a>어떤 사용자에게 라이선스가 있어야 하나요?
+### <a name="how-many-licenses-must-you-have"></a>필요한 라이선스 수는 몇 개입니까?
 
-권한 부여 관리에서 구성원 사용자가 활성화 되어 있으므로 테 넌 트에는 적어도 Azure AD Premium P2 라이선스가 있어야 합니다. 자격 관리의 활성 구성원 사용자는 다음과 같습니다.
+다음 작업을 수행 하는 직원이 있으므로 디렉터리에 적어도 Azure AD Premium P2 라이선스가 있는지 확인 합니다.
 
-- 액세스 패키지에 대 한 요청을 시작 하거나 승인 하는 사용자입니다.
-- 액세스 패키지가 할당 된 사용자입니다.
-- 액세스 패키지를 관리 하는 사용자입니다.
+- 액세스 패키지를 요청할 **수** 있는 멤버 사용자입니다.
+- 액세스 패키지를 요청 하는 구성원 및 게스트 사용자입니다.
+- 액세스 패키지에 대 한 요청을 승인 하는 구성원 및 게스트 사용자입니다.
 
-멤버 사용자에 대 한 라이선스의 일부로 많은 게스트 사용자가 자격 관리와 상호 작용 하도록 허용할 수도 있습니다. 포함할 수 있는 게스트 사용자 수를 계산 하는 방법에 대 한 자세한 내용은 [AZURE ACTIVE DIRECTORY B2B 공동 작업 라이선스 지침](../b2b/licensing-guidance.md)을 참조 하세요.
+Azure AD Premium P2 라이선스는 다음 작업에 필요 **하지 않습니다** .
 
-사용자에 게 라이선스를 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조 하세요. 자격 관리는 현재 사용자에 대 한 라이선스 할당을 적용 하지 않습니다.
+- 초기 카탈로그를 설정 하 고, 패키지 및 정책을 액세스 하 고, 관리 태스크를 다른 사용자에 게 위임 하는 전역 관리자 역할이 있는 사용자에 게는 라이선스가 필요 하지 않습니다.
+- 카탈로그 작성자, 카탈로그 소유자 및 액세스 패키지 관리자와 같은 관리 작업을 위임 받은 사용자에 게는 라이선스가 필요 하지 않습니다.
+- 액세스 패키지를 요청할 **수** 는 있지만 액세스 패키지를 요청 **하지** 않는 게스트에는 라이선스가 필요 하지 않습니다.
+
+회원 사용자 (직원)에 대해 구매한 각 유료 Azure AD Premium P2 라이선스에 대해 Azure AD B2B를 사용 하 여 최대 5 명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [AZURE AD B2B 공동 작업 라이선스 지침](../b2b/licensing-guidance.md)을 참조 하세요.
+
+라이선스에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조 하세요.
+
+### <a name="example-license-scenarios"></a>예제 라이선스 시나리오
+
+다음은 보유 해야 하는 라이선스 수를 결정 하는 데 도움이 되는 몇 가지 예제 라이선스 시나리오입니다.
+
+| 시나리오 | 계산 | 라이선스 수 |
+| --- | --- | --- |
+| Woodgrove Bank의 전역 관리자는 초기 카탈로그를 만들고 관리 작업을 6 명의 다른 사용자에 게 위임 합니다. 정책 중 하나는 **모든 직원** (2000 직원)이 특정 액세스 패키지 집합을 요청할 수 있도록 지정 합니다. 150 직원이 액세스 패키지를 요청 합니다. | 2000 액세스 패키지를 요청할 **수** 있는 직원 | 2,000 |
+| Woodgrove Bank의 전역 관리자는 초기 카탈로그를 만들고 관리 작업을 6 명의 다른 사용자에 게 위임 합니다. 정책 중 하나는 **모든 직원** (2000 직원)이 특정 액세스 패키지 집합을 요청할 수 있도록 지정 합니다. 다른 정책은 파트너 Contoso (게스트) **의 사용자** 의 일부 사용자가 승인에 적용 되는 동일한 액세스 패키지를 요청할 수 있도록 지정 합니다. Contoso에는 3만 명의 사용자가 있습니다. 150 직원은 Contoso의 액세스 요청 및 10500 사용자를 요청 합니다. | 2000 1:5 비율을 초과 하는 Contoso의 직원 + 500 게스트 사용자 (10500-(2000 * 5)) | 2,500 |
 
 ## <a name="next-steps"></a>다음 단계
 

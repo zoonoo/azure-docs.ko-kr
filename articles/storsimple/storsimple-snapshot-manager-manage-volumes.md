@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager 및 볼륨 | Microsoft Docs
 description: StorSimple 스냅샷 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하고 백업을 구성하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
-ms.author: v-sharos
-ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61078303"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931624"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 보기 및 관리
 ## <a name="overview"></a>개요
@@ -45,11 +45,11 @@ ms.locfileid: "61078303"
 > 
 
 ## <a name="mount-volumes"></a>볼륨 탑재
-다음 절차에 따라 StorSimple 볼륨을 탑재, 초기화 및 포맷할 수 있습니다. 이 절차는 하드 디스크 및 해당 볼륨 또는 파티션을 관리하기 위해 디스크 관리, 시스템 유틸리티를 사용합니다. 디스크 관리에 대한 자세한 내용은 Microsoft TechNet 웹 사이트에서 [디스크 관리](https://technet.microsoft.com/library/cc770943.aspx) 로 이동하세요.
+다음 절차에 따라 StorSimple 볼륨을 탑재, 초기화 및 포맷할 수 있습니다. 이 절차는 하드 디스크 및 해당 볼륨 또는 파티션을 관리하기 위해 디스크 관리, 시스템 유틸리티를 사용합니다. 디스크 관리에 대한 자세한 내용은 Microsoft TechNet 웹 사이트에서 [디스크 관리](https://technet.microsoft.com/library/cc770943.aspx)로 이동하세요.
 
 #### <a name="to-mount-volumes"></a>볼륨을 탑재하려면
 1. 호스트 컴퓨터에서 Microsoft iSCSI 초기자를 시작합니다.
-2. 대상 포털로 인터페이스 IP 주소 중 하나를 제공하거나 IP 주소를 검색한 후 디바이스에 연결합니다. 디바이스가 연결된 후 Windows 시스템에서 볼륨에 액세스할 수 있습니다. Microsoft iSCSI 초기자 사용에 대한 자세한 내용은 [Microsoft iSCSI 초기자 설치 및 구성][1]에서 “iSCSI 대상 디바이스에 연결” 섹션을 참조하세요.
+2. 대상 포털로 인터페이스 IP 주소 중 하나를 제공하거나 IP 주소를 검색한 후 디바이스에 연결합니다. 디바이스가 연결된 후 Windows 시스템에서 볼륨에 액세스할 수 있습니다. Microsoft iSCSI 초기자를 사용 하는 방법에 대 한 자세한 내용은 [Microsoft Iscsi 초기자 설치 및 구성][1]에서 "iscsi 대상 장치에 연결" 섹션을 참조 하세요.
 3. 다음 옵션 중 하나를 사용하여 디스크 관리를 시작합니다.
    
    * **실행** 상자에 Diskmgmt.msc를 입력합니다.
@@ -91,7 +91,7 @@ ms.locfileid: "61078303"
    
     ![열 구성](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | 결과 열 | 설명 |
+   | 결과 열 | Description |
    |:--- |:--- |
    |  이름 |**이름** 열에는 검색된 각 볼륨에 할당된 드라이브 문자가 포함되어 있습니다. |
    |  디바이스 |**디바이스** 열은 호스트 컴퓨터에 연결된 디바이스의 IP 주소를 포함합니다. |
@@ -102,7 +102,7 @@ ms.locfileid: "61078303"
 다음 절차에 따라 StorSimple 스냅샷 관리자에서 볼륨을 삭제할 수 있습니다.
 
 > [!NOTE]
-> 볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. (볼륨 그룹에 속한 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다.) 볼륨을 삭제하려면 전체 볼륨 그룹을 삭제해야 합니다.
+> 볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. 볼륨 그룹의 구성원 인 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다. 볼륨을 삭제 하려면 전체 볼륨 그룹을 삭제 해야 합니다.
 
 #### <a name="to-delete-a-volume"></a>볼륨을 삭제하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
@@ -155,8 +155,8 @@ ms.locfileid: "61078303"
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>동적 미러 볼륨 구성 및 백업
 다음 단계를 완료하여 동적 미러 볼륨에 대한 백업을 구성할 수 있습니다.
 
-* 1단계: 디스크 관리를 사용 하 여 동적 미러 볼륨을 만듭니다. 
-* 2단계: StorSimple 스냅숏 관리자를 사용 하 여 백업을 구성 하려면입니다.
+* 1단계: 디스크 관리를 사용하여 동적 미러 볼륨을 만듭니다. 
+* 2단계: StorSimple Snapshot Manager를 사용하여 백업을 구성합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 시작하기 전에
@@ -165,7 +165,7 @@ ms.locfileid: "61078303"
 * StorSimple Snapshot Manager 설치 및 구성. 자세한 내용은 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
 * StorSimple 디바이스에 두 볼륨을 구성합니다. (예제에서 사용할 수 있는 볼륨은 **디스크 1** 및 **디스크 2**입니다.) 
 
-### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>1단계: 디스크 관리를 사용 하 여 동적 미러 볼륨을 만들려면
+### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>1단계: 디스크 관리를 사용하여 동적 미러 볼륨 만들기
 디스크 관리는 하드 디스크 및 볼륨 또는 하드 디스크와 볼륨이 포함된 파티션을 관리하기 위한 시스템 유틸리티입니다. 디스크 관리에 대한 자세한 내용은 Microsoft TechNet 웹 사이트에서 [디스크 관리](https://technet.microsoft.com/library/cc770943.aspx)로 이동하세요.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>동적 미러 볼륨을 만들려면
@@ -190,7 +190,7 @@ ms.locfileid: "61078303"
     
     ![디스크 관리에서 미러링한 동적 디스크](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
 
-### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>2단계: 백업을 구성 하려면 StorSimple 스냅숏 관리자를 사용 하 여
+### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>2단계: StorSimple Snapshot Manager를 사용하여 백업 구성
 다음 절차에 따라 동적 미러 볼륨을 구성한 다음 백업을 즉시 시작하거나 예약된 백업에 대한 정책을 만듭니다.
 
 #### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>동적 미러 볼륨의 백업을 구성하려면
@@ -206,8 +206,8 @@ ms.locfileid: "61078303"
 7. 실행되는 백업 작업을 모니터링할 수 있습니다. **범위** 창에서 **작업** 노드를 확장한 다음 **실행 중**을 클릭합니다. 작업 세부 정보가 **결과** 창에 표시됩니다. 백업 작업이 완료되면 세부 정보가 **최근 24**시간 작업 목록으로 전송됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [StorSimple Snapshot Manager를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
-* [StorSimple Snapshot Manager를 사용하여 볼륨 그룹을 만들고 관리](storsimple-snapshot-manager-manage-volume-groups.md)하는 방법을 알아봅니다.
+* [StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+* [StorSimple 스냅샷 관리자를 사용하여 볼륨 그룹을 만들고 관리](storsimple-snapshot-manager-manage-volume-groups.md)하는 방법을 알아봅니다.
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx

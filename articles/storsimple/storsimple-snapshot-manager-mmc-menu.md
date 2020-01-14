@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager MMC 메뉴 작업 | Microsoft Docs
 description: StorSimple 스냅샷 관리자에서 표준 Microsoft Management Console(MMC) 메뉴 작업을 사용하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: be761f0a2e59878139ae54dba62634a53b172711
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: ced075395c4f2a51308d5d3b0cbe4c0153a17816
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715265"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931478"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>StorSimple 스냅샷 관리자에서 MMC 메뉴 작업 사용
 
@@ -92,13 +92,13 @@ StorSimple 스냅샷 관리자에서 모든 작업 메뉴에 나열된 다음과
       ![쉼표로 구분된 값 파일로 목록 내보내기](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
 ## <a name="help"></a>도움말
-**도움말** 메뉴를 사용하여 StorSimple 스냅숏 관리자 및 MMC에 사용 가능한 온라인 도움말을 볼 수 있습니다.
+**도움말** 메뉴를 사용하여 StorSimple 스냅샷 관리자 및 MMC에 사용 가능한 온라인 도움말을 볼 수 있습니다.
 
 #### <a name="to-view-available-online-help"></a>사용 가능한 온라인 도움말을 보려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 노드를 마우스 오른쪽 단추로 클릭하거나 노드를 확장하고 **결과** 창의 항목을 마우스 오른쪽 단추로 클릭한 다음 **도움말**을 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md)에 대해 자세히 알아봅니다.
-* [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
+* [StorSimple 스냅샷 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md)에 대해 자세히 알아봅니다.
+* [StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
 

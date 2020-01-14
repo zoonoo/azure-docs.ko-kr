@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: baef54fc5c8fd03ea190da2023dcba2e96abb982
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406274"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931409"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -46,7 +46,7 @@ HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방�
 
 만든 시간 동안 HDInsight 클러스터에 추가 구성 요소를 설치 하는 방법에 대 한 자세한 내용은 [스크립트 작업을 사용 하 여 hdinsight 클러스터 사용자 지정 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 * PowerShell을 사용 하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
 
@@ -108,7 +108,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>.NET SDK 사용
 
-[.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap)를 참조하세요.
+[.Net 용 Azure HDINSIGHT SDK를](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)참조 하세요.
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 
@@ -126,7 +126,7 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 
 ![Hadoop은 클러스터 부트스트랩 Azure Resource Manager 템플릿을 사용자 지정 합니다.](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 * [Hdinsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md) 에서는 다른 사용자 지정 옵션을 사용 하 여 hdinsight 클러스터를 만드는 방법에 대 한 지침을 제공 합니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)

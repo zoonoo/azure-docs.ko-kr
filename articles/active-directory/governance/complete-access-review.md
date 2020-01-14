@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6f3405354136e11600ae059f3e05890d3534ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 266234f2872cfe99509d564c9460bfba4a0e2bf2
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422734"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932540"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 완료
 
@@ -34,7 +34,7 @@ ms.locfileid: "75422734"
 - Azure AD Premium P2
 - 전역 관리자, 사용자 관리자, 보안 관리자 또는 보안 읽기 권한자
 
-자세한 내용은 [어떤 사용자에 게 라이선스가 있어야 하나요?](access-reviews-overview.md#which-users-must-have-licenses)를 참조 하세요.
+자세한 내용은 [라이선스 요구 사항](access-reviews-overview.md#license-requirements)을 참조하세요.
 
 ## <a name="view-an-access-review"></a>액세스 검토 보기
 

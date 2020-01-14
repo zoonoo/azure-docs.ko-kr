@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: f763ad9afd2238ebe63bf878882011eb3745df5c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517112"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932610"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Azure 전면 도어의 웹 응용 프로그램 방화벽에 대 한 정책 설정
 
@@ -26,11 +26,11 @@ WAF (웹 응용 프로그램 방화벽) 정책을 사용 하면 사용자 지정
 
 ## <a name="waf-mode"></a>WAF 모드
 
-WAF 정책은 다음 두 가지 모드에서 실행 되도록 구성할 수 있습니다.
+WAF 정책은 다음 두 가지 모드에서 실행되도록 구성할 수 있습니다.
 
 - **검색 모드** 검색 모드에서 실행 하는 경우 WAF는 모니터를 제외한 다른 작업을 수행 하지 않으며 요청 및 일치 하는 WAF 규칙을 WAF 로그에 기록 합니다. 프런트 도어에 대 한 로깅 진단을 켭니다 (포털을 사용 하는 경우 Azure Portal의 **진단** 섹션으로 이동 하 여이를 수행할 수 있음).
 
-- **방지 모드** 방지 모드에서 실행 되도록 구성 된 경우 WAF는 요청이 규칙과 일치 하는 경우 지정 된 작업을 수행 합니다. 일치 하는 모든 요청은 WAF 로그에도 기록 됩니다.
+- **방지 모드** 방지 모드에서 실행 되도록 구성 된 경우 WAF는 요청이 규칙과 일치 하는 경우 지정 된 작업을 수행 합니다. 일치하는 모든 요청은 WAF 로그에도 기록됩니다.
 
 ## <a name="waf-response-for-blocked-requests"></a>차단 된 요청에 대 한 WAF 응답
 

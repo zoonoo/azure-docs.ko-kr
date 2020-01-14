@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery 에이전트를 사용하여 문제 해결 | Microsoft Docs
 description: Azure Site Recovery 에이전트 오류의 증상, 원인 및 해결 방법에 대한 정보를 제공합니다.
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: carmonm
+ms.openlocfilehash: 0de5a9843b8029c1e1926ae296f43fc95b48106c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61280674"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930125"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery 에이전트를 사용하여 문제 해결
 
@@ -21,14 +21,14 @@ ms.locfileid: "61280674"
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Azure Site Recovery 확장 시간 초과  
 
-오류 메시지: “시작할 확장 작업을 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
+오류 메시지: “확장 작업이 시작될 때까지 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
 오류 코드: “151076”
 
  Azure Site Recovery에서는 보호 사용 작업의 일부로 가상 머신에 확장을 설치합니다. 다음 조건 중 하나라도 충족되지 않을 경우 보호 기능이 트리거되지 않고 작업이 실패할 수 있습니다. 다음 문제 해결 단계를 완료한 후, 작업을 다시 시도하세요.
 
 **원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**원인 3: [Site Recovery 확장을 업데이트 또는 로드하지 못합니다.](#the-site-recovery-extension-fails-to-update-or-load)**  
+**원인 3: [Site Recovery 확장을 업데이트 또는 로드하지 못했습니다.](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 오류 메시지: “이전 Site Recovery 확장 작업이 예상보다 더 오래 걸립니다.”<br>
 오류 코드: “150066”<br>
@@ -39,7 +39,7 @@ ms.locfileid: "61280674"
 
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>VM 에이전트가 응답하지 않으므로 보호 기능이 실패합니다.
 
-오류 메시지: “시작할 확장 작업을 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
+오류 메시지: “확장 작업이 시작될 때까지 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
 오류 코드: “151099”<br>
 
 이 오류는 가상 머신의 Azure 게스트 에이전트가 준비 상태가 아닌 경우에 발생할 수 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "61280674"
 **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
-오류 메시지: “시작할 확장 작업을 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
+오류 메시지: “확장 작업이 시작될 때까지 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
 오류 코드: “151095”<br>
 
 이 오류는 Linux 머신의 에이전트 버전이 오래된 경우에 발생합니다. 다음 문제 해결 단계를 완료합니다.<br>
@@ -58,7 +58,7 @@ ms.locfileid: "61280674"
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에이전트를 다시 설치하면 최신 버전을 가져올 수 있습니다. 또한 서비스와의 통신을 다시 시작하는 데도 도움이 됩니다.
 
 1. VM 서비스(services.msc)에서 “Microsoft Azure 게스트 에이전트 서비스”가 실행 중인지 확인합니다. “Microsoft Azure 게스트 에이전트 서비스”를 다시 시작합니다.    
@@ -72,7 +72,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
 1. [Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md)의 지침을 따르세요.
@@ -95,7 +95,7 @@ Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이�
 ### <a name="the-site-recovery-extension-fails-to-update-or-load"></a>Site Recovery 확장을 업데이트 또는 로드하지 못함
 확장 상태가 ‘Empty’, ’NotReady’ 또는 ‘Transitioning’인 경우입니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 확장을 제거하고 작업을 다시 시작합니다.
 

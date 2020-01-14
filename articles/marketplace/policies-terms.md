@@ -2,18 +2,18 @@
 title: 상업적 marketplace 정책 및 약관 | Microsoft
 description: Microsoft 상업적 marketplace 정책 및 조항은 Microsoft Azure Marketplace의 모든 게시자 및 제품에 적용 됩니다.
 services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/28/2019
-ms.author: v-qiwe
-ms.openlocfilehash: 4ff398c6e4208b7e55affe3fe8d6dd5efdce7bf7
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.author: evansma
+ms.openlocfilehash: f836e479c396d16d3052db62a2fb3503cae39865
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528235"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933515"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>상업적 marketplace 정책 및 약관
 

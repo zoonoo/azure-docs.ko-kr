@@ -2,19 +2,19 @@
 title: Azure Marketplace에 대 한 VHD를 만드는 동안 발생 하는 일반적인 문제 (FAQ)
 description: VHD 만들기 및 관련 문제에 대한 질문과 대답입니다.
 services: Azure Marketplace
-author: HannibalSII
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: hascipio
+ms.author: evansma
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826626"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934253"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>일반적인 VHD 만들기 문제(FAQ)
 
@@ -45,7 +45,7 @@ ms.locfileid: "73826626"
 
 ## <a name="how-do-you-generate-new-ssh-certificates"></a>새 SSH 인증서를 생성하려면 어떻게 해야 하나요?
 
-인증서 생성은 후속 섹션인 [VM 제안에 대한 기술 자산 만들기](./cpp-get-sas-uri.md)의 [VM 이미지에 대한 공유 액세스 서명 URI 가져오기](./cpp-create-technical-assets.md) 문서에서 설명하고 있습니다.
+인증서 생성은 후속 섹션인 [VM 제안에 대한 기술 자산 만들기](./cpp-create-technical-assets.md)의 [VM 이미지에 대한 공유 액세스 서명 URI 가져오기](./cpp-get-sas-uri.md) 문서에서 설명하고 있습니다.
 
 
 ## <a name="how-do-you-configure-a-virtual-private-network-vpn-to-work-with-my-vms"></a>내 VM에서 작동하도록 VPN(가상 사설망)을 구성하려면 어떻게 해야 하나요?

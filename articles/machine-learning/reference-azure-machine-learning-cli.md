@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 355640a900411ccedffa587824694343067817be
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 5a2acb3a6bd7401de2a5b934f539adbb63c3f129
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536318"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930393"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning에 CLI 확장 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -262,6 +262,65 @@ az extension remove -n azure-cli-ml
     ```
 
     자세한 내용은 [az ml environment 다운로드](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download)를 참조 하세요.
+
+### <a name="environment-configuration-schema"></a>환경 구성 스키마
+
+`az ml environment scaffold` 명령을 사용 하는 경우 수정 하 고 CLI를 사용 하 여 사용자 지정 환경 구성을 만드는 데 사용할 수 있는 템플릿 `azureml_environment.json` 파일을 생성 합니다. 최상위 수준 개체는 Python SDK의 [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) 클래스에 느슨하게 매핑됩니다. 
+
+```json
+{
+    "name": "testenv",
+    "version": null,
+    "environmentVariables": {
+        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+    },
+    "python": {
+        "userManagedDependencies": false,
+        "interpreterPath": "python",
+        "condaDependenciesFile": null,
+        "baseCondaEnvironment": null
+    },
+    "docker": {
+        "enabled": false,
+        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+        "baseDockerfile": null,
+        "sharedVolumes": true,
+        "shmSize": "2g",
+        "arguments": [],
+        "baseImageRegistry": {
+            "address": null,
+            "username": null,
+            "password": null
+        }
+    },
+    "spark": {
+        "repositories": [],
+        "packages": [],
+        "precachePackages": true
+    },
+    "databricks": {
+        "mavenLibraries": [],
+        "pypiLibraries": [],
+        "rcranLibraries": [],
+        "jarLibraries": [],
+        "eggLibraries": []
+    },
+    "inferencingStackVersion": null
+}
+```
+
+다음 표에서는 JSON 파일의 각 최상위 필드, 형식 및 설명에 대해 자세히 설명 합니다. 개체 형식이 Python SDK의 클래스에 연결 된 경우에는 Python 클래스에서 각 JSON 필드와 공용 변수 이름 사이에 느슨한 1:1 일치 항목이 있습니다. 경우에 따라 필드는 클래스 변수가 아니라 생성자 인수에 매핑될 수 있습니다. 예를 들어 `environmentVariables` 필드는 [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) 클래스의 `environment_variables` 변수에 매핑됩니다.
+
+| JSON 필드 | 유형 | Description |
+|---|---|---|
+| `name` | `string` | 환경의 이름입니다. **Microsoft** 또는 **AzureML**에서 이름을 시작 하지 않습니다. |
+| `version` | `string` | 환경의 버전입니다. |
+| `environmentVariables` | `{string: string}` | 환경 변수 이름 및 값의 해시 맵입니다. |
+| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py) | 대상 계산 리소스에서 사용할 Python 환경 및 인터프리터를 정의 하는 개체입니다. |
+| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) | 환경 사양을 기반으로 하는 Docker 이미지를 사용자 지정 하는 설정을 정의 합니다. |
+| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py) | 이 섹션에서는 Spark 설정을 구성 합니다. Framework가 PySpark로 설정 된 경우에만 사용 됩니다. |
+| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py) | Databricks 라이브러리 종속성을 구성 합니다. |
+| `inferencingStackVersion` | `string` | 이미지에 추가 된 추론 stack 버전을 지정 합니다. 추론 stack을 추가 하지 않으려면이 필드 `null`그대로 둡니다. 유효한 값: "최신". |
 
 ## <a name="ml-pipeline-management"></a>ML 파이프라인 관리
 

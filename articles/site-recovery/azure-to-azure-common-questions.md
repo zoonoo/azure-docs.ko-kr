@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery 사용 하는 Azure VM 재해 복구에 대 한 일반적인 질문
 description: 이 문서에서는 Azure Site Recovery 사용 하 여 다른 Azure 지역에 Azure Vm의 재해 복구에 대 한 일반적인 질문에 답변 합니다.
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621062"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929911"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure에서 Azure로 재해 복구
 
@@ -45,7 +45,7 @@ Site Recovery 팀은 Azure 용량 관리 팀과 협력 하 여 충분 한 인프
 예, Site Recovery는 ADE (Azure disk encryption)를 사용 하는 Vm의 재해 복구를 지원 합니다. 복제를 사용 하도록 설정 하면 필요한 모든 디스크 암호화 키와 비밀이 원본 지역에서 사용자 컨텍스트의 대상 지역으로 복사 됩니다. 적절 한 권한이 없는 경우에는 바로 사용할 수 있는 스크립트를 보안 관리자에 게 전달 하 여 키와 비밀을 복사할 수 있습니다.
 
 - Site Recovery은 Windows를 실행 하는 Azure Vm에 대해 ADE를 지원 합니다.
-- Site recovery는 aad를 사용 하 여 Azure Active Directory (AAD) 및 버전 1.1을 사용 하는 스키마를 사용 하 여 ADE 버전 0.1를 지원 합니다. [자세히 알아봅니다](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Site recovery는 aad를 사용 하 여 Azure Active Directory (AAD) 및 버전 1.1을 사용 하는 스키마를 사용 하 여 ADE 버전 0.1를 지원 합니다. [자세히 알아보기](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
 - ADE 버전 1.1, Windows Vm은 관리 디스크를 사용 해야 합니다.
 - 암호화 된 Vm에 대 한 복제 사용에 대해 [자세히 알아보세요](azure-to-azure-how-to-enable-replication-ade-vms.md) .
 
@@ -97,7 +97,7 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 * 복구 지점의 보존 기록의 경우 24시간으로 설정합니다.
 * 앱 일치 스냅샷 빈도의 경우 60분으로 설정합니다.
 
-[자세히 알아봅니다](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>크래시 일치 복구 지점은 무엇인가요?
 크래시 일치 복구 지점은 스냅샷을 만들 때 서버에서 VM이 손상되었거나 전원 코드가 빠졌을 때 디스크에 기록된 데이터를 나타냅니다. 스냅샷을 만들 때 메모리에 있던 내용이 포함되지 않습니다.
@@ -225,12 +225,12 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 ![Site Recovery 작업 목록](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
 
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>복구 플랜에 자동화 Runbook을 추가할 수 있나요?
-예, Azure Automation Runbook을 복구 플랜에 통합할 수 있습니다. [자세히 알아봅니다](site-recovery-runbook-automation.md).
+예, Azure Automation Runbook을 복구 플랜에 통합할 수 있습니다. [자세히 알아보기](site-recovery-runbook-automation.md).
 
 ## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>주 지역에서 재해 복구 지역으로 장애 조치(failover)를 수행한 후에는 DR 지역의 VM이 자동으로 보호되나요?
-아니요. Azure VM을 한 지역에서 다른 지역으로 [장애 조치(failover)](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)할 경우 VM은 DR 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 보조 지역에서 VM을 [다시 보호](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)해야 합니다.
+아닙니다. Azure VM을 한 지역에서 다른 지역으로 [장애 조치(failover)](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)할 경우 VM은 DR 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 보조 지역에서 VM을 [다시 보호](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)해야 합니다.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>다시 보호 시 Site Recovery에서 보조 지역의 전체 데이터를 주 지역에 복제하나요?
 상황에 따라 다릅니다. 예를 들어 원본 지역 VM이 있는 경우 원본 디스크와 대상 디스크 사이의 변경 내용만 동기화됩니다. Site Recovery는 디스크를 비교하여 차등을 계산한 다음, 데이터를 전송합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. 다시 보호 중 발생하는 작업에 대한 자세한 내용은 [주 지역으로 장애 조치 된 Azure VM 다시 보호]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)를 참조하세요.

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: f1ee3156e5639ae47d5bb323cf992586580668f5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d45221d7ae084c9dde71489df016b5798c53c7f1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485911"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931137"
 ---
 # <a name="tls-10-and-11-deprecation-in-iot-hub-and-device-provisioning-service"></a>IoT Hub 및 장치 프로 비전 서비스에서 TLS 1.0 및 1.1 사용 중단
 
@@ -27,12 +27,8 @@ ms.locfileid: "75485911"
 
 TLS 핸드셰이크 중에는 다음 암호화만 허용 됩니다.
 
-* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 

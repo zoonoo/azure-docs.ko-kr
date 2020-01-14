@@ -1,14 +1,14 @@
 ---
 title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터 구성 | Microsoft Docs
-description: 이 문서에서는 Azure Red Hat OpenShift에서 호스트 되는 Kubernetes 클러스터를 모니터링 하는 컨테이너에 대 한 Azure Monitor를 구성 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Red Hat OpenShift에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 6922cb7b143989ba329df972a06825629c4c5020
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.openlocfilehash: cb68d08f86efa395f9d4567a00e74632a293ea3f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405570"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930373"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터 구성
 
@@ -27,10 +27,8 @@ ms.locfileid: "75405570"
 
 컨테이너에 대 한 Azure Monitor는 [개요](container-insights-overview.md) 문서에 설명 된 대로 Azure Red Hat openshift의 모니터링을 지원 합니다. 단, 다음 기능은 제외 됩니다.
 
-- 사용 중인 데이터
-- 프로메테우스 메트릭 스크랩
+- 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
-- 상태 기능
 
 ## <a name="prerequisites"></a>필수 조건
 

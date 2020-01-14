@@ -1,19 +1,19 @@
 ---
 title: VM (가상 컴퓨터) 이미지를 Azure Marketplace의 관리 디스크 저장소로 이동 하 고 있습니다.
 description: 새로운 marketplace 기능 및 기능에 대 한 더 빠르고 안정적인 저장소 및 지원을 제공 하기 위해 marketplace VM 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 81503b08c5c45a671ac7996905f0772dccaf2f5a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5eeb223601a3990ef899d7eea96378a8b2a28eee
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456688"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933526"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Azure Marketplace에서 VM (가상 컴퓨터) 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
 
@@ -39,11 +39,11 @@ VM 이미지의 사용자에 게는 가동 중단이 발생 하지 않습니다.
 
 ### <a name="do-i-need-to-take-any-action"></a>작업을 수행 해야 하나요?
 
-아니요. 게시자 또는 소비자는 어떤 조치도 취할 필요가 없습니다.
+아닙니다. 게시자 또는 소비자는 어떤 조치도 취할 필요가 없습니다.
 
 ### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>클라우드 포털 Api를 관리 디스크 저장소로 이동한 후 다른 방식으로 호출 하도록 시스템을 업데이트 해야 하나요?
 
-아니요. 기존 API 호출은 계속 작동할 것입니다.
+아닙니다. 기존 API 호출은 계속 작동할 것입니다.
 
 ### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>모든 내 VM 이미지를 동시에 관리 디스크로 이동 하나요?
 

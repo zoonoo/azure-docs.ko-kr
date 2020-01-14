@@ -5,21 +5,20 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 0a1e811787a43be76f94b13a6ec9886510c47d1d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866967"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930003"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux의 App Service에 있는 Azure Storage의 콘텐츠 제공
 
-이 가이드에서는 Azure Storage를 Linux에서 App Service에 연결 하는 방법을 보여 줍니다. 보안 콘텐츠, 콘텐츠 이식성, 영구 저장소, 여러 앱에 대 한 액세스 및 여러 가지 전송 방법 등의 이점이 있습니다.
-
-
-> [!IMPORTANT]
-> Linux에서 App Service Azure Storage는 **미리 보기** 기능입니다. 이 기능은 **프로덕션 시나리오에서 지원 되지 않습니다**.
+> [!NOTE]
+> 이 문서는 Linux 컨테이너에 적용 됩니다. 사용자 지정 Windows 컨테이너에 배포 하려면 [App Service의 Windows 컨테이너에서 Azure Files 구성](../configure-connect-to-azure-storage.md)을 참조 하세요. Linux에서 App Service Azure Storage는 **미리 보기** 기능입니다. 이 기능은 **프로덕션 시나리오에서 지원 되지 않습니다**.
 >
+
+이 가이드에서는 Azure Storage를 Linux에서 App Service에 연결 하는 방법을 보여 줍니다. 보안 콘텐츠, 콘텐츠 이식성, 영구 저장소, 여러 앱에 대 한 액세스 및 여러 가지 전송 방법 등의 이점이 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

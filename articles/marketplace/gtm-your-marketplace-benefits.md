@@ -2,18 +2,18 @@
 title: 시장 출시 서비스-상용 marketplace 혜택 | Microsoft
 description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출 서비스 - Microsoft 리소스에 대해 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: v-qiwe
-ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818639"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933918"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상용 marketplace 혜택
 
@@ -45,7 +45,7 @@ Marketplace 보상은 첫 번째 고객을 가져오는 데 도움이 되는 인
 2. 팀에서 marketplace 제품에 대 한 "소유자" 또는 "기본 연락처"에 도달 합니다. 정기적으로 확인 하는 개인 또는 별칭을 입력 하는 것이 가장 좋습니다. info@company.com와 같이 별칭으로 전송 되는 메시지는 자주 손실 됩니다.
 
 >[!Note]
->제품이 4 주 이상 지속 되 고 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 확인 하 여 해당 제품의 소유자 인 조직 내에서 확인 하세요. 통신 및 다음 단계를 수행 해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 https://aka.ms/marketplacepublishersupport에서 지원 티켓을 올릴 수 있습니다.
+>제품이 4 주 이상 지속 되 고 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 확인 하 여 해당 제품의 소유자 인 조직 내에서 확인 하세요. 통신 및 다음 단계를 수행 해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 https://aka.ms/marketplacepublishersupport 에서 지원 티켓을 올릴 수 있습니다.
 
 마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례에 대 한 셀프 서비스 전자 메일의 일부로 기본 수준의 최적화 권장 사항 및 판촉을 받습니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 08458777d8a8c5c74ac20a63245135ffaf0a5c04
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564115"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934287"
 ---
 # <a name="security-control-secure-configuration"></a>보안 제어: 보안 구성
 
@@ -27,7 +27,9 @@ ms.locfileid: "75564115"
 
 Azure Policy 또는 Azure Security Center를 사용 하 여 모든 Azure 리소스에 대 한 보안 구성을 유지 합니다.
 
-Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Azure Policy를 구성 하 고 관리 하는 방법:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## <a name="72-establish-secure-operating-system-configurations"></a>7.2: 보안 운영 체제 구성을 설정 합니다.
 
@@ -85,7 +87,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 |--|--|--|
 | 7.5 | 5.3 | Customer |
 
-사용자 지정 Azure 정책 정의를 사용 하는 경우 Azure Azure DevOps 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
+사용자 지정 Azure 정책 정의를 사용 하는 경우 Azure DevOps 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
 Azure DevOps에서 코드를 저장 하는 방법:
 
@@ -171,11 +173,17 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 Azure Key Vault와 함께 관리 서비스 ID를 사용 하 여 클라우드 응용 프로그램에 대 한 비밀 관리를 간소화 하 고 보호 합니다.
 
-Azure 관리 Id와 통합 하는 방법: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Azure 관리 되는 Id와 통합 하는 방법:
 
-Key Vault를 만드는 방법: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법: https://docs.microsoft.com/azure/key-vault/managed-identity
+Key Vault를 만드는 방법:
+
+https://docs.microsoft.com/azure/key-vault/quick-create-portal
+
+관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법:
+
+https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7.12: id를 안전 하 게 자동으로 관리
 
@@ -185,7 +193,9 @@ Key Vault를 만드는 방법: https://docs.microsoft.com/azure/key-vault/quick-
 
 관리 되는 id를 사용 하 여 azure AD에서 자동으로 관리 되는 id를 Azure 서비스에 제공 합니다. 관리 Id를 사용 하면 코드에 자격 증명 없이 Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.
 
-관리 Id를 구성 하는 방법: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+관리 Id를 구성 하는 방법:
+
+https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 ## <a name="713-eliminate-unintended-credential-exposure"></a>7.13: 의도 하지 않은 자격 증명 노출을 제거 합니다.
 
@@ -195,7 +205,9 @@ Key Vault를 만드는 방법: https://docs.microsoft.com/azure/key-vault/quick-
 
 자격 증명 스캐너를 구현 하 여 코드 내에서 자격 증명을 식별 합니다. 또한 자격 증명 스캐너는 검색 된 자격 증명을 Azure Key Vault와 같은 보다 안전한 위치로 이동 하는 것을 권장 합니다. 
 
-자격 증명 스캐너를 설정 하는 방법: https://secdevtools.azurewebsites.net/helpcredscan.html
+자격 증명 스캐너를 설정 하는 방법:
+
+https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="next-steps"></a>다음 단계
 

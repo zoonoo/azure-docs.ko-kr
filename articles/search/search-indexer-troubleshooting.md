@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d1efd44614cc2384043b32da20f38c91f006459c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 5f646b4cef782b569910bdf881208c9984194589
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863107"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931114"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Azure Cognitive Search의 일반적인 인덱서 문제 해결
 
@@ -30,7 +30,7 @@ ms.locfileid: "75863107"
 >
 > 정규화 된 도메인 이름 (예: `<your-search-service-name>.search.windows.net`)을 ping 하 여 검색 서비스의 IP 주소를 확인할 수 있습니다.
 >
-> [다운로드 가능한 JSON 파일](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) 을 사용 하거나 [서비스 태그 검색 API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)를 통해 Azure Cognitive Search 서비스를 제공 하는 특정 지역에 대 한 `AzureCognitiveSearch` [서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) 의 IP 주소 범위를 확인할 수 있습니다. IP 주소 범위는 매주 업데이트 됩니다.
+> [다운로드 가능한 JSON 파일](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) 을 사용 하거나 [서비스 태그 검색 API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)를 통해 `AzureCognitiveSearch` [서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) 의 IP 주소 범위를 확인할 수 있습니다. IP 주소 범위는 매주 업데이트 됩니다.
 
 ### <a name="configure-firewall-rules"></a>방화벽 규칙 구성
 

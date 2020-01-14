@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: e2d0227f7481f75c1b0a4e3fe9d0fa3134a7261c
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 732f4b460a3a97f84dd79a37715aff972e8482ed
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778603"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934540"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정
 
@@ -56,6 +56,10 @@ Azure에서 사용할 수 있는 로그는 다음과 같습니다.
 6. 세부 정보를 입력 하 고 Log Analytics 및 **TunnelDiagnosticLog** **로 보내기** 가 선택 되어 있는지 확인 합니다. 3 단계에서 만든 Log Analytics 작업 영역을 선택 합니다.
 
    ![선택한 확인란](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "선택")
+   
+> [!NOTE]
+> 처음에 데이터가 표시 되는 데 몇 시간 정도 걸릴 수 있습니다.
+>
 
 7. 가상 네트워크 게이트웨이 리소스의 개요로 이동 하 고 **모니터링** 탭에서 **경고** 를 선택 합니다. 그런 다음 새 경고 규칙을 만들거나 기존 경고 규칙을 편집 합니다.
 

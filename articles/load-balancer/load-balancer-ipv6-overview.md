@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 4f4baea1c293a1707d87780044a21ff675cb7f98
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 6bc7f45d84d525156a3d25bdceef4d1012844afa
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666208"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931978"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
 
 
 >[!NOTE] 
+>이 콘텐츠는 [Azure VNet 개요에 대해 IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)로 대체 되었습니다. Azure는 새로운 IPv6 배포에 새 IPv6 가상 네트워크 기능을 사용 하는 것을 권장 합니다.
+
+>[!NOTE]
 >Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
 
 기본 SKU 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용 하 여 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.

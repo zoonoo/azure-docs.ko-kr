@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1cd3e39fd504b5095a83192a4a6314c71d3ca980
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c585ebd903d4070f6247456e06efffbc6ec45270
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564297"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934501"
 ---
 # <a name="security-control-data-recovery"></a>보안 제어: 데이터 복구
 
@@ -27,7 +27,9 @@ ms.locfileid: "75564297"
 
 Azure Backup를 사용 하도록 설정 하 고 원하는 빈도 및 보존 기간 뿐만 아니라 백업 원본 (Azure Vm, SQL Server 또는 파일 공유)을 구성 합니다.
 
-Azure Backup를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/backup/
+Azure Backup를 사용 하도록 설정 하는 방법:
+
+https://docs.microsoft.com/azure/backup/
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: 전체 시스템 백업을 수행 하 고 고객 관리 키를 백업 합니다.
 
@@ -37,9 +39,13 @@ Azure Backup를 사용 하도록 설정 하는 방법: https://docs.microsoft.co
 
 원하는 주파수와 보존 기간 뿐만 아니라 Azure Backup 및 대상 VM을 사용 하도록 설정 합니다. Azure Key Vault 내에서 고객 관리 키를 백업 합니다.
 
-Azure Backup를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/backup/
+Azure Backup를 사용 하도록 설정 하는 방법:
 
-Azure에서 주요 자격 증명 모음 키를 백업 하는 방법: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/azure/backup/
+
+Azure에서 주요 자격 증명 모음 키를 백업 하는 방법:
+
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: 고객 관리 키를 포함 한 모든 백업의 유효성을 검사 합니다.
 

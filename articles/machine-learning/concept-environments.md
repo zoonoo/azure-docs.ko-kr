@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
 ms.date: 01/06/2020
-ms.openlocfilehash: ad520c7e6503f28de0bd5538662c223575a078fa
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 3216248943ccc0dba788816cdba38732f9e43e14
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692733"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930759"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Azure Machine Learning 환경 이란 무엇 인가요?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,6 +44,7 @@ ms.locfileid: "75692733"
 * 큐 레이트 환경을 사용 하거나 고유한 종속성을 정의 하 여 새 `Environment` 개체 정의
 * 작업 영역에서 기존 `Environment` 개체 사용 이렇게 하면 일관성과 재현 가능성을 종속성에 사용할 수 있습니다.
 * 기존 Anaconda 환경 정의에서 가져오기.
+* Azure Machine Learning CLI 사용
 
 특정 코드 예제는 [방법을](how-to-use-environments.md#create-an-environment) 참조 하세요. 환경도 작업 영역을 통해 쉽게 관리할 수 있으며 다음 기능을 포함 합니다.
 

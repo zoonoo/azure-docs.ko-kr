@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/5/2019
+ms.date: 1/13/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397349"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932893"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 알림 만들기
 
@@ -555,7 +555,12 @@ az group deployment create \
 
 최신 메트릭 경고는 다차원 메트릭에 대한 경고를 지원하고 여러 조건을 지원합니다. 다음 템플릿을 사용 하 여 차원 메트릭에 대 한 고급 메트릭 경고 규칙을 만들고 여러 조건을 지정할 수 있습니다.
 
-경고 규칙에 여러 조건이 포함 되어 있으면 차원 사용은 각 조건 내에서 차원 당 하나의 값으로 제한 됩니다.
+여러 조건을 포함 하는 경고 규칙에서 차원을 사용 하는 경우 다음 제약 조건을 유의 하세요.
+- 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
+- "\*"을 차원 값으로 사용할 수 없습니다.
+- 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 모든 해당 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건에 따라).
+    - 아래 예제에서는 **트랜잭션** 및 **SuccessE2ELatency** 메트릭에 **api 이름** 차원이 있고 *criterion1* 가 **api 이름** 차원에 대 한 *"Getblob"* 값을 지정 하기 때문에 *criterion2* 는 **api 이름** 차원에 대 한 *"getblob"* 값도 설정 해야 합니다.
+
 
 이 연습의 목적을 위해 아래의 json을 advancedstaticmetricalert.json으로 저장합니다.
 
@@ -784,9 +789,6 @@ az group deployment create \
     --parameters @advancedstaticmetricalert.parameters.json
 ```
 
->[!NOTE]
->
-> 경고 규칙에 여러 조건이 포함 된 경우 차원 사용은 각 조건 내에서 차원 당 하나의 값으로 제한 됩니다.
 
 ## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>여러 차원을 모니터링 하는 정적 메트릭 경고의 템플릿
 

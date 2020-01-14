@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8a5b54131210d243015b37bf234408fd9d2b4c12
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073197"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933619"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Linux 및 Windows에 대한 Chef VM 확장
 
 Chef Software는 실제 및 가상 서버 구성의 관리를 활성화하는 Linux 및 Windows용 DevOps 자동화 플랫폼을 제공합니다. Chef VM 확장은 가상 머신에서 Chef를 사용하도록 설정하는 확장입니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -36,7 +36,7 @@ Chef VM 확장은 CDN(콘텐츠 배달 네트워크)에서 Chef 클라이언트 
 
 ## <a name="extension-schema"></a>확장 스키마
 
-Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니다. 확장에는 최소한 Chef 서버에 대한 최소 Chef 서버 URL, 유효성 검사 클라이언트 이름 및 유효성 검사 키가 필요합니다. 이러한 값은 `knife.rb`Chef Automate[ 또는 독립 실행형 ](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate)Chef 서버[를 설치할 때 다운로드되는 starter-kit.zip의 ](https://downloads.chef.io/chef-server) 파일에서 찾을 수 있습니다. 유효성 검사 키가 중요한 데이터로 처리되므로 **protectedSettings** 요소에서 구성되어야 합니다. 즉, 대상 가상 머신에서만 암호가 해독됩니다.
+Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니다. 확장에는 최소한 Chef 서버에 대한 최소 Chef 서버 URL, 유효성 검사 클라이언트 이름 및 유효성 검사 키가 필요합니다. 이러한 값은 [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) 또는 독립 실행형 [Chef 서버](https://downloads.chef.io/chef-server)를 설치할 때 다운로드되는 starter-kit.zip의 `knife.rb` 파일에서 찾을 수 있습니다. 유효성 검사 키가 중요한 데이터로 처리되므로 **protectedSettings** 요소에서 구성되어야 합니다. 즉, 대상 가상 머신에서만 암호가 해독됩니다.
 
 ```json
 {
@@ -70,8 +70,8 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 | 이름 | 값/예제 | 데이터 형식
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | 문자열(날짜) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| type | `LinuxChefClient`(Linux), `ChefClient`(Windows) | string |
+| publisher | `Chef.Bootstrap.WindowsAzure` | 문자열 |
+| type | `LinuxChefClient`(Linux), `ChefClient`(Windows) | 문자열 |
 | typeHandlerVersion | `1210.12` | 문자열(double) |
 
 ### <a name="settings"></a>설정
@@ -79,14 +79,14 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 | 이름 | 값/예제 | 데이터 형식 | 필수 여부
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | 문자열(URL) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
-| settings/runlist | `recipe[mycookbook::default]` | string | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | 문자열 | Y |
+| settings/runlist | `recipe[mycookbook::default]` | 문자열 | Y |
 
 ### <a name="protected-settings"></a>보호 설정
 
 | 이름 | 예 | 데이터 형식 | 필수 여부
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | 문자열 | Y |
 
 <!--
 ### Linux-specific settings
@@ -151,6 +151,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | 이 확장이 VM의 운영 체제에서 지원되지 않습니다. | |
 
 추가 문제 해결 정보는 [Chef VM 확장 추가 정보](https://github.com/chef-partners/azure-chef-extension)에서 찾을 수 있습니다.
+
+> [!NOTE]
+> Chef와 직접 관련 된 다른 모든 항목은 [Chef 지원팀](https://www.chef.io/support/)에 문의 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

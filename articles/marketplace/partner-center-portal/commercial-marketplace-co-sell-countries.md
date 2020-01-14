@@ -1,19 +1,19 @@
 ---
 title: 국가 및 지역 코드 공동 판매 | Azure Marketplace
 description: 제품의 공동 판매 페이지에서 연락처 정보를 제공할 때 이러한 두 문자로 이루어진 국가/지역 코드를 사용 합니다.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: dc27756cd231bc744e539321af7884cc85ca1e9a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 925218879ce0dc1c69054f861e37e86c122d47f9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812924"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934345"
 ---
 # <a name="co-sell-country-and-region-codes"></a>국가 및 지역 코드 공동 판매
 
@@ -32,10 +32,10 @@ ms.locfileid: "73812924"
 | 올란드 제도                       | AX        |
 | 알바니아                             | AL        |
 | 알제리                             | DZ        |
-| 아메리칸 사모아                      | AS        |
+| 미국령 사모아                      | AS        |
 | 안도라                             | AD        |
 | 앙골라                              | AO        |
-| 남극                          | AQ        |
+| 남극 대륙                          | AQ        |
 | 앤티가 바부다                 | AG        |
 | 아르헨티나                           | AR        |
 | 아르메니아                             | AM        |
@@ -57,7 +57,7 @@ ms.locfileid: "73812924"
 | 보네르                             | BQ        |
 | 보스니아 헤르체고비나              | BA        |
 | 보츠와나                            | BW        |
-| 부베섬                       | BV        |
+| 부베이 섬                       | BV        |
 | 브라질                              | BR        |
 | 영국령 인도양 식민지      | IO        |
 | 영국령 버진아일랜드              | VG        |
@@ -80,13 +80,13 @@ ms.locfileid: "73812924"
 | 콜롬비아                            | CO        |
 | 코모로                             | KM        |
 | 콩고민주공화국                               | CG        |
-| 콩고 민주 공화국                         | CD        |
+| 콩고민주공화국                         | CD        |
 | 쿡 제도                        | CK        |
 | 코스타리카                          | CR        |
 | 코트디부아르                       | CI        |
 | 크로아티아                             | HR        |
 | 쿠바                                | CU        |
-| 퀴라소                             | °        |
+| 퀴라소                             | CW        |
 | 키프로스                              | CY        |
 | 덴마크                             | DK        |
 | 지부티                            | DJ        |
@@ -106,7 +106,7 @@ ms.locfileid: "73812924"
 | 프랑스                              | FR        |
 | 프랑스령 기아나                       | GF        |
 | 프랑스령 폴리네시아                    | PF        |
-| 프랑스 남쪽 영역         | TF        |
+| 프랑스 남부 지방         | TF        |
 | 가봉                               | GA        |
 | 감비아                              | GM        |
 | 조지아                             | GE        |
@@ -174,7 +174,7 @@ ms.locfileid: "73812924"
 | 모나코                              | MC        |
 | 몽골                            | MN        |
 | 몬테네그로                          | ME        |
-| 몬세라트                          | MS        |
+| 몬트세라트                          | MS        |
 | 모로코                             | MA        |
 | 모잠비크                          | MZ        |
 | 미얀마                             | MM        |
@@ -213,13 +213,13 @@ ms.locfileid: "73812924"
 | 르완다                              | RW        |
 | 생바르텔레미                    | BL        |
 | 세인트키츠 네비스               | KN        |
-| 세인트루시아                         | LC        |
+| 세인트 루시아                         | LC        |
 | 생마르탱                        | MF        |
 | 생피에르앤드미클롱           | PM        |
 | 세인트 빈센트 그레나딘    | VC        |
 | 사모아                               | WS        |
 | 산마리노                          | SM        |
-| 상투메 프린시페               | ST        |
+| 상투메 프린시페               | 위        |
 | 사우디아라비아                        | SA        |
 | 세네갈                             | SN        |
 | 세르비아                              | RS        |
@@ -231,7 +231,7 @@ ms.locfileid: "73812924"
 | 슬로베니아                            | SI        |
 | 솔로몬 제도                     | SB        |
 | 소말리아                             | SO        |
-| 남아프리카                        | ZA        |
+| 남아프리카 공화국                        | ZA        |
 | 사우스 조지아 및 사우스 샌드위치 제도 | GS    |
 | 남수단                         | SS        |
 | 스페인                               | ES        |
@@ -239,7 +239,7 @@ ms.locfileid: "73812924"
 | 세인트 헬레나, 어센션, 트리스탄 다 쿠나 | SH     |
 | 수단                               | SD        |
 | 수리남                            | SR        |
-| 스발바르 제도                            | SJ        |
+| 스발바르                            | SJ        |
 | 스웨덴                              | SE        |
 | 스위스                         | CH        |
 | 시리아                               | SY        |
@@ -261,13 +261,13 @@ ms.locfileid: "73812924"
 | 우크라이나                             | UA        |
 | 아랍에미리트                | AE        |
 | 영국                      | GB        |
-| 미국                       | US        |
+| 미국                       | 미국        |
 | 우루과이                             | UY        |
-| 미국 소수 외부 제도               | UM        |
-| 미국령 버진 아일랜드                 | VI        |
+| 미국령 해외 제도               | UM        |
+| 미국령 버전 아일랜드                 | VI        |
 | 우즈베키스탄                          | UZ        |
 | 바누아투                             | VU        |
-| 바티칸시                        | VA        |
+| 바티칸 시국                        | VA        |
 | 베네수엘라                           | VE        |
 | 베트남                             | VN        |
 | 왈리스-푸투나 제도                   | WF        |

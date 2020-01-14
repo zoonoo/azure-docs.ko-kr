@@ -1,25 +1,25 @@
 ---
 title: Azure Site Recovery를 사용 하 여 다중 계층 Dynamics AX 배포에 대 한 재해 복구 Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Dynamics AX에 대한 재해 복구를 설정하는 방법을 설명합니다.
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620748"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930179"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정   
 
 
 
 
- Dynamics AX는 위치 간 프로세스, 리소스 관리 및 규정 준수 간소화를 표준화하는 기업들에게 가장 인기 있는 ERP 솔루션 중 하나입니다. 애플리케이션은 조직에 매우 중요하므로 재해 발생 시 최소한의 시간으로 애플리케이션이 가동될 수 있어야 합니다.
+ Dynamics AX는 여러 위치 간 프로세스를 표준화하고 리소스를 관리하며 규정 준수를 간소화하려는 기업들에게 가장 인기 있는 ERP 솔루션 중 하나입니다. 애플리케이션은 조직에 매우 중요하므로 재해 발생 시 최소한의 시간으로 애플리케이션이 가동될 수 있어야 합니다.
 
 현재 Dynamics AX는 기본적으로 재해 복구 기능을 제공하지 않습니다. Dynamics AX는 Windows Application Object Server, Azure Active Directory, Azure SQL Database, SharePoint Server 및 Reporting Services 등의 여러 서버 구성 요소로 이루어져 있습니다. 이러한 각 구성의 재해 복구를 수동으로 관리하려면 비용이 많이 들 뿐만 아니라 오류가 발생하기 쉽습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "73620748"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Site Recovery를 사용하여 Dynamics AX 애플리케이션의 재해 복구를 구현하려면 다음 필수 조건을 완료해야 합니다.
+Site Recovery를 사용하여 Dynamics AX 애플리케이션을 위한 재해 복구를 구현하려면 다음과 같은 필수 조건을 완료해야 합니다.
 
 • 온-프레미스 Dynamics AX 배포를 설치합니다.
 
@@ -49,21 +49,21 @@ Site Recovery를 사용하여 Dynamics AX 애플리케이션의 재해 복구를
 **VMware** | 예 | 예
 **물리적 서버** | 예 | 예
 
-## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Site Recovery를 사용하여 Dynamics AX 애플리케이션의 재해 복구를 활성화
+## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Site Recovery를 사용하여 Dynamics AX 애플리케이션 재해 복구 활성화
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX 애플리케이션 보호
 완전한 애플리케이션 복제 및 복구를 위해서는 Dynamics AX의 각 구성 요소를 보호해야 합니다.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Active Directory 및 DNS 복제 설정
 
-Dynamics AX 애플리케이션이 작동하려면 재해 복구 사이트에 Active Directory가 필요합니다. 고객의 온-프레미스 환경의 복잡도에 따라 다음 두 옵션이 권장됩니다.
+Dynamics AX 애플리케이션이 작동하려면 재해 복구 사이트에 Active Directory가 필요합니다. 다음은 고객의 온-프레미스 환경의 복잡도에 따라 권장되는 두 가지 옵션입니다.
 
 **옵션 1**
 
-고객은 온-프레미스 사이트 전체에 적은 수의 애플리케이션과 단 하나의 도메인 컨트롤러를 사용하고 있으며, 전체 사이트를 한 번에 장애 조치(failover)할 계획입니다. Site Recovery 복제를 사용하여 도메인 컨트롤러 컴퓨터를 보조 사이트에 복제하는 것이 좋습니다(사이트 간 및 사이트-Azure 시나리오에 모두 적용 가능).
+고객의 애플리케이션 수가 적고 전체 온-프레미스 사이트에 대해 단일 도메인 컨트롤러가 있으며 전체 사이트를 함께 페일오버할 계획입니다. 이 경우 Site Recovery 복제를 사용하여 도메인 컨트롤러 컴퓨터를 보조 사이트로 복제하는 것을 권장합니다(사이트-사이트 시나리오와 사이트-Azure 시나리오에 모두 적용 가능).
 
 **옵션 2**
 
-고객은 많은 수의 애플리케이션을 사용하고 Active Directory 포리스트를 실행 중이며, 애플리케이션을 한 번에 몇 개씩 장애 조치(failover)할 계획입니다. 이 경우 추가 도메인 컨트롤러를 재해 복구 사이트(보조 사이트 또는 Azure)에 설정하는 것을 권장합니다.
+고객에게 애플리케이션이 많으며 Active Directory 포리스트를 실행 중이고, 한 번에 몇 가지 애플리케이션을 페일오버할 계획입니다. 이 경우 추가 도메인 컨트롤러를 재해 복구 사이트(보조 사이트 또는 Azure)에 설정하는 것을 권장합니다.
 
  자세한 내용은 [재해 복구 사이트에서 도메인 컨트롤러를 사용하도록 설정](site-recovery-active-directory.md)을 참조하세요. 이어지는 본 문서 내용에서는 재해 복구 사이트에서 도메인 컨트롤러를 사용할 수 있다고 가정합니다.
 
@@ -131,7 +131,7 @@ Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure A
 
 ### <a name="perform-a-test-failover"></a>테스트 장애 조치(failover) 수행
 
-테스트 장애 조치 중 Active Directory 특정 정보에 대한 자세한 내용은 "Active Directory 재해 복구 솔루션" 도우미 가이드를 참조하세요.
+테스트 장애 조치 중인 Active Directory와 관련한 자세한 내용은 "Active Directory 재해 복구 솔루션" 도우미 가이드를 참조하세요.
 
 테스트 장애 조치 중 Active Directory 특정 정보에 대한 자세한 내용은 [SQL Server 및 Azure 사이트 복구를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
 
@@ -163,7 +163,7 @@ Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure A
 
 ### <a name="perform-a-failback"></a>장애 복구(failback) 수행
 
-장애 복구 중인 SQL Server와 관련한 사항은 [SQL Server 및 Azure Site Recovery를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
+테스트 복구 중 SQL Server 특정 고려 사항은 [SQL Server 및 Azure 사이트 복구를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
 
 1. Azure Portal로 이동하여 Site Recovery 자격 증명 모음을 선택합니다.
 

@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용 하 여 스토리지 공간 다이렉트를 실행 하는 Azure Vm 복제
 description: 이 문서에서는 Azure Site Recovery를 사용 하 여 스토리지 공간 다이렉트 실행 되는 Azure Vm을 복제 하는 방법을 설명 합니다.
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: asgang
-ms.openlocfilehash: 25ac7fa577aa33eda036c0f8544cc5ab03b12cd7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.author: carmonm
+ms.openlocfilehash: 49a4f59e68a409696480f89ee4b606fbed2b77ed
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954460"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929835"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>스토리지 공간 다이렉트 실행 중인 Azure Vm을 다른 지역에 복제
 
@@ -24,7 +24,7 @@ ms.locfileid: "73954460"
 >
 
 ## <a name="introduction"></a>소개 
-[S2D(스토리지 공간 다이렉트)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)는 Azure에서 [게스트 클러스터](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure)를 만드는 방법을 제공하는 소프트웨어 정의 스토리지입니다.  Microsoft Azure의 게스트 클러스터는 IaaS VM으로 구성된 장애 조치 클러스터입니다. 이를 통해 호스팅된 VM 워크로드가 게스트 클러스터에서 장애 조치되어 단일 Azure VM에서 제공할 수 있는 것보다 더 높은 가용성의 애플리케이션 SLA를 달성할 수 있습니다. 이는 VM에서 SQL 또는 스케일 아웃 파일 서버 등과 같은 중요한 애플리케이션을 호스팅하는 시나리오에서 유용합니다.
+[S2D(스토리지 공간 다이렉트)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)는 소프트웨어 정의 스토리지로써, Azure에서 [게스트 클러스터](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure)를 만들 수 있도록 합니다.  Microsoft Azure의 게스트 클러스터는 IaaS VM으로 구성된 장애 조치 클러스터입니다. 이를 통해 호스팅된 VM 워크로드가 게스트 클러스터에서 장애 조치되어 단일 Azure VM에서 제공할 수 있는 것보다 더 높은 가용성의 애플리케이션 SLA를 달성할 수 있습니다. 이는 VM에서 SQL 또는 스케일 아웃 파일 서버 등과 같은 중요한 애플리케이션을 호스팅하는 시나리오에서 유용합니다.
 
 ## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>스토리지 공간 다이렉트를 사용하는 Azure Virtual Machines의 재해 복구
 일반적인 시나리오에서는 스케일 아웃 파일 서버와 같은 애플리케이션의 복원력을 높이기 위해 Azure에 가상 머신 게스트 클러스터가 있을 수 있습니다. 이렇게 하면 애플리케이션의 고가용성을 높일 수 있지만 모든 지역 수준 장애에 대해 Site Recovery를 사용하여 이러한 애플리케이션을 보호할 수 있습니다. Site Recovery는 데이터를 한 지역에서 다른 Azure 지역으로 복제하고 장애 조치 시 재해 복구 지역에 클러스터를 제공합니다.
@@ -69,7 +69,7 @@ ms.locfileid: "73954460"
 
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>복구 계획에 스크립트 추가
-애플리케이션이 제대로 작동하려면 장애 조치(failover) 후에 또는 테스트 장애 조치(failover) 중에 Azure 가상 머신에서 일부 작업을 수행해야 할 수 있습니다. 일부 장애 조치 후 작업은 자동화할 수 있습니다. 예를 들어 여기서는 부하 분산 장치를 연결하고 클러스터 IP를 변경합니다.
+애플리케이션이 제대로 작동하려면 장애 조치(failover) 후에 또는 테스트 장애 조치(failover) 중에 Azure 가상 머신에서 일부 작업을 수행해야 할 수 있습니다. 일부 장애 조치(failover) 사후 작업은 자동화할 수 있습니다. 예를 들어 여기서는 부하 분산 장치를 연결하고 클러스터 IP를 변경합니다.
 
 
 ### <a name="failover-of-the-virtual-machines"></a>가상 머신의 장애 조치 
@@ -77,7 +77,7 @@ ms.locfileid: "73954460"
 
 ![storagespacesdirect 보호](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
+## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 1.  Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2.  만든 복구 계획을 선택합니다.
 3.  **테스트 장애 조치**를 선택합니다.

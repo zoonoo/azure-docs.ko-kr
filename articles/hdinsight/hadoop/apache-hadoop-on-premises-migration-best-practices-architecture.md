@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2d0d5bb871612bc5e16a26eb49808c39661ffb50
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951533"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934683"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 아키텍처 모범 사례
 
@@ -38,12 +38,12 @@ Azure HDInsight 클러스터는 특정 유형의 컴퓨팅 용도로 설계되�
 
 |도구|브라우저 기반|명령줄|REST API|SDK|
 |---|---|---|---|---|
-|[Azure 포털](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Azure CLI(버전 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
+|[.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
 |[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
 |[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Azure 리소스 관리자 템플릿](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
@@ -103,7 +103,7 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
 - 사용자 지정 metastore를 정기적으로 백업합니다.
 - metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
 - Azure Portal 또는 Azure Monitor 로그와 같은 Azure SQL Database 모니터링 도구를 사용 하 여 성능 및 가용성에 대 한 metastore를 모니터링 합니다.
-- 필요에 따라 `ANALYZE TABLE` 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
+- 필요에 따라 `ANALYZE TABLE` 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. `ANALYZE TABLE [table_name] COMPUTE STATISTICS`)을 입력합니다.
 
 ## <a name="best-practices-for-different-workloads"></a>다양한 워크로드에 대한 모범 사례
 

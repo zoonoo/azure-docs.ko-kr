@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager 백업 카탈로그 | Microsoft Docs
 description: StorSimple 스냅샷 관리자 MMC 스냅인을 사용하여 백업 카탈로그를 보고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 38ef7774263e4b28b7c316fd0870ca8f7b89d6b8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127193"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931716"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>StorSimple 스냅샷 관리자를 사용하여 백업 카탈로그 관리
 
@@ -37,21 +37,21 @@ StorSimple Snapshot Manager의 기본 기능은 StorSimple 볼륨의 애플리�
 **범위** 창에서 **Backup 카탈로그** 노드를 확장한 후 볼륨 그룹을 확장하면 백업 카탈로그를 볼 수 있습니다.
 
 * 볼륨 그룹 이름을 클릭하면 **결과** 창에 해당 볼륨 그룹에서 사용할 수 있는 로컬 스냅샷 및 클라우드 스냅샷의 개수가 표시됩니다. 
-* **로컬 스냅숏** 또는 **클라우드 스냅숏**을 클릭하면 **결과** 창에 각 백업 스냅숏에 대한 다음 정보가 표시됩니다(**보기** 설정에 따라 다름).
+* **로컬 스냅샷** 또는 **클라우드 스냅샷**을 클릭하면 **결과** 창에 각 백업 스냅샷에 대한 다음 정보가 표시됩니다(**보기** 설정에 따라 다름).
   
-  * **이름** – 스냅숏을 만든 시간.
-  * **유형** – 로컬 스냅숏인지 또는 클라우드 스냅숏인지.
+  * **이름** – 스냅샷을 만든 시간.
+  * **유형** – 로컬 스냅샷인지 또는 클라우드 스냅샷인지.
   * **소유자** – 콘텐츠 소유자. 
-  * **사용 가능** – 스냅숏을 현재 사용할 수 있는지 여부입니다. **True**이면 스냅숏을 사용할 수 있고 복원 가능합니다. **False**이면 스냅숏을 더 이상 사용할 수 없습니다. 
+  * **사용 가능** – 스냅샷을 현재 사용할 수 있는지 여부입니다. **True**이면 스냅샷을 사용할 수 있고 복원 가능합니다. **False**이면 스냅샷을 더 이상 사용할 수 없습니다. 
   * **가져옴** – 백업을 가져왔는지 여부입니다. **True**이면 StorSimple Snapshot Manager에서 디바이스를 구성했을 때 백업을 StorSimple 디바이스 관리자 서비스에서 가져왔습니다. **False**이면 백업을 가져오지 않았지만 StorSimple Snapshot Manager에서는 만들었습니다. (가져온 볼륨 그룹에는 해당 볼륨 그룹을 가져온 원본 디바이스를 식별하는 접미사가 추가되므로 쉽게 식별할 수 있습니다.)
     
     ![Backup 카탈로그](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
-* **로컬 스냅숏** 또는 **클라우드 스냅숏**을 확장한 다음 개별 스냅숏 이름을 클릭하면 **결과** 창에 선택한 스냅숏에 대해 다음 정보가 표시됩니다.
+* **로컬 스냅샷** 또는 **클라우드 스냅샷**을 확장한 다음, 개별 스냅샷 이름을 클릭하면 **결과** 창에 선택한 스냅샷에 대해 다음 정보가 표시됩니다.
   
   * **이름** – 드라이브 문자로 식별되는 볼륨. 
   * **로컬 이름** – 드라이브의 로컬 이름(있는 경우). 
   * **디바이스** – 볼륨이 있는 디바이스의 이름. 
-  * **사용 가능** – 스냅숏을 현재 사용할 수 있는지 여부입니다. **True**이면 스냅숏을 사용할 수 있고 복원 가능합니다. **False**이면 스냅숏을 더 이상 사용할 수 없습니다. 
+  * **사용 가능** – 스냅샷을 현재 사용할 수 있는지 여부입니다. **True**이면 스냅샷을 사용할 수 있고 복원 가능합니다. **False**이면 스냅샷을 더 이상 사용할 수 없습니다. 
 
 ## <a name="restore-a-volume"></a>볼륨 복원
 다음 절차를 사용하여 백업에서 볼륨을 복원합니다.
@@ -70,7 +70,7 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
 
 #### <a name="to-restore-a-volume"></a>볼륨을 복원하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다. 
-2. **범위** 창에서 **Backup 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음 **로컬 스냅숏** 또는 **클라우드 스냅숏**을 클릭합니다. 백업 스냅샷 목록이 **결과** 창에 표시됩니다.
+2. **범위** 창에서 **Backup 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음, **로컬 스냅샷** 또는 **클라우드 스냅샷**을 클릭합니다. 백업 스냅샷 목록이 **결과** 창에 표시됩니다.
 3. 복원할 백업을 찾아 마우스 오른쪽 단추로 클릭한 다음 **복원**을 클릭합니다.
    
     ![백업 카탈로그 복원](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_BU_catalog.png) 
@@ -84,11 +84,11 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
 
 #### <a name="to-clone-a-volume-or-volume-group"></a>볼륨 또는 볼륨 그룹을 복제하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
-2. **범위** 창에서 **Backup 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음 **클라우드 스냅숏**을 클릭합니다. 백업 목록이 **결과** 창에 표시됩니다.
-3. 복제할 볼륨 또는 볼륨 그룹을 찾아 해당 볼륨 또는 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭하고 **복제**를 클릭합니다. **클라우드 스냅숏 복제** 대화 상자가 나타납니다.
+2. **범위** 창에서 **Backup 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음, **클라우드 스냅샷**을 클릭합니다. 백업 목록이 **결과** 창에 표시됩니다.
+3. 복제할 볼륨 또는 볼륨 그룹을 찾아 해당 볼륨 또는 볼륨 그룹 이름을 마우스 오른쪽 단추로 클릭하고 **복제**를 클릭합니다. **클라우드 스냅샷 복제** 대화 상자가 나타납니다.
    
     ![클라우드 스냅샷 복제](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png) 
-4. **클라우드 스냅숏 복제** 대화 상자를 다음과 같이 완료합니다. 
+4. **클라우드 스냅샷 복제** 대화 상자를 다음과 같이 완료합니다. 
    
    1. **이름** 텍스트 상자에 복제된 볼륨의 이름을 입력합니다. 이 이름이 **볼륨** 노드에 나타납니다. 
    2. (선택 사항) **드라이브**를 선택한 다음 드롭다운 목록에서 드라이브 문자를 선택합니다.
@@ -105,7 +105,7 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
 
 #### <a name="to-delete-a-backup"></a>백업을 삭제하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
-2. **범위** 창에서 **Backup 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음 **로컬 스냅숏** 또는 **클라우드 스냅숏**을 클릭합니다. 스냅샷 목록이 **결과** 창에 표시됩니다.
+2. **범위** 창에서 **Backup 카탈로그** 노드를 확장하고 볼륨 그룹을 확장한 다음, **로컬 스냅샷** 또는 **클라우드 스냅샷**을 클릭합니다. 스냅샷 목록이 **결과** 창에 표시됩니다.
 3. 삭제할 스냅샷을 마우스 오른쪽 단추로 클릭한 다음, **삭제**를 클릭합니다.
 4. 확인 메시지가 나타나면 **확인**을 클릭합니다.
 
@@ -117,11 +117,11 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
 
 #### <a name="to-recover-a-deleted-file"></a>삭제된 파일을 복구하려면
 1. 바탕 화면에서 StorSimple 스냅샷 관리자 아이콘을 클릭합니다. StorSimple 스냅샷 관리자 콘솔 창이 나타납니다. 
-2. **범위** 창에서 **Backup 카탈로그** 노드를 확장한 후 삭제된 파일이 포함된 스냅숏을 찾습니다. 일반적으로 삭제되기 바로 전에 만든 스냅샷을 선택해야 합니다.
-3. 복제할 볼륨을 찾아서 마우스 오른쪽 단추로 클릭한 후 **복제**를 클릭합니다. **클라우드 스냅숏 복제** 대화 상자가 나타납니다.
+2. **범위** 창에서 **Backup 카탈로그** 노드를 확장한 후 삭제된 파일이 포함된 스냅샷을 찾습니다. 일반적으로 삭제되기 바로 전에 만든 스냅샷을 선택해야 합니다.
+3. 복제할 볼륨을 찾아서 마우스 오른쪽 단추로 클릭한 후 **복제**를 클릭합니다. **클라우드 스냅샷 복제** 대화 상자가 나타납니다.
    
     ![클라우드 스냅샷 복제](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png) 
-4. **클라우드 스냅숏 복제** 대화 상자를 다음과 같이 완료합니다. 
+4. **클라우드 스냅샷 복제** 대화 상자를 다음과 같이 완료합니다. 
    
    1. **이름** 텍스트 상자에 복제된 볼륨의 이름을 입력합니다. 이 이름이 **볼륨** 노드에 나타납니다. 
    2. (선택 사항) **드라이브**를 선택한 다음 드롭다운 목록에서 드라이브 문자를 선택합니다. 
@@ -162,6 +162,6 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
 7. 바탕 화면의 StorSimple 스냅샷 관리자 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
-* [StorSimple 스냅숏 관리자 작업 및 워크플로](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)에 대해 자세히 알아봅니다.
+* [StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
+* [StorSimple 스냅샷 관리자 작업 및 워크플로](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)에 대해 자세히 알아봅니다.
 

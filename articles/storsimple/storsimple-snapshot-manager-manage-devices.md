@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager에서 디바이스 관리 | Microsoft Docs
 description: StorSimple 스냅샷 관리자 MMC 스냅인을 사용하여 StorSimple 디바이스를 연결하고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: 51632b8b68640814fc113a94925b6d6deaca4c5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682499"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931722"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager를 사용하여 StorSimple 디바이스 연결 및 관리
 ## <a name="overview"></a>개요
@@ -27,15 +27,15 @@ StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가�
 
 ![연결된 디바이스](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
-**그림 1: StorSimple 스냅숏 관리자 연결된 장치** 
+**그림 1: StorSimple Snapshot Manager 연결된 디바이스** 
 
 **보기** 선택 항목에 따라 각 디바이스에 대해 **결과** 창에 다음 정보가 표시됩니다. (보기 구성에 대한 자세한 내용은 [보기 메뉴](storsimple-use-snapshot-manager.md#view-menu)를 참조하세요.)
 
-| 결과 열 | 설명 |
+| 결과 열 | Description |
 |:--- |:--- |
-| Name |디바이스의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다. |
+| 이름 |디바이스의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다. |
 | 모델 |디바이스의 모델 번호 |
-| Version |디바이스에 설치된 소프트웨어 버전 |
+| 버전 |디바이스에 설치된 소프트웨어 버전 |
 | 상태 |디바이스를 사용할 수 있는지 여부 |
 | 마지막 동기화 |디바이스를 마지막으로 동기화한 날짜 및 시간 |
 | 일련 번호 |디바이스의 일련 번호 |
@@ -83,7 +83,7 @@ StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가�
    
     ![StorSimple 디바이스 구성](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
 3. **디바이스** 드롭다운 상자에서 디바이스 또는 가상 디바이스의 IP 주소를 선택합니다. 
-4. **암호** 텍스트 상자에 Azure 클래식 포털에서 디바이스에 대해 만든 StorSimple 스냅숏 관리자 암호를 입력합니다. **확인**을 클릭합니다. StorSimple 스냅샷 관리자에서 사용자가 지정한 디바이스를 검색합니다. 
+4. **암호** 텍스트 상자에 Azure 클래식 포털에서 디바이스에 대해 만든 StorSimple Snapshot Manager 암호를 입력합니다. **확인**을 클릭합니다. StorSimple 스냅샷 관리자에서 사용자가 지정한 디바이스를 검색합니다. 
    
    * 디바이스를 사용할 수 있으면 StorSimple Snapshot Manager가 연결을 추가합니다.
    * 어떤 이유로든 디바이스를 사용할 수 없으면 StorSimple 스냅샷 관리자에서 오류 메시지를 반환합니다. **확인**을 클릭하여 오류 메시지를 닫은 다음 **취소**를 클릭하여 **디바이스 구성** 대화 상자를 닫습니다.
@@ -182,7 +182,7 @@ StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가�
 StorSimple 디바이스에서 오류가 발생하여 대기(장애 조치(failover)) 디바이스로 교체하는 경우 다음 단계에 따라 새 디바이스에 연결하고 연결된 백업을 확인할 수 있습니다.
 
 #### <a name="to-connect-to-a-new-device-after-failover"></a>장애 조치(failover) 후 새 디바이스에 연결하려면
-1. 새 디바이스에 대한 iSCSI 연결을 다시 구성합니다. 지침에 대 한 "7 단계: 탑재, 초기화 및 볼륨을 포맷"에서 [온-프레미스 StorSimple 장치 배포](storsimple-8000-deployment-walkthrough-u2.md)합니다.
+1. 새 디바이스에 대한 iSCSI 연결을 다시 구성합니다. 자세한 지침은 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)에서 "7단계: 볼륨 탑재, 초기화 및 포맷"을 참조하세요.
 
 > [!NOTE]
 > 새 StorSimple 디바이스에 이전 디바이스와 동일한 IP 주소가 있으면 이전 구성을 연결할 수 있습니다.
@@ -204,11 +204,11 @@ StorSimple 디바이스에서 오류가 발생하여 대기(장애 조치(failov
    2. **서비스** 창에서 **Microsoft StorSimple 관리 서비스**를 선택합니다.
    3. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 다시 시작**을 클릭합니다.
 4. StorSimple 스냅샷 관리자를 시작합니다.
-5. 새 StorSimple 장치를 구성 하려면 2 단계에서에서 단계를 완료 합니다. StorSimple 장치에 연결 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)합니다.
-6. **범위** 창에서 최상위 노드(예제의 StorSimple Snapshot Manager)를 마우스 오른쪽 단추로 클릭한 다음 **가져오기 표시 토글**을 클릭합니다. 
+5. 새 StorSimple 디바이스를 구성하려면 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)에서 2단계: StorSimple 디바이스 연결의 단계를 완료합니다.
+6. **범위** 창에서 최상위 노드(예제의 StorSimple Snapshot Manager)를 마우스 오른쪽 단추로 클릭한 다음, **가져오기 표시 토글**을 클릭합니다. 
 7. 가져온 볼륨 그룹과 백업을 StorSimple 스냅샷 관리자에서 볼 수 있으면 메시지가 나타납니다. **확인**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
-* [StorSimple 스냅숏 관리자를 사용하여 볼륨을 보고 관리](storsimple-snapshot-manager-manage-volumes.md)하는 방법을 알아봅니다.
+* [StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+* [StorSimple 스냅샷 관리자를 사용하여 볼륨을 보고 관리](storsimple-snapshot-manager-manage-volumes.md)하는 방법을 알아봅니다.
 

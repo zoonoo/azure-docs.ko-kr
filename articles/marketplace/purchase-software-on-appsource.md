@@ -1,19 +1,19 @@
 ---
 title: AppSource에서 소프트웨어를 구매 하는 방법 | Azure Marketplace
 description: AppSource에서 소프트웨어를 구매 하는 단계 | Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 70e51d7c05e93e7d5f4451fa383023605a02af99
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827741"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933490"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Microsoft AppSource에서 소프트웨어를 구매 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "73827741"
 
 SaaS 제품을 구매 하려면 다음이 필요 합니다.
 
-- 회사 또는 학교 계정.
+- 회사 또는 학교 계정
 
     > [!Note]
     > 회사 또는 학교 계정이 없는 경우 회사 또는 학교 계정을 추가할 수 있는 Azure Active Directory 테 넌 트를 만들어야 합니다. 자세히 알아보려면 [빠른 시작: Azure Active Directory에서 새 테 넌 트 만들기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)를 참조 하세요.
@@ -41,7 +41,7 @@ SaaS 제품을 구매 하려면 다음이 필요 합니다.
     > [!Note]
     > AppSource는 무료, 평가판 및 유료 구독을 포함 하 여 선택할 수 있는 다양 한 앱을 제공 합니다. 이 문서에서는 AppSource를 통해 유료 구독을 구매 하는 방법을 설명 합니다.
 
-1. **지금 가져오기**를 선택 합니다.
+1. **지금 받기**를 선택합니다.
 1. 계획을 선택 합니다.
 
     1. 사용자 수를 설정 합니다.
@@ -63,7 +63,7 @@ SaaS 제품을 구매 하려면 다음이 필요 합니다.
     > [!Note]
     > 이 단계는 필수 이며 언제 든 지 완료할 수 있습니다.
 
-## <a name="contact-support"></a>지원에 문의
+## <a name="contact-support"></a>고객 지원
 
 Microsoft 365 관리 센터를 통해 [지원 티켓을 제출할](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) 수 있습니다.
 

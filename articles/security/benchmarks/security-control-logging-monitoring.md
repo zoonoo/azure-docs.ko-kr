@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1354bd2895a8fe6e8aa1f12cd92295c77ca2d4b2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564167"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930025"
 ---
 # <a name="security-control-logging-and-monitoring"></a>보안 제어: 로깅 및 모니터링
 
@@ -79,9 +79,13 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 Microsoft에서 계산 리소스를 소유 하는 경우 Microsoft는 모니터링을 담당 합니다. 조직에서 계산 리소스를 소유 하 고 있는 경우이를 모니터링 하는 것은 사용자의 책임입니다. Azure Security Center를 사용 하 여 OS를 모니터링할 수 있습니다. 운영 체제에서 Security Center에 의해 수집 되는 데이터에는 OS 유형 및 버전, OS (Windows 이벤트 로그), 실행 중인 프로세스, 컴퓨터 이름, IP 주소 및 로그인 한 사용자가 포함 됩니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 수집 합니다.
 
-Azure Monitor를 사용 하 여 Azure 가상 컴퓨터 내부 호스트 로그를 수집 하는 방법: https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
+Azure Monitor를 사용 하 여 Azure 가상 컴퓨터 내부 호스트 로그를 수집 하는 방법:
 
-데이터 수집 Azure Security Center 이해: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
+https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
+
+데이터 수집 Azure Security Center 이해:
+
+https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
 ## <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 저장소 보존 구성
 
@@ -91,7 +95,9 @@ Azure Monitor를 사용 하 여 Azure 가상 컴퓨터 내부 호스트 로그�
 
 Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기/보관 저장소에 Azure Storage 계정을 사용 합니다.
 
-Log Analytics 작업 영역에 대 한 로그 보존 매개 변수를 설정 하는 방법: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Log Analytics 작업 영역에 대 한 로그 보존 매개 변수를 설정 하는 방법:
+
+https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 ## <a name="26-monitor-and-review-logs"></a>2.6: 로그를 모니터링 하 고 검토 합니다.
 
@@ -153,7 +159,7 @@ Cloud Services에 대 한 Microsoft 맬웨어 방지를 구성 하는 방법:
 
 https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0
 
-Microsoft 맬웨어 방지 이해:
+Microsoft 맬웨어 방지 프로그램 이해:
 
 https://docs.microsoft.com/azure/security/fundamentals/antimalware
 

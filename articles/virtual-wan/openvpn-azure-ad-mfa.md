@@ -1,18 +1,18 @@
 ---
 title: 'VPN 사용자에 대해 MFA 사용: Azure AD 인증'
 description: VPN 사용자에 대해 multi-factor authentication 사용
-services: vpn-gateway
+services: virtual-wan
 author: anzaman
-ms.service: vpn-gateway
+ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: alzam
-ms.openlocfilehash: 3700014752233e29d157f1695906babe4fa35c74
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 9329ac33a771c829b8d67670bc07d9a353c58ff1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74822774"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930588"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>VPN 사용자에 대해 MFA (Azure Multi-Factor Authentication) 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "74822774"
 
 ## <a name="mfa"></a>MFA 페이지 열기
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 2. **Azure Active Directory-> 모든 사용자**로 이동 합니다.
 3. **Multi-Factor Authentication** 를 선택 하 여 multi-factor Authentication 페이지를 엽니다.
 

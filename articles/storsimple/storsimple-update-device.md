@@ -3,7 +3,7 @@ title: StorSimple 디바이스 업데이트 | Microsoft Docs
 description: StorSimple 업데이트 기능을 사용하여 일반 및 유지 관리 모드 업데이트 및 핫픽스를 설치하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
-ms.author: v-sharos
-ms.openlocfilehash: d973a16c121a1e8ebee10826d135bcbb33ef748c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: c9451afaefdd220b5f87d4650c7844f06926b03a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61409990"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933429"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스 업데이트
 > [!NOTE]
-> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 디바이스 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이동에 대 한 질문이 참조 [FAQ: Azure portal로 이동](storsimple-8000-move-azure-portal-faq.md)합니다.
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 디바이스 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 StorSimple 업데이트 기능을 사용하면 쉽게 StorSimple 디바이스를 최신 상태로 유지할 수 있습니다. 업데이트 유형에 따라 Windows PowerShell 인터페이스 또는 Azure 클래식 포털을 통해 디바이스에 업데이트를 적용할 수 있습니다. 이 자습서에는 업데이트 유형 및 각 항목을 설치하는 방법을 설명합니다.
@@ -49,7 +49,7 @@ Azure 클래식 포털 또는 Windows PowerShell을 통해 정기적으로 업�
 * StorSimple용 Windows PowerShell을 통해 일반 업데이트를 설치할 수도 있습니다. 자세한 내용은 [StorSimple용 Windows PowerShell을 통해 일반 업데이트 설치](#install-regular-updates-via-windows-powershell-for-storsimple)를 참조하세요.
 
 ### <a name="maintenance-mode-updates"></a>유지 관리 모드 업데이트
-유지 관리 모드 업데이트는 디스크 펌웨어 업그레이드 등의 강제 업데이트입니다. 이 업데이트를 사용하려면 디바이스가 유지 관리 모드여야 합니다. 세부 정보를 참조 하세요. [2 단계: 유지 관리 모드로 전환](#step2)합니다. Azure 클래식 포털을 사용하여 유지 관리 모드 업데이트를 설치할 수 없습니다. 대신 StorSimple용 Windows PowerShell을 사용해야 합니다. 
+유지 관리 모드 업데이트는 디스크 펌웨어 업그레이드 등의 강제 업데이트입니다. 이 업데이트를 사용하려면 디바이스가 유지 관리 모드여야 합니다. 자세한 내용은 [2단계: 입력 유지 관리 모드](#step2)를 참조하세요. Azure 클래식 포털을 사용하여 유지 관리 모드 업데이트를 설치할 수 없습니다. 대신 StorSimple용 Windows PowerShell을 사용해야 합니다. 
 
 유지 관리 모드 업데이트를 설치하는 방법에 대한 세부 정보는 [StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트 설치](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)를 참조하세요.
 
@@ -76,7 +76,7 @@ Azure 클래식 포털을 사용하여 StorSimple 디바이스에 업데이트�
 ## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트 설치
 StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이트를 StorSimple 디바이스에 적용합니다. 모든 I/O 요청은 이 모드에서 일시 중지됩니다. 비휘발성 임의 액세스 메모리 (NVRAM) 등의 서비스 또는 클러스터링 서비스도 중지됩니다. 이 모드를 종료하거나 입력하면 두 컨트롤러 모두 다시 부팅됩니다. 이 모드를 종료하면 모든 서비스가 다시 시작되고 정상 상태여야 합니다. (몇 분이 걸릴 수 있습니다.)
 
-유지 관리 모드 업데이트를 적용해야 하는 경우  설치해야 하는 업데이트가 있다는 경고를 Azure 클래식 포털을 통해 수신합니다. 이 경고는 StorSimple용 Windows PowerShell을 사용하여 업데이트를 설치하기 위한 지침을 포함합니다. 디바이스를 업데이트한 후, 동일한 절차에 따라 디바이스를 일반 모드로 변경합니다. 단계별 지침을 참조 하세요. [4 단계: 유지 관리 모드 종료](#step4)합니다.
+유지 관리 모드 업데이트를 적용해야 하는 경우  설치해야 하는 업데이트가 있다는 경고를 Azure 클래식 포털을 통해 수신합니다. 이 경고는 StorSimple용 Windows PowerShell을 사용하여 업데이트를 설치하기 위한 지침을 포함합니다. 디바이스를 업데이트한 후, 동일한 절차에 따라 디바이스를 일반 모드로 변경합니다. 단계별 지침은 [4단계: 유지 관리 모드를 종료](#step4)를 참조하세요.
 
 > [!IMPORTANT]
 > * 유지 관리 모드에 들어가기 전에 Azure 클래식 포털의 **유지 관리** 페이지에서 **하드웨어 상태**를 확인하여 두 디바이스 컨트롤러 모두가 정상 상태인지 확인합니다. 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 Microsoft 지원에 문의로 이동합니다. 
@@ -89,12 +89,12 @@ StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이�
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2단계: 유지 관리 모드로 전환 <a name="step2">
+### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2단계: 유지 관리 모드 시작 <a name="step2">
 콘솔에 연결한 후, 설치할 업데이트가 있는지 여부를 결정하고 유지 관리 모드로 전환하여 설치합니다.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates-a-namestep3"></a>3단계: 업데이트를 설치 합니다 <a name="step3">
+### <a name="step-3-install-your-updates-a-namestep3"></a>3단계: 프로그램 업데이트 설치 <a name="step3">
 다음으로 업데이트를 설치합니다.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]

@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager 배포 | Microsoft Docs
 description: StorSimple 데이터 보호 및 백업 기능을 관리하기 위한 MMC 스냅인인 StorSimple 스냅샷 관리자를 다운로드 및 설치하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61077747"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933374"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>StorSimple 스냅샷 관리자 MMC 스냅인 배포
 
@@ -66,7 +66,7 @@ Microsoft Management Console(MMC)용 StorSimple 스냅샷 관리자 스냅인을
    * 미러된 동적 볼륨(RAID 1)
    * 클러스터 공유 볼륨
      
-     StorSimple 디바이스 또는 StorSimple 가상 디바이스에서 볼륨을 만드는 방법에 대한 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md) 에서 [6단계: 볼륨 만들기](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) 를 참조하세요.
+     StorSimple 디바이스 또는 StorSimple 가상 디바이스에서 볼륨을 만드는 방법에 대한 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)에서 [6단계: 볼륨 만들기](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume)를 참조하세요.
 
 ## <a name="install-a-new-storsimple-snapshot-manager"></a>새 StorSimple 스냅샷 관리자 설치
 StorSimple 스냅샷 관리자를 설치하기 전에 StorSimple 디바이스 또는 StorSimple 가상 디바이스에서 만든 볼륨이 [필수 조건 구성](#configure-prerequisites)에서 설명한 대로 탑재, 초기화 및 포맷되어 있는지 확인합니다.
@@ -79,7 +79,7 @@ StorSimple 스냅샷 관리자를 설치하기 전에 StorSimple 디바이스 �
 StorSimple 스냅샷 관리자의 새로운 설치를 완료하려면 다음 단계를 따릅니다. 업그레이드를 설치하는 경우는 [StorSimple 스냅샷 관리자 업그레이드 또는 다시 설치](#upgrade-or-reinstall-storsimple-snapshot-manager)를 참조하세요.
 
 * 1단계: StorSimple 스냅샷 관리자 설치 
-* 2단계: 디바이스에 StorSimple Snapshot Manager 연결 
+* 2단계: 디바이스에 StorSimple 스냅샷 관리자 연결 
 * 3단계: 디바이스에 대한 연결 확인 
 
 ### <a name="step-1-install-storsimple-snapshot-manager"></a>1단계: StorSimple 스냅샷 관리자 설치
@@ -101,7 +101,7 @@ StorSimple 스냅샷 관리자의 새로운 설치를 완료하려면 다음 단
    
     ![바탕 화면 아이콘](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png) 
 
-### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>2단계: 디바이스에 StorSimple Snapshot Manager 연결
+### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>2단계: 디바이스에 StorSimple 스냅샷 관리자 연결
 다음 단계를 사용하여 StorSimple 스냅샷 관리자를 StorSimple 디바이스에 연결합니다.
 
 #### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>디바이스에 StorSimple 스냅샷 관리자를 연결하려면
@@ -143,11 +143,11 @@ StorSimple 스냅샷 관리자를 다시 설치하기 전에 호스트 컴퓨터
 
 StorSimple 스냅샷 관리자를 업그레이드하거나 다시 설치하는 경우 다음 단계를 따르세요.
 
-* 1단계: StorSimple Snapshot Manager 제거 
-* 2단계: StorSimple Snapshot Manager 데이터베이스 백업 
-* 3단계: StorSimple Snapshot Manager 다시 설치 및 데이터베이스 복원 
+* 1단계: StorSimple 스냅샷 관리자 제거 
+* 2단계: StorSimple 스냅샷 관리자 데이터베이스 백업 
+* 3단계: StorSimple 스냅샷 관리자 다시 설치 및 데이터베이스 복원 
 
-### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>1단계: StorSimple Snapshot Manager 제거
+### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>1단계: StorSimple 스냅샷 관리자 제거
 다음 단계를 사용하여 StorSimple 스냅샷 관리자를 제거합니다.
 
 #### <a name="to-uninstall-storsimple-snapshot-manager"></a>StorSimple 스냅샷 관리자를 제거하려면
@@ -162,7 +162,7 @@ StorSimple 스냅샷 관리자를 업그레이드하거나 다시 설치하는 �
    > 
 5. 제거 프로세스가 완료되면 **설치 완료** 메시지가 표시됩니다. **닫기**를 클릭합니다.
 
-### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>2단계: StorSimple Snapshot Manager 데이터베이스 백업
+### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>2단계: StorSimple 스냅샷 관리자 데이터베이스 백업
 다음 단계를 사용하여 StorSimple 스냅샷 관리자 데이터베이스의 복사본을 만들어 저장합니다.
 
 #### <a name="to-back-up-the-database"></a>데이터베이스를 백업하려면
@@ -188,7 +188,7 @@ StorSimple 스냅샷 관리자를 업그레이드하거나 다시 설치하는 �
    2. **서비스** 페이지에서 **Microsoft StorSimple 관리 서비스**를 선택합니다.
    3. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 다시 시작**을 클릭합니다. 
 
-### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>3단계: StorSimple Snapshot Manager 다시 설치 및 데이터베이스 복원
+### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>3단계: StorSimple 스냅샷 관리자 다시 설치 및 데이터베이스 복원
 StorSimple 스냅샷 관리자를 다시 설치하려면 [새 StorSimple 스냅샷 관리자 설치](#install-a-new-storsimple-snapshot-manager)의 단계를 따릅니다. 그런 다음 아래의 절차를 사용하여 StorSimple 스냅샷 관리자 데이터베이스를 복원합니다.
 
 #### <a name="to-restore-the-database"></a>데이터베이스를 복원하려면

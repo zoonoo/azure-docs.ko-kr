@@ -1,19 +1,19 @@
 ---
 title: Cloud 파트너 포털에서 파트너 센터로의 계정 마이그레이션-Azure 용 상용 Marketplace
 description: CPP에서 파트너 센터로 계정을 마이그레이션하는 방법입니다. -Azure 용 상용 마켓플레이스
-author: ChJenk
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: f8644a2aa989b7013cbbd64e8a8194bc08f40251
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 076250444989d4edb3ec86039ab25887ff1e206b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813096"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931325"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로의 계정 마이그레이션
 

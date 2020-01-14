@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager 백업 정책 | Microsoft Docs
 description: StorSimple 스냅샷 관리자 MMC 스냅인을 사용하여 예약된 백업을 제어하는 백업 정책을 만들고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 7b2df6c8384e78094d80a17d8982b0db9edf73e1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687273"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933352"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>StorSimple 스냅샷 관리자를 사용하여 백업 정책 만들기 및 관리
 ## <a name="overview"></a>개요
-백업 정책은 로컬로 또는 클라우드에 볼륨 데이터를 백업하기 위한 일정을 만듭니다. 백업 정책을 만들 때 보존 정책을 지정할 수도 있습니다. (최대 64개의 스냅샷을 유지할 수 있습니다.) 백업 정책에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 솔루션](storsimple-overview.md)에서 [Backup 형식](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies)을 참조하세요.
+백업 정책은 로컬로 또는 클라우드에 볼륨 데이터를 백업하기 위한 일정을 만듭니다. 백업 정책을 만들 때 보존 정책을 지정할 수도 있습니다. 최대 64 개의 스냅숏을 유지할 수 있습니다. 백업 정책에 대 한 자세한 내용은 StorSimple 8000 시리즈의 [백업 유형](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) [: 하이브리드 클라우드 솔루션](storsimple-overview.md)을 참조 하세요.
 
 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
@@ -47,8 +47,8 @@ ms.locfileid: "64687273"
 
    1. **이름** 텍스트 상자에 정책 이름을 입력합니다.
    2. **볼륨 그룹** 텍스트 상자에 정책과 연결된 볼륨 그룹의 이름을 입력합니다.
-   3. **로컬 스냅숏** 또는 **클라우드 스냅숏** 중 하나를 선택합니다.
-   4. 보존할 스냅샷 수를 선택합니다. **모두**를 선택하면 64개의 스냅숏이 보존됩니다(최대값).
+   3. **로컬 스냅샷** 또는 **클라우드 스냅샷** 중 하나를 선택합니다.
+   4. 보존할 스냅샷 수를 선택합니다. **모두**를 선택하면 64개의 스냅샷이 보존됩니다(최댓값).
 4. **일정** 탭을 클릭합니다.
 
     ![정책 만들기 - 일정 탭](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
@@ -63,11 +63,11 @@ ms.locfileid: "64687273"
 백업 정책을 만든 후 **결과** 창에 다음 정보가 나타납니다.
 
 * **이름** – 백업 정책의 이름
-* **유형** – 로컬 스냅숏 또는 클라우드 스냅숏
+* **유형** – 로컬 스냅샷 또는 클라우드 스냅샷.
 * **볼륨 그룹** – 정책과 연결된 볼륨 그룹
-* **보존** - 보존되는 스냅숏 개수로, 최대 64개
+* **보존** - 보존되는 스냅샷 개수로, 최대 64개.
 * **만든 날짜** - 이 정책을 만든 날짜
-* **사용 하도록 설정** – 정책이 현재 적용 되는지 여부를 선택 합니다. **True** 적용 임을 나타냅니다 **False** 이 아님을 나타냅니다 적용에서 합니다.
+* **사용** - 정책이 현재 적용되는지 여부. **True**는 적용되고 있음을 나타냅니다. **False**는 적용되지 않음을 나타냅니다.
 
 ## <a name="edit-a-backup-policy"></a>백업 정책 편집
 다음 절차에 따라 기존 백업 정책을 편집합니다.
@@ -92,5 +92,5 @@ ms.locfileid: "64687273"
     ![백업 정책 삭제 확인](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [StorSimple Snapshot Manager를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
-* [StorSimple 스냅숏 관리자를 사용하여 백업 작업을 보고 관리](storsimple-snapshot-manager-manage-backup-jobs.md)하는 방법을 알아봅니다.
+* [StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+* [StorSimple 스냅샷 관리자를 사용하여 백업 작업을 보고 관리](storsimple-snapshot-manager-manage-backup-jobs.md)하는 방법을 알아봅니다.

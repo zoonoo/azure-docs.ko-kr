@@ -1,19 +1,19 @@
 ---
 title: Marketplace 계량 서비스 Api | Azure Marketplace
 description: Azure Marketplace에서 SaaS 제품에 대 한 사용 이벤트입니다.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dea950ff72eff2372fc10f989d4ce77fa746c4bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825486"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933581"
 ---
 # <a name="marketplace-metering-service-apis"></a>Marketplace 계량 서비스 API
 
@@ -195,12 +195,12 @@ Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 엔터티에
 
 `BatchUsageEvent` API 응답에서 참조 되는 상태 코드에 대 한 설명:
 
-| 상태 코드  | 설명 |
+| 상태 코드  | Description |
 | ---------- | -------------------- |
 | `Accepted` | 허용 된 코드입니다. |
 | `Expired` | 만료 된 사용입니다. |
 | `Duplicate` | 중복 된 사용법이 제공 되었습니다. |
-| `Error` | 오류 코드입니다. |
+| `Error` | 오류 코드 |
 | `ResourceNotFound` | 제공 된 사용 리소스가 잘못 되었습니다. |
 | `ResourceNotAuthorized` | 이 리소스에 대 한 사용량을 제공할 수 있는 권한이 없습니다. |
 | `InvalidDimension` | 사용량이 전달 된 차원이이 제안/계획에 적합 하지 않습니다. |

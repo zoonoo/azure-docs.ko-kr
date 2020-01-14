@@ -1,18 +1,18 @@
 ---
 title: 상업적 marketplace 지급 요약 | Azure Marketplace
 description: 지급 요약은 제품을 사용 하 여 달성 한 비용에 대 한 세부 정보를 보여줍니다. 또한, 지급 요약을 통해 언제 지급받을 수 있는지와 지급받는 금액도 알 수 있습니다.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427154"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931813"
 ---
 # <a name="payout-reporting"></a>지급 보고
 
@@ -74,11 +74,11 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 |기간 종료일(월)   | 8 월 30 일, 2019 | | |
 |청구 날짜 | 2019 년 9 월 1 일 | | |
 |고객 지불 날짜 | 2019 년 9 월 1 일 | | |
-|에스크로 기간(신용 카드만 해당, 30일) | 2019 년 9 월 1 일-9 월 30 2019 일 | | **상관 관계 특성 주문:** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 일별 |
+|에스크로 기간(신용 카드만 해당, 30일) | 2019 년 9 월 1 일-9 월 30 2019 일 | | **상관 관계 특성 주문:** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 일별 |
 |수금 기간 시작일 | 2019 년 9 월 1 일 | | |
 |수금 기간 종료일(최대 30일) | 2019 년 9 월 30 일 | | |
-|지불 계산 날짜(매월 15일) | 2019 년 10 월 1 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li>고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 그 |
-|지급 날짜 | 2019 년 10 월 15 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 지불 전송 |
+|지불 계산 날짜(매월 15일) | 2019 년 10 월 1 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li>고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 그 |
+|지급 날짜 | 2019 년 10 월 15 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 지불 전송 |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>기업 계약 (분기별/월별 고객)
 
@@ -93,7 +93,7 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 |수금 기간 종료일(최대 90일) | 2020 년 1 월 15 일 | | |
 |고객 지불 날짜 | 2019 년 12 월 30 일 | | |
 |지급 계산 | 2020 년 1 월 15 일 | | |
-|지급 날짜 | 2 월 15 일 2020 | | **분기별 기반 고객의 경우** <br> <br> **주문 보고서** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 보냄 |
+|지급 날짜 | 2 월 15 일 2020 | | **분기별 기반 고객의 경우** <br> <br> **주문 보고서** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 보냄 |
 
 ## <a name="transaction-history-download-export"></a>트랜잭션 기록 다운로드 내보내기
 

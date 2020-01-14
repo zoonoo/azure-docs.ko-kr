@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0266c08052cd3db7d9081d6b617da94703b9ab77
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896313"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931938"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -88,7 +88,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 5. **새로 만들기** - 이제 감사 로그가 작성될 위치를 구성하기 위한 여러 가지 옵션이 있습니다. Azure Storage 계정에, Azure Monitor 로그 사용에 대해 Log Analytics 작업 영역에 또는 이벤트 허브 사용에 대해 이벤트 허브에 로그를 작성할 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
   
   > [!NOTE]
-   >서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경할 수 없는 로그 저장소를 구성 하려는 고객은 [Azure Storage에서 제공 하는 지침] (https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+   >서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경할 수 없는 로그 저장소를 구성 하려는 고객은 [Azure Storage에서 제공](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) 하는 지침을 따라야 합니다.
   
   > [!WARNING]
    > Log Analytics에 감사를 사용하면 수집 속도에 따른 요금이 부과됩니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/), 사용 시 관련된 비용에 주의하세요.또는 Azure Storage 계정에 로그인 감사를 저장하는 것을 고려해 보세요.

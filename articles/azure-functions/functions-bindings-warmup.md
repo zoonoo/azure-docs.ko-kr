@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925177"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933327"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 
@@ -30,11 +30,11 @@ ms.locfileid: "74925177"
 
 ## <a name="trigger"></a>트리거
 
-워밍업 트리거를 사용 하면 실행 중인 앱에 추가 될 때 인스턴스에서 실행 되는 함수를 정의할 수 있습니다. 워밍업 함수를 사용 하 여 연결을 열거나, 종속성을 로드 하거나, 앱이 트래픽 수신을 시작 하기 전에 다른 사용자 지정 논리를 실행할 수 있습니다. 
+워밍업 트리거를 사용 하면 실행 중인 앱에 추가 될 때 새 인스턴스에서 실행 되는 함수를 정의할 수 있습니다. 워밍업 함수를 사용 하 여 연결을 열거나, 종속성을 로드 하거나, 앱이 트래픽 수신을 시작 하기 전에 다른 사용자 지정 논리를 실행할 수 있습니다. 
 
 워밍업 트리거는 앱의 다른 함수에서 사용 하는 공유 종속성을 만들기 위한 것입니다. [여기에서 공유 종속성의 예를 참조](./manage-connections.md#client-code-examples)하세요.
 
-준비 트리거는 다시 시작 또는 다른 비 확장 작업 중에만 호출 됩니다. 사용자의 논리가 준비 트리거를 사용 하지 않고 필요한 모든 종속성을 로드할 수 있도록 해야 합니다. 지연 로드는이를 위해 좋은 패턴입니다.
+준비 트리거는 수평 확장 작업 중에만 호출 되 고 다시 시작 하는 경우 또는 다른 비 확장 작업 중에만 호출 됩니다. 사용자의 논리가 준비 트리거를 사용 하지 않고 필요한 모든 종속성을 로드할 수 있도록 해야 합니다. 지연 로드는이를 위해 좋은 패턴입니다.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
@@ -243,7 +243,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 다음 표에서는 *function.json* 파일 및 `WarmupTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 | **type** | n/a| 필수 - `warmupTrigger`으로 설정해야 합니다. |
 | **direction** | n/a| 필수 - `in`으로 설정해야 합니다. |

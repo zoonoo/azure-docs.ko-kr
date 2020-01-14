@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용 하 여 azure에서 Azure로 재해 복구에 대 한 연결 문제 해결
 description: 재해 복구를 위해 Azure 가상 머신을 복제할 때 발생 하는 오류 및 문제 해결
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/05/2019
-ms.author: asgang
-ms.openlocfilehash: 4995a4086c471a06fe859febfd2d1af7fbb22a76
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 41b5203c328243c9ef7cc74e6b9771c677a54c7c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622446"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933417"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
 
@@ -23,10 +23,10 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 **URL** | **세부 정보**  
 --- | ---
-*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있으면 *. blob.core.windows.net 대신 특정 저장소 계정 Url (예: cache1.blob.core.windows.net 및 cache2.blob.core.windows.net)을 허용할 수 있습니다.
+\*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있으면 *. blob.core.windows.net 대신 특정 저장소 계정 Url (예: cache1.blob.core.windows.net 및 cache2.blob.core.windows.net)을 허용할 수 있습니다.
 login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다.
-*.hypervrecoverymanager.windowsazure.com | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 Ip를 지 원하는 경우 해당 ' Site Recovery IP '를 사용할 수 있습니다.
-*.servicebus.windows.net | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시가 ip를 지 원하는 경우 해당 ' Site Recovery 모니터링 IP '를 사용할 수 있습니다.
+\*.hypervrecoverymanager.windowsazure.com | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 Ip를 지 원하는 경우 해당 ' Site Recovery IP '를 사용할 수 있습니다.
+\*.servicebus.windows.net | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시가 ip를 지 원하는 경우 해당 ' Site Recovery 모니터링 IP '를 사용할 수 있습니다.
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Site Recovery URL 또는 IP 범위에 대한 아웃바운드 연결(오류 코드 151037 또는 151072)
 
@@ -73,7 +73,7 @@ login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 
 
 3. 대상 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
 
-   **위치**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
+   **위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
     --- | --- | ---
    미국 중부 | 40.69.144.231 | 52.165.34.144
 
@@ -87,7 +87,7 @@ login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 
 
 3. 원본 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
 
-   **위치**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
+   **위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
     --- | --- | ---
    미국 중부 | 13.82.88.226 | 104.45.147.24
 ## <a name="issue-3-site-recovery-configuration-failed-151197"></a>문제 3: Site Recovery 구성이 실패했습니다(151197).
@@ -106,8 +106,8 @@ login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 
 - **해결 방법**
   1. Mobility Service 에이전트는 Windows의 경우 IE에서 Linux의 경우 /etc/environment에서 프록시 설정을 검색합니다.
   2. Azure Site Recovery 모바일 서비스에 대해서만 프록시를 설정 하는 것을 선호 하는 경우에는 다음 위치에 있는 ProxyInfo .에 프록시 세부 정보를 제공 하면 됩니다.</br>
-     - ``/usr/local/InMage/config/``Linux***에서***
-     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config``Windows***에서***
+     - ***Linux***에서 ``/usr/local/InMage/config/``
+     - ***Windows***에서 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
   3. ProxyInfo.conf에는 다음 INI 형식의 프록시 설정이 있어야 합니다.</br>
                 *[proxy]*</br>
                 *Address=http://1.2.3.4*</br>

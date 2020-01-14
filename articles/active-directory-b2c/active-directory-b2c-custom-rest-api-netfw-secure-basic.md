@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a956638e8bd74c974012834ca650195e5bee37e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 24aa0d3d3f12934c54ac9aaa5ab8ae5c0d710825
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949443"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930498"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
@@ -28,7 +28,7 @@ ms.locfileid: "74949443"
 
 자세한 내용은 [ASP.NET Web API에서 기본 인증](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [Azure AD B2C 사용자 경험에서 REST API 클레임 교환 통합](active-directory-b2c-custom-rest-api-netfw.md) 문서에서 단계를 완료합니다.
 
@@ -247,7 +247,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 6. **암호** 상자에 앞에서 정의한 앱 ID를 입력합니다.
 
-7. **키 사용**에서 **서명**을 선택합니다.
+7. **키 사용**으로는 **서명**을 선택합니다.
 
 8. **만들기**를 선택합니다.
 
@@ -268,7 +268,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 6. **암호** 상자에 앞에서 정의한 앱 암호를 입력합니다.
 
-7. **키 사용**에서 **서명**을 선택합니다.
+7. **키 사용**으로는 **서명**을 선택합니다.
 
 8. **만들기**를 선택합니다.
 
@@ -303,17 +303,19 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>5단계: 테넌트에 정책 업로드
 
-1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환한 다음 **Azure AD B2C**를 엽니다.
+1. [Azure Portal](https://portal.azure.com)포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 
-2. **ID 경험 프레임워크**를 선택합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
 
-3. **모든 정책**을 엽니다.
+1. **ID 경험 프레임워크**를 선택합니다.
 
-4. **정책 업로드**를 선택합니다.
+1. **모든 정책**을 엽니다.
 
-5. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+1. **정책 업로드**를 선택합니다.
 
-6. *TrustFrameworkExtensions.xml* 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
+1. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+
+1. *TrustFrameworkExtensions.xml* 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
 
 ## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>6단계: 지금 실행을 사용하여 사용자 지정 정책 테스트
 

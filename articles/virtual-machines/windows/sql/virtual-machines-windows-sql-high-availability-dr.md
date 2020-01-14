@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358000"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933950"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구
 
@@ -77,7 +77,7 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 
 ## <a name="free-dr-replica-in-azure"></a>Azure에서 무료 DR 복제본
 
-[소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)있는 경우 수동 dr 인스턴스에 대 한 추가 라이선스 비용 없이 Always On 가용성 그룹 또는 장애 조치 (failover) 클러스터 인스턴스를 사용 하 여 SQL SERVER에서 DR (하이브리드 재해 복구) 계획을 구현할 수 있습니다.
+[소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)있는 경우 수동 dr 인스턴스에 대 한 추가 라이선스 비용 없이 SQL SERVER으로 DR (하이브리드 재해 복구) 계획을 구현할 수 있습니다.
 
 아래 이미지에서 설치 프로그램은 12 개 코어를 사용 하는 온-프레미스 SQL Server 배포에 대 한 재해 복구 복제본으로 12 개 코어를 사용 하 여 Azure 가상 머신에서 실행 되는 SQL Server을 사용 합니다. 과거에는 온-프레미스 및 Azure 가상 컴퓨터 배포에 대 한 SQL Server의 12 개 코어에 대 한 라이선스가 필요 합니다. 새 혜택은 Azure 가상 머신에서 실행 되는 수동 복제본 혜택을 제공 합니다. 이제 Azure 가상 컴퓨터의 수동 복제본에 대 한 재해 복구 기준이 충족 되는 경우 온-프레미스로 실행 되는 SQL Server의 12 개 코어만 라이선스 해야 합니다.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687736"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931687"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -161,13 +161,13 @@ HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니�
 > [!NOTE]  
 > Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용하며 만들기에 실패하는 경우 문제 해결 섹션 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) 에서 로깅된 정보에 액세스하는 다른 방법을 확인해보세요.
 
-대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 다음은 그 예입니다.
+대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 다음은 그 예입니다.
+기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -235,7 +235,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 스크립트에서 사용하기 위해 다음 도우미를 사용할 수 있습니다.
 
-| 도우미 사용 | 설명 |
+| 도우미 사용 | Description |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |원본 URI에서 지정된 파일 경로로 파일을 다운로드합니다. 기본적으로 기존 파일을 덮어쓰지 않습니다. |
 | `untar_file TARFILE DESTDIR` |(`-xf`를 사용하여) 대상 디렉터리에 tar 파일을 추출합니다. |
@@ -322,10 +322,7 @@ Azure Storage 계정 또는 Azure Data Lake Storage에서 파일을 저장하면
 
 ## <a name="sampleScripts"></a>사용자 지정 스크립트 샘플
 
-Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. 더 많은 예제 스크립트 작업은 다음 링크를 참조하세요.
-
-* [HDInsight에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)
-* [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
+Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. 예제 스크립트 작업으로 [HDInsight 클러스터에서 색상 설치 및 사용](hdinsight-hadoop-hue-linux.md) 을 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -342,7 +339,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 > [!NOTE]  
 > 다음 명령은 CRLF 줄 끝을 LF으로 변경해야 하는 것과 거의 동일합니다. 시스템에서 사용할 수 있는 유틸리티에 따라 하나를 선택합니다.
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 | --- | --- |
 | `unix2dos -b INFILE` |원본 파일이 .BAK 확장으로 백업됩니다. |
 | `tr -d '\r' < INFILE > OUTFILE` |OUTFILE은 끝이 LF인 버전만 포함합니다. |

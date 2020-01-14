@@ -2,18 +2,18 @@
 title: 통합 솔루션-Azure Marketplace
 description: Azure Marketplace 및 Microsoft AppSource의 통합 솔루션
 services: Azure, Marketplace, Compute, Storage, Networking
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/16/2019
-ms.author: v-qiwe
-ms.openlocfilehash: b00cc2917ac15797ed98af9793533d9bc12eeaaf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: evansma
+ms.openlocfilehash: 22d1f2d39a1ef3825d7d6c7eb0724e108b9b78e6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427197"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933776"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 

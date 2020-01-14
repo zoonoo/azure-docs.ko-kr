@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 25d0adecb51811cae4b3670010588e68bcc7433c
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 952103d517e03230cdfa4e7531e27bb2d5f53a07
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564128"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934313"
 ---
 # <a name="security-control-penetration-tests-and-red-team-exercises"></a>보안 제어: 침투 테스트 및 레드 팀 연습
 
@@ -29,7 +29,7 @@ Microsoft Engagement 규칙에 따라 침투 테스트가 Microsoft 정책을 �
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트에 대 한 자세한 내용은 다음에서 확인할 수 있습니다. 
+Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트에 대 한 자세한 내용은 다음에서 확인할 수 있습니다.
 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 

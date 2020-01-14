@@ -13,19 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2585457d22b773407c41bb6ea82c30a25fbfb88e
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847160"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932371"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 활동 및 감사 기록 보기
 
 Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용하면 조직 내 Azure 리소스 역할에 대한 작업, 활성화 및 감사 기록을 볼 수 있습니다. 여기에는 구독, 리소스 그룹 및 가상 머신도 포함됩니다. Azure RBAC (역할 기반 액세스 제어) 기능을 활용 하는 Azure Portal 내의 모든 리소스는 Privileged Identity Management의 보안 및 수명 주기 관리 기능을 활용할 수 있습니다.
+
+> [!NOTE]
+> 조직에서 [Azure 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
 
 ## <a name="view-activity-and-activations"></a>작업 및 활성화 보기
 

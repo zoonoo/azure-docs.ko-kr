@@ -3,7 +3,7 @@ title: Azure에서 Linux Vm에 대 한 사용자 지정 스크립트 실행
 description: 사용자 지정 스크립트 확장 v2를 사용하여 Linux VM 구성 작업 자동화
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: akjosh
-ms.openlocfilehash: 87826b5bec4294ce45355ab0cfc4df373895563b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: mimckitt
+ms.openlocfilehash: da7ade4b4724f8d155deb1c109587a311d03375c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073222"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931025"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -42,7 +42,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 
 ### <a name="script-location"></a>스크립트 위치
 
-확장을 사용하여 Azure Blob Storage 자격 증명을 사용하고 Azure Blob Storage에 액세스할 수 있습니다. 또는 스크립트 위치가 VM에서 해당 엔드포인트(예: GitHub, 내부 파일 서버 등)로 라우팅할 수 있는 모든 위치가 될 수 있습니다.
+확장은 Azure Blob Storage 자격 증명을 사용하여 Azure Blob Storage에 액세스하는 데 사용할 수 있습니다. 또는 스크립트 위치가 VM에서 해당 엔드포인트(예: GitHub, 내부 파일 서버 등)로 라우팅할 수 있는 모든 위치가 될 수 있습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있으면 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스하도록 허용할 수 있습니다.
@@ -60,8 +60,8 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 * 스크립트가 실행될 시기를 예약하려면 Cron 작업을 만드는 확장을 사용해야 합니다. 
 * 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
 * 사용자 지정 스크립트 확장이 고유하게 프록시 서버를 지원하지는 않지만 *Curl*과 같은 스크립트 내에서 프록시 서버를 지원하는 파일 전송 도구를 사용할 수 있습니다. 
-* 스크립트 또는 명령이 사용할 수 있는 기본이 아닌 디렉터리 위치에는 이를 처리하기 위한 논리가 있습니다.
-
+* 스크립트 또는 명령에서 사용할 수 있는 기본 디렉터리가 아닌 위치를 알고 있어야 하고, 이를 처리할 논리가 있어야 합니다.
+*  프로덕션 VMSS 인스턴스에 사용자 지정 스크립트를 배포할 때 json 템플릿을 통해 배포 하 고 SAS 토큰을 제어 하는 스크립트 저장소 계정을 저장 하는 것이 좋습니다. 
 
 
 ## <a name="extension-schema"></a>확장 스키마
@@ -70,7 +70,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 
 중요한 데이터는 보호된 구성에 저장하면 암호화된 후 가상 머신 내에서만 해독됩니다. 보호된 구성은 실행 명령에 암호와 같은 기밀 정보가 포함될 때 유용합니다.
 
-이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다.
+이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다.
 
 ```json
 {
@@ -109,25 +109,26 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 | 이름 | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| publisher | Microsoft.Compute.Extensions | string |
-| type | CustomScript | string |
+| publisher | Microsoft.Compute.Extensions | 문자열 |
+| type | CustomScript | 문자열 |
 | typeHandlerVersion | 2.0 | int |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute(예) | python MyPythonScript.py \<my-param1> | string |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| commandToExecute(예) | python MyPythonScript.py \<my-param1> | 문자열 |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 문자열 |
 | skipDos2Unix(예) | false | boolean |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| storageAccountName(예) | examplestorageacct | string |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| storageAccountName(예) | examplestorageacct | 문자열 |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
+* `apiVersion`: [리소스 탐색기](https://resources.azure.com/) 를 사용 하거나 다음 명령을 사용 하 여 Azure CLI에서 최신 apiVersion를 찾을 수 있습니다 `az provider list -o json`
 * `skipDos2Unix`: (옵션, 부울) 스크립트 기반 파일 URL 또는 스크립트의 dos2unix 변환을 건너뜁니다.
 * `timestamp`: (옵션, 32비트 정수) 이 필드는 이 필드의 값을 변경하여 스크립트의 다시 실행을 트리거하는 데만 사용합니다.  모든 정수 값을 사용할 수 있습니다. 단, 이전 값과 달라야 합니다.
   * `commandToExecute`: (스크립트를 설정하지 않은 경우 **필수**, 문자열) 실행할 진입점 스크립트입니다. 명령에 암호와 같은 기밀 정보가 포함되는 경우 이 필드를 대신 사용합니다.
 * `script`: (commandToExecute를 설정하지 않은 경우 **필수**, 문자열) /bin/sh로 실행된 base64 인코딩(및 필요에 따라 gzip 압축) 스크립트입니다.
 * `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
 * `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
-* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
+* `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
 
 
 다음 값은 공용 또는 보호된 설정 중 하나에서 설정할 수 있습니다. 확장은 공용 및 보호된 설정 모두에 아래 값이 설정된 모든 구성을 거부합니다.
@@ -236,7 +237,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 >이러한 속성 이름은 대/소문자를 구분합니다. 배포 문제를 방지하려면 다음과 같이 이름을 사용합니다.
 
 ## <a name="azure-cli"></a>Azure CLI
-Azure CLI를 사용하여 사용자 지정 스크립트 확장을 실행하는 경우 구성 파일 또는 파일을 만듭니다. 최소한 'commandToExecute'가 있어야 합니다.
+Azure CLI를 사용하여 사용자 지정 스크립트 확장을 실행하는 경우 구성 파일 또는 파일을 만듭니다. 최소한 ‘commandToExecute’가 있어야 합니다.
 
 ```azurecli
 az vm extension set \
@@ -392,7 +393,7 @@ time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=
 * 이 로그를 시작하는 사용 명령
 * 확장에 전달된 설정
 * 파일 및 해당 결과를 다운로드하는 확장.
-* 실행되는 명령 및 결과
+* 실행되는 명령 및 결과.
 
 Azure CLI를 사용하여 사용자 지정 스크립트 확장의 실행 상태를 검색할 수도 있습니다.
 

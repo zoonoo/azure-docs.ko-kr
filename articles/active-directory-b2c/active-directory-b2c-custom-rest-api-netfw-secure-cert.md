@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0201c0947c2f6052182721294e8972e29479825d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949860"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930633"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 
@@ -34,7 +34,7 @@ ms.locfileid: "74949860"
 * Azure AD B2C 정책 키에 인증서 업로드
 * 클라이언트 인증서를 사용하도록 사용자 지정 정책 구성
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 * [REST API 클레임 교환 통합](active-directory-b2c-custom-rest-api-netfw.md) 문서의 단계 완료
 * 유효한 인증서(프라이빗 키를 포함한 .pfx 파일) 가져오기.
 
@@ -100,17 +100,19 @@ ms.locfileid: "74949860"
 
 ## <a name="step-4-upload-the-policy-to-your-tenant"></a>4단계: 테넌트에 정책 업로드
 
-1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환한 다음 **Azure AD B2C**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 
-2. **ID 경험 프레임워크**를 선택합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
 
-3. **모든 정책**을 선택합니다.
+1. **ID 경험 프레임워크**를 선택합니다.
 
-4. **정책 업로드**를 선택합니다.
+1. **모든 정책**을 선택합니다.
 
-5. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+1. **정책 업로드**를 선택합니다.
 
-6. *TrustFrameworkExtensions.xml* 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
+1. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+
+1. *TrustFrameworkExtensions.xml* 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
 
 ## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>5단계: 지금 실행을 사용하여 사용자 지정 정책 테스트
 1. **Azure AD B2C 설정**을 연 다음 **ID 경험 프레임워크**를 선택합니다.

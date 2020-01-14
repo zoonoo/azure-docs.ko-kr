@@ -1,6 +1,6 @@
 ---
 title: 쿠키 정의-Azure Active Directory B2C | Microsoft Docs
-description: Azure Active Directory B2C에서 사용 하는 쿠키에 대 한 정의 제공 합니다.
+description: Azure Active Directory B2C에 사용 되는 쿠키에 대 한 정의를 제공 합니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,27 +10,26 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: af3244a32e9d02a1ba5053da85547bf614053127
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 66de4559ed006735f53ff993cce29370428b9998
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67587405"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930901"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 쿠키 정의
 
-다음 표에서 Azure Active Directory B2C에서 사용 하는 쿠키를 나열 합니다.
+다음 표에서는 Azure Active Directory B2C에 사용 되는 쿠키를 나열 합니다.
 
 | 이름 | 도메인 | 만료 | 용도 |
 | ----------- | ------ | -------------------------- | --------- |
-| x-ms-cpim-admin | main.b2cadmin.ext.azure.com | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | 테 넌 트에서 사용자 구성원 자격 데이터를 보유합니다. 테 넌 트 사용자를 멤버의 수준 (관리자 또는 사용자)의 멤버 자격의 경우 |
-| x-ms-cpim-slice | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | 적절 한 프로덕션 인스턴스에 요청을 라우팅하는 데 있습니다. |
-| x-ms-cpim-trans | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | 트랜잭션 (Azure AD B2C로 인증 요청 수) 및 현재 트랜잭션을 추적에 사용 합니다. |
-| x-ms-cpim-sso:{Id} | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | SSO 세션을 유지 관리에 사용 합니다. |
-| x-ms-cpim-cache:{id}_n | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md), 인증 성공 | 요청 상태를 유지 관리에 사용 합니다. |
-| x-ms-cpim-csrf | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | CRSF 보호에 사용 되는 교차 사이트 요청 위조 토큰입니다. |
-| x-ms-cpim-dc | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | Azure AD B2C 네트워크 라우팅에 사용 합니다. |
-| x-ms-cpim-ctx | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | 컨텍스트 |
-| x-ms-cpim-rp | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | 리소스 공급자 테 넌 트에 대 한 구성원 자격 데이터를 저장 하는 데 사용 합니다. |
-| x-ms-cpim-rc | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | 릴레이 쿠키를 저장 하는 데 사용 합니다. |
-
+| x-ms-cpim-admin | main.b2cadmin.ext.azure.com | [브라우저 세션](session-behavior.md) 의 끝 | 테 넌 트 간에 사용자 멤버 자격 데이터를 저장 합니다. 사용자가 구성원 인 테 넌 트 (관리자 또는 사용자)입니다. |
+| x-ms-cpim-slice | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | 요청을 적절 한 프로덕션 인스턴스로 라우팅하는 데 사용 됩니다. |
+| x-ms-cpim-trans | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | 트랜잭션을 추적 하는 데 사용 됩니다 (Azure AD B2C 인증 요청 수) 및 현재 트랜잭션. |
+| x-ms-cpim-sso:{Id} | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | SSO 세션을 유지 관리 하는 데 사용 됩니다. |
+| x-ms-cpim-cache:{id}_n | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md)의 끝, 인증 성공 | 요청 상태를 유지 관리 하는 데 사용 됩니다. |
+| x-ms-cpim-csrf | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | CRSF 보호에 사용 되는 사이트 간 요청 위조 토큰입니다. |
+| x-ms-cpim-dc | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | Azure AD B2C 네트워크 라우팅에 사용 됩니다. |
+| x-ms-cpim-ctx | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | Context |
+| x-ms-cpim-rp | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | 리소스 공급자 테 넌 트에 대 한 멤버 자격 데이터를 저장 하는 데 사용 됩니다. |
+| x-ms-cpim-rc | login.microsoftonline.com, b2clogin.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | 릴레이 쿠키를 저장 하는 데 사용 됩니다. |

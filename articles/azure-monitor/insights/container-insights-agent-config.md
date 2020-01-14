@@ -2,19 +2,23 @@
 title: 컨테이너 에이전트 데이터 컬렉션에 대 한 Azure Monitor 구성 | Microsoft Docs
 description: 이 문서에서는 stdout/stderr 및 환경 변수 로그 수집을 제어 하기 위해 컨테이너 에이전트에 대 한 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 0bde696f39af22f864500e0c79b5e03ca66cc7f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.openlocfilehash: 28b93190298ae61732ff7d2e297899af4ba0e5f2
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405672"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933013"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에 대 한 에이전트 데이터 수집 구성
 
-컨테이너에 대 한 Azure Monitor는 컨테이너 화 된 에이전트에서 AKS (Azure Kubernetes Service)에 호스트 된 관리 되는 Kubernetes 클러스터에 배포 된 컨테이너 워크 로드에서 stdout, stderr 및 환경 변수를 수집 합니다. 사용자 지정 Kubernetes ConfigMaps를 만들어이 환경을 제어 하 여 에이전트 데이터 수집 설정을 구성할 수 있습니다. 
+컨테이너에 대 한 Azure Monitor 컨테이너 화 된 에이전트에서 관리 되는 Kubernetes 클러스터에 배포 된 컨테이너 워크 로드에서 stdout, stderr 및 환경 변수를 수집 합니다. 사용자 지정 Kubernetes ConfigMaps를 만들어이 환경을 제어 하 여 에이전트 데이터 수집 설정을 구성할 수 있습니다. 
 
 이 문서에서는 사용자의 요구 사항에 따라 ConfigMap을 만들고 데이터 컬렉션을 구성 하는 방법을 보여 줍니다.
+
+>[!NOTE]
+>Azure Red Hat OpenShift의 경우 *openshift-Azure-로깅* 네임 스페이스에 템플릿 configmap 파일이 만들어집니다. 
+>
 
 ## <a name="configmap-file-settings-overview"></a>ConfigMap 파일 설정 개요
 
@@ -44,9 +48,12 @@ ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적�
 
 ConfigMap 구성 파일을 구성 하 고 클러스터에 배포 하려면 다음 단계를 수행 합니다.
 
-1. 템플릿 ConfigMap yaml 파일을 [다운로드](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) 하 고 azm로 저장 합니다.  
+1. 템플릿 ConfigMap yaml 파일을 [다운로드](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) 하 고 azm로 저장 합니다. 
 
-2. 사용자 지정 항목으로 ConfigMap yaml 파일을 편집 하 여 stdout, stderr 및/또는 환경 변수를 수집 합니다.
+   >[!NOTE]
+   >ConfigMap 템플릿이 클러스터에 이미 있기 때문에 Azure Red Hat OpenShift를 사용 하는 경우에는이 단계가 필요 하지 않습니다.
+
+2. 사용자 지정 항목으로 ConfigMap yaml 파일을 편집 하 여 stdout, stderr 및/또는 환경 변수를 수집 합니다. Azure Red Hat OpenShift에 대 한 ConfigMap yaml 파일을 편집 하는 경우 먼저 명령 `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`를 실행 하 여 텍스트 편집기에서 파일을 엽니다.
 
     - Stdout 로그 컬렉션에 대 한 특정 네임 스페이스를 제외 하려면 다음 예제를 사용 하 여 키/값을 구성 합니다. `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
@@ -54,15 +61,17 @@ ConfigMap 구성 파일을 구성 하 고 클러스터에 배포 하려면 다�
     
     - Stderr 로그 수집 클러스터 전체를 사용 하지 않도록 설정 하려면 다음 예제를 사용 하 여 키/값을 구성 합니다. `[log_collection_settings.stderr] enabled = false`.
 
-3. 다음 kubectl 명령을 실행 하 여 ConfigMap을 만듭니다. `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Azure Red Hat OpenShift 이외의 클러스터의 경우 Azure Red Hat OpenShift 이외의 클러스터에서 `kubectl apply -f <configmap_yaml_file.yaml>` kubectl 명령을 실행 하 여 ConfigMap을 만듭니다. 
     
     예: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
-    구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" created`포함 됩니다.
 
-## <a name="verify-configuration"></a>구성 확인 
+    Azure Red Hat OpenShift의 경우 편집기에서 변경 내용을 저장 합니다.
 
-구성이 성공적으로 적용 되었는지 확인 하려면 다음 명령을 사용 하 여 에이전트 pod: `kubectl logs omsagent-fdf58 -n=kube-system`에서 로그를 검토 합니다. Omsagent pod의 구성 오류가 있으면 출력에 다음과 유사한 오류가 표시 됩니다.
+구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" created`포함 됩니다.
+
+## <a name="verify-configuration"></a>구성 확인
+
+구성이 Azure Red Hat OpenShift 이외의 클러스터에 성공적으로 적용 되었는지 확인 하려면 다음 명령을 사용 하 여 에이전트 pod: `kubectl logs omsagent-fdf58 -n=kube-system`에서 로그를 검토 합니다. Omsagent pod의 구성 오류가 있으면 출력에 다음과 유사한 오류가 표시 됩니다.
 
 ``` 
 ***************Start Config Processing******************** 
@@ -73,6 +82,10 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 - 동일한 `kubectl logs` 명령을 사용 하 여 에이전트 pod 로그를 사용 합니다. 
 
+    >[!NOTE]
+    >이 명령은 Azure Red Hat OpenShift 클러스터에 적용 되지 않습니다.
+    > 
+
 - 라이브 로그를 기반으로 합니다. 라이브 로그에는 다음과 비슷한 오류가 표시 됩니다.
 
     ```
@@ -81,11 +94,21 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 - Log Analytics 작업 영역에 있는 **KubeMonAgentEvents** 테이블의 구성 오류에 대 한 *오류* 심각도를 사용 하 여 1 시간 마다 데이터가 전송 됩니다. 오류가 없는 경우 테이블의 항목에는 오류를 보고 하지 않는 심각도 *정보*를 포함 하는 데이터가 포함 됩니다. **Tags** 속성은 오류가 발생 한 pod 및 컨테이너 ID에 대 한 자세한 정보와 마지막으로 발생 한 시간을 포함 하 여 마지막으로 발생 한 시간을 포함 합니다.
 
-오류가 발생 하면 omsagent에서 파일을 구문 분석 하 여 다시 시작 되 고 기본 구성을 사용 하 게 됩니다. ConfigMap에서 오류를 수정한 후에는 yaml 파일을 저장 하 고 `kubectl apply -f <configmap_yaml_file.yaml`명령을 실행 하 여 업데이트 된 Configmap을 적용 합니다.
+- Azure Red Hat OpenShift를 사용 하 여 **ContainerLog** 테이블을 검색 하 여 omsagent 로그를 확인 하 여 openshift-Azure-logging의 로그 수집이 사용 되는지 확인 합니다.
+
+Azure Red Hat OpenShift 이외의 클러스터에서 ConfigMap의 오류를 수정한 후에는 yaml 파일을 저장 하 고 `kubectl apply -f <configmap_yaml_file.yaml`명령을 실행 하 여 업데이트 된 Configmap을 적용 합니다. Azure Red Hat OpenShift의 경우 다음 명령을 실행 하 여 업데이트 된 ConfigMaps을 편집 하 고 저장 합니다.
+
+``` bash
+oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
 
 ## <a name="applying-updated-configmap"></a>업데이트 된 ConfigMap 적용
 
-클러스터에 ConfigMap을 이미 배포 했 고 최신 구성으로 업데이트 하려는 경우 이전에 사용한 ConfigMap 파일을 편집한 다음 이전과 동일한 명령을 사용 하 여 적용할 수 있습니다 `kubectl apply -f <configmap_yaml_file.yaml`.
+Azure Red Hat OpenShift 이외의 클러스터에 ConfigMap을 이미 배포 했 고 최신 구성으로 업데이트 하려는 경우 이전에 사용한 ConfigMap 파일을 편집한 다음 이전과 동일한 명령을 사용 하 여 적용할 수 있습니다 `kubectl apply -f <configmap_yaml_file.yaml`. Azure Red Hat OpenShift의 경우 다음 명령을 실행 하 여 업데이트 된 ConfigMaps을 편집 하 고 저장 합니다.
+
+``` bash
+oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
 
 구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" updated`포함 됩니다.
 

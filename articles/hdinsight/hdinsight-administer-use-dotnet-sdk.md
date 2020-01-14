@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508114"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934729"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -108,9 +108,6 @@ namespace HDInsightManagement
 
 이 프로그램을 실행하면 프롬프트가 나타납니다.  프롬프트를 표시하지 않으려면 [비대화형 인증 .NET HDInsight 애플리케이션 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
 
-## <a name="create-clusters"></a>클러스터 만들기
-
-[.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## <a name="list-clusters"></a>클러스터 나열
 
@@ -229,7 +226,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
-이 작업은 포털을 통해서도 수행할 수 있습니다. 참조 [Azure portal을 사용 하 여 HDInsight에서 Apache Hadoop 관리 클러스터](hdinsight-administer-use-portal-linux.md)합니다.
+이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure Portal를 사용 하 여 HDInsight에서 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)를 참조 하세요.
 
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
 
@@ -267,9 +264,9 @@ foreach (var key in results.Configuration.Keys)
 
 ## <a name="upload-data-to-azure-blob-storage"></a>개발자와 관리자는 응용 프로그램을 빌드하거나 관리하는 데 필요한 유틸리티를 모든 가상 머신이나 역할 인스턴스에 다 설치하지 않고, 모든 구성 요소에서 사용할 수 있는 File Storage 공유에 저장할 수 있습니다.
 
-참조 [HDInsight에 데이터 업로드][hdinsight-upload-data]합니다.
+[HDInsight에 데이터 업로드를][hdinsight-upload-data]참조 하세요.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 * [HDInsight .NET SDK 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)

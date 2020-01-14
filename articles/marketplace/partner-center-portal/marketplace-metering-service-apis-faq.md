@@ -1,19 +1,19 @@
 ---
 title: Marketplace 계량 서비스 Api-FAQ | Azure Marketplace
 description: Azure Marketplace에서 SaaS 제품의 사용 현황을 내보냅니다.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: c4f51adbcaa5e5b750169f53a1333544365fd4f3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 044d92e79d8a885f553a7d081ce40c8b6de880a1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825489"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931210"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>Marketplace 계량 서비스 API - FAQ
 
