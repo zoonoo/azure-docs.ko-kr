@@ -1,19 +1,19 @@
 ---
 title: REST API 버전 2019-05-06-미리 보기
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search service REST API 버전 2019-05-06-미리 보기에는 기술 자료 스토어 및 고객이 관리 하는 암호화 키와 같은 실험적 기능이 포함 되어 있습니다.
+description: Azure Cognitive Search service REST API 버전 2019-05-06-미리 보기에는 증분 보강에 대 한 지식 저장소 및 인덱서 캐싱과 같은 실험적 기능이 포함 되어 있습니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/04/2020
-ms.openlocfilehash: ee8e11670d5b3e0f0edd57e3f87566faa60d4bc4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: eb73d614ca94bc1fa007a14f3705e50c74ab9e4f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754409"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922469"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Cognitive Search 서비스 REST api-버전 2019-05-06-미리 보기
 
@@ -36,8 +36,6 @@ ms.locfileid: "75754409"
 + [텍스트 번역 (미리 보기)](cognitive-search-skill-text-translation.md) 은 텍스트를 평가 하는 인덱싱 중에 사용 되는 인식 기술 이며, 각 레코드에 대해 지정 된 대상 언어로 변환 된 텍스트를 반환 합니다.
 
 + [기술 자료 저장소](knowledge-store-concept-intro.md) 는 AI 기반 보강 파이프라인의 새로운 대상입니다. 물리적 데이터 구조는 Azure Blob storage 및 Azure Table storage에 존재 하며, 연결 된 인지 기술 있는 인덱서를 실행할 때 생성 되 고 채워집니다. 기술 자료 저장소 자체의 정의는 기술 정의 내에서 지정 됩니다. 기술 자료 저장소 정의 내에서 데이터의 모양을 결정 하는 프로젝션 요소, 데이터가 테이블 저장소 또는 Blob 저장소에 저장 되는지 여부 및 여러 뷰가 있는지 여부를 결정 하는 *프로젝션* 요소를 통해 데이터의 물리적 구조를 제어 합니다.
-
-+ 휴지 상태의 서비스 측 암호화에 대 한 [고객 관리 암호화 키는](search-security-manage-encryption-keys.md) 새로운 미리 보기 기능 이기도 합니다. Microsoft에서 관리 하는 기본 제공 암호화 외에도 키의 유일한 소유자 인 추가 암호화 계층을 적용할 수 있습니다.
 
 ## <a name="earlier-preview-features"></a>이전 미리 보기 기능
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 2e08c1c0fbd0962adee44af949be280701915a1e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834063"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921102"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
@@ -1639,7 +1639,7 @@ public class DocByIdFromRoute {
 
 #### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>HTTP 트리거, 경로 데이터에서 ID 조회, SqlQuery 사용(Java)
 
-다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 경로 문자열을 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정한 데이터베이스 및 컬렉션에서 문서를 검색한 후, 쿼리 조건에 따라 많은 문서가 반환될 수 있으므로 결과 세트를 ```ToDoItem[]```으로 변환하는 데 사용됩니다.
+다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 경로 매개 변수를 사용 하 여 조회할 ID를 지정 하는 HTTP 요청에 의해 트리거됩니다. ID는 지정한 데이터베이스 및 컬렉션에서 문서를 검색한 후, 쿼리 조건에 따라 많은 문서가 반환될 수 있으므로 결과 세트를 ```ToDoItem[]```으로 변환하는 데 사용됩니다.
 
 > [!NOTE]
 > ID를 기준으로 쿼리해야 하는 경우 [이전 예제](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)와 같이 조회를 사용 하 여 [요청 단위](../cosmos-db/request-units.md)를 적게 사용 하는 것이 좋습니다. 요소 읽기 작업 (GET)은 ID로 쿼리 하는 것 보다 [더 효율적](../cosmos-db/optimize-cost-queries.md) 입니다.
@@ -1685,7 +1685,7 @@ public class DocByIdFromRouteSqlQuery {
 
 #### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP 트리거, SqlQuery를 사용하여 경로 데이터에서 여러 문서 가져오기(Java)
 
-다음 예제에서는 여러 문서를 검색 하는 Java 함수를 보여 줍니다. 함수는 ```description``` 필드에서 검색할 문자열을 지정하기 위해 경로 문자열 ```desc```를 사용하는 HTTP 요청에 의해 트리거됩니다. 검색 용어는 지정한 데이터베이스 및 컬렉션에서 문서 컬렉션을 검색한 후 결과 세트를 ```ToDoItem[]```으로 변환하고 함수에 인수로 전달하는 데 사용됩니다.
+다음 예제에서는 여러 문서를 검색 하는 Java 함수를 보여 줍니다. 함수는 경로 매개 변수 ```desc``` 사용 하 여 ```description``` 필드에서 검색할 문자열을 지정 하는 HTTP 요청에 의해 트리거됩니다. 검색 용어는 지정한 데이터베이스 및 컬렉션에서 문서 컬렉션을 검색한 후 결과 세트를 ```ToDoItem[]```으로 변환하고 함수에 인수로 전달하는 데 사용됩니다.
 
 ```java
 public class DocsFromRouteSqlQuery {

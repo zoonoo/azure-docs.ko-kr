@@ -1,29 +1,29 @@
 ---
 title: Azure Functions C# 개발자 참조
-description: 을 사용 하 여 C#Azure Functions를 개발 하는 방법을 이해 합니다.
+description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: f412e5ea358fe7b97476802f432616c37b05dbd9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 89b3ae927b14454ac3f58fb510626e315842240f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975485"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921040"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-이 문서에서는 .NET 클래스 라이브러리에서를 사용 C# 하 여 Azure Functions를 개발 하는 방법을 소개 합니다.
+이 문서는 .NET 클래스 라이브러리의 C#을 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
 
-Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원 합니다. [Azure Portal에서를 사용 하는 C# 방법](functions-create-function-app-portal.md)에 대 한 지침은 [ C# 스크립트 (csx) 개발자 참조](functions-reference-csharp.md)를 참조 하세요.
+Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니다. [Azure Portal에서 C#을 사용하는 방법](functions-create-function-app-portal.md)에 대한 지침은 [C# 스크립트(.csx) 개발자 참조](functions-reference-csharp.md)를 참조하세요.
 
-이 문서에서는 다음 문서를 이미 알고 있다고 가정 합니다.
+이 문서에서는 사용자가 이미 다음 문서를 읽었다고 가정합니다.
 
 * [Azure Functions 개발자 가이드](functions-reference.md)
 * [Azure Functions Visual Studio 2019 도구](functions-develop-vs.md)
 
-## <a name="supported-versions"></a>Támogatott verziók
+## <a name="supported-versions"></a>지원되는 버전
 
 함수 런타임의 버전은 특정 버전의 .NET에서 작동 합니다. 다음 표에서는 프로젝트에서 특정 버전의 함수에 사용할 수 있는 .NET Core 및 .NET Framework 및 .NET Core의 가장 높은 수준을 보여 줍니다. 
 
@@ -31,16 +31,16 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원 합�
 | ---- | ---- |
 | 함수 3(sp3) | .NET Core 3.1 |
 | Functions 2.x | .NET Core 2.2 |
-| Functions 1.x | .NET-keretrendszer 4.6 |
+| Functions 1.x | .NET Framework 4.6 |
 
 자세히 알아보려면 [Azure Functions 런타임 버전 개요](functions-versions.md) 를 참조 하세요.
 
-## <a name="functions-class-library-project"></a>함수 클래스 라이브러리 프로젝트
+## <a name="functions-class-library-project"></a>Functions 클래스 라이브러리 프로젝트
 
-Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일을 포함 C# 하는 클래스 라이브러리 프로젝트를 만듭니다.
+Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일이 포함된 C# 클래스 라이브러리 프로젝트를 만듭니다.
 
-* [호스트 json](functions-host-json.md) -로컬로 또는 Azure에서 실행 하는 경우 프로젝트의 모든 함수에 영향을 주는 구성 설정을 저장 합니다.
-* [local. settings](functions-run-local.md#local-settings-file) -로컬로 실행할 때 사용 되는 앱 설정 및 연결 문자열을 저장 합니다. 이 파일에는 암호가 포함 되어 있으며 Azure의 함수 앱에 게시 되지 않습니다. 대신, [함수 앱에 앱 설정을 추가](functions-develop-vs.md#function-app-settings)합니다.
+* [host.json](functions-host-json.md) -로컬로 또는 Azure에서 실행될 경우 프로젝트의 모든 함수에 영향을 주는 구성 설정을 저장합니다.
+* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. 대신, [함수 앱에 앱 설정을 추가](functions-develop-vs.md#function-app-settings)합니다.
 
 프로젝트를 빌드하면 빌드 출력 디렉터리에 다음 예제와 같은 폴더 구조가 생성 됩니다.
 
@@ -54,15 +54,15 @@ Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일�
  | - host.json
 ```
 
-이 디렉터리는 Azure의 함수 앱에 배포 됩니다. 함수 런타임의 [버전](functions-versions.md) 2.x에 필요한 바인딩 확장은 [NuGet 패키지로 프로젝트에 추가](./functions-bindings-register.md#vs)됩니다.
+이 디렉터리는 Azure의 함수 앱에 배포되는 디렉터리입니다. Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 [NuGet 패키지로 프로젝트에 추가](./functions-bindings-register.md#vs)됩니다.
 
 > [!IMPORTANT]
-> 빌드 프로세스에서는 각 함수에 대 한 *함수 json* 파일을 만듭니다. 이 *함수인 json* 파일은 직접 편집할 수 없습니다. 이 파일을 편집 하 여 바인딩 구성을 변경 하거나 함수를 사용 하지 않도록 설정할 수 없습니다. 함수를 사용 하지 않도록 설정 하는 방법을 알아보려면 [함수를 사용 하지 않도록 설정 하는 방법](disable-function.md)을 참조 하세요.
+> 빌드 프로세스는 각 함수에 대해 *function.json* 파일을 만듭니다. 이 *function.json* 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 함수를 사용하지 않도록 설정하는 방법을 알아보려면 [함수를 사용하지 않도록 설정하는 방법](disable-function.md)을 참조하세요.
 
 
-## <a name="methods-recognized-as-functions"></a>함수로 인식 되는 메서드
+## <a name="methods-recognized-as-functions"></a>함수로 인식되는 메서드
 
-클래스 라이브러리에서 함수는 다음 예제와 같이 `FunctionName` 및 트리거 특성을 사용 하는 정적 메서드입니다.
+클래스 라이브러리에서 함수는 다음 예제와 같이 `FunctionName` 및 트리거 특성을 포함하는 정적 메서드입니다.
 
 ```csharp
 public static class SimpleExample
@@ -77,24 +77,24 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` 특성은 메서드를 함수 진입점으로 표시 합니다. 이름은 프로젝트 내에서 고유 해야 하 고, 문자로 시작 하 고 문자, 숫자, `_`및 `-`만 포함 해야 합니다. 최대 길이는 127 자입니다. 프로젝트 템플릿에서는 `Run`라는 메서드를 만들지만 메서드 이름은 모든 유효한 C# 메서드 이름일 수 있습니다.
+`FunctionName` 특성은 메서드를 함수 진입점으로 표시합니다. 이름은 프로젝트 내에서 고유 해야 하 고, 문자로 시작 하 고 문자, 숫자, `_`및 `-`만 포함 해야 합니다. 최대 길이는 127 자입니다. 프로젝트 템플릿에서 `Run` 메서드를 자주 만들지만, 유효한 C# 이름은 모두 메서드 이름이 될 수 있습니다.
 
-Trigger 특성은 트리거 유형을 지정 하 고 입력 데이터를 메서드 매개 변수에 바인딩합니다. 예제 함수는 큐 메시지에 의해 트리거되고 큐 메시지는 `myQueueItem` 매개 변수의 메서드에 전달 됩니다.
+트리거 특성은 트리거 유형을 지정하고, 입력 데이터를 메서드 매개 변수에 바인딩합니다. 예제 함수는 큐 메시지에 의해 트리거되며, 큐 메시지는 `myQueueItem` 매개 변수의 메서드에 전달됩니다.
 
 ## <a name="method-signature-parameters"></a>메서드 서명 매개 변수
 
-메서드 시그니처에는 트리거 특성과 함께 사용 되는 매개 변수 이외의 매개 변수가 포함 될 수 있습니다. 포함할 수 있는 몇 가지 추가 매개 변수는 다음과 같습니다.
+트리거 특성에 사용되는 매개 변수 이외의 매개 변수가 메서드 서명에 포함될 수 있습니다. 다음은 포함할 수 있는 추가 매개 변수 중 일부입니다.
 
-* 특성을 사용 하 여 데코레이팅하는 것으로 표시 된 [입력 및 출력 바인딩입니다](functions-triggers-bindings.md) .  
-* [로깅을](#logging)위한 `ILogger` 또는 `TraceWriter` ([버전 1.x 전용](functions-versions.md#creating-1x-apps)) 매개 변수입니다.
-* [정상 종료](#cancellation-tokens)를 위한 `CancellationToken` 매개 변수입니다.
-* 트리거 메타 데이터를 가져오기 위한 식 매개 변수 [바인딩](./functions-bindings-expressions-patterns.md)
+* 특성으로 데코레이팅하여 표시된 [입력 및 출력 바인딩](functions-triggers-bindings.md).  
+* [로깅](#logging)에 대한 `ILogger` 또는 `TraceWriter`([버전 1.x 전용](functions-versions.md#creating-1x-apps)) 매개 변수.
+* [정상 종료](#cancellation-tokens)를 위한 `CancellationToken` 매개 변수.
+* 트리거 메타데이터를 가져오는 [바인딩 식](./functions-bindings-expressions-patterns.md) 매개 변수.
 
-함수 시그니처의 매개 변수 순서는 중요 하지 않습니다. 예를 들어 다른 바인딩 앞 이나 뒤에 트리거 매개 변수를 배치할 수 있으며, 또는 after 트리거 또는 바인딩 매개 변수 앞 이나 뒤에로 거 매개 변수를 추가할 수 있습니다.
+함수 시그니처에서 매개 변수의 순서는 중요하지 않습니다. 예를 들어, 다른 바인딩 전후에 트리거 매개 변수를 추가하고, 트리거 또는 바인딩 매개 변수 전후에 로거 매개 변수를 추가할 수 있습니다.
 
-### <a name="output-binding-example"></a>출력 바인딩 예
+### <a name="output-binding-example"></a>출력 바인딩 예제
 
-다음 예제에서는 출력 큐 바인딩을 추가 하 여 선행 항목을 수정 합니다. 함수는 함수를 다른 큐의 새 큐 메시지로 트리거하는 큐 메시지를 씁니다.
+다음 예제에서는 출력 큐 바인딩을 추가하여 이전 예제를 수정합니다. 이 함수는 함수를 다른 큐의 새 큐 메시지로 트리거하는 큐 메시지를 씁니다.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -111,11 +111,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-바인딩 참조 문서 (예:[저장소 큐](functions-bindings-storage-queue.md))는 트리거, 입력 또는 출력 바인딩 특성에 사용할 수 있는 매개 변수 형식을 설명 합니다.
+바인딩 참조 문서(예: [스토리지 큐](functions-bindings-storage-queue.md))는 트리거, 입력 또는 출력 바인딩 특성에 사용할 수 있는 매개 변수 형식을 설명합니다.
 
-### <a name="binding-expressions-example"></a>바인딩 식 예
+### <a name="binding-expressions-example"></a>바인딩 식 예제
 
-다음 코드는 앱 설정에서 모니터링할 큐의 이름을 가져오고 `insertionTime` 매개 변수에서 큐 메시지 생성 시간을 가져옵니다.
+다음 코드는 앱 설정에서 모니터링할 큐의 이름을 가져오고, `insertionTime` 매개 변수에서 큐 메시지 작성 시간을 가져옵니다.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -132,13 +132,13 @@ public static class BindingExpressionsExample
 }
 ```
 
-## <a name="autogenerated-functionjson"></a>자동 생성 함수. json
+## <a name="autogenerated-functionjson"></a>자동 생성된 function.json
 
-빌드 프로세스는 빌드 폴더의 함수 폴더에 *json* 파일을 만듭니다. 앞에서 설명한 것 처럼이 파일은 직접 편집할 수 없습니다. 이 파일을 편집 하 여 바인딩 구성을 변경 하거나 함수를 사용 하지 않도록 설정할 수 없습니다. 
+빌드 프로세스는 build 폴더의 function 폴더에 *function.json* 파일을 만듭니다. 앞에서 설명한 대로 이 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 
 
-이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](functions-scale.md#how-the-consumption-and-premium-plans-work)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 파일에는 입력 또는 출력 바인딩이 아닌 트리거 정보만 있습니다.
+이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](functions-scale.md#how-the-consumption-and-premium-plans-work)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
 
-생성 된 *함수인 json* 파일에는 *함수 json* 구성 대신 바인딩에 .net 특성을 사용 하도록 런타임에 지시 하는 `configurationSource` 속성이 포함 되어 있습니다. Például:
+생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -157,13 +157,13 @@ public static class BindingExpressionsExample
 }
 ```
 
-## <a name="microsoftnetsdkfunctions"></a>Microsoft .NET Sdk 함수
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-*함수 json* 파일 생성은 NuGet 패키지 [Microsoft\.NET\.Sdk\.함수](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions)에 의해 수행 됩니다. 
+*function.json* 파일 생성은 [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 
 
-동일한 패키지가 함수 런타임의 버전 1.x 및 2.x 모두에 사용 됩니다. 대상 프레임 워크는 2.x 프로젝트에서 1.x 프로젝트를 구별 하는 것입니다. 다음은 다른 대상 프레임 워크와 동일한 `Sdk` 패키지를 보여 주는 *.csproj* 파일의 관련 부분입니다.
+버전 1.x 및 2.x의 Functions 런타임 둘 다에 동일한 패키지가 사용됩니다. 대상 프레임워크가 1.x 프로젝트와 2.x 프로젝트에서 구분되는 측면입니다. 다음은 *.csproj* 파일의 관련 부분으로, 다른 대상 프레임워크와 동일한 `Sdk` 패키지를 보여 줍니다.
 
-**함수 1.x**
+**Functions 1.x**
 
 ```xml
 <PropertyGroup>
@@ -174,7 +174,7 @@ public static class BindingExpressionsExample
 </ItemGroup>
 ```
 
-**함수 2.x**
+**Functions 2.x**
 
 ```xml
 <PropertyGroup>
@@ -186,39 +186,39 @@ public static class BindingExpressionsExample
 </ItemGroup>
 ```
 
-`Sdk` 패키지 종속성 중에는 트리거와 바인딩이 있습니다. 1\.x 프로젝트는 1.x 트리거와 바인딩이 .NET Framework 대상으로 하는 반면, 2.x 트리거와 바인딩은 .NET Core를 대상으로 하기 때문에 1. x 트리거 및 바인딩을 참조 합니다.
+`Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. 1\.x 프로젝트는 1.x 트리거와 바인딩이 .NET Framework 대상으로 하는 반면, 2.x 트리거와 바인딩은 .NET Core를 대상으로 하기 때문에 1. x 트리거 및 바인딩을 참조 합니다.
 
-`Sdk` 패키지는 [newtonsoft.json](https://www.nuget.org/packages/Newtonsoft.Json)에 종속 되 고 [windowsazure.servicebus](https://www.nuget.org/packages/WindowsAzure.Storage)에 간접적으로 종속 됩니다. 이러한 종속성은 프로젝트에서 대상으로 하는 함수 런타임 버전에서 작동 하는 패키지 버전을 프로젝트에서 사용 하는지 확인 합니다. 예를 들어 `Newtonsoft.Json` .NET Framework 4.6.1에 대 한 버전 11이 있지만 .NET Framework를 대상으로 하는 함수 런타임은 `Newtonsoft.Json` 9.0.1와만 호환 됩니다. 따라서 해당 프로젝트의 함수 코드는 `Newtonsoft.Json` 9.0.1도 사용 해야 합니다.
+`Sdk` 패키지는 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)에도 종속되며, [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage)에는 간접적으로 종속됩니다. 이러한 종속성 때문에 프로젝트는 대상이 되는 Functions 런타임 버전에서 작동하는 패키지 버전을 사용하게 됩니다. 예를 들어, `Newtonsoft.Json`에는 .NET Framework 4.6.1용 버전 11이 있지만, .NET Framework 4.6.1을 대상으로 하는 Functions 런타임은 `Newtonsoft.Json` 9.0.1과만 호환됩니다. 따라서 해당 프로젝트의 함수 코드도 `Newtonsoft.Json` 9.0.1을 사용해야 합니다.
 
-`Microsoft.NET.Sdk.Functions`에 대 한 소스 코드는 GitHub 리포지토리 [azure\-함수\-vs\-빌드\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk)에서 사용할 수 있습니다.
+`Microsoft.NET.Sdk.Functions`의 소스 코드는 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="runtime-version"></a>런타임 버전
 
-Visual Studio는 [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 을 사용 하 여 함수 프로젝트를 실행 합니다. 핵심 도구는 함수 런타임에 대 한 명령줄 인터페이스입니다.
+Visual Studio는 [Azure Functions 핵심 도구](functions-run-local.md#install-the-azure-functions-core-tools)를 사용하여 Functions 프로젝트를 실행합니다. 핵심 도구는 Function 런타임에 대한 명령줄 인터페이스입니다.
 
-Npm를 사용 하 여 핵심 도구를 설치 하는 경우 Visual Studio에서 사용 하는 핵심 도구 버전에 영향을 주지 않습니다. 함수 런타임 버전 1.x의 경우 Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* 에 핵심 도구 버전을 저장 하 고 거기에 저장 된 최신 버전을 사용 합니다. 함수 2.x의 경우 핵심 도구는 **Azure Functions 및 웹 작업 도구** 확장에 포함 되어 있습니다. 1\.x와 2.x 모두에서 함수 프로젝트를 실행할 때 콘솔 출력에 사용 되는 버전을 확인할 수 있습니다.
+npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사용되는 핵심 도구 버전에 영향을 주지 않습니다. Functions 런타임 버전 1.x의 경우, Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli*에 핵심 도구 버전을 저장하고 해당 위치에 저장된 최신 버전을 사용합니다. Functions 2.x의 경우, 핵심 도구는 **Azure Functions 및 Web Jobs Tools** 확장에 포함되어 있습니다. 1\.x 및 2.x 둘 다, Functions 프로젝트를 실행할 때 콘솔 출력에 사용되는 버전을 확인할 수 있습니다.
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
 ```
 
-## <a name="supported-types-for-bindings"></a>바인딩에 대해 지원 되는 형식
+## <a name="supported-types-for-bindings"></a>바인딩에 대해 지원되는 형식
 
-각 바인딩에는 자체 지원 형식이 있습니다. 예를 들어 blob 트리거 특성은 문자열 매개 변수, POCO 매개 변수, `CloudBlockBlob` 매개 변수 또는 지원 되는 다른 여러 형식에 적용 될 수 있습니다. [Blob 바인딩에 대 한 바인딩 참조 문서](functions-bindings-storage-blob.md#trigger---usage) 에는 지원 되는 모든 매개 변수 형식이 나열 됩니다. 자세한 내용은 [트리거 및](functions-triggers-bindings.md) 바인딩 및 [각 바인딩 형식에 대 한 바인딩 참조 문서](functions-triggers-bindings.md#next-steps)를 참조 하세요.
+각 바인딩에는 자체적인 지원 형식이 있습니다. 예를들 어, Blob 트리거 특성은 문자열 매개 변수, POCO 매개 변수, `CloudBlockBlob` 매개 변수 또는 지원되는 기타 몇 가지 형식에 적용될 수 있습니다. [Blob 바인딩에 대한 바인딩 참조 문서](functions-bindings-storage-blob.md#trigger---usage)에는 지원되는 모든 매개 변수 형식이 나와 있습니다. 자세한 내용은 [트리거 및 바인딩](functions-triggers-bindings.md) 및 [각 바인딩 형식에 대한 바인딩 참조 문서](functions-triggers-bindings.md#next-steps)를 참조하세요.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ## <a name="binding-to-method-return-value"></a>메서드 반환 값에 바인딩
 
-메서드 반환 값에 특성을 적용 하 여 출력 바인딩에 메서드 반환 값을 사용할 수 있습니다. 예제는 [트리거 및 바인딩](./functions-bindings-return-value.md)을 참조 하세요. 
+메서드 반환 값에 특성을 적용하여 출력 바인딩에 대한 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](./functions-bindings-return-value.md)을 참조하세요. 
 
-성공적인 함수 실행으로 인해 항상 반환 값이 출력 바인딩에 전달 되는 경우에만 반환 값을 사용 합니다. 그렇지 않으면 다음 섹션에 나와 있는 것 처럼 `ICollector` 또는 `IAsyncCollector`를 사용 합니다.
+성공적인 함수 실행이 항상 출력 바인딩으로 전달할 반환 값을 생성하는 경우에만 반환 값을 사용합니다. 그렇지 않으면 다음 섹션에 나와 있는 것처럼 `ICollector` 또는 `IAsyncCollector`를 사용합니다.
 
 ## <a name="writing-multiple-output-values"></a>여러 출력 값 쓰기
 
-출력 바인딩에 여러 값을 기록 하거나 함수를 성공적으로 호출 하는 경우 출력 바인딩에 전달할 항목이 없을 수 있는 경우 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 형식을 사용 합니다. 이러한 형식은 메서드가 완료 될 때 출력 바인딩에 기록 되는 쓰기 전용 컬렉션입니다.
+출력 바인딩에 여러 값을 쓰거나 성공적인 함수 호출이 출력 바인딩에 전달할 값을 생성하지 않는 경우 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 형식을 사용합니다. 이러한 형식은 메서드가 완료될 때 출력 바인딩에 기록되는 쓰기 전용 컬렉션입니다.
 
-이 예제에서는 `ICollector`를 사용 하 여 여러 큐 메시지를 동일한 큐에 씁니다.
+이 예제에서는 `ICollector`를 사용하여 동일한 큐에 여러 큐 메시지를 씁니다.
 
 ```csharp
 public static class ICollectorExample
@@ -236,9 +236,9 @@ public static class ICollectorExample
 }
 ```
 
-## <a name="logging"></a>Naplózás
+## <a name="logging"></a>로깅
 
-에서 C#스트리밍 로그에 대 한 출력을 기록 하려면 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger)형식의 인수를 포함 합니다. 다음 예제와 같이 `log`이름을로 표시 하는 것이 좋습니다.  
+C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 다음 예제와 같이 `log`로 이름을 지정하는 것이 좋습니다.  
 
 ```csharp
 public static class SimpleExample
@@ -253,11 +253,11 @@ public static class SimpleExample
 } 
 ```
 
-Azure Functions에서 `Console.Write` 사용 하지 마십시오. 자세한 내용은 **Monitor Azure Functions** 문서에서 [함수에서 C# 로그 쓰기](functions-monitoring.md#write-logs-in-c-functions) 를 참조 하세요.
+Azure Functions에서 `Console.Write`를 사용하지 마세요. 자세한 내용은 **Azure Functions 모니터링** 문서에서 [C# 함수로 로그 작성](functions-monitoring.md#write-logs-in-c-functions)을 참조하세요.
 
 ## <a name="async"></a>Async
 
-[비동기](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)함수를 만들려면 `async` 키워드를 사용 하 고 `Task` 개체를 반환 합니다.
+[비동기화](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) 함수를 만들려면 `async` 키워드를 사용하고 `Task` 개체를 반환합니다.
 
 ```csharp
 public static class AsyncExample
@@ -275,13 +275,13 @@ public static class AsyncExample
 }
 ```
 
-비동기 함수에는 `out` 매개 변수를 사용할 수 없습니다. 출력 바인딩의 경우 [함수 반환 값](#binding-to-method-return-value) 또는 [수집기 개체](#writing-multiple-output-values) 를 대신 사용 합니다.
+`out` 매개 변수는 비동기 함수에 사용할 수 없습니다. 출력 바인딩에는 [함수 반환 값](#binding-to-method-return-value) 또는 [수집기 개체](#writing-multiple-output-values)를 대신 사용합니다.
 
 ## <a name="cancellation-tokens"></a>취소 토큰
 
-함수는 함수가 종료 될 때 운영 체제에서 코드를 알릴 수 있도록 하는 [CancellationToken](/dotnet/api/system.threading.cancellationtoken) 매개 변수를 사용할 수 있습니다. 이 알림을 사용 하 여 데이터가 일관 되지 않은 상태로 유지 되는 방식으로 함수가 예기치 않게 종료 되지 않도록 할 수 있습니다.
+함수는 함수가 종료될 때 운영 체제가 코드에 알릴 수 있게 해주는 [CancellationToken](/dotnet/api/system.threading.cancellationtoken) 매개 변수를 사용할 수 있습니다. 이 알림을 통해 함수가 예기치 않게 종료되어 데이터가 일관되지 않은 상태가 되는 것을 방지할 수 있습니다.
 
-다음 예제에서는 임박한 함수 종료를 확인 하는 방법을 보여 줍니다.
+다음 예제에서는 임박한 함수 종료를 확인하는 방법을 보여 줍니다.
 
 ```csharp
 public static class CancellationTokenExample
@@ -305,9 +305,9 @@ public static class CancellationTokenExample
 }
 ```
 
-## <a name="environment-variables"></a>Környezeti változók
+## <a name="environment-variables"></a>환경 변수
 
-환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `System.Environment.GetEnvironmentVariable`를 사용 합니다.
+환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `System.Environment.GetEnvironmentVariable`을 사용합니다.
 
 ```csharp
 public static class EnvironmentVariablesExample
@@ -328,19 +328,19 @@ public static class EnvironmentVariablesExample
 }
 ```
 
-앱 설정은 로컬로 개발 하는 경우와 Azure에서 실행할 때 모두 환경 변수에서 읽을 수 있습니다. 로컬로 개발할 때 앱 설정은 *로컬 설정 json* 파일의 `Values` 컬렉션에서 제공 됩니다. 두 환경 모두 로컬 및 Azure `GetEnvironmentVariable("<app setting name>")` 명명 된 앱 설정 값을 검색 합니다. 예를 들어 *로컬* 에서 실행 하는 경우에는 "My Site Name"이 반환 됩니다 .이 파일에는 `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`포함 되어 있습니다.
+앱 설정은 로컬로 개발할 때와 Azure에서 실행할 때 환경 변수에서 읽을 수 있습니다. 로컬로 개발할 때 앱 설정은 `Values`local.settings.json*파일의* 컬렉션에서 가져옵니다. 로컬 및 Azure의 두 환경에서 `GetEnvironmentVariable("<app setting name>")`은 명명된 앱 설정의 값을 검색합니다. 예를 들어 로컬로 실행하는 경우 *local.settings.json* 파일에 `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`이 포함된 경우 "My Site Name"이 반환됩니다.
 
-[ConfigurationManager](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) 속성은 앱 설정 값을 가져오는 대체 API 이지만 여기에 나와 있는 것 처럼 `GetEnvironmentVariable`를 사용 하는 것이 좋습니다.
+[System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) 속성은 앱 설정 값을 가져오는 대체 API지만, 다음과 같이 `GetEnvironmentVariable`을 사용하는 것이 좋습니다.
 
 ## <a name="binding-at-runtime"></a>런타임에 바인딩
 
-및 기타 .NET 언어에서는 특성의 [*선언적*](https://en.wikipedia.org/wiki/Declarative_programming) 바인딩과는 반대로 명령적 바인딩 패턴을 사용할 수 [있습니다](https://en.wikipedia.org/wiki/Imperative_programming) C#.   명령적 바인딩은 디자인 타임이 아닌 런타임에 바인딩 매개 변수를 계산 해야 하는 경우에 유용 합니다. 이 패턴을 사용 하면 함수 코드에서 지원 되는 입력 및 출력 바인딩을 즉시 바인딩할 수 있습니다.
+C# 및 기타 .NET 언어에서는 특성의 [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) 바인딩과 달리 [명령적](https://en.wikipedia.org/wiki/Imperative_programming) 바인딩 패턴을 사용할 수 있습니다. 명령적 바인딩은 바인딩 매개 변수를 디자인 타임이 아닌 런타임에 계산해야 할 경우 유용합니다. 이 패턴을 사용하면 함수 코드에서 지원되는 입력 및 출력 바인딩을 즉시 바인딩할 수 있습니다.
 
-명령적 바인딩을 다음과 같이 정의 합니다.
+다음과 같이 명령적 바인딩을 정의합니다.
 
-- 원하는 명령적 바인딩에 대 한 함수 시그니처에 특성을 포함 **하지 마십시오** .
-- 입력 매개 변수 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 또는 [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)를 전달 합니다.
-- 다음 C# 패턴을 사용 하 여 데이터 바인딩을 수행 합니다.
+- 원하는 명령적 바인딩에 대한 함수 시그니처에 특성을 포함하지 **마세요**.
+- 입력 매개 변수 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 또는 [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)에 전달합니다.
+- 다음 C# 패턴을 사용하여 데이터 바인딩을 수행합니다.
 
   ```cs
   using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
@@ -349,11 +349,11 @@ public static class EnvironmentVariablesExample
   }
   ```
 
-  `BindingTypeAttribute`는 바인딩을 정의 하는 .NET 특성이 며 `T`는 해당 바인딩 형식에서 지원 되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식 (예: `out JObject`)이 될 수 없습니다. 예를 들어 Mobile Apps 테이블 출력 바인딩은 [6 가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원 하지만 명령적 바인딩과 함께 [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [iasynccollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 만 사용할 수 있습니다.
+  `BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어 Mobile Apps 테이블 출력 바인딩은 [6 가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원 하지만 명령적 바인딩과 함께 [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [iasynccollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 만 사용할 수 있습니다.
 
 ### <a name="single-attribute-example"></a>단일 특성 예제
 
-다음 예제 코드는 런타임에 정의 된 blob 경로를 사용 하 여 [저장소 blob 출력 바인딩을](functions-bindings-storage-blob.md#output) 만든 다음 문자열을 blob에 씁니다.
+다음 예제 코드에서는 런타임에서 정의된 Blob경로를 사용하는 [Storage Blob 출력 바인딩](functions-bindings-storage-blob.md#output)을 만든 다음, Blob에 문자열을 씁니다.
 
 ```cs
 public static class IBinderExample
@@ -374,11 +374,11 @@ public static class IBinderExample
 }
 ```
 
-[Blobattribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) 는 [저장소 blob](functions-bindings-storage-blob.md) 입력 또는 출력 바인딩을 정의 하 고, [TextWriter](/dotnet/api/system.io.textwriter) 는 지원 되는 출력 바인딩 유형입니다.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)는 [Storage Blob](functions-bindings-storage-blob.md) 입력 또는 출력 바인딩을 정의하며, [TextWriter](/dotnet/api/system.io.textwriter)는 지원되는 출력 바인딩 형식입니다.
 
-### <a name="multiple-attribute-example"></a>여러 특성 예제
+### <a name="multiple-attribute-example"></a>다중 특성 예제
 
-앞의 예제에서는 함수 앱의 기본 저장소 계정 연결 문자열 (`AzureWebJobsStorage`)에 대 한 앱 설정을 가져옵니다. [Storageaccountattribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) 를 추가 하 고 특성 배열을 `BindAsync<T>()`에 전달 하 여 저장소 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`아닌 `Binder` 매개 변수를 사용 합니다.  Példa:
+앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예:
 
 ```cs
 public static class IBinderExampleMultipleAttributes
@@ -403,14 +403,14 @@ public static class IBinderExampleMultipleAttributes
 }
 ```
 
-## <a name="triggers-and-bindings"></a>Eseményindítók és kötések 
+## <a name="triggers-and-bindings"></a>트리거 및 바인딩 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [트리거 및 바인딩에 대 한 자세한 정보](functions-triggers-bindings.md)
+> [트리거 및 바인딩에 대해 자세히 알아보기](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [모범 사례에 대 한 자세한 정보 Azure Functions](functions-best-practices.md)
+> [Azure Functions에 대한 모범 사례에 대해 자세히 알아보기](functions-best-practices.md)

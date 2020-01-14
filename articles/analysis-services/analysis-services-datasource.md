@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442771"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922280"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -120,7 +120,9 @@ Visual Studio에서 테이블 가져오기 마법사를 사용 하는 경우 데
 
 ## <a name="oauth-credentials"></a>OAuth 자격 증명
 
-1400 이상의 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대 한 시간 제한을 방지 하기 위해 OAuth 데이터 원본에 대 한 토큰 새로 고침을 관리 합니다. 유효한 토큰을 생성 하려면 SSMS를 사용 하 여 자격 증명을 설정 합니다.
+메모리 내 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대 한 시간 제한을 방지 하기 위해 OAuth 데이터 원본에 대 한 토큰 새로 고침을 관리 합니다. 유효한 토큰을 생성 하려면 SSMS를 사용 하 여 자격 증명을 설정 합니다.
+
+직접 쿼리 모드는 OAuth 자격 증명을 사용 하 여 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [온-프레미스 게이트웨이](analysis-services-gateway.md)   

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 8217beeda885896adb6ffec2a5dd0670c9622175
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 16c7af4d66bd550eb4a286de7c86c436b1fe10e2
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748707"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922655"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
@@ -540,13 +540,9 @@ Bash 세션에서 SCP를 사용 하 여 Oozie 워크플로 (`workflow.xml`), Hiv
 
 워크플로와 마찬가지로, 코디네이터의 구성은 워크플로에 사용되는 설정을 모두 포함하는 `job.properties` 파일에 정의됩니다.
 
-```
+```text
 nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
-<<<<<<< HEAD
-jobTracker=[ACTIVE-HEADNODE-NAME].[UNIQUESTRING].dx.internal.cloudapp.net:8050
-=======
 jobTracker=[ACTIVERESOURCEMANAGER]:8050
->>>>>>> 50a435bd9528fcbaac7bc5ab96745734e63167da
 queueName=default
 oozie.use.system.libpath=true
 appBase=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie

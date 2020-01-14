@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2eba0c7ae546b5f5ab7525cc8c84e6b6de431085
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768925"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921905"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -136,7 +136,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>소비 및 프리미엄 계획의 작동 방식
 
-소비 및 프리미엄 계획에서 Azure Functions 인프라는 해당 함수가 트리거되는 이벤트의 수에 따라 함수 호스트의 인스턴스를 추가 하 여 CPU 및 메모리 리소스를 확장 합니다. 소비 계획에 있는 함수 호스트의 각 인스턴스는 1.5 GB의 메모리와 하나의 CPU로 제한 됩니다.  호스트의 인스턴스는 전체 함수 앱입니다. 즉, 함수 앱 내의 모든 함수는 인스턴스 내에서 리소스를 공유 하 고 동시에 크기를 조정 합니다. 동일한 소비 계획을 공유 하는 함수 앱은 독립적으로 크기가 조정 됩니다.  프리미엄 계획에서 계획 크기는 해당 인스턴스에서 해당 계획의 모든 앱에 대해 사용 가능한 메모리와 CPU를 결정 합니다.  
+소비 및 프리미엄 계획에서 Azure Functions 인프라는 해당 함수가 트리거되는 이벤트의 수에 따라 함수 호스트의 인스턴스를 추가 하 여 CPU 및 메모리 리소스를 확장 합니다. 소비 계획에 있는 함수 호스트의 각 인스턴스는 1.5 GB의 메모리와 하나의 CPU로 제한 됩니다.  호스트의 인스턴스는 전체 함수 앱입니다. 즉, 함수 앱 내의 모든 함수는 인스턴스 내에서 리소스를 공유 하 고 동시에 크기를 조정 합니다. 동일한 소비 계획을 공유하는 함수 앱은 독립적으로 크기 조정됩니다.  프리미엄 계획에서 계획 크기는 해당 인스턴스에서 해당 계획의 모든 앱에 대해 사용 가능한 메모리와 CPU를 결정 합니다.  
 
 함수 코드 파일은 함수의 주 저장소 계정에서 Azure Files 공유에 저장 됩니다. 함수 앱의 주 스토리지 계정을 삭제하면 함수 코드 파일이 삭제되고 복구할 수 없습니다.
 

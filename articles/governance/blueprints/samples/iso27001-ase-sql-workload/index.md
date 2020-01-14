@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 개요
 description: ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플에 대한 개요 및 아키텍처입니다.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 749304f332bc5c65a9a1cd18aae3131f024b4f53
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546733"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920765"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 개요
 
@@ -20,7 +20,7 @@ ISO 27001 청사진 샘플은 두 가지로, 이 샘플과 [ISO 27001 Shared Ser
 > [!IMPORTANT]
 > 이 샘플은 [ISO 27001 Shared Services](../iso27001-shared/index.md) 청사진 샘플에 의해 배포되는 인프라에 종속됩니다. 이것이 먼저 배포되어야 합니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플은 PaaS(Platform as a Service) 기반 웹 환경을 배포합니다. 이 환경은 ISO 27001 표준을 따르는 다수의 웹 애플리케이션, 웹 API 및 SQL Database 인스턴스를 호스팅하는 데 사용할 수 있습니다. 이 청사진 샘플은 [ISO 27001 Shared Services](../iso27001-shared/index.md) 청사진 샘플에 종속됩니다.
 

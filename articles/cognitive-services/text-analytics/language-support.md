@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 4927a26b78c8f68f1752abc76c30f143a361a912
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
-ms.translationtype: HT
+ms.openlocfilehash: fcf7051a631e74f2f6db918c7c861e32295ae9e8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611120"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732640"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Text Analytics API에 대한 언어 및 지역 지원
 
@@ -31,7 +31,7 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 국가/문화�
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>감정 분석, 핵심 구 추출 및 명명된 엔터티 인식
 
-감정 분석, 핵심 구 추출 및 엔터티 인식의 경우, 추가 언어의 언어 규칙을 수용하도록 분석기가 미세 조정되므로 지원되는 언어 목록의 선택 범위가 좀 더 구체화됩니다. 명명 된 엔터티 인식 v2에서 전체 [엔터티 형식](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) 집합에 대 한 지원은 현재 다음 언어로 제한 됩니다. 
+감정 분석, 핵심 구 추출 및 엔터티 인식의 경우, 추가 언어의 언어 규칙을 수용하도록 분석기가 미세 조정되므로 지원되는 언어 목록의 선택 범위가 좀 더 구체화됩니다. 명명 된 엔터티 인식 v2에서 전체 [엔터티 형식](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) 집합에 대 한 지원은 현재 다음 언어로 제한 됩니다. 
 * 한국어
 * 중국어 간체
 * 프랑스어
@@ -75,7 +75,7 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 국가/문화�
 
 \* 언어 지원은 미리 보기 상태입니다.
 
-\** [감정 분석 v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) 및/또는 [명명 된 엔터티 인식 v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) 공개 미리 보기 에서도 사용할 수 있습니다.
+\** [감정 분석 v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) 및/또는 [명명 된 엔터티 인식 v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) 공개 미리 보기 에서도 사용할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 

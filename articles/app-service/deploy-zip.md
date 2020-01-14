@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 3569c6a066b09daa0c24975b9de840a844b6ba2c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28bd45b0e9bdaf87c29b0118c47595db9179edc5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670220"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921166"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
 
@@ -30,7 +30,7 @@ WAR 파일 배포를 사용하면 [WAR](https://wikipedia.org/wiki/WAR_(file_for
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음을 수행합니다.
 
@@ -88,6 +88,8 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 ## <a name="deploy-war-file"></a>WAR 파일 배포
 
 WAR 파일을 App Service에 배포 하려면 `https://<app_name>.scm.azurewebsites.net/api/wardeploy`에 POST 요청을 보냅니다. POST 요청은 메시지 본문에 .war 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다.
+
+WAR 파일을 배포할 때 항상 `/api/wardeploy`를 사용 합니다. 이 API는 WAR 파일을 확장 하 여 공유 파일 드라이브에 저장 합니다. 다른 배포 Api를 사용 하면 일관 되지 않은 동작이 발생할 수 있습니다. 
 
 HTTP BASIC 인증의 경우 App Service 배포 자격 증명이 필요합니다. 배포 자격 증명을 설정하는 방법을 알아보려면 [사용자 수준 자격 증명 설정 및 다시 설정](deploy-configure-credentials.md#userscope)을 참조하세요.
 

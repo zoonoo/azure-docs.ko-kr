@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a0731a66af32b45215145c1d4f4404eb008cf897
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d70b05842fc7f251af6aefd743f064c037f63b7b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410036"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922348"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -27,9 +27,6 @@ SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.
 ## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
 SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 리포지토리에 있습니다.
-
-> [!NOTE]
-> 버전 2.x 이상에서는 `ServiceBusTrigger` 인스턴스에 구성 된 토픽 또는 구독을 만들지 않습니다. 이러한 버전은 큐 관리를 처리 하지 않는 [ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) 을 기반으로 합니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -351,9 +348,9 @@ Python에서 특성을 지원 하지 않습니다.
 
 | *function. json* 속성 | 특성/주석 속성 | Description | 선택 사항 |
 |--------------------------|-------------------------------|-------------|----------|
-| type || `sendGrid`로 설정해야 합니다.| 아닙니다. |
-| direction || `out`로 설정해야 합니다.| 아닙니다. |
-| name || 요청 또는 요청 본문의 함수 코드에 사용 되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | 아닙니다. |
+| type |n/a| `sendGrid`로 설정해야 합니다.| 아닙니다. |
+| direction |n/a| `out`로 설정해야 합니다.| 아닙니다. |
+| name |n/a| 요청 또는 요청 본문의 함수 코드에 사용 되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | 아닙니다. |
 | apiKey | ApiKey | API 키가 포함 된 앱 설정의 이름입니다. 설정 되지 않은 경우 기본 앱 설정 이름은 *Azurewebjobssendgridapikey*입니다.| 아닙니다. |
 | to| - | 받는 사람의 이메일 주소입니다. | 예 |
 | 원본| 최저 | 보낸 사람의 전자 메일 주소입니다. |  예 |

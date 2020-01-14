@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 1641a1020193395d7d2ddb9c4893bd7bc89cdcd0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90658e030c907a9fd99dd8fb9a6e90698d72b1f0
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681869"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834470"
 ---
 # <a name="active-and-inactive-events"></a>활성 및 비활성 이벤트
 
@@ -25,10 +25,11 @@ ms.locfileid: "73681869"
 
 일반적으로 이러한 시나리오는 다음과 같은 경우에 발생 합니다.
 
-* 사용자가 표시 하거나 볼 수 없는 렌더링 하지 않는 UI입니다. 
-* 응용 프로그램이 거의 실시간 컨텍스트로 순위를 설정 하 고 응용 프로그램에서 출력을 사용 하거나 사용 하지 않을 때 예측 개인 설정을 수행 하 고 있습니다. 
+* 사용자가 표시 하거나 볼 수 없는 렌더링 하지 않는 UI입니다.
+* 응용 프로그램이 거의 실시간 컨텍스트로 순위를 설정 하 고 응용 프로그램에서 출력을 사용 하거나 사용 하지 않을 때 예측 개인 설정을 수행 하 고 있습니다.
 
-이러한 경우 Personalizer를 사용 하 여 Rank를 호출 하 고 이벤트를 _비활성화_하도록 요청 합니다. Personalizer는이 이벤트에 대 한 보상을 받을 수 없으며 기본 보상을 적용 하지 않습니다. 비즈니스 논리에서 나중에 응용 프로그램에서 순위 호출의 정보를 사용 하는 경우에는 이벤트를 _활성화_ 하기만 하면 됩니다. 이벤트가 활성화 되는 즉시 Personalizer는 이벤트 보상을 기대 합니다. 보상 API에 대 한 명시적 호출이 없으면 Personalizer는 기본 보상을 적용 합니다.
+이러한 경우 Personalizer를 사용 하 여 Rank를 호출 하 고 이벤트를 _비활성화_하도록 요청 합니다. Personalizer는이 이벤트에 대 한 보상을 받을 수 없으며 기본 보상을 적용 하지 않습니다.
+비즈니스 논리에서 나중에 응용 프로그램에서 순위 호출의 정보를 사용 하는 경우에는 이벤트를 _활성화_ 하기만 하면 됩니다. 이벤트가 활성화 되는 즉시 Personalizer는 이벤트 보상을 기대 합니다. 보상 API에 대 한 명시적 호출이 없으면 Personalizer는 기본 보상을 적용 합니다.
 
 ## <a name="inactive-events"></a>비활성 이벤트
 
@@ -42,15 +43,28 @@ ms.locfileid: "73681869"
 
 Azure Portal에서 학습 정책 파일을 가져오고 내보낼 수 있습니다. 이 메서드를 사용 하 여 기존 정책을 저장 하 고 테스트 하 여 바꾸고 나중에 참조 및 감사 하기 위한 아티팩트로 소스 코드 제어에 보관 합니다.
 
+학습 정책을 가져오고 내보내는 [방법](how-to-learning-policy.md) 에 대해 알아봅니다.
+
 ### <a name="understand-learning-policy-settings"></a>학습 정책 설정 이해
 
 학습 정책의 설정은 변경할 수 없습니다. 설정이 Personalizer에 미치는 영향을 이해 하는 경우에만 설정을 변경 하십시오. 이 지식이 없으면 Personalizer 모델 무효화를 비롯 한 문제가 발생할 수 있습니다.
+
+Personalizer는 [vowpalwabbit](https://github.com/VowpalWabbit) 를 사용 하 여 이벤트를 학습 하 고 점수를 계산 합니다. Vowpalwabbit를 사용 하 여 학습 설정을 편집 하는 방법에 대 한 [vowpalwabbit 설명서](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) 를 참조 하세요. 올바른 명령줄 인수를 사용 하는 경우 명령을 다음 형식으로 파일에 저장 하 고 (arguments 속성 값을 원하는 명령으로 바꾸기) Personalizer 리소스에 대 한 Azure Portal의 **모델 및 학습 설정** 창에서 학습 설정을 가져올 수 있도록 파일을 업로드 합니다.
+
+다음 `.json`는 학습 정책의 예입니다.
+
+```json
+{
+  "name": "new learning settings",
+  "arguments": " --cb_explore_adf --epsilon 0.2 --power_t 0 -l 0.001 --cb_type mtr -q ::"
+}
+```
 
 ### <a name="compare-learning-policies"></a>학습 정책 비교
 
 [오프 라인 평가](concepts-offline-evaluation.md)를 수행 하 여 Personalizer 로그의 이전 데이터에 대해 다양 한 학습 정책을 수행 하는 방법을 비교할 수 있습니다.
 
-[사용자 고유의 학습 정책을 업로드](how-to-offline-evaluation.md) 하 여 현재 학습 정책과 비교 합니다.
+[사용자 고유의 학습 정책을 업로드](how-to-learning-policy.md) 하 여 현재 학습 정책과 비교 합니다.
 
 ### <a name="optimize-learning-policies"></a>학습 정책 최적화
 

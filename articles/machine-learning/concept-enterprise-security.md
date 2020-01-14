@@ -9,19 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/17/2019
-ms.openlocfilehash: 4a8a548e6a073c38dbc1f5600d721a7cdb97f120
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 01/09/2019
+ms.openlocfilehash: dafcdaa1ac014dbe4d45be58477bb3b9010b857f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762827"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921082"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
 이 문서에서는 Azure Machine Learning에 사용할 수 있는 보안 기능에 대해 알아봅니다.
 
 클라우드 서비스를 사용 하는 경우 필요한 사용자 에게만 액세스를 제한 하는 것이 가장 좋습니다. 먼저 서비스에서 사용 하는 인증 및 권한 부여 모델을 이해 합니다. 클라우드를 사용 하 여 온-프레미스 네트워크에서 네트워크 액세스를 제한 하거나 안전 하 게 리소스를 연결할 수도 있습니다. 데이터 암호화도 휴지 상태 이며 서비스 간에 데이터를 이동 하는 동안에도 중요 합니다. 마지막으로 서비스를 모니터링 하 고 모든 작업의 감사 로그를 생성할 수 있어야 합니다.
+
+> [!NOTE]
+> 이 문서의 정보는 Azure Machine Learning Python SDK 버전 1.0.83.1 이상에서 작동 합니다.
 
 ## <a name="authentication"></a>인증
 
@@ -33,7 +36,8 @@ Multi-factor authentication은 Azure AD (Azure Active Directory)를 사용 하�
 
 [Azure Machine Learning에서 ![인증](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
-자동화 된 워크플로에 대 한 서비스 주체 인증을 비롯 한 인증 설정에 대 한 자세한 예제 및 지침은 [인증 설정](how-to-setup-authentication.md) 방법을 참조 하세요.
+자세한 내용은 [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md)을 참조 하세요. 이 문서에서는 서비스 사용자 및 자동화 된 워크플로를 사용 하는 등 인증에 대 한 정보 및 예제를 제공 합니다.
+
 
 ### <a name="authentication-for-web-service-deployment"></a>웹 서비스 배포에 대 한 인증
 
@@ -44,7 +48,7 @@ Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 �
 |키|키는 정적 이므로 새로 고칠 필요가 없습니다. 키를 수동으로 다시 생성할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
 |토큰|지정 된 기간이 지나면 토큰이 만료 되 고 새로 고쳐야 합니다.| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
 
-Azure Machine Learning에서 웹 서비스를 인증 하는 방법에 대 한 코드 예제는 [웹 서비스 인증 섹션](how-to-setup-authentication.md#web-service-authentication) 을 참조 하세요.
+코드 예제는 [웹 서비스 인증 섹션](how-to-setup-authentication.md#web-service-authentication)을 참조 하세요.
 
 ## <a name="authorization"></a>권한 부여
 
@@ -93,7 +97,7 @@ Azure Machine Learning에서 웹 서비스를 인증 하는 방법에 대 한 �
 
 관리자가 이전 표에 언급 된 리소스에 대 한 관리 되는 id의 액세스를 취소 하는 것은 좋지 않습니다. 키 다시 동기화 작업을 사용 하 여 액세스를 복원할 수 있습니다.
 
-Azure Machine Learning는 모든 작업 영역에 대 한 구독에서 참가자 수준 액세스를 사용 하 여 추가 응용 프로그램 (이름이 `aml-` 또는 `Microsoft-AzureML-Support-App-`로 시작 함)을 만듭니다. 예를 들어 미국 동부에 한 작업 영역이 있고 동일한 구독의 북아메리카에 다른 작업 영역이 있는 경우 이러한 응용 프로그램 중 두 개를 볼 수 있습니다. 이러한 응용 프로그램을 사용 하 여 계산 리소스를 관리 하는 데 도움을 Azure Machine Learning 있습니다.
+Azure Machine Learning는 모든 작업 영역에 대 한 구독에서 참가자 수준 액세스를 사용 하 여 추가 응용 프로그램 (이름이 `aml-` 또는 `Microsoft-AzureML-Support-App-`로 시작 함)을 만듭니다. 예를 들어 미국 동부에 하나의 작업 영역이 있고 동일한 구독에 유럽 북부에 있는 경우 이러한 응용 프로그램 중 두 개를 볼 수 있습니다. 이러한 응용 프로그램을 사용 하 여 계산 리소스를 관리 하는 데 도움을 Azure Machine Learning 있습니다.
 
 ## <a name="network-security"></a>네트워크 보안
 
@@ -105,29 +109,86 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
+> [!IMPORTANT]
+> 작업 영역에 중요 한 데이터가 포함 된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) 를 설정 하는 것이 좋습니다. Microsoft에서 진단 목적으로 수집 하 고 Microsoft 관리 환경에서 추가 암호화를 사용 하도록 설정 하는 데이터의 양을 제어 합니다.
+
+
 #### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 Azure Machine Learning은 Azure Machine Learning 작업 영역 및 구독과 연결 된 Azure Blob storage 계정에 스냅숏, 출력 및 로그를 저장 합니다. Azure Blob storage에 저장 된 모든 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용에 암호화 됩니다.
 
-Azure Blob storage에 저장 된 데이터에 대 한 고유 키를 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)를 참조 하세요.
+Azure Blob storage에 저장 된 데이터에 대 한 고유 키를 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 암호화 Azure Storage](../storage/common/storage-encryption-keys-portal.md)를 참조 하세요.
 
 일반적으로 학습 데이터는 Azure Blob storage에 저장 되므로 계산 대상 학습에 액세스할 수 있습니다. 이 저장소는 Azure Machine Learning에서 관리 되지 않고 원격 파일 시스템으로 계산 대상에 탑재 됩니다.
 
-작업 영역에서 사용 되는 Azure storage 계정에 대 한 액세스 키를 다시 생성 하는 방법에 대 한 자세한 내용은 [저장소 액세스 키 다시 생성](how-to-change-storage-access-key.md)을 참조 하세요.
+액세스 키를 다시 생성 하는 방법에 대 한 자세한 내용은 [저장소 액세스 키 다시 생성](how-to-change-storage-access-key.md)을 참조 하세요.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning은 Azure Machine Learning에서 관리 하는 Microsoft 구독과 연결 된 Azure Cosmos DB 인스턴스에 메트릭과 메타 데이터를 저장 합니다. Azure Cosmos DB에 저장 된 모든 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용으로 암호화 됩니다.
+Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메트릭과 메타 데이터를 저장 합니다. 이 인스턴스는 Azure Machine Learning에서 관리 하는 Microsoft 구독과 연결 되어 있습니다. Azure Cosmos DB에 저장 된 모든 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용으로 암호화 됩니다.
+
+사용자 고유의 (고객 관리) 키를 사용 하 여 Azure Cosmos DB 인스턴스를 암호화 하려면 작업 영역에 사용할 전용 Cosmos DB 인스턴스를 만들 수 있습니다. Microsoft 구독에서 호스트 되는 다중 테 넌 트 Cosmos DB 인스턴스 외부에 실행 기록 정보와 같은 데이터를 저장 하려는 경우이 방법을 사용 하는 것이 좋습니다. 
+
+> [!NOTE]
+> 이 기능은 현재 미국 동부, 미국 서 부 2, 미국 남부 중부 에서만 사용할 수 있습니다.
+
+고객 관리 키를 사용 하 여 구독에 Cosmos DB 인스턴스를 프로 비전 할 수 있도록 설정 하려면 다음 작업을 수행 합니다.
+
+* Cosmos DB에 대해 고객이 관리 하는 주요 기능을 사용 하도록 설정 합니다. 지금은이 기능을 사용 하기 위해 액세스를 요청 해야 합니다. 이렇게 하려면 [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com)에 문의 하세요.
+
+* 아직 수행 하지 않은 경우 Azure Machine Learning를 등록 하 고 구독에서 리소스 공급자를 Azure Cosmos DB 합니다.
+
+* 구독에 대 한 참가자 권한으로 Id 및 액세스 관리에서 Machine Learning 앱에 권한을 부여 합니다.
+
+    ![포털의 Id 및 액세스 관리에서 ' Azure Machine Learning 앱 '에 권한을 부여 합니다.](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
+
+* Azure Machine Learning 작업 영역을 만들 때 다음 매개 변수를 사용 합니다. 두 매개 변수는 모두 필수 이며 SDK, CLI, REST Api 및 리소스 관리자 템플릿에서 지원 됩니다.
+
+    * `resource_cmk_uri`:이 매개 변수는 키 [에 대 한 버전 정보](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning)를 포함 하 여 주요 자격 증명 모음에서 고객 관리 키의 전체 리소스 URI입니다. 
+
+    * `cmk_keyvault`:이 매개 변수는 구독에서 키 자격 증명 모음의 리소스 ID입니다. 이 키 자격 증명 모음은 Azure Machine Learning 작업 영역에 사용 하는 동일한 지역 및 구독에 있어야 합니다. 
+    
+        > [!NOTE]
+        > 이 주요 자격 증명 모음 인스턴스는 작업 영역을 프로 비전 할 때 Azure Machine Learning에서 만든 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 key vault 인스턴스를 사용 하려면 [key_vault 매개 변수](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용 하 여 작업 영역을 프로 비전 하는 동안 동일한 키 자격 증명 모음을 전달 합니다. 
+
+이 Cosmos DB 인스턴스는 구독에서 Microsoft에서 관리 하는 리소스 그룹에 만들어집니다. 
+
+> [!IMPORTANT]
+> * 이 Cosmos DB 인스턴스를 삭제 해야 하는 경우이 인스턴스를 사용 하는 Azure Machine Learning 작업 영역을 삭제 해야 합니다. 
+> * 이 Cosmos DB 계정의 기본 [__요청 단위__](../cosmos-db/request-units.md) 는 __8000__로 설정 됩니다. 이 값을 변경 하는 것은 지원 되지 않습니다. 
+
+Cosmos DB에서 고객이 관리 하는 키에 대 한 자세한 내용은 [Azure Cosmos DB 계정에 대 한 고객 관리 키 구성](../cosmos-db/how-to-setup-cmk.md)을 참조 하세요.
 
 #### <a name="azure-container-registry"></a>Azure Container Registry
 
-레지스트리의 모든 컨테이너 이미지 (Azure Container Registry)는 미사용 시 암호화 됩니다. Azure는 이미지를 저장 하기 전에 이미지를 자동으로 암호화 하 고 Azure Machine Learning 이미지를 끌어올 때 즉시 암호를 해독 합니다.
+레지스트리의 모든 컨테이너 이미지 (Azure Container Registry)는 미사용 시 암호화 됩니다. Azure는 이미지를 저장 하기 전에 이미지를 자동으로 암호화 하 고 Azure Machine Learning 이미지를 끌어올 때 암호를 해독 합니다.
+
+사용자 고유의 (고객 관리) 키를 사용 하 여 Azure Container Registry을 암호화 하려면 작업 영역을 프로 비전 하거나 작업 영역 프로 비전 시 생성 되는 기본 인스턴스를 암호화 하는 동안 사용자 고유의 ACR를 만들어 연결 해야 합니다.
+
+기존 Azure Container Registry를 사용 하 여 작업 영역을 만드는 방법에 대 한 예제는 다음 문서를 참조 하세요.
+
+* [Azure CLI를 사용 하 여 Azure Machine Learning에 대 한 작업 영역을 만듭니다](how-to-manage-workspace-cli.md).
+* [Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역을 만듭니다.](how-to-create-workspace-template.md)
+
+#### <a name="azure-container-instance"></a>Azure Container Instance
+
+Azure Container Instance는 디스크 암호화를 지원 하지 않습니다. 디스크 암호화가 필요한 경우 대신 [Azure Kubernetes Service 인스턴스에 배포 하는](how-to-deploy-azure-kubernetes-service.md) 것이 좋습니다. 이 경우 역할 기반 액세스 제어에 대 한 Azure Machine Learning를 사용 하 여 구독의 Azure Container Instance에 대 한 배포를 방지할 수도 있습니다.
+
+#### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+언제 든 지 고객이 관리 하는 키를 사용 하 여 배포 된 Azure Kubernetes Service 리소스를 암호화할 수 있습니다. 자세한 내용은 [https://aka.ms/aks/byok](https://aka.ms/aks/byok)를 참조하세요. 
+
+이 프로세스를 통해 Kubernetes 클러스터에서 배포 된 가상 머신의 데이터와 OS 디스크를 모두 암호화할 수 있습니다.
+
+> [!IMPORTANT]
+> 이 프로세스는 AKS K8s 버전 1.16 이상 에서만 작동 합니다. Azure Machine Learning 1 월 13 2020 일에 AKS 1.16에 대 한 지원이 추가 되었습니다.
 
 #### <a name="machine-learning-compute"></a>Machine Learning 컴퓨팅
 
 Azure Storage에 저장 된 각 계산 노드에 대 한 OS 디스크는 Azure Machine Learning 저장소 계정에서 Microsoft 관리 키로 암호화 됩니다. 이 계산 대상은 임시 이며, 대기 중인 실행이 없는 경우 일반적으로 클러스터는 축소 됩니다. 기본 가상 머신이 프로 비전 해제 되 고 OS 디스크가 삭제 됩니다. Azure Disk Encryption은 OS 디스크에 대해 지원 되지 않습니다.
 
-또한 각 가상 컴퓨터에는 OS 작업을 위한 로컬 임시 디스크가 있습니다. 원할 경우 디스크를 사용 하 여 학습 데이터를 준비할 수 있습니다. 디스크가 암호화 되지 않았습니다.
+또한 각 가상 컴퓨터에는 OS 작업을 위한 로컬 임시 디스크가 있습니다. 원할 경우 디스크를 사용 하 여 학습 데이터를 준비할 수 있습니다. `hbi_workspace` 매개 변수를 `TRUE`으로 설정 하 여 작업 영역에 대해 기본적으로 디스크가 암호화 됩니다. 이 환경은 실행 기간 동안만 수명이 짧고 암호화 지원은 시스템 관리 키로만 제한 됩니다.
+
 Azure에서 미사용 암호화가 작동 하는 방식에 대 한 자세한 내용은 [미사용 azure 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)를 참조 하세요.
 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
@@ -147,6 +208,22 @@ Azure Machine Learning는 작업 영역과 연결 된 Azure Key Vault 인스턴�
 Azure HDInsight 및 Vm과 같은 대상을 계산 하기 위한 SSH 암호 및 키는 Microsoft 구독과 연결 된 별도의 key vault에 저장 됩니다. Azure Machine Learning은 사용자가 제공한 암호나 키를 저장 하지 않습니다. 대신 Vm 및 HDInsight에 연결 하 여 실험을 실행 하기 위해 자체 SSH 키를 생성, 권한 부여 및 저장 합니다.
 
 각 작업 영역에는 작업 영역과 동일한 이름을 가진 시스템 할당 관리 id가 연결 되어 있습니다. 이 관리 되는 id는 key vault의 모든 키, 암호 및 인증서에 액세스할 수 있습니다.
+
+## <a name="data-collection-and-handling"></a>데이터 수집 및 처리
+
+### <a name="microsoft-collected-data"></a>Microsoft에서 수집한 데이터
+
+Microsoft는 리소스 이름 (예: 데이터 집합 이름 또는 machine learning 실험 이름) 또는 작업 환경 변수 (예: 진단 목적)와 같은 사용자가 아닌 식별 정보를 수집할 수 있습니다. 이러한 모든 데이터는 microsoft 소유의 구독에서 호스트 되는 저장소의 Microsoft 관리 키를 사용 하 여 저장 되며 [microsoft의 표준 개인 정보 취급 방침 및 데이터 처리 표준을](https://privacy.microsoft.com/privacystatement)따릅니다.
+
+또한 Microsoft는 중요 한 정보 (예: 계정 키 암호)를 환경 변수에 저장 하지 않는 것이 좋습니다. 환경 변수는 microsoft에서 기록, 암호화 및 저장 됩니다.
+
+작업 영역을 프로 비전 하는 동안 `hbi_workspace` 매개 변수를 `TRUE` 설정 하 여 수집 되는 진단 데이터를 옵트아웃 (opt out) 할 수 있습니다. 이 기능은 AzureML Python SDK, CLI, REST Api 또는 Azure Resource Manager 템플릿을 사용할 때 지원 됩니다.
+
+### <a name="microsoft-generated-data"></a>Microsoft에서 생성 된 데이터
+
+자동화 된 Machine Learning와 같은 서비스를 사용 하는 경우 Microsoft는 여러 모델을 학습 하기 위해 미리 처리 된 일시적 데이터를 생성할 수 있습니다. 이 데이터는 작업 영역의 데이터 저장소에 저장 되며,이를 통해 액세스 제어 및 암호화를 적절 하 게 적용할 수 있습니다.
+
+[배포 된 끝점에서 기록 된 진단 정보](how-to-enable-app-insights.md) 를 Azure 애플리케이션 Insights 인스턴스로 암호화할 수도 있습니다.
 
 ## <a name="monitoring"></a>모니터링
 
@@ -168,7 +245,15 @@ Azure Monitor 메트릭을 사용 하 여 Azure Machine Learning 작업 영역�
 
 [작업 영역의 활동 로그를 보여 주는 ![스크린샷](media/concept-enterprise-security/workspace-activity-log.png)](media/concept-enterprise-security/workspace-activity-log-expanded.png#lightbox)
 
-점수 매기기 요청 세부 정보는 Application Insights에 저장 됩니다. 작업 영역을 만들 때 구독에 Application Insights 만들어집니다. 기록 되는 정보에는 HTTPMethod, UserAgent,, RequestUrl, StatusCode, RequestId 및 Duration과 같은 필드가 포함 됩니다.
+점수 매기기 요청 세부 정보는 Application Insights에 저장 됩니다. 작업 영역을 만들 때 구독에 Application Insights 만들어집니다. 기록 된 정보에는 다음과 같은 필드가 포함 됩니다.
+
+* HTTPMethod
+* UserAgent
+* 고 대 여 Etype
+* RequestUrl
+* StatusCode
+* RequestId
+* 기간
 
 > [!IMPORTANT]
 > Azure Machine Learning 작업 영역의 일부 작업은 작업 로그에 정보를 기록 하지 않습니다. 예를 들어 학습 실행의 시작과 모델 등록은 기록 되지 않습니다.
@@ -181,8 +266,8 @@ Azure Monitor 메트릭을 사용 하 여 Azure Machine Learning 작업 영역�
 
 다음 다이어그램에서는 작업 영역 만들기 워크플로를 보여 줍니다.
 
-* 사용자는 지원 되는 Azure Machine Learning 클라이언트 (Azure CLI, Python SDK, Azure Portal) 중 하나에서 Azure AD에 로그인 하 고 적절 한 Azure Resource Manager 토큰을 요청 합니다.
-* 사용자는 Azure Resource Manager를 호출 하 여 작업 영역을 만듭니다. 
+* 지원 되는 Azure Machine Learning 클라이언트 (Azure CLI, Python SDK, Azure Portal) 중 하나에서 Azure AD에 로그인 하 고 적절 한 Azure Resource Manager 토큰을 요청 합니다.
+* Azure Resource Manager를 호출 하 여 작업 영역을 만듭니다. 
 * Azure Resource Manager는 Azure Machine Learning 리소스 공급자에 게 작업 영역을 프로 비전 하는 데 연결 합니다.
 
 작업 영역을 만드는 동안 사용자의 구독에서 추가 리소스가 생성 됩니다.

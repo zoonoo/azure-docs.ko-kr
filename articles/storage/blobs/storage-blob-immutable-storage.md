@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 473f1d12188a8686748d19c8c35d4421f9477ae9
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912788"
+ms.locfileid: "75921229"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>변경할 수 없는 저장소로 비즈니스에 중요 한 blob 데이터 저장
 
@@ -76,7 +76,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 추가 blob은 데이터 블록으로 구성 되며 감사 및 로깅 시나리오에 필요한 데이터 추가 작업에 최적화 되어 있습니다. 기본적으로 추가 blob은 blob의 끝에 새 블록을 추가할 수 있습니다. 불변성에 관계 없이 추가 blob에서 기존 블록을 수정 하거나 삭제 하는 작업은 기본적으로 허용 되지 않습니다. 추가 blob에 대 한 자세한 내용은 [추가 Blob 정보](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)를 참조 하세요.
 
-시간 기반 보존 정책에만 불변성 보호 및 준수를 유지 하면서 추가 blob에 새 블록을 쓸 수 있도록 하는 `allowProtectedAppendWrites` 설정이 있습니다. 사용 하도록 설정 된 경우에는 정책으로 보호 된 컨테이너에서 추가 blob을 직접 만들고 *Appendblock* API를 사용 하 여 기존 추가 blob의 끝에 새 데이터 블록을 계속 추가할 수 있습니다. 새 블록만 추가할 수 있으며 기존 블록은 수정 하거나 삭제할 수 없습니다. 유효 보존 기간이 경과할 때까지 추가 blob의 삭제를 방지 하는 시간 보존 불변성 보호가 여전히 적용 됩니다.  
+시간 기반 보존 정책에만 불변성 보호 및 준수를 유지 하면서 추가 blob에 새 블록을 쓸 수 있도록 하는 `allowProtectedAppendWrites` 설정이 있습니다. 사용 하도록 설정 된 경우에는 정책으로 보호 된 컨테이너에서 추가 blob을 직접 만들고 *Appendblock* API를 사용 하 여 기존 추가 blob의 끝에 새 데이터 블록을 계속 추가할 수 있습니다. 새 블록만 추가할 수 있으며 기존 블록은 수정 하거나 삭제할 수 없습니다. 유효 보존 기간이 경과할 때까지 추가 blob의 삭제를 방지 하는 시간 보존 불변성 보호가 여전히 적용 됩니다. 이 설정을 사용 하면 블록 blob 또는 페이지 blob의 불변성 동작에 영향을 주지 않습니다.
 
 이 설정이 시간 기반 보존 정책의 일부 이기 때문에, 추가 blob은 *유효* 보존 기간 동안 변경할 수 없는 상태로 유지 됩니다. 새 데이터는 추가 blob의 초기 생성 이후에 추가 될 수 있으므로 보존 기간을 결정 하는 방법에는 약간의 차이가 있습니다. 유효 보존은 추가 blob의 **마지막 수정 시간과** 사용자 지정 보존 간격 간의 차이입니다. 마찬가지로 보존 간격이 확장 된 경우에는 변경할 수 없는 저장소에서 사용자 지정 보존 간격의 가장 최근 값을 사용 하 여 유효 보존 기간을 계산 합니다.
 

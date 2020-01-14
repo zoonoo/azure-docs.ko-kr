@@ -6,12 +6,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bdeff0194bda620250481a215c145b1ec3b2207e
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226966"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920788"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>지역 재해 복구 Azure Functions
 
@@ -34,7 +34,7 @@ ms.locfileid: "74226966"
 
 ## <a name="activeactive-for-non-https-functions"></a>HTTPS가 아닌 함수에 대해 활성/활성
 
-HTTPS가 아닌 함수에 대해 활성/활성 배포를 달성할 수 있습니다.  그러나 두 지역이 상호 작용 하는 방법을 고려해 야 합니다.  동일한 Service Bus 큐에서 각각 트리거되는 동일한 함수 앱을 두 지역에 배포 하는 경우 큐에서 큐에서 제거 하는 경쟁 소비자 역할을 수행 합니다.  즉, 각 메시지가 인스턴스 중 하나 에서만 처리 되는 것을 의미 하는 반면 단일 service bus에 대 한 단일 실패 지점이 여전히 있음을 의미 합니다.  두 개의 service bus 큐를 배포 하는 경우 (하나는 주 지역에 하나, 하나는 보조 지역에 하나, 두 개의 함수 앱은 지역 큐를 가리키고) 이제 두 지역 간에 큐 메시지를 분산 하는 방법에 대 한 과제가 발생 합니다.  이는 일반적으로 각 게시자가 *두* 지역에 메시지를 게시 하려고 시도 하 고, 각 메시지가 활성 함수 앱에서 처리 되는 것을 의미 합니다.  이는 활성/활성 패턴을 만들지만 계산의 중복 및 데이터 통합 시기 또는 방법에 대 한 다른 문제를 만듭니다.  이러한 이유로 HTTPS가 아닌 트리거에서 활성/수동 패턴을 사용 하는 것이 좋습니다.
+HTTPS가 아닌 함수에 대해 활성/활성 배포를 달성할 수 있습니다.  그러나 두 지역이 상호 작용 하는 방법을 고려해 야 합니다.  동일한 Service Bus 큐에서 각각 트리거되는 동일한 함수 앱을 두 지역에 배포 하는 경우 큐에서 큐에서 제거 하는 경쟁 소비자 역할을 수행 합니다.  즉, 각 메시지가 인스턴스 중 하나 에서만 처리 되는 것을 의미 하는 반면 단일 Service Bus에 대 한 단일 실패 지점이 여전히 있음을 의미 합니다.  두 개의 Service Bus 큐 (주 지역에 하나, 보조 지역에 하나)를 배포 하는 경우 두 개의 함수 앱이 지역 큐를 가리키는 것은 이제 두 지역 간에 큐 메시지를 분산 하는 방법에 대 한 과제가 발생 합니다.  이는 일반적으로 각 게시자가 *두* 지역에 메시지를 게시 하려고 시도 하 고, 각 메시지가 활성 함수 앱에서 처리 되는 것을 의미 합니다.  이는 활성/활성 패턴을 만들지만 계산의 중복 및 데이터 통합 시기 또는 방법에 대 한 다른 문제를 만듭니다.  이러한 이유로 HTTPS가 아닌 트리거에서 활성/수동 패턴을 사용 하는 것이 좋습니다.
 
 ## <a name="activepassive-for-non-https-functions"></a>HTTPS가 아닌 함수를 위한 능동/수동
 
@@ -52,7 +52,7 @@ HTTPS가 아닌 함수에 대해 활성/활성 배포를 달성할 수 있습니
 
 장애 조치 (failover) 전에 공유 별칭으로 보내는 게시자는 기본 이벤트 허브로 라우팅됩니다.  기본 함수 앱은 기본 이벤트 허브로만 수신 대기 합니다.  보조 함수 앱은 수동 및 유휴 상태가 됩니다.  장애 조치 (failover)가 시작 되는 즉시 공유 별칭으로 보내는 게시자는 보조 이벤트 허브로 라우팅됩니다.  이제 보조 함수 앱이 활성 상태가 되 고 자동으로 트리거를 시작 합니다.  보조 지역에 대 한 효과적인 장애 조치 (failover)는 이벤트 허브에서 전적으로 구동 될 수 있으며, 함수는 해당 이벤트 허브가 활성 상태인 경우에만 활성화 됩니다.
 
-[Service bus](../service-bus-messaging/service-bus-geo-dr.md) 및 [event hubs](../event-hubs/event-hubs-geo-dr.md)로 장애 조치 (failover)에 대 한 정보 및 고려 사항에 대해 자세히 알아보세요.
+자세한 내용은 [Service Bus](../service-bus-messaging/service-bus-geo-dr.md) 및 [event hubs](../event-hubs/event-hubs-geo-dr.md)로 장애 조치 (failover)에 대 한 정보 및 고려 사항을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

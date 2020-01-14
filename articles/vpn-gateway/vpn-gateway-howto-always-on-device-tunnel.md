@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6f0c33ee7fd5790a060574230f1156c569a63936
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbfc5328dfb4f374ea90c8e6352877d4179f031b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425659"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921175"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Always On VPN 디바이스 터널 구성
 
@@ -102,9 +102,9 @@ Always On VPN 연결에는 두 가지 유형의 터널이 포함 됩니다.
    ```
 1. 다음 텍스트를 복사 하 여 **devicecert**와 동일한 폴더에 ***VPNProfile*** 로 저장 합니다. 다음 텍스트를 사용자 환경에 맞게 편집 합니다.
 
-   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
-   * `<Address>192.168.3.5</Address>`
-   * `<Address>192.168.3.4</Address>`
+   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
+   * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
+   * `<Address>192.168.3.4</Address> <= IP of resource in the vnet or the vnet address space`
 
    ```
    <VPNProfile>  

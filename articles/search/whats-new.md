@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863090"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921003"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -33,7 +33,11 @@ API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않
 
 + [고객이 관리 하는 암호화 키](search-security-manage-encryption-keys.md) 가 이제 일반 공급 됩니다. REST를 사용 하는 경우 `api-version=2019-05-06`를 사용 하 여 기능에 액세스할 수 있습니다. 관리 코드의 경우에는 기능이 미리 보기 상태를 벗어나는 경우에도 올바른 패키지는 [.NET SDK 버전 8.0-미리 보기](search-dotnet-sdk-migration-version-9.md) 입니다. 
 
-+ 검색 서비스 끝점에 대 한 *제한 된 IP 액세스 및 개인 끝점 (미리 보기)* 은 이제 **api-version = 2019-10-01.txt-preview**에서 사용할 수 있습니다. [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) 관리 REST API에서 new **IpRule** 및 **networkruleset** 속성을 사용 하 여 보안 끝점을 설정할 수 있습니다. API 버전 및 지역 가용성에 대 한 자세한 내용은 [How to use The Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)항목을 참조 하세요.
++ 검색 서비스에 대 한 개인 액세스는 다음 두 가지 메커니즘을 통해 사용할 수 있습니다.
+
+  + 관리 REST API `api-version=2019-10-01-Preview`를 사용 하 여 서비스를 만들어 특정 IP 주소에 대 한 액세스를 제한할 수 있습니다. Preview API에는 [Createorupdate api](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate)의 새로운 **IpRule** 및 **networkruleset 집합** 속성이 있습니다. 이 미리 보기 기능은 선택 된 지역에서 사용할 수 있습니다. 자세한 내용은 [How to use The Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)항목을 참조 하세요.
+
+  + 현재는 제한 된 액세스 미리 보기를 통해 사용할 수 있으며, 동일한 가상 네트워크에 있는 클라이언트의 연결을 위해 Azure 개인 끝점을 지 원하는 Azure Search 서비스를 프로 비전 할 수 있습니다. 자세한 내용은 [보안 연결을 위한 개인 끝점 만들기](service-create-private-endpoint.md)를 참조 하세요.
 
 ### <a name="december-2019"></a>2019년 12월
 

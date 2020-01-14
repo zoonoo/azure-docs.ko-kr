@@ -3,12 +3,12 @@ title: Azure 리소스 상태 경고 만들기-리소스 관리자 템플릿
 description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고를 프로그래밍 방식으로 작성합니다.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: c14e3c327d83e75b08f3b52b59970557ec87f5b5
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: d42dfdc5806fa6340cf4bb7051b53764e98c26e3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912824"
+ms.locfileid: "75922766"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 
@@ -16,6 +16,8 @@ ms.locfileid: "75912824"
 
 Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 정보를 알려줍니다. Azure Resource Health 경고는 이러한 리소스의 상태가 변경되면 거의 실시간으로 알려줍니다. Resource Health 경고를 프로그래밍 방식으로 만들면 사용자가 경고를 대량으로 생성하고 사용자 지정할 수 있습니다.
 
+> [!NOTE]
+> Resource Health 경고는 현재 미리 보기 상태입니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

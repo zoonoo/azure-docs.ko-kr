@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 01/10/2020
 ms.author: dapine
-ms.openlocfilehash: a35ceed4cefa47b903ceec915388b4831cd9e69b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173770"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866933"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -32,7 +32,7 @@ ms.locfileid: "74173770"
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
-컨테이너화는 종속성 및 구성을 포함한 애플리케이션 또는 서비스가 컨테이너 이미지로 패키징되는 소프트웨어 배포 방법입니다. 컨테이너 이미지를 거의 또는 전혀 수정하지 않고 컨테이너 호스트에 배포할 수 있습니다. 컨테이너는 가상 머신보다 더 작은 공간을 사용하여 서로 간에 또는 기본 운영 체제로부터 격리됩니다. 단기 작업용 컨테이너 이미지에서 컨테이너화를 시작하고, 더 이상 필요 없으면 제거할 수 있습니다.
+컨테이너화는 종속성 및 구성을 포함한 애플리케이션 또는 서비스가 컨테이너 이미지로 패키징되는 소프트웨어 배포 방법입니다. 컨테이너 이미지를 거의 또는 전혀 수정하지 않고 컨테이너 호스트에 배포할 수 있습니다. 컨테이너는 서로 그리고 기본 운영 체제와 격리되며, 가상 머신보다 공간을 적게 차지합니다. 단기 작업용 컨테이너 이미지에서 컨테이너화를 시작하고, 더 이상 필요 없으면 제거할 수 있습니다.
 
 Cognitive Services 리소스는 [Microsoft Azure](https://azure.microsoft.com)에서 사용할 수 있습니다. [Azure Portal](https://portal.azure.com/)에 로그인하여 이러한 서비스에 사용할 수 있는 Azure 리소스를 만들고 살펴보세요.
 
@@ -49,11 +49,11 @@ Cognitive Services 리소스는 [Microsoft Azure](https://azure.microsoft.com)�
 
 Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 집합을 제공하며, 각각은 Azure Cognitive Services 서비스의 기능 하위 집합을 포함하고 있습니다.
 
-| 서비스 | 지원 되는 가격 책정 계층 | 컨테이너 | 설명 |
+| 서비스 | 지원 되는 가격 책정 계층 | 컨테이너 | Description |
 |---------|----------|----------|-------------|
 |[변칙 탐지기][ad-containers] |F0, S0|**변칙-탐지기** |Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다.<br>[액세스 요청](https://aka.ms/adcontainer)|
 |[Computer Vision][cv-containers] |F0, S1|**읽기** |영수증, 포스터, 명함과 같은 여러 가지 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 추출합니다. 또한 읽기 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF/TIFF/다중 페이지 지원을 제공 합니다.<br/><br/>**중요:** 읽기 컨테이너는 현재 영어로만 작동 합니다.|
-|[Face][fa-containers] |F0, S0|**Face** |이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. Face는 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 또한 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수 있습니다.<br>[액세스 요청](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
+|[Face][fa-containers] |F0, S0|**Face** |이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[폼 인식기][fr-containers] |F0, S0|**폼 인식기** |양식 이해는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다.<br>[액세스 요청](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0, S0|**LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다.|
 |[Speech Service API][sp-containers-stt] |F0, S0|**Speech-to-text** |연속적인 실시간 음성을 텍스트로 변환합니다.|
@@ -89,7 +89,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 

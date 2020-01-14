@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: c15602163ee1916047b9cb35a516a049f951b302
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195946"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888569"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -28,7 +28,7 @@ LUIS (Language Understanding) 컨테이너는 학습 또는 게시 된 Language 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
@@ -55,7 +55,7 @@ LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합�
 
 이 컨테이너는 설정에 대한 최소 및 권장 값을 지원합니다.
 
-|컨테이너| 최소 | 권장 | TP<br>(최소, 최대)|
+|컨테이너| 최소 | 권장 | TPS<br>(최소, 최대)|
 |-----------|---------|-------------|--|
 |LUIS|1 코어, 2gb 메모리|1 코어, 4gb 메모리|20, 40|
 
@@ -84,7 +84,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 
 1. LUIS 포털 또는 LUIS API에서 컨테이너에 대한 [패키지 내보내기](#export-packaged-app-from-luis)
 1. [호스트 컴퓨터](#the-host-computer)에서 패키지 파일을 필수 **입력** 디렉터리로 이동합니다. LUIS 패키지 파일의 이름을 바꾸거나 변경 하거나 덮어쓰거나 압축을 해제 하지 마십시오.
-1. 필수 _입력 탑재_ 및 청구 설정을 사용하여 [컨테이너를 실행](##run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](luis-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다. 
+1. 필수 _입력 탑재_ 및 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](luis-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다. 
 1. [컨테이너의 예측 엔드포인트를 쿼리](#query-the-containers-prediction-endpoint)합니다. 
 1. 컨테이너를 사용하고 나면 LUIS 포털의 출력 탑재에서 [엔드포인트 로그를 가져오고](#import-the-endpoint-logs-for-active-learning) 컨테이너를 [중지](#stop-the-container)합니다.
 1. **엔드포인트 발화 검토** 페이지에서 LUIS 포털의 [활성 학습](luis-how-to-review-endpoint-utterances.md)을 사용하여 앱을 개선합니다.
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| 자리 표시자 | 값 |
 |-------------|-------|
 | **{APP_ID}** | 게시된 LUIS 앱의 애플리케이션 ID입니다. |
 | **{SLOT_NAME}** | 게시된 LUIS 앱의 환경입니다. 다음 값 중 하나를 사용합니다.<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| 자리 표시자 | 값 |
 |-------------|-------|
 | **{APP_ID}** | 학습 된 LUIS 앱의 응용 프로그램 ID입니다. |
 | **{APP_VERSION}** | 학습 된 LUIS 앱의 응용 프로그램 버전입니다. |
@@ -196,9 +196,9 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters) 을 참조 하세요.
+[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
 
-`docker run` 명령의 [예](luis-container-configuration.md#example-docker-run-commands) 를 사용할 수 있습니다.
+`docker run`명령의 [예](luis-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -252,12 +252,12 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 
 쿼리 매개 변수는 쿼리 응답에 반환되는 방법 및 내용을 구성합니다.
 
-|쿼리 매개 변수|Type|용도|
+|쿼리 매개 변수|유형|용도|
 |--|--|--|
 |`query`|문자열|사용자의 발화입니다.|
-|`verbose`|부울|예측 된 모델에 대 한 모든 메타 데이터를 반환할지 여부를 나타내는 부울 값입니다. 기본값은 false입니다.|
-|`log`|부울|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 false입니다.|
-|`show-all-intents`|부울|모든 의도를 반환할지 아니면 상위 점수 매기기 의도만 반환할지를 나타내는 부울 값입니다. 기본값은 false입니다.|
+|`verbose`|boolean|예측 된 모델에 대 한 모든 메타 데이터를 반환할지 여부를 나타내는 부울 값입니다. 기본값은 false입니다.|
+|`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 false입니다.|
+|`show-all-intents`|boolean|모든 의도를 반환할지 아니면 상위 점수 매기기 의도만 반환할지를 나타내는 부울 값입니다. 기본값은 false입니다.|
 
 # <a name="v2-prediction-endpointtabv2"></a>[V2 예측 엔드포인트](#tab/v2)
 
@@ -268,13 +268,13 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 
 쿼리 매개 변수는 쿼리 응답에 반환되는 방법 및 내용을 구성합니다.
 
-|쿼리 매개 변수|Type|용도|
+|쿼리 매개 변수|유형|용도|
 |--|--|--|
 |`q`|문자열|사용자의 발화입니다.|
 |`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
-|`verbose`|부울|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
-|`staging`|부울|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
-|`log`|부울|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 True입니다.|
+|`verbose`|boolean|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
+|`staging`|boolean|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
+|`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 true입니다.|
 
 ***
 

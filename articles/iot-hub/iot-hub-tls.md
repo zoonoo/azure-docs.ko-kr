@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rezas
 ms.custom: Azure IoT Hub TLS
-ms.openlocfilehash: 62fdfc4277b44a502206eb37466e6409521186a5
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: eb6b04a476ac6100962e1103af37d75b719dd546
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75839531"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921257"
 ---
 # <a name="tls-support-in-iot-hub"></a>IoT Hub의 TLS 지원
 
@@ -77,6 +77,19 @@ TLS 1.2만 허용 하도록 구성 된 IoT Hub는 다음과 같은 권장 암호
 * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+
+
+### <a name="use-tls-12-in-your-iot-hub-sdks"></a>IoT Hub Sdk에서 TLS 1.2 사용
+
+IoT Hub 클라이언트 Sdk에서 TLS 1.2 및 허용 되는 암호화를 구성 하려면 아래 링크를 사용 하세요.
+
+| 언어 | TLS 1.2 지원 됨 | 설명서 |
+|----------|-------------------|---------------|
+| C        | 예               | [링크](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | 예               | [링크](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | 예               | [링크](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | 예               | [링크](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJs   | 예               | [링크](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ### <a name="use-tls-12-in-your-iot-edge-setup"></a>IoT Edge 설정에서 TLS 1.2 사용

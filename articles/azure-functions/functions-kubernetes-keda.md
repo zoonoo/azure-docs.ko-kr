@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: ab851f3156f09a808833c0b31f8c5ce2b7dd5138
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9978bd567b1b07e8dd0e22e1f02834626281a5dd
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230496"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920672"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>KEDA를 사용 하 여 Kubernetes에서 Azure Functions
 
@@ -94,7 +94,7 @@ KEDA는 다음 Azure Function 트리거를 지원 합니다.
 HTTP 트리거를 노출 하는 Azure Functions를 사용할 수 있지만 KEDA는 직접 관리 하지 않습니다.  Azure Functions Core Tools은 HTTP 끝점을 0에서 1로 확장할 수 있도록 하는 관련 프로젝트인 오시리스를 설치 합니다.  1에서 *n* 으로의 크기 조정은 기존 Kubernetes 크기 조정 정책에 의존 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 * [사용자 지정 이미지를 사용 하 여 함수 만들기](functions-create-function-linux-custom-image.md)
 * [Azure Functions를 로컬에서 코딩 및 테스트](functions-develop-local.md)

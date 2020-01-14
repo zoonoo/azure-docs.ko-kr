@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전 개요
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. 버전 간 차이점과 적합한 버전을 선택하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 1172f1cba3dfc10fe08863626db0aa8e7a4bf173
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 88c151149d1d960746ff449819d31e8b32d98120
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769118"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921864"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -70,7 +70,7 @@ Azure Functions 1.x 실험적 언어는 새 모델을 사용할 수 없으므로
 
 * App Service 계획의 함수에 대한 기본 시간 제한은 30분으로 변경되었습니다. host.json에서 [functionTimeout](functions-host-json.md#functiontimeout) 설정을 사용하여 수동으로 제한 시간을 다시 무제한으로 변경할 수 있습니다.
 
-* HTTP 동시성 제한은 기본값으로 인스턴스당 동시 요청 수 100개를 갖는 사용 계획 함수에 대해 기본적으로 구현됩니다. 이 설정은 host.json 파일의 [`maxConcurrentRequests`](functions-host-json.md#http) 설정에서 변경할 수 있습니다.
+* HTTP concurrency 제한는 기본적으로 소비 계획 함수에 대해 구현 되며 인스턴스당 기본값 100을 사용 합니다. 이 설정은 host.json 파일의 [`maxConcurrentRequests`](functions-host-json.md#http) 설정에서 변경할 수 있습니다.
 
 * [.Net Core 제한 사항](https://github.com/Azure/azure-functions-host/issues/3414)때문에 스크립트 ( F# . .fsx) 함수에 대 한 지원이 제거 되었습니다. 컴파일된 F# 함수(.fs)는 계속 지원됩니다.
 

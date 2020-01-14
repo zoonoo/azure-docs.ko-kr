@@ -10,12 +10,12 @@ ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c501dda60b65f78bb82649bed6bca4b031ad8a6b
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 39568d65978592b360512db2e556cfa6b59760b6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913161"
+ms.locfileid: "75921215"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대해 고객이 관리 하는 키를 지 원하는 계정 만들기
 
@@ -75,7 +75,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 저장소 계정을 만들 때 큐 및 테이블에 대 한 계정 암호화 키를 사용 하도록 새 저장소 계정을 구성 해야 합니다. 계정이 생성 된 후에는 암호화 키의 범위를 변경할 수 없습니다.
 
-저장소 계정은 범용 v2 형식 이어야 하며 LRS (로컬 중복 저장소)에 대해 구성 되어야 합니다. 저장소 계정을 만들고 Azure CLI 또는 Azure Resource Manager 템플릿을 사용 하 여 계정 암호화 키를 사용 하도록 구성할 수 있습니다.
+저장소 계정은 범용 v2 유형 이어야 합니다. 저장소 계정을 만들고 Azure CLI 또는 Azure Resource Manager 템플릿을 사용 하 여 계정 암호화 키를 사용 하도록 구성할 수 있습니다.
 
 > [!NOTE]
 > 저장소 계정을 만들 때 계정 암호화 키를 사용 하 여 데이터를 암호화 하도록 큐 및 테이블 저장소만 선택적으로 구성할 수 있습니다. Blob storage 및 Azure Files 항상 계정 암호화 키를 사용 하 여 데이터를 암호화 합니다.

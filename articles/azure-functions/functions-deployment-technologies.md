@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 0eeb9c0c938793bb13218c5407f2a3fa117880e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c946667befdf34a2ae6769b2c1bb43871111c24
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227003"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921032"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -33,7 +33,7 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 | Zip 배포 |✔|✔|✔|✔|✔|✔|
 | Docker 컨테이너 | | | | |✔|✔|
 | 웹 배포 |✔|✔|✔| | | |
-| 소스 제어 |✔|✔|✔| |✔|✔|
+| 원본 제어 |✔|✔|✔| |✔|✔|
 | 로컬 Git<sup>1</sup> |✔|✔|✔| |✔|✔|
 | 클라우드 동기화<sup>1</sup> |✔|✔|✔| |✔|✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
@@ -78,7 +78,7 @@ Linux에서 원격 빌드를 사용 하도록 설정 하려면 다음 [응용 �
 
 앱이 Linux에서 원격으로 빌드되면 [배포 패키지에서 실행](run-functions-from-deployment-package.md)됩니다. 
 
-##### <a name="consumption-plan"></a>소비 계획
+##### <a name="consumption-plan"></a>사용량 과금 플랜
 
 소비 계획에서 실행 되는 Linux 함수 앱은 배포 옵션을 제한 하는 SCM/Kudu 사이트를 포함 하지 않습니다. 그러나 소비 계획에서 실행 되는 Linux의 함수 앱은 원격 빌드를 지원 합니다.
 
@@ -133,7 +133,7 @@ Azure의 Windows에서 실행 되는 함수 앱을 포함 하 여 패키지를 �
 
 >__사용 시기:__ 웹 배포 지원 되며 문제가 없지만 기본 메커니즘은 [패키지에서 실행이 활성화 된 zip 배포](#zip-deploy)입니다. 자세히 알아보려면 [Visual Studio 개발 가이드](functions-develop-vs.md#publish-to-azure)를 참조 하세요.
 
-### <a name="source-control"></a>소스 제어
+### <a name="source-control"></a>원본 제어
 
 소스 제어를 사용 하 여 함수 앱을 Git 리포지토리에 연결 합니다. 해당 리포지토리의 코드 업데이트가 배포를 트리거합니다. 자세한 내용은 [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments)를 참조 하세요.
 

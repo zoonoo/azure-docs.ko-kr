@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280850"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890279"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  더 많은 발화를 제공하지 않고도 패턴을 통해 의도의 정확도를 더 높일 수 있습니다. 
@@ -73,7 +73,7 @@ ms.locfileid: "74280850"
 패턴에 대해 자세히 알아보세요.
 
 * [패턴을 추가 하는 방법](luis-how-to-model-intent-pattern.md)
-* [패턴을 추가 하는 방법. 모든 엔터티](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [패턴을 추가 하는 방법. 모든 엔터티](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [패턴 구문](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]

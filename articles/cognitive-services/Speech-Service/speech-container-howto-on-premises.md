@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: b7f8b98e8241b4502c86cce8c893beb315767d55
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7874a6b274939c233dd1c4e6d146df2a9a409e65
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816501"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833999"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Kubernetes 및 투구와 함께 Speech service 컨테이너 사용
 
 음성 컨테이너 온-프레미스를 관리 하는 한 가지 옵션은 Kubernetes 및 투구를 사용 하는 것입니다. Kubernetes 및 투구를 사용 하 여 음성 텍스트 및 텍스트 음성 변환 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다. 마지막으로 배포 된 서비스와 다양 한 구성 옵션을 테스트 하는 방법을 살펴보겠습니다. Kubernetes 오케스트레이션을 사용 하지 않고 Docker 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 [Speech service 컨테이너 설치 및 실행](speech-container-howto.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 온-프레미스에서 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소가 필요 합니다.
 
@@ -48,20 +48,20 @@ ms.locfileid: "74816501"
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Kubernetes 클러스터를 사용 하 여 Docker 자격 증명 공유
 
-Kubernetes 클러스터가 `mcr.microsoft.com` 컨테이너 레지스트리에서 구성 된 이미지를 `docker pull` 수 있도록 하려면 docker 자격 증명을 클러스터로 전송 해야 합니다. 컨테이너 레지스트리 액세스 전제 조건에서 제공 된 자격 증명에 따라 *docker 레지스트리 암호* 를 만들려면 아래 [`kubectl create`][kubectl-create] 명령을 실행 합니다.
+Kubernetes 클러스터가 `containerpreview.azurecr.io` 컨테이너 레지스트리에서 구성 된 이미지를 `docker pull` 수 있도록 하려면 docker 자격 증명을 클러스터로 전송 해야 합니다. 컨테이너 레지스트리 액세스 전제 조건에서 제공 된 자격 증명에 따라 *docker 레지스트리 암호* 를 만들려면 아래 [`kubectl create`][kubectl-create] 명령을 실행 합니다.
 
 원하는 명령줄 인터페이스에서 다음 명령을 실행 합니다. `<username>`, `<password>`및 `<email-address>`를 컨테이너 레지스트리 자격 증명으로 바꾸어야 합니다.
 
 ```console
 kubectl create secret docker-registry mcr \
-    --docker-server=mcr.microsoft.com \
+    --docker-server=containerpreview.azurecr.io \
     --docker-username=<username> \
     --docker-password=<password> \
     --docker-email=<email-address>
 ```
 
 > [!NOTE]
-> `mcr.microsoft.com` container registry에 이미 액세스할 수 있는 경우 대신 일반 플래그를 사용 하 여 Kubernetes 암호를 만들 수 있습니다. Docker 구성 JSON에 대해 실행 되는 다음 명령을 고려 합니다.
+> `containerpreview.azurecr.io` container registry에 이미 액세스할 수 있는 경우 대신 일반 플래그를 사용 하 여 Kubernetes 암호를 만들 수 있습니다. Docker 구성 JSON에 대해 실행 되는 다음 명령을 고려 합니다.
 > ```console
 >  kubectl create secret generic mcr \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
@@ -106,8 +106,8 @@ speechToText:
   numberOfConcurrentRequest: 3
   optimizeForAudioFile: true
   image:
-    registry: mcr.microsoft.com
-    repository: azure-cognitive-services/speech-to-text
+    registry: containerpreview.azurecr.io
+    repository: microsoft/cognitive-services-speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -122,8 +122,8 @@ textToSpeech:
   numberOfConcurrentRequest: 3
   optimizeForTurboMode: true
   image:
-    registry: mcr.microsoft.com
-    repository: azure-cognitive-services/text-to-speech
+    registry: containerpreview.azurecr.io
+    repository: microsoft/cognitive-services-text-to-speech
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -138,21 +138,20 @@ textToSpeech:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 패키지 (투구 차트)
 
-*투구 차트* 에는 `mcr.microsoft.com` 컨테이너 레지스트리에서 끌어올 docker 이미지의 구성이 포함 되어 있습니다.
+*투구 차트* 에는 `containerpreview.azurecr.io` 컨테이너 레지스트리에서 끌어올 docker 이미지의 구성이 포함 되어 있습니다.
 
 > [투구 차트][helm-charts] 는 관련 된 Kubernetes 리소스 집합을 설명 하는 파일의 컬렉션입니다. 단일 차트는 memcached pod 또는 HTTP 서버, 데이터베이스, 캐시 등의 전체 웹 앱 스택과 같이 복잡 한 항목을 배포 하는 데 사용할 수 있습니다.
 
-제공 된 *투구 차트* 는 음성 서비스의 docker 이미지를 텍스트 음성 변환 및 `mcr.microsoft.com` 컨테이너 레지스트리의 음성-텍스트 서비스로 끌어옵니다.
+제공 된 *투구 차트* 는 음성 서비스의 docker 이미지를 텍스트 음성 변환 및 `containerpreview.azurecr.io` 컨테이너 레지스트리의 음성-텍스트 서비스로 끌어옵니다.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Kubernetes 클러스터에 투구 차트 설치
 
 *투구 차트* 를 설치 하려면 `<config-values.yaml>`를 적절 한 경로 및 파일 이름 인수로 바꿔 [`helm install`][helm-install-cmd] 명령을 실행 해야 합니다. 아래에서 참조 하는 `microsoft/cognitive-services-speech-onpremise` 투구 차트는 [Microsoft 투구 허브][ms-helm-hub-speech-chart]에서 사용할 수 있습니다.
 
 ```console
-helm install microsoft/cognitive-services-speech-onpremise \
+helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
     --version 0.1.1 \
-    --values <config-values.yaml> \
-    --name onprem-speech
+    --values <config-values.yaml> 
 ```
 
 성공적인 설치 실행에서 볼 수 있는 출력의 예는 다음과 같습니다.

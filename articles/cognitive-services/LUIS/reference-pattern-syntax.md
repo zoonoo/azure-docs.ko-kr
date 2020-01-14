@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974345"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890273"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
 
@@ -28,17 +28,17 @@ ms.locfileid: "74974345"
 
 패턴 구문에서는 다음 구문을 지원 합니다.
 
-|함수|구문|중첩 수준|예제|
+|함수|구문|중첩 수준|예|
 |--|--|--|--|
 |엔터티| {}-중괄호|2|{Entity-name} 형식은 어디에 있나요?|
 |선택 사항|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
 |그룹화|()-괄호|2|is (a \| b)|
-|or| \|-세로 막대 (파이프)<br><br>한 그룹의 세로 막대 (또는)에는 2 제한이 있습니다. |-|형식 ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})|
+|또는| \|-세로 막대 (파이프)<br><br>한 그룹의 세로 막대 (또는)에는 2 제한이 있습니다. |-|형식 ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})|
 |utterance의 시작 및/또는 끝|^-캐럿|-|^ utterance 시작<br>utterance가 완료 되었습니다.<br>^ ' number} 엔터티 ^의 전체 utterance의 엄격한 리터럴 일치 항목 ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>패턴의 중첩 구문
 
-대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form`. 이 예에서는 다음 길이 발언을 허용 합니다.
+대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form` 이 예에서는 다음 길이 발언을 허용 합니다.
 
 |중첩 된 선택적 utterance 예제|설명|
 |--|--|
@@ -46,32 +46,32 @@ ms.locfileid: "74974345"
 |새 양식|패턴의 외부 선택적 단어 및 선택적 단어가 아닌 단어를 찾습니다.|
 |새 양식|필수 단어만 찾습니다.|
 
-괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
+괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
 
 Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 위치인 경우 엔터티 2는 목록 엔터티 (RedWest-C)에서 알려진 빌딩 이름이 고, 다음 길이 발언는이 패턴에 매핑됩니다.
 
 |Nested grouping utterance 예제|설명|
 |--|--|
 |RedWest-C|외부 그룹화 엔터티와 일치|
-|시애틀|내부 그룹화 엔터티 중 하 나와 일치|
+|Seattle|내부 그룹화 엔터티 중 하 나와 일치|
 |Cairo|내부 그룹화 엔터티 중 하 나와 일치|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>선택적인 구문을 사용 하 여 그룹에 대 한 중첩 제한
 
 **선택적** 구문의 **그룹화** 조합에는 중첩 수준 3 개로 제한 됩니다.
 
-|허용됨|예제|
+|허용됨|예|
 |--|--|
-|yes|([(test1 &#x7c; test2)] &#x7c; test3)|
+|예|([(test1 &#x7c; test2)] &#x7c; test3)|
 |아닙니다.|([([test1] &#x7c; test2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>또는 구문을 사용 하 여 그룹에 대 한 중첩 제한
 
 **Or** of 구문을 사용한 **grouping** 의 조합에는 세로 막대 2 개로 제한 됩니다.
 
-|허용됨|예제|
+|허용됨|예|
 |--|--|
-|yes|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
+|예|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
 |아닙니다.|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>패턴 템플릿에 엔터티를 추가하는 구문
@@ -142,7 +142,7 @@ LUIS는 패턴에 따라 책 제목이 끝나는 위치를 알 수 있기 때문
 패턴에 대해 자세히 알아보세요.
 
 * [패턴을 추가 하는 방법](luis-how-to-model-intent-pattern.md)
-* [패턴을 추가 하는 방법. 모든 엔터티](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [패턴을 추가 하는 방법. 모든 엔터티](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [패턴 개념](luis-concept-patterns.md)
 
 [감정](luis-reference-prebuilt-sentiment.md) 가 json 응답에서 반환 되는 방식을 이해 합니다.

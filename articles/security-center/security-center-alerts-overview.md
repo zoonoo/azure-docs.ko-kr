@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3cd3cef4d70ea3f78d7e135ad01e0e00b38c60b9
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 6fc4b40e9b65f17b0af61b601826279e99410ed1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666281"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920751"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
 Azure Security Center에는 다양 한 리소스 유형에 대 한 다양 한 경고가 있습니다. Security Center는 Azure에 배포 된 리소스에 대 한 경고를 생성 하 고 온-프레미스 및 하이브리드 클라우드 환경에 배포 된 리소스에 대 한 경고를 생성 합니다.
 
-고급 검색은 Azure Security Center의 표준 계층에서 제공됩니다. 평가판을 사용할 수 있습니다. [보안 정책](security-center-pricing.md)의 가격 책정 계층 선택에서 업그레이드할 수 있습니다. 가격 책정에 대한 자세한 내용은 [보안 센터 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 방문하세요.
+보안 경고는 고급 검색에 의해 트리거되고 Azure Security Center 표준 계층 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. [보안 정책](security-center-pricing.md)의 가격 책정 계층 선택에서 업그레이드할 수 있습니다. 가격 책정에 대한 자세한 내용은 [보안 센터 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 방문하세요.
 
 ## 오늘날의 위협 <a name="respond-threats"></a> 에 대응
 

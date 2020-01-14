@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 374770c50300b9ca37253b3323a02c3371bfa521
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903227"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921791"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 

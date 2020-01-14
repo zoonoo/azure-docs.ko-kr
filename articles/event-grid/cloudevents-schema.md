@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 6a0e24ce7fa11c6373fbaada40cd9f1b1e7f55a2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 78498f06a1ec921813d886b426d62452f850f5e5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325481"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922738"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v 1.0 스키마 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "74325481"
 
 CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 일반적인 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. 이 스키마를 통해 균일한 도구, 이벤트를 라우팅 및 처리하는 표준 방법, 외부 이벤트 스키마를 역직렬화하는 유니버설 방법이 가능해집니다. 공통 스키마를 통해 여러 플랫폼에서 작업을 보다 쉽게 통합할 수 있습니다.
 
-CloudEvents는 [Cloud Native Computing Foundation](https://github.com/cloudevents/spec/blob/master/community/contributors.md)을 통해 Microsoft를 포함한 여러 [협력자](https://www.cncf.io/)가 작성하고 있습니다. 현재 버전 1.0로 사용할 수 있습니다.
+CloudEvents는 [Cloud Native Computing Foundation](https://www.cncf.io/)을 통해 Microsoft를 포함한 여러 [협력자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재 버전 1.0로 사용할 수 있습니다.
 
 이 문서에서는 Event Grid에서 CloudEvents 스키마를 사용하는 방법을 설명합니다.
 
@@ -60,7 +60,7 @@ CloudEvents 형식의 Azure Blob Storage 이벤트의 예는 다음과 같습니
 }
 ```
 
-사용 가능한 필드, 해당 형식 및 CloudEvents v 0.1의 정의에 대 한 자세한 설명은 [여기에서 사용할 수](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)있습니다.
+CloudEvents v 1.0의 사용 가능한 필드, 해당 형식 및 정의에 대 한 자세한 설명은 [여기에서 사용할 수](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)있습니다.
 
 `content-type`을 제외하고 CloudEvents 스키마 및 Event Grid 스키마에 배달된 이벤트에 대한 헤더 값은 동일합니다. CloudEvents 스키마의 경우 헤더 값은 `"content-type":"application/cloudevents+json; charset=utf-8"`입니다. Event Grid 스키마의 경우 헤더 값은 `"content-type":"application/json; charset=utf-8"`입니다.
 

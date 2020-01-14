@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: c4e3ce148b3cc2db9681bd9c7a7ba0e33335d2cc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a64f680adbfca08e334f51697a305c93a408e1e4
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925754"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922367"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -318,7 +318,7 @@ def main(msg: func.ServiceBusMessage):
 
 다음 표에서는 *function.json* 파일 및 `ServiceBusTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | n/a | "serviceBusTrigger"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | n/a | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
@@ -358,7 +358,7 @@ Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-pe
 
 Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 클래스의 속성은 다음과 같습니다.
 
-|자산|Type|설명|
+|속성|유형|Description|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|배달 수입니다.|
 |`DeadLetterSource`|`string`|배달 못한 편지 원본입니다.|
@@ -496,7 +496,7 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
 
 ### <a name="output---java-example"></a>출력 - Java 예제
 
-다음 예제에서는 HTTP 요청으로 트리거될 때 `myqueue` Service Bus 큐에 메시지를 보내는 Java 함수를 보여 줍니다.
+다음 예제에서는 HTTP 요청에 의해 트리거될 때 `myqueue` Service Bus 큐로 메시지를 보내는 Java 함수를 보여 줍니다.
 
 ```java
 @FunctionName("httpToServiceBusQueue")
@@ -665,7 +665,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 다음 표에서는 *function.json* 파일 및 `ServiceBus` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | n/a | "serviceBus"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | n/a | "out"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
@@ -732,7 +732,7 @@ JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 �
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
 |autoComplete|true|트리거에서 즉시 완료(자동 완성)로 표시해야 할지 처리가 완료될 때까지 기다려야 하는지 여부입니다.|
