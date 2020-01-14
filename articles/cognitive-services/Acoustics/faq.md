@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0484fc9fc2af5514ba0f5b61277146a51757057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fa4b6499260219b0eb8ea4df4b4ccfd5263b57bb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855040"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770206"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Project Acoustics 질문과 대답
 
@@ -28,7 +28,7 @@ ms.locfileid: "68855040"
 
 [Project Acoustics Unity 플러그 인](https://www.microsoft.com/download/details.aspx?id=57346) 또는 [Project Acoustics unreal plugin](https://www.microsoft.com/download/details.aspx?id=58090)을 다운로드할 수 있습니다.
 
-## <a name="does-project-acoustics-support-ltxgt-platform"></a>Project Acoustics에서 x &lt;&gt; 플랫폼을 지원 하나요?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Project Acoustics는 &lt;x&gt; 플랫폼을 지원 하나요?
 
 Project Acoustics platform 지원은 고객의 요구에 따라 진화 합니다. [Project Acoustics issue 포럼](https://github.com/microsoft/ProjectAcoustics/issues) 에서 microsoft에 문의 하 여 추가 플랫폼에 대 한 지원에 대해 문의 하세요.
 
@@ -46,7 +46,7 @@ Acoustics는 프레임별로 원본당 약 0.01%의 CPU를 사용합니다. RAM 
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>수평 기하 도형을 간소화해야 하나요? 삼각형 수를 제어해야 하나요? 물이 새지 않는 메시를 만들어야 하나요?
 
-아니요. 시스템이 자세한 수평 기하 도형을 직접 수집합니다. 내부 처리를 위해 입체 화상으로 만들어집니다.
+아닙니다. 시스템이 자세한 수평 기하 도형을 직접 수집합니다. 내부 처리를 위해 입체 화상으로 만들어집니다.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>런타임 조회 테이블에는 무엇이 있나요?
 
@@ -58,7 +58,7 @@ ACE 파일에는 다양 한 소스 및 수신기 위치 쌍 간의 어쿠스틱 
  
 ## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>프로젝트 Acoustics 동적 기 하 도형을 처리할 수 있나요? 닫히는 문을 처리할 수 있나요? 떨어져 나가는 벽을 처리할 수 있나요?
 
-아니요. 음향 매개 변수는 게임 수준의 정적 상태에 따라 미리 계산됩니다. 도어 기 하 도형을 acoustics에서 종료 한 다음, 설정 된 기술을 사용 하 여 소멸 가능한 및 이동 가능한 게임 개체의 상태에 따라 추가 폐색을 적용 하는 것이 좋습니다.
+아닙니다. 음향 매개 변수는 게임 수준의 정적 상태에 따라 미리 계산됩니다. 도어 기 하 도형을 acoustics에서 종료 한 다음, 설정 된 기술을 사용 하 여 소멸 가능한 및 이동 가능한 게임 개체의 상태에 따라 추가 폐색을 적용 하는 것이 좋습니다.
  
 ## <a name="does-project-acoustics-use-acoustic-materials"></a>프로젝트 Acoustics 음향 자료를 사용 하나요?
 
@@ -75,6 +75,10 @@ ACE 파일에는 다양 한 소스 및 수신기 위치 쌍 간의 어쿠스틱 
 ## <a name="what-exactly-happens-during-baking"></a>"준비" 중에 정확히 어떤 작업이 수행되나요?
 
 굽기는 각 수신기 프로브를 중심으로 하는 cuboid 시뮬레이션 지역의 음향 웨이브 시뮬레이션으로 구성 됩니다.
+
+## <a name="is-my-source-content-secure"></a>원본 콘텐츠가 안전 합니까?
+
+Project Acoustics는 원본 장면 기 하 도형을 클라우드에 업로드 하지 않습니다. 대신, 시뮬레이션은 검색 위치 데이터와 결합 되어 소유 형식으로 저장 되는 장면의 voxelization에서 작동 합니다.     
 
 ## <a name="next-steps"></a>다음 단계
 * [Project Acoustics Unity 샘플 콘텐츠](unity-quickstart.md) 또는 [unreal 샘플 콘텐츠](unreal-quickstart.md) 를 사용해 보세요.

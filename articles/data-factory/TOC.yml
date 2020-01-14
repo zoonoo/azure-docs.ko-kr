@@ -617,6 +617,8 @@
           href: solution-template-copy-new-files-lastmodifieddate.md
         - name: 데이터베이스에서 대량 복사
           href: solution-template-bulk-copy-with-control-table.md
+        - name: 파일에서 데이터베이스로 대량 복사
+          href: solution-template-bulk-copy-from-files-to-database.md
         - name: 데이터베이스에서 델타 복사
           href: solution-template-delta-copy-with-control-table.md
         - name: Amazon S3에서 Azure Storage로 데이터 마이그레이션

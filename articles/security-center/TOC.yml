@@ -63,7 +63,7 @@
           href: security-center-alerts-data-services.md
         - name: Azure 서비스 계층에 대한 위협 탐지
           href: security-center-alerts-service-layer.md
-        - name: Azure WAF 및 Azure DDoS Protection에 대한 위협 탐지
+        - name: Azure WAF 및 Azure DDoS Protection에서 위협 탐지 경고
           href: security-center-alerts-integration.md
         - name: 클라우드 스마트 경고 상관 관계(인시던트)
           href: security-center-alerts-cloud-smart.md

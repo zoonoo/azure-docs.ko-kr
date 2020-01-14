@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: c65ed214747fd6a3729c2e9acff5489f5fa1b9d7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 51c60c8cd13c8ad7cef123f2001fcd0ec61f38ba
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323621"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770801"
 ---
 # <a name="install-and-run-read-containers-preview"></a>컨테이너 읽기 (미리 보기)를 설치 하 고 실행 합니다.
 
 컨테이너를 사용 하면 사용자 환경에서 Computer Vision Api를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 관리 요구 사항에 적합 합니다. 이 문서에서는 Computer Vision 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대해 알아봅니다.
 
-단일 Docker 컨테이너 *읽기*는 Computer Vision 사용할 수 있습니다. *읽기* 컨테이너를 사용 하면 다른 표면 및 배경 (예: 수신, 포스터 및 비즈니스 카드)을 사용 하 여 다양 한 개체의 이미지에서 *인쇄 된 텍스트* 를 검색 하 고 추출할 수 있습니다. 또한 *읽기* 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF, TIFF 및 다중 페이지 파일 지원을 제공 합니다. 자세한 내용은 [READ API](concept-recognizing-text.md#read-api) 설명서를 참조 하세요.
+단일 Docker 컨테이너 *읽기*는 Computer Vision 사용할 수 있습니다. *읽기* 컨테이너를 사용 하면 다른 표면 및 배경 (예: 수신, 포스터 및 비즈니스 카드)을 사용 하 여 다양 한 개체의 이미지에서 *인쇄 된 텍스트* 를 검색 하 고 추출할 수 있습니다. 또한 *읽기* 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF, TIFF 및 다중 페이지 파일 지원을 제공 합니다. 자세한 내용은 [Read](concept-recognizing-text.md#read-api) API 설명서를 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -77,9 +77,9 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters) 을 참조 하세요.
+[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
 
-`docker run` 명령의 [예](computer-vision-resource-container-config.md#example-docker-run-commands) 를 사용할 수 있습니다.
+`docker run`명령의 [예](computer-vision-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
