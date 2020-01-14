@@ -7,7 +7,17 @@
 - name: VM 확장 설명서
   href: ./extensions/overview.md
 - name: 워크로드
-  href: ./workloads/workloads.md
+  items:
+    - name: Red Hat
+      href: /redhat/redhat-overview.md
+    - name: 고성능 컴퓨팅
+      href: /hpc/overview.md
+    - name: SAP
+      href: /sap/get-started.md
+    - name: Oracle
+      href: /oracle/oracle-considerations.md
+    - name: 메인프레임 재호스팅
+      href: /mainframe-rehosting/overview.md
 - name: 클래식 배포
   items:
     - name: 클래식 배포를 사용하는 Linux VM

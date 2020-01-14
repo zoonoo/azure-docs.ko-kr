@@ -1,5 +1,5 @@
 - name: 개요
-  href: redhat-overview.md
+  href: overview.md
 - name: Red Hat Enterprise Linux 이미지
   items:
     - name: Red Hat Enterprise Linux 이미지 개요
@@ -9,4 +9,4 @@
 - name: Azure의 Red Hat 업데이트 인프라
   href: redhat-rhui.md
 - name: Red Hat Enterprise Linux BYOS 이미지 제품
-  href: redhat-byos.md
+  href: byos.md
