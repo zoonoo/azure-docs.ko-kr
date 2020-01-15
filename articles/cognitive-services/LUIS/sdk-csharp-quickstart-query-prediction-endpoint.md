@@ -1,187 +1,191 @@
 ---
 title: '빠른 시작: C# SDK 예측 엔드포인트 쿼리 - LUIS'
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 C# SDK를 사용하여 Azure Cognitive Services LUIS 애플리케이션으로 사용자 발화를 전송하고 예측을 수신하는 방법을 보여 줍니다.
+description: 이 빠른 시작에서는 C# SDK를 사용하여 Azure Cognitive Services LUIS 애플리케이션으로 사용자 발화를 전송하고 예측을 수신하는 방법을 보여 줍니다.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: f4612f7b3f76cbbfc0deac98668770f92ff054bc
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 37e7224776efa63b39a671a3b3a79ea6c204a9dc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953419"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611097"
 ---
-# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>빠른 시작: C# .NET SDK를 통해 V2 예측 엔드포인트 쿼리
+# <a name="quickstart-query-v3-prediction-endpoint-with-c-net-sdk"></a>빠른 시작: C# .NET SDK를 통해 V3 예측 엔드포인트 쿼리
 
-[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)에서 찾은 .NET SDK를 사용하여 LUIS(Language Understanding)에 사용자 발화를 보내고 사용자 의도의 예측을 수신합니다. 
+[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)에서 찾은 .NET SDK를 사용하여 LUIS(Language Understanding)에 사용자 발화를 보내고 사용자 의도의 예측을 수신합니다.
 
-이 빠른 시작에서는 `turn on the bedroom light`와 같은 사용자 발화를 공용 Language Understanding 애플리케이션에 보낸 다음, 예측을 수신하고 발화 내에서 찾은 상위 채점 의도 `HomeAutomation.TurnOn` 및 엔터티 `HomeAutomation.Room`을 표시합니다. 
+.NET용 LUIS(Language Understanding) 예측 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+* 슬롯별 예측 가져오기
 
-* [Visual Studio Community 2017 버전(Edition)](https://visualstudio.microsoft.com/vs/community/)
-* C# 프로그래밍 언어(VS Community 2017에 포함됨)
-* 공용 앱 ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+[참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | [예측 런타임 패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [C# 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
 
-> [!Note]
-> 전체 솔루션은 [cognitive-services-language-understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/sdk-quickstarts/c%23/UsePredictionRuntime) GitHub 리포지토리에서 사용할 수 있습니다.
+## <a name="prerequisites"></a>사전 요구 사항
+
+* LUIS(Language Understanding) 포털 계정- [체험 계정 만들기](https://www.luis.ai)
+* 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
 자세한 설명서를 찾으시나요?
 
  * [SDK 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
 
+## <a name="setting-up"></a>설치
 
-## <a name="get-cognitive-services-or-language-understanding-key"></a>Cognitive Services 또는 Language Understanding 키 가져오기
+### <a name="create-an-environment-variable"></a>환경 변수 만들기
 
-홈 자동화를 위한 공용 앱을 사용하려면 엔드포인트 예측에 유효한 키가 필요합니다. 많은 Cognitive Services에 유효한 Cognitive Services 키(Azure CLI를 사용하여 아래에 생성됨) 또는 `Language Understanding` 키를 사용할 수 있습니다. 
+키와 리소스 이름을 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
 
-다음 [Cognitive Service 키를 만들기 위한 Azure CLI 명령](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create)을 사용합니다.
+* `LUIS_PREDICTION_KEY` - 요청을 인증하기 위한 리소스 키입니다.
+* `LUIS_ENDPOINT_NAME` - 키와 연결된 리소스 이름입니다.
 
-```azurecli-interactive
-az cognitiveservices account create \
-    -n my-cog-serv-resource \
-    -g my-cog-serv-resource-group \
-    --kind CognitiveServices \
-    --sku S0 \
-    -l WestEurope \ 
-    --yes
-```
+운영 체제에 대한 지침을 사용합니다.
 
-## <a name="create-net-core-project"></a>.NET Core 프로젝트 만들기
-
-Visual Studio Community 2017에서 .NET Core 콘솔 프로젝트를 만듭니다.
-
-1. Visual Studio Community 2017을 엽니다.
-1. **Visual C#**  섹션에서 새 프로젝트를 만들고, **콘솔 앱(.NET Core)** 을 선택합니다.
-1. `QueryPrediction`이라는 프로젝트 이름을 입력하고 나머지 기본값은 그대로 둔 상태로 **확인**을 선택합니다.
-    그러면 **Program.cs**라는 기본 코드 파일이 포함된 간단한 프로젝트가 만들어집니다.
-
-## <a name="add-sdk-with-nuget"></a>NuGet으로 SDK 추가
-
-1. **솔루션 탐색기**에서 **QueryPrediction**이라는 트리 보기에서 프로젝트를 선택한 다음, 마우스 오른쪽 단추를 클릭합니다. 메뉴에서 **NuGet 패키지 관리...** 를 선택합니다.
-1. **찾아보기**를 선택한 다음, `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`을 입력합니다. 패키지 정보가 표시되면 **설치**를 선택하여 패키지를 프로젝트에 설치합니다. 
-1. **Program.cs** 위에 다음 _using_ 문을 추가합니다. `System`에 대한 기존의 _using_ 문은 제거하지 마십시오. 
-
-```csharp
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime;
-using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
-```
-
-## <a name="create-a-new-method-for-the-prediction"></a>예측에 대한 새 메서드 만들기
-
-예측 엔드포인트 쿼리에 쿼리를 보내는 새 메서드 `GetPrediction`을 만듭니다. 메서드는 필요한 모든 개체를 만들고 구성한 다음, [`LuisResult`](/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult) 예측 결과를 통해 `Task`를 반환합니다. 
-
-```csharp
-static async  Task<LuisResult> GetPrediction() {
-}
-```
-
-## <a name="create-credentials-object"></a>자격 증명 개체 만들기
-
-다음 코드를 `GetPrediction` 메서드에 추가하여 Cognitive Service 키로 클라이언트 자격 증명을 만듭니다.
-
-`<REPLACE-WITH-YOUR-KEY>`를 사용자의 Cognitive Service 키의 지역으로 바꿉니다. 키는 [Azure Portal](https://portal.azure.com)의 해당 리소스에 대한 키 페이지에 있습니다.
-
-```csharp
-// Use Language Understanding or Cognitive Services key
-// to create authentication credentials
-var endpointPredictionkey = "<REPLACE-WITH-YOUR-KEY>";
-var credentials = new ApiKeyServiceClientCredentials(endpointPredictionkey);
-```
-
-## <a name="create-language-understanding-client"></a>Language Understanding 클라이언트 만들기
-
-`GetPrediction` 메서드에서 위의 코드 뒤에 자격 증명을 사용하기 위한 다음 코드를 추가하여 [`LUISRuntimeClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) 클라이언트 개체를 만듭니다. 
-
-`<REPLACE-WITH-YOUR-KEY-REGION>`을 `westus`와 같이 사용자의 키 지역으로 바꿉니다. 키 지역은 [Azure Portal](https://portal.azure.com)의 해당 리소스에 대한 개요 페이지에 있습니다.
-
-```csharp
-// Create Luis client and set endpoint
-// region of endpoint must match key's region, for example `westus`
-var luisClient = new LUISRuntimeClient(credentials, new System.Net.Http.DelegatingHandler[] { });
-luisClient.Endpoint = "https://<REPLACE-WITH-YOUR-KEY-REGION>.api.cognitive.microsoft.com";
-```
-
-## <a name="set-query-parameters"></a>쿼리 매개 변수 설정
-
-`GetPrediction` 메서드에서 위의 코드 뒤에 쿼리 매개 변수를 설정하기 위한 다음 코드를 추가합니다.
-
-```csharp
-// public Language Understanding Home Automation app
-var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
-
-// query specific to home automation app
-var query = "turn on the bedroom light";
-
-// common settings for remaining parameters
-Double? timezoneOffset = null;
-var verbose = true;
-var staging = false;
-var spellCheck = false;
-String bingSpellCheckKey = null;
-var log = false;
-```
-
-## <a name="query-prediction-endpoint"></a>예측 엔드포인트 쿼리
-
-`GetPrediction` 메서드에서 위의 코드 뒤에 쿼리 매개 변수를 설정하기 위한 다음 코드를 추가합니다.
-
-```csharp
-// Create prediction client
-var prediction = new Prediction(luisClient);
-
-// get prediction
-return await prediction.ResolveAsync(appId, query, timezoneOffset, verbose, staging, spellCheck, bingSpellCheckKey, log, CancellationToken.None);
-```
-
-## <a name="display-prediction-results"></a>예측 결과 표시
-
-**Main** 메서드를 변경하여 새 `GetPrediction` 메서드를 호출하고 예측 결과를 반환합니다.
-
-```csharp
-static void Main(string[] args)
-{
-
-    var luisResult = GetPrediction().Result;
-
-    // Display query
-    Console.WriteLine("Query:'{0}'", luisResult.Query);
-
-    // Display most common properties of query result
-    Console.WriteLine("Top intent is '{0}' with score {1}", luisResult.TopScoringIntent.Intent,luisResult.TopScoringIntent.Score);
-
-    // Display all entities detected in query utterance
-    foreach (var entity in luisResult.Entities)
-    {
-        Console.WriteLine("{0}:'{1}' begins at position {2} and ends at position {3}", entity.Type, entity.Entity, entity.StartIndex, entity.EndIndex);
-    }
-
-    Console.Write("done");
-
-}
-```
-
-## <a name="run-the-project"></a>프로젝트 실행
-
-Studio에서 프로젝트를 빌드하고 프로젝트를 실행하여 쿼리의 출력을 확인합니다.
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```console
-Query:'turn on the bedroom light'
-Top intent is 'HomeAutomation.TurnOn' with score 0.809439957
-HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
+setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
+setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
 ```
+
+환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
+export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
+```
+
+환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+`.bash_profile`을 편집하고, 환경 변수를 추가합니다.
+
+```bash
+export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
+export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
+```
+
+환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
+***
+
+### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
+
+선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다.
+
+1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 dotnet `new` 명령을 사용하여 `language-understanding-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 `Program.cs`라는 단일 소스 파일을 사용하여 간단한 "Hello World" C# 프로젝트를 만듭니다.
+
+    ```dotnetcli
+    dotnet new console -n language-understanding-quickstart
+    ```
+
+1. 새로 만든 앱 폴더로 디렉터리를 변경합니다.
+
+1. 다음을 통해 애플리케이션을 빌드할 수 있습니다.
+
+    ```dotnetcli
+    dotnet build
+    ```
+
+    빌드 출력에 경고나 오류가 포함되지 않아야 합니다.
+
+    ```console
+    ...
+    Build succeeded.
+     0 Warning(s)
+     0 Error(s)
+    ...
+    ```
+
+### <a name="install-the-sdk"></a>SDK 설치
+
+애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 LUIS(Language Understanding) 예측 런타임 클라이언트 라이브러리를 설치합니다.
+
+```dotnetcli
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime --version 3.0.0
+```
+
+Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다운로드 가능한 NuGet 패키지로 제공됩니다.
+
+## <a name="object-model"></a>개체 모델
+
+LUIS(Language Understanding) 예측 런타임 클라이언트는 Azure를 인증하는 [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) 개체이며, 리소스 키를 포함합니다.
+
+클라이언트가 만들어지면 이 클라이언트를 사용하여 다음과 같은 기능에 액세스합니다.
+
+* [스테이징 또는 제품 슬롯](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getslotpredictionasync?view=azure-dotnet)별 예측
+* [버전](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getversionpredictionasync?view=azure-dotnet)별 예측
+
+
+## <a name="code-examples"></a>코드 예제
+
+이러한 코드 조각은 .NET용 LUIS(Language Understanding) 예측 런타임 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
+
+* [슬롯별 예측](#get-prediction-from-runtime)
+
+## <a name="add-the-dependencies"></a>종속성 추가
+
+선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 *Program.cs* 파일을 엽니다. 기존 `using` 코드를 다음 `using` 지시문으로 바꿉니다.
+
+[!code-csharp[Using statements](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_using)]
+
+## <a name="authenticate-the-client"></a>클라이언트 인증
+
+1. 키, 이름 및 앱 ID에 대한 변수를 만듭니다.
+
+    `LUIS_PREDICTION_KEY`라는 환경 변수에서 끌어온 예측 키를 관리하는 변수입니다. 애플리케이션이 시작된 후 환경 변수를 만들었다면 애플리케이션을 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 변수에 액세스할 수 있습니다. 메서드는 나중에 생성됩니다.
+
+    리소스 이름 `LUIS_ENDPOINT_NAME`을 보유할 변수를 만듭니다.
+
+    `LUIS_APP_ID`라는 환경 변수로 앱 ID에 대한 변수를 만듭니다. 환경 변수를 퍼블릭 IoT 앱으로 설정합니다.
+
+    **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
+
+    [!code-csharp[Create variables](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_variables)]
+
+1. 키를 사용하여 [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) 개체를 만들고, 엔드포인트에서 이를 사용하여 [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) 개체를 만듭니다.
+
+    [!code-csharp[Create LUIS client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_create_client)]
+
+## <a name="get-prediction-from-runtime"></a>런타임에서 예측 가져하기
+
+다음 메서드를 추가하여 예측 런타임에 대한 요청을 만듭니다.
+
+사용자 발화는 [PredictionRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.predictionrequest?view=azure-dotnet) 개체의 일부입니다.
+
+**GetSlotPredictionAsync** 메서드는 요청을 처리할 여러 매개 변수(예: app ID, slot name, prediction request 개체)가 필요합니다. verbose, show all intents, log와 같은 다른 옵션은 선택 사항입니다.
+
+[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_maintask)]
+
+## <a name="main-code-for-the-prediction"></a>예측의 Main 코드
+
+다음과 같은 Main 메서드를 사용하여 변수와 메서드를 연결하여 예측을 얻습니다.
+
+[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_main)]
+
+## <a name="run-the-application"></a>애플리케이션 실행
+
+애플리케이션 디렉터리에서 `dotnet run` 명령을 사용하여 애플리케이션을 실행합니다.
+
+```dotnetcli
+dotnet run
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+예측을 완료했으면, program.cs 파일과 해당 하위 디렉터리를 삭제하여 이 빠른 시작의 작업을 정리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) 및 [.NET 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)에 대해 자세히 알아봅니다. 
+[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) 및 [.NET 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)에 대해 자세히 알아봅니다.
 
-> [!div class="nextstepaction"] 
-> [자습서: 사용자 의도를 확인하는 LUIS 앱 빌드](luis-quickstart-intents-only.md) 
+> [!div class="nextstepaction"]
+> [자습서: 사용자 의도를 확인하는 LUIS 앱 빌드](luis-quickstart-intents-only.md)

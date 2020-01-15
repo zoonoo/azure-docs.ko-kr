@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: a7511b8026cb3f53a23eed0f0c057632314320c4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466657"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459515"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>자습서: Windows Virtual Desktop에서 테넌트 만들기
 
@@ -25,14 +25,18 @@ Windows Virtual Desktop에서 테넌트를 만드는 것은 데스크톱 가상�
 > * Azure Active Directory 테넌트의 사용자에게 TenantCreator 애플리케이션 역할 할당
 > * Windows Virtual Desktop 테넌트 만들기
 
-Windows Virtual Desktop 테넌트를 설정하는 데 필요한 것은 다음과 같습니다.
+## <a name="what-you-need-to-set-up-a-tenant"></a>테넌트를 설정하는 데 필요한 사항
+
+Windows Virtual Desktop 테넌트 설정을 시작하기 전에 다음 사항을 확인해야 합니다.
 
 * Windows Virtual Desktop 사용자의 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 테넌트 ID
 * Azure Active Directory 테넌트 내 글로벌 관리자 계정
    * 이는 또한 고객의 Windows Virtual Desktop 테넌트를 만드는 CSP(클라우드 솔루션 공급자) 조직에도 적용됩니다. CSP 조직에 속한 경우 고객 Azure Active Directory 인스턴스의 글로벌 관리자로 로그인할 수 있어야 합니다.
    * Windows Virtual Desktop 테넌트를 만들려는 경우 Azure Active Directory 테넌트에서 관리자 계정을 가져와야 합니다. 이 프로세스는 Azure Active Directory B2B(게스트) 계정을 지원하지 않습니다.
    * 관리자 계정은 회사 또는 학교 계정이어야 합니다.
-* Azure 구독.
+* Azure 구독
+
+이 자습서에서 설명하는 프로세스가 제대로 작동할 수 있도록 테넌트 ID, 글로벌 관리자 계정 및 Azure 구독이 준비되어 있어야 합니다.
 
 ## <a name="grant-permissions-to-windows-virtual-desktop"></a>Windows Virtual Desktop에 사용 권한 부여
 
@@ -135,6 +139,12 @@ New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+사용자 계정이 사용자 계정에서 잠긴 경우 또는 사용자가 휴가를 가서 다른 사람이 사용자의 테넌트 관리자 역할을 수행해야 하는 경우 두 번째 사용자에게 관리 권한을 할당하는 것이 좋습니다. 두 번째 사용자에게 관리자 권한을 할당하려면 테넌트 이름과 두 번째 사용자의 UPN으로 대체된 `<TenantName>` 및 `<Upn>`을 사용하여 다음 cmdlet을 실행합니다.
+
+```powershell
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>다음 단계

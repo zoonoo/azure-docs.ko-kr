@@ -1,6 +1,7 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 하이브리드 모드 인스턴스 만들기 | Microsoft Docs'
-description: Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스 만들기
+title: '빠른 시작: Azure Portal을 사용하여 하이브리드 모드 인스턴스 만들기'
+titleSuffix: Azure Database Migration Service
+description: Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스를 만들 수 있습니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,32 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/06/2019
-ms.openlocfilehash: a124c33f15318f1b9b22a750a1de15601823afa3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/17/2019
+ms.openlocfilehash: c93ff5d97826ee618716cc15361a439a5429d696
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437747"
 ---
-# <a name="quickstart-create-an-instance-of-azure-database-migration-service-in-hybrid-mode-using-the-azure-portal-preview"></a>빠른 시작: Azure Portal(미리 보기)을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스 만들기
+# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>빠른 시작: Azure Portal 및 Azure Database Migration Service를 사용하여 하이브리드 모드 인스턴스 만들기
 
 Azure Database Migration Service 하이브리드 모드는 클라우드에서 실행 중인 Azure Database Migration Service 인스턴스와 온-프레미스에서 호스트되는 마이그레이션 작업자를 함께 사용하여 데이터베이스 마이그레이션을 관리합니다. 하이브리드 모드는 온-프레미스 네트워크와 Azure 간에 사이트 간 연결이 부족하거나 사이트 간 연결 대역폭이 제한된 경우에 특히 유용합니다.
 
+>[!NOTE]
+>현재 하이브리드 모드에서 실행되는 Azure Database Migration Service는 다음과 같은 항목으로 SQL Server 마이그레이션을 지원합니다.
+>
+>- 가동 중지 시간이 거의 없는(온라인) Azure SQL Database Managed Instance
+>- 어느 정도의 가동 중지 시간(오프라인)이 있는 Azure SQL Database 단일 데이터베이스
+>- MongoDb에서 가동 중지 시간이 거의 없는(온라인) Azure CosmosDB로
+>- MongoDb에서 어느 정도의 가동 중지 시간(오프라인)이 있는 Azure CosmosDB로
+
 이 빠른 시작에서는 Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service의 인스턴스를 만듭니다. 그런 다음, 온-프레미스 네트워크에서 Hybrid Worker를 다운로드, 설치 및 설정합니다. 미리 보기 중에 Azure Database Migration Service 하이브리드 모드를 사용하여 SQL Server 온-프레미스 인스턴스에서 Azure SQL Database으로 데이터를 마이그레이션할 수 있습니다.
+
+> [!NOTE]
+> Azure Database Migration Service 하이브리드 설치 관리자는 Microsoft Windows Server 2012 R2, Window Server 2016, Windows Server 2019 및 Windows 10에서 실행됩니다.
 
 > [!IMPORTANT]
 > Azure Database Migration Service 하이브리드 설치 관리자에는 .NET 4.7.2 이상이 필요합니다. 최신 버전의 .NET을 찾으려면 [.NET Framework 다운로드](https://dotnet.microsoft.com/download/dotnet-framework) 페이지를 참조하세요.
@@ -59,13 +71,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     - 인스턴스를 만들려는 Azure **구독**을 선택합니다.
     - 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹을 만듭니다.
     - 원본 또는 대상 서버에 가장 가까운 **위치**를 선택합니다.
-
-    > [!IMPORTANT]
-    > 미리 보기 중에는 하이브리드 모드가 미국 동부 지역에서만 지원됩니다. Hybrid Worker가 온-프레미스 네트워크에 설치되어 있으므로 다른 지역의 대상으로 마이그레이션하는 경우에도 성능에 거의 영향을 주지 않습니다.
-
     - **서비스 모드**에서 **하이브리드(미리 보기)** 를 선택합니다.
 
-      ![마이그레이션 서비스 만들기 - 기본 사항](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. **검토 + 만들기**를 선택합니다.
 
@@ -120,7 +128,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 4. 설치 폴더에서 **dmsSettings.json** 파일을 찾아 열고, **ApplicationId** 및 **resourceId**를 지정한 다음, 파일을 저장합니다.
 
     ![Azure Database Migration Service Hybrid Worker 설정](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
- 
+
 5. 다음 명령을 사용하여 Azure Database Migration Service가 Hybrid Worker의 통신을 인증하는 데 사용할 수 있는 인증서를 생성합니다.
 
     ```
@@ -141,6 +149,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms
     ```
 
+    > [!NOTE]
+    > install 명령을 실행할 때 다음 매개 변수를 사용할 수도 있습니다.
+    >
+    > - **-TelemetryOptOut** - Worker가 원격 분석 데이터를 보내는 것을 중지하지만 로컬에서 최소한의 기록을 계속합니다.  설치 관리자는 원격 분석 데이터를 계속 보냅니다.
+    > - **-p {InstallLocation}** . 기본적으로 “C:\Program Files\DatabaseMigrationServiceHybrid”인 설치 경로를 변경할 수 있습니다.
+
 8. 오류가 발생하지 않고 설치 관리자가 실행되면 서비스는 Azure Database Migration Service에 온라인 상태를 표시하며, 이것은 데이터베이스를 마이그레이션할 준비가 되었음을 나타냅니다.
 
     ![Azure Database Migration Service 온라인](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode-online.png)
@@ -152,6 +166,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ```
 <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a uninstall
 ```
+
+> [!NOTE]
+> uninstall 명령을 실행할 때 “-ReuseCert” 매개 변수를 사용하여 generateCert 워크플로에서 생성된 AdApp 인증서를 유지할 수도 있습니다.  이렇게 하면 이전에 생성되고 업로드된 동일한 인증서를 사용할 수 있습니다.
+
+## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>PowerShell을 사용하여 Azure Database Migration Service Hybrid Worker 설정
+
+Azure Portal을 통해 Azure Database Migration Service Hybrid Worker를 설치하는 것 외에도, 하이브리드 모드에서 신규 Azure Database Migration Service 인스턴스를 만든 후 Worker 설치 단계를 자동화하는 데 사용할 수 있는 PowerShell 스크립트가 제공됩니다. 스크립트:
+
+1. 신규 AdApp을 만듭니다.
+2. 설치 관리자를 다운로드합니다.
+3. generateCert 워크플로를 실행합니다.
+4. 인증서를 업로드합니다.
+5. Azure Database Migration Service 인스턴스에 AdApp을 기여자로 추가합니다.
+6. 설치 워크플로를 실행합니다.
+
+이 스크립트는 환경에 필요한 모든 권한이 사용자에게 이미 있는 경우, 빠른 프로토타입 생성을 위해 사용할 수 있습니다. 프로덕션 환경에서는 AdApp과 Cert의 요구 사항이 서로 달라서 스크립트가 실패할 수 있습니다.
+
+> [!IMPORTANT]
+> 이 스크립트는 하이브리드 모드에 기존 Azure Database Migration Service 인스턴스가 있고, 사용된 Azure 계정에 테넌트에서 AdApp을 만들고 구독에서 RBAC를 수정할 수 있는 권한이 있다고 가정합니다.
+
+스크립트 맨 위에 매개 변수를 입력한 다음, 관리자 PowerShell 인스턴스에서 스크립트를 실행하기만 하면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

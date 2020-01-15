@@ -127,7 +127,7 @@ Windows Virtual Desktop은 다음 x64 운영 체제 이미지를 지원합니다
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop은 x86(32 비트), Windows 10 Enterprise N 또는 Windows 10 Enterprise KN 운영 체제 이미지를 지원하지 않습니다.
+Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows 10 Enterprise KN 운영 체제 이미지를 지원하지 않습니다.
 
 사용 가능한 자동화 및 배포 옵션은 다음 표에 나와 있는 것처럼 사용자가 선택한 OS 및 버전에 따라 달라집니다. 
 

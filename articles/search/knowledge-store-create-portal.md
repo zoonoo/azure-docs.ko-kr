@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: a8cc368b2949d9a65034ee4f989b8603dfa01027
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/30/2019
+ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533951"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563468"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 지식 저장소 만들기
 
@@ -22,9 +22,9 @@ ms.locfileid: "74533951"
 
 지식 저장소는 후속 분석 또는 다운스트림 처리를 위해 인지 기술 파이프라인의 출력을 유지하는 Azure Cognitive Search의 기능입니다. 
 
-파이프라인은 이미지와 비정형 텍스트를 원시 콘텐츠로 수락하고, Cognitive Services를 통해 AI를 적용하고(예: 이미지 및 자연어 처리), 출력으로 보강 콘텐츠(새 구조 및 정보)를 만듭니다. 파이프라인에서 만드는 실제 아티팩트 중 하나는 도구를 통해 액세스하여 콘텐츠를 분석하고 살펴볼 수 있는 [지식 저장소](knowledge-store-concept-intro.md)입니다.
+파이프라인은 비정형 텍스트 및 이미지를 원시 콘텐츠로 수락하고, Cognitive Services를 통해 AI를 적용하고(예: OCR, 이미지 분석 및 자연어 처리), 정보를 추출하고, 새 구조 및 정보를 출력합니다. 파이프라인에서 만드는 실제 아티팩트 중 하나는 도구를 통해 액세스하여 콘텐츠를 분석하고 살펴볼 수 있는 [지식 저장소](knowledge-store-concept-intro.md)입니다.
 
-이 빠른 시작에서는 Azure 클라우드에서 서비스와 데이터를 결합하여 지식 저장소를 만듭니다. 모든 것이 준비되면 포털에서 **데이터 가져오기** 마법사를 실행하여 모두 가져옵니다. 최종 결과는 원본 + AI에서 생성한 콘텐츠이며, 포털에서 볼 수 있습니다([스토리지 탐색기](knowledge-store-view-storage-explorer.md)).
+이 빠른 시작에서는 Azure 클라우드에서 서비스와 데이터를 결합하여 지식 저장소를 만듭니다. 모든 것이 준비되면 포털에서 **데이터 가져오기** 마법사를 실행하여 모두 가져옵니다. 최종 결과는 원본 텍스트 콘텐츠 + AI에서 생성한 콘텐츠이며, 포털에서 볼 수 있습니다([스토리지 탐색기](knowledge-store-view-storage-explorer.md)).
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -38,13 +38,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [Azure 스토리지 계정을 만들거나](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) 현재 구독에서 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 가져올 원시 콘텐츠와 최종 결과인 지식 저장소 둘 모두에 Azure 스토리지를 사용할 것입니다.
 
-   이 계정에는 다음과 같은 두 가지 요구 사항이 있습니다.
+   **StorageV2(범용 V2)** 계정 유형을 선택합니다.
 
-   + Azure Cognitive Search와 동일한 지역을 선택합니다. 
-   
-   + StorageV2(범용 V2) 계정 유형을 선택합니다. 
-
-1. Blob 서비스 페이지를 열고 컨테이너를 만듭니다.  
+1. Blob 서비스 페이지를 열고 *hotel-reviews*라는 컨테이너를 만듭니다.
 
 1. **업로드**를 클릭합니다.
 
@@ -54,9 +50,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![Azure Blob 컨테이너 만들기](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Azure Blob 컨테이너 만들기")
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+1. 이 리소스가 거의 완료되었지만, 이 페이지를 나가기 전에 왼쪽 탐색 창의 링크를 사용하여 **액세스 키** 페이지를 엽니다. Blob 스토리지에서 데이터를 검색할 연결 문자열을 가져옵니다. 연결 문자열은 `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` 예제와 비슷한 현식입니다.
 
-1. [Azure Cognitive Search 서비스를 만들](search-create-service-portal.md)거나 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
+1. 여전히 포털에서 Azure Cognitive Search로 전환합니다. [새 서비스를 만들](search-create-service-portal.md)거나 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
 이제 데이터 가져오기 마법사로 이동할 준비가 되었습니다.
 
@@ -71,17 +67,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **데이터에 연결**에서 **Azure Blob 스토리지**를 선택하고 만든 계정 및 컨테이너를 선택합니다. 
 1. **이름**에 대해 `hotel-reviews-ds`를 입력합니다.
 1. **구문 분석 모드**에 대해 **분리된 텍스트**를 선택한 다음, **첫 줄에 헤더 포함** 확인란을 선택합니다. **구분 기호 문자**가 쉼표(,)인지 확인합니다.
-1. 이전 단계에서 저장한 스토리지 서비스 **연결 문자열**을 입력합니다.
-1. **컨테이너 이름**에 대해 `hotel-reviews`를 입력합니다.
-1. **다음: AI 보강 추가(선택 사항)** 를 클릭합니다.
+1. **연결 문자열**에서 Azure Storage의 **액세스 키** 페이지에서 복사한 연결 문자열을 붙여 넣습니다.
+1. **컨테이너**에서 데이터를 보관하는 Blob 컨테이너의 이름을 입력합니다.
 
-      ![데이터 원본 개체 만들기](media/knowledge-store-create-portal/hotel-reviews-ds.png "데이터 원본 개체 만들기")
+    이 페이지는 다음 스크린샷과 비슷합니다.
+
+    ![데이터 원본 개체 만들기](media/knowledge-store-create-portal/hotel-reviews-ds.png "데이터 원본 개체 만들기")
 
 1. 다음 페이지를 계속합니다.
 
 ### <a name="step-2-add-cognitive-skills"></a>2단계: 인식 기술 추가
 
-이 마법사 단계에서는 인지 기술 보강을 사용하여 기술 세트를 만듭니다. 이 샘플에서 사용하는 기술은 핵심 구를 추출하고 언어와 감정을 감지합니다. 이후 단계에서 이러한 보강은 지식 저장소에 Azure 테이블로 "프로젝션"됩니다.
+이 마법사 단계에서는 인지 기술 보강을 사용하여 기술 세트를 만듭니다. 원본 데이터는 여러 언어로 된 고객 리뷰로 구성됩니다. 이 데이터 세트와 관련된 기술에는 핵심 구 추출, 감정 감지 및 텍스트 번역이 포함됩니다. 이후 단계에서 이러한 보강은 지식 저장소에 Azure 테이블로 "프로젝션"됩니다.
 
 1. **Cognitive Services 연결** 섹션을 펼칩니다. **무료(제한적 보강)** 가 기본적으로 선택되어 있습니다. HotelReviews-Free.csv의 레코드 수가 19개이고 이 무료 리소스에서 하루 최대 20개의 트랜잭션을 허용하므로 이 리소스를 사용할 수 있습니다.
 1. **인지 기술 추가**를 확장합니다.
@@ -90,7 +87,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **보강 세분성 수준**에 대해 **페이지(5,000자 청크)** 를 선택합니다.
 1. 다음 인지 기술을 선택합니다.
     + **핵심 구 추출**
-    + **언어 감지**
+    + **텍스트 번역**
     + **감정 감지**
 
       ![기술 세트 만들기](media/knowledge-store-create-portal/hotel-reviews-ss.png "기술 집합 만들기")
@@ -104,6 +101,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![지식 저장소 구성](media/knowledge-store-create-portal/hotel-reviews-ks.png "지식 저장소 구성")
 
+1. 필요에 따라 Power BI 템플릿을 다운로드합니다. 마법사에서 템플릿에 액세스하는 경우 사용자의 데이터 셰이프를 반영하도록 로컬 .pbit 파일이 조정됩니다.
+
 1. 다음 페이지를 계속합니다.
 
 ### <a name="step-3-configure-the-index"></a>3단계: 인덱스 구성
@@ -111,10 +110,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 마법사 단계에서는 선택적 전체 텍스트 검색 쿼리에 대한 인덱스를 구성합니다. 마법사는 데이터 원본을 샘플링하여 필드와 데이터 형식을 유추합니다. 원하는 동작의 특성만 선택하면 됩니다. 예를 들어 **조회 가능** 특성을 사용하면 검색 서비스에서 필드 값을 반환할 수 있지만, **검색 가능**을 사용하면 필드에서 전체 텍스트를 검색할 수 있습니다.
 
 1. **인덱스 이름**에 대해 `hotel-reviews-idx`를 입력합니다.
-1. 특성에 대해 다음과 같이 선택합니다.
-    + 모든 필드에 대해 **조회 가능**을 선택합니다.
-    + 다음 필드에 대해 **필터링 가능**, **패싯 가능**을 선택합니다. *Sentiment*, *Language*, *Keyphrases*
-    + *city*, *name*, *reviews_text*, *language*, *Keyphrases* 필드에 대해 **검색 가능**을 선택합니다.
+1. 특성의 경우 기본 선택 항목을 적용합니다. 파이프라인에서 만드는 새 필드에 대해 **조회 가능** 및 **검색 가능**입니다.
 
     인덱스는 다음 이미지와 비슷합니다. 긴 목록이므로 일부 필드가 이미지에 표시되지 않습니다.
 

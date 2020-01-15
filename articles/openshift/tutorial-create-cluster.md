@@ -8,16 +8,16 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b8ab4362945b84b4337859a1dad03906cc289c99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378248"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 만들기
 
-이 자습서는 시리즈의 1부입니다. Azure CLI를 사용하여 Microsoft Azure의 Red Hat OpenShift 클러스터를 만들고, 크기를 조정한 다음, 삭제하여 리소스를 정리하는 방법을 알아봅니다.
+이 자습서는 시리즈의 1부입니다. Azure CLI를 사용하여 Microsoft Azure Red Hat OpenShift 클러스터를 만들고, 크기를 조정한 다음, 삭제하여 리소스를 정리하는 방법을 알아봅니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "73582382"
 > * [Azure Red Hat OpenShift 클러스터 크기 조정](tutorial-scale-cluster.md)
 > * [Azure Red Hat OpenShift 클러스터 삭제](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!IMPORTANT]
 > 이 자습서에서는 Azure CLI 버전 2.0.65가 필요합니다.
@@ -71,7 +71,7 @@ CLUSTER_NAME=<cluster name in lowercase>
 LOCATION=<location>
 ```
 
-`APPID`를 [Azure AD 앱 등록 만들기](howto-aad-app-configuration.md#create-an-azure-ad-app-registration)의 5단계에서 저장한 값으로 설정합니다.  
+`APPID`를 [Azure AD 앱 등록 만들기](howto-aad-app-configuration.md#create-an-azure-ad-app-registration)의 5단계에서 저장한 값으로 설정합니다.
 
 ```bash
 APPID=<app ID value>
@@ -83,13 +83,13 @@ APPID=<app ID value>
 GROUPID=<group ID value>
 ```
 
-`SECRET`를 [클라이언트 비밀 만들기](howto-aad-app-configuration.md#create-a-client-secret)의 8단계에서 저장한 값으로 설정합니다.  
+`SECRET`를 [클라이언트 비밀 만들기](howto-aad-app-configuration.md#create-a-client-secret)의 8단계에서 저장한 값으로 설정합니다.
 
 ```bash
 SECRET=<secret value>
 ```
 
-`TENANT`를 [새 테넌트 만들기](howto-create-tenant.md#create-a-new-azure-ad-tenant)의 7단계에서 저장한 테넌트 ID 값으로 설정합니다.  
+`TENANT`를 [새 테넌트 만들기](howto-create-tenant.md#create-a-new-azure-ad-tenant)의 7단계에서 저장한 테넌트 ID 값으로 설정합니다.
 
 ```bash
 TENANT=<tenant ID>
@@ -105,7 +105,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 지금 만들고 있는 클러스터의 가상 네트워크(VNET)를 피어링을 통해 기존 VNET에 연결할 필요가 없으면 이 단계를 건너뜁니다.
 
-기본 구독 외부의 네트워크에 피어링한 경우 해당 구독에서 Microsoft.ContainerService 공급자도 등록해야 합니다. 이렇게 하려면 해당 구독에서 아래 명령을 실행합니다. 그렇지 않은 경우 피어링 중인 VNET가 동일한 구독에 있으면 등록 단계를 건너뛸 수 있습니다. 
+기본 구독 외부의 네트워크에 피어링한 경우 해당 구독에서 Microsoft.ContainerService 공급자도 등록해야 합니다. 이렇게 하려면 해당 구독에서 아래 명령을 실행합니다. 그렇지 않은 경우 피어링 중인 VNET가 동일한 구독에 있으면 등록 단계를 건너뛸 수 있습니다.
 
 `az provider register -n Microsoft.ContainerService --wait`
 
@@ -121,6 +121,22 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 
 예: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
 
+### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>선택 사항: 클러스터를 Azure 모니터링에 연결
+
+먼저, **기존** 로그 분석 작업 영역의 식별자를 가져옵니다. 식별자는 다음 형식입니다.
+
+`/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace-id}`입니다.
+
+로그 분석 작업 영역 이름 또는 기존 로그 분석 작업 영역이 속한 리소스 그룹을 모르는 경우 [Log-Analytics 작업 영역](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces)으로 이동하고 로그 분석 작업 영역을 클릭합니다. 로그 분석 작업 영역 페이지가 열리고 로그 분석 작업 영역이 속한 작업 영역의 이름 및 리소스 그룹이 나열됩니다.
+
+_로그 분석 작업 영역을 만들려면 [로그 분석 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace-cli.md)_ 를 참조하세요.
+
+BASH 셸에서 다음 CLI 명령을 사용하여 WORKSPACE_ID 변수를 정의합니다.
+
+```bash
+WORKSPACE_ID=$(az monitor log-analytics workspace show -g {RESOURCE_GROUP} -n {NAME} --query id -o tsv)
+```
+
 ### <a name="create-the-cluster"></a>클러스터 만들기
 
 이제 클러스터를 만들 준비가 되었습니다. 다음에서는 지정된 Azure AD 테넌트에서 클러스터를 만들고, 보안 주체로 사용할 Azure AD 앱 개체 및 비밀, 클러스터에 대해 관리자 권한이 있는 멤버를 포함하는 보안 그룹을 지정합니다.
@@ -128,20 +144,29 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 > [!IMPORTANT]
 > 클러스터를 만들기 전에 [여기에 설명된 대로](howto-aad-app-configuration.md#add-api-permissions) Azure AD 앱에 대한 적절한 사용 권한이 올바르게 추가되었는지 확인합니다.
 
-클러스터를 가상 네트워크에 연결하지 **않으려는 경우** 다음 명령을 사용합니다.
+클러스터를 가상 네트워크에 연결하지 **않으려는 경우** 또는 Azure 모니터링하지 **않으려는 경우** 다음 명령을 사용합니다.
 
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-클러스터를 가상 네트워크에 연결**하려는 경우** `--vnet-peer` 플래그를 추가하는 다음 명령을 사용합니다.
- 
+클러스터를 가상 네트워크에 연결**하려는 경우**`--vnet-peer` 플래그를 추가하는 다음 명령을 사용합니다.
+
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
 ```
 
+클러스터를 사용하여 Azure 모니터링을 **하려는 경우** `--workspace-id` 플래그를 추가하는 다음 명령을 사용합니다.
+
+```bash
+az openshift create --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
+```
+
 > [!NOTE]
 > 클러스터 이름이 고유하지 않으면 호스트 이름을 사용할 수 없다는 오류가 발생할 수 있습니다. 원래 앱 등록을 삭제하고 다른 클러스터 이름을 사용하여 [새 앱 등록 만들기](howto-aad-app-configuration.md#create-an-azure-ad-app-registration)의 단계를 다시 실행해보세요. 새 사용자 및 보안 그룹을 만드는 단계는 생략합니다.
+
+
+
 
 몇 분 후 `az openshift create`가 완료됩니다.
 

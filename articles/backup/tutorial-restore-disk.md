@@ -4,12 +4,12 @@ description: Backup 및 Recovery Services를 사용하여 Azure에서 디스크�
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 9b2048d8683ba2dde00a874445eb936cfb775cf1
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f0300930d4dbfb7745f0837eb5fa9605a2e766d7
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171752"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680576"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Azure에서 디스크 복원 및 복구된 VM 만들기
 
@@ -27,7 +27,7 @@ PowerShell을 사용하여 디스크를 복원하고 복구된 VM을 만드는 �
 
 CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.18 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 Azure Backup으로 보호된 Linux VM이 필요합니다. 실수로 인한 VM 삭제 및 복구 프로세스를 시뮬레이션하려면 복구 지점의 디스크에서 VM을 만듭니다. Azure Backup으로 보호된 Linux VM이 필요한 경우 [CLI를 사용하여 Azure에서 가상 머신 백업](quick-backup-vm-cli.md)을 참조하세요.
 
@@ -57,7 +57,43 @@ az backup recoverypoint list \
 
 ## <a name="restore-a-vm-disk"></a>VM 디스크 복원
 
-복구 지점에서 디스크를 복원하려면 먼저 Azure Storage 계정을 만듭니다. 이 스토리지 계정은 복원된 디스크를 저장하는 데 사용됩니다. 추가 단계에서 복원된 디스크를 사용하여 VM을 만듭니다.
+> [!IMPORTANT]
+> Az CLI 버전 2.0.74 이상을 사용하여 관리 디스크 복원을 비롯한 빠른 복원의 모든 이점을 활용할 것을 강력하게 권장합니다. 사용자가 항상 최신 버전을 사용하는 것이 가장 좋습니다.
+
+### <a name="managed-disk-restore"></a>관리 디스크 복원
+
+백업된 VM에 관리 디스크가 있고 복구 지점에서 관리 디스크를 복원하려는 경우 먼저 Azure 스토리지 계정을 제공해야 합니다. 이 스토리지 계정은 나중에 복원된 디스크에서 VM을 배포하는 데 사용할 수 있는 VM 구성 및 배포 템플릿을 저장하는 데 사용됩니다. 그런 다음, 관리 디스크를 복원할 대상 리소스 그룹을 입력합니다.
+
+1. [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 스토리지 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
+
+    ```azurecli-interactive
+    az storage account create \
+        --resource-group myResourceGroup \
+        --name mystorageaccount \
+        --sku Standard_LRS
+    ```
+
+2. [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount*를 이전 명령에서 만든 스토리지 계정의 이름으로 바꿉니다. *myRecoveryPointName*을 이전 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다. ***그리고 관리 디스크를 복원할 대상 리소스 그룹을 입력합니다***.
+
+    ```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --target-resource-group targetRG
+    ```
+
+> [!WARNING]
+> 대상-리소스 그룹을 입력하지 않으면 관리 디스크는 지정된 스토리지 계정에 비관리 디스크로 복원됩니다. 이 경우 지정된 스토리지 계정에 따라 디스크 복원에 걸리는 시간이 크게 달라지므로 복원 시간에 큰 영향을 미치게 됩니다.
+
+### <a name="unmanaged-disks-restore"></a>비관리 디스크 복원
+
+백업된 VM에 비관리 디스크가 있고 복구 지점에서 디스크를 복원하려는 경우 먼저 Azure 스토리지 계정을 제공해야 합니다. 이 스토리지 계정은 나중에 복원된 디스크에서 VM을 배포하는 데 사용할 수 있는 VM 구성 및 배포 템플릿을 저장하는 데 사용됩니다. 기본적으로 비관리 디스크는 원래 스토리지 계정에 복원됩니다. 사용자가 모든 비관리 디스크를 한 곳에 복원하려는 경우에는 지정된 스토리지 계정을 해당 디스크의 준비 위치로도 사용할 수 있습니다.
+
+추가 단계에서 복원된 디스크를 사용하여 VM을 만듭니다.
 
 1. [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 스토리지 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
 
@@ -80,9 +116,22 @@ az backup recoverypoint list \
         --rp-name myRecoveryPointName
     ```
 
-## <a name="monitor-the-restore-job"></a>복원 작업 모니터링
+위에서 언급했듯이, 비관리 디스크는 원래 스토리지 계정에 복원됩니다. 따라서 최상의 복원 성능을 제공합니다. 그러나 모든 비관리 디스크를 지정된 스토리지 계정에 복원해야 하는 경우에는 아래와 같이 관련 플래그를 사용합니다.
 
-복원 작업의 상태를 모니터링하려면 [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list)를 사용합니다.
+```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --restore-to-staging-storage-account
+    ```
+
+## Monitor the restore job
+
+To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -101,69 +150,109 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-복원 작업의 *상태*가 *완료됨*을 보고되면 디스크가 스토리지 계정으로 복원되었습니다.
-
-## <a name="convert-the-restored-disk-to-a-managed-disk"></a>복원된 디스크를 관리 디스크로 변환
-
-복원 작업은 관리되지 않는 디스크를 만듭니다. 디스크에서 VM을 만들려면 먼저 관리 디스크로 변환해야 합니다.
-
-1. [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string)을 사용하여 스토리지 계정에 대한 연결 정보를 얻습니다. *mystorageaccount*를 다음과 같이 스토리지 계정의 이름으로 바꿉니다.
-
-    ```azurecli-interactive
-    export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
-        --resource-group myResourceGroup \
-        --output tsv \
-        --name mystorageaccount )
-    ```
-
-2. 관리되지 않는 디스크는 스토리지 계정에서 보호됩니다. 다음 명령은 관리되지 않는 디스크에 대한 정보를 가져와서 관리 디스크를 만드는 다음 단계에서 사용되는 *uri*라는 변수를 만듭니다.
-
-    ```azurecli-interactive
-    container=$(az storage container list --query [0].name -o tsv)
-    blob=$(az storage blob list --container-name $container --query [0].name -o tsv)
-    uri=$(az storage blob url --container-name $container --name $blob -o tsv)
-    ```
-
-3. 이제 [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-create)를 사용하여 복구된 디스크에서 관리 디스크를 만들 수 있습니다. 이전 단계의 *uri* 변수가 관리 디스크의 원본으로 사용됩니다.
-
-    ```azurecli-interactive
-    az disk create \
-        --resource-group myResourceGroup \
-        --name myRestoredDisk \
-        --source $uri
-    ```
-
-4. 이제 복원된 디스크에서 관리 디스크를 얻었으므로 [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete)를 사용하여 관리되지 않는 디스크와 스토리지 계정을 정리합니다. *mystorageaccount*를 다음과 같이 스토리지 계정의 이름으로 바꿉니다.
-
-    ```azurecli-interactive
-    az storage account delete \
-        --resource-group myResourceGroup \
-        --name mystorageaccount
-    ```
+복원 작업의 *상태*가 *완료*인 경우 필요한 정보(VM 구성 및 배포 템플릿)가 스토리지 계정에 복원된 것입니다.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>복원된 디스크에서 VM 만들기
 
-마지막 단계는 관리 디스크에서 VM을 만드는 것입니다.
+마지막 단계는 복원된 디스크에서 VM을 만드는 것입니다. 지정된 스토리지 계정에 다운로드한 배포 템플릿을 사용하여 VM을 만들 수 있습니다.
 
-1. 다음과 같이 [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create)를 사용하여 관리 디스크에서 VM을 만듭니다.
+### <a name="fetch-the-job-details"></a>작업 세부 정보 가져오기
 
-    ```azurecli-interactive
-    az vm create \
-        --resource-group myResourceGroup \
-        --name myRestoredVM \
-        --attach-os-disk myRestoredDisk \
-        --os-type linux
-    ```
+결과 작업 세부 정보는 쿼리 및 배포 가능한 템플릿 URI를 제공합니다. 트리거된 복원 작업에 대한 자세한 정보를 보려면 작업 표시 명령을 사용합니다.
 
-2. VM이 복구된 디스크에서 만들어졌는지 확인하려면 다음과 같이 [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list)를 사용하여 리소스 그룹에 VM을 나열합니다.
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
+```
 
-    ```azurecli-interactive
-    az vm list --resource-group myResourceGroup --output table
-    ```
+이 쿼리의 출력은 모든 세부 정보를 제공하지만, 우리가 원하는 것은 스토리지 계정의 내용입니다. Azure CLI의 [쿼리 기능](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)을 사용하여 관련 세부 정보를 가져올 수 있습니다.
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag
+
+{
+  "Config Blob Container Name": "myVM-daa1931199fd4a22ae601f46d8812276",
+  "Config Blob Name": "config-myVM-1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414.json",
+  "Config Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/config-appvm8-1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json",
+  "Job Type": "Recover disks",
+  "Recovery point time ": "12/25/2019 10:07:11 PM",
+  "Target Storage Account Name": "mystorageaccount",
+  "Target resource group": "mystorageaccountRG",
+  "Template Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+}
+```
+
+### <a name="fetch-the-deployment-template"></a>배포 템플릿 가져오기
+
+템플릿은 고객의 스토리지 계정과 지정된 컨테이너에 있기 때문에 직접 액세스할 수 없습니다. 이 템플릿에 액세스하려면 (임시 SAS 토큰과 함께) 전체 URL이 필요합니다.
+
+먼저 작업 세부 정보에서 템플릿 Blob URI를 추출합니다.
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag."""Template Blob Uri"""
+
+"https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+```
+
+템플릿 Blob URI는 이 형식이며 템플릿 이름을 추출합니다.
+
+```https
+https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
+```
+
+따라서 위 예제의 템플릿은 ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json```이고 컨테이너 이름은 ```myVM-daa1931199fd4a22ae601f46d8812276```입니다.
+
+이제 [여기](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)에 설명된 대로 이 컨테이너의 SAS 토큰과 템플릿을 가져옵니다.
+
+```azurecli-interactive
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
+connection=$(az storage account show-connection-string \
+    --resource-group mystorageaccountRG \
+    --name mystorageaccount \
+    --query connectionString)
+token=$(az storage blob generate-sas \
+    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --output tsv \
+    --connection-string $connection)
+```
+
+### <a name="deploy-the-template-to-create-the-vm"></a>템플릿을 배포하여 VM 만들기
+
+이제 [여기](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli)에 설명된 대로 템플릿을 배포하여 VM을 만듭니다.
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group ExampleGroup \
+  --template-uri $url?$token
+```
+
+VM이 복구된 디스크에서 만들어졌는지 확인하려면 다음과 같이 [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list)를 사용하여 리소스 그룹에 VM을 나열합니다.
+
+```azurecli-interactive
+az vm list --resource-group myResourceGroup --output table
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 복구 지점에서 디스크를 복원한 다음 디스크에서 VM을 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 복구 지점에서 디스크를 복원한 다음 디스크에서 VM을 만들었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 >

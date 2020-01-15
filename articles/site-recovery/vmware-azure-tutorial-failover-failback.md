@@ -1,53 +1,42 @@
 ---
-title: Site Recovery를 사용하여 Azure로 재해 복구 중에 VMware VM 및 물리적 서버 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Azure로 재해 복구 중에 Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover)하고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
+title: Site Recovery를 사용하여 VMware VM을 Azure로 장애 조치(failover)
+description: Azure Site Recovery에서 VMware VM을 Azure로 장애 조치(failover)하는 방법 알아보기
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
-ms.date: 08/22/2019
-ms.author: raynew
+ms.date: 12/16/2019
 ms.custom: MVC
-ms.openlocfilehash: 852193e137eab10d1e46c5ba6ae6636d530095be
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 8501bb1a998eb08984a118bfa5d52d1e3f3e4f84
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972203"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498074"
 ---
-# <a name="fail-over-and-fail-back-vmware-vms"></a>장애 조치(Failover) 및 장애 복구(Failback) VMware VM
+# <a name="fail-over--vmware-vms"></a>VMware VM 장애 조치(failover)
 
-이 문서에서는 온-프레미스 VMware VM(가상 머신)을 [Azure Site Recovery](site-recovery-overview.md)로 장애 조치(failover)하는 방법을 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM(가상 머신)을 Azure로 장애 조치(failover)하는 방법을 설명합니다.
 
 이는 온-프레미스 머신에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 다섯 번째 자습서입니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VMware VM 속성이 Azure 요구 사항을 준수하는지 확인합니다.
-> * Azure로의 장애 조치(Failover)를 실행합니다.
+> * 특정 VM을 Azure로 장애 조치(failover)합니다.
 
 > [!NOTE]
 > 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 장애 조치(failover)에 대해 자세히 알아보려면 [VM 및 물리적 서버 장애 조치(failover)](site-recovery-failover.md)를 참조하세요.
+
+다양한 유형의 장애 조치(failover)에 [대해 알아봅니다](failover-failback-overview.md#types-of-failover). 복구 계획에서 여러 VM을 장애 조치(failover)하려는 경우 [이 문서](site-recovery-failover.md)를 검토하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
 이전 자습서 완료:
 
 1. VMware VM, Hyper-V VM 및 물리적 머신의 온-프레미스 재해 복구가 Azure에 수행되도록 [Azure를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
-2. 재해 복구용 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 환경을 준비합니다. 물리적 서버에 대한 재해 복구를 설정하는 경우 [지원 매트릭스](vmware-physical-secondary-support-matrix.md)를 검토합니다.
-3. [VMware VM](vmware-azure-tutorial.md), [Hyper-V VM](hyper-v-azure-tutorial.md) 또는 [물리적 컴퓨터](physical-azure-disaster-recovery.md)에 대한 재해 복구를 설정합니다.
+2. 재해 복구용 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 환경을 준비합니다. 
+3. [VMware VM](vmware-azure-tutorial.md)에 대한 재해 복구를 설정합니다.
 4. [재해 복구 훈련](tutorial-dr-drill-azure.md)을 실행하여 모든 항목이 예상대로 작동하는지 확인합니다.
-
-## <a name="failover-and-failback"></a>장애 조치 및 장애 복구
-
-장애 조치(Failover) 및 장애 복구(Failback)는 다음 4단계로 진행됩니다.
-
-1. **Azure로 장애 조치(failover):** 온-프레미스 기본 사이트가 중단되면 Azure로 머신이 장애 조치(failover)됩니다. 장애 조치(Failover) 후 복제된 데이터에서 Azure VM이 만들어집니다.
-2. **Azure VM 다시 보호:** Azure에서 온-프레미스 VMware VM으로 복제를 다시 시작하도록 Azure VM을 다시 보호합니다. 데이터 일관성을 지키기 위해 온-프레미스 VM은 다시 보호하는 동안 꺼집니다.
-3. **온-프레미스로 장애 조치(failover):** 온-프레미스 사이트가 실행되면 Azure에서 장애 복구(failback)에 대한 장애 조치(failover)를 실행합니다.
-4. **온-프레미스 VM 다시 보호:** 데이터를 장애 복구(failback)한 후에 Azure로 복제를 시작하도록 장애 복구(failback)한 온-프레미스 VM을 다시 보호합니다.
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
@@ -80,7 +69,7 @@ ms.locfileid: "69972203"
    * **최신**: 이 옵션은 Site Recovery로 전송된 모든 데이터를 먼저 처리합니다. 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로, 이 옵션은 가장 낮은 RPO(복구 목표 시점)를 제공합니다.
    * **가장 최근에 처리됨**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(failover)합니다. 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로, 이 옵션은 낮은 RTO(복구 목표 시간)를 제공합니다.
    * **최신 앱 일치**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치(failover)합니다.
-   * **사용자 지정**: 이 옵션을 통해 복구 지점을 지정할 수 있습니다.
+   * **Custom**: 이 옵션을 통해 복구 지점을 지정할 수 있습니다.
 
 3. 장애 조치를 트리거하기 전에 원본 VM을 종료하려고 시도하려면 **장애 조치(failover)를 시작하기 전에 머신을 종료합니다.** 를 선택합니다. 종료가 실패하더라도 장애 조치(failover)는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 
@@ -98,7 +87,7 @@ ms.locfileid: "69972203"
 
 ## <a name="connect-to-failed-over-vm"></a>장애 조치(failover)된 VM에 연결
 
-1. 장애 조치(failover) 후에 RDP(원격 데스크톱 프로토콜) 및 SSH(보안 셸)를 사용하여 Azure VM에 연결하려는 경우 [요구 사항이 충족되었는지 확인](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)합니다.
+1. 장애 조치(failover) 후에 RDP(원격 데스크톱 프로토콜) 및 SSH(보안 셸)를 사용하여 Azure VM에 연결하려는 경우 [요구 사항이 충족되었는지 확인합니다]((ailover-failback-overview.md#connect-to-azure-after-failover).
 2. 장애 조치(failover) 후 VM으로 이동하고 [연결](../virtual-machines/windows/connect-logon.md)하여 유효성을 검사합니다.
 3. 장애 조치(failover) 후 다른 복구 지점을 사용하려면 **복구 지점 변경**을 사용합니다. 다음 단계에서 장애 조치(failover)를 커밋하면 이 옵션을 더 이상 사용할 수 없습니다.
 4. 유효성 검사 후 **커밋**을 선택하여 장애 조치(failover) 후 VM의 복구 지점을 마무리합니다.

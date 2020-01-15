@@ -1,7 +1,7 @@
 ---
 title: '자습서: 패턴 - LUIS'
 titleSuffix: Azure Cognitive Services
-description: 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다.
+description: 이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측 정확도를 높이고 발화 예제를 줄입니다. 패턴은 템플릿 발화 예제로 제공되며, 여기에는 엔터티 및 무시해도 되는 텍스트를 식별하는 구문이 포함됩니다.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -9,29 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 4e4f1787db86378eaeff9df196cc061c42d0ab1e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d52b2485436f0a9075dcc3f505806e46094340a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381701"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>자습서: 일반적인 패턴 템플릿 발언 서식 추가
+# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>자습서: 예측을 개선하기 위해 일반적인 패턴 템플릿 발화 서식 추가
 
-이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다. 패턴은 식 일치 및 기계 학습의 조합입니다.  의도 발언과 함께 템플릿 발언 예제는 의도에 맞는 발언을 LUIS가 더 잘 이해하도록 합니다. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측 정확도를 높입니다. 그러면 발화 예제를 줄일 수 있습니다. 패턴은 의도에 할당된 템플릿 발화이며, 엔터티와 무시해도 되는 텍스트를 식별하는 구문을 포함하고 있습니다.
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 > [!div class="checklist"]
-> * 예제 앱 가져오기 
-> * 의도 만들기
-> * 학습
-> * 게시
-> * 엔드포인트에서 의도 및 엔터티 가져오기
 > * 패턴 만들기
 > * 향상된 패턴 예측 기능 확인
 > * 무시 가능한 텍스트로 표시 및 패턴 내 중첩
@@ -39,321 +32,331 @@ ms.locfileid: "73499001"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>앱 가져오기 예제
+## <a name="utterances-in-intent-and-pattern"></a>의도 및 패턴의 발화
 
-마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
+LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니다.
 
-다음 단계를 사용하세요.
+* 의도의 발화 예제
+* 패턴의 발화 예제
 
-1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)을 다운로드하고 저장합니다.
+템플릿 발화를 패턴으로 추가하면 의도에 대한 발화 예제를 전체적으로 줄일 수 있습니다.
 
-2. JSON을 새 앱으로 가져옵니다.
+패턴은 식 매칭과 기계 학습의 조합으로 적용됩니다.  예제 발화와 함께 템플릿 발화는 의도에 맞는 발화를 LUIS가 더 잘 이해하도록 도와줍니다.
 
-3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `patterns`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
+## <a name="import-example-app-and-clone-to-new-version"></a>예제 앱을 가져와서 새 버전에 복제
+
+다음 단계를 사용합니다.
+
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true)을 다운로드하고 저장합니다.
+
+1. [미리 보기 LUIS 포털](https://preview.luis.ai)에서 JSON 파일을 새 앱으로 가져옵니다.
+
+1. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `patterns`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
 
 ## <a name="create-new-intents-and-their-utterances"></a>새 의도 및 해당 발언 만들기
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. 탐색 모음에서 **빌드**를 선택합니다.
 
-2. **의도** 페이지에서 **새 의도 만들기**를 선택합니다. 
+1. **의도** 페이지에서 **+ 만들기**를 선택하여 새 의도를 만듭니다.
 
-3. 팝업 대화 상자에서 `OrgChart-Manager`을 입력하고 **완료**를 선택합니다.
+1. 팝업 대화 상자에서 `OrgChart-Manager`을 입력하고 **완료**를 선택합니다.
 
     ![새 메시지 만들기 팝업 창](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
-4. 의도에 발화 예제를 추가합니다.
+1. 의도에 발화 예제를 추가합니다. 이러한 발화는 _완벽하게_ 같지는 않지만 추출 가능한 패턴을 갖고 있습니다.
 
     |예제 발화|
     |--|
-    |Who is John W. Smith the subordinate of?|
-    |Who does John W. Smith report to?|
-    |Who is John W. Smith's manager?|
-    |Who does Jill Jones directly report to?|
-    |Who is Jill Jones supervisor?|
+    |`Who is John W. Smith the subordinate of?`|
+    |`Who does John W. Smith report to?`|
+    |`Who is John W. Smith's manager?`|
+    |`Who does Jill Jones directly report to?`|
+    |`Who is Jill Jones supervisor?`|
 
-    [![의도에 새 발언을 추가하는 LUIS 스크린샷](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "의도에 새 발언을 추가하는 LUIS 스크린샷")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    의도의 발언에서 Employee 엔터티 대신 keyPhrase 엔터티가 레이블로 지정되더라도 걱정하지 마세요. 두 엔터티 모두 테스트 창 및 엔드포인트에서 올바르게 예측됩니다.
 
-    의도의 발언에서 Employee 엔터티 대신 keyPhrase 엔터티가 레이블로 지정되더라도 걱정하지 마세요. 두 엔터티 모두 테스트 창 및 엔드포인트에서 올바르게 예측됩니다. 
+1. 왼쪽 탐색 영역에서 **의도**를 선택합니다.
 
-5. 왼쪽 탐색 영역에서 **의도**를 선택합니다.
+1. **+ 만들기**를 선택하여 새 의도를 만듭니다. 팝업 대화 상자에서 `OrgChart-Reports`을 입력하고 **완료**를 선택합니다.
 
-6. **새 의도 만들기**를 선택합니다. 
-
-7. 팝업 대화 상자에서 `OrgChart-Reports`을 입력하고 **완료**를 선택합니다.
-
-8. 의도에 발화 예제를 추가합니다.
+1. 의도에 발화 예제를 추가합니다.
 
     |예제 발화|
     |--|
-    |Who are John W. Smith's subordinates?|
-    |Who reports to John W. Smith?|
-    |Who does John W. Smith manage?|
-    |Who are Jill Jones direct reports?|
-    |Who does Jill Jones supervise?|
+    |`Who are John W. Smith's subordinates?`|
+    |`Who reports to John W. Smith?`|
+    |`Who does John W. Smith manage?`|
+    |`Who are Jill Jones direct reports?`|
+    |`Who does Jill Jones supervise?`|
 
-## <a name="caution-about-example-utterance-quantity"></a>예제 발언 수에 대한 주의 사항
+### <a name="caution-about-example-utterance-quantity"></a>예제 발언 수에 대한 주의 사항
 
 [!INCLUDE [Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train"></a>학습
+### <a name="train-the-app-before-testing-or-publishing"></a>테스트하거나 게시하기 전에 앱 학습
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish"></a>게시
+### <a name="publish-the-app-to-query-from-the-endpoint"></a>엔드포인트에서 쿼리할 앱 게시
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
+### <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-2. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
+1. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 `query`입니다.
 
     ```json
     {
-        "query": "who is the boss of jill jones?",
-        "topScoringIntent": {
-            "intent": "OrgChart-Manager",
-            "score": 0.353984952
-        },
-        "intents": [
-            {
-                "intent": "OrgChart-Manager",
-                "score": 0.353984952
-            },
-            {
-                "intent": "OrgChart-Reports",
-                "score": 0.214128986
-            },
-            {
-                "intent": "EmployeeFeedback",
-                "score": 0.08434003
-            },
-            {
-                "intent": "MoveEmployee",
-                "score": 0.019131
-            },
-            {
-                "intent": "GetJobInformation",
-                "score": 0.004819009
-            },
-            {
-                "intent": "Utilities.Confirm",
-                "score": 0.0043958663
-            },
-            {
-                "intent": "Utilities.StartOver",
-                "score": 0.00312064588
-            },
-            {
-                "intent": "Utilities.Cancel",
-                "score": 0.002265454
-            },
-            {
-                "intent": "Utilities.Help",
-                "score": 0.00133465114
-            },
-            {
-                "intent": "None",
-                "score": 0.0011388344
-            },
-            {
-                "intent": "Utilities.Stop",
-                "score": 0.00111166481
-            },
-            {
-                "intent": "FindForm",
-                "score": 0.0008900076
-            },
-            {
-                "intent": "ApplyForJob",
-                "score": 0.0007836131
-            }
-        ],
-        "entities": [
-            {
-                "entity": "jill jones",
-                "type": "Employee",
-                "startIndex": 19,
-                "endIndex": 28,
-                "resolution": {
-                    "values": [
-                        "Employee-45612"
-                    ]
+        "query": "Who is the boss of Jill Jones?",
+        "prediction": {
+            "topIntent": "OrgChart-Manager",
+            "intents": {
+                "OrgChart-Manager": {
+                    "score": 0.313054234
+                },
+                "OrgChart-Reports": {
+                    "score": 0.2462688
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0488328524
+                },
+                "GetJobInformation": {
+                    "score": 0.0156933
+                },
+                "MoveEmployee": {
+                    "score": 0.011265873
+                },
+                "Utilities.StartOver": {
+                    "score": 0.003065792
+                },
+                "Utilities.Stop": {
+                    "score": 0.00300148362
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00271081156
+                },
+                "None": {
+                    "score": 0.00212835032
+                },
+                "ApplyForJob": {
+                    "score": 0.0020669254
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00200891262
+                },
+                "FindForm": {
+                    "score": 0.00194145238
+                },
+                "Utilities.Help": {
+                    "score": 0.00182301877
                 }
             },
-            {
-                "entity": "boss of jill jones",
-                "type": "builtin.keyPhrase",
-                "startIndex": 11,
-                "endIndex": 28
+            "entities": {
+                "keyPhrase": [
+                    "boss of Jill Jones"
+                ],
+                "Employee": [
+                    [
+                        "Employee-45612"
+                    ]
+                ],
+                "$instance": {
+                    "keyPhrase": [
+                        {
+                            "type": "builtin.keyPhrase",
+                            "text": "boss of Jill Jones",
+                            "startIndex": 11,
+                            "length": 18,
+                            "modelTypeId": 2,
+                            "modelType": "Prebuilt Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "Employee": [
+                        {
+                            "type": "Employee",
+                            "text": "Jill Jones",
+                            "startIndex": 19,
+                            "length": 10,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
             }
-        ]
+        }
     }
     ```
 
-이 쿼리는 성공했나요? 이 학습 주기 동안에는 성공적이었습니다. 두 상위 의도의 점수는 서로 가깝습니다. LUIS 학습이 매번 정확히 같은 것은 아니고 약간의 편차가 있으므로 이러한 두 점수는 다음 학습 주기에서 반전될 수 있습니다. 그 결과 잘못된 의도가 반환될 수 있습니다. 
+이 쿼리는 성공했나요? 이 학습 주기 동안에는 성공적이었습니다. 두 상위 의도의 점수는 비슷하지만, 가장 높은 의도의 점수가 크게 높지는 않으며(60% 초과) 다음 의도의 점수를 넘을 만큼 높지는 않습니다.
 
-패턴을 사용하면 올바른 의도 점수가 훨씬 높은 백분율 값을 가지고 다음으로 가장 높은 점수보다 훨씬 높게 만들 수 있습니다. 
+LUIS 학습이 매번 정확히 같은 것은 아니고 약간의 편차가 있으므로 이러한 두 점수는 다음 학습 주기에서 반전될 수 있습니다. 그 결과 잘못된 의도가 반환될 수 있습니다.
 
-두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용합니다. 
+패턴을 사용하면 올바른 의도 점수가 훨씬 높은 백분율 값을 가지고 다음으로 가장 높은 점수보다 훨씬 높게 만들 수 있습니다.
+
+두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용합니다.
 
 ## <a name="template-utterances"></a>템플릿 발언
-Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예:
+Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 다음은 그 예입니다.
 
 |발언|
 |--|
-|Who does Jill Jones report to?|
-|Who reports to Jill Jones?|
+|`Who does Jill Jones report to?`|
+|`Who reports to Jill Jones?`|
 
-이러한 발화가 너무 가까워서 많은 발화 예제를 제공하지 않고는 각각의 컨텍스트 고유성을 확인하기가 어렵습니다. 의도 패턴을 추가하면 LUIS는 많은 발화 예제를 제공하지 않고도 의도의 일반적인 발화 패턴을 학습합니다. 
+이러한 발화가 너무 가까워서 많은 발화 예제를 제공하지 않고는 각각의 컨텍스트 고유성을 확인하기가 어렵습니다. 의도 패턴을 추가하면 LUIS는 많은 발화 예제를 제공하지 않고도 의도의 일반적인 발화 패턴을 학습합니다.
 
 이 의도에 대한 템플릿 발화 예제는 다음과 같습니다.
 
 |템플릿 발화 예제|구문 의미|
 |--|--|
-|Who does {Employee} report to[?]|interchangeable {Employee}, ignore [?]}|
-|Who reports to {Employee}[?]|interchangeable {Employee}, ignore [?]}|
+|`Who does {Employee} report to[?]`|서로 교환 가능한 `{Employee}`<br>`[?]` 무시|
+|`Who reports to {Employee}[?]`|서로 교환 가능한 `{Employee}`<br>`[?]` 무시|
 
-`{Employee}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 선택적인 `[?]` 구문은 선택적인 단어 또는 문장 부호를 표시합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
+`{Employee}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 선택적 구문인 `[?]`는 선택적인 단어 또는 문장 부호를 표시합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
 
 구문은 정규식처럼 보이지만 정규식이 아닙니다. 중괄호(`{}`) 및 대괄호(`[]`) 구문만 지원됩니다. 최대 두 수준까지 중첩될 수 있습니다.
 
-패턴이 발언에 일치되도록 하기 위해 발언 내의 엔터티가 먼저 템플릿 발언의 엔터티와 일치되어야 합니다. 그러나 의도와 달리 템플릿은 엔터티 예측에 도움이 되지 않습니다. 
+패턴이 발언에 일치되도록 하기 위해 발언 내의 엔터티가 먼저 템플릿 발언의 엔터티와 일치되어야 합니다. 즉, 엔터티를 사용하는 패턴이 성공하려면 엔터티의 예제에 예측 수준이 높은 발화 예제가 충분히 있어야 합니다. 그러나 의도와 달리 템플릿은 엔터티 예측에 도움이 되지 않습니다.
 
 **패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
 
-## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>OrgChart-Manager 의도의 패턴 추가
+### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>OrgChart-Manager 의도의 패턴 추가
 
 1. 위쪽 메뉴에서 **빌드**를 선택합니다.
 
-2. 왼쪽 탐색의 **앱 성능 개선** 아래에서 왼쪽 탐색의 **패턴**을 선택합니다.
+1. 왼쪽 탐색의 **앱 성능 개선** 아래에서 왼쪽 탐색의 **패턴**을 선택합니다.
 
-3. **OrgChart-Manager** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
-
-    |템플릿 발언|
-    |:--|
-    |Who is {Employee} the subordinate of[?]|
-    |Who does {Employee} report to[?]|
-    |Who is {Employee}['s] manager[?]|
-    |Who does {Employee} directly report to[?]|
-    |Who is {Employee}['s] supervisor[?]|
-    |Who is the boss of {Employee}[?]|
-
-    역할이 있는 엔터티는 역할 이름을 포함하는 구문을 사용하며, [역할에 대한 별도 자습서](luis-tutorial-pattern-roles.md)에서 설명됩니다. 
-
-    템플릿 발언을 입력할 때 왼쪽 중괄호 `{`를 입력하면 LUIS는 엔터티를 채우는 데 도움을 줍니다.
-
-    [![의도에 대한 템플릿 발언을 입력하는 스크린샷](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
-
-4. 패턴 페이지를 나가지 않은 상태에서 **OrgChart-Reports** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
+1. **OrgChart-Manager** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
 
     |템플릿 발언|
     |:--|
-    |Who are {Employee}['s] subordinates[?]|
-    |Who reports to {Employee}[?]|
-    |Who does {Employee} manage[?]|
-    |Who are {Employee} direct reports[?]|
-    |Who does {Employee} supervise[?]|
-    |Who does {Employee} boss[?]|
+    |`Who is {Employee} the subordinate of[?]`|
+    |`Who does {Employee} report to[?]`|
+    |`Who is {Employee}['s] manager[?]`|
+    |`Who does {Employee} directly report to[?]`|
+    |`Who is {Employee}['s] supervisor[?]`|
+    |`Who is the boss of {Employee}[?]`|
 
-## <a name="query-endpoint-when-patterns-are-used"></a>패턴이 사용될 때의 엔드포인트 쿼리
+1. 패턴 페이지를 나가지 않은 상태에서 **OrgChart-Reports** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
+
+    |템플릿 발언|
+    |:--|
+    |`Who are {Employee}['s] subordinates[?]`|
+    |`Who reports to {Employee}[?]`|
+    |`Who does {Employee} manage[?]`|
+    |`Who are {Employee} direct reports[?]`|
+    |`Who does {Employee} supervise[?]`|
+    |`Who does {Employee} boss[?]`|
+
+### <a name="query-endpoint-when-patterns-are-used"></a>패턴이 사용될 때의 엔드포인트 쿼리
 
 이제 패턴이 앱에 추가되었으므로 예측 런타임 엔드포인트에서 앱을 학습, 게시 및 쿼리합니다.
 
-1. 앱을 학습하고 다시 게시합니다.
+1. **학습**을 선택합니다. 학습이 완료되면 **게시**를 선택하고 **프로덕션** 슬롯을 선택한 다음, **완료**를 선택합니다.
 
-1. 엔드포인트 URL 탭으로 브라우저 탭을 다시 전환합니다.
+1. 게시가 완료되면 브라우저 탭을 다시 엔드포인트 URL 탭으로 전환합니다.
 
-1. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 발언으로 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
+1. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 발언으로 입력합니다. 마지막 쿼리 문자열 매개 변수는 `query`입니다.
 
     ```json
     {
-        "query": "who is the boss of jill jones?",
-        "topScoringIntent": {
-            "intent": "OrgChart-Manager",
-            "score": 0.9999989
-        },
-        "intents": [
-            {
-                "intent": "OrgChart-Manager",
-                "score": 0.9999989
+        "query": "Who is the boss of Jill Jones?",
+        "prediction": {
+            "topIntent": "OrgChart-Manager",
+            "intents": {
+                "OrgChart-Manager": {
+                    "score": 0.999997854
+                },
+                "OrgChart-Reports": {
+                    "score": 6.13748343E-05
+                },
+                "EmployeeFeedback": {
+                    "score": 8.052567E-06
+                },
+                "GetJobInformation": {
+                    "score": 1.18197136E-06
+                },
+                "MoveEmployee": {
+                    "score": 7.65549657E-07
+                },
+                "None": {
+                    "score": 3.975E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.53E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.38181822E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.38181822E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.38181822E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.25833333E-09
+                },
+                "FindForm": {
+                    "score": 1.15384613E-09
+                },
+                "ApplyForJob": {
+                    "score": 5.26923061E-10
+                }
             },
-            {
-                "intent": "OrgChart-Reports",
-                "score": 7.616303E-05
-            },
-            {
-                "intent": "EmployeeFeedback",
-                "score": 7.84204349E-06
-            },
-            {
-                "intent": "GetJobInformation",
-                "score": 1.20674213E-06
-            },
-            {
-                "intent": "MoveEmployee",
-                "score": 7.91245157E-07
-            },
-            {
-                "intent": "None",
-                "score": 3.875E-09
-            },
-            {
-                "intent": "Utilities.StartOver",
-                "score": 1.49E-09
-            },
-            {
-                "intent": "Utilities.Confirm",
-                "score": 1.34545453E-09
-            },
-            {
-                "intent": "Utilities.Help",
-                "score": 1.34545453E-09
-            },
-            {
-                "intent": "Utilities.Stop",
-                "score": 1.34545453E-09
-            },
-            {
-                "intent": "Utilities.Cancel",
-                "score": 1.225E-09
-            },
-            {
-                "intent": "FindForm",
-                "score": 1.123077E-09
-            },
-            {
-                "intent": "ApplyForJob",
-                "score": 5.625E-10
-            }
-        ],
-        "entities": [
-            {
-                "entity": "jill jones",
-                "type": "Employee",
-                "startIndex": 19,
-                "endIndex": 28,
-                "resolution": {
-                    "values": [
+            "entities": {
+                "keyPhrase": [
+                    "boss of Jill Jones"
+                ],
+                "Employee": [
+                    [
                         "Employee-45612"
                     ]
-                },
-                "role": ""
-            },
-            {
-                "entity": "boss of jill jones",
-                "type": "builtin.keyPhrase",
-                "startIndex": 11,
-                "endIndex": 28
+                ],
+                "$instance": {
+                    "keyPhrase": [
+                        {
+                            "type": "builtin.keyPhrase",
+                            "text": "boss of Jill Jones",
+                            "startIndex": 11,
+                            "length": 18,
+                            "modelTypeId": 2,
+                            "modelType": "Prebuilt Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "Employee": [
+                        {
+                            "type": "Employee",
+                            "text": "Jill Jones",
+                            "startIndex": 19,
+                            "length": 10,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
             }
-        ]
+        }
     }
     ```
 
-이제 의도 예측의 신뢰도가 훨씬 더 높아집니다.
+이제 의도 예측의 신뢰도가 대폭 높아졌으며 그 다음으로 높은 의도의 점수는 훨씬 낮습니다. 이러한 두 의도는 학습 시 전환되지 않습니다.
 
-## <a name="working-with-optional-text-and-prebuilt-entities"></a>선택적 텍스트 및 미리 작성된 엔터티 사용
+### <a name="working-with-optional-text-and-prebuilt-entities"></a>선택적 텍스트 및 미리 작성된 엔터티 사용
 
 이 자습서의 이전 패턴 템플릿 발언에는 문자 s의 소유격 `'s` 사용 및 물음표 `?` 사용과 같은 몇 가지 선택적 텍스트가 있었습니다. 발화 텍스트에 현재 및 미래의 날짜를 포함할 수 있도록 허용해야 한다고 가정할 경우
 
@@ -366,9 +369,9 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 |OrgChart-Manager|`Who will be Jill Jones manager in a month?`|
 |OrgChart-Manager|`Who will be Jill Jones manager on March 3?`|
 
-이 예제 각각에 올바른 예측을 위해 LUIS에 필요한 동사 시제 `was`, `is`, `will be`는 물론 날짜 `March 3`, `now` 및 `in a month`가 사용되었습니다. 마지막 두 가지 예제에는 `in`과 `on`을 제외하고 거의 동일한 텍스트가 사용되었습니다.
+이 예제 각각에 올바른 예측을 위해 LUIS에 필요한 동사 시제 `was`, `is`, `will be`는 물론 날짜 `March 3`, `now` 및 `in a month`가 사용되었습니다. 표의 마지막 두 예제에는 `in` 및 `on`을 제외하고 거의 동일한 텍스트가 사용되었습니다.
 
-이 선택적 정보를 허용하는 예제 템플릿 발화: 
+이 선택적 정보를 허용하는 예제 템플릿 발화:
 
 |Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |:--|:--|
@@ -381,21 +384,21 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 **질문: 각 템플릿 발화의 첫 글자인 `w`가 모두 소문자인 이유가 무엇인가요? 필요에 따라 대문자나 소문자가 되어야 하지 않나요?** 클라이언트 애플리케이션이 쿼리 엔드포인트에 제출한 발언은 소문자로 변환됩니다. 템플릿 발언은 대문자나 소문자일 수 있으며 엔드포인트 발언도 마찬가지입니다. 비교는 항상 소문자로 변환한 후 수행됩니다.
 
-**질문: March 3이 예측된 경우 템플릿 발화의 미리 작성된 번호 부분이 숫자 `3`과 날짜 `March 3` 모두로 예측되지 않는 이유가 무엇인가요?** 템플릿 발언은 날짜를 컨텍스트에 따라 문자 그대로 `March 3`으로 사용하거나 `in a month`로 추상화하여 사용합니다. 날짜에는 숫자가 포함될 수 있지만 숫자가 반드시 날짜로 보이지는 아닙니다. 예측 JSON 결과로 반환하려는 유형을 가장 잘 나타내는 엔터티를 항상 사용하십시오.  
+**질문: March 3이 예측된 경우 템플릿 발화의 미리 작성된 번호 부분이 숫자 `3`과 날짜 `March 3` 모두로 예측되지 않는 이유가 무엇인가요?** 템플릿 발언은 날짜를 컨텍스트에 따라 문자 그대로 `March 3`으로 사용하거나 `in a month`로 추상화하여 사용합니다. 날짜에는 숫자가 포함될 수 있지만 숫자가 반드시 날짜로 보이지는 아닙니다. 예측 JSON 결과로 반환하려는 유형을 가장 잘 나타내는 엔터티를 항상 사용하십시오.
 
-**질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발화의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다. 동사 시제에 대해 [Group 및 OR](#use-the-or-operator-and-groups)을 수행하여 이러한 발화를 결합할 수 있습니다. 
+**질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발화의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다. 동사 시제에 대해 [Group 및 OR](#use-the-or-operator-and-groups)을 수행하여 이러한 발화를 결합할 수 있습니다.
 
 **기억해야 할 사항: 엔터티를 먼저 찾은 다음, 패턴을 일치시킵니다.**
 
-## <a name="edit-the-existing-pattern-template-utterance"></a>기존 패턴 템플릿 발언 편집
+### <a name="edit-the-existing-pattern-template-utterance"></a>기존 패턴 템플릿 발언 편집
 
-1. LUIS 웹 사이트의 최상위 메뉴에서 **빌드**를 선택한 다음, 왼쪽 메뉴에서 **패턴**을 선택합니다. 
+1. 미리 보기 LUIS 포털의 최상위 메뉴에서 **빌드**를 선택한 다음, 왼쪽 메뉴에서 **패턴**을 선택합니다.
 
-1. 기존 템플릿 발화 `Who is {Employee}['s] manager[?]`를 검색하고, 오른쪽에 있는 줄임표(***...***)를 선택한 후 팝업 메뉴에서 **편집**을 선택합니다. 
+1. 기존 템플릿 발화 `Who is {Employee}['s] manager[?]`를 검색하고, 오른쪽에 있는 줄임표(***...***)를 선택한 후 팝업 메뉴에서 **편집**을 선택합니다.
 
 1. 템플릿 발언을 `who is {Employee}['s] manager [[on]{datetimeV2}?]`로 변경합니다.
 
-## <a name="add-new-pattern-template-utterances"></a>새 패턴 템플릿 발언 추가
+### <a name="add-new-pattern-template-utterances"></a>새 패턴 템플릿 발언 추가
 
 1. **빌드**의 **패턴** 섹션에서 몇 가지 패턴 템플릿 발언을 새로 추가합니다. 의도 드롭 다운 메뉴에서 **OrgChart-Manager**를 선택하고 다음 템플릿 발언을 각각 입력합니다.
 
@@ -405,28 +408,33 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-2. 앱을 학습합니다.
+2. 탐색 모음에서 **학습**을 선택하여 앱을 학습시킵니다.
 
-3. 패널의 맨 위에서 **테스트**를 선택하여 테스트 패널을 엽니다. 
+3. 학습이 완료되면 패널 위쪽에서 **테스트**를 선택하여 테스트 패널을 엽니다.
 
-4. 몇 가지 테스트 발언을 입력하여 패턴이 일치하는지 의도 점수가 상당히 높은지 확인합니다. 
+4. 몇 가지 테스트 발언을 입력하여 패턴이 일치하는지 의도 점수가 상당히 높은지 확인합니다.
 
     첫 번째 발언을 입력한 다음, 모든 예측 결과를 볼 수 있도록 결과 아래에서 **검사**를 선택합니다. 각 발화에는 **OrgChart-Manager** 의도가 있어야 하고 Employee 및 datetimeV2의 엔터티 값을 추출해야 합니다.
 
     |발화|
     |--|
-    |Who will be Jill Jones manager|
-    |who will be jill jones's manager|
-    |Who will be Jill Jones's manager?|
-    |who will be Jill jones manager on March 3|
-    |Who will be Jill Jones manager next Month|
-    |Who will be Jill Jones manager in a month?|
+    |`Who will be Jill Jones manager`|
+    |`who will be jill jones's manager`|
+    |`Who will be Jill Jones's manager?`|
+    |`who will be Jill jones manager on March 3`|
+    |`Who will be Jill Jones manager next Month`|
+    |`Who will be Jill Jones manager in a month?`|
 
-모든 발언의 내부에서 엔터티를 찾았으므로 동일한 패턴과 일치하며 예측 점수가 높습니다.
+모든 발언의 내부에서 엔터티를 찾았으므로 동일한 패턴과 일치하며 예측 점수가 높습니다. 여러 가지 발화를 매칭할 몇 가지 패턴을 추가했습니다. 템플릿 발화가 패턴에서 작동하도록 만들기 위해 의도에 발화 예제를 추가할 필요는 없었습니다.
 
-## <a name="use-the-or-operator-and-groups"></a>OR 연산자 및 group 사용
+이 패턴 사용 방법은 다음을 제공했습니다.
+* 가장 높은 예측 점수
+* 의도의 동일한 발화 예제
+* 패턴에 있는 소수의 체계적인 템플릿 발화
 
-몇 가지 이전 템플릿 발화는 매우 유사합니다. 템플릿 발화를 줄이려면 **group** `()` 및 **OR** `|` 구문을 사용합니다. 
+### <a name="use-the-or-operator-and-groups"></a>OR 연산자 및 group 사용
+
+몇 가지 이전 템플릿 발화는 매우 유사합니다. 템플릿 발화를 줄이려면 **group** `()` 및 **OR** `|` 구문을 사용합니다.
 
 다음 2가지 패턴은 group `()` 및 OR `|` 구문을 사용하여 단일 패턴으로 결합할 수 있습니다.
 
@@ -435,39 +443,132 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-새 템플릿 발화는 다음과 같습니다. 
+새 템플릿 발화는 다음과 같습니다.
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`입니다.
 
-여기서는 필수 동사 시제를 **group**으로 묶고, 선택적 `in` 및 `on`과 **or** 파이프를 사이에 사용합니다. 
+여기서는 필수 동사 시제를 **group**으로 묶고, 선택적 `in` 및 `on`과 **or** 파이프를 사이에 사용합니다.
 
-1. **패턴** 페이지에서 **OrgChart-Manager** 필터를 선택합니다. `manager`를 검색하여 목록의 범위를 좁힙니다. 
+1. **패턴** 페이지에서 **OrgChart-Manager** 필터를 선택합니다. `manager`를 검색하여 목록의 범위를 좁힙니다.
 
-    ![OrgChart-Manager 의도 패턴에서 용어 'manager' 검색](./media/luis-tutorial-pattern/search-patterns.png)
+1. 템플릿 발화의 한 가지 버전을 유지하고(다음 단계에서 편집) 다른 변형을 모두 삭제합니다.
 
-1. 템플릿 발화의 한 가지 버전을 유지하고(다음 단계에서 편집) 다른 변형을 모두 삭제합니다. 
+1. 템플릿 발화를 다음으로 변경합니다.
 
-1. 템플릿 발화를 다음으로 변경합니다. 
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+2. 탐색 모음에서 **학습**을 선택하여 앱을 학습시킵니다.
 
-1. 앱을 학습합니다.
+3. 학습이 완료되면 패널 위쪽에서 **테스트**를 선택하여 테스트 패널을 엽니다.
 
-1. 다음과 같이 테스트 창에서 발화 버전을 테스트합니다.
+    다음과 같이 테스트 창에서 발화 버전을 테스트합니다.
 
     |테스트 창에 입력할 발화|
     |--|
     |`Who is Jill Jones manager this month`|
     |`Who is Jill Jones manager on July 5th`|
     |`Who was Jill Jones manager last month`|
-    |`Who was Jill Jones manager on July 5th`|    
+    |`Who was Jill Jones manager on July 5th`|
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
+더 많은 패턴 구문을 사용하면 앱에서 유지 관리해야 하는 템플릿 발화의 수를 줄이면서도 높은 예측 점수를 얻을 수 있습니다.
 
-## <a name="use-the-utterance-beginning-and-ending-anchors"></a>발화의 시작 및 끝 앵커 사용
+### <a name="use-the-utterance-beginning-and-ending-anchors"></a>발화의 시작 및 끝 앵커 사용
 
-이 패턴 구문은 시작 및 끝 발화 앵커 구문으로 캐럿 `^`을 제공합니다. 시작 및 끝 발화 앵커를 함께 사용하여 매우 구체적인 리터럴 발화를 지정할 수도 있고, 따로 사용하여 의도를 대상으로 지정할 수도 있습니다. 
+이 패턴 구문은 시작 및 끝 발화 앵커 구문으로 캐럿 `^`을 제공합니다. 시작 및 끝 발화 앵커를 함께 사용하여 매우 구체적인 리터럴 발화를 지정할 수도 있고, 따로 사용하여 의도를 대상으로 지정할 수도 있습니다.
+
+## <a name="using-patternany-entity"></a>Pattern.any 엔터티 사용
+
+pattern.any 엔터티를 사용하면 엔터티의 표현이 발화의 나머지 부분에서 엔터티의 끝을 확인하기 어렵게 만드는 자유 형식 데이터를 찾을 수 있습니다.
+
+이 Human Resources 앱도 직원들이 회사 양식을 찾는 데 도움이 됩니다.
+
+|발화|
+|--|
+|Where is **HRF-123456**?|
+|Who authored **HRF-123234**?|
+|**HRF-456098** is published in French?|
+
+그러나 각 양식은 `Request relocation from employee new to the company 2018 version 5`과 같이 친숙한 이름 뿐만 아니라 이전 표에서 사용된 적절한 형식의 이름도 갖습니다.
+
+친숙한 양식 이름을 갖는 발언은 다음과 같습니다.
+
+|발화|
+|--|
+|Where is **Request relocation from employee new to the company 2018 version 5**?|
+|Who authored **"Request relocation from employee new to the company 2018 version 5"** ?|
+|**Request relocation from employee new to the company 2018 version 5** is published in French?|
+
+다양한 길이에는 LUIS에서 엔터티가 끝나는 위치를 혼동할 수 있는 단어가 포함됩니다. 패턴에서 Pattern.any 엔터티를 사용하면 LUIS가 양식 이름을 올바르게 추출하도록 양식 이름의 시작 및 끝을 지정할 수 있습니다.
+
+|템플릿 발화 예제|
+|--|
+|Where is {FormName}[?]|
+|Who authored {FormName}[?]|
+|{FormName} is published in French[?]|
+
+### <a name="add-example-utterances-with-patternany"></a>Pattern.any를 사용하여 발화 예제 추가
+
+1. 위쪽 탐색 영역에서 **빌드**를 선택한 후 왼쪽 탐색 영역에서 **의도**를 선택합니다.
+
+1. 의도 목록에서 **FindForm**을 선택합니다.
+
+1. 다음과 같은 일부 예제 발언을 추가합니다.
+
+    |예제 발화|양식 이름|
+    |--|--|
+    |Where is the form **What to do when a fire breaks out in the Lab** and who needs to sign it after I read it?|랩에서 화재 발생 시 해야 할 일
+    |Where is **Request relocation from employee new to the company** on the server?|신입 사원의 재배치 요청|
+    |Who authored "**Health and wellness requests on the main campus**" and what is the most current version?|주 캠퍼스의 건강 및 웰빙 요청|
+    |I'm looking for the form named "**Office move request including physical assets**". |물리적 자산을 포함한 Office 이동 요청|
+
+    양식 이름이 다양한 형태로 존재하므로 Pattern.any 엔터티가 없으면 LUIS에서 양식 제목이 끝나는 위치를 이해하기 어렵습니다.
+
+### <a name="create-a-patternany-entity"></a>Pattern.any 엔터티 만들기
+Pattern.any 엔터티는 다양한 길이의 엔터티를 추출합니다. 패턴은 구문을 사용하여 엔터티의 시작과 끝을 표시하므로 이 엔터티는 패턴에서만 작동합니다.
+
+1. 왼쪽 탐색에서 **엔터티**를 선택합니다.
+
+1. **+ 만들기**를 선택하고, 이름으로 `FormName`을 입력하고, 형식으로 **Pattern.any**를 선택합니다. **만들기**를 선택합니다.
+
+### <a name="add-a-pattern-that-uses-the-patternany"></a>Pattern.any를 사용하는 패턴 추가
+
+1. 왼쪽 탐색에서 **패턴**을 선택합니다.
+
+1. **FindForm** 의도를 선택합니다.
+
+1. 새 엔터티를 사용하는 다음 템플릿 발언을 입력합니다.
+
+    |템플릿 발언|
+    |--|
+    |`Where is the form ["]{FormName}["] and who needs to sign it after I read it[?]`|
+    |`Where is ["]{FormName}["] on the server[?]`|
+    |`Who authored ["]{FormName}["] and what is the most current version[?]`|
+    |`I'm looking for the form named ["]{FormName}["][.]`|
+
+1. 앱을 학습합니다.
+
+### <a name="test-the-new-pattern-for-free-form-data-extraction"></a>자유 형식 데이터 추출의 새 패턴 테스트
+1. 위쪽 막대에서 **테스트**를 선택하여 테스트 패널을 엽니다.
+
+1. 다음 발언을 입력합니다.
+
+    `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
+
+1. 결과 아래에서 **검사**를 선택하여 엔터티 및 의도의 테스트 결과를 확인합니다.
+
+    먼저 엔터티 `FormName`이 발견된 다음, 의도를 결정하는 패턴이 발견됩니다. 엔터티가 검색되지 않은 테스트 결과가 있어서 패턴이 발견되지 않은 경우에는 의도(패턴이 아님)에 더 많은 예제 발화를 추가해야 합니다.
+
+1. 위쪽 탐색에서 **테스트** 단추를 선택하여 테스트 패널을 닫습니다.
+
+### <a name="using-an-explicit-list"></a>명시적 목록 사용
+
+Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](reference-pattern-syntax.md#explicit-lists)을 사용하여 이 문제를 정정합니다.
+
+## <a name="what-did-this-tutorial-accomplish"></a>이 자습서에서는 무엇을 했나요?
+
+이 자습서에서는 발화 예제를 더 이상 추가하지 않고도 LUIS의 의도 예측 점수를 높일 수 있는 패턴을 추가했습니다. 엔터티와 무시 가능한 텍스트를 표시하면 LUIS에서 더 다양한 발화에 패턴을 적용할 수 있었습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -475,7 +576,6 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 많은 발화 예제 없이 높은 정확도로 예측하기 어려운 발화에 대한 두 가지 의도를 추가합니다. 허용되는 이러한 LUIS 패턴을 추가하여 훨씬 높은 점수로 의도를 더 잘 예측할 수 있습니다. 엔터티와 무시 가능한 텍스트를 표시하면 LUIS에서 더 다양한 발화에 패턴을 적용할 수 있었습니다.
 
 > [!div class="nextstepaction"]
 > [패턴과 함께 역할을 사용하는 방법 알아보기](luis-tutorial-pattern-roles.md)

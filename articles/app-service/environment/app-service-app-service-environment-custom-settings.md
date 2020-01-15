@@ -4,15 +4,15 @@ description: 전체 Azure App Service 환경에 적용되는 설정을 구성합
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430498"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service Environment에 대한 사용자 지정 구성 설정
 ## <a name="overview"></a>개요
@@ -56,6 +56,19 @@ App Service Environment가 없는 경우 [App Service Environment를 만드는 �
 
 변경 내용을 제출한 후 변경 내용이 적용되려면 App Service Environment의 프런트 엔드 수에 약 30 분을 곱한 만큼의 시간이 필요합니다.
 예를 들어 App Service Environment에 4개의 프런트 엔드가 있는 경우 구성 업데이트를 완료하는 데 약 2시간이 걸립니다. 구성 변경이 롤아웃되는 동안 App Service Environment에서 다른 크기 조정 작업 또는 구성 변경 작업을 수행할 수 없습니다.
+
+## <a name="enable-internal-encryption"></a>내부 암호화 사용
+
+App Service Environment는 시스템 내에서 내부 구성 요소나 통신을 볼 수 없는 블랙 박스 시스템으로 작동합니다. 높은 처리량을 활성화하기 위해 내부 구성 요소 사이에는 기본적으로 암호화가 사용되지 않습니다. 시스템은 트래픽을 모니터링하거나 액세스하는 데 완전히 액세스할 수 없기 때문에 보안이 유지됩니다. 엔드투엔드에서 데이터 경로를 완벽하게 암호화해야 하는 규정 준수 요구 사항이 있는 경우에는 clusterSetting을 사용하여 이를 사용하도록 설정하는 방법이 있습니다.  
+
+        "clusterSettings": [
+            {
+                "name": "InternalEncryption",
+                "value": "1"
+            }
+        ],
+ 
+InternalEncryption clusterSetting을 활성화하면 시스템 성능에 영향을 줄 수 있습니다. InternalEncryption을 활성화하도록 변경하는 경우 변경이 완전히 전파될 때까지 ASE는 불안정한 상태가 됩니다. ASE에 있는 인스턴스의 수에 따라 변경 내용의 전체 전파를 완료하는 데 몇 시간이 걸릴 수 있습니다. ASE를 사용하는 동안에는 이를 사용하도록 설정하지 않는 것이 좋습니다. 현재 사용 중인 ASE에서 이를 사용하도록 설정해야 하는 경우 작업이 완료될 때까지 백업 환경으로 트래픽을 전환하는 것이 좋습니다. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>TLS 1.0 및 TLS 1.1 사용 안 함
 

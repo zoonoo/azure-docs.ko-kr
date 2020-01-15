@@ -6,35 +6,35 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: e112fdc9e6f518e2ea3c72161e8978118cf19335
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6e35430713a3dbc8317944fed1180432a2083676
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890317"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461607"
 ---
-# <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>자습서: Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
+# <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
-이 빠른 시작에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring Cloud 애플리케이션을 준비하는 방법을 보여줍니다.  올바르게 구성된 Azure Spring Cloud는 Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다. 
+이 빠른 시작에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring Cloud 애플리케이션을 준비하는 방법을 보여줍니다. 제대로 구성된 경우, Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
 
 ## <a name="java-runtime-version"></a>Java Runtime 버전
 
 Spring/Java 애플리케이션만 Azure Spring Cloud에서 실행할 수 있습니다.
 
-Java 8 및 Java 11이 둘 다 지원됩니다. 호스팅 환경에는 Azure용 최신 Azul Zulu OpenJDK가 포함되어 있습니다. Azure용 Azul Zulu OpenJDK에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)를 참조하세요. 
+Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 환경에는 Azure용 Azul Zulu OpenJDK의 최신 버전이 포함되어 있습니다. Azure용 Azul Zulu OpenJDK에 대한 자세한 내용은 [JDK 설치](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)를 참조하세요.
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Spring Boot 및 Spring Cloud 버전
 
-Azure Spring Cloud에서는 Spring Boot 앱만 지원됩니다. Spring Boot 2.0 및 2.1이 모두 지원됩니다. 지원되는 Spring Boot 및 Spring Cloud 조합은 아래 표에 나와 있습니다.
+Azure Spring Cloud는 Spring Boot 앱만 지원합니다. Spring Boot 버전 2.0과 버전 2.1을 모두 지원합니다. 아래 표에는 지원되는 Spring Boot 및 Spring Cloud 조합이 나와 있습니다.
 
 Spring Boot 버전 | Spring Cloud 버전
 ---|---
-2.0.x | Finchley.RELEASE
-2.1.x | Greenwich.RELEASE
+2.0 | Finchley.RELEASE
+2.1 | Greenwich.RELEASE
 
-`pom.xml` 파일에 버전에 따라 Spring Boot 및 Spring Cloud 종속성이 있는지 확인합니다.
+pom.xml 파일에 Spring Boot 버전에 따라 올바른 Spring Boot 및 Spring Cloud 종속성이 있는지 확인하세요.
 
-### <a name="version-20"></a>버전 2.0:
+### <a name="dependencies-for-spring-boot-version-20"></a>Spring Boot 버전 2.0에 대한 종속성
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -58,7 +58,7 @@ Spring Boot 버전 | Spring Cloud 버전
     </dependencyManagement>
 ```
 
-### <a name="version-21"></a>버전 2.1:
+### <a name="dependencies-for-spring-boot-version-21"></a>Spring Boot 버전 2.1에 대한 종속성
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -84,18 +84,19 @@ Spring Boot 버전 | Spring Cloud 버전
 
 ## <a name="azure-spring-cloud-client-dependency"></a>Azure Spring Cloud 클라이언트 종속성
 
-Azure Spring Cloud에서는 Spring Cloud 서비스 레지스트리 및 Spring Cloud Config 서버와 같은 Spring Cloud 구성 요소가 호스팅되고 관리됩니다. Azure Spring Cloud 서비스 인스턴스와 통신할 수 있도록 종속성에 Azure Spring Cloud의 클라이언트 라이브러리를 포함합니다.
+Azure Spring Cloud는 Spring Cloud 구성 요소를 호스팅하고 관리해 줍니다. 이러한 구성 요소에는 에는 Spring Cloud 서비스 레지스트리 및 Spring Cloud 구성 서버가 포함됩니다. 종속성에 Azure Spring Cloud 클라이언트 라이브러리를 포함하면, Azure Spring Cloud 서비스 인스턴스와 통신할 수 있습니다.
 
-아래 표에는 Spring Boot/Spring Cloud 앱의 올바른 버전이 나와 있습니다.
+다음 표에는 Spring Boot 및 Spring Cloud를 사용하는 앱의 올바른 Azure Spring Cloud 버전이 나와 있습니다.
 
 Spring Boot 버전 | Spring Cloud 버전 | Azure Spring Cloud 버전
 ---|---|---
-2.0.x | Finchley.RELEASE | 2.0.x
-2.1.x | Greenwich.RELEASE | 2.1.x
+2.0 | Finchley.RELEASE | 2.0
+2.1 | Greenwich.RELEASE | 2.1
 
-`pom.xml` 아래 코드 조각 중 하나를 포함합니다.  사용자 소유의 버전과 일치하는 코드 조각을 선택합니다.
+pom.xml 파일에 다음 종속성 중 하나를 포함하세요. Azure Spring Cloud 버전이 사용하는 버전과 일치하는 종속성을 선택하세요.
 
-### <a name="version-20x"></a>버전 2.0.x:
+### <a name="dependency-for-azure-spring-cloud-version-20"></a>Azure Spring Cloud 버전 2.0에 대한 종속성
+
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -104,7 +105,8 @@ Spring Boot 버전 | Spring Cloud 버전 | Azure Spring Cloud 버전
 </dependency>
 ```
 
-### <a name="version-21x"></a>버전 2.1.x:
+### <a name="dependency-for-azure-spring-cloud-version-21"></a>Azure Spring Cloud 버전 2.1에 대한 종속성
+
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -115,13 +117,11 @@ Spring Boot 버전 | Spring Cloud 버전 | Azure Spring Cloud 버전
 
 ## <a name="other-required-dependencies"></a>기타 필수 종속성
 
-Azure Spring Cloud의 기본 제공 기능을 사용하려면 애플리케이션에 다음 종속성이 포함되어야 합니다. 이렇게 하면 애플리케이션이 각 구성 요소에 맞게 올바르게 구성됩니다.  
+Azure Spring Cloud의 기본 제공 기능을 사용하려면 애플리케이션에 다음 종속성이 포함되어야 합니다. 이렇게 포함하면 애플리케이션이 각 구성 요소에 맞게 올바르게 구성됩니다.  
 
-### <a name="service-registry"></a>서비스 레지스트리
+### <a name="service-registry-dependency"></a>서비스 레지스트리 종속성
 
-관리형 Azure Service Registry 서비스를 사용하려면 아래와 같이 `POM.xml`에 `spring-cloud-starter-netflix-eureka-client`를 포함합니다.
-
-서비스 레지스트리 서버의 엔드포인트는 앱에 환경 변수로 자동 삽입됩니다. 애플리케이션이 서비스 레지스트리 서버에 자체 등록하고 다른 종속 마이크로서비스를 검색할 수 있습니다.
+관리형 Azure Service Registry 서비스를 사용하려면 아래와 같이 `spring-cloud-starter-netflix-eureka-client` 종속성을 pom.xml 파일에 포함합니다.
 
 ```xml
     <dependency>
@@ -130,9 +130,11 @@ Azure Spring Cloud의 기본 제공 기능을 사용하려면 애플리케이션
     </dependency>
 ```
 
-### <a name="distributed-configuration"></a>분산 구성
+서비스 레지스트리 서버의 엔드포인트는 앱에 환경 변수로 자동 삽입됩니다. 애플리케이션이 서비스 레지스트리 서버에 자체적으로 등록되고, 기타 종속 마이크로서비스를 검색할 수 있습니다.
 
-분산 구성을 사용하도록 설정하려면, `pom.xml`의 종속성 섹션에 `spring-cloud-config-client`를 포함합니다.
+### <a name="distributed-configuration-dependency"></a>분산 구성 종속성
+
+분산 구성을 사용하도록 설정하려면, pom.xml 파일의 종속성 섹션에 `spring-cloud-config-client` 종속성을 포함합니다.
 
 ```xml
 <dependency>
@@ -142,11 +144,11 @@ Azure Spring Cloud의 기본 제공 기능을 사용하려면 애플리케이션
 ```
 
 > [!WARNING]
-> 부트스트랩 구성에 `spring.cloud.config.enabled=false`를 지정하지 마십시오. 애플리케이션이 Config 서버와 작동하지 못하게 됩니다.
+> 부트스트랩 구성에 `spring.cloud.config.enabled=false`를 지정하지 마세요. 그렇지 않으면 애플리케이션이 구성 서버 작업을 중지합니다.
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics-dependency"></a>메트릭 종속성
 
-pom.xml의 종속성 섹션에 `spring-boot-starter-actuator`를 포함합니다. 메트릭을 JMX 엔드포인트에서 주기적으로 가져오고 Azure Portal을 사용하여 시각화할 수 있습니다.
+다음과 같이 pom.xml 파일의 종속성 섹션에 `spring-boot-starter-actuator` 종속성을 포함합니다.
 
 ```xml
 <dependency>
@@ -155,9 +157,11 @@ pom.xml의 종속성 섹션에 `spring-boot-starter-actuator`를 포함합니다
 </dependency>
 ```
 
-### <a name="distributed-tracing"></a>분산 추적
+ JMX 엔드포인트에서 메트릭을 정기적으로 끌어옵니다. Azure Portal을 사용하여 메트릭을 시각화할 수 있습니다.
 
-아래 pom.xml의 종속성 섹션에 `spring-cloud-starter-sleuth` 및 `spring-cloud-starter-zipkin`을 포함합니다. 또한 Azure App Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure Spring Cloud로 App Insights를 사용하도록 설정하는 방법에 대한 자세한 내용은 [여기](spring-cloud-tutorial-distributed-tracing.md)를 참조하세요.
+### <a name="distributed-tracing-dependency"></a>분산 추적 종속성
+
+pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `spring-cloud-starter-zipkin` 종속성을 포함합니다.
 
 ```xml
 <dependency>
@@ -170,11 +174,13 @@ pom.xml의 종속성 섹션에 `spring-boot-starter-actuator`를 포함합니다
 </dependency>
 ```
 
+ 또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure Spring Cloud에서 Application Insights를 사용하는 방법을 알아보려면 [분산 추적에 대한 자습서](spring-cloud-tutorial-distributed-tracing.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Spring Cloud에 배포하기 위해 Java Spring 애플리케이션을 구성하는 방법을 알아보았습니다.  Config 서버를 사용하도록 설정하는 방법을 알아보려면 다음 자습서를 계속 진행하십시오.
+이 자습서에서는 Azure Spring Cloud에 배포하기 위해 Java Spring 애플리케이션을 구성하는 방법을 알아보았습니다. 구성 서버 인스턴스를 설정하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Config 서버를 설정하는 방법을 알아봅니다](spring-cloud-tutorial-config-server.md).
+> [구성 서버 인스턴스를 설정하는 방법 알아보기](spring-cloud-tutorial-config-server.md)
 
 GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

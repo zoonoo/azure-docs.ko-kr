@@ -2,14 +2,14 @@
 title: 관리 그룹으로 리소스 구성 - Azure Governance
 description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.date: 04/22/2019
+ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 7e121ed256e04332ca7fd33c9fc48cd2bc7bae03
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 72e37c3ef96f8068d9d9958910a6d75bbebd37fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436497"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "73960191"
 
 ![관리 그룹 계층 구조 트리 예제](./media/tree.png)
 
-예를 들어 "Production"(생산)이라는 그룹에서 VM 위치를 미국 서부 지역으로 제한하는 정책을 적용하는 계층을 만들 수 있습니다. 이 정책은 해당 관리 그룹의 두 EA 구독으로 상속되어 해당 구독의 모든 VM에 적용됩니다. 거버넌스 향상을 위해 리소스 또는 구독 소유자가 이 보안 정책을 변경할 수 없습니다.
+예를 들어 "Production"(생산)이라는 그룹에서 VM 위치를 미국 서부 지역으로 제한하는 정책을 적용하는 계층을 만들 수 있습니다. 이 정책은 해당 관리 그룹의 하위 항목인 모든 EA 구독으로 상속되어 해당 구독의 모든 VM에 적용됩니다. 거버넌스 향상을 위해 리소스 또는 구독 소유자가 이 보안 정책을 변경할 수 없습니다.
 
 관리 그룹을 사용할 만한 또 다른 시나리오는 여러 구독에 대한 사용자 액세스 제공입니다. 해당 관리 그룹에서 여러 구독을 이동하면 관리 그룹에 하나의 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md)) 할당을 만들 수 있습니다. 그러면 모든 구독에 대한 액세스를 상속하게 됩니다.
 관리 그룹에 하나만 할당하면 여러 구독에 RBAC를 스크립팅하지 않고 사용자가 필요한 모든 항목에 액세스할 수 있습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "73960191"
 ### <a name="important-facts-about-the-root-management-group"></a>루트 관리 그룹에 대한 중요한 사실
 
 - 기본적으로 루트 관리 그룹의 표시 이름은 **테넌트 루트 그룹**입니다. ID는 Azure Active Directory ID입니다.
-- 표시 이름을 변경하려면 계정에 루트 관리 그룹의 소유자 또는 기여자 역할이 할당되어야 합니다. 이름을 변경하는 단계는 [관리 그룹의 이름 변경](manage.md#change-the-name-of-a-management-group)을 참조하세요.
+- 표시 이름을 변경하려면 계정에 루트 관리 그룹의 소유자 또는 기여자 역할이 할당되어야 합니다. 관리 그룹 이름을 변경하려면 [관리 그룹의 이름 변경](manage.md#change-the-name-of-a-management-group)을 참조하세요.
 - 루트 관리 그룹은 다른 관리 그룹과는 다르게 이동하거나 삭제할 수 없습니다.  
 - 모든 구독 및 관리 그룹은 디렉터리 내의 한 루트 관리 그룹까지 접을 수 있습니다.
   - 디렉터리의 모든 리소스는 전역 관리를 위해 루트 관리 그룹까지 접을 수 있습니다.
@@ -82,12 +82,12 @@ ms.locfileid: "73960191"
 ## <a name="management-group-access"></a>관리 그룹 액세스
 
 Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [Azure RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 지원합니다.
-이러한 권한은 해당 계층 구조에 있는 자식 리소스에 상속됩니다. 기본 제공 RBAC 역할은 리소스에 대한 계층 구조를 상속하는 관리 그룹에 할당될 수 있습니다.
+이러한 권한은 해당 계층 구조에 있는 자식 리소스에 상속됩니다. 모든 RBAC 역할은 리소스에 대한 계층 구조를 상속하는 관리 그룹에 할당할 수 있습니다.
 예를 들어, RBAC 역할 VM 기여자는 관리 그룹에 할당될 수 있습니다. 이 역할은 관리 그룹에 대한 조치를 취하지 않지만 해당 관리 그룹에서 모든 VM에 상속됩니다.
 
 다음 차트에서는 관리 그룹에 대한 역할 및 지원되는 작업 목록을 보여줍니다.
 
-| RBAC 역할 이름             | 생성 | 이름 바꾸기 | 이동** | 삭제 | 액세스 권한 할당 | 정책 할당 | 읽기  |
+| RBAC 역할 이름             | 생성 | 이름 바꾸기 | 이동** | DELETE | 액세스 권한 할당 | 정책 할당 | 읽기  |
 |:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
 |소유자                       | X      | X      | X      | X      | X             | X             | X     |
 |참가자                 | X      | X      | X      | X      |               |               | X     |
@@ -100,9 +100,86 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 *: MG 기여자 및 MG 읽기 권한자는 사용자가 관리 그룹 범위에서 이러한 작업만 수행하도록 허용합니다.  
 **: 구독 또는 관리 그룹을 이동하기 위해 루트 관리 그룹에 대한 역할을 할당할 필요가 없습니다.  계층 내에서 항목을 이동하는 방법에 대한 세부 정보는 [관리 그룹을 사용하여 리소스 관리](manage.md)를 참조하세요.
 
-### <a name="custom-rbac-role-definition-and-assignment"></a>사용자 지정 RBAC 역할 정의 및 할당
+## <a name="custom-rbac-role-definition-and-assignment"></a>사용자 지정 RBAC 역할 정의 및 할당
 
-사용자 지정 RBAC 역할은 현재 관리 그룹에서 지원되지 않습니다. [관리 그룹 피드백 포럼](https://aka.ms/mgfeedback)을 참조하여 이 항목의 상태를 봅니다.
+관리 그룹에 대한 사용자 지정 RBAC 역할 지원은 현재 몇 가지 [제한 사항](#limitations)이 있습니다.  역할 정의의 할당 가능한 범위에서 관리 그룹 범위를 정의할 수 있습니다.  그 후 해당 관리 그룹 및 다른 관리 그룹, 구독, 리소스 그룹 또는 리소스 그룹의 리소스에 사용자 지정 RBAC 역할을 할당할 수 있습니다. 이 사용자 지정 역할은 기본 제공 역할과 마찬가지로 계층 구조를 상속합니다.    
+
+### <a name="example-definition"></a>정의 예제
+[사용자 지정 역할 정의 및 만들기](../../role-based-access-control/custom-roles.md)는 관리 그룹을 포함해도 변경되지 않습니다. 전체 경로를 사용하여 **/providers/Microsoft.Management/managementgroups/{groupId}** 관리 그룹을 정의합니다. 
+
+관리 그룹의 표시 이름이 아니라 관리 그룹의 ID를 사용합니다. 이 일반 오류는 관리 그룹을 만들 때 둘 다 사용자 정의 필드이기 때문에 발생합니다. 
+
+```json
+...
+{
+  "Name": "MG Test Custom Role",
+  "Id": "id", 
+  "IsCustom": true,
+  "Description": "This role provides members understand custom roles.",
+  "Actions": [
+    "Microsoft.Management/managementgroups/delete",
+    "Microsoft.Management/managementgroups/read",
+    "Microsoft.Management/managementgroup/write",
+    "Microsoft.Management/managementgroup/subscriptions/delete",
+    "Microsoft.Management/managementgroup/subscriptions/write",
+    "Microsoft.resources/subscriptions/read",
+    "Microsoft.Authorization/policyAssignments/*",
+    "Microsoft.Authorization/policyDefinitions/*",
+    "Microsoft.Authorization/policySetDefinitions/*",
+    "Microsoft.PolicyInsights/*",
+    "Microsoft.Authorization/roleAssignments/*",
+    "Microsoft.Authorization/roledefinitions/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+        "/providers/microsoft.management/managementGroups/ContosoCorporate"
+  ]
+}
+...
+```
+
+### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>역할 정의 및 할당 계층 경로를 위반하는 이슈
+역할 정의는 관리 그룹 계층 구조 내부의 어느 위치에나 할당 가능한 범위입니다. 역할 정의는 부모 관리 그룹에서 정의할 수 있지만 실제 역할 할당은 자식 구독에 존재합니다. 두 항목 간에 관계가 있으므로, 해당 정의에서 할당을 분리하려고 시도하면 오류가 발생합니다. 
+
+다음은 그 예입니다.  시각적 개체의 계층 구조 일부를 살펴보겠습니다. 
+
+![하위 트리](./media/subtree.png)
+
+마케팅 관리 그룹에 사용자 지정 역할이 정의되어 있다고 가정하겠습니다. 이 사용자 지정 역할은 두 개의 평가판 구독에 할당됩니다.  
+
+구독 중 하나를 프로덕션 관리 그룹의 자식으로 이동하려고 시도하면 이 이동으로 인해 구독 역할 할당에서 마케팅 관리 그룹 역할 정의로의 경로가 중단됩니다. 이 시나리오에서는 이 관계를 손상하는 이동은 허용되지 않는다는 오류 메시지가 표시됩니다.  
+
+이 시나리오를 해결하는 다음과 같은 몇 가지 옵션이 있습니다.
+- 구독에서 역할 할당을 제거한 후 구독을 새 부모 MG로 이동합니다.
+- 역할 정의의 할당 가능한 범위에 구독을 추가합니다.
+- 역할 정의 내에서 할당 가능한 범위를 변경합니다. 위의 예제에서 계층 구조의 두 분기가 정의에 도달할 수 있도록 할당 가능한 범위를 마케팅에서 루트 관리 그룹으로 업데이트할 수 있습니다.   
+- 다른 분기에 정의되는 추가 사용자 지정 역할을 만듭니다.  이 새 역할은 구독에서도 역할 할당을 변경하도록 요구합니다.  
+
+### <a name="limitations"></a>제한 사항  
+관리 그룹에 사용자 지정 역할을 사용할 때 몇 가지 제한 사항이 있습니다. 
+
+ - 새 역할의 할당 가능한 범위에서 관리 그룹을 하나만 정의할 수 있습니다.  이 제한은 역할 정의와 역할 할당의 연결이 끊어지는 상황을 줄이기 위해 마련되었습니다.  이 상황은 역할 할당이 있는 구독 또는 관리 그룹을 역할 정의가 없는 다른 부모로 이동할 때 발생합니다.   
+ - 관리 그룹 사용자 지정 역할에는 RBAC 데이터 평면 작업을 정의할 수 없습니다.  이 제한은 데이터 평면 리소스 공급자를 업데이트하는 RBAC 작업에 대기 시간 이슈가 있기 때문에 마련되었습니다. 이 대기 시간 이슈를 해결하기 위해 노력 중이며, 위험을 줄이기 위해 역할 정의에서 이러한 작업을 사용하지 않을 것입니다.
+ - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인하지 않습니다.  철자 오류가 있거나 잘못된 관리 그룹 ID가 있는 경우에도 역할 정의는 계속 생성됩니다.   
+
+## <a name="moving-management-groups-and-subscriptions"></a>관리 그룹 및 구독 이동 
+
+관리 그룹 또는 구독이 다른 관리 그룹의 자식이 되려면 세 가지 규칙이 true로 평가되어야 합니다.
+
+이동 작업을 수행하는 경우 다음이 필요합니다. 
+
+-  자식 구독 또는 관리 그룹에 대한 관리 그룹 쓰기 및 역할 할당 쓰기 권한.
+   - 기본 제공 역할 예제 **소유자**
+- 대상 부모 관리 그룹에 대한 관리 그룹 쓰기 액세스 권한.
+   - 기본 제공 역할 예제: **소유자**, **기여자**, **관리 그룹 기여자**
+- 기존 부모 관리 그룹에 대한 관리 그룹 쓰기 액세스 권한.
+   - 기본 제공 역할 예제: **소유자**, **기여자**, **관리 그룹 기여자**
+
+**예외**: 대상 또는 기존 부모 관리 그룹이 루트 관리 그룹인 경우 권한 요구 사항이 적용되지 않습니다. 루트 관리 그룹은 모든 새 관리 그룹 및 구독의 기본 랜딩 스팟이므로 루트 관리 그룹에 대한 권한이 없어도 항목을 이동할 수 있습니다.
+
+구독의 소유자 역할이 현재 관리 그룹에서 상속되는 경우 이동 대상이 제한됩니다. 소유자 역할이 있는 다른 관리 그룹으로만 구독을 이동할 수 있습니다. 기여자인 관리 그룹으로는 이동할 수 없습니다. 구독의 소유권을 잃게 되기 때문입니다. 구독의 소유자 역할(관리 그룹에서 상속되지 않음)에 직접 할당되는 경우 기여자인 관리 그룹으로 이동할 수 있습니다. 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>활동 로그를 사용하여 관리 그룹 감사
 
