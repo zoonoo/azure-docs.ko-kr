@@ -2,30 +2,23 @@
 title: Azure Functions와 Azure App Configuration에 대한 빠른 시작 | Microsoft Docs
 description: Azure Functions와 함께 Azure App Configuration을 사용하는 경우 참고할 수 있는 빠른 시작입니다.
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 12/17/2019
 ms.author: yegu
-ms.openlocfilehash: 6329cf0e74bbcf57164afeab5b04e2af4ee43943
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3c8dc27b9d7781a8420fa76e5aeac9637b87c569
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413773"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure Functions 앱 만들기
 
 이 빠른 시작에서는 Azure App Configuration 서비스를 Azure Functions 앱에 통합하여 코드와 별도로 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - **Azure 개발** 워크로드를 사용하는 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -61,7 +54,7 @@ ms.locfileid: "74187216"
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. `static` 속성을 `Configuration`에 추가하여 `IConfiguration`의 단일 인스턴스를 만듭니다. 그런 다음, `AddAzureAppConfiguration()`를 호출하여 App Configuration에 연결하는 `static` 생성자를 추가합니다. 그러면 애플리케이션이 시작될 때 구성이 한 번 로드됩니다. 이후부터는 모든 Functions 호출에 동일한 구성 인스턴스가 사용됩니다.
+3. `Configuration`이라는 `static` 속성을 추가하여 `IConfiguration`의 단일 인스턴스를 만듭니다. 그런 다음, `AddAzureAppConfiguration()`를 호출하여 App Configuration에 연결하는 `static` 생성자를 추가합니다. 그러면 애플리케이션이 시작될 때 구성이 한 번 로드됩니다. 이후부터는 모든 Functions 호출에 동일한 구성 인스턴스가 사용됩니다.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -94,17 +87,19 @@ ms.locfileid: "74187216"
 
 1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
-
+    ```
     Windows PowerShell을 사용하는 경우 다음 명령을 실행합니다.
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
+    ```
     macOS 또는 Linux를 사용하는 경우 다음 명령을 실행합니다.
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. 함수를 테스트하려면 F5 키를 누릅니다. 메시지가 표시되면 Visual Studio에서 **Azure Functions Core(CLI)** 도구를 다운로드하여 설치하도록 요구하는 요청을 수락합니다. 또한 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 할 수도 있습니다.
+2. F5를 눌러 함수를 테스트합니다. 메시지가 표시되면 Visual Studio에서 **Azure Functions Core(CLI)** 도구를 다운로드하여 설치하도록 요구하는 요청을 수락합니다. 또한 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 할 수도 있습니다.
 
 3. Azure Functions 런타임 출력에서 함수의 URL을 복사합니다.
 

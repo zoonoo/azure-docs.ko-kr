@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 996bc35820d35e031056207adeb707a7ea98a763
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c29aadfde6c0ab01b2e6ed2c9e4bcc59572bef57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920432"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424018"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -51,13 +51,12 @@ ms.locfileid: "74920432"
 >      - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
 >      - **등록**을 선택하여 애플리케이션을 만듭니다.
 > 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
-> 1. **데스크톱 + 디바이스** 섹션을 확장합니다.  (**데스크톱 + 디바이스**가 보이지 않으면, 먼저 위쪽 배너를 클릭하여 미리 보기 인증 환경을 표시합니다.)
-> 1. **리디렉션 URI** 섹션에서 **URI 추가**를 선택합니다.  **urn:ietf:wg:oauth:2.0:oob**를 입력합니다.
+> 1. **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
 > 1. **저장**을 선택합니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 리디렉션 URI를 **urn:ietf:wg:oauth:2.0:oob**로 추가해야 합니다.
+> 이 빠른 시작용 코드 샘플이 작동하려면 리디렉션 URI를 **https://login.microsoftonline.com/common/oauth2/nativeclient** 로 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >

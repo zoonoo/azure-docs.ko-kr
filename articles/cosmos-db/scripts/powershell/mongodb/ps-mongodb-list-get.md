@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 - Cosmos DB 목록 및 MongoDB API용 작업 가져오기
+title: Azure Cosmos DB의 API for MongoDB에서 작업을 나열하고 가져오는 PowerShell 스크립트
 description: Azure PowerShell 스크립트 - Cosmos DB 목록 및 MongoDB API용 작업 가져오기
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 47d2f6a14fadfa75e5db28eb44b7ca3410e6503c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 4b5934e82c14f50ef1884a6c5618f4f98d663e1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441425"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Azure Cosmos DB의 MongoDB API에 대한 데이터베이스, 그래프 나열 및 가져오기
 

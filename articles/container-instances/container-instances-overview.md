@@ -4,12 +4,12 @@ description: Azure Container Instances 서비스는 가상 머신을 관리하�
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c8f243bc2bda83a467688ac5828219cd015c8326
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533537"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552324"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -21,13 +21,19 @@ Azure Container Instances는 간단한 애플리케이션, 작업 자동화 및 
 
 컨테이너는 VM(가상 머신)에 비해 상당한 시작 이점을 제공합니다. Azure Container Instances는 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
 
-## <a name="public-ip-connectivity-and-dns-name"></a>공용 IP 연결 및 DNS 이름
+## <a name="container-access"></a>컨테이너 액세스
 
-Azure Container Instances는 IP 주소 및 FQDN(정규화된 도메인 이름)을 사용하여 컨테이너를 인터넷에 직접 노출할 수 있습니다. 컨테이너 인스턴스를 만들 때 사용자 정의 DNS 이름 레이블을 지정하여 *customlabel*.*azureregion*.azurecontainer.io에서 애플리케이션에 연결할 수 있습니다.
+Azure Container Instances는 IP 주소 및 FQDN(정규화된 도메인 이름)을 사용하여 컨테이너 그룹을 인터넷에 직접 노출할 수 있습니다. 컨테이너 인스턴스를 만들 때 사용자 정의 DNS 이름 레이블을 지정하여 *customlabel*.*azureregion*.azurecontainer.io에서 애플리케이션에 연결할 수 있습니다.
+
+또한 Azure Container Instances는 애플리케이션 개발 및 문제 해결에 도움이 되는 대화형 셸을 제공하여 실행 중인 컨테이너에서 명령 실행을 지원합니다. 액세스는 HTTPS를 통해 이루어지며, TLS를 사용하여 클라이언트 연결을 보호합니다.
+
+> [!IMPORTANT]
+> 2020년 1월 13일부터 Azure Container Instances는 TLS 1.2를 사용하기 위해 서버 및 애플리케이션의 모든 보안 연결이 필요합니다. TLS 1.0 및 1.1에 대한 지원이 중단됩니다.
 
 ## <a name="hypervisor-level-security"></a>하이퍼바이저 수준 보안
 
 지금까지는 컨테이너가 애플리케이션 종속성 격리 및 리소스 관리를 제공했지만 적대적인 다중 테넌트 사용을 위해서 충분히 보강되지 않았습니다. Azure Container Instances는 애플리케이션이 VM에서 격리되는 것처럼 컨테이너에서도 격리되도록 보장합니다.
+
 
 ## <a name="custom-sizes"></a>사용자 지정 크기
 
@@ -37,7 +43,7 @@ Machine Learning과 같은 컴퓨팅 집약적인 작업의 경우 Azure Contain
 
 ## <a name="persistent-storage"></a>영구 스토리지
 
-Azure Container Instances를 통해 상태를 검색하고 유지하려면 [Azure Files 공유 탑재](container-instances-mounting-azure-files-volume.md)를 직접 제공합니다.
+Azure Container Instances를 통해 상태를 검색하고 유지하기 위해 Azure Storage가 지원하는 [Azure Files 공유 탑재](container-instances-mounting-azure-files-volume.md)를 직접 제공합니다.
 
 ## <a name="linux-and-windows-containers"></a>Linux 및 Windows 컨테이너
 

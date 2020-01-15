@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f816091e3e8682069a950ff6f6eb839e285bb2f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512450"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423353"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
@@ -50,7 +50,7 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 
 이 가이드에서는 다음 NuGet 패키지를 사용합니다.
 
-|라이브러리|설명|
+|라이브러리|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft 인증 라이브러리(MSAL.NET)|
 
@@ -106,9 +106,9 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
    - **등록**을 선택하여 애플리케이션을 만듭니다.
 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
    1. **리디렉션 URI** 섹션의 리디렉션 URI 목록에서 다음을 수행합니다.
-   1. **TYPE** 열에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다.
-   1. **REDIRECT URI** 열에 `urn:ietf:wg:oauth:2.0:oob`를 입력합니다.
-1. **저장**을 선택합니다.
+   1. **TYPE** 열에서 **퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)** 를 선택합니다.
+   1. **REDIRECT URI** 열에 `https://login.microsoftonline.com/common/oauth2/nativeclient`를 입력합니다.
+1. **등록**을 선택합니다.
 1. Visual Studio로 이동하여 *App.xaml.cs* 파일을 연 다음 아래 코드 조각의 `Enter_the_Application_Id_here`를 방금 등록하고 복사한 애플리케이션 ID로 바꿉니다.
 
     ```csharp
@@ -311,7 +311,7 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 애플리케이션 예제에서는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행한 다음, 호출자에게 콘텐츠를 반환하는 데 `GetHttpContentWithToken` 메서드를 사용합니다. 이 메서드는 HTTP 인증 헤더에서 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
+이 애플리케이션 예제에서는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행한 다음, 호출자에게 콘텐츠를 반환하는 데 `GetHttpContentWithToken` 메서드를 사용합니다. 이 메서드는 HTTP 인증 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>사용자를 로그아웃하는 메서드 추가

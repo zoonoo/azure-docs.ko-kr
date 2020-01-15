@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 - MongoDB API용 Azure Cosmos DB 업데이트 RU/s
+title: Azure Cosmos DB의 API for MongoDB에 대한 RU/s를 업데이트하는 PowerShell 스크립트
 description: PowerShell 스크립트를 사용하여 Azure Cosmos DB의 API for MongoDB에서 데이터베이스 또는 컨테이너의 처리량을 업데이트하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 626904c4e281c7ce3ce632412daa24ecdb56938e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7064d9e6387b264b9b7134eb7dff5f988347a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871910"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441404"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Azure Cosmos DB의 MongoDB API용 데이터베이스 또는 컬렉션에 대한 RU/s 업데이트
 

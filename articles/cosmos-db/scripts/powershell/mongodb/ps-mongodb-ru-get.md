@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 - MongoDB API용 Azure Cosmos DB 처리량 가져오기(RU/s)
+title: Azure Cosmos DB의 API for MongoDB에 대한 처리량(RU/s)을 가져오는 PowerShell 스크립트
 description: Azure PowerShell 스크립트 - MongoDB API용 Azure Cosmos DB 처리량 가져오기(RU/s)
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0df75831bb54ebb9f648a8ca9207c2572fd4d2e9
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: d7cd068722a1dcc99b909020fa5bae34ae4a4768
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178873"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441396"
 ---
 # <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Azure Cosmos DB - MongoDB API용 데이터베이스 또는 컬렉션에 대한 처리량 가져오기(RU/s)
 

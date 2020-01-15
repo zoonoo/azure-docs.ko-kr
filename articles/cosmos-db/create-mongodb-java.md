@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure API for Mongo DB 및 Java SDK를 사용하여 웹앱 빌드 - Azure Cosmos DB'
-description: Azure Cosmos DB의 API for MongoDB를 사용하여 연결 및 쿼리할 수 있는 Java 코드 샘플을 제공합니다.
+title: '빠른 시작: Azure Cosmos DB API for Mongo DB 및 Java SDK를 사용하여 웹앱 빌드'
+description: Azure Cosmos DB의 API for MongoDB를 사용하여 연결 및 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 빌드하는 방법을 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bfded407790d01d65feec0b6e069c23739064e97
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 05a796e5bf197bf9ea4f8f47adfbf30851b300ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756914"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445498"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB에서 Java 및 MongoDB API를 사용하여 콘솔 앱 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "72756914"
 
 이 빠른 시작에서는 [Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)를 사용하여 Cosmos 계정을 만드는 방법을 보여줍니다. 그런 다음, [MongoDB Java 드라이버](https://docs.mongodb.com/ecosystem/drivers/java/)를 사용하여 콘솔 앱을 빌드 및 배포합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하기 전에 다음 필수 조건이 있어야 합니다.
 * [Azure 및 Azure Stack JDK 8 버전용 JDK 설치](https://aka.ms/azure-jdks)
@@ -54,7 +54,7 @@ ms.locfileid: "72756914"
 
 이제 GitHub에서 앱을 복제하고, 연결 문자열을 설정하고, 앱을 실행하겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
-1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+1. 명령 프롬프트를 열고, git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
     ```bash
     md "C:\git-samples"

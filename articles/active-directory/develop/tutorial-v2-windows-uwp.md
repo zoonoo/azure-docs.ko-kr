@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0cafc439a24c10c4c5a678219a0e0dce84476ff
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e2a243b11c2789afe0b2eb7ffd8de032dc10d8d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423344"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
@@ -44,7 +44,7 @@ ms.locfileid: "71290847"
 
 이 가이드에서는 다음 NuGet 패키지를 사용합니다.
 
-|라이브러리|설명|
+|라이브러리|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft 인증 라이브러리|
 
@@ -55,7 +55,7 @@ ms.locfileid: "71290847"
 이 가이드에서는 Graph API를 쿼리하는 단추와 로그아웃하는 단추를 표시하는 애플리케이션을 만듭니다. 또한 호출 결과가 포함된 텍스트 상자도 표시합니다.
 
 > [!NOTE]
-> 이 샘플의 Visual Studio 프로젝트를 만드는 대신 다운로드하고 싶나요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)하고, [애플리케이션 등록](#register-your-application "a애플리케이션 등록") 단계로 건너뛰어 코드 샘플을 구성한 후에 실행하세요.
+> 이 샘플의 Visual Studio 프로젝트를 만드는 대신 다운로드하고 싶나요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)하고, [애플리케이션 등록](#register-your-application "애플리케이션 등록 단계") 단계로 건너뛰어 코드 샘플을 구성한 후에 실행하세요.
 
 ### <a name="create-your-application"></a>애플리케이션 만들기
 
@@ -353,7 +353,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
 애플리케이션에 대한 인증을 구성합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 돌아가서 **관리** 아래에서 **인증**을 선택합니다.
-1. **리디렉션 URI** 목록에서 **유형**에 대해 **공용 클라이언트(모바일 및 데스크톱)** 를 선택하고 **리디렉션 URI**에 대해 `urn:ietf:wg:oauth:2.0:oob`를 입력합니다.
+1. **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
 1. **저장**을 선택합니다.
 
 애플리케이션에 대한 API 권한을 구성합니다.
@@ -400,7 +400,7 @@ Windows 통합 인증을 페더레이션된 Azure AD 도메인에서 사용하�
 
 **토큰 정보** 상자에 `AcquireTokenInteractive` 또는 `AcquireTokenSilent`를 통해 획득한 토큰에 대한 기본 정보가 표시됩니다.
 
-|자산  |형식  |설명 |
+|속성  |형식  |Description |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |사용자를 식별하는 사용자 이름입니다.|
 |`Token Expires` |`DateTime` |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|

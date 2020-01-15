@@ -1,7 +1,7 @@
 ---
 title: '자습서: 복합 엔터티 자습서 - LUIS'
 titleSuffix: Azure Cognitive Services
-description: 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
+description: 이 자습서에서는 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f2b2c3f52610cd9fae0845b15aebf032a088000b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447957"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>자습서: 관련된 데이터 그룹화 및 추출
 이 자습서에서는 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
@@ -28,8 +28,6 @@ ms.locfileid: "74893191"
 * 서로 관련이 있습니다.
 * 다양한 엔터티 형식을 사용합니다.
 * 클라이언트 앱에서 정보 단위로 그룹화하고 처리되어야 합니다.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
@@ -46,9 +44,10 @@ ms.locfileid: "74893191"
 
 ## <a name="import-example-app"></a>예제 앱 가져오기
 
-1.  목록 엔터티 자습서에서 [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json)을 다운로드하여 저장합니다.
+1.  목록 엔터티 자습서에서 [앱 JSON 파일](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true)을 다운로드하여 저장합니다.
 
-2. JSON을 새 앱으로 가져옵니다.
+2. [LUIS 포털](https://www.luis.ai)을 사용하여 JSON을 새 앱으로 가져옵니다.
 
 3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `composite`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
 

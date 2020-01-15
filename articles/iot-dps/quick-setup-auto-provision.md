@@ -8,16 +8,23 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 32199623c6b3198f37854986745872aafa6747eb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e2b2f13c3570683b575d13b5aadb3e03ec549cab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434587"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>빠른 시작: Azure Portal에서 IoT Hub Device Provisioning Service 설정
 
-이러한 단계는 디바이스를 프로비전하기 위해 포털에서 Azure 클라우드 리소스를 설정하는 방법을 보여 줍니다. 이 문서는 IoT Hub를 만들고 새 IoT Hub Device Provisioning Service를 만들어 두 서비스를 함께 연결하는 단계를 포함합니다. 
+IoT Hub Device Provisioning Service를 IoT Hub와 함께 사용하면 사람이 개입할 필요 없이 원하는 IoT 허브에 무인 Just-In-Time 프로비저닝이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 IoT 디바이스를 프로비저닝할 수 있습니다. Azure IoT Hub 디바이스 프로비저닝 서비스는 TPM, 대칭 키 및 X.509 인증서 인증을 사용하여 IoT 디바이스를 지원합니다. 자세한 내용은 [IoT Hub Device Provisioning Service 개요](./about-iot-dps.md)를 참조하세요.
+
+이 빠른 시작에서는 다음 단계를 통해 디바이스를 프로비저닝하기 위해 Azure Portal에서 IoT Hub Device Provisioning Service를 설정하는 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * Azure Portal을 사용하여 IoT Hub 만들기
+> * Azure Portal을 사용하여 IoT Hub Device Provisioning Service 만들기 및 ID 범위 가져오기
+> * Device Provisioning Service에 IoT Hub 연결
+
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -27,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 
-## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service에 대한 새 인스턴스 만들기
+## <a name="create-a-new-iot-hub-device-provisioning-service"></a>새 IoT Hub Device Provisioning Service 만들기
 
 1. **+ 리소스 만들기** 단추를 다시 선택합니다.
 
@@ -77,4 +84,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 배포하고, 두 리소스를 연결했습니다. 시뮬레이션된 디바이스를 프로비저닝하도록 설정하는 방법을 알아보려면 시뮬레이션된 디바이스를 만들기 위한 빠른 시작을 진행하세요.
 
 > [!div class="nextstepaction"]
-> [시뮬레이션된 디바이스를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)
+> [시뮬레이션된 디바이스를 만들기 위한 빠른 시작](./quick-create-simulated-device-symm-key.md)

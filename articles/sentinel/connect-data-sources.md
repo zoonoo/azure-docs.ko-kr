@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496386"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610610"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -43,7 +43,8 @@ Azure Sentinel을 온보딩하려면 먼저 데이터 원본에 연결해야 합
 
 Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 
-- **Microsoft 서비스**:<br> Microsoft 서비스는 기본적으로 연결되어 있으며, 기본 통합을 위한 Azure 토대를 활용합니다. 다음 솔루션은 클릭 몇 번으로 연결할 수 있습니다.
+- **서비스 간 통합**:<br> AWS 및 Microsoft 서비스와 같은 일부 서비스는 기본적으로 연결되어 있으며, 이러한 서비스는 기본 통합을 위한 Azure 토대를 활용합니다. 다음 솔루션은 클릭 몇 번으로 연결할 수 있습니다.
+    - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Office 365](connect-office-365.md)
     - [Azure AD 감사 로그 및 로그인](connect-azure-active-directory.md)
     - [Azure 활동](connect-azure-activity.md)

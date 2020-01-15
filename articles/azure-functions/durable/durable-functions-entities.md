@@ -3,14 +3,14 @@ title: 지속성 엔터티 - Azure Functions
 description: 지속성 엔터티에 대한 기본 사항 및 Azure Functions용 Durable Functions 확장에서 이를 사용하는 방법을 알아봅니다.
 author: cgillum
 ms.topic: overview
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433316"
 ---
 # <a name="entity-functions"></a>엔터티 함수
 
@@ -41,6 +41,7 @@ ms.locfileid: "74232920"
 * 대상 엔터티의 **엔터티 ID**
 * **작업 이름**: 수행할 작업을 지정하는 문자열입니다. 예를 들어 `Counter` 엔터티는 `add`, `get` 또는 `reset` 작업을 지원할 수 있습니다.
 * **작업 입력**: 작업에 대한 선택적 입력 매개 변수입니다. 예를 들어, add 작업은 정수 값을 입력으로 사용할 수 있습니다.
+* 작업의 제공 시간을 지정하기 위한 선택적 매개 변수인 **예약 시간*입니다. 예를 들어 향후 며칠 동안 작업이 안정적으로 실행되도록 예약할 수 있습니다.
 
 작업은 결과 값 또는 오류 결과(예: JavaScript 오류 또는 .NET 예외)를 반환할 수 있습니다. 이 결과 또는 오류는 작업을 호출한 오케스트레이션에서 관찰할 수 있습니다.
 
@@ -165,7 +166,7 @@ module.exports = df.entity(function(context) {
 
 ### <a name="example-client-signals-an-entity"></a>예제: 클라이언트에서 엔터티에 신호 보내기
 
-일반 Azure Function(클라이언트 함수라고도 함)에서 엔터티에 액세스하려면 [엔터티 클라이언트 출력 바인딩](durable-functions-bindings.md#entity-client)을 사용합니다. 다음 예제에서는 이 바인딩을 사용하여 엔터티에 신호를 보내는 큐 트리거 함수를 보여 줍니다.
+일반 Azure 함수(클라이언트 함수라고도 함)에서 엔터티에 액세스하려면 [엔터티 클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용합니다. 다음 예제에서는 이 바인딩을 사용하여 엔터티에 신호를 보내는 큐 트리거 함수를 보여 줍니다.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -186,7 +187,7 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
 ```
 
@@ -203,8 +204,8 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
 
@@ -214,7 +215,8 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await context.df.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
 
@@ -249,12 +251,11 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> JavaScript는 현재 오케스트레이터에서 엔터티 신호를 지원하지 않습니다. 대신 `callEntity`를 사용하세요.
 
 오케스트레이션만 엔터티를 호출하고, 반환 값 또는 예외일 수 있는 응답을 받을 수 있습니다. [클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용하는 클라이언트 함수는 엔터티에 대한 신호만 보낼 수 있습니다.
 
@@ -375,7 +376,7 @@ public static async Task<bool> TransferFundsAsync(
 
 ## <a name="comparison-with-virtual-actors"></a>가상 행위자와 비교
 
-대부분의 지속성 엔터티 함수는 [행위자 모델](https://en.wikipedia.org/wiki/Actor_model)로부터 영향을 받습니다. 행위자에 대해 이미 익숙한 경우 이 문서에서 설명하는 여러 가지 개념을 인식할 수 있습니다. 지속성 엔터티는 특히 [Orleans 프로젝트](http://dotnet.github.io/orleans/)에서 일반화한 [가상 행위자](https://research.microsoft.com/projects/orleans/) 또는 그레인과 비슷합니다. 예:
+대부분의 지속성 엔터티 함수는 [행위자 모델](https://en.wikipedia.org/wiki/Actor_model)로부터 영향을 받습니다. 행위자에 대해 이미 익숙한 경우 이 문서에서 설명하는 여러 가지 개념을 인식할 수 있습니다. 지속성 엔터티는 특히 [Orleans 프로젝트](http://dotnet.github.io/orleans/)에서 일반화한 [가상 행위자](https://research.microsoft.com/projects/orleans/) 또는 그레인과 비슷합니다. 다음은 그 예입니다.
 
 * 지속성 엔터티는 엔터티 ID를 통해 주소를 지정할 수 있습니다.
 * 지속성 엔터티 작업은 경합 상태를 방지하기 위해 한 번에 하나씩 순차적으로 실행됩니다.

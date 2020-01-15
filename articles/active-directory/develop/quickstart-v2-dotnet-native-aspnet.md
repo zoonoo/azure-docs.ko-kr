@@ -1,6 +1,6 @@
 ---
-title: Azure AD 보호 ASP.NET Web API 호출 - Microsoft ID 플랫폼
-description: 이 빠른 시작에서는 Windows 데스크톱(WPF) 애플리케이션에서 Azure Active Directory로 보호된 ASP.NET 웹 API를 호출하는 방법을 알아봅니다. WPF 클라이언트는 사용자를 인증하고, 액세스 토큰을 요청하고, 웹 API를 호출합니다.
+title: Microsoft ID 플랫폼으로 보호된 ASP.NET Web API 호출
+description: 이 빠른 시작에서는 Windows 데스크톱(WPF) 애플리케이션에서 Microsoft ID 플랫폼으로 보호된 ASP.NET 웹 API를 호출하는 방법을 알아봅니다. WPF 클라이언트는 사용자를 인증하고, 액세스 토큰을 요청하고, 웹 API를 호출합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1c6c51b0a7ae7255391fd35d234b5ee47b7a9525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963310"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424029"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>빠른 시작: Azure AD로 보호된 ASP.NET Web API 호출
+# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼으로 보호된 ASP.NET Web API 호출
 
-이 빠른 시작에서는 인증된 사용자만 액세스할 수 있도록 Web API를 노출하고 보호합니다. 이 샘플에서는 Azure Active Directory와 통합된 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)을 통해 발급된 액세스 토큰을 수락할 수 있도록 ASP.NET Web API를 노출하는 방법을 보여줍니다.
+이 빠른 시작에서는 인증된 사용자만 액세스할 수 있도록 Web API를 노출하고 보호합니다. 이 샘플에서는 Microsoft ID 플랫폼과 통합된 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)을 통해 발급된 액세스 토큰을 수락할 수 있도록 ASP.NET Web API를 노출하는 방법을 보여줍니다.
 
 이 샘플에는 Web API에 액세스하기 위해 액세스 토큰을 요청하는 방법을 보여주는 Windows 데스크톱 애플리케이션(WPF) 클라이언트도 포함되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "74963310"
      - **상태**를 **사용**으로 유지합니다.
      - **범위 추가**를 선택합니다.
 
-### <a name="configure-the-service-and-client-projects-to-match-the-registered-web-api"></a>등록된 Web API와 일치하도록 서비스 및 클라이언트 프로젝트 구성 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>등록된 Web API와 일치하도록 서비스 프로젝트 구성 
 
 1. Visual Studio에서 솔루션을 연 다음, **TodoListService** 프로젝트의 루트 아래에서 **Web.config** 파일을 엽니다.
 1. `ida:ClientId` 매개 변수 값을 방금 애플리케이션 등록 포털에서 등록한 애플리케이션의 **클라이언트 ID(애플리케이션 ID)** 로 바꿉니다.
@@ -104,7 +104,7 @@ ms.locfileid: "74963310"
    - **지원되는 계정 유형**을 **조직 디렉터리의 계정**으로 변경합니다.
    - **등록**을 선택하여 애플리케이션을 만듭니다.
 1. 앱의 [개요] 페이지에서 **인증** 섹션을 선택합니다.
-   - **리디렉션 URL** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URL** 섹션에서 **urn:ietf:wg:oauth:2.0:oob**를 선택합니다.
+   - **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
    - **저장**을 선택합니다.
 1. **API 사용 권한** 섹션을 선택합니다.
    - **권한 추가** 단추를 클릭한 다음,
