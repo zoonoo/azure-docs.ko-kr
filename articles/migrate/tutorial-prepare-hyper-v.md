@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f93528e2a35661f8a233aea476a958a079d7cd59
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 78e8a42c4f1e101f8d083c8d58bb452aadfa3a87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454574"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
 
@@ -21,7 +21,7 @@ ms.locfileid: "74196256"
 
 [Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
-이 자습서는 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 첫 번째 자습서입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 첫 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure를 준비합니다. Azure Migrate에서 사용할 Azure 계정 및 리소스에 대한 권한을 설정합니다.
@@ -54,7 +54,7 @@ Azure Migrate 배포를 위한 권한을 설정해야 합니다.
 Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니다.
 
 1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 확인**에서 관련 계정을 찾아서 클릭하여 권한을 확인합니다.
+2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
 3. **기여자** 또는 **소유자** 권한이 있어야 합니다.
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
@@ -62,7 +62,7 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>어플라이언스를 등록할 수 있는 권한 할당
 
-다음 방법 중 하나를 사용하여 Azure Migrate에서 어플라이언스 등록 중에 Azure AD 애플리케이션을 만들 수 있는 권한을 할당할 수 있습니다.
+다음 방법 중 하나를 사용하여 Azure Migrate에 대한 사용 권한을 할당하여 어플라이언스 등록 중에 생성된 Azure AD 애플리케이션을 만들 수 있습니다.
 
 - 테넌트/글로벌 관리자는 Azure AD 앱을 만들고 등록할 수 있는 권한을 테넌트의 사용자에게 부여할 수 있습니다.
 - 테넌트/글로벌 관리자는 권한이 있는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다.

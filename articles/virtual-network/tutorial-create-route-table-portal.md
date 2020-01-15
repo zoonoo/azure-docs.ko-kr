@@ -18,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350285"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
-Azure에서는 기본적으로 가상 네트워크 내의 모든 서브넷 간에 트래픽을 라우팅합니다. 고유의 라우팅을 만들어 Azure의 기본 라우팅을 재정의할 수 있습니다. 사용자 지정 경로를 만드는 기능은 예를 들어 NVA(네트워크 가상 어플라이언스)를 통해 서브넷 간 트래픽을 라우팅하려는 경우에 유용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+Azure에서는 기본적으로 가상 네트워크 내의 모든 서브넷 간에 트래픽을 라우팅합니다. 고유의 라우팅을 만들어 Azure의 기본 라우팅을 재정의할 수 있습니다. 사용자 지정 경로를 만드는 기능은 예를 들어 NVA(네트워크 가상 어플라이언스)를 통해 서브넷 간 트래픽을 라우팅하려는 경우에 유용합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 경로 테이블 만들기
@@ -54,11 +54,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myRouteTablePublic*을 입력합니다. |
+    | 속성 | *myRouteTablePublic*을 입력합니다. |
     | Subscription | 구독을 선택합니다. |
     | Resource group | **새로 만들기**를 선택하고, *myResourceGroup*을 입력하고, *확인*을 선택합니다. |
     | 위치 | 기본값인 **미국 동부**를 그대로 둡니다.
-    | BGP 경로 전파 | 기본값인 **사용**을 그대로 둡니다. |
+    | Virtual Network Gateway 경로 전파 | 기본값인 **사용**을 그대로 둡니다. |
 
 1. **만들기**를 선택합니다.
 
@@ -95,7 +95,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myVirtualNetwork*를 입력합니다. |
+    | 속성 | *myVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.0.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다. |
     | Resource group | ***기존 항목 선택*** > **myResourceGroup**을 차례로 선택합니다. |
@@ -119,7 +119,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *프라이빗*을 입력합니다. |
+    | 속성 | *프라이빗*을 입력합니다. |
     | 주소 공간 | *10.0.1.0/24*를 입력합니다. |
 
 1. 나머지는 기본값으로 두고 **확인**을 선택합니다.
@@ -128,7 +128,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *DMZ*를 입력합니다. |
+    | 속성 | *DMZ*를 입력합니다. |
     | 주소 공간 | *10.0.2.0/24*를 입력합니다. |
 
 1. 지난 번과 마찬가지로 나머지는 기본값으로 두고, **확인**을 선택합니다.
@@ -193,7 +193,7 @@ NVA는 라우팅 및 방화벽 최적화와 같은 네트워크 기능을 지원
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *mynvastorageaccount*를 입력합니다. |
+    | 속성 | *mynvastorageaccount*를 입력합니다. |
     | 계정 종류 | 기본값인 **스토리지(범용 v1)** 를 그대로 둡니다. |
     | 성능 | 기본값인 **표준**을 그대로 둡니다. |
     | 복제 | 기본값인 **LRS(로컬 중복 스토리지)** 를 그대로 둡니다.

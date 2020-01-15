@@ -4,12 +4,12 @@ description: Azure에서 Azure Functions Core Tools 및 Azure CLI를 사용하�
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 18ae1ed000ffe61ce1ea9ff5c18aae98a0ffae65
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433204"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>빠른 시작: Azure에서 HTTP 트리거 Python 함수 만들기
 
@@ -19,7 +19,7 @@ ms.locfileid: "74227185"
 
 또한 이 문서의 [Visual Studio Code 기반 버전](/azure/python/tutorial-vs-code-serverless-python-01)도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 수행해야 합니다.
 
@@ -144,10 +144,10 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 Azure에서 함수 앱을 만든 후에는 [func azure functionapp publish](functions-run-local.md#project-file-deployment) Core Tools 명령을 사용하여 Azure에 프로젝트 코드를 배포할 수 있습니다. 이 예제에서는 `<APP_NAME>`을 앱 이름으로 바꿉니다.
 
 ```console
-func azure functionapp publish <APP_NAME> --build remote
+func azure functionapp publish <APP_NAME>
 ```
 
-`--build remote` 옵션은 권장되는 대로, 배포 패키지의 파일에서 원격으로 Python 프로젝트를 Azure에 빌드합니다. 
+Python 프로젝트는 배포 패키지의 파일에서 원격으로 Azure에 빌드됩니다. 
 
 다음 메시지와 유사한 출력이 표시됩니다. 여기에는 보기 편하도록 잘려 있습니다.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431468"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -33,7 +33,7 @@ ms.locfileid: "74786489"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -154,7 +154,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://<YourCustomFQDN>.f5.com/` 패턴을 사용하여 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://<YourCustomFQDN>.f5.com/` 패턴을 사용하여 URL을 입력합니다.
 
@@ -177,7 +177,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -370,7 +370,7 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
     >[!Note]
     > Kerberos 위임 계정을 만들고 지정해야 합니다. KCD 섹션을 참조하세요(변수 참조는 부록 참조).
 
-    * **Username Source**(사용자 이름 원본): session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **사용자 이름 원본**: session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **User Realm Source**(사용자 영역 원본): session.logon.last.domain
 
@@ -456,7 +456,7 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
 *  **1단계:** 위임 계정 만들기
 
-    **예제:**
+    **예:**
     * Domain Name(도메인 이름): **superdemo.live**
 
     * Sam Account Name(SAM 계정 이름): **big ipuser**
@@ -465,7 +465,7 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
 * **2단계:** SPN 설정(APM 위임 계정에 대해)
 
-    **예제:**
+    **예:**
     * setspn –A **host/big-ipuser.superdemo.live** big-ipuser
 
 * **3단계:** SPN 위임(App Service 계정의 경우). F5 위임 계정에 대한 적절한 위임을 설정합니다.

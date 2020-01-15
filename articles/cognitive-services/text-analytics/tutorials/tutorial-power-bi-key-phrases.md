@@ -1,21 +1,21 @@
 ---
 title: '자습서: Text Analytics Cognitive Service와 Power BI 통합'
 titleSuffix: Azure Cognitive Services
-description: Text Analytics를 사용하여 Power BI에서 저장된 텍스트에서 핵심 문구를 추출하는 방법을 알아봅니다.
+description: Text Analytics API를 사용하여 Power BI에서 저장된 텍스트에서 핵심 문구를 추출하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378537"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -30,7 +30,7 @@ Microsoft Power BI Desktop은 데이터에 연결하고, 데이터를 변환 및
 > * Text Analytics 핵심 구 API를 사용하여 고객 피드백에서 가장 중요한 구를 추출합니다.
 > * 고객 피드백에서 단어 구름 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [무료로 다운로드할 수 있습니다](https://powerbi.microsoft.com/get-started/).

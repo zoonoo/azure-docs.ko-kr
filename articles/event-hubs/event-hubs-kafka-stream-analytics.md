@@ -1,5 +1,5 @@
 ---
-title: '자습서: Stream 분석을 사용하여 Apache Kafka 이벤트 처리 - Azure Event Hubs'
+title: Azure Event Hubs - Apache Kafka 이벤트 처리
 description: '자습서: 이 문서에서는 Azure Stream Analytics를 사용하여 이벤트 허브를 통해 수집되는 Kafka 이벤트를 처리하는 방법을 보여줍니다.'
 services: event-hubs
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dd429c7e8478bb0576605bcffe3c72bde35ae41e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437244"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>자습서: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Kafka 지원 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 
@@ -30,11 +30,11 @@ ms.locfileid: "73720626"
 이벤트 허브에서 노출한 Kafka 엔드포인트를 사용하는 경우 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행할 필요가 없습니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다. 이상 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
-* Azure 구독. 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+* Azure 구독 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 * [Java Development Kit(JDK) 1.7+](https://aka.ms/azure-jdks).
 * Maven 이진 아카이브를 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다.
 * [Git](https://www.git-scm.com/)

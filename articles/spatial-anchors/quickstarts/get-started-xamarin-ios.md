@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d2e1612804c78e3436b776cdffea7e19bc2925fe
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c5e217a33c8b461a438e2d0209fe6733850634e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276996"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465153"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Xamarin iOS 앱 만들기
 
@@ -28,13 +28,14 @@ ms.locfileid: "74276996"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - macOS High Sierra(10.13) 이상을 실행하는 Mac:
   - [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)에서 설치된 최신 버전의 Xcode 및 iOS SDK
   - 최신 버전의 <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Mac용 Visual Studio 8.1 이상</a>
-  - <a href="https://git-scm.com/download/mac" target="_blank">macOS용 Git</a>
+  - <a href="https://git-scm.com/download/mac" target="_blank">macOS용 Git</a>.
+  - <a href="https://git-lfs.github.com/">Git LFS</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

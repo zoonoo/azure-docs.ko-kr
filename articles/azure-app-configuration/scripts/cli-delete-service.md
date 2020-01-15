@@ -1,5 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure App Configuration 저장소 삭제 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - Azure App Configuration 저장소 삭제
+titleSuffix: Azure App Configuration
 description: Azure CLI 스크립트 샘플 - Azure App Configuration 저장소 삭제
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0983e7d68e7ad01683d588ef89827eaf79754d07
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d5a80288fcd5b0216a9bf3ca322203f672f381d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413372"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Azure App Configuration 저장소 삭제
 

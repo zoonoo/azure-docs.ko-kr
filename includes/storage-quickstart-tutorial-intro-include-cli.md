@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 11/06/2019
 ms.author: tamram
-ms.openlocfilehash: 4ad977dc8cbaa85360092dbfd391a3c3b88f67bb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e479f2376668a2fc3824e733996c94cfab04c9ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467338"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -61,4 +61,4 @@ export AZURE_STORAGE_ACCOUNT="<account-name>"
 export AZURE_STORAGE_KEY="<account-key>"
 ```
 
-Azure Portal를 사용하여 계정 액세스 키를 검색하는 방법에 대한 자세한 내용은 [Azure Portal에서 스토리지 계정 설정 관리](../articles/storage/common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#access-keys)의 **액세스 키**를 참조하세요.
+Azure Portal를 사용하여 계정 액세스 키를 검색하는 방법에 대한 자세한 내용은 [스토리지 계정 액세스 키 관리](../articles/storage/common/storage-account-keys-manage.md)를 참조하세요.

@@ -1,32 +1,23 @@
 ---
-title: Azure의 클러스터에 Service Fabric 앱 배포 | Microsoft Docs
-description: Visual Studio에서 애플리케이션을 클러스터에 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
+title: Azure의 클러스터에 Service Fabric 앱 배포
+description: Visual Studio에서 새로 만든 Azure Service Fabric 클러스터에 기존 애플리케이션을 배포하는 방법을 알아봅니다.
 author: athinanthny
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213194"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646010"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
 
 이 자습서는 시리즈의 2부입니다. 이 자습서는 Azure의 새 클러스터에 Azure Service Fabric 애플리케이션을 배포하는 방법을 보여줍니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * 클러스터 만들기
 > * Visual Studio를 사용하여 원격 클러스터에 애플리케이션 배포
@@ -39,7 +30,7 @@ ms.locfileid: "74213194"
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -112,7 +103,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 **게시**를 선택합니다.
 
-애플리케이션이 배포되면 브라우저를 열고 **:8080** 앞에 클러스터 주소를 입력합니다. 또는 구성된 다른 포트가 있는 경우 해당 포트를 입력합니다. 예는 `http://mytestcluster.southcentral.cloudapp.azure.com:8080`입니다. Azure의 클러스터에서 애플리케이션이 실행 중인 것이 보입니다. 투표 웹 페이지에서 투표 옵션 및 이러한 옵션 중 하나 이상에 대한 투표를 추가하거나 삭제합니다.
+애플리케이션이 배포되면 브라우저를 열고 **:8080** 앞에 클러스터 주소를 입력합니다. 또는 구성된 다른 포트가 있는 경우 해당 포트를 입력합니다. 예제는 `http://mytestcluster.southcentral.cloudapp.azure.com:8080`입니다. Azure의 클러스터에서 애플리케이션이 실행 중인 것이 보입니다. 투표 웹 페이지에서 투표 옵션 및 이러한 옵션 중 하나 이상에 대한 투표를 추가하거나 삭제합니다.
 
 ![Service Fabric 투표 샘플](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 

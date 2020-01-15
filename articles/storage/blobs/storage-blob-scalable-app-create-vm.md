@@ -1,5 +1,5 @@
 ---
-title: Azure에서 확장 가능한 애플리케이션에 필요한 VM 및 스토리지 계정 만들기 | Microsoft Docs
+title: Azure에서 확장 가능한 애플리케이션에 대한 VM 및 스토리지 계정 만들기
 description: Azure Blob Storage를 사용하여 확장 가능한 애플리케이션을 실행하는 데 사용할 VM을 배포하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 49689585b3f52bbee300ff68d2c2653f5e7ff8d0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 60bb227af7cc886bb35cbd045cc8a27cf82ae903
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372281"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 스토리지 계정 만들기
 
@@ -57,7 +57,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-가상 머신 구성을 만듭니다. 이 구성은 가상 컴퓨터 이미지, 크기 및 인증 구성 등 가상 컴퓨터를 배포할 때 사용되는 설정을 포함합니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 가상 머신에 대한 사용자 이름 및 암호로 구성됩니다.
+가상 머신 구성을 만듭니다. 이 구성은 가상 머신 이미지, 크기 및 인증 구성 등 가상 머신을 배포할 때 사용되는 설정을 포함합니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 가상 머신에 대한 사용자 이름 및 암호로 구성됩니다.
 
 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 가상 머신을 만듭니다.
 

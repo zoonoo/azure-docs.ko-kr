@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 3b909f1cb65ae2b355451def53410c32ae482167
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 75c61452e73c50cbdaed03a27481d920e4c2ad86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406232"
 ---
 # <a name="start-monitoring-your-website"></a>웹 사이트 모니터링 시작
 
@@ -21,7 +21,7 @@ Azure Monitor Application Insights를 사용하면 웹 애플리케이션의 가
 
 이 빠른 시작에서는 [오픈 소스 Application Insight JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)를 추가하는 방법을 안내하며, 이를 통해 웹 사이트 방문자가 사용하는 클라이언트/브라우저 쪽 경험을 이해할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -44,10 +44,10 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
    구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
-    | 설정        | 값           | 설명  |
+    | 설정        | 값           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
+   | **이름**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
+   | **리소스 그룹**     | myResourceGroup      | App Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
    | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 2. **만들기**를 클릭합니다.
@@ -132,6 +132,9 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 다음 빠른 시작 또는 자습서를 사용하여 계속하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다. 그렇지 않으면 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 Azure Portal에서 삭제합니다.
+
+> [!NOTE]
+> 기존 리소스 그룹을 사용하는 경우 아래 지침이 작동하지 않으므로 개별 Application Insights 리소스를 삭제하기만 하면 됩니다. 리소스 그룹을 삭제할 때마다 해당 그룹의 구성원인 모든 underyling 리소스가 삭제됩니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**과 **myResourceGroup**을 차례로 클릭합니다.
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에 **myResourceGroup**을 입력한 후 **삭제**를 클릭합니다.

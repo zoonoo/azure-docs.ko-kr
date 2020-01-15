@@ -1,19 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure Cache for Redis를 삭제합니다.
-description: Azure CLI 스크립트 샘플 - Azure Cache for Redis를 삭제합니다.
+title: Azure Cache for Redis 삭제 - Azure CLI
+description: 이 Azure CLI 코드 샘플에서는 az redis delete 명령을 사용하여 Azure Cache for Redis 인스턴스를 삭제하는 방법을 보여줍니다.
 author: yegu-ms
+ms.author: yegu
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
-ms.openlocfilehash: a2884fd326b6091680b8d81a905f3ee3320a2740
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e5178ab4069cc5ffa8607c5feea6ffac86284a5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411071"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Azure Cache for Redis 삭제
 

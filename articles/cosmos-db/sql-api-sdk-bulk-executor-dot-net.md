@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 01/14/2020
 ms.author: ramkris
-ms.openlocfilehash: 2d573d329ad27a4801c091d0dcfb10c5f530169f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b5d4f490f7710824b8382091a1e814f6847766fa
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707264"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945546"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET Bulk Executor 라이브러리: 다운로드 정보 
 
@@ -21,11 +21,11 @@ ms.locfileid: "74707264"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -53,15 +53,15 @@ ms.locfileid: "74707264"
 
 * SDK 종속성을 > = 2.5.1로 변경 했습니다.
 
-### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-미리 보기 2
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
 * 꼭 짓 점 및 가장자리에서 ttl을 허용 하도록 그래프 대량 실행자에 대 한 지원이 추가 됨
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-미리 보기 2
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
 * 게이트웨이 모드에서 실행 될 때 Azure Cosmos DB 탄력적으로 크기를 조정 하는 동안 예외가 발생 하는 문제를 해결 했습니다. 이 수정 프로그램은 1.4.1 릴리스와 기능적으로 동일 합니다.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-미리 보기 2
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
 * 삭제할 파티션 키, 문서 id 튜플을 허용 하는 SQL API 계정에 대 한 대량 삭제 지원이 추가 되었습니다. 이러한 변경으로 인해 1.4.0 릴리스와 기능적으로 동일 합니다.
 
@@ -72,6 +72,10 @@ ms.locfileid: "74707264"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * 대량 실행자 라이브러리가 .NET Core 응용 프로그램과 함께 작동 하도록 지원 되는 대상 프레임 워크 중 하나로 .NET Standard 2.0를 추가 했습니다.
+
+### <a name="a-name187187"></a><a name="1.8.7"/>1.8.7
+
+* 컬렉션에 중첩 된 파티션 키 경로가 있는 경우 BulkDeleteAsync와 관련 된 문제가 해결 되었습니다.
 
 ### <a name="a-name186186"></a><a name="1.8.6"/>1.8.6
 

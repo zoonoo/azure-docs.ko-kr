@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Anomaly Detector REST API 및 Python을 사용하여 일괄 처리로 변칙 검색'
 titleSuffix: Azure Cognitive Services
-description: Anomaly Detector API를 사용하여 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
+description: Anomaly Detector API를 사용하여 이 빠른 시작에서 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: e24436cef11cc07571adb55bca63add5bda783c4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7cef1c8c1b05c859f9435b06c3096bb983965656
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448875"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>빠른 시작: Anomaly Detector REST API 및 Python을 사용하여 시계열 데이터에서 변칙 검색
 
@@ -28,13 +28,13 @@ ms.locfileid: "74483393"
 
  이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py)에서 찾을 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Python 2.x 또는 3.x](https://www.python.org/downloads/)
 - 변칙 탐지기 키 및 엔드포인트
 - Python에 대한 [요청 라이브러리](https://pypi.org/project/requests/)
 
-- 시계열 데이터 요소가 포함된 JSON 파일입니다. 이 빠른 시작의 예제 데이터는 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)에서 확인할 수 있습니다.
+- 시계열 데이터 요소가 포함된 JSON 파일 이 빠른 시작의 예제 데이터는 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)에서 확인할 수 있습니다.
 
 ### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
@@ -78,7 +78,7 @@ ms.locfileid: "74483393"
 
 3. 응답에 `code` 필드가 포함된 경우에는 오류 코드 및 오류 메시지를 출력합니다.
 
-4. 그렇지 않으면 데이터 세트에서 변칙의 위치를 찾습니다. 응답의 `isAnomaly` 필드는 지정된 데이터 요소가 변칙인지 여부와 관련된 부울 값을 포함합니다. 목록을 반복하고 `True` 값의 인덱스를 출력합니다. 이 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
+4. 그렇지 않으면 데이터 세트에서 변칙의 위치를 찾습니다. 응답의 `isAnomaly` 필드는 지정된 데이터 요소가 변칙인지 여부와 관련된 부울 값을 포함합니다. 목록을 반복하고 `True` 값의 인덱스를 출력합니다. 이러한 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
 
     [!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
 

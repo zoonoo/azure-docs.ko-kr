@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aea9fbb14d3892419af104c44c8bfd5528eef421
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021922"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638666"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Privileged Identity Management용 Microsoft Graph API(미리 보기)
 
@@ -29,6 +29,8 @@ Microsoft Graph API에 대한 자세한 내용은 [Azure AD Privileged Identity 
 
 > [!IMPORTANT]
 > Microsoft Graph의 /베타 버전 아래에 있는 API는 미리 보기 상태이며 변경될 가능성이 있습니다. 프로덕션 애플리케이션에서는 이러한 API의 사용이 지원되지 않습니다.
+>
+> 모든 PIM 작업은 Graph API 명령을 통해 지원되지만 다른 시스템을 사용하여 정품 인증 요청을 승인합니다. 승인을 위한 Graph API는 현재 개발 중이며 향후 몇 개월 동안 출시될 예정입니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 

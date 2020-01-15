@@ -12,24 +12,24 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: 2ff2dfe6384acc8a56558e6e7ba0fc5cc05f7783
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3f3aef66af056ca06d066c5235b0d23a2f39ecc
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819963"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945779"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 및 데이터 웨어하우스의 동적 데이터 마스킹
 
 SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. 
 
-동적 데이터 마스킹을 수행하면 고객이 애플리케이션 레이어에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다.
+동적 데이터 마스킹을 사용하면 고객이 애플리케이션 계층에 미치는 영향을 최소화하고 표시할 중요한 데이터의 양을 지정할 수 있게 하여 중요한 데이터에 대한 무닥 액세스를 방지할 수 있습니다. 데이터베이스의 데이터는 변경되지 않으면서 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다.
 
 예를 들어 콜 센터 서비스 상담원은 신용 카드 번호 중 몇 자리로 발신자를 식별할 수 있지만 이러한 데이터 항목이 서비스 상담원에게 완전히 노출되어서는 안 됩니다. 모든 쿼리의 결과 집합에서 신용 카드 번호의 마지막 4자리를 제외한 모든 숫자를 마스킹하도록 마스킹 규칙을 정의할 수 있습니다. 또 다른 예로, 적합한 데이터 마스크를 정의하여 PII(개인 식별이 가능한 정보) 데이터를 보호하여 준수 규정을 위반하지 않고 문제 해결을 위해 프로덕션 환경을 쿼리할 수 있습니다.
 
 ## <a name="dynamic-data-masking-basics"></a>동적 데이터 마스킹 기본 사항
 
-SQL Database 구성 블레이드 또는 설정 블레이드에서 동적 데이터 마스킹 작업을 선택하여 Azure Portal에서 동적 데이터 마스킹 정책을 설정합니다.
+SQL Database 구성 블레이드 또는 설정 블레이드에서 동적 데이터 마스킹 작업을 선택하여 Azure Portal에서 동적 데이터 마스킹 정책을 설정합니다. SQL DW 용 포털을 사용 하 여이 기능을 설정할 수 없습니다 (Powershell 또는 REST API 사용).
 
 ### <a name="dynamic-data-masking-permissions"></a>동적 데이터 마스킹 사용 권한
 

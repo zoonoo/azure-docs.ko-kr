@@ -5,30 +5,28 @@ author: anthonychu
 ms.service: signalr
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/14/2019
 ms.author: antchu
-ms.openlocfilehash: 728111548176a0a3212b1677eeb192ccdc47fe88
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 0cf8705cf2567a60129681c2db41b0868f8fe182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392138"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>빠른 시작: Python을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
 Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 쉽게 추가할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 빠른 시작에서는 SignalR Serivces와 Functions를 사용하여 서버리스, 실시간 대화 애플리케이션을 빌드하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
 
 [Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기가 설치되어 있는지 확인합니다.
 
-Python Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools(v2)](https://github.com/Azure/azure-functions-core-tools#installing)(버전 2.7.1505 이상)를 설치하세요.
+Python Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(버전 2.7.1505 이상)를 설치하세요.
 
-Azure Functions에는 [Python 3.6](https://www.python.org/downloads/)이 필요합니다.
-
-확장을 설치하려면 현재 Azure Functions Core Tools에는 [.NET Core SDK](https://www.microsoft.com/net/download)가 설치되어 있어야 합니다. 그러나 Python Azure 함수 앱을 빌드하는 데는 .NET에 대한 지식이 필요하지 않습니다.
+Azure Functions에는 [Python 3.6 또는 3.7](https://www.python.org/downloads/)이 필요합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,19 +52,19 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 1. 코드 편집기에서 복제된 리포지토리의 *src/chat/python* 폴더를 엽니다.
 
-1. Python 함수를 로컬로 개발하고 테스트하려면 Python 3.6 환경을 사용해야 합니다. 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다.
+1. Python 함수를 로컬로 개발하고 테스트하려면 Python 3.6 또는 3.7 환경을 사용해야 합니다. 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다.
 
     **Linux 또는 macOS:**
 
     ```bash
-    python3.6 -m venv .venv
+    python3.7 -m venv .venv
     source .venv/bin/activate
     ```
 
     **Windows:**
 
     ```powershell
-    py -3.6 -m venv .venv
+    py -3.7 -m venv .venv
     .venv\scripts\activate
     ```
 
@@ -79,10 +77,10 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     - **negotiate** - *SignalRConnectionInfo* 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
     - **messages** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
 
-1. 터미널에서 *src/chat/python* 폴더에 있는지 확인합니다. Azure Functions Core Tools를 사용하여 앱을 실행하는 데 필요한 확장을 설치합니다.
+1. 가상 환경이 활성화된 터미널에서 *src/chat/python* 폴더에 있는지 확인합니다. PIP를 사용하여 필요한 Python 패키지를 설치합니다.
 
     ```bash
-    func extensions install
+    python -m pip install -r requirements.txt
     ```
 
 1. 함수 앱을 실행합니다.

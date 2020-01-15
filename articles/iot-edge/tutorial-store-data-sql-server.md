@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c16fca06950ea06b80f2e27d6fb845f5d0d282c0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701906"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665121"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -24,7 +24,7 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 이 문서에서는 SQL Server 데이터베이스를 IoT Edge 디바이스에 배포하는 지침을 제공합니다. Azure Functions는 IoT Edge 디바이스에서 실행되며, 들어오는 데이터를 구조화한 다음, 데이터베이스로 보냅니다. 이 문서의 단계는 컨테이너에서 작동하는 다른 데이터베이스(예: MySQL 또는 PostgreSQL)에도 적용할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다. 
+이 자습서에서는 다음 작업 방법을 알아봅니다. 
 
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 Azure 함수 만들기
@@ -34,12 +34,13 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다. 
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
+* AMD64 [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md).
+  * Raspberry Pi와 같은 ARM 디바이스는 SQL Server를 실행할 수 없습니다. ARM 디바이스에서 SQL을 사용하려는 경우 미리 보기에서 [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/)를 사용해 보기 위해 등록할 수 있습니다. 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)

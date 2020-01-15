@@ -1,22 +1,23 @@
 ---
-title: Microsoft Flow, Logic Apps, Functions 및 WebJobs란? - Azure
+title: Azure의 통합 및 자동화 플랫폼 옵션
 description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비스를 비교합니다. Microsoft Flow, Logic Apps, Functions 및 WebJobs.
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409845"
 ---
-# <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs란?
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Azure에서 적절한 통합 및 자동화 서비스 선택
 
-이 문서에서는 다음 Microsoft 클라우드를 비교합니다. 
+이 문서에서는 다음 Microsoft 클라우드 서비스를 비교합니다.
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Azure 기능](https://azure.microsoft.com/services/functions/)
+* [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 이 모든 서비스는 통합 문제를 해결하고 비즈니스 프로세스를 자동화할 수 있습니다. 입력, 동작, 조건 및 출력을 모두 정의할 수 있습니다. 각 서비스를 일정이나 트리거에 따라 실행할 수 있습니다. 서비스마다 고유의 장점이 있으며, 이 문서에서는 차이점을 설명합니다. 
@@ -54,7 +55,7 @@ Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durab
 | --- | --- | --- |
 | 개발 | 코드 중심(명령적) | 디자이너 중심(선언적) |
 | 연결 | [12가지의 기본 제공 바인딩 형식 정보](functions-triggers-bindings.md#supported-bindings), 사용자 지정 바인딩에 대한 코드 작성 | [대규모의 커넥터 컬렉션](../connectors/apis-list.md), [B2B 시나리오용 엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md), [사용자 지정 커넥터 빌드](../logic-apps/custom-connector-overview.md) |
-| 작업 | 각 작업은 Azure 함수입니다. 작업 함수에 대한 코드 작성 |[즉시 사용 가능한 작업의 대규모 컬렉션](../logic-apps/logic-apps-workflow-actions-triggers.md)|
+| 동작 | 각 작업은 Azure 함수입니다. 작업 함수에 대한 코드 작성 |[즉시 사용 가능한 작업의 대규모 컬렉션](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | 모니터링 | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor 로그](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | 관리 | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | 실행 컨텍스트 | [로컬로](functions-runtime-overview.md) 또는 클라우드에서 실행 가능 | 클라우드에서만 실행|
@@ -82,7 +83,7 @@ Azure Functions는 WebJobs SDK 기반이므로 다른 Azure 서비스와 여러 
 |[사용량 기준 과금 가격 책정](functions-scale.md#consumption-plan)|✔||
 |[Logic Apps와 통합](functions-twitter-email.md)|✔||
 | 트리거 이벤트 |[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/웹후크(GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[파일 시스템](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| 지원되는 언어  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
+| 지원되는 언어  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |패키지 관리자|NPM 및 NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs(WebJobs SDK 제외)는 C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python 등을 지원합니다. 위의 목록은 전체 목록이 아닙니다. WebJob은 App Service 샌드박스에서 실행 가능한 모든 프로그램 또는 스크립트를 실행할 수 있습니다.

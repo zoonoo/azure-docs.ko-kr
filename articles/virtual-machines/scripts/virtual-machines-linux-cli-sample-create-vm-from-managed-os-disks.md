@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - 관리 디스크를 OS 디스크로 연결하여 VM 만들기
+title: 관리 디스크를 OS 디스크로 연결하여 VM 만들기 - CLI 샘플
 description: Azure CLI 스크립트 샘플 - 관리 디스크를 OS 디스크로 연결하여 VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 05263df1327eff49d0c9ec84316447ba563695ca
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1616466619c7c7627106c09de703d02a7c40d248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458409"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>CLI와 기존 관리 OS 디스크를 사용하여 가상 머신 만들기
 

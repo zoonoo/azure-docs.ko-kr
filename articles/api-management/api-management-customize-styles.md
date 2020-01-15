@@ -1,5 +1,6 @@
 ---
-title: Azure API Management 레거시 개발자 포털에서 페이지 스타일 사용자 지정 | Microsoft Docs
+title: API Management 레거시 개발자 포털에서 페이지 스타일 사용자 지정
+titleSuffix: Azure API Management
 description: 이 빠른 시작의 단계에 따라 Azure API Management 개발자 포털에 있는 요소의 스타일을 사용자 지정합니다.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 779d1228393cdc88f88820d8a335cb2e32424c14
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430726"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>개발자 포털 페이지의 스타일 사용자 지정
 
@@ -36,7 +37,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 가장 기
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)

@@ -1,7 +1,7 @@
 ---
 title: '자습서: 전자 상거래 제품 이미지 조정 - Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: 지정된 레이블을 통해 제품 이미지를 분석하고 분류하는 애플리케이션을 설정합니다(Azure Computer Vision 및 Custom Vision 사용). 추가 검토가 필요한 문제가 될만한 이미지에는 태그를 지정합니다(Azure Content Moderator 사용).
+description: 이 자습서에서는 지정된 레이블을 통해 제품 이미지를 분석하고 분류하는 애플리케이션을 설정하는 방법을 보여줍니다(Azure Computer Vision 및 Custom Vision 사용). 추가 검토가 필요한 문제가 될만한 이미지에는 태그를 지정합니다(Azure Content Moderator 사용).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5ee96cd0cf8ca33cae785bc15eb824332dcb3c9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936043"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382160"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -34,7 +34,7 @@ ms.locfileid: "72936043"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Content Moderator 구독 키. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator 서비스를 구독하고 키를 가져옵니다.
 - Computer Vision 구독 키(위와 동일한 지침)

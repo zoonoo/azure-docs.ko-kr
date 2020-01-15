@@ -3,12 +3,12 @@ title: 자습서 - Terraform 및 HCL로 Azure VM 클러스터 만들기
 description: Terraform 및 HCL을 사용하여 Azure에서 부하 분산 장치가 있는 Linux 가상 머신 클러스터 만들기
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: f28cbbf13015d07c9d789ed258a9e2b0582ba1da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159258"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665364"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>자습서: Terraform 및 HCL로 Azure VM 클러스터 만들기
 
@@ -208,7 +208,7 @@ ms.locfileid: "74159258"
       disable_password_authentication = false
     }
 
-    tags {
+    tags = {
       environment = "staging"
     }
    }
@@ -260,10 +260,10 @@ Terraform을 초기화하려면 다음 명령을 실행합니다.
 - 파일 이름 `terraform.tfvars`
 - 다음 패턴을 사용하여 이름이 지정된 파일입니다. `*.auto.tfvars`
 
-그러나 변수 파일은 위의 두 가지 규칙 중 하나를 따를 필요가 없습니다. 이 경우 `-var-file` 매개 변수를 사용하여 변수 파일 이름을 지정합니다. 다음 예제에서는 이 점에 대해 설명합니다.
+그러나 변수 파일은 위의 두 가지 규칙 중 하나를 따를 필요가 없습니다. 이 경우 변수 파일 이름에 확장명이 포함되지 않는 `-var-file` 매개 변수를 사용하여 변수 파일 이름을 지정합니다. 다음 예제에서는 이 점에 대해 설명합니다.
 
 ```hcl
-terraform plan -var-file <my-variables-file.tf>
+terraform plan -var-file <my-variables-file>
 ```
 
 Terraform은 구성 파일에 지정된 상태를 구현하는 데 필요한 작업을 결정합니다.

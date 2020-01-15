@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB 자습서: Apache TinkerPops Gremlin 콘솔에서 만들기, 쿼리 및 트래버스'
+title: 'TinkerPop Gremlin 콘솔을 사용하여 Azure Cosmos DB Gremlin API로 쿼리: 자습서'
 description: Azure Cosmos DB 빠른 시작은 Azure Cosmos DB Gremlin API를 사용하여 꼭짓점, 에지 및 쿼리를 만듭니다.
 author: luisbosquez
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815961"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665172"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 
@@ -33,13 +33,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행됩니다. [Apache TinkerPop 사이트](https://tinkerpop.apache.org/downloads.html)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서 Azure Cosmos DB 계정을 만들려면 Azure 구독이 있어야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-또한 [Gremlin 콘솔](https://tinkerpop.apache.org/)을 설치해야 합니다. 버전 3.2.5 이상을 사용합니다. (Windows에서 Gremlin 콘솔을 사용하려면 [Java 런타임](https://www.oracle.com/technetwork/java/javase/overview/index.html)을 설치해야 합니다.)
+또한 [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html)을 설치해야 합니다. **권장되는 버전 v3.4.3** 이하입니다. (Windows에서 Gremlin 콘솔을 사용하려면 [Java 런타임](https://www.oracle.com/technetwork/java/javase/overview/index.html)을 설치해야 합니다).
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -53,12 +53,12 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 1. Gremlin 콘솔을 시작하기 전에 `apache-tinkerpop-gremlin-console-3.2.5/conf` 디렉터리에서 remote-secure.yaml 구성 파일을 만들거나 수정합니다.
 2. 다음 테이블에 정의된 대로 *호스트*, *포트*, *사용자 이름*, *암호*, *connectionPool* 및 *serializer* 구성을 입력합니다.
 
-    설정|제안 값|설명
+    설정|제안 값|Description
     ---|---|---
     호스트|[*account-name*.**gremlin**.cosmos.azure.com]|다음 스크린샷이 표시됩니다. 후행 :443/이 제거된 대괄호로 묶은 Azure Portal의 개요 페이지에있는 **Gremlin URI** 값입니다. 참고: 나중에 Gremlin 쿼리를 실행할 때 "호스트가 적시에 응답하지 않음" 예외가 발생할 가능성이 있는 [*account-name*.documents.azure.com]으로 끝나는 URI가 **아닌** Gremlin 값을 사용해야 합니다. 
     포트|443|443으로 설정합니다.
     사용자 이름|*사용자 이름*|`/dbs/<db>/colls/<coll>` 양식의 리소스에서 `<db>`은 데이터베이스 이름이고 `<coll>`은 컬렉션 이름입니다.
-    암호|*기본 키*| 아래에서 두 번째 스크린샷을 참조하세요. 기본 키 상자에 있는 Azure Portal의 키 페이지에서 검색할 수 있는 기본 키입니다. 상자의 왼쪽에서 복사 단추를 사용하여 값을 복사합니다.
+    password|*기본 키*| 아래에서 두 번째 스크린샷을 참조하세요. 기본 키 상자에 있는 Azure Portal의 키 페이지에서 검색할 수 있는 기본 키입니다. 상자의 왼쪽에서 복사 단추를 사용하여 값을 복사합니다.
     connectionPool|{enableSsl: true}|SSL에 대한 연결 풀 설정
     직렬 변환기|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|이 값으로 설정하고 값에 붙여 넣을 때 `\n` 줄 바꿈을 삭제합니다.
 

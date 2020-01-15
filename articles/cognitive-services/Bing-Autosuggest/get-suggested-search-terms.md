@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5b1e4cc8dfc89d6dcc5d29a368e089402b284352
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448842"
 ---
 # <a name="what-is-bing-autosuggest"></a>Bing Autosuggest란?
 
@@ -23,7 +23,7 @@ ms.locfileid: "74072866"
 
 ## <a name="bing-autosuggest-api-features"></a>Bing Autosuggest API 기능
 
-| 기능                                                                                                                                                                                 | 설명                                                                                                                                                            |
+| 기능                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [실시간 검색 용어 제안](concepts/get-suggestions.md) | Autosuggest API를 사용하여 입력하는 대로 제안되는 검색 용어를 표시하여 앱 환경을 향상시킵니다. |
 
@@ -49,6 +49,9 @@ Bing Autosuggest API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 
 [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 참조를 익숙하게 다룰 수 있도록 연습하세요. 참조에는 제안된 쿼리 용어를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수 목록과 응답 개체 정의가 포함되어 있습니다.
 
-[Bing Web Search API](../bing-web-search/search-the-web.md)를 사용하여 웹을 검색하는 방법을 알아보세요.
+[Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.
+
+
+[Bing Web Search API](../bing-web-search/search-the-web.md)를 사용하여 웹을 검색하고 다른 [Bing Search API](../bing-web-search/index.yml)를 탐색하는 방법을 알아보세요.
 
 검색 결과 사용에 대한 어떤 규칙도 위반하지 않도록 [Bing 사용 및 표시 요구 사항](./useanddisplayrequirements.md)을 반드시 읽도록 합니다.

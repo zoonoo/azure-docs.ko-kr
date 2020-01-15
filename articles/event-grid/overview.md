@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 9c79a6ba1a6b7b5582c6430c6de7a4a309bf4920
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437298"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -82,7 +82,7 @@ Azure Event Grid의 몇 가지 주요 기능은 다음과 같습니다.
 * **이벤트별 요금** - Event Grid를 사용하는 만큼만 지불합니다.
 * **높은 처리량** - 초당 수백만 개 이벤트 지원을 통해 Event Grid에서 대량 워크로드를 빌드합니다.
 * **기본 제공 이벤트** - 리소스 정의 기본 제공 이벤트를 사용하여 신속하게 준비하고 실행합니다.
-* **사용자 지정 이벤트** - Event Grid를 사용하여 사용자 앱의 사용자 지정 이벤트를 라우팅하고, 필터링하며, 안정적으로 배달합니다.
+* **사용자 지정 이벤트** - Event Grid를 사용하여 앱에서 사용자 지정 이벤트를 라우팅하고, 필터링하며, 안정적으로 제공합니다.
 
 Event Grid, Event Hubs 및 Service Bus를 비교하려면 [Choose between Azure services that deliver messages](compare-messaging-services.md)(메시지를 배달하는 Azure 서비스 중 선택)을 참조하세요.
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 0190b94cc6195163de4d428c2cae0de3620bdb01
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e84a6c93ad8757b302670af202f9d4b407f3ef57
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422692"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945308"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -41,7 +41,7 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. ID를 사용 하 여 �
 
 <a name="generateanswer-endpoint"></a>
 
-## <a name="publish-to-get-generateanswer-endpoint"></a>GenerateAnswer 끝점 가져오기에 게시 
+## <a name="publish-to-get-generateanswer-endpoint"></a>GenerateAnswer 끝점 가져오기에 게시
 
 [QnA Maker 포털](https://www.qnamaker.ai)에서 또는 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)를 사용 하 여 기술 자료를 게시 한 후에는 generateanswer 끝점의 세부 정보를 가져올 수 있습니다.
 
@@ -59,15 +59,15 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. ID를 사용 하 여 �
 
 ## <a name="generateanswer-request-configuration"></a>GenerateAnswer 요청 구성
 
-HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnswer를 호출하는 방법을 보여주는 샘플 코드는 [빠른 시작](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base)을 참조하세요. 
+HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnswer를 호출하는 방법을 보여주는 샘플 코드는 [빠른 시작](../quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base)을 참조하세요.
 
 POST 요청은 다음을 사용 합니다.
 
 * 필수 [URI 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
 * 보안을 위해 필요한 [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)`Authorization`입니다.
-* 필수 [본문 속성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)입니다. 
+* 필수 [본문 속성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)입니다.
 
-GenerateAnswer URL의 형식은 다음과 같습니다. 
+GenerateAnswer URL의 형식은 다음과 같습니다.
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
@@ -95,7 +95,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 [RankerType](../concepts/best-practices.md#choosing-ranker-type)에 대해 자세히 알아보세요.
 
-이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다. 
+이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다.
 
 <a name="generateanswer-response"></a>
 
@@ -125,7 +125,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 }
 ```
 
-이전 JSON은 점수가 38.5% 인 답변으로 응답 했습니다. 
+이전 JSON은 점수가 38.5% 인 답변으로 응답 했습니다.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>에서 봇과 함께 QnA Maker 사용C#
 
@@ -144,7 +144,7 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다. 
+이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다.
 
 지원 봇에는이 코드가 포함 된 [예제가](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) 있습니다.
 
@@ -164,7 +164,7 @@ var qnaMakerOptions = {
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다. 
+이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다.
 
 지원 봇에는이 코드가 포함 된 [예제가](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) 있습니다.
 
@@ -200,7 +200,7 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>질문 및 답변 결과를 사용 하 여 대화 컨텍스트 유지
 
-GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에 해당 하는 메타 데이터 정보가 포함 됩니다. 클라이언트 응용 프로그램에서이 정보를 사용 하 여 이후 대화에서 사용할 이전 대화의 컨텍스트를 저장할 수 있습니다. 
+GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에 해당 하는 메타 데이터 정보가 포함 됩니다. 클라이언트 응용 프로그램에서이 정보를 사용 하 여 이후 대화에서 사용할 이전 대화의 컨텍스트를 저장할 수 있습니다.
 
 ```json
 {
@@ -247,7 +247,7 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
 
 |코드|설명|
 |:--|--|
-|2xx|성공|
+|2xx|Success|
 |400|요청 매개 변수가 잘못되었습니다. 필수 매개 변수가 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |400|요청 본문이 잘못되었습니다. JSON이 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |401|잘못된 키|

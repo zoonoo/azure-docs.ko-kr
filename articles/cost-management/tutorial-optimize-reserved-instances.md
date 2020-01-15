@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure의 Cloudyn을 사용하여 예약 인스턴스 비용 최적화 | Microsoft Docs
+title: 자습서 - Cloudyn을 사용하여 예약 인스턴스 비용 최적화 - Azure
 description: 이 자습서에서는 Azure 및 AWS(Amazon Web Services)에 대한 예약 인스턴스 비용을 최적화하는 방법을 알아봅니다.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c1afad7cb36916777b2f6cefa40b9bd1ddc465a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444561"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -38,7 +38,7 @@ ms.locfileid: "74229855"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정이 있어야 합니다.
 - Cloudyn에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.

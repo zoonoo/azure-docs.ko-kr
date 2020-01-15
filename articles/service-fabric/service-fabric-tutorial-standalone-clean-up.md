@@ -1,26 +1,17 @@
 ---
-title: '자습서: Service Fabric 독립 실행형 클러스터 정리 - Azure Service Fabric | Microsoft Docs'
-description: 이 자습서에서는 독립 실행형 클러스터를 정리하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
+title: 독립 실행형 클러스터 정리
+description: 이 자습서에서는 독립 실행형 Service Fabric 클러스터에서 AWS 또는 Azure 리소스를 정리하는 방법을 알아봅니다.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bebe3a2dc83b651e713ee80d7b11068b13096e04
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385168"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639023"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>자습서: 독립 실행형 클러스터 정리
 
@@ -67,7 +58,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 ## <a name="clean-up-azure-resources"></a>Azure 리소스 정리
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 2. **가상 머신** 섹션으로 이동합니다.
 3. 자습서의 1부에서 만든 세 개의 노드에 대한 확인란을 선택합니다.
 4. **삭제**를 클릭합니다.

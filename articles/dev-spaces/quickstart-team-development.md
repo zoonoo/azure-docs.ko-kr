@@ -3,15 +3,15 @@ title: Kubernetes에서 팀 개발
 services: azure-dev-spaces
 ms.date: 04/25/2019
 ms.topic: quickstart
-description: Azure에서 컨테이너와 마이크로서비스를 사용하여 Kubernetes 팀 개발
+description: 이 빠른 시작에서는 Azure Dev Spaces를 통해 컨테이너 및 마이크로서비스를 사용하여 Kubernetes 개발 팀을 수행하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 2f3ed0f2a9635488aea509e7816fbe84e1589d14
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 396358be63f93fde2ba5ec5f00545708dbfa19d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484027"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438205"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 팀 개발 - Azure Dev Spaces
 
@@ -23,9 +23,9 @@ ms.locfileid: "74484027"
 
 ![Azure Dev Spaces 팀 개발](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+- Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 - [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Helm 2.13 - 2.16이 설치되었습니다][helm-installed].
 

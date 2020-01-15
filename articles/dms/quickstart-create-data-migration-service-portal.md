@@ -1,6 +1,7 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스 만들기 | Microsoft Docs'
-description: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다.
+title: '빠른 시작: Azure Portal을 사용하여 인스턴스 만들기'
+titleSuffix: Azure Database Migration Service
+description: Azure Portal을 사용하여 Azure Database Migration Service의 인스턴스를 만듭니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 11/05/2019
-ms.openlocfilehash: 6427de61ebf30a5e4a62070becd1cc1f750f6c1b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 71308b7f17d6009e8650cafbb02afd577fd73cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437723"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다.
 
@@ -72,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 삭제하여 이 빠른 시작에서 만든 리소스를 정리할 수 있습니다. 리소스 그룹을 삭제하려면 만든 Azure Database Migration Service 인스턴스로 이동합니다. **리소스 그룹** 이름을 선택하고 **리소스 그룹 삭제**를 선택합니다. 이 작업은 리소스 그룹의 모든 자산과 그룹 자체를 삭제합니다.
+[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 삭제하여 이 빠른 시작에서 만든 리소스를 정리할 수 있습니다. 리소스 그룹을 삭제하려면 만든 Azure Database Migration Service 인스턴스로 이동합니다. **리소스 그룹** 이름을 선택하고 **리소스 그룹 삭제**를 선택합니다. 이 작업은 리소스 그룹의 모든 자산과 그룹 자체를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

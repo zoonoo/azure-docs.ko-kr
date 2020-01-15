@@ -1,10 +1,10 @@
 ---
-title: '자습서: Deskradar와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: Deskradar와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
 description: Azure Active Directory 및 Deskradar 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5ff3e014-b79f-4a6c-bb0b-38462bea5d10
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5e3d6f8763af8c14d189321c6129876f48ab85
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3ccb0f63476db733749c2b9bd9c297e29fe6fba6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158336"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608536"
 ---
-# <a name="tutorial-integrate-deskradar-with-azure-active-directory"></a>자습서: Deskradar와 Azure Active Directory 연결
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-deskradar"></a>자습서: Deskradar와 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Deskradar를 연결하는 방법에 대해 알아봅니다. Azure AD와 Deskradar를 연결하는 경우 다음을 수행할 수 있습니다.
 
@@ -33,16 +33,22 @@ ms.locfileid: "73158336"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 구독이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 다운로드할 수 있습니다.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Deskradar SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. Deskradar에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
+
+
+
+* Deskradar에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+
+
 
 ## <a name="adding-deskradar-from-the-gallery"></a>갤러리에서 Deskradar 추가
 
@@ -55,106 +61,63 @@ Deskradar의 Azure AD 통합을 구성하려면 갤러리의 Deskradar를 관리
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Deskradar**를 입력합니다.
 1. 결과 패널에서 **Deskradar**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-deskradar"></a>Deskradar용 Azure AD Single Sign-On 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Deskradar에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Deskradar의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Deskradar에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Deskradar SSO 구성](#configure-deskradar-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Deskradar 테스트 사용자 만들기](#create-deskradar-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Deskradar에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[Deskradar SSO 구성](#configure-deskradar-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[Deskradar 테스트 사용자 만들기](#create-deskradar-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Deskradar에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Deskradar** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Deskradar** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On**을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://YOURDOMAIN.deskradar.cloud` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<YOURDOMAIN>.deskradar.cloud` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<YOURDOMAIN>.deskradar.cloud/auth/sso/saml/consume` 패턴을 사용하여 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/login` 패턴을 사용하여 URL을 입력합니다.
+    **로그인 URL** 텍스트 상자에서 `https://<YOURDOMAIN>.deskradar.cloud/auth/sso/saml/login` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. **YOURDOMAIN**을 Deskradar 인스턴스 도메인으로 바꿉니다. 이러한 값을 얻으려면 [Deskradar 클라이언트 지원 팀](mailto:support@deskradar.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. Deskradar 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+1. Deskradar 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
     ![이미지](common/edit-attribute.png)
 
-1. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+1. 위에서 언급한 특성 외에도 Deskradar 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 이름 | 원본 특성|
+    | 속성 | 원본 특성|
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
     | Email | user.userprincipalname |
     | | |
 
-    a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
-
-    다. **네임스페이스**를 비워 둡니다.
-
-    d. 원본을 **특성**으로 선택합니다.
-
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
-
-    f. **Ok**를 클릭합니다.
-
-    g. **저장**을 클릭합니다.
-
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
-
-   ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![인증서 다운로드 링크](common/certificatebase64.png)
 
 1. **Deskradar 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
-   ![구성 URL 복사](common/copy-configuration-urls.png)
-
-### <a name="configure-deskradar-sso"></a>Deskradar SSO 구성
-
-1. Deskradar 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
-
-    ![내 앱 확장](common/install-myappssecure-extension.png)
-
-1. 브라우저에 확장을 추가한 후 **Deskradar 설정**을 클릭하면 Deskradar 애플리케이션으로 이동합니다. 여기서 관리자 자격 증명을 입력하여 Deskradar에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
-
-    ![구성 설정](common/setup-sso.png)
-
-1. Deskradar를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Deskradar 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
-
-1. 사이드바에서 아이콘을 클릭하여 **팀** 패널을 엽니다.
-
-1. **인증** 탭으로 전환합니다.
-
-1. **SAML 2.0** 탭에서 다음 단계를 수행합니다.
-
-    ![Deskradar 구성](./media/deskradar-tutorial/14-paste-urls.jpg)
-
-    a. **SAML** 인증 메서드를 사용하도록 설정합니다.
-
-    b. **SAML SSO URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 입력합니다.
-
-    다. **ID 공급자 발급자** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 입력합니다.
-
-1. 다운로드한 **인증서(Base64)** 파일을 텍스트 편집기에서 열고, 해당 콘텐츠를 Deskradar의 **공용 인증서** 필드에 붙여넣습니다.
-
-    ![Deskradar 구성](./media/deskradar-tutorial/15-paste-certificate.jpg)
+    ![구성 URL 복사](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -164,7 +127,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -186,18 +149,53 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+### <a name="configure-deskradar-sso"></a>Deskradar SSO 구성
+
+1. Deskradar 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+1. 브라우저에 확장을 추가한 후 **Deskradar 설정**을 클릭하면 Deskradar 애플리케이션으로 이동합니다. 여기서 관리자 자격 증명을 입력하여 Deskradar에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+1. Deskradar를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Deskradar 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+1. 사이드바에서 아이콘을 클릭하여 **팀** 패널을 엽니다.
+
+1. **인증** 탭으로 전환합니다.
+
+1. **SAML 2.0** 탭에서 다음 단계를 수행합니다.
+
+    ![Deskradar 구성](./media/deskradar-tutorial/14-paste-urls.jpg)
+
+    a. **SAML** 인증 메서드를 사용하도록 설정합니다.
+
+    b. **SAML SSO URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 입력합니다.
+
+    다. **ID 공급자 발급자** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 입력합니다.
+
+1. 다운로드한 **인증서(Base64)** 파일을 텍스트 편집기에서 열고, 해당 콘텐츠를 Deskradar의 **공용 인증서** 필드에 붙여넣습니다.
+
+    ![Deskradar 구성](./media/deskradar-tutorial/15-paste-certificate.jpg)
+
 ### <a name="create-deskradar-test-user"></a>Deskradar 테스트 사용자 만들기
 
-이 섹션에서는 Deskradar에서 Britta Simon이라는 사용자를 만듭니다.  [Deskradar 클라이언트 지원 팀](mailto:support@deskradar.com) 과 협력하여 Deskradar 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Deskradar에서 B.Simon이라는 사용자를 만듭니다. [Deskradar 클라이언트 지원 팀](mailto:support@deskradar.com)과 협력하여 Deskradar 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트 
 
-액세스 패널에서 Deskradar 타일을 선택하면 SSO를 설정한 Deskradar에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+
+액세스 패널에서 Deskradar 타일을 클릭하면 SSO를 설정한 Deskradar에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Azure AD로 Deskradar 사용해보기](https://aad.portal.azure.com/)
+

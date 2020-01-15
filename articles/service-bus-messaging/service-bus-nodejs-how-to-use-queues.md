@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Node.js에서 Azure Service Bus 큐 사용'
+title: azure-sb 패키지를 사용하여 Node.js에서 Azure Service Bus 큐 사용
 description: '빠른 시작: Node.js app에서 Azure의 Service Bus 큐를 사용하는 방법에 대해 알아봅니다.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462175"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>빠른 시작: Azure에서 Node.js 및 azure-sb 패키지를 통해 Service Bus 큐 사용
 
@@ -32,10 +32,10 @@ ms.locfileid: "73719229"
 
 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용합니다. 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus)를 사용하면 더 빠른 환경을 얻을 수 있습니다. 새 패키지에 대한 자세한 내용은 [Node.js 및 @azure/service-bus 패키지에서 Service Bus 큐를 사용하는 방법](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)을 참조하거나 [azure](https://www.npmjs.com/package/azure) 패키지를 사용하는 방법을 계속 읽으세요.
 
-## <a name="prerequisites"></a>필수 조건
-- Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
+- Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
-    1. Service Bus **큐**의 빠른 **개요**을 읽습니다. 
+    1. Service Bus **큐**의 빠른 **개요**를 읽습니다. 
     2. Service Bus **네임스페이스**를 만듭니다. 
     3. **연결 문자열**을 가져옵니다. 
 
@@ -194,7 +194,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 ## <a name="next-steps"></a>다음 단계
 큐에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [큐, 토믹 및 구독][Queues, topics, and subscriptions]
+* [큐, 토픽 및 구독][Queues, topics, and subscriptions]
 * GitHub의 [Node용 Azure SDK][Azure SDK for Node] 리포지토리
 * [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)
 

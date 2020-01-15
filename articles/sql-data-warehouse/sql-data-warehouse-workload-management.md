@@ -1,5 +1,5 @@
 ---
-title: 워크로드 관리
+title: 작업 관리
 description: Azure SQL Data Warehouse에서 작업 관리를 구현 하기 위한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/30/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2563ea4ab498c11c846cfe79f0e668f7d491c2e7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692346"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940593"
 ---
 # <a name="what-is-workload-management"></a>워크로드 관리란?
 
@@ -54,3 +54,4 @@ SQL Data Warehouse에 대 한 워크 로드 관리는 [작업 분류](sql-data-w
 - 작업 분류에 대 한 자세한 내용은 [작업 분류](sql-data-warehouse-workload-classification.md)를 참조 하세요.  
 - 워크 로드 격리에 대 한 자세한 내용은 [워크 로드 격리](sql-data-warehouse-workload-isolation.md)를 참조 하세요.  
 - 작업 중요도에 대 한 자세한 내용은 [워크 로드 중요도](sql-data-warehouse-workload-importance.md)를 참조 하세요.  
+- 워크 로드 관리 모니터링에 대 한 자세한 내용은 [작업 관리 포털 모니터링](sql-data-warehouse-workload-management-portal-monitor.md)을 참조 하세요.  

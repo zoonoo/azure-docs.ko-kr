@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 - Azure Cosmos DB Table API 테이블 만들기
+title: Azure Cosmos DB Table API에서 테이블을 만드는 PowerShell 스크립트
 description: PowerShell 스크립트를 사용하여 Azure Cosmos DB Table API에서 데이터베이스 또는 컨테이너의 처리량을 업데이트하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 12/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 12a7c9cd6e1a9c1271aa73b9c2b2e1c834c743a7
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: b99d4ed9043e0411216b953829a40eb2ee71fc30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441313"
 ---
 # <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Azure Cosmos DB - Table API용 테이블 만들기
 

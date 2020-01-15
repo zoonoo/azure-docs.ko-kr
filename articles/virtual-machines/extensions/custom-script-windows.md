@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9fe0875f34745b0b5b8b1b7e8b352116b6cbf997
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073831"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941919"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -23,7 +23,7 @@ ms.locfileid: "74073831"
 
 이 문서에서는 Azure PowerShell 모듈, Azure Resource Manager 템플릿을 사용하는 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템에서 문제 해결 단계를 자세히 설명하고 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 > [!NOTE]  
 > 해당 매개 변수와 동일한 VM을 사용하여 Update-AzVM을 실행하려는 경우에는 사용자 지정 스크립트 확장을 사용하지 마세요. 대기 시간이 길어집니다.  
@@ -63,7 +63,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 
 중요한 데이터는 보호된 구성에 저장하면 암호화된 후 가상 머신 내에서만 해독됩니다. 보호된 구성은 실행 명령에 암호와 같은 기밀 정보가 포함될 때 유용합니다.
 
-이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다.
+이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다.
 
 ```json
 {
@@ -81,7 +81,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -92,11 +92,15 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey"
+            "storageAccountKey": "myStorageAccountKey",
+            "managedIdentity" : {}
         }
     }
 }
 ```
+
+> [!NOTE]
+> Microsoft.managedidentity 속성은 storageAccountName 또는 storageAccountKey 속성과 함께 사용할 수 **없습니다** .
 
 > [!NOTE]
 > 특정 시점에 하나의 확장 버전만 VM에 설치 될 수 있습니다. 동일한 VM에 대해 동일한 리소스 관리자 템플릿에서 사용자 지정 스크립트를 두 번 지정 하면 실패 합니다.
@@ -109,14 +113,15 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | string |
-| type | CustomScriptExtension | string |
-| typeHandlerVersion | 1.9 | int |
+| publisher | Microsoft.Compute | 문자열 |
+| type | CustomScriptExtension | 문자열 |
+| typeHandlerVersion | 1.10 | int |
 | fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
-| storageAccountName(예) | examplestorageacct | string |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | 문자열 |
+| storageAccountName(예) | examplestorageacct | 문자열 |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
+| Microsoft.managedidentity (예:) | {} 또는 {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} 또는 {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | json 개체 |
 
 >[!NOTE]
 >이러한 속성 이름은 대/소문자를 구분합니다. 배포 문제를 방지하려면 다음과 같이 이름을 사용합니다.
@@ -127,7 +132,10 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 * `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
 * `timestamp`(옵션, 32비트 정수)는 이 필드의 값을 변경하여 스크립트의 다시 실행을 트리거하는 데만 이 필드를 사용합니다.  모든 정수 값을 사용할 수 있습니다. 단, 이전 값과 달라야 합니다.
 * `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
-* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
+* `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
+* `managedIdentity`: (옵션, json 개체) 파일 다운로드를 위한 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  * `clientId`: (옵션, 문자열) 관리 id의 클라이언트 ID
+  * `objectId`: (옵션, 문자열) 관리 id의 개체 ID
 
 다음 값은 공용 또는 보호된 설정 중 하나에서 설정할 수 있습니다. 확장은 공용 및 보호된 설정 모두에 아래 값이 설정된 모든 구성을 거부합니다.
 
@@ -136,6 +144,46 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 공용 설정을 사용 하면 디버깅에 유용 하지만 보호 된 설정을 사용 하는 것이 좋습니다.
 
 공용 설정은 스크립트를 실행할 VM에 일반 텍스트로 보내집니다.  보호된 설정은 Azure 및 VM에만 알려진 키를 사용하여 암호화됩니다. 설정은 전송 될 때 VM에 저장 됩니다. 즉, 설정이 암호화 된 경우 VM에 암호화 된 상태로 저장 됩니다. 암호화된 값의 암호를 해독하는 데 사용되는 인증서는 VM에 저장되고, 필요한 경우 런타임 시 설정의 암호를 해독하는 데 사용됩니다.
+
+####  <a name="property-managedidentity"></a>속성: Microsoft.managedidentity
+
+CustomScript (버전 1.10.4)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 데 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 기반 RBAC를 지원 합니다. 사용자가 SAS 토큰 또는 저장소 계정 키와 같은 암호를 전달 하지 않고도 CustomScript Azure Storage 개인 blob/컨테이너에 액세스할 수 있습니다.
+
+이 기능을 사용 하려면 사용자는 CustomScript가 실행 될 것으로 예상 되는 VM 또는 VMSS에 [시스템 할당](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) 또는 [사용자 할당](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) id를 추가 하 고 [Azure Storage 컨테이너 또는 blob에 대 한 관리 id 액세스 권한을 부여](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)해야 합니다.
+
+대상 VM/VMSS에서 시스템이 할당 한 id를 사용 하려면 "microsoft.managedidentity" 필드를 빈 json 개체로 설정 합니다. 
+
+> 예:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : {}
+> }
+> ```
+
+대상 VM/VMSS에서 사용자 할당 id를 사용 하려면 관리 id의 클라이언트 ID 또는 개체 ID를 사용 하 여 "microsoft.managedidentity" 필드를 구성 합니다.
+
+> 예시:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> Microsoft.managedidentity 속성은 storageAccountName 또는 storageAccountKey 속성과 함께 사용할 수 **없습니다** .
 
 ## <a name="template-deployment"></a>템플릿 배포
 
@@ -157,7 +205,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
     -Name DemoScriptExtension
 ```
 
-## <a name="additional-examples"></a>추가 예제
+## <a name="additional-examples"></a>추가 예
 
 ### <a name="using-multiple-scripts"></a>여러 스크립트 사용
 
@@ -181,7 +229,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -Settings $settings    `
     -ProtectedSettings $protectedSettings `
 ```
@@ -199,7 +247,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "serverUpdate"
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -ProtectedSettings $protectedSettings
 
 ```
@@ -225,7 +273,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 클래식 Vm에서 사용자 지정 스크립트 확장을 배포 하려면 Azure Portal 또는 클래식 Azure PowerShell cmdlet을 사용할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 클래식 VM 리소스로 이동 합니다. **설정**아래에서 **확장** 을 선택 합니다.
 
@@ -277,7 +325,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 `commandToExecute` 명령을 실행하는 경우 확장에서 이 디렉터리(예: `...\Downloads\2`)를 현재 작업 디렉터리로 설정합니다. 이 프로세스로 `fileURIs` 속성을 통해 다운로드된 파일을 배치하는 상대 경로를 사용할 수 있습니다. 예제는 아래 테이블을 참조하세요.
 
-시간이 지남에 따라 절대 다운로드 경로가 달라질 수 있으므로 가능한 경우 `commandToExecute` 문자열에서 상대 스크립트/파일 경로를 옵트인하는 것이 좋습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+시간이 지남에 따라 절대 다운로드 경로가 달라질 수 있으므로 가능한 경우 `commandToExecute` 문자열에서 상대 스크립트/파일 경로를 옵트인하는 것이 좋습니다. 예:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

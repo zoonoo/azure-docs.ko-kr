@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: fd3d53dce398c445d309a19f1f58a8d298080c45
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ea526648b1b37919eb41953937d3afa72f7f39e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446236"
 ---
 <a name="HOLTop"></a>
 
@@ -18,10 +18,10 @@ ms.locfileid: "73750196"
 > [!NOTE]
 > 이 문서의 코드는 간단히 하기 위해 Text Analytics .NET SDK의 동기 메서드를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어 [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) 대신 [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview)를 호출합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="setting-up"></a>설치
 
@@ -31,49 +31,26 @@ ms.locfileid: "73750196"
 
 ### <a name="create-a-new-net-core-application"></a>새 .NET Core 애플리케이션 만들기
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `text-analytics quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *program.cs*라는 단일 C# 원본 파일을 사용하여 간단한 "Hello World" 프로젝트를 만듭니다. 
+Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이렇게 하면 *program.cs*라는 단일 C# 원본 파일이 포함된 간단한 "Hello World" 프로젝트가 생성됩니다.
 
-```console
-dotnet new console -n text-analytics-quickstart
-```
+**솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고 `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`를 검색합니다. 해당 항목을 클릭한 다음, **설치**를 클릭합니다. [패키지 관리자 콘솔](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
 
-새로 만든 앱 폴더로 디렉터리를 변경합니다. 다음을 통해 애플리케이션을 빌드할 수 있습니다.
-
-```console
-dotnet build
-```
-
-빌드 출력에 경고나 오류가 포함되지 않아야 합니다. 
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-프로젝트 디렉터리에서 *program.cs* 파일을 열고 `using` 지시문을 추가합니다.
+*program.cs* 파일을 열고 다음 `using` 지시문을 추가합니다.
 
 [!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
 
-애플리케이션의 `Program` 클래스에서 이전에 만든 환경 변수에서 리소스 키 및 엔드포인트에 대한 변수를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
+애플리케이션의 `Program` 클래스에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=vars)]
+```csharp
+private static readonly string key = "<replace-with-your-text-analytics-key-here>";
+private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+```
 
 애플리케이션의 `Main` 메서드를 바꿉니다. 나중에 여기서 호출되는 메서드를 정의합니다.
 
 [!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
-
-### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
-
-애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Text Analytics 클라이언트 라이브러리를 설치합니다.
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
-```
 
 ## <a name="object-model"></a>개체 모델
 

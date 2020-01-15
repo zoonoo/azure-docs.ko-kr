@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 샘플 - 가상 머신 확장 집합 만들기 | Microsoft Docs
-description: Azure CLI 샘플
+title: Azure CLI 샘플 - 가상 머신 확장 집합 만들기
+description: 이 스크립트는 Ubuntu 운영 체제 및 부하 분산 장치를 포함한 관련 네트워킹 리소스가 있는 Azure 가상 머신 확장 집합을 만듭니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7327468722f4f3b0fc7048bc8afcdb757df50bc7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c4fbefc0c513df8fb300798155c2f8814bc3140b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351034"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 만들기
 이 스크립트는 Ubuntu 운영 체제 및 부하 분산 장치를 포함한 관련 네트워킹 리소스가 있는 Azure 가상 머신 확장 집합을 만듭니다. 스크립트가 실행되면 SSH를 통해 VM 인스턴스에 액세스할 수 있습니다.

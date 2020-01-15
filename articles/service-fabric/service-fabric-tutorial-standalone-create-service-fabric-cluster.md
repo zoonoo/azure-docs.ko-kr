@@ -1,26 +1,17 @@
 ---
-title: '자습서: Service Fabric 독립 실행형 클라이언트 설치 - Azure Service Fabric | Microsoft Docs'
+title: Service Fabric 독립 실행형 클라이언트 설치
 description: 이 자습서에서는 이전 자습서 문서에서 만든 클러스터에 Service Fabric 독립 실행형 클라이언트를 설치하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 82358f4d5548464f1304d77a846d71863ed9efa1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385009"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613944"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 

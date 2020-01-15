@@ -3,15 +3,15 @@ title: Kubernetes에서 애플리케이션 개발
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Azure Dev Spaces를 사용하여 AKS에서 마이크로서비스 배포
+description: 이 빠른 시작에서는 Azure Dev Spaces 및 명령줄을 사용하여 Azure Kubernetes Service에서 애플리케이션을 개발하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 932b25e277936a2efe6a3e037458fabd67b024c2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b4902930b04e880bbbdfbe7418d5e0ec86f89470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438267"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces에서 애플리케이션 개발 - Azure Dev Spaces
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
@@ -19,9 +19,9 @@ ms.locfileid: "74325652"
 - Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.
 - 명령줄을 사용하여 컨테이너에서 코드를 개발하고 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+- Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 - [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
@@ -116,7 +116,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예:
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 다음은 그 예입니다.
 
 1. `azds up`가 계속 실행 중인 경우 *Ctrl+c*를 누르세요.
 1. [`server.js`의 13줄](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13)을 다음으로 업데이트합니다.

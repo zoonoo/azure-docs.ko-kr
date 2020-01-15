@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 0977c4537e409b59be7f9031c488b3317f9f2f0f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 8c252870a82a60a561f12fab9d728c028458212a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415788"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562105"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>자습서: Azure Lab Services로 랩 계정 설정
 Azure Lab Services에서 랩 계정은 조직의 랩을 관리하는 중앙 계정 역할을 합니다. 랩 계정에서 랩을 만들고 랩 계정의 모든 랩에 적용되는 정책을 설정할 수 있는 권한을 다른 사람에게 부여하세요. 이 자습서에서는 랩 관리자 권한으로 랩 계정을 만드는 방법을 알아봅니다. 
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     2. 목록에서 이미지 이름 앞의 확인란을 선택하여 목록에서 하나 이상의 이미지를 선택하고, **선택한 이미지 사용**을 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 랩 계정을 만들었습니다. 직업으로 클래스룸 랩을 만드는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+이 자습서에서는 랩 계정을 만들었습니다. 교수로서 클래스룸 랩을 만드는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [클래스룸 랩 설정](tutorial-setup-classroom-lab.md)

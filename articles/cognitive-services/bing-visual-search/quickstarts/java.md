@@ -8,31 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: eecca2372c7265d456276a966cc441b15c17272a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446625"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>빠른 시작: Bing Visual Search REST API 및 Java를 사용하여 이미지 인사이트 가져오기
 
 이 빠른 시작을 사용하여 Bing Visual Search API를 처음 호출하고 결과를 확인합니다. 이 Java 애플리케이션은 API에 이미지를 업로드하고 API에서 반환되는 정보를 표시합니다. 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-로컬 이미지를 업로드할 때 양식 데이터에 `Content-Disposition` 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "이미지"로 설정해야 하며, `filename` 매개 변수는 임의의 문자열로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진 데이터를 포함합니다. 업로드할 수 있는 최대 이미지 크기는 1MB입니다.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [JDK(Java Development Kit) 7 또는 8](https://aka.ms/azure-jdks)
 * [Gson Java 라이브러리](https://github.com/google/gson)
@@ -63,7 +52,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. API 엔드포인트, 구독 키에 대한 변수 및 이미지에 대한 경로를 만듭니다.
+2. API 엔드포인트, 구독 키에 대한 변수 및 이미지에 대한 경로를 만듭니다. `endpoint`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -71,18 +60,30 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     static String imagePath = "path-to-your-image";
     ```
 
+    
+    로컬 이미지를 업로드할 때 양식 데이터에 `Content-Disposition` 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "이미지"로 설정해야 하며, `filename` 매개 변수는 임의의 문자열로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진 데이터를 포함합니다. 업로드할 수 있는 최대 이미지 크기는 1MB입니다.
+    
+    ```
+    --boundary_1234-abcd
+    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+    
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    
+    --boundary_1234-abcd--
+    ```
+
 ## <a name="create-the-json-parser"></a>JSON 파서 만들기
 
 `JsonParser`를 사용하여 API에서 JSON 응답을 쉽게 읽을 수 있도록 메서드를 만듭니다.
 
-    ```java
-    public static String prettify(String json_text) {
-            JsonParser parser = new JsonParser();
-            JsonObject json = parser.parse(json_text).getAsJsonObject();
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            return gson.toJson(json);
-        }
-    ```
+```java
+public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+```
 
 ## <a name="construct-the-search-request-and-query"></a>검색 요청 및 쿼리 생성
 
@@ -120,11 +121,11 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 2. JSON 문자열을 저장하고, 응답을 출력합니다.
 
-```java
-String json = new Scanner(stream).useDelimiter("\\A").next();
-System.out.println("\nJSON Response:\n");
-System.out.println(prettify(json));
-```
+    ```java
+    String json = new Scanner(stream).useDelimiter("\\A").next();
+    System.out.println("\nJSON Response:\n");
+    System.out.println(prettify(json));
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

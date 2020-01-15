@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997057"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940900"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 
@@ -71,6 +71,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
 - **원본 특성** - 원본 시스템의 사용자 특성(예: Azure Active Directory).
 - **대상 특성** – 대상 시스템의 사용자 특성(예: ServiceNow).
+- **Null (선택 사항) 인 경우 기본값** 은 원본 특성이 null 인 경우 대상 시스템에 전달 될 값입니다. 이 값은 사용자를 만들 때만 프로 비전 됩니다. 기존 사용자를 업데이트할 때 "null 인 경우 기본값"이 프로 비전 되지 않습니다. 예를 들어 대상 시스템의 모든 기존 사용자를 특정 직함 (원본 시스템에서 null 인 경우)으로 프로 비전 하려는 경우 다음 [식을](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)사용할 수 있습니다. Switch (IsPresent ([jobTitle]), "DefaultValue", "True", [jobTitle]) 원본 시스템에서 null 인 경우 "기본값"을 프로 비전 할 항목으로 바꾸어야 합니다. 
 - **이 특성을 사용 하 여 개체 일치** – 원본 및 대상 시스템 간에 사용자를 고유 하 게 식별 하는 데이 매핑을 사용할지 여부를 지정 합니다. 일반적으로 대상 응용 프로그램의 사용자 이름 필드에 매핑되는 Azure AD의 userPrincipalName 또는 mail 특성에 대해 설정 됩니다.
 - **일치 우선 순위** – 여러 일치 특성을 설정할 수 있습니다. 여러 개가 있는 경우이 필드에 정의 된 순서 대로 평가 됩니다. 일치 항목이 발견되는 즉시 더 이상 일치 특성을 평가하지 않습니다.
 - **이 매핑 적용**

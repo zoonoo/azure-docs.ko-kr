@@ -1,5 +1,5 @@
 ---
-title: Microsoft ID 플랫폼 JavaScript 단일 페이지 애플리케이션 가이드 | Azure
+title: JavaScript 단일 페이지 앱 자습서 - Microsoft ID 플랫폼 | Azure
 description: Azure Active Directory v2.0 엔드포인트를 통해 액세스 토큰을 요구하는 API를 JavaScript SPA 애플리케이션에서 호출하는 방법입니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423367"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -46,7 +46,7 @@ ms.locfileid: "74919395"
 
 이 가이드에서는 다음 라이브러리를 사용합니다.
 
-|라이브러리|설명|
+|라이브러리|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript용 Microsoft 인증 라이브러리 미리 보기|
 
@@ -66,7 +66,7 @@ ms.locfileid: "74919395"
 >
 > 코드 샘플을 먼저 구성한 후에 실행하려면 [구성 단계](#register-your-application)로 건너뜁니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 자습서를 실행하려면 [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) 또는 IIS Express와 같은 로컬 웹 서버가 [Visual Studio 2017](https://www.visualstudio.com/downloads/)과 연결되어 있어야 합니다.
 

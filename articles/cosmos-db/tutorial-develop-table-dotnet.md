@@ -1,5 +1,5 @@
 ---
-title: .NET Standard SDK를 사용하여 Azure Cosmos DB Table API 시작
+title: .NET Standard SDK를 사용하는 Azure Cosmos DB Table API
 description: Azure Cosmos DB Table API 계정에서 구조화된 데이터를 저장하고 쿼리하는 방법 알아보기
 author: wmengmsft
 ms.author: wmeng
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7341d86e68986a2e502f714a4dcf1f882200d384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441075"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -25,7 +25,7 @@ Azure Cosmos DB Table API 또는 Azure Table Storage를 사용하여 클라우�
 
 이 자습서에서는 Azure Cosmos DB Table API 및 Azure Table Storage 시나리오를 사용하여 [.NET용 Microsoft Azure Cosmos DB Table Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)를 사용하는 방법을 보여주는 샘플을 설명합니다. Azure 서비스에 특정된 연결을 사용해야 합니다. 테이블을 만들고, 데이터를 삽입/업데이트하고, 데이터를 쿼리하고, 테이블을 삭제하는 방법을 설명하는 C# 예제를 사용하여 이러한 시나리오를 살펴보겠습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 성공적으로 완료하려면 다음이 필요합니다.
 
@@ -43,7 +43,7 @@ Azure Cosmos DB Table API 또는 Azure Table Storage를 사용하여 클라우�
 
 Visual Studio에서 새 .NET 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2019에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. Azure 클라우드 서비스, 웹앱, 데스크톱 및 모바일 애플리케이션을 비롯한 모든 .NET 애플리케이션 형식에서 Azure Cosmos DB Table Library를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
-1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+1. **File** > **New** > **Project**를 선택합니다.
 
 1. **콘솔 앱(.NET Core)** 을 선택한 후 **다음**을 선택합니다.
 

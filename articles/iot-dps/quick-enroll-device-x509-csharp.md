@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1986f51b834f177a7c8d70392cc532cbfadb7170
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 64bc3921a606ab3211173b46b268ded53952c8bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434654"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>빠른 시작: C#을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -28,7 +28,7 @@ ms.locfileid: "74974736"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2019](https://www.visualstudio.com/vs/)를 설치합니다.
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)를 설치합니다.
@@ -49,17 +49,21 @@ ms.locfileid: "74974736"
 
 이 테스트 도구를 사용하여 인증서를 생성하려면 다음 단계를 수행합니다.
 
-1. 명령 프롬프트 창 또는 Git Bash 셸을 열고, 컴퓨터의 작업 폴더로 변경합니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리를 복제합니다.
+1. Azure IoT C SDK의 [최신 릴리스](https://github.com/Azure/azure-iot-sdk-c/releases/latest)에 대한 태그 이름을 찾습니다.
 
-   ```cmd/sh
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-   ```
+2. 명령 프롬프트 또는 Git Bash 셸을 열고, 머신의 작업 폴더로 변경합니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리의 최신 릴리스를 복제합니다. 이전 단계에서 찾은 태그를 `-b` 매개 변수의 값으로 사용합니다.
 
-   이 작업을 완료하는 데 몇 분 정도가 걸립니다.
+    ```cmd/sh
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
+    ```
+
+    이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
    테스트 도구는 복제한 리포지토리의 *azure-iot-sdk-c/tools/CACertificates*에 있습니다.
 
-1. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 따릅니다.
+3. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 따릅니다.
 
 C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인증서 확인 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample)은 기존 X.509 중간 또는 루트 CA 인증서를 사용하여 C#에서 소유 증명을 수행하는 방법을 보여줍니다.
 
@@ -163,7 +167,7 @@ C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인�
    Console.ReadLine();
    ```
 
-1. 솔루션을 빌드하십시오.
+1. 솔루션을 빌드합니다.
 
 ## <a name="run-the-enrollment-group-sample"></a>등록 그룹 샘플 실행
   

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 82c1159aca51bc30839f5380a414bd2b3b488bb8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446681"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>빠른 시작: Bing Visual Search REST API 및 C#을 사용하여 이미지 인사이트 가져오기
 
 이 빠른 시작에서는 Bing Visual Search API에 이미지를 업로드하고 반환되는 인사이트를 보는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET 프레임워크](https://www.newtonsoft.com/json).
@@ -41,7 +41,7 @@ ms.locfileid: "74383629"
     using System.Collections.Generic;
     ```
 
-2. 구독 키, 엔드포인트 및 업로드할 이미지 경로에 대한 변수를 추가합니다.
+2. 구독 키, 엔드포인트 및 업로드할 이미지 경로에 대한 변수를 추가합니다. `uriBase`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 
     ```csharp
         const string accessKey = "<my_subscription_key>";

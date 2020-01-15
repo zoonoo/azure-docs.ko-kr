@@ -1,5 +1,5 @@
 ---
-title: Azure 빠른 시작 - Windows VM에서 Azure Files 공유 만들기 및 사용 | Microsoft Docs
+title: Windows VM에서 Azure Files 공유 만들기 및 사용
 description: 이 빠른 시작에서는 Azure Portal에서 Azure Files 공유를 설정하고 Windows 가상 머신에 연결합니다. 파일 공유에 연결하고 파일 공유에 파일을 업로드합니다. 그런 다음, 파일 공유의 스냅샷을 만들고, 파일 공유에서 파일을 수정하고, 파일 공유의 이전 스냅샷을 복원합니다.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463904"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
 
@@ -85,7 +85,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 
    ![포털에서 Azure VM에 연결](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
-1. **가상 머신에 연결** 페이지에서, **포트 번호** *3389*를 통해 **IP 주소**로 연결하는 기본 옵션을 유지하고 **RDP 파일 다운로드**를 선택합니다.
+1. **가상 머신에 연결** 페이지에서 **포트 번호** *3389*를 통해 **IP 주소**로 연결하는 기본 옵션을 유지하고 **RDP 파일 다운로드**를 선택합니다.
 1. 다운로드한 RDP 파일을 열고 메시지가 표시되면 **연결**을 선택합니다.
 1. **Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용**을 차례로 선택합니다. 사용자 이름으로 *localhost\username*을 입력합니다. 여기서 &lt;username&gt;은 가상 머신에 대해 만든 VM 관리자 사용자 이름입니다. 가상 머신에 대해 만든 암호를 입력한 다음, **확인**을 선택합니다.
 

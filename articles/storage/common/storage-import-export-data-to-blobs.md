@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bd15e406cdbee57112ff8ecba158d503e908b73f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cab9d309d052acca493e112965c8477a325d8c88
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178023"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944746"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
@@ -27,10 +27,10 @@ ms.locfileid: "73178023"
 - 스토리지 컨테이너가 있는 Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 
     - 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요. 
     - 스토리지 컨테이너에 대한 자세한 내용은 [스토리지 컨테이너 만들기](../blobs/storage-quickstart-blobs-portal.md#create-a-container)로 이동하세요.
-- [지원되는 유형](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
+- [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다. 
 - Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
-- Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`
+- Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다. `waimportexportv1` 기본 폴더에 압축을 풉니다. `C:\WaImportExportV1`)을 입력합니다.
 - FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 `adbops@microsoft.com`에서 Azure Data Box 운영 팀에 문의 하세요.  
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
@@ -64,15 +64,15 @@ ms.locfileid: "73178023"
     
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
 
-    |옵션  |설명  |
+    |옵션  |Description  |
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID입니다. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
-    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`         |
+    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. `D:\`)을 입력합니다.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
-    |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우에는 `BlockBlob` 및 페이지 blob의 경우 `PagaBlob`됩니다.         |
+    |/blobtype:     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우에는 `BlockBlob` 및 페이지 blob의 경우 `PageBlob`됩니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
     |/enablecontentmd5:     |이 옵션을 사용 하도록 설정 하면 MD5가 계산 되어 각 blob에서 `Content-md5` 속성으로 설정 됩니다. 데이터를 Azure에 업로드 한 후 `Content-md5` 필드를 사용 하려는 경우에만이 옵션을 사용 합니다. <br> 이 옵션은 기본적으로 발생 하는 데이터 무결성 검사에는 영향을 주지 않습니다. 이 설정은 클라우드로 데이터를 업로드 하는 데 걸리는 시간을 증가 시킵니다.          |
 7. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 74697d69fbeb9072f839f0b6d49c010c5a7a7a05
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b314944f1ae8847470f218ca23a11beed7731f67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996703"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448405"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>빠른 시작: C#용 Bing Spell Check SDK로 맞춤법 검사
 
@@ -83,20 +83,24 @@ Bing Spell Check SDK를 프로젝트에 추가하려면 Visual Studio의 **솔�
 3. 첫 번째 제안된 수정 사항(있는 경우)을 가져옵니다. 제안 점수 및 제안 단어를 인쇄합니다. 
 
     ```csharp
-            var suggestions = firstspellCheckResult.Suggestions;
+    var suggestions = firstspellCheckResult.Suggestions;
 
-            if (suggestions?.Count > 0)
-            {
-                var firstSuggestion = suggestions.FirstOrDefault();
-                Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
-                Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
-            }
-   }
+    if (suggestions?.Count > 0)
+    {
+        var firstSuggestion = suggestions.FirstOrDefault();
+        Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
+        Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
+    }
+    ```
 
-## Next steps
+## <a name="run-the-application"></a>애플리케이션 실행
+
+프로젝트를 빌드한 후 실행합니다. Visual Studio를 사용하는 경우 **F5**를 눌러 파일을 디버그합니다.
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Create a single page web-app](tutorials/spellcheck.md)
+> [단일 페이지 웹앱 만들기](tutorials/spellcheck.md)
 
-- [What is the Bing Spell Check API?](overview.md)
-- [Bing Spell Check C# SDK reference guide](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [Bing Spell Check API란?](overview.md)
+- [Bing Spell Check C# SDK 참조 가이드](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

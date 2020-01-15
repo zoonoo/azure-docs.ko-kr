@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 01/06/2020
 ms.custom: include file
-ms.openlocfilehash: 832c0e6080b82f3c38beaf051669fbdacd37081c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 6f8eaa1d13e7a8c4ea69118cdea4286f2dd90860
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74101241"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692596"
 ---
 >[!NOTE]
 >이 섹션에서는 [Azure AD 앱 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)을 위한 지침을 제공합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "74101241"
 
 1. 앱 등록을 위한 **API 사용 권한** 창을 엽니다. **+사용 권한 추가** 단추를 선택합니다. **API 사용 권한 요청** 창에서 **내 조직이 사용하는 API** 탭을 선택한 다음, 다음 중 하나를 검색합니다.
     
-    1. `Azure Digital Twins`. **Azure Digital Twins** API를 선택합니다.
+    1. `Azure Digital Twins`입니다. **Azure Digital Twins** API를 선택합니다.
 
         [![Search API 또는 Azure Digital Twins](./media/digital-twins-permissions/aad-aap-search-api-dt.png)](./media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
@@ -59,7 +59,7 @@ ms.locfileid: "74101241"
     > * 테스트 테넌트 및 고객 계정은 `Azure Digital Twins`를 검색해야 합니다.
     > * 다른 Microsoft 계정은 `Azure Smart Spaces Service`를 검색해야 합니다.
 
-1. 선택된 API는 동일한 **API 사용 권한 요청** 창에 **Azure Digital Twins**로 표시됩니다. **읽기** 드롭다운 옵션을 선택한 다음, **읽기/쓰기** 확인란을 선택합니다. **사용 권한 추가** 단추를 선택합니다.
+1. API가 선택되면 동일한 **API 사용 권한 요청** 창에 **Azure Digital Twins**로 표시됩니다. **읽기** 드롭다운 옵션을 선택한 다음, **읽기/쓰기** 확인란을 선택합니다. **사용 권한 추가** 단추를 선택합니다.
 
     [![API 권한 추가](./media/digital-twins-permissions/aad-app-req-permissions.png)](./media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 

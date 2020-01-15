@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408402"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 대화형 검색 맵 만들기
 
@@ -26,24 +26,38 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-## <a name="create-an-account-and-get-your-key"></a>계정 생성 및 키 가져오기
+<a id="createaccount"></a>
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
-2. **Marketplace 검색** 상자에서 **Maps**를 입력합니다.
-3. **결과**에서 **Maps**를 선택합니다. 맵 아래에 나타나는 **만들기** 단추를 선택합니다.
-4. **Azure Maps 계정 만들기** 페이지에서 다음 값을 입력합니다.
-   - 새 계정의 **이름**.
-   - 이 계정에 사용하려는 **구독**.
-   - 이 계정에 대한 **리소스 그룹**. **새로 만들기** 또는 **기존 리소스 그룹 사용**을 선택할 수도 있습니다.
-   - 선택 항목에서 **가격 책정 계층**을 선택합니다.
-   - **라이선스** 및 **개인정보처리방침**을 읽습니다. 사용 약관에 동의하려면 확인란을 선택합니다.
-   - 마지막으로 **만들기** 단추를 선택합니다.
+## <a name="create-an-account-with-azure-maps"></a>Azure Maps를 사용하여 계정 만들기
 
-     ![포털에서 Azure Maps 계정 만들기](./media/quick-demo-map-app/create-account.png)
+다음 단계에 따라 새 Maps 계정을 만듭니다.
 
-5. 계정이 성공적으로 만들어지면 해당 계정을 열고 계정 메뉴의 설정 섹션을 찾습니다. **인증**을 선택하여 Azure Maps 계정에 대한 기본 및 보조 키를 확인합니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
+2. *마켓플레이스 검색* 상자에서 **Maps**를 입력합니다.
+3. *결과*에서 **Maps**를 선택합니다. 맵 아래에 나타나는 **만들기** 단추를 클릭합니다.
+4. **Maps 계정 만들기** 페이지에서 다음 값을 입력합니다.
+    * 이 계정에 사용하려는 *구독*.
+    * 이 계정에 대한 *리소스 그룹* 이름. *새로 만들기* 또는 *기존* 리소스 그룹 사용을 선택할 수도 있습니다.
+    * 새 계정의 *이름*.
+    * 이 계정에 대한 *가격 책정 계층*입니다.
+    * *라이선스* 및 *개인정보처리방침*을 읽고 조건에 동의하는 확인란을 선택합니다.
+    * **만들기** 단추를 클릭합니다.
+
+![포털에서 Maps 계정 만들기](./media/quick-demo-map-app/create-account.png)
+
+<a id="getkey"></a>
+
+## <a name="get-the-primary-key-for-your-account"></a>사용자 계정에 대한 기본 키 가져오기
+
+Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 키를 검색합니다. Azure Maps 서비스를 호출할 때 계정의 기본 키를 구독 키로 사용하는 것이 좋습니다.
+
+1. 포털에서 Maps 계정을 엽니다.
+2. 설정 섹션에서 **인증**을 선택합니다.
+3. **기본 키**를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다.
+
+![포털에서 기본 키 가져오기](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>애플리케이션 다운로드
 

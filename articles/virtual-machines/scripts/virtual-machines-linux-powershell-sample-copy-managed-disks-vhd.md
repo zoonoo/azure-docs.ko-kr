@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사
+title: 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사 - PowerShell 샘플
 description: Azure PowerShell 스크립트 샘플 - 같거나 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: 51da00a1e64c93275db893a252bc3d9a24951a9d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1e144b408de1271607b749d8e54289d0563d4b6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463788"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>PowerShell을 사용하여 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e05557b0391a1d698dad000aa9df54424588afe0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ede43e3ed939083e7b5ff94899d12f6f4795a880
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892263"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941489"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
 
@@ -124,7 +124,7 @@ Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 �
 
 #### <a name="add-references-and-using-statements"></a>참조 추가 및 명령문 사용  
 
-Visual Studio에서 Azure Storage 클라이언트 라이브러리를 설치 합니다. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 콘솔 창에 다음 명령을 입력 하 여 .NET 용 Azure Storage 클라이언트 라이브러리에서 필요한 패키지를 설치 합니다.
+Visual Studio에서 Azure Storage 클라이언트 라이브러리를 설치 합니다. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 콘솔 창에 다음 명령을 입력 하 여 .NET 용 Azure Storage 클라이언트 라이브러리에서 필요한 패키지를 설치 합니다.
 
 ```console
 Install-Package Microsoft.Azure.Storage.Blob

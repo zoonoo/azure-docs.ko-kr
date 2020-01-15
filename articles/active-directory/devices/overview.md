@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423111"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -58,7 +58,10 @@ Azure AD의 디바이스는 Microsoft Intune, System Center Configuration Manage
 
 ## <a name="resource-access"></a>리소스 액세스
 
-등록과 가입을 통해 사용자는 클라우드 리소스에 SSO(Seamless Sign-On)로 액세스할 수 있고 관리자는 해당 리소스에 조건부 액세스 정책을 적용할 수 있습니다. 
+디바이스를 Azure AD에 등록하고 조인하면 사용자에게 클라우드 리소스에 대한 SSO(Seamless Sign-on)가 제공됩니다. 또한 이 프로세스를 통해 액세스하는 디바이스에 따라 리소스에 조건부 액세스 정책을 적용할 수 있습니다. 
+
+> [!NOTE]
+> 디바이스 기반 조건부 액세스 정책에는 하이브리드 Azure AD 조인 디바이스 또는 호환되는 Azure AD 조인 디바이스 또는 Azure AD 등록 디바이스가 필요합니다.
 
 Azure AD 조인 디바이스 또는 하이브리드 Azure AD 조인 디바이스는 클라우드 리소스뿐 아니라 조직의 온-프레미스 리소스에 SSO를 이용할 수 있습니다. 자세한 내용은 [온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식](azuread-join-sso.md) 문서를 참조하세요.
 

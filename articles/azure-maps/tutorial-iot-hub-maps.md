@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107047"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432800"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -77,7 +77,7 @@ ms.locfileid: "74107047"
   ![지오펜스 경로](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -104,7 +104,8 @@ ms.locfileid: "74107047"
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기 
 
-Azure Maps 공간 분석에 기반한 비즈니스 논리를 구현하려면 만든 리소스 그룹에 Azure Maps 계정을 만들어야 합니다. [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](./tutorial-search-location.md#getkey)의 단계를 수행하여 계정의 기본 구독 키를 가져옵니다.
+Azure Maps 공간 분석에 기반한 비즈니스 논리를 구현하려면 만든 리소스 그룹에 Azure Maps 계정을 만들어야 합니다. [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정의 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
+
 
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
@@ -157,7 +158,7 @@ Postman 앱을 열고, 아래의 단계에 따라 Azure Maps 데이터 업로드
 
 1. Postman 앱에서 new | Create new(새로 만들기 | 새로 만들기)를 차례로 클릭하고 Request(요청)를 선택합니다. 지오펜스 데이터 업로드에 대한 요청 이름을 입력하고, 저장할 컬렉션 또는 폴더를 선택한 다음, [저장]을 클릭합니다.
 
-    ![Postman을 사용하여 위치 업로드](./media/tutorial-iot-hub-maps/postman-new.png)
+    ![Postman을 사용하여 지오펜스 업로드](./media/tutorial-iot-hub-maps/postman-new.png)
 
 2. 작성기 탭에서 POST HTTP 메서드를 선택하고, 다음 URL을 입력하여 POST 요청을 합니다.
 
@@ -167,7 +168,7 @@ Postman 앱을 열고, 아래의 단계에 따라 Azure Maps 데이터 업로드
     
     URL 경로의 `dataFormat` 매개 변수에 대한 "geojson" 값은 업로드되는 데이터의 형식을 나타냅니다.
 
-3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 기본 구독 키로 바꿉니다.
+3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 키로 바꿉니다.
    
     ![키 값 매개 변수 Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

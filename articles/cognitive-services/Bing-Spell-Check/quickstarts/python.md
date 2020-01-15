@@ -1,27 +1,27 @@
 ---
 title: '빠른 시작: REST API 및 Python으로 맞춤법 검사 - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
+description: 이 빠른 시작을 통해 Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 9a75148ab1ca1dae0acb5af8128fe1220fbbe8b3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378806"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448463"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>빠른 시작: Bing Spell Check REST API 및 Python으로 맞춤법 검사
 
 이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Python 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)에 제공됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Python [3.x](https://www.python.org)
 
@@ -36,7 +36,7 @@ ms.locfileid: "74378806"
    import json
    ```
 
-2. 맞춤법 검사를 원하는 텍스트, 구독 키 및 Bing Spell Check 엔드포인트에 대한 변수를 만듭니다.
+2. 맞춤법 검사를 원하는 텍스트, 구독 키 및 Bing Spell Check 엔드포인트에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -84,6 +84,15 @@ ms.locfileid: "74378806"
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
     ```
+
+
+## <a name="run-the-application"></a>애플리케이션 실행
+
+명령줄을 사용하는 경우 다음 명령을 사용하여 애플리케이션을 실행합니다.
+
+```bash
+python <FILE_NAME>.py
+```
 
 ## <a name="example-json-response"></a>예제 JSON 응답
 

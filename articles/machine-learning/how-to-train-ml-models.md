@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f8f7d16c9fa5141add5c661c0e05cc93da436614
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 97d8d49b958293e3b51937cafc0874beb4f5ff4a
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834893"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942231"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -131,7 +131,7 @@ print(run.get_portal_url())
 다음 코드를 실행 하면 모델을 작업 영역에 등록 하 고, 원격 계산 컨텍스트 또는 배포 스크립트에서 이름으로 참조할 수 있도록 합니다. 자세한 내용 및 추가 매개 변수는 참조 문서에서 [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) 을 참조 하세요.
 
 ```python
-model = run.register_model(model_name='sklearn-sample')
+model = run.register_model(model_name='sklearn-sample', model_path=None)
 ```
 
 ## <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합

@@ -3,18 +3,18 @@ title: Azure IoT Central이란? | Microsoft Docs
 description: Azure IoT Central은 IoT 솔루션 만들기를 간소화하고 IoT 관리 작업 및 개발에 대한 부담과 및 비용을 줄여주는 IoT 애플리케이션 플랫폼입니다. 이 문서에서는 Azure IoT Central의 기능에 대한 개요를 제공합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 52504fb8333b286407b3f2df8f962da59b80ac53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434842"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Azure IoT Central(미리 보기 기능)이란?
 
@@ -41,15 +41,11 @@ IoT Central은 엔터프라이즈급 IoT 솔루션의 개발, 관리 및 유지 
 > [!Note]
 > 이러한 알려진 이슈는 IoT Central 미리 보기 애플리케이션에만 적용됩니다.
 
-- 규칙이 모든 작업을 지원하지는 않습니다(이메일만 지원).
-- 복합 형식의 경우 규칙, 분석 및 디바이스 그룹이 지원되지 않습니다.
 - 연속 데이터 내보내기는 Avro 형식을 지원하지 않습니다(비호환).
-- 시뮬레이션된 디바이스는 일부 복합 형식을 지원하지 않습니다.
 - GeoJSON은 현재 지원되지 않습니다.
 - 지도 타일은 현재 지원되지 않습니다.
 - 작업은 복합 형식을 지원하지 않습니다.
 - 배열 스키마 형식은 지원되지 않습니다.
-- 애플리케이션 템플릿 내보내기 및 애플리케이션 복사는 지원되지 않습니다.
 - C 디바이스 SDK와 Node.js 디바이스 및 서비스 SDK만 지원됩니다.
 - 미국 및 유럽 지역에서만 사용할 수 있습니다.
 - 디바이스 기능 모델의 모든 인터페이스가 동일한 파일에 인라인으로 정의되어 있어야 합니다.
@@ -149,7 +145,7 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 
 이제 IoT Central에 대한 개요를 살펴보았으니, 권장되는 다음 단계는 아래와 같습니다.
 
-- [IoT Central과 Azure IoT 솔루션 가속기](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)의 차이점을 이해합니다.
+- 사용 가능한 [IoT 솔루션을 만들기 위한 Azure 기술 및 서비스](../../iot-fundamentals/iot-services-and-technologies.md)를 이해합니다.
 - [Azure IoT Central UI](overview-iot-central-tour.md)를 숙지합니다.
 - [Azure IoT Central 애플리케이션을 생성](quick-deploy-iot-central.md)하여 시작합니다.
 - [IoT 플러그 앤 플레이](../../iot-pnp/overview-iot-plug-and-play.md)에 대한 자세한 정보

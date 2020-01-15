@@ -1,26 +1,15 @@
 ---
-title: Azure VM에서 Service Fabric 클러스터에 대한 인프라 만들기 자습서 - Azure Service Fabric | Microsoft Docs
+title: Azure VM에서 클러스터에 대한 인프라 만들기
 description: 이 자습서에서는 Service Fabric 클러스터를 실행하는 Azure VM 인프라를 설정하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166268"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614012"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>자습서: Azure VM 인프라를 만들어 Service Fabric 클러스터 호스팅하기
 
@@ -36,7 +25,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 > * 인스턴스 중 하나에 로그인
 > * Service Fabric에 대한 인스턴스 준비
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 Azure 구독이 필요합니다.  계정이 아직 없는 경우 [Azure Portal](https://portal.azure.com)로 이동해 계정을 만듭니다.
 

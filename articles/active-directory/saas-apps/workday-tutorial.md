@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 11/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d2bf769169b579cb0a06a48b3a5998efb89eb8fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69891974"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443322"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>자습서: Workday와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "69891974"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -97,7 +97,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 여기에서는 기본적으로 UPN(user.userprincipalname)을 사용하여 이름 ID를 매핑했습니다. SSO를 성공적으로 수행하려면 Workday 계정(이메일, UPN 등)에서 이름 ID를 실제 사용자 ID와 매핑해야 합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 다음, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
 
    ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -123,7 +123,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -167,7 +167,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    > [!NOTE]
    > 테넌트 URL의 값에 연결된 환경 특성의 값은:  
-   > -Workday 테넌트 URL의 도메인 이름이 impl로 시작되는 경우(예: *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*) **환경** 특성이 Implementation으로 설정되어있어야 합니다.  
+   > -Workday 테넌트 URL의 도메인 이름이 impl로 시작되는 경우(예: *https://www.myworkday.com/"tenant"/login-saml2.htmld*) **Environment** 특성이 Implementation으로 설정되어 있어야 합니다.  
    > -도메인 이름이 다르게 시작되면 일치하는 **환경** 값을 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의해야 합니다.
 
 4. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
@@ -233,11 +233,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. **인증 요청 서명 메서드**로 **SHA256**을 선택합니다.
 
-    ![인증 요청 서명 메서드](./media/workday-tutorial/WorkdaySSOConfiguration.png "인증 요청 서명 메서드") 
+    ![인증 요청 서명 메서드](./media/workday-tutorial/WorkdaySSOConfiguration.png "인증 요청 서명 메서드")
 
     d. **확인**을 클릭합니다.
 
-    ![OK](./media/workday-tutorial/IC782933.png "확인")
+    ![확인](./media/workday-tutorial/IC782933.png "확인")
 
     > [!NOTE]
     > Single Sign-On을 올바르게 설정했는지 확인하세요. 잘못된 설정으로 Single Sign-On을 활성화한 경우 자격 증명을 사용하여 애플리케이션을 입력하고 잠글 수 없을 수도 있습니다. 이 경우 Workday는 사용자가 [Your Workday URL]/login.flex?redirect=n 형식으로 해당 일반 사용자 이름 및 암호를 사용하여 로그인할 수 있는 백업 로그인 url을 제공합니다.

@@ -1,19 +1,16 @@
 ---
 title: Azure Site Recovery를 사용 하 여 azure에서 Azure로 재해 복구에 대 한 연결 문제 해결
-description: 재해 복구를 위해 Azure 가상 머신을 복제할 때 발생 하는 오류 및 문제 해결
-services: site-recovery
-author: carmonmills
+description: Azure VM 재해 복구의 연결 문제 해결
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/05/2019
-ms.author: carmonm
-ms.openlocfilehash: 41b5203c328243c9ef7cc74e6b9771c677a54c7c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d55f06669a538c2f26f3a1d2da0d96a73529f76e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933417"
+ms.locfileid: "75941461"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
 

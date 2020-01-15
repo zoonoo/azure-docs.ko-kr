@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동)
-description: Azure PowerShell 스크립트 샘플 - 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동)
+title: 관리 디스크의 스냅샷을 구독에 복사 - PowerShell 샘플
+description: Azure PowerShell 스크립트 샘플 - 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(또는 이동)
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: 7a99dcbe52f8efd00180726070cd269a151d57d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 65a3e39206864f10c41e79ba6b3e7a89da99dc6f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040222"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463781"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>PowerShell을 사용하여 같은 구독 또는 다른 구독에 관리 디스크의 스냅샷 복사
 

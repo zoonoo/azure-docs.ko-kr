@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: .NET용 Content Moderator 클라이언트 라이브러리 | Microsoft Docs'
+title: '빠른 시작: .NET용 Content Moderator 클라이언트 라이브러리'
 titleSuffix: Azure Cognitive Services
-description: .NET용 Content Moderator 클라이언트 라이브러리를 시작합니다.
+description: 이 빠른 시작을 통해 .NET용 Content Moderator 클라이언트 라이브러리를 시작합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: cb812a0432e5fdb2828054751ef35f3de82226e7
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539026"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382058"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>빠른 시작: .NET용 Content Moderator 클라이언트 라이브러리
 
@@ -29,7 +29,7 @@ ms.locfileid: "74539026"
 
 [참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [샘플](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -38,7 +38,7 @@ ms.locfileid: "74539026"
 
 ### <a name="create-a-content-moderator-azure-resource"></a>Content Moderator Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Content Moderator용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Content Moderator용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
@@ -96,7 +96,7 @@ Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다�
 
 다음은 Content Moderator .NET SDK의 주요 기능 중 일부를 처리하는 클래스입니다.
 
-|Name|설명|
+|속성|Description|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
 |[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427730"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>빠른 시작: Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
 
@@ -45,7 +45,7 @@ ms.locfileid: "73839955"
 ## <a name="get-the-data"></a>데이터 가져오기
 
 기계 학습에 가장 먼저 필요한 것은 데이터입니다.
-사용할 수 있는 몇 가지 데이터 세트 샘플이 Studio 클래식 버전에 포함되어 있거나 여러 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 작업 영역에 포함되어 있는 샘플 데이터 세트, 즉 **자동차 가격 데이터(원시)** 를 사용합니다.
+사용할 수 있는 몇 가지 데이터 세트 샘플이 Studio(클래식)에 포함되어 있거나 여러 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 작업 영역에 포함되어 있는 샘플 데이터 세트, 즉 **자동차 가격 데이터(원시)** 를 사용합니다.
 이 데이터 세트에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 여러 개별 자동차에 대한 항목이 포함되어 있습니다.
 
 > [!TIP]

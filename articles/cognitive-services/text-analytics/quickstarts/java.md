@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: Java를 사용하여 Text Analytics REST API 호출'
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+description: 이 빠른 시작에서는 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: f4bae69f1ce65b98a4b83d50e906a1636833a1fd
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0541438659f25780be0c7bc1c87670cab6d7ca08
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446320"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>빠른 시작: Java를 사용하여 Azure Text Analytics Cognitive Service 호출
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ ms.locfileid: "74284880"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -37,9 +37,9 @@ ms.locfileid: "74284880"
 
 Language Detection API는  [언어 감지 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨찾는 IDE(또는 데스크톱의 새 폴더)에 새 Java 프로젝트를 만듭니다. `DetectLanguage.java`라는 클래스를 만듭니다.
 1. 아래에 제공된 코드를 클래스에 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다. 
 1. [Gson](https://github.com/google/gson) 라이브러리가 설치되어 있는지 확인합니다.
 1. IDE에서 프로그램을 실행하거나 명령줄을 사용하여 실행합니다(코드 주석의 지침).
 
@@ -96,17 +96,8 @@ public class DetectLanguage {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/languages";
@@ -215,9 +206,9 @@ public class DetectLanguage {
 
 감정 분석 API는 [감정 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 다음 예제에서는 두 개의 문서(영어 문서와 스페인어 문서 각 1개)에 점수를 매깁니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨찾는 IDE(또는 데스크톱의 새 폴더)에 새 Java 프로젝트를 만듭니다. `GetSentiment.java`라는 클래스를 만듭니다.
 1. 아래에 제공된 코드를 클래스에 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다.
 1. [Gson](https://github.com/google/gson) 라이브러리가 설치되어 있는지 확인합니다.
 1. IDE에서 프로그램을 실행하거나 명령줄을 사용하여 실행합니다(코드 주석의 지침).
 
@@ -275,17 +266,8 @@ public class GetSentiment {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/sentiment";
@@ -370,9 +352,9 @@ public class GetSentiment {
 
 핵심 구 추출 API는 [핵심 구 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 다음 예제에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨찾는 IDE(또는 데스크톱의 새 폴더)에 새 Java 프로젝트를 만듭니다. `GetKeyPhrases.java`라는 클래스를 만듭니다.
 1. 아래에 제공된 코드를 클래스에 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다. 
 1. [Gson](https://github.com/google/gson) 라이브러리가 설치되어 있는지 확인합니다.
 1. IDE에서 프로그램을 실행하거나 명령줄을 사용하여 실행합니다(코드 주석의 지침).
 
@@ -430,17 +412,8 @@ public class GetKeyPhrases {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/keyPhrases";
@@ -544,9 +517,9 @@ public class GetKeyPhrases {
 
 엔터티 API는 [엔터티 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. [엔터티](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)는 텍스트에서 "United States"와 같은 단어를 추출한 다음, 이 단어에 대한 형식 및/또는 Wikipedia 링크를 제공합니다. "United States"에 대한 형식은 `location`이고, Wikipedia에 대한 링크는 `https://en.wikipedia.org/wiki/United_States`입니다.  다음 예제에서는 영어 문서의 엔터티를 식별합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨찾는 IDE(또는 데스크톱의 새 폴더)에 새 Java 프로젝트를 만듭니다. `GetEntities.java`라는 클래스를 만듭니다.
 1. 아래에 제공된 코드를 클래스에 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다. 
 1. [Gson](https://github.com/google/gson) 라이브러리가 설치되어 있는지 확인합니다.
 1. IDE에서 프로그램을 실행하거나 명령줄을 사용하여 실행합니다(코드 주석의 지침).
 
@@ -604,17 +577,8 @@ public class GetEntities {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/entities";

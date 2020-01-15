@@ -1,31 +1,23 @@
 ---
-title: Azure App Configuration 사용 방법을 배우기 위한 빠른 시작 | Microsoft Docs
+title: Azure App Configuration 사용 방법을 배우기 위한 빠른 시작
 description: Java Spring 앱 지원 Azure App Configuration 사용 빠른 시작
-services: azure-app-configuration
-documentationcenter: ''
 author: yidon
-manager: jeffya
-editor: ''
-ms.assetid: ''
-ms.service: azure-app-configuration
-ms.devlang: java
-ms.topic: quickstart
-ms.tgt_pltfrm: Spring
-ms.workload: tbd
-ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: e8f6f9ca610c515deca6ed1bdbee54f40cacf427
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.service: azure-app-configuration
+ms.topic: quickstart
+ms.date: 12/17/2019
+ms.openlocfilehash: c4fee6c61ba58a8a1629b5c98d7eebdadfdf1a89
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184931"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495213"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Java Spring 앱 만들기
 
 이 빠른 시작에서는 Azure App Configuration을 Java Spring 앱에 통합하여 코드와 별도로 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - 버전 8 이상이 설치된 지원되는 [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk)
@@ -121,7 +113,7 @@ ms.locfileid: "74184931"
 
 6. 앱의 리소스 디렉터리 아래에 `bootstrap.properties`라는 새 파일을 만들고, 다음 줄을 파일에 추가합니다. 샘플 값을 App Configuration 저장소에 대한 해당 속성으로 바꿉니다.
 
-    ```properties
+    ```CLI
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
@@ -129,13 +121,13 @@ ms.locfileid: "74184931"
 
 1. Maven을 사용하여 Spring Boot 애플리케이션을 빌드하고 실행합니다. 예를 들어 다음과 같습니다.
 
-    ```shell
+    ```CLI
     mvn clean package
     mvn spring-boot:run
     ```
 2. 애플리케이션이 실행되면 *curl*을 사용하여 애플리케이션을 테스트합니다. 예를 들어 다음과 같습니다.
 
-      ```shell
+      ```CLI
       curl -X GET http://localhost:8080/
       ```
     App Configuration 저장소에 입력한 메시지가 표시됩니다.

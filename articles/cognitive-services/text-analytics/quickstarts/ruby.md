@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Ruby를 사용하여 텍스트 분석 API 호출'
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+description: 이 빠른 시작에서는 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 924f3a9019d3ddac0b8f1f942028e78f9a5a432e
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0e43d6c3565ea8ae019ab624cbc85965678ea3b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378469"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Ruby를 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ ms.locfileid: "74286485"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -34,9 +34,9 @@ ms.locfileid: "74286485"
 
 언어 감지 API는 [언어 감지 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨 찾는 IDE에서 새 Ruby 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다. 
 1. 프로그램을 실행합니다.
 
 ```ruby
@@ -46,19 +46,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/languages'
 
@@ -136,9 +125,9 @@ puts JSON::pretty_generate (JSON (response.body))
 
 감정 분석 API는 [감정 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 다음 예제에서는 두 개의 문서(영어 문서와 스페인어 문서 각 1개)에 점수를 매깁니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨 찾는 IDE에서 새 Ruby 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다. 
 1. 프로그램을 실행합니다.
 
 ```ruby
@@ -148,19 +137,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/sentiment'
 
@@ -211,9 +189,9 @@ puts JSON::pretty_generate (JSON (response.body))
 
 핵심 구 추출 API는 [핵심 구 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 다음 예제에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨 찾는 IDE에서 새 Ruby 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다.
 1. 프로그램을 실행합니다.
 
 
@@ -224,19 +202,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/keyPhrases'
 
@@ -307,9 +274,9 @@ puts JSON::pretty_generate (JSON (response.body))
 
 엔터티 API는 [엔터티 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 엔터티를 추출합니다. 다음 예제에서는 영어 문서의 엔터티를 식별합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨 찾는 IDE에서 새 Ruby 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다.
 1. 프로그램을 실행합니다.
 
 ```ruby
@@ -319,19 +286,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/entities'
 

@@ -1,32 +1,22 @@
 ---
-title: Azure의 Service Fabric에서 Windows 컨테이너 모니터링 및 진단 | Microsoft Docs
+title: Windows 컨테이너 모니터링 및 진단
 description: 이 자습서에서는 Azure Service Fabric에서 Windows 컨테이너의 모니터링 및 진단을 위해 Azure Monitor 로그를 구성합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b98917e6f3c0ff6570251751a9958b202908ee3e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933924"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614063"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>자습서: Azure Monitor 로그를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
 자습서의 3부이며, Service Fabric에서 오케스트레이션되는 Windows 컨테이너를 모니터링하도록 Azure Monitor 로그를 설정하는 과정을 안내합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에 대한 Azure Monitor 로그 구성
@@ -35,7 +25,7 @@ ms.locfileid: "72933924"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -233,7 +223,7 @@ Log Analytics 작업 영역으로 이동되며, 여기서 솔루션을 보고, �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에 대한 Azure Monitor 로그 구성

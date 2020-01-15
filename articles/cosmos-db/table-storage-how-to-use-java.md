@@ -1,5 +1,5 @@
 ---
-title: Java에서 Azure Table 스토리지 또는 Azure Cosmos DB Table API를 사용하는 방법
+title: Java에서 Azure Table 스토리지 또는 Azure Cosmos DB Table API 사용
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 6b8b2d2d035183861f367c9425ec54d1c9babf34
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e5f9d3fbd7fcf12271329ec324b38b03b4dcd7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444817"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Java에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "58286553"
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 이 가이드에서는 Java 애플리케이션에서 로컬로 실행할 수 있거나 Azure에서 웹 역할 또는 작업자 역할로 실행되는 코드에서 실행할 수 있는 스토리지 기능을 사용합니다.
 
-이 문서의 샘플을 사용하려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure Storage 계정 또는 Azure Cosmos DB 계정을 만듭니다. 그런 다음, 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Azure Storage SDK for Java] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예제를 사용하는 Java 애플리케이션을 만들 수 있습니다.
+이 문서의 샘플을 사용하려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure Storage 계정 또는 Azure Cosmos DB 계정을 만듭니다. 그런 다음, 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Azure Storage SDK for Java] 리포지토리에 나열된 최소 요구 사항과 종속성을 충족하는지 확인합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예제를 사용하는 Java 애플리케이션을 만들 수 있습니다.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>테이블 스토리지에 액세스하도록 애플리케이션 구성
 Azure Storage API 또는 Azure Cosmos DB Table API를 사용하여 테이블에 액세스하려는 경우 Java 파일의 맨 위에 다음 import 문을 추가합니다.
@@ -181,7 +181,7 @@ public class CustomerEntity extends TableServiceEntity {
 }
 ```
 
-엔터티를 포함하는 테이블 작업에는 **TableOperation** 개체가 필요합니다. 이 개체는 엔터티에서 수행될 작업을 정의하고, 이 작업은 **CloudTable** 개체와 함께 실행될 수 있습니다. 다음 코드에서는 **CustomerEntity** 클래스의 새 인스턴스를 저장될 일부 고객 데이터와 함께 만듭니다. 그런 다음 엔터티를 테이블에 삽입하기 위해 **TableOperation.insertOrReplace**를 호출하여 **TableOperation** 개체를 만들고, 새로운 **CustomerEntity**를 이 개체와 연결합니다. 끝으로 이 코드는 **CloudTable** 개체에 대해 **execute** 메서드를 호출하여 'people' 테이블 및 새로운 **TableOperation**을 지정한 후, 새 고객 엔터티를 'people' 테이블에 삽입하거나, 이미 있는 경우 바꾸기 위해 저장소 서비스로 요청을 보냅니다.
+엔터티를 포함하는 테이블 작업에는 **TableOperation** 개체가 필요합니다. 이 개체는 엔터티에서 수행될 작업을 정의하고, 이 작업은 **CloudTable** 개체와 함께 실행될 수 있습니다. 다음 코드에서는 **CustomerEntity** 클래스의 새 인스턴스를 저장될 일부 고객 데이터와 함께 만듭니다. 그런 다음 엔터티를 테이블에 삽입하기 위해 **TableOperation.insertOrReplace**를 호출하여 **TableOperation** 개체를 만들고, 새로운 **CustomerEntity**를 이 개체와 연결합니다. 끝으로 이 코드는 **CloudTable** 개체에 대해 **execute** 메서드를 호출하여 'people' 테이블 및 새로운 **TableOperation**을 지정한 후, 새 고객 엔터티를 'people' 테이블에 삽입하거나, 이미 있는 경우 바꾸기 위해 스토리지 서비스로 요청을 보냅니다.
 
 ```java
 try
@@ -215,7 +215,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>엔터티 일괄 삽입
-하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드는 **TableBatchOperation** 개체를 만든 다음, 이 개체에 3개의 삽입 작업을 추가합니다. 각 삽입 작업을 추가하기 위해 새 엔터티 개체를 만들고 값을 설정한 후 **insert** 메서드를 **TableBatchOperation** 개체에 대해 호출하여 해당 엔터티를 새로운 삽입 작업과 연결합니다. 그런 다음, 이 코드는 **CloudTable** 개체에 대해 **execute**를 호출하여 'people' 테이블 및 **TableBatchOperation** 개체를 지정한 후, 테이블 일괄 작업을 단일 요청으로 저장소 서비스로 보냅니다.
+하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드는 **TableBatchOperation** 개체를 만든 다음, 이 개체에 3개의 삽입 작업을 추가합니다. 각 삽입 작업을 추가하기 위해 새 엔터티 개체를 만들고 값을 설정한 후 **insert** 메서드를 **TableBatchOperation** 개체에 대해 호출하여 해당 엔터티를 새로운 삽입 작업과 연결합니다. 그런 다음, 이 코드는 **CloudTable** 개체에 대해 **execute**를 호출하여 'people' 테이블 및 **TableBatchOperation** 개체를 지정한 후, 테이블 일괄 작업을 단일 요청으로 스토리지 서비스로 보냅니다.
 
 ```java
 try
@@ -454,7 +454,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>엔터티 속성 하위 집합 쿼리
-테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상시킬 수 있습니다. 다음 코드의 쿼리는 **select** 메서드를 사용하여 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이 결과는 서버에서 반환된 엔터티에 대해 형식 변환을 수행하는 **EntityResolver**를 통해 **String** 컬렉션에 프로젝트됩니다. [Azure 테이블: Upsert 및 쿼리 프로젝션 소개][Azure 테이블: Upsert 및 쿼리 프로젝션 소개]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 스토리지 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
+테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상시킬 수 있습니다. 다음 코드의 쿼리는 **select** 메서드를 사용하여 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이 결과는 서버에서 반환된 엔터티에 대해 형식 변환을 수행하는 **EntityResolver**를 통해 **String** 컬렉션에 프로젝트됩니다. [Azure 테이블: Upsert 및 쿼리 프로젝션 소개][Azure 테이블: Upsert 및 쿼리 프로젝션 소개]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다. 로컬 스토리지 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
 
 ```java
 try
@@ -593,9 +593,9 @@ catch (Exception e)
 ## <a name="next-steps"></a>다음 단계
 
 * [Java에서 Azure Table Service 시작](https://github.com/Azure-Samples/storage-table-java-getting-started)
-* [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Java용 Azure Storage SDK][Azure Storage SDK for Java]
-* [Azure Storage 클라이언트 SDK 참조][Azure Storage 클라이언트 SDK 참조]
+* [Azure Storage 클라이언트 SDK 참조][Azure Storage Client SDK Reference]
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage 팀 블로그][Azure Storage 팀 블로그]
 

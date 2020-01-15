@@ -7,14 +7,14 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
+description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio를 사용하여 Azure Kubernetes Service의 .NET Core 애플리케이션에서 팀 개발을 수행하는 방법을 보여줍니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 895d2edbb268eab9944909ecda7193ce945bbf39
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f88a0b146a53a5b14ab17ae0d959e9b8a5567302
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325543"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438171"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Azure Dev Spaces와 함께 .NET Core 및 Visual Studio를 사용한 팀 개발
 
@@ -129,7 +129,7 @@ Visual Studio 내에서 서비스를 F5 또는 Ctrl+F5로 누르면 사용할 �
 항상 최신 변경 사항을 포함하는 _dev_ 공간을 확보하고 난 후, 이 자습서 섹션에서 설명한 대로 DevSpace의 공간 기반 라우팅을 이용하도록 애플리케이션이 설계되었다고 가정하면 Dev Spaces가 더 큰 애플리케이션의 컨텍스트 내에서 새로운 기능을 테스트하는 데 얼마나 유용한지를 쉽게 확인할 수 있을 것입니다. 프라이빗 공간에 _모든_ 서비스를 배포하는 대신, _dev_에서 파생되는 프라이빗 공간을 만들고 실제 작업하는 서비스만 "작동"시킬 수 있습니다. Dev Spaces 라우팅 인프라는 _dev_ 공간에서 실행 중인 최신 버전으로 기본값을 다시 설정하는 동안 프라이빗 공간 외에 찾을 수 있는 한 많은 서비스를 활용하여 나머지 부분을 처리합니다. 그리고 더 좋은 것은 _여러_ 개발자들이 서로를 방해하지 않으면서 자신의 공간에서 동시에 다양한 서비스를 적극적으로 개발할 수 있다는 점입니다.
 
 ### <a name="well-done"></a>모두 완료되었습니다!
-시작 가이드를 완료했습니다! 다음 방법에 대해 알아보았습니다.
+시작 가이드를 완료했습니다! 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.

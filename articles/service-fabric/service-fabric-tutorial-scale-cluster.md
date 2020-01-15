@@ -1,32 +1,21 @@
 ---
-title: Azure에서 Service Fabric 클러스터 크기 조정 | Microsoft Docs
-description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 크기를 조정하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Azure에서 Service Fabric 클러스터 크기 조정
+description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 크기를 확장 및 축소하는 방법과 남은 리소스를 정리하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6270237e2319c42ed30fc347b7ab9c1c2a008314
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9f3049f5a46918d9e70e27fe862372de2cf577ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177739"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639057"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
 이 자습서는 이 시리즈의 세 번째 파트로, 기존 클러스터를 확장 및 축소하는 방법을 보여 줍니다. 이 내용을 완료하면 클러스터를 크기 조정하는 방법과 남은 리소스를 정리하는 방법을 알게 됩니다.  Azure에서 실행되는 클러스터의 크기를 조정하는 방법에 대한 자세한 내용은 [Service Fabric 클러스터 크기 조정](service-fabric-cluster-scaling.md)을 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 노드 추가 및 제거(규모 확장 및 규모 감축)
@@ -44,7 +33,7 @@ ms.locfileid: "73177739"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -387,6 +376,20 @@ Azure에서 실행되는 Service Fabric 클러스터에 정의된 모든 노드 
     },
     "properties": {
         "securityRules": [
+            {
+                "name": "allowSvcFabSMB",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "445",
+                    "direction": "Inbound",
+                    "priority": 3950,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
+                }
+            },
             {
                 "name": "allowSvcFabCluser",
                 "properties": {
@@ -859,7 +862,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 노드 추가 및 제거(규모 확장 및 규모 감축)

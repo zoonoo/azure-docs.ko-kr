@@ -9,18 +9,18 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 332229dbcb35a209721fc9b457ebf1e804eaca5f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d44e85b069a38f48ad4ad06814db5fbcb58c9dc6
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561029"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665223"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C IoT Edge 모듈 개발
 
 Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행하는 Windows 디바이스에 배포합니다. 
 
-비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
+비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.    
 
 > [!div class="checklist"]
 > * Visual Studio를 사용하여 C SDK를 기반으로 하는 IoT Edge 모듈을 만듭니다.
@@ -42,7 +42,7 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Visual Studio의 WinAMD64용 C 모듈 개발](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하려면 이전 자습서를 진행하여 Windows 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Windows 디바이스를 위한 IoT Edge 모듈 개발](tutorial-develop-for-windows.md) 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다. 
 
@@ -100,45 +100,43 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 
 1. Visual Studio 솔루션 탐색기에서 **deployment.template.json** 파일을 엽니다. 
 
-2. **registryCredentials** 속성을 $edgeAgent desired 속성에서 찾습니다. 
-
-3. 다음 형식에 따라 자격 증명을 사용하여 속성을 업데이트합니다. 
+2. **registryCredentials** 속성을 $edgeAgent desired 속성에서 찾습니다. 프로젝트를 만들 때 제공한 정보에서 레지스트리 주소를 자동으로 채운 다음, 사용자 이름 및 암호 필드에 변수 이름을 포함해야 합니다. 다음은 그 예입니다. 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. deployment.template.json 파일을 저장합니다. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
-### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
+4. Add the **Username** and **Password** values from your Azure container registry. 
 
-기본 모듈 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 메시지를 전달합니다. IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도록 몇 가지 추가 코드를 추가해보겠습니다. 각 메시지에서 온도 데이터를 분석하고 온도가 특정 임계값을 초과하는 경우에만 IoT Hub로 메시지를 보내도록 모듈을 업데이트합니다. 
+5. Save your changes to the .env file.
+
+### Update the module with custom code
+
+The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
 
 
-1. 이 시나리오의 센서 데이터는 JSON 형식으로 들어옵니다. JSON 형식의 메시지를 필터링하려면 C용 JSON 라이브러리를 가져와야 합니다. 이 자습서에서는 Parson을 사용합니다.
+1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
 
-   1. [Parson GitHub 리포지토리](https://github.com/kgabis/parson)를 다운로드합니다. **parson.c** 및 **parson.h** 파일을 **CModule** 프로젝트에 복사합니다.
+   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
 
-   2. Visual Studio의 CModule 프로젝트 폴더에서 **CMakeLists.txt** 파일을 엽니다. 파일의 맨 위에서, Parson 파일을 **my_parson**이라는 라이브러리로 가져옵니다.
+   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
 
       ```
-      add_library(my_parson
-          parson.c
-          parson.h
-      )
+      add_library(my_parson        parson.c        parson.h    )
       ```
 
-   3. CMakeLists.txt 파일의 **target_link_libraries** 섹션에 있는 라이브러리 목록에 `my_parson`을 추가합니다.
+   3. Add `my_parson` to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
 
-   4. **CMakeLists.txt** 파일을 저장합니다.
+   4. Save the **CMakeLists.txt** file.
 
-   5. **CModule** > **main.c** 파일을 엽니다. include 문 목록의 맨 아래에서, JSON을 지원하기 위한 `parson.h`를 포함하는 새 명령문을 추가합니다.
+   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
 
       ```c
       #include "parson.h"
@@ -320,7 +318,7 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 2. Visual Studio 솔루션 탐색기에서 빌드하려는 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. 기본 이름은 **AzureIotEdgeApp1**이며, Windows 모듈을 빌드해야 하므로 확장은 **Windows.Amd64**가 됩니다. 
 

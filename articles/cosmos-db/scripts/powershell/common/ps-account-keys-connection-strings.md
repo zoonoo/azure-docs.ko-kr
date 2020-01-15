@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 - Azure Cosmos 계정에 대한 계정 키 및 연결 문자열 작업
+title: Azure Cosmos 계정에 대한 키 및 연결 문자열 작업을 가져오는 PowerShell 스크립트
 description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에 대한 계정 키 및 연결 문자열 작업
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1eb9cc4c35584b94d3d16654b1bec253e21a91ff
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 96be5f09cddf5eefec6b471d30cf87d0f687485d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441526"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에 대한 연결 문자열 및 계정 키 작업
 
@@ -22,7 +22,7 @@ ms.locfileid: "71154754"
 ## <a name="sample-script"></a>샘플 스크립트
 
 > [!NOTE]
-> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
+> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여 줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 

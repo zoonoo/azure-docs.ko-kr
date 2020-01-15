@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script 샘플 - RDP 사용자 이름 및 암호 업데이트 | Microsoft Docs
+title: Powershell에서 RDP 사용자 이름 및 암호 업데이트
 description: Azure PowerShell 스크립트 샘플 - 특정 노트 유형의 모든 Service Fabric 클러스터 노드에 대해 RDP 사용자 이름과 암호를 업데이트합니다.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2618d9100c81cdb35b4a3a82436e94068a9f9bf0
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035517"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614811"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>클러스터 VM의 관리자 사용자 이름과 암호를 업데이트합니다.
 

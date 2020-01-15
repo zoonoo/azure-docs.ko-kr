@@ -1,20 +1,16 @@
 ---
-title: Azure Service Fabric Mesh 개요 | Microsoft Docs
+title: Azure Service Fabric Mesh 개요
 description: Azure Service Fabric Mesh에 대해 자세히 알아봅니다. Service Fabric Mesh를 사용하여 애플리케이션의 인프라 요구 사항을 걱정하지 않고 애플리케이션을 배포하고 크기를 조정할 수 있습니다.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: d315ca0702b1d76e0f990d4d33a3807a1dc57935
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d6522d417556104a1ece703c725f3fbeab49d683
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458976"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Service Fabric Mesh란?
 

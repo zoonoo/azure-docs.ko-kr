@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 샘플- 호스트 기반 자동 크기 조정 사용 | Microsoft Docs
-description: Azure CLI 샘플
+title: Azure CLI 샘플 - 호스트 기반 자동 크기 조정 사용
+description: 이 스크립트는 Ubuntu를 실행하는 가상 머신 확장 집합을 만들고, CPU 로드 변경에 따라 호스트 기반 메트릭을 사용하여 자동으로 크기 조정합니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c843bed96ebd69f0fe96f8dab292d50ef025e750
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 42dd70a355d63d0fa3062a8e3439be857124a6c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351028"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합의 크기 자동 조정
 이 스크립트는 Ubuntu를 실행하는 가상 머신 확장 집합을 만들고, CPU 로드 변경에 따라 호스트 기반 메트릭을 사용하여 자동으로 크기 조정합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs를 사용하여 특정 Android 애플리케이션에 알림 보내기 | Microsoft Docs
+title: Azure Notification Hubs를 사용하여 특정 Android 애플리케이션에 알림 보내기
 description: Azure Notification Hubs를 사용하여 특정 사용자에게 푸시 알림을 보내는 방법을 알아봅니다.
 documentationcenter: android
 services: notification-hubs
@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: c5c9ec26c9387cd9ae129002697210c2b342ab9b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b68d77bfdcf3fee0285b3c03ae0c598a3f6875c0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385898"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531142"
 ---
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 애플리케이션 사용자에 알림 푸시(더 이상 사용되지 않음)
 
@@ -40,9 +40,9 @@ ms.locfileid: "72385898"
 > * Android 애플리케이션을 업데이트합니다.
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서의 내용을 진행하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)를 완료하세요.
+이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)를 완료하세요.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -263,7 +263,7 @@ ms.locfileid: "72385898"
     ```
 
     이 구성 요소는 푸시 알림을 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 구현합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)를 로컬로 저장합니다. 이 구성 요소는 **로그인** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
-4. 클래스에서 `NotificationHub`에 대한 프라이빗 필드를 제거하거나 주석 처리하고 `RegisterClient` 클래스에 대한 필드 및 ASP.NET 백 엔드의 엔드포인트에 대한 문자열을 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
+4. 클래스에서 `NotificationHub`에 대한 프라이빗 필드를 제거하거나 주석 처리하고 `RegisterClient` 클래스에 대한 필드 및 ASP.NET 백 엔드의 엔드포인트에 대한 문자열을 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. `http://mybackend.azurewebsites.net`)을 입력합니다.
 
     ```java
     //private NotificationHub hub;

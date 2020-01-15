@@ -1,27 +1,17 @@
 ---
-title: Azure에서 Service Fabric 앱으로 컨테이너 패키징 및 배포 | Microsoft Docs
+title: 컨테이너 패키지 및 배포
 description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 애플리케이션 정의를 생성하고 애플리케이션을 패키지하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385045"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614029"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
@@ -35,7 +25,7 @@ ms.locfileid: "68385045"
 > * 애플리케이션 배포 및 실행
 > * 애플리케이션 정리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 자습서의 [1부](service-fabric-tutorial-create-container-images.md)에서 만든 Azure Container Registry에 푸시된 컨테이너 이미지가 사용됩니다.
 * Linux 개발 환경을 [설정합니다](service-fabric-tutorial-create-container-images.md).
@@ -93,7 +83,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애
 Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer*)
-2. `yo azuresfcontainer:AddService` 실행
+2. `yo azuresfcontainer:AddService`을 실행합니다.
 3. 'azurevoteback' 서비스 이름 지정
 4. Redis - 'alpine:redis'에 대한 컨테이너 이미지 경로 제공
 5. 명령 섹션을 비워 두려면 Enter 키 누름

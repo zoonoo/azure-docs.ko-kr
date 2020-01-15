@@ -5,30 +5,28 @@ author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: fd935ffda7d16988781d5debce9333ccf2adb16f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eadeb0f0203868c2a1a37190fdd46e47bf26e8f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709748"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450255"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>빠른 시작: JavaScript를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
 Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 쉽게 추가할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 빠른 시작에서는 SignalR Serivces와 Functions를 사용하여 서버리스, 실시간 대화 애플리케이션을 빌드하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
 
 [Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기가 설치되어 있는지 확인합니다.
 
-Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools(v2)](https://github.com/Azure/azure-functions-core-tools#installing)를 설치하세요.
+Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(버전 2 이상)를 설치하세요.
 
-Azure Functions에는 [Node.js](https://nodejs.org/en/download/) 버전 8 또는 10이 필요합니다.
-
-확장을 설치하려면 현재 Azure Functions Core Tools에는 [.NET Core SDK](https://www.microsoft.com/net/download)가 설치되어 있어야 합니다. 그러나 JavaScript Azure 함수 앱을 빌드하는 데는 .NET에 대한 지식이 필요하지 않습니다.
+이 빠른 시작에서는 [Node.js](https://nodejs.org/en/download/) 10.x를 사용하지만 다른 버전과 함께 작동해야 합니다. 지원되는 Node.js 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 설명서](../azure-functions/functions-versions.md#languages)를 참조하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -63,13 +61,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     - **negotiate** - *SignalRConnectionInfo* 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
     - **messages** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
 
-1. 터미널에서 *src/chat/javascript* 폴더에 있는지 확인합니다. Azure Functions Core Tools를 사용하여 앱을 실행하는 데 필요한 확장을 설치합니다.
-
-    ```bash
-    func extensions install
-    ```
-
-1. 함수 앱을 실행합니다.
+1. 터미널에서 *src/chat/javascript* 폴더에 있는지 확인합니다. 함수 앱을 실행합니다.
 
     ```bash
     func start

@@ -1,26 +1,17 @@
 ---
-title: Azure에서 Service Fabric 클러스터에 Java 앱 배포 | Microsoft Docs
+title: Azure의 Service Fabric 클러스터에 Java 앱 배포
 description: 이 자습서에서는 Azure Service Fabric 클러스터에 Java Service Fabric 애플리케이션을 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c836fd122d9dba0cd7eb20fe405e63c3ca3f59eb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465284"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
@@ -41,7 +32,7 @@ ms.locfileid: "66306791"
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -242,7 +233,7 @@ ms.locfileid: "66306791"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure에서 보안 Linux 클러스터 만들기

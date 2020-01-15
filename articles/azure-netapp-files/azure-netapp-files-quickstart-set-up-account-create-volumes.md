@@ -1,25 +1,18 @@
 ---
-title: 빠른 시작 - Azure NetApp Files 설정 및 NFS 볼륨 만들기 | Microsoft Docs
+title: '빠른 시작: Azure NetApp Files 및 NFS 볼륨 설정'
 description: 빠른 시작 - 신속하게 Azure NetApp Files를 설정하고 볼륨을 만드는 방법을 설명합니다.
-services: azure-netapp-files
-documentationcenter: ''
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/01/2019
-ms.author: b-juche
-ms.openlocfilehash: 912fd6bde4d00cca304a1506465a524cda947a07
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: fc7f13fb7ffe1667aaeaa4a3cc1916c6049a98c1
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769849"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551644"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기 
 

@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Batch 작업 실행 - Python API'
-description: Batch Python 클라이언트 라이브러리를 사용하여 Batch 작업 및 태스크를 빠르게 실행합니다.
+description: Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch 샘플 작업 및 태스크를 빠르게 실행합니다. Batch 서비스의 주요 개념에 대해 알아봅니다.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -12,12 +12,12 @@ ms.author: lahugh
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab628ebe81592e7d5b2e6c79de5a62b368ee772d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390229"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>빠른 시작: Python API를 사용하여 첫 번째 Batch 작업 실행
 
@@ -29,7 +29,7 @@ ms.locfileid: "72437380"
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 버전 2.7 또는 3.3 이상](https://www.python.org/downloads/)
 
@@ -59,7 +59,7 @@ Python 개발 환경에서 `pip`를 사용하여 필요한 패키지를 설치�
 pip install -r requirements.txt
 ```
 
-`config.py`파일을 엽니다. Batch 및 스토리지 계정 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예:
+`config.py`파일을 엽니다. Batch 및 스토리지 계정 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 다음은 그 예입니다.
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -79,7 +79,7 @@ python python_quickstart_client.py
 
 스크립트가 실행되면 코드를 검토하여 애플리케이션의 각 부분에서 수행하는 작업을 알아봅니다. 
 
-샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 컴퓨팅 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 컴퓨팅 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 배치 계정의 풀, 노드, 작업 및 태스크를 모니터링합니다.
+샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 컴퓨팅 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 컴퓨팅 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 배치 계정의 풀, 노드, 작업 및 태스크를 모니터링합니다.
 
 ```output
 Sample start: 11/26/2018 4:02:54 PM

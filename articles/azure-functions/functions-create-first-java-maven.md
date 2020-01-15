@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cb43f558a5c983a8a4cc3823b278b75cb8cde78d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef81ff1d3d42e3c9e2ba5d4187f5b5805d35d900
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230740"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562037"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>빠른 시작: Java 및 Maven을 사용하여 함수를 만들고 Azure에 게시
 
@@ -21,7 +21,7 @@ ms.locfileid: "74230740"
 > You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
 -->
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 
@@ -29,7 +29,7 @@ Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 - [Apache Maven](https://maven.apache.org), 버전 3.0 이상
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상
-- Azure 구독.
+- Azure 구독
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,7 +68,7 @@ mvn archetype:generate ^
 
 Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청합니다. 메시지가 표시되면 다음 값을 제공합니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | ----- | ----------- |
 | **groupId** | Java에 대한 [패키지 명명 규칙](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7)에 따라 모든 프로젝트에서 프로젝트를 고유하게 식별하는 값입니다. 이 빠른 시작의 예제에서는 `com.fabrikam.functions`를 사용합니다. |
 | **artifactId** | 버전 번호가 없는 jar의 이름인 값입니다. 이 빠른 시작의 예제에서는 `fabrikam-functions`를 사용합니다. |
@@ -76,13 +76,16 @@ Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청
 | **package** | 생성된 함수 코드에 대한 Java 패키지인 값입니다. 기본값을 사용하세요. 이 빠른 시작의 예제에서는 `com.fabrikam.functions`를 사용합니다. |
 | **appName** | Azure에서 새 함수 앱을 식별하는 전역적으로 고유한 이름입니다. 난수와 함께 추가되는 _artifactId_인 기본값을 사용합니다. 이 값을 기록해 둡니다. 나중에 필요합니다. |
 | **appRegion** | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)을 선택합니다. 기본값은 `westus`입니다. 이 [Azure CLI] 명령을 실행하여 모든 지역 목록을 가져옵니다.<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
-| **resourceGroup** | 함수 앱을 만들 새 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. 이 빠른 시작의 예제에서 사용하는 `myResourceGroup`을 사용합니다. 리소스 그룹은 Azure 구독에 대해 고유해야 합니다.|
+| **resourceGroup** | 함수 앱을 만들 새 [리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 빠른 시작의 예제에서 사용하는 `myResourceGroup`을 사용합니다. 리소스 그룹은 Azure 구독에 대해 고유해야 합니다.|
 
 `Y`를 입력하거나 Enter 키를 눌러 확인합니다.
 
 Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
 
 텍스트 편집기에서 *src/main/java* 경로에서 새 Function.java 파일을 열고 생성된 코드를 검토합니다. 이 코드는 요청의 본문을 에코하는 [HTTP 트리거](functions-bindings-http-webhook.md) 함수입니다. 
+
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
@@ -119,6 +122,9 @@ Hello AzureFunctions!
 ```
 로컬로 실행하는 경우 [함수 키](functions-bindings-http-webhook.md#authorization-keys)는 필요하지 않습니다. 터미널에서 `Ctrl+C`를 사용하여 함수 코드를 중지합니다.
 
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+
 ## <a name="deploy-the-function-to-azure"></a>Azure에 함수 배포
 
 함수 앱 및 관련 리소스는 함수 앱을 처음 배포할 때 Azure에 생성됩니다. 배포하기 전에 [az login](/cli/azure/authenticate-azure-cli) Azure CLI 명령을 사용하여 Azure 구독에 로그인합니다. 
@@ -146,6 +152,9 @@ mvn azure-functions:deploy
 또한 배포는 프로젝트 파일을 패키지하고 패키지에서 실행 모드가 활성화되어 [zip 배포](functions-deployment-technologies.md#zip-deploy)를 사용하여 새 함수 앱에 배포합니다.
 
 배포가 완료되면 함수 앱 엔드포인트에 액세스하는 데 사용할 수 있는 URL이 표시됩니다. 게시한 HTTP 트리거에서 `authLevel = AuthorizationLevel.FUNCTION`을 사용하기 때문에 HTTP를 통해 함수 엔드포인트를 호출하려면 함수 키를 가져와야 합니다. 함수 키를 가져오는 가장 쉬운 방법은 [Azure Portal]에서 가져오는 것입니다.
+
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>HTTP 트리거 URL 가져오기
 
@@ -176,6 +185,9 @@ curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/
 ```Output
 Hello AzureFunctions!
 ```
+
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
 
 ## <a name="next-steps"></a>다음 단계
 

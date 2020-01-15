@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 64d70390b3563e17bbe0c70ed426dcda81b50198
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 76521464127780d266ba58eab7306b8fe2930c2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872743"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422221"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "74872743"
 
 > [!NOTE]
 >
-> IntelliJ 및 Eclipse와 같은 인기 있는 IDE를 사용하여 동일한 작업을 수행할 수도 있습니다. [Azure Toolkit for IntelliJ 빠른 시작](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) 또는 [Azure Toolkit for Eclipse 빠른 시작](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)에서 유사한 문서를 확인하세요.
+> IntelliJ, Eclipse 및 VS Code와 같은 인기 있는 IDE를 사용하여 동일한 작업을 수행할 수도 있습니다. [Azure Toolkit for IntelliJ 빠른 시작](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Azure Toolkit for Eclipse 빠른 시작](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) 또는 [VS Code 빠른 시작](https://code.visualstudio.com/docs/java/java-webapp)에서 유사한 문서를 확인하세요.
 >
 ![Azure App Service에서 실행 중인 샘플 앱](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -91,7 +91,7 @@ Confirm (Y/N)? : Y
 
 `pom.xml`로 다시 이동하여 업데이트된 플러그인 구성을 확인하고 필요한 경우 App Service에 대한 다른 구성을 pom 파일에서 직접 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
- 자산 | 필수 | 설명 | 버전
+ 속성 | 필수 | Description | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+

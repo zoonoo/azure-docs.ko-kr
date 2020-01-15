@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091949"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498053"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>다른 Azure 지역으로 Azure VM 이동
 
@@ -81,7 +81,7 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 
      ![여러 계층에 단일 인스턴스 VM 배포](media/move-vm-overview/single-zone.png)
 
-* **가용성 집합에 배포되는 각 계층의 VM**: Azure Site Recovery를 사용하여 VM에 대한 복제를 사용하도록 설정하면 가용성 집합의 VM을 별도의 가용성 영역으로 구성할 수 있습니다. 이동 작업이 완료된 후 가용성 SLA는 99.9%가 됩니다.
+* **가용성 집합에 배포되는 각 계층의 VM**: Azure Site Recovery를 사용하여 VM에 대한 복제를 사용하도록 설정하면 가용성 집합의 VM을 별도의 가용성 영역으로 구성할 수 있습니다. 이동 작업이 완료된 후 가용성 SLA는 99.99%가 됩니다.
 
      ![가용성 집합 및 가용성 영역 전반에 VM 배포](media/move-vm-overview/aset-azone.png)
 

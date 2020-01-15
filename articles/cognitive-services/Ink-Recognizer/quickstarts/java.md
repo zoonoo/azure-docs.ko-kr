@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Ink Recognizer REST API와 Java로 디지털 잉크 인식'
 titleSuffix: Azure Cognitive Services
-description: Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
+description: 이 빠른 시작에서 Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: e8cd6a4acbd1492bba1c9e88b523a7c44a44f009
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448113"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>빠른 시작: Ink Recognizer REST API와 Java로 디지털 잉크 인식
 
@@ -29,7 +29,7 @@ ms.locfileid: "71996852"
 
 이 빠른 시작의 소스 코드는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Java&trade; Development Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상.
 
@@ -84,7 +84,7 @@ ms.locfileid: "71996852"
     [!code-java[main method](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=main)]
 
 
-## <a name="run-the-application-and-view-the-response"></a>애플리케이션을 실행하고 응답 보기
+## <a name="run-the-application-and-view-the-response"></a>애플리케이션 실행 및 응답 보기
 
 애플리케이션을 실행합니다. 성공 응답이 JSON 형식으로 반환됩니다. 또한 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json)에서 JSON 응답을 찾을 수 있습니다.
 

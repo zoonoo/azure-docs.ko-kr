@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동)
+title: 관리 디스크의 스냅샷을 구독에 복사 - CLI 샘플
 description: Azure CLI 스크립트 샘플 - CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동)
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5c83ce8d65be01156d50061d7f0a8287ddbfa1eb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ddcf585af86a265410f9c2d424c85acf5abbc8fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039994"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375921"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 012b13c440b8d0873e387c7d185803dc07852bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439004"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "73683029"
 > 
 > 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 [자습서 개요](data-factory-build-your-first-pipeline.md)를 읽고 “필수 구성 요소” 섹션의 단계를 수행합니다.
 
 이 문서는 Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 내용은 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요.  
@@ -68,7 +68,7 @@ ms.locfileid: "73683029"
    > 데이터 팩터리의 이름은 나중에 DNS 이름으로 등록되므로 공개적으로 표시될 수도 있습니다.
    >
    >
-1. **구독**에서 데이터 팩터리를 만들려는 위치의 Azure 구독을 선택합니다.
+1. **구독** 아래에서 데이터 팩터리를 만들려는 Azure 구독을 선택합니다.
 
 1. 기존 리소스 그룹을 선택하거나 리소스 그룹을 만듭니다. 이 자습서의 경우 **ADFGetStartedRG**라는 이름의 리소스 그룹을 만듭니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "73683029"
    > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참가자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
    >
    >
-1. 대시보드에서 **Data Factory 배포 중** 상태의 다음과 같은 타일이 표시됩니다.    
+1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 다음과 같은 타일이 표시됩니다.    
 
    ![Data Factory 배포 중 상태](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
@@ -110,7 +110,7 @@ ms.locfileid: "73683029"
 
    ![Storage 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. **account name**을 스토리지 계정 이름으로 바꿉니다. **account key**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)에서 스토리지 액세스 키의 보기, 복사 및 재생성 방법을 참조하세요.
+1. **account name**을 스토리지 계정 이름으로 바꿉니다. **account key**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
@@ -147,7 +147,7 @@ ms.locfileid: "73683029"
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-   | 자산 | 설명 |
+   | 속성 | Description |
    |:--- |:--- |
    | clusterSize |HDInsight 클러스터의 크기를 지정합니다. |
    | timeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
@@ -208,7 +208,7 @@ ms.locfileid: "73683029"
     ```
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-   | 자산 | 중첩 | 설명 |
+   | 속성 | 중첩 | Description |
    |:--- |:--- |:--- |
    | type | properties |Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다. |
    | linkedServiceName | format |이전에 만든 AzureStorageLinkedService를 참조합니다. |
@@ -261,7 +261,7 @@ ms.locfileid: "73683029"
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 이 단계에서는 HDInsight Hive 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각은 매월 사용할 수 있습니다(주파수가 월, 간격은 1). 출력 조각은 매월 생성됩니다. 작업에 대한 스케줄러 속성도 매월로 설정됩니다. 출력 데이터 세트 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 세트가 일정을 결정하므로 작업이 출력을 생성하지 않는 경우에도 출력 데이터 세트를 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 세트 만들기를 건너뛸 수 있습니다. 다음 JSON 코드 조각에서 사용되는 속성은 이 섹션의 마지막에 설명되어 있습니다.
 
-1. Data Factory Editor에서 **자세히** > **새 파이프라인**을 선택합니다.
+1. 데이터 팩터리 편집기에서 **자세히** > **새 파이프라인**을 차례로 선택합니다.
 
     ![새 파이프라인 옵션](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
@@ -435,7 +435,7 @@ ms.locfileid: "73683029"
 이 문서에서 파이프라인과 함께 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Blob Storage에서 SQL Database로 데이터를 복사하는 방법은 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-| 항목 | 설명 |
+| 항목 | Description |
 |:--- |:--- |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 엔드투엔드 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
 | [데이터 세트](data-factory-create-datasets.md) |이 문서는 Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |

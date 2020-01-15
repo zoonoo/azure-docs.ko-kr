@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8749f7dee2ceeb09e37cc97d4e5bfe76c52e2da6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499316"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438732"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 공유  
 
@@ -25,7 +25,7 @@ ms.locfileid: "73499316"
 > * Data Share에 대해 동기화 일정을 사용하도록 설정합니다. 
 > * Data Share에 받는 사람을 추가합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 수신자 Azure 로그인 이메일 주소(이메일 별칭을 사용하면 작동하지 않음).
@@ -49,6 +49,8 @@ ms.locfileid: "73499316"
 ```                   
 *<share_acc_name>* 은 Data Share 계정의 이름입니다. 아직 Data Share 계정을 만들지 않은 경우 나중에 이 필수 조건으로 돌아갈 수 있습니다.  
 
+* 공유하려는 테이블 및/또는 뷰를 탐색하고 선택할 수 있는 [`db_owner` 액세스 권한이 있는 Azure SQL Database 사용자](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)입니다. 
+
 * 클라이언트 IP SQL Server 방화벽 액세스: 이 작업은 다음 단계를 통해 수행할 수 있습니다. 1. *방화벽 및 Virtual Network*로 이동합니다. 1. **켜짐** 토글을 클릭하여 Azure 서비스에 대한 액세스를 허용합니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
@@ -69,7 +71,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | Name | *datashareacount* | 데이터 공유 계정의 이름을 지정합니다. |
+    | 속성 | *datashareacount* | 데이터 공유 계정의 이름을 지정합니다. |
     | Subscription | 사용자의 구독 | 데이터 공유 계정에 사용할 Azure 구독을 선택합니다.|
     | Resource group | *test-resource-group* | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
     | 위치 | *미국 동부 2* | 데이터 공유 계정에 대한 지역을 선택합니다.
@@ -99,7 +101,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
     ![데이터 세트](./media/datasets.png "데이터 세트")
 
-1. 추가하려는 데이터 세트 형식을 선택합니다. 
+1. 추가하려는 데이터 세트 형식을 선택합니다. Azure SQL Database 또는 Azure SQL Datawarehouse에서 공유하는 경우 일부 SQL 자격 증명을 입력하라는 메시지가 표시됩니다. 필수 구성 요소의 일부로 만든 사용자를 사용하여 인증합니다.
 
     ![AddDatasets](./media/add-datasets.png "데이터 세트 추가")    
 

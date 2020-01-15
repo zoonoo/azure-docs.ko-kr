@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Cosmos DB에서 Cassandra API 계정으로 데이터 마이그레이션'
+title: Azure Cosmos DB의 Cassandra API 계정으로 데이터 마이그레이션 - 자습서
 description: 이 자습서에서는 CQL Copy 명령 및 Spark를 사용하여 Apache Cassandra에서 Azure Cosmos DB의 Cassandra API 계정으로 데이터를 복사하는 방법을 알아봅니다.
 author: kanshiG
 ms.author: govindk
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: cc312a707f5ab74967b9d3bc050fec7bfcad9dbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c754740369da6d0a8084b9b60ef178fb28e32f1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851079"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445680"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 계정으로 데이터 마이그레이션
 
@@ -29,7 +29,7 @@ ms.locfileid: "58851079"
 > * cqlsh COPY 명령을 사용하여 데이터 마이그레이션
 > * Spark를 사용하여 데이터 마이그레이션
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites-for-migration"></a>마이그레이션을 위한 필수 조건
 

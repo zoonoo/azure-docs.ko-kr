@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 49b3b5890fe38f6c635e7ba420a1adf5d778de0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eb9c21bf1972304da688586da9ccabe5063fa112
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438983"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>자습서: Visual Studio를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -56,7 +56,7 @@ ms.locfileid: "74703929"
 4. **DataFactoryUsingVS**라는 데이터 팩터리를 만듭니다. 데이터 팩터리 및 모든 Data Factory 엔터티(연결된 서비스, 테이블 및 파이프라인)를 배포합니다.
 5. 파이프라인을 게시한 후에 모니터링하려면 Azure Portal 블레이드 및 모니터링 및 관리 앱을 사용합니다. 
   
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -76,7 +76,7 @@ ms.locfileid: "74703929"
     ![새 프로젝트 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 3. 프로젝트의 **이름**, **위치**, **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
 
-    ![Controllers\HomeController.cs](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+    ![솔루션 탐색기](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ### <a name="create-linked-services"></a>연결된 서비스 만들기
 이 단계에서는 두 개의 연결된 서비스 **Azure Storage** 및 **주문형 HDInsight**를 만듭니다. 
@@ -92,7 +92,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 1. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
 2. **새 항목 추가** 대화 상자의 목록에서 **Azure Storage 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 스토리지 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. **AzureStorageLinkedService1.json** 파일을 저장합니다.
 
@@ -119,7 +119,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    자산 | 설명
+    속성 | Description
     -------- | ----------- 
     clusterSize | HDInsight Hadoop 클러스터의 크기를 지정합니다.
     timeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
@@ -168,9 +168,9 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    자산 | 설명 |
+    속성 | Description |
     -------- | ----------- |
-    형식 |Azure Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다.
+    type |Azure Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다.
     linkedServiceName | 이전에 만든 AzureStorageLinkedService1을 가리킵니다.
     fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일을 선택합니다. 이 경우에 input.log만 처리됩니다.
     type | 로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
@@ -303,7 +303,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     ![게시 - 새 데이터 팩터리 설정](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
 
    1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
-   2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 예:  **DataFactoryUsingVS09152016**. 이름은 전역적으로 고유해야 합니다.
+   2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 다음은 그 예입니다.  **DataFactoryUsingVS09152016**. 이름은 전역적으로 고유해야 합니다.
    3. **구독** 필드에서 올바른 구독을 선택합니다. 
         > [!IMPORTANT]
         > 모든 구독이 표시되지 않으면 구독의 관리자 또는 공동 관리자인 계정을 사용하여 로그인했는지 확인합니다.
@@ -563,7 +563,7 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 
 ## <a name="see-also"></a>참고 항목
 
-| 항목 | 설명 |
+| 항목 | Description |
 |:--- |:--- |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 데이터 기반 워크플로를 활용하는 방법을 이해하는 데 도움이 됩니다. |
 | [데이터 세트](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |

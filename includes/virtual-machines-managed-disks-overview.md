@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829135"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355897"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -37,7 +37,7 @@ ms.locfileid: "74829135"
 
 ### <a name="azure-backup-support"></a>Azure Backup 지원
 
-지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](../articles/backup/backup-overview.md)을 사용할 수 있습니다. 이를 통해 VM 복원을 원하는 대로 쉽게 수행할 수 있습니다. Azure Backup은 관리 디스크의 백업 및 복원을 지원합니다. Azure VM 백업 지원에 대해 [자세히 알아보세요](../articles/backup/backup-support-matrix-iaas.md).
+지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](../articles/backup/backup-overview.md)을 사용할 수 있습니다. 이를 통해 VM 복원을 원하는 대로 쉽게 수행할 수 있습니다. 현재, Azure Backup은 최대 4TiB(테비바이트)의 디스크 크기를 지원합니다.  Azure Backup은 관리 디스크의 백업 및 복원을 지원합니다. Azure VM 백업 지원에 대해 [자세히 알아보세요](../articles/backup/backup-support-matrix-iaas.md).
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
@@ -126,5 +126,7 @@ Azure는 디스크 트래픽에 우선 순위가 지정된 네트워크 채널�
 원하는 성능을 달성할 수 있도록 VM + 디스크 구성을 최적화하는 모범 사례를 알아보려면 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
+관리 디스크에 대해 자세히 설명하는 비디오를 보려면 [Managed Disks를 통한 Azure VM 복원력 향상](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency)을 확인하세요.
 
 Azure에서 제공하는 개별 디스크 유형 및 사용자의 요구 사항에 적합한 유형에 대해 자세히 알아보고, 디스크 유형 관련 문서에서 해당 성능 목표에 대해 알아봅니다.

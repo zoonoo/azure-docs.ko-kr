@@ -1,26 +1,17 @@
 ---
-title: Azure에서 ELK를 사용하여 Service Fabric에서 앱 모니터링 | Microsoft Docs
+title: Azure에서 ELK를 사용하여 Service Fabric에서 앱 모니터링
 description: 이 자습서에서는 ELK를 설정하고 Service Fabric 애플리케이션을 모니터링 하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313008"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376663"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 애플리케이션 모니터링
 
@@ -40,7 +31,7 @@ ms.locfileid: "58313008"
 > * 애플리케이션에 대한 모니터링 및 진단 설정
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -155,7 +146,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure에서 실행되는 ELK 서버 가져오기

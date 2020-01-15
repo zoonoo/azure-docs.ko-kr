@@ -1,5 +1,5 @@
 ---
-title: '자습서: JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터 관리하는 Node.js 웹앱 빌드'
+title: '자습서: Azure Cosmos DB JavaScript SDK를 사용하여 SQL API 데이터를 관리하는 Node.js 웹앱 빌드'
 description: 이 Node.js 자습서에서는 Microsoft Azure Cosmos DB를 사용하여 Microsoft Azure App Service의 Web Apps에 호스팅되는 Node.js Express 웹 애플리케이션에서 데이터를 저장하고 액세스하는 방법을 설명합니다.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a67870cc2494321aa739d6f59f18651013b7403b
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441271"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 

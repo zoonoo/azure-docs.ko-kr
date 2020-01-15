@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107104"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407824"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -32,11 +32,11 @@ Event Grid에 대한 자세한 내용은 [Azure Event Grid](https://docs.microso
 > *   Azure Maps 지오펜스 서비스 API를 사용하여 건설 자산이 건설 현장에 있는지 여부를 추적합니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기 
 
-이 자습서의 단계를 완료하려면 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](./tutorial-search-location.md#getkey)의 단계를 수행하여 계정의 기본 구독 키를 가져옵니다.
+이 자습서의 단계를 완료하려면 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정의 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="upload-geofences"></a>지오펜스 업로드
 
@@ -46,7 +46,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
 
 1. Postman 앱을 열고, 새로 만들기 | 새로 만들기를 차례로 클릭하고, [요청]을 선택합니다. 지오펜스 데이터 업로드에 대한 요청 이름을 입력하고, 저장할 컬렉션 또는 폴더를 선택한 다음, [저장]을 클릭합니다.
 
-    ![Postman을 사용하여 위치 업로드](./media/tutorial-geofence/postman-new.png)
+    ![Postman을 사용하여 지오펜스 업로드](./media/tutorial-geofence/postman-new.png)
 
 2. 작성기 탭에서 POST HTTP 메서드를 선택하고, 다음 URL을 입력하여 POST 요청을 합니다.
 
@@ -56,7 +56,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
     
     URL 경로의 GEOJSON 매개 변수는 업로드되는 데이터의 데이터 형식을 나타냅니다.
 
-3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 기본 구독 키로 바꿉니다.
+3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 키로 바꿉니다.
    
     ![키 값 매개 변수 Postman](./media/tutorial-geofence/postman-key-vals.png)
 
@@ -216,7 +216,7 @@ Azure Maps는 세 가지 이벤트 유형을 지원합니다. Azure Maps에서 �
 
 ![지오펜스 맵](./media/tutorial-geofence/geofence.png)
 
-Postman 앱에서 위에서 만든 것과 동일한 컬렉션에서 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택합니다.
+Postman 앱에서, 위에서 만든 컬렉션에 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택합니다.
 
 다음은 5개의 HTTP GET 지오펜싱 API 요청이며, 해당 장비의 서로 다른 위치 좌표가 시간순으로 관찰됩니다. 각 요청 뒤에는 응답 본문이 나옵니다.
  

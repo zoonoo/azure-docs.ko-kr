@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 샘플 - 기본 가상 머신 확장 집합 만들기 | Microsoft Docs
-description: Azure PowerShell 샘플
+title: Azure PowerShell 샘플 - 기본 가상 머신 확장 집합 만들기
+description: 이 스크립트는 RDP를 통해 액세스할 수 있는 Windows Server 2016을 실행하는 Azure 가상 머신 확장 집합을 만듭니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,19 +16,19 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 98c7760a84d2ae4824ab3a34dc089a2b9bca74d8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1247dab9a9d2b39eea41b617957461ffa544e66b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350849"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합 만들기
 이 스크립트는 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만듭니다. 스크립트를 실행한 후에는 RDP를 통해 VM 인스턴스에 액세스할 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 

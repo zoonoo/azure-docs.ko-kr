@@ -1,20 +1,20 @@
 ---
-title: 자습서 - Event Hubs에서 Virtual Networks 통합 및 방화벽 사용 | Microsoft Docs
+title: Azure Event Hubs - 가상 네트워크 통합 및 방화벽 사용
 description: 이 자습서에서는 안전하게 액세스할 수 있도록 가상 네트워크 및 방화벽을 사용하여 Event Hubs를 통합하는 방법을 알아봅니다.
 services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
-ms.date: 11/28/2018
+ms.date: 12/20/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f911a1513c6f89180ea51cc0de96dc8a475c7fc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437114"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>자습서: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
 
@@ -47,7 +47,7 @@ ms.locfileid: "67605854"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 기존 Event Hubs 네임 스페이스를 활용하므로 Event Hubs 네임스페이스를 사용할 수 있는지 확인하세요. 그렇지 않으면 [이 자습서](./event-hubs-create.md)를 참조하세요.
 

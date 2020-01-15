@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6deeb224f8c70dabcf8c5a29e80e87414ea32657
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 7cd922d0e65da627f11e6aab3827cb848c3dd635
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561419"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560527"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>자습서: JIRA SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs
 
@@ -33,16 +33,16 @@ ms.locfileid: "74561419"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 Atlassian JIRA 서버와 함께 Microsoft Azure Active Directory 계정을 사용하여 Single Sign-On을 사용하도록 설정합니다. 이러한 방식으로 모든 조직 사용자는 Azure AD 자격 증명을 사용하여 JIRA 애플리케이션에 로그인할 수 있습니다. 이 플러그 인은 페더레이션에 대해 SAML 2.0을 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 JIRA SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-- JIRA Core 및 Software 6.4~8.0 또는 JIRA Service Desk 3.0~3.5가 Windows 64비트 버전에 설치 및 구성되어 있어야 합니다.
+- JIRA Core 및 Software 6.4~8.5.1 또는 JIRA Service Desk 3.0~4.6.0이 Windows 64비트 버전에 설치 및 구성되어 있어야 합니다.
 - JIRA 서버에서 HTTPS를 사용해야 합니다.
 - 지원되는 JIRA 플러그 인 버전은 아래 섹션에 설명되어 있습니다.
 - JIRA 서버가 인터넷에 연결되어 있고 인증을 위해 특히 Azure AD 로그인 페이지에 접속되고 Azure AD에서 토큰을 받을 수 있어야 합니다.
@@ -61,7 +61,7 @@ JIRA SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목�
 ## <a name="supported-versions-of-jira"></a>지원되는 JIRA 버전
 
 * JIRA Core 및 Software: 6.4 ~ 8.5.1
-* JIRA Service Desk 3.0.0 ~ 4.5.1
+* JIRA Service Desk 3.0.0 ~ 4.6.0
 * JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](jira52microsoft-tutorial.md)을 클릭하세요.
 
 > [!NOTE]
@@ -130,7 +130,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -158,11 +158,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon1.png)
+    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=56506)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement/)이 적용됩니다.
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon12.png)
+    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. JIRA 역방향 프록시 시나리오 또는 부하 분산 장치 시나리오를 실행하려면 다음 단계를 수행합니다.
 
@@ -173,19 +173,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
     b. 프록시/부하 분산 장치에 따라 **시스템 설정**에서 **기준 URL**을 변경합니다.
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon14.png)
+    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon54.png)
+    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.

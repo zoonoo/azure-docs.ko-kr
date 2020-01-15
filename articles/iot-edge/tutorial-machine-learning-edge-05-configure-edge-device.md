@@ -8,17 +8,17 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5be7b66a51113121ed755d8ad9cea3518577f2e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706963"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612873"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
 > [!NOTE]
-> 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 이동한 경우 학습 효과를 극대화할 수 있도록 이 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작할 것을 권장합니다.
+> 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 이동한 경우에는 학습 효과를 극대화할 수 있도록 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작하는 것이 좋습니다.
 
 이 문서에서는 Linux를 실행하는 Azure Virtual Machine을 투명 게이트웨이로 작동하는 Azure IoT Edge 디바이스로 구성합니다. 투명 게이트웨이를 구성하면 디바이스가 게이트웨이 존재 여부를 알지 못해도 게이트웨이를 통해 Azure IoT Hub에 연결할 수 있습니다. 그와 동시에, IoT Hub의 디바이스와 상호 작용하는 사용자는 중간에 있는 게이트웨이 디바이스를 인식하지 못합니다. 궁극적으로 투명 게이트웨이를 사용하여 게이트웨이에 IoT Edge 모듈을 추가함으로써 시스템에 에지 분석 기능을 추가합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "74706963"
 
 디바이스가 게이트웨이로 작동하려면 다운스트림 디바이스에 안전하게 연결할 수 있어야 합니다. Azure IoT Edge를 사용하면 PKI(공개 키 인프라)를 사용하여 이러한 디바이스 간에 안전한 연결을 설정할 수 있습니다. 이 경우에 투명한 게이트웨이로 작동하는 IoT Edge 디바이스에 다운스트림 디바이스를 연결할 수 있습니다. 적절한 보안 유지를 위해 다운스트림 디바이스는 IoT Edge 디바이스의 ID를 확인해야 합니다. IoT Edge 디바이스에서 인증서를 사용하는 방법에 대한 자세한 내용은 [Azure IoT Edge 인증서 사용 현황 세부 정보](iot-edge-certs.md)를 참조하세요.
 
-이 섹션에서는 Docker 이미지를 사용하여 자체 서명된 인증서를 만든 후 빌드하고 실행합니다. Windows 개발 머신에 인증서를 만드는 데 필요한 단계가 좀 더 간단한 Docker 이미지를 사용하여 이 단계를 완료하기로 선택했습니다. 컨테이너를 사용하지 않고 인증서를 생성하는 방법에 대한 자세한 내용은 [Windows를 사용하여 인증서 생성](how-to-create-transparent-gateway.md#generate-certificates-with-windows)을 참조하세요. [Linux를 사용하여 인증서 생성](how-to-create-transparent-gateway.md#generate-certificates-with-linux)에는 Docker 이미지를 사용하여 자동화한 지침 세트가 포함되어 있습니다.
+이 섹션에서는 Docker 이미지를 사용하여 자체 서명된 인증서를 만든 후 빌드하고 실행합니다. Windows 개발 머신에 인증서를 만드는 데 필요한 단계가 좀 더 간단한 Docker 이미지를 사용하여 이 단계를 완료하기로 선택했습니다. Docker 이미지로 자동화된 내용을 이해하려면 [IoT Edge 디바이스 기능을 테스트하기 위한 데모 인증서 만들기](how-to-create-test-certificates.md)를 참조하세요.
 
 1. 개발 가상 머신에 로그인합니다.
 
@@ -119,7 +119,7 @@ Azure Marketplace의 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microso
 
 마켓플레이스의 이미지를 스크립트 방식 배포에 사용하려면 이미지에 프로그래밍 방식 배포를 사용하도록 설정해야 합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 1. **모든 서비스**를 선택합니다.
 

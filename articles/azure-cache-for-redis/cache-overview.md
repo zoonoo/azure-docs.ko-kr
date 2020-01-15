@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis란?
-description: Azure Cache for Redis란 무엇이며 일반적으로 어떻게 사용되는지에 대해 알아봅니다.
+description: 캐시 배제, 콘텐츠 캐싱, 사용자 세션 캐싱, 작업 및 메시지 큐, 분산 트랜잭션 등 Azure Cache for Redis 및 일반적인 용도에 대해 알아봅니다.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 03/26/2018
-ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 87e7505bddfce431b5e859fbbeee79f75867cfc9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.date: 03/26/2018
+ms.openlocfilehash: 5224be999ff8ff52c2f52568a504095dc5962398
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122645"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433414"
 ---
 # <a name="azure-cache-for-redis-description"></a>Azure Cache for Redis 설명
 
@@ -26,7 +26,7 @@ Azure Cache for Redis는 안전한 전용 Redis Cache에 액세스할 수 있도
 
 애플리케이션 아키텍처를 지원하거나 애플리케이션의 성능을 개선하기 위해 Azure Cache for Redis를 사용하는 많은 일반적인 패턴이 있습니다. 가장 일반적인 패턴의 일부는 다음과 같습니다.
 
-| 패턴      | 설명                                        |
+| 패턴      | Description                                        |
 | ------------ | -------------------------------------------------- |
 | [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | 데이터베이스가 커질 수 있으므로 전체 데이터베이스를 캐시에 로드하는 방법은 권장되지 않습니다. [캐시 배제](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) 패턴을 사용하여 필요할 때만 캐시에 데이터 항목을 로드하는 것이 일반적입니다. 시스템에서 백 엔드 데이터를 변경하는 경우, 바로 그때 다른 클라이언트로 배포되는 캐시를 업데이트할 수 있습니다. 또한 시스템에서 데이터 항목에 대한 만료 날짜를 설정하거나 제거 정책을 사용하여 데이터 업데이트가 캐시로 다시 로드되도록 할 수 있습니다.|
 | [콘텐츠 캐시](cache-aspnet-output-cache-provider.md) | 대부분의 웹 페이지는 헤더, 바닥글, 도구 모음, 메뉴 등으로 이루어진 템플릿에서 생성됩니다. 실제로 자주 변경하지 않으며 동적으로 생성되지 않아야 합니다. Azure Cache for Redis와 같은 메모리 내 캐시를 사용하면 백 엔드 데이터 스토리지에 비해 사용자의 웹 서버는 이러한 유형의 정적 콘텐츠에 빠르게 액세스할 수 있습니다. 이 패턴은 콘텐츠를 동적으로 생성하는 데 필요한 처리 시간과 서버 로드를 줄일 수 있습니다. 그러면 웹 서버는 더 잘 대응할 수 있게 되고, 사용자는 부하를 처리하는 데 필요한 서버 수를 줄일 수 있습니다. Azure Cache for Redis는 ASP.NET을 사용하여 이 패턴을 지원할 수 있도록 Redis 출력 캐시 공급자를 제공합니다.|
@@ -38,7 +38,7 @@ Azure Cache for Redis는 안전한 전용 Redis Cache에 액세스할 수 있도
 
 Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.
 
-| 계층 | 설명 |
+| 계층 | Description |
 |---|---|
 Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB)를 지원합니다. 이는 개발/테스트 및 중요하지 않은 작업에 이상적입니다. 기본 계층에는 SLA(서비스 수준 계약)가 없습니다. |
 | Standard | 고가용성 SLA(99.9%)를 사용하며 Microsoft에서 관리되는 2노드 기본/보조 구성의 복제된 캐시입니다. |

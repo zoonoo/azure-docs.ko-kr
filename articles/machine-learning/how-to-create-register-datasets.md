@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 65bc164f344090894622a7b2db62336b19d3599e
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 775c6016acbcd0f87f368852a68eaea706c79898
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540673"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945697"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -67,21 +67,10 @@ Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 
 
 1. 등록 된 Azure 데이터 저장소에 대 한 `contributor` 또는 `owner` 액세스 권한이 있는지 확인 합니다.
 
-1. 데이터 저장소에서 경로를 참조 하 여 데이터 집합을 만듭니다.
+2. 데이터 저장소에서 경로를 참조 하 여 데이터 집합을 만듭니다.
+> [!Note]
+> 여러 데이터 저장소의 여러 경로에서 데이터 집합을 만들 수 있습니다. 데이터 집합을 만들 수 있는 파일 수 또는 데이터 크기에 대 한 하드 제한은 없습니다. 그러나 각 데이터 경로에 대해 몇 가지 요청은 저장소 서비스로 전송 되어 파일이 나 폴더를 가리키는지 확인 합니다. 이러한 오버 헤드로 인해 성능이 저하 되거나 오류가 발생할 수 있습니다. 내에서 1000 파일을 포함 하는 한 개의 폴더를 참조 하는 데이터 집합은 하나의 데이터 경로를 참조 하 고 최적의 성능을 위해 데이터 저장소에서 100 미만의 경로를 참조 하는 데이터 집합을 만드는 것이 좋습니다.
 
-    ```Python
-    from azureml.core.workspace import Workspace
-    from azureml.core.datastore import Datastore
-    from azureml.core.dataset import Dataset
-    
-    datastore_name = 'your datastore name'
-    
-    # get existing workspace
-    workspace = Workspace.from_config()
-    
-    # retrieve an existing datastore in the workspace by name
-    datastore = Datastore.get(workspace, datastore_name)
-    ```
 
 #### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
@@ -90,12 +79,20 @@ SDK를 통해 또는 Azure Machine Learning Studio를 사용 하 여 TabularData
 `TabularDatasetFactory` 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) 메서드를 사용 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다.
 
 ```Python
-# create a TabularDataset from multiple paths in datastore
-datastore_paths = [
-                  (datastore, 'weather/2018/11.csv'),
-                  (datastore, 'weather/2018/12.csv'),
-                  (datastore, 'weather/2019/*.csv')
-                 ]
+from azureml.core import Workspace, Datastore, Dataset
+
+datastore_name = 'your datastore name'
+
+# get existing workspace
+workspace = Workspace.from_config()
+    
+# retrieve an existing datastore in the workspace by name
+datastore = Datastore.get(workspace, datastore_name)
+
+# create a TabularDataset from 3 paths in datastore
+datastore_paths = [(datastore, 'ather/2018/11.csv'),
+                   (datastore, 'weather/2018/12.csv'),
+                   (datastore, 'weather/2019/*.csv')]
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
@@ -112,7 +109,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Survived|Pclass|이름|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
+| |PassengerId|Survived|Pclass|이름|성|연령|SibSp|Parch|Ticket|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|거짓|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|참|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
@@ -156,16 +153,12 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
-datastore_paths = [
-                  (datastore, 'animals')
-                 ]
+datastore_paths = [(datastore, 'animals')]
 animal_ds = Dataset.File.from_files(path=datastore_paths)
 
 # create a FileDataset from image and label files behind public web urls
-web_paths = [
-            'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
-            'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
-           ]
+web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
+             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
@@ -248,10 +241,8 @@ UI를 통해 개방형 데이터 집합 클래스에서 데이터 집합을 만�
 새 버전을 만들어 동일한 이름으로 새 데이터 집합을 등록할 수 있습니다. 데이터 집합 버전은 실험 또는 향후 복제를 위해 특정 버전의 데이터 집합을 적용할 수 있도록 데이터의 상태에 책갈피를 지정 하는 방법입니다. [데이터 집합 버전](how-to-version-track-datasets.md)에 대해 자세히 알아보세요.
 ```Python
 # create a TabularDataset from Titanic training data
-web_paths = [
-            'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
-            'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
-           ]
+web_paths = ['https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
+             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv']
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
 # create a new version of titanic_ds

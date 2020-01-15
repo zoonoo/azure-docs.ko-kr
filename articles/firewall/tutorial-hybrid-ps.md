@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 14e33bf77144e4cd5728ec85d3012dc0ba717ece
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195771"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945649"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -47,13 +47,13 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 이 시나리오가 제대로 작동하기 위해서는 세 가지 주요 요구 사항이 있습니다.
 
-- Azure Firewall IP 주소를 가리키는 스포크 서브넷의 UDR(사용자 정의 경로)이 기본 게이트웨이입니다. 이 경로 테이블에서 BGP 경로 전파를 **사용 안 함**으로 설정해야 합니다.
+- Azure Firewall IP 주소를 가리키는 스포크 서브넷의 UDR(사용자 정의 경로)이 기본 게이트웨이입니다. 이 경로 테이블에서 가상 네트워크 게이트웨이 경로 전파가 **사용 하지 않도록 설정** 되어 있어야 합니다.
 - 허브 게이트웨이 서브넷의 UDR은 스포크 네트워크에 대한 다음 호프로 방화벽 IP 주소를 가리켜야 합니다.
 
    Azure Firewall 서브넷에서는 BGP로부터 경로를 학습하므로 UDR이 필요하지 않습니다.
@@ -71,7 +71,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 관련된 Azure PowerShell 참조 설명서를 검토하려면, [Azure PowerShell 참조](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)를 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="declare-the-variables"></a>변수 선언
 
@@ -355,7 +355,7 @@ Set-AzVirtualNetwork
 
 #Now create the default route
 
-#Create a table, with BGP route propagation disabled
+#Create a table, with BGP route propagation disabled. The property is now called "Virtual network gateway route propagation," but the API still refers to the parameter as "DisableBgpRoutePropagation."
 $routeTableSpokeDG = New-AzRouteTable `
   -Name 'UDR-DG' `
   -ResourceGroupName $RG1 `

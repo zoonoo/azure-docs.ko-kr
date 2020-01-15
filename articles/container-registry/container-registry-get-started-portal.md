@@ -4,12 +4,12 @@ description: Azure Portal을 사용하여 Azure Container Registry에서 프라�
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455226"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611239"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
@@ -43,7 +43,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
 ## <a name="log-in-to-registry"></a>레지스트리에 로그인
 
-컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 운영 체제에서 명령 셸을 열고, Azure CLI에서 [az acr login][az-acr-login] 명령을 사용합니다.
+컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 운영 체제에서 명령 셸을 열고 Azure CLI에서 [az acr login][az-acr-login] 명령을 사용합니다(컨테이너 이름만 지정). 'azurecr.io'를 포함하지 마세요.)
 
 ```azurecli
 az acr login --name <acrName>

@@ -1,5 +1,5 @@
 ---
-title: Microsoft 고객 계약에 대한 청구 계정 설정 - Azure
+title: Microsoft 고객 계약에 대한 청구 설정 - Azure
 description: Microsoft 고객 계약에 대한 청구 계정을 설정하는 방법을 알아봅니다.
 author: amberbhargava
 manager: amberb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5d01fa5f4bb7367bdd1939d77dc1f80bd4436765
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8855552ef4bc5e8135d1df62cca384b5ee14a02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388349"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
 
@@ -187,7 +187,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리�
     - 기업계약 계층 구조에 해당하는 청구 계층 구조가 새 청구 계정에 생성됩니다. 자세한 내용은 [달라지는 청구 계층 구조 이해](#understand-changes-to-your-billing-hierarchy)를 참조하세요.
     - 기업계약 등록의 관리자에게는 조직의 요금 청구를 계속 관리할 수 있도록 새 청구 계정에 대한 액세스 권한이 제공됩니다.
     - Azure 구독에 대한 청구는 새 계정으로 전환됩니다. **전환 중에 Azure 서비스에 영향을 주지 않습니다. 서비스는 중단 없이 계속 실행됩니다**.
-    - 기존에 보유한 Azure 예약은 혜택 또는 기간에 대한 변경 없이 새 청구 계정으로 이전됩니다. 
+    - 기존에 보유한 Azure 예약은 혜택 또는 기간에 대한 변경 없이 새 청구 계정으로 이전됩니다.
 
 4. **전환 상태** 페이지에서 전환 상태를 모니터링할 수 있습니다.
 

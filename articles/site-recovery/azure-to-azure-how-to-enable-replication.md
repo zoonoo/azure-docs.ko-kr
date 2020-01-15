@@ -1,19 +1,16 @@
 ---
-title: Azure Site Recovery의 Azure VM에 대한 복제 구성 | Microsoft Docs
-description: 이 문서에서는 Site Recovery를 사용하여 한 Azure 지역에서 다른 Azure 지역으로 Azure VM에 대한 복제를 구성하는 방법을 설명합니다.
-services: site-recovery
-author: carmonmills
+title: Azure Site Recovery에서 Azure Vm에 대 한 복제 구성
+description: Site Recovery를 사용 하 여 Azure Vm의 다른 지역에 대 한 복제를 구성 하는 방법을 알아봅니다.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2018
-ms.author: carmonm
-ms.openlocfilehash: 4dbac05ddf747ccaf483e547a2070505487a3706
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929853"
+ms.locfileid: "75942312"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Azure Vm을 다른 Azure 지역에 복제
 

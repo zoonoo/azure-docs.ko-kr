@@ -4,12 +4,12 @@ description: Azure Blockchain Workbench 미리 보기 및 관련 기능에 대�
 ms.date: 09/05/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 9c40f95aa1490362b9232ec8d87a199d7a41c731
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 88c162539e5d0480d7f938c674b96c2f396774e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74324558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387074"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Azure Blockchain Workbench란?
 
@@ -44,6 +44,20 @@ Azure Blockchain Workbench는 Azure Resource Manager 솔루션 템플릿을 사�
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>온 체인 데이터를 오프 체인 스토리지와 동기화
 
 Azure Blockchain Workbench를 사용하면 블록체인의 데이터를 오프 체인 스토리지에 자동으로 동기화하여 블록체인 이벤트와 데이터를 더 쉽게 분석할 수 있습니다. 블록체인에서 데이터를 직접 추출하는 대신 SQL Server와 같은 오프 체인 데이터베이스 시스템을 쿼리할 수 있습니다. 데이터 분석 작업을 수행하는 최종 사용자에게는 블록체인에 대한 전문 지식이 필요하지 않습니다.
+
+## <a name="support-and-feedback"></a>지원 및 피드백
+
+Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.microsoft.com/blog/topics/blockchain/)를 방문하여 Azure Blockchain 엔지니어링 팀의 블록체인 서비스 제공 및 정보를 최신 상태로 유지하세요.
+
+제품 피드백을 제공하거나 새로운 기능을 요청하려면 [블록체인에 대한 Azure 피드백 포럼](https://aka.ms/blockchainuservoice)을 통해 아이디어에 투표하세요.
+
+### <a name="community-support"></a>커뮤니티 지원
+
+Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
+
+* [Azure Blockchain MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>다음 단계
 

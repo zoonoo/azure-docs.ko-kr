@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f641640ff6cf4174e2e1374404d47fc0760f79f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 809c188dc37aba64de27e89e38acd8692c7de032
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979579"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613570"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인
 
@@ -31,12 +31,15 @@ ms.locfileid: "74979579"
 > * 예측 데이터를 그래프로 표시합니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 먼저 다음을 수행해야 합니다.
 
-1. [Azure Maps 계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)의 지침에 따라 S0 가격 책정 계층에서 Azure Maps 계정 구독을 만듭니다.
-2. [계정에 대한 기본 키 가져오기](./tutorial-search-location.md#getkey)의 지침에 따라 계정에 대한 기본 구독 키를 가져옵니다.
+1. [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침에 따라 S0 가격 책정 계층에서 Azure Maps 계정 구독을 만듭니다.
+2. 계정에 대한 기본 구독 키를 가져오려면 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 지침을 따릅니다.
+
+
+Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
 Azure Notebook에 익숙해지고 시작하는 방법을 알아보려면 [Azure Notebook 만들기](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook)의 지침을 따르세요.
 
@@ -68,7 +71,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 
 ```python
-subscription_key = "Your Azure Maps primary subscription key"
+subscription_key = "Your Azure Maps key"
 
 # Get a lists of unique station IDs and their coordinates 
 station_ids = pd.unique(df[['StationID']].values.ravel())
@@ -172,11 +175,11 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-아래 그래프는 현재로부터 다음 15일간의 풍속(왼쪽 그래프) 및 풍향(오른쪽 그래프)의 변화에 대한 예측 데이터를 시각화합니다.
+아래 그래프는 데이터가 요청된 날로부터 다음 15일간의 풍속(왼쪽 그래프) 및 풍향(오른쪽 그래프)의 변화에 대한 예측 데이터를 시각화합니다.
 
 <center>
 
-![풍속 도표](./media/weather-service-tutorial/speed-date-plot.png) ![풍향 도표](./media/weather-service-tutorial/direction-date-plot.png)</center>
+![풍속 플롯](./media/weather-service-tutorial/speed-date-plot.png) ![풍향 플롯](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -190,6 +193,6 @@ Azure Notebooks 내에서 Azure Maps REST API를 호출하는 방법에 대한 �
 * [일일 예측](https://aka.ms/AzureMapsWeatherDailyForecast)
 * [렌더링 - 지도 이미지 가져오기](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 
-Azure Maps REST API의 전체 목록은 [Azure Maps REST API](https://docs.microsoft.com/azure/azure-maps/#reference)를 참조하세요.
+Azure Maps REST API의 전체 목록은 [Azure Maps REST API](https://docs.microsoft.com/azure/azure-maps/consumption-model)를 참조하세요.
 
 Azure Notebooks에 대한 자세한 내용은 [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)를 참조하세요.

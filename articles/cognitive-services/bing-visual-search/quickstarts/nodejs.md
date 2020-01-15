@@ -8,37 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: ecfe341fa050e693f919f35c29c8120c687c88f8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 373d6fa5402ba703cbebe88ad562974ba97f3391
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379711"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>빠른 시작: Bing Visual Search REST API 및 Node.js를 사용하여 이미지 인사이트 가져오기
 
 이 빠른 시작을 사용하여 Bing Visual Search API를 처음 호출하고 검색 결과를 확인합니다. 이 간단한 JavaScript 애플리케이션은 API에 이미지를 업로드하고, 이미지에 대한 반환된 정보를 표시합니다. 이 애플리케이션은 JavaScript에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-로컬 이미지를 업로드할 때 양식 데이터는 `Content-Disposition` 헤더를 포함해야 합니다. 해당 `name` 매개 변수를 "이미지"로 설정해야 하며, `filename` 매개 변수는 임의의 문자열로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진 데이터를 포함합니다. 업로드할 수는 최대 이미지 크기는 1MB입니다.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Node.JS](https://nodejs.org/en/download/)
 * JavaScript에 대한 요청 모듈. `npm install request` 명령을 사용하여 모듈을 설치할 수 있습니다.
 * form-data 모듈. `npm install form-data` 명령을 사용하여 모듈을 설치할 수 있습니다. 
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="initialize-the-application"></a>애플리케이션 초기화
 
@@ -50,7 +39,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var fs = require('fs');
     ```
 
-2. API 엔드포인트, 구독 키 및 이미지 경로에 대한 변수를 만듭니다.
+2. API 엔드포인트, 구독 키에 대한 변수 및 이미지에 대한 경로를 만듭니다. `baseUri`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -67,6 +56,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     ```
 
 ## <a name="construct-and-send-the-search-request"></a>검색 요청 생성 및 보내기
+
+로컬 이미지를 업로드할 때 양식 데이터는 `Content-Disposition` 헤더를 포함해야 합니다. 해당 `name` 매개 변수를 "이미지"로 설정해야 하며, `filename` 매개 변수는 임의의 문자열로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진 데이터를 포함합니다. 업로드할 수는 최대 이미지 크기는 1MB입니다.
+
+```
+--boundary_1234-abcd
+Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+
+--boundary_1234-abcd--
+```
 
 1. `FormData()`를 사용하여 **FormData**를 만들고, `fs.createReadStream()`을 사용하여 이미지 경로를 추가합니다.
     

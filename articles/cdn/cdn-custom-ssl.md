@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: bacd26cdba24e7ad503a3ae58d5c77d5a3311537
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361667"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -36,7 +36,7 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 - 완전한 인증서 관리: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하도록 설정
 > - CDN 관리되는 인증서 사용 
@@ -44,13 +44,13 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 > - 도메인의 유효성 검사
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
-또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md) 
+또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)를 참조하세요.
 
 > [!IMPORTANT]
 > CDN 관리 인증서는 루트 또는 정점 도메인에서 제공되지 않습니다. Azure CDN 사용자 지정 도메인이 루트 또는 정점 도메인인 경우 자체 인증서 가져오기 기능을 사용해야 합니다. 
@@ -68,27 +68,29 @@ CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기
 
 사용자 지정 도메인에서 HTTPS를 활성화하려면 다음 단계를 따르세요.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동하여 Azure CDN에서 관리하는 인증서를 찾습니다. **CDN 프로필**을 검색하고 선택합니다. 
 
-2. CDN 엔드포인트 목록에서 사용자 지정 도메인을 포함하고 있는 엔드포인트를 선택합니다.
+2. **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필을 선택합니다.
+
+3. CDN 엔드포인트 목록에서 사용자 지정 도메인을 포함하고 있는 엔드포인트를 선택합니다.
 
     ![엔드포인트 목록](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
 
     **엔드포인트** 페이지가 열립니다.
 
-3. 사용자 지정 도메인 목록에서 HTTPS를 사용하도록 설정할 사용자 지정 도메인을 선택합니다.
+4. 사용자 지정 도메인 목록에서 HTTPS를 사용하도록 설정할 사용자 지정 도메인을 선택합니다.
 
     ![사용자 지정 도메인 목록](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     **사용자 지정 도메인** 페이지가 나타납니다.
 
-4. 인증서 관리 유형에서 **CDN 관리**를 선택합니다.
+5. 인증서 관리 유형에서 **CDN 관리**를 선택합니다.
 
-5. **켜기**를 선택하여 HTTPS를 사용하도록 설정합니다.
+6. **켜기**를 선택하여 HTTPS를 사용하도록 설정합니다.
 
     ![사용자 지정 도메인 HTTPS 상태](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
-6. [도메인의 유효성 검사](#validate-the-domain)를 진행합니다.
+7. [도메인의 유효성 검사](#validate-the-domain)를 진행합니다.
 
 
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[옵션 2: 사용자 고유의 인증서를 사용하여 HTTPS 활성화](#tab/option-2-enable-https-with-your-own-certificate)
@@ -176,7 +178,7 @@ CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 CDN 엔드포인트 호스트 이름입니다.
 
-| Name            | type  | 값                 |
+| 속성            | Type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
@@ -260,15 +262,17 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ### <a name="disable-the-https-feature"></a>HTTPS 기능을 사용하지 않도록 설정 
 
-1. [Azure Portal](https://portal.azure.com)에서 **Microsoft의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **CDN 프로필**을 검색하고 선택합니다. 
 
-2. 엔드포인트 목록에서 사용자 지정 도메인을 포함하는 엔드포인트를 클릭합니다.
+2. **Microsoft의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필을 선택합니다.
 
-3. HTTPS를 비활성화하도록 설정할 사용자 지정 도메인을 클릭합니다.
+3. 엔드포인트 목록에서 사용자 지정 도메인을 포함하는 엔드포인트를 선택합니다.
+
+4. HTTPS를 비활성화하도록 설정할 사용자 지정 도메인을 선택합니다.
 
     ![사용자 지정 도메인 목록](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-4. **끄기**를 클릭하여 HTTPS를 비활성화한 다음 **적용**을 클릭합니다.
+5. **끄기**를 선택하여 HTTPS를 비활성화한 다음, **적용**을 선택합니다.
 
     ![사용자 지정 HTTPS 대화 상자](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
@@ -320,7 +324,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하도록 설정

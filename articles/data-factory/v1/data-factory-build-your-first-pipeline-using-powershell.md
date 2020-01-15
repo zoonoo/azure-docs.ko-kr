@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 0209b004ba54417a26cd41716687d328ec1431cf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 94f11e306f866496d4ae03dad03b070d26d616e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438985"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.locfileid: "73682989"
 > 
 > 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -117,7 +117,7 @@ ms.locfileid: "73682989"
         }
     }
     ```
-    **계정 이름**을 Azure Storage 계정 이름으로 변경하고 **계정 키**를 Azure Storage 계정의 액세스 키로 변경합니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 스토리지 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+    **계정 이름**을 Azure Storage 계정 이름으로 변경하고 **계정 키**를 Azure Storage 계정의 액세스 키로 변경합니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 2. Azure PowerShell에서 ADFGetStarted 폴더로 전환합니다.
 3. 연결된 서비스를 만드는 **New-AzDataFactoryLinkedService** cmdlet을 사용할 수 있습니다. 이 자습서에서 사용하는 이 cmdlet 및 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get-AzDataFactory**를 사용하여 **DataFactory** 개체를 가져온 다음, cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName*을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
 
@@ -158,7 +158,7 @@ ms.locfileid: "73682989"
     ```
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-   | 자산 | 설명 |
+   | 속성 | Description |
    |:--- |:--- |
    | clusterSize |HDInsight 클러스터의 크기를 지정합니다. |
    | timeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
@@ -212,7 +212,7 @@ ms.locfileid: "73682989"
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-   | 자산 | 설명 |
+   | 속성 | Description |
    |:--- |:--- |
    | type |만들려는 Azure File Storage의 이름을 입력합니다. |
    | linkedServiceName |이전에 만든 StorageLinkedService를 참조합니다. |
@@ -413,7 +413,7 @@ Azure File Storage 정보가 포함된 파일이 없으면 이 섹션의 끝에 
 
 ## <a name="see-also"></a>참고 항목
 
-| 항목 | 설명 |
+| 항목 | Description |
 |:--- |:--- |
 | [데이터 팩터리 cmdlet 참조](/powershell/module/az.datafactory) |데이터 팩터리 cmdlet에서 포괄적인 설명서를 참조하세요. |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 엔드투엔드 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |

@@ -8,22 +8,26 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: cfa8db0d00f351f5ab2bda96744305ca83cccb19
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 2664b1abd4131cf1dca186c7b044e338bf1efa84
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922462"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945815"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search-preview"></a>Azure Cognitive Search에 대 한 보안 연결을 위한 개인 끝점 만들기 (미리 보기)
 
-Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoint-overview.md) 은 가상 네트워크의 클라이언트가 [개인 링크](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전 하 게 액세스할 수 있도록 합니다. 개인 끝점은 검색 서비스에 대 한 [가상 네트워크 주소 공간의](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) IP 주소를 사용 합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크 및 Microsoft 백본 네트워크의 개인 링크를 순회 하 여 공용 인터넷에서 노출 되는 것을 제거 합니다. 개인 링크를 지 원하는 다른 PaaS 서비스 목록은 제품 설명서의 [가용성 섹션](../private-link/private-link-overview.md#availability) 을 확인 하세요.
+이 문서에서는 포털을 사용 하 여 공용 IP 주소를 통해 액세스할 수 없는 새 Azure Cognitive Search 서비스 인스턴스를 만듭니다. 그런 다음 동일한 가상 네트워크에 Azure 가상 머신을 구성 하 고이를 사용 하 여 개인 끝점을 통해 검색 서비스에 액세스 합니다.
 
 > [!Important]
-> Azure Cognitive Search에 대 한 개인 끝점 지원은 제한 된 액세스 미리 보기로 사용할 수 있으며 현재 프로덕션 용도로는 사용할 수 없습니다. 미리 보기에 액세스 하려는 경우에는 [액세스 요청 양식을](https://aka.ms/SearchPrivateLinkRequestAccess) 작성 하 고 제출 하세요. 양식은 사용자, 회사 및 일반 응용 프로그램 아키텍처에 대 한 정보를 요청 합니다. 요청을 검토 한 후에는 추가 지침이 포함 된 확인 전자 메일을 받게 됩니다.
+> Azure Cognitive Search에 대 한 개인 끝점 지원은 [요청 시](https://aka.ms/SearchPrivateLinkRequestAccess) 제한 된 액세스 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
 >
-> 미리 보기에 대 한 액세스 권한이 부여 되 면 Azure Portal 및 REST API 버전 [2019-10-06-미리 보기](search-api-preview.md)를 사용 하 여 서비스에 대 한 개인 끝점을 구성할 수 있습니다.
+> 미리 보기에 대 한 액세스 권한이 부여 되 면 Azure Portal 또는 [관리 REST API 버전 2019-10-06-미리 보기](https://docs.microsoft.com/rest/api/searchmanagement/)를 사용 하 여 서비스에 대 한 개인 끝점을 구성할 수 있습니다.
 >   
+
+## <a name="why-use-private-endpoint-for-secure-access"></a>보안 액세스에 개인 끝점을 사용 하는 이유
+
+Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoint-overview.md) 은 가상 네트워크의 클라이언트가 [개인 링크](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전 하 게 액세스할 수 있도록 합니다. 개인 끝점은 검색 서비스에 대 한 [가상 네트워크 주소 공간의](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) IP 주소를 사용 합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크 및 Microsoft 백본 네트워크의 개인 링크를 순회 하 여 공용 인터넷에서 노출 되는 것을 제거 합니다. 개인 링크를 지 원하는 다른 PaaS 서비스 목록은 제품 설명서의 [가용성 섹션](../private-link/private-link-overview.md#availability) 을 확인 하세요.
 
 검색 서비스에 대 한 개인 끝점을 사용 하면 다음을 수행할 수 있습니다.
 
@@ -36,16 +40,18 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 > * **기본** 계층의 search 서비스에만 사용할 수 있습니다. 
 > * 미국 서 부 2, 미국 서 부, 미국 동부, 미국 중부, 오스트레일리아 동부 및 오스트레일리아 남동쪽 지역에서 사용할 수 있습니다.
 > * 서비스 끝점이 개인 인 경우 일부 포털 기능이 사용 하지 않도록 설정 됩니다. 서비스 수준 정보를 보고 관리할 수 있지만 인덱스, 인덱서 및 기술 정의와 같은 서비스의 다양 한 구성 요소 및 인덱스에 대 한 포털 액세스는 보안상의 이유로 제한 됩니다.
-> * 서비스 끝점이 개인 인 경우 검색 API를 사용 하 여 문서를 인덱스에 업로드 해야 합니다.
+> * 서비스 끝점이 개인 인 경우 [검색 REST API](https://docs.microsoft.com/rest/api/searchservice/) 를 사용 하 여 문서를 인덱스에 업로드 해야 합니다.
 > * Azure Portal에서 개인 끝점 지원 옵션을 보려면 다음 링크를 사용 해야 합니다. https://portal.azure.com/?feature.enablePrivateEndpoints=true
 
-이 문서에서는 포털을 사용 하 여 공용 IP 주소를 통해 액세스할 수 없는 새 Azure Cognitive Search 서비스 인스턴스를 만들고, 동일한 가상 네트워크에서 Azure 가상 머신을 구성 하 고,이를 사용 하 여 개인을 통해 검색 서비스에 액세스 하는 방법을 알아봅니다. 끝점만.
 
 
-## <a name="create-a-vm"></a>VM 만들기
+## <a name="request-access"></a>액세스 요청 
+
+[액세스 요청](https://aka.ms/SearchPrivateLinkRequestAccess) 을 클릭 하 여이 미리 보기 기능에 등록 합니다. 양식은 사용자, 회사 및 일반 네트워크 토폴로지에 대 한 정보를 요청 합니다. 요청을 검토 한 후에는 추가 지침이 포함 된 확인 전자 메일을 받게 됩니다.
+
+## <a name="create-the-virtual-network"></a>가상 네트워크 만들기
+
 이 섹션에서는 검색 서비스의 개인 끝점에 액세스 하는 데 사용 되는 VM을 호스트 하는 가상 네트워크 및 서브넷을 만듭니다.
-
-### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
 1. Azure Portal 홈 탭에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 선택 합니다.
 
@@ -65,7 +71,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 1. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
 
-## <a name="create-your-search-service-with-a-private-endpoint"></a>개인 끝점을 사용 하 여 검색 서비스 만들기
+## <a name="create-a-search-service-with-a-private-endpoint"></a>개인 끝점을 사용 하 여 검색 서비스 만들기
 
 이 섹션에서는 개인 끝점을 사용 하 여 새 Azure Cognitive Search 서비스를 만듭니다. 
 
@@ -119,9 +125,9 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 1. 왼쪽 콘텐츠 메뉴에서 **키** 를 선택 합니다.
 
-1. 나중에 사용할 **기본 관리자 키** 를 복사 합니다.
+1. 나중에 서비스에 연결할 때 **기본 관리자 키** 를 복사 합니다.
 
-### <a name="create-a-virtual-machine"></a>가상 머신 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
 1. Azure Portal 화면 왼쪽 상단에서 **리소스 만들기** > **계산** > **가상 컴퓨터**를 선택 합니다.
 
@@ -170,9 +176,9 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 1. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다. 
 
 
-## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
+## <a name="connect-to-the-vm"></a>VM에 연결
 
-다음과 같이 인터넷에서 *myVm* VM에 연결합니다.
+를 다운로드 하 고 다음과 같이 VM *Myvm* 에 연결 합니다.
 
 1. 포털의 검색 창에 *myVm*을 입력합니다.
 
@@ -196,9 +202,11 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 1. VM 데스크톱이 나타나면 최소화하여 로컬 데스크톱으로 돌아갑니다.  
 
 
-## <a name="access-the-search-service-privately-from-the-vm"></a>VM에서 전용으로 검색 서비스 액세스
+## <a name="test-connections"></a>연결 테스트
 
 이 섹션에서는 검색 서비스에 대 한 개인 네트워크 액세스를 확인 하 고 개인 끝점을 사용 하 여에 개인적으로 연결 합니다.
+
+검색 서비스와의 모든 상호 작용에는 [검색 REST API](https://docs.microsoft.com/rest/api/searchservice/)필요 하다는 것을 기억 하세요. 포털 및 .NET SDK는이 미리 보기에서 지원 되지 않습니다.
 
 1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
@@ -213,14 +221,14 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
     Address:  10.0.0.5
     Aliases:  [search service name].search.windows.net
     ```
-1. VM에서이 [빠른](search-get-started-postman.md) 시작을 따라 REST API를 사용 하 여 postman의 서비스에서 새 검색 인덱스를 만듭니다.  이전 단계에서 복사한 키를 사용 하 여 서비스에 인증 합니다.
 
-1. 로컬 워크스테이션의 Postman에서 이러한 동일한 요청을 여러 번 시도 합니다.
+1. VM에서 검색 서비스에 연결 하 여 인덱스를 만듭니다. 이 [빠른](search-get-started-postman.md) 시작을 수행 하 여 REST API를 사용 하는 postman의 서비스에서 새 검색 인덱스를 만들 수 있습니다. Postman의 요청을 설정 하려면 검색 서비스 끝점 (https://[search service name]. 검색. w i n d)과 이전 단계에서 복사한 관리 api 키가 필요 합니다.
 
-1. VM에서 빠른 시작을 완료할 수 있지만 원격 서버가 로컬 워크스테이션에 존재 하지 않는다는 오류가 표시 되 면 검색 서비스에 대 한 개인 끝점을 성공적으로 구성 했습니다.
+1. VM에서 빠른 시작을 완료 하는 것은 서비스가 완전히 작동 하는지 확인 하는 것입니다.
 
 1.  *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
 
+1. 공용 끝점에서 서비스에 액세스할 수 없는지 확인 하려면 로컬 워크스테이션에서 Postman을 열고 빠른 시작에서 처음 몇 가지 작업을 시도 합니다. 원격 서버가 존재 하지 않는다는 오류가 표시 되 면 검색 서비스에 대 한 개인 끝점을 성공적으로 구성 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 개인 끝점, 검색 서비스 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 포함 된 모든 리소스를 삭제 합니다.

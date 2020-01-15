@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860b2f20b4ffda0a1a588ed5d5893ad2c0521a43
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438866"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>자습서: REST API를 사용하여 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.locfileid: "73682843"
 >  
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -103,7 +103,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 확보하는 방법을 알아보려면 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
+> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
 ```JSON
 {
@@ -177,7 +177,7 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
 
 다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | type | Azure Blob Storage에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
 | linkedServiceName | 이전에 만든 **AzureStorageLinkedService**를 참조합니다. |
@@ -220,7 +220,7 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
 ```
 다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | type | Azure SQL 데이터베이스의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
 | linkedServiceName | 이전에 만든 **AzureSqlLinkedService**를 참조합니다. |
@@ -285,7 +285,7 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
  
 **시작** 속성 값을 현재 날짜로 바꾸고 **종료** 값을 다음 날짜로 바꿉니다. 날짜 부분만 지정하고 날짜/시간의 시간 부분은 건너뛸 수 있습니다. 예를 들어, "2017-02-03"은 "2017-02-03T00:00:00Z"와 동일합니다.
  
-start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예:  2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
+start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 다음은 그 예입니다.  2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
  
 **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
  
@@ -522,7 +522,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 ## <a name="summary"></a>요약
 이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만드는 데 REST API를 사용했습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.  
 
-1. Azure **Data Factory**를 만들었습니다.
+1. Azure **데이터 팩터리**를 만들었습니다.
 2. **연결된 서비스**를 만들었습니다.
    1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 Azure Storage 연결된 서비스입니다.     
    2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 Azure SQL 연결된 서비스입니다. 

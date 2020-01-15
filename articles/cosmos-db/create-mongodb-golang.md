@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB의 API for MongoDB 및 Golang SDK를 사용하여 콘솔 앱 빌드
+title: Azure Cosmos DB의 API for MongoDB 및 Golang SDK를 사용하는 콘솔 앱
 description: Azure Cosmos DB의 API for MongoDB를 사용하여 연결 및 쿼리할 수 있는 Golang 코드 샘플을 제공합니다.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755125"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441957"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>빠른 시작: Azure Cosmos DB의 API for MongoDB 및 Golang SDK를 사용하여 콘솔 앱 빌드
 
@@ -31,9 +31,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 즉, Golang 애플리케이션은 MongoDB 클라이언트를 사용하여 연결한다는 사실만 알고 있습니다. Cosmos 데이터베이스에서 데이터가 저장되는 애플리케이션에 대해 투명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free)을 만듭니다. 
 
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 

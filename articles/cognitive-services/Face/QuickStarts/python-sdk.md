@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Python용 Face 클라이언트 라이브러리 | Microsoft Docs'
-description: 이 문서는 Python을 검색하고, 유사한 것을 찾고, 식별하고, 확인하는 데 사용되는 Face 클라이언트 라이브러리를 시작하는 데 도움이 됩니다.
+title: '빠른 시작: Python용 Face 클라이언트 라이브러리'
+description: 이 빠른 시작은 Python을 검색하고, 유사한 것을 찾고, 식별하고, 확인하는 데 사용되는 Face 클라이언트 라이브러리를 시작하는 데 도움이 됩니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: cd797567b381fb89c568b06dc8b056648e5c734a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e41817e3409f79aab3fbb3d57195b6b7ff13e7af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448200"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>빠른 시작: Python용 Face 클라이언트 라이브러리
 
@@ -31,7 +31,7 @@ Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행�
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [샘플](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -40,7 +40,7 @@ Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행�
 
 ### <a name="create-a-face-azure-resource"></a>Face Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Face용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Face용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 Face Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-|Name|설명|
+|속성|Description|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | 이 클래스는 Face 서비스를 사용할 수 있는 권한의 부여를 나타내며 모든 Face 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다. |
 |[FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|이 클래스는 사람 얼굴을 사용하여 수행할 수 있는 기본 감지 및 인식 작업을 처리합니다. |
@@ -171,7 +171,7 @@ Face Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터�
 
 ## <a name="identify-a-face"></a>얼굴 식별
 
-다음 코드에서는 여러 얼굴이 있는 이미지를 가져오고, 해당 이미지에서 각 사람의 ID를 찾습니다. 감지된 각 얼굴을 얼굴 특징이 알려진 서로 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다.
+다음 코드에서는 여러 얼굴이 있는 이미지를 가져오고, 해당 이미지에서 각 사람의 ID를 찾습니다. 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다.
 
 > [!IMPORTANT]
 > 이 예제를 실행하려면 먼저 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 코드를 실행해야 합니다.

@@ -1,21 +1,21 @@
 ---
-title: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
+title: '자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화'
 titleSuffix: Azure Cognitive Services
-description: Anomaly Detector API 및 Power BI를 사용하여 시계열 데이터 전체의 변칙을 시각화합니다.
+description: Anomaly Detector API 및 Power BI를 사용하여 시계열 데이터 전체의 변칙을 시각화하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: fa78e737cd863d19e294c5001dfd27b07760521f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840875"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448845"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
 
@@ -28,7 +28,7 @@ ms.locfileid: "71840875"
 > * 일괄 처리 변칙 검색을 위해 Power BI Desktop과 Anomaly Detector API의 통합
 > * 예상 값, 표시 값 및 변칙 검색 경계를 포함하여 데이터 내에서 검색된 변칙 시각화
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/)(평가판으로 사용 가능)
 * 시계열 데이터 요소가 포함된 Excel 파일(.xlsx). 이 빠른 시작의 예제 데이터는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)에서 찾을 수 있습니다.
@@ -175,4 +175,4 @@ Power BI 창의 오른쪽에 있는 **필드** 창 아래에서 마우스 오른
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[Azure Databricks를 사용한 스트리밍 변칙 검색](anomaly-detection-streaming-databricks.md)
+>[Azure Databricks를 사용하여 스트리밍 변칙 검색](anomaly-detection-streaming-databricks.md)

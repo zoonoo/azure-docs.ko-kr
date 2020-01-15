@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure 템플릿을 사용하여 Windows 가상 머신 확장 집합 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure 템플릿을 사용하여 Windows 가상 머신 확장 집합 만들기
 description: 샘플 앱을 배포하고 자동 크기 조정 규칙을 구성하는 Azure Resource Manager 템플릿을 사용하여 Windows 가상 머신 확장 집합을 빠르게 만드는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: bfbe3d6aac6e97f3568c3c0ce3643bb215726a0b
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f3dd2fd092e49a0e526856f1e55211ec1837cfa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351090"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>빠른 시작: Azure 템플릿을 사용하여 Windows 가상 머신 확장 집합 만들기
 
@@ -39,11 +39,11 @@ Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배�
 
 템플릿은 각 리소스 종류에 대한 구성을 정의합니다. 가상 머신 확장 집합 리소스 종류는 개별 VM과 비슷합니다. 가상 머신 확장 집합 리소스 종류의 주요 부분은 다음과 같습니다.
 
-| 자산                     | 속성 설명                                  | 예제 템플릿 값                    |
+| 속성                     | 속성 설명                                  | 예제 템플릿 값                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| 형식                         | 만들 Azure 리소스 종류                            | Microsoft.Compute/virtualMachineScaleSets |
-| 이름                         | 확장 집합 이름                                       | myScaleSet                                |
-| location                     | 확장 집합을 만들 위치                     | 미국 동부                                   |
+| type                         | 만들 Azure 리소스 종류                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | 확장 집합 이름                                       | myScaleSet                                |
+| 위치                     | 확장 집합을 만들 위치                     | 미국 동부                                   |
 | sku.name                     | 각 확장 집합 인스턴스에 대한 VM 크기                  | Standard_A1                               |
 | sku.capacity                 | 처음에 만들 VM 인스턴스의 수           | 2                                         |
 | upgradePolicy.mode           | 변경 발생 시의 VM 인스턴스 업그레이드 모드              | 자동                                 |

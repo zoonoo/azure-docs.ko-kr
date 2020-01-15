@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c9e407b271fd77397723ee49f530339847096749
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106627"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613604"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 관심 지점으로 라우팅
 
-이 자습서에서는 Azure Maps 계정과 Route Service SDK를 사용하여 관심 지점까지의 경로를 찾는 방법을 보여줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Maps 계정과 Route Service SDK를 사용하여 관심 지점까지의 경로를 찾는 방법을 보여줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 지도 컨트롤 API를 사용하여 새 웹 페이지 만들기
 > * 주소 좌표 설정
 > * 관심 지점으로의 방향에 대한 Route Service 쿼리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-계속하기 전에 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](./tutorial-search-location.md#getkey)의 단계를 수행하여 계정의 기본 구독 키를 가져옵니다.
+계속하기 전에 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정의 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 <a id="getcoordinates"></a>
 
@@ -211,7 +211,7 @@ ms.locfileid: "74106627"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 지도 컨트롤 API를 사용하여 새 웹 페이지 만들기

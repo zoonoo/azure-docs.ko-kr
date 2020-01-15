@@ -1,7 +1,7 @@
 ---
 title: '자습서: 사용자 지정 검색 웹 페이지 만들기 - Bing Custom Search'
 titleSuffix: Azure Cognitive Services
-description: 사용자 지정 Bing 검색 인스턴스를 구성하고 웹 페이지에 통합하는 방법을 알아봅니다.
+description: 이 자습서를 통해 사용자 지정 Bing 검색 인스턴스를 구성하고 웹 페이지에 통합하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5a4d797fecca8e040a6e22bf59a5776b1ffff80f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977202"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448778"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 
@@ -32,10 +32,10 @@ Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검�
 > - 고정된 항목 추가
 > - 웹 페이지에 사용자 지정 검색 통합
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 자습서를 따르려면 Bing Custom Search API에 대한 구독 키가 필요합니다.  키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)를 참조하세요.
-- Visual Studio 2017 이상이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다.
+- Visual Studio 2017 이상이 아직 설치되지 않은 경우 **체험판**[Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다.
 
 ## <a name="create-a-custom-search-instance"></a>사용자 지정 검색 인스턴스 만들기
 
@@ -103,7 +103,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
    ![호스트된 UI 색 테마 선택 스크린샷](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-   웹 앱과 더 효율적으로 통합하기 위해 색 테마를 미세 조정해야 하는 경우 **테마 사용자 지정**을 클릭합니다. 레이아웃 테마에는 일부 색 구성만 적용됩니다. 색을 변경하려면 해당 텍스트 상자에 색의 RGB HEX 값(예: #366eb8)을 입력합니다. 또는 색 단추를 클릭하고 적합한 음영을 클릭합니다. 색을 선택할 때는 항상 접근성을 고려해야 합니다.
+   웹앱과 더 효율적으로 통합되도록 색 테마를 미세 조정해야 하는 경우 **사용자 지정 테마**를 클릭합니다. 레이아웃 테마에는 일부 색 구성만 적용됩니다. 색을 변경하려면 해당 텍스트 상자에 색의 RGB HEX 값(예: #366eb8)을 입력합니다. 또는 색 단추를 클릭하고 적합한 음영을 클릭합니다. 색을 선택할 때는 항상 접근성을 고려해야 합니다.
   
    ![호스트된 UI 색 테마 사용자 지정 스크린샷](./media/custom-search-hosted-ui-customize-color-theme.png)  
 

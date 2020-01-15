@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 다른 지역의 스토리지 계정으로 스냅샷을 VHD로 내보내기/복사
+title: PowerShell 샘플 - 다른 지역의 스토리지 계정으로 스냅샷을 VHD로 내보내기/복사
 description: Azure PowerShell 스크립트 샘플 - 다른 지역의 스토리지 계정으로 스냅샷을 VHD로 내보내기/복사
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: c1ad520aadf8b2bafa9fdd03333e50b47612fa49
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1f93efb2dd03376110d1368672642d922651c2f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040192"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463705"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>PowerShell을 사용하여 다른 지역의 스토리지 계정으로 관리 스냅샷을 VHD로 내보내기/복사
 

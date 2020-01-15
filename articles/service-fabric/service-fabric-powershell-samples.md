@@ -1,28 +1,17 @@
 ---
-title: Azure PowerShell 샘플 - Service Fabric | Microsoft Docs
-description: Azure PowerShell 샘플 - Service Fabric
-services: service-fabric
-documentationcenter: service-fabric
-author: athinanthny
-manager: chackdan
-editor: ''
-tags: ''
-ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
-ms.service: service-fabric
+title: Azure PowerShell 샘플 - Service Fabric
+description: Powershell을 사용하여 Azure Service Fabric 클러스터, 앱 및 서비스의 생성 및 관리에 대해 알아봅니다.
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: service-fabric
 ms.date: 11/29/2018
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: cae88e142c3bca15e837db7f084eef68434a78ca
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f9ba1b4833b3aff13284a68c23f398ea47ef2ae2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903258"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645653"
 ---
-# <a name="azure-powershell-samples"></a>Azure PowerShell 샘플
+# <a name="azure-service-fabric-powershell-samples"></a>Azure Service Fabric PowerShell 샘플
 
 다음 표에는 Service Fabric 클러스터, 애플리케이션 및 서비스를 만들고 관리하는 PowerShell 스크립트 샘플에 대한 링크가 제공됩니다.
 

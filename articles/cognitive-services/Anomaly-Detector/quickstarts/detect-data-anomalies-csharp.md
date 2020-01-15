@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Anomaly Detector REST API와 C#을 사용하여 시계열 데이터에서 변칙 검색'
 titleSuffix: Azure Cognitive Services
-description: Anomaly Detector API를 사용하여 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
+description: Anomaly Detector API를 사용하여 이 빠른 시작을 통해 일괄 처리로 또는 스트리밍으로 데이터 계열에서 변칙을 검색합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 76308e2167cbedae9572f1fb5037dfb394ce4b17
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b5fb8bb424af47eb7793d38f24b6334677c6a5ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385312"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: Anomaly Detector REST API와 C#을 사용하여 시계열 데이터에서 변칙 검색 
 
@@ -28,7 +28,7 @@ ms.locfileid: "74483408"
 
  이 애플리케이션은 C#으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs)에서 찾을 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2017 이상](https://visualstudio.microsoft.com/downloads/)의 모든 버전
 - 변칙 탐지기 키 및 엔드포인트
@@ -40,7 +40,7 @@ ms.locfileid: "74483408"
 
 - Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
-- 시계열 데이터 요소가 포함된 JSON 파일입니다. 이 빠른 시작의 예제 데이터는 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)에서 확인할 수 있습니다.
+- 시계열 데이터 요소가 포함된 JSON 파일 이 빠른 시작의 예제 데이터는 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)에서 확인할 수 있습니다.
 
 ### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
@@ -80,7 +80,7 @@ ms.locfileid: "74483408"
 
 3. 응답에 `code` 필드가 포함된 경우에는 오류 코드 및 오류 메시지를 출력합니다. 
 
-4. 그렇지 않으면 데이터 세트에서 변칙의 위치를 찾습니다. 응답의 `isAnomaly` 필드에 부울 값 배열이 포함되고 이들 각각은 데이터 요소가 변칙인지 여부를 나타냅니다. 이것을 응답 개체의 `ToObject<bool[]>()` 함수를 사용하여 문자열 배열로 변환합니다. 배열을 반복하고 `true` 값의 인덱스를 출력합니다. 이 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
+4. 그렇지 않으면 데이터 세트에서 변칙의 위치를 찾습니다. 응답의 `isAnomaly` 필드에 부울 값 배열이 포함되고 이들 각각은 데이터 요소가 변칙인지 여부를 나타냅니다. 이것을 응답 개체의 `ToObject<bool[]>()` 함수를 사용하여 문자열 배열로 변환합니다. 배열을 반복하고 `true` 값의 인덱스를 출력합니다. 이러한 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
 
     [!code-csharp[Detect anomalies batch](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesBatch)]
 
@@ -93,7 +93,7 @@ ms.locfileid: "74483408"
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
  
-## <a name="load-your-time-series-data-and-send-the-request"></a>시계열 데이터를 로드하고 요청 보내기
+## <a name="load-your-time-series-data-and-send-the-request"></a>시계열 데이터 로드 및 요청 보내기
 
 1. 애플리케이션의 main 메서드에서 `File.ReadAllText()`를 사용하여 JSON 시계열 데이터를 로드합니다. 
 

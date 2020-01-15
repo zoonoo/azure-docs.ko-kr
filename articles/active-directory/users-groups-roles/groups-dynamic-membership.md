@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768720"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940985"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -321,7 +321,12 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 "모든 사용자" 규칙은-ne 연산자와 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다. 이 규칙은 그룹에 멤버 사용자뿐만 아니라 B2B 게스트 사용자도 추가합니다.
 
 ```
-user.objectid -ne null
+user.objectId -ne null
+```
+그룹에서 게스트 사용자를 제외 하 고 테 넌 트의 멤버만 포함 하려는 경우 다음 구문을 사용할 수 있습니다.
+
+```
+(user.objectId -ne null) -and (user.userType -eq “Member”)
 ```
 
 ### <a name="create-an-all-devices-rule"></a>"모든 장치" 규칙 만들기
@@ -331,7 +336,7 @@ user.objectid -ne null
 "모든 장치" 규칙은-ne 연산자와 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다.
 
 ```
-device.objectid -ne null
+device.objectId -ne null
 ```
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>확장 속성 및 사용자 지정 확장 속성

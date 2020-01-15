@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 30e7b4c39c24f4271c53f7a9f8940e4fb3c2e298
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: a1aa2f12f62a95ac14750c821079df2bac46e8ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048666"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434962"
 ---
 <!---
 Purpose of an Overview article: 
@@ -99,7 +99,7 @@ Azure IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트�
 
 이제 Azure IoT Central에 대한 개요를 살펴보았으니, 권장되는 다음 단계는 아래와 같습니다.
 
-- [Azure IoT Central과 Azure IoT 솔루션 가속기](overview-iot-options.md)의 차이점을 이해합니다.
+- 사용 가능한 [IoT 솔루션을 만들기 위한 Azure 기술 및 서비스](../../iot-fundamentals/iot-services-and-technologies.md)를 이해합니다.
 - [Azure IoT Central UI](overview-iot-central-tour.md)를 숙지합니다.
 - [Azure IoT Central 애플리케이션을 생성](quick-deploy-iot-central.md)하여 시작합니다.
 - 다음과 같은 방법을 보여주는 일련의 자습서를 따릅니다.

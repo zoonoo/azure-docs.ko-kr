@@ -1,26 +1,15 @@
 ---
-title: Azure에서 지속적인 통합 및 Azure Pipelines를 사용하여 Service Fabric 앱 배포 | Microsoft Docs
+title: CI 및 Azure Pipelines를 사용하여 앱 배포
 description: 이 자습서에서는 Azure Pipelines를 사용하여 Service Fabric 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838964"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614148"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 애플리케이션 배포
 
@@ -42,7 +31,7 @@ ms.locfileid: "73838964"
 > * Azure Pipelines를 사용하여 CI/CD 구성
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -182,7 +171,7 @@ Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 프로젝트에 소스 제어 추가

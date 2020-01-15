@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Load Balancer에서 애플리케이션 포트 열기 | Microsoft Docs
+title: Powershell의 부하 분산 장치에서 애플리케이션 포트 열기
 description: Azure PowerShell 스크립트 샘플 - Service Fabric 애플리케이션에 대한 Azure Load Balancer에서 애플리케이션 포트 열기
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 05/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8e6a0b7f273df96cff5cc9ce1081ddc59eb49382
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3e5e1df77b8bc701bf330d98f264db26a01ea748
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035548"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614760"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure Load Balancer에서 애플리케이션 포트 열기
 

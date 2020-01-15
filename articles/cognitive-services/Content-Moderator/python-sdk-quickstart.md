@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Python용 Content Moderator 클라이언트 라이브러리 | Microsoft Docs'
+title: '빠른 시작: Python용 Content Moderator 클라이언트 라이브러리'
 titleSuffix: Azure Cognitive Services
-description: Python용 Azure Cognitive Services Content Moderator 클라이언트 라이브러리를 시작하는 방법에 대해 알아봅니다.
+description: 이 빠른 시작에서는 Python용 Azure Cognitive Services Content Moderator 클라이언트 라이브러리를 시작하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 931e6e35df520f4a0ab35dfb6067654f9d08ed9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538995"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448266"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>빠른 시작: Python용 Content Moderator 클라이언트 라이브러리
 
@@ -31,7 +31,7 @@ Python용 Content Moderator 클라이언트 라이브러리를 사용하여 다�
 
 [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -40,7 +40,7 @@ Python용 Content Moderator 클라이언트 라이브러리를 사용하여 다�
 
 ### <a name="create-a-content-moderator-azure-resource"></a>Content Moderator Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Content Moderator용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Content Moderator용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 
 Content Moderator Python SDK의 주요 기능 중 일부를 처리하는 클래스는 다음과 같습니다.
 
-|Name|설명|
+|속성|Description|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
 |[ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|

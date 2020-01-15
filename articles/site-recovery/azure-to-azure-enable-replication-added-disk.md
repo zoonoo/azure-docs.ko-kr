@@ -1,19 +1,16 @@
 ---
 title: Azure Site Recovery에서 추가 된 Azure VM 디스크에 대 한 복제를 사용 하도록 설정
 description: 이 문서에서는를 사용 하 여 재해 복구를 사용 하도록 설정 된 Azure VM에 추가 된 디스크에 대해 복제를 사용 하도록 설정 하는 방법을 설명 Azure Site Recovery
-services: site-recovery
-author: carmonmills
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2019
-ms.author: carmonm
-ms.openlocfilehash: 08ab539a1b05c67ef77c84389dad7247b72355d6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fd020755ec579b2553bca42db5d050bd442bf6fc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929887"
+ms.locfileid: "75942300"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Azure VM에 추가 된 디스크에 대 한 복제 사용
 

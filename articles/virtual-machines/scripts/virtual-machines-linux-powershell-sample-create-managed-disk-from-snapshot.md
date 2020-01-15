@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 스냅샷에서 관리 디스크 만들기
+title: 스냅샷에서 관리 디스크 만들기 - PowerShell 샘플
 description: Azure PowerShell 스크립트 샘플 - 스냅샷에서 관리 디스크 만들기
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 93f2e24a2a32af1fb4bfa6560b27ce6c113ad7a1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 20a03c981aa3e7d7b3afc3e4a493c0285ebc79d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463698"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>PowerShell을 사용하여 스냅샷에서 관리 디스크 만들기
 

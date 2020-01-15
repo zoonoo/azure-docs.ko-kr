@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 24738e4d6a9f18bccdbc775fa20cccec222a85fb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706133"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561629"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -36,7 +36,7 @@ Durable Functions에 대한 기본 사용 사례는 서버리스 애플리케이
 * [함수 체이닝](#chaining)
 * [팬아웃/팬인](#fan-in-out)
 * [비동기 HTTP API](#async-http)
-* [모니터링](#monitoring)
+* [Monitoring](#monitoring)
 * [사용자 개입](#human)
 * [집계(상태 저장 엔터티)](#aggregator)
 
@@ -48,7 +48,7 @@ Durable Functions에 대한 기본 사용 사례는 서버리스 애플리케이
 
 다음 예제와 같이 Durable Functions를 사용하여 함수 체이닝 패턴을 간결하게 구현할 수 있습니다.
 
-이 예제에서 `F1`, `F2`, `F3` 및 `F4` 값은 함수 앱에 있는 다른 함수의 이름입니다. 일반적인 명령적 코딩 구문을 사용하여 제어 흐름을 구현할 수 있습니다. 코드는 위에서 아래로 실행됩니다. 코드에는 조건부 및 루프와 같은 기존 언어 제어 흐름 의미 체계가 포함될 수 있습니다. `try`/`catch`/`finally` 블록에는 오류 처리 논리가 포함될 수 있습니다.
+이 예제에서 `F1`, `F2`, `F3` 및 `F4` 값은 동일한 함수 앱에 있는 다른 함수의 이름입니다. 일반적인 명령적 코딩 구문을 사용하여 제어 흐름을 구현할 수 있습니다. 코드는 위에서 아래로 실행됩니다. 코드에는 조건부 및 루프와 같은 기존 언어 제어 흐름 의미 체계가 포함될 수 있습니다. `try`/`catch`/`finally` 블록에는 오류 처리 논리가 포함될 수 있습니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -353,7 +353,7 @@ module.exports = df.orchestrator(function*(context) {
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-다음 함수의 지속성 오케스트레이션 클라이언트를 사용하여 이벤트를 발생시킬 수도 있습니다.
+동일한 함수 앱의 다른 함수에서 지속성 오케스트레이션 클라이언트를 사용하여 이벤트를 발생시킬 수도 있습니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

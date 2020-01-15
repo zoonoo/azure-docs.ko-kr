@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 - Cassandra API용 Azure Cosmos DB 처리량 가져오기(RU/s)
+title: Azure Cosmos DB Cassandra API 리소스에 대한 처리량(RU/s)을 가져오는 PowerShell 스크립트
 description: Azure PowerShell 스크립트 - Cassandra API용 Azure Cosmos DB 처리량 가져오기(RU/s)
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: b2544a3c704318839f0c2b956db4d39e83d08d3f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9386b95bbc2a3bfd3e3ea362488fcfcdd0a98299
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178997"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441579"
 ---
 # <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB - Cassandra API용 키스페이스 또는 테이블에 대한 처리량 가져오기(RU/s)
 

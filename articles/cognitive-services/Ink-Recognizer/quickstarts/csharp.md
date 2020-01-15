@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식'
 titleSuffix: Azure Cognitive Services
-description: Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
+description: 이 빠른 시작에서 Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작하는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 6ef58d1444eb0ec7b2b8891f944b428a613edf3a
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: c5379452449188f17b75036eb09c3ca15bae0c2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448175"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식
 
@@ -29,7 +29,7 @@ ms.locfileid: "72515618"
 
 이 빠른 시작의 소스 코드는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
@@ -69,7 +69,7 @@ ms.locfileid: "72515618"
 
 1. `recognizeInk()`라는 새 함수를 만듭니다. 요청을 구성하고 엔드포인트, 구독 키, API용 URL 및 디지털 잉크 스트로크 데이터와 함께 `Request()` 함수를 호출하여 보냅니다.
 
-2. JSON 개체를 deserialize하여 콘솔에 작성합니다. 
+2. JSON 개체를 역직렬화하여 콘솔에 작성합니다. 
     
     [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
 

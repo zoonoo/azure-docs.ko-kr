@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure에서 Linux용 가상 머신 확장 집합 만들기
-description: 이 자습서에서는 Azure CLI를 사용하여 가상 머신 확장 집합을 사용하는 Linux VM에서 고가용성 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
+title: '자습서: Windows 가상 머신 확장 집합 만들기'
+description: Azure CLI를 사용하여 가상 머신 확장 집합을 사용하는 Linux VM에서 고가용성 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b9368da24af3b0fe08045ed869c752eefe3912fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 94e7bac3cbf3842375278a23bc39245425cda4b6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458663"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>자습서: Azure CLI를 통해 Linux에서 가상 머신 확장 집합 만들기 및 고가용성 앱 배포
 
@@ -251,7 +251,7 @@ az vmss disk detach \
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 가상 머신 확장 집합을 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 가상 머신 확장 집합을 만들었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * cloud-init를 사용하여 크기를 조정하는 앱 만들기

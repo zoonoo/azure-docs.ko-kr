@@ -1,26 +1,17 @@
 ---
-title: 독립 실행형 Service Fabric 클러스터에서 애플리케이션 설치 자습서 - Azure Service Fabric | Microsoft Docs
+title: 독립 실행형 클러스터에 앱 설치
 description: 이 자습서에서는 독립 실행형 Service Fabric 클러스터에 애플리케이션을 설치하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5e5260a2001d9cb0a38f4182e923a5416f76712b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384984"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613961"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>자습서: Service Fabric 독립 실행형 클러스터에 애플리케이션 배포
 
@@ -34,7 +25,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 > * 샘플 앱 다운로드
 > * 클러스터에 배포
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -61,7 +52,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 4. 솔루션 탐색기에서 `Voting` 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택
 
-5. **연결 엔드포인트**에 대한 드롭다운을 선택하고 클러스터에서 노드 중 하나의 공용 DNS 이름을 입력합니다.  예: `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000` Azure에서는 FQDN(정규화된 도메인 이름)이 자동으로 제공되지 않지만 [VM 개요 페이지에서 쉽게 설정](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)할 수 있습니다.
+5. **연결 엔드포인트**에 대한 드롭다운을 선택하고 클러스터에서 노드 중 하나의 공용 DNS 이름을 입력합니다.  `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`)을 입력합니다. Azure에서는 FQDN(정규화된 도메인 이름)이 자동으로 제공되지 않지만 [VM 개요 페이지에서 쉽게 설정](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)할 수 있습니다.
 
 6. 기본 설정 브라우저 및 유형을 클러스터 주소(이 앱이 포트 8080에 배포하는 연결 엔드포인트 - 예를 들어 ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080)를 엽니다.
 

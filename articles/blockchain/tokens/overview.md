@@ -4,12 +4,12 @@ description: Azure Blockchain Tokens는 토큰을 발급하고 관리하는 PaaS
 ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: c1c18298ba82775c9b10bb79c420704bd462e2b4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e7c106ffee8ea06c7c0ce738aa8be0aba96a38ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326078"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387176"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>Azure Blockchain 토큰이란?
 
@@ -40,6 +40,14 @@ Azure Blockchain Tokens 계정 관리에 대한 자세한 내용은 [Azure Block
 ## <a name="token-taxonomy-framework"></a>토큰 분류 프레임워크
 
 Azure Blockchain Tokens는 TTF(토큰 분류 프레임워크)라는 표준 기반 기본 사항에 따라 작성되었습니다. TTF는 [TTI](https://entethalliance.org/participate/token-taxonomy-initiative/)(토큰 분류 이니셔티브) 토큰 작업 그룹에서 만든 결과물 세트입니다. TTI 작업 그룹은 Ethereum, Quorum, Corda 및 Hyperledger Fabric을 포함한 모든 주요 원장에 적용할 수 있는 토큰과 해당 동작에 대한 비즈니스 분류를 정의합니다. 작업 그룹의 목표는 토큰의 사용을 비즈니스 관점에서 표준화하여 토큰 기반 개발을 간소화하고 민주화하는 프레임워크를 만드는 것입니다. 업계에서 이러한 토큰과 해당 동작을 비즈니스 수준에서 정의할 수 있도록 하여 토큰을 조작하는 비즈니스 논리에서 토큰의 자세한 구현을 추상화합니다.
+
+## <a name="support-and-feedback"></a>지원 및 피드백
+
+Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.microsoft.com/blog/topics/blockchain/)를 방문하여 Azure Blockchain 엔지니어링 팀의 블록체인 서비스 제공 및 정보를 최신 상태로 유지하세요.
+
+Azure Blockchain 토큰 미리 보기에 액세스하려면 [Azure Blockchain 토큰 팀](https://aka.ms/PreviewForm)에 문의하세요.
+
+제품 피드백을 제공하거나 새로운 기능을 요청하려면 [블록체인에 대한 Azure 피드백 포럼](https://aka.ms/blockchainuservoice)을 통해 아이디어에 투표하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

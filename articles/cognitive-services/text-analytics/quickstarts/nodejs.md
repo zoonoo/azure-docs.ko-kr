@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: Node.js를 사용하여 Text Analytics REST API 호출'
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+description: 이 빠른 시작에서는 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: fe07290eaa68965e2ebe1f9220fc963c915f48f1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: c111937dbbea5e588e82bc9753a71d1d597ca767
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378792"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Node.js를 사용하여 Text Analytics Cognitive Service 호출  
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ ms.locfileid: "74284950"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -35,27 +35,17 @@ ms.locfileid: "74284950"
 
 언어 감지 API는 [언어 감지 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨찾는 IDE 또는 데스크톱의 새 폴더에 새 Node.JS 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 새`.js` 파일에 추가합니다.
+1. 키와 엔드포인트를 코드에 복사합니다. 
 1. IDE 또는 명령줄에서 프로그램을 실행합니다(예: `npm start` 또는 `node detect.js`).
 
 ```javascript
 'use strict';
 
 let https = require ('https');
-
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/languages';
 
@@ -154,9 +144,9 @@ get_language(documents);
 
 감정 분석 API는 [감정 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 감정 분석은 원시 텍스트에서 긍정적이거나 부정적인 감정에 대한 단서를 분석하여 고객이 브랜드 또는 주제에 대해 생각하는 것을 파악하는 데 사용할 수 있습니다. 다음 예제에서는 영어와 스페인어로 작성된 두 개의 문서에 대한 점수를 제공합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨찾는 IDE 또는 데스크톱의 새 폴더에 새 Node.JS 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 새`.js` 파일에 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다. 
 1. IDE 또는 명령줄에서 프로그램을 실행합니다(예: `npm start` 또는 `node sentiment.js`).
 
 ```javascript
@@ -164,17 +154,8 @@ get_language(documents);
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/sentiment';
 
@@ -247,9 +228,9 @@ get_sentiments(documents);
 
 핵심 구 추출 API는 [핵심 구 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 핵심 구 추출은 문서 또는 텍스트의 주요 지점을 빠르게 식별하는 데 사용됩니다. 다음 예제에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨찾는 IDE 또는 데스크톱의 새 폴더에 새 Node.JS 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 새`.js` 파일에 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다. 
 1. IDE 또는 명령줄에서 프로그램을 실행합니다(예: `npm start` 또는 `node key-phrases.js`).
 
 ```javascript
@@ -257,17 +238,8 @@ get_sentiments(documents);
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/keyPhrases';
 
@@ -360,9 +332,9 @@ get_key_phrases(documents);
 
 엔터티 API는 [엔터티 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. [엔터티](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)는 텍스트에서 "United States"와 같은 단어를 추출한 다음, 이 단어에 대한 형식 및/또는 Wikipedia 링크를 제공합니다. "United States"에 대한 형식은 `location`이고, Wikipedia에 대한 링크는 `https://en.wikipedia.org/wiki/United_States`입니다.  다음 예제에서는 영어 문서의 엔터티를 식별합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 즐겨찾는 IDE 또는 데스크톱의 새 폴더에 새 Node.JS 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 새`.js` 파일에 추가합니다.
+1. 텍스트 분석 키와 엔드포인트를 코드에 복사합니다.
 1. IDE 또는 명령줄에서 프로그램을 실행합니다(예: `npm start` 또는 `node entities.js`).
 
 ```javascript
@@ -370,17 +342,8 @@ get_key_phrases(documents);
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/entities';
 

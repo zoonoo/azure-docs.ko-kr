@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Preview 데모 환경 살펴보기 - Azure Time Series Insights | Microsoft Docs'
-description: 샘플 빠른 시작을 통해 Azure Time Series Insights Preview 데모 환경에 대해 알아봅니다.
+description: Azure Time Series Insights Preview 데모 환경의 주요 기능을 살펴봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
-ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/20/2019
+ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014766"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497338"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>빠른 시작: Azure Time Series Insights Preview 데모 환경 탐색
 
@@ -43,33 +43,33 @@ Time Series Insights 미리 보기 탐색기는 기록 데이터 및 근본 원�
    1. 보기 범위를 **1/1/17 20:00:00.00 - 3/10/17 20:00:00.00(UTC)** 로 변경합니다.
    1. 센서를 선택하려면 **Contoso Plant 1** > **W7** > **발전기 시스템** > **GeneratorSpeed**를 선택합니다. 그런 다음, 표시되는 값을 검토합니다.
 
-      [![Contoso Plant 1의 W7](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![Contoso Plant 1의 W7](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
 1. 최근에 Contoso는 풍력 터빈 **W7**에서 화재를 발견했습니다. 화재 원인에 대한 여러 의견이 있습니다. 화재가 발생하는 동안 화재 경고 센서가 작동한 것을 Time Series Insights에서 확인할 수 있습니다.
 
    1. 보기 범위를 **3/9/17 20:00:00.00 - 3/10/17 20:00:00.00(UTC)** 로 변경합니다.
    1. **안전 시스템** > **FireAlert**를 선택합니다.
 
-      [![Contoso는 풍력 터빈 W7에서 화재를 발견함](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso는 풍력 터빈 W7에서 화재를 발견함](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. 문제 발생 시에 나타난 다른 이벤트를 검토하여 상황을 이해하세요. 화재 직전에 유압 및 활성 경고가 최대로 높아졌습니다.
 
    1. **피치 시스템** > **HydraulicOilPressure**를 선택합니다.
    1. **피치 시스템** > **ActiveWarning**을 선택합니다.
 
-      [![같은 시간에 발생한 다른 이벤트 검토](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![같은 시간에 발생한 다른 이벤트 검토](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
 1. 화재가 발생하기 직전에 오일 압력과 활성 경고가 증가했습니다. 표시된 시계열을 확장하여 화재로 이어진 기타 징후가 있었는지 확인합니다. 시간이 지나면서 두 센서 모두 변화를 보입니다. 이 변화는 지속적이고 걱정스러운 패턴을 나타냅니다.
 
     * 보기 범위를 **2/24/17 20:00:00.00 - 3/10/17 20:00:00.00(UTC)** 로 변경합니다.
 
-      [![석유 압력 및 활성 경고 센서도 최대로 높아짐](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![석유 압력 및 활성 경고 센서도 최대로 높아짐](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. 2년 동안의 기록 데이터를 검토한 결과, 동일한 센서 변화를 보인 다른 화재 이벤트가 확인되었습니다.
 
     * 보기 범위를 **1/1/16 - 12/31/17**(모든 데이터)로 변경합니다.
 
-      [![기록 패턴 찾기](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![기록 패턴 찾기](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 Time Series Insights 및 센서 원격 분석을 사용하여 기록 데이터에 숨겨진 장기적인 추세를 발견했습니다. 이러한 새 인사이트를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -84,7 +84,7 @@ Time Series Insights 및 센서 원격 분석을 사용하여 기록 데이터�
     1. 보기 범위를 **6/1/17 20:00:00.00 - 7/1/17 20:00:00.00(UTC)** 로 변경합니다.
     1. **Contoso Plant 1** > **W6** > **안전 시스템** > **VoltageActuatorSwitchWarning**을 선택합니다.
 
-       [![보기 범위를 변경하고 W6 선택](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![보기 범위를 변경하고 W6 선택](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. 경고는 발전기의 전압에 문제가 있음을 나타냅니다. 발전기의 전체 전력 출력은 현재 간격의 정상 범위 내에 있습니다. 이 간격을 늘리면 다른 패턴이 나타납니다. 감소가 발생하는 것이 분명합니다.
 
@@ -92,20 +92,20 @@ Time Series Insights 및 센서 원격 분석을 사용하여 기록 데이터�
     1. **발전기 시스템** > **ActivePower**를 선택합니다.
     1. 간격을 **3일**로 변경합니다.
 
-       [![간격을 3일로 변경](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![간격을 3일로 변경](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. 시간 범위를 확장하여 문제가 중지되었는지 또는 계속되는지를 확인할 수 있습니다.
 
     * 시간 범위를 60일로 확장합니다.
 
-      [![시간 범위를 60일로 확장](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![시간 범위를 60일로 확장](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
 1. 다른 센서 데이터를 추가하면 유용한 상황 정보를 제공할 수 있습니다. 더 많은 센서를 확인할수록 문제에 대한 이해의 폭이 넓어집니다. 실제 값을 보기 위해 표식을 놓겠습니다. 
 
     1. **발전기 시스템**를 선택하고, **GridVoltagePhase1**, **GridVoltagePhase2** 및 **GridVoltagePhase3** 센서를 선택합니다.
     1. 표시 영역의 마지막 데이터 요소에 마커를 놓습니다.
 
-       [![마커 삭제](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![마커 삭제](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     전압 센서 중 두 개는 정상 범위 내에서 비슷하게 작동하고 있습니다. **GridVoltagePhase3** 센서가 문제인 것으로 보입니다.
 
@@ -113,7 +113,7 @@ Time Series Insights 및 센서 원격 분석을 사용하여 기록 데이터�
 
     * 동일한 차트 배율로 모든 **발전기 시스템** 센서를 오버레이하도록 화면 표시를 변경합니다.
 
-      [![모든 항목을 포함하도록 화면 표시 변경](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![모든 항목을 포함하도록 화면 표시 변경](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

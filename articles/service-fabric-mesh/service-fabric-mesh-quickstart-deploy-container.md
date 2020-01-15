@@ -1,20 +1,16 @@
 ---
-title: 빠른 시작 - Azure Service Fabric Mesh에 Hello World 배포 | Microsoft Docs
+title: 빠른 시작 - Azure Service Fabric Mesh에 Hello World 배포
 description: 이 빠른 시작에서는 Azure Service Fabric Mesh에 Service Fabric Mesh 애플리케이션을 배포하는 방법을 보여줍니다.
-services: service-fabric-mesh
-keywords: SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 5ca622602c71976917a07005bf349dd98086327c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458966"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>빠른 시작: Service Fabric Mesh에 Hello World 배포
 
@@ -89,7 +85,7 @@ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 
 ## <a name="see-the-application-logs"></a>애플리케이션 로그 보기
 
-`az mesh code-package-log get` 명령을 사용하여 배포된 응용 프로그램에 대한 로그를 검사합니다.
+`az mesh code-package-log get` 명령을 사용하여 배포된 애플리케이션에 대한 로그를 검사합니다.
 
 ```azurecli-interactive
 az mesh code-package-log get --resource-group myResourceGroup --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode

@@ -3,12 +3,12 @@ title: 자습서 - Terraform을 사용하여 AKS(Azure Kubernetes Service)로 Ku
 description: Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: cea9d93ed418a4f2e90fa3f2dfd3441f4b296316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159307"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374967"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>자습서: Terraform을 사용하여 Azure Kubernetes Service로 Kubernetes 클러스터 만들기
 
@@ -21,9 +21,9 @@ ms.locfileid: "74159307"
 > * Terraform 및 AKS를 사용하여 Kubernetes 클러스터 만들기
 > * kubectl 도구를 사용하여 Kubernetes 클러스터의 가용성 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 - **Terraform 구성**: [Terraform 및 Azure에 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
 
@@ -138,7 +138,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
             }
         }
 
-        agent_pool_profile {
+        default_node_pool {
             name            = "agentpool"
             count           = var.agent_count
             vm_size         = "Standard_DS1_v2"
@@ -168,7 +168,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
 
     `linux_profile` 레코드를 사용하면 SSH를 사용하여 작업자 노드에 로그인할 수 있는 설정을 구성할 수 있습니다.
 
-    AKS를 사용하면 작업자 노드에 대해서만 지불합니다. `agent_pool_profile` 레코드는 이러한 작업자 노드에 대한 세부 정보를 구성합니다. `agent_pool_profile record`에는 만들 작업자 노드 수와 작업자 노드 유형이 포함됩니다. 나중에 클러스터를 확장하거나 축소해야 하는 경우, 이 레코드에서 `count` 값을 수정합니다.
+    AKS를 사용하면 작업자 노드에 대해서만 지불합니다. `default_node_pool` 레코드는 이러한 작업자 노드에 대한 세부 정보를 구성합니다. `default_node_pool record`에는 만들 작업자 노드 수와 작업자 노드 유형이 포함됩니다. 나중에 클러스터를 확장하거나 축소해야 하는 경우, 이 레코드에서 `count` 값을 수정합니다.
 
 1. 파일을 저장( **&lt;Ctrl>S**)하고 편집기를 종료( **&lt;Ctrl>Q**)합니다.
 
@@ -289,7 +289,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
 
     ![스토리지 계정 메뉴](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
-1. **key1** **key** 값을 기록해 웁니다. (키 오른쪽에 있는 아이콘을 선택하면 값이 클립보드에 복사됩니다.)
+1. **key1** **key** 값을 기록해 둡니다. (키 오른쪽에 있는 아이콘을 선택하면 값이 클립보드에 복사됩니다.)
 
     ![스토리지 계정 액세스 키](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
@@ -299,7 +299,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
-## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
+## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터를 만듭니다.
 
 이 섹션에서는 `terraform init` 명령을 사용하여 이전 섹션에서 만든 구성 파일을 정의하는 리소스를 만드는 방법을 보여 줍니다.
 

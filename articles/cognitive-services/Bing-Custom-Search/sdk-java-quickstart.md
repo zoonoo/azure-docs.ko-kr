@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Java용 Bing Custom Search 클라이언트 라이브러리 | Microsoft Docs'
-description: Bing Custom Search 인스턴스에서 검색 결과를 요청하여 Java용 Bing Custom Search 클라이언트 라이브러리를 시작합니다.
+title: '빠른 시작: Java용 Bing Custom Search 클라이언트 라이브러리'
+description: 이 빠른 시작에서는 Bing Custom Search 인스턴스에서 검색 결과를 요청하여 Java용 Bing Custom Search 클라이언트 라이브러리를 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: f0a3008dace4e9382bbb6b6d9465ce1c9b4ddc6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1060cceb9241d9c1c490f7e7f12490c734b0a78d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976063"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384556"
 ---
 # <a name="quickstart-bing-custom-search-client-library-for-java"></a>빠른 시작: Java용 Bing Custom Search 클라이언트 라이브러리
 
@@ -26,7 +26,7 @@ Java용 Bing Custom Search 클라이언트 라이브러리를 사용하여 다�
 
 [참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)의 현재 버전
@@ -37,7 +37,7 @@ Java용 Bing Custom Search 클라이언트 라이브러리를 사용하여 다�
 
 ### <a name="create-a-bing-custom-search-azure-resource"></a>Bing Custom Search Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Bing Custom Search용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Bing Custom Search용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.

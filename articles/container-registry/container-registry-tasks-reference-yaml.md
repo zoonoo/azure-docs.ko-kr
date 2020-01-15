@@ -3,12 +3,12 @@ title: YAML 참조-ACR 작업
 description: 작업 속성, 단계 유형, 단계 속성 및 기본 제공 변수를 포함하여 YAML로 ACR 작업에 대한 작업을 정의하기 위한 참조입니다.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: da1b1613d880b9edf6ec6d6018011f43a7ac69a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445687"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945733"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 작업 참조: YAML
 
@@ -79,7 +79,7 @@ az configure --defaults acr=myregistry
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | 문자열 | 예 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정 하지 않으면 기본값은 최신 버전입니다. | 아닙니다. | 없음 |
 | `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 속성이 태스크에 지정 된 경우 모든 단계의 기본 `timeout` 속성을 설정 합니다. `timeout` 속성이 단계에서 지정 되는 경우 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | 600(10분) |
-| `workingDirectory` | 문자열 | 예 | 런타임 중에 컨테이너의 작업 디렉터리입니다. 속성이 태스크에 지정 된 경우 모든 단계의 기본 `workingDirectory` 속성을 설정 합니다. 단계에서 지정 하는 경우 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | `$HOME` |
+| `workingDirectory` | 문자열 | 예 | 런타임 중에 컨테이너의 작업 디렉터리입니다. 속성이 태스크에 지정 된 경우 모든 단계의 기본 `workingDirectory` 속성을 설정 합니다. 단계에서 지정 하는 경우 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | `/workspace` |
 | `env` | [string, string, ...] | 예 |  태스크에 대 한 환경 변수를 정의 하는 `key=value` 형식의 문자열 배열입니다. 속성이 태스크에 지정 된 경우 모든 단계의 기본 `env` 속성을 설정 합니다. 단계에 지정 된 경우 태스크에서 상속 된 모든 환경 변수를 재정의 합니다. | 없음 |
 | `secrets` | [비밀, 비밀, ...] | 예 | [비밀](#secret) 개체의 배열입니다. | 없음 |
 | `networks` | [네트워크, 네트워크, ...] | 예 | [네트워크](#network) 개체의 배열입니다. | 없음 |
@@ -379,7 +379,7 @@ steps:
 | `timeout` | int(초) | 예 | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. | 600 |
 | [`when`](#example-when) | [string, string, ...] | 예 | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. | 없음 |
 | `user` | 문자열 | 예 | 컨테이너의 사용자 이름 또는 UID | 없음 |
-| `workingDirectory` | 문자열 | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `$HOME` |
+| `workingDirectory` | 문자열 | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `/workspace` |
 
 ### <a name="examples-task-step-properties"></a>예: 작업 단계 속성
 

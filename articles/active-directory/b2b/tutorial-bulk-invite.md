@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425035"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>자습서: Azure AD B2B 협업 사용자 일괄 초대(미리 보기)
 
@@ -25,6 +25,8 @@ ms.locfileid: "74272348"
 | 이 문서에서는 Azure Active Directory의 공개 미리 보기 기능을 설명합니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
+> [!NOTE]
+> 2019년 12월 22일부터 사용자 대량 초대(미리 보기) 기능이 일시적으로 비활성화되었습니다.
 
 Azure AD(Azure Active Directory) B2B 협업을 사용하여 외부 파트너와 함께 작업하는 경우 동시에 여러 게스트 사용자를 조직에 초대할 수 있습니다. 이 자습서에서는 Azure Portal을 사용하여 외부 사용자에게 일괄 초대를 보내는 방법을 알아봅니다. 특히 다음을 수행합니다.
 
@@ -35,7 +37,7 @@ Azure AD(Azure Active Directory) B2B 협업을 사용하여 외부 파트너와 
 
 Azure Active Directory가 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 초대를 보낼 수 있는 두 개 이상의 테스트 메일 계정이 필요합니다. 계정은 조직 외부에서 가져와야 합니다. gmail.com 또는 outlook.com 주소와 같은 소셜 계정을 포함하여 모든 계정 유형을 사용할 수 있습니다.
 

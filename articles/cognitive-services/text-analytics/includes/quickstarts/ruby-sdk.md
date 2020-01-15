@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/02/2019
 ms.author: aahi
-ms.openlocfilehash: 847b2d0489dc04b4275465dbe957b72418bbf1a4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ffa14a4e3628bdc3453e8d536797b0edf6129a12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446258"
 ---
 [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [패키지(RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 현재 버전의 [Ruby](https://www.ruby-lang.org/)
@@ -45,12 +45,14 @@ Ruby 파일에서 다음 패키지를 가져옵니다.
 
 [!code-ruby[Import statements](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=includeStatement)]
 
-리소스의 Azure 엔드포인트 및 키에 대한 `TEXT_ANALYTICS_ENDPOINT` 및 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다. 
+리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-
-[!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
+```ruby
+const subscription_key = '<paste-your-text-analytics-key-here>'
+const endpoint = `<paste-your-text-analytics-endpoint-here>`
+```
 
 ## <a name="object-model"></a>개체 모델 
 
@@ -81,7 +83,7 @@ class TextAnalyticsClient
 end
 ```
 
-이 클래스에서 클라이언트를 인증하는 `initialize` 함수를 만듭니다. `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT` 환경 변수를 사용합니다. 
+이 클래스에서 키와 엔드포인트를 사용하여 클라이언트를 인증하는 `initialize`라는 함수를 만듭니다. 
 
 [!code-ruby[initialize function for authentication](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=initialize)]
 

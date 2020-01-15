@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 08/30/2019
+ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446666"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Visual Search API란?
 
@@ -30,7 +30,7 @@ Bing Visual Search API는 이미지에 대한 인사이트를 반환합니다. �
 
 Bing Visual Search를 사용하여 다음과 같은 인사이트를 검색할 수 있습니다.
 
-| 인사이트                              | 설명 |
+| 인사이트                              | Description |
 |--------------------------------------|-------------|
 | 시각적으로 유사한 이미지              | 입력 이미지와 시각적으로 유사한 이미지 목록 |
 | 시각적으로 유사한 제품            | 표시된 제품과 시각적으로 유사한 제품            |
@@ -64,3 +64,5 @@ Bing Visual Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하�
 * [이미지 - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) 참조에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 요청, 헤더, 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 설명되어 있습니다.
 
 * [Bing Search API 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)에서는 Bing Search API를 통해 확보한 콘텐츠와 정보의 적합한 용도를 지정합니다.
+
+* [Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.

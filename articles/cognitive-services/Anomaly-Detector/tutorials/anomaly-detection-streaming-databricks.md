@@ -1,7 +1,7 @@
 ---
 title: '자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색'
 titleSuffix: Azure Cognitive Services
-description: Anomaly Detector API 및 Azure Databricks를 사용하여 데이터의 변칙을 모니터링합니다.
+description: Anomaly Detector API 및 Azure Databricks를 사용하여 데이터의 변칙을 모니터링하는 방법을 알아봅니다.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71837763"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448911"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
 
@@ -24,7 +24,7 @@ ms.locfileid: "71837763"
 
 다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
-![Event Hubs 및 Cognitive Services를 사용하는 Azure Databricks](../media/tutorials/databricks-cognitive-services-tutorial.png "Event Hubs 및 Cognitive Services를 사용하는 Azure Databricks")
+![Event Hubs 및 Cognitive Services가 있는 Azure Databricks](../media/tutorials/databricks-cognitive-services-tutorial.png "Event Hubs 및 Cognitive Services가 있는 Azure Databricks")
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -47,13 +47,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!Note]
 > 이 자습서는 Anomaly Detector API의 평가판 키를 사용하여 수행할 수 없습니다. 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Event Hubs 네임스페이스](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) 및 이벤트 허브
 
 - Event Hubs 네임스페이스에 액세스하기 위한 [연결 문자열](../../../event-hubs/event-hubs-get-connection-string.md). 연결 문자열은 다음과 비슷한 형식이어야 합니다.
 
-    `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. 
+    `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`입니다. 
 
 - Event Hubs에 대한 공유 액세스 정책 이름 및 정책 키
 
@@ -70,11 +70,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **Azure Databricks 서비스** 아래에서 다음 값을 입력하여 Databricks 작업 영역을 만듭니다.
 
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
-    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
+    |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/management/overview.md)를 참조하세요. |
     |**위치**     | **미국 동부 2** 또는 사용 가능한 다른 지역 중 하나를 선택합니다. 지역 가용성은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
     |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. **평가판**은 선택하지 마세요. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
 
@@ -134,7 +134,7 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
    * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Maven 코디네이트 제공](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Maven 코디네이트 제공")
+     ![Maven 좌표 제공](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Maven 좌표 제공")
 
 3. **만들기**를 선택합니다.
 
@@ -163,9 +163,9 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 4. **만들기** 대화 상자에서 다음 값을 제공합니다.
 
-    |값 |설명  |
+    |값 |Description  |
     |---------|---------|
-    |Name     | Anomaly Detector 리소스의 이름입니다.        |
+    |속성     | Anomaly Detector 리소스의 이름입니다.        |
     |Subscription     | 리소스가 연결되는 Azure 구독입니다.        |
     |위치     | Azure 위치입니다.        |
     |가격 책정 계층     | 서비스에 대한 가격 책정 계층입니다. Anomaly Detector 가격 책정에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)를 참조하세요.        |
@@ -191,11 +191,11 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 1. Azure Databricks 작업 영역의 왼쪽 창에서 **작업 영역**을 선택합니다. **작업 영역** 드롭다운에서 **만들기**, **Notebook**을 차례로 선택합니다.
 
-    ![Databricks에서 노트북 만들기](../media/tutorials/databricks-create-notebook.png "Databricks에서 노트북 만들기")
+    ![Databricks에서 Notebook 만들기](../media/tutorials/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
 
 2. **Notebook 만들기** 대화 상자에서 이름으로 **SendTweetsToEventHub**를 입력하고, 언어로 **Scala**를 선택하고, 이전에 만든 Spark 클러스터를 선택합니다.
 
-    ![Databricks에서 노트북 만들기](../media/tutorials/databricks-notebook-details.png "Databricks에서 노트북 만들기")
+    ![Databricks에서 Notebook 만들기](../media/tutorials/databricks-notebook-details.png "Databricks에서 Notebook 만들기")
 
     **만들기**를 선택합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Application Insights로 모니터링'
-description: Application Insights를 사용하여 모니터링하도록 Node.js 웹앱을 빠르게 설정하는 지침을 제공합니다.
+title: 빠른 시작 - Azure Monitor Application Insights를 사용하여 Node.js 모니터링
+description: Azure Monitor Application Insights를 사용하여 모니터링하도록 Node.js 웹앱을 빠르게 설정하는 지침을 제공합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 23fdf326bd1d3deac56f138130c3767427d062e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1f42dd50ee70d42b5209e186b8af63c820a9a85e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398789"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작
 
@@ -21,7 +21,7 @@ ms.locfileid: "72894952"
 
 Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. SDK 릴리스 버전 0.20 이상을 사용하면 MongoDB, MySQL 및 Redis를 포함하여 일반적인 타사 패키지를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -48,10 +48,10 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    구성 페이지가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다. 
 
-    | 설정        | 값           | 설명  |
+    | 설정        | 값           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **애플리케이션 유형** | Node.js 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **이름**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
+   | **리소스 그룹**     | myResourceGroup      | App Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
    | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 2. **만들기**를 선택합니다.
@@ -129,6 +129,9 @@ Node.js 모니터링에 대한 자세한 내용은 [Application Insights Node.js
 ## <a name="clean-up-resources"></a>리소스 정리
 
 테스트를 완료하면 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.
+
+> [!NOTE]
+> 기존 리소스 그룹을 사용하는 경우 아래 지침이 작동하지 않으므로 개별 Application Insights 리소스를 삭제하기만 하면 됩니다. 리소스 그룹을 삭제할 때마다 해당 그룹의 구성원인 모든 underyling 리소스가 삭제됩니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, **myResourceGroup**을 선택합니다.
 2. 리소스 그룹 페이지에서 **삭제**를 선택하고, 텍스트 상자에서 **myResourceGroup**을 입력한 다음, **삭제**를 선택합니다.

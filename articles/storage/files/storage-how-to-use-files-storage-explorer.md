@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Explorer를 사용하여 Azure 파일 공유를 관리하기 위한 빠른 시작
+title: Azure Storage Explorer를 사용하여 Azure 파일 공유 관리
 description: 이 빠른 시작을 통해 Azure Storage Explorer를 사용하여 Azure Files를 관리하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431815"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>빠른 시작: Azure Storage Explorer를 사용하여 Azure 파일 공유 만들기 및 관리
 이 가이드에서는 Azure Storage Explorer를 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -21,7 +21,7 @@ Azure Storage Explorer는 Windows, macOS 및 Linux에 사용할 수 있는 일�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 빠른 시작을 사용하려면 Storage Explorer를 설치해야 합니다. 다운로드하고 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)로 이동합니다.
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b6a8b0664cb205a7c3cbdb72f41433b145b02d00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072833"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448763"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>자습서: 웹 페이지에서 검색 제안 가져오기
 
@@ -27,9 +27,9 @@ ms.locfileid: "74072833"
 > - Bing Autosuggest API에 단순 쿼리 만들기
 > - 쿼리 결과 표시
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-자습서를 따르려면 Bing Autosuggest API에 대한 구독 키가 필요합니다. 구독 키가 없는 경우 [평가판에 등록하세요](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+자습서를 따르려면 Bing Autosuggest API에 대한 구독 키가 필요합니다. 없는 경우 [평가판에 등록하세요](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
 ## <a name="create-a-new-web-page"></a>새 웹 페이지 만들기
 
@@ -184,7 +184,7 @@ HTML 양식 필드 내용 및 Bing Autosuggest API 키의 두 가지 매개 변�
 function bingAutosuggest(query, key) {
 ```
 
-Bing Autosuggest API 엔드포인트를 지정하고 엔드포인트에 요청을 보내는 데 사용할 XMLHttpRequest 개체를 선언합니다.
+Bing Autosuggest API 엔드포인트를 지정하고 요청을 보내는 데 사용할 XMLHttpRequest 개체를 선언합니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
 ```html
     var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";

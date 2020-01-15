@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Python용 Computer Vision 클라이언트 라이브러리 | Microsoft Docs'
-description: Python용 Computer Vision 클라이언트 라이브러리를 시작합니다.
+title: '빠른 시작: Python용 Computer Vision 클라이언트 라이브러리'
+description: 이 빠른 시작을 통해 Python용 Computer Vision 클라이언트 라이브러리를 시작합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 1e91b204401033c7c6c47484140720ab8076f9f9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9c98c64722fa76f96161a92f93c3d984193a7a24
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971698"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382211"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>빠른 시작: Python용 Computer Vision 클라이언트 라이브러리
 
@@ -30,7 +30,7 @@ Python용 Computer Vision 클라이언트 라이브러리를 사용하여 다음
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -39,7 +39,7 @@ Python용 Computer Vision 클라이언트 라이브러리를 사용하여 다음
 
 ### <a name="create-a-computer-vision-azure-resource"></a>Computer Vision Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
@@ -71,7 +71,7 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 
 Computer Vision Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-|Name|설명|
+|속성|Description|
 |---|---|
 |[ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| 이 클래스는 이미지 분석, 텍스트 감지, 썸네일 생성 등의 모든 이미지 작업을 직접 처리합니다.|
 | [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다. **ComputerVisionClientOperationsMixin**을 구현합니다.|

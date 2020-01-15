@@ -3,14 +3,14 @@ title: Azure의 업데이트 관리 솔루션
 description: 이 문서에서는 Azure 업데이트 관리 솔루션을 사용 하 여 Windows 및 Linux 컴퓨터에 대 한 업데이트를 관리 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0cf47538f7db1cef629c2b58a9fbde16640a50ae
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420348"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945134"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -237,7 +237,9 @@ Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태
 sudo yum -q --security check-update
 ```
 
-현재 CentOS에서 네이티브 분류 데이터 가용성을 사용 하도록 설정 하는 방법이 지원 되지 않습니다. 지금은이 기능을 사용 하도록 설정 했을 수 있는 고객에 게 최상의 지원만 제공 됩니다.
+현재 CentOS에서 네이티브 분류 데이터 가용성을 사용 하도록 설정 하는 방법이 지원 되지 않습니다. 지금은이 기능을 사용 하도록 설정 했을 수 있는 고객에 게 최상의 지원만 제공 됩니다. 
+
+Red Hat Enterprise 버전 6에서 업데이트를 분류 하려면 yum-보안 플러그 인을 설치 해야 합니다. Red Hat Enterprise Linux 7에서 플러그 인은 이미 yum 자체의 일부 이므로 아무 것도 설치할 필요가 없습니다. 자세한 내용은 다음 Red Hat [기술](https://access.redhat.com/solutions/10021)항목을 참조 하세요.
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager와 상호 작용
 
@@ -251,7 +253,7 @@ System Center Configuration Manager와 관리 솔루션을 통합하는 방법�
 
 ## <a name="patch-linux-machines"></a>Linux 컴퓨터 패치
 
-다음 섹션에서는 Linux 패치의 잠재적 문제에 대해 설명합니다.
+다음 섹션에서는 Linux 배포판을 패치 하는 경우 발생할 수 있는 문제에 대해 설명 합니다.
 
 ### <a name="unexpected-os-level-upgrades"></a>예기치 않은 운영 체제 수준 업그레이드
 

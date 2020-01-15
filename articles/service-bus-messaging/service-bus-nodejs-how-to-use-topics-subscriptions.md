@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Node.js에서 Azure Service Bus 토픽 및 구독을 사용하는 방법'
+title: azure/service-bus Node.js 패키지에서 Service Bus 항목 및 구독 사용
 description: '빠른 시작: Node.js app에서 Azure의 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 80ca9589e7181518874dc26a9a42b57774f60498
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3955b67bd0fd40eb903543a240795ed8bc36b3b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462103"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>빠른 시작: Node.js와 azure-sb 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법
 > [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
@@ -40,8 +40,8 @@ ms.locfileid: "74561587"
 
 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-- Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
+- Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스**를 만들고 **연결 문자열**을 가져옵니다.
 
     > [!NOTE]
@@ -342,7 +342,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 이제 Service Bus 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
 * [큐, 토픽 및 구독][Queues, topics, and subscriptions]을 참조하세요.
-* [SqlFilter][SqlFilter]에 대한 API 참조
+* [SqlFilter][SqlFilter]에 대한 API 참조.
 * GitHub에서 [Node용 Azure SDK][Azure SDK for Node] 리포지토리를 방문하세요.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node

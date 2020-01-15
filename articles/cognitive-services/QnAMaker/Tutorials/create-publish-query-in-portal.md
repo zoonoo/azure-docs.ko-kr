@@ -1,7 +1,7 @@
 ---
 title: '자습서: QnA Maker에서 만들기, 게시 및 답변'
 titleSuffix: Azure Cognitive Services
-description: 공용 웹 기반 FAQ의 질문과 답변을 사용하여 새 기술 자료를 만듭니다. 기술 자료를 저장, 학습 및 게시합니다. 기술 자료가 게시되면 cURL 명령을 사용하여 질문을 보내고 답변을 받습니다. 그런 다음, 봇을 만들고 동일한 질문을 사용하여 봇을 테스트합니다.
+description: 이 자습서에서는 공용 웹 기반 FAQ의 질문과 답변을 사용하여 새 기술 자료를 만드는 방법을 보여줍니다. 기술 자료를 저장, 학습 및 게시합니다. 기술 자료가 게시되면 cURL 명령을 사용하여 질문을 보내고 답변을 받습니다. 그런 다음, 봇을 만들고 동일한 질문을 사용하여 봇을 테스트합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51d051fee1da1f9bb0c89ea9123748b512f84007
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5b2f2decf3d070da2fb58bebd424b4209f353316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327971"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447396"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>자습서: QnA Maker 포털에서 기술 자료를 만듭니다.
 
 공용 웹 기반 FAQ의 질문과 답변을 사용하여 새 기술 자료를 만듭니다. 기술 자료를 저장, 학습 및 게시합니다. 기술 자료가 게시되면 cURL 명령을 사용하여 질문을 보내고 답변을 받습니다. 그런 다음, 봇을 만들고 동일한 질문을 사용하여 봇을 테스트합니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다. 
+이 자습서에서는 다음 작업 방법을 알아봅니다. 
 
 > [!div class="checklist"]
 > * QnA Maker 포털에서 기술 자료를 만듭니다.
@@ -35,7 +35,7 @@ ms.locfileid: "72327971"
 > [!NOTE]
 > 이 자습서의 프로그래밍 방식 버전은 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)에서 완전한 솔루션으로 제공됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 수행하려면 기존의 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 필요합니다. 
 

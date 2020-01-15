@@ -3,17 +3,17 @@ title: 'Kubernetes에서 디버그 및 반복: Visual Studio 및 .NET Core'
 services: azure-dev-spaces
 ms.date: 11/13/2019
 ms.topic: quickstart
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
+description: 이 빠른 시작에서는 Azure Dev Spaces 및 Visual Studio를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: a151314bef14e302879f4db0f7c0094779bdcfec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: bfa798027a3905eff29bf1ce11251ce900bd7267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438241"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio 및 .NET Core - Azure Dev Spaces
 
@@ -28,9 +28,9 @@ Azure Dev Spaces를 통해 다음을 사용하여 디버그하고 반복할 수�
 - [Node.js 및 Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core 및 Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
+- Azure 구독 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
 - Azure 개발 워크로드가 설치된 Windows의 Visual Studio 2019. 웹 개발 워크로드와 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)가 설치된 Windows의 Visual Studio 2017도 사용할 수 있습니다. Visual Studio가 설치되어 있지 않으면 [여기](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)에서 다운로드하세요.
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
@@ -55,7 +55,7 @@ Azure Portal에서 AKS 클러스터로 이동하여 *Dev Spaces*를 클릭합니
 ## <a name="create-a-new-aspnet-web-app"></a>새 ASP.NET 웹앱 만들기
 
 1. Visual Studio를 엽니다.
-1. 새 프로젝트 만들기
+1. 새 프로젝트를 만듭니다.
 1. *ASP.NET Core 웹 애플리케이션*을 선택하고 *다음*을 클릭합니다.
 1. 프로젝트 이름을 *웹 프런트 엔드*로 지정하고 *만들기*를 클릭합니다.
 1. 메시지가 표시되면 템플릿에 대해 *웹 애플리케이션(Model-View-Controller)* 를 클릭합니다.

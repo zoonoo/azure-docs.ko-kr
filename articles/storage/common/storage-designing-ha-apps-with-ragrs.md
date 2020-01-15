@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895334"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945443"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인
 
@@ -99,7 +99,7 @@ GRS 또는 GZRS에 대해 응용 프로그램을 디자인할 때 다음 핵심 
 
 ## <a name="handling-retries"></a>다시 시도 처리
 
-Azure Storage 클라이언트 라이브러리를 사용 하면 다시 시도할 수 있는 오류를 확인할 수 있습니다. 예를 들어 404 오류 (리소스를 찾을 수 없음)를 다시 시도 하면 성공 하지 못할 수 있으므로 다시 시도할 수 있습니다. 반면에 500 오류는 서버 오류 이기 때문에 다시 시도할 수 없으며 단순히 일시적인 문제일 수 있습니다. 자세한 내용은 .NET 스토리지 클라이언트 라이브러리에서 [ExponentialRetry 클래스에 대한 오픈 소스 코드](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs)를 참조하세요. (ShouldRetry 메서드를 찾아보세요.)
+Azure Storage 클라이언트 라이브러리를 사용 하면 다시 시도할 수 있는 오류를 확인할 수 있습니다. 예를 들어 404 오류 (리소스를 찾을 수 없음)는 성공 하지 못할 수 있으므로 재시도 하지 않습니다. 반면에 500 오류는 서버 오류 이기 때문에 다시 시도할 수 있으며 문제는 일시적인 문제일 수 있습니다. 자세한 내용은 .NET 스토리지 클라이언트 라이브러리에서 [ExponentialRetry 클래스에 대한 오픈 소스 코드](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs)를 참조하세요. (ShouldRetry 메서드를 찾아보세요.)
 
 ### <a name="read-requests"></a>읽기 요청
 
@@ -204,8 +204,8 @@ Azure Storage 클라이언트 라이브러리를 사용 하면 다시 시도할 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | 트랜잭션 A: <br> 주 지역에 <br> 직원 엔터티 삽입 |                                   |                    | 트랜잭션 A가 주 지역에 삽입됐지만<br> 아직 복제되지 않음 |
 | T1       |                                                            | 트랜잭션 A가 <br> 보조 지역에<br> 복제됨 | T1 | 트랜잭션 A가 보조 지역에 복제됨. <br>마지막 동기화 시간이 업데이트됨.    |
-| T2       | 트랜잭션 B:<br>주 지역에서<br> 직원 엔터티<br> 업데이트  |                                | T1                 | 트랜잭션 B가 주 지역에 기록됐지만<br> 아직 복제되지 않음  |
-| T3       | 트랜잭션 C:<br> 주 지역에서 <br>administrator<br>엔터티<br>업데이트 |                    | T1                 | 트랜잭션 C가 주 지역에 기록됐지만<br> 아직 복제되지 않음  |
+| T2       | 트랜잭션 B:<br>업데이트<br> 직원 엔터티<br> 업데이트  |                                | T1                 | 트랜잭션 B가 주 지역에 기록됐지만<br> 아직 복제되지 않음  |
+| T3       | 트랜잭션 C:<br> 업데이트 <br>관리자 역할<br>엔터티<br>업데이트 |                    | T1                 | 트랜잭션 C가 주 지역에 기록됐지만<br> 아직 복제되지 않음  |
 | *T4*     |                                                       | 트랜잭션 C가 <br>보조 지역에<br> 복제됨 | T1         | 트랜잭션 C가 보조 지역에 복제됨.<br>트랜잭션 B가 아직 복제되지 않아서 <br>LastSyncTime이 업데이트되지 않음|
 | *T5*     | 보조 지역의 <br>엔터티 읽기                           |                                  | T1                 | 트랜잭션 B가 아직 복제되지 <br> 않아서 직원 엔터티에 대해 <br> 부실한 값을 얻음 C가 복제되었기 때문에<br> 관리자 역할 엔터티에 대해<br> 새 값을 얻음 트랜잭션 B가 복제되지 않았기<br> 때문에 마지막 동기화 시간이<br> 아직 업데이트되지 않음. 엔터티 날짜/시간이 마지막<br>동기화 시간보다 나중이기 때문에 <br>관리자 역할 엔터티가 불일치 <br>상태라고 볼 수 있음 |
 | *T6*     |                                                      | 트랜잭션 B가<br> 보조 지역에<br> 복제됨 | T6                 | *T6* – C까지 모든 트랜잭션이 <br>복제됨. 마지막 동기화<br> 시간이 업데이트됨 |

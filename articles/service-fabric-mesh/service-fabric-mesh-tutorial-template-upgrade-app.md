@@ -1,26 +1,17 @@
 ---
-title: 자습서 - Azure Service Fabric Mesh에서 실행되는 앱 업그레이드 | Microsoft Docs
+title: 자습서 - Azure Service Fabric Mesh에서 실행되는 앱 업그레이드
 description: 이 자습서에서는 Service Fabric Mesh에서 실행되는 Service Fabric 애플리케이션을 업그레이드하는 방법을 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3567ede82f2eebf602e95dcd012f5c88a40af796
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 42db17fa6474d3230bc523d0cf65b375cf01276e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337632"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351740"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행되는 Service Fabric 애플리케이션 업그레이드
 
@@ -41,7 +32,7 @@ ms.locfileid: "58337632"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 

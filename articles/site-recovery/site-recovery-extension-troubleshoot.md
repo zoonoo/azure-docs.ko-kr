@@ -1,20 +1,18 @@
 ---
-title: Azure Site Recovery 에이전트를 사용하여 문제 해결 | Microsoft Docs
-description: Azure Site Recovery 에이전트 오류의 증상, 원인 및 해결 방법에 대한 정보를 제공합니다.
-author: carmonmills
+title: Azure Site Recovery를 사용 하 여 재해 복구를 위한 Azure VM 확장 문제 해결
+description: Azure Site Recovery를 사용 하 여 재해 복구를 위한 Azure VM 확장 문제를 해결 합니다.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 0de5a9843b8029c1e1926ae296f43fc95b48106c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 7f9ae32b95d629ef79f085ed590d9057b0414911
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930125"
+ms.locfileid: "75941530"
 ---
-# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery 에이전트를 사용하여 문제 해결
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Azure VM 확장 문제 해결
 
 이 문서에서는 VM 에이전트 및 확장과 관련된 Azure Site Recovery 오류를 해결하는 데 도움이 될 수 있는 문제 해결 단계를 제공합니다.
 
@@ -30,7 +28,7 @@ ms.locfileid: "75930125"
 **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **원인 3: [Site Recovery 확장을 업데이트 또는 로드하지 못했습니다.](#the-site-recovery-extension-fails-to-update-or-load)**  
 
-오류 메시지: “이전 Site Recovery 확장 작업이 예상보다 더 오래 걸립니다.”<br>
+오류 메시지: "이전 Site Recovery 확장 작업이 예상 보다 시간이 더 걸리고 있습니다."<br>
 오류 코드: “150066”<br>
 
 **원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     

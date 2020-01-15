@@ -1,7 +1,7 @@
 ---
 title: '자습서: Language Understanding 봇 Node.js v4'
 titleSuffix: Azure Cognitive Services
-description: Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 인적 자원 앱을 사용하여 봇 솔루션을 빠르게 구현합니다. 봇은 Bot Framework 버전 4.x 및 Azure 웹앱 봇을 사용하여 빌드되었습니다.
+description: Node.js를 사용하여 이 자습서에서 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 인적 자원 앱을 사용하여 봇 솔루션을 빠르게 구현합니다. 봇은 Bot Framework 버전 4.x 및 Azure 웹앱 봇을 사용하여 빌드되었습니다.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a38f43b24e5db6a60ff38cd0f1d9b59b9875bba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 754d9d74a5d2c74a873145eaaddaaced29aa2ca8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492684"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448007"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>자습서: Node.js에서 Language Understanding으로 구현된 웹앱 봇 사용 
 
@@ -32,7 +32,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 > * 컴퓨터에서 로컬로 봇 및 에뮬레이터 시작
 > * 봇에서 발화 결과 보기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [봇 에뮬레이터](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -83,7 +83,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 |항공권 예약|`Travel to Paris`|
 |취소|`bye`|
 |GetWeather|`what's the weather like?`|
-|없음|앱의 도메인 외부에 있는 항목입니다.|
+|None|앱의 도메인 외부에 있는 항목입니다.|
 
 ## <a name="test-the-bot-in-web-chat"></a>웹 채팅에서 봇 테스트
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 샘플 - 데이터 디스크 연결 및 사용 | Microsoft Docs
-description: Azure CLI 샘플
+title: Azure CLI 샘플 - 데이터 디스크 연결 및 사용
+description: 이 스크립트는 Azure 가상 머신 확장 집합을 만들고 Azure CLI를 사용하여 데이터 디스크를 연결하고 준비합니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6966aead6ced88e0ff9b201dd12bec0a16799907
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 04d0c557dcca3ca0acd736d3013cf9119490af52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351050"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에 데이터 디스크를 연결하고 사용합니다
 이 스크립트는 가상 머신 확장 집합을 만들고, 데이터 디스크를 연결하고 준비합니다.

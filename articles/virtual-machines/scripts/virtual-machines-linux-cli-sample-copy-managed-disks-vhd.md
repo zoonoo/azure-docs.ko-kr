@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 샘플 - 스토리지 계정에 관리 디스크 복사
+title: 스토리지 계정에 관리 디스크 복사 - CLI 샘플
 description: Azure CLI 샘플 - 관리 디스크를 스토리지 계정에 내보내기 또는 복사
 services: virtual-machines-linux
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: c5055860df007d0f009bd08c2b211ffeeaad711f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 242af0c1dcec13f449cea8e37a60f00c1e87561b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458514"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Azure CLI를 사용하여 관리 디스크를 스토리지 계정에 내보내기/복사
 

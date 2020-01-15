@@ -1,7 +1,7 @@
 ---
 title: '자습서: REST API 및 C#을 사용하여 이미지 세부 정보 추출 - Bing Image Search'
 titleSuffix: Azure Cognitive Services
-description: 이 문서를 사용하여 Bing Image Search API를 통해 이미지 세부 정보를 추출하는 C# 애플리케이션을 만듭니다.
+description: 이 자습서를 사용하여 Bing Image Search API를 통해 이미지 세부 정보를 추출하는 C# 애플리케이션을 만듭니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 69c5fc9805bed8fdfde3dd208e7fb66254e82c3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930680"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383878"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>자습서: Bing Image Search API 및 C#을 사용하여 이미지 세부 정보 추출
 
@@ -34,7 +34,7 @@ Bing Image Search API를 통해 사용할 수 있는 다양한 [엔드포인트]
 
 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs)에 제공됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2017 이상](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 
@@ -98,7 +98,7 @@ var searchResult = new SearchResult()
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>요청에 이미지 인사이트 토큰 사용
 
-`POST`의 결과와 함께 반환된 `ImageInsightsToken`을 사용하려면 `GET` 요청에 추가하면 됩니다. 예:
+`POST`의 결과와 함께 반환된 `ImageInsightsToken`을 사용하려면 `GET` 요청에 추가하면 됩니다. 다음은 그 예입니다.
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2

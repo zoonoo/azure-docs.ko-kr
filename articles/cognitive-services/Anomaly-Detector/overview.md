@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/05/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012053"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448966"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -29,7 +29,7 @@ Anomaly Detector 사용에는 기계 학습에 대한 사전 지식이 필요하
 
 Anomaly Detector를 사용하면 시계열 데이터 전체에서 또는 실시간으로 발생하는 변칙을 자동으로 검색할 수 있습니다. 
 
-|기능  |설명  |
+|기능  |Description  |
 |---------|---------|
 |실시간으로 발생하는 변칙을 검색합니다. | 이전에 본 데이터 요소를 사용하여 최신 데이터가 변칙인지 확인하여 스트리밍 데이터에서 변칙을 검색합니다. 이 작업은 보내는 데이터 요소를 사용하여 모델을 생성하고 대상 포인트가 변칙인지 여부를 결정합니다. 생성하는 각각의 새 데이터 요소를 사용하여 API를 호출하면 데이터가 생성될 때 모니터링할 수 있습니다. |
 |일괄 처리로 데이터 세트 전체의 변칙을 검색합니다. | 시계열을 사용하여 데이터 전체에 존재할 수 있는 변칙을 검색합니다. 이 작업은 전체 시계열 데이터를 사용하여 모델을 생성하고, 각 포인트는 동일한 모델로 분석됩니다.         |
@@ -41,7 +41,7 @@ Anomaly Detector를 사용하면 시계열 데이터 전체에서 또는 실시�
 이 [대화형 데모](https://aka.ms/adDemo)를 확인하여 Anomaly Detector가 작동하는 방식을 이해합니다.
 데모를 실행하려면 Anomaly Detector 리소스를 만들고 API 키와 엔드포인트를 가져와야 합니다.
 
-## <a name="notebook"></a>노트북
+## <a name="notebook"></a>Notebook
 
 Anomaly Detector API를 호출하는 방법을 알아보려면 이 [Azure Notebook](https://aka.ms/adNotebook)을 사용해 보세요. 이 웹 호스팅 Jupyter Notebook은 API 요청을 보내고 결과를 시각화하는 방법을 보여 줍니다.
 
@@ -72,8 +72,12 @@ Anomaly Detector API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 
 ## <a name="algorithms"></a>알고리즘
 
-* [Azure Anomaly Detector API 소개](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) 및 [Azure Anomaly Detector의 SR-CNN 알고리즘 개요](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) 기술 블로그를 참조하여 기본적인 알고리즘에 대해 알아보세요.
-* Microsoft에서 개발한 최첨단 SR-CNN 알고리즘에 대한 이 문서 [Microsoft의 시계열 Anomaly Detection 서비스](https://arxiv.org/abs/1906.03821)(KDD 2019에서 수락)를 참조하세요.
+* 사용되는 알고리즘에 대한 자세한 내용은 다음 기술 블로그를 참조하세요.
+    * [Azure Anomaly Detector API 소개](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
+    * [Azure Anomaly Detector의 SR-CNN 알고리즘 개요](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
+
+Microsoft에서 개발한 SR-CNN 알고리즘에 대해 자세히 알아보려면 [Microsoft의 시계열 Anomaly Detection Service](https://arxiv.org/abs/1906.03821)(KDD 2019에서 수락)를 참조하세요.
+
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 

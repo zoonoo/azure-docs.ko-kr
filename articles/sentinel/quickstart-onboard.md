@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: e8625b1d81db5b3ec90a177f426d05bd84bd10dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426971"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -41,12 +41,14 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
  
 ## Azure Sentinel 사용<a name="enable"></a>
 
-1. Azure Portal로 이동합니다.
-2. Azure Sentinel이 생성된 구독이 선택되었는지 확인합니다. 
-3. Azure Sentinel을 검색합니다. 
-   ![search](./media/quickstart-onboard/search-product.png)
+1. Azure Portal에 로그인합니다. Azure Sentinel이 생성된 구독이 선택되었는지 확인합니다.
 
-1. **+추가**를 클릭합니다.
+1. **Azure Sentinel**을 검색하여 선택합니다.
+
+   ![검색](./media/quickstart-onboard/search-product.png)
+
+1. **추가**를 선택합니다.
+
 1. 사용하려는 작업 영역을 선택하거나 새 작업 영역을 만듭니다. Azure Sentinel은 둘 이상의 작업 영역에서 실행할 수 있지만 데이터는 단일 작업 영역으로 격리됩니다.
 
    ![검색](./media/quickstart-onboard/choose-workspace.png)
@@ -55,7 +57,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
    > - Azure Security Center에서 만든 기본 작업 영역은 목록에 표시되지 않습니다. 기본 작업 영역에는 Azure Sentinel을 설치할 수 없습니다.
    > - Azure Sentinel은 중국, 독일 및 Azure Government 지역을 제외한 모든 [Log Analytics GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. Azure Sentinel에서 생성된 데이터(예: 이러한 작업 영역이 원본으로 사용되는 일부 고객 데이터를 포함할 수 있는 인시던트, 책갈피 및 경고 규칙)는 유럽 서부(유럽에 있는 작업 영역용) 또는 미국 동부(모든 미국 기반 작업 영역과 유럽을 제외한 다른 지역용)에 저장됩니다.
 
-6. **Azure Sentinel 추가**를 클릭합니다.
+1. **Azure Sentinel 추가**를 선택합니다.
   
 
 ## <a name="connect-data-sources"></a>데이터 원본 연결

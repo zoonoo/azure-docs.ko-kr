@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 081951e2e77c7fdd077dc92fe0368423db85f641
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e6f074dd6748f58a86a6ac8166ca0ee858926975
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379796"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -36,10 +36,14 @@ Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[음성 서비스](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Services")|Speech Service는 애플리케이션에 음성 지원 기능을 추가합니다.|
+|[Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Service")|Speech Service는 애플리케이션에 음성 지원 기능을 추가합니다.|
 |[Speaker Recognition API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Speaker Recognition API")(미리 보기)|Speaker Recognition API는 화자 식별 및 인증을 위한 알고리즘을 제공합니다.|
 |[Bing Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech")(사용 중지)|Bing Speech API는 애플리케이션에서 음성 지원 기능을 만드는 편리한 방법을 제공합니다.|
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech")(사용 중지)|Translator Speech는 기계 번역 서비스입니다.|
+
+> [!NOTE]
+> [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)를 찾고 있나요? 일부 작업에는 Cognitive Services를 사용하지만 다른 시나리오를 지원하는 다른 검색 기술입니다.
+
 
 ## <a name="language-apis"></a>Language API
 
@@ -49,7 +53,7 @@ Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker를 사용하여 반구조화된 콘텐츠로부터 질문 및 답변 서비스를 작성할 수 있습니다.|
 |[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "텍스트 분석")|텍스트 분석은 감정 분석, 핵심 구 추출 및 언어 감지를 위한 원시 텍스트의 자연어 처리를 제공합니다.|
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator Text는 거의 실시간으로 컴퓨터 기반 텍스트 번역을 제공합니다.|
-|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "비디오 인덱서")|Video Indexer를 사용하여 비디오에서 인사이트를 추출할 수 있습니다.|
+
 
 ## <a name="search-apis"></a>Search API
 
@@ -84,7 +88,7 @@ Microsoft 계정으로 로그인하면 [내 구독](https://www.microsoft.com/co
 
 ## <a name="upgrade-to-unlock-limits"></a>제한을 해제하려면 업그레이드
 
-모든 API에는 사용량 및 처리량 제한이 포함된 평가판 요금제가 있습니다.  유료 제품을 사용하고 Azure Portal에서 서비스를 배포할 때 적절한 가격 책정 계층 옵션을 선택하면 이러한 제한을 늘릴 수 있습니다. [제품 및 가격 책정에 대해 자세히 알아봅니다](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings 및 가격 책정"). 신용 카드 및 전화번호로 Azure 구독자 계정을 설정해야 합니다. 특별한 요구 사항이 있거나 단지 판매에 관해 상담하려는 경우 가격 책정 페이지 상단에 있는 “문의” 단추를 클릭하세요.
+모든 API에는 사용량 및 처리량 제한이 포함된 평가판 요금제가 있습니다.  유료 제품을 사용하고 Azure Portal에서 서비스를 배포할 때 적절한 가격 책정 계층 옵션을 선택하면 이러한 제한을 늘릴 수 있습니다. [제품 및 가격 책정에 대해 자세히 알아봅니다](https://azure.microsoft.com/pricing/details/cognitive-services/ "제품 및 가격 책정"). 신용 카드 및 전화번호로 Azure 구독자 계정을 설정해야 합니다. 특별한 요구 사항이 있거나 단지 판매에 관해 상담하려는 경우 가격 책정 페이지 상단에 있는 “문의” 단추를 클릭하세요.
 
 ## <a name="regional-availability"></a>국가별 가용성
 
@@ -95,6 +99,10 @@ Cognitive Services에서 API는 증가하는 Microsoft 운영 데이터 센터�
 ## <a name="supported-cultural-languages"></a>지원되는 문화 언어
 
  Cognitive Services는 서비스 수준에서 광범위한 문화 언어를 지원합니다. [지원되는 언어 목록](language-support.md)에서 각 API에서 사용할 수 있는 언어를 찾을 수 있습니다.
+
+## <a name="securing-resources"></a>리소스 보안
+
+Azure Cognitive Services는 Azure Active Directory 자격 증명을 통한 [인증](authentication.md), 유효한 리소스 키 및 [Azure Virtual Networks](cognitive-services-virtual-networks.md)를 비롯한 계층화된 보안 모델을 제공합니다.
 
 ## <a name="container-support"></a>컨테이너 지원
 
@@ -110,8 +118,7 @@ Cognitive Services은 CSA STAR 인증, FedRAMP Moderate 및 HIPAA BAA와 같은 
 
 ## <a name="support"></a>지원
 
-* 지원 및 기술 질문은 [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive)에 게시하세요.
-* 피드백 및 기능 요청은 [UserVoice](https://cognitive.uservoice.com/)로 이동하세요.
+Cognitive Services는 여러 [지원 옵션](cognitive-services-support-options.md)을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

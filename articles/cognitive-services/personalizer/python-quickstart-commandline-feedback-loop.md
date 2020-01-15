@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Python용 Personalizer 클라이언트 라이브러리 | Microsoft Docs'
+title: '빠른 시작: Python용 Personalizer 클라이언트 라이브러리'
 titleSuffix: Azure Cognitive Services
-description: 학습 루프를 사용하여 Python용 Personalizer 클라이언트 라이브러리를 시작합니다.
+description: 이 빠른 시작에서는 학습 루프를 사용하여 Python용 Personalizer 클라이언트 라이브러리를 시작하는 방법을 보여줍니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378945"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>빠른 시작: Python용 Personalizer 클라이언트 라이브러리
 
@@ -28,7 +28,7 @@ Python용 Personalizer 클라이언트 라이브러리를 시작합니다. 이�
 
 [패키지(pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [샘플](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -47,7 +47,7 @@ Python용 Personalizer 클라이언트 라이브러리를 시작합니다. 이�
 
 ## <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://portal.azure.com/) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 자세한 내용은 [Azure Portal을 사용하여 Cognitive Services 리소스를 만드는 방법](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 참조하세요. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://portal.azure.com/) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 자세한 내용은 [Azure Portal을 사용하여 Cognitive Services 리소스를 만드는 방법](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 참조하세요. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services)를 가져옵니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.

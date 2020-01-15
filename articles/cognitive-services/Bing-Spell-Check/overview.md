@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 996db9690d19cc40c3963922d4edb3b59469752b
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514806"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383002"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Bing Spell Check API란?
 
@@ -44,3 +44,5 @@ Bing Spell Check API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석
 먼저 Bing Spell Check Search API [대화형 데모](https://azure.microsoft.com/services/cognitive-services/spell-check/)를 시도하여 다양한 텍스트를 신속하게 확인할 수 있는 방법을 살펴봅니다.
 
 API를 호출할 준비가 되면 [Cognitive Services API 계정](../../cognitive-services/cognitive-services-apis-create-account.md)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 만들 수 있습니다.
+
+[Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 탐색할 수도 있습니다.

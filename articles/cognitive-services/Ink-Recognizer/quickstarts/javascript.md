@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Ink Recognizer REST API와 Node.js로 디지털 잉크 인식'
 titleSuffix: Azure Cognitive Services
-description: Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
+description: 이 빠른 시작에서 Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 19626bd68ad82108b2ebaa823d196d0f22008e29
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a37f2b7044fcba04ca18093aa73563961e9e35de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448136"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>빠른 시작: Ink Recognizer REST API와 JavaScript로 디지털 잉크 인식
 
@@ -29,7 +29,7 @@ ms.locfileid: "71996902"
 
 이 빠른 시작의 소스 코드는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 웹 브라우저
 - 이 빠른 시작의 잉크 스트로크 데이터 예제는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json)에서 찾을 수 있습니다.
@@ -157,7 +157,7 @@ ms.locfileid: "71996902"
         };
         ```
 
-## <a name="run-the-application-and-view-the-response"></a>애플리케이션을 실행하고 응답을 봅니다.
+## <a name="run-the-application-and-view-the-response"></a>애플리케이션 실행 및 응답 보기
 
 이 애플리케이션은 웹 브라우저에서 실행할 수 있습니다. 성공 응답이 JSON 형식으로 반환됩니다. [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json)에서 JSON 응답을 찾을 수도 있습니다.
 

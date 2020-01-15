@@ -1,18 +1,16 @@
 ---
 title: Azure Site Recovery 및 Azure PowerShell를 사용 하 여 복제에서 Azure VM 디스크 제외
 description: Azure PowerShell를 사용 하 여 Azure Site Recovery 중에 Azure 가상 컴퓨터의 디스크를 제외 하는 방법에 대해 알아봅니다.
-author: carmonmills
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/18/2019
-ms.author: carmonm
-ms.openlocfilehash: ead46368db68cf11facfe437b3ea0ef77171d548
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 222e8f014741f5d672dd50df68228efdb6c24bf3
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929801"
+ms.locfileid: "75942281"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Azure Vm의 PowerShell 복제에서 디스크 제외
 

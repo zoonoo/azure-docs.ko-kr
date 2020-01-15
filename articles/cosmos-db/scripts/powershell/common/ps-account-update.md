@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 - Azure Cosmos 계정 업데이트
+title: Azure Cosmos 계정을 업데이트하는 PowerShell 스크립트
 description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정 업데이트 또는 지역 수정
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: ec160f03fa5a8b9415dc33885fca512d4289f37b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 075c33b0818aa3ec8b16158f538ae302446ff5f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445036"
 ---
 # <a name="update-an-azure-cosmos-account-or-modify-regions-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정 업데이트 또는 지역 수정
 
@@ -24,7 +24,7 @@ ms.locfileid: "71969701"
 > [!NOTE]
 > 동일한 작업에서 지역을 수정하고 다른 Cosmos 계정 속성을 변경할 수 없습니다. 이러한 작업은 두 가지 별도의 작업으로 수행되어야 합니다.
 > [!NOTE]
-> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
+> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여 줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
 

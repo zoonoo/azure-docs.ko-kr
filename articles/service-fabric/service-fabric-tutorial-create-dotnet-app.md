@@ -1,26 +1,15 @@
 ---
-title: Azure의 Service Fabric에서 .NET 앱 만들기 | Microsoft Docs
+title: Azure의 Service Fabric에서 .NET 앱 만들기
 description: 이 자습서에서는 ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드를 사용하여 애플리케이션을 만들고 클러스터에 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465464"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기 및 배포
 
@@ -43,7 +32,7 @@ ms.locfileid: "68598920"
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -180,7 +169,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>_Layout.cshtml 파일 업데이트
+### <a name="update-the-_layoutcshtml-file"></a>_Layout.cshtml 파일 업데이트
 
 ASP.NET 앱의 기본 레이아웃인 **Views/Shared/_Layout.cshtml**을 엽니다.  해당 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
 
@@ -356,7 +345,7 @@ Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관�
 
     Visual Studio는 VotingData 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
-    ![Controllers\HomeController.cs](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
+    ![솔루션 탐색기](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
 ### <a name="add-the-votedatacontrollercs-file"></a>VoteDataController.cs 파일 추가
 

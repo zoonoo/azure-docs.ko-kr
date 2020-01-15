@@ -1,26 +1,17 @@
 ---
-title: 자습서 - Azure Service Fabric Mesh에 앱 배포 | Microsoft Docs
+title: 자습서 - Azure Service Fabric Mesh에 앱 배포
 description: 이 자습서에서는 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션을 배포하는 방법을 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306944"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494929"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
 
@@ -43,7 +34,7 @@ ms.locfileid: "66306944"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -264,7 +255,7 @@ parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞�
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {
@@ -347,12 +338,12 @@ parameters 파일에서 다음 매개 변수 값을 업데이트합니다.
 
 |매개 변수|값|
 |---|---|
-|location|애플리케이션을 배포할 지역입니다.  예를 들면 “eastus”입니다.|
+|위치|애플리케이션을 배포할 지역입니다.  예를 들면 “eastus”입니다.|
 |registryPassword|이전에 [레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 암호입니다. 템플릿의 이 매개 변수는 보안 문자열이므로 배포 상태 또는 `az mesh service show` 명령에 표시되지 않습니다.|
 |registryUserName|[레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 사용자 이름입니다.|
 |registryServer|[레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 레지스트리 서버 이름입니다.|
-|frontEndImage|프런트 엔드 서비스용 컨테이너 이미지입니다.  예: `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`|
-|serviceImage|백 엔드 서비스용 컨테이너 이미지입니다.  예: `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`|
+|frontEndImage|프런트 엔드 서비스용 컨테이너 이미지입니다.  `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`)을 입력합니다.|
+|serviceImage|백 엔드 서비스용 컨테이너 이미지입니다.  `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`)을 입력합니다.|
 
 애플리케이션을 배포하려면 다음 명령을 실행합니다.
 
@@ -394,7 +385,7 @@ az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 
 ## <a name="check-application-status"></a>애플리케이션 상태 확인
 
-app show 명령을 사용하여 애플리케이션 상태를 확인할 수 있습니다. 배포된 응용 프로그램의 응용 프로그램 이름은 “todolistapp”이므로 다음과 같이 해당 정보를 가져옵니다.
+app show 명령을 사용하여 애플리케이션 상태를 확인할 수 있습니다. 배포된 애플리케이션의 애플리케이션 이름은 “todolistapp”이므로 다음과 같이 해당 정보를 가져옵니다.
 
 ```azurecli
 az mesh app show --resource-group myResourceGroup --name todolistapp

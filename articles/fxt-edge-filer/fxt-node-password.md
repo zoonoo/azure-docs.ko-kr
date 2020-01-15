@@ -1,17 +1,17 @@
 ---
-title: 하드웨어 초기화 - Microsoft Azure FXT Edge Filer
+title: '자습서: 하드웨어 초기화 - Azure FXT Edge Filer'
 description: Azure FXT Edge Filer 노드에서 초기 암호를 설정하는 방법
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 080aa05af77b996bc0eb71287a3dfef25c24629a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256022"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550894"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>자습서: 하드웨어 암호 설정
 
@@ -23,7 +23,7 @@ ms.locfileid: "72256022"
 
 이 자습서에서는 하드웨어 노드에 연결하고 암호를 설정하는 방법을 설명합니다. 
 
-이 자습서에서는 다음 방법을 알아봅니다. 
+이 자습서에서는 다음 작업 방법을 배웁니다. 
 
 > [!div class="checklist"]
 > * 노드에 키보드 및 모니터를 연결하고 전원 켜기
@@ -34,7 +34,7 @@ ms.locfileid: "72256022"
 
 이 자습서를 완료하는 데 약 15분이 소요됩니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 단계를 완료하세요. 
 

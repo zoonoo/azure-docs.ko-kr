@@ -1,27 +1,27 @@
 ---
 title: '빠른 시작: SDK for C#을 사용하여 이미지 인사이트 가져오기 - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Bing Visual Search SDK를 사용하여 이미지를 업로드하고 이미지에 대한 인사이트를 가져오는 방법을 알아봅니다.
+description: 이 빠른 시작을 통해 Bing Visual Search SDK를 사용하여 이미지를 업로드하고 이미지에 대한 인사이트를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 3db40f999770823052f07a328d3d8dc8c01ce345
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b1f5274bcae1f6e59f6dea94beee810a4613d739
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446603"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>빠른 시작: Bing Visual Search SDK for C#을 사용하여 이미지 인사이트 가져오기
 
 이 빠른 시작의 안내에 따라 C# SDK를 사용하여 Bing Visual Search 서비스에서 이미지 인사이트 가져오기를 시작하세요. Bing Visual Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있지만 SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "74383589"
         - Newtonsoft.Json
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 

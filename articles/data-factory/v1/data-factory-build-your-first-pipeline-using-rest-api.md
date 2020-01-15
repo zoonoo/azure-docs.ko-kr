@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 7644bac01784ea795f24b967223b0eb37354ca87
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d8b05a2268a122289c529050c75fd27dd73245b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438959"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "73682972"
 > 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -84,7 +84,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 스토리지 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 >
 >
 
@@ -120,7 +120,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | clusterSize |HDInsight 클러스터의 크기입니다. |
 | timeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
@@ -166,7 +166,7 @@ JSON은 **AzureBlobInput**이라는 데이터 세트를 정의하며 이는 파�
 
 다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | type |만들려는 Azure File Storage의 이름을 입력합니다. |
 | linkedServiceName |이전에 만든 StorageLinkedService를 참조합니다. |
@@ -487,7 +487,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 이 문서에서 파이프라인과 주문형 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-| 항목 | 설명 |
+| 항목 | Description |
 |:--- |:--- |
 | [데이터 팩터리 REST API 참조](/rest/api/datafactory/) |데이터 팩터리 cmdlet에서 포괄적인 설명서를 참조하세요. |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 엔드투엔드 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |

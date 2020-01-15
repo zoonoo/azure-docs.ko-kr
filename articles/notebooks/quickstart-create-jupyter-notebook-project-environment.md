@@ -1,22 +1,24 @@
 ---
-title: 사용자 지정 환경을 사용하여 Azure Notebooks 프로젝트 만들기
-description: 설치된 패키지 및 시작 스크립트의 특정 세트로 구성된 Azure Notebooks에서 새 프로젝트를 만듭니다.
+title: 사용자 지정 환경을 사용하여 Azure Notebooks 미리 보기 프로젝트 만들기
+description: 설치된 패키지 및 시작 스크립트의 특정 세트로 구성된 Azure Notebooks 미리 보기에서 새 프로젝트를 만듭니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: f167d1bf6064cde535d17fa4a336ee13424baba7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 999133dd7d9d792956f9a2c93ec218e458c921e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277490"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647070"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment"></a>빠른 시작: 사용자 지정 환경을 사용하여 프로젝트 만들기
+# <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 사용자 지정 환경으로 프로젝트 만들기
 
 Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성할 수 있는 환경과 함께 노트북, 데이터 파일, 설명서, 이미지 등과 같은 파일의 컬렉션입니다. 프로젝트의 환경을 정의하여 자신의 Azure Notebooks 계정에 프로젝트를 복제하는 모든 사용자는 필요한 환경을 다시 만드는 데 필요한 모든 정보를 가집니다.
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 ## <a name="create-a-project"></a>프로젝트 만들기
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
+1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
 
 1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
@@ -49,7 +51,7 @@ Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성�
 
 1. **+ 추가** 명령으로 프로젝트에서 작업으로 정의한 단계 및 파일에서 선택한 대상 파일을 만듭니다. 다음 작업을 지원합니다.
 
-    | 작업(Operation) | 설명 |
+    | 작업(Operation) | Description |
     | --- | --- |
     | Requirements.txt | Python 프로젝트 requirements.txt 파일에서 해당 종속성을 정의합니다. 이 옵션을 사용하여 프로젝트의 파일 목록에서 해당 파일을 선택하고 나타나는 추가 드롭다운 목록에서 Python 버전을 선택할 수도 있습니다. 필요한 경우 **취소**를 선택하여 프로젝트로 돌아가거나 파일을 업로드하거나 만든 다음 **프로젝트 설정** > **환경** 탭으로 돌아가서 새 단계를 만듭니다. 이 단계가 준비된 상태로 프로젝트에서 Notebook을 실행하면 `pip install -r <file>`이 자동 실행됩니다. |
     | 셸 스크립트 | 환경을 초기화하기 이해 실행하려는 모든 명령어가 포함된 Bash 셸 스크립트(일반적으로 *.sh* 확장명이 있는 파일)를 사용합니다. |
@@ -67,4 +69,4 @@ Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성�
 > [Azure Notebooks에서 프로젝트 관리 및 구성](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 수행하기 위해 Jupyter Notebook 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)

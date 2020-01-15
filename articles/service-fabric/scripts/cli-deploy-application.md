@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 04/16/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 7417eaecddad60c940bf01535b8fb24b8cbef80c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ff40dc62b4dcd622156a78518bbdcb6b9b430644
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034785"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526603"
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 배포
+# <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Service Fabric CLI를 사용하여 Service Fabric 클러스터에 애플리케이션 배포
 
 이 샘플 스크립트는 클러스터 이미지 저장소에 애플리케이션 패키지를 복사하고, 애플리케이션 유형을 클러스터에 등록하고, 해당 애플리케이션 유형에서 애플리케이션 인스턴스를 만듭니다. 이때 기본 서비스도 만들어집니다.
 

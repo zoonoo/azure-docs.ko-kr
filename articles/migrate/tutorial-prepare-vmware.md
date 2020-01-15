@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454545"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>평가 후 Azure로 마이그레이션할 VMware VM 준비
 
@@ -21,7 +21,7 @@ ms.locfileid: "74196217"
 [Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
 
-이 자습서는 VMware VM을 평가하고 마이그레이션하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 VMware VM을 평가하고 마이그레이션하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Migrate를 사용할 수 있게 Azure를 준비합니다.
@@ -47,8 +47,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당
 
-1. Azure Portal에서 구독을 열고 **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 확인**에서 관련 계정을 찾아서 클릭하여 권한을 확인합니다.
+1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
+2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
 3. **기여자** 또는 **소유자** 권한이 있어야 합니다.
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
@@ -85,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Azure Migrate에서 Key Vault를 만들도록 설정하려면 다음과 같이 역할 할당 권한을 할당합니다.
 
 1. Azure Portal의 리소스 그룹에서 **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 확인**에서 관련 계정을 찾아서 클릭하여 권한을 확인합니다.
+2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
 
     - 서버 평가를 실행하는 데는 **기여자** 권한으로 충분합니다.
     - 에이전트 없는 서버 마이그레이션을 실행하려면 **소유자**(또는 **기여자** 및 **사용자 액세스 관리자**) 권한이 있어야 합니다.

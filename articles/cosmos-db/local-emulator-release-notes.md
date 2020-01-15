@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: eb73551c4226df8bc20428558720c0ebbfff96d9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445301"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 
@@ -25,6 +25,10 @@ ms.locfileid: "74873593"
 |**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="272"></a>2.7.2
+
+- 이 릴리스에는 MongoDB 버전 3.6 서버 지원이 Cosmos 에뮬레이터에 추가되었습니다. 3\.6 버전의 서비스를 대상으로 하는 MongoDB 엔드포인트를 시작하려면 "/EnableMongoDBEndpoint=3.6" 옵션을 사용하여 관리자 명령줄에서 에뮬레이터를 시작합니다.
 
 ### <a name="270"></a>2.7.0
 

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/27/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cd1d57643f9a1eb7c50d0de06d42fbbcec085f34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 85987ca1ff7d2dd204d0a501367efffc8277f138
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458773"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939925"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>작업 그룹 격리 SQL Data Warehouse (미리 보기)
 
@@ -90,3 +90,4 @@ REQUEST_MIN_RESOURCE_GRANT_PERCENT 보다 큰 값으로 REQUEST_MAX_RESOURCE_GRA
 - [빠른 시작: 워크 로드 격리 구성](quickstart-configure-workload-isolation-tsql.md)
 - [작업 그룹 만들기](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [리소스 클래스를 작업 그룹으로 변환](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md)합니다.
+- [작업 관리 포털 모니터링](sql-data-warehouse-workload-management-portal-monitor.md).  

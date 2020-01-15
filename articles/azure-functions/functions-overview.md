@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 28a2732965ee0a19f69dcd0fc2cd7705cb5f94a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7208825581a0bf16f6ee3a3947387b01abfd16d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230445"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433065"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 소개  
 Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 애플리케이션 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. Functions는 개발 생산성을 높일 수 있으며 C#, Java, JavaScript, PowerShell 및 Python 등 원하는 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure를 신뢰하여 필요에 따라 크기를 조정합니다. Azure Functions를 사용하면 Microsoft Azure에서 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 애플리케이션을 개발할 수 있습니다.
@@ -61,13 +61,14 @@ Azure Functions는 다양한 Azure 및 타사 서비스와 통합됩니다. 이�
 ## <a name="pricing"></a>Functions 사용 비용
 Azure Functions에는 두 종류의 가격 책정 계획이 있습니다. 사용자의 요구에 가장 잘 맞는 하나를 선택합니다. 
 
-* **소비 요금제** - 함수가 실행되면 Azure에서 필요한 모든 계산적 리소스를 제공합니다. 리소스 관리에 대해 염려하지 않아도 되며 코드가 실행된 시간에 대해서만 비용을 지불합니다. 
+* **소비 요금제** - 함수가 실행되면 Azure에서 필요한 모든 계산적 리소스를 제공합니다. 리소스 관리에 대해 염려하지 않아도 되며 코드가 실행된 시간에 대해서만 비용을 지불합니다.
+* **프리미엄 요금제** - 항상 온라인 상태이며 즉시 응답할 준비가 된 예열된 여러 인스턴스를 지정합니다. 함수가 실행될 때 Azure는 필요한 추가 계산 리소스를 제공합니다. 지속적으로 실행되는 예열된 인스턴스에 대한 요금을 지불하고 Azure로 사용하는 추가 인스턴스는 앱의 규모를 확장 및 축소합니다.
 * **App Service 계획** - 웹앱과 같이 함수를 실행합니다. 다른 애플리케이션에 이미 App Service를 사용하고 있는 경우 추가 비용 없이 동일한 계획으로 함수를 실행할 수 있습니다. 
 
 호스팅 계획에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요. 전체 가격 책정 정보는 [Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)페이지에 나와 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [첫 번째 Azure 함수 만들기](functions-create-first-azure-function.md)  
+* [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)  
   Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
 * [Azure Functions 개발자 참조](functions-reference.md)  
   Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.

@@ -3,12 +3,12 @@ title: 이미지를 작성 하 고 테스트 & 패치를 실행 하는 다단계
 description: 클라우드의 컨테이너 이미지를 빌드, 테스트 및 패치 하는 작업 기반 워크플로를 제공 하는 Azure Container Registry의 ACR 작업 기능인 다단계 작업을 소개 합니다.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 3ed071fa2027e91ee5bc6c07738dc66763454847
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: cf5f90263c75aeb96220967142d28995209f2d86
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456179"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945676"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR 작업에서 다단계 작성, 테스트 및 패치 작업 실행
 
@@ -50,33 +50,33 @@ ACR 작업의 다단계 작업은 YAML 파일 내에서 일련의 단계로 정�
 다음 코드 조각은 이러한 작업 단계 형식을 결합하는 방법을 보여줍니다. 다중 단계 작업은 다음과 유사한 YAML 파일을 사용하여 Dockerfile에서 단일 이미지를 빌드하고 레지스트리에 푸시하는 방법처럼 간단할 수 있습니다.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t $Registry/hello-world:$ID .
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 더 복잡한 경우 이 가상의 다단계 정의에는 Helm을 빌드하고, 테스트하고, 패키징하고, 배포하기 위한 단계가 포함됩니다(컨테이너 레지스트리 및 Helm 리포지토리 구성이 표시되지 않음).
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - id: build-web
-    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    build: -t $Registry/hello-world:$ID .
     when: ["-"]
   - id: build-tests
-    build -t {{.Run.Registry}}/hello-world-tests ./funcTests
+    build -t $Registry/hello-world-tests ./funcTests
     when: ["-"]
   - id: push
-    push: ["{{.Run.Registry}}/helloworld:{{.Run.ID}}"]
+    push: ["$Registry/helloworld:$ID"]
     when: ["build-web", "build-tests"]
   - id: hello-world-web
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    cmd: $Registry/helloworld:$ID
   - id: funcTests
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    cmd: $Registry/helloworld:$ID
     env: ["host=helloworld:80"]
-  - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
-  - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
+  - cmd: $Registry/functions/helm package --app-version $ID -d ./helm ./helm/helloworld/
+  - cmd: $Registry/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image=$Registry/helloworld:$ID
 ```
 
 여러 시나리오에 대 한 다단계 작업 YAML 파일 및 Dockerfiles의 [작업 예](container-registry-tasks-samples.md) 를 참조 하세요.

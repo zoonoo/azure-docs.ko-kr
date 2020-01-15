@@ -1,5 +1,5 @@
 ---
-title: 콘솔 앱(v1.0)에서 토큰 가져오기 및 Microsoft Graph API 호출 | Azure
+title: 토큰 획득 및 Microsoft Graph 호출(.NET Core 콘솔)(v1.0) | Azure
 description: Azure AD와 통합되고 OAuth 2.0을 사용하여 Azure AD 보호된 API를 호출하는 .NET 디먼 애플리케이션 빌드
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2858a0b14863195ee0f56c89fe2c55c9e63873de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d44dfe3eb03ff086d3785311c34ab1a6a5b3982a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424044"
 ---
-# <a name="quickstart-acquire-token-and-call-microsoft-graph-api-with-console-apps-identity-v10"></a>빠른 시작: 콘솔 앱의 ID(v1.0)를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출 
+# <a name="quickstart-acquire-token-and-call-microsoft-graph-using-console-apps-identity-v10"></a>빠른 시작: 콘솔 앱의 ID(v1.0)를 사용하여 토큰 획득 및 Microsoft Graph 호출
 
 [Microsoft ID 플랫폼](v2-overview.md)은 Azure AD(Azure Active Directory) 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph와 같은 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다.
 

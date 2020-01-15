@@ -1,5 +1,5 @@
 ---
-title: Cassandra API 및 Java를 사용하여 앱 빌드 - Azure Cosmos DB
+title: Azure Cosmos DB Cassandra API를 사용하여 Java 앱 빌드
 description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 ms.service: cosmos-db
 author: SnehaGunda
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5b1eacb1d0121f2dd0d97807f07042e828fe7932
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1f9151ab174a9a1f9e492bd068b5285772f6a546
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442054"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>빠른 시작: Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드
 
@@ -29,7 +29,7 @@ ms.locfileid: "71266012"
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 테이블, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
 

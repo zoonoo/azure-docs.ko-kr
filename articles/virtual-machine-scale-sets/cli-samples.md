@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 샘플 | Microsoft Docs
-description: Azure CLI 샘플
+title: Azure CLI 샘플
+description: 확장 집합 만들기 및 관리와 같이 Azure CLI를 사용하여 빌드된 샘플 bash 스크립트에 대한 링크가 포함된 테이블입니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1ea397616c7909283128118f66fc36218ff36d53
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 540941bd2d54c5d3c8d26186e700727e8d75f501
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459360"
 ---
 # <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합용 Azure CLI 샘플
 

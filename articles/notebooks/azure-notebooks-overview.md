@@ -1,22 +1,24 @@
 ---
-title: Azure Notebooks 개요
-description: 설정 또는 구성이 필요하지 않은 경우 무료 Azure Notebooks 서비스를 사용하여 클라우드에서 Jupyter Notebook을 실행합니다.
+title: Azure Notebooks 미리 보기 개요
+description: 설정 또는 구성이 필요하지 않은 경우 무료 Azure Notebooks 미리 보기 서비스를 사용하여 클라우드에서 Jupyter Notebook을 실행합니다.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: b3dfa6cec962809fad1a03f5100c55315ff6a9ad
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277671"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646333"
 ---
-# <a name="overview-of-azure-notebooks"></a>Azure Notebooks 개요
+# <a name="overview-of-azure-notebooks-preview"></a>Azure Notebooks 미리 보기 개요
 
-Azure Notebooks는 무료 호스티드 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 단일 캔버스인 *Notebook*(jupyter.org의 이미지 허가)으로 손쉽게 결합할 수 있습니다.
+Azure Notebooks는 무료 호스트 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 단일 캔버스인 *Notebook*(jupyter.org의 이미지 허가)으로 손쉽게 결합할 수 있습니다.
 
 [![Jupyter Notebook의 예제](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 이 강력한 코드, 그래픽 및 설명 텍스트의 조합으로 인해 Jupyter는 데이터 과학 교육, 데이터 정리 및 변환, 숫자 시뮬레이션, 통계 모델링 및 기계 학습 모델의 개발을 비롯한 다양한 용도에 대중화되었습니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="hassle-free-experience"></a>간편한 환경
 
@@ -101,7 +103,7 @@ Azure Notebooks에 대한 질문을 논의하려면 [GitHub 리포지토리](htt
 
   - [Notebook 만들기 및 실행](tutorial-create-run-jupyter-notebook.md  )
 
-- 방법 문서:
+- 방법 문서는 다음과 같습니다.
   
   - [프로젝트 만들기 및 복제](create-clone-jupyter-notebooks.md)
   - [프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)

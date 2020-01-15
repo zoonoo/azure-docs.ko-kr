@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 758b14a53927e00a5546147f8d67e556b45acc3c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074028"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689769"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -35,7 +35,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ![Azure AD 및 AWS 관계에 대한 다이어그램](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-여러 인스턴스에 대해 여러 식별자를 구성할 수 있습니다. 예:
+여러 인스턴스에 대해 여러 식별자를 구성할 수 있습니다. 다음은 그 예입니다.
 
 * `https://signin.aws.amazon.com/saml#1`
 
@@ -54,7 +54,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 > [!Note]
 > 갤러리 애플리케이션만 사용해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -74,10 +74,10 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러리의 AWS(Amazon Web Services)를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
+1. 회사 계정, 학교 계정 또는 개인 Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
+1. Azure Active Directory 개요 메뉴에서 **Enterprise 애플리케이션** > **모든 애플리케이션**을 선택합니다.
+1. **새 애플리케이션**을 선택하여 애플리케이션을 추가합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **AWS(Amazon Web Services)** 를 입력합니다.
 1. 결과 창에서 **AWS(Amazon Web Services)** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
@@ -123,11 +123,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
+1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
+1. Azure Active Directory 개요 메뉴에서 **사용자** > **모든 사용자**를 선택합니다.
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -135,7 +136,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 AWS(Amazon Web Services)에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
+1. Azure Active Directory 개요 메뉴에서 **Enterprise 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 1. 애플리케이션 목록에서 **AWS(Amazon Web Services)** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
 
@@ -286,7 +288,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 18. 이 사용자에 대한 새 정책을 만듭니다.
 
-    ![Add user의 스크린샷](./media/amazon-web-service-tutorial/adduser2.png)
+    ![사용자 추가의 스크린샷](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. **Attach existing policies directly**(기존 정책 직접 연결)를 선택합니다.
 
@@ -304,7 +306,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 20. 사용자의 사용자 자격 증명을 다운로드합니다.
 
-    ![Add user의 스크린샷](./media/amazon-web-service-tutorial/adduser4.png)
+    ![사용자 추가의 스크린샷](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. 사용자 **액세스 키 ID** 및 **암호 액세스 키**를 복사합니다.
 

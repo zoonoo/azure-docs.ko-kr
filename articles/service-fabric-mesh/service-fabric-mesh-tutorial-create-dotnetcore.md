@@ -1,26 +1,17 @@
 ---
-title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 애플리케이션 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
+title: Service Fabric Mesh에 다중 서비스 앱 생성, 배포
 description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 애플리케이션을 만듭니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: e3a6ee382208119e46a816790c15ae47f16be57e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805429"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495195"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>자습서: 다중 서비스 Service Fabric Mesh 앱 만들기, 디버그, 배포 및 업그레이드
 
@@ -50,7 +41,7 @@ ms.locfileid: "56805429"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -62,11 +53,11 @@ ms.locfileid: "56805429"
 
 Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 를 차례로 선택합니다.
 
-**새 프로젝트** 대화 상자 위쪽의 **검색** 상자에서 `mesh`를 입력합니다. **Service Fabric Mesh 애플리케이션** 템플릿을 선택합니다. 템플릿이 표시되지 않으면 [개발 환경 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)에서 설명한 대로 Mesh SDK 및 VS 도구 미리 보기를 설치했는지 확인합니다.  
+**새 프로젝트** 대화 상자의 맨 위에 있는 **검색** 상자에 `mesh`를 입력합니다. **Service Fabric Mesh 애플리케이션** 템플릿을 선택합니다. 템플릿이 표시되지 않는 경우, [개발 환경 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)에 설명된 대로 Mesh SDK 및 VS 도구 미리 보기를 설치했는지 확인합니다.  
 
 **이름** 상자에서 `todolistapp`을 입력하고, **위치** 상자에서 폴더 경로를 프로젝트에 대한 파일을 저장하려는 위치로 설정합니다.
 
-**솔루션용 디렉터리 만들기**가 선택되어 있는지 확인하고, **확인**을 클릭하여 Service Fabric Mesh 프로젝트를 만듭니다.
+**솔루션 디렉터리 만들기**가 선택되어 있는지 확인하고 **확인**을 클릭하여 Service Fabric Mesh 프로젝트를 만듭니다.
 
 ![Visual Studio의 새 Service Fabric Mesh 프로젝트 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
@@ -362,7 +353,8 @@ URL은 서비스 이름과 포트로 구성됩니다. 이 모든 정보는 **ToD
 
 ![그림 1 - ToDoService service.yaml 파일](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* `ToDoService` 서비스 이름은 `services:` 아래에 있습니다. 위 그림 (1)을 참조하세요.
+ `ToDoService` 서비스 이름은 `services:` 아래에 있습니다. 위 그림 (1)을 참조하세요.
+
 * `80` 포트는 `endpoints:` 아래에 있습니다. 위 그림 (2)를 참조하세요. 프로젝트의 포트 번호가 다를 수 있습니다.
 
 다음으로, 서비스 이름과 포트 번호를 나타내는 환경 변수가 백 엔드 서비스를 호출할 수 있도록 WebFrontEnd 프로젝트에 정의해야 합니다.

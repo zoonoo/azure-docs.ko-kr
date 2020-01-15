@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: d53b36beeca2c5e0456965cf5af19e5324b31ad9
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1d475c8e1f8dd332b60aef04242d2829feba93c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429198"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -40,7 +40,7 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 조건이 필요합니다.
 
@@ -72,16 +72,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 명령 프롬프트 또는 Git Bash 셸을 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리를 복제합니다.
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     이 작업은 몇 분 정도 걸립니다.
 
-1. 다음 명령과 같이 Git 리포지토리의 루트 디렉터리에 *cmake* 디렉터리를 만든 다음, 해당 폴더로 이동합니다.
+1. Git 리포지토리의 루트 디렉터리에서 *cmake* 하위 디렉터리를 만들고 해당 폴더로 이동합니다. *azure-iot-sdk-c* 디렉터리에서 다음 명령을 실행합니다.
 
-    ```cmd
-    cd azure-iot-sdk-c
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```

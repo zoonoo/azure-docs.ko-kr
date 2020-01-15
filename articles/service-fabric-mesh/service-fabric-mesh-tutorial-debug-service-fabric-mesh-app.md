@@ -1,26 +1,17 @@
 ---
-title: 자습서 - 로컬 개발 클러스터에서 실행 중인 Azure Service Fabric Mesh 웹 애플리케이션 디버그 | Microsoft Docs
+title: 로컬로 실행되는 Azure Service Fabric Mesh 웹앱 디버그
 description: 이 자습서에서는 로컬 클러스터에서 실행 중인 Azure Service Fabric Mesh 애플리케이션을 디버그합니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bef86b189064a82b6605e8b99a374b1ee92682e2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805123"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494952"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>자습서: 로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 애플리케이션 디버그
 
@@ -42,7 +33,7 @@ ms.locfileid: "56805123"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 

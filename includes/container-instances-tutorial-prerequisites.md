@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: da63a5418ab94623f6ce3c9f35a085dd8b198d1a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 10fb9e8169b7f4159ccbf4a0ff36021f6033f811
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67182761"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552423"
 ---
 이 자습서를 완료하려면 다음 요구 사항을 충족해야 합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "67182761"
 
 **Docker**: 이 자습서에서는 컨테이너, 컨테이너 이미지 및 기본 `docker` 명령과 같은 핵심 Docker 개념에 대한 기본적인 지식이 있다고 가정합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요][docker-get-started]를 참조하세요.
 
-**Docker 엔진**: 이 자습서를 완료하려면 로컬에 Docker 엔진을 설치해야 합니다. Docker는 [macOS][docker-mac], [Windows][docker-windows] 및 [Linux][docker-linux]에서 Docker 환경을 구성하는 패키지를 제공합니다.
+**Docker**: 이 자습서를 완료하려면 Docker가 로컬로 설치되어 있어야 합니다. Docker는 [macOS][docker-mac], [Windows][docker-windows] 및 [Linux][docker-linux]에서 Docker 환경을 구성하는 패키지를 제공합니다.
 
 > [!IMPORTANT]
 > Azure Cloud Shell에는 Docker 디먼이 포함되어 있지 않으므로 이 자습서를 완료하려면 *반드시* *로컬 컴퓨터*에 Azure CLI와 Docker 엔진을 모두 설치해야 합니다. 이 자습서에는 Azure Cloud Shell을 사용할 수 없습니다.

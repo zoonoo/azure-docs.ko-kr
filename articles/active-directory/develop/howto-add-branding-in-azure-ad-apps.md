@@ -1,5 +1,5 @@
 ---
-title: Azure AD 앱 브랜딩 지침
+title: 앱 브랜딩 지침 | Azure
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ad786429eb23b51cc2da5da5d8af11d19985c9a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d130bfb055b41ea3d2726c83c06430a0ea58fe98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424562"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
@@ -69,7 +69,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 ![Microsoft 로고 및 텍스트 "내 조직에 추가"를 표시하는 단추](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예:
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 다음은 그 예입니다.
 
 > *이미 Office 365 또는Microsoft의 다른 비즈니스 서비스를 사용하는 경우 조직의 데이터에 대한 <your_app_name> 액세스 권한을 부여하면 됩니다. 이렇게 하면 사용자들이 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 

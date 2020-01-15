@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 샘플 | Microsoft Docs
-description: Azure PowerShell 샘플
+title: Azure PowerShell 샘플
+description: 확장 집합 만들기 및 관리와 같이 Azure PowerShell을 사용하여 빌드된 샘플 bash 스크립트에 대한 링크가 포함된 테이블입니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3727d2db375847c8df0a96d5721ea3135584eeec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a0a5939d1b64d93d4dbcc40b2639e3f3ac1a33be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976251"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369136"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대한 Azure PowerShell 샘플입니다.
 
@@ -43,4 +43,4 @@ ms.locfileid: "55976251"
 | | |
 
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]    

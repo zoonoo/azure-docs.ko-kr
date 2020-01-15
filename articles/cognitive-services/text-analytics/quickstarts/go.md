@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: d833293d094837c164da855aef197ad927c60ad7
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 03311cb873420f741ca0150dde59fb27eaa5d76f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286529"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378768"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Go를 사용하여 텍스트 분석 Cognitive Service 호출 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ ms.locfileid: "74286529"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -37,9 +37,9 @@ ms.locfileid: "74286529"
 
 언어 감지 API는 [언어 감지 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
+1. Text Analytics API 키와 엔드포인트를 코드에 복사합니다.
 1. '.go' 확장명으로 파일을 저장합니다.
 1. 루트 폴더에서 Go를 설치한 컴퓨터에서 명령 프롬프트를 엽니다.
 1. 파일을 빌드합니다(예: `go build detect.go`).
@@ -60,17 +60,9 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
-
+    
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     const uriPath = "/text/analytics/v2.1/languages"
 
     var uri = endpoint + uriPath
@@ -178,9 +170,9 @@ func main() {
 
 감정 분석 API는 [감정 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 다음 예제에서는 두 개의 문서(영어 문서와 스페인어 문서 각 1개)에 점수를 매깁니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다.
 1. '.go' 확장명으로 파일을 저장합니다.
 1. 루트 폴더에서 Go를 설치한 컴퓨터에서 명령 프롬프트를 엽니다.
 1. 파일을 빌드합니다(예: `go build sentiment.go`).
@@ -201,16 +193,8 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
 
     const uriPath = "/text/analytics/v2.1/sentiment"
 
@@ -294,9 +278,9 @@ func main() {
 
 핵심 구 추출 API는 [핵심 구 메서드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 다음 예제에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
+1. Text Analytics 키와 엔드포인트를 코드에 복사합니다.
 1. '.go' 확장명으로 파일을 저장합니다.
 1. Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
 1. 파일을 빌드합니다(예: `go build key-phrases.go`).
@@ -317,16 +301,8 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     
     const uriPath = "/text/analytics/v2.1/keyPhrases"
 
@@ -430,7 +406,6 @@ func main() {
 
 엔터티 API는 [엔터티 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. [엔터티](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)는 텍스트에서 "United States"와 같은 단어를 추출한 다음, 이 단어에 대한 형식 및/또는 Wikipedia 링크를 제공합니다. "United States"에 대한 형식은 `location`이고, Wikipedia에 대한 링크는 `https://en.wikipedia.org/wiki/United_States`입니다.  다음 예제에서는 영어 문서의 엔터티를 식별합니다.
 
-1. 리소스의 Azure 엔드포인트 및 구독 키에 대한 환경 변수 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 및 `TEXT_ANALYTICS_ENDPOINT`를 만듭니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 환경 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
 1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
 1. '.go' 확장명으로 파일을 저장합니다.
@@ -453,16 +428,9 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     
     const uriPath = "/text/analytics/v2.1/entities"
 

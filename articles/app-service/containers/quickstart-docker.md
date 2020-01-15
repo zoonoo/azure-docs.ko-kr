@@ -5,18 +5,18 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 62e6b007e89fc6be726d3d971ca838770db9cb6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422145"
 ---
 # <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Azure App Service에 사용자 지정 Linux 컨테이너 배포
 
 App Service on Linux는 .NET, PHP, Node.js 등의 언어 지원을 통해 Linux에서 미리 정의된 애플리케이션 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 애플리케이션 스택에 웹앱을 실행할 수도 있습니다. 이 빠른 시작에서는 ACR([Azure Container Registry](/azure/container-registry))에서 App Service로 이미지를 배포하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure 계정](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)
@@ -26,7 +26,7 @@ App Service on Linux는 .NET, PHP, Node.js 등의 언어 지원을 통해 Linux�
 
 ## <a name="create-an-image"></a>이미지 만들기
 
-이 빠른 시작을 완료하려면 적합한 웹앱 이미지가 [Azure Container Registry](/azure/container-registry)에 저장되어 있어야 합니다. [빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기](/azure/container-registry/container-registry-get-started-portal)의 명령을 따르되, `hello-world` 이미지 대신 `mcr.microsoft.com/azuredocs/go` 이미지를 사용합니다.
+이 빠른 시작을 완료하려면 적합한 웹앱 이미지가 [Azure Container Registry](/azure/container-registry)에 저장되어 있어야 합니다. [빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기](/azure/container-registry/container-registry-get-started-portal)의 명령을 따르되, `hello-world` 이미지 대신 `mcr.microsoft.com/azuredocs/go` 이미지를 사용합니다. 참고로 [샘플 Dockerfile은 Azure 샘플 리포지토리에 있습니다](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > 컨테이너 레지스트리를 만들 때 **관리 사용자** 옵션을 **사용**으로 설정해야 합니다. Azure Portal 레지스트리 페이지의 **액세스 키** 섹션에서 설정할 수도 있습니다. 이 설정은 App Service 액세스에 필요합니다.

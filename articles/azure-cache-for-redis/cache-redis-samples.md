@@ -1,18 +1,17 @@
 ---
 title: Azure Cache for Redis 샘플
-description: Azure Cache for Redis를 사용하는 방법을 알아봅니다.
+description: 캐시에 연결, 캐시에서 읽기 및 쓰기, ASP.NET Azure Cache for Redis 공급자와 같은 코드 샘플에서 Azure Cache for Redis를 사용하는 방법에 대해 알아봅니다.
 author: yegu-ms
-ms.service: cache
-ms.devlang: multiple
-ms.topic: conceptual
-ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 9097a25c0223faebd91fe3c01ff3edea6c4e6f9f
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
-ms.translationtype: MT
+ms.service: cache
+ms.topic: sample
+ms.date: 01/23/2017
+ms.openlocfilehash: 8057a7db3d1a2db0e51ec15e4966ed0b31c84226
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122608"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433397"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Azure Cache for Redis 샘플
 이 항목에서는 캐시에 연결, 캐시에서 데이터 읽기 및 쓰기, ASP.NET Azure Cache for Redis 공급자 사용과 같은 시나리오를 다루는 Azure Cache for Redis 샘플 목록을 제공합니다. 일부 샘플은 다운로드 가능한 프로젝트이고, 일부 샘플은 단계별 지침을 제공하며 코드 조각을 포함하지만 다운로드 가능한 프로젝트에 연결되지 않습니다.
@@ -62,4 +61,3 @@ ms.locfileid: "74122608"
 
 ## <a name="bandwidth-monitor"></a>대역폭 모니터
 [대역폭 모니터](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 샘플을 사용하면 클라이언트에서 사용 되는 대역폭을 모니터링할 수 있습니다. 대역폭을 측정하려면 캐시 클라이언트 컴퓨터에서 샘플을 실행하고, 캐시를 호출하고, 대역폭 모니터 샘플에서 보고하는 대역폭을 관찰합니다.
-

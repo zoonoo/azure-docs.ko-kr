@@ -7,12 +7,12 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0a6d7ce8f1f6b81c3dbae3d41842345be5d2e551
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 089cda74740d3934c76a3b0ca8803a30654feccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422032"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465107"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -29,11 +29,11 @@ JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사
 * 로컬 컴퓨터에 blob 다운로드
 * 컨테이너 삭제
 
-[API 참조 설명서](/javascript/api/@azure/storage-blob) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [패키지(Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+[API 참조 설명서](/javascript/api/@azure/storage-blob) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [패키지(Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -114,7 +114,7 @@ npm install
 
 1. 새 파일을 *blob-quickstart-v12* 디렉터리에 *blob-quickstart-v12.js*로 저장합니다.
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>개체 모델
 
@@ -154,11 +154,11 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 ```javascript
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable is
-// created after the application is launched in a console or with Visual Studio,
-// the shell or application needs to be closed and reloaded to take the
-// environment variable into account.
-const CONNECT_STR = process.env.CONNECT_STR;
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the
+// environment variable is created after the application is launched in a
+// console or with Visual Studio, the shell or application needs to be closed
+// and reloaded to take the environment variable into account.
+const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
 ### <a name="create-a-container"></a>컨테이너 만들기
@@ -174,7 +174,7 @@ const CONNECT_STR = process.env.CONNECT_STR;
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -308,16 +308,16 @@ Deleting container...
 Done
 ```
 
-디버거에서 코드를 단계별로 실행하고 프로세스 전체에서 Azure Portal를 확인합니다. 컨테이너가 생성되고 있는지 확인합니다. 컨테이너 내에서 blob을 열고 콘텐츠를 볼 수 있습니다.
+디버거에서 코드를 단계별로 실행하고 프로세스 전체에서 [Azure Portal](https://portal.azure.com)을 확인합니다. 컨테이너가 생성되고 있는지 확인합니다. 컨테이너 내에서 blob을 열고 콘텐츠를 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 JavaScript를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법을 배웠습니다.
 
-Blob 스토리지 샘플 앱을 보려면 다음을 계속 진행합니다.
+자습서, 샘플, 빠른 시작 및 기타 설명서는 다음을 방문하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Blob 스토리지 SDK v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+> [JavaScript용 Azure 설명서](/azure/javascript/)
 
-* 자세한 내용은 [JavaScript용 Azure SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md)를 참조하세요.
-* 자습서, 샘플, 빠른 시작 및 기타 설명서는 [JavaScript용 Azure SDK 설명서](/azure/javascript/)를 참조하세요.
+* 자세한 내용은 [JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)를 참조하세요.
+* Blob 스토리지 샘플 앱을 보려면 [Azure Blob 스토리지 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 계속 진행하세요.

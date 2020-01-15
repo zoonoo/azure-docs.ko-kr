@@ -1,20 +1,22 @@
 ---
-title: Azure Notebooks를 사용하여 GitHub에서 Jupyter 노트 복제
+title: Azure Notebooks 미리 보기를 사용하여 GitHub에서 Jupyter Notebook 복제
 description: GitHub 리포지토리에서 Jupyter 노트를 신속하게 복제하고 Azure Notebooks 계정에서 실행합니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 500bd3f85409bb2f5e7b73be0478694695cc9c00
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8aa88008ece170a5eed7ab491e3318aed5168923
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277517"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647104"
 ---
-# <a name="quickstart-clone-a-notebook"></a>빠른 시작: Notebook 복제
+# <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 복제
 
 많은 데이터 과학자와 개발자는 여러 다른 프로젝트 형식에 대한 스토리지 및 버전 제어를 제공하는 무료 서비스인 [GitHub 리포지토리](https://github.com)에 노트를 저장합니다. GitHub는 로컬로 실행되는 Jupyter 노트에 대해 공동 작업을 수행하는 수단으로 자주 사용됩니다. 이러한 경우 모든 협력자는 리포지토리의 로컬 복사본을 유지 관리하고 해당 복사본에서 노트를 실행합니다.
 
 복제를 수행하면 대신, Azure Notebooks 계정에 GitHub 노트 복사본이 만들어집니다. 이 클론은 원본 리포지토리와는 별개이며, 변경 내용은 Azure Notebooks 계정에만 저장되고 원본에는 영향을 주지 않습니다. 클론이 클라우드에 있으므로 로컬 복사본을 만들 필요가 없거나 자신의 컴퓨터에 Jupyter를 설치하지 않은 다른 공동 작업자와 프로젝트를 공유할 수 있습니다. 또한 노트를 단순히 나만의 프로젝트 시작점으로 사용하거나 데이터 파일을 획득하기 위해 복제할 수도 있습니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Azure Cognitive Services 노트 복제
 

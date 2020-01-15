@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfe51558cf96e77288186c2ed2b4a2773cbc5cf2
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: ee241c9b4d26377931e828df60db1c50a9c86b84
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829870"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940879"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -153,8 +153,11 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
   - [사용자 업데이트 [다중 값 속성]](#update-user-multi-valued-properties) ([요청](#request-4) /  [응답](#response-4))
   - [사용자 업데이트 [단일 값 속성]](#update-user-single-valued-properties) ([요청](#request-5)
 / [응답](#response-5)) 
+  - [사용자 사용 안 함](#disable-user) ([요청](#request-14) / 
+[응답](#response-14))
   - [사용자 삭제](#delete-user) ([요청](#request-6) / 
 [응답](#response-6))
+
 
 [그룹 작업](#group-operations)
   - [그룹 만들기](#create-group) ( [요청](#request-7) / [응답](#response-7))
@@ -435,6 +438,60 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
+### <a name="disable-user"></a>사용자 사용 안 함
+
+##### <a name="request-14"></a>요구
+
+*PATCH/Users/5171a35d82074e068ce2 HTTP/1.1*
+```json
+{
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "active",
+            "value": false
+        }
+    ],
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ]
+}
+```
+
+##### <a name="response-14"></a>응답이
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "id": "CEC50F275D83C4530A495FCF@834d0e1e5d8235f90a495fda",
+    "userName": "deanruiz@testuser.com",
+    "name": {
+        "familyName": "Harris",
+        "givenName": "Larry"
+    },
+    "active": false,
+    "emails": [
+        {
+            "value": "gloversuzanne@testuser.com",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "addresses": [
+        {
+            "country": "ML",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "meta": {
+        "resourceType": "Users",
+        "location": "/scim/5171a35d82074e068ce2/Users/CEC50F265D83B4530B495FCF@5171a35d82074e068ce2"
+    }
+}
+```
 #### <a name="delete-user"></a>사용자 삭제
 
 ##### <a name="request-6"></a>요구

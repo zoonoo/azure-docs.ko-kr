@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699008"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372094"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure Storage에서 대량의 임의 데이터 다운로드
 
@@ -25,7 +25,7 @@ ms.locfileid: "68699008"
 > * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 이전 스토리지 자습서: [Azure Storage에 대량의 임의 데이터를 병렬로 업로드][previous-tutorial]를 완료해야 합니다.
 
@@ -98,7 +98,7 @@ dotnet run
 애플리케이션은 **storageconnectionstring**에 지정된 스토리지 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
 다음 표에서는 다운로드된 각 Blob에 대해 정의된 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions)를 보여 줍니다.
 
-|자산|값|설명|
+|속성|값|Description|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| 이 속성은 업로드된 콘텐츠의 MD5 해시를 검사하지 않도록 설정합니다. MD5 유효성 검사를 사용하지 않으면 더 빠른 전송이 생성됩니다. 그러나 전송 중인 파일의 유효성 또는 무결성을 확인하지 않습니다. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| 이 속성은 MD5 해시를 계산하고 저장할지를 결정합니다.   |

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 00ab92effbc5167d8bca3242e55d566c71209ac4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e5aa41023e1d7f84e8de095d13835d5ebdf66f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434865"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>자습서: Azure IoT Central 애플리케이션에서 새 Azure IoT Edge 디바이스 유형 정의(미리 보기 기능)
 
@@ -47,7 +47,7 @@ IoT Edge는 다음 세 가지 구성 요소로 구성됩니다.
 * 다른 디바이스 기능 모델과의 관계를 허용합니다.
 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 새 Azure IoT Edge 디바이스 템플릿 만들기
@@ -57,7 +57,7 @@ IoT Edge는 다음 세 가지 구성 요소로 구성됩니다.
 > * 다운스트림 디바이스 템플릿에 관계 추가
 > * 디바이스 템플릿을 게시합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 [Azure IoT Central 애플리케이션을 만들어야 합니다](quick-deploy-iot-central.md).
 
@@ -293,8 +293,8 @@ IoT Edge 디바이스를 게이트웨이 디바이스로 선택한 경우 게이
 
     | 표시 이름      | 의미 체계 유형 | 스키마 |
     | ----------------- | ------------- | ------ |
-    | 마지막 서비스 날짜 | 없음          | Date   |
-    | 고객 이름     | 없음          | 문자열 |
+    | 마지막 서비스 날짜 | None          | Date   |
+    | 고객 이름     | None          | String |
 
 2. **저장**을 선택합니다.
 
@@ -303,7 +303,7 @@ IoT Edge 디바이스를 게이트웨이 디바이스로 선택한 경우 게이
 
 ### <a name="add-customizations"></a>사용자 지정 추가
 
-사용자 지정을 사용하여 인터페이스를 수정하거나, IoT Central 관련 기능을 디바이스 기능 모델의 버전을 관리할 필요가 없는 기능에 추가합니다. 기능 모델이 초안 또는 게시 상태이면 필드를 사용자 지정할 수 있습니다. 인터페이스 호환성이 손상되지 않는 필드만 사용자 지정할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
+사용자 지정을 사용하여 인터페이스를 수정하거나, IoT Central 관련 기능을 디바이스 기능 모델의 버전을 관리할 필요가 없는 기능에 추가합니다. 기능 모델이 초안 또는 게시 상태이면 필드를 사용자 지정할 수 있습니다. 인터페이스 호환성이 손상되지 않는 필드만 사용자 지정할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
 
 - 기능의 표시 이름과 단위를 사용자 지정합니다.
 - 값이 차트에 표시될 때 사용할 기본 색을 추가합니다.
@@ -387,7 +387,7 @@ IoT Edge 디바이스를 게이트웨이 디바이스로 선택한 경우 게이
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 * 새 에지를 리프 디바이스 템플릿으로 만듭니다.
 * 업로드된 배포 매니페스트에서 모듈을 생성합니다.
@@ -400,4 +400,4 @@ IoT Edge 디바이스를 게이트웨이 디바이스로 선택한 경우 게이
 이제 Azure IoT Central 애플리케이션에서 디바이스 템플릿을 만들었으므로 다음을 수행할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [디바이스 연결](./tutorial-connect-pnp-device.md)
+> [에지 디바이스 연결](./tutorial-add-edge-as-leaf-device.md)

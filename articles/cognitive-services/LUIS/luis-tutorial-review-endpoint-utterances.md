@@ -1,7 +1,7 @@
 ---
 title: '자습서: 엔드포인트 발화 검토 - LUIS'
 titleSuffix: Azure Cognitive Services
-description: LUIS에서 알 수 없는 LUIS HTTP 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
+description: 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTP 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0a4d2a3345ce4f69d4492d1a782b778b1ee3bf4c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895657"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447810"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTPS 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 예약된 LUIS 유지 관리의 일반적인 부분으로 엔드포인트 발화를 검토해야 합니다.
@@ -29,13 +29,11 @@ ms.locfileid: "74895657"
 
 엔드포인트 발언을 검토하여 발언의 예측된 의도를 확인하거나 수정합니다.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 앱 가져오기 예제
+> * 예제 앱 가져오기
 > * 엔드포인트 utterances 검토
 > * 앱 학습 및 게시
 > * 앱의 엔드포인트를 쿼리하여 LUIS JSON 응답 확인
@@ -46,7 +44,7 @@ ms.locfileid: "74895657"
 
 다음 단계를 사용하여 앱을 가져옵니다.
 
-1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true)을 다운로드하고 저장합니다.
 
 1. [미리 보기 LUIS 포털](https://preview.luis-ai)에서 .json 파일을 새 앱으로 가져옵니다.
 

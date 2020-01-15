@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 8c96bea6fc55d45a7e2d790f355f6fe19323029d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 1039b72d5834ff837bcddd34d1d2c518364f96ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803451"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447630"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>빠른 시작: Go를 사용하여 QnA Maker 기술 자료 만들기
 
-이 빠른 시작에서는 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의됩니다. 
+이 빠른 시작에서는 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의되어 있습니다.
 
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
-* [KB 만들기](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [KB 만들기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [작업 세부 정보 가져오기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+
+[참조 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [GO 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Go 1.10.1](https://golang.org/dl/)
 * [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
-
-[샘플 코드](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)는 Go가 포함된 QnA Maker GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="create-a-knowledge-base-go-file"></a>기술 자료 Go 파일 만들기
 
@@ -45,7 +45,12 @@ ms.locfileid: "71803451"
 [!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=1-11 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>필요한 상수 추가
-앞서의 필요한 종속성 뒤에 QnA Maker에 액세스하는 데 필요한 상수를 추가합니다. `subscriptionKey` 변수의 값을 사용자 고유의 QnA Maker 키로 바꿉니다.
+앞서의 필요한 종속성 뒤에 QnA Maker에 액세스하는 데 필요한 상수를 추가합니다.
+
+다음 값을 설정합니다.
+
+* `<your-qna-maker-subscription-key>` - **키**는 32자 문자열이며 빠른 시작 페이지의 Azure Portal, QnA Maker 리소스에서 사용할 수 있습니다. 이는 예측 엔드포인트 키와 동일하지 않습니다.
+* `{your-resource-name}` - **리소스 이름**은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` 형식으로 제작하기 위한 제작 엔드포인트 URL을 구성하는 데 사용됩니다. 이는 예측 엔드포인트를 쿼리하는 데 사용되는 URL과 동일하지 않습니다.
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=13-20 "Add the required constants")]
 
@@ -66,17 +71,17 @@ ms.locfileid: "71803451"
 
     [!code-go[Add the POST method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=51-66 "Add the POST method")]
 
-3. QnA Maker API에 대한 GET을 처리하는 다음 메서드를 추가합니다. 이 빠른 시작에서 GET은 만들기 작업의 상태를 확인하는 데 사용됩니다. 
+3. QnA Maker API에 대한 GET을 처리하는 다음 메서드를 추가합니다. 이 빠른 시작에서 GET은 만들기 작업의 상태를 확인하는 데 사용됩니다.
 
     [!code-go[Add the GET method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=68-83 "Add the GET method")]
 
 ## <a name="add-function-to-create-kb"></a>KB를 만드는 함수 추가
 
-기술 자료를 만들도록 HTTP POST 요청을 하는 다음 함수를 추가합니다. POST 응답 헤더 필드 중 **Location**에 _create_ **Operation ID**가 반환되며, GET 요청시 경로의 일부에 사용됩니다. `Ocp-Apim-Subscription-Key`는 인증에 사용되는 QnA Maker 서비스 키입니다. 
+기술 자료를 만들도록 HTTP POST 요청을 하는 다음 함수를 추가합니다. _만들기_ **Operation ID**는 POST 응답 헤더 필드 **Location**에 반환된 다음, GET 요청의 경로로 사용됩니다. `Ocp-Apim-Subscription-Key`는 인증에 사용되는 QnA Maker 서비스 키입니다.
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 
-다음 API 호출은 작업 ID를 포함한 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다. 
+다음 API 호출은 작업 ID를 포함한 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다.
 
 ```JSON
 {
@@ -90,11 +95,11 @@ ms.locfileid: "71803451"
 
 ## <a name="add-function-to-get-status"></a>상태를 가져오는 함수 추가
 
-작업 상태를 확인하도록 HTTP GET 요청을 하는 다음 함수를 추가합니다. `Ocp-Apim-Subscription-Key`는 인증에 사용되는 QnA Maker 서비스 키입니다. 
+작업 상태를 확인하도록 HTTP GET 요청을 하는 다음 함수를 추가합니다. `Ocp-Apim-Subscription-Key`는 인증에 사용되는 QnA Maker 서비스 키입니다.
 
 [!code-go[Add the check_status method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=99-108 "Add the check_status method")]
 
-성공하거나 실패할 때까지 호출을 반복합니다. 
+성공하거나 실패할 때까지 호출을 반복합니다.
 
 ```JSON
 {
@@ -128,9 +133,9 @@ go build create-new-knowledge-base.go
 go run create-new-knowledge-base
 ```
 
-기술 자료가 생성되면 QnA Maker 포털의 [내 기술 자료](https://www.qnamaker.ai/Home/MyServices) 페이지에서 볼 수 있습니다. 
+기술 자료가 생성되면 QnA Maker 포털의 [내 기술 자료](https://www.qnamaker.ai/Home/MyServices) 페이지에서 볼 수 있습니다.
 
-[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

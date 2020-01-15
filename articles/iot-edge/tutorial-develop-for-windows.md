@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 55ae542ed0490248d501cd7c4f50c0a7ba32091a
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707081"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665189"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -24,7 +24,7 @@ Visual Studio를 사용하여 IoT Edge를 실행하는 코드를 개발하고 Wi
 
 이 자습서에서는 **Windows 디바이스에 C# 모듈**을 배포하는 예제를 사용합니다. 이 예가 가장 일반적인 개발 시나리오이기 때문에 선택되었습니다. 다른 언어로 개발하거나 Azure 서비스를 모듈로 배포하려는 경우에도 이 자습서를 통해 개발 도구에 대해 자세히 알아볼 수 있습니다. 개발 개념을 이해하고 나면 기본 언어 또는 Azure 서비스를 선택하여 세부 정보를 자세히 살펴볼 수 있습니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 개발 머신을 설정합니다.
@@ -51,7 +51,7 @@ IoT Edge 모듈을 개발할 때 개발 머신과 모듈을 결과적으로 배�
 | **언어** | C#(디버깅이 지원되지 않음) | C <br> C# |
 | **자세한 정보** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 개발 머신:
 
@@ -158,7 +158,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
 1. 모듈 솔루션에서 **deployment.template.json** 파일을 엽니다.
 
-1. 원하는 $edgeAgent 속성에서 **registryCredentials** 속성을 찾아 올바른 정보가 포함되어 있는지 확인합니다.
+1. **registryCredentials** 속성을 $edgeAgent desired 속성에서 찾습니다. 프로젝트를 만들 때 제공한 정보에서 레지스트리 주소를 자동으로 채운 다음, 사용자 이름 및 암호 필드에 변수 이름을 포함해야 합니다. 다음은 그 예입니다. 
 
    ```json
    "registryCredentials": {
@@ -227,7 +227,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 ### <a name="build-and-push"></a>빌드 및 푸시
 

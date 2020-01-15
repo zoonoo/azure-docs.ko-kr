@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 6dd0734d39237545b7a9bc2553fcd9dea75b8ee0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3d3a1704b75de53bf65012329fba5f8522adff3a
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892813"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941759"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -46,11 +46,6 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 * LUW용 IBM DB2 10.5
 * LUW용 IBM DB2 10.1
 
-> [!TIP]
-> "SQL 문 실행 요청에 해당하는 패키지가 없습니다. SQLSTATE=51002 SQLCODE=-805"라는 오류 메시지가 수신되면 이러한 OS에서 필요한 패키지가 일반 사용자용으로 생성되지 않기 때문입니다. DB2 서버 유형에 따라 다음 지침을 수행합니다.
-> - i용 DB2(AS400): 고급 사용자가 복사 작업을 사용하기 전에 로그인 사용자의 컬렉션을 만들 수 있습니다. 명령: `create collection <username>`
-> - z/OS 또는 LUW용 DB2: 고급 권장 계정 사용 - 패키지 권한 및 BIND, BINDADD, GRANT EXECUTE TO PUBLIC 권한이 있는 고급 사용자 또는 관리자 - 복사 작업을 한 번 실행하기 위해 복사 중에 필요한 패키지가 자동으로 생성됩니다. 그 후에는 다시 일반 사용자로 전환하여 이후 복사 실행을 수행할 수 있습니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
@@ -75,9 +70,12 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 | authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic**입니다. |예 |
 | 사용자 이름 |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| packageCollection | 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지가 자동으로 생성 되는 위치를 지정 합니다. | 아닙니다. |
+| packageCollection | 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 자동으로 생성 하는 위치를 지정 합니다. | 아닙니다. |
 | certificateCommonName | SSL(Secure Sockets Layer) (SSL) 또는 TLS (전송 계층 보안) 암호화를 사용 하는 경우 인증서 일반 이름에 값을 입력 해야 합니다. | 아닙니다. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+
+> [!TIP]
+> `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`설명 하는 오류 메시지가 표시 되는 경우 사용자에 게 필요한 패키지가 만들어지지 않습니다. 기본적으로 ADF는 DB2에 연결 하는 데 사용한 사용자로 이름이 지정 된 패키지를 만들려고 시도 합니다. 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 만들 위치를 지정 하려면 패키지 컬렉션 속성을 지정 합니다.
 
 **예:**
 

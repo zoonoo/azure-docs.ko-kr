@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 8c694cbd8d9386401b8ad26cf5ce6ce31e6b9bd9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 9cce221946a16103e706875e179c677190f32af1
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614923"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940800"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -251,6 +251,7 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 | 데이터베이스 복사 | 아직 데이터베이스 복사를 사용 하 여 Azure SQL Hyperscale에서 새 데이터베이스를 만들 수는 없습니다. |
 | TDE/AKV 통합 | Azure Key Vault를 사용 하는 투명 한 데이터베이스 암호화 (일반적으로 사용자 지정 키 또는 BYOK 라고도 함)는 Azure SQL Database Hyperscale에 대해 아직 지원 되지 않지만 서비스 관리 키를 사용 하는 TDE는 완전히 지원 됩니다. |
 |Intelligent Database 기능 | "강제 계획" 옵션을 제외 하 고 다른 모든 자동 조정 옵션은 Hyperscale에서 아직 지원 되지 않습니다. 옵션은 사용 하도록 설정 된 것 처럼 보일 수 있지만 권장 사항이 나 작업은 적용 되지 않습니다. |
+|Query Performance Insight | 쿼리 성능 정보는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. |
 | 데이터베이스 축소 | DBCC SHRINKDATABASE 또는 DBCC SHRINKFILE는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. |
 | 데이터베이스 무결성 검사 | DBCC CHECKDB는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. Azure SQL Database의 데이터 무결성 관리에 대 한 자세한 내용은 [Azure SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) 을 참조 하세요. |
 

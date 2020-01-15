@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure AD 권한 관리에서 첫 번째 액세스 패키지 만들기 - Azure Active Directory
+title: 자습서 - 액세스 패키지 만들기 - Azure AD 권한 관리
 description: Azure Active Directory 권한 관리에서 첫 번째 액세스 패키지를 만드는 방법에 대한 단계별 자습서입니다.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422666"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>자습서: Azure AD 권한 관리에서 첫 번째 액세스 패키지 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "73174866"
 
 ![시나리오 개요](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 그룹을 리소스로 사용하여 액세스 패키지 만들기
@@ -42,7 +42,7 @@ ms.locfileid: "73174866"
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
@@ -65,7 +65,7 @@ Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있�
 
 1. 다음 두 가지 사용자를 만들거나 구성합니다. 이 이름을 사용하거나 다른 이름을 사용할 수 있습니다. **Admin1**은 현재 로그인되어 있는 사용자일 수 있습니다.
 
-    | Name | 디렉터리 역할 |
+    | 속성 | 디렉터리 역할 |
     | --- | --- |
     | **Admin1** | 전역 관리자<br/>또는<br/>사용자 관리자 |
     | **Requestor1** | 사용자 |

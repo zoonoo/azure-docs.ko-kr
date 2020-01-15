@@ -1,26 +1,17 @@
 ---
-title: 자습서 - Azure Service Fabric Mesh에서 실행 중인 앱 크기 조정 | Microsoft Docs
+title: 자습서 - Azure Service Fabric Mesh에서 실행 중인 앱 크기 조정
 description: 이 자습서에서는 Service Fabric Mesh에서 실행 중인 애플리케이션에서 서비스 크기를 조정하는 방법을 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 31b1e7a777c65a270b7b08673fcd73a5ab63f11f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351817"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정
 
@@ -41,7 +32,7 @@ ms.locfileid: "58337768"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -71,7 +62,7 @@ az mesh service show --resource-group myResourceGroup --name ToDoService --app-n
 
 애플리케이션을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다.
 
-앞에서 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) 및 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 사용하여 애플리케이션을 배포했습니다.
+이전에 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)과 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 사용하여 애플리케이션을 배포했습니다.
 
 로컬로 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 열고 *frontEndReplicaCount* 값을 3으로, *serviceReplicaCount* 값을 2로 설정합니다.
 

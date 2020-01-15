@@ -2,19 +2,15 @@
 title: Azure Automation에 업데이트 및 변경 내용 추적 솔루션 등록
 description: Azure Automation에 업데이트 및 변경 내용 추적 솔루션을 등록하는 방법을 알아봅니다.
 services: automation
-ms.service: automation
-author: eamonoreilly
-ms.author: eamono
-manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372823"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421837"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Azure Automation에 업데이트 및 변경 내용 추적 솔루션 등록
 
@@ -27,7 +23,7 @@ ms.locfileid: "72372823"
 > * 온보딩 Runbook 가져오기
 > * Runbook을 시작합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -37,7 +33,7 @@ ms.locfileid: "72372823"
 
 ## <a name="onboard-an-azure-vm"></a>Azure VM 등록
 
-컴퓨터를 등록하는 여러 가지 방법이 있으며, [가상 머신](automation-onboard-solutions-from-vm.md), [여러 컴퓨터 검색](automation-onboard-solutions-from-browse.md) [Automation 계정](automation-onboard-solutions-from-automation-account.md) 또는 Runbook에서 솔루션을 등록할 수 있습니다. 이 자습서에서는 Runbook을 통해 업데이트 관리를 사용하도록 설정하는 과정을 안내합니다. Azure Virtual Machines를 규모에 맞게 등록하려면 변경 내용 추적 또는 업데이트 관리 솔루션으로 기존 VM을 등록해야 합니다. 이 단계에서는 가상 머신을 업데이트 관리 및 변경 내용 추적에 등록합니다.
+머신을 등록하는 여러 가지 방법이 있으며, [가상 머신](automation-onboard-solutions-from-vm.md), [여러 머신 검색](automation-onboard-solutions-from-browse.md), [Automation 계정](automation-onboard-solutions-from-automation-account.md) 또는 runbook에서 솔루션을 등록할 수 있습니다. 이 자습서에서는 Runbook을 통해 업데이트 관리를 사용하도록 설정하는 과정을 안내합니다. Azure Virtual Machines를 규모에 맞게 등록하려면 변경 내용 추적 또는 업데이트 관리 솔루션으로 기존 VM을 등록해야 합니다. 이 단계에서는 가상 머신을 업데이트 관리 및 변경 내용 추적에 등록합니다.
 
 ### <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -140,7 +136,7 @@ Automation 계정의 **공유 리소스** 아래에서 **모듈**을 선택합�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Virtual Machine을 수동으로 등록합니다.

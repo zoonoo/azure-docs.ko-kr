@@ -1,7 +1,7 @@
 ---
-title: 빠른 시작 - Azure Portal에서 가상 머신 확장 집합 만들기 | Microsoft Docs
-description: Azure Portal에서 가상 머신 확장 집합을 빠르게 만드는 방법 알아보기
-services: virtual-machine-scale-sets
+title: 빠른 시작 - Azure Portal에서 가상 머신 확장 집합 만들기
+description: 가상 머신을 신속하게 생성하여 Azure Portal을 확장하는 방법을 학습하여 배포를 시작합니다.
+services: virtual-machine-scale-sets.
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 1bbbef6d8037b819c557e1c7fc3fff6248507986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466354"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351134"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 
@@ -42,13 +42,13 @@ Azure [Load Balancer](../load-balancer/load-balancer-overview.md)는 들어오�
     | ---| ---|
     | Subscription  | 구독을 선택합니다.    |    
     | Resource group | **새로 만들기**를 선택하고 텍스트 상자에 *myVMSSResourceGroup*을 입력합니다.|
-    | Name           | *myLoadBalancer*         |
+    | 속성           | *myLoadBalancer*         |
     | 지역         | **미국 동부**를 선택합니다.       |
     | Type          | **공용**을 선택합니다.       |
     | SKU           | **표준**을 선택합니다.       |
     | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
     | 공용 IP 주소 이름  | *MyPip*   |
-    | 할당| 공용 |
+    | 할당| 정적 |
 
 1. 완료되면 **검토 + 만들기**를 선택합니다. 
 1. 유효성 검사를 통과하면 **만들기**를 선택합니다. 

@@ -1,18 +1,16 @@
 ---
 title: Azure Site Recovery를 사용 하 여 SAP NetWeaver 재해 복구 설정
-description: 이 문서에서는 Azure Site Recovery를 사용하여 SAP NetWeaver 애플리케이션 배포를 위한 재해 복구를 설정하는 방법에 대해 설명합니다.
-author: carmonmills
+description: Azure Site Recovery를 사용 하 여 SAP NetWeaver에 대 한 재해 복구를 설정 하는 방법을 알아봅니다.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 3ae9a92a27da1b736bf9db6dff88660f7d40143b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: eeb85e97d653b0faac171e2986cb933fc41e6606
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934453"
+ms.locfileid: "75940678"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
 
@@ -62,28 +60,28 @@ Site Recovery를 배포하기 전에 위와 같은 인프라를 구현하는 것
 DR(재해 복구)의 경우 장애 조치를 보조 지역으로 수행할 수 있어야 합니다. 각 계층은 서로 다른 전략을 사용하여 재해 복구(DR) 보호를 제공합니다.
 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>SAP Web Dispatcher 풀을 실행하는 VM 
-Web Dispatcher 구성 요소가 SAP 애플리케이션 서버 간의 SAP 트래픽을 위한 부하 분산 장치로 사용됩니다. Web Dispatcher 구성 요소의 고가용성을 달성하기 위해 Azure Load Balancer를 사용하여 분산 풀에서 사용할 수 있는 Web Dispatcher 간에 HTTP(S) 트래픽 분산에 대한 라운드 로빈 구성에서 병렬 Web Dispatcher 설정을 구현합니다. ASR(Azure Site Recovery)을 사용하여 복제되며, 자동화 스크립트는 재해 복구 영역에서 부하 분산 장치를 구성하는 데 사용됩니다. 
+Web Dispatcher 구성 요소가 SAP 애플리케이션 서버 간의 SAP 트래픽을 위한 부하 분산 장치로 사용됩니다. Web Dispatcher 구성 요소의 고가용성을 달성하기 위해 Azure Load Balancer를 사용하여 분산 풀에서 사용할 수 있는 Web Dispatcher 간에 HTTP(S) 트래픽 분산에 대한 라운드 로빈 구성에서 병렬 Web Dispatcher 설정을 구현합니다. 이는 Site Recovery를 사용 하 여 복제 되 고 자동화 스크립트는 재해 복구 지역에서 부하 분산 장치를 구성 하는 데 사용 됩니다. 
 
 #### <a name="vms-running-application-servers-pool"></a>애플리케이션 서버 풀을 실행하는 VM
-ABAP 애플리케이션 서버에 대한 로그온 그룹을 관리하기 위해 SMLG 트랜잭션이 사용됩니다. Central Services의 메시지 서버 내에서 부하 분산 기능을 사용하여 SAPGUI 및 RFC 트래픽용 SAP 애플리케이션 서버 풀 간의 워크로드를 분산합니다. Azure Site Recovery를 사용하여 복제 
+ABAP 애플리케이션 서버에 대한 로그온 그룹을 관리하기 위해 SMLG 트랜잭션이 사용됩니다. Central Services의 메시지 서버 내에서 부하 분산 기능을 사용하여 SAPGUI 및 RFC 트래픽용 SAP 애플리케이션 서버 풀 간의 워크로드를 분산합니다. Site Recovery를 사용 하 여 복제 됩니다.
 
 #### <a name="vms-running-sap-central-services-cluster"></a>SAP Central Services 클러스터를 실행하는 VM
 이 참조 아키텍처는 애플리케이션 계층의 VM에서 Central Services를 실행합니다. 단일 VM에 배포하는 경우(고가용성이 요구 사항이 아닌 경우의 일반적인 배포) Central Services는 잠재적인 SPOF(단일 실패 지점)입니다.<br>
 
 고가용성 솔루션을 구현하려면 공유 디스크 클러스터 또는 파일 공유 클러스터 중 하나를 사용할 수 있습니다. 공유 디스크 클러스터에 대해 VM을 구성하려면 Windows Server 장애 조치(failover) 클러스터를 사용합니다. 클라우드 감시는 쿼럼 감시로 사용하는 것이 좋습니다. 
  > [!NOTE]
- > Azure Site Recovery는 클라우드 감시를 복제하지 않으므로 재해 복구 지역에서 클라우드 감시를 배포하는 것이 좋습니다.
+ > Site Recovery는 클라우드 감시를 복제 하지 않으므로 재해 복구 지역에 클라우드 감시를 배포 하는 것이 좋습니다.
 
 장애 조치 클러스터 환경을 지원하기 위해 [SIOS DataKeeper 클러스터 버전](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)에서 클러스터 노드가 소유한 독립 디스크를 복제하여 클러스터 공유 볼륨 기능을 수행합니다. Azure는 기본적으로 공유 디스크를 지원하지 않으므로 SIOS에서 제공하는 솔루션이 필요합니다. 
 
 클러스터링을 처리하는 또 다른 방법은 파일 공유 클러스터를 구현하는 것입니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. 이 작업은 Central Services 인스턴스에서 Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(스토리지 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용하여 수행할 수 있습니다. 
  > [!NOTE]
- > 현재는 SIOS Datakeeper의 저장소 공간 다이렉트 및 수동 노드를 사용 하 여 가상 컴퓨터의 크래시 일관성 지점 복제만 지원 Azure Site Recovery
+ > 현재는 SIOS Datakeeper의 저장소 공간 다이렉트 및 수동 노드를 사용 하 여 가상 컴퓨터의 크래시 일관성 지점 복제만 지원 Site Recovery
 
 
 ## <a name="disaster-recovery-considerations"></a>재해 복구 고려 사항
 
-Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 장애 조치(failover)를 오케스트레이션할 수 있습니다.
+Site Recovery를 사용 하 여 Azure 지역에서 전체 SAP 배포의 장애 조치를 오케스트레이션 할 수 있습니다.
 재해 복구를 설정하기 위한 단계는 아래와 같습니다. 
 
 1. 가상 머신 복제 
@@ -97,9 +95,9 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
  **SAP 계층** | **권장**
  --- | ---
-**SAP Web Dispatcher 풀** |  Site Recovery를 사용하여 복제 
-**SAP 애플리케이션 서버 풀** |  Site Recovery를 사용하여 복제 
-**SAP Central Services 클러스터** |  Site Recovery를 사용하여 복제 
+**SAP Web Dispatcher 풀** |  Site Recovery를 사용 하 여 복제 
+**SAP 애플리케이션 서버 풀** |  Site Recovery를 사용 하 여 복제 
+**SAP Central Services 클러스터** |  Site Recovery를 사용 하 여 복제 
 **Active Directory 가상 머신** |  Active Directory 복제 
 **SQL Database 서버** |  SQL Always On 복제
 
@@ -133,7 +131,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 애플리케이션이 제대로 작동하려면 장애 조치(failover) 후에 또는 테스트 장애 조치(failover) 중에 Azure 가상 머신에서 일부 작업을 수행해야 할 수 있습니다. 일부 장애 조치(failover) 사후 작업은 자동화할 수 있습니다. 예를 들어, 복구 계획에 해당 스크립트를 추가하여 DNS 항목을 업데이트하고 바인딩과 연결을 변경할 수 있습니다.
 
 
-아래 ‘Azure로 배포’ 단추를 클릭하면 가장 일반적으로 사용되는 Azure Site Recovery 스크립트를 Automation 계정에 배포할 수 있습니다. 게시된 스크립트를 사용하는 경우 스크립트에 있는 지침을 따라야 합니다.
+아래의 ' Azure에 배포 ' 단추를 클릭 하 여 가장 일반적으로 사용 되는 Site Recovery 스크립트를 Automation 계정에 배포할 수 있습니다. 게시된 스크립트를 사용하는 경우 스크립트에 있는 지침을 따라야 합니다.
 
 [![Azure에 배포](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
@@ -164,5 +162,5 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 자세한 내용은 [Site Recovery에서 장애 조치(failover)](site-recovery-failover.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* Site Recovery를 사용하여 SAP NetWeaver 배포를 위한 재해 복구 솔루션을 빌드하는 방법을 자세히 알아보려면 백서 [SAP NetWeaver: Azure Site Recovery를 사용하여 재해 복구 솔루션 빌드](https://aka.ms/asr_sap)를 다운로드하여 참조하세요. 이 백서에서는 다양한 SAP 아키텍처의 권장 사항에 대해 설명하고, Azure의 SAP에서 지원되는 애플리케이션 및 VM 유형을 나열하며, 재해 복구 솔루션에서 사용할 수 있는 테스트 계획 옵션에 대해 설명합니다.
+* Site Recovery를 사용 하 여 SAP NetWeaver 배포에 대 한 재해 복구 솔루션을 구축 하는 방법에 대 한 자세한 내용은 다운로드 가능한 백서 [Sap NetWeaver: Site Recovery를 사용 하 여 재해 복구 솔루션 빌드](https://aka.ms/asr_sap)를 참조 하세요. 이 백서에서는 다양한 SAP 아키텍처의 권장 사항에 대해 설명하고, Azure의 SAP에서 지원되는 애플리케이션 및 VM 유형을 나열하며, 재해 복구 솔루션에서 사용할 수 있는 테스트 계획 옵션에 대해 설명합니다.
 * Site Recovery를 사용하여 [다른 워크로드를 복제](site-recovery-workload.md)하는 방법에 대해 알아봅니다.

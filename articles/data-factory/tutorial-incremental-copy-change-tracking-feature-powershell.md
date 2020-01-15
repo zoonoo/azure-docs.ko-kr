@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: de42acd9cb8ca0520db616237c23b7db9fadb77f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 666bd2f9575019f3bfb77050d27363fef66474bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439276"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 
@@ -69,7 +69,7 @@ ms.locfileid: "74923025"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 * **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
@@ -151,7 +151,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
-1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 
+1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -208,10 +208,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
-                    "type": "SecureString"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }
@@ -235,7 +232,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-azure-sql-database-linked-service"></a>Azure SQL Database 연결 서비스를 만듭니다.
 이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다.
 
-1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. 파일을 저장하기 전에 **&lt;server&gt; &lt;database name **, &lt;user id&gt; 및 &lt;password&gt;** 를 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다. 
+1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. 파일을 저장하기 전에 **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; 및 &lt;password&gt;** 를 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다. 
 
     ```json
     {
@@ -243,10 +240,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
-                    "type": "SecureString"
-                }
+                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
             }
         }
     }

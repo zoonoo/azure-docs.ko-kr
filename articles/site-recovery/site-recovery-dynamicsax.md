@@ -1,18 +1,16 @@
 ---
-title: Azure Site Recovery를 사용 하 여 다중 계층 Dynamics AX 배포에 대 한 재해 복구 Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Dynamics AX에 대한 재해 복구를 설정하는 방법을 설명합니다.
-author: carmonmills
+title: Azure Site Recovery를 사용 하 여 Dynamics AX의 재해 복구
+description: Azure Site Recovery를 사용 하 여 Dynamics AX에 대 한 재해 복구를 설정 하는 방법을 알아봅니다.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930179"
+ms.locfileid: "75941583"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정   
 
@@ -39,7 +37,7 @@ Site Recovery를 사용하여 Dynamics AX 애플리케이션을 위한 재해 �
 
 ## <a name="site-recovery-support"></a>Site Recovery 지원
 
-이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise에서 Dynamics AX 2012 R3가 있는 VMware 가상 머신이 사용되었습니다. Site Recovery 복제는 애플리케이션을 제한하지 않으므로 여기서 제시하는 권장 사항은 다음 시나리오에서도 유지됩니다.
+이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise에서 Dynamics AX 2012 R3가 있는 VMware 가상 머신이 사용되었습니다. Site Recovery 복제는 응용 프로그램을 독립적으로 사용할 수 있으므로 여기에서 제공 하는 권장 사항은 다음 시나리오에 대 한 것입니다.
 
 ### <a name="source-and-target"></a>원본 및 대상
 

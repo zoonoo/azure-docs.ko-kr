@@ -7,12 +7,12 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: be3dc27823c09823133d5b9a3a3f34afe52ec57d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0a9015e33f5456efeac7f7c887995ac4a69f0259
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227900"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941805"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob Storage를 사용하는 방법
 
@@ -28,18 +28,18 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 ## <a name="create-a-c-application"></a>C++ 애플리케이션 만들기
 이 가이드에서는 C++ 애플리케이션 내에서 실행할 수 있는 스토리지 기능을 사용합니다.  
 
-이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다.   
+이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 스토리지 계정을 만들어야 합니다.   
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
 * **Linux:** [추가 정보에 대 한 C++ Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) 에서 제공 하는 지침에 따라 Linux에서 시작 페이지 합니다.
-* **Windows:** Windows에서는 종속성 관리자로 [vcpkg](https://github.com/microsoft/vcpkg) 을 사용 합니다. Vcpkg를 초기화 하려면 [빠른 시작](https://github.com/microsoft/vcpkg#quick-start) 을 따르세요. 그런 다음, 다음 명령을 사용 하 여 라이브러리를 설치 합니다.
+* **Windows:** Windows에서는 종속성 관리자로 [vcpkg](https://github.com/microsoft/vcpkg) 을 사용 합니다. [빠른 시작](https://github.com/microsoft/vcpkg#quick-start)에 따라 vcpkg를 초기화합니다. 그런 후, 다음 명령을 사용하여 라이브러리를 설치합니다.
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-소스 코드를 빌드하고 [추가 정보](https://github.com/Azure/azure-storage-cpp#download--install) 파일에서 Nuget로 내보내는 방법에 대 한 지침을 찾을 수 있습니다.
+소스 코드를 빌드하고 [추가 정보](https://github.com/Azure/azure-storage-cpp#download--install) 파일에서 NuGet로 내보내는 방법에 대 한 지침을 찾을 수 있습니다.
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Blob Storage에 액세스하도록 애플리케이션 구성
 Azure Storage API를 사용하여 Blob에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
@@ -59,7 +59,7 @@ Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 �
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-로컬 Windows 컴퓨터에서 애플리케이션을 테스트 하려면 [Azure SDK](../storage-use-emulator.md)와 함께 설치된 Microsoft Azure [Storage 에뮬레이터](https://azure.microsoft.com/downloads/)를 사용할 수 있습니다. 스토리지 에뮬레이터는 로컬 개발 컴퓨터의Azure에서 사용할 수 있는 Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 스토리지 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.
+로컬 Windows 컴퓨터에서 애플리케이션을 테스트 하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Microsoft Azure [Storage 에뮬레이터](../storage-use-emulator.md)를 사용할 수 있습니다. 스토리지 에뮬레이터는 로컬 개발 컴퓨터의Azure에서 사용할 수 있는 Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 스토리지 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.

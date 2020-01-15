@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 - SQL(Core)용 Azure Cosmos DB 프로비저닝된 처리량 가져오기(RU/s) API
+title: Azure Cosmos DB SQL(Core) API에 대해 프로비저닝된 처리량(RU/s)을 가져오는 PowerShell 스크립트
 description: Azure PowerShell 스크립트 - SQL(Core)용 Azure Cosmos DB 프로비저닝된 처리량 가져오기(RU/s) API
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: c7d7f295589d4e3b152016c2b55cfe07355d1cb0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9b4450e18aa2666806faf2c0baed8af2285e69dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441342"
 ---
 # <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API용 데이터베이스 또는 컨테이너에 대한 프로비저닝된 처리량 가져오기(RU/s)
 

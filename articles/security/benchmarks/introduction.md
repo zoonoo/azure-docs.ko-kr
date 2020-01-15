@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 3169959250eb45346456c64e606f25efb0ea44f0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934222"
+ms.locfileid: "75945330"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Azure 보안 벤치 마크 소개
 
@@ -27,7 +27,7 @@ Azure 보안 벤치 마크에는 Azure에서 사용 하는 대부분의 서비�
 
 Azure 보안 벤치 마크 설명서는 보안 제어 및 서비스 권장 사항을 지정 합니다.
 
-- **보안 제어**: Azure 보안 벤치 마크 권장 사항은 보안 제어에 의해 분류 됩니다. 보안 제어는 네트워크 보안 및 데이터 보호와 같은 높은 수준의 공급 업체 독립적 보안 요구 사항을 나타냅니다. 각 보안 제어에는 이러한 권장 사항을 implment 하는 데 도움이 되는 일련의 보안 권장 사항 및 지침이 있습니다. 
+- **보안 제어**: Azure 보안 벤치 마크 권장 사항은 보안 제어에 의해 분류 됩니다. 보안 제어는 네트워크 보안 및 데이터 보호와 같은 높은 수준의 공급 업체 독립적 보안 요구 사항을 나타냅니다. 각 보안 제어에는 해당 권장 사항을 구현 하는 데 도움이 되는 보안 권장 사항 및 지침이 포함 되어 있습니다. 
 - **서비스 권장 사항**: 사용 가능한 경우 azure 서비스에 대 한 벤치 마크 권장 사항에는 해당 서비스에 맞게 특별히 조정 된 Azure 보안 벤치 마크 권장 사항이 포함 됩니다. 
 
 "제어", "벤치 마크" 및 "기준" 이라는 용어는 Azure 보안 벤치 마크 설명서에서 자주 사용 되며, Azure에서 이러한 용어를 사용 하는 방법을 이해 하는 것이 중요 합니다. 

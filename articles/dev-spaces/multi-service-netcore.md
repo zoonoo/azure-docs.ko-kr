@@ -3,14 +3,14 @@ title: '여러 종속 서비스 실행: .NET Core 및 Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
+description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 다중 서비스 .NET Core 애플리케이션을 디버깅하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 453cf1fdf2d37817d12ec32f2cba00b3671b1d11
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0bbb1aefe517c45207160b83b89f7207e8909666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438308"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>여러 종속 서비스 실행: Azure Dev Spaces가 포함된 .NET Core 및 Visual Studio Code
 

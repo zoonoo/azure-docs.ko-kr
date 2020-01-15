@@ -3,15 +3,15 @@ title: 'Kubernetes에서 디버그 및 반복: Visual Studio Code 및 Node.js'
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Azure에서 컨테이너, 마이크로서비스 및 Node.js를 사용하여 신속하게 Kubernetes 개발
+description: 이 빠른 시작에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Node.js 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8f3ffb6a539937b6d4a03b8fdc808c033c371697
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1b2101c5e7a59105b2c1da876e9a66294ce3a021
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438196"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>빠른 시작: Visual Studio Code 및 Node.js를 사용하여 Kubernetes에서 디버깅 및 반복 - Azure Dev Spaces
 
@@ -26,9 +26,9 @@ Azure Dev Spaces를 통해 다음을 사용하여 디버그하고 반복할 수�
 - [.NET Core 및 Visual Studio Code](quickstart-netcore.md)
 - [.NET Core 및 Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+- Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 - [Visual Studio Code 설치](https://code.visualstudio.com/download).
 - Visual Studio Code용 [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 확장 프로그램 설치.
 - [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -110,7 +110,7 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 *서버 시작*을 다시 실행하면 됩니다. 예:
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 *서버 시작*을 다시 실행하면 됩니다. 다음은 그 예입니다.
 
 1. 애플리케이션이 여전히 실행되는 경우 *디버그*를 클릭한 다음, *디버깅 중지*를 클릭하여 중지합니다.
 1. [`server.js`의 13줄](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13)을 다음으로 업데이트합니다.
@@ -148,7 +148,7 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 
 서비스가 시작되면 브라우저를 사용하여 서비스로 이동하여 상호 작용합니다.
 
-서비스가 실행되는 동안 VS Code로 돌아가서 `server.js`의 13줄을 업데이트합니다. 예:
+서비스가 실행되는 동안 VS Code로 돌아가서 `server.js`의 13줄을 업데이트합니다. 다음은 그 예입니다.
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```

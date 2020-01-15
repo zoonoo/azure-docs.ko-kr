@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 예제 - Batch | Microsoft Docs
-description: Batch 서비스에 대한 Azure CLI 예제
+title: Azure CLI 예제 - Batch
+description: Azure Batch 서비스에 대한 Azure CLI 예제. Batch 계정을 만들고 애플리케이션을 추가하는 방법에 대해 알아봅니다.
 services: batch
 documentationcenter: batch
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 01/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 026e6be7dec90da86e602ff23df2f7efdd067238
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ae16fc3dc8c273b201d7266f5afc252da3676ce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390278"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Azure Batch에 대한 Azure CLI 예제
 

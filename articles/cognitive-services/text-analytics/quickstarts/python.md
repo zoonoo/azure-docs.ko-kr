@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Python을 사용하여 텍스트 분석 API 호출'
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+description: 이 빠른 시작에서는 Azure Cognitive Services에서 Text Analytics API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 가져오는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 15f0cf7725dec99884497be79b63c21ef16f88b1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284982"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378554"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Python REST API를 사용하여 Text Analytics Cognitive Service 호출 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ ms.locfileid: "74284982"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 3.x](https://python.org)
 
@@ -49,20 +49,13 @@ import requests
 from pprint import pprint
 ```
 
-리소스의 Azure 엔드포인트 및 구독 키에 대한 변수를 만듭니다. 환경 변수 TEXT_ANALYTICS_SUBSCRIPTION_KEY 및 TEXT_ANALYTICS_ENDPOINT에서 이러한 값을 가져옵니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
+리소스의 Azure 엔드포인트 및 구독 키에 대한 변수를 만듭니다.
     
 ```python
 import os
 
-key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-if not key_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
-
-endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
-if not endpoint_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
-endpoint = os.environ[endpoint_var_name]
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 다음 섹션에서는 각 API 기능을 호출하는 방법을 설명합니다.

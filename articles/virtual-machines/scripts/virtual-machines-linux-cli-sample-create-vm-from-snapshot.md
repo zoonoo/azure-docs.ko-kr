@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - 스냅샷에서 VM 만들기
+title: 스냅샷에서 VM 만들기 - CLI 샘플
 description: Azure CLI 스크립트 샘플 - 스냅샷에서 VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 92f56ef06583bbd59509337352e1509b35b449a6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ffc1a735f743796b73c2b58353638dba7ed60985
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458462"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>CLI를 사용하여 스냅샷에서 가상 머신 만들기
 

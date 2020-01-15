@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Go용 Computer Vision 클라이언트 라이브러리 | Microsoft Docs'
+title: '빠른 시작: Go용 Computer Vision 클라이언트 라이브러리'
 titleSuffix: Azure Cognitive Services
-description: Go용 Computer Vision 클라이언트 라이브러리를 시작합니다.
+description: 이 빠른 시작을 통해 Go용 Computer Vision 클라이언트 라이브러리를 시작합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.author: pafarley
-ms.openlocfilehash: f05ef80d34d1c0635bdcdca244aacba6185565fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72943139"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382312"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>빠른 시작: Go용 Computer Vision 클라이언트 라이브러리
 
@@ -28,7 +28,7 @@ Go용 Computer Vision 클라이언트 라이브러리를 사용하여 다음을 
 
 [참조 설명서](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [패키지](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 최신 버전의 [Go](https://golang.org/dl/)
@@ -37,7 +37,7 @@ Go용 Computer Vision 클라이언트 라이브러리를 사용하여 다음을 
 
 ### <a name="create-a-computer-vision-azure-resource"></a>Computer Vision Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
@@ -99,7 +99,7 @@ touch sample-app.go
 
 다음은 Computer Vision Go SDK의 주요 기능 중 일부를 처리하는 클래스 및 인터페이스입니다.
 
-|Name|설명|
+|속성|Description|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | 이 클래스는 이미지 분석이나 텍스트 읽기 같은 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 이 클래스를 인스턴스화한 다음, 대부분의 이미지 작업에 사용합니다.|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| 이 형식에는 **AnalyzeImage** 함수 호출의 결과가 포함됩니다. 각 범주 관련 함수에도 비슷한 형식이 있습니다.|

@@ -1,6 +1,6 @@
 ---
-title: iOS 및 macOS 시작 - Microsoft ID 플랫폼 | Azure
-description: Microsoft ID 플랫폼을 사용하는 액세스 토큰이 필요한 API를 iOS 및 macOS(Swift) 애플리케이션이 호출하는 방법
+title: iOS 및 macOS용 MSAL 자습서 - Microsoft ID 플랫폼 | Azure
+description: iOS 및 macOS(Swift) 앱이 Microsoft ID 플랫폼을 사용하여 액세스 토큰이 필요한 API를 호출하는 방법 알아보기
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0aa97f2cb54295d9403ec332eb9c0ada684df12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423414"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>iOS 또는 macOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
@@ -45,7 +45,7 @@ ms.locfileid: "74964671"
 
 이 자습서는 iOS 및 macOS 앱 모두에 적용됩니다. 이러한 두 플랫폼 간에는 몇 가지 단계가 다릅니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 이 가이드에서 앱을 빌드하려면 XCode 버전 10.x 이상이 필요합니다. [iTunes 웹 사이트](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode 다운로드 URL")에서 XCode를 다운로드할 수 있습니다.
 - Microsoft 인증 라이브러리([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). 종속성 관리자를 사용하거나 수동으로 라이브러리를 추가할 수 있습니다. 작업 방법은 아래의 지침에 나와 있습니다.
@@ -348,7 +348,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ```
 
-**Xcode 11을 사용하는 경우** `SceneDelegate.swift`에 MSAL 콜백을 대신 추가해야 합니다.
+**Xcode 11을 사용하는 경우**`SceneDelegate.swift`에 MSAL 콜백을 대신 추가해야 합니다.
 이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지원하는 경우 MSAL 콜백을 두 파일에 배치해야 합니다.
 
 ```swift

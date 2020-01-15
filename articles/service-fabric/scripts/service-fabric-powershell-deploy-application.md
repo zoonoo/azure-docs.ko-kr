@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 클러스터에 애플리케이션 배포 | Microsoft Docs
+title: Powershell에서 클러스터에 애플리케이션 배포
 description: Azure PowerShell 스크립트 샘플 - 클러스터에 애플리케이션 배포
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: d03eec5101f932caff43bf876a41219e3f1fa75d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 207f2a4e8173aa1e5009435665532973045d9198
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035558"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610304"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 배포
 

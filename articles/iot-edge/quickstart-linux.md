@@ -4,21 +4,21 @@ description: 이 빠른 시작에서는 IoT Edge 디바이스를 만든 다음, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/09/2019
+ms.date: 11/06/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6163a7f9b7c3aa1b37b263433c4dea7f0c3bcf5e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2a5a5bc91e4d83975d05d63dbab4b621734a0ac5
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457673"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494714"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
-컨테이너화된 코드를 가상 IoT Edge 디바이스에 배포하여 이 빠른 시작에서 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 모든 필수 구성 요소가 설치된 테스트 머신을 빠르게 만든 다음, 완료되면 삭제할 수 있습니다. 
+이 빠른 시작에서는 컨테이너화된 코드를 가상 IoT Edge 디바이스에 배포하여 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 모든 필수 구성 요소가 설치된 테스트 머신을 빠르게 만든 다음, 완료되면 삭제할 수 있습니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -43,7 +43,7 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 클라우드 리소스:
 
@@ -76,10 +76,10 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니�
 
 이 빠른 시작에는 무료 수준의 IoT Hub가 작동합니다. 이전에 IoT Hub를 사용했고 이미 만든 체험 허브가 있으면 해당 IoT 허브를 사용할 수 있습니다. 구독마다 하나의 무료 IoT Hub만 가질 수 있습니다.
 
-다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. *{hub_name}* 을 IoT 허브의 고유한 이름으로 바꿉니다.
+다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. `{hub_name}`을 IoT 허브의 고유한 이름으로 바꿉니다.
 
    ```azurecli-interactive
-   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
    구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. IoT Hub 이름을 사용할 수 없다는 오류가 발생할 경우 다른 사용자에게 해당 이름의 허브가 이미 있는 것입니다. 새 이름을 사용해 보세요.
@@ -94,7 +94,7 @@ IoT 허브와 통신할 수 있도록 IoT Edge 디바이스에 대한 디바이�
 
 IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, `--edge-enabled` 플래그를 사용하여 이 ID를 IoT Edge 디바이스로 선언합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 입력하여 **myEdgeDevice**라는 장치를 허브에 만듭니다.
+1. Azure Cloud Shell에서 다음 명령을 입력하여 **myEdgeDevice**라는 디바이스를 허브에 만듭니다.
 
    ```azurecli-interactive
    az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
@@ -124,7 +124,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>IoT Edge 디바이스에서 연결 문자열 설정
 
-필수 조건에서 설명한 대로 Azure IoT Edge on Ubuntu 가상 머신을 사용하는 경우 디바이스에 IoT Edge 런타임이 이미 설치되어 있습니다. 이전 섹션에서 검색한 디바이스 연결 문자열로 디바이스를 구성하기만 하면 됩니다. 이 작업은 가상 머신에 연결하지 않고 원격으로 수행할 수 있습니다. 다음 명령에서 **{device_connection_string}** 을 자체 문자열로 바꿔서 실행합니다.
+필수 조건에서 설명한 대로 Azure IoT Edge on Ubuntu 가상 머신을 사용하는 경우 디바이스에 IoT Edge 런타임이 이미 설치되어 있습니다. 이전 섹션에서 검색한 디바이스 연결 문자열로 디바이스를 구성하기만 하면 됩니다. 이 작업은 가상 머신에 연결하지 않고 원격으로 수행할 수 있습니다. 다음 명령을 실행하여 `{device_connection_string}`을 자체 문자열로 바꿉니다.
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
@@ -134,7 +134,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
 
-이 빠른 시작의 나머지 명령은 IoT Edge 디바이스 자체에서 발생하기 때문에 디바이스에서 발생하는 상황을 볼 수 있습니다. 가상 머신을 사용하는 경우에는 만들기 명령에 의해 출력된 공용 IP 주소를 사용하여 해당 머신에 연결하십시오. Azure Portal의 가상 머신 개요 페이지에서 공용 IP 주소를 찾을 수 있습니다. 다음 명령을 사용하여 가상 머신에 연결합니다. 필수 구성 요소에 제안된 이름과 다른 이름을 사용하는 경우에는 **{azureuser}** 를 바꿉니다. **{publicIpAddress}** 를 컴퓨터의 주소로 바꿉니다.
+이 빠른 시작의 나머지 명령은 IoT Edge 디바이스 자체에서 발생하기 때문에 디바이스에서 발생하는 상황을 볼 수 있습니다. 가상 머신을 사용하는 경우에는 만들기 명령에 의해 출력된 공용 IP 주소를 사용하여 해당 머신에 연결하십시오. Azure Portal의 가상 머신 개요 페이지에서 공용 IP 주소를 찾을 수 있습니다. 다음 명령을 사용하여 가상 머신에 연결합니다. 필수 구성 요소에 제안된 사용자 이름과 다른 사용자 이름을 사용하는 경우에는 `{azureuser}`를 바꿉니다. `{publicIpAddress}`를 머신의 주소로 바꿉니다.
 
    ```azurecli-interactive
    ssh azureuser@{publicIpAddress}
@@ -143,7 +143,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 IoT Edge 디바이스에서 런타임이 성공적으로 설치 및 구성되었는지 확인합니다.
 
 >[!TIP]
->`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 **sudo**를 사용합니다.
+>`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 `sudo`를 사용합니다.
 
 1. IoT Edge 보안 디먼이 시스템 서비스로 실행되고 있는지 확인합니다.
 
@@ -217,10 +217,9 @@ az group delete --name IoTEdgeResources
 
 ## <a name="next-steps"></a>다음 단계
 
-
 이 빠른 시작에서는 새 IoT Edge 디바이스를 만들고 Azure IoT Edge 클라우드 인터페이스를 사용하여 디바이스에 코드를 배포했습니다. 이제 해당 환경에 대한 원시 데이터를 생성하는 테스트 디바이스가 준비되었습니다.
 
-다음 단계는 비즈니스 논리를 실행하는 IoT Edge 모듈을 만들기 시작할 수 있도록 로컬 개발 환경을 설정하는 것입니다. 
+다음 단계는 비즈니스 논리를 실행하는 IoT Edge를 만들기 시작할 수 있도록 로컬 개발 환경을 설정하는 것입니다.
 
 > [!div class="nextstepaction"]
 > [Linux 디바이스를 위한 IoT Edge 모듈 개발 시작](tutorial-develop-for-linux.md)

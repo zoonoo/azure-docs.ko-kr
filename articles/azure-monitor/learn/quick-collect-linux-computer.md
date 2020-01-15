@@ -3,7 +3,7 @@ title: '빠른 시작: Azure Monitor를 사용하여 하이브리드 Linux 컴�
 description: 이 빠른 시작에서는 Azure 외부에서 실행되는 Linux 컴퓨터용 Log Analytics 에이전트를 배포하고 Azure Monitor Logs를 사용하여 데이터를 수집하도록 설정하는 방법을 알아봅니다.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/22/2019
-ms.author: magoedte
+ms.date: 12/24/2019
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f494702166fc3c018aba9b1356a6806384ae4673
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677959"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530020"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 
@@ -55,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 
-Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 적절히 구성하고 Azure Monitor와 성공적으로 통신할 수 있는지 확인하기 위해 에이전트 래퍼 스크립트에서 필요합니다.
+Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다. 이 정보는 에이전트를 적절히 구성하고 Azure Monitor와 성공적으로 통신할 수 있는지 확인하기 위해 에이전트 래퍼 스크립트에서 필요합니다.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -88,7 +88,7 @@ Linux 컴퓨터에서 프록시 서버를 통해 Log Analytics에 통신해야 �
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    다음 명령에는 `-p` 프록시 매개 변수와 예제 구문이 포함됩니다.
+    다음 명령에는 프록시 서버에서 인증이 필요한 경우 `-p` 프록시 매개 변수와 예제 구문이 포함되어 있습니다.
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -100,12 +100,13 @@ Linux 컴퓨터에서 프록시 서버를 통해 Log Analytics에 통신해야 �
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    다음 명령에는 `-p` 프록시 매개 변수와 예제 구문이 포함됩니다.
+    다음 명령에는 프록시 서버에서 인증이 필요한 경우 `-p` 프록시 매개 변수와 예제 구문이 포함되어 있습니다.
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-2. 다음 명령을 실행하여 에이전트를 다시 시작합니다. 
+
+3. 다음 명령을 실행하여 에이전트를 다시 시작합니다. 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]

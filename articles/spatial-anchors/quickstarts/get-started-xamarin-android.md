@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2976104c72179fede3b39816663ac8196d7539ec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465189"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Xamarin Android 앱 만들기
 
@@ -28,16 +28,18 @@ ms.locfileid: "74277019"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - Windows 또는 macOS 컴퓨터:
   - Windows를 사용하는 경우:
     - 최신 버전의 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 16.2 이상</a>
-    - <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>
+    - <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
+    - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - macOS를 사용하는 경우:
     - 최신 버전의 <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Mac용 Visual Studio 8.1 이상</a>
-    - <a href="https://git-scm.com/download/mac" target="_blank">macOS용 Git</a>
+    - <a href="https://git-scm.com/download/mac" target="_blank">macOS용 Git</a>.
+    - <a href="https://git-lfs.github.com/">Git LFS</a>.
 - 선택한 플랫폼에 설치되어 실행 중인 최신 버전의 Xamarin.Android. Xamarin.Android를 설치하는 가이드는 [Xamarin.Android 설치](https://docs.microsoft.com/xamarin/android/get-started/installation/index) 가이드를 참조하세요.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
   - 컴퓨터가 Android 디바이스와 통신하려면 추가 디바이스 드라이버가 필요할 수 있습니다. 자세한 내용은 [여기](https://developer.android.com/studio/run/device.html)를 참조하세요.

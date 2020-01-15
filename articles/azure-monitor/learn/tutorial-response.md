@@ -4,21 +4,21 @@ description: 이 자습서는 Log Analytics의 경고를 통해 작업 영역의
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 11ce572cdb8a04dac07689b37eef76f354475df3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365625"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure Monitor 경고로 이벤트에 응답
 Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보를 식별할 수 있습니다. 경고는 정기적으로 로그 검색을 자동으로 실행하는 경고 규칙에 의해 작성되며 로그 검색 결과가 특정 기준과 일치하면 경고 레코드가 만들어지며 자동 응답을 수행하도록 구성할 수 있습니다.  이 자습서는 [Log Analytics 데이터의 대시보드 만들기 및 공유](tutorial-logs-dashboards.md) 자습서와 이어집니다.   
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 경고 규칙 만들기

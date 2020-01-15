@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2019
 ms.author: alsin
-ms.openlocfilehash: 61991e271a68c9160a34d0de99fe4c9259ca41cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32df17ffed400af80eadadbdeaafbaa1e3e1dbce
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486340"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941712"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 Red Hat Enterprise Linux (RHEL) 이미지
 Azure는 다양 한 사용 사례에 대 한 다양 한 RHEL 이미지를 제공 합니다.
@@ -66,5 +66,5 @@ rhel byos     |rhel-lvm74| LVM    | Linux 에이전트 | 업데이트 원본에 
 ## <a name="next-steps"></a>다음 단계
 * [Azure의 Red Hat 이미지](./redhat-images.md)에 대해 자세히 알아보세요.
 * [Red Hat 업데이트 인프라](./redhat-rhui.md)에 대해 자세히 알아보세요.
-* [RHEL BYOS 제품](./redhat-byos.md)에 대해 자세히 알아보세요.
+* [RHEL BYOS 제품](./byos.md)에 대해 자세히 알아보세요.
 * 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.

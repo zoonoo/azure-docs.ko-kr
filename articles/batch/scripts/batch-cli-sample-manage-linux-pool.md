@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 예제 - Batch의 Linux 풀 | Microsoft Docs
-description: Azure CLI 스크립트 예제 - Batch에서 Linux 풀을 만들기 및 관리
+title: Azure CLI 스크립트 예제 - Batch의 Linux 풀
+description: 이 스크립트는 Azure Batch에서 Linux 컴퓨팅 노드 풀을 만들고 관리할 수 있는 Azure CLI 명령 중 일부를 보여줍니다.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: a0e78ec35ff001b6a4ee59794a002cb3a74e90cb
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 33f66da1911bdefee298f3de949937bbc52d8fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390211"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>CLI 예제: Azure Batch에서 Linux 풀 만들기 및 관리
 

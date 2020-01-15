@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights로 빠른 시작 | Microsoft Docs
-description: Application Insights를 사용하여 모니터링하도록 ASP.NET Core 웹앱을 빠르게 설정하는 지침을 제공합니다.
+title: 빠른 시작 ASP.NET Core - Azure Monitor Application Insights
+description: Azure Monitor Application Insights를 사용하여 모니터링하도록 ASP.NET Core 웹앱을 빠르게 설정하는 지침을 제공합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ec39380409d5170efb56530c86a41d934e41728a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e05926d7a76f47cc3c95088fa2d8f1a6e385bbbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399025"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 
@@ -21,7 +21,7 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 
 이 빠른 시작은 기존 ASP.NET Core 웹 애플리케이션에 Application Insights SDK를 추가하는 방법을 안내합니다. Visual Studio를 사용하지 않고 Application Insights를 구성하는 방법에 대해 알아보려면 이 [문서](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)를 체크 아웃하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -50,13 +50,15 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
     구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
-   | 설정        |  값           | 설명  |
+   | 설정        |  값           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
+   | **이름**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
+   | **리소스 그룹**     | myResourceGroup      | App Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
    | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 2. **만들기**를 클릭합니다.
+
+
 
 ## <a name="configure-app-insights-sdk"></a>Application Insights SDK 구성
 
@@ -106,6 +108,9 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 테스트를 완료하면 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.
+
+> [!NOTE]
+> 기존 리소스 그룹을 사용하는 경우 아래 지침이 작동하지 않으므로 개별 Application Insights 리소스를 삭제하기만 하면 됩니다. 리소스 그룹을 삭제할 때마다 해당 그룹의 구성원인 모든 underyling 리소스가 삭제됩니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**과 **myResourceGroup**을 차례로 클릭합니다.
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에 **myResourceGroup**을 입력한 후 **삭제**를 클릭합니다.

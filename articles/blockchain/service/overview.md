@@ -4,12 +4,12 @@ description: Azure Blockchain Service 개요
 ms.date: 11/21/2019
 ms.topic: overview
 ms.reviewer: janders
-ms.openlocfilehash: 02cc955822987e3be6f5a2184fc49e5510b29626
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387380"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service란?
 
@@ -19,7 +19,7 @@ Azure Blockchain Service는 사용자가 Azure에서 대규모로 Blockchain 네
 * 기본 제공 컨소시엄 관리
 * 친숙한 개발 도구를 사용하여 스마트 계약 개발
 
-Azure Blockchain Service는 여러 원장 프로토콜을 지원하도록 고안되었습니다. 현재는 [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) 합의 메커니즘을 사용하여 Ethereum [Quorum](https://www.jpmorgan.com/Quorum) 원장을 지원합니다.
+Azure Blockchain Service는 여러 원장 프로토콜을 지원하도록 고안되었습니다. 현재는 [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) 합의 메커니즘을 사용하여 Ethereum [Quorum](https://www.goquorum.com/) 원장을 지원합니다.
 
 이러한 기능에는 인증이 필요하지 않고 추가 비용 없이 제공됩니다. 가상 머신과 인프라를 관리하는 데 시간과 리소스를 할당하는 대신, 앱 개발 및 비즈니스 논리에 집중할 수 있습니다. 또한 새로운 기술을 습득하지 않고도 원하는 오픈 소스 도구와 플랫폼을 사용하여 솔루션을 전달할 수 있는 애플리케이션을 계속 개발할 수 있습니다.
 
@@ -67,15 +67,22 @@ Azure Blockchain Service용 Blockchain Data Manager는 Azure Blockchain Service 
 
 ## <a name="support-and-feedback"></a>지원 및 피드백
 
-도움이 필요하거나 피드백이 필요한가요?
+Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.microsoft.com/blog/topics/blockchain/)를 방문하여 Azure Blockchain 엔지니어링 팀의 블록체인 서비스 제공 및 정보를 최신 상태로 유지하세요.
 
-* [Azure Blockchain 블로그](https://azure.microsoft.com/blog/topics/blockchain/)를 방문하고, [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain) 및 [Azure Blockchain 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)을 참조하세요.
-* 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/921130-azure-blockchain-service)를 통해 항목을 만드세요.
+제품 피드백을 제공하거나 새로운 기능을 요청하려면 [블록체인에 대한 Azure 피드백 포럼](https://aka.ms/blockchainuservoice)을 통해 아이디어에 투표하세요.
+
+### <a name="community-support"></a>커뮤니티 지원
+
+Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
+
+* [Azure Blockchain MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
 ## <a name="next-steps"></a>다음 단계
 
 시작하려면 빠른 시작을 시도하거나 이러한 리소스에서 자세한 정보를 확인하세요.
-* [Azure Portal을 사용하여 블록체인 멤버를 만들거나 ](create-member.md) [Azure CLI를 사용하여 블록체인 멤버를 만듭니다](create-member-cli.md).
+* [Azure Portal을 사용하여 블록체인 멤버를 만들거나 ](create-member.md)[Azure CLI를 사용하여 블록체인 멤버를 만듭니다](create-member-cli.md).
 * 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/blockchain-service)를 참조하세요.
 * [Azure Blockchain 개발 키트](https://github.com/Azure-Samples/blockchain-devkit)를 사용하여 첫 번째 앱을 빌드합니다.
 * Azure Blockchain VSCode 확장 [사용자 가이드](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

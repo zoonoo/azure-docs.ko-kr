@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Node.js용 Computer Vision 클라이언트 라이브러리 | Microsoft Docs'
-description: Node.js용 Computer Vision 클라이언트 라이브러리를 시작합니다.
+title: '빠른 시작: Node.js용 Computer Vision 클라이언트 라이브러리'
+description: 이 빠른 시작을 통해 Node.js용 Computer Vision 클라이언트 라이브러리 시작
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 199ead07e499575de21c6878cd348e648f604171
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05bc30fb8401597695848290a3d4f6c0d10ce836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382245"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>빠른 시작: Node.js용 Computer Vision 클라이언트 라이브러리
 
@@ -27,7 +27,7 @@ Node.js용 Computer Vision 클라이언트 라이브러리를 사용하여 다�
 
 [참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [패키지(npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 현재 버전의 [Node.js](https://nodejs.org/)
@@ -36,7 +36,7 @@ Node.js용 Computer Vision 클라이언트 라이브러리를 사용하여 다�
 
 ### <a name="create-a-computer-vision-azure-resource"></a>Computer Vision Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
@@ -83,7 +83,7 @@ npm install azure-cognitiveservices-computervision ms-rest-azure
 
 Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-|Name|설명|
+|속성|Description|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 이 클래스를 인스턴스화한 다음, 대부분의 이미지 작업에 사용합니다.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| 이 열거형은 표준 Analyze(분석) 작업에서 수행할 수 있는 다양한 유형의 이미지 분석을 정의합니다. 필요에 따라 **VisualFeatureTypes** 값 세트를 지정합니다. |
@@ -131,7 +131,7 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories)]
 
-도우미 함수 `formatCategories`를 정의합니다.
+도우미 함수 `formatCategories`을 정의합니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories_format)]
 
@@ -141,7 +141,7 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tags)]
 
-도우미 함수 `formatTags`를 정의합니다.
+도우미 함수 `formatTags`을 정의합니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tagsformat)]
 
@@ -151,7 +151,7 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-도우미 함수 `formatRectObjects`를 정의합니다.
+도우미 함수 `formatRectObjects`을 정의합니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 

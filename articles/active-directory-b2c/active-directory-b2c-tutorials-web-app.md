@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 6fa0379f2f8194356ed122e86b5a225f72adfe7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367606"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 애플리케이션에서 인증을 사용하도록 설정
 
 이 자습서에서는 Azure AD B2C를(Azure Active Directory B2C를)를 사용하여 로그인하고 ASP.NET 웹 애플리케이션에서 사용자를 가입하는 방법을 보여줍니다. Azure AD B2C를 사용하면 애플리케이션이 개방형 표준 프로토콜을 사용하여 소셜 계정, 엔터프라이즈 계정 및 Azure Active Directory 계정을 인증할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure AD B2C에서 애플리케이션 업데이트
@@ -31,7 +31,7 @@ ms.locfileid: "74950207"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [사용자 흐름을 생성](tutorial-create-user-flows.md)하여 애플리케이션에 사용자 환경을 사용하도록 설정합니다.
 * **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
@@ -94,7 +94,7 @@ Web.config 파일의 설정을 사용자 흐름에 맞게 업데이트합니다.
 1. **TaskWebApp** 프로젝트에서 **Web.config** 파일을 엽니다.
     1. `ida:Tenant` 및 `ida:AadInstance`의 값을 앞에서 만든 Azure AD B2C 테넌트 이름으로 바꿉니다. 예를 들어 `fabrikamb2c`를 `contoso`로 바꿉니다.
     1. `ida:ClientId`의 값을 앞에서 기록한 애플리케이션 ID로 바꿉니다.
-    1. `ida:ClientSecret`의 값을 앞에서 기록한 키로 바꿉니다. Web.config에 추가하기 전에 클라이언트 암호를 XML로 인코딩해야 합니다.
+    1. `ida:ClientSecret`의 값을 앞에서 기록한 키로 바꿉니다. 클라이언트 비밀에 미리 정의된 XML 엔터티가 포함된 경우(예: 보다 작음(`<`), 보다 큼(`>`), 앰퍼샌드(`&`) 또는 큰따옴표(`"`)) Web.config에 추가하기 전에 클라이언트 비밀을 XML로 인코딩하여 해당 문자를 이스케이프해야 합니다.
     1. `ida:SignUpSignInPolicyId`의 값을 `b2c_1_signupsignin1`로 바꿉니다.
     1. `ida:EditProfilePolicyId`의 값을 `b2c_1_profileediting1`로 바꿉니다.
     1. `ida:ResetPasswordPolicyId`의 값을 `b2c_1_passwordreset1`로 바꿉니다.
@@ -120,7 +120,7 @@ Web.config 파일의 설정을 사용자 흐름에 맞게 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure AD B2C에서 애플리케이션 업데이트

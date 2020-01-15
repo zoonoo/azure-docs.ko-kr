@@ -7,20 +7,23 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431767"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET을 사용한 Azure Storage 샘플
 
 다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. GitHub에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
 
+> [!NOTE]
+> 이러한 샘플은 Azure Storage .NET v11 라이브러리를 사용합니다. v12 코드는 GitHub 리포지토리의 [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)을 참조하세요.
+
 ## <a name="blob-samples"></a>Blob 샘플
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | Blob 추가 | [BLOB 시작](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144) |
 | 블록 Blob | [Azure Blob Storage 사진 갤러리 웹 애플리케이션](https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs) |
@@ -41,7 +44,7 @@ ms.locfileid: "71350909"
 
 ## <a name="file-samples"></a>파일 샘플
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 공유/디렉터리/파일 만들기 | [Azure Storage .NET File Storage 샘플](https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs) |
 | 공유/디렉터리/파일 삭제 | [.NET에서 Azure 파일 서비스 시작](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs) |
@@ -55,7 +58,7 @@ ms.locfileid: "71350909"
 
 ## <a name="queue-samples"></a>큐 샘플
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 메시지 추가 | [.NET에서 Azure 큐 서비스 시작](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
 | 클라이언트 쪽 암호화 | [Azure Storage .NET 큐 클라이언트 쪽 암호화](https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs) |
@@ -68,7 +71,7 @@ ms.locfileid: "71350909"
 
 ## <a name="table-samples"></a>테이블 샘플
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 테이블 만들기 | [Azure Storage를 사용하여 동시성 관리 - 샘플 애플리케이션](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
 | 엔터티/테이블 삭제 | [.NET에서 Azure Table Storage 시작](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |

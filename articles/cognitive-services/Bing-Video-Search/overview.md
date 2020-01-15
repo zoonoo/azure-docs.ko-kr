@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/26/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4f3a52590a9a0c50bdc87f87792027333fc5269f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8377f0f5d586212c94bb763598b6e7a9e391073c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500159"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382721"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Search API란?
 
@@ -23,7 +23,7 @@ Bing Video Search API를 통해 쉽게 서비스 및 애플리케이션에 비�
 
 ## <a name="bing-video-search-api-features"></a>Bing Video Search API 기능
 
-| 기능                                                                                                                                                                                 | 설명                                                                                                                                                            |
+| 기능                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [실시간 검색 용어 제안](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 응용 프로그램 환경을 향상시킵니다. |
 | [비디오 결과 필터링 및 제한](concepts/get-videos.md#filtering-videos)                      | 쿼리 매개 변수를 편집하여 반환된 비디오를 필터링합니다.                                                                                                       |
@@ -53,3 +53,5 @@ API를 호출할 준비가 되면 [Cognitive Services API 계정](https://docs.m
 * [Bing Video Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) 참조 페이지에는 검색 결과를 요청하는 데 사용되는 엔드포인트, 헤더 및 쿼리 매개 변수의 목록이 포함되어 있습니다.
 
 * [Bing 사용 및 표시 요구 사항](./useanddisplayrequirements.md)에서는 Bing 검색 API를 통해 획득한 콘텐츠와 정보의 허용 가능한 용도를 지정하고 있습니다.
+
+* [Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.

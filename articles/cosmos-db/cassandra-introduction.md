@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Cassandra API 소개
-description: Azure Cosmos DB를 사용하여 기존 애플리케이션을 “리프트 앤 시프트”하고, 이미 익숙한 Cassandra 드라이버와 CQL을 사용하여 Cassandra API를 사용하는 새 애플리케이션을 빌드하는 방법을 알아봅니다.
+description: Azure Cosmos DB를 사용하여 기존 애플리케이션을 “리프트 앤 시프트”하고, Cassandra 드라이버와 CQL을 사용하여 새 애플리케이션을 빌드하는 방법을 알아봅니다.
 author: kanshiG
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 82ca7814f756a12005ee5802c3e8a7fd28f6d398
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 63a85e86b1882bdaf4e5b85601a7deabe5b3bbef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442145"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 소개
 

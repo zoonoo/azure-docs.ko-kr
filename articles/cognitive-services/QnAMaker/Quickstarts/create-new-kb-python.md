@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 9114d491be1ae11623264c3beaf7c26f1fa143de
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 4aeee7ebf2c96166392d49d218f8ac5de6fe2709
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803135"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447575"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>빠른 시작: Python을 사용하여 QnA Maker 기술 자료 만들기
 
-이 빠른 시작에서는 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만들고 게시하는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의됩니다. 
+이 빠른 시작에서는 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만들고 게시하는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의되어 있습니다.
 
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
-* [KB 만들기](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [KB 만들기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [작업 세부 정보 가져오기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+
+[참조 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Python 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 3.7](https://www.python.org/downloads/)
-* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다. 
-
-[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
 
 ## <a name="create-a-knowledge-base-python-file"></a>기술 자료 Python 파일 만들기
 
@@ -46,6 +46,13 @@ ms.locfileid: "71803135"
 
 ## <a name="add-the-required-constants"></a>필요한 상수 추가
 앞서의 필요한 종속성 뒤에 QnA Maker에 액세스하는 데 필요한 상수를 추가합니다. `<your-qna-maker-subscription-key>` 및 `<your-resource-name>`의 값을 고유한 QnA Maker 키 및 리소스 이름으로 바꿉니다.
+
+Program 클래스의 맨 위에서 QnA Maker에 액세스하기 위한 필수 상수를 추가합니다.
+
+다음 값을 설정합니다.
+
+* `<your-qna-maker-subscription-key>` - **키**는 32자 문자열이며 빠른 시작 페이지의 Azure Portal, QnA Maker 리소스에서 사용할 수 있습니다. 이는 예측 엔드포인트 키와 동일하지 않습니다.
+* `<your-resource-name>` - **리소스 이름**은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` 형식으로 제작하기 위한 제작 엔드포인트 URL을 구성하는 데 사용됩니다. 이는 예측 엔드포인트를 쿼리하는 데 사용되는 URL과 동일하지 않습니다.
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 
@@ -63,11 +70,12 @@ JSON을 읽을 수 있는 형식으로 출력하는 다음 함수를 추가합�
 
 ## <a name="add-function-to-create-kb"></a>KB를 만드는 함수 추가
 
-기술 자료를 만들도록 HTTP POST 요청을 하는 다음 함수를 추가합니다. 이 API 호출은 헤더 필드 **Location**에 ID를 포함하는 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다. `Ocp-Apim-Subscription-Key`는 인증에 사용되는 QnA Maker 서비스 키입니다. 
+기술 자료를 만들도록 HTTP POST 요청을 하는 다음 함수를 추가합니다.
+이 API 호출은 헤더 필드 **Location**에 ID를 포함하는 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다. `Ocp-Apim-Subscription-Key`는 인증에 사용되는 QnA Maker 서비스 키입니다.
 
 [!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
 
-다음 API 호출은 작업 ID를 포함한 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다. 
+다음 API 호출은 작업 ID를 포함한 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다.
 
 ```JSON
 {
@@ -85,7 +93,7 @@ JSON을 읽을 수 있는 형식으로 출력하는 다음 함수를 추가합�
 
 [!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=61-67 "Add function to check creation status")]
 
-다음 API 호출은 작업 상태를 포함한 JSON 응답을 반환합니다. 
+다음 API 호출은 작업 상태를 포함한 JSON 응답을 반환합니다.
 
 ```JSON
 {
@@ -97,7 +105,7 @@ JSON을 읽을 수 있는 형식으로 출력하는 다음 함수를 추가합�
 }
 ```
 
-성공하거나 실패할 때까지 호출을 반복합니다. 
+성공하거나 실패할 때까지 호출을 반복합니다.
 
 ```JSON
 {
@@ -111,7 +119,7 @@ JSON을 읽을 수 있는 형식으로 출력하는 다음 함수를 추가합�
 ```
 
 ## <a name="add-main-code-block"></a>기본 코드 블록 추가
-다음 반복은 작업이 완료될 때까지 주기적으로 만들기 작업 상태를 폴링합니다. 
+다음 반복은 작업이 완료될 때까지 주기적으로 만들기 작업 상태를 폴링합니다.
 
 [!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=70-96 "Add main code block")]
 
@@ -125,7 +133,7 @@ python create-new-knowledge-base-3x.py
 
 기술 자료가 생성되면 QnA Maker 포털의 [내 기술 자료](https://www.qnamaker.ai/Home/MyServices) 페이지에서 볼 수 있습니다. 보고 싶은 기술 자료 이름을 선택합니다(예: QnA Maker FAQ).
 
-[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

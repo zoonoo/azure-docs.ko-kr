@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900454"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398629"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
@@ -26,7 +26,7 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
 > * 쿼리 언어를 사용하여 페이지 보기의 세부 정보 분석
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -72,7 +72,7 @@ Application Insights는 애플리케이션에서 다른 작업에 대한 성능 
 
     ![성능 팁](media/tutorial-performance/6-perf-tip.png)
 
-8.  추가 분석을 위해 **추적 다운로드**를 클릭하여 Visual Studio에 추적을 다운로드할 수 있습니다.
+8.   추가 분석을 위해 **추적 다운로드**를 클릭하여 추적을 다운로드할 수 있습니다. [PerfView](https://github.com/Microsoft/perfview#perfview-overview)를 사용하여 이 데이터를 볼 수 있습니다.
 
 ## <a name="use-logs-data-for-server"></a>서버에 대한 로그 데이터 사용
  로그는 Application Insights에서 수집된 모든 데이터를 분석할 수 있는 풍부한 쿼리 언어를 제공합니다. 이를 사용하여 요청 및 성능 데이터에 대한 심층 분석을 수행할 수 있습니다.

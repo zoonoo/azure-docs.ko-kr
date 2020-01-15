@@ -1,26 +1,15 @@
 ---
-title: Azure의 Service Fabric 개요 | Microsoft Docs
+title: Azure의 Service Fabric 개요
 description: 애플리케이션이 여러 마이크로 서비스로 구성되어 확장성과 복원력을 제공하는 서비스 패브릭의 개요입니다. Service Fabric은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 애플리케이션을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider
-ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: overview
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 0226c9f1b90495cdfd47a5c5c7a415a36761753d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a9b8c2051322a7d99af7359c31cb6c77f53d4b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466309"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 애플리케이션을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -32,13 +21,13 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 Azure Service Fabric 리소스 공급자는 모든 Azure 지역에서 사용할 수 있으며 Azure의 모든 규정 준수 인증서를 준수합니다. 여기에는 다음과 같은 인증서가 포함됩니다. SOC, ISO, PCI DSS, HIPAA 및 GDPR. 규정 준수 인증서 전체 목록을 보려면 다음을 검토하세요. [규정 준수 제안](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>마이크로 서비스로 구성된 애플리케이션 
-Service Fabric을 사용하면 컴퓨터의 공유 풀(클러스터라고 함)에서 높은 밀도로 실행되는 마이크로 서비스로 구성된 확장성 있고 신뢰할 수 있는 애플리케이션을 빌드하고 관리할 수 있습니다. 컨테이너에서 실행되는 분산되고 확장 가능한 상태 비저장 및 상태 저장 마이크로 서비스를 빌드하는 정교하고 간단한 런타임을 제공합니다. 또한 컨테이너화된 서비스를 비롯하여 배포된 애플리케이션을 프로비전, 배포, 모니터링, 업그레이드/패치 및 삭제하는 포괄적인 애플리케이션 관리 기능을 제공합니다.
+Service Fabric을 사용하면 마이크로 서비스로 구성된 확장 가능하고 안정적인 애플리케이션을 빌드하고 관리할 수 있습니다. 이러한 분산 마이크로서비스는 클러스터라고 하는 공유된 머신 풀에서 높은 밀도로 실행됩니다. Service Fabric은 상태 비저장 및 상태 저장 마이크로서비스를 지원하는 정교하고 간단한 런타임을 제공합니다. 또한 배포된 애플리케이션을 프로비전, 배포, 모니터링, 업그레이드/패치 및 삭제하는 포괄적인 애플리케이션 관리 기능을 제공합니다.
+
+Service Fabric은 필요에 따라 작은 규모로 시작하여 수백 또는 수천 대의 컴퓨터가 있는 대규모 환경으로 확장할 수 있는 클라우드 네이티브 서비스를 만들 수 있도록 조정되어 있습니다. 오늘날 인터넷 범위의 서비스는 마이크로 서비스를 토대로 빌드됩니다. 마이크로 서비스의 예로는 프로토콜 게이트웨이, 사용자 프로필, 쇼핑 카트, 인벤토리 처리, 큐, 캐시 등을 들 수 있습니다.
 
 Service Fabric은 Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, 비즈니스용 Skype 및 여러 주요 Azure 서비스를 비롯한 오늘날의 여러 Microsoft 서비스를 지원합니다.
 
-Service Fabric은 필요에 따라 작은 규모로 시작하여 수백 또는 수천 대의 컴퓨터가 있는 대규모 환경으로 확장할 수 있는 클라우드 네이티브 서비스를 만들 수 있도록 조정되어 있습니다. 오늘날 인터넷 범위의 서비스는 마이크로 서비스를 토대로 빌드됩니다. 마이크로 서비스의 예로는 프로토콜 게이트웨이, 사용자 프로필, 쇼핑 카트, 인벤토리 처리, 큐, 캐시 등을 들 수 있습니다. 
-
-Service Fabric은 이러한 마이크로 서비스로 구성된 애플리케이션에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. 가상 머신에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 머신으로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 
+Service Fabric은 Service Fabric 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로서비스를 호스트합니다. 가상 머신에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 머신으로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다.
 
 마이크로 서비스 접근 방식에 대한 자세한 내용은 [애플리케이션 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 

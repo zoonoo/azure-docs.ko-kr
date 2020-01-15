@@ -2,19 +2,19 @@
 title: Azure Compute-Linux 진단 확장
 description: Azure에서 실행 중인 Linux VM에서 메트릭 및 로그 이벤트를 수집하도록 Azure LAD(Linux 진단 확장)를 구성하는 방법입니다.
 services: virtual-machines-linux
-author: abhijeetgaiha
+author: MicahMcKittrick-MSFT
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: gwallace
-ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 96ec4f2a76616cf4bb1d824faa4e4ca0fff1ff62
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359365"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941871"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -197,7 +197,7 @@ Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형(EventHub 및 Js
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Event Hubs에 대한 SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [이 웹 페이지](../../event-hubs/event-hubs-authentication-and-security-model-overview.md)를 참조하세요.
+Event Hubs SAS 토큰에 대 한 정보를 생성 하 고 검색 하는 방법에 대 한 자세한 내용은 [이 웹 페이지](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell)를 참조 하세요.
 
 #### <a name="the-jsonblob-sink"></a>JsonBlob 싱크
 

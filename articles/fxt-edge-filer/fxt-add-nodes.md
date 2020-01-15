@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure FXT Edge Filer 클러스터 구성 - 노드 추가
+title: '자습서: Azure FXT Edge Filer 클러스터에 노드 추가'
 description: Azure FXT Edge Filer 스토리지 캐시에 노드를 추가하는 방법
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 85ab9aaa3e184af7aa71a31eb3d8de1a20639c2a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254933"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551950"
 ---
-# <a name="tutorial-add-cluster-nodes"></a>자습서: 클러스터 노드 추가 
+# <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>자습서: Azure FXT Edge Filer 클러스터에 클러스터 노드 추가
 
 새 Azure FXT Edge Filer 클러스터는 하나의 노드를 사용하여 생성됩니다. 다른 구성을 수행하기 전에 노드를 두 개 이상 추가하고 고가용성을 사용하도록 설정해야 합니다. 
 

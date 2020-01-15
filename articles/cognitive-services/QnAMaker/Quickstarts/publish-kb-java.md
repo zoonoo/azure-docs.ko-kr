@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 569846755ea363cd3816a22469cd7f05d8c42f4c
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 44b53cbfdb1982d9f9e6a0cb6408a16b1d660d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794073"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447430"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 게시
 
@@ -25,22 +25,22 @@ ms.locfileid: "73794073"
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
 * [게시](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - 이 API는 요청 본문에 어떤 정보도 요구하지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [JDK SE](https://aka.ms/azure-jdks)(Java Development Kit, Standard Edition)
-* 이 샘플에서는 HTTP 구성 요소의 Apache [HTTP 클라이언트](https://hc.apache.org/httpcomponents-client-ga/)를 사용합니다. 프로젝트에 다음 Apache HTTP 클라이언트 라이브러리를 추가해야 합니다. 
+* 이 샘플에서는 HTTP 구성 요소의 Apache [HTTP 클라이언트](https://hc.apache.org/httpcomponents-client-ga/)를 사용합니다. 프로젝트에 다음 Apache HTTP 클라이언트 라이브러리를 추가해야 합니다.
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
-* QnA Maker KB(기술 자료) ID는 아래와 같이 kbid 쿼리 문자열 매개 변수의 URL에 있습니다.
+* QnA Maker KB(기술 자료) ID는 아래와 같이 `kbid` 쿼리 문자열 매개 변수의 URL에 있습니다.
 
     ![QnA Maker 기술 자료 ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-csharp.md)에서 사용하면 됩니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-java** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base)에서 사용할 수 있습니다.
 
 ## <a name="create-a-java-file"></a>Java 파일 만들기
@@ -60,7 +60,7 @@ VSCode를 열고 `PublishKB.java`라는 새 파일을 만듭니다.
 ```Go
 public class PublishKB {
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
     }
 }
@@ -98,11 +98,11 @@ API 호출은 성공적인 게시에 대해 응답 본문에 내용이 없는 20
     java -cp ".;lib/*" PublishKB
     ```
 
-[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-기술 자료가 게시된 후 [답변을 생성할 엔드포인트 URL](../Tutorials/create-publish-answer.md#generating-an-answer)이 필요합니다.  
+기술 자료가 게시된 후 [답변을 생성할 엔드포인트 URL](../Tutorials/create-publish-answer.md#generating-an-answer)이 필요합니다.
 
 > [!div class="nextstepaction"]
 > [QnA Maker(V4) REST API 참조](https://go.microsoft.com/fwlink/?linkid=2092179)

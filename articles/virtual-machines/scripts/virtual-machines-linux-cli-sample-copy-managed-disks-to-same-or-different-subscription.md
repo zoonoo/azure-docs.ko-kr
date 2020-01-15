@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - 관리 디스크를 동일한 구독이나 다른 구독으로 복사(이동)
-description: Azure CLI 스크립트 샘플 - 관리 디스크를 동일한 구독이나 다른 구독으로 복사(이동)
+title: 구독에 관리 디스크 복사 - CLI 샘플
+description: Azure CLI 스크립트 샘플 - 같은 구독 또는 다른 구독으로 관리 디스크 복사(또는 이동)
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5f3859d632b14f1ec22ecd37ee0f10b01cbc7cd5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7ccdec703781a4e48870d5b4c27ec9d23de71dd0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458567"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>CLI를 사용하여 관리 디스크를 동일한 구독이나 다른 구독으로 복사
 

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Java 앱을 사용하여 Cassandra API 계정 만들기 - Azure Cosmos DB'
+title: '자습서: Azure Cosmos DB Cassandra API 계정을 만드는 Java 앱 빌드'
 description: 이 자습서에서는 Java 애플리케이션을 사용하여 Cassandra API 계정을 만들고, 데이터베이스(키스페이스라고도 함)를 추가하고, 테이블을 해당 계정에 추가하는 방법을 보여 줍니다.
 author: kanshiG
 ms.author: govindk
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: d2d4d568f53c426b063f3285cc8d3d510c3db440
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b0103f7b827de77c522f78000c8d28683ac85f4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034607"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441892"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "70034607"
 > * 데이터베이스 및 테이블 추가
 > * 앱 실행
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다. 
 
@@ -47,7 +47,7 @@ ms.locfileid: "70034607"
 
 3. **새 계정** 창에서 새 Azure Cosmos 계정에 대한 설정을 입력합니다. 
 
-   |설정   |제안 값  |설명  |
+   |설정   |제안 값  |Description  |
    |---------|---------|---------|
    |ID   |   고유한 이름을 입력합니다.    | 이 Azure Cosmos 계정을 식별하는 고유한 이름을 입력합니다. <br/><br/>접점을 만들기 위해 제공하는 ID에 cassandra.cosmosdb.azure.com이 추가되므로 식별할 수 있는 고유한 ID를 사용해야 합니다.         |
    |API    |  Cassandra   |  API는 만들 계정의 형식을 결정합니다. <br/> 이 문서에서는 CQL(Cassandra 쿼리 언어) 구문을 사용하여 쿼리할 수 있는 넓은 열 데이터베이스를 만들므로 **Cassandra**를 선택합니다.  |

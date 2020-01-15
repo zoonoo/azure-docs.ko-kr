@@ -1,26 +1,16 @@
 ---
-title: Azure의 Service Fabric에서 Windows 컨테이너 앱 만들기 | Microsoft Docs
+title: Azure의 Service Fabric에서 Windows 컨테이너 앱 만들기
 description: 이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599378"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466275"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 
@@ -40,7 +30,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구속([체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있음)
 * 다음을 실행하는 개발 컴퓨터
@@ -51,7 +41,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 배포할 수 있는 서비스 템플릿을 제공합니다.
 
-"관리자" 권한으로 Visual Studio를 시작합니다.  **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+"관리자" 권한으로 Visual Studio를 시작합니다.  **File** > **New** > **Project**를 선택합니다.
 
 **Service Fabric 애플리케이션**을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **만들기**를 클릭합니다.
 
@@ -106,7 +96,7 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
 
 변수에 대한 값을 제공했으면 **F5** 키를 눌러서 스크립트를 실행합니다.
 
-스크립트가 실행되고 클러스터가 생성되면 출력에서 `ClusterEndpoint`를 찾아보세요. 예:
+스크립트가 실행되고 클러스터가 생성되면 출력에서 `ClusterEndpoint`를 찾아보세요. 다음은 그 예입니다.
 
 ```powershell
 ...
@@ -142,7 +132,7 @@ Thumbprint                                Subject
 
 솔루션 탐색기에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 
-위의 `Import-PfxCertificate` 명령을 실행할 때 PowerShell 창에서 **CN=** 다음에 콘텐츠를 복사하고 `19000` 포트를 추가합니다. 예: `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000` 이를 **연결 엔드포인트** 필드에 복사합니다. 이 값은 이후 단계에서 필요하므로 기억해 두세요.
+위의 `Import-PfxCertificate` 명령을 실행할 때 PowerShell 창에서 **CN=** 다음에 콘텐츠를 복사하고 `19000` 포트를 추가합니다. `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`)을 입력합니다. 이를 **연결 엔드포인트** 필드에 복사합니다. 이 값은 이후 단계에서 필요하므로 기억해 두세요.
 
 **고급 연결 매개 변수**를 클릭하고 연결 매개 변수 정보를 확인합니다.  *FindValue* 및 *ServerCertThumbprint* 값은 이전 단계에서 `Import-PfxCertificate`를 실행할 때 설치한 인증서의 지문과 일치해야 합니다.
 

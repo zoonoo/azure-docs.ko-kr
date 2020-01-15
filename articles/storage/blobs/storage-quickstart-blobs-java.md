@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b5a59e51190fc8309d35445fba7ef4a2dd22b970
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 477f13f58d9b630519faa79424f22cb1bb34918c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351252"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -33,7 +33,7 @@ Java용 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [JDK(Java Development Kit)](/java/azure/jdk/?view=azure-java-stable), 버전 8 이상
 * [Apache Maven](https://maven.apache.org/download.cgi)
@@ -48,13 +48,13 @@ Java용 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하
 
 *blob-quickstart-v12*라는 Java 애플리케이션을 만듭니다.
 
-1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 Maven을 사용하여 *blob-quickstart-v12*라는 새 콘솔 앱을 만듭니다. 다음 **mvn** 명령을 모두 한 줄에 입력하여 간단한 "Hello world!" Java 프로젝트를 만듭니다. 여기에서는 가독성을 위해 이 명령을 여러 줄에 표시합니다.
+1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 Maven을 사용하여 *blob-quickstart-v12*라는 새 콘솔 앱을 만듭니다. 다음 **mvn** 명령을 입력하여 간단한 "Hello world!"를 만듭니다. Java 프로젝트를 만듭니다.
 
    ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart
-                          -DartifactId=blob-quickstart-v12
-                          -DarchetypeArtifactId=maven-archetype-quickstart
-                          -DarchetypeVersion=1.4
+   mvn archetype:generate -DgroupId=com.blobs.quickstart \
+                          -DartifactId=blob-quickstart-v12 \
+                          -DarchetypeArtifactId=maven-archetype-quickstart \
+                          -DarchetypeVersion=1.4 \
                           -DinteractiveMode=false
    ```
 
@@ -148,7 +148,7 @@ public class App
 }
 ```
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>개체 모델
 
@@ -192,11 +192,11 @@ System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable
 // is created after the application is launched in a console or with
 // Visual Studio, the shell or application needs to be closed and reloaded
 // to take the environment variable into account.
-String connectStr = System.getenv("CONNECT_STR");
+String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
 ### <a name="create-a-container"></a>컨테이너 만들기

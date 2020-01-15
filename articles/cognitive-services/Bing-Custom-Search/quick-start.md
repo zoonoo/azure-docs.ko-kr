@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기 | Microsoft Docs'
+title: '빠른 시작: 첫 번째 Bing Custom Search 인스턴스 만들기'
 titleSuffix: Azure Cognitive Services
-description: 이 문서를 사용하여 사용자가 정의하는 도메인 및 웹 페이지를 검색할 수 있는 사용자 지정 Bing 인스턴스를 만듭니다.
+description: 이 빠른 시작을 사용하여 사용자가 정의하는 도메인 및 웹 페이지를 검색할 수 있는 사용자 지정 Bing 인스턴스를 만듭니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 2c98395e2671c245d9349a72ed6a964b2ebd28ca
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 45478c8e4f5003ff41eb8b486d67caa452739cd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978546"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384749"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기
 
@@ -25,7 +25,7 @@ Bing Custom Search를 사용하려면 웹 보기 또는 조각을 정의하는 �
 
 ![Bing Custom Search 포털의 이미지](media/blockedCustomSrch.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 

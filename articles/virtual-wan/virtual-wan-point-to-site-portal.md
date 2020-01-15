@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: alzam
-ms.openlocfilehash: 394ca0c244db751645eb56f50e7023fcee229876
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 02c8bf24d4ddb6408160da7a4c517d6c8c82de5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450893"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사용자 VPN 연결 만들기
 
 이 자습서에서는 가상 WAN을 사용하여 IPsec/IKE(IKEv2) 또는 OpenVPN VPN 연결을 통해 Azure에서 리소스를 연결하는 방법을 보여줍니다. 이 연결 유형은 클라이언트 컴퓨터에서 클라이언트를 구성해야 합니다. 가상 WAN에 대한 자세한 내용은 [가상 WAN 개요](virtual-wan-about.md)를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * WAN 만들기
@@ -135,8 +135,8 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 사용자 VPN 구성 탭 또는 PowerShell의 New-AzureRmVpnClientConfiguration에서 이 작업을 수행할 수 있습니다.
 3. 프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
 4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. [인증서를 내보내 인코드된 공개 키를 가져오는 방법](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site)은 여기를 참조하세요.
-5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 프라이빗 키를 추출하는 방법은 여기를 참조하세요.
-6. 다른 필드를 변경하지 마십시오. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
+5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. [프라이빗 키를 추출하는 방법](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients#windows)은 여기를 참조하세요.
+6. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
 7. vpnconfig.ovpn 파일을 C:\Program Files\OpenVPN\config 폴더에 복사합니다.
 8. 시스템 트레이에서 OpenVPN 아이콘을 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
 

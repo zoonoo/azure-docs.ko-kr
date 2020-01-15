@@ -1,26 +1,17 @@
 ---
-title: 자습서 - Azure Service Fabric Mesh 리소스 정리 | Microsoft Docs
+title: 자습서 - Azure Service Fabric Mesh 리소스 정리
 description: 더 이상 사용하지 않는 리소스 요금이 부과되지 않도록 Azure Service Fabric Mesh 리소스를 제거하는 방법을 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351868"
 ---
 # <a name="tutorial-remove-azure-resources"></a>자습서: Azure 리소스 제거
 
@@ -40,7 +31,7 @@ ms.locfileid: "56815793"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -62,7 +53,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-또는 [포털에서](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups) **sfmeshTutorial1RG** 리소스 그룹을 삭제해도 됩니다. 
+또는 [포털에서](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups)**sfmeshTutorial1RG** 리소스 그룹을 삭제해도 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
+title: 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기 - CLI 샘플
 description: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 services: virtual-machines-linux
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 17407c2347fd8ee7f3a13e6f861ee703222ca179
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d15e0519e9ee5e5d1d6832e37c10119e40add890
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038227"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458498"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>CLI를 사용하여 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "74038227"
 
 ## <a name="next-steps"></a>다음 단계
 
-[관리 디스크를 OS 디스크로 연결하여 가상 컴퓨터 만들기](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
+[관리 디스크를 OS 디스크로 연결하여 가상 머신 만들기](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 

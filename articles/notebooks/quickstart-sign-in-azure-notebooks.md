@@ -1,18 +1,20 @@
 ---
-title: Azure Notebooks에 로그인
-description: 신속하게 Azure Notebooks에 로그인하고 사용자 ID를 설정합니다. 그러면 저장된 프로젝트에 액세스하고 Notebook을 다른 사용자와 공유하는 기능이 제공됩니다.
+title: Azure Notebooks 미리 보기에 로그인
+description: 신속하게 Azure Notebooks 미리 보기에 로그인하고 사용자 ID를 설정합니다. 그러면 저장된 프로젝트에 액세스하고 Notebooks를 다른 사용자와 공유하는 기능이 제공됩니다.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 234703da9662380a59c7673ca3b34a1b01b7dbef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277432"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647019"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>빠른 시작: 로그인 및 사용자 ID 설정
+# <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>빠른 시작: 로그인하여 Azure Notebooks 미리 보기에 대한 사용자 ID 설정
 
 언제든지 로그인하지 않고 Azure Notebooks를 볼 수 있지만, Notebook을 실행하고 저장된 프로젝트 및 Notebook에 액세스하고, 다른 사람과 Notebook을 공유하려면 로그인해야 합니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="sign-in"></a>로그인
 

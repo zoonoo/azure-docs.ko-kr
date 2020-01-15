@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb415d7434130c6ea2e7c9e2e11daccc657ddbf8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b1f5c837f1912df407960fca41387eb84986381e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207653"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423144"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -40,7 +40,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
+> **adfs/services/trust/2005/windowstransport** 및 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
 
 이 자습서에서는 AD FS를 사용하여 페더레이션된 환경의 Active Directory 도메인 조인 컴퓨터 디바이스에 대한 하이브리드 Azure AD 조인을 구성하는 방법을 알아봅니다.
 
@@ -52,7 +52,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 > * 등록 확인
 > * 문제 해결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 사용자가 다음 항목에 대해 잘 알고 있다고 가정합니다.
 
@@ -187,7 +187,7 @@ Azure 테넌트에서 디바이스 등록 상태를 확인하려면 [Azure Activ
 
 1. 관리자 권한으로 Windows PowerShell을 엽니다.
 1. `Connect-MsolService`를 입력하여 Azure 테넌트에 연결합니다.  
-1. `get-msoldevice -deviceId <deviceId>`을 입력합니다.
+1. `get-msoldevice -deviceId <deviceId>`를 입력합니다.
 1. **Enabled**가 **True**로 설정되어 있는지 확인인합니다.
 
 ## <a name="troubleshoot-your-implementation"></a>구현 문제 해결

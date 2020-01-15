@@ -1,26 +1,17 @@
 ---
-title: Azure의 Service Fabric에서 ASP.NET Core 서비스 모니터링 및 진단 | Microsoft Docs
+title: ASP.NET Core 서비스 모니터링 및 진단
 description: 이 자습서에서는 Azure Service Fabric ASP.NET Core 애플리케이션에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1f18aef12978b3df1ba1fd654ea4a0e9548a4b46
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228088"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614046"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
@@ -41,7 +32,7 @@ ms.locfileid: "68228088"
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * 애플리케이션에 대한 모니터링 및 진단 설정
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -260,13 +251,13 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-이러한 변경 수행을 완료한 후 애플리케이션을 **시작**하여 최신 버전이 빌드 및 배포되도록 합니다. 애플리케이션 배포가 완료되면 [localhost:8080](localhost:8080)으로 이동한 다음, 몇 가지 응답 옵션을 추가 및 삭제합니다. 그런 다음, Application Insights 리소스로 돌아가서 최신 실행에 대한 추적을 확인합니다(이전처럼 추적이 Application Insights에 표시되는 데 1~2분 정도 걸릴 수 있음). 이제 추가 및 삭제한 모든 응답에 대해 “사용자 지정 이벤트”와 모든 응답 원격 분석 데이터가 표시되어야 합니다.
+이러한 변경 수행을 완료한 후 애플리케이션을 **시작**하여 최신 버전이 빌드 및 배포되도록 합니다. 애플리케이션 배포가 완료되면 [localhost:8080](localhost:8080)으로 이동한 다음, 몇 가지 응답 옵션을 추가 및 삭제합니다. 그런 다음, Application Insights 리소스로 돌아가서 최신 실행에 대한 추적을 확인합니다(이전처럼 추적이 Application Insights에 표시되는 데 1~2분 정도 걸릴 수 있음). 이제 추가 및 삭제한 모든 응답에 대해 “사용자 지정 이벤트”\* 와 모든 응답 원격 분석 데이터가 표시되어야 합니다.
 
 ![사용자 지정 이벤트](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 > [!div class="checklist"]
 > * 애플리케이션에 대한 Application Insights 구성
 > * 응답 원격 분석 데이터를 수집하여 서비스 간 HTTP 기반 통신 추적

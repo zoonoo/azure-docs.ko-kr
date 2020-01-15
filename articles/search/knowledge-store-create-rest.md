@@ -7,18 +7,18 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 12/30/2019
+ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720074"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563227"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>REST를 사용하여 Azure Cognitive Search 지식 저장소 만들기
 
 > [!IMPORTANT] 
-> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 미리 보기 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
+> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
 Azure Cognitive Search의 지식 저장소 기능은 나중에 분석하거나 다른 다운스트림을 처리할 수 있도록 AI 보강 파이프라인의 출력을 유지합니다. AI 보강 파이프라인은 이미지 파일 또는 비정형 텍스트 파일을 수락하고, Azure Cognitive Search를 사용하여 인덱싱하고, Azure Cognitive Services의 AI 보강(예: 이미지 분석 및 자연어 처리)을 적용한 다음, 결과를 Azure Storage의 지식 저장소에 저장합니다. Azure Portal에서 Power BI 또는 Storage Explorer와 같은 도구를 사용하여 지식 저장소를 검색할 수 있습니다.
 
@@ -26,35 +26,36 @@ Azure Cognitive Search의 지식 저장소 기능은 나중에 분석하거나 �
 
 지식 저장소가 만들어지면 [Storage Explorer](knowledge-store-view-storage-explorer.md) 또는 [Power BI](knowledge-store-connect-power-bi.md)를 사용하여 이 지식 저장소에 액세스하는 방법을 알아볼 수 있습니다.
 
-## <a name="create-services"></a>서비스 만들기
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-다음 서비스를 만듭니다.
+> [!TIP]
+> 이 문서에서는 [Postman 데스크톱 앱](https://www.getpostman.com/)을 권장합니다. 이 문서의 [소스 코드](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store)에는 모든 요청이 포함된 Postman 컬렉션이 포함되어 있습니다. 
 
-- [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
+## <a name="create-services-and-load-data"></a>서비스 만들기 및 데이터 로드
 
-- [Azure 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들어 샘플 데이터와 지식 저장소를 저장합니다. 스토리지 계정은 Azure Cognitive Search 서비스에 대해 동일한 위치(예: 미국 서부)를 사용해야 합니다. **계정 종류**의 값은 **StorageV2(범용 V2)** (기본값) 또는 **Storage(범용 V1)** 여야 합니다.
+이 빠른 시작에서는 Azure Cognitive Search, Azure Blob 스토리지 및 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 AI에 사용합니다. 
 
-- 권장: 요청을 Azure Cognitive Search에 보내는 [Postman 데스크톱 앱](https://www.getpostman.com/)을 가져옵니다. HTTP 요청 및 응답을 사용할 수 있는 모든 도구에서 REST API를 사용할 수 있습니다. Postman은 REST API를 검색하는 데 적합합니다. 이 문서에서는 Postman을 사용합니다. 또한 이 문서의 [소스 코드](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store)에는 Postman 요청 컬렉션이 포함되어 있습니다. 
+워크로드가 너무 작으므로 Cognitive Services는 Azure Cognitive Search에서 호출될 때 매일 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에 탭으로 처리됩니다. 제공하는 샘플 데이터를 사용하는 경우 Cognitive Services 리소스 만들기 또는 연결을 건너뛸 수 있습니다.
 
-## <a name="store-the-data"></a>데이터 저장
+1. [HotelReviews_Free.csv를 다운로드합니다](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). 이 데이터는 CSV 파일로 저장된 호텔 리뷰 데이터이며(Kaggle.com에서 가져온 데이터) 단일 호텔에 대한 19개 고객 피드백을 포함하고 있습니다. 
 
-Azure Cognitive Search 인덱서에서 액세스하고 AI 보강 파이프라인을 통해 공급할 수 있도록 호텔 리뷰 CSV 파일을 Azure Blob 스토리지에 로드합니다.
+1. [Azure 스토리지 계정을 만들거나](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) 현재 구독에서 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 가져올 원시 콘텐츠와 최종 결과인 지식 저장소 둘 모두에 Azure 스토리지를 사용할 것입니다.
 
-### <a name="create-a-blob-container-by-using-the-data"></a>데이터를 사용하여 Blob 컨테이너 만들기
+   **StorageV2(범용 V2)** 계정 유형을 선택합니다.
 
-1. CSV 파일(HotelReviews_Free.csv)에 저장된 [호텔 리뷰 데이터](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)를 다운로드합니다. 이 데이터는 Kaggle.com에서 가져온 것이며 호텔에 대한 고객 피드백을 포함하고 있습니다.
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, Azure 스토리지 계정으로 이동합니다.
-1. [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 컨테이너를 만들려면 스토리지 계정의 왼쪽 메뉴에서 **Blob**을 선택한 다음, **컨테이너**를 선택합니다.
-1. 새 컨테이너 **이름**에 대해 **hotel-reviews**를 입력합니다.
-1. **퍼블릭 액세스 수준**에 대해 임의의 값을 선택합니다. 기본값을 사용했습니다.
-1. **확인**을 선택하여 Blob 컨테이너를 만듭니다.
-1. 새 **hotels-review** 컨테이너를 열고, **업로드**를 선택한 다음, 첫 번째 단계에서 다운로드한 HotelReviews-Free.csv 파일을 선택합니다.
+1. Blob 서비스 페이지를 열고 *hotel-reviews*라는 컨테이너를 만듭니다.
+
+1. **업로드**를 클릭합니다.
 
     ![데이터 업로드](media/knowledge-store-create-portal/upload-command-bar.png "호텔 리뷰 업로드")
 
-1. **업로드**를 선택하여 CSV 파일을 Azure Blob 스토리지로 가져옵니다. 새 컨테이너가 다음과 같이 표시됩니다.
+1. 첫 번째 단계에서 다운로드한 **HotelReviews-Free.csv** 파일을 선택합니다.
 
-    ![Blob 컨테이너 만들기](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Blob 컨테이너 만들기")
+    ![Azure Blob 컨테이너 만들기](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Azure Blob 컨테이너 만들기")
+
+1. 이 리소스가 거의 완료되었지만, 이 페이지를 나가기 전에 왼쪽 탐색 창의 링크를 사용하여 **액세스 키** 페이지를 엽니다. Blob 스토리지에서 데이터를 검색할 연결 문자열을 가져옵니다. 연결 문자열은 `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` 예제와 비슷한 현식입니다.
+
+1. 여전히 포털에서 Azure Cognitive Search로 전환합니다. [새 서비스를 만들](search-create-service-portal.md)거나 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 연습에서는 체험 서비스를 사용할 수 있습니다.
 
 ## <a name="configure-postman"></a>Postman 구성
 
@@ -72,7 +73,7 @@ Postman을 설치하고 설정합니다.
 
 **변수** 탭에서 이중 중괄호 안에 특정 변수가 있을 때마다 Postman에서 교환하는 값을 추가할 수 있습니다. 예를 들어 Postman에서 `{{admin-key}}` 기호를 `admin-key`에 설정한 현재 값으로 바꿉니다. Postman은 URL, 헤더, 요청 본문 등에서 이 대체를 수행합니다. 
 
-`admin-key`에 대한 값을 가져오려면 Azure Cognitive Search 서비스로 이동하여 **키** 탭을 선택합니다. `search-service-name` 및 `storage-account-name`을 [서비스 만들기](#create-services)에서 선택한 값으로 변경합니다. 스토리지 계정의 **액세스 키** 탭에 있는 값을 사용하여 `storage-connection-string`을 설정합니다. 다른 값에는 기본값을 그대로 둘 수 있습니다.
+`admin-key`에 대한 값을 가져오려면 Azure Cognitive Search 서비스로 이동하여 **키** 탭을 선택합니다. `search-service-name` 및 `storage-account-name`을 [서비스 만들기](#create-services-and-load-data)에서 선택한 값으로 변경합니다. 스토리지 계정의 **액세스 키** 탭에 있는 값을 사용하여 `storage-connection-string`을 설정합니다. 다른 값에는 기본값을 그대로 둘 수 있습니다.
 
 ![Postman 앱 변수 탭](media/knowledge-store-create-rest/postman-variables-window.png "Postman의 변수 창")
 
@@ -152,7 +153,7 @@ Azure Cognitive Search 인덱스의 구조를 요청 본문에 설정합니다. 
 
 ## <a name="create-the-datasource"></a>데이터 원본 만들기
 
-다음으로, Azure Cognitive Search를 [데이터 저장](#store-the-data)에서 저장한 호텔 데이터에 연결합니다. 데이터 원본을 만들려면 POST 요청을 `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`에 보냅니다. 앞에서 설명한 대로 `api-key` 및 `Content-Type` 헤더를 설정해야 합니다. 
+다음으로, Azure Cognitive Search를 Blob 스토리지에 저장된 호텔 데이터에 연결합니다. 데이터 원본을 만들려면 POST 요청을 `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`에 보냅니다. 앞에서 설명한 대로 `api-key` 및 `Content-Type` 헤더를 설정해야 합니다. 
 
 Postman에서 **데이터 원본 만들기** 요청, **본문** 창으로 차례로 이동합니다. 다음 코드가 표시됩니다.
 

@@ -1,21 +1,18 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Azrue Vm의 지속적인 복제 문제 해결
-description: 재해 복구를 위해 Azure 가상 머신을 복제할 때 오류 및 문제 해결
-services: site-recovery
-author: carmonmills
+title: Azure Site Recovery를 사용 하 여 Azure Vm 복제 문제 해결
+description: Azure Site Recovery를 사용 하 여 Azure VM 재해 복구에서 복제 문제 해결
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: carmonm
-ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe300c1efc8f5802397a59296f8b127c321bd871
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930735"
+ms.locfileid: "75941575"
 ---
-# <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Azure 간 VM 복제에서 진행 중인 문제 해결
+# <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
 
 이 문서에서는 지역 간에 Azure 가상 머신을 복제 및 복구할 때 Azure Site Recovery에서 발생하는 일반적인 문제를 설명합니다. 또한 이러한 문제를 해결하는 방법을 설명합니다. 지원되는 구성에 대한 자세한 내용은 [Azure VM을 복제하기 위한 지원 매트릭스](site-recovery-support-matrix-azure-to-azure.md)를 참조하세요.
 
@@ -67,7 +64,7 @@ Azure Site Recovery에는 디스크 유형에 따라 데이터 변경률 제한�
     - 영향을 받는 복제 된 컴퓨터의 디스크 블레이드로 이동 하 여 복제 디스크 이름을 복사 합니다.
     - 이 복제본 관리 디스크로 이동
     - SAS URL이 생성 되었다는 개요 블레이드에서 배너가 표시 될 수 있습니다. 이 배너를 클릭 하 고 내보내기를 취소 합니다. 배너가 표시 되지 않으면이 단계를 무시 합니다.
-    - SAS URL이 해지 되는 즉시 관리 디스크의 구성 블레이드로 이동 하 여 ASR이 원본 디스크에서 관찰 된 변동 율을 지원 하도록 크기를 늘립니다.
+    - SAS URL이 해지 되는 즉시 관리 디스크의 구성 블레이드로 이동 하 여 원본 디스크에서 관찰 된 변동 율 Site Recovery 지원 하도록 크기를 늘립니다.
 
 ## <a name="Network-connectivity-problem"></a>네트워크 연결 문제
 
@@ -113,12 +110,12 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치 되어 있지 않습니다. 오류 2147221164 
 
-*해결 방법*: 응용 프로그램 일관성 태그를 생성 하려면 AZURE SITE RECOVERY Microsoft VSS (볼륨 섀도 복사본 서비스)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 생성 하는 작업을 위한 VSS 공급자를 설치 합니다. 이 VSS 공급자는 서비스로 설치 됩니다. VSS 공급자 서비스가 설치 되지 않은 경우 "클래스가 등록 되지 않았습니다" 라는 오류 id 0x80040154 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. </br>
+*해결 방법*: 응용 프로그램 일관성 태그를 생성 하려면 AZURE SITE RECOVERY Microsoft VSS (볼륨 섀도 복사본 서비스)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 생성 하는 작업을 위한 VSS 공급자를 설치 합니다. 이 VSS 공급자는 서비스로 설치 됩니다. VSS 공급자 서비스가 설치 되지 않은 경우 "클래스가 등록 되지 않았습니다" 라는 오류 ID 0x80040154 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. </br>
 [VSS 기록기 설치 문제 해결 문서를](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 참조 하세요. 
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음-오류 2147943458
 
-**해결 방법**: 응용 프로그램 일관성 태그를 생성 하려면 AZURE SITE RECOVERY Microsoft VSS (볼륨 섀도 복사본 서비스)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 생성 하는 작업을 위한 VSS 공급자를 설치 합니다. 이 VSS 공급자는 서비스로 설치 됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 id "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
+**해결 방법**: 응용 프로그램 일관성 태그를 생성 하려면 AZURE SITE RECOVERY Microsoft VSS (볼륨 섀도 복사본 서비스)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 생성 하는 작업을 위한 VSS 공급자를 설치 합니다. 이 VSS 공급자는 서비스로 설치 됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 ID "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
 
 - VSS를 사용 하지 않도록 설정 하는 경우
     - VSS 공급자 서비스의 시작 유형이 **자동**으로 설정 되어 있는지 확인 합니다.

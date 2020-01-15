@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: faec3a519333eab1774989804002e339e509ebba
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: fd5d20ed3f2cc41f4d7d51f06d4bc90a6afd22eb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035296"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526535"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 애플리케이션 제거
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Service Fabric CLI를 사용하여 Service Fabric 클러스터에서 애플리케이션 제거
 
 이 샘플 스크립트는 실행 중인 Service Fabric 애플리케이션 인스턴스를 삭제한 다음, 클러스터에서 애플리케이션 유형 및 버전의 등록을 취소합니다.  애플리케이션 인스턴스를 삭제하면 해당 애플리케이션과 연결된 실행 중인 모든 서비스 인스턴스도 삭제됩니다. 다음으로 애플리케이션 파일을 이미지 저장소에서 삭제합니다. 
 

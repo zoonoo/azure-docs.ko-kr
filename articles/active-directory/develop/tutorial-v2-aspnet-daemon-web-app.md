@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130a962c14415c417eedecd6ae26af1131b2e86
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997023"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423388"
 ---
-# <a name="build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
+# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>자습서: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
 
 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 장기간 실행되는 비대화형 프로세스에서 Microsoft 비즈니스 고객의 데이터에 액세스하는 방법에 대해 알아봅니다. 디먼 샘플은 [OAuth2 클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md)를 사용하여 액세스 토큰을 획득합니다. 그런 다음, 디먼에서 이 토큰을 사용하여 [Microsoft Graph](https://graph.microsoft.io)를 호출하고 조직 데이터에 액세스합니다.
+
+> [!div class="checklist"]
+> * 디먼 앱과 Microsoft ID 플랫폼 통합
+> * 관리자가 앱에 직접 애플리케이션 권한 부여
+> * Microsoft Graph API를 호출할 액세스 토큰 가져오기
+> * Microsoft Graph API를 호출합니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 앱은 ASP.NET MVC 애플리케이션으로 빌드됩니다. OWIN OpenID Connect 미들웨어를 사용하여 사용자를 로그인합니다.  
 
@@ -42,7 +50,7 @@ ms.locfileid: "74997023"
 
 이 샘플에 사용되는 개념에 대한 자세한 내용은 [ID 플랫폼 엔드포인트의 클라이언트 자격 증명 프로토콜 설명서](v2-oauth2-client-creds-grant-flow.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서 샘플을 실행하려면 다음이 필요합니다.
 
@@ -60,11 +68,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 또는 [샘플을 ZIP 파일로 다운로드](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip)합니다.
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Azure AD 테넌트에 샘플 애플리케이션 등록
+## <a name="register-your-application"></a>애플리케이션 등록
 
-이 샘플에는 하나의 프로젝트가 있습니다. 등록하려면 다음 중 하나를 수행합니다.
+이 샘플에는 하나의 프로젝트가 있습니다. Azure AD 테넌트에 애플리케이션을 등록하려면 다음 중 하나를 수행합니다.
 
-- [Azure Active Directory 테넌트에 샘플 등록](#register-the-sample-application-with-your-azure-ad-tenant) 및 [Azure AD 테넌트를 사용하도록 샘플 구성](#choose-the-azure-ad-tenant)의 단계를 수행합니다.
+- [Azure Active Directory 테넌트에 샘플 등록](#register-your-application) 및 [Azure AD 테넌트를 사용하도록 샘플 구성](#choose-the-azure-ad-tenant)의 단계를 수행합니다.
 - 다음을 수행하는 PowerShell 스크립트를 사용합니다.
   - Azure AD 애플리케이션 및 관련 개체(암호, 권한, 종속성)를 *자동으로* 만듭니다.
   - Visual Studio 프로젝트의 구성 파일을 수정합니다.
@@ -237,7 +245,10 @@ Visual Studio에서 프로젝트를 게시하고, 브라우저를 프로젝트�
 1. 구성을 저장합니다.
 1. 동일한 URL을 **인증** > **리디렉션 URI** 메뉴의 값 목록에 추가합니다. 여러 개의 리디렉션 URL이 있는 경우 각 리디렉션 URL에 대해 앱 서비스의 URI를 사용하는 새 항목이 있는지 확인합니다.
 
-## <a name="community-help-and-support"></a>커뮤니티 도움말 및 지원
+## <a name="clean-up-resources"></a>리소스 정리
+더 이상 필요하지 않은 경우 [애플리케이션 등록 단계](#register-your-application)에서 만든 애플리케이션 개체를 삭제합니다.  애플리케이션을 제거하려면 [사용자 또는 조직이 작성한 애플리케이션 제거](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization)의 지침을 따르세요.
+
+## <a name="get-help"></a>도움말 보기
 
 [Stack Overflow](http://stackoverflow.com/questions/tagged/msal)를 사용하여 커뮤니티에서 지원을 받을 수 있습니다.
 먼저 Stack Overflow에 질문하고, 기존 문제를 검색하여 이전에 누군가가 질문했는지 확인합니다.

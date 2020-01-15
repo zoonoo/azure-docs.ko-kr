@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: 5ae6c30c595c2e3c4c7ce90d6ab208e50722bfc2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227692"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348820"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -110,8 +110,11 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 
 다음 원격 데스크톱 클라이언트는 Windows Virtual Desktop을 지원합니다.
 
-* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
-* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+* [Windows](connect-windows-7-and-10.md)
+* [Web](connect-web.md)
+* [Mac](connect-macos.md)
+* [iOS](connect-ios.md)
+* [Android(미리 보기)](connect-android.md)
 
 ## <a name="supported-virtual-machine-os-images"></a>지원되는 가상 머신 OS 이미지
 
@@ -130,14 +133,14 @@ Windows Virtual Desktop은 x86(32 비트), Windows 10 Enterprise N 또는 Window
 
 |운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|Windows Virtual Desktop 에이전트 업데이트|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 다중 세션, 버전 1903|예|예|예|예|자동|
-|Windows 10 다중 세션, 버전 1809|예|예|아니요|아니요|자동|
-|Windows 10 Enterprise, 버전 1903|예|예|예|예|자동|
-|Windows 10 Enterprise, 버전 1809|예|예|아니요|아니요|자동|
-|Windows 7 Enterprise|예|예|아니요|아니요|설명서|
-|Windows Server 2019|예|예|아니요|아니요|자동|
-|Windows Server 2016|예|예|예|예|자동|
-|Windows Server 2012 R2|예|예|아니요|아니요|자동|
+|Windows 10 다중 세션, 버전 1903|yes|yes|yes|yes|자동|
+|Windows 10 다중 세션, 버전 1809|yes|yes|예|예|자동|
+|Windows 10 Enterprise, 버전 1903|yes|yes|yes|yes|자동|
+|Windows 10 Enterprise, 버전 1809|yes|yes|예|예|자동|
+|Windows 7 Enterprise|yes|yes|예|예|설명서|
+|Windows Server 2019|yes|yes|예|예|자동|
+|Windows Server 2016|yes|yes|yes|yes|자동|
+|Windows Server 2012 R2|yes|yes|예|예|자동|
 
 ## <a name="next-steps"></a>다음 단계
 

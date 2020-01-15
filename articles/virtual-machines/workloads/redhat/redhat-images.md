@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2019
 ms.author: alsin
-ms.openlocfilehash: 27cd5b775fbd2af58d93d539420262665d70ead4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 211ac68fd10cd745faf68a5efae7392345008d7b
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486327"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941458"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -154,5 +154,5 @@ Microsoft 및 Red Hat은 특정 CVE를 해결하기 위해 필요에 따라 또�
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 RHEL 이미지](./redhat-imagelist.md)의 전체 목록을 확인 합니다.
 * [여기](https://aka.ms/rhui-update)에서 Azure Red Hat 업데이트 인프라에 대해 자세히 알아봅니다.
-* [RHEL BYOS 제품](./redhat-byos.md)에 대해 자세히 알아보세요.
+* [RHEL BYOS 제품](./byos.md)에 대해 자세히 알아보세요.
 * 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.

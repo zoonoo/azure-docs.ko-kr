@@ -1,18 +1,24 @@
 ---
-title: Azure에서 Jupyter Notebook 만들기 및 공유
-description: Azure Notebooks에서 Jupyter Notebook을 만들고 실행한 다음, 해당 Notebook을 다른 사용자와 공유합니다.
+title: Azure Notebooks 미리 보기에서 Jupyter Notebook 만들기 및 공유
+description: Azure Notebooks 미리 보기에서 Jupyter Notebook을 만들고 실행한 다음, 해당 Notebook을 다른 사용자와 공유합니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277512"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647087"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>빠른 시작: Notebook 만들기 및 공유
+# <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 만들기 및 공유
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
+이 빠른 시작에서는 Azure Notebooks에서 Jupyter Notebook을 빠르게 만들고 실행한 다음, 해당 Notebook을 다른 사용자와 공유하는 방법에 대해 알아봅니다.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+## <a name="create-a-new-project-and-notebook"></a>새 프로젝트 및 Notebook 만들기
+
+1. [Azure Notebooks 사이트(https://notebooks.azure.com)](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
 
 1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
@@ -26,8 +32,8 @@ ms.locfileid: "74277512"
 
    - **프로젝트 이름**: Hello World in Python
    - **프로젝트 ID**: hello-world-python
-   - **공용 프로젝트**: (지워짐)
-   - **README.md 만들기**: (지워짐)
+   - **공용 프로젝트**: (선택 취소)
+   - **README.md 만들기**: (선택 해제됨)
 
      ![세부 내용이 채워진 새 프로젝트 팝업](media/quickstarts/new-project-popup.png)
 

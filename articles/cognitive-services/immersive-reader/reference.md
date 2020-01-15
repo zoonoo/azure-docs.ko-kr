@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903103"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945273"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>몰입 형 판독기 SDK 참조 가이드
 
 몰입 형 판독기 SDK는 몰입 형 판독기를 웹 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리입니다.
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
 SDK는 함수를 노출 합니다.
 
@@ -39,14 +39,14 @@ SDK는 함수를 노출 합니다.
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
-| 이름 | 형식 | 설명 |
+| 이름 | 유형 | Description |
 | ---- | ---- |------------ |
-| `token` | string | Azure AD 인증 토큰입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
-| `subdomain` | string | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
+| `token` | 문자열 | Azure AD 인증 토큰입니다. |
+| `subdomain` | 문자열 | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. |
 | `content` | [콘텐츠](#content) | 몰입 형 판독기에 표시할 콘텐츠를 포함 하는 개체입니다. |
-| `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. 선택 사항입니다. |
+| `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. (선택 사항) |
 
 ### <a name="returns"></a>반환
 
@@ -78,15 +78,15 @@ close(): void;
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
-| 이름 | 형식 | 설명 |
+| 이름 | 유형 | Description |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | RenderButtons 함수의 특정 동작을 구성 하는 옵션입니다. 선택 사항입니다. |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | RenderButtons 함수의 특정 동작을 구성 하는 옵션입니다. (선택 사항) |
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 
-### <a name="content"></a>Content
+### <a name="content"></a>목차
 
 몰입 형 판독기에 표시할 콘텐츠를 포함 합니다.
 
@@ -97,7 +97,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 }
 ```
 
-### <a name="chunk"></a>장이나
+### <a name="chunk"></a>청크
 
 몰입 형 판독기의 콘텐츠로 전달 되는 단일 데이터 청크입니다.
 
@@ -109,22 +109,30 @@ renderButtons(options?: RenderButtonsOptions): void;
 }
 ```
 
+### <a name="cookiepolicy-enum"></a>CookiePolicy 열거형
+
+몰입 형 판독기의 쿠키 사용에 대 한 정책을 설정 하는 데 사용 되는 열거형입니다. [옵션](#options)을 참조 하세요.
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### <a name="supported-mime-types"></a>지원 되는 MIME 형식
 
-| MIME 형식 | 설명 |
+| MIME 형식 | Description |
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
-| text/html | HTML 콘텐츠입니다. [자세히 알아보기](#html-support)|
-| application/mathml + xml | MathML (수학 Markup Language). [자세히 알아봅니다](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| 텍스트/html | HTML 콘텐츠입니다. [자세히 알아보기](#html-support)|
+| application/mathml + xml | MathML (수학 Markup Language). [자세히 알아보기](./how-to/display-math.md).
 | application/vnd. vnd.openxmlformats-officedocument.spreadsheetml.sheet. wordprocessingml | Microsoft Word .docx 형식 문서입니다.
 
 ### <a name="html-support"></a>HTML 지원
 | HTML | 지원 되는 내용 |
 | --------- | ----------- |
 | 글꼴 스타일 | 굵게, 기울임꼴, 밑줄, 코드, 취소선, 위 첨자, 아래 첨자 |
-| 순서가 지정 되지 않은 목록 | 디스크, 원, 사각형 |
+| 정렬되지 않은 목록 | 디스크, 원, 사각형 |
 | 정렬 된 목록 | 10 진수, 위쪽-알파, 아래쪽 알파, 위쪽 로마, 아래쪽 로마 |
-| 하이퍼링크 | 곧 공개됩니다 |
+| 하이퍼링크 | 서비스 예정 |
 
 지원 되지 않는 태그는 comparably 렌더링 됩니다. 이미지와 테이블은 현재 지원 되지 않습니다.
 
@@ -142,6 +150,7 @@ renderButtons(options?: RenderButtonsOptions): void;
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
@@ -168,12 +177,12 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="error-codes"></a>오류 코드
 
-| 코드 | 설명 |
+| 코드 | Description |
 | ---- | ----------- |
 | BadArgument | 제공 된 인수가 잘못 되었습니다. 자세한 내용은 `message`를 참조 하십시오. |
 | 시간 제한 | 몰입 형 판독기를 지정 된 시간 제한 내에 로드 하지 못했습니다. |
 | TokenExpired | 제공 된 토큰이 만료 되었습니다. |
-| 됨 | 호출 속도로 제한을 초과 했습니다. |
+| 정체됨 | 호출 속도로 제한을 초과 했습니다. |
 
 ## <a name="launching-the-immersive-reader"></a>몰입 형 판독기 시작
 
@@ -187,10 +196,10 @@ SDK는 몰입 형 판독기를 시작 하기 위한 단추에 대 한 기본 스
 
 다음 특성을 사용 하 여 단추의 모양과 느낌을 구성할 수 있습니다.
 
-| 특성 | 설명 |
+| attribute | Description |
 | --------- | ----------- |
 | `data-button-style` | 단추의 스타일을 설정 합니다. `icon`, `text` 또는 `iconAndText`일 수 있습니다. 기본값은 `icon`입니다. |
-| `data-locale` | 로캘을 설정 합니다. 예를 들면 `en-US` 또는 `fr-FR`과 같습니다. 기본값은 영어 `en`입니다. |
+| `data-locale` | 로캘을 설정 합니다. 예를 들어 `en-US` 또는 `fr-FR`입니다. 기본값은 영어 `en`입니다. |
 | `data-icon-px-size` | 아이콘의 크기 (픽셀)를 설정 합니다. 기본값은 20px입니다. |
 
 ## <a name="browser-support"></a>브라우저 지원

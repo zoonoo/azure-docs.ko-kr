@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2019
 ms.author: alsin
-ms.openlocfilehash: 40b9bc0fb63e99d9cfb0b5447b5e4300af421aed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1a63b388725823695c41339ae173c8d8e34839ef
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479437"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941402"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -30,7 +30,7 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI에 대한 중요한 정보
 
 * Azure RHUI는 Azure에서 만든 모든 RHEL PAYG Vm을 지 원하는 업데이트 인프라입니다. PAYG RHEL Vm을 구독 관리자 또는 위성 이나 다른 업데이트 원본으로 등록 하는 것을 배제 하지는 않지만 PAYG VM을 사용 하 여이 작업을 수행 하면 간접 이중 청구가 발생 합니다. 자세한 내용은 다음을 참조 하세요.
-* Azure 호스티드 RHUI에 대한 액세스는 RHEL PAYG 이미지 가격에 포함됩니다. Azure 호스티드 RHUI에서 PAYG RHEL VM의 등록을 취소하면 가상 머신을 사용자 라이선스 필요(BYOL) 형식 VM으로 변환하지 않습니다. 동일한 VM을 다른 업데이트 소스에 등록하면 _간접_ 요금이 이중으로 부과될 수 있습니다. 최초의 Azure RHEL 소프트웨어 요금이 사용자에게 청구됩니다. 이전에 구매한 Red Hat 구독에 대한 요금이 두 번째로 부과됩니다. Azure에서 호스트 되는 RHUI 이외의 업데이트 인프라를 지속적으로 사용 해야 하는 경우 [RHEL BYOS 이미지](https://aka.ms/rhel-byos)를 사용 하도록 등록 하는 것이 좋습니다.
+* Azure 호스티드 RHUI에 대한 액세스는 RHEL PAYG 이미지 가격에 포함됩니다. Azure 호스티드 RHUI에서 PAYG RHEL VM의 등록을 취소하면 가상 머신을 사용자 라이선스 필요(BYOL) 형식 VM으로 변환하지 않습니다. 동일한 VM을 다른 업데이트 소스에 등록하면 _간접_ 요금이 이중으로 부과될 수 있습니다. 최초의 Azure RHEL 소프트웨어 요금이 사용자에게 청구됩니다. 이전에 구매한 Red Hat 구독에 대한 요금이 두 번째로 부과됩니다. Azure에서 호스트 되는 RHUI 이외의 업데이트 인프라를 지속적으로 사용 해야 하는 경우 [RHEL BYOS 이미지](./byos.md)를 사용 하도록 등록 하는 것이 좋습니다.
 
 * Azure(RHEL for SAP HANA 및 RHEL for SAP Business Applications)에서 RHEL PAYG 이미지는 SAP 인증에 필요한 특정 RHEL 부 버전에 남아 있는 전용 RHUI 채널에 연결됩니다.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1c308243e3dfebb3622ebbe346771fe781b97cc5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893725"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443316"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>자습서: Azure Active Directory와 productboard 통합
 
@@ -33,7 +33,7 @@ ms.locfileid: "74893725"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -68,7 +68,7 @@ productboard에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성
     * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[productboard SSO 구성](#configure-productboard-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[productboard 테스트 사용자 만들기](#create-productboard-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 EZOfficeInventory에 만듭니다.
+    * **[productboard 테스트 사용자 만들기](#create-productboard-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 productboard에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -104,7 +104,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -134,7 +134,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 확장이 브라우저에 추가되면 **productboard 설정**을 클릭합니다. 그러면 productboard 애플리케이션으로 이동합니다. 여기서 관리자 자격 증명을 제공하여 productboard에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성합니다.
 
-    ![구성 설정](common/setup-sso.png)
+    ![설정 구성](common/setup-sso.png)
 
 1. **productboard**에서 Single Sign-On을 수동으로 설정하려면 **앱 페더레이션 메타데이터 URL**을 [productboard 지원 팀](mailto:support@productboard.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 

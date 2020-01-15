@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 577ce53b4667928d7eb5a870f57ff7180caaf6f5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448440"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Bing News Search API란?
 
@@ -28,7 +28,7 @@ Bing News Search API는 검색 결과만을 제공합니다. 다른 형식의 �
 
 Bing News Search API에서는 주로 관련 뉴스 문서를 찾고 반환하는 반면 웹에서 지능적이고 포커스가 있는 뉴스 검색을 제공합니다.
 
-|기능  |설명  |
+|기능  |Description  |
 |---------|---------|
 |[검색 용어 제안 및 사용](concepts/search-for-news.md#suggest-and-use-search-terms)     | [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 검색 환경을 향상시킵니다.         |
 |[일반 뉴스 가져오기](concepts/search-for-news.md#get-general-news)     | Bing News Search API에 검색 쿼리를 보내고, 관련 뉴스 문서의 목록을 다시 가져와서 뉴스를 찾습니다.           |
@@ -55,5 +55,5 @@ Bing News Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 ## <a name="see-also"></a>참고 항목
 
 * [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) 참조 섹션에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 헤더, API 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 있습니다.
-
 * [Bing 사용 및 표시 요구 사항](./useanddisplayrequirements.md)에서는 Bing 검색 API를 통해 획득한 콘텐츠와 정보의 허용 가능한 용도를 지정하고 있습니다.
+* [Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.

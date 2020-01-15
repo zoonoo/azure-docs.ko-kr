@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리'
 titleSuffix: Azure Cognitive Services
-description: Python용 LUIS 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
+description: 이 빠른 시작을 통해 Python용 LUIS 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 398220306fad4dc3459446fa5f77371ac669dd7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422718"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381497"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>빠른 시작: Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리
 
@@ -30,7 +30,7 @@ Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [작성 패키지(Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * LUIS(Language Understanding) 포털 계정: [체험 계정 만들기](https://www.luis.ai)
 * [Python 3.x](https://www.python.org/)

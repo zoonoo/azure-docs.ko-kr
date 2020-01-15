@@ -9,16 +9,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: 394c674da63bbda643246c3d61fb670d6ac8d1f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d1a59e7ad86191bcc30b7d898d00f327c20fbc5e
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928612"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945612"
 ---
 # <a name="azure-hybrid-benefit"></a>Azure 하이브리드 혜택
 
-VCore 기반 구매 모델의 프로 비전 된 계산 계층에서는 [SQL Server에 대 한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 사용 하 여 SQL Database에 대 한 할인 된 요금으로 기존 라이선스를 교환할 수 있습니다. 이 Azure 혜택을 통해 소프트웨어 보증이 있는 온-프레미스 SQL Server 라이선스를 사용 하 여 Azure SQL Database 최대 30%까지 절약할 수 있습니다. 
+VCore 기반 구매 모델의 프로 비전 된 계산 계층에서는 [SQL Server에 대 한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 사용 하 여 SQL Database에 대 한 할인 된 요금으로 기존 라이선스를 교환할 수 있습니다. 이 Azure 혜택을 통해 소프트웨어 보증이 포함 된 온-프레미스 SQL Server 라이선스를 사용 하 여 Azure SQL Database에 대해 최대 30% 또는 훨씬 더 많은 비용을 절감할 수 있습니다. 올바른 값에 대해 앞에서 설명한 링크를 사용 하 여 Azure 하이브리드 혜택 계산기를 사용 하십시오. 
 
 > [!NOTE]
 > Azure 하이브리드 혜택로 변경 하는 경우 가동 중지 시간이 필요 하지 않습니다.

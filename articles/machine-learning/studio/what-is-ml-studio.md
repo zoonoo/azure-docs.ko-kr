@@ -11,50 +11,50 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670538"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528354"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)란?
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Microsoft Azure Machine Learning Studio(클래식)는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다.  Machine Learning Studio의 클래식 버전은 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
+Microsoft Azure Machine Learning Studio(클래식)는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. Azure Machine Learning Studio(클래식)는 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
 
 Machine Learning Studio(클래식)는 데이터 과학, 예측 분석, 클라우드 리소스 및 데이터가 만나는 장소입니다.
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>Machine Learning Studio(클래식) 대화형 작업 영역
 예측 분석 모델을 개발하려면 일반적으로 하나 이상의 소스에서 얻은 데이터를 사용하고, 다양한 데이터 조작과 통계 함수를 통해 해당 데이터를 변환 및 분석하고, 결과 세트를 생성합니다. 이와 같은 모델을 개발하는 과정은 반복 프로세스이며, 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다.
 
-Azure Machine Learning Studio의 클래식 버전에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 세트***와 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning Studio(클래식)에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
+Azure Machine Learning Studio(클래식)에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 세트***와 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning Studio(클래식)에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
 
 프로그래밍이 필요하지 않으며, 데이터 세트와 모듈을 시각적으로 연결하여 예측 분석 모델을 구성할 수 있습니다.
 
-![Azure Machine Learning Studio 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
+![Azure Machine Learning Studio(클래식) 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Azure Machine Learning은 Machine Learning Studio(클래식)와 어떻게 다른가요?
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md)은 신속하게 데이터를 준비하고 기계 학습 모델을 학습 및 배포할 수 있도록 SDK **및** Azure Machine Learning 디자이너(미리 보기)를 모두 제공합니다. 디자이너는 Studio(클래식)와 비슷한 끌어서 놓기 환경을 제공합니다. 그러나 Studio(클래식) 전용 컴퓨팅 플랫폼과는 달리, 디자이너는 사용자 고유의 컴퓨팅 리소스를 사용하며 Azure Machine Learning에 완전히 통합됩니다.
+[Azure Machine Learning](../overview-what-is-azure-ml.md)은 신속하게 데이터를 준비하고 기계 학습 모델을 학습 및 배포할 수 있도록 SDK **및** Azure Machine Learning 디자이너(미리 보기)를 모두 제공합니다. 디자이너는 Studio(클래식)와 비슷한 끌어서 놓기 환경을 제공합니다. 그러나 Studio(클래식) 전용 컴퓨팅 플랫폼과는 달리, 디자이너는 사용자 고유의 컴퓨팅 리소스를 사용하며 Azure Machine Learning에 완전히 통합됩니다.
 
 다음은 간략하게 비교한 내용입니다.
 
 || Machine Learning Studio(클래식) | Azure Machine Learning |
 |---| --- | --- |
-| 끌어서 놓기 인터페이스 | 예 | 예 - [Azure Machine Learning 디자이너(미리 보기)](../service/concept-designer.md) |
+| 끌어서 놓기 인터페이스 | yes | 예 - [Azure Machine Learning 디자이너(미리 보기)](../concept-designer.md) |
 | 실험 | 크기 조정 가능(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정 |
 | 끌어서 놓기 인터페이스를 위한 모듈 | 다수 | 인기 있는 초기 [모듈](../algorithm-module-reference/module-reference.md) 세트|
-|컴퓨팅 대상 학습| 전용 컴퓨팅 대상, CPU만 지원| Azure Machine Learning 컴퓨팅(GPU 또는 CPU) 및 Notebook VM 지원<br/>([다른 컴퓨팅은 SDK에서 지원](../service/concept-compute-target.md#train))|
-|컴퓨팅 대상 추론| 전용 웹 서비스 형식, 사용자 지정 불가능 |  Azure Kubernetes Service 및 AML 컴퓨팅 <br/>([다른 컴퓨팅은 SDK에서 지원](../service/how-to-deploy-and-where.md)) |
-| ML 파이프라인 | 지원되지 않음 | [파이프라인](../service/concept-ml-pipelines.md) 지원됨 |
+|컴퓨팅 대상 학습| 전용 컴퓨팅 대상, CPU만 지원| Azure Machine Learning 컴퓨팅(GPU 또는 CPU) 및 Notebook VM 지원<br/>([다른 컴퓨팅은 SDK에서 지원](../concept-compute-target.md#train))|
+|컴퓨팅 대상 추론| 전용 웹 서비스 형식, 사용자 지정 불가능 |  Azure Kubernetes Service 및 AML 컴퓨팅 <br/>([다른 컴퓨팅은 SDK에서 지원](../how-to-deploy-and-where.md)) |
+| ML 파이프라인 | 지원되지 않음 | [파이프라인](../concept-ml-pipelines.md) 지원됨 |
 | MLOps | 기본 모델 관리 및 배포 | 구성 가능한 배포 - 모델 및 파이프라인 버전 관리와 추적 |
-| 모델 형식 | 전용 형식, Studio만 해당 | 학습 작업 유형에 따른 표준 형식 |
-|자동화된 모델 학습 및 하이퍼 매개변수 튜닝 | 아니요 | 아직 디자이너에 없음 <br/> ([SDK 및 작업 영역 방문 페이지에서 지원됨](../service/concept-automated-ml.md)) | 
+| 모델 형식 | 전용 형식, Studio(클래식)만 해당 | 학습 작업 유형에 따른 표준 형식 |
+|자동화된 모델 학습 및 하이퍼 매개변수 튜닝 | 예 | 아직 디자이너에 없음 <br/> ([SDK 및 작업 영역 방문 페이지에서 지원됨](../concept-automated-ml.md)) | 
 
-디자이너를 사용해 보려면 [자습서: 디자이너를 사용하여 자동차 가격 예측](../service/tutorial-designer-automobile-price-train-score.md)을 참조하세요.
+디자이너를 사용해 보려면 [자습서: 디자이너를 사용하여 자동차 가격 예측](../tutorial-designer-automobile-price-train-score.md)을 참조하세요.
 
 > [!NOTE]
 > Studio(클래식)에서 만든 모델은 Azure Machine Learning으로 배포하거나 관리할 수 없습니다. 하지만 디자이너에서 만들고 배포한 모델은 Azure Machine Learning 작업 영역을 통해 관리할 수 있습니다.
@@ -93,7 +93,7 @@ Azure Machine Learning Studio의 클래식 버전에서는 예측 분석 모델�
 Machine Learning Studio(클래식)에 포함된 샘플 데이터 세트의 목록은 [Azure Machine Learning Studio(클래식)에서 예제 데이터 세트 사용](use-sample-datasets.md)을 참조하세요.
 
 ### <a name="modules"></a>모듈
-모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다.  Machine Learning Studio의 클래식 버전에는 데이터 가져오기 함수부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양한 모듈이 있습니다. 포함된 모듈의 몇 가지 예제는 다음과 같습니다.
+모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. Azure Machine Learning Studio(클래식)에는 데이터 가져오기 함수부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양한 모듈이 있습니다. 포함된 모듈의 몇 가지 예제는 다음과 같습니다.
 
 * [ARFF로 변환][convert-to-arff] - .NET 직렬화된 데이터 세트를 ARFF(Attribute-Relation File Format) 형식으로 변환합니다.
 * [기본 통계 컴퓨팅][elementary-statistics] - 평균, 표준 편차 등의 기본 통계를 컴퓨팅합니다.

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure 템플릿을 사용하여 Linux 가상 머신 확장 집합 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure 템플릿을 사용하여 Linux 가상 머신 확장 집합 만들기
 description: 샘플 앱을 배포하고 자동 크기 조정 규칙을 구성하는 Azure Resource Manager 템플릿을 사용하여 Linux 가상 머신 확장 집합을 빠르게 만드는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1aca6a1c47e486e0630e779c975b699a193d41
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 34cc269bc9355fa6744c7d31fff7e986baf1e049
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351101"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>빠른 시작: Azure 템플릿을 사용하여 Linux 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합을 만들고, 샘플 애플리케이션을 배포합니다.
@@ -40,11 +40,11 @@ Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배�
 
 템플릿을 사용하여 확장 집합을 만들려면 적절한 리소스를 정의합니다. 가상 머신 확장 집합 리소스 종류의 주요 부분은 다음과 같습니다.
 
-| 자산                     | 속성 설명                                  | 예제 템플릿 값                    |
+| 속성                     | 속성 설명                                  | 예제 템플릿 값                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| 형식                         | 만들 Azure 리소스 종류                            | Microsoft.Compute/virtualMachineScaleSets |
-| 이름                         | 확장 집합 이름                                       | myScaleSet                                |
-| location                     | 확장 집합을 만들 위치                     | 미국 동부                                   |
+| type                         | 만들 Azure 리소스 종류                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | 확장 집합 이름                                       | myScaleSet                                |
+| 위치                     | 확장 집합을 만들 위치                     | 미국 동부                                   |
 | sku.name                     | 각 확장 집합 인스턴스에 대한 VM 크기                  | Standard_A1                               |
 | sku.capacity                 | 처음에 만들 VM 인스턴스의 수           | 2                                         |
 | upgradePolicy.mode           | 변경 발생 시의 VM 인스턴스 업그레이드 모드              | 자동                                 |

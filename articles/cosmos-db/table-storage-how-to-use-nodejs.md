@@ -1,5 +1,5 @@
 ---
-title: Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
+title: Node.js에서 Azure Table 스토리지 또는 Azure Cosmos DB Table API 사용
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 7611af5f4d5b79ddb2abb7546f2e3ea6c0d4c4c5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a5246ed4018fd4d5bc38649d6a476bc82bcbbf7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308403"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441195"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "70308403"
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Azure Storage 또는 Azure Cosmos DB Table API에 액세스하도록 애플리케이션 구성
-Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
+Azure Storage 또는 Azure Cosmos DB를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 애플리케이션을 만든 폴더로 이동합니다.
@@ -51,7 +51,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
+3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 스토리지에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
 애플리케이션에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
-Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예:
+Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 다음은 그 예입니다.
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -198,7 +198,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 다른 프로세서에서 이전에 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
 >
 > 1. 업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서의 `response`의 일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
-> 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예:
+> 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 다음은 그 예입니다.
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 애플리케이션의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.

@@ -1,5 +1,6 @@
 ---
-title: Azure App Configuration을 사용한 기능 플래그 관리에 대한 자습서 | Microsoft Docs
+title: '자습서: Azure App Configuration을 사용하여 기능 플래그 관리'
+titleSuffix: Azure App Configuration
 description: 이 자습서에서는 Azure App Configuration을 사용하여 애플리케이션과 별도로 기능 플래그를 관리하는 방법을 알아봅니다.
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,18 +15,18 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: b7fbf9add67a45c0db89fc11cee5c10bc537ab63
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 620cd6e1712a89e13bf876310c0d3248c4a4d1e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414000"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>자습서: Azure App Configuration에서 기능 플래그 관리
 
 Azure App Configuration에 모든 기능 플래그를 저장한 후 한 곳에서 관리할 수 있습니다. App Configuration에는 기능 플래그용으로 특별히 디자인된 **기능 관리자**라는 포털 UI가 있습니다. 또한 App Configuration은 기본적으로 .NET Core 기능 플래그 데이터 스키마를 지원합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * App Configuration에서 기능 플래그를 정의하고 관리합니다.

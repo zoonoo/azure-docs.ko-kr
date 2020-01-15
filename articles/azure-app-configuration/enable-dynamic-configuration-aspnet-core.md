@@ -1,5 +1,6 @@
 ---
-title: ASP.NET Core에서 Azure App Configuration 동적 구성 사용 자습서 | Microsoft Docs
+title: '자습서: ASP.NET Core에서 App Configuration 동적 구성 사용'
+titleSuffix: Azure App Configuration
 description: 이 자습서에서는 ASP.NET Core 앱의 구성 데이터를 동적으로 업데이트하는 방법을 알아봄
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433701"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -33,13 +34,13 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * App Configuration 저장소의 변경에 따라 해당 구성을 업데이트하도록 애플리케이션을 설정합니다.
 > * 애플리케이션의 컨트롤러에 최신 구성을 삽입합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 수행하려면 [.NET Core SDK](https://dotnet.microsoft.com/download)를 설치합니다.
 

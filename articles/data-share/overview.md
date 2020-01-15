@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499363"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660803"
 ---
 # <a name="what-is-azure-data-share"></a>Azure Data Share란?
 
@@ -47,7 +47,7 @@ Azure Data Share는 현재 스냅샷 기반 공유와 현재 위치 공유(제�
 
 데이터 소비자가 데이터 공유를 수락하면 데이터를 자신이 선택한 데이터 저장소로 받을 수 있습니다. 예를 들어 데이터 공급자가 Azure Blob Storage를 사용하여 데이터를 공유하는 경우 데이터 소비자는 이 데이터를 Azure Data Lake Store에서 받을 수 있습니다. 마찬가지로 데이터 공급자가 Azure SQL Data Warehouse에서 데이터를 공유하는 경우 데이터 소비자는 데이터를 Azure Data Lake Store, Azure SQL Database 및 Azure SQL Data Warehouse 중 어느 것으로 받을지 선택할 수 있습니다. SQL 기반 소스에서 공유하는 경우 데이터 소비자는 parquet과 csv 중 어느 형식으로 데이터를 받을지도 선택할 수 있습니다. 
 
-현재 위치 공유는 현재 Azure Data Explorer의 제한된 미리 보기로 제공됩니다. 바로 가기 링크를 통해 데이터 공급자가 데이터 이동 없이 데이터가 상주하는 위치에서 데이터를 공유할 수 있습니다. [여기](https://aka.ms/azuredatasharepreviewsignup)에서 Azure Data Explorer의 제한된 미리 보기로 제공되는 현재 위치 공유에 가입하세요. 
+현재 위치 공유는 현재 Azure Data Explorer의 제한된 미리 보기로 제공됩니다. 바로 가기 링크를 통해 데이터 공급자가 데이터 이동 없이 데이터가 상주하는 위치에서 데이터를 공유할 수 있습니다. [여기](https://aka.ms/azuredatasharepreviewsignup)에서 Azure Data Explorer내부 공유의 제한된 미리 보기에 등록합니다. 
 
 ## <a name="key-capabilities"></a>주요 기능
 

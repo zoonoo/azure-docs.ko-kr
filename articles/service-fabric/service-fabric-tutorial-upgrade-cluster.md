@@ -1,26 +1,15 @@
 ---
-title: Azure에서 Service Fabric 런타임 업그레이드 | Microsoft Docs
+title: Azure에서 Service Fabric 런타임 업그레이드
 description: 이 자습서에서는 PowerShell을 사용하여 Azure 호스팅 Service Fabric 클러스터의 런타임을 업그레이드하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 5bb3760879682f9fc828d2a43690d34afb110403
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 280e25834d015d89ab7cbba2a2b2b0f36dcf19fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598750"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457838"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터의 런타임 업그레이드
 
@@ -31,7 +20,7 @@ ms.locfileid: "68598750"
 
 클러스터가 이미 최신 Service Fabric 런타임을 실행 중이라면 이 단계가 필요하지 않습니다. 그러나 이 문서를 사용하여 Azure Service Fabric 클러스터에 지원되는 런타임을 설치할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 클러스터 버전 읽기
@@ -48,7 +37,7 @@ ms.locfileid: "68598750"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -200,7 +189,7 @@ sfctl cluster upgrade-status
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 클러스터 런타임 버전 가져오기

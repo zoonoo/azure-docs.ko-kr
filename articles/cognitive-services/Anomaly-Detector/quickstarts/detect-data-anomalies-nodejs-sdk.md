@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 데이터 변칙 검색'
 titleSuffix: Azure Cognitive Services
-description: Anomaly Detector API를 사용하여 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
+description: Anomaly Detector API를 사용하여 이 빠른 시작을 통해 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 084ef1b81f7db5bd4a2d371e0c322211c0f0e142
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b8cbf69aa0788b3b8e0130396f192cb5bc045f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448883"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>빠른 시작: Node.js용 Anomaly Detector 클라이언트 라이브러리
 
@@ -28,7 +28,7 @@ Node.js용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 
 [참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [GitHub에서 코드 찾기](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 현재 버전의 [Node.js](https://nodejs.org/)
@@ -110,7 +110,7 @@ csv-구문 분석 라이브러리의 `readFileSync()` 메서드를 사용하여 
 
 ## <a name="detect-anomalies-in-the-entire-data-set"></a>전체 데이터 세트에서 변칙 검색 
 
-API를 호출하여 클라이언트의 [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) 메서드를 통해 전체 시계열의 변칙을 일괄 처리로 검색합니다. 반환된 [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) 개체를 저장합니다. 응답의 `isAnomaly` 목록을 반복하고 `true` 값의 인덱스를 출력합니다. 이 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
+API를 호출하여 클라이언트의 [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) 메서드를 통해 전체 시계열의 변칙을 일괄 처리로 검색합니다. 반환된 [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) 개체를 저장합니다. 응답의 `isAnomaly` 목록을 반복하고 `true` 값의 인덱스를 출력합니다. 이러한 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
 
 [!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=batchCall)]
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109521"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432732"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 주변 관심 지점 검색
 
-이 자습서에서는 Azure Maps를 사용하여 계정을 설정한 다음, Maps API를 사용하여 관심 지점을 검색하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Maps를 사용하여 계정을 설정한 다음, Maps API를 사용하여 관심 지점을 검색하는 방법을 보여 줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Maps 계정 만들기
@@ -55,13 +55,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="get-the-primary-key-for-your-account"></a>사용자 계정에 대한 기본 키 가져오기
 
-Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 키를 검색합니다.
+Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 키를 검색합니다. Azure Maps 서비스를 호출할 때 계정의 기본 키를 구독 키로 사용하는 것이 좋습니다.
 
 1. 포털에서 Maps 계정을 엽니다.
 2. 설정 섹션에서 **인증**을 선택합니다.
 3. **기본 키**를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다.
 
 ![포털에서 기본 키 가져오기](./media/tutorial-search-location/get-key.png)
+
+Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 <a id="createmap"></a>
 
@@ -275,7 +277,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Maps를 사용하여 계정 만들기

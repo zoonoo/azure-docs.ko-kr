@@ -1,5 +1,5 @@
 ---
-title: '자습서: 실시간 이벤트에서 데이터 변칙 시각화 - Azure Event Hubs'
+title: Azure Event Hubs - 실시간 이벤트에서 데이터 변칙 시각화
 description: '자습서: Microsoft Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화'
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 11/05/2019
-ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/20/2019
+ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437157"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -22,7 +22,7 @@ Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 �
 
 이 자습서에서는 이 예제를 시뮬레이션합니다. 신용 카드 거래를 만들어 이벤트 허브로 보내는 애플리케이션을 실행합니다. 그런 다음, Azure Stream Analytics를 통해 실시간으로 데이터 스트림을 읽습니다. 여기서는 유효한 거래와 잘못된 거래를 구별한 다음, Power BI를 사용하여 잘못된 것으로 태그 지정된 거래를 시각적으로 식별합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 이벤트 허브 만들기
@@ -32,7 +32,7 @@ Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 �
 
 이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 �
 
 다음 섹션에서는 이를 위해 필요한 단계를 설명합니다. CLI *또는* PowerShell 명령에 따라 다음 단계를 수행합니다.
 
-1. [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 
+1. [리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 
 
 2. Event Hubs 네임스페이스를 만듭니다. 
 
@@ -373,7 +373,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 이벤트 허브 만들기

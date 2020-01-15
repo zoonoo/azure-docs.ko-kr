@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950457"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647410"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
@@ -111,7 +111,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 엔드투엔드 솔�
 
 Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한도가 적절히 설정되어 있으며, 이러한 제한은 IoT 솔루션의 범위에 영향을 줄 수 있습니다. 구독별 기준의 현재 제한은 구독당 50개 IoT 허브입니다. 지원 센터에 문의하여 할당량 증가를 요청할 수 있습니다. 자세한 내용은 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. 할당량 한도에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
 
-* [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)
+* [Azure 구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub 제한 및 사용자](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -120,3 +120,7 @@ Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한�
 엔드투엔드 IoT 솔루션을 사용해 보려면 다음 IoT Hub 빠른 시작을 확인해 보세요.
 
 * [빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)
+
+Azure IoT를 사용하여 IoT 솔루션을 빌드 및 배포하는 방법에 대해 자세히 알아보려면
+
+* [기본 사항: Azure IoT 기술 및 솔루션](../iot-fundamentals/iot-services-and-technologies.md)을 방문하세요.

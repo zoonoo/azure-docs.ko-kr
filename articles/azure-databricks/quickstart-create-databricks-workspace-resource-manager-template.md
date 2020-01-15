@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 2fbe1e91204df7901b4ac3ccfdcd323304b2ce3c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c485a21f974e3ed9c8882e7a900d1632b33a1ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410648"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 
 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Apache Spark 클러스터가 있는 Azure Databricks 작업 영역을 만듭니다. 클러스터에서 작업을 실행하고 사용자 지정 차트를 사용하여 인구 통계 기반의 무료/유료 사용량 데이터로 실시간 보고서를 작성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
@@ -47,10 +47,10 @@ ms.locfileid: "74706178"
 
    다음 값을 제공합니다.
 
-   |자산  |설명  |
+   |속성  |Description  |
    |---------|---------|
    |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
-   |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
+   |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요. |
    |**위치**     | **미국 동부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
    |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
    |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
@@ -123,7 +123,7 @@ ms.locfileid: "74706178"
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-     스토리지 계정 키를 검색하는 방법에 대한 지침은 [스토리지 액세스 키 관리](../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
+     스토리지 계정 액세스 키를 검색하는 방법에 대한 자세한 내용은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
    > [!NOTE]
    > 또한 Azure Databricks에서 Azure Data Lake Store를 Spark 클러스터와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)을 참조하세요.

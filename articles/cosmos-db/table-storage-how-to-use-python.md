@@ -1,5 +1,5 @@
 ---
-title: Python을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
+title: Python을 사용하여 Azure Cosmos DB Table API 및 Azure Table 스토리지 사용
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 883965d1d59e5523527a6aab1e83521d7491bf82
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6c01b9581795f4ac74bd74757b9116c0d5df586d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444750"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Python을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 
@@ -33,7 +33,7 @@ Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 �
 
 이 샘플의 시나리오를 진행하면서 [Azure Cosmos DB SDK for Python API 참조](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)를 참조할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 성공적으로 완료하려면 다음이 필요합니다.
 

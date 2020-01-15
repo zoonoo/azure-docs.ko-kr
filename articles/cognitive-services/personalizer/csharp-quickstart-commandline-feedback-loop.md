@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: .NET용 Personalizer 클라이언트 라이브러리 | Microsoft Docs'
+title: '빠른 시작: .NET용 Personalizer 클라이언트 라이브러리'
 titleSuffix: Azure Cognitive Services
-description: 학습 루프를 사용하여 .NET용 Personalizer 클라이언트 라이브러리를 시작합니다.
+description: 이 빠른 시작에서는 학습 루프를 사용하여 .NET용 Personalizer 클라이언트 라이브러리를 시작하는 방법을 보여줍니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c17bf54d89e3a98ca667eeba40f2d2b166550833
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446385"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>빠른 시작: .NET용 Personalizer 클라이언트 라이브러리
 
@@ -28,7 +28,7 @@ ms.locfileid: "74927834"
 
 [참조 설명서](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [샘플](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -45,7 +45,7 @@ ms.locfileid: "74927834"
 
 ## <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
 
-로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services)를 가져옵니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
@@ -213,4 +213,3 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [Personalizer란?](what-is-personalizer.md)
 * [Personalizer를 사용할 수 있는 위치](where-can-you-use-personalizer.md)
 * [문제 해결](troubleshooting.md)
-

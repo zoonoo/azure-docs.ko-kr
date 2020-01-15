@@ -3,24 +3,24 @@ title: Azure IoT 솔루션에서 IoT 플러그 앤 플레이 미리 보기 디�
 description: 솔루션 개발자로서 서비스 SDK를 사용하여 IoT 플러그 앤 플레이 디바이스와 상호 작용하는 방법을 알아봅니다.
 author: Philmea
 ms.author: philmea
-ms.date: 07/24/2019
+ms.date: 12/26/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977593"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531346"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>IoT 플러그 앤 플레이 미리 보기 디바이스에 연결하고 상호 작용
 
 이 방법 가이드에서는 IoT 솔루션이 IoT 플러그 앤 플레이 미리 보기 디바이스와 상호 작용하는 방법을 알려주는 Node 서비스 SDK의 샘플을 보여줍니다.
 
-아직 [솔루션에 IoT 플러그 앤 플레이 디바이스 연결](quickstart-connect-pnp-device-solution.md) 빠른 시작을 완료하지 않은 경우 지금 완료해야 합니다. 이 빠른 시작에서는 SDK를 다운로드하여 설치하고 샘플을 실행하는 방법을 보여줍니다.
+아직 [솔루션에 IoT 플러그 앤 플레이 디바이스 연결](quickstart-connect-pnp-device-solution-node.md) 빠른 시작을 완료하지 않은 경우 지금 완료해야 합니다. 이 빠른 시작에서는 SDK를 다운로드하여 설치하고 샘플을 실행하는 방법을 보여줍니다.
 
 서비스 샘플을 실행하기 전에, 새 터미널을 열고, 복제된 리포지토리의 루트 폴더로 이동하고, **digitaltwins/quickstarts/service** 폴더로 이동한 다음, 다음 명령을 실행하여 종속 요소를 설치합니다.
 

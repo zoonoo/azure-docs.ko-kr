@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 1558b2eb12b1d4745cdfeab41fc2d1bd829b3d9c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: eef9a99e4c94fa45e21abfc9d19fcef1230ffe76
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816682"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944686"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>빠른 시작: Python의 긴 형식 오디오에 대 한 비동기 합성 (미리 보기)
 
-이 빠른 시작에서는 긴 오디오 API를 사용 하 여 비동기적으로 텍스트를 음성으로 변환 하 고 서비스에서 제공 하는 URI에서 오디오 출력을 검색 합니다. 이 REST API는 1만 문자 또는 50 단락 보다 큰 텍스트 파일을 합성 된 음성으로 변환 해야 하는 콘텐츠 공급자에 게 적합 합니다. 자세한 내용은 [긴 오디오 API](../../long-audio-api.md)를 참조 하세요.
+이 빠른 시작에서는 긴 오디오 API를 사용 하 여 비동기적으로 텍스트를 음성으로 변환 하 고 서비스에서 제공 하는 URI에서 오디오 출력을 검색 합니다. 이 REST API는 5000 자 보다 큰 텍스트에서 오디오를 합성 해야 하는 콘텐츠 공급자에 적합 합니다 (또는 길이가 10 분 이상). 자세한 내용은 [긴 오디오 API](../../long-audio-api.md)를 참조 하세요.
 
 > [!NOTE]
 > 긴 형식의 오디오에 대 한 비동기 합성은 [사용자 지정 신경망](../../how-to-custom-voice.md#custom-neural-voices)에만 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작에는 다음이 필요합니다.
 
@@ -50,13 +50,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> 이러한 모듈을 사용하지 않았다면 프로그램을 실행하기 전에 설치해야 합니다. 이러한 패키지를 설치하려면 `pip install requests urllib3`를 실행합니다.
+> 이러한 모듈을 사용 하지 않은 경우 프로그램을 실행 하기 전에 설치 해야 합니다. 이러한 패키지를 설치하려면 `pip install requests urllib3`를 실행합니다.
 
 이러한 모듈은 인수를 구문 분석 하 고, HTTP 요청을 생성 하 고, 텍스트 음성 변환 긴 오디오 REST API 호출 하는 데 사용 됩니다.
 
 ## <a name="get-a-list-of-supported-voices"></a>지원 되는 음성 목록 가져오기
 
-이 코드는 텍스트를 음성으로 변환 하는 데 사용할 수 있는 사용 가능한 음성 목록을 가져옵니다. 이 코드 `voice_synthesis_client.py`추가 합니다.
+이 코드는 텍스트를 음성으로 변환 하는 데 사용할 수 있는 사용 가능한 음성 목록을 가져옵니다. `voice_synthesis_client.py`코드를 추가 합니다.
 
 ```python
 parser = argparse.ArgumentParser(description='Cris client tool to submit voice synthesis requests.')
@@ -80,13 +80,18 @@ if args.voices:
 
 ### <a name="test-your-code"></a>코드 테스트
 
-지금까지 수행한 작업을 테스트 해 보겠습니다. 이 명령을 실행 하 고 `<your_key>`를 음성 구독 키로 바꾸고 음성 리소스가 생성 된 지역 (예: `eastus` 또는 `westus`)으로 `<region>` 합니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
+지금까지 수행한 작업을 테스트 해 보겠습니다. 아래 요청에서 몇 가지 항목을 업데이트 해야 합니다.
+
+* `<your_key>`를 Speech Service 구독 키로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
+* `<region>`를 음성 리소스가 생성 된 지역 (예: `eastus` 또는 `westus`)으로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
+
+다음 명령을 실행합니다.
 
 ```console
 python voice_synthesis_client.py --voices -key <your_key> -region <Region>
 ```
 
-다음과 같은 출력을 가져와야 합니다.
+다음과 같은 출력이 표시 됩니다.
 
 ```console
 There are xx voices available:
@@ -95,14 +100,16 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
+## <a name="prepare-input-files"></a>입력 파일 준비
+
+입력 텍스트 파일을 준비 합니다. 일반 텍스트 또는 SSML 텍스트 중 하나일 수 있습니다. 입력 파일 요구 사항은 [합성을 위해 콘텐츠를 준비](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis)하는 방법을 참조 하세요.
+
 ## <a name="convert-text-to-speech"></a>텍스트를 음성으로 변환
 
-다음 단계는 입력 텍스트 파일을 준비 하는 것입니다. 일반 텍스트 또는 SSML 일 수 있지만 1만 50 자이 하 여야 합니다. 요구 사항의 전체 목록은 [긴 오디오 API](../../long-audio-api.md)를 참조 하세요.
-
-텍스트 파일을 준비한 후 다음 단계는 프로젝트에 음성 합성을 위한 코드를 추가 하는 것입니다. `voice_synthesis_client.py`에 다음 코드를 추가 합니다.
+입력 텍스트 파일을 준비한 후 `voice_synthesis_client.py`에 음성 합성을 위한이 코드를 추가 합니다.
 
 > [!NOTE]
-> 기본적으로 오디오 출력은 riff-16khz-16 비트로 설정 됩니다. 지원 되는 오디오 출력에 대 한 자세한 내용은 [긴 오디오 API](../../long-audio-api.md#audio-output-formats)를 참조 하세요.
+> ' concatenateResult '은 선택적 매개 변수입니다. 이 매개 변수를 설정 하지 않으면 오디오 출력이 단락 단위로 생성 됩니다. 매개 변수를 설정 하 여 오디오 된 os를 1 개의 출력으로 연결할 수도 있습니다. 기본적으로 오디오 출력은 riff-16khz-16 비트로 설정 됩니다. 지원 되는 오디오 출력에 대 한 자세한 내용은 [오디오 출력 형식](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats)을 참조 하세요.
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -123,7 +130,7 @@ def submitSynthesis():
         files = {'script': (scriptfilename, open(args.file, 'rb'), 'text/plain')}
     response = requests.post(baseAddress+"voicesynthesis", data, headers={"Ocp-Apim-Subscription-Key":args.key}, files=files, verify=False)
     if response.status_code == 202:
-        location = response.headers['Operation-Location']
+        location = response.headers['Location']
         id = location.split("/")[-1]
         print("Submit synthesis request successful")
         return id
@@ -169,9 +176,9 @@ if args.submit:
 
 * `<your_key>`를 Speech Service 구독 키로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
 * `<region>`를 음성 리소스가 생성 된 지역 (예: `eastus` 또는 `westus`)으로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
-* `<input>`를 텍스트에서 음성으로 변환 하려는 텍스트 파일의 경로로 바꿉니다.
+* `<input>`를 텍스트를 음성으로 준비한 텍스트 파일의 경로로 바꿉니다.
 * `<locale>`를 원하는 출력 로캘로 바꿉니다. 자세한 내용은 [언어 지원](../../language-support.md#neural-voices)을 참조 하세요.
-* `<voice_guid>`를 오디오 출력의 원하는 음성으로 바꿉니다. [지원 되는 음성 목록 가져오기](#get-a-list-of-supported-voices) 에서 반환 된 음성 중 하나를 사용 하거나 [언어 지원](../../language-support.md#neural-voices)에서 제공 되는 신경망 목록을 사용 합니다.
+* `<voice_guid>`를 원하는 출력 음성으로 바꿉니다. [지원 되는 음성 목록 가져오기](#get-a-list-of-supported-voices)에서 반환 된 음성 중 하나를 사용 합니다.
 
 다음 명령을 사용 하 여 텍스트를 음성으로 변환 합니다.
 
@@ -180,9 +187,11 @@ python voice_synthesis_client.py --submit -key <your_key> -region <Region> -file
 ```
 
 > [!NOTE]
-> ' concatenateResult '는 선택적 매개 변수입니다 .이 매개 변수를 지정 하지 않으면 출력은 각 줄 마다 하나씩 여러 개의 wave 파일로 제공 됩니다.
+> 입력 파일이 2 개 이상 있는 경우 여러 요청을 제출 해야 합니다. 유의 해야 하는 몇 가지 제한 사항이 있습니다. 
+> * 클라이언트는 각 Azure 구독 계정에 대해 초당 최대 **5 개의** 요청을 서버에 제출할 수 있습니다. 이 제한이 초과 되 면 클라이언트는 429 오류 코드 (너무 많은 요청)를 가져옵니다. 초당 요청 크기를 줄이십시오.
+> * 서버를 실행 하 고 각 Azure 구독 계정에 대해 최대 **120** 요청을 큐에 대기 시킬 수 있습니다. 이 제한이 초과 되 면 서버는 429 오류 코드 (너무 많은 요청)를 반환 합니다. 잠시 후 요청이 완료 될 때까지 새 요청을 제출 하지 마세요.
 
-다음과 같은 출력을 가져와야 합니다.
+다음과 같은 출력이 표시 됩니다.
 
 ```console
 Submit synthesis request successful
@@ -200,13 +209,13 @@ Checking status
 Succeeded... Result file downloaded : xxxx.zip
 ```
 
-제공 된 결과에는 서비스에 의해 생성 된 입력 텍스트 및 오디오 출력 파일이 포함 됩니다. 이는 zip으로 다운로드 됩니다.
+결과에는 서비스에 의해 생성 되는 입력 텍스트와 오디오 출력 파일이 포함 됩니다. 이러한 파일은 zip에서 다운로드할 수 있습니다.
 
 ## <a name="remove-previous-requests"></a>이전 요청 제거
 
-각 구독에 대 한 요청 수는 2000 개로 제한 됩니다. 따라서 이전에 제출 된 요청을 새 요청을 만들기 전에 제거 해야 하는 경우가 있습니다. 기존 요청을 제거 하지 않으면 2000를 초과 하는 경우 오류가 발생 합니다.
+서버는 각 Azure 구독 계정에 대해 최대 **2만** 개의 요청을 유지 합니다. 요청 금액이이 제한을 초과 하는 경우 새 요청을 만들기 전에 이전 요청을 제거 하세요. 기존 요청을 제거 하지 않으면 오류 알림이 수신 됩니다.
 
-`voice_synthesis_client.py`에 다음 코드를 추가 합니다.
+`voice_synthesis_client.py`코드를 추가 합니다.
 
 ```python
 parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
@@ -239,13 +248,18 @@ if args.delete:
 
 ### <a name="test-your-code"></a>코드 테스트
 
-이 명령을 실행 하 고 `<your_key>`를 음성 구독 키로 바꾸고 음성 리소스가 생성 된 지역 (예: `eastus` 또는 `westus`)으로 `<region>` 합니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
+이제 이전에 제출한 요청을 확인해 보겠습니다. 계속 하기 전에이 요청에서 몇 가지 항목을 업데이트 해야 합니다.
+
+* `<your_key>`를 Speech Service 구독 키로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
+* `<region>`를 음성 리소스가 생성 된 지역 (예: `eastus` 또는 `westus`)으로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
+
+다음 명령을 실행합니다.
 
 ```console
-python voice_synthesis_client.py – syntheses -key <your_key> -region <Region>
+python voice_synthesis_client.py --syntheses -key <your_key> -region <Region>
 ```
 
-그러면 요청한 syntheses 목록이 반환 됩니다. 다음과 같은 출력을 가져와야 합니다.
+그러면 만든 합성 요청 목록이 반환 됩니다. 다음과 같은 출력이 표시 됩니다.
 
 ```console
 There are <number> synthesis requests submitted:
@@ -254,16 +268,22 @@ ID : xxx , Name : xxx, Status : Running
 ID : xxx , Name : xxx : Succeeded
 ```
 
-이제 이러한 값 중 일부를 사용 하 여 이전에 제출 된 요청을 제거/삭제 하겠습니다. 이 명령을 실행 하 고 `<your_key>`를 음성 구독 키로 바꾸고 음성 리소스가 생성 된 지역 (예: `eastus` 또는 `westus`)으로 `<region>` 합니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다. `<synthesis_id>`은 이전 요청에서 반환 된 값 중 하나 여야 합니다.
+이제 이전에 제출 된 요청을 제거 하겠습니다. 아래 코드에서 몇 가지 항목을 업데이트 해야 합니다.
+
+* `<your_key>`를 Speech Service 구독 키로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
+* `<region>`를 음성 리소스가 생성 된 지역 (예: `eastus` 또는 `westus`)으로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
+* `<synthesis_id>`를 이전 요청에서 반환 된 값으로 바꿉니다.
 
 > [!NOTE]
 > 상태가 ' 실행 중 '/' 대기 중 ' 인 요청은 제거 하거나 삭제할 수 없습니다.
 
+다음 명령을 실행합니다.
+
 ```console
-python voice_synthesis_client.py – delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
+python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
 ```
 
-다음과 같은 출력을 가져와야 합니다.
+다음과 같은 출력이 표시 됩니다.
 
 ```console
 delete voice synthesis xxx
@@ -272,7 +292,7 @@ delete successful
 
 ## <a name="get-the-full-client"></a>전체 클라이언트 가져오기
 
-전체 `voice_synthesis_client.py`는 [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py)에서 다운로드할 수 있습니다.
+완성 된 `voice_synthesis_client.py`는 [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py)에서 다운로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: ee67c811835d99bf2f4c00dc59b43e29f63c81d6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 9ccbd67348a8dae7391471ccd1dcc1ba9b135ea2
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533808"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941818"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -88,7 +88,7 @@ ms.locfileid: "74533808"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   풀을 Azure Marketplace PAYG RHEL 이미지에 연결 하면 RHEL 사용에 대 한 비용이 효과적으로 두 배 청구 됩니다. PAYG 이미지에 대해 한 번, 연결한 풀의 RHEL 자격에 대해 한 번입니다. 이를 완화 하기 위해 Azure는 이제 BYOS RHEL 이미지를 제공 합니다. 자세한 내용은 [여기](https://aka.ms/rhel-byos)에 있습니다.
+   풀을 Azure Marketplace PAYG RHEL 이미지에 연결 하면 RHEL 사용에 대 한 비용이 효과적으로 두 배 청구 됩니다. PAYG 이미지에 대해 한 번, 연결한 풀의 RHEL 자격에 대해 한 번입니다. 이를 완화 하기 위해 Azure는 이제 BYOS RHEL 이미지를 제공 합니다. 자세한 내용은 [여기](../redhat/byos.md)에 있습니다.
 
 1. **[A]** SAP 리포지토리에 RHEL 사용
 
@@ -250,7 +250,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 1. 역할 할당 추가 클릭
 1. "Linux 펜스 에이전트 역할"이라는 역할 선택
 1. 위에서 만든 애플리케이션의 이름 입력
-1. 저장을 클릭합니다.
+1. [저장]을 클릭합니다.
 
 두 번째 클러스터 노드에 위 단계 반복
 

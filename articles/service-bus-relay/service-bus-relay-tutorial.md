@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출'
+title: Azure Relay를 사용하여 온-프레미스 WCF REST 서비스를 클라이언트에 노출
 description: '자습서: WCF Relay를 사용하여 클라이언트 및 서비스 애플리케이션을 빌드합니다.'
 services: service-bus-relay
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee090ca0d7bbdad70147b85644952143c086d336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452286"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>자습서: Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출
 
@@ -43,11 +43,11 @@ ms.locfileid: "73718852"
 > * WCF 클라이언트 구현
 > * 애플리케이션 실행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+* Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 * [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2019를 사용합니다.
 * Azure SDK for .NET. [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
 

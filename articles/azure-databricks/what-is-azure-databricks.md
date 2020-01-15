@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed93f332c6361d2f7cd5189ee5fedf3d9f5cf82d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605965"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410457"
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks란?
 
@@ -37,7 +37,7 @@ Azure Databricks는 완전한 오픈 소스 Apache Spark 클러스터 기술 및
 
 * **스트리밍**: 분석 및 대화형 애플리케이션을 위한 실시간 데이터 처리 및 분석입니다. HDFS, Flume 및 Kafka와 통합합니다.
 
-* **MLib**: 분류, 재발, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Machine Learning 라이브러리입니다.
+* **MLlib**: 분류, 재발, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Machine Learning 라이브러리입니다.
 
 * **GraphX**: 인지 분석에서 데이터 탐색에 이르는 광범위한 사용 사례에 대한 그래프 및 그래프 계산입니다.
 

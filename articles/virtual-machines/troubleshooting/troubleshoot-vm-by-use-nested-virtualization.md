@@ -13,24 +13,22 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185515"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942176"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩된 가상화를 사용하여 문제 Azure VM 해결
 
 이 문서에서는 문제 해결을 위해 Hyper-V 호스트(복구 VM)에서 문제 VM의 디스크를 탑재할 수 있도록 Microsoft Azure에서 중첩된 가상화 환경을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 문제 VM을 탑재하려면 복구 VM에서 다음 필수 구성 요소를 충족해야 합니다.
 
 -   복구 VM은 문제 VM과 동일한 위치에 있어야 합니다.
-
--   복구 VM은 문제 VM과 동일한 리소스 그룹에 있어야 합니다.
 
 -   복구 VM은 문제 VM과 동일한 유형의 스토리지 계정(표준 또는 프리미엄)을 사용해야 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD ASP.NET 웹앱에 로그인 추가
+title: Microsoft ID 플랫폼 ASP.NET 웹앱에 로그인 추가
 titleSuffix: Microsoft identity platform
 description: 기존 웹 브라우저 기반 애플리케이션 및 OpenID Connect 표준을 사용하여 ASP.NET 솔루션에서 Microsoft 로그인을 구현합니다.
 services: active-directory
@@ -17,18 +17,18 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf1abc42fd3639bf76f752e5fe6a8f62c7d9e66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964738"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423480"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
 이 가이드에서는 기존의 웹 브라우저 기반 애플리케이션과 OpenID Connect를 사용하여 ASP.NET MVC 솔루션을 통해 Microsoft에 로그인을 구현하는 방법을 보여 줍니다.
 
-이 가이드를 완료하면 애플리케이션이 outlook.com 및 live.com의 좋아요에서 개인 계정의 로그인을 허용할 수 있습니다. 또한 Azure AD(Azure Active Directory)와 통합된 회사 또는 조직의 회사 및 학교 계정에서 앱에 로그인할 수 있습니다.
+이 가이드를 완료하면 애플리케이션이 outlook.com 및 live.com의 좋아요에서 개인 계정의 로그인을 허용할 수 있습니다. 또한 Microsoft ID 플랫폼과 통합된 회사 또는 조직의 회사 및 학교 계정에서 앱에 로그인할 수 있습니다.
 
 > 이 가이드에는 Microsoft Visual Studio 2019가 필요합니다.  이 프로그램이 아직 설치되어 있지 않나요?  [체험용 Visual Studio 2019를 다운로드](https://www.visualstudio.com/downloads/)합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "74964738"
 
 이 가이드에서는 다음 라이브러리를 사용합니다.
 
-|라이브러리|설명|
+|라이브러리|Description|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|애플리케이션이 인증에 OpenIdConnect를 사용할 수 있게 해주는 미들웨어입니다.|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|애플리케이션에서 쿠키를 사용하여 사용자 세션을 유지 관리할 수 있도록 하는 미들웨어입니다.|
@@ -106,7 +106,7 @@ ms.locfileid: "74964738"
     ```csharp
     public class Startup
     {
-        // The Client ID is used by the application to uniquely identify itself to Azure AD.
+        // The Client ID is used by the application to uniquely identify itself to Microsoft identity platform.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
         // RedirectUri is the URL where the user will be redirected to after they sign in.
@@ -115,7 +115,7 @@ ms.locfileid: "74964738"
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -175,7 +175,7 @@ ms.locfileid: "74964738"
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>자세한 정보
-> *OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 애플리케이션이 Azure AD와 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에서 쿠키를 사용하므로 이전 코드와 같이 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에서 특정 조직에 대한 액세스를 제한하지 않도록 지시합니다.
+> *OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 애플리케이션이 Microsoft ID 플랫폼과 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에서 쿠키를 사용하므로 이전 코드와 같이 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에서 특정 조직에 대한 액세스를 제한하지 않도록 지시합니다.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>로그인 및 로그아웃 요청을 처리하는 컨트롤러 추가
@@ -270,7 +270,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>자세한 정보
-> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [브랜딩 지침](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "B브랜딩 지침")으로 이동하세요.
+> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [브랜딩 지침](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "브랜딩 지침")으로 이동하세요.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>사용자의 클레임을 표시하는 컨트롤러 추가
@@ -407,7 +407,7 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 
 <!--start-collapse-->
 > ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
->  Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Azure AD를 사용하여 인증하면 애플리케이션에서 요청한 권한("기본 프로필 보기" 및 "사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
+>  Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Microsoft ID 플랫폼을 사용하여 인증하면 애플리케이션에서 요청한 권한("기본 프로필 보기" 및 "사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
 >  > - 애플리케이션 개발자가 **관리자 동의**가 필요한 추가 권한을 추가합니다.
 >  > - 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정**에 구성되어 있습니다.
 >
@@ -426,14 +426,14 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 
 컨트롤러 뷰로 이동 후 사용자를 위한 기본 속성이 담긴 테이블을 확인해야 합니다.
 
-|자산 |값 |설명 |
+|속성 |값 |Description |
 |---|---|---|
-|**Name** |사용자의 전체 이름 | 사용자의 이름과 성
+|**이름** |사용자의 전체 이름 | 사용자의 이름과 성
 |**사용자 이름** |user<span>@domain.com</span> | 사용자를 식별하는 데 사용되는 사용자 이름|
-|**제목** |제목 |웹에서 사용자를 고유하게 식별하는 문자열|
+|**Subject** |제목 |웹에서 사용자를 고유하게 식별하는 문자열|
 |**테넌트 ID** |Guid | 사용자의 Azure AD 조직을 고유하게 나타내는 **guid**|
 
-또한 인증 요청에 있는 모든 클레임의 테이블이 표시됩니다. 자세한 내용은 [Azure AD ID 토큰에 있는 클레임 목록](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
+또한 인증 요청에 있는 모든 클레임의 테이블이 표시됩니다. 자세한 내용은 [ID 토큰에 있는 클레임 목록](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Authorize 특성이 있는 메서드 액세스 테스트(선택 사항)
 
@@ -459,7 +459,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>애플리케이션에 로그인할 수 있는 사용자 제한
 
-기본적으로 이 가이드에서 만든 애플리케이션을 빌드하면 애플리케이션에서 개인 계정(outlook.com, live.com 등 포함) 및 Azure AD와 통합된 모든 회사 또는 조직의 회사 및 학교 계정의 로그인을 수락합니다. SaaS 애플리케이션에는 이 옵션을 권장합니다.
+기본적으로 이 가이드에서 만든 애플리케이션을 빌드하면 애플리케이션에서 개인 계정(outlook.com, live.com 등 포함) 및 Microsoft ID 플랫폼과 통합된 모든 회사 또는 조직의 회사 및 학교 계정의 로그인을 수락합니다. SaaS 애플리케이션에는 이 옵션을 권장합니다.
 
 애플리케이션에 대한 사용자 로그인 액세스를 제한하기 위해 여러 가지 옵션을 사용할 수 있습니다.
 

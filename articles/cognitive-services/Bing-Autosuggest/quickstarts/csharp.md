@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: bf5322b64b46854d2652c6edf264e25ce0be3d0f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 281286eb497e52d4553ac539d647625e49f3df9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448813"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>빠른 시작: Bing Autosuggest REST API 및 C#으로 검색 쿼리 제안
 
 이 빠른 시작을 사용하여 Bing Autosuggest API를 호출하고 JSON 응답을 받습니다. 이 간단한 C# 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs)에 제공됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "68564716"
     using System.Text;
     ```
 
-2. 새 클래스에서 API 호스트 및 경로에 대한 변수, [시작 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), 부분 검색 쿼리를 만듭니다.
+2. 새 클래스에서 API 호스트 및 경로에 대한 변수, [시작 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), 부분 검색 쿼리를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";

@@ -6,40 +6,34 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 12/31/2019
+ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677855"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612090"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux(Ubuntu)용 Data Science Virtual Machine 설정
 
-Ubuntu Data Science Virtual Machine을 준비하고 실행합니다.
+Ubuntu 18.04 Data Science Virtual Machine을 준비하고 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Windows Data Science Virtual Machine을 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판 체험하기](https://azure.com/free).
+Ubuntu 18.04 Data Science Virtual Machine을 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판 체험하기](https://azure.com/free).
 Azure 체험 계정은 GPU 사용 가상 머신 SKU를 지원하지 않습니다.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine 만들기
 
-Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.
+Data Science Virtual Machine Ubuntu 18.04의 인스턴스를 만드는 단계는 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동하세요. 아직 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시될 수 있습니다.
-1. "데이터 과학 가상 머신"을 입력하고 "Linux(Ubuntu)용 Data Science Virtual Machine"을 선택하여 가상 머신 목록을 찾습니다.
-    
-    ![Ubuntu VM 목록](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. "데이터 과학 가상 머신"을 입력하고 "Data Science Virtual Machine- Ubuntu 18.04 미리 보기"를 선택하여 가상 머신 목록을 찾습니다.
 
-1. 후속 창에서 만들기 **만들기**를 선택합니다.
-
-   [![](media/dsvm-ubuntu-intro/create-linux.png "Ubuntu 머신을 만드는 단추")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
+1. 후속 창에서 **만들기**를 선택합니다.
 
 1. "가상 머신 만들기" 블레이드로 리디렉션됩니다.
    
-   ![Ubuntu Virtual Machine에 해당하는 기본 탭](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. 다음 정보를 입력하여 마법사의 각 단계를 구성합니다.
 
     1. **기본 사항**:
@@ -49,7 +43,7 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
        * **가상 머신 이름**: 가상 머신의 이름을 입력합니다. 입력한 대로 Azure Portal에 표시됩니다.
        * **지역**: 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
        * **이미지**: 기본값을 그대로 둡니다.
-       * **크기**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
+       * **Size**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
        * **인증 형식**: 더 빨리 설치하려면 "암호"를 선택합니다. 
          
          > [!NOTE]
@@ -122,7 +116,7 @@ Ubuntu DSVM은 다중 사용자 Jupyter 서버인 [JupyterHub](https://github.co
    1. Azure Portal에서 VM을 검색하고 선택하여 VM에 대한 공용 IP 주소를 기록해 둡니다.
       ![Ubuntu 머신 IP 주소](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
-   1. 로컬 머신에서 웹 브라우저를 열고 https:\//your-vm-ip:8000로 이동합니다. "your-vm-ip"는 앞에서 기록해 둔 IP 주소로 대체해야 합니다.
+   1. 로컬 머신에서 웹 브라우저를 열고 https:\//your-vm-ip:8000으로 이동합니다. "your-vm-ip"는 앞에서 기록해 둔 IP 주소로 대체해야 합니다.
    1. VM을 만드는 데 사용한 사용자 이름과 암호를 입력하여 로그인합니다. 
 
       ![Jupyter 로그인 입력](./media/dsvm-ubuntu-intro/jupyter-login.png)

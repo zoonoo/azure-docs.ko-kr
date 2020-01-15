@@ -1,26 +1,17 @@
 ---
-title: AWS에서 Service Fabric 클러스터에 대한 인프라 만들기 자습서 - Azure Service Fabric | Microsoft Docs
+title: AWS에서 클러스터에 대한 인프라 만들기
 description: 이 자습서에서는 Service Fabric 클러스터를 실행하는 AWS 인프라를 설정하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "73177833"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613978"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>자습서: AWS 인프라를 만들어 Service Fabric 클러스터 호스팅하기
 
@@ -36,7 +27,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 > * 인스턴스 중 하나에 로그인
 > * Service Fabric에 대한 인스턴스 준비
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 AWS 계정이 필요합니다.  계정이 없는 경우 [AWS 콘솔](https://aws.amazon.com/)로 이동해 계정을 만듭니다.
 

@@ -6,18 +6,21 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 327b2aaadd77c00d847504ff16415813d2fcf89c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 555a60579c11a7ecb9b39753c5e4b35e801edeb1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422171"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
+> [!NOTE]
+> 다중 컨테이너는 미리 보기 상태입니다.
+
 [Web App for Containers](app-service-linux-intro.md)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 자습서에서는 WordPress 및 MySQL을 사용하여 다중 컨테이너 앱을 만드는 방법을 알아봅니다. Cloud Shell에서 이 자습서를 완료하겠지만 [Azure CLI](/cli/azure/install-azure-cli) 명령줄 도구(2.0.32 이상)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
@@ -29,7 +32,7 @@ ms.locfileid: "74687457"
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 [Docker Compose](https://docs.docker.com/compose/)에 대한 경험이 필요합니다.
 
@@ -508,7 +511,7 @@ WordPress가 Redis 서버에 연결됩니다. 연결 **상태**가 동일한 페
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 > [!div class="checklist"]
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
 > * Azure에 다중 컨테이너 앱 배포

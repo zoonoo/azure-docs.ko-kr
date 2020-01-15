@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 스크립트 배포 샘플
-description: Azure CLI를 사용하여 Azure에서 안전한 Service Fabric Linux 클러스터를 만듭니다.
+description: Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 안전한 Service Fabric Linux 클러스터를 만드는 방법입니다.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1386be8093cac4f5271886ff736b24acd483d64e
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 2b9b98b3ade46abd670283d0e68dc62fda9d8d0a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032828"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526620"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Azure에서 안전한 Service Fabric Linux 클러스터 만들기
 

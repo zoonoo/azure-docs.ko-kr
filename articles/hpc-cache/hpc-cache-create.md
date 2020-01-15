@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: rohogue
-ms.openlocfilehash: 07aba1b1536635e414fc5fab4ece148683909188
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 793a80e7019e72c1cb3087da02d5642639cb8d5e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168614"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647159"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -36,7 +36,7 @@ Azure Portal을 사용하여 캐시를 만듭니다.
 
 **캐시** 페이지에서 캐시의 용량을 설정해야 합니다. 여기에 설정된 값은 캐시가 보유할 수 있는 데이터의 양과 클라이언트 요청을 얼마나 빠르게 처리할 수 있는지를 결정됩니다.
 
-공개 미리 보기 기간 이후에는 용량이 캐시 비용에도 영향을 줍니다.
+용량은 캐시 비용에도 영향을 줍니다.
 
 다음 두 값을 설정하여 용량을 선택합니다.
 

@@ -5,15 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 21f11b9175566fc020ad21e1983a9bef64ebbae3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a3180593eaf8c01c772fd761d88b5f5b9f7657ee
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327852"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941498"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3에서 Azure Storage로 데이터 복사
 
@@ -56,47 +56,64 @@ AzCopy는 [URL API에서 Put 블록](https://docs.microsoft.com/rest/api/storage
 > [!TIP]
 > 이 단원의 예제에서는 경로 인수를 작은따옴표 (' ')로 묶습니다. Windows 명령 셸 (cmd.exe)을 제외한 모든 명령 셸에서 작은따옴표를 사용 합니다. Windows 명령 셸 (cmd.exe)을 사용 하는 경우 작은따옴표 (' ') 대신 경로 인수를 큰따옴표 ("")로 묶습니다.
 
+ 이러한 예제는 계층 네임 스페이스가 있는 계정 에서도 작동 합니다. [Data Lake Storage에 대 한 다중 프로토콜 액세스](../blobs/data-lake-storage-multi-protocol-access.md) 를 사용 하면 해당 계정에 대해 동일한 URL 구문 (`blob.core.windows.net`)을 사용할 수 있습니다. 
+
 ### <a name="copy-an-object"></a>개체 복사
+
+계층 네임 스페이스가 있는 계정에 동일한 URL 구문 (`blob.core.windows.net`)을 사용 합니다.
 
 |    |     |
 |--------|-----------|
 | **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
+| **예** (계층적 네임 스페이스) | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
 > [!NOTE]
 > 이 문서의 예제에서는 AWS S3 버킷에 대 한 경로 스타일 Url을 사용 합니다 (예: `http://s3.amazonaws.com/<bucket-name>`). 
 >
 > 가상 호스트 스타일 Url도 사용할 수 있습니다 (예: `http://bucket.s3.amazonaws.com`). 
 >
-> 버킷에 대 한 가상 호스팅에 대해 자세히 알아보려면 [버킷 가상 호스팅]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)를 참조 하세요.
+> 버킷에 대 한 가상 호스팅에 대해 자세히 알아보려면 [버킷 가상 호스팅]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) 를 참조 하세요.
 
 ### <a name="copy-a-directory"></a>디렉터리 복사
+
+계층 네임 스페이스가 있는 계정에 동일한 URL 구문 (`blob.core.windows.net`)을 사용 합니다.
 
 |    |     |
 |--------|-----------|
 | **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>버킷 복사
+
+계층 네임 스페이스가 있는 계정에 동일한 URL 구문 (`blob.core.windows.net`)을 사용 합니다.
 
 |    |     |
 |--------|-----------|
 | **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
+| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-all-regions"></a>모든 지역에서 모든 버킷 복사
+
+계층 네임 스페이스가 있는 계정에 동일한 URL 구문 (`blob.core.windows.net`)을 사용 합니다.
 
 |    |     |
 |--------|-----------|
 | **구문** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **예제** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-a-specific-s3-region"></a>특정 S3 지역의 모든 버킷 복사
+
+계층 네임 스페이스가 있는 계정에 동일한 URL 구문 (`blob.core.windows.net`)을 사용 합니다.
 
 |    |     |
 |--------|-----------|
 | **구문** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **예제** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ## <a name="handle-differences-in-object-naming-rules"></a>개체 명명 규칙의 차이점 처리
 
@@ -108,11 +125,11 @@ AzCopy는 발생할 수 있는 가장 일반적인 문제 중 두 가지를 처�
 
 ## <a name="handle-differences-in-object-metadata"></a>개체 메타 데이터의 차이점 처리
 
-AWS S3 및 Azure는 개체 키 이름에 다른 문자 집합을 허용 합니다. AWS s 3에서 사용 하는 문자에 대 한 자세한 내용을 확인할 [수 있습니다.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) Azure 쪽에서는 blob 개체 키가 [ C# 식별자](https://docs.microsoft.com/dotnet/csharp/language-reference/)에 대 한 명명 규칙을 준수 합니다.
+AWS S3 및 Azure는 개체 키 이름에 다른 문자 집합을 허용 합니다. [여기](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys)에서 AWS s 3에서 사용 하는 문자에 대한 자세한 내용을 확인할 수 있습니다. Azure 쪽에서는 blob 개체 키가 [ C# 식별자](https://docs.microsoft.com/dotnet/csharp/language-reference/)에 대 한 명명 규칙을 준수 합니다.
 
 AzCopy `copy` 명령의 일부로 파일의 메타 데이터에 호환 되지 않는 키 이름이 포함 된 파일을 처리 하는 방법을 지정 하는 선택적 `s2s-invalid-metadata-handle` 플래그에 대 한 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값에 대해 설명 합니다.
 
-| 플래그 값 | 설명  |
+| 플래그 값 | Description  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (기본 옵션) 전송 된 개체에 메타 데이터가 포함 되어 있지 않습니다. AzCopy에서 경고를 기록 합니다. |
 | **FailIfInvalid** | 개체는 복사 되지 않습니다. AzCopy는 오류를 기록 하 고 전송 요약에 표시 되는 실패 횟수에 해당 오류를 포함 합니다.  |

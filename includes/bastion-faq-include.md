@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875433"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469128"
 ---
 ### <a name="regions"></a>이용 가능한 지역은 어디인가요?
 
@@ -22,6 +22,10 @@ ms.locfileid: "74875433"
 ### <a name="publicip"></a>내 가상 머신에서 공용 IP가 필요한가요?
 
 Azure Bastion 서비스를 사용하여 연결하는 Azure Virtual Machine에는 공용 IP가 필요 없습니다. Bastion 서비스는 가상 네트워크 내부에서 가상 머신의 개인 IP를 통해 가상 머신에 대한 RDP/SSH 세션/연결을 설정합니다.
+
+### <a name="is-ipv6-supported"></a>IPv6이 지원되나요?
+
+현재 IPv6은 지원되지 않습니다. Azure Bastion은 IPv4만 지원합니다.
 
 ### <a name="rdpssh"></a>RDP 또는 SSH 클라이언트가 필요하나요?
 

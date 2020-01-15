@@ -1,16 +1,16 @@
 ---
-title: Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
+title: Azure API Management를 사용하여 OpenAPI로 함수 노출
 description: 다른 앱 및 서비스를 사용하도록 설정하여 Azure에서 함수를 호출할 수 있도록 하는 OpenAPI 정의를 만듭니다.
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 659c05b3d31f5673e95cb27f10eaa8bd872e4be6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226810"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562016"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
 
@@ -18,7 +18,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
 이 자습서에서는 풍차의 응급 복구가 비용 효율적인지 여부를 결정하는 함수를 만듭니다. 그런 다음, 해당 함수가 다른 앱 및 서비스에서 호출될 수 있도록 [Azure API Management](../api-management/api-management-key-concepts.md)를 사용하여 함수 앱에 대한 OpenAPI 정의를 만듭니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 함수 만들기
@@ -135,11 +135,11 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
     ![새 API Management 서비스 만들기](media/functions-openapi-definition/new-apim-service-openapi.png)
 
-    | 설정      | 제안 값  | 설명                                        |
+    | 설정      | 제안 값  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | 전역적으로 고유한 이름 | 함수는 함수 앱의 이름을 기반으로 생성됩니다. |
+    | **이름** | 전역적으로 고유한 이름 | 함수는 함수 앱의 이름을 기반으로 생성됩니다. |
     | **구독** | 사용자의 구독 | 이 새 리소스가 만들어지는 구독입니다. |  
-    | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱과 동일한 리소스로, 사용자에 맞게 설정해야 합니다. |
+    | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 함수 앱과 동일한 리소스로, 사용자에 맞게 설정해야 합니다. |
     | **위치** | 미국 서부 | 미국 서부 위치를 선택합니다. |
     | **조직 이름** | Contoso | 개발자 포털 및 이메일 알림에 사용되는 조직의 이름입니다. |
     | **관리자 전자 메일** | 사용자 이메일 | API Management로부터 시스템 알림을 수신하는 이메일입니다. |

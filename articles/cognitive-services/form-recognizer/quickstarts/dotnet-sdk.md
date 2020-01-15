@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: .NET용 Form Recognizer 클라이언트 라이브러리 | Microsoft Docs'
-description: .NET용 Form Recognizer 클라이언트 라이브러리를 시작하여 구조화된 데이터 출력을 학습, 추출, 분석 및 가져올 수 있습니다.
+title: '빠른 시작: .NET용 Form Recognizer 클라이언트 라이브러리'
+description: 이 빠른 시작을 통해 .NET용 Form Recognizer 클라이언트 라이브러리를 시작하여 구조화된 데이터 출력을 학습, 추출, 분석 및 가져올 수 있습니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978614"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446485"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>빠른 시작: .NET용 Form Recognizer 클라이언트 라이브러리
 
@@ -28,9 +28,9 @@ ms.locfileid: "74978614"
 * [사용자 지정 모델 목록 가져오기](#get-a-list-of-custom-models)
 * [사용자 지정 모델 삭제](#delete-a-custom-model)
 
-[참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Form Recognizer 제한된 액세스 미리 보기에 대한 액세스 권한. 미리 보기에 액세스하려면 [Form Recognizer 액세스 요청](https://aka.ms/FormRecognizerRequestAccess) 양식을 작성하여 제출하세요.
@@ -91,7 +91,7 @@ Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다�
 
 Form Recognizer SDK의 주요 기능을 처리하는 클래스는 다음과 같습니다.
 
-|Name|설명|
+|속성|Description|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|이 클래스는 모든 Form Recognizer 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| 이 클래스는 사용자 고유의 학습 입력 데이터를 사용하여 사용자 지정 Form Recognizer 모델을 학습시키는 데 사용합니다. |

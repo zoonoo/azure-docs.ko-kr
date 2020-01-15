@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Node.js에서 Azure Service Bus 토픽 및 구독을 사용하는 방법'
+title: Node.js에서 azure/service-bus 항목 및 구독 사용
 description: '빠른 시작: Node.js app에서 Azure의 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: fa6f40eba02ffe171dc521f952e0d00fc35fc7e6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 160f9831a23ed16fc33ddbbb9b4e07a5627a3f9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462122"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>빠른 시작: Node.js와 azure/service-bus 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법
 > [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
@@ -28,8 +28,8 @@ ms.locfileid: "73721671"
 
 이 자습서에서는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 메시지를 받는 Node.js 프로그램을 작성하는 방법에 대해 알아봅니다. 이 패키지는 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 반면, 이전 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용했습니다. 샘플은 JavaScript로 작성되었습니다.
 
-## <a name="prerequisites"></a>필수 조건
-- Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
+- Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - 작업할 토픽과 구독이 없는 경우 [Azure Portal을 사용하여 Service Bus 토픽 및 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md) 문서의 단계에 따라 토픽과 구독을 만듭니다. Service Bus 인스턴스에 대한 연결 문자열과 자신이 만든 토픽 및 구독의 이름을 적어둡니다. 샘플에서 사용할 것입니다.
 
 > [!NOTE]

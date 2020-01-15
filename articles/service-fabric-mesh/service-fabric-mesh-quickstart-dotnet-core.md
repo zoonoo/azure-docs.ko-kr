@@ -1,26 +1,17 @@
 ---
-title: 빠른 시작 - 웹앱을 Azure Service Fabric Mesh에 배포 | Microsoft Docs
+title: 빠른 시작 - Azure Service Fabric Mesh에 웹앱 배포
 description: 이 빠른 시작에서는 Visual Studio를 사용하여 ASP.NET Core 웹 사이트를 만들고 Azure Service Fabric Mesh에 게시하는 방법을 보여 줍니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459074"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>빠른 시작: Azure Service Fabric Mesh에 웹앱 만들기 및 배포
 
@@ -78,7 +69,7 @@ Azure 계정과 구독을 선택합니다. **위치**를 선택합니다. 이 �
 
 **리소스 그룹**에서 **\<새 리소스 그룹 만들기...>** 를 선택합니다. **리소스 그룹 만들기** 대화 상자가 나타납니다. **리소스 그룹 이름** 및 **위치**를 설정합니다.  이 빠른 시작에서는 **미국 동부** 위치를 사용하고 그룹 이름을 **sfmeshTutorial1RG**로 지정합니다. 조직에 동일한 구독을 사용하는 여러 사람이 있는 경우, 고유한 리소스 그룹 이름을 선택합니다.  **만들기**를 클릭하여 리소스 그룹을 만들고 게시 대화 상자로 돌아갑니다.
 
-![Visual Studio Service Fabric Mesh 새 리소스 그룹 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
 **Service Fabric 애플리케이션 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...&gt;** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다. 이 빠른 시작에서는 **미국 동부**를 사용합니다. 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU**를 **기본**으로 설정하고 **만들기**를 클릭하여 게시 대화 상자로 돌아갑니다.
 

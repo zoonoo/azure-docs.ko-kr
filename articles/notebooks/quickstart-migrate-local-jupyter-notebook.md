@@ -1,26 +1,28 @@
 ---
-title: 로컬 Jupyter Notebook을 Azure Notebooks로 마이그레이션
-description: 로컬 컴퓨터 또는 웹 URL에서 Azure Notebooks로 Jupyter Notebook을 신속하게 전송한 다음, 협업용으로 공유할 수 있습니다.
+title: 로컬 Jupyter Notebook을 Azure Notebooks 미리 보기로 마이그레이션
+description: 로컬 컴퓨터 또는 웹 URL에서 Azure Notebooks 미리 보기로 Jupyter Notebook을 신속하게 전송한 다음, 협업용으로 공유할 수 있습니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 3b7d5aab05923fb4356e0d45aaf21a77076a870a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277478"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647053"
 ---
-# <a name="quickstart-migrate-a-local-jupyter-notebook"></a>빠른 시작: 로컬 Jupyter Notebook 마이그레이션
+# <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 로컬 Jupyter Notebook 마이그레이션
 
 사용자의 로컬 컴퓨터에 만든 Jupyter Notebook은 해당 사용자만 액세스할 수 있습니다. 다양한 수단을 통해 파일을 공유할 수 있지만, 받는 사람은 Notebook의 로컬 복사본을 얻게 되므로 이들이 변경하는 내용을 통합하기 어렵습니다. GitHub 같은 공유 온라인 리포지토리에 Notebook을 저장할 수도 있지만, 이렇게 하더라도 각 공동 작업자에게는 여전히 사용자와 동일한 구성의 로컬 Jupyter가 설치됩니다.
 
 로컬 또는 리포지토리 기반 Notebook을 Azure Notebooks로 마이그레이션하면 공동 작업자와 즉시 공유할 수 있는 클라우드에 저장됩니다. 공동 작업자는 Notebook을 보고 실행할 브라우저만 있으면 되고, Azure Notebooks에 [로그인](quickstart-sign-in-azure-notebooks.md)하면 변경 작업을 수행할 수 있습니다.
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 이 빠른 시작에서는 Notebook을 로컬 컴퓨터 또는 다른 액세스 가능한 파일 URL로 마이그레이션하는 프로세스를 보여줍니다. Notebook을 GitHub 리포지토리에서 마이그레이션하려면 [빠른 시작: Notebook 복제](quickstart-clone-jupyter-notebook.md)를 참조하세요.
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Azure Notebooks에서 프로젝트 만들기
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
+1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
 
 1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
@@ -52,7 +54,7 @@ ms.locfileid: "74277478"
 
 1. 업로드된 노트북의 링크를 공유하려면 프로젝트에서 파일을 마우스 오른쪽 단추로 클릭하고 **링크 복사**(바로 가기 키: y)를 선택한 다음, 해당 링크를 적절한 메시지에 붙여넣습니다. 또는 프로젝트 페이지에서 **공유** 컨트롤을 사용하여 전체 프로젝트를 공유할 수도 있습니다.
 
-1. Notebook이 아닌 파일을 편집하려면 프로젝트에서 파일을 마우스 오른쪽 단추로 클릭하고 **파일 편집**(바로 가기 키: i)을 선택합니다. 기본 작업 **실행**(바로 가기 키: r)은 파일 콘텐츠를 보여줄 뿐이며 편집을 허용하지 않습니다.
+1. 노트가 아닌 파일을 편집하려면 프로젝트에서 파일을 마우스 오른쪽 단추로 클릭하고 **파일 편집**(바로 가기 키: i)을 선택합니다. 기본 작업 **실행**(바로 가기 키: r)은 파일 콘텐츠를 보여줄 뿐이며 편집을 허용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

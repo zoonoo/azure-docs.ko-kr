@@ -1,21 +1,21 @@
 ---
 title: '자습서: Visual Studio에서 연결된 서비스를 사용하여 Text Analytics 서비스에 연결'
 titleSuffix: Azure Cognitive Services
-description: 이 문서 및 함께 제공되는 문서에서는 Text Analytics 서비스용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다.
+description: Text Analytics Service에 Visual Studio Connected Service 기능을 사용하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 317a5f4ae642dc2306ae84c42a042206b9059ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837202"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446151"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>자습서: Visual Studio에서 연결된 서비스를 사용하여 Text Analytics 서비스에 연결
 
@@ -23,9 +23,9 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
 
 이 문서 및 함께 제공되는 문서에서는 Text Analytics 서비스용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 Cognitive Services 확장이 설치된 Visual Studio 2019 이상에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
+- Azure 구독 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 - 웹 개발 워크로드가 설치된 Visual Studio 2019. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
@@ -35,7 +35,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
 1. TextAnalyticsDemo 라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 웹 애플리케이션(Model-View-Controller) 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다.  이 문서의 예제에서는 MVC를 사용하지만, 모든 ASP.NET 프로젝트 형식에 Text Analytics 연결된 서비스를 사용할 수 있습니다.
 
 1. **솔루션 탐색기**에서 **연결된 서비스** 항목을 두 번 클릭합니다.
-   연결된 서비스 페이지가 나타나고 프로젝트에 추가할 수 있는 서비스가 표시됩니다.
+   연결된 서비스 페이지가 프로젝트에 추가할 수 있는 서비스와 함께 표시됩니다.
 
    ![솔루션 탐색기의 연결된 서비스 스크린샷](../media/vs-common/Connected-Services-Solution-Explorer.PNG)
 
@@ -49,7 +49,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
 
 1. 사용하려는 구독을 선택하고, Text Analytics 서비스의 이름을 선택하거나 **편집** 링크를 선택하여 자동으로 생성된 이름을 수정하고 리소스 그룹 및 가격 책정 계층을 선택합니다.
 
-   ![리소스 그룹 및 가격 책정 계층 필드 스크린샷](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
+   ![리소스 그룹 및 가격 책정 계층 필드의 스크린샷](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
 
    가격 책정 계층에 대한 자세한 내용은 링크를 따릅니다.
 

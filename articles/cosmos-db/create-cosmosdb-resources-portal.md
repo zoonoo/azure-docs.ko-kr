@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Portal에서 Azure Cosmos 데이터베이스 만들기
+title: 빠른 시작 - Azure Portal에서 Azure Cosmos DB 리소스 만들기
 description: 이 빠른 시작에서는 Azure Portal를 사용하여 Azure Cosmos 데이터베이스, 컨테이너 및 항목을 만드는 방법을 보여줍니다.
 author: SnehaGunda
 ms.author: sngun
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 9b563f7546710b0cb07573d32b2f3939d8e64085
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 58fa891503342ac0ec9d41e9c458a71d18e58161
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445613"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 항목 만들기
 
@@ -30,7 +30,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컨테이너를 만들고 컨테이너에 데이터를 추가하는 방법을 보여줍니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독 또는 Azure Cosmos DB 체험 계정
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -55,7 +55,7 @@ Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스와 컨
     
 1.  **컨테이너 추가** 창에서 새 컨테이너의 설정을 입력합니다.
     
-    |설정|제안 값|설명
+    |설정|제안 값|Description
     |---|---|---|
     |**데이터베이스 ID**|ToDoList|새 데이터베이스의 이름으로 *ToDoList*를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
     |**처리량**|400|처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.| 

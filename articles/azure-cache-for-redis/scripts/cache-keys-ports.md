@@ -1,19 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure Cache for Redis에 대한 호스트 이름, 포트 및 키 가져오기
-description: Azure CLI 스크립트 샘플 - Azure Cache for Redis 인스턴스에 대한 호스트 이름, 포트 및 키를 가져옵니다.
+title: 호스트 이름, 포트 및 키 가져오기 - Azure Cache for Redis - Azure CLI
+description: 이 Azure CLI 코드 샘플에서는 Azure Cache for Redis 인스턴스에 대한 호스트 이름, 포트 및 키를 가져오는 방법을 보여줍니다.
 author: yegu-ms
+ms.author: yegu
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
-ms.openlocfilehash: 604ec6de3b95a4bc289176d54d9c7b0a6c42eae6
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 199c5707e9ecd887af64e271184e151ce0966745
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411292"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 호스트 이름, 포트 및 키 가져오기
 

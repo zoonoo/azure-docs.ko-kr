@@ -1,7 +1,7 @@
 ---
 title: '자습서: QnA 봇 - Azure Bot Service - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: 기존 기술 자료의 게시 페이지에서 QnA 채팅 봇을 만듭니다. 이 봇에는 Bot Framework SDK v4가 사용됩니다. 봇 빌드를 위해 코드를 작성할 필요가 없습니다. 모든 코드가 제공됩니다.
+description: 이 자습서에서는 기존 기술 자료의 게시 페이지에서 QnA 채팅 봇을 만드는 방법을 보여줍니다. 이 봇에는 Bot Framework SDK v4가 사용됩니다. 봇 빌드를 위해 코드를 작성할 필요가 없습니다. 모든 코드가 제공됩니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 12/11/2019
 ms.author: diberry
-ms.openlocfilehash: ea6e0d266c181d930f3d18171b09d222e53da7ab
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 0ddce3e4112dfb14309878927493abb3cb6b451a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447351"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>자습서: Azure Bot Service v4로 QnA 봇 만들기
 
@@ -27,9 +27,9 @@ ms.locfileid: "70390900"
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * 기존 기술 자료에서 Azure Bot Service 만들기
-> * 봇과 채팅하면서 코드가 작동 중인지 확인 
+> * 봇과 채팅하면서 코드가 작동 중인지 확인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 대해 게시된 기술 자료가 있어야 합니다. 해당 항목이 없으면 [KB에서 만들기 및 대답](create-publish-query-in-portal.md)의 단계에 따라 질문과 답변이 있는 QnA Maker 기술 자료를 만듭니다.
 
@@ -37,9 +37,9 @@ ms.locfileid: "70390900"
 
 ## <a name="create-a-qna-bot"></a>QnA 봇 만들기
 
-기술 자료에 대한 클라이언트 애플리케이션으로 봇을 만듭니다. 
+기술 자료에 대한 클라이언트 애플리케이션으로 봇을 만듭니다.
 
-1. QnA Maker 포털에서 **게시** 페이지로 이동하여 기술 자료를 게시합니다. **봇 만들기**를 선택합니다. 
+1. QnA Maker 포털에서 **게시** 페이지로 이동하여 기술 자료를 게시합니다. **봇 만들기**를 선택합니다.
 
     ![QnA Maker 포털에서 [게시] 페이지로 이동하여 기술 자료를 게시합니다. [봇 만들기]를 선택합니다.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
@@ -49,20 +49,20 @@ ms.locfileid: "70390900"
 
     |설정|값|목적|
     |--|--|--|
-    |봇 이름|`my-tutorial-kb-bot`|봇에 대한 Azure 리소스 이름입니다.|
+    |봇 핸들|`qna-maker-central-us-bot`|봇에 대한 Azure 리소스 이름입니다.|
     |Subscription|목적을 참조하세요.|QnA Maker 리소스를 만드는 데 사용한 것과 동일한 구독을 선택합니다.|
-    |Resource group|`my-tutorial-rg`|모든 봇 관련 Azure 리소스에 사용되는 리소스 그룹입니다.|
+    |Resource group|`docs`|모든 봇 관련 Azure 리소스에 사용되는 리소스 그룹입니다.|
     |위치|`west us`|봇의 Azure 리소스 위치입니다.|
     |가격 책정 계층|`F0`|Azure Bot Service에 대한 무료 계층입니다.|
-    |앱 이름|`my-tutorial-kb-bot-app`|봇만 지원하는 웹앱입니다. QnA Maker 서비스에 이미 사용된 것과 동일한 앱 이름이 아니어야 합니다. QnA Maker의 웹앱을 다른 리소스와 공유하는 것은 지원되지 않습니다.|
+    |앱 이름|`qna-maker-central-us-bot-app`|봇만 지원하는 웹앱입니다. QnA Maker 서비스에 이미 사용된 것과 동일한 앱 이름이 아니어야 합니다. QnA Maker의 웹앱을 다른 리소스와 공유하는 것은 지원되지 않습니다.|
     |SDK 언어|C#|Bot Framework SDK에 사용되는 기본 프로그래밍 언어입니다. [C#](https://github.com/Microsoft/botbuilder-dotnet) 또는 [Node.js](https://github.com/Microsoft/botbuilder-js) 중에서 선택할 수 있습니다.|
     |QnA 인증 기|**변경 안 함**|이 값은 채워집니다.|
     |앱 서비스 플랜/위치|**변경 안 함**|이 자습서에서는 위치가 중요하지 않습니다.|
-    |Azure Storage|**변경 안 함**|대화 데이터는 Azure Storage 테이블에 저장됩니다.|
     |Application Insights|**변경 안 함**|로깅은 Application Insights로 전송됩니다.|
     |Microsoft 앱 ID|**변경 안 함**|Active Directory 사용자 및 암호가 필요합니다.|
 
-    ![이러한 설정으로 기술 자료 봇을 만듭니다.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
+    > [!div class="mx-imgBorder"]
+    > ![이러한 설정으로 기술 자료 봇을 만듭니다.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
     봇 만들기 프로세스 알림이 성공을 보고할 때까지 2분 정도 기다립니다.
 
@@ -70,11 +70,11 @@ ms.locfileid: "70390900"
 
 ## <a name="chat-with-the-bot"></a>봇과 채팅
 
-1. Azure Portal의 알림에서 새 봇 리소스를 엽니다. 
+1. Azure Portal의 알림에서 새 봇 리소스를 엽니다.
 
     ![Azure Portal의 알림에서 새 봇 리소스를 엽니다.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-1. **봇 관리**에서 **웹 채팅에서 테스트**를 선택하고 `How large can my KB be?`를 입력합니다. 봇은 다음과 같이 응답합니다. 
+1. **봇 관리**에서 **웹 채팅에서 테스트**를 선택하고 `How large can my KB be?`를 입력합니다. 봇은 다음과 같이 응답합니다.
 
 
     `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
@@ -86,9 +86,9 @@ ms.locfileid: "70390900"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서의 봇 작업이 완료되면 Azure Portal에서 해당 봇을 제거합니다. 
+이 자습서의 봇 작업이 완료되면 Azure Portal에서 해당 봇을 제거합니다.
 
-봇의 리소스에 대한 새 리소스 그룹을 만든 경우 리소스 그룹을 삭제합니다. 
+봇의 리소스에 대한 새 리소스 그룹을 만든 경우 리소스 그룹을 삭제합니다.
 
 새 리소스 그룹을 만들지 않은 경우, 봇과 연결된 리소스를 찾아야 합니다. 가장 쉬운 방법은 봇과 봇 앱의 이름으로 검색하는 것입니다. 봇 리소스에는 다음이 포함됩니다.
 

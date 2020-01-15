@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442348"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
@@ -48,7 +48,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
     **가상 네트워크 구성**에서 **새로 만들기**를 선택하여 새 가상 네트워크를 만듭니다. **가상 네트워크 만들기** 창이 열리면 다음 값을 입력하여 가상 네트워크 및 두 개의 서브넷을 만듭니다.
 
-    - **이름**: 가상 네트워크의 이름으로 *myVNet*을 입력합니다.
+    - **Name**: 가상 네트워크의 이름으로 *myVNet*을 입력합니다.
 
     - **서브넷 이름**(Application Gateway 서브넷): **서브넷** 표에 *Default*라는 서브넷이 표시됩니다. 이 서브넷의 이름을 *myAGSubnet*으로 변경합니다.<br>애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.
 
@@ -66,7 +66,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 1. **프런트 엔드** 탭에서 **프런트 엔드 IP 주소 형식**이 **퍼블릭**으로 설정되어 있는지 확인합니다. <br>사용 사례에 따라 프런트 엔드 IP를 공용 또는 프라이빗 IP로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택합니다.
    > [!NOTE]
-   > Application Gateway v2 SKU의 경우 **공용** 프런트 엔드 IP 구성만 선택할 수 있습니다. 프라이빗 프런트 엔드 IP 구성만 현재 v2 SKU에서 사용할 수 없습니다. 퍼블릭 및 프라이빗 프런트 엔드 IP 구성을 모두 사용할 수 있습니다.
+   > Application Gateway v2 SKU의 경우 **공용** 프런트 엔드 IP 구성만 선택할 수 있습니다. 프라이빗 프런트 엔드 IP 구성(ILB 모드만 해당)만 현재 v2 SKU에서 사용할 수 없습니다. 퍼블릭 및 프라이빗 프런트 엔드 IP 구성을 모두 사용할 수 있습니다.
 
 2. **퍼블릭 IP 주소**에 대해 **새로 만들기**를 선택하고 퍼블릭 IP 주소 이름으로 *myAGPublicIPAddress*를 입력한 후 **확인**을 선택합니다. 
 
@@ -82,7 +82,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 2. 열리는 **백 엔드 풀 추가** 창에서 다음 값을 입력하여 빈 백 엔드 풀을 만듭니다.
 
-    - **이름**: 백 엔드 풀의 이름으로 *myBackendPool*을 입력합니다.
+    - **Name**: 백 엔드 풀의 이름으로 *myBackendPool*을 입력합니다.
     - **대상 없이 백 엔드 풀 추가**: 대상이 없는 백 엔드 풀을 만들려면 **예**를 선택합니다. 애플리케이션 게이트웨이를 만든 후에 백 엔드 대상을 추가합니다.
 
 3. **백 엔드 풀 추가** 창에서 **추가**를 선택하여 백 엔드 풀 구성을 저장하고 **백 엔드** 탭으로 돌아갑니다.

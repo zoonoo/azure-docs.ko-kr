@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure 템플릿을 사용하여 확장 집합에 애플리케이션 설치 | Microsoft Docs
+title: 자습서 - Azure 템플릿을 사용하여 확장 집합에 앱 설치
 description: Azure Resource Manager 템플릿을 사용하여 사용자 지정 스크립트 확장이 있는 가상 머신 확장 집합에 애플리케이션을 설치하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 176cf31d7a87b08755ee2acb94aea23684647213
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1bb6345ee05c5dcb8d88cc7f756a096bfe5d2c4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170461"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460159"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 애플리케이션 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 애플리케이션 설치를 자동화하거나 이미 확장 집합에서 실행되는 애플리케이션을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -31,7 +31,7 @@ ms.locfileid: "66170461"
 > * Azure 사용자 지정 스크립트 확장 사용
 > * 확장 집합에서 실행되는 애플리케이션 업데이트
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

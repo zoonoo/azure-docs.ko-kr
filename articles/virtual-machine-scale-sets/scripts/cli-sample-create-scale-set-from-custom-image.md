@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 샘플 - 사용자 지정 VM 이미지 사용 | Microsoft Docs
-description: Azure CLI 샘플
+title: Azure CLI 샘플 - 사용자 지정 VM 이미지 사용
+description: 이 스크립트는 사용자 지정 VM 이미지를 VM 인스턴스의 원본으로 사용하는 가상 머신 확장 집합을 만듭니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 637a2e48ca95b5d1a456f9a48f7c8e9008b1d14d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e26f246de536bbd817bdeb54e5e02655c2aad9c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697745"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351068"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 VM 이미지에서 가상 머신 확장 집합 만들기
 이 스크립트는 사용자 지정 VM 이미지를 VM 인스턴스의 원본으로 사용하는 가상 머신 확장 집합을 만듭니다.

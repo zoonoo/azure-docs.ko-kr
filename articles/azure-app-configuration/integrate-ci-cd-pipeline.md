@@ -1,5 +1,6 @@
 ---
-title: Azure App Configuration을 사용하여 지속적인 통합 및 배포 파이프라인 통합 | Microsoft Docs
+title: '자습서: 지속적인 통합 및 제공 파이프라인과 통합'
+titleSuffix: Azure App Configuration
 description: 이 자습서에서는 지속적인 통합 및 배포를 수행하는 동안 Azure App Configuration의 데이터를 사용하여 구성 파일을 생성하는 방법을 알아봅니다.
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f8adfee1e707181e78f4e845f61477b08af935e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185114"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433649"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>CI/CD 파이프라인과 통합
 
@@ -37,7 +38,7 @@ Azure App Configuration의 [Export](./howto-import-export-data.md#export-data) �
 
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 로컬로 빌드하는 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 아직 없으면 Azure CLI를 다운로드하여 설치합니다.
 
@@ -74,7 +75,7 @@ Azure App Configuration의 [Export](./howto-import-export-data.md#export-data) �
 
 ### <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 저장소에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

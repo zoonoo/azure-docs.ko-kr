@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bcc4af837cc28a18345e49cd39ddf88d24e44dd8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489007"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450852"
 ---
 1. **VPN 사이트 연결**을 선택하여 **사이트 연결** 페이지를 엽니다.
 
@@ -22,13 +22,13 @@ ms.locfileid: "73489007"
    다음 필드를 작성합니다.
 
    * 미리 공유한 키를 입력합니다. 키를 입력하지 않으면 Azure에서 자동으로 키를 생성합니다.
-   * 프로토콜 및 IPsec 설정을 선택합니다. 기본/사용자 지정 IPSec 정보(페이지 링크 넣기) 참조
+   * 프로토콜 및 IPsec 설정을 선택합니다. [기본/사용자 지정 IPSec 세부 정보]를 참조하세요(https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec).
    * **기본 경로 전파**에 대한 적절한 옵션을 선택합니다. **사용** 옵션을 설정하면 가상 허브가 학습한 기본 경로를 이 연결에 전파합니다. 허브에 방화벽을 배포하여 Virtual WAN 허브에서 기본 경로를 이미 학습한 경우나 연결된 다른 사이트에서 강제로 터널링을 사용한 경우에만 이 플래그가 연결에 기본 경로 전파를 사용하도록 설정합니다. 기본 경로는 Virtual WAN 허브에서 시작되지 않습니다.
 
 2. **연결**을 선택합니다.
 3. 몇 분 후에 사이트에 연결 및 연결 상태가 표시됩니다.
 
-   ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "상태")
 
    **연결 상태:** VPN 사이트를 Azure 허브의 VPN 게이트웨이에 연결하는 연결에 대한 Azure 리소스의 상태입니다. 이 제어 영역 작업이 성공적이면 Azure VPN 게이트웨이와 온-프레미스 VPN 디바이스가 연결 설정을 진행합니다.
 

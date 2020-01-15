@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 96062057a139e4ab2c91792b5c451e093f7f4c96
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b8b650920c03b14c7d55aafd6ecdb43dafaafafe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468978"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
@@ -96,7 +96,7 @@ REST API는 JSON 형식으로 요청을 가져오고 JSON으로 결과를 반환
 
 ## <a name="build-and-run-your-app"></a>앱 빌드 및 실행
 
-이제 앱을 빌드하고 Speech Service를 사용하여 음성 인식을 테스트할 준비가 되었습니다.
+이제 앱을 빌드하고 음성 서비스를 사용하여 음성 인식을 테스트할 준비가 되었습니다.
 
 1. **코드 컴파일** - Visual Studio의 메뉴 모음에서 **빌드** > **빌드 솔루션**을 선택합니다.
 2. **앱 시작** - 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.

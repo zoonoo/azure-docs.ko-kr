@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564770"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942748"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -126,7 +126,7 @@ VM 크기 및 각 VM의 유형에 사용할 수 있는 IOPS, 처리량 및 대�
 | **IO 크기** |작은 크기의 IO는 더 높은 IOPS를 생성합니다. |큰 IO 크기는 더 높은 처리량을 생성합니다. | &nbsp;|
 | **VM 크기** |애플리케이션 요구 사항보다 큰 IOPS를 제공하는 VM 크기를 사용합니다. |애플리케이션 요구 사항보다 큰 처리량 한계가 있는 VM 크기를 사용합니다. |애플리케이션 요구 사항보다 큰 규모 제한을 제공하는 VM 크기를 사용합니다. |
 | **디스크 크기** |애플리케이션 요구 사항보다 큰 IOPS를 제공하는 디스크 크기를 사용합니다. |애플리케이션 요구 사항보다 큰 처리량 한계가 있는 디스크 크기를 사용합니다. |애플리케이션 요구 사항보다 큰 규모 제한을 제공하는 디스크 크기를 사용합니다. |
-| **VM 및 디스크 규모 제한** |선택한 VM 크기의 IOPS 제한은 연결된 Premium Storage 디스크에 의해 발생하는 총 IOPS보다 커야 합니다. |선택한 VM 크기의 처리량 제한은 연결된 Premium Storage 디스크에 의한 총 처리량보다 커야 합니다. |선택한 VM 크기의 규모 제한은 연결된 Premium Storage 디스크의 총 규모 제한보다 커야 합니다. |
+| **VM 및 디스크 규모 제한** |선택한 VM 크기의 IOPS 제한은 연결 된 저장소 디스크를 기반으로 하는 총 IOPS 보다 커야 합니다. |선택한 VM 크기의 처리량 제한은 연결된 Premium Storage 디스크에 의한 총 처리량보다 커야 합니다. |선택한 VM 크기의 규모 제한은 연결된 Premium Storage 디스크의 총 규모 제한보다 커야 합니다. |
 | **디스크 캐싱** |더 많은 읽기 IOPS를 얻기 위해 많은 읽기 작업과 함께 Premium Storage 디스크의 읽기 전용 캐시를 사용합니다. | &nbsp; |더 짧은 읽기 대기 시간을 얻기 위해 많은 읽기 작업과 함께 Premium Storage 디스크의 ReadOnly 캐시를 사용합니다. |
 | **디스크 스트라이프** |결합된 높은 IOPS 및 처리량 한계를 얻기 위해 여러 디스크 및 디스크 스트라이프를 사용합니다. VM 당 결합 된 한도는 연결 된 프리미엄 디스크의 조합 된 제한 보다 높아야 합니다. | &nbsp; | &nbsp; |
 | **스트라이프 크기** |OLTP 애플리케이션에 표시된 작은 임의 IO 패턴에 대한 더 작은 스트라이프 크기입니다. 예를 들어 SQL Server OLTP 응용 프로그램의 경우 64 KB의 스트라이프 크기를 사용 합니다. |데이터 웨어하우스에 애플리케이션에 표시된 대형 순차 IO 패턴에 대한 더 큰 스트라이프 크기입니다. 예를 들어 SQL Server 데이터 웨어하우스 응용 프로그램의 경우 256 KB 스트라이프 크기를 사용 합니다. | &nbsp; |

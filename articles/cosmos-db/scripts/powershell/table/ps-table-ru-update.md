@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 - Table API용 Azure Cosmos DB 업데이트 RU/s
+title: Azure Cosmos DB Table API에 대한 RU/s를 업데이트하는 PowerShell 스크립트
 description: PowerShell 스크립트를 사용하여 Azure Cosmos DB Table API 계정에서 데이터베이스 또는 컨테이너의 처리량을 업데이트하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8188089f216fa33ba958cf670bb321816387f5c9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 37e7ab82a42b8bcd633e0c083e1a3f51505a95cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444915"
 ---
 # <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Azure Cosmos DB Table API용 테이블에 대한 RU/s 업데이트
 

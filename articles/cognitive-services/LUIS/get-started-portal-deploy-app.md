@@ -8,24 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278535"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448065"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 LUIS 앱이 챗봇 같은 클라이언트 애플리케이션으로 발화 예측을 반환할 준비가 되면 예측 엔드포인트에 앱을 배포해야 합니다.
 
 이 빠른 시작에서는 애플리케이션을 배포하는 것에 대해 알아봅니다. 예측 엔드포인트 리소스를 만들고, 앱에 리소스를 할당하고, 앱을 학습시키고, 앱을 게시합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure 구독](https://azure.microsoft.com/free)을 가져옵니다.
 * [이전 포털 빠른 시작](get-started-portal-build-app.md)을 완료하거나 [앱을 다운로드하고 가져옵니다](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
@@ -41,7 +39,7 @@ LUIS 앱이 챗봇 같은 클라이언트 애플리케이션으로 발화 예측
 
    |설정|값|목적|
    |--|--|--|
-   |Name|`my-luis-resource`|Azure 리소스의 이름입니다. LUIS 포털에서 앱에 리소스를 할당할 때 이 이름이 필요합니다.|
+   |속성|`my-luis-resource`|Azure 리소스의 이름입니다. LUIS 포털에서 앱에 리소스를 할당할 때 이 이름이 필요합니다.|
    |Subscription|사용자의 구독|계정과 연결된 구독 중 하나를 선택합니다.|
    |Resource group|`my-resource-group`|모든 인식 서비스 리소스에 대한 새 리소스 그룹을 만듭니다. 리소스 사용을 마친 후에는 리소스 그룹을 삭제하여 구독을 정리할 수 있습니다. |
    |작성 위치|**미국 서부**|작성할 Azure 지역입니다.|
@@ -61,7 +59,7 @@ LUIS 앱이 챗봇 같은 클라이언트 애플리케이션으로 발화 예측
 
 LUIS에 대한 새 리소스를 만들 때마다 LUIS 앱에 리소스를 할당해야 합니다. 리소스가 할당되면 새 리소스를 만들지 않는 이상 이 단계를 다시 수행할 필요가 없습니다. 앱의 영역을 확장하거나 더 많은 예측 쿼리를 지원하기 위해 새 리소스를 만들어야 하는 경우가 있습니다.
 
-1. [LUIS 포털](https://preview.luis.ai)에 로그인하고, 앱 목록에서 **myEnglishApp** 앱을 선택합니다.
+1. [LUIS 포털 미리 보기](https://preview.luis.ai)에 로그인하고 앱 목록에서 **myEnglishApp** 앱을 선택합니다.
 
 1. 오른쪽 상단 메뉴에서 **관리**를 선택한 다음, **Azure Resources**를 선택합니다.
 

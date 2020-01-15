@@ -1,25 +1,25 @@
 ---
-title: .NET Core 앱에서 Azure Cache for Redis를 사용하는 방법에 대한 빠른 시작
+title: '빠른 시작: .NET Core 앱에서 Azure Cache for Redis 사용'
 description: 이 빠른 시작에서는 .NET Core 앱에서 Azure Cache for Redis에 액세스하는 방법을 알아봅니다.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
+ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/18/2018
-ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: ce50ecac9a7b676386ce893a19391a63ffeed108
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d723ffc4e94dcdcb63d74d65c55288015931adad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413047"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>빠른 시작: .NET Core 앱에서 Azure Cache for Redis 사용
 
 이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 .NET Core 앱에 통합합니다. 구체적으로 .NET Core 콘솔 앱에서 C# 코드를 통해 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 클라이언트를 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
@@ -289,7 +289,7 @@ dotnet run
 
 다음 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다시 사용할 수 있습니다.
 
-또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
+그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
@@ -299,11 +299,11 @@ dotnet run
 
 **이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
-![삭제](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
+![DELETE](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 
 

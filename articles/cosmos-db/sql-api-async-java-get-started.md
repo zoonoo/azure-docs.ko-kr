@@ -1,5 +1,5 @@
 ---
-title: '자습서: 비동기 Java SDK를 사용하여 Azure Cosmos DB에서 SQL API 계정을 관리하는 Java 앱 빌드'
+title: '자습서: Azure Cosmos DB Async Java SDK를 사용하여 Java 앱을 빌드하여 SQL API 계정에서 데이터 관리'
 description: 이 자습서에서는 비동기 Java 애플리케이션을 사용하여 Azure Cosmos DB에서 SQL API 계정 내에 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 972328ec5052f5089994efbb940ff00c889ae78f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 8704e399156b9cfc6b04ff47af49b956b597a539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444899"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>자습서: 비동기 Java SDK를 사용하여 SQL API 계정에 저장된 데이터를 관리하는 Java 앱 빌드
 
@@ -36,7 +36,7 @@ ms.locfileid: "73720878"
 > * JSON 문서 만들기
 > * 컬렉션 쿼리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 리소스가 있는지 확인합니다.
 

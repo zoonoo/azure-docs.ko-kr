@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703706"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549451"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -22,7 +22,7 @@ LDAP(Lightweight Directory Access Protocol)는 Azure AD DS(Azure Active Director
 
 이 자습서에서는 Azure AD DS 관리되는 도메인에 대한 LDAPS를 구성하는 방법을 보여 줍니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure AD DS에 사용할 디지털 인증서 만들기
@@ -32,14 +32,14 @@ LDAP(Lightweight Directory Access Protocol)는 Azure AD DS(Azure Active Director
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
 * 컴퓨터에 설치된 *LDP.exe* 도구
@@ -63,7 +63,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 * **신뢰할 수 있는 발급자** - 인증서는 보안 LDAP를 사용하여 관리되는 도메인에 연결하는 컴퓨터에서 신뢰하는 기관에서 발급된 것이어야 합니다. 이 기관은 이러한 컴퓨터에서 신뢰할 수 있는 퍼블릭 CA 또는 엔터프라이즈 CA일 수 있습니다.
 * **수명** - 인증서는 다음 3-6개월 이상 동안 유효해야 합니다. 인증서가 만료될 때 관리되는 도메인에 대한 보안 LDAP 액세스가 중단됩니다.
-* **주체 이름** - 인증서의 주체 이름은 관리되는 도메인이어야 합니다. 예를 들어 도메인 이름이 *aadds.contoso.com*인 경우 인증서의 주체 이름은 **aadds.contoso.com*이어야 합니다.
+* **주체 이름** - 인증서의 주체 이름은 관리되는 도메인이어야 합니다. 예를 들어 도메인 이름이 *aadds.contoso.com*인 경우 인증서의 주체 이름은 * *.aadds.contoso.com*이어야 합니다.
     * 보안 LDAP가 Azure AD Domain Services에서 제대로 작동하려면 인증서의 DNS 이름 또는 주체 대체 이름이 와일드카드 인증서여야 합니다. 도메인 컨트롤러는 임의의 이름을 사용하며, 서비스를 계속 사용할 수 있도록 제거하거나 추가할 수 있습니다.
 * **키 사용** - 인증서를 *디지털 서명* 및 *키 암호화*에 맞게 구성해야 합니다.
 * **인증서 용도** - 인증서는 SSL 서버 인증에 대해 유효해야 합니다.
@@ -219,9 +219,9 @@ Azure AD DS 관리형 도메인에 대한 인터넷을 통한 보안 LDAP 액세
     | 대상                       | 모두          |
     | 대상 포트 범위           | 636          |
     | 프로토콜                          | TCP          |
-    | 조치                            | 허용        |
+    | 작업                            | Allow        |
     | 우선 순위                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | 속성                              | AllowLDAPS   |
 
 1. 준비가 되면 **추가**를 선택하여 규칙을 저장하고 적용합니다.
 
@@ -277,7 +277,7 @@ Azure AD DS 관리형 도메인에 저장된 개체를 확인하려면 다음을
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure AD DS에 사용할 디지털 인증서 만들기

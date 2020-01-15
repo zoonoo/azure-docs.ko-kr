@@ -2,23 +2,23 @@
 title: 자습서 - 이미지를 배포할 컨테이너 레지스트리 준비
 description: Azure Container Instances 자습서 2/3부 - Azure 컨테이너 레지스트리를 준비하여 이미지 푸시
 ms.topic: tutorial
-ms.date: 03/21/2018
+ms.date: 12/18/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d8a14acb196b257d96792444fe41e7e9f6b73592
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 131ea39b382735423a1edff72774313c4096ea2b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533316"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552424"
 ---
-# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>자습서: Azure 컨테이너 레지스트리를 배포하고 컨테이너 이미지 푸시
+# <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>자습서: Azure 컨테이너 레지스트리를 만들고 컨테이너 이미지 푸시
 
 세 부분으로 이루어진 자습서의 두 번째 부분입니다. 자습서의 [1부](container-instances-tutorial-prepare-app.md)에서는 Node.js 웹 애플리케이션에 사용할 Docker 컨테이너 이미지를 만들었습니다. 이 자습서에서는 이 이미지를 Azure Container Registry에 푸시합니다. 컨테이너 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](container-instances-tutorial-prepare-app.md)로 돌아갑니다.
 
-Azure Container Registry는 Azure의 프라이빗 Docker 레지스트리입니다. 이 자습서에서는 구독에서 Azure Container Registry 인스턴스를 만든 후 이전에 만든 컨테이너 이미지를 여기에 푸시합니다. 시리즈의 2부에 해당하는 본 문서에서는 다음 작업을 수행합니다.
+Azure Container Registry는 Azure의 프라이빗 Docker 레지스트리입니다. 이 자습서의 시리즈 2부에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * Azure Container Registry 인스턴스 만들기
+> * Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기
 > * Azure Container Registry에 컨테이너 이미지 태그 지정
 > * 레지스트리에 이미지 업로드
 
@@ -41,16 +41,15 @@ az group create --name myResourceGroup --location eastus
 리소스 그룹을 만든 후에는 [az acr create][az-acr-create] 명령을 사용하여 Azure 컨테이너 레지스트리를 만듭니다. 컨테이너 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. `<acrName>`를 레지스트리의 고유한 이름으로 바꿉니다.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
 다음은 *mycontainerregistry082*라는 새 Azure 컨테이너 레지스트리의 출력 예제입니다(여기에 잘려서 표시).
 
 ```console
-$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
+$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic
 ...
 {
-  "adminUserEnabled": true,
   "creationDate": "2018-03-16T21:54:47.297875+00:00",
   "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry082",
   "location": "eastus",
@@ -119,7 +118,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-*aci-tutorial-app* 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다. 또한 이미지 이름 끝에 이미지 버전 번호를 나타내는 `:v1` 태그를 추가합니다. `<acrLoginServer>`를 앞에서 실행한 [az acr show][az-acr-show] 명령의 결과로 바꿉니다.
+*aci-tutorial-app* 이미지에 컨테이너 레지스트리의 로그인 서버로 태그를 지정합니다. 또한 이미지 이름 끝에 이미지 버전 번호를 나타내는 `:v1` 태그를 추가합니다. `<acrLoginServer>`를 앞에서 실행한 [az acr show][az-acr-show] 명령의 결과로 바꿉니다.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -136,7 +135,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Azure Container Registry에 이미지 푸시하기
 
-프라이빗 레지스트리의 전체 로그인 서버 이름으로 *aci-tutorial-app* 이미지에 태그를 지정했으니, [docker push][docker-push] 명령을 사용하여 이미지를 레지스트리에 푸시할 수 있습니다. `<acrLoginServer>`를 이전 단계에서 얻은 전체 로그인 서버 이름으로 바꿉니다.
+이제 프라이빗 레지스트리의 전체 로그인 서버 이름으로 *aci-tutorial-app* 이미지에 태그를 지정했으므로 [docker push][docker-push] 명령을 사용하여 이미지를 레지스트리에 푸시할 수 있습니다. `<acrLoginServer>`를 이전 단계에서 얻은 전체 로그인 서버 이름으로 바꿉니다.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -164,7 +163,7 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 az acr repository list --name <acrName> --output table
 ```
 
-예:
+다음은 그 예입니다.
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table
@@ -179,7 +178,7 @@ aci-tutorial-app
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
-다음과 비슷한 결과가 나타나야 합니다.
+다음과 비슷한 내용이 출력됩니다.
 
 ```console
 $ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
@@ -193,7 +192,7 @@ v1
 이 자습서에서는 Azure Container Instances와 함께 사용할 Azure 컨테이너 레지스트리를 준비하고, 컨테이너 이미지를 레지스트리에 푸시했습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
-> * Azure Container Registry 인스턴스 배포
+> * Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기
 > * Azure Container Registry에 컨테이너 이미지 태그 지정
 > * Azure Container Registry에 이미지 업로드
 

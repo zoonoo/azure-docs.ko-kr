@@ -1,5 +1,6 @@
 ---
-title: Azure API Management에서 Azure 함수 앱을 API로 가져오기 | Microsoft Docs
+title: API Management에서 Azure 함수 앱을 API로 가져오기
+titleSuffix: Azure API Management
 description: 이 자습서에서는 Azure API Management에서 Azure 함수 앱을 API로 가져오는 방법을 보여 줍니다.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442575"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure 함수 앱을 API로 가져오기
 
@@ -34,7 +35,7 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
 > * Azure Portal에서 API 테스트
 > * 개발자 포털에서 API 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 * 구독에 Azure Functions 앱이 있는지 확인합니다. 자세한 내용은 [Azure 함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)를 참조하세요. HTTP 트리거 및 권한 부여 수준 설정이 *익명* 또는 *함수*로 지정된 Functions가 포함되어야 합니다.
@@ -117,7 +118,7 @@ Azure 함수 앱 가져오기에서 자동으로 생성되는 항목은 다음�
 * 함수 앱 내에 apim-{*Azure API Management 서비스 인스턴스 이름*} 이름이 있는 호스트 키,
 * Azure API Management 인스턴스 내에 {*Azure 함수 앱 인스턴스 이름*}-key 이름(만든 호스트 키 포함)이 있는 명명된 값.
 
-2019년 4월 4일 이후 만든 API의 경우 호스트 키는 HTTP 요청 시 API Management에서 헤더의 함수 앱으로 전달됩니다. 기존 API는 호스트 키를 [쿼리 매개 변수](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization)로 전달합니다. 이 동작은 함수 앱과 연결된 *백 엔드* 항목의 `PATCH Backend`[REST API 호출](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract)을 통해 변경할 수 있습니다.
+2019년 4월 4일 이후 만든 API의 경우 호스트 키는 HTTP 요청 시 API Management에서 헤더의 함수 앱으로 전달됩니다. 기존 API는 호스트 키를 [쿼리 매개 변수](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization)로 전달합니다. 이 동작은 함수 앱과 연결된 *백 엔드* 엔터티의 `PATCH Backend` [REST API 호출](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract)을 통해 변경할 수 있습니다.
 
 > [!WARNING]
 > Azure 함수 앱 호스트 키 또는 Azure API Management 명명된 값을 제거하거나 변경하면 서비스 간 통신이 중단됩니다. 값은 자동으로 동기화되지 않습니다.

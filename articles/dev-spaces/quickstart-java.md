@@ -3,15 +3,15 @@ title: 'Kubernetes에서 디버그 및 반복: Visual Studio Code 및 Java'
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Azure에서 컨테이너 및 마이크로서비스 및 Java로 신속하게 Kubernetes 개발
+description: 이 빠른 시작에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Java 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Java, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5f0f9991ae8718b60221c3f291b6169f677b59c5
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8050e7793146456894ce86ab89e1563c6282b8df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438283"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>빠른 시작: Visual Studio Code 및 Java를 사용하여 Kubernetes에서 디버그 및 반복 - Azure Dev Spaces
 
@@ -26,9 +26,9 @@ Azure Dev Spaces를 통해 다음을 사용하여 디버그하고 반복할 수�
 - [.NET Core 및 Visual Studio Code](quickstart-netcore.md)
 - [.NET Core 및 Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
+- Azure 구독 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
 - [Visual Studio Code 설치](https://code.visualstudio.com/download).
 - Visual Studio Code용 [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 및 [Azure Dev Spaces용 Java Debugger](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) 확장 프로그램 설치.
 - [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -115,9 +115,9 @@ Visual Studio Code에도 기본 이미지, 노출된 포트 및 공용 엔드포
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 *Java 프로그램 시작(AZDS)* 을 다시 실행하면 됩니다. 예:
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 *Java 프로그램 시작(AZDS)* 을 다시 실행하면 됩니다. 다음은 그 예입니다.
 
-1. 애플리케이션이 여전히 실행되는 경우 *디버그*, *디버깅 중지*를 차례로 클릭하여 중지합니다.
+1. 애플리케이션이 여전히 실행되는 경우 *디버그*를 클릭한 다음, *디버깅 중지*를 클릭하여 중지합니다.
 1. [`src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19)을 다음으로 업데이트합니다.
     
     ```java
@@ -143,7 +143,7 @@ Visual Studio Code에도 기본 이미지, 노출된 포트 및 공용 엔드포
 
 ## <a name="update-code-from-visual-studio-code"></a>Visual Studio Code에서 코드 업데이트
 
-서비스가 디버깅 모드에서 실행 중인 경우 `src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄을 업데이트합니다. 예:
+서비스가 디버깅 모드에서 실행 중인 경우 `src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄을 업데이트합니다. 다음은 그 예입니다.
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

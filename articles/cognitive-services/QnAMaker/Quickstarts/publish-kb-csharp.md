@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 192f0ced2b718deca123f3f72dcf549f6a48f59f
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: a6ad8156b5ab6370bb089c97d620bae0ccff82eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794110"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381463"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#을 사용하여 QnA Maker 기술 자료 게시
 
@@ -25,17 +25,17 @@ ms.locfileid: "73794110"
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
 * [게시](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - 이 API는 요청 본문에 어떤 정보도 요구하지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 최신 [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/)
 * [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
-* QnA Maker KB(기술 자료) ID는 아래와 같이 kbid 쿼리 문자열 매개 변수의 URL에 있습니다.
+* QnA Maker KB(기술 자료) ID는 아래와 같이 `kbid` 쿼리 문자열 매개 변수의 URL에 있습니다.
 
     ![QnA Maker 기술 자료 ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-csharp.md)에서 사용하면 됩니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base)에서 사용할 수 있습니다.
 
 ## <a name="create-knowledge-base-project"></a>기술 자료 프로젝트 만들기
@@ -61,19 +61,19 @@ Program.cs의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 프로�
 
 [!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=36-56 "Add HTTP Post request and response")]
 
-API 호출은 성공적인 게시에 대해 응답 본문에 내용이 없는 204 상태를 반환합니다. 
- 
+API 호출은 성공적인 게시에 대해 응답 본문에 내용이 없는 204 상태를 반환합니다.
+
 ## <a name="build-and-run-the-program"></a>프로그램 빌드 및 실행
 
 프로그램을 빌드하고 실행합니다. 그러면 자동으로 기술 자료를 게시하기 위한 요청을 QnA Maker API에 보낸 다음, 응답이 콘솔 창에 출력됩니다.
 
-기술 자료가 게시되면 클라이언트 애플리케이션 또는 챗봇을 사용하여 엔드포인트에서 쿼리할 수 있습니다. 
+기술 자료가 게시되면 클라이언트 애플리케이션 또는 챗봇을 사용하여 엔드포인트에서 쿼리할 수 있습니다.
 
-[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-기술 자료가 게시된 후 [답변을 생성할 엔드포인트 URL](../Tutorials/create-publish-answer.md#generating-an-answer)이 필요합니다. 
+기술 자료가 게시된 후 [답변을 생성할 엔드포인트 URL](../Tutorials/create-publish-answer.md#generating-an-answer)이 필요합니다.
 
 > [!div class="nextstepaction"]
 > [QnA Maker(V4) REST API 참조](https://go.microsoft.com/fwlink/?linkid=2092179)

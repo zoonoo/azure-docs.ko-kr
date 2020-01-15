@@ -3,14 +3,14 @@ title: 'Kubernetes 개발 공간 만들기: Visual Studio Code 및 Node.js'
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
+description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Node.js 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 64d4f7560325429fc2a36be066c6c475d4d60e90
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a5cfd0281b7f68a416f47e478292341bd708ed1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708590"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438526"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 Node.js
 
@@ -273,7 +273,7 @@ Azure Dev Spaces를 사용하면 로컬 개발 시 사용하는 것과 동일한
 1. `server.js`에서 hello 메시지를 다시 편집하고 파일을 저장합니다.
 1. 브라우저를 새로 고치거나 *다시 말하기* 단추를 클릭하여 변경 내용이 적용되는지 확인합니다.
 
-**이제 코드를 빠르게 반복하고 Kubernetes에서 직접 디버그하는 방법을 사용할 수 있습니다!** 다음으로, 두 번째 컨테이너를 만들고 호출하는 방법을 살펴보겠습니다.
+**이제 코드를 신속하게 반복하고 Kubernetes에서 직접 디버깅할 수 있는 방법이 있습니다.** 다음으로, 두 번째 컨테이너를 만들고 호출하는 방법을 살펴보겠습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 544cae7f33bfb1077bfdf7f215fb313974334216
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9e9a3d13eeb0c8704e2faac1037d51e5bd322dc4
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910395"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945104"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 
@@ -46,6 +46,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |홍콩 특별 행정구     |✓         |✓         |
 |인도   |✓         |✓         |
 |인도네시아     |✓         |✓         |
+|카자흐스탄    |✓         |✓         |
 |마카오     |✓         |✓         |
 |말레이시아     |✓         |✓         |
 |뉴질랜드     |✓         |✓         |

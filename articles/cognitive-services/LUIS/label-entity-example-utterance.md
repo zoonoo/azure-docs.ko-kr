@@ -8,33 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58e813d30273db4e011039aa43cd59c61507895e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74383697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448081"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>예제 발화의 기계 학습된 엔터티에 레이블 지정
 
-발화 예제의 엔터티에 레이블을 지정하면 해당 엔터티의 콘텐츠와 해당 엔터티가 발화에서 표시될 수 있는 위치에 대한 예제가 LUIS에 제공됩니다. 
+발화 예제의 엔터티에 레이블을 지정하면 해당 엔터티의 콘텐츠와 해당 엔터티가 발화에서 표시될 수 있는 위치에 대한 예제가 LUIS에 제공됩니다.
 
 ## <a name="labeling-machine-learned-entity"></a>기계 학습된 엔터티에 레이블 지정
 
-`hi, please I want a cheese pizza in 20 minutes` 구문을 살펴보겠습니다. 
+`hi, please I want a cheese pizza in 20 minutes` 구문을 살펴보겠습니다.
 
 1. 엔터티에 있는 가장 왼쪽의 텍스트와 가장 오른쪽의 텍스트를 차례로 선택한 다음, 레이블(여기서는 '주문 완료')을 지정하려는 엔터티를 선택합니다. 다음 이미지에서 _주문 완료_에 레이블이 지정됩니다.
 
     > [!div class="mx-imgBorder"]
     > ![기계 학습된 엔터티에 완료 레이블 지정](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
-1. 팝업 창에서 엔터티를 선택합니다. 레이블이 지정된 피자 주문 완료 엔터티에는 레이블이 지정된 모든 단어(영어로 왼쪽에서 오른쪽)가 포함되어 있습니다. 
+1. 팝업 창에서 엔터티를 선택합니다. 레이블이 지정된 피자 주문 완료 엔터티에는 레이블이 지정된 모든 단어(영어로 왼쪽에서 오른쪽)가 포함되어 있습니다.
 
 ## <a name="review-labeled-text"></a>레이블이 지정된 텍스트 검토
 
-레이블이 지정되면 발화 예제를 검토하고 선택한 텍스트 범위에서 선택한 엔터티에 밑줄이 그어져 있는지 확인합니다. 실선은 텍스트에 레이블이 지정되었음을 나타냅니다. 
+레이블이 지정되면 발화 예제를 검토하고 선택한 텍스트 범위에서 선택한 엔터티에 밑줄이 그어져 있는지 확인합니다. 실선은 텍스트에 레이블이 지정되었음을 나타냅니다.
 
 > [!div class="mx-imgBorder"]
 > ![기계 학습된 엔터티에 완료 레이블 지정됨](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
@@ -55,12 +55,12 @@ ms.locfileid: "74383697"
 
 엔터티 팔레트는 이전 레이블 지정 환경에 대한 대안을 제공합니다. 텍스트 위를 브러시하여 엔터티에 레이블을 즉시 지정할 수 있습니다.
 
-1. 발화 테이블의 오른쪽 위에 있는 형광펜 아이콘을 선택하여 엔터티 팔레트를 엽니다. 
+1. 발화 테이블의 오른쪽 위에 있는 형광펜 아이콘을 선택하여 엔터티 팔레트를 엽니다.
 
     > [!div class="mx-imgBorder"]
     > ![기계 학습된 엔터티에 대한 엔터티 팔레트](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
 
-2. 엔터티 구성 요소를 선택합니다. 이 작업은 새 커서로 시각적으로 표시됩니다. 커서는 포털에서 이동하는 대로 마우스를 따라갑니다. 
+2. 엔터티 구성 요소를 선택합니다. 이 작업은 새 커서로 시각적으로 표시됩니다. 커서는 포털에서 이동하는 대로 마우스를 따라갑니다.
 
     > [!div class="mx-imgBorder"]
     > ![기계 학습된 엔터티에 대한 엔터티 팔레트](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
@@ -77,17 +77,26 @@ ms.locfileid: "74383697"
 > [!div class="mx-imgBorder"]
 > ![기계 학습된 엔터티에 대한 엔터티 팔레트](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
 
-부모 구성 요소에도 레이블이 지정된 경우에만 하위 구성 요소에 레이블을 지정할 수 있습니다. 
+부모 구성 요소에도 레이블이 지정된 경우에만 하위 구성 요소에 레이블을 지정할 수 있습니다.
+
+## <a name="labeling-entity-roles"></a>엔터티 역할 레이블 지정
+
+엔터티 역할은 엔터티 팔레트를 사용하여 레이블이 지정됩니다.
+
+1. 의도 세부 정보 페이지의 컨텍스트 도구 모음에서 **엔터티 팔레트**를 선택합니다.
+1. 엔터티 팔레트가 열리면 엔터티 목록에서 엔터티를 선택합니다.
+1. **엔터티 검사자**로 이동하여 기존 역할을 선택하거나 새 역할을 만듭니다.
+1. 예제 발화 텍스트에서 엔터티 역할을 사용하여 텍스트에 레이블을 지정합니다. 
 
 ## <a name="unlabel-entities"></a>엔터티 레이블 지정 해제
 
-엔터티의 레이블 지정을 해제하려면 텍스트 아래에서 엔터티 이름을 선택하고 **레이블 지정 해제**를 선택합니다. 레이블 지정을 해제하려는 엔터티에 레이블이 지정된 하위 구성 요소가 있는 경우 먼저 하위 구성 요소의 레이블 지정을 해제해야 합니다. 
+엔터티의 레이블 지정을 해제하려면 텍스트 아래에서 엔터티 이름을 선택하고 **레이블 지정 해제**를 선택합니다. 레이블 지정을 해제하려는 엔터티에 레이블이 지정된 하위 구성 요소가 있는 경우 먼저 하위 구성 요소의 레이블 지정을 해제해야 합니다.
 
 ## <a name="editing-labels-using-the-entity-palette"></a>엔터티 팔레트를 사용하여 레이블 편집
 
 레이블을 지정하면서 실수하는 경우 엔터티 팔레트는 빠른 편집을 수행할 수 있는 손쉬운 도구입니다. 예를 들어 엔터티 레이블이 실수로 추가 단어 범위에 걸쳐 있고 이미 하위 구성 요소에 레이블이 지정된 경우 엔터티 팔레트를 사용하여 필요한 더 짧은 단어 범위 위를 브러시할 수 있습니다.
 
-예:
+다음은 그 예입니다.
 
 1. 피자 유형 하위 구성 요소는 "cheese pizza with"에 걸쳐 있고, 여기에는 잘못된 "with" 단어가 추가로 포함되어 있습니다.
 
@@ -98,7 +107,6 @@ ms.locfileid: "74383697"
 
     > [!div class="mx-imgBorder"]
     > ![기계 학습된 엔터티에 대한 엔터티 팔레트](media/label-utterances/edit-label-with-palette-2.png)
-
 
 ## <a name="labels-for-matching-text-entities"></a>텍스트 일치 엔터티에 대한 레이블
 

@@ -9,15 +9,15 @@ ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 09/13/2019
+ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f9e33ae30b3aa59f4705518c3df20118fa056a93
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e51f6ad25ca81431eab0561926b6bf065abaa508
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996755"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383778"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Bing Image Search API란?
 
@@ -27,7 +27,7 @@ Bing Image Search API에서 이미지 전용 검색 결과를 제공하지만, �
 
 ## <a name="bing-image-search-features"></a>Bing Image Search 기능
 
-| 기능                                                                                                                                                                                 | 설명                                                                                                                                                            |
+| 기능                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [실시간 검색 용어 제안](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 응용 프로그램 환경을 향상시킵니다. |
 | [이미지 결과 필터링 및 제한](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | 쿼리 매개 변수를 편집하여 Bing에서 반환하는 이미지를 필터링합니다.                                                                                                       |
@@ -67,4 +67,4 @@ API를 호출할 준비가 되면 [Cognitive Services API 계정](https://docs.m
 
 * [검색 쿼리 보내기 및 사용](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) 문서에서는 검색 쿼리를 만들고, 사용자 지정하고, 피벗하는 방법에 대해 설명합니다.
 
-* [Bing Search API 비교](../Bing-web-search/bing-api-comparison.md)
+* [Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.

@@ -4,28 +4,22 @@ description: .NET Framework 앱 지원 Azure App Configuration 사용 빠른 시
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: .NET
-ms.workload: tbd
-ms.date: 10/09/2019
+ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: f1fd1c21789c272bf8deae72ef64f2bbb1c6b3cb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8190265753bddb3038c5403411c4be193dd8075c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433630"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 
 이 빠른 시작에서는 Azure App Configuration을 .NET Framework 기반 콘솔 앱에 통합하여 코드와 별도로 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -35,7 +29,7 @@ ms.locfileid: "74707447"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **구성 탐색기** >  **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
+6. **구성 탐색기** > **만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
@@ -47,9 +41,9 @@ ms.locfileid: "74707447"
 
 1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
 
-1. **새 프로젝트 만들기**에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음**을 클릭합니다.
+1. **새 프로젝트 만들기**에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음**을 선택합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 입력합니다. **Framework**에서 **.NET Framework 4.7.1** 이상을 선택합니다. **만들기**를 클릭합니다.
+1. **새 프로젝트 구성**에서 프로젝트 이름을 입력합니다. **Framework**에서 **.NET Framework 4.7.1** 이상을 선택합니다. **만들기**를 선택합니다.
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
@@ -98,12 +92,15 @@ ms.locfileid: "74707447"
 
 1. **ConnectionString**이라는 환경 변수를 App Configuration 저장소의 연결 문자열로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행합니다.
 
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Windows PowerShell을 사용하는 경우 다음 명령을 실행합니다.
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
+    ```
 1. Visual Studio를 다시 시작하여 변경 내용을 적용합니다. Ctrl+F5를 눌러 콘솔 앱을 빌드하고 실행합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

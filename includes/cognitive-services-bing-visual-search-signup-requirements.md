@@ -3,20 +3,26 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/18/2019
-ms.openlocfilehash: 16ee9ae9a4eec6b38c57b984b3acb75479b437e6
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 12/17/2019
+ms.openlocfilehash: 7aa478c764ea1d9720d91068fa04d353e6a4db02
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379501"
 ---
-Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 계속 진행하려면 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 기준 가격에서 구독을 시작한 후 제공된 액세스 키가 필요합니다. 
+## <a name="create-an-azure-resource"></a>Azure 리소스 만들기
 
-Azure Portal에서 구독을 시작하려면
-1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
-2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
-3. 새 리소스에 대해 `Name`을 입력합니다.
-4. `Pay-As-You-Go` 구독을 선택합니다.
-5. `S9` 가격 책정 계층을 선택합니다.
-6. `Enable`을 클릭하여 구독을 시작합니다.
+아래 Azure 리소스 중 하나를 만들어 Bing Visual Search API 사용을 시작합니다.
+
+* [평가판 리소스 만들기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
+    * Azure 구독이 필요하지 않습니다.
+    * 평가판은 7일 동안 유효합니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 평가판 키 및 엔드포인트를 사용할 수 있습니다.
+
+* [Bing Search v7 리소스 만들기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
+    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.
+    * `S9` 가격 책정 계층을 선택합니다.
+
+* [다중 서비스 리소스 만들기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.  
+    * 여러 Cognitive Services에서 애플리케이션에 동일한 키와 엔드포인트를 사용합니다.

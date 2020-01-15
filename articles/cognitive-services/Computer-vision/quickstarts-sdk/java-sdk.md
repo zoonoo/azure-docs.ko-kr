@@ -1,21 +1,20 @@
 ---
 title: '빠른 시작: Java용 Computer Vision 클라이언트 라이브러리'
-titleSuffix: Azure Cognitive Services
-description: Java용 Computer Vision 클라이언트 라이브러리를 시작합니다.
+description: 이 빠른 시작에서 Java용 Computer Vision 클라이언트 라이브러리를 시작합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: ''
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 9c73d28952a165f07711d1aace665bbe742f0124
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: e909e5c6a429d85befd49e6b67e59a46ef8ef30b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718460"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382228"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>빠른 시작: Java용 Computer Vision 클라이언트 라이브러리
 
@@ -28,7 +27,7 @@ Java용 Computer Vision 클라이언트 라이브러리를 사용하여 다음�
 
 [참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [아티팩트(Maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)의 현재 버전
@@ -38,7 +37,7 @@ Java용 Computer Vision 클라이언트 라이브러리를 사용하여 다음�
 
 ### <a name="create-a-computer-vision-azure-resource"></a>Computer Vision Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 다음도 가능합니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
@@ -104,7 +103,7 @@ dependencies {
 
 Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-|Name|설명|
+|속성|Description|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
 |[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| 이 클래스는 클라이언트 개체에서 제공되며, 이미지 분석, 텍스트 검색 및 썸네일 생성과 같은 모든 이미지 작업을 직접 처리합니다.|
@@ -168,7 +167,7 @@ Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스�
 
 ### <a name="get-image-category"></a>이미지 범주 가져오기
 
-다음 코드는 검색된 이미지 범주를 가져옵니다. 자세한 내용은 [이미지 분류](../concept-categorizing-images.md)를 참조하세요.
+다음 코드는 검색된 이미지 범주를 가져옵니다. 자세한 내용은 [범주 이미지](../concept-categorizing-images.md)를 참조하세요.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
 

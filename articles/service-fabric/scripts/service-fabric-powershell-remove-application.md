@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 클러스터에서 애플리케이션 제거 | Microsoft Docs
+title: Powershell의 클러스터에서 애플리케이션 제거
 description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터에서 애플리케이션 제거
 services: service-fabric
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: f572996b4e460480335dbe32c4599bde206251d4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 9ac4c23468c74b5a2c6874de2cb6b8d0e6b9e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035510"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610287"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 애플리케이션 제거
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Powershell을 사용하여 Service Fabric 클러스터에서 애플리케이션 제거
 
 이 샘플 스크립트는 실행 중인 Service Fabric 애플리케이션 인스턴스를 삭제하고, 클러스터에서 애플리케이션 유형 및 버전의 등록을 취소합니다.  애플리케이션 인스턴스를 삭제하면 해당 애플리케이션과 연결된 실행 중인 모든 서비스 인스턴스도 삭제됩니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
 
