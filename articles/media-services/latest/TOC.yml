@@ -51,7 +51,7 @@
         - name: Media Services 계정
           displayName: subscription
           href: media-services-account-concept.md
-        - name: Storage 계정
+        - name: 스토리지 계정
           href: storage-account-concept.md
           displayName: Storage side encryption
     - name: 업로드
@@ -77,7 +77,7 @@
         - name: Autogen 적응 비트 전송률 사다리
           href: autogen-bitrate-ladder.md
         - name: 콘텐츠 인식 인코딩
-          href: cae-experimental.md
+          href: content-aware-encoding.md
     - name: 콘텐츠 분석(Video Indexer)
       items:
         - name: 개요
@@ -294,7 +294,7 @@
           href: cli-publish-asset.md
         - name: 신호 설명 오디오
           href: signal-descriptive-audio-howto.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: OpenAPI 사양(Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'

@@ -7,7 +7,7 @@
       href: overview.md
     - name: 언어 및 지역 지원
       href: language-support.md
-      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code'
+      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice'
 - name: 음성 텍스트 변환
   expanded: false
   items:
@@ -27,6 +27,8 @@
       items:
         - name: 음성 인식 소스 언어 변경
           href: how-to-specify-source-language.md
+        - name: 음성 인식 모드 선택
+          href: how-to-choose-recognition-mode.md
         - name: Custom Speech를 사용하여 정확도 향상
           href: how-to-custom-speech.md
         - name: 문구 목록을 사용하여 정확도 향상
@@ -102,6 +104,7 @@
           href: speech-synthesis-markup.md
         - name: Custom Voice를 사용하여 출력 향상
           href: how-to-custom-voice.md
+          displayName: custom voice
         - name: 긴 오디오 API를 사용하여 음성 합성
           href: long-audio-api.md
         - name: Docker 컨테이너를 통해 음성 합성 사용
@@ -363,6 +366,7 @@
           items:
             - name: Custom Voice 시작
               href: how-to-custom-voice.md
+              displayName: 'custom voice, neural voice'
             - name: 데이터 준비
               href: how-to-custom-voice-prepare-data.md
             - name: Custom Voice 모델 만들기 및 사용

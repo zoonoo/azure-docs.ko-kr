@@ -15,11 +15,11 @@
 - name: 방법 가이드
   items:
     - name: Azure Machine Learning의 데이터 세트
-      href: ../machine-learning/service/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: ../machine-learning/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
 - name: 샘플
   displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
   href: samples.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Python SDK
       displayName: api open datasets reference sdk

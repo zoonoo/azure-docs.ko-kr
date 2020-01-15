@@ -9,26 +9,32 @@
   items:
     - name: 'C# 사용'
       href: Quickstart.md
+    - name: Node.js 사용
+      href: quickstart-nodejs.md
     - name: Swift 사용(iOS)
       href: ios-quickstart.md
 - name: 자습서
   items:
-    - name: 몰입형 판독기(Node.js) 시작
-      href: tutorial-nodejs.md
-    - name: 몰입형 리더(Python) 시작
+    - name: 몰입형 판독기(Python) 시작
       href: tutorial-python.md
-    - name: 몰입형 리더에 사진 보내기(Swift)
-      href: tutorial-ios-picture-immersive-reader.md
 - name: 사용 방법
   items:
-    - name: Azure Active Directory 인증
-      href: azure-active-directory-authentication.md
-- name: 참고 자료
+    - name: 몰입형 판독기 리소스 만들기
+      href: how-to-create-immersive-reader.md
+    - name: 쿠키 정책 설정
+      href: how-to/set-cookie-policy.md
+    - name: 수학 표시
+      href: how-to/display-math.md
+    - name: HTML 콘텐츠를 사용하여 몰입형 판독기 시작
+      href: how-to-launch-with-html.md
+    - name: 몰입형 판독기 사용자 지정 단추
+      href: how-to-customize-launch-button.md
+    - name: 인증 토큰 캐시
+      href: how-to-cache-token.md
+- name: 참조
   items:
     - name: SDK 참조
       href: reference.md
-    - name: iOS SDK 참조
-      href: ios-reference.md
 - name: 리소스
   items:
     - name: Azure 로드맵

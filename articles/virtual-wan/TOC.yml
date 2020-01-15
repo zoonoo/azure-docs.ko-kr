@@ -44,6 +44,8 @@
       href: openvpn-azure-ad-mfa.md
     - name: 사용자 VPN에 대한 Azure AD 인증 구성(미리 보기)
       href: virtual-wan-point-to-site-azure-ad.md
+    - name: 사용자 VPN에 대한 다중 애플리케이션 Azure AD 인증 구성(미리 보기)
+      href: openvpn-azure-ad-tenant-multi-app.md
     - name: 자동화 구성(Virtual WAN 파트너)
       href: virtual-wan-configure-automation-providers.md
     - name: 라우팅 구성

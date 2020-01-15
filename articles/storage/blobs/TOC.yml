@@ -666,7 +666,7 @@
         - name: 보안
           items:
             - name: Storage 보안 개요
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../blobs/security-recommendations.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Access Control
               href: data-lake-storage-access-control.md
         - name: 로깅

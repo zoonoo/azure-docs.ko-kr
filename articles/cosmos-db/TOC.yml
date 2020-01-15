@@ -869,6 +869,9 @@
         - name: 요청 단위 요금 찾기
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
+        - name: Azure Functions 타이머를 사용하여 크기 조정
+          displayName: 'request units, RUs, RU, timer'
+          href: scale-on-schedule.md
     - name: 컨테이너 및 항목 작업
       items:
         - name: Cosmos DB 데이터 작업
