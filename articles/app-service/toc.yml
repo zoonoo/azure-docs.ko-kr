@@ -117,6 +117,8 @@
       items:
         - name: 앱 배포
           items:
+            - name: 패키지에서 실행
+              href: deploy-run-package.md
             - name: ZIP 또는 WAR 배포
               href: deploy-zip.md
             - name: FTP를 통해 배포

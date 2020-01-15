@@ -55,13 +55,7 @@
             - name: Python
               href: Quickstarts/get-answer-from-knowledge-base-python.md
     - name: SDK 사용
-      items:
-        - name: 'C#'
-          href: ./Quickstarts/create-publish-kb-csharp-sdk.md
-        - name: Node.js
-          href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
-        - name: Python
-          href: ./Quickstarts/python-sdk.md
+      href: ./Quickstarts/quickstart-sdk.md
 - name: 자습서
   items:
     - name: KB에서 만들기 및 대답
