@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2c32f46ca85007608b5e17f2bf77b0a8f0fb8397
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: cdf616b29a93e786ef26af83b5d3b3541f94d67c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862750"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972288"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대 한 보안 제어
 
@@ -36,7 +36,7 @@ ms.locfileid: "75862750"
 |---|---|--|
 | Azure 모니터링 지원 (Log analytics, App insights 등)| 예 | [Azure Monitor 진단 로그/경고](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor 메트릭/경고](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)를 참조 하세요.  |
 | 제어 및 관리 평면 로깅 및 감사| 예 | 활동 로그를 Azure Resource Manager 합니다. |
-| 데이터 평면 로깅 및 감사 | 예 | VPN 연결 로깅 및 감사에 대 한 [진단 로그를 Azure Monitor](../azure-resource-manager/resource-group-audit.md) 합니다. |
+| 데이터 평면 로깅 및 감사 | 예 | VPN 연결 로깅 및 감사에 대 한 [진단 로그를 Azure Monitor](../azure-resource-manager/management/view-activity-logs.md) 합니다. |
 
 ## <a name="identity"></a>ID
 
@@ -59,7 +59,7 @@ ms.locfileid: "75862750"
 
 | 보안 제어 | 예/아니요 | 메모|
 |---|---|--|
-| 구성 관리 지원 (구성의 버전 관리 등)| 예 | 관리 작업의 경우 Azure VPN gateway 구성 상태를 Azure Resource Manager 템플릿으로 내보내고 시간이 지남에 따라 버전을 지정할 수 있습니다. | 
+| 구성 관리 지원 (구성의 버전 관리 등)| 예 | 관리 작업의 경우 Azure VPN gateway 구성 상태를 Azure Resource Manager 템플릿으로 내보내고 시간이 지남에 따라 버전을 지정할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 48848fbacdc0e205604bb163aa36bdafcd175b0b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173536"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978040"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>온-프레미스 Always On 가용성 그룹을 Azure로 확장
 Always On 가용성 그룹은 보조 복제본 추가를 통해 데이터베이스 그룹에 고가용성을 제공합니다. 이러한 복제본은 오류 발생 시의 데이터베이스 장애 조치를 허용합니다. 또한 읽기 워크로드 또는 백업 작업의 부하를 줄이는 데 사용할 수 있습니다.
@@ -33,7 +33,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 * Azure 가상 네트워크와 온-프레미스 네트워크 간의 연결. 이 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)를 참조하세요.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="add-azure-replica-wizard"></a>Azure Replica Wizard 추가
 이 섹션에서는 **Azure 복제본 추가 마법사** 를 사용하여 Azure 복제본을 포함하도록 Always On 가용성 그룹 솔루션을 확장하는 방법을 보여줍니다.
@@ -47,7 +47,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. 모든 기존 보조 복제본에 연결해야 합니다. **연결…** 을 클릭합니다. 화면 하단의 **모두 연결…** 을 을 클릭할 수 있습니다. 인증 후 **다음** 을 클릭하여 다음 화면으로 이동합니다.
-5. **복제본 지정** 페이지에서 여러 탭이 위쪽에 나열 됩니다. **복제본**, **끝점**, **백업 기본 설정**및 **수신기**가 있습니다. **복제본** 탭을 클릭하여 **Azure 복제본 추가...** 를 클릭하여 Azure 복제본 추가 마법사를 실행합니다.
+5. **복제본 지정** 페이지 상단에 **복제본**, **엔드포인트**, **Backup 기본 설정** 및 **수신기** 등의 여러 탭이 나열됩니다. **복제본** 탭을 클릭하여 **Azure 복제본 추가...** 를 클릭하여 Azure 복제본 추가 마법사를 실행합니다.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 6. 이전에 Azure 관리 인증서를 설치한 경우 로컬 Windows 인증서 저장소에서 해당 기존 인증서를 선택합니다. 이전에 Azure 구독을 사용한 경우 해당 구독의 ID를 선택하거나 입력합니다. 다운로드를 클릭하여 Azure 관리 인증서를 다운로드하여 설치하고, Azure 계정을 사용하여 구독 목록을 다운로드할 수 있습니다.
@@ -55,7 +55,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. 복제본을 호스팅하는 Azure Virtual Machine(VM)을 만드는 데 사용할 값으로 페이지의 각 필드를 입력하게 됩니다.
    
-   | 설정 | 설명 |
+   | 설정 | Description |
    | --- | --- |
    | **이미지** |원하는 OS와 SQL Server 조합 선택 |
    | **VM 크기** |비즈니스 요구에 가장 적합한 VM 크기를 선택합니다. |

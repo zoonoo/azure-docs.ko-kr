@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 14daa37a414e814ed6de036bbb625933ce2532e0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888127"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030072"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 웹 후크를 사용 하 여 자동화 된 이벤트 기반 워크플로 만들기 및 실행
 
@@ -36,7 +36,16 @@ HTTP 웹 후크 작업은 또한 이벤트 기반 이며, 해당 서비스 또�
 예를 들어 Office 365 Outlook 커넥터의 [**승인 전자 메일 보내기**](connectors-create-api-office365-outlook.md) 작업은이 패턴을 따르는 웹 후크 작업의 예입니다. 웹 후크 작업을 사용 하 여이 패턴을 모든 서비스로 확장할 수 있습니다.
 
 > [!NOTE]
-> Logic Apps는 HTTP 웹 후크 트리거 또는 작업으로 콜백할 때 TLS (전송 계층 보안) 1.2을 적용 합니다. SSL 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다.
+> Logic Apps는 HTTP 웹 후크 트리거 또는 작업으로 콜백할 때 TLS (전송 계층 보안) 1.2을 적용 합니다. SSL 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다. 들어오는 호출의 경우 지원 되는 암호 그룹은 다음과 같습니다.
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 자세한 내용은 다음 항목을 참조하세요.
 

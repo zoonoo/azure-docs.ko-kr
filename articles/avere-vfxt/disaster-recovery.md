@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414232"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966657"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Azure 용 Avere vFXT에 대 한 재해 복구 지침
 
@@ -60,7 +60,7 @@ Azure 용 Avere vFXT는 Azure Blob core filers에 대해 LRS (로컬 중복 저�
 Azure Blob storage에서 데이터를 보호 하기 위한 모범 사례는 다음과 같습니다.
 
 * 재해 복구 계획에 따라 결정 되는 자주 다른 지역의 다른 저장소 계정에 중요 한 데이터를 복사 합니다.
-* 실수로 삭제 하거나 손상 되지 않도록 모든 대상 시스템에서 데이터에 대 한 액세스를 제어 합니다. 데이터 저장소에서 [리소스 잠금을](../azure-resource-manager/resource-group-lock-resources.md) 사용 하는 것이 좋습니다.
+* 실수로 삭제 하거나 손상 되지 않도록 모든 대상 시스템에서 데이터에 대 한 액세스를 제어 합니다. 데이터 저장소에서 [리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용 하는 것이 좋습니다.
 * Blob core filers에 대 한 Avere vFXT for Azure [cloud snapshot](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) 기능을 사용 하도록 설정 합니다.
 
 ### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Avere vFXT core 필터 데이터를 백업 계정에 복사 합니다.

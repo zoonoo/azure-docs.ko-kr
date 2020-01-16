@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1aa759a2984764169eb28935e095d0f7c0f90c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849584"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969838"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Azure Automation 계정을 다른 구독으로 이동
 
-Azure는 일부 리소스를 새 리소스 그룹 또는 구독으로 이동 하는 기능을 제공 합니다. Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 리소스를 이동할 수 있습니다. 프로세스에 대해 자세히 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/resource-group-move-resources.md)을 참조 하세요.
+Azure는 일부 리소스를 새 리소스 그룹 또는 구독으로 이동 하는 기능을 제공 합니다. Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 리소스를 이동할 수 있습니다. 프로세스에 대해 자세히 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조 하세요.
 
 Azure Automation 계정은 이동할 수 있는 리소스 중 하나입니다. 이 문서에서는 Automation 계정을 다른 리소스 또는 구독으로 이동 하는 단계에 대해 알아봅니다.
 
@@ -140,11 +140,11 @@ Azure Portal에서 **Automation 계정** > **관련 리소스** > **연결 된 �
 |기능|테스트|문제 해결 링크|
 |---|---|---|
 |Runbook|Runbook을 성공적으로 실행 하 고 Azure 리소스에 연결할 수 있습니다.|[Runbook 문제 해결](../troubleshoot/runbooks.md)
-|소스 제어|원본 제어 리포지토리에서 수동 동기화를 실행할 수 있습니다.|[소스 제어 통합](../source-control-integration.md)|
+|원본 제어|원본 제어 리포지토리에서 수동 동기화를 실행할 수 있습니다.|[원본 제어 통합](../source-control-integration.md)|
 |변경 내용 추적 및 인벤토리|컴퓨터의 현재 인벤토리 데이터가 표시 되는지 확인 합니다.|[변경 내용 추적 문제 해결](../troubleshoot/change-tracking.md)|
 |업데이트 관리|컴퓨터가 정상 상태 인지 확인 합니다.</br>테스트 소프트웨어 업데이트 배포를 실행 합니다.|[업데이트 관리 문제 해결](../troubleshoot/update-management.md)|
 |공유 리소스|[자격 증명](../shared-resources/credentials.md), [변수](../shared-resources/variables.md)등의 모든 공유 리소스가 표시 되는지 확인 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure에서 리소스를 이동 하는 방법에 대해 자세히 알아보려면 [azure에서 리소스 이동](../../azure-resource-manager/move-support-resources.md)을 참조 하세요.
+Azure에서 리소스를 이동 하는 방법에 대해 자세히 알아보려면 [azure에서 리소스 이동](../../azure-resource-manager/management/move-support-resources.md)을 참조 하세요.

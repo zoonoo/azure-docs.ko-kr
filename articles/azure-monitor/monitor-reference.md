@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 630eeb8ec5582f2dc968a10e7cf1b5750683cf66
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 21ad0c38b8901c1e33e05ab162552cb074a392a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830546"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969588"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링 되는 항목
 이 문서에서는 Azure Monitor에 의해 모니터링 되는 다양 한 응용 프로그램 및 서비스에 대해 설명 합니다. 
@@ -177,7 +177,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 |:---|:---|
 | [Azure Automation](/azure/automation/) | Windows 및 Linux 컴퓨터에서 운영 체제 업데이트를 관리 하 고 변경 내용을 추적 합니다. [변경 내용 추적](../automation/change-tracking.md) 및 [업데이트 관리](../automation/automation-update-management.md)를 참조 하세요. |
 | [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) | 문서와 전자 메일을 분류 하 고 필요에 따라 보호 합니다. [Azure Information Protection에 대 한 중앙 보고를](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)참조 하세요. |
-| [Azure Security Center](/azure/security-center/) | 보안 이벤트를 수집 및 분석 하 고 위협 분석을 수행 합니다. [Azure Security Center의 데이터 수집을](/security-center/security-center-enable-data-collection.md) 참조 하세요. |
+| [Azure Security Center](/azure/security-center/) | 보안 이벤트를 수집 및 분석 하 고 위협 분석을 수행 합니다. [Azure Security Center의 데이터 수집을](/azure/security-center/security-center-enable-data-collection) 참조 하세요. |
 | [Azure Sentinel](/azure/sentinel/) | Office 365 및 Amazon Web Services 클라우드 내역을 비롯 한 다양 한 원본에 연결 합니다. [데이터 원본 연결](/azure/sentinel/connect-data-sources)을 참조 하세요. |
 | [Key Vault 분석](insights/azure-key-vault.md) | Azure Key Vault AuditEvent 로그를 분석 합니다. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Azure Monitor로 로그를 보낼 진단 설정을 만듭니다. [Intune (미리 보기)에서 저장소, 이벤트 허브 또는 log analytics로 로그 데이터 전송](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)을 참조 하세요.  |

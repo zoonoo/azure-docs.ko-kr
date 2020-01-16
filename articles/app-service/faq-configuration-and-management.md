@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fc13b0939563f93c31683b432b0410035d892de0
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 047579550172995378d92327ecf22d63712bf407
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672498"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967128"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -23,7 +23,7 @@ ms.locfileid: "74672498"
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>App Service 리소스를 이동하려는 경우 알아야 할 제한 사항이 있나요?
 
-App Service 리소스를 새 리소스 그룹이나 구독으로 이동할 계획인 경우 알아야 할 몇 가지 제한 사항이 있습니다. 자세한 내용은 [App Service 제한 사항](../azure-resource-manager/move-limitations/app-service-move-limitations.md)을 참조하세요.
+App Service 리소스를 새 리소스 그룹이나 구독으로 이동할 계획인 경우 알아야 할 몇 가지 제한 사항이 있습니다. 자세한 내용은 [App Service 제한 사항](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)을 참조하세요.
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>내 웹앱에 대한 사용자 지정 도메인 이름을 어떻게 사용할 수 있나요?
 
@@ -49,11 +49,11 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
 
 현재 Azure Application Insights에서는 이동 작업을 지원하지 않습니다. 원래 리소스 그룹에 Application Insights 리소스가 포함된 경우 해당 리소스를 이동할 수 없습니다. App Service 앱을 이동할 때 Application Insights 리소스를 포함하는 경우 전체 이동 작업이 실패합니다. 하지만 Application Insights와 App Service 계획의 경우 앱이 제대로 작동하려면 해당 앱과 같은 리소스 그룹에 있지 않아도 됩니다.
 
-자세한 내용은 [App Service 제한 사항](../azure-resource-manager/move-limitations/app-service-move-limitations.md)을 참조하세요.
+자세한 내용은 [App Service 제한 사항](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)을 참조하세요.
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>어디에서 지침 검사 목록을 찾고 리소스 이동 작업을 알아볼 수 있나요?
 
-[App Service 제한 사항](../azure-resource-manager/move-limitations/app-service-move-limitations.md)에서는 새 구독 또는 동일한 구독의 새 리소스 그룹으로 리소스를 이동하는 방법을 보여 줍니다. 리소스 이동 검사 목록에 대한 정보를 확인하고, 어떤 서비스가 이동 작업을 지원하는지 알아보고, App Service 제한 사항 및 기타 항목을 자세히 알아볼 수 있습니다.
+[App Service 제한 사항](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)에서는 새 구독 또는 동일한 구독의 새 리소스 그룹으로 리소스를 이동하는 방법을 보여 줍니다. 리소스 이동 검사 목록에 대한 정보를 확인하고, 어떤 서비스가 이동 작업을 지원하는지 알아보고, App Service 제한 사항 및 기타 항목을 자세히 알아볼 수 있습니다.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>내 웹앱에 대한 서버 표준 시간대를 어떻게 설정할 수 있나요?
 

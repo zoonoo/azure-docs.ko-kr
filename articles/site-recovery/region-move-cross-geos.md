@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961405"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970492"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Azure Government와 공용 Azure 지역 간에 Azure VM 이동 
 
@@ -20,7 +20,7 @@ ms.locfileid: "73961405"
 
 BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 머신 및 Azure VM의 재해 복구를 관리하고 오케스트레이션하는 것은 물론, Site Recovery를 사용하여 Azure VM을 보조 지역으로 이동하는 작업을 관리할 수도 있습니다.       
 
-이 자습서에서는 Azure Site Recovery를 사용하여 Azure Government와 공용 Azure 지역 간에 Azure VM을 이동하는 방법을 보여줍니다. 같은 방법을 동일한 지리적 클러스터 내에 있지 않은 Azure 지역 쌍 간에 VM을 이동하도록 확장할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Site Recovery를 사용하여 Azure Government와 공용 Azure 지역 간에 Azure VM을 이동하는 방법을 보여줍니다. 같은 방법을 동일한 지리적 클러스터 내에 있지 않은 Azure 지역 쌍 간에 VM을 이동하도록 확장할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 필수 조건 확인
@@ -65,7 +65,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 ### <a name="set-up-an-azure-storage-account"></a>Azure Storage 계정을 설정
 
-[Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)을 설정합니다.
+[Azure Storage 계정](../storage/common/storage-account-create.md)을 설정합니다.
 
 - Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치가 발생한 후에 스토리지에서 Azure VM을 만듭니다.
 - 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
@@ -212,7 +212,7 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 
    - **가장 최근에 처리됨**: VM을 Site Recovery 서비스에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
    - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 시점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
-   - **사용자 지정**: 복구 시점을 선택합니다.
+   - **Custom**: 복구 시점을 선택합니다.
 
 3. 구성을 테스트하기 위해 Azure VM을 이동할 대상 Azure 가상 네트워크를 선택합니다. 
 
@@ -227,7 +227,7 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 
 1. 자격 증명 모음으로 이동하여 **설정** > **복제된 항목**에서 가상 머신을 클릭한 다음, **장애 조치(failover)** 를 클릭합니다.
 2. **장애 조치(failover)** 에서 **최신**을 선택합니다. 
-3. **장애 조치(failover)를 시작하기 전에 컴퓨터 종료**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다. 
+3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다. 
 4. 작업이 완료되면 VM이 예상대로 대상 Azure 지역에 표시되는지 확인합니다.
 5. **복제된 항목**에서 VM을 마우스 오른쪽 단추로 클릭하고 **커밋**을 클릭합니다. 대상 Azure 지역으로 이동하는 프로세스가 끝났습니다. 커밋 작업이 완료될 때까지 기다립니다.
 

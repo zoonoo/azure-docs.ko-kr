@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: d0d7d9a4dd39428468d05ddf7297a424832d1020
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: e4c18f1148259d246445b94ac6117ebefa9470a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921193"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975384"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그 
 <a name="network-service-tags"></a>
@@ -27,7 +27,7 @@ ms.locfileid: "75921193"
 
 서비스 태그를 사용 하 여 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 또는 [Azure 방화벽](https://docs.microsoft.com/azure/firewall/service-tags)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용 합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에 서비스 태그 이름 (예: **microsoft.apimanagement**)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 
 
-공용 끝점이 있는 Azure 서비스에 액세스 하는 동안 서비스 태그를 사용 하 여 네트워크 격리를 수행 하 고 일반 인터넷에서 Azure 리소스를 보호할 수 있습니다. 인바운드/아웃 바운드 네트워크 보안 그룹 규칙을 만들어 **인터넷** 에서 트래픽을 거부 하 고 **azurecloud** 또는 특정 Azure 서비스의 다른 [사용 가능한 서비스 태그로]() 들어오고 나가는 트래픽을 허용 합니다. 
+공용 끝점이 있는 Azure 서비스에 액세스 하는 동안 서비스 태그를 사용 하 여 네트워크 격리를 수행 하 고 일반 인터넷에서 Azure 리소스를 보호할 수 있습니다. 인바운드/아웃 바운드 네트워크 보안 그룹 규칙을 만들어 **인터넷** 에서 트래픽을 거부 하 고 **azurecloud** 또는 특정 Azure 서비스의 다른 [사용 가능한 서비스 태그로](#available-service-tags) 들어오고 나가는 트래픽을 허용 합니다. 
 
 ## <a name="available-service-tags"></a>사용 가능한 서비스 태그
 다음 표에는 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 규칙에서 사용할 수 있는 모든 서비스 태그가 나와 있습니다.

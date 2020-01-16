@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0fa4c7fa42cbc0eceb9efd2f364a0fbcab1698e1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351272"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975683"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
-이 문서에서는 Azure Storage 마이그레이션에 대한 일반적인 질문과 대답을 제공합니다. 
+이 문서에서는 Azure Storage 마이그레이션에 대한 일반적인 질문과 대답을 제공합니다.
 
 ## <a name="faq"></a>FAQ
 
@@ -31,10 +31,10 @@ ms.locfileid: "75351272"
     /S
 
 AzCopy는 [Blob API 복사](https://docs.microsoft.com/rest/api/storageservices/copy-blob)를 사용하여 컨테이너의 각 파일을 복사합니다.  
-  
+
 인터넷에 액세스할 수 있는 모든 가상 머신 또는 로컬 컴퓨터를 사용하여 AzCopy를 실행할 수 있습니다. 또한 Azure Batch 일정을 사용하여 자동으로 수행할 수도 있지만 더 복잡합니다.  
-  
-Automation 스크립트는 스토리지 콘텐츠 조작 대신 Azure Resource Manager 배포를 위해 설계되었습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
+
+Automation 스크립트는 스토리지 콘텐츠 조작 대신 Azure Resource Manager 배포를 위해 설계되었습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
 **동일한 지역 내의 동일한 스토리지 계정에 있는 별도의 두 파일 공유 간에 데이터를 복사하기 위해 요금이 있나요?**
 
@@ -43,14 +43,14 @@ Automation 스크립트는 스토리지 콘텐츠 조작 대신 Azure Resource M
 **내 스토리지 계정 전체를 다른 스토리지 계정에 백업하려면 어떻게 할까요?**
 
 스토리지 계정 전체를 직접 백업하는 옵션은 없습니다. 그러나 AzCopy 또는 Storage Explorer를 사용하여 수동으로 스토리지 계정의 컨테이너를 다른 계정으로 이동할 수 있습니다. 다음 단계에서는 AzCopy를 사용하여 컨테이너를 이동하는 방법을 보여 줍니다.  
- 
+
 
 1.  [AzCopy](storage-use-azcopy.md) 명령줄 도구를 설치합니다. 이 도구를 사용하면 스토리지 계정 간에 VHD 파일을 이동할 수 있습니다.
 
 2.  설치 관리자를 사용하여 Windows에 AzCopy를 설치한 후에 명령 프롬프트 창을 연 다음 컴퓨터의 AzCopy 설치 폴더로 이동합니다. 기본적으로 AzCopy는 **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** 또는 **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**에 설치됩니다.
 
 3.  다음 명령을 실행하여 컨테이너를 이동합니다. 텍스트를 실제 값으로 바꾸어야 합니다.   
-     
+
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
@@ -157,7 +157,7 @@ Azure 파일 공유를 사용합니다.
     $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
     $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
-    ``` 
+    ```
 
 관리 디스크에서 가상 머신을 배포하는 방법에 대한 자세한 내용은 [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1)을 참조하세요.
 
@@ -170,10 +170,10 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 스토리지 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(지역 중복 스토리지): Azure Storage의 지역 간 복제](storage-redundancy.md)를 참조하세요.
 
 **Azure SSE(스토리지 서비스 암호화)에 대한 자세한 정보는 어디서 얻을 수 있나요?**  
-  
+
 다음 문서를 참조하세요.
 
--  [Azure Storage 보안 가이드](storage-security-guide.md)
+-  [Azure Storage 보안 가이드](../blobs/security-recommendations.md)
 
 -  [휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](storage-service-encryption.md)
 
@@ -194,11 +194,11 @@ AzCopy를 사용하여 다른 스토리지 계정으로 데이터를 복사한 �
 
 **스토리지 계정의 복제를 지역 중복 스토리지에서 로컬 중복 스토리지로 변경하기 위한 필수 구성 요소가 있나요?**
 
-아닙니다. 
+아닙니다.
 
 **Azure Files 중복 스토리지에 액세스하려면 어떻게 할까요?**
 
-중복 스토리지에 액세스하려면 읽기 액세스 지역 중복 스토리지가 필요합니다. 그러나 Azure Files는 읽기 전용 액세스를 허용하지 않는 로컬 중복 스토리지 및 표준 지역 중복 스토리지만을 지원합니다. 
+중복 스토리지에 액세스하려면 읽기 액세스 지역 중복 스토리지가 필요합니다. 그러나 Azure Files는 읽기 전용 액세스를 허용하지 않는 로컬 중복 스토리지 및 표준 지역 중복 스토리지만을 지원합니다.
 
 **Premium Storage 계정에서 표준 스토리지 계정으로 이동하려면 어떻게 할까요?**
 
@@ -207,12 +207,12 @@ AzCopy를 사용하여 다른 스토리지 계정으로 데이터를 복사한 �
 1.  표준 스토리지 계정을 만듭니다. (또는 구독에서 기존 표준 스토리지 계정을 사용합니다.)
 
 2.  AzCopy를 다운로드합니다. 다음 AzCopy 명령 중 하나를 실행합니다.
-      
+
     스토리지 계정의 전체 디스크를 복사하려면 다음을 수행합니다.
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /S 
+        /SourceKey:key1 /DestKey:key2 /S
 
     하나의 디스크만 복사하려면 **패턴**에서 해당 디스크의 이름을 제공합니다
 
@@ -220,11 +220,11 @@ AzCopy를 사용하여 다른 스토리지 계정으로 데이터를 복사한 �
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
 
-   
+
 작업을 완료하는 데 몇 시간이 걸릴 수 있습니다.
 
 전송이 성공적으로 완료되었는지 확인하려면 Azure Portal에서 대상 스토리지 계정 컨테이너를 검사합니다. 디스크를 표준 스토리지 계정으로 복사한 후 가상 머신에 기존 디스크로 연결할 수 있습니다. 자세한 내용은 [Azure Portal에서 Windows 가상 머신에 관리되는 데이터 디스크를 연결하는 방법](../../virtual-machines/windows/attach-managed-disk-portal.md)을 참조하세요.  
-  
+
 **파일 공유를 위해 Azure Premium Storage로 변환하려면 어떻게 할까요?**
 
 Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
@@ -249,7 +249,7 @@ Azure CLI를 사용할 수 있습니다.
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- 단일 Blob을 업로드 합니다. 
+- 단일 Blob을 업로드 합니다.
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
@@ -257,7 +257,7 @@ Azure CLI를 사용할 수 있습니다.
 
 다른 사람에게 스토리지 리소스에 대한 액세스 권한을 부여하려면 다음을 수행합니다.
 
--   SAS(공유 액세스 서명) 토큰을 사용하여 리소스에 대한 액세스를 제공합니다. 
+-   SAS(공유 액세스 서명) 토큰을 사용하여 리소스에 대한 액세스를 제공합니다.
 
 -   사용자에게 스토리지 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [저장소 계정 액세스 키 관리](storage-account-keys-manage.md)를 참조 하세요.
 
@@ -276,9 +276,9 @@ Azure CLI를 사용할 수 있습니다.
 -   영역 중복 스토리지 또는 지역 중복 스토리지를 사용하는 경우 해당 지역으로 장애 조치를 시작하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치에 대한 자세한 내용은 [Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(failover)(미리 보기)](storage-disaster-recovery-guidance.md)를 참조하세요.
 
 -   읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
-      
+
     - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예:  
-     
+
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS 토큰**: SAS 토큰을 사용하여 엔드포인트의 데이터에 액세스합니다. 자세한 내용은 [공유 액세스 서명 사용](storage-sas-overview.md)을 참조하세요.

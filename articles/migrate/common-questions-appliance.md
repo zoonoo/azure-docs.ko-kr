@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스에 대 한 일반적인 질문
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변 가져오기
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 29cb390f509a2a4ebf44c1f9aacef99b507aebb8
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720330"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029133"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -40,9 +40,9 @@ Azure Migrate 어플라이언스는 VM 성능 데이터를 계속 측정 하기 
 ## <a name="what-network-connectivity-is-needed"></a>필요한 네트워크 연결은 무엇 인가요?
 
 검토할 사항은 다음과 같습니다.
-- 어플라이언스 VMware 평가: [URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) 및 [포트](migrate-support-matrix-vmware.md#assessment-port-requirements) 액세스 요구 사항입니다.
-- 어플라이언스 에이전트 없는 VMware 마이그레이션: [URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) 및 [포트](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) 액세스 요구 사항입니다.
-- 어플라이언스 Hyper-v 평가: [URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) 및 [포트](migrate-support-matrix-hyper-v.md#assessment-port-requirements) 액세스 요구 사항입니다.
+- Azure Migrate 어플라이언스를 사용 하는 VMware 평가: [URL](migrate-appliance.md#url-access) 및 [포트](migrate-support-matrix-vmware.md#port-access) 액세스 요구 사항입니다.
+- Azure Migrate 어플라이언스를 사용 하 여 VMware 에이전트 없이 마이그레이션: [URL](migrate-appliance.md#url-access) 및 [포트](migrate-support-matrix-vmware-migration.md#agentless-ports) 액세스 요구 사항
+- Azure Migrate 어플라이언스를 사용 하는 hyper-v 평가: [URL](migrate-appliance.md#url-access) 및 [포트](migrate-support-matrix-hyper-v.md#port-access) 액세스 요구 사항입니다.
 
 
 ## <a name="what-data-does-the-appliance-collect"></a>기기가 수집 하는 데이터는 무엇 인가요?

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942312"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973701"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Azure Vm을 다른 Azure 지역에 복제
 
@@ -62,7 +62,7 @@ ms.locfileid: "75942312"
      >[!NOTE]
      >복제를 사용하도록 설정한 후에는 가용성 유형(단일 인스턴스, 가용성 집합 또는 가용성 영역)을 변경할 수 없습니다. 가용성 유형을 변경하려면 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
      >
-    
+
    - **복제 정책**: 복구 지점 보존 기록 및 앱 일치 스냅샷 빈도 대한 설정을 정의합니다. 기본적으로 Azure Site Recovery는 복구 지점 보존을 위해 ' 24 시간 '의 기본 설정을 사용 하 고 앱 일치 스냅숏 빈도에 대해 ' 4 시간 '의 기본 설정을 사용 하 여 새 복제 정책을 만듭니다.
 
      ![복제 사용](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -74,7 +74,7 @@ ms.locfileid: "75942312"
 -   추가 된 디스크에 대 한 보호를 사용 하도록 설정 하면 디스크의 초기 복제 후에 경고가 사라집니다.
 -   디스크에 대해 복제를 사용 하지 않도록 선택 하는 경우 경고를 해제 하도록 선택할 수 있습니다.
 
-    
+
     ![새 디스크 추가 됨](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 추가 된 디스크에 대해 복제를 사용 하도록 설정 하려면 다음을 수행 합니다.
@@ -88,7 +88,7 @@ ms.locfileid: "75942312"
 복제 사용 작업을 실행 하 고 초기 복제가 완료 된 후에는 디스크 문제에 대 한 복제 상태 경고가 제거 됩니다.
 
 
-  
+
 ## <a name="customize-target-resources"></a>대상 리소스 사용자 지정
 
 Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니다.
@@ -112,7 +112,7 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
     - 20004 포트를 통한 Vm 간의 내부 통신을 차단 하는 방화벽 어플라이언스를 확인 합니다.
     - Linux Vm이 복제 그룹의 일부가 되도록 하려면 특정 Linux 버전에 대 한 지침에 따라 포트 20004의 아웃 바운드 트래픽을 수동으로 열어야 합니다.
 ![복제 활성화](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
-    
+
 5. **대상 리소스 만들기** > **복제 사용**을 클릭합니다.
 6. VM이 복제에 대해 사용하도록 설정된 후 **복제된 항목**에서 VM 상태를 확인할 수 있습니다.
 

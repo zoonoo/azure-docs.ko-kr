@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 000271095530e269472fba4bc5f1c5563aa16ff9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428813"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972694"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>개요: Azure Resource Manager 템플릿을 사용 하 여 Azure Logic Apps에 대 한 배포 자동화
 
 논리 앱 만들기 및 배포를 자동화할 준비가 되 면 논리 앱의 기본 워크플로 정의를 [Azure Resource Manager 템플릿으로](../azure-resource-manager/management/overview.md)확장할 수 있습니다. 이 템플릿은 논리 앱을 프로 비전 하 고 배포 하기 위한 인프라, 리소스, 매개 변수 및 기타 정보를 정의 합니다. 매개 *변수화*라고도 하는 배포에 따라 달라 지는 값에 대 한 매개 변수를 정의 하 여 다양 한 배포 요구 사항에 따라 논리 앱을 반복적이 고 일관 되 게 배포할 수 있습니다.
 
-예를 들어 개발, 테스트 및 프로덕션 환경에 배포 하는 경우 각 환경에 서로 다른 연결 문자열을 사용할 가능성이 높습니다. 서로 다른 연결 문자열을 허용 하는 템플릿 매개 변수를 선언한 다음 이러한 문자열을 별도의 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md)에 저장할 수 있습니다. 이렇게 하면 템플릿을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 변경할 수 있습니다. 암호 및 암호와 같이 중요 하거나 보안을 유지 해야 하는 매개 변수 값이 있는 시나리오의 경우 이러한 값을 [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 저장 하 고 매개 변수 파일에서 해당 값을 검색할 수 있습니다. 그러나이 시나리오에서는를 다시 배포 하 여 현재 값을 검색 합니다.
+예를 들어 개발, 테스트 및 프로덕션 환경에 배포 하는 경우 각 환경에 서로 다른 연결 문자열을 사용할 가능성이 높습니다. 서로 다른 연결 문자열을 허용 하는 템플릿 매개 변수를 선언한 다음 이러한 문자열을 별도의 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md)에 저장할 수 있습니다. 이렇게 하면 템플릿을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 변경할 수 있습니다. 암호 및 암호와 같이 중요 하거나 보안을 유지 해야 하는 매개 변수 값이 있는 시나리오의 경우 이러한 값을 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) 저장 하 고 매개 변수 파일에서 해당 값을 검색할 수 있습니다. 그러나이 시나리오에서는를 다시 배포 하 여 현재 값을 검색 합니다.
 
 이 개요에서는 논리 앱 워크플로 정의를 포함 하는 리소스 관리자 템플릿의 특성에 대해 설명 합니다. 템플릿과 워크플로 정의 모두 JSON 구문을 사용 하지만 워크플로 정의가 [워크플로 정의 언어 스키마](../logic-apps/logic-apps-workflow-definition-language.md)를 따라 다르므로 몇 가지 차이점이 있습니다. 예를 들어 템플릿 식과 워크플로 정의 식은 [매개 변수](#parameter-references) 및 값이 사용할 수 있는 값을 참조 하는 방식이 다릅니다.
 
@@ -31,8 +31,8 @@ ms.locfileid: "75428813"
 리소스 관리자 템플릿에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
 * [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager 템플릿 모범 사례](../azure-resource-manager/template-best-practices.md)
-* [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates-cloud-consistency.md)
+* [Azure Resource Manager 템플릿 모범 사례](../azure-resource-manager/templates/template-best-practices.md)
+* [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 샘플 논리 앱 템플릿은 다음 예제를 참조 하세요.
 
@@ -149,7 +149,7 @@ ms.locfileid: "75428813"
 
 * [템플릿 매개 변수에 대 한 보안 권장 사항](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [보안 템플릿 매개 변수](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
 
 다른 템플릿 개체는 템플릿 매개 변수를 통해 전달 되는 값을 사용할 수 있도록 템플릿 매개 변수를 자주 참조 합니다. 예를 들면 다음과 같습니다.
 
@@ -173,7 +173,7 @@ ms.locfileid: "75428813"
 
   * [보안 템플릿 매개 변수](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * 템플릿 매개 변수 이름을 워크플로 정의 매개 변수 이름과 구분 하기 위해 설명 템플릿 매개 변수 이름을 사용할 수 있습니다 (예: `TemplateFabrikamPassword`
 
@@ -188,7 +188,7 @@ ms.locfileid: "75428813"
 * 논리 앱 템플릿 파일 이름: **<*논리-앱-이름*>. json**
 * 매개 변수 파일 이름: **<*논리-앱-이름*>입니다** .
 
-다음은 [Azure Key Vault에 보안 매개 변수 값을 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)하기 위한 주요 자격 증명 모음 참조를 포함 하는 매개 변수 파일 내 구조입니다.
+다음은 [Azure Key Vault에 보안 매개 변수 값을 전달](../azure-resource-manager/templates/key-vault-parameter.md)하기 위한 주요 자격 증명 모음 참조를 포함 하는 매개 변수 파일 내 구조입니다.
 
 ```json
 {
@@ -409,7 +409,7 @@ ms.locfileid: "75428813"
 
 런타임에 중요 한 정보, 암호, 액세스 키 또는 비밀을 처리 하는 워크플로 정의 매개 변수의 경우 `securestring` 또는 `secureobject` 매개 변수 유형을 사용 하도록 매개 변수를 선언 하거나 편집 합니다. 워크플로 정의 내에서이 매개 변수를 참조할 수 있습니다. 템플릿의 최상위 수준에서 동일한 형식의 매개 변수를 선언 하 여 배포 시이 정보를 처리 합니다.
 
-워크플로 정의 매개 변수에 대 한 값을 설정 하려면 워크플로 정의 *외부* 에 있지만 아직 논리 앱 리소스 정의 *내* 에 있는 `parameters` 개체를 사용 하 여 템플릿 매개 변수를 참조 합니다. 마지막으로, 배포 시 값을 템플릿 매개 변수에 전달 하려면 [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 에 해당 값을 저장 하 고 배포 시 템플릿에 사용 되는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다.
+워크플로 정의 매개 변수에 대 한 값을 설정 하려면 워크플로 정의 *외부* 에 있지만 아직 논리 앱 리소스 정의 *내* 에 있는 `parameters` 개체를 사용 하 여 템플릿 매개 변수를 참조 합니다. 마지막으로, 배포 시 값을 템플릿 매개 변수에 전달 하려면 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) 에 해당 값을 저장 하 고 배포 시 템플릿에 사용 되는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다.
 
 이 예제 템플릿에서는 필요 시 Azure Key Vault에 값을 저장할 수 있도록 보안 매개 변수를 정의 하 여 이러한 작업을 완료 하는 방법을 보여 줍니다.
 
@@ -558,7 +558,7 @@ ms.locfileid: "75428813"
 
   * [워크플로 정의의 매개 변수에 대 한 보안 권장 사항](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
 
-  * [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Azure Key Vault를 사용 하 여 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
 
 워크플로 정의 매개 변수에 대 한 자세한 내용은 [매개 변수-워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md#parameters)를 참조 하세요.
 
@@ -652,7 +652,7 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대 한 예제 �
 
 * 워크플로 정의 *외* 에도 논리 앱의 리소스 정의 *내* 에서 다른 `parameters` 개체는 런타임에 해당 템플릿 매개 변수를 참조 하 여 `$connections` 매개 변수에 사용할 값을 설정 합니다. 이러한 값은 템플릿 식을 사용 하 여 논리 앱의 연결에 대 한 메타 데이터를 안전 하 게 저장 하는 리소스를 참조 합니다.
 
-  예를 들어 메타 데이터에는 [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)에 저장할 수 있는 연결 문자열 및 액세스 토큰이 포함 될 수 있습니다. 이러한 값을 템플릿 매개 변수에 전달 하려면 배포 시 템플릿에서 사용 하는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다. 참조 매개 변수의 차이점에 대 한 자세한 내용은이 항목의 뒷부분에 나오는 [매개 변수에](#parameter-references) 대 한 참조를 참조 하세요.
+  예를 들어 메타 데이터에는 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)에 저장할 수 있는 연결 문자열 및 액세스 토큰이 포함 될 수 있습니다. 이러한 값을 템플릿 매개 변수에 전달 하려면 배포 시 템플릿에서 사용 하는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다. 참조 매개 변수의 차이점에 대 한 자세한 내용은이 항목의 뒷부분에 나오는 [매개 변수에](#parameter-references) 대 한 참조를 참조 하세요.
 
   Azure Portal 또는 Visual Studio를 통해 코드 보기에서 논리 앱의 워크플로 정의를 열면 `$connections` 개체가 워크플로 정의 외부에 있지만 같은 수준에 나타납니다. 코드 뷰에서 이러한 순서를 지정 하면 워크플로 정의를 수동으로 업데이트할 때 이러한 매개 변수를 쉽게 참조할 수 있습니다.
 
@@ -744,7 +744,7 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대 한 예제 �
 
 ### <a name="secure-connection-parameters"></a>보안 연결 매개 변수
 
-중요 한 정보, 암호, 액세스 키 또는 비밀을 처리 하는 연결 매개 변수의 경우, 연결의 리소스 정의에는 이름-값 쌍 형식으로 이러한 값을 지정 하는 `parameterValues` 개체가 포함 됩니다. 이 정보를 숨기려면 `securestring` 또는 `secureobject` 매개 변수 형식을 사용 하 여 이러한 값에 대 한 템플릿 매개 변수를 선언 하거나 편집할 수 있습니다. 그런 다음 해당 정보를 [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)에 저장할 수 있습니다. 이러한 값을 템플릿 매개 변수에 전달 하려면 배포 시 템플릿에서 사용 하는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다.
+중요 한 정보, 암호, 액세스 키 또는 비밀을 처리 하는 연결 매개 변수의 경우, 연결의 리소스 정의에는 이름-값 쌍 형식으로 이러한 값을 지정 하는 `parameterValues` 개체가 포함 됩니다. 이 정보를 숨기려면 `securestring` 또는 `secureobject` 매개 변수 형식을 사용 하 여 이러한 값에 대 한 템플릿 매개 변수를 선언 하거나 편집할 수 있습니다. 그런 다음 해당 정보를 [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)에 저장할 수 있습니다. 이러한 값을 템플릿 매개 변수에 전달 하려면 배포 시 템플릿에서 사용 하는 [매개 변수 파일](#template-parameter-files) 에서 해당 키 자격 증명 모음을 참조 합니다.
 
 Azure Blob Storage 연결에 대 한 계정 이름 및 액세스 키를 제공 하는 예제는 다음과 같습니다.
 
@@ -1011,7 +1011,7 @@ Azure Blob Storage 연결에 대 한 계정 이름 및 액세스 키를 제공 �
 
 ## <a name="references-to-parameters"></a>매개 변수에 대 한 참조
 
-템플릿 매개 변수를 참조 하려면 배포 시 평가 되는 템플릿 [함수](../azure-resource-manager/resource-group-template-functions.md)에 템플릿 식을 사용할 수 있습니다. 템플릿 식은 대괄호 ( **[]** )를 사용 합니다.
+템플릿 매개 변수를 참조 하려면 배포 시 평가 되는 템플릿 [함수](../azure-resource-manager/templates/template-functions.md)에 템플릿 식을 사용할 수 있습니다. 템플릿 식은 대괄호 ( **[]** )를 사용 합니다.
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 
