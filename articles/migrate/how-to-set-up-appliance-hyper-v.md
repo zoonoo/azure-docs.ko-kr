@@ -1,17 +1,14 @@
 ---
 title: Hyper-v에 대 한 Azure Migrate 어플라이언스 설정
 description: Hyper-v Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0704adda314b94736b01fe114c3643ef8bd83753
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534499"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029094"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Hyper-v Vm에 대 한 어플라이언스 설정
 
@@ -73,8 +70,8 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 3. **폴더 찾기**에서 추출된 VHD가 포함된 폴더를 지정합니다. 그런 후 **Next** 를 클릭합니다.
 1. **Virtual Machine 선택**에서 **다음**을 클릭합니다.
 2. **가져오기 유형 선택**에서 **가상 머신 복사(새로운 고유 ID 만들기)** 를 클릭합니다. 그런 후 **Next** 를 클릭합니다.
-3. **대상 선택**에서 기본 설정을 그대로 둡니다. **다음**을 누릅니다.
-4. **스토리지 폴더**에서 기본 설정을 그대로 둡니다. **다음**을 누릅니다.
+3. **대상 선택**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.
+4. **스토리지 폴더**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.
 5. **네트워크 선택**에서 VM에서 사용할 가상 스위치를 지정합니다. 이 스위치에는 데이터를 Azure로 보내기 위한 인터넷 연결이 필요합니다.
 6. **요약** 에서 설정을 검토합니다. **마침**을 클릭합니다.
 7. Hyper-V 관리자 > **Virtual Machines**에서 VM을 시작합니다.
@@ -82,7 +79,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM에서 [Azure URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access)에 연결할 수 있는지 확인합니다.
+어플라이언스 VM에서 [Azure URL](migrate-appliance.md#url-access)에 연결할 수 있는지 확인합니다.
 
 ## <a name="configure-the-appliance"></a>어플라이언스 구성
 

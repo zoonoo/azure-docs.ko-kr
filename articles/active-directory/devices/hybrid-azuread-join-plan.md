@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a4f85aeaf2fb263ba2df8f34a51f9e25c212aff
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 36dd80669c6a9495751f577748f48c02a782b920
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379327"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029860"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -30,7 +30,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 온-프레미스 ad (Active Directory) 환경이 있고 AD 도메인에 가입 된 컴퓨터를 Azure AD에 가입 하려는 경우 하이브리드 Azure AD 조인을 수행 하 여이 작업을 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 [Azure Active Directory의 장치 id 관리 소개](../device-management-introduction.md)에 대해 잘 알고 있다고 가정 합니다.
 
@@ -55,7 +55,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 ### <a name="windows-current-devices"></a>Windows 현재 디바이스
 
-- Windows 10
+- Windows 10
 - Windows Server 2016
 - Windows Server 2019
 
@@ -77,7 +77,7 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 
 사용자 환경에서 VDI (가상 데스크톱 인프라)를 사용 하는 경우 [장치 id 및 데스크톱 가상화](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure)를 참조 하세요.
 
-하이브리드 Azure AD 조인은 FIPS 규격 TPM 2.0에 대해 지원 되며 TPM 1.2에 대해 지원 되지 않습니다. 장치에 FIPS 규격 TPM 1.2이 있는 경우 하이브리드 Azure AD 조인을 진행 하기 전에 사용 하지 않도록 설정 해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 tpm에서 FIPS 모드를 사용 하지 않도록 설정 하는 도구는 제공 하지 않습니다. 하드웨어 OEM에 지원을 문의 하세요. WIndows 10 1903 릴리스부터는 tpm 1.2이 하이브리드 Azure AD 조인에 사용 되지 않으며 해당 tpm이 있는 장치는 TPM이 없는 것으로 간주 됩니다.
+하이브리드 Azure AD 조인은 FIPS 규격 TPM 2.0에 대해 지원 되며 TPM 1.2에 대해 지원 되지 않습니다. 장치에 FIPS 규격 TPM 1.2이 있는 경우 하이브리드 Azure AD 조인을 진행 하기 전에 사용 하지 않도록 설정 해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 tpm에서 FIPS 모드를 사용 하지 않도록 설정 하는 도구는 제공 하지 않습니다. 하드웨어 OEM에 지원을 문의 하세요. Windows 10 1903 릴리스부터는 tpm 1.2이 하이브리드 Azure AD 조인에 사용 되지 않으며 해당 tpm이 있는 장치는 TPM이 없는 것으로 간주 됩니다.
 
 도메인 컨트롤러 (DC) 역할을 실행 하는 Windows Server에서는 하이브리드 Azure AD 조인이 지원 되지 않습니다.
 
@@ -108,7 +108,7 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 
 ### <a name="managed-environment"></a>관리 환경
 
-관리형 환경은 [Seamless Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs)을 사용하여 [PHS(암호 해시 동기화)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) 또는 [PTA(통과 인증)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)를 통해 배포할 수 있습니다.
+관리형 환경은 [Seamless Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)을 사용하여 [PHS(암호 해시 동기화)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) 또는 [PTA(통과 인증)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta)를 통해 배포할 수 있습니다.
 
 이러한 시나리오는 인증용 페더레이션 서버를 구성할 필요가 없습니다.
 
@@ -146,12 +146,12 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
-| 온-프레미스 AD UPN 유형 | 도메인 형식 | Windows 10 버전 | 설명 |
+| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | Description |
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |
-| 라우팅 가능 | 관리 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
-| 라우팅 불가능 | 관리 | 지원되지 않음 | |
+| 라우팅 가능 | Managed | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
+| 라우팅 불가능 | Managed | 지원하지 않음 | |
 
 ## <a name="next-steps"></a>다음 단계
 

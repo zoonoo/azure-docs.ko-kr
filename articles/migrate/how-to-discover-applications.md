@@ -1,17 +1,14 @@
 ---
-title: Azure Migrate Server 평가를 사용 하 여 온-프레미스 서버에 설치 된 앱, 역할 및 기능 검색
-description: Azure Migrate Server 평가를 사용 하 여 온-프레미스 서버에서 앱, 역할 및 기능을 검색 하는 방법을 설명 합니다.
-author: snehaamicrosoft
-ms.service: azure-migrate
+title: Azure Migrate를 사용 하 여 온-프레미스 서버에서 앱, 역할 및 기능 검색
+description: Azure Migrate Server 평가를 사용 하 여 온-프레미스 서버에서 앱, 역할 및 기능을 검색 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 11/20/2019
-ms.author: snehaa
-ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278469"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029083"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>컴퓨터 앱, 역할 및 기능 검색
 
@@ -25,19 +22,19 @@ ms.locfileid: "74278469"
 Azure Migrate를 사용 하는 앱 검색: 서버 평가는 에이전트 없이 수행 됩니다. 컴퓨터 및 Vm에 아무 것도 설치할 필요가 없습니다. 서버 평가는 Azure Migrate 어플라이언스를 사용 하 여 컴퓨터 게스트 자격 증명과 함께 검색을 수행 합니다. 어플라이언스는 VMware Api를 사용 하 여 VMware 컴퓨터에 원격으로 액세스 합니다.
 
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 1. 앱 수준 검색에 대 한 [지원 제한 사항을](migrate-support-matrix-vmware.md#application-discovery) 검토 합니다.
 2. Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
 3. 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
-4. Azure Migrate 어플라이언스를 사용 하 여 VMware Vm을 검색 하 고 평가 하기 위한 [vmware 요구 사항을](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) 확인 하세요.
-4. Azure Migrate 어플라이언스를 배포 하기 위한 [요구 사항을](migrate-support-matrix-vmware.md#assessment-appliance-requirements) 확인 합니다.
+4. Azure Migrate 어플라이언스를 사용 하 여 VMware Vm을 검색 하 고 평가 하기 위한 [vmware 요구 사항을](migrate-support-matrix-vmware.md#vmware-requirements) 확인 하세요.
+4. Azure Migrate 어플라이언스를 배포 하기 위한 [요구 사항을](migrate-appliance.md) 확인 합니다.
 
 ## <a name="prepare-for-app-discovery"></a>앱 검색 준비
 
-1. [어플라이언스 배포를 준비](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware)합니다. 준비에는 어플라이언스 설정을 확인 하 고 어플라이언스에서 vCenter Server 액세스 하는 데 사용할 계정을 설정 하는 작업이 포함 됩니다.
+1. [어플라이언스 배포를 준비](tutorial-prepare-vmware.md)합니다. 준비에는 어플라이언스 설정을 확인 하 고 어플라이언스에서 vCenter Server 액세스 하는 데 사용할 계정을 설정 하는 작업이 포함 됩니다.
 2. 앱, 역할 및 기능을 검색할 컴퓨터에 대 한 관리자 권한이 있는 사용자 계정 (Windows 및 Linux 서버에 대해 각각 하나씩)이 있는지 확인 합니다.
-3. [VMware 어플라이언스를 배포](how-to-set-up-appliance-vmware.md) 하 여 검색을 시작 합니다. 어플라이언스를 배포 하려면 OVA 템플릿을 다운로드 하 고 VMware로 가져와 vmware VM으로 어플라이언스를 만듭니다. 어플라이언스를 구성한 다음 Azure Migrate에 등록 합니다.
+3. [Azure Migrate 어플라이언스를 배포](how-to-set-up-appliance-vmware.md) 하 여 검색을 시작 합니다. 어플라이언스를 배포 하려면 OVA 템플릿을 다운로드 하 고 VMware로 가져와 vmware VM으로 어플라이언스를 만듭니다. 어플라이언스를 구성한 다음 Azure Migrate에 등록 합니다.
 2. 어플라이언스를 배포할 때 연속 검색을 시작 하려면 다음을 지정 합니다.
     - 연결 하려는 vCenter Server의 이름입니다.
     - VCenter Server에 연결 하기 위해 어플라이언스에 대해 만든 자격 증명입니다.
@@ -52,7 +49,7 @@ Azure Migrate를 사용 하는 앱 검색: 서버 평가는 에이전트 없이 
 1. **Azure Migrate 서버** > **Azure Migrate: 서버 평가**에서 표시 된 수를 클릭 하 여 검색 된 **서버** 페이지를 엽니다.
 
     > [!NOTE]
-    > 또한이 단계에서는 검색 된 컴퓨터에 대 한 종속성 매핑을 선택적으로 설정 하 여 평가 하려는 컴퓨터에서 종속성을 시각화할 수 있습니다. [자세히 알아봅니다](how-to-create-group-machine-dependencies.md).
+    > 또한이 단계에서는 검색 된 컴퓨터에 대 한 종속성 매핑을 선택적으로 설정 하 여 평가 하려는 컴퓨터에서 종속성을 시각화할 수 있습니다. [자세히 알아보기](how-to-create-group-machine-dependencies.md).
 
 2. **검색 된 응용 프로그램**에서 표시 된 수를 클릭 합니다.
 3. **응용 프로그램 인벤토리에서**검색 된 앱, 역할 및 기능을 검토할 수 있습니다.

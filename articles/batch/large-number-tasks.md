@@ -3,7 +3,7 @@ title: 많은 수의 작업 제출 - Azure Batch | Microsoft Docs
 description: 단일 Azure Batch 작업에서 매우 많은 수의 작업을 효율적으로 제출하는 방법
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: ''
-ms.openlocfilehash: fc47b18dd51bbaa48d950515cccfe618d9e58426
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 29d5ca378f13e047773c4e036c5e43f944fd08e3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132760"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029519"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Batch 작업으로 많은 수의 작업 제출
 
@@ -54,7 +54,7 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 
 * **작업 크기** - 대규모 작업을 추가하는 것은 작은 작업을 추가하는 것보다 시간이 오래 걸립니다. 컬렉션에서 각 작업의 크기를 줄이려면 태스크 명령줄을 간소화하고, 환경 변수의 수를 줄이거나 태스크 실행에 대한 요구 사항을 보다 효율적으로 처리할 수 있습니다. 예를 들어 많은 수의 리소스 파일을 사용하는 대신 풀에서 [시작 작업](batch-api-basics.md#start-task)을 사용하여 작업 종속성을 설치하거나 [애플리케이션 패키지](batch-application-packages.md) 또는 [Docker 컨테이너](batch-docker-container-workloads.md)를 사용합니다.
 
-* **병렬 작업의 수** - Batch API에 따라 Batch 클라이언트에서 동시 실행 작업의 최대 수를 늘려서 처리량을 증가시킵니다. .NET API의 [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 또는 Batch Python SDK 확장의 `threads`TaskOperations.add_collection[과 같은 메서드의 ](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) 매개 변수를 사용하여 이 설정을 구성합니다. 이 속성은 네이티브 Batch Python SDK에서 사용할 수 없습니다. 기본적으로이 속성은 1로 설정 되어 있지만 작업 처리량을 개선 하기 위해 더 높게 설정 합니다. 네트워크 대역폭 및 일부 CPU 성능을 사용하여 향상된 처리량의 균형을 유지합니다. 작업 처리량은 `MaxDegreeOfParallelism` 또는 `threads`의 최대 100배까지 증가합니다. 실제로 100 미만의 동시 실행 작업 수를 설정해야 합니다. 
+* **병렬 작업의 수** - Batch API에 따라 Batch 클라이언트에서 동시 실행 작업의 최대 수를 늘려서 처리량을 증가시킵니다. .NET API의 [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 또는 Batch Python SDK 확장의 [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)과 같은 메서드의 `threads` 매개 변수를 사용하여 이 설정을 구성합니다. 이 속성은 네이티브 Batch Python SDK에서 사용할 수 없습니다. 기본적으로이 속성은 1로 설정 되어 있지만 작업 처리량을 개선 하기 위해 더 높게 설정 합니다. 네트워크 대역폭 및 일부 CPU 성능을 사용하여 향상된 처리량의 균형을 유지합니다. 작업 처리량은 `MaxDegreeOfParallelism` 또는 `threads`의 최대 100배까지 증가합니다. 실제로 100 미만의 동시 실행 작업 수를 설정해야 합니다. 
  
   Batch 템플릿을 사용하여 Azure Batch CLI 확장은 사용 가능한 코어 수에 따라 자동으로 동시 실행 작업 수를 증가시키지만 이 속성은 CLI에서 구성할 수 없습니다. 
 
@@ -64,7 +64,7 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 
 다음 C# 코드 조각은 Batch .NET API를 사용하여 많은 수의 작업을 추가하는 경우에 구성하는 설정을 보여줍니다.
 
-작업 처리량을 늘리려면 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet) 속성 값을 늘립니다. 예를 들어:
+작업 처리량을 늘리려면 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 예:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -74,7 +74,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) 또는 [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) 메서드의 적절한 오버로드를 사용하여 작업(job)에 작업(task) 컬렉션을 추가합니다. 예를 들어:
+) 메서드의 적절한 오버로드를 사용하여 작업(job)에 작업(task) 컬렉션을 추가합니다. 예:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -145,7 +145,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예를 들어:
+작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예:
 
 
 ```python

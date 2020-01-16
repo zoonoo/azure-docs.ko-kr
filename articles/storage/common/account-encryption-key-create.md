@@ -10,12 +10,12 @@ ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 39568d65978592b360512db2e556cfa6b59760b6
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8cf1f8ecb68e31f93c19d93d6ebc4f8ef37724e7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921215"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028444"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대해 고객이 관리 하는 키를 지 원하는 계정 만들기
 
@@ -149,7 +149,7 @@ az storage account create \
 
 ## <a name="verify-the-account-encryption-key"></a>계정 암호화 키 확인
 
-새 저장소 계정이 계정 암호화 키를 사용 하 고 있는지 확인 하려면 Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) 명령을 호출 합니다. 이 명령은 저장소 계정 속성 및 해당 값의 목록을 반환 합니다. `keyType` 속성을 찾아 `Account`으로 설정 되어 있는지 확인 합니다.
+저장소 계정의 서비스가 계정 암호화 키를 사용 하 고 있는지 확인 하려면 Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) 명령을 호출 합니다. 이 명령은 저장소 계정 속성 및 해당 값의 집합을 반환 합니다. Encryption 속성 내에서 각 서비스에 대 한 `keyType` 필드를 찾아 `Account`으로 설정 되어 있는지 확인 합니다.
 
 ```azurecli
 az storage account show /

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 548ebfca9a937e58dfc5c1aff1adf6f6cb2dcc5d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454604"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028843"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
@@ -90,7 +90,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM이 필요한 [Azure url](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access)에 연결할 수 있는지 확인 합니다.
+어플라이언스 VM이 필요한 [Azure url](migrate-appliance.md#url-access)에 연결할 수 있는지 확인 합니다.
 
 ## <a name="configure-the-appliance"></a>어플라이언스 구성
 

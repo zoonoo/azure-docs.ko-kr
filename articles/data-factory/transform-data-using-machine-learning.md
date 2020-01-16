@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/20/2019
-ms.openlocfilehash: b5b7b69f49efa6cc0d5f3e42fc8a3aca855bca9a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44371c78a4d02588eef21aae5a4bba3d033763d7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913012"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029999"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -24,19 +24,19 @@ ms.locfileid: "74913012"
 
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
-1. **학습 실험 만들기**. Azure Machine Learning Studio를 사용하여 이 단계를 수행합니다. Azure Machine Learning Studio는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
+1. **학습 실험 만들기**. Azure Machine Learning Studio (클래식)를 사용 하 여이 단계를 수행 합니다. Azure Machine Learning Studio (클래식)은 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트 하는 데 사용 하는 공동 작업 시각적 개발 환경입니다.
 2. **예측 실험으로 변환**. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
 3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory 및 Machine Learning
-Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업**을 사용하면 Azure Machine Learning Studio 웹 서비스를 호출하여 데이터에 대해 일괄 처리 방식으로 예측할 수 있습니다.
+Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업** 을 사용 하 여 Azure Machine Learning Studio (클래식) 웹 서비스를 호출 하 여 일괄 처리에서 데이터에 대 한 예측을 만들 수 있습니다.
 
-시간이 지남에 따라 Azure Machine Learning Studio 점수 매기기 실험의 예측 모델에서 새 입력 데이터 세트를 사용하여 재학습해야 합니다. 다음 단계를 수행하여 Data Factory 파이프라인에서 모델을 재학습할 수 있습니다.
+시간이 지남에 따라 Azure Machine Learning Studio (클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용 하 여 다시 학습 해야 합니다. 다음 단계를 수행하여 Data Factory 파이프라인에서 모델을 재학습할 수 있습니다.
 
-1. 웹 서비스로 학습 실험(예측 실험 아님)을 게시합니다. 이전 시나리오에서 예측 실험을 웹 서비스로 공개하기 위해 수행한 것처럼 Azure Machine Learning Studio에서 이 단계를 수행합니다.
-2. Azure Machine Learning Studio 일괄 처리 실행 작업을 사용하여 학습 실험용 웹 서비스를 호출합니다. 기본적으로, Azure Machine Learning Studio 일괄 처리 실행 작업을 사용하여 학습 웹 서비스와 채점 웹 서비스를 모두 호출할 수 있습니다.
+1. 웹 서비스로 학습 실험(예측 실험 아님)을 게시합니다. 이전 시나리오에서 예측 실험을 웹 서비스로 노출 하는 것 처럼 Azure Machine Learning Studio (클래식)에서이 단계를 수행 합니다.
+2. Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업을 사용 하 여 학습 실험을 위한 웹 서비스를 호출 합니다. 기본적으로 Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업을 사용 하 여 학습 웹 서비스와 점수 매기기 웹 서비스를 모두 호출할 수 있습니다.
 
-재학습이 완료되면 **Azure Machine Learning Studio 업데이트 리소스 작업**을 사용하여 새로 학습된 모델로 채점 웹 서비스(웹 서비스로 공개된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](update-machine-learning-models.md) 문서를 참조하세요.
+재 학습을 완료 한 후에는 **Azure Machine Learning Studio (클래식) 리소스 업데이트 작업**을 사용 하 여 새로 학습 된 모델을 사용 하 여 점수 매기기 웹 서비스 (웹 서비스로 노출 된 예측 실험)를 업데이트 합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](update-machine-learning-models.md) 문서를 참조하세요.
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
 
@@ -123,22 +123,22 @@ Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 �
 }
 ```
 
-| 자산          | 설명                              | 필수 |
+| 속성          | Description                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
-| 이름              | 파이프라인의 작업 이름입니다.     | yes      |
+| name              | 파이프라인의 작업 이름입니다.     | 예      |
 | description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
-| type              | Data Lake Analytics U-SQL 활동의 경우 활동 형식은 **AzureMLBatchExecution**입니다. | yes      |
-| linkedServiceName | Azure Machine Learning 연결된 서비스에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | yes      |
+| type              | Data Lake Analytics U-SQL 활동의 경우 활동 형식은 **AzureMLBatchExecution**입니다. | 예      |
+| linkedServiceName | Azure Machine Learning 연결된 서비스에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | webServiceInputs  | Azure Machine Learning 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 입력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아닙니다.       |
 | webServiceOutputs | Azure Machine Learning 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 출력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아닙니다.       |
-| globalParameters  | Azure Machine Learning Studio 일괄 처리 실행 서비스 엔드포인트에 전달되는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning Studio 웹 서비스에 정의된 웹 서비스 매개 변수의 이름과 일치해야 합니다. 값은 Azure Machine Learning Studio 일괄 처리 실행 요청의 GlobalParameters 속성에 전달됩니다. | 아닙니다.       |
+| globalParameters  | Azure Machine Learning Studio (클래식) Batch 실행 서비스 끝점에 전달 되는 키/값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 웹 서비스 매개 변수의 이름과 일치 해야 합니다. 값은 Azure Machine Learning Studio (클래식) 일괄 처리 실행 요청의 GlobalParameters 속성으로 전달 됩니다. | 아닙니다.       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오1: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 
-이 시나리오에서는 Azure Machine Learning 웹 서비스는 Azure Blob Storage의 파일에서 데이터를 사용하여 예측을 만들고 Blob Storage에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Data Factory 파이프라인을 정의합니다. Azure 블로그 스토리지의 입력 및 출력 데이터는 LinkedName 및 FilePath 쌍을 사용하여 참조됩니다. 서로 다른 입력 및 출력의 연결된 서비스 샘플에서는 Data Factory의 각 입력/출력에 대해 서로 다른 연결된 서비스를 사용하여 올바른 파일을 선택하고 이를 Azure Machine Learning Studio 웹 서비스에 보낼 수 있습니다.
+이 시나리오에서는 Azure Machine Learning 웹 서비스는 Azure Blob Storage의 파일에서 데이터를 사용하여 예측을 만들고 Blob Storage에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Data Factory 파이프라인을 정의합니다. Azure 블로그 스토리지의 입력 및 출력 데이터는 LinkedName 및 FilePath 쌍을 사용하여 참조됩니다. 입력 및 출력의 연결 된 서비스 샘플에서 Data Factory의 각 입력/출력에 대해 서로 다른 연결 된 서비스를 사용 하 여 올바른 파일을 선택 하 고 Azure Machine Learning Studio (클래식) 웹 서비스로 보낼 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Machine Learning Studio 실험에서 웹 서비스 입력 및 출력 포트와 글로벌 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. Azure Machine Learning Studio 엔드포인트에 대한 일괄 처리 실행 도움말 페이지에서 요청 페이로드 샘플을 보고 예상되는 매핑을 확인할 수 있습니다.
+> Azure Machine Learning Studio (클래식) 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 변수에는 사용자 지정할 수 있는 기본 이름 ("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. Azure Machine Learning Studio (클래식) 끝점에 대 한 일괄 처리 실행 도움말 페이지에서 샘플 요청 페이로드를 보고 필요한 매핑을 확인할 수 있습니다.
 >
 >
 
@@ -188,12 +188,12 @@ Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 �
 }
 ```
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>시나리오2: 다양한 스토리지의 데이터를 참조하는 판독기/기록기 모듈을 사용하여 실험
-Azure Machine Learning Studio 실험을 만드는 경우 또 다른 일반적인 시나리오는 데이터 가져오기 및 데이터 출력 모듈을 사용하는 것입니다. 데이터 가져오기 모듈은 실험으로 데이터를 로드할 때 사용되고 출력 데이터 모듈은 실험에서 데이터를 저장할 때 사용됩니다. 데이터 가져오기 및 출력 데이터 모듈에 대한 세부 정보는 MSDN Library에서 [데이터 가져오기](https://msdn.microsoft.com/library/azure/dn905997.aspx) 및 [출력 데이터](https://msdn.microsoft.com/library/azure/dn905984.aspx) 항목을 참조하세요.
+Azure Machine Learning Studio (클래식) 실험을 만드는 또 다른 일반적인 시나리오는 데이터 가져오기 및 출력 데이터 모듈을 사용 하는 것입니다. 데이터 가져오기 모듈은 실험으로 데이터를 로드할 때 사용되고 출력 데이터 모듈은 실험에서 데이터를 저장할 때 사용됩니다. 데이터 가져오기 및 출력 데이터 모듈에 대한 세부 정보는 MSDN Library에서 [데이터 가져오기](https://msdn.microsoft.com/library/azure/dn905997.aspx) 및 [출력 데이터](https://msdn.microsoft.com/library/azure/dn905984.aspx) 항목을 참조하세요.
 
 데이터 가져오기 및 출력 데이터 모듈을 사용하는 경우 이러한 모듈의 각 속성에 웹 서비스 매개 변수를 사용하는 것이 좋습니다. 이러한 웹 매개 변수를 통해 런타임 중 값을 구성할 수 있습니다. 예를 들어 Azure SQL Database: XXX.database.windows.net을 사용하는 데이터 가져오기 모듈을 사용하여 실험을 만들 수 있습니다. 웹 서비스를 배포한 후 웹 서비스의 소비자가 `YYY.database.windows.net`이라는 다른 Azure SQL Server를 지정할 수 있도록 하려고 합니다. 웹 서비스 매개 변수를 사용하여 이 값을 구성할 수 있습니다.
 
 > [!NOTE]
-> 웹 서비스 입력 및 출력은 웹 서비스 매개 변수와 다릅니다. 첫 번째 시나리오에서는 Azure Machine Learning Studio 웹 서비스에 대한 입력과 출력을 지정하는 방법을 살펴보았습니다. 이 시나리오에서는 데이터 가져오기/출력 데이터 모듈의 속성에 해당하는 웹 서비스에 매개 변수를 전달합니다.
+> 웹 서비스 입력 및 출력은 웹 서비스 매개 변수와 다릅니다. 첫 번째 시나리오에서는 Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 입력 및 출력을 지정 하는 방법을 살펴보았습니다. 이 시나리오에서는 데이터 가져오기/출력 데이터 모듈의 속성에 해당하는 웹 서비스에 매개 변수를 전달합니다.
 >
 >
 
@@ -214,7 +214,7 @@ Azure Machine Learning Studio 실험을 만드는 경우 또 다른 일반적인
 > 웹 서비스 매개 변수는 대/소문자를 구분하므로 작업 JSON에서 지정한 이름이 웹 서비스에 의해 노출된 이름과 일치해야 합니다.
 >
 
-재학습이 완료되면 **Azure Machine Learning Studio 업데이트 리소스 작업**을 사용하여 새로 학습된 모델로 채점 웹 서비스(웹 서비스로 공개된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](update-machine-learning-models.md) 문서를 참조하세요.
+재 학습을 완료 한 후에는 **Azure Machine Learning Studio (클래식) 리소스 업데이트 작업**을 사용 하 여 새로 학습 된 모델을 사용 하 여 점수 매기기 웹 서비스 (웹 서비스로 노출 된 예측 실험)를 업데이트 합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](update-machine-learning-models.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요.

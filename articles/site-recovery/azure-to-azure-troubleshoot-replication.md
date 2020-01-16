@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: fe300c1efc8f5802397a59296f8b127c321bd871
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: b8afdd0f2dd98260a628116fa7402e05cd39e06b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941575"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965849"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
 
@@ -35,7 +35,7 @@ Azure Site Recovery는 원본 가상 머신의 데이터 변경률이 지원되�
 
 
 ### <a name="azure-site-recovery-limits"></a>Azure Site Recovery 제한
-다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 애플리케이션 I/O 조합을 다룰 수는 없습니다. 실제 결과는 애플리케이션 I/O 조합에 따라 달라질 수 있습니다. 
+다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 애플리케이션 I/O 조합을 다룰 수는 없습니다. 실제 결과는 애플리케이션 I/O 조합에 따라 달라질 수 있습니다.
 
 고려해야 할 두 가지 제한은 디스크당 데이터 변동 및 가상 머신당 데이터 변동입니다. 예를 들어, 다음 표에서 프리미엄 P20 디스크를 살펴보겠습니다. Site Recovery는 VM당 총 변동 폭이 25MB/s로 제한되어 있기 때문에 VM당 최대 5개의 디스크를 사용하여 디스크당 5MB/s의 변동을 처리할 수 있습니다.
 
@@ -59,7 +59,7 @@ Azure Site Recovery에는 디스크 유형에 따라 데이터 변경률 제한�
 
 간헐적인 데이터 버스트에서 스파이크가 발생하고 데이터 변경률이 일정 시간 동안 10MB/s(프리미엄) 및 2MB/s(표준)를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 그러나 변동이 대부분의 시간 동안 지원되는 제한을 초과하는 경우 가능하면 다음 옵션 중 하나를 고려합니다.
 
-* **높은 데이터 변경 률을 초래 하는 디스크 제외**: [PowerShell](./azure-to-azure-exclude-disks.md)을 사용 하 여 디스크를 제외할 수 있습니다. 디스크를 제외 하려면 먼저 복제를 사용 하지 않도록 설정 해야 합니다. 
+* **높은 데이터 변경 률을 초래 하는 디스크 제외**: [PowerShell](./azure-to-azure-exclude-disks.md)을 사용 하 여 디스크를 제외할 수 있습니다. 디스크를 제외 하려면 먼저 복제를 사용 하지 않도록 설정 해야 합니다.
 * **재해 복구 저장소 디스크의 계층 변경**:이 옵션은 디스크 데이터 변동이 20 m b/초 미만인 경우에만 가능 합니다. P10 디스크가 있는 VM에 8MB/s보다 크지만 10MB/s보다 작은 데이터 변동이 있다고 가정합니다. 고객이 보호 중에 대상 스토리지에 대해 P30 디스크를 사용할 수 있는 경우 문제를 해결할 수 있습니다. 이 솔루션은 프리미엄 Managed Disks를 사용 하는 컴퓨터에만 사용할 수 있습니다. 아래 단계를 수행하세요.
     - 영향을 받는 복제 된 컴퓨터의 디스크 블레이드로 이동 하 여 복제 디스크 이름을 복사 합니다.
     - 이 복제본 관리 디스크로 이동
@@ -69,28 +69,28 @@ Azure Site Recovery에는 디스크 유형에 따라 데이터 변경률 제한�
 ## <a name="Network-connectivity-problem"></a>네트워크 연결 문제
 
 ### <a name="network-latency-to-a-cache-storage-account"></a>캐시 스토리지 계정의 네트워크 대기 시간
-Site Recovery는 복제된 데이터를 캐시 스토리지 계정으로 보냅니다. 가상 머신에서 캐시 스토리지 계정으로 데이터를 업로드하는 데 3초 동안 4MB보다 느리게 업로드하면 네트워크 대기 시간이 표시될 수 있습니다. 
+Site Recovery는 복제된 데이터를 캐시 스토리지 계정으로 보냅니다. 가상 머신에서 캐시 스토리지 계정으로 데이터를 업로드하는 데 3초 동안 4MB보다 느리게 업로드하면 네트워크 대기 시간이 표시될 수 있습니다.
 
-대기 시간과 관련된 문제를 확인하려면 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)를 사용하여 가상 머신에서 캐시 스토리지 계정으로 데이터를 업로드합니다. 대기 시간이 높은 경우 VM에서 아웃바운드 네트워크 트래픽을 제어하는 데 NVA(네트워크 가상 어플라이언스)를 사용 중인지 확인합니다. 모든 복제 트래픽이 NVA를 통과하는 경우 어플라이언스가 제한될 수 있습니다. 
+대기 시간과 관련된 문제를 확인하려면 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)를 사용하여 가상 머신에서 캐시 스토리지 계정으로 데이터를 업로드합니다. 대기 시간이 높은 경우 VM에서 아웃바운드 네트워크 트래픽을 제어하는 데 NVA(네트워크 가상 어플라이언스)를 사용 중인지 확인합니다. 모든 복제 트래픽이 NVA를 통과하는 경우 어플라이언스가 제한될 수 있습니다.
 
 복제 트래픽이 NVA로 이동하지 않도록 "Storage"에 대한 가상 네트워크에서 네트워크 서비스 엔드포인트를 만드는 것이 좋습니다. 자세한 내용은 [네트워크 가상 어플라이언스 구성](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)을 참조하세요.
 
 ### <a name="network-connectivity"></a>네트워크 연결
-Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다. 모든 URL이 연결되었는지 확인하려면 [Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)을 참조하세요. 
+Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다. 모든 URL이 연결되었는지 확인하려면 [Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)을 참조하세요.
 
 ## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>오류 ID 153006-마지막 ' XXX ' 분 내에 VM에 사용할 수 있는 앱 일치 복구 지점이 없습니다.
 
 가장 일반적인 몇 가지 문제는 다음과 같습니다.
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>원인 1: SQL server 2008/2008 r 2의 알려진 문제 
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>원인 1: SQL server 2008/2008 r 2의 알려진 문제
 **해결 방법** : SQL server 2008/2008 r 2와 관련 된 알려진 문제가 있습니다. 이 기술 자료 문서 [Azure Site Recovery 에이전트 또는 구성 요소가 아닌 다른 VSS 백업은 2008 R2 SQL Server를 호스팅하는 서버에 대해 실패 함을](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2) 참조 하세요.
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>원인 2: AUTO_CLOSE Db를 사용 하 여 모든 버전의 SQL Server 인스턴스를 호스트 하는 서버에서 Azure Site Recovery 작업이 실패 함 
-**해결 방법** : 기술 [자료 문서](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 참조 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>원인 2: AUTO_CLOSE Db를 사용 하 여 모든 버전의 SQL Server 인스턴스를 호스트 하는 서버에서 Azure Site Recovery 작업이 실패 함
+**해결 방법** : 기술 [자료 문서](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 참조
 
 
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>원인 3:2016 및 2017 SQL Server의 알려진 문제
-**해결 방법** : 기술 [자료 문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 참조 
+**해결 방법** : 기술 [자료 문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 참조
 
 #### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>원인 4: 저장소 공간 다이렉트 구성을 사용 하 고 있습니다.
 **해결 방법** : 저장소 공간 다이렉트 구성에 대해 응용 프로그램 일치 복구 지점을 만들 수 Azure Site Recovery. [복제 정책을 올바르게 구성](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms) 하려면 문서를 참조 하세요.
@@ -98,17 +98,17 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 ### <a name="more-causes-due-to-vss-related-issues"></a>VSS 관련 문제로 인 한 추가 원인은 다음과 같습니다.
 
 추가로 문제를 해결 하려면 원본 컴퓨터의 파일을 확인 하 여 오류에 대 한 정확한 오류 코드를 확인 합니다.
-    
+
     C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 파일에서 오류를 찾는 방법
 편집기에서 vacp.exe 파일을 열어 "vacpError" 문자열을 검색 합니다.
-        
+
     Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 위의 예제에서 **2147754994** 는 아래와 같이 오류에 대 한 정보를 알려 주는 오류 코드입니다.
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치 되어 있지 않습니다. 오류 2147221164 
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치 되어 있지 않습니다. 오류 2147221164
 
 *해결 방법*: 응용 프로그램 일관성 태그를 생성 하려면 AZURE SITE RECOVERY Microsoft VSS (볼륨 섀도 복사본 서비스)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 생성 하는 작업을 위한 VSS 공급자를 설치 합니다. 이 VSS 공급자는 서비스로 설치 됩니다. VSS 공급자 서비스가 설치 되지 않은 경우 "클래스가 등록 되지 않았습니다" 라는 오류 ID 0x80040154 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. </br>
 [VSS 기록기 설치 문제 해결 문서를](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 참조 하세요. 
@@ -126,12 +126,13 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 ####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS 공급자 NOT_REGISTERED-오류 2147754756
 
-**해결 방법**: 응용 프로그램 일관성 태그를 생성 하려면 AZURE SITE RECOVERY Microsoft VSS (볼륨 섀도 복사본 서비스)를 사용 합니다. Azure Site Recovery VSS 공급자 서비스가 설치 되었는지 확인 합니다. </br>
+**해결 방법**: 응용 프로그램 일관성 태그를 생성 하려면 AZURE SITE RECOVERY Microsoft VSS (볼륨 섀도 복사본 서비스)를 사용 합니다.
+Azure Site Recovery VSS 공급자 서비스가 설치 되었는지 확인 합니다. </br>
 
 - 다음 명령을 사용 하 여 공급자 설치를 다시 시도 합니다.
 - 기존 공급자 제거: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Uninstall .cmd
 - 다시 설치: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Install .cmd
- 
+
 VSS 공급자 서비스의 시작 유형이 **자동**으로 설정 되어 있는지 확인 합니다.
     - 다음 서비스를 다시 시작 합니다.
         - VSS 서비스

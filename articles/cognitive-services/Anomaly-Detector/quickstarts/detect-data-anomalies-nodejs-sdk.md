@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: b8cbf69aa0788b3b8e0130396f192cb5bc045f3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 17ca1a7671718b5b96df0add7775fb82d4d97303
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448883"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770444"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>빠른 시작: Node.js용 Anomaly Detector 클라이언트 라이브러리
 
@@ -67,7 +67,7 @@ npm init
 `ms-rest-azure` 및 `azure-cognitiveservices-anomalydetector` NPM 패키지를 설치합니다. csv-구문 분석 라이브러리는 이 빠른 시작에서도 사용됩니다.
 
 ```console
-npm install  @azure/cognitiveservices-anomalydetector ms-rest-azure csv-parse
+npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
 ```
 
 종속성이 있는 앱의 `package.json` 파일이 업데이트됩니다.

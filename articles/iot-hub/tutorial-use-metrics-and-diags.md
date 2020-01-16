@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e0094add11755ecb0c303adf874abe5a4a8f5811
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429094"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746208"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -125,7 +125,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## <a name="enable-the-diagnostic-logs"></a>진단 로그 활성화 
 
-[진단 로그](../azure-monitor/platform/resource-logs-overview.md)는 새 IoT Hub를 만들 때 기본적으로 비활성화됩니다. 이 섹션에서는 허브에 대한 진단 로그를 사용하도록 설정합니다.
+[진단 로그](../azure-monitor/platform/platform-logs-overview.md)는 새 IoT Hub를 만들 때 기본적으로 비활성화됩니다. 이 섹션에서는 허브에 대한 진단 로그를 사용하도록 설정합니다.
 
 1. 첫째, 아직 포털의 허브에서 수행하지 않은 경우 **리소스 그룹**을 클릭하고 Contoso 리소스의 리소스 그룹을 클릭합니다. 표시되는 리소스 목록에서 허브를 선택합니다. 
 

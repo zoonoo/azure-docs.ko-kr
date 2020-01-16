@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: f7446bc4a7f827fe1c65a0ce8df8ce6a5627624c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4850a58ae96b9fc5e8293efbac0de447915289ca
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532786"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763354"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
@@ -139,7 +139,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 기계 학습 파이프라인은 로컬로 실행할 수 없으므로 클라우드 리소스 또는 *원격 컴퓨팅 대상*에서 실행합니다. 원격 컴퓨팅 대상은 실험 및 기계 학습 워크플로를 실행하는 재사용 가능한 가상 컴퓨팅 환경입니다. 
 
-다음 코드를 실행하여 GPU 사용 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) 대상을 만든 다음, 작업 영역에 연결합니다. 컴퓨팅 대상에 대한 자세한 내용은 [개념 문서](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target)를 참조하세요.
+다음 코드를 실행하여 GPU 사용 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) 대상을 만든 다음, 작업 영역에 연결합니다. 컴퓨팅 대상에 대한 자세한 내용은 [개념 문서](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)를 참조하세요.
 
 
 ```python

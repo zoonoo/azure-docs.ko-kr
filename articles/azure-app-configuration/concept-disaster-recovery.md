@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: f2f914ec993670b8ba7a596f873234afd9ffc8e8
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: cd706e42eff19ebacf92b77d2438af80dc16a5fb
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665064"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028234"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
 
@@ -29,6 +29,8 @@ ms.locfileid: "75665064"
 
 기술적으로는 애플리케이션에서 장애 조치(failover)를 실행하지 않습니다. 두 App Configuration 저장소에서 동일한 구성 데이터 세트를 동시에 검색하려고 합니다. 먼저 보조 저장소에서 로드한 다음, 기본 저장소에서 로드하도록 코드를 정렬합니다. 이 방법은 기본 저장소의 구성 데이터를 사용할 수 있을 때마다 이를 우선적으로 적용하도록 합니다. 다음 코드 조각은 .NET Core CLI에서 이 정렬을 구현하는 방법을 보여줍니다.
 
+#### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
@@ -39,8 +41,24 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                   .AddAzureAppConfiguration(settings["ConnectionString_PrimaryStore"], optional: true);
         })
         .UseStartup<Startup>();
-    }
+    
 ```
+
+#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3(sp3)](#tab/core3x)
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+                config.AddAzureAppConfiguration(settings["ConnectionString_SecondaryStore"], optional: true)
+                    .AddAzureAppConfiguration(settings["ConnectionString_PrimaryStore"], optional: true);
+            })
+            .UseStartup<Startup>());
+```
+---
 
 `optional` 매개 변수가 `AddAzureAppConfiguration` 함수에 전달되었음에 주의하세요. `true`로 설정되면 이 매개 변수는 함수에서 구성 데이터를 로드할 수 없는 경우 애플리케이션에서 계속 실패하지 않도록 방지합니다.
 

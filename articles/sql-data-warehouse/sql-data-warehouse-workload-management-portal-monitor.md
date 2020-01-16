@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3baaab59031c4cfad036a7181318502d1969715
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: fd9bd846beba718cb305907d4d0c5a613d2ef816
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942426"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029935"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – 워크 로드 관리 포털 모니터링 (미리 보기)
 이 문서에서는 [작업 그룹](sql-data-warehouse-workload-isolation.md#workload-groups) 리소스 사용률 및 쿼리 작업을 모니터링 하는 방법을 설명 합니다. Azure 메트릭 탐색기 구성 하는 방법에 대 한 자세한 내용은 [azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md) 문서를 참조 하세요.  시스템 리소스 사용량을 모니터링 하는 방법에 대 한 자세한 내용은 Azure SQL Data Warehouse 모니터링 설명서의 [리소스 사용률](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) 섹션을 참조 하십시오.
@@ -49,8 +49,11 @@ CREATE WORKLOAD CLASSIFIER wcCEOPriority
 WITH ( WORKLOAD_GROUP = 'wgPriority'
       ,MEMBERNAME = 'TheCEO');
 ```
-아래 차트는 메트릭 1: *유효 min resource percent* (avg aggregation, `blue line`) 메트릭 2: 시스템 percent (avg aggregation, `purple line`) 필터: [작업 그룹] = `wgPriority`
-![underutilized-wg를 *기준으로 작업 그룹 할당* 을 보여 줍니다 .이 차트에서는 25% 워크 로드 격리를 사용 하는 것을 보여 주고, 평균에 10%만 사용 하 고 있음을 보여 줍니다.  이 경우 `MIN_PERCENTAGE_RESOURCE` 매개 변수 값이 10 또는 15 사이에서 감소 하 고 시스템의 다른 작업에서 리소스를 사용할 수 있습니다.
+아래 차트는 다음과 같이 구성 됩니다.<br>
+메트릭 1: *유효 min 리소스 백분율* (평균 집계, `blue line`)<br>
+메트릭 2: *시스템 percent 별 작업 그룹 할당* (Avg aggregation, `purple line`)<br>
+필터: [작업 그룹] = `wgPriority`<br>
+![underutilized-wg는 25% 워크 로드 격리를 사용 하 여 평균에 10%만 사용 하 고 있음을 보여 줍니다](media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png).  이 경우 `MIN_PERCENTAGE_RESOURCE` 매개 변수 값이 10 또는 15 사이에서 감소 하 고 시스템의 다른 작업에서 리소스를 사용할 수 있습니다.
 
 ### <a name="workload-group-bottleneck"></a>작업 그룹 병목 상태
 `wgDataAnalyst` 이라는 작업 그룹을 만들고, `wcDataAnalyst` 워크 로드 분류자를 사용 하 여 *Dataanalyst* `membername` 매핑되는 다음 작업 그룹 및 분류자 구성을 고려 합니다.  `wgDataAnalyst` 작업 그룹에는 6%의 워크 로드 격리가 구성 되어 있으며 (`MIN_PERCENTAGE_RESOURCE` = 6) 리소스 제한은 9% (`CAP_PERCENTAGE_RESOURCE` = 9)입니다.  *Dataanalyst* 제출한 각 쿼리에는 시스템 리소스의 3% (`REQUEST_MIN_RESOURCE_GRANT_PERCENT` = 3)가 제공 됩니다.
@@ -65,8 +68,12 @@ CREATE WORKLOAD CLASSIFIER wcDataAnalyst
 WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
       ,MEMBERNAME = 'DataAnalyst');
 ```
-아래 차트는 메트릭 1: *유효 캡 리소스 백분율* (Avg 집계, `blue line`) 메트릭 2: *최대 리소스%* (Avg Aggregation, `purple line`) 메트릭 3: 작업 그룹 *큐에 대기 중인 쿼리* (Sum aggregation, `turquoise line`) 필터: [작업 그룹] = `wgDataAnalyst`
-![necked-wg](media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png), 작업 그룹은 리소스에 대해 9% 캡을 사용 하는 것으로 표시 하 고 작업 그룹은 *최대 리소스 백분율 메트릭*).  *작업 그룹 큐에 대기 중인 쿼리 메트릭에*표시 된 것 처럼 쿼리를 안정적으로 큐에 저장 합니다.  이 경우, `CAP_PERCENTAGE_RESOURCE` 9% 보다 큰 값으로 증가 하면 더 많은 쿼리를 동시에 실행할 수 있습니다.  `CAP_PERCENTAGE_RESOURCE`를 늘리려면 사용 가능한 리소스가 충분 하 고 다른 작업 그룹에 의해 격리 되지 않은 것으로 가정 합니다.  *유효 cap 리소스 백분율 메트릭을*확인 하 여 단면 증가를 확인 합니다.  더 많은 처리량이 필요한 경우에는 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 3 보다 큰 값으로 늘릴 수도 있습니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 높이면 쿼리가 더 빠르게 실행 될 수 있습니다.
+아래 차트는 다음과 같이 구성 됩니다.<br>
+메트릭 1: *유효 캡 리소스 백분율* (평균 집계, `blue line`)<br>
+메트릭 2: *최대 리소스 percent 별 작업 그룹 할당* (Avg aggregation, `purple line`)<br>
+메트릭 3: *작업 그룹 큐에 대기 중인 쿼리* (합계 집계, `turquoise line`)<br>
+필터: [작업 그룹] = `wgDataAnalyst`<br>
+![necked-wg](media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)는 리소스에서 9% 캡이 포함 된 차트를 보여 줍니다. 작업 그룹은 90% 이상 사용 됩니다 ( *최대 리소스 비율 메트릭 별 작업 그룹 할당*).  *작업 그룹 큐에 대기 중인 쿼리 메트릭에*표시 된 것 처럼 쿼리를 안정적으로 큐에 저장 합니다.  이 경우, `CAP_PERCENTAGE_RESOURCE` 9% 보다 큰 값으로 증가 하면 더 많은 쿼리를 동시에 실행할 수 있습니다.  `CAP_PERCENTAGE_RESOURCE`를 늘리려면 사용 가능한 리소스가 충분 하 고 다른 작업 그룹에 의해 격리 되지 않은 것으로 가정 합니다.  *유효 cap 리소스 백분율 메트릭을*확인 하 여 단면 증가를 확인 합니다.  더 많은 처리량이 필요한 경우에는 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 3 보다 큰 값으로 늘릴 수도 있습니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 높이면 쿼리가 더 빠르게 실행 될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [빠른 시작: T-sql을 사용 하 여 워크 로드 격리 구성](quickstart-configure-workload-isolation-tsql.md)<br>

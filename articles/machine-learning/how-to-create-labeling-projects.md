@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 019c75e67534198494d7591602bd5f9023704a1d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533106"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75765072"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -49,7 +49,7 @@ Machine Learning에서는 프로젝트를 시작 및 중지하고, 사용자와 
 
 레이블 지정 프로젝트는 Azure Machine Learning에서 관리됩니다. **레이블 지정 프로젝트** 페이지를 사용하여 프로젝트와 사용자를 관리합니다. 프로젝트에는 하나 이상의 팀이 할당되고, 팀에는 한 명 이상의 사용자가 할당됩니다.
 
-데이터가 이미 Azure Blob 스토리지에 있는 경우 레이블 지정 프로젝트를 만들기 전에 해당 스토리지를 데이터 저장소로 사용할 수 있도록 해야 합니다. 자세한 내용은 [데이터 저장소 만들기 및 등록](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores)을 참조하세요.
+데이터가 이미 Azure Blob 스토리지에 있는 경우 레이블 지정 프로젝트를 만들기 전에 해당 스토리지를 데이터 저장소로 사용할 수 있도록 해야 합니다. 자세한 내용은 [데이터 저장소 만들기 및 등록](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)을 참조하세요.
 
 프로젝트를 만들려면 **프로젝트 추가**를 선택합니다. 프로젝트에 대한 적절한 이름을 지정하고, **레이블 지정 작업 유형**을 선택합니다.
 
