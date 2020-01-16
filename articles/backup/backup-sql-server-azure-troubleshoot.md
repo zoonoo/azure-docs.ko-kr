@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 57630749b53224032c763481d12e33366274f13f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659256"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978780"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -52,7 +52,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
 | 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | 요청된 백업 유형을 데이터베이스 복구 모델에서 허용하지 않을 때 발생합니다. 이 오류는 다음과 같은 상황에서 발생할 수 있습니다. <br/><ul><li>단순 복구 모델을 사용 하는 데이터베이스에서는 로그 백업을 허용 하지 않습니다.</li><li>Master 데이터베이스에 대해서는 차등 및 로그 백업이 허용 되지 않습니다.</li></ul>자세한 내용은 [SQL Server 복구 모델](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) 설명서를 참조 하세요. | 단순 복구 모델에서 데이터베이스에 대 한 로그 백업이 실패 하는 경우 다음 옵션 중 하나를 시도 합니다.<ul><li>데이터베이스가 단순 복구 모드인 경우 로그 백업을 사용하지 않도록 설정합니다.</li><li>[SQL Server 설명서](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) 를 사용 하 여 데이터베이스 복구 모델을 전체 또는 대량 로그로 변경 합니다. </li><li> 여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있고 복구 모델을 변경하지 않으려는 경우에는 오류를 무시합니다. 전체 및 차등 백업은 일정에 따라 작동합니다. 로그 백업은 예상대로 건너뜁니다.</li></ul>Master 데이터베이스이 고 차등 또는 로그 백업을 구성한 경우 다음 단계 중 하나를 사용 합니다.<ul><li>포털을 사용 하 여 master 데이터베이스의 백업 정책 일정을 전체로 변경 합니다.</li><li>여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있는 경우에는 오류를 무시합니다. 전체 백업은 일정에 따라 작동합니다. 차등 또는 로그 백업은 예상대로 발생하지 않습니다.</li></ul> |
-| 충돌하는 작업이 동일한 데이터베이스에서 이미 실행 중이기 때문에 작업이 취소되었습니다. | 동시에 실행 되는 [백업 및 복원 제한 사항에 대 한 블로그 항목](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) 을 참조 하세요.| [SSMS (SQL Server Management Studio)를 사용 하 여 백업 작업을 모니터링할 수](manage-monitor-sql-database-backup.md)있습니다. 충돌 하는 작업이 실패 한 후 작업을 다시 시작 합니다.|
+| 충돌하는 작업이 동일한 데이터베이스에서 이미 실행 중이기 때문에 작업이 취소되었습니다. | 동시에 실행 되는 [백업 및 복원 제한 사항에 대 한 블로그 항목](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) 을 참조 하세요.| [SSMS (SQL Server Management Studio)를 사용 하 여 백업 작업을 모니터링할 수](manage-monitor-sql-database-backup.md)있습니다. 충돌 하는 작업이 실패 한 후 작업을 다시 시작 합니다.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 

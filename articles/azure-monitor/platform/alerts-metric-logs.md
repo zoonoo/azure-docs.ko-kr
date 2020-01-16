@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d6b65b76138cb180ab105631ebc0f19b7d38f206
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358312bcbb23aee5a06eaa39898ff4e632cd8b4b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226530"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977611"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "74226530"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor는 [클래식 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md)보다 이점이 있는 [메트릭 경고 유형](../../azure-monitor/platform/alerts-classic-portal.md)을 지원합니다. [다양한 Azure 서비스](../../azure-monitor/platform/metrics-supported.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다.
+Azure Monitor는 [클래식 경고](../../azure-monitor/platform/alerts-classic-portal.md)보다 이점이 있는 [메트릭 경고 유형](../../azure-monitor/platform/alerts-metric-near-real-time.md)을 지원합니다. [다양한 Azure 서비스](../../azure-monitor/platform/metrics-supported.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다.
 
 Azure 또는 온-프레미스의 리소스를 포함 하 여 로그에서 메트릭의 일부로 추출 된 인기 있는 Log Analytics 로그에서 메트릭 경고를 사용할 수 있습니다. 지원되는 Log Analytics 솔루션은 다음과 같습니다.
 
@@ -70,10 +70,10 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 - 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고로 선택한 신호는 **메트릭** 유형입니다.
 - 차원 필터를 사용하여 특정 조건 또는 리소스를 필터링합니다. 로그에 대한 메트릭은 다차원입니다.
 - *신호 논리*를 구성할 때 단일 경고를 만들어 여러 차원 값(예: 컴퓨터)에 걸쳐 있을 수 있습니다.
-- Azure Portal을 사용하여 선택한 **Log Analytics 작업 영역**에 대한 메트릭 경고를 만들지 *않는* 경우, 사용자는 먼저 [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)을 사용하여 로그 데이터를 메트릭으로 변환하는 명시적 규칙을 수동으로 만들어야 합니다.
+- Azure Portal을 사용하여 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고를 만들지 **않는** 경우, 사용자는 먼저 [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)을 사용하여 로그 데이터를 메트릭으로 변환하는 명시적 규칙을 수동으로 만들어야 합니다.
 
 > [!NOTE]
-> Azure Portal을 통해 Log Analytics 작업 영역에 대한 메트릭 경고를 만드는 경우, [사용자가 개입하거나 작업할 필요 없이](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) *Azure Monitor - 예약된 쿼리 규칙*을 통해 로그 데이터를 메트릭으로 변환하는 해당 규칙이 백그라운드에서 자동으로 만들어집니다. Azure Portal 이외의 수단을 사용하여 로그 메트릭 경고를 만드는 경우, 메트릭 경고를 만들기 전에 ScheduledQueryRule 기반 로그를 메트릭 변환 규칙으로 만드는 샘플 수단에 대한 [로그 메트릭 경고에 대한 리소스 템플릿](#resource-template-for-metric-alerts-for-logs) 섹션을 참조하세요. 그렇지 않으면 만들어진 로그 메트릭 경고에 대한 데이터가 없습니다.
+> Azure Portal을 통해 Log Analytics 작업 영역에 대한 메트릭 경고를 만드는 경우, *사용자가 개입하거나 작업할 필요 없이*[Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)을 통해 로그 데이터를 메트릭으로 변환하는 해당 규칙이 백그라운드에서 자동으로 만들어집니다. Azure Portal 이외의 수단을 사용하여 로그 메트릭 경고를 만드는 경우, 메트릭 경고를 만들기 전에 ScheduledQueryRule 기반 로그를 메트릭 변환 규칙으로 만드는 샘플 수단에 대한 [로그 메트릭 경고에 대한 리소스 템플릿](#resource-template-for-metric-alerts-for-logs) 섹션을 참조하세요. 그렇지 않으면 만들어진 로그 메트릭 경고에 대한 데이터가 없습니다.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>로그 메트릭 경고에 대한 리소스 템플릿
 
@@ -357,7 +357,7 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 }
 ```
 
-위의 매개 변수 파일이 metricfromLogsAlertStatic.parameters.json으로 저장되었다고 가정하면 [Azure Portal에서 만들기 위한 리소스 템플릿](../../azure-resource-manager/resource-group-template-deploy-portal.md)을 사용하여 로그 메트릭 경고를 만들 수 있습니다.
+위의 매개 변수 파일이 metricfromLogsAlertStatic.parameters.json으로 저장되었다고 가정하면 [Azure Portal에서 만들기 위한 리소스 템플릿](../../azure-resource-manager/templates/deploy-portal.md)을 사용하여 로그 메트릭 경고를 만들 수 있습니다.
 
 또는 아래의 Azure Powershell 명령을 사용할 수도 있습니다.
 
@@ -673,7 +673,7 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 }
 ```
 
-위의 매개 변수 파일이 metricfromLogsAlertDynamic.parameters.json으로 저장되었다고 가정하면 [Azure Portal에서 만들기 위한 리소스 템플릿](../../azure-resource-manager/resource-group-template-deploy-portal.md)을 사용하여 로그 메트릭 경고를 만들 수 있습니다.
+위의 매개 변수 파일이 metricfromLogsAlertDynamic.parameters.json으로 저장되었다고 가정하면 [Azure Portal에서 만들기 위한 리소스 템플릿](../../azure-resource-manager/templates/deploy-portal.md)을 사용하여 로그 메트릭 경고를 만들 수 있습니다.
 
 또는 아래의 Azure Powershell 명령을 사용할 수도 있습니다.
 

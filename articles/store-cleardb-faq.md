@@ -1,5 +1,5 @@
 ---
-title: Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
+title: Azure App Service를 사용하는 ClearDB MySql 데이터베이스에 대한 FAQ
 description: Azure App Service를 사용하는 ClearDB MySQL 데이터베이스를 사용하는 방법에 대한 일반적인 질문에 대한 답변입니다.
 documentationcenter: php
 services: mysql
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7b6d38f7755ebd97791959a5a414b09fe4ac769b
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ddbf1eb960a24cfaa8d09ab45b6febca07e6d504
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718008"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979921"
 ---
-# <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
+# <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySql 데이터베이스에 대한 FAQ
 이 FAQ는 Azure Web Apps용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.
 
 > [!IMPORTANT]
@@ -39,9 +39,9 @@ Azure에서 MySQL 호스팅에 대한 몇 가지 다른 옵션이 있습니다.
 사용하고 있는 구독 유형에 따라 다릅니다. 다음은 일반적으로 사용되는 구독 유형입니다.
 
 * [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/): 신용 카드가 필요하며 유료 MySQL 데이터베이스를 구매하는 경우 신용 카드로 요금이 청구됩니다.
-* [평가판](https://azure.microsoft.com/pricing/free-trial/): Microsoft Azure 서비스에서 사용할 크레딧이 포함되어 있지만 타사 리소스의 구매에는 사용할 수 없습니다. 타사 서비스 또는 유료 MySQL 데이터베이스를 구매하려면 신용 카드가 설정된 구독을 사용해야 합니다. Web Apps의 경우 무료 ClearDB MySQL 데이터베이스를 만들 수 있습니다.
-* [MSDN 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 및 **MSDN 개발 테스트 종량제**: 평가판과 유사한 MSDN 구독을 사용하려면 신용 카드로 ClearDB의 유료 MySQL 솔루션을 구매해야 합니다.
-* [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA 고객은 Azure Marketplace(타사)에서 구매한 모든 제품에 대해 EA 분기별로 별도의 통합 청구서로 청구됩니다. 모든 마켓플레이스에서 구매한 제품은 현금 약정 금액과 별도로 청구됩니다. 현재 아제르바이잔, 크로아티아, 노르웨이 및 푸에르토리코에서 등록한 고객은 Azure 저장소를 사용할 수 없습니다. 
+* [무료 평가판](https://azure.microsoft.com/pricing/free-trial/): Microsoft Azure 서비스에서 사용할 크레딧이 포함되어 있지만 타사 리소스의 구매에는 사용할 수 없습니다. 타사 서비스 또는 유료 MySQL 데이터베이스를 구매하려면 신용 카드가 설정된 구독을 사용해야 합니다. Web Apps의 경우 무료 ClearDB MySQL 데이터베이스를 만들 수 있습니다.
+* [MSDN 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 및 **MSDN 개발 테스트 종량제**: 무료 평가판과 유사한 MSDN 구독을 사용하려면 신용 카드로 ClearDB의 유료 MySQL 솔루션을 구매해야 합니다.
+* [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA 고객은 Azure Marketplace(타사)에서 구매한 모든 제품에 대해 EA 분기별로 별도의 통합 청구서로 청구됩니다. 모든 마켓플레이스에서 구매한 제품은 현금 약정 금액과 별도로 청구됩니다. 현재 아제르바이잔, 크로아티아, 노르웨이 및 푸에르토리코에서 등록한 고객은 Azure 저장소를 사용할 수 없습니다. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>왜 Azure Marketplace에서 웹앱+ MySQL에 대해 3.50달러가 청구되었나요?
 기본 데이터베이스 옵션은 3.50달러인 Titan입니다. 데이터베이스를 만드는 동안 비용이 표시되지 않으므로 의도하지 않은 데이터베이스를 실수로 구매할 수도 있습니다. 환경을 개선할 방법을 찾으려고 노력하고 있습니다. 그 전까지는 **만들기**를 클릭하고 리소스를 배포하기 전에 웹앱 및 데이터베이스에 대해 선택한 가격 책정 계층을 모두 확인해야 합니다.
@@ -49,7 +49,7 @@ Azure에서 MySQL 호스팅에 대한 몇 가지 다른 옵션이 있습니다.
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Azure 가상 머신에서 MySQL을 실행하고 있습니다. Azure 웹앱을 내 데이터베이스에 연결할 수 있나요?
 예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 머신에 MySQL 설치](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
-## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>국가/지역 ClearDB 프리미엄 MySQL 클러스터가 지원 되는?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>ClearDB 프리미엄 MySQL 클러스터가 지원 되는 국가/지역은 어디 인가요?
 ClearDB 프리미엄 MySQL 클러스터는 인도, 오스트레일리아, 브라질 남부 및 중국을 제외한 전 세계 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>ClearDB 프리미엄 클러스터 솔루션을 사용하여 데이터베이스를 만들기 전에 새 클러스터를 만들 수 있나요?
@@ -68,19 +68,19 @@ Web Apps의 경우 기본이나 더 높은 가격 책정 계층을 사용합니�
 [Azure Portal](https://portal.azure.com)의 경우 ClearDB 공유 호스팅 데이터베이스를 강화할 수 있습니다. 자세한 내용은 이 [문서](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/)를 참조하세요. 현재는 Azure Portal에서 ClearDB 프리미엄 클러스터에 대한 업그레이드를 지원하지 않습니다.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Azure Portal에서 내 ClearDB 데이터베이스를 볼 수 없나요?
-클래식에서 ClearDB 데이터베이스를 만든 경우 있습니다 됩니다 수 없습니다에서 데이터베이스를 [Azure portal](https://portal.azure.com)합니다. 이 시나리오의 경우 해결 방법이 없습니다.
+클래식에서 ClearDB 데이터베이스를 만든 경우에는 [Azure Portal](https://portal.azure.com)에서 데이터베이스를 볼 수 없습니다. 이 시나리오의 경우 해결 방법이 없습니다.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>데이터베이스가 다운되었을 때 지원을 받으려면 누구에게 문의해야 하나요?
 데이터베이스 관련 문제에 대해서는 [ClearDB 지원](https://www.cleardb.com/developers/help/support) 에 문의하세요. Azure 구독 정보를 제공해야 하므로 준비합니다.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>ClearDB MySQL 데이터베이스 클러스터 솔루션에 대한 추가 사용자를 만들 수 있나요?
-아니요. 추가 사용자를 만들 수는 없지만 ClearDB 데이터베이스 클러스터에서 추가 데이터베이스를 만들 수 있습니다.  
+아닙니다. 추가 사용자를 만들 수는 없지만 ClearDB 데이터베이스 클러스터에서 추가 데이터베이스를 만들 수 있습니다.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>Basic/Pro 시리즈 데이터베이스를 오늘날 Planetary 계획처럼 ClearDB 포털에서 전체 업그레이드할 수 있나요?
 예, Basic 시리즈 데이터베이스는 전체 업그레이드(Basic 60 ~ Basic 500)할 수 있습니다. Pro 시리즈는 Pro 60을 제외하고 전체 업그레이드(Pro 125 ~ Pro 1000)할 수 있습니다. 현재 Pro 60 데이터베이스 업그레이드는 지원되지 않습니다. 
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>리소스를 하나의 구독에서 다른 구독으로 마이그레이션할 때 ClearDB MySQL 데이터베이스도 마이그레이션되나요?
-구독 간에 리소스 마이그레이션을 수행할 때 일부 [제한 사항](azure-resource-manager/move-support-resources.md) 이 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다. 
+구독 간에 리소스 마이그레이션을 수행할 때 일부 [제한 사항](azure-resource-manager/management/move-support-resources.md) 이 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다. 
 
 ## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>내 구독에서 지출 한도에 도달했습니다. 한도를 삭제했고 App Service는 온라인 상태지만 데이터베이스에 액세스할 수 없습니다. 어떻게 ClearDB 데이터베이스를 다시 사용하나요?
 [ClearDB 지원](https://www.cleardb.com/developers/help/support)에 연락하여 데이터베이스를 다시 사용합니다. Azure 구독 정보와 데이터베이스 이름을 제공합니다.

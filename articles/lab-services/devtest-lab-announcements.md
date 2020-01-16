@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84120b07de3a03a049493eb973b6dc46f8668387
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311529"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976441"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 공지 게시
 
@@ -160,10 +160,10 @@ ms.locfileid: "60311529"
 
 다음 방법 중 하나를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다.
 
-- [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-- [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+- [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+- [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="next-steps"></a>다음 단계
 * 랩 정책을 변경하거나 설정하는 경우 사용자에게 알리기 위해 공지를 게시할 수 있습니다. [정책 및 일정 설정](devtest-lab-set-lab-policy.md)은 사용자 지정된 정책을 사용하여 구독에 제한 사항 및 규칙을 적용하는 방법에 대한 정보를 제공합니다.

@@ -4,12 +4,12 @@ description: 함수 앱을 배포하는 Azure Resource Manager 템플릿을 빌�
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 6d5b7b33bfb2645128a545bb371c70188a724c40
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920612"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978798"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -372,7 +372,7 @@ Linux에서 함수 앱은 `kind` `functionapp,linux`로 설정 되어야 하 고
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## <a name="deploy-on-app-service-plan"></a>App Service 계획에 배포
 
@@ -419,7 +419,7 @@ Linux에서 앱을 실행 하려면 `Linux`에도 `kind` 설정 해야 합니다
 }
 ```
 
-### <a name="create-a-function-app"></a>함수 앱 만들기 
+### <a name="create-a-function-app"></a>함수 앱 만들기
 
 App Service 계획의 함수 앱에는 앞에서 만든 계획의 리소스 ID로 설정 된 `serverFarmId` 속성이 있어야 합니다.
 
@@ -637,10 +637,10 @@ App Service 계획의 함수 앱에는 앞에서 만든 계획의 리소스 ID�
 
 다음 방법 중 하나를 사용하여 템플릿을 배포할 수 있습니다.
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
 

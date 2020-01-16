@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f4612232acfe6099c56d365e482cbc82c8436dee
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745618"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977650"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 합니다.
 
 > [!WARNING]
-> 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](diagnostic-settings-subscription.md)을 참조 하세요.
+> 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](diagnostic-settings-legacy.md)을 참조 하세요.
 
 Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에 활동 로그를 수집 하는 방법과이 데이터를 분석 하기 위한 로그 쿼리 및 보기를 제공 하는 활동 로그 분석 [모니터링 솔루션](../insights/solutions.md)을 사용 하는 방법을 설명 합니다. 
 
@@ -32,7 +32,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 �
 단일 작업 영역을 동일한 Azure 테 넌 트의 여러 구독에 대 한 활동 로그에 연결할 수 있습니다. 여러 테 넌 트에 걸친 컬렉션의 경우 [다른 Azure Active Directory 테 넌 트의 구독에서 Log Analytics 작업 영역으로 Azure 활동 로그 수집](activity-log-collect-tenants.md)을 참조 하세요.
 
 > [!IMPORTANT]
-> OperationalInsights 및 Microsoft.operationsmanagement 리소스 공급자가 구독에 등록 되지 않은 경우 다음 절차에 따라 오류가 발생할 수 있습니다. 이러한 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md) 을 참조 하세요.
+> OperationalInsights 및 Microsoft.operationsmanagement 리소스 공급자가 구독에 등록 되지 않은 경우 다음 절차에 따라 오류가 발생할 수 있습니다. 이러한 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md) 을 참조 하세요.
 
 활동 로그를 Log Analytics 작업 영역에 연결 하려면 다음 절차를 따르십시오.
 

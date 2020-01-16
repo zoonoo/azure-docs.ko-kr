@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 02655a3697139ae3a9c4c36b423b874b6e5d34f9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541869"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974101"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스인 이란?
 
@@ -54,7 +54,7 @@ Azure Machine Learning compute 인스턴스를 사용 하면 작업 영역에서
 |Intel MPI 라이브러리||
 |Azure CLI ||
 |Azure Machine Learning 샘플 ||
-|Azure Machine Learning EDAT 엔진 ||            
+|Azure Machine Learning EDAT 엔진 ||
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
@@ -76,11 +76,26 @@ Azure Machine Learning compute 인스턴스를 사용 하면 작업 영역에서
 |기타 PyPI 패키지|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda 패키지|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |심층 학습 패키지|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
-|ONNX 패키지|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
+|ONNX 패키지|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Python & R SDK 샘플 Azure Machine Learning||
+
+Python 패키지는 모두 **python 3.6-AzureML** 환경에 설치 됩니다.  
 
 계산 인스턴스는 일반적으로 개발 환경으로 사용 됩니다.  개발 및 테스트를 위한 학습 및 추론 계산 대상으로 사용할 수도 있습니다.  대량 작업의 경우 다중 노드 크기 조정 기능을 사용 하는 [Azure Machine Learning 계산 클러스터가](how-to-set-up-training-targets.md#amlcompute) 더 나은 계산 대상 선택입니다.
 
+### <a name="installing-packages"></a>패키지 설치
+
+Jupyter 노트북 또는 Rstudio에 직접 패키지를 설치할 수 있습니다.
+
+* RStudio 오른쪽 아래에 있는 **패키지** 탭 또는 왼쪽 위에 있는 **콘솔** 탭을 사용 합니다.  
+* Python: 설치 코드를 추가 하 고 Jupyter 노트북 셀에를 실행 합니다.
+
+또는 다음과 같은 방법으로 터미널 창에 액세스할 수 있습니다.
+
+* RStudio: 왼쪽 위에서 **터미널** 탭을 선택 합니다.
+* Jupyter 랩: 시작 관리자 탭의 **다른** 제목 아래에서 **터미널** 타일을 선택 합니다.
+* Jupyter: 파일 탭의 오른쪽 위에 있는 **새 > 터미널** 을 선택 합니다.
+* 컴퓨터에 SSH를 합니다.  Python 패키지를 **python 3.6-AzureML** 환경에 설치 합니다.  R 패키지를 **r** 환경에 설치 합니다.
 
 ## <a name="accessing-files"></a>파일에 액세스
 

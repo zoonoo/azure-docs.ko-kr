@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b549cc0e890a122a04984baa2348831fc51abe08
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531006"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977549"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure에서 진단 설정 만들기
-의 [진단 설정](diagnostic-settings.md) Azure Monitor azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 의해 수집 되는 [플랫폼 로그](platform-logs-overview.md) 를 보낼 위치를 지정 합니다. 이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/resource-group-authoring-templates.md) 사용 하 여 다른 대상에 플랫폼 로그를 수집 하는 진단 설정을 만들고 구성 하는 방법에 대 한 자세한 내용과 예제를 제공 합니다. 
+의 [진단 설정](diagnostic-settings.md) Azure Monitor azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 의해 수집 되는 [플랫폼 로그](platform-logs-overview.md) 를 보낼 위치를 지정 합니다. 이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 다른 대상에 플랫폼 로그를 수집 하는 진단 설정을 만들고 구성 하는 방법에 대 한 자세한 내용과 예제를 제공 합니다.
 
 > [!NOTE]
 > 다른 Azure 리소스에 대 한 진단 설정 같은 PowerShell 또는 CLI를 사용 하 여 Azure 활동 로그에 대 한 [진단 설정을 만들](diagnostic-settings.md) 수 없으므로이 문서의 정보를 사용 하 여 활동 로그에 대 한 리소스 관리자 템플릿을 만들고 POWERSHELL 또는 CLI를 사용 하 여 템플릿을 배포 합니다.
 
 ## <a name="deployment-methods"></a>배포 방법
-PowerShell 및 CLI를 비롯 한 유효한 메서드를 사용 하 여 리소스 관리자 템플릿을 배포할 수 있습니다. 활동 로그에 대 한 진단 설정은 CLI 용 `az deployment create` 또는 PowerShell 용 `New-AzDeployment`를 사용 하 여 구독에 배포 해야 합니다. 리소스 로그에 대 한 진단 설정은 CLI 용 `az group deployment create` 또는 PowerShell 용 `New-AzResourceGroupDeployment`를 사용 하 여 리소스 그룹에 배포 해야 합니다. 
+PowerShell 및 CLI를 비롯 한 유효한 메서드를 사용 하 여 리소스 관리자 템플릿을 배포할 수 있습니다. 활동 로그에 대 한 진단 설정은 CLI 용 `az deployment create` 또는 PowerShell 용 `New-AzDeployment`를 사용 하 여 구독에 배포 해야 합니다. 리소스 로그에 대 한 진단 설정은 CLI 용 `az group deployment create` 또는 PowerShell 용 `New-AzResourceGroupDeployment`를 사용 하 여 리소스 그룹에 배포 해야 합니다.
 
-자세한 내용은 [리소스 관리자 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) 및 [리소스 관리자 템플릿 및 Azure CLI를 사용 하 여 리소스](../../azure-resource-manager/resource-group-template-deploy-cli.md) 배포를 참조 하세요. 
+자세한 내용은 [리소스 관리자 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) 및 [리소스 관리자 템플릿 및 Azure CLI를 사용 하 여 리소스](../../azure-resource-manager/templates/deploy-cli.md) 배포를 참조 하세요. 
 
 
 
@@ -33,7 +33,7 @@ PowerShell 및 CLI를 비롯 한 유효한 메서드를 사용 하 여 리소스
 ## <a name="resource-logs"></a>리소스 로그
 리소스 로그의 경우 `<resource namespace>/providers/diagnosticSettings` 형식의 리소스를 템플릿에 추가 합니다. 속성 섹션은 [진단 설정-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)에 설명 된 형식을 따릅니다. 수집 하려는 리소스에 대해 유효한 각 범주에 대 한 `logs` 섹션에 `category`을 제공 합니다. [리소스가 메트릭을 지 원하는](metrics-supported.md)경우 리소스 메트릭을 동일한 대상으로 수집 하려면 `metrics` 속성을 추가 합니다.
 
-다음은 Log Analytics 작업 영역, 저장소 계정 및 이벤트 허브에 대 한 특정 리소스의 리소스 로그 범주를 수집 하는 템플릿입니다. 
+다음은 Log Analytics 작업 영역, 저장소 계정 및 이벤트 허브에 대 한 특정 리소스의 리소스 로그 범주를 수집 하는 템플릿입니다.
 
 ```json
 "resources": [
@@ -50,7 +50,7 @@ PowerShell 및 CLI를 비롯 한 유효한 메서드를 사용 하 여 리소스
       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
       "eventHubName": "[parameters('eventHubName')]",
       "workspaceId": "[parameters('workspaceId')]",
-      "logs": [ 
+      "logs": [
         {
           "category": "<category name>",
           "enabled": true

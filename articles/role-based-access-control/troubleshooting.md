@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707774"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980982"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
@@ -41,13 +41,13 @@ ms.locfileid: "74707774"
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>테넌트에서 구독이 이동될 때 RBAC 복구
 
-- 다른 Azure AD 테 넌 트에 구독을 전송 하는 방법에 대 한 단계가 필요한 경우 [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)을 참조 하세요.
+- 다른 Azure AD 테 넌 트에 구독을 전송 하는 방법에 대 한 단계가 필요한 경우 [Azure 구독의 소유권을 다른 계정으로 이전](../cost-management-billing/manage/billing-subscription-transfer.md)을 참조 하세요.
 - 구독을 다른 Azure AD 테넌트로 전송하는 경우 모든 역할 할당이 원본 Azure AD 테넌트에서 영구적으로 삭제되고 대상 Azure AD 테넌트로 마이그레이션되지 않습니다. 대상 테넌트에서 역할 할당을 다시 만들어야 합니다. 또한 Azure 리소스에 대 한 관리 되는 id를 수동으로 다시 만들어야 합니다. 자세한 내용은 [관리 id의 faq 및 알려진 문제](../active-directory/managed-identities-azure-resources/known-issues.md)를 참조 하세요.
 - Azure AD 전역 관리자이 고 테 넌 트 간에 이동 된 후 구독에 대 한 액세스 권한이 없는 경우 **azure 리소스에 대 한 액세스 관리** 를 사용 하 여 구독에 대 한 액세스 권한을 일시적으로 [상승](elevate-access-global-admin.md) 시킬 수 있습니다.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>서비스 관리자 또는 공동 관리자 관련 문제
 
-- 서비스 관리자 또는 공동 관리자에 게 문제가 있는 경우 [azure 구독 관리자](../billing/billing-add-change-azure-subscription-administrator.md) 및 [클래식 구독 관리자 역할, azure RBAC 역할 및 azure AD 관리자 역할](rbac-and-directory-admin-roles.md)추가 또는 변경을 참조 하세요.
+- 서비스 관리자 또는 공동 관리자에 게 문제가 있는 경우 [azure 구독 관리자](../cost-management-billing/manage/add-change-subscription-administrator.md) 및 [클래식 구독 관리자 역할, azure RBAC 역할 및 azure AD 관리자 역할](rbac-and-directory-admin-roles.md)추가 또는 변경을 참조 하세요.
 
 ## <a name="access-denied-or-permission-errors"></a>액세스 거부 또는 사용 권한 오류
 
@@ -56,7 +56,7 @@ ms.locfileid: "74707774"
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>보안 주체를 알 수 없는 역할 할당
 
-보안 주체 (사용자, 그룹, 서비스 주체 또는 관리 id)에 역할을 할당 하 고 나중에 역할 할당을 제거 하지 않고 해당 보안 주체를 삭제 하는 경우 역할 할당의 보안 주체 형식이 **알 수 없음**으로 나열 됩니다. 다음 스크린샷은 Azure Portal의 예를 보여 줍니다. 보안 주체 이름이 **identity deleted** 로 나열 되 고 **id가 더 이상 존재 하지**않습니다. 
+보안 주체 (사용자, 그룹, 서비스 주체 또는 관리 id)에 역할을 할당 하 고 나중에 역할 할당을 제거 하지 않고 해당 보안 주체를 삭제 하는 경우 역할 할당의 보안 주체 형식이 **알 수 없음**으로 나열 됩니다. 다음 스크린샷은 Azure Portal에서의 예를 보여줍니다. 보안 주체 이름이 **identity deleted** 로 나열 되 고 **id가 더 이상 존재 하지**않습니다. 
 
 ![웹앱 리소스 그룹](./media/troubleshooting/unknown-security-principal.png)
 

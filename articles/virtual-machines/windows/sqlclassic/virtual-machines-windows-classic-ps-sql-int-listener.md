@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 29aaedeafb3995cc09e221d2e049dd538808904a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032666"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978162"
 ---
 # <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Azure SQL Server Vm에서 가용성 그룹에 대 한 ILB 수신기 구성
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "74032666"
 ## <a name="overview"></a>개요
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델, 즉 [Azure Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 클래식 배포 모델의 사용에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델, 즉 [Azure Resource Manager 및 클래식](../../../azure-resource-manager/management/deployment-models.md) 모델이 있습니다. 이 문서에서는 클래식 배포 모델의 사용에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다.
 
 Resource Manager 모델에서 Always On 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
 

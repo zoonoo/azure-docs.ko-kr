@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 09179ff0cf8275e96cb87e0c183eb4a384dcb37b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564721"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021201"
 ---
 성능, 가용성 및 중복성을 최대화하는 옵션을 함께 Azure에서 VMs(가상 머신)가 작동하는 위치와 방법을 이해하는 것이 중요합니다. 이 문서에서는 Azure의 가용성 및 중복성 기능에 대 한 개요를 제공합니다.
 
@@ -51,7 +51,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 [여기에서 전체 지역 쌍 목록](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)을 확인할 수 있습니다.
 
 ## <a name="feature-availability"></a>기능 지원
-일부 서비스 또는 VM 기능(예: 특정 VM 크기 또는 스토리지 형식)은 특정 지역에서만 사용할 수 있습니다. [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) 또는 [Azure DNS](../articles/dns/dns-overview.md)와 같이 특정 지역을 선택하지 않아도 되는 전역 Azure 서비스도 있습니다. 애플리케이션 환경 설계에 도움이 되도록 [각 지역의 Azure 서비스 가용성](https://azure.microsoft.com/regions/#services)을 확인할 수 있습니다. [각 지역에서 지원되는 VM 크기 및 제한을 프로그래밍 방식으로 쿼리](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)할 수도 있습니다.
+일부 서비스 또는 VM 기능(예: 특정 VM 크기 또는 스토리지 형식)은 특정 지역에서만 사용할 수 있습니다. [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) 또는 [Azure DNS](../articles/dns/dns-overview.md)와 같이 특정 지역을 선택하지 않아도 되는 전역 Azure 서비스도 있습니다. 애플리케이션 환경 설계에 도움이 되도록 [각 지역의 Azure 서비스 가용성](https://azure.microsoft.com/regions/#services)을 확인할 수 있습니다. [각 지역에서 지원되는 VM 크기 및 제한을 프로그래밍 방식으로 쿼리](../articles/azure-resource-manager/templates/error-sku-not-available.md)할 수도 있습니다.
 
 ## <a name="storage-availability"></a>스토리지 가용성
 사용 가능한 스토리지 복제 옵션을 고려할 때 Azure 지역 및 지리적 위치를 이해하는 것이 중요합니다. 스토리지 형식에 따라 여러 복제 옵션이 있습니다.

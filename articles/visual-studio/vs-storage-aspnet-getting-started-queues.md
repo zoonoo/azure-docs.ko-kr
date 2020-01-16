@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5b57f171a9407acea8231d796a80c3a1cc1d9474
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f229661ca78dc75adbc0b49073dc6f0feaf2ba22
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300103"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980747"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET)
 
@@ -30,10 +30,10 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
 
 이 자습서에서는 Azure Queue Storage 항목을 사용하여 몇 가지 일반적인 시나리오에 대한 ASP.NET 코드를 작성하는 방법을 보여 줍니다. 이러한 시나리오는 Azure 큐 작성, 큐 메시지 추가, 수정, 읽기 및 제거와 같은 일반적인 작업을 포함합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)
+* [Azure Storage 계정](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -84,7 +84,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
     }
     ```
 
-1. **CreateQueue** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **CreateQueue** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 스토리지 연결 문자열과 스토리지 계정 정보를 가져옵니다( *&lt;storage-account-name&gt;* 을 액세스하는 Azure 스토리지 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -165,7 +165,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
     }
     ```
  
-1. **AddMessage** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **AddMessage** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 스토리지 연결 문자열과 스토리지 계정 정보를 가져옵니다( *&lt;storage-account-name&gt;* 을 액세스하는 Azure 스토리지 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -254,7 +254,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
     }
     ```
  
-1. **PeekMessage** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **PeekMessage** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 스토리지 연결 문자열과 스토리지 계정 정보를 가져옵니다( *&lt;storage-account-name&gt;* 을 액세스하는 Azure 스토리지 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -279,7 +279,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. 읽힌 큐 이름 및 메시지의 두 값으로 **ViewBag**을 업데이트합니다. **CloudQueueMessage** 개체는 개체의 값을 가져오기 위한 두 가지 속성을 노출 합니다. **CloudQueueMessage** 및 **CloudQueueMessage**. **AsString**(이 예제에서 사용)은 문자열을 반환하는 반면 **AsBytes**는 바이트 배열을 반환합니다.
+1. 읽힌 큐 이름 및 메시지의 두 값으로 **ViewBag**을 업데이트합니다. **CloudQueueMessage** 개체는 개체의 값을 가져오기 위해 두 개의 속성(**CloudQueueMessage.AsBytes** 및 **CloudQueueMessage.AsString**)을 노출합니다. **AsString**(이 예제에서 사용)은 문자열을 반환하는 반면 **AsBytes**는 바이트 배열을 반환합니다.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -338,7 +338,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
     }
     ```
  
-1. **ReadMessage** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **ReadMessage** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 스토리지 연결 문자열과 스토리지 계정 정보를 가져옵니다( *&lt;storage-account-name&gt;* 을 액세스하는 Azure 스토리지 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -429,7 +429,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
     }
     ```
  
-1. **ReadMessage** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **ReadMessage** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 스토리지 연결 문자열과 스토리지 계정 정보를 가져옵니다( *&lt;storage-account-name&gt;* 을 액세스하는 Azure 스토리지 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -516,7 +516,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
     }
     ```
  
-1. **DeleteQueue** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **DeleteQueue** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. 다음 코드를 사용하여 Azure 서비스 구성에서 스토리지 연결 문자열과 스토리지 계정 정보를 가져옵니다( *&lt;storage-account-name&gt;* 을 액세스하는 Azure 스토리지 계정의 이름으로 변경).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -578,5 +578,5 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
 ## <a name="next-steps"></a>다음 단계
 Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
 
-  * [Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * PowerShell cmdlet 및 Azure CLI를 사용하여 Azure 응용 프로그램 관리의 일부로 File Storage 공유를 만들고, 탑재하고, 관리할 수 있습니다. Azure Portal 및 Azure 스토리지 탐색기를 사용하여 Azure 파일 공유를 만들고 관리할 수 있습니다.
   * [Azure Table Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET)](vs-storage-aspnet-getting-started-tables.md)

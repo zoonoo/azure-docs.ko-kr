@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: 143a697e509b96787ad3f52567f5a70fb7e5f4a4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 63f6be105def083354abf8c546d1c334f4daa70e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072956"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975389"
 ---
-# <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
+# <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치 및 구성하는 방법
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 문서에서는 Windows Server가 실행되는 기존 VM(가상 머신)에서 Symantec Endpoint Protection 클라이언트를 설치하고 구성하는 방법을 설명합니다. 이 전체 클라이언트는 바이러스 및 스파이웨어 보호, 방화벽, 침입 방지와 같은 서비스를 포함합니다. 이 클라이언트는 VM 에이전트를 사용하여 보안 확장 프로그램으로 설치됩니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "74072956"
 ## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>기존 VM에 Symantec Endpoint Protection 설치
 이 작업을 시작하려면 다음 조건을 충족해야 합니다.
 
-* Azure PowerShell 모듈 버전 0.8.2 이상이 작업 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다. 지침 및 최신 버전으로 연결되는 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법][PS]을 참조하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
+* Azure PowerShell 모듈 버전 0.8.2 이상이 작업 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대한 링크는 [Azure PowerShell을 설치 및 구성하는 방법][PS]을 참조하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
 * Azure Virtual Machine에서 VM 에이전트를 실행해야 합니다.
 
 먼저, VM 에이전트가 가상 머신에 이미 설치되어 있는지 확인합니다. 클라우드 서비스 이름과 가상 머신 이름을 입력하고 관리자 수준의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.

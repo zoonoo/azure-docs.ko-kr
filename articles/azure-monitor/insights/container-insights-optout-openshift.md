@@ -3,12 +3,12 @@ title: Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: e726d2d8254598869f1c6305421c674c870e3d31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97ca333f724dc4914dabda2912c4512a40520253
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404283"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977777"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 
@@ -16,13 +16,13 @@ Azure Red Hat OpenShift 클러스터의 모니터링을 사용 하도록 설정�
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. 하나는 모니터링을 중지 하는 구성을 지정 하는 JSON 템플릿이 고, 다른 하나에는 클러스터를 배포 하는 OpenShift 클러스터 리소스 ID 및 Azure 지역을 지정 하도록 구성 하는 매개 변수 값이 포함 됩니다. 
+리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. 하나는 모니터링을 중지 하는 구성을 지정 하는 JSON 템플릿이 고, 다른 하나에는 클러스터를 배포 하는 OpenShift 클러스터 리소스 ID 및 Azure 지역을 지정 하도록 구성 하는 매개 변수 값이 포함 됩니다.
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
-* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 ### <a name="create-template"></a>템플릿 만들기
 
@@ -90,7 +90,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 5. 이 파일을 로컬 폴더에 **OptOutParam.json**으로 저장합니다.
 
-6. 이제 이 템플릿을 배포할 수 있습니다. 
+6. 이제 이 템플릿을 배포할 수 있습니다.
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Azure CLI를 사용하여 솔루션 제거
 
@@ -98,7 +98,7 @@ Linux에서 Azure CLI를 사용 하 여 다음 명령을 실행 하 여 솔루�
 
 ```azurecli
 az login   
-az account set --subscription "Subscription Name" 
+az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
@@ -128,4 +128,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제 하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제](../../log-analytics/log-analytics-manage-del-workspace.md)를 참조 하세요. 
+클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제 하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제](../../log-analytics/log-analytics-manage-del-workspace.md)를 참조 하세요.

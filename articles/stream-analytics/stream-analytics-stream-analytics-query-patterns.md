@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 54d1b640a4067cf65fc28501840b4926455ec259
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: aa8bd6e89dd47c4e972a860691d1bc3779ba5bc7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903451"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982309"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Azure Stream Analytics의 일반적인 쿼리 패턴
 
@@ -836,7 +836,7 @@ From
 
 사용자 정의 함수는 사용 되는 모든 이벤트에 대해 HexValue의 *bigint* 값을 계산 합니다.
 
-자세한 내용은 [JavaScript](/stream-analytics/stream-analytics-javascript-user-defined-functions) 및 [C#](/stream-analytics/stream-analytics-edge-csharp-udf)을 참조 하십시오.
+자세한 내용은 [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) 및 [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf)을 참조 하십시오.
 
 ## <a name="advanced-pattern-matching-with-match_recognize"></a>MATCH_RECOGNIZE와 고급 패턴 일치
 

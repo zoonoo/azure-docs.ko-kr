@@ -4,15 +4,15 @@ description: Azure Analysis Services REST API를 사용 하 여 모델 데이터
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573388"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029866"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 
@@ -30,7 +30,7 @@ Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 �
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-예를 들어, 이름이 AdventureWorks이고, 미국 서부 Azure 지역의 myserver 서버에 있는 모델을 가정합니다. 서버 이름은 다음과 같습니다.
+예를 들어 미국 서 부 Azure 지역에 있는 `myserver`서버에서 AdventureWorks 라는 모델을 생각해 보겠습니다. 서버 이름은 다음과 같습니다.
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -93,26 +93,37 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 }
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
 매개 변수를 지정할 필요는 없습니다. 기본값이 적용됩니다.
 
-| 이름             | 형식  | 설명  |기본값  |
+| 이름             | 유형  | Description  |기본값  |
 |------------------|-------|--------------|---------|
 | `Type`           | 열거형  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
 | `CommitMode`     | 열거형  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
-| `MaxParallelism` | int   | 이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
-| `RetryCount`     | int   | 작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |
-| `Objects`        | String | 처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
+| `MaxParallelism` | Int   | 이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
+| `RetryCount`     | Int   | 작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |
+| `Objects`        | Array | 처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
 
 CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 데이터 세트의 초기 로드를 수행하는 경우에 사용됩니다. 하나 이상의 일괄 처리를 성공적으로 커밋한 후 새로 고침 작업이 실패하면, 성공적으로 커밋된 일괄 처리는 커밋된 상태로 유지됩니다(성공적으로 커밋된 일괄 처리는 롤백되지 않음).
 
 > [!NOTE]
 > 작성 당시의 일괄 처리 크기는 MaxParallelism 값이지만, 이 값은 변경될 수 있습니다.
 
+### <a name="status-values"></a>상태 값
+
+|상태 값  |Description  |
+|---------|---------|
+|`notStarted`    |   작업이 아직 시작 되지 않았습니다.      |
+|`inProgress`     |   작업이 진행 중입니다.      |
+|`timedOut`     |    사용자가 지정한 시간 제한에 따라 작업 시간이 초과 되었습니다.     |
+|`cancelled`     |   사용자 또는 시스템에 의해 작업이 취소 되었습니다.      |
+|`failed`     |   작업이 실패했습니다.      |
+|`succeeded`      |   작업이 성공했습니다.      |
+
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-새로 고침 작업의 상태를 확인하려면 새로 고침 ID에 GET 동사를 사용합니다. 응답 본문의 예는 다음과 같습니다. 작업이 진행 중인 경우 상태에 **inProgress**가 반환됩니다.
+새로 고침 작업의 상태를 확인하려면 새로 고침 ID에 GET 동사를 사용합니다. 응답 본문의 예는 다음과 같습니다. 작업이 진행 중인 경우 상태에서 `inProgress` 반환 됩니다.
 
 ```
 {
@@ -211,7 +222,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 3.  예제를 실행합니다.
 
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 [샘플](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   

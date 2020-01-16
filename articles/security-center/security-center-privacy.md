@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 45b7b419277d338d70cf285838103f97d4eb5c3a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749672"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978611"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Azure Security Center에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 사용자 데이터 관리에는 데이터에 액세스하거나, 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-읽기 권한자, 소유자, 기여자 또는 계정 관리자 역할이 할당된 Security Center 사용자는 도구 내에서 고객 데이터에 액세스할 수 있습니다. 계정 관리자 역할에 대 한 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 참조 하 여 판독기, 소유자 및 참가자 역할에 대해 자세히 알아보세요. [Azure 구독 관리자](../billing/billing-add-change-azure-subscription-administrator.md)를 참조 하세요.
+읽기 권한자, 소유자, 기여자 또는 계정 관리자 역할이 할당된 Security Center 사용자는 도구 내에서 고객 데이터에 액세스할 수 있습니다. 계정 관리자 역할에 대 한 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 참조 하 여 판독기, 소유자 및 참가자 역할에 대해 자세히 알아보세요. [Azure 구독 관리자](../cost-management-billing/manage/add-change-subscription-administrator.md)를 참조 하세요.
 
 ## <a name="searching-for-and-identifying-personal-data"></a>개인 데이터 검색 및 식별
 Security Center 사용자는 Azure Portal을 통해 해당 개인 데이터를 볼 수 있습니다. Security Center는 이메일 주소, 전화 번호와 같은 보안 연락처 세부 정보만을 저장합니다. 자세한 내용은 [Azure Security Center에서 보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md)을 참조 하세요.

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7216d2f97a52798d2609073761eb8f4a2ce9024d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427597"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976125"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (클래식) 웹 서비스: 배포 및 소비
 
@@ -49,7 +49,7 @@ Studio (클래식) 포털과 Microsoft Azure Machine Learning 웹 서비스 포�
 
 웹 서비스용 Azure Machine Learning Studio (클래식) 리소스 공급자를 사용 하면 PowerShell cmdlet을 사용 하 여 웹 서비스를 배포 하 고 관리할 수 있습니다.
 
-Cmdlet을 사용 하려면 먼저 [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 PowerShell 환경 내에서 Azure 계정에 로그인 해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/manage-resources-powershell.md)을 참조하세요.
+Cmdlet을 사용 하려면 먼저 [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 PowerShell 환경 내에서 Azure 계정에 로그인 해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/management/manage-resources-powershell.md)을 참조하세요.
 
 예측 실험을 내보내려면 이 [샘플 코드](https://github.com/ritwik20/AzureML-WebServices)를 사용합니다. 코드에서 .exe 파일을 만든 후 다음을 입력할 수 있습니다.
 

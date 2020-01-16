@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243231"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974862"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -29,7 +29,7 @@ Azure 메트릭 탐색기에서 차트 만들기, 사용자 지정 또는 해석
 
 1. 올바른 리소스 그룹을 선택했는지 확인합니다.
     > [!WARNING]
-    > 최상의 성능을 얻을 수 있도록 메트릭 탐색기를 처음으로 열 때 **리소스 그룹** 드롭다운에서 리소스 그룹이 미리 선택되어 있지 않습니다. 리소스를 보려면 그룹을 하나 이상 선택해야 합니다.
+    > 최상의 성능을 위해 먼저 메트릭 탐색기를 열 때 **리소스 그룹** 드롭다운에서 미리 선택 된 리소스 그룹이 없습니다. 리소스를 보려면 그룹을 하나 이상 선택해야 합니다.
 
 ## <a name="chart-shows-no-data"></a>차트에 데이터가 표시 되지 않음
 
@@ -37,7 +37,7 @@ Azure 메트릭 탐색기에서 차트 만들기, 사용자 지정 또는 해석
 
 ### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>Microsoft Insights 리소스 공급자가 구독에 등록 되지 않았습니다.
 
-메트릭을 살펴보려면 *Microsoft.Insights* 리소스 공급자가 구독에 등록되어야 합니다. 대부분의 경우 자동으로 등록됩니다(즉, 경고 규칙을 구성하거나, 리소스에 대한 진단 설정을 사용자 지정하거나, 자동 크기 조정 규칙을 구성한 후). Microsoft Insights 리소스 공급자가 등록 되지 않은 경우 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md)에 설명 된 단계에 따라 수동으로 등록 해야 합니다.
+메트릭을 살펴보려면 *Microsoft.Insights* 리소스 공급자가 구독에 등록되어야 합니다. 대부분의 경우 자동으로 등록됩니다(즉, 경고 규칙을 구성하거나, 리소스에 대한 진단 설정을 사용자 지정하거나, 자동 크기 조정 규칙을 구성한 후). Microsoft Insights 리소스 공급자가 등록 되지 않은 경우 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md)에 설명 된 단계에 따라 수동으로 등록 해야 합니다.
 
 **해결 방법:** **구독**, **리소스 공급자** 탭을 열고 *Microsoft Insights* 가 구독에 등록 되어 있는지 확인 합니다.
 

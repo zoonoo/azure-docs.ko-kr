@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460620"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975700"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
 Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
 
-Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
+Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](storage-account-create.md)를 참조하세요.
 
 ## <a name="types-of-storage-accounts"></a>스토리지 계정 유형
 
@@ -72,7 +72,7 @@ BlockBlobStorage 계정은 현재 핫, 쿨 또는 보관 액세스 계층에 대
 
 ### <a name="filestorage-accounts"></a>FileStorage 계정
 
-FileStorage 계정은 프리미엄 파일 공유를 저장 하 고 만드는 데 사용 되는 특수 저장소 계정입니다. 이 저장소 계정 유형은 파일을 지원 하지만 블록 blob, 추가 blob, 페이지 blob, 테이블 또는 큐를 지원 하지 않습니다. 
+FileStorage 계정은 프리미엄 파일 공유를 저장 하 고 만드는 데 사용 되는 특수 저장소 계정입니다. 이 저장소 계정 유형은 파일을 지원 하지만 블록 blob, 추가 blob, 페이지 blob, 테이블 또는 큐를 지원 하지 않습니다.
 
 FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을 제공 합니다. 이러한 특성에 대 한 자세한 내용은 파일 계획 가이드의 [파일 공유 성능 계층](../files/storage-files-planning.md#file-share-performance-tiers) 섹션을 참조 하십시오.
 
@@ -150,15 +150,15 @@ Blob에 사용자 지정 도메인 이름을 사용하도록 스토리지 계정
 - **공유 액세스 서명:** Azure AD 권한 부여를 사용 하지 않는 경우 공유 액세스 서명을 사용 하 여 저장소 계정의 리소스에 대 한 액세스를 위임 합니다. 공유 액세스 서명은 URL의 Azure Storage에 대한 요청을 인증하는 데 필요한 모든 정보를 캡슐화하는 토큰입니다. 스토리지 리소스, 부여한 사용 권한, 권한이 유효한 기간을 공유 액세스 서명의 일부로 지정할 수 있습니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-sas-overview.md)을 참조하세요.
 
 > [!NOTE]
-> Azure AD 자격 증명을 통한 사용자 또는 애플리케이션 권한 부여는 다른 인증 수단보다 보안 수준이 높고 사용이 간편합니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 스토리지 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다. 
+> Azure AD 자격 증명을 통한 사용자 또는 애플리케이션 권한 부여는 다른 인증 수단보다 보안 수준이 높고 사용이 간편합니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 스토리지 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다.
 >
 > 가능 하면 Azure Storage blob 및 큐 응용 프로그램에 Azure AD 인증을 사용 하는 것이 좋습니다.
 
 ## <a name="copying-data-into-a-storage-account"></a>스토리지 계정에 데이터 복사
 
-Microsoft는 온-프레미스 스토리지 디바이스나 타사 클라우드 스토리지 공급자에서 데이터를 가져오기 위한 유틸리티와 라이브러리를 제공합니다. 사용할 솔루션은 전송 중인 데이터의 양에 따라 달라 집니다. 
+Microsoft는 온-프레미스 스토리지 디바이스나 타사 클라우드 스토리지 공급자에서 데이터를 가져오기 위한 유틸리티와 라이브러리를 제공합니다. 사용할 솔루션은 전송 중인 데이터의 양에 따라 달라 집니다.
 
-범용 v1 또는 Blob Storage 계정에서 범용 v2 계정으로 업그레이드할 경우 데이터가 자동으로 마이그레이션됩니다. 이 경로로 계정을 업그레이드하는 것이 좋습니다. 그러나 범용 v1 계정에서 Blob storage 계정으로 데이터를 이동 하려는 경우 아래에 설명 된 도구 및 라이브러리를 사용 하 여 데이터를 수동으로 마이그레이션합니다. 
+범용 v1 또는 Blob Storage 계정에서 범용 v2 계정으로 업그레이드할 경우 데이터가 자동으로 마이그레이션됩니다. 이 경로로 계정을 업그레이드하는 것이 좋습니다. 그러나 범용 v1 계정에서 Blob storage 계정으로 데이터를 이동 하려는 경우 아래에 설명 된 도구 및 라이브러리를 사용 하 여 데이터를 수동으로 마이그레이션합니다.
 
 ### <a name="azcopy"></a>AzCopy
 
@@ -183,5 +183,5 @@ Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스토리지 계정을 만드는](storage-quickstart-create-account.md)
+- [스토리지 계정을 만드는](storage-account-create.md)
 - [블록 Blob 스토리지 계정 만들기](../blobs/storage-blob-create-account-block-blob.md)

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 6cde620b4949da8a6cff4ad89a863c80f0514f1c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792409"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979371"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 스키마로 XML 유효성 검사
 
@@ -21,9 +21,9 @@ ms.locfileid: "74792409"
 
 통합 계정 및 아티팩트(예: 스키마)와 관련된 제한에 대해서는 [Azure Logic Apps에 대한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록</a>합니다.
+* Azure 구독 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록</a>합니다.
 
 * [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md): 엔터프라이즈 통합 및 B2B(기업 간) 솔루션을 위한 스키마 및 기타 아티팩트를 저장합니다. 
 
@@ -31,7 +31,7 @@ ms.locfileid: "74792409"
   통합 계정에 해당 스키마를 추가하려면 통합 계정에서 스토리지 계정으로 연결할 수 있습니다. 
   이 작업을 위해 필요한 항목은 다음과 같습니다. 
 
-  * [Azure Storage 계정](../storage/common/storage-account-overview.md): 스키마에 대한 blob 컨테이너를 만듭니다. [스토리지 계정을 만드는](../storage/common/storage-quickstart-create-account.md) 방법을 알아봅니다. 
+  * [Azure Storage 계정](../storage/common/storage-account-overview.md): 스키마에 대한 blob 컨테이너를 만듭니다. [스토리지 계정을 만드는](../storage/common/storage-account-create.md) 방법을 알아봅니다. 
 
   * 스키마를 저장하기 위한 blob 컨테이너. [blob 컨테이너를 만드는](../storage/blobs/storage-quickstart-blobs-portal.md) 방법을 알아봅니다. 
   나중에 통합 계정에 스키마를 추가할 때 컨테이너의 콘텐츠 URI가 필요합니다.
@@ -68,7 +68,7 @@ ms.locfileid: "74792409"
 
    !["추가" 선택](./media/logic-apps-enterprise-integration-schemas/add-schema.png)
 
-스키마(.xsd) 파일의 크기에 따라 [2MB보다 작거나](#smaller-schema) [2MB보다 크고](#larger-schema) 8MB보다 작은 스키마를 업로드하는 단계를 따릅니다.
+스키마(.xsd) 파일의 크기에 따라 [2MB보다 작거나](#smaller-schema)[2MB보다 크고](#larger-schema) 8MB보다 작은 스키마를 업로드하는 단계를 따릅니다.
 
 <a name="smaller-schema"></a>
 
@@ -152,7 +152,7 @@ ms.locfileid: "74792409"
 
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 통합 계정이 아직 열려 있지 않으면 찾아서 엽니다.
 
-1. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 
+1. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합 계정"을 입력합니다. 
    **통합 계정**을 선택합니다.
 
@@ -172,7 +172,7 @@ ms.locfileid: "74792409"
 
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 통합 계정이 아직 열려 있지 않으면 찾아서 엽니다.
 
-1. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 
+1. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 
    검색 상자에 "통합 계정"을 입력합니다. 
    **통합 계정**을 선택합니다.
 

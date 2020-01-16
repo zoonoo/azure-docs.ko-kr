@@ -6,15 +6,15 @@ ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 7479b16f2e1f14d8ebe611bf3121005af342ccb9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ee1951de850e402721e0abb3e08a55b73f3eedfa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764936"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979365"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL VNet 서비스 엔드포인트 및 VNet 규칙 만들기 및 관리
-VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 프라이빗 주소 공간을 Azure Database for MySQL 서버로 확장합니다. 제한을 포함하여 Azure Database for MySQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MySQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조합니다. VNet 서비스 엔드포인트는 Azure Database for MySQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
+VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 프라이빗 주소 공간을 Azure Database for MySQL 서버로 확장합니다. 제한을 포함하여 Azure Database for MySQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MySQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MySQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
 
 > [!NOTE]
 > VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
@@ -25,7 +25,7 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 
 1. MySQL 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 Azure Database for MySQL에 대한 연결 보안 창을 엽니다. 
 
-2. Azure 서비스에 대 한 액세스 허용 컨트롤이 **OFF**로 설정 되어 있는지 확인 합니다.
+2. Azure 서비스 액세스 허용 컨트롤이 **해제**되어 있는지 확인합니다.
 
 > [!Important]
 > 제어를 설정 된 상태로 두면 Azure MySQL 데이터베이스 서버가 모든 서브넷의 통신을 수락 합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능은 Azure Database for MySQL의 가상 네트워크 규칙 기능을 함께 사용 하 여 보안 노출 영역을 줄일 수 있습니다.
@@ -61,4 +61,4 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 - MySQL용 Azure Database 서버 연결에 대한 도움말은 [MySQL용 Azure Database에 대한 연결 라이브러리](./concepts-connection-libraries.md)를 참조하세요.
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

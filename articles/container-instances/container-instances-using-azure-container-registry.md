@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 823a25f388860fa55962a717b9dfed22f5d9c103
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770522"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981683"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
@@ -136,7 +136,7 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_L
 
 전체 컨테이너 그룹 설정은 [리소스 관리자 템플릿 참조](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups)를 참조 하세요.    
 
-Resource Manager 템플릿에서 Azure Key Vault 암호를 참조하는 방법에 대한 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)을 참조하세요.
+Resource Manager 템플릿에서 Azure Key Vault 암호를 참조하는 방법에 대한 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)을 참조하세요.
 
 ## <a name="deploy-with-azure-portal"></a>Azure Portal을 사용하여 배포
 

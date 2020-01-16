@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91e95dcf7cfc46073e2fd752a0e7e5ae6fce4ee8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ff221a32ff6c995d019b13f20ca2c3f9e2027f63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300071"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980727"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core)
 
@@ -34,7 +34,7 @@ Azure Blob Storage는 구조화되지 않은 데이터를 개체 또는 Blob으�
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -48,11 +48,11 @@ Azure Blob Storage는 구조화되지 않은 데이터를 개체 또는 Blob으�
 
 1. 주 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
-1. **새 프로젝트** 대화 상자에서 **웹** > **ASP.NET Core 웹 애플리케이션** > **AspNetCoreStorage**를 선택합니다. 그런 다음 **확인**을 선택합니다.
+1. **새 프로젝트** 대화 상자에서 **웹** > **ASP.NET Core 웹 애플리케이션** > **AspNetCoreStorage**를 선택합니다. 그런 다음, **확인**을 선택합니다.
 
     ![Visual Studio 새 프로젝트 대화 상자 스크린샷](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. **새 ASP.NET Core 웹 애플리케이션** 대화 상자에서 **.NET Core** > **ASP.NET Core 2.0** > **웹 애플리케이션(모델-뷰-컨트롤러)** 을 선택합니다. 그런 다음 **확인**을 선택합니다.
+1. **새 ASP.NET Core 웹 애플리케이션** 대화 상자에서 **.NET Core** > **ASP.NET Core 2.0** > **웹 애플리케이션(모델-뷰-컨트롤러)** 을 선택합니다. 그런 다음, **확인**을 선택합니다.
 
     ![새 ASP.NET Core 웹 애플리케이션 대화 상자 스크린샷](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 
@@ -69,7 +69,7 @@ Azure Blob Storage는 구조화되지 않은 데이터를 개체 또는 Blob으�
 1. **Azure Storage** 대화 상자에서 이 자습서에 사용할 Azure Storage 계정을 선택합니다. 새 Azure Storage 계정을 만들려면 **새 스토리지 계정 만들기**를 선택하고 양식을 완성합니다. 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만든 후에 **추가**를 선택합니다. Azure Storage용 NuGet 패키지 및 스토리지 연결 문자열이 **appsettings.json**에 설치됩니다.
 
 > [!TIP]
-> [Azure Portal](https://portal.azure.com)에서 스토리지 계정을 만드는 방법을 알아보려면 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+> [Azure Portal](https://portal.azure.com)에서 스토리지 계정을 만드는 방법을 알아보려면 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 >
 > [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) 또는 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용하여 스토리지 계정을 만들 수도 있습니다.
 
@@ -299,7 +299,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
    
-1. Blob 컨테이너의 Blob을 나열하려면 `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드를 사용합니다. 합니다 `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드가 반환 되는 `BlobResultSegment`합니다. 여기에는 `CloudBlockBlob`, `CloudPageBlob` 또는 `CloudBlobDirectory` 개체로 캐스팅할 수 있는 `IListBlobItem` 개체가 포함됩니다. 다음 코드 조각은 Blob 컨테이너에 있는 모든 Blob를 열거합니다. 각 Blob은 해당 유형에 따라 적절한 개체로 캐스팅됩니다. 이름(또는 `CloudBlobDirectory`의 경우 URI)이 목록에 추가됩니다.
+1. Blob 컨테이너의 Blob을 나열하려면 `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드를 사용합니다. `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드는 `BlobResultSegment`를 반환합니다. 여기에는 `CloudBlockBlob`, `CloudPageBlob` 또는 `CloudBlobDirectory` 개체로 캐스팅할 수 있는 `IListBlobItem` 개체가 포함됩니다. 다음 코드 조각은 Blob 컨테이너에 있는 모든 Blob를 열거합니다. 각 Blob은 해당 유형에 따라 적절한 개체로 캐스팅됩니다. 이름(또는 `CloudBlobDirectory`의 경우 URI)이 목록에 추가됩니다.
 
     ```csharp
     List<string> blobs = new List<string>();

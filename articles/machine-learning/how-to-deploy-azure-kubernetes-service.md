@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 2d49501b5888368345736047217177142d2e88d2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a61dea2b200b6e4962ce20e39939a75e78e81d0f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764051"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024942"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -115,7 +115,7 @@ az ml computetarget create aks -n myaks
 
 **예상 시간:** 약 5 분.
 
-Azure 구독에 AKS 클러스터가 이미 있고 버전 1.15 보다 낮은 경우 이미지를 배포 하는 데 사용할 수 있습니다.
+Azure 구독에 AKS 클러스터가 이미 있고 버전이 1.16 이하인 경우이를 사용 하 여 이미지를 배포할 수 있습니다.
 
 > [!TIP]
 > 기존 AKS 클러스터는 Azure Machine Learning 작업 영역 이외의 Azure 지역에 있을 수 있습니다.
@@ -187,7 +187,7 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 
 ## <a name="deploy-to-aks"></a>AKS에 배포
 
-Azure Kubernetes Service에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](service/how-to-deploy-and-where.md)를 참조 하세요.
+Azure Kubernetes Service에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
 ### <a name="using-the-sdk"></a>SDK 사용
 
@@ -223,13 +223,13 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요. 
+자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
 
 ### <a name="using-vs-code"></a>VS Code 사용
 
 VS Code 사용에 대 한 자세한 내용은 [VS Code 확장을 통해 AKS에 배포를](how-to-vscode-tools.md#deploy-and-manage-models)참조 하세요.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > VS Code를 통해 배포 하려면 AKS 클러스터를 미리 만들거나 작업 영역에 미리 연결 해야 합니다.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>제어 된 롤아웃 (미리 보기)을 사용 하 여 AKS에 모델 배포
@@ -245,13 +245,13 @@ from azureml.core.compute import AksCompute
 from azureml.core.compute import ComputeTarget
 # select a created compute
 compute = ComputeTarget(ws, 'myaks')
-namespace_name= endpointnamespace 
+namespace_name= endpointnamespace
 # define the endpoint and version name
 endpoint_name = "mynewendpoint",
 version_name= "versiona",
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
-                                                              enable_app_insights = true, 
+                                                              enable_app_insights = true,
                                                               tags = {'sckitlearn':'demo'},
                                                               decription = testing versions,
                                                               version_name = version_name,
@@ -262,34 +262,34 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>끝점에 버전 업데이트 및 추가
 
-다른 버전을 끝점에 추가 하 고 버전으로 이동 하는 점수 매기기 트래픽 백분위 수를 구성 합니다. 두 가지 유형의 버전, 즉 컨트롤과 처리 버전이 있습니다. 단일 컨트롤 버전을 비교 하는 데 도움이 되는 처리 버전이 여러 개 있을 수 있습니다. 
+다른 버전을 끝점에 추가 하 고 버전으로 이동 하는 점수 매기기 트래픽 백분위 수를 구성 합니다. 두 가지 유형의 버전, 즉 컨트롤과 처리 버전이 있습니다. 단일 컨트롤 버전을 비교 하는 데 도움이 되는 처리 버전이 여러 개 있을 수 있습니다.
 
  ```python
 from azureml.core.webservice import AksEndpoint
 
 # add another model deployment to the same endpoint as above
-version_name_add = "versionb" 
-endpoint.create_version(version_name = version_name_add, 
+version_name_add = "versionb"
+endpoint.create_version(version_name = version_name_add,
                         inference_config=inference_config,
-                        models=[model], 
-                        tags = {'modelVersion':'b'}, 
-                        description = "my second version", 
+                        models=[model],
+                        tags = {'modelVersion':'b'},
+                        description = "my second version",
                         traffic_percentile = 10)
 ```
 
-기존 버전을 업데이트 하거나 끝점에서 삭제 합니다. 버전의 기본 형식, 컨트롤 형식 및 트래픽 백분위 수를 변경할 수 있습니다. 
- 
+기존 버전을 업데이트 하거나 끝점에서 삭제 합니다. 버전의 기본 형식, 컨트롤 형식 및 트래픽 백분위 수를 변경할 수 있습니다.
+
  ```python
 from azureml.core.webservice import AksEndpoint
 
-# update the version's scoring traffic percentage and if it is a default or control type 
-endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
-                        description="my second version update", 
+# update the version's scoring traffic percentage and if it is a default or control type
+endpoint.update_version(version_name=endpoint.versions["versionb"].name,
+                        description="my second version update",
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
 
-# delete a version in an endpoint 
+# delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 
 ```

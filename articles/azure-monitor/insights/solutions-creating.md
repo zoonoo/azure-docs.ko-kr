@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402043"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969691"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Azure에서 관리 솔루션 디자인 및 빌드(Preview)
 > [!NOTE]
@@ -23,7 +23,7 @@ ms.locfileid: "75402043"
 
 ## <a name="what-is-a-management-solution"></a>관리 솔루션이란?
 
-관리 솔루션에는 특정 관리 시나리오를 달성하기 위해 함께 작동하는 Azure 리소스가 포함되어 있습니다.  이 솔루션은 설치할 때 포함된 리소스를 설치하고 구성하는 방법에 대한 세부 정보가 포함된 [리소스 관리 템플릿](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)으로 구현됩니다.
+관리 솔루션에는 특정 관리 시나리오를 달성하기 위해 함께 작동하는 Azure 리소스가 포함되어 있습니다.  이 솔루션은 설치할 때 포함된 리소스를 설치하고 구성하는 방법에 대한 세부 정보가 포함된 [리소스 관리 템플릿](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)으로 구현됩니다.
 
 기본 전략은 Azure 환경에서 개별 구성 요소를 작성하여 관리 솔루션을 시작하는 것입니다.  기능이 제대로 작동하면 [관리 솔루션 파일]( solutions-solution-file.md)에 패키징할 수 있습니다. 
 
@@ -64,7 +64,7 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 
 
 ## <a name="test-your-solution"></a>솔루션 테스트
-솔루션을 개발하는 동안 작업 영역에서 솔루션을 설치하고 테스트해야 합니다.  [Resource Manager 템플릿을 테스트하고 설치](../../azure-resource-manager/resource-group-template-deploy.md)하는 데 사용할 수 있는 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
+솔루션을 개발하는 동안 작업 영역에서 솔루션을 설치하고 테스트해야 합니다.  [Resource Manager 템플릿을 테스트하고 설치](../../azure-resource-manager/templates/deploy-powershell.md)하는 데 사용할 수 있는 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
 
 ## <a name="publish-your-solution"></a>솔루션 게시
 솔루션을 완료하고 테스트한 후에는 다음 원본을 통해 고객이 솔루션을 사용할 수 있도록 할 수 있습니다.

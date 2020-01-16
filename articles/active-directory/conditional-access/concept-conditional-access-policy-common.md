@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d8d803a8256845c61def1b1df4d633ce95a3ce6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d5cfe6b790d5eb2877e46845317779c89cf33884
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424981"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978012"
 ---
 # <a name="common-conditional-access-policies"></a>일반 조건부 액세스 정책
 
@@ -33,14 +33,16 @@ ms.locfileid: "75424981"
 
 ## <a name="typical-policies-deployed-by-organizations"></a>조직에서 배포 하는 일반적인 정책
 
-* [관리자 용 MFA 필요](howto-conditional-access-policy-admin-mfa.md)
-* [Azure 관리를 위한 MFA 필요](howto-conditional-access-policy-azure-management.md)
-* [모든 사용자에 대해 MFA 필요](howto-conditional-access-policy-all-users-mfa.md)
-* [레거시 인증 차단](howto-conditional-access-policy-block-legacy.md)
+* [관리자에 대해 MFA 필요](howto-conditional-access-policy-admin-mfa.md)\*
+* [Azure 관리\*에 대 한 MFA 필요](howto-conditional-access-policy-azure-management.md)
+* [모든 사용자에 대해 MFA 필요](howto-conditional-access-policy-all-users-mfa.md)\*
+* [레거시 인증\* 차단](howto-conditional-access-policy-block-legacy.md)
 * [위험 기반 조건부 액세스 (P2 Azure AD Premium 필요)](howto-conditional-access-policy-risk.md)
 * [MFA 등록을 위해 신뢰할 수 있는 위치 필요](howto-conditional-access-policy-registration.md)
 * [위치별 액세스 차단](howto-conditional-access-policy-location.md)
 * [준수 장치 필요](howto-conditional-access-policy-compliant-device.md)
+
+이러한 네 가지 정책을 함께 구성 하면 [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)에 의해 활성화 된 기능이 모방 됩니다. \*
 
 ## <a name="next-steps"></a>다음 단계
 

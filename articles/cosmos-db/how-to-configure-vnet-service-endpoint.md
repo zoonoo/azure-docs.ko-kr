@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 80e77e2caacfed7d662fdfa04aa9524bd7c2083a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 36f6152e52d6cb45d0a30b385678596331232560
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445425"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980683"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 액세스 구성
 
@@ -52,7 +52,7 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 > 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하려면 다음 구독 사용 권한이 필요합니다.
 >   * 가상 네트워크를 포함한 구독: 네트워크 기여자
 >   * Azure Cosmos DB 계정을 포함한 구독: DocumentDB 계정 기여자
->   * 가상 네트워크와 Azure Cosmos DB 계정이 서로 다른 구독에 있는 경우 가상 네트워크를 포함 하는 구독에도 `Microsoft.DocumentDB` 리소스 공급자가 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../azure-resource-manager/resource-manager-supported-services.md) 문서를 참조 하세요.
+>   * 가상 네트워크와 Azure Cosmos DB 계정이 서로 다른 구독에 있는 경우 가상 네트워크를 포함 하는 구독에도 `Microsoft.DocumentDB` 리소스 공급자가 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md) 문서를 참조 하세요.
 
 리소스 공급자에 구독을 등록 하기 위한 지침은 다음과 같습니다.
 

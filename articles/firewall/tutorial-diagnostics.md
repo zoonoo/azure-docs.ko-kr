@@ -7,22 +7,22 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60193206"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974522"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 및 메트릭 모니터링
 
-방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다. 메트릭을 사용하여 포털에서 성능 카운터를 볼 수 있습니다. 
+방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다. 메트릭을 사용하여 포털에서 성능 카운터를 볼 수 있습니다.
 
 이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md), 스토리지 및 Event Hubs로 보내고 Azure Monitor 로그 또는 Excel 및 Power BI와 같은 다른 도구에서 분석합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal을 통한 로깅 사용
@@ -34,7 +34,7 @@ ms.locfileid: "60193206"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 Azure Firewall에 사용할 수 있는 진단 로그 및 메트릭에 대한 개요를 확인하기 위해 [Azure Firewall 로그 및 메트릭](logs-and-metrics.md)을 읽어 보아야 합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "60193206"
    * AzureFirewallNetworkRule
 
 3. 데이터 수집을 시작하려면 **진단 켜기**를 클릭합니다.
-4. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다. 
+4. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다.
 5. 이 예제에서 Azure Monitor 로그가 로그를 저장하므로 이름에 **방화벽 로그 분석**을 입력합니다.
 6. **Log Analytics에 보내기**를 클릭하여 작업 영역을 구성합니다. 또한 이벤트 허브 및 스토리지 계정을 사용하여 진단 로그를 저장할 수도 있습니다.
 7. **Log Analytics** 아래에서 **구성**을 클릭합니다.
@@ -86,15 +86,15 @@ ms.locfileid: "60193206"
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >진단 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 스토리지를 사용할 경우 서비스 요금이 부과됩니다.
 
 ## <a name="view-and-analyze-the-activity-log"></a>활동 로그 보기 및 분석
 
 다음 방법 중 하나를 사용하여 활동 로그 데이터를 확인하고 분석할 수 있습니다.
 
-* **Azure 도구**: Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/resource-group-audit.md) 문서에 자세히 나와 있습니다.
+* **Azure 도구**: Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/management/view-activity-logs.md) 문서에 자세히 나와 있습니다.
 * **Power BI**: [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 평가판으로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>네트워크 및 애플리케이션 규칙 로그 보기 및 분석

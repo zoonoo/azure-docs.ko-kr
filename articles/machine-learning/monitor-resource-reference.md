@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: 8d2dccc1543512ead4b0ff6475ace20045bb1b8c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: bbc62aa153e6ecb5d9ae65c37392c2697b9beaa2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762776"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979714"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 모니터링 데이터 참조
 
@@ -194,5 +194,5 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 
 ## <a name="see-also"></a>참고 항목
 
-- Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](service/monitor-azure-machine-learning.md) 를 참조 하세요.
+- Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](monitor-azure-machine-learning.md) 를 참조 하세요.
 - Azure 리소스 모니터링에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resource) 을 참조 하세요.

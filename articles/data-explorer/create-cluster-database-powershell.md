@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: b855fde88173fe9a14a964ba1f9fd07aa74d85eb
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: d4561d49c37298a2b1a7f6c6542d78c3e19a145c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911971"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978331"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -52,9 +52,9 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
 1. Azure CLI를 로컬이나 Azure Cloud Shell에서 실행하는 경우 디바이스에 Az.Kusto 모듈을 설치해야 합니다.
-    
+
     ```azurepowershell-interactive
-     Install-Module -Name Az.Kusto  
+     Install-Module -Name Az.Kusto
     ```
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터 만들기

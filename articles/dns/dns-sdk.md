@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: allensu
-ms.openlocfilehash: 0dd57bb30a993baadac41552669a629aaaaff6df
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c682749de0be6329a254bda25a32954dd44e6db
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210951"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978711"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
-.NET DNS 관리 라이브러리와 함께 DNS SDK를 사용하여 DNS 영역, 레코드 집합 및 레코드를 만들거나 삭제하거나 업데이트하는 작업을 자동화할 수 있습니다. 전체 Visual Studio 프로젝트는 [여기](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
+.NET DNS 관리 라이브러리와 함께 DNS SDK를 사용하여 DNS 영역, 레코드 집합 및 레코드를 만들거나 삭제하거나 업데이트하는 작업을 자동화할 수 있습니다. 전체 Visual Studio 프로젝트는 [여기](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)에서 사용할 수 있습니다.
 
 ## <a name="create-a-service-principal-account"></a>서비스 주체 계정 만들기
 
 일반적으로 고유한 사용자 자격 증명 대신 전용 계정을 통해 Azure 리소스에 대한 프로그래밍 방식의 액세스를 부여합니다. 이러한 전용 계정을 '서비스 주체' 계정이라고 합니다. Azure DNS SDK 샘플 프로젝트를 사용하려면 먼저 서비스 주체 계정을 만들고 올바른 사용 권한을 할당해야 합니다.
 
 1. [이러한 지침](../active-directory/develop/howto-authenticate-service-principal-powershell.md) 에 따라 서비스 주체 계정을 만듭니다(Azure DNS SDK 샘플 프로젝트는 암호 기반 인증을 가정함).
-2. 리소스 그룹을 만듭니다([방법은 다음과 같음](../azure-resource-manager/resource-group-template-deploy-portal.md)).
+2. 리소스 그룹을 만듭니다([방법은 여기에서 확인](../azure-resource-manager/templates/deploy-portal.md)).
 3. Azure RBAC를 사용하여 서비스 주체 계정 'DNS 영역 참가자' 권한을 리소스 그룹에 부여합니다([방법은 다음과 같음](../role-based-access-control/role-assignments-portal.md)).
 4. Azure DNS SDK 샘플 프로젝트를 사용하는 경우 'program.cs' 파일을 다음과 같이 편집합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "74210951"
 Azure DNS .NET SDK를 사용하려면 **Azure DNS 관리 라이브러리** NuGet 패키지 및 기타 필수 Azure 패키지를 설치해야 합니다.
 
 1. **Visual Studio**에서 프로젝트 또는 새 프로젝트를 엽니다.
-2. **도구** **>** **NuGet 패키지 관리자** **>** **솔루션의 NuGet 패키지 관리...** 로 이동합니다.
+2. **도구** **>** **nuget 패키지 관리자** **>** **솔루션에 대 한 nuget 패키지 관리**...로 이동 합니다.
 3. **찾아보기**를 클릭하고 **시험판 포함** 확인란을 사용하도록 설정한 후, 검색 상자에 **Microsoft.Azure.Management.Dns**를 입력합니다.
 4. 패키지를 선택하고 **설치** 를 클릭하여 Visual Studio 프로젝트에 추가합니다.
 5. 또한 위의 프로세스를 반복하여 **Microsoft.Rest.ClientRuntime.Azure.Authentication** 및 **Microsoft.Azure.Management.ResourceManager** 패키지를 설치합니다.

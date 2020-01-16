@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896080"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981114"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Media Services를 사용 하 여 비디오 및 오디오 인코딩
 
-Media Services의 용어 인코딩은 디지털 비디오 및/또는 오디오를 포함 하는 파일을 한 표준 형식에서 다른 표준 형식으로 변환 하는 프로세스에 적용 됩니다. 즉, (a) 파일 크기를 줄이고/또는 (b)와 호환 되는 형식을 생성 합니다. 광범위 한 장치 및 앱. 이 프로세스를 비디오 압축 또는 트랜스 코딩이 라고도 합니다. 개념에 대 한 자세한 내용은 [데이터 압축](https://en.wikipedia.org/wiki/Data_compression) 및 [인코딩 및 트랜스 코딩](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) (영문)을 참조 하세요.
+Media Services은 디지털 비디오 및/또는 오디오를 포함 하는 파일을 한 표준 형식에서 다른 표준 형식으로 변환 하는 프로세스에 적용 되며, (a) 파일 크기를 줄이고,/또는 (b) 광범위 한 장치 및 앱과 호환 되는 형식을 생성 합니다. 이 프로세스를 비디오 압축 또는 트랜스 코딩이 라고도 합니다. 개념에 대 한 자세한 내용은 [데이터 압축](https://en.wikipedia.org/wiki/Data_compression) 및 [인코딩 및 트랜스 코딩](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) (영문)을 참조 하세요.
 
 비디오는 일반적으로 [점진적 다운로드](https://en.wikipedia.org/wiki/Progressive_download) 또는 [적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)통해 장치 및 앱에 배달 됩니다.
 
@@ -95,7 +95,7 @@ Media Services는 다음과 같은 기본 제공 인코딩 미리 설정을 지�
 
 - **EncoderNamedPreset AACGoodQualityAudio**: 192 kbps로 인코딩된 스테레오 오디오만 포함 하는 단일 MP4 파일을 생성 합니다.
 - **EncoderNamedPreset. AdaptiveStreaming** (권장): 자세한 내용은 [비트 전송률 사다리 자동 생성](autogen-bitrate-ladder.md)을 참조 하세요.
-- **EncoderNamedPreset ContentAwareEncodingExperimental**: 내용 인식 인코딩에 대 한 실험적 사전 설정을 노출 합니다. 입력 콘텐츠가 지정 된 경우 서비스는 최적의 계층 수를 자동으로 결정 하 고 적응 스트리밍을 통해 배달할 적절 한 비트 전송률 및 해상도 설정을 자동으로 결정 합니다. 기본 알고리즘은 시간이 지남에 따라 지속적으로 발전 합니다. 출력에는 비디오 및 오디오가 인터리브 된 MP4 파일이 포함 됩니다. 자세한 내용은 [콘텐츠 인식 인코딩에 대 한 실험적 사전 설정](cae-experimental.md)을 참조 하세요.
+- **EncoderNamedPreset ContentAwareEncodingExperimental**: 내용 인식 인코딩에 대 한 실험적 사전 설정을 노출 합니다. 입력 콘텐츠가 지정 된 경우 서비스는 최적의 계층 수를 자동으로 결정 하 고 적응 스트리밍을 통해 배달할 적절 한 비트 전송률 및 해상도 설정을 자동으로 결정 합니다. 기본 알고리즘은 시간이 지남에 따라 지속적으로 발전 합니다. 출력에는 비디오 및 오디오가 인터리브 된 MP4 파일이 포함 됩니다. 자세한 내용은 [콘텐츠 인식 인코딩에 대 한 실험적 사전 설정](content-aware-encoding.md)을 참조 하세요.
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: 6000 kbps에서 400 kbps까지, 그리고 스테레오 AAC 오디오에 이르는 8 GOP 정렬 MP4 파일 집합을 생성 합니다. 해상도는 1,080p에서 시작하여 360p까지 낮아집니다.
 - **EncoderNamedPreset H264MultipleBitrate720p**: 3400 kbps에서 400 kbps까지, 그리고 스테레오 AAC 오디오에 이르는 6 GOP 정렬 MP4 파일 집합을 생성 합니다. 해상도는 720p에서 시작하여 360p까지 낮아집니다.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: 1600 kbps에서 400 kbps까지, 그리고 스테레오 AAC 오디오에 이르는 5 GOP 정렬 MP4 파일 집합을 생성 합니다. 해상도는 480p에서 시작하여 360p까지 낮아집니다.

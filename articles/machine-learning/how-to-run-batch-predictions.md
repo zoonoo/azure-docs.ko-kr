@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 47fa0d97f21c5e3734cb1104c7d0ab72c14d9679
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ee594bf4e17a06c8333f0836a17e75cc99a2dde3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532276"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771856"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ def_data_store = ws.get_default_datastore()
 
 사용자 지정 유추 스크립트의 다른 데이터 세트를 참조할 수도 있습니다. 예를 들어 `Dataset.register` 및 `Dataset.get_by_name`을 사용하여 이미지 레이블 지정용 스크립트의 레이블에 액세스할 수 있습니다.
 
-Azure Machine Learning 데이터 세트에 대한 자세한 내용은 [데이터 세트 만들기 및 액세스(미리 보기)](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets)를 참조하세요.
+Azure Machine Learning 데이터 세트에 대한 자세한 내용은 [데이터 세트 만들기 및 액세스(미리 보기)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)를 참조하세요.
 
 `PipelineData` 개체는 파이프라인 단계 간에 중간 데이터를 전송하는 데 사용됩니다. 이 예제에서는 유추 출력에 사용합니다.
 

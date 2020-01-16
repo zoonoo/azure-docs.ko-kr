@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: d92832d1eee995e8883dc6c8ed0f58c9755e40f8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 74d10c8fbe2f82d6148f5e13cb57c46dd645f76f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058413"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979551"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>인스턴스 수준 공용 Ip(클래식) 개요
 ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 상주하는 클라우드 서비스가 아닌 VM 또는 Cloud Services 역할 인스턴스에 직접 할당할 수 있는 공용 IP 주소입니다. ILPIP는 클라우드 서비스에 할당된 VIP(가상 IP)의 위치를 차지하지 않습니다. VM 또는 역할 인스턴스에 직접 연결을 사용할 수 있는 추가 IP 주소입니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 사용하기 위한  [Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. Resource Manager를 통해 VM을 만드는 것이 좋습니다. Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md) 가 어떻게 작동하는지 이해해야 합니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. Resource Manager를 통해 VM을 만드는 것이 좋습니다. Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md) 가 어떻게 작동하는지 이해해야 합니다.
 
 ![ILPIP 및 VIP 간의 차이](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 

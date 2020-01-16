@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b80c29788bd2f8d5172795aa2c92a80e460ff81f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460462"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978518"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage에서 Azure CLI 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "75460462"
 
 이 가이드에서는 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 통해 Azure Storage 계정의 리소스를 사용하는 몇 가지 작업을 수행하는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 버전의 CLI를 다운로드하여 설치하거나 업그레이드하는 것이 좋습니다.
 
-이 가이드의 예제에서는 Ubuntu에서 Bash 셸을 사용한다고 가정하지만 다른 플랫폼에서도 비슷하게 수행해야 합니다. 
+이 가이드의 예제에서는 Ubuntu에서 Bash 셸을 사용한다고 가정하지만 다른 플랫폼에서도 비슷하게 수행해야 합니다.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -34,7 +34,7 @@ ms.locfileid: "75460462"
 
 ### <a name="accounts"></a>계정
 * **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/).
-* **Storage 계정**: [Azure 스토리지 계정 정보](storage-create-storage-account.md)의 [스토리지 계정 만들기](storage-quickstart-create-account.md) 섹션을 참조하세요.
+* **Storage 계정**: [Azure 스토리지 계정 정보](storage-account-overview.md)의 [스토리지 계정 만들기](storage-account-create.md) 섹션을 참조하세요.
 
 ### <a name="install-the-azure-cli"></a>Azure CLI 설치
 
@@ -335,7 +335,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 
 ```azurecli
 az storage blob update
-    --container-name <container_name> 
+    --container-name <container_name>
     --name <blob_name>
     --content-type <content_type>
 ```
@@ -390,7 +390,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 
 ### <a name="copy-files"></a>파일 복사      
 파일을 다른 파일로, 파일을 Blob으로 또는 Blob을 파일로 복사할 수 있습니다. 예를 들어 파일을 다른 공유의 디렉터리에 복사하려면 다음과 같이 수행합니다.        
-        
+
 ```azurecli
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
@@ -524,7 +524,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 `--snapshot` 매개 변수에 공유 스냅샷 타임스탬프를 제공하면 `az storage share delete` 명령을 사용하여 공유 스냅샷을 삭제할 수 있습니다.
 
 ```cli
-az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z'
 ```
 
 샘플 출력
@@ -535,7 +535,7 @@ az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure CLI를 사용하는 방법에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다. 
+Azure CLI를 사용하는 방법에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다.
 
 * [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure CLI 명령 참조](/cli/azure)

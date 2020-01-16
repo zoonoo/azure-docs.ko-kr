@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: da40b635b0fc094275d8d46b8c5ad6d3d90bea24
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 43ff230d4769a23c9007b3da29858d2105366f9f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101820"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978094"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server의 자동화된 백업(클래식)
 > [!div class="op_single_selector"]
@@ -32,9 +32,9 @@ ms.locfileid: "70101820"
 자동화된 Backup에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 Backup](https://msdn.microsoft.com/library/dn449496.aspx) 을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob Storage를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 Backup은 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에 따라 다릅니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [Azure Virtual Machines Resource Manager에서 SQL Server의 자동화된 백업](../sql/virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [Azure Virtual Machines Resource Manager에서 SQL Server의 자동화된 백업](../sql/virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 자동화된 Backup을 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -109,7 +109,7 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 ## <a name="next-steps"></a>다음 단계
 자동화된 Backup은 Azure VM에서 관리되는 Backup을 구성합니다. 따라서 [관리되는 Backup 설명서를 검토](https://msdn.microsoft.com/library/dn449496.aspx) 하여 동작 및 의미를 이해해야 합니다.
 
-Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 항목을 참조하세요.
+Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines의 SQL Server 백업 및 복원](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 항목을 참조하세요.
 
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md)을 참조하세요.
 

@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5f006832fd1f1386adaf89b0045272a70db2df3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9854027bbdfaf22c650ae9e2e0aa1eec457f89dd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429958"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977938"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>템플릿을 사용 하 여 Azure virtual machine scale에서 Azure 리소스에 대 한 관리 되는 id 구성
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로 관리 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
+Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로 관리 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 이 문서에서는 Azure Resource Manager 배포 템플릿을 사용하여 Azure 가상 머신 확장 집합에서 Azure 리소스에 대한 다음과 같은 관리 ID 작업을 수행하는 방법을 알아봅니다.
 - Azure 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하거나 사용하지 않도록 설정
@@ -54,7 +54,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
    - 로컬 [JSON 편집기(예: VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)를 사용하는 경우 PowerShell 또는 CLI를 사용하여 템플릿을 업로드하고 배포합니다.
    - Visual Studio [Azure 리소스 그룹 프로젝트](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)를 사용하여 템플릿을 만들고 배포합니다.  
 
-선택한 옵션에 관계 없이 초기 배포 및 재배포 시 템플릿 구문은 동일합니다. 새 VM이나 기존 VM에서 Azure 리소스에 대한 관리 ID를 사용하도록 설정하는 작업은 동일한 방식으로 수행됩니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../../azure-resource-manager/deployment-modes.md)를 수행합니다.
+선택한 옵션에 관계 없이 초기 배포 및 재배포 시 템플릿 구문은 동일합니다. 새 VM이나 기존 VM에서 Azure 리소스에 대한 관리 ID를 사용하도록 설정하는 작업은 동일한 방식으로 수행됩니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../../azure-resource-manager/templates/deployment-modes.md)를 수행합니다.
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 
@@ -66,7 +66,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 2. 시스템 할당 관리 ID를 사용하도록 설정하려면 편집기에 템플릿을 로드하고 리소스 섹션 내에서 관심이 있는 `Microsoft.Compute/virtualMachinesScaleSets` 리소스를 찾아서 `"type": "Microsoft.Compute/virtualMachinesScaleSets"` 속성과 같은 수준으로 `identity` 속성을 추가합니다. 다음 구문을 사용합니다.
 
    ```JSON
-   "identity": { 
+   "identity": {
        "type": "SystemAssigned"
    }
    ```
@@ -106,14 +106,14 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
             }
         }
     ]
-   ``` 
+   ```
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하지 않도록 설정
 
@@ -129,12 +129,12 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
    **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**
 
-   apiVersion이 `2017-12-01`이고 가상 머신 확장 집합에 시스템 할당 관리 ID와 사용자 할당 ID가 둘 다 있는 경우 ID 형식에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다. 
-   
-    
+   apiVersion이 `2017-12-01`이고 가상 머신 확장 집합에 시스템 할당 관리 ID와 사용자 할당 ID가 둘 다 있는 경우 ID 형식에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다.
+
+
 
    다음 예제에서는 사용자 할당 관리 ID가 없는 가상 머신 확장 집합에서 시스템 할당 관리 ID를 제거하는 방법을 보여줍니다.
-   
+
    ```json
    {
        "name": "[variables('vmssName')]",
@@ -157,7 +157,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 ### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 사용자 할당 관리 ID 할당
 
 1. `resources` 요소 아래에 다음 항목을 추가하여 사용자 할당 관리 ID를 가상 머신 확장 집합에 할당합니다.  `<USERASSIGNEDIDENTITY>`를 직접 만든 사용자 할당 관리 ID의 이름으로 바꿔야 합니다.
-   
+
    **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**
 
    apiVersion이 `2018-06-01`이고 사용자 할당 관리 ID가 `userAssignedIdentities` 사전 형식으로 저장되는 경우에는 템플릿의 `variables` 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
@@ -173,12 +173,12 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
            }
        }
-    
+
    }
    ```   
 
    **Microsoft.Compute/virtualMachineScaleSets API 버전 2017-12-01**
-    
+
    `apiVersion`이 `2017-12-01` 또는 이전 버전이고 사용자 할당 관리 ID가 `identityIds` 배열에 저장되는 경우에는 템플릿의 변수 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
 
    ```json
@@ -194,12 +194,12 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
        }
 
    }
-   ``` 
+   ```
 > [!NOTE]
 > 필요에 따라 템플릿의 `extensionProfile` 요소에 지정 하 여 Azure resources 가상 머신 확장 집합 확장의 관리 되는 id를 프로 비전 할 수 있습니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.  자세한 내용은 [인증을 위해 VM 확장에서 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)을 참조 하세요.
 
 3. 완료되면 템플릿은 다음과 같이 표시됩니다.
-   
+
    **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**   
 
    ```json
@@ -234,7 +234,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
@@ -277,7 +277,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
@@ -305,9 +305,9 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
         }
    }
    ```
-   
+
    **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**
-    
+
    가상 머신 확장 집합에서 단일 사용자 할당 관리 ID를 제거하려면 `userAssignedIdentities` 사전에서 제거합니다.
 
    시스템 할당 ID가 있는 경우에는 `identity` 값 아래 `type` 값에 보관합니다.
@@ -317,8 +317,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
    가상 머신 확장 집합에서 단일 사용자 할당 관리 ID를 제거하려면 `identityIds` 배열에서 제거합니다.
 
    시스템 할당 관리 ID가 있는 경우에는 `identity` 값 아래 `type` 값에 보관합니다.
-   
+
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 리소스에 대한 관리 ID 개요](overview.md)
-

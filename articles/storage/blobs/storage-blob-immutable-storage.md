@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921229"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981834"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>변경할 수 없는 저장소로 비즈니스에 중요 한 blob 데이터 저장
 
@@ -156,7 +156,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 **시간 기반 보존 정책이 나 법적 보류가 있는 컨테이너를 사용 하 여 저장소 계정을 삭제 하려고 하면 어떻게 되나요?**
 
-법적 보류 집합 또는 **잠긴** 시간 기반 정책이 있는 컨테이너가 하나 이상 있으면 저장소 계정 삭제가 실패 합니다. 잠금 해제 된 시간 기반 정책의 컨테이너는 저장소 계정 삭제를 방지 하지 않습니다. 저장소 계정을 삭제 하려면 먼저 모든 법적 보류를 제거 하 고 **잠긴** 모든 컨테이너를 삭제 해야 합니다. 컨테이너 삭제에 대한 내용은 앞의 질문을 참조하세요. [Azure Resource Manager 잠금을](../../azure-resource-manager/resource-group-lock-resources.md)사용 하 여 저장소 계정에 대 한 추가 삭제 보호를 적용할 수도 있습니다.
+법적 보류 집합 또는 **잠긴** 시간 기반 정책이 있는 컨테이너가 하나 이상 있으면 저장소 계정 삭제가 실패 합니다. 잠금 해제 된 시간 기반 정책의 컨테이너는 저장소 계정 삭제를 방지 하지 않습니다. 저장소 계정을 삭제 하려면 먼저 모든 법적 보류를 제거 하 고 **잠긴** 모든 컨테이너를 삭제 해야 합니다. 컨테이너 삭제에 대한 내용은 앞의 질문을 참조하세요. [Azure Resource Manager 잠금을](../../azure-resource-manager/management/lock-resources.md)사용 하 여 저장소 계정에 대 한 추가 삭제 보호를 적용할 수도 있습니다.
 
 **Blob이 변경할 수 없는 상태인 경우 다른 blob 계층 (핫, 쿨, 보관) 간에 데이터를 이동할 수 있나요?**
 
@@ -179,4 +179,4 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 - [Blob 저장소에 대 한 불변성 정책 설정 및 관리](storage-blob-immutability-policies-manage.md)
 - [수명 주기 관리를 사용 하 여 blob 데이터를 자동으로 계층화 및 삭제 하는 규칙 설정](storage-lifecycle-management-concepts.md)
 - [Azure Storage Blob에 대한 일시 삭제](../blobs/storage-blob-soft-delete.md)
-- [Azure Resource Manager 잠금을 사용 하 여 구독, 리소스 그룹 및 리소스를 보호](../../azure-resource-manager/resource-group-lock-resources.md)합니다.
+- [Azure Resource Manager 잠금을 사용 하 여 구독, 리소스 그룹 및 리소스를 보호](../../azure-resource-manager/management/lock-resources.md)합니다.
