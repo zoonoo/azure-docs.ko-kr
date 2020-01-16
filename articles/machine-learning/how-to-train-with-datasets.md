@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: f10de425bf83720b06f3ea7772343edfefc8d952
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834818"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982449"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -61,7 +61,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 
 TabularDataset 개체는 익숙한 데이터 준비 및 학습 라이브러리를 사용할 수 있도록 데이터를 pandas 또는 spark 데이터 프레임로 로드 하는 기능을 제공 합니다. 이 기능을 활용 하려면 학습 구성의 입력으로 TabularDataset을 전달한 다음 스크립트에서 검색할 수 있습니다.
 
-이렇게 하려면 학습 스크립트의 [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) 개체를 통해 입력 데이터 집합에 액세스 하 고 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) 메서드를 사용 합니다. 
+이렇게 하려면 학습 스크립트의 [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) 개체를 통해 입력 데이터 집합에 액세스 하 고 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 메서드를 사용 합니다. 
 
 ```Python
 %%writefile $script_folder/train_titanic.py

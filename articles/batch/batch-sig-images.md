@@ -2,18 +2,18 @@
 title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기-Azure Batch | Microsoft Docs
 description: 응용 프로그램에 필요한 소프트웨어와 데이터를 포함 하는 계산 노드에 사용자 지정 이미지를 프로 비전 하기 위해 공유 이미지 갤러리를 사용 하 여 Batch 풀을 만듭니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 컴퓨팅 노드를 구성하는 효율적인 방법입니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: lahugh
-ms.openlocfilehash: fa232fb48e80e3ae3751920e4215c4b4d3ded19a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: a933d0656bb4c22e848a663757f4e5e3fa276c61
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827927"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029656"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기
 
@@ -37,7 +37,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 * **사용자 지정 이미지 보다 성능이 우수 합니다.** 공유 이미지를 사용 하는 경우 풀이 안정 된 상태에 도달 하는 데 걸리는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
 * **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대 한 정보, 사용 중인 OS 및 이미지 사용에 대 한 정보가 포함 되어 있습니다. 이미지를 그룹화 하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/windows/shared-image-galleries.md#image-definitions)를 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure Batch 계정.** Batch 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용 하 여 일괄 처리 퀵 스타트를 참조 하세요.
 
@@ -133,7 +133,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 Azure Portal에서 공유 이미지를 사용 하 여 풀을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)을 엽니다.
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
 1. **Batch 계정** 으로 이동 하 여 계정을 선택 합니다.
 1. **풀** 을 선택한 다음 **추가** 를 클릭 하 여 새 풀을 만듭니다.
 1. **이미지 형식** 섹션에서 **공유 이미지 갤러리**를 선택 합니다.

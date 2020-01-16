@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용 하 여 워크 로드 백업
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 워크 로드를 보호 하 고 백업 하기 위해 환경을 준비 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172983"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979877"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "74172983"
 Azure VM에 배포 된 MABS는 Azure에서 Vm을 백업할 수 있지만 백업 작업을 사용 하려면 동일한 도메인에 있어야 합니다. Azure VM을 백업 하는 프로세스는 온-프레미스에서 Vm을 백업 하는 것과 동일 하지만 Azure에서 MABS를 배포 하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 대 한 자세한 내용은 [DPM을 Azure 가상 머신으로](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) 참조 하세요.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/management/deployment-models.md)모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
 >
 >
 
@@ -43,7 +43,7 @@ Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Se
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
 
-Azure Backup Server를 실행 하기 위한 서버를 선택할 때 Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작 하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 컴퓨터 시작에 대한 자습서를 제공합니다. 서버 VM (가상 컴퓨터)에 대 한 권장 최소 요구 사항은 4 개의 코어와 8gb RAM이 있는 Standard_A4_v2 이어야 합니다.
+Azure Backup Server를 실행 하기 위한 서버를 선택할 때 Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작 하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM (가상 컴퓨터)에 대 한 권장 최소 요구 사항은 4 개의 코어와 8gb RAM이 있는 Standard_A4_v2 이어야 합니다.
 
 Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
@@ -285,11 +285,11 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |허용함 |허용함 |허용함 |허용함 |
-| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 연결됨 |Active |허용됨 |허용됨 |허용됨 |허용됨 |
+| 연결됨 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용함 |허용함 |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용됨 |허용됨 |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
@@ -339,7 +339,7 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 
 3. 보호된 서버에서 보호 에이전트를 업데이트합니다.
 4. 프로덕션 서버를 다시 시작하지 않아도 백업을 계속해야 합니다.
-5. 이제 데이터 보호를 시작할 수 있습니다. 보호하는 동안 Modern Backup Storage로 업그레이드하는 경우 백업을 저장하려는 볼륨을 선택하고, 프로비전된 공간이 부족한지 확인할 수도 있습니다. [자세히 알아봅니다](backup-mabs-add-storage.md).
+5. 이제 데이터 보호를 시작할 수 있습니다. 보호하는 동안 Modern Backup Storage로 업그레이드하는 경우 백업을 저장하려는 볼륨을 선택하고, 프로비전된 공간이 부족한지 확인할 수도 있습니다. [자세히 알아보기](backup-mabs-add-storage.md).
 
 ## <a name="troubleshooting"></a>문제 해결
 

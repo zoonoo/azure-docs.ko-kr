@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 9ecffc25461a909d47329d536d1c19724b3c22ac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718061"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982171"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅
 
@@ -38,7 +38,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
    ![스토리지 선택](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. 이벤트를 구독하려면 범용 v2 스토리지 계정 또는 Blob Storage 계정을 만듭니다. 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 를 참조하세요.
+1. 이벤트를 구독하려면 범용 v2 스토리지 계정 또는 Blob Storage 계정을 만듭니다. 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 를 참조하세요.
 
    ![시작 단계](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

@@ -10,26 +10,26 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895170"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965711"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증을 사용 하 여 REST API 작업 호출
 
 이 문서에서는 인증 헤더를 구성 하는 방법을 비롯 하 여 Azure Storage REST Api를 호출 하는 방법을 보여 줍니다. REST에 대해 알지 못하는 개발자의 관점에서 작성 되었으며 REST 호출을 수행 하는 방법을 알 수 없습니다. REST 작업을 호출 하는 방법을 파악 한 후에는이 정보를 활용 하 여 다른 Azure Storage REST 작업을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-샘플 응용 프로그램은 저장소 계정에 대 한 blob 컨테이너를 나열 합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
+샘플 응용 프로그램은 저장소 계정에 대 한 blob 컨테이너를 나열 합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다.
 
-- **Azure 개발** 워크 로드를 사용 하 여 [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) 을 설치 합니다.
+- **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)를 설치합니다.
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-- 범용 스토리지 계정. 스토리지 계정이 아직 없는 경우 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
+- 범용 스토리지 계정. 스토리지 계정이 아직 없는 경우 [스토리지 계정 만들기](storage-account-create.md)를 참조하세요.
 
 - 이 문서의 예제는 스토리지 계정의 컨테이너를 나열하는 방법을 보여 줍니다. 출력을 보려면 시작하기 전에 스토리지 계정의 Blob Storage에 컨테이너를 몇 개 추가합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "74895170"
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Visual Studio 솔루션을 열려면 storage-dotnet-rest-api-with-auth 폴더를 찾아 열고, StorageRestApiAuth.sln을 두 번 클릭합니다. 
+이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Visual Studio 솔루션을 열려면 storage-dotnet-rest-api-with-auth 폴더를 찾아 열고, StorageRestApiAuth.sln을 두 번 클릭합니다.
 
 ## <a name="about-rest"></a>REST 정보
 
@@ -93,16 +93,16 @@ REST API에 대 한 호출은 클라이언트에서 수행 하는 요청과 서�
 
 샘플 프로젝트에서 권한 부여 헤더를 만드는 코드는 별도의 클래스에 있습니다. 그 이유는 전체 클래스를 사용 하 여 솔루션에 추가 하 고 "있는 그대로" 사용할 수 있다는 것입니다. 인증 헤더 코드는 Azure Storage에 대한 대부분의 REST API 호출에 사용할 수 있습니다.
 
-HttpRequestMessage 개체인 요청을 만들려면 Program.cs에서 ListContainersAsyncREST로 이동합니다. 요청을 작성하는 단계: 
+HttpRequestMessage 개체인 요청을 만들려면 Program.cs에서 ListContainersAsyncREST로 이동합니다. 요청을 작성하는 단계:
 
-- 서비스 호출에 사용할 URI를 만듭니다. 
+- 서비스 호출에 사용할 URI를 만듭니다.
 - HttpRequestMessage 개체를 만들고 페이로드를 설정합니다. 아직 아무 것도 전달되지 않기 때문에 페이로드 ListContainersAsyncREST에 대한 페이로드는 null입니다.
 - x-ms-date 및 x-ms-version에 대한 요청 헤더를 추가합니다.
 - 인증 헤더를 가져와서 추가합니다.
 
-필요한 몇 가지 기본 정보: 
+필요한 몇 가지 기본 정보:
 
-- ListContainers의 경우 **메서드**는 `GET`입니다. 이 값은 요청을 인스턴스화할 때 설정됩니다. 
+- ListContainers의 경우 **메서드**는 `GET`입니다. 이 값은 요청을 인스턴스화할 때 설정됩니다.
 - **리소스**는 URI에서 호출되는 API를 나타내는 쿼리 부분이며, 값은 `/?comp=list`입니다. 앞서 언급했듯이, 리소스는 [ListContainers API](/rest/api/storageservices/List-Containers2)에 대한 정보를 표시하는 참조 설명서 페이지에 있습니다.
 - URI는 해당 스토리지 계정에 대한 Blob service 엔드포인트를 만들고 리소스를 연결하여 구성됩니다. **요청 URI**의 값은 결국 `http://contosorest.blob.core.windows.net/?comp=list`입니다.
 - ListContainers의 경우 **requestBody**가 null이고 추가 **헤더**는 없습니다.
@@ -160,7 +160,7 @@ httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetA
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
     {
-        // If successful (status code = 200), 
+        // If successful (status code = 200),
         //   parse the XML response for the container names.
         if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
         {
@@ -209,7 +209,7 @@ Content-Length: 1511
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
-<EnumerationResults 
+<EnumerationResults
   ServiceEndpoint="http://contosorest.blob.core.windows.net/">
   <Containers>
     <Container>
@@ -308,7 +308,7 @@ CanonicalizedHeaders 및 CanonicalizedResource란 무엇인가요? 좋은 질문
 
 ### <a name="canonicalized-headers"></a>정식화 헤더
 
-이 값을 만들려면 "x-ms-"로 시작하는 헤더를 검색하고 정렬한 다음 `[key:value\n]` 인스턴스 문자열로 포맷하고, 하나의 문자열로 연결합니다. 이 예제의 정식화 헤더는 다음과 같습니다. 
+이 값을 만들려면 "x-ms-"로 시작하는 헤더를 검색하고 정렬한 다음 `[key:value\n]` 인스턴스 문자열로 포맷하고, 하나의 문자열로 연결합니다. 이 예제의 정식화 헤더는 다음과 같습니다.
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -316,7 +316,7 @@ x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 
 다음은 해당 출력을 만드는 데 사용된 코드입니다.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
@@ -444,7 +444,7 @@ https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 ListContainersAsyncREST에서 URI를 설정하는 코드를 ListBlobs에 대한 API로 변경합니다. 컨테이너 이름은 **container-1**입니다.
 
 ```csharp
-String uri = 
+String uri =
     string.Format("http://{0}.blob.core.windows.net/container-1?restype=container&comp=list",
       storageAccountName);
 
@@ -516,7 +516,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**응답 본문(XML):** 이 XML 응답은 BLOB 및 해당 속성의 목록을 보여 줍니다. 
+**응답 본문(XML):** 이 XML 응답은 BLOB 및 해당 속성의 목록을 보여 줍니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

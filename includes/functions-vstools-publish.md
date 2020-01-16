@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 327a7689e0297002f1ce3f48d2bd367104277680
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 689889588aba4da888a7d66f5e1d45dfde71d520
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769706"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021247"
 ---
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -38,9 +38,9 @@ ms.locfileid: "75769706"
     | ------------ |  ------- | -------------------------------------------------- |
     | **이름** | 전역적으로 고유한 이름 | 새 함수 앱을 고유하게 식별하는 이름입니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | **구독** | 구독 선택 | 사용할 Azure 구독입니다. |
-    | **[리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  함수 앱을 만들 리소스 그룹의 이름입니다. **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.|
+    | **[리소스 그룹](../articles/azure-resource-manager/management/overview.md)** | myResourceGroup |  함수 앱을 만들 리소스 그룹의 이름입니다. **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.|
     | **[호스팅 계획](../articles/azure-functions/functions-scale.md)** | 소비 계획 | **새로 만들기**를 선택하여 서버리스 계획을 만든 후에 **크기** 아래에서 **사용량**을 선택해야 합니다. 또한 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 **위치**를 선택합니다. **소비** 이외의 계획에서 실행하는 경우 [함수 앱의 크기 조정](../articles/azure-functions/functions-scale.md)을 관리해야 합니다.  |
-    | **[Azure Storage](../articles/storage/common/storage-quickstart-create-account.md)** | 범용 스토리지 계정 | Functions 런타임에는 Azure Storage 계정이 필요합니다. **새로 만들기**를 선택하여 범용 스토리지 계정을 만듭니다. [스토리지 계정 요구 사항](../articles/azure-functions/functions-scale.md#storage-account-requirements)을 충족하는 기존 계정을 사용할 수도 있습니다.  |
+    | **[Azure Storage](../articles/storage/common/storage-account-create.md)** | 범용 스토리지 계정 | Functions 런타임에는 Azure Storage 계정이 필요합니다. **새로 만들기**를 선택하여 범용 스토리지 계정을 만듭니다. [스토리지 계정 요구 사항](../articles/azure-functions/functions-scale.md#storage-account-requirements)을 충족하는 기존 계정을 사용할 수도 있습니다.  |
 
 5. **만들기**를 선택하여 이러한 설정으로 Azure에서 함수 앱 및 관련 리소스를 만들고, 함수 프로젝트 코드를 배포합니다. 
 

@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 884ba1106e7b68fefaf91ee4e25cacd05bf96fc0
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 28c4ca59b20fcdd8ab0249392dc0f13cbabf1a97
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048755"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970628"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
 
 부하를 분산하면 들어오는 요청이 여러 VM(가상 머신)에 분산되어 가용성 및 확장성이 향상됩니다. 이 빠른 시작에서는 VM 부하를 분산하는 표준 Load Balancer를 만드는 Azure Resource Manager 템플릿을 배포하는 방법을 보여 줍니다. Resource Manager 템플릿을 사용하면 다른 배포 방법과 비교하여 단계가 줄어듭니다.
 
-[Resource Manager 템플릿](../azure-resource-manager/template-deployment-overview.md)은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다. 이 템플릿은 대상을 만들기 위한 프로그래밍 명령 시퀀스를 작성하지 않고도 배포하려는 대상을 설명할 수 있는 선언적 구문입니다. Resource Manager 템플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.network/loadbalancers)에서 확인할 수 있습니다.
+[Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다. 이 템플릿은 대상을 만들기 위한 프로그래밍 명령 시퀀스를 작성하지 않고도 배포하려는 대상을 설명할 수 있는 선언적 구문입니다. Resource Manager 템플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.network/loadbalancers)에서 확인할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -84,7 +84,7 @@ Azure Load Balancer에 관련된 더 많은 템플릿을 찾으려면 [Azure 빠
 
 ![Azure 표준 Load Balancer Resource Manager 템플릿 PowerShell 배포 출력](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
-Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerShell 외에도 Azure Portal, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
+Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerShell 외에도 Azure Portal, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 참조하세요.
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 

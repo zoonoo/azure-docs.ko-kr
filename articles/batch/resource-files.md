@@ -2,18 +2,18 @@
 title: 리소스 파일 만들기 및 사용-Azure Batch
 description: 다양 한 입력 소스에서 배치 리소스 파일을 만드는 방법을 알아봅니다. 이 문서에서는 VM을 만들고 VM에 추가 하는 방법에 대 한 몇 가지 일반적인 방법을 설명 합니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: lahugh
-ms.openlocfilehash: e890bce378327fe5b1f4068d6719e6b905404f3c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: 61d4baffe65da52f8ca926bc911b26e3f1c9a79a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390044"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029339"
 ---
 # <a name="creating-and-using-resource-files"></a>리소스 파일 만들기 및 사용
 

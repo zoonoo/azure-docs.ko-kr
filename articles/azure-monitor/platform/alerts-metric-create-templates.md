@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/13/2020
+ms.date: 1/14/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: bfa5d240ba4905f79274941568933daf1425bf8b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932893"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969425"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 알림 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "75932893"
 1. 다음 템플릿 중 하나를 경고 생성 방법을 설명하는 JSON 파일로 사용합니다.
 2. 해당 매개 변수 파일을 편집 하 고 JSON으로 사용 하 여 경고를 사용자 지정 합니다.
 3. `metricName` 매개 변수 [Azure Monitor 지원 되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)에서 사용 가능한 메트릭을 참조 하세요.
-4. [배포 방법](../../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 템플릿을 배포합니다.
+4. [배포 방법](../../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 템플릿을 배포합니다.
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>간단한 정적 임계값 메트릭 경고에 대한 템플릿
 
@@ -378,6 +378,13 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
+    "ignoreDataBefore": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format, e.g. '2019-12-31T22:00:00Z')."
+            }
+        },
         "timeAggregation": {
             "type": "string",
             "defaultValue": "Average",
@@ -455,6 +462,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
+                "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -511,6 +519,9 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
+    "ignoreDataBefore": {
+            "value": ""
+        },
         "timeAggregation": {
             "value": "Average"
         },
@@ -559,7 +570,7 @@ az group deployment create \
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "\*"을 차원 값으로 사용할 수 없습니다.
 - 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 모든 해당 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건에 따라).
-    - 아래 예제에서는 **트랜잭션** 및 **SuccessE2ELatency** 메트릭에 **api 이름** 차원이 있고 *criterion1* 가 **api 이름** 차원에 대 한 *"Getblob"* 값을 지정 하기 때문에 *criterion2* 는 **api 이름** 차원에 대 한 *"getblob"* 값도 설정 해야 합니다.
+    - 아래 예에서는 **트랜잭션과** **SuccessE2ELatency** 메트릭에 모두 **apiname** 차원이 있고 *criterion1* 는 **Apiname** 차원에 대 한 *"getblob"* 값을 지정 하므로 *criterion2* 는 **apiname** 차원에 대해 *"getblob"* 값을 설정 해야 합니다.
 
 
 이 연습의 목적을 위해 아래의 json을 advancedstaticmetricalert.json으로 저장합니다.

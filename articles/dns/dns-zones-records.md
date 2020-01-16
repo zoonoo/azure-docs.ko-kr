@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210983"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980524"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
@@ -115,7 +115,7 @@ DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코�
 
 ### <a name="tags"></a>태그
 
-태그는 이름-값 쌍의 목록으로, Azure Resource Manager에서 리소스에 레이블을 지정하는 데 사용됩니다.  Azure Resource Manager는 태그를 사용하여 Azure 청구서를 필터링하여 표시할 수 있으며 태그가 필요한 정책을 설정할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/resource-group-using-tags.md)을 참조하십시오.
+태그는 이름-값 쌍의 목록으로, Azure Resource Manager에서 리소스에 레이블을 지정하는 데 사용됩니다.  Azure Resource Manager는 태그를 사용하여 Azure 청구서를 필터링하여 표시할 수 있으며 태그가 필요한 정책을 설정할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하십시오.
 
 Azure DNS에서는 DNS 영역 리소스에 Azure Resource Manager 태그를 사용할 수 있으며  아래 설명된 대로 대체 ‘메타데이터’가 DNS 레코드 집합에서 지원되기는 하지만 DNS 레코드 집합의 태그는 지원하지 않습니다.
 

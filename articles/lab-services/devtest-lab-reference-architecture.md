@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 059fd1eb5df09cd0f24763f18cbb02b34017793c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647903"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982110"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈를 위한 Azure DevTest Labs 참조 아키텍처
 이 문서에서는 기업의 Azure DevTest Labs 기반 솔루션을 배포 하는 데 도움이 되는 참조 아키텍처를 제공 합니다. 여기에는 다음이 포함 됩니다.
@@ -56,7 +56,7 @@ DevTest Labs에는 기본 제공 할당량 또는 한도가 없지만 랩의 일
 - **리소스 그룹당**리소스 그룹당 리소스: 리소스 유형별 리소스 그룹당 기본 제한은 [800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)입니다.  모든 Vm을 사용 하 여 *동일한 리소스 그룹 구성으로 이동* 하는 경우, 특히 vm에 추가 디스크가 많은 경우이 구독 제한을 훨씬 더 빨리 맞 더 합니다.
 - **Storage 계정**: DevTest Labs의 랩에는 저장소 계정이 제공 됩니다. [구독 당 지역별 저장소 계정 수](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)에 대 한 Azure 할당량은 250입니다. 동일한 지역에 있는 DevTest Labs의 최대 수는 250입니다.
 - **역할 할당**: 역할 할당은 사용자 또는 사용자에 게 리소스에 대 한 액세스 권한 (소유자, 리소스, 권한 수준)을 부여 하는 방법입니다. Azure의 [구독 당 역할 할당은 2000 개로 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits)됩니다. 기본적으로 DevTest Labs 서비스는 각 VM에 대 한 리소스 그룹을 만듭니다. 소유자에 게는 DevTest Labs VM에 대 한 *소유자* 권한 및 리소스 그룹에 대 한 *읽기* 권한이 부여 됩니다. 이러한 방식으로 사용자가 만드는 각 새 VM은 사용자에 게 랩에 대 한 사용 권한을 부여할 때 사용 되는 할당 외에도 두 개의 역할 할당을 사용 합니다.
-- **API 읽기/쓰기**: REST Api, PowerShell, Azure CLI 및 azure SDK를 비롯 한 다양 한 방법으로 Azure 및 DevTest Labs를 자동화할 수 있습니다. Automation을 통해 API 요청에 대 한 다른 제한에 도달할 수 있습니다. 각 구독은 최대 [12000 읽기 요청 및 시간당 1200 쓰기 요청](../azure-resource-manager/resource-manager-request-limits.md)을 허용 합니다. DevTest Labs를 자동화 하는 경우이 한도를 염두에 두어야 합니다.
+- **API 읽기/쓰기**: REST Api, PowerShell, Azure CLI 및 azure SDK를 비롯 한 다양 한 방법으로 Azure 및 DevTest Labs를 자동화할 수 있습니다. Automation을 통해 API 요청에 대 한 다른 제한에 도달할 수 있습니다. 각 구독은 최대 [12000 읽기 요청 및 시간당 1200 쓰기 요청](../azure-resource-manager/management/request-limits-and-throttling.md)을 허용 합니다. DevTest Labs를 자동화 하는 경우이 한도를 염두에 두어야 합니다.
 
 ## <a name="manageability-considerations"></a>관리 효율성 고려 사항
 DevTest Labs에는 단일 랩으로 작업 하기 위한 뛰어난 관리 사용자 인터페이스가 있습니다. 그러나 기업에서는 여러 Azure 구독 및 많은 랩을 보유 하 고 있을 것입니다. 모든 랩에 일관성 있게 변경 하려면 스크립팅/자동화가 필요 합니다. DevTest Labs 배포에 대 한 몇 가지 예제 및 최선의 관리 사례는 다음과 같습니다.

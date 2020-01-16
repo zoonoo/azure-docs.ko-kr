@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818901"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028401"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션
 
 이 문서에서는 조직 도메인을 AD FS(Active Directory Federation Services)에서 암호 해시 동기화로 전환하는 방법에 대해 설명합니다.
 
-[이 문서는 다운로드](https://aka.ms/ADFSTOPHSDPDownload)할 수 있습니다.
+> [!NOTE]
+> 인증 방법을 변경 하려면 계획, 테스트 및 잠재적 가동 중지 시간이 필요 합니다. [스테이징 된 롤아웃](how-to-connect-staged-rollout.md) 은 암호 해시 동기화를 사용 하 여 페더레이션에서 클라우드 인증으로 테스트 하 고 점진적으로 마이그레이션하는 대체 방법을 제공 합니다.
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>암호 해시 동기화로 마이그레이션하기 위한 필수 조건
 
@@ -135,7 +136,7 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 페더레이션 ID에서 관리 ID로 변환하기 전에 현재 AD FS를 Azure AD, Office 365 및 다른 애플리케이션(신뢰 당사자 트러스트)에 사용하는 방법을 자세히 살펴봅니다. 특히 다음 표에서 설명하는 시나리오를 고려해야 합니다.
 
-| 다음과 같은 경우 | 결과 |
+| 다음과 같은 경우 | 작업 |
 |-|-|
 | AD FS를 Azure AD 및 Office 365 이외의 다른 애플리케이션에서 계속 사용하려고 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 두 번 인증해야 할 수도 있습니다. 즉 한번은 Azure AD(사용자가 Office 365와 같은 다른 애플리케이션에 SSO 액세스 권한을 얻은 경우), 또 한번은 아직도 AD FS에 바인딩된 애플리케이션에 대해 인증해야 합니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|

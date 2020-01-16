@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce506f88802dee75898a3da4fa795a64ccbbd02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e972228923654ca73063aad370d087e550138dbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424948"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043377"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>조건부 액세스: 관리자에 대해 MFA 필요
 
@@ -42,7 +42,7 @@ ms.locfileid: "75424948"
 
 * 테 넌 트 전체 계정 잠금을 방지 하기 위한 **긴급 액세스** 또는 **투명** 계정 드문 경우 지만 모든 관리자는 테 넌 트에서 잠기므로 응급 액세스 관리 계정을 사용 하 여 테 넌 트에 로그인 할 수 있습니다 .이를 통해 액세스를 복구 하는 단계를 수행 합니다.
    * 자세한 내용은 [AZURE AD에서 응급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)문서에서 찾을 수 있습니다.
-* **서비스 계정** 및 **서비스 원칙**(예: Azure AD Connect 동기화 계정). 서비스 계정은 특정 사용자에 게 연결 되지 않은 비 대화형 계정입니다. 일반적으로 백 엔드 서비스에서 사용 되며 응용 프로그램에 대 한 프로그래밍 방식 액세스를 허용 합니다. MFA를 프로그래밍 방식으로 완료할 수 없기 때문에 서비스 계정을 제외 해야 합니다.
+* **서비스 계정** 및 **서비스 주체**(예: Azure AD Connect 동기화 계정). 서비스 계정은 특정 사용자에 게 연결 되지 않은 비 대화형 계정입니다. 일반적으로 백 엔드 서비스에서 사용 되며 응용 프로그램에 대 한 프로그래밍 방식 액세스를 허용 합니다. MFA를 프로그래밍 방식으로 완료할 수 없기 때문에 서비스 계정을 제외 해야 합니다.
    * 조직에서 스크립트 또는 코드에 이러한 계정을 사용 중인 경우 이를 [관리 ID](../managed-identities-azure-resources/overview.md)로 바꾸는 것이 좋습니다. 임시 해결 방법으로, 이러한 특정 계정을 기준 정책에서 제외할 수 있습니다.
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기

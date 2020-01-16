@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 46f8e59713896cd94b96de62d982072119c32513
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 700dd305cf5365a604a5613bd5b48dbd2ac8f840
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050188"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020850"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "70050188"
 
    - **구독**: 허브에 사용할 구독을 선택합니다.
 
-   - **리소스 그룹**: 리소스 그룹을 선택하거나 새로 만듭니다. 새 리소스 그룹을 만들려면 **새로 만들기**를 선택하고 사용하려는 이름을 입력합니다. 기존 리소스 그룹을 사용하려면 해당 기존 리소스 그룹을 선택합니다. 자세한 내용은 [Azure Resource Manager 리소스 그룹 관리](../articles/azure-resource-manager/manage-resource-groups-portal.md)를 참조하세요.
+   - **리소스 그룹**: 리소스 그룹을 선택하거나 새로 만듭니다. 새 리소스 그룹을 만들려면 **새로 만들기**를 선택하고 사용하려는 이름을 입력합니다. 기존 리소스 그룹을 사용하려면 해당 기존 리소스 그룹을 선택합니다. 자세한 내용은 [Azure Resource Manager 리소스 그룹 관리](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
 
    - **지역**: 허브를 배치할 지역을 선택합니다. **미국 중부** 또는 **미국 중부 EUAP** 중에서 IoT Hub 디바이스 스트림 미리 보기를 지원하는 Azure 지역을 선택합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "70050188"
 
    ![Azure Portal을 사용하여 새 IoT Hub의 크기 및 규모 설정](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
-   **크기 및 배율**에서 기본 설정을 수락하고 맨 아래에서 **검토 + 만들기**를 선택할 수 있습니다. 이때 다음 옵션을 사용할 수 있습니다.
+   **크기 및 배율**에서 기본 설정을 수락하고 맨 아래에서 **검토 + 만들기**를 선택할 수 있습니다. 다음 옵션을 살펴보세요.
 
    - **가격 책정 및 크기 조정 계층**: 선택한 계층입니다. 표준 계층(**S1**, **S2** 또는 **S3**) 또는 **F1: 체험 계층**을 선택합니다. 이 선택은 허브에서 예상하는 Fleet의 크기와 비 스트리밍 워크로드(예: 원격 분석 메시지)에 따라 결정될 수도 있습니다. 예를 들어 무료 계층은 테스트와 평가를 위해 제공됩니다. IoT Hub에 500개 디바이스를 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다. 각 Azure 구독은 체험 계층에 하나의 IoT Hub를 만들 수 있습니다. 
 
