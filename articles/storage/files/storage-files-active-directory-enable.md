@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fd42a6ffa6ea46d49df673cde617c70ce7425d91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 489cb9e652d571b5322a1bd92663ca089e28b8cd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460379"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980785"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Azure Files SMB를 통한 Azure Active Directory Domain Services 인증 사용
 
@@ -26,7 +26,7 @@ Azure Files SMB를 통한 Azure AD 인증에 대 한 개요는 [Azure Files에 �
 
 Azure Files에 대해 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하기 전에 Azure AD 및 Azure Storage 환경이 제대로 구성 되어 있는지 확인 합니다. 필요한 모든 단계를 완료 했는지 확인 하기 위해 [필수 구성 요소](#prerequisites) 를 안내 하는 것이 좋습니다.
 
-그런 후에는 다음 단계를 수행하여 Azure AD 자격 증명을 사용한 Azure Files 리소스 액세스 권한을 부여합니다. 
+그런 후에는 다음 단계를 수행하여 Azure AD 자격 증명을 사용한 Azure Files 리소스 액세스 권한을 부여합니다.
 
 1. 저장소 계정에 대해 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하 여 연결 된 Azure AD DS 배포에 저장소 계정을 등록 합니다.
 2. Azure AD ID(사용자, 그룹 또는 서비스 주체)에 공유 액세스 권한을 할당합니다.
@@ -62,7 +62,7 @@ Azure Files에 대한 SMB를 통한 Azure AD를 사용하도록 설정하기 전
 
 4.  **Azure 파일 공유를 선택하거나 만듭니다.**
 
-    Azure AD 테넌트와 같은 구독에 연결된 신규 또는 기존 파일 공유를 선택합니다. 새 파일 공유를 만드는 방법에 대한 자세한 내용은 [Azure Files에 파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요. 
+    Azure AD 테넌트와 같은 구독에 연결된 신규 또는 기존 파일 공유를 선택합니다. 새 파일 공유를 만드는 방법에 대한 자세한 내용은 [Azure Files에 파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요.
     최적의 성능을 위해서는 공유에 액세스 하려는 VM과 동일한 지역에 파일 공유를 사용 하는 것이 좋습니다.
 
 5.  **스토리지 계정 키를 사용하여 Azure 파일 공유를 탑재해 Azure Files 연결을 확인합니다.**
@@ -79,14 +79,14 @@ Azure AD DS를 Azure AD 테 넌 트에 성공적으로 배포한 후에만 SMB�
 
 [Azure Portal](https://portal.azure.com)에서 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에서 기존 저장소 계정으로 이동 하거나 [저장소 계정을 만듭니다](../common/storage-quickstart-create-account.md).
+1. Azure Portal에서 기존 저장소 계정으로 이동 하거나 [저장소 계정을 만듭니다](../common/storage-account-create.md).
 2. **설정** 섹션에서 **구성**을 선택합니다.
 3. **Azure 파일 인증을 위한 id 기반 디렉터리 서비스** 드롭다운 목록에서 **Azure Active Directory Domain Services (azure AD DS)** 를 선택 합니다.
 
 다음 이미지는 저장소 계정에 대해 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 ![Azure Portal에서 SMB를 통한 Azure AD 인증 사용](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
-  
+
 ### <a name="powershell"></a>PowerShell  
 
 Azure PowerShell에서 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하려면 최신 Az module (2.4 이상) 또는 Az. Storage 모듈 (1.5 이상)을 설치 합니다. PowerShell을 설치 하는 방법에 대 한 자세한 내용은 [PowerShellGet을 사용 하 여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조 하세요.
@@ -172,8 +172,8 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 ```
 
 #### <a name="cli"></a>CLI
-  
-다음 CLI 2.0 명령은 로그인 이름을 기반으로 하 여 Azure AD id에 RBAC 역할을 할당 하는 방법을 보여 줍니다. Azure CLI에서 RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [rbac 및 Azure CLI를 사용 하 여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
+
+다음 CLI 2.0 명령은 로그인 이름을 기반으로 하 여 Azure AD id에 RBAC 역할을 할당 하는 방법을 보여 줍니다. Azure CLI에서 RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [rbac 및 Azure CLI를 사용 하 여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요.
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
@@ -182,10 +182,10 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="configure-ntfs-permissions-over-smb"></a>SMB를 통한 NTFS 권한 구성 
+## <a name="configure-ntfs-permissions-over-smb"></a>SMB를 통한 NTFS 권한 구성
 RBAC를 사용하여 공유 수준 권한할당을 한 후에는 루트, 디렉터리 또는 파일 수준에서 적절한 NTFS 권한을 할당해야 합니다. 공유 수준 사용 권한은 사용자가 공유에 액세스할 수 있는지 여부를 결정 하는 상위 수준 게이트 키퍼로 생각 하면 됩니다. NTFS 권한은 사용자가 디렉터리 또는 파일 수준에서 수행할 수 있는 작업을 결정 하기 위해 보다 세분화 된 수준으로 작동 합니다.
 
-Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다. 공유를 탑재 한 다음 Windows 파일 탐색기를 사용 하거나 Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 또는 [Set ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) 명령을 실행 하 여 Azure 파일 공유의 디렉터리 및 파일에 대 한 NTFS 권한을 확인 하 고 구성할 수 있습니다. 
+Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다. 공유를 탑재 한 다음 Windows 파일 탐색기를 사용 하거나 Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 또는 [Set ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) 명령을 실행 하 여 Azure 파일 공유의 디렉터리 및 파일에 대 한 NTFS 권한을 확인 하 고 구성할 수 있습니다.
 
 수퍼유저 권한으로 NTFS를 구성 하려면 도메인에 가입 된 VM의 저장소 계정 키를 사용 하 여 공유를 탑재 해야 합니다. 다음 섹션의 지침에 따라 명령 프롬프트에서 Azure 파일 공유를 탑재 하 고 NTFS 사용 권한을 적절 하 게 구성 합니다.
 
@@ -229,7 +229,7 @@ Icacls를 사용 하 여 NTFS 권한 및 지원 되는 다양 한 권한 유형�
 
 ## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>도메인 조인 VM에서 파일 공유 탑재
 
-다음 프로세스는 Azure AD 자격 증명이 올바르게 설정 되었는지 확인 하 고 도메인에 가입 된 VM에서 Azure 파일 공유에 액세스할 수 있는지 확인 합니다. 
+다음 프로세스는 Azure AD 자격 증명이 올바르게 설정 되었는지 확인 하 고 도메인에 가입 된 VM에서 Azure 파일 공유에 액세스할 수 있는지 확인 합니다.
 
 다음 그림에 표시 된 것 처럼 권한을 부여한 Azure AD id를 사용 하 여 VM에 로그인 합니다.
 

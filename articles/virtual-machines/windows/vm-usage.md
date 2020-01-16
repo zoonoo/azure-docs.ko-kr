@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: d574c5eef15c21d3d490bcfe682b87bae2856f1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2aa175d97787d82aae062a95ed519f35ff65816b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353712"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982270"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
-Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../../billing/billing-understand-your-bill.md)로 이동합니다.
+Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../../cost-management-billing/understand/review-individual-bill.md)로 이동합니다.
 
 ## <a name="download-your-usage-details"></a>사용 세부 정보 다운로드
-먼저 [사용 세부 정보를 다운로드](../../billing/billing-download-azure-invoice-daily-usage-date.md)합니다. 다음 표에서는 Azure Resource Manager를 통해 배포된 Virtual Machines의 정의 및 예제 값을 제공합니다. 이 문서에는 클래식 모델을 통해 배포된 VM에 대한 상세 정보는 없습니다.
+먼저 [사용 세부 정보를 다운로드](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)합니다. 다음 표에서는 Azure Resource Manager를 통해 배포된 Virtual Machines의 정의 및 예제 값을 제공합니다. 이 문서에는 클래식 모델을 통해 배포된 VM에 대한 상세 정보는 없습니다.
 
 
 | 필드             | 의미                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 예제 값                                                                                                                                                                                                                                                                                                                                                   |
@@ -132,7 +132,7 @@ ComputeHR은 기본 인프라 비용에 대한 사용 이벤트를 나타내는 
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>프리미엄 소프트웨어의 요금을 어떻게 알 수 있나요?
 어떤 VM 이미지가 자신의 요구에 가장 부합하는지 모색할 때는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute)를 확인합니다. 이미지에는 소프트웨어 계획 요금이 있습니다. 요금이 "Free"로 표시된 경우 해당 소프트웨어에는 추가 비용이 없는 것입니다. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>사용 서비스에서 Microsoft.ClassicCompute와 Microsoft.Compute의 차이는 무엇인가요?
-Microsoft.ClassicCompute는 Azure Service Manager를 통해 배포된 클래식 리소스를 나타냅니다. Resource Manager를 통해 배포하는 경우 사용되는 서비스에서 Microsoft.Compute가 채워집니다. Azure [배포 모델](../../azure-resource-manager/resource-manager-deployment-model.md)에 대해 자세히 알아보세요.
+Microsoft.ClassicCompute는 Azure Service Manager를 통해 배포된 클래식 리소스를 나타냅니다. Resource Manager를 통해 배포하는 경우 사용되는 서비스에서 Microsoft.Compute가 채워집니다. Azure [배포 모델](../../azure-resource-manager/management/deployment-models.md)에 대해 자세히 알아보세요.
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>내 Virtual Machine 사용에 대해 InstanceID 필드가 비어 있는 이유는 무엇인가요?
 클래식 배포 모델을 통해 배포할 경우 InstanceID 문자열을 사용할 수 없습니다.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>내 VM에 대한 태그가 사용 세부 정보에 전달되지 않는 이유는 무엇인가요?
@@ -143,5 +143,5 @@ Microsoft.ClassicCompute는 Azure Service Manager를 통해 배포된 클래식 
 Premium Storage를 지원하는 VM은 비 Premium Storage 지원 VM과 같은 요금으로 청구됩니다. 스토리지 비용만 다릅니다. 자세한 내용은 [스토리지 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-사용 세부 정보에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](../../billing/billing-understand-your-bill.md)를 참조하세요.
+사용 세부 정보에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](../../cost-management-billing/understand/review-individual-bill.md)를 참조하세요.
 

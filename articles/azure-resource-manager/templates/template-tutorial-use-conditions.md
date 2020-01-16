@@ -5,12 +5,12 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 999b932cc12b945c3bf6bb0a4b56c3da19bb3ca6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 895d82eb79e4674ca95b9052d2384a257b296bf5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470888"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980669"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿에서 조건 사용
 
@@ -155,7 +155,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > **newOrExisting**이 **new**이지만 지정된 스토리지 계정 이름의 스토리지 계정이 이미 있는 경우 배포가 실패합니다.
 
-**newOrExisting**이 "existing"으로 설정된 다른 배포를 시도하고 기존 스토리지 계정을 지정해 보세요. 스토리지 계정을 미리 들려면 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+**newOrExisting**이 "existing"으로 설정된 다른 배포를 시도하고 기존 스토리지 계정을 지정해 보세요. 스토리지 계정을 미리 들려면 [스토리지 계정 만들기](../../storage/common/storage-account-create.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

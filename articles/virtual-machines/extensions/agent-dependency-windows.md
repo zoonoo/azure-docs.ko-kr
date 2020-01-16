@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 858aba2a45a6b8cf133e6f94bac45e721535ab25
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073260"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980160"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Windows 용 Azure Monitor 종속성 가상 머신 확장
 
@@ -82,7 +82,7 @@ Windows 용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포
 
 Azure Resource Manager 템플릿을 사용 하 여 Azure VM 확장을 배포할 수 있습니다. Azure Resource Manager 템플릿에서 이전 섹션에 자세히 설명 된 JSON 스키마를 사용 하 여 Azure Resource Manager 템플릿 배포 중에 Azure VM 종속성 에이전트 확장을 실행할 수 있습니다.
 
-가상 머신 확장에 대 한 JSON은 가상 머신 리소스 내에 중첩 될 수 있습니다. 또는 리소스 관리자 JSON 템플릿의 루트 또는 최상위 수준에이를 추가할 수 있습니다. JSON의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/child-resource-name-type.md)을 참조하세요.
+가상 머신 확장에 대 한 JSON은 가상 머신 리소스 내에 중첩 될 수 있습니다. 또는 리소스 관리자 JSON 템플릿의 루트 또는 최상위 수준에이를 추가할 수 있습니다. JSON의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/templates/child-resource-name-type.md)을 참조하세요.
 
 다음 예에서는 종속성 에이전트 확장이 가상 머신 리소스 내에 중첩 되어 있다고 가정 합니다. 확장 리소스를 중첩할 때 JSON은 가상 컴퓨터의 `"resources": []` 개체에 배치 됩니다.
 

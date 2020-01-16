@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659562"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978768"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -31,7 +31,7 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 
 ## <a name="account"></a>account
 Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. 계정이 기존 회사, 학교나 개인 Microsoft 계정 또는 Office 365 사용자 이름 및 암호 중 하나일 수 있지만 Azure 계정이라고 말합니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
-[Office 365 계정을 사용하여 Azure 구독에 등록](billing/billing-use-existing-office-365-account-azure-subscription.md) 및 [로그인하는 데 사용할 수 있는 계정](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
+[Office 365 계정을 사용하여 Azure 구독에 등록](cost-management-billing/manage/office-365-account-for-azure-subscription.md) 및 [로그인하는 데 사용할 수 있는 계정](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
 ## <a name="api-app"></a>API 앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
@@ -96,11 +96,11 @@ Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털�
 
 ## <a name="resource"></a>resource
 Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 데이터베이스 또는 가상 머신과 같은 다양한 유형의 리소스를 배포할 수 있습니다.   
-[Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
+[Azure Resource Manager 개요](azure-resource-manager/management/overview.md)를 참조하세요.
 
 ## <a name="resource-group"></a>리소스 그룹
 리소스 관리자에서 애플리케이션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 모든 애플리케이션에 대한 리소스 또는 논리적으로 그룹화된 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 어떻게 리소스 그룹에 리소스를 할당할지 결정할 수 있습니다.  
-[Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
+[Azure Resource Manager 개요](azure-resource-manager/management/overview.md)를 참조하세요.
 
 ## <a name="arm-template"></a>리소스 관리자 템플릿
 하나 이상의 Azure 리소스를 선언적으로 정의하고 배포된 리소스 간의 종속성을 정의하는 JSON 파일입니다. 템플릿은 리소스를 일관되고 반복적으로 배포하는 데 사용할 수 있습니다.  
@@ -108,7 +108,7 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 
 ## <a name="resource-provider"></a>리소스 공급자
 리소스 관리자를 통해 배포하고 관리할 수 있는 리소스를 제공하는 서비스입니다. 각 리소스 공급자는 배포된 리소스로 작업하기 위한 작업을 제공합니다. 리소스 공급자는 Azure 포털, Azure PowerShell 및 몇 가지 프로그래밍 SDK를 통해 액세스할 수 있습니다.  
-[Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
+[Azure Resource Manager 개요](azure-resource-manager/management/overview.md)를 참조하세요.
 
 ## <a name="role"></a>역할(role)
 사용자, 그룹 및 서비스에 할당할 수 있는 액세스를 제어하는 방법입니다. 역할은 Azure 리소스에서 만들기, 관리 및 읽기와 같은 작업을 수행할 수 있습니다.  

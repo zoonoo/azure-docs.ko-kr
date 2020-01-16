@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646747"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980097"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -34,7 +34,7 @@ Azure는 다음 피어 링 유형을 지원 합니다.
 * 한 가상 네트워크의 리소스가 다른 가상 네트워크의 리소스와 통신할 수 있는 기능입니다.
 * Azure 구독, Azure Active Directory 테 넌 트, 배포 모델 및 Azure 지역에서 가상 네트워크 간에 데이터를 전송 하는 기능입니다.
 * Azure Resource Manager를 통해 만든 가상 네트워크를 피어 링 하는 기능입니다.
-* 리소스 관리자를 통해 만든 가상 네트워크를 클래식 배포 모델을 통해 만든 가상 네트워크에 피어 링 하는 기능입니다. Azure 배포 모델에 대해 자세히 알아보려면 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+* 리소스 관리자를 통해 만든 가상 네트워크를 클래식 배포 모델을 통해 만든 가상 네트워크에 피어 링 하는 기능입니다. Azure 배포 모델에 대해 자세히 알아보려면 [Azure 배포 모델 이해](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 * 피어링을 만들 때 또는 피어링이 생성된 후에 각 가상 네트워크에 있는 리소스에 대한 가동 중지 시간이 없습니다.
 
 피어링된 가상 네트워크 간의 네트워크 트래픽이 프라이빗 전용입니다. 가상 네트워크 간의 트래픽이 Microsoft 백본 네트워크에서 유지됩니다. 가상 네트워크 간의 통신에 공용 인터넷, 게이트웨이, 또는 암호화가 필요하지 않습니다.

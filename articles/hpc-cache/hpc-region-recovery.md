@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: e0ff9bc66c7d185f8fe07b4b4574833fcd7e2604
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582076"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982170"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>지역 장애 조치 (failover) 복구에 여러 캐시 사용
 
@@ -37,7 +37,7 @@ ms.locfileid: "73582076"
    1. 캐시 클라이언트에서 사용할 탑재 명령
 
    > [!NOTE]
-   > Azure HPC 캐시는 [Azure Resource Manager 템플릿을](../azure-resource-manager/template-deployment-overview.md) 통해 또는 API에 직접 액세스 하 여 프로그래밍 방식으로 만들 수 있습니다. 자세한 내용은 Azure HPC 캐시 팀에 문의 하세요.
+   > Azure HPC 캐시는 [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/overview.md) 통해 또는 API에 직접 액세스 하 여 프로그래밍 방식으로 만들 수 있습니다. 자세한 내용은 Azure HPC 캐시 팀에 문의 하세요.
 
 ## <a name="failover-example"></a>장애 조치 예제
 
@@ -55,7 +55,7 @@ ms.locfileid: "73582076"
 
 클라이언트가 지역 가동 중단의 영향을 받지 않은 경우에도 모든 클라이언트는 새 캐시를 탑재 해야 합니다. 새 캐시에는 이전 캐시와 다른 탑재 주소가 있습니다.
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 
 Azure 응용 프로그램 아키텍처 가이드에는 [지역 전체 서비스 중단에서 복구](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)하는 방법에 대 한 자세한 내용이 포함 되어 있습니다.
 <!-- this should be an internal link instead of a URL but I can't find the tree  -->

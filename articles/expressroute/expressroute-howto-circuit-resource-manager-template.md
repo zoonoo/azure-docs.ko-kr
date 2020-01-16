@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083519"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981145"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Express 경로 회로 만들기
 
@@ -44,7 +44,7 @@ Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 �
 
 템플릿을 배포 하 여 Express 경로 회로를 만들려면 다음을 수행 합니다.
 
-1. 다음 코드 블록에서 **시도** 를 선택 하 고 지침에 따라 Azure Cloud shell에 로그인 합니다.
+1. 다음 코드 블록에서 **사용해보기**를 선택한 다음, 지침에 따라 Azure Cloud 셸에 로그인합니다.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -74,15 +74,15 @@ Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 �
     리소스 그룹 이름은 **rg** 추가 된 service bus 네임 스페이스 이름입니다.
 
 2. **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
-3. 셸 콘솔을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
+3. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 
 이벤트 허브를 만드는 데 몇 분 정도 걸립니다.
 
 이 자습서에서는 Azure PowerShell를 사용 하 여 템플릿을 배포 합니다. 다른 템플릿 배포 방법은 다음을 참조 하세요.
 
-* [Azure Portal를 사용](../azure-resource-manager/resource-group-template-deploy-portal.md)합니다.
-* [Azure CLI 사용](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [REST API 사용](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Azure Portal를 사용](../azure-resource-manager/templates/deploy-portal.md)합니다.
+* [Azure CLI 사용](../azure-resource-manager/templates/deploy-cli.md).
+* [REST API 사용](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="delete"></a>ExpressRoute 회로 프로비전 해제 및 삭제
 

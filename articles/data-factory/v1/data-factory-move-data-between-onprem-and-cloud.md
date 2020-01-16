@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931900"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982190"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory를 사용하여 온-프레미스 및 클라우드 간에 데이터 복사](../tutorial-hybrid-copy-powershell.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory를 사용하여 온-프레미스 및 클라우드 간에 데이터 복사](../tutorial-hybrid-copy-powershell.md)를 참조하세요.
 
 이 문서에서는 Data Factory를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 통합의 개요를 제공합니다. [데이터 이동 활동](data-factory-data-movement-activities.md) 문서 및 [데이터 세트](data-factory-create-datasets.md)와 [파이프라인](data-factory-create-pipelines.md)과 같은 기타 Data Factory 핵심 개념 문서를 작성합니다.
 
@@ -29,15 +29,15 @@ ms.locfileid: "74931900"
 온-프레미스 데이터 저장소 간에 데이터 이동을 사용할 수 있도록 온-프레미스 컴퓨터에 데이터 관리 게이트웨이를 설치해야 합니다. 게이트웨이가 데이터 저장소에 연결할 수 있는 한 데이터 저장소와 동일한 컴퓨터 또는 다른 컴퓨터에 게이트웨이를 설치할 수 있습니다.
 
 > [!IMPORTANT]
-> 데이터 관리 게이트웨이에 대한 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 
+> 데이터 관리 게이트웨이에 대한 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 
 다음 연습에서는 온-프레미스 **SQL Server** 데이터베이스에서 Azure Blob Storage로 데이터를 이동하는 파이프라인을 사용하여 데이터 팩터리를 만드는 방법을 보여 줍니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>연습: 클라우드에 온-프레미스 데이터 복사
-이 연습에서는 다음 단계를 수행합니다. 
+이 연습에서는 다음 단계를 수행합니다.
 
-1. 데이터 팩터리 만들기
-2. 데이터 관리 게이트웨이를 만듭니다. 
+1. 데이터 팩터리를 만듭니다.
+2. 데이터 관리 게이트웨이를 만듭니다.
 3. 원본 및 싱크 데이터 저장소에 대한 연결된 서비스를 만듭니다.
 4. 입력 및 출력 데이터를 나타낼 데이터 세트를 만듭니다.
 5. 데이터를 이동하는 복사 작업으로 파이프라인을 만듭니다.
@@ -46,13 +46,13 @@ ms.locfileid: "74931900"
 이 연습을 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 * **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
-* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 
+* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
+* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다.
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 Azure Portal을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 만들기**를 클릭하고 **인텔리전스 + 분석** 및 **데이터 팩터리**를 차례로 클릭합니다.
 
    ![새로 만들기->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
@@ -249,7 +249,7 @@ ms.locfileid: "74931900"
 
 ### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 세트**를 클릭하고 **Azure Blob Storage**를 클릭합니다.
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 세트**을 클릭하고 **Azure Blob Storage**를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
     ```JSON   

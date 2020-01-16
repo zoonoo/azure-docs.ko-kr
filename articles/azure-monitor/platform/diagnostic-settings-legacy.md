@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750987"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977580"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>레거시 설정을 사용 하 여 Azure 활동 로그 수집
 [Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 최근 까지는 로그 프로필을 만들어 [이벤트 허브 또는 저장소 계정](activity-log-export.md) 에 활동 로그 항목을 보내고 커넥터를 사용 하 여 [Log Analytics 작업 영역](activity-log-collect.md)으로 수집 했습니다. 이 문서에서는 방법, 기존 레거시 설정을 사용 하는 방법 및 진단 설정 준비에서 레거시 설정을 지우는 방법 간의 차이점을 설명 합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "75750987"
 - 컬렉션을 필터링 하 여 특정 범주에 대 한 로그만 수집 합니다.
 - 모든 활동 로그 범주를 수집 합니다. 일부 범주는 레거시 메서드를 사용 하 여 수집 되지 않습니다.
 - 로그 수집에 대 한 대기 시간을 단축 합니다. 진단 설정에 약 1 분만 추가 되는 동안 이전 메서드에는 약 15 분의 대기 시간이 있습니다.
-  
+
 ### <a name="considerations"></a>고려 사항
 이 기능을 사용 하도록 설정 하기 전에 진단 설정을 사용 하 여 활동 로그 컬렉션의 다음 세부 사항을 고려 합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "75750987"
 - ActivityStatus
 - ActivitySubstatus 상태
 - OperationName
-- ResourceProvider 
+- ResourceProvider
 
 추가 된 속성은 다음과 같습니다.
 
@@ -57,10 +57,10 @@ ms.locfileid: "75750987"
 
 1. Azure Portal **Azure Monitor** 메뉴에서 **활동 로그**를 선택 합니다.
 3. **진단 설정**을 클릭합니다.
-   
+
    ![진단 설정](media/diagnostic-settings-subscription/diagnostic-settings.png)
-   
-4. 레거시 환경에 대해 자주색 배너를 클릭 합니다. 
+
+4. 레거시 환경에 대해 자주색 배너를 클릭 합니다.
 
     ![레거시 환경](media/diagnostic-settings-subscription/legacy-experience.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "75750987"
 ### <a name="disable-log-profile"></a>로그 프로필 사용 안 함
 
 1. [레거시 설정 사용](#work-with-legacy-settings) 에 설명 된 절차를 사용 하 여 레거시 설정을 엽니다.
-2. 저장소 또는 event hubs에 대 한 현재 컬렉션을 사용 하지 않도록 설정 합니다. 
+2. 저장소 또는 event hubs에 대 한 현재 컬렉션을 사용 하지 않도록 설정 합니다.
 
 
 
@@ -93,5 +93,5 @@ Azure Log Analytics 모니터링 솔루션에는 Log Analytics 작업 영역에�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [활동 로그에 대한 자세한 내용](../../azure-resource-manager/resource-group-audit.md)
+* [활동 로그에 대한 자세한 내용](../../azure-resource-manager/management/view-activity-logs.md)
 * [진단 설정에 대 한 자세한 정보](diagnostic-settings.md)

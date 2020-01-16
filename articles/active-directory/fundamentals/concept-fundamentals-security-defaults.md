@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422851"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978899"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값 이란?
 
@@ -28,7 +28,10 @@ Microsoft는 모든 사용자에 게 보안 기본값을 사용할 수 있도록
 
 ![보안 기본값을 사용 하도록 설정/해제 하는 Azure Portal의 스크린샷](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-다음 보안 구성은 테 넌 트에서 켜 집니다. 
+> [!TIP]
+> 테 넌 트가 2019 년 10 월 22 일 이후에 만들어진 경우 새 기본 보안 동작이 발생 하 고 테 넌 트에서 이미 보안 기본값을 사용 하도록 설정 되어 있을 수 있습니다. 모든 사용자를 보호 하기 위해 보안 기본값은 생성 된 모든 새 테 넌 트로 롤아웃 됩니다.
+
+보안 기본값을 사용할 수 있는 이유에 대 한 자세한 내용은 Alex Weinert의 블로그 게시물 ( [보안 기본값 소개](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414))에서 찾을 수 있습니다.
 
 ## <a name="unified-multi-factor-authentication-registration"></a>통합 Multi-Factor Authentication 등록
 

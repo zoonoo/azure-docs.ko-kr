@@ -8,30 +8,30 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 09a6b158c4390f881754c90d52a476f0bc249a5a
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74947642"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979115"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 스토리지 계정으로 Apache Hadoop 클러스터 만들기
 
 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md) 기능은 보안 연결을 통해 모든 요청을 계정에 적용하여 Azure Storage 계정의 보안을 강화합니다. 이 기능과 wasbs 체계는 HDInsight 클러스터 버전 3.6 이상에서만 지원됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 시작 하기 전에 다음이 있어야 합니다.
 
 * Azure 구독: 1 개월 무료 평가판 계정을 만들려면 [azure.microsoft.com/free](https://azure.microsoft.com/free)으로 이동 합니다.
-* 보안 전송이 설정 된 Azure Storage 계정 자세한 지침은 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 및 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요. 클러스터를 만든 후 보안 저장소 전송을 사용 하도록 설정 하려면이 문서에서 다루지 않는 추가 단계가 필요 합니다.
+* 보안 전송이 설정 된 Azure Storage 계정 자세한 지침은 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 및 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요. 클러스터를 만든 후 보안 저장소 전송을 사용 하도록 설정 하려면이 문서에서 다루지 않는 추가 단계가 필요 합니다.
 * 저장소 계정의 Blob 컨테이너입니다.
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-이 섹션에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 HDInsight에서 Hadoop 클러스터를 만듭니다. 이 템플릿은 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/)에 있습니다. 이 문서를 따라 리소스 관리자 템플릿 환경이 필요 하지 않습니다. 다른 클러스터 만들기 방법 및이 문서에 사용 된 속성에 대 한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조 하세요.
+이 섹션에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 HDInsight에서 Hadoop 클러스터를 만듭니다. 이 템플릿은 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/)에 있습니다. 이 문서를 따라 리소스 관리자 템플릿 환경이 필요 하지 않습니다. 다른 클러스터 만들기 방법 및이 문서에 사용 된 속성에 대 한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조 하세요.
 
 1. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다.
 

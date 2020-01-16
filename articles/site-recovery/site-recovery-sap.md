@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: eeb85e97d653b0faac171e2986cb933fc41e6606
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0cef6332a169b71d7812efdc41247443fbc194f2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940678"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982374"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
 
@@ -68,13 +68,13 @@ ABAP 애플리케이션 서버에 대한 로그온 그룹을 관리하기 위해
 #### <a name="vms-running-sap-central-services-cluster"></a>SAP Central Services 클러스터를 실행하는 VM
 이 참조 아키텍처는 애플리케이션 계층의 VM에서 Central Services를 실행합니다. 단일 VM에 배포하는 경우(고가용성이 요구 사항이 아닌 경우의 일반적인 배포) Central Services는 잠재적인 SPOF(단일 실패 지점)입니다.<br>
 
-고가용성 솔루션을 구현하려면 공유 디스크 클러스터 또는 파일 공유 클러스터 중 하나를 사용할 수 있습니다. 공유 디스크 클러스터에 대해 VM을 구성하려면 Windows Server 장애 조치(failover) 클러스터를 사용합니다. 클라우드 감시는 쿼럼 감시로 사용하는 것이 좋습니다. 
+고가용성 솔루션을 구현하려면 공유 디스크 클러스터 또는 파일 공유 클러스터 중 하나를 사용할 수 있습니다. 공유 디스크 클러스터에 대해 VM을 구성하려면 Windows Server 장애 조치(failover) 클러스터를 사용합니다. 클라우드 감시는 쿼럼 감시로 사용하는 것이 좋습니다.
  > [!NOTE]
  > Site Recovery는 클라우드 감시를 복제 하지 않으므로 재해 복구 지역에 클라우드 감시를 배포 하는 것이 좋습니다.
 
-장애 조치 클러스터 환경을 지원하기 위해 [SIOS DataKeeper 클러스터 버전](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)에서 클러스터 노드가 소유한 독립 디스크를 복제하여 클러스터 공유 볼륨 기능을 수행합니다. Azure는 기본적으로 공유 디스크를 지원하지 않으므로 SIOS에서 제공하는 솔루션이 필요합니다. 
+장애 조치 클러스터 환경을 지원하기 위해 [SIOS DataKeeper 클러스터 버전](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)에서 클러스터 노드가 소유한 독립 디스크를 복제하여 클러스터 공유 볼륨 기능을 수행합니다. Azure는 기본적으로 공유 디스크를 지원하지 않으므로 SIOS에서 제공하는 솔루션이 필요합니다.
 
-클러스터링을 처리하는 또 다른 방법은 파일 공유 클러스터를 구현하는 것입니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. 이 작업은 Central Services 인스턴스에서 Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(스토리지 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용하여 수행할 수 있습니다. 
+클러스터링을 처리하는 또 다른 방법은 파일 공유 클러스터를 구현하는 것입니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. 이 작업은 Central Services 인스턴스에서 Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(스토리지 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용하여 수행할 수 있습니다.
  > [!NOTE]
  > 현재는 SIOS Datakeeper의 저장소 공간 다이렉트 및 수동 노드를 사용 하 여 가상 컴퓨터의 크래시 일관성 지점 복제만 지원 Site Recovery
 
@@ -84,14 +84,14 @@ ABAP 애플리케이션 서버에 대한 로그온 그룹을 관리하기 위해
 Site Recovery를 사용 하 여 Azure 지역에서 전체 SAP 배포의 장애 조치를 오케스트레이션 할 수 있습니다.
 재해 복구를 설정하기 위한 단계는 아래와 같습니다. 
 
-1. 가상 머신 복제 
+1. 가상 머신 복제
 2. 복구 네트워크 디자인
 3.  도메인 컨트롤러 복제
-4.  데이터 베이스 계층 복제 
-5.  테스트 장애 조치(failover) 실행 
-6.  장애 조치(failover) 수행 
+4.  데이터 베이스 계층 복제
+5.  테스트 장애 조치(failover) 실행
+6.  장애 조치(failover) 수행
 
-다음은 이 예제에 사용된 각 계층의 재해 복구를 위한 권장 사항입니다. 
+다음은 이 예제에 사용된 각 계층의 재해 복구를 위한 권장 사항입니다.
 
  **SAP 계층** | **권장**
  --- | ---

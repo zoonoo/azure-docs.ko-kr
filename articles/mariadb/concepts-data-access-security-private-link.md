@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 40aa35e9f9d40a8a021797a0a2a4af9216d90618
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 92d7522c8382ded182c5f482df3f3d917b4b3a14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898171"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982375"
 ---
 # <a name="private-link-for-azure-database-for-mariadb-preview"></a>Azure Database for MariaDB에 대 한 개인 링크 (미리 보기)
 
@@ -28,7 +28,7 @@ Azure Database for MariaDB의 데이터 필터링은 데이터베이스 관리�
 
 Azure Database for MariaDB 인스턴스에 연결 하는 Azure VM 내에서 Aadb 워크 벤치를 실행 하는 사용자에 대 한 시나리오를 고려 합니다. 이 MariaDB 인스턴스는 미국 서 부 데이터 센터에 있습니다. 아래 예제에서는 네트워크 액세스 제어를 사용 하 여 Azure Database for MariaDB에서 공용 끝점에 대 한 액세스를 제한 하는 방법을 보여 줍니다.
 
-* Azure 서비스 허용을 OFF로 설정 하 여 공용 끝점을 통해 Azure Database for MariaDB에 대 한 모든 Azure 서비스 트래픽을 사용 하지 않도록 설정 합니다. [방화벽 규칙](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) 또는 [가상 네트워크 서비스 끝점](https://docs.microsoft.com/azure/mariadb/concepts-data-access-and-security-vnet)을 통해 서버에 액세스할 수 있는 IP 주소 또는 범위가 없어야 합니다.
+* Azure 서비스 허용을 OFF로 설정 하 여 공용 끝점을 통해 Azure Database for MariaDB에 대 한 모든 Azure 서비스 트래픽을 사용 하지 않도록 설정 합니다. [방화벽 규칙](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) 또는 [가상 네트워크 서비스 끝점](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)을 통해 서버에 액세스할 수 있는 IP 주소 또는 범위가 없어야 합니다.
 
 * VM의 개인 IP 주소를 사용 하 여 Azure Database for MariaDB에 대 한 트래픽만 허용 합니다. 자세한 내용은 [서비스 엔드포인트](concepts-data-access-security-vnet.md) 및 [VNet 방화벽 규칙](howto-manage-vnet-portal.md) 문서를 참조하세요.
 

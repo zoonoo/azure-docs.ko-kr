@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 737cd9d306f01fa77dafa3d1a9a71495ff0a572e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940765"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977515"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory에서 지속적인 통합 및 전달
 
@@ -145,7 +145,7 @@ Azure Resource Manager 템플릿에 전달 해야 하는 암호가 있는 경우
 
 비밀을 처리 하는 방법에는 두 가지가 있습니다.
 
--  매개 변수 파일에 비밀을 추가 합니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)을 참조 하세요.
+1.  매개 변수 파일에 비밀을 추가합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)을 참조하세요.
 
     게시 분기에 업로드 되는 매개 변수 파일의 복사본을 만듭니다. 다음 형식을 사용 하 여 Key Vault에서 가져오려는 매개 변수의 값을 설정 합니다.
 

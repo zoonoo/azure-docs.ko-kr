@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d47f6f5b983c0f785c76d1b2cede815dda699a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492359"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968723"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용
 
@@ -44,7 +44,7 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 
 이 데이터 세트의 숫자 열과 범주 열 모두에 누락된 값이 있습니다. 누락된 값을 처리하는 간단한 방법을 설명합니다. 데이터에 대한 추가 정보는 Hive 테이블에 저장할 때 살펴봅니다.
 
-**정의:** *CTR(클릭률):* 데이터를 클릭한 백분율입니다. 이 Criteo 데이터 세트의 CTR은 약 3.3% 또는 0.033입니다.
+**정의:** 클릭 *광고 요금 (CTR):* 데이터의 클릭 수에 대 한 백분율입니다. 이 Criteo 데이터 세트의 CTR은 약 3.3% 또는 0.033입니다.
 
 ## <a name="mltasks"></a>예측 작업의 예제
 이 연습에서는 두 가지 샘플 예측 문제를 처리합니다.
@@ -60,7 +60,7 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 
 다음 3단계에 따라 HDInsight 클러스터를 사용하여 예측 분석 솔루션을 빌드하기 위한 Azure 데이터 과학 환경을 설정합니다.
 
-1. [Storage 계정 만들기](../../storage/common/storage-quickstart-create-account.md):이 Storage 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
+1. [Storage 계정 만들기](../../storage/common/storage-account-create.md):이 Storage 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
 2. [데이터 과학용 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md):이 단계에서는 모든 노드에 설치된 64비트 Anaconda Python 2.7을 사용하여 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터를 사용자 지정할 때 두 가지 중요한 단계(이 항목에 설명)를 완료해야 합니다.
 
    * 1단계에서 만든 스토리지 계정을 HDInsight 클러스터와 연결해야 합니다. 이 스토리지 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
@@ -248,7 +248,7 @@ Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드�
 긍정 레이블의 백분율은 약 3.3%(원래 데이터 세트와 일치)입니다.
 
 ### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>학습 데이터 세트의 일부 숫자 변수에 대한 히스토그램 분포
-Hive의 기본 "histogram\_numeric" 함수를 사용하여 숫자 변수의 배포 모양을 확인할 수 있습니다. [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql)의 내용은 다음과 같습니다.
+Hive의 네이티브 "histogram\_numeric" 함수를 사용하여 숫자 변수의 배포가 어떤지 확인할 수 있습니다. [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql)의 내용은 다음과 같습니다.
 
         SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
             (SELECT
@@ -405,7 +405,7 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
 Azure Machine Learning을 계속 진행하기 전에 마지막 중요한 구성 요소는 통계(Count) 테이블과 관련됩니다. 다음 하위 섹션에서 통계 테이블에 대해 자세히 설명합니다.
 
 ## <a name="count"></a> count 테이블에 대한 간략한 설명
-몇몇 범주 변수는 차원이 매우 높습니다. 이 연습에서는 이러한 변수를 효율적이고 강력한 방식으로 인코딩하는 [통계로 알아보기](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)라는 강력한 기술을 설명합니다. 이 기술에 대한 자세한 내용은 제공된 링크에서 확인할 수 있습니다.
+확인한 바와 같이, 몇몇 범주 변수는 차원이 매우 높습니다. 이 연습에서는 이러한 변수를 효율적이고 강력한 방식으로 인코딩하는 [통계로 알아보기](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)라는 강력한 기술을 설명합니다. 이 기술에 대한 자세한 내용은 제공된 링크에서 확인할 수 있습니다.
 
 [!NOTE]
 >이 연습에서는 통계 테이블을 사용하여 고차원 범주 기능의 압축된 표현을 생성하는 데 중점을 둡니다. 이 기술 외에도 범주 기능을 인코딩하는 여러 기술이 있습니다. 다른 기술에 대한 자세한 내용은 [one-hot-encoding](https://en.wikipedia.org/wiki/One-hot) 및 [기능 해싱](https://en.wikipedia.org/wiki/Feature_hashing)을 참조하세요.
@@ -435,7 +435,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양�
 
 1. **데이터 원본**
 2. **Hive 데이터베이스 쿼리** 상자에 SELECT * FROM <your\_database\_name.your\_table\_name> 정도만 입력합니다.
-3. **Hcatalog 서버 URI**: 클러스터가 "abc"인 경우 간단하게 https://abc.azurehdinsight.net입니다.
+3. **Hcatalog 서버 URI**: 클러스터가 "abc"인 경우 간단하게 https://abc.azurehdinsight.net 입니다.
 4. **Hadoop user account name**(Hadoop 사용자 계정 이름): 클러스터를 지정할 때 선택한 사용자 이름입니다. (원격 액세스 사용자 이름이 아님).
 5. **Hadoop user account password**(Hadoop 사용자 계정 암호): 클러스터를 지정할 때 선택한 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
 6. **Location of output data**(출력 데이터 위치): "Azure"를 선택합니다.
@@ -473,7 +473,7 @@ Azure Machine Learning Studio (클래식) 실험은 다음과 같습니다.
 여기에서 모든 누락된 값을 0으로 바꿉니다. 모듈의 드롭다운에서 확인할 수 있는 다른 옵션도 있습니다.
 
 #### <a name="feature-engineering-on-the-data"></a>데이터에 대한 기능 엔지니어링
-큰 데이터 세트의 범주 기능 중 일부에는 수백 만개의 고유 값이 있을 수 있습니다. 원 핫(one-hot) 인코딩과 같은 미숙한 방법을 사용하여 이러한 고차원 범주 기능을 나타내는 것은 전적으로 불가능합니다. 이 연습에서는 이러한 고차원 범주 변수를 압축해서 표현하기 위해 기본 제공 Azure Machine Learning 모듈을 사용하여 통계 기능을 사용하는 방법을 보여줍니다. 최종 결과는 모델 크기가 더 작고 학습 시간은 더 짧으며 다른 기술을 사용할 때와 정말로 비교되는 성능 메트릭입니다.
+큰 데이터 세트의 범주 기능 중 일부에는 수백 만개의 고유 값이 있을 수 있습니다. 원 핫(one-hot) 인코딩과 같은 미숙한 방법을 사용하여 이러한 고차원 범주 기능을 나타내는 것은 전적으로 불가능합니다. 이 연습에서는 이러한 고차원 범주 변수를 압축해서 표현하기 위해 기본 제공 Azure Machine Learning 모듈로 통계 기능을 사용하는 방법을 보여줍니다. 최종 결과는 모델 크기가 더 작고 학습 시간은 더 짧으며 다른 기술을 사용할 때와 정말로 비교되는 성능 메트릭입니다.
 
 ##### <a name="building-counting-transforms"></a>개수 변환 작성
 통계 기능을 작성하기 위해 Azure Machine Learning에서 사용할 수 있는 **통계 변환 작성** 모듈을 사용합니다. 이 모듈은 다음과 같습니다.
@@ -498,11 +498,11 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 위에 나와 있는 실험 아키텍처에서 데이터 세트 "ytransform2"는 저장된 개수 변환과 정확히 일치합니다. 이 실험의 나머지 부분에서는 독자가 일부 데이터에 대해 **통계 변환 작성** 모듈을 사용하여 통계를 생성한 다음, 해당 통계를 사용하여 학습 및 테스트 데이터 세트에 대해 통계 기능을 생성할 수 있다고 가정합니다.
 
 ##### <a name="choosing-what-count-features-to-include-as-part-of-the-train-and-test-datasets"></a>학습 및 테스트 데이터 세트의 일부로 포함할 개수 기능 선택
-통계 변환이 준비되면 사용자는 **통계 테이블 매개 변수 수정** 모듈을 사용하여 학습 및 테스트 데이터 세트에 포함할 기능을 선택할 수 있습니다. 완성도를 위해 이 모듈을 아래에 표시했지만, 하지만 실험을 단순하게 하려면 이 모듈을 실제로 사용하지 마세요.
+통계 변환이 준비되면 사용자는 **통계 테이블 매개 변수 수정** 모듈을 사용하여 학습 및 테스트 데이터 세트에 포함할 기능을 선택할 수 있습니다. 완성도를 위해 이 모듈을 아래에 표시했지만, 실험을 단순하게 하려면 이 모듈을 실제로 사용하지 마세요.
 
 ![개수 테이블 매개 변수를 수정합니다.](./media/hive-criteo-walkthrough/PfCHkVg.png)
 
-이 경우에 볼 수 있듯이 로그 확률을 사용하고 백오프 열을 무시합니다. 휴지통 임계값(garbage bin threshold), 원활한 진행을 위해 추가할 의사 이전 예제(pseudo-prior examples) 수, 라플라스 노이즈(Laplacian noise) 사용 여부 같은 매개 변수도 설정할 수 있습니다. 이들은 모두 고급 기능으로, 이러한 종류의 기능 생성을 처음 시도하는 사용자는 기본값을 사용하는 것이 좋습니다.
+이 경우에 볼 수 있듯이 로그 확률(log-odds)을 사용하고 백오프(back off) 열을 무시합니다. 휴지통 임계값(garbage bin threshold), 원활한 진행을 위해 추가할 의사 이전 예제(pseudo-prior examples) 수, 라플라스 노이즈(Laplacian noise) 사용 여부 같은 매개 변수도 설정할 수 있습니다. 이들은 모두 고급 기능으로, 이러한 종류의 기능 생성을 처음 시도하는 사용자는 기본값을 사용하는 것이 좋습니다.
 
 ##### <a name="data-transformation-before-generating-the-count-features"></a>개수 기능을 생성하기 전에 데이터 변환
 이제 통계 기능을 실제로 생성하기 전에 학습 및 테스트 데이터를 변환하는 방법에서 중요한 부분에 초점을 맞추겠습니다. 통계 변환을 데이터에 적용하기 전에 사용한 두 개의 **R 스크립트 실행** 모듈이 있습니다.
@@ -527,11 +527,11 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 ![변환 모듈 적용](./media/hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### <a name="an-excerpt-of-what-the-count-features-look-like"></a>개수 기능이 보이는 모양 발췌
-개수 기능이 어떻게 보이는지 보겠습니다. 출처는 다음과 같습니다.
+개수 기능이 어떻게 보이는지 보겠습니다. 발췌 내용은 다음과 같습니다.
 
 ![개수 기능](./media/hive-criteo-walkthrough/FO1nNfw.png)
 
-이 출처에서는 계산된 열에서 통계 및 로그 확률뿐만 아니라 관련 백오프도 볼 수 있습니다.
+이 발췌 내용에서는 계산된 열에서 통계 및 로그 확률뿐만 아니라 관련 백오프도 볼 수 있습니다.
 
 이제 이렇게 변환된 데이터 세트를 사용하여 Azure Machine Learning 모델을 빌드할 준비가 되었습니다. 다음 섹션에서는 이 작업을 수행할 방법을 보여줍니다.
 
@@ -544,7 +544,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 
 실험에서 기본값을 선택합니다. 기본값은 일반적으로 성능에 대해 빠른 기준을 얻을 수 있는 의미 있고 좋은 방법입니다. 기준이 있는 상태에서 원하는 경우 매개 변수를 스윕하여 성능을 향상시킬 수 있습니다.
 
-#### <a name="train-the-model"></a>모델 학습
+#### <a name="train-the-model"></a>모델 교육
 학습용으로 간단히 **모델 학습** 모듈을 호출합니다. 이 모듈에 대한 두 가지 입력이 2클래스 향상된 의사 결정 트리 학습자와 학습 데이터 세트입니다. 다음과 같습니다.
 
 ![모델 학습 모듈](./media/hive-criteo-walkthrough/2bZDZTy.png)
@@ -564,7 +564,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 ![Evaluate Model 모듈 시각화](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
 ### <a name="step5"></a> 5단계: 모델을 웹 서비스로 게시
-혼란을 최소화하면서 Azure Machine Learning 모델을 웹 서비스로 게시하는 기능은 이 기능의 광범위한 사용을 위한 유용한 기능입니다. 이 작업이 완료되면 누구나 예측이 필요한 입력 데이터를 사용하여 웹 서비스를 호출하고 웹 서비스는 모델을 사용하여 해당 예측을 반환할 수 있습니다.
+혼란을 최소화하면서 Azure 기계 학습 모델을 웹 서비스로 게시하는 기능은 이 기능의 광범위한 사용을 위한 유용한 기능입니다. 이 작업이 완료되면 누구나 예측이 필요한 입력 데이터를 사용하여 웹 서비스를 호출하고 웹 서비스는 모델을 사용하여 해당 예측을 반환할 수 있습니다.
 
 이렇게 하려면 먼저 학습한 모델을 학습된 모델 개체로 저장합니다. **모델 학습** 모듈을 마우스 오른쪽 단추로 클릭하고 **학습된 모델로 저장** 옵션을 사용하여 이 작업을 수행합니다.
 
@@ -579,7 +579,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 ![입력 포트 데이터](./media/hive-criteo-walkthrough/XqVtSxu.png)
 
 #### <a name="web-service"></a>웹 서비스
-이제 웹 서비스 게시하는 데 사용할 수 있는 소규모 실험을 실행할 준비가 완료되었습니다.
+이제 웹 서비스를 게시하는 데 사용할 수 있는 소규모 실험을 실행할 준비가 완료되었습니다.
 
 #### <a name="generate-input-data-for-webservice"></a>웹 서비스에 대한 입력 데이터 생성
 통계 테이블이 크기 때문에 가장 먼저 테스트 데이터의 몇 줄을 가져와 통계 기능과 함께 출력 데이터를 생성합니다. 이 데이터는 웹 서비스에 대해 입력 데이터 형식 역할을 할 수 있습니다. 다음과 같습니다.
@@ -592,7 +592,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 >
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>웹 서비스 게시를 위한 실험 점수 매기기
-먼저 모양을 표시합니다. 기본 구조는 **점수 매기기 모델** 모듈로, 이 모듈은 학습된 모델 개체 및 이전 단계에서 **통계 패턴 변환기** 모듈을 사용하여 생성한 몇 줄의 입력 데이터를 허용합니다. "데이터 세트의 열 선택"을 사용하여 점수가 매겨진 레이블 및 점수 매기기 확률을 표시합니다.
+먼저 모양을 표시합니다. 기본 구조는 **점수 매기기 모델** 모듈로, 이 모듈은 학습된 모델 개체 및 이전 단계에서 **통계 Featurizer** 모듈을 사용하여 생성한 몇 줄의 입력 데이터를 허용합니다. "데이터 세트의 열 선택"을 사용하여 점수가 매겨진 레이블 및 점수 매기기 확률을 표시합니다.
 
 ![데이터 세트의 열 선택](./media/hive-criteo-walkthrough/kRHrIbe.png)
 

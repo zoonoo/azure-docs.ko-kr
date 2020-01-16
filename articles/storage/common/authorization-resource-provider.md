@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d632de0a6274ebb2ede950ca610dfd5e94310d28
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613876"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972356"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스
 
@@ -72,7 +72,7 @@ Azure Storage 관리 라이브러리에서 관리 작업에 권한을 부여 하
 
 Resource Manager와 클래식 배포 모델은 Azure 솔루션을 배포하고 관리하는 별개의 두 가지 방식을 나타냅니다. 새 저장소 계정을 만들 때 Azure Resource Manager 배포 모델을 사용 하는 것이 좋습니다. 가능 하면 Microsoft는 리소스 관리자 모델을 사용 하 여 기존 클래식 저장소 계정을 다시 만드는 것을 권장 합니다. 클래식 배포 모델을 사용 하 여 저장소 계정을 만들 수는 있지만 클래식 모델은 유연성이 낮지만 결국 사용 되지 않습니다.
 
-Azure 배포 모델에 대 한 자세한 내용은 [리소스 관리자 및 클래식 배포](../../azure-resource-manager/resource-manager-deployment-model.md)를 참조 하세요.
+Azure 배포 모델에 대 한 자세한 내용은 [리소스 관리자 및 클래식 배포](../../azure-resource-manager/management/deployment-models.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

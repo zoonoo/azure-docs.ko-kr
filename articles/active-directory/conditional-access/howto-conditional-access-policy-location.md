@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf34abaf072b7b80f5831f15d86b12ad2780a920
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 42fa4dfb3e373eac4167ea1fecbd84ff3a7cca0d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424865"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978005"
 ---
 # <a name="conditional-access-block-access-by-location"></a>조건부 액세스: 위치별 액세스 차단
 
@@ -30,7 +30,7 @@ ms.locfileid: "75424865"
 1. 위치에 이름을 지정 합니다.
 1. 해당 위치나 **국가/지역을**구성 하는 외부에서 액세스할 수 있는 특정 IPv4 주소 범위를 알고 있는 경우 **IP 범위** 를 선택 합니다.
    1. **IP 범위** 를 제공 하거나 지정 하는 위치에 대 한 **국가/지역을** 선택 합니다.
-      * 국가/지역을 선택한 경우에는 알 수 없는 영역을 포함 하도록 선택할 수 있습니다.
+      * 국가/지역을 선택 하는 경우 알 수 없는 영역을 포함 하도록 선택적으로 선택할 수 있습니다.
 1. **저장** 선택
 
 조건부 액세스의 위치 조건에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건](location-condition.md) 문서에서 찾을 수 있습니다.

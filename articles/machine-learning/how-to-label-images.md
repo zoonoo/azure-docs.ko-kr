@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7ff3651d082f1649326e1b41b13fa177069c40d3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532346"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772451"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정
 
-프로젝트 관리자가 Azure Machine Learning에서 [레이블 지정 프로젝트를 만든](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-labeling-projects#create-a-labeling-project) 후에는 레이블 지정 도구를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
+프로젝트 관리자가 Azure Machine Learning에서 [레이블 지정 프로젝트를 만든](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) 후에는 레이블 지정 도구를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
 
 > [!div class="checklist"]
 > * 레이블 지정 프로젝트에 액세스하는 방법
@@ -114,5 +114,5 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure에서 [이미지 분류 모델을 학습시키는 방법](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml) 알아보기
+* Azure에서 [이미지 분류 모델을 학습시키는 방법](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml) 알아보기
 * [Azure 및 "Faster R-CNN" 기술을 사용한 개체 감지](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/) 참조

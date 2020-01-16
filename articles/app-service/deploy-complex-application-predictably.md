@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422129"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967387"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](https://azure.microsoft.com/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 애플리케이션의 프로비전 및 배포하는 방법을 보여줍니다. 
@@ -252,10 +252,10 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 ## <a name="more-resources"></a>추가 리소스
 * [Azure 리소스 관리자 템플릿 언어](../azure-resource-manager/templates/template-syntax.md)
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
-* [Azure 리소스 관리자 템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)
-* [Azure 리소스 관리자 템플릿으로 애플리케이션 배포](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure 리소스 관리자 템플릿 함수](../azure-resource-manager/templates/template-functions.md)
+* [Azure 리소스 관리자 템플릿으로 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,18 +9,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/31/2019
 ms.author: evansma
-ms.openlocfilehash: f4cd5083d694cb7c463596b7b45c384e0dc8b28d
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 8c0af3f059d1beb0e1d07d3494b31c674f15438d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779742"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980868"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 목록 가이드라인
 
 이 문서에는 Azure Marketplace 목록에 추가된 새 제품 및 서비스의 검토자를 위한 검사 목록 및 요구사항 가이드라인이 포함되어 있습니다.
 
-모든 제품은 아래에 표시된 [모든 목록 요구 사항](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements)을 충족해야 합니다. 첨부된 [평가판](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements)이 있는 제품, [SaaS 앱](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements), [컨테이너](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements) 및 [컨설팅 제품](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements)을 포함하여 특정 목록 유형에 대해서는 추가 요구 사항 및 검사 목록이 제공됩니다.
+모든 제품은 아래에 표시된 [모든 목록 요구 사항](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements)을 충족해야 합니다. 첨부된 [평가판](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements)이 있는 제품, [SaaS 앱](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-app-requirements), [컨테이너](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements) 및 [컨설팅 제품](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements)을 포함하여 특정 목록 유형에 대해서는 추가 요구 사항 및 검사 목록이 제공됩니다.
 
 
 ## <a name="all-listing-requirements"></a>모든 목록 요구 사항

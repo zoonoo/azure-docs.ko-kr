@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b71f5590f120e15bd4ea027bcf6132795dac3cb6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750565"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969669"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Azure 활동 로그를 storage 또는 Azure Event Hubs로 내보내기
 
 > [!WARNING]
-> 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](diagnostic-settings-subscription.md)을 참조 하세요.
+> 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](diagnostic-settings-legacy.md)을 참조 하세요.
 
 Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. Azure Portal에서 활동 로그를 보거나 Azure Monitor에서 수집 된 다른 데이터를 사용 하 여 분석할 수 있는 Log Analytics 작업 영역으로 복사 하는 것 외에도 활동 로그를 Azure storage 계정에 보관 하는 로그 프로필을 만들거나  이벤트 허브.
 
@@ -28,12 +28,12 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 �
 ## <a name="stream-activity-log-to-event-hub"></a>활동 로그를 이벤트 허브로 스트림
 [Azure Event Hubs](/azure/event-hubs/) 는 초당 수백만 개의 이벤트를 수신 하 고 처리할 수 있는 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. 활동 로그의 스트리밍 기능을 사용할 수 있는 두 가지 방법은 다음과 같습니다.
 * **타사 로깅 및 원격 분석 시스템으로 스트림**: 시간이 지나면서 Azure Event Hubs 스트리밍은 활동 로그를 타사 SIEM 및 로그 분석 솔루션으로 파이핑하기 위한 메커니즘이 되고 있습니다.
-* **사용자 지정 원격 분석 및 로깅 플랫폼 빌드**: 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 Event Hubs의 확장성 높은 게시-구독 특성을 통해 활동 로그를 유연하게 수집할 수 있습니다. 
+* **사용자 지정 원격 분석 및 로깅 플랫폼 빌드**: 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 Event Hubs의 확장성 높은 게시-구독 특성을 통해 활동 로그를 유연하게 수집할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 ### <a name="storage-account"></a>Storage 계정
-활동 로그를 보관 하는 경우 [저장소 계정을 만들어야](../../storage/common/storage-quickstart-create-account.md) 합니다 (아직 없는 경우). 모니터링 데이터에 대 한 액세스를 더 잘 제어할 수 있도록 다른 모니터링 되지 않는 데이터가 저장 되어 있는 기존 저장소 계정을 사용해 서는 안 됩니다. 그러나 저장소 계정에 로그 및 메트릭을 보관 하는 경우에도 동일한 저장소 계정을 사용 하 여 모든 모니터링 데이터를 중앙 위치에 유지 하도록 선택할 수 있습니다.
+활동 로그를 보관 하는 경우 [저장소 계정을 만들어야](../../storage/common/storage-account-create.md) 합니다 (아직 없는 경우). 모니터링 데이터에 대 한 액세스를 더 잘 제어할 수 있도록 다른 모니터링 되지 않는 데이터가 저장 되어 있는 기존 저장소 계정을 사용해 서는 안 됩니다. 그러나 저장소 계정에 로그 및 메트릭을 보관 하는 경우에도 동일한 저장소 계정을 사용 하 여 모든 모니터링 데이터를 중앙 위치에 유지 하도록 선택할 수 있습니다.
 
 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 스토리지 계정은 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
 > [!NOTE]
@@ -65,7 +65,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 �
 
 
 > [!IMPORTANT]
-> Microsoft Insights 리소스 공급자가 등록 되지 않은 경우 로그 프로필을 만들 때 오류가 나타날 수 있습니다. 이 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md) 을 참조 하세요.
+> Microsoft Insights 리소스 공급자가 등록 되지 않은 경우 로그 프로필을 만들 때 오류가 나타날 수 있습니다. 이 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md) 을 참조 하세요.
 
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Azure Portal를 사용 하 여 로그 프로필 만들기
@@ -77,7 +77,7 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
     ![포털에서 내보내기 단추](media/activity-log-export/portal-export.png)
 
 3. 표시 되는 블레이드에서 다음을 지정 합니다.
-   * 내보낼 이벤트가 있는 지역입니다. 활동 로그는 전역 (비 지역) 로그 이므로 키 이벤트를 누락 하지 않도록 모든 지역을 선택 하 여 대부분의 이벤트에 연결 된 지역이 없도록 해야 합니다. 
+   * 내보낼 이벤트가 있는 지역입니다. 활동 로그는 전역 (비 지역) 로그 이므로 키 이벤트를 누락 하지 않도록 모든 지역을 선택 하 여 대부분의 이벤트에 연결 된 지역이 없도록 해야 합니다.
    * 저장소 계정에 쓰려면 다음과 같이 합니다.
        * 이벤트를 저장할 저장소 계정입니다.
        * 이러한 이벤트를 저장소에 유지 하려는 일 수입니다. 0일로 설정하면 로그를 계속 유지합니다.
@@ -167,5 +167,5 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
 
 ## <a name="next-steps"></a>다음 단계
 
-* [활동 로그에 대한 자세한 내용](../../azure-resource-manager/resource-group-audit.md)
+* [활동 로그에 대한 자세한 내용](../../azure-resource-manager/management/view-activity-logs.md)
 * [Azure Monitor 로그에 활동 로그 수집](activity-log-collect.md)

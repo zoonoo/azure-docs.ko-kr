@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 2a0d1c5af572c88dc11bed950b46706f0a2f081f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015796"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981953"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>스토리지 액세스 키 롤링 후 Media Services 업데이트 
 
 새 AMS(Azure Media Services) 계정을 만들 때 미디어 콘텐츠를 저장하는 데 사용되는 Azure Storage 계정을 선택하도록 요청받습니다. Media Services 계정에 스토리지 계정을 둘 이상 추가할 수 있습니다. 이 문서에서는 스토리지 키를 회전하는 방법을 보여 줍니다. 또한 미디어 계정에 스토리지 계정을 추가하는 방법도 보여 줍니다. 
 
-이 문서에서 설명하는 작업을 수행하려면 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](https://docs.microsoft.com/powershell/module/az.media)을 사용해야 합니다.  자세한 내용은 [PowerShell 및 Resource Manager로 Azure 리소스를 관리하는 방법](../../azure-resource-manager/manage-resource-groups-powershell.md)을 참조하세요.
+이 문서에서 설명하는 작업을 수행하려면 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](https://docs.microsoft.com/powershell/module/az.media)을 사용해야 합니다.  자세한 내용은 [PowerShell 및 Resource Manager로 Azure 리소스를 관리하는 방법](../../azure-resource-manager/management/manage-resource-groups-powershell.md)을 참조하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -71,13 +71,13 @@ Media Services는 제공되는 스토리지 키에 따라 달라집니다. 특�
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS 계정에 스토리지 계정을 추가하는 단계
 
-다음 문서에는 스토리지 계정을 AMS 계정에 추가하는 방법을 보여 줍니다. [여러 스토리지 계정을 Media Services 계정에 연결](meda-services-managing-multiple-storage-accounts.md)
+[Media Services 계정에 여러 스토리지 계정 연결](meda-services-managing-multiple-storage-accounts.md) 문서에서는 AMS 계정에 스토리지 계정을 추가하는 방법을 보여 줍니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-### <a name="acknowledgments"></a>감사의 글
-이 문서를 작성하는 데 기여해 주신 Cenk Dingiloglu, Milan Gada, Seva Titov에게 감사드립니다.
+### <a name="acknowledgments"></a>승인
+이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov

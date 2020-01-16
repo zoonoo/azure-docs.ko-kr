@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: e002a5fbe38596d6507eec81ba3dd2a05c25153a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975808"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982682"
 ---
 # <a name="what-is-custom-translator"></a>Custom Translator란?
 
@@ -28,9 +28,9 @@ Custom Translator는 36개가 넘는 언어를 지원하며, NMT에 제공되는
 
 Custom Translator는 사용자 지정 번역 시스템을 빌드하고 액세스하는 다양한 기능을 제공합니다.
 
-|기능  |설명  |
+|기능  |Description  |
 |---------|---------|
-|[인공신경망 기계 번역 기술 활용](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Custom translator가 제공하는 NMT(인공신경망 기계 번역)를 활용하여 번역 품질을 높일 수 있습니다.       |
+|[인공신경망 기계 번역 기술 활용](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Custom translator가 제공하는 NMT(인공신경망 기계 번역)를 활용하여 번역 품질을 높일 수 있습니다.       |
 |[비즈니스 용어를 알고 있는 시스템 빌드](what-are-parallel-documents.md)     |  병렬 문서를 사용하여 고객의 비즈니스 및 산업 분야에 사용되는 용어를 이해하는 시스템을 사용자 지정 및 빌드할 수 있습니다.       |
 |[사전을 사용하여 모델 빌드](what-is-dictionary.md)     |   학습 데이터 세트가 없는 경우 사전 데이터만으로 모델을 학습시킬 수 있습니다.       |
 |[다른 사람과 공동 작업](how-to-manage-settings.md#share-your-workspace)     |   다른 사용자와 작업을 공유하여 팀과 공동으로 작업할 수 있습니다.     |
@@ -38,7 +38,7 @@ Custom Translator는 사용자 지정 번역 시스템을 빌드하고 액세스
 
 ## <a name="get-better-translations"></a>보다 우수한 번역 얻기
 
-Microsoft Translator는 2016년에 [NMT(인공신경망 기계 번역)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)를 출시했습니다. NMT의 번역 품질은 산업 표준 [SMT(통계 기계 번역)](https://en.wikipedia.org/wiki/Statistical_machine_translation) 기술보다 훨씬 발전했습니다. NMT는 번역하기 전에 전체 문장의 컨텍스트를 보다 정확하게 캡처하므로 보다 우수하고 사람의 말과 비슷하고 자연스러운 품질을 제공합니다. [Custom Translator](https://portal.customtranslator.azure.ai)는 사용자 지정 모델에 NMT를 제공하여 결과적으로 번역 품질을 개선합니다.
+Microsoft Translator는 2016년에 [NMT(인공신경망 기계 번역)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)를 출시했습니다. NMT의 번역 품질은 산업 표준 [SMT(통계 기계 번역)](https://en.wikipedia.org/wiki/Statistical_machine_translation) 기술보다 훨씬 발전했습니다. NMT는 번역하기 전에 전체 문장의 컨텍스트를 보다 정확하게 캡처하므로 보다 우수하고 사람의 말과 비슷하고 자연스러운 품질을 제공합니다. [Custom Translator](https://portal.customtranslator.azure.ai)는 사용자 지정 모델에 NMT를 제공하여 결과적으로 번역 품질을 개선합니다.
 
 이전에 번역된 문서를 사용하여 번역 시스템을 빌드할 수 있습니다. 이러한 문서로는 도메인 관련 용어 및 스타일이 포함되며 표준 번역 시스템보다 우수합니다. 사용자는 ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX 및 XLSX 문서를 업로드할 수 있습니다.
 

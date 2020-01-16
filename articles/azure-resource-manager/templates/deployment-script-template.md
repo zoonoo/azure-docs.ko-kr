@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jgao
-ms.openlocfilehash: 4dc28b8254c312836b2767c2efef52137e101777
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 6308f7832a898d97c455dc90265adea345aeb0cc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75839440"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981202"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -57,7 +57,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **합니다, 2.8.0 또는 3.0.0 버전을 Azure PowerShell**합니다. 템플릿을 배포 하는 데 이러한 버전이 필요 하지 않습니다. 그러나 이러한 버전은 배포 스크립트를 로컬로 테스트 하는 데 필요 합니다. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps.md)를 참조하세요. 미리 구성 된 Docker 이미지를 사용할 수 있습니다.  [개발 환경 구성](#configure-development-environment)을 참조 하세요.
+- **합니다, 2.8.0 또는 3.0.0 버전을 Azure PowerShell**합니다. 템플릿을 배포 하는 데 이러한 버전이 필요 하지 않습니다. 그러나 이러한 버전은 배포 스크립트를 로컬로 테스트 하는 데 필요 합니다. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 미리 구성 된 Docker 이미지를 사용할 수 있습니다.  [개발 환경 구성](#configure-development-environment)을 참조 하세요.
 
 ## <a name="resource-schema"></a>리소스 스키마
 
@@ -233,7 +233,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 ## <a name="clean-up-deployment-script-resources"></a>배포 스크립트 리소스 정리
 
-배포 스크립트는 배포 스크립트를 실행 하 고 디버그 정보를 저장 하는 데 사용 되는 저장소 계정 및 컨테이너 인스턴스를 만듭니다. 이러한 두 리소스는 프로 비전 된 리소스와 동일한 리소스 그룹에 만들어지고 스크립트가 만료 될 때 스크립트 서비스에 의해 삭제 됩니다. 이러한 리소스의 수명 주기를 제어할 수 있습니다.  삭제 될 때까지 두 리소스에 대해 요금이 청구 됩니다. 가격 정보는 [Container Instances 가격 책정](/pricing/details/container-instances/) 및 [Azure Storage 가격 책정](/pricing/details/storage/)을 참조 하세요.
+배포 스크립트는 배포 스크립트를 실행 하 고 디버그 정보를 저장 하는 데 사용 되는 저장소 계정 및 컨테이너 인스턴스를 만듭니다. 이러한 두 리소스는 프로 비전 된 리소스와 동일한 리소스 그룹에 만들어지고 스크립트가 만료 될 때 스크립트 서비스에 의해 삭제 됩니다. 이러한 리소스의 수명 주기를 제어할 수 있습니다.  삭제 될 때까지 두 리소스에 대해 요금이 청구 됩니다. 가격 정보는 [Container Instances 가격 책정](https://azure.microsoft.com/pricing/details/container-instances/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조 하세요.
 
 이러한 리소스의 수명 주기는 템플릿의 다음 속성에 의해 제어 됩니다.
 

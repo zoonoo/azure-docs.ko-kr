@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2019
-ms.openlocfilehash: f3414033068f99e638030efb158a7fb01706b88c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 2c015db828bcbfa8b26f519b3a4707b5ec69b8f3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897716"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982505"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>고객이 관리 하는 키 디스크 암호화
 
@@ -176,4 +176,4 @@ HDInsight 고객 관리 키는 모든 공용 클라우드와 국가별 클라우
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure HDInsight의 엔터프라이즈 보안 개요](/domain-joined/hdinsight-security-overview.md)
+* [Azure HDInsight의 엔터프라이즈 보안 개요](./domain-joined/hdinsight-security-overview.md)

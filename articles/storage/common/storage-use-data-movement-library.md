@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 22dae518a45d5c4af20044d5f3eb88e764e92c8b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895125"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978385"
 ---
-# <a name="transfer-data-with-the-data-movement-library"></a>데이터 이동 라이브러리를 사용 하 여 데이터 전송
+# <a name="transfer-data-with-the-data-movement-library"></a>데이터 이동 라이브러리를 사용하여 데이터 전송
 
 Azure Storage 데이터 이동 라이브러리는 blob 및 파일의 고성능 업로드, 다운로드 및 복사를 위해 설계 된 플랫폼 간 오픈 소스 라이브러리입니다. 이 라이브러리는 [AzCopy](../storage-use-azcopy.md)를 지원하는 핵심 데이터 이동 프레임워크입니다. 데이터 이동 라이브러리는 .NET 용 Azure Storage 클라이언트 라이브러리에서 사용할 수 없는 편리한 메서드를 제공 합니다. 이러한 메서드는 병렬 작업의 수를 설정 하 고, 전송 진행률을 추적 하 고, 취소 된 전송을 쉽게 다시 시작할 수 있는 기능을 제공 합니다.
 
@@ -32,12 +32,12 @@ Azure Storage 데이터 이동 라이브러리는 blob 및 파일의 고성능 �
 - URL에서 Blob Storage로 파일을 복사합니다.
 - Blob Storage 간에 복사합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure Storage 계정](storage-quickstart-create-account.md)
+- [Azure Storage 계정](storage-account-create.md)
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 1. [.NET Core 설치 가이드](https://www.microsoft.com/net/core)를 방문하여 .NET Core를 설치합니다. 사용자 환경을 선택할 때 명령줄 옵션을 선택합니다.
 2. 명령줄에서 프로젝트에 대한 디렉터리를 만듭니다. 이 디렉터리로 이동한 다음 `dotnet new console -o <sample-project-name>`를 입력하여 C# 콘솔 프로젝트를 만듭니다.

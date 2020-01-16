@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 7101cef6acd7c7b321fbd31c614063a1fa8fe17a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 339ab811969a3de6ce87d529e1bf77f325be4071
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771873"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968498"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Azure Machine Learning 모델 interpretability
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Interpretability 클래스와 메서드를 적용 하 여 모델의 전역 동�
 * **설명 모방**: 모방 설명은 블랙 박스 모델을 모방 하기 위해 [전역 서로게이트 모델](https://christophm.github.io/interpretable-ml-book/global.html) 을 학습 하는 아이디어를 기반으로 합니다. 전역 서로게이트 모델은 블랙 박스 모델의 예측을 최대한 정확 하 게 예측 하도록 학습 된 본질적으로 해석 되는 모델입니다. 데이터 과학자은 서로게이트 모델을 해석 하 여 블랙 박스 모델에 대 한 결론을 그릴 수 있습니다. 다음의 해석 가능 모델 중 하나를 서로게이트 모델 (LightGBM (LGBMExplainableModel), 선형 회귀 (LinearExplainableModel), 추계) 및 의사 결정 트리 ()로 사용할 수 있습니다. DecisionTreeExplainableModel).
 
 
-* **순열 기능 중요도 설명**: 순열 기능 중요도는 [Breiman의 임의 포리스트 문서](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) 에 따라 분류 되는 분류 및 회귀 모델을 설명 하는 데 사용 되는 기술입니다 (섹션 10 참조). 높은 수준에서 작동 방식은 전체 데이터 집합에 대해 한 번에 하나의 기능을 임의로 순서 섞기 하 고 관심 있는 성능 메트릭이 변경 되는 정도를 계산 하는 것입니다. 변화가 클수록 해당 기능이 중요한 것입니다.
+* **순열 기능 중요도 설명**: 순열 기능 중요도는 [Breiman의 임의 포리스트 문서](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) 에 따라 분류 되는 분류 및 회귀 모델을 설명 하는 데 사용 되는 기술입니다 (섹션 10 참조). 높은 수준에서 작동 방식은 전체 데이터 집합에 대해 한 번에 하나의 기능을 임의로 순서 섞기 하 고 관심 있는 성능 메트릭이 변경 되는 정도를 계산 하는 것입니다. 변화가 클수록 해당 기능이 중요한 것입니다.
 
 * **설명** (`contrib`): [라임를 기반으로 하](https://github.com/marcotcr/lime)는 라임 설명는 최신 로컬 해석 모델 (라임) 알고리즘을 사용 하 여 로컬 서로게이트 모델을 만듭니다. 전역 서로게이트 모델과 달리, 라임는 개별 예측을 설명 하는 로컬 서로게이트 모델 학습에 중점을 둔 것입니다.
 * **한자 텍스트 설명** (`contrib`): 한자 텍스트 설명는 지정 된 블랙 박스 텍스트 모델에 대 한 텍스트 데이터에서 모델 설명을 가져오기 위해 계층적 주의 네트워크를 사용 합니다. 지정 된 블랙 박스 모델의 예측 된 출력에 대 한 한자 서로게이트 모델을 학습 합니다. 텍스트 모음 전체적으로 학습 한 후에는 설명의 정확도를 향상 시키기 위해 특정 문서에 대 한 미세 조정 단계를 추가 합니다. 한자는 문장 및 단어 주의를 위해 두 개의 주의 계층으로 양방향 RNN을 사용 합니다. DNN가 블랙 박스 모델에 대해 학습 되 고 특정 문서에 대해 미세 조정 되 면 사용자는 주의 계층에서 단어 importances을 추출할 수 있습니다. 한자는 텍스트 데이터에 대 한 라임 또는 SHAP 보다 더 정확 하 게 표시 되지만 학습 시간 측면 에서도 비용이 더 많이 듭니다. 사용자에 게 글러브 word 포함를 사용 하 여 네트워크를 초기화 하는 옵션을 제공 하 여 학습 시간을 줄일 수 있도록 기능이 향상 되었습니다. 원격 Azure GPU VM에서 한자를 실행 하 여 학습 시간을 크게 향상 시킬 수 있습니다. 한자 구현은 [' 문서 분류를 위한 계층적 주의 네트워크 (Yang et al., 2016) '](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification)에 설명 되어 있습니다.

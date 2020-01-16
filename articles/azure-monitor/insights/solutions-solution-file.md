@@ -8,26 +8,26 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 517b9768c1df928012c34a4dcdd2dfa6b0c94d0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401592"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977686"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
 > [!NOTE]
 > 현재 미리 보기 상태로 제공되는 Azure에서 관리 솔루션을 만드는 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.  
 
-Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)으로 구현됩니다.  관리 솔루션을 작성하는 방법에서 주요 작업은 [템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)입니다.  이 문서에서는 솔루션에 사용되는 템플릿의 고유한 세부 정보와 일반적인 솔루션 리소스를 구성하는 방법을 설명합니다.
+Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)으로 구현됩니다.  관리 솔루션을 작성하는 방법에서 주요 작업은 [템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)입니다.  이 문서에서는 솔루션에 사용되는 템플릿의 고유한 세부 정보와 일반적인 솔루션 리소스를 구성하는 방법을 설명합니다.
 
 
 ## <a name="tools"></a>도구
 
 아무 텍스트 편집기나 사용하여 솔루션 파일로 작업할 수 있지만 다음 문서에 설명된 대로 Visual Studio 또는 Visual Studio 코드에서 제공되는 기능을 활용하는 것이 좋습니다.
 
-- [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Visual Studio 코드에서 Azure Resource Manager 템플릿으로 작업](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+- [Visual Studio 코드에서 Azure Resource Manager 템플릿으로 작업](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -159,7 +159,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 
 
 ### <a name="dependencies"></a>종속성
-**dependsOn** 요소는 다른 리소스에 대한 [종속성](../../azure-resource-manager/resource-group-define-dependencies.md)을 지정합니다.  솔루션이 설치될 때 모든 리소스의 종속성이 만들어진 후에야 리소스가 만들어지지 않습니다.  예를 들어 솔루션이 [작업 리소스](solutions-resources-automation.md#automation-jobs)를 사용하여 설치될 경우 솔루션에서 [Runbook을 시작](solutions-resources-automation.md#runbooks)할 수 있습니다.  작업이 만들어지기 전에 runbook이 만들어지도록 작업 리소스는 runbook 리소스에 종속됩니다.
+**dependsOn** 요소는 다른 리소스에 대한 [종속성](../../azure-resource-manager/templates/define-resource-dependency.md)을 지정합니다.  솔루션이 설치될 때 모든 리소스의 종속성이 만들어진 후에야 리소스가 만들어지지 않습니다.  예를 들어 솔루션이 [작업 리소스](solutions-resources-automation.md#automation-jobs)를 사용하여 설치될 경우 솔루션에서 [Runbook을 시작](solutions-resources-automation.md#runbooks)할 수 있습니다.  작업이 만들어지기 전에 runbook이 만들어지도록 작업 리소스는 runbook 리소스에 종속됩니다.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정
 관리 솔루션은 뷰를 포함하는 [Log Analytics 작업 영역](../../azure-monitor/platform/manage-access.md)과 Runbook 및 관련 리소스를 포함하는 [Automation 계정](../../automation/automation-security-overview.md#automation-account-overview)이 필요합니다.  이러한 항목은 솔루션의 리소스가 만들어지기 전에 제공되어야 하며 솔루션 자체에 정의될 수 없습니다.  사용자는 솔루션을 배포할 때 [작업 영역과 계정을 지정](solutions.md#log-analytics-workspace-and-automation-account)하지만, 작성자는 다음 사항을 고려해야 합니다.
@@ -200,7 +200,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 
 
 ### <a name="dependencies"></a>종속성
-솔루션이 만들어지기 전에 솔루션 리소스가 있어야 하므로 솔루션 리소스는 솔루션의 모든 다른 리소스에 대해 [종속성](../../azure-resource-manager/resource-group-define-dependencies.md)을 가져야 합니다.  **dependsOn** 요소에서 각 리소스의 항목을 추가하면 됩니다.
+솔루션이 만들어지기 전에 솔루션 리소스가 있어야 하므로 솔루션 리소스는 솔루션의 모든 다른 리소스에 대해 [종속성](../../azure-resource-manager/templates/define-resource-dependency.md)을 가져야 합니다.  **dependsOn** 요소에서 각 리소스의 항목을 추가하면 됩니다.
 
 ### <a name="properties"></a>속성
 솔루션 리소스는 테이블의 속성을 가집니다.  여기에는 솔루션 설치 후 리소스 관리 방식을 정의하는 솔루션에서 참조 및 포함하는 리소스가 포함됩니다.  솔루션의 각 리소스는 **referencedResources** 또는 **containedResources** 속성에 나열되어야 합니다.

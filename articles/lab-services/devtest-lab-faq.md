@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: afd6ded6dc027e118694078f8b8eeadfe8dd80e4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644922"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981487"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -46,13 +46,13 @@ Twitter 핸들: [@azlabservices](https://twitter.com/azlabservices)
 ### <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 질문이 여기에 나열 되지 않은 경우 알려 주시기 바랍니다. 답변을 찾을 수 있습니다.
 
-- 이 FAQ의 끝에 질문을 게시합니다. 
+- 이 FAQ의 끝에 질문을 게시합니다.
 - 더 광범위한 대상에 도달하기 위해 [Azure DevTest Labs MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)에 질문을 게시하세요. Azure DevTest Labs 팀과 커뮤니티의 다른 구성원들이 참여합니다.
 - 기능 요청의 경우 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/forums/320373-azure-devtest-labs)으로 제출해 주세요.
 
 ### <a name="what-is-a-microsoft-account"></a>Microsoft 계정이란?
 Microsoft 계정이란 Microsoft 디바이스 및 서비스를 가지고 하는 거의 모든 것에 대해 사용하는 계정입니다. Skype, Outlook.com, OneDrive, Windows phone, Azure 및 Xbox Live에 로그인 하는 데 사용 하는 전자 메일 주소 및 암호입니다. 단일 계정은 파일, 사진, 연락처 및 설정이 모든 디바이스에서 사용자를 따를 수 있음을 의미합니다.
- 
+
 > [!NOTE]
 > Windows Live ID를 호출 하는 데 사용 되는 Microsoft 계정입니다.
 
@@ -145,18 +145,18 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 ## <a name="lab-configuration"></a>랩 구성
 
 ### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 어떻게 랩을 만듭니까?
-있는 그대로 배포하거나 랩에 대한 사용자 지정 템플릿을 만들기 위해 수정할 수 있는 [랩 Azure Resource Manager 템플릿의 GitHub 리포지토리](https://azure.microsoft.com/resources/templates/101-dtl-create-lab)를 제공합니다. 각 템플릿에는 사용자 고유의 Azure 구독에 있는 것 처럼 랩을 배포 하기 위한 링크가 있습니다. 또는 템플릿을 사용자 지정하고 [PowerShell 또는 Azure CLI를 사용하여 배포](../azure-resource-manager/resource-group-template-deploy.md)할 수 있습니다.
+있는 그대로 배포하거나 랩에 대한 사용자 지정 템플릿을 만들기 위해 수정할 수 있는 [랩 Azure Resource Manager 템플릿의 GitHub 리포지토리](https://azure.microsoft.com/resources/templates/101-dtl-create-lab)를 제공합니다. 각 템플릿에는 사용자 고유의 Azure 구독에 있는 것 처럼 랩을 배포 하기 위한 링크가 있습니다. 또는 템플릿을 사용자 지정하고 [PowerShell 또는 Azure CLI를 사용하여 배포](../azure-resource-manager/templates/deploy-powershell.md)할 수 있습니다.
 
 
-### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>각 컴퓨터를 자체 리소스 그룹에 포함 하는 대신 공용 리소스 그룹에서 모든 가상 컴퓨터를 만들 수 있나요? 
-예, 랩 소유자는 랩에서 리소스 그룹 할당을 처리 하도록 하거나 사용자가 지정한 공용 리소스 그룹에서 만든 모든 가상 머신을 사용할 수 있습니다. 
+### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>각 컴퓨터를 자체 리소스 그룹에 포함 하는 대신 공용 리소스 그룹에서 모든 가상 컴퓨터를 만들 수 있나요?
+예, 랩 소유자는 랩에서 리소스 그룹 할당을 처리 하도록 하거나 사용자가 지정한 공용 리소스 그룹에서 만든 모든 가상 머신을 사용할 수 있습니다.
 
 별도 리소스 그룹 시나리오:
 -   DevTest Labs는 실행 하는 모든 공용/개인 IP 가상 컴퓨터에 대 한 새 리소스 그룹을 만듭니다.
 -   DevTest Labs는 동일한 크기에 속하는 공유 IP 컴퓨터에 대 한 리소스 그룹을 만듭니다.
 
 공용 리소스 그룹 시나리오:
--   모든 가상 컴퓨터는 사용자가 지정 하는 공용 리소스 그룹에 분리 됩니다. [랩에 대 한 자세한 리소스 그룹 할당을](https://aka.ms/RGControl)알아보세요. 
+-   모든 가상 컴퓨터는 사용자가 지정 하는 공용 리소스 그룹에 분리 됩니다. [랩에 대 한 자세한 리소스 그룹 할당을](https://aka.ms/RGControl)알아보세요.
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>DevTest Labs 환경 전반에 걸쳐 명명 규칙을 유지 관리하려면 어떻게 해야 하나요?
 현재 엔터프라이즈 명명 규칙을 Azure 작업으로 확장 적용하고 DevTest Labs 환경에서도 일관되게 사용할 수 있습니다. DevTest Labs를 배포할 때는 구체적인 시작 정책을 결정하는 것이 좋습니다. 일관성을 유지하려면 중앙 스크립트와 JSON 템플릿을 사용하여 이러한 정책을 배포합니다. 구독 수준에서 적용된 Azure 정책을 통해 명명 정책을 구현할 수 있습니다. Azure Policy의 JSON 샘플은 [Azure Policy 샘플](../governance/policy/samples/index.md)을 참조하세요.
@@ -196,7 +196,7 @@ DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한�
 동일한 템플릿에서 여러 VM을 동시에 만들기 위한 두 가지 옵션이 있습니다.
 
 - [Azure DevOps 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 사용할 수 있습니다.
-- VM을 만드는 동안 [리소스 관리자 템플릿을 생성](devtest-lab-add-vm.md#save-azure-resource-manager-template) 하 고 [Windows PowerShell에서 리소스 관리자 템플릿을 배포할](../azure-resource-manager/resource-group-template-deploy.md)수 있습니다.
+- VM을 만드는 동안 [리소스 관리자 템플릿을 생성](devtest-lab-add-vm.md#save-azure-resource-manager-template) 하 고 [Windows PowerShell에서 리소스 관리자 템플릿을 배포할](../azure-resource-manager/templates/deploy-powershell.md)수 있습니다.
 - 가상 컴퓨터를 만드는 동안 만들 컴퓨터의 인스턴스를 둘 이상 지정할 수도 있습니다. 가상 컴퓨터의 여러 인스턴스를 만드는 방법에 대 한 자세한 내용은 [랩 가상 컴퓨터를 만드는](devtest-lab-add-vm.md)방법에 대 한 문서를 참조 하세요.
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>기존 Azure VM을 DevTest Labs 랩으로 어떻게 이동하나요?
@@ -252,7 +252,7 @@ foreach($labVM in $labVMs)
 }
 ```
 
-## <a name="environments"></a>환경 
+## <a name="environments"></a>환경
 
 ### <a name="how-can-i-use-resource-manager-templates-in-my-devtest-labs-environment"></a>DevTest Labs 환경 내에서 Resource Manager 템플릿을 사용하려면 어떻게 해야 하나요?
 [DevTest labs의 환경 기능](devtest-lab-test-env.md) 문서에 설명 된 단계를 사용 하 여 리소스 관리자 템플릿을 DevTest Labs 환경에 배포할 수 있습니다. 기본적으로는 Git 리포지토리(Azure Repos 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [템플릿용 프라이빗 리포지토리](devtest-lab-test-env.md)를 추가합니다. DevTest Labs를 사용 하 여 개발 컴퓨터를 호스트 하는 경우에는이 시나리오가 유용 하지 않을 수 있지만, 프로덕션의 대표적인 스테이징 환경을 빌드하는 경우 유용할 수 있습니다.
@@ -264,7 +264,7 @@ foreach($labVM in $labVMs)
 ### <a name="how-can-i-set-up-an-easily-repeatable-process-to-bring-my-custom-organizational-images-into-a-devtest-labs-environment"></a>사용자 지정 조직 이미지를 DevTest Labs 환경으로 가져오기 위해 손쉽게 반복 가능한 프로세스를 설정하려면 어떻게 해야 하나요?
 [이미지 팩터리 패턴에 대 한이 비디오를](https://sec.ch9.ms/ch9/8e8a/9ea0b8d4-b803-4f23-bca4-4808d9368e8a/dtlimagefactory_mid.mp4)참조 하세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
 
-이미지 팩터리를 만드는 방법에 대 한 자세한 내용은 [Azure DevTest Labs에서 사용자 지정 이미지 팩터리 만들기](image-factory-create.md)를 참조 하세요. 
+이미지 팩터리를 만드는 방법에 대 한 자세한 내용은 [Azure DevTest Labs에서 사용자 지정 이미지 팩터리 만들기](image-factory-create.md)를 참조 하세요.
 
 ### <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>사용자 지정 이미지와 수식 간의 차이는 무엇입니까?
 사용자 지정 이미지는 관리 되는 이미지입니다. 수식은 추가 설정을 사용하여 구성한 다음 저장하고 재현할 수 있는 이미지입니다. 사용자 지정 이미지는 동일한 기본, 변경할 수 없는 이미지를 사용하여 여러 환경을 신속하게 만들려는 경우 적합할 수 있습니다. 수식은 최신 비트, 가상 네트워크 또는 서브넷의 일부 또는 특정 크기의 VM으로 구성을 재현하려는 경우 더 나을 수 있습니다. 더 자세한 설명은 [DevTest Labs에서 사용자 지정 이미지와 수식 비교](devtest-lab-comparing-vm-base-image-types.md)를 참조하세요.
@@ -343,19 +343,19 @@ Azure DevOps를 사용 하는 경우 [DevTest Labs 작업 확장](https://market
 - [Azure DevOps Services에서 기존 DevTest Labs 랩에 새 VM 배포](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 - [DevTest Labs에 대한 연속 배포에 대해 Azure DevOps Services 릴리스 관리 사용](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-다른 CI(연속 통합)/CD(지속적인 업데이트) 도구 체인의 경우 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/)을 배포하거나 [Azure PowerShell cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 및 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/)를 사용하여 동일한 시나리오를 얻을 수 있습니다. 또한 [DevTest Labs용 REST API](https://aka.ms/dtlrestapis)를 사용하여 도구 체인과 통합할 수 있습니다.
+다른 CI(연속 통합)/CD(지속적인 업데이트) 도구 체인의 경우 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/)을 배포하거나 [Azure PowerShell cmdlet](../azure-resource-manager/templates/deploy-powershell.md) 및 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/)를 사용하여 동일한 시나리오를 얻을 수 있습니다. 또한 [DevTest Labs용 REST API](https://aka.ms/dtlrestapis)를 사용하여 도구 체인과 통합할 수 있습니다.
 
 ## <a name="networking"></a>네트워킹
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>DevTest Labs 환경용으로 신규 가상 네트워크를 생성해야 하는 경우와 기존 가상 네트워크를 사용해야 하는 경우는 각각 언제인가요?
-Vm이 기존 인프라와 상호 작용 해야 하는 경우 DevTest Labs 환경 내에서 기존 가상 네트워크를 사용 하는 것이 좋습니다. Express 경로를 사용 하는 경우 구독에 사용 하도록 할당 되는 IP 주소 공간을 조각화 하지 않도록 Vnet/서브넷의 양을 최소화 하는 것이 좋습니다. 
+Vm이 기존 인프라와 상호 작용 해야 하는 경우 DevTest Labs 환경 내에서 기존 가상 네트워크를 사용 하는 것이 좋습니다. Express 경로를 사용 하는 경우 구독에 사용 하도록 할당 되는 IP 주소 공간을 조각화 하지 않도록 Vnet/서브넷의 양을 최소화 하는 것이 좋습니다.
 
-여기에서 VNet 피어 링 패턴 ([허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke))을 사용 하는 것이 좋습니다. 이 방법은 구독에서 vnet/서브넷 통신을 가능 하 게 합니다. 각 DevTest Labs 환경에 자체 가상 네트워크가 있을 수도 있습니다. 
+여기에서 VNet 피어 링 패턴 ([허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke))을 사용 하는 것이 좋습니다. 이 방법은 구독에서 vnet/서브넷 통신을 가능 하 게 합니다. 각 DevTest Labs 환경에 자체 가상 네트워크가 있을 수도 있습니다.
 
 구독 당 가상 네트워크 수에는 [제한이](../azure-resource-manager/management/azure-subscription-service-limits.md) 있습니다. 기본 수는 50이지만 100까지 높일 수 있습니다.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>공유 IP, 공용 IP, 프라이빗 IP는 각각 어떠한 경우에 사용해야 하나요?
- 
+
 사이트 간 VPN 또는 Express 경로를 사용하는 경우에는 내부 네트워크에서만 머신에 액세스할 수 있고 공용 인터넷을 통해서는 액세스할 수 없도록 프라이빗 IP 사용을 고려합니다.
 
 > [!NOTE]
@@ -383,15 +383,15 @@ Vm이 기존 인프라와 상호 작용 해야 하는 경우 DevTest Labs 환경
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>PowerShell에서 VM을 프로비전할 때 "부모 리소스를 찾을 수 없음" 오류가 표시되는 이유는 무엇인가요?
 한 리소스가 다른 리소스의 부모이면 부모 리소스는 자식 리소스를 만들기 전에 존재해야 합니다. 부모 리소스가 없으면 **ParentResourceNotFound** 메시지가 표시 됩니다. 부모 리소스에 대한 종속성을 지정하지 않으면 자식 리소스는 부모보다 먼저 배포될 수 있습니다.
 
-리소스 그룹의 랩에서 VM은 자식 리소스입니다. PowerShell을 사용하여 VM을 배포하는 데 Resource Manager 템플릿을 사용할 경우 PowerShell 스크립트에 제공된 리소스 그룹 이름은 랩의 리소스 그룹 이름이어야 합니다. 자세한 내용은 [일반적인 Azure 배포 오류 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)을 참조하세요.
+리소스 그룹의 랩에서 VM은 자식 리소스입니다. PowerShell을 사용하여 VM을 배포하는 데 Resource Manager 템플릿을 사용할 경우 PowerShell 스크립트에 제공된 리소스 그룹 이름은 랩의 리소스 그룹 이름이어야 합니다. 자세한 내용은 [일반적인 Azure 배포 오류 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)을 참조하세요.
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>VM 배포에 실패하면 오류 정보를 어디에서 더 찾을 수 있나요?
 VM 배포 오류는 활동 로그에 캡처됩니다. **감사 로그** 또는 **가상 머신 진단** 에서 랩 vm 활동 로그는 랩의 vm 페이지에 있는 리소스 메뉴에서 찾을 수 있습니다 .이 페이지는 내 가상 머신 목록에서 VM을 선택한 후에 표시 됩니다.
 
-경우에 따라 VM 배포가 시작되기 전에 배포 오류가 발생합니다. 예는 VM을 사용하여 만든 리소스에 대한 구독 제한을 초과하는 경우입니다. 이 경우 오류 세부 정보는 랩 수준 활동 로그에 캡처됩니다. 활동 로그는 **구성 및 정책** 설정의 맨 아래에 있습니다. Azure에서 활동 로그를 사용하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/resource-group-audit.md)를 참조하세요.
+경우에 따라 VM 배포가 시작되기 전에 배포 오류가 발생합니다. 예는 VM을 사용하여 만든 리소스에 대한 구독 제한을 초과하는 경우입니다. 이 경우 오류 세부 정보는 랩 수준 활동 로그에 캡처됩니다. 활동 로그는 **구성 및 정책** 설정의 맨 아래에 있습니다. Azure에서 활동 로그를 사용하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
 
 ### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>랩을 만들려고 할 때 "리소스 종류에 위치를 사용할 수 없습니다" 오류가 발생 하는 이유는 무엇 인가요?
-랩을 만들려고 하면 다음과 유사한 오류 메시지가 표시 될 수 있습니다. 
+랩을 만들려고 하면 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
 
 ```
 The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
@@ -400,9 +400,7 @@ The provided location 'australiacentral' is not available for resource type 'Mic
 다음 단계 중 하나를 수행 하 여이 오류를 해결할 수 있습니다.
 
 #### <a name="option-1"></a>옵션 1
-[지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지의 Azure 지역에서 리소스 종류의 가용성을 확인 합니다. 리소스 종류를 특정 지역에서 사용할 수 없는 경우 DevTest Labs는 해당 지역에서 랩 만들기를 지원 하지 않습니다. 랩을 만들 때 다른 지역을 선택 합니다. 
+[지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지의 Azure 지역에서 리소스 종류의 가용성을 확인 합니다. 리소스 종류를 특정 지역에서 사용할 수 없는 경우 DevTest Labs는 해당 지역에서 랩 만들기를 지원 하지 않습니다. 랩을 만들 때 다른 지역을 선택 합니다.
 
 #### <a name="option-2"></a>옵션 2
-리소스 종류를 해당 지역에서 사용할 수 있는 경우 구독에 등록 되었는지 확인 합니다. [이 문서](../azure-resource-manager/resource-manager-supported-services.md)에 표시 된 것 처럼 구독 소유자 수준에서이 작업을 수행할 수 있습니다. 
-
-
+리소스 종류를 해당 지역에서 사용할 수 있는 경우 구독에 등록 되었는지 확인 합니다. [이 문서](../azure-resource-manager/management/resource-providers-and-types.md)에 표시 된 것 처럼 구독 소유자 수준에서이 작업을 수행할 수 있습니다.

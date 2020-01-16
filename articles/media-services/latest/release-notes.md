@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0f2eabf0167865333131e0f8e5b0c4ccb409e40e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ecc2a8236b51013895bfe831d6785ff3e6925906
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771243"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979674"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -158,7 +158,7 @@ Media Services 성능 개선을 포함 하는 업데이트를 추가 했습니�
 ### <a name="new-presets"></a>새 사전 설정
 
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) 가 기본 제공 분석기 사전 설정에 추가 되었습니다.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) 가 기본 제공 인코더 사전 설정에 추가 되었습니다. 자세한 내용은 [콘텐츠 인식 인코딩](cae-experimental.md)을 참조 하세요. 
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) 가 기본 제공 인코더 사전 설정에 추가 되었습니다. 자세한 내용은 [콘텐츠 인식 인코딩](content-aware-encoding.md)을 참조 하세요. 
 
 ## <a name="march-2019"></a>2019년 3월
 

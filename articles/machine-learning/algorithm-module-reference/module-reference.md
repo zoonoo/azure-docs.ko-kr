@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 12/17/2019
-ms.openlocfilehash: df2e73138cec6c684d612543280871eb2d49b207
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 659c205bd12d7ca27bfc28e3ab6e62f58d9743ac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456351"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978666"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 알고리즘 & 모듈 참조
 
@@ -50,4 +50,4 @@ ms.locfileid: "75456351"
 
 ## <a name="error-messages"></a>오류 메시지
 
-Azure Machine Learning 디자이너에서 모듈을 사용 하 여 발생할 수 있는 [오류 메시지 및 예외 코드](machine-learning-module-error-codes.md) 에 대해 알아봅니다.
+Azure Machine Learning 디자이너에서 모듈을 사용 하 여 발생할 수 있는 [오류 메시지 및 예외 코드](designer-error-codes.md) 에 대해 알아봅니다.

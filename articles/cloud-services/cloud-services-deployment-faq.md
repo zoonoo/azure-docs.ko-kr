@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660599"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980638"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 배포 문제: FAQ(질문과 대답)
 
@@ -56,7 +56,7 @@ ms.locfileid: "75660599"
 
 포털에서 구독에 대한 현재 사용량/할당량도 추적할 수 있습니다. Azure Portal => 구독=> \<적절한 구독=> “사용량 + 할당량”
 
-Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 수도 있습니다. [Azure 리소스 사용량 API(미리 보기)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview)을 참조하세요.
+Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 수도 있습니다. [Azure 리소스 사용량 API(미리 보기)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview)을 참조하세요.
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>배포된 클라우드 서비스 VM을 다시 배포하지 않고 크기를 변경하려면 어떻게 할까요?
 배포된 클라우드 서비스 VM을 다시 배포하지 않고 크기를 변경할 수 없습니다. VM 크기는 CSDEF에 포함되며 재배포로 업데이트할 수 있습니다.
@@ -66,17 +66,17 @@ Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 �
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Azure Resource Manager 스토리지 계정을 사용하는 경우 Service Management API 또는 PowerShell을 통해 Cloud Services를 배포할 수 없는 이유는 무엇인가요? 
 
 클라우드 서비스는 Azure Resource Manager 모델과 직접 호환 되지 않는 클래식 리소스 이므로 Azure Resource Manager 저장소 계정에 연결할 수 없습니다. 다음은 몇 가지 옵션입니다. 
- 
+
 - REST API를 통해 배포.
 
     Service Management REST API를 통해 배포하면 클래식 및 Azure Resource Manager 스토리지 계정 모두를 통해 작업할 수 있는 Blob Storage에 대한 SAS URL을 지정하여 이러한 제한의 문제를 해결할 수 있습니다. [여기](/previous-versions/azure/reference/ee460813(v=azure.100))에서 ‘PackageUrl’ 속성에 대해 자세히 읽어보세요.
-  
+
 - [Azure Portal](https://portal.azure.com)을 통해 배포.
 
     이는 호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용 하는 프록시/shim을 통과 하므로 [Azure Portal](https://portal.azure.com) 에서 작동 합니다. 
- 
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure Portal에서 배포할 스토리지 계정을 제공하도록 하는 이유는 무엇인가요? 
 
-클래식 포털에서는 패키지가 관리 API 계층에 직접 업로드되면 API 계층에서 패키지를 내부 스토리지 계정에 임시로 저장했습니다.  API 계층은 파일 업로드 서비스로 설계되지 않았기 때문에 이 프로세스로 인해 성능 및 확장성 문제가 발생합니다.  Azure Portal(Resource Manager 배포 모델)에서는 API 계층에 먼저 업로드하는 중간 단계를 무시하여 보다 빠르고 안정적인 배포가 가능해졌습니다. 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure Portal에서 배포할 스토리지 계정을 제공하도록 하는 이유는 무엇인가요?
 
-비용 측면에서는 매우 작지만 모든 배포에서 동일한 스토리지 계정을 재사용할 수 있습니다. [요금 계산기](https://azure.microsoft.com/pricing/calculator/#storage1)를 사용하여 서비스 패키지(CSPKG)를 업로드하고 CSPKG를 다운로드한 다음 CSPKG를 삭제하는 비용을 확인할 수 있습니다. 
+클래식 포털에서는 패키지가 관리 API 계층에 직접 업로드되면 API 계층에서 패키지를 내부 스토리지 계정에 임시로 저장했습니다.  API 계층은 파일 업로드 서비스로 설계되지 않았기 때문에 이 프로세스로 인해 성능 및 확장성 문제가 발생합니다.  Azure Portal(Resource Manager 배포 모델)에서는 API 계층에 먼저 업로드하는 중간 단계를 무시하여 보다 빠르고 안정적인 배포가 가능해졌습니다.
+
+비용 측면에서는 매우 작지만 모든 배포에서 동일한 스토리지 계정을 재사용할 수 있습니다. [요금 계산기](https://azure.microsoft.com/pricing/calculator/#storage1)를 사용하여 서비스 패키지(CSPKG)를 업로드하고 CSPKG를 다운로드한 다음 CSPKG를 삭제하는 비용을 확인할 수 있습니다.

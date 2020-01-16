@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 2738e7be6ae40afd5f0d94f1ad32b7b4cda0417f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453407"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979425"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대 한 통합 계정 만들기 및 관리
 
@@ -77,7 +77,7 @@ ms.locfileid: "75453407"
 
 ## <a name="link-to-logic-app"></a>논리 앱에 연결
 
-논리 앱에 B2B 아티팩트가 포함 된 통합 계정에 대 한 액세스 권한을 부여 하려면 먼저 통합 계정을 논리 앱에 연결 해야 합니다. 논리 앱과 통합 계정 모두 동일한 지역에 있어야 합니다. 이 작업을 완료 하려면 Azure Portal를 사용할 수 있습니다. Visual Studio를 사용 하 고 논리 앱이 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)에 있는 경우 [visual studio를 사용 하 여 논리 앱을 통합 계정에 연결할](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account)수 있습니다.
+논리 앱에 B2B 아티팩트가 포함 된 통합 계정에 대 한 액세스 권한을 부여 하려면 먼저 통합 계정을 논리 앱에 연결 해야 합니다. 논리 앱과 통합 계정 모두 동일한 지역에 있어야 합니다. 이 작업을 완료 하려면 Azure Portal를 사용할 수 있습니다. Visual Studio를 사용 하 고 논리 앱이 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)에 있는 경우 [visual studio를 사용 하 여 논리 앱을 통합 계정에 연결할](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account)수 있습니다.
 
 1. Azure Portal에서 논리 앱을 찾아서 엽니다.
 

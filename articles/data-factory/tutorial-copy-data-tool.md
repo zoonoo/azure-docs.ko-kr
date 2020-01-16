@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6335fce717772e268f711c2e6e5050fa8c17d573
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439421"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977326"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
 
@@ -39,7 +39,7 @@ ms.locfileid: "75439421"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정**: Blob 스토리지를 _원본_ 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
+* **Azure Storage 계정**: Blob 스토리지를 _원본_ 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)의 지침을 참조하세요.
 * **Azure SQL Database**: SQL 데이터베이스를 _싱크_ 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
@@ -78,18 +78,18 @@ ms.locfileid: "75439421"
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 선택합니다.
-    
+
     ![새 데이터 팩터리 만들기](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory**를 입력합니다.
 
     데이터 팩터리 이름은 _전역적으로 고유_해야 합니다. 다음과 같은 오류 메시지가 표시될 수 있습니다.
-    
+
     ![새 데이터 팩터리 오류 메시지](./media/doc-common-process/name-not-available-error.png)
 
     이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
 1. 새 데이터 팩터리를 만들 Azure **구독**을 선택합니다.
 1. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
-    
+
     a. **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
 
     b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
@@ -101,7 +101,7 @@ ms.locfileid: "75439421"
 1. **만들기**를 선택합니다.
 
 1. 만들기가 완료되면 **Data Factory** 홈페이지가 표시됩니다.
-    
+
     ![데이터 팩터리 홈페이지](./media/doc-common-process/data-factory-home-page.png)
 1. 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작하려면 **작성 및 모니터링** 타일을 선택합니다.
 
@@ -125,7 +125,7 @@ ms.locfileid: "75439421"
     ![원본 연결된 서비스 선택](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
 1. **입력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
-    
+
     a. **찾아보기**를 클릭하여 **adfv2tutorial/input** 폴더로 이동하고, **inputEmp.txt** 파일을 선택한 다음, **선택**을 클릭합니다.
 
     b. **다음**을 클릭하여 다음 단계로 이동합니다.

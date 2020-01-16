@@ -2,7 +2,7 @@
 title: 작업 런타임 환경 변수-Azure Batch | Microsoft Docs
 description: Azure Batch 분석에 대 한 작업 런타임 환경 변수 지침 및 참조입니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: lahugh
-ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.author: jushiman
+ms.openlocfilehash: fd3c8ac9e65f7f77be070e1d1d108490e61eb248
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177144"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027196"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 런타임 환경 변수
 
@@ -44,11 +44,11 @@ Batch에 환경 변수를 사용 하는 방법에 대 한 자세한 내용은 [�
 
 ## <a name="environment-variables"></a>환경 변수
 
-| 변수 이름                     | 설명                                                              | 가용성 | 예제 |
+| 변수 이름                     | Description                                                              | 가용성 | 예 |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | 태스크가 속한 Batch 계정의 이름입니다.                  | 모든 태스크입니다.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | 배치 계정의 URL입니다. | 모든 태스크입니다. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | 모든 앱 패키지 환경 변수의 접두사입니다. 예를 들어 응용 프로그램 "FOO" 버전 "1"이 풀에 설치 된 경우 환경 변수는 AZ_BATCH_APP_PACKAGE_FOO_1입니다. AZ_BATCH_APP_PACKAGE_FOO_1는 패키지가 다운로드 된 위치 (폴더)를 가리킵니다. 앱 패키지의 기본 버전을 사용 하는 경우 버전 번호 없이 AZ_BATCH_APP_PACKAGE 환경 변수를 사용 합니다. | 관련 앱 패키지가 있는 모든 작업입니다. 또한 노드 자체에 애플리케이션 패키지가 있는 경우 모든 작업에 사용할 수 있습니다. | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | 모든 앱 패키지 환경 변수의 접두사입니다. 예를 들어 응용 프로그램 "FOO" 버전 "1"이 풀에 설치 된 경우 환경 변수는 AZ_BATCH_APP_PACKAGE_FOO_1 됩니다. AZ_BATCH_APP_PACKAGE_FOO_1는 패키지가 다운로드 된 위치 (폴더)를 가리킵니다. 앱 패키지의 기본 버전을 사용 하는 경우 버전 번호 없이 AZ_BATCH_APP_PACKAGE 환경 변수를 사용 합니다. | 관련 앱 패키지가 있는 모든 작업입니다. 또한 노드 자체에 애플리케이션 패키지가 있는 경우 모든 작업에 사용할 수 있습니다. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Batch 서비스 작업의 제한된 집합에 대한 액세스를 부여하는 인증 토큰입니다. 이 환경 변수는 [작업이 추가](/rest/api/batchservice/task/add#request-body)될 때 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings)가 설정된 경우에만 존재합니다. 토큰 값은 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_)와 같은 Batch API에서 Batch 클라이언트를 만들 때 자격 증명으로 사용됩니다. | 모든 태스크입니다. | OAuth2 액세스 토큰 |
 | AZ_BATCH_CERTIFICATES_DIR       | Linux 계산 노드에 대 한 인증서가 저장 되는 [태스크 작업 디렉터리][files_dirs] 내의 디렉터리입니다. 이 환경 변수는 Windows 계산 노드에 적용 되지 않습니다.                                                  | 모든 태스크입니다.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | `nodeIP,nodeIP`형식으로 [다중 인스턴스 작업][multi_instance] 에 할당 되는 노드 목록입니다. | 다중 인스턴스 기본 및 하위 태스크입니다. | `10.0.0.4,10.0.0.5` |

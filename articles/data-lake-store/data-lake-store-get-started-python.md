@@ -1,5 +1,5 @@
 ---
-title: 'Python: Azure Data Lake Storage Gen1 |의 계정 관리 작업 Microsoft Docs'
+title: 'Python: Azure Data Lake Storage Gen1에서의 계정 관리 작업 | Microsoft Docs'
 description: Python SDK를 사용하여 Azure Data Lake Storage Gen1 계정 관리 작업을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 494959e071fb5777f9a815b5bde4bd093cf10bd6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: fad832ba7b16e8dbb37043d971368062fcbd842f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088792"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966037"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -27,15 +27,15 @@ ms.locfileid: "71088792"
 >
 >
 
-Azure Data Lake Storage Gen1용 Python SDK를 사용하여 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 나열 등과 같은 기본 계정 관리 작업을 수행하는 방법을 알아봅니다. Python을 사용하여 Data Lake Storage Gen1에서 파일 시스템 작업을 수행하는 방법에 대한 지침은 [Python을 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-python.md)을 참조하세요.
+Azure Data Lake Storage Gen1 용 Python SDK를 사용 하 여 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 나열 등의 기본 계정 관리 작업을 수행 하는 방법에 대해 알아봅니다. Python을 사용 하 여 Data Lake Storage Gen1에서 파일 시스템 작업을 수행 하는 방법에 대 한 지침은 [python을 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업](data-lake-store-data-operations-python.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure 리소스 그룹** 지침에 대해서는 [Azure 리소스 그룹 만들기](../azure-resource-manager/manage-resource-groups-portal.md)를 참조하세요.
+* **Azure 리소스 그룹** 지침에 대해서는 [Azure 리소스 그룹 만들기](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
 
 ## <a name="install-the-modules"></a>모듈 설치
 
@@ -133,7 +133,7 @@ pip install azure-datalake-store
 ## <a name="next-steps"></a>다음 단계
 * [을 사용한 Data Lake Storage Gen1에서의 파일 시스템 작업](data-lake-store-data-operations-python.md)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 * [azure-datalake-store Python(파일 시스템) 참조](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)

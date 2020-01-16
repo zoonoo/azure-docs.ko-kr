@@ -5,27 +5,28 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 97ee10e0b286f1b007f2e807351301f2037d1754
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942655"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021222"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager 다음 제한은 구독 당 지역 별로 **Azure Resource Manager** 를 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 > [!NOTE]
-> 최근에 모든 기본 제한을 최대 한계로 증가시켰습니다. 최대 제한 열이 없는 경우 리소스는 조정 가능한 제한이 없습니다. 이전 지원으로 이러한 제한을 증가 시키고 다음 표에 업데이트 된 한도가 표시 되지 않는 경우 [무료로 온라인 고객 지원 요청을 여세요](../articles/azure-resource-manager/resource-manager-quota-errors.md) .
+> 최근에 모든 기본 제한을 최대 한계로 증가시켰습니다. 최대 제한 열이 없는 경우 리소스는 조정 가능한 제한이 없습니다. 이전 지원으로 이러한 제한을 증가 시키고 다음 표에 업데이트 된 한도가 표시 되지 않는 경우 [무료로 온라인 고객 지원 요청을 여세요](../articles/azure-resource-manager/templates/error-resource-quota.md) .
 
 | 리소스 | 기본/최대 제한 | 
 | --- | --- |
 | 가상 네트워크 |1,000 |
 | 가상 네트워크당 서브넷 |3,000 |
 | 가상 네트워크 당 가상 네트워크 피어 링 |500 |
-| [가상 네트워크 당 가상 네트워크 게이트웨이 (VPN 게이트웨이)](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| [가상 네트워크 당 가상 네트워크 게이트웨이 (VPN 게이트웨이)](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [가상 네트워크 당 가상 네트워크 게이트웨이 (Express 경로 게이트웨이)](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | 가상 네트워크 당 DNS 서버 |20 |
 | 가상 네트워크 당 개인 IP 주소 |65,536 |
 | 네트워크 인터페이스 당 개인 IP 주소 |256 |

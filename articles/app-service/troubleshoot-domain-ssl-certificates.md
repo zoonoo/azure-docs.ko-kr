@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688338"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966970"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 
@@ -88,7 +88,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 
     **해결 방법**: 인증서가 사기로 표시되고 24시간 후에도 해결되지 않으면 다음 단계를 수행합니다.
 
-    1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. **App Service 인증서**로 이동하고, 인증서를 선택합니다.
     3. **인증서 구성** > **2단계: 확인** > **도메인 확인**을 선택합니다. 이 단계는 문제를 해결하라는 이메일 알림을 Azure 인증서 공급자에게 전송합니다.
 
@@ -190,7 +190,7 @@ App Service는 48 시간 이내에 인증서를 자동으로 동기화 합니다
 
 인증서를 강제로 동기화하면 됩니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. **App Service 인증서**를 선택한 다음, 인증서를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **App Service 인증서**를 선택한 다음, 인증서를 선택합니다.
 2. 키 다시 생성 **및 동기화**를 선택 하 고 **동기화**를 선택 합니다. 동기화를 완료 하는 데 약간의 시간이 걸립니다. 
 3. 동기화가 완료되면 "모든 리소스가 최신 인증서로 업데이트되었습니다."라는 알림이 표시됩니다.
 
@@ -262,7 +262,7 @@ Azure Portal에서 App Service 도메인을 구입할 수 없습니다.
 
     |레코드 형식|호스트|대상|
     |------|------|-----|
-    |문자열(UTF-8 형식) 또는|@|앱의 IP 주소|
+    |A|@|앱의 IP 주소|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
@@ -318,6 +318,6 @@ App Service 웹 앱이 없는 경우에도 도메인을 관리할 수 있습니�
 
 **사용자 지정 도메인을 사용 하는 웹 앱을 다른 구독으로 이동 하거나 v1에서 V2로 App Service Environment 수 있나요?**
 
-예, 웹 앱을 구독 간에 이동할 수 있습니다. [Azure에서 리소스를 이동 하는 방법](../azure-resource-manager/resource-group-move-resources.md)의 지침을 따르세요. 웹 앱을 이동할 때 몇 가지 제한 사항이 있습니다. 자세한 내용은 [App Service 리소스 이동에 대 한 제한 사항](../azure-resource-manager/move-limitations/app-service-move-limitations.md)을 참조 하세요.
+예, 웹 앱을 구독 간에 이동할 수 있습니다. [Azure에서 리소스를 이동 하는 방법](../azure-resource-manager/management/move-resource-group-and-subscription.md)의 지침을 따르세요. 웹 앱을 이동할 때 몇 가지 제한 사항이 있습니다. 자세한 내용은 [App Service 리소스 이동에 대 한 제한 사항](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)을 참조 하세요.
 
 웹 앱을 이동한 후에는 사용자 지정 도메인 설정 내에서 도메인의 호스트 이름 바인딩이 동일 하 게 유지 되어야 합니다. 호스트 이름 바인딩을 구성 하는 데 필요한 추가 단계는 없습니다.

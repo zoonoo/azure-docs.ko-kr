@@ -12,25 +12,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: f038e56fe4b1e6ad2737217674706eef77a39fd6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058047"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981360"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 블루 스크린에 "CRITICAL SERVICE FAILED"가 표시됨
 이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 부팅할 때 발생할 수 있는 "CRITICAL SERVICE FAILED" 오류에 대해 설명합니다. 그리고 해당 문제를 해결할 수 있는 문제 해결 단계를 제공합니다. 
 
 > [!NOTE] 
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용을 설명하고 있으며, 새로운 배포에 대해 클래식 배포 모델 대신 이 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용을 설명하고 있으며, 새로운 배포에 대해 클래식 배포 모델 대신 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="symptom"></a>증상 
 
 Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)에서 부트 스크린샷을 확인하면 블루 스크린에 다음 오류 메시지 중 하나가 표시됩니다.
 
-- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 https://windows.com/stopcode 를 참조하세요. 지원 담당자를 호출하는 경우 이 정보를 제공합니다. 코드 중지: 중요 서비스 실패" 
-- "PC에 문제가 생겨 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다. 자세한 내용을 보려면 나중에 온라인에서 다음 오류를 검색할 수 있습니다. CRITICAL_SERVICE_FAILED"
+- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 https://windows.com/stopcode 를 참조하세요. 지원 담당자에게 연락하는 경우 다음 정보를 제공하세요. 중지 코드: CRITICAL SERVICE FAILED" 
+- "PC에 문제가 생겨 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다. 자세한 내용을 보려면 나중에 온라인에서 이 오류를 검색할 수 있습니다. RITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>원인
 
@@ -103,12 +103,12 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  VM을 다시 시작합니다. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>선택 사항: 덤프 크래시 모드로 덤프 로그 분석
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>선택 사항: 덤프 크래시 모드에서 덤프 로그 분석
 
 덤프 로그를 직접 분석 하려면 다음 단계를 수행 합니다.
 
 1. 복구 VM에 OS 디스크를 연결합니다.
-2. 연결한 OS 디스크에서 **\windows\system32\config**로 이동합니다. 롤백이 필요한 경우에 대비해 모든 파일을 백업으로 복사합니다.
+2. 연결한 OS 디스크에서 **\windows\system32\config**로 이동 합니다. 롤백이 필요한 경우 모든 파일을 백업으로 복사 합니다.
 3. **레지스트리 편집기**(regedit.exe)를 시작합니다.
 4. **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일** > **Hive 로드**를 선택합니다.
 5. 연결한 OS 디스크에서 **\windows\system32\config\SYSTEM** 폴더로 이동합니다. Hive 이름으로 **BROKENSYSTEM**을 입력합니다. 새 레지스트리 Hive는 **HKEY_LOCAL_MACHINE** 키 아래에 표시됩니다.
@@ -137,7 +137,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 9. [OS 디스크를 분리한 다음 해당 VM에 OS 디스크를 다시 연결합니다](troubleshoot-recovery-disks-portal-windows.md).
 10. VM을 부팅하여 덤프 분석이 표시되는지 확인합니다. 로드할 수 없는 파일을 찾습니다. 이 파일을 작동하는 VM의 파일로 바꿔야 합니다. 
 
-    덤프 분석 샘플은 다음과 같습니다. filecrypt.sys에서 **오류**가 발행했는지 확인할 수 있습니다. "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
+    덤프 분석 샘플은 다음과 같습니다. "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys"를 통해 filecrypt.sys에서 **FAILURE**가 발생했음을 확인할 수 있습니다.
 
     ```
     kd> !analyze -v 

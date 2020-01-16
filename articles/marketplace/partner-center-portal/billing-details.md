@@ -7,22 +7,22 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019
-ms.openlocfilehash: 0fda04bbfa632f429539ddc0ad90941cb645226b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a483f143b70a4969114c078b3b0a6f960c4b6b41
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934630"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976072"
 ---
-# <a name="commercial-marketplace-billing"></a>상업적 마켓플레이스 청구 
+# <a name="commercial-marketplace-billing"></a>상업적 마켓플레이스 청구
 
 이 문서에서는 상업적 marketplace에 대 한 상거래 관련 항목을 다룹니다.
 
-- [Marketplace 게시 옵션](#marketplace-publishing-options) 
+- [Marketplace 게시 옵션](#marketplace-publishing-options)
 - [Transact-sql 일반 개요](#transact-general-overview)
 - [청구 모델](#transact-billing-models)
 
-## <a name="marketplace-publishing-options"></a>Marketplace 게시 옵션 
+## <a name="marketplace-publishing-options"></a>Marketplace 게시 옵션
 
 상용 marketplace는 게시자에 대 한 여러 게시 옵션을 제공 합니다.
 
@@ -36,9 +36,9 @@ ms.locfileid: "75934630"
 
 ## <a name="transact-general-overview"></a>거래 일반 개요
 
-Microsoft는 transact-sql 게시 옵션을 사용할 때 타사 소프트웨어를 판매 하 고 일부 제품 유형을 고객의 Azure 구독에 배포할 수 있도록 합니다. 청구 모델 및 제안 유형을 선택 하는 경우 게시자는 인프라 요금 및 게시자의 소프트웨어 라이선스 요금에 대 한 청구를 고려해 야 합니다. 
+Microsoft는 transact-sql 게시 옵션을 사용할 때 타사 소프트웨어를 판매 하 고 일부 제품 유형을 고객의 Azure 구독에 배포할 수 있도록 합니다. 청구 모델 및 제안 유형을 선택 하는 경우 게시자는 인프라 요금 및 게시자의 소프트웨어 라이선스 요금에 대 한 청구를 고려해 야 합니다.
 
-현재는 virtual machines, Azure 응용 프로그램 및 SaaS 응용 프로그램 등의 제안 유형에 대해 Transact-sql 게시 옵션이 지원 됩니다. 
+현재는 virtual machines, Azure 응용 프로그램 및 SaaS 응용 프로그램 등의 제안 유형에 대해 Transact-sql 게시 옵션이 지원 됩니다.
 
 ![Azure Marketplace의 transact-sql](./media/transact-amp.png)
 

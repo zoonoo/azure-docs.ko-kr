@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 74dac926ea67b9f6a31993a72dc6331aa48155b7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884778"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981562"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
@@ -47,11 +47,11 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 리소스 그룹에 키 자격 증명 모음을 만들 때 Azure AD를 사용 하 여 액세스를 관리 합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절 한 RBAC 역할을 할당 하 여 특정 범위 수준에서 액세스 권한을 부여할 수 있습니다. key vault를 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 사용자에게 미리 정의된 `key vault Contributor` 역할을 할당합니다. 다음 범위 수준을 RBAC 역할에 할당할 수 있습니다.
 
-- **구독**: 구독 수준에서 할당된 RBAC 역할은 해당 구독 내 모든 리소스 그룹 및 리소스에 적용됩니다.
-- **리소스 그룹**: 리소스 그룹 수준에서 할당된 RBAC 역할은 해당 리소스 그룹의 모든 리소스에 적용됩니다.
-- **특정 리소스**: 특정 리소스에 할당된 RBAC 역할이 해당 리소스에 적용됩니다. 이 경우 리소스는 특정 Key Vault입니다.
+- **구독**: 구독 수준에서 할당 된 RBAC 역할은 해당 구독 내의 모든 리소스 그룹 및 리소스에 적용 됩니다.
+- **리소스 그룹**: 리소스 그룹 수준에서 할당 된 RBAC 역할은 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
+- **특정 리소스**: 특정 리소스에 할당 된 RBAC 역할은 해당 리소스에 적용 됩니다. 이 경우 리소스는 특정 Key Vault입니다.
 
-미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
+미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > 사용자에게 Key Vault 관리 평면에 대한 `Contributor` 사용 권한이 있는 경우 이 사용자는 Key Vault 액세스 정책을 설정하여 스스로 데이터 평면에 대한 액세스 권한을 부여할 수 있습니다. Key Vault에 대한 `Contributor` 역할 액세스 권한이 있는 사용자를 긴밀하게 제어해야 합니다. 권한이 있는 사람만 키 자격 증명 모음, 키, 비밀 및 인증서에 액세스하고 관리할 수 있는지 확인합니다.
@@ -87,15 +87,15 @@ Key Vault 로깅은 자격 증명 모음에서 수행 된 작업에 대 한 정�
     - 서명, 확인, 암호화, 암호 해독, 키 래핑 및 래핑 해제, 비밀 가져오기, 키 및 비밀(및 해당 버전) 나열
 - 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나, 형식이 잘못되었거나 만료되었거나, 잘못된 토큰이 있는 요청입니다.
 
-로깅 정보는 key vault 작업 후 10 분 이내에 액세스할 수 있습니다. 저장소 계정에서 로그를 관리 하는 것은 사용자에 게 있습니다. 
+로깅 정보는 key vault 작업 후 10 분 이내에 액세스할 수 있습니다. 저장소 계정에서 로그를 관리 하는 것은 사용자에 게 있습니다.
 
-- 표준 Azure 액세스 제어 방법을 사용하여 액세스할 수 있는 사용자를 제한하는 방식으로 로그를 보호합니다.
-- 스토리지 계정에 더 이상 보존하지 않을 로그를 삭제합니다.
+- 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
+- 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
 
-저장소 계정을 안전 하 게 관리 하는 방법에 대 한 권장 사항은 [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md) 를 검토 하세요.
+저장소 계정을 안전 하 게 관리 하는 방법에 대 한 권장 사항은 [Azure Storage 보안 가이드](../storage/blobs/security-recommendations.md) 를 검토 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault에 대 한 가상 네트워크 서비스 끝점](key-vault-overview-vnet-service-endpoints.md)
-- [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
+- [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)
 - [Azure Key Vault에 대 한 가상 네트워크 서비스 끝점](key-vault-overview-vnet-service-endpoints.md)

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1bfd156f9fbdb69766e4588a342a695fbd79ca3a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7991fcec42a81a74ead1a00784e2cec59997da57
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595306"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981525"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -24,7 +24,7 @@ Key Vault를 사용하면 애플리케이션 내에서 중요한 정보를 안�
 - 애플리케이션은 서명 및 암호화를 위해 키를 사용할 수 있지만, 애플리케이션 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
 - Key Vault의 2016년 9월 릴리스를 통해 애플리케이션에서 Key Vault 인증서를 관리할 수 있게 되었습니다. 자세한 내용은 [키, 암호 및 인증서 정보](/rest/api/keyvault/about-keys--secrets-and-certificates)를 참조하세요.
 
-Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-overview.md)을 참조하세요.
+Azure Key Vault에 대한 일반적인 내용은 [Key Vault란?](key-vault-overview.md)을 참조하세요.
 
 ## <a name="public-previews"></a>공개 미리 보기
 
@@ -50,7 +50,7 @@ Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문�
 
 ### <a name="supported-programming-and-scripting-languages"></a>지원되는 프로그래밍 및 스크립팅 언어
 
-#### <a name="rest"></a>REST (영문)
+#### <a name="rest"></a>REST
 
 REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯한 모든 Key Vault 리소스에 액세스할 수 있습니다. 
 
@@ -72,7 +72,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 [Node.js용 Azure Key Vault 모듈](/nodejs/api/overview/azure/key-vault)
 
-#### <a name="python"></a>파이썬
+#### <a name="python"></a>Python
 
 [Python용 Azure Key Vault 라이브러리](/python/api/overview/azure/key-vault)
 
@@ -101,9 +101,9 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 다음 문서 및 시나리오에서는 Azure Key Vault 사용에 대한 작업별 지침을 제공합니다.
 
 - [구독 이동 후 Key Vault 테넌트 변경](key-vault-subscription-move-fix.md) - Azure 구독을 테넌트 A에서 테넌트 B로 이동할 때 기존 주요 자격 증명 모음에는 테넌트 B의 주체(사용자 및 애플리케이션)가 액세스할 수 없게 됩니다. 이 가이드를 통해 이 문제를 해결합니다.
-- [방화벽 뒤 Key Vault 액세스](key-vault-access-behind-firewall.md) - 주요 자격 증명 모음에 액세스하려면 주요 자격 증명 모음 클라이언트 애플리케이션은 다양한 기능에 대한 여러 끝점에 액세스할 수 있어야 합니다.
+- [방화벽 뒤 Key Vault 액세스](key-vault-access-behind-firewall.md) - 주요 자격 증명 모음에 액세스하려면 주요 자격 증명 모음 클라이언트 애플리케이션은 다양한 기능에 대한 여러 엔드포인트에 액세스할 수 있어야 합니다.
 - [Azure Key Vault용으로 HSM 보호 키를 생성하여 전송하는 방법](key-vault-hsm-protected-keys.md) - 이 문서를 통해 Azure Key Vault에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다.
-- [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../azure-resource-manager/resource-manager-keyvault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure Key Vault에 암호로 저장하고 다른 리소스 관리자 템플릿에서 이 값을 참조할 수 있습니다.
+- [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../azure-resource-manager/templates/key-vault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure Key Vault에 암호로 저장하고 다른 Resource Manager 템플릿에서 이 값을 참조할 수 있습니다.
 - [확장 가능 키 관리를 위해 SQL Server에서 키 자격 증명을 사용하는 방법](https://msdn.microsoft.com/library/dn198405.aspx) - Azure Key Vault용 SQL Server 커넥터를 사용하면 SQL Server 및 SQL-in-a-VM에서 Azure Key Vault를 EKM(확장 가능 키 관리) 공급자로 활용하여 애플리케이션 링크에 대한 암호화 키를 보호할 수 있습니다(투명한 데이터 암호화, 백업 암호화 및 열 수준 암호화).
 - [주요 자격 증명 모음에서 VM에 인증서를 배포하는 방법](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Azure의 VM에서 실행 중인 클라우드 애플리케이션에는 인증서가 필요합니다. 지금 이 VM으로 인증서를 가져오려면 어떻게 하나요?
 - [종단 간 키 회전 및 감사를 사용하여 Key Vault를 설정하는 방법](key-vault-key-rotation-log-monitoring.md) - Azure Key Vault를 사용하는 키 회전 및 감사를 설정하는 방법을 안내합니다.
@@ -136,4 +136,4 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 ## <a name="supporting-libraries"></a>라이브러리 지원
 
 - [Microsoft Azure Key Vault 핵심 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)는 식별자의 키를 찾고 키로 작업을 수행하기 위한 **IKey** 및 **IKeyResolver** 인터페이스를 제공합니다.
-- [Microsoft Azure Key Vault 확장](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions)은 Azure Key Vault에 확장된 기능을 제공합니다.
+- [Microsoft Azure Key Vault 확장](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) 은 Azure Key Vault에 확장된 기능을 제공합니다.

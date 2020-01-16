@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459379"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980177"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 기본 확장 집합 템플릿을 만드는 방법 및 다양 한 시나리오에 맞게이 템플릿을 수정 하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다.
@@ -75,7 +75,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ```
 
 ## <a name="specify-location"></a>위치 지정
-가상 네트워크의 위치를 지정하려면 [Resource Manager 템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)를 사용합니다. 이 함수는 `"[<template-function>]"`처럼 따옴표와 대괄호로 묶어야 합니다. 이 경우에는 `resourceGroup` 함수를 사용합니다. 인수는 취하지 않고 이 배포가 배포될 리소스 그룹에 대한 메타데이터를 포함하는 JSON 개체를 반환합니다. 리소스 그룹은 배포 시에 사용자가 설정합니다. 그런 후 이 값을 `.location`으로 이 JSON 개체에 인덱싱하여 JSON 개체에서의 위치를 가져옵니다.
+가상 네트워크의 위치를 지정하려면 [Resource Manager 템플릿 함수](../azure-resource-manager/templates/template-functions.md)를 사용합니다. 이 함수는 `"[<template-function>]"`처럼 따옴표와 대괄호로 묶어야 합니다. 이 경우에는 `resourceGroup` 함수를 사용합니다. 인수는 취하지 않고 이 배포가 배포될 리소스 그룹에 대한 메타데이터를 포함하는 JSON 개체를 반환합니다. 리소스 그룹은 배포 시에 사용자가 설정합니다. 그런 후 이 값을 `.location`으로 이 JSON 개체에 인덱싱하여 JSON 개체에서의 위치를 가져옵니다.
 
 ```json
        "location": "[resourceGroup().location]",

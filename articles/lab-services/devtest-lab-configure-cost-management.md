@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 247327d001342fd0e2943ae7cf010e648761cdaa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318159"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976352"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩과 관련 된 비용 추적
 이 문서에서는 랩 비용을 추적 하는 방법에 대 한 정보를 제공 합니다. 랩의 현재 월에 대 한 예상 비용 trent을 확인 하는 방법을 보여 줍니다. 또한이 문서에서는 랩에서 리소스 당 월간 누계 비용을 보는 방법을 보여 줍니다.
@@ -39,7 +39,7 @@ ms.locfileid: "68318159"
 
     **예상 비용** 값은 현재 월의 현재까지의 예상 비용입니다. **예측 비용** 은 이번 달 전체의 예상 비용으로, 이전 5일 동안의 랩 비용을 사용해서 계산합니다.
 
-    금액은 다음 정수로 올림됩니다. 예를 들어: 
+    금액은 다음 정수로 올림됩니다. 예: 
 
    * 5.01은 6으로 올림됩니다. 
    * 5.50은 6으로 올림됩니다.
@@ -49,7 +49,7 @@ ms.locfileid: "68318159"
 
      비용 계산에는 다음 비용이 포함 *되지 않습니다* .
 
-   * Azure DevTest Labs에서는 [Azure 청구 API](../billing/billing-usage-rate-card-overview.md) 를 사용하여 랩 비용을 계산하며 CSP 또는 Dreamspark 구독을 지원하지 않으므로 이러한 구독 방식이 현재 지원되지 않습니다.
+   * Azure DevTest Labs에서는 [Azure 청구 API](../cost-management-billing/manage/usage-rate-card-overview.md) 를 사용하여 랩 비용을 계산하며 CSP 또는 Dreamspark 구독을 지원하지 않으므로 이러한 구독 방식이 현재 지원되지 않습니다.
    * 사용자에 대한 제안 요율. 현재는 Microsoft 또는 Microsoft 파트너와 협상한 제안 요율(구독 아래에 표시됨)을 사용할 수 없습니다. 오직 종량제 요율만 사용됩니다.
    * 사용자 세금
    * 사용자 할인
@@ -70,8 +70,8 @@ DevTest Labs에서 지출 목표를 설정하고 이후에 월별 예상 비용 
       - **수정**됨: 시작 및 종료 날짜에 지정한 날짜 범위에 대 한 비용 목표가 추적 됩니다. 일반적으로 이러한 값은 프로젝트가 실행 되도록 예약 된 시간을 나타냅니다.
    - **목표 비용**을 지정합니다. 예를 들어 정의한 기간 내에이 랩에서 지출 하려는 계획의 양입니다.
    - 지정된 **비용 목표**의 최대 125%까지 25% 단위로 보고서를 받을 수 있도록 임계값을 사용하거나 사용하지 않도록 선택합니다.
-      - **알림**: 이 임계값에 도달 하면 지정한 webhook URL로 알림이 표시 됩니다.
-      - **차트에 플롯**: 이 임계값이 충족 되 면 월별 예상 비용 추세 차트 보기에서 설명한 대로 결과는 볼 수 있는 비용 추세 그래프에 표시 됩니다.
+      - **알림**: 이 임계값에 도달하면 지정한 웹후크 URL을 통해 알림이 제공됩니다.
+      - **차트에 그리기**:이 임계값에 도달 하면 월별 예상 비용 추세 차트 보기에 설명 된 대로 표시 되는 비용 추세 그래프에 결과가 표시 됩니다.
    - 임계값에 도달하면 **알림**을 받기로 선택하는 경우 웹후크 URL을 지정해야 합니다. 비용 통합 영역에서 **통합을 추가하려면 여기를 클릭하세요.** 를 선택합니다. 알림 구성 창에 웹 후크 **URL** 을 입력 한 다음 **확인**을 선택 합니다.
 
        ![알림 창 구성](./media/devtest-lab-configure-cost-management/configure-notification.png)

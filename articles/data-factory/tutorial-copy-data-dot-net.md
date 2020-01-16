@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f3fdf1b723158db873bc2635de34d878c464201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93c4f71c762cff3e3f5a01f0e2595f3498f9d38d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439431"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977322"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* *Azure Storage 계정*. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. Azure 스토리지 계정이 없는 경우 [범용 스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+* *Azure Storage 계정*. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. Azure 스토리지 계정이 없는 경우 [범용 스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 * *Azure SQL Database*. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL Database가 없는 경우 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-single-database-get-started.md)를 참조하세요.
 * *Visual Studio* 이 문서의 연습에서는 Visual Studio 2019를 사용합니다.
 * *[.NET용 Azure SDK](/dotnet/azure/dotnet-tools)* .
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     1. SQL 서버를 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다. **SQL 서버**를 검색하여 선택합니다.
 
     2. 서버를 선택합니다.
-    
+
     3. SQL server 메뉴의 **보안** 머리글 아래에서 **방화벽 및 가상 네트워크**를 선택합니다.
 
     4. **방화벽 및 가상 네트워크** 페이지의 **Azure 서비스 및 리소스에서 이 서버에 액세스할 수 있도록 허용**에서 **ON**을 선택합니다.
@@ -154,7 +154,7 @@ Visual Studio를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
     string inputBlobName = "inputEmp.txt";
 
     // Specify the sink Azure SQL Database information
-    string azureSqlConnString = 
+    string azureSqlConnString =
         "Server=tcp:<your server name>.database.windows.net,1433;" +
         "Database=<your database name>;" +
         "User ID=<your username>@<your server name>;" +
@@ -265,7 +265,7 @@ Console.WriteLine(
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 
-이 섹션에서는 원본과 싱크에 각각 하나씩, 총 두 개의 데이터 세트를 만듭니다. 
+이 섹션에서는 원본과 싱크에 각각 하나씩, 총 두 개의 데이터 세트를 만듭니다.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
 
@@ -283,8 +283,8 @@ Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
     {
-        LinkedServiceName = new LinkedServiceReference { 
-            ReferenceName = storageLinkedServiceName 
+        LinkedServiceName = new LinkedServiceReference {
+            ReferenceName = storageLinkedServiceName
         },
         FolderPath = inputBlobPath,
         FileName = inputBlobName,
@@ -309,7 +309,7 @@ Console.WriteLine(
 
 `Main` 메서드에 *Azure SQL Database 데이터 세트*를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure SQL Database 데이터 세트 속성](connector-azure-sql-database.md#dataset-properties)을 참조하세요.
 
-Azure SQL Database의 싱크 데이터를 나타내는 데이터 세트를 정의합니다. 이 데이터 세트는 이전 단계에서 만든 Azure SQL Database 연결된 서비스를 참조합니다. 또한 복사된 데이터를 보관하는 SQL 테이블을 지정합니다. 
+Azure SQL Database의 싱크 데이터를 나타내는 데이터 세트를 정의합니다. 이 데이터 세트는 이전 단계에서 만든 Azure SQL Database 연결된 서비스를 참조합니다. 또한 복사된 데이터를 보관하는 SQL 테이블을 지정합니다.
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -416,14 +416,14 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
         resourceGroup, dataFactoryName, runResponse.RunId, filterParams
     );
- 
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(queryResponse.Value.First().Output);
     }
     else
         Console.WriteLine(queryResponse.Value.First().Error);
-    
+
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -564,7 +564,7 @@ Press any key to exit...
 
 ## <a name="next-steps"></a>다음 단계
 
-이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 구체적으로 다음 작업 방법을 알아보았습니다. 
+이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
@@ -574,7 +574,7 @@ Press any key to exit...
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-온-프레미스에서 클라우드로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 진행하세요. 
+온-프레미스에서 클라우드로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
 >[온-프레미스에서 클라우드로 데이터 복사](tutorial-hybrid-copy-powershell.md)

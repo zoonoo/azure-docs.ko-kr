@@ -3,12 +3,12 @@ title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서에서는 Azure CLI, Azure PowerShell 및 REST API를 사용 하 여 Azure Policy에 대 한 정책을 프로그래밍 방식으로 만들고 관리 하는 방법을 안내 합니다.
 ms.date: 01/31/2019
 ms.topic: how-to
-ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873066"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982474"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -16,7 +16,7 @@ ms.locfileid: "74873066"
 
 규정 준수에 대한 내용은 [준수 데이터 가져오기](get-compliance-data.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 필수 조건을 충족시키는지 확인합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "74873066"
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../../../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
+   리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../../../azure-resource-manager/management/resource-providers-and-types.md)를 참조하세요.
 
 1. 아직 Azure CLI를 설치하지 않았다면 설치합니다. [Windows에 Azure CLI 설치](/cli/azure/install-azure-cli-windows)에서 최신 버전을 얻을 수 있습니다.
 

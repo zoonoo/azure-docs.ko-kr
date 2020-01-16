@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4835f1034149a015963569a0b1fc5f9195e3cfca
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364801"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969529"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 활동 로그 경고 만들기, 보기 및 관리  
 
@@ -197,7 +197,7 @@ Azure Resource Manager 템플릿을 사용 하 여 활동 로그 경고를 만�
   ]
 }
 ```
-이전 샘플 JSON은이 연습을 목적으로 sampleActivityLogAlert와 같이 저장할 수 있으며 [Azure Portal에서 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md)를 사용 하 여 배포할 수 있습니다.
+이전 샘플 JSON은이 연습을 목적으로 sampleActivityLogAlert와 같이 저장할 수 있으며 [Azure Portal에서 Azure Resource Manager](../../azure-resource-manager/templates/deploy-portal.md)를 사용 하 여 배포할 수 있습니다.
 
 > [!NOTE]
 > 새 활동 로그 경고 규칙이 활성화 되는 데 최대 5 분이 걸릴 수 있습니다.

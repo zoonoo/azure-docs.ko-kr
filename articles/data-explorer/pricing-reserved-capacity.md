@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bbb2108967353b851a0fa0ee610ec30380e3fc50
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769101"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969278"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Azure 데이터 탐색기 예약 된 용량을 사용 하 여 Azure 데이터 탐색기 태그 단위에 대 한 선불
 
@@ -27,8 +27,8 @@ ms.locfileid: "74769101"
 * CSP (클라우드 솔루션 공급자) 프로그램의 경우 관리 에이전트 또는 판매 에이전트만 Azure 데이터 탐색기 예약 된 용량을 구매할 수 있습니다.
 
 엔터프라이즈 고객과 종 량 제 고객이 예약 구매에 대해 부과 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
-* [기업 등록에 대 한 Azure 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md) 
-* [종 량 제 구독에 대 한 Azure 예약 사용량을 이해](../billing/billing-understand-reserved-instance-usage.md)합니다.
+* [기업 등록에 대 한 Azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 
+* [종 량 제 구독에 대 한 Azure 예약 사용량을 이해](../cost-management-billing/reservations/understand-reserved-instance-usage.md)합니다.
 
 ## <a name="determine-the-right-markup-usage-before-purchase"></a>구매 하기 전에 올바른 태그 사용 확인
 
@@ -36,7 +36,7 @@ ms.locfileid: "74769101"
 
 ## <a name="buy-azure-data-explorer-reserved-capacity"></a>Azure 데이터 탐색기 예약 된 용량 구입
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **모든 서비스** > **예약** > **지금 구입**을 선택 합니다. **추가**를 선택합니다.
 1. **제품 유형 선택** 창에서 azure **데이터 탐색기** 를 선택 하 여 azure 데이터 탐색기 태그 단위에 대 한 새 예약을 구매 합니다. 
 1. **구매** 선택
@@ -54,7 +54,7 @@ Azure 데이터 탐색기 예약 된 용량 예약을 취소 해야 하는 경�
 
 Azure 데이터 탐색기 예약 된 용량 예약을 다른 용어로 변경 해야 하는 경우 값이 같거나 큰 다른 예약에 대해 교환할 수 있습니다. 새 예약에 대한 기간 시작일은 교환된 예약에서 이월되지 않습니다. 새 예약을 만들 때 1년 또는 3년의 기간이 시작됩니다. 교환을 요청하려면 Azure Portal의 예약으로 이동하고, **교환**을 선택하여 지원 요청을 만듭니다.
 
-예약을 교환 하거나 환불 하는 방법에 대 한 자세한 내용은 [예약 교환 및 환불](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)을 참조 하세요.
+예약을 교환 하거나 환불 하는 방법에 대 한 자세한 내용은 [예약 교환 및 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조 하세요.
 
 ## <a name="manage-your-reserved-capacity-reservation"></a>예약 된 용량 예약 관리
 
@@ -63,19 +63,19 @@ Azure 데이터 탐색기 태그 단위 예약 할인은 Azure 데이터 탐색�
 
 > [!NOTE]
 > * [Azure Portal](https://portal.azure.com), POWERSHELL, CLI 또는 API를 통해 Azure 데이터 탐색기 예약 된 용량 예약의 범위를 업데이트할 수 있습니다.
-> * Azure 데이터 탐색기 예약 된 용량 예약을 관리 하는 방법을 알아보려면 [azure 데이터 탐색기 예약 된 용량 관리](../billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md)를 참조 하세요.
+> * Azure 데이터 탐색기 예약 된 용량 예약을 관리 하는 방법을 알아보려면 [azure 데이터 탐색기 예약 된 용량 관리](../cost-management-billing/reservations/understand-azure-data-explorer-reservation-charges.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Reservations에 대한 자세한 내용은 다음 문서를 참조하세요.
+Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Reservations란?](../billing/billing-save-compute-costs-reservations.md)
-* [Azure Reservations 관리](../billing/billing-manage-reserved-vm-instance.md)
-* [Azure 예약 할인 이해](../billing/billing-understand-reservation-charges.md)
-* [종량제 구독의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)
-* [엔터프라이즈 등록의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [Azure 예약이란?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Azure Reservations 관리](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Azure 예약 할인 이해](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [종량제 구독의 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+* [엔터프라이즈 등록에서 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 * [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의하기
+## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

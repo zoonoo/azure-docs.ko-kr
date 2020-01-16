@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792189"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965429"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure virtual machines에서 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 
@@ -47,7 +47,7 @@ ms.locfileid: "74792189"
 
 스토리지 공간 다이렉트는 수렴 형 및 하이퍼 수렴 형 아키텍처 라는 두 가지 유형의 아키텍처를 지원 합니다. 이 문서의 아키텍처는 하이퍼 수렴형입니다. 하이퍼 수렴형 인프라는 클러스터형 애플리케이션을 호스트하는 동일한 서버에 스토리지를 배치합니다. 이 아키텍처에서 스토리지는 각 SQL Server FCI 노드에 있습니다.
 
-## <a name="licensing-and-pricing"></a>라이선싱 및 가격 책정
+## <a name="licensing-and-pricing"></a>라이선스 및 가격 책정
 
 Azure virtual machines에서 종 량 제 (PAYG) 또는 BYOL (사용자 라이선스) VM 이미지를 사용 하 여 SQL Server 라이선스를 부여할 수 있습니다. 선택한 이미지 유형은 요금이 부과 되는 방식에 영향을 줍니다.
 
@@ -78,7 +78,7 @@ Azure에서 템플릿에서이 전체 솔루션을 만들 수 있습니다. 템�
 또한 다음과 같은 기술에 대해 전반적으로 이해 해야 합니다.
 
 - [Windows Server 2016에서 스토리지 공간 다이렉트를 사용 하는 하이퍼 수렴 형 솔루션](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Azure 리소스 그룹](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Azure 리소스 그룹](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량 관리 모드](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) 에서만 지원 됩니다. 전체 확장 모드에서 경량 모드로 변경 하려면 해당 Vm에 대 한 **Sql 가상 컴퓨터** 리소스를 삭제 한 다음 경량 모드로 sql VM 리소스 공급자에 등록 합니다. Azure Portal를 사용 하 여 **SQL 가상 컴퓨터** 리소스를 삭제 하는 경우 **올바른 가상 컴퓨터 옆의 확인란을 선택 취소**합니다. 전체 확장은 자동화 된 백업, 패치, 고급 포털 관리 등의 기능을 지원 합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치 된 후 SQL Vm에 대해 작동 하지 않습니다.
@@ -174,7 +174,7 @@ Azure에서 템플릿에서이 전체 솔루션을 만들 수 있습니다. 템�
 
    각 가상 컴퓨터의 Windows 방화벽에서 이러한 포트를 엽니다.
 
-   | 용도 | TCP 포트 | 참고
+   | 용도 | TCP 포트 | 메모
    | ------ | ------ | ------
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.  

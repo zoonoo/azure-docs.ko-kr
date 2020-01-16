@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090015"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981412"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure에서 새 Linux 가상 머신 생성 관련 Resource Manager 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -34,7 +34,7 @@ VM 배포 문제 및 질문은 [Azure에서 Linux 가상 머신 배포 문제 �
 ## <a name="collect-activity-logs"></a>활동 로그 선택
 문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 활동 로그를 수집합니다. 다음 링크에는 수행할 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
-[배포 작업 보기](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)
 
 [활동 로그를 보고 Azure 리소스 관리](../../resource-group-audit.md)
 
@@ -42,13 +42,13 @@ VM 배포 문제 및 질문은 [Azure에서 Linux 가상 머신 배포 문제 �
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** OS가 일반화 된 Linux이 고 일반화 된 설정을 사용 하 여 업로드 및/또는 캡처된 경우 오류가 발생 하지 않습니다. 마찬가지로 OS가 특수화된 Linux인 경우, 특수화된 설정을 사용하여 업로드되거나 캡처되고, 오류는 발생하지 않습니다.
+**Y:** OS가 일반화된 Linux인 경우, 일반화된 설정을 사용하여 업로드되거나 캡처되고, 오류는 발생하지 않습니다. 마찬가지로 OS가 특수화된 Linux인 경우, 특수화된 설정을 사용하여 업로드되거나 캡처되고, 오류는 발생하지 않습니다.
 
 **업로드 오류:**
 
-**N<sup>1</sup>:** OS가 일반화 된 Linux이 고 특수화 된 것으로 업로드 되는 경우 VM이 프로 비전 단계에서 중단 되기 때문에 프로 비전 시간 초과 오류가 발생 합니다.
+**N<sup>1</sup>:** OS가 일반화된 Linux이고 특수화된 것으로 업로드된다면, VM이 프로비전 단계에서 중단되기 때문에 프로비전 시간 초과 오류가 발생합니다.
 
-**N<sup>2</sup>:** OS가 특수화 된 Linux이 고 일반화 된 것으로 업로드 되는 경우 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행 되기 때문에 프로 비전 실패 오류가 발생 합니다.
+**N<sup>2</sup>:** OS가 특수화된 Linux이고 일반화된 것으로 업로드된다면, 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행되기 때문에 프로비전 실패 오류가 발생합니다.
 
 **해결 방법:**
 
@@ -56,18 +56,18 @@ VM 배포 문제 및 질문은 [Azure에서 Linux 가상 머신 배포 문제 �
 
 **캡처 오류:**
 
-**N<sup>3</sup>:** OS가 일반화 된 Linux이 고 특수화 된 것으로 캡처되는 경우 원본 VM이 일반화 된 것으로 표시 되어 사용할 수 없기 때문에 프로 비전 시간 초과 오류가 발생 합니다.
+**N<sup>3</sup>:** OS가 일반화된 Linux이고 특수화된 것으로 캡처된다면, 원본 VM이 일반화된 것으로 표시되어 사용할 수 없기 때문에 프로비전 시간 초과 오류가 발생합니다.
 
-**N<sup>4</sup>:** OS가 특수화 된 Linux이 고 일반화 된 것으로 캡처되는 경우 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행 되기 때문에 프로 비전 실패 오류가 발생 합니다. 또한, 원본 VM이 일반화된 것으로 표시되기 때문에 사용할 수 없습니다.
+**N<sup>4</sup>:** OS가 특수화된 Linux이고 일반화된 것으로 캡처된다면, 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행되기 때문에 프로비전 실패 오류가 발생합니다. 또한, 원본 VM이 일반화된 것으로 표시되기 때문에 사용할 수 없습니다.
 
 **해결 방법:**
 
 이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>문제: 사용자 지정/갤러리/마켓플레이스 이미지; 할당 오류
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>문제: 사용자 지정/ 갤러리/ 마켓플레이스 이미지; 할당 오류
 이 오류는 요청되는 VM 크기를 지원할 수 없거나 요청을 수용할 여유 공간이 없는 클러스터에 새 VM 요청이 고정된 상황에서 발생합니다.
 
-**원인 1:** 클러스터가 요청된 VM 크기를 지원할 수 없습니다.
+**원인 1:** 클러스터가 요청한 VM 크기를 지원할 수 없습니다.
 
 **해결 방법 1:**
 

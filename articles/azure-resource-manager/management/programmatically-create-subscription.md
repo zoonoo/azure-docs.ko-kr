@@ -5,12 +5,12 @@ author: amberb
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders
-ms.openlocfilehash: c6972aad49cebb7c714b86e636b95e1130b001c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2fad9d727e78b470635c91a1bf9aaac11e57f4c7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485222"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981235"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>프로그래밍 방식으로 Azure 구독 만들기 (미리 보기)
 
@@ -33,7 +33,7 @@ Azure 구독을 프로그래밍 방식으로 만드는 경우 해당 구독은 M
 
 ### <a name="find-accounts-you-have-access-to"></a>액세스할 수 있는 계정 찾기
 
-계정 소유자에 연결 된 등록 계정에 추가 하 고 나면 Azure는 계정-등록 관계를 사용 하 여 구독 요금을 청구할 위치를 결정 합니다. 계정으로 만든 모든 구독은 계정이 속한 EA 등록으로 청구 됩니다. 구독을 만들려면 등록 계정 및 구독을 소유하는 사용자 계정에 대한 값을 전달해야 합니다. 
+계정 소유자에 연결 된 등록 계정에 추가 하 고 나면 Azure는 계정-등록 관계를 사용 하 여 구독 요금을 청구할 위치를 결정 합니다. 계정으로 만든 모든 구독은 계정이 속한 EA 등록으로 청구 됩니다. 구독을 만들려면 등록 계정 및 구독을 소유하는 사용자 계정에 대한 값을 전달해야 합니다.
 
 다음 명령을 실행하려면 기본적으로 구독이 생성되는 디렉터리인 계정 소유자의 *홈 디렉터리*에 로그인해야 합니다.
 
@@ -95,7 +95,7 @@ ObjectId                               | PrincipalName
 
 [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) 명령을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az billing enrollment-account list
 ```
 
@@ -172,7 +172,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `EnrollmentAccountObjectId`      | 예       | String | 구독이 생성되고 비용이 청구되는 등록 계정의 개체 ID입니다. 이 값은 `Get-AzEnrollmentAccount`에서 가져온 GUID입니다. |
 | `OwnerObjectId`      | 아닙니다.       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 개체 ID입니다.  |
 | `OwnerSignInName`    | 아닙니다.       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 이메일 주소입니다. `OwnerObjectId` 대신 이 매개 변수를 사용할 수 있습니다.|
-| `OwnerApplicationId` | 아닙니다.       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 서비스 사용자의 애플리케이션 ID입니다. `OwnerObjectId` 대신 이 매개 변수를 사용할 수 있습니다. 이 매개 변수를 사용하는 경우 서비스 주체는 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole)이 있어야 합니다.| 
+| `OwnerApplicationId` | 아닙니다.       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 서비스 사용자의 애플리케이션 ID입니다. `OwnerObjectId` 대신 이 매개 변수를 사용할 수 있습니다. 이 매개 변수를 사용하는 경우 서비스 주체는 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole)이 있어야 합니다.|
 
 모든 매개 변수의 전체 목록을 보려면 [New-AzSubscription](/powershell/module/az.subscription)을 참조하세요.
 
@@ -182,7 +182,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 아래 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) 명령을 실행 하 여 `<enrollmentAccountObjectId>`을 첫 번째 단계에서 복사한 `name` (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)로 바꿉니다. 소유자를 지정 하려면 [사용자 개체 id를 가져오는 방법을](grant-access-to-create-subscription.md#userObjectId)알아보세요.
 
-```azurecli-interactive 
+```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
@@ -193,7 +193,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | 예       | String | 구독이 생성되고 비용이 청구되는 등록 계정의 개체 ID입니다. 이 값은 `az billing enrollment-account list`에서 가져온 GUID입니다. |
 | `owner-object-id`      | 아닙니다.       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 개체 ID입니다.  |
 | `owner-upn`    | 아닙니다.       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 이메일 주소입니다. `owner-object-id` 대신 이 매개 변수를 사용할 수 있습니다.|
-| `owner-spn` | 아닙니다.       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 서비스 사용자의 애플리케이션 ID입니다. `owner-object-id` 대신 이 매개 변수를 사용할 수 있습니다. 이 매개 변수를 사용하는 경우 서비스 주체는 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole)이 있어야 합니다.| 
+| `owner-spn` | 아닙니다.       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 서비스 사용자의 애플리케이션 ID입니다. `owner-object-id` 대신 이 매개 변수를 사용할 수 있습니다. 이 매개 변수를 사용하는 경우 서비스 주체는 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole)이 있어야 합니다.|
 
 모든 매개 변수의 전체 목록을 보려면 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create)를 참조하세요.
 
@@ -211,11 +211,11 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 ### <a name="prerequisites"></a>필수 조건
 
-구독을 만들려면 청구 프로필 또는 청구 계정에 대 한 청구서 섹션 또는 소유자 또는 참가자 역할에 소유자, 참가자 또는 Azure 구독 작성자 역할이 있어야 합니다. 자세한 내용은 [구독 청구 역할 및 작업](../../billing/billing-understand-mca-roles.md#subscription-billing-roles-and-tasks)을 참조하세요.
+구독을 만들려면 청구 프로필 또는 청구 계정에 대 한 청구서 섹션 또는 소유자 또는 참가자 역할에 소유자, 참가자 또는 Azure 구독 작성자 역할이 있어야 합니다. 자세한 내용은 [구독 청구 역할 및 작업](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks)을 참조하세요.
 
 아래에 표시 된 예제에서는 REST Api를 사용 합니다. 현재 PowerShell 및 Azure CLI는 지원되지 않습니다.
 
-### <a name="find-billing-accounts-that-you-have-access-to"></a>액세스 권한이 있는 청구 계정 찾기 
+### <a name="find-billing-accounts-that-you-have-access-to"></a>액세스 권한이 있는 청구 계정 찾기
 
 아래 요청을 통해 모든 청구 계정을 나열 합니다.
 
@@ -304,14 +304,14 @@ API 응답에는 구독을 만들기 위한 액세스 권한이 있는 모든 �
         "invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX"
   }]
 }
-    
+
 ```
 
 `invoiceSectionDisplayName` 속성을 사용 하 여 구독을 만들 청구서 섹션을 식별할 수 있습니다. `invoiceSectionId``billingProfileId`를 복사 하 고 청구서 섹션의 `skuId` 중 하나를 복사 합니다. 예를 들어 `Development` invoice 섹션에 대해 `Microsoft Azure plan` 유형의 구독을 만들려는 경우 `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX`, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-xxxx-xxx-xxx` 및 `0001`를 복사 합니다. 다음 단계에서 사용할 수 있도록이 값을 어딘가에 붙여넣습니다.
 
 ### <a name="create-a-subscription-for-an-invoice-section"></a>송장 섹션에 대 한 구독 만들기
 
-다음 예에서는 *Development* invoice 섹션에 대해 *Microsoft Azure Plan* 형식의 *Dev Team subscription* 이라는 구독을 만듭니다. 구독은 *Contoso 재무의* 청구 프로필로 청구 되며 해당 청구서의 *개발* 섹션에 표시 됩니다. 
+다음 예에서는 *Development* invoice 섹션에 대해 *Microsoft Azure Plan* 형식의 *Dev Team subscription* 이라는 구독을 만듭니다. 구독은 *Contoso 재무의* 청구 프로필로 청구 되며 해당 청구서의 *개발* 섹션에 표시 됩니다.
 
 `<invoiceSectionId>`를 두 번째 단계 (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX```)에서 복사한 `invoiceSectionId`로 바꿔서 다음 요청을 수행 합니다. `billingProfileId`를 전달 하 고 API의 요청 매개 변수에서 두 번째 단계 로부터 복사 `skuId` 합니다. 소유자를 지정 하려면 [사용자 개체 id를 가져오는 방법을](grant-access-to-create-subscription.md#userObjectId)알아보세요.
 
@@ -356,7 +356,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 아래에 표시 된 예제에서는 REST Api를 사용 합니다. 현재 PowerShell 및 Azure CLI는 지원되지 않습니다.
 
-### <a name="find-the-billing-accounts-that-you-have-access-to"></a>액세스 권한이 있는 청구 계정 찾기 
+### <a name="find-the-billing-accounts-that-you-have-access-to"></a>액세스 권한이 있는 청구 계정 찾기
 
 액세스 권한이 있는 모든 청구 계정을 나열 하려면 아래 요청을 수행 합니다.
 
@@ -404,7 +404,7 @@ API 응답에는 청구 계정이 나열 됩니다.
 
 ### <a name="find-customers-that-have-azure-plans"></a>Azure 요금제가 있는 고객 찾기
 
-Azure 구독을 만들 수 있는 청구 계정의 모든 고객을 나열 하기 위해 첫 번째 단계 (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```)에서 복사한 `name`로 `<billingAccountName>`를 대체 하 여 다음 요청을 수행 합니다. 
+Azure 구독을 만들 수 있는 청구 계정의 모든 고객을 나열 하기 위해 첫 번째 단계 (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```)에서 복사한 `name`로 `<billingAccountName>`를 대체 하 여 다음 요청을 수행 합니다.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/customers?api-version=2019-10-01-preview
@@ -435,14 +435,14 @@ API 응답은 Azure 요금제를 사용 하 여 청구 계정에 있는 고객�
       "type": "Microsoft.Billing/billingAccounts/customers"
     }]
 }
-    
+
 ```
 
 `displayName` 속성을 사용 하 여 구독을 만들려는 고객을 식별할 수 있습니다. 고객에 대 한 `id`를 복사 합니다. 예를 들어 `Fabrikam toys`에 대 한 구독을 만들려는 경우 `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`를 복사 합니다. 이후 단계에서 사용 하려면이 값을 어딘가에 붙여넣습니다.
 
 ### <a name="optional-for-indirect-providers-get-the-resellers-for-a-customer"></a>간접 공급자에 대 한 선택 사항: 고객에 대 한 대리점 가져오기
 
-CSP 2 계층 모델의 간접 공급자 인 경우 고객에 대 한 구독을 만드는 동안 재판매인을 지정할 수 있습니다. 
+CSP 2 계층 모델의 간접 공급자 인 경우 고객에 대 한 구독을 만드는 동안 재판매인을 지정할 수 있습니다.
 
 다음 요청을 수행 하 여 `<customerId>`를 두 번째 단계 (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)에서 복사한 `id`로 바꿔서 고객에 게 제공 되는 모든 대리점을 나열 합니다.
 
@@ -489,7 +489,7 @@ API 응답은 고객에 대 한 대리점을 나열 합니다.
 
 다음 예에서는 *Fabrikam 장난감* 에 대해 *Dev Team subscription* 이라는 구독을 만들고이 구독에 *정문* 재판매인을 연결 합니다. 조
 
-`<customerId>`를 두 번째 단계 (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)에서 복사한 `id`로 바꿔서 다음 요청을 수행 합니다. API의 요청 매개 변수에서 두 번째 단계에서 복사 된 선택적 *resellerId* 를 전달 합니다. 
+`<customerId>`를 두 번째 단계 (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)에서 복사한 `id`로 바꿔서 다음 요청을 수행 합니다. API의 요청 매개 변수에서 두 번째 단계에서 복사 된 선택적 *resellerId* 를 전달 합니다.
 
 ```json
 POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview

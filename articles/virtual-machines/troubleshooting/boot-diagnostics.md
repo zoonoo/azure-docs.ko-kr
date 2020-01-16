@@ -10,16 +10,16 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: d34182e09bf453dbec1e9592f131cb9b3b78a086
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 0506527808892bf1ee531d892e2773d095e18560
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086482"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965635"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 가상 머신 문제를 해결하는 방법
 
-가상 머신이 부팅할 수 없는 상태가 되는 이유에는 여러 가지가 있을 수 있습니다. Resource Manager 배포 모델을 사용하여 만든 가상 머신의 문제를 해결하려면 다음 디버깅 기능을 사용할 수 있습니다. Azure Virtual Machines의 콘솔 출력 및 스크린샷 지원. 
+가상 머신이 부팅할 수 없는 상태가 되는 이유에는 여러 가지가 있을 수 있습니다. 리소스 관리자 배포 모델을 사용 하 여 만든 가상 컴퓨터의 문제를 해결 하려면 Azure 가상 컴퓨터에 대 한 콘솔 출력 및 스크린샷 지원과 같은 디버깅 기능을 사용할 수 있습니다. 
 
 Linux 가상 머신의 경우 포털에서 콘솔 로그의 출력을 볼 수 있습니다. Windows 및 Linux 가상 머신의 경우 Azure를 사용하면 하이퍼바이저에서 VM의 스크린샷을 볼 수 있습니다. 두 가지 기능이 모든 지역의 Azure 가상 머신에서 지원됩니다. 참고로, 스크린샷 및 출력을 스토리지 계정에 표시하는 데 최대 10분이 소요될 수 있습니다.
 
@@ -79,7 +79,7 @@ Azure Resource Manager 템플릿에서 배포하는 경우 가상 머신 리소�
 }
 ```
 
-템플릿을 사용하여 리소스를 배포하는 방법에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)를 참조하세요.
+템플릿을 사용 하 여 리소스를 배포 하는 방법에 대 한 자세한 내용은 [빠른 시작: Azure Portal를 사용 하 여 Azure Resource Manager 템플릿 만들기 및 배포](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)를 참조 하세요.
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>기존 가상 머신에서 부트 진단 사용 
 

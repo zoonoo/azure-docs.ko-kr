@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166994"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974513"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭
 
@@ -20,7 +20,7 @@ ms.locfileid: "74166994"
 
 이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md), 스토리지 및 Event Hubs로 보내고 Azure Monitor 로그 또는 Excel 및 Power BI와 같은 다른 도구에서 분석합니다.
 
-메트릭은 간단한 실시간 시나리오를 지원 하 고 경고 및 빠른 문제 검색에 유용 하 게 사용할 수 있습니다. 
+메트릭은 간단한 실시간 시나리오를 지원 하 고 경고 및 빠른 문제 검색에 유용 하 게 사용할 수 있습니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
@@ -33,7 +33,7 @@ ms.locfileid: "74166994"
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -56,7 +56,7 @@ ms.locfileid: "74166994"
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -83,7 +83,7 @@ ms.locfileid: "74166994"
 
    활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
 
-   [Azure 활동 로그](../azure-resource-manager/resource-group-audit.md) (이전의 작업 로그 및 감사 로그)를 사용 하 여 azure 구독에 제출 된 모든 작업을 볼 수 있습니다.
+   [Azure 활동 로그](../azure-resource-manager/management/view-activity-logs.md) (이전의 작업 로그 및 감사 로그)를 사용 하 여 azure 구독에 제출 된 모든 작업을 볼 수 있습니다.
 
 ## <a name="metrics"></a>메트릭
 

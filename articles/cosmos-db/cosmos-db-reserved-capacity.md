@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 0a956a1372ba1535b9d918333bd7411a4ca6abe4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83ecb0ad85a02c8c05b9d7e504e578afd98ed7b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441939"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969363"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 예약된 용량을 활용해 비용 최적화
 
@@ -20,9 +20,9 @@ Azure Cosmos DB 예약 된 용량을 사용 하면 1 년 또는 3 년 동안 Azu
 
 Azure Cosmos DB 예약 용량은 1년 또는 3년 선불 약정을 통해 Cosmos DB 비용을 정상 가격의 &mdash;최대 65%까지 크게 낮출 수 있습니다. 예약 용량은 청구 할인을 제공하며, Azure Cosmos DB 리소스의 런타임 상태에는 영향을 주지 않습니다.
 
-Azure Cosmos DB 예약 용량은 리소스에 대해 프로비전된 처리량을 포함합니다. 스토리지 및 네트워킹 요금은 포함하지 않습니다. 예약 용량을 구매하는 즉시 예약 특성과 일치하는 처리량 요금은 더이상 종량제 요금으로 부과되지 않습니다. 예약에 대한 자세한 내용은 [Azure 예약](../billing/billing-save-compute-costs-reservations.md) 문서를 참조하세요.
+Azure Cosmos DB 예약 용량은 리소스에 대해 프로비전된 처리량을 포함합니다. 스토리지 및 네트워킹 요금은 포함하지 않습니다. 예약 용량을 구매하는 즉시 예약 특성과 일치하는 처리량 요금은 더이상 종량제 요금으로 부과되지 않습니다. 예약에 대한 자세한 내용은 [Azure 예약](../cost-management-billing/reservations/save-compute-costs-reservations.md) 문서를 참조하세요.
 
-Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../billing/billing-monthly-payments-reservations.md)로 처리할 수 있습니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
+Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/monthly-payments-reservations.md)로 처리할 수 있습니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
 
 * 종 량 제 요금은 하나 이상의 Enterprise 또는 개별 구독에 대 한 소유자 역할에 속해야 합니다.  
 * Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
@@ -74,22 +74,22 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-올바른 예약 용량을 식별 하는 데 도움이 필요 하면 [Azure Cosmos DB에 예약 할인이 적용 되는 방법 이해](../billing/billing-understand-cosmosdb-reservation-charges.md)를 참조 하세요.
+올바른 예약 용량을 식별 하는 데 도움이 필요 하면 [Azure Cosmos DB에 예약 할인이 적용 되는 방법 이해](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md)를 참조 하세요.
 
-예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)을 참조하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 예약 할인은 예약 범위 및 특성과 일치하는 Azure Cosmos DB 리소스에 자동으로 적용됩니다. 예약 범위는 Azure Portal, PowerShell, Azure CLI 또는 API를 통해 업데이트할 수 있습니다.
 
-*  예약 용량 할인이 Azure Cosmos DB에 적용되는 방법을 알아보려면 [Azure 예약 할인 이해](../billing/billing-understand-cosmosdb-reservation-charges.md)를 참조하세요.
+*  예약 용량 할인이 Azure Cosmos DB에 적용되는 방법을 알아보려면 [Azure 예약 할인 이해](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md)를 참조하세요.
 
 * Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-   * [Azure 예약이란?](../billing/billing-save-compute-costs-reservations.md)  
-   * [Azure 예약 관리](../billing/billing-manage-reserved-vm-instance.md)  
-   * [엔터프라이즈 등록에서 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)  
-   * [종량제 구독의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)
+   * [Azure 예약이란?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
+   * [Azure 예약 관리](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
+   * [엔터프라이즈 등록에서 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
+   * [종량제 구독의 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [파트너 센터 CSP 프로그램에서 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.

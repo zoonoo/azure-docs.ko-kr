@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039b514fe70da0e300e74bbc98a3a0f4e9ea342c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848598"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979452"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -43,9 +43,9 @@ Azure Active Directory(Azure AD)에서 셀프 서비스 암호 재설정(SSPR)�
 
 문의 메일은 다음과 같은 순서로 받는 사람에게 전송됩니다.
 
-1. **암호 관리자** 역할이 할당된 경우 이 역할을 갖는 관리자에게 전송됩니다.
-2. 암호 관리자가 할당되지 않은 경우 **사용자 관리자** 역할을 갖는 관리자에게 전송됩니다.
-3. 암호 관리자와 사용자 관리자가 할당되지 않은 경우 **전역 관리자**에게 전송됩니다.
+1. **기술 지원팀 관리자** 역할 또는 **암호 관리자** 역할이 할당 된 경우 이러한 역할이 있는 관리자에 게 알림이 제공 됩니다.
+1. 기술 지원팀 관리자 또는 암호 관리자가 할당 되지 않은 경우 **사용자 관리자** 역할을 가진 관리자에 게 알림이 제공 됩니다.
+1. 이전 역할이 할당 되지 않은 경우 **전역 관리자** 에 게 알림이 제공 됩니다.
 
 어떠한 경우에도 최대 100명의 받는 사람에게 알림이 제공됩니다.
 

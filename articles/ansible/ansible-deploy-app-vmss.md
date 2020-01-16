@@ -3,13 +3,13 @@ title: 자습서 - Azure에서 Ansible을 사용하여 가상 머신 확장 집�
 description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 확장 집합에 애플리케이션을 배포하는 방법 알아보기
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 ms.topic: tutorial
-ms.date: 04/30/2019
-ms.openlocfilehash: 7c54790a3d988341caa65bdf0ce33c240f0580fb
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 01/13/2020
+ms.openlocfilehash: d638ae3f0c33734b42ef5456772fcd2bc62e35a4
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156398"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940849"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>자습서: Azure에서 Ansible을 사용하여 가상 머신 확장 집합에 앱 배포
 
@@ -26,7 +26,7 @@ ms.locfileid: "74156398"
 > * 확장 집합에 JRE(Java Runtime Environment) 설치
 > * 확장 집합에 Java 애플리케이션 배포
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
@@ -56,13 +56,13 @@ ms.locfileid: "74156398"
   - name: Add all hosts
     add_host:
       groups: scalesethosts
-      hostname: "{{ output_ip_address.ansible_facts.azure_publicipaddresses[0].properties.ipAddress }}_{{ item.properties.frontendPort }}"
-      ansible_host: "{{ output_ip_address.ansible_facts.azure_publicipaddresses[0].properties.ipAddress }}"
+      hostname: "{{ output_ip_address.publicipaddresses[0].ip_address }}_{{ item.properties.frontendPort }}"
+      ansible_host: "{{ output_ip_address.publicipaddresses[0].ip_address }}"
       ansible_port: "{{ item.properties.frontendPort }}"
       ansible_ssh_user: "{{ admin_username }}"
       ansible_ssh_pass: "{{ admin_password }}"
     with_items:
-      - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
+      - "{{ output.ansible_info.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
 ## <a name="prepare-an-application-for-deployment"></a>배포를 위한 애플리케이션 준비

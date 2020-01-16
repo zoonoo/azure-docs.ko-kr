@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: d19b3d59c48cfc8fc91d4678c2f979b110575b1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359156"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969944"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux 용 DSC 확장 (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -371,7 +371,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 Login-AzAccount
 ```
 
-Azure Resource Manager에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 내용은 [Azure PowerShell를 사용 하 여 Azure 리소스 관리](../../azure-resource-manager/manage-resources-powershell.md)를 참조 하세요.
+Azure Resource Manager에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 내용은 [Azure PowerShell를 사용 하 여 Azure 리소스 관리](../../azure-resource-manager/management/manage-resources-powershell.md)를 참조 하세요.
 
 다음을 실행 하 여 DSCForLinux 확장을 배포할 수 있습니다.
 

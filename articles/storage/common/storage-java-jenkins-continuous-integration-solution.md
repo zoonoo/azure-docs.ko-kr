@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0e426dcead5d1f315717fbc19cf7f7bdac62d563
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839139"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970183"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용
 
@@ -49,7 +49,7 @@ Blob service를 사용하여 Agile 개발 빌드 아티팩트를 호스트할 �
      
       일반적인 Jenkins CI 솔루션은 서비스로 실행하도록 설정되지만, 이 자습서에서는 Jenkins war를 명령줄에서 실행하는 것으로 충분합니다.
 * Azure 계정. <https://www.azure.com>에서 Azure 계정을 등록할 수 있습니다.
-* Azure Storage 계정. Storage 계정이 아직 없으면 [Storage 계정 만들기](../common/storage-quickstart-create-account.md)에 설명된 단계를 따라 계정을 만들 수 있습니다.
+* Azure Storage 계정. Storage 계정이 아직 없으면 [Storage 계정 만들기](../common/storage-account-create.md)에 설명된 단계를 따라 계정을 만들 수 있습니다.
 * Jenkins CI 솔루션에 익숙하면 좋지만 반드시 그러해야 하는 것은 아닙니다. 아래에서는 Jenkins CI 빌드 아티팩트를 위한 리포지토리로 Blob service를 사용할 때 필요한 단계를 보여 주기 위해 기본적인 예를 사용합니다.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Jenkins CI에서 Blob service를 사용하는 방법
@@ -104,7 +104,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
 12. **저장**을 선택하여 설정을 저장합니다.
 13. Jenkins 대시보드에서 **지금 빌드**를 선택하여 **MyJob**을 실행합니다. 콘솔 출력을 점검하여 상태를 확인합니다. 빌드 후 작업이 빌드 아티팩트를 업로드하기 시작하면 Azure Storage 상태 메시지가 콘솔 출력에 포함됩니다.
 14. 작업이 성공적으로 완료되었을 때 공용 Blob을 열어 빌드 아티팩트를 검사할 수 있습니다.
-    1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. **스토리지**를 선택합니다.
     3. Jenkins에 사용한 스토리지 계정 이름을 선택합니다.
     4. **컨테이너**를 선택합니다.
@@ -129,7 +129,7 @@ Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 �
 이 섹션에서는 Blob Service 구성 요소의 개요를 제공합니다.
 
 * **Storage 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 스토리지 계정은 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
-* **컨테이너**: 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
+* **컨테이너**: 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 계정에 포함될 수 있는 컨테이너의 개수 제한은 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
 * **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob Storage 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 * **URL 형식**: Blob에 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다.
   
@@ -137,7 +137,7 @@ Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 �
   
     위의 형식은 전역 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 하는 경우 [Azure Portal](https://portal.azure.com) 내에서 끝점을 사용 하 여 URL 끝점을 확인 합니다.)
   
-    위 형식에서 `storageaccount`은(는) 스토리지 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/** 에서 찾을 수 있습니다. 이 자습서에서 사용되는 컨테이너 이름의 예는 **MyJob**이고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
+    위 형식에서 `storageaccount`은(는) 스토리지 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/** (영문)에서 찾을 수 있습니다. 이 자습서에서 사용되는 컨테이너 이름의 예는 **MyJob**이고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

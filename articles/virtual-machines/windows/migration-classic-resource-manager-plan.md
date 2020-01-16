@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: bebfcedcd2944e2c6b05c3203e67df7658dd751a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d5245f73520a77648fc590520185a2cf66bffd02
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460057"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980881"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다.
@@ -130,8 +130,8 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
   - 경로 테이블
 
     Azure PowerShell의 최신 버전에서 다음 명령을 사용하여 현재 Azure Resource Manager 할당량을 확인할 수 있습니다.
-    
-     
+
+
 
     **Compute** *(코어, 가용성 집합)*
 
@@ -203,9 +203,9 @@ Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  
 이제 Azure Resource Manager에서 사용하도록 설정하려는 서비스에 대해 분명한 목적이 있어야 합니다.  많은 고객들이 Azure 환경에서 다음과 같은 강력한 요소를 찾고 있습니다.
 
 - [역할 기반 Access Control](../../role-based-access-control/overview.md)
-- [쉽고 제어 가능한 배포를 위한 Azure Resource Manager 템플릿](../../azure-resource-manager/template-deployment-overview.md)
-- [태그](../../azure-resource-manager/resource-group-using-tags.md).
-- [활동 제어](../../azure-resource-manager/resource-group-audit.md)
+- [쉽고 제어 가능한 배포를 위한 Azure Resource Manager 템플릿](../../azure-resource-manager/templates/overview.md)
+- [태그](../../azure-resource-manager/management/tag-resources.md).
+- [활동 제어](../../azure-resource-manager/management/view-activity-logs.md)
 - [Azure 정책](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>문제 방지

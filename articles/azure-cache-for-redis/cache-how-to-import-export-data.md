@@ -6,15 +6,15 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: e4265cf3f9c211a19fe05bc18cf47a273165c3c3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: df8b65fcb4dd2b9622716052be2df59cbfa5424a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122768"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971803"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
-가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 
+가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다.
 
 - **내보내기** - Azure Cache for Redis RDB 스냅샷을 페이지 Blob으로 내보낼 수 있습니다.
 - **가져오기** - Azure Cache for Redis RDB 스냅샷을 페이지 Blob 또는 블록 Blob에서 가져올 수 있습니다.
@@ -57,7 +57,7 @@ ms.locfileid: "74122768"
 
     ![가져오기](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
-    Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/resource-group-audit.md)의 이벤트를 확인하여 가져오기 작업의 진행 상황을 모니터링할 수 있습니다.
+    Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)의 이벤트를 확인하여 가져오기 작업의 진행 상황을 모니터링할 수 있습니다.
 
     ![가져오기 진행](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "74122768"
 
     ![내보내기](./media/cache-how-to-import-export-data/cache-export-data.png)
 
-    Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/resource-group-audit.md)에서 이벤트를 확인하여 내보내기 작업의 진행 상황을 모니터링할 수 있습니다.
+    Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)에서 이벤트를 확인하여 내보내기 작업의 진행 상황을 모니터링할 수 있습니다.
 
     ![데이터 내보내기 완료](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
 
@@ -109,8 +109,8 @@ Import/Export는 프리미엄 가격 책정 계층에서만 사용할 수 있습
 
 > [!IMPORTANT]
 > 페이지 Blob을 사용할 때 Azure Cache for Redis 이외의 Redis 서버에서 내보낸 데이터를 성공적으로 가져오려면 페이지 Blob 크기가 512바이트 한도에 맞추어져야 합니다. 필요한 바이트 패딩을 수행하는 샘플 코드는 [샘플 페이지 Blob 업로드](https://github.com/JimRoberts-MS/SamplePageBlobUpload)를 참조하세요.
-> 
-> 
+>
+>
 
 ### <a name="what-rdb-versions-can-i-import"></a>가져올 수 있는 RDB 버전은 무엇인가요?
 
@@ -128,7 +128,7 @@ Azure Cache for Redis는 RDB 버전 7을 통해 RDB 가져오기를 지원합니
 
 * 내보내기 한 계층보다 낮은 `databases` 제한을 가진 가격 책정 계층으로 가져오기할 때:
   * 모든 가격 책정 계층에 대해 기본값이 16개인 `databases`을 사용하는 경우 데이터 손실은 전혀 없습니다.
-  * 들여오기하는 계층의 대한 제한내에 포함되는 `databases` 의 사용자 지정 수를 사용하는 경우, 데이터 손실은 전혀 없습니다.
+  * 들여오기하는 계층의 대한 제한내에 포함되는 `databases`의 사용자 지정 수를 사용하는 경우, 데이터 손실은 전혀 없습니다.
   * 내보낸 데이타가 새 계층의 제한을 초과하는 데이타베이스의 데이타를 포함한 경우, 더 높은 데이타베이스의 데이타는 들여오기되지 않습니다.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>Import/Export가 Redis 지속성과 어떻게 다른가요?

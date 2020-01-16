@@ -10,12 +10,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0678d437a5c24b8193e7440a62445fb30ec97759
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 820e7187332b02993d3d8bcba9c01958cfbdd61d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460511"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965827"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -83,7 +83,7 @@ Azure Portal는 컨테이너 또는 큐로 이동할 때 사용 중인 권한 �
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>PowerShell 또는 Azure CLI에서 데이터 액세스
 
-Azure CLI 및 PowerShell은 Azure AD 자격 증명으로 로그인을 지원 합니다. 로그인 하면 해당 자격 증명으로 세션이 실행 됩니다. 자세한 내용은 [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](storage-auth-aad-script.md)를 참조 하세요.
+Azure CLI 및 PowerShell은 Azure AD 자격 증명으로 로그인을 지원 합니다. 로그인 하면 해당 자격 증명으로 세션이 실행 됩니다. 자세한 내용은 [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](authorize-active-directory-powershell.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

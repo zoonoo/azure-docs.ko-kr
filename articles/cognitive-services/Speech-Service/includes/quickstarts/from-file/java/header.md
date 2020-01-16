@@ -1,20 +1,19 @@
 ---
 title: '빠른 시작: 오디오 파일에서 음성 인식, Java - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 0465d617fcb2f1034005ba7694fb403ba365eaa4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 69f4d71bccb791d80f70d3150988868e56b96670
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819317"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928091"
 ---
 바로 들어가려면 GitHub에서 모든 <a href="https://aka.ms/speech/github-java">Speech SDK Java 샘플</a>을 보거나 다운로드합니다. 그렇지 않으면 시작하겠습니다.

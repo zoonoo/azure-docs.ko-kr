@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428843"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965930"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>공용 기본 Load Balancer에 대 한 Azure Monitor 로그
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 Azure Monitor에서 다차원 메트릭을 통해 원격 분석을 노출하는 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
 
 Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다양한 유형의 로그를 사용할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있으며, 로그는 이벤트 허브 또는 Log Analytics 작업 영역으로 스트리밍할 수 있습니다. Azure blob storage에서 모든 로그를 추출 하 고 Excel 및 Power BI와 같은 다른 도구에서 볼 수 있습니다.  아래 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
@@ -32,7 +32,7 @@ Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다�
 * **상태 프로브 로그:** 상태 프로브 오류 때문에 부하 분산 장치에서 요청을 받지 않는 백 엔드 풀에 있는 인스턴스의 수와 같은 상태 프로브에서 발견한 문제를 보기 위해 이 로그를 사용할 수 있습니다. 상태 프로브 상태가 변경되는 경우에 이 로그가 기록됩니다.
 
 > [!IMPORTANT]
-> Azure Monitor 로그는 현재 공용 기본 부하 분산 장치에 대해서만 작동 합니다. 로그는 Resource Manager 배포 모델에 배포된 리소스에서만 사용할 수 있습니다. 클래식 배포 모델에서 리소스에 대한 로그를 사용할 수 없습니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
+> Azure Monitor 로그는 현재 공용 기본 부하 분산 장치에 대해서만 작동 합니다. 로그는 Resource Manager 배포 모델에 배포된 리소스에서만 사용할 수 있습니다. 클래식 배포 모델에서 리소스에 대한 로그를 사용할 수 없습니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
 
 ## <a name="enable-logging"></a>로깅 사용
 
@@ -57,7 +57,7 @@ Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다�
     1. **저장소 계정에 보관**옆의 확인란을 선택 합니다.
     2. **구성** 을 선택 하 여 **저장소 계정 선택** 창을 엽니다.
     3. 풀 다운 상자에서 저장소 계정이 만들어진 **구독** 을 선택 합니다.
-    4. 풀 다운 상자 **에서 저장소 계정 아래에** 있는 저장소 계정의 이름을 선택 합니다. 
+    4. 풀 다운 상자 **에서 저장소 계정 아래에** 있는 저장소 계정의 이름을 선택 합니다.
     5. 확인을 선택합니다.
 
     ### <a name="stream-to-an-event-hub"></a>이벤트 허브로 스트림
@@ -160,7 +160,7 @@ JSON 출력은 부하 분산 장치에서 경고를 만든 이유를 설명 하�
 
 다음 방법을 사용하여 감사 로그 데이터를 보고 분석할 수 있습니다.
 
-* **Azure 도구:** Azure PowerShell, Azure CLI (명령줄 인터페이스), Azure REST API 또는 Azure Portal를 통해 감사 로그에서 정보를 검색 합니다. 각 방법에 대한 단계별 지침은 [리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md) 문서에 자세히 나와 있습니다.
+* **Azure 도구:** Azure PowerShell, Azure CLI (명령줄 인터페이스), Azure REST API 또는 Azure Portal를 통해 감사 로그에서 정보를 검색 합니다. 각 방법에 대한 단계별 지침은 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md) 문서에 자세히 나와 있습니다.
 * **Power BI:** [Power BI](https:// .microsoft.com/pricing) 계정이 아직 없는 경우에는 무료로 사용해볼 수 있습니다. [Power BI에 대한 Azure 감사 로그 콘텐츠 팩](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)을 사용하여 미리 구성된 대시보드에서 데이터를 분석하거나 요구 사항에 맞게 보기를 사용자 지정할 수 있습니다.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>상태 프로브 및 이벤트 로그 보기 및 분석

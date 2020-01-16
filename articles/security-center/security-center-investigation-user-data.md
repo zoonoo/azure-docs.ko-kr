@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 059ca2a26e50128d6bc4313dad9f995e97c06378
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9e4c6577f0b8b18aff343ac54b31ff292632f5d0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686396"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979234"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Azure Security Center 조사에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터는 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 에 저장 되 고 Security Center에 노출 됩니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
@@ -33,7 +33,7 @@ Azure Portal에서 Security Center의 [조사 기능](../security-center/securit
 ## <a name="securing-and-controlling-access-to-personal-information"></a>개인 정보에 대한 액세스 보안 및 제어
 읽기 권한자, 소유자, 기여자 또는 계정 관리자 역할이 할당된 Security Center 사용자는 도구 내에서 고객 데이터에 액세스할 수 있습니다.
 
-읽기 권한자, 소유자 및 기여자 역할에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요. 계정 관리자 역할에 대한 자세한 내용은 [Azure 구독 관리자](../billing/billing-add-change-azure-subscription-administrator.md)를 참조하세요.
+읽기 권한자, 소유자 및 기여자 역할에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요. 계정 관리자 역할에 대한 자세한 내용은 [Azure 구독 관리자](../cost-management-billing/manage/add-change-subscription-administrator.md)를 참조하세요.
 
 ## <a name="deleting-personal-data"></a>개인 데이터 삭제
 소유자, 기여자 또는 계정 관리자 역할이 할당된 Security Center 사용자는 조사 정보를 삭제할 수 있습니다.
@@ -45,7 +45,7 @@ DELETE
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents/{incidentName}
 ```
 
-`incidentName` 요청을 사용하는 모든 인시던트를 나열하여 `GET` 입력을 찾을 수 있습니다.
+`GET` 요청을 사용하는 모든 인시던트를 나열하여 `incidentName` 입력을 찾을 수 있습니다.
 
 ```HTTP
 GET

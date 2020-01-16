@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: fe38e74d30f7eb4f0c025f14268f7d6ac7b7d88a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d34a0905973a8080ee53eeac878432db0c51128
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428684"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979062"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -62,13 +62,13 @@ ms.locfileid: "75428684"
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 포털 검색 상자에서 **논리 앱**을 찾아 선택 합니다.
 
-1. 논리 앱 디자이너에서 논리 앱을 선택 하 고 엽니다. 
+1. 논리 앱 디자이너에서 논리 앱을 선택 하 고 엽니다.
 
 1. 논리 앱 메뉴에서 **워크플로 설정**을 선택 합니다.
 
 1. **런타임 옵션**의 **실행 기록 보존 기간 (일)** 목록에서 **사용자 지정**을 선택 합니다.
 
-1. 원하는 일 수 동안 슬라이더를 입력 하거나 끕니다. 
+1. 원하는 일 수 동안 슬라이더를 입력 하거나 끕니다.
 
    > [!NOTE]
    > 다중 테 넌 트 Azure에서 논리 앱의 경우 90 일 기본 제한은 최대 제한과 동일 합니다. 이 값은 줄일 수만 있습니다.
@@ -84,7 +84,7 @@ ms.locfileid: "75428684"
 | ---- | ----- | ----- |
 | 트리거 동시성 | * 동시성 제어가 꺼지면 무제한 <p><p>* 동시성 제어가 켜지면 25가 기본 제한이며, 제어를 켠 후 실행 취소할 수 없습니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>**참고**: 동시성이 설정 되 면 [배열을 일괄 처리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하기 위해 SplitOn 한도가 100 항목으로 줄어듭니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. |
 | 최대 대기 중인 실행 | 동시성 제어가 켜지면 대기 중인 실행의 최소 수는 10 + 동시 실행의 수입니다(동시성 트리거). 최대 수를 100까지 변경할 수 있습니다. | 이 제한은 논리 앱에서 이미 최대 동시 인스턴스를 실행 중인 경우 실행될 때까지 기다릴 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 변경하려면 [대기 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. |
-| Foreach 배열 항목 | 100,000개의 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 나타냅니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](../connectors/connectors-native-query.md)을 사용하면 됩니다. |
+| Foreach 배열 항목 | 100,000개의 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 나타냅니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](logic-apps-perform-data-operations.md#filter-array-action)을 사용하면 됩니다. |
 | Foreach 동시성 | 동시성 제어가 꺼지면 20이 기본 제한입니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. |
 | SplitOn 항목 | * 10만 (트리거 동시성 없음) <p><p>* 100 (트리거 동시성 포함) | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. <p><p>**참고**: 동시성이 켜져 있으면 SplitOn 한도가 100 항목으로 줄어듭니다. |
 | Until 반복 | 5,000 | |
@@ -122,7 +122,8 @@ Premium SKU에 대 한 처리량 제한은 다음과 같습니다.
 정상적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과하는 부하 테스트를 실행하려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대해 도움을 받으세요.
 
 > [!NOTE]
-> 이 SKU에는 확장에 대 한 SLA (서비스 수준 계약) 또는 기능이 없기 때문에 [개발자 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 에는 게시 된 제한이 없습니다. 프로덕션 또는 성능 테스트가 아닌 실험, 개발 및 테스트에만이 SKU를 사용 합니다.
+> 이 SKU에는 확장에 대 한 SLA (서비스 수준 계약) 또는 기능이 없기 때문에 [개발자 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 에는 게시 된 제한이 없습니다.
+> 프로덕션 또는 성능 테스트가 아닌 실험, 개발 및 테스트에만이 SKU를 사용 합니다.
 
 <a name="gateway-limits"></a>
 
@@ -209,7 +210,8 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 
 ### <a name="artifact-limits-per-integration-account"></a>통합 계정당 아티팩트 제한
 
-각 통합 계정 계층의 아티팩트 수에 대 한 제한은 다음과 같습니다. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조 하세요. 통합 계정에 대 한 가격 책정 및 청구 작업 방법을 알아보려면 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts)을 참조 하세요.
+각 통합 계정 계층의 아티팩트 수에 대 한 제한은 다음과 같습니다.
+가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조 하세요. 통합 계정에 대 한 가격 책정 및 청구 작업 방법을 알아보려면 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts)을 참조 하세요.
 
 > [!NOTE]
 > 무료 계층은 프로덕션 시나리오가 아닌 예비 시나리오에만 사용 하세요. 이 계층에서는 처리량과 사용량을 제한하며 SLA(서비스 수준 계약)가 없습니다.
@@ -261,9 +263,12 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 
 ## <a name="disabling-or-deleting-logic-apps"></a>논리 앱을 사용하지 않도록 설정 또는 삭제
 
-논리 앱을 사용하지 않도록 설정하면 새 실행이 인스턴스화되지 않습니다. 진행 중인 모든 실행 및 보류 중인 실행은 완료 될 때까지 계속 되며이를 완료 하는 데 시간이 걸릴 수 있습니다.
+논리 앱을 사용하지 않도록 설정하면 새 실행이 인스턴스화되지 않습니다.
+진행 중인 모든 실행 및 보류 중인 실행은 완료 될 때까지 계속 되며이를 완료 하는 데 시간이 걸릴 수 있습니다.
 
-논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다. 모든 진행 중 및 보류 중인 실행이 취소됩니다. 수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다.
+논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다.
+모든 진행 중 및 보류 중인 실행이 취소됩니다.
+수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다.
 
 <a name="configuration"></a>
 
@@ -276,7 +281,7 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 
 * 논리 앱에서 [http](../connectors/connectors-native-http.md), [http + SWAGGER](../connectors/connectors-native-http-swagger.md)및 기타 http 요청을 사용 하 여 직접 수행 하는 호출을 지원 하려면 논리 앱이 있는 지역에 따라 Logic Apps 서비스에서 사용 하는 *모든* [인바운드](#inbound) *및* [아웃 바운드](#outbound) IP 주소를 사용 하 여 방화벽을 설정 합니다. 이러한 주소는 이 섹션의 **인바운드** 및 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
 
-* [Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 모든 [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다. 
+* [Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 모든 [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
 
 * ISE (integration service environment)에서 실행 되는 논리 앱에 대 한 통신을 사용 하도록 설정 하려면 [이러한 포트를 열어야](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)합니다.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: a4746a945f1a89c34308a3bd968f6341e0e25ac5
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 1867164954a3f9dff7a8a8c04e249a13edccb84a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541507"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021014"
 ---
 이 섹션에서는 가상 머신 크기의 이전 세대에 대 한 정보를 제공 합니다. 이러한 크기는 계속 지원 되지만 추가 용량을 받지 않습니다. 일반적으로 사용할 수 있는 새로운 또는 대체 크기가 있습니다. 필요에 가장 적합 한 VM 크기를 선택 하려면 [azure의 Windows 가상 머신 크기](../articles/virtual-machines/windows/sizes.md) 또는 [azure에서 Linux 가상 머신에 대 한 크기](../articles/virtual-machines/linux/sizes.md) 를 참조 하세요.  
 
@@ -23,11 +23,11 @@ Linux VM의 크기를 조정 하는 방법에 대 한 자세한 내용은 [Azure
 
 ### <a name="basic-a"></a>Basic A  
 
-**새 크기 권장 사항**: [Av2 시리즈](../articles/virtual-machines/windows/sizes-general.md#av2-series)
+**최신 크기 권장 사항**: [Av2 시리즈](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
-Premium Storage:  지원되지 않음
+Premium Storage: 지원되지 않음
 
-Premium Storage 캐싱:  지원되지 않음
+Premium Storage 캐싱: 지원 되지 않음
 
 기본 계층 크기는 부하 분산, 크기 자동 조정 또는 메모리 집약 가상 머신이 필요하지 않은 개발 워크로드 및 기타 애플리케이션에 기본적으로 사용됩니다.
 
@@ -53,15 +53,15 @@ Premium Storage 캐싱:  지원되지 않음
 
 ### <a name="a-series"></a>A 시리즈  
 
-**새 크기 권장 사항**: [Av2 시리즈](../articles/virtual-machines/windows/sizes-general.md#av2-series)
+**최신 크기 권장 사항**: [Av2 시리즈](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
 ACU: 50-100
 
-Premium Storage:  지원되지 않음
+Premium Storage: 지원되지 않음
 
-Premium Storage 캐싱:  지원되지 않음
+Premium Storage 캐싱: 지원 되지 않음
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(HDD): GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps)  |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0&nbsp;<sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |2 / 500  |
@@ -78,101 +78,101 @@ Premium Storage 캐싱:  지원되지 않음
 
 ### <a name="a-series---compute-intensive-instances"></a>A-시리즈 - 계산 집약적 인스턴스  
 
-**새 크기 권장 사항**: [Av2 시리즈](../articles/virtual-machines/windows/sizes-general.md#av2-series)
+**최신 크기 권장 사항**: [Av2 시리즈](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
 ACU: 225
 
-Premium Storage:  지원되지 않음
+Premium Storage: 지원되지 않음
 
-Premium Storage 캐싱:  지원되지 않음
+Premium Storage 캐싱: 지원 되지 않음
 
 A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다.  
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(HDD): GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수|
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수|
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8&nbsp;<sup>1</sup> |8 |56 |382 |32 |32x500 |2 |
 | Standard_A9&nbsp;<sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
 | Standard_A10 |8 |56 |382 |32 |32x500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
-<sup>1</sup>MPI 애플리케이션의 경우 초단기 대기 시간 및 고대역폭을 제공하는 FDR InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.  
+<sup>1</sup> MPI 응용 프로그램의 경우 매우 낮은 대기 시간 및 높은 대역폭을 제공 하는 QDR InfiniBand network에서 전용 RDMA 백 엔드 네트워크를 사용 하도록 설정 합니다.  
 
 <br>
 
 ### <a name="d-series"></a>D 시리즈  
 
-**새 크기 권장 사항**: [Dv3 시리즈](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
+**최신 크기 권장 사항**: [Dv3 시리즈](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
 
 ACU: 160-250 <sup>1</sup>
 
-Premium Storage:  지원되지 않음
+Premium Storage: 지원되지 않음
 
-Premium Storage 캐싱:  지원되지 않음
+Premium Storage 캐싱: 지원 되지 않음
 
-| Size         | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기         | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 500                 |
 | Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
 | Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
 
-<sup>1</sup> VM 제품군은 다음 CPU 중 하나에서 실행할 수 있습니다. 2.2 GHz Intel Xeon® E5-2660 v2, 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 또는 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM 제품군은 다음 CPU의 하나에서 실행할 수 있습니다. 2.2 Ghz intel Xeon® e5-2660 v2, 2.4 Ghz intel Xeon® e5-2673 V3 (haswell) 또는 2.3 GHZ intel Xeon® E5-2673 V4 (Broadwell)  
 
 <br>
 
 ### <a name="d-series---memory-optimized"></a>D 시리즈 - 메모리에 최적화  
 
-**새 크기 권장 사항**: [Dv3 시리즈](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
+**최신 크기 권장 사항**: [Dv3 시리즈](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
 
 ACU: 160-250 <sup>1</sup>
 
-Premium Storage:  지원되지 않음
+Premium Storage: 지원되지 않음
 
-Premium Storage 캐싱:  지원되지 않음
+Premium Storage 캐싱: 지원 되지 않음
 
-| Size         | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기         | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
 | Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 
-<sup>1</sup> VM 제품군은 다음 CPU 중 하나에서 실행할 수 있습니다. 2.2 GHz Intel Xeon® E5-2660 v2, 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 또는 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM 제품군은 다음 CPU의 하나에서 실행할 수 있습니다. 2.2 Ghz intel Xeon® e5-2660 v2, 2.4 Ghz intel Xeon® e5-2673 V3 (haswell) 또는 2.3 GHZ intel Xeon® E5-2673 V4 (Broadwell)  
 
 <br>
 
 ### <a name="ds-series"></a>DS 시리즈  
 
-**새 크기 권장 사항**: [DSv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
+**최신 크기 권장 사항**: [DSv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 
 ACU: 160-250 <sup>1</sup>
 
-Premium Storage:  지원됨
+Premium Storage: 지원됨
 
-Premium Storage 캐싱:  지원됨
+Premium Storage 캐싱: 지원 됨
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |4 |4,000/32(43) |3,200/32 |2 / 500 |
 | Standard_DS2 |2 |7 |14 |8 |8,000/64(86) |6,400/64 |2 / 1000 |
 | Standard_DS3 |4 |14 |28 |16 |16,000/128(172) |12,800/128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32,000/256(344) |25,600/256 |8 / 4000 |
 
-<sup>1</sup> VM 제품군은 다음 CPU 중 하나에서 실행할 수 있습니다. 2.2 GHz Intel Xeon® E5-2660 v2, 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 또는 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM 제품군은 다음 CPU의 하나에서 실행할 수 있습니다. 2.2 Ghz intel Xeon® e5-2660 v2, 2.4 Ghz intel Xeon® e5-2673 V3 (haswell) 또는 2.3 GHZ intel Xeon® E5-2673 V4 (Broadwell)  
 
 <br>
 
 ### <a name="ds-series---memory-optimized"></a>DS 시리즈 - 메모리에 최적화  
 
-**새 크기 권장 사항**: [DSv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
+**최신 크기 권장 사항**: [DSv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 
-ACU: 160-250 <sup>1,2</sup>
+ACU: 160-250 <sup>1, 2</sup>
 
-Premium Storage:  지원됨
+Premium Storage: 지원됨
 
-Premium Storage 캐싱:  지원됨
+Premium Storage 캐싱: 지원 됨
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |8 |8,000/64(72) |6,400/64 |2 / 1000 |
 | Standard_DS12 |4 |28 |56 |16 |16,000/128(144) |12,800/128 |4 / 2000 |
@@ -180,7 +180,7 @@ Premium Storage 캐싱:  지원됨
 | Standard_DS14 |16 |112 |224 |64 |64,000/512(576) |51,200/512 |8 / 8000 |
 
 <sup>1</sup> DS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.   
-<sup>2</sup> VM 제품군은 다음 CPU 중 하나에서 실행할 수 있습니다. 2.2 GHz Intel Xeon® E5-2660 v2, 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 또는 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+<sup>2</sup> VM 제품군은 다음 CPU의 하나에서 실행할 수 있습니다. 2.2 Ghz intel Xeon® e5-2660 v2, 2.4 Ghz intel Xeon® e5-2673 V3 (haswell) 또는 2.3 GHZ intel Xeon® E5-2673 V4 (Broadwell)  
 
 <br>
 
@@ -192,11 +192,11 @@ Ls 시리즈는 영구 데이터 디스크에서 달성할 수 있는 IOPS를 �
 
 ACU: 180-240
 
-Premium Storage:  지원됨
+Premium Storage: 지원됨
 
-Premium Storage 캐싱:  지원되지 않음
+Premium Storage 캐싱: 지원 되지 않음
  
-| Size          | vCPU | 메모리(GiB) | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량(IOPS/MBps) | 최대 캐시되지 않은 디스크 처리량(IOPS/MBps) | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) | 
+| 크기          | vCPU | 메모리(GiB) | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량(IOPS/MBps) | 최대 캐시되지 않은 디스크 처리량(IOPS/MBps) | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s   | 4  | 32  | 678   | 16 | 2만/200 | 5000/125  | 2 / 4000  | 
 | Standard_L8s   | 8  | 64  | 1388 | 32 | 4만/400 | 1만/250 | 4 / 8000  | 
@@ -211,11 +211,11 @@ Ls 시리즈 VM에서 가능한 최대 디스크 처리량은 연결된 디스�
 
 ACU: 180 - 240 <sup>1</sup>
 
-Premium Storage:  지원됨
+Premium Storage: 지원됨
 
-Premium Storage 캐싱:  지원됨
+Premium Storage 캐싱: 지원 됨
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10,000/100(264) |5,000/125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |16 |20,000/200(528) |10,000/250 |2 / 4000 |
@@ -233,13 +233,13 @@ Premium Storage 캐싱:  지원됨
 
 ### <a name="g-series"></a>G 시리즈
 
-ACU: 180 - 240
+ACU: 180-240
 
-Premium Storage:  지원되지 않음
+Premium Storage: 지원되지 않음
 
-Premium Storage 캐싱:  지원되지 않음
+Premium Storage 캐싱: 지원 되지 않음
 
-| Size         | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기         | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |

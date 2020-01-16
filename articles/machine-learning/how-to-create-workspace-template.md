@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 275eb545b431085627658eb5d8ac0a065d0cb00e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6cd450ac18007e31d9d8144fdb0e8554dd31c363
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867023"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968658"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -92,7 +92,7 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md) 및 [SAS 토큰과 Azure PowerShell을 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/secure-template-with-sas-token.md)를 참조하세요.
+자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md) 및 [SAS 토큰과 Azure PowerShell을 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/templates/secure-template-with-sas-token.md)를 참조하세요.
 
 ## <a name="use-azure-cli"></a>Azure CLI 사용
 
@@ -107,7 +107,7 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/secure-template-with-sas-token.md)를 참조하세요.
+자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/templates/deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/templates/secure-template-with-sas-token.md)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -124,7 +124,7 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
 이 문제를 방지 하려면 다음 방법 중 하나를 사용 하는 것이 좋습니다.
 
 * 동일한 매개 변수에 템플릿을 두 번 이상 배포 하지 마십시오. 또는 템플릿을 사용 하 여 기존 리소스를 다시 만들기 전에 삭제 합니다.
-  
+
 * Key Vault 액세스 정책을 검토 한 후 이러한 정책을 사용 하 여 템플릿의 `accessPolicies` 속성을 설정 합니다. 액세스 정책을 보려면 다음 Azure CLI 명령을 사용 합니다.
 
     ```azurecli-interactive
@@ -165,7 +165,7 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
           }
         },
         ```
-    
+
     * 작업 영역의 `dependsOn` 섹션에서 `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 줄을 **제거** 합니다. 또한 작업 영역의 `properties` 섹션에서 `keyVaultId` 매개 변수를 참조 하도록 `keyVault` 항목을 **변경** 합니다.
 
         ```json
@@ -193,7 +193,7 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
           }
         }
         ```
-      
+
     이러한 변경 후 템플릿을 실행할 때 기존 Key Vault 리소스의 ID를 지정할 수 있습니다. 그러면 템플릿에서 작업 영역의 `keyVault` 속성을 해당 ID로 설정 하 여 Key Vault를 다시 사용 합니다.
 
     Key Vault의 ID를 가져오려면 원래 템플릿 실행의 출력을 참조 하거나 Azure CLI를 사용 합니다. 다음 명령은 Azure CLI를 사용 하 여 Key Vault 리소스 ID를 가져오는 예입니다.
@@ -210,5 +210,5 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Resource Manager 템플릿 및 Resource Manager REST API를 사용하여 리소스 배포](../azure-resource-manager/resource-group-template-deploy-rest.md)
-* [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+* [Resource Manager 템플릿 및 Resource Manager REST API를 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-rest.md)
+* [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)

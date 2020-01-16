@@ -4,14 +4,14 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11/21/2019
-ms.openlocfilehash: 9bed0a47c6c13b3c209f593509b71aa697c6eb4a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 119ef52bd801f66cd25a844d3a87b1906881c484
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901675"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021250"
 ---
-Azure reserved VM 인스턴스에 커밋하는 경우 비용을 절감할 수 있습니다. 예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 가상 머신 수에 자동으로 적용됩니다. 할인을 얻기 위해 예약을 가상 머신에 할당할 필요는 없습니다. 예약 인스턴스 구매는 VM 사용의 계산 부분만 다룹니다. Windows Vm의 경우 사용 측정기는 두 개의 개별 미터로 분할 됩니다. Linux 측정기와 동일한 계산 측정기와 Windows IP 측정기가 있습니다. 구매를 만들 때 표시 되는 요금은 계산 비용에만 적용 됩니다. 요금은 Windows 소프트웨어 비용을 포함 하지 않습니다. 소프트웨어 비용에 대 한 자세한 내용은 [Azure Reserved VM Instances에 포함 되지 않은 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)을 참조 하세요.
+Azure reserved VM 인스턴스에 커밋하는 경우 비용을 절감할 수 있습니다. 예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 가상 머신 수에 자동으로 적용됩니다. 할인을 얻기 위해 예약을 가상 머신에 할당할 필요는 없습니다. 예약 인스턴스 구매는 VM 사용의 계산 부분만 다룹니다. Windows Vm의 경우 사용 측정기는 두 개의 개별 미터로 분할 됩니다. Linux 측정기와 동일한 계산 측정기와 Windows IP 측정기가 있습니다. 구매를 만들 때 표시 되는 요금은 계산 비용에만 적용 됩니다. 요금은 Windows 소프트웨어 비용을 포함 하지 않습니다. 소프트웨어 비용에 대 한 자세한 내용은 [Azure Reserved VM Instances에 포함 되지 않은 소프트웨어 비용](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md)을 참조 하세요.
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>구매하기 전에 적절한 VM 크기를 결정합니다.
 
@@ -78,7 +78,7 @@ VM 예약은 VM 배포뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 
 ## <a name="buy-a-reserved-vm-instance"></a>예약 VM 인스턴스 구입
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 예약 VM 인스턴스를 구입할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../articles/billing/billing-monthly-payments-reservations.md)로 처리할 수 있습니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 예약 VM 인스턴스를 구입할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../articles/cost-management-billing/reservations/monthly-payments-reservations.md)로 처리할 수 있습니다.
 이러한 요구 사항은 예약 VM 인스턴스 구매에 적용 됩니다.
 
 - 하나 이상의 EA 구독에 대 한 소유자 역할 또는 종 량 제 요금이 있는 구독 이어야 합니다.
@@ -111,7 +111,7 @@ EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스를 
 
 예약 할인이 적용되는 사용량의 경우 사용량 데이터의 유효 가격은 0입니다. 각 예약에 대해 예약 할인을 받은 VM 인스턴스를 확인할 수 있습니다.
 
-사용 현황 데이터에 예약 할인이 표시 되는 방법에 대 한 자세한 내용은 EA 고객 인 경우 [기업 등록에 대 한 Azure 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md) 를 참조 하세요. 개별 구독이 있는 경우 [종 량 제 구독에 대 한 Azure 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)를 참조 하세요.
+사용 현황 데이터에 예약 할인이 표시 되는 방법에 대 한 자세한 내용은 EA 고객 인 경우 [기업 등록에 대 한 Azure 예약 사용량 이해](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 를 참조 하세요. 개별 구독이 있는 경우 [종 량 제 구독에 대 한 Azure 예약 사용량 이해](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)를 참조 하세요.
 
 ## <a name="change-a-reservation-after-purchase"></a>구매 후 예약 변경
 
@@ -134,7 +134,7 @@ EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스를 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)을 참조하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 ## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
 
@@ -142,12 +142,12 @@ EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스를 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 예약을 관리하는 방법을 알아보려면 [Azure Reservations 관리](../articles/billing/billing-manage-reserved-vm-instance.md)를 참조하세요.
+- 예약을 관리하는 방법을 알아보려면 [Azure Reservations 관리](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)를 참조하세요.
 - Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
-    - [Azure 예약이란?](../articles/billing/billing-save-compute-costs-reservations.md)
-    - [Azure에서 Reservations 관리](../articles/billing/billing-manage-reserved-vm-instance.md)
-    - [예약 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
-    - [종량제 요금을 사용하는 구독에 대한 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
-    - [엔터프라이즈 등록에서 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-    - [예약에 포함되지 않는 Windows 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+    - [Azure 예약이란?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+    - [Azure에서 Reservations 관리](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
+    - [예약 할인이 적용되는 방식 이해](../articles/cost-management-billing/manage/understand-vm-reservation-charges.md)
+    - [종량제 요금을 사용하는 구독에 대한 예약 사용량 이해](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)
+    - [엔터프라이즈 등록에서 예약 사용량 이해](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+    - [예약에 포함되지 않는 Windows 소프트웨어 비용](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
     - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)

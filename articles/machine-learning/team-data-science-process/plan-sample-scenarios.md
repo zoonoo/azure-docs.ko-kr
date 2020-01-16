@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: de02e94014fa2a28e364c4f85bcb31a1a4827b8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3e7d747901fb73afa78b6162316709d7d2e78927
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495059"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981125"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
 이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 애플리케이션 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
@@ -29,7 +29,7 @@ ms.locfileid: "73495059"
 > **이 모든 시나리오에서 다음을 수행해야 합니다.**
 > <br/>
 > 
-> * [스토리지 계정을 만드는](../../storage/common/storage-quickstart-create-account.md)
+> * [스토리지 계정을 만드는](../../storage/common/storage-account-create.md)
 >   <br/>
 > * [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
 > 
@@ -115,7 +115,7 @@ ms.locfileid: "73495059"
    
    b.  필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
    
-   c.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
+   다.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 1. Azure VM에서 실행되는 SQL Server 데이터베이스에 데이터를 로드 합니다.
    
    a.  SQL Server VM에 로그인합니다.
@@ -124,9 +124,9 @@ ms.locfileid: "73495059"
    
        storage container to local-VM folder.
    
-   c.  SQL Server Management Studio를 실행합니다.
+   다.  SQL Server Management Studio를 실행합니다.
    
-   ㄹ.  데이터베이스 및 대상 테이블을 만듭니다.
+   d.  데이터베이스 및 대상 테이블을 만듭니다.
    
    e.  대량 가져오기 메서드 중 하나를 사용하여 데이터를 로드합니다.
    
@@ -160,9 +160,9 @@ ms.locfileid: "73495059"
    
    b.  Azure Storage 컨테이너에서 로컬 VM 폴더로 데이터 파일을 다운로드합니다.
    
-   c.  SQL Server Management Studio를 실행합니다.
+   다.  SQL Server Management Studio를 실행합니다.
    
-   ㄹ.  데이터베이스 및 대상 테이블을 만듭니다.
+   d.  데이터베이스 및 대상 테이블을 만듭니다.
    
    e.  대량 가져오기 메서드 중 하나를 사용하여 데이터를 로드합니다.
    
@@ -186,7 +186,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 1. 원본 위치에서 데이터베이스를 분리합니다. 자세한 내용은 [데이터베이스 분리](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx)를 참조하세요.
 1. Windows 탐색기나 Windows 명령 프롬프트 창에서, 분리된 데이터베이스 파일을 복사하여 파일을 Azure의 SQL Server VM의 대상 위치에 로그합니다.
-1. 복사된 파일을 대상 SQL Server 인스턴스에 첨부합니다. 자세한 내용은 [데이터베이스 연결](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx)을 참조하세요.
+1. 복사된 파일을 대상 SQL Server 인스턴스에 첨부합니다. 자세한 내용은 [Attach a Database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx)을 참조하세요.
 
 [분리 및 연결을 사용하여 데이터베이스 이동(Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
@@ -204,7 +204,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    b.  필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
    
-   c.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
+   다.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 1. 2단계에서 선택한 Hadoop 클러스터의 기본 컨테이너에 데이터를 업로드합니다.
 1. Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스에 데이터를 로드합니다.
    
@@ -212,9 +212,9 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    b.  Hadoop 명령줄을 엽니다.
    
-   c.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
+   다.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
    
-   ㄹ.  Hive 쿼리를 실행하여 데이터베이스 및 테이블을 만들고 Blob Storage에서 Hive 테이블로 데이터를 로드합니다.
+   d.  Hive 쿼리를 실행하여 데이터베이스 및 테이블을 만들고 Blob Storage에서 Hive 테이블로 데이터를 로드합니다.
    
    > [!NOTE]
    > 데이터가 큰 경우 사용자는 파티션이 있는 Hive 테이블을 만들 수 있습니다. 그런 다음, 사용자는 헤드 노드의 Hadoop 명령줄에서 `for` 루프를 사용하여 파티션에서 분할된 Hive 테이블로 데이터를 로드합니다.
@@ -226,9 +226,9 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    b.  Hadoop 명령줄을 엽니다.
    
-   c.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
+   다.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
    
-   ㄹ.  Hadoop 클러스터의 헤드 노드에 있는 Hadoop 명령줄에서 Hive 쿼리를 실행하여 필요에 따라 데이터를 탐색하고 기능을 만듭니다.
+   d.  Hadoop 클러스터의 헤드 노드에 있는 Hadoop 명령줄에서 Hive 쿼리를 실행하여 필요에 따라 데이터를 탐색하고 기능을 만듭니다.
 1. 필요하거나 원하는 경우, Azure Machine Learning Studio에 맞게 데이터를 샘플링합니다.
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
 1. [데이터 가져오기][import-data] 모듈을 사용 하 여 `Hive Queries`에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우 필드를 추출 하 고, 기능을 만들고, 데이터를 샘플링 하는 데 필요한 쿼리를 붙여넣습니다.

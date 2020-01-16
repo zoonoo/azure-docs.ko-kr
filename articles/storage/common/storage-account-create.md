@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0d12f50b059bf74cc1bbc55913d4ce49b77f81fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 203bff23b2ae1a5e5e19b4abc323c3ffeb31f367
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486717"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975925"
 ---
 # <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
@@ -260,7 +260,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 
-또는 리소스 그룹을 삭제 하 여 해당 리소스 그룹의 저장소 계정 및 기타 리소스를 삭제 합니다. 리소스 그룹을 삭제 하는 방법에 대 한 자세한 내용은 [리소스 그룹 및 리소스 삭제](../../azure-resource-manager/resource-group-delete.md)를 참조 하세요.
+또는 리소스 그룹을 삭제 하 여 해당 리소스 그룹의 저장소 계정 및 기타 리소스를 삭제 합니다. 리소스 그룹을 삭제 하는 방법에 대 한 자세한 내용은 [리소스 그룹 및 리소스 삭제](../../azure-resource-manager/management/delete-resource-group.md)를 참조 하세요.
 
 > [!WARNING]
 > 삭제된 스토리지 계정을 복원할 수 없거나 삭제 전에 포함된 콘텐츠를 검색할 수 없습니다. 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다. 또한 해당 계정의 리소스에 대해 true를 유지합니다. Blob, 테이블, 큐 또는 파일을 삭제하면 영구적으로 삭제됩니다.

@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0549427cfc99703af9f13280cf7377106423367b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303966"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982003"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>팀 데이터 과학 프로세스 작동: Azure HDInsight Hadoop 클러스터 사용
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>실행 중인 팀 데이터 과학 프로세스: Azure HDInsight Hadoop 클러스터 사용
 이 연습에서는 엔드투엔드 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
 
 더 큰 데이터 세트를 처리하는 방법을 보여 주는 연습은 [팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md)을 참조하세요.
@@ -50,18 +50,18 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 ## <a name="mltasks"></a>예측 작업의 예제
 데이터 분석을 기반으로 만들려는 예측의 종류를 결정합니다. 이렇게 하면 프로세스에 포함해야 하는 작업을 명확하게 합니다. 다음은 이 연습에서 우리가 해결할 예측 문제에 대한 3가지 예제입니다. *tip\_amount*를 기반으로 합니다.
 
-- **이진 분류**: 운행에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, $0보다 큰 *팁\_금액*은 양수 예이고, $0의 *팁\_금액*은 음수 예입니다.
+- **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, $0보다 큰 *팁\_금액*은 양수 예이고, $0의 *팁\_금액*은 음수 예입니다.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **다중 클래스 분류**: 운행에 대해 지불된 팁 액수의 범위를 예측합니다. *tip\_amount*를 5개의 클래스로 나눕니다.
+- **다중 클래스 분류**: 여정에 대해 지불된 팁 금액의 범위를 예측합니다. *tip\_amount*를 5개의 클래스로 나눕니다.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.  
+- **회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.  
 
 ## <a name="setup"></a>고급 분석용 HDInsight Hadoop 클러스터 설정
 > [!NOTE]
@@ -71,7 +71,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 다음 세 단계를 통해 HDInsight 클러스터를 사용하는 고급 분석용 Azure 환경을 설정할 수 있습니다.
 
-1. [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md): 이 스토리지 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
+1. [스토리지 계정 만들기](../../storage/common/storage-account-create.md):이 스토리지 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
 2. [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터 사용자 지정하는 동안 기억해야 할 중요한 두 단계가 있습니다.
    
    * HDInsight 클러스터를 만들 때 1단계에서 만든 스토리지 계정을 연결해야 합니다. 이 스토리지 계정은 클러스터 내에서 처리되는 데이터에 액세스합니다.
@@ -88,11 +88,11 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 여기서는 AzCopy를 사용하여 데이터가 포함된 파일을 전송하는 방법을 설명합니다. AzCopy를 다운로드하여 설치하려면 [AzCopy 명령줄 유틸리티 시작](../../storage/common/storage-use-azcopy.md)의 지침을 따르세요.
 
-1. 명령 프롬프트 창에서 대체 다음 AzCopy 명령을 실행  *\<path_to_data_folder >* 를 원하는 대상:
+1. 명령 프롬프트 창에서 다음 AzCopy 명령을 실행 하 *\<path_to_data_folder >* 을 원하는 대상으로 바꿉니다.
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. 복사가 완료되면 총 24개의 압축된 파일이 선택한 데이터 폴더에 표시됩니다. 로컬 컴퓨터에서 동일한 디렉터리에 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더 라고 하는 *\<경로\_하\_unzipped_data\_파일\>* 이란에서 합니다.
+1. 복사가 완료되면 총 24개의 압축된 파일이 선택한 데이터 폴더에 표시됩니다. 로컬 컴퓨터에서 동일한 디렉터리에 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더는 다음과 같은\_*파일\>unzipped_data\_\_\<경로* 라고 합니다.
 
 ## <a name="upload"></a>HDInsight Hadoop 클러스터의 기본 컨테이너에 데이터 업로드
 > [!NOTE]
@@ -102,10 +102,10 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 다음 AzCopy 명령에서 다음 매개 변수를 Hadoop 클러스터를 만들고 데이터 파일의 압축을 풀 때 지정한 실제 값으로 바꿉니다.
 
-* ***\<path_to_data_folder >*** 압축 푼된 데이터 파일이 포함 된 컴퓨터에 있는 디렉터리 (경로)와 함께 합니다.  
-* ***\<Hadoop 클러스터의 저장소 계정 이름 >*** HDInsight 클러스터와 연결 된 저장소 계정입니다.
-* ***\<Hadoop 클러스터의 기본 컨테이너 >*** 클러스터에서 사용 된 기본 컨테이너입니다. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 같습니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
-* ***\<저장소 계정 키 >*** 클러스터에서 사용 되는 저장소 계정의 키입니다.
+* ***\<path_to_data_folder >*** 압축을 푼 데이터 파일이 들어 있는 컴퓨터의 디렉터리 (경로 포함)입니다.  
+* ***Hadoop 클러스터의 저장소 계정 이름\<*** HDInsight 클러스터와 연결 된 저장소 계정입니다.
+* ***Hadoop 클러스터의 기본 컨테이너\<*** 클러스터에서 사용 하는 기본 컨테이너입니다. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 같습니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
+* ***\<저장소 계정 키 >*** 클러스터에서 사용 하는 저장소 계정의 키입니다.
 
 명령 프롬프트 또는 Windows PowerShell 창에서 다음 두 AzCopy 명령을 실행합니다.
 
@@ -306,7 +306,7 @@ Hive 쿼리를 사용하여 Hive 테이블에 로드된 데이터에 대한 데�
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
-### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>탐색: 12개 파티션의 각 레코드 수 보기
+### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>탐색: 각 12개 파티션의 각 레코드 수 보기
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
@@ -376,7 +376,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 사용하여 fare 데이�
 
 두 테이블 모두의 총 레코드 수가 동일합니다. 이는 데이터가 올바르게 로드되었는지 확인하는 두 번째 유효성 검사를 제공합니다.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 운행 분포
+### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 여정 분포
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
@@ -410,7 +410,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>탐색: medallion 및 hack 라이선스별 운행 분포
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>탐색: medallion 및 hack license별 여정 분포
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
@@ -459,7 +459,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 이 명령에 포함된 *-S* 인수는 Hive 맵/감소 작업의 상태 화면 인쇄를 표시하지 않습니다. 이렇게 하면 Hive 쿼리 출력의 화면 인쇄를 좀 더 쉽게 읽을 수 있으므로 유용합니다.
 
-### <a name="exploration-binary-class-distributions-of-trip-tips"></a>탐색: 운행 팁의 이진 클래스 분포
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>탐색: 여정 팁의 이진 클래스 분포
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
@@ -563,7 +563,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 > 
 > 
 
-이 데이터를 Azure blob에 두면 [데이터 가져오기][import-data] 모듈을 사용하여 Machine Learning 내에서 데이터를 탐색할 수 있는 이점이 있습니다.
+데이터 [가져오기][import-data] 모듈을 사용 하 여 Machine Learning 내에서 데이터를 탐색할 수 있기 때문에이 데이터를 Azure blob에 배치 하는 것이 중요 합니다.
 
 ## <a name="#downsample"></a>Machine Learning에서 데이터 다운 샘플링 및 모델 빌드
 > [!NOTE]
@@ -571,12 +571,12 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 > 
 > 
 
-예비 데이터 분석 단계를 마쳤으므로 이제 Machine Learning에서 모델을 빌드하기 위한 데이터를 다운 샘플링할 수 있습니다. 이 섹션에서는 Hive 쿼리를 사용하여 데이터를 다운 샘플링하는 방법을 보여 줍니다. 그런 다음, Machine Learning은 [데이터 가져오기][import-data] 모듈에서 액세스합니다.
+예비 데이터 분석 단계를 마쳤으므로 이제 Machine Learning에서 모델을 빌드하기 위한 데이터를 다운 샘플링할 수 있습니다. 이 섹션에서는 Hive 쿼리를 사용하여 데이터를 다운 샘플링하는 방법을 보여 줍니다. 그런 다음 Machine Learning [데이터 가져오기][import-data] 모듈에서 액세스 합니다.
 
 ### <a name="down-sampling-the-data"></a>데이터 다운 샘플링
 이 절차에는 두 단계가 있습니다. 먼저 모든 레코드에 있는 세 개의 키(**medallion**, **hack\_license** 및 **pickup\_datetime**)에 **nyctaxidb.trip** 및 **nyctaxidb.fare** 테이블을 조인합니다. 그런 다음, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성합니다.
 
-다운 샘플링한 데이터를 Machine Learning의 [데이터 가져오기][import-data] 모듈에서 직접 사용하려면 앞의 쿼리 결과를 내부 Hive 테이블에 저장해야 합니다. 아래에서는 내부 Hive 테이블을 만들고 해당 콘텐츠를 조인 및 다운 샘플링된 데이터로 채웁니다.
+Machine Learning의 [데이터 가져오기][import-data] 모듈에서 직접 다운 샘플링 된 데이터를 사용할 수 있으려면 앞의 쿼리 결과를 내부 Hive 테이블에 저장 해야 합니다. 아래에서는 내부 Hive 테이블을 만들고 해당 콘텐츠를 조인 및 다운 샘플링된 데이터로 채웁니다.
 
 쿼리는 **pickup\_datetime** 필드에서 다음을 생성하도록 표준 Hive 함수를 직접 적용합니다.
 - 하루 중 시간
@@ -714,27 +714,27 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-이제 Machine Learning의 [데이터 가져오기][import-data] 모듈을 사용하여 액세스할 수 있는 내부 테이블 **nyctaxidb.nyctaxi_downsampled_dataset**가 생성되었습니다. 또한 이 데이터 세트를 사용하여 Machine Learning 모델을 빌드할 수 있습니다.  
+이제 Machine Learning에서 [데이터 가져오기][import-data] 모듈을 사용 하 여 액세스할 수 있는 내부 테이블 **nyctaxi_downsampled_dataset nyctaxidb**이 있습니다. 또한 이 데이터 세트를 사용하여 Machine Learning 모델을 빌드할 수 있습니다.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Machine Learning의 데이터 가져오기 모듈을 사용하여 다운 샘플링된 데이터 액세스
-Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼리를 실행하려면 Machine Learning 작업 영역에 액세스할 수 있어야 합니다. 또한 클러스터의 자격 증명 및 연결된 스토리지 계정에 액세스할 수 있어야 합니다.
+Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼리를 실행 하려면 Machine Learning 작업 영역에 액세스할 수 있어야 합니다. 또한 클러스터의 자격 증명 및 연결된 스토리지 계정에 액세스할 수 있어야 합니다.
 
-[데이터 가져오기][import-data] 모듈 및 입력할 매개 변수에 대한 세부 정보 중 일부는 다음과 같습니다.
+[데이터 가져오기][import-data] 모듈 및 입력할 매개 변수에 대 한 몇 가지 세부 정보는 다음과 같습니다.
 
-**HCatalog 서버 URI**: 클러스터 이름이 **abc123**인 경우, 간단히 https://abc123.azurehdinsight.net 입니다.
+**HCatalog server URI**: 클러스터 이름이 **abc123**인 경우, 간단히 https://abc123.azurehdinsight.net 입니다.
 
-**Hadoop 사용자 계정 이름**: 클러스터에 대해 선택한 사용자 이름입니다(원격 액세스 사용자 이름 아님).
+**Hadoop user account name**: 클러스터에 대해 선택한 사용자 이름입니다(원격 액세스 사용자 이름이 아님).
 
-**Hadoop ser 계정 암호**: 클러스터에 대해 선택한 암호입니다(원격 액세스 암호 아님).
+**Hadoop ser account password**: 클러스터에 대해 선택한 암호입니다(원격 액세스 암호가 아님).
 
-**출력 데이터의 위치**: Azure로 선택됩니다.
+**Location of output data**: Azure로 선택됩니다.
 
-**Azure 스토리지 계정 이름**: 클러스터와 연결된 기본 스토리지 계정의 이름입니다.
+**Azure storage account name**: 클러스터와 연결된 기본 스토리지 계정의 이름입니다.
 
-**Azure 컨테이너 이름**: 클러스터의 기본 컨테이너 이름이며, 일반적으로 클러스터 이름과 동일합니다. **abc123**이라는 클러스터의 경우 abc123입니다.
+**Azure container name**: 클러스터의 기본 컨테이너 이름이며, 일반적으로 클러스터 이름과 동일합니다. **abc123**이라는 클러스터의 경우 abc123입니다.
 
 > [!IMPORTANT]
-> Machine Learning의 [데이터 가져오기][import-data] 모듈을 사용하여 쿼리할 모든 테이블은 내부 테이블이어야 합니다.
+> Machine Learning의 [데이터 가져오기][import-data] 모듈을 사용 하 여 쿼리 하려는 모든 테이블은 내부 테이블 이어야 합니다.
 > 
 > 
 
@@ -757,11 +757,11 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 ### <a name="mlmodel"></a>Machine Learning에서 모델 빌드
 이제 [Machine Learning](https://studio.azureml.net)에서 모델 빌드 및 모델 배포를 진행할 수 있습니다. 이전에 파악된 다음과 같은 예측 문제를 해결하는 데 데이터를 사용할 수 있습니다.
 
-- **이진 분류**: 운행에 대해 팁이 지불되었는지 여부를 예측합니다.
+- **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다.
 
   **사용된 학습자:** 2클래스 로지스틱 회귀
 
-  a. 이 문제의 경우 대상(또는 클래스) 레이블은 **tipped**입니다. 다운 샘플링된 원래 데이터 세트에는 이 분류 실험의 대상 누수인 몇 가지 열이 있습니다. 특히 **tip\_class**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
+  a. 이 문제의 경우 대상(또는 클래스) 레이블은 **tipped**입니다. 다운 샘플링된 원래 데이터 세트에는 이 분류 실험의 대상 누수인 몇 가지 열이 있습니다. 특히 **tip\_class**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합에서 열 선택][select-columns] 모듈을 사용 하 여 이러한 열을 고려 대상에서 제거 합니다.
 
   다음 다이어그램은 지정된 여정에 대해 팁이 지불되었는지 여부를 예측하는 실험을 보여 줍니다.
 
@@ -777,13 +777,13 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   ![AUC 값의 차트](./media/hive-walkthrough/8JDT0F8.png)
 
-- **다중 클래스 분류**: 이전에 정의된 클래스를 사용하여 운행에 대해 지불된 팁 액수 범위를 예측합니다.
+- **다중 클래스 분류**: 이전에 정의된 클래스를 사용하여 여정에 대해 지불된 팁 금액 범위를 예측합니다.
 
   **사용된 학습자:** 다중 클래스 로지스틱 회귀
 
-  a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0, 1, 2, 3, 4) 중 하나일 수 있는 **tip\_class**입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 **tipped**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+  a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0, 1, 2, 3, 4) 중 하나일 수 있는 **tip\_class**입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 **tipped**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합에서 열 선택][select-columns] 모듈을 사용 하 여 이러한 열을 제거 합니다.
 
-  다음 다이어그램에서는 팁이 대체될 가능성이 높은 bin을 예측하는 실험을 보여 줍니다. bin은: Class 0: tip = $0, Class 1: tip > $0, tip <= $5, Class 2: tip > $5, tip <= $10, Class 3: tip > $10, tip <= $20 및 Class 4: tip > $20입니다.
+  다음 다이어그램에서는 팁이 대체될 가능성이 높은 bin을 예측하는 실험을 보여 줍니다. bin은 Class 0: tip = $0, Class 1: tip > $0, tip <= $5, Class 2: tip > $5, tip <= $10, Class 3: tip > $10, tip <= $20 및 Class 4: tip > $20입니다.
 
   ![팁에 대한 bin을 예측하는 실험 다이어그램](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -797,11 +797,11 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   많이 사용되는 클래스의 클래스 정확도는 비교적 높지만, 드물게 사용되는 클래스에서는 모델의 "학습" 작업 성능이 좋지 않습니다.
 
-- **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.
+- **회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.
 
   **사용된 학습자:** 향상된 의사 결정 트리
 
-  a. 이 문제의 대상(또는 클래스) 레이블은 **tip\_amount**입니다. 이 경우 대상 누수는 **tipped**, **tip\_class** 및 **total\_amount**입니다. 이러한 모든 변수는 테스트 시 일반적으로 사용할 수 없는 팁 크기에 대한 정보를 표시합니다. [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+  a. 이 문제의 대상(또는 클래스) 레이블은 **tip\_amount**입니다. 이 경우 대상 누수는 **tipped**, **tip\_class** 및 **total\_amount**입니다. 이러한 모든 변수는 테스트 시 일반적으로 사용할 수 없는 팁 크기에 대한 정보를 표시합니다. [데이터 집합에서 열 선택][select-columns] 모듈을 사용 하 여 이러한 열을 제거 합니다.
 
   다음 다이어그램은 운전 기사가 받은 팁 금액을 예측하는 실험을 보여 줍니다.
 

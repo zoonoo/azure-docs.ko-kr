@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: ccff07009d2f46f6d91b8e3c57158aa6ede3607e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 332f7a562fc8c1d7b2bbebb0e596a068797c2ce3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671423"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967218"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 
@@ -127,7 +127,7 @@ $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-weba
 ### <a name="references"></a>참조
 * [App Service 복제](app-service-web-app-cloning.md)
 * [Azure App Service에서 앱 백업](manage-backup.md)
-* [Azure Traffic Manager에 대한 Azure Resource Manager 지원 미리 보기](../traffic-manager/traffic-manager-powershell-arm.md)
+* [Azure Traffic Manager에 대한 Azure 리소스 관리자 지원 미리 보기](../traffic-manager/traffic-manager-powershell-arm.md)
 * [App Service Environment 소개](environment/intro.md)
-* [Azure Resource Manager로 Azure PowerShell 사용](../azure-resource-manager/manage-resources-powershell.md)
+* [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)
 
