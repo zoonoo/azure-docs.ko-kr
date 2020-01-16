@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2edb7674a82a0388a0e028bee1b222e0e55004
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754718"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046136"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB 요금 청구 이해
 
@@ -22,7 +22,8 @@ Azure Cosmos DB을 사용하면 프로비전된 처리량 및 사용된 스토�
 
 이 문서에서는 몇 가지 예외를 사용하여 월별 청구서에 표시되는 세부 항목을 이해하는 데 도움을 줍니다. 예제에 표시되는 수치는 Azure Cosmos 컨테이너가 다른 양의 처리량이 프로비전되었거나, 다중 지역에 걸쳐 있거나, 한 달 중 다른 기간에 실행된 경우 달라질 수 있습니다.
 
->! 참고: 요금은 60 분이 아니라 벽 시계 시간의 일부에 대해 청구 됩니다.
+> [!NOTE]
+> 요금 청구는 60 분이 아닌 벽 시계 시간의 일부에 대 한 것입니다.
 
 ## <a name="billing-examples"></a>청구 예
 

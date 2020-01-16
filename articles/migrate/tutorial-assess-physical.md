@@ -1,18 +1,14 @@
 ---
 title: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 물리적 서버 평가
 description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 온-프레미스 물리적 서버를 평가하는 방법에 대해 설명합니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 10cd13831fe6cb6b843f0a79a5d5ba56814bcde0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280543"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028998"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Azure Migrate를 사용하여 물리적 서버 평가: Server Assessment
 
@@ -20,7 +16,7 @@ ms.locfileid: "74280543"
 
 [Azure Migrate](migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
-이 자습서는 물리적 서버를 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 물리적 서버를 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Azure Migrate 프로젝트를 설정합니다.
 > * 온-프레미스에서 실행되는 Azure Migrate 어플라이언스에서 물리적 서버를 평가하도록 설정합니다.
@@ -34,7 +30,7 @@ ms.locfileid: "74280543"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 이 시리즈의 첫 번째 자습서를 [완료](tutorial-prepare-physical.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
@@ -141,7 +137,7 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스에서 [Azure URL](migrate-support-matrix-physical.md#assessment-appliance-url-access)에 연결할 수 있는지 확인합니다.
+어플라이언스에서 [Azure URL](migrate-appliance.md#url-access)에 연결할 수 있는지 확인합니다.
 
 
 ### <a name="configure-the-appliance"></a>어플라이언스 구성
@@ -198,7 +194,7 @@ Windows 및 Linux 서버에 대해 각각 자격 증명 집합 하나를 추가�
 
 Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다.
 
-**평가** | **세부 정보** | **데이터**
+**평가** | **세부 정보** | **Data**
 --- | --- | ---
 **성능 기반** | 수집된 성능 데이터를 기반으로 하는 평가 | **추천 VM 크기**: CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> **추천 디스크 유형(표준 또는 프리미엄 관리 디스크)** : 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.
 **온-프레미스로** | 온-프레미스 크기 조정을 기반으로 하는 평가 | **추천 VM 크기**: 온-프레미스 서버 크기를 기반으로 합니다.<br/><br> **추천 디스크 유형**: 평가를 위해 선택한 스토리지 유형 설정을 기반으로 합니다.
@@ -239,7 +235,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 
 ### <a name="view-an-assessment"></a>평가 보기
 
-1. **마이그레이션 목표** >  **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
+1. **마이그레이션 목표** >  **서버**의 **Azure Migrate: 서버 평가**에서 평가를 클릭합니다.
 2. **평가**에서 해당 평가를 클릭하여 엽니다.
 
     ![평가 요약](./media/tutorial-assess-physical/assessment-summary.png)
