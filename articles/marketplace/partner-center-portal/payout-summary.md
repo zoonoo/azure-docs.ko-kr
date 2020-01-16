@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931813"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979692"
 ---
 # <a name="payout-reporting"></a>지급 보고
 
@@ -52,7 +52,7 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 | 지급 준비가 되지 않은 트랜잭션 | 청구 진행 중 | 다음 예상 결제: 지급 상태가 처리 되지 않음 상태입니다.  |
 | 지급 상태 |  | 일별 <br> 이러한 획득은 지불에 적합 합니다. 이 상태는 동기 프로그램의 프로그램 가이드에 정의 된 대로 냉각 기간 동안 유지 됩니다. <br> <br> 그 <br> 지불 순서-지불을 처리 하기 전에 보류 중인 내부 검토를 생성 했습니다. <br> <br> 보냄: <br> 요금을 은행으로 보냈습니다. |
 
-## <a name="customer-types"></a>고객 유형 
+## <a name="customer-types"></a>고객 유형
 
 ### <a name="enterprise-agreement"></a>기업 계약
 
@@ -66,7 +66,7 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 
 예를 들어 고객이 신용 카드를 사용 하 여 구매 하는 경우
 
-## <a name="corelation-between-payout-and-usage"></a>지급와 usage 간의 Corelation 
+## <a name="corelation-between-payout-and-usage"></a>지급와 usage 간의 Corelation
 
 |Description    |    날짜  | 주문/사용  | 지급 |
 |----------|----------|-----------|-------------|
@@ -97,33 +97,33 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 
 ## <a name="transaction-history-download-export"></a>트랜잭션 기록 다운로드 내보내기
 
-이 옵션은 트랜잭션 기록 페이지에 표시 되는 각 줄 항목의 다운로드를 제공 하 고, 형식, 날짜, 연결 된 트랜잭션 금액, 고객, 제품 및 성과급 프로그램에 적용할 수 있는 기타 트랜잭션 정보를 제공 합니다. 
+이 옵션은 트랜잭션 기록 페이지에 표시 되는 각 줄 항목의 다운로드를 제공 하 고, 형식, 날짜, 연결 된 트랜잭션 금액, 고객, 제품 및 성과급 프로그램에 적용할 수 있는 기타 트랜잭션 정보를 제공 합니다.
 
-| 열 이름     | Description    | 
+| 열 이름     | Description    |
 |-------------|-------------------------------|
 | earningId                      | 각 획득에 대 한 고유 식별자                                                                                                       |
-| participantId                  | 파트너의 주 id는 프로그램에서 획득 합니다.                                                                            | 
-| participantIdType              | 매장 프로그램 및 Azure Marketplace에 대 한 경우 일반적으로 동기 프로그램 및 판매자의 프로그램 ID                                          | 
-| participantName                | 획득 파트너의 이름입니다.                                                                                                              | 
+| participantId                  | 파트너의 주 id는 프로그램에서 획득 합니다.                                                                            |
+| participantIdType              | 매장 프로그램 및 Azure Marketplace에 대 한 경우 일반적으로 동기 프로그램 및 판매자의 프로그램 ID                                          |
+| participantName                | 획득 파트너의 이름입니다.                                                                                                              |
 | partnerCountryCode             | 획득 파트너의 위치/국가                                                                                                  |
-| programName                    | 동기/스토어 프로그램 이름                                                                                                             | 
-| transactionId                  | 트랜잭션의 고유 식별자                                                                                                    | 
-| transactionCurrency            | 원래 고객 거래가 발생 한 통화 (파트너 위치 통화가 아님)                                     | 
-| transactionDate                | 트랜잭션의 날짜입니다. 많은 트랜잭션이 하나의 획득에 기여 하는 프로그램에 유용 합니다.                                           | 
-| transactionExchangeRate        | 해당 하는 트랜잭션 USD 금액을 표시 하는 데 사용 되는 환율                                                                 | 
-| transactionAmount              | 획득 된 획득을 기준으로 원래 트랜잭션 통화의 트랜잭션 양                                              | 
-| transactionAmountUSD           | USD의 트랜잭션 양                                                                                                                | 
-| 레버                          | 획득에 대 한 비즈니스 규칙을 나타냅니다.                                                                                                  | 
-| earningRate                    | 획득을 생성 하기 위해 트랜잭션 양에 적용 되는 동기 율                                                                      | 
-| quantity                       | 프로그램에 따라 다릅니다. 트랜잭션 프로그램의 청구 수량을 나타냅니다.                                                            | 
+| programName                    | 동기/스토어 프로그램 이름                                                                                                             |
+| transactionId                  | 트랜잭션의 고유 식별자                                                                                                    |
+| transactionCurrency            | 원래 고객 거래가 발생 한 통화 (파트너 위치 통화가 아님)                                     |
+| transactionDate                | 트랜잭션의 날짜입니다. 많은 트랜잭션이 하나의 획득에 기여 하는 프로그램에 유용 합니다.                                           |
+| transactionExchangeRate        | 해당 하는 트랜잭션 USD 금액을 표시 하는 데 사용 되는 환율                                                                 |
+| transactionAmount              | 획득 된 획득을 기준으로 원래 트랜잭션 통화의 트랜잭션 양                                              |
+| transactionAmountUSD           | USD의 트랜잭션 양                                                                                                                |
+| 레버                          | 획득에 대 한 비즈니스 규칙을 나타냅니다.                                                                                                  |
+| earningRate                    | 획득을 생성 하기 위해 트랜잭션 양에 적용 되는 동기 율                                                                      |
+| quantity                       | 프로그램에 따라 다릅니다. 트랜잭션 프로그램의 청구 수량을 나타냅니다.                                                            |
 | quantityType                   | 수량 유형을 나타냅니다 (예: 청구 수량, MAU).                                                                                     |
-| earningType                    | 요금, 리베이트, coop, 판매 등 인지를 나타냅니다.                                                                                          | 
+| earningType                    | 요금, 리베이트, coop, 판매 등 인지를 나타냅니다.                                                                                          |
 | earningAmount                  | 원래 트랜잭션 통화 금액을 획득 합니다.                                                                                      |
 | earningAmountUSD               | USD 단위로 금액 획득                                                                                                                    |
 | earningDate                    | 획득 날짜                                                                                                                      |
 | calculationDate                | 시스템이 시스템에서 계산 된 날짜                                                                                            |
 | earningExchangeRate            | 해당 USD amount를 표시 하는 데 사용 되는 환율                                                                                  |
-| exchangeRateDate               | EarningAmount USD를 계산 하는 데 사용 되는 환율 날짜                                                                                   | 
+| exchangeRateDate               | EarningAmount USD를 계산 하는 데 사용 되는 환율 날짜                                                                                   |
 | paymentAmountWOTax             | "보낸 사람" 지불에 대해서만 요금을 지불 하는 금액 (세금 제외)                                                                 |
 | paymentCurrency                | 지불 프로필에서 파트너가 선택한 통화로 요금을 지불 합니다. 전송 된 지불에 대해서만 표시 됩니다.                                                   |
 | paymentExchangeRate            | ExchangeRateDate를 사용 하 여 지불 통화로 paymentAmountWOTax 계산 하는 데 사용 되는 환율                                            |
@@ -162,7 +162,7 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 | taxZipCode       | 고객 Zip에 판매                                                                                                                  |
 | LicensingProgramName       |                                                                                                                   |
 | 프로그램 코드       | 프로그램 이름으로 매핑할 문자열                                                                                                                   |
-| earningAmountInLastPaymentCurrency       | 마지막 지불 통화 금액을 획득 합니다 (이전 지불액을 지불 하지 않은 경우 필드는 비어 있음).                                                                                                                   |
+| EarningAmountInLastPaymentCurrency       | 마지막 지불 통화 금액을 획득 합니다 (이전 지불액을 지불 하지 않은 경우 필드는 비어 있음).                                                                                                                   |
 | lastPaymentCurrency       | 마지막 지불 통화 (지불 되지 않은 경우 필드는 비어 있음)                                                                                                                   |
 | AssetId       | Marketplace 서비스의 고객 주문에 대 한 고유 식별자입니다.  트랜잭션 된 구매 라인 항목을 나타냅니다. 여러 자산이 있을 수 있습니다.                                                                                                                   |
 | OrderId       | 고객의 청구서와 관련이 있습니다.                                                                                                                   |

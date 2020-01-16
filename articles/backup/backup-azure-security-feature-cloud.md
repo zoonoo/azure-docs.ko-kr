@@ -3,12 +3,12 @@ title: 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 �
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: e3da4778a82cd5eb50fbb82c7f9f00cf6c6f1a85
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829632"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028213"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
@@ -251,7 +251,7 @@ Azure Virtual Machines을 백업 하는 동안 Azure Key Vault에 저장 된 암
 
 ### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 된 관리 되는 디스크 VM 백업
 
-Azure Backup를 사용 하면 고객이 관리 하는 키를 사용 하 여 암호화 된 디스크가 포함 된 Azure Virtual Machines를 백업할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 관리 디스크의 암호화](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview)를 참조 하세요.
+Azure Backup를 사용 하면 고객이 관리 하는 키를 사용 하 여 암호화 된 디스크가 포함 된 Azure Virtual Machines를 백업할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 관리 디스크의 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)를 참조 하세요.
 
 ### <a name="backup-of-encrypted-vms"></a>암호화 된 Vm 백업
 

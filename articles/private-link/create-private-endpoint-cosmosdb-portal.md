@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430311"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028583"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 개인적으로 Azure Cosmos 계정에 연결
 
@@ -141,7 +141,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
    10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1.  *Myvm*의 원격 데스크톱에서 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)를 설치 합니다.
+1. *Myvm*의 원격 데스크톱에서 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)를 설치 합니다.
 
 1. 마우스 오른쪽 단추를 클릭 하 여 **Cosmos DB 계정 (미리 보기)** 을 선택 합니다.
 
@@ -159,22 +159,22 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 1. (선택 사항) *mycosmosaccount*에 새 항목을 추가 합니다.
 
-1.  *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다.
+1. *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 개인 끝점, Azure Cosmos 계정 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 여기에 포함 된 모든 리소스를 삭제 합니다. 
 
-1. 포털 맨 위에 있는 **검색** 상자에  *myResourceGroup* 을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다.
+1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력하고 검색 결과에서 *myResourceGroup*을 선택합니다.
 
 1. **리소스 그룹 삭제**를 선택합니다.
 
-1. **리소스 그룹 이름 입력** 에 *myresourcegroup* 를 입력 하 고 **삭제**를 선택 합니다.
+1. **리소스 그룹 이름 입력**에 대해 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 가상 네트워크, Azure Cosmos 계정 및 개인 끝점에서 VM을 만들었습니다. 인터넷에서 VM에 연결 하 고 개인 링크를 사용 하 여 Azure Cosmos 계정에 안전 하 게 전달 했습니다.
 
-* 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](private-endpoint-overview.md)을 참조 하세요.
+* 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](private-endpoint-overview.md)을 참조 하세요.
 
 * With Azure Cosmos DB를 사용 하는 경우 개인 끝점의 제한에 대 한 자세한 내용은 Azure Cosmos DB 문서를 사용 하는 [Azure 개인 링크](../cosmos-db/how-to-configure-private-endpoints.md) 를 참조 하세요.

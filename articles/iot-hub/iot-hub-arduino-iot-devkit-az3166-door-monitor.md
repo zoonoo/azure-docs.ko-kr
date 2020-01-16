@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954745"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977308"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터-Azure Functions 및 SendGrid를 사용 하 여 도어를 열 때 전자 메일 보내기           
 
@@ -37,7 +37,7 @@ MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다
 * DevKit을 Wi-Fi에 연결
 * 개발 환경 준비
 
-활성 Azure 구독. 구독이 없으면 다음과 같은 방법 중 하나를 통해 등록할 수 있습니다.
+활성화된 Azure 구독. 구독이 없으면 다음과 같은 방법 중 하나를 통해 등록할 수 있습니다.
 
 * [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/)을 활성화합니다.
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
@@ -65,7 +65,7 @@ Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합
 
 등록 양식을 작성합니다.
 
-   * **리소스 그룹**: SendGrid 서비스를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/manage-resource-groups-portal.md)(영문)를 참조하세요.
+   * **리소스 그룹**: SendGrid 서비스를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)(영문)를 참조하세요.
 
    * **이름**: SendGrid 서비스의 이름입니다. 이미 설치된 다른 서비스와 다른 고유한 이름을 선택합니다.
 
@@ -105,7 +105,7 @@ API 키는 한 번만 표시됩니다. 다음 단계에서 사용되므로 복�
 
 등록 양식에 나온 필드를 채웁니다.
 
-   * **리소스 그룹**: SendGrid 서비스를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/manage-resource-groups-portal.md)(영문)를 참조하세요.
+   * **리소스 그룹**: SendGrid 서비스를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)(영문)를 참조하세요.
 
    * **IoT Hub이름**: IoT Hub의 이름. 이미 설치된 다른 서비스와 다른 고유한 이름을 선택합니다.
 
@@ -190,7 +190,7 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
-문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의해주세요.
+문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의하세요.
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)

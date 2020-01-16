@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 77e23467551df8d72fd999049c490600eff11825
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a62e970e27d689eb639a62938376f73410c270
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763643"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024915"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -156,27 +156,35 @@ print(blob.location)
     > [!IMPORTANT]
     > Azure Machine Learning에서 만든 이미지는 Linux를 사용 하므로 `--is-linux` 매개 변수를 사용 해야 합니다.
 
-1. 함수 앱을 만들려면 다음 명령을 사용 합니다. `<app-name>`를 사용 하려는 이름으로 바꿉니다. `<acrinstance>` 및 `<imagename>`를 앞에서 반환 된 `package.location` 값으로 바꿉니다.
-
-    ```azurecli-interactive
-    az storage account create --name 
-    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
-    ```
-
-    > [!IMPORTANT]
-    > 이제 함수 앱이 생성 되었습니다. 그러나 이미지를 포함 하는 Azure Container Registry에 대 한 blob 트리거 또는 자격 증명에 대 한 연결 문자열을 제공 하지 않았으므로 함수 앱은 활성화 되지 않습니다. 다음 단계에서는 컨테이너 레지스트리에 대 한 연결 문자열과 인증 정보를 제공 합니다. 
-
-1. 트리거로 사용할 저장소 계정을 만들고 연결 문자열을 가져옵니다.
+1. 웹 작업 저장소에 사용할 저장소 계정을 만들고 연결 문자열을 가져옵니다. `<webjobStorage>`를 사용 하려는 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
-    az storage account show-connection-string --resource-group myresourcegroup --name triggerStorage --query connectionString --output tsv
+    az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
+    ```
+
+1. 함수 앱을 만들려면 다음 명령을 사용 합니다. `<app-name>`를 사용 하려는 이름으로 바꿉니다. `<acrinstance>` 및 `<imagename>`를 앞에서 반환 된 `package.location` 값으로 바꿉니다. Replace `<webjobStorage>`을 이전 단계의 저장소 계정 이름으로 바꿉니다.
+
+    ```azurecli-interactive
+    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
+    ```
+
+    > [!IMPORTANT]
+    > 이제 함수 앱이 생성 되었습니다. 그러나 이미지를 포함 하는 Azure Container Registry에 대 한 blob 트리거 또는 자격 증명에 대 한 연결 문자열을 제공 하지 않았으므로 함수 앱은 활성화 되지 않습니다. 다음 단계에서는 컨테이너 레지스트리에 대 한 연결 문자열과 인증 정보를 제공 합니다. 
+
+1. Blob 트리거 저장소에 사용할 저장소 계정을 만들고 연결 문자열을 가져옵니다. `<triggerStorage>`를 사용 하려는 이름으로 바꿉니다.
+
+    ```azurecli-interactive
+    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    ```
+    ```azurecli-interactive
+    az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     이 연결 문자열을 기록 하 여 함수 앱에 제공 합니다. 나중에 `<triggerConnectionString>`을 요청할 때이를 사용 합니다.
 
-1. 저장소 계정에 입력 및 출력에 대 한 컨테이너를 만듭니다. 
+1. 저장소 계정에 입력 및 출력에 대 한 컨테이너를 만듭니다. `<triggerConnectionString>`를 앞에서 반환 된 연결 문자열로 바꿉니다.
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -185,12 +193,17 @@ print(blob.location)
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. 다음 명령을 사용 하 여 만들어진 컨테이너와 연결 된 태그를 검색 해야 합니다.
+1. 트리거 연결 문자열과 함수 앱을 연결 하려면 다음 명령을 사용 합니다. `<app-name>`을 함수 앱의 이름으로 바꿉니다. `<triggerConnectionString>`를 앞에서 반환 된 연결 문자열로 바꿉니다.
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
+    ```
+1. 다음 명령을 사용 하 여 만들어진 컨테이너와 연결 된 태그를 검색 해야 합니다. `<username>`를 컨테이너 레지스트리에서 앞에서 반환 된 사용자 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    표시 되는 최신 태그는 아래 `imagetag` 됩니다.
+    반환 된 값을 저장 합니다 .이 값은 다음 단계에서 `imagetag`로 사용 됩니다.
 
 1. 컨테이너 레지스트리에 액세스 하는 데 필요한 자격 증명을 함수 앱에 제공 하려면 다음 명령을 사용 합니다. `<app-name>`를 사용 하려는 이름으로 바꿉니다. `<acrinstance>` 및 `<imagetag>`을 이전 단계에서 AZ CLI 호출의 값으로 바꿉니다. `<username>` 및 `<password>`를 앞에서 검색 한 ACR 로그인 정보로 바꿉니다.
 

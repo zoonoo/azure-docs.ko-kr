@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
-ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721135"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968209"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>자습서: Azure 스토리지 큐 작업
 
 Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통신을 가능하게 해주는 클라우드 기반 큐를 구현합니다. 각 큐는 발신자 구성 요소에서 추가하고 수신자 구성 요소에서 처리할 수 있는 메시지 목록을 유지합니다. 큐를 사용하면 수요에 따라 애플리케이션을 즉시 확장할 수 있습니다. 이 문서에서는 Azure 스토리지 큐를 작업하는 기본 단계를 보여줍니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -33,7 +33,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 > - 명령줄 인수 확인
 > - 앱 빌드 및 실행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 플랫폼 간 [Visual Studio Code](https://code.visualstudio.com/download) 편집기의 무료 복사본을 가져옵니다.
 - [.NET Core SDK](https://dotnet.microsoft.com/download)를 다운로드하여 설치합니다.
@@ -41,7 +41,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-먼저, Azure 스토리지 계정을 만듭니다. 스토리지 계정을 만드는 방법에 대한 단계별 지침은 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) 빠른 시작을 참조하세요.
+먼저, Azure 스토리지 계정을 만듭니다. 스토리지 계정을 만드는 방법에 대한 단계별 지침은 [스토리지 계정 만들기](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) 빠른 시작을 참조하세요.
 
 ## <a name="create-the-app"></a>앱 만들기
 
@@ -505,7 +505,7 @@ await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, nu
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 1. 큐 만들기
 2. 큐에서 메시지 추가 및 제거

@@ -7,12 +7,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: d02ea18422e20aa2fede4f25cdffa985607e7b5c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 58dd53d9380448f177da48659b4f48c261bcfc14
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597336"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745443"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -55,9 +55,9 @@ Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다.
 - **Azure 구독 모니터링 데이터**: Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
 - **Azure 테넌트 모니터링 데이터**: Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
 
-Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](platform/activity-logs-overview.md)가 기록됩니다. [메트릭](platform/data-platform.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
+Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](platform/platform-logs-overview.md)가 기록됩니다. [메트릭](platform/data-platform.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
 
-[진단을 사용하도록 설정](platform/resource-logs-overview.md)하고 컴퓨팅 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
+[진단을 사용하도록 설정](platform/platform-logs-overview.md)하고 컴퓨팅 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
 
 [App Services 애플리케이션](app/azure-web-apps.md) 또는 [VM 및 가상 머신 확장 집합 애플리케이션](app/azure-vm-vmss-apps.md)에 대한 모니터링을 사용하도록 설정하여 Application Insights가 페이지 보기, 애플리케이션 요청 및 예외를 포함하여 애플리케이션에 대한 자세한 정보를 수집할 수 있도록 합니다. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](app/monitor-web-app-availability.md)를 구성하여 애플리케이션의 가용성을 추가로 확인하세요.
 
@@ -80,7 +80,7 @@ Azure Monitor는 [데이터 수집기 API](platform/data-collector-api.md)를 �
 ![컨테이너 상태](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
-[VM용 Azure Monitor](insights/vminsights-overview.md)는 다양한 프로세스와 다른 리소스 및 외부 프로세스에 대한 상호 연결된 종속성을 포함하여 Windows 및 Linux VM의 성능과 상태를 분석하여 Azure VM(가상 머신)을 규모에 맞게 모니터링합니다. 이 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다.  
+[VM용 Azure Monitor](insights/vminsights-overview.md)는 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모 Azure VM(가상 머신)을 모니터링하며, 여기에는 VM의 여러 프로세스, 그리고 다른 리소스 및 외부 프로세스에 대한 상호 연결된 종속성이 포함됩니다. 이 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다.  
 
 
 ![VM 인사이트](media/overview/vm-insights.png)

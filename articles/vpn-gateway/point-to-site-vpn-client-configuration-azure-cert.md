@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4df22108591fe3f80078bce050081c4953443847
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 9342a70e539c4a2717fe45426c26595285172681
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902989"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045786"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -99,9 +99,14 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 4. **Generic** 폴더의 **VpnSettings.xml** 파일에서 **VpnServer** 태그 값을 복사합니다. 이 값을 프로필의 **서버 주소** 및 **원격 ID** 필드에 붙여넣습니다.
 
    ![서버 정보](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. **인증 설정**을 클릭하고 **인증서**를 선택합니다. 
+5. **인증 설정**을 클릭하고 **인증서**를 선택합니다. **Catalina.properties**에 대해 **없음** 을 클릭 한 다음 **인증서** 를 클릭 합니다.
 
    ![인증 설정](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
+
+   * Catalina.properties에 대해 **없음** 을 선택 하 고 **인증서**를 선택 합니다. 올바른 인증서를 **선택** 합니다.
+   
+   ![catalina.properties](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+
 6. **선택...** 을 클릭합니다. 인증에 사용하려는 클라이언트 인증서를 선택합니다. 이 인증서는 2단계에서 설치한 인증서입니다.
 
    ![인증서(certificate)](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)

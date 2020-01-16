@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278802"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980094"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
-이 문서에서는 Log Analytics 작업 영역을 동일한 지역의 다른 리소스 그룹 또는 구독으로 이동 하는 단계에 대해 알아봅니다. Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 Azure 리소스를 이동 하는 방법에 대해 자세히 알아볼 수 있습니다. 에서 [리소스를 새 리소스 그룹 또는 구독으로 이동](../../azure-resource-manager/resource-group-move-resources.md)합니다. 
+이 문서에서는 Log Analytics 작업 영역을 동일한 지역의 다른 리소스 그룹 또는 구독으로 이동 하는 단계에 대해 알아봅니다. Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 Azure 리소스를 이동 하는 방법에 대해 자세히 알아볼 수 있습니다. 에서 [리소스를 새 리소스 그룹 또는 구독으로 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)합니다. 
 
 > [!IMPORTANT]
 > 작업 영역을 다른 지역으로 이동할 수 없습니다.
@@ -35,7 +35,7 @@ ms.locfileid: "74278802"
 Automation 계정 연결을 해제 하기 전에 제거 해야 하는 솔루션은 다음과 같습니다.
 
 - 업데이트 관리
-- 변경 내용 추적
+- 변경 추적
 - 작업이 없는 동안 VM 시작/중지
 
 
@@ -82,7 +82,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 
 ## <a name="move-your-workspace"></a>작업 영역 이동
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 다음 절차에 따라 Azure Portal를 사용 하 여 작업 영역을 이동할 수 있습니다.
 
 1. **Log Analytics 작업 영역** 메뉴를 열고 작업 영역을 선택 합니다.
@@ -107,4 +107,4 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 ## <a name="next-steps"></a>다음 단계
-- 이동을 지 원하는 리소스 목록은 [리소스에 대 한 이동 작업 지원](../../azure-resource-manager/move-support-resources.md)을 참조 하세요.
+- 이동을 지 원하는 리소스 목록은 [리소스에 대 한 이동 작업 지원](../../azure-resource-manager/management/move-support-resources.md)을 참조 하세요.

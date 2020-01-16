@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456546"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965882"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>논리 앱 리소스를 다른 Azure 구독, 리소스 그룹 또는 지역으로 이동
 
@@ -33,7 +33,7 @@ ms.locfileid: "75456546"
 
 ## <a name="move-resources-between-subscriptions"></a>구독 간에 리소스 이동
 
-논리 앱 또는 통합 계정과 같은 리소스를 다른 Azure 구독으로 이동 하려면 Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 이러한 단계는 리소스의 지역이 동일 하 게 유지 될 때 사용할 수 있는 Azure Portal를 포함 합니다. 다른 단계 및 일반 준비는 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조 하세요.
+논리 앱 또는 통합 계정과 같은 리소스를 다른 Azure 구독으로 이동 하려면 Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 이러한 단계는 리소스의 지역이 동일 하 게 유지 될 때 사용할 수 있는 Azure Portal를 포함 합니다. 다른 단계 및 일반 준비는 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조 하세요.
 
 1. [Azure Portal](https://portal.azure.com)에서 이동 하려는 논리 앱 리소스를 찾아 선택 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "75456546"
 
 ## <a name="move-resources-between-resource-groups"></a>리소스 그룹 간 리소스 이동
 
-논리 앱 또는 통합 계정과 같은 리소스를 다른 Azure 리소스 그룹으로 이동 하려면 Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 이러한 단계는 리소스의 지역이 동일 하 게 유지 될 때 사용할 수 있는 Azure Portal를 포함 합니다. 다른 단계 및 일반 준비는 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조 하세요.
+논리 앱 또는 통합 계정과 같은 리소스를 다른 Azure 리소스 그룹으로 이동 하려면 Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 이러한 단계는 리소스의 지역이 동일 하 게 유지 될 때 사용할 수 있는 Azure Portal를 포함 합니다. 다른 단계 및 일반 준비는 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조 하세요.
 
 실제로 그룹 간에 리소스를 이동 하기 전에 리소스를 다른 그룹으로 이동할 수 있는지 여부를 테스트할 수 있습니다. 자세한 내용은 [이동 유효성 검사](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move)를 참조 하세요.
 
@@ -106,4 +106,4 @@ Visual Studio에서 가져오는 템플릿에는 논리 앱 및 해당 연결에
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 리소스를 새 리소스 그룹 또는 구독으로 이동](../azure-resource-manager/resource-group-move-resources.md)
+[Azure 리소스를 새 리소스 그룹 또는 구독으로 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)

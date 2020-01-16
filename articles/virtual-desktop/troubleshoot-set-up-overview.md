@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.author: helohr
-ms.openlocfilehash: 817cd09797ad861521a462da9c5d0850c65bf562
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ce1af278d67f96873ed611db8dc05938205638dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459582"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980235"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
@@ -27,7 +27,7 @@ ms.locfileid: "75459582"
 다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정할 때 발생할 수 있는 문제를 식별 하 고 해결할 수 있습니다. 테 넌 트가 설정 되 면 새로운 [진단 서비스](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) 를 사용 하 여 일반적인 시나리오에 대 한 문제를 식별할 수 있습니다.
 
 >[!NOTE]
-> 제품 팀 및 활성 커뮤니티 구성원의 문제를 논의 하기 위해 방문할 수 있는 기술 커뮤니티 포럼이 있습니다. [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 를 방문 하 여 
+> 제품 팀 및 활성 커뮤니티 구성원의 문제를 논의 하기 위해 방문할 수 있는 기술 커뮤니티 포럼이 있습니다. [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 를 방문 하 여
 
 | **문제점**                                                            | **제안 된 솔루션**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
@@ -54,6 +54,6 @@ ms.locfileid: "75459582"
 - 원격 데스크톱 클라이언트와 관련 된 문제를 해결 하려면 [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md) 을 참조 하세요.
 - Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](environment-setup.md)을 참조 하세요.
-- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md)을 참조 하세요.
-- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md)를 참조하세요.
-- 배포 하는 동안 오류를 확인 하는 작업에 대해 알아보려면 [배포 작업 보기](../azure-resource-manager/resource-manager-deployment-operations.md)를 참조 하세요.
+- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조 하세요.
+- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
+- 배포 하는 동안 오류를 확인 하는 작업에 대해 알아보려면 [배포 작업 보기](../azure-resource-manager/templates/deployment-history.md)를 참조 하세요.

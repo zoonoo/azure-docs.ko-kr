@@ -1,14 +1,14 @@
 ---
 title: 서비스 공급자 작업 보기
 description: 고객은 Azure 위임 된 리소스 관리를 통해 서비스 공급자가 수행한 작업을 확인 하기 위해 기록 된 활동을 볼 수 있습니다.
-ms.date: 12/6/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31a9e7ff80623cc59b0a2db5951dff95d3088b05
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: de149bddb6917a63d91b1890c0430f64465cb40c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749183"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046103"
 ---
 # <a name="view-service-provider-activity"></a>서비스 공급자 작업 보기
 
@@ -24,6 +24,9 @@ Azure Portal의 **모니터** 메뉴에서 [활동 로그를 볼](../../azure-mo
 활동 로그에 작업 이름과 해당 상태가 수행 된 날짜 및 시간과 함께 표시 됩니다. **시작 된 이벤트** 열은 작업을 수행한 사용자 (Azure 위임 된 리소스 관리를 통해 작동 하는 서비스 공급자의 테 넌 트에 있는 사용자 또는 고객의 테 넌 트에 있는 사용자)를 표시 합니다. 사용자가 해당 구독에 할당 된 테 넌 트 또는 역할이 아닌 사용자 이름이 표시 됩니다.
 
 로깅된 활동은 지난 90 일간 Azure Portal에서 사용할 수 있습니다. 90 일 넘게이 데이터를 저장 하는 방법을 알아보려면 [의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](../../azure-monitor/platform/activity-log-collect.md) 을 참조 하세요 Azure Monitor
+
+> [!NOTE]
+> 서비스 공급자의 사용자는 활동 로그에 표시 되지만 이러한 사용자 및 해당 역할 할당은 **Access Control (IAM)** 또는 api를 통해 역할 할당 정보를 검색할 때 표시 되지 않습니다.
 
 ## <a name="set-alerts-for-critical-operations"></a>중요 한 작업에 대 한 경고 설정
 

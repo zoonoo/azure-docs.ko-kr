@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133326"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981605"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답(미리보기)
 
@@ -22,10 +22,10 @@ ms.locfileid: "74133326"
 
 이 가이드는 Event Grid를 통해 Key Vault 알림을 받는 방법과 Azure Automation을 통해 상태 변경에 응답하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- Azure 구독의 키 자격 증명 모음. [Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정 및 검색](quick-create-cli.md)에 나온 단계에 따라 새로운 키 자격 증명 모음을 빠르게 만들 수 있습니다.
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독의 키 자격 증명 모음. [Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색](quick-create-cli.md)의 단계에 따라 새로운 키 자격 증명 모음을 빠르게 만들 수 있습니다.
 
 ## <a name="concepts"></a>개념
 
@@ -184,7 +184,7 @@ Event Grid 구독이 올바르게 구성되었는지 확인합니다. 이 테스
 
 ### <a name="you-cant-create-an-event-subscription"></a>이벤트 구독을 만들 수 없습니다.
 
-Azure 구독 리소스 공급자에서 Event Grid 및 키 자격 증명 모음 공급자를 다시 등록합니다. [Azure 리소스 공급자 및 종류](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
+Azure 구독 리소스 공급자에서 Event Grid 및 키 자격 증명 모음 공급자를 다시 등록합니다. [Azure 리소스 공급자 및 종류](../azure-resource-manager/management/resource-providers-and-types.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

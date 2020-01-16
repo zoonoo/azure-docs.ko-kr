@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: aea3e6d0e7b0a1d2f28d67f013701a9af5c3ba70
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: cd94001cfe795e7aa78a1332325052afce6b8ec6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75542189"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762810"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -46,13 +46,13 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 
 + <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R용 SDK</a>를 사용하여 고유한 코드를 작성하는 R 스크립트 또는 Notebook이나 디자이너에서 사용하는 R 모듈
 
-+ [Visual Studio Code 확장](service/how-to-vscode-tools.md)
++ [Visual Studio Code 확장](how-to-vscode-tools.md)
 
 + [기계 학습 CLI](reference-azure-machine-learning-cli.md)
 
 + PyTorch, TensorFlow, scikit-learn 등과 같은 많은 오픈 소스 프레임워크
 
-[MLflow를 사용하여 메트릭을 추적](service/how-to-use-mlflow.md)하거나 Kubeflow를 사용하여 [엔드투엔드 워크플로 파이프라인을 빌드](https://www.kubeflow.org/docs/azure/)할 수도 있습니다.
+[MLflow를 사용하여 메트릭을 추적](how-to-use-mlflow.md)하거나 Kubeflow를 사용하여 [엔드투엔드 워크플로 파이프라인을 빌드](https://www.kubeflow.org/docs/azure/)할 수도 있습니다.
 
 ## <a name="build-ml-models-in-python-or-r"></a>Python 또는 R에서 ML 모델 빌드
 
@@ -104,12 +104,12 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 
 + __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, __Azure HDInsight__ 등의 컴퓨팅 대상. 컴퓨팅 대상에 대한 자세한 내용은 [컴퓨팅 대상이란?](concept-compute-target.md)을 참조하세요.
 + __Azure Event Grid__. 자세한 내용은 [Azure Machine Learning 이벤트 사용](concept-event-grid-integration.md)을 참조하세요.
-+ __Azure Monitor__ 자세한 내용은 [Azure Machine Learning 모니터링](service/monitor-azure-machine-learning.md)을 참조하세요.
++ __Azure Monitor__ 자세한 내용은 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.
 + __Azure Storage 계정__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, __Azure Open Datasets__ 등의 데이터 저장소. 자세한 내용은 [Azure 스토리지 서비스에서 데이터 액세스](how-to-access-data.md) 및 [Azure Open Datasets로 데이터 세트 만들기](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets)를 참조하세요.
 + __Azure Virtual Network__. 자세한 내용은 [가상 네트워크에서 실험 및 유추 보호](how-to-enable-virtual-network.md)를 참조하세요.
 + __Azure Pipelines__. 자세한 내용은 [기계 학습 모델의 학습 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 참조하세요.
 + __Git 리포지토리 로그__. 자세한 내용은 [Git 통합](concept-train-model-git-integration.md)을 참조하세요.
-+ __MLFlow__. 자세한 내용은 [MLflow를 사용하여 메트릭을 추적하고 모델 배포](service/how-to-use-mlflow.md)를 참조하세요. 
++ __MLFlow__. 자세한 내용은 [MLflow를 사용하여 메트릭을 추적하고 모델 배포](how-to-use-mlflow.md)를 참조하세요. 
 + __Kubeflow__. 자세한 내용은 [엔드투엔드 워크플로 파이프라인 빌드](https://www.kubeflow.org/docs/azure/)를 참조하세요.
 
 ### <a name="secure-communications"></a>통신 보안
@@ -135,10 +135,10 @@ Edition은 작업 영역을 만들 때마다 할당합니다. 또한 기존 작�
 - 선호하는 방법으로 첫 번째 실험을 만드세요.
   + [Python Notebook을 사용하여 ML 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
   + [R Markdown을 사용하여 ML 모델을 학습 및 배포](tutorial-1st-r-experiment.md) 
-  + [자동화된 기계 학습을 사용하여 ML 모델 학습 및 배포](  service/tutorial-first-experiment-automated-ml.md) 
+  + [자동화된 기계 학습을 사용하여 ML 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md) 
   + [디자이너의 끌어서 놓기 기능을 사용하여 학습 및 배포](tutorial-designer-automobile-price-train-score.md) 
   + [기계 학습 CLI를 사용하여 모델 학습 및 배포](tutorial-train-deploy-model-cli.md)
 
-- 머신 러닝 시나리오를 작성, 최적화 및 관리하는 [머신 러닝 파이프라인](/azure/machine-learning/service/concept-ml-pipelines)에 대해 알아보세요.
+- 머신 러닝 시나리오를 작성, 최적화 및 관리하는 [머신 러닝 파이프라인](concept-ml-pipelines.md)에 대해 알아보세요.
 
 - 심층적인 [Azure Machine Learning 아키텍처 및 개념](concept-azure-machine-learning-architecture.md) 문서를 참조하세요.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930704"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046035"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -48,7 +48,7 @@ Azure 응용 프로그램 계획, 관리 되는 응용 프로그램 및 솔루�
 
 * [Createuidefinition. json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview)이라는 Azure 응용 프로그램 만들기 환경의 사용자 인터페이스 정의입니다.  사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
 
-모든 새 Azure 응용 프로그램 제품은 [azure 파트너 고객 사용 특성 GUID](??)를 포함 해야 합니다.
+모든 새 Azure 응용 프로그램 제품은 [azure 파트너 고객 사용 특성 GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution)를 포함 해야 합니다.
 
 ### <a name="before-you-begin"></a>시작하기 전에
 

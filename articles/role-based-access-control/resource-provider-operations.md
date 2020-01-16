@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9d4b4134fa26fd2cb904a862ac16544873bf8bcb
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e2655a03fe315feb58668fcda0d19578a5df1a78
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934471"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981083"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
-이 문서에는 각 Azure Resource Manager 리소스 공급자에서 사용할 수 있는 작업 목록이 나열되어 있습니다. [사용자 지정 역할](custom-roles.md)에서 이러한 작업을 사용하여 Azure의 리소스에 대해 세분화된 [RBAC(역할 기반 액세스 제어)](overview.md)를 제공할 수 있습니다. 작업 문자열의 형식은 `{Company}.{ProviderName}/{resourceType}/{action}`입니다. 리소스 공급자 네임 스페이스를 Azure 서비스에 매핑하는 방법에 대 한 목록은 [리소스 공급자와 서비스의 일치](../azure-resource-manager/azure-services-resource-providers.md)를 참조 하세요.
+이 문서에는 각 Azure Resource Manager 리소스 공급자에서 사용할 수 있는 작업 목록이 나열되어 있습니다. [사용자 지정 역할](custom-roles.md)에서 이러한 작업을 사용하여 Azure의 리소스에 대해 세분화된 [RBAC(역할 기반 액세스 제어)](overview.md)를 제공할 수 있습니다. 작업 문자열의 형식은 `{Company}.{ProviderName}/{resourceType}/{action}`입니다. 리소스 공급자 네임 스페이스를 Azure 서비스에 매핑하는 방법에 대 한 목록은 [리소스 공급자와 서비스의 일치](../azure-resource-manager/management/azure-services-resource-providers.md)를 참조 하세요.
 
 리소스 공급자 작업은 계속 업데이트됩니다. 최신 작업을 가져오려면 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 또는 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list)를 사용합니다.
 
@@ -6708,6 +6708,6 @@ ms.locfileid: "75934471"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [리소스 공급자와 서비스 일치](../azure-resource-manager/azure-services-resource-providers.md)
+- [리소스 공급자와 서비스 일치](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
 - [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)

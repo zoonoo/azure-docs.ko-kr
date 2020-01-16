@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707094"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980859"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell를 사용 하 여 저장소 계정 키 관리
 
@@ -42,19 +42,19 @@ Azure AD 테 넌 트는 등록 된 각 응용 프로그램을 [서비스 사용�
 
 Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응용 프로그램입니다. Key Vault은 각 Azure 클라우드에서 동일한 응용 프로그램 ID로 등록 됩니다.
 
-| 테 넌 트 | 클라우드 | 애플리케이션 UI |
+| 테넌트 | 클라우드 | 애플리케이션 UI |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| 다른  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Azure 퍼블릭 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-az-ps?view=azps-2.6.0)합니다.
 - [키 자격 증명 모음 만들기](quick-create-powershell.md)
-- [Azure Storage 계정 만들기](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
+- [Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-powershell) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
       
 
 ## <a name="manage-storage-account-keys"></a>저장소 계정 키 관리

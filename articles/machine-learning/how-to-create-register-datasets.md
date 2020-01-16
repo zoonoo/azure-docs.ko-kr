@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 775c6016acbcd0f87f368852a68eaea706c79898
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: d55dc2a1311d66eae01ae12a3dae798fbab20677
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945697"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045624"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -196,16 +196,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 SDK에서 Azure Open 데이터 집합을 사용 하 여 데이터 집합을 만들려면 `pip install azureml-opendatasets`를 사용 하 여 패키지를 설치 했는지 확인 합니다. 각 불연속 데이터 집합은 SDK에서 자체 클래스로 표시 되며 특정 클래스는 `TabularDataset`, `FileDataset`또는 둘 다로 사용할 수 있습니다. 클래스의 전체 목록은 [참조 설명서](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) 를 참조 하세요.
 
-대부분의 클래스는 `TabularDataset`의 인스턴스를 상속 하 고 반환 합니다. 이러한 클래스의 예로는 `PublicHolidays`, `BostonSafety`및 `UsPopulationZip`있습니다. 이러한 형식의 클래스에서 `TabularDataset`를 만들려면 인수 없이 생성자를 사용 합니다. 개방형 데이터 집합에서 만든 데이터 집합을 등록 하면 데이터는 즉시 다운로드 되지 않지만 중앙 저장소 위치에서 요청 하는 경우 (예: 학습 중)에는 나중에 데이터에 액세스할 수 있습니다. 
-
-```python
-from azureml.opendatasets import UsPopulationZip
-
-tabular_dataset = UsPopulationZip()
-tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
-```
-
-특정 클래스를 `TabularDataset` 또는 `FileDataset`로 검색 하 여 파일을 직접 조작 및/또는 다운로드할 수 있습니다. 다른 클래스는 `get_tabular_dataset()` 또는 `get_file_dataset()` 함수 중 하나만 사용 하 여 데이터 집합을 가져올 수 있습니다. 다음 코드 샘플에서는 이러한 형식의 클래스에 대 한 몇 가지 예를 보여 줍니다.
+특정 클래스를 `TabularDataset` 또는 `FileDataset`로 검색 하 여 파일을 직접 조작 및/또는 다운로드할 수 있습니다. 다른 클래스는 `get_tabular_dataset()` 또는 `get_file_dataset()` 함수 중 하나만 **사용 하 여 데이터 집합** 을 가져올 수 있습니다. 다음 코드 샘플에서는 이러한 형식의 클래스에 대 한 몇 가지 예를 보여 줍니다.
 
 ```python
 from azureml.opendatasets import MNIST
@@ -219,6 +210,8 @@ from azureml.opendatasets import Diabetes
 # Diabetes class can return ONLY return TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
+
+개방형 데이터 집합에서 만든 데이터 집합을 등록 하면 데이터는 즉시 다운로드 되지 않지만 중앙 저장소 위치에서 요청 하는 경우 (예: 학습 중)에는 나중에 데이터에 액세스할 수 있습니다.
 
 ### <a name="use-the-ui"></a>UI 사용
 

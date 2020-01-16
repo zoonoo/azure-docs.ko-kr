@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 5b2ab103c2384b53f384c45945b387585fdbb4b4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f49d91a2dffbd02067efd82b88963b5cb6eaa8b4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224328"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021268"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 vcpus<sup>1</sup> |20 |10,000 |
-| 구독 당 [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md) |200 |200 |
+| [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 vCPU<sup>1</sup> |20 |10000 |
+| 구독 당 [공동 관리자](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) |200 |200 |
 | 구독당 [Storage 계정](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |100 |100 |
 | [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md) |20 |200 |
 | [로컬 네트워크](/previous-versions/azure/reference/jj157100(v=azure.100)) |10 |500 |

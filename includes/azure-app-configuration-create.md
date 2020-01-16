@@ -1,25 +1,23 @@
 ---
-title: 포함 파일
-description: 포함 파일
-services: azure-app-configuration
 author: yegu
+ms.author: yegu
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 12/03/2019
-ms.author: yegu
-ms.custom: include file
-ms.openlocfilehash: ccd2a0ded1cd915dc52dea1449d75136bbef18fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ceeeb5ee155624e050f36e733a464c2cb21db88c
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75413433"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750301"
 ---
 1. 새 App Configuration 저장소를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인합니다. 홈 페이지의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다. **Marketplace 검색** 상자에서 **App Configuration**을 입력하고 Enter를 선택합니다.
 
-    ![App Configuration 검색](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
+    ![App Configuration 검색](media/azure-app-configuration-create/azure-portal-search.png)
 
 1. 검색 결과에서 **App Configuration**, **만들기**를 차례로 선택합니다.
+
+    ![만들기 선택](media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
 
 1. **App Configuration** > **만들기** 창에서 다음 설정을 입력합니다.
 
@@ -30,7 +28,7 @@ ms.locfileid: "75413433"
     | **리소스 그룹** | *AppConfigTestResources* | App Configuration 저장소 리소스에 대한 리소스 그룹을 선택하거나 만듭니다. 이 그룹은 리소스 그룹을 삭제하여 여러 리소스를 동시에 삭제할 수 있도록 구성하는 데 유용합니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](/azure/azure-resource-manager/resource-group-overview)를 참조하세요. |
     | **위치** | *미국 중부* | **위치**를 사용하여 앱 구성 저장소를 호스트할 지리적 위치를 지정합니다. 최상의 성능을 얻으려면 애플리케이션의 다른 구성 요소와 동일한 지역에 리소스를 만듭니다. |
 
-    ![App Configuration 저장소 리소스 만들기](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
+    ![App Configuration 저장소 리소스 만들기](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
 
 1. **만들기**를 선택합니다. 배포에 몇 분 정도 걸릴 수 있습니다.
 

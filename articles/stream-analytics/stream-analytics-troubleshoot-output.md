@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 65d01c5c4dd852cb424c75f170ce52156f1633cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354100"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980252"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
 이 페이지는 출력 연결 관련 일반 문제 및 해당 문제를 해결하는 방법을 설명합니다.
 
-## <a name="output-not-produced-by-job"></a>작업에 의해 생성되지 않은 출력 
+## <a name="output-not-produced-by-job"></a>작업에 의해 생성되지 않은 출력
 1.  각 출력에 대해 **테스트 연결** 단추를 사용하여 출력에 대한 연결을 확인합니다.
 
 2.  **모니터** 탭에서 [**모니터링 메트릭**](stream-analytics-monitoring.md) 을 확인 합니다. 값이 집계 되므로 메트릭은 몇 분 정도 지연 됩니다.
@@ -27,28 +27,28 @@ ms.locfileid: "75354100"
       - 데이터 원본에 유효한 데이터가 있는지 확인하려면 [Service Bus 탐색기](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)를 사용하여 확인합니다. 이 확인은 작업이 입력으로 이벤트 허브를 사용하는 경우 적용됩니다.
       - 데이터 serialization 형식과 데이터 인코딩이 예상대로인지 확인합니다.
       - 작업이 이벤트 허브를 사용하는 경우 메시지의 본문이 *Null*인지 확인합니다.
-      
+
     - 데이터 변환 오류가 0보다 크며 증가하는 경우 다음을 의미할 수 있습니다.
-      - 출력 이벤트가 대상 싱크의 스키마를 따르지 않습니다. 
+      - 출력 이벤트가 대상 싱크의 스키마를 따르지 않습니다.
       - 이벤트 스키마가 쿼리에서 이벤트의 정의 또는 예상 스키마와 일치하지 않을 수도 있습니다.
       - 이벤트에서 일부 필드의 데이터 형식이 예상과 일치하지 않을 수도 있습니다.
-      
+
     - 런타임 오류가 0보다 큰 경우 작업이 데이터를 수신할 수 있지만 쿼리를 처리하는 동안 오류가 발생함을 의미합니다.
-      - 오류를 찾으려면 [감사 로그](../azure-resource-manager/resource-group-audit.md)로 이동하여 *실패* 상태를 필터링합니다.
-      
+      - 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동하여 *실패* 상태를 필터링합니다.
+
     - InputEvents가 0보다 크고 OutputEvents가 0인 경우 다음 중 하나를 의미합니다.
       - 쿼리 처리로 제로 출력 이벤트가 발생했습니다.
       - 이벤트 또는 그 필드가 잘못되어 쿼리 처리 후 제로 출력이 발생할 수 있습니다.
       - 작업이 연결 또는 인증 이유로 데이터를 출력 싱크에 푸시할 수 없습니다.
-      
+
     - 이전에 언급한 모든 오류 사례에서 작업 로그 메시지는 쿼리 논리가 모든 이벤트를 필터링하는 경우 외에 추가 정보(발생하는 상황 포함)를 설명합니다. 여러 이벤트 처리에서 오류가 발생하면 Stream Analytics는 작업 로그에 10분 이내 동일한 형식의 첫 세 개의 오류 메시지를 기록합니다. 그런 다음, “오류가 너무 빠르게 발생하고 억제되고 있습니다.”라는 메시지로 동일한 추가 오류를 표시하지 않습니다.
-    
+
 ## <a name="job-output-is-delayed"></a>작업 출력이 지연됨
 
 ### <a name="first-output-is-delayed"></a>첫 번째 출력이 지연됨
 Stream Analytics 작업이 시작되면 입력 이벤트가 읽히지만 특정 상황에서 출력 생성이 지연될 수 있습니다.
 
-temporal 쿼리 요소의 시간 값이 크면 출력이 지연의 원인이 될 수 있습니다. 큰 시간 범위에 대해 정확한 출력을 생성하기 위해, 스트리밍 작업은 가능한 한 최신 시간(최대 7일 전)의 데이터를 읽어서 시간 범위를 채웁니다. 이 시간 동안 해결되지 않은 입력 이벤트의 보완 읽기가 완료될 때까지 출력이 생성되지 않습니다. 시스템이 스트리밍 작업을 업그레이드하여 작업을 다시 시작하면 이 문제가 드러날 수 있습니다. 이러한 업그레이드는 일반적으로 몇 달에 한 번 발생합니다. 
+temporal 쿼리 요소의 시간 값이 크면 출력이 지연의 원인이 될 수 있습니다. 큰 시간 범위에 대해 정확한 출력을 생성하기 위해, 스트리밍 작업은 가능한 한 최신 시간(최대 7일 전)의 데이터를 읽어서 시간 범위를 채웁니다. 이 시간 동안 해결되지 않은 입력 이벤트의 보완 읽기가 완료될 때까지 출력이 생성되지 않습니다. 시스템이 스트리밍 작업을 업그레이드하여 작업을 다시 시작하면 이 문제가 드러날 수 있습니다. 이러한 업그레이드는 일반적으로 몇 달에 한 번 발생합니다.
 
 따라서 Stream Analytics 쿼리를 디자인할 때 주의해야 합니다. 작업의 쿼리 구문에 있는 temporal 요소에 큰 시간 범위(몇 시간 이상, 최대 7일)를 사용하면 작업이 시작되거나 재시작될 때 첫 번째 출력이 지연될 수 있습니다.  
 
@@ -57,8 +57,8 @@ temporal 쿼리 요소의 시간 값이 크면 출력이 지연의 원인이 될
 이러한 요소는 생성되는 첫 번째 출력의 적시성에 영향을 줍니다.
 
 1. 기간 이동 집계 사용(연속, 도약 및 슬라이딩 시간 범위의 GROUP BY)
-   - 연속 또는 도약 시간 범위 집계에 대한 결과는 시간 범위의 끝에 생성됩니다. 
-   - 슬라이딩 시간 범위는 이벤트가 슬라이딩 시간 범위에 들어가거나 끝날 때 결과가 생성됩니다. 
+   - 연속 또는 도약 시간 범위 집계에 대한 결과는 시간 범위의 끝에 생성됩니다.
+   - 슬라이딩 시간 범위는 이벤트가 슬라이딩 시간 범위에 들어가거나 끝날 때 결과가 생성됩니다.
    - 큰 시간 범위(1시간 초과)를 사용하려는 경우 출력을 더 자주 볼 수 있도록 도약 또는 슬라이딩 시간 범위를 선택하는 것이 가장 좋습니다.
 
 2. temporal 조인 사용(DATEDIFF를 사용한 JOIN)
@@ -78,9 +78,9 @@ temporal 쿼리 요소의 시간 값이 크면 출력이 지연의 원인이 될
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL Database 출력을 사용하여 키 위반 경고
 
-Azure SQL 데이터베이스를 Stream Analytics 작업에 대한 출력으로 구성하면 대상 테이블에 레코드를 대량으로 삽입합니다. 일반적으로 Azure Stream Analytics에서는 출력 싱크에 [적어도 한 번 배달](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)을 보장합니다. SQL 테이블에 고유한 제약 조건이 정의된 경우에도 사용자는 [정확히 한 번 배달을 설정]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)할 수 있습니다. 
+Azure SQL 데이터베이스를 Stream Analytics 작업에 대한 출력으로 구성하면 대상 테이블에 레코드를 대량으로 삽입합니다. 일반적으로 Azure Stream Analytics에서는 출력 싱크에 [적어도 한 번 배달](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)을 보장합니다. SQL 테이블에 고유한 제약 조건이 정의된 경우에도 사용자는 [정확히 한 번 배달을 설정]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)할 수 있습니다.
 
-SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중복 레코드가 삽입되면 Azure Stream Analytics는 중복된 레코드를 제거합니다. 데이터를 일괄 처리로 분할하고 단일 중복 레코드가 발견될 때까지 일괄 처리를 반복해서 삽입합니다. 스트리밍 작업에 중복된 행의 수가 너무 많으면 분할 및 삽입 프로세스가 중복 항목을 하나씩 무시해야 해서 효율성이 떨어지고 시간이 오래 걸립니다. 최근 한 시간 내에 활동 로그에서 여러 키 위반 경고 메시지가 표시된 경우 SQL 출력이 전체 작업 성능을 저하시킬 가능성이 있습니다. 
+SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중복 레코드가 삽입되면 Azure Stream Analytics는 중복된 레코드를 제거합니다. 데이터를 일괄 처리로 분할하고 단일 중복 레코드가 발견될 때까지 일괄 처리를 반복해서 삽입합니다. 스트리밍 작업에 중복된 행의 수가 너무 많으면 분할 및 삽입 프로세스가 중복 항목을 하나씩 무시해야 해서 효율성이 떨어지고 시간이 오래 걸립니다. 최근 한 시간 내에 활동 로그에서 여러 키 위반 경고 메시지가 표시된 경우 SQL 출력이 전체 작업 성능을 저하시킬 가능성이 있습니다.
 
 이 문제를 해결하려면 IGNORE_DUP_KEY 옵션을 사용하여 키 위반이 발생하는 [인덱스를 구성]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)해야 합니다. 이 옵션을 사용하면 중복 값이 대량 삽입하는 동안 SQL에서 무시될 수 있고 SQL Azure에서 오류 대신 경고 메시지를 생성하게 됩니다. Azure Stream Analytics에서는 기본 키 위반 오류를 더 이상 생성하지 않습니다.
 

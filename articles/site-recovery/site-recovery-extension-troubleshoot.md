@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: 7f9ae32b95d629ef79f085ed590d9057b0414911
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: a9d28a12f5f1fa32d2bc3bcf590134930503f2ac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941530"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970394"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Azure VM 확장 문제 해결
 
@@ -105,8 +105,6 @@ Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이�
 4. **Site Recovery 확장**을 선택합니다.
 5. **제거**를 선택합니다.
 
-Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [Azure Linux 에이전트를 업데이트](../virtual-machines/linux/update-agent.md)한 다음, 보호 기능을 실행합니다. 
+Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [Azure Linux 에이전트를 업데이트](../virtual-machines/linux/update-agent.md)한 다음, 보호 기능을 실행합니다.
 
 이러한 단계를 완료하면 보호 기능을 사용하는 동안 확장이 다시 설치됩니다.
-
-

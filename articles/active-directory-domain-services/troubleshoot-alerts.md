@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703950"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979898"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services 일반적인 경고 및 해결 방법
 
@@ -92,7 +92,7 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 
 Azure AD DS에는 활성 구독이 필요 하며 다른 구독으로 이동할 수 없습니다. Azure AD DS 관리 되는 도메인에 연결 된 Azure 구독이 삭제 된 경우 Azure 구독 및 Azure AD DS 관리 되는 도메인을 다시 만들어야 합니다.
 
-1. [Azure 구독을 만듭니다](../billing/billing-create-subscription.md).
+1. [Azure 구독을 만듭니다](../cost-management-billing/manage/create-subscription.md).
 1. 기존 Azure AD 디렉터리에서 [azure AD DS 관리 되는 도메인을 삭제](delete-aadds.md) 합니다.
 1. [대체 Azure AD DS 관리 되는 도메인을 만듭니다](tutorial-create-instance.md).
 

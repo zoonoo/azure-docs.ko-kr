@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1dbbe04818e75e41944a1c0fe54f53849cf71983
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 854d98a4f2a1b2500bc301d2305c0dd1f27aaaa4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725859"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980825"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -75,7 +75,7 @@ ms.locfileid: "75725859"
 
 - 오류 60052, "어플라이언스를 Azure Migrate 프로젝트에 성공적으로 등록 하지 못할 수 있습니다."는 어플라이언스를 등록 하는 데 사용 된 Azure 계정에 권한이 부족 한 경우 발생 합니다.
     - 어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 참가자 이상의 권한이 있는지 확인 합니다.
-    - 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) .
+    - 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) .
 - 오류 60039, "어플라이언스를 등록 하는 데 사용 된 Azure Migrate 프로젝트를 찾을 수 없어 등록이 실패 하는 경우" 기기가 Azure Migrate 프로젝트에 성공적으로 등록 되지 않을 수 있습니다. "가 발생할 수 있습니다.
     - Azure Portal에서 프로젝트가 리소스 그룹에 있는지 여부를 확인 합니다.
     - 프로젝트가 존재 하지 않는 경우 리소스 그룹에 새 Azure Migrate 프로젝트를 만들고 어플라이언스를 다시 등록 합니다. 새 프로젝트를 만드는 [방법에 대해 알아봅니다](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) .
@@ -86,7 +86,7 @@ ms.locfileid: "75725859"
 - 어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 참가자 이상의 권한이 있는지 확인 합니다.
 - 계정에 오류 메시지에 지정 된 키 자격 증명 모음에 대 한 액세스 권한이 있는지 확인 한 후 작업을 다시 시도 하십시오.
 - 문제가 지속되면 Microsoft 지원에 문의하세요.
-- 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) .
+- 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) .
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>오류 60028: 검색을 시작할 수 없습니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "75725859"
 - 검색을 시작 하는 사용자 계정이 어플라이언스를 등록 하는 데 사용한 것과 동일한 지 확인 합니다.
 - 검색 작업이 실패 하는 사용자 계정에 Azure Active Directory 응용 프로그램 액세스 권한을 제공 합니다.
 - Azure Migrate 프로젝트에 대해 이전에 만든 리소스 그룹을 삭제 합니다. 다시 시작할 다른 리소스 그룹을 만듭니다.
-- Azure Active Directory 응용 프로그램 사용 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) .
+- Azure Active Directory 응용 프로그램 사용 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) .
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>오류 50004: 호스트 또는 클러스터에 연결할 수 없습니다.

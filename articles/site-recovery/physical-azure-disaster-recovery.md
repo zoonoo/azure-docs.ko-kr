@@ -7,27 +7,27 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936177"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980302"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
 
-이 자습서에서는 Azure에 대한 온-프레미스 물리적 Windows 및 Linux 서버의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure에 대한 온-프레미스 물리적 Windows 및 Linux 서버의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure 및 온-프레미스 필수 구성 요소 설정
+> * Azure 및 온-프레미스 필수 조건 설정
 > * Site Recovery에 대한 Recovery Services 자격 증명 모음 만들기 
 > * 원본 및 대상 복제 환경 설정
 > * 복제 정책 만들기
 > * 서버에 대해 복제 사용
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "73936177"
 
 Microsoft [Azure 계정](https://azure.microsoft.com/)을 얻습니다.
 
-- [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
+- [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
 - [Site Recovery 가격 책정](site-recovery-faq.md#pricing)에 대해 알아보고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 가져옵니다.
 - Site Recovery에 대해 [지원되는 지역](https://azure.microsoft.com/pricing/details/site-recovery/)을 알아보세요.
 
@@ -63,7 +63,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 
 
-### <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정
+### <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정합니다
 
 [Azure 네트워크](../virtual-network/quick-create-portal.md)를 설정합니다.
 
@@ -71,12 +71,12 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 - 네트워크가 Recovery Services 자격 증명 모음과 같은 지역에 있어야 합니다.
 
 
-## <a name="set-up-an-azure-storage-account"></a>Azure Storage 계정을 설정
+## <a name="set-up-an-azure-storage-account"></a>Azure Storage 계정 설정
 
-[Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)을 설정합니다.
+[Azure Storage 계정](../storage/common/storage-account-create.md)을 설정합니다.
 
 - Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치가 발생한 후에 스토리지에서 Azure VM을 만듭니다.
-- 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
+- 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
 
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>모바일 서비스 설치를 위한 계정 준비
@@ -98,7 +98,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 복제할 항목 및 복제 대상을 선택합니다.
 
 1. **Recovery Services 자격 증명 모음** > 자격 증명 모음을 클릭합니다.
-2. 리소스 메뉴에서 **Site Recovery** > **인프라 준비** > **보호 목표**를 클릭합니다.
+2. 리소스 메뉴 >에서 **Site Recovery** > **인프라 준비** > **보호 목표**를 클릭합니다.
 3. **보호 목표**에서 **Azure에** > **가상화되지 않음/기타**를 선택합니다.
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
@@ -146,15 +146,15 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 2. 대상 배포 모델을 지정합니다.
 3. Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
-   ![대상](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![대상 파악](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>복제 정책 만들기
 
 1. 새 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** >  **+복제 정책**을 클릭합니다.
 2. **복제 정책 만들기**에서 정책 이름을 지정합니다.
-3. **RPO 임계값**에서 RPO(복구 지점 목표) 제한을 지정합니다. 이 값은 데이터 복구 지점 생성 횟수를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
-4. **복구 지점 보존**에서 각 복구 지점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다. Premium Storage에 복제된 컴퓨터의 경우 최대 24시간 보존이 지원되고 표준 스토리지에 복제된 경우 72시간 보존이 지원됩니다.
+3. **RPO 임계값**에서 RPO(복구 목표 시점) 제한을 지정합니다. 이 값은 데이터 복구 지점 생성 횟수를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
+4. **복구 시점 보존**에서 각 복구 시점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다. Premium Storage에 복제된 컴퓨터의 경우 최대 24시간 보존이 지원되고 표준 스토리지에 복제된 경우 72시간 보존이 지원됩니다.
 5. **애플리케이션 일치 스냅샷 빈도**에서 애플리케이션 일치 스냅샷이 포함된 복구 지점을 만드는 빈도(분)를 지정합니다. **확인** 을 클릭하여 정책을 만듭니다.
 
     ![복제 정책](./media/physical-azure-disaster-recovery/replication-policy.png)
@@ -162,7 +162,7 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 
 정책은 구성 서버와 자동으로 연결됩니다. 기본적으로 장애 복구(failback)에 대해 일치 정책이 자동으로 만들어집니다. 예를 들어 복제 정책이 **rep-policy**인 경우 장애 복구(failback) 정책 **rep-policy-failback**이 만들어집니다. 이 정책은 Azure에서 장애 복구(failback)를 시작하기 전에는 사용되지 않습니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 각 서버에 대해 복제를 사용하도록 설정합니다.
 
@@ -175,12 +175,12 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 4. 프로세스 서버(구성 서버)를 선택합니다. 그런 후 **OK**를 클릭합니다.
 5. **대상**에서 장애 조치(failover) 후 Azure VM을 만들 구독 및 리소스 그룹을 선택합니다. Azure(클래식 또는 리소스 관리)에서 사용할 배포 모델을 선택합니다.
 6. 데이터 복제에 사용할 Azure Storage 계정을 선택합니다. 
-7. 장애 조치(Failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
-8. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 갖고 있는 네트워크 말고 다른 네트워크를 사용하려면 **새로 만듭니다** . 
+7. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
+8. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다. 
 9. **물리적 컴퓨터**에서 **+물리적 컴퓨터**를 클릭합니다. 이름 및 IP 주소를 지정합니다. 복제하려는 컴퓨터의 운영 체제를 선택합니다. 서버가 검색된 후 나열되는 데 몇 분 정도 걸립니다. 
-10. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
+10. **속성** > **속성 구성** 에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
 11. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다. 
-12. **복제 사용**을 클릭합니다. **설정**작업 > Site Recovery 작업 > 에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
+12. **복제 사용**을 클릭합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 
 추가하는 서버를 모니터링하려면 **구성 서버** > **마지막 연락**에서 마지막으로 검색한 시간을 확인할 수 있습니다. 예약된 검색 시간 동안 기다리지 않고 컴퓨터를 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 클릭합니다.

@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9bb324c3863a13e1f47e1b31f7656ab8c77a6f1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763150"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043517"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램 등록
 
@@ -177,7 +178,7 @@ SAML 서비스 공급자와 연결 된 메타 데이터 끝점이 아직 없는 
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. `<RelyingParty>` 요소 바로 앞에 다음 XML 코드 조각을 추가 합니다. 이 XML은 _Signu폰_ 사용자 경험의 오케스트레이션 단계 번호 7을 덮어씁니다. 오케스트레이션 단계를 추가 또는 제거 하 여 사용자 경험을 사용자 지정 하는 경우 `order` 요소의 번호는 토큰 발급자 단계에 대 한 사용자 경험에 지정 된 번호와 일치 하는지 확인 합니다.
+1. `<RelyingParty>` 요소 바로 앞에 다음 XML 코드 조각을 추가 합니다. 이 XML은 _Signu폰_ 사용자 경험의 오케스트레이션 단계 번호 7을 덮어씁니다. 시작 팩의 다른 폴더에서 시작한 경우 또는 오케스트레이션 단계를 추가 또는 제거 하 여 사용자 경험을 사용자 지정 하는 경우 `order` 요소에 있는 번호는 토큰 발급자 단계에 대 한 사용자 경험에 지정 된 번호와 일치 하는지 확인 합니다. 예를 들어 다른 스타터 팩 폴더에는 `LocalAccounts`에 대 한 4 단계 4, `SocialAccounts`의 경우 6, `SocialAndLocalAccountsWithMfa`9)가 표시 됩니다.
 
     ```XML
     <UserJourneys>

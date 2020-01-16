@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849278"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889066"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Azure Databricks에서 Azure Blob Storage에 액세스
 
 이 자습서에서는 키 자격 증명 모음에 저장된 비밀을 사용하여 Azure Databricks에서 Azure Blob Storage에 액세스하는 방법을 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 스토리지 계정 및 Blob 컨테이너 만들기
@@ -26,7 +26,7 @@ ms.locfileid: "74849278"
 > * Azure Databricks 작업 영역 만들기 및 비밀 범위 추가
 > * Azure Databricks에서 Blob 컨테이너에 액세스
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
@@ -36,7 +36,7 @@ ms.locfileid: "74849278"
 
 > [!Note]
 > 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
-> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
+> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="create-a-storage-account-and-blob-container"></a>스토리지 계정 및 Blob 컨테이너 만들기
 
@@ -74,9 +74,9 @@ ms.locfileid: "74849278"
 
 3. **키 자격 증명 모음 만들기** 페이지에서 다음 정보를 입력하고 나머지 필드의 기본값을 유지합니다.
 
-   |자산|설명|
+   |속성|Description|
    |--------|-----------|
-   |Name|키 자격 증명 모음의 고유한 이름입니다.|
+   |속성|키 자격 증명 모음의 고유한 이름입니다.|
    |Subscription|구독을 선택합니다.|
    |Resource group|리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.|
    |위치|위치를 선택합니다.|
@@ -91,10 +91,10 @@ ms.locfileid: "74849278"
 
 5. **비밀 만들기** 페이지에서 다음 정보를 제공하고 나머지 필드의 기본값을 유지합니다.
 
-   |자산|값|
+   |속성|값|
    |--------|-----------|
    |업로드 옵션|설명서|
-   |Name|스토리지 계정 키의 이름입니다.|
+   |속성|스토리지 계정 키의 이름입니다.|
    |값|스토리지 계정의 key1입니다.|
 
    ![새 키 자격 증명 모음 비밀에 대한 속성](./media/store-secrets-azure-key-vault/create-storage-secret.png)
@@ -111,7 +111,7 @@ ms.locfileid: "74849278"
 
 2. **Azure Databricks 서비스** 아래에서 Databricks 작업 영역을 만드는 데 필요한 다음 값을 제공합니다.
 
-   |자산  |설명  |
+   |속성  |Description  |
    |---------|---------|
    |작업 영역 이름     | Databricks 작업 영역의 이름을 제공합니다.        |
    |Subscription     | 드롭다운에서 Azure 구독을 선택합니다.        |

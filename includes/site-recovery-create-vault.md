@@ -4,17 +4,17 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fd1a7f133c5719873133554fc2292e94e6fe26a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182614"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980310"
 ---
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
 2. **리소스 만들기** > **모니터링 + 관리** > **백업 및 사이트 복구**를 클릭합니다.
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
-4. [리소스 그룹을 만들거나](../articles/azure-resource-manager/resource-group-template-deploy-portal.md) 기존 그룹을 선택합니다. Azure 지역을 지정합니다. 
+4. [리소스 그룹을 만들거나](../articles/azure-resource-manager/templates/deploy-portal.md) 기존 그룹을 선택합니다. Azure 지역을 지정합니다. 
 5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **만들기**를 클릭합니다.
 
    ![새 자격 증명 모음](./media/site-recovery-create-vault/new-vault-settings.png)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449812"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982706"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용 하 여 HPC 솔루션 빌드 및 배포
 
@@ -192,7 +192,7 @@ Azure Pipelines은 소프트웨어 빌드, 배포, 테스트 및 모니터링을
 
 마지막으로, orchestrator와 유사 하 게 작동 하는 템플릿이 있습니다. 이 템플릿은 기능 템플릿 배포를 담당 합니다.
 
-별도의 문서에서 [연결 된 Azure Resource Manager 템플릿을 만드는](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md) 방법에 대해 자세히 알아볼 수도 있습니다.
+별도의 문서에서 [연결 된 Azure Resource Manager 템플릿을 만드는](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) 방법에 대해 자세히 알아볼 수도 있습니다.
 
 ```json
 {
@@ -368,7 +368,7 @@ Azure DevOps Services 내에서 [Azure Pipelines](https://docs.microsoft.com/azu
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>응용 프로그램 및 기본 인프라 배포
 
-인프라 배포와 관련 된 여러 단계가 있습니다. [연결 된 템플릿을](../azure-resource-manager/resource-group-linked-templates.md)사용할 때 이러한 템플릿은 공용 끝점 (HTTP 또는 HTTPS)에서 액세스할 수 있어야 합니다. GitHub의 리포지토리입니다, Azure Blob Storage 계정 또는 다른 저장소 위치인 것일 수 있습니다. 업로드 된 템플릿 아티팩트는 개인 모드에서 보유할 수 있지만 특정 형식의 SAS (공유 액세스 서명) 토큰을 사용 하 여 액세스할 수 있으므로 안전 하 게 유지할 수 있습니다. 다음 예제에서는 Azure Storage blob에서 템플릿을 사용 하 여 인프라를 배포 하는 방법을 보여 줍니다.
+인프라 배포와 관련 된 여러 단계가 있습니다. [연결 된 템플릿을](../azure-resource-manager/templates/linked-templates.md)사용할 때 이러한 템플릿은 공용 끝점 (HTTP 또는 HTTPS)에서 액세스할 수 있어야 합니다. GitHub의 리포지토리입니다, Azure Blob Storage 계정 또는 다른 저장소 위치인 것일 수 있습니다. 업로드 된 템플릿 아티팩트는 개인 모드에서 보유할 수 있지만 특정 형식의 SAS (공유 액세스 서명) 토큰을 사용 하 여 액세스할 수 있으므로 안전 하 게 유지할 수 있습니다. 다음 예제에서는 Azure Storage blob에서 템플릿을 사용 하 여 인프라를 배포 하는 방법을 보여 줍니다.
 
 1. **새 릴리스 정의**를 만들고 빈 정의를 선택 합니다. 그런 다음 새로 만든 환경의 이름을 파이프라인에 관련 된 항목으로 변경 해야 합니다.
 

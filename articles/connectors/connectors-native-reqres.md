@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786998"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030148"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 들어오는 HTTPS 호출 받기 및 응답
 
@@ -23,11 +23,20 @@ ms.locfileid: "74786998"
 * 다른 논리 앱에서 HTTPS 호출을 받고 응답 합니다.
 
 > [!NOTE]
-> 요청 트리거는 들어오는 호출에 TLS (전송 계층 보안) 1.2 *만* 지원 합니다. 나가는 호출은 TLS 1.0, 1.1 및 1.2를 계속 지원 합니다. SSL 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다.
+> 요청 트리거는 들어오는 호출에 TLS (전송 계층 보안) 1.2 *만* 지원 합니다. 나가는 호출은 TLS 1.0, 1.1 및 1.2를 계속 지원 합니다. SSL 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다. 들어오는 호출의 경우 지원 되는 암호 그룹은 다음과 같습니다.
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. 구독이 없는 경우 [무료 Azure 계정에 등록할](https://azure.microsoft.com/free/)수 있습니다.
+* Azure 구독 구독이 없는 경우 [무료 Azure 계정에 등록할](https://azure.microsoft.com/free/)수 있습니다.
 
 * [논리 앱](../logic-apps/logic-apps-overview.md)에 대 한 기본 지식. 논리 앱을 처음 접하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 대해 알아보세요.
 
@@ -37,7 +46,7 @@ ms.locfileid: "74786998"
 
 이 기본 제공 트리거 *는 들어오는 https* 요청만 수신할 수 있는 수동으로 호출할 수 있는 https 끝점을 만듭니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 논리 앱을 실행 합니다. 트리거의 기본 JSON 정의 및이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [Azure Logic Apps에서 HTTP 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
 1. 논리 앱 디자이너가 열리면 검색 상자에 "http 요청"을 필터로 입력 합니다. 트리거 목록에서 논리 앱 워크플로의 첫 단계인 **HTTP 요청을 받을 때** 트리거를 선택 합니다.
 
@@ -47,9 +56,9 @@ ms.locfileid: "74786998"
 
    ![요청 트리거](./media/connectors-native-reqres/request-trigger.png)
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
-   | **HTTP 게시 URL** | {none} | yes | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
+   | **HTTP 게시 URL** | {없음} | 예 | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
    | **요청 본문 JSON 스키마** | `schema` | 아닙니다. | 들어오는 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
    |||||
 
@@ -146,7 +155,7 @@ ms.locfileid: "74786998"
 
 1. 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
    | **메서드** | `method` | 아닙니다. | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
    | **상대 경로** | `relativePath` | 아닙니다. | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
@@ -178,10 +187,10 @@ ms.locfileid: "74786998"
 
 요청 트리거의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| JSON 속성 이름 | 데이터 형식 | 설명 |
+| JSON 속성 이름 | 데이터 형식 | Description |
 |--------------------|-----------|-------------|
-| `headers` | Object | 요청의 헤더를 설명 하는 JSON 개체입니다. |
-| `body` | Object | 요청의 본문 콘텐츠를 설명 하는 JSON 개체입니다. |
+| `headers` | 개체 | 요청의 헤더를 설명 하는 JSON 개체입니다. |
+| `body` | 개체 | 요청의 본문 콘텐츠를 설명 하는 JSON 개체입니다. |
 ||||
 
 <a name="add-response"></a>
@@ -220,9 +229,9 @@ ms.locfileid: "74786998"
 
    응답 작업에서 설정할 수 있는 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
-   | **상태 코드** | `statusCode` | yes | 응답에 반환할 상태 코드 |
+   | **상태 코드** | `statusCode` | 예 | 응답에 반환할 상태 코드 |
    | **헤더** | `headers` | 아닙니다. | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |
    | **본문** | `body` | 아닙니다. | 응답 본문 |
    |||||

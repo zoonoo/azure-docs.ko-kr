@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: d52b2485436f0a9075dcc3f505806e46094340a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 69894dfc6bcbe9eb56451524c78e82da2745aa52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381701"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979758"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>자습서: 예측을 개선하기 위해 일반적인 패턴 템플릿 발화 서식 추가
 
@@ -578,4 +578,4 @@ Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견�
 
 
 > [!div class="nextstepaction"]
-> [패턴과 함께 역할을 사용하는 방법 알아보기](luis-tutorial-pattern-roles.md)
+> [패턴과 함께 역할을 사용하는 방법 알아보기](luis-tutorial-pattern.md)

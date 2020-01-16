@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953739"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893627"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
@@ -31,7 +31,7 @@ ms.locfileid: "73953739"
 > * 장애 조치(Failover) 후 Azure VM에 연결하도록 준비합니다.
 
 > [!NOTE]
-> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
+> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -108,7 +108,7 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 
 
 ## <a name="failback-requirements"></a>장애 복구 요구 사항
-온-프레미스 사이트로 장애 복구(failback)를 수행하려는 경우 [장애 복구(failback)에 대한 필수 구성 요소](vmware-azure-reprotect.md##before-you-begin)가 몇 가지 있습니다. 지금 준비할 수 있지만 꼭 해야 하는 것은 아닙니다. Azure로 장애 조치(failover)한 후에 준비할 수 있습니다.
+온-프레미스 사이트로 장애 복구(failback)를 수행하려는 경우 [장애 복구(failback)에 대한 필수 구성 요소](vmware-azure-reprotect.md#before-you-begin)가 몇 가지 있습니다. 지금 준비할 수 있지만 꼭 해야 하는 것은 아닙니다. Azure로 장애 조치(failover)한 후에 준비할 수 있습니다.
 
 
 

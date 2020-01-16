@@ -3,12 +3,12 @@ title: 이미지 잠그기
 description: 컨테이너 이미지 또는 리포지토리에 대 한 특성을 설정 하 여 Azure container registry에서 삭제 하거나 덮어쓸 수 없습니다.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442227"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972925"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Azure container registry에서 컨테이너 이미지 잠그기
 
@@ -17,7 +17,7 @@ Azure container registry에서 이미지 버전 또는 리포지토리를 잠가
 이 문서에서는 Azure Cloud Shell 또는 로컬 (버전 2.0.55 이상 권장)에서 Azure CLI를 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서는 전체 레지스트리를 잠그는 경우에는 적용 되지 않습니다. 예를 들어 Azure Portal의 **설정 > 잠금** 또는 Azure CLI `az lock` 명령을 사용 합니다. 레지스트리 리소스를 잠그면 리포지토리에서 데이터를 생성, 업데이트 또는 삭제할 수 없습니다. 레지스트리를 잠그면 복제를 추가 또는 삭제 하거나 레지스트리 자체를 삭제 하는 등의 관리 작업에만 영향을 줍니다. [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)에 대 한 자세한 정보.
+> 이 문서는 전체 레지스트리를 잠그는 경우에는 적용 되지 않습니다. 예를 들어 Azure Portal의 **설정 > 잠금** 또는 Azure CLI `az lock` 명령을 사용 합니다. 레지스트리 리소스를 잠그면 리포지토리에서 데이터를 생성, 업데이트 또는 삭제할 수 없습니다. 레지스트리를 잠그면 복제를 추가 또는 삭제 하거나 레지스트리 자체를 삭제 하는 등의 관리 작업에만 영향을 줍니다. [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../azure-resource-manager/management/lock-resources.md)에 대 한 자세한 정보.
 
 ## <a name="scenarios"></a>시나리오
 

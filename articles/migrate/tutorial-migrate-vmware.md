@@ -1,18 +1,15 @@
 ---
 title: 에이전트 없는 Azure Migrate Server Migration으로 VMware VM 마이그레이션
 description: Azure Migrate를 사용하여 VMware VM의 에이전트 없는 마이그레이션을 실행하는 방법에 대해 알아봅니다.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: fa77b9d730c28c21569064d05ca3a600dfb71071
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196411"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028706"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -20,7 +17,7 @@ ms.locfileid: "74196411"
 
 [Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 AWS/GCP VM 인스턴스의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
 
-이 자습서는 Azure Migrate 서버 평가 및 마이그레이션을 사용하여 VMware VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 Azure Migrate 서버 평가 및 마이그레이션을 사용하여 VMware VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 마이그레이션할 VM을 준비합니다.
@@ -41,10 +38,10 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 에이전트 없는 마이그레이션 또는 에이전트 기반 마이그레이션을 사용할지 여부를 결정하려면 다음 문서를 검토하세요.
 
-- 에이전트 없는 마이그레이션의 작동 [방법을 알아보고](server-migrate-overview.md) [마이그레이션 방법을 비교](server-migrate-overview.md#compare-migration-methods)합니다.
+- 에이전트 없는 마이그레이션의 작동 [방법을 알아보고](server-migrate-overview.md)[마이그레이션 방법을 비교](server-migrate-overview.md#compare-migration-methods)합니다.
 - 에이전트 기반 방법을 사용하려면 [이 문서](tutorial-migrate-vmware-agent.md)를 참조합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -92,7 +89,7 @@ Azure Migrate 서버 마이그레이션은 경량 VMware VM 어플라이언스�
 
 Azure Migrate를 사용하려면 VM을 Azure로 마이그레이션할 수 있도록 일부 VM을 변경해야 합니다.
 
-- 일부 운영 체제의 경우 이러한 변경은 Azure Migrate에서 자동으로 수행합니다. [자세히 알아보기](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
+- 일부 운영 체제의 경우 이러한 변경은 Azure Migrate에서 자동으로 수행합니다. [자세히 알아보기](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms)
 - 이러한 운영 체제 중 하나가 없는 VM을 마이그레이션하는 경우 지침에 따라 VM을 준비합니다.
 - 이러한 변경은 마이그레이션을 시작하기 전에 수행해야 합니다. 변경하기 전에 VM을 마이그레이션하면 Azure에서 해당 VM이 부팅되지 않을 수 있습니다.
 - 온-프레미스 VM에서 수행한 구성 변경 내용은 VM 복제를 사용하도록 설정한 후에 Azure로 복제됩니다. 변경 내용이 복제되도록 하려면 마이그레이션할 복구 지점이 온-프레미스에서 구성이 변경된 시간 이후여야 합니다.
@@ -100,7 +97,7 @@ Azure Migrate를 사용하려면 VM을 Azure로 마이그레이션할 수 있도
 
 ### <a name="prepare-windows-server-vms"></a>Windows Server VM 준비
 
-**작업** | **세부 정보** | **지침**
+**동작** | **세부 정보** | **지침**
 --- | --- | ---
 Azure VM의 Windows 볼륨에서 온-프레미스 VM과 동일한 드라이브 문자 할당을 사용하는지 확인합니다. | SAN 정책을 [모두 온라인]으로 구성합니다. | 1. 관리자 계정으로 VM에 로그인하고, 명령 창을 엽니다.<br/> 2. **diskpart**를 입력하여 Diskpart 유틸리티를 실행합니다.<br/> 3. **SAN POLICY=OnlineAll**을 입력합니다.<br/> 4. Exit를 입력하여 Diskpart를 종료하고, 명령 프롬프트를 닫습니다.
 Azure VM에 Azure 직렬 액세스 콘솔 사용 | 이렇게 하면 문제 해결에 도움이 됩니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅되며, 이는 새 VM의 다시 부팅에 해당합니다. | [이 지침](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console)에 따라 사용하도록 설정합니다.
@@ -109,7 +106,7 @@ Hyper-V 게스트 통합 설치 | Windows Server 2003을 실행하는 머신을 
 
 ### <a name="prepare-linux-vms"></a>Linux VM 준비
 
-**작업** | **세부 정보** 
+**동작** | **세부 정보** 
 --- | --- | ---
 Hyper-V Linux Integration Services 설치 | 이 기능은 대부분의 새 Linux 배포판 버전에 기본적으로 포함되어 있습니다.
 필요한 Hyper-V 드라이버를 포함하도록 Linux 초기화 이미지 다시 빌드 | 이렇게 하면 VM이 Azure에서 부팅되며, 일부 배포판에만 필요합니다.
@@ -161,7 +158,7 @@ Azure에서 Linux VM을 실행하기 위해 이러한 단계를 설명하고 인
 
     ![대상 설정](./media/tutorial-migrate-vmware/target-settings.png)
 
-8. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)을 준수해야 합니다.
+8. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
     - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에 권장 크기가 포함됩니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
     - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. 

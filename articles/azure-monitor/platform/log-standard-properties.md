@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: d765422957392a5cdb170208b809c24bf5aec2a3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 31a6c53ec269c512ad641fcdc10469ccf16a1fe9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932204"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979754"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 속성
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../log-query/logs-structure.md)각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
@@ -79,7 +79,7 @@ search *
 ## <a name="_resourceid"></a>\_ResourceId
 **\_ResourceId** 속성은 레코드가 연결된 리소스의 고유 ID를 포함합니다. 쿼리 범위를 특정 리소스의 레코드로만 제한하거나 여러 테이블의 관련 데이터를 조인하는 데 사용할 표준 속성을 제공합니다.
 
-Azure 리소스의 경우 **_ResourceId** 값은 [Azure 리소스 ID URL](../../azure-resource-manager/resource-group-template-functions-resource.md)입니다. 이 속성은 현재 Azure 리소스로 제한되지만 온-프레미스 컴퓨터와 같은 Azure 외부 리소스로 확장될 예정입니다.
+Azure 리소스의 경우 **_ResourceId** 값은 [Azure 리소스 ID URL](../../azure-resource-manager/templates/template-functions-resource.md)입니다. 이 속성은 현재 Azure 리소스로 제한되지만 온-프레미스 컴퓨터와 같은 Azure 외부 리소스로 확장될 예정입니다.
 
 > [!NOTE]
 > 일부 데이터 형식은 Azure 리소스 ID 또는 적어도 그 일부(예: 구독 ID)를 포함하는 필드를 이미 갖고 있습니다. 이러한 필드는 이전 버전과의 호환성을 위해 유지되지만, 보다 일관적인 _ResourceId를 사용하여 교차 상관 관계를 수행하는 것이 좋습니다.
@@ -110,7 +110,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-다음 쿼리는 **_Resourceid** 를 구문 분석 하 고 Azure 구독 당 청구 된 데이터 볼륨을 집계 합니다.
+다음 쿼리는 **_ResourceId** 를 구문 분석 하 고 Azure 구독 당 청구 된 데이터 볼륨을 집계 합니다.
 
 ```Kusto
 union withsource = tt * 

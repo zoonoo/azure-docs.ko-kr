@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: ba49fc72fe07378d702b8c12fcdf77d5cebee9bb
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 126b488d2bb59e2904bee646301240efe6fe71a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013105"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037591"
 ---
 이 문서는 가상 머신을 프로비전하는 데 Azure Resource Manager 템플릿을 사용할 때 관리 및 관리되지 않는 디스크 간의 차이점을 설명합니다. 이 예제에서는 관리되지 않는 디스크를 사용하는 기존 템플릿을 관리 디스크로 업데이트하는 데 도움이 됩니다. 참조를 위해 [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) 템플릿을 가이드로 사용합니다. 직접 비교하려는 경우 [관리 디스크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json)를 사용하는 것과 [관리되지 않는 디스크](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json)를 사용하는 이전 버전을 사용하는 템플릿을 살펴볼 수 있습니다.
 
@@ -88,13 +88,22 @@ ms.locfileid: "74013105"
 Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 사용자가 더 이상 스토리지 계정을 만들지 않아도 됩니다. `2016-04-30-preview` API 버전에서 처음 표시되었던 관리 디스크는 모든 후속 API 버전에서 제공되며 현재 기본 디스크 유형입니다. 다음 섹션에서는 기본 설정과 디스크를 추가로 사용자 지정하는 방법에 대한 정보를 안내합니다.
 
 > [!NOTE]
-> `2016-04-30-preview`와 `2016-04-30-preview` 간에는 중요한 변경 내용이 있으므로 `2017-03-30` 이상의 API 버전을 사용하는 것이 좋습니다.
+> `2016-04-30-preview`와 `2017-03-30` 간에는 중요한 변경 내용이 있으므로 `2016-04-30-preview` 이상의 API 버전을 사용하는 것이 좋습니다.
 >
 >
 
 ### <a name="default-managed-disk-settings"></a>기본 관리 디스크 설정
 
-관리 디스크를 사용하여 VM을 만들기 위해 스토리지 계정 리소스를 만들지 않아도 되며 다음과 같이 가상 머신 리소스를 업데이트할 수 있습니다. 특히 `apiVersion`은 `2017-03-30`를 반영하며 `osDisk` 및 `dataDisks`는 VHD에 대한 특정 URI를 더 이상 참조하지 않습니다. 추가 속성을 지정하지 않고 배포할 경우 디스크는 VM의 크기에 따라 Storage 형식을 사용합니다. 예를 들어 프리미엄 지원 VM 크기(Standard_D2s_v3과 같이 이름에 &quot;s&quot;를 포함한 크기)를 사용하는 경우 시스템에서는 Premium_LRS 스토리지를 사용합니다. 디스크의 SKU 설정을 사용하여 Storage 형식을 지정합니다. 이름을 지정하지 않으면 OS 디스크에 대해 `<VMName>_OsDisk_1_<randomstring>` 형식을, 각 데이터 디스크에 대해 `<VMName>_disk<#>_<randomstring>`을 사용합니다. 기본적으로 Azure Disk Encryption은 사용하지 않으며 OS 디스크에 대한 캐싱은 읽기/쓰기이고 데이터 디스크에 대한 캐싱은 없음입니다. 아래 예에서 여전히 스토리지 계정 종속성이 있음을 알 수 있습니다. 이는 진단 스토리지에만 해당되며 디스크 스토리지에는 필요하지 않습니다.
+관리 디스크를 사용 하 여 VM을 만들려면 저장소 계정 리소스를 더 이상 만들 필요가 없습니다. 아래 템플릿 예제를 참조 하십시오. 이전 비관리 코드로 넘어가므로 디스크 예제와 관련 된 몇 가지 차이점이 있습니다.
+
+- `apiVersion`는 관리 디스크를 지 원하는 버전입니다.
+- `osDisk` 및 `dataDisks`는 VHD의 특정 URI를 더 이상 참조 하지 않습니다.
+- 추가 속성을 지정 하지 않고 배포 하는 경우 디스크는 VM 크기에 따라 저장소 유형을 사용 합니다. 예를 들어 premium storage를 지 원하는 VM 크기 (예: Standard_D2s_v3)를 사용 하는 경우 프리미엄 디스크가 기본적으로 구성 됩니다. 디스크의 sku 설정을 사용 하 여 저장소 유형을 지정 하 여이를 변경할 수 있습니다.
+- 디스크 이름이 지정 되지 않은 경우 OS 디스크에 대 한 `<VMName>_OsDisk_1_<randomstring>` 형식 및 각 데이터 디스크에 대 한 `<VMName>_disk<#>_<randomstring>`를 사용 합니다.
+  - 사용자 지정 이미지에서 VM을 만드는 경우 사용자 지정 이미지 리소스에 정의 된 디스크 속성에서 저장소 계정 유형 및 디스크 이름에 대 한 기본 설정이 검색 됩니다. 이러한 값은 템플릿에서 이러한 값을 지정 하 여 재정의할 수 있습니다.
+- 기본적으로 Azure disk encryption은 사용 하지 않도록 설정 되어 있습니다.
+- 기본적으로 디스크 캐싱은 OS 디스크에 대 한 읽기/쓰기 이며 데이터 디스크에 대해서는 없습니다.
+- 아래 예제에서는 여전히 저장소 계정 종속성이 있지만이는 진단의 저장소에만 해당 되며 디스크 저장소에는 필요 하지 않습니다.
 
 ```json
 {

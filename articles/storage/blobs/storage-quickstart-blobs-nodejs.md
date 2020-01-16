@@ -7,19 +7,19 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 089cda74740d3934c76a3b0ca8803a30654feccf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8473bff3b6e7d2079bb202befc23e1ada3791eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465107"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970265"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 v12 시작 Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
 
 > [!NOTE]
-> 이전 SDK 버전을 시작하려면 [빠른 시작: JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](storage-quickstart-blobs-nodejs-v10.md)를 참조하세요.
+> 이전 SDK 버전을 시작하려면 [빠른 시작: JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](storage-quickstart-blobs-nodejs-legacy.md)를 참조하세요.
 
 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하여 다음을 수행합니다.
 

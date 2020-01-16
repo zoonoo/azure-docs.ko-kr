@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ab8baa810c36c794bbefd264c5588f8b28cbd62a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863379"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046194"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Azure Time Series Insights GA 환경 계획
 
@@ -24,7 +24,7 @@ ms.locfileid: "75863379"
 
 ## <a name="video"></a>비디오
 
-**Azure Time Series Insights의 데이터 보존 및 계획 방법에 대 한 자세한 내용은이 비디오를 시청**하세요.<br /><br />
+**Azure Time Series Insights의 데이터 보존 및 계획 방법에 대 한 자세한 내용은이 비디오를 시청**하세요.<br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -53,7 +53,7 @@ Azure Time Series Insights 환경의 **데이터 보존 시간** 설정을 변�
 Azure Time Series Insights에는 두 가지 모드가 있습니다.
 
 * 한 가지 모드는 최신 데이터에 대해 최적화 됩니다. **이전 데이터를 삭제** 하는 정책을 적용 하 여 최근 데이터를 인스턴스에서 사용할 수 있습니다. 이 모드는 기본적으로 설정 되어 있습니다. 
-* 다른는 구성 된 보존 제한 보다 낮게 유지 되도록 데이터를 최적화 합니다. **일시 중지 수신** 은 **저장소 제한 초과 동작**으로 선택 된 경우 새 데이터가 수신 되지 않도록 방지 합니다. 
+* 다른는 구성 된 보존 제한 보다 낮게 유지 되도록 데이터를 최적화 합니다. **일시 중지 수신** 은 **저장소 제한 초과 동작**으로 선택 된 경우 새 데이터가 수신 되지 않도록 방지 합니다.
 
 Azure Portal의 환경 구성 페이지에서 보존 기간을 조정 하 고 두 모드를 전환할 수 있습니다.
 

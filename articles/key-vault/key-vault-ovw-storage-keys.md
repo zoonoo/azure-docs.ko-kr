@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 62faf33dc8b3690036407972e12633e741a85d78
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176744"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980455"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리
 
@@ -41,19 +41,19 @@ Azure AD 테 넌 트는 등록 된 각 응용 프로그램을 [서비스 사용�
 
 Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응용 프로그램입니다. Key Vault은 각 Azure 클라우드에서 동일한 응용 프로그램 ID로 등록 됩니다.
 
-| 테 넌 트 | 클라우드 | 애플리케이션 UI |
+| 테넌트 | 클라우드 | 애플리케이션 UI |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Azure 퍼블릭 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
 - [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
 - [키 자격 증명 모음 만들기](quick-create-cli.md)
-- [Azure Storage 계정 만들기](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
+- [Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-cli) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
       
 ## <a name="manage-storage-account-keys"></a>저장소 계정 키 관리
 

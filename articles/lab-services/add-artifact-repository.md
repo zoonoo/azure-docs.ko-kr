@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: ff410d3767e90f92a946b72354b39f87e4f37b9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28ab6ca9b87bb00cbb7b5e329b7ff08972ba370a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429022"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979128"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs에서 랩에 아티팩트 리포지토리 추가
-DevTest Labs를 사용 하면 vm을 만들 때 또는 VM이 만들어진 후 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트는 VM에 설치 하려는 도구 또는 응용 프로그램 일 수 있습니다. 아티팩트는 GitHub 또는 Azure DevOps Git 리포지토리에서 로드 된 JSON 파일에 정의 됩니다. 
+DevTest Labs를 사용 하면 vm을 만들 때 또는 VM이 만들어진 후 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트는 VM에 설치 하려는 도구 또는 응용 프로그램 일 수 있습니다. 아티팩트는 GitHub 또는 Azure DevOps Git 리포지토리에서 로드 된 JSON 파일에 정의 됩니다.
 
 DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)는 Windows 및 Linux에 대 한 여러 가지 일반적인 도구를 제공 합니다. 이 리포지토리에 대 한 링크는 랩에 자동으로 추가 됩니다. 공용 아티팩트 리포지토리에서 사용할 수 없는 특정 도구를 사용 하 여 고유한 아티팩트 리포지토리를 만들 수 있습니다. 사용자 지정 아티팩트를 만드는 방법에 대 한 자세한 내용은 [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)를 참조 하세요.
 
-이 문서에서는 Azure Portal, Azure 리소스 관리 템플릿 및 Azure PowerShell를 사용 하 여 사용자 지정 아티팩트 리포지토리를 추가 하는 방법에 대 한 정보를 제공 합니다. PowerShell 또는 CLI 스크립트를 작성 하 여 랩에 아티팩트 리포지토리를 자동으로 추가할 수 있습니다. 
+이 문서에서는 Azure Portal, Azure 리소스 관리 템플릿 및 Azure PowerShell를 사용 하 여 사용자 지정 아티팩트 리포지토리를 추가 하는 방법에 대 한 정보를 제공 합니다. PowerShell 또는 CLI 스크립트를 작성 하 여 랩에 아티팩트 리포지토리를 자동으로 추가할 수 있습니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,11 +63,11 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
 10. 리포지토리에 랩 연결 섹션을 계속 진행 합니다.
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용
-이 섹션에서는 Azure Portal의 랩에 아티팩트 리포지토리를 추가 하는 단계를 제공 합니다. 
+이 섹션에서는 Azure Portal의 랩에 아티팩트 리포지토리를 추가 하는 단계를 제공 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **추가 서비스**를 선택한 후 서비스 목록에서 **DevTest Labs**를 선택합니다.
-3. 랩 목록에서 랩을 선택합니다. 
+3. 랩 목록에서 랩을 선택합니다.
 4. 왼쪽 메뉴에서 **구성 및 정책** 을 선택 합니다.
 5. 왼쪽 메뉴의 **외부 리소스** 섹션에서 **리포지토리** 를 선택 합니다.
 6. 도구 모음에서 **+ 추가** 를 선택 합니다.
@@ -86,10 +86,10 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
 ## <a name="use-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 Azure 리소스 관리 (Azure Resource Manager) 템플릿은 만들려는 Azure의 리소스를 설명 하는 JSON 파일입니다. 이러한 템플릿에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)을 참조 하세요.
 
-이 섹션에서는 Azure Resource Manager 템플릿을 사용 하 여 랩에 아티팩트 리포지토리를 추가 하는 단계를 제공 합니다.  템플릿이 없으면 랩을 만듭니다. 
+이 섹션에서는 Azure Resource Manager 템플릿을 사용 하 여 랩에 아티팩트 리포지토리를 추가 하는 단계를 제공 합니다.  템플릿이 없으면 랩을 만듭니다.
 
 ### <a name="template"></a>템플릿
-이 문서에 사용 된 샘플 템플릿은 매개 변수를 통해 다음 정보를 수집 합니다. 대부분의 매개 변수는 스마트 기본값을 갖지만 몇 가지 값을 지정 해야 합니다. 랩 이름, 아티팩트 리포지토리의 URI 및 리포지토리의 보안 토큰을 지정 해야 합니다. 
+이 문서에 사용 된 샘플 템플릿은 매개 변수를 통해 다음 정보를 수집 합니다. 대부분의 매개 변수는 스마트 기본값을 갖지만 몇 가지 값을 지정 해야 합니다. 랩 이름, 아티팩트 리포지토리의 URI 및 리포지토리의 보안 토큰을 지정 해야 합니다.
 
 - 랩 이름.
 - DevTest Labs UI (사용자 인터페이스)에서 아티팩트 리포지토리의 표시 이름입니다. 기본값은 `Team Repository`입니다.
@@ -97,11 +97,11 @@ Azure 리소스 관리 (Azure Resource Manager) 템플릿은 만들려는 Azure�
 - 아티팩트를 포함 하는 리포지토리에서 분기 합니다. 기본값은 `master`입니다.
 - 아티팩트를 포함 하는 폴더의 이름입니다. 기본값은 `/Artifacts`입니다.
 - 저장소의 형식. 허용 되는 값은 `VsoGit` 또는 `GitHub`입니다.
-- 리포지토리의 액세스 토큰입니다. 
+- 리포지토리의 액세스 토큰입니다.
 
     ```json
     {
-    
+
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -167,10 +167,10 @@ Azure 리소스 관리 (Azure Resource Manager) 템플릿은 만들려는 Azure�
 ### <a name="deploy-the-template"></a>템플릿 배포
 템플릿을 Azure에 배포 하 고 리소스가 존재 하지 않는 경우 생성 하거나 업데이트 하는 몇 가지 방법이 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)
-- [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [Resource Manager 템플릿과 Azure Portal로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md)
-- [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md)
+- [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/templates/deploy-cli.md)
+- [Resource Manager 템플릿과 Azure Portal로 리소스 배포](../azure-resource-manager/templates/deploy-portal.md)
+- [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../azure-resource-manager/templates/deploy-rest.md)
 
 PowerShell에서 템플릿을 배포 하는 방법을 알아보겠습니다. 템플릿을 배포 하는 데 사용 되는 cmdlet은 컨텍스트별 이므로 현재 테 넌 트 및 현재 구독이 사용 됩니다. 필요한 경우 템플릿을 배포 하기 전에 [AzContext](/powershell/module/az.accounts/set-azcontext) 를 사용 하 여 컨텍스트를 변경 합니다.
 
@@ -191,8 +191,8 @@ New-AzResourceGroupDeployment `
 ```
 
 AzResourceGroupDeployment를 성공적으로 실행 한 후 명령은 프로 비전 상태 (성공 해야 함) 및 템플릿에 대 한 모든 출력 같은 중요 한 정보를 출력 합니다.
- 
-## <a name="use-azure-powershell"></a>Azure PowerShell 사용 
+
+## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 이 섹션에서는 랩에 아티팩트 리포지토리를 추가 하는 데 사용할 수 있는 샘플 PowerShell 스크립트를 제공 합니다. Azure PowerShell 없는 경우 설치 하는 방법에 대 한 자세한 지침은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview?view=azps-1.2.0) 을 참조 하세요.
 
 ### <a name="full-script"></a>전체 스크립트
@@ -211,7 +211,7 @@ This script creates a new custom repository and adds it to an existing DevTest L
 The name of the lab.
 
 .PARAMETER LabResourceGroupName
-The name of the resource group that contains the lab. 
+The name of the resource group that contains the lab.
 
 .PARAMETER ArtifactRepositoryName
 Name for the new artifact repository.
@@ -246,7 +246,7 @@ Script uses the current Az context. To set the context, use the Set-AzContext cm
 
 #>
 
- 
+
 [CmdletBinding()]
 Param(
 
@@ -262,10 +262,10 @@ Param(
     $RepositoryUri,
     $RepositoryBranch = 'master',
     $FolderPath = '/Artifacts',
-    
+
     [Parameter(Mandatory=$true)]
     $PersonalAccessToken ,
-    
+
     [Parameter(Mandatory=$true)]
     [ValidateSet('VsoGit', 'GitHub')]
     $SourceType
@@ -310,7 +310,7 @@ $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
 $resourceName = $LabName + '/' + $ArtifactRepositoryName
 Write-Verbose "Az ResourceType: $resourcetype"
 Write-Verbose "Az ResourceName: $resourceName"
- 
+
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
 $result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
@@ -336,7 +336,7 @@ return $result
 ```
 
 ### <a name="run-the-powershell-script"></a>PowerShell 스크립트 실행
-다음 예제에서는 스크립트를 실행 하는 방법을 보여 줍니다. 
+다음 예제에서는 스크립트를 실행 하는 방법을 보여 줍니다.
 
 ```powershell
 Set-AzContext -SubscriptionId <Your Azure subscription ID>
@@ -348,13 +348,13 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ### <a name="parameters"></a>매개 변수
 이 문서의 샘플 PowerShell 스크립트는 다음 매개 변수를 사용 합니다.
 
-| 매개 변수 | Description | 
-| --------- | ----------- | 
+| 매개 변수 | Description |
+| --------- | ----------- |
 | 랩 이름 | 랩의 이름입니다. |
 | ArtifactRepositoryName | 새 아티팩트 리포지토리의 이름입니다. 스크립트가 지정 되지 않은 경우 리포지토리에 대 한 임의 이름을 만듭니다. |
 | ArtifactRepositoryDisplayName | 아티팩트 리포지토리의 표시 이름입니다. 랩에 대 한 모든 아티팩트 리포지토리를 볼 때 Azure Portal (https://portal.azure.com) 에 표시 되는 이름입니다. |
-| RepositoryUri | 리포지토리에 대 한 Uri입니다. 예: `https://github.com/<myteam>/<nameofrepo>.git` 또는 `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`.| 
-| RepositoryBranch | 아티팩트 파일을 찾을 수 있는 분기입니다. 기본값은 ' 마스터 '입니다. | 
+| RepositoryUri | 리포지토리에 대 한 Uri입니다. 예: `https://github.com/<myteam>/<nameofrepo>.git` 또는 `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`.|
+| RepositoryBranch | 아티팩트 파일을 찾을 수 있는 분기입니다. 기본값은 ' 마스터 '입니다. |
 | FolderPath | 아티팩트를 찾을 수 있는 폴더입니다. 기본값은 '/아티팩트 '입니다. |
 | PersonalAccessToken | GitHub 또는 VSOGit 리포지토리에 액세스 하기 위한 보안 토큰입니다. 개인용 액세스 토큰을 가져오는 지침은 전제 조건 섹션을 참조 하세요. |
 | SourceType | 아티팩트가 VSOGit 또는 GitHub 리포지토리 인지 여부입니다. |
@@ -377,13 +377,13 @@ if ($ArtifactRepositoryName -eq $null){
 
 이 스크립트는 현재 구독에 새 리소스를 추가 합니다. [AzContext](/powershell/module/az.accounts/get-azcontext) 를 사용 하 여이 정보를 확인 합니다. [AzContext](/powershell/module/az.accounts/set-azcontext) 를 사용 하 여 현재 테 넌 트 및 구독을 설정 합니다.
 
-리소스 이름 및 리소스 종류 정보를 검색 하는 가장 좋은 방법은 [AZURE REST Api 테스트](https://azure.github.io/projects/apis/) 웹 사이트를 사용 하는 것입니다. [DevTest labs – 2016-05-15](https://aka.ms/dtlrestapis) 공급자를 확인 하 여 DevTest labs 공급자에 대해 사용 가능한 REST api를 확인 합니다. 스크립트 사용자는 다음 리소스 ID를 가집니다. 
+리소스 이름 및 리소스 종류 정보를 검색 하는 가장 좋은 방법은 [AZURE REST Api 테스트](https://azure.github.io/projects/apis/) 웹 사이트를 사용 하는 것입니다. [DevTest labs – 2016-05-15](https://aka.ms/dtlrestapis) 공급자를 확인 하 여 DevTest labs 공급자에 대해 사용 가능한 REST api를 확인 합니다. 스크립트 사용자는 다음 리소스 ID를 가집니다.
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
 ```
- 
-리소스 종류는 중괄호에 나열 된 항목을 제외 하 고 URI에서 ' 공급자 ' 뒤에 나열 된 모든 항목입니다. 리소스 이름은 모두 중괄호 안에 표시 됩니다. 리소스 이름에 대 한 항목이 두 개 이상 필요한 경우에는 완료 된 대로 각 항목을 슬래시로 구분 합니다. 
+
+리소스 종류는 중괄호에 나열 된 항목을 제외 하 고 URI에서 ' 공급자 ' 뒤에 나열 된 모든 항목입니다. 리소스 이름은 모두 중괄호 안에 표시 됩니다. 리소스 이름에 대 한 항목이 두 개 이상 필요한 경우에는 완료 된 대로 각 항목을 슬래시로 구분 합니다.
 
 ```powershell
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
@@ -395,4 +395,3 @@ $resourceName = $LabName + '/' + $ArtifactRepositoryName
 - [Azure DevTest Labs에서 랩에 대 한 필수 아티팩트를 지정 합니다.](devtest-lab-mandatory-artifacts.md)
 - [DevTest Labs 가상 머신에 대 한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
 - [랩에서 아티팩트 실패 진단](devtest-lab-troubleshoot-artifact-failure.md)
-

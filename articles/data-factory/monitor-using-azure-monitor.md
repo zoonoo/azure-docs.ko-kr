@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: aaa67c5e48c6246e94410bdbf2eb8509b6810001
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8325b4ef6b89a76eeec418386cec4922cb5916b1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645194"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979159"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 데이터 팩터리 경고 및 모니터링
 
@@ -67,7 +67,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### <a name="headers"></a>headers
 
 * `{api-version}`을 `2016-09-01`로 바꿉니다.
-* `{resource-id}`를 진단 설정을 편집 하려는 리소스의 ID로 바꿉니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/manage-resource-groups-portal.md)(영문)를 참조하세요.
+* `{resource-id}`를 진단 설정을 편집 하려는 리소스의 ID로 바꿉니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)(영문)를 참조하세요.
 * `Content-Type` 헤더를 `application/json`으로 설정합니다.
 * 권한 부여 헤더를 Azure Active Directory (Azure AD)에서 가져온 JSON 웹 토큰으로 설정 합니다. 자세한 내용은 [요청 인증](../active-directory/develop/authentication-scenarios.md)을 참조하세요.
 
@@ -188,7 +188,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### <a name="headers"></a>headers
 
 * `{api-version}`을 `2016-09-01`로 바꿉니다.
-* `{resource-id}`를 진단 설정을 편집 하려는 리소스의 ID로 바꿉니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/manage-resource-groups-portal.md)(영문)를 참조하세요.
+* `{resource-id}`를 진단 설정을 편집 하려는 리소스의 ID로 바꿉니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)(영문)를 참조하세요.
 * `Content-Type` 헤더를 `application/json`으로 설정합니다.
 * 권한 부여 헤더를 Azure AD에서 가져온 JSON 웹 토큰으로 설정 합니다. 자세한 내용은 [요청 인증](../active-directory/develop/authentication-scenarios.md)을 참조하세요.
 

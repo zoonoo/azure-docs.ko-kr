@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447984"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982139"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
 
@@ -41,7 +41,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 * Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 * SQL API를 사용하고 [강력한 일관성](../cosmos-db/manage-account.md)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/create-sql-api-dotnet.md#create-account). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
-* [Azure 구독에 배포된 Azure 스토리지 계정](../storage/common/storage-quickstart-create-account.md). 이 가이드의 단계를 완료하려면 스토리지 계정의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
+* [Azure 구독에 배포된 Azure 스토리지 계정](../storage/common/storage-account-create.md). 이 가이드의 단계를 완료하려면 스토리지 계정의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 
 ## <a name="prepare-your-development-environment"></a>개발 환경 준비
 
@@ -70,7 +70,7 @@ Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adap
 
 스토리지 어댑터 마이크로 서비스를 로컬로 실행하려면 **디버그 \> 디버깅 시작**을 차례로 클릭합니다.
 
-Visual Studio Code의 **터미널** 창에서 웹 서비스 상태 확인에 대한 URL(<http://127.0.0.1:9022/v1/status>)을 포함하여 실행 중인 마이크로 서비스의 출력을 표시합니다. 이 주소로 이동 하면 상태가 이어야 합니다 "확인: 활성 및 양호 "입니다.
+Visual Studio Code의 **터미널** 창에서 웹 서비스 상태 확인에 대한 URL(<http://127.0.0.1:9022/v1/status>)을 포함하여 실행 중인 마이크로 서비스의 출력을 표시합니다. 이 주소로 이동하면 상태는 "OK: 활성 및 양호"이어야 합니다.
 
 다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 스토리지 어댑터 마이크로 서비스는 그대로 유지합니다.
 
@@ -174,7 +174,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. [GitHub에서 Protobuf 컴파일러를 다운로드](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)합니다.
 
-1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예를 들면 다음과 같습니다.
+1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 기본적으로 새 JSON 및 JS 디바이스 모델 파일은 빌드된 솔루션에 복사되지 않습니다. 명시적으로 포함해야 합니다.
 
-포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 예를 들면 다음과 같습니다.
+포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 예:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">

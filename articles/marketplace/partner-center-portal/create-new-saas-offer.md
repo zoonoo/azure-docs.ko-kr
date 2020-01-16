@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863808"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045500"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -167,7 +167,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ### <a name="category"></a>범주
 
-제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하는 데 사용 되는 최소 1 개 (1) 및 최대 3 개 범주를 선택 합니다. 제품 설명에서 제품이 이러한 범주를 어떻게 지원 하는지 확인 하세요. 
+제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하는 데 사용 되는 최소 1 개 (1) 및 최대 3 개 범주를 선택 합니다. 제품 설명에서 제품이 이러한 범주를 어떻게 지원 하는지 확인 합니다.
 
 ### <a name="industry"></a>산업
 
@@ -175,7 +175,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ### <a name="app-version"></a>앱 버전
 
-제품의 버전 번호를 식별 하기 위해 AppSource marketplace에서 사용 되는 선택적 필드입니다.
+이 필드는 선택 사항이 며 AppSource marketplace에서 제품의 버전 번호를 식별 하는 데 사용 됩니다.
 
 ### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 표준 계약
 
@@ -204,7 +204,7 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 >[!NOTE]
 > 이러한 두 가지 유형의 개정 stack이 서로 위에 있습니다. 사용자 지정 개정를 대상으로 하는 고객은 구매 중에 표준 계약에 대 한 범용 수정도 받게 됩니다.
 
-**Microsoft의 상용 marketplace에 대 한 표준 계약에 대 한 범용 수정 용어**:이 상자에 유니버설 수정 용어를 입력 합니다. 제품 당 단일 범용 수정 기능을 제공할 수 있습니다. 이 상자에는 개수에 제한 없이 문자를 입력할 수 있습니다. 이러한 내용은 검색 및 구매 흐름 중에 AppSource, Azure Marketplace 및/또는 Azure Portal의 고객에 게 표시 됩니다.
+**Microsoft의 상용 marketplace에 대 한 표준 계약에 대 한 범용 수정 용어**:이 상자에 유니버설 수정 용어를 입력 합니다. 제품 당 단일 범용 수정 기능을 제공할 수 있습니다. 이 상자에는 개수에 제한 없이 문자를 입력할 수 있습니다. 이러한 용어는 검색 및 구매 흐름 중에 AppSource, Azure Marketplace 및/또는 Azure Portal의 고객에 게 표시 됩니다.
 
 **Microsoft의 상용 marketplace에 대 한 표준 계약에 대 한 사용자 지정 수정 용어**: **사용자 지정 수정 용어 추가**를 선택 하 여 시작 합니다. 제품 당 최대 10 개의 사용자 지정 수정 단어를 제공할 수 있습니다.
 
@@ -231,7 +231,7 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 
 제품 및 마케팅 자산에 대 한 설명을 포함 하 여 marketplace에 표시 되는 세부 정보를 제공 합니다.
 
-- **이름** (필수): 여기에 정의 된 이름은 선택한 marketplace에서 제품의 제목으로 표시 됩니다. 이전 **새 제안** 항목에 따라 이름이 미리 채워집니다.  이는 상표 수 있습니다.  이는 사용자가 상표 및 저작권 기호인 경우를 제외 하 고는이 모 지를 포함 해서는 안 되며 50 자로 제한 되어야 합니다.
+- **이름** (필수): 여기에 정의 된 이름은 선택한 marketplace에서 제품의 제목으로 표시 됩니다. 이전 **새 제안** 항목에 따라 이름이 미리 채워집니다. 이름은 상표 일 수 있습니다. 이 클래스는 상표 및 저작권 기호가 아닌 경우에는이 모 지를 포함할 수 없으며 50 자로 제한 되어야 합니다.
 - **요약** (필수): marketplace 목록 검색 결과에 사용할 제품에 대 한 간단한 설명을 제공 합니다. 이 필드에는 최대 100 자의 텍스트를 입력할 수 있습니다.
 - **설명** (필수): marketplace 목록에 표시 되는 제품에 대 한 설명을 제공 합니다. 가치 제안, 주요 이점, 범주 또는 업계 연결, 앱 내 구매 기회, 필요한 공개 및 자세한 내용을 볼 수 있는 링크를 포함 하는 것이 좋습니다.
 이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다. 추가 팁은 [유용한 앱 설명 작성](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)문서를 참조 하세요.
@@ -240,7 +240,7 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 
 #### <a name="description"></a>**설명**
 
-이 이름은 반드시 입력해야 합니다. 설명에 포함할 항목:
+이 필드는 필수입니다. **설명**에 포함할 항목:
 
 * 설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다.  
 * 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요.  
@@ -253,76 +253,28 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 * 제품의 혜택을 받는 사용자 유형
 * 고객이 요구 하거나 제품의 문제를 해결 합니다.
 
-제품 설명을 더 많이 활용 하려면 HTML 태그를 사용 하 여 설명의 서식을 지정할 수 있습니다.
+제품 **설명을** 보다 유용 하 게 사용 하려면 서식 있는 텍스트 편집기를 사용 하 여 설명의 서식을 지정 합니다.
 
-1. 단락을 만들려면 텍스트 begging에 `<p>`을 추가 하 고 끝에 `</p>`를 추가 합니다.
+![서식 있는 텍스트 편집기 사용](./media/text-editor2.png)
 
-    **예**:
+서식 있는 텍스트 편집기를 사용 하려면 다음 지침을 따르십시오.
 
-    첫 번째 단락을 `<p>` 합니다. `</p>` <br>
-    `<p>`이 두 번째 단락입니다. `</p>` <br>
+- 콘텐츠 형식을 변경 하려면 아래와 같이 서식을 지정할 텍스트를 강조 표시 하 고 텍스트 스타일을 선택 합니다.
 
-    위는 다음과 같습니다.
+     ![서식 있는 텍스트 편집기를 사용 하 여 텍스트 형식 변경](./media/text-editor3.png)
 
-    <p> 첫 번째 단락입니다. </p>
-    <p> 이는 두 번째 단락입니다. </p>
+- 글머리 기호 또는 번호 매기기 목록을 텍스트에 추가 하려면 아래 옵션을 사용 합니다.
 
-1. **항목의 글머리 기호 목록을**추가 하려면 아래 `<li>` 태그 안에 텍스트를 입력 합니다. `<ul>` 및 `</ul>` 태그 내에서 더 많은 글머리 기호 항목 (`<li>` 태그와 `</li>` 태그 사이에 있는 항목)을 복사 하 여 붙여 넣을 수 있습니다. `<ul></ul>`을 추가 했는지 확인 합니다.
+     ![서식 있는 텍스트 편집기를 사용 하 여 목록 추가](./media/text-editor4.png)
 
-    **예**:
+- 텍스트에 들여쓰기를 추가 하거나 제거 하려면 아래 옵션을 사용 합니다.
 
-    ```
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul>
-    ```
-
-    위는 다음과 같습니다.
-    <ul> 
-        <li>여기에 텍스트 추가</li>
-        <li> 여기에 텍스트 추가 </li>
-        <li> 여기에 텍스트 추가 </li>
-    </ul> 
-
-1. 내용을 **굵게** 표시 하려면 굵게 표시할 텍스트의 시작 부분에 `<b>`을 추가 하 고 굵게 표시할 텍스트의 끝에 `</b>`을 추가 합니다.
-
-    **예**: `<b>` 무료 평가판 `</b>`
-    
-    위의 방법으로 인해 storefront의 제품 설명에서 무료 평가판 이라는 단어가 굵게 표시 됩니다.
-
-    **무료 평가판**
-
-1. 콘텐츠 사이에 **줄 바꿈을** 추가 하려면 새 줄에서 시작 하려는 콘텐츠 앞에 `<br>`를 추가 합니다. 공백을 두고 콘텐츠가 새 줄에서 시작 되도록 하려면 내용 앞에 `<br><br>`를 추가 합니다.
-
-    **예**:
-
-    텍스트 줄입니다. `<br>` 새 줄에서 시작 하는 텍스트 줄입니다. `<br><br>` 아래 두 줄을 시작 하는 줄입니다.
-
-    위는 다음과 같습니다.
-
-    텍스트 줄입니다. <br> 새 줄에서 시작 하는 텍스트 줄입니다. <br><br> 아래 두 줄을 시작 하는 줄입니다.
-
-1. **텍스트의 크기를 늘리려면**먼저 텍스트를 표시할 크기를 선택 합니다. 아래 예제를 사용 합니다. 텍스트의 크기를 선택한 후 해당 `<H*></H*>` 태그를 텍스트의 시작 부분 및 끝 부분에 추가 합니다.
-
-    **예**:
-
-    `<h1>`제목 1`</h1>` <br>
-    `<h2>`제목 2`</h2>` <br>
-    제목 3 `<h3>``</h3>` <br>
-    `<h4>`제목 4`</h4>` <br>
-    `<h5>`제목 5`</h5>` <br>
-    `<h6>`제목 6`</h6>` 
-
-    위는 다음과 같습니다.
-
-    ![샘플 제목](./media/heading.png)
+     ![서식 있는 텍스트 편집기를 사용 하 여 들여쓰기](./media/text-editor5.png)
 
 #### <a name="links"></a>링크
 
 - **개인 정보 취급 방침** (필수): 조직의 개인 정보 취급 방침에 대 한 링크입니다. 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 하 고 유효한 개인 정보 취급 방침을 제공 해야 합니다.
-- **Csp 프로그램 마케팅 자료** (선택 사항): 제품을 [CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) 프로그램으로 확장 하도록 선택 하는 경우 마케팅 자료에 대 한 링크를 제공 해야 합니다. CSP는 CSP 파트너가 제품을 번들, 시장 및 재판매 수 있도록 하 여 제품을 더 광범위 한 범위의 고객으로 확장 합니다. 이러한 대리점은 제품 마케팅에 대 한 자료에 액세스 해야 합니다. 자세한 내용은 [출시 전 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조 하세요.
+- **Csp 프로그램 마케팅 자료** (선택 사항): 제품을 [CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) 프로그램으로 확장 하도록 선택 하는 경우 마케팅 자료에 대 한 링크를 제공 합니다. CSP는 CSP 파트너가 제품을 번들, 시장 및 재판매 수 있도록 하 여 제품을 더 광범위 한 범위의 고객으로 확장 합니다. 이러한 대리점은 제품 마케팅에 대 한 자료에 액세스 해야 합니다. 자세한 내용은 [출시 전 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조 하세요.
 - **유용한 링크** (선택 사항): **제목** 및 **URL**을 제공 하 여 나열 된 앱 또는 관련 서비스에 대 한 선택적 보조 온라인 문서입니다. **+ URL 추가**를 클릭 하 여 유용한 링크를 더 추가 합니다.
 
 #### <a name="contact-information"></a>연락처 정보
@@ -353,7 +305,7 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 **미리 보기** 탭에서는 제품을 광범위 한 marketplace 대상에 게시 하기 전에 제품을 릴리스할 수 있는 제한 된 **미리 보기 대상을** 정의할 수 있습니다.
 
 > [!IMPORTANT]
-> 미리 보기에서 제품을 확인 한 후 제품이 marketplace 공용 대상 그룹에 live 게시 되기 전에 **라이브 전환** 을 선택 해야 합니다.
+> 미리 보기에서 제품을 확인 한 후 **Live Go** 를 선택 하 여 제품을 marketplace 공개 대상에 게 live 게시할 수 있습니다.
 
 - **미리 보기 대상 정의: 선택적 설명과 함께 단일 AAD/MSA 계정 전자 메일을 줄 단위로 추가 합니다.**
 
@@ -370,7 +322,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 - **연결 webhook** (필수): Microsoft에서 고객을 대신 하 여 사용자에 게 보내야 하는 모든 비동기 이벤트의 경우 (예: SaaS 구독이 유효 하지 않음) 연결 webhook를 제공 해야 합니다. 웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 모든 이벤트를 수신 대기 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
 
-- **AZURE ad 테 넌 트 ID** (필수): Azure Portal 내에서는 두 서비스 간의 연결에 대 한 유효성을 검사할 수 있도록 [AD (Azure Active Directory) 앱을 만들어야](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 합니다. [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 여 **속성**을 선택한 다음 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
+- **AZURE ad 테 넌 트 ID** (필수): Azure Portal 내에서는 두 서비스 간의 연결에 대 한 유효성을 검사할 수 있도록 [AD (Azure Active Directory) 앱을 만들어야](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 합니다. [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성**을 선택한 다음 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
 
 - **AZURE AD 앱 id** (필수): [응용 프로그램 id](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 및 인증 키도 필요 합니다. 이러한 값을 얻으려면 Azure Active Directory로 이동 하 여 **앱 등록**을 선택한 다음 나열 된 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다. 인증 키를 찾으려면 **설정** 으로 이동 하 고 **키**를 선택 합니다. 설명 및 기간을 제공 하 고 숫자 값이 제공 됩니다.
 
@@ -424,7 +376,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 >[!Note]
 >불가능 제안을 무료 평가판으로 게시 한 후에는 해당 계획에 대해 사용 하지 않도록 설정할 수 없습니다. 첫 번째 게시에 대해이 설정이 올바른지 확인 하 여 계획을 다시 만들 필요가 없도록 합니다.
 
-현재 무료 평가판에 참여 하는 고객 구독에 대 한 정보를 얻으려면 true 또는 false로 표시 되는 `isFreeTrial`새 API 속성을 사용 합니다. 자세한 내용은 [SaaS Get SUBSCRIPTION API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) 를 참조 하세요.
+현재 무료 평가판에 참여 하는 고객 구독에 대 한 정보를 얻으려면 true 또는 false로 표시 되는 `isFreeTrial`새 API 속성을 사용 합니다. 자세한 내용은 [SaaS Get SUBSCRIPTION API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription)를 참조 하세요.
 
 >[!Note]
 >Marketplace 계량 서비스를 활용 하는 요금제에 대 한 무료 평가판은 지원 되지 않습니다.

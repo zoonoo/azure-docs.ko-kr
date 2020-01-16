@@ -9,19 +9,19 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893351"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979812"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 
-Azure 환경의 여러 계층에서 Azure Storage 계정에 보관할 수 있는 로그 및 메트릭 데이터를 생성합니다. 데이터가 보존 기간을 경과한 후에 검색이 불가능한 저렴한 상점에서 시간에 따라 데이터를 모니터링하는 기록을 유지하기 위해 이 작업을 수행하려고 할 수 있습니다. 
+Azure 환경의 여러 계층에서 Azure Storage 계정에 보관할 수 있는 로그 및 메트릭 데이터를 생성합니다. 데이터가 보존 기간을 경과한 후에 검색이 불가능한 저렴한 상점에서 시간에 따라 데이터를 모니터링하는 기록을 유지하기 위해 이 작업을 수행하려고 할 수 있습니다.
 
-- Azure Monitor 플랫폼 메트릭은 93일 동안 보존됩니다. 
-- 리소스 진단 로그는 Log Analytics로 라우팅되는 경우에만 나타나며, 구성 가능한 최소 보존 기간은 30일입니다. 
+- Azure Monitor 플랫폼 메트릭은 93일 동안 보존됩니다.
+- 리소스 진단 로그는 Log Analytics로 라우팅되는 경우에만 나타나며, 구성 가능한 최소 보존 기간은 30일입니다.
 - 활동 로그 항목은 90일 동안 보존됩니다.  
 
 이 자습서에서는 스토리지 계정에 데이터를 보관하도록 Azure 환경을 구성하는 과정을 안내합니다.
@@ -42,11 +42,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-먼저 모니터링 데이터를 보관할 스토리지 계정을 설정해야 합니다. 이렇게 하려면 [여기 있는 단계를 수행하세요.](../../storage/common/storage-quickstart-create-account.md)
+먼저 모니터링 데이터를 보관할 스토리지 계정을 설정해야 합니다. 이렇게 하려면 [여기 있는 단계를 수행하세요.](../../storage/common/storage-account-create.md)
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>스토리지 계정에 구독 로그 라우팅
 
-이제 스토리지 계정에 모니터링 데이터를 라우팅하도록 Azure 환경 설정을 시작할 준비가 되었습니다. 먼저 스토리지 계정에 라우팅되도록 구독 수준 데이터(Azure 활동 로그에 포함됨)를 구성합니다. [**Azure 활동 로그**](../../azure-monitor/platform/activity-logs-overview.md)는 Azure에서 구독 수준 이벤트 기록을 제공합니다. Azure Portal에서 찾아보기를 통해 만들고 업데이트한 *사람*이 누구이고 *어떤* 리소스를 *언제* 삭제했는지 확인할 수 있습니다.
+이제 스토리지 계정에 모니터링 데이터를 라우팅하도록 Azure 환경 설정을 시작할 준비가 되었습니다. 먼저 스토리지 계정에 라우팅되도록 구독 수준 데이터(Azure 활동 로그에 포함됨)를 구성합니다. [**Azure 활동 로그**](../../azure-monitor/platform/platform-logs-overview.md)는 Azure에서 구독 수준 이벤트 기록을 제공합니다. Azure Portal에서 찾아보기를 통해 만들고 업데이트한 *사람*이 누구이고 *어떤* 리소스를 *언제* 삭제했는지 확인할 수 있습니다.
 
 1. 왼쪽 탐색 목록에 있는 **모니터** 단추를 클릭한 후 **활동 로그**에서 다음을 수행합니다.
 
@@ -144,9 +144,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>스토리지 계정에서 모니터링 데이터 보기
 
 > [!WARNING]
-> 스토리지 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> 스토리지 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 이전 단계를 수행했다면 데이터가 스토리지 계정으로 이동하기 시작했습니다.
 
@@ -199,4 +199,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!div class="nextstepaction"]
 > [Log Analytics 시작](../../azure-monitor/log-query/log-query-overview.md)
-

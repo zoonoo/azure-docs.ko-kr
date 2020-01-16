@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: allensu
-ms.openlocfilehash: b84ba055dd8214ae18e76004671e3922e6f3b878
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211454"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969014"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "74211454"
 
 DNS 영역 및 레코드는 중요한 리소스입니다. DNS 영역 또는 단일 DNS 레코드만 삭제해도 전체 서비스 중단이 발생할 수 있습니다.  따라서 중요 DNS 영역 및 레코드가 무단 또는 실수로 변경되지 않도록 보호하는 것이 중요합니다.
 
-이 문서는 Azure DNS를 통해 DNS 영역 및 레코드를 이러한 변경으로부터 보호하는 방식에 대해 설명합니다.  Azure Resource Manager에서 제공하는 두 가지 강력한 보안 기능, 즉, [역할 기반 액세스 제어](../role-based-access-control/overview.md)와 [리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)을 적용합니다.
+이 문서는 Azure DNS를 통해 DNS 영역 및 레코드를 이러한 변경으로부터 보호하는 방식에 대해 설명합니다.  Azure Resource Manager에서 제공하는 두 가지 강력한 보안 기능, 즉, [역할 기반 액세스 제어](../role-based-access-control/overview.md)와 [리소스 잠금](../azure-resource-manager/management/lock-resources.md)을 적용합니다.
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
@@ -158,7 +158,7 @@ azure role create -inputfile <file path>
 
 ## <a name="resource-locks"></a>리소스 잠금
 
-RBAC 외에도 Azure Resource Manager는 리소스를 잠그는 기능과 같은 다른 유형의 보안 관리 기능을 지원합니다. 특정 사용자와 그룹의 작업을 관리할 수 있는 RBAC 규칙의 경우 리소스 잠금이 리소스에 적용되며 모든 사용자와 역할에 대해 유효합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
+RBAC 외에도 Azure Resource Manager는 리소스를 잠그는 기능과 같은 다른 유형의 보안 관리 기능을 지원합니다. 특정 사용자와 그룹의 작업을 관리할 수 있는 RBAC 규칙의 경우 리소스 잠금이 리소스에 적용되며 모든 사용자와 역할에 대해 유효합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../azure-resource-manager/management/lock-resources.md)를 참조하세요.
 
 리소스 잠금의 두 가지 유형은 **Cannotdelete** 및 **ReadOnly**입니다. 이러한 잠금은 DNS 영역 또는 개별 레코드 집합에 적용할 수 있습니다.  다음 섹션에서는 몇 가지 일반적인 시나리오와 리소스 잠금을 사용하여 지원하는 방법에 대해 설명합니다.
 
@@ -195,7 +195,7 @@ New-AzResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName
 
 ### <a name="protecting-against-zone-deletion"></a>영역 삭제로부터 보호
 
-Azure DNS에서 영역이 삭제되면 해당 영역의 모든 레코드 집합도 삭제됩니다.  이 작업은 취소할 수 없습니다.  중요 영역을 실수로 삭제할 경우 비즈니스에 심각한 영향을 미칩니다.  따라서 실수로 영역을 삭제하지 않도록 보호하는 것이 매우 중요합니다.
+Azure DNS에서 영역이 삭제되면 해당 영역의 모든 레코드 집합도 삭제됩니다.  이 작업은 실행 취소할 수 없습니다.  중요 영역을 실수로 삭제할 경우 비즈니스에 심각한 영향을 미칩니다.  따라서 실수로 영역을 삭제하지 않도록 보호하는 것이 매우 중요합니다.
 
 영역에 CanNotDelete 잠금을 적용할 경우 영역이 삭제되지 않습니다.  하지만 하위 리소스에서 잠금을 상속하기 때문에 영역에 있는 레코드 집합을 삭제할 수 없게 되며 이러한 상황은 바람직하지 않을 수 있습니다.  또한 위 참고 사항에서 설명한 바와 같이 기존 레코드 집합에서 여전히 레코드를 제거할 수 있기 때문에 비효과적입니다.
 
@@ -217,4 +217,4 @@ DNS 영역 보호에 대한 심층적 방어 접근 방식으로서 리소스 �
 ## <a name="next-steps"></a>다음 단계
 
 * RBAC를 사용하는 방법은 [Azure Portal에서 액세스 관리 시작](../role-based-access-control/overview.md)을 참조하세요.
-* 리소스 잠금에 대한 자세한 내용은[ Azure Resource Manager를 사용하여 리소스 잠그기](../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
+* 리소스 잠금에 대한 자세한 내용은[ Azure Resource Manager를 사용하여 리소스 잠그기](../azure-resource-manager/management/lock-resources.md)를 참조하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: alsin
-ms.openlocfilehash: e9cbd98afd5f9ed5561cba2236d85da331db7895
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 911d86dd7cb03479d9bde49d8fce0f7861e32e27
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944695"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980134"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자 고유의 구독 (Red Hat 골드 이미지) 모델을 통해 Azure에서 사용할 수 있습니다. 이 문서에서는 Azure의 Red Hat 골드 이미지에 대 한 개요를 제공 합니다.
@@ -189,5 +189,6 @@ RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자
 ## <a name="next-steps"></a>다음 단계
 * 클라우드 액세스에 대 한 단계별 가이드 및 프로그램 세부 정보는 [Red Hat Cloud access 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) 에서 확인할 수 있습니다.
 * [Azure Red Hat 업데이트 인프라](./redhat-rhui.md)에 대해 자세히 알아보세요.
-* Azure의 Red Hat 이미지에 대한 자세한 내용은 [설명서 페이지](./redhat-images.md)로 이동합니다.
+* Azure의 모든 Red Hat 이미지에 대해 자세히 알아보려면 [설명서 페이지로](./redhat-images.md)이동 합니다.
 * 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.
+* RHEL 골드 이미지에 대 한 추가 설명서는 [Red Hat 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure)에서 찾을 수 있습니다.

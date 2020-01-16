@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 06/24/2019
-author: roaror
-ms.author: roaror
-ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+author: LuisBosquez
+ms.author: lbosq
+ms.openlocfilehash: 5c01bd02b1fef7c7b27a3119465cad53155b9bbf
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67665926"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940962"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB Compass를 사용하여 Azure Cosmos DB의 API for MongoDB에 연결 
 
@@ -21,7 +21,7 @@ ms.locfileid: "67665926"
 Cosmos DB는 전역적으로 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
 
-## <a name="pre-requisites"></a>필수 조건 
+## <a name="pre-requisites"></a>필수 구성 요소 
 Robo 3T를 사용하여 Cosmos DB 계정에 연결하려면 다음을 수행해야 합니다.
 
 * [Compass](https://www.mongodb.com/download-center/compass?jmp=hero) 다운로드 및 설치
@@ -52,5 +52,5 @@ Cosmos DB 계정을 Compass에 연결하려면 아래 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Cosmos DB의 MongoDB용 API와 함께 [Studio 3T를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
-- Azure Cosmos DB의 MongoDB용 API를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.
+- Azure Cosmos DB의 API for MongoDB와 함께 [Studio 3T를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
+- Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428784"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969113"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화
 
@@ -52,7 +52,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 수신 이메일 및 첨부 파일을 [Azure Storage 컨테이너](../storage/common/storage-introduction.md)에 BLOB으로 저장할 수 있습니다.
 
-1. 스토리지 컨테이너를 만들려면 먼저 Azure Portal의 **기본** 탭에서 다음 설정을 사용하여 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 수행해야 합니다.
+1. 스토리지 컨테이너를 만들려면 먼저 Azure Portal의 **기본** 탭에서 다음 설정을 사용하여 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 수행해야 합니다.
 
    | 설정 | 값 | Description |
    |---------|-------|-------------|
@@ -159,7 +159,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![생성된 함수 앱](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   함수 앱을 만들려면 [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) 또는 [PowerShell 및 Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용할 수도 있습니다.
+   함수 앱을 만들려면 [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) 또는 [PowerShell 및 Resource Manager 템플릿](../azure-resource-manager/templates/deploy-powershell.md)을 사용할 수도 있습니다.
 
 1. **함수 앱** 목록에서 함수 앱을 확장합니다(아직 확장되지 않은 경우). 함수 앱에서 **함수**를 선택합니다. 함수 도구 모음에서 **새 함수**를 선택합니다.
 
@@ -282,7 +282,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
       | **간격** | 1 | 검사 간에 대기하는 간격의 수 |
       | **빈도** | Minute | 검사 간 간격의 시간 단위 |
       ||||
-  
+
    1. **새 매개 변수 추가** 목록에서 **제목 필터**를 선택합니다.
 
    1. **제목 필터** 상자가 작업에 나타나면 여기에 나열된 제목을 지정합니다.
@@ -377,7 +377,8 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 다음으로, **true인 경우** 분기에 대해 수행할 작업을 정의합니다. 첨부 파일과 함께 이메일을 저장하려면 이메일 본문에서 HTML을 제거한 후 이메일 및 첨부 파일용 스토리지 컨테이너에 BLOB을 만듭니다.
 
 > [!NOTE]
-> 이메일에 첨부 파일이 없는 경우에는 논리 앱이 **false인 경우** 분기에 대해 아무 것도 할 필요가 없습니다. 이 자습서를 마친 후 추가 연습으로 **false인 경우** 분기에 대해 수행할 적절한 작업을 추가할 수 있습니다.
+> 이메일에 첨부 파일이 없는 경우에는 논리 앱이 **false인 경우** 분기에 대해 아무 것도 할 필요가 없습니다.
+> 이 자습서를 마친 후 추가 연습으로 **false인 경우** 분기에 대해 수행할 적절한 작업을 추가할 수 있습니다.
 
 ## <a name="call-removehtmlfunction"></a>RemoveHTMLFunction 호출
 
@@ -605,7 +606,9 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    ||||
 
    > [!NOTE]
-   > 첨부 파일이 포함된 배열인 **콘텐츠** 필드와 같은 배열이 있는 필드를 선택하면, 디자이너에서 해당 필드를 참조하는 작업 주위에 "For each" 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에서 해당 작업을 수행할 수 있습니다. 루프를 제거하려면 배열에 대한 필드를 제거하고, 참조하는 작업을 루프 외부로 이동하고, 루프의 제목 표시줄에서 줄임표( **...** )를 선택한 후, **삭제**를 선택합니다.
+   > 첨부 파일이 포함된 배열인 **콘텐츠** 필드와 같은 배열이 있는 필드를 선택하면, 디자이너에서 해당 필드를 참조하는 작업 주위에 "For each" 루프를 자동으로 추가합니다.
+   > 그렇게 하면 논리 앱이 각 배열 항목에서 해당 작업을 수행할 수 있습니다.
+   > 루프를 제거하려면 배열에 대한 필드를 제거하고, 참조하는 작업을 루프 외부로 이동하고, 루프의 제목 표시줄에서 줄임표( **...** )를 선택한 후, **삭제**를 선택합니다.
 
 1. 논리 앱을 저장합니다.
 

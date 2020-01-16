@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: da733eef4dcfc15db10bb5bf303086ae601189ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 04fb34ff9c0ba9822e9760bcd3989bd0b5675506
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443214"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044725"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 ServiceNow 구성
 
@@ -142,6 +142,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 * **EntryJoiningPropertyValueIsMissing:** [특성 매핑을](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) 검토 하 여 일치 하는 특성을 식별 합니다. 이 값은 프로 비전 하려는 사용자 또는 그룹에 있어야 합니다. 
 * [SERVICENOW SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) 를 검토 하 여 요구 사항 또는 제한 사항 (예: 사용자에 대 한 국가 코드를 지정 하는 형식)을 파악 합니다.
 * 일부 ServiceNow 배포에서는 Azure AD 프로 비전 서비스에 대 한 IP 범위를 허용 해야 합니다. Azure AD 프로 비전 서비스에 대 한 예약 된 IP 범위는 "AzureActiveDirectoryDomainServices [" 아래에서 찾을 수 있습니다](https://www.microsoft.com/download/details.aspx?id=56519) .
+* 현재 ServiceNow 정부 클라우드에 사용자를 프로 비전 하는 것은 지원 되지 않습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

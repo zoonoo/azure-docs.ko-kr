@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cbd452fcf4056c1bcf4d5b8d6debb9d8f4a6f11c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610610"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976114"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -97,7 +97,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 | **데이터 형식** | **연결 방법** | **데이터 커넥터?** | **설명** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [AWS 연결](connect-aws.md) | V | |
-| AzureActivity | [Azure 활동 연결](connect-azure-activity.md) 및 [활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AzureActivity | [Azure 활동 연결](connect-azure-activity.md) 및 [활동 로그 개요](../azure-monitor/platform/platform-logs-overview.md)| V | |
 | AuditLogs | [Azure AD 연결](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Azure AD 연결](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
@@ -105,7 +105,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 | AzureNetworkAnalytics_CL  | [트래픽 분석 스키마](../network-watcher/traffic-analytics.md) [트래픽 분석](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [CEF 연결](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Office 365 연결](connect-office-365.md) | V | |
-| SecurityEvents | [Windows 보안 이벤트 연결](connect-windows-security-events.md)  | V | 안전하지 않은 프로토콜 통합 문서는 [안전하지 않은 프로토콜 통합 문서 설정](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)을 참조하세요.  |
+| SecurityEvents | [Windows 보안 이벤트 연결](connect-windows-security-events.md)  | V | 안전하지 않은 프로토콜 통합 문서는 [안전하지 않은 프로토콜 통합 문서 설정](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)을 참조하세요.  |
 | syslog | [Syslog 연결](connect-syslog.md) | V | |
 | Microsoft WAF(웹 애플리케이션 방화벽) - (AzureDiagnostics) |[Microsoft 웹 애플리케이션 방화벽 연결](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [Symantec 연결](connect-symantec.md) | V | |

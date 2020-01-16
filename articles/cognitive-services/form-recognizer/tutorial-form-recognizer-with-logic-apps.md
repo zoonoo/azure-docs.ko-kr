@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446466"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981257"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>자습서: Azure Logic Apps에서 Form Recognizer를 사용하여 청구서 분석
 
@@ -52,7 +52,7 @@ Form Recognizer는 제한된 액세스 미리 보기에서 사용할 수 있습�
 
 이 컨테이너를 사용하여 모델을 학습시키는 데 필요한 샘플 데이터를 업로드합니다.
 
-1. [Azure Storage 계정 만들기](../../storage/common/storage-quickstart-create-account.md)의 지침에 따라 스토리지 계정을 만듭니다. 스토리지 계정 이름으로 **formrecostorage**를 사용합니다.
+1. [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)의 지침에 따라 스토리지 계정을 만듭니다. 스토리지 계정 이름으로 **formrecostorage**를 사용합니다.
 1. [Azure Blob 컨테이너 만들기](../../storage/blobs/storage-quickstart-blobs-portal.md)의 지침에 따라 컨테이너를 Azure Storage 계정 내에 만듭니다. 컨테이너 이름으로 **formrecocontaner**를 사용합니다. 퍼블릭 액세스 수준을 **컨테이너(컨테이너와 Blob에 대한 익명 읽기 액세스)** 로 설정해야 합니다.
 
     > [!div class="mx-imgBorder"]

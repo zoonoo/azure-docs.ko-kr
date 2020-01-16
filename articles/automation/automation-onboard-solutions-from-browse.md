@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 188306ca02cee05f17514826ae6d973a17e6bb97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421851"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979482"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -41,7 +41,7 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 
 ### <a name="resource-group-limit"></a> 온보딩 제한 사항
 
-온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md)으로 제한됩니다. 업데이트 배포와 혼동 하지 않는 리소스 관리자 배포는 배포 당 리소스 그룹 5 개로 제한 됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다. 이 제한은 자동화 솔루션에서 관리할 수 있는 리소스 그룹의 수가 아니라 동시 온 보 딩에만 적용 됩니다.
+온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/templates/cross-resource-group-deployment.md)으로 제한됩니다. 업데이트 배포와 혼동 하지 않는 리소스 관리자 배포는 배포 당 리소스 그룹 5 개로 제한 됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다. 이 제한은 자동화 솔루션에서 관리할 수 있는 리소스 그룹의 수가 아니라 동시 온 보 딩에만 적용 됩니다.
 
 Runbook을 온 보 딩에 사용할 수도 있습니다. 자세한 내용은 [Azure Automation에 대 한 업데이트 및 변경 내용 추적 솔루션](automation-onboard-solutions.md)등록을 참조 하세요.
 

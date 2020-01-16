@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: d7b1d82f88afd8ac3d94cbdd2d117834c12d0b96
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e01579272878a2436abca2ee50f0f6ea6cf78cbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867147"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045602"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>개인 Azure Kubernetes Service 클러스터 만들기 (미리 보기)
 
@@ -131,7 +131,7 @@ API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 가상 네트�
 
 ## <a name="limitations"></a>제한 사항 
 * [Azure 개인 링크 서비스 제한은][private-link-service] 현재 동일한 가상 네트워크에서 지원 되지 않는 개인 클러스터, Azure 개인 끝점 및 가상 네트워크 서비스 끝점에 적용 됩니다.
-* 개인 Azure 가상 네트워크에서 개인 Cisco ACI (응용 프로그램 중심 인프라) 인스턴스를 스핀 하기 위해 개인 클러스터의 가상 노드를 지원 하지 않습니다.
+* 개인 Azure virtual network에서 전용 cisco ACI (전용 Cisco Application Infrastructure Infrastructure) 인스턴스를 스핀 하기 위해 개인 클러스터의 가상 노드를 지원 하지 않습니다.
 * Azure DevOps 통합은 개인 클러스터와 함께 제공 되지 않습니다.
 * Azure Container Registry를 개인 AKS 사용 하도록 설정 해야 하는 고객의 경우 Container Registry 가상 네트워크는 에이전트 클러스터 가상 네트워크와 피어 링 되어야 합니다.
 * 현재 Azure Dev Spaces 지원 하지 않습니다.

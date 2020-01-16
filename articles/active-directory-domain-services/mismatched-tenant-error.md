@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704538"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979506"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>기존 Azure AD Domain Services로 관리되는 도메인의 디렉터리 불일치 문제 해결
 
@@ -56,7 +56,7 @@ RBAC가 일관 되 게 작동 하 고 Azure AD DS에서 사용 하는 모든 리
 다음 두 옵션은 디렉터리 불일치 오류를 해결 합니다.
 
 * 기존 Azure AD 디렉터리에서 [azure AD DS 관리 되는 도메인을 삭제](delete-aadds.md) 합니다. 사용 하려는 가상 네트워크와 동일한 Azure AD 디렉터리에서 [대체 Azure AD DS 관리 되는 도메인을 만듭니다](tutorial-create-instance.md) . 준비가 되 면 삭제 된 도메인에 이전에 조인 된 모든 컴퓨터를 다시 만든 관리 되는 도메인에 가입 시킵니다.
-* 가상 네트워크가 포함 된 [azure 구독](../billing/billing-subscription-transfer.md) 을 azure AD DS 관리 되는 도메인과 동일한 azure AD 디렉터리로 이동 합니다.
+* 가상 네트워크가 포함 된 [azure 구독](../cost-management-billing/manage/billing-subscription-transfer.md) 을 azure AD DS 관리 되는 도메인과 동일한 azure AD 디렉터리로 이동 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

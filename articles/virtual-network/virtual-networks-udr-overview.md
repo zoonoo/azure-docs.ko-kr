@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 4132dacbb628051e674952806cb6b606ee915525
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644617"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973021"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -69,7 +69,7 @@ Azure는 다른 Azure 기능에 대한 추가 기본 시스템 경로를 추가�
 * **VirtualNetworkServiceEndpoint**: 서비스에 서비스 엔드포인트를 사용하도록 설정하면 Azure는 특정 서비스에 대한 공용 IP 주소를 경로 테이블에 추가합니다. 서비스 엔드포인트는 가상 네트워크 내의 개별 서브넷에서 사용하도록 설정되므로 서비스 엔드포인트를 사용하도록 설정된 서브넷의 경로 테이블에만 경로가 추가됩니다. Azure 서비스의 공용 IP 주소는 주기적으로 변경됩니다. 주소가 변경되면 Azure는 자동으로 경로 테이블의 주소를 관리합니다. [가상 네트워크 서비스 엔드포인트](virtual-network-service-endpoints-overview.md) 및 만드는 서비스 엔드포인트의 대상이 될 수 있는 서비스에 대해 자세히 알아보세요.<br>
 
     > [!NOTE]
-    > **VNet 피어링** 및 **VirtualNetworkServiceEndpoint** 다음 홉 유형은 Azure Resource Manager 배포 모델을 통해 만든 가상 네트워크에 속한 서브넷의 경로 테이블에만 추가됩니다. 클래식 배포 모델을 통해 만든 가상 네트워크 서브넷에 연결되는 경로 테이블에는 다음 홉 유형이 추가되지 않습니다. Azure [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요.
+    > **VNet 피어링** 및 **VirtualNetworkServiceEndpoint** 다음 홉 유형은 Azure Resource Manager 배포 모델을 통해 만든 가상 네트워크에 속한 서브넷의 경로 테이블에만 추가됩니다. 클래식 배포 모델을 통해 만든 가상 네트워크 서브넷에 연결되는 경로 테이블에는 다음 홉 유형이 추가되지 않습니다. Azure [배포 모델](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요.
 
 ## <a name="custom-routes"></a>사용자 지정 경로
 
@@ -101,7 +101,7 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 
 ## <a name="next-hop-types-across-azure-tools"></a>Azure tools의 다음 홉 유형
 
-다음 홉 유형에 대해 표시되고 참조되는 이름은 Azure Portal 및 명령줄 도구와 Azure Resource Manager 및 클래식 배포 모델 간에 다릅니다. 다음 표에서는 서로 다른 도구 및 [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 각각의 다음 홉 유형을 참조하는 데 사용되는 이름을 나열하고 있습니다.
+다음 홉 유형에 대해 표시되고 참조되는 이름은 Azure Portal 및 명령줄 도구와 Azure Resource Manager 및 클래식 배포 모델 간에 다릅니다. 다음 표에서는 서로 다른 도구 및 [배포 모델](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 각각의 다음 홉 유형을 참조하는 데 사용되는 이름을 나열하고 있습니다.
 
 |다음 홉 유형                   |Azure CLI 및 PowerShell(Resource Manager) |Azure 클래식 CLI 및 PowerShell(클래식)|
 |-------------                   |---------                                       |-----|

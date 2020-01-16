@@ -2,27 +2,27 @@
 title: Azure Batch를 사용한 병렬 R 시뮬레이션
 description: 자습서 - R doAzureParallel 패키지를 사용하여 Azure Batch에서 몬테카를로 재무 시뮬레이션을 실행하는 단계별 지침
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a5422b3b3dfee548e24e989654f8cc219700e712
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321902"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029215"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행 
 
 R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지인 [doAzureParallel](https://www.github.com/Azure/doAzureParallel)을 사용하여 병렬 R 작업을 규모에 맞게 실행합니다. doAzureParallel 패키지는 인기 있는 [foreach](https://cran.r-project.org/web/packages/foreach/index.html) R 패키지를 기반으로 하여 빌드되었습니다. doAzureParallel은 foreach 루프의 각 반복을 수행하여 Azure Batch 태스크로 제출합니다.
 
-이 자습서에서는 RStudio 내에서 직접 Batch 풀을 배포하고 Azure Batch에서 병렬 R 작업을 실행하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 RStudio 내에서 직접 Batch 풀을 배포하고 Azure Batch에서 병렬 R 작업을 실행하는 방법을 보여 줍니다. 다음 방법을 알아봅니다.
  
 
 > [!div class="checklist"]
@@ -30,7 +30,7 @@ R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지�
 > * R 세션에 대한 병렬 백 엔드로 Batch 풀 만들기
 > * 풀에서 병렬 시뮬레이션 샘플 실행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 설치된 [R](https://www.r-project.org/) 배포(예:[ Microsoft R Open](https://mran.microsoft.com/open)). R 버전 3.3.1 이상을 사용합니다.
 
@@ -110,7 +110,7 @@ generateClusterConfig("cluster.json")
 * 각 노드의 두 코어를 모두 활용하려면 `maxTasksPerNode`를 *2*로 늘립니다.
 * `dedicatedNodes`를 *0*으로 설정하면 Batch에 사용할 수 있는 우선 순위가 낮은 VM을 시도할 수 있습니다. `lowPriorityNodes`의 `min`을 *5*로, `max`를 *10*으로 설정하거나, 필요한 경우 더 작은 숫자를 선택합니다. 
 
-나머지 설정에 대한 기본값은 그대로 두고 파일을 저장합니다. 다음과 유사하게 나타납니다.
+나머지 설정에 대한 기본값은 그대로 두고 파일을 저장합니다. 결과는 다음과 비슷합니다.
 
 ```json
 {

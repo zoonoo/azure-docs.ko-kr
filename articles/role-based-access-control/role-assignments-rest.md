@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ba0c2bd81f32c0aec242dbfb32b2d7f4064ddbe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707822"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981048"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Azure RBAC 및 REST API를 사용 하 여 역할 할당 추가 또는 제거
 
 이 문서 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] REST API를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
 
@@ -57,22 +57,22 @@ RBAC에서 액세스 권한을 부여 하려면 역할 할당을 추가 합니�
 
 1. URI 내에서 *{scope}* 를 역할 할당에 대한 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | 범위 | 유형 |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | 리소스 |
 
 1. *{roleAssignmentName}* 을 역할 할당의 GUID 식별자로 바꿉니다.
 
 1. 요청 본문 내에서 *{scope}* 를 역할 할당의 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | 범위 | 유형 |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 역할 정의 식별자로 바꿉니다.
@@ -93,11 +93,11 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 
 1. URI 내에서 *{scope}* 를 제거할 역할 할당에 대한 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | 범위 | 유형 |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | 리소스 |
 
 1. *{roleAssignmentName}* 을 역할 할당의 GUID 식별자로 바꿉니다.
@@ -105,6 +105,6 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure RBAC 및 REST API를 사용 하 여 역할 할당 나열](role-assignments-list-rest.md)
-- [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../azure-resource-manager/templates/deploy-rest.md)
 - [Azure REST API 참조](/rest/api/azure/)
 - [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](custom-roles-rest.md)
