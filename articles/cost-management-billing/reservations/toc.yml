@@ -1,0 +1,76 @@
+- name: Azure Reservations 설명서
+  href: index.yml
+  items:
+    - name: 개요
+      expanded: true
+      items:
+        - name: Azure Reservations란?
+          href: save-compute-costs-reservations.md
+    - name: 방법 가이드
+      items:
+        - name: SQL Data Warehouse 예약 구매
+          href: prepay-sql-data-warehouse-charges.md
+        - name: 가상 머신 예약 구매
+          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Azure Storage 예약 구매
+          href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Cosmos DB 예약 구매
+          href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: SQL Database 예약 구매
+          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Azure Storage Explorer 예약 구매
+          href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Azure Databricks 예약 구매
+          href: prepay-databricks-reserved-capacity.md
+        - name: App Service 예약 구매
+          href: prepay-app-service-isolated-stamp.md
+        - name: Azure 소프트웨어 요금제 예약 구입
+          href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+        - name: 월별 결제로 예약 구입
+          href: monthly-payments-reservations.md
+        - name: 예약 갱신
+          href: reservation-renew.md
+        - name: 예약 교환 및 환불
+          href: exchange-and-refund-azure-reservations.md
+        - name: 예약 관리
+          href: manage-reserved-vm-instance.md
+        - name: 예약 보기
+          href: view-reservations.md
+    - name: 개념
+      items:
+        - name: 예약된 VM 인스턴스 할인
+          href: ../manage/understand-vm-reservation-charges.md
+        - name: Azure Storage 예약 용량 할인
+          href: understand-storage-charges.md
+        - name: Cosmos DB 예약 용량 할인
+          href: understand-cosmosdb-reservation-charges.md
+        - name: SQL Database 예약 용량 할인
+          href: understand-reservation-charges.md
+        - name: SQL Data Warehouse 할인
+          href: reservation-discount-azure-sql-dw.md
+        - name: Azure Data Explorer 할인
+          href: understand-azure-data-explorer-reservation-charges.md
+        - name: Azure Databricks 할인
+          href: reservation-discount-databricks.md
+        - name: Azure Database for MySQL 할인
+          href: understand-reservation-charges-mysql.md
+        - name: Azure Database for PostgreSQL 할인
+          href: understand-reservation-charges-postgresql.md
+        - name: Red Hat Linux Enterprise 할인
+          href: understand-rhel-reservation-charges.md
+        - name: Azure Database for MariaDB 할인
+          href: understand-reservation-charges-mariadb.md
+        - name: App Service 할인
+          href: reservation-discount-app-service-isolated-stamp.md
+        - name: Azure 소프트웨어 요금제 할인
+          href: understand-suse-reservation-charges.md
+        - name: Windows 및 SQL 비용 포함 안 됨
+          href: reserved-instance-windows-software-costs.md
+        - name: 개별 구독에 대한 사용량 현황 데이터
+          href: understand-reserved-instance-usage.md
+        - name: 기업 고객에 대한 사용량 현황 데이터
+          href: understand-reserved-instance-usage-ea.md
+    - name: 참조
+      items:
+        - name: Azure Reservation API
+          href: reservation-apis.md

@@ -82,6 +82,8 @@
               href: tutorial-v2-windows-uwp.md
             - name: Windows 데스크톱 .NET
               href: tutorial-v2-windows-desktop.md
+            - name: Android 앱에서 공유 디바이스 모드 사용
+              href: tutorial-v2-shared-device-mode.md
         - name: 디먼 앱
           items:
             - name: ASP.NET 디먼 웹앱
@@ -208,6 +210,8 @@
                   href: scenario-mobile-app-configuration.md
                 - name: 모바일 플랫폼별 구성
                   items:
+                    - name: Android 디바이스의 공유 디바이스 모드
+                      href: shared-device-mode.md
                     - name: Xamarin Android
                       href: msal-net-xamarin-android-considerations.md
                     - name: Android의 시스템 브라우저

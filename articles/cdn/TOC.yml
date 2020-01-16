@@ -40,7 +40,7 @@
       href: cdn-china-delivery.md
     - name: HTTP/2 지원
       href: cdn-http2.md
-    - name: Verizon POP 목록 검색
+    - name: POP IP 검색
       href: cdn-pop-list-api.md
     - name: Standard Verizon에서 Premium Verizon으로 마이그레이션
       href: cdn-migrate.md
@@ -85,7 +85,7 @@
           items:
             - name: Azure 웹 콘텐츠
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.
+            - name: Azure BLOB 스토리지
               href: cdn-manage-expiration-of-blob-content.md
         - name: 토큰 인증
           href: cdn-token-auth.md
@@ -134,7 +134,7 @@
           href: cdn-troubleshoot-compression.md
         - name: 허용된 인증 기관
           href: cdn-troubleshoot-allowed-ca.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 표준 규칙 엔진 참조
       href: cdn-standard-rules-engine-reference.md

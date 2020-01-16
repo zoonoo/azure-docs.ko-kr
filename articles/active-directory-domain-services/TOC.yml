@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell을 사용하여 관리되는 도메인 만들기
       href: powershell-create-instance.md
+    - name: 템플릿을 사용하여 관리되는 도메인 만들기
+      href: template-create-instance.md
 - name: 개념
   items:
     - name: 관리 기본 사항
@@ -139,7 +141,7 @@
       href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
     - name: 호환 가능한 타사 소프트웨어
       href: compatible-software.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
     - name: Azure AD 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'

@@ -54,22 +54,28 @@
   items:
     - name: 지원 매트릭스
       items:
-        - name: Azure Migrate의 지원 매트릭스
+        - name: 일반 지원
           href: migrate-support-matrix.md
-        - name: VMware 평가 및 마이그레이션 지원 매트릭스
+        - name: VMware 평가 지원
           href: migrate-support-matrix-vmware.md
-        - name: Hyper-V 평가 및 마이그레이션 지원 매트릭스
+        - name: VMware 마이그레이션 지원
+          href: migrate-support-matrix-vmware-migration.md
+        - name: Hyper-V 평가 지원
           href: migrate-support-matrix-hyper-v.md
-        - name: 물리적 서버 평가 및 마이그레이션을 위한 지원 매트릭스
+        - name: Hyper-V 마이그레이션 지원
+          href: migrate-support-matrix-hyper-v-migration.md
+        - name: 물리적 서버 평가 지원
           href: migrate-support-matrix-physical.md
-        - name: Azure Migrate 어플라이언스 매트릭스 지원
+        - name: 물리적 서버 마이그레이션 지원
+          href: migrate-support-matrix-physical-migration.md
+        - name: Azure Migrate 어플라이언스 요구 사항
           href: migrate-appliance.md
+        - name: 복제 어플라이언스 요구 사항
+          href: migrate-replication-appliance.md
     - name: Hyper-V 마이그레이션 아키텍처
       href: hyper-v-migration-architecture.md
     - name: 에이전트 기반 마이그레이션 아키텍처
       href: agent-based-migration-architecture.md
-    - name: Azure Migrate 복제 어플라이언스
-      href: migrate-replication-appliance.md
     - name: 평가 모범 사례
       href: best-practices-assessment.md
     - name: 평가 개요
@@ -112,16 +118,16 @@
       href: prepare-for-migration.md
     - name: Azure Migrate 프로젝트 삭제
       href: how-to-delete-project.md
-- name: 규모 평가 및 마이그레이션
-  items:
-    - name: 다수의 VMware VM 평가
-      href: scale-vmware-assessment.md
-    - name: 다수의 Hyper-V VM 평가
-      href: scale-hyper-v-assessment.md
-    - name: 많은 수의 VM의 마이그레이션 자동화
-      href: how-to-migrate-at-scale.md
-    - name: 마이그레이션 예제(Contoso 시리즈)
-      href: contoso-migration-overview.md
+    - name: 규모 평가 및 마이그레이션
+      items:
+        - name: 다수의 VMware VM 평가
+          href: scale-vmware-assessment.md
+        - name: 다수의 Hyper-V VM 평가
+          href: scale-hyper-v-assessment.md
+        - name: 많은 수의 VM의 마이그레이션 자동화
+          href: how-to-migrate-at-scale.md
+        - name: 마이그레이션 예제(Contoso 시리즈)
+          href: contoso-migration-overview.md
 - name: 문제 해결
   items:
     - name: Azure Migrate 문제 해결
@@ -140,7 +146,7 @@
       href: 'https://docs.microsoft.com/rest/api/migrate/'
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.migrate/allversions
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-migrate/'
     - name: UserVoice
       href: 'https://aka.ms/AzureMigrateUservoice'
