@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/16/2019
 ms.author: evansma
-ms.openlocfilehash: 22d1f2d39a1ef3825d7d6c7eb0724e108b9b78e6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 6f09df7c4ccdfa8a339b9d7f2655128c7ead5184
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933776"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978640"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
@@ -28,13 +28,13 @@ ms.locfileid: "75933776"
 * 고객은 marketplace를 통해 종단 간 비즈니스 과제를 해결 하는 패키지 된 솔루션을 찾을 수 있습니다. 기술이 맨 앞에 통합 되기 때문에 값에 대 한 가속화 된 시간을 얻을 수 있습니다. 고객은 조각화 된 방식으로 배포 된 여러 앱과 별도로 참여할 필요가 없습니다.
 * IP는 전문 서비스 파트너가 제공 하는 기술의 가치를 향상 시키는 다른 솔루션 및 서비스와 함께 패키지 됩니다.
 * 서비스 파트너는 더 많은 고객 계정을 확장, 배치 및 확장 하는 데 가장 적합 한 기술을 사용 하 여 미리 정의 된 미리 통합 된 솔루션을 만듭니다.
-* Microsoft는 이러한 사전 통합 된 업계에 맞춘 솔루션을 사용 하 여 고객에 게 더 쉽게 공동 판매할 수 있습니다. 가격 책정 및 용어는 미리 정렬 되어 있습니다. 
+* Microsoft는 이러한 사전 통합 된 업계에 맞춘 솔루션을 사용 하 여 고객에 게 더 쉽게 공동 판매할 수 있습니다. 가격 책정 및 용어는 미리 정렬 되어 있습니다.
 
 ## <a name="eligibility-criteria"></a>자격 기준
 
 * 참가 하는 파트너에는 MPN ID가 있어야 합니다.
 * 참여 하는 서비스 공급자는 공동 판매 준비를 해야 합니다.
-* 참여 소프트웨어 공급 업체는 IP 공동 판매 준비를 해야 합니다. 
+* 참여 소프트웨어 공급 업체는 IP 공동 판매 준비를 해야 합니다.
 * 하나 이상의 참여 하는 파트너는 다음 영역 중 하나에서 골드 역량을 보유 해야 합니다.
 
     * 애플리케이션 개발
@@ -53,13 +53,13 @@ ms.locfileid: "75933776"
 
 ## <a name="submit-a-nomination"></a>추천 제출
 
-프로그램에 참여 하려는 파트너는 작업 하려는 다른 파트너를 식별 해야 합니다. [통합 솔루션 추천 폼](https://aka.ms/AA5qicu)을 완료 해야 합니다. 통합 솔루션 프로그램 팀은 추천를 검토 하 고 영업일 10 일 이내에 수행 합니다. 팀에서는 승인 및 다음 단계를 제공 합니다. 
+프로그램에 참여 하려는 파트너는 작업 하려는 다른 파트너를 식별 해야 합니다. [통합 솔루션 추천 폼](https://aka.ms/AA5qicu)을 완료 해야 합니다. 통합 솔루션 프로그램 팀은 추천를 검토 하 고 영업일 10 일 이내에 수행 합니다. 팀에서는 승인 및 다음 단계를 제공 합니다.
 
-## <a name="develop-an-integrated-solution"></a>통합 솔루션 개발 
+## <a name="develop-an-integrated-solution"></a>통합 솔루션 개발
 
-추천 승인 된 후에는 연결 된 프로그램 리소스를 사용 하 여 통합 솔루션을 개발 합니다. 다음 단계를 수행하세요. 
+추천 승인 된 후에는 연결 된 프로그램 리소스를 사용 하 여 통합 솔루션을 개발 합니다. 다음 단계를 수행하세요.
 
-1. 솔루션 및 통합 방식을 정의 하기 위해 워크샵 형식으로 핵심 비즈니스 및 기술 토론을 완료 합니다. 
+1. 솔루션 및 통합 방식을 정의 하기 위해 워크샵 형식으로 핵심 비즈니스 및 기술 토론을 완료 합니다.
 
     솔루션에 대 한 설명은 다음 사항을 포함 해야 합니다.
     * 범위
@@ -73,7 +73,7 @@ ms.locfileid: "75933776"
     * 판매 프로세스
     * 활동
 
-    통합 방법에 대 한 설명은 다음 사항을 포함 해야 합니다. 
+    통합 방법에 대 한 설명은 다음 사항을 포함 해야 합니다.
     * 통합 요소
     * 솔루션 아키텍처
     * 인증
@@ -101,15 +101,15 @@ ms.locfileid: "75933776"
     * 통합 솔루션에 대 한 설명 목록입니다. [제안 사항 나열 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)를 따릅니다.
     * 고객에 대 한 1 페이지 피치입니다. [단일 페이저 템플릿을](https://aka.ms/AA5s08a)사용 합니다.
     * 고객 프레젠테이션. [프레젠테이션 템플릿을](https://aka.ms/AA5s7ql)사용 합니다.
-    * 결합 된 솔루션에 대 한 로고입니다. 
+    * 결합 된 솔루션에 대 한 로고입니다.
 
-## <a name="publish-your-integrated-solution"></a>통합 솔루션 게시 
+## <a name="publish-your-integrated-solution"></a>통합 솔루션 게시
 
 기술 통합 및 마케팅 참고 자료를 마친 후 [Microsoft AppSource 및 Azure Marketplace에 대 한 컨설팅 서비스](https://docs.microsoft.com/azure/marketplace/consulting-services)에 대 한 게시자 가이드를 참조 하세요. 이 리소스를 사용 하 여 솔루션을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부를 결정할 수 있습니다. 또한 가이드를 사용 하 여 게시 아티팩트를 준비 하 고 게시 프로세스를 완료 합니다.
 
 컨설팅 서비스 제품에는 5 가지 서비스 유형을 사용할 수 있지만 통합 솔루션은 개념 증명 또는 전체 구현 이어야 합니다.
 
-## <a name="go-to-market-with-your-integrated-solution"></a>통합 솔루션을 사용 하 여 시장으로 이동 
+## <a name="go-to-market-with-your-integrated-solution"></a>통합 솔루션을 사용 하 여 시장으로 이동
 
 솔루션이 Microsoft AppSource 또는 Azure Marketplace에 살고 있는 경우 마케팅 활동을 통해 인식 및 수요를 추진 하는 것이 좋습니다. [프로젝트 계획 및 타임 라인](https://aka.ms/AA5qiuc)에 나열 된 작업을 검토 합니다. 이 리소스에는 파트너가 자신의 팀 내에서 서로 연결할 수 있는 활동이 포함 되어 있습니다. 그런 다음 marketplace에 게시 하는 파트너의 [시장 간 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) 에 액세스 합니다. 모든 통합 솔루션 제품은 평가판 수준의 혜택을 받을 자격이 있습니다.
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 013cf619edd998752265b8fa7e58e36869c830c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450209"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891259"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
@@ -37,7 +37,7 @@ ASP.NET SignalR에 대한 지원은 아직 *공개 미리 보기* 상태입니�
 가능한 원인:
 - SignalR Service에 연결되어 있는 애플리케이션 서버가 없습니다. 애플리케이션 서버 로그에서 가능한 연결 오류를 확인하세요. 둘 이상의 애플리케이션 서버가 있는 고가용성 설정에서는 이러한 경우가 드뭅니다.
 - SignalR Service 인스턴스와 연결 문제가 있습니다. 이 문제는 일시적이며 자동으로 복구됩니다.
-문제가 한 시간 넘게 지속되면 [GitHub에서 문제를 제기](https://github.com/Azure/azure-signalr/issues/new)하거나 [Azure에서 지원 요청을 생성](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)하십시오.
+문제가 한 시간 넘게 지속되면 [GitHub에서 문제를 제기](https://github.com/Azure/azure-signalr/issues/new)하거나 [Azure에서 지원 요청을 생성](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)하십시오.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>애플리케이션 서버가 여러 개 있으면 클라이언트 메시지가 모든 서버에 전송되나요? 아니면 그 중 하나에만 전송되나요?
 

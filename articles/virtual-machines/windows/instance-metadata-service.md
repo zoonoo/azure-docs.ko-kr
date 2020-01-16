@@ -1,10 +1,10 @@
 ---
 title: Azure Instance Metadata Service
-description: RESTful 인터페이스를 통해 Windows VM의 계산, 네트워크 및 예정 된 유지 관리 이벤트에 대 한 정보를 가져올 수 있습니다.
+description: RESTful 인터페이스를 통해 Windows Vm 계산, 네트워크 및 예정 된 유지 관리 이벤트에 대 한 정보를 가져올 수 있습니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: KumariSupriya
-manager: harijayms
+manager: paulmey
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 901e075572e0ed73dc7d0633941311c04b4f3c1c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8849029f59ee4eef3baa43a6027022598e12d102
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358363"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045894"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-Azure Instance Metadata Service는 가상 머신을 관리 및 구성하는 데 사용할 수 있는 가상 머신 인스턴스를 실행하는 방법에 대한 정보를 제공합니다.
-여기에는 SKU, 네트워크 구성, 예정된 유지 관리 이벤트 등의 정보가 포함됩니다. 사용할 수 있는 정보 유형에 대 한 자세한 내용은 [메타 데이터 api](#metadata-apis)를 참조 하세요.
+IMDS (Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 하며, 가상 머신을 관리 하 고 구성 하는 데 사용할 수 있습니다.
+제공 되는 정보에는 SKU, 네트워크 구성 및 예정 된 유지 관리 이벤트가 포함 됩니다. 사용할 수 있는 데이터의 전체 목록은 [메타 데이터 api](#metadata-apis)를 참조 하세요.
 
 Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)를 통해 생성된 모든 IaaS VM에 액세스할 수 있는 REST 엔드포인트입니다.
 이 엔드포인트는 VM 내부에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`) 에서 사용할 수 있습니다.
@@ -38,20 +38,21 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 
 개 지역                                        | 가용성                                 | 지원되는 버전
 -----------------------------------------------|-----------------------------------------------|-----------------
-[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
-[Azure 중국](https://www.azure.cn/)                                                     | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
-[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure China 21Vianet](https://www.azure.cn/)                                            | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
 
-이 표는 서비스 업데이트가 있거나 지원되는 새 버전을 사용할 수 있을 때 업데이트됩니다.
+이 테이블은 서비스 업데이트가 있거나 지원 되는 새 버전을 사용할 수 있을 때 업데이트 됩니다.
 
 Instance Metadata Service를 평가하려면 위 지역의 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 또는 [Azure Portal](https://portal.azure.com)에서 VM을 만들고 아래 예제를 따릅니다.
+IMDS를 쿼리 하는 방법에 대 한 추가 예제는 [Azure 인스턴스 메타 데이터 샘플](https://github.com/microsoft/azureimds) 에서 찾을 수 있습니다.
 
 ## <a name="usage"></a>사용량
 
 ### <a name="versioning"></a>버전 관리
 
-Instance Metadata Service 버전이 지정 되 고 HTTP 요청에서 API 버전을 지정 해야 합니다.
+Instance Metadata Service 버전이 지정 되 고 HTTP 요청에 API 버전을 지정 하는 것은 필수입니다.
 
 이 [가용성 테이블](#service-availability)에 나열 된 최신 버전을 확인할 수 있습니다.
 
@@ -130,7 +131,7 @@ HTTP 상태 코드 | 이유
 200 정상 |
 400 잘못된 요청 | 리프 노드를 쿼리할 때 `Metadata: true` 헤더가 없거나 형식이 누락 되었습니다.
 404 찾을 수 없음 | 요청된 요소가 없음
-405 메서드를 사용할 수 없음 | `GET` 및 `POST` 요청만 지원됨
+405 메서드를 사용할 수 없음 | `GET` 요청만 지원 됩니다.
 429 요청이 너무 많음 | API는 현재 초당 최대 5개의 쿼리를 지원함
 500 서비스 오류     | 잠시 후 다시 시도하세요.
 
@@ -191,7 +192,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **요청**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-03-11"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
 ```
 
 **응답**
@@ -204,30 +205,83 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
   "compute": {
     "azEnvironment": "AzurePublicCloud",
     "customData": "",
-    "location": "westus",
-    "name": "jubilee",
-    "offer": "Windows-10",
-    "osType": "Windows",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
     "placementGroupId": "",
     "plan": {
-        "name": "",
-        "product": "",
-        "publisher": ""
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
     },
-    "platformFaultDomain": "1",
-    "platformUpdateDomain": "1",
+    "platformFaultDomain": "0",
+    "platformUpdateDomain": "0",
     "provider": "Microsoft.Compute",
     "publicKeys": [],
-    "publisher": "MicrosoftWindowsDesktop",
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "rs4-pro",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
-    "version": "17134.345.59",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
+    "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_D1",
+    "vmSize": "Standard_A1_v2",
     "zone": "1"
   },
   "network": {
@@ -264,14 +318,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 인스턴스 메타데이터는 `curl` 프로그램을 통해 Windows에서 검색할 수 있습니다.
 
 ```powershell
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content
 ```
 
 또는 `Invoke-RestMethod` PowerShell cmdlet을 통해:
 
 ```powershell
 
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-03-11 -Method get
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-06-01 -Method get
 ```
 
 **응답**
@@ -284,31 +338,84 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
   "compute": {
     "azEnvironment": "AzurePublicCloud",
     "customData": "",
-    "location": "westus",
-    "name": "SQLTest",
-    "offer": "SQL2016SP1-WS2016",
-    "osType": "Windows",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
     "placementGroupId": "",
     "plan": {
-        "name": "",
-        "product": "",
-        "publisher": ""
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
     },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
     "provider": "Microsoft.Compute",
     "publicKeys": [],
-    "publisher": "MicrosoftSQLServer",
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "Enterprise",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "13.0.400110",
-    "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_DS2",
-    "zone": ""
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -339,7 +446,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 ## <a name="metadata-apis"></a>메타데이터 API
 
-#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>메타 데이터 끝점을 통해 사용할 수 있는 Api는 다음과 같습니다.
+메타 데이터 끝점을 통해 사용할 수 있는 Api는 다음과 같습니다.
 
 데이터 | Description | 도입된 버전
 -----|-------------|-----------------------
@@ -349,7 +456,8 @@ instance | [인스턴스 API](#instance-api) 참조 | 2017-04-02
 scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 
 #### <a name="instance-api"></a>인스턴스 API
-##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>다음 계산 범주는 인스턴스 API를 통해 사용할 수 있습니다.
+
+다음 계산 범주는 인스턴스 API를 통해 사용할 수 있습니다.
 
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/계산을 통해 액세스 됩니다.
@@ -357,13 +465,13 @@ scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 데이터 | Description | 도입된 버전
 -----|-------------|-----------------------
 azEnvironment | VM이 실행 되는 Azure 환경 | 2018-10-01
-customData | [사용자 지정 데이터](#custom-data) 참조 | 2019-02-01
+customData | 이 기능은 현재 사용 하지 않도록 설정 되어 있으며,이 설명서를 사용할 수 있게 되 면 업데이트 합니다. | 2019-02-01
 위치 | VM을 실행하는 Azure 지역 | 2017-04-02
 name | VM의 이름 | 2017-04-02
 제품 | VM 이미지에 대 한 제품 정보 이며 Azure 이미지 갤러리에서 배포 된 이미지에 대해서만 제공 됩니다. | 2017-04-02
 osType | Linux 또는or Windows | 2017-04-02
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-계획 | Azure Marketplace 이미지의 경우 VM에 대 한 이름, 제품 및 게시자를 포함 하는 [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
+계획 | Azure Marketplace 이미지인 경우 VM에 대 한 이름, 제품 및 게시자를 포함 하는 [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
 platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
 provider | VM의 공급자 | 2018-10-01
@@ -372,16 +480,17 @@ publisher | VM 이미지 게시자 | 2017-04-02
 resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/management/overview.md) | 2017-08-01
 resourceId | 리소스 [의 정규화 된 ID입니다](https://docs.microsoft.com/rest/api/resources/resources/getbyid) . | 2019-03-11
 sku | VM 이미지에 해당하는 SKU | 2017-04-02
+storageProfile | [저장소 프로필](#storage-profile) 을 참조 하세요. | 2019-06-01
 subscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
-tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/management/tag-resources.md)  | 2017-08-01
 tagsList | 프로그래밍 방식의 구문 분석을 용이 하 게 하기 위해 JSON 배열로 형식이 지정 된 태그  | 2019-06-04
 버전 | VM 이미지의 버전 | 2017-04-02
 vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
-vmScaleSetName | 가상 머신 확장 집합의 [Virtual Machine ScaleSet 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [VM 크기](sizes.md) | 2017-04-02
 영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01
 
-##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>다음 네트워크 범주는 인스턴스 API를 통해 사용할 수 있습니다.
+다음 네트워크 범주는 인스턴스 API를 통해 사용할 수 있습니다.
 
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/네트워크/인터페이스를 통해 액세스 됩니다.
@@ -397,7 +506,7 @@ macAddress | VM MAC 주소 | 2017-04-02
 
 ## <a name="attested-data"></a>증명된 데이터
 
-인스턴스 메타데이터는 169.254.169.254의 http 엔드포인트에서 응답합니다. 인스턴스 메타데이터 서비스에서 처리하는 시나리오 부분은 응답된 데이터가 Azure에서 제공되었음을 보증하는 것입니다. Marketplace 이미지가 Azure에서 실행되는 이미지임을 확인할 수 있도록 이 정보의 일부를 서명합니다.
+Instance Metadata Service에서 제공 하는 시나리오 중 일부는 제공 된 데이터가 Azure에서 제공 되도록 보장 하는 것입니다. Marketplace 이미지가 Azure에서 실행되는 이미지임을 확인할 수 있도록 이 정보의 일부를 서명합니다.
 
 ### <a name="example-attested-data"></a>증명된 데이터 예제
 
@@ -412,7 +521,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 Api-version은 필수 필드입니다. 지원 되는 API 버전은 [서비스 가용성 섹션](#service-availability) 을 참조 하세요.
-Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추적하는 데 사용할 수 있으며, 제공하지 않을 경우 응답으로 인코딩된 문자열에 현재 UTC 타임스탬프가 반환됩니다.
+Nonce는 선택적 10 자리 문자열입니다. 제공 되지 않은 경우 IMDS는 현재 UTC 타임 스탬프를 현재 위치의 값으로 반환 합니다. IMDS의 캐싱 메커니즘으로 인해 이전에 캐시 된 nonce 값이 반환 될 수 있습니다.
 
  **응답**
 
@@ -425,7 +534,7 @@ Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추
 }
 ```
 
-> 서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 서명에 사용 되는 인증서가 포함 되어 있습니다 .이 인증서에는 vmId, nonce, subscriptionId, 타임 스탬프, 문서 생성 및 만료 및 이미지에 대 한 계획 정보가 포함 됩니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 추출한 인증서를 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
+서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 로그인에 사용 되는 인증서가 vmId, sku, nonce, subscriptionId, 문서 생성 및 만료를 위한 타임 스탬프 및 이미지에 대 한 계획 정보와 함께 포함 되어 있습니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 추출한 인증서를 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Windows 가상 머신에서 증명된 메타데이터 검색
 
@@ -444,7 +553,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 ```
 
 Api-version은 필수 필드입니다. 지원 되는 API 버전은 서비스 가용성 섹션을 참조 하세요.
-Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추적하는 데 사용할 수 있으며, 제공하지 않을 경우 응답으로 인코딩된 문자열에 현재 UTC 타임스탬프가 반환됩니다.
+Nonce는 선택적 10 자리 문자열입니다. 제공 되지 않은 경우 IMDS는 현재 UTC 타임 스탬프를 현재 위치의 값으로 반환 합니다. IMDS의 캐싱 메커니즘으로 인해 이전에 캐시 된 nonce 값이 반환 될 수 있습니다.
 
  **응답**
 
@@ -457,7 +566,7 @@ Nonce는 제공된 선택적 10자리 문자열입니다. Nonce는 요청을 추
 }
 ```
 
-> 서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 서명에 사용 되는 인증서가 포함 되어 있습니다 .이 인증서에는 vmId, nonce, subscriptionId, 타임 스탬프, 문서 생성 및 만료 및 이미지에 대 한 계획 정보가 포함 됩니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 추출한 인증서를 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
+서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 로그인에 사용 되는 인증서가 vmId, sku, nonce, subscriptionId, 문서 생성 및 만료를 위한 타임 스탬프 및 이미지에 대 한 계획 정보와 함께 포함 되어 있습니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 추출한 인증서를 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
 
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
@@ -503,7 +612,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 **요청**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
 ```
 
 **응답**
@@ -513,19 +622,86 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ```json
 {
-  "compute": {
-    "location": "CentralUS",
-    "name": "IMDSCanary",
-    "offer": "RHEL",
+    "azEnvironment": "AzurePublicCloud",
+    "customData": "",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
     "osType": "Linux",
+    "placementGroupId": "",
+    "plan": {
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
+    },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
-    "publisher": "RedHat",
-    "sku": "7.2",
-    "version": "7.2.20161026",
-    "vmId": "5c08b38e-4d57-4c23-ac45-aca61037f084",
-    "vmSize": "Standard_DS2"
-  }
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
+    "publisher": "bitnami",
+    "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmScaleSetName": "",
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
 }
 ```
 
@@ -549,7 +725,7 @@ Azure 환경의 지역 및 값은 아래에 나열 되어 있습니다.
 ---------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
-[Azure 중국](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
 [Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>VM에 대 한 태그 가져오기
@@ -637,7 +813,8 @@ Verification successful
     "expiresOn":"11/28/18 06:16:17 -0000"
   },
 "vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
-"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+"sku": "RS3-Pro"
 }
 ```
 
@@ -645,10 +822,11 @@ Verification successful
 -----|------------
 nonce | 사용자가 요청과 함께 선택적 문자열을 제공했습니다. 요청에 nonce를 제공하지 않은 경우 현재 UTC 타임스탬프가 반환됩니다.
 계획 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
-타임스탬프/createdOn | 첫 번째 서명된 문서가 생성된 타임스탬프
-timestamp/expiresOn | 서명된 문서가 만료되는 타임스탬프
+타임스탬프/createdOn | 서명 된 첫 번째 문서를 만든 UTC 타임 스탬프입니다.
+timestamp/expiresOn | 서명 된 문서가 만료 되는 UTC 타임 스탬프입니다.
 vmId |  VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
 subscriptionId | 에 도입 된 가상 컴퓨터에 대 한 Azure 구독 `2019-04-30`
+sku | 에서 도입 된 VM 이미지에 대 한 특정 SKU `2019-11-01`
 
 #### <a name="verifying-the-signature"></a>서명 확인
 
@@ -661,7 +839,7 @@ subscriptionId | 에 도입 된 가상 컴퓨터에 대 한 Azure 구독 `2019-0
 ---------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure 중국](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
 [Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -725,35 +903,120 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### <a name="custom-data"></a>사용자 지정 데이터
-Instance Metadata Service VM이 사용자 지정 데이터에 액세스할 수 있는 기능을 제공 합니다. 이진 데이터는 64 미만 이어야 하 고 b a s e 64로 인코딩된 형식으로 VM에 제공 됩니다.
+### <a name="storage-profile"></a>스토리지 프로필
 
-REST Api, PowerShell Cmdlet, Azure CLI (명령줄 인터페이스) 또는 ARM 템플릿을 통해 azure 사용자 지정 데이터를 VM에 삽입할 수 있습니다.
+Instance Metadata Service는 VM과 연결 된 저장소 디스크에 대 한 세부 정보를 제공할 수 있습니다. 이 데이터는 인스턴스/계산/storageProfile 끝점에서 찾을 수 있습니다.
 
-Azure 명령줄 인터페이스 예제는 [Microsoft Azure에서 사용자 지정 데이터 및 클라우드 초기화](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/)를 참조 하세요.
+VM의 저장소 프로필은 이미지 참조, OS 디스크 및 데이터 디스크의 세 가지 범주로 구분 됩니다.
 
-ARM 템플릿 예제를 보려면 CustomData를 [사용 하 여 가상 머신 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)를 참조 하세요.
+이미지 참조 개체에는 OS 이미지에 대 한 다음 정보가 포함 되어 있습니다.
 
-사용자 지정 데이터는 VM에서 실행 되는 모든 프로세스에서 사용할 수 있습니다. 고객은 사용자 지정 데이터에 비밀 정보를 삽입 하지 않는 것이 좋습니다.
+데이터    | Description
+--------|-----------------
+id      | 리소스 ID
+제품   | 플랫폼 또는 marketplace 이미지의 제안
+publisher | 이미지 게시자입니다.
+sku     | 이미지 sku
+버전 | 플랫폼 또는 marketplace 이미지의 버전
 
-현재 VM 부트스트랩 중에 사용자 지정 데이터를 사용할 수 있도록 보장 됩니다. 디스크를 추가 하거나 VM의 크기를 조정 하는 등 VM에 대 한 업데이트를 수행 하는 경우 사용자 지정 데이터를 제공 하지 Instance Metadata Service. Instance Metadata Service를 통해 영구적으로 사용자 지정 데이터를 제공 하는 것이 현재 진행 중입니다.
+OS 디스크 개체에는 VM에서 사용 하는 OS 디스크에 대 한 다음 정보가 포함 됩니다.
 
-#### <a name="retrieving-custom-data-in-virtual-machine"></a>가상 머신에서 사용자 지정 데이터 검색
-Instance Metadata Service는 b a s e 64로 인코딩된 형식으로 VM에 사용자 지정 데이터를 제공 합니다. 다음 예제에서는 b a s e 64로 인코딩된 문자열을 디코딩합니다.
+데이터    | Description
+--------|-----------------
+캐싱 | 캐싱 요구 사항
+createOption | VM을 만드는 방법에 대 한 정보
+diffDiskSettings | 임시 디스크 설정
+diskSizeGB | 디스크 크기 (GB)
+이미지   | 원본 사용자 이미지 가상 하드 디스크
+lun     | 디스크의 논리 단위 번호
+managedDisk | 관리 디스크 매개 변수
+name    | 디스크 이름
+.vhd     | 가상 하드 디스크
+writeAcceleratorEnabled | WriteAccelerator를 디스크에서 사용할 수 있는지 여부
 
-> [!NOTE]
-> 이 예제의 사용자 지정 데이터는 "My custom data."를 읽는 ASCII 문자열로 해석 됩니다.
+데이터 디스크 배열에는 VM에 연결 된 데이터 디스크 목록이 포함 됩니다. 각 데이터 디스크 개체에는 다음 정보가 포함 됩니다.
+
+데이터    | Description
+--------|-----------------
+캐싱 | 캐싱 요구 사항
+createOption | VM을 만드는 방법에 대 한 정보
+diffDiskSettings | 임시 디스크 설정
+diskSizeGB | 디스크 크기 (GB)
+\ 설정 | 디스크에 대 한 암호화 설정
+이미지   | 원본 사용자 이미지 가상 하드 디스크
+managedDisk | 관리 디스크 매개 변수
+name    | 디스크 이름
+osType  | 디스크에 포함 된 OS 유형
+.vhd     | 가상 하드 디스크
+writeAcceleratorEnabled | WriteAccelerator를 디스크에서 사용할 수 있는지 여부
+
+다음은 VM의 저장소 정보를 쿼리 하는 방법의 예입니다.
 
 **요청**
 
 ```bash
-curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/customData?api-version=2019-02-01&&format=text" | base64 --decode
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
 **응답**
 
-```text
-My custom data.
+> [!NOTE]
+> 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
+
+```json
+{
+    "dataDisks": [
+      {
+        "caching": "None",
+        "createOption": "Empty",
+        "diskSizeGB": "1024",
+        "image": {
+          "uri": ""
+        },
+        "lun": "0",
+        "managedDisk": {
+          "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "exampledatadiskname",
+        "vhd": {
+          "uri": ""
+        },
+        "writeAcceleratorEnabled": "false"
+      }
+    ],
+    "imageReference": {
+      "id": "",
+      "offer": "UbuntuServer",
+      "publisher": "Canonical",
+      "sku": "16.04.0-LTS",
+      "version": "latest"
+    },
+    "osDisk": {
+      "caching": "ReadWrite",
+      "createOption": "FromImage",
+      "diskSizeGB": "30",
+      "diffDiskSettings": {
+        "option": "Local"
+      },
+      "encryptionSettings": {
+        "enabled": "false"
+      },
+      "image": {
+        "uri": ""
+      },
+      "managedDisk": {
+        "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+        "storageAccountType": "Standard_LRS"
+      },
+      "name": "exampleosdiskname",
+      "osType": "Linux",
+      "vhd": {
+        "uri": ""
+      },
+      "writeAcceleratorEnabled": "false"
+    }
+}
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM 내의 서로 다른 언어를 사용하여 메타데이터 서비스를 호출하는 예 
@@ -780,9 +1043,9 @@ Puppet | https://github.com/keirans/azuremetadata
 2. VM에 대한 컴퓨팅 정보를 구할 수 없는 이유가 무엇인가요?
    * 현재 Instance Metadata Service는 Azure Resource Manager를 사용하여 만든 인스턴스만 지원합니다. 나중에 클라우드 서비스 VM에 대한 지원을 추가할 수 있습니다.
 3. 잠시 전에 Azure Resource Manager를 통해 내 Virtual Machine을 만들었습니다. 컴퓨팅 메타데이터 정보가 왜 표시되지 않나요?
-   * 2016년 9월 이후에 생성된 VM의 경우 컴퓨팅 메타데이터를 표시하려면 [태그](../../azure-resource-manager/resource-group-using-tags.md)를 추가하세요. 이전 VM(2016년 9월 전에 생성된)의 경우 메타데이터를 새로 고치도록 VM에 확장 또는 데이터 디스크를 추가/제거하세요.
+   * 2016년 9월 이후에 생성된 VM의 경우 컴퓨팅 메타데이터를 표시하려면 [태그](../../azure-resource-manager/management/tag-resources.md)를 추가하세요. 이전 VM(2016년 9월 전에 생성된)의 경우 메타데이터를 새로 고치도록 VM에 확장 또는 데이터 디스크를 추가/제거하세요.
 4. 새 버전용으로 채워진 데이터 중 일부만 표시됩니다.
-   * 2016년 9월 이후에 생성된 VM의 경우 컴퓨팅 메타데이터를 표시하려면 [태그](../../azure-resource-manager/resource-group-using-tags.md)를 추가하세요. 이전 VM(2016년 9월 전에 생성된)의 경우 메타데이터를 새로 고치도록 VM에 확장 또는 데이터 디스크를 추가/제거하세요.
+   * 2016년 9월 이후에 생성된 VM의 경우 컴퓨팅 메타데이터를 표시하려면 [태그](../../azure-resource-manager/management/tag-resources.md)를 추가하세요. 이전 VM(2016년 9월 전에 생성된)의 경우 메타데이터를 새로 고치도록 VM에 확장 또는 데이터 디스크를 추가/제거하세요.
 5. `500 Internal Server Error` 오류가 발생하는 이유가 무엇인가요?
    * 지수 백오프 시스템을 기반으로 요청을 다시 시도하세요. 문제가 지속되면 Azure 지원에 문의하세요.
 6. 추가 질문/의견은 어디에 공유하나요?

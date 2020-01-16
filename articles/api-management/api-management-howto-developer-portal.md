@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442601"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045586"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -39,7 +39,7 @@ ms.locfileid: "75442601"
 개발자 포털은 다음과 같은 두 가지 방법으로 빌드할 수 있습니다.
 
 - **관리 되는 버전** -포털을 편집 하 고 사용자 지정 합니다 .이 포털은 API Management 인스턴스에 기본 제공 되며 `<your-api-management-instance-name>.developer.azure-api.net`URL을 통해 액세스할 수 있습니다. 관리 되는 포털에 액세스 하 고 사용자 지정 하는 방법을 알아보려면 [이 설명서 문서](api-management-howto-developer-portal-customize.md) 를 참조 하세요.
-- **자체 호스팅 버전** -API Management 인스턴스 외부에서 포털을 배포 하 고 자체 호스트 합니다. 이 방법을 사용 하면 포털의 코드 베이스를 편집 하 고 제공 된 핵심 기능을 확장할 수 있습니다. 또한 포털을 직접 최신 버전으로 업그레이드 해야 합니다. 세부 정보 및 지침은 [포털의 소스 코드를 사용 하 여 GitHub 리포지토리][1]를 참조 하세요. [관리 되는 버전에 대 한 자습서](api-management-howto-developer-portal-customize.md) 는 포털의 관리 패널을 안내 하며,이는 자체 호스팅 버전 에서도 제공 됩니다.
+- **자체 호스팅 버전** -API Management 인스턴스 외부에서 포털을 배포 하 고 자체 호스트 합니다. 이 방법을 사용 하면 포털의 코드 베이스를 편집 하 고 제공 된 핵심 기능을 확장할 수 있습니다. 또한 포털을 직접 최신 버전으로 업그레이드 해야 합니다. 세부 정보 및 지침은 [포털의 소스 코드와][1] 위젯을 구현 하는 방법 [에 대 한 자습서][4]를 포함 하는 GitHub 리포지토리를 참조 하세요. [관리 되는 버전에 대 한 자습서](api-management-howto-developer-portal-customize.md) 는 포털의 관리 패널을 안내 하며,이는 자체 호스팅 버전 에서도 제공 됩니다.
 
 ## <a name="portal-architectural-concepts"></a>포털 아키텍처 개념
 
@@ -101,6 +101,10 @@ ms.locfileid: "75442601"
 이전 개발자 및 게시자 포털은 이제 *레거시* 기능이 며 보안 업데이트만 받게 됩니다. 새 기능은 새 개발자 포털에만 구현됩니다.
 
 레거시 포털의 사용 중단은 별도로 발표 될 예정입니다. 질문, 관심사 또는 의견이 있는 경우 [전용 GitHub 문제로](https://github.com/Azure/api-management-developer-portal/issues/121)제기 합니다.
+
+### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>필요한 기능이 포털에서 지원 되지 않습니다.
+
+자체 호스팅 버전을 사용 하 고 사용자 [고유의 위젯을 구현][4]합니다.
 
 ### <a name="how-can-i-automate-portal-deployments"></a>포털 배포를 자동화 하려면 어떻게 해야 하나요?
 
@@ -216,6 +220,7 @@ API Management 서비스가 VNet에 있는 경우 위의 VNet 연결 질문을 �
 
 - [관리 되는 개발자 포털 액세스 및 사용자 지정](api-management-howto-developer-portal-customize.md)
 - [자체 호스트 된 포털 버전 설정][2]
+- [사용자 고유의 위젯 구현][4]
 
 다른 리소스 찾아보기:
 
@@ -225,3 +230,4 @@ API Management 서비스가 VNet에 있는 경우 위의 VNet 연결 질문을 �
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
 [3]: https://github.com/Azure/api-management-developer-portal/projects
+[4]: https://aka.ms/apimdevportal/extend

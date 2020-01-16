@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: a808387c891b4078092c5cac1bf95df8472ff0f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529555"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974128"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Azure Machine Learning과 Machine Learning Studio(클래식)의 차이점
 
@@ -29,7 +29,7 @@ ms.locfileid: "75529555"
 Azure Machine Learning 디자이너는 Studio(클래식)와 비슷한 끌어서 놓기 환경을 제공합니다. 그러나 Studio(클래식) 전용 컴퓨팅 플랫폼과는 달리, 디자이너는 사용자 고유의 컴퓨팅 리소스를 사용하고 확장 가능하며 Azure Machine Learning에 완전히 통합됩니다.  
 
 > [!TIP]
-> 현재 Machine Learning Studio(클래식)를 사용하거나 평가하는 고객은 ML 모듈 끌어서 놓기 __기능과 더불어__ 확장성, 버전 제어 및 엔터프라이즈 보안을 제공하는 [Azure Machine Learning 디자이너](https://docs.microsoft.com/azure/machine-learning/service/ui-concept-visual-interface)(미리 보기)를 사용하는 것이 좋습니다.
+> 현재 Machine Learning Studio(클래식)를 사용하거나 평가하는 고객은 ML 모듈 끌어서 놓기 __기능과 더불어__ 확장성, 버전 제어 및 엔터프라이즈 보안을 제공하는 [Azure Machine Learning 디자이너](https://docs.microsoft.com/azure/machine-learning/concept-designer)(미리 보기)를 사용하는 것이 좋습니다.
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>비교: Azure Machine Learning과 Machine Learning Studio(클래식)
 

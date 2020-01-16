@@ -8,12 +8,12 @@ ms.author: babanisa
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5c4ba510360475e1365d4901136c94181e8c3da3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a9281ba1e2bf68da2318c32ab7037515697f92a5
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174870"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708849"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>빠른 시작: Event Grid를 사용하여 Azure 함수로 사용자 지정 이벤트 라우팅
 
@@ -184,13 +184,12 @@ Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이
     ![리소스 그룹](./media/custom-event-to-function/delete-resource-groups.png)
 
     이미지에 보이는 다른 리소스 그룹은 Cloud Shell 창에서 생성되어 사용되었습니다. 나중에 Cloud Shell 창에서 사용하지 않으려면 삭제합니다. 
-```
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
+토픽 및 이벤트 구독을 만드는 방법을 배웠으므로 어떤 Event Grid가 도움이 되는지 자세히 알아보세요.
 
-- [About Event Grid](overview.md)
-- [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Event Grid 정보](overview.md)
+- [Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)

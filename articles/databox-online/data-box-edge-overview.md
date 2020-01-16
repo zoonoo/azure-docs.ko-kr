@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 38aa45a9fe9e182fa98756725a8b20d737929d23
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 654ca34ae4c0e393920965083567e3d9c71148d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585387"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863634"
 ---
 # <a name="what-is-azure-stack-edge"></a>Azure Stack Edge란? 
 
@@ -27,7 +27,7 @@ Azure Stack Edge는 HaaS(Hardware-as-a-Service) 솔루션입니다. Microsoft는
 
 다음은 데이터를 Azure로 보내기 전에 Edge에서 유추하고 전처리하는 빠른 ML(Machine Learning)에 Azure Stack Edge를 사용할 수 있는 다양한 시나리오입니다.
 
-- **Azure Machine Learning에서 유추** - Azure Stack Edge를 사용하면 ML 모델을 실행하여 결과를 빠르게 생성한 다음 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 필요에 따라 전체 데이터 집합이 전송될 수 있습니다. Azure Stack Edge 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Azure Stack Edge에서 Azure ML 하드웨어 가속 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)를 참조하세요.
+- **Azure Machine Learning에서 유추** - Azure Stack Edge를 사용하면 ML 모델을 실행하여 결과를 빠르게 생성한 다음 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 필요에 따라 전체 데이터 집합이 전송될 수 있습니다. Azure Stack Edge 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Azure Stack Edge에서 Azure ML 하드웨어 가속 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)를 참조하세요.
 
 - **데이터 전처리** - 데이터를 Azure에 전송하기 전에 변환하여 실행 가능한 데이터 세트를 만듭니다. 전처리를 사용하여 다음 작업을 수행할 수 있습니다. 
 
@@ -43,7 +43,7 @@ Azure Stack Edge는 HaaS(Hardware-as-a-Service) 솔루션입니다. Microsoft는
 
 Azure Stack Edge의 기능은 다음과 같습니다.
 
-|기능 |설명  |
+|기능 |Description  |
 |---------|---------|
 |가속 AI 유추| 기본 제공 FPGA를 통해 지원됩니다.|
 |컴퓨팅       |데이터를 분석, 처리, 필터링할 수 있습니다.|

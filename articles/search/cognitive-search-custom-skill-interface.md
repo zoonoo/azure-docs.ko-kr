@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466784"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045031"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인에 사용자 지정 기술 추가 방법
 
@@ -122,7 +122,7 @@ Web API가 입력 레코드 배치를 수신할 준비가 되어 있어야 합�
 
 ## <a name="consuming-custom-skills-from-skillset"></a>기능의 사용자 지정 기술 사용
 
-Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변수를 설명할 수 있습니다. 아래 코드 조각은 요청 매개 변수 및 HTTP 헤더를 기능 정의의 일부로 설명할 수 있는 방법을 보여 줍니다.
+Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변수를 설명할 수 있습니다. 아래 코드 조각은 요청 매개 변수 및 *선택적* HTTP 헤더를 기술 정의의 일부로 설명 하는 방법을 보여 줍니다. HTTP 헤더는 요구 사항이 아니지만 기술에 추가 구성 기능을 추가 하 고 기술 정의에서 설정할 수 있습니다.
 
 ```json
 {
@@ -159,5 +159,5 @@ Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변�
 + [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
 + [예: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

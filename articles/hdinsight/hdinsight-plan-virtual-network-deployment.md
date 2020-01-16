@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: bb60d22c62096725e29b9351bf304504861d9bf1
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 1e6a21e8bf9c284c83af09885aa66b612b52ad7c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902526"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044719"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
 
@@ -251,7 +251,7 @@ HDInsight 클러스터에서 아웃 바운드 트래픽을 제어 하는 방법�
 
 ## <a name="load-balancing"></a>부하 분산
 
-HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다. 이 부하 분산 장치의 형식은 특정 제약 조건이 있는 [기본 SKU 수준](../load-balancer/load-balancer-overview.md#skus) 에 있습니다. 이러한 제약 조건 중 하나는 서로 다른 지역에 두 개의 가상 네트워크가 있는 경우 기본 부하 분산 장치에 연결할 수 없다는 것입니다. 자세한 내용은 [가상 네트워크 FAQ: 글로벌 vnet 피어 링의 제약 조건](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 참조 하세요.
+HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다. 이 부하 분산 장치의 형식은 특정 제약 조건이 있는 [기본 SKU 수준](../load-balancer/concepts-limitations.md#skus) 에 있습니다. 이러한 제약 조건 중 하나는 서로 다른 지역에 두 개의 가상 네트워크가 있는 경우 기본 부하 분산 장치에 연결할 수 없다는 것입니다. 자세한 내용은 [가상 네트워크 FAQ: 글로벌 vnet 피어 링의 제약 조건](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 참조 하세요.
 
 ## <a name="transport-layer-security"></a>Transport Layer Security(전송 계층 보안)
 

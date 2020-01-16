@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 0294efb7510d4240cfdd6386c7f8bef1d4184538
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e5f9762533dc2ad47f855714822ba39c645bf847
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754482"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045459"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>PowerShell을 사용하여 리소스 관리자에 대한 IPv6를 포함한 인터넷 연결 부하 분산 장치 만들기 시작
 
@@ -28,8 +28,8 @@ ms.locfileid: "75754482"
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [템플릿](load-balancer-ipv6-internet-template.md)
 
->[! 참고: i p v 6에 대 한 모범 사례 변경 내용이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다.  이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함 하는 [Azure vnet에 대 한](../virtual-network/ipv6-overview.md) 더 포괄적인 ipv6 연결을 사용할 수 있습니다.  Azure Vnet에 대 한 i p v 6은 Azure에서 IPv6 응용 프로그램에 권장 되는 모범 사례입니다. 
->[AZURE VNET Powershell 배포에 대 한](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) i p v 6을 참조 하세요. 
+>[!NOTE] 
+>이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다. 이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함 하는 [Azure vnet에 대 한 ipv6](../virtual-network/ipv6-overview.md) 에서 포괄적인 ipv6 연결을 사용할 수 있습니다.  Azure Vnet의 i p v 6은 Azure의 IPv6 응용 프로그램에 권장 되는 표준입니다. [AZURE VNET Powershell 배포를 위한 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 참조 
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 머신의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
@@ -61,7 +61,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 * 인바운드 NAT 규칙 - 백 엔드 주소 풀에 있는 특정 가상 컴퓨터에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
 * 프로브 - 백 엔드 주소 풀의 가상 머신 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
-자세한 내용은 [Azure Load Balancer 구성 요소](load-balancer-overview.md#load-balancer-components)를 참조 하세요.
+자세한 내용은 [Azure Load Balancer 구성 요소](./concepts-limitations.md#load-balancer-components)를 참조 하세요.
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Resource Manager를 사용하도록 PowerShell 설치
 

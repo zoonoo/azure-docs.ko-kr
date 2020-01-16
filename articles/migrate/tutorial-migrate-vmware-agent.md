@@ -1,19 +1,15 @@
 ---
 title: 에이전트 기반 Azure Migrate Server Migration으로 VMware VM 마이그레이션
 description: Azure Migrate를 사용하여 VMware VM의 에이전트 기반 마이그레이션을 실행하는 방법에 대해 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196288"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028959"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -22,7 +18,7 @@ ms.locfileid: "74196288"
 [Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 AWS/GCP VM 인스턴스의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * 원본 환경을 설정하고, 에이전트 기반 마이그레이션을 위해 Azure Migrate 복제 어플라이언스를 배포합니다.
 > * 마이그레이션할 대상 환경을 설정합니다.
@@ -61,7 +57,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -83,16 +79,16 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 - **프로젝트 만들기**: Azure 계정에는 Azure Migrate 프로젝트를 만들 수 있는 권한이 있어야 합니다. 
 - **Azure Migrate 복제 어플라이언스 등록**: 복제 어플라이언스는 Azure 계정에 Azure Active Directory 앱을 만들고 등록합니다. 이에 대한 권한을 위임해야 합니다.
-- **Key Vault 만들기**: Azure Migrate 서버 마이그레이션을 사용하여 VMware VM을 마이그레이션하기 위해 Azure Migrate는 Key Vault를 리소스 그룹에 만들어 구독의 복제 스토리지 계정에 대한 액세스 키를 관리합니다. 자격 증명 모음을 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 역할 할당 권한이 필요합니다. 
+- **Key Vault 만들기**: Azure Migrate 서버 마이그레이션을 사용하여 VMware VM을 마이그레이션하기 위해 Azure Migrate는 리소스 그룹에서 Key Vault를 만들어 구독의 복제 스토리지 계정에 대한 액세스 키를 관리합니다. 자격 증명 모음을 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 역할 할당 권한이 필요합니다. 
 
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당
 
-1. Azure Portal에서 구독을 열고 **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 확인**에서 관련 계정을 찾아서 클릭하여 권한을 확인합니다.
+1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
+2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
 3. **기여자** 또는 **소유자** 권한이 있어야 합니다.
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
-    - 구독 소유자가 아닌 경우 소유자에게 문의하여 역할을 할당받습니다.
+    - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
 
 ### <a name="assign-permissions-to-register-the-replication-appliance"></a>복제 어플라이언스를 등록할 수 있는 권한 할당
 
@@ -177,9 +173,9 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
 > [!NOTE]
 > Azure Migrate 서버 마이그레이션을 사용하는 에이전트 기반 마이그레이션은 Azure Site Recover 서비스의 기능을 기반으로 합니다. 일부 요구 사항은 Site Recovery 설명서에 연결될 수 있습니다.
 
-1. VMware 서버 요구 사항을 [확인](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements)합니다.
-2. 마이그레이션에 대한 VM 지원 요구 사항을 [확인](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)합니다.
-3. VM 설정을 확인합니다. Azure에 복제하는 온-프레미스 VM은 [Azure VM 요구 사항](migrate-support-matrix-vmware.md#azure-vm-requirements)을 준수해야 합니다.
+1. VMware 서버 요구 사항을 [확인](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers)합니다.
+2. 마이그레이션에 대한 VM 지원 요구 사항을 [확인](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms)합니다.
+3. VM 설정을 확인합니다. Azure에 복제하는 온-프레미스 VM은 [Azure VM 요구 사항](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
 
 
@@ -207,7 +203,7 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
 
     **지리** | **지역**
     --- | ---
-    아시아 | 동남아시아
+    Asia | 동남아시아
     유럽 | 북유럽 또는 유럽 서부
     미국 | 미국 동부 또는 미국 중서부
 
@@ -292,7 +288,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 6. **타사 소프트웨어 설치**에서 사용권 계약에 동의합니다. **다운로드 및 설치**를 선택하여 MySQL 서버를 설치합니다.
 7. **VMware PowerCLI 설치**를 선택합니다. 이렇게 하기 전에 모든 브라우저 창을 닫아야 합니다. 그런 다음, **계속**을 선택합니다.
 8. 계속하기 전에 **어플라이언스 구성 유효성 검사**에서 필수 구성 요소가 확인됩니다.
-9. **vCenter Server/vSphere ESXi 서버 구성**에 복제하려는 VM이 있는 vCenter 서버 또는 vSphere 호스트의 FQDN 또는 IP 주소를 지정합니다. 서버가 수신 대기하는 포트를 입력합니다. 자격 증명 모음의 VMware 서버에 사용할 이름을 입력합니다.
+9. **vCenter Server/vSphere ESXi 서버 구성**에 복제하려는 VM이 있는 vCenter 서버 또는 vSphere 호스트의 FQDN 또는 IP 주소를 입력합니다. 서버가 수신 대기하는 포트를 입력합니다. 자격 증명 모음의 VMware 서버에 사용할 이름을 입력합니다.
 10. VMware 검색을 위해 [만든](#prepare-an-account-for-automatic-discovery) 계정의 자격 증명을 입력합니다. **추가** > **계속**을 선택합니다.
 11. **가상 머신 자격 증명 구성**에서 VM에 복제를 사용하도록 설정할 때 Mobility Service의 강제 설치를 위해 [만든](#prepare-an-account-for-mobility-service-installation) 자격 증명을 입력합니다.  
     - Windows 컴퓨터의 경우 복제하려는 컴퓨터에 대한 로컬 관리자 권한이 필요합니다.
@@ -336,7 +332,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
     - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
     - 활성 Software Assurance 또는 Windows Server 구독이 적용되는 Windows Server 머신이 있고 마이그레이션할 머신에 이 혜택을 적용하려면 **예**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
-12. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)을 준수해야 합니다.
+12. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms)을 준수해야 합니다.
 
     - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에 권장 크기가 포함됩니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
     - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. 
@@ -365,7 +361,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 ![작업 추적](./media/tutorial-migrate-vmware-agent/jobs.png)
 
-**Azure Migrate: 서버 마이그레이션**에서 클릭하여 복제 상태를 모니터링할 수 있습니다.
+**서버 복제 중**을 **Azure Migrate: 서버 마이그레이션**에서 클릭하여 복제 상태를 모니터링할 수 있습니다.
 ![복제 모니터링](./media/tutorial-migrate-vmware-agent/replicate-servers.png)
 
 ## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행

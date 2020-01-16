@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 8301dc779799ff67a348403e661fc7e66b9e721f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750135"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045876"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -69,7 +69,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 또한 특정 이벤트가 검색되면 [특정 작업을 자동으로 수행](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)하도록 보안 및 규정 준수를 구성할 수 있습니다.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 [Azure Resource Manager 템플릿](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/)을 사용하고, 해당 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
+[Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 [Azure Resource Manager 템플릿](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/)을 사용하고, 해당 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 
 Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제어 설정을 표준화된 템플릿 기반 배포에 통합할 수 있기 때문에 Azure에 배포된 솔루션의 보안을 향상시킬 수 있습니다. 이렇게 하면 수동 배포 중에 발생할 수 있는 보안 구성 오류의 위험이 줄어듭니다.
 
@@ -142,16 +142,16 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 이 섹션에서는 Azure Storage 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
-RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 하여 액세스를 제한하는 것은 데이터 액세스에 대한 보안 정책을 시행하려는 조직에서 반드시 필요합니다. 특정 범위에서 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. Storage 계정 참여자와 같은 [기본 제공 RBAC 역할](../../role-based-access-control/built-in-roles.md)을 사용하여 사용자에게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/common/storage-security-guide.md) 모델을 사용하는 스토리지 계정의 스토리지 키에 대한 액세스는 RBAC(역할 기반 Access Control)를 통해 제어할 수 있습니다.
+RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 하여 액세스를 제한하는 것은 데이터 액세스에 대한 보안 정책을 시행하려는 조직에서 반드시 필요합니다. 특정 범위에서 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. Storage 계정 참여자와 같은 [기본 제공 RBAC 역할](../../role-based-access-control/built-in-roles.md)을 사용하여 사용자에게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용하는 스토리지 계정의 스토리지 키에 대한 액세스는 RBAC(역할 기반 Access Control)를 통해 제어할 수 있습니다.
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)는 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 스토리지 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
 전송 중 암호화는 네트워크를 통해 전송되는 경우 데이터 보호의 메커니즘입니다. Azure Storage를 사용하면 다음을 사용하여 데이터를 보호할 수 있습니다.
--   [전송 수준 암호화](../../storage/common/storage-security-guide.md)(예: Azure Storage 안팎으로 데이터를 전송하는 경우 HTTPS)
+-   [전송 수준 암호화](../../storage/blobs/security-recommendations.md)(예: Azure Storage 안팎으로 데이터를 전송하는 경우 HTTPS)
 
--   [실시간 암호화](../../storage/common/storage-security-guide.md)(예: [Azure 파일 공유](../../storage/files/storage-dotnet-how-to-use-files.md)에 대한 [SMB 3.0 암호화](../../storage/common/storage-security-guide.md))
+-   [실시간 암호화](../../storage/blobs/security-recommendations.md)(예: [Azure 파일 공유](../../storage/files/storage-dotnet-how-to-use-files.md)에 대한 [SMB 3.0 암호화](../../storage/blobs/security-recommendations.md))
 
 -   클라이언트 쪽 암호화 - 데이터를 스토리지로 전송하기 전에 암호화하고, 스토리지에서 전송한 후에 암호를 해독합니다.
 
@@ -266,9 +266,9 @@ Traffic Manager는 다양한 애플리케이션 요구 사항, 엔드포인트 �
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)는 애플리케이션에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer는 다음과 같이 구성할 수 있습니다.
 
--   들어오는 인터넷 트래픽을 가상 머신에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](../../load-balancer/load-balancer-overview.md#publicloadbalancer)이라고 합니다.
+-   들어오는 인터넷 트래픽을 가상 머신에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](../../load-balancer/concepts-limitations.md#publicloadbalancer)이라고 합니다.
 
--   가상 네트워크의 가상 머신 간, 클라우드 서비스의 가상 머신 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 머신 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](../../load-balancer/load-balancer-overview.md#internalloadbalancer)이라고 합니다.
+-   가상 네트워크의 가상 머신 간, 클라우드 서비스의 가상 머신 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 머신 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](../../load-balancer/concepts-limitations.md#internalloadbalancer)이라고 합니다.
 
 - 외부 트래픽을 특정 가상 머신으로 전달
 

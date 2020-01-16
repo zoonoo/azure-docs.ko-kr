@@ -7,19 +7,19 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 22734d29973f0d7102307aa9038b6ebe7cc2521b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 01/14/2020
+ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903321"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045140"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Azure IoT Hub SDK 이해 및 사용
 
 IoT Hub를 사용하기 위한 SDK(소프트웨어 개발 키트)의 범주는 두 가지입니다.
 
-* **IoT Hub 디바이스 SDK**를 사용하면 디바이스 클라이언트나 모듈 클라이언트를 사용하여 IoT 디바이스에서 실행되는 앱을 빌드할 수 있습니다. 이러한 앱은 IoT Hub로 원격 분석 데이터를 보내고, 필요에 따라 IoT Hub에서 메시지, 작업, 메서드, 쌍 업데이트를 받습니다.  모듈 클라이언트를 사용하여 [Azure IoT Edge 런타임](../iot-edge/iot-edge-modules.md)용 [모듈](../iot-edge/about-iot-edge.md)을 작성할 수도 있습니다.
+* **IoT Hub 디바이스 SDK**를 사용하면 디바이스 클라이언트나 모듈 클라이언트를 사용하여 IoT 디바이스에서 실행되는 앱을 빌드할 수 있습니다. 이러한 앱은 IoT Hub로 원격 분석 데이터를 보내고, 필요에 따라 IoT Hub에서 메시지, 작업, 메서드, 쌍 업데이트를 받습니다.  모듈 클라이언트를 사용하여 [Azure IoT Edge 런타임](../iot-edge/about-iot-edge.md)용 [모듈](../iot-edge/iot-edge-modules.md)을 작성할 수도 있습니다.
 
 * **IoT Hub 서비스 SDK**를 사용하면 백엔드 애플리케이션을 빌드하여 IoT Hub를 관리하고 필요에 따라 메시지를 보내거나, 작업을 예약하고, 직접 메서드를 호출하거나, IoT 디바이스 또는 모듈에 원하는 속성 업데이트를 보낼 수 있습니다.
 
@@ -111,8 +111,8 @@ Node.js용 Azure IoT Hub 서비스 SDK:
 
 Python용 Azure IoT Hub 서비스 SDK: 
 
-* [pip](https://pypi.python.org/pypi/azure-iothub-service-client/)에서 다운로드
-* [소스 코드](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated)
+* [pip](https://pypi.python.org/pypi/azure-iot-hub/)에서 다운로드
+* [소스 코드](https://github.com/Azure/azure-iot-sdk-python/tree/master)
 
 C용 Azure IoT Hub 서비스 SDK: 
 

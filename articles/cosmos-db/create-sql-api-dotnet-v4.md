@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.date: 01/10/2020
+ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796107"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867271"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>빠른 시작: .Net V4 SDK를 사용하여 Azure Cosmos DB SQL API 계정 리소스를 관리하는 콘솔 앱을 빌드합니다.
 
@@ -36,7 +36,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [라이브러리 소스 코드](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [무료로 구독을 만들거나](https://azure.microsoft.com/free/) Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판을 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. 
 * [NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). `dotnet --version`을 실행하여 작업 환경에서 사용할 수 있는 버전을 확인할 수 있습니다.
@@ -115,7 +115,7 @@ Time Elapsed 00:00:34.17
 애플리케이션 디렉터리에 있는 동안 dotnet add package 명령을 사용하여 .NET Core용 Azure Cosmos DB 클라이언트 라이브러리를 설치합니다.
 
    ```bash
-   dotnet add package Azure.Cosmos --version 4.0.0-preview
+   dotnet add package Azure.Cosmos --version 4.0.0-preview3
    ```
 
 ### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>Azure Portal에서 Azure Cosmos 계정 자격 증명 복사

@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.openlocfilehash: efa19cdd1dd0827fd0e88f533b94f69bd7b99ca9
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 01/15/2020
+ms.openlocfilehash: feda4b3a7f21b581fb4f08aec013f87c0fabb7e5
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307266"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044949"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins의 역할 기반 액세스 제어
 
@@ -21,7 +21,7 @@ Azure Digital Twins를 사용 하면 공간 그래프의 특정 데이터, 리�
 
 RBAC를 사용하여 권한을 다음에 부여할 수 있습니다.
 
-- 사용자
+- 사용자입니다.
 - 디바이스
 - 서비스 주체
 - 사용자 정의 함수

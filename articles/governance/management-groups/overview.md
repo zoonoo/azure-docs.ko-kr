@@ -4,12 +4,12 @@ description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 72e37c3ef96f8068d9d9958910a6d75bbebd37fb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 507f4575e6d8daa16a1ed7db3d429d2810a63a7c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436497"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750241"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -183,7 +183,7 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 
 ## <a name="audit-management-groups-using-activity-logs"></a>활동 로그를 사용하여 관리 그룹 감사
 
-관리 그룹은 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md) 내에서 지원됩니다. 다른 Azure 리소스와 동일한 중앙 위치에서 관리 그룹에 발생하는 모든 이벤트를 검색할 수 있습니다.  예를 들어, 특정 관리 그룹에 이루어진 모든 역할 할당 또는 정책 할당 변경 내용을 볼 수 있습니다.
+관리 그룹은 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 내에서 지원됩니다. 다른 Azure 리소스와 동일한 중앙 위치에서 관리 그룹에 발생하는 모든 이벤트를 검색할 수 있습니다.  예를 들어, 특정 관리 그룹에 이루어진 모든 역할 할당 또는 정책 할당 변경 내용을 볼 수 있습니다.
 
 ![관리 그룹을 사용하는 활동 로그](media/al-mg.png)
 

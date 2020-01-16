@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c1a800ceb12c2e7ad69329d0391478a8e2ae268b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 44d5edd7b5808b6c212a832dd95de7a9cb4b7c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945680"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978596"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Azure Cognitive Search의 보안 및 데이터 개인 정보
 
@@ -49,7 +49,7 @@ Azure Cognitive Search는 [6 월 2018에 발표](https://azure.microsoft.com/blo
 
 여러 보안 메커니즘을 Azure 전체에서 사용할 수 있으므로 사용자가 만드는 Azure Cognitive Search 리소스에서 자동으로 사용할 수 있습니다.
 
-+ [삭제를 방지하기 위해 구독 또는 리소스 수준 잠금](../azure-resource-manager/resource-group-lock-resources.md)
++ [삭제를 방지하기 위해 구독 또는 리소스 수준 잠금](../azure-resource-manager/management/lock-resources.md)
 + [정보 및 관리 작업에 대한 액세스를 제어하는 RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)
 
 모든 Azure 서비스는 모든 서비스에서 일관된 수준의 액세스를 설정하기 위해 RBAC(역할 기반 액세스 제어)를 지원합니다. 예를 들어 관리 키와 같은 중요한 데이터는 소유자 및 참가자 역할에서만 확인할 수 있는 반면 서비스 상태는 역할에 관계없이 모든 구성원이 확인할 수 있습니다. RBAC는 소유자, 참가자 및 독자 역할을 제공합니다. 기본적으로 모든 서비스 관리자는 소유자 역할의 구성원입니다.

@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/21/2019
-ms.openlocfilehash: b36e5d88c67a4aabf530aa8d945c17870e9c126b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 01/09/2020
+ms.openlocfilehash: 11768a0d72549d917d93c0f6f7f4d0c7e8217da4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892654"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864416"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(Python)
 
@@ -29,17 +29,13 @@ IoT Hub는 클라우드에서 IoT 디바이스를 관리하고, 스토리지 또
 
 * 시뮬레이션된 디바이스에서 직접 메서드를 호출하는 백 엔드 애플리케이션입니다. 디바이스에서 직접 메서드를 호출하려면 이 애플리케이션을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
-> [!IMPORTANT]
-> 이 문서에서는 백 엔드 애플리케이션에서 Python V1 서비스 클라이언트를 사용하고, 디바이스 애플리케이션에서 Python V2 디바이스 클라이언트를 사용합니다. V1 서비스 클라이언트는 Azure IoT Python SDK GitHub 리포지토리의 [v1-deprecated 분기](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated)에 있습니다. V1 서비스 클라이언트용 Pip 패키지(*azure-iothub-service-client*)에 개발 머신에 설치된 Python 버전을 포함하여 플랫폼별 요구 사항이 엄격하게 적용됩니다. 이러한 요구 사항은 **필수 조건** 섹션에 나와 있습니다.
->
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -47,13 +43,7 @@ az extension add --name azure-cli-iot-ext
 
 아직 수행하지 않은 경우 https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 에서 Python 프로젝트를 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
-**Windows의 경우** V1 IoT Hub 서비스 클라이언트 Pip 패키지를 설치하려면 다음 필수 구성 요소가 필요합니다.
-
-* [Python 버전 **3.6.x**](https://www.python.org/downloads/)가 설치되어 있는지 확인합니다.
-
-* [Visual Studio용 Visual C++ 재배포 가능 패키지](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)가 설치되어 있는지 확인합니다.
-
-**Windows가 아닌 플랫폼의 경우** V1 SDK 설명서의 [Python Pip 패키지 배포 표](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md#python-pip-package-distribution-table)를 참조하세요. 플랫폼에 지정된 Python 3.x 버전 및 모든 관련 요구 사항이 개발 머신에 설치되어 있는지 확인합니다. 2\.7이 아닌 Python 3.x를 설치하면 V2 디바이스 클라이언트에서 비동기 작업을 수행하도록 설정되며, 이 빠른 시작에서도 사용됩니다.
+개발 머신에 [Python 버전 3.7 이상](https://www.python.org/downloads/)을 설치합니다. 지원되는 다른 버전의 Python은 SDK 설명서의 [Azure IoT 디바이스 기능](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -132,7 +122,7 @@ az extension add --name azure-cli-iot-ext
 
     다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![시뮬레이션된 디바이스 실행](./media/quickstart-control-device-python/SimulatedDevice-1.png)
+    ![시뮬레이션된 디바이스 실행](./media/quickstart-control-device-python/simulated-device-1.png)
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
@@ -147,7 +137,7 @@ az extension add --name azure-cli-iot-ext
 1. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 디바이스 애플리케이션에 필요한 라이브러리를 설치합니다.
 
     ```cmd/sh
-    pip install azure-iothub-service-client future
+    pip install azure-iot-hub
     ```
 
 1. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션을 실행합니다.
@@ -158,15 +148,11 @@ az extension add --name azure-cli-iot-ext
 
     다음 스크린샷에서는 애플리케이션에서 디바이스에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 애플리케이션 실행](./media/quickstart-control-device-python/BackEndApplication.png)
+    ![백 엔드 애플리케이션 실행](./media/quickstart-control-device-python/backend-application.png)
 
     백 엔드 애플리케이션을 실행한 후 시뮬레이션된 디바이스를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 
-    ![시뮬레이션된 클라이언트에서 변경](./media/quickstart-control-device-python/SimulatedDevice-2.png)
-
-    > [!NOTE]
-    > *iothub_service_client*를 가져오는 동안 오류가 발생하는 경우 [필수 조건](#prerequisites)에서 플랫폼에 지정된 정확한 버전의 Python 및 기타 모든 관련 아티팩트가 설치되어 있는지 확인합니다. 필수 구성 요소를 확인한 후에도 오류가 계속 발생하는 경우 플랫폼용 서비스 클라이언트를 빌드해야 할 수 있습니다. 플랫폼용 SDK를 빌드하는 방법에 대한 자세한 내용은 V1 SDK 설명서의 [devbox 설치 지침](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)을 참조하세요.
-    >
+    ![시뮬레이션된 클라이언트에서 변경](./media/quickstart-control-device-python/simulated-device-2.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

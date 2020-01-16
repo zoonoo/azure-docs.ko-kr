@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: ca78a9d7eeeeccb71fea75f6ab429e76f2344bbe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f9d7fa5df1f7568aa357abf8b5864344d768cf75
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895465"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891761"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>빠른 시작: 소스 코드에서 Spring Cloud 애플리케이션 시작
 
@@ -28,10 +28,10 @@ Azure Spring Cloud를 사용하여 Java 소스 코드나 미리 빌드한 JAR에
 > * 각 마이크로서비스 배포
 > * 애플리케이션에 대한 공용 엔드포인트 할당
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 >[!Note]
-> Azure Spring Cloud는 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 검토하거나 [지원 요청](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하여 자세히 알아보세요.
+> Azure Spring Cloud는 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 검토하거나 [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하여 자세히 알아보세요.
 
 시작하기 전에 Azure 구독에 필요한 종속성이 있는지 확인합니다.
 
@@ -76,6 +76,9 @@ Azure CLI 창을 열고 다음 명령을 실행하여 Azure Spring Cloud의 인�
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
+
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=provision)
 
 ## <a name="create-the-spring-cloud-application"></a>Spring Cloud 애플리케이션 만들기
 
@@ -137,12 +140,18 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 > [!NOTE]
 > Kpack 로그는 해당 배포가 kpack을 사용하여 원본에서 빌드된 경우에만 최신 배포를 표시합니다.
 
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=deploy)
+
 ## <a name="assign-a-public-endpoint-to-gateway"></a>게이트웨이에 공용 엔드포인트 할당
 
 1. **애플리케이션 대시보드** 페이지를 엽니다.
 2. `gateway` 애플리케이션을 선택하여 **애플리케이션 세부 정보** 페이지를 표시합니다.
 3. **도메인 할당**을 선택하여 게이트웨이에 공용 엔드포인트를 할당합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다. 
 4. 브라우저에 할당된 공용 IP를 입력하여 실행 중인 애플리케이션을 봅니다.
+
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>다음 단계
 

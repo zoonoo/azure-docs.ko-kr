@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: e4146155915979e51a6e3a989ab57316ca643018
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658022"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045177"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -43,6 +43,8 @@ Log Analytics에 대 한 기본 가격은 데이터 볼륨 수집을 기반으�
   
 종 량 제 모델 외에도 Log Analytics에는 종 량 제 가격과 비교 하 여 25%까지 절감할 수 있는 **용량 예약** 계층이 있습니다. 용량 예약 가격 책정을 통해 100 g b/일에 시작 하는 예약을 구매할 수 있습니다. 예약 수준 위의 모든 사용량은 종 량 제 요금으로 청구 됩니다. 용량 예약 계층에는 31 일 약정 기간이 있습니다. 약정 기간 동안에는 더 높은 수준의 용량 예약 계층 (31 일 약정 기간을 다시 시작 함)으로 변경할 수 있지만,이 기간 후에는 약정 기간이 끝날 때까지 종 량 제 또는 더 낮은 용량의 예약 계층으로 다시 이동할 수 없습니다. 날짜. 
 Log Analytics 종 량 제 및 용량 예약 가격 책정에 [대해 자세히 알아보세요](https://azure.microsoft.com/pricing/details/monitor/) . 
+
+모든 가격 책정 계층에서 데이터 볼륨은 저장 준비가 될 때 데이터의 문자열 표현에서 계산 됩니다. [모든 데이터 형식에 공통적인](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) 몇 가지 속성은 `_ResourceId`, `_ItemId`, `_IsBillable` 및 `_BilledSize`를 포함 하 여 이벤트 크기 계산에 포함 되지 않습니다.
 
 또한 [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/) 및 [Azure 센티널](https://azure.microsoft.com/pricing/details/azure-sentinel/)과 같은 일부 솔루션에는 고유한 가격 책정 모델이 있습니다. 
 
@@ -164,6 +166,9 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 > [!NOTE]
 > 일일 한도는 2017 년 6 월 19 일 이전에 Azure Security Center 설치 된 작업 영역을 제외 하 고는 Azure Security Center에서 데이터 수집을 중지 하지 않습니다. 
+
+> [!NOTE]
+> 일일 한도를 적용 하는 본래의 대기 시간은 cap가 지정 된 일일 상한 수준으로 정확 하 게 적용 되지 않는 것을 의미할 수 있습니다. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>정의할 일일 데이터 한도 식별
 

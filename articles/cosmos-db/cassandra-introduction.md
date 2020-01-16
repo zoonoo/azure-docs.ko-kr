@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 63a85e86b1882bdaf4e5b85601a7deabe5b3bbef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc6b1a2516a454c843f176e947cc3a56186b0b47
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442145"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939933"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 소개
 
-Azure Cosmos DB Cassandra API는 [Apache Cassandra](https://cassandra.apache.org/)용으로 작성된 앱의 데이터 저장소로 사용할 수 있습니다. 이는 CQLv4와 호환되는 기존의 [Apache 드라이버](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)를 사용하면 기존의 Cassandra 애플리케이션이 이제는 Azure Cosmos DB Cassandra API와 통신할 수 있음을 의미합니다. 많은 경우 연결 문자열을 변경하는 것만으로 Apache Cassandra를 사용하는 것에서 Azure Cosmos DB의 Cassandra API를 사용하는 것으로 전환할 수 있습니다. 
+Azure Cosmos DB Cassandra API는 [Apache Cassandra](http://cassandra.apache.org)용으로 작성된 앱의 데이터 저장소로 사용할 수 있습니다. 이는 CQLv4와 호환되는 기존의 [Apache 드라이버](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)를 사용하면 기존의 Cassandra 애플리케이션이 이제는 Azure Cosmos DB Cassandra API와 통신할 수 있음을 의미합니다. 많은 경우 연결 문자열을 변경하는 것만으로 Apache Cassandra를 사용하는 것에서 Azure Cosmos DB의 Cassandra API를 사용하는 것으로 전환할 수 있습니다. 
 
 Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cassandra 기반 도구(예: cqlsh) 및 Cassandra 클라이언트 드라이버를 사용하여 Azure Cosmos DB에 저장된 데이터와 상호 작용할 수 있습니다.
 

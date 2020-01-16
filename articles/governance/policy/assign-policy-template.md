@@ -3,12 +3,12 @@ title: '빠른 시작: 템플릿을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: e22c14768622408fb3afb0e491d4179b6113e4ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b9b0024e5c15c78c6777b8657839791484d66b5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436462"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980516"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - 더 많은 샘플 템플릿을 찾으려면, [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)을 참조하세요.
 - 템플릿 참조를 보려면 [Azure 템플릿 참조](/azure/templates/microsoft.authorization/allversions)를 참조하세요.
 - Resource Manager 템플릿을 개발하는 방법을 알아보려면 [Azure Resource Manager 설명서](../../azure-resource-manager/management/overview.md)를 참조하세요.
-- 구독 수준 배포에 대해 알아보려면 [구독 수준에서 리소스 그룹 및 리소스 만들기](../../azure-resource-manager/deploy-to-subscription.md)를 참조하세요.
+- 구독 수준 배포에 대해 알아보려면 [구독 수준에서 리소스 그룹 및 리소스 만들기](../../azure-resource-manager/templates/deploy-to-subscription.md)를 참조하세요.
 
 ## <a name="identify-non-compliant-resources"></a>규정 비준수 리소스 식별
 

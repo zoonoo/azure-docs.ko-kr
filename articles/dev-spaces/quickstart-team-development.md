@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces를 통해 컨테이너 및 마이크로서비스를 사용하여 Kubernetes 개발 팀을 수행하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 396358be63f93fde2ba5ec5f00545708dbfa19d4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 86d8d559a2d6408eb6846705887a82b440d50d7b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438205"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770835"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 팀 개발 - Azure Dev Spaces
 
@@ -236,4 +236,4 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 앱을 개발
 > [여러 컨테이너 작업 및 팀 개발](multi-service-nodejs.md)
 
 [helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

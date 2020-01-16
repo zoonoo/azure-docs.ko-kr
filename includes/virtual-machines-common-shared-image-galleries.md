@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75663184"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021170"
 ---
 공유 이미지 갤러리는 관리 되는 이미지에 대 한 구조와 조직을 구축 하는 데 도움이 되는 서비스입니다. 공유 이미지 갤러리는 다음을 제공 합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "75663184"
 * Eula-이미지 정의와 관련 된 최종 사용자 사용권 계약을 가리키는 데 사용할 수 있습니다.
 * 개인정보 취급 방침 및 릴리스 정보-Azure storage에 릴리스 정보 및 개인 정보 취급 방침을 저장 하 고 이미지 정의의 일부로 액세스 하기 위한 URI를 제공 합니다.
 * 수명 종료 날짜-자동화를 사용 하 여 이전 이미지 정의를 삭제할 수 있도록 이미지 정의에 수명 종료 날짜를 연결 합니다.
-* 태그-이미지 정의를 만들 때 태그를 추가할 수 있습니다. 태그에 대 한 자세한 내용은 [태그를 사용 하 여 리소스 구성](../articles/azure-resource-manager/resource-group-using-tags.md) 을 참조 하세요.
+* 태그-이미지 정의를 만들 때 태그를 추가할 수 있습니다. 태그에 대 한 자세한 내용은 [태그를 사용 하 여 리소스 구성](../articles/azure-resource-manager/management/tag-resources.md) 을 참조 하세요.
 * 최소 및 최대 vCPU 및 메모리 권장 사항-이미지에 vCPU 및 메모리 권장 사항이 있는 경우 해당 정보를 이미지 정의에 연결할 수 있습니다.
 * 허용 되지 않는 디스크 유형-VM의 저장소 요구 사항에 대 한 정보를 제공할 수 있습니다. 예를 들어 이미지가 표준 HDD 디스크에 적합 하지 않은 경우 허용 안 함 목록에 추가 합니다.
 

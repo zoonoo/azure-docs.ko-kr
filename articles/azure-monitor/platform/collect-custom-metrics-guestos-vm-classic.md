@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286140"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977631"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Windows 가상 머신에 대 한 Azure Monitor 메트릭 데이터베이스에 게스트 OS 메트릭 보내기 (클래식)
 
@@ -27,11 +27,11 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
 
 이 문서에 설명된 프로세스는 Windows 운영 체제를 실행하는 클래식 가상 머신에서만 작동합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독의 [서비스 관리자 또는 공동 관리자](../../billing/billing-add-change-azure-subscription-administrator.md)여야 합니다. 
+- Azure 구독의 [서비스 관리자 또는 공동 관리자](../../cost-management-billing/manage/add-change-subscription-administrator.md)여야 합니다. 
 
-- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록해야 합니다. 
+- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
@@ -204,5 +204,5 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
 
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아봅니다.
+- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
 

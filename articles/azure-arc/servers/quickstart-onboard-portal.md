@@ -10,20 +10,20 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 2ae7c8545286baebc83077276e356cd2e41f0dc3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26c79db956b2703bf037fc6f7790d4ee13874410
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668669"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834240"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>빠른 시작: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - 포털
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-[Azure Arc for Servers 개요](overview.md)에서 지원되는 클라이언트와 필수 네트워크 구성을 검토합니다.
+[서버용 Azure Arc 개요](overview.md)에서 지원되는 클라이언트와 필수 네트워크 구성을 검토합니다.
 
 ## <a name="generate-the-agent-install-script-using-the-azure-portal"></a>Azure Portal을 사용하여 에이전트 설치 스크립트 생성
 

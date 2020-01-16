@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: aaa083ef52dcf18fade3315f598b5f57e791cbe0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b026ef7dbbe850f0d2d1cb67ec8ca93b14ef879a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932964"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044898"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -106,7 +106,7 @@ ms.locfileid: "75932964"
 > 
 > ###   <a name="q-what-will-happen-on-march-30-do-i-need-to-offboard-beforehand"></a>Q: 3 월 30 일에 무슨 일이 발생 하나요? 보드를 미리 등록 취소
 > 
-> - **Office365** 솔루션에서 데이터를 받을 수 없으며, 설치 된 작업 영역에서 제거 됩니다. 이 솔루션은 Marketplace에서 더 이상 사용할 수 없습니다.
+> - **Office365** 솔루션에서 데이터를 받을 수 없습니다. 이 솔루션은 Marketplace에서 더 이상 사용할 수 없습니다.
 > - Azure 센티널 고객의 경우 Log Analytics 작업 영역 솔루션 **Office365** 이 Azure 센티널 **securityinsights** 솔루션에 포함 됩니다.
 > - 솔루션을 수동으로 보드 오프 하지 않는 경우 데이터는 3 월 30 일에 자동으로 연결 됩니다.
 > 

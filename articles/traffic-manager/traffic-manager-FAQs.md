@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d7feb0f7c32ab544df2b9de08daaf8cd007318b5
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784822"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045316"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -29,7 +29,7 @@ ms.locfileid: "72784822"
 따라서 Traffic Manager는 클라이언트가 연결할 엔드포인트 또는 IP 주소를 제공하지 않습니다. 서비스에 고정 IP 주소가 필요한 경우 Traffic Manager가 아니라 서비스에서 구성해야 합니다.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Traffic Manager를 사용하여 라우팅할 수 있는 트래픽 유형은 무엇입니까?
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)의 설명처럼 Traffic Manager 엔드포인트는 Azure 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스가 될 수 있습니다. 따라서 Traffic Manager는 공용 인터넷에서 발생한 트래픽을 인터넷에 연결된 엔드포인트 집합으로 라우팅할 수 있습니다. 프라이빗 네트워크 내부에 엔드포인트(예: [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) 내부 버전)가 있거나 사용자가 그러한 내부 네트워크에서 DNS 요청을 수행하는 경우 Traffic Manager를 이러한 트래픽에 사용할 수 없습니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)의 설명처럼 Traffic Manager 엔드포인트는 Azure 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스가 될 수 있습니다. 따라서 Traffic Manager는 공용 인터넷에서 발생한 트래픽을 인터넷에 연결된 엔드포인트 집합으로 라우팅할 수 있습니다. 프라이빗 네트워크 내부에 엔드포인트(예: [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer) 내부 버전)가 있거나 사용자가 그러한 내부 네트워크에서 DNS 요청을 수행하는 경우 Traffic Manager를 이러한 트래픽에 사용할 수 없습니다.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>"고정" 세션을 지원할 Traffic Manager 있나요?
 
@@ -318,7 +318,7 @@ Traffic Manager는 현재 IPv6으로 주소 지정이 가능한 이름 서버를
 
 Traffic Manager는 엔드포인트의 DNS 이름 또는 IP 주소로 응답합니다. IPv6 엔드포인트를 지원하려면 두 가지 옵션이 있습니다. 연결된 AAAA 레코드가 있는 DNS 이름으로 엔드포인트를 추가할 수 있으며, Traffic Manager는 해당 엔드포인트의 상태를 확인하고 이를 쿼리 응답에 CNAME 레코드 형식으로 반환합니다. IPv6 주소를 사용하여 해당 엔드포인트를 직접 추가할 수도 있습니다. 또한 Traffic Manager는 AAAA 형식 레코드를 쿼리 응답에 반환합니다.
 
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>동일한 지역에서 둘 이상의 웹앱에 Traffic Manager를 사용할 수 있습니까?
+### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>동일한 지역에서 둘 이상의 Web App에 Traffic Manager를 사용할 수 있습니까?
 
 일반적으로 Traffic Manager는 다른 지역에 배포된 애플리케이션에 트래픽을 보내는 데 사용됩니다. 그러나 애플리케이션이 동일한 지역에 둘 이상의 배포를 가지는 곳에 사용될 수도 있습니다. Traffic Manager Azure 엔드포인트는 동일한 Traffic Manager 프로필에 추가되는 동일한 Azure 지역에서 둘 이상의 웹앱 엔드포인트를 허용하지 않습니다.
 
@@ -384,11 +384,11 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 
 |들어오는 쿼리 요청|    엔드포인트 유형|  제공된 응답|
 |--|--|--|
-|모두 |  A / AAAA / CNAME |  대상 엔드포인트| 
-|문자열(UTF-8 형식) 또는 |    A / CNAME | 대상 엔드포인트|
-|문자열(UTF-8 형식) 또는 |    AAAA |  NODATA |
+|ANY |  A / AAAA / CNAME |  대상 엔드포인트| 
+|A |    A / CNAME | 대상 엔드포인트|
+|A |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  대상 엔드포인트|
-|AAAA | 문자열(UTF-8 형식) 또는 | NODATA |
+|AAAA | A | NODATA |
 |CNAME |    CNAME | 대상 엔드포인트|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -397,8 +397,8 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 
 |들어오는 쿼리 요청|    엔드포인트 유형 | 제공된 응답|
 |--|--|--|
-|모두 |  A와 AAAA의 혼합 | 대상 엔드포인트|
-|문자열(UTF-8 형식) 또는 |    A와 AAAA의 혼합 | 형식 A의 유일한 대상 엔드포인트|
+|ANY |  A와 AAAA의 혼합 | 대상 엔드포인트|
+|A |    A와 AAAA의 혼합 | 형식 A의 유일한 대상 엔드포인트|
 |AAAA   |A와 AAAA의 혼합|     형식 AAAA의 유일한 대상 엔드포인트|
 |CNAME |    A와 AAAA의 혼합 | NODATA |
 
@@ -497,9 +497,9 @@ Traffic Manager 이름 서버는 각 DNS 쿼리를 처리하는 경우 프로필
 
 다음 테이블에서는 중첩 엔드포인트에 대한 Traffic Manager의 상태 검사 동작에 대해 설명합니다.
 
-| 자식 프로필 모니터 상태 | 부모 엔드포인트 모니터 상태 | 참고 |
+| 자식 프로필 모니터 상태 | 부모 엔드포인트 모니터 상태 | 메모 |
 | --- | --- | --- |
-| Disabled. 하위 프로필을 사용하지 않도록 설정했습니다. |중지됨 |부모 엔드포인트 상태는 Stopped이며 Disabled가 아닙니다. Disabled 상태는 부모 프로필에서 엔드포인트를 사용할 수 없도록 설정했음을 표시하도록 예약되어 있습니다. |
+| 사용 안 함. 하위 프로필을 사용하지 않도록 설정했습니다. |중지됨 |부모 엔드포인트 상태는 Stopped이며 Disabled가 아닙니다. Disabled 상태는 부모 프로필에서 엔드포인트를 사용할 수 없도록 설정했음을 표시하도록 예약되어 있습니다. |
 | Degraded. 하나 이상의 자식 프로필 엔드포인트가 Degraded 상태입니다. |Online: 자식 프로필의 Online 엔드포인트 수가 MinChildEndpoints 값 이상입니다.<BR>CheckingEndpoint: 자식 프로필의 Online 및 CheckingEndpoint 엔드포인트 수 합계가 MinChildEndpoints 값 이상입니다.<BR>Degraded: 그렇지 않은 경우 |트래픽이 CheckingEndpoint 상태의 엔드포인트로 라우팅됩니다. MinChildEndpoints를 너무 높게 설정하는 경우 엔드포인트의 성능이 항상 저하됩니다. |
 | Online. 하나 이상의 하위 프로필 엔드포인트가 온라인 상태입니다. 성능이 저하된 엔드포인트가 없습니다. |위 내용을 참조하세요. | |
 | CheckingEndpoints. 하나 이상의 하위 프로필 엔드포인트가 'CheckingEndpoint'입니다. '온라인' 또는 '성능이 저하'된 엔드포인트가 없습니다. |위와 동일합니다. | |

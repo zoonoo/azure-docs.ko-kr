@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: c01e5c508644214c078dfc42ae8c77964933a277
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896001"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045184"
 ---
 # <a name="vcore-model-overview"></a>vCore 모델 개요
 
@@ -142,6 +142,16 @@ Azure Portal에서 만들 때 SQL database 또는 풀에 대 한 하드웨어 �
   
 **기존 관리 되는 인스턴스의 하드웨어 생성을 변경 하려면**
 
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+
+관리 되는 인스턴스 페이지의 설정 섹션 아래에 있는 **가격 책정 계층** 링크를 선택 합니다.
+
+![관리 되는 인스턴스 하드웨어 변경](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+**가격 책정 계층** 페이지에서 이전 단계에 설명 된 대로 하드웨어 생성을 변경할 수 있습니다.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 다음 PowerShell 스크립트를 사용합니다.
 
 ```powershell-interactive
@@ -176,7 +186,9 @@ $properties = New-Object System.Object
 Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
 ```
 
-관리 되는 인스턴스의 구독 id, 이름 및 리소스 그룹을 입력 해야 합니다.
+관리 되는 인스턴스의 구독 ID, 이름 및 리소스 그룹을 입력 해야 합니다.
+
+---
 
 ### <a name="hardware-availability"></a>고가용성
 
@@ -213,9 +225,9 @@ M 시리즈는 추가 지역의 가용성이 제한 될 수도 있습니다. 여
 
 **세부 정보** 페이지에서 다음을 제공 합니다.
 
-5. **문제 세부 정보** 섹션에서 **세부 정보 제공** 링크를 선택 합니다. 
-6. **SQL Database 할당량 유형** **으로 M 시리즈**를 선택 합니다.
-7. **지역**에서 M 시리즈를 사용할 지역을 선택 합니다.
+1. **문제 세부 정보** 섹션에서 **세부 정보 제공** 링크를 선택 합니다. 
+2. **SQL Database 할당량 유형** **으로 M 시리즈**를 선택 합니다.
+3. **지역**에서 M 시리즈를 사용할 지역을 선택 합니다.
     M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series)을 참조 하세요.
 
 승인 된 지원 요청은 보통 5 영업일 이내에 수행 됩니다.

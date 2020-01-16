@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 71f768506d7cec575c6bd765447397d8d0406859
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0314dceb23f02b723854dfc406e9440bbc14ccf6
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446019"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044295"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 FTP 파일 만들기, 모니터링 및 관리
 
@@ -25,7 +25,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 트리거를 사용하여 FTP 서버에서 응답을 가져오고 다른 작업에 출력을 제공하는 트리거를 사용할 수 있습니다. Logic Apps의 실행 작업을 사용하여 FTP 서버에 있는 파일을 관리할 수 있습니다. 다른 작업에서 FTP 작업의 출력을 사용하게 만들 수도 있습니다. 예를 들어 정기적으로 FTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-## <a name="limits"></a>제한
+## <a name="limitations"></a>제한 사항
 
 * FTP 커넥터는 SSL (FTPS)을 통한 명시적인 FTP만 지원 하 고 암시적 FTPS와 호환 되지 않습니다.
 
@@ -36,6 +36,8 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
   * 파일이 추가 되거나 수정 되는 경우와 같이 파일 속성을 반환 하는 FTP 트리거를 사용 합니다 **(속성만)** .
 
   * 전체 파일을 읽고 청크를 암시적으로 사용 하는 FTP **파일 콘텐츠 가져오기** 작업을 사용 하 여 트리거를 수행 합니다.
+
+* 온-프레미스 FTP 서버를 사용 하는 경우 온-프레미스 데이터 게이트웨이를 사용 하지 않고 온-프레미스 데이터 원본에 액세스할 수 있도록 [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 를 만들거나 [Azure App Service 하이브리드 연결](../app-service/app-service-hybrid-connections.md)을 사용 하는 것이 좋습니다.
 
 ## <a name="how-ftp-triggers-work"></a>FTP 트리거 작동 방법
 

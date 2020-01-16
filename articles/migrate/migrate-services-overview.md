@@ -4,12 +4,12 @@ description: Azure Migrate 서비스에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 12/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 983ba420067bf2e4b6416287d8898943142c90c0
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c336b2f95a17896edcc7eaad2b2586c6859804f9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563567"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772196"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -18,7 +18,7 @@ ms.locfileid: "75563567"
 Azure Migrate를 사용하여 Azure로 마이그레이션합니다. Azure Migrate는 온-프레미스 인프라, 애플리케이션 및 데이터를 평가하고 Azure로 마이그레이션할 수 있는 중앙 허브를 제공하며, 다음과 같은 기능을 갖추고 있습니다.
 
 - **통합 마이그레이션 플랫폼**: Azure로의 마이그레이션 과정을 시작, 실행 및 추적하는 단일 포털입니다.
-- **도구 범위**: 평가 및 마이그레이션에 사용할 도구 범위입니다. 허브에는 Azure Migrate: Server Assessment 및 Azure Migrate: Server Migration이 포함되어 있습니다. 다른 Azure 서비스, 기타 도구 및 ISV(독립 소프트웨어 공급업체) 제품과 통합됩니다.
+- **도구 범위**: 평가 및 마이그레이션에 사용할 도구 범위입니다. 허브에는 Azure Migrate: Server Assessment 및 Azure Migrate: Server Migration에 연결합니다. 다른 Azure 서비스, 기타 도구 및 ISV(독립 소프트웨어 공급업체) 제품과 통합됩니다.
 - **평가 및 마이그레이션**: Azure Migrate 허브에서 다음을 평가하고 마이그레이션할 수 있습니다.
     - **서버**: 온-프레미스 서버를 평가하고 Azure VM으로 마이그레이션합니다.
     - **데이터베이스**: 온-프레미스 데이터베이스를 평가하고 Azure SQL DB 또는 Azure SQL Managed Instance로 마이그레이션합니다.
@@ -39,7 +39,7 @@ Azure Migrate 허브는 다음 도구를 제공합니다.
 **DMS(Database Migration Service)** | 온-프레미스 데이터베이스를 SQL, Azure SQL DB 및 Azure SQL Managed Instance를 실행하는 Azure VM으로 마이그레이션합니다. | [DMS](https://docs.microsoft.com/azure/dms/dms-overview)에 대해 자세히 알아보세요.
 **Movere** | 서버 평가 | Movere에 대해 [자세히 알아보세요](#movere).
 **Web App Migration Assistant** | 온-프레미스 웹앱을 평가하고 Azure로 마이그레이션합니다. |  Azure App Service Migration Assistant를 사용하여 Azure App Service으로 마이그레이션하기 위한 온-프레미스 웹 사이트를 평가합니다.<br/><br/> Azure App Service Migration Assistant를 사용하여 .NET 및 PHP 웹앱을 Azure로 마이그레이션합니다. Assistant에 대해 [자세히 알아보세요](https://appmigration.microsoft.com/).
-**Azure Data Box** | 오프라인 데이터 마이그레이션. | Azure Data Box 제품을 사용하여 대량의 데이터를 오프라인으로 Azure로 이동합니다. [자세히 알아보기](https:/docs.microsoft.com/azure/databox/).
+**Azure Data Box** | 오프라인 데이터 마이그레이션. | Azure Data Box 제품을 사용하여 대량의 데이터를 오프라인으로 Azure로 이동합니다. [자세히 알아보기](https://docs.microsoft.com/azure/databox/).
 
 ## <a name="isv-integration"></a>ISV 통합
 

@@ -16,20 +16,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc92fb7bc5ddf451279e6c157f9e93aa7fe9a12a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cf660cbf981079ca20111e34fcd34504d8dcbfb
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423613"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044124"
 ---
-# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API-앱에 대 한 토큰을 가져옵니다.
+# <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API: 응용 프로그램에 대 한 토큰 획득
 
 클라이언트 응용 프로그램 개체를 빌드한 후에는이 개체를 사용 하 여 web API를 호출 하는 데 사용할 수 있는 토큰을 가져옵니다.
 
 ## <a name="code-in-the-controller"></a>컨트롤러의 코드
 
-다음은 다운스트림 API (이름이 todolist)를 호출 하는 API 컨트롤러의 작업에서 호출 되는 코드의 예입니다.
+API 컨트롤러의 작업에서 호출 되는 코드의 예는 다음과 같습니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -50,9 +50,9 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` 웹 api를 [호출 하는 WEB api-앱 구성](scenario-web-api-call-api-app-configuration.md)에서 살펴본 것과 비슷합니다. `BuildConfidentialClient()`는 한 계정에 대 한 정보만 포함 하는 캐시를 사용 하 여 `IConfidentialClientApplication`를 인스턴스화합니다. 계정은 `GetAccountIdentifier` 메서드에서 제공 합니다.
+`BuildConfidentialClient()` [웹 api를 호출 하는 웹 api](scenario-web-api-call-api-app-configuration.md)의 시나리오와 비슷합니다. 앱 구성. `BuildConfidentialClient()`는 한 계정에 대 한 정보만 포함 하는 캐시를 사용 하 여 `IConfidentialClientApplication`를 인스턴스화합니다. 계정은 `GetAccountIdentifier` 메서드에서 제공 합니다.
 
-`GetAccountIdentifier` 메서드는 web API가 JWT를 받은 사용자의 id와 연결 된 클레임을 사용 합니다.
+`GetAccountIdentifier` 메서드는 web API가 JSON Web Token (JWT)를 받은 사용자의 id와 연결 된 클레임을 사용 합니다.
 
 ```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
@@ -73,4 +73,4 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Web API 호출](scenario-web-api-call-api-call-api.md)
+> [웹 api를 호출 하는 web API: API 호출](scenario-web-api-call-api-call-api.md)

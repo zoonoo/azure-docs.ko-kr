@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: be2bda4e1bfd6a679076f79969e4829aa1a847c9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70231369"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895957"
 ---
 ::: zone target="docs"
 
@@ -35,18 +35,18 @@ ms.locfileid: "70231369"
 
 이 자습서에는 호스트 컴퓨터에서 데이터를 복사한 다음, 데이터 무결성을 확인하는 체크섬을 생성하는 방법을 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Data Box Disk에 데이터 복사
 > * 데이터 확인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 - [자습서: Azure Data Box Disk 설치 및 구성](data-box-disk-deploy-set-up.md)을 완료했습니다.
 - 디스크를 잠금 해제하고 클라이언트 컴퓨터에 연결합니다.
-- 데이터를 디스크에 복사하는 데 사용되는 클라이언트 컴퓨터에서 [지원되는 운영 체제](data-box-disk-system-requirements.md##supported-operating-systems-for-clients)를 실행해야 합니다.
+- 데이터를 디스크에 복사하는 데 사용되는 클라이언트 컴퓨터에서 [지원되는 운영 체제](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)를 실행해야 합니다.
 - 데이터의 의도된 스토리지 유형이 [지원되는 스토리지 유형](data-box-disk-system-requirements.md#supported-storage-types-for-upload)과 일치하는지 확인합니다.
 - [Azure 개체 크기 제한의 관리 디스크 제한](data-box-disk-limits.md#azure-object-size-limits)을 검토합니다.
 
@@ -73,11 +73,11 @@ ms.locfileid: "70231369"
 
     |선택한 스토리지 대상  |Storage 계정 유형|준비 스토리지 계정 유형 |폴더 및 하위 폴더  |
     |---------|---------|---------|------------------|
-    |Storage 계정     |GPv1 또는 GPv2                 | 해당 없음 | BlockBlob <br> PageBlob <br> AzureFile        |
-    |Storage 계정     |Blob Storage 계정         | 해당 없음 | BlockBlob        |
+    |스토리지 계정     |GPv1 또는 GPv2                 | 해당 없음 | BlockBlob <br> PageBlob <br> AzureFile        |
+    |스토리지 계정     |Blob Storage 계정         | 해당 없음 | BlockBlob        |
     |관리 디스크     |해당 없음 | GPv1 또는 GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
-    |Storage 계정 <br> 관리 디스크     |GPv1 또는 GPv2 | GPv1 또는 GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
-    |Storage 계정 <br> 관리 디스크    |Blob Storage 계정 | GPv1 또는 GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |스토리지 계정 <br> 관리 디스크     |GPv1 또는 GPv2 | GPv1 또는 GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |스토리지 계정 <br> 관리 디스크    |Blob Storage 계정 | GPv1 또는 GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
     GPv2 스토리지 계정이 지정된 주문의 예제 스크린샷은 아래와 같습니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "70231369"
     
     명령에 대한 매개 변수 및 옵션은 다음과 같이 표로 정리됩니다.
     
-    |매개 변수/옵션  |설명 |
+    |매개 변수/옵션  |Description |
     |--------------------|------------|
     |원본            | 원본 디렉터리에 대한 경로를 지정합니다.        |
     |대상       | 대상 디렉터리에 대한 경로를 지정합니다.        |
@@ -232,7 +232,7 @@ ms.locfileid: "70231369"
 
      ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. 파일 형식의 유효성을 검사하려면 `JSONlint`로 이동합니다. 파일을 `ConfigFile.json`(으)로 저장합니다. 
+6. 파일 형식의 유효성을 검사하려면 `JSONlint`로 이동합니다. 파일을 `ConfigFile.json`로 저장합니다. 
 
      ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
@@ -270,7 +270,7 @@ ms.locfileid: "70231369"
 데이터 복사가 완료되면 데이터 유효성을 검사할 수 있습니다. 분할 복사 도구를 사용한 경우 유효성 검사를 건너뛰고(분할 복사 도구도 유효성 검사를 수행하므로) 다음 자습서로 이동합니다.
 
 
-## <a name="validate-data"></a>데이터 유효성 검사
+## <a name="validate-data"></a>데이터의 유효성 검사
 
 데이터를 복사할 때 분할 복사 도구를 사용하지 않은 경우 데이터의 유효성을 검사해야 합니다. 데이터의 유효성을 검사하려면 다음 단계를 수행합니다.
 
@@ -329,7 +329,7 @@ Data Box Disk를 반환하고 Azure에 대한 데이터 업로드를 확인하�
 
 이 [분할 밑 복사](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) 선택적 절차는 여러 디스크를 사용 중이고 큰 데이터 세트를 분할하여 모든 디스크에 복사해야 하는 경우에 사용할 수 있습니다.
 
-### <a name="validate-data"></a>데이터 유효성 검사
+### <a name="validate-data"></a>데이터의 유효성 검사
 
 다음 단계를 수행하여 데이터를 확인합니다.
 

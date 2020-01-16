@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: overview
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 87bcea5e9ada4f095896c1ebe4cbe1928f158eb0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d05ce8f94862d737b3514bd1116e431bcba5dedd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895425"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891690"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
@@ -19,7 +19,7 @@ Azure Spring Cloud를 사용하면 코드 변경 없이 Spring Boot 기반 마�
 
 Azure 에코시스템의 일부인 Azure Spring Cloud를 사용하면 스토리지, 데이터베이스, 모니터링 등을 비롯한 다른 Azure 서비스에 쉽게 바인딩할 수 있습니다.
 
-Azure Spring Cloud는 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 검토하거나 [지원 요청](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하여 자세히 알아보세요.
+Azure Spring Cloud는 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 검토하거나 [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하여 자세히 알아보세요.
 
 시작하려면 [Azure CLI](spring-cloud-quickstart-launch-app-cli.md), [Azure Portal](spring-cloud-quickstart-launch-app-portal.md) 또는 [Maven](spring-cloud-quickstart-launch-app-maven.md)을 사용하여 Spring Cloud 빠른 시작을 완료합니다.
 
@@ -39,7 +39,7 @@ Azure Spring Cloud는 코드를 프로덕션 환경으로 릴리스 및 업데�
 
 Azure Spring Cloud는 Azure CLI를 사용하여 Azure DevOps와의 통합을 제공합니다.  Azure DevOps를 사용하여 Spring 애플리케이션에 대한 코드 통합 및 배포를 자동화할 수 있습니다.  자세히 알아보려면 이 [문서](spring-cloud-howto-cicd.md)를 참조하세요.
 
-### <a name="scale-your-application"></a>애플리케이션 확장
+### <a name="scale-your-application"></a>애플리케이션 크기 조정
 
 Azure Spring Cloud를 사용하면 Azure Spring Cloud 대시보드에서 마이크로서비스를 쉽게 확장할 수 있습니다.  마이크로서비스에 사용할 수 있는 메모리 양과 vCPU 수를 요구 사항에 맞게 모두 확장하거나 축소할 수 있습니다.  크기 조정은 몇 초 안에 적용되며 코드를 변경하거나 다시 배포할 필요가 없습니다.  자세히 알아보려면 이 [자습서](spring-cloud-tutorial-scale-manual.md)를 완료하세요.
 

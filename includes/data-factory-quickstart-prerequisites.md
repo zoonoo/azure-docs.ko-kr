@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f808158c959894e757adaa73a81e3bf57f475da0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490667"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020896"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-subscription"></a>Azure 구독
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - Azure Portal에서 자식 리소스를 만들고 관리하려면 리소스 그룹 수준 이상의 **Data Factory 기여자** 역할에 속해야 합니다.
 - PowerShell 또는 SDK를 사용하여 자식 리소스를 만들고 관리하려면 리소스 수준 이상의 **기여자** 역할만으로도 충분합니다.
 
-사용자를 역할에 추가하는 방법에 대한 지침 샘플은 [역할 추가](../articles/billing/billing-add-change-azure-subscription-administrator.md) 문서를 참조하세요.
+사용자를 역할에 추가하는 방법에 대한 지침 샘플은 [역할 추가](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) 문서를 참조하세요.
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - [Azure Data Factory에 대한 역할 및 권한](../articles/data-factory/concepts-roles-permissions.md)
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 빠른 시작에서는 범용 Azure 스토리지 계정(특히 Blob Storage)을 *원본* 및 *대상* 데이터 스토리지로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)를 참조하여 새로 만듭니다. 
+이 빠른 시작에서는 범용 Azure 스토리지 계정(특히 Blob Storage)을 *원본* 및 *대상* 데이터 스토리지로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../articles/storage/common/storage-account-create.md)를 참조하여 새로 만듭니다. 
 
 #### <a name="get-the-storage-account-name"></a>스토리지 계정 이름 가져오기
 이 빠른 시작에서는 Azure 스토리지 계정의 이름이 필요합니다. 다음 프로시저에서는 스토리지 계정 이름을 가져오는 단계를 제공합니다. 

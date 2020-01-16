@@ -7,30 +7,30 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/12/2019
+ms.date: 01/07/2020
 ms.custom: include file
-ms.openlocfilehash: 4ed5be09d952d4d64c269e3eaf698ad7a74fffdd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9ccdc7a438d1dade534d39dc97a39a3bdae37dc4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014065"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895510"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 홈 사이드바를 선택한 다음, **+리소스 만들기**를 선택합니다. 
 
-   [![홈 사이드바를 확장한 후 +리소스 만들기 선택](./media/create-digital-twins-portal/create-a-resource.png)](./media/create-digital-twins-portal/create-a-resource.png#lightbox)
+   [![홈 사이드바를 확장한 후 +리소스 만들기 선택](./media/create-digital-twins-portal/azure-portal-create-a-resource.png)](./media/create-digital-twins-portal/azure-portal-create-a-resource.png#lightbox)
 
 1. **Digital Twins**를 검색하고 **Digital Twins**를 선택합니다. 
 
-   [![새 Digital Twins 인스턴스를 만들기 위한 선택 항목](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
+   [![새 Digital Twins 인스턴스를 만들기 위한 선택 항목](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png)](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png#lightbox)
 
    또는 **사물 인터넷**을 선택하고 **Digital Twins(미리 보기)** 를 선택합니다.
 
 1. **만들기**를 선택하여 배포 프로세스를 시작합니다.
 
-   [![리소스 배포 만들기 및 확인](./media/create-digital-twins-portal/create-and-confirm-resource.png)](./media/create-digital-twins-portal/create-and-confirm-resource.png#lightbox)
+   [![리소스 배포 만들기 및 확인](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png)](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png#lightbox)
 
 1. **Digital Twins** 창에서 다음 정보를 입력합니다.
    * **리소스 이름**: Digital Twins 인스턴스의 고유한 이름을 만듭니다.

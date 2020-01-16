@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: b2c94e51e25fd34b7332e6653a9c2f2d5bb53139
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754242"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045479"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "75754242"
 * 프로브 구성: 가상 머신에 대한 상태 프로브.
 * 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙.
 
-부하 분산 장치 구성 요소에 대 한 자세한 내용은 [Azure Load Balancer 구성 요소](load-balancer-overview.md#load-balancer-components)를 참조 하세요.
+부하 분산 장치 구성 요소에 대 한 자세한 내용은 [Azure Load Balancer 구성 요소](concepts-limitations.md#load-balancer-components)를 참조 하세요.
 
 다음 단계에서는 두 개의 가상 머신 간에 부하 분산 장치를 구성하는 방법을 설명합니다.
 

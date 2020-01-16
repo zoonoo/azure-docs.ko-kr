@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1a5859517d2f858086c9034c8ee190e99bce5cd5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c4a406961444845fef783c47942924b01b7aa646
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647750"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972396"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -43,7 +43,7 @@ Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시�
 
 ### <a name="models"></a>배포 모델
 
-현재 Azure용 배포 모델은 두 가지가 있습니다. VPN Gateway를 구성할 때 수행할 단계는 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이 설정을 만들고 구성합니다. 배포 모델에 대한 자세한 내용은 [Resource Manager 배포 및 클래식 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
+현재 Azure용 배포 모델은 두 가지가 있습니다. VPN Gateway를 구성할 때 수행할 단계는 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이 설정을 만들고 구성합니다. 배포 모델에 대한 자세한 내용은 [Resource Manager 배포 및 클래식 배포 모델 이해](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
 
 ### <a name="planningtable"></a>계획 표
 
@@ -146,7 +146,7 @@ ExpressRoute는 공용 인터넷을 사용하지 않는 WAN에서 Azure를 비�
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 

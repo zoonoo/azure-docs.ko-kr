@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8f77083ae0107ed9f9c5e3943cfcec25846ff087
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 934f3f69d46362e4bef4e713bcee23e9a3e24eb6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227213"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769356"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Azure에서 첫 번째 PowerShell 함수 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "74227213"
 
 다음 단계는 macOS, Windows, Linux 기반 운영 체제에서 지원됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "74227213"
 
 ## <a name="create-a-function-app-project"></a>함수 앱 프로젝트 만들기
 
-Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 통해 함수를 논리적 단위로 그룹화하여 관리, 배포 및 리소스를 공유할 수 있습니다. 
+Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다.
 
 1. Visual Studio Code에서 **Azure: 함수** 영역에 표시할 Azure 로고를 선택하고 새 프로젝트 만들기 아이콘을 선택합니다.
 

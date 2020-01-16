@@ -3,12 +3,12 @@ title: '빠른 시작: PowerShell을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482383"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978300"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -17,7 +17,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 명령줄 또는 스크립트에서 Azure 리소스를 관리하는 데 Azure PowerShell 모듈이 사용됩니다.
 이 가이드에서는 Az 모듈을 사용하여 정책 할당을 만드는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -30,7 +30,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
+  리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../../azure-resource-manager/management/resource-providers-and-types.md)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

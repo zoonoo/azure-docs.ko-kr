@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 66c100ecd40e9f0899f7686397339ab849315c3e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843271"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020870"
 ---
 ## <a name="publish-the-project-to-azure"></a>Azure에 프로젝트 게시
 
@@ -27,7 +27,7 @@ Visual Studio Code를 사용하면 Azure에 직접 함수 프로젝트를 게시
 > [!IMPORTANT]
 > 기존 함수 앱에 게시하면 Azure에서 해당 앱의 콘텐츠를 덮어씁니다.
 
-1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Deploy to function app...`를 검색하여 선택합니다.
+1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Deploy to function app...`을 검색하여 선택합니다.
 
 1. 로그인하지 않으면 **Azure에 로그인**하라는 메시지가 표시됩니다. 또한 **무료 Azure 계정을 만들** 수 있습니다. 브라우저에서 성공적으로 로그인한 후 Visual Studio Code로 다시 이동합니다. 
 
@@ -37,8 +37,8 @@ Visual Studio Code를 사용하면 Azure에 직접 함수 프로젝트를 게시
 
     Enter 키를 누르면 다음 Azure 리소스가 구독에서 생성됩니다.
 
-    * **[리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)** : 만든 Azure 리소스를 모두 포함합니다. 이름은 함수 앱 이름을 기반으로 합니다.
-    * **[스토리지 계정](../articles/storage/common/storage-quickstart-create-account.md)** : 표준 스토리지 계정은 함수 앱 이름을 기반으로 하는 고유한 이름으로 만들어집니다.
+    * **[리소스 그룹](../articles/azure-resource-manager/management/overview.md)** : 만든 Azure 리소스를 모두 포함합니다. 이름은 함수 앱 이름을 기반으로 합니다.
+    * **[스토리지 계정](../articles/storage/common/storage-account-create.md)** : 표준 스토리지 계정은 함수 앱 이름을 기반으로 하는 고유한 이름으로 만들어집니다.
     * **[호스팅 계획](../articles/azure-functions/functions-scale.md)** : 소비 계획은 서버리스 함수 앱을 호스트할 미국 서부 지역에 생성됩니다.
     * **함수 앱**: 프로젝트가 이 새 함수 앱에 배포되고 실행됩니다.
 

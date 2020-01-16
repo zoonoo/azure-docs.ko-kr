@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889419"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045127"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
@@ -47,10 +47,11 @@ Microsoft는 C, .NET (C#), Node.js, Java 및 Python 언어로 GitHub에 오픈 �
 | OS                  | TLS 라이브러리                  | 추가 요구 사항                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL 또는 BearSSL | Berkeley 소켓</br></br>POSIX (이식 가능한 운영 체제 인터페이스)                       |
-| iOS 12.2            | OpenSSL 또는 네이티브 OSX        | OSX 10.13.4에서 에뮬레이트된 XCode                                                               |
+| iOS 12.2            | OpenSSL                      | OSX 10.13.4에서 에뮬레이트된 XCode                                                               |
 | Windows 10 제품군   | SChannel                     |                                                                                             |
 | Mbed OS 5.4         | Mbed TLS 2                   | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
 | Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
+| Arduino             | BearSSL                      | [ESP32 또는 ESP8266](https://github.com/Azure/azure-iot-arduino#simple-sample-instructions) 
 
 ### <a name="python-sdk"></a>Python SDK
 
@@ -58,11 +59,11 @@ Microsoft는 C, .NET (C#), Node.js, Java 및 Python 언어로 GitHub에 오픈 �
 
 | OS                  | 컴파일러                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2.7 *, 3.4*, 3.5 *, 3.6, 3.7 |
-| MacOS High Sierra   | Python 2.7 *, 3.4*, 3.5 *, 3.6, 3.7 |
-| Windows 10 제품군   | Python 2.7 *, 3.4*, 3.5 *, 3.6, 3.7 |
+| Linux               | Python 2.7. *, 3.5 이상 |
+| MacOS High Sierra   | Python 2.7. *, 3.5 이상 |
+| Windows 10 제품군   | Python 2.7. *, 3.5 이상 |
 
-\* Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 합니다. 3.7 이상을 사용 하는 것이 좋습니다.
+Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.7 이상을 사용 하는 것이 좋습니다.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -98,7 +99,7 @@ Microsoft는 C, .NET (C#), Node.js, Java 및 Python 언어로 GitHub에 오픈 �
 
 Microsoft는 다양 한 파트너와 협력 하 여 여러 마이크로프로세서 아키텍처에 대 한 개발 키트를 제공 합니다. 이러한 파트너는 Azure IoT C SDK를 플랫폼으로 이식 했습니다. 파트너는 SDK의 PAL (플랫폼 추상화 계층)을 만들고 유지 관리 합니다. Microsoft는 이러한 파트너와 협력 하 여 확장 된 지원을 제공 합니다.
 
-| 파트너             | 디바이스                            | 링크                     | 지원 |
+| Partner             | 디바이스                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
@@ -115,7 +116,7 @@ Microsoft는 Azure IoT 테스트와 인증 된 장치로 Azure IoT universe를 �
 
 * Azure IoT 인증 장치를 찾아보려면 [IoT용 Microsoft Azure Certified 장치 카탈로그](https://catalog.azureiotsolutions.com/)를 참조 하세요.
 
-* Microsoft 신뢰할 수 있는 파트너에 대 한 자세한 내용을 알아보거나 Microsoft 신뢰할 수 있는 파트너가 되는 방법에 대 한 자세한 내용은 [Microsoft Azure 인증 된 사물 인터넷 신뢰할 수 있는](https://azure.microsoft.com/marketplace/certified-iot-partners/)파트너를 참조 하세요.
+* IoT용 Azure Certified 에코 시스템에 대해 자세히 알아보려면 [IoT용 Certified 에코 시스템에 참여](https://catalog.azureiotsolutions.com/register)를 참조 하세요.
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>SDK 없이 IoT Hub에 연결
 

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Azure Dev Spaces에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: c904ae5809a36859ba6428bf026c9016a1a8f747
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d5ab56edfe4799d51fb7f08642aad9e2ee01db05
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867185"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044974"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 질문과 대답
 
@@ -34,7 +34,7 @@ ms.locfileid: "75867185"
 
 ## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>Kubenet가 아닌 CNI를 사용 하는 클러스터에서 Azure Dev Spaces를 사용할 수 있나요? 
 
-예, 네트워킹에 CNI를 사용 하는 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. 예를 들어 네트워킹에 CNI를 사용 하는 [기존 Windows 컨테이너][windows-containers]와 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. Azure Dev Spaces에서 네트워킹에 CNI를 사용 하는 방법에 대 한 자세한 내용은 [여기](configure-networking.md#using-azure-container-networking-with-azure-dev-spaces)에서 제공 됩니다.
+예, 네트워킹에 CNI를 사용 하는 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. 예를 들어 네트워킹에 CNI를 사용 하는 [기존 Windows 컨테이너][windows-containers]와 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. Azure Dev Spaces에서 네트워킹에 CNI를 사용 하는 방법에 대 한 자세한 내용은 [여기](configure-networking.md#using-azure-cni)에서 제공 됩니다.
 
 ## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>Windows 컨테이너에 Azure Dev Spaces를 사용할 수 있나요?
 
@@ -42,7 +42,7 @@ ms.locfileid: "75867185"
 
 ## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>API 서버 권한이 부여 된 IP 주소 범위를 사용 하 여 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있나요?
 
-예, [API 서버 권한이 부여 된 IP 주소 범위][aks-auth-range] 를 사용 하 여 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. AKS 클러스터를 사용 하는 방법에 대 한 자세한 내용은 Azure Dev Spaces에서 사용 하도록 설정 된 API server [권한 있는 IP](configure-networking.md#using-api-server-authorized-ip-ranges-with-azure-dev-spaces)주소 범위를 참조 하세요.
+예, [API 서버 권한이 부여 된 IP 주소 범위][aks-auth-range] 를 사용 하 여 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. AKS 클러스터를 사용 하는 방법에 대 한 자세한 내용은 Azure Dev Spaces에서 사용 하도록 설정 된 API server [권한 있는 IP](configure-networking.md#using-api-server-authorized-ip-ranges)주소 범위를 참조 하세요.
 
 ### <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>클러스터 노드에 대해 제한 된 송신 트래픽이 있는 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있나요?
 

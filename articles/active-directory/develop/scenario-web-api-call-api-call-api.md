@@ -15,22 +15,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5829ca41aaa4bd61f8878657e5eedbf6351b5df4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 701f1f7c26731f3e9653955907f5f16d2688cdb2
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423570"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043443"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>웹 api를 호출 하는 web API-API 호출
+# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 api를 호출 하는 web API: API 호출
 
-토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다. ASP.NET/ASP.NET Core web API의 컨트롤러에서 수행 됩니다.
+토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다. ASP.NET 또는 ASP.NET Core web API의 컨트롤러에서이 작업을 수행 합니다.
 
 ## <a name="controller-code"></a>컨트롤러 코드
 
-보호 된 웹 API에 표시 된 예제 코드의 연속은 API 컨트롤러의 작업에서 호출 되는 토큰을 획득 하 고 다운스트림 API (todolist)를 호출 하는 [웹 api를 호출](scenario-web-api-call-api-acquire-token.md)합니다.
+다음 코드는 web Api를 호출 하는 web API에 표시 되는 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
 
-토큰을 얻은 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
+토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -49,7 +49,7 @@ private async Task GetTodoList(bool isAppStarting)
  }
 ...
 
-// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+// After the token has been returned by Microsoft Authentication Library (MSAL), add it to the HTTP authorization header before making the call to access the To Do list service.
 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
 // Call the To Do list service.
@@ -61,4 +61,4 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [프로덕션으로 이동](scenario-web-api-call-api-production.md)
+> [웹 Api를 호출 하는 web API: 프로덕션으로 이동](scenario-web-api-call-api-production.md)

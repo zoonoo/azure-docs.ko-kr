@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3aee53b823af5929ce48045d1addcbc4881b2825
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 768d01346b7697953d44742458c7e507ae7c115a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638275"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894602"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -79,9 +79,9 @@ Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 
 
 ## <a name="azure-vnet-limits"></a>Azure VNet 제한
 
-배포할 수 있는 Azure 리소스 수와 관련된 특정 제한이 있습니다. 대부분의 Azure 네트워킹 제한은 최댓값으로 설정됩니다. 그러나 [VNet 제한 페이지](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)에 지정된 대로 [특정 네트워킹 제한을 늘릴](../azure-supportability/networking-quota-requests.md) 수 있습니다. 
+배포할 수 있는 Azure 리소스 수와 관련된 특정 제한이 있습니다. 대부분의 Azure 네트워킹 제한은 최댓값으로 설정됩니다. 그러나 [VNet 제한 페이지](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)에 지정된 대로 [특정 네트워킹 제한을 늘릴](../azure-portal/supportability/networking-quota-requests.md) 수 있습니다. 
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 Azure VNet 사용에 해당하는 요금은 없습니다. 별도의 비용이 없습니다. VM(가상 머신) 및 기타 제품과 같은 리소스에는 표준 요금이 적용될 수 있습니다. 자세한 내용은 [VNet 가격](https://azure.microsoft.com/pricing/details/virtual-network/) 및 Azure [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요.
 

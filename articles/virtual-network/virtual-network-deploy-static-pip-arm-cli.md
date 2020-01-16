@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 421fe373c93159b81a7dd962920eb17845895925
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 4b8f91d7d9fc414ed0ae6387c25f71b1601e0b6c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647818"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043400"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI를 사용하여 고정 공용 IP 주소로 가상 머신 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "75647818"
      --public-ip-address-allocation static
    ```
 
-   공용 IP 주소가 표준 SKU여야 하는 경우 이전 명령에 `--public-ip-sku Standard`를 추가합니다. [공용 IP 주소 SKU](virtual-network-ip-addresses-overview-arm.md#sku)에 대해 자세히 알아봅니다. 가상 머신이 공용 Azure Load Balancer의 백 엔드 풀에 추가되는 경우 가상 머신 공용 IP 주소의 SKU는 부하 분산 장치의 공용 IP 주소의 SKU와 일치해야 합니다. 자세한 내용은 [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus)를 참조하세요.
+   공용 IP 주소가 표준 SKU여야 하는 경우 이전 명령에 `--public-ip-sku Standard`를 추가합니다. [공용 IP 주소 SKU](virtual-network-ip-addresses-overview-arm.md#sku)에 대해 자세히 알아봅니다. 가상 머신이 공용 Azure Load Balancer의 백 엔드 풀에 추가되는 경우 가상 머신 공용 IP 주소의 SKU는 부하 분산 장치의 공용 IP 주소의 SKU와 일치해야 합니다. 자세한 내용은 [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus)를 참조하세요.
 
 4. 할당된 공용 IP 주소를 확인하고 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 고정, 기본 SKU 주소로 생성되었는지 확인합니다.
 

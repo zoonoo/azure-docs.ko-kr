@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 4ef268367d1c4c8808cbda3814c863940bcdc32b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 19b7fbe5541bda5e6e2c265681e292f452cd57c0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771907"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044273"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>로컬 및 원격 실행에 대 한 모델 interpretability
 
@@ -336,7 +336,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 시각화 대시보드를 로드 하려면 다음 코드를 사용 합니다.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
+from interpret_community.widget import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
 ```

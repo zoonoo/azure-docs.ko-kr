@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 891b21aa1c832214fad12759643dc72a632e1cd7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 66050c16f40e0a06117327ef53e3aae87d03c5db
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647801"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043547"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기
 
@@ -51,7 +51,7 @@ ms.locfileid: "75647801"
 
    ![고정 선택](./media/virtual-network-deploy-static-pip-arm-portal/select-static.png)
 
-   공용 IP 주소가 표준 SKU여야 하는 경우 **SKU** 아래에서 **표준**을 선택합니다. [공용 IP 주소 SKU](virtual-network-ip-addresses-overview-arm.md#sku)에 대해 자세히 알아봅니다. 가상 머신이 공용 Azure Load Balancer의 백 엔드 풀에 추가되는 경우 가상 머신 공용 IP 주소의 SKU는 부하 분산 장치의 공용 IP 주소의 SKU와 일치해야 합니다. 자세한 내용은 [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus)를 참조하세요.
+   공용 IP 주소가 표준 SKU여야 하는 경우 **SKU** 아래에서 **표준**을 선택합니다. [공용 IP 주소 SKU](virtual-network-ip-addresses-overview-arm.md#sku)에 대해 자세히 알아봅니다. 가상 머신이 공용 Azure Load Balancer의 백 엔드 풀에 추가되는 경우 가상 머신 공용 IP 주소의 SKU는 부하 분산 장치의 공용 IP 주소의 SKU와 일치해야 합니다. 자세한 내용은 [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus)를 참조하세요.
 
 6. **공용 인바운드 포트 선택** 아래에서 포트를 선택하거나 선택하지 않습니다. 인터넷에서 Windows Server 가상 머신에 원격 액세스할 수 있도록 포털 3389가 선택됩니다. 인터넷에서 포트 3389를 여는 것은 프로덕션 워크로드에 권장되지 않습니다.
 

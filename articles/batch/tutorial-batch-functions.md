@@ -2,7 +2,7 @@
 title: Azure Functions를 사용한 Batch 작업 트리거
 description: 자습서 - 스캔한 문서가 Storage Blob에 추가되면 OCR 적용
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: d5a5197227ff62ca0c610e2c4e269480690d3faf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6e3cdb6c7e2774eeb29df6986088f822cbb894cf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343107"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029231"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>자습서: Azure Functions를 사용한 Batch 작업 트리거
 
 이 자습서에서는 Azure Functions를 사용하여 Batch 작업을 트리거하는 방법을 알아봅니다. Azure Storage Blob 컨테이너에 추가된 문서에 Azure Batch를 통해 OCR(광학 문자 인식)이 적용된 예를 살펴봅니다. OCR 처리를 간소화하기 위해 파일이 Blob 컨테이너에 추가될 때마다 Batch OCR을 실행하는Azure 함수를 구성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/)을 만드세요.
+* Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/)을 만드세요.
 * Azure Batch 계정 및 연결된 Azure Storage 계정. 계정 만들기 및 연결 방법에 대한 자세한 내용은 [Batch 계정 만들기](quick-create-portal.md#create-a-batch-account)를 참조하세요.
 * [Batch 탐색기](https://azure.github.io/BatchExplorer/)
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
@@ -92,8 +92,8 @@ GitHub의 [`input_files`](https://github.com/Azure-Samples/batch-functions-tutor
 2019-05-29T19:45:25.846 [Information] Creating job...
 2019-05-29T19:45:25.847 [Information] Accessing input container <inputContainer>...
 2019-05-29T19:45:25.847 [Information] Adding <fileName> as a resource file...
-2019-06-21T20:02:35.129 [Information] Name of output text file: <outputTxtFile>
-2019-06-21T20:02:35.130 [Information] Name of output PDF file: <outputPdfFile>
+2019-05-29T19:45:25.848 [Information] Name of output text file: <outputTxtFile>
+2019-05-29T19:45:25.848 [Information] Name of output PDF file: <outputPdfFile>
 2019-05-29T19:45:26.200 [Information] Adding OCR task <taskID> for <fileName> <size of fileName>...
 ```
 

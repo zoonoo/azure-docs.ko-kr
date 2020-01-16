@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: f2fda893ad84aaf9d11d26d761f5395c7f5650d2
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a85ec565077ac229cd24bb7b9cf753015aa56ebf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666375"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024863"
 ---
 # <a name="threat-detection-for-cloud-native-computing-in-azure-security-center"></a>Azure Security Center에서 클라우드 네이티브 컴퓨팅에 대 한 위협 감지
 
@@ -36,7 +36,7 @@ Security Center는 클라우드의 규모를 사용 하 여 App Service에서 �
 
 Azure가 클라우드 공급자 인 표시 유형을 사용 하 여 Security Center App Service 내부 로그를 분석 하 여 여러 대상에 대 한 공격 방법론을 식별 합니다. 예를 들어, 방법론에는 광범위 한 검색 및 분산 공격이 포함 됩니다. 이러한 유형의 공격은 일반적으로 Ip의 작은 하위 집합에서 제공 되며 여러 호스트에서 비슷한 끝점에 대 한 탐색 패턴을 보여 줍니다. 공격에 취약 한 페이지 또는 플러그 인을 검색 하 고 있으며 단일 호스트의 관점에서 식별할 수 없습니다.
 
-또한 Security Center에는 기본 샌드박스 및 Vm에 대 한 액세스 권한이 있습니다. 이 인프라는 메모리를 분석 하는 데 사용할 수 있는 새로운 공격 circulating에서 고객 시스템의 손상에 이르기까지 이야기를 알려줄 수 있습니다. 따라서 웹 앱이 악용 된 후 Security Center 배포 된 경우에도 지속적인 공격을 검색할 수 있습니다.
+Windows 기반 App Service 계획을 실행 하는 경우에는 Security Center 기본 샌드박스 및 Vm에도 액세스할 수 있습니다. 위에서 언급 한 로그 데이터와 함께 인프라는 circulating의 새로운 공격에서 고객 시스템의 손상에 이르기까지 이야기를 알려줄 수 있습니다. 따라서 웹 앱이 악용 된 후 Security Center 배포 된 경우에도 지속적인 공격을 검색할 수 있습니다.
 
 Azure App Service 경고 목록은 [경고의 참조 테이블](alerts-reference.md#alerts-azureappserv)을 참조 하세요.
 
@@ -64,3 +64,7 @@ Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 감�
     AKS 클러스터 수준 경고 목록은 [경고의 참조 테이블](alerts-reference.md#alerts-akscluster)을 참조 하세요.
 
 또한 글로벌 보안 연구원 팀은 지속적으로 위협 환경을 모니터링 합니다. 검색 된 컨테이너 관련 경고 및 취약성을 추가 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* App Service 계획에 대 한 자세한 내용은 [App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조 하세요.

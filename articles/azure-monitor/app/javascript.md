@@ -1,18 +1,18 @@
 ---
-title: JavaScript 웹앱용 Azure Application Insights | Microsoft Docs
-description: 페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다.
+title: JavaScript 웹 앱에 대 한 Azure 애플리케이션 정보
+description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA (단일 페이지 응용 프로그램)를 가져오고 사용 패턴을 추적 합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706607"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045841"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -97,11 +97,11 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>구성
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. `instrumentationKey`를 제외 하 고 모든 필드는 선택 사항입니다.
 
-| name | 기본값 | 설명 |
+| 이름 | 기본값 | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
 | accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
-| sessionRenewalMs | 180만 | 사용자가이 시간 (밀리초) 동안 비활성 상태 이면 세션이 기록 됩니다. 기본값은 30 분입니다. |
+| sessionRenewalMs | 180만 | 사용자가이 시간 (밀리초) 동안 비활성 상태 이면 세션이 기록 됩니다. 기본값은 30분입니다. |
 | sessionExpirationMs | 8640만 | 이 시간 (밀리초) 동안 계속 되 면 세션이 기록 됩니다. 기본값은 24 시간입니다. |
 | maxBatchSizeInBytes | 10000 | 원격 분석 일괄 처리의 최대 크기입니다. 일괄 처리가이 제한을 초과 하면 즉시 전송 되 고 새 일괄 처리가 시작 됩니다. |
 | maxBatchInterval | 15000 | 보내기 전에 원격 분석을 일괄 처리 하는 시간 (밀리초) |
@@ -133,7 +133,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | isBrowserLinkTrackingEnabled | false | 기본값은 false입니다. True 이면 SDK에서 모든 [브라우저 링크](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) 요청을 추적 합니다. |
 | appId | null | AppId는 서버측 요청과 함께 클라이언트 쪽에서 발생 하는 AJAX 종속성 간의 상관 관계에 사용 됩니다. 신호 API를 사용 하는 경우 자동으로 사용할 수 없지만 구성에서 수동으로 설정할 수 있습니다. 기본값은 null입니다. |
 | enableCorsCorrelation | false | True 이면 SDK는 나가는 AJAX 종속성을 서버 쪽의 해당 요청과 상관 관계를 지정 하기 위해 모든 CORS 요청에 두 개의 헤더 (' 요청 Id ' 및 ' 요청-컨텍스트 ')를 추가 합니다. 기본값은 false입니다. |
-| namePrefix | 되지 | LocalStorage 및 쿠키 이름에 대해 이름 후 위로 사용할 선택적 값입니다.
+| namePrefix | 정의되지 않음 | LocalStorage 및 쿠키 이름에 대해 이름 후 위로 사용할 선택적 값입니다.
 | enableAutoRouteTracking | false | SPA (단일 페이지 응용 프로그램)의 경로 변경 내용을 자동으로 추적 합니다. True 이면 각 경로 변경 시 Application Insights에 새 페이지 보기 전송 됩니다. 해시 경로 변경 (`example.com/foo#bar`)도 새 페이지 뷰로 기록 됩니다.
 | enableRequestHeaderTracking | false | True 이면 AJAX & 인출 요청 헤더가 추적 되 고 기본값은 false입니다.
 | enableResponseHeaderTracking | false | True 이면 AJAX & Fetch 요청의 응답 헤더가 추적 되 고 기본값은 false입니다.
