@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dc5b1f2f8e8b529149184ce173bcdd315311bad4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647257"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975321"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
 
@@ -146,7 +146,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 4. 가상 머신을 시작합니다.
 5. 운영 체제 내의 보조 IP 주소와 Windows 내의 기본 IP 주소를 Azure에서 설정한 주소와 일치하도록 [수동으로 구성](virtual-network-multiple-ip-addresses-portal.md#os-config)합니다.
 
-위의 단계를 수행하면 가상 머신 운영 체제 내와 Azure 내에서 네트워크 인터페이스에 할당된 개인 IP 주소는 동일하게 유지됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내의 가상 머신을 추적하려는 경우 가상 머신에 Azure [태그](../azure-resource-manager/resource-group-using-tags.md)를 추가할 수 있습니다. 예를 들어 "IP 주소 할당: 정적" 등을 사용할 수 있습니다. 이렇게 하면 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내 가상 머신을 쉽게 찾을 수 있습니다.
+위의 단계를 수행하면 가상 머신 운영 체제 내와 Azure 내에서 네트워크 인터페이스에 할당된 개인 IP 주소는 동일하게 유지됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내의 가상 머신을 추적하려는 경우 가상 머신에 Azure [태그](../azure-resource-manager/management/tag-resources.md)를 추가할 수 있습니다. 예를 들어 "IP 주소 할당: 정적" 등을 사용할 수 있습니다. 이렇게 하면 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내 가상 머신을 쉽게 찾을 수 있습니다.
 
 또한 개인 IP 주소가 있으면 가상 머신이 같은 가상 네트워크 또는 연결된 가상 네트워크 내의 다른 리소스와 통신할 수 있을 뿐 아니라 인터넷과 아웃바운드로도 통신할 수 있습니다. 아웃바운드 연결은 Azure에서 예측할 수 없는 공용 IP 주소로 변환하는 소스 네트워크 주소입니다. Azure 아웃바운드 인터넷 연결에 대해 자세히 알아보려면 [Azure 아웃바운드 인터넷 연결](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 참조하세요. 인터넷에서 가상 머신 개인 IP 주소로의 인바운드 통신은 불가능합니다. 아웃 바운드 연결에 예측 가능한 공용 IP 주소가 필요한 경우 네트워크 인터페이스에 공용 IP 주소 리소스를 연결합니다.
 

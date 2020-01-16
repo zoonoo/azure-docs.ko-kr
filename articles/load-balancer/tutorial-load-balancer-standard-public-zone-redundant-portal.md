@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6f9368dfa230817e985de09b1ee398c55693e425
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214808"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732328"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLBAZ*를 입력합니다.|
-    | Name                   | *myLoadBalancer*                                   |
+    | 속성                   | *myLoadBalancer*                                   |
     | 지역         | **유럽 서부**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |
@@ -215,6 +215,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
     - *myBackendPool* - 백 엔드 풀의 이름으로 입력합니다.
     - *myHealthProbe* - 상태 프로브의 이름으로 입력합니다.
 4. **확인**을 클릭합니다.
+    
     
     ![부하 분산 규칙 추가](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

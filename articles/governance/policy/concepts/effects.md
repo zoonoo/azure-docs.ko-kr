@@ -3,12 +3,12 @@ title: 효과 작동 방식 이해
 description: Azure Policy 정의에는 규정 준수를 관리 하 고 보고 하는 방법을 결정 하는 다양 한 효과가 있습니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436357"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972807"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -367,7 +367,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치 시킬 관련 리소
   - 이 속성은 구독에서 액세스할 수 있는 역할 기반 액세스 제어 역할 ID와 일치하는 문자열 배열을 포함해야 합니다. 자세한 내용은 [수정 - 정책 정의 구성](../how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
 - **DeploymentScope**(선택 사항)
   - 허용되는 값은 _Subscription_ 및 _ResourceGroup_입니다.
-  - 트리거될 배포 유형을 설정합니다. _Subscription_은 [구독 수준의 배포](../../../azure-resource-manager/deploy-to-subscription.md)를 나타내며, _ResourceGroup_은 리소스 그룹에 대한 배포를 나타냅니다.
+  - 트리거될 배포 유형을 설정합니다. _Subscription_은 [구독 수준의 배포](../../../azure-resource-manager/templates/deploy-to-subscription.md)를 나타내며, _ResourceGroup_은 리소스 그룹에 대한 배포를 나타냅니다.
   - 구독 수준 배포를 사용하는 경우 _location_ 속성을 _Deployment_에 지정해야 합니다.
   - 기본값은 _ResourceGroup_입니다.
 - **Deployment**[필수]

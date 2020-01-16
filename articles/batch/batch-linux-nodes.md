@@ -3,7 +3,7 @@ title: 가상 머신 컴퓨팅 노드에서 Linux 실행 - Azure Batch | Microso
 description: Azure Batch의 Linux 가상 머신 풀에서 병렬 컴퓨팅 워크로드를 처리하는 방법에 대해 알아봅니다.
 services: batch
 documentationcenter: python
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
@@ -12,26 +12,26 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 06/01/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18df43ebf3a20547917ddd372d922741b4cee849
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 27273fecc9d117079cfda58d537cf7342d3c5dc4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350116"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027067"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 컴퓨팅 노드 프로비전
 
 Azure Batch를 사용하여 Linux 및 Windows 가상 머신에서 병렬 컴퓨팅 워크로드를 실행할 수 있습니다. 이 문서에서는 batch [Python][py_batch_package] 및 [batch .net][api_net] 클라이언트 라이브러리를 모두 사용 하 여 batch 서비스에서 Linux 계산 노드 풀을 만드는 방법에 대해 자세히 설명 합니다.
 
 > [!NOTE]
-> 애플리케이션 패키지는 2017년 7월 5일 이후에 만든 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 애플리케이션 패키지를 지원하지 않습니다. 애플리케이션 패키지를 사용하여 Batch 노드에 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [Batch 애플리케이션 패키지를 사용하여 컴퓨팅 노드에 애플리케이션 배포](batch-application-packages.md)를 참조하세요.
+> 애플리케이션 패키지는 2017년 7월 5일 이후에 만들어진 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 애플리케이션 패키지를 지원하지 않습니다. 애플리케이션 패키지를 사용하여 Batch 노드에 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [Batch 애플리케이션 패키지를 사용하여 컴퓨팅 노드에 애플리케이션 배포](batch-application-packages.md)를 참조하세요.
 >
 >
 
-## <a name="virtual-machine-configuration"></a>가상 컴퓨터 구성
-Batch에서 컴퓨팅 노드 풀을 만들 때는 노드 크기와 운영 체제를 선택할 수 있는 두 가지 옵션인 Cloud Services 구성 및 Virtual Machine 구성이 있습니다.
+## <a name="virtual-machine-configuration"></a>가상 머신 구성
+Batch에서 컴퓨팅 노드 풀을 만드는 경우 노드 크기와 운영 체제를 선택할 수 있는 두 가지 옵션인 Cloud Service 구성 및 Virtual Machine 구성이 있습니다.
 
 **Cloud Services 구성**은 Windows 컴퓨팅 노드*만*제공합니다. 사용 가능한 컴퓨팅 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열되고 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. Azure Cloud Services 노드를 포함하는 풀을 만드는 경우 노드 크기 및 OS 제품군을 지정하며, 앞에서 언급한 문서에 설명되어 있습니다. Windows 컴퓨팅 노드의 풀에는 Cloud Services가 가장 일반적으로 사용됩니다.
 
@@ -45,10 +45,10 @@ Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/v
 
 | **이미지 참조 속성** | **예제** |
 | --- | --- |
-| 게시자 |정식 |
-| 제공 |UbuntuServer |
+| 게시자 |Canonical |
+| 제품 |UbuntuServer |
 | SKU |14.04.4-LTS |
-| 버전 |최신 |
+| 버전 |latest |
 
 > [!TIP]
 > 이러한 속성 및 Marketplace 이미지를 나열하는 방법에 대한 자세한 내용은 [CLI 또는 PowerShell로 Azure의 Linux 가상 머신 이미지 이동 및 선택](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 알아볼 수 있습니다. 일부 Marketplace 이미지가 현재 Batch와 호환되지 않습니다. 자세한 내용은 [노드 에이전트 SKU](#node-agent-sku)를 참조하세요.
@@ -126,7 +126,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-앞에서 설명한 것 처럼 [ImageReference][py_imagereference] 을 명시적으로 만드는 대신 [list_node_agent_skus][py_list_skus] 메서드를 사용 하 여 현재 지원 되는 노드 에이전트/Marketplace 이미지 조합에서 동적으로 선택 하는 것이 좋습니다. 다음 Python 코드 조각에서는 이 메서드의 사용 방법을 보여 줍니다.
+앞에서 설명한 것 처럼 [ImageReference][py_imagereference] 을 명시적으로 만드는 대신 현재 지원 되는 노드 에이전트/Marketplace 이미지 조합에서 동적으로 선택 하는 [list_node_agent_skus][py_list_skus] 방법을 사용 하는 것이 좋습니다. 다음 Python 코드 조각에서는 이 메서드의 사용 방법을 보여 줍니다.
 
 ```python
 # Get the list of node agents from the Batch service
@@ -215,35 +215,35 @@ ImageReference imageReference = new ImageReference(
 >
 >
 
-| **게시자** | **제안** | **이미지 SKU** | **버전(Version)** | **노드 에이전트 SKU ID** |
+| **게시자** | **제안** | **이미지 SKU** | **버전** | **노드 에이전트 SKU ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| 일괄 처리(batch) | rendering-centos73 | 렌더링 | 최신 | batch.node.centos 7 |
-| 일괄 처리(batch) | rendering-windows2016 | 렌더링 | 최신 | batch.node.windows amd64 |
-| 정식 | UbuntuServer | 16.04-LTS | 최신 | batch.node.ubuntu 16.04 |
-| 정식 | UbuntuServer | 14.04.5-LTS | 최신 | batch.node.ubuntu 14.04 |
-| Credativ | Debian | 9 | 최신 | batch.node.debian 9 |
-| Credativ | Debian | 8 | 최신 | batch.node.debian 8 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | 최신 | batch.node.centos 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | 최신 | batch.node.windows amd64 |
-| microsoft-azure-batch | centos-container | 7-4 | 최신 | batch.node.centos 7 |
-| microsoft-azure-batch | centos-container-rdma | 7-4 | 최신 | batch.node.centos 7 |
-| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | 최신 | batch.node.ubuntu 16.04 |
-| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | 최신 | batch.node.ubuntu 16.04 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | 최신 | batch.node.windows amd64 |
-| OpenLogic | CentOS | 7.4 | 최신 | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.4 | 최신 | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.3 | 최신 | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | 최신 | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.4 | 최신 | batch.node.centos 7 |
-| SUSE | SLES-HPC | 12-SP2 | 최신 | batch.node.opensuse 42.1 |
+| batch | rendering-centos73 | 렌더링 | latest | batch.node.centos 7 |
+| batch | rendering-windows2016 | 렌더링 | latest | batch.node.windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | latest | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
+| Credativ | Debian | 9 | latest | batch.node.debian 9 |
+| Credativ | Debian | 8 | latest | batch.node.debian 8 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.windows amd64 |
+| microsoft-azure-batch | centos-container | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | latest | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | latest | batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | latest | batch.node.windows amd64 |
+| OpenLogic | CentOS | 7.4 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | latest | batch.node.centos 7 |
+| SUSE | SLES-HPC | 12-SP2 | latest | batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>SSH를 사용하여 Linux 노드에 연결
 개발 또는 문제 해결 동안 풀의 노드에 로그인할 필요가 있을 수 있습니다. Windows 컴퓨팅 노드와 달리 Linux 노드에 연결하기 위해 RDP(원격 데스크톱 프로토콜)를 사용할 수 없습니다. 대신, Batch 서비스는 원격 연결을 위해 각 노드에서 SSH 액세스를 사용하도록 설정합니다.
@@ -319,7 +319,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 노드에 사용자를 만들 때 암호 대신 SSH 공개 키를 지정할 수 있습니다. Python SDK에서 [ComputeNodeUser][py_computenodeuser]의 **ssh_public_key** 매개 변수를 사용 합니다. .NET에서는 [ComputeNodeUser][net_computenodeuser]를 사용 합니다. [SshPublicKey][net_ssh_key] 속성입니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 Azure Batch는 Azure Cloud Services 및 Azure Virtual Machines 기술을 기반으로 빌드됩니다. Batch 서비스 자체는 무료로 제공됩니다. 즉, Batch 솔루션에서 사용하는 컴퓨팅 리소스에 대해서만 요금이 청구됩니다. **Cloud Services 구성을**선택 하면 [Cloud Services 가격 책정][cloud_services_pricing] 구조에 따라 요금이 청구 됩니다. **가상 컴퓨터 구성을**선택 하면 [Virtual Machines 가격 책정][vm_pricing] 구조에 따라 요금이 청구 됩니다. 
 
 [애플리케이션 패키지](batch-application-packages.md)를 사용하여 Batch 노드에 애플리케이션을 배포하는 경우에도 애플리케이션 패키지에서 사용하는 Azure Storage 리소스에 대한 요금이 청구됩니다. 일반적으로 Azure Storage 비용은 최소입니다. 

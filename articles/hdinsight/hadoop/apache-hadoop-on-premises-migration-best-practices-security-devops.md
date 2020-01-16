@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 441c45d0f77ab825c35e24056b09d0d33b675eea
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496406"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974415"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
 
@@ -86,7 +86,7 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 - [Azure Virtual Networks 개요](../../virtual-network/virtual-networks-overview.md)
 - [Azure 네트워크 보안 그룹 개요](../../virtual-network/security-overview.md)
 - [Azure Virtual Network 피어링](../../virtual-network/virtual-network-peering-overview.md)
-- [Azure Storage 보안 가이드](../../storage/common/storage-security-guide.md)
+- [Azure Storage 보안 가이드](../../storage/blobs/security-recommendations.md)
 - [Azure Storage 서비스 저장 데이터 암호화](../../storage/common/storage-service-encryption.md)
 
 ## <a name="use-monitoring--alerting"></a>모니터링 및 경고 사용

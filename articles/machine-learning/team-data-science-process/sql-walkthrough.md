@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 533c91bdc02425cabf5eeae93f37811144b32149
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669390"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976337"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 세트([NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트)를 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
@@ -66,7 +66,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 Azure 데이터 과학 환경을 설정하려면
 
-1. [스토리지 계정을 만드는](../../storage/common/storage-quickstart-create-account.md)
+1. [스토리지 계정을 만드는](../../storage/common/storage-account-create.md)
 2. [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
 3. [데이터 과학 Virtual Machine 프로비전](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)(SQL Server 및 IPython Notebook 서버 제공)
    
@@ -96,13 +96,13 @@ AzCopy를 사용하여 데이터를 복사하려면
 4. 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더를 <path\_to\_data\_files\>라고 합니다.
 
 ## <a name="dbload"></a>SQL Server 데이터베이스로 대량 데이터 가져오기
-*분할된 테이블 및 뷰*를 사용하여 대량의 데이터를 SQL 데이터베이스로 로드/전송하고 이후에 쿼리하는 성능을 개선할 수 있습니다. 이 섹션에서는 [SQL 파티션 테이블을 사용하여 병렬로 대량 데이터 가져오기](parallel-load-sql-partitioned-tables.md) 에 설명된 지침에 따라 새 데이터베이스를 만들고 데이터를 분할된 테이블로 병렬로 로드합니다.
+*분할된 테이블 및 뷰*를 사용하여 대량의 데이터를 SQL Database로 로드/전송하고 이후에 쿼리하는 성능을 개선할 수 있습니다. 이 섹션에서는 [SQL 파티션 테이블을 사용하여 병렬로 대량 데이터 가져오기](parallel-load-sql-partitioned-tables.md) 에 설명된 지침에 따라 새 데이터베이스를 만들고 데이터를 분할된 테이블로 병렬로 로드합니다.
 
 1. VM에 로그인한 상태로 **SQL Server Management Studio**를 시작합니다.
 2. Windows 인증을 사용하여 연결
    
     ![SSMS 연결][12]
-3. SQL Server 인증 모드를 변경하여 새 SQL 로그인 사용자를 만드는 작업을 아직 수행하지 않은 경우 **Sample Scripts\_ 폴더에서** change**auth.sql**이라는 스크립트 파일을 엽니다. 기본 사용자 이름 및 암호를 변경합니다. 도구 모음에서 **!실행** 을 클릭하여 스크립트를 실행합니다.
+3. SQL Server 인증 모드를 변경하여 새 SQL 로그인 사용자를 만드는 작업을 아직 수행하지 않은 경우 **Sample Scripts** 폴더에서 **change\_auth.sql**이라는 스크립트 파일을 엽니다. 기본 사용자 이름 및 암호를 변경합니다. 도구 모음에서 **!실행** 을 클릭하여 스크립트를 실행합니다.
    
     ![스크립트 실행][13]
 4. SQL Server 기본 데이터베이스 및 로그 폴더를 확인하거나 변경하여 새로 만든 데이터베이스가 데이터 디스크에 저장되도록 합니다. 데이터 웨어하우징 로드에 최적화된 SQL Server VM 이미지는 데이터 및 로그 디스크로 미리 구성됩니다. VM에 데이터 디스크가 포함되지 않은 상태에서 VM 설정 프로세스 중에 새 가상 하드 디스크를 추가한 경우 다음과 같이 기본 폴더를 변경합니다.
@@ -132,7 +132,7 @@ AzCopy를 사용하여 데이터를 복사하려면
    
     인증 모드를 선택할 수도 있습니다. 기본값은 Windows 인증입니다. 도구 모음에서 녹색 화살표를 클릭하여 실행합니다. 스크립트는 분할된 테이블에 대해 12개씩 24개의 대량 가져오기 작업을 시작합니다. 위에 설정된 대로 SQL Server 기본 데이터 폴더를 열어 데이터 가져오기 진행률을 모니터링할 수 있습니다.
 9. PowerShell 스크립트는 시작 및 종료 시간을 보고합니다. 모든 대량 가져오기가 완료되면 종료 시간이 보고됩니다. 대상 로그 폴더를 확인하여 대량 가져오기에 성공했는지, 즉 대상 로그 폴더에 보고된 오류가 없는지 확인합니다.
-10. 이제 데이터베이스에서 탐색, 기능 엔지니어링 및 필요에 따라 다른 작업을 수행할 준비가 완료되었습니다. 테이블은 **pickup\_datetime** 필드에 따라 분할되어 있으므로 **WHERE\_ 절에** pickup**datetime** 조건이 포함된 쿼리에서 파티션 구성테이블을 활용합니다.
+10. 이제 데이터베이스에서 탐색, 기능 엔지니어링 및 필요에 따라 다른 작업을 수행할 준비가 완료되었습니다. 테이블은 **pickup\_datetime** 필드에 따라 분할되어 있으므로 **WHERE** 절에 **pickup\_datetime** 조건이 포함된 쿼리에서 파티션 구성테이블을 활용합니다.
 11. **SQL Server Management Studio**에서 제공된 샘플 스크립트인 **sample\_queries.sql**을 탐색합니다. 샘플 쿼리를 실행하려면 쿼리 줄을 강조 표시한 다음 도구 모음에서 **!실행** 을 클릭합니다.
 12. NYC Taxi Trips 데이터가 별도 두 테이블에 로드됩니다. 조인 작업을 향상시키려면 테이블을 인덱싱하는 것이 좋습니다. 샘플 스크립트 **create\_partitioned\_index.sql**은 복합 조인 키 **medallion, hack\_license 및 pickup\_datetime**에 대한 분할된 인덱스를 만듭니다.
 
@@ -405,7 +405,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     cursor.commit()
 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>IPython Notebook에서 SQL 쿼리를 사용하여 데이터 탐색
-이 섹션에서는 위에서 만든 새 테이블에 유지되는 1%의 샘플링된 데이터를 사용하여 데이터 분포를 탐색합니다. **SQL Server에서 데이터 탐색 및 기능 엔지니어링** 섹션에 설명된 대로 선택적으로 **TABLESAMPLE\_을 사용하여 탐색 샘플을 제한하거나,** pickup[datetime](#dbexplore) 파티션을 사용하여 결과를 지정된 기간으로 제한하여 원래 테이블로 유사한 탐색을 수행할 수 있습니다.
+이 섹션에서는 위에서 만든 새 테이블에 유지되는 1%의 샘플링된 데이터를 사용하여 데이터 분포를 탐색합니다. [SQL Server에서 데이터 탐색 및 기능 엔지니어링](#dbexplore) 섹션에 설명된 대로 선택적으로 **TABLESAMPLE**을 사용하여 탐색 샘플을 제한하거나, **pickup\_datetime** 파티션을 사용하여 결과를 지정된 기간으로 제한하여 원래 테이블로 유사한 탐색을 수행할 수 있습니다.
 
 #### <a name="exploration-daily-distribution-of-trips"></a>탐색: 일일 여정 분포
     query = '''

@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 7c68299e4df187b1e9006d9ee1f2f70a13df3c52
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 05ad0b95b106b56d92cdbc5a7acd23cc34de7ae4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064778"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780269"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 
@@ -50,7 +50,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
 
-애플리케이션을 설치하고 데이터를 저장하기 위해 데이터 디스크를 더 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 스토리지가 필요한 경우에 사용해야 합니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 네 개의 데이터 디스크를 연결할 수 있습니다.
+애플리케이션을 설치하고 데이터를 저장하기 위해 데이터 디스크를 더 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 스토리지가 필요한 경우에 사용해야 합니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다.
 
 ## <a name="vm-disk-types"></a>VM 디스크 유형
 

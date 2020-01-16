@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 96adcfa4bbfc4ed0066ccfbdbe57f9840e8b07f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438801"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972855"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
 > [!NOTE]
@@ -32,7 +32,7 @@ ms.locfileid: "75438801"
 나아가 조직이 서로 다른 환경에서 수차례 이 10개 데이터 팩터리를 배포하려 하므로 템플릿은 개발, 테스트 및 프러덕션 환경에 별도의 매개 변수 파일을 적용함으로써 이러한 **재사용성**을 활용할 수 있습니다.
 
 ## <a name="templating-with-azure-resource-manager"></a>Azure Resource Manager의 템플릿
-[Azure Resource Manager 템플릿](../../azure-resource-manager/template-deployment-overview.md)은 Azure Data Factory에서 템플릿을 만드는 좋은 방법입니다. Resource Manager 템플릿은 JSON 파일을 통해 Azure 솔루션의 인프라와 구성을 정의합니다. Azure Resource Manager 템플릿이 모든/대부분의 Azure 서비스에서 작동하므로 광범위한 사용을 통해 Azure 자산의 모든 리소스를 간편하게 관리할 수 있습니다. Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
+[Azure Resource Manager 템플릿](../../azure-resource-manager/templates/overview.md)은 Azure Data Factory에서 템플릿을 만드는 좋은 방법입니다. Resource Manager 템플릿은 JSON 파일을 통해 Azure 솔루션의 인프라와 구성을 정의합니다. Azure Resource Manager 템플릿이 모든/대부분의 Azure 서비스에서 작동하므로 광범위한 사용을 통해 Azure 자산의 모든 리소스를 간편하게 관리할 수 있습니다. Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
 
 ## <a name="tutorials"></a>자습서
 Resource Manager 템플릿을 사용하여 데이터 팩터리 엔터티를 만들기 위한 단계별 지침은 다음 자습서를 참조하세요.

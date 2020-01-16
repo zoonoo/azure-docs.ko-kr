@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6bc6f1ca29343e027730cbbd99d210f911fcb492
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672388"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967308"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -18,12 +18,12 @@ App Service 도메인은 Azure에서 직접 관리 되는 최상위 도메인입
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서에서 만든 앱을 사용합니다.
-* [구독에 대한 지출 한도를 삭제합니다](../billing/billing-spending-limit.md#remove). 체험 구독 크레딧으로는 App Service 도메인을 구입할 수 없습니다.
+* [구독에 대한 지출 한도를 삭제합니다](../cost-management-billing/manage/spending-limit.md#remove). 체험 구독 크레딧으로는 App Service 도메인을 구입할 수 없습니다.
 
 ## <a name="prepare-the-app"></a>앱 준비
 
@@ -59,7 +59,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
 
-**Apply**를 클릭합니다.
+**적용**을 클릭합니다.
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -106,7 +106,7 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 
 그런 다음 도메인에 대해 원하는 옵션을 선택합니다. 설명은 다음 표를 참조하세요.
 
-| 설정 | 제안 값 | 설명 |
+| 설정 | 제안 값 | Description |
 |-|-|-|
 |개인 정보 보호 | 사용 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
 | 기본 호스트 이름 할당 | **www** 및 **\@** | 필요한 경우 원하는 호스트 이름 바인딩을 선택합니다. 도메인 구매 작업이 완료되면 선택한 호스트 이름에서 앱에 액세스할 수 있습니다. 앱이 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) 뒤에 있는 경우 Traffic Manager는 A 레코드를 지원하지 않으므로 루트 도메인을 할당하는 옵션이 표시되지 않습니다. 도메인 구매가 완료된 후 호스트 이름 할당을 변경할 수 있습니다. |
@@ -168,7 +168,7 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 **호스트 이름 추가**를 선택합니다.
 
 ### <a name="configure-hostname"></a>호스트 이름 구성
-**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 다음은 그 예입니다.
+**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예:
 
 - kontoso.net
 - www\.kontoso.net
@@ -287,4 +287,4 @@ Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메�
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>사용자 지정 디렉터리로 기본 URL 전달
 
-기본적으로 App Service는 웹 요청을 사용자 앱 코드의 루트 디렉터리로 전달합니다. `public`과 같은 하위 디렉터리로 보내려면 [사용자 지정 디렉터리로 기본 URL 전달](app-service-web-tutorial-custom-domain.md#virtualdir)을 참조하세요.
+App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리로 보냅니다. `public`과 같은 하위 디렉터리로 보내려면 [사용자 지정 디렉터리로 기본 URL 전달](app-service-web-tutorial-custom-domain.md#virtualdir)을 참조하세요.

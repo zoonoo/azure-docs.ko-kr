@@ -3,12 +3,12 @@ title: 규정 비준수의 원인 확인
 description: 리소스가 비규격 인 경우 여러 가지 원인이 있을 수 있습니다. 비준수를 일으킨 원인을 확인 하는 방법을 알아보세요.
 ms.date: 04/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 213797a1eafda10d5e97fbc60fc143de975fe221
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873134"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972833"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -190,7 +190,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 ## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>변경 기록 (미리 보기)
 
-새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/complete-mode-deletion.md)를 지 원하는 모든 Azure 리소스에 대 한 최근 14 일간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 내용 검색은 리소스 관리자 속성이 추가, 제거 또는 변경 될 때 트리거됩니다.
+새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/templates/complete-mode-deletion.md)를 지 원하는 모든 Azure 리소스에 대 한 최근 14 일간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 내용 검색은 리소스 관리자 속성이 추가, 제거 또는 변경 될 때 트리거됩니다.
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 

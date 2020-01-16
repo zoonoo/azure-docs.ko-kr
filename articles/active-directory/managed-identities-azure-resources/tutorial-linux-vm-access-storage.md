@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815e1a811d16e4c630e455e9c684c2b6b094a5d5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183399"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971927"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스하는 방법을 보여줍니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스하는 방법을 보여줍니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 스토리지 계정 만들기
@@ -37,7 +37,7 @@ ms.locfileid: "74183399"
 > [!NOTE]
 > Azure Storage에 대한 Azure Active Directory 인증은 공개 미리 보기 상태입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

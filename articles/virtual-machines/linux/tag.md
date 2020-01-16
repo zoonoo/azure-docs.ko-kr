@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: 871159a660d03469b67461f5eb1ce8245d4c3611
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb8ec68ac0be4cf4480f5d75f987707cf7393003
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369153"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973196"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신에 태그를 지정하는 방법
 이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Linux 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다.
@@ -61,6 +61,6 @@ Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
-[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
-[Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md
-[Gain insights into your Microsoft Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md
+[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/management/tag-resources.md
+[Understanding your Azure Bill]:../../cost-management-billing/understand/review-individual-bill.md
+[Gain insights into your Microsoft Azure resource consumption]:../../cost-management-billing/manage/usage-rate-card-overview.md

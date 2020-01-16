@@ -3,12 +3,12 @@ title: 자습서 - Azure Kubernetes Service에 Application Gateway 수신 컨트
 description: Azure Kubernetes Service와 함께 Application Gateway를 수신 컨트롤러로 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159102"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867394"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에 Application Gateway 수신 컨트롤러 만들기
 
@@ -25,9 +25,9 @@ ms.locfileid: "74159102"
 > * Terraform 및 AKS를 사용하여 Kubernetes 클러스터 만들기
 > * kubectl 도구를 사용하여 Kubernetes 클러스터의 가용성 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 - **Terraform 구성**: [Terraform 및 Azure에 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
 
@@ -261,7 +261,7 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
       name = var.resource_group_name
     }
 
-    # User Assigned Idntities 
+    # User Assigned Identities 
     resource "azurerm_user_assigned_identity" "testIdentity" {
       resource_group_name = data.azurerm_resource_group.rg.name
       location            = data.azurerm_resource_group.rg.location
@@ -543,7 +543,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
 
     ![스토리지 계정 메뉴](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
-1. **key1** **key** 값을 기록해 웁니다. (키 오른쪽에 있는 아이콘을 선택하면 값이 클립보드에 복사됩니다.)
+1. **key1** **key** 값을 기록해 둡니다. (키 오른쪽에 있는 아이콘을 선택하면 값이 클립보드에 복사됩니다.)
 
     ![스토리지 계정 액세스 키](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
@@ -553,7 +553,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
-## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
+## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터를 만듭니다.
 이 섹션에서는 `terraform init` 명령을 사용하여 이전 섹션에서 만든 구성 파일을 정의하는 리소스를 만드는 방법을 보여 줍니다.
 
 1. Cloud Shell에서 Terraform을 초기화합니다. 자리 표시자를 Azure 스토리지 계정에 대한 적절한 값으로 바꿉니다.
@@ -720,7 +720,7 @@ kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/maste
     값에 대한 설명은 다음과 같습니다.
 
     - `verbosityLevel`: AGIC 로깅 인프라의 세부 정보 표시 수준을 설정합니다. 가능한 값은 [로깅 수준](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels)을 참조하세요.
-    - `appgw.subscriptionId`: App Gateway의 Azure 구독 ID입니다. 예제: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+    - `appgw.subscriptionId`: App Gateway의 Azure 구독 ID입니다. 예: `a123b234-a3b4-557d-b2df-a0bc12de1234`
     - `appgw.resourceGroup`: App Gateway가 생성된 Azure Resource Group의 이름입니다. 
     - `appgw.name`: Application Gateway의 이름입니다. 예: `applicationgateway1`.
     - `appgw.shared`: 이 부울 플래그는 기본적으로 `false`로 설정되어야 합니다. [공유 App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)가 필요하면 `true`로 설정합니다.

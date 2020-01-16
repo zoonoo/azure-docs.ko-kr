@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2019
-ms.openlocfilehash: fd020755ec579b2553bca42db5d050bd442bf6fc
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 6cbbe63d7968816de78256f5a8408517bb8da278
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942300"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973811"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Azure VM에 추가 된 디스크에 대 한 복제 사용
 
@@ -31,9 +31,9 @@ VM에 추가 하는 디스크에 대 한 복제를 사용 하도록 설정 하�
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-이 문서에서는 디스크를 추가 하는 VM에 대해 재해 복구를 이미 설정 했다고 가정 합니다. 그렇지 않은 경우 [azure에 azure 재해 복구 자습서](azure-to-azure-tutorial-enable-replication.md)를 따르세요. 
+이 문서에서는 디스크를 추가 하는 VM에 대해 재해 복구를 이미 설정 했다고 가정 합니다. 그렇지 않은 경우 [azure에 azure 재해 복구 자습서](azure-to-azure-tutorial-enable-replication.md)를 따르세요.
 
-## <a name="enable-replication-for-an-added-disk"></a>추가된 디스크에 대한 복제 활성화 
+## <a name="enable-replication-for-an-added-disk"></a>추가된 디스크에 대한 복제 활성화
 
 추가 된 디스크에 대해 복제를 사용 하도록 설정 하려면 다음을 수행 합니다.
 

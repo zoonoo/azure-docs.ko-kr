@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
-ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386071"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972952"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
 
@@ -52,7 +52,7 @@ ms.locfileid: "75386071"
 
 ## <a name="setup-diagnostics-extension"></a>진단 확장 설정
 
-먼저 **클래식** 스토리지 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-quickstart-create-account.md). **클래식 배포 모델**을 지정하여 스토리지 계정을 만듭니다.
+먼저 **클래식** 스토리지 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-account-create.md). **클래식 배포 모델**을 지정하여 스토리지 계정을 만듭니다.
 
 다음으로, **스토리지 계정(클래식)** 리소스로 이동합니다. **설정** > **액세스 키**를 선택하고 **기본 연결 문자열** 값을 복사합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
 

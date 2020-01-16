@@ -2,18 +2,17 @@
 title: Storm으로 Event Hubs에서 이벤트 처리 - Azure HDInsight
 description: HDInsight Tools for Visual Studio를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 Azure Event Hubs의 데이터를 처리하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/27/2017
-ms.author: hrasheed
-ROBOTS: NOINDEX
-ms.openlocfilehash: 62d65a4f004494ac4ce4ecd3df0f091460028d8f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.date: 01/14/2020
+ms.openlocfilehash: 85b7093df99127b690c51e8f2f28d18e3f5f3c95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800064"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981632"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
@@ -26,19 +25,11 @@ HDInsight의 [Apache Storm](https://storm.apache.org/)에서 Azure Event Hubs를
 
 이 문서의 단계에서는 NuGet 패키지인 SCP.NET을 사용하여 HDInsight에서 Storm과 함께 사용할 C# 토폴로지 및 구성 요소를 쉽게 만들 수 있습니다.
 
-> [!IMPORTANT]  
-> 이 문서의 단계에서는 Visual Studio를 사용하는 Windows 개발 환경을 사용하지만 컴파일된 프로젝트는 Linux를 사용하는 HDInsight 클러스터의 Storm에 제출할 수 있습니다. 2016년 10월 28일 이후에 만든 Linux 기반 클러스터만 SCP.NET 토폴로지를 지원합니다.
-
 HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다. 이 문서에 사용된 예제는 HDInsight 3.6에서 작동합니다. HDInsight용 .NET 솔루션을 만들 계획인 경우 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/) 문서에서 잠재적인 비호환성을 확인하세요.
 
 ### <a name="cluster-versioning"></a>클러스터 버전 관리
 
 프로젝트에 사용하는 Microsoft.SCP.Net.SDK NuGet 패키지는 HDInsight에 설치된 Storm의 주 버전과 일치해야 합니다. HDInsight 버전 3.5 및 3.6은 Storm 1.x를 사용하므로 이 클러스터와 함께 SCP.NET 버전 1.0.x.x를 사용해야 합니다.
-
-> [!IMPORTANT]  
-> 이 문서의 예제는 HDInsight 3.5 또는 3.6 클러스터를 가정합니다.
->
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 
 
 C# 토폴로지도 .NET 4.5를 대상으로 해야 합니다.
 
@@ -105,12 +96,9 @@ topologyBuilder.SetJavaBolt(
 
 이 문서에서 만든 전체 버전의 프로젝트는 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 다운로드할 수 있습니다. 그러나이 문서의 단계에 따라 구성 설정을 제공 해야 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
-
-    > [!WARNING]  
-    > 이 문서에서 사용되는 예제에는 HDInsight 버전 3.5 또는 3.6에서 Storm이 필요합니다. 이 내용은 주요 클래스 이름 변경 때문에 이전 버전의 HDInsight에는 적용되지 않습니다. 이전 클러스터에서 작동하는 이 예제의 버전은 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)를 참조하세요.
 
 * [Azure Event Hub](../../event-hubs/event-hubs-create.md)
 
@@ -133,9 +121,9 @@ topologyBuilder.SetJavaBolt(
 
 Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../../event-hubs/event-hubs-create.md)의 "이벤트 허브 만들기" 섹션에 있는 정보를 참조하세요.
 
-1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
+1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가** 를 선택 하 여 다음 정책을 만듭니다.
 
-   | name | 권한 |
+   | 이름 | 권한 |
    | --- | --- |
    | 기록기 |보내기 |
    | 판독기 |수신 대기 |
@@ -146,13 +134,13 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 ## <a name="configure-the-eventhubwriter"></a>EventHubWriter 구성
 
-1. 최신 버전의 HDInsight Tools for Visual Studio를 아직 설치하지 않은 경우 [HDInsight Tools for Visual Studio 사용 시작](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+1. 최신 버전의 Visual Studio 용 HDInsight 도구를 아직 설치 하지 않은 경우 [Visual studio 용 hdinsight 도구 사용 시작](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조 하세요.
 
 2. [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 솔루션을 다운로드합니다.
 
-3. **EventHubWriter** 프로젝트에서 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
+3. **EventHubExample**를 엽니다. **EventHubWriter** 프로젝트에서 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | 키 | Value |
+   | 키 | 값 |
    | --- | --- |
    | EventHubPolicyName |기록기(*보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |기록기 정책에 대한 키 |
@@ -168,7 +156,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 2. **EventHubReader**에 대한 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | 키 | Value |
+   | 키 | 값 |
    | --- | --- |
    | EventHubPolicyName |판독기(*수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |판독기 정책에 대한 키 |
@@ -204,9 +192,11 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 9. **Executors** 섹션에서 **Port** 열의 링크 중 하나를 선택합니다. 그러면 구성 요소가 기록한 정보가 표시됩니다. 기록된 정보는 다음 텍스트와 유사합니다.
 
-        2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
-        2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
-        2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
+    ```output
+    2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
+    2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
+    2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
+    ```
 
 ## <a name="stop-the-topologies"></a>토폴로지 중지
 
@@ -220,7 +210,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 C# 토폴로지에서 Java Event Hubs Spout 및 Bolt를 사용하여 Azure Event Hubs의 데이터로 작업하는 방법을 배웠습니다. C# 토폴로지 만들기에 대해 자세히 알아보려면 다음을 참조하세요.
+이 문서에서는 Azure Event Hubs에서 데이터 작업을 수행 하기 위해 C# 토폴로지에서 Java Event Hubs spout 및 볼트를 사용 하는 방법을 알아보았습니다. C# 토폴로지 만들기에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)
 * [SCP 프로그래밍 가이드](apache-storm-scp-programming-guide.md)

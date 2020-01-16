@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: c9d8ec2ce78746352b1fc5d2f337ad8686213839
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 0318b73dfb8fed05432dd25b5784e1c890815c53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75662483"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778518"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
 
@@ -148,20 +148,20 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
 ```YAML
 - job: Build
-    displayName: Build Maven Project
-    steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
-      inputs:
-        mavenPomFile: 'pom.xml'
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
-      inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**/target/*.?(war|jar)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-    - upload: $(Build.ArtifactStagingDirectory)
-      artifact: drop
+  displayName: Build Maven Project
+  steps:
+  - task: Maven@3
+    displayName: 'Maven Package'
+    inputs:
+      mavenPomFile: 'pom.xml'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: '**/target/*.?(war|jar)'
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+  - upload: $(Build.ArtifactStagingDirectory)
+    artifact: drop
 ```
 
 자세한 지침은 [Maven을 사용하여 Java 앱 빌드](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java)에 설명된 단계를 따르세요.
@@ -213,13 +213,13 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
    ```YAML
    jobs:  
-     - deployment: VMDeploy
-       displayName: web
-       environment:
-         name:  <environment name>
-         resourceType: VirtualMachine
-         tags: web1
-       strategy:
+   - deployment: VMDeploy
+     displayName: web
+     environment:
+       name:  <environment name>
+       resourceType: VirtualMachine
+       tags: web1
+     strategy:
    ```
 2. 환경에서 각 가상 머신에 대해 정의한 **tags**를 지정하여 배포를 받는 환경에서 특정 가상 머신 세트를 선택할 수 있습니다.
 [여기](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job)에는 배포 작업에 대한 전체 YAML 스키마가 있습니다.
@@ -256,7 +256,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
        resourceType: VirtualMachine
      strategy:
          rolling:
-           maxParallel: 2  #for percentages, mention as x%
+           maxParallel: 5  #for percentages, mention as x%
            preDeploy:
              steps:
              - download: current
@@ -298,3 +298,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 ## <a name="next-steps"></a>다음 단계
 - 방금 만든 [파이프라인 사용자 지정](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline)으로 진행할 수 있습니다.
 - YAML 파이프라인에서 수행할 수 있는 다른 작업에 대한 자세한 내용은 [YAML 스키마 참조](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema)를 참조하세요.
+- LAMP(Linux, Apache, MySQL 및 PHP) 스택을 배포하는 방법을 알아보려면 다음 자습서로 진행하세요.
+
+> [!div class="nextstepaction"]
+> [LAMP 스택 배포](tutorial-lamp-stack.md)

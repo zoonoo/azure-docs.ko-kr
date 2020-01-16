@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eeaf44b9abe5c8f0343325454f599d282be6c743
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769849"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966694"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
 
@@ -67,13 +67,13 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 다음 목록에서 문제의 잠재적인 해결 방법이나 검색 위치를 확인합니다.
 
 1. Automation 계정은 다른 리소스 그룹에 있는 경우에도 Azure 지역 내에서 고유해야 합니다. 대상 지역의 기존 Automation 계정을 확인합니다.
-2. 기존 정책 때문에 VM 시작/중지 솔루션을 배포하는 데 필요한 리소스를 사용할 수 없습니다. Azure Portal의 정책 할당으로 이동하여 이 리소스의 배포를 허용하지 않는 정책 할당이 있는지 여부를 확인합니다. 이에 대한 자세한 내용은 [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)를 참조하세요.
+2. 기존 정책 때문에 VM 시작/중지 솔루션을 배포하는 데 필요한 리소스를 사용할 수 없습니다. Azure Portal의 정책 할당으로 이동하여 이 리소스의 배포를 허용하지 않는 정책 할당이 있는지 여부를 확인합니다. 이에 대한 자세한 내용은 [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md)를 참조하세요.
 3. VM 시작/중지 솔루션을 배포하려면 다음 Azure 리소스 네임스페이스에 구독을 등록해야 합니다.
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   공급자를 등록할 때 발생하는 오류에 대한 자세한 내용은 [리소스 공급자 등록 오류 해결](../../azure-resource-manager/resource-manager-register-provider-errors.md)을 참조하세요.
+   공급자를 등록할 때 발생하는 오류에 대한 자세한 내용은 [리소스 공급자 등록 오류 해결](../../azure-resource-manager/templates/error-register-resource-provider.md)을 참조하세요.
 4. Log Analytics 작업 영역에 잠금이 설정된 경우 Azure Portal에서 해당 작업 영역으로 이동하여 리소스에 대한 잠금을 제거합니다.
 5. 위의 해결 방법으로 문제가 해결 되지 않으면 [솔루션 업데이트](../automation-solution-vm-management.md#update-the-solution) 의 지침에 따라 시작/중지 솔루션을 다시 배포 합니다.
 

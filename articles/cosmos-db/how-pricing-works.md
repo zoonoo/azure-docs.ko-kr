@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 0e0adef2728ef75dc67f02fdf38b6638965df62f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756864"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977530"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델 
 
@@ -39,13 +39,13 @@ Azure Cosmos DB의 가격 책정 모델은 모든 API에서 일치합니다. 자
 
 위 표와 같이, Azure Cosmos DB의 최소 처리량은 $24/월부터 시작합니다. 최소 처리량부터 시작하면서 프로덕션 워크로드를 지원하도록 서서히 확장할 경우 비용이 $6/월 단위로 매끄럽게 증가합니다. Azure Cosmos DB의 가격 책정 모델은 탄력적이며 확장 또는 축소함에 따라 비용도 매끄럽게 증가하거나 감소합니다.
 
-## <a name="try-azure-cosmos-db-for-free"></a>무료로 Azure Cosmos DB 사용해 보기 
+## <a name="try-azure-cosmos-db-for-free"></a>무료로 Azure Cosmos DB 체험하기 
 
 Azure Cosmos DB는 개발자를 위해 몇 가지 옵션을 무료로 제공합니다. 이러한 옵션에는 다음이 포함됩니다.
 
-* **Azure 무료 계정**: azure는 처음 30 일 동안 azure 크레딧을 $200 제공 하 고 12 개월 동안 무료 서비스의 제한 된 수량을 제공 하는 [무료 계층](https://azure.microsoft.com/free/) 을 제공 합니다. 자세한 내용은 [Azure 체험 계정](../billing/billing-avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. Azure Cosmos DB와 관련해서 이 체험 계정은 1년 동안 5GB의 스토리지와 400RU의 프로비전된 처리량을 제공합니다. 
+* **Azure 무료 계정**: azure는 처음 30 일 동안 azure 크레딧을 $200 제공 하 고 12 개월 동안 무료 서비스의 제한 된 수량을 제공 하는 [무료 계층](https://azure.microsoft.com/free/) 을 제공 합니다. 자세한 내용은 [Azure 체험 계정](../cost-management-billing/manage/avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. Azure Cosmos DB와 관련해서 이 체험 계정은 1년 동안 5GB의 스토리지와 400RU의 프로비전된 처리량을 제공합니다. 
 
-* **무료로 Azure Cosmos DB 사용해 보기**: Azure Cosmos DB 체험 계정에 대 한 체험 Azure Cosmos DB를 사용 하 여 시간이 제한 된 환경을 제공 합니다. 빠른 시작 및 자습서를 사용하여 Azure Cosmos DB 계정을 만들고, 데이터베이스 및 컬렉션을 만들고, 애플리케이션 예제를 실행할 수 있습니다. Azure 계정에 가입하거나 신용 카드를 사용하지 않고 샘플 애플리케이션을 실행할 수 있습니다. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)(Azure Cosmos DB 평가판 사용하기)를 통해 1개월간 횟수 제한 없이 계정을 갱신하면서 Azure Cosmos DB를 체험해 볼 수 있습니다.
+* **무료로 Azure Cosmos DB 사용해 보기**: Azure Cosmos DB 체험 계정에 대 한 체험 Azure Cosmos DB를 사용 하 여 시간이 제한 된 환경을 제공 합니다. 빠른 시작 및 자습서를 사용하여 Azure Cosmos DB 계정을 만들고, 데이터베이스 및 컬렉션을 만들고, 애플리케이션 예제를 실행할 수 있습니다. Azure 계정에 가입하거나 신용 카드를 사용하지 않고 애플리케이션 예제를 실행할 수 있습니다. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)(Azure Cosmos DB 평가판 사용하기)를 통해 1개월간 횟수 제한 없이 계정을 갱신하면서 Azure Cosmos DB를 체험해 볼 수 있습니다.
 
 * **Azure Cosmos DB emulator**: Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. 안정적인 에뮬레이터가 무료로 클라우드 서비스에 제공됩니다. Azure Cosmos DB 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. 프로덕션으로 전환하기 전에 로컬로 에뮬레이터를 사용하여 애플리케이션을 개발할 수 있습니다. 에뮬레이터를 사용해본 결과, 애플리케이션의 기능이 만족스러우면 클라우드의 Azure Cosmos DB 계정 사용으로 전환하면 비용을 크게 절약할 수 있습니다. 에뮬레이터에 대한 자세한 내용은 [개발 및 테스트에 Azure Cosmos DB 사용](local-emulator.md)을 참조하세요.
 

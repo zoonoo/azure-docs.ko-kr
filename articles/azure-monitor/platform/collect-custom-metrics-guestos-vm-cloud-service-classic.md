@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fb13bb7ec2de2633796aecb5216ae8b9e2574a57
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304767"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971201"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
@@ -27,11 +27,11 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 이 문서에서 설명하는 프로세스는 Azure Cloud Services의 성능 카운터에서만 작동합니다. 다른 사용자 지정 메트릭에서는 작동하지 않습니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독의 [서비스 관리자 또는 공동 관리자](~/articles/billing/billing-add-change-azure-subscription-administrator.md)여야 합니다. 
+- Azure 구독의 [서비스 관리자 또는 공동 관리자](../../cost-management-billing/manage/add-change-subscription-administrator.md)여야 합니다. 
 
-- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록해야 합니다. 
+- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
@@ -53,7 +53,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 - 이 앱에 대한 새 클라이언트 암호를 만듭니다.  
 - 이후 단계에서 사용하기 위해 키와 클라이언트 ID를 저장합니다.  
 
-메트릭을 내보내려는 리소스에 대한 *모니터링 메트릭 게시자* 권한을 이전 단계에서 만든 앱에 부여합니다. 앱을 사용하여 여러 리소스에 대한 사용자 지정 메트릭을 내보내려는 경우 이러한 권한은 리소스 그룹 또는 구독 수준에서 부여할 수 있습니다.  
+메트릭을 내보내려는 리소스에 대한 *모니터링 메트릭 게시자* 권한을 이전 단계에서 만든 앱에 부여합니다. 앱을 사용하여 여러 리소스에 대한 사용자 지정 메트릭을 내보내려는 경우 리소스 그룹 또는 구독 수준에서 이러한 권한을 부여할 수 있습니다.  
 
 > [!NOTE]
 > 진단 확장에서는 서비스 주체를 사용하여 Azure Monitor에 대해 인증하고 클라우드 서비스에 대한 메트릭을 내보냅니다.
@@ -192,5 +192,5 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아봅니다.
+- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
 

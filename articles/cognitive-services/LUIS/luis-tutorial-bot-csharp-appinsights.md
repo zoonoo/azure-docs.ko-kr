@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9c47685253e2a70c7b5e947debaac6f5f3264b2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498964"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888297"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>자습서: C#의 봇에서 Application Insights에 LUIS 결과 추가
 
@@ -24,13 +24,13 @@ ms.locfileid: "73498964"
 
 [!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Application Insights에서 봇 및 Language Understanding 데이터 캡처
 > * Language Understanding 데이터에 대한 Application Insights 쿼리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Application Insights를 사용하여 만든 Azure Bot Service 봇
 * 이전 봇 **[자습서](luis-csharp-tutorial-bf-v4.md)** 에서 다운로드한 봇 코드 
@@ -162,7 +162,7 @@ Application Insights에 데이터를 추가하려면 계측 키가 필요합니�
 1. Visual Studio에서 봇을 빌드하고 실행합니다. 
 1. 봇 에뮬레이터를 시작하고 봇을 엽니다. 이 [단계](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot)는 이전 자습서에 나와 있습니다.
 
-1. 봇에 질문을 합니다. 이 [단계](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot)는 이전 자습서에 나와 있습니다.
+1. 봇에 질문을 합니다. 이 [단계](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot)는 이전 자습서에 나와 있습니다.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Application Insights에서 LUIS 항목 보기
 
@@ -202,4 +202,4 @@ Application Insights 데이터에 추가할 수 있는 기타 정보에는 앱 I
 둘 이상의 LUIS 앱에 대해 동일한 엔드포인트 구독을 사용하는 경우, 구독 ID 및 공유 키임을 나타내는 속성도 포함해야 합니다.
 
 > [!div class="nextstepaction"]
-> [예제 발언에 대해 자세히 알아보기](luis-how-to-add-example-utterances.md)
+> [예제 발화에 대한 자세한 정보](luis-how-to-add-example-utterances.md)

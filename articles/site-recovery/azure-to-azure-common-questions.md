@@ -5,16 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8ed5df15b8ae8e9836c5b8ac8e7d6ad0111f63e1
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 051e8b0add7cf7ab2c4cb2f02ed4e33ea9a23c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941886"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973815"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure에서 Azure로 재해 복구
 
-이 문서에서는 [Site Recovery](site-recovery-overview.md)를 사용 하 여 다른 azure 지역에 azure vm의 재해 복구에 대 한 일반적인 질문에 대 한 답변을 제공 합니다. 
+이 문서에서는 [Site Recovery](site-recovery-overview.md)를 사용 하 여 다른 azure 지역에 azure vm의 재해 복구에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 
 
 ## <a name="general"></a>일반
@@ -26,7 +26,7 @@ Azure Site Recovery로 보호되는 모든 인스턴스는 처음 31일 동안 �
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>처음 31일 동안 다른 Azure 요금이 발생하나요?
 예, Azure Site Recovery는 보호된 인스턴스에 대해 처음 31일 동안 무료로 사용할 수 있지만 Azure Storage, 스토리지 트랜잭션 및 데이터 전송에 대해서는 요금이 발생할 수 있습니다. 복구된 가상 머신도 Azure Compute 요금이 발생할 수 있습니다. 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/pricing/details/site-recovery)를 참조하세요.
 
-### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에 대 한 모범 사례는 어디서 찾을 수 있나요? 
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에 대 한 모범 사례는 어디서 찾을 수 있나요?
 1. [Azure 간 아키텍처 이해](azure-to-azure-architecture.md)
 2. [지원되는 구성 및 지원되지 않는 구성 검토](azure-to-azure-support-matrix.md)
 3. [Azure VM에 대한 재해 복구 설정](azure-to-azure-how-to-enable-replication.md)

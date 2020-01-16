@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 2abbf06fee8189bc6ca678e546c8e88504409a51
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660395"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770291"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -33,9 +33,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다. 다음 단계에 따라 Docker 컨테이너를 설정합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.
 1. 먼저 Docker를 호스트 컴퓨터에 설치합니다. 호스트 컴퓨터는 로컬 컴퓨터([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/) 또는 [Linux](https://docs.docker.com/install/))일 수 있습니다. 또는 Azure에서 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) 또는 [Azure Stack에 배포된](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) Kubernetes 클러스터와 같은 Docker 호스팅 서비스를 사용할 수 있습니다. 호스트 컴퓨터는 다음 하드웨어 요구 사항을 충족해야 합니다.
+
     | 컨테이너 | 최소 | 권장|
     |:--|:--|:--|
-    |샘플 레이블 지정 도구|2개 코어, 4GB 메모리|4개 코어, 8GB 메모리
+    |샘플 레이블 지정 도구|2개 코어, 4GB 메모리|4개 코어, 8GB 메모리|
+    
 1. 다음으로, [Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다. 아직 설치하지 않은 경우 머신에 설치합니다.
 1. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다. `<username>` 및 `<password>`의 값은 Form Recognizer 시작 이메일에 있습니다.
     ```
@@ -49,7 +51,8 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     ```
     docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
     ```
-    이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. [http://localhost:3000](http://localhost:3000)로 이동합니다.
+
+   이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. [http://localhost:3000](http://localhost:3000)로 이동합니다.
 
 > [!NOTE]
 > Form Recognizer REST API를 사용하여 레이블을 문서에 지정하고 모델을 학습시킬 수도 있습니다. REST API를 사용하여 학습시키고 분석하려면 [REST API 및 Python을 사용하여 레이블로 학습](./python-labeled-data.md)을 참조하세요.

@@ -10,21 +10,24 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442539"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967357"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
-Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.net의 하위 도메인 (예: `apim-service-name.azure-api.net`)을 할당 합니다. 그러나 사용자 지정 도메인 이름 (예: **contoso.com**)을 사용 하 여 API Management 끝점을 노출할 수 있습니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 API Management 인스턴스에 의해 노출 된 끝점에 매핑하는 방법을 보여 줍니다.
+Azure API Management 서비스 인스턴스를 만들 때 Azure는 `azure-api.net` (예: `apim-service-name.azure-api.net`)의 하위 도메인을 할당 합니다. 그러나 사용자 지정 도메인 이름 (예: **contoso.com**)을 사용 하 여 API Management 끝점을 노출할 수 있습니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 API Management 인스턴스에 의해 노출 된 끝점에 매핑하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> API Management는 [호스트 헤더](https://tools.ietf.org/html/rfc2616#section-14.23) 값이 기본 도메인 이름이 나 구성 된 사용자 지정 도메인 이름과 일치 하는 요청만 허용 합니다.
 
 > [!WARNING]
-> 인증서 고정을 사용하여 애플리케이션의 보안을 개선하고자 하는 고객은 사용자 지정 도메인 이름 및 관리하는 인증서(기본 인증서 아님)를 사용해야 합니다. 대신 기본 인증서를 고정하는 고객은 자신이 제어하지 않는 인증서의 속성에 대한 강한 종속성을 가지게 되므로 해당 방법은 권장하지 않습니다.
+> 인증서 고정을 사용하여 애플리케이션의 보안을 개선하고자 하는 고객은 사용자 지정 도메인 이름 및 관리하는 인증서(기본 인증서 아님)를 사용해야 합니다. 대신 기본 인증서를 고정 하는 고객은 제어 하지 않는 인증서의 속성에 대 한 하드 종속성을 차지 하므로 권장 되는 방법은 아닙니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

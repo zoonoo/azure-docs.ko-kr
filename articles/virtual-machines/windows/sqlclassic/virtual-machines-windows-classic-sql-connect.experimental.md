@@ -14,15 +14,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
+experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 60c5af609cea876370c74684362e9b44db40c1ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1c2d5ae5d85624ea172eb9a95d4086dd71287c4f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101963"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978221"
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server Virtual Machine 연결(클래식 배포)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure의 SQL Server 가상 머신에 연결(클래식 배포)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](../sql/virtual-machines-windows-sql-connect.md)
 > * [클래식](../classic/sql-connect.md)
@@ -33,7 +34,7 @@ ms.locfileid: "70101963"
 이 항목에서는 Azure 가상 머신에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. 여기서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager VM을 사용하는 경우 [Azure에서 Resource Manager를 사용하여 SQL Server Virtual Machine에 연결](../sql/virtual-machines-windows-sql-connect.md)을 참조하세요.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager VM을 사용하는 경우 [Azure에서 Resource Manager를 사용하여 SQL Server Virtual Machine에 연결](../sql/virtual-machines-windows-sql-connect.md)을 참조하세요.
 
 ## <a name="connection-scenarios"></a>연결 시나리오
 클라이언트가 Virtual Machine을 실행 중인 SQL Server에 연결하는 방법은 클라이언트의 위치 및 컴퓨터/네트워킹 구성에 따라 달라집니다. 이 시나리오에는 다음이 포함됩니다.
@@ -59,7 +60,7 @@ ms.locfileid: "70101963"
 
 인터넷을 통해 연결하려면 VM의 DNS 이름 및 VM 엔드포인트 포트 번호(이 문서 뒷부분에서 구성)를 사용해야 합니다. DNS 이름을 찾으려면 Azure Portal로 이동하고 **가상 머신(클래식)** 를 선택합니다. 그런 다음 가상 머신을 선택합니다. **DNS 이름**이 **개요** 섹션에 표시됩니다.
 
-예를 들어 이름이 **mysqlvm**, DNS 이름이 **mysqlvm7777.cloudapp.net**이고 VM 엔드포인트가 **57500**인 클래식 가상 머신을 고려해보세요. 올바르게 구성된 연결이라고 가정할 경우 다음 연결 문자열을 사용하여 인터넷의 어디에서든지 가상 컴퓨터에 액세스할 수 있습니다.
+예를 들어 이름이 **mysqlvm**, DNS 이름이 **mysqlvm7777.cloudapp.net**이고 VM 엔드포인트가 **57500**인 클래식 가상 머신을 고려해보세요. 올바르게 구성된 연결이라고 가정할 경우 다음 연결 문자열을 사용하여 인터넷의 어디에서든지 가상 머신에 액세스할 수 있습니다.
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
@@ -89,7 +90,7 @@ ms.locfileid: "70101963"
 * [TCP 프로토콜에서 수신하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
 * [혼합된 모드 인증에 대한 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
 * [SQL Server 인증 로그인 만들기](#create-sql-server-authentication-logins)
-* [가상 컴퓨터의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
+* [가상 머신의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
 * [다른 컴퓨터에서 데이터베이스 엔진에 연결](#connect-to-the-database-engine-from-another-computer)
 
 연결 경로는 다음 다이어그램에 요약되어 있습니다.

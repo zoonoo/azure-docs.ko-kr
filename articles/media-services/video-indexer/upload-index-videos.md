@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.author: juliako
-ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815390"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972618"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -40,6 +40,7 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 - `videoURL` 매개 변수에 제공 된 URL을 인코딩해야 합니다.
 - 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한이 적용 됩니다.
 - 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer 합니다.
+- 분당 최대 60 영화를 업로드할 수 있습니다.
 
 > [!Tip]
 > 이전 .NET Framework는 기본적으로 TLS 1.2로 설정되지 않으므로 .NET Framework 버전 4.6.2 이상을 사용하는 것이 좋습니다.
@@ -61,15 +62,15 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성    
     
-        |name|설명|
+        |이름|Description|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
     - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 비디오에서 식별된 사용자
-  - properties
+  - 속성
     
-      |name|설명|
+      |이름|Description|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
@@ -78,7 +79,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
         
     - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>참고
+#### <a name="notes"></a>메모
 
 - Video Indexer는 원래 URL에 제공된 기존 매개 변수를 반환합니다.
 - 제공된 URL은 인코딩해야 합니다.
@@ -94,7 +95,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 가격은 선택한 인덱싱 옵션에 따라 달라집니다.  
 
-### <a name="priority"></a>우선 순위
+### <a name="priority"></a>priority
 
 비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **Low**(낮음), **Normal**(보통, 기본값), and **High**(높음)입니다.
 
@@ -311,9 +312,9 @@ public class AccountContractSlim
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|설명|
+|상태 코드|ErrorType(응답 본문 내)|Description|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
+|409|VIDEO_INDEXING_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계

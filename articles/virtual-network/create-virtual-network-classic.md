@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: d934386a47c339cd3abdf72578736b44d40e7952
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 50054379a3032a368a10932e15396373a3817cff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059004"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978922"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>여러 서브넷이 있는 가상 네트워크(클래식) 만들기
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 [배포 모델이](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 있습니다. 리소스 관리자 및 클래식. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. [Resource Manager](quick-create-portal.md) 배포 모델을 통해 최신 가상 네트워크를 만드는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. [Resource Manager](quick-create-portal.md) 배포 모델을 통해 최신 가상 네트워크를 만드는 것이 좋습니다.
 
 이 자습서에서는 별도의 공용 및 프라이빗 서브넷이 있는 기본 Azure Virtual Network(클래식)를 만드는 방법에 대해 알아봅니다. Virtual Machines 및 서브넷에 있는 Cloud Services와 같은 Azure 리소스를 만들 수 있습니다. 가상 네트워크(클래식)에서 생성된 리소스는 서로 간에 통신할 수 있으며 가상 네트워크에 연결된 다른 네트워크의 리소스와도 통신할 수 있습니다.
 
 모든 [가상 네트워크](manage-virtual-network.md) 및 [서브넷](virtual-network-manage-subnet.md) 설정에 대해 자세히 확인하세요.
 
 > [!WARNING]
-> [구독이 비활성화되는](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit) 경우 Azure에서 가상 네트워크(클래식)가 즉시 삭제됩니다. 가상 네트워크(클래식)는 리소스가 가상 네트워크에 존재하는지 여부에 관계 없이 삭제됩니다. 구독을 나중에 다시 사용하는 경우 가상 네트워크에 존재하는 리소스를 다시 만들어야 합니다.
+> [구독이 비활성화되는](../cost-management-billing/manage/subscription-disabled.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit) 경우 Azure에서 가상 네트워크(클래식)가 즉시 삭제됩니다. 가상 네트워크(클래식)는 리소스가 가상 네트워크에 존재하는지 여부에 관계 없이 삭제됩니다. 구독을 나중에 다시 사용하는 경우 가상 네트워크에 존재하는 리소스를 다시 만들어야 합니다.
 
 [Azure Portal](#portal), [Azure CLI(명령줄 인터페이스) 1.0](#azure-cli) 또는 [PowerShell](#powershell)을 사용하여 가상 네트워크(클래식)를 만들 수 있습니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "71059004"
     |---|---|
     |이름|myVnet|
     |주소 공간|10.0.0.0/16|
-    |서브넷 이름|Public|
+    |서브넷 이름|공용|
     |서브넷 주소 범위|10.0.0.0/24|
     |리소스 그룹|**새로 만들기**를 선택한 채로 두고 **myResourceGroup**을 입력합니다.|
     |구독 및 위치|구독 및 위치를 선택합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "71059004"
 6. 표시되는 **myVnet - 서브넷** 창에서 **+추가**를 클릭합니다.
 7. **서브넷 추가** 창에서 **이름**에 **프라이빗**을 입력합니다. **주소 범위**에 **10.0.1.0/24**를 입력합니다.  **확인**을 클릭합니다.
 8. **myVnet - 서브넷** 창에서 직접 만든 **공용** 및 **프라이빗** 서브넷을 확인할 수 있습니다.
-9. **선택 사항**: 이 자습서를 완료 한 후에는 사용 요금이 발생 하지 않도록 만든 리소스를 삭제 하려고 할 수 있습니다.
+9. **선택 사항**: 이 자습서를 마친 후에는 사용 요금이 발생하지 않도록 작성했던 리소스를 삭제할 수 있습니다.
     - **myVnet** 창에서 **개요**를 클릭합니다.
     - **myVnet** 창에서 **삭제** 아이콘을 클릭합니다.
     - 삭제를 확인하려면 **가상 네트워크 삭제** 상자에서 **예**를 클릭합니다.
@@ -98,7 +98,7 @@ ms.locfileid: "71059004"
     azure network vnet show --vnet myVnet
     ```
 
-7. **선택 사항**: 이 자습서를 마칠 때 만든 리소스를 삭제 하 여 사용 요금이 발생 하지 않도록 할 수 있습니다.
+7. **선택 사항**: 이 자습서를 마친 후에는 사용 요금이 발생하지 않도록 작성했던 리소스를 삭제할 수 있습니다.
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -153,7 +153,7 @@ ms.locfileid: "71059004"
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **선택 사항**: 이 자습서를 마칠 때 만든 리소스를 삭제 하 여 사용 요금이 발생 하지 않도록 할 수도 있습니다. 가상 네트워크를 삭제하려면 4-6단계를 다시 완료하고, 이번에는 5단계에서 추가했던 **VirtualNetworkSite** 요소를 제거합니다.
+8. **선택 사항**: 이 자습서를 마친 후에는 사용 요금이 발생하지 않도록 작성했던 리소스를 삭제할 수 있습니다. 가상 네트워크를 삭제하려면 4-6단계를 다시 완료하고, 이번에는 5단계에서 추가했던 **VirtualNetworkSite** 요소를 제거합니다.
  
 > [!NOTE]
 > PowerShell을 사용하여 가상 네트워크(클래식)를 만들도록 리소스 그룹을 지정할 수 없긴 하지만, Azure에서 *기본 네트워킹*이라는 리소스 그룹에 가상 네트워크를 만듭니다.

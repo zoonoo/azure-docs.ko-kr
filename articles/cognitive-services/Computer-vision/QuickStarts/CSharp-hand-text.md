@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 701a0dc363f69d1d700dec707a13b379436a2365
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a18ae7c342563277acbb0fa1b8de3e49a40c5460
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975230"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770784"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-c"></a>빠른 시작: Computer Vision REST API 및 C#을 사용하여 인쇄 및 필기 텍스트 추출
 
@@ -27,7 +27,7 @@ ms.locfileid: "74975230"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2015 이상](https://visualstudio.microsoft.com/downloads/)이 있어야 합니다.
 - Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다. 그런 다음, 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
@@ -65,7 +65,7 @@ namespace CSHttpClientSample
         // the Batch Read method endpoint
         static string uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
 
-        static void Main()
+        static async Task Main()
         {
             // Get the path and filename to process from the user.
             Console.WriteLine("Text Recognition:");
@@ -77,7 +77,7 @@ namespace CSHttpClientSample
             {
                 // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
-                ReadText(imageFilePath).Wait();
+                await ReadText(imageFilePath);
             }
             else
             {

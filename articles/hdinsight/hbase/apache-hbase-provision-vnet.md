@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: c128f17a3d2c4f5461a04ae375e05336cc994b4b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552307"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972787"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 Apache HBase 클러스터 만들기
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>가상 네트워크에 Apache HBase 클러스터 만들기
 
-이 섹션에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 Apache HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+이 섹션에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 Apache HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
 > [!NOTE]  
 > 일부 속성이 템플릿에 하드 코딩되었습니다. 예:

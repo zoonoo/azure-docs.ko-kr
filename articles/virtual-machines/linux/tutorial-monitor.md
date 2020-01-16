@@ -15,18 +15,18 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 4d338708b143c88f8f416185e351531e74963bba
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b06342d5034b820be4e6fd49436546a5aa7b7e02
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111997"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749789"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 모니터링
 
 Azure 모니터링은 에이전트를 사용하여 Azure VM에서 부팅 및 성능 데이터를 수집하고 이 데이터를 Azure Storage에 저장하며 포털, Azure PowerShell 모듈 및 Azure CLI를 통해 액세스할 수 있도록 합니다. 고급 모니터링은 성능 메트릭을 수집하고, VM에 설치된 애플리케이션 구성 요소를 검색하고, 성능 차트와 종속성 맵을 포함하여 VM용 Azure Monitor와 함께 제공됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM에서 부팅 진단을 사용하도록 설정
@@ -40,7 +40,7 @@ Azure 모니터링은 에이전트를 사용하여 Azure VM에서 부팅 및 성
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -178,11 +178,11 @@ VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 VM의 성능을 구성하고 확인했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 VM의 성능을 구성하고 확인했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹 및 VM 만들기
-> * VM에서 부트 진단을 사용하도록 설정
+> * VM에서 부팅 진단을 사용하도록 설정
 > * 부트 진단 보기
 > * 호스트 메트릭 보기
 > * VM용 Azure Monitor 사용

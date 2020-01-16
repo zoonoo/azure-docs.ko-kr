@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 5f37971e9680468c29efd5733517cb900852431f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4fc5afe3bbb4b2ccf2329432347b23fe9a69c5ea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400746"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977667"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "75400746"
 
 이 문서에서는 Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM용 Azure Monitor (미리 보기)를 사용 하도록 설정 하는 방법을 설명 합니다. 이 프로세스가 완료 되 면 모든 가상 컴퓨터를 성공적으로 모니터링 하 고 성능 또는 가용성 문제가 발생 하 고 있는지 확인 하 게 됩니다.
 
-## <a name="set-up-a-log-analytics-workspace"></a>Log Analytics 작업 영역 설정 
+## <a name="set-up-a-log-analytics-workspace"></a>Log Analytics 작업 영역 설정
 
 Log Analytics 작업 영역이 없는 경우 새로 만들어야 합니다. 구성 단계를 계속 하기 전에 [필수 조건](vminsights-enable-overview.md#log-analytics) 섹션에서 제안 하는 방법을 검토 합니다. 그런 다음 Azure Resource Manager 템플릿 메서드를 사용 하 여 VM용 Azure Monitor 배포를 완료할 수 있습니다.
 
@@ -35,8 +35,8 @@ Log Analytics 작업 영역이 없는 경우 새로 만들어야 합니다. 구�
 이 방법은 Log Analytics 작업 영역에 솔루션 구성 요소를 사용하도록 구성을 지정하는 JSON 템플릿을 포함합니다.
 
 템플릿을 사용 하 여 리소스를 배포 하는 방법을 모르는 경우 다음을 참조 하세요.
-* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
 Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
@@ -91,7 +91,7 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
 1. *WorkspaceName*, *ResourceGroupName* 및 *WorkspaceLocation*의 값을 캡처합니다. *WorkspaceName* 값은 Log Analytics 작업 영역의 이름입니다. *WorkspaceLocation* 값은 작업 영역이 정의된 지역입니다.
 
 1. 이제 이 템플릿을 배포할 수 있습니다.
- 
+
     * 템플릿이 포함된 폴더에서 다음 PowerShell 명령을 사용합니다.
 
         ```powershell
@@ -105,7 +105,7 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
         ```
 
     * Azure CLI를 사용하여 다음 명령을 실행하려면:
-    
+
         ```azurecli
         az login
         az account set --subscription "Subscription Name"
@@ -126,14 +126,14 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
 >이 템플릿은 보드에서 가져올 리소스와 동일한 리소스 그룹에 배포 해야 합니다.
 
 템플릿을 사용 하 여 리소스를 배포 하는 방법을 모르는 경우 다음을 참조 하세요.
-* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
 Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
 ### <a name="download-templates"></a>템플릿 다운로드
 
-Azure Resource Manager 템플릿은 GitHub 리포지토리에서 [다운로드할](https://aka.ms/VmInsightsARMTemplates) 수 있는 보관 파일 (.zip)로 제공 됩니다. 파일의 내용에는 템플릿 및 매개 변수 파일을 사용 하 여 각 배포 시나리오를 나타내는 폴더가 포함 됩니다. 실행 하기 전에 매개 변수 파일을 수정 하 고 필요한 값을 지정 합니다. 특정 요구 사항을 지원 하도록 사용자 지정 해야 하는 경우가 아니면 템플릿 파일을 수정 하지 마세요. 매개 변수 파일을 수정한 후에는이 문서의 뒷부분에 설명 된 다음 방법을 사용 하 여 배포할 수 있습니다. 
+Azure Resource Manager 템플릿은 GitHub 리포지토리에서 [다운로드할](https://aka.ms/VmInsightsARMTemplates) 수 있는 보관 파일 (.zip)로 제공 됩니다. 파일의 내용에는 템플릿 및 매개 변수 파일을 사용 하 여 각 배포 시나리오를 나타내는 폴더가 포함 됩니다. 실행 하기 전에 매개 변수 파일을 수정 하 고 필요한 값을 지정 합니다. 특정 요구 사항을 지원 하도록 사용자 지정 해야 하는 경우가 아니면 템플릿 파일을 수정 하지 마세요. 매개 변수 파일을 수정한 후에는이 문서의 뒷부분에 설명 된 다음 방법을 사용 하 여 배포할 수 있습니다.
 
 다운로드 파일에는 다양 한 시나리오에 대 한 다음 템플릿이 포함 되어 있습니다.
 
@@ -180,7 +180,7 @@ provisioningState       : Succeeded
 여러 Vm 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하려면 PowerShell 스크립트 [Install-VMInsights.](https://www.powershellgallery.com/packages/Install-VMInsights/1.0)p s 1을 사용 합니다. Azure PowerShell 갤러리에서 사용할 수 있습니다. 이 스크립트는 다음을 반복 합니다.
 
 - 구독에서 모든 가상 머신 및 가상 머신 확장 집합입니다.
-- *ResourceGroup*으로 지정 된 범위 지정 리소스 그룹입니다. 
+- *ResourceGroup*으로 지정 된 범위 지정 리소스 그룹입니다.
 - *이름*으로 지정 된 단일 VM 또는 가상 머신 확장 집합입니다.
 
 각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장이 설치 된 경우 스크립트에서 다시 설치 하려고 시도 합니다. VM 확장이 설치 되지 않은 경우 스크립트는 Log Analytics 및 종속성 에이전트 VM 확장을 설치 합니다.
@@ -341,7 +341,7 @@ Failed: (0)
 ## <a name="next-steps"></a>다음 단계
 
 이제 가상 머신에 대 한 모니터링을 사용 하도록 설정 했으므로이 정보는 VM용 Azure Monitor 분석에 사용할 수 있습니다.
- 
-- 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요. 
 
-- VM의 성능에 대 한 병목 및 전반적인 사용률을 식별 하려면 [AZURE Vm 성능 보기](vminsights-performance.md)를 참조 하세요. 
+- 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.
+
+- VM의 성능에 대 한 병목 및 전반적인 사용률을 식별 하려면 [AZURE Vm 성능 보기](vminsights-performance.md)를 참조 하세요.

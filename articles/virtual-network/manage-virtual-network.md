@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 87cdd3d18fe0e6a3655c8bbc940cdc00fa211e74
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750582"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982240"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -79,7 +79,7 @@ ms.locfileid: "75750582"
 
      ![네트워크 인터페이스 개요](./media/manage-virtual-network/vnet-overview.png)
 
-     **리소스 그룹** 또는 **구독 이름** 옆의 **변경**을 선택하여 다른 구독 또는 리소스 그룹으로 가상 네트워크를 이동할 수 있습니다. 가상 네트워크를 이동하는 방법은 [다른 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. 필수 조건과 Azure Portal, PowerShell 및 Azure CLI를 사용하여 리소스를 이동하는 방법을 나열하고 있습니다. 가상 네트워크에 연결된 모든 리소스는 가상 네트워크와 함께 이동해야 합니다.
+     **리소스 그룹** 또는 **구독 이름** 옆의 **변경**을 선택하여 다른 구독 또는 리소스 그룹으로 가상 네트워크를 이동할 수 있습니다. 가상 네트워크를 이동하는 방법은 [다른 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. 필수 조건과 Azure Portal, PowerShell 및 Azure CLI를 사용하여 리소스를 이동하는 방법을 나열하고 있습니다. 가상 네트워크에 연결된 모든 리소스는 가상 네트워크와 함께 이동해야 합니다.
    - **주소 공간**: 가상 네트워크에 할당된 주소 공간이 나열됩니다. 주소 범위를 주소 공간에 추가 및 제거하는 방법을 알아보려면 이 문서의 [주소 범위 추가 또는 제거](#add-or-remove-an-address-range)에서 설명하는 단계를 완료합니다.
    - **연결된 디바이스**: 가상 네트워크에 연결된 모든 리소스가 나열됩니다. 이전 스크린샷에는 세 개의 네트워크 인터페이스와 하나의 부하 분산 장치가 가상 네트워크에 연결되어 있습니다. 만들고 가상 네트워크에 연결한 새 리소스가 모두 나열됩니다. 가상 네트워크에 연결된 리소스를 삭제하면 더 이상 목록에 표시되지 않습니다.
    - **서브넷:** 가상 네트워크 내에 있는 서브넷 목록이 표시됩니다. 서브넷을 추가하고 제거하는 방법에 대한 자세한 내용은 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
@@ -90,8 +90,8 @@ ms.locfileid: "75750582"
    - **일반적인 Azure 설정**: 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
      - [활동 로그](../azure-monitor/platform/platform-logs-overview.md)
      - [액세스 제어(IAM)](../role-based-access-control/overview.md)
-     - [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [태그](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [잠금](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Automation 스크립트](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **명령**

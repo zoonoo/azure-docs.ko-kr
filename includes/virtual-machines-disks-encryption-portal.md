@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a799339f2780c2bc372c39120a6e20b34d907326
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912744"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973438"
 ---
 ### <a name="portal"></a>포털
 
@@ -88,3 +88,27 @@ VM 배포 프로세스는 표준 배포 프로세스와 유사 합니다. 유일
 1. 원하는 대로 나머지 항목을 선택 합니다.
 
     ![sse-create-vm-select-cmk-encryption-set](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
+
+#### <a name="enable-on-an-existing-disk"></a>기존 디스크에서 사용
+
+기존 디스크에 대 한 디스크 암호화를 관리 하 고 구성 하려면 다음 링크를 사용 해야 합니다. https://aka.ms/diskencryptionsets. 기존 디스크에서 고객이 관리 하는 키를 사용 하도록 설정 하는 것은 아직 글로벌 Azure Portal에서 사용할 수 없습니다.
+
+> [!CAUTION]
+> VM에 연결 된 모든 디스크에 대해 디스크 암호화를 사용 하도록 설정 하려면 VM을 중지 해야 합니다.
+
+1. 디스크 암호화 집합 중 하 나와 동일한 지역에 있는 VM으로 이동 합니다.
+1. VM을 열고 **중지**를 선택 합니다.
+
+    ![sse-stop-VM-to-encrypt-disk](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
+
+1. VM이 중지 되 면 **디스크** 를 선택 하 고 암호화 하려는 디스크를 선택 합니다.
+
+    ![sse-existing-disk-select](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
+
+1. **암호화** 를 선택 하 고 **고객이 관리 하는 키를 사용 하 여 미사용 암호화** 를 선택한 후 드롭다운 목록에서 설정 된 디스크 암호화를 선택 합니다.
+1. **저장**을 선택합니다.
+
+    ![sse-encrypt-existing-disk-customer-managed-key](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
+
+1. 암호화 하려는 VM에 연결 된 다른 모든 디스크에 대해이 프로세스를 반복 합니다.
+1. 디스크가 고객이 관리 하는 키로 전환 되 면 암호화 하려는 다른 연결 된 디스크가 없는 경우 VM을 시작할 수 있습니다.

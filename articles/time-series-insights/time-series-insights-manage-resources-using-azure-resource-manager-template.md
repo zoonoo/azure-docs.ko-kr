@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4902ff5194c1648a8353b2a21ea559d15d574b3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b60b036954691bdea12dfff559ceee86f179d44d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861849"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973215"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
@@ -33,8 +33,8 @@ Time Series Insights은 다음 리소스를 지원합니다.
 
 Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 구성을 정의하는 JSON 파일입니다. 다음 문서에서는 템플릿 파일에 대해 더 자세히 설명 합니다.
 
-- [Azure Resource Manager 템플릿 배포](../azure-resource-manager/template-deployment-overview.md)
-- [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)
+- [Azure Resource Manager 템플릿 배포](../azure-resource-manager/templates/overview.md)
+- [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md)
 - [Microsoft.TimeSeriesInsights 리소스 종류](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) 빠른 시작 템플릿은 GitHub에 게시됩니다. 이 템플릿은 Time Series Insights 환경, Event Hub의 이벤트를 사용하도록 구성된 자식 이벤트 원본 및 환경의 데이터에 대한 액세스 권한을 부여하는 액세스 정책을 만듭니다. 기존 Event Hub를 지정하지 않으면 배포에서 만들어집니다.
@@ -118,7 +118,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
          }
      }
      ```
-  
+
     * 자세한 내용은 [매개 변수](../azure-resource-manager/templates/parameter-files.md) 문서를 참조 하세요.
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>PowerShell을 사용하여 로컬로 빠른 시작 템플릿을 배포합니다
@@ -174,12 +174,12 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. 배포 만들기
 
-    * 새 배포를 만들려면 `New-AzResourceGroupDeployment` cmdlet을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/deployment-modes.md)를 참조 하세요.
+    * 새 배포를 만들려면 `New-AzResourceGroupDeployment` cmdlet을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/templates/deployment-modes.md)를 참조 하세요.
 
     * 다음 명령은 PowerShell 창에서 다섯 개의 필수 매개 변수를 입력하라는 메시지를 표시합니다.
 
       ```powershell
-      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
     * 그 대신에 매개 변수 파일을 지정하려면 다음 명령을 사용합니다.
@@ -194,7 +194,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * [전체](../azure-resource-manager/deployment-modes.md) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
+    * [전체](../azure-resource-manager/templates/deployment-modes.md) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

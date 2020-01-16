@@ -3,12 +3,12 @@ title: 자습서 - Terraform을 사용하여 AKS(Azure Kubernetes Service)로 Ku
 description: Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: cea9d93ed418a4f2e90fa3f2dfd3441f4b296316
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e04abdab2893e76a65615635ae9937797be89855
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374967"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708277"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>자습서: Terraform을 사용하여 Azure Kubernetes Service로 Kubernetes 클러스터 만들기
 
@@ -140,10 +140,8 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
 
         default_node_pool {
             name            = "agentpool"
-            count           = var.agent_count
+            node_count      = var.agent_count
             vm_size         = "Standard_DS1_v2"
-            os_type         = "Linux"
-            os_disk_size_gb = 30
         }
 
         service_principal {

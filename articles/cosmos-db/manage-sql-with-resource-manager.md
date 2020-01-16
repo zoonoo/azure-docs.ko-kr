@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 95301efce4b2abe143ec8c8ea5e5ccc445191d3e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ce9ca202ee57fe9c42906ebeb62a44c724bd1a52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75643800"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978720"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB SQL (코어) API 리소스 관리
 
@@ -205,4 +205,4 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 * [Azure Resource Manager 설명서](/azure/azure-resource-manager/)
 * [Azure Cosmos DB 리소스 공급자 스키마](/azure/templates/microsoft.documentdb/allversions)
 * [Azure Cosmos DB 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
-* [일반적인 Azure Resource Manager 배포 오류 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [일반적인 Azure Resource Manager 배포 오류 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)

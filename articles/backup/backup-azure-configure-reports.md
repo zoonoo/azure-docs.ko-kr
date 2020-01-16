@@ -3,12 +3,12 @@ title: Power BI 보고서 구성
 description: Recovery Services 자격 증명 모음을 사용하여 Azure Backup용 Power BI 보고서를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f8a2dd927f996ea09e40c7db2e43b46c17f6258
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450115"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978366"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "75450115"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)을 만들어 보고서에 대해 구성합니다. 이 스토리지 계정은 보고서 관련 데이터를 저장하는 데 사용됩니다.
+- [Azure Storage 계정](../storage/common/storage-account-create.md)을 만들어 보고서에 대해 구성합니다. 이 스토리지 계정은 보고서 관련 데이터를 저장하는 데 사용됩니다.
 - [Power BI 계정을 만들어](https://powerbi.microsoft.com/landing/signin/) Power BI 포털을 사용해 보고서를 확인, 사용자 지정 및 생성합니다.
 - 리소스 공급자 **Microsoft.insights**를 아직 등록하지 않은 경우 등록합니다. 보고 데이터가 스토리지 계정으로 전송될 수 있도록 Recovery Services 자격 증명 모음 및 스토리지 계정용 구독을 사용합니다. 이 단계를 수행하려면 Azure Portal로 이동하여 **구독** > **리소스 공급자**를 선택한 다음 이 공급자를 선택해서 등록합니다.
 

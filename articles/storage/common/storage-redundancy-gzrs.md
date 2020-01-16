@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748265"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973374"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -51,7 +51,7 @@ GZRS 또는 RA GZRS를 사용 하는 저장소 계정에 데이터를 쓰면 해
 > [!IMPORTANT]
 > 비동기 복제는 데이터를 주 지역에 쓰고 보조 지역에 복제 되는 시간 사이에 지연이 발생 합니다. 지역 재해의 경우 주 지역에서 해당 데이터를 복구할 수 없으면 보조 지역에 아직 복제되지 않은 변경 내용이 손실될 수 있습니다.
 
-저장소 계정을 만들 때 해당 계정의 데이터를 복제 하는 방법을 지정 하 고 해당 계정에 대 한 주 지역도 지정 합니다. 지리적으로 복제 된 계정에 대 한 쌍을 이루는 보조 지역은 주 지역에 따라 결정 되며 변경할 수 없습니다. Azure에서 지원하는 지역에 대한 최신 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. GZRS 또는 RA-GZRS를 사용 하 여 저장소 계정을 만드는 방법에 대 한 자세한 내용은 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조 하세요.
+저장소 계정을 만들 때 해당 계정의 데이터를 복제 하는 방법을 지정 하 고 해당 계정에 대 한 주 지역도 지정 합니다. 지리적으로 복제 된 계정에 대 한 쌍을 이루는 보조 지역은 주 지역에 따라 결정 되며 변경할 수 없습니다. Azure에서 지원하는 지역에 대한 최신 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. GZRS 또는 RA-GZRS를 사용 하 여 저장소 계정을 만드는 방법에 대 한 자세한 내용은 [저장소 계정 만들기](storage-account-create.md)를 참조 하세요.
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>고가용성을 위해 RA GZRS 사용
 

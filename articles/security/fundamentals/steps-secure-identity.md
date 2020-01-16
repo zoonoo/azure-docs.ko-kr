@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353227"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973920"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -47,11 +47,11 @@ ms.locfileid: "75353227"
 
 이 검사 목록을 시작하기 전에 이 검사 목록을 읽는 도중에 손상되지 않도록 해야 합니다. 먼저 권한 있는 계정을 보호해야 합니다.
 
-공격자가 권한 있는 계정의 제어권을 확보하면 엄청난 피해가 발생할 수 있으므로 이러한 계정을 보호하는 것이 무엇보다도 중요합니다. [AZURE AD 보안 기본값](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) 또는 [조건부 액세스](../../active-directory/conditional-access/plan-conditional-access.md)를 사용 하 여 조직의 모든 관리자에 대해 MFA ( [azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) )를 사용 하도록 설정 하 고 요구 합니다. MFA를 구현하지 않았다면, 지금 구현하세요! 이 문제는 중요합니다.
+공격자가 권한 있는 계정의 제어권을 확보하면 엄청난 피해가 발생할 수 있으므로 이러한 계정을 보호하는 것이 무엇보다도 중요합니다. [AZURE AD 보안 기본값](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) 또는 [조건부 액세스](../../active-directory/conditional-access/plan-conditional-access.md)를 사용 하 여 조직의 모든 관리자에 대해 MFA ( [azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) )를 사용 하도록 설정 하 고 요구 합니다. MFA를 구현하지 않았다면, 지금 구현하세요! 이 문제는 중요합니다.
 
 모두 준비되었나요? 이제 검사 목록을 시작하겠습니다.
 
-## <a name="step-1---strengthen-your-credentials"></a>1단계 - 자격 증명을 강화합니다. 
+## <a name="step-1---strengthen-your-credentials"></a>1단계 - 자격 증명을 강화합니다.
 
 대부분의 엔터프라이즈 보안 위반은 암호 스프레이, 위반 재생 또는 피싱 같은 방법 중 하나로 손상된 계정으로 시작됩니다. 이러한 공격에 대해 자세히 알아보려면 이 비디오(45분)를 시청하세요.
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
@@ -60,7 +60,7 @@ ms.locfileid: "75353227"
 
 암호가 추측되고, 피싱되고, 맬웨어로 도난 또는 재사용되는 횟수를 고려할 때 강력한 자격 증명의 형식을 갖춘 암호로 돌아가는 것은 중요합니다. [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md)에 대해 자세히 알아보세요.
 
-기본 수준의 id 보안을 쉽게 사용 하도록 설정 하려면 [AZURE AD 보안 기본값과](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md)함께 한 번 클릭 사용을 사용할 수 있습니다. 보안 기본값은 테 넌 트의 모든 사용자에 대해 Azure MFA를 적용 하 고 레거시 프로토콜의 로그인을 차단 합니다.
+기본 수준의 id 보안을 쉽게 사용 하도록 설정 하려면 [AZURE AD 보안 기본값과](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)함께 한 번 클릭 사용을 사용할 수 있습니다. 보안 기본값은 테 넌 트의 모든 사용자에 대해 Azure MFA를 적용 하 고 레거시 프로토콜의 로그인을 차단 합니다.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>자주 공격받는 암호 사용을 금지하고 기존의 복잡성 및 만료 규칙을 해제합니다.
 
@@ -86,7 +86,7 @@ Azure AD에서 직접 ID를 만드는 경우 사용자의 [암호가 만료되�
 [암호 해시 동기화](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) 작동 방식에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> 암호 해시 동기화를 사용하도록 설정하고 Azure AD Domain services를 사용하는 경우 Kerberos(AES 256) 해시 및 필요에 따라 NTLM(RC4, 솔트 없음) 해시도 암호화된 후 Azure AD와 동기화됩니다. 
+> 암호 해시 동기화를 사용하도록 설정하고 Azure AD Domain services를 사용하는 경우 Kerberos(AES 256) 해시 및 필요에 따라 NTLM(RC4, 솔트 없음) 해시도 암호화된 후 Azure AD와 동기화됩니다.
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>AD FS 엑스트라넷 스마트 잠금 구현
 
@@ -106,7 +106,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 1. [AD FS를 사용하는 경우 레거시 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)을 차단합니다.
 2. [최신 인증을 사용하도록 SharePoint Online 및 Exchange Online](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md)을 설정합니다.
-3. Azure AD Premium 하는 경우 [조건부 액세스 정책을](../../active-directory/conditional-access/conditions.md) 사용 하 여 레거시 인증을 차단 하 고, 그렇지 않은 경우 [Azure AD 보안 기본값](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md)을 사용 합니다.
+3. Azure AD Premium 하는 경우 [조건부 액세스 정책을](../../active-directory/conditional-access/conditions.md) 사용 하 여 레거시 인증을 차단 하 고, 그렇지 않은 경우 [Azure AD 보안 기본값](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)을 사용 합니다.
 
 ### <a name="block-invalid-authentication-entry-points"></a>잘못된 인증 진입점 차단
 
@@ -123,7 +123,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 구현
 
-“가정 위반”의 또 다른 영향은 손상된 계정을 권한 있는 역할로 작동할 수 있는 가능성을 최소화해야 한다는 점입니다. 
+“가정 위반”의 또 다른 영향은 손상된 계정을 권한 있는 역할로 작동할 수 있는 가능성을 최소화해야 한다는 점입니다.
 
 [Azure AD PIM(Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md)은 다음을 수행하는 데 유용하여 계정 권한을 최소화하는 데 도움이 됩니다.
 
@@ -172,13 +172,13 @@ Microsoft Azure 서비스 및 기능은 구성 가능한 보안 감사 및 로�
 
 Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중요한 보고서를 제공합니다.
 1. 위험한 로그인 보고서는 로그인한 사람이 정당한 소유자가 아닐 가능성이 있으므로 조사가 필요한 사용자 로그인 활동을 보여줍니다.
-2. 위험한 사용자 보고서는 유출된 자격 증명 발견, 여러 위치에서 로그인하여 불가능한 이동 이벤트를 발생시킨 사용자처럼 손상 가능성이 있는 사용자 계정을 보여줍니다. 
+2. 위험한 사용자 보고서는 유출된 자격 증명 발견, 여러 위치에서 로그인하여 불가능한 이동 이벤트를 발생시킨 사용자처럼 손상 가능성이 있는 사용자 계정을 보여줍니다.
 
 ![위험에 대한 플래그가 지정된 사용자](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>감사 앱 및 승인된 권한
 
-사용자는 자신의 프로필 정보 및 사용자 데이터 (예: 전자 메일)에 대 한 액세스 권한을 얻을 수 있는 손상 된 웹 사이트에 대 한 탐색으로 속아 서 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자에 게 부여 된 사용 권한을 [검토 하 고 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하거나 사용자가 기본적으로 동의를 부여 하지 않도록 설정 해야 합니다. 
+사용자는 자신의 프로필 정보 및 사용자 데이터 (예: 전자 메일)에 대 한 액세스 권한을 얻을 수 있는 손상 된 웹 사이트에 대 한 탐색으로 속아 서 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자에 게 부여 된 사용 권한을 [검토 하 고 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하거나 사용자가 기본적으로 동의를 부여 하지 않도록 설정 해야 합니다.
 
 사용자가 제공 하는 사용 권한을 감사 하는 것 외에도, 프리미엄 환경에서 사용할 수 있는 기능인 [위험한 또는 원치 않는 OAuth 응용 프로그램](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)을 쉽게 찾을 수 있습니다.
 

@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 K
 description: 이 문서에서는 Azure Stack 또는 기타 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너에 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: c791477aeb27609cccda11b901eccaa2805be581
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6218550f4b5a3a59b4addc69b19ff11e282d45a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404837"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977749"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
 
@@ -37,21 +37,21 @@ ms.locfileid: "75404837"
     |*.ods.opinsights.azure.com |포트 443 |  
     |*.oms.opinsights.azure.com |포트 443 |  
     |\*.blob.core.windows.net |포트 443 |  
-    |*. dc.services.visualstudio.com |포트 443 | 
+    |*. dc.services.visualstudio.com |포트 443 |
 
 * 컨테이너 화 된 에이전트는 성능 메트릭을 수집 하기 위해 클러스터의 모든 노드에서 `cAdvisor port: 10255`를 열어야 합니다.
 
-* 컨테이너 화 된 에이전트를 사용 하려면 클러스터 내에서 Kubernetes API 서비스와 통신 하기 위해 컨테이너에서 다음과 같은 환경 변수를 지정 해야 합니다. 인벤토리 데이터 `KUBERNETES_SERVICE_HOST` 및 `KUBERNETES_PORT_443_TCP_PORT`수집 합니다. 
+* 컨테이너 화 된 에이전트를 사용 하려면 클러스터 내에서 Kubernetes API 서비스와 통신 하기 위해 컨테이너에서 다음과 같은 환경 변수를 지정 해야 합니다. 인벤토리 데이터 `KUBERNETES_SERVICE_HOST` 및 `KUBERNETES_PORT_443_TCP_PORT`수집 합니다.
 
 >[!IMPORTANT]
->하이브리드 Kubernetes 클러스터 모니터링에 대해 지원 되는 최소 에이전트 버전은 ciprod10182019 이상입니다. 
+>하이브리드 Kubernetes 클러스터 모니터링에 대해 지원 되는 최소 에이전트 버전은 ciprod10182019 이상입니다.
 
 ## <a name="supported-configurations"></a>지원되는 구성
 
 다음은 Azure Monitor 컨테이너에 대해 공식적으로 지원 됩니다.
 
 - 환경: Kubernetes 온-프레미스, Azure의 AKS 엔진 및 Azure Stack 자세한 내용은 [Azure Stack AKS Engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)을 참조 하세요.
-- Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다. 
+- Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다.
 - 컨테이너 런타임: Docker 및 Moby
 - 마스터 및 작동 하는 노드에 대 한 Linux OS 릴리스: Ubuntu (18.04 LTS 및 16.04 LTS)
 - 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
@@ -70,11 +70,11 @@ Azure PowerShell cmdlet `New-AzResourceGroupDeployment` 또는 Azure CLI를 사�
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 
-* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)
 
-* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 이 메서드는 두 가지 JSON 템플릿을 포함합니다. 한 가지 템플릿은 모니터링을 사용하도록 구성을 지정하고, 다른 템플릿은 다음을 지정하도록 구성하는 매개 변수 값을 포함합니다.
 
@@ -105,7 +105,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     az account set -s <subscriptionId of the workspace>
     ```
 
-3. 다음 예에서는 구독의 작업 영역 목록을 기본 JSON 형식으로 표시 합니다. 
+3. 다음 예에서는 구독의 작업 영역 목록을 기본 JSON 형식으로 표시 합니다.
 
     ```
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
@@ -195,7 +195,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 8. 이 파일을 로컬 폴더에 containerSolutionParams로 저장 합니다.
 
-9. 이제 이 템플릿을 배포할 수 있습니다. 
+9. 이제 이 템플릿을 배포할 수 있습니다.
 
    * Azure PowerShell를 사용 하 여 배포 하려면 템플릿이 포함 된 폴더에서 다음 명령을 사용 합니다.
 
@@ -208,12 +208,12 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
        # set the context of the subscription of Log Analytics workspace
        Set-AzureRmContext -SubscriptionId <subscription Id of log analytics workspace>
        ```
-       
+
        ```powershell
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <resource group of log analytics workspace> -TemplateFile .\containerSolution.json -TemplateParameterFile .\containerSolutionParams.json
        ```
-       
+
        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
 
        ```powershell
@@ -221,7 +221,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
        ```
 
    * Azure CLI를 사용 하 여 배포 하려면 다음 명령을 실행 합니다.
-    
+
        ```azurecli
        az login
        az account set --name <AzureCloud | AzureChinaCloud | AzureUSGovernment>
@@ -236,8 +236,8 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
        ```azurecli
        provisioningState       : Succeeded
        ```
-     
-       모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다. 
+
+       모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다.
 
 ## <a name="install-the-chart"></a>차트 설치
 
@@ -260,7 +260,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
     ```
     $ helm install --name myrelease-1 \
-     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers 
+     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
     Log Analytics 작업 영역이 Azure 미국 정부에 있는 경우 다음 명령을 실행 합니다.
@@ -272,22 +272,22 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 ## <a name="configure-agent-data-collection"></a>에이전트 데이터 수집 구성
 
-바랄 차트 버전 1.0.0에서 에이전트 데이터 수집 설정은 ConfigMap에서 제어 됩니다. [여기](container-insights-agent-config.md)에서 에이전트 데이터 컬렉션 설정에 대 한 설명서를 참조 하세요. 
+바랄 차트 버전 1.0.0에서 에이전트 데이터 수집 설정은 ConfigMap에서 제어 됩니다. [여기](container-insights-agent-config.md)에서 에이전트 데이터 컬렉션 설정에 대 한 설명서를 참조 하세요.
 
 차트를 성공적으로 배포한 후 Azure Portal의 컨테이너에 대 한 Azure Monitor에서 하이브리드 Kubernetes 클러스터에 대 한 데이터를 검토할 수 있습니다.  
 
 >[!NOTE]
->수집 대기 시간은 에이전트가 Azure Log Analytics 작업 영역에서 커밋하는 데 5 ~ 10 분 정도 소요 됩니다. 클러스터의 상태는 Azure Monitor에서 필요한 모든 모니터링 데이터를 사용할 수 있을 때까지 데이터를 표시 **하지** 않거나 **알 수 없는** 값을 표시 합니다. 
+>수집 대기 시간은 에이전트가 Azure Log Analytics 작업 영역에서 커밋하는 데 5 ~ 10 분 정도 소요 됩니다. 클러스터의 상태는 Azure Monitor에서 필요한 모든 모니터링 데이터를 사용할 수 있을 때까지 데이터를 표시 **하지** 않거나 **알 수 없는** 값을 표시 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 하이브리드 Kubernetes 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 동안 오류가 발생 하는 경우 PowerShell 스크립트 [TroubleshootError_nonAzureK8s.](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) p s 1을 복사 하 여 컴퓨터의 폴더에 저장 합니다. 이 스크립트는 발생 한 문제를 검색 하 고 해결 하는 데 도움이 됩니다. 검색 하 고 수정을 시도 하기 위해 설계 된 문제는 다음과 같습니다.
 
-* 지정한 Log Analytics 작업 영역이 올바릅니다. 
+* 지정한 Log Analytics 작업 영역이 올바릅니다.
 * Log Analytics 작업 영역은 컨테이너 솔루션에 대 한 Azure Monitor를 사용 하 여 구성 됩니다. 그렇지 않은 경우 작업 영역을 구성 합니다.
 * OmsAgent replicaset pod가 실행 되 고 있습니다.
 * OmsAgent daemonset pod가 실행 되 고 있습니다.
-* OmsAgent Health service가 실행 되 고 있습니다. 
+* OmsAgent Health service가 실행 되 고 있습니다.
 * 컨테이너 화 된 에이전트에 구성 된 Log Analytics 작업 영역 Id 및 키가 정보를 사용 하 여 구성 된 작업 영역과 일치 합니다.
 * Rs pod를 예약 하기 위해 `kubernetes.io/role=agent` 레이블이 있는 모든 Linux 작업자 노드에 대 한 유효성을 검사 합니다. 존재 하지 않는 경우 추가 합니다.
 * 유효성 검사 `cAdvisor port: 10255` 클러스터의 모든 노드에서 열립니다.

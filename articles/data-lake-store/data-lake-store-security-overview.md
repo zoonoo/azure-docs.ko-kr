@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4e640aa1cb02174c935c0f7c1d61ab2fca5ea046
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195296"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974571"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
 대부분의 기업에서는 현명한 의사 결정을 내리는 데 도움을 주는 비즈니스 insights에 대한 빅 데이터 분석을 활용합니다. 조직은 다양한 사용자 수가 증가하는 복잡하고 규제된 환경을 포함할 수 있습니다. 중요한 비즈니스 데이터가 개별 사용자에게 부여된 올바른 액세스 수준으로 더욱 안전하게 저장되도록 하는 것이 기업에게 필수적입니다. Azure Data Lake Storage Gen1은 이러한 보안 요구 사항에 부응하도록 설계되었습니다. 이 문서에서는 다음을 포함하는 Data Lake Storage Gen1의 보안 기능에 대해 알아봅니다.
 
-* Authentication
+* 인증
 * 권한 부여
 * 네트워크 격리
 * 데이터 보호
@@ -54,7 +54,7 @@ ms.locfileid: "60195296"
 | 역할 | 관리 권한 | 데이터 액세스 권한 | 설명 |
 | --- | --- | --- | --- |
 | 할당된 역할 없음 |없음 |ACL에 의해 제어 |사용자는 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Data Lake Storage Gen1을 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
-| 소유자 |모두 |모두 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
+| 소유자 |전체 |전체 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
 | 판독기 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
 | 참가자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
 | 사용자 액세스 관리자 |역할 추가 및 제거 |ACL에 의해 제어 |사용자 액세스 관리자 역할은 계정에 대한 사용자 액세스를 관리할 수 있습니다. |
@@ -76,7 +76,7 @@ Data Lake Storage Gen1은 HDFS(Hadoop 분산 파일 시스템)와 같은 계층�
 ## <a name="data-protection"></a>데이터 보호
 Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합니다. 전송 중인 데이터의 경우 Data Lake Storage Gen1은 업계 표준 TLS(전송 계층 보안) 1.2 프로토콜을 사용하여 네트워크에서 데이터를 보호합니다.
 
-![Data Lake Storage Gen1의 암호화](./media/data-lake-store-security-overview/adls-encryption.png "Data Lake Storage Gen1의 암호화")
+![Data Lake Storage Gen1 암호화](./media/data-lake-store-security-overview/adls-encryption.png "Data Lake Storage Gen1 암호화")
 
 또한 Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화를 제공합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 암호화를 선택하면 Data Lake Storage Gen1에 저장된 데이터가 영구 미디어에 저장되기 전에 암호화됩니다. 이 경우 Data Lake Storage Gen1은 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 완전히 투명합니다. 데이터를 암호화/해독하기 위해 클라이언트 쪽에서 코드를 변경할 필요가 없습니다.
 
@@ -95,10 +95,10 @@ Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합�
 
 ![활동 로그](./media/data-lake-store-security-overview/activity-logs.png "활동 로그")
 
-활동 로그로 작업하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/resource-group-audit.md)를 참조하세요.
+활동 로그로 작업하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
 
 ### <a name="diagnostics-logs"></a>진단 로그
-데이터 액세스 감사 및 Azure portal에서 진단 로깅을 사용 하도록 설정 하 고 Azure Blob storage 계정, 이벤트 허브에 로그를 보낼 수 있습니다 하거나 Azure Monitor를 기록 합니다.
+Azure Portal에서 데이터 액세스 감사 및 진단 로깅을 사용 하도록 설정 하 고 Azure Blob storage 계정, 이벤트 허브 또는 Azure Monitor 로그에 로그를 보낼 수 있습니다.
 
 ![진단 로그](./media/data-lake-store-security-overview/diagnostic-logs.png "진단 로그")
 
@@ -113,4 +113,3 @@ Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
-

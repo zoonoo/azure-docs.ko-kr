@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 85aa1bda395240d0f11b0654ee48b9f1a0401eaa
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 561162767a48a060763510310de77767f37d4eb4
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930602"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770189"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>빠른 시작: Python용 Bing Image Search SDK를 사용하여 이미지 검색
 
@@ -24,7 +24,7 @@ ms.locfileid: "74930602"
 
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py)에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 2.7 또는 3.4](https://www.python.org/) 이상.
 
@@ -38,7 +38,7 @@ ms.locfileid: "74930602"
 1. 즐겨 찾는 IDE 또는 편집기에서 새 Python 스크립트를 만들고 다음 가져오기를 만듭니다.
 
     ```python
-    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from azure.cognitiveservices.search.imagesearch import ImageSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
@@ -46,6 +46,7 @@ ms.locfileid: "74930602"
 
     ```python
     subscription_key = "Enter your key here"
+    subscription_endpoint = "Enter your endpoint here"
     search_term = "canadian rockies"
     ```
 
@@ -54,7 +55,7 @@ ms.locfileid: "74930602"
 1. `CognitiveServicesCredentials` 인스턴스를 만들고 이 인스턴스를 사용하여 클라이언트를 인스턴스화합니다.
 
     ```python
-    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 1. 검색 쿼리를 Bing Image Search API에 보냅니다.
     ```python

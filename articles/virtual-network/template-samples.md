@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: 675c222bfbacf8207c7b3f906452251bedd64a66
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5971b3251812ea4193e71173943ffc0d48207567
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350180"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975359"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>가상 네트워크용 Azure Resource Manager 템플릿 샘플
 
-다음 표에는 Azure Resource Manager 템플릿 샘플 링크가 포함되어 있습니다. Azure [Portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), Azure [CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 Azure [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용하여 템플릿을 배포할 수 있습니다. 템플릿을 직접 작성하는 방법을 알아보려면 [첫 번째 템플릿 만들기](../azure-resource-manager/resource-manager-create-first-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+다음 표에는 Azure Resource Manager 템플릿 샘플 링크가 포함되어 있습니다. Azure [Portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), Azure [CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 Azure [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용하여 템플릿을 배포할 수 있습니다. 템플릿을 직접 작성하는 방법을 알아보려면 [첫 번째 템플릿 만들기](../azure-resource-manager/resource-manager-create-first-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.Network 리소스 종류](/azure/templates/microsoft.network/allversions)를 참조하세요.
 

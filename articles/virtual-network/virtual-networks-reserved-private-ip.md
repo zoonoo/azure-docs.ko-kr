@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c37c49d8f7e09334014af290bf3a8c8e6d35f04b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a13a0a54e9ded48cc5848843f4c329b2dea90f65
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058362"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975228"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>PowerShell을 사용하여 고정 내부 개인 IP 주소를 설정하는 방법(클래식)
 대부분의 경우 가상 머신에 고정 내부 IP 주소를 지정할 필요가 없습니다. 가상 네트워크의 VM은 사용자가 지정한 범위의 내부 IP 주소를 자동으로 받습니다. 그러나 특정한 상황에서는 특정 VM에 고정 IP 주소를 지정하는 것이 적합한 경우도 있습니다. 예를 들어 VM에서 DNS를 실행하거나 VM을 도메인 컨트롤러로 구성하는 경우입니다. 고정 내부 IP 주소는 중지 상태 및 프로비전 해제 상태에서도 VM에 유지됩니다. 
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 사용하기 위한  [Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 [Resource Manager 배포 모델](virtual-networks-static-private-ip-arm-ps.md)을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 [Resource Manager 배포 모델](virtual-networks-static-private-ip-arm-ps.md)을 사용하는 것이 좋습니다.
 > 
 > 
 > ## <a name="install-the-azure-powershell-service-management-module"></a>Azure PowerShell Service Management 모듈 설치

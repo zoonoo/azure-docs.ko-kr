@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 465c0ddd91e81bb597a996637fdc2147e90464de
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942225"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973658"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>스토리지 공간 다이렉트 실행 중인 Azure Vm을 다른 지역에 복제
 
@@ -30,7 +30,7 @@ ms.locfileid: "75942225"
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
- 
+
 - Windows 장애 조치 클러스터에 두 개의 Azure 가상 머신이 있으며, 각 가상 머신에는 둘 이상의 데이터 디스크가 있습니다.
 - S2D는 데이터 디스크의 데이터를 동기화하고 스토리지 풀로 동기화된 스토리지를 제공합니다.
 - 스토리지 풀은 장애 조치 클러스터에 CSV(클러스터 공유 볼륨)로 제공됩니다.
@@ -51,7 +51,7 @@ ms.locfileid: "75942225"
 
    ![storagespacesdirect 보호](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. 복제된 항목으로 이동합니다. 그러면 두 가상 머신 상태가 모두 표시됩니다. 
+2. 복제된 항목으로 이동합니다. 그러면 두 가상 머신 상태가 모두 표시됩니다.
 3. 두 가상 머신이 모두 보호되고 있으며 다중 VM 일관성 그룹의 멤버로도 표시됩니다.
 
    ![storagespacesdirect 보호](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
