@@ -1,7 +1,7 @@
 ---
 title: 기존 서버에서 구성 만들기-Azure Automation
 description: Azure Automation 위해 기존 서버에서 구성을 만드는 방법에 대해 알아봅니다.
-keywords: dsc, powershell, 구성, 설정
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35f967e946854c3ca097db379015a7ee0bbe2f3d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d888c8fd3bf7cd44c37e7225618bd197f419d275
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231681"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030132"
 ---
 # <a name="create-configurations-from-existing-servers"></a>기존 서버에서 구성 만들기
 
@@ -39,12 +39,12 @@ ms.locfileid: "74231681"
 솔루션을 사용한 결과 SharePointDSC 구성 스크립트와 함께 사용할 [구성 데이터](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) 를 생성 합니다.
 
 데이터 파일을 생성 한 후에는 [DSC 구성 스크립트](/powershell/scripting/dsc/overview/overview) 와 함께 사용 하 여 mof 파일을 생성 하 고 [Azure Automation에 mof 파일을 업로드할](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)수 있습니다.
-그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) 또는 [Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 에서 서버를 등록 하 여 구성을 가져옵니다.
+그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 에서 서버를 등록 하 여 구성을 가져옵니다.
 
 ReverseDSC을 체험 하려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/ReverseDSC/) 방문 하 여 솔루션을 다운로드 하거나 "프로젝트 사이트"를 클릭 하 여 [설명서](https://github.com/Microsoft/sharepointDSC.reverse)를 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)
+- [Windows PowerShell Desired State Configuration 개요](/powershell/scripting/dsc/overview/overview)
 - [DSC 리소스](/powershell/scripting/dsc/resources/resources)
-- [로컬 Configuration Manager 구성](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [로컬 구성 관리자 구성](/powershell/scripting/dsc/managing-nodes/metaconfig)

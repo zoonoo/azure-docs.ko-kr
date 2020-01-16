@@ -7,12 +7,12 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e1fce0852a4e820d7ee0af626ce3fddf6773750
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269467"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029932"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Azurite 에뮬레이터를 사용 하 여 로컬 Azure Storage 개발 및 테스트 (미리 보기)
 
@@ -57,11 +57,11 @@ Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 �
 
    * **Azurite: Blob Host** -Blob service 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
    * **Azurite: Blob port** -Blob service 수신 대기 포트입니다. 기본 포트는 1만입니다.
-   * **Azurite: debug** -디버그 로그를 Azurite 채널에 출력 합니다. 기본값은 **false**입니다.
+   * **Azurite: debug** -디버그 로그를 Azurite 채널에 출력 합니다. 기본 값은 **false**입니다.
    * **Azurite: location** -작업 영역 위치 경로입니다. 기본값은 Visual Studio Code 작업 폴더입니다.
    * **Azurite: Queue Host** -큐 서비스 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
    * **Azurite: Queue port** -큐 서비스 수신 포트입니다. 기본 포트는 10001입니다.
-   * **Azurite: 자동** -자동 모드에서 액세스 로그를 사용 하지 않도록 설정 합니다. 기본값은 **false**입니다.
+   * **Azurite: 자동** -자동 모드에서 액세스 로그를 사용 하지 않도록 설정 합니다. 기본 값은 **false**입니다.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>NPM를 사용 하 여 Azurite 설치 및 실행
 
@@ -282,6 +282,20 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+### <a name="loose-mode"></a>느슨한 모드
+
+**선택 사항** 기본적으로 Azurite는 strict 모드를 적용 하 여 지원 되지 않는 요청 헤더와 매개 변수를 차단 합니다. **--느슨한** 스위치를 사용 하 여 strict 모드를 사용 하지 않도록 설정 합니다.
+
+```console
+azurite --loose
+```
+
+대문자 ' L ' 바로 가기 스위치:
+
+```console
+azurite -L
+```
+
 ## <a name="authorization-for-tools-and-sdks"></a>도구 및 Sdk에 대 한 권한 부여
 
 인증 전략을 사용 하 여 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 Azure Storage sdk 또는 도구에서 Azurite에 연결 합니다. 인증이 필요 합니다. Azurite는 공유 키 및 SAS (공유 액세스 서명)를 사용한 권한 부여를 지원 합니다. Azurite는 공용 컨테이너에 대 한 익명 액세스도 지원 합니다.
@@ -307,6 +321,33 @@ Azurite에서 다음 계정 이름 및 키를 사용할 수 있습니다. 레거
 ```
 
 자세한 내용은 [Azure Storage 연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
+
+### <a name="custom-storage-accounts-and-keys"></a>사용자 지정 저장소 계정 및 키
+
+Azurite는 `account1:key1[:key2];account2:key1[:key2];...`형식으로 `AZURITE_ACCOUNTS` 환경 변수를 설정 하 여 사용자 지정 저장소 계정 이름 및 키를 지원 합니다.
+
+예를 들어 하나의 키가 있는 사용자 지정 저장소 계정을 사용 합니다.
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+또는 각각 2 개의 키가 있는 여러 저장소 계정을 사용 합니다.
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+Azurite는 기본적으로 분 마다 사용자 지정 계정 이름과 키를 환경 변수에서 새로 고칩니다. 이 기능을 사용 하면 Azurite를 다시 시작 하지 않고 계정 키를 동적으로 회전 하거나 새 저장소 계정을 추가할 수 있습니다.
+
+> [!NOTE]
+> 사용자 지정 저장소 계정을 설정 하는 경우 기본 `devstoreaccount1` 저장소 계정이 사용 하지 않도록 설정 됩니다.
+
+> [!NOTE]
+> 사용자 지정 계정 이름 및 키를 사용 하는 경우 연결 문자열을 적절 하 게 업데이트 합니다.
+
+> [!NOTE]
+> `export` 키워드를 사용 하 여 Linux 환경에서 환경 변수를 설정 하 고 Windows에서 `set`를 사용 합니다.
 
 ### <a name="storage-explorer"></a>Storage Explorer
 

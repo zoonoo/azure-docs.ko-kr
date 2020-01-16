@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 4/29/2019
-ms.openlocfilehash: 6a95cbad161906bd12a608880ac694d6bdf1ed27
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.date: 1/14/2020
+ms.openlocfilehash: 868e9e068244af91e218d906bee115b58906152f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383060"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027938"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Apache Spark 용 Azure 데이터 탐색기 커넥터 (미리 보기)
 
@@ -26,14 +26,14 @@ Azure 데이터 탐색기 Spark 커넥터는 모든 Spark 클러스터에서 실
 > [!NOTE]
 > 아래 예제 중 일부는 [Azure Databricks](https://docs.azuredatabricks.net/) spark 클러스터를 참조 하지만, Azure 데이터 탐색기 spark 커넥터는 Databricks 또는 다른 spark 배포에 대 한 직접적인 종속성을 취하지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure Data Explorer 클러스터 및 데이터베이스 만들기](/azure/data-explorer/create-cluster-database-portal) 
 * Spark 클러스터 만들기
 * 다음 [Kusto JAVA SDK](/azure/kusto/api/java/kusto-java-client-library) 라이브러리를 포함 하 여 Azure 데이터 탐색기 커넥터 라이브러리와 [종속성](https://github.com/Azure/azure-kusto-spark#dependencies) 에 나열 된 라이브러리를 설치 합니다.
     * [Kusto 데이터 클라이언트](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Kusto 수집 클라이언트](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
-* Spark 2.4에 대 한 미리 빌드된 라이브러리 [, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases)
+* [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) 및 [Maven 리포지토리의](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector) 미리 빌드된 라이브러리
 
 ## <a name="how-to-build-the-spark-connector"></a>Spark 커넥터를 빌드하는 방법
 
@@ -82,20 +82,13 @@ mvn clean install
 > [!NOTE]
 > 다음 단계를 수행 하는 경우 최신 Azure 데이터 탐색기 Spark 커넥터 릴리스를 사용 하는 것이 좋습니다.
 
-1. Spark 2.4 및 Scala 2.11를 사용 하 여 Azure Databricks 클러스터에 따라 다음 Spark 클러스터 설정을 설정 합니다. 
+1. Spark 2.4.4 및 Scala 2.11를 사용 하 여 Azure Databricks 클러스터에 따라 다음 Spark 클러스터 설정을 설정 합니다. 
 
     ![Databricks 클러스터 설정](media/spark-connector/databricks-cluster.png)
-
-1. Azure 데이터 탐색기 커넥터 라이브러리 가져오기:
+    
+1. Maven에서 최신 spark-kusto 커넥터 라이브러리를 설치 합니다.
 
     ![Azure 데이터 탐색기 라이브러리 가져오기](media/spark-connector/db-create-library.png)
-
-1. 추가 종속성 추가 (maven에서 사용 하는 경우 필요 없음):
-
-    ![종속성 추가](media/spark-connector/db-dependencies.png)
-
-    > [!TIP]
-    > 각 Spark 릴리스에 대 한 올바른 java 릴리스 버전은 [여기](https://github.com/Azure/azure-kusto-spark#dependencies)에서 찾을 수 있습니다.
 
 1. 모든 필수 라이브러리가 설치 되어 있는지 확인 합니다.
 
@@ -103,7 +96,7 @@ mvn clean install
 
 ## <a name="authentication"></a>인증
 
-Azure 데이터 탐색기 Spark 커넥터를 사용 하면 azure ad [응용 프로그램](#azure-ad-application-authentication), [azure ad 액세스 토큰](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [장치 인증](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (비프로덕션 시나리오) 또는 [azure Key를 사용 하 여 Azure Active Directory (azure ad)로 인증할 수 있습니다. 자격 증명 모음](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). 사용자는 azure-keyvault 패키지를 설치 하 고 Key Vault 리소스에 액세스 하기 위한 응용 프로그램 자격 증명을 제공 해야 합니다.
+Azure 데이터 탐색기 Spark 커넥터를 사용 하면 azure ad [응용 프로그램](#azure-ad-application-authentication), [azure ad 액세스 토큰](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [장치 인증](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (비프로덕션 시나리오의 경우) 또는 [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault)를 사용 하 여 Azure Active Directory (azure ad)에 인증할 수 있습니다. 사용자는 azure-keyvault 패키지를 설치 하 고 Key Vault 리소스에 액세스 하기 위한 응용 프로그램 자격 증명을 제공 해야 합니다.
 
 ### <a name="azure-ad-application-authentication"></a>Azure AD 응용 프로그램 인증
 
@@ -144,19 +137,19 @@ Azure 데이터 탐색기 주 역할에 대 한 자세한 내용은 [역할 기�
 
     ```scala
     import com.microsoft.kusto.spark.datasink.KustoSinkOptions
-    val conf = Map(
-            KustoSinkOptions.KUSTO_CLUSTER -> cluster,
-            KustoSinkOptions.KUSTO_TABLE -> table,
-            KustoSinkOptions.KUSTO_DATABASE -> database,
-            KustoSinkOptions.KUSTO_AAD_CLIENT_ID -> appId,
-            KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey,
-            KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID -> authorityId)
-    
+    import org.apache.spark.sql.{SaveMode, SparkSession}
+
     df.write
       .format("com.microsoft.kusto.spark.datasource")
-      .options(conf)
-      .save()
-      
+      .option(KustoSinkOptions.KUSTO_CLUSTER, cluster)
+      .option(KustoSinkOptions.KUSTO_DATABASE, database)
+      .option(KustoSinkOptions.KUSTO_TABLE, "Demo3_spark")
+      .option(KustoSinkOptions.KUSTO_AAD_CLIENT_ID, appId)
+      .option(KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD, appKey)
+      .option(KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID, authorityId)
+      .option(KustoSinkOptions.KUSTO_TABLE_CREATE_OPTIONS, "CreateIfNotExist")
+      .mode(SaveMode.Append)
+      .save()  
     ```
     
    또는 간단한 구문을 사용 합니다.
@@ -189,7 +182,6 @@ Azure 데이터 탐색기 주 역할에 대 한 자세한 내용은 [역할 기�
           .option(KustoSinkOptions.KUSTO_WRITE_ENABLE_ASYNC, "true") // Optional, better for streaming, harder to handle errors
           .trigger(Trigger.ProcessingTime(TimeUnit.SECONDS.toMillis(10))) // Sync this with the ingestionBatching policy of the database
           .start()
-    
     ```
 
 ## <a name="spark-source-reading-from-azure-data-explorer"></a>Spark 원본: Azure 데이터 탐색기에서 읽기
@@ -252,3 +244,9 @@ Azure 데이터 탐색기 주 역할에 대 한 자세한 내용은 [역할 기�
     
     display(dfFiltered)
     ```
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure 데이터 탐색기 Spark 커넥터](https://github.com/Azure/azure-kusto-spark/tree/master/docs) 에 대 한 자세한 정보
+* [샘플 코드](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)
+

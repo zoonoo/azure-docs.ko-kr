@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931938"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028539"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -246,6 +246,14 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 - AAD 인증을 사용하는 경우 실패한 로그인 레코드는 SQL 감사 로그에 나타나지 *않습니다*. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
 
 - Azure SQL Database 감사는 가용성 & 성능에 맞게 최적화 됩니다. 매우 높은 활동 Azure SQL Database 중에는 작업을 계속 진행 하 고 일부 감사 이벤트를 기록 하지 않을 수 있습니다.
+
+- 저장소 계정에 대 한 변경할 수 없는 감사를 구성 하려면 [보호 된 추가 blob 쓰기 허용](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes)을 참조 하세요. 감사에 대 한 컨테이너 이름은 **sqldbauditlogs**입니다.
+
+> [!IMPORTANT] 
+>  시간 기반 보존에서 보호 된 추가 blob 쓰기 허용 설정은 현재 사용할 수 있으며 다음 지역 에서만 표시 됩니다.
+> - 미국 동부
+> - 미국 중남부
+> - 미국 서부 2
 
 
 ## <a id="subheading-7"></a>Azure PowerShell를 사용 하 여 Azure SQL Server 및 데이터베이스 감사 관리

@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: a5cfb79626370ab9f8493038ac1583993a154b59
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912074"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965946"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -249,7 +249,7 @@ ms.locfileid: "75912074"
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>범위 및 해당 결과를 사용하여 작업 평가
 
-`runAfter` 속성을 사용 하 여 개별 작업 후 단계를 실행 하는 것과 마찬가지로 [범위](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)내에서 작업을 그룹화 할 수 있습니다. 작업을 논리적으로 그룹화하고, 범위의 집계 상태를 평가하고, 해당 상태에 따라 작업을 수행하려는 경우 범위를 사용할 수 있습니다. 범위 내 모든 작업의 실행이 완료되면 범위 자체에서 자체의 상태를 가져옵니다. 
+`runAfter` 속성을 사용 하 여 개별 작업 후 단계를 실행 하는 것과 마찬가지로 [범위](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)내에서 작업을 그룹화 할 수 있습니다. 작업을 논리적으로 그룹화하고, 범위의 집계 상태를 평가하고, 해당 상태에 따라 작업을 수행하려는 경우 범위를 사용할 수 있습니다. 범위 내 모든 작업의 실행이 완료되면 범위 자체에서 자체의 상태를 가져옵니다.
 
 범위 상태를 확인 하려면 논리 앱의 실행 상태 (예: `Succeeded`, `Failed`등)를 확인 하는 데 사용 하는 것과 동일한 기준을 사용할 수 있습니다.
 
@@ -267,7 +267,7 @@ ms.locfileid: "75912074"
 
 [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) 함수는 범위에 있는 모든 작업의 결과에 대 한 컨텍스트를 제공 합니다. `result()` 함수는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위 내에서 모든 작업 결과를 포함 하는 배열을 반환 합니다. 이러한 작업 개체는 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 Id 및 출력과 같은 `actions()` 개체와 동일한 특성을 포함 합니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 전송 하려면 `@result()` 식을 `runAfter` 속성과 쉽게 연결할 수 있습니다.
 
-`Failed` 결과를 포함 하는 범위에서 각 작업에 대 한 작업을 실행 하 고 실패 한 작업까지 결과 배열을 필터링 하려면 `@result()` 식을 [**필터 배열**](../connectors/connectors-native-query.md) 작업 및 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프와 쌍으로 연결할 수 있습니다. 필터링 된 결과 배열을 가져와서 `For_each` 루프를 사용 하 여 각 오류에 대 한 작업을 수행할 수 있습니다.
+`Failed` 결과를 포함 하는 범위에서 각 작업에 대 한 작업을 실행 하 고 실패 한 작업까지 결과 배열을 필터링 하려면 `@result()` 식을 [**필터 배열**](logic-apps-perform-data-operations.md#filter-array-action) 작업 및 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프와 쌍으로 연결할 수 있습니다. 필터링 된 결과 배열을 가져와서 `For_each` 루프를 사용 하 여 각 오류에 대 한 작업을 수행할 수 있습니다.
 
 다음 예제에서는 자세한 설명과 함께 "My_Scope" 범위 내에서 실패한 작업의 응답 본문이 포함된 HTTP POST 요청을 보냅니다.
 

@@ -3,12 +3,12 @@ title: 자습서 - Azure Files 파일 공유 백업
 description: 이 자습서에서는 Azure Portal을 사용하여 Recovery Services 자격 증명 모음을 구성하고 Azure 파일 공유를 백업하는 방법에 대해 알아봅니다.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171861"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921637"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Azure Portal의 Azure 파일 공유 백업
 
@@ -20,7 +20,7 @@ ms.locfileid: "74171861"
 > * Azure 파일을 백업하도록 Recovery Services 자격 증명 모음 구성
 > * 주문형 백업 작업을 실행하여 복원 지점 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 스토리지 계정 유형](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview) 중 하나에 있는지 확인합니다. 이를 확인한 후에는 파일 공유를 보호할 수 있습니다.
 
@@ -28,7 +28,6 @@ Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 스토리�
 
 Azure 파일 공유를 위한 백업은 미리 보기에 있습니다. 범용 v1 및 범용 v2 스토리지 계정 둘 다에서 Azure 파일 공유가 지원됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
 
-* Virtual Networks 또는 방화벽을 사용하도록 설정된 스토리지 계정에서 Azure 파일 공유를 보호할 수 없습니다.
 * Azure Backup을 사용하여 Azure Files를 보호할 수 있는 CLI가 없습니다.
 * 일별 최대 예약 백업의 수는 1개입니다.
 * 일별 최대 주문형 백업의 수는 4개입니다.

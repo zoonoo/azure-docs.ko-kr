@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 11ffd323c5f775a795899cc35706493cba6d933b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768659"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965833"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "74768659"
 
 > [!NOTE]
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for PostgreSQL이 배포된 모든 Azure 퍼블릭 클라우드 지역에서 사용할 수 있습니다.
-> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for PostgreSQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
+> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며, 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for PostgreSQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -89,8 +89,8 @@ VM에 대한 *정적* IP 주소를 가져와서 IP 옵션을 복원할 수 있�
 
 Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 있습니다. 다음과 같은 각 역할의 작업이 필요합니다.
 
-- **네트워크 관리자:** &nbsp; 엔드포인트를 켭니다.
-- **데이터베이스 관리자:** &nbsp; ACL(액세스 제어 목록)을 업데이트하여 제공된 서브넷을 Azure Database for PostgreSQL 서버에 추가합니다.
+- **네트워크 관리자:** 끝점을 &nbsp; 설정 합니다.
+- **데이터베이스 관리자:** ACL (액세스 제어 목록)을 업데이트 하 여 지정 된 서브넷을 Azure Database for PostgreSQL 서버에 추가 &nbsp; 합니다.
 
 *RBAC 대체:*
 
@@ -147,7 +147,7 @@ VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -161,4 +161,4 @@ VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

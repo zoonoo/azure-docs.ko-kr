@@ -3,30 +3,26 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용 되는 Azure Migrate 어플라이언스에 대 한 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c3ac39759cc096bb27535877084e14f4ed50cea9
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: efad1c48dd2c92c0fd5f268013b4a59f34b3a766
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719582"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028812"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
-이 문서에서는 Azure Migrate 어플라이언스를 설명 합니다. Azure Migrate 평가 및 마이그레이션 도구를 사용 하 여 앱, 인프라 및 워크 로드를 검색, 평가 및 마이그레이션할 때 어플라이언스를 배포 하는 경우 Microsoft Azure 합니다. 
-
-[Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 프라이빗/퍼블릭 클라우드 VM의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
-
-
+이 문서에서는 Azure Migrate 어플라이언스를 설명 합니다. [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용 하 여 Microsoft Azure 마이그레이션하기 위한 앱, 인프라 및 워크 로드를 검색 하 고 평가 하는 경우 어플라이언스를 배포 합니다. 어플라이언스는 VMware Vm을 [에이전트 없이](server-migrate-overview.md)마이그레이션할 때 [서버 평가를 Azure Migrate](migrate-services-overview.md#azure-migrate-server-migration-tool) 사용 하 여 Azure로 마이그레이션할 때에도 사용 됩니다.
 
 ## <a name="appliance-overview"></a>어플라이언스 개요
 
-Azure Migrate 어플라이언스 유형 및 사용법은 다음과 같습니다.
+Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 됩니다.
 
 **시나리오** | **도구** | **용도** 
---- | --- 
-VMware VM | Azure Migrate: 서버 평가 Azure Migrate: 서버 마이그레이션 | VMware Vm 검색<br/><br/> 앱 및 종속성 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.<br/><br/> 에이전트 없는 마이그레이션을 사용 하 여 VMware Vm을 복제 합니다.
+--- | --- | ---
+VMware VM | Azure Migrate: 서버 평가<br/><br/> Azure Migrate: 서버 마이그레이션 | VMware Vm 검색<br/><br/> 컴퓨터 앱 및 종속성 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.<br/><br/> 에이전트 없는 마이그레이션을 사용 하 여 VMware Vm을 복제 합니다.
 Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.
-물리적 머신 |  Azure Migrate: 평가 도구 |  물리적 서버 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.
+물리적 머신 |  Azure Migrate: 서버 평가 |  물리적 서버 검색<br/><br/> 평가에 대 한 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 합니다.
 
 ## <a name="appliance---vmware"></a>어플라이언스-VMware 
 
@@ -36,12 +32,14 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **다운로드 링크** | https://aka.ms/migrate/appliance/vmware 
 **다운로드 크기** | 11.2 GB
 **라이선스** | 다운로드 한 어플라이언스 템플릿에는 180 일 동안 유효한 Windows Server 2016 평가판 라이선스가 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
+**배포** | 어플라이언스를 VMware VM으로 배포 합니다. 32 GB RAM, 8 개 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/><br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/> 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.<br/><br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **하드웨어** | VCenter의 리소스를 사용 하 여 32 GB RAM 8 vCPUs, 80 GB의 디스크 저장소, 외부 가상 스위치를 사용 하 여 VM을 할당 합니다. 
 **해시 값** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **vCenter 서버/호스트** | 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.<br/><br/> 5\.5, 6.0, 6.5 또는 6.7을 실행 하는 vCenter Server.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/> DRA: VM 복제를 오케스트레이션 하 고 컴퓨터/Azure 간의 통신을 조정 합니다.<br/> 게이트웨이: 복제 된 데이터를 Azure로 보냅니다.<br/> 자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
+**VDDK (에이전트 없는 마이그레이션)** | Azure Migrate Server Migration을 사용 하 여 에이전트 없는 마이그레이션을 실행 하는 경우 VMware vSphere VDDK을 어플라이언스 VM에 설치 해야 합니다.)
 
 
 ## <a name="appliance---hyper-v"></a>어플라이언스-Hyper-v
@@ -52,12 +50,13 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **다운로드 링크** | https://aka.ms/migrate/appliance/hyperv 
 **다운로드 크기** | 10GB
 **라이선스** | 다운로드 한 어플라이언스 템플릿에는 180 일 동안 유효한 Windows Server 2016 평가판 라이선스가 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
+**어플라이언스 배포**   |  어플라이언스를 Hyper-v VM으로 배포 합니다.<br/> Azure Migrate에서 제공 하는 어플라이언스 VM은 Hyper-v VM 버전 5.0입니다.<br/> Hyper-v 호스트는 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 호스트는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
 **하드웨어** | Hyper-v 호스트의 리소스-16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 합니다.
 **해시 값** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V 호스트** | Windows Server 2012 R2 이상 버전을 실행 하 고 있습니다.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색** | 어플라이언스는 vCenter Server에서 VMware Vm을 5000 개까지 검색할 수 있습니다.<br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
-**어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/>  자동 업데이트 서비스: 구성 요소 업데이트 (24 시간 마다 실행)
+**어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/>  자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
 
 
 ## <a name="appliance---physical"></a>어플라이언스-물리적
@@ -67,13 +66,15 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **다운로드 형식** | 압축 폴더 (PowerShell 설치 관리자 스크립트 사용)
 **다운로드 링크** | [다운로드 링크](https://go.microsoft.com/fwlink/?linkid=2105112)
 **다운로드 크기** | 59.7 M B
-**하드웨어** | 어플라이언스를 실행 하는 컴퓨터에는 16gb RAM, 8 vCPUs, 80 GB의 저장소 공간이 필요 합니다.
+**하드웨어** | 전용 물리적 컴퓨터 또는 VM. 어플라이언스를 실행 하는 컴퓨터는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 외부 스위치를 요구 합니다.<br/><br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
 **해시 값** | MD5:96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
-**소프트웨어** | 어플라이언스 컴퓨터는 Windows Server 2016를 실행 해야 합니다. 서버는 전용 물리적 서버 또는 VM 이어야 합니다.
-**Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
+**소프트웨어** | 어플라이언스 컴퓨터는 Windows Server 2016를 실행 해야 합니다. 
+**어플라이언스 배포**   |  어플라이언스 설치 관리자 스크립트는 포털 (zip 폴더)에서 다운로드 됩니다. <br/> 폴더의 압축을 풀고 PowerShell 스크립트 (AzureMigrateInstaller)를 실행 합니다.
 **검색** | 어플라이언스는 최대 250 대의 물리적 서버를 검색할 수 있습니다.
 **어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/>  자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
-**액세스/포트** | 어플라이언스를 구성한 후에는 TCP 포트 3389에서 인바운드 연결을 사용 하 여 어플라이언스에 대 한 원격 데스크톱 연결을 허용 합니다.<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하려면 포트 44368에서 인바운드 연결: ' https://< >: 44368.<br/><br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
+**포트 액세스** | 어플라이언스를 구성한 후에는 TCP 포트 3389에서 인바운드 연결을 사용 하 여 어플라이언스에 대 한 원격 데스크톱 연결을 허용 합니다.<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하려면 포트 44368에서 인바운드 연결: ' https://< >: 44368.<br/><br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
+
+
 
 ## <a name="url-access"></a>URL 액세스
 
@@ -90,11 +91,13 @@ Azure Migrate 어플라이언스를 인터넷에 연결 해야 합니다.
 management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
-aka.ms/* | 즉, 링크에 대 한 액세스를 허용 합니다.
+aka.ms/* | 즉, 링크에 대 한 액세스를 허용 합니다. Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 수 있습니다.
-\*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
-\*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
+\*.servicebus.windows.net | VMware 에이전트 없는 마이그레이션에 사용 됩니다.<br/><br/> 어플라이언스와 Azure Migrate 서비스 간의 통신.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | VMware 에이전트 없는 마이그레이션에 사용 됩니다.<br/><br/> Azure Migrate 서비스 Url에 연결 합니다.
+\*.blob.core.windows.net |  VMware 에이전트 없는 마이그레이션에 사용 됩니다.<br/><br/>저장소에 데이터를 업로드 합니다.
+
+
 
 
 ## <a name="collected-data---vmware"></a>수집 된 데이터-VMware

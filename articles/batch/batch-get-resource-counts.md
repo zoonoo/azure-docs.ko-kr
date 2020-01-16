@@ -2,19 +2,19 @@
 title: 작업 및 노드에 대한 상태 계산 - Azure Batch | Microsoft Docs
 description: Batch 솔루션을 관리하고 모니터링할 수 있으려면 컴퓨팅 노드 및 Azure Batch 태스크의 상태를 계산합니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 7b41be8c325cd238592f33369499348885de1778
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5e90045b7863968e8c61c3cbc382434bc8be415a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323534"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029707"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>상태별로 노드 및 작업을 계산하여 Batch 솔루션 모니터링
 
@@ -34,10 +34,10 @@ ms.locfileid: "68323534"
 
 Get Task Counts 연산은 다음과 같 상태별로 태스크를 계산합니다.
 
-- **활성** - 대기열에 있으며 실행할 수 있지만, 현재는 계산 노드에 할당되지 않는 태스크입니다. 아직 완료되지 않은 [상위 태스크에 종속된](batch-task-dependencies.md) 태스크도 `active`입니다. 
-- **실행 중** - 계산 노드에 할당되었지만, 아직 완료되지 않은 태스크입니다. 작업은 [작업에 대 한 정보 가져오기][rest_get_task] 작업에 `preparing` 표시 `running`된 대로 상태가 또는 인 경우로 `running` 계산 됩니다.
+- **활성** - 대기열에 있으며 실행할 수 있지만, 현재는 컴퓨팅 노드에 할당되지 않는 태스크입니다. 아직 완료되지 않은 [상위 태스크에 종속된](batch-task-dependencies.md) 태스크도 `active`입니다. 
+- **실행 중** - 컴퓨팅 노드에 할당되었지만, 아직 완료되지 않은 태스크입니다. 작업은 [작업에 대 한 정보 가져오기][rest_get_task] 작업에 표시 된 대로 상태가 `preparing` 또는 `running`인 경우 `running`로 계산 됩니다.
 - **완료** - 태스크가 성공적으로 또는 실패로 완료되고 다시 시도 제한 횟수를 모두 사용했기 때문에 더 이상 실행하기에 적합하지 않은 태스크입니다. 
-- **성공** - 태스크 실행의 결과가 `success`인 태스크입니다. Batch는 `TaskExecutionResult` [executioninfo][rest_get_exec_info] 속성의 속성을 검사 하 여 태스크가 성공 또는 실패 했는지 여부를 확인 합니다.
+- **성공** - 태스크 실행의 결과가 `success`인 태스크입니다. Batch는 [Executioninfo][rest_get_exec_info] 속성의 `TaskExecutionResult` 속성을 확인 하 여 태스크가 성공 또는 실패 했는지 여부를 확인 합니다.
 - **실패** - 태스크 실행의 결과가 `failure`인 태스크입니다.
 
 다음 .NET 코드 예제는 상태별로 태스크 수를 가져오는 방법을 보여 줍니다. 
@@ -63,7 +63,7 @@ REST 및 기타 지원되는 언어에 유사한 패턴을 사용하여 작업�
 List Pool Node Counts 연산은 각 풀의 다음 상태에 따라 컴퓨팅 노드를 계산합니다. 전용 노드 및 각 풀에서 우선 순위가 낮은 노드에 대해 별도 집계 수가 제공됩니다.
 
 - **만들기** - 풀에 조인이 아직 시작되지 않은 Azure 할당 VM입니다.
-- **유휴 상태** - 현재 태스크를 실행하지 않는 사용 가능한 계산 노드입니다.
+- **유휴 상태** - 현재 태스크를 실행하지 않는 사용 가능한 컴퓨팅 노드입니다.
 - **LeavingPool** - 사용자가 명시적으로 풀을 제거하거나, 풀이 크기가 조정되거나 자동 축소되기 때문에 풀을 나가는 노드입니다.
 - **오프라인** - Batch가 새 태스크를 예약하는 데 사용할 수 없는 노드입니다.
 - **선점** - Azure가 VM을 회수했기 때문에 풀에서 제거된 우선 순위가 낮은 노드입니다. `preempted` 노드는 대체 우선 순위가 낮은 VM 용량을 사용할 수 있는 경우 다시 초기화될 수 있습니다.
@@ -71,7 +71,7 @@ List Pool Node Counts 연산은 각 풀의 다음 상태에 따라 컴퓨팅 노
 - **이미지로 다시 설치** - 다시 설치되는 운영 체제의 노드입니다.
 - **실행** - 하나 이상의 태스크(시작 태스크 이외)를 실행하는 노드입니다.
 - **시작** - 시작 중인 Batch 서비스의 노드입니다. 
-- **Starttaskfailed** - [시작 태스크가][rest_start_task] 실패 하 고 모든 재시도를 `waitForSuccess` 모두 사용 하 고 시작 태스크에이 설정 된 노드입니다. 노드는 태스크를 실행하는 데 사용할 수 없습니다.
+- **Starttaskfailed** - [시작 태스크가][rest_start_task] 실패 하 고 모든 재시도를 모두 사용 하 고 시작 작업에 설정 된 `waitForSuccess` 노드입니다. 노드는 태스크를 실행하는 데 사용할 수 없습니다.
 - **알 수 없음** - Batch 서비스와 연락을 상실하여 해당 상태가 알려지지 않은 노드입니다.
 - **사용할 수 없음** - 오류로 인해 태스크 실행에 사용할 수 없는 노드입니다.
 - **WaitingForStartTask** - 시작 태스크는 실행을 시작했지만 `waitForSuccess`가 설정되어 있어 시작 태스크가 완료되지 않은 상태의 노드입니다.

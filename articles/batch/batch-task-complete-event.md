@@ -2,7 +2,7 @@
 title: Azure Batch 태스크 완료 이벤트 | Microsoft Docs
 description: Batch 태스크 완료 이벤트에 대한 참조입니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 085ca1d007371c3afd7246078369475da38f9b9f
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: 0a325060097f11b38e3b35d032c572b9dfbe0cc7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258255"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026120"
 ---
 # <a name="task-complete-event"></a>태스크 완료 이벤트
 
@@ -51,39 +51,39 @@ ms.locfileid: "70258255"
 }
 ```
 
-|요소 이름|형식|참고|
+|요소 이름|유형|메모|
 |------------------|----------|-----------|
 |`jobId`|String|태스크가 포함 된 작업의 ID입니다.|
 |`id`|String|태스크의 ID입니다.|
-|`taskType`|문자열|태스크의 유형입니다. 이는 작업 관리자 태스크를 나타내는 'JobManager' 또는 작업 관리자 태스크가 아님을 나타내는 'User'가 될 수 있습니다. 작업 준비 태스크, 작업 릴리스 태스크 또는 시작 태스크의 경우 이 이벤트가 내보내지지 않습니다.|
+|`taskType`|String|태스크의 유형입니다. 이는 작업 관리자 태스크를 나타내는 'JobManager' 또는 작업 관리자 태스크가 아님을 나타내는 'User'가 될 수 있습니다. 작업 준비 태스크, 작업 릴리스 태스크 또는 시작 태스크의 경우 이 이벤트가 내보내지지 않습니다.|
 |`systemTaskVersion`|Int32|태스크에 대한 내부 재시도 카운터입니다. 내부적으로 Batch 서비스는 일시적인 문제를 해결하기 위해 태스크를 다시 시도할 수 있습니다. 이러한 문제에는 내부 일정 오류 또는 불량 상태의 컴퓨팅 노드 복구를 위한 시도가 포함될 수 있습니다.|
 |[`nodeInfo`](#nodeInfo)|복합 형식|태스크가 실행된 컴퓨팅 노드에 대한 정보를 포함합니다.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|복합 형식|여러 컴퓨팅 노드가 필요한 다중 인스턴스 태스크임을 지정합니다.  자세한 [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) 내용은을 참조 하세요.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|복합 형식|여러 컴퓨팅 노드가 필요한 다중 인스턴스 태스크임을 지정합니다.  자세한 내용은 [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) 를 참조 하세요.|
 |[`constraints`](#constraints)|복합 형식|이 태스크에 적용되는 실행 제약 조건입니다.|
 |[`executionInfo`](#executionInfo)|복합 형식|태스크 실행에 대한 정보를 포함합니다.|
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|요소 이름|형식|참고|
+|요소 이름|유형|메모|
 |------------------|----------|-----------|
-|`poolId`|문자열|태스크가 실행 된 풀의 ID입니다.|
+|`poolId`|String|태스크가 실행 된 풀의 ID입니다.|
 |`nodeId`|String|태스크가 실행 된 노드의 ID입니다.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|요소 이름|형식|참고|
+|요소 이름|유형|메모|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|태스크에 필요한 컴퓨팅 노드 수입니다.|
 
 ###  <a name="constraints"></a> constraints
 
-|요소 이름|형식|참고|
+|요소 이름|유형|메모|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|태스크를 다시 시도할 수 있는 최대 횟수입니다. 종료 코드가 0이 아니면 Batch 서비스가 태스크를 다시 시도합니다.<br /><br /> 이 값은 구체적으로 재시도 횟수를 제어합니다. Batch 서비스는 태스크를 한 번 시도한 후 이 한도까지 다시 시도할 수 있습니다. 예를 들어 최대 재시도 횟수가 3일 경우 Batch는 최대 4회까지 태스크를 시도합니다(초기 시도 1회와 재시도 3회).<br /><br /> 최대 재시도 횟수가 0일 경우 Batch 서비스는 태스크를 다시 시도하지 않습니다.<br /><br /> 최대 재시도 횟수가 -1일 경우 Batch 서비스는 태스크를 무제한으로 다시 시도합니다.<br /><br /> 기본값은 0(재시도 안 함)입니다.|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|요소 이름|형식|참고|
+|요소 이름|유형|메모|
 |------------------|----------|-----------|
 |`startTime`|DateTime|태스크가 실행되기 시작한 시간입니다. 'Running'은 **실행 중** 상태에 해당하므로 태스크가 리소스 파일 또는 애플리케이션 패키지를 지정할 경우 시작 시간에는 태스크가 이를 다운로드 또는 배포하기 시작한 시간이 반영됩니다.  태스크가 다시 시작되거나 다시 시도된 경우 이는 태스크가 실행을 시작한 가장 최근의 시간을 나타냅니다.|
 |`endTime`|DateTime|태스크가 완료된 시간입니다.|

@@ -3,7 +3,7 @@ title: Azure Active Directory를 사용하여 Azure Batch 서비스 솔루션 �
 description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합니다.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: lahugh
-ms.openlocfilehash: 4ec85078e6664a43dd31cd04c132d87681bda225
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: jushiman
+ms.openlocfilehash: 56fcd5a8a02e292fdf43f9d22f3987813bce0743
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095614"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029815"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -101,7 +101,7 @@ Azure AD에 애플리케이션을 등록하는 방법에 대한 자세한 내용
 1. **API 선택**에서 일괄 처리 API를 검색합니다. API를 찾을 때까지 다음 문자열 각각을 검색합니다.
     1. **Microsoft Azure Batch**
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864**는 Batch API에 대한 ID입니다.
-1. Batch API를 찾으면 해당 API를 선택 하 고 선택을 선택 합니다.
+1. Batch API를 찾으면 해당 API를 선택 하 **고 선택을 선택 합니다.**
 1. **권한 선택**에서 **액세스 Azure Batch 서비스** 옆의 확인란을 선택 하 고 **사용 권한 추가**를 선택 합니다.
 
 이제 **API 권한** 섹션에는 Azure AD 응용 프로그램이 Microsoft Graph 및 BATCH 서비스 API 모두에 대 한 액세스 권한이 있음을 보여 줍니다. Azure AD에 앱을 처음 등록할 때 Microsoft Graph에 대 한 권한이 자동으로 부여 됩니다.

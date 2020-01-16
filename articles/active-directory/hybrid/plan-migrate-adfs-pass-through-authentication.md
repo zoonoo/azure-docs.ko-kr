@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 21ceacf27f92781b40a856b0c0a4d627d41a0738
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779914"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028571"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
 이 문서에서는 조직 도메인을 AD FS(Active Directory Federation Services)에서 통과 인증으로 전환하는 방법에 대해 설명합니다.
 
-[이 문서는 다운로드](https://aka.ms/ADFSTOPTADPDownload)할 수 있습니다.
+> [!NOTE]
+> 인증 방법을 변경 하려면 계획, 테스트 및 잠재적 가동 중지 시간이 필요 합니다. [단계적 출시](how-to-connect-staged-rollout.md) 는 통과 인증을 사용 하 여 페더레이션에서 클라우드 인증으로 테스트 하 고 점진적으로 마이그레이션하는 대체 방법을 제공 합니다.
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>통과 인증으로 마이그레이션하기 위한 필수 조건
 
@@ -36,13 +37,13 @@ AD FS 사용에서 통과 인증 사용으로 마이그레이션하는 데 필�
 > [!IMPORTANT]
 > 도메인을 페더레이션 ID에서 관리 ID로 변환할 때 사용자 변환이 필요한 오래된 문서, 도구 및 블로그에서 읽을 수 있습니다. *사용자 변환*은 더 이상 필요하지 않습니다. Microsoft는 이러한 변경을 반영하기 위해 설명서와 도구를 업데이트하려고 노력하고 있습니다.
 
-Azure AD Connect를 업데이트하려면 [Azure AD Connect: 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)의 단계를 수행합니다.
+Azure AD Connect를 업데이트 하려면 [Azure AD Connect: 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)의 단계를 완료 합니다.
 
 ### <a name="plan-authentication-agent-number-and-placement"></a>인증 에이전트 번호 및 배치 계획
 
 통과 인증을 사용하려면 Azure AD Connect 서버와 Windows 서버를 실행하는 온-프레미스 컴퓨터에 경량 에이전트를 배포해야 합니다. 대기 시간을 줄이려면 Active Directory 도메인 컨트롤러에 최대한 가깝게 에이전트를 설치합니다.
 
-대부분의 고객의 경우 고가용성과 필요한 용량을 제공하는 데 2~3개의 인증 에이전트로 충분합니다. 테넌트는 최대 12개의 에이전트를 등록할 수 있습니다. 첫 번째 에이전트는 항상 Azure AD Connect 서버 자체에 설치됩니다. 에이전트 제한 및 에이전트 배포 옵션에 대한 자세한 내용은 [Azure AD 통과 인증: 현재 제한 사항](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations)을 참조하세요.
+대부분의 고객의 경우 고가용성과 필요한 용량을 제공하는 데 2~3개의 인증 에이전트로 충분합니다. 테넌트는 최대 12개의 에이전트를 등록할 수 있습니다. 첫 번째 에이전트는 항상 Azure AD Connect 서버 자체에 설치됩니다. 에이전트 제한 사항 및 에이전트 배포 옵션에 대 한 자세한 내용은 [AZURE AD 통과 인증: 현재 제한 사항](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations)을 참조 하세요.
 
 ### <a name="plan-the-migration-method"></a>마이그레이션 방법 계획
 
@@ -77,8 +78,8 @@ Azure AD Connect를 업데이트하려면 [Azure AD Connect: 최신 버전으로
    ![추가 작업 페이지에 있는 현재 구성 보기 옵션의 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
 3. **솔루션 검토** 페이지에서 **AD FS(Active Directory Federation Services)** 까지 아래로 스크롤합니다.<br />
 
-   * 이 섹션에 AD FS 구성이 표시되면 AD FS가 원래 Azure AD Connect를 사용하여 구성되었다고 가정할 수 있습니다. Azure AD Connect **사용자 로그인 변경** 옵션을 사용하여 도메인을 페더레이션 ID에서 관리 ID로 변환할 수 있습니다. 프로세스에 대 한 자세한 내용은 **옵션 A: Azure AD Connect를 사용하여 통과 인증 구성** 섹션을 참조하세요.
-   * AD FS가 현재 설정에 나열되지 않으면 PowerShell을 사용하여 도메인을 페더레이션 ID에서 관리 ID로 수동으로 변환해야 합니다. 이 프로세스에 대한 자세한 내용은 **옵션 B: Azure AD Connect 및 PowerShell을 사용하여 페더레이션에서 통과 인증으로 전환** 섹션을 건너뜁니다.
+   * 이 섹션에 AD FS 구성이 표시되면 AD FS가 원래 Azure AD Connect를 사용하여 구성되었다고 가정할 수 있습니다. Azure AD Connect **사용자 로그인 변경** 옵션을 사용하여 도메인을 페더레이션 ID에서 관리 ID로 변환할 수 있습니다. 프로세스에 대 한 자세한 내용은 **옵션 A: Azure AD Connect 사용 하 여 통과 인증 구성**섹션을 참조 하세요.
+   * AD FS가 현재 설정에 나열되지 않으면 PowerShell을 사용하여 도메인을 페더레이션 ID에서 관리 ID로 수동으로 변환해야 합니다. 이 프로세스에 대 한 자세한 내용은 **옵션 B: Azure AD Connect 및 PowerShell을 사용 하 여 페더레이션에서 통과 인증으로 전환**섹션을 참조 하세요.
 
 ### <a name="document-current-federation-settings"></a>현재 페더레이션 설정 문서화
 
@@ -88,7 +89,7 @@ Azure AD Connect를 업데이트하려면 [Azure AD Connect: 최신 버전으로
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-예제:
+예:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
@@ -124,7 +125,7 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 페더레이션 ID에서 관리 ID로 변환하기 전에 현재 AD FS를 Azure AD, Office 365 및 다른 애플리케이션(신뢰 당사자 트러스트)에 사용하는 방법을 자세히 살펴봅니다. 특히 다음 표에서 설명하는 시나리오를 고려해야 합니다.
 
-| 조건 | 작업 |
+| 다음과 같은 경우 | 작업 |
 |-|-|
 | AD FS를 Azure AD 및 Office 365 이외의 다른 애플리케이션에서 계속 사용하려고 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 두 번 인증해야 할 수도 있습니다. 즉 한번은 Azure AD(사용자가 Office 365와 같은 다른 애플리케이션에 SSO 액세스 권한을 얻은 경우), 또 한번은 아직도 AD FS에 바인딩된 애플리케이션에 대해 인증해야 합니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|
@@ -218,7 +219,7 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
 * Seamless SSO 준비
 * 로그인 방법을 통과 인증으로 변경 및 Seamless SSO 사용
 
-### <a name="step-1-prepare-for-seamless-sso"></a>1단계: Seamless SSO 준비
+### <a name="step-1-prepare-for-seamless-sso"></a>1 단계: 원활한 SSO 준비
 
 디바이스에서 Seamless SSO를 사용하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 하나의 Azure AD URL을 추가해야 합니다.
 
@@ -229,11 +230,11 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
 > [!IMPORTANT]
 > 이렇게 변경하더라도 사용자가 Azure AD에 로그인하는 방법이 수정되지 않습니다. 그러나 계속 진행하기 전에 이 구성을 모든 디바이스에 적용해야 합니다. 또한 이 구성을 받지 않은 디바이스에 로그인하는 사용자는 Azure AD에 로그인하기 위해 사용자 이름과 암호만 입력하면 됩니다.
 
-### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>2단계: 로그인 방법을 통과 인증으로 변경 및 Seamless SSO 사용
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>2 단계: 로그인 방법을 통과 인증으로 변경 하 고 원활한 SSO를 사용 하도록 설정
 
 로그인 방법을 통과 인증으로 변경하고 Seamless SSO를 사용하도록 설정하는 두 가지 옵션이 있습니다.
 
-#### <a name="option-a-configure-pass-through-authentication-by-using-azure-ad-connect"></a>옵션 A: Azure AD Connect를 사용하여 통과 인증 구성
+#### <a name="option-a-configure-pass-through-authentication-by-using-azure-ad-connect"></a>옵션 A: Azure AD Connect을 사용 하 여 통과 인증 구성
 
 원래 Azure AD Connect를 사용하여 AD FS 환경을 구성한 경우 이 방법을 사용합니다. 원래 Azure AD Connect를 사용하여 AD FS 환경을 구성하지 *않은* 경우에는 이 방법을 사용할 수 없습니다.
 
@@ -288,9 +289,9 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
 [테스트 및 다음 단계](#testing-and-next-steps)로 건너뜁니다.
 
 > [!IMPORTANT]
-> **옵션 B: Azure AD Connect 및 PowerShell을 사용하여 페더레이션에서 통과 인증으로 전환** 섹션을 건너뜁니다. 옵션 A를 선택하여 로그인 방법을 통과 인증으로 변경하고 Seamless SSO를 사용하도록 설정한 경우에는 이 섹션의 단계가 적용되지 않습니다. 
+> **Azure AD Connect 및 PowerShell을 사용 하 여 옵션 B: 페더레이션에서 통과 인증으로 전환**섹션을 건너뜁니다. 옵션 A를 선택하여 로그인 방법을 통과 인증으로 변경하고 Seamless SSO를 사용하도록 설정한 경우에는 이 섹션의 단계가 적용되지 않습니다. 
 
-#### <a name="option-b-switch-from-federation-to-pass-through-authentication-by-using-azure-ad-connect-and-powershell"></a>옵션 B: Azure AD Connect 및 PowerShell을 사용하여 페더레이션에서 통과 인증으로 전환
+#### <a name="option-b-switch-from-federation-to-pass-through-authentication-by-using-azure-ad-connect-and-powershell"></a>옵션 B: Azure AD Connect 및 PowerShell을 사용 하 여 페더레이션에서 통과 인증으로 전환
 
 원래 Azure AD Connect를 사용하여 페더레이션된 도메인을 구성하지 않은 경우 이 옵션을 사용합니다.
 

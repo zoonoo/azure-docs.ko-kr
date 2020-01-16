@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 탐색기에서 데이터베이스 권한 관리
+title: Azure 데이터 탐색기에서 데이터베이스 사용 권한 관리
 description: 이 문서에서는 Azure 데이터 탐색기의 데이터베이스 및 테이블에 대한 역할 기반 액세스 제어에 대해 설명합니다.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758800"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030098"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure 데이터 탐색기 데이터베이스 권한 관리
 
@@ -46,7 +46,7 @@ Azure 데이터 탐색기에는 다음 역할이 있습니다.
 
 1. **권한**을 선택한 다음, **추가**를 선택합니다.
 
-    ![데이터베이스 권한](media/manage-database-permissions/database-permissions.png)
+    ![데이터베이스 사용 권한](media/manage-database-permissions/database-permissions.png)
 
 1. **데이터베이스 권한 추가** 아래에서 주체를 할당할 역할을 선택한 후 **주체 선택**을 선택합니다.
 
@@ -73,6 +73,8 @@ Azure 데이터 탐색기에는 다음 역할이 있습니다.
     ```
 
     명령의 출력은 데이터베이스에서 기존 사용자 및 해당 사용자가 할당된 역할의 목록을 표시합니다.
+    
+    Azure Active Directory 및 Kusto 권한 부여 모델과 관련 된 예는 [원칙 및 Id 공급자](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

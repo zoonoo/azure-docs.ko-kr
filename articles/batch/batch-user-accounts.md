@@ -2,7 +2,7 @@
 title: 사용자 계정으로 작업 실행 - Azure Batch | Microsoft Docs
 description: Azure Batch에서 태스크를 실행하기 위해 사용자 계정 구성
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/18/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 866f2e5e1ba9df9e8e63b77250d6c94635bbc009
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: d4975935c872f059dde6b08bcd7a4f06540c2dfd
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74194964"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029609"
 ---
 > [!NOTE] 
 > 이 문서에서 설명 하는 사용자 계정은 보안상의 이유로 RDP (원격 데스크톱 프로토콜) 또는 Secure Shell (SSH)에 사용 되는 사용자 계정과 다릅니다. 

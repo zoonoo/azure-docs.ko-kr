@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34dd15ee638335048c983fbb752bd812291456ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1761eebe51c5ccb4d30b93ad4122dfc185d216e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418046"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028252"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -20,19 +20,19 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 실행 계정에는 다음과 같은 두 종류가 있습니다.
 
-* **Azure 실행 계정** -이 계정은 [리소스 관리자 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스를 관리 하는 데 사용 됩니다.
+* **Azure 실행 계정** -이 계정은 [리소스 관리자 배포 모델](../azure-resource-manager/management/deployment-models.md) 리소스를 관리 하는 데 사용 됩니다.
   * 자체 서명된 인증서로 Azure AD 애플리케이션을 만들고, Azure AD에 애플리케이션의 서비스 주체 계정을 만들며, 현재 구독에 있는 계정에 대해 기여자 역할을 할당합니다. 이 설정을 소유자 또는 다른 어떤 역할로든 변경할 수 있습니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
   * 지정된 Automation 계정에서 *AzureRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 애플리케이션에서 사용되는 인증서 프라이빗 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 applicationId, tenantId, subscriptionId 및 인증서 지문을 보유합니다.
 
-* **Azure 클래식 실행 계정** -이 계정은 [클래식 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스를 관리 하는 데 사용 됩니다.
+* **Azure 클래식 실행 계정** -이 계정은 [클래식 배포 모델](../azure-resource-manager/management/deployment-models.md) 리소스를 관리 하는 데 사용 됩니다.
   * 구독에 관리 인증서를 만듭니다.
   * 지정된 Automation 계정에서 *AzureClassicRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 관리 인증서에서 사용되는 인증서 프라이빗 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureClassicRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 구독 이름, subscriptionId 및 인증서 자산 이름을 보유합니다.
   * 만들거나 갱신 하려면 구독에 대 한 공동 관리자 여야 합니다.
 
   > [!NOTE]
-  > Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. CSP 구독 사용 시에는 Azure 클래식 실행 계정이 생성되지 않습니다. Azure 실행 계정은 계속 생성됩니다. CSP 구독에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)를 참조하세요.
+  > Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. CSP 구독 사용 시에는 Azure 클래식 실행 계정이 생성되지 않습니다. Azure 실행 계정은 계속 생성됩니다. CSP 구독에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services)를 참조하세요.
 
   > [!NOTE]
   > 실행 계정에 대 한 서비스 주체에는 기본적으로 Azure Active Directory를 읽을 수 있는 권한이 없습니다. Azure Active directory를 읽거나 관리 하는 권한을 추가 하려면 **API 권한**에서 서비스 주체에 대 한 권한을 부여 해야 합니다. 자세한 내용은 [웹 api에 액세스 하기 위한 권한 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조 하세요.

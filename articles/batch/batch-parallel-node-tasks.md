@@ -3,7 +3,7 @@ title: 병렬로 태스크를 실행하여 효율적으로 컴퓨팅 리소스 �
 description: Azure Batch 풀의 각 노드에서 동시 작업을 실행하고 더 적은 수의 컴퓨팅 노드를 사용하여 효율성은 높이고 비용은 낮춥니다.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/17/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f45c35e6d9fb611ebf73c4eab8b517d8575b8e82
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a47cbbf11117197d6d00d532fb0321d284c56b7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094934"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026816"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>동시에 태스크를 실행하여 Batch 컴퓨팅 노드의 사용량 극대화 
 
@@ -43,7 +43,7 @@ Azure Batch 풀의 각 컴퓨팅 노드에서 동시에 둘 이상의 작업을 
 Azure Batch를 사용 하 여 노드당 작업을 코어 노드 수 (최대 4x)로 설정할 수 있습니다. 예를 들어, 풀이 노드 크기 “Large”로 구성되었다면(4코어) `maxTasksPerNode` 는 16으로 설정될 수 있습니다. 그러나 노드에 있는 코어 수에 관계 없이 노드당 256 개의 작업을 가질 수 없습니다. 각 노드 크기에 대한 코어 수에 대한 자세한 내용은 [Cloud Services에 적합한 크기](../cloud-services/cloud-services-sizes-specs.md)를 참조하세요. 서비스 제한에 대한 자세한 내용은 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 > [!TIP]
-> 풀에 대 한 [자동 크기 조정 수식을][enable_autoscaling] 구성할 때 값을고려해야합니다.`maxTasksPerNode` 예를 들어, `$RunningTasks` 를 평가하는 수식은 노드당 작업 수 증가에 크게 영향을 받을 수 있습니다. 자세한 내용은 [Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
+> 풀에 대 한 [자동 크기 조정 수식을][enable_autoscaling] 구성 하는 경우 `maxTasksPerNode` 값을 고려해 야 합니다. 예를 들어, `$RunningTasks` 를 평가하는 수식은 노드당 작업 수 증가에 크게 영향을 받을 수 있습니다. 자세한 내용은 [Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
 >
 >
 
@@ -52,7 +52,7 @@ Azure Batch를 사용 하 여 노드당 작업을 코어 노드 수 (최대 4x)�
 
 [Cloudpool.taskschedulingpolicy][task_schedule] 속성을 사용 하 여 풀의 모든 노드에 태스크를 균등 하 게 할당 하도록 지정할 수 있습니다 ("확산"). 또는 작업이 풀의 다른 노드로 할당되기 전에 최대한 많은 작업이 각 노드에 할당되도록 지정할 수 있습니다.("압축")
 
-이 기능을 사용 하는 방법의 예로, cloudpool.maxtaskspercomputenode 값이 16 [인\_표준 D14](../cloud-services/cloud-services-sizes-specs.md) 노드의 풀 (위 예제에서는)을 고려 합니다 [.][maxtasks_net] Cloudpool.taskschedulingpolicy가 *Pack*의 [ComputeNodeFillType][fill_type] 로 구성 된 경우 각 노드의 16 개 코어를 모두 사용 하 여 자동 크기 조정 [풀이](batch-automatic-scaling.md) 풀에서 사용 하지 않는 노드를 정리 하도록 허용 합니다 [.][task_schedule] 할당 된 모든 작업). 리소스 사용량을 최소화하고 비용을 절감합니다.
+이 기능을 사용 하는 방법의 예로, Cloudpool.maxtaskspercomputenode 값이 16 인 [표준\_D14](../cloud-services/cloud-services-sizes-specs.md) 노드 풀 (위 예제에서는)을 고려 하십시오 [.][maxtasks_net] [Cloudpool.taskschedulingpolicy][task_schedule] 가 *Pack*의 [ComputeNodeFillType][fill_type] 로 구성 된 경우 각 노드의 16 개 코어를 모두 사용 하 여 자동 크기 조정 [풀이](batch-automatic-scaling.md) 풀에서 사용 되지 않는 노드 (작업을 할당 하지 않은 노드)를 정리할 수 있습니다. 리소스 사용량을 최소화하고 비용을 절감합니다.
 
 ## <a name="batch-net-example"></a>Batch .NET 예
 이 [Batch .Net][api_net] API 코드 조각은 노드당 최대 4 개의 태스크가 있는 4 개 노드를 포함 하는 풀을 만드는 요청을 보여 줍니다. 풀의 다른 노드로 작업을 할당하기 전에 각 노드를 채울 정책을 예약하는 작업을 지정합니다. Batch .NET API를 사용 하 여 풀을 추가 하는 방법에 대 한 자세한 내용은 [Batchclient. PoolOperations][poolcreate_net]를 참조 하세요.
@@ -89,7 +89,7 @@ pool.Commit();
 ```
 
 > [!NOTE]
-> 풀을 만들 때 `maxTasksPerNode` 만 요소 및 [cloudpool.maxtaskspercomputenode][maxtasks_net] 속성을 설정할 수 있습니다. 풀이 이미 만들어진 후에는 수정될 수 없습니다.
+> 풀을 만들 때만 `maxTasksPerNode` 요소 및 [cloudpool.maxtaskspercomputenode][maxtasks_net] 속성을 설정할 수 있습니다. 풀이 이미 만들어진 후에는 수정될 수 없습니다.
 >
 >
 

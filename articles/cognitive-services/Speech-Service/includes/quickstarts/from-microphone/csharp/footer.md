@@ -1,21 +1,20 @@
 ---
 title: '빠른 시작: 마이크에서 음성 인식, C# - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: f33a68aab1d947e0612f88d8db114ab3921cbd42
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 74327bd3798179ef99d3e97c714b5d79e366402a
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818788"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928214"
 ---
 > [!div class="nextstepaction"]
 > [GitHub에서 C# 샘플 살펴보기](https://aka.ms/speech/github-csharp)

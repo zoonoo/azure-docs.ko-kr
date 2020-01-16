@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: a5b12a426e52c3b80c58a30b320b2f746bbe990d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832186"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028518"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱 소개
 
@@ -56,14 +56,16 @@ ms.locfileid: "75832186"
 
 증분 보강는 사용자가 개입할 필요 없이 변경 내용을 감지 하 고 대응 하도록 설계 되었지만 기본 동작을 재정의 하는 데 사용할 수 있는 매개 변수는 다음과 같습니다.
 
-+ 캐싱 일시 중단
++ 새 문서 우선 순위 지정
 + 기술 검사 무시
 + 데이터 원본 검사 무시
 + 강제 기술 평가
 
-### <a name="suspend-caching"></a>캐싱 일시 중단
+### <a name="prioritize-new-documents"></a>새 문서 우선 순위 지정
 
-캐시의 `enableReprocessing` 속성을 `false`로 설정하여 증분 보강을 일시적으로 중단하고, 나중에 증분 보강을 다시 시작하고 `true`로 설정하여 최종 일관성을 유지할 수 있습니다. 이 컨트롤은 문서 모음에서 일관성을 유지하는 것보다 새 문서 인덱스의 우선 순위를 지정하려는 경우에 특히 유용합니다.
+캐시에 이미 표시 된 들어오는 문서에 대 한 처리를 제어 하려면 `enableReprocessing` 속성을 설정 합니다. `true` (기본값) 이면 인덱서를 다시 실행할 때 캐시에 이미 있는 문서가 다시 처리 됩니다. 즉, 기술 업데이트가 해당 문서에 영향을 주는 것으로 가정 합니다. 
+
+`false`하는 경우 기존 문서를 다시 처리 하지 않고 기존 콘텐츠를 통해 새로운 들어오는 콘텐츠의 우선 순위를 효과적으로 결정 합니다. `enableReprocessing`를 임시 방식으로 `false` 설정 해야 합니다. `enableReprocessing` 모음에 대 한 일관성을 유지 하기 위해 대부분의 시간을 `true` 해야 합니다. 새 문서와 기존 모든 문서가 현재 기술 정의에 따라 유효 해야 합니다.
 
 ### <a name="bypass-skillset-evaluation"></a>바이패스 기술 evaluation
 
@@ -93,9 +95,9 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 ### <a name="force-skillset-evaluation"></a>강제 기술 평가
 
-캐시의 목적은 불필요 한 처리를 방지 하는 것 이지만 인덱서가 검색 하지 않는 기술 또는 기술 (예: 사용자 지정 기술 같은 외부 구성 요소에 대 한 변경 내용)를 변경한 경우를 가정 합니다. 
+캐시의 목적은 불필요 한 처리를 방지 하는 것 이지만 인덱서가 검색 하지 않는 기술 (예: 사용자 지정 기술 등의 외부 코드를 변경 하는 경우)을 변경 한다고 가정 합니다.
 
-이 경우 기술 [다시 설정](preview-api-resetskills.md) API를 사용 하 여 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 포함 하 여 특정 기술에 대 한 다시 처리를 적용할 수 있습니다. 이 API는 무효화 되 고 다시 실행 해야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 작업을 실행 합니다.
+이 경우 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 비롯 하 여 특정 기술에 대 한 다시 처리를 적용 하는 데 [다시 설정 기술을](preview-api-resetskills.md) 사용할 수 있습니다. 이 API는 무효화 되 고 다시 처리 하도록 표시 되어야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 파이프라인을 호출 합니다.
 
 ## <a name="change-detection"></a>변경 내용 검색
 
@@ -158,7 +160,7 @@ REST `api-version=2019-05-06-Preview`는 인덱서, 기술력과 및 데이터 �
 
 ### <a name="datasources"></a>Datasources
 
-+ 일부 인덱서는 쿼리를 통해 데이터를 검색 합니다. 데이터를 검색 하는 쿼리의 경우 [업데이트 데이터 원본](https://docs.microsoft.com/rest/api/searchservice/update-datasource) 에서 요청 `ignoreResetRequirement`에 대 한 새 매개 변수를 지원 합니다 .이 매개 변수는 업데이트 작업에서 캐시를 무효화 하지 않아야 하는 경우 `true`로 설정 되어야 합니다.
++ 일부 인덱서는 쿼리를 통해 데이터를 검색 합니다. 데이터를 검색 하는 쿼리의 경우 [업데이트 데이터 원본](https://docs.microsoft.com/rest/api/searchservice/update-data-source) 에서 요청 `ignoreResetRequirement`에 대 한 새 매개 변수를 지원 합니다 .이 매개 변수는 업데이트 작업에서 캐시를 무효화 하지 않아야 하는 경우 `true`로 설정 되어야 합니다.
 
 쉽게 검색할 수 없는 데이터에서 의도 하지 않은 불일치를 일으킬 수 있으므로 `ignoreResetRequirement`을 사용 합니다.
 

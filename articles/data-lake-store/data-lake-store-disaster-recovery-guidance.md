@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b33977ca5184ea07b5651be18e3a132d30ce4b39
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878293"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966063"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 데이터용 재해 복구 지침
 
@@ -37,7 +37,7 @@ Azure Data Lake Storage Gen1에서는 LRS(로컬 중복 스토리지)를 제공�
 Data Lake Storage Gen1에서 자동화된 복제본을 통해 데이터 복원 기능을 제공하기는 하지만, 애플리케이션이나 개발자/사용자가 데이터를 손상시키거나 실제로 삭제하는 행위를 방지할 수는 없습니다.
 
 ### <a name="best-practices"></a>모범 사례
-실수로 데이터를 삭제하지 않으려면 먼저 Data Lake Storage Gen1 계정에 대해 올바른 액세스 정책을 설정하는 것이 좋습니다.  이 과정에서는 [Azure 리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)을 적용하여 중요한 리소스를 잠그고, 사용 가능한 [Data Lake Storage Gen1 보안 기능](data-lake-store-security-overview.md)을 통해 계정 및 파일 수준 액세스 제어를 적용합니다. 그리고 다른 Data Lake Storage Gen1 계정, 폴더 또는 Azure 구독에서 [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) 또는 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)를 사용하여 중요한 데이터의 복사본을 정기적으로 만드는 것이 좋습니다.  데이터 손상 또는 삭제 인시던트로부터 복구하는 데 사용할 수 있습니다. Azure Data Factory는 반복적으로 데이터 이동 파이프라인을 만들고 배포하기 위한 유용한 서비스입니다.
+실수로 데이터를 삭제하지 않으려면 먼저 Data Lake Storage Gen1 계정에 대해 올바른 액세스 정책을 설정하는 것이 좋습니다.  이 과정에서는 [Azure 리소스 잠금](../azure-resource-manager/management/lock-resources.md)을 적용하여 중요한 리소스를 잠그고, 사용 가능한 [Data Lake Storage Gen1 보안 기능](data-lake-store-security-overview.md)을 통해 계정 및 파일 수준 액세스 제어를 적용합니다. 그리고 다른 Data Lake Storage Gen1 계정, 폴더 또는 Azure 구독에서 [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) 또는 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)를 사용하여 중요한 데이터의 복사본을 정기적으로 만드는 것이 좋습니다.  데이터 손상 또는 삭제 인시던트로부터 복구하는 데 사용할 수 있습니다. Azure Data Factory는 반복적으로 데이터 이동 파이프라인을 만들고 배포하기 위한 유용한 서비스입니다.
 
 조직에서는 해당 Data Lake Storage Gen1 계정에 대한 [진단 로깅](data-lake-store-diagnostic-logs.md)을 사용하도록 설정하여 파일을 삭제했거나 업데이트했을 수 있는 사용자에 대한 정보를 제공하는 데이터 액세스 감사 내역을 수집할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 기존 가용성 집합에 Azure VM 추가의 지원 가능성 | Microsoft Docs
-description: 기존 가용성 집합에 Azure VM 추가의 지원 가능성
+description: 이 문서에서는 동일한 가용성 집합에서 혼합할 수 있는 VM 시리즈에 대 한 지원 가능성 매트릭스를 제공 합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3954df389516aa7199022d713dc63d62dda961ae
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: cb0034f2b353284e94d6f1508541b31040a5b076
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155450"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028412"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>기존 가용성 집합에 Azure VM 추가의 지원 가능성
 
@@ -27,10 +27,10 @@ ms.locfileid: "71155450"
 
 다음은 다양한 유형의 VM에 대한 지원 가능성 행렬입니다.
 
-시리즈 및 가용성 집합|두 번째 VM|변수를 잠그기 위한|Av2|D|Dv2|Dv3|
+시리즈 및 가용성 집합|두 번째 VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |첫 번째 VM|||||||
-|변수를 잠그기 위한||확인|확인|확인|확인|확인|
+|A||확인|확인|확인|확인|확인|
 |Av2||확인|확인|확인|확인|확인|
 |D||확인|확인|확인|확인|확인|
 |Dv2||확인|확인|확인|확인|확인|

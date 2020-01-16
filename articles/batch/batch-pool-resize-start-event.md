@@ -2,7 +2,7 @@
 title: Azure Batch 풀 크기 조정 시작 이벤트
 description: Batch 풀 크기 조정 시작 이벤트에 대한 참조입니다. 예에서는 수동 크기 조정을 통해 풀 크기 조정 시작 이벤트의 본문을 0 개에서 2 개 노드로 크기를 조정 하는 방법을 보여 줍니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 89f4b04f4ef86ffa3978cadb997d6bfb8dae31c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: 8e2df1c2264392ab79e2dcbb7e58977f341b14d9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449758"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026620"
 ---
 # <a name="pool-resize-start-event"></a>풀 크기 조정 시작 이벤트
 

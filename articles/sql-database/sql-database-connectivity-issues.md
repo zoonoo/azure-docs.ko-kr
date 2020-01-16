@@ -11,16 +11,16 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
-ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
+ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082502"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027805"
 ---
-# <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL Database 연결 문제 및 일시적 오류 해결
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>SQL Database에 대 한 일시적인 연결 오류 해결
 
 이 문서에서는 클라이언트 애플리케이션이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
 
@@ -77,8 +77,8 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 
 재시도 논리가 포함된 코드 예제는 다음에 있습니다.
 
-- [ADO.NET으로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [PHP로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [ADO.NET을 사용하여 탄력적으로 SQL에 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [PHP를 사용하여 탄력적으로 SQL에 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -131,7 +131,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-[SqlConnection](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 개체에 대한 **연결 문자열**을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
+**SqlConnection** 개체에 대한 [연결 문자열](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
 - **ConnectRetryCount**:&nbsp;&nbsp;기본값은 1입니다. 범위는 0에서 255입니다.
 - **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 10 초입니다. 범위는 1에서 60입니다.
@@ -226,7 +226,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 모든 Windows 컴퓨터에서 이러한 유틸리티를 시도할 수 있습니다.
 
 - ADO.NET을 사용하여 연결하는 SQL Server Management Studio(ssms.exe)
-- `sqlcmd.exe`ODBC[를 사용하여 연결하는 ](https://msdn.microsoft.com/library/jj730308.aspx)
+- [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 `sqlcmd.exe`
 
 프로그램이 연결된 후에는 짧은 SQL SELECT 쿼리가 작동하는지 테스트합니다.
 
@@ -275,7 +275,7 @@ Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클�
 
 다음은 오류 로그 및 기타 정보를 쿼리하는 몇 가지 Transact-SQL SELECT 문입니다.
 
-| 로그 쿼리 | 설명 |
+| 로그 쿼리 | Description |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 보기는 추가 진단을 위해 이벤트 유형별로 집계된 개수를 제공합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
@@ -444,7 +444,6 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다른 일반적인 SQL Database 연결 문제 해결에 대한 자세한 내용은 [Azure SQL Database에 대한 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)을 참조하세요.
 - [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
 - [SQL Server 연결 풀링(ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 Python으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)

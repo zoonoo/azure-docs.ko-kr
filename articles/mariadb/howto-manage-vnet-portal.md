@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 66e7c2160317d71ced7517e1ec19014c1475c915
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 082fede57814fa7649309b672c2eea0d0f14b3f6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764102"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965880"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 
@@ -24,10 +24,10 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
 
 1. MariaDB 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 Azure Database for MariaDB의 연결 보안 창을 엽니다.
 
-2. Azure 서비스에 대 한 액세스 허용 컨트롤이 **OFF**로 설정 되어 있는지 확인 합니다.
+2. Azure 서비스 액세스 허용 컨트롤이 **해제**되어 있는지 확인합니다.
 
 > [!Important]
-> 설정 하는 경우 Azure MariaDB 데이터베이스 서버는 모든 서브넷의 통신을 허용 합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능은 Azure Database for MariaDB의 가상 네트워크 규칙 기능을 함께 사용 하 여 보안 노출 영역을 줄일 수 있습니다.
+> 컨트롤이 설정으로 되어 있으면 Azure MariaDB 데이터베이스 서버는 모든 서브넷으로부터의 통신을 허용합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Azure database for MariaDB의 가상 네트워크 규칙 기능과 협력하여 Microsoft Azure Virtual Network 서비스 엔드포인트 기능을 함께 사용하여 보안 영역을 줄일 수 있습니다.
 
 3. 다음으로, **+ 기존 가상 네트워크 추가**를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기**를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 참조
 
@@ -60,4 +60,4 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
 - 마찬가지로 [Azure CLI를 사용하여 Azure Database for MariaDB에 대한 VNET 규칙을 만들고 VNet 서비스 엔드포인트를 사용](howto-manage-vnet-cli.md)하도록 스크립팅할 수 있습니다.
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

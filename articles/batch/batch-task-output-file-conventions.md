@@ -3,7 +3,7 @@ title: .NET용 파일 규칙 라이브러리를 사용하여 Azure Storage에 �
 description: .NET용 Azure Batch 파일 규칙 라이브러리를 사용하여 Batch 태스크 및 작업 출력을 Azure Storage에 유지하는 방법을 알아보고 Azure Portal에서 유지된 출력을 확인합니다.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: cf9372cfc89aca3285128c96c1b7e6756ba42cda
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302680"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026223"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지
 
@@ -109,12 +109,12 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-[TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) 메서드의 `kind` 매개 변수는 유지된 파일을 분류합니다. 미리 정의 된 [Taskoutputkind][net_taskoutputkind] 형식으로는 `TaskOutput`, `TaskPreview` `TaskLog` 및 `TaskIntermediate.`의 네 가지 형식이 있습니다. 또한 출력의 사용자 지정 범주를 정의할 수 있습니다.
+[TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) 메서드의 `kind` 매개 변수는 유지된 파일을 분류합니다. `TaskOutput`, `TaskPreview`, `TaskLog`, `TaskIntermediate.`의 미리 정의 된 [Taskoutputkind][net_taskoutputkind] 형식이 있습니다. 또한 출력의 사용자 지정 범주를 정의할 수도 있습니다.
 
 이러한 출력 형식을 사용하면 나중에 지정된 태스크의 보관된 출력에 대해 Batch를 쿼리할 때 나열한 출력 형식을 지정할 수 있습니다. 즉, 태스크에 대한 출력을 나열할 때 출력 형식 중 하나로 목록을 필터링할 수 있습니다. 예를 들어 "Give me the *preview* output for task *109*"와 같이 지정할 수 있습니다. 출력 나열 및 검색에 대한 보다 자세한 내용은 이 문서의 뒷부분에 있는 출력 검색 에서 확인할 수 있습니다.
 
 > [!TIP]
-> 출력 종류는 Azure Portal에서 특정 파일이 표시되는 위치도 결정합니다. 즉, *TaskOutput* 범주의 파일은 **작업 출력 파일** 아래에 표시되고, *TaskLog* 파일은 **작업 로그** 아래에 표시됩니다.
+> 출력 종류는 Azure Portal에서 특정 파일이 표시되는 위치도 결정합니다. 즉, *TaskOutput* 범주의 파일은 **태스크 출력 파일** 아래에 표시되고, *TaskLog* 파일은 **태스크 로그** 아래에 표시됩니다.
 
 ### <a name="store-job-outputs"></a>작업 출력 저장
 
@@ -136,7 +136,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4"
 
 태스크 또는 작업이 완료될 때 영구 스토리지에 파일을 유지하는 것 외에도 태스크를 실행하는 동안 업데이트된 파일(로그 파일 또는 `stdout.txt` 및 `stderr.txt`)을 유지해야 할 수도 있습니다. 이러한 목적을 위해 Azure Batch 파일 규칙 라이브러리에서는 [Taskoutputstorage][net_taskoutputstorage]를 제공 합니다. [SaveTrackedAsync][net_savetrackedasync] 메서드입니다. [SaveTrackedAsync][net_savetrackedasync]를 사용 하면 지정 된 간격으로 노드의 파일에 대 한 업데이트를 추적 하 여 Azure Storage에 대 한 업데이트를 유지할 수 있습니다.
 
-다음 코드 조각에서는 [SaveTrackedAsync][net_savetrackedasync] 를 사용 하 여 작업을 실행 하는 동안 15 초 마다 Azure Storage에서 `stdout.txt`을 업데이트 합니다.
+다음 코드 조각에서는 [SaveTrackedAsync][net_savetrackedasync] 를 사용 하 여 작업을 실행 하는 동안 15 초 마다 Azure Storage `stdout.txt`를 업데이트 합니다.
 
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
@@ -161,7 +161,7 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-주석 처리된 `Code to process data and produce output file(s)` 섹션은 태스크에서 일반적으로 수행하는 코드에 대한 자리 표시자입니다. 예를 들어 Azure Storage에서 데이터를 다운로드하고 변환 또는 계산을 수행하는 코드가 있을 수 있습니다. 이 코드 조각의 중요 한 부분은 [SaveTrackedAsync][net_savetrackedasync]를 사용 하 여 파일을 주기적으로 업데이트 하기 위해 `using` 블록에서 이러한 코드를 래핑하는 방법을 보여 주는 것입니다.
+주석 처리된 `Code to process data and produce output file(s)` 섹션은 태스크에서 일반적으로 수행하는 코드에 대한 자리 표시자입니다. 예를 들어 Azure Storage에서 데이터를 다운로드하고 변환 또는 계산을 수행하는 코드가 있을 수 있습니다. 이 코드 조각의 중요 한 부분은 [SaveTrackedAsync][net_savetrackedasync]를 사용 하 여 파일을 주기적으로 업데이트 하기 위해 이러한 코드를 `using` 블록에 래핑하는 방법을 보여 주는 것입니다.
 
 노드 에이전트는 풀의 각 노드에서 실행되고 노드와 Batch 서비스 간에 명령 및 컨트롤 인터페이스를 제공하는 프로그램입니다. 노드 에이전트에서 표준 출력의 내용을 노드의 stdout.txt 파일로 플러시할 시간을 갖도록 하려면 이 `using` 블록의 끝에 `Task.Delay` 호출이 필요합니다. 이 지연 시간이 없다면 마지막 몇 초의 출력을 놓칠 수 있습니다. 이 지연 시간은 일부 파일에만 필요할 수 있습니다.
 

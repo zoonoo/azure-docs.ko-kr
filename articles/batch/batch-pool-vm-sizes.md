@@ -3,7 +3,7 @@ title: 풀의 VM 크기 선택 - Azure Batch | Microsoft Docs
 description: Azure Batch 풀에서 컴퓨팅 노드에 사용할 수 있는 VM 크기를 선택하는 방법을 설명합니다.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 34ab09f7d8d47804992b8ef6864bfea60d1c9b4d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983745"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026618"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -40,28 +40,28 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 | VM 시리즈  | 지원되는 크기 | Batch 계정 풀 할당 모드<sup>1</sup> |
 |------------|---------|-----------------|
-| 기본 A 시리즈 | Basic_A0 (A0)를 *제외한* 모든 크기 | 임의의 값 |
-| A 시리즈 | Standard_A0를 *제외한* 모든 크기 | 임의의 값 |
-| Av2 시리즈 | 모든 크기 | 임의의 값 |
+| 기본 A 시리즈 | Basic_A0 (A0)를 *제외한* 모든 크기 | 모두 |
+| A 시리즈 | Standard_A0를 *제외한* 모든 크기 | 모두 |
+| Av2 시리즈 | 모든 크기 | 모두 |
 | B 시리즈 | 없음 | 사용할 수 없음 |
 | DC 시리즈 | 없음 | 사용할 수 없음 |
-| Dv2, DSv2 시리즈 | 모든 크기 | 임의의 값 |
-| Dv3, Dsv3 시리즈 | 모든 크기 | 임의의 값 |
-| Ev3, Esv3 시리즈 | 모든 크기 | 임의의 값 |
-| Fsv2 시리즈 | 모든 크기 | 임의의 값 |
-| H 시리즈 | 모든 크기 | 임의의 값 |
-| HB-시리즈<sup>2</sup> | 모든 크기 | 임의의 값 |
-| HC 시리즈<sup>2</sup> | 모든 크기 | 임의의 값 |
-| Ls 시리즈 | 모든 크기 | 임의의 값 |
+| Dv2, DSv2 시리즈 | 모든 크기 | 모두 |
+| Dv3, Dsv3 시리즈 | 모든 크기 | 모두 |
+| Ev3, Esv3 시리즈 | 모든 크기 | 모두 |
+| Fsv2 시리즈 | 모든 크기 | 모두 |
+| H 시리즈 | 모든 크기 | 모두 |
+| HB-시리즈<sup>2</sup> | 모든 크기 | 모두 |
+| HC 시리즈<sup>2</sup> | 모든 크기 | 모두 |
+| Ls 시리즈 | 모든 크기 | 모두 |
 | Lsv2 시리즈 | 없음 | 사용할 수 없음 |
-| M 시리즈 | Standard_M64ms (낮은 우선 순위 전용), Standard_M128s (낮은 우선 순위만 해당) | 임의의 값 |
+| M 시리즈 | Standard_M64ms (낮은 우선 순위에만 해당), Standard_M128s (낮은 우선 순위에만 해당) | 모두 |
 | Mv2 시리즈 | 없음 | 사용할 수 없음 |
-| NC 시리즈 | 모든 크기 | 임의의 값 |
-| NCv2-series<sup>2</sup> | 모든 크기 | 임의의 값 |
-| NCv3-series<sup>2</sup> | 모든 크기 | 임의의 값 |
-| ND-series<sup>2</sup> | 모든 크기 | 임의의 값 |
+| NC 시리즈 | 모든 크기 | 모두 |
+| NCv2-series<sup>2</sup> | 모든 크기 | 모두 |
+| NCv3-series<sup>2</sup> | 모든 크기 | 모두 |
+| ND-series<sup>2</sup> | 모든 크기 | 모두 |
 | NDv2 시리즈 | 모든 크기 | 사용자 구독 모드 |
-| NV 시리즈 | 모든 크기 | 임의의 값 |
+| NV 시리즈 | 모든 크기 | 모두 |
 | NVv3 시리즈 | 없음 | 사용할 수 없음 |
 | SAP HANA | 없음 | 사용할 수 없음 |
 
@@ -71,11 +71,11 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 ### <a name="pools-in-cloud-service-configuration"></a>Cloud Service 구성의 풀
 
-Cloud Service 구성의 Batch 풀은 다음을 **제외한** 모든 [Cloud Services에 적합한 VM 크기](../cloud-services/cloud-services-sizes-specs.md)를 지원합니다.
+클라우드 서비스 구성의 Batch 풀은 다음을 **제외 하 고** [Cloud Services의 모든 VM 크기](../cloud-services/cloud-services-sizes-specs.md) 를 지원 합니다.
 
 | VM 시리즈  | 지원되지 않는 크기 |
 |------------|-------------------|
-| A 시리즈   | 매우 작음       |
+| A 시리즈   | 아주 작음       |
 | Av2 시리즈 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="size-considerations"></a>크기 고려 사항

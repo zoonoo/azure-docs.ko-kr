@@ -3,7 +3,7 @@ title: 작업 의존 관계를 사용하여 다른 작업의 완료에 따라 �
 description: Azure Batch에서 MapReduce 스타일과 비슷한 빅 데이터 워크로드를 처리하기 위해 다른 작업의 완료에 종속된 작업을 만듭니다.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a1378a5c00acbbce5e7ec73a75902ec55140575
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 875e0314c41a6bb277769361b6faa0345312db2b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094612"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026241"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
 
@@ -40,7 +40,7 @@ Batch 태스크 종속성을 통해 하나 이상의 상위 태스크를 완료�
 이 문서에서는 [Batch .net][net_msdn] 라이브러리를 사용 하 여 태스크 종속성을 구성 하는 방법을 설명 합니다. 먼저는 작업에서 [태스크 종속성을 사용](#enable-task-dependencies)하는 방법을 보여 주고 [종속성을 사용하여 태스크를 구성](#create-dependent-tasks)하는 방법을 설명합니다. 또한 상위 태스크가 실패하는 경우 종속 태스크를 실행하는 종속성 작동을 지정하는 방법을 설명합니다. 마지막으로 Batch에서 지원되는 [종속성 시나리오](#dependency-scenarios)를 설명합니다.
 
 ## <a name="enable-task-dependencies"></a>태스크 종속성 사용
-Batch 애플리케이션에서 태스크 종속성을 사용하려면 먼저 작업이 태스크 종속성을 사용하도록 구성해야 합니다. Batch .NET에서 해당 [Usestaskdependencies][net_usestaskdependencies] 속성을으로 `true`설정 하 여 [cloudjob][net_cloudjob] 에서이를 사용 하도록 설정 합니다.
+Batch 애플리케이션에서 태스크 종속성을 사용하려면 먼저 작업이 태스크 종속성을 사용하도록 구성해야 합니다. Batch .NET에서 해당 [Usestaskdependencies][net_usestaskdependencies] 속성을 `true`로 설정 하 여 [cloudjob][net_cloudjob] 에서이를 사용 하도록 설정 합니다.
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -74,18 +74,18 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ## <a name="dependency-scenarios"></a>종속성 시나리오
 Azure Batch에서 사용할 수 있는 세 가지 기본 태스크 종속성 시나리오는 일대일, 일대다 및 태스크 ID 범위 종속성입니다. 네 번째 시나리오인 다대다를 제공하도록 결합될 수 있습니다.
 
-| 시나리오&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 예제 |  |
+| 시나리오&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 예 |  |
 |:---:| --- | --- |
 |  [일대일](#one-to-one) |*taskB*가 *taskA*에 종속됨 <p/> *taskB*는 *taskA*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 일대일 태스크 종속성][1] |
 |  [일 대 다](#one-to-many) |*taskC*는 *taskA* 및 *taskB*에 종속됨 <p/> *taskC*는 *taskA* 및 *taskB*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 일대다 태스크 종속성][2] |
-|  [태스크 ID 범위](#task-id-range) |*taskD*가 태스크의 범위에 종속됨 <p/> *taskD*는 ID *1*-*10*을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 작업 ID 범위 종속성][3] |
+|  [태스크 ID 범위](#task-id-range) |*taskD*가 태스크의 범위에 종속됨 <p/> *taskD*는 ID *1*-*10*을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 태스크 ID 범위 종속성][3] |
 
 > [!TIP]
 > 태스크 C, D, E 및 F는 각각 태스크 A 및 B에 종속되는 경우 **다대다** 관계를 만들 수 있습니다. 예를 들어, 다운스트림 태스크가 여러 업스트림 태스크의 출력에 따라 달라지는 병렬화된 전처리 시나리오에서 유용합니다.
 > 
 > 이 섹션의 예제에서는 부모 태스크가 성공적으로 완료된 후에 종속 태스크가 실행됩니다. 이 동작은 종속 태스크에 대한 기본 동작입니다. 기본 동작을 재정의하는 종속성 작업을 지정하여 상위 태스크에 실패한 후에 종속 태스크를 실행할 수 있습니다. 자세한 내용은 [종속성 작업](#dependency-actions) 섹션을 참조하세요.
 
-### <a name="one-to-one"></a>일대일
+### <a name="one-to-one"></a>일 대 일
 일대일 관계의 경우 태스크는 상위 태스크를 성공적으로 완료했는지에 따라 달라집니다. 종속성을 만들려면 [Taskdependencies][net_taskdependencies]에 단일 태스크 ID를 제공 합니다. [Cloudtask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 [onid][net_onid] 정적 메서드입니다.
 
 ```csharp
@@ -210,7 +210,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 - 컴퓨팅 노드의 풀에서 해당 태스크를 실행하는 방법.
 
 ## <a name="next-steps"></a>다음 단계
-### <a name="application-deployment"></a>애플리케이션 배포
+### <a name="application-deployment"></a>애플리케이션 개발
 Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능은 컴퓨팅 노드에서 태스크를 실행하는 애플리케이션을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
 
 ### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비

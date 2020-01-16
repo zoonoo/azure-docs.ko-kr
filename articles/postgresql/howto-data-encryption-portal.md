@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c836139047b83220e571842b6f365ab568f81e93
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 9c935ad8f77e2f8a6198a8ac095e0cc60c025a72
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941683"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028625"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-using-portal"></a>포털을 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화
 

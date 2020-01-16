@@ -1,6 +1,6 @@
 ---
 title: 단일 데이터베이스를 구성 하는 방법
-description: Azure SQL Database - 단일 데이터베이스를 구성 및 관리하는 방법을 알아봅니다.
+description: Azure SQL Database - Single Database를 구성 및 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/08/2019
-ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/14/2020
+ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811216"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027707"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스를 사용하는 방법
 
@@ -42,7 +42,7 @@ ms.locfileid: "73811216"
 - [자동 튜닝에 대해 이메일 알림을 사용하도록 설정](sql-database-automatic-tuning-email-notifications.md)하여 튜닝 권장 구성에 대한 정보를 받습니다.
 - [성능 권장 사항을 적용](sql-database-advisor-portal.md)하고 데이터베이스를 최적화합니다.
 - [경고를 만들어](sql-database-insights-alerts-portal.md) Azure SQL Database에서 알림을 받습니다.
-- 애플리케이션과 데이터베이스 간에 연결 문제가 발생할 경우 [연결 문제를 해결](sql-database-troubleshoot-common-connection-issues.md)합니다. [연결 문제에 대해 Resource Health를 사용](sql-database-resource-health.md)할 수도 있습니다.
+- 애플리케이션과 데이터베이스 간에 연결 문제가 발생할 경우 [연결 문제를 해결](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md)합니다. [연결 문제에 대해 Resource Health를 사용](sql-database-resource-health.md)할 수도 있습니다.
 - [파일 공간을 관리](sql-database-file-space-management.md)하여 데이터베이스의 스토리지 사용량을 모니터링합니다.
 
 ## <a name="query-distributed-data"></a>분산 데이터 쿼리

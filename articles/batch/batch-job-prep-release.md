@@ -3,7 +3,7 @@ title: 컴퓨팅 노드에서 작업을 준비하고 완료하는 태스크 만�
 description: 작업 수준 준비 태스크를 사용하여 Azure Batch 컴퓨팅 노드로의 데이터 전송을 최소화하고 작업 완료 시 태스크를 해제하여 노드를 정리합니다.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 2dbdbc8b13a75b72ca09a319c6925d0835a52e13
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7c5c9dfcaa88b35e14cf5d56b01b4e364c856600
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095130"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027127"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Batch 컴퓨팅 노드에서 작업 준비 및 작업 릴리스 태스크 실행
 
@@ -67,7 +67,7 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 > 
 > 
 
-## <a name="job-release-task"></a>작업(Job) 릴리스 작업(task)
+## <a name="job-release-task"></a>작업 해제 태스크
 작업이 완료로 표시되면 하나 이상의 태스크를 실행한 풀의 각 노드에서 작업 릴리스 태스크가 실행됩니다. 종료 요청을 발행하여 작업을 완료로 표시합니다. 그런 다음 Batch 서비스는 작업 상태를 *terminating*으로 설정하며, 작업과 연관된 모든 활성 또는 실행 중인 태스크를 종료하고, 작업 해제 태스크를 실행합니다. 작업은 *완료* 상태로 이동합니다.
 
 > [!NOTE]
@@ -80,7 +80,7 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Batch .NET을 사용한 작업 준비 및 릴리스 태스크
 작업 준비 태스크를 사용 하려면 [JobPreparationTask][net_job_prep] 개체를 작업의 [Cloudjob. JobPreparationTask][net_job_prep_cloudjob] 속성에 할당 합니다. 마찬가지로 [JobReleaseTask][net_job_release] 를 초기화 하 고 작업의 [Cloudjob. JobReleaseTask][net_job_prep_cloudjob] 속성에 할당 하 여 작업의 릴리스 작업을 설정 합니다.
 
-이 코드 조각에서는 `myBatchClient` `myPool` [batchclient][net_batch_client]의 인스턴스이고,는 Batch 계정 내의 기존 풀입니다.
+이 코드 조각에서 `myBatchClient`는 [Batchclient][net_batch_client]의 인스턴스이고, `myPool`는 Batch 계정 내의 기존 풀입니다.
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"

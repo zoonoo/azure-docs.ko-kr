@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9e60b2f1685e03a9daa7a4801f43799a21eb411
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 263fdda178752ee22997a03a11902a7bff4791dc
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940537"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028618"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용 하 여 단일 서버 데이터 암호화 Azure Database for PostgreSQL
 
@@ -41,7 +41,7 @@ Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화는 �
 
 **KEK (키 암호화 키)** -데이터 암호화 키를 암호화 하는 데 사용 되는 암호화 키입니다. Key Vault 유지 하지 않는 키 암호화 키를 사용 하 여 데이터 암호화 키 자체를 암호화 하 고 제어할 수 있습니다. KEK에 액세스할 수 있는 엔터티는 DEK가 필요한 엔터티와 다를 수 있습니다. KEK는 DEK를 암호 해독하는 데 필요하므로 KEK는 실질적으로 KEK를 삭제함으로써 DEK를 효과적으로 삭제할 수 있는 단일 지점이 됩니다.
 
-키 암호화 키로 암호화 된 데이터 암호화 키는 별도로 저장 되며 키 암호화 키에 대 한 액세스 권한이 있는 엔터티만 이러한 데이터 암호화 키의 암호를 해독할 수 있습니다. 자세한 내용은 [미사용 암호화의 보안](../security/fundamentals/encryption-atrest.md)을 참조 하세요.
+키 암호화 키로 암호화 된 DEK (데이터 암호화 키)는 별도로 저장 되며 키 암호화 키에 대 한 액세스 권한이 있는 엔터티만 이러한 데이터 암호화 키의 암호를 해독할 수 있습니다. 자세한 내용은 [미사용 암호화의 보안](../security/fundamentals/encryption-atrest.md)을 참조 하세요.
 
 ## <a name="how-data-encryption-with-customer-managed-key-works"></a>고객 관리 키로 데이터 암호화가 작동 하는 방식
 
@@ -50,8 +50,8 @@ Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화는 �
 PostgreSQL 서버에서 DEK의 암호화를 위해 AKV에 저장 된 고객 관리 키를 사용할 수 있도록 하려면 Key Vault 관리자가 고유 id를 사용 하 여 서버에 대 한 다음 액세스 권한을 부여 해야 합니다.
 
 * **get** -Key Vault에 있는 키의 공용 파트 및 속성을 검색 합니다.
-* **wrapKey** -dek를 보호 (암호화) 할 수 있음
-* **unwrapKey** -dek를 보호 해제 (암호 해독) 할 수 있음
+* **wrapKey** -dek를 암호화 하는 데 사용할 수 있습니다.
+* **unwrapKey** -dek의 암호를 해독할 수 있습니다.
 
 Key Vault 관리자는 [Key Vault 감사 이벤트에 대 한 로깅을 사용 하도록 설정](../azure-monitor/insights/azure-key-vault.md)하 여 나중에 감사할 수 있습니다.
 

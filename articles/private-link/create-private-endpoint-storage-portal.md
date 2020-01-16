@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357569"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028879"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Azure 개인 끝점을 사용 하 여 전용 저장소 계정에 연결
 Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다.
@@ -127,11 +127,11 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
     | Subscription | 구독을 선택합니다. |
     | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     |위치|**WestCentralUS**를 선택합니다.|
-    |이름| *MyPrivateEndpoint*를 입력 합니다.  |
+    |이름|*myPrivateEndpoint*를 입력합니다.  |
     |저장소 하위 리소스|기본 **Blob**을 그대로 둡니다. |
     | **네트워킹** |  |
-    | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
-    | 서브넷 |  *mySubnet*을 선택합니다. |
+    | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
+    | 서브넷 | *Mysubnet*을 선택 합니다. |
     | **프라이빗 DNS 통합**|  |
     | 프라이빗 DNS 영역과 통합  | 기본값 **예**를 그대로 둡니다. |
     | 프라이빗 DNS 영역  | 기본값 **(New) privatelink.blob.core.windows.net**을 그대로 둡니다. |
@@ -172,8 +172,8 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 이 섹션에서는 개인 끝점을 사용 하 여 저장소 계정에 비공개로 연결 합니다.
 
-1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
-2.  `nslookup mystorageaccount.blob.core.windows.net`를 입력 하면 다음과 같은 메시지가 표시 됩니다.
+1. *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+2. `nslookup mystorageaccount.blob.core.windows.net`를 입력 하면 다음과 같은 메시지가 표시 됩니다.
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -192,7 +192,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 10. **연결**을 선택합니다.
 11. Mystorageaccount에서 Blob 컨테이너 찾아보기 
 12. 생략할 폴더를 만들거나 *mystorageaccount*에 파일을 업로드 합니다. 
-13.  *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
+13. *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
 
 저장소 계정에 액세스 하기 위한 추가 옵션:
 - Microsoft Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해 주는 Microsoft의 독립 실행형 무료 앱입니다. 응용 프로그램을 설치 하 여 전용 저장소 계정 콘텐츠를 찾아볼 수 있습니다. 
@@ -202,9 +202,9 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 개인 끝점, 저장소 계정 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 여기에 포함 된 모든 리소스를 삭제 합니다. 
-1. 포털 맨 위에 있는 **검색** 상자에  *myResourceGroup* 을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다. 
+1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력하고 검색 결과에서 *myResourceGroup*을 선택합니다. 
 2. **리소스 그룹 삭제**를 선택합니다. 
-3. **리소스 그룹 이름 입력** 에 *myresourcegroup* 를 입력 하 고 **삭제**를 선택 합니다. 
+3. **리소스 그룹 이름 입력**에 대해 *myResourceGroup*을 입력하고 **삭제**를 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 가상 네트워크와 저장소 계정 및 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 저장소 계정에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](private-endpoint-overview.md)을 참조 하세요.
+이 빠른 시작에서는 가상 네트워크와 저장소 계정 및 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 저장소 계정에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](private-endpoint-overview.md)을 참조 하세요.

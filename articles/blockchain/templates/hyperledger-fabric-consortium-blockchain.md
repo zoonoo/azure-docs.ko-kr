@@ -4,16 +4,19 @@ description: Azure에서 Hyperledger Fabric consortium 네트워크 솔루션 �
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: caleteet
-ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 3e7dcd3cdcfa636c0b23ac6643bd7732e7f8ada0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325142"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029155"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger 패브릭 컨소시엄 네트워크
 
 Hyperledger 패브릭 컨소시엄 솔루션 템플릿을 사용하여 Azure에서 Hyperledger 패브릭 컨소시엄 네트워크를 배포하고 구성할 수 있습니다.
+
+> [!IMPORTANT]
+> [Azure 템플릿의 Hyperledger 패브릭](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabric) 은 사용 되지 않습니다. 대신 [Azure Kubernetes 서비스에서 Hyperledger 패브릭을](hyperledger-fabric-consortium-azure-kubernetes-service.md) 사용 합니다.  
 
 이 문서를 읽고 나면:
 
@@ -70,12 +73,12 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 
 ![기본 사항](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
-| 매개 변수 이름 | 설명 | 허용되는 값 |
+| 매개 변수 이름 | Description | 허용되는 값 |
 |---|---|---|
 **리소스 접두사** | 배포의 일부로 프로비전된 리소스의 이름 접두사 |6자 이하 |
 **사용자 이름** | 이 멤버에게 배포된 각 가상 머신의 관리자 사용자 이름 |1-64자 |
 **인증 유형** | 가상 머신에 인증하는 방법 |암호 또는 SSH 공개 키|
-**암호(인증 형식 = 암호)** |배포된 각 가상 머신의 관리자 계정 암호. 암호에는 대문자 1 자, 소문자 1 자, 숫자 1 개, 특수 문자 1 자 중 세 가지 문자 형식이 포함 되어야 합니다.<br /><br />처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12 - 72문자|
+**암호(인증 형식 = 암호)** |배포된 각 가상 머신의 관리자 계정 암호. 암호에는 대문자 1 자, 소문자 1 자, 숫자 1 개, 특수 문자 1 자 중 세 가지 문자 형식이 포함 되어야 합니다.<br /><br />처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|
 **SSH 키(인증 유형 = SSH 공개 키)** |원격 로그인에 사용되는 보안 셸 키 ||
 **구독** |배포할 구독 ||
 **리소스 그룹** |컨소시엄 네트워크를 배포할 리소스 그룹 ||
@@ -89,12 +92,12 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 
 ![컨소시엄 네트워크 설정](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
 
-| 매개 변수 이름 | 설명 | 허용되는 값 |
+| 매개 변수 이름 | Description | 허용되는 값 |
 |---|---|---|
 **네트워크 구성** |새 네트워크를 만들거나 기존 네트워크를 연결하도록 선택할 수 있습니다. ‘기존 네트워크 연결’을 선택하는 경우 추가로 값을 제공해야 합니다. |새 네트워크 <br/> 기존 네트워크 연결 |
 **HLF CA 암호** |배포의 일부로 생성되는 인증 기관에서 생성한 인증서에 사용되는 암호입니다. 암호에는 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자의 문자 유형 중 3가지가 포함돼야 합니다.<br /><br />처음에는 모든 가상 머신의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|1-25자 |
 **조직 설정** |조직 이름 및 인증서를 사용자 지정하거나 사용할 기본값을 설정할 수 있습니다.|기본값 <br/> 고급 |
-**VPN 네트워크 설정** | VM에 액세스하기 위한 VPN 터널 게이트웨이를 프로비전합니다. | 예 <br/> 아니오 |
+**VPN 네트워크 설정** | VM에 액세스하기 위한 VPN 터널 게이트웨이를 프로비전합니다. | 예 <br/> 아닙니다. |
 
 **확인**을 선택합니다.
 
@@ -104,7 +107,7 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 
 ![패브릭 설정](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
-| 매개 변수 이름 | 설명 | 허용되는 값 |
+| 매개 변수 이름 | Description | 허용되는 값 |
 |---|---|---|
 **크기 조정 유형** |여러 개의 컨테이너를 포함하는 단일 가상 머신 또는 스케일 아웃 모델의 다중 가상 머신 중 하나인 배포 유형입니다.|단일 VM 또는 다중 VM |
 **VM 디스크 유형** |배포된 각 노드를 지원하는 스토리지 형식. <br/> 사용 가능한 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../../virtual-machines/windows/disks-types.md)을 참조하세요.|표준 SSD <br/> 프리미엄 SSD |
@@ -113,7 +116,7 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 
 ![다중 VM 배포에 대한 패브릭 설정](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
 
-| 매개 변수 이름 | 설명 | 허용되는 값 |
+| 매개 변수 이름 | Description | 허용되는 값 |
 |---|---|---|
 **정렬자 노드 수** |트랜잭션을 블록으로 정렬(구성)하는 노드 수. <br />정렬 서비스에 대한 자세한 내용은 Hyperledger [문서](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html)를 참조하세요. |1-4 |
 **정렬자 노드 가상 머신 크기** |네트워크의 정렬자 노드에 사용되는 가상 머신 크기|표준 Bs,<br />표준 Ds,<br />표준 FS |

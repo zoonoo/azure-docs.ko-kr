@@ -3,7 +3,7 @@ title: Windows 용 가상 머신 확장 Azure Monitor
 description: 가상 머신 확장을 사용하여 Windows 가상 머신에 Log Analytics 에이전트를 배포합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 072e30baa4ebb976a662019e5213f7eb26808a93
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073670"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969956"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows 용 가상 머신 확장 Azure Monitor
 
@@ -27,7 +27,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -36,17 +36,17 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
 다음 표에서는 Windows Azure Monitor VM 확장 버전 및 각 릴리스에 대 한 Log Analytics 에이전트 번들의 매핑을 제공 합니다. 
 
-| Windows 에이전트 번들 버전 Log Analytics | Azure Monitor Windows VM 확장 버전 | 릴리스 날짜 | 릴리스 정보 |
+| Windows 에이전트 번들 버전 Log Analytics | Azure Monitor Windows VM 확장 버전 | 출시 날짜 | 릴리스 정보 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18011 | 1.0.18011 | 2019년 7월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> MaxExpressionDepth를 1만으로 증가 </li></ul> |
 | 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> 프록시 연결을 만들 때 기본 자격 증명을 사용 하지 않도록 설정 하는 기능 추가 (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 지원) </li></ul>|
 | 10.19.13515 | 1.0.13515 | 2019년 3월 | <ul><li>사소한 안정화 픽스 </li></ul> |
-| 10.19.10006 | 해당 없음 | 12 월 2018 | <ul><li> 사소한 안정화 픽스 </li></ul> | 
-| 8.0.11136 | 해당 없음 | 9 월 2018 |  <ul><li> VM 이동에 대 한 리소스 ID 변경 검색에 대 한 지원이 추가 됨 </li><li> 비 확장 설치를 사용 하는 경우 보고 리소스 ID에 대 한 지원이 추가 됨 </li></ul>| 
-| 8.0.11103 | 해당 없음 |  2018년 4월 | |
+| 10.19.10006 | n/a | 12 월 2018 | <ul><li> 사소한 안정화 픽스 </li></ul> | 
+| 8.0.11136 | n/a | 9 월 2018 |  <ul><li> VM 이동에 대 한 리소스 ID 변경 검색에 대 한 지원이 추가 됨 </li><li> 비 확장 설치를 사용 하는 경우 보고 리소스 ID에 대 한 지원이 추가 됨 </li></ul>| 
+| 8.0.11103 | n/a |  2018년 4월 | |
 | 8.0.11081 | 1.0.11081 | 11 월 2017 | | 
 | 8.0.11072 | 1.0.11072 | 9 월 2017 | |
-| 8.0.11049 | 1.0.11049 | 2 월 2017 | |
+| 8.0.11049 | 1.0.11049 | 2017년 2월 | |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -57,7 +57,7 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 확장에는 대상 Log Analytics 작업 영역에서 작업 영역 ID 및 작업 영역 키가 필요 합니다. 이러한 내용은 Azure Portal의 작업 영역에 대한 설정에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
+다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 확장에는 대상 Log Analytics 작업 영역에서 작업 영역 ID 및 작업 영역 키가 필요 합니다. 이러한 내용은 Azure Portal의 작업 영역에 대한 설정에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
 
 ```json
 {
@@ -95,6 +95,8 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 
 \*workspaceId는 Log Analytics API에서 consumerId라고 합니다.
 
+> [참고!] 추가 속성은 [Azure Monitor 하기 위해 Azure Connect Windows 계산을](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows)참조 하세요.
+
 ## <a name="template-deployment"></a>템플릿 배포
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 Log Analytics 에이전트 확장을 실행할 수 있습니다. Log Analytics 에이전트 VM 확장을 포함하는 샘플 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm)에서 찾을 수 있습니다. 
@@ -102,7 +104,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 >[!NOTE]
 >여러 작업 영역에 보고 하도록 에이전트를 구성 하려는 경우 템플릿이 둘 이상의 작업 영역 ID 및 작업 영역 키 지정을 지원 하지 않습니다. 여러 작업 영역에 보고 하도록 에이전트를 구성 하려면 [작업 영역 추가 또는 제거](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)를 참조 하세요.  
 
-가상 머신 확장에 대한 JSON은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/child-resource-name-type.md)을 참조하세요. 
+가상 머신 확장에 대한 JSON은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/templates/child-resource-name-type.md)을 참조하세요. 
 
 다음 예에서는 Azure Monitor 확장이 가상 머신 리소스 내에 중첩 되어 있다고 가정 합니다. 확장 리소스를 중첩하는 경우 JSON은 가상 머신의 `"resources": []` 개체에 배치됩니다.
 

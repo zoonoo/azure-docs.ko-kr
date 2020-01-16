@@ -1,18 +1,18 @@
 ---
 title: 모범 사례-Azure Batch
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 19c5b6acaeddb915af49cf62a884da0678075f15
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535666"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026151"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -67,7 +67,7 @@ Batch 풀은 Batch 서비스에서 작업을 실행 하기 위한 계산 리소�
 
 풀 할당 오류는 첫 번째 할당 중 또는 후속 크기 조정 중에 언제 든 지 발생할 수 있습니다. 이는 일괄 처리에서 사용 하는 다른 Azure 서비스의 오류 또는 지역에서 일시적인 용량 고갈로 인 한 것일 수 있습니다. 코어 할당량은 보장은 아니지만 한도입니다.
 
-### <a name="unplanned-downtime"></a>계획 되지 않은 가동 중지 시간
+### <a name="unplanned-downtime"></a>계획되지 않은 가동 중지 시간
 
 Batch 풀에서 Azure의 가동 중지 시간 이벤트를 경험할 수 있습니다. 이는 일괄 처리에 대 한 시나리오 또는 워크플로를 계획 하 고 개발할 때 염두에 두어야 합니다.
 
@@ -76,7 +76,7 @@ Batch 풀에서 Azure의 가동 중지 시간 이벤트를 경험할 수 있습�
 - **Azure 지역 종속성**  
     시간이 중요 하거나 프로덕션 워크 로드가 있는 경우 단일 Azure 지역에 종속 되지 않는 것이 좋습니다. 드문 경우 지만 전체 지역에 영향을 줄 수 있는 문제가 있습니다. 예를 들어 특정 시간에 처리를 시작 해야 하는 경우 *시작 시간 전에*주 지역에서 풀을 확장 하는 것이 좋습니다. 풀 크기 조정이 실패 하면 백업 지역 (또는 지역)에서 풀을 확장 하는 것으로 대체할 수 있습니다. 다른 지역에 있는 여러 계정에 걸친 풀은 다른 풀에서 문제가 발생 하는 경우 쉽게 액세스할 수 있는 준비 된 백업을 제공 합니다. 자세한 내용은 [고가용성을 위한 응용 프로그램 디자인](high-availability-disaster-recovery.md)을 참조 하세요.
 
-## <a name="jobs"></a>교육
+## <a name="jobs"></a>작업
 
 작업은 수백, 수천 또는 수백만 개의 작업을 포함 하도록 디자인 된 컨테이너입니다.
 

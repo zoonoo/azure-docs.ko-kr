@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f60d9714db71325bd9c67cae6e2f82d54f8e5eb3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753917"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027791"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -182,8 +182,6 @@ Set-AzStorageSyncServerEndpoint `
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**서버 엔드포인트의 상태가 "활동 없음"이며, 등록된 서버 블레이드의 서버 상태가 "온라인"입니다.**  
 
 서버 엔드포인트 상태가 "활동 없음"이면 서버 엔드포인트에서 지난 2시간 동안 동기화 활동을 기록하지 않은 것입니다.
@@ -322,7 +320,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>일반적인 동기화 오류
-<a id="-2147023673"></a>**동기화 세션이 취소되었습니다.**  
+<a id="-2147023673"></a>**동기화 세션이 취소 되었습니다.**  
 
 | | |
 |-|-|
@@ -392,6 +390,22 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 2. [Azure 파일 공유가 있는지 확인합니다.](#troubleshoot-azure-file-share)
 3. [Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](#troubleshoot-rbac)
 4. [스토리지 계정에 방화벽 및 가상 네트워크 설정이 제대로 구성되어 있는지 확인합니다(사용하도록 설정된 경우).](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134351804"></a>**요청에이 작업을 수행할 수 있는 권한이 없어 동기화 하지 못했습니다.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT(10진)** | -2134351804 |
+| **오류 문자열** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **재구성 필요** | 예 |
+
+이 오류는 Azure File Sync 에이전트에 Azure 파일 공유에 액세스할 수 있는 권한이 없기 때문에 발생 합니다. 다음 단계를 진행하여 이 오류를 해결할 수 있습니다.
+
+1. [스토리지 계정이 있는지 확인합니다.](#troubleshoot-storage-account)
+2. [Azure 파일 공유가 있는지 확인합니다.](#troubleshoot-azure-file-share)
+3. [스토리지 계정에 방화벽 및 가상 네트워크 설정이 제대로 구성되어 있는지 확인합니다(사용하도록 설정된 경우).](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**사용된 스토리지 계정 이름을 확인할 수 없습니다.**  
 
@@ -495,7 +509,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **오류 문자열** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **재구성 필요** | 예 |
 
-이 오류는 Azure 구독이 일시 중단되면 발생합니다. Azure 구독이 복원되면 동기화가 다시 활성화됩니다. 자세한 내용은 [내 Azure 구독이 비활성화된 이유 및 다시 활성화하는 방법은 무엇인가요?](../../billing/billing-subscription-become-disable.md)를 참조하세요.
+이 오류는 Azure 구독이 일시 중단되면 발생합니다. Azure 구독이 복원되면 동기화가 다시 활성화됩니다. 자세한 내용은 [내 Azure 구독이 비활성화된 이유 및 다시 활성화하는 방법은 무엇인가요?](../../cost-management-billing/manage/subscription-disabled.md)를 참조하세요.
 
 <a id="-2134364052"></a>**스토리지 계정에 방화벽 또는 가상 네트워크가 구성되어 있습니다.**  
 

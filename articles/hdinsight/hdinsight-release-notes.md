@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: f0dd7160ae41ac004564ea21300945e135d31689
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945532"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027764"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -34,10 +34,10 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객 들 
 ### <a name="tls-12-enforcement"></a>TLS 1.2 적용
 TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워크를 통해 통신 보안을 제공하는 암호화 프로토콜입니다. [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)에 대해 자세히 알아보세요. HDInsight는 공용 HTTPs 끝점에서 TLS 1.2를 사용 하지만 TLS 1.1은 이전 버전과의 호환성을 위해 계속 지원 됩니다. 
 
-이 릴리스에서는 고객이 공용 클러스터 끝점을 통한 모든 연결에 대해서만 TLS 1.2을 옵트인 (opt in) 할 수 있습니다. 이를 지원 하기 위해 새 속성 **Minsupportedtlsversion** 이 도입 되었으며 클러스터를 만드는 동안이 속성을 지정할 수 있습니다. 속성이 설정 되어 있지 않으면 클러스터는 여전히 TLS 1.0, 1.1 및 1.2을 지원 하며,이는 오늘날의 동작과 동일 합니다. 고객은이 속성의 값을 "1.2"로 설정할 수 있습니다. 즉, 클러스터가 TLS 1.2 이상만 지원 합니다. 
+이 릴리스에서는 고객이 공용 클러스터 끝점을 통한 모든 연결에 대해서만 TLS 1.2을 옵트인 (opt in) 할 수 있습니다. 이를 지원 하기 위해 새 속성 **Minsupportedtlsversion** 이 도입 되었으며 클러스터를 만드는 동안이 속성을 지정할 수 있습니다. 속성이 설정 되어 있지 않으면 클러스터는 여전히 TLS 1.0, 1.1 및 1.2을 지원 하며,이는 오늘날의 동작과 동일 합니다. 고객은이 속성의 값을 "1.2"로 설정할 수 있습니다. 즉, 클러스터가 TLS 1.2 이상만 지원 합니다. 자세한 내용은 [가상 네트워크 전송 계층 보안 계획](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security)을 참조 하세요.
 
 ### <a name="bring-your-own-key-for-disk-encryption"></a>디스크 암호화를 위한 고유 키 가져오기
-HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호화)로 보호됩니다. 이러한 디스크의 데이터는 기본적으로 Microsoft 관리 키에 의해 암호화 됩니다. 이 릴리스부터는 디스크 암호화에 대 한 Bring Your Own Key (BYOK) Azure Key Vault를 사용 하 여 관리할 수 있습니다. BYOK 암호화는 클러스터를 만드는 동안 추가 비용 없이 1 단계 구성입니다. Azure Key Vault를 사용 하 여 HDInsight를 관리 되는 id로 등록 하 고 클러스터를 만들 때 암호화 키를 추가 하기만 하면 됩니다. 
+HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호화)로 보호됩니다. 이러한 디스크의 데이터는 기본적으로 Microsoft 관리 키에 의해 암호화 됩니다. 이 릴리스부터는 디스크 암호화에 대 한 Bring Your Own Key (BYOK) Azure Key Vault를 사용 하 여 관리할 수 있습니다. BYOK 암호화는 클러스터를 만드는 동안 추가 비용 없이 1 단계 구성입니다. Azure Key Vault를 사용 하 여 HDInsight를 관리 되는 id로 등록 하 고 클러스터를 만들 때 암호화 키를 추가 하기만 하면 됩니다. 자세한 내용은 [고객이 관리 하는 키 디스크 암호화](https://docs.microsoft.com/azure/hdinsight/disk-encryption)를 참조 하세요.
 
 ## <a name="deprecation"></a>사용 중단
 이 릴리스에 대 한 결함 없습니다. 예정 된 결함을 준비 하려면 예정 된 [변경 내용](#upcoming-changes)을 참조 하세요.

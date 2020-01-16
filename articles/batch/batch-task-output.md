@@ -2,7 +2,7 @@
 title: 데이터 저장소에 완료된 작업 및 태스크의 결과 또는 로그 유지 - Azure Batch | Microsoft Docs
 description: Batch 작업 및 태스크의 출력 데이터를 유지하기 위한 다양한 옵션을 알아봅니다. Azure Storage 또는 다른 데이터 저장소에 데이터를 유지할 수 있습니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -11,16 +11,16 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81f89d5e4c3fb797cfc935764bb80853660ee2c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c5063955fc6e04c9cfec2407f8b1cc91c5b24d10
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707536"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026245"
 ---
-# <a name="persist-job-and-task-output"></a>작업 및 태스크 출력 유지
+# <a name="persist-job-and-task-output"></a>작업 유지 및 태스크 출력
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 

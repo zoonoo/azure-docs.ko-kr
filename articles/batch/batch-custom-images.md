@@ -2,18 +2,18 @@
 title: 관리 되는 이미지에서 사용자 지정 풀 프로 비전-Azure Batch | Microsoft Docs
 description: 응용 프로그램에 대 한 소프트웨어 및 데이터를 사용 하 여 계산 노드를 프로 비전 하기 위해 관리 되는 이미지 리소스에서 Batch 풀을 만듭니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: lahugh
-ms.openlocfilehash: 82a5f79ca7b7a16cd8f7294ebd1f70816b40ad82
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: 3c7aafb5cfdd2e0127aa9969b904976cb93db614
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "73519245"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029755"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>관리 되는 이미지를 사용 하 여 가상 머신 풀 만들기
 

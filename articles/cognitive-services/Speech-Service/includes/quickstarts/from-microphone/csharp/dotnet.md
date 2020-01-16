@@ -1,23 +1,22 @@
 ---
 title: '빠른 시작: 마이크에서 음성 인식, C#(.NET) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: c4aee9604df98fbf5fbd18f527c4d40cff044bb9
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f3b0df9f663866c916a45c85767d49b8701152cd
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818836"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928175"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
@@ -71,7 +70,7 @@ using 문 내에서 `RecognizeOnceAsync()` 아래에 다음 코드를 추가합�
 
 ## <a name="build-and-run-your-app"></a>앱 빌드 및 실행
 
-이제 앱을 빌드하고 Speech Service를 사용하여 음성 인식을 테스트할 준비가 되었습니다.
+이제 앱을 빌드하고 음성 서비스를 사용하여 음성 인식을 테스트할 준비가 되었습니다.
 
 1. **코드 컴파일** - Visual Studio의 메뉴 모음에서 **빌드** > **빌드 솔루션**을 선택합니다.
 2. **앱 시작** - 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.

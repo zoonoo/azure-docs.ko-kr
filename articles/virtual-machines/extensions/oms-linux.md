@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: akjosh
-ms.openlocfilehash: a021c76eb973eba11e1dc1ee89f3d7f829a53f70
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e0214208212cd4526b64ccd762a7fc00d06853a6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073051"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969965"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux 용 가상 머신 확장 Azure Monitor
 
@@ -32,7 +32,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -71,7 +71,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 Log Analytics 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 Azure Portal의 [Log Analytics 작업 영역에서 확인할 수 있습니다.](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
+다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 Log Analytics 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 Azure Portal의 [Log Analytics 작업 영역에서 확인할 수 있습니다.](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
 
 ```json
 {
@@ -98,7 +98,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 ```
 
 >[!NOTE]
->위의 스키마는 템플릿의 루트 수준에 배치된다고 가정합니다. 템플릿의 가상 머신 리소스 내에 배치하는 경우 `type`아래 쪽`name`에 설명된 대로 [ 및 ](#template-deployment) 속성이 변경됩니다.
+>위의 스키마는 템플릿의 루트 수준에 배치된다고 가정합니다. 템플릿의 가상 머신 리소스 내에 배치하는 경우 [아래 쪽](#template-deployment)에 설명된 대로 `type` 및 `name` 속성이 변경됩니다.
 >
 
 ### <a name="property-values"></a>속성 값
@@ -117,7 +117,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 템플릿은 Azure Monitor 로그에 온 보 딩과 같이 배포 후 구성이 필요한 하나 이상의 가상 컴퓨터를 배포 하는 경우에 적합 합니다. Log Analytics 에이전트 VM 확장을 포함 하는 샘플 리소스 관리자 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
 
-가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/child-resource-name-type.md)을 참조하세요. 
+가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/templates/child-resource-name-type.md)을 참조하세요. 
 
 다음 예제에서는 VM 확장이 가상 머신 리소스 내에 중첩되어 있다고 가정합니다. 확장 리소스를 중첩하는 경우 JSON은 가상 머신의 `"resources": []` 개체에 배치됩니다.
 

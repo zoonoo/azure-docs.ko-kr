@@ -3,16 +3,16 @@ title: 렌더링 애플리케이션 - Azure Batch
 description: 미리 설치된 Batch 렌더링 애플리케이션
 services: batch
 ms.service: batch
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: 30a365b36645dfe79f35b4bb889c0a06535a4c73
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 367f7655c32c30f11b37c86c098d76e146fec69c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212719"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026578"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>렌더링 VM 이미지에 미리 설치된 애플리케이션
 
@@ -64,7 +64,7 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 * AZ 10
 
 > [!IMPORTANT]
-> Maya를 사용 하 여 [Azure Batch 확장 템플릿](https://github.com/Azure/batch-extension-templates)외부에서 V 레이를 실행 하려면 `vrayses.exe` 렌더링을 실행 하기 전에를 시작 합니다. 템플릿 외부에서 vrayses를 시작 하려면 다음 명령을 `%MAYA_2017%\vray\bin\vrayses.exe"`사용할 수 있습니다.
+> Maya를 사용 하 여 [Azure Batch 확장 템플릿](https://github.com/Azure/batch-extension-templates)외부에서 V 레이를 실행 하려면 렌더링을 실행 하기 전에 `vrayses.exe`를 시작 합니다. 템플릿 외부에서 vrayses를 시작 하려면 다음 명령을 `%MAYA_2017%\vray\bin\vrayses.exe"`사용할 수 있습니다.
 >
 > 예를 들어 GitHub의 [Maya 및 V-광선 템플릿](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) 시작 작업을 참조 하세요.
 

@@ -1,7 +1,7 @@
 ---
 title: 구성을 상태 구성에 대 한 복합 리소스로 변환-Azure Automation
 description: Azure Automation에서 상태 구성에 대 한 구성을 복합 리소스로 변환 하는 방법에 대해 알아봅니다.
-keywords: dsc, powershell, 구성, 설정
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,19 +10,19 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85c13a7175bca015ab24c8b09500b47e3ea846ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c060462a84b197cdd0aec1beecc0b4d4807feb49
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231645"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030106"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>구성을 복합 리소스로 변환
 
 > 적용 대상: Windows PowerShell 5.1
 
 구성 제작을 시작한 후에는 설정 그룹을 관리 하는 "시나리오"를 빠르게 만들 수 있습니다.
-예를 들면 다음과 같습니다.
+예제는 다음과 같습니다.
 
 - 웹 서버 만들기
 - DNS 서버 만들기
@@ -50,13 +50,13 @@ Cmdlet은 구성의 콘텐츠를 로드 하 고, 매개 변수 목록을 가져�
 모듈을 생성 한 후에는 버전을 증가 시키고 변경할 때마다 릴리스 정보를 추가 하 고 사용자의 [PowerShellGet 리포지토리에](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo)게시할 수 있습니다.
 
 구성 (또는 여러 구성)을 포함 하는 복합 리소스 모듈을 만든 후에는 Azure의 구성 가능한 [작성 환경](/azure/automation/compose-configurationwithcompositeresources) 에서 사용 하거나, [DSC 구성 스크립트](/powershell/scripting/dsc/configurations/configurations) 에 추가 하 여 mof 파일을 생성 하 고 [mof 파일을 Azure Automation로 업로드할](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)수 있습니다.
-그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) 또는 [Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 에서 서버를 등록 하 여 구성을 가져옵니다.
+그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 에서 서버를 등록 하 여 구성을 가져옵니다.
 프로젝트에 대 한 최신 업데이트에는 PowerShell 갤러리에서 구성 가져오기 프로세스를 자동화 하는 Azure Automation에 대 한 [runbook](https://www.powershellgallery.com/packages?q=DscGallerySamples) 도 게시 되어 있습니다.
 
 DSC에 대 한 복합 리소스 만들기를 자동화 하려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/compositeresource/) 방문 하 여 솔루션을 다운로드 하거나 "프로젝트 사이트"를 클릭 하 여 [설명서](https://github.com/microsoft/compositeresource)를 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)
+- [Windows PowerShell Desired State Configuration 개요](/powershell/scripting/dsc/overview/overview)
 - [DSC 리소스](/powershell/scripting/dsc/resources/resources)
-- [로컬 Configuration Manager 구성](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [로컬 구성 관리자 구성](/powershell/scripting/dsc/managing-nodes/metaconfig)

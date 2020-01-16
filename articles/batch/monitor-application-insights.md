@@ -2,7 +2,7 @@
 title: Azure Application Insights로 Batch 모니터링 | Microsoft Docs
 description: Azure Application Insights 라이브러리를 사용하여 Azure Batch .NET 애플리케이션을 계측하는 방법을 알아봅니다.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: lahugh
-ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: c69ef0bf20e2ade15d2278d0fc2fabd75f39153b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322576"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029507"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
 
@@ -24,20 +24,20 @@ ms.locfileid: "68322576"
 
 이 문서에서는 Azure Batch .NET 솔루션에 Application Insights 라이브러리를 추가 및 구성하고 애플리케이션 코드를 계측하는 방법을 보여줍니다. Azure Portal을 통해 애플리케이션을 모니터링하고 사용자 지정 대시보드를 빌드하는 방법도 보여줍니다. Application Insights의 다른 언어 지원에 대한 내용은 [언어, 플랫폼 및 통합 설명서](../azure-monitor/app/platforms.md)를 참조하세요.
 
-이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 계산 노드에서 입력 Blobs 세트를 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
+이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 컴퓨팅 노드에서 입력 Blobs 세트를 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
 
 > [!TIP]
 > 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 * [Visual Studio 2017 이상](https://www.visualstudio.com/vs)
 
 * [Batch 계정 및 연결된 스토리지 계정](batch-account-create-portal.md)
 
 * [Application Insights 리소스](../azure-monitor/app/create-new-resource.md )
   
-   * Azure Portal을 사용하여 Application Insights *리소스*를 만듭니다. *일반* **애플리케이션 유형**을 선택합니다.
+   * Azure Portal을 사용하여 Application Insights *리소스*를 만듭니다. *일반* **응용 프로그램 유형을**선택 합니다.
 
    * 포털에서 [계측 키](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)를 복사합니다. 이 문서의 뒷부분에서 필요합니다.
   
@@ -64,7 +64,7 @@ Install-Package Microsoft.ApplicationInsights.WindowsServer
 또한 TopNWords.cs 파일의 계측 키를 추가합니다.
 
 TopNWords.cs 파일의 예제에서는 Application Insights API의 다음 [계측 호출](../azure-monitor/app/api-custom-events-metrics.md)을 사용합니다.
-* `TrackMetric()` - 계산 노드에서 필요한 텍스트 파일을 다운로드하는 데 걸리는 평균 시간을 추적합니다.
+* `TrackMetric()` - 컴퓨팅 노드에서 필요한 텍스트 파일을 다운로드하는 데 걸리는 평균 시간을 추적합니다.
 * `TrackTrace()` - 코드에 디버깅 호출을 추가합니다.
 * `TrackEvent()` - 캡처할 흥미로운 이벤트를 추적합니다.
 
