@@ -1,17 +1,22 @@
 ---
-ms.openlocfilehash: ee44cd4ee5ec6fedfec46cbbb68b0c30118a4b9f
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+title: 포함 파일
+description: 포함 파일
+services: api-management
+author: vladvino
+ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
+ms.service: api-management
+ms.topic: include
+ms.date: 01/10/2020
+ms.author: vlvinogr
+ms.custom: include file
+ms.openlocfilehash: 2d4c8c2c831bd6ef16f60c34a6353f4a742798f7
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904467"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159715"
 ---
----
-
-제목: 포함 파일 설명: 파일 서비스 포함: api 관리 작성자: vladvino
-
-assetid: 1b813833-39c8-86은-8666-fd0960cfbf04입니다. 서비스: api 관리 ms. 토픽: ms. 날짜: 01/10/2020 ms. author: vlvinogr. 사용자 지정: 포함 파일
----| 리소스 | 제한 |
+| 리소스 | 제한 |
 | ---------------------------------------------------------------------- | -------------------------- |
 | 최대 배율 단위 수 | 지역당 10개<sup>1</sup> |
 | 캐시 크기 | 단가<sup>2</sup> 당 5 GiB |

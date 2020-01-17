@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182126"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159339"
 ---
 ## <a name="os-config"></a>VM 운영 체제에 IP 주소 추가
 
@@ -23,15 +23,15 @@ ms.locfileid: "67182126"
 
 1. 명령 프롬프트에서 *ipconfig /all*을 입력합니다.  *기본* 개인 IP 주소(DHCP를 통한)만 표시됩니다.
 2. 명령 프롬프트 창에 *ncpa.cpl*을 입력하여 **네트워크 연결** 창을 엽니다.
-3. 적절 한 어댑터에 대 한 속성을 엽니다. **로컬 영역 연결**합니다.
+3. 적절한 어댑터 **로컬 영역 연결**에 대한 속성을 엽니다.
 4. IPv4(인터넷 프로토콜 버전 4)를 두 번 클릭합니다.
 5. **다음 IP 주소 사용**을 선택하고 다음 값을 입력합니다.
 
-    * **IP 주소**: 입력 된 *기본* 개인 IP 주소
-    * **서브넷 마스크**: 서브넷을 기준으로 하는 집합입니다. 예를 들어 서브넷이 /24이면 서브넷 마스크는 255.255.255.0입니다.
-    * **기본 게이트웨이**: 서브넷의 첫 번째 IP 주소를 지정 합니다. 서브넷이 10.0.0.0/24이면 게이트웨이 IP 주소는 10.0.0.1입니다.
+    * **IP 주소**: *기본* 개인 IP 주소를 입력합니다.
+    * **서브넷 마스크**: 서브넷을 기준으로 설정됩니다. 예를 들어 서브넷이 /24이면 서브넷 마스크는 255.255.255.0입니다.
+    * **기본 게이트웨이**: 서브넷의 첫 번째 IP 주소입니다. 서브넷이 10.0.0.0/24이면 게이트웨이 IP 주소는 10.0.0.1입니다.
     * **다음 DNS 서버 주소 사용** 을 선택하고 다음 값을 입력합니다.
-        * **기본 설정된 DNS 서버**: 사용자 고유의 DNS 서버를 사용 하지 않는 경우 168.63.129.16을 입력 합니다.  자체 DNS 서버를 사용하는 경우 서버의 IP 주소를 입력합니다.
+        * **기본 설정 DNS 서버**: 자체 DNS 서버를 사용하지 않는 경우 168.63.129.16을 입력합니다.  자체 DNS 서버를 사용하는 경우 서버의 IP 주소를 입력합니다.
     * **고급** 단추를 선택하고 추가 IP 주소를 추가합니다. 이전 단계에서 Azure 네트워크 인터페이스에 추가한 각각의 보조 개인 IP 주소를 Azure 네트워크 인터페이스에 할당된 기본 IP 주소에 할당되어 있는 Windows 네트워크 인터페이스에 추가합니다.
 
         가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다. Azure 공용 IP 주소는 절대 운영 체제 내에서 할당하지 않아야 합니다.
@@ -52,7 +52,69 @@ ping -S 10.0.0.5 hotmail.com
 >보조 IP 구성의 경우 구성에 공용 IP 주소가 연결된 경우에만 인터넷에 ping할 수 있습니다. 기본 IP 구성의 경우 공용 IP 주소가 인터넷에 ping되지 않아도 됩니다.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-최신 Linux 배포에 대 한 설명서를 확인 하는 것이 좋습니다. 
+
+Linux 배포에 대 한 최신 설명서를 확인 하는 것이 좋습니다. 
+
+1. 터미널 창을 엽니다.
+2. 루트 사용자인지 확인합니다. 그렇지 않으면 다음 명령을 입력합니다.
+
+   ```bash
+   sudo -i
+   ```
+
+3. 네트워크 인터페이스(‘eth0’이라고 가정)의 구성 파일을 업데이트합니다.
+
+   * dhcp에 대한 기존 줄 항목을 유지합니다. 기본 IP 주소가 이전에 구성된 대로 유지됩니다.
+   * 다음 명령을 사용하여 추가 정적 IP 주소에 대한 구성을 추가합니다.
+
+     ```bash
+     cd /etc/network/interfaces.d/
+     ls
+     ```
+
+     .cfg 파일이 표시됩니다.
+4. 파일을 엽니다. 파일 끝에 다음 줄이 있어야 합니다.
+
+   ```bash
+   auto eth0
+   iface eth0 inet dhcp
+   ```
+
+5. 이 파일에 있는 줄 뒤에 다음 줄을 추가합니다.
+
+   ```bash
+   iface eth0 inet static
+   address <your private IP address here>
+   netmask <your subnet mask>
+   ```
+
+6. 다음 명령을 실행하여 파일을 저장합니다.
+
+   ```bash
+   :wq
+   ```
+
+7. 다음 명령을 사용하여 네트워크 인터페이스를 다시 설정합니다.
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   > [!IMPORTANT]
+   > 원격 연결을 사용하는 경우 같은 줄에서 ifdown 및 ifup을 둘 다 실행합니다.
+   >
+
+8. 다음 명령을 사용하여 네트워크 인터페이스에 IP 주소가 추가되는지 확인합니다.
+
+   ```bash
+   ip addr list eth0
+   ```
+
+   목록의 일부로 추가한 IP 주소가 표시되어야 합니다.
+
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+
+Ubuntu 18.04 이상이 OS 네트워크 관리에 대 한 `netplan`로 변경 되었습니다. Linux 배포에 대 한 최신 설명서를 확인 하는 것이 좋습니다. 
 
 1. 터미널 창을 엽니다.
 2. 루트 사용자인지 확인합니다. 그렇지 않으면 다음 명령을 입력합니다.
@@ -61,47 +123,43 @@ ping -S 10.0.0.5 hotmail.com
     sudo -i
     ```
 
-3. 네트워크 인터페이스(‘eth0’이라고 가정)의 구성 파일을 업데이트합니다.
-
-   * dhcp에 대한 기존 줄 항목을 유지합니다. 기본 IP 주소가 이전에 구성된 대로 유지됩니다.
-   * 다음 명령을 사용하여 추가 정적 IP 주소에 대한 구성을 추가합니다.
-
-       ```bash
-       cd /etc/network/interfaces.d/
-       ls
-       ```
-
-     .cfg 파일이 표시됩니다.
-4. 파일을 엽니다. 파일 끝에 다음 줄이 있어야 합니다.
+3. 두 번째 인터페이스에 대 한 파일을 만들고 텍스트 편집기에서 엽니다.
 
     ```bash
-    auto eth0
-    iface eth0 inet dhcp
+    vi /etc/netplan/60-static.yaml
     ```
 
-5. 이 파일에 있는 줄 뒤에 다음 줄을 추가합니다.
+4. 파일에 다음 줄을 추가 하 여 `10.0.0.6/24`를 IP/네트워크 네트워크로 바꿉니다.
 
     ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    netmask <your subnet mask>
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.0.0.6/24
     ```
 
-6. 다음 명령을 실행하여 파일을 저장합니다.
+5. 다음 명령을 실행하여 파일을 저장합니다.
 
     ```bash
     :wq
     ```
 
-7. 다음 명령을 사용하여 네트워크 인터페이스를 다시 설정합니다.
+6. [Netplan](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) 을 사용 하 여 변경 내용 테스트 구문을 확인 합니다.
 
     ```bash
-    sudo ifdown eth0 && sudo ifup eth0
+    netplan try
     ```
 
-    > [!IMPORTANT]
-    > 원격 연결을 사용하는 경우 같은 줄에서 ifdown 및 ifup을 둘 다 실행합니다.
-    >
+> [!NOTE]
+> `netplan try`는 변경 내용을 일시적으로 적용 하 고 120 초 후에 변경 내용을 롤백합니다. 연결이 끊어지면 120 초 정도 기다린 후 다시 연결 하십시오. 이 시점에서 변경 내용이 롤백됩니다.
+
+7. `netplan try`에 문제가 없는 것으로 가정 하 여 구성 변경 내용을 적용 합니다.
+
+    ```bash
+    netplan apply
+    ```
 
 8. 다음 명령을 사용하여 네트워크 인터페이스에 IP 주소가 추가되는지 확인합니다.
 
@@ -109,8 +167,25 @@ ping -S 10.0.0.5 hotmail.com
     ip addr list eth0
     ```
 
-    목록의 일부로 추가한 IP 주소가 표시되어야 합니다.
+    목록의 일부로 추가한 IP 주소가 표시되어야 합니다. 예:
 
+    ```bash
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
+        valid_lft forever preferred_lft forever
+        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
+        valid_lft forever preferred_lft forever
+    ```
+    
 ### <a name="linux-red-hat-centos-and-others"></a>Linux(Red Hat, CentOS 및 기타)
 
 1. 터미널 창을 엽니다.

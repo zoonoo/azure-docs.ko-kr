@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: bad21019607c99964caa1712e50231705689aad2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce74966cab3469d59693c59831bb3d4ce625f90e
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055324"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159144"
 ---
 >[!NOTE]
->이 문서에 설명 된 기능은 IoT Hub의 표준 계층 에서만 사용할 수 있습니다. 기본 및 표준 IoT Hub 계층에 대 한 자세한 내용은 참조 하세요. [적합 한 IoT Hub 계층 선택](../articles/iot-hub/iot-hub-scaling.md)합니다.
+>이 문서에서 설명 하는 기능은 IoT Hub 표준 계층 에서만 사용할 수 있습니다. Basic 및 standard/free IoT Hub 계층에 대 한 자세한 내용은 [올바른 IoT Hub 계층 선택](../articles/iot-hub/iot-hub-scaling.md)을 참조 하세요.
