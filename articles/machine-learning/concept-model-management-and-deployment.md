@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cde171f1c031b4b02a71fe0dac1a689e3ec0722
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772587"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122341"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -90,7 +90,7 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가 됩니다. 예를 들어, 웹 서비스를 실행 하 고 IoT Edge와 상호 작용 하는 데 필요한 자산이 있습니다.
 
 #### <a name="batch-scoring"></a>Batch 평가
-일괄 처리 점수 매기기는 ML 파이프라인을 통해 지원 됩니다. 자세한 내용은 [빅 데이터의 일괄 처리 예측](how-to-run-batch-predictions.md)을 참조 하세요.
+일괄 처리 점수 매기기는 ML 파이프라인을 통해 지원 됩니다. 자세한 내용은 [빅 데이터의 일괄 처리 예측](how-to-use-parallel-run-step.md)을 참조 하세요.
 
 #### <a name="real-time-web-services"></a>실시간 웹 서비스
 

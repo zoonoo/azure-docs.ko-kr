@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927484"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122647"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Azure Data Factory를 사용 하 여 Amazon s 3에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
@@ -47,7 +47,7 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용 하는 서버 리스 �
 
 단일 복사 작업 실행 내에서 ADF에는 기본 제공 재시도 메커니즘이 있으므로 데이터 저장소나 기본 네트워크에서 특정 수준의 일시적인 오류를 처리할 수 있습니다. 
 
-S 3에서 Blob으로 이진 복사를 수행 하 고 s 3에서 ADLS Gen2로 복사 하는 경우 ADF는 검사점을 자동으로 수행 합니다.  복사 작업 실행이 실패 하거나 시간이 초과 되 면 이후 다시 시도 (다시 시도 횟수 > 1)에서 처음부터 시작 하는 대신 마지막 오류 지점에서 복사본이 다시 시작 됩니다. 
+S 3에서 Blob으로 이진 복사를 수행 하 고 s 3에서 ADLS Gen2로 복사 하는 경우 ADF는 검사점을 자동으로 수행 합니다.  복사 작업 실행이 실패 하거나 시간이 초과 되 면 이후 다시 시도 시 복사가 처음부터 시작 하는 대신 마지막 오류 지점에서 다시 시작 됩니다. 
 
 ## <a name="network-security"></a>네트워크 보안 
 
@@ -86,7 +86,7 @@ S 3에서 Blob으로 이진 복사를 수행 하 고 s 3에서 ADLS Gen2로 복�
 
 ### <a name="initial-snapshot-data-migration"></a>초기 스냅숏 데이터 마이그레이션 
 
-데이터 파티션은 10TB를 초과 하는 데이터를 마이그레이션할 때 특히 권장 됩니다.  데이터를 분할 하려면 ' 접두사 ' 설정을 활용 하 여 Amazon s 3의 폴더와 파일을 이름별로 필터링 한 다음 각 ADF 복사 작업에서 한 번에 하나의 파티션을 복사할 수 있습니다.  더 나은 처리량을 위해 여러 ADF 복사 작업을 동시에 실행할 수 있습니다. 
+데이터 파티션은 100 TB 이상의 데이터를 마이그레이션할 때 특히 권장 됩니다.  데이터를 분할 하려면 ' 접두사 ' 설정을 활용 하 여 Amazon s 3의 폴더와 파일을 이름별로 필터링 한 다음 각 ADF 복사 작업에서 한 번에 하나의 파티션을 복사할 수 있습니다.  더 나은 처리량을 위해 여러 ADF 복사 작업을 동시에 실행할 수 있습니다. 
 
 네트워크 또는 데이터 저장소의 일시적인 문제로 인해 복사 작업이 실패 하는 경우 실패 한 복사 작업을 다시 실행 하 여 AWS S3에서 특정 파티션을 다시 다시 로드할 수 있습니다.  다른 파티션을 로드 하는 다른 모든 복사 작업에는 영향을 주지 않습니다. 
 
@@ -148,7 +148,7 @@ S 3에서 Azure Blob Storage로 데이터를 마이그레이션하기 위해 생
 - [LastModifiedDate에 따라 새 파일 및 변경 된 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [ADF 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## <a name="template"></a>Template
+## <a name="template"></a>템플릿
 
 Amazon s 3에서 Azure Data Lake Storage Gen2로 구성 된 수백만 개의 파일로 구성 된 페타바이트 데이터를 마이그레이션하기 위해 시작 하는 [템플릿은](solution-template-migration-s3-azure.md) 다음과 같습니다.
 

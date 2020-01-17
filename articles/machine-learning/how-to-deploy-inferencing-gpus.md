@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 49ee2690a54e58eee85dd4f9c5b7ef460ac597cc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 39fc57a6da20549447f782399e9571f7a0ffeea7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763592"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122528"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "75763592"
 유추 또는 모델 점수 매기기는 배포 된 모델을 사용 하 여 예측을 수행 하는 단계입니다. Cpu 대신 Gpu를 사용 하면 매우 병렬화 계산에서 성능상의 이점이 있습니다.
 
 > [!IMPORTANT]
-> 웹 서비스 배포의 경우 GPU 유추는 Azure Kubernetes Service 에서만 지원 됩니다. __기계 학습 파이프라인__을 사용 하는 유추의 경우 gpu는 Azure Machine Learning 계산 에서만 지원 됩니다. ML 파이프라인 사용에 대 한 자세한 내용은 [일괄 처리 예측 실행](how-to-run-batch-predictions.md)을 참조 하세요. 
+> 웹 서비스 배포의 경우 GPU 유추는 Azure Kubernetes Service 에서만 지원 됩니다. __기계 학습 파이프라인__을 사용 하는 유추의 경우 gpu는 Azure Machine Learning 계산 에서만 지원 됩니다. ML 파이프라인 사용에 대 한 자세한 내용은 [일괄 처리 예측 실행](how-to-use-parallel-run-step.md)을 참조 하세요. 
 
 > [!TIP]
 > 이 문서의 코드 조각에서는 TensorFlow 모델을 사용 하지만 Gpu를 지 원하는 모든 기계 학습 프레임 워크에 정보를 적용할 수 있습니다.

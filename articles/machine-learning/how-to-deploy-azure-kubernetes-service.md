@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 11/06/2019
-ms.openlocfilehash: a61dea2b200b6e4962ce20e39939a75e78e81d0f
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/16/2020
+ms.openlocfilehash: 78903d8f988efc1b0986f7e48050e63831b68319
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024942"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156831"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 
 
 - 작업 영역에 등록 된 machine learning 모델입니다. 등록 된 모델이 없는 경우 모델을 배포 하 [는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](how-to-vscode-tools.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 - 이 문서의 __Python__ 코드 조각에서는 다음 변수가 설정 되었다고 가정 합니다.
 
@@ -109,7 +109,7 @@ aks_target.wait_for_completion(show_output = True)
 az ml computetarget create aks -n myaks
 ```
 
-자세한 내용은 [az ml computetarget create ask](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
+자세한 내용은 [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
 
 ## <a name="attach-an-existing-aks-cluster"></a>기존 AKS 클러스터 연결
 
@@ -227,7 +227,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 ### <a name="using-vs-code"></a>VS Code 사용
 
-VS Code 사용에 대 한 자세한 내용은 [VS Code 확장을 통해 AKS에 배포를](how-to-vscode-tools.md#deploy-and-manage-models)참조 하세요.
+VS Code 사용에 대 한 자세한 내용은 [VS Code 확장을 통해 AKS에 배포를](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model)참조 하세요.
 
 > [!IMPORTANT]
 > VS Code를 통해 배포 하려면 AKS 클러스터를 미리 만들거나 작업 영역에 미리 연결 해야 합니다.

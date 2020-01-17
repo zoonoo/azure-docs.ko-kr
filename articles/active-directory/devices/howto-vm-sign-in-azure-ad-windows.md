@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0b70a475d841c3649ba9e2bcc63187fc4484a23d
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561153"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119978"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -48,6 +48,9 @@ Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경
 
 - Windows Server 2019 Datacenter
 - Windows 10 1809 이상
+
+> [!IMPORTANT]
+> Azure ad에 가입 된 Vm에 대 한 원격 연결은 Azure AD에 가입 된 Windows 10 Pc 또는 VM과 **동일한** 디렉터리에 조인 된 하이브리드 Azure ad 에서만 허용 됩니다. 
 
 현재 이 기능의 미리 보기 기간 동안 다음과 같은 Azure 지역이 지원됩니다.
 

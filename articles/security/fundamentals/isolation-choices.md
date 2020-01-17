@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979267"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121950"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 Azure를 통해 공유 되는 물리적 인프라에서 응용 프로그램 및 Vm (가상 머신)을 실행할 수 있습니다. 클라우드 환경에서 애플리케이션을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 애플리케이션과 VM을 실행할 위험이 있습니다.
@@ -179,7 +179,7 @@ FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 
 ### <a name="logical-isolation-between-compute-and-storage"></a>Compute 및 스토리지 간의 논리적 격리
 기본 설계의 일부로 Microsoft Azure는 VM 기반 계산을 스토리지로부터 분리합니다. 이러한 분리를 통해 계산 및 스토리지를 독립적으로 확장할 수 있으므로 다중 테넌트 및 격리를 더 쉽게 제공할 수 있습니다.
 
-따라서 Azure Storage는 논리적 격리를 제외하고는 Azure Compute에 대한 네트워크 연결이 없는 별도의 하드웨어에서 실행됩니다. [이](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)는 가상 디스크를 만들 때 디스크 공간이 전체 용량으로 할당되지 않음을 의미합니다. 대신 가상 디스크의 주소를 실제 디스크의 영역에 매핑하는 테이블이 만들어지며, 이 테이블은 처음에는 비어 있습니다. **고객이 처음으로 가상 디스크에 데이터를 쓰면 실제 디스크의 공간이 할당되고 해당 공간에 대한 포인터가 테이블에 배치됩니다.**
+따라서 Azure Storage는 논리적 격리를 제외하고는 Azure Compute에 대한 네트워크 연결이 없는 별도의 하드웨어에서 실행됩니다. 이는 가상 디스크를 만들 때 전체 용량에 대해 디스크 공간이 할당 되지 않음을 의미 합니다. 대신 가상 디스크의 주소를 실제 디스크의 영역에 매핑하는 테이블이 만들어지며, 이 테이블은 처음에는 비어 있습니다. **고객이 처음으로 가상 디스크에 데이터를 쓰면 실제 디스크의 공간이 할당되고 해당 공간에 대한 포인터가 테이블에 배치됩니다.**
 ### <a name="isolation-using-storage-access-control"></a>스토리지 액세스 제어를 사용한 격리
 **Azure Storage의 Access Control**에는 간단한 액세스 제어 모델이 있습니다. Azure 구독마다 하나 이상의 Storage 계정을 만들 수 있습니다. 각 Storage 계정에는 해당 Storage 계정의 모든 데이터에 대한 액세스를 제어하는 데 사용되는 단일 비밀 키가 있습니다.
 
@@ -320,14 +320,6 @@ Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft Azure Virtual Network의 컴퓨터에 대한 네트워크 격리 옵션](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- [Microsoft Azure 가상 네트워크의 컴퓨터에 대 한 네트워크 격리 옵션](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)에 대해 알아봅니다. 여기에는 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용 되는 IP 주소 목록에 따라 특정 끝점에 연결 하는 특정 클라이언트 또는 다른 컴퓨터에만 허용할 수 있는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함 됩니다.
 
-여기에는 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용 되는 IP 주소 목록에 따라 특정 끝점에 연결 하는 특정 클라이언트 또는 다른 컴퓨터에만 허용할 수 있는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함 됩니다.
-
-- [Compute 격리](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure는 애플리케이션 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다.
-
-- [스토리지 격리](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure는 고객 VM 기반 계산을 스토리지와 분리합니다. 이러한 분리를 통해 계산 및 스토리지를 독립적으로 확장할 수 있으므로 다중 테넌트 및 격리를 더 쉽게 제공할 수 있습니다. 따라서 Azure Storage는 논리적 격리를 제외하고는 Azure Compute에 대한 네트워크 연결이 없는 별도의 하드웨어에서 실행됩니다. 모든 요청은 고객의 선택에 따라 HTTP 또는 HTTPS를 통해 실행됩니다.
+- [Azure의 가상 머신 격리](../../virtual-machines/windows/isolation.md)에 대해 알아봅니다. Azure Compute는 특정 하드웨어 종류에 격리 되 고 단일 고객 전용으로 제공 되는 가상 머신 크기를 제공 합니다.

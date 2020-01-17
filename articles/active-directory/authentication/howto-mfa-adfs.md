@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cc696e6351281ec9bd84cc6611d81d9148cda1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848428"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155216"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
@@ -77,16 +77,16 @@ ms.locfileid: "74848428"
             => issue(claim = c);
     ![사용자 지정 클레임을 만들어 사용자 로그인 유지](./media/howto-mfa-adfs/trustedip5.png)
 13. **Finish**를 클릭합니다.
-14. **Apply**를 클릭합니다.
-15. **확인**을 클릭합니다.
+14. **적용**을 클릭합니다.
+15. **Ok**를 클릭합니다.
 16. AD FS 관리를 닫습니다.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP 구성
 
 이제 클레임이 적용되었으므로 신뢰할 수 있는 IP를 구성할 수 있습니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
-2. **명명 된 위치** > **조건부 액세스** 를 > **Azure Active Directory** 을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Azure Active Directory** > **보안** > **조건부 액세스** > **명명 된 위치**를 선택 합니다.
 3. **조건부 액세스-명명 된 위치** 블레이드에서 **MFA 신뢰할 수 있는 ip 구성** 을 선택 합니다.
 
    ![Azure AD 조건부 액세스 명명 된 위치 MFA 신뢰할 수 있는 Ip 구성](./media/howto-mfa-adfs/trustedip6.png)

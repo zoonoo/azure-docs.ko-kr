@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup를 사용 하 여 Azure virtual ma
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: fc0c3127594fe3ca90b0a66ce548f471c55f4e5f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611392"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156474"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -29,7 +29,7 @@ SQL Server 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 �
 
 SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 합니다.
 
-1. SQL Server 인스턴스를 호스트 하는 VM과 동일한 지역 또는 로캘로 [Recovery Services 자격 증명 모음](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) 을 식별 하거나 만듭니다.
+1. SQL Server 인스턴스를 호스트 하는 VM과 동일한 지역 및 구독에서 [Recovery Services 자격 증명 모음](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) 을 식별 하거나 만듭니다.
 2. VM이 [네트워크에 연결](backup-sql-server-database-azure-vms.md#establish-network-connectivity)되어 있는지 확인 합니다.
 3. SQL Server 데이터베이스가 [Azure Backup에 대 한 데이터베이스 명명 지침](#database-naming-guidelines-for-azure-backup)을 따르는지 확인 합니다.
 4. 데이터베이스에 대해 다른 백업 솔루션을 사용 하도록 설정 하지 않았는지 확인 합니다. 데이터베이스를 백업 하기 전에 다른 모든 SQL Server 백업을 사용 하지 않도록 설정 합니다.

@@ -3,12 +3,12 @@ title: PowerShell 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 6857d7d41cb05fd168d451ed3a955107acb4ec93
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c31cde9d3023c49a03f4a7a6c434c16405c88bea
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477903"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121933"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
@@ -157,7 +157,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 ## <a name="test-template-deployments"></a>템플릿 배포 테스트
 
-리소스를 실제로 배포하지 않고 템플릿과 매개 변수 값을 테스트하려면 [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment)를 사용합니다. 
+실제로 리소스를 배포 하지 않고 템플릿 및 매개 변수 값을 테스트 하려면 [AzResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment)을 사용 합니다. 
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `

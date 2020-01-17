@@ -4,20 +4,22 @@ description: Avere 클러스터를 관리하는 방법 - 노드 추가 또는 �
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d963c951d2202b3f60f0dd93c440b36fabf6478d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415292"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153482"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
-클러스터가 만들어지면 클러스터 노드를 추가하거나 클러스터를 중지 또는 다시 부팅해야 합니다. 그리고 프로젝트가 완료되면 클러스터를 영구적으로 중지 및 제거하는 방법을 알아야 합니다.
+Avere vFXT for Azure cluster의 수명 주기 중 특정 시점에 클러스터 노드를 추가 하거나 클러스터를 시작 하거나 다시 부팅 해야 할 수 있습니다. 프로젝트가 완료 되 면 클러스터를 중지 하 고 영구적으로 제거 하는 방법을 알고 있어야 합니다.
 
-클러스터 관리 작업에 따라 Avere 제어판, vfxt.py 명령줄 클러스터 만들기 스크립트 또는 Azure Portal을 사용해야 할 수도 있습니다.
+이 문서에서는 클러스터 노드 및 기타 기본 클러스터 작업을 추가 하거나 제거 하는 방법을 설명 합니다. 클러스터 설정을 변경 하거나 작업을 모니터링 해야 하는 경우 [Avere 제어판](avere-vfxt-cluster-gui.md)을 사용 합니다.
+
+관리 작업에 따라 Avere 제어판, vfxt.py command line cluster management script 및 Azure Portal의 세 가지 도구 중 하나를 사용 해야 할 수 있습니다.
 
 다음 표에는 각 작업에 사용할 수 있는 도구에 대한 개요가 나와 있습니다.
 
@@ -38,7 +40,7 @@ ms.locfileid: "75415292"
 
 Azure VM을 종료하거나 중지하면 컴퓨팅 비용이 발생하지 않지만 스토리지 비용은 계속 지불해야 합니다. vFXT 노드 또는 전체 vFXT 클러스터를 종료하고 다시 시작하지 않으려면 Azure Portal을 사용하여 관련 VM을 삭제해야 합니다.
 
-Azure Portal에서 *중지된* 노드(다시 시작할 수 있음)는 Azure Portal에서 **중지됨** 상태를 표시하고, *삭제된* 노드는 **중지됨(할당 취소됨)** 상태를 표시하며, 더 이상 컴퓨팅 또는 스토리지 요금이 발생되지 않습니다.
+Azure Portal에서 *중지* 된 노드 (다시 시작할 수 있음)는 Azure Portal에서 **중지** 된 상태를 보여 줍니다. *삭제* 된 노드에는 **중지 됨 (할당 취소 됨)** 상태가 표시 되 고 더 이상 계산 또는 저장소 요금이 발생 하지 않습니다.
 
 VM을 삭제하기 전에 Avere 제어판 또는 vfxt.py 옵션을 통해 클러스터를 중지하거나 종료하여 변경된 모든 데이터가 캐시에서 백 엔드 스토리지로 기록되었는지 확인합니다.
 
@@ -50,7 +52,7 @@ Avere 제어판을 사용할 수 있는 작업은 다음과 같습니다.
 * 클러스터에서 노드 제거
 * 전체 클러스터 중지 또는 다시 부팅
 
-Avere 제어판은 데이터 무결성의 우선 순위를 지정하므로 가능한 파괴적인 작업을 수행하기 전에 변경된 데이터를 백 엔드 스토리지에 쓰려고 시도합니다. 이는 Avere 포털보다 안전한 옵션입니다.
+Avere 제어판은 데이터 무결성의 우선 순위를 변경 하므로 파괴적인 작업을 수행 하기 전에 변경 된 데이터를 백 엔드 저장소에 쓰려고 시도 합니다. 이렇게 하면 Azure Portal 보다 안전 하 게 옵션을 만들 수 있습니다.
 
 웹 브라우저에서 Avere 제어판에 액세스합니다. 도움이 필요한 경우 [vFXT 클러스터에 액세스](avere-vfxt-cluster-gui.md)의 지침을 따릅니다.
 
@@ -69,7 +71,7 @@ Avere 제어판은 데이터 무결성의 우선 순위를 지정하므로 가�
 
 **시스템 유지 관리** 설정 페이지에는 클러스터 서비스를 다시 시작하거나, 클러스터를 다시 부팅하거나, 클러스터의 작동을 안전하게 중지하는 명령이 있습니다. 자세한 내용은 Avere 클러스터 설정 가이드의 [관리 > 시스템 유지 관리](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>)를 참조하세요.
 
-클러스터가 종료되면 처음에는 상태 메시지를 **대시보드** 탭에 게시합니다. 잠시 후에 Avere 제어판 세션에서 응답을 중지합니다. 이는 클러스터가 종료되었음을 의미합니다.
+클러스터가 종료 되기 시작 하면 상태 메시지를 **대시보드** 탭에 게시 합니다. 잠시 후 메시지가 중지 되 고 결과적으로 Avere 제어판 세션이 응답 하지 않습니다. 즉, 클러스터가 종료 되었습니다.
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>vfxt.py를 사용하여 클러스터 관리
 
@@ -83,7 +85,7 @@ vfxt.py 스크립트를 사용할 수 있는 클러스터 관리 작업은 다�
 * 클러스터 시작 또는 중지  
 * 클러스터 삭제
 
-Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드를 종료하거나 삭제하기 전에 변경된 데이터가 백 엔드 스토리지에 영구적으로 저장되도록 합니다. 이는 Avere 포털보다 안전한 옵션입니다.
+Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드를 종료하거나 삭제하기 전에 변경된 데이터가 백 엔드 스토리지에 영구적으로 저장되도록 합니다. 이렇게 하면 Azure Portal 보다 안전 하 게 옵션을 만들 수 있습니다.
 
 전체 vfxt.py 사용 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/azure/averesdk/blob/master/docs/README.md)에서 제공됩니다.
 
@@ -95,7 +97,7 @@ Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드
 
 다음 값을 제공합니다.
 
-* 클러스터에 대한 리소스 그룹 이름 및 클러스터와 동일하지 않은 경우 네트워크 및 스토리지 리소스에 대한 리소스 그룹 이름
+* 클러스터에 대 한 리소스 그룹 이름 및 네트워크 및 저장소 리소스가 클러스터와 동일한 리소스 그룹에 없는 경우
 * 클러스터 위치
 * 클러스터 네트워크 및 서브넷
 * 클러스터 노드 액세스 역할 (기본 제공 역할 [Avere 연산자](../role-based-access-control/built-in-roles.md#avere-operator)사용)
@@ -139,7 +141,7 @@ vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-클러스터 캐시에서 변경된 데이터를 쓰지 않으려는 경우 ``--quick-destroy`` 옵션을 사용할 수 있습니다.
+클러스터 캐시에서 변경 된 데이터를 저장 하지 않으려는 경우에 ``--quick-destroy`` 옵션을 사용할 수 있습니다.
 
 자세한 내용은 [vfxt.py 사용 가이드](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>)를 참조하세요.
 
@@ -195,7 +197,7 @@ vFXT 클러스터에 대해 특별히 추가 리소스를 만든 경우 클러�
 * 클러스터 노드와 연결된 데이터 디스크
 * 클러스터 구성 요소와 연결된 네트워크 인터페이스 및 공용 IP
 * 가상 네트워크
-* 스토리지 계정(중요한 데이터가 없는 **경우에만**)
+* 저장소 컨테이너 및 저장소 계정 (중요 한 데이터가 포함 되지 않은 경우에**만** )
 * 가용성 집합
 
 ![테스트 클러스터에 대해 만들어진 리소스를 보여 주는 Azure Portal의 "모든 리소스" 목록](media/avere-vfxt-all-resources-list.png)

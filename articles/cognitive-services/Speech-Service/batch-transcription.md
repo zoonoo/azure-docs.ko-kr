@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 6b23ae21366699162b900ae420afae640aa20613
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4c2985f35621ff3120217cbe38705ad2c228d6f7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921468"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122103"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -28,7 +28,7 @@ API는 비동기 음성-텍스트 기록 및 기타 기능을 제공 합니다. 
 - 기록 결과 다운로드
 - 서비스에서 기록 정보 삭제
 
-자세한 API는 `Custom Speech transcriptions`제목에서 [Swagger 문서로](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)사용할 수 있습니다.
+자세한 API는 `Custom Speech transcriptions` 제목 아래에 [Swagger 문서](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)로 제공됩니다.
 
 일괄 처리 작업은 최상의 노력으로 예약 됩니다. 현재 작업을 실행 중 상태로 변경 하는 시기에 대 한 예측은 없습니다. 정상적인 시스템 로드에서는 몇 분 내에 발생 해야 합니다. 실행 상태에 있으면 실제 기록을 오디오 실시간 보다 빠르게 처리 합니다.
 
@@ -88,17 +88,12 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 이러한 선택적 속성을 사용 하 여 기록을 구성 합니다.
 
 | 매개 변수 | Description |
-|-----------|------------|
-|`ProfanityFilterMode`|인식 결과에서 비속어를 처리 하는 방법을 지정 합니다.
-||**`Masked`** -기본값입니다. 비속어를 별표로 바꿉니다.<br>`None`-사용 금지 필터링 사용 안 함<br>`Removed`-결과에서 모든 비속어를 제거 합니다.<br>`Tags`-비속어 태그를 추가 합니다.
-|`PunctuationMode`|인식 결과에서 문장 부호를 처리 하도록 지정 합니다.
-||`Automatic`-서비스에서 문장 부호를 삽입 합니다.<br>발음 (`Dictated`) 문장 부호<br>**`DictatedAndAutomatic`** -기본값입니다. 지시 및 자동 문장 부호<br>`None`-문장 부호 사용 안 함
-|`AddWordLevelTimestamps`|단어 수준 타임 스탬프를 출력에 추가할지 여부를 지정 합니다.
-||`True`-word 수준 타임 스탬프를 사용 합니다.<br>**`False`** -기본값입니다. Word 수준 타임 스탬프 사용 안 함
-|`AddSentiment`|감정 분석을 utterance에 추가할지 여부를 지정 합니다.
-||`True`-utterance 당 감정를 사용 하도록 설정 합니다.<br>**`False`** -기본값입니다. 감정 사용 안 함
-|`AddDiarization`|Diarization 분석을 수행 하는지 여부를 지정 합니다. `true`경우 입력은 최대 2 개의 음성을 포함 하는 mono 채널 오디오로 예상 됩니다. `AddWordLevelTimestamps`를로 설정 해야 `true`
-||`True`-diarization 사용<br>**`False`** -기본값입니다. Diarization 사용 안 함
+|-----------|-------------|
+| `ProfanityFilterMode` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용되는 값은 욕설 필터링을 비활성화하는 `None`, 욕설을 별표로 바꾸는 `Masked`, 결과에서 모든 욕설을 제거하는 `Removed`, 또는 “profanity” 태그를 추가하는 `Tags`입니다. 기본 설정은 `Masked`입니다. |
+| `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `None`, 명시적인 문장 부호를 의미하는 `Dictated`, 디코더가 문장 부호를 처리하도록 하는 `Automatic`, 지정된 문장 부호 또는 자동을 의미하는 `DictatedAndAutomatic`입니다. |
+| `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. |
+| `AddSentiment` | 발언에 감정을 추가할 것인지 지정합니다. 허용되는 값인 `true`는 발언당 감정을 사용 설정하고 `false`(기본값)는 사용하지 않도록 설정합니다. |
+| `AddDiarization` | 두 개의 음성을 포함 하는 mono 채널이 될 것으로 예상 되는 입력에 대해 diarization 분석을 수행 하도록 지정 합니다. 허용 되는 값은 diarization 및 `false` (기본값)을 사용 하지 않도록 설정 하는 `true`입니다. 또한 `AddWordLevelTimestamps`를 true로 설정 해야 합니다.|
 |`TranscriptionResultsContainerUrl`|Azure의 쓰기 가능한 컨테이너에 대 한 SAS 토큰 (선택 사항)입니다. 결과는이 컨테이너에 저장 됩니다.
 
 ### <a name="storage"></a>Storage

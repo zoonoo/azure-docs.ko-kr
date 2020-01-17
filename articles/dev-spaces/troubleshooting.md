@@ -2,15 +2,15 @@
 title: 문제 해결
 services: azure-dev-spaces
 ms.date: 09/25/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용 하도록 설정 하 고 사용 하는 경우 일반적인 문제를 해결 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: a52d27733168c55f9e34d15f6675dd7bce0f8aad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b35f7310286546b0ff051f3a61404e96286c78cb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438101"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156610"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 

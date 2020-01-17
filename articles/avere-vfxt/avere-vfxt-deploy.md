@@ -4,14 +4,14 @@ description: Azure에 Avere vFXT 클러스터를 배포하는 단계입니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: ad5b0ecd9e7e6326c5b91844b6f7b557972b4852
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415602"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153593"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
@@ -22,7 +22,7 @@ ms.locfileid: "75415602"
 * 클러스터 노드 Vm을 만들고 Avere 클러스터로 구성 합니다.
 * 요청 된 경우에서 새 Azure Blob 컨테이너를 만들고 클러스터 코어 필터 구성 합니다.
 
-이 문서의 지침을 수행 하면 다음 다이어그램에 표시 된 것 처럼 가상 네트워크, 서브넷, 컨트롤러 및 vFXT 클러스터가 만들어집니다. 이 다이어그램은 새 Blob 저장소 컨테이너 (표시 되지 않음) 및 서브넷 내 Microsoft 저장소에 대 한 서비스 끝점을 포함 하는 선택적 Azure Blob core 필터를 보여 줍니다.
+이 문서의 지침을 수행 하면 다음 다이어그램에 표시 된 것 처럼 가상 네트워크, 서브넷, 클러스터 컨트롤러 및 vFXT 클러스터가 만들어집니다. 이 다이어그램은 새 Blob 저장소 컨테이너 (표시 되지 않음) 및 서브넷 내 Microsoft 저장소에 대 한 서비스 끝점을 포함 하는 선택적 Azure Blob core 필터를 보여 줍니다.
 
 ![Avere 클러스터 구성 요소가 포함 된 세 개의 동심 사각형을 보여 주는 다이어그램입니다. 외부 사각형에는 ' 리소스 그룹 ' 레이블이 지정 되 고 ' Blob storage (선택 사항) ' 레이블이 지정 된 육각형이 포함 됩니다. 의 다음 사각형은 ' Virtual network: 10.0.0.0/16 ' 레이블이 지정 되 고 고유 구성 요소는 포함 되지 않습니다. 가장 안쪽의 사각형에는 ' Subnet: 10.0.0.0/24 ' 레이블이 지정 되 고 ' Cluster controller ' 레이블이 지정 된 VM, ' vFXT nodes (vFXT Cluster) ' 레이블이 지정 된 3 개의 Vm 스택, ' Service endpoint ' 레이블이 지정 된 육각형이 포함 됩니다. 서비스 끝점 (서브넷 내부) 및 blob 저장소 (리소스 그룹의 서브넷 및 vnet 외부)를 연결 하는 화살표가 있습니다. 화살표는 서브넷 및 가상 네트워크 경계를 통과 합니다.](media/avere-vfxt-deployment.png)
 
@@ -31,7 +31,7 @@ ms.locfileid: "75415602"
 1. [새 구독](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [구독 소유자 권한](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Storage 서비스 끝점 (필요한 경우)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -기존 가상 네트워크를 사용 하 여 배포 하 고 blob 저장소를 만드는 데 필요 합니다.
+1. [Storage 서비스 끝점 (필요한 경우)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -기존 가상 네트워크를 사용 하 고 blob 저장소를 만드는 배포에 필요 합니다.
 
 클러스터 배포 단계 및 계획에 대한 자세한 내용은 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md) 및 [배포 개요](avere-vfxt-deploy-overview.md)를 참조하세요.
 
@@ -41,7 +41,7 @@ Avere를 검색 하 고 "Avere vFXT for Azure ARM Template"을 선택 하 여 Az
 
 ![브라우저 창에 이동 경로 "새로 만들기 > Marketplace > 모두"와 함께 Azure Portal이 표시됩니다. 모든 페이지에서 검색 필드는 "avere" 라는 용어를 포함 하 고 두 번째 결과는 "Avere vFXT for Azure ARM Template"을 빨간색으로 표시 하 여 강조 표시 합니다.](media/avere-vfxt-template-choose.png)
 
-Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 후 **만들기** 를 클릭 하 여 시작 합니다.
+Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 후 **만들기** 단추를 클릭 하 여 시작 합니다.
 
 ![배포 템플릿의 첫 페이지가 표시된 Azure Marketplace](media/avere-vfxt-deploy-first.png)
 
@@ -149,11 +149,11 @@ Avere vFXT 템플릿이 클러스터 만들기를 완료 하면 새 클러스터
 
 1. 왼쪽에서 **배포**를 클릭한 다음 **microsoft-avere.vfxt-template**을 클릭합니다.
 
-   ![왼쪽에 배포가 선택되어 있고 배포 이름 아래의 표에 microsoft-avere.vfxt-template이 표시되어 있는 리소스 그룹 포털 페이지](media/avere-vfxt-outputs-deployments.png) <!-- update image for new portal GUI -->
+   ![왼쪽에 배포가 선택되어 있고 배포 이름 아래의 표에 microsoft-avere.vfxt-template이 표시되어 있는 리소스 그룹 포털 페이지](media/avere-vfxt-outputs-deployments.png)
 
 1. 왼쪽에서 **출력**을 클릭합니다. 각 필드의 값을 복사합니다.
 
-   ![레이블 오른쪽의 필드에 SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs, MGMT_IP 값이 표시된 출력 페이지](media/avere-vfxt-outputs-values.png)<!-- update image for new portal GUI -->
+   ![레이블 오른쪽의 필드에 SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs, MGMT_IP 값이 표시된 출력 페이지](media/avere-vfxt-outputs-values.png)
 
 ## <a name="next-steps"></a>다음 단계
 

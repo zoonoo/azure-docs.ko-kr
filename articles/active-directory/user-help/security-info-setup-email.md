@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 82bbdd7f209b2ce22225628416a07524c62f1484
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279013"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156168"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>전자 메일 주소를 확인 방법으로 설정 합니다.
 
 다음 단계에 따라 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
-암호 재설정 방법을 설정한 후 [인증자 앱](security-info-setup-auth-app.md), [문자 메시지](security-info-setup-text-msg.md) 또는 [전화 통화](security-info-setup-phone-number.md)를 사용하여 2단계 확인 방법도 설정해야 합니다.
-
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>전자 메일 옵션이 표시 되지 않으면 조직에서 암호 재설정 방법으로이 옵션을 사용 하도록 허용 하지 않을 수 있습니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 자세한 도움을 요청 해야 합니다.
+
+## <a name="security-vs-password-reset-verification"></a>보안 vs 암호 재설정 확인
+
+보안 정보 방법은 2 단계 보안 확인 및 암호 재설정에 모두 사용 됩니다. 그러나 모든 보안 정보 방법을 둘 모두에 사용할 수 있는 것은 아닙니다.
+
+| 방법 | 사용 대상 |
+| ------ | -------- |
+| 인증자 앱 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 문자 메시지 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 전화 통화 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 보안 키 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 이메일 계정 | 암호 재설정 인증 전용입니다. 2단계 인증에는 다른 보안 정보 방법을 선택해야 합니다. |
+| 보안 질문 | 암호 재설정 인증 전용입니다. 2단계 인증에는 다른 보안 정보 방법을 선택해야 합니다. |
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>보안 정보 페이지에서 이메일 주소 설정
 
@@ -42,7 +56,7 @@ ms.locfileid: "74279013"
 
 2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **방법 추가** 페이지의 드롭다운 목록에서 **이메일**을 선택한 다음, **추가**를 선택합니다.
 
@@ -76,7 +90,7 @@ ms.locfileid: "74279013"
 
 2. 확인 상자에서 **예**를 선택하여 **이메일** 계정을 삭제합니다. 이메일 계정이 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
 
-## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
+## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
 
 수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
 
@@ -88,7 +102,7 @@ ms.locfileid: "74279013"
 
 - **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
 
-- **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
+- **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 
     >[!Note]
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.

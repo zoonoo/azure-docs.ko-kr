@@ -12,25 +12,23 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510f1ca441ef9645cff7f577bbad39991cebc285
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3981c152ba836a01daca16cd486623a9a26d86f2
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231866"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156236"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>내 계정 포털에서 회사 또는 학교 계정 암호를 변경 합니다.
+# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>암호 변경 페이지에서 회사 또는 학교 계정 암호를 변경 합니다.
 
-**내 계정** 포털의 **암호 변경** 페이지에서 회사 또는 학교 계정 암호를 업데이트할 수 있습니다. 기존 암호를 알고 있는 경우와 계정이 잠기지 않은 경우에만 작동 합니다.
+**내 계정** 포털의 **암호 변경** 페이지에서는 회사 또는 학교 계정에 대 한 기존 암호를 업데이트 하는 데 도움이 됩니다. 암호를 잊어버린 경우 사용자가 계정에서 잠그지 않은 것으로 가정 합니다. 암호를 기억할 수 없는 경우, 계정에서 잠긴 경우 또는 조직에서 암호를 얻지 못한 경우에는 보안 정보와 모바일 장치를 사용 하 여 암호를 다시 설정할 수 있습니다.
 
-암호를 기억할 수 없는 경우, 계정에서 잠긴 경우 또는 회사 지원팀의 암호를 받지 못한 경우에는 보안 정보와 모바일 장치를 사용 하 여 암호를 다시 설정할 수 있습니다. 자세한 내용은 [회사 또는 학교 암호 재설정](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password)을 참조하세요.
+>[!Important]
+>이 문서는 기존 회사 또는 학교 계정에 대해 알려진 암호를 업데이트 하려는 사용자를 위해 작성 되었습니다. Xbox, Hotmail 또는 Outlook.com와 같은 개인 계정으로 전환 하려는 사용자의 경우 [Microsoft 계정에 로그인 할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에서 제안 해 보세요. 관리자가 직원 또는 다른 사용자에 대해 셀프 서비스 암호 재설정을 테스트 하는 방법에 대 한 자세한 정보를 확인 하려는 경우 [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)을 참조 하세요.
 
->[!Note]
->Xbox, hotmail.com 또는 outlook.com와 같은 개인 계정으로 다시 전환 하려는 경우 [Microsoft 계정에 로그인 할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에서 제안 해 보세요.
+## <a name="update-a-password-from-the-change-password-page"></a>암호 변경 페이지에서 암호를 업데이트 합니다.
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>내 계정 포털에서 암호를 변경 하려면
-
-1. 기존 암호를 사용 하 여 회사 또는 학교 계정에 로그인 한 다음 https://myprofile.microsoft.com/ 페이지로 이동 합니다.
+1. 기존 암호를 사용 하 여 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (https://myprofile.microsoft.com/) 페이지로 이동 합니다.
 
 2. 왼쪽 탐색 창에서 **암호** 를 선택 하거나 암호 블록에서 **암호 변경** 링크를 **선택 합니다.**
 

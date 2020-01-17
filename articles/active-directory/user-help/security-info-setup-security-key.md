@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03855b7596f45fcdde0bebe018d2157ad33a617b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278956"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156083"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>보안 키를 확인 방법으로 설정 합니다.
 
@@ -25,8 +25,21 @@ ms.locfileid: "74278956"
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
->[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
+>[!Note]
+> 보안 키 옵션이 표시 되지 않으면 조직에서이 옵션을 사용 하 여 확인 하는 것을 허용 하지 않을 수 있습니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 추가 지원을 요청 해야 합니다.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>보안 확인 및 암호 재설정 인증
+
+보안 정보 방법은 2 단계 보안 확인 및 암호 재설정에 모두 사용 됩니다. 그러나 모든 보안 정보 방법을 둘 모두에 사용할 수 있는 것은 아닙니다.
+
+| 방법 | 사용 대상 |
+| ------ | -------- |
+| 인증자 앱 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 문자 메시지 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 전화 통화 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 보안 키 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 이메일 계정 | 암호 재설정 인증 전용입니다. 2단계 인증에는 다른 보안 정보 방법을 선택해야 합니다. |
+| 보안 질문 | 암호 재설정 인증 전용입니다. 2단계 인증에는 다른 보안 정보 방법을 선택해야 합니다. |
 
 ## <a name="what-is-a-security-key"></a>보안 키 란?
 
@@ -51,7 +64,7 @@ ms.locfileid: "74278956"
 
 키를 사용 하 여 회사 또는 학교 계정에 로그인 하려면 보안 키를 만들고 고유한 PIN을 지정 해야 합니다. 계정에 최대 10 개의 키가 등록 되어 있을 수 있습니다. 
 
-1. https://myprofile.microsoft.com에서 **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
+1. https://myprofile.microsoft.com 에서 **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
 
 2. **보안 정보**를 선택 하 **고 메서드 추가**를 선택한 다음 **방법 추가** 드롭다운 목록에서 **보안 키** 를 선택 합니다.
 
@@ -144,7 +157,7 @@ ms.locfileid: "74278956"
      보안 키는 회사 또는 학교 계정에 사용 하기 위해 새 보안 키 PIN으로 업데이트 됩니다. PIN을 다시 변경 하기로 결정 한 경우에는 **변경** 단추를 선택할 수 있습니다.
 4. **닫기** 를 선택 하 여 **관리** 화면을 닫습니다.
 
-## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
+## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
 
 보안 키를 등록 하려면 하나 이상의 추가 보안 확인 방법이 등록 되어 있어야 합니다. 자세한 내용은 [개요 섹션](security-info-add-update-methods-overview.md) 을 참조 하세요. 
 

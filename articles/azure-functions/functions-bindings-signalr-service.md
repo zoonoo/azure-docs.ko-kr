@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: cbc45036497547b78514b1d175d67c6ed437ee2d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d5ded7200c438fc734e1af0a42ca6071196bd41c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769492"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120340"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
@@ -1011,9 +1011,9 @@ public SignalRGroupAction removeFromGroup(
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type**|| `signalRConnectionInfo`로 설정해야 합니다.|
-|**direction**|| `in`로 설정해야 합니다.|
-|**name**|| 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
+|**type**| n/a | `signalRConnectionInfo`로 설정해야 합니다.|
+|**direction**| n/a | `in`로 설정해야 합니다.|
+|**name**| n/a | 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
 |**userId**|**UserId**| 선택 사항: 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
 |**connectionStringSetting**|**ConnectionStringSetting**| SignalR Service 연결 문자열("AzureSignalRConnectionString"에 대한 기본값)을 포함하는 앱 설정의 이름 |
@@ -1024,9 +1024,9 @@ public SignalRGroupAction removeFromGroup(
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type**|| `signalR`로 설정해야 합니다.|
-|**direction**|| `out`로 설정해야 합니다.|
-|**name**|| 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
+|**type**| n/a | `signalR`로 설정해야 합니다.|
+|**direction**| n/a | `out`로 설정해야 합니다.|
+|**name**| n/a | 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
 |**connectionStringSetting**|**ConnectionStringSetting**| SignalR Service 연결 문자열("AzureSignalRConnectionString"에 대한 기본값)을 포함하는 앱 설정의 이름 |
 

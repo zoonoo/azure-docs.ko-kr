@@ -10,17 +10,65 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: raiye
-ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 85029b5f819a59ffc4934d245778044a94a18d5e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779589"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122137"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 업데이트는 항상 도입 된 특정 [제품군][family-explain] 에 대해 항상 전달 됩니다.
+
+## <a name="january-2020-guest-os"></a>게스트 OS 1 월 2020
+
+>[!NOTE]
+>1월 게스트 OS는 현재 자동 업데이트에 구성된 클라우드 서비스 VM에 배포되고 있습니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 1월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
+
+| 제품 카테고리 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 20-01  |  [4532960]  |  Windows 보안  | 2.94 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 2.94 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4534314]  |  Windows 보안  | 2.94 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4532958]  |  Windows 보안  | 3.81 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4532963]  |  Windows 보안  | 3.81 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 3.81 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4534288]  |  Windows 보안  | 3.81 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4532961]  |  Windows 보안  | 4.74 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4532962]  |  Windows 보안  | 4.74 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 4.74 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4534309]  |  Windows 보안  | 4.74 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4494175]  |  마이크로코드 v3  | 5.39 | 2019년 8월 29일 |
+|  Rel 20-01  |  [4534271]  |  LCU  | 5.39 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4494174]  |  마이크로코드 v4  | 6.15 | 2019년 8월 29일 |
+|  Rel 20-01  |  [4532947]  |  Windows 보안  | 6.15 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4534273]  |  LCU  | 6.15 | 1 월 14 일 2020 |
+|  Rel 20-01  |  [4530734]  |  비보안  | 2.94 | 2019 년 12 월 10 일 |
+|  Rel 20-01  |  [4530691]  |  비보안   | 3.81 | 2019 년 12 월 10 일 |
+|  Rel 20-01  |  [4530702]  |  비보안  | 4.74 | 2019 년 12 월 10 일 |
+
+[4532960]: https://support.microsoft.com/kb/4532960
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534314]: https://support.microsoft.com/kb/4534314
+[4532958]: https://support.microsoft.com/kb/4532958
+[4532963]: https://support.microsoft.com/kb/4532963
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534288]: https://support.microsoft.com/kb/4534288
+[4532961]: https://support.microsoft.com/kb/4532961
+[4532962]: https://support.microsoft.com/kb/4532962
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534309]: https://support.microsoft.com/kb/4534309
+[4494175]: https://support.microsoft.com/kb/4494175
+[4534271]: https://support.microsoft.com/kb/4534271
+[4494174]: https://support.microsoft.com/kb/4494174
+[4532947]: https://support.microsoft.com/kb/4532947
+[4534273]: https://support.microsoft.com/kb/4534273
+[4530734]: https://support.microsoft.com/kb/4530734
+[4530691]: https://support.microsoft.com/kb/4530691
+[4530702]: https://support.microsoft.com/kb/4530702
+
 
 ## <a name="december-2019-guest-os"></a>2019 년 12 월 게스트 OS
 

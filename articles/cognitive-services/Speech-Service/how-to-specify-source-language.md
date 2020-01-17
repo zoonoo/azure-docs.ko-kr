@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 01/07/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e4f4dd3c1e23855a8a1a69dac72c232779206f1d
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109961"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121712"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>음성 텍스트에 대 한 소스 언어 지정
 
@@ -26,23 +26,28 @@ ms.locfileid: "74109961"
 
 ## <a name="how-to-specify-source-language-in-c"></a>에서 원본 언어를 지정 하는 방법C#
 
-첫 번째 단계는 `SpeechConfig`를 만드는 것입니다.
+이 예제에서 소스 언어는 `SpeechRecognizer` 구문을 사용 하 여 명시적으로 매개 변수로 제공 됩니다.
 
 ```csharp
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-다음으로 `SpeechRecognitionLanguage`에서 오디오의 원본 언어를 지정 합니다.
+이 예제에서는 `SourceLanguageConfig`를 사용 하 여 소스 언어를 제공 합니다. 그런 다음 `sourceLanguageConfig` `SpeechRecognizer` 생성에 매개 변수로 전달 됩니다.
 
 ```csharp
-speechConfig.SpeechRecognitionLanguage = "de-DE";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-사용자 지정 모델을 인식 하기 위해 사용 하는 경우 `EndpointId`를 사용 하 여 끝점을 지정할 수 있습니다.
+이 예제에서는 `SourceLanguageConfig`를 사용 하 여 소스 언어 및 사용자 지정 끝점을 제공 합니다. 그런 다음 `sourceLanguageConfig` `SpeechRecognizer` 생성에 매개 변수로 전달 됩니다.
 
 ```csharp
-speechConfig.EndpointId = "The Endpoint ID for your custom model.";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
+
+>[!Note]
+> `SpeechRecognitionLanguage` 및 `EndpointId` set 메서드는의 C#`SpeechConfig` 클래스에서 더 이상 사용 되지 않습니다. 이러한 메서드는 사용 하지 않는 것이 좋습니다. `SpeechRecognizer`을 생성할 때 사용 하면 안 됩니다.
 
 ::: zone-end
 
@@ -174,7 +179,7 @@ speechConfig.endpointId = @"The Endpoint ID for your custom model.";
 
 ::: zone-end
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 * 음성 텍스트에 대해 지원 되는 언어 및 로캘 목록은 [언어 지원](language-support.md)을 참조 하세요.
 

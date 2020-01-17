@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 096a880dc1553bec4c9d4dce36e14af7a917fc2a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b70fcb1d63636984e1d014723b50170651a553d9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540855"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156882"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -259,7 +259,7 @@ Visual Studio Code는 [Visual Studio marketplace](https://marketplace.visualstud
 
 1. Visual Studio Code에 대 한 Azure Machine Learning 확장을 설치 [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)를 참조 하세요.
 
-    자세한 내용은 [Visual Studio Code용 Azure Machine Learning 사용](how-to-vscode-tools.md)을 참조하세요.
+    자세한 내용은 [Visual Studio Code용 Azure Machine Learning 사용](tutorial-setup-vscode-extension.md)을 참조하세요.
 
 1. 모든 유형의 Python 개발에 Visual Studio Code를 사용 하는 방법에 대 한 자세한 내용은 [VSCode에서 Python 시작](https://code.visualstudio.com/docs/python/python-tutorial)을 참조 하세요.
 
@@ -296,7 +296,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 | 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |항상| yourclustername |
-| Databricks 런타임 |항상|비 ML 런타임 6.0 (scala 2.11, spark 2.4.3) |
+| Databricks Runtime |항상|비 ML 런타임 6.0 (scala 2.11, spark 2.4.3) |
 | Python 버전 |항상| 3 |
 | 작업자 |항상| 2 이상 |
 | 작업자 노드 VM 유형 <br>(최대 동시 반복 횟수를 결정 합니다.) |자동화된 ML<br>전용| 메모리 최적화 VM 기본 설정 |

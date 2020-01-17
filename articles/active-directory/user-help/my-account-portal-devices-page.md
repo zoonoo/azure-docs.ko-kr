@@ -12,24 +12,27 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9cd2d712dfcc6d3f01cbdb1f4886dd64a6d299d4
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233212"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156219"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>장치 페이지에서 회사 또는 학교 계정에 연결 된 장치 관리
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>장치 페이지에서 연결 된 장치 관리
 
-**내 계정** 포털의 **장치** 페이지에서 다음을 수행할 수 있습니다.
+**내 계정** 포털의 **장치** 페이지에서는 회사 또는 학교 계정에 연결 된 장치를 관리할 수 있습니다. **장치** 페이지에서 다음을 수행할 수 있습니다.
 
 - 회사 또는 학교 계정에 연결 된 장치를 확인 합니다.
 
 - 더 이상 소유 하지 않거나 분실 하거나 도난당 한 장치를 사용 하지 않도록 설정 합니다.
 
+>[!Important]
+>이 문서는 회사 또는 학교 계정에 연결 된 장치 정보를 업데이트 하려는 사용자를 위해 작성 되었습니다. 직원 및 기타 사용을 위한 장치 관리에 대 한 정보를 확인 하는 관리자는 [장치 Id 설명서](https://docs.microsoft.com/azure/active-directory/devices/index)를 참조 하세요.
+
 ## <a name="view-your-connected-devices"></a>연결된 디바이스 보기
 
-1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
+1. 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (https://myprofile.microsoft.com/) 페이지로 이동 합니다.
 
 2. 왼쪽 탐색 창에서 **디바이스**를 선택하거나 **디바이스** 블록에서 **디바이스 관리** 링크를 선택합니다.
 
@@ -73,3 +76,13 @@ ms.locfileid: "74233212"
 - [로그인 활동](my-account-portal-sign-ins-page.md)을 봅니다.
 
 - 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법을 확인 합니다.
+
+## <a name="related-office-content"></a>관련 Office 콘텐츠
+
+- [로그인하여 Office 제품 관리](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [Office **내 계정** 페이지로 이동](https://portal.office.com/account/#home)
+
+- [Office **내 설치** 페이지로 이동](https://portal.office.com/account/#installs)
+
+- [Office **구독** 페이지로 이동](https://portal.office.com/account/#subscriptions)

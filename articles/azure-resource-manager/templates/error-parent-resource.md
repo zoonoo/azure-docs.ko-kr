@@ -3,12 +3,12 @@ title: 부모 리소스 오류
 description: Azure Resource Manager 템플릿에서 부모 리소스를 사용할 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 9fcf12db7375e6d19ef9e77ea4dcaf13130175b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484533"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154043"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>부모 리소스 오류 해결
 
@@ -34,7 +34,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
   ...
 ```
 
-동일한 템플릿으로 서버 및 데이터베이스를 배포하지만 서버에 대한 종속성을 지정하지 않는 경우 서버가 배포되기 전에 데이터베이스 배포가 먼저 시작될 수 있습니다. 
+동일한 템플릿으로 서버 및 데이터베이스를 배포하지만 서버에 대한 종속성을 지정하지 않는 경우 서버가 배포되기 전에 데이터베이스 배포가 먼저 시작될 수 있습니다.
 
 부모 리소스가 이미 존재하고 동일한 템플릿으로 배포되지 않는 경우 Resource Manager가 부모와 자식 리소스를 연결할 수 없을 때 오류가 발생합니다. 자식 리소스가 올바른 형식이 아니거나 자식 리소스가 부모 리소스용 리소스 그룹과 다른 리소스 그룹에 배포되는 경우 오류가 발생할 수 있습니다.
 
@@ -44,7 +44,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ```json
 "dependsOn": [
-    "[variables('databaseServerName')]"
+  "[variables('databaseServerName')]"
 ]
 ```
 
@@ -52,29 +52,29 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sqlServerName": {
-            "type": "string"
-        },
-        "databaseName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "apiVersion": "2014-04-01",
-            "type": "Microsoft.Sql/servers/databases",
-            "location": "[resourceGroup().location]",
-            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
-            "properties": {
-                "collation": "SQL_Latin1_General_CP1_CI_AS",
-                "edition": "Basic"
-            }
-        }
-    ],
-    "outputs": {}
+    "databaseName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "edition": "Basic"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 

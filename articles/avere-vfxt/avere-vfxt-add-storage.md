@@ -4,14 +4,14 @@ description: Avere vFXT for Azure에 백 엔드 스토리지 시스템을 추가
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 3f7d7b5091b6439f17455b5ea66a3a23ebf79811
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416444"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153992"
 ---
 # <a name="configure-storage"></a>스토리지 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "75416444"
 
 ## <a name="create-a-core-filer"></a>코어 파일러 만들기
 
-&quot;코어 파일러&quot;는 백 엔드 스토리지 시스템에 대한 vFXT 용어입니다. 스토리지는 NetApp 또는 Isilon과 같은 하드웨어 NAS 어플라이언스이거나 클라우드 개체 스토리지일 수 있습니다. 핵심 필터에 대 한 자세한 내용은 [Avere 클러스터 설정 가이드](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)에서 찾을 수 있습니다.
+"Core 필터"는 백 엔드 저장소 시스템에 대 한 vFXT 용어입니다. 스토리지는 NetApp 또는 Isilon과 같은 하드웨어 NAS 어플라이언스이거나 클라우드 개체 스토리지일 수 있습니다. 핵심 필터에 대 한 자세한 내용은 [Avere 클러스터 설정 가이드](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)에서 찾을 수 있습니다.
 
 코어 파일러를 추가하려면 다음 두 가지 주요 유형 중 하나의 코어 파일러를 선택합니다.
 
@@ -69,7 +69,7 @@ NAS core 필터를 추가 하려면 다음 단계를 수행 합니다.
 
 ### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob Storage cloud core 필터
 
-Azure Blob Storage를 vFXT 클러스터의 백 엔드 스토리지로 사용하려면 코어 파일러로 추가할 빈 컨테이너가 필요합니다.
+VFXT 클러스터의 백 엔드 저장소로 Azure Blob 저장소를 사용 하려면 빈 컨테이너가 핵심 필터로 추가 되어야 합니다.
 
 Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다.
 

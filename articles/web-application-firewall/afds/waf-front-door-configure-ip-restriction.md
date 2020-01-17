@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 2917b2f04e7c5a4896c52861ab7eab4e0eb00b5d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 6b5793408545c2a61a30b5d89bc41d35460ed3eb
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186693"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119468"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Azure Front 도어 서비스에 대 한 웹 응용 프로그램 방화벽을 사용 하 여 IP 제한 규칙 구성
 이 문서에서는 Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 Azure Front 도어 서비스의 WAF (웹 응용 프로그램 방화벽)에서 IP 제한 규칙을 구성 하는 방법을 보여 줍니다.
@@ -24,7 +24,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Azure CLI를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>필수 조건
 IP 제한 정책 구성을 시작 하기 전에 CLI 환경을 설정 하 고 Azure Front 도어 서비스 프로필을 만듭니다.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Azure CLI 환경 설정
@@ -101,7 +101,7 @@ az network front-door waf-policy rule match-condition add\
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>필수 조건
 IP 제한 정책 구성을 시작 하기 전에 PowerShell 환경을 설정 하 고 Azure Front 도어 서비스 프로필을 만듭니다.
 
 #### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
@@ -140,10 +140,10 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      
 ### <a name="create-a-custom-ip-allow-rule"></a>사용자 지정 IP 허용 규칙 만들기
 
-[AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) 명령을 사용 하 여 작업을 정의 하 고 우선 순위를 설정 합니다. 다음 예제에서는 목록과 일치 하는 클라이언트 Ip에서 가져오지 않은 요청이 차단 됩니다.
+[AzFrontDoorWafCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) 명령을 사용 하 여 작업을 정의 하 고 우선 순위를 설정 합니다. 다음 예제에서는 목록과 일치 하는 클라이언트 Ip에서 가져오지 않은 요청이 차단 됩니다.
 
 ```powershell
-$IPAllowRule = New-AzFrontDoorCustomRuleObject `
+$IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
 -Name "IPAllowRule" `
 -RuleType MatchRule `
 -MatchCondition $IPMatchCondition `

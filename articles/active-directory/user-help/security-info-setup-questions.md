@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c32e2e2a7b609f999c7b804494188e2c6820171
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6fb6153c2dc5794fce0e74d1981e98ad1f37fc1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278998"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156100"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>확인 방법으로 보안 질문 설정
 
 다음 단계에 따라 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
-암호 재설정 방법을 설정한 후 [인증자 앱](security-info-setup-auth-app.md), [문자 메시지](security-info-setup-text-msg.md) 또는 [전화 통화](security-info-setup-phone-number.md)를 사용하여 2단계 확인 방법도 설정해야 합니다.
-
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>보안 질문 옵션이 표시 되지 않으면 조직에서 암호 재설정 방법으로이 옵션을 사용 하도록 허용 하지 않을 수 있습니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 자세한 도움을 요청 해야 합니다.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>보안 확인 및 암호 재설정 인증
+
+보안 정보 방법은 2 단계 보안 확인 및 암호 재설정에 모두 사용 됩니다. 그러나 모든 보안 정보 방법을 둘 모두에 사용할 수 있는 것은 아닙니다.
+
+| 방법 | 사용 대상 |
+| ------ | -------- |
+| 인증자 앱 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 문자 메시지 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 전화 통화 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 보안 키 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 이메일 계정 | 암호 재설정 인증 전용입니다. 2단계 인증에는 다른 보안 정보 방법을 선택해야 합니다. |
+| 보안 질문 | 암호 재설정 인증 전용입니다. 2단계 인증에는 다른 보안 정보 방법을 선택해야 합니다. |
 
 ## <a name="set-up-your-security-questions-from-the-security-info-page"></a>보안 정보 페이지에서 본인 확인 질문 설정
 
@@ -48,7 +62,7 @@ ms.locfileid: "74278998"
 
 2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **방법 추가** 페이지의 드롭다운 목록에서 **본인 확인 질문**을 선택한 다음, **추가**를 선택합니다.
 
@@ -75,7 +89,7 @@ ms.locfileid: "74278998"
 
 2. 확인 상자에서 **예**를 선택하여 **본인 확인 질문**을 삭제합니다. 본인 확인 질문이 삭제되면 방법이 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
 
-## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
+## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
 
 수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
 

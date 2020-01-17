@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/15/2020
+ms.openlocfilehash: 5fc5ba447557aa89e8f0870c576d6d4c439f3353
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860948"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122562"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Azure Digital Twins 보안 모범 사례
 
@@ -40,6 +40,7 @@ IoT 디바이스를 안전하게 보호하기 위한 몇 가지 주요 사례는
 > * 성능 향상을 위해 I/O 및 디바이스 대역폭을 제한합니다. 속도 제한으로 서비스 거부 공격을 방지하여 보안을 향상시킬 수 있습니다.
 > * 장치 펌웨어, 운영 체제 및 소프트웨어를 최신 상태로 유지 합니다.
 > * 장치, 소프트웨어, 네트워크 및 게이트웨이 보안 모범 사례를 정기적으로 감사 하 고 검토 합니다.
+> * 신뢰할 수 있고 인증 되 고 규정을 준수 하는 보안 시스템, 소프트웨어 및 장치를 사용 합니다. 예를 들어 Azure Cloud에 대 한 [준수 제품](https://azure.microsoft.com/overview/trusted-cloud/compliance/) 을 검토 합니다.
 
 IoT 영역을 안전하게 보호하기 위한 몇 가지 주요 사례는 다음과 같습니다.
 
@@ -67,8 +68,8 @@ Azure Digital Twins는 [Azure Active Directory](https://docs.microsoft.com/azure
 > * 인증을 위해 앱 비밀이 아닌 신뢰할 수 있는 [인증 기관](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)에서 발행한 인증서를 사용합니다.
 > * 토큰의 OAuth 2.0 액세스 범위를 제한합니다.
 > * 토큰 유효 기간과 토큰이 유효한 상태인지 여부를 확인합니다.
-> * 토큰의 적절한 유효 기간을 설정합니다.
-> * 만료된 토큰을 새로 고칩니다.
+> * 토큰의 적절한 유효 기간을 설정합니다. 만료된 토큰을 새로 고칩니다.
+> * [역할 기반 액세스 제어 모범 사례](#role-based-access-control-best-practices)별로 사용 하지 않는 **리디렉션 uri** 및 사용 권한을 제거 합니다.
 
 ## <a name="role-based-access-control-best-practices"></a>역할 기반 액세스 제어 모범 사례
 

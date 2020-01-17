@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1bab6a990ba38bc32c2b7350bb1d4eac15a7b95e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479034"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152955"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>진단 설정을 통해 내보낼 수 있는 Azure Monitor 플랫폼 메트릭
 
@@ -689,10 +689,10 @@ Azure Monitor 백 엔드에서 복잡 하지 않기 때문에 모든 메트릭�
 예 | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | 라우팅: Service Bus 큐에 대한 메시지 대기 시간 | 밀리초 | 평균
 예 | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | 라우팅: Service Bus 토픽에 대한 메시지 대기 시간 | 밀리초 | 평균
 예 | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | 라우팅: 스토리지에 대한 메시지 대기 시간 | 밀리초 | 평균
-예 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | 라우팅: 원격 분석 메시지 삭제 됨 | 카운트 | 합계
+예 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | 라우팅: 삭제된 원격 분석 메시지  | 카운트 | 합계
 예 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | 라우팅: 대체에 배달된 메시지 | 카운트 | 합계
 예 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | 라우팅: 원격 분석 메시지 호환되지 않음 | 카운트 | 합계
-예 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | 라우팅: 원격 분석 메시지 분리 | 카운트 | 합계
+예 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | 라우팅: 분리된 원격 분석 메시지  | 카운트 | 합계
 예 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | 라우팅: 배달된 원격 분석 메시지 | 카운트 | 합계
 예 | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | 원격 분석 메시지 보내기 시도 | 카운트 | 합계
 예 | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | 제한 오류 수 | 카운트 | 합계

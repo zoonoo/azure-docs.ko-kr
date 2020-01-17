@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 74d209adf745d1a3c319ef6567b2a7818a5fd514
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763167"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152259"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -171,6 +171,18 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>오류: 인덱서 최대 실행 시간 내에서 문서를 처리할 수 없습니다.
 
 이 오류는 인덱서가 허용 된 실행 시간 내에 데이터 원본에서 단일 문서 처리를 완료할 수 없는 경우에 발생 합니다. 기술력과를 사용 하는 경우 [최대 실행 시간이](search-limits-quotas-capacity.md#indexer-limits) 짧아집니다. 이 오류가 발생 하는 경우 maxFailedItems가 0 이외의 값으로 설정 된 경우 인덱서는 이후 실행 시 문서를 우회 하 여 인덱싱이 진행 되도록 합니다. 문서를 건너뛸 수 없는 경우 또는이 오류가 일관 되 게 표시 되는 경우 단일 인덱서 실행 내에서 부분 진행을 수행할 수 있도록 문서를 더 작은 문서로 분할 하는 것이 좋습니다.
+
+<a name="could-not-project-document"/>
+
+## <a name="error-could-not-project-document"></a>오류: 문서를 프로젝션 할 수 없습니다.
+
+이 오류는 인덱서가 [데이터를 기술 자료 저장소로 프로젝션](knowledge-store-projection-overview.md) 하려고 하는데 오류가 발생 했을 때 발생 합니다.  이 오류는 일관적이 고 수정할 수 수 있습니다. 또는이를 해결 하기 위해 대기 하 고 다시 시도 해야 하는 프로젝션 출력 싱크에 일시적인 오류일 수 있습니다.  다음은 알려진 오류 상태와 가능한 해결 방법의 집합입니다.
+
+| 이유 | 세부 정보/예제 | 해상도 |
+| --- | --- | --- |
+| 컨테이너 `'containerName'`에서 프로젝션 blob `'blobUri'`를 업데이트할 수 없습니다. |지정한 컨테이너가 없습니다. | 인덱서는 지정 된 컨테이너가 이전에 생성 되었는지 여부를 확인 하 고 필요한 경우이를 만들지만 인덱서 실행 당 한 번만이 확인을 수행 합니다. 이 오류는이 단계 후에 항목이 컨테이너를 삭제 했음을 의미 합니다.  이 오류를 해결 하려면 저장소 계정 정보를 그대로 두고 인덱서가 완료 될 때까지 기다린 후 인덱서를 다시 실행 합니다. |
+| 컨테이너 `'containerName'`에서 프로젝션 blob `'blobUri'`를 업데이트할 수 없습니다. |전송 연결에 데이터를 쓸 수 없음: 원격 호스트에서 기존 연결을 강제로 닫았습니다. | 이는 Azure Storage의 일시적인 오류로 예상 되므로 인덱서를 다시 실행 하 여 해결 해야 합니다. 이 오류가 지속적으로 발생 하면 추가 조사를 위해 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오.  |
+| 테이블의 행 `'projectionRow'`를 업데이트할 수 없습니다 `'tableName'` | 서버 사용 중입니다. | 이는 Azure Storage의 일시적인 오류로 예상 되므로 인덱서를 다시 실행 하 여 해결 해야 합니다. 이 오류가 지속적으로 발생 하면 추가 조사를 위해 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 

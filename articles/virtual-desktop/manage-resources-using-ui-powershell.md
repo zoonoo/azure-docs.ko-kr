@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 5049c32e06967cc123a24f07f601c1698bea3351
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896429"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122511"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>PowerShell을 사용 하 여 관리 도구 배포
 
@@ -31,19 +31,19 @@ ms.locfileid: "75896429"
 - Mozilla Firefox 52.0 이상
 - Safari 10 이상(macOS에만 해당)
 
-## <a name="what-you-need-to-deploy-the-management-tool"></a>관리 도구를 배포 하는 데 필요한 사항
+## <a name="what-you-need-to-deploy-the-management-tool"></a>관리 도구를 배포하는 데 필요한 사항
 
-관리 도구를 배포 하기 전에 앱 등록을 만들고 관리 UI를 배포 하기 위해 Azure Active Directory (Azure AD) 사용자가 필요 합니다. 이 사용자가 다음 조건을 충족해야 합니다.
+관리 도구를 배포하기 전에 앱 등록을 만들고 관리 UI를 배포하는 Azure AD(Azure Active Directory) 사용자가 필요합니다. 이 사용자가 다음 조건을 충족해야 합니다.
 
 - Azure 구독에서 리소스를 만드는 데 필요한 권한 보유
-- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)의 지침에 따라 사용자에 게 필요한 권한이 있는지 확인 하려면 다음 단계를 수행 합니다.
+- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
 
 관리 도구를 성공적으로 배포 하 고 구성 하려면 먼저 [RDS 템플릿 GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) 리포지토리에서 다음 PowerShell 스크립트를 다운로드 하 여 로컬 컴퓨터의 동일한 폴더에 저장 해야 합니다.
 
   - createWvdMgmtUxAppRegistration
   - updateWvdMgmtUxApiUrl
 
-관리 도구를 배포 하 고 구성한 후에는 모든 것이 작동 하는지 확인 하기 위해 관리 UI를 시작 하도록 사용자에 게 요청 하는 것이 좋습니다. 관리 UI를 실행 하는 사용자는 Windows 가상 데스크톱 테 넌 트를 보거나 편집할 수 있는 역할 할당을 포함 해야 합니다.
+관리 도구를 배포하고 구성한 후에는 사용자에게 관리 UI를 시작하여 모든 기능이 작동하는지 확인하도록 요청하는 것이 좋습니다. 관리 UI를 시작하는 사용자에게는 Windows Virtual Desktop 테넌트를 보거나 편집할 수 있는 역할 할당이 있어야 합니다.
 
 ## <a name="set-up-powershell"></a>PowerShell 설정
 
@@ -135,7 +135,7 @@ Azure AD 응용 프로그램 구성을 확인 하 고 동의를 제공 하려면
    
    [입력 된 리디렉션 URI를 사용 하 여 인증 페이지를 ![](media/management-ui-redirect-uri-inline.png)](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. 왼쪽 패널에서 **API 권한** 을 선택 하 여 사용 권한이 추가 되었는지 확인 합니다. 전역 관리자 인 경우 **`tenantname`에 대 한 그랜드 admin 동의** 단추를 선택 하 고 대화 상자에 따라 조직에 대 한 관리자 동의를 제공 합니다.
+5. 왼쪽 패널에서 **API 권한** 을 선택 하 여 사용 권한이 추가 되었는지 확인 합니다. 전역 관리자 인 경우 **`tenantname`에 대 한 관리자 동의 부여** 단추를 선택 하 고 대화 상자에 따라 조직에 대 한 관리자 동의를 제공 합니다.
     
     [API 사용 권한 페이지를 ![](media/management-ui-permissions-inline.png)](media/management-ui-permissions-expanded.png#lightbox)
 
@@ -152,15 +152,15 @@ Azure AD 응용 프로그램 구성을 확인 하 고 동의를 제공 하려면
    > 관리 도구를 구성 하는 동안 관리자 동의를 부여 하지 않은 경우에는 사용자가 로그인 하는 각 사용자에 게 해당 도구를 사용 하기 위해 고유한 사용자 동의를 제공 해야 합니다.
 
 3. 테 넌 트 그룹을 선택 하 라는 메시지가 표시 되 면 드롭다운 목록에서 **기본 테 넌 트 그룹** 을 선택 합니다.
-4. **기본 테 넌 트 그룹**을 선택 하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테 넌 트 그룹의 이름을 찾아서 선택 합니다.
+4. **기본 테넌트 그룹**을 선택하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.
    
    > [!NOTE]
-   > 사용자 지정 테 넌 트 그룹이 있는 경우 드롭다운 목록에서 선택 하는 대신 이름을 수동으로 입력 합니다.
+   > 사용자 지정 테넌트 그룹이 있는 경우 드롭다운 목록에서 선택하지 말고 수동으로 이름을 입력합니다.
 
 ## <a name="report-issues"></a>문제 보고
 
-관리 도구나 다른 Windows 가상 데스크톱 도구와 관련 하 여 문제가 발생 하는 경우 [원격 데스크톱 서비스 Azure Resource Manager 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md) 의 지침에 따라 GitHub에 보고 합니다.
+관리 도구 또는 기타 Windows Virtual Desktop 도구에 문제가 발생하는 경우 [Remote Desktop Services용 Azure Resource Manager 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md)의 지침에 따라 GitHub에 보고합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 관리 도구를 배포 하 고 연결 하는 방법을 배웠으므로 Azure 서비스 도움말을 사용 하 여 서비스 문제 및 상태 권고를 모니터링 하는 방법을 배울 수 있습니다. 자세히 알아보려면 [서비스 경고 설정 자습서](./set-up-service-alerts.md)를 참조 하세요.
+관리 도구를 배포하고 연결하는 방법을 배웠으므로, 이제 Azure Service 도움말을 사용하여 서비스 이슈와 상태 권고를 모니터링하는 방법을 알아볼 수 있습니다. 자세한 내용은 [서비스 경고 설정 자습서](./set-up-service-alerts.md)를 참조하세요.

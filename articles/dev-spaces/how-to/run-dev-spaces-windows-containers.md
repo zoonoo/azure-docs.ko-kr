@@ -1,20 +1,20 @@
 ---
 title: Windows 컨테이너와 상호 작용
 services: azure-dev-spaces
-ms.date: 07/25/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 description: Windows 컨테이너를 사용 하 여 기존 클러스터에서 Azure Dev Spaces를 실행 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Windows 컨테이너
-ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 886f71dcaaca6a636b385ef6b101f0a893ff7035
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867301"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157001"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
 
-새 네임 스페이스와 기존 Kubernetes 네임 스페이스 모두에 Azure Dev Spaces을 사용 하도록 설정할 수 있습니다. Azure Dev Spaces은 Linux 컨테이너에서 실행 되는 서비스를 실행 하 고 계측 합니다. 또한 이러한 서비스는 동일한 네임 스페이스의 Windows 컨테이너에서 실행 되는 응용 프로그램과 상호 작용할 수 있습니다. 이 문서에서는 Dev 공간을 사용 하 여 기존 Windows 컨테이너를 사용 하는 네임 스페이스에서 서비스를 실행 하는 방법을 보여 줍니다.
+새 네임 스페이스와 기존 Kubernetes 네임 스페이스 모두에 Azure Dev Spaces을 사용 하도록 설정할 수 있습니다. Azure Dev Spaces은 Linux 컨테이너에서 실행 되는 서비스를 실행 하 고 계측 합니다. 또한 이러한 서비스는 동일한 네임 스페이스의 Windows 컨테이너에서 실행 되는 응용 프로그램과 상호 작용할 수 있습니다. 이 문서에서는 Dev 공간을 사용 하 여 기존 Windows 컨테이너를 사용 하는 네임 스페이스에서 서비스를 실행 하는 방법을 보여 줍니다. 이번에는 Azure Dev Spaces를 사용 하 여 Windows 컨테이너를 디버깅 하거나 연결할 수 없습니다.
 
 ## <a name="set-up-your-cluster"></a>클러스터 설정
 
@@ -36,8 +36,9 @@ kubectl get nodes
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
-aksnpwin987654                      Ready    agent   108s   v1.14.1
+aks-nodepool1-12345678-vmss000000   Ready    agent   13m    v1.14.8
+aks-nodepool1-12345678-vmss000001   Ready    agent   13m    v1.14.8
+aksnpwin000000                      Ready    agent   108s   v1.14.8
 ```
 
 Windows 노드에 [taint][using-taints] 을 적용 합니다. Windows 노드의 taint는 개발 공간이 Windows 노드에서 실행 되도록 Linux 컨테이너를 예약 하는 것을 방지 합니다. 다음 명령 예제 명령은 이전 예제의 *aksnpwin987654* Windows 노드에 taint을 적용 합니다.
@@ -60,20 +61,12 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-샘플 응용 프로그램은 [투구 2][helm-installed] 를 사용 하 여 클러스터에서 Windows 서비스를 실행 합니다. 클러스터에 투구를 설치 하 고 올바른 권한을 부여 합니다.
-
-```console
-helm init --wait
-kubectl create serviceaccount --namespace kube-system tiller
-kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-``` 
-
-`charts` 디렉터리로 이동 하 여 Windows 서비스를 실행 합니다.
+예제 응용 프로그램에서는 [투구][helm-installed] 를 사용 하 여 클러스터에서 Windows 서비스를 실행 합니다. `charts` 디렉터리로 이동 하 여 Windows 서비스를 실행 하는 투구를 사용 합니다.
 
 ```console
 cd charts/
-helm install . --namespace dev
+kubectl create ns dev
+helm install windows-service . --namespace dev
 ```
 
 위의 명령은 투구를 사용 하 여 *dev* 네임 스페이스에서 Windows 서비스를 실행 합니다. *Dev*라는 이름의 네임 스페이스가 없으면 생성 됩니다.
@@ -122,16 +115,15 @@ spec:
 `helm list`를 사용 하 여 Windows 서비스에 대 한 배포를 나열 합니다.
 
 ```cmd
-$ helm list
-NAME            REVISION    UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
-gilded-jackal   1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
+$ helm list --namespace dev
+NAME              REVISION  UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
+windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-위의 예제에서 배포 이름은 *gilded-jackal*입니다. `helm upgrade`를 사용 하 여 Windows 서비스를 새 구성으로 업데이트 합니다.
+위의 예제에서 배포 이름은 *windows 서비스*입니다. `helm upgrade`를 사용 하 여 Windows 서비스를 새 구성으로 업데이트 합니다.
 
 ```cmd
-$ helm upgrade gilded-jackal . --namespace dev
-Release "gilded-jackal" has been upgraded.
+helm upgrade windows-service . --namespace dev
 ```
 
 `deployment.yaml`를 업데이트 했으므로 Dev 공간은 서비스를 시도 하 고 계측 하지 않습니다.
@@ -182,7 +174,7 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://helm.sh/docs/intro/install/
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md

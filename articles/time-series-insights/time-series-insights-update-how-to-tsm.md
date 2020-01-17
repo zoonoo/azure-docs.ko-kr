@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 591233154ab79b9493d77030727462bae68ea7d5
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497730"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152360"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 모델링
 
@@ -64,9 +64,9 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 인스턴스 **�
 
 ### <a name="delete-an-instance"></a>인스턴스 삭제
 
-1. 유형을 선택 하 고 **삭제** 또는 **폐기물 저장 아이콘**을 선택 합니다.
+1. 인스턴스를 선택 하 고 **삭제** 또는 **저장 함 아이콘**을 선택 합니다.
 
-   [삭제를 선택 하 여 형식을 ![삭제 합니다.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+   [삭제를 선택 하 여 인스턴스를 삭제 ![합니다.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
 
 1. **삭제**를 선택 하 여 삭제를 확인 합니다.
 

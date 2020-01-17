@@ -3,12 +3,12 @@ title: Azure Migrate의 Hyper-v 평가 지원
 description: Azure Migrate의 Hyper-v 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 20bdbb16d2f0610f6519424141b09190eae3cc42
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1a036e2f22bb1fd9dac65a3cc643224ecbea3c69
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028793"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154808"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Hyper-v 평가를 위한 지원 매트릭스
 
@@ -67,6 +67,19 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 **기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ``` https://<appliance-ip-or-name>:44368 ```<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
 **Hyper-v 호스트/클러스터** | CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v Vm의 구성과 성능 메타 데이터를 끌어오기 위해 WinRM 포트 5985 (HTTP) 및 5986 (HTTPS)에서 인바운드 연결
 
+## <a name="agent-based-dependency-visualization"></a>에이전트 기반 종속성 시각화
+
+[종속성 시각화](concepts-dependency-visualization.md) 를 사용 하면 평가 하 고 마이그레이션하려는 컴퓨터 간에 종속성을 시각화할 수 있습니다. 에이전트 기반 시각화의 경우 요구 사항 및 제한 사항이 다음 표에 요약 되어 있습니다.
+
+
+**요구 사항** | **세부 정보**
+--- | ---
+**배포** | 종속성 시각화를 배포 하기 전에 Azure Migrate: 서버 평가 도구를 프로젝트에 추가 하 여 Azure Migrate 프로젝트가 준비 되어 있어야 합니다. 온-프레미스 컴퓨터를 검색 하도록 Azure Migrate 어플라이언스를 설정한 후 종속성 시각화를 배포 합니다.<br/><br/> Azure Government에서 종속성 시각화를 사용할 수 없습니다.
+**서비스 맵** | 에이전트 기반 종속성 시각화는 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)에 [서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) 솔루션을 사용 합니다.<br/><br/> 를 배포 하려면 새 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결 합니다.
+**Log Analytics 작업 영역** | 작업 영역은 Azure Migrate 프로젝트와 동일한 구독에 있어야 합니다.<br/><br/> Azure Migrate는 미국 동부, 동남 아시아 및 유럽 서부 지역에 거주 하는 작업 영역을 지원 합니다.<br/><br/>  작업 영역은 [서비스 맵 지원](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites)되는 지역에 있어야 합니다.<br/><br/> Azure Migrate 프로젝트에 대 한 작업 영역은 추가 된 후 수정할 수 없습니다.
+**요금** | 서비스 맵 솔루션은 Log Analytics 작업 영역을 연결한 날부터 Azure Migrate 프로젝트와 관련 하 여 처음 180 일에 대 한 요금을 부과 하지 않습니다.<br/><br/> 180일 후에는 표준 Log Analytics 요금이 적용됩니다.<br/><br/> 연결 된 Log Analytics 작업 영역에서 서비스 맵 이외의 다른 솔루션을 사용 하면 표준 Log Analytics 요금이 발생 합니다.<br/><br/> Azure Migrate 프로젝트를 삭제 하면 작업 영역이 삭제 되지 않습니다. 프로젝트를 삭제 한 후에는 서비스 맵 무료로 제공 되며 각 노드에는 Log Analytics 작업 영역의 유료 계층에 따라 요금이 부과 됩니다.
+**에이전트** | 에이전트 기반 종속성 시각화를 사용 하려면 분석 하려는 각 컴퓨터에 두 개의 에이전트를 설치 해야 합니다.<br/><br/> - [MMA (Microsoft Monitoring agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> [종속성 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent)를 - 합니다. 
+**인터넷 연결** | 컴퓨터가 인터넷에 연결 되어 있지 않으면 Log Analytics 게이트웨이를 설치 해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

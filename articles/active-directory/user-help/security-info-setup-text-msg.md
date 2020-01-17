@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fe8610d7551b63ed613153ba1ee0e6f8e73b5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6e8e8b20fc9b8e19b2f7c5f9c1b9e926580c9dbb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278915"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156066"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>확인 방법으로 문자 메시지를 설정 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "74278915"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->전화 옵션이 보이지 않는 경우 전화 번호를 확인에 사용하는 것을 조직에서 허용하지 않기 때문일 수 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 추가 도움을 받아야 합니다.
+>전화 옵션이 표시 되지 않으면 조직에서이 옵션을 사용 하 여 확인 하는 것을 허용 하지 않을 수 있습니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 추가 지원을 요청 해야 합니다.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>보안 정보 페이지에서 문자 메시지 설정
 
@@ -45,7 +45,7 @@ ms.locfileid: "74278915"
 
 2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **방법 추가** 페이지의 드롭다운 목록에서 **전화**를 선택한 다음, **추가**를 선택합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "74278915"
 
     ![전화 번호를 추가하고 문자 메시지 선택](media/security-info/securityinfo-myprofile-phonetext-entercode.png)
 
-    페이지가 변경되어 성공을 표시합니다.
+    완료되면 페이지가 변경됩니다.
 
     ![성공 알림, 전화 번호 연결, 문자 메시지 수신 선택 및 계정](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "74278915"
 
 2. 확인 상자에서 **예**를 선택하여 **전화** 번호를 삭제합니다. 전화 번호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. **전화**가 기본 방법인 경우 기본값이 사용 가능한 다른 방법으로 바뀝니다.
 
-## <a name="change-your-default-security-info-method"></a>기본 보안 정보 방법 변경
+## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
 
 2 단계 인증을 사용 하 여 회사 또는 학교 계정에 로그인 하거나 암호 재설정 요청을 수행할 때 문자 메시지를 기본 방법으로 사용 하려면 **보안 정보** 페이지에서 설정할 수 있습니다.
 
@@ -88,15 +88,15 @@ ms.locfileid: "74278915"
 
 1. **보안 정보** 페이지에서 **기본 로그인 방법** 정보 옆에 있는 **변경** 링크를 선택합니다.
 
-    ![기본 로그인 방법의 변경 링크](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+    ![기본 로그인 메서드에 대한 링크 변경](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
 2. 사용 가능한 방법의 드롭다운 목록에서 **전화 - 문자( *_your_phone_number_* )** 를 선택한 다음, **확인**을 선택합니다.
 
-    ![기본 로그인 방법 선택](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
+    ![기본 로그인 메서드 선택](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
     로그인에 사용되는 기본 방법이 **전화 - 문자( *_your_phone_number_* )** 로 바뀝니다.
 
-## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
+## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
 
 수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "74278915"
 
 - **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
-- **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
+- **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 
     >[!Note]
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.

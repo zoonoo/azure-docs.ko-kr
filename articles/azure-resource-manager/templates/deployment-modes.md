@@ -3,12 +3,12 @@ title: 배포 모드
 description: Azure Resource Manager를 사용하여 전체 또는 증분 배포 모드를 사용할지 여부를 지정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 12/23/2019
-ms.openlocfilehash: f5a6f6416240ce512167e779c086d2665771c3f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc5446c56c92b61016563995ebc4c884d48e2419
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484754"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152394"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -26,16 +26,16 @@ ms.locfileid: "75484754"
 
 [템플릿에서 둘 이상의 리소스 그룹](cross-resource-group-deployment.md)에 배포 하는 경우 배포 작업에 지정 된 리소스 그룹의 리소스를 삭제할 수 있습니다. 보조 리소스 그룹의 리소스는 삭제 되지 않습니다.
 
-리소스 형식에서 완료 모드 삭제를 처리 하는 방법에는 몇 가지 차이점이 있습니다. 전체 모드로 배포된 템플릿에 없는 경우 부모 리소스가 자동으로 삭제됩니다. 일부 자식 리소스는 템플릿에 없더라도 자동으로 삭제되지 않습니다. 그러나 이러한 자식 리소스는 부모 리소스가 삭제 되는 경우 삭제 됩니다. 
+리소스 형식에서 완료 모드 삭제를 처리 하는 방법에는 몇 가지 차이점이 있습니다. 전체 모드로 배포된 템플릿에 없는 경우 부모 리소스가 자동으로 삭제됩니다. 일부 자식 리소스는 템플릿에 없더라도 자동으로 삭제되지 않습니다. 그러나 이러한 자식 리소스는 부모 리소스가 삭제 되는 경우 삭제 됩니다.
 
-예를 들어 리소스 그룹에 DNS 영역(Microsoft.Network/dnsZones 리소스 종류)과 CNAME 레코드(Microsoft.Network/dnsZones/CNAME 리소스 종류)가 포함된 경우 DNS 영역은 CNAME 레코드의 부모 리소스입니다. 전체 모드로 배포하고 템플릿에 DNS 영역을 포함하지 않으면 DNS 영역과 CNAME 레코드가 둘 다 삭제됩니다. 템플릿에 DNS 영역을 포함 하지만 CNAME 레코드를 포함 하지 않는 경우 CNAME은 삭제 되지 않습니다. 
+예를 들어 리소스 그룹에 DNS 영역(Microsoft.Network/dnsZones 리소스 종류)과 CNAME 레코드(Microsoft.Network/dnsZones/CNAME 리소스 종류)가 포함된 경우 DNS 영역은 CNAME 레코드의 부모 리소스입니다. 전체 모드로 배포하고 템플릿에 DNS 영역을 포함하지 않으면 DNS 영역과 CNAME 레코드가 둘 다 삭제됩니다. 템플릿에 DNS 영역을 포함 하지만 CNAME 레코드를 포함 하지 않는 경우 CNAME은 삭제 되지 않습니다.
 
 리소스 종류의 삭제 처리 방식에 대한 목록은 [전체 모드 배포에 대한 Azure 리소스 삭제](complete-mode-deletion.md)를 참조하세요.
 
 리소스 그룹이 [잠겨](../management/lock-resources.md)있으면 전체 모드에서 리소스를 삭제 하지 않습니다.
 
 > [!NOTE]
-> 루트 수준 템플릿만 전체 배포 모드를 지원합니다. [연결된 또는 중첩된 템플릿](linked-templates.md)의 경우 증분 모드만 사용해야 합니다. 
+> 루트 수준 템플릿만 전체 배포 모드를 지원합니다. [연결된 또는 중첩된 템플릿](linked-templates.md)의 경우 증분 모드만 사용해야 합니다.
 >
 > [구독 수준 배포](deploy-to-subscription.md) 는 완료 모드를 지원 하지 않습니다.
 >
@@ -105,9 +105,9 @@ az group deployment create \
 ```json
 "resources": [
   {
+      "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
           <nested-template-or-external-template>

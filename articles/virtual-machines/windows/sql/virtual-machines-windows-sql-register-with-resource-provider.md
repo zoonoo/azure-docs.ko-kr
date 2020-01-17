@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690790"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122443"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -419,11 +419,11 @@ SQL Server IaaS 확장은 완전 한 관리 기능을 사용 하도록 설정 �
 
 **SQL Server 설치 하기 전에 SQL VM 리소스 공급자를 사용 하 여 VM을 등록할 수 있나요?**
 
-아닙니다. VM에는 SQL VM 리소스 공급자에 성공적으로 등록 하려면 하나 이상의 SQL Server 인스턴스가 있어야 합니다. VM에 SQL Server 인스턴스가 없으면 새 SqlVirtualMachine 리소스가 실패 한 상태가 됩니다.
+아닙니다. VM에는 SQL VM 리소스 공급자에 성공적으로 등록 하려면 하나 이상의 SQL Server (데이터베이스 엔진) 인스턴스가 있어야 합니다. VM에 SQL Server 인스턴스가 없으면 새 SqlVirtualMachine 리소스가 실패 한 상태가 됩니다.
 
 **SQL Server 인스턴스가 여러 개 있는 경우 SQL VM 리소스 공급자를 사용 하 여 VM을 등록할 수 있나요?**
 
-예. SQL VM 리소스 공급자는 SQL Server 인스턴스를 하나만 등록 합니다. SQL VM 리소스 공급자는 여러 인스턴스의 경우 기본 SQL Server 인스턴스를 등록 합니다. 기본 인스턴스가 없으면 경량 모드의 등록만 지원 됩니다. 경량에서 전체 관리 모드로 업그레이드 하려면 기본 SQL Server 인스턴스가 있어야 합니다. 그렇지 않으면 VM에 명명 된 SQL Server 인스턴스가 하나만 있어야 합니다.
+예. SQL VM 리소스 공급자는 SQL Server (데이터베이스 엔진) 인스턴스를 하나만 등록 합니다. SQL VM 리소스 공급자는 여러 인스턴스의 경우 기본 SQL Server 인스턴스를 등록 합니다. 기본 인스턴스가 없으면 경량 모드의 등록만 지원 됩니다. 경량에서 전체 관리 모드로 업그레이드 하려면 기본 SQL Server 인스턴스가 있어야 합니다. 그렇지 않으면 VM에 명명 된 SQL Server 인스턴스가 하나만 있어야 합니다.
 
 **SQL VM 리소스 공급자를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스를 등록할 수 있나요?**
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b4b597ae70642fee8726555ea71b5164c13cca
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889376"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120812"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
@@ -207,6 +207,8 @@ API Management에서 [Validate JWT](api-management-access-restriction-policies.m
     </required-claims>
 </validate-jwt>
 ```
+> [!NOTE]
+> 이 `openid-config` URL은 v1 끝점에 해당 합니다. V2 `openid-config`끝점의 경우 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`를 사용 합니다.
 
 ## <a name="build-an-application-to-call-the-api"></a>API를 호출하는 애플리케이션 빌드
 

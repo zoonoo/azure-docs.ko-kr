@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 27d219f46f82f4a74cb5dee0a6b11b673a4a3509
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847221"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155010"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -53,7 +53,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
 ### <a name="converged-registration-preview"></a>등록 수렴(미리 보기)
 
-수렴 형 등록의 공개 미리 보기에 참여 하는 경우 감사 로그의 사용자 활동에 대 한 정보는 서비스 **인증 방법**에서 찾을 수 있습니다.
+수렴 형 등록의 공개 미리 보기에 참여 하는 경우 감사 로그의 사용자 활동에 대 한 정보는 **보안** > **인증 방법**에서 찾을 수 있습니다.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portal의 보고서 열 설명
 

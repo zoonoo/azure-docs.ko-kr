@@ -3,12 +3,12 @@ title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 76b85f04a18da00d3d416476061beac0987e9f8b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 242b9f2a4bc39f8aa083d9c89d3dd7ed850b3489
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477929"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154298"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
 
@@ -155,11 +155,11 @@ az group deployment create \
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2018-10-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')
     ]", //defaults to resource group location
-  "apiVersion": "2018-10-01",
   /*
     storage account and network interface
     must be deployed first

@@ -1,7 +1,7 @@
 ---
 title: CSV blob 검색
 titleSuffix: Azure Cognitive Search
-description: 현재 공개 미리 보기로 제공 되는 delimitedText 구문 분석 모드를 사용 하 여 Azure Blob storage에서 CSV를 추출 하 고 가져옵니다.
+description: DelimitedText 구문 분석 모드를 사용 하 여 Azure Blob storage에서 CSV를 추출 하 고 가져옵니다.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,17 +9,14 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2166e100f03f21c218618d19dc37ee70c6ab29ef
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: bf600890bfed570e712a159005b8ef5267298cc0
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113040"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122324"
 ---
-# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 delimitedText 구문 분석 모드 및 Blob 인덱서를 사용 하 여 CSV blob을 인덱싱하는 방법 
-
-> [!IMPORTANT] 
-> DelimitedText 구문 분석 모드는 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
+# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 delimitedText 구문 분석 모드 및 Blob 인덱서를 사용 하 여 CSV blob을 인덱싱하는 방법
 
 기본적으로 [Azure Cognitive Search blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 분리 된 텍스트 blob을 텍스트의 단일 청크로 구문 분석 합니다. 그러나 CSV 데이터를 포함하는 Blob을 사용하는 경우 Blob의 각 줄을 별도 파일로 처리하려고 합니다. 예를 들어, 다음 구분 기호로 분리된 텍스트를 각각 "id", "datePublished" 및 "tags" 필드가 포함된 두 개의 문서로 구문 분석할 수 있습니다. 
 
@@ -46,7 +43,7 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-`delimitedTextDelimiter` 구성 설정을 사용하여 구분 기호 문자를 사용자 지정할 수 있습니다. 예를 들어:
+`delimitedTextDelimiter` 구성 설정을 사용하여 구분 기호 문자를 사용자 지정할 수 있습니다. 예:
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
@@ -63,7 +60,7 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
 데이터 원본: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -76,7 +73,7 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
 인덱서:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

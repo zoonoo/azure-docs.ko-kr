@@ -1,18 +1,18 @@
 ---
 title: 일반적인 오류 문제 해결
 description: 정책 위반 및 청사진 매개 변수 함수와 같은 청사진을 만들고 할당 하 고 제거 하는 문제를 해결 하는 방법에 대해 알아봅니다.
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982483"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157086"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 
-청사진을 만들거나 할당할 때 오류가 발생할 수 있습니다. 이 문서에서는 발생할 수 있는 다양한 오류와 이러한 오류를 해결하는 방법에 대해 설명합니다.
+청사진을 만들거나 할당 하거나 제거 하는 동안 오류가 발생할 수 있습니다. 이 문서에서는 발생할 수 있는 다양한 오류와 이러한 오류를 해결하는 방법에 대해 설명합니다.
 
 ## <a name="finding-error-details"></a>오류 세부 정보 찾기
 
@@ -60,6 +60,22 @@ ms.locfileid: "75982483"
 #### <a name="resolution"></a>해상도
 
 함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구문 및 식](../../../azure-resource-manager/templates/template-expressions.md)을 참조 하세요.
+
+## <a name="delete-errors"></a>삭제 오류
+
+### <a name="assign-delete-timeout"></a>시나리오: 할당 삭제 제한 시간
+
+#### <a name="issue"></a>문제
+
+청사진 할당 삭제가 완료 되지 않았습니다.
+
+#### <a name="cause"></a>원인
+
+청사진 할당은 삭제 시 비 터미널 상태에서 중단 될 수 있습니다. 이 상태는 청사진 할당을 통해 생성 된 리소스가 여전히 삭제 보류 중이거나 Azure 청사진으로 상태 코드를 반환 하지 않는 경우에 발생 합니다.
+
+#### <a name="resolution"></a>해상도
+
+비 터미널 상태의 청사진 할당은 _6 시간_ 제한 시간 후에 자동으로 **실패** 로 표시 됩니다. 시간 제한이 청사진 할당의 상태를 조정한 후에는 삭제를 다시 시도할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

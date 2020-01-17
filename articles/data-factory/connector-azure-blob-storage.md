@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 9001a7837e6106df4e052277168388064e65e7ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/16/2020
+ms.openlocfilehash: f245254c85cbf9223ab5dda60799c6b7ce72f11c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893318"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120216"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Blob storage에서 데이터 복사 및 변환
 
@@ -270,7 +270,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 일반적으로 Azure Storage 인증을 위해 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](../storage/common/storage-auth-aad.md)을 참조하세요. Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 따릅니다.
 
-1. 팩터리와 함께 생성 된 "서비스 ID 응용 프로그램 ID"의 값을 복사 하 여 [데이터 팩터리 관리 id 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity) 합니다.
+1. 팩터리와 함께 생성 된 **관리 id 개체 ID** 의 값을 복사 하 여 [데이터 팩터리 관리 Id 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity) 합니다.
 
 2. Azure Blob Storage에서 적절한 사용 권한을 관리 ID에 부여합니다. 역할에 대한 자세한 내용은 [RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리](../storage/common/storage-auth-aad-rbac.md)를 참조하세요.
 

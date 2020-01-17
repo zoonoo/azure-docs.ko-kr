@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ac23bbb0465be2f15e0a35bb4fd7c331e83988
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 43a620d32fcfa7970dbdb5bee9740cc8f8b33e50
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848717"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155132"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Azure Multi-Factor Authentication 공급자를 사용하는 시기
 
@@ -48,11 +48,11 @@ MFA로 설정된 모든 사용자를 처리할 만큼 충분한 라이선스를 
 > [!CAUTION]
 > 인증 공급자를 삭제 하는 경우에는 확인이 필요 하지 않습니다. **삭제** 를 선택 하는 것은 영구적 프로세스입니다.
 
-인증 공급자는 **Azure Portal** > **Azure Active Directory** > **MFA** > **공급자**에서 찾을 수 있습니다. 나열 된 공급자를 클릭 하 여 해당 공급자와 관련 된 세부 정보 및 구성을 확인 합니다.
+인증 공급자는 **Azure Portal** > **Azure Active Directory** > **보안** > **MFA** > **공급자**에서 찾을 수 있습니다. 나열 된 공급자를 클릭 하 여 해당 공급자와 관련 된 세부 정보 및 구성을 확인 합니다.
 
 인증 공급자를 제거 하기 전에 공급자에 구성 된 사용자 지정 설정을 기록해 둡니다. 공급자의 일반 MFA 설정으로 마이그레이션해야 하는 설정을 결정 하 고 해당 설정의 마이그레이션을 완료 합니다. 
 
-공급자에 연결 된 Azure MFA 서버는 **Azure Portal** > **Azure Active Directory** > **MFA** > **서버 설정**에서 생성 된 자격 증명을 사용 하 여 다시 활성화 해야 합니다. 다시 활성화 하기 전에 사용자 환경에서 Azure MFA 서버의 `\Program Files\Multi-Factor Authentication Server\Data\` 디렉터리에서 다음 파일을 삭제 해야 합니다.
+공급자에 연결 된 **AZURE Mfa 서버** 는 **Azure Portal** > Azure Active Directory에서 생성 된 자격 증명을 사용 하 여 다시 활성화 해야 합니다. > **Security** > **Server 설정** 다시 활성화 하기 전에 사용자 환경에서 Azure MFA 서버의 `\Program Files\Multi-Factor Authentication Server\Data\` 디렉터리에서 다음 파일을 삭제 해야 합니다.
 
 - caCert
 - cert
@@ -64,7 +64,7 @@ MFA로 설정된 모든 사용자를 처리할 만큼 충분한 라이선스를 
 
 ![Azure Portal에서 인증 공급자를 삭제 합니다.](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-모든 설정이 마이그레이션 되었음을 확인 한 경우 **Azure Portal** > **Azure Active Directory** **MFA** > **공급자** > 로 이동 하 여 줄임표 **...** 를 선택 하 고 **삭제**를 선택할 수 있습니다.
+모든 설정이 마이그레이션 되었음을 확인 한 후에는 **Azure Portal** >  > **Azure Active Directory** > **MFA** > **공급자** 를 찾아 줄임표 ( **...** )를 선택 하 고 **삭제**를 선택할 수 있습니다.
 
 > [!WARNING]
 > 인증 공급자를 삭제 하면 해당 공급자와 연결 된 보고 정보가 삭제 됩니다. 공급자를 삭제 하기 전에 작업 보고서를 저장 하는 것이 좋습니다.

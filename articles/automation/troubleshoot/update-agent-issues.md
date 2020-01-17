@@ -4,17 +4,17 @@ description: 업데이트 관리를 지 원하는 Windows의 Azure Automation Hy
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bfc2c4a660afa4341a676fc79ab447c8cb86d5e1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ec35d11eba59ea21947e2c3cd5286bababa4eabb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769815"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153857"
 ---
 # <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>업데이트 관리에서 Windows Hybrid Runbook Worker 상태 이해 및 해결
 
@@ -54,8 +54,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 |운영 체제  |메모  |
 |---------|---------|
-|Windows Server 2008 R2 RTM, Windows Server 2008 | 업데이트 평가만 지원합니다.         |
-|Windows Server 2008 R2 SP1 이상 |.NET Framework 4.6 이상이 필요 합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2012 이상 |.NET Framework 4.6 이상이 필요 합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
 ### <a name="net-462"></a>.NET 4.6.2
 
@@ -116,7 +115,7 @@ RuleId                      : OperatingSystemCheck
 RuleGroupId                 : prerequisites
 RuleName                    : Operating System
 RuleGroupName               : Prerequisite Checks
-RuleDescription             : The Windows Operating system must be version 6.1.7601 (Windows Server 2008 R2 SP1) or higher
+RuleDescription             : The Windows Operating system must be version 6.2.9200 (Windows Server 2012) or higher
 CheckResult                 : Passed
 CheckResultMessage          : Operating System version is supported
 CheckResultMessageId        : OperatingSystemCheck.Passed

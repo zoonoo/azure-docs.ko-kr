@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 478a7ae8d6938ee4d4ef5c30c8126c3e95f35305
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921102"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121287"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
@@ -255,9 +255,9 @@ Java 코드는 다음과 같습니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** || `cosmosDBTrigger`로 설정해야 합니다. |
-|**direction** || `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
-|**name** || 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
+|**type** | n/a | `cosmosDBTrigger`로 설정해야 합니다. |
+|**direction** | n/a | `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**name** | n/a | 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
 |**connectionStringSetting**|**ConnectionStringSetting** | 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. |
 |**databaseName**|**DatabaseName**  | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
 |**collectionName** |**CollectionName** | 모니터링되는 컬렉션의 이름입니다. |
@@ -1737,9 +1737,9 @@ public class DocsFromRouteSqlQuery {
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type**     || `cosmosDB`로 설정해야 합니다.        |
-|**direction**     || `in`로 설정해야 합니다.         |
-|**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**type**     | n/a | `cosmosDB`로 설정해야 합니다.        |
+|**direction**     | n/a | `in`로 설정해야 합니다.         |
+|**name**     | n/a | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
 |**id**    | **Id** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
@@ -2366,9 +2366,9 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type**     || `cosmosDB`로 설정해야 합니다.        |
-|**direction**     || `out`로 설정해야 합니다.         |
-|**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**type**     | n/a | `cosmosDB`로 설정해야 합니다.        |
+|**direction**     | n/a | `out`로 설정해야 합니다.         |
+|**name**     | n/a | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
 |**collectionName** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
 |**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false*입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.  |

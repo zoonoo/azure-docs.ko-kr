@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace에 관리형 서비스 솔루션 게시
 description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하는 관리형 서비스 제품을 게시하는 방법을 알아봅니다.
-ms.date: 01/09/2020
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a1720a3bcfd0b08f8d9c8147b5e47ed42af6fda
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 841cb52791709be5649d66b72f5c18ef35b740ef
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834102"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155250"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
@@ -86,6 +86,8 @@ ms.locfileid: "75834102"
 - **AZURE Ad 개체 ID**: 사용자, 사용자 그룹 또는 응용 프로그램의 azure ad 식별자 이며,이 식별자는 역할 정의에 설명 된 대로 고객의 리소스에 대 한 특정 사용 권한을 부여 받습니다.
 - **AZURE AD 개체 표시 이름**: 고객이이 권한 부여의 용도를 이해 하는 데 도움이 되는 친숙 한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
 - **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택 합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대 한 설명은 [기본 제공 역할](../../role-based-access-control/built-in-roles.md) 및 [Azure 위임 된 리소스 관리에 대 한 역할 지원](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)을 참조 하세요.
+  > [!NOTE]
+  > 해당 하는 새로운 기본 제공 역할이 Azure에 추가 되 면 여기에서 사용할 수 있게 되며, 이러한 역할은 표시 되기 전에 약간의 지연이 있을 수 있습니다.
 - **할당 가능한 역할**:이 권한 부여에 대 한 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 필요 합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
 
 > [!TIP]

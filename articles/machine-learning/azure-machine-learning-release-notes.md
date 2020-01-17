@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771924"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122375"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -1488,7 +1488,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
 + ML 파이프라인
   + 파이프라인, 일괄 처리 범위 및 스타일 전송 예제로 시작하기 위한 신규 및 업데이트된 Notebook: https://aka.ms/aml-pipeline-notebooks
   + [첫 번째 파이프라인을 만드는](how-to-create-your-first-pipeline.md) 방법 알아보기
-  + [파이프라인을 사용하여 일괄 처리 예측을 실행](how-to-run-batch-predictions.md)하는 방법 알아보기
+  + [파이프라인을 사용하여 일괄 처리 예측을 실행](how-to-use-parallel-run-step.md)하는 방법 알아보기
 + Azure Machine Learning 컴퓨팅 대상
   + 이제 [샘플 Notebook](https://aka.ms/aml-notebooks)이 새 관리형 컴퓨팅을 사용하도록 업데이트되었습니다.
   + [이 컴퓨팅에 대해 알아보기](how-to-set-up-training-targets.md#amlcompute)

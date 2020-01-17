@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 9dad936e2e6cc7a9b0cdde78a9557a51d3074e71
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 277b22498066542deaa080845cb816df493d7e13
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930870"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122358"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -335,7 +335,7 @@ Machine Learning 컴퓨팅는 관리 되는 계산 대상 이므로 microsoft에
 
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포 된 Machine Learning 모델 사용](how-to-consume-web-service.md)
-* [일괄 처리 예측 실행 방법](how-to-run-batch-predictions.md)
+* [일괄 처리 예측 실행 방법](how-to-use-parallel-run-step.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

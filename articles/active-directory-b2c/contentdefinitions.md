@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064328"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119655"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -37,7 +37,7 @@ ms.locfileid: "71064328"
   <Metadata>
     <Item Key="DisplayName">Local account sign up page</Item>
   </Metadata>
-  <LoalizedResourcesReferences MergeBehavior="Prepend">
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
     <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
     <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     ...
@@ -61,13 +61,13 @@ ms.locfileid: "71064328"
 
 **ContentDefinition** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 콘텐츠 정의의 식별자입니다. 값은 이 페이지의 뒷부분에 있는 **콘텐츠 정의 ID** 섹션에서 지정된 값입니다. |
 
 **ContentDefinition** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | 콘텐츠 정의에 대한 HTML5 페이지의 URL을 포함하는 문자열입니다. |
 | RecoveryUri | 0:1 | 콘텐츠 정의와 관련된 오류를 표시하기 위한 HTML 페이지의 URL을 포함하는 문자열입니다. |
@@ -93,13 +93,13 @@ ms.locfileid: "71064328"
 
 **LocalizedResourcesReferences** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | 콘텐츠 정의에 대한 지역화된 리소스 참조 목록입니다. |
 
 **LocalizedResourcesReferences** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 언어 | 예 | RFC 5646 - 언어 식별 태그를 기준으로 정책에 대해 지원되는 언어를 포함하는 문자열입니다. |
 | LocalizedResourcesReferenceId | 예 | **LocalizedResources** 요소의 식별자입니다. |
@@ -141,7 +141,7 @@ ms.locfileid: "71064328"
 
 **ContentDefinition** 요소의 ID 특성은 콘텐츠 정의에 관련된 페이지의 형식을 지정합니다. 이 요소는 사용자 지정 HTML5/CSS 템플릿을 적용할 컨텍스트를 정의합니다. 다음 표에서는 ID 경험 프레임워크가 인식하는 콘텐츠 정의 ID 집합과 이에 관련된 페이지 형식을 설명합니다. 임의 ID로 고유한 콘텐츠 정의를 만들 수 있습니다.
 
-| ID | 기본 템플릿 | 설명 |
+| ID | 기본 템플릿 | Description |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지** - 예외 또는 오류가 발생할 때 오류 페이지를 표시합니다. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **ID 공급자 선택 페이지** - 로그인 중에 사용자가 선택할 수 있는 ID 공급자를 나열합니다. 이러한 옵션은 일반적으로 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |

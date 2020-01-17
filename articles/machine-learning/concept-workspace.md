@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: 3d8a1b965724c0fcb9f07b382ed446d41fe23dac
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 12/27/2019
+ms.openlocfilehash: b2fb165dfdcc97116b60075a5c3071171fa46cd7
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772570"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157205"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
@@ -91,7 +91,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 * 지점 및 클릭 인터페이스에 대 한 [Azure Portal](how-to-manage-workspace.md) 를 사용 하 여 각 단계를 안내 합니다.
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) 를 사용 하 여 python 스크립트 또는 Jupiter 노트북에서 즉시 작업 영역 만들기
 * 회사 보안 표준을 사용 하 여 만들기를 자동화 하거나 사용자 지정 해야 하는 경우 [Azure Resource Manager 템플릿](how-to-create-workspace-template.md) 또는 [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) 를 사용 합니다.
-* Visual Studio Code에서 작업 하는 경우 [VS Code 확장](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code)을 사용 합니다.
+* Visual Studio Code에서 작업 하는 경우 [VS Code 확장](tutorial-setup-vscode-extension.md)을 사용 합니다.
 
 ## <a name="upgrade"></a>Enterprise edition으로 업그레이드
 

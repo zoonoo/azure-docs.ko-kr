@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d9e20c8e5859efc8f1f8a5214e6837ad46d2980d
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 7c40cfc8fbc6a9957281be842f6714fa9289a3c8
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777787"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122222"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -46,7 +46,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
 3. FarmBeats 배포의 일부로 만들어진 앱 등록을 클릭 합니다. FarmBeats Datahub와 동일한 이름을 갖게 됩니다.
 
-4. "API 표시"를 클릭 하 > "클라이언트 응용 프로그램 추가"를 클릭 하 고 **04b07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 후 "범위 권한 부여"를 선택 합니다. 이렇게 하면 아래 단계를 수행 하기 위해 azure cli (Cloud shell)에 액세스할 수 있습니다.
+4. "API 표시"를 클릭 하 > "클라이언트 응용 프로그램 추가"를 클릭 하 고 **04b07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 후 "범위 권한 부여"를 선택 합니다. 그러면 아래 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
 
 5. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 

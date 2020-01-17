@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ad0eb602d9e7b907e23ebf7b91ed86650c1e807
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: eebbef25f2cd4539a5092f271c3944c24503f287
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790487"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156814"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus에 대 한 문제 해결 가이드
 이 문서에서는 Service Bus .NET Framework Api에 의해 생성 되는 몇 가지 .NET 예외 및 문제 해결을 위한 기타 팁을 제공 합니다. 
@@ -81,7 +81,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 
 #### <a name="namespaces"></a>네임스페이스
 
-네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 다음은 그 예입니다.
+네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예:
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -121,10 +121,10 @@ ConnectionsQuotaExceeded for namespace xxx.
     ```shell
     telnet sbwagn2.servicebus.windows.net 5671
     ```
-- 간헐적 연결 문제가 있는 경우 다음 명령을 실행 하 여 삭제 된 패킷이 있는지 확인 합니다. 연결이 부분적으로 차단 되었는지 확인 하는 데 약 1 분 동안 실행 되도록 유지 합니다. `psping` 도구는 [여기](/sysinternals/downloads/psping)에서 다운로드할 수 있습니다.
+- 간헐적 연결 문제가 있는 경우 다음 명령을 실행 하 여 삭제 된 패킷이 있는지 확인 합니다. 이 명령은 서비스와 1 초 마다 25 가지 TCP 연결을 설정 하려고 시도 합니다. 그러면 성공/실패 횟수를 확인할 수 있으며 TCP 연결 대기 시간도 확인할 수 있습니다. `psping` 도구는 [여기](/sysinternals/downloads/psping)에서 다운로드할 수 있습니다.
 
     ```shell
-    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
     ```
     `tnc`, `ping`등의 다른 도구를 사용 하는 경우에는 동일한 명령을 사용할 수 있습니다. 
 - 이전 단계에서 도움을 주지 않고 분석 하거나 [Microsoft 지원](https://support.microsoft.com/)하는 경우 네트워크 추적을 가져옵니다.

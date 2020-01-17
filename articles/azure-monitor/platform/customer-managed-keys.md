@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/11/2020
-ms.openlocfilehash: 0354abf6a5450a1116423e3a35c3a7e2ae7b9057
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ef70c211c395556a4c15ff06e65098e8aaac32ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971101"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120267"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
@@ -378,8 +378,6 @@ Key Vault에서 키를 업데이트 하 고 *클러스터* 리소스 *에서 새
 
 - Cmk 암호화는 CMK 구성 후에 새로 수집 데이터에 적용 됩니다. CMK 구성 이전에 수집 된 데이터는 Microsoft 키로 암호화 된 상태로 유지 됩니다. 구성 전후에 데이터를 원활 하 게 쿼리할 수 있습니다.
 
-- CMK 기능은 지역입니다. Azure Key Vault, *클러스터* 리소스 및 연결 된 작업 영역은 동일한 지역에 있어야 하지만 다른 구독에 있을 수 있습니다.
-
 - 작업 영역이 *클러스터* 리소스와 연결 되 면 데이터는 키로 암호화 되어 Azure Key Vault KEK 없이 액세스할 수 없기 때문에 *클러스터* 리소스에서 연결을 해제할 수 없습니다.
 
 - Azure Key Vault를 복구할 수 있는 것으로 구성 해야 합니다. 이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않으며 CLI 및 PowerShell을 사용 하 여 구성 해야 합니다.
@@ -391,9 +389,9 @@ Key Vault에서 키를 업데이트 하 고 *클러스터* 리소스 *에서 새
 
 - 다른 리소스 그룹 또는 구독에 대 한 *클러스터* 리소스 이동은 현재 지원 되지 않습니다.
 
-- *클러스터 리소스가 다른* 테 넌 트에 있는 경우 *클러스터* 리소스에 대 한 작업 영역 연결이 실패 합니다.
+- Azure Key Vault, *클러스터* 리소스 및 연결 된 작업 영역은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다.
 
--   다른 *클러스터* 리소스와 연결 된 경우 *클러스터* 리소스에 대 한 작업 영역 연결이 실패 합니다.
+- 다른 *클러스터* 리소스와 연결 된 경우 *클러스터* 리소스에 대 한 작업 영역 연결이 실패 합니다.
 
 ## <a name="troubleshooting-and-management"></a>문제 해결 및 관리
 
@@ -557,7 +555,7 @@ Content-type: application/json
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.insights/components/{component-name}",
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
   "name": "component-name",
   "type": "Microsoft.Insights/components",
   "location": "region-name",

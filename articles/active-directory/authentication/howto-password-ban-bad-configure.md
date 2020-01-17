@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58371edffa4400c2c2b3efd37c3ce6d7c3cad95
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eb47b9df51803c76662b5fb4ca1fe23740e7af9a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847918"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155062"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>사용자 지정 금지 암호 목록 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "74847918"
 
 사용자 지정 금지 암호 목록을 구성하려면 Azure Active Directory Premium P1 또는 P2 라이선스가 필요합니다. Azure Active Directory 라이선스에 대 한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 **Azure Active Directory**, **인증 방법**, **암호 보호**로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **Azure Active Directory** > **보안** > **인증 방법** 으로 이동 하 여 **암호 보호** > 합니다.
 1. **Enforce custom list**(사용자 지정 목록 적용) 옵션을 **예**로 설정합니다.
 1. **Custom banned password list**(사용자 지정 금지 암호 목록)에 문자열을 한 줄당 하나씩 추가합니다.
    * 사용자 지정 금지 된 암호 목록은 최대 1000 개의 용어를 포함할 수 있습니다.

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848394"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155149"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
 
@@ -24,7 +24,7 @@ ms.locfileid: "74848394"
 
 [MFA (Azure Multi-Factor Authentication)](concept-mfa-howitworks.md) 는 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. 두 번째 형태의 인증을 사용 하 여 추가 보안 계층을 제공 합니다. 조직에서는 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 솔루션을 특정 요구 사항에 맞게 만들 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure Multi-Factor Authentication 배포를 시작 하기 전에 고려해 야 하는 필수 조건 항목이 있습니다.
 
@@ -85,17 +85,17 @@ Azure Active Directory Identity Protection에서 검색 되는 일부 위험 검
 ### <a name="configuring-a-named-location"></a>명명 된 위치 구성
 
 1. Azure Portal에서 **Azure Active Directory** 를 엽니다.
-2. **조건부 액세스** 를 클릭 합니다.
-3. **명명 된 위치** 클릭
-4. **새 위치** 를 클릭 합니다.
+2. **보안** 선택
+3. **관리**아래에서 **명명 된 위치** 를 선택 합니다.
+4. **새 위치** 선택
 5. **이름** 필드에 의미 있는 이름을 입력 합니다.
-6. IP 범위 또는 국가/지역을 사용 하 여 위치를 정의 하는지 여부를 선택 합니다.
-   1. IP 범위를 사용 하는 경우
-      1. 위치를 신뢰할 수 있는 것으로 표시할지 여부를 결정 합니다. 신뢰할 수 있는 위치에서 로그인하면 사용자의 로그인 위험이 줄어듭니다. 입력 한 IP 범위를 조직에 설정 하 고 신뢰할 수 있는 하는 경우에만이 위치를 신뢰할 수 있는 것으로 표시 합니다.
+6. *IP 범위* 또는 *국가/지역을* 사용 하 여 위치를 정의 하는지 여부를 선택 합니다.
+   1. *IP 범위* 를 사용 하는 경우
+      1. *신뢰할 수 있는 위치로*표시할지 여부를 결정 합니다. 신뢰할 수 있는 위치에서 로그인하면 사용자의 로그인 위험이 줄어듭니다. 입력 한 IP 범위를 조직에 설정 하 고 신뢰할 수 있는 하는 경우에만이 위치를 신뢰할 수 있는 것으로 표시 합니다.
       2. IP 범위 지정
-   2. 국가/지역을 사용 하는 경우
+   2. *국가/지역을* 사용 하는 경우
       1. 드롭다운 메뉴를 확장 하 고이 명명 된 위치에 대해 정의 하려는 국가 또는 지역을 선택 합니다.
-      2. 알 수 없는 영역을 포함할지 여부를 결정 합니다. 알 수 없는 영역은 국가/지역에 매핑할 수 없는 IP 주소입니다.
+      2. *알 수 없는 영역을 포함할지*여부를 결정 합니다. 알 수 없는 영역은 국가/지역에 매핑할 수 없는 IP 주소입니다.
 7. **만들기**
 
 ## <a name="plan-authentication-methods"></a>인증 방법 계획
@@ -221,7 +221,7 @@ Azure AD 테 넌 트에서 실수로 잠기는 것을 방지 하는 것이 중�
 ### <a name="create-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
 1. 전역 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** , **조건부 액세스**로 이동합니다.
+1. **조건부 액세스** >  > **보안** **Azure Active Directory** 로 이동 합니다.
 1. **새 정책**을 선택합니다.
    ![하 여 파일럿 그룹의 Azure Portal 사용자에 대해 MFA를 사용 하도록 설정 하는 조건부 액세스 정책을 만듭니다](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. 의미 있는 정책 이름을 입력합니다.
@@ -277,7 +277,7 @@ NPS 인스턴스를 배포 하 여 이미 사용 중인 경우 [기존 Nps 인�
 
 MFA에 등록 되지 않은 사용자가 인증을 시도 하는 경우 수행할 작업을 선택 합니다. 레지스트리 경로 `HKLM\Software\Microsoft\AzureMFA` `REQUIRE_USER_MATCH` 레지스트리 설정을 사용 하 여 기능 동작을 제어 합니다. 이 설정에는 단일 구성 옵션이 있습니다.
 
-| 키 | Value | 기본값 |
+| 키 | 값 | 기본값 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 
@@ -347,7 +347,7 @@ Azure MFA에 대 한 보고서
 
 Azure Multi-Factor Authentication는 Azure Portal를 통해 보고서를 제공 합니다.
 
-| 보고서 | 위치 | 설명 |
+| 보고서 | 위치 | Description |
 | --- | --- | --- |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
 
@@ -359,4 +359,4 @@ Microsoft 지원 센터의 [azure Multi-Factor Authentication 문제 해결 문�
 
 * [인증 방법이란?](concept-authentication-methods.md)
 * [Azure Multi-Factor Authentication 및 Azure AD 셀프 서비스 암호 재설정에 융합 등록 사용](concept-registration-mfa-sspr-converged.md)
-* 사용자에게 MFA를 수행하라는 메시지가 표시되거나 표시되지 않는 이유는? [Azure Multi-factor Authentication 문서에서 보고서의 Azure AD 로그인 보고서](howto-mfa-reporting.md#azure-ad-sign-ins-report) 섹션을 참조하세요.
+* 사용자에게 MFA를 수행하라는 메시지가 표시되거나 표시되지 않는 이유는? [Azure Multi-Factor Authentication 문서에서 보고서의 Azure AD 로그인 보고서](howto-mfa-reporting.md#azure-ad-sign-ins-report) 섹션을 참조하세요.

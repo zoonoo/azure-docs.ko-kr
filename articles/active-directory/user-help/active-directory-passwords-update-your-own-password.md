@@ -9,23 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d8b46dbc0cc3c61396acdc7d21517c13d4650bf3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160795"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156287"
 ---
-# <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
+# <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용 하 여 회사 또는 학교 암호 재설정
 
-암호가 생각 나지 않거나, 회사 지원팀에서 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 디바이스를 사용하여 암호를 재설정할 수 있습니다.
+회사 또는 학교 암호가 생각 나지 않거나, 조직으로부터 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 디바이스를 사용하여 회사 또는 학교 암호를 재설정할 수 있습니다. 관리자는 정보를 설정 하 고 자신의 암호를 다시 설정할 수 있도록이 기능을 설정 해야 합니다.
 
->[!NOTE]
->암호를 알고 있으며 단순히 암호를 변경하려는 경우 이 문서의 [암호 변경](#how-to-change-your-password) 단계로 이동합니다.<br><br>
->Xbox, hotmail.com 또는 outlook.com과 같은 개인 계정에 다시 액세스하려면 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서의 권장 사항을 시도해 보세요.
+암호를 알고 있지만 변경 하려는 경우이 문서의 [암호 단계 변경](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) 섹션을 참조 하세요.
+
+>[!Important]
+>이 문서는 분실 하거나 알 수 없는 회사 또는 학교 계정 암호 재설정을 사용 하려는 사용자를 위해 작성 되었습니다. 직원 또는 기타 사용자에 대해 셀프 서비스 암호 재설정을 설정 하는 방법에 대 한 정보를 찾는 관리자 인 경우 [AZURE AD 셀프 서비스 암호 재설정 및 기타 문서 배포](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)를 참조 하세요.
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>회사 또는 학교 계정의 암호를 재설정 또는 잠금 해제하는 방법
 
@@ -58,7 +59,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
     1. **내 암호 확인용 이메일 주소로 이메일 보내기**를 선택한 다음, **이메일**을 선택합니다.
 
     2. 이메일의 확인 코드를 입력하고 **다음**을 선택합니다.
-    
+
     3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
 
 - **문자 메시지를 사용하여 암호 재설정.** 이전에 보안 정보에서 설정한 전화 번호로 문자 메시지를 보냅니다. 관리자가 보안 정보 환경을 설정한 경우 [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md) 문서에서 문자 메시지 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 문자 메시지 설정에 대해 자세히 알아볼 수 있습니다.
@@ -100,7 +101,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
   3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
 
   4. 암호가 재설정되었다는 메시지가 표시되면 새 암호를 사용하여 계정에 로그인 할 수 있습니다.
-        
+
      여전히 계정에 액세스할 수 없는 경우 조직의 관리자에게 연락하여 도움을 요청해야 합니다.
 
 암호를 재설정한 후 "Microsoft가 \<*귀하의 조직*>을 대신하여"와 같은 확인 이메일이 계정에 도착할 수 있습니다. 최근에 암호를 재설정하지 않았는데도 이와 비슷한 이메일을 받으면 즉시 조직의 관리자에게 알려야 합니다.
@@ -155,7 +156,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 다음은 일반적인 오류 사례 및 해결 방법입니다.
 
-|문제|설명|솔루션|
+|문제|Description|솔루션|
 | --- | --- | --- |
 |암호를 변경하려고 하면 오류가 발생합니다. |암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다.| 더 강력한 암호를 사용하여 다시 시도하세요.|
 |사용자 ID를 입력하면 "관리자에 문의하세요"라는 페이지로 이동됩니다.|Microsoft는 해당 사용자 계정 암호가 온-프레미스 환경의 관리자를 통해 관리되는 것을 확인했습니다. 따라서 "계정에 액세스할 수 없음" 링크에서 암호를 재설정할 수 없습니다. |관리자에게 문의하여 도움을 받으세요.|
@@ -163,10 +164,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 |사용자 ID를 입력한 후 "계정을 확인할 수 없습니다" 오류가 발생합니다.|로그인 프로세스에서 계정 정보를 확인할 수 없었습니다.|두 가지 이유로 이 메시지가 표시될 수 있습니다.<br><br>1. 관리자가 조직에 대 한 암호 재설정을 사용 하도록 설정 했지만 서비스를 사용 하도록 등록 하지 않았습니다. 암호 재설정을 등록하려면 인증 방법에 따라 [Authenticator 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md), [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md), [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md), [이메일을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-email.md) 또는 [보안 질문을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-questions.md) 문서 중에 하나를 살펴보세요.<br><br>2. 관리자가 조직에 대 한 암호 재설정을 설정 하지 않았습니다. 이 경우 "관리자에게 문의" 링크를 선택하여 관리자에게 암호 재설정을 요청하는 이메일을 보내야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
+
 - [보안 정보(미리 보기) 개요](user-help-security-info-overview.md) 문서에서 보안 정보에 대해 자세히 알아봅니다.
 
-- [2단계 인증 개요](user-help-two-step-verification-overview.md) 문서에서 2단계 인증에 대해 알아봅니다. 
-
-- 암호를 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정합니다.
-
-- [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에서 로그인 문제에 대한 문제 해결 팁 및 도움말을 확인합니다.
+- Xbox, hotmail.com 또는 outlook.com와 같은 개인 계정으로 다시 전환 하려는 경우 [Microsoft 계정에 로그인 할 수 없는 경우 문서](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)에서 제안 해 보세요.

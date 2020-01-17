@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462085"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121746"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -82,7 +82,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** - 액세스되는 리소스의 URI입니다.
 * **`sig`** - 서명입니다.
 
-`signature-string`은 리소스 URI를 통해 계산된 SHA-256 해시(이전 섹션에 설명된 대로 **범위**) 및 CRLF로 구분된 토큰 만료 인스턴스의 문자열 표현입니다.
+`signature-string`은 리소스 URI (이전 섹션에서 설명 하는**범위** )에 대해 계산 된 SHA-256 해시와 토큰 만료 인스턴트의 문자열 표현을 LF로 구분 하 여 계산 합니다.
 
 해시 계산은 다음 의사 코드와 유사하며 256비트/32바이트 해시 값을 반환합니다.
 

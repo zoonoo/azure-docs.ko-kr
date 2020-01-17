@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 562dd900bb3d64731e5467058e2718b081c675b6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2a3e1f1997857ab9812fe87d5ec68b71e280e6ce
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968542"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122545"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
     > [!IMPORTANT]
     > Azure Machine Learning SDK는 웹 서비스에서 데이터 저장소 또는 데이터 집합에 액세스 하는 방법을 제공 하지 않습니다. 배포 외부에 저장 된 데이터에 액세스 하기 위해 배포 된 모델이 필요한 경우 (예: Azure Storage 계정에서) 관련 SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 해야 합니다. 예를 들어 [Python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python)가 있습니다.
     >
-    > 시나리오에 사용할 수 있는 또 다른 대안은 점수를 매길 때 데이터 저장소에 대 한 액세스를 제공 하는 [일괄 처리 예측](how-to-run-batch-predictions.md)입니다.
+    > 시나리오에 사용할 수 있는 또 다른 대안은 점수를 매길 때 데이터 저장소에 대 한 액세스를 제공 하는 [일괄 처리 예측](how-to-use-parallel-run-step.md)입니다.
 
     항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
@@ -74,7 +74,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 이러한 엔터티는 __유추 구성__에 캡슐화 됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
 
 > [!IMPORTANT]
-> Azure App Service에 사용할 유추 구성을 만드는 경우 [환경](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version > = 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 웹 서비스로 모델을 호스트 하는 데 필요한 기능이 포함 되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
+> Azure App Service에 사용할 유추 구성을 만드는 경우 [환경](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version > = 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
 >
 > ```python
 > from azureml.core.environment import Environment

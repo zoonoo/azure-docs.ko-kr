@@ -3,14 +3,14 @@ title: 웹후크를 사용하여 Azure Automation Runbook 시작
 description: 클라이언트가 Azure Automation에서 HTTP 호출을 통해 runbook을 시작하는 데 사용되는 webhook입니다.  이 문서는 webhook를 만드는 방법 및 webhook를 호출하여 runbook을 시작하는 방법에 대해 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbf3a48d1e7cb3dd80b6c418d7c916184756b6fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f86193e818a91132f9bbca447acadd7e81747522
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418964"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155828"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
@@ -126,7 +126,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 ## <a name="renew-webhook"></a>webhook 갱신
 
-webhook를 만들 때 유효 기간은 1년입니다. 해당 연도 후 webhook는 자동으로 만료됩니다. webhook가 만료되면 다시 활성화할 수 없습니다. 제거하고 다시 만들어야 합니다. webhook가 만료되기 전에 만료 시간을 연장할 수 있습니다.
+웹 후크를 만들면 유효 시간이 10 년이 됩니다. 이 기간 후에 webhook는 자동으로 만료 됩니다. webhook가 만료되면 다시 활성화할 수 없습니다. 제거하고 다시 만들어야 합니다. webhook가 만료되기 전에 만료 시간을 연장할 수 있습니다.
 
 webhook를 확장하려면 webhook를 포함하는 Runbook으로 이동합니다. **리소스** 아래에서 **Webhook**를 선택합니다. 연장하려는 webhook를 클릭하면 **Webhook** 페이지가 열립니다.  새 만료 날짜 및 시간을 선택하고 **저장**을 클릭합니다.
 

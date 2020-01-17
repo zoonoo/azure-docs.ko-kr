@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: d08ce1c382d173ac98a0e61e6117ed50b958ba44
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965248"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119842"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Azure virtual network에서 IPv6로 IPv4 응용 프로그램 업그레이드-PowerShell (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "72965248"
 - 가상 네트워크 및 서브넷에 대 한 IPv6 주소 공간
 - IPv4 및 IPV6 프런트 엔드 구성을 모두 사용 하는 표준 Load Balancer
 - IPv4 + IPv6 구성이 모두 포함 된 Nic가 있는 Vm
-- IPv 공용 IP를 로드 하 여 부하 분산 장치가 인터넷 연결 IPv6 연결을 갖도록 합니다.
+- 부하 분산 장치에서 인터넷 연결 IPv6 연결을 위한 IPv6 공용 IP
 
 > [!Important]
 > Azure Virtual Network에 대 한 IPv6 지원은 현재 공개 미리 보기 상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -35,7 +35,7 @@ ms.locfileid: "72965248"
 
 PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="register-the-service"></a>서비스 등록
 
@@ -70,7 +70,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="create-an-ipv6-ip-addresses"></a>IPv6 IP 주소 만들기
 
-표준 Load Balancer에 대 한 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 공용 IPv6 주소를 만듭니다. 다음 예제에서는 *Myresourcegroupslb* 리소스 그룹에 *PublicIP_v6* 라는 IPv6 공용 IP 주소를 만듭니다.
+표준 Load Balancer에 대 한 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 공용 IPv6 주소를 만듭니다. 다음 예제에서는 *Myresourcegroupslb* 리소스 그룹에 *PublicIP_v6* 이라는 IPv6 공용 IP 주소를 만듭니다.
 
 ```azurepowershell
   

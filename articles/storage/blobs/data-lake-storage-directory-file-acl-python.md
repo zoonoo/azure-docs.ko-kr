@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: dbfee5d897d54d68ea6471f0001793a905c95e62
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cb2e1c16c1419d9925bd837bb4e12119f08d56c4
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835065"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119536"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리 (미리 보기)
 
@@ -64,7 +64,7 @@ except Exception as e:
  
 - `storage_account_name` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-- `storage-account-key` 자리 표시자 값을 저장소 계정 액세스 키로 바꿉니다.
+- `storage_account_key` 자리 표시자 값을 저장소 계정 액세스 키로 바꿉니다.
 
 ## <a name="create-a-file-system"></a>파일 시스템 만들기
 

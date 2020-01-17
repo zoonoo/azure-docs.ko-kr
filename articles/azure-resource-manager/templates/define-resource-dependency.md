@@ -3,12 +3,12 @@ title: 리소스의 배포 순서 설정
 description: 리소스가 올바른 순서대로 배포되도록 배포 중 다른 리소스에 종속된 것으로 리소스를 설정하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd988670b5fa6a0e602b50d9c25dd6dad6b3b84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44cf793859d2817695a58bd1159e2f4465c1f9c2
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485092"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121967"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의
 
@@ -25,9 +25,9 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "apiVersion": "2016-03-30",
   "name": "[variables('namingInfix')]",
   "location": "[variables('location')]",
-  "apiVersion": "2016-03-30",
   "tags": {
     "displayName": "VMScaleSet"
   },
@@ -65,12 +65,12 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
 "resources": [
   {
     "name": "[variables('sqlserverName')]",
+    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
     "location": "[resourceGroup().location]",
     "tags": {
       "displayName": "SqlServer"
     },
-    "apiVersion": "2014-04-01-preview",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
@@ -78,15 +78,15 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
     "resources": [
       {
         "name": "[parameters('databaseName')]",
+        "apiVersion": "2014-04-01-preview",
         "type": "databases",
         "location": "[resourceGroup().location]",
-        "tags": {
-          "displayName": "Database"
-        },
-        "apiVersion": "2014-04-01-preview",
         "dependsOn": [
           "[variables('sqlserverName')]"
         ],
+        "tags": {
+          "displayName": "Database"
+        },
         "properties": {
           "edition": "[parameters('edition')]",
           "collation": "[parameters('collation')]",
@@ -120,15 +120,15 @@ listKeys('resourceName', 'yyyy-mm-dd')
 ```json
 {
     "name": "[variables('endpointName')]",
+    "apiVersion": "2016-04-02",
     "type": "endpoints",
     "location": "[resourceGroup().location]",
-    "apiVersion": "2016-04-02",
     "dependsOn": [
-            "[variables('profileName')]"
+      "[variables('profileName')]"
     ],
     "properties": {
-        "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
-        ...
+      "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
+      ...
     }
 ```
 
@@ -152,6 +152,6 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 * 자습서를 살펴보려면 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](template-tutorial-create-templates-with-dependent-resources.md)를 참조하세요.
 * 종속성을 설정할 때의 권장 사항은 [Azure Resource Manager 템플릿 모범 사례](template-best-practices.md)를 참조하세요.
 * 배포 중 종속성 문제 해결에 대해 알아보려면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
-* Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요. 
+* Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요.
 * 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](template-functions.md)를 참조하세요.
 

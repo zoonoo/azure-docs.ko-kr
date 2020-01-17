@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: de3a3d9e5523341c2f549ff2a90c9c40a4e3cb50
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: df3ca877570b6b3e3a34dd20d617ce3896f1dd99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889457"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120964"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -45,7 +45,7 @@ Azure CNI (고급 네트워킹)를 사용 하는 경우 AKS는 구성 된 노드
 Pod가 해당 모드에서 중단되는 이유는 다양할 수 있습니다. 다음을 확인할 수 있습니다.
 
 * `kubectl describe pod <pod-name>`를 사용하여 pod 자체
-* `kubectl log <pod-name>`을 사용하여 로그
+* `kubectl logs <pod-name>`을 사용하여 로그
 
 Pod 문제를 해결하는 방법에 대한 자세한 내용은 [애플리케이션 디버그](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods)를 참조하세요.
 

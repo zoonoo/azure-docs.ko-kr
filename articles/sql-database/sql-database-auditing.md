@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 3d6f9f7d09664f9a5bd968ca5c0441b0846ceca3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028539"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122698"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -249,11 +249,11 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 - 저장소 계정에 대 한 변경할 수 없는 감사를 구성 하려면 [보호 된 추가 blob 쓰기 허용](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes)을 참조 하세요. 감사에 대 한 컨테이너 이름은 **sqldbauditlogs**입니다.
 
-> [!IMPORTANT] 
->  시간 기반 보존에서 보호 된 추가 blob 쓰기 허용 설정은 현재 사용할 수 있으며 다음 지역 에서만 표시 됩니다.
-> - 미국 동부
-> - 미국 중남부
-> - 미국 서부 2
+    > [!IMPORTANT]
+    > 시간 기반 보존에서 보호 된 추가 blob 쓰기 허용 설정은 현재 사용할 수 있으며 다음 지역 에서만 표시 됩니다.
+    > - 미국 동부
+    > - 미국 중남부
+    > - 미국 서부 2
 
 
 ## <a id="subheading-7"></a>Azure PowerShell를 사용 하 여 Azure SQL Server 및 데이터베이스 감사 관리

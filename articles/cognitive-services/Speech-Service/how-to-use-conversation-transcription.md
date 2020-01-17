@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: ea4ce07a813d338c2342de7dea554e11b146c27f
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805810"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122392"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>실시간 대화 기록 (미리 보기)
 
@@ -35,7 +35,7 @@ Speech SDK의 **ConversationTranscriber** API를 사용 하면 `PullStream` 또�
 - [ROOBO 장치 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
 - [Azure Kinect Dev Kit 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 음성 서비스 구독입니다. 아직 없는 경우 [음성 평가판 구독을 얻을](https://azure.microsoft.com/try/cognitive-services/) 수 있습니다.
 
@@ -71,7 +71,7 @@ class Program
         // Edit with your desired region for `{region}`
         var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
         // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
-        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+        // Voice signature format example: { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -90,7 +90,7 @@ class Program
         // Edit with your desired region for `{region}`
         var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
         // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
-        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+        // Voice signature format example: { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -113,6 +113,7 @@ class Program
 - 관심 있는 이벤트 등록
 - 대화 개체를 사용 하 여 대화에 참가자 추가 또는 제거
 - 오디오 스트리밍
+- Speech SDK 버전 1.9.0에서 `int` 및 `string` 값 형식은 음성 서명 버전 필드에서 지원 됩니다.
 
 기록 및 스피커 식별자가 등록 된 이벤트로 돌아옵니다.
 
@@ -189,7 +190,7 @@ public class MyConversationTranscriber
                     // Add participants to the conversation.
                     // Create voice signatures using REST API described in the earlier section in this document.
                     // Voice signature needs to be in the following format:
-                    // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+                    // { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
 
                     var speakerA = Participant.From("Speaker_A", "en-us", signatureA);
                     var speakerB = Participant.From("Speaker_B", "en-us", signatureB);

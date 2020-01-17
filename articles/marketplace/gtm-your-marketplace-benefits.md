@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: evansma
-ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933918"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121814"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상용 marketplace 혜택
 
@@ -86,7 +86,7 @@ Live 제품을 보유 한 모든 파트너는 전담 참여 관리자와 협력 
 
 ### <a name="publisher-agreement"></a>게시자 계약
 
-이 페이지에서 설명 하는 모든 작업은 [marketplace 게시자 계약](https://docs.microsoft.com/legal/marketplace/terms) 에 포함 되어 있으며 상용 혜택 프로그램 추 록에 기반 합니다.
+이 페이지에서 설명 하는 모든 작업은 [marketplace 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560) 에 포함 되어 있으며 상용 혜택 프로그램 추 록에 기반 합니다.
 
 ### <a name="cancellation-policy"></a>취소 정책
 

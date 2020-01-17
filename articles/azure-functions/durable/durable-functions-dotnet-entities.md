@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 74b013c9953974371957cc4d88439d20770d78a3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 750ccbfa885b4679dfa61240b49ea9ec86a46d51
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231421"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120644"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>.NET의 내구성이 있는 엔터티에 대 한 개발자 가이드
 
@@ -203,7 +203,7 @@ public class Counter : ICounter
 
 ### <a name="example-client-signals-entity-through-interface"></a>예: 클라이언트에서 인터페이스를 통해 신호를 보냅니다.
 
-클라이언트 코드는 `SignalEntityAsync<TEntityInterface>`를 사용 하 여 `TEntityInterface`를 구현 하는 엔터티로 신호를 보낼 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+클라이언트 코드는 `SignalEntityAsync<TEntityInterface>`를 사용 하 여 `TEntityInterface`를 구현 하는 엔터티로 신호를 보낼 수 있습니다. 예:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -307,7 +307,7 @@ public class User
 }
 ```
 
-### <a name="serialization-attributes"></a>Serialization 특성
+### <a name="serialization-attributes"></a>직렬화 특성
 
 위의 예제에서는 기본 serialization이 더 표시 되도록 여러 특성을 포함 하도록 선택 했습니다.
 - 클래스를 serialize 할 수 있어야 함을 알려 주는 `[JsonObject(MemberSerialization.OptIn)]` 클래스에 주석을 달고 JSON 속성으로 명시적으로 표시 된 멤버만 유지 합니다.
@@ -363,7 +363,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
     {
         ctx.SetState(...);
     }
-    ctx.DispatchAsync<Counter>();
+    return ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -371,7 +371,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 일반 함수와 달리, 엔터티 클래스 메서드는 입력 및 출력 바인딩에 직접 액세스할 수 없습니다. 대신, 진입점 함수 선언에서 바인딩 데이터를 캡처한 다음, `DispatchAsync<T>` 메서드에 전달해야 합니다. `DispatchAsync<T>`에 전달된 모든 개체는 자동으로 엔터티 클래스 생성자에 인수로 전달됩니다.
 
-다음 예제에서는 `CloudBlobContainer`Blob 입력 바인딩[의 ](../functions-bindings-storage-blob.md#input) 참조를 클래스 기반 엔터티에 사용할 수 있게 하는 방법을 보여 줍니다.
+다음 예제에서는 [Blob 입력 바인딩](../functions-bindings-storage-blob.md#input)의 `CloudBlobContainer` 참조를 클래스 기반 엔터티에 사용할 수 있게 하는 방법을 보여 줍니다.
 
 ```csharp
 public class BlobBackedEntity
@@ -450,7 +450,7 @@ public class HttpEntity
 > Serialization 관련 문제를 방지 하려면 직렬화에서 삽입 된 값을 저장 하는 필드를 제외 해야 합니다.
 
 > [!NOTE]
-> 일반 .NET Azure Functions에서 생성자 주입을 사용하는 경우와 달리 클래스 기반 엔터티에 대한 함수 진입점 메서드를 *으로* 선언해야`static` 합니다. 비정적 함수 진입점을 선언하면 일반 Azure Functions 개체 이니셜라이저와 지속성 엔터티 개체 이니셜라이저 간에 충돌이 발생할 수 있습니다.
+> 일반 .NET Azure Functions에서 생성자 주입을 사용하는 경우와 달리 클래스 기반 엔터티에 대한 함수 진입점 메서드를 `static`으로 *선언해야* 합니다. 비정적 함수 진입점을 선언하면 일반 Azure Functions 개체 이니셜라이저와 지속성 엔터티 개체 이니셜라이저 간에 충돌이 발생할 수 있습니다.
 
 ## <a name="function-based-syntax"></a>함수 기반 구문
 

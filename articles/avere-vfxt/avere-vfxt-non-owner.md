@@ -4,14 +4,14 @@ description: 구독 소유자 권한이 없는 사용자가 Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: d50c07d78c15d26a191b982d24da8a4808a31ecd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415064"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153278"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>소유자 권한이 없는 사용자에게 Avere vFXT 배포 권한 부여
 
@@ -72,7 +72,7 @@ ms.locfileid: "75415064"
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-이 절차가 수행되면 이 역할이 할당된 모든 사용자에게 구독에 대한 다음 권한이 부여됩니다.
+이 프로세스를 완료 하면 역할은 사용자에 게 구독에 대 한 다음 사용 권한을 할당 합니다.
 
 * 네트워크 인프라 만들기 및 구성
 * 클러스터 컨트롤러 만들기

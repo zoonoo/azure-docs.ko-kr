@@ -4,20 +4,25 @@ description: Avere vFXT for Azure를 배포하기 전에 수행할 계획에 대
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d4fc2a6b7def4b7c55faa37fbed756fbb830ff73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5ffa28a0f6080b94bd47519df578fd15309dbab5
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415429"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153645"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT 시스템 계획
 
 이 문서에서는 요구 사항에 맞게 적절 하 게 배치 하 고 크기를 조정 하는 새로운 Azure 클러스터 용 Avere vFXT를 계획 하는 방법을 설명 합니다.
 
-Azure Marketplace로 이동하거나 VM을 만들기 전에 클러스터가 Azure의 다른 요소와 상호 작용하는 방법을 고려합니다. 클러스터 리소스가 프라이빗 네트워크 및 서브넷에 배치될 위치를 계획하고 백 엔드 스토리지의 위치를 결정합니다. 만든 클러스터 노드가 워크플로를 지원할 수 있을 만큼 강력한지 확인합니다.
+Azure Marketplace로 이동 하거나 Vm을 만들기 전에 다음 정보를 고려 하세요.
+
+* 클러스터가 다른 Azure 리소스와 상호 작용 하는 방법
+* 클러스터 요소를 개인 네트워크 및 서브넷에 어디에 배치 해야 하나요?
+* 사용할 백 엔드 저장소 유형 및 클러스터에서 어떻게 액세스 하나요?
+* 클러스터 노드를 통해 워크플로를 지원 해야 하는 이유는 무엇 인가요?
 
 자세히 알아보려면 계속 읽어보세요.
 
@@ -41,12 +46,14 @@ Avere vFXT for Azure 배포의 요소 위치를 고려합니다. 아래 다이�
 
 ![하나의 서브넷에 있는 클러스터 컨트롤러와 클러스터 VM을 보여 주는 다이어그램입니다. 서브넷 경계 주위에는 vnet 경계가 있습니다. vnet 내부에는 스토리지 서비스 엔드포인트를 나타내는 육각형이 있으며, vnet 외부의 Blob Storage에 파선 모양 화살표로 연결됩니다.](media/avere-vfxt-components-option.png)
 
-Avere vFXT 시스템의 네트워크 인프라를 계획하는 경우 다음 지침을 따릅니다.
+Avere vFXT 클러스터의 네트워크 인프라를 계획 하는 경우 다음 지침을 따르세요.
 
-* Azure 배포에 대 한 각 Avere vFXT에 대 한 새 구독을 만들고이 구독에서 모든 구성 요소를 관리 합니다. 제공되는 혜택:
+* Azure 배포에 대 한 각 Avere vFXT에 대 한 새 구독을 만듭니다. 이 구독의 모든 구성 요소를 관리 합니다.
+
+  각 배포에 새 구독을 사용 하는 이점은 다음과 같습니다.
   * 더욱 간편한 비용 추적 - 리소스, 인프라 및 컴퓨팅 주기의 모든 비용을 구독 하나에서 확인하고 감사할 수 있습니다.
   * 더욱 쉬운 정리 - 프로젝트를 마친 후에는 전체 구독을 제거할 수 있습니다.
-  * 리소스 할당량의 편리한 분할-Avere vFXT 클라이언트와 클러스터를 단일 구독에서 격리 하 여 가능한 리소스 제한에서 기타 중요 한 작업을 보호 합니다. 이는 고성능 컴퓨팅 워크플로에 대해 많은 수의 클라이언트를 가져올 때 충돌을 방지 합니다.
+  * 리소스 할당량의 편리한 분할-Avere vFXT 클라이언트와 클러스터를 단일 구독에 격리 하 여 가능한 리소스 제한에서 다른 중요 한 작업을 보호 합니다. 이러한 분리는 고성능 컴퓨팅 워크플로에 대해 많은 수의 클라이언트를 가져올 때 충돌을 방지 합니다.
 
 * 클라이언트 컴퓨팅 시스템을 vFXT 클러스터와 가까운 곳에 배치합니다. 백 엔드 스토리지는 더 원격적일 수 있습니다.  
 
@@ -54,9 +61,9 @@ Avere vFXT 시스템의 네트워크 인프라를 계획하는 경우 다음 지
 
   * 동일한 가상 네트워크에
   * 동일한 리소스 그룹에서
-  * 동일한 저장소 계정에서
+  * 동일한 저장소 계정 사용
   
-  자동화 된 클러스터 만들기 템플릿은 대부분의 상황에서이를 처리 합니다.
+  클러스터 만들기 템플릿은 대부분의 경우이 구성을 처리 합니다.
 
 * 클라이언트 또는 다른 계산 리소스와의 IP 주소가 충돌 하지 않도록 클러스터는 자체 서브넷에 있어야 합니다.
 
@@ -69,7 +76,7 @@ Avere vFXT 시스템의 네트워크 인프라를 계획하는 경우 다음 지
   | 리소스 그룹 | 예 (비어 있는 경우) | 비어 있어야 합니다.|
   | Storage 계정 | 클러스터를 만든 후 기존 Blob 컨테이너를 연결 하는 경우 **예** <br/>  클러스터를 만드는 동안 새 Blob 컨테이너를 만드는 경우 **아니요** | 기존 Blob 컨테이너는 비어 있어야 합니다. <br/> &nbsp; |
   | 가상 네트워크 | 예 | 새 Azure Blob 컨테이너를 만드는 경우 저장소 서비스 끝점을 포함 해야 합니다. |
-  | 서브넷 | 예 |   |
+  | 서브넷 | 예 | 다른 리소스를 포함할 수 없음 |
 
 ## <a name="ip-address-requirements"></a>IP 주소 요구 사항
 
@@ -79,7 +86,7 @@ Avere vFXT 클러스터에서 사용하는 IP 주소는 다음과 같습니다.
 
 * 하나의 클러스터 관리 IP 주소. 이 주소는 항상 사용할 수 있도록 필요에 따라 클러스터의 노드에서 노드로 이동할 수 있습니다. 이 주소를 사용 하 여 Avere 제어판 구성 도구에 연결 합니다.
 * 각 클러스터 노드:
-  * 하나 이상의 클라이언트 측 IP 주소. (모든 클라이언트 측 주소는 클러스터의 *vserver*에서 관리되므로 필요에 따라 노드 간에 이동할 수 있습니다.)
+  * 하나 이상의 클라이언트 측 IP 주소. 모든 클라이언트 지향 주소는 클러스터의 *vserver*에서 관리 하며, 필요에 따라 노드 간에 IP 주소를 이동할 수 있습니다.
   * 클러스터 통신을 위한 하나의 IP 주소
   * 하나의 인스턴스 IP 주소(VM에 할당됨)
 
@@ -102,9 +109,7 @@ Azure Blob storage를 사용 하는 경우 클러스터의 가상 네트워크�
 
 노드당 디스크 캐시의 크기를 구성할 수 있으며, 범위는 1,000-8,000GB입니다. 노드당 4tb는 Standard_E32s_v3 노드에 대해 권장 되는 캐시 크기입니다.
 
-이러한 Vm에 대 한 자세한 내용은 Microsoft Azure 설명서를 참조 하세요.
-
-* [메모리 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+이러한 Vm에 대 한 자세한 내용은 메모리 액세스에 최적화 된 [가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory) Microsoft Azure 설명서를 참조 하세요.
 
 ## <a name="account-quota"></a>계정 할당량
 
@@ -112,11 +117,11 @@ Azure Blob storage를 사용 하는 경우 클러스터의 가상 네트워크�
 
 ## <a name="back-end-data-storage"></a>백 엔드 데이터 스토리지
 
-백 엔드 저장소 시스템은 클러스터의 캐시에 파일을 제공 하 고 캐시에서 변경 된 데이터를 수신 하기도 합니다. 즉, 작업 세트를 장기적으로 새 Blob 컨테이너에 저장할지 아니면 기존 클라우드 또는 하드웨어 스토리지 시스템에 저장할지를 결정합니다. 이러한 백 엔드 저장소 시스템을 *핵심 필터*이라고 합니다.
+백 엔드 저장소 시스템은 클러스터의 캐시에 파일을 제공 하 고 캐시에서 변경 된 데이터를 수신 하기도 합니다. 작업 집합을 새 Blob 컨테이너 또는 기존 저장소 시스템 (클라우드 또는 하드웨어)에 장기간 저장할 것인지 결정 합니다. 이러한 백 엔드 저장소 시스템을 *핵심 필터*이라고 합니다.
 
 ### <a name="hardware-core-filers"></a>하드웨어 코어 필터
 
-클러스터를 만든 후 vFXT 클러스터에 하드웨어 저장소 시스템을 추가 합니다. 클러스터의 서브넷에서 저장소 시스템에 연결할 수 있으면 온-프레미스 시스템을 비롯 한 기존 온-프레미스 하드웨어 시스템을 사용할 수 있습니다.
+클러스터를 만든 후 vFXT 클러스터에 하드웨어 저장소 시스템을 추가 합니다. 클러스터의 서브넷에서 저장소 시스템에 연결할 수 있으면 온-프레미스 시스템을 비롯 한 다양 한 인기 있는 하드웨어 시스템을 사용할 수 있습니다.
 
 Avere vFXT 클러스터에 기존 스토리지 시스템을 추가하는 방법에 대한 자세한 지침은 [스토리지 구성](avere-vfxt-add-storage.md)을 참조하세요.
 
@@ -142,7 +147,7 @@ Avere vFXT for Azure 클러스터는 프라이빗 서브넷에 있으며 공용 
   > [!TIP]
   > 클러스터 컨트롤러에서 공용 IP 주소를 설정하는 경우 해당 주소를 점프 호스트로 사용할 수 있습니다. 자세한 내용은 [클러스터 컨트롤러(점프 호스트)](#cluster-controller-as-jump-host)를 참조하세요.
 
-* VPN(가상 사설망) - 사설망으로의 지점 및 사이트 간 VPN 또는 사이트 간 VPN을 구성합니다.
+* VPN (가상 사설망)-Azure 및 회사 네트워크의 개인 네트워크 간에 지점 및 사이트 간 또는 사이트 간 VPN을 구성 합니다.
 
 * Azure ExpressRoute - ExpressRoute 파트너를 통해 프라이빗 연결을 구성합니다.
 
@@ -156,20 +161,20 @@ Avere vFXT for Azure 클러스터는 프라이빗 서브넷에 있으며 공용 
 
 클러스터를 만들 때 클러스터 컨트롤러에서 공용 IP 주소를 만들지 여부를 결정할 수 있습니다.
 
-* **새 가상 네트워크** 또는 **새 서브넷**을 만드는 경우 클러스터 컨트롤러에 **공용 IP 주소가**할당 됩니다.
+* **새 가상 네트워크** 또는 **새 서브넷**을 만드는 경우 클러스터 컨트롤러에 **공용** IP 주소가 할당 됩니다.
 * 기존 가상 네트워크 및 서브넷을 선택 하는 경우 클러스터 컨트롤러에는 **개인** IP 주소만 있습니다.
 
 ## <a name="vm-access-roles"></a>VM 액세스 역할
 
 Azure는 RBAC ( [역할 기반 액세스 제어](../role-based-access-control/index.yml) )를 사용 하 여 특정 작업을 수행 하도록 클러스터 vm에 권한을 부여 합니다. 예를 들어 클러스터 컨트롤러에는 클러스터 노드 Vm을 만들고 구성 하기 위한 권한 부여가 필요 합니다. 클러스터 노드는 다른 클러스터 노드에 IP 주소를 할당 하거나 다시 할당할 수 있어야 합니다.
 
-Azure virtual machines의 Avere vFXT에는 두 가지 기본 제공 Azure 역할이 사용 됩니다.
+Avere vFXT virtual machines에는 두 개의 기본 제공 Azure 역할이 사용 됩니다.
 
 * 클러스터 컨트롤러는 기본 제공 역할인 [Avere 기여자](../role-based-access-control/built-in-roles.md#avere-contributor)를 사용 합니다.
-* 클러스터 노드는 기본 제공 역할인 [Avere 연산자](../role-based-access-control/built-in-roles.md#avere-operator) 를 사용 합니다.
+* 클러스터 노드는 기본 제공 역할인 [Avere 연산자](../role-based-access-control/built-in-roles.md#avere-operator)를 사용 합니다.
 
 Avere vFXT 구성 요소에 대 한 액세스 역할을 사용자 지정 해야 하는 경우 사용자 고유의 역할을 정의 하 고 만들 때 Vm에 할당 해야 합니다. Azure Marketplace에서는 배포 템플릿을 사용할 수 없습니다. 시스템에 대 한 [도움말 보기](avere-vfxt-open-ticket.md)에 설명 된 대로 Azure Portal에서 티켓을 열어 Microsoft 고객 서비스 및 지원 센터에 문의 하세요.
 
 ## <a name="next-step-understand-the-deployment-process"></a>다음 단계: 배포 프로세스 이해
 
-[배포 개요](avere-vfxt-deploy-overview.md) 는 Azure 시스템의 Avere vFXT를 만들고 데이터를 서비스할 준비를 하는 데 필요한 단계에 대 한 전체적인 그림 보기를 제공 합니다.
+[배포 개요](avere-vfxt-deploy-overview.md) 는 Azure 시스템에 대 한 Avere vFXT를 만들고 데이터를 서비스할 준비를 하는 데 필요한 단계에 대 한 전체적인 그림 보기를 제공 합니다.

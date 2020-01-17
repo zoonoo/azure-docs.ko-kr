@@ -3,19 +3,19 @@ title: '빠른 시작: 음성 SDK를 사용 하 여 사용자 지정 명령 앱�
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 사용자 지정 명령을 사용 하 여 음성 SDK 클라이언트 응용 프로그램을 만듭니다.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381106"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156780"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결
 
@@ -46,7 +46,7 @@ ms.locfileid: "75381106"
 
 1. [이전에 만든 사용자 지정 명령 응용 프로그램](./quickstart-custom-speech-commands-create-new.md) 을 열고 **게시** 를 선택 합니다.
 
-   > [!div class="mx-imgBorder"] 
+   > [!div class="mx-imgBorder"]
    > 응용 프로그램](media/custom-speech-commands/fulfill-sdk-publish-application.png) ![게시
 
 1. 나중에 사용 하기 위해 게시 알림에서 앱 ID를 복사 합니다.

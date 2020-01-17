@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8bad8be3c02228fee9dded729e22c5a406da178
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ae04bf5268bb9973098735183842f7393e9d679b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76025045"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121763"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -261,7 +261,7 @@ Azure Machine Learning에서는 모델을 사용 하 여 점수를 매기는 여
 
 | 방법 | 데이터 저장소 액세스 | Description |
 | ----- | :-----: | ----- |
-| [일괄 처리 예측](how-to-run-batch-predictions.md) | ✔ | 많은 양의 데이터를 비동기적으로 예측 합니다. |
+| [일괄 처리 예측](how-to-use-parallel-run-step.md) | ✔ | 많은 양의 데이터를 비동기적으로 예측 합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포 합니다. |
 | [Azure IoT Edge 모듈](how-to-deploy-and-where.md) | &nbsp; | IoT Edge 장치에 모델을 배포 합니다. |
 

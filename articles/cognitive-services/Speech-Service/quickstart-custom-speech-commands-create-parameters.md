@@ -3,19 +3,19 @@ title: '빠른 시작: 매개 변수 (미리 보기)-음성 서비스를 사용 
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 사용자 지정 명령 응용 프로그램에 매개 변수를 추가 합니다.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: fc859625be0706dd130cf7714d0fabf196740e91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 994ac88f78dfe5a5b0ee6fef3fa97d66d53c911b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381004"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156695"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>빠른 시작: 매개 변수를 사용 하 여 사용자 지정 명령 만들기 (미리 보기)
 

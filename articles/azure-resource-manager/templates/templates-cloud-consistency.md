@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 7065d5e9cae9e0a06eab82bd982693a1ad1d8fba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c69c90410aab7fa37ab87e82314c53e4459ca25
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483779"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155658"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -22,7 +22,7 @@ Azure의 핵심 이점은 일관성입니다. 한 위치에 대한 개발 투자
 Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이즈 지원 클라우드 서비스를 제공합니다.
 
 * 전 세계 지역으로 확장되고 있는 Microsoft 관리 데이터 센터 네트워크에서 지원되는 전역 Azure 플랫폼
-* Azure 독일, Azure Government, Azure 중국(21Vianet에서 운영하는 Azure) 등의 격리된 소버린 클라우드 소버린 클라우드는 전역 Azure 고객이 액세스할 수 있는 우수한 기능을 대부분 포함하는 일관성 있는 플랫폼을 제공합니다.
+* Azure 독일, Azure Government, Azure 중국 21Vianet과 같은 격리 된 소 버린 클라우드. 소버린 클라우드는 전역 Azure 고객이 액세스할 수 있는 우수한 기능을 대부분 포함하는 일관성 있는 플랫폼을 제공합니다.
 * 조직의 데이터 센터에서 Azure 서비스를 제공할 수 있게 해주는 하이브리드 클라우드 플랫폼인 Azure Stack 엔터프라이즈는 고유한 데이터 센터에서 Azure Stack을 설정하거나, 자체 시설(호스트된 지역이라고도 함)에서 Azure Stack을 실행하는 서비스 공급자의 Azure 서비스를 이용할 수 있습니다.
 
 이러한 모든 클라우드의 핵심은, Azure Resource Manager가 제공하는 API를 통해 다양한 사용자 인터페이스와 Azure 플랫폼 간에 통신할 수 있다는 것입니다. 이 API는 강력한 코드 인프라 기능을 제공합니다. Azure 클라우드 플랫폼에서 사용할 수 있는 모든 리소스 종류는 Azure Resource Manager를 통해 배포 및 구성할 수 있습니다. 단일 템플릿을 사용하여 전체 애플리케이션을 배포하고 작동 종료 상태로 구성할 수 있습니다.
@@ -47,9 +47,9 @@ Azure Resource Manger 템플릿에 대한 소개는 [템플릿 배포](overview.
 
 Resource Manager 템플릿의 기본 구문은 JSON입니다. 템플릿은 JSON의 상위 집합을 사용하여 식과 함수로 구문을 확장합니다. 템플릿 언어 프로세서는 추가 템플릿 함수를 지원하기 위해 자주 업데이트됩니다. 사용 가능한 템플릿 함수에 대한 자세한 설명은 [Azure Resource Manager 템플릿 함수](template-functions.md)를 참조하세요.
 
-Azure Resource Manager에 도입된 새 템플릿 함수는 소버린 클라우드 또는 Azure Stack에서 즉시 사용할 수 없습니다. 템플릿을 성공적으로 배포하려면 템플릿에 참조된 모든 함수를 대상 클라우드에서 사용할 수 있어야 합니다. 
+Azure Resource Manager에 도입된 새 템플릿 함수는 소버린 클라우드 또는 Azure Stack에서 즉시 사용할 수 없습니다. 템플릿을 성공적으로 배포하려면 템플릿에 참조된 모든 함수를 대상 클라우드에서 사용할 수 있어야 합니다.
 
-Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 다음 PowerShell 스크립트를 사용하여 새로 도입된 템플릿 함수를 Azure Stack에서도 사용할 수 있는지 여부를 확인할 수 있습니다. 
+Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 다음 PowerShell 스크립트를 사용하여 새로 도입된 템플릿 함수를 Azure Stack에서도 사용할 수 있는지 여부를 확인할 수 있습니다.
 
 1. GitHub 리포지토리의 복제본을 만듭니다. [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)
 
@@ -69,7 +69,7 @@ Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 
 
 ## <a name="working-with-linked-artifacts"></a>연결된 아티팩트 작업
 
-템플릿은 연결된 아티팩트에 대한 참조와, 다른 템플릿에 연결하는 배포 리소스를 포함할 수 있습니다. 연결된 템플릿(중첩된 템플릿이라고도 함)은 런타임에 리소스 관리자에 의해 검색됩니다. 템플릿에 VM(가상 머신) 확장의 아티팩트에 대한 참조가 포함될 수도 있습니다. 이러한 아티팩트는 템플릿 배포 중 VM 확장의 구성을 위해 VM 내부에서 실행되는 VM 확장에 의해 검색됩니다. 
+템플릿은 연결된 아티팩트에 대한 참조와, 다른 템플릿에 연결하는 배포 리소스를 포함할 수 있습니다. 연결된 템플릿(중첩된 템플릿이라고도 함)은 런타임에 리소스 관리자에 의해 검색됩니다. 템플릿에 VM(가상 머신) 확장의 아티팩트에 대한 참조가 포함될 수도 있습니다. 이러한 아티팩트는 템플릿 배포 중 VM 확장의 구성을 위해 VM 내부에서 실행되는 VM 확장에 의해 검색됩니다.
 
 다음 섹션에서는 기본 배포 템플릿 외부에 있는 아티팩트를 포함하는 템플릿을 개발할 때 클라우드 일관성을 위해 고려할 사항을 설명합니다.
 
@@ -82,9 +82,9 @@ Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 
 ```json
 "resources": [
   {
+     "type": "Microsoft.Resources/deployments",
      "apiVersion": "2017-05-10",
      "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
      "properties": {
        "mode": "incremental",
        "templateLink": {
@@ -100,9 +100,9 @@ Azure Resource Manager는 런타임에 기본 템플릿을 평가하고, 중첩�
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>연결된 템플릿을 클라우드 간에 액세스할 수 있도록 설정
 
-사용하는 연결된 템플릿을 저장하는 방법 및 위치를 고려합니다. 런타임에 Azure Resource Manager가 연결된 템플릿을 모두 페치하므로, 직접 액세스할 수 있어야 합니다. 일반적인 방법은 GitHub를 사용하여 중첩된 템플릿을 저장하는 것입니다. GitHub 리포지토리는 URL을 통해 공개적으로 액세스할 수 있는 파일을 포함할 수 있습니다. 이 방법은 퍼블릭 클라우드 및 소버린 클라우드에서 효과적이지만, Azure Stack 환경이 아웃바운드 인터넷 액세스 없이 회사 네트워크 또는 연결이 끊긴 원격 위치에 있을 수도 있습니다. 이러한 경우, Azure Resource Manager가 중첩된 템플릿을 검색하지 못합니다. 
+사용하는 연결된 템플릿을 저장하는 방법 및 위치를 고려합니다. 런타임에 Azure Resource Manager가 연결된 템플릿을 모두 페치하므로, 직접 액세스할 수 있어야 합니다. 일반적인 방법은 GitHub를 사용하여 중첩된 템플릿을 저장하는 것입니다. GitHub 리포지토리는 URL을 통해 공개적으로 액세스할 수 있는 파일을 포함할 수 있습니다. 이 방법은 퍼블릭 클라우드 및 소버린 클라우드에서 효과적이지만, Azure Stack 환경이 아웃바운드 인터넷 액세스 없이 회사 네트워크 또는 연결이 끊긴 원격 위치에 있을 수도 있습니다. 이러한 경우, Azure Resource Manager가 중첩된 템플릿을 검색하지 못합니다.
 
-클라우드 간 배포에 더 효과적인 방법은 대상 클라우드가 액세스할 수 있는 위치에 연결된 템플릿을 저장하는 것입니다. CI/CD(지속적인 통합/지속적인 업데이트) 파이프라인에서 모든 배포 아티팩트를 유지 관리하고 배포하는 것이 이상적입니다. 또는 Azure Resource Manager가 검색할 수 있는 Blob Storage 컨테이너에 중첩된 템플릿을 저장할 수 있습니다. 
+클라우드 간 배포에 더 효과적인 방법은 대상 클라우드가 액세스할 수 있는 위치에 연결된 템플릿을 저장하는 것입니다. CI/CD(지속적인 통합/지속적인 업데이트) 파이프라인에서 모든 배포 아티팩트를 유지 관리하고 배포하는 것이 이상적입니다. 또는 Azure Resource Manager가 검색할 수 있는 Blob Storage 컨테이너에 중첩된 템플릿을 저장할 수 있습니다.
 
 각 클라우드의 Blob Storage는 서로 다른 엔드포인트 FQDN(정규화된 도메인 이름)을 사용하므로 연결된 템플릿의 위치를 두 매개 변수로 지정하여 템플릿을 구성합니다. 매개 변수는 배포 시 사용자 입력을 수락할 수 있습니다. 일반적으로 템플릿은 여러 사용자가 작성해서 공유하므로, 이러한 매개 변수에 대해 표준 이름을 사용하는 것이 좋습니다. 명명 규칙을 통해 지역, 클라우드 및 작성자 간에 템플릿 재사용을 더 용이하게 만들 수 있습니다.
 
@@ -132,9 +132,9 @@ Azure Resource Manager는 런타임에 기본 템플릿을 평가하고, 중첩�
 ```json
 "resources": [
   {
-    "name": "shared",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2015-01-01",
+    "name": "shared",
     "properties": {
       "mode": "Incremental",
       "templateLink": {
@@ -150,7 +150,7 @@ Azure Resource Manager는 런타임에 기본 템플릿을 평가하고, 중첩�
 
 ### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>링크를 하드 코딩하는 대신 _artifactsLocation 사용
 
-중첩된 템플릿에 사용되는 것 외에도 `_artifactsLocation` 매개 변수의 URL은 배포 템플릿의 모든 관련 아티팩트에 대한 기준으로 사용됩니다. 일부 VM 확장에는 템플릿 외부에서 저장된 스크립트에 대한 링크가 포함되어 있습니다. 이러한 확장의 경우, 링크를 하드 코딩하면 안 됩니다. 예를 들어, 사용자 지정 스크립트 및 PowerShell DSC 확장은 다음과 같이 GitHub의 외부 스크립트에 연결될 수 있습니다. 
+중첩된 템플릿에 사용되는 것 외에도 `_artifactsLocation` 매개 변수의 URL은 배포 템플릿의 모든 관련 아티팩트에 대한 기준으로 사용됩니다. 일부 VM 확장에는 템플릿 외부에서 저장된 스크립트에 대한 링크가 포함되어 있습니다. 이러한 확장의 경우, 링크를 하드 코딩하면 안 됩니다. 예를 들어, 사용자 지정 스크립트 및 PowerShell DSC 확장은 다음과 같이 GitHub의 외부 스크립트에 연결될 수 있습니다.
 
 ```json
 "properties": {
@@ -215,7 +215,7 @@ Azure 지역 및 클라우드에 따라 사용 가능한 서비스가 다를 수
 
 템플릿은 리소스를 배포하고 구성합니다. 리소스 종류는 리소스 공급자가 제공합니다. 예를 들어, 컴퓨팅 리소스 공급자(Microsoft.Compute)는 virtualMachines, availabilitySets 등의 여러 리소스 종류를 제공합니다. 각 리소스 공급자가 공통 계약에 정의된 Azure Resource Manager용 API를 제공하므로 모든 리소스 공급자에서 일관성 있는 통합 작성 환경을 사용할 수 있습니다. 그러나 전역 Azure에서 사용할 수 있는 리소스 공급자를 소버린 클라우드 또는 Azure Stack 지역에서는 사용하지 못할 수도 있습니다.
 
-![리소스 공급자](./media/templates-cloud-consistency/resource-providers.png) 
+![리소스 공급자](./media/templates-cloud-consistency/resource-providers.png)
 
 지정된 클라우드에서 사용할 수 있는 리소스 공급자를 확인하려면 Azure [CLI](/cli/azure/install-azure-cli)(명령줄 인터페이스)에서 다음 스크립트를 실행합니다.
 
@@ -253,7 +253,7 @@ Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty Re
 
 템플릿에서 리소스 속성을 지정할 때 지역 이름을 하드 코딩할 수는 있지만, 이 방법을 사용할 경우, 다른 Azure Stack 환경에는 지역 이름이 존재하지 않을 가능성이 크기 때문에 해당 템플릿을 배포하지 못할 수 있습니다.
 
-여러 지역을 수용하려면 입력 매개 변수 위치를 기본값과 함께 템플릿에 추가합니다. 배포 중에 값이 지정되지 않으면 기본값이 사용됩니다. 
+여러 지역을 수용하려면 입력 매개 변수 위치를 기본값과 함께 템플릿에 추가합니다. 배포 중에 값이 지정되지 않으면 기본값이 사용됩니다.
 
 템플릿 함수 `[resourceGroup()]`은 다음 키/값 쌍이 포함된 개체를 반환합니다.
 
@@ -284,9 +284,9 @@ Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty Re
 },
 "resources": [
   {
-    "name": "storageaccount1",
     "type": "Microsoft.Storage/storageAccounts",
     "apiVersion": "2015-06-15",
+    "name": "storageaccount1",
     "location": "[parameters('location')]",
     ...
 ```
@@ -301,40 +301,40 @@ Azure Stack에 있는 사용 가능한 모든 리소스 공급자 및 관련 API
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Location the resources will be deployed to."
-            },
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "metadata": {
+          "description": "Location the resources will be deployed to."
+      },
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "name": "mystorageaccount",
+      "location": "[parameters('location')]",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
     },
-    "variables": {},
-    "resources": [
-        {
-            "name": "mystorageaccount",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            }
-        },
-        {
-            "name": "myavailabilityset",
-            "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2016-03-30",
-            "location": "[parameters('location')]",
-            "properties": {
-                "platformFaultDomainCount": 2,
-                "platformUpdateDomainCount": 2
-            }
-        }
-    ],
-    "outputs": {}
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "apiVersion": "2016-03-30",
+      "name": "myavailabilityset",
+      "location": "[parameters('location')]",
+      "properties": {
+        "platformFaultDomainCount": 2,
+        "platformUpdateDomainCount": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -357,16 +357,16 @@ API 프로필 버전은 Azure 및 Azure Stack에 공통적인 리소스 종류�
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -399,17 +399,17 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2016-01-01",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -423,7 +423,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 
 ## <a name="check-endpoint-references"></a>엔드포인트 참조 확인
 
-리소스에 플랫폼의 다른 서비스에 대한 참조가 포함될 수 있습니다. 예를 들어, 공용 IP에는 공용 DNS 이름이 할당될 수 있습니다. 퍼블릭 클라우드, 소버린 클라우드 및 Azure Stack 솔루션에는 고유한 엔드포인트 네임스페이스가 있습니다. 대부분의 경우, 템플릿에서 필요한 리소스에 대한 입력은 접두사뿐입니다. 런타임에 Azure Resource Manager가 엔드포인트 값을 접두사에 추가합니다. 일부 엔드포인트 값은 템플릿에서 명시적으로 지정해야 합니다. 
+리소스에 플랫폼의 다른 서비스에 대한 참조가 포함될 수 있습니다. 예를 들어, 공용 IP에는 공용 DNS 이름이 할당될 수 있습니다. 퍼블릭 클라우드, 소버린 클라우드 및 Azure Stack 솔루션에는 고유한 엔드포인트 네임스페이스가 있습니다. 대부분의 경우, 템플릿에서 필요한 리소스에 대한 입력은 접두사뿐입니다. 런타임에 Azure Resource Manager가 엔드포인트 값을 접두사에 추가합니다. 일부 엔드포인트 값은 템플릿에서 명시적으로 지정해야 합니다.
 
 > [!NOTE]
 > 클라우드 일관성을 위한 템플릿을 개발하려면 엔드포인트 네임스페이스를 하드 코딩하면 안 됩니다.
@@ -444,7 +444,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 일반적으로, 템플릿에 하드 코딩된 엔드포인트를 사용하면 안 됩니다. 모범 사례는 reference 템플릿 함수를 사용하여 엔드포인트를 동적으로 검색하는 것입니다. 예를 들어, 가장 일반적으로 하드 코딩되는 엔드포인트는 스토리지 계정의 엔드포인트 네임스페이스입니다. 각 스토리지 계정에는 스토리지 계정 이름과 엔드포인트 네임스페이스를 연결하여 생성된 고유 FQDN이 있습니다. mystorageaccount1이라는 Blob Storage 계정은 클라우드에 따라 다른 FQDN을 생성합니다.
 
 * 전역 Azure 클라우드에 만든 경우, **mystorageaccount1.blob.core.windows.net**
-* Azure 중국 클라우드에 만든 경우, **mystorageaccount1.blob.core.chinacloudapi.cn**
+* Azure 중국 21Vianet 클라우드에서 만든 **mystorageaccount1.blob.core.chinacloudapi.cn** .
 
 다음 reference 템플릿 함수는 스토리지 리소스 공급자에서 엔드포인트 네임스페이스를 검색합니다.
 
@@ -456,7 +456,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>고유 ID로 기존 리소스 참조
 
-동일한 클라우드의 동일한 테넌트에 있는 동일한 구독 또는 다른 구독과 동일한 리소스 그룹 또는 다른 리소스 그룹의 기존 리소스를 참조할 수도 있습니다. 리소스 속성을 검색하려면 리소스 자체의 고유 식별자를 사용해야 합니다. 다음 코드에서 볼 수 있듯이, `resourceId` 템플릿 함수는 SQL Server 같은 리소스의 고유 ID를 검색합니다. 
+동일한 클라우드의 동일한 테넌트에 있는 동일한 구독 또는 다른 구독과 동일한 리소스 그룹 또는 다른 리소스 그룹의 기존 리소스를 참조할 수도 있습니다. 리소스 속성을 검색하려면 리소스 자체의 고유 식별자를 사용해야 합니다. 다음 코드에서 볼 수 있듯이, `resourceId` 템플릿 함수는 SQL Server 같은 리소스의 고유 ID를 검색합니다.
 
 ```json
 "outputs": {
@@ -602,8 +602,8 @@ VM 확장은 자사 리소스 관리자 리소스이므로 고유한 API 버전�
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines/extensions",
+    "apiVersion": "2015-06-15",
     "name": "myExtension",
     "location": "[parameters('location')]",
     ...
@@ -627,9 +627,9 @@ Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Obje
 
 ```json
 {
-    "name": "MyCustomScriptExtension",
     "type": "extensions",
     "apiVersion": "2016-03-30",
+    "name": "MyCustomScriptExtension",
     "location": "[parameters('location')]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/myVM', copyindex())]"
@@ -638,7 +638,7 @@ Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Obje
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.7",
-        ...   
+        ...
 ```
 
 특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation**에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
@@ -655,12 +655,12 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 다음 이미지는 IDE(통합 개발 환경)를 사용하는 팀의 일반적인 개발 프로세스 예를 보여 줍니다. 타임라인의 단계마다 다른 테스트 유형이 실행됩니다. 여기서는 두 개발자가 동일한 솔루션에서 작업 중이지만, 이 시나리오는 단일 개발자 또는 대규모 팀에도 똑같이 적용됩니다. 일반적으로 각 개발자가 중앙 리포지토리의 로컬 복사본을 만들어, 동일한 파일에서 작업하는 다른 사용자에게 영향을 주지 않고 로컬 복사본에서 작업할 수 있습니다.
 
-![워크플로](./media/templates-cloud-consistency/workflow.png) 
+![워크플로](./media/templates-cloud-consistency/workflow.png)
 
 테스트 및 자동화에 대한 다음 팁에 유의하세요.
 
 * 테스트 도구를 활용합니다. 예를 들어, Visual Studio Code 및 Visual Studio에는 템플릿의 유효성 검사에 도움이 되는 IntelliSense 및 기타 기능이 포함되어 있습니다.
-* 로컬 IDE에서 개발하는 동안 코드 품질을 개선하려면 단위 테스트 및 통합 테스트를 사용하여 정적 코드 분석을 수행합니다. 
+* 로컬 IDE에서 개발하는 동안 코드 품질을 개선하려면 단위 테스트 및 통합 테스트를 사용하여 정적 코드 분석을 수행합니다.
 * 초기 개발 중에 경험을 개선하려면 단위 테스트 및 통합 테스트에서 문제가 발견되었을 때 경고만 하고 테스트를 진행해야 합니다. 이렇게 하면 처리할 문제를 확인하고 변경 순서의 우선 순위를 지정할 수 있습니다. 이를 TDD(테스트 기반 배포)라고도 합니다.
 * 일부 테스트는 Azure Resource Manager에 연결하지 않고 수행할 수 있습니다. 템플릿 배포 테스트와 같은 기타 테스트의 경우, 오프라인 상태에서 수행할 수 없는 특정 작업을 수행하려면 리소스 관리자가 필요합니다.
 * 유효성 검사 API에 대한 배포 템플릿 테스트는 실제 배포와 다릅니다. 또한 로컬 파일에서 템플릿을 배포하는 경우에도 템플릿의 중첩된 템플릿에 대한 참조는 리소스 관리자가 직접 검색하고, VM 확장에서 참조되는 아티팩트는 배포된 VM 내에서 실행되는 VM 에이전트가 검색합니다.

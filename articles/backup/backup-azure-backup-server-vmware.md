@@ -3,18 +3,18 @@ title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173364"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152870"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
 이 문서에서는 Azure Backup Server를 사용하여 VMware ESXi 호스트/vCenter Server에서 실행 중인 VMware VM을 Azure로 백업하는 방법을 설명합니다.
 
-이 문서에서는 다음 작업을 수행하는 방법을 설명합니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 - Azure Backup Server가 HTTPS를 통해 VMware 서버와 통신할 수 있도록 보안 채널을 설정합니다.
 - Azure Backup Server에서 VMware 서버에 액세스하는 데 사용하는 VMware 계정을 설정합니다.
@@ -24,7 +24,7 @@ ms.locfileid: "74173364"
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-- 백업이 지원되는 vCenter/ESXi 버전(버전 6.5, 6.0 및 5.5)을 실행 중인지 확인합니다.
+- 백업에 대해 지원 되는 vCenter/ESXi의 버전을 실행 하 고 있는지 확인 합니다. [여기](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)에서 지원 매트릭스를 참조 하세요.
 - Azure Backup Server를 설정했는지 확인합니다. 설정하지 않은 경우 시작하기 전에 [설정](backup-azure-microsoft-azure-backup.md)합니다. 최신 업데이트를 사용하여 Azure Backup Server를 실행해야 합니다.
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>vCenter Server에 대한 보안 연결 만들기
@@ -96,9 +96,11 @@ ms.locfileid: "74173364"
 
 1. 다음 텍스트를 복사하여 .txt 파일에 붙여넣습니다.
 
-       ```text
-      Windows 레지스트리 편집기 버전 5.00 [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare] "IgnoreCertificateValidation" = dword: 00000001
-       ```
+```text
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+"IgnoreCertificateValidation"=dword:00000001
+```
 
 2. 파일 이름을 **DisableSecureAuthentication.reg**로 지정하여 Azure Backup Server 머신에 저장합니다.
 
@@ -128,26 +130,41 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
 ### <a name="role-permissions"></a>역할 권한
 
-**6.5/6.0** | **5.5**
---- | ---
-Datastore.AllocateSpace | Datastore.AllocateSpace
-Global.ManageCustomFields | Global.ManageCustomFields
-Global.SetCustomField |
-Host.Local.CreateVM | Network.Assign
-Network.Assign |
-Resource.AssignVMToPool |
-VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk
-VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
-VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
-VirtualMachine.Config.HostUSBDevice |
-VirtualMachine.Config.QueryUnownedFiles |
-VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
-VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
-VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create
-VirtualMachine.Provisioning.DiskRandomAccess |
-VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
-VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
-VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
+| **VCenter 6.5 이상 사용자 계정에 대 한 권한**        | **VCenter 6.0 사용자 계정에 대 한 권한**               | **VCenter 5.5 사용자 계정에 대 한 권한** |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
+| Datastore.AllocateSpace                                      |                                                           |                                             |
+| 데이터 저장소 찾아보기                                   | Datastore.AllocateSpace                                   | Network.Assign                              |
+| 데이터 저장소. 낮은 수준의 파일 작업                          | 전역. 사용자 지정 특성 관리                           | Datastore.AllocateSpace                     |
+| 데이터 저장소 클러스터. Datatstore 클러스터 구성             | 전역. 사용자 지정 특성 설정                               | VirtualMachine.Config.ChangeTracking        |
+| 전역. Disable 메서드                                       | 호스트 로컬 작업. 가상 컴퓨터 만들기              | VirtualMachine.State.RemoveSnapshot         |
+| Global. Enable 메서드                                        | 네트워크: 네트워크 할당                                   | VirtualMachine.State.CreateSnapshot         |
+| 전역 라이선스                                              | 리소스나. 리소스 풀에 가상 머신 할당         | VirtualMachine.Provisioning.DiskRandomRead  |
+| Global .Log 이벤트                                             | 가상 컴퓨터. 구성. 새 디스크 추가                | VirtualMachine.Interact.PowerOff            |
+| 전역. 사용자 지정 특성 관리                              | 가상 컴퓨터. 구성. 고급                    | VirtualMachine.Inventory.Create             |
+| 전역. 사용자 지정 특성 설정                                  | 가상 컴퓨터. 구성 디스크 변경 내용 추적        | VirtualMachine.Config.AddNewDisk            |
+| 네트워크. 네트워크 할당                                       | 가상 컴퓨터. 구성. 호스트 USB 장치             | VirtualMachine.Config.HostUSBDevice         |
+| 리소스나. 리소스 풀에 가상 머신 할당            | 가상 컴퓨터. 구성. 소유 하지 않은 파일 쿼리         | VirtualMachine.Config.AdvancedConfig        |
+| 가상 컴퓨터. 구성. 새 디스크 추가                   | 가상 컴퓨터. 구성 스왑 스왑 배치          | VirtualMachine.Config.SwapPlacement         |
+| 가상 컴퓨터. 구성. 고급                       | 가상 컴퓨터. 상호 작용. 전원 끄기                     | Global.ManageCustomFields                   |
+| 가상 컴퓨터. 구성 디스크 변경 내용 추적           | 가상 컴퓨터. 인벤토리에서. 새로 만들기                     |                                             |
+| 가상 컴퓨터. 구성 디스크 임대                     | 가상 컴퓨터. 프로 비전. 디스크 액세스 허용            |                                             |
+| 가상 컴퓨터. 구성. 가상 디스크 확장            | 가상 컴퓨터. 구축한. 읽기 전용 디스크 액세스 허용 |                                             |
+| 가상 컴퓨터. 게스트 작업. 게스트 작업 수정 | 가상 컴퓨터. 스냅숏 관리. 스냅숏 만들기       |                                             |
+| 가상 컴퓨터. 게스트 작업. 게스트 작업 프로그램 실행 | 가상 컴퓨터. 스냅숏 관리. 스냅숏 제거       |                                             |
+| 가상 컴퓨터. 게스트 작업. 게스트 작업 쿼리     |                                                           |                                             |
+| 가상 컴퓨터. 작용과. 장치 연결              |                                                           |                                             |
+| 가상 컴퓨터. 작용과. VIX API의 게스트 운영 체제 관리 |                                                           |                                             |
+| 가상 컴퓨터. 인벤토리. 등록                          |                                                           |                                             |
+| 가상 컴퓨터. 인벤토리. 제거                            |                                                           |                                             |
+| 가상 컴퓨터. 프로 비전. 디스크 액세스 허용              |                                                           |                                             |
+| 가상 컴퓨터. 프로 비전. 읽기 전용 디스크 액세스 허용    |                                                           |                                             |
+| 가상 컴퓨터. 프로 비전. 가상 컴퓨터 다운로드 허용 |                                                           |                                             |
+| 가상 컴퓨터. 스냅숏 관리. 스냅샷 만들기        |                                                           |                                             |
+| 가상 컴퓨터. 스냅숏 관리. 스냅숏 제거         |                                                           |                                             |
+| 가상 컴퓨터. 스냅숏 관리. 스냅숏으로 되돌리기      |                                                           |                                             |
+| vApp. 가상 머신 추가                                     |                                                           |                                             |
+| vApp. 리소스 풀 할당                                    |                                                           |                                             |
+| vApp. 등록 취소                                              |                                                           |                                             |
 
 ## <a name="create-a-vmware-account"></a>VMware 계정 만들기
 
@@ -217,7 +234,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
     ![프로덕션 서버 추가 마법사](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-3. **컴퓨터 선택** **서버 이름/IP 주소**에서 VMware 서버의 FQDN 또는 IP 주소를 지정합니다. 모든 ESXi 서버를 동일한 vCenter가 관리하는 경우 vCenter 이름을 지정합니다. 그렇지 않으면 ESXi 호스트를 추가합니다.
+3. **컴퓨터 선택** **서버 이름/i p 주소**에서 VMWARE 서버의 FQDN 또는 ip 주소를 지정 합니다. 모든 ESXi 서버를 동일한 vCenter가 관리하는 경우 vCenter 이름을 지정합니다. 그렇지 않으면 ESXi 호스트를 추가합니다.
 
     ![VMware 서버 지정](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
@@ -227,7 +244,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
     ![자격 증명 지정](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그리고 **다음**을 클릭합니다.
+6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![VMWare 서버 및 자격 증명 추가](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -255,14 +272,14 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 1. **보호 그룹 형식 선택** 페이지에서 **서버**를 선택하고 **다음**을 클릭합니다. **그룹 구성원 선택** 페이지가 나타납니다.
 
-1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그리고 **다음**을 클릭합니다.
+1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그런 후 **Next** 를 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
 1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이렇게 하면 VM에 대해 중복 복구 지점이 생성 되지 않습니다.
 
     ![그룹 구성원 선택](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그리고 **다음**을 클릭합니다.
+1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![데이터 보호 방법 선택](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -293,17 +310,17 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
     ![복제본 만들기 방법 선택](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그리고 **다음**을 클릭합니다.
+1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그런 후 **Next** 를 클릭합니다.
       - 복제 데이터가 일관성을 잃은 경우 또는 설정된 일정에 따라 일관성 확인을 실행할 수 있습니다.
       - 자동 일관성 확인을 구성하지 않으려면 수동 검사를 실행할 수 있습니다. 이 작업을 수행하려면 보호 그룹을 마우스 오른쪽 단추로 클릭하고 > **일관성 확인 수행**을 클릭합니다.
 
-1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그리고 **다음**을 클릭합니다.
+1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그런 후 **Next** 를 클릭합니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. **온라인 백업 예약 지정** 페이지에서 로컬 스토리지의 데이터를 Azure로 백업할 빈도를 지정합니다.
 
-    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그리고 **다음**을 클릭합니다.
+    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그런 후 **Next** 를 클릭합니다.
     - 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
@@ -324,31 +341,31 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 VSphere 6.7를 백업 하려면 다음을 수행 합니다.
 
 - DPM 서버에서 TLS 1.2 사용
-  >[!Note]
-  >VMWare 6.7는 TLS를 통신 프로토콜로 사용 하도록 설정 했습니다.
 
-- 다음과 같이 레지스트리 키를 설정 합니다.
+>[!NOTE]
+>VMWare 6.7는 TLS를 통신 프로토콜로 사용할 수 있었습니다.
 
-       ```text
+- 다음과 같이 레지스트리 키를 설정합니다.
 
-        Windows Registry Editor Version 5.00
+```text
+Windows Registry Editor Version 5.00
 
-        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
-       ```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
+```
 
 ## <a name="next-steps"></a>다음 단계
 

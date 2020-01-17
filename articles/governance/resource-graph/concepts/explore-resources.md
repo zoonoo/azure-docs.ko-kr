@@ -3,12 +3,12 @@ title: Azure 리소스 검색
 description: 리소스 그래프 쿼리 언어를 사용 하 여 리소스를 탐색 하 고 연결 방법을 검색 하는 방법을 알아봅니다.
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: e489a4eafdbbd838c4850d67fcd8ec40f76f290c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959231"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156984"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 
@@ -152,7 +152,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 ```kusto
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
-| project name, resourceGroup"
+| project name, resourceGroup
 ```
 
 ```azurecli-interactive
@@ -309,6 +309,6 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddr
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 언어](query-language.md)에 대해 자세히 알아보세요.
+- [쿼리 언어](query-language.md)에 대해 자세히 알아보기
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.

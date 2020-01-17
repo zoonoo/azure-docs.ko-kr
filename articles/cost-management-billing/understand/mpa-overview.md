@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2019
 ms.author: banders
-ms.openlocfilehash: 2a15ad41850fdf574262c396bf70e43b3b08399c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 13ac51fc4cefa4d66cf9d8310dce80704454bd93
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989684"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122154"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Microsoft 파트너 계약 청구 계정 시작
 
@@ -71,7 +71,7 @@ Microsoft 고객 계약을 수락하고 Azure Portal에 Azure 플랜이 있는 �
 
 ## <a name="resellers"></a>재판매인
 
-CSP [2계층 모델](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect)의 간접 공급자는 Azure Portal에서 고객에 대한 구독을 만드는 동안 재판매인을 선택할 수 있습니다. 만든 후에는 재판매인에 의해 필터링된 구독 목록을 보고, Azure 비용 분석에서 재판매인을 통해 고객에 대한 비용을 분석할 수 있습니다.
+CSP [2계층 모델](https://docs.microsoft.com/partner-center)의 간접 공급자는 Azure Portal에서 고객에 대한 구독을 만드는 동안 재판매인을 선택할 수 있습니다. 만든 후에는 재판매인에 의해 필터링된 구독 목록을 보고, Azure 비용 분석에서 재판매인을 통해 고객에 대한 비용을 분석할 수 있습니다.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Microsoft 파트너 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]

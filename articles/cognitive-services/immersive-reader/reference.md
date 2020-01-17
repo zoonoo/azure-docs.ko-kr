@@ -1,7 +1,7 @@
 ---
 title: 몰입 형 판독기 SDK 참조
 titleSuffix: Azure Cognitive Services
-description: 몰입 형 판독기 SDK는 몰입 형 판독기를 웹 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리입니다.
+description: 몰입 형 판독기 SDK에는 몰입 형 판독기를 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리가 포함 되어 있습니다.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945273"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156406"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>몰입 형 판독기 SDK 참조 가이드
 
-몰입 형 판독기 SDK는 몰입 형 판독기를 웹 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리입니다.
+몰입 형 판독기 SDK에는 몰입 형 판독기를 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리가 포함 되어 있습니다.
 
 ## <a name="functions"></a>Functions
 
@@ -36,7 +36,7 @@ SDK는 함수를 노출 합니다.
 웹 응용 프로그램의 `iframe` 내에서 몰입 형 판독기를 시작 합니다.
 
 ```typescript
-launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
 ### <a name="parameters"></a>매개 변수
@@ -50,7 +50,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="returns"></a>반환
 
-몰입 형 판독기가 로드 될 때 확인 되는 `Promise<HTMLDivElement>`를 반환 합니다. `Promise`은 `div` 요소로 확인 되며,이 요소는 단지 몰입 형 판독기 페이지를 포함 하는 `iframe` 요소입니다.
+몰입 형 판독기가 로드 될 때 확인 되는 `Promise<LaunchResponse>`를 반환 합니다. `Promise` [`LaunchResponse`](#launchresponse) 개체로 확인 됩니다.
 
 ### <a name="exceptions"></a>예외
 
@@ -109,6 +109,17 @@ renderButtons(options?: RenderButtonsOptions): void;
 }
 ```
 
+### <a name="launchresponse"></a>LaunchResponse
+
+`ImmersiveReader.launchAsync`에 대 한 호출의 응답을 포함 합니다.
+
+```typescript
+{
+    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
+    sessionId: string;            // Globally unique identifier for this session, used for debugging
+}
+```
+
 ### <a name="cookiepolicy-enum"></a>CookiePolicy 열거형
 
 몰입 형 판독기의 쿠키 사용에 대 한 정책을 설정 하는 데 사용 되는 열거형입니다. [옵션](#options)을 참조 하세요.
@@ -127,6 +138,7 @@ enum CookiePolicy { Disable, Enable }
 | application/vnd. vnd.openxmlformats-officedocument.spreadsheetml.sheet. wordprocessingml | Microsoft Word .docx 형식 문서입니다.
 
 ### <a name="html-support"></a>HTML 지원
+
 | HTML | 지원 되는 내용 |
 | --------- | ----------- |
 | 글꼴 스타일 | 굵게, 기울임꼴, 밑줄, 코드, 취소선, 위 첨자, 아래 첨자 |
@@ -186,7 +198,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## <a name="launching-the-immersive-reader"></a>몰입 형 판독기 시작
 
-SDK는 몰입 형 판독기를 시작 하기 위한 단추에 대 한 기본 스타일을 제공 합니다. `immersive-reader-button` class 특성을 사용 하 여이 스타일을 사용 하도록 설정 합니다.
+SDK는 몰입 형 판독기를 시작 하기 위한 단추에 대 한 기본 스타일을 제공 합니다. `immersive-reader-button` class 특성을 사용 하 여이 스타일을 사용 하도록 설정 합니다. 자세한 내용은 [이 문서](./how-to-customize-launch-button.md) 를 참조하세요.
 
 ```html
 <div class='immersive-reader-button'></div>

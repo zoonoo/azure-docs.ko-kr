@@ -3,12 +3,12 @@ title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: e3661225dd69721ab223da0b44d69a592abb59bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ba4f4d2e95c0b878e9f402fa84139ac5b351e3c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477786"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121916"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>관리 그룹 수준에서 리소스 만들기
 
@@ -63,7 +63,7 @@ REST API의 경우, [관리 그룹 범위에서 배포-만들기](/rest/api/reso
 
 * [resourceGroup()](template-functions-resource.md#resourcegroup) 함수는 지원되지 **않습니다**.
 * [Subscription ()](template-functions-resource.md#subscription) 함수는 지원 **되지 않습니다** .
-* [resourceId()](template-functions-resource.md#resourceid) 함수는 지원됩니다. 이를 사용 하 여 관리 그룹 수준 배포에 사용 되는 리소스의 리소스 ID를 가져옵니다. 예를 들어 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`를 사용 하 여 정책 정의에 대 한 리소스 ID를 가져옵니다. `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`형식으로 리소스 ID를 반환 합니다.
+* [resourceId()](template-functions-resource.md#resourceid) 함수는 지원됩니다. 이를 사용 하 여 관리 그룹 수준 배포에 사용 되는 리소스의 리소스 ID를 가져옵니다. 예를 들어 `resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))`를 사용 하 여 정책 정의에 대 한 리소스 ID를 가져옵니다. `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`형식으로 리소스 ID를 반환 합니다.
 * [reference()](template-functions-resource.md#reference) 및 [list()](template-functions-resource.md#list) 함수는 지원됩니다.
 
 ## <a name="create-policies"></a>정책 만들기
@@ -74,30 +74,30 @@ REST API의 경우, [관리 그룹 범위에서 배포-만들기](/rest/api/reso
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/policyDefinitions",
-            "name": "locationpolicy",
-            "apiVersion": "2018-05-01",
-            "properties": {
-                "policyType": "Custom",
-                "parameters": {},
-                "policyRule": {
-                    "if": {
-                        "field": "location",
-                        "equals": "northeurope"
-                    },
-                    "then": {
-                        "effect": "deny"
-                    }
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyDefinitions",
+      "apiVersion": "2018-05-01",
+      "name": "locationpolicy",
+      "properties": {
+        "policyType": "Custom",
+        "parameters": {},
+        "policyRule": {
+          "if": {
+            "field": "location",
+            "equals": "northeurope"
+          },
+          "then": {
+            "effect": "deny"
+          }
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
@@ -107,36 +107,34 @@ REST API의 경우, [관리 그룹 범위에서 배포-만들기](/rest/api/reso
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "policyDefinitionID": {
-            "type": "string"
-        },
-        "policyName": {
-            "type": "string"
-        },
-        "policyParameters": {
-            "type": "object",
-            "defaultValue": {}
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyDefinitionID": {
+      "type": "string"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/policyAssignments",
-            "name": "[parameters('policyName')]",
-            "apiVersion": "2018-03-01",
-            "properties": {
-                "policyDefinitionId": "[parameters('policyDefinitionID')]",
-                "parameters": "[parameters('policyParameters')]"
-            }
-        }
-    ]
+    "policyName": {
+      "type": "string"
+    },
+    "policyParameters": {
+      "type": "object",
+      "defaultValue": {}
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "apiVersion": "2018-03-01",
+      "name": "[parameters('policyName')]",
+      "properties": {
+        "policyDefinitionId": "[parameters('policyDefinitionID')]",
+        "parameters": "[parameters('policyParameters')]"
+      }
+    }
+  ]
 }
 ```
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

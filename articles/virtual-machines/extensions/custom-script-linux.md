@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: dcc9e63eba605e87a14ba4f09c61a00e9629bd23
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 22346501444694675d92d9a37497f9304c76e13d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941220"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156559"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -210,7 +210,7 @@ CustomScript는 다음 알고리즘을 사용하여 스크립트를 실행합니
 
 ####  <a name="property-managedidentity"></a>속성: Microsoft.managedidentity
 
-CustomScript (버전 2.1.2)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 데 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 기반 RBAC를 지원 합니다. 사용자가 SAS 토큰 또는 저장소 계정 키와 같은 암호를 전달 하지 않고도 CustomScript Azure Storage 개인 blob/컨테이너에 액세스할 수 있습니다.
+CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 지원 합니다. 사용자가 SAS 토큰 또는 저장소 계정 키와 같은 암호를 전달 하지 않고도 CustomScript가 Azure Storage 개인 blob 또는 컨테이너에 액세스할 수 있습니다.
 
 이 기능을 사용 하려면 사용자는 CustomScript가 실행 될 것으로 예상 되는 VM 또는 VMSS에 [시스템 할당](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) 또는 [사용자 할당](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) id를 추가 하 고 [Azure Storage 컨테이너 또는 blob에 대 한 관리 id 액세스 권한을 부여](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)해야 합니다.
 

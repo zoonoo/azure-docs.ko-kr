@@ -3,19 +3,19 @@ title: '빠른 시작: 사용자 지정 명령 만들기 (미리 보기)-음성 
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 호스트 된 사용자 지정 명령 응용 프로그램을 만들고 테스트 합니다.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446868"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155590"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>빠른 시작: 사용자 지정 명령 만들기 (미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "75446868"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 음성 구독. 
+- 음성 구독.
 
 음성 구독이 없는 경우 speech [Studio](https://speech.microsoft.com/) 로 이동 하 여 음성 **리소스 만들기**를 선택 하 여 만들 수 있습니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "75446868"
 
 ## <a name="update-luis-resources-optional"></a>LUIS 리소스 업데이트 (옵션)
 
-새 프로젝트 창에서 제작 리소스 집합을 업데이트 하 고 런타임 중에 입력을 인식 하는 데 사용 되는 예측 리소스를 설정할 수 있습니다. 
+새 프로젝트 창에서 제작 리소스 집합을 업데이트 하 고 런타임 중에 입력을 인식 하는 데 사용 되는 예측 리소스를 설정할 수 있습니다.
 
 > [!NOTE]
 > 응용 프로그램이 제작 리소스에서 제공 하는 1000 요청을 초과 하 여 예측을 요청 하기 전에 예측 리소스를 설정 해야 합니다.

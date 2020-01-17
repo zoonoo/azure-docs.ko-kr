@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750945"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120148"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주
 
@@ -86,6 +86,9 @@ ms.locfileid: "75750945"
 | Virtual Network 게이트웨이 | 스키마를 사용할 수 없음 |
 
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
+
+일부 범주는 특정 유형의 리소스에 대해서만 지원 될 수 있습니다. 일부 형식으로 제공 되는 모든 목록입니다.  예를 들어, 모든 유형의 데이터베이스에는 Microsoft .Sql/servers/databases 범주를 사용할 수 없습니다. 자세한 내용은 [SQL Database 진단 로깅에 대 한 정보](../../sql-database/sql-database-metrics-diag-logging.md)를 참조 하세요. 
+
 |리소스 형식|범주|범주 표시 이름|
 |---|---|---|
 |Microsoft AAD/domainServices|SystemSecurity|SystemSecurity|

@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jgao
-ms.openlocfilehash: 6308f7832a898d97c455dc90265adea345aeb0cc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5475f49acfdcd74a792a9a0f2f16cf1ea3272232
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981202"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121899"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -69,13 +69,13 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
   "apiVersion": "2019-10-01-preview",
   "name": "myDeploymentScript",
   "location": "[resourceGroup().location]",
+  "kind": "AzurePowerShell",
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
       "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID": {}
     }
   },
-  "kind": "AzurePowerShell",
   "properties": {
     "forceUpdateTag": 1,
     "azPowerShellVersion": "2.8",

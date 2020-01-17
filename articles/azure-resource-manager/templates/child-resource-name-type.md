@@ -3,12 +3,12 @@ title: 템플릿의 자식 리소스
 description: Azure Resource Manager 템플릿에서 자식 리소스의 이름 및 형식을 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 058c28329942a1bd2e5d0e12321022fb022ef74f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7d8a7a39bab3340b6f5c9e66d54b7398fa70ee3e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479606"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122018"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>자식 리소스의 이름 및 형식 설정
 
@@ -56,8 +56,8 @@ ms.locfileid: "75479606"
 ```json
 "resources": [
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2018-10-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -69,10 +69,10 @@ ms.locfileid: "75479606"
     },
     "resources": [
       {
-        "apiVersion": "2018-10-01",
         "type": "subnets",
-        "location": "[parameters('location')]",
+        "apiVersion": "2018-10-01",
         "name": "Subnet1",
+        "location": "[parameters('location')]",
         "dependsOn": [
           "VNet1"
         ],
@@ -103,8 +103,8 @@ ms.locfileid: "75479606"
 ```json
 "resources": [
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2018-10-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -116,8 +116,8 @@ ms.locfileid: "75479606"
     }
   },
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks/subnets",
+    "apiVersion": "2018-10-01",
     "location": "[parameters('location')]",
     "name": "VNet1/Subnet1",
     "dependsOn": [
@@ -132,6 +132,6 @@ ms.locfileid: "75479606"
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요. 
+* Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요.
 
 * 리소스를 참조할 때 리소스 이름 형식에 대 한 자세한 내용은 [참조 함수](template-functions-resource.md#reference)를 참조 하세요.

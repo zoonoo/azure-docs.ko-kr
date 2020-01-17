@@ -4,20 +4,20 @@ description: Avere vFXT for Azure에서 사용할 새 스토리지 볼륨에 데
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 183ed719eb5396fe0e442e6b774d962d1ba48386
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480595"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153721"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>vFXT 클러스터로 데이터 이동 - 병렬 데이터 수집
 
-새 vFXT 클러스터를 만든 후 첫 번째 작업은 데이터를 새 스토리지 볼륨으로 이동하는 것입니다. 그러나 데이터를 이동하는 일반적인 방법으로 한 클라이언트에서 단순 복사 명령을 실행하는 경우 복사 성능이 저하될 수 있습니다. 단일 스레드 복사는 Avere vFXT 클러스터의 백 엔드 스토리지에 데이터를 복사하는 데 적합하지 않습니다.
+새 vFXT 클러스터를 만든 후 첫 번째 작업은 Azure에서 새 저장소 볼륨으로 데이터를 이동 하는 것일 수 있습니다. 그러나 데이터를 이동하는 일반적인 방법으로 한 클라이언트에서 단순 복사 명령을 실행하는 경우 복사 성능이 저하될 수 있습니다. 단일 스레드 복사는 Avere vFXT 클러스터의 백 엔드 저장소로 데이터를 복사 하는 데 적합 한 옵션이 아닙니다.
 
-Avere vFXT 클러스터는 확장 가능한 다중 클라이언트 캐시이므로 데이터를 가장 빠르고 효율적으로 복사하는 방법은 여러 클라이언트를 사용하는 것입니다. 이 기술은 파일과 개체의 수집을 병렬로 처리합니다.
+Azure 클러스터의 Avere vFXT는 확장 가능한 다중 클라이언트 캐시 이므로 데이터를 복사 하는 가장 빠르고 효율적인 방법은 여러 클라이언트를 사용 하는 것입니다. 이 기술은 파일과 개체의 수집을 병렬로 처리합니다.
 
 ![다중 클라이언트, 다중 스레드 데이터 이동을 보여 주는 다이어그램 - 왼쪽 위의 온-프레미스 하드웨어 스토리지 아이콘에 여러 개의 화살표가 있습니다. 화살표는 네 개의 클라이언트 머신을 가리킵니다. 각 클라이언트 머신에서 나온 세 개의 화살표는 Avere vFXT를 가리킵니다. Avere vFXT에서 나온 여러 개의 화살표는 Blob Storage를 가리킵니다.](media/avere-vfxt-parallel-ingest.png)
 
@@ -44,12 +44,12 @@ GitHub에서 Resource Manager 템플릿을 사용하여 이 문서에서 언급�
 
 ## <a name="strategic-planning"></a>전략적 계획
 
-데이터를 병렬로 복사하는 전략을 수립할 때는 파일 크기, 파일 수 및 디렉터리 깊이의 장단점을 이해해야 합니다.
+데이터를 병렬로 복사 하는 전략을 설계할 때 파일 크기, 파일 수 및 디렉터리 깊이의 장단점을 이해 해야 합니다.
 
 * 파일이 작은 경우 관심 있는 메트릭은 초당 파일 수입니다.
 * 파일이 큰 경우(10MiBi 이상) 관심 있는 메트릭은 초당 바이트 수입니다.
 
-각 복사 프로세스에는 복사 명령의 길이를 타이밍으로 측정하고 파일 크기와 파일 수를 팩터링하여 측정할 수 있는 처리량 속도와 파일 전송 속도가 있습니다. 속도를 측정하는 방법은 이 문서의 범위를 벗어나므로 설명할 수 없지만 작거나 큰 파일을 처리할지 여부를 이해하는 것이 중요합니다.
+각 복사 프로세스에는 복사 명령의 길이를 타이밍으로 측정하고 파일 크기와 파일 수를 팩터링하여 측정할 수 있는 처리량 속도와 파일 전송 속도가 있습니다. 이 문서의 범위를 벗어나는 비율을 측정 하는 방법을 설명 하지만, 작은 파일 또는 큰 파일을 처리할 것인지를 이해 하는 것이 중요 합니다.
 
 ## <a name="manual-copy-example"></a>수동 복사 예제
 
@@ -246,7 +246,7 @@ for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-*명령에서 출력의 일부로 얻은 수준 4 디렉터리에 대한 경로 이름을 가진*N*개의 클라이언트 각각에 대해 하나씩* N`find`개의 결과 파일을 받게 됩니다.
+`find` 명령에서 출력의 일부로 얻은 수준 4 디렉터리에 대한 경로 이름을 가진 *N*개의 클라이언트 각각에 대해 하나씩 *N*개의 결과 파일을 받게 됩니다.
 
 각 파일을 사용하여 복사 명령을 작성합니다.
 
@@ -278,7 +278,7 @@ rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 
 ## <a name="use-the-msrsync-utility"></a>Msrsync 유틸리티 사용
 
-``msrsync`` 도구도 데이터를 Avere 클러스터용 백 엔드 코어 파일러로 이동하는 데 사용할 수 있습니다. 이 도구는 여러 개의 ``rsync`` 병렬 프로세스를 실행하여 대역폭 사용량을 최적화하도록 설계되었습니다. GitHub의 <https://github.com/jbd/msrsync>에서 사용할 수 있습니다.
+``msrsync`` 도구를 사용 하 여 Avere 클러스터에 대 한 백 엔드 core 필터 데이터를 이동할 수도 있습니다. 이 도구는 여러 개의 ``rsync`` 병렬 프로세스를 실행하여 대역폭 사용량을 최적화하도록 설계되었습니다. GitHub의 <https://github.com/jbd/msrsync>에서 사용할 수 있습니다.
 
 ``msrsync``는 원본 디렉터리를 별도의 "버킷"으로 분할한 다음, 각 버킷에서 ``rsync`` 프로세스를 개별적으로 실행합니다.
 
@@ -323,7 +323,7 @@ rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 
 ## <a name="use-the-parallel-copy-script"></a>병렬 복사 스크립트 사용
 
-``parallelcp`` 스크립트도 데이터를 vFXT 클러스터의 백 엔드 스토리지로 이동하는 데 유용할 수 있습니다.
+VFXT 클러스터의 백 엔드 저장소로 데이터를 이동 하는 데에도 ``parallelcp`` 스크립트를 사용할 수 있습니다.
 
 아래 스크립트는 `parallelcp` 실행 파일을 추가합니다. (이 스크립트는 Ubuntu에서 사용하도록 설계되었으므로, 다른 배포판을 사용하는 경우 ``parallel``을 별도로 설치해야 합니다.)
 

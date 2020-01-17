@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3680de5d8e0e761047e1263c2679da87b1fa2d0b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 70254e42b5964c7c7a3bf15c396f4c118f68a5ed
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769458"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121236"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Queue Storage 바인딩
 
@@ -249,7 +249,7 @@ def main(msg: func.QueueMessage):
   }
   ```
 
-  다음 예와 같이 사용할 스토리지 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
+  다음 예제와 같이 `Connection` 속성을 설정 하 여 사용할 저장소 계정 연결 문자열을 포함 하는 앱 설정을 지정할 수 있습니다.
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -312,7 +312,7 @@ C# 및 C# 스크립트에서는 `string paramName`과 같은 메서드 매개 �
 
 `CloudQueueMessage`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로드에 액세스합니다. 페이로드가 JSON인 경우 개체로 역직렬화됩니다.
+JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로드에 액세스합니다. 페이로드가 JSON인 경우 개체로 역직렬화됩니다. 이 페이로드는 함수에도 두 번째 매개 변수로 전달됩니다.
 
 ## <a name="trigger---message-metadata"></a>트리거 - 메시지 메타데이터
 
@@ -320,7 +320,7 @@ JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로�
 
 |속성|유형|Description|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드를 문자열로 사용하는 경우 `QueueTrigger`는 *function.json*에서 `name` 속성에 의해 명명된 변수와 동일한 값을 가집니다.|
+|`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면 `QueueTrigger`는 *함수 json*의 `name` 속성으로 명명 된 변수와 동일한 값을 갖습니다.|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
 |`ExpirationTime`|`DateTimeOffset`|메시지가 만료되는 시간입니다.|
 |`Id`|`string`|큐 메시지 ID입니다.|
@@ -411,7 +411,7 @@ public static class QueueFunctions
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -472,7 +472,7 @@ public static void Run(
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -506,7 +506,7 @@ module.exports = function(context) {
 
 ### <a name="output---java-example"></a>출력 - Java 예제
 
- 다음 예제에서는 HTTP 요청에 의해 트리거되는 경우 큐 메시지를 만드는 Java 함수를 보여줍니다.
+ 다음 예제에서는 HTTP 요청에 의해 트리거되는 경우 큐 메시지를 만드는 Java 함수를 보여 줍니다.
 
 ```java
 @FunctionName("httpToQueue")
@@ -514,7 +514,7 @@ module.exports = function(context) {
  public String pushToQueue(
      @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
      final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
        result.setValue(message + " has been added.");
        return message;
  }

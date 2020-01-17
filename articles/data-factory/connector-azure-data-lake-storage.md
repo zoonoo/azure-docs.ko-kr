@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: c32fbef3db0c0df2af1e07c062eb178e5516d736
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/16/2020
+ms.openlocfilehash: 7845e381c5a8851683edf6b955d40070bd4e0c30
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893202"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122273"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen2 데이터 복사 및 변환
 
@@ -162,7 +162,7 @@ Azure Data Lake Storage Gen2 커넥터는 다음 인증 유형을 지원 합니�
 
 Azure 리소스 인증에 관리 되는 id를 사용 하려면 다음 단계를 수행 합니다.
 
-1. 팩터리와 함께 생성 된 **서비스 id 응용 프로그램 id** 의 값을 복사 하 여 [관리 되는 Data Factory Id 정보를 검색 합니다](data-factory-service-identity.md#retrieve-managed-identity) .
+1. 팩터리와 함께 생성 된 **관리 id 개체 ID** 의 값을 복사 하 여 [Data Factory 관리 Id 정보를 검색 합니다](data-factory-service-identity.md#retrieve-managed-identity) .
 
 2. 관리 id에 적절 한 권한을 부여 합니다. [파일 및 디렉터리에 대 한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)에서 Data Lake Storage Gen2의 사용 권한 작동 방법에 대 한 예제를 참조 하십시오.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: ff84b085b7d40bcb6c5a0aa87416e5814f67814b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 058099ceca886f375e6add07033174bf80d5b647
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979581"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156542"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -147,7 +147,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 
 ####  <a name="property-managedidentity"></a>속성: Microsoft.managedidentity
 
-CustomScript (버전 1.10.4)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 데 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 기반 RBAC를 지원 합니다. 사용자가 SAS 토큰 또는 저장소 계정 키와 같은 암호를 전달 하지 않고도 CustomScript Azure Storage 개인 blob/컨테이너에 액세스할 수 있습니다.
+CustomScript (버전 1.10 이상)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 지원 합니다. 사용자가 SAS 토큰 또는 저장소 계정 키와 같은 암호를 전달 하지 않고도 CustomScript가 Azure Storage 개인 blob 또는 컨테이너에 액세스할 수 있습니다.
 
 이 기능을 사용 하려면 사용자는 CustomScript가 실행 될 것으로 예상 되는 VM 또는 VMSS에 [시스템 할당](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) 또는 [사용자 할당](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) id를 추가 하 고 [Azure Storage 컨테이너 또는 blob에 대 한 관리 id 액세스 권한을 부여](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)해야 합니다.
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 description: Azure Active Directory 테넌트, 사용자 및 역할의 개념과 Azure Lighthouse 시나리오에서 이러한 항목을 사용하는 방법을 알아봅니다.
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453564"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156338"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 
@@ -29,6 +29,9 @@ ms.locfileid: "75453564"
 - [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할은 지원되지 않습니다.
 - [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할은 지원되지 않습니다.
 - [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 기본 제공 역할은 지원되지만, [고객 테넌트에서 관리 ID에 역할을 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)하는 제한된 목적으로만 사용할 수 있습니다. 이 역할에서 일반적으로 부여하는 다른 사용 권한은 적용되지 않습니다. 이 역할이 있는 사용자를 정의하는 경우 이 사용자가 관리 ID에 할당할 수 있는 기본 제공 역할도 지정해야 합니다.
+
+> [!NOTE]
+> 적용 가능한 새 기본 제공 역할이 Azure에 추가 되 면 [Azure Resource Manager 템플릿을 사용 하 여 고객을 온 보 딩](../how-to/onboard-customer.md)할 때 할당 될 수 있습니다. [관리 서비스 제공을 게시할](../how-to/publish-managed-services-offers.md)때 Cloud 파트너 포털에서 새로 추가 된 역할을 사용할 수 있게 될 때까지 지연이 있을 수 있습니다.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>사용자 및 역할을 정의하기 위한 모범 사례
 

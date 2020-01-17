@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e3289ae5dbc2b0db410b3316834ae38a1f6b8523
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 782a23ba95519438dd369d3f69f52f7526461821
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974145"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156763"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 
@@ -48,9 +48,8 @@ Just-In-Time을 사용하도록 설정하면 Security Center는 NSG 규칙을 �
 
 | 사용자가 다음을 수행할 수 있도록 설정: | 설정할 권한|
 | --- | --- |
-| VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당 합니다.*  <ul><li>VM에 연결된 구독 또는 리소스 그룹의 범위에서<br/> ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` </li><li> 구독, 리소스 그룹 또는 VM의 범위에서 <br/>```Microsoft.Compute/virtualMachines/write```</li></ul> | 
-| ||
-|VM에 대한 JIT 액세스 요청 | *사용자에 게 다음 작업을 할당 합니다.*  <ul><li>VM에 연결된 구독 또는 리소스 그룹의 범위에서<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action``` </li><li>  구독, 리소스 그룹 또는 VM의 범위에서<br/> ```Microsoft.Compute/virtualMachines/read``` </li></ul>|
+| VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당 합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> 구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다. <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+|VM에 대한 JIT 액세스 요청 | *사용자에 게 다음 작업을 할당 합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 
 
 ## <a name="configure-jit-on-a-vm"></a>VM에서 JIT 구성

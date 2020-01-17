@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: a320a446bf6a2ff5d5d923961b2614970ffa70f9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b337c1d57d253f55f3171e1de78a81b6de13ba31
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75988410"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157167"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너에 대 한 Azure Cost Management 시작
 
@@ -213,7 +213,7 @@ RBAC 범위에서 예약 된 인스턴스에 대 한 분할 상환 보기 및 �
 | 위치 | 리소스의 정규화 된 위치입니다. | N/A |
 | effectivePrice | 가격 책정 통화 단위의 서비스의 유효 단가입니다. 제품, 서비스 제품군, 측정기 및 제안에 대해 고유 합니다. 청구 계정에 대 한 가격표의 가격 책정과 함께 사용 됩니다. 계층화 된 가격 책정 또는 포함 된 수량이 있으면 소비에 대 한 혼합 가격이 표시 됩니다. | 조정한 후 단가입니다. |
 | 수량 | 구매 하거나 사용한 측정 된 수량입니다. 청구 기간 동안 사용 된 측정기의 양입니다. | 단위 수입니다. 조정 하는 동안 청구 시스템의 정보와 일치 하는지 확인 합니다. |
-| unitOfMeasure | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB와 시간입니다. | 서비스 요금이 청구되는 단위를 식별합니다. 예: GB, 시간 및 10, 000s. |
+| unitOfMeasure | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB와 시간입니다. | 서비스 요금이 청구되는 단위를 식별합니다. 예: GB, 시간 및 1만 s. |
 | pricingCurrency | 단가를 정의 하는 통화입니다. | 가격 목록의 통화입니다.|
 | billingCurrency | 청구 된 비용을 정의 하는 통화입니다. | 고객 지역의 통화입니다. |
 | chargeType | 구매 및 환불과 같은 Azure Cost Management 비용을 나타내는 청구 유형을 정의 합니다. | 요금 또는 조정 유형입니다. 현재 활동에 사용할 수 없습니다. |
@@ -257,7 +257,7 @@ Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management 
 
 ## <a name="export-cost-data-to-azure-storage"></a>비용 데이터를 Azure Storage으로 내보내기
 
-파트너 테 넌 트의 청구 범위에 대 한 액세스 권한이 있는 파트너는 비용 및 사용 현황 데이터를 Azure Storage blob으로 내보낼 수 있습니다. Blob은 공유 서비스 구독 또는 고객의 구독이 아닌 파트너 테 넌 트의 구독에 있어야 합니다. 비용 데이터 내보내기를 사용 하려면 내보낸 비용 데이터를 호스팅하기 위해 파트너 테 넌 트에 독립적인 종 량 제 구독을 설정 하는 것이 좋습니다. 저장소 저장소 계정은 종 량 제 구독에서 호스트 되는 Azure Storage blob에 생성 됩니다. 파트너가 내보내기를 만드는 범위에 따라 연결 된 데이터를 되풀이 하 여 자동으로 저장소 계정으로 내보냅니다.
+파트너 테 넌 트의 청구 범위에 대 한 액세스 권한이 있는 파트너는 비용 및 사용 현황 데이터를 Azure Storage blob으로 내보낼 수 있습니다. Blob은 공유 서비스 구독 또는 고객의 구독이 아닌 파트너 테 넌 트의 구독에 있어야 합니다. 비용 데이터 내보내기를 사용 하려면 내보낸 비용 데이터를 호스팅하기 위해 파트너 테 넌 트에 독립적인 종 량 제 구독을 설정 하는 것이 좋습니다. 저장소 저장소 계정은 종 량 제 구독에서 호스트 되는 Azure Storage blob에 생성 됩니다. 파트너가 내보내기를 만드는 범위에 따라 연결 된 데이터를 자동으로 저장소 계정으로 내보냅니다.
 
 구독에 대 한 RBAC 액세스 권한이 있는 사용자는 고객 테 넌 트의 모든 구독에서 호스트 되는 Azure storage blob으로 비용 데이터를 내보낼 수도 있습니다.
 
@@ -265,7 +265,11 @@ Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management 
 
 Azure Portal에서 파트너 테 넌 트 또는 고객 테 넌 트에 로그인 하 고 **Cost Management + 청구**를 선택 합니다. 적절 한 범위 (예: 청구 계정)를 선택 하 고 **비용 분석**을 선택 합니다. 페이지가 로드 되 면 **내보내기**를 선택 합니다. 일정 내보내기에서 **모든 내보내기 보기** 를 선택 합니다.
 
+![내보내기 및 모든 내보내기 보기를 선택 합니다.](./media/get-started-partners/export01.png)
+
 그런 다음 **추가** 를 선택 하 고 이름을 입력 한 다음 내보내기 유형을 선택 합니다. **저장소** 탭을 선택 하 고 필요한 정보를 입력 합니다.
+
+![새 내보내기 추가 및 저장소 선택 탭](./media/get-started-partners/export02.png)
 
 파트너 테 넌 트에서 내보내기를 만들 때 파트너 테 넌 트에서 종 량 제 구독을 선택 합니다. 해당 구독을 사용 하 여 Azure Storage 계정을 만듭니다.
 
@@ -274,6 +278,8 @@ Azure Portal에서 파트너 테 넌 트 또는 고객 테 넌 트에 로그인 
 콘텐츠를 검토 한 다음 **만들기** 를 선택 하 여 내보내기를 예약 합니다.
 
 내보내기 목록에서 데이터를 확인 하려면 저장소 계정 이름을 선택 합니다. 저장소 계정 페이지 **에서 컨테이너를 선택 하** 고 컨테이너를 선택 합니다. 해당 폴더로 이동 하 고 CSV 파일을 선택 합니다. **다운로드** 를 선택 하 여 CSV 파일을 가져오고 엽니다. 내보낸 데이터는 Azure Portal의 사용량 정보와 비슷한 비용 데이터와 비슷합니다.
+
+![내보낸 데이터의 예](./media/get-started-partners/example-export-data.png)
 
 ## <a name="cost-management-rest-apis"></a>REST Api Cost Management
 

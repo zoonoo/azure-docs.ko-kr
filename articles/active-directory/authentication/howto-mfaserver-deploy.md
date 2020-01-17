@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 53428039055005693f30f63a709105b77fe65f8f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608757"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155233"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -96,8 +96,8 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. *Azure Active Directory*를 검색하고 선택합니다. **MFA 서버**를 선택 합니다.
-3. **서버 설정**을 선택합니다.
+2. *Azure Active Directory*를 검색하고 선택합니다. **보안** > **MFA**를 선택 합니다.
+3. **관리자 MFA 서버**에서 **서버 설정**을 선택 합니다.
 4. **다운로드**를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
 
    ![Azure Portal에서 MFA 서버 다운로드](./media/howto-mfaserver-deploy/downloadportal.png)

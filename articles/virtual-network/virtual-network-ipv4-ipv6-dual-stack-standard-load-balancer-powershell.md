@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: eb6119584787973f097f496fd24064a65383fecd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 96ede56e7b21d2447d238306e00f2c4fbca56f04
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368150"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122256"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
 
@@ -42,7 +42,7 @@ Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespa
 기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 Azure PowerShell 명령을 실행 하 여 등록 상태를 확인할 수 있습니다. 다음과 같이 등록을 확인 합니다.
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace 
+Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 등록이 완료되면 다음 명령을 실행합니다.
 

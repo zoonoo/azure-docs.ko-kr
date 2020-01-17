@@ -3,12 +3,12 @@ title: Visual Studio 리소스 그룹 프로젝트 만들기 및 배포
 description: Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: ee76c2ae94373b63be6a1efd9ae13d4629dd98c8
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680633"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152734"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
@@ -350,9 +350,9 @@ Visual Studio 인터페이스를 통해 사용할 수 있는 리소스로만 제
           }
         }
       },
+      "type": "Microsoft.Portal/dashboards",
       "apiVersion": "2015-08-01-preview",
       "name": "[concat('ARM-',resourceGroup().name)]",
-      "type": "Microsoft.Portal/dashboards",
       "location": "[resourceGroup().location]",
       "tags": {
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"

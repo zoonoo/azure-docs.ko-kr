@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mimckitt
-ms.openlocfilehash: d98efd46e3c2fbc11be2cde6a0c4f2b37acc8d7c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ffa99c6ba0157eca133dc36ecbbb159b076b8bc0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934008"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155556"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 
@@ -43,7 +43,7 @@ Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소�
 
 ## <a name="general-linux-installation-notes"></a>일반 Linux 설치 참고 사항
 * Azure에서는 *고정 VHD*만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  Hyper-V 관리자 또는 [Convert-VHD cmdlet](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd)을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기**를 선택합니다.
-* Azure에서는 1세대 가상 머신만 지원합니다. 1세대 가상 머신을 VHDX에서 VHD 파일 형식으로, 그리고 동적 확장에서 고정 크기의 디스크로 변환할 수 있습니다. 가상 머신의 세대는 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 머신을 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
+* Azure는 Gen1 (BIOS boot) & Gen2 (UEFI 부팅) 가상 머신을 지원 합니다.
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
 * Linux 시스템을 설치하는 경우 대부분의 설치에 대한 기본값인 LVM(논리 볼륨 관리자) 대신 표준 파티션을 사용하는 것이 좋습니다. 표준 파티션을 사용하면 특히 문제를 해결하기 위해 OS 디스크가 동일한 다른 VM에 연결되는 경우에도 LVM 이름이 복제된 VM과 충돌하지 않습니다. 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
 * UDF 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. Azure에서 처음 부팅할 때 게스트에 연결된 UDF 형식의 미디어를 사용하여 Linux VM에 프로비전 구성이 전달됩니다. Azure Linux 에이전트는 해당 구성을 읽고 VM을 프로비전하기 위해 UDF 파일 시스템을 탑재해야 합니다.

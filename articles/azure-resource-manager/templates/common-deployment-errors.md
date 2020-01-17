@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.openlocfilehash: 37c2e8d64da633dc85c46a4f6bf6152785a170da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58519056bd59f449fe26aa2fee3620f3ed28cc31
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478059"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154519"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -201,19 +201,19 @@ az group deployment operation list \
 
 ```json
 {
-    "apiVersion": "2016-09-01",
-    "name": "nestedTemplate",
-    "type": "Microsoft.Resources/deployments",
-    "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-            "uri": "{template-uri}",
-            "contentVersion": "1.0.0.0"
-        },
-        "debugSetting": {
-           "detailLevel": "requestContent, responseContent"
-        }
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2016-09-01",
+  "name": "nestedTemplate",
+  "properties": {
+    "mode": "Incremental",
+    "templateLink": {
+      "uri": "{template-uri}",
+      "contentVersion": "1.0.0.0"
+    },
+    "debugSetting": {
+       "detailLevel": "requestContent, responseContent"
     }
+  }
 }
 ```
 
@@ -226,26 +226,25 @@ az group deployment operation list \
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageName": {
-        "type": "string"
-    },
-    "storageResourceGroup": {
-        "type": "string"
-    }
+  "storageName": {
+    "type": "string"
+  },
+  "storageResourceGroup": {
+    "type": "string"
+  }
   },
   "variables": {},
   "resources": [],
   "outputs": {
-    "exampleOutput": {
-        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-        "type" : "object"
-    }
+  "exampleOutput": {
+    "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+    "type" : "object"
+  }
   }
 }
 ```
 
 또는 종속성이 잘못 설정 된 것으로 생각 되는 배포 오류가 발생 하는 경우를 가정 합니다. 간소화된 템플릿을 분리하여 템플릿을 테스트합니다. 먼저 단일 리소스(예: SQL Server)를 배포하는 템플릿을 만듭니다. 리소스가 올바르게 정의 되어 있는지 확실 하 게 정의 된 경우 해당 리소스에 종속 된 리소스를 추가 합니다 (예: SQL Database). 이러한 두 리소스가 올바르게 정의되어 있으면 다른 종속 리소스(예: 감사 정책)를 추가합니다. 각 테스트 배포 사이에 리소스 그룹을 삭제하여 종속성을 적절히 테스트합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

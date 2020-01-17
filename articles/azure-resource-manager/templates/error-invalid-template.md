@@ -3,12 +3,12 @@ title: 잘못 된 템플릿 오류
 description: Azure Resource Manager 템플릿을 배포할 때 잘못 된 템플릿 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
-ms.openlocfilehash: 9337812152dac7948afc7471760f3dc14443f549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484572"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154060"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -86,18 +86,18 @@ for type {resource-type} has incorrect segment lengths.
 
 ```json
 "resources": [
-    {
-        "type": "Microsoft.KeyVault/vaults",
-        "name": "contosokeyvault",
+  {
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "contosokeyvault",
+    ...
+    "resources": [
+      {
+        "type": "secrets",
+        "name": "appPassword",
         ...
-        "resources": [
-            {
-                "type": "secrets",
-                "name": "appPassword",
-                ...
-            }
-        ]
-    }
+      }
+    ]
+  }
 ]
 ```
 
@@ -105,9 +105,9 @@ for type {resource-type} has incorrect segment lengths.
 
 ```json
 {
-    "type": "Microsoft.Web/sites/providers/locks",
-    "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-    ...
+  "type": "Microsoft.Web/sites/providers/locks",
+  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+  ...
 }
 ```
 
@@ -140,13 +140,13 @@ part of the allowed values
 
 순환 종속성을 해결하려면:
 
-1. 템플릿에서 순환 종속성 내에 식별된 리소스를 찾습니다. 
-2. 해당 리소스에 대해 **dependsOn** 속성 및 **reference** 함수가 사용되었는지 검토하여 어떤 리소스에 종속되는지 확인합니다. 
+1. 템플릿에서 순환 종속성 내에 식별된 리소스를 찾습니다.
+2. 해당 리소스에 대해 **dependsOn** 속성 및 **reference** 함수가 사용되었는지 검토하여 어떤 리소스에 종속되는지 확인합니다.
 3. 해당 리소스를 검토하여 어떤 리소스에 종속되는지 확인합니다. 원래 리소스에 종속되는 리소스를 확인할 때까지 종속성을 추적합니다.
-5. 순환 종속성에 관련된 리소스의 경우 **dependsOn** 속성이 사용된 부분을 신중하게 모두 검토하여 필요하지 않은 종속성이 있는지 식별합니다. 그러한 종속성을 제거합니다. 종속성이 필요한지 확신이 안되면 해당 종속성을 제거해 봅니다. 
+5. 순환 종속성에 관련된 리소스의 경우 **dependsOn** 속성이 사용된 부분을 신중하게 모두 검토하여 필요하지 않은 종속성이 있는지 식별합니다. 그러한 종속성을 제거합니다. 종속성이 필요한지 확신이 안되면 해당 종속성을 제거해 봅니다.
 6. 템플릿을 다시 배포합니다.
 
-**dependsOn** 속성에서 값을 제거하면 템플릿을 배포할 때 오류가 발생할 수 있습니다. 오류가 발생하면 해당 종속성을 템플릿에 다시 추가합니다. 
+**dependsOn** 속성에서 값을 제거하면 템플릿을 배포할 때 오류가 발생할 수 있습니다. 오류가 발생하면 해당 종속성을 템플릿에 다시 추가합니다.
 
 이러한 방법으로 순환 종속성 문제가 해결되지 않으면 일부 배포 논리를 자식 리소스(예: 확장 또는 구성 설정)로 이동하는 것이 좋습니다. 순환 종속성에 관련된 리소스를 배포한 후에 자식 리소스를 배포하도록 구성합니다. 예를 들어 두 개의 가상 머신을 배포하지만 각 컴퓨터에 서로를 참조하는 속성을 설정해야 한다고 가정합니다. 이런 경우 다음과 같은 순서로 배포할 수 있습니다.
 

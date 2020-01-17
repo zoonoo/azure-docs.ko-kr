@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ede1e56384c75c64765962b7db196973a30c605b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928440"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121780"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -155,17 +155,19 @@ Azure Portal에서 또는 프로그래밍 방식으로 관리 되는 id를 검�
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Azure Portal를 사용 하 여 관리 되는 id 검색
 
-데이터 팩터리 > 속성을 > Azure Portal에서 관리 되는 id 정보를 찾을 수 있습니다.
+데이터 팩터리 > 속성 > Azure Portal에서 관리 되는 id 정보를 찾을 수 있습니다.
 
 - 관리 Id 개체 ID
 - 관리 Id 테 넌 트
-- 이 값을 복사 > **관리 Id 응용 프로그램 id**
+- 관리 Id 응용 프로그램 ID
 
-![관리 id 검색](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+관리 id 정보는 Azure Blob, Azure Data Lake Storage, Azure Key Vault 등 관리 되는 id 인증을 지 원하는 연결 된 서비스를 만들 때에도 표시 됩니다.
+
+권한을 부여할 때 개체 ID 또는 데이터 팩터리 이름 (관리 id 이름)을 사용 하 여이 id를 찾습니다.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>PowerShell을 사용 하 여 관리 되는 id 검색
 
-다음과 같이 특정 데이터 팩터리를 가져오면 관리 되는 id 보안 주체 ID 및 테 넌 트 ID가 반환 됩니다.
+다음과 같이 특정 데이터 팩터리를 가져올 때 관리 id 보안 주체 ID 및 테 넌 트 ID가 반환 됩니다. **Principalid** 를 사용 하 여 액세스 권한을 부여 합니다.
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -175,7 +177,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-보안 주체 ID를 복사하고 보안 주체 ID를 매개 변수로 사용하여 아래 Azure Active Directory 명령을 실행합니다. 그러면 액세스 권한 부여하는 데 사용할 **ApplicationId**를 가져올 수 있습니다.
+보안 주체 ID를 복사 하 여 응용 프로그램 ID를 가져온 다음 보안 주체 ID를 매개 변수로 사용 하 여 아래 Azure Active Directory 명령을 실행할 수 있습니다.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

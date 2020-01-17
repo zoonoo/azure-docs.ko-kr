@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb049b5af5c700cdb72f0319019cfd6eee952d9f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977515"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156967"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory에서 지속적인 통합 및 전달
 
@@ -330,7 +330,7 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 * 자동화 된 CI/CD를 사용 하 고 리소스 관리자 배포 중에 일부 속성을 변경 하려고 하지만 속성은 기본적으로 매개 변수화 되지 않습니다.
 * 팩터리는 기본 리소스 관리자 템플릿이 허용 되는 최대 매개 변수 (256)를 초과 하기 때문에 잘못 되었습니다.
 
-이러한 조건에서 기본 매개 변수화 템플릿을 재정의 하려면 리포지토리의 루트 폴더에 이름이 arm 인 파일을 만듭니다. 정확한 파일 이름을 사용 해야 합니다. Data Factory는 현재 공동 작업 분기 뿐만 아니라 Azure Data Factory 포털에 있는 분기에서이 파일을 읽습니다. UI에서 **ARM 템플릿 내보내기** 를 선택 하 여 변경 내용을 테스트할 수 있는 private 분기에서 파일을 만들거나 편집할 수 있습니다. 그런 다음 공동 작업 분기에 파일을 병합할 수 있습니다. 파일이 없는 경우 기본 템플릿이 사용 됩니다.
+이러한 조건에서 기본 매개 변수화 템플릿을 재정의 하려면 data factory git 통합에 대 한 루트 폴더로 지정 된 폴더에 이름이 arm 인 파일을 만듭니다. 정확한 파일 이름을 사용 해야 합니다. Data Factory는 현재 공동 작업 분기 뿐만 아니라 Azure Data Factory 포털에 있는 분기에서이 파일을 읽습니다. UI에서 **ARM 템플릿 내보내기** 를 선택 하 여 변경 내용을 테스트할 수 있는 private 분기에서 파일을 만들거나 편집할 수 있습니다. 그런 다음 공동 작업 분기에 파일을 병합할 수 있습니다. 파일이 없는 경우 기본 템플릿이 사용 됩니다.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>사용자 지정 매개 변수 파일의 구문
 

@@ -3,16 +3,16 @@ title: REST API 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 리소스 관리자 REST API를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: 3a3447746b3e7cbdfeeddd296ce78068e120a134
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc386f51073c256fd083a04bbed39316784827b1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484962"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152513"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>리소스 관리자 템플릿과 리소스 관리자 REST API로 리소스 배포
 
-이 문서에서는 리소스 관리자 템플릿으로 리소스 관리자 REST API를 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다.  
+이 문서에서는 리소스 관리자 템플릿으로 리소스 관리자 REST API를 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다.
 
 요청 본문 또는 파일 링크에는 템플릿을 포함할 수 있습니다. 템플릿을 사용할 경우 템플릿은 로컬 파일이거나 URI를 통해 사용 가능한 외부 파일일 수 있습니다. 템플릿이 스토리지 계정에 있는 경우, 템플릿에 대한 액세스를 제한하고 배포 중에 SAS(공유 액세스 서명) 토큰을 제공할 수 있습니다.
 
@@ -67,7 +67,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
 1. 배포를 실행하기 전에 [템플릿 배포 유효성 검사](/rest/api/resources/deployments/validate) 작업을 실행하여 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
 
-1. 템플릿을 배포 하려면 구독 ID, 리소스 그룹 이름, 요청 URI의 배포 이름을 제공 합니다. 
+1. 템플릿을 배포 하려면 구독 ID, 리소스 그룹 이름, 요청 URI의 배포 이름을 제공 합니다.
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
@@ -116,7 +116,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
     공유 액세스 서명(SAS) 토큰을 사용하여 스토리지 계정을 설정할 수 있습니다. 자세한 내용은 [공유 액세스 서명을 사용하여 액세스 위임](/rest/api/storageservices/delegating-access-with-a-shared-access-signature)을 참조하세요.
 
-    매개 변수에 대해 중요한 값(예: 암호)을 제공해야 할 경우 해당 값을 주요 자격 증명 모음에 추가합니다. 앞의 예제에 표시된 대로 배포하는 동안 주요 자격 증명 모음을 검색합니다. 자세한 내용은 [배포 중 보안 값 전달](key-vault-parameter.md)을 참조하세요. 
+    매개 변수에 대해 중요한 값(예: 암호)을 제공해야 할 경우 해당 값을 주요 자격 증명 모음에 추가합니다. 앞의 예제에 표시된 대로 배포하는 동안 주요 자격 증명 모음을 검색합니다. 자세한 내용은 [배포 중 보안 값 전달](key-vault-parameter.md)을 참조하세요.
 
 1. 템플릿 및 매개 변수의 파일에 연결하는 대신, 요청 본문에 포함할 수 있습니다. 다음 예제에서는 템플릿 및 매개 변수 인라인이 포함 된 요청 본문을 보여 줍니다.
 
@@ -155,8 +155,8 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccountName')]",
             "apiVersion": "2018-02-01",
+            "name": "[variables('storageAccountName')]",
             "location": "[parameters('location')]",
             "sku": {
               "name": "[parameters('storageAccountType')]"

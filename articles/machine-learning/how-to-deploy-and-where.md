@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1560b5d60ae3c6de3ecb6d50859e24ebb7bc2d28
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753993"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156916"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에 제공 된 모델 및 종속성 파일을 사용할 수 있습니다.
 
-- [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [PYTHON 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](how-to-vscode-tools.md)입니다.
+- [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [PYTHON 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md)입니다.
 
 ## <a name="connect-to-your-workspace"></a>작업 영역에 연결
 
@@ -59,7 +59,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 + **VS Code 사용**
 
-   VS Code 사용 하는 경우 그래픽 인터페이스를 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 VS Code 확장 설명서에서 [모델 배포 및 관리](how-to-vscode-tools.md#deploy-and-manage-models) 를 참조 하세요.
+   VS Code 사용 하는 경우 그래픽 인터페이스를 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 VS Code 확장 설명서에서 [모델 배포 및 관리](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) 를 참조 하세요.
 
 ## <a id="registermodel"></a>모델 등록
 
@@ -115,7 +115,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 + **VS Code 사용**
 
-  [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) 확장을 사용 하 여 모델 파일이 나 폴더를 사용 하 여 모델을 등록 합니다.
+  [VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) 확장을 사용 하 여 모델 파일이 나 폴더를 사용 하 여 모델을 등록 합니다.
 
 ### <a name="register-a-model-from-a-local-file"></a>로컬 파일에서 모델 등록
 
@@ -185,7 +185,7 @@ Azure ML은 단일 끝점 뒤에 단일 또는 여러 모델을 배포 하도록
     >
     > * Azure Machine Learning SDK는 웹 서비스 또는 IoT Edge 배포에서 데이터 저장소 또는 데이터 집합에 액세스 하는 방법을 제공 하지 않습니다. 배포 된 모델에서 Azure storage 계정의 데이터와 같이 배포 외부에 저장 된 데이터에 액세스 해야 하는 경우 관련 SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 해야 합니다. 예를 들어 [Python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python)가 있습니다.
     >
-    >   시나리오에 사용할 수 있는 대안은 [일괄 처리 예측](how-to-run-batch-predictions.md)으로, 점수 매기기 중 데이터 저장소에 대 한 액세스를 제공 합니다.
+    >   시나리오에 사용할 수 있는 대안은 [일괄 처리 예측](how-to-use-parallel-run-step.md)으로, 점수 매기기 중 데이터 저장소에 대 한 액세스를 제공 합니다.
 
 * 항목 스크립트나 모델을 실행하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지 같은 **종속성**.
 
