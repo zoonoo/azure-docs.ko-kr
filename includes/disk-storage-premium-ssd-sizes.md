@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c88cba57ed987074c0dde3c8b251f54393667740
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 370cdc18ae5d7680d2ce38b42bdc436367ce3700
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75002656"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159544"
 ---
 | 프리미엄 SSD 크기 | P1* | P2* | P3* | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |
 |-------------------|----|----|----|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
@@ -24,6 +24,5 @@ ms.locfileid: "75002656"
 | 디스크당 최대 버스트 처리량** | 170MiB/초 | 170MiB/초 | 170MiB/초 | 170MiB/초 | 170MiB/초 | 170MiB/초 | 170MiB/초 | 170MiB/초 |
 | 최대 버스트 기간** | 30분  | 30분  | 30분  | 30분  | 30분  | 30분  | 30분  | 30분  |
 
-\*현재 미리 보기로 제공되는 디스크 크기를 나타냅니다. 지역별 가용성 정보는 [새 디스크 크기: 관리형 및 비관리형](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged)을 참조하세요.
-
+\*현재 미리 보기로 제공되는 디스크 크기를 나타냅니다. 지역별 가용성 정보는 [새 디스크 크기: 관리형 및 비관리형](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged)을 참조하세요.  
 \*\*현재 미리 보기로 제공되는 기능을 나타냅니다. 자세한 내용은 [디스크 버스트](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability)를 참조하세요.
