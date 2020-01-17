@@ -29,6 +29,10 @@
       href: security-center-compliance-dashboard.md
 - name: 개념
   items:
+    - name: Security Center의 보안 점수
+      href: security-center-secure-score.md
+    - name: 향상된 보안 점수
+      href: secure-score-security-controls.md
     - name: 사용 권한
       href: security-center-permissions.md
     - name: 데이터 보안
@@ -73,8 +77,6 @@
           href: security-center-alert-validation.md
 - name: 방법 가이드
   items:
-    - name: 보안 점수 향상
-      href: security-center-secure-score.md
     - name: 고급 보안으로 업그레이드
       href: security-center-onboarding.md
     - name: VM 취약성 검색
@@ -123,7 +125,7 @@
       href: advanced-threat-protection-key-vault.md
     - name: 이메일 알림 설정
       href: security-center-provide-security-contact-details.md
-    - name: 가격
+    - name: 가격 책정
       href: security-center-pricing.md
     - name: 테넌트 전체 가시성 얻기
       href: security-center-management-groups.md
@@ -207,7 +209,7 @@
       href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/security-center/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

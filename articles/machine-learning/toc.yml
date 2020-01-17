@@ -71,7 +71,7 @@
       href: concept-workspace.md
     - name: 환경
       href: concept-environments.md
-    - name: data
+    - name: 데이터
       href: concept-data.md
     - name: 모델 학습
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
@@ -123,7 +123,7 @@
           href: monitor-azure-machine-learning.md
     - name: 이벤트 표 통합
       href: concept-event-grid-integration.md
-    - name: 심층 학습
+    - name: 딥 러닝
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
 - name: 방법 가이드
@@ -310,15 +310,9 @@
         - name: 실시간 사용
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: 일괄 처리 예측 실행
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-run-batch-predictions.md
         - name: 디자이너 일괄 처리 예측
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
-        - name: 일괄 처리 예측 디버그 및 문제 해결
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-batch-predictions.md
     - name: 모델 모니터링
       items:
         - name: 모델 데이터 수집 및 평가
@@ -343,6 +337,12 @@
         - name: 'Designer: 게시된 파이프라인을 사용하여 다시 학습'
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: 병렬 실행 단계 사용
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-use-parallel-run-step.md
+        - name: 병렬 실행 단계 디버그 및 문제 해결
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-parallel-run-step.md
     - name: 리소스 할당량 관리
       displayName: limits
       href: how-to-manage-quotas.md
@@ -381,7 +381,7 @@
       href: azure-machine-learning-release-notes.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

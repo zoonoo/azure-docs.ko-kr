@@ -314,7 +314,7 @@
               items:
                 - name: 스트리밍 개요
                   href: ./spark/apache-spark-streaming-overview.md
-                - name: 구조화된 스트리밍 개요
+                - name: 구조적 스트리밍 개요
                   href: ./spark/apache-spark-structured-streaming-overview.md
                 - name: Apache Hadoop YARN에서 고가용성 Apache Spark Streaming 작업 만들기
                   href: ./spark/apache-spark-streaming-high-availability.md
@@ -507,8 +507,6 @@
               href: ./hdinsight-troubleshoot-hdfs.md
             - name: Apache Hadoop YARN 문제 해결
               href: ./hdinsight-troubleshoot-yarn.md
-            - name: Apache Hadoop 로그 분석
-              href: ./hadoop/apache-hadoop-debug-jobs.md
             - name: Data Lake Store 파일 문제 해결
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
 - name: Apache Kafka
@@ -782,6 +780,8 @@
           href: ./storm/apache-storm-write-data-lake-store.md
     - name: 방법
       items:
+        - name: Spark로 Storm 마이그레이션
+          href: ./storm/migrate-storm-to-spark.md
         - name: 개발
           items:
             - name: 토폴로지

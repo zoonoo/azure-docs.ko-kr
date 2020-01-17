@@ -249,6 +249,8 @@
           items:
             - name: 사용자 지정 기술 통합
               href: cognitive-search-custom-skill-interface.md
+            - name: 예 - Azure Functions(Python)
+              href: cognitive-search-custom-skill-python.md
             - name: 예 - Azure Functions
               href: cognitive-search-create-custom-skill-example.md
             - name: 예 - 컨테이너
@@ -427,7 +429,7 @@
           href: 'https://searchsamples.azurewebsites.net/'
     - name: FAQ
       href: search-faq-frequently-asked-questions.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

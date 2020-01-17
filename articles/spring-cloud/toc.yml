@@ -54,6 +54,8 @@
       href: spring-cloud-service-registration.md
     - name: 애플리케이션 로그 및 메트릭 분석
       href: diagnostic-services.md
+    - name: 즉각적인 가용성을 위한 Azure Spring Cloud 로그 스트리밍
+      href: spring-cloud-howto-log-streaming.md
     - name: Azure Spring Cloud에서 CI/CD 파이프라인 자동화
       href: spring-cloud-howto-cicd.md
     - name: Azure Spring Cloud에서 영구 스토리지 사용

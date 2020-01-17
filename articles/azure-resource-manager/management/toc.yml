@@ -8,6 +8,8 @@
   items:
     - name: 구독 및 서비스 한도
       href: azure-subscription-service-limits.md
+    - name: 리소스 이름 규칙
+      href: resource-name-rules.md
     - name: Resource Manager 및 클래식 배포
       href: deployment-models.md
     - name: Azure 공통 보안 특성

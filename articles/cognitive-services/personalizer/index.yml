@@ -12,12 +12,12 @@ metadata:
   title: Personalizer 설명서
   titleSuffix: Azure Cognitive Services
   description: Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
-  ms.openlocfilehash: d71f5f673a3008f13f7bb762fc48a687c0cf0ddb
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 964950c80ea0f3d4c014f5c98563193917bf4eef
+  ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73889257"
+  ms.lasthandoff: 01/16/2020
+  ms.locfileid: "76122035"
 landingContent:
 - title: Personalizer 정보
   linkLists:
@@ -51,18 +51,14 @@ landingContent:
       url: how-to-settings.md
   - linkListType: quickstart
     links:
-    - text: .Net 사용
-      url: csharp-quickstart-commandline-feedback-loop.md
-    - text: Python 사용
-      url: python-quickstart-commandline-feedback-loop.md
-    - text: Node.js
-      url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+    - text: SDK 사용
+      url: sdk-learning-loop.md
 - title: Personalizer로 개발
   linkLists:
   - linkListType: get-started
     links:
-    - text: .Net으로 Personalizer 루프 개발
-      url: csharp-quickstart-commandline-feedback-loop.md
+    - text: .NET으로 Personalizer 루프 개발
+      url: sdk-learning-loop.md?pivots=programming-language-csharp
     - text: NuGet 패키지
       url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
     - text: NuGet 참조 설명서
@@ -70,18 +66,18 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Node.js로 Personalizer 루프 개발
-      url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+      url: sdk-learning-loop.md?pivots=programming-language-nodejs
     - text: NPM 패키지
       url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
   - linkListType: get-started
     links:
     - text: Python으로 Personalizer 루프 개발
-      url: python-quickstart-commandline-feedback-loop.md
+      url: sdk-learning-loop.md?pivots=programming-language-python
     - text: Pypi 패키지
       url: https://pypi.org/project/azure-cognitiveservices-personalizer/
   - linkListType: get-started
     links:
-    - text: 코드 샘플
+    - text: 코드 예제
       url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
     - text: REST API
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank

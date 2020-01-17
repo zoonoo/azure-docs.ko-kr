@@ -17,6 +17,8 @@
   items:
     - name: 몰입형 판독기(Python) 시작
       href: tutorial-python.md
+    - name: 여러 몰입형 판독기 리소스 사용
+      href: tutorial-multiple-resources.md
 - name: 사용 방법
   items:
     - name: 몰입형 판독기 리소스 만들기

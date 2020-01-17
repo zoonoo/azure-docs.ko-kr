@@ -35,6 +35,8 @@
       href: rule-processing.md
     - name: 서비스 태그
       href: service-tags.md
+    - name: 규정 준수 인증
+      href: compliance-certifications.md
 - name: 방법 가이드
   items:
     - name: Azure PowerShell을 사용하여 배포
@@ -81,7 +83,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

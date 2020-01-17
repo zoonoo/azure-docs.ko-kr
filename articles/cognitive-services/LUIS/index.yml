@@ -12,12 +12,12 @@ metadata:
   title: Language Understanding(LUIS) 설명서
   titleSuffix: Azure Cognitive Services
   description: LUIS(Language Understanding) 서비스를 사용하면 애플리케이션은 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다. LUIS는 기계 학습을 사용하여 사용자 입력을 자연어로 받아서 의미를 추출하는 애플리케이션을 개발자가 작성할 수 있도록 합니다.
-  ms.openlocfilehash: 43f40e042fdbecbfc571fb719a0a42ded6c70909
-  ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+  ms.openlocfilehash: f45461b49b51d6d25464ffa7d2084b1bbb1f9e0e
+  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/03/2019
-  ms.locfileid: "74706683"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76169653"
 landingContent:
 - title: LUIS(Language Understanding) 정보
   linkLists:
@@ -58,9 +58,9 @@ landingContent:
     - text: '포털: 새 LUIS 앱 만들기'
       url: get-started-portal-build-app.md
     - text: C# SDK 사용
-      url: sdk-csharp-quickstart-authoring-app.md
+      url: sdk-authoring.md?pivots=programming-language-csharp
     - text: Python SDK 사용
-      url: sdk-python-quickstart-authoring-app.md
+      url: sdk-authoring.md?pivots=programming-language-python
   - linkListType: how-to-guide
     links:
     - text: 새 LUIS 앱 만들기
@@ -85,10 +85,8 @@ landingContent:
     links:
     - text: '포털: 예측 엔드포인트에 앱 배포'
       url: get-started-portal-deploy-app.md
-    - text: C# SDK 사용
-      url: sdk-csharp-quickstart-authoring-app.md#train-the-app
-    - text: Python SDK 사용
-      url: sdk-python-quickstart-authoring-app.md#train-the-app
+    - text: SDK 사용
+      url: sdk-authoring.md
   - linkListType: how-to-guide
     links:
     - text: 앱 관리
@@ -105,8 +103,8 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: C# .NET SDK 사용
-      url: sdk-csharp-quickstart-query-prediction-endpoint.md
+    - text: SDK 사용
+      url: sdk-query-prediction-endpoint.md
   - linkListType: quickstart
     links:
     - text: REST를 통해 C# 사용
@@ -119,7 +117,7 @@ landingContent:
       url: luis-get-started-node-get-intent.md
     - text: REST를 통해 Python 사용
       url: luis-get-started-python-get-intent.md
-- title: 참고 자료
+- title: 참조
   linkLists:
   - linkListType: reference
     links:
