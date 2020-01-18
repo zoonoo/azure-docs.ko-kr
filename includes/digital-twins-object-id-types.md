@@ -7,20 +7,20 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/15/2020
 ms.custom: include file
-ms.openlocfilehash: e46041a33c12b3fcb40e5a04de11108471e59855
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: cb43c8b8c952d8db6cf450a7015c22c85e7fe4b5
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307209"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268253"
 ---
 `objectIdType`(또는 **개체 식별자 유형**)은 역할에 지정된 ID 유형을 나타냅니다. `DeviceId` 및 `UserDefinedFunctionId` 유형과 별도로, 개체 식별자 유형은 Azure Active Directory 개체의 속성에 해당합니다.
 
 다음 표에는 Azure Digital Twins에서 지원되는 개체 식별자 유형이 나와 있습니다.
 
-| 에 | 설명 |
+| 유형 | Description |
 | --- | --- |
 | UserId | 사용자에게 역할을 할당합니다. |
 | deviceId | 디바이스에 역할을 할당합니다. |
