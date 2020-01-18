@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 38c7da8a1de57ed5acf3248fc6a71431de0bd1e2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232784"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262489"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
 
-*지속형 함수*의 [작업 허브](durable-functions-overview.md)는 오케스트레이션에 사용되는 Azure Storage 리소스에 대한 논리적 컨테이너입니다. 오케스트레이터 및 작업 함수는 동일한 작업 허브에 속할 때만 상호 작용할 수 있습니다.
+[지속형 함수](durable-functions-overview.md)의 *작업 허브*는 오케스트레이션에 사용되는 Azure Storage 리소스에 대한 논리적 컨테이너입니다. 오케스트레이터 및 작업 함수는 동일한 작업 허브에 속할 때만 상호 작용할 수 있습니다.
 
 여러 함수 앱이 한 스토리지 계정을 공유하는 경우 *반드시* 함수 앱마다 별도의 작업 허브 이름으로 구성해야 합니다. 한 스토리지 계정에 여러 작업 허브가 포함될 수 있습니다. 다음 다이어그램에서는 공유 및 전용 스토리지 계정의 함수 앱당 단일 작업 허브를 보여 줍니다.
 
@@ -96,9 +96,9 @@ Orchestrator, entity 또는 activity 함수를 실행 하거나 실행 하도록
 }
 ```
 
-다음 코드는 C# [오케스트레이션 클라이언트 바인딩을](durable-functions-bindings.md#orchestration-client) 사용 하 여 앱 설정으로 구성 된 작업 허브로 작업 하는 함수를 작성 하는 방법에 대 한 미리 컴파일된 예제입니다.
+다음 코드에서는 [오케스트레이션 클라이언트 바인딩을](durable-functions-bindings.md#orchestration-client) 사용 하 여 앱 설정으로 구성 된 작업 허브로 작업 하는 함수를 작성 하는 방법을 보여 줍니다.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -121,7 +121,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > 이전 C# 예제는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 `function.json` 파일의 작업 허브 속성은 앱 설정을 통해 설정됩니다.
 
@@ -133,6 +133,8 @@ public static async Task<HttpResponseMessage> Run(
     "direction": "in"
 }
 ```
+
+---
 
 작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정 하지 않으면 기본 작업 허브 이름이 다음 표에 표시 된 것 처럼 사용 됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Java에서 Notification Hubs를 사용하는 방법
+title: Java에서 Azure Notification Hubs를 사용 하는 방법
 description: Java 백 엔드에서 Azure Notification Hubs를 사용하는 방법에 대해 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 532ffc7a7393f016f27264b67b4ee5d3e6e5888f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213212"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263866"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 Notification Hubs를 사용하는 방법
 
@@ -41,7 +41,7 @@ ms.locfileid: "71213212"
 * 일반 보내기
 * 예약된 보내기
 * Java NIO를 통한 비동기 작업
-* 지원되는 플랫폼: APNS(iOS), FCM(Android), WNS(Windows 스토어 앱), MPNS(Windows Phone), ADM(Amazon Kindle Fire), Baidu(Google 서비스가 없는 Android)
+* 지원 되는 플랫폼: APNS (iOS), FCM (Android), WNS (Windows 스토어 앱), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Google 서비스 없이 Android)
 
 ## <a name="sdk-usage"></a>SDK 사용
 
@@ -374,7 +374,7 @@ Amazon Kindle Fire의 경우 예제:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
+이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 수행할 수 있습니다.
 
 * 전체 SDK 코드가 포함된 전체 [Java SDK]를 다운로드합니다.
 * 다음 샘플을 사용해 봅니다.

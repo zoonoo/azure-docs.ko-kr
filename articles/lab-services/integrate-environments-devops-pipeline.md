@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs에서 Azure Pipelines에 환경 통합 Microsoft Docs
+title: 환경을 Azure Pipelines에 통합 Azure DevTest Labs
 description: Azure DevTest Labs 환경을 Azure DevOps CI (지속적인 통합) 및 CD (지속적인 업데이트) 파이프라인에 통합 하는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3d7e481879326ac30093bd116222bddc28640398
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163922"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169418"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Azure DevOps CI/CD 파이프라인에 환경 통합
-Azure DevOps Services (이전의 Visual Studio Team Services)에 설치 된 Azure DevTest Labs 작업 확장을 사용 하 여 CI (지속적인 통합) 및 CD (지속적인 업데이트) 빌드 및 릴리스 파이프라인을 Azure와 쉽게 통합할 수 있습니다. DevTest Labs. 이러한 확장을 통해 특정 테스트 작업에 대 한 [환경을](devtest-lab-test-env.md) 신속 하 게 배포 하 고 테스트가 완료 되 면 삭제할 수 있습니다. 
+Azure DevOps Services (이전의 Visual Studio Team Services)에 설치 된 Azure DevTest Labs 작업 확장을 사용 하 여 CI (지속적인 통합)/CD (지속적인 업데이트) 빌드 및 릴리스 파이프라인을 Azure DevTest Labs와 쉽게 통합할 수 있습니다. 이러한 확장을 통해 특정 테스트 작업에 대 한 [환경을](devtest-lab-test-env.md) 신속 하 게 배포 하 고 테스트가 완료 되 면 삭제할 수 있습니다. 
 
 이 문서에서는 하나의 전체 파이프라인에서 환경을 만들고 배포한 다음 환경을 삭제 하는 방법을 보여 줍니다. 일반적으로 사용자 지정 빌드-테스트-배포 파이프라인에서 이러한 각 작업을 개별적으로 수행 합니다. 이 문서에서 사용 되는 확장은 [DTL VM 만들기/삭제 작업](devtest-lab-integrate-ci-cd-vsts.md)외에도 다음과 같은 작업을 수행 합니다.
 

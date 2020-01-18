@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b647af11e47952656011a06268d4b0f384126ae9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934372"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263713"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,6 +80,22 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 > 기본 저장소 계정은 작업 영역을 만들 때 자동으로 프로 비전 됩니다.
 >
 > 기본이 아닌 저장소 계정의 경우 [`Workspace.create()` 함수의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) `storage_account` 매개 변수를 사용 하 여 AZURE 리소스 ID로 사용자 지정 저장소 계정을 지정할 수 있습니다.
+
+## <a name="use-azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2 사용
+
+Azure Data Lake Storage Gen 2는 Azure Blob Storage를 기반으로 하는 빅 데이터 분석을 위한 기능 집합입니다. Azure Machine Learning로 모델을 학습 하는 데 사용 되는 데이터를 저장 하는 데 사용할 수 있습니다. 
+
+Azure Machine Learning 작업 영역의 가상 네트워크 내에서 Data Lake Storage Gen 2를 사용 하려면 다음 단계를 사용 합니다.
+
+1. Azure Data Lake Storage gen 2 계정을 만듭니다. 자세한 내용은 [Azure Data Lake Storage Gen2 저장소 계정 만들기](../storage/blobs/data-lake-storage-quickstart-create-account.md)를 참조 하세요.
+
+1. 이전 섹션의 2-4 단계를 사용 하 여 [작업 영역에 대 한 저장소 계정을 사용](#use-a-storage-account-for-your-workspace)하 여 가상 네트워크에 계정을 저장 합니다.
+
+가상 네트워크 내에서 Data Lake Storage Gen 2와 Azure Machine Learning를 사용 하는 경우 다음 지침을 따르십시오.
+
+* SDK를 사용 __하 여 데이터 집합을 만들고__코드를 실행 하는 시스템이 __가상 네트워크에 있지 않은__경우 `validate=False` 매개 변수를 사용 합니다. 이 매개 변수는 시스템이 저장소 계정과 동일한 가상 네트워크에 있지 않은 경우 실패 하는 유효성 검사를 건너뜁니다. 자세한 내용은 [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 메서드를 참조 하세요.
+
+* 계산 인스턴스 또는 계산 클러스터 Azure Machine Learning 사용 하 여 데이터 집합을 사용 하 여 모델을 학습 하는 경우 저장소 계정과 동일한 가상 네트워크에 있어야 합니다.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>작업 영역에서 key vault 인스턴스 사용
 

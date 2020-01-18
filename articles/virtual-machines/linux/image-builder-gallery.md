@@ -7,16 +7,16 @@ ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 09dceb84a20ef49b3e9d5264b94bb5e74180cd2b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 08441a98d9104109b4cfc130ab6adb31dc4fce45
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976131"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260517"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Linux 이미지를 만들어 공유 이미지 갤러리에 배포 
 
-이 문서에서는 Azure 이미지 작성기를 사용 하 여 [공유 이미지 갤러리](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)에서 이미지 버전을 만든 다음 전역적으로 이미지를 배포 하는 방법을 보여 줍니다.
+이 문서에서는 Azure 이미지 작성기와 Azure CLI를 사용 하 여 [공유 이미지 갤러리](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)에서 이미지 버전을 만든 다음 전체적으로 이미지를 배포 하는 방법을 보여 줍니다. [Azure PowerShell](../windows/image-builder-gallery.md)를 사용 하 여이 작업을 수행할 수도 있습니다.
 
 
 샘플. json 템플릿을 사용 하 여 이미지를 구성 합니다. 사용 중인. json 파일은 [helloImageTemplateforSIG](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json)입니다. 

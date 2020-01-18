@@ -1,5 +1,5 @@
 ---
-title: API 참조 - Face API
+title: API 참조-얼굴
 titleSuffix: Azure Cognitive Services
 description: API 참조는 Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList 및 얼굴 알고리즘 Api에 대 한 정보를 제공 합니다.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 940a5e25125acc2631fd3629bd610bb0e927e650
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 431525964eb69431600d36ba8249c6dc465a5df3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390100"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169923"
 ---
 # <a name="face-api-reference-list"></a>Face API 참조 목록
 
-Azure Face API는 얼굴 감지 및 인식에 대한 알고리즘을 제공하는 클라우드 기반 API입니다. Face API는 다음 범주로 구성됩니다.
+Azure Face는 얼굴 감지 및 인식 알고리즘을 제공 하는 클라우드 기반 서비스입니다. Face API는 다음 범주로 구성됩니다.
 
 - 얼굴 알고리즘 Api: [검색](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), 유사, [확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [그룹](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) [찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)등의 핵심 기능을 다룹니다.
 - [FaceList api](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): 유사 하 게 [찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)위해 FaceList를 관리 하는 데 사용 됩니다.

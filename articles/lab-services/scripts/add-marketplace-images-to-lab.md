@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell 스크립트: Azure DevTest Labs에서 랩에 마켓플레이스 이미지 추가 | Microsoft Docs'
+title: PowerShell-Azure DevTest Labs에서 랩에 marketplace 이미지 추가
 description: 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 마켓플레이스 이미지를 추가합니다.
 services: lab-services
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: e099a29a198d43bf8d00487ab45e2648479aedbe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d699a22ed06022c6d9df12ade7f202fb304648c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160593"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166440"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 마켓플레이스 이미지 추가
 

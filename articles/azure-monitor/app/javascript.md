@@ -4,15 +4,15 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045841"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264087"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -20,7 +20,7 @@ ms.locfileid: "76045841"
 
 Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니다. 간단한 JavaScript만 추가하면 됩니다. 웹 서비스가 [Java](java-get-started.md) 또는 [ASP.NET](asp-net.md)인 경우 클라이언트 쪽 JavaScript sdk와 함께 서버 쪽 sdk를 사용 하 여 응용 프로그램의 성능에 대 한 종단 간 이해를 얻을 수 있습니다.
 
-## <a name="adding-the-javascript-sdk"></a>Javascript SDK 추가
+## <a name="adding-the-javascript-sdk"></a>JavaScript SDK 추가
 
 1. 먼저 Application Insights 리소스가 필요 합니다. 리소스 및 계측 키가 아직 없는 경우 [새 리소스 만들기 지침](create-new-resource.md)을 따르세요.
 2. JavaScript 원격 분석을 전송 하려는 리소스에서 계측 키를 복사 합니다.
@@ -29,7 +29,10 @@ Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니�
     * [JavaScript 코드 조각](#snippet-based-setup)
 
 > [!IMPORTANT]
-> Application Insights JavaScript SDK를 응용 프로그램에 추가 하려면 아래 방법 중 하나를 사용 해야 합니다. Npm 기반 설치를 사용 하는 경우 코드 조각 기반 설치를 사용 하지 마세요. 코드 조각을 기반으로 하는 방법을 사용 하는 경우 역방향 시나리오 에서도 마찬가지입니다. npm 기반 설치를 사용 하지 마세요. 
+> > JavaScript SDK를 응용 프로그램에 추가 하려면 메서드를 하나만 사용 합니다. NPM 설치 프로그램을 사용 하는 경우 코드 조각을 사용 하지 말고 그 반대의 경우도 마찬가지입니다.
+
+> [!NOTE]
+> NPM 설치 프로그램은 JavaScript SDK를 프로젝트에 대 한 종속성으로 설치 하 고 IntelliSense를 사용 하도록 설정 하는 반면 코드 조각은 런타임에 SDK를 인출 합니다. 둘 다 동일한 기능을 지원 합니다. 그러나 더 많은 사용자 지정 이벤트 및 구성을 원하는 개발자는 일반적으로 NPM 설치를 선택 하는 반면, 사용자는 코드 조각에 대 한 기본 웹 분석 opt를 신속 하 게 사용할 수 있습니다.
 
 ### <a name="npm-based-setup"></a>npm 기반 설정
 
@@ -261,4 +264,3 @@ JavaScript SDK Application Insights는 소스 코드를 보거나 프로젝트�
 * [사용 현황 추적](usage-overview.md)
 * [사용자 지정 이벤트 및 메트릭](api-custom-events-metrics.md)
 * [빌드 - 측정 - 학습](usage-overview.md)
-

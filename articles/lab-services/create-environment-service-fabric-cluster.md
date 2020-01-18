@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs에서 Service Fabric 클러스터를 사용 하 여 환경 만들기 | Microsoft Docs
+title: Azure DevTest Labs에서 Service Fabric 클러스터 환경 만들기
 description: 자체 포함 된 Service Fabric 클러스터로 환경을 만들고 일정을 사용 하 여 클러스터를 시작 및 중지 하는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 01/16/2020
 ms.author: enewman
-ms.openlocfilehash: 1e192a2b27c9d617e43a56766431a0f40e87a752
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 71793b81d8735c80881fc25a9b7ec31bc4fc6762
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325249"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170330"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>에서 자체 포함 된 Service Fabric 클러스터를 사용 하 여 환경 만들기 Azure DevTest Labs
 이 문서에서는 Azure DevTest Labs에서 자체 포함 된 Service Fabric 클러스터로 환경을 만드는 방법에 대 한 정보를 제공 합니다. 
@@ -30,7 +30,7 @@ DevTest Labs는 Azure 리소스 관리 템플릿에 정의 된 대로 자체 포
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 Service Fabric 클러스터는 DevTest Labs에서 환경을 사용 하 여 생성 됩니다. 각 환경은 Git 리포지토리의 Azure Resource Manager 템플릿에 의해 정의 됩니다. DevTest Labs에 대 한 [공용 Git 리포지토리에](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) 는 [ServiceFabric](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) 폴더에 Service Fabric 클러스터를 만들기 위한 리소스 관리자 템플릿이 포함 되어 있습니다. 
 
-1. 먼저, 다음 문서의 지침을 사용 하 여 Azure DevTest Labs에서 랩을 만듭니다. [랩을 만듭니다](devtest-lab-create-lab.md). **공용 환경** 옵션은 기본적으로 **설정** 되어 있습니다. 
+1. 먼저 [랩 만들기](devtest-lab-create-lab.md)문서의 지침을 사용 하 여 Azure DevTest Labs에서 랩을 만듭니다. **공용 환경** 옵션은 기본적으로 **설정** 되어 있습니다. 
 2. 다음 단계를 수행 하 여 Service Fabric 공급자가 구독에 등록 되어 있는지 확인 합니다.
     1. 왼쪽 탐색 메뉴에서 **구독** 을 선택 하 고 **구독** 을 선택 합니다.
     2. **구독** 페이지의 왼쪽 메뉴에 있는 **설정** 섹션에서 **리소스 공급자** 를 선택 합니다. 
@@ -43,13 +43,13 @@ Service Fabric 클러스터는 DevTest Labs에서 환경을 사용 하 여 생�
     ![목록에서 Service Fabric Lab Cluster를 선택 합니다.](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
 4. **설정 구성** 페이지에서 다음 단계를 수행 합니다. 
     1. 클러스터 환경의 **이름을** 지정 합니다. Service Fabric 클러스터를 만들 Azure에서 리소스 그룹의 이름입니다. 
-    2. 클러스터 가상 컴퓨터에 대 한 **os (운영 체제)** 를 선택 합니다. 기본값은 다음과 같습니다. **Windows**.
+    2. 클러스터 가상 컴퓨터에 대 한 **os (운영 체제)** 를 선택 합니다. 기본값은 **Windows**입니다.
     3. 클러스터의 **관리자** 이름을 지정 합니다. 
     4. 관리자의 **암호** 를 지정 합니다. 
     5. **인증서**의 경우 Base64 인코딩된 문자열로 인증서 정보를 입력 합니다. 인증서를 만들려면 다음 단계를 수행 합니다.
         1. [Git 리포지토리에서](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) **Create-ClusterCertificate** 파일을 다운로드 합니다. 또는 컴퓨터에서 리포지토리를 복제 합니다. 
         2. **PowerShell**을 시작합니다. 
-        3. 명령을`.\Create-ClusterCertificate.ps1`사용 하 여 **ps1** 파일을 실행 합니다. 이 페이지의 인증서 관련 필드에 입력 해야 하는 정보를 사용 하 여 메모장에서 열린 텍스트 파일이 표시 됩니다. 을 선택합니다. 
+        3. 명령 `.\Create-ClusterCertificate.ps1`를 사용 하 여 **ps1** 파일을 실행 합니다. 이 페이지의 인증서 관련 필드에 입력 해야 하는 정보를 사용 하 여 메모장에서 열린 텍스트 파일이 표시 됩니다. . 
     6. **인증서에 대 한 암호**를 입력 합니다.
     7. 인증서의 **지문을** 지정 합니다.
     8. **설정 구성** 페이지에서 **추가** 를 선택 합니다. 
@@ -104,8 +104,8 @@ Service Fabric 클러스터는 일정에 따라 시작 되거나 중지 될 수�
 종료에 대 한 설정을 변경 하려면 다음 단계를 수행 합니다.
 
 1. 왼쪽 메뉴에서 **자동 종료** 를 선택 합니다. 
-2. 이 페이지에서는 **사용** **을 선택 하** 여 자동 종료를 옵트아웃 (opt out) 할 수 있습니다. 
-3. **설정 됨** **을 선택한 경우** 다음 단계를 수행 합니다.
+2. 이 페이지에서는 **사용**을 선택 하 여 자동 **종료를 옵트아웃** (opt out) 할 수 있습니다. 
+3. **설정 됨**을 선택한 경우 다음 단계를 **수행 합니다.**
     1. 종료 **시간** 을 지정 합니다.
     2. 시간의 **표준 시간대** 를 지정 합니다. 
     3. 자동 종료 전에 DevTest Labs에서 **알림을** 보낼지 여부를 지정 합니다. 

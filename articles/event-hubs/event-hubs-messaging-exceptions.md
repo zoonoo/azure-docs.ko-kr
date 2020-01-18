@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 26056e9b52ea319856505db837c67dc68b2f4aa6
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 96eaae81a25e361c0041fb02099b8e0cb9da8c28
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157290"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260459"
 ---
 # <a name="troubleshooting-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 문제 해결 가이드
 이 문서에서는 Event Hubs .NET Framework Api에 의해 생성 되는 몇 가지 .NET 예외 및 문제 해결을 위한 기타 팁을 제공 합니다. 
@@ -103,25 +103,42 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 ## <a name="connectivity-certificate-or-timeout-issues"></a>연결, 인증서 또는 시간 제한 문제
 다음 단계는 *. servicebus.windows.net의 모든 서비스에 대 한 연결/인증서/시간 제한 문제를 해결 하는 데 도움이 될 수 있습니다. 
 
-- `https://sbwagn2.servicebus.windows.net/`또는 [wget](https://www.gnu.org/software/wget/) 으로 이동 합니다. IP 필터링 또는 가상 네트워크 또는 인증서 체인 문제가 있는지 여부를 확인 하는 데 도움이 됩니다 (java SDK를 사용 하는 경우 가장 일반적으로).
-- 다음 명령을 실행 하 여 방화벽에서 차단 된 포트가 있는지 확인 합니다. 사용 하는 라이브러리에 따라 다른 포트도 사용 됩니다. 예: 443, 5672, 9354.
+- `https://<yournamespacename>.servicebus.windows.net/`또는 [wget](https://www.gnu.org/software/wget/) 으로 이동 합니다. IP 필터링 또는 가상 네트워크 또는 인증서 체인 문제가 있는지 여부를 확인 하는 데 도움이 됩니다 (java SDK를 사용 하는 경우 가장 일반적으로).
+- 다음 명령을 실행 하 여 방화벽에서 차단 된 포트가 있는지 확인 합니다. 사용 되는 포트는 443 (HTTPS), 5671 (AMQP) 및 9093 (Kafka)입니다. 사용 하는 라이브러리에 따라 다른 포트도 사용 됩니다. 다음은 5671 포트가 차단 되었는지 여부를 확인 하는 샘플 명령입니다.
 
     ```powershell
-    tnc sbwagn2.servicebus.windows.net -port 5671
+    tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
     Linux에서:
 
     ```shell
-    telnet sbwagn2.servicebus.windows.net 5671
+    telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- 간헐적 연결 문제가 있는 경우 다음 명령을 실행 하 여 삭제 된 패킷이 있는지 확인 합니다. 이 명령은 서비스와 1 초 마다 25 가지 TCP 연결을 설정 하려고 시도 합니다. 그러면 성공/실패 횟수를 확인할 수 있으며 TCP 연결 대기 시간도 확인할 수 있습니다. `psping` 도구는 [여기](/sysinternals/downloads/psping)에서 다운로드할 수 있습니다.
+    
+    성공적인 메시지의 예:
+    
+    ```xml
+    <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
+    ```
+    
+    오류 메시지의 예는 다음과 같습니다.
+
+    ```json
+    <Error>
+        <Code>400</Code>
+        <Detail>
+            Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
+        </Detail>
+    </Error>
+    ```
+- 간헐적 연결 문제가 있는 경우 다음 명령을 실행 하 여 삭제 된 패킷이 있는지 확인 합니다. 이 명령은 서비스와 1 초 마다 25 가지 TCP 연결을 설정 하려고 시도 합니다. 그런 다음 성공/실패 횟수를 확인 하 고 TCP 연결 대기 시간도 확인할 수 있습니다. `psping` 도구는 [여기](/sysinternals/downloads/psping)에서 다운로드할 수 있습니다.
 
     ```shell
-    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
+    .\psping.exe -n 25 -i 1 -q <yournamespacename>.servicebus.windows.net:5671 -nobanner     
     ```
     `tnc`, `ping`등의 다른 도구를 사용 하는 경우에는 동일한 명령을 사용할 수 있습니다. 
-- 이전 단계에서 도움을 주지 않고 분석 하거나 [Microsoft 지원](https://support.microsoft.com/)하는 경우 네트워크 추적을 가져옵니다. 
+- 이전 단계에서 [Wireshark](https://www.wireshark.org/)와 같은 도구를 사용 하 여 도움을 주지 않고 분석 하는 경우 네트워크 추적을 가져옵니다. 필요한 경우 [Microsoft 지원](https://support.microsoft.com/) 에 문의 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

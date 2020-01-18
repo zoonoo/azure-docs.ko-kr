@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/20/2019
+ms.date: 01/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 493056037637ffb2afa9570e1287620869ee8fc7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 94cf30d2d3650212707cf92db83236882fe5e49f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479307"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169348"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
 
@@ -52,7 +52,7 @@ ms.locfileid: "75479307"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-이 문서에서는 SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server를 사용 하 여 Azure Vm의 두 노드 클러스터에 다중 SID를 사용 하는 여러 SAP NetWeaver 시스템을 배포 하는 방법을 설명 합니다.  
+이 문서에서는 SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server를 사용 하 여 Azure Vm의 두 노드 클러스터에 여러 SAP NetWeaver 또는 S4HANA 항상 사용 가능한 시스템 (즉, 다중 SID)을 배포 하는 방법을 설명 합니다.  
 
 예제 구성, 설치 명령 등 세 가지 SAP NetWeaver 7.50 시스템은 단일 노드 고가용성 클러스터에 배포 됩니다. SAP 시스템 Sid는 다음과 같습니다.
 * **N w 1**: ascs 인스턴스 번호 **00** 및 가상 호스트 이름 **msnw1ascs**; ERS 인스턴스 번호 **02** 및 가상 호스트 이름 **msnw1ers**.  
@@ -426,7 +426,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 8. **[1]** 새로 설치 된 sap 시스템에 대 한 sap 클러스터 리소스를 만듭니다. 
 
-   다음은 SAP systems **n w 2** 및 **NW3**에 대 한 예제입니다 .이는 큐에 넣기 서버 1 아키텍처 (ENSA1)를 사용 하 고 있다고 가정 합니다.
+   ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 같이 SAP systems **n w 2** 및 **NW3** 에 대 한 리소스를 정의 합니다.
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -472,6 +472,52 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
      sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
      sudo crm configure property maintenance-mode="false"
     ```
+
+   Sap는 복제를 비롯 하 여 SAP NW 7.52에 대 한 지원 서비스를 도입 했습니다. ABAP Platform 1809부터 시작 하 여 큐에 넣기 서버 2가 기본적으로 설치 됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) 을 참조 하세요.
+   [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용 하는 경우 다음과 같이 SAP systems **n w 2** 및 **NW3** 에 대 한 리소스를 정의 합니다.
+
+    ```
+     sudo crm configure property maintenance-mode="true"
+    
+     sudo crm configure primitive rsc_sap_NW2_ASCS10 SAPInstance \
+      operations \$id=rsc_sap_NW2_ASCS10-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
+      AUTOMATIC_RECOVER=false \
+      meta resource-stickiness=5000 
+    
+     sudo crm configure primitive rsc_sap_NW2_ERS12 SAPInstance \
+      operations \$id=rsc_sap_NW2_ERS12-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true 
+    
+     sudo crm configure modgroup g-NW2_ASCS add rsc_sap_NW2_ASCS10
+     sudo crm configure modgroup g-NW2_ERS add rsc_sap_NW2_ERS12
+    
+     sudo crm configure colocation col_sap_NW2_no_both -5000: g-NW2_ERS g-NW2_ASCS
+     sudo crm configure order ord_sap_NW2_first_start_ascs Optional: rsc_sap_NW2_ASCS10:start rsc_sap_NW2_ERS12:stop symmetrical=false
+   
+     sudo crm configure primitive rsc_sap_NW3_ASCS20 SAPInstance \
+      operations \$id=rsc_sap_NW3_ASCS20-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW3_ASCS10_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
+      AUTOMATIC_RECOVER=false \
+      meta resource-stickiness=5000
+    
+     sudo crm configure primitive rsc_sap_NW3_ERS22 SAPInstance \
+      operations \$id=rsc_sap_NW3_ERS22-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW3_ERS22_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true
+    
+     sudo crm configure modgroup g-NW3_ASCS add rsc_sap_NW3_ASCS20
+     sudo crm configure modgroup g-NW3_ERS add rsc_sap_NW3_ERS22
+    
+     sudo crm configure colocation col_sap_NW3_no_both -5000: g-NW3_ERS g-NW3_ASCS
+     sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
+     sudo crm configure property maintenance-mode="false"
+    ```
+
+   이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019)을 참조 하세요. 
 
    클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
    다음 예에서는 SAP systems **n w 2** 및 **NW3** 가 클러스터에 추가 된 후의 클러스터 리소스 상태를 보여 줍니다. 

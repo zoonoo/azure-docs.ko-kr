@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Storage Explorer를 사용하여 Azure DevTest Labs에 VHD 파일 업로드 | Microsoft Docs
+title: Storage 탐색기를 사용 하 여 Azure DevTest Labs에 VHD 파일 업로드
 description: Microsoft Azure Storage Explorer를 사용하여 랩의 Storage 계정에 VHD 파일 업로드
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 3c187d104334fe75ec9e0ce41a3fdc14b508dfb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623426"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170364"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer를 사용하여 랩의 Storage 계정에 VHD 파일 업로드
 
@@ -31,7 +31,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
 다음 단계는 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 DevTest Labs로 VHD 파일을 업로드하는 과정을 안내합니다.
 
-1. [Microsoft Azure Storage 탐색기 최신 버전을 다운로드하여 설치합니다](https://www.storageexplorer.com).
+1. [Microsoft Azure Storage Explorer 최신 버전을 다운로드하여 설치합니다](https://www.storageexplorer.com).
 
 1. Azure Portal을 사용하여 랩의 스토리지 계정 이름을 가져옵니다.
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB의 기본 제공 노트북 명령 및 기능 사용
+title: Azure Cosmos DB의 기본 제공 노트북 명령 및 기능 사용 (미리 보기)
 description: 기본 제공 명령 및 기능을 사용 하 여 Azure Cosmos DB의 기본 제공 노트북을 사용 하는 일반적인 작업을 수행 하는 방법을 알아봅니다.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: dech
-ms.openlocfilehash: f5ab1491c8561c90b06374a0a58f160cbcdd1cad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2066701a88e03feb29bd1689f36460765f1c638d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444641"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264715"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Azure Cosmos DB의 기본 제공 노트북 명령 및 기능 사용
 

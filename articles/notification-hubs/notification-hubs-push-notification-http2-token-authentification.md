@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs의 APNS에 대한 토큰 기반(HTTP/2) 인증 | Microsoft Docs
-description: 이 항목에서는 APNS에 대해 새로운 토큰 인증을 사용 하는 방법에 대해 설명 합니다.
+title: Azure Notification Hubs의 APNS에 대 한 토큰 기반 (HTTP/2) 인증 | Microsoft Docs
+description: APNS에 대 한 새 토큰 인증을 사용 하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 56689981d6c85c844fefbec6a4ec4aeb041dbc7f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111983"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263815"
 ---
-# <a name="token-based-http2-authentication-for-apns"></a>APNS에 대한 토큰 기반(HTTP/2) 인증
+# <a name="token-based-http2-authentication-for-apns"></a>APNS에 대 한 토큰 기반 (HTTP/2) 인증
 
 ## <a name="overview"></a>개요
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972618"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169369"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -25,9 +25,12 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 * 비디오 파일을 요청 본문의 바이트 배열로 보냅니다.
 * [자산 ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (유료 계정 에서만 지원 됨)를 제공 하 여 기존 Azure Media Services 자산을 사용 합니다.
 
-이 문서에서는 [비디오 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API를 사용하여 URL에 따라 비디오를 업로드하고 인덱싱하는 방법을 보여 줍니다. 이 문서의 코드 샘플에는 바이트 배열을 업로드하는 방법을 보여 주는 주석 처리된 코드가 포함되어 있습니다. <br/>또한 이 문서에서는 API의 프로세스 및 출력을 변경하기 위해 API에 설정할 수 있는 몇 가지 매개 변수에 대해서도 설명합니다.
+비디오를 업로드 한 후에는 Video Indexer (선택 사항) 비디오를 인코딩합니다 (이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
-비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
+이 문서에서는 다음 옵션으로 비디오를 업로드 하 고 인덱싱하는 방법을 보여 줍니다.
+
+* [Video Indexer 웹 사이트](#website) 
+* [Video Indexer Api](#apis)
 
 ## <a name="uploading-considerations-and-limitations"></a>고려 사항 및 제한 사항 업로드
  
@@ -40,6 +43,10 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 - `videoURL` 매개 변수에 제공 된 URL을 인코딩해야 합니다.
 - 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한이 적용 됩니다.
 - 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer 합니다.
+- URL에 액세스할 수 있어야 합니다 (예: 공용 URL). 
+
+    개인 URL 인 경우 요청에서 액세스 토큰을 제공 해야 합니다.
+- URL은 `www.youtube.com` 페이지에 대 한 링크와 같은 웹 페이지가 아닌 유효한 미디어 파일을 가리켜야 합니다.
 - 분당 최대 60 영화를 업로드할 수 있습니다.
 
 > [!Tip]
@@ -47,15 +54,39 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 >
 > 이전 .NET Framework를 사용해야 하는 경우 REST API를 호출하기 전에 코드에 다음과 같은 한 줄을 추가합니다.  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-## <a name="configurations-and-params"></a>구성 및 매개 변수
+## <a name="supported-file-formats-for-video-indexer"></a>Video Indexer에 대해 지원 되는 파일 형식
+
+Video Indexer에서 사용할 수 있는 파일 형식 목록은 [입력 컨테이너/파일 형식](../latest/media-encoder-standard-formats.md#input-containerfile-formats) 문서를 참조 하세요.
+
+## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용 하 여 비디오 업로드 및 인덱싱 <a id="website"/>
+
+> [!NOTE]
+> 비디오 이름은 80자를 넘지 않아야 합니다.
+
+1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다.
+2. 비디오를 업로드하려면 **업로드** 단추나 링크를 누릅니다.
+
+    ![업로드](./media/video-indexer-get-started/video-indexer-upload.png)
+
+    비디오가 업로드되면 Video Indexer가 인덱싱 및 비디오 분석을 시작합니다.
+
+    ![업로드됨](./media/video-indexer-get-started/video-indexer-uploaded.png) 
+
+    Video Indexer가 분석을 완료하면 비디오에 대한 링크와 비디오 분석 결과에 관한 간단한 설명이 포함된 알림을 받게 됩니다. 예: 사람, 주제, OCR.
+
+## <a name="a-idapisupload-and-index-with-api"></a>API를 사용 하 여 업로드 및 인덱스 <a id="apis"/>
+
+[비디오 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API를 사용 하 여 URL을 기준으로 비디오를 업로드 하 고 인덱싱합니다. 다음 코드 샘플에는 바이트 배열을 업로드 하는 방법을 보여 주는 주석 처리 된 코드가 포함 되어 있습니다. 
+
+### <a name="configurations-and-params"></a>구성 및 매개 변수
 
 이 섹션에서는 선택적 매개 변수 중 일부와 매개 변수를 설정해야 하는 경우에 대해 설명합니다.
 
-### <a name="externalid"></a>externalID 
+#### <a name="externalid"></a>externalID 
 
 이 매개 변수를 사용하면 비디오와 연결할 ID를 지정할 수 있습니다. ID는 외부 "VCM(비디오 콘텐츠 관리)" 시스템 통합에 적용할 수 있습니다. Video Indexer 포털에 있는 비디오는 지정된 외부 ID를 사용하여 검색할 수 있습니다.
 
-### <a name="callbackurl"></a>callbackUrl
+#### <a name="callbackurl"></a>callbackUrl
 
 POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사용되는 URL입니다.
 
@@ -79,12 +110,12 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
         
     - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>메모
+##### <a name="notes"></a>메모
 
 - Video Indexer는 원래 URL에 제공된 기존 매개 변수를 반환합니다.
 - 제공된 URL은 인코딩해야 합니다.
 
-### <a name="indexingpreset"></a>indexingPreset
+#### <a name="indexingpreset"></a>indexingPreset
 
 원시 또는 외부 녹음에 백그라운드 노이즈가 있는 경우 이 매개변수를 사용합니다. 이 매개 변수는 인덱싱 프로세스를 구성하는 데 사용됩니다. 지정할 수 있는 값은 다음과 같습니다.
 
@@ -95,13 +126,13 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 가격은 선택한 인덱싱 옵션에 따라 달라집니다.  
 
-### <a name="priority"></a>priority
+#### <a name="priority"></a>priority
 
 비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **Low**(낮음), **Normal**(보통, 기본값), and **High**(높음)입니다.
 
 **priority** 매개 변수는 유료 계정에서만 지원됩니다.
 
-### <a name="streamingpreset"></a>streamingPreset
+#### <a name="streamingpreset"></a>streamingPreset
 
 비디오가 업로드되면 Video Indexer에서 필요에 따라 비디오를 인코딩합니다. 그런 다음, 비디오 인덱싱 및 분석을 계속 진행합니다. Video Indexer에서 분석이 완료되면 비디오 ID가 있는 알림을 받게 됩니다.  
 
@@ -111,17 +142,17 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 비디오 인덱싱만 수행하고 인코딩은 수행하지 않으려면 `streamingPreset`을 `NoStreaming`으로 설정합니다.
 
-### <a name="videourl"></a>videoUrl
+#### <a name="videourl"></a>videoUrl
 
 인덱싱할 비디오/오디오 파일의 URL입니다. URL은 미디어 파일을 가리켜야 합니다(HTML 페이지는 지원되지 않음). 파일은 URI의 일부로 제공되는 액세스 토큰으로 보호할 수 있으며, 파일을 제공하는 엔드포인트는 TLS 1.2 이상으로 보호해야 합니다. URL은 인코딩해야 합니다. 
 
 `videoUrl`이 지정되지 않으면 Video Indexer에서 파일을 다중 파트/양식 본문 콘텐츠로 전달해야 합니다.
 
-## <a name="code-sample"></a>코드 샘플
+### <a name="code-sample"></a>코드 샘플
 
 다음 C# 코드 조각에서는 모든 Video Indexer API를 사용하는 방법을 보여 줍니다.
 
-### <a name="instructions-for-running-this-code-sample"></a>이 코드 샘플을 실행 하기 위한 지침
+#### <a name="instructions-for-running-this-code-sample"></a>이 코드 샘플을 실행 하기 위한 지침
 
 이 코드를 개발 플랫폼에 복사한 후에 API Management 인증 키와 비디오 URL의 두 매개 변수를 제공 해야 합니다.
 
@@ -308,7 +339,8 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
-## <a name="common-errors"></a>일반 오류
+
+### <a name="common-errors"></a>일반 오류
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 

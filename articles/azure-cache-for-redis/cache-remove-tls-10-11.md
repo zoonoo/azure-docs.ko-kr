@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 2f6203deb5e06ba69a3b4d06297d5e702992c79d
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 77f526470204204ef2a801575bb4e8d7e364ffed
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708059"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260159"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Redis 용 Azure Cache를 사용 하 여 TLS 1.0 및 1.1을 제거 합니다.
 
@@ -19,8 +19,8 @@ TLS (전송 계층 보안) 버전 1.2 이상에 대 한 독점 사용에 대 한
 
 이러한 노력의 일환으로 Redis 용 Azure Cache를 다음과 같이 변경 합니다.
 
-* 2020 년 1 월 13 일부 터 새로 만든 캐시 인스턴스에 대해 기본 최소 TLS 버전을 1.2로 구성 합니다.  이 시점에서 기존 캐시 인스턴스는 업데이트 되지 않습니다.  필요한 경우 이전 버전과의 호환성을 위해 [최소 TLS 버전](cache-configure.md#access-ports) 을 1.0 또는 1.1로 다시 변경할 수 있습니다.  이러한 변경은 Azure Portal 또는 다른 관리 Api를 통해 수행할 수 있습니다.
-* 2020 년 3 월 31 일부터 TLS 버전 1.0 및 1.1의 지원이 중지 됩니다. 이렇게 변경한 후에는 응용 프로그램에서 TLS 1.2 이상 버전을 사용 하 여 캐시와 통신 해야 합니다.
+* **1 단계:** 새로 만든 캐시 인스턴스에 대해 기본 최소 TLS 버전을 1.2로 구성 합니다.  이 시점에서 기존 캐시 인스턴스는 업데이트 되지 않습니다.  필요한 경우 이전 버전과의 호환성을 위해 [최소 TLS 버전](cache-configure.md#access-ports) 을 1.0 또는 1.1로 다시 변경할 수 있습니다.  이러한 변경은 Azure Portal 또는 다른 관리 Api를 통해 수행할 수 있습니다.
+* **2 단계:** TLS 버전 1.0 및 1.1은 지원 하지 않습니다. 이렇게 변경한 후에는 응용 프로그램에서 TLS 1.2 이상 버전을 사용 하 여 캐시와 통신 해야 합니다.
 
 또한이 변경의 일환으로, 안전 하지 않은 이전 암호 제품군에 대 한 지원이 제거 될 예정입니다.  최소 TLS 버전 1.2를 사용 하 여 캐시를 구성 하는 경우 지원 되는 암호 제품군은 다음으로 제한 됩니다.
 
@@ -28,6 +28,15 @@ TLS (전송 계층 보안) 버전 1.2 이상에 대 한 독점 사용에 대 한
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
 
 이 문서에서는 이러한 이전 TLS 버전에 대 한 종속성을 검색 하 고 응용 프로그램에서 제거 하는 방법에 대 한 일반적인 지침을 제공 합니다.
+
+이러한 변경 내용이 적용 되는 날짜는 다음과 같습니다.
+
+| 클라우드               | 1 단계 시작 날짜 | 2 단계 시작 날짜 |
+|---------------------|--------------------|--------------------|
+| Azure (전역)      |  2020 년 1 월 13 일  | 2020 년 3 월 31 일     |
+| Azure Government    |  3 월 13 일, 2020    | 5 월 11 일, 2020       |
+| Azure Germany       |  3 월 13 일, 2020    | 5 월 11 일, 2020       |
+| Azure China         |  3 월 13 일, 2020    | 5 월 11 일, 2020       |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>응용 프로그램이 이미 호환 되는지 확인
 

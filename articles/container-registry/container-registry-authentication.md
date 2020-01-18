@@ -4,12 +4,12 @@ description: Azure 컨테이너 레지스트리에 대한 인증 옵션(Azure Ac
 ms.topic: article
 ms.date: 12/21/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29e23f6a983ccc2197e609511aee2ce13726ed0f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: fbe77dee4104e3c654aad58db82765733b2c3e1d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455380"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264512"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>프라이빗 Docker 컨테이너 레지스트리로 인증
 
@@ -19,7 +19,7 @@ Azure Container Registry로 인증하는 방법은 여러 가지가 있으며 �
 
 ## <a name="individual-login-with-azure-ad"></a>Azure AD로 개별 로그인
 
-개발용 워크스테이션에서 이미지 풀 및 푸시와 같이 직접 레지스트리를 사용하여 작업할 때 [Azure CLI](/cli/azure/acr?view=azure-cli-latest#az-acr-login)에서 [az acr login](/cli/azure/install-azure-cli) 명령을 사용하여 인증합니다.
+개발용 워크스테이션에서 이미지 풀 및 푸시와 같이 직접 레지스트리를 사용하여 작업할 때 [Azure CLI](/cli/azure/install-azure-cli)에서 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) 명령을 사용하여 인증합니다.
 
 ```azurecli
 az acr login --name <acrName>
@@ -27,9 +27,9 @@ az acr login --name <acrName>
 
 `az acr login`을 사용하여 로그인하는 경우 CLI는 [az login](/cli/azure/reference-index#az-login)을 실행할 때 만든 토큰을 사용하여 원활하게 레지스트리로 세션을 인증합니다. 이러한 방식으로 로그인하고 나면 자격 증명이 캐시되고 세션의 후속 `docker` 명령에 사용자 이름 또는 암호가 필요하지 않습니다. 
 
-레지스트리 액세스의 경우 `az acr login`에 사용되는 토큰은 1시간 동안 유효하므로 항상 `docker` 명령을 실행하기 전에 레지스트리에 로그인하는 것이 좋습니다. 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. 
+레지스트리 액세스의 경우 `az acr login`에서 사용 하는 토큰은 **3 시간**동안 유효 하므로 `docker` 명령을 실행 하기 전에 항상 레지스트리에 로그인 하는 것이 좋습니다. 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. 
 
-Azure ID와 함께 `az acr login`을 사용하면 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 제공합니다. Azure AD에서 개인 ID로 레지스트리에 로그인하려는 시나리오가 있을 수 있습니다. 교차 서비스 시나리오 또는 개별 액세스를 관리하지 않으려는 작업 그룹의 요구 사항을 처리해야 하는 시나리오에서는 [Azure 리소스에 대한 관리 ID](container-registry-authentication-managed-identity.md)로 로그인할 수도 있습니다.
+Azure ID와 함께 `az acr login`을 사용하면 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 제공합니다. 일부 시나리오의 경우 Azure AD에서 고유한 개별 id를 사용 하 여 레지스트리에 로그인 할 수 있습니다. 교차 서비스 시나리오 또는 개별 액세스를 관리하지 않으려는 작업 그룹의 요구 사항을 처리해야 하는 시나리오에서는 [Azure 리소스에 대한 관리 ID](container-registry-authentication-managed-identity.md)로 로그인할 수도 있습니다.
 
 ## <a name="service-principal"></a>서비스 주체
 
@@ -55,7 +55,7 @@ CLI 스크립트에서 Azure container registry를 사용 하 여 인증 하는 
 > 관리자 계정은 주로 테스트 용도로 단일 사용자가 레지스트리에 액세스하도록 설계되었습니다. 관리자 계정 자격 증명을 여러 사용자 간에 공유 하지 않는 것이 좋습니다. 관리자 계정으로 인증하는 모든 사용자는 레지스트리에 대한 푸시 및 풀 액세스 권한이 있는 단일 사용자로 나타납니다. 이 계정을 변경하거나 사용하지 않도록 설정하면 해당 자격 증명을 사용하는 모든 사용자의 레지스트리 액세스는 허용되지 않습니다. 헤드리스 시나리오의 경우 사용자 및 서비스 주체는 개별 ID를 사용하는 것이 좋습니다.
 >
 
-관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 관리자 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증 메시지가 표시될 때 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 관리자 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증 메시지가 표시될 때 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 예:
 
 ```
 docker login myregistry.azurecr.io 
@@ -63,7 +63,7 @@ docker login myregistry.azurecr.io
 
 로그인 자격 증명을 관리 하는 모범 사례는 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조 하세요.
 
-기존 레지스트리에 대한 관리 사용자를 사용하도록 설정하려면 Azure CLI에서 `--admin-enabled`az acr update[ 명령의 ](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 매개 변수를 사용하면 됩니다.
+기존 레지스트리에 대한 관리 사용자를 사용하도록 설정하려면 Azure CLI에서 [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 명령의 `--admin-enabled` 매개 변수를 사용하면 됩니다.
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

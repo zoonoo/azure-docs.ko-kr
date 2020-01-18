@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401026"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168888"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor의 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경을 최적화 합니다.
 
@@ -196,6 +196,19 @@ Azure Monitor에서 평가 솔루션을 사용 하려면 먼저 솔루션이 설
 3. 무시된 권장 사항을 나중에 보려면 IgnoreRecommendations.txt 파일을 제거합니다. 또는 파일에서 RecommendationID를 제거할 수도 있습니다.
 
 ## <a name="sql-health-check-solution-faq"></a>SQL Health Check 솔루션 FAQ
+
+*SQL 평가 솔루션에서 수행 하는 검사는 무엇입니까?*
+
+* 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여 줍니다.
+
+```Kusto
+SQLAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+추가 검토를 위해 결과를 Excel로 내보낼 수 있습니다.
+
+
 *상태 검사를 얼마나 자주 실행하나요?*
 
 * 검사는 7일마다 실행됩니다.

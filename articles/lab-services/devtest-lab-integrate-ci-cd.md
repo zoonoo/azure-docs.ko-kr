@@ -1,5 +1,5 @@
 ---
-title: Azure Pipelines 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs 통합 | Microsoft Docs
+title: Azure Pipelines에 Azure DevTest Labs 통합
 description: Azure Pipelines 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs를 통합하는 방법을 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 20ba297d22e26aa8c7e20db300173f12582d257e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 54b4e6e6a283f46e03f7b94ce96ba79a03f75523
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224476"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170387"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Azure Pipelines CI/CD 파이프라인에 Azure DevTest Labs 통합
 
 *Azure DevTest Labs 작업* 확장을 사용 하 여 Azure Pipelines 지속적인 통합 및 지속적인 업데이트 (CI/CD) 빌드 및 릴리스 파이프라인을 Azure DevTest Labs와 통합할 수 있습니다. 확장은 다음을 비롯 한 몇 가지 작업을 설치 합니다. 
 
-- VM (가상 컴퓨터) 만들기
+- VM(가상 머신) 만들기
 - VM에서 사용자 지정 이미지 만들기
 - VM 삭제 
 
@@ -35,7 +35,7 @@ ms.locfileid: "71224476"
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - [Azure DevOps](https://dev.azure.com) 조직에 등록 또는 로그인 하 고 조직에 [프로젝트를 만듭니다](/vsts/organizations/projects/create-project) . 
   
@@ -106,7 +106,7 @@ ms.locfileid: "71224476"
 
 새 릴리스 파이프라인을 만들려면 다음을 수행 합니다.
 
-1. Azure devops 프로젝트 페이지의 왼쪽 탐색 영역에서 **파이프라인** > **릴리스** 를 선택 합니다.
+1. Azure DevOps 프로젝트 페이지의 왼쪽 탐색 영역에서 **파이프라인** > **릴리스** 를 선택 합니다.
 1. **새 파이프라인**을 선택합니다.
 1. **템플릿 선택**에서 아래로 스크롤하여 **빈 작업**을 선택 하 고 **적용**을 선택 합니다.
 
@@ -130,7 +130,7 @@ ms.locfileid: "71224476"
 
 다음 단계는 향후 배포에 사용할 골든 이미지 VM을 만드는 것입니다. *AZURE DEVTEST LABS Vm 만들기* 작업을 사용 하 여 Azure DevTest Labs 인스턴스 내에서 vm을 만듭니다.
 
-1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업**옆에 있는 더하기 기호를 선택 합니다. 
+1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **에이전트 작업**옆에 있는 더하기 기호 **+** 를 선택 합니다. 
    
 1. **작업 추가**에서 **VM Azure DevTest Labs 만들기**를 선택 하 고 **추가**를 선택 합니다. 
    
@@ -150,11 +150,11 @@ ms.locfileid: "71224476"
 
 이전에 만든 스크립트를 실행하여 DevTest Labs VM의 세부 정보를 수집합니다. 
 
-1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업**옆에 있는 더하기 기호를 선택 합니다. 
+1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **에이전트 작업**옆에 있는 더하기 기호 **+** 를 선택 합니다. 
    
 1. **작업 추가**에서 **Azure PowerShell**를 선택 하 고 **추가**를 선택 합니다. 
    
-1. Azure PowerShell **스크립트를 선택 합니다. 왼쪽** 창의 FilePath. 
+1. 왼쪽 창에서 **Azure PowerShell 스크립트: FilePath** 를 선택 합니다. 
    
 1. 오른쪽 창에서 다음과 같이 양식을 작성합니다.
    
@@ -172,7 +172,7 @@ ms.locfileid: "71224476"
 
 다음 작업은 Azure DevTest Labs 인스턴스에 새로 배포 된 VM의 이미지를 만드는 것입니다. 그런 다음, 개발 작업을 실행하거나 일부 테스트를 실행하고자 할 때마다 필요에 따라 이미지를 사용하여 VM의 복사본을 만듭니다. 
 
-1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업**옆에 있는 더하기 기호를 선택 합니다. 
+1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **에이전트 작업**옆에 있는 더하기 기호 **+** 를 선택 합니다. 
    
 1. **작업 추가**에서 **Azure DevTest Labs 사용자 지정 이미지 만들기**를 선택 하 고 **추가**를 선택 합니다. 
    
@@ -183,8 +183,8 @@ ms.locfileid: "71224476"
    |**Azure RM 구독**|서비스 연결 또는 구독을 선택 합니다.|
    |**랩 이름**|이미지가 생성 될 기존 랩의 이름을 선택 합니다.|
    |**사용자 지정 이미지 이름**|사용자 지정 이미지의 이름을 입력 합니다.|
-   |**설명** 필드|나중에 올바른 이미지를 쉽게 선택할 수 있도록 설명을 입력 합니다.|
-   |**원본 랩 vm** > **원본 랩 vm ID**|사용자가이 랩 변수의 기본 이름을 변경한 경우 여기에 입력 합니다. 기본값은 **$(labVMId)** 입니다.|
+   |**설명** (선택 사항)|나중에 올바른 이미지를 쉽게 선택할 수 있도록 설명을 입력 합니다.|
+   |원본 **랩 vm** > **원본 랩 vm ID**|사용자가이 랩 변수의 기본 이름을 변경한 경우 여기에 입력 합니다. 기본값은 **$(labVMId)** 입니다.|
    |**출력 변수** > **사용자 지정 이미지 ID**|필요한 경우 변수의 기본 이름을 편집할 수 있습니다.|
    
 ### <a name="deploy-your-app-to-the-devtest-labs-vm-optional"></a>DevTest Labs VM에 앱 배포 (선택 사항)
@@ -197,7 +197,7 @@ ms.locfileid: "71224476"
 
 최종 작업은 Azure DevTest Labs 인스턴스에 배포 된 VM을 삭제 하는 것입니다. 일반적으로 배포된 VM에서 필요한 개발 작업을 실행하거나 테스트를 실행한 후 VM을 삭제합니다. 
 
-1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업**옆에 있는 더하기 기호를 선택 합니다. 
+1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **에이전트 작업**옆에 있는 더하기 기호 **+** 를 선택 합니다. 
    
 1. **작업 추가**에서 **VM Azure DevTest Labs 삭제**를 선택 하 고 **추가**를 선택 합니다. 
    

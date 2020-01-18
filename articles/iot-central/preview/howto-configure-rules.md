@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f528135445824a17a8d8c95913adf6934cc87eb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895741"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260128"
 ---
 # <a name="configure-rules-preview-features"></a>규칙 구성 (미리 보기 기능)
 
@@ -33,7 +33,7 @@ IoT Central 규칙은 연결 된 장치에서 적극적으로 모니터링 되�
 
 조건은 규칙이 트리거되는 조건입니다. 현재, 규칙에 여러 조건을 추가 하는 경우에는 논리적이 고 함께 사용할 수 있습니다. 즉, 규칙이 true로 평가 되려면 모든 조건을 충족 해야 합니다.  
 
-다음 스크린샷에서 조건은 온도가 90 보다 크고 습도가 10 보다 작은 경우를 확인 합니다. 두 문이 모두 true 이면 규칙이 true로 평가 되 고 작업을 트리거합니다.
+다음 스크린샷에서 조건은 온도가 70&deg; F 보다 크고 습도가 10 보다 작은 경우를 확인 합니다. 두 문이 모두 true 이면 규칙이 true로 평가 되 고 작업을 트리거합니다.
 
 ![조건](media/howto-configure-rules/conditions.png)
 

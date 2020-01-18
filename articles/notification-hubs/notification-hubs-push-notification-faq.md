@@ -1,6 +1,6 @@
 ---
-title: 'Azure Notification Hubs: FAQ(질문과 대답) | Microsoft Docs'
-description: Notification Hubs에서 솔루션을 디자인/구현하는 방법과 관련한 FAQ
+title: Azure Notification Hubs Faq (질문과 대답) | Microsoft Docs
+description: Azure Notification Hubs 솔루션 디자인 및 구현에 대 한 Faq입니다.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066869"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263832"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 
@@ -153,7 +153,7 @@ Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/sto
 
 중요한 페이로드를 전송하려면 보안 푸시 패턴을 사용하는 것이 좋습니다. 보낸 사람은 메시지 식별자가 포함된 ping 알림을 중요한 페이로드 없이 디바이스에 배달합니다. 디바이스의 앱이 페이로드를 수신하면 앱에서 보안 API를 직접 호출하여 메시지 세부 정보를 가져옵니다. 이 패턴을 구현하는 방법에 대한 가이드를 보려면 [Notification Hubs 보안 푸시 자습서] 페이지로 이동하세요.
 
-## <a name="operations"></a>작업
+## <a name="operations"></a>운영
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>재해 복구에는 어떤 지원이 제공되나요?
 

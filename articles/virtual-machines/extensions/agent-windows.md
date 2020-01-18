@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 7185ac40cafce86c68efbf28c7e6a35fd4789bc3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 24369ed547b811b212518193a2ae2f76ed197754
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027647"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264630"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -61,7 +61,8 @@ VM을 부팅하려면 VM에 PA가 설치되어 있어야 하지만 WinGA는 설�
 ### <a name="manual-installation"></a>수동 설치
 Windows VM 에이전트는 Windows 설치 관리자 패키지를 사용하여 수동으로 설치할 수 있습니다. Azure에 배포된 사용자 지정 VM 이미지를 만들 때 수동 설치가 필요할 수 있습니다. Windows VM 에이전트를 수동으로 설치하려면 [VM 에이전트 설치 관리자를 다운로드합니다](https://go.microsoft.com/fwlink/?LinkID=394789). VM 에이전트는 Windows Server 2008 R2 이상에서 지원 됩니다.
 
-> [참고!] ProvisionVMAgent를 사용 하지 않고 이미지에서 배포 된 VM에 VMAgent를 수동으로 설치한 후 AllowExtensionOperations 옵션을 업데이트 하는 것이 중요 합니다.
+> [!NOTE]
+> ProvisionVMAgent를 사용 하지 않고 이미지에서 배포 된 VM에 VMAgent를 수동으로 설치한 후 AllowExtensionOperations 옵션을 업데이트 하는 것이 중요 합니다.
 
 ```powershell
 $vm.OSProfile.AllowExtensionOperations = $true

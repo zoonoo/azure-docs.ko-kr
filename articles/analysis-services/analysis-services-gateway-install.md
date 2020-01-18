@@ -4,21 +4,21 @@ description: 온-프레미스 데이터 게이트웨이를 설치 및 구성 하
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f578840726543027a8c1b1db9bd88ea42f6e85fa
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029887"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264070"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
-동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다.  설치한 게이트웨이는 Power BI, Power Apps 및 Logic Apps와 같은 다른 서비스에서 사용 하는 것과 동일 하지만 Azure Analysis Services를 설치할 때 몇 가지 추가 단계를 완료 해야 합니다. 이 설치 문서는 **Azure Analysis Services**에만 적용 됩니다.
+동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다.  설치한 게이트웨이는 Power BI, Power Apps 및 Logic Apps와 같은 다른 서비스에서 사용 하는 것과 동일 하지만 Azure Analysis Services를 설치할 때 몇 가지 추가 단계를 완료 해야 합니다. 이 설치 문서는 **Azure Analysis Services**에만 적용 됩니다. 
 
-게이트웨이에 대 한 자세한 내용 및 Azure Analysis Services 사용 방법에 대 한 자세한 내용은 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조 하세요.
+Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자세히 알아보려면 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조 하세요. 일반적인 고급 설치 시나리오 및 게이트웨이에 대 한 자세한 내용은 [온-프레미스 데이터 게이트웨이 설명서](/data-integration/gateway/service-gateway-onprem)를 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -35,11 +35,11 @@ ms.locfileid: "76029887"
 
 **중요 고려 사항:**
 
-* 설치하는 동안 Azure로 게이트웨이를 등록하는 경우 구독에 대한 기본 지역이 선택됩니다. 다른 지역을 선택할 수 있습니다. 서버가 여러 지역에 있는 경우 각 지역에 대한 게이트웨이를 설치해야 합니다. 
+* 설치하는 동안 Azure로 게이트웨이를 등록하는 경우 구독에 대한 기본 지역이 선택됩니다. 다른 구독 및 지역을 선택할 수 있습니다. 서버가 여러 지역에 있는 경우 각 지역에 대한 게이트웨이를 설치해야 합니다. 
 * 도메인 컨트롤러에 게이트웨이를 설치할 수 없습니다.
 * 단일 컴퓨터에는 하나의 게이트웨이를 설치할 수 있습니다.
 * 유지되고 대기 상태로 전환되지 않는 컴퓨터에 게이트웨이를 설치합니다.
-* 네트워크에 무선으로 연결된 컴퓨터에 게이트웨이를 설치하지 않습니다. 성능이 감소될 수 있습니다.
+* 무선 전용 연결을 사용 하는 컴퓨터에 게이트웨이를 네트워크에 설치 하지 마십시오. 성능이 감소될 수 있습니다.
 * 게이트웨이를 설치할 때 컴퓨터에 로그인한 사용자 계정에는 서비스로 로그온 권한이 있어야 합니다. 설치가 완료되면 온-프레미스 데이터 게이트웨이 서비스가 NT SERVICE\PBIEgwService 계정을 사용하여 서비스로 로그온합니다. 다른 계정은 설정하는 동안 지정하거나 설정 완료 후 서비스에서 지정할 수 있습니다. 그룹 정책 설정에서 설치할 때 로그인한 계정 및 사용자가 선택한 서비스로 로그온 권한이 있는 서비스 계정을 둘 다 허용하는지 확인합니다.
 * 게이트웨이를 등록한 구독과 동일한 [테넌트](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant)의 Azure AD 계정으로 Azure에 로그인합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
 * 데이터 원본이 Azure VNet(Virtual Network)에 있는 경우 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 서버 속성을 구성해야 합니다.
@@ -87,7 +87,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
 ## <a name="create-resource"></a>Azure 게이트웨이 리소스 만들기
 
-게이트웨이를 설치 및 등록한 후 Azure 구독에 게이트웨이 리소스를 만들어야 합니다. 게이트웨이를 등록할 때 사용했던 동일한 계정으로 Azure에 로그인합니다.
+게이트웨이를 설치 하 고 등록 한 후에는 Azure에서 게이트웨이 리소스를 만들어야 합니다. 게이트웨이를 등록할 때 사용했던 동일한 계정으로 Azure에 로그인합니다.
 
 1. Azure Portal에서 **리소스 만들기**를 클릭 한 다음 **온-프레미스 데이터 게이트웨이**를 검색 하 고 **만들기**를 클릭 합니다.
 

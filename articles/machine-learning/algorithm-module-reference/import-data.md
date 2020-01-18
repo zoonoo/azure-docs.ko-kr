@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529612"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166780"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
 
@@ -27,7 +27,7 @@ ms.locfileid: "75529612"
 > 데이터 집합을 등록 한 후 **에는 디자이너** 인터페이스에서 내 데이터 집합 -> **내 데이터** 집합 범주에서 찾을 수 있습니다. 이 모듈은 익숙한 환경을 위해 Studio (클래식) 사용자 용으로 예약 되어 있습니다. 
 >
 
-먼저 읽고 있는 원본을 선택 하 고 추가 설정을 완료 합니다. **데이터 가져오기** 모듈은 다음 원본에서 데이터 읽기를 지원 합니다.
+**데이터 가져오기** 모듈은 다음 원본에서 데이터 읽기를 지원 합니다.
 
 - HTTP를 통한 URL
 - [**Datastores**](../how-to-access-data.md)를 통한 Azure 클라우드 저장소)

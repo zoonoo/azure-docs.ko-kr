@@ -4,8 +4,6 @@
   items:
     - name: 부하 분산 장치란?
       href: load-balancer-overview.md
-    - name: 표준 Load Balancer란?
-      href: load-balancer-standard-overview.md
 - name: 빠른 시작
   items:
     - name: 표준 Load Balancer 만들기

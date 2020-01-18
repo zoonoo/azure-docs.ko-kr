@@ -1,6 +1,6 @@
 ---
 title: Python과 함께 Notification Hubs를 사용하는 방법
-description: Python 백 엔드에서 Azure Notification Hubs를 사용하는 방법에 대해 알아봅니다.
+description: Python 백 엔드에서 Azure Notification Hubs를 사용 하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5321802023d57bedc135e2d19b2289f1d66deb72
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db5174ed6f008be0fed1fdf3c2c83d33277c3b4e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213069"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263798"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 
@@ -32,7 +32,7 @@ MSDN 문서 [Notification Hubs REST API](https://msdn.microsoft.com/library/dn22
 > [!NOTE]
 > 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다. 샘플은 Python 3.4를 사용하여 만들어졌습니다.
 
-이 문서에서는 다음 방법을 안내합니다.
+이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
 
 - Python에서 Notification Hubs 기능에 대한 REST 클라이언트를 빌드하는 방법
 - Python 인터페이스를 사용하여 알림 허브 REST API에 알림을 보냅니다.
@@ -376,7 +376,7 @@ hub.send_baidu_notification(baidu_payload)
 
 Python 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ### <a name="enabling-the-debug-property"></a>`debug` 속성 사용
 
@@ -447,7 +447,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
+이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 수행할 수 있습니다.
 
 - 이 문서의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
 - [속보 자습서]

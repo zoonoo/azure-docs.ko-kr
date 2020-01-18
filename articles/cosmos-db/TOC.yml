@@ -851,8 +851,6 @@
         - name: 일관성 수준 관리
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: how-to-manage-consistency.md
-        - name: 사용자 지정 동기화 구현
-          href: how-to-custom-synchronization.md
         - name: 충돌 해결 정책 구성
           href: how-to-manage-conflicts.md
     - name: 프로비전된 처리량
@@ -1125,7 +1123,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 무료로 Azure Cosmos DB 사용해 보기
       href: 'https://azure.microsoft.com/try/cosmosdb/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: 다중 마스터 혜택
       href: multi-master-benefits.md

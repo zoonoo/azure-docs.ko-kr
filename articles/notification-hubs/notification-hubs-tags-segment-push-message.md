@@ -1,6 +1,6 @@
 ---
-title: 라우팅 및 태그 식
-description: 이 문서는 Azure 알림 허브에 대한 알림 및 태그 식을 설명합니다.
+title: Azure Notification Hubs의 라우팅 및 태그 식
+description: Azure Notification Hubs 식의 경로 및 태그를 결정 하는 방법에 대해 알아봅니다.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 254517cc1d9cc042387b63147b2a3fd9bdeece5e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972008"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263781"
 ---
 # <a name="routing-and-tag-expressions"></a>라우팅 및 태그 식
 

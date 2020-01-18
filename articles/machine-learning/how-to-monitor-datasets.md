@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 524a831c63e2a034766b874cc45bb039e3185b50
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4efdc47e65f0f29f74f1477b02efdc6b8767ffb2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536877"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264766"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>데이터 집합에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -315,6 +315,7 @@ Azure Machine Learning studio에서 그래프의 데이터 요소를 클릭 하�
 * 기능 목록이 지정 되지 않은 경우 (모든 기능이 사용 됨) 200 기능의 제한 사항
 * 계산 크기는 데이터를 처리할 수 있을 만큼 커야 합니다. 
 * 지정 된 모니터 실행의 시작 및 종료 날짜 내에 데이터 집합의 데이터가 있는지 확인 합니다.
+* 데이터 집합 모니터는 50 개 이상의 행이 포함 된 데이터 집합에 대해서만 작동 합니다. 
 
 데이터 집합의 열 또는 기능은 다음 표의 조건에 따라 범주 또는 숫자로 분류 됩니다. 이 기능이 이러한 조건을 충족 하지 않는 경우 (예를 들어 고유 값이 100 > 포함 된 문자열 형식의 열)이 기능은 데이터 드리프트 알고리즘에서 삭제 되지만 여전히 프로 파일링 됩니다. 
 

@@ -1,6 +1,6 @@
 ---
 title: Notification Hubs 네임스페이스의 가격 책정 계층 변경 | Microsoft Docs
-description: Azure Notification Hubs 네임스페이스의 가격 책정 계층을 변경하는 방법을 알아봅니다.
+description: Azure Notification Hubs 네임 스페이스의 가격 책정 계층을 변경 하는 방법에 대해 알아봅니다.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -13,12 +13,12 @@ ms.date: 01/28/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 679e8b58e5876d5460b426e694df85ded992a36d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212572"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261078"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Azure Notification Hubs 네임스페이스의 가격 책정 계층 변경
 Notification Hubs는 **무료**, **기본** 및 **표준**의 세 가지 계층으로 제공됩니다. 이 문서에서는 Azure Notification Hubs 네임스페이스의 가격 책정 계층을 변경하는 방법을 설명합니다. 

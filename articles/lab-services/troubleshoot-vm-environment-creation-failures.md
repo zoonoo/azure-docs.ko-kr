@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs VM 및 환경 만들기 오류 문제 해결 Microsoft Docs
+title: VM 및 환경 오류 문제 해결 Azure DevTest Labs
 description: Azure DevTest Labs에서 VM (가상 머신) 및 환경 만들기 오류 문제를 해결 하는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,20 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 155a359608cf6d846578306545f5ce0b4003949c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129047"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166341"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Azure DevTest Labs에서 VM (가상 머신) 및 환경 만들기 오류 문제 해결
-DevTest Labs는 컴퓨터 이름이 잘못 되었거나 랩 정책을 위반 하는 경우 경고를 제공 합니다. 경우에 따라 문제가 발생 `X` 했음을 알리는 랩 VM 또는 환경 상태 옆에 빨간색이 표시 됩니다.  이 문서에서는 기본 문제를 찾고 나중에 문제를 방지 하는 데 사용할 수 있는 몇 가지 트릭을 제공 합니다.
+DevTest Labs는 컴퓨터 이름이 잘못 되었거나 랩 정책을 위반 하는 경우 경고를 제공 합니다. 경우에 따라 문제가 발생 했음을 알리는 랩 VM 또는 환경 상태 옆에 빨간색 `X` 표시 될 수 있습니다.  이 문서에서는 기본 문제를 찾고 나중에 문제를 방지 하는 데 사용할 수 있는 몇 가지 트릭을 제공 합니다.
 
 ## <a name="portal-notifications"></a>포털 알림
-Azure Portal 사용 하는 경우에는 **알림 패널이**가장 먼저 표시 되는 위치입니다.  알림 패널을 클릭 하 여 기본 명령 모음에서 사용할 수는 **벨 아이콘**, 알려 랩 VM 또는 환경 만들기 성공 했는지 여부입니다.  오류가 발생 한 경우 생성 오류와 관련 된 오류 메시지가 표시 됩니다. 이 정보는 문제를 해결 하는 데 도움이 되는 추가 정보를 제공 하는 경우가 많습니다. 다음 예제에서는 코어 부족으로 인해 가상 컴퓨터를 만들지 못했습니다. 자세한 메시지는 문제를 해결 하 고 코어 할당량 증가를 요청 하는 방법을 알려줍니다.
+Azure Portal 사용 하는 경우에는 **알림 패널이**가장 먼저 표시 되는 위치입니다.  알림 패널을 클릭 하 여 기본 명령 모음에서 사용할 수는 **벨 아이콘** , 알려 랩 VM 또는 환경 만들기 성공 했는지 여부입니다.  오류가 발생 한 경우 생성 오류와 관련 된 오류 메시지가 표시 됩니다. 이 정보는 문제를 해결 하는 데 도움이 되는 추가 정보를 제공 하는 경우가 많습니다. 다음 예제에서는 코어 부족으로 인해 가상 컴퓨터를 만들지 못했습니다. 자세한 메시지는 문제를 해결 하 고 코어 할당량 증가를 요청 하는 방법을 알려줍니다.
 
 ![Azure Portal 알림](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 
@@ -41,11 +41,11 @@ VM 또는 환경의 생성을 시도한 후에 실패를 조사 하는 경우 �
 
 1. 랩의 홈 페이지에서 VM을 선택 하 여 **가상 머신** 페이지를 시작 합니다.
 2. **가상 컴퓨터** 페이지의 왼쪽 메뉴에 있는 **모니터링** 섹션에서 **작업 로그** 를 선택 하 여 VM에 연결 된 모든 로그를 확인 합니다.
-3. 활동 로그 항목에서 실패 한 작업을 선택 합니다. 일반적으로 실패 한 작업이 호출 `Write Virtualmachines`됩니다.
+3. 활동 로그 항목에서 실패 한 작업을 선택 합니다. 일반적으로 실패 한 작업을 `Write Virtualmachines`이라고 합니다.
 4. 오른쪽 창에서 JSON 탭으로 전환 합니다. 로그의 JSON 뷰에 세부 정보가 표시 됩니다.
 
     ![VM에 대 한 활동 로그](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
-5. 속성을 `statusMessage` 찾을 때까지 JSON 로그를 확인 합니다. 기본 오류 메시지와 자세한 정보 (해당 하는 경우)를 제공 합니다. 다음 JSON은이 문서의 앞부분에서 볼 수 있는 핵심 따옴표 초과 오류에 대 한 예입니다.
+5. `statusMessage` 속성을 찾을 때까지 JSON 로그를 확인 합니다. 기본 오류 메시지와 자세한 정보 (해당 하는 경우)를 제공 합니다. 다음 JSON은이 문서의 앞부분에서 볼 수 있는 핵심 따옴표 초과 오류에 대 한 예입니다.
 
     ```json
     "properties": {
@@ -66,7 +66,7 @@ VM 또는 환경의 생성을 시도한 후에 실패를 조사 하는 경우 �
     ![환경 활동 로그](./media/troubleshoot-vm-environment-creation-failures/envirionment-activity-log.png)
 
 ## <a name="resource-manager-template-deployment-logs"></a>리소스 관리자 템플릿 배포 로그
-환경 또는 가상 컴퓨터가 자동화를 통해 만들어진 경우 오류 정보를 찾는 마지막 위치가 있습니다. Azure Resource Manager 템플릿 배포 로그입니다. 자동화를 통해 랩 리소스를 만들 때 Azure Resource Manager 템플릿 배포를 통해 수행 되는 경우가 많습니다. DevTest[https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) Labs 리소스를 만드는 샘플 Azure Resource Manager 템플릿은를 참조 하세요.
+환경 또는 가상 컴퓨터가 자동화를 통해 만들어진 경우 오류 정보를 찾는 마지막 위치가 있습니다. Azure Resource Manager 템플릿 배포 로그입니다. 자동화를 통해 랩 리소스를 만들 때 Azure Resource Manager 템플릿 배포를 통해 수행 되는 경우가 많습니다. DevTest Labs 리소스를 만드는 샘플 Azure Resource Manager 템플릿은[https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) 를 참조 하세요.
 
 랩 템플릿 배포 로그를 보려면 다음 단계를 수행 합니다.
 

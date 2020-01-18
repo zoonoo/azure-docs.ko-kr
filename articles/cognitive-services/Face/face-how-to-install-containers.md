@@ -1,5 +1,5 @@
 ---
-title: 컨테이너 설치 및 실행-FACE API
+title: 컨테이너 설치 및 실행-얼굴
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는이 연습 자습서에서 Face 용 컨테이너를 다운로드, 설치 및 실행 하는 방법을 보여 줍니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 574f6bead9cac384c72d2d0cd35353eb571a9490
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e467b195ab1e2124286bfef74d7d1b71a4d99dd6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327051"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165989"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Face 컨테이너 설치 및 실행 (미리 보기)
 
@@ -24,9 +24,9 @@ Azure Cognitive Services Face는 이미지에서 인간 얼굴을 검색 하는 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-Face API 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
+Face 서비스 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
 |필수|용도|
 |--|--|
@@ -46,7 +46,7 @@ Face API 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
-다음 표에서는 각 Face API 컨테이너에 할당해야 하는 최소/권장 CPU 코어 수와 메모리에 대해 설명합니다.
+다음 표에서는 각 Face 서비스 컨테이너에 대해 할당할 최소 및 권장 CPU 코어 및 메모리를 설명 합니다.
 
 | 컨테이너 | 최소 | 권장 | 초당 트랜잭션<br>(최소, 최대)|
 |-----------|---------|-------------|--|
@@ -59,7 +59,7 @@ Face API 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충
 
 ## <a name="get-the-container-image-with-docker-pull"></a>docker pull를 사용 하 여 컨테이너 이미지 가져오기
 
-Face API에 대 한 컨테이너 이미지를 사용할 수 있습니다. 
+Face 서비스의 컨테이너 이미지를 사용할 수 있습니다. 
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
@@ -82,9 +82,9 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 ## <a name="run-the-container-with-docker-run"></a>Docker run을 사용 하 여 컨테이너 실행
 
-[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters) 을 참조 하세요.
+[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
 
-`docker run` 명령의 [예](face-resource-container-config.md#example-docker-run-commands) 를 사용할 수 있습니다.
+`docker run`명령의 [예](face-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -132,7 +132,7 @@ ApiKey={API_KEY}
 
 ## <a name="billing"></a>청구
 
-Face API 컨테이너는 Azure 계정에서 Face API 리소스를 사용 하 여 Azure로 청구 정보를 보냅니다. 
+Face 서비스 컨테이너는 Azure 계정에서 얼굴 리소스를 사용 하 여 Azure로 청구 정보를 보냅니다. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -144,11 +144,11 @@ Face API 컨테이너는 Azure 계정에서 Face API 리소스를 사용 하 여
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 Face API 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대 한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
+이 문서에서는 Face 서비스 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대 한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
 * 컨테이너 이미지는 Azure Container Registry에서 다운로드 됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
-* 컨테이너의 호스트 URI를 지정 하 여 REST API 또는 SDK를 사용 하 여 Face API 컨테이너에서 작업을 호출할 수 있습니다.
+* 컨테이너의 호스트 URI를 지정 하 여 REST API 또는 SDK 중 하나를 사용 하 여 Face 서비스 컨테이너에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정 해야 합니다.
 
 > [!IMPORTANT]

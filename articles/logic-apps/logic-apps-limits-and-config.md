@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: 8d34a0905973a8080ee53eeac878432db0c51128
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 96e7cbd09873192d8b73b57cb2b46bf5b7679742
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979062"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263458"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -153,8 +153,15 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 
 |------|--------------------|---------------------------------------|-------|
 | 메시지 크기 | 100MB | 200MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. |
 | 청킹이 있는 메시지 크기 | 1GB | 5 GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용하도록 설정하는 작업에 적용됩니다. <p>통합 서비스 환경의 경우 Logic Apps 엔진은이 제한을 지원 하지만 커넥터에는 엔진 제한까지 자체 청크 제한이 있습니다. 예를 들어 [Azure Blob Storage 커넥터의 API 참조](https://docs.microsoft.com/connectors/azureblob/)를 참조 하세요. 청크에 대 한 자세한 내용은 [청크를 사용 하 여 큼 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조 하세요. |
-| 식 평가 제한 | 131,072자 | 131,072자 | `@concat()`, `@base64()`, `@string()` 식은 이 제한보다 길 수 없습니다. |
-|||||
+|||||   
+
+#### <a name="character-limits"></a>문자 제한
+
+| 이름 | 메모 |
+|------|-------|
+| 식 평가 제한 | 131,072자 | `@concat()`, `@base64()`, `@string()` 식은 이 제한보다 길 수 없습니다. |
+| 요청 URL 문자 제한 | 32K 자 |
+|||
 
 #### <a name="retry-policy"></a>다시 시도 정책
 

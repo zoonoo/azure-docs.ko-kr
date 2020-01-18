@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs에서 원격 데스크톱 게이트웨이를 사용 하도록 랩 구성 Microsoft Docs
+title: Azure DevTest Labs에서 원격 데스크톱 게이트웨이를 사용 하도록 랩 구성
 description: RDP 포트를 노출 하지 않고도 랩 Vm에 안전 하 게 액세스할 수 있도록 원격 데스크톱 게이트웨이를 사용 하 여 Azure DevTest Labs에서 랩을 구성 하는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f879a6389c7a77708e8041dd8b82dc3785679fa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162624"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170293"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Azure DevTest Labs에서 원격 데스크톱 게이트웨이를 사용 하도록 랩 구성
 Azure DevTest Labs에서 랩에 대 한 원격 데스크톱 게이트웨이를 구성 하 여 RDP 포트를 노출 하지 않고도 랩 Vm (가상 머신)에 대 한 보안 액세스를 보장할 수 있습니다. 랩 사용자는 랩 사용자가 액세스 권한이 있는 모든 가상 컴퓨터를 보고 연결할 수 있는 중앙의 장소를 제공 합니다. **가상 컴퓨터** 페이지의 **연결** 단추를 클릭 하면 컴퓨터에 연결 하기 위해 열 수 있는 컴퓨터 관련 RDP 파일이 만들어집니다. 랩을 원격 데스크톱 게이트웨이에 연결 하 여 RDP 연결을 추가로 사용자 지정 하 고 보호할 수 있습니다. 
@@ -74,7 +74,7 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 
 다음 단계를 사용 하 여 토큰 인증을 사용 하도록 랩을 구성 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 **랩을**선택 합니다.
 1. 랩의 페이지에서 **구성 및 정책**을 선택 합니다.

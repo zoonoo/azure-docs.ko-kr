@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
-ms.openlocfilehash: fa2e7af51ff681da0bfdac928cc08bf75126a3b8
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 27978d367ded7a31d73949cd675ae9e6f8cb887c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156423"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264002"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>실시간으로 Azure 스프링 클라우드 앱 로그 스트림
 Azure 스프링 클라우드를 사용 하면 Azure CLI의 로그 스트리밍을 통해 문제 해결을 위한 실시간 응용 프로그램 콘솔 로그를 가져올 수 있습니다. [진단 설정을 사용 하 여 로그 및 메트릭을 분석할](./diagnostic-services.md)수도 있습니다.
@@ -47,16 +47,29 @@ az spring-cloud app log tail -n auth-service
 ```
 
 ### <a name="tail-log-for-app-with-multiple-instances"></a>여러 인스턴스를 사용 하는 앱에 대 한 비상 로그
-`auth-service`라는 응용 프로그램에 대해 여러 인스턴스가 있는 경우 `-i/--instance` 옵션을 사용 하 여 인스턴스 로그를 볼 수 있습니다. 예를 들어 앱 이름 및 인스턴스 이름을 지정 하 여 한 앱의 인스턴스 로그를 스트리밍할 수 있습니다.
+`auth-service`라는 응용 프로그램에 대해 여러 인스턴스가 있는 경우 `-i/--instance` 옵션을 사용 하 여 인스턴스 로그를 볼 수 있습니다. 
+
+먼저, 다음 명령을 사용 하 여 앱 인스턴스 이름을 가져올 수 있습니다.
+
+```
+az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
+```
+결과 포함:
+
+```
+Name                                         Status    DiscoveryStatus
+-------------------------------------------  --------  -----------------
+auth-service-default-12-75cc4577fc-pw7hb  Running   UP
+auth-service-default-12-75cc4577fc-8nt4m  Running   UP
+auth-service-default-12-75cc4577fc-n25mh  Running   UP
+``` 
+그런 다음 옵션 `-i/--instance` 옵션을 사용 하 여 앱 인스턴스의 로그를 스트리밍할 수 있습니다.
 
 ```
 az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
-Azure Portal에서 앱 인스턴스를 가져올 수도 있습니다. 
-1. 리소스 그룹으로 이동 하 여 Azure 스프링 클라우드 인스턴스를 선택 합니다.
-1. Azure 스프링 클라우드 인스턴스 개요의 왼쪽 탐색 창에서 **앱** 을 선택 합니다.
-1. 앱을 선택 하 고 왼쪽 탐색 창에서 **앱 인스턴스** 를 클릭 합니다. 
-1. 앱 인스턴스가 표시 됩니다.
+
+Azure Portal에서 앱 인스턴스의 세부 정보를 가져올 수도 있습니다.  Azure 스프링 클라우드 서비스의 왼쪽 탐색 창에서 **앱** 을 선택한 후 **앱 인스턴스**를 선택 합니다.
 
 ### <a name="continuously-stream-new-logs"></a>계속 해 서 새 로그 스트림
 기본적으로 `az spring-cloud ap log tail`는 응용 프로그램 콘솔로 스트리밍되는 기존 로그만 인쇄 한 후 종료 됩니다. 새 로그를 스트리밍하려면-f (--follow)를 추가 합니다.  

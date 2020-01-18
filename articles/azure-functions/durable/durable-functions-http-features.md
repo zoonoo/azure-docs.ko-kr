@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433278"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262863"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -41,21 +41,21 @@ Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api�
 
 [오케스트레이션 클라이언트 바인딩은](durable-functions-bindings.md#orchestration-client) 편리한 HTTP 응답 페이로드를 생성할 수 있는 api를 노출 합니다. 예를 들어 특정 오케스트레이션 인스턴스에 대 한 관리 Api에 대 한 링크가 포함 된 응답을 만들 수 있습니다. 다음 예에서는 새 오케스트레이션 인스턴스에이 API를 사용 하는 방법을 보여 주는 HTTP 트리거 함수를 보여 줍니다.
 
-#### <a name="precompiled-c"></a>미리 컴파일된 C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-#### <a name="c-script"></a>C# 스크립트
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
-
-#### <a name="javascript-with-functions-20-or-later-only"></a>JavaScript (함수 2.0 이상만)
+**index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### <a name="functionjson"></a>Function.json
+**function.json**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+
+---
 
 이전에 표시 된 HTTP 트리거 함수를 사용 하 여 orchestrator 함수를 시작 하려면 모든 HTTP 클라이언트를 사용 해야 합니다. 다음 말아 명령은 `DoWork`orchestrator 함수를 시작 합니다.
 
@@ -112,10 +112,9 @@ Retry-After: 10
 
 Durable Functions 2.0부터 오케스트레이션은 [오케스트레이션 트리거 바인딩을](durable-functions-bindings.md#orchestration-trigger)사용 하 여 HTTP api를 기본적으로 사용할 수 있습니다.
 
-> [!NOTE]
-> Orchestrator 함수에서 직접 HTTP 끝점을 호출 하는 기능은 JavaScript에서 아직 사용할 수 없습니다.
+다음 예제 코드는 아웃 바운드 HTTP 요청을 만드는 오 케 스트레이 터 함수를 보여 줍니다.
 
-다음 예제 코드에서는 **CallHttpAsync** .net C# API를 사용 하 여 아웃 바운드 HTTP 요청을 만드는 오 케 스트레이 터 함수를 보여 줍니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,6 +133,23 @@ public static async Task CheckSiteAvailable(
     }
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const url = context.df.getInput();
+    const response = context.df.callHttp("GET", url)
+
+    if (response.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+---
 
 "Call HTTP" 작업을 사용 하 여 orchestrator 함수에서 다음 작업을 수행할 수 있습니다.
 
@@ -156,6 +172,8 @@ Durable Functions은 권한 부여를 위해 Azure Active Directory (Azure AD) �
 
 다음 코드는 .NET orchestrator 함수의 예제입니다. 이 함수는 [REST API Azure Resource Manager 가상](https://docs.microsoft.com/rest/api/compute/virtualmachines)컴퓨터를 사용 하 여 가상 컴퓨터를 다시 시작 하도록 인증 된 호출을 수행 합니다.
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 [FunctionName("RestartVm")]
 public static async Task RunOrchestrator(
@@ -164,6 +182,7 @@ public static async Task RunOrchestrator(
     string subscriptionId = "mySubId";
     string resourceGroup = "myRG";
     string vmName = "myVM";
+    string apiVersion = "2019-03-01";
     
     // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
     // and attaches it to the outgoing Azure Resource Manager API call.
@@ -178,6 +197,32 @@ public static async Task RunOrchestrator(
     }
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const subscriptionId = "mySubId";
+    const resourceGroup = "myRG";
+    const vmName = "myVM";
+    const apiVersion = "2019-03-01";
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+
+    // get a list of the Azure subscriptions that I have access to
+    const restartResponse = yield context.df.callHttp(
+        "POST",
+        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        undefined, // no request content
+        undefined, // no request headers (besides auth which is handled by the token source)
+        tokenSource);
+
+    return restartResponse;
+});
+```
+
+---
 
 이전 예제에서 `tokenSource` 매개 변수는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대 한 Azure AD 토큰을 획득 하도록 구성 됩니다. 토큰은 리소스 URI `https://management.core.windows.net`로 식별 됩니다. 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id에 `myRG`지정 된 리소스 그룹의 Vm을 관리할 수 있는 권한이 있다고 가정 합니다.
 

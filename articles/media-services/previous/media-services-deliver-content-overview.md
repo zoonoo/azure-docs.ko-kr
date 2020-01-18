@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22d98656f42f52f2fba0845fac6f1d210d2cf0bd
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61232278"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264681"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
 고객에게 스트리밍 또는 주문형 비디오 콘텐츠를 전달할 때는 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다.
@@ -77,7 +77,7 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 로케이터를 만들 때 Azure Storage의 필수 스토리지 및 전파 프로세스로 인해 30초간 지연될 수 있습니다.
 
 ## <a name="adaptive-streaming"></a>적응 스트리밍
-적응 비트 전송률 기술에서는 비디오 플레이어 애플리케이션이 네트워크 상태를 확인하고 여러 가지 비트 전송률 중에서 선택할 수 있습니다. 네트워크 통신 성능이 저하되면 클라이언트에서 더 낮은 비트 전송률을 선택하여 더 낮은 비디오 품질로 비디오를 계속 재생하도록 할 수 있습니다. 네트워크 상태가 향상되면 클라이언트에서 더 높은 비트 전송률로 전환하여 향상된 비디오 품질을 제공할 수 있습니다. Azure Media Services는 적응 비트 전송률 기술 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH를 지원합니다.
+적응 비트 전송률 기술에서는 비디오 플레이어 애플리케이션이 네트워크 상태를 확인하고 여러 가지 비트 전송률 중에서 선택할 수 있습니다. 네트워크 통신 성능이 저하되면 클라이언트에서 더 낮은 비트 전송률을 선택하여 더 낮은 비디오 품질로 비디오를 계속 재생하도록 할 수 있습니다. 네트워크 상태가 향상되면 클라이언트에서 더 높은 비트 전송률로 전환하여 향상된 비디오 품질을 제공할 수 있습니다. Azure Media Services에서 지원하는 적응 비트 전송률 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
 
 사용자에게 스트리밍 URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 스트리밍할 콘텐츠를 포함하는 자산에 대한 기본 경로가 제공됩니다. 그러나 이 콘텐츠를 스트리밍하려면 나중에 이 경로를 수정해야 합니다. 스트리밍 매니페스트 파일에 대한 전체 URL을 생성하려면 로케이터의 경로 값과 매니페스트(filename.ism) 파일 이름을 연결해야 합니다. 그런 다음 로케이터 경로에 **/Manifest** 및 적절한 형식(필요한 경우)을 추가합니다.
 
@@ -114,7 +114,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 ### <a name="smooth-streaming-format"></a>부드러운 스트리밍 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-예제:
+예:
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
@@ -123,7 +123,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
 
-    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>점진적 다운로드
 점진적 다운로드를 사용하면 전체 파일이 다운로드되기 전에 미디어 재생을 시작할 수 있습니다. .ism*(ismv, isma, ismt, ismc) 파일을 점진적으로 다운로드할 수 없습니다.
@@ -155,7 +155,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 
 ## <a name="known-issues"></a>알려진 문제
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>부드러운 스트리밍 매니페스트 버전에 대한 변경 내용
-2016년 7월 이전 릴리스에서 미디어 인코더 표준으로 자산이 생성되었고 미디어 인코더 Premium 워크플로 또는 이전 Azure Media Encoder가 동적 패키징을 사용하여 스트리밍된 경우 반환된 부드러운 스트리밍 매니페스트는 버전 2.0을 준수합니다. 버전 2.0에서는 조각 기간 중에 소위 반복('r') 태그를 사용하지 않습니다. 예를 들면 다음과 같습니다.
+2016년 7월 이전 릴리스에서 미디어 인코더 표준으로 자산이 생성되었고 미디어 인코더 Premium 워크플로 또는 이전 Azure Media Encoder가 동적 패키징을 사용하여 스트리밍된 경우 반환된 부드러운 스트리밍 매니페스트는 버전 2.0을 준수합니다. 버전 2.0에서는 조각 기간 중에 소위 반복('r') 태그를 사용하지 않습니다. 예:
 
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
         </StreamIndex>
     </SmoothStreamingMedia>
 
-2016년 7월 서비스 릴리스에서는 생성된 부드러운 스트리밍 매니페스트가 버전 2.2를 준수하며 조각 기간에서 반복 태그를 사용합니다. 예를 들면 다음과 같습니다.
+2016년 7월 서비스 릴리스에서는 생성된 부드러운 스트리밍 매니페스트가 버전 2.2를 준수하며 조각 기간에서 반복 태그를 사용합니다. 예:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
@@ -184,9 +184,9 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 [스토리지 키를 롤링 후 Media Services 로케이터를 업데이트합니다.](media-services-roll-storage-access-keys.md)
 

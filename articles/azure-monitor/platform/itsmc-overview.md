@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: efb4e4f68935898c083c1dbca6a6c64512544095
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936198"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263475"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -58,7 +58,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 3. **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
    >[!NOTE]
    > * Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
-   > * ITSM 커넥터는 미국 동부, 유럽 서부, 동남 아시아, 동남 오스트레일리아, 미국 서 부, 미국 동부, 남부 영국, 인도 중부, 중부 캐나다 지역의 Log Analytics 작업 영역에만 설치할 수 있습니다.
+   > * Log Analytics ITSM 커넥터는 미국 동부, 유럽 서부, 동남 아시아, 동남 오스트레일리아, 미국 서 부, 미국 동부, 남부 중부, 인도 중부, 캐나다 중부, 미국 서 부, 미국 미국, 미국 서 부, 미국 동부, 미국 동부, 미국 동부, 미국 서 부, 남부 중부
 
 4. **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
 
@@ -152,7 +152,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 또한 서비스 맵 솔루션 내에서 영향 받는 컴퓨터에 대해 동기화된 인시던트를 시각화할 수 있습니다.
 
-서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아봅니다](../../azure-monitor/insights/service-map.md).
+서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아보기](../../azure-monitor/insights/service-map.md).
 
 서비스 맵 솔루션을 사용하는 경우 다음 예와 같이 ITSM 솔루션에서 만들어진 서비스 데스크 항목을 볼 수 있습니다.
 
@@ -175,11 +175,11 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 **작업 항목:** **인시던트**  
 ServiceDeskWorkItemType_s="Incident"
 
-**필드**
+**Fields**
 
 - ServiceDeskConnectionName
 - 서비스 데스크 ID
-- State
+- 상태
 - 긴급도
 - 영향
 - 우선 순위
@@ -189,9 +189,9 @@ ServiceDeskWorkItemType_s="Incident"
 - 종결한 사람
 - 원본
 - 할당 대상
-- Category
+- 범주
 - 제목
-- 설명
+- Description
 - 만든 날짜
 - 종결한 날짜
 - 해결한 날짜
@@ -203,7 +203,7 @@ ServiceDeskWorkItemType_s="Incident"
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
-**필드**
+**Fields**
 - ServiceDeskConnectionName
 - 서비스 데스크 ID
 - 만든 사람
@@ -211,9 +211,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 원본
 - 할당 대상
 - 제목
-- 형식
-- Category
-- State
+- 유형
+- 범주
+- 상태
 - 에스컬레이션
 - 충돌 상태
 - 긴급도
@@ -229,15 +229,15 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 예상된 종료 날짜
 - 작업 시작 날짜
 - 작업 종료 날짜
-- 설명
+- Description
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>ServiceNow 인시던트에 대한 출력 데이터
 
 | Log Analytics 필드 | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| NUMBER |
-| IncidentState_s | State |
+| ServiceDeskId_s| 수 |
+| IncidentState_s | 상태 |
 | Urgency_s |긴급도 |
 | Impact_s |영향|
 | Priority_s | 우선 순위 |
@@ -246,9 +246,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | 종결한 사람 |
 | Source_s| 연락처 유형 |
 | AssignedTo_s | 할당 대상  |
-| Category_s | Category |
+| Category_s | 범주 |
 | Title_s|  간단한 설명 |
-| Description_s|  참고 사항 |
+| Description_s|  메모 |
 | CreatedDate_t|  열림 |
 | ClosedDate_t| closed|
 | ResolvedDate_t|해결됨|
@@ -258,14 +258,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| NUMBER |
+| ServiceDeskId_s| 수 |
 | CreatedBy_s | 요청자 |
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
-| Type_s|  형식 |
-| Category_s|  Category |
-| CRState_s|  State|
+| Type_s|  유형 |
+| Category_s|  범주 |
+| CRState_s|  상태|
 | Urgency_s|  긴급도 |
 | Priority_s| 우선 순위|
 | Risk_s| 위험|
@@ -276,7 +276,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   예상된 종료 날짜 |
 | WorkStartDate_t  | 실제 시작 날짜 |
 | WorkEndDate_t | 실제 종료 날짜|
-| Description_s | 설명 |
+| Description_s | Description |
 | Computer  | 구성 항목 |
 
 
@@ -295,13 +295,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager 웹앱 배포 문제 해결
 1.  웹앱 배포 문제가 발생한 경우 구독에 리소스 생성/배포 권한이 있는지 확인합니다.
-2.  **스크립트**를 실행할 때 ["개체 참조가 개체의 인스턴스로 설정되지 않았습니다."](itsmc-service-manager-script.md) 오류가 발생하는 경우 **사용자 구성** 섹션에서 유효한 값을 입력했는지 확인합니다.
+2.  [스크립트](itsmc-service-manager-script.md)를 실행할 때 **"개체 참조가 개체의 인스턴스로 설정되지 않았습니다."** 오류가 발생하는 경우 **사용자 구성** 섹션에서 유효한 값을 입력했는지 확인합니다.
 3.  Service Bus Relay 네임스페이스 만들기에 실패한 경우 구독에 필요한 리소스 공급자가 등록되어 있는지 확인합니다. 등록되지 않은 경우 Azure Portal에서 수동으로 서비스 버스 릴레이 네임스페이스를 만듭니다. Azure Portal에서 [하이브리드 연결을 만드는](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 동안 만들 수도 있습니다.
 
 
-## <a name="contact-us"></a>문의처
+## <a name="contact-us"></a>문의하기
 
-IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
+IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [ITSM 제품/서비스를 IT Service Management Connector에 추가](../../azure-monitor/platform/itsmc-connections.md).

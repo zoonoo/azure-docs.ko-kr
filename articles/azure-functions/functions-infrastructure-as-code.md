@@ -4,12 +4,13 @@ description: 함수 앱을 배포하는 Azure Resource Manager 템플릿을 빌�
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: df0c90ba3784acb96bd9f76a436ff2746f7efe2c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978798"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262438"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -139,7 +140,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | 내부 큐를 위한 함수 런타임에 대 한 저장소 계정에 대 한 연결 문자열입니다. | [저장소 계정](#storage) 을 참조 하세요.       |
 | FUNCTIONS_EXTENSION_VERSION  | Azure Functions 런타임의 버전입니다.                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | 이 앱의 함수에 사용할 언어 스택입니다.                                   | `dotnet`, `node`, `java` 또는 `python` |
+| FUNCTIONS_WORKER_RUNTIME     | 이 앱의 함수에 사용할 언어 스택입니다.                                   | `dotnet`, `node`, `java`, `python` 또는 `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | `node` 언어 스택을 사용 하는 경우에만 사용할 버전을 지정 합니다.              | `10.14.1`                             |
 
 이러한 속성은 `siteConfig` 속성의 `appSettings` 컬렉션에서 지정 됩니다.

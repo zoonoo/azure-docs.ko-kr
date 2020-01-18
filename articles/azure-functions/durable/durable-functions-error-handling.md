@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 오류를 처리�
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0900e3f3b76f4a82e06fe3c0e6d9bbe63b545f56
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 905b71ab1e9a054eaeb6087489d14565933c8a46
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231416"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261639"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
@@ -21,7 +21,7 @@ ms.locfileid: "74231416"
 
 예를 들어 한 계정에서 다른 계정으로 자금을 이체하는 다음 오케스트레이터 함수를 살펴보세요.
 
-### <a name="precompiled-c"></a>미리 컴파일된 C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -59,49 +59,10 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 }
 ```
 
-### <a name="c-script"></a>C# 스크립트
-
-```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
-public static async Task Run(IDurableOrchestrationContext context)
-{
-    var transferDetails = ctx.GetInput<TransferOperation>();
-
-    await context.CallActivityAsync("DebitAccount",
-        new
-        {
-            Account = transferDetails.SourceAccount,
-            Amount = transferDetails.Amount
-        });
-
-    try
-    {
-        await context.CallActivityAsync("CreditAccount",
-            new
-            {
-                Account = transferDetails.DestinationAccount,
-                Amount = transferDetails.Amount
-            });
-    }
-    catch (Exception)
-    {
-        // Refund the source account.
-        // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",
-            new
-            {
-                Account = transferDetails.SourceAccount,
-                Amount = transferDetails.Amount
-            });
-    }
-}
-```
-
 > [!NOTE]
 > 위의 C# 예는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -137,13 +98,15 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 첫 번째 **CreditAccount** 함수 호출이 실패 하면 오 케 스트레이 터 함수는 자금을 원본 계정에 다시 연결 하 여 보상 합니다.
 
 ## <a name="automatic-retry-on-failure"></a>실패 시 자동 다시 시도
 
 작업 함수 또는 하위 오케스트레이션 함수를 호출할 때 자동으로 다시 시도하는 정책을 지정할 수 있습니다. 다음 예제에서는 함수를 최대 3회 호출하려고 하고 각각의 다시 시도 간에 5초 동안 기다립니다.
 
-### <a name="precompiled-c"></a>미리 컴파일된 C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -159,31 +122,20 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 }
 ```
 
-### <a name="c-script"></a>C# 스크립트
-
-```csharp
-public static async Task Run(IDurableOrchestrationContext context)
-{
-    var retryOptions = new RetryOptions(
-        firstRetryInterval: TimeSpan.FromSeconds(5),
-        maxNumberOfAttempts: 3);
-
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-
-    // ...
-}
-```
-
 > [!NOTE]
 > 위의 C# 예는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
-    const retryOptions = new df.RetryOptions(5000, 3);
+    const firstRetryIntervalInMilliseconds = 5000;
+    const maxNumberOfAttempts = 3;
+
+    const retryOptions = 
+        new df.RetryOptions(firstRetryIntervalInMilliseconds, maxNumberOfAttempts);
 
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
@@ -191,9 +143,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-`CallActivityWithRetryAsync`(.NET) 또는 `callActivityWithRetry`(JavaScript) API는 `RetryOptions` 매개 변수를 사용합니다. `CallSubOrchestratorWithRetryAsync` (.NET) 또는 `callSubOrchestratorWithRetry` (JavaScript) API를 사용 하는 하위 오케스트레이션 호출은 이와 동일한 다시 시도 정책을 사용할 수 있습니다.
+---
 
-자동 재시도 정책을 사용자 지정 하는 몇 가지 옵션이 있습니다.
+이전 예제의 작업 함수 호출은 자동 재시도 정책 구성에 대 한 매개 변수를 사용 합니다. 자동 재시도 정책을 사용자 지정 하는 몇 가지 옵션이 있습니다.
 
 * **최대 시도 횟수**: 최대 다시 시도 횟수입니다.
 * **첫 번째 다시 시도 간격**: 첫 번째 다시 시도를 수행할 때까지 기다리는 시간입니다.
@@ -204,9 +156,9 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="function-timeouts"></a>함수 시간 제한
 
-완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 [(.NET) 또는 ](durable-functions-timers.md)(JavaScript)와 함께 `context.CreateTimer`(.NET) 또는 `context.df.createTimer`(JavaScript)를 사용하여 `Task.WhenAny`지속성 타이머`context.df.Task.any`를 만드는 것입니다.
+완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 `Task.WhenAny`(.NET) 또는 `context.df.Task.any`(JavaScript)와 함께 `context.CreateTimer`(.NET) 또는 `context.df.createTimer`(JavaScript)를 사용하여 [지속성 타이머](durable-functions-timers.md)를 만드는 것입니다.
 
-### <a name="precompiled-c"></a>미리 컴파일된 C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -236,39 +188,10 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 }
 ```
 
-### <a name="c-script"></a>C# 스크립트
-
-```csharp
-public static async Task<bool> Run(IDurableOrchestrationContext context)
-{
-    TimeSpan timeout = TimeSpan.FromSeconds(30);
-    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
-
-    using (var cts = new CancellationTokenSource())
-    {
-        Task activityTask = context.CallActivityAsync("FlakyFunction");
-        Task timeoutTask = context.CreateTimer(deadline, cts.Token);
-
-        Task winner = await Task.WhenAny(activityTask, timeoutTask);
-        if (winner == activityTask)
-        {
-            // success case
-            cts.Cancel();
-            return true;
-        }
-        else
-        {
-            // timeout case
-            return false;
-        }
-    }
-}
-```
-
 > [!NOTE]
 > 위의 C# 예는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -291,6 +214,8 @@ module.exports = df.orchestrator(function*(context) {
     }
 });
 ```
+
+---
 
 > [!NOTE]
 > 이 메커니즘은 실제로 진행 중인 작업 함수 실행을 종료하지 않습니다. 대신 단순히 오케스트레이터 함수를 사용하여 결과를 무시하고 계속 진행할 수 있습니다. 자세한 내용은 [타이머](durable-functions-timers.md#usage-for-timeout) 설명서를 참조하세요.

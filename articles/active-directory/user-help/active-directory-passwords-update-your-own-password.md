@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8b46dbc0cc3c61396acdc7d21517c13d4650bf3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: ad4831cfb5b09083b4ee76b6badf3936b2256138
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156287"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263492"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용 하 여 회사 또는 학교 암호 재설정
 

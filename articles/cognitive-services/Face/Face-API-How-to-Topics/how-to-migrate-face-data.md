@@ -1,7 +1,7 @@
 ---
-title: 구독 간에 얼굴 데이터 마이그레이션 - Face API
+title: 구독 간에 얼굴 데이터 마이그레이션-얼굴
 titleSuffix: Azure Cognitive Services
-description: 이 가이드에서는 한 Face API 구독에서 다른 구독으로 저장된 얼굴 데이터를 마이그레이션하는 방법을 보여 줍니다.
+description: 이 가이드에서는 한 면에서 다른 구독으로 저장 된 얼굴 데이터를 마이그레이션하는 방법을 보여 줍니다.
 services: cognitive-services
 author: lewlu
 manager: nitinme
@@ -10,30 +10,30 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859166"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169805"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
 
-이 가이드에서는 저장 된 PersonGroup 개체와 같은 얼굴 데이터를 다른 Azure Cognitive Services Face API 구독으로 이동 하는 방법을 보여 줍니다. 데이터를 이동 하려면 Snapshot 기능을 사용 합니다. 이러한 방식으로 작업을 이동 하거나 확장할 때 PersonGroup 또는 FaceList 개체를 반복적으로 작성 하 고 학습할 필요가 없습니다. 예를 들어 무료 평가판 구독을 사용 하 여 PersonGroup 개체를 만들고 유료 구독으로 마이그레이션하려는 경우를 가정해 보겠습니다. 또는 대기업 작업을 위해 다른 지역의 구독에서 얼굴 데이터를 동기화 해야 할 수도 있습니다.
+이 가이드에서는 저장 된 PersonGroup 개체와 같은 얼굴 데이터를 다른 Azure Cognitive Services 얼굴 구독으로 이동 하는 방법을 보여 줍니다. 데이터를 이동 하려면 Snapshot 기능을 사용 합니다. 이러한 방식으로 작업을 이동 하거나 확장할 때 PersonGroup 또는 FaceList 개체를 반복적으로 작성 하 고 학습할 필요가 없습니다. 예를 들어 무료 평가판 구독을 사용 하 여 PersonGroup 개체를 만들고 유료 구독으로 마이그레이션하려는 경우를 가정해 보겠습니다. 또는 대기업 작업을 위해 다른 지역의 구독에서 얼굴 데이터를 동기화 해야 할 수도 있습니다.
 
-이 동일한 마이그레이션 전략은 LargePersonGroup 및 LargeFaceList 개체에도 적용 됩니다. 이 가이드의 개념을 잘 모르는 경우 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드에서 해당 정의를 참조 하세요. 이 가이드에서는 C#에서 Face API .NET 클라이언트 라이브러리를 사용합니다.
+이 동일한 마이그레이션 전략은 LargePersonGroup 및 LargeFaceList 개체에도 적용 됩니다. 이 가이드의 개념을 잘 모르는 경우 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드에서 해당 정의를 참조 하세요. 이 가이드에서는에 Face .NET 클라이언트 라이브러리를 C#사용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 다음 항목이 필요 합니다.
 
-- 하나는 기존 데이터를 포함 하 고 다른 하나는 마이그레이션하는 두 개의 Face API 구독 키입니다. Face API 서비스를 구독 하 고 키를 가져오려면 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침을 따르세요.
-- 대상 구독에 해당 하는 Face API 구독 ID 문자열입니다. 이를 찾으려면 Azure Portal에서 **개요** 를 선택 합니다. 
+- 두 개의 Face 구독 키, 하나는 기존 데이터를 포함 하 고 다른 하나는로 마이그레이션해야 합니다. 얼굴 서비스를 구독 하 고 키를 가져오려면 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침을 따르세요.
+- 대상 구독에 해당 하는 Face 구독 ID 문자열입니다. 이를 찾으려면 Azure Portal에서 **개요** 를 선택 합니다. 
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-이 가이드에서는 간단한 콘솔 앱을 사용 하 여 얼굴 데이터 마이그레이션을 실행 합니다. 전체 구현에 대해서는 GitHub의 [Face API 스냅숏 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) 을 참조 하세요.
+이 가이드에서는 간단한 콘솔 앱을 사용 하 여 얼굴 데이터 마이그레이션을 실행 합니다. 전체 구현에 대해서는 GitHub의 [Face 스냅숏 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) 을 참조 하세요.
 
 1. Visual Studio에서 새 콘솔 앱 .NET Framework 프로젝트를 만듭니다. 이름을 **FaceApiSnapshotSample**로 합니다.
 1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다. **찾아보기** 탭을 선택 하 고 **시험판 포함**을 선택 합니다. 다음 패키지를 찾아서 설치 합니다.
@@ -62,7 +62,7 @@ var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West 
 
 ## <a name="prepare-a-persongroup-for-migration"></a>PersonGroup 마이그레이션 준비
 
-대상 구독으로 마이그레이션하려면 원본 구독에서 PersonGroup의 ID가 필요 합니다. [PersonGroupOperationsExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) 메서드를 사용 하 여 PersonGroup 개체의 목록을 검색 합니다. 그런 다음 [PersonGroup. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) 속성을 가져옵니다. 이 프로세스는 PersonGroup 개체에 따라 다르게 보입니다. 이 가이드에서 원본 PersonGroup ID는에 `personGroupId`저장 됩니다.
+대상 구독으로 마이그레이션하려면 원본 구독에서 PersonGroup의 ID가 필요 합니다. [PersonGroupOperationsExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) 메서드를 사용 하 여 PersonGroup 개체의 목록을 검색 합니다. 그런 다음 [PersonGroup. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) 속성을 가져옵니다. 이 프로세스는 PersonGroup 개체에 따라 다르게 보입니다. 이 가이드에서 원본 PersonGroup ID는 `personGroupId`에 저장 됩니다.
 
 > [!NOTE]
 > 이 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) 는 새 PersonGroup를 만들어 학습 합니다. 대부분의 경우에는 사용할 PersonGroup 이미 있어야 합니다.
@@ -85,7 +85,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>스냅숏 ID를 검색 합니다.
 
-스냅숏을 만드는 데 사용 되는 메서드는 비동기 이므로 완료 될 때까지 기다려야 합니다. 스냅숏 작업을 취소할 수 없습니다. 이 코드에서 메서드는 `WaitForOperation` 비동기 호출을 모니터링 합니다. 100 밀리초 마다 상태를 확인 합니다. 작업이 완료 된 후 `OperationLocation` 필드를 구문 분석 하 여 작업 ID를 검색 합니다. 
+스냅숏을 만드는 데 사용 되는 메서드는 비동기 이므로 완료 될 때까지 기다려야 합니다. 스냅숏 작업을 취소할 수 없습니다. 이 코드에서 `WaitForOperation` 메서드는 비동기 호출을 모니터링 합니다. 100 밀리초 마다 상태를 확인 합니다. 작업이 완료 된 후 `OperationLocation` 필드를 구문 분석 하 여 작업 ID를 검색 합니다. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
@@ -127,7 +127,7 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-작업 상태가 표시 `Succeeded`되 면 반환 된 operationstatus 인스턴스의 `ResourceLocation` 필드를 구문 분석 하 여 스냅숏 ID를 가져옵니다.
+작업 상태가 `Succeeded`표시 된 후 반환 된 OperationStatus 인스턴스의 `ResourceLocation` 필드를 구문 분석 하 여 스냅숏 ID를 가져옵니다.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
@@ -152,13 +152,13 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 > [!NOTE]
 > 스냅숏 개체는 48 시간 동안만 유효 합니다. 이후에 데이터 마이그레이션에 사용 하려는 경우에만 스냅숏을 만듭니다.
 
-스냅숏 적용 요청은 다른 작업 ID를 반환 합니다. 이 ID를 가져오려면 반환 된 applySnapshotResult `OperationLocation` 인스턴스의 필드를 구문 분석 합니다. 
+스냅숏 적용 요청은 다른 작업 ID를 반환 합니다. 이 ID를 가져오려면 반환 된 applySnapshotResult 인스턴스의 `OperationLocation` 필드를 구문 분석 합니다. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-또한 스냅숏 응용 프로그램 프로세스는 비동기적 이므로를 사용 `WaitForOperation` 하 여 완료 될 때까지 대기 합니다.
+또한 스냅숏 응용 프로그램 프로세스는 비동기적 이므로 다시 `WaitForOperation`를 사용 하 여 완료 될 때까지 기다립니다.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
@@ -233,7 +233,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 다음으로 관련 API 참조 설명서를 참조 하거나, 스냅숏 기능을 사용 하는 샘플 앱을 탐색 하거나, 방법 가이드에 따라 여기에 언급 된 다른 API 작업을 시작 합니다.
 
 - [스냅샷 참조 설명서(.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
-- [Face API snapshot 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
+- [얼굴 스냅숏 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [얼굴 추가](how-to-add-faces.md)
 - [이미지에서 얼굴 감지](HowtoDetectFacesinImage.md)
 - [이미지에서 얼굴 식별](HowtoIdentifyFacesinImage.md)

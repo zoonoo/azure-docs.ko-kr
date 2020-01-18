@@ -1,5 +1,5 @@
 ---
-title: 여러 랩 및 구독에서 Azure DevTest Labs 사용 보고-Azure | Microsoft Docs
+title: 여러 랩 및 구독에서 Azure DevTest Labs 사용
 description: 여러 랩 및 구독에서 Azure DevTest Labs 사용량을 보고 하는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 01/16/2020
 ms.author: takamath
-ms.openlocfilehash: 0d930263233056d8fa74ffe6ccb176ee39429121
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 912f510f6380c0ba1eb92b7c485091801123558e
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829230"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169175"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>여러 랩 및 구독에서 Azure DevTest Labs 사용 보고
 
@@ -75,7 +75,7 @@ Azure 함수는 데이터를 장기적인 저장소로 푸시 해야 합니다. 
 * 복합 그룹 만들기
 * 데이터 집계.
 
-몇 가지 일반적인 저장소 솔루션은 다음과 같습니다. [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)및 [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 선택한 장기 저장소 솔루션 선택은 기본 설정에 따라 달라 집니다. 데이터를 시각화할 때 상호 작용 가용성 측면에서 제공 되는 기능에 따라 도구를 선택 하는 것을 고려할 수 있습니다.
+몇 가지 일반적인 저장소 솔루션은 [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)및 [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)입니다. 선택한 장기 저장소 솔루션 선택은 기본 설정에 따라 달라 집니다. 데이터를 시각화할 때 상호 작용 가용성 측면에서 제공 되는 기능에 따라 도구를 선택 하는 것을 고려할 수 있습니다.
 
 ## <a name="visualizing-data-and-gathering-insights"></a>데이터 시각화 및 정보 수집
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: e8fc6e8c2f37dcd3edec24fb4d8ed81b32a84bd0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816584"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264206"
 ---
 # <a name="scenario-availability"></a>시나리오 가용성
 
@@ -27,7 +27,7 @@ ms.locfileid: "74816584"
   - C++/Swindows & Linux
   - C#/Windows & UWP & Unity
   - Java (Jre 및 Android)
-  - 파이썬
+  - Python
   - Swift
   - Objective-C
   - TTS REST API은 다른 모든 상황에서 사용할 수 있습니다.
@@ -45,6 +45,9 @@ ms.locfileid: "74816584"
   - C++/Swindows & Linux
   - C#(프레임 워크 & .NET Core)/Windows & UWP & Linux
   - Java/Windows & Linux & Android (음성 장치 SDK)
+- **다중 장치 대화**
+  - C++/Windows
+  - C#(프레임 워크 & .NET Core)/Windows
 - **콜 센터 기록**
   - REST API 및 모든 상황에서 사용할 수 있습니다.
 - **코덱 압축 오디오 입력**

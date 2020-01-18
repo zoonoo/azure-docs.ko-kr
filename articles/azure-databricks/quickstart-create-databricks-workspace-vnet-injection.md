@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889003"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263158"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>빠른 시작: 자체 Virtual Network에서 Azure Databricks 작업 영역 만들기
 
@@ -41,17 +41,24 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
     |설정|제안 값|Description|
     |-------|---------------|-----------|
-    |이름|databricks-quickstart|가상 네트워크에 대한 이름을 선택합니다.|
-    |주소 공간|10.1.0.0/16|CIDR 표기법으로 된 가상 네트워크의 주소 범위입니다. CIDR 범위는/16에서/24 사이 여야 합니다.|
     |Subscription|\<구독\>|사용할 Azure 구독을 선택합니다.|
     |리소스 그룹|databricks-quickstart|**새로 만들기** 를 선택 하 고 계정에 대 한 새 리소스 그룹 이름을 입력 합니다.|
-    |위치|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다.|
+    |이름|databricks-quickstart|가상 네트워크에 대한 이름을 선택합니다.|
+    |지역|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다.|
+
+    ![Azure Portal의 가상 네트워크에 대 한 기본 사항](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+
+3. **다음: IP 주소 >** 를 선택 하 고 다음 설정을 적용 합니다. 그런 다음 **검토 + 만들기**를 선택 합니다.
+    
+    |설정|제안 값|Description|
+    |-------|---------------|-----------|
+    |IPv4 주소 공간|10.2.0.0/16|CIDR 표기법으로 된 가상 네트워크의 주소 범위입니다. CIDR 범위는/16에서/24 사이 여야 합니다.|
     |서브넷 이름|기본값|가상 네트워크에서 기본 서브넷의 이름을 선택 합니다.|
-    |서브넷 주소 범위|10.1.0.0/24|CIDR 표기법의 서브넷의 주소 범위입니다. 가상 네트워크의 주소 공간에 포함 되어야 합니다. 사용 중인 서브넷의 주소 범위는 편집할 수 없습니다.|
+    |서브넷 주소 범위|10.2.0.0/24|CIDR 표기법의 서브넷의 주소 범위입니다. 가상 네트워크의 주소 공간에 포함 되어야 합니다. 사용 중인 서브넷의 주소 범위는 편집할 수 없습니다.|
 
-    ![Azure Portal에서 가상 네트워크 만들기](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+    ![Azure Portal에서 가상 네트워크에 대 한 IP 구성 설정](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-ip-config.png)
 
-3. 배포가 완료되면 가상 네트워크로 이동하고 **설정** 아래에서 **주소 공간**을 선택합니다. *주소 범위 더 추가* 라고 표시된 상자에  `10.179.0.0/16`을 추가하고 **저장**을 선택합니다.
+4. **검토 + 만들기** 탭에서 **만들기** 를 선택 하 여 가상 네트워크를 배포 합니다. 배포가 완료되면 가상 네트워크로 이동하고 **설정** 아래에서 **주소 공간**을 선택합니다. *주소 범위 더 추가* 라고 표시된 상자에  `10.179.0.0/16`을 추가하고 **저장**을 선택합니다.
 
     ![Azure 가상 네트워크 주소 공간](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
@@ -70,6 +77,13 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
     |리소스 그룹|databricks-quickstart|가상 네트워크에 사용한 것과 동일한 리소스 그룹을 선택 합니다.|
     |위치|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크와 동일한 위치를 선택합니다.|
     |가격 책정 계층|표준 또는 프리미엄 중에서 선택.|가격 책정 계층에 대한 자세한 내용은 [Databricks 가격 책정 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조합니다.|
+
+    ![Azure Databricks 작업 영역 기본 사항 만들기](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+
+3. **기본** 페이지의 설정 입력을 완료 한 후 **다음: 네트워킹 >** 를 선택 하 고 다음 설정을 적용 합니다.
+
+    |설정|제안 값|Description|
+    |-------|---------------|-----------|
     |VNet (Virtual Network)에 Azure Databricks 작업 영역 배포|예|이 설정을 사용 하면 가상 네트워크에 Azure Databricks 작업 영역을 배포할 수 있습니다.|
     |Virtual Network|databricks-quickstart|이전 섹션에서 만든 가상 네트워크를 선택 합니다.|
     |공용 서브넷 이름|public-subnet|기본 공용 서브넷 이름을 사용 합니다.|
@@ -77,7 +91,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
     |개인 서브넷 이름|private-subnet|기본 개인 서브넷 이름을 사용 합니다.|
     |개인 서브넷 CIDR 범위|10.179.0.0/18|/26을 포함 하 여 CIDR 범위를 사용 합니다.|
 
-    ![Azure Portal에서 Azure Databricks 작업 영역 만들기](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+    ![Azure Portal에서 Azure Databricks 작업 영역에 VNet 정보 추가](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-vnet-config.png)
 
 3. 배포가 완료되면 Azure Databricks 리소스로 이동합니다. 가상 네트워크 피어링이 해제된 것을 확인합니다. 또한 리소스 그룹 및 관리되는 리소스 그룹은 개요 페이지에서 확인할 수 있습니다. 
 

@@ -3,19 +3,19 @@ title: Azure Backup용 VM 스냅샷 Linux 확장
 description: VM 스냅샷 확장을 사용하여 Azure Backup에서 가상 머신의 애플리케이션 일치 백업을 수행합니다.
 services: backup, virtual-machines-linux
 documentationcenter: ''
-author: trinadhk
+author: trinadhkotturu
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 186468119fb5b630b56a91b38026f202b98630d6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d2af6b6c981a2fcbce38546196aa84f1e6be4e38
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072920"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263305"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Linux 확장
 
@@ -23,18 +23,14 @@ ms.locfileid: "74072920"
 
 Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하고, 클라우드 리소스를 Recovery Services 자격 증명 모음에 백업하도록 지원합니다. Azure Backup은 VM 스냅샷 확장을 사용하여 VM을 종료하지 않고도 Azure 가상 머신의 애플리케이션 일치 백업을 수행합니다. Microsoft는 Azure Backup 서비스의 일부로 VM 스냅샷 Linux 확장을 게시하고 지원합니다. Azure Backup은 백업을 활성화한 후 트리거되는 첫 번째 예약된 백업의 일부로 확장을 설치합니다. 이 문서에서는 VM 스냅샷 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
 지원되는 운영 체제 목록은 [Azure Backup에 지원되는 운영 체제](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)를 참조하세요.
 
-### <a name="internet-connectivity"></a>인터넷 연결
-
-VM 스냅샷 확장을 사용하려면 가상 머신을 백업할 때 대상 가상 머신이 인터넷에 연결되어 있어야 합니다.
-
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 VM 스냅샷 확장에 대한 스키마를 보여 줍니다. 확장에는 VM에서 스냅샷을 트리거한 백업 작업을 식별하기 위한 작업 ID, 스냅샷 작업 상태가 기록되는 상태 Blob URI, 예약된 스냅샷 시작 시간, 스냅샷 작업에 해당하는 로그가 기록되는 로그 Blob URI, VM 디스크 및 메타데이터에 대한 표현인 개체 문자열이 필요합니다.  이러한 설정은 중요한 데이터로 처리되어야 하므로 protected 설정 구성에 저장해야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. 이러한 설정은 Azure Backup 서비스에서 백업 작업의 일부로만 전달하는 것이 좋습니다.
+다음 JSON은 VM 스냅샷 확장에 대한 스키마를 보여 줍니다. 확장에는 VM에서 스냅샷을 트리거한 백업 작업을 식별하기 위한 작업 ID, 스냅샷 작업 상태가 기록되는 상태 Blob URI, 예약된 스냅샷 시작 시간, 스냅샷 작업에 해당하는 로그가 기록되는 로그 Blob URI, VM 디스크 및 메타데이터에 대한 표현인 개체 문자열이 필요합니다.  이러한 설정은 중요한 데이터로 처리되어야 하므로 protected 설정 구성에 저장해야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. 이러한 설정은 Azure Backup 서비스에서 백업 작업의 일부로만 전달하는 것이 좋습니다.
 
 ```json
 {
@@ -67,12 +63,12 @@ VM 스냅샷 확장을 사용하려면 가상 머신을 백업할 때 대상 가
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
-| commandStartTimeUTCTicks | 6.36458E+17 | string |
-| locale | en-us | string |
-| objectStr | SAS URI 배열의 인코딩 - "blobSASUri": ["https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmubuntu1404ltsc201652903941.vhd?sv=2014-02-14&sr=b&sig=TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna8461.blob.core.windows.net\/vhds\/vmubuntu1404ltsc-20160629-122418.vhd?sv=2014-02-14&sr=b&sig=5S0A6YDWvVwqPAkzWXVy%2BS%2FqMwzFMbamT5upwx05v8Q%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna8461.blob.core.windows.net\/bootdiagnostics-vmubuntu1-deb58392-ed5e-48be-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541.vhd?sv=2014-02-14&sr=b&sig=X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmubuntu1404ltsc-20160701-163922.vhd?sv=2014-02-14&sr=b&sig=oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r%2BC%2BNIAork%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmubuntu1404ltsc-20170705-124311.vhd?sv=2014-02-14&sr=b&sig=ZUM9d28Mvvm%2FfrhJ71TFZh0Ni90m38bBs3zMl%2FQ9rs0%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw"] | string |
-| logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string |
-| statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string |
+| taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | 문자열 |
+| commandStartTimeUTCTicks | 6.36458E+17 | 문자열 |
+| locale | ko-kr | 문자열 |
+| objectStr | Sas uri 배열의 인코딩-"blobSASUri": ["https:\/\/sopattna5365.blob.core.windows.net\/vhd\/vmubuntu1404ltsc201652903941? sv = 2014-02-14 & sr = b & sig = TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA% 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T14% 3A23% 3A28Z & sp = rw", "https:\/\/sopattna8461.blob.core.windows.net\/vhd\/vmubuntu1404ltsc-20160629-122418? sv = 2014-02-14 & sr = b & sig = 5S0A6YDWvVwqPAkzWXVy% 2BS% 2FqMwzFMbamT5upwx05v8Q% 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T14% 3A23% 3A28Z & sp = rw "," https:\/\/sopattna8461.blob.core.windows.net\/bootdiagnostics-vmubuntu1-deb58392-ed5e-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541? sv = 2014-02-14 & sr = b & sig = X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4% 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T14% 3A23% 3A28Z & sp = rw "," https:\/\/sopattna5365.blob.core.windows.net\/vhd\/vmubuntu1404ltsc-20160701-163922? sv = 2014-02-14 & sr = b & sig = oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r% 2BC% 2BNIAork% 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T14% 3A23% 3A28Z & sp = rw "," https:\/\/sopattna5365.blob.core.windows.net\/vhd\/vmubuntu1404ltsc-20170705-124311? sv = 2014-02-14 & sr = b & sig = ZUM9d28Mvvm% 2FfrhJ71TFZh0Ni90m38bBs3zMl% 2FQ9rs0% 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T14% 3A23% 3A28Z & sp = rw "] | 문자열 |
+| logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | 문자열 |
+| statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | 문자열 |
 
 
 

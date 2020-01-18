@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8c12e0ab854bb2b5764dd326e3f1649202f6f16b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232813"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262812"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>지속성 함수의 단일 항목 오케스트레이터(Azure Functions)
 
@@ -20,7 +20,7 @@ ms.locfileid: "74232813"
 
 다음 예에서는 단일 백그라운드 작업 오케스트레이션을 만드는 HTTP 트리거 함수를 보여 줍니다. 이 코드는 지정한 인스턴스 ID에 대해 인스턴스가 하나만 존재하는지 확인합니다.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -54,9 +54,10 @@ public static async Task<HttpResponseMessage> RunSingle(
 > [!NOTE]
 > 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-function.json 파일은 다음과 같습니다.
+**function.json**
+
 ```json
 {
   "bindings": [
@@ -82,7 +83,8 @@ function.json 파일은 다음과 같습니다.
 }
 ```
 
-JavaScript 코드는 다음과 같습니다.
+**index.js**
+
 ```javascript
 const df = require("durable-functions");
 
@@ -109,6 +111,8 @@ module.exports = async function(context, req) {
     }
 };
 ```
+
+---
 
 기본적으로 인스턴스 ID는 임의로 GUID에서 생성됩니다. 그러나 이전 예제에서 인스턴스 ID는 URL의 경로 데이터로 전달 됩니다. 이 코드는 `GetStatusAsync`(C#) 또는 `getStatus` (JavaScript)를 호출 하 여 지정 된 ID를 가진 인스턴스가 이미 실행 중인지 확인 합니다. 이러한 인스턴스가 실행 되 고 있지 않으면 해당 ID를 사용 하 여 새 인스턴스를 만듭니다.
 

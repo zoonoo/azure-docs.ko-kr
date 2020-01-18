@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/09/2020
-ms.openlocfilehash: 21ad0c38b8901c1e33e05ab162552cb074a392a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/17/2020
+ms.openlocfilehash: ac9ded703ed18abd9543b6e32e59afe6ccf711a9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969588"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263424"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링 되는 항목
 이 문서에서는 Azure Monitor에 의해 모니터링 되는 다양 한 응용 프로그램 및 서비스에 대해 설명 합니다. 
@@ -181,7 +181,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 | [Azure Sentinel](/azure/sentinel/) | Office 365 및 Amazon Web Services 클라우드 내역을 비롯 한 다양 한 원본에 연결 합니다. [데이터 원본 연결](/azure/sentinel/connect-data-sources)을 참조 하세요. |
 | [Key Vault 분석](insights/azure-key-vault.md) | Azure Key Vault AuditEvent 로그를 분석 합니다. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Azure Monitor로 로그를 보낼 진단 설정을 만듭니다. [Intune (미리 보기)에서 저장소, 이벤트 허브 또는 log analytics로 로그 데이터 전송](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)을 참조 하세요.  |
-| 네트워크  | [DNS 분석](insights/dns-analytics.md) -dns 서버에서 Windows dns 분석 및 감사 로그와 기타 관련 데이터를 수집, 분석 및 상관 관계를 합니다.<br>[네트워크 성능 모니터](insights/network-performance-monitor.md) -서비스 및 응용 프로그램 끝점에 대 한 네트워크 연결 및 성능을 모니터링 합니다.<br>[Azure 애플리케이션 게이트웨이](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) -Azure 애플리케이션 게이트웨이에서 로그 및 메트릭을 분석 합니다.<br>[트래픽 분석](/azure/network-watcher/traffic-analytics) -Network Watcher nsg (네트워크 보안 그룹) 흐름 로그를 분석 하 여 Azure 클라우드의 트래픽 흐름에 대 한 정보를 제공 합니다. |
+| 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) -서비스 및 응용 프로그램 끝점에 대 한 네트워크 연결 및 성능을 모니터링 합니다.<br>[Azure 애플리케이션 게이트웨이](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) -Azure 애플리케이션 게이트웨이에서 로그 및 메트릭을 분석 합니다.<br>[트래픽 분석](/azure/network-watcher/traffic-analytics) -Network Watcher nsg (네트워크 보안 그룹) 흐름 로그를 분석 하 여 Azure 클라우드의 트래픽 흐름에 대 한 정보를 제공 합니다. |
 | [Office 365](insights/solution-office-365.md) | Office 365 환경을 모니터링 합니다. Azure 센티널을 통해 향상 된 온 보 딩이 제공 되는 업데이트 된 버전입니다. |
 | [SQL Analytics](insights/azure-sql.md) | 여러 구독에서 Azure SQL database, 탄력적 풀 및 관리 되는 인스턴스의 성능을 모니터링 합니다. |
 | [Surface Hub](insights/surface-hubs.md) | Surface Hub 장치의 상태와 사용 현황을 추적 합니다. |
@@ -200,6 +200,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 | [Active Directory 평가](insights/ad-assessment.md) | Active Directory 환경의 위험 및 상태를 평가 합니다. |
 | [Active Directory 복제 상태](insights/ad-replication-status.md) | 복제 오류에 대 한 Active Directory 환경을 정기적으로 모니터링 합니다. |
 | [활동 로그 분석](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | 미리 정의 된 로그 쿼리 및 뷰를 사용 하 여 활동 로그 항목을 분석 합니다. |
+| [DNS 분석 (미리 보기)](insights/dns-analytics.md) | DNS 서버에서 Windows DNS 분석 및 감사 로그와 기타 관련 데이터를 수집 하 고, 분석 하 고, 상관 관계를 합니다. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | 여러 배포에서 Cloud Foundry 시스템 상태 및 성능 메트릭을 수집, 확인 및 분석 합니다. |
 | [컨테이너](insights/containers.md) | Docker 및 Windows 컨테이너 호스트를 보고 관리 합니다. |
 | [주문형 평가](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | 온-프레미스, 하이브리드 및 클라우드 Microsoft 기술 환경의 가용성, 보안 및 성능을 평가 하 고 최적화 합니다. |

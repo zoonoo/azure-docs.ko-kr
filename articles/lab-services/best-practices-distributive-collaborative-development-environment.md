@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs 리소스의 공동 개발 distributed | Microsoft Docs
-description: DevTest Labs 리소스를 개발 하는 분산 및 공동 작업 개발 환경을 설정 하는 모범 사례를 제공 합니다.
+title: Azure DevTest Labs 리소스의 분산 된 공동 작업 개발
+description: DevTest Labs 리소스를 개발 하기 위한 분산 및 공동 작업 개발 환경을 설정 하기 위한 모범 사례를 제공 합니다.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,55 +11,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8ffc8ed3f84284ff69e9515cba0982790b823a37
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 9469591b1945adaffca973828d619d5d06655262
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543761"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170117"
 ---
-# <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Azure DevTest Labs 리소스 분산 및 공동 작업 개발에 대 한 모범 사례
-분산된 된 공동 작업 개발에는 서로 다른 팀 이나 개발 및 코드를 기본 유지 관리 하 게 수 있습니다. 찾기가 성공 하려면 개발 프로세스 만들기, 공유 및 정보를 통합 하는 기능에 따라 달라 집니다. Azure DevTest Labs 내에서이 주요 개발 원칙을 사용할 수 있습니다. 여러 유형의 랩 내에서 일반적으로 기업 내에서 다른 labs 간에 분산 된 리소스가 있습니다. 다양 한 유형의 리소스는 두 가지 영역으로 초점을 맞추었습니다.
+# <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Azure DevTest Labs 리소스의 분산 및 공동 작업 개발에 대 한 모범 사례
+분산 된 공동 작업 개발을 사용 하면 다른 팀 이나 사용자가 코드 베이스를 개발 하 고 유지 관리할 수 있습니다. 개발 프로세스는 정보를 만들고, 공유 하 고, 통합 하는 기능에 따라 달라 집니다. 이 주요 개발 원칙은 Azure DevTest Labs 내에서 사용할 수 있습니다. 랩 내에는 기업 내 여러 랩에서 일반적으로 분산 되는 여러 유형의 리소스가 있습니다. 여러 유형의 리소스는 다음과 같은 두 영역으로 집중 됩니다.
 
-- 랩 (랩 기반) 내에서 내부적으로 저장 되는 리소스
-- 에 저장 된 리소스 [랩에 연결 된 외부 리포지토리](devtest-lab-add-artifact-repo.md) (코드 리포지토리 기반). 
+- 랩에 내부적으로 저장 된 리소스 (랩 기반)
+- [랩에 연결 된 외부 리포지토리에](devtest-lab-add-artifact-repo.md) 저장 된 리소스 (코드 리포지토리 기반) 
 
-이 문서에서는 사용자 지정 및 모든 수준의 품질을 보장 하면서 여러 팀에서 공동 작업 및 배포를 허용 하는 몇 가지 모범 사례를 설명 합니다.
+이 문서에서는 모든 수준에서 사용자 지정 및 품질을 보장 하면서 여러 팀 간에 공동 작업 및 배포를 허용 하는 몇 가지 모범 사례에 대해 설명 합니다.
 
 ## <a name="lab-based-resources"></a>랩 기반 리소스
 
 ### <a name="custom-virtual-machine-images"></a>사용자 지정 가상 머신 이미지
-사용자 지정 이미지를 매일 밤 마다 랩에 배포 되는 일반적인 소스를 할 수 있습니다. 자세한 내용은 [이미지 팩터리](image-factory-create.md)합니다.    
+매일 밤에 배포 되는 사용자 지정 이미지의 공통 원본을 사용할 수 있습니다. 자세한 내용은 [이미지 팩터리](image-factory-create.md)를 참조 하세요.    
 
 ### <a name="formulas"></a>수식
-[수식](devtest-lab-manage-formulas.md) 랩 별 및 배포 메커니즘 필요는 없습니다. 랩 멤버 수식의 모든 개발 작업을 수행 합니다. 
+[수식은](devtest-lab-manage-formulas.md) lab에만 적용 되며 배포 메커니즘은 없습니다. 랩 멤버는 모든 수식 개발을 수행 합니다. 
 
 ## <a name="code-repository-based-resources"></a>코드 리포지토리 기반 리소스
-코드 리포지토리, 아티팩트 및 환경에 기반한 있는 두 가지 다른 기능이 있습니다. 이 문서에서는 가장 효과적으로 사용 가능한 아티팩트 및 조직 수준 또는 팀 수준에서 환경에서 사용자 지정할 수 있도록 리포지토리 및 워크플로를 설정 하는 방법과 기능을 통해 이동 합니다.  이 워크플로 표준을 기반으로 [소스 코드 제어 분기 전략](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops)합니다. 
+코드 리포지토리, 아티팩트 및 환경을 기반으로 하는 두 가지 다른 기능이 있습니다. 이 문서에서는 기능에 대해 설명 하 고, 조직 수준 또는 팀 수준에서 사용 가능한 아티팩트와 환경을 사용자 지정 하는 기능을 허용 하도록 리포지토리 및 워크플로를 가장 효과적으로 설정 하는 방법을 설명 합니다.  이 워크플로는 표준 [소스 코드 제어 분기 전략](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops)을 기반으로 합니다. 
 
 ### <a name="key-concepts"></a>주요 개념
-아티팩트에 대 한 원본 정보 메타 데이터를 스크립트에 포함 됩니다. 환경에 대 한 원본 정보를 PowerShell 스크립트, DSC 스크립트, Zip 파일 등 모든 지원 파일을 사용 하 여 메타 데이터 및 Resource Manager 템플릿을 포함합니다.  
+아티팩트의 원본 정보에는 메타 데이터, 스크립트가 포함 됩니다. 환경에 대 한 원본 정보에는 PowerShell 스크립트, DSC 스크립트, Zip 파일 등의 지원 파일을 포함 하는 메타 데이터 및 리소스 관리자 템플릿이 포함 되어 있습니다.  
 
 ### <a name="repository-structure"></a>리포지토리 구조  
-소스 코드 제어 (SCC)에 대 한 가장 일반적인 구성을 lab에서 사용 되는 코드 파일 (Resource Manager 템플릿, 메타 데이터 및 스크립트)을 저장 하는 것에 대 한 다중 계층 구조를 설정 하는 것입니다. 특히, 비즈니스의 다양 한 수준에서 관리 되는 리소스를 저장할 다른 리포지토리를 만듭니다.   
+SCC (소스 코드 제어)에 대 한 가장 일반적인 구성은 랩에서 사용 되는 코드 파일 (리소스 관리자 템플릿, 메타 데이터 및 스크립트)을 저장 하기 위한 다중 계층 구조를 설정 하는 것입니다. 특히 다른 비즈니스 수준에서 관리 되는 리소스를 저장 하기 위해 다른 리포지토리를 만듭니다.   
 
-- 회사 전체의 리소스입니다.
-- 비즈니스 단위/부서 전체 리소스
-- 팀에 특정 리소스입니다.
+- 회사 전체 리소스.
+- 비즈니스 단위/부서 차원의 리소스
+- 팀 특정 리소스.
 
-각 수준의 다른 리포지토리의 마스터 분기는 프로덕션 품질의 되어야 할 위치를 연결 합니다. 합니다 [분기](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) 에서 각 리포지토리에 이러한 특정 리소스 (아티팩트 또는 템플릿)의 개발에 대 한 합니다. 이 구조는 조직의 랩에 동시에 여러 리포지토리 및 여러 분기를 쉽게 연결할 수 있는 DevTest Labs를 통해 잘 맞춥니다. 리포지토리 이름이 혼동을 피하기 위해 이름이 동일한 경우 (UI) 사용자 인터페이스, 설명 및 게시자에 포함 됩니다.
+이러한 각 수준은 마스터 분기가 프로덕션 품질에 필요한 다른 리포지토리에 연결 됩니다. 각 리포지토리의 [분기](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) 는 해당 특정 리소스 (아티팩트 또는 템플릿)를 개발 하기 위한 것입니다. 이 구조는 여러 리포지토리 및 여러 분기를 조직의 랩에서 동시에 쉽게 연결할 수 있으므로 DevTest Labs와 잘 정렬 됩니다. 동일한 이름, 설명 및 게시자가 있는 경우 혼동을 피하기 위해 리포지토리 이름은 UI (사용자 인터페이스)에 포함 됩니다.
      
-다음 다이어그램은 리포지토리 두 개를 보여 줍니다: IT 부서에서 유지 되는 회사 리포지토리 및 r&d 부서에서 유지 관리 부서 리포지토리.
+다음 다이어그램은 IT 부서에서 유지 관리 되는 회사 리포지토리와 R & D 나누기에 의해 유지 관리 되는 나누기 리포지토리에 해당 하는 두 가지 리포지토리를 보여 줍니다.
 
-![샘플 분배 하 고 공동 개발 환경](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
+![샘플 분배 및 공동 개발 환경](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
    
-이 계층된 구조 개발 하면 여러 리포지토리에 랩 연결 보다 유연 하 게 하는 동안 마스터 분기에서 더 높은 수준의 품질을 유지 하면서 수 있습니다.
+이 계층화 된 구조를 사용 하면 랩에 연결 된 여러 리포지토리가 있는 동안 마스터 분기에서 더 높은 수준의 품질을 유지 하면서 유연성을 높일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계    
 다음 문서를 참조하세요.
 
-- 중 하나를 사용 하 여 랩에 리포지토리를 추가 합니다 [Azure portal](devtest-lab-add-artifact-repo.md) 통하거나 [Azure Resource Management 템플릿](add-artifact-repository.md)
+- [Azure Portal](devtest-lab-add-artifact-repo.md) 를 사용 하거나 [Azure 리소스 관리 템플릿을](add-artifact-repository.md) 통해 랩에 리포지토리를 추가 합니다.
 - [DevTest Labs 아티팩트](devtest-lab-artifact-author.md)
-- [DevTest Labs 환경](devtest-lab-create-environment-from-arm.md)합니다.
+- [DevTest Labs 환경](devtest-lab-create-environment-from-arm.md).

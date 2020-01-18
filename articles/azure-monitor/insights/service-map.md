@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402591"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168187"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "75402591"
 * Windows 컴퓨터 또는 Linux 서버에 설치 된 종속성 에이전트입니다.
 
 >[!NOTE]
->서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM용 Azure Monitor에서 맵을 볼 수 있습니다. 자세한 내용은 [VM용 Azure Monitor 개요](../../azure-monitor/insights/vminsights-overview.md)를 참조하세요. 서비스 맵 솔루션과 VM용 Azure Monitor 맵 기능 간의 차이점에 대 한 자세한 내용은 다음 [FAQ](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map)를 참조 하세요.
+>서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM용 Azure Monitor에서 맵을 볼 수 있습니다. 자세한 내용은 [VM용 Azure Monitor 개요](../../azure-monitor/insights/vminsights-overview.md)를 참조하세요. 서비스 맵 솔루션과 VM용 Azure Monitor 맵 기능 간의 차이점에 대 한 자세한 내용은 다음 [FAQ](../faq.md#azure-monitor-for-vms-preview)를 참조 하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -321,7 +321,7 @@ Linux:
 
 ### <a name="connections"></a>연결
 
-연결 메트릭은 Log Analytics - VMConnection에서 새 테이블에 작성됩니다. 이 테이블은 머신에 대한 연결 관련 정보를 제공합니다(인바운드 및 아웃바운드). 또한 연결 메트릭은 해당 기간 동안 특정 메트릭을 가져올 수 있는 방법을 제공하는 API를 사용하여 노출됩니다.  수신 대기 소켓에서의 *수락*으로 인해 발생한 TCP 연결은 인바운드되는 반면, 지정된 IP 및 포트로 *연결*되면서 생성된 연결은 아웃바운드됩니다. 연결의 방향은 **인바운드** 또는 **아웃바운드** 중 하나로 설정할 수 있는 Direction 속성으로 표현됩니다. 
+연결 메트릭은 Log Analytics - VMConnection에서 새 테이블에 작성됩니다. 이 테이블은 머신에 대한 연결 관련 정보를 제공합니다(인바운드 및 아웃바운드). 또한 연결 메트릭은 해당 기간 동안 특정 메트릭을 가져올 수 있는 방법을 제공하는 API를 사용하여 노출됩니다.  수신 소켓에서 받아들이는 TCP 연결은 인바운드 이며 지정 된 IP 및 포트에 연결 하 여 만든 TCP 연결은 아웃 바운드입니다. 연결의 방향은 **인바운드** 또는 **아웃바운드** 중 하나로 설정할 수 있는 Direction 속성으로 표현됩니다. 
 
 이러한 테이블의 레코드는 종속성 에이전트에서 보고된 데이터에서 생성됩니다. 모든 레코드는 1분 간격의 관찰을 나타냅니다. TimeGenerated 속성은 시간 간격의 시작을 나타냅니다. 각 레코드에는 각 엔터티를 식별하는 정보가 있습니다. 즉, 해당 엔터티에 연결된 메트릭과 함께 연결 또는 포트를 포함합니다. 현재 IPv4를 통해 TCP를 사용하여 발생하는 네트워크 활동만 보고됩니다.
 

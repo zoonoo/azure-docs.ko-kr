@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c5c1480669829bad7f8d89ce360bb806d6c997
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 3bc58e9545f38508a9e08e9ae1aa9cf8713cc520
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646863"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264749"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 교실 랩-질문과 대답 (FAQ)
 Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 
@@ -26,12 +26,12 @@ Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 �
 ## <a name="quotas"></a>할당량
 
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>사용자 당 또는 주당 할당량 또는 랩의 전체 기간에 대 한 할당량 입니까? 
-랩에 대해 설정 하는 할당량은 랩의 전체 기간에 대 한 각 학생에 대해 설정 됩니다. 그리고 [vm의 예약 된 실행 시간은](how-to-create-schedules.md) 사용자에 게 할당 된 할당량에 계산 되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간입니다.  할당량에 대 한 자세한 내용은 [사용자에 대 한 할당량 설정](how-to-configure-student-usage.md#set-quotas-for-users)을 참조 하세요.
+랩에 대해 설정 하는 할당량은 랩의 전체 기간에 대 한 각 학생에 대해 설정 됩니다. 그리고 [vm의 예약 된 실행 시간은](how-to-create-schedules.md) 사용자에 게 할당 된 할당량에 계산 되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간을 반영합니다.  할당량에 대 한 자세한 내용은 [사용자에 대 한 할당량 설정](how-to-configure-student-usage.md#set-quotas-for-users)을 참조 하세요.
 
 ## <a name="schedules"></a>일정
 
 ### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>일정이 설정 되 면 랩의 모든 Vm이 자동으로 시작 됩니까? 
-아니요. 모든 Vm이 아닙니다. 일정에 따라 사용자에 게 할당 된 Vm만 사용자에 게 할당 되지 않은 Vm은 자동으로 시작 되지 않습니다. 이것은 의도 된 것입니다. 
+아닙니다. 모든 Vm이 아닙니다. 일정에 따라 사용자에 게 할당 된 Vm만 사용자에 게 할당 되지 않은 Vm은 자동으로 시작 되지 않습니다. 이것은 의도 된 것입니다. 
 
 ## <a name="lab-accounts"></a>랩 계정
 
@@ -46,6 +46,11 @@ Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 �
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>RDP/SSH를 통해 랩 가상 컴퓨터에 연결 하기 위해 내 조직의 방화벽 설정에서 어떤 공용 IP 주소 범위를 열어야 하나요?
 Azure의 데이터 센터에 대 한 공용 IP 주소 범위를 제공 하는 [AZURE Ip 범위 및 서비스 태그 (공용 클라우드)](https://www.microsoft.com/download/details.aspx?id=56519)를 참조 하세요. 랩 계정이 있는 지역에 대 한 IP 주소를 열 수 있습니다.
+
+## <a name="users"></a>사용자
+
+### <a name="how-many-users-can-be-in-a-classroom-lab"></a>클래스 룸 랩에서는 얼마나 많은 사용자를 사용할 수 있나요?
+클래스 룸 랩에 최대 400 명의 사용자를 추가할 수 있습니다. 
 
 ## <a name="blog-post"></a>블로그 게시물
 [Azure Lab Services 블로그](https://azure.microsoft.com/blog/tag/azure-lab-services/)를 구독 합니다.

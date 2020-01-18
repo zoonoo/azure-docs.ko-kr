@@ -1,7 +1,7 @@
 ---
-title: 인식 모델을 지정 하는 방법-Face API
+title: 인식 모델을 지정 하는 방법-얼굴
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure Face API 응용 프로그램에 사용할 인식 모델을 선택 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Face 응용 프로그램에 사용할 인식 모델을 선택 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: longli0
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 5b84e078e3b674a539b61c07c4bb4370719e4799
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 44392b807659ff8f13511b48d0afd33db080e4f6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771022"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166470"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
-이 가이드에서는 Azure의 Face API를 사용하여 얼굴 감지, 식별 및 유사 얼굴 찾기에 대한 얼굴 인식 모델을 지정하는 방법을 보여줍니다.
+이 가이드에서는 Azure Face 서비스를 사용 하 여 얼굴 감지, 식별 및 유사성 검색을 위한 얼굴 인식 모델을 지정 하는 방법을 보여 줍니다.
 
-Face API는 기계 학습 모델을 사용하여 이미지의 사람 얼굴에 작업을 수행합니다. 고객 의견 및 연구의 발전에 따라 모델의 정확도를 계속 개선할 것이며 모델 업데이트로 이러한 개선사항을 전달할 것입니다. 개발자는 사용할 얼굴 인식 모델의 버전을 지정하는 옵션을 가지고 있으므로 해당 사용 사례에 가장 적합한 모델을 선택할 수 있습니다.
+얼굴 서비스는 기계 학습 모델을 사용 하 여 이미지에서 인간 얼굴에 대 한 작업을 수행 합니다. 고객 의견 및 연구의 발전에 따라 모델의 정확도를 계속 개선할 것이며 모델 업데이트로 이러한 개선사항을 전달할 것입니다. 개발자는 사용할 얼굴 인식 모델의 버전을 지정하는 옵션을 가지고 있으므로 해당 사용 사례에 가장 적합한 모델을 선택할 수 있습니다.
 
 새 사용자인 경우 최신 모델을 사용하는 것이 좋습니다. 모델 충돌을 방지하면서 다양한 얼굴 작업에서 그것을 지정하는 방법을 알아봅니다. 고급 사용자이면서 최신 모델로의 전환에 대해 확실하지 않으면, 새 모델을 평가하고 현재 데이터 집합을 사용하여 결과를 비교하는 [다른 모델 평가](#evaluate-different-models) 섹션으로 이동합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 AI 얼굴 감지 및 식별의 개념을 잘 알고 있어야 합니다. 그렇치 않은 경우 먼저 다음의 방법 가이드를 참조합니다.
 
@@ -57,7 +57,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 ## <a name="identify-faces-with-specified-model"></a>지정된 모델을 사용하여 얼굴 식별
 
-Face API는 이미지에서 얼굴 데이터를 추출하고 **Person** 개체(예를 들어, [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 호출을 통해)와 연결하고, 여러 **Person** 개체는 **PersonGroup**에 함께 저장할 수 있습니다. 그런 다음 새 얼굴을 **PersonGroup**([Face-Identify] 호출을 사용하여)과 비교할 수 있으며, 해당 그룹 내에서 일치하는 사람을 식별할 수 있습니다.
+얼굴 서비스는 이미지에서 얼굴 데이터를 추출 하 고이를 **Person** 개체와 연결 (예: [face API 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 호출을 통해) 할 수 있으며, 여러 **person** 개체를 **PersonGroup**에 함께 저장할 수 있습니다. 그런 다음 새 얼굴을 **PersonGroup**([Face-Identify] 호출을 사용하여)과 비교할 수 있으며, 해당 그룹 내에서 일치하는 사람을 식별할 수 있습니다.
 
 **PersonGroup**은 모든 **Person**을 위해 하나의 고유 인식 모델을 가져야 하며,  그룹을 만들 때([PersonGroup - 만들기] 나 [LargePersonGroup - 만들기]) `recognitionModel` 매개 변수를 사용하여 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 그룹은 항상 생성 된 인식 모델을 사용 하 고 새 얼굴은이 모델에 추가 될 때이 모델에 연결 됩니다. 그룹을 만든 후에는 변경할 수 없습니다. **PersonGroup**이 구성된 모델을 보려면, [PersonGroup-Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true**로 설정합니다.
 

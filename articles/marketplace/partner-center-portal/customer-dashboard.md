@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d1d94e07fc38ae5de62793666df5a73dbf8b79eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480568"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264019"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>상용 Marketplace 분석의 고객 대시보드
 
@@ -72,7 +72,7 @@ ms.locfileid: "75480568"
 
 **주문/사용 현황** 차트의 고객에 게는 "주문", "정규화 된 사용량" 및 "원시 사용량"의 세 가지 탭이 있습니다. **상위 고객 백분위** 수는 주문 수에 따라 결정 된 대로 x 축을 따라 표시 됩니다. Y 축은 고객의 주문 수를 표시 합니다. 보조 y 축 (선 그래프)에는 총 주문 수의 누적 백분율이 표시 됩니다. 꺾은선형 차트를 따라 가리키면 세부 정보를 표시할 수 있습니다.
 
-예를 들어 정규화 된 사용에 대 한 아래 차트를 참조 하세요. 고객의 상위 30 번째 백분위 수는 정규화 된 사용의 87%에 누적 됩니다. 고객의 30 번째 백분위 수는 1.57 M 시간 사용량에만 영향을 주는 것입니다.
+예를 들어 정규화 된 사용에 대 한 아래 차트를 참조 하세요. 고객의 상위 30 번째 백분위 수는 정규화 된 사용의 87%에 누적 됩니다. 고객의 30 번째 백분위 수는 157만 시간의 사용량에만 영향을 주는 것입니다.
 
 ### <a name="customers-by-skus"></a>Sku 별 고객
 

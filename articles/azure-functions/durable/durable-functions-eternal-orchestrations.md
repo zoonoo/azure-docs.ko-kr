@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8d28ae18c44c434dba053b23a60eb78728f8d8e0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 572fec4d6e47efd734bc84a40dc974c79bd619fb
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232903"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262982"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 영구 오케스트레이션(Azure Functions)
 
@@ -27,13 +27,13 @@ ms.locfileid: "74232903"
 `ContinueAsNew`가 호출되면 인스턴스에서 종료되기 전에 자체의 큐에 메시지를 넣습니다. 이 메시지는 새 입력 값으로 인스턴스를 다시 시작합니다. 동일한 인스턴스 ID를 유지하지만 오케스트레이터 함수의 기록이 효과적으로 잘립니다.
 
 > [!NOTE]
-> 지속성 작업 프레임워크는 동일한 인스턴스 ID를 유지하지만, *로 다시 설정되는 오케스트레이터 함수에 대해 내부적으로 새* 실행 ID`ContinueAsNew`를 만듭니다. 일반적으로 이 실행 ID는 외부적으로 노출되지 않지만 오케스트레이션 실행을 디버그할 때 알고 있으면 유용할 수 있습니다.
+> 지속성 작업 프레임워크는 동일한 인스턴스 ID를 유지하지만, `ContinueAsNew`로 다시 설정되는 오케스트레이터 함수에 대해 내부적으로 새 *실행 ID*를 만듭니다. 일반적으로 이 실행 ID는 외부적으로 노출되지 않지만 오케스트레이션 실행을 디버그할 때 알고 있으면 유용할 수 있습니다.
 
 ## <a name="periodic-work-example"></a>정기 작업 예제
 
 영구 오케스트레이션을 위한 한 가지 사용 사례는 무한정 주기적으로 작업해야 하는 코드입니다.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -53,7 +53,7 @@ public static async Task Run(
 > [!NOTE]
 > 이전 C# 예제는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -70,6 +70,8 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 이 예제와 타이머 트리거 함수 간의 차이점은 여기서 정리 타이머 시간이 일정에 기반하지 않는다는 것입니다. 예를 들어 매시간 함수를 실행하는 CRON 일정은 1시, 2시, 3시 등에 실행되며 잠재적으로 겹침 문제가 발생할 수 있습니다. 그러나 이 예제에서 정리에 30분이 걸리면 1시, 2시 30분, 4시 등으로 예약되며 겹쳐질 가능성이 없습니다.
 
 ## <a name="starting-an-eternal-orchestration"></a>영구 오케스트레이션 시작
@@ -78,6 +80,8 @@ module.exports = df.orchestrator(function*(context) {
 
 > [!NOTE]
 > Singleton 영구 오케스트레이션을 실행 하 고 있는지 확인 해야 하는 경우 오케스트레이션을 시작할 때 `id` 동일한 인스턴스를 유지 관리 하는 것이 중요 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
@@ -95,9 +99,28 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 > [!NOTE]
 > 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context, req) {
+    const client = df.getClient(context);
+    const instanceId = "StaticId";
+    
+    // null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
+    await client.startNew("Periodic_Cleanup_Loop", instanceId, null);
+
+    context.log(`Started orchestration with ID = '${instanceId}'.`);
+    return client.createCheckStatusResponse(context.bindingData.req, instanceId);
+};
+```
+
+---
+
 ## <a name="exit-from-an-eternal-orchestration"></a>영구 오케스트레이션 종료
 
-오케스트레이터 함수가 결국 완료되어야 하는 경우에는 *를* 호출하지 않고`ContinueAsNew` 함수가 종료되도록 해야 합니다.
+오케스트레이터 함수가 결국 완료되어야 하는 경우에는 `ContinueAsNew`를 *호출하지 않고* 함수가 종료되도록 해야 합니다.
 
 오 케 스트레이 터 함수가 무한 루프에 있고 중지 되어야 하는 경우 [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `TerminateAsync` (.net) 또는 `terminate` (JavaScript) 메서드를 사용 하 여 중지 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 17a1f2c245e19afbf4d8c5092a0ddf0562a7cb0e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b2a49528ca3c2b55c02f3bda89b3722ee8fef535
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979318"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264257"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -48,6 +48,8 @@ ms.locfileid: "75979318"
 > | [API Management 서비스 참가자](#api-management-service-contributor) | 서비스 및 API를 관리할 수 있습니다. | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | [API Management 서비스 운영자 역할](#api-management-service-operator-role) | 서비스를 관리할 수 있지만 API는 관리할 수 없습니다. | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
 > | [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | 서비스 및 API에 대한 읽기 전용 액세스 | 71522526-b88f-4d52-b57f-d31fc3546d0d |
+> | [앱 구성 데이터 소유자](#app-configuration-data-owner) | 앱 구성 데이터에 대 한 모든 액세스를 허용 합니다. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
+> | [앱 구성 데이터 판독기](#app-configuration-data-reader) | 앱 구성 데이터에 대 한 읽기 액세스를 허용 합니다. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
 > | [Application Insights 구성 요소 기여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Application Insights 스냅샷 디버거](#application-insights-snapshot-debugger) | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Automation 작업 연산자](#automation-job-operator) | Automation Runbook을 사용하여 작업을 만들고 관리합니다. | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
@@ -55,6 +57,8 @@ ms.locfileid: "75979318"
 > | [Automation Runbook 연산자](#automation-runbook-operator) | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
 > | [Avere 기여자](#avere-contributor) | Avere vFXT 클러스터를 만들고 관리할 수 있습니다. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Avere 연산자](#avere-operator) | Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다. | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | [Azure 연결 된 컴퓨터 온 보 딩](#azure-connected-machine-onboarding) | Azure 연결 된 컴퓨터를 등록할 수 있습니다. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
+> | [Azure 연결 된 컴퓨터 리소스 관리자](#azure-connected-machine-resource-administrator) | Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록할 수 있습니다. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [Azure Event Hubs 데이터 소유자](#azure-event-hubs-data-owner) | Azure Event Hubs 리소스에 대 한 모든 액세스를 허용 합니다. | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | [Azure Event Hubs 데이터 수신기](#azure-event-hubs-data-receiver) | Azure Event Hubs 리소스에 대 한 수신 액세스를 허용 합니다. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | [Azure Event Hubs 데이터 발신자](#azure-event-hubs-data-sender) | Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
@@ -378,6 +382,38 @@ ms.locfileid: "75979318"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="app-configuration-data-owner"></a>앱 구성 데이터 소유자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 앱 구성 데이터에 대 한 모든 액세스를 허용 합니다. |
+> | **Id** | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft AppConfiguration/configurationStores/*/sread |  |
+> | Microsoft AppConfiguration/configurationStores/*/쓰기 |  |
+> | Microsoft AppConfiguration/configurationStores/*/delete |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="app-configuration-data-reader"></a>앱 구성 데이터 판독기
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 앱 구성 데이터에 대 한 읽기 액세스를 허용 합니다. |
+> | **Id** | 516239f1-63e1-4d78-a4de-a74fb236a071 |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft AppConfiguration/configurationStores/*/sread |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="application-insights-component-contributor"></a>Application Insights 구성 요소 참가자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -561,6 +597,42 @@ ms.locfileid: "75979318"
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob 삭제 결과를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록을 반환합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob 쓰기 결과 반환 |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="azure-connected-machine-onboarding"></a>Azure 연결 된 컴퓨터 온 보 딩
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure 연결 된 컴퓨터를 등록할 수 있습니다. |
+> | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
+> | **actions** |  |
+> | HybridCompute/컴퓨터/읽기 | 모든 Azure Arc 컴퓨터를 읽습니다. |
+> | HybridCompute/컴퓨터/쓰기 | Azure Arc 컴퓨터 작성 |
+> | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | 게스트 구성 할당을 가져옵니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="azure-connected-machine-resource-administrator"></a>Azure 연결 된 컴퓨터 리소스 관리자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure에 연결 된 컴퓨터를 읽고, 쓰고, 삭제 하 고, 다시 등록할 수 있습니다. |
+> | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
+> | **actions** |  |
+> | HybridCompute/컴퓨터/읽기 | 모든 Azure Arc 컴퓨터를 읽습니다. |
+> | HybridCompute/컴퓨터/쓰기 | Azure Arc 컴퓨터 작성 |
+> | HybridCompute/컴퓨터/삭제 | Azure Arc 컴퓨터 삭제 |
+> | HybridCompute/컴퓨터/다시 연결/작업 | Azure Arc 컴퓨터 다시 연결 |
+> | HybridCompute/*/읽기 |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -821,7 +893,6 @@ ms.locfileid: "75979318"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | 백업 관리와 관련된 메타데이터 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 백업 관리 작업의 결과 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | 백업 정책 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | 백업할 수 있는 항목 만들기 및 관리 |
@@ -886,7 +957,6 @@ ms.locfileid: "75979318"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 백업 관리 작업의 결과 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 정책 작업의 결과를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 모든 보호 정책을 반환합니다. |
@@ -952,7 +1022,6 @@ ms.locfileid: "75979318"
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | 작업의 작업 결과를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | 모든 작업 개체를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Recovery Services 자격 증명 모음의 Backup 작업 결과를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 정책 작업의 결과를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 모든 보호 정책을 반환합니다. |

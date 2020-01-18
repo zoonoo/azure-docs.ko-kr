@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 4c6ccf9dce0fc119bd666871489a42a3ef734f81
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769203"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260086"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -162,13 +162,23 @@ public class MyOptions
 }
 ```
 
+사용자 지정 설정을 다음과 같이 구성할 수 있는 `local.settings.json` 파일
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "MyOptions:MyCustomSetting": "Foobar"
+  }
+}
+```
+
 `Startup.Configure` 메서드 내에서 다음 코드를 사용 하 여 `IConfiguration` 인스턴스에서 사용자 지정 형식으로 값을 추출할 수 있습니다.
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
                 .Configure<IConfiguration>((settings, configuration) =>
                                            {
-                                                configuration.Bind(settings);
+                                                configuration.GetSection("MyOptions").Bind(settings);
                                            });
 ```
 

@@ -2,18 +2,18 @@
 title: 컨테이너 인스턴스의 보안
 description: Azure Container Instances에 대 한 이미지 및 암호를 보호 하기 위한 권장 사항 및 컨테이너 플랫폼에 대 한 일반적인 보안 고려 사항
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: b25cb4178ba211ff819ba512c9820165e0efbbf1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b5f2c4d9ca80318574e288110fd4ce7f490af00d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481705"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260500"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure Container Instances에 대 한 보안 고려 사항
 
-이 문서에서는 Azure Container Instances 사용 하 여 컨테이너 앱을 실행 하기 위한 보안 고려 사항을 소개 합니다. 다룰 주제는 다음과 같습니다.
+이 문서에서는 Azure Container Instances 사용 하 여 컨테이너 앱을 실행 하기 위한 보안 고려 사항을 소개 합니다. 토픽은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Azure Container Instances에 대 한 이미지 및 암호 관리에 대 한 **보안 권장 사항**
@@ -23,13 +23,17 @@ ms.locfileid: "74481705"
 
 ### <a name="use-a-private-registry"></a>개인 레지스트리 사용
 
-컨테이너는 하나 이상의 리포지토리에 저장된 이미지에서 작성됩니다. 이러한 리포지토리는 [Docker Hub](https://hub.docker.com)와 같은 공용 레지스트리 또는 개인 레지스트리에 속할 수 있습니다. 프라이빗 레지스트리의 예는 [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/)이며 온-프레미스 또는 가상 프라이빗 클라우드에 설치할 수 있습니다. [Azure Container Registry](../container-registry/container-registry-intro.md)를 포함 하 여 클라우드 기반 개인 컨테이너 레지스트리 서비스를 사용할 수도 있습니다. 
+컨테이너는 하나 이상의 리포지토리에 저장된 이미지에서 작성됩니다. 이러한 리포지토리는 [Docker Hub](https://hub.docker.com)와 같은 공용 레지스트리 또는 개인 레지스트리에 속할 수 있습니다. 프라이빗 레지스트리의 예는 [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/)이며 온-프레미스 또는 가상 프라이빗 클라우드에 설치할 수 있습니다. [Azure Container Registry](../container-registry/container-registry-intro.md)를 포함 하 여 클라우드 기반 개인 컨테이너 레지스트리 서비스를 사용할 수도 있습니다. 
 
-공개적으로 사용 가능한 컨테이너 이미지는 보안이 보장 되지 않습니다. 컨테이너 이미지는 여러 소프트웨어 계층으로 구성 되며 각 소프트웨어 계층에는 취약성이 있을 수 있습니다. 공격 위협을 줄이기 위해 Azure Container Registry 또는 Docker Trusted Registry와 같은 개인 레지스트리에서 이미지를 저장 하 고 검색 해야 합니다. 관리 되는 개인 레지스트리를 제공 하는 것 외에도 Azure Container Registry는 기본 인증 흐름에 대해 Azure Active Directory를 통해 [서비스 주체 기반 인증](../container-registry/container-registry-authentication.md) 을 지원 합니다. 이 인증에는 읽기 전용 (끌어오기), 쓰기 (푸시) 및 소유자 권한에 대 한 역할 기반 액세스가 포함 됩니다.
+공개적으로 사용 가능한 컨테이너 이미지는 보안이 보장 되지 않습니다. 컨테이너 이미지는 여러 소프트웨어 계층으로 구성 되며 각 소프트웨어 계층에는 취약성이 있을 수 있습니다. 공격 위협을 줄이기 위해 Azure Container Registry 또는 Docker Trusted Registry와 같은 개인 레지스트리에서 이미지를 저장 하 고 검색 해야 합니다. 관리 되는 개인 레지스트리를 제공 하는 것 외에도 Azure Container Registry는 기본 인증 흐름에 대해 Azure Active Directory를 통해 [서비스 주체 기반 인증](../container-registry/container-registry-authentication.md) 을 지원 합니다. 이 인증에는 읽기 전용 (끌어오기), 쓰기 (푸시) 및 기타 권한에 대 한 역할 기반 액세스가 포함 됩니다.
 
 ### <a name="monitor-and-scan-container-images"></a>컨테이너 이미지 모니터링 및 검색
 
-[Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) 및 [바다색 보안과](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) 같은 보안 모니터링 및 검사 솔루션은 Azure Marketplace를 통해 제공 됩니다. 이러한 항목을 사용 하 여 개인 레지스트리에서 컨테이너 이미지를 검색 하 고 잠재적 취약성을 식별할 수 있습니다. 여러 솔루션에서 제공 하는 검색의 깊이를 이해 하는 것이 중요 합니다. 
+솔루션을 활용 하 여 개인 레지스트리에서 컨테이너 이미지를 검색 하 고 잠재적 취약성을 식별 합니다. 여러 솔루션에서 제공 하는 위협 검색의 깊이를 이해 하는 것이 중요 합니다.
+
+예를 들어 Azure Container Registry은 선택적으로 [Azure Security Center와 통합 되어](../security-center/azure-container-registry-integration.md) 레지스트리에 푸시된 모든 Linux 이미지를 자동으로 검색 합니다. Azure Security Center의 통합 Qualys 스캐너는 이미지 취약성을 검색 하 고 분류 하며 수정 지침을 제공 합니다.
+
+[Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) 및 [바다색 보안과](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) 같은 보안 모니터링 및 이미지 스캔 솔루션도 Azure Marketplace를 통해 사용할 수 있습니다.  
 
 ### <a name="protect-credentials"></a>자격 증명 보호
 
@@ -90,13 +94,13 @@ ms.locfileid: "74481705"
 
 컨테이너 런타임에서 사용 하지 않거나 불필요 한 프로세스나 권한을 제거 하 여 잠재적인 공격 노출 영역을 최소화할 수도 있습니다. 권한 있는 컨테이너는 루트로 실행 됩니다. 악의적인 사용자 또는 워크 로드가 권한 있는 컨테이너에서 이스케이프 되 면 컨테이너는 해당 시스템에서 루트로 실행 됩니다.
 
-### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>컨테이너에서 액세스 하거나 실행할 수 있는 파일 및 실행 파일 허용 목록 
+### <a name="preapprove-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>컨테이너에서 액세스 하거나 실행할 수 있는 파일 및 실행 파일 사전 승인 
 
-변수나 알려지지 않은 수를 줄이면 안정적인 안정적인 환경을 유지 관리할 수 있습니다. 컨테이너를 제한 하 여 미리 승인 된 또는 허용 목록 파일만 액세스 하거나 실행할 수 있으며 실행 파일은 위험에 대 한 노출을 제한 하는 검증 된 방법입니다.  
+변수나 알려지지 않은 수를 줄이면 안정적인 안정적인 환경을 유지 관리할 수 있습니다. 컨테이너를 제한 하 여 미리 승인 된 또는 safelisted에 액세스 하거나 실행할 수 있습니다. 또한 실행 파일 및 실행 파일은 위험에 대 한 노출을 제한 하는 검증 된 방법입니다.  
 
-처음부터 구현 될 때 허용 목록를 관리 하는 것이 훨씬 쉽습니다. 허용 목록는 응용 프로그램이 제대로 작동 하는 데 필요한 파일 및 실행 파일을 배울 때 제어 및 관리 효율성을 측정 합니다. 
+처음부터 구현 될 때 safelist를 관리 하는 것이 훨씬 쉽습니다. Safelist는 응용 프로그램이 제대로 작동 하는 데 필요한 파일 및 실행 파일을 배울 때 제어 및 관리 효율성을 측정 합니다. 
 
-허용 목록 공격 노출 영역을 줄일 수 있을 뿐만 아니라 변칙에 대 한 기준을 제공 하 고 "잡음이 있는 환경" 및 컨테이너 중단 시나리오의 사용 사례를 방지할 수도 있습니다. 
+Safelist 공격 노출 영역을 줄일 수 있을 뿐만 아니라 변칙에 대 한 기준을 제공 하 고 "잡음이 있는 환경" 및 컨테이너 중단 시나리오의 사용 사례를 방지할 수도 있습니다. 
 
 ### <a name="enforce-network-segmentation-on-running-containers"></a>실행 중인 컨테이너에서 네트워크 조각화 적용  
 
@@ -108,13 +112,13 @@ ms.locfileid: "74481705"
 
 모든 IT 환경에서와 마찬가지로, 컨테이너 에코 시스템에 대 한 활동 및 사용자 액세스를 일관 되 게 모니터링 하 여 의심 스러운 활동 또는 악의적인 활동을 신속 하 게 식별 해야 합니다. Azure는 다음을 비롯 한 컨테이너 모니터링 솔루션을 제공 합니다.
 
-* AKS (Azure Kubernetes Service)에서 호스트 되는 Kubernetes 환경에 배포 된 워크 로드의 성능을 모니터링 하는 [컨테이너에 대 한 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 합니다. 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 
+* [컨테이너 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 는 AKS (Azure Kubernetes Service)에서 호스트 되는 Kubernetes 환경에 배포 된 워크 로드의 성능을 모니터링 합니다. 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 
 
-* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 예:
 
   * 컨테이너에 사용 되는 명령을 보여 주는 자세한 감사 정보를 표시 합니다. 
   * Docker 또는 Windows 호스트를 원격으로 보지 않고도 중앙화 된 로그를 보고 검색 하 여 컨테이너 문제를 해결 합니다.  
-  * 호스트에서 과도 한 리소스를 소비 하 고 소비할 수 있는 컨테이너를 찾습니다.
+  * 잡음이 있을 수 있으며 호스트에서 과도 한 리소스를 소비할 수 있는 컨테이너를 찾습니다.
   * 컨테이너에 대 한 중앙 집중식 CPU, 메모리, 저장소, 네트워크 사용량 및 성능 정보를 확인 합니다.  
 
   이 솔루션은 Docker Swarm, DC/OS, 관리 되지 않는 Kubernetes, Service Fabric 및 Red Hat OpenShift를 비롯 한 컨테이너 orchestrator 지원 합니다. 
@@ -125,14 +129,18 @@ ms.locfileid: "74481705"
 
 [Azure Monitor](../azure-monitor/overview.md)를 사용하면 메트릭, 활동 로그 및 진단 로그를 수집하도록 허용하여 Azure 서비스에 대한 핵심 모니터링을 수행할 수 있습니다. 예를 들어, 활동 로그는 새 리소스가 만들어지거나 수정되는 시기를 알려줍니다. 
 
-다양한 리소스와 가상 머신 내부의 운영 체제에 대한 성능 통계를 제공하는 메트릭을 사용할 수 있습니다. Azure Portal에서 탐색기 중 하나를 사용하여 이 데이터를 보고 이러한 메트릭을 기반으로 경고를 만들 수 있습니다. Azure Monitor은 가장 빠른 메트릭 파이프라인 (5 분에서 1 분까지)을 제공 하므로 시간이 중요 한 경고 및 알림에 사용 해야 합니다. 
+  다양한 리소스와 가상 머신 내부의 운영 체제에 대한 성능 통계를 제공하는 메트릭을 사용할 수 있습니다. Azure Portal에서 탐색기 중 하나를 사용하여 이 데이터를 보고 이러한 메트릭을 기반으로 경고를 만들 수 있습니다. Azure Monitor는 가장 빠른 메트릭 파이프라인을 제공하므로(5분에서 1분으로) 시간이 중요한 경고 및 알림에 사용해야 합니다. 
 
 ### <a name="log-all-container-administrative-user-access-for-auditing"></a>감사를 위해 모든 컨테이너 관리 사용자 액세스 기록 
 
-컨테이너 에코 시스템, 컨테이너 레지스트리 및 컨테이너 이미지에 대 한 관리 액세스의 정확한 감사 내역을 유지 관리 합니다. 이러한 로그는 감사 목적으로 필요할 수 있으며 보안 인시던트 후에 법정 증거로 사용 됩니다. 이러한 목적을 위해 [Azure Container Monitoring 솔루션](../azure-monitor/insights/containers.md) 을 사용할 수 있습니다. 
+Kubernetes 클러스터, 컨테이너 레지스트리 및 컨테이너 이미지를 포함 하 여 컨테이너 에코 시스템에 대 한 관리 액세스의 정확한 감사 내역을 유지 관리 합니다. 이러한 로그는 감사 목적으로 필요할 수 있으며 보안 인시던트 후에 법정 증거로 사용 됩니다. Azure 솔루션은 다음과 같습니다.
+
+* 클러스터 환경의 보안 구성을 모니터링 하 고 보안 권장 사항을 생성 하는 [Azure Security Center와 Azure Kubernetes Service 통합](../security-center/azure-kubernetes-service-integration.md)
+* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md)
+* [Azure Container Instances](container-instances-log-analytics.md) 및 [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md) 에 대 한 리소스 로그
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) 및 [바다색 보안](https://www.aquasec.com/solutions/azure-container-security/)의 솔루션을 사용 하 여 컨테이너 취약점 관리에 대해 자세히 알아보세요.
+* 컨테이너 화 된 환경에서 실시간 위협 감지를 위해 [Azure Security Center](../security-center/container-security.md) 를 사용 하는 방법에 대해 자세히 알아보세요.
 
-* [Azure의 컨테이너 보안](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/)에 대해 자세히 알아보세요.
+* [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) 및 [바다색 보안](https://www.aquasec.com/solutions/azure-container-security/)의 솔루션을 사용 하 여 컨테이너 취약점 관리에 대해 자세히 알아보세요.

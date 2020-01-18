@@ -1,14 +1,14 @@
 ---
 title: Azure 위임 리소스 관리
 description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketplace에서 고객에게 리소스 관리 제품을 판매할 수 있습니다.
-ms.date: 07/11/2019
+ms.date: 01/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3d95b1becccc014afeb4621d17770a03e38a4
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453638"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263917"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
 
@@ -38,6 +38,9 @@ Azure 위임 리소스 관리에 고객을 온보딩하는 경우 Azure Portal�
    - 고객이 허용할 [Azure Marketplace 관리형 서비스 제품](../how-to/publish-managed-services-offers.md)(프라이빗 또는 퍼블릭) 게시
    - 하나 이상의 특정 구독 또는 리소스 그룹에 대해 [고객의 테넌트에 Azure Resource Manager 템플릿 배포](../how-to/onboard-customer.md)
 3. 고객이 온보딩한 후에는 권한 있는 사용자는 서비스 공급자 테넌트에 로그인한 후, 사용자가 정의한 액세스 권한에 따라, 지정된 고객 범위에서 관리 작업을 수행할 수 있습니다.
+
+> [!NOTE]
+> 별도의 클라우드 간에 두 테 넌 트 간의 구독 위임은 지원 되지 않습니다.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 대한 지원
 

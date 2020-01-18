@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: d55dc2a1311d66eae01ae12a3dae798fbab20677
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b9060823c997391d02eae61911f8aa748f191657
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045624"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260857"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -49,7 +49,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 사용자가 학습에서 사용 하는 방법에 따라 두 가지 데이터 집합 형식이 있습니다.
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 이를 통해 Pandas 또는 Spark 데이터 프레임로 데이터를 구체화할 수 있습니다. .Csv,. tsv 및 parquet 파일에서, 그리고 SQL 쿼리 결과에서 `TabularDataset` 개체를 만들 수 있습니다. 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 이를 통해 Pandas 또는 Spark 데이터 프레임로 데이터를 구체화할 수 있습니다. .Csv,. tsv, parquet,. jsonl 파일 및 SQL 쿼리 결과에서 `TabularDataset` 개체를 만들 수 있습니다. 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
 
 * [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 클래스는 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 이 방법에서는 파일을 FileDataset 개체로 계산에 다운로드 하거나 탑재할 수 있습니다. 이 파일은 심층 학습을 비롯 하 여 다양 한 기계 학습 시나리오를 가능 하 게 하는 모든 형식일 수 있습니다.
 
@@ -74,7 +74,7 @@ Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 
 
 #### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
-SDK를 통해 또는 Azure Machine Learning Studio를 사용 하 여 TabularDatasets를 만들 수 있습니다. 데이터의 열에서 타임 스탬프를 지정 하거나 데이터를 저장 하는 경로 패턴을 지정 하 여 시계열 특성을 사용할 수 있습니다. 이 사양에서는 시간을 기준으로 쉽고 효율적인 필터링을 수행할 수 있습니다.
+SDK를 통해 또는 Azure Machine Learning studio를 사용 하 여 TabularDatasets를 만들 수 있습니다. 
 
 `TabularDatasetFactory` 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) 메서드를 사용 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다.
 
@@ -109,7 +109,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Survived|Pclass|이름|성|연령|SibSp|Parch|Ticket|요금|Cabin|Embarked
+| |PassengerId|Survived|Pclass|이름|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|거짓|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|참|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
@@ -186,7 +186,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 ```
 
 > [!Note]
-> Azure Machine Learning Studio를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다.
+> Azure Machine Learning studio를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다.
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Azure Open 데이터 집합을 사용 하 여 데이터 집합 만들기
 
@@ -244,7 +244,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'new titanic training data',
                                  create_new_version = True)
 ```
-
 
 ## <a name="access-datasets-in-your-script"></a>스크립트의 데이터 집합에 액세스
 

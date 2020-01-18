@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36dd80669c6a9495751f577748f48c02a782b920
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 0ad3bb41b6c5faa7bab0e618dd46c48427f364db
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029860"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167375"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -64,7 +64,7 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 ### <a name="windows-down-level-devices"></a>Windows 하위 수준 디바이스
 
 - Windows 8.1
-- Windows 7. Windows 7에 대 한 지원 정보 [는 windows 7 지원 종료](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)를 참조 하세요.
+- Windows 7 지원은 2020 년 1 월 14 일에 종료 됩니다. 자세한 내용은 [Windows 7에 대 한 지원이 종료 되었습니다](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).를 참조 하세요.
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2. Windows Server 2008 및 2008 r 2에 대 한 지원 정보는 [Windows server 2008 지원 종료](https://www.microsoft.com/cloud-platform/windows-server-2008)를 참조 하세요.

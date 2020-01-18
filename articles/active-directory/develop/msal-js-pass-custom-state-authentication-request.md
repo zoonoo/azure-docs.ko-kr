@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/29/2019
+ms.date: 01/16/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4cb0f3d054f9afd0c606f80fd6fc5d553eff806
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 29418e0000f917f7184a230c04b93adeae44efef
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916318"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261197"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL를 사용 하 여 인증 요청에서 사용자 지정 상태를 전달 합니다.
+
 OAuth 2.0에 의해 정의 된 *상태* 매개 변수는 인증 요청에 포함 되며 교차 사이트 요청 위조 공격을 방지 하기 위해 토큰 응답에도 반환 됩니다. 기본적으로 JavaScript 용 Microsoft 인증 라이브러리 (MSAL .js)는 인증 요청에서 임의로 생성 된 고유한 *상태* 매개 변수 값을 전달 합니다.
 
 State 매개 변수를 사용 하 여 리디렉션 전에 앱의 상태 정보를 인코딩할 수도 있습니다. 앱에서 사용자의 상태를이 매개 변수에 대 한 입력으로 전달할 수 있습니다 (예: 설정 된 페이지 또는 보기). MSAL .js 라이브러리를 사용 하면 `Request` 개체에서 사용자 지정 상태를 상태 매개 변수로 전달할 수 있습니다.
@@ -40,10 +41,18 @@ export type AuthenticationParameters = {
     account?: Account;
     sid?: string;
     loginHint?: string;
+    forceRefresh?: boolean;
 };
 ```
 
-다음은 그 예입니다.
+> [!Note]
+> 캐시 된 토큰을 건너뛰고 서버로 이동 하려면 로그인/토큰 요청을 수행 하는 데 사용 되는 AuthenticationParameters 개체에 부울 `forceRefresh`를 전달 하세요.
+> 응용 프로그램의 성능 영향 때문에 `forceRefresh`를 기본적으로 사용 하면 안 됩니다.
+> 캐시에 의존 하면 사용자에 게 더 나은 환경이 제공 됩니다.
+> 캐시를 건너뛰는 것은 현재 캐시 된 데이터에 최신 정보가 없다는 것을 알고 있는 경우에만 사용 해야 합니다.
+> 업데이트 된 역할이 있는 새 토큰을 가져와야 하는 사용자에 게 역할을 추가 하는 관리 도구입니다.
+
+예:
 
 ```javascript
 let loginRequest = {

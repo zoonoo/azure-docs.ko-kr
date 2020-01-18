@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs에서 중첩 리소스 관리자 템플릿 환경 배포 Microsoft Docs
+title: Azure DevTest Labs에서 중첩 된 템플릿 환경 배포
 description: Azure DevTest Labs를 사용 하 여 환경을 제공 하기 위해 중첩 된 Azure Resource Manager 템플릿을 배포 하는 방법을 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976545"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168832"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>테스트 환경을 위한 중첩 된 Azure Resource Manager 템플릿 배포
 중첩 된 배포를 사용 하면 주 리소스 관리자 템플릿 내에서 다른 Azure Resource Manager 템플릿을 실행할 수 있습니다. 이를 통해 배포를 대상 및 용도에 맞는 템플릿 집합으로 분해할 수 있습니다. 테스트, 재사용 및 가독성 측면에서 이점을 제공 합니다. [Azure 리소스를 배포할 때 연결 된 템플릿 사용](../azure-resource-manager/templates/linked-templates.md) 문서에서는 몇 가지 코드 샘플을 사용 하 여이 솔루션에 대 한 유용한 개요를 제공 합니다. 이 문서에서는 Azure DevTest Labs와 관련 된 예제를 제공 합니다. 

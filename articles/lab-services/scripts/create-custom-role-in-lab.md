@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell 스크립트: Azure DevTest Labs의 랩에서 사용자 지정 역할 만들기 | Microsoft Docs'
+title: PowerShell-Azure DevTest Labs에서 랩에서 사용자 지정 역할 만들기
 description: 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 외부 사용자를 추가합니다.
 services: lab-services
 author: spelluru
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4d0c795dffb40ab7efec9005660439f9baef9f3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcad4e02105bff2dc78a4adc3ca614f997794d52
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160582"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166431"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 사용자 지정 역할 만들기
 

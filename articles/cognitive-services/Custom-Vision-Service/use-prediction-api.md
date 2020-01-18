@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966931"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169944"
 ---
-# <a name="use-your-model-with-the-prediction-api"></a>예측 API 사용하여 모델 사용
+# <a name="use-your-model-with-the-prediction-api"></a>예측 API와 함께 모델 사용
 
 모델을 학습시킨 후에 예측 API 끝점에 제출하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs - 엔터프라이즈 푸시 아키텍처
-description: 엔터프라이즈 환경에서 Azure Notification Hubs 사용에 대한 지침
+title: Notification Hubs enterprise push 아키텍처
+description: 엔터프라이즈 환경에서 Azure Notification Hubs를 사용 하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211915"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264036"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
 
@@ -44,21 +44,21 @@ ms.locfileid: "71211915"
 1. 백엔드 시스템(LoB/레거시 시스템)
    * Service Bus 항목 만들기
    * 메시지 보내기
-1. 모바일 백엔드
+1. 모바일 백 엔드
    * 서비스 구독 만들기
    * 메시지 받기(백엔드 시스템에서)
    * 클라이언트에 알림 보내기(Azure 알림 허브를 통해)
 1. 모바일 애플리케이션
    * 알림 수신 및 표시
 
-### <a name="benefits"></a>이점
+### <a name="benefits"></a>혜택
 
 1. 수신자(알림 허브를 통한 모바일 앱/서비스)와 발신자(백엔드 시스템) 사이를 분리하면 최소한의 변경 내용을 가진 추가 백엔드 시스템을 통합할 수 있습니다.
 1. 이렇게 하면 하나 이상의 백 엔드 시스템에서 이벤트를 받을 수 있는 여러 모바일 앱 시나리오를 만들 수도 있습니다.  
 
-## <a name="sample"></a>예제
+## <a name="sample"></a>샘플
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 개념뿐만 아니라 일반적인 만들기 및 구성 단계에 익숙해지려면 다음 자습서를 완료합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "71211915"
     }
     ```
 
-    c. `CreateTopic`은 Service Bus 항목을 만드는 데 사용됩니다.
+    다. `CreateTopic`은 Service Bus 항목을 만드는 데 사용됩니다.
 
     ```csharp
     public static void CreateTopic(string connectionString)
@@ -158,7 +158,7 @@ ms.locfileid: "71211915"
     }
     ```
 
-    c. `CreateSubscription`은 백 엔드 시스템이 메시지를 보내는 항목에 대한 Service Bus 구독을 만드는 데 사용됩니다. 비즈니스 시나리오에 따라 이 구성 요소는 해당 항목에 대한 하나 이상의 구독을 만듭니다(예: 일부는 HR 시스템에서, 일부는 재무 시스템 등에서 메시지를 수신할 수 있음).
+    다. `CreateSubscription`은 백 엔드 시스템이 메시지를 보내는 항목에 대한 Service Bus 구독을 만드는 데 사용됩니다. 비즈니스 시나리오에 따라 이 구성 요소는 해당 항목에 대한 하나 이상의 구독을 만듭니다(예: 일부는 HR 시스템에서, 일부는 재무 시스템 등에서 메시지를 수신할 수 있음).
 
     ```csharp
     static void CreateSubscription(string connectionString)
@@ -244,7 +244,7 @@ ms.locfileid: "71211915"
 
     b. 애플리케이션이 토스트 알림을 받을 수 있는지 확인합니다.
 
-    c. 앱 시작 시 다음 Notification Hubs 등록 코드가 호출되었는지 확인합니다(`HubName` 및 `DefaultListenSharedAccessSignature` 값 교체 후).
+    다. 앱 시작 시 다음 Notification Hubs 등록 코드가 호출되었는지 확인합니다(`HubName` 및 `DefaultListenSharedAccessSignature` 값 교체 후).
 
     ```csharp
     private async void InitNotificationsAsync()

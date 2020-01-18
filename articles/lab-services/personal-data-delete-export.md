@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs에서 개인 데이터를 삭제하고 내보내는 방법 | Microsoft Docs
+title: Azure DevTest Labs에서 개인 데이터를 삭제 하 고 내보내는 방법
 description: GDPR(일반 데이터 보호 규정)에 따라 사용자의 의무를 지원하기 위해 Azure DevLast Labs 서비스에서 개인 데이터 삭제 및 내보내는 방법에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371175"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169693"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Azure DevTest Labs에서 개인 데이터 내보내기 또는 삭제
 이 문서에서는 Azure DevTest Labs 서비스에서 개인 데이터를 삭제하고 내보내는 단계를 제공합니다. 
@@ -167,9 +167,9 @@ else
 | 랩 이름 | 랩의 이름 |
 | 인 Resourceid | 정규화 된 랩 리소스 ID입니다. |
 | ResourceGroupName | VM을 포함 하는 리소스 그룹의 이름 | 
-| resourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
+| ResourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
 | ResourceUId | VM에 대 한 GUID |
-| 이름 | 가상 컴퓨터 이름입니다. |
+| 이름 | 가상 컴퓨터 이름 - |
 | CreatedTime | VM을 만든 날짜/시간입니다. |
 | DeletedDate | VM이 삭제 된 날짜/시간입니다. 비어 있는 경우 삭제는 아직 발생 하지 않았습니다. |
 | ResourceOwner | VM의 소유자입니다. 값이 비어 있으면 클레임 할 수 있는 VM 이거나 서비스 사용자가 만든 것입니다. |
@@ -188,14 +188,14 @@ else
 
 아래에는 **disks** 에 포함 된 데이터 열이 나열 되어 있습니다.
 
-| 열 이름 | 설명 | 
+| 열 이름 | Description | 
 | ----------- | ----------- | 
 | SubscriptionId | 랩을 포함 하는 구독의 ID입니다. |
 | 랩 Uid | 랩에 대 한 GUID |
 | 랩 이름 | 랩 이름 | 
 | 인 Resourceid | 랩에 대 한 정규화 된 리소스 ID | 
 | ResourceGroupName | 랩을 포함 하는 리소스 그룹의 이름 | 
-| resourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
+| ResourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
 | ResourceUId | VM에 대 한 GUID |
  |이름 | 연결 된 디스크의 이름 |
 | CreatedTime |데이터 디스크를 만든 날짜와 시간입니다. |

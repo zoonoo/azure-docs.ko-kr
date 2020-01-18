@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 DevTest Labs에서 가상 머신 만들기 및 관리 | Microsoft Docs
+title: Azure CLI를 사용 하 여 DevTest Labs에서 가상 컴퓨터 만들기 및 관리
 description: Azure DevTest Labs를 사용하여 Azure CLI에서 가상 머신을 만들고 관리하는 방법을 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a089eae935fe5ecbf3dd2836d86912d0c63ef84
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d3cd104e36cb407e9b1b833335869cac2c69d0ec
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773111"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167059"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Azure CLI를 사용하여 DevTest Labs에서 가상 머신 만들기 및 관리
 이 빠른 시작에서는 랩에서 개발 컴퓨터를 만들고, 시작 하 고, 연결 하 고, 업데이트 하 고, 정리 하는 과정을 안내 합니다. 
@@ -36,7 +36,7 @@ DevTest Labs 관련 명령을 실행 하기 전에 `az account set` 명령을 �
 az account set --subscription 11111111-1111-1111-1111-111111111111
 ```
 
-가상 컴퓨터를 만드는 명령은 다음과 같습니다 `az lab vm create`. 랩, 랩 이름 및 가상 컴퓨터 이름에 대 한 리소스 그룹이 모두 필요 합니다. 나머지 인수는 가상 컴퓨터의 형식에 따라 달라 집니다.
+가상 컴퓨터를 만드는 명령은 `az lab vm create`입니다. 랩, 랩 이름 및 가상 컴퓨터 이름에 대 한 리소스 그룹이 모두 필요 합니다. 나머지 인수는 가상 컴퓨터의 형식에 따라 달라 집니다.
 
 다음 명령을 사용 하 여 Azure Market 환경에서 Windows 기반 이미지를 만듭니다. 이미지 이름은 Azure Portal 사용 하 여 가상 컴퓨터를 만들 때 표시 되는 것과 동일 합니다. 
 
@@ -61,7 +61,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 **이미지 형식** 매개 변수를 **수식**으로 설정 하 여 수식을 기반으로 가상 컴퓨터를 만들 수도 있습니다. 가상 컴퓨터의 특정 가상 네트워크를 선택 해야 하는 경우 **vnet 이름** 및 **서브넷** 매개 변수를 사용 합니다. 자세한 내용은 [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create)를 참조 하세요.
 
 ## <a name="verify-that-the-vm-is-available"></a>VM을 사용할 수 있는지 확인합니다.
-`az lab vm show` 명령을 사용 하 여 시작 하 고 연결 하기 전에 VM을 사용할 수 있는지 확인 합니다. 
+를 시작 하 고 연결 하기 전에 VM을 사용할 수 있는지 확인 하려면 `az lab vm show` 명령을 사용 합니다. 
 
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
@@ -81,7 +81,7 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 
-VM에 연결: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [원격 데스크톱](../virtual-machines/windows/connect-logon.md).
+VM: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [원격 데스크톱](../virtual-machines/windows/connect-logon.md)에 연결합니다.
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```
@@ -127,7 +127,7 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 
 랩에서 VM에서 사용할 수 있는 아티팩트를 나열 하려면 다음 명령을 실행 합니다.
 
-**Cloud Shell-PowerShell**: $ in $expand 앞에 억음 (\`)을 사용 하는 것을 확인 합니다 (즉, ' $expand).
+**Cloud Shell-PowerShell**: $expand $ (예: ' $expand) 앞에 억음 (\`)을 사용 하는 것을 확인 합니다.
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(`$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
@@ -163,4 +163,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## <a name="next-steps"></a>다음 단계
-다음 콘텐츠를 참조 하세요. [Azure DevTest Labs에 대 한 Azure CLI 설명서](/cli/azure/lab?view=azure-cli-latest)입니다. 
+[Azure DevTest Labs에 대 한 Azure CLI 설명서](/cli/azure/lab?view=azure-cli-latest)콘텐츠를 참조 하세요. 

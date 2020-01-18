@@ -8,12 +8,12 @@ ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: c004031ec40bedcf83d77d08a34ce1d0e28fecd8
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157028"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264274"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
 
@@ -39,13 +39,11 @@ Azure Cosmos DB에서 쿼리를 최적화 하는 경우 첫 번째 단계는 항
 
 #### <a name="retrieved-document-count-is-significantly-greater-than-output-document-count"></a>검색 된 문서 수가 출력 문서 수보다 크게 큽니다.
 
-- [인덱싱 정책에 필요한 경로가 포함 되어 있는지 확인 합니다.](#ensure-that-the-indexing-policy-includes-necessary-paths)
+- [인덱싱 정책에 필요한 경로를 포함 합니다.](#include-necessary-paths-in-the-indexing-policy)
 
 - [인덱스를 활용 하는 시스템 함수 이해](#understand-which-system-functions-utilize-the-index)
 
-- [필터와 ORDER BY 절을 모두 사용 하 여 쿼리 최적화](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
-
-- [DISTINCT를 사용 하는 쿼리 최적화](#optimize-queries-that-use-distinct)
+- [필터 및 ORDER BY 절을 모두 사용 하 여 쿼리](#queries-with-both-a-filter-and-an-order-by-clause)
 
 - [하위 쿼리를 사용 하 여 조인 식 최적화](#optimize-join-expressions-by-using-a-subquery)
 
@@ -55,23 +53,23 @@ Azure Cosmos DB에서 쿼리를 최적화 하는 경우 첫 번째 단계는 항
 
 - [파티션 간 쿼리 방지](#avoid-cross-partition-queries)
 
-- [여러 속성에 대 한 필터가 있는 쿼리 최적화](#optimize-queries-that-have-a-filter-on-multiple-properties)
+- [여러 속성에 대 한 필터](#filters-on-multiple-properties)
 
-- [필터와 ORDER BY 절을 모두 사용 하 여 쿼리 최적화](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+- [필터 및 ORDER BY 절을 모두 사용 하 여 쿼리](#queries-with-both-a-filter-and-an-order-by-clause)
 
 <br>
 
 ### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>쿼리의 과도 한 요금이 허용 되지만 대기 시간이 너무 높습니다.
 
-- [앱과 Azure Cosmos DB 간의 근접성 향상](#improving-proximity-between-your-app-and-azure-cosmos-db)
+- [근접성 향상](#improve-proximity)
 
-- [프로 비전 된 처리량 높이기](#increasing-provisioned-throughput)
+- [프로 비전 된 처리량 증가](#increase-provisioned-throughput)
 
-- [MaxConcurrency 높이기](#increasing-maxconcurrency)
+- [MaxConcurrency 늘리기](#increase-maxconcurrency)
 
-- [MaxBufferedItemCount 높이기](#increasing-maxbuffereditemcount)
+- [MaxBufferedItemCount 증가](#increase-maxbuffereditemcount)
 
-## <a name="optimizations-for-queries-where-retrieved-document-count-significantly-exceeds-output-document-count"></a>검색 된 문서 수가 출력 문서 수를 크게 초과 하는 쿼리에 대 한 최적화:
+## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>검색 된 문서 개수가 출력 문서 수를 초과 하는 쿼리
 
  검색 된 문서 수는 쿼리를 로드 하는 데 필요한 문서 수입니다. 출력 문서 수는 쿼리 결과에 필요한 문서 수입니다. 검색 된 문서 수가 출력 문서 수보다 크게 높으면 인덱스를 사용할 수 없고 검색을 수행 하는 데 필요한 쿼리의 일부가 하나 이상 있습니다.
 
@@ -113,7 +111,7 @@ Client Side Metrics
 
 검색 된 문서 수 (60951)가 출력 문서 수 (7) 보다 훨씬 크므로이 쿼리는 검색을 수행 하는 데 필요 합니다. 이 경우 시스템 함수 [UPPER ()](sql-query-upper.md) 는 인덱스를 사용 하지 않습니다.
 
-## <a name="ensure-that-the-indexing-policy-includes-necessary-paths"></a>인덱싱 정책에 필요한 경로가 포함 되어 있는지 확인 합니다.
+## <a name="include-necessary-paths-in-the-indexing-policy"></a>인덱싱 정책에 필요한 경로를 포함 합니다.
 
 인덱싱 정책은 `WHERE` 절, `ORDER BY` 절, `JOIN`및 대부분의 시스템 함수에 포함 된 모든 속성을 포함 해야 합니다. 인덱스 정책에 지정 된 경로는 JSON 문서의 속성과 일치 해야 합니다 (대/소문자 구분).
 
@@ -191,7 +189,7 @@ SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
 
 인덱스를 사용 하지 않는 시스템 함수에도 불구 하 고 쿼리의 다른 부분은 인덱스를 계속 사용할 수 있습니다.
 
-## <a name="optimize-queries-with-both-a-filter-and-an-order-by-clause"></a>필터와 ORDER BY 절을 모두 사용 하 여 쿼리 최적화
+## <a name="queries-with-both-a-filter-and-an-order-by-clause"></a>필터 및 ORDER BY 절을 모두 사용 하 여 쿼리
 
 필터와 `ORDER BY` 절을 사용 하는 쿼리는 일반적으로 범위 인덱스를 사용 하지만 복합 인덱스에서 제공 될 수 있는 경우에는 더 효율적입니다. 인덱싱 정책을 수정 하는 것 외에도 복합 인덱스의 모든 속성을 `ORDER BY` 절에 추가 해야 합니다. 이 쿼리를 수정 하면 복합 인덱스를 활용 하 게 됩니다.  [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합에 대해 쿼리를 실행 하 여 영향을 관찰할 수 있습니다.
 
@@ -261,33 +259,6 @@ ORDER BY c.foodGroup, c._ts ASC
 
 **작업 요금:** 8.86 r u s
 
-## <a name="optimize-queries-that-use-distinct"></a>DISTINCT를 사용 하는 쿼리 최적화
-
-중복 된 결과가 연속 되는 경우 `DISTINCT` 결과 집합을 찾는 것이 더 효율적입니다. 쿼리와 복합 인덱스에 `ORDER BY` 절을 추가 하면 중복 된 결과가 연속으로 유지 됩니다. 여러 속성을 `ORDER BY` 해야 하는 경우 복합 인덱스를 추가 합니다. [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합에 대해 쿼리를 실행 하 여 영향을 관찰할 수 있습니다.
-
-### <a name="original"></a>Original
-
-쿼리:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c
-```
-
-**작업 요금:** 32.39 r u s
-
-### <a name="optimized"></a>최적화됨
-
-업데이트 된 쿼리:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c 
-ORDER BY c.foodGroup
-```
-
-**작업 요금:** 3.38 r u s
-
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>하위 쿼리를 사용 하 여 조인 식 최적화
 다중 값 하위 쿼리는 `WHERE` 절의 모든 크로스 조인이 아니라 각 select-many 식 뒤에 조건자를 푸시하여 `JOIN` 식을 최적화할 수 있습니다.
 
@@ -323,7 +294,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 태그 배열의 한 항목만 필터와 일치 하 고 nutrients 및 servings 배열 모두에 대해 5 개의 항목이 있다고 가정 합니다. 그러면 `JOIN` 식은 첫 번째 쿼리의 1000 항목과 달리 1 x 1 x 5 x 5 = 25 개 항목으로 확장 됩니다.
 
-## <a name="optimizations-for-queries-where-retrieved-document-count-is-approximately-equal-to-output-document-count"></a>검색 된 문서 수가 출력 문서 수와 거의 일치 하는 쿼리에 대 한 최적화:
+## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>검색 된 문서 수가 출력 문서 수와 같은 쿼리
 
 검색 된 문서 수가 출력 문서 수와 거의 같으면 쿼리가 불필요 한 많은 문서를 검색할 필요가 없음을 의미 합니다. TOP 키워드를 사용 하는 것과 같은 많은 쿼리의 경우 검색 된 문서 수는 출력 문서 수를 1로 초과할 수 있습니다. 이는 문제가 발생 하지 않습니다.
 
@@ -359,7 +330,7 @@ SELECT * FROM c
 WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
 ```
 
-## <a name="optimize-queries-that-have-a-filter-on-multiple-properties"></a>여러 속성에 대 한 필터가 있는 쿼리 최적화
+## <a name="filters-on-multiple-properties"></a>여러 속성에 대 한 필터
 
 여러 속성에 대 한 필터를 포함 하는 쿼리는 일반적으로 범위 인덱스를 사용 하지만 복합 인덱스에서 제공 될 수 있는 경우에는 더 효율적입니다. 적은 양의 데이터에 대해 이러한 최적화는 상당한 영향을 주지 않습니다. 그러나 많은 양의 데이터에 대해 유용 하 게 사용할 수 있습니다. 복합 인덱스 당 최대 하나의 일치 하지 않는 필터만 최적화할 수 있습니다. 쿼리에 일치 하지 않는 필터가 여러 개 있는 경우 복합 인덱스를 사용할 하나를 선택 해야 합니다. 나머지는 범위 인덱스를 계속 활용 합니다. 같지 않음 필터는 복합 인덱스에서 마지막으로 정의 되어야 합니다. [복합 인덱스에 대해 자세히 알아보기](index-policy.md#composite-indexes)
 
@@ -402,23 +373,23 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 }
 ```
 
-## <a name="common-optimizations-that-reduce-query-latency-no-impact-on-ru-charge"></a>쿼리 대기 시간을 단축 하는 일반적인 최적화 (작업 요금에 영향을 주지 않음):
+## <a name="optimizations-that-reduce-query-latency"></a>쿼리 대기 시간을 줄이는 최적화:
 
 대부분의 경우에는 많은 요금이 부과 될 수 있지만 쿼리 대기 시간은 여전히 너무 높습니다. 아래 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁의 개요를 제공 합니다. 동일한 쿼리를 동일한 데이터 집합에서 여러 번 실행 하는 경우에는 매번 동일한 실행 요금이 발생 합니다. 그러나 쿼리 대기 시간은 쿼리 실행 마다 다를 수 있습니다.
 
-## <a name="improving-proximity-between-your-app-and-azure-cosmos-db"></a>앱과 Azure Cosmos DB 간의 근접성 향상
+## <a name="improve-proximity"></a>근접성 향상
 
 Azure Cosmos DB 계정이 아닌 다른 지역에서 실행 되는 쿼리는 동일한 지역 내에서 실행 된 경우 보다 대기 시간이 높습니다. 예를 들어 데스크톱 컴퓨터에서 코드를 실행 하는 경우 쿼리가 Azure Cosmos DB와 동일한 Azure 지역 내에서 가상 컴퓨터의 가상 컴퓨터에서 발생 한 경우 보다 수십 또는 수백 (또는 그 이상) 밀리초가 될 것으로 간주 해야 합니다. 데이터를 앱에 더 가깝게 가져올 수 있도록 [Azure Cosmos DB 데이터를 전역적으로 배포](distribute-data-globally.md) 하는 것이 간단 합니다.
 
-## <a name="increasing-provisioned-throughput"></a>프로 비전 된 처리량 높이기
+## <a name="increase-provisioned-throughput"></a>프로 비전 된 처리량 증가
 
 Azure Cosmos DB에서 프로 비전 된 처리량은 (요청 단위)로 측정 됩니다. 5 개의 처리량을 사용 하는 쿼리가 있다고 가정 합니다. 예를 들어 1000 r u s를 프로 비전 하는 경우 초당 해당 200 쿼리를 실행할 수 있습니다. 사용 가능한 처리량이 충분 하지 않은 경우 쿼리를 실행 하려고 하면 Azure Cosmos DB HTTP 429 오류가 반환 됩니다. 현재 코어 (SQL) API sdk는 잠깐 기다린 후이 쿼리를 자동으로 다시 시도 합니다. 제한 된 요청은 시간이 오래 걸리므로 프로 비전 된 처리량이 증가 하면 쿼리 대기 시간이 향상 될 수 있습니다. Azure Portal의 메트릭 블레이드에서 [제한 된 요청의 총 수](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) 를 확인할 수 있습니다.
 
-## <a name="increasing-maxconcurrency"></a>MaxConcurrency 높이기
+## <a name="increase-maxconcurrency"></a>MaxConcurrency 늘리기
 
 병렬 쿼리는 여러 파티션을 병렬로 쿼리하여 작동 합니다. 그러나 개별 분할된 컬렉션의 데이터는 쿼리와 관련하여 순차적으로 가져오기 됩니다. 따라서 파티션 수에 대 한 MaxConcurrency를 조정 하는 것은 다른 모든 시스템 조건을 동일 하 게 유지 하는 경우 가장 성능이 뛰어난 쿼리를 달성할 수 있는 최대 기회를 제공 합니다. 파티션 수를 모르는 경우 MaxConcurrency (또는 이전 sdk 버전의 MaxDegreesOfParallelism)를 높은 숫자로 설정 하면 시스템에서 최소 (파티션 수, 사용자가 제공한 입력)를 최대 병렬 처리 수준으로 선택할 수 있습니다.
 
-## <a name="increasing-maxbuffereditemcount"></a>MaxBufferedItemCount 높이기
+## <a name="increase-maxbuffereditemcount"></a>MaxBufferedItemCount 증가
 
 쿼리는 결과의 현재 배치가 클라이언트에서 처리 되는 동안 결과를 미리 인출 하도록 디자인 되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. MaxBufferedItemCount를 설정 하면 프리페치 된 결과의 수가 제한 됩니다. 이 값을 반환 된 예상 결과 수 (또는 더 높은 수)로 설정 하면 쿼리는 미리 페치를 통해 최대한의 이점을 얻을 수 있습니다. 이 값을-1로 설정 하면 시스템에서 버퍼링 할 항목 수를 자동으로 결정할 수 있습니다.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606340"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264834"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
@@ -30,7 +30,7 @@ ms.locfileid: "73606340"
 
 1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. Internet Explorer 11은 아직 지원 되지 않습니다. 
 2. **로그인**을 선택하고 자격 증명을 입력합니다. 랩 계정에서 **랩 작성자** 역할의 멤버인 **사용자 ID**를 선택하거나 입력하고 암호를 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
-3. **새 랩**을 선택 합니다. 
+3. **새 랩**을 선택합니다. 
     
     ![클래스룸 랩 만들기](../media/tutorial-setup-classroom-lab/new-lab-button.png)
 3. **새 랩** 창에서 다음 작업을 수행합니다. 
@@ -41,7 +41,7 @@ ms.locfileid: "73606340"
     6. **저장**을 선택합니다.
 
         ![새 랩 창](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. **가상 컴퓨터 자격 증명** 페이지에서 랩의 모든 vm에 대 한 기본 자격 증명을 지정 합니다.
+4. **가상 머신 자격 증명** 페이지에서 랩의 모든 VM에 대한 기본 자격 증명을 지정합니다.
     1. 랩의 모든 VM에 대한 **사용자 이름**을 지정합니다.
     2. 사용자에 대한 **암호**를 지정합니다. 
 
@@ -55,10 +55,10 @@ ms.locfileid: "73606340"
         > [!IMPORTANT]
         > 사용자 이름과 암호를 적어 둡니다. 다시 표시되지 않습니다.    
     4. 그런 다음 **가상 머신 자격 증명** 페이지에서 **다음** 을 선택 합니다. 
-5. **랩 정책** 페이지에서 각 사용자에 게 할당 된 시간 (**각 사용자에 대 한 할당량**)을 랩의 예약 된 시간 외부에 입력 한 다음 **마침**을 선택 합니다. 
+5. **랩 정책** 페이지에서 각 사용자에게 할당되는 시간(**각 사용자에 대한 할당량**)을 랩에 예약된 시간 이외의 시간으로 입력한 다음, **마침**을 선택합니다. 
 
-    ![각 사용자에 대 한 할당량](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
-5. 템플릿 VM 만들기의 상태를 보여 주는 다음 화면이 표시 됩니다. 랩에서 템플릿을 만드는 데는 최대 20분이 걸립니다. 
+    ![각 사용자에 대한 할당량](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+5. 템플릿 VM 만들기 상태를 보여 주는 다음 화면이 표시됩니다. 랩에서 템플릿을 만드는 데는 최대 20분이 걸립니다. 
 
     ![템플릿 VM 만들기 상태](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. **템플릿** 페이지에서 다음 단계를 수행 합니다 .이 단계는 자습서에서 **선택 사항** 입니다.
@@ -68,31 +68,31 @@ ms.locfileid: "73606340"
     1. 템플릿 VM에 소프트웨어를 설치하고 구성합니다. 
     1. VM을 **중지**합니다.  
     1. 템플릿에 대한 **설명**을 입력합니다.
-10. **템플릿** 페이지의 도구 모음에서 **게시** 를 선택 합니다. 
+10. **템플릿** 페이지의 도구 모음에서 **게시**를 선택합니다. 
 
-    ![게시 템플릿 단추](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+    ![템플릿 게시 단추](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
     > [!WARNING]
     > 게시한 후에는 게시를 취소할 수 없습니다. 
-8. **게시 템플릿** 페이지에서 랩에서 만들 가상 머신의 수를 입력 한 다음 **게시**를 선택 합니다. 
+8. **템플릿 게시** 페이지에서 랩에서 만들려는 가상 머신의 수를 입력한 다음, **게시**를 선택합니다. 
 
-    ![게시 템플릿-Vm 수](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
-11. 페이지에 템플릿 **게시 상태가** 표시 됩니다. 이 프로세스는 최대 1시간이 걸릴 수 있습니다. 
+    ![템플릿 게시 - VM 수](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+11. 템플릿 **게시 상태**가 페이지에 표시됩니다. 이 프로세스는 최대 1시간이 걸릴 수 있습니다. 
 
     ![템플릿 게시 - 진행률](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-4. 왼쪽 메뉴에서 가상 컴퓨터를 선택 하거나 가상 컴퓨터 타일을 선택 하 여 **가상 컴퓨터 풀** 페이지로 전환 합니다. **할당되지 않음** 상태인 가상 머신이 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. **중지됨** 상태일 것입니다. 이 페이지에서 학생 VM을 시작하고, VM에 연결하고, VM을 중지하고, VM을 삭제할 수 있습니다. 이 페이지에서 VM을 시작할 수도 있고, 학생들이 VM을 시작하게 할 수도 있습니다. 
+4. 왼쪽 메뉴에서 가상 머신을 선택하거나 가상 머신 타일을 선택하여 **가상 머신 풀** 페이지로 전환합니다. **할당되지 않음** 상태인 가상 머신이 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. **중지됨** 상태일 것입니다. 이 페이지에서 학생 VM을 시작하고, VM에 연결하고, VM을 중지하고, VM을 삭제할 수 있습니다. 이 페이지에서 VM을 시작할 수도 있고, 학생들이 VM을 시작하게 할 수도 있습니다. 
 
     ![중지됨 상태의 가상 머신](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
-    이 페이지에서 다음 작업을 수행 합니다. 자습서에서는이 단계를 수행 하지 않습니다. 이러한 단계는 정보를 위한 것입니다.): 
+    이 페이지에서 수행하는 작업은 다음과 같습니다. (이러한 단계는 자습서에서 정보용으로만 제공되므로 수행하지 마세요.) 
     
-    1. 랩 용량 (랩의 Vm 수)을 변경 하려면 도구 모음에서 **랩 용량** 을 선택 합니다.
-    2. 모든 Vm을 한 번에 시작 하려면 도구 모음에서 **모두 시작** 을 선택 합니다. 
-    3. 특정 VM을 시작 하려면 **상태**에서 아래쪽 화살표를 선택한 다음 **시작**을 선택 합니다. 첫 번째 열에서 VM을 선택한 다음 도구 모음에서 **시작** 을 선택 하 여 vm을 시작할 수도 있습니다.                
+    1. 랩 용량(랩의 VM 수)을 변경하려면 도구 모음에서 **랩 용량**을 선택합니다.
+    2. 모든 VM을 한 번에 시작하려면 도구 모음에서 **모두 시작**을 선택합니다. 
+    3. 특정 VM을 시작하려면 **상태**에서 아래쪽 화살표를 선택한 다음, **시작**을 선택합니다. 또한 첫 번째 열에서 VM을 선택한 다음, 도구 모음에서 **시작**을 선택하여 VM을 시작할 수도 있습니다.                
 
 ### <a name="vm-sizes"></a>VM 크기  
 
-| 크기 | 코어 수 | RAM | 설명 | 
+| 크기 | 코어 수 | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | 작음 | 2 | 3.5 GB | 이 크기는 명령줄, 웹 브라우저 열기, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스에 가장 적합 합니다. |
 | 중간 | 4 | 7 GB | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. | 
@@ -101,6 +101,9 @@ ms.locfileid: "73606340"
 | 소형 GPU (시각화) | 6 | 56GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 
 | 소형 GPU (계산) | 6 | 56GB | 이 크기는 인공 지능 및 심층 학습 응용 프로그램과 같은 계산 집약적 및 네트워크 집약적 응용 프로그램에 가장 적합 합니다. | 
 | 중형 GPU (시각화) | 12 | 112GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 
+
+> [!NOTE]
+> Azure Lab Services은 GPU 이미지를 사용 하 여 랩을 만들 때 필요한 GPU 드라이버를 자동으로 설치 하 고 구성 합니다.  
 
 ## <a name="view-all-classroom-labs"></a>모든 클래스룸 랩 보기
 1. [Azure Lab Services Portal](https://labs.azure.com)로 이동합니다.

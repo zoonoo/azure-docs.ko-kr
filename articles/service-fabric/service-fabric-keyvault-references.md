@@ -3,12 +3,12 @@ title: Azure Service Fabric-Service Fabric 응용 프로그램 KeyVault 참조 �
 description: 이 문서에서는 응용 프로그램 암호에 대 한 service fabric KeyVaultReference 지원을 사용 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463044"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167119"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원 (미리 보기)
 
@@ -61,6 +61,7 @@ ms.locfileid: "75463044"
 
     > [!NOTE] 
     > CSS에 대 한 별도의 암호화 인증서를 사용 하는 것이 좋습니다. "CentralSecretService" 섹션 아래에 추가할 수 있습니다.
+    
 
     ```json
         {
@@ -68,7 +69,18 @@ ms.locfileid: "75463044"
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-
+변경 내용을 적용 하려면 업그레이드가 클러스터를 진행 하면서 각 노드에서 Service Fabric 런타임의 강제 다시 시작을 지정 하도록 업그레이드 정책을 변경 해야 합니다. 이렇게 다시 시작 하면 새로 활성화 된 시스템 서비스가 각 노드에서 시작 되 고 실행 됩니다. 아래 코드 조각에서 forceRestart는 필수 설정입니다. 나머지 설정에 대 한 기존 값을 사용 합니다.
+```json
+"upgradeDescription": {
+    "forceRestart": true,
+    "healthCheckRetryTimeout": "00:45:00",
+    "healthCheckStableDuration": "00:05:00",
+    "healthCheckWaitDuration": "00:05:00",
+    "upgradeDomainTimeout": "02:00:00",
+    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
+    "upgradeTimeout": "12:00:00"
+}
+```
 - Keyvault에 응용 프로그램의 관리 되는 id 액세스 권한 부여
 
     이 [문서](how-to-grant-access-other-resources.md) 를 참조 하 여 keyvault에 관리 id 액세스 권한을 부여 하는 방법을 확인 합니다. 또한 시스템 할당 관리 Id를 사용 하는 경우 관리 id는 응용 프로그램 배포 후에만 생성 됩니다.

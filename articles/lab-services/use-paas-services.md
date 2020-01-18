@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs에서 PaaS (Platform as a Service) 서비스 사용 Microsoft Docs
+title: Azure DevTest Labs에서 PaaS (Platform as a Service) 서비스 사용
 description: Azure DevTest Labs에서 Platform as a Service (Pass) 서비스를 사용 하는 방법에 대해 알아봅니다.
 services: devtest-lab,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 088913959b5850e87dc3a6a39d2907d30b7e5ade
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 88bbf921fedae4bcdba2b6386ce6e08105206cd2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976239"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169199"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Azure DevTest Labs에서 PaaS (Platform as a Service) 서비스 사용
 PaaS는 환경 기능을 통해 DevTest Labs에서 지원 됩니다. DevTest Labs의 환경은 Git 리포지토리에서 미리 구성 된 Azure Resource Manager 템플릿으로 지원 됩니다. 환경에는 PaaS 및 IaaS 리소스가 모두 포함 될 수 있습니다. 이를 통해 가상 머신, 데이터베이스, 가상 네트워크 및 웹 앱과 같은 Azure 리소스를 포함할 수 있는 복잡 한 시스템을 만들 수 있습니다 .이는 함께 작동 하도록 사용자 지정 됩니다. 이러한 템플릿을 사용 하면 소스 코드 제어를 사용 하 여 일관 된 배포 및 환경 관리를 수행할 수 있습니다. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e97ce1655ae35f4986a915a382d456bb8d2ce4b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406129"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167839"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Azure Monitor에서 Active Directory 상태 검사 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
@@ -166,6 +166,17 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 2. 무시된 권장 사항을 나중에 보려면 IgnoreRecommendations.txt 파일을 제거합니다. 또는 파일에서 RecommendationID를 제거할 수도 있습니다.
 
 ## <a name="ad-health-check-solutions-faq"></a>AD Health Check 솔루션 FAQ
+
+*AD 평가 솔루션에서 수행 하는 검사는 무엇입니까?*
+
+* 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여 줍니다.
+
+```Kusto
+ADAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+추가 검토를 위해 결과를 Excel로 내보낼 수 있습니다.
 
 *상태 검사를 얼마나 자주 실행하나요?*
 

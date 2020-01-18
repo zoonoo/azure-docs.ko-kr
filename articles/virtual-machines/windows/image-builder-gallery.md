@@ -1,26 +1,30 @@
 ---
 title: Windows Vm 용 이미지 갤러리에서 Azure 이미지 작성기 사용 (미리 보기)
-description: Azure 이미지 작성기 및 공유 이미지 갤러리를 사용 하 여 Windows VM 이미지를 만듭니다.
+description: Azure 이미지 작성기 및 Azure PowerShell를 사용 하 여 Azure 공유 갤러리 이미지 버전을 만듭니다.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 01/14/2020
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 1d9763ccc5f5967b9fc9932a11fff655e6120fd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d5856780d0d9f1a1943bca1c2f076bb3ec914e1d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976080"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263356"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들고 공유 이미지 갤러리에 배포 합니다. 
 
-이 문서에서는 Azure 이미지 작성기를 사용 하 여 [공유 이미지 갤러리](shared-image-galleries.md)에서 이미지 버전을 만든 다음 전체적으로 이미지를 배포 하는 방법을 보여 줍니다.
+이 문서에서는 Azure 이미지 작성기를 사용 하 고 Azure PowerShell 하 여 [공유 이미지 갤러리](shared-image-galleries.md)에서 이미지 버전을 만든 다음 전체적으로 이미지를 배포 하는 방법을 보여 줍니다. [Azure CLI](../linux/image-builder-gallery.md)를 사용 하 여이 작업을 수행할 수도 있습니다.
 
-이미지를 구성 하는 데 사용 되는 json 템플릿을 사용 합니다. 사용 중인. json 파일은 [helloImageTemplateforWinSIG](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json)입니다. 
+이미지를 구성 하는 데 사용 되는 json 템플릿을 사용 합니다. 사용 중인. json 파일은 [armTemplateWinSIG](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json)입니다. 이 문서는 로컬 PowerShell 세션을 사용 하 여 작성 되므로 템플릿의 로컬 버전을 다운로드 하 고 편집 하 게 됩니다.
 
 공유 이미지 갤러리에 이미지를 배포 하기 위해 템플릿에서 [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) 를 템플릿의 `distribute` 섹션 값으로 사용 합니다.
+
+Azure 이미지 작성기는 자동으로 sysprep를 실행 하 여 이미지를 일반화 합니다 .이는 일반 sysprep 명령으로, 필요한 경우 [재정의할](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) 수 있습니다. 
+
+레이어 사용자 지정 횟수를 확인 합니다. 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. Sysprep을 8 번 실행 한 후에는 Windows 이미지를 다시 만들어야 합니다. 자세한 내용은 [Sysprep을 실행할 수 있는 횟수에 대 한 제한](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)을 참조 하세요. 
 
 > [!IMPORTANT]
 > Azure 이미지 작성기는 현재 공개 미리 보기로 제공 됩니다.
@@ -29,160 +33,226 @@ ms.locfileid: "74976080"
 ## <a name="register-the-features"></a>기능 등록
 미리 보기 중에 Azure 이미지 작성기를 사용 하려면 새 기능을 등록 해야 합니다.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
+```powershell
+Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
 기능 등록의 상태를 확인 합니다.
 
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
+```powershell
+Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-등록을 확인 하세요.
+다음 단계로 이동 하기 전에 `RegistrationState` `Registered` 될 때까지 기다립니다.
 
-```azurecli-interactive
-az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-az provider show -n Microsoft.Storage | grep registrationState
-az provider show -n Microsoft.Compute | grep registrationState
+공급자 등록을 확인 합니다. 각가 `Registered`를 반환 하는지 확인 합니다.
+
+```powershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState
+Get-AzResourceProvider -ProviderNamespace Microsoft.Storage | Format-table -Property ResourceTypes,RegistrationState 
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
+Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-등록 되지 않은 경우 다음을 실행 합니다.
+`Registered`반환 하지 않는 경우 다음을 사용 하 여 공급자를 등록 합니다.
 
-```azurecli-interactive
-az provider register -n Microsoft.VirtualMachineImages
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Compute
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
-## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정 
+## <a name="create-variables"></a>변수 만들기
 
 일부 정보를 반복 해 서 사용 하 게 되며,이 정보를 저장 하는 몇 가지 변수를 만듭니다. `username` 및 `vmpassword`와 같이 변수의 값을 사용자의 정보로 바꿉니다.
 
-```azurecli-interactive
-# Resource group name - we are using ibsigRG in this example
-sigResourceGroup=myIBWinRG
-# Datacenter location - we are using West US 2 in this example
-location=westus
-# Additional region to replicate the image to - we are using East US in this example
-additionalregion=eastus
-# name of the shared image gallery - in this example we are using myGallery
-sigName=my22stSIG
-# name of the image definition to be created - in this example we are using myImageDef
-imageDefName=winSvrimages
-# image distribution metadata reference name
-runOutputName=w2019SigRo
-# User name and password for the VM
-username="azureuser"
-vmpassword="passwordfortheVM"
-```
+```powershell
+# Get existing context
+$currentAzContext = Get-AzContext
 
-구독 ID에 대 한 변수를 만듭니다. `az account show | grep id`를 사용 하 여이를 가져올 수 있습니다.
+# Get your current subscription ID. 
+$subscriptionID=$currentAzContext.Subscription.Id
 
-```azurecli-interactive
-subscriptionID="Subscription ID"
-```
+# Destination image resource group
+$imageResourceGroup="aibwinsig"
 
-리소스 그룹을 만듭니다.
+# Location
+$location="westus"
 
-```azurecli-interactive
-az group create -n $sigResourceGroup -l $location
+# Image distribution metadata reference name
+$runOutputName="aibCustWinManImg02ro"
+
+# Image template name
+$imageTemplateName="helloImageTemplateWin02ps"
+
+# Distribution properties object name (runOutput).
+# This gives you the properties of the managed image on completion.
+$runOutputName="winclientR01"
 ```
 
 
-해당 리소스 그룹에서 리소스를 만들 수 있는 Azure 이미지 작성기 권한을 부여 합니다. `--assignee` 값은 이미지 작성기 서비스에 대 한 앱 등록 ID입니다. 
 
-```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
+## <a name="create-the-resource-group"></a>리소스 그룹 만들기
+
+리소스 그룹을 만들고 해당 리소스 그룹에서 리소스를 만들 수 있는 Azure 이미지 작성기 권한을 부여 합니다.
+
+```powershell
+New-AzResourceGroup `
+   -Name $imageResourceGroup `
+   -Location $location
+New-AzRoleAssignment `
+   -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 `
+   -Scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup `
+   -RoleDefinitionName Contributor
 ```
 
 
-## <a name="create-an-image-definition-and-gallery"></a>이미지 정의 및 갤러리 만들기
+
+## <a name="create-the-shared-image-gallery"></a>Shared Image Gallery 만들기
 
 공유 이미지 갤러리에서 이미지 작성기를 사용 하려면 기존 이미지 갤러리 및 이미지 정의가 있어야 합니다. 이미지 작성기는 이미지 갤러리 및 이미지 정의를 만들지 않습니다.
 
 사용할 갤러리 및 이미지 정의가 아직 없는 경우 만들기를 시작 합니다. 먼저 이미지 갤러리를 만듭니다.
 
-```azurecli-interactive
-az sig create \
-    -g $sigResourceGroup \
-    --gallery-name $sigName
+```powershell
+# Image gallery name
+$sigGalleryName= "myIBSIG"
+
+# Image definition name
+$imageDefName ="winSvrimage"
+
+# additional replication region
+$replRegion2="eastus"
+
+# Create the gallery
+New-AzGallery `
+   -GalleryName $sigGalleryName `
+   -ResourceGroupName $imageResourceGroup  `
+   -Location $location
+
+# Create the image definition
+New-AzGalleryImageDefinition `
+   -GalleryName $sigGalleryName `
+   -ResourceGroupName $imageResourceGroup `
+   -Location $location `
+   -Name $imageDefName `
+   -OsState generalized `
+   -OsType Windows `
+   -Publisher 'myCompany' `
+   -Offer 'WindowsServer' `
+   -Sku 'WinSrv2019'
 ```
 
-그런 다음 이미지 정의를 만듭니다.
-
-```azurecli-interactive
-az sig image-definition create \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --publisher corpIT \
-   --offer myOffer \
-   --sku 2019 \
-   --os-type Windows
-```
 
 
-## <a name="download-and-configure-the-json"></a>Json 다운로드 및 구성
+## <a name="download-and-configure-the-template"></a>템플릿 다운로드 및 구성
 
 Json 템플릿을 다운로드 하 고 변수로 구성 합니다.
 
-```azurecli-interactive
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json -o helloImageTemplateforWinSIG.json
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<region1>/$location/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforWinSIG.json
+```powershell
+
+$templateFilePath = "armTemplateWinSIG.json"
+
+Invoke-WebRequest `
+   -Uri "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json" `
+   -OutFile $templateFilePath `
+   -UseBasicParsing
+
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<subscriptionID>',$subscriptionID | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<rgName>',$imageResourceGroup | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<runOutputName>',$runOutputName | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<imageDefName>',$imageDefName | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<sharedImageGalName>',$sigGalleryName | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<region1>',$location | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
+
 ```
+
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-이 다음 파트는 갤러리에서 이미지 버전을 만듭니다. 
+템플릿을 서비스에 제출 해야 합니다. 그러면 스크립트와 같은 모든 종속 아티팩트가 다운로드 되어 준비 리소스 그룹에 저장 됩니다. 여기에는 *IT_* 접두사가 붙습니다.
 
-이미지 구성을 Azure 이미지 작성기 서비스에 제출 합니다.
-
-```azurecli-interactive
-az resource create \
-    --resource-group $sigResourceGroup \
-    --properties @helloImageTemplateforWinSIG.json \
-    --is-full-object \
-    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateforWinSIG01
+```powershell
+New-AzResourceGroupDeployment `
+   -ResourceGroupName $imageResourceGroup `
+   -TemplateFile $templateFilePath `
+   -api-version "2019-05-01-preview" `
+   -imageTemplateName $imageTemplateName `
+   -svclocation $location
 ```
 
-이미지 빌드를 시작 합니다.
+이미지를 빌드하려면 템플릿에서 ' 실행 '을 호출 해야 합니다.
 
-```azurecli-interactive
-az resource invoke-action \
-     --resource-group $sigResourceGroup \
-     --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
-     -n helloImageTemplateforWinSIG01 \
-     --action Run 
+```powershell
+Invoke-AzResourceAction `
+   -ResourceName $imageTemplateName `
+   -ResourceGroupName $imageResourceGroup `
+   -ResourceType Microsoft.VirtualMachineImages/imageTemplates `
+   -ApiVersion "2019-05-01-preview" `
+   -Action Run
 ```
 
 이미지를 만들고 두 영역에 복제 하는 데 다소 시간이 걸릴 수 있습니다. VM 만들기로 이동 하기 전에이 부분이 완료 될 때까지 기다립니다.
+
+이미지 빌드 상태 가져오기를 자동화 하는 옵션에 대 한 자세한 내용은 GitHub에서이 템플릿의 [추가 정보](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) 를 참조 하세요.
 
 
 ## <a name="create-the-vm"></a>VM 만들기
 
 Azure 이미지 작성기에서 만든 이미지 버전에서 VM을 만듭니다.
 
-```azurecli-interactive
-az vm create \
-  --resource-group $sigResourceGroup \
-  --name aibImgWinVm001 \
-  --admin-username $username \
-  --admin-password $vmpassword \
-  --image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
-  --location $location
+만든 이미지 버전을 가져옵니다.
+```powershell
+$imageVersion = Get-AzGalleryImageVersion `
+   -ResourceGroupName $imageResourceGroup `
+   -GalleryName $sigGalleryName `
+   -GalleryImageDefinitionName $imageDefName
 ```
 
+이미지가 복제 된 두 번째 지역에서 VM을 만듭니다.
+
+```powershell
+$vmResourceGroup = "myResourceGroup"
+$vmName = "myVMfromImage"
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzResourceGroup -Name $vmResourceGroup -Location $replRegion2
+
+# Network pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using $imageVersion.Id to specify the shared image
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
+Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+Set-AzVMSourceImage -Id $imageVersion.Id | `
+Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM -ResourceGroupName $vmResourceGroup -Location $replRegion2 -VM $vmConfig
+```
 
 ## <a name="verify-the-customization"></a>사용자 지정 확인
 VM을 만들 때 설정한 사용자 이름 및 암호를 사용 하 여 VM에 대 한 원격 데스크톱 연결을 만듭니다. VM 내에서 cmd 프롬프트를 열고 다음을 입력 합니다.
@@ -200,54 +270,24 @@ dir c:\
 
 그러면 생성 된 이미지와 함께 다른 모든 리소스 파일이 삭제 됩니다. 리소스를 삭제 하기 전에이 배포를 완료 했는지 확인 합니다.
 
-이미지 갤러리 리소스를 삭제 하는 경우 이미지를 만드는 데 사용 된 이미지 정의를 삭제 하려면 먼저 모든 이미지 버전을 삭제 해야 합니다. 갤러리를 삭제 하려면 먼저 갤러리에서 이미지 정의를 모두 삭제 해야 합니다.
+먼저 리소스 그룹 템플릿을 삭제 합니다. 그렇지 않으면 AIB에서 사용 하는 스테이징 리소스 그룹 (*IT_* )이 정리 되지 않습니다.
 
-이미지 작성기 템플릿을 삭제 합니다.
+이미지 템플릿의 ResourceID를 가져옵니다. 
 
-```azurecli-interactive
-az resource delete \
-    --resource-group $sigResourceGroup \
-    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateforWinSIG01
+```powerShell
+$resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
 ```
 
-이미지 작성기에서 만든 이미지 버전을 가져옵니다 .이는 항상 `0.`로 시작 하 고 이미지 버전을 삭제 합니다.
+이미지 템플릿을 삭제 합니다.
 
-```azurecli-interactive
-sigDefImgVersion=$(az sig image-version list \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'name' -o json | grep 0. | tr -d '"')
-az sig image-version delete \
-   -g $sigResourceGroup \
-   --gallery-image-version $sigDefImgVersion \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID
-```   
-
-
-이미지 정의를 삭제 합니다.
-
-```azurecli-interactive
-az sig image-definition delete \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID
+```powerShell
+Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 ```
 
-갤러리를 삭제 합니다.
+리소스 그룹을 삭제 합니다.
 
-```azurecli-interactive
-az sig delete -r $sigName -g $sigResourceGroup
-```
-
-해당 리소스 그룹을 삭제합니다.
-
-```azurecli-interactive
-az group delete -n $sigResourceGroup -y
+```powerShell
+Remove-AzResourceGroup $imageResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계

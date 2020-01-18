@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 2dc5bfb7459e28a4d118c5d1629133bae3a5637f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2cdf34bb7df121665548be98f9f2098cc5cfe99b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533689"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169075"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure Cognitive Services 지원 및 도움말 옵션
 
@@ -22,7 +22,7 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
 
 > [!div class="checklist"]
 > * *Azure Cognitive Services*의 새로운 개발 정보를 지속적으로 파악 하세요.
-> * 릴리스 정보에는 모든 릴리스에 대 한 정보가 포함 되어 있습니다.
+> * 릴리스 정보는 모든 릴리스에 대한 정보를 포함합니다.
 > * 검색 하 여 문제가 커뮤니티에서 논의 되었는지 또는 기존 설명서가 이미 있는지 확인 합니다.
 > * 만족스러운 대답을 찾을 수 없으면 *Stack Overflow*에 대한 질문을 합니다.
 > * GitHub의 샘플 중 하나에 문제가 있으면 *GitHub* 문제를 제기합니다.
@@ -36,7 +36,7 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
 
 클라우드를 시작 하는 개발자 또는 비즈니스에 중요 한 전략적 응용 프로그램을 배포 하는 대기업에 있든 관계 없이 [Azure 지원 옵션](https://azure.microsoft.com/support/plans) 의 범위를 살펴보고 가장 적합 한 계획을 선택 합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
-* [Azure 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Stack Overflow에 질문을 게시 합니다.
@@ -73,7 +73,7 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
 | Face                          | https://cognitive.uservoice.com/forums/430315-face |
-| 양식                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Form                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
 | 형                     | https://feedback.azure.com/forums/34192--general-feedback |
 | LUIS(Language Understanding) | https://cognitive.uservoice.com/forums/551524-luis |
 | Personalizer                  | https://cognitive.uservoice.com/forums/921562-personalizer |
@@ -89,10 +89,10 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
     <img alt='Release notes' src='https://docs.microsoft.com/media/common/i_learn-about.svg'>
 </div>
 
-새 릴리스를 사용할 수 있게 되 면 릴리스 정보가 업데이트 됩니다. 이 메모에는 새로운 기능, 향상 된 기능 및 버그 수정에 대 한 정보가 포함 되어 있습니다.
+새 릴리스를 사용할 수 있게 되 면 릴리스 정보가 업데이트 됩니다. 그 정보는 새로운 기능, 향상 및 버그 수정에 대한 정보를 포함합니다.
 
- - [Custom Vision Service](custom-vision-service/release-notes.md)
- - [Face API](face/releasenotes.md)
+ - [Custom Vision](custom-vision-service/release-notes.md)
+ - [Face](face/releasenotes.md)
  - [LUIS(Language Understanding)](luis/whats-new.md)
  - [음성 서비스](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
@@ -106,7 +106,7 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
 
 Cognitive Services에 대 한 뉴스는 [Azure 블로그에서](https://azure.microsoft.com/blog/topics/cognitive-services/)공유 됩니다.
 
-## <a name="search"></a>Search
+## <a name="search"></a>검색
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
@@ -169,7 +169,7 @@ Cognitive Services에 대 한 뉴스는 [Azure 블로그에서](https://azure.mi
 **컨텍스트**
 
  - 오류 메시지, 로그 정보, 스택 추적, ...
- - 특정 서비스 상호 작용에 대 한 오류를 보고 하는 경우 보고 된 인시던트의 SessionId 및 time (포함)을 보고 합니다. SessionId는 받은 모든 콜백/이벤트에 보고됩니다.
+ - 상호 작용하는 특정 서비스에 대한 오류를 보고하는 경우 보고된 인시던트의 SessionId 및 시간(표준 시간대 포함)을 보고합니다. SessionId는 받은 모든 콜백/이벤트에 보고됩니다.
  - 기타 추가 정보
 
 ## <a name="reddit"></a>Reddit

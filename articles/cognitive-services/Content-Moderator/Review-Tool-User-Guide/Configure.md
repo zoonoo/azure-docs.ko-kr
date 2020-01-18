@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757426"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169583"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "72757426"
 
 ## <a name="manage-team-and-subteams"></a>팀 및 하위 팀 관리
 
-**팀** 탭을 사용 하면 특정 [사람의 검토가](../review-api.md#reviews) 시작 될 때 알릴 수 있는 사용자 &mdash;groups 팀 및 하위 팀을 관리할 수 있습니다. 검토 도구를 사용 하 여 등록할 때 만든 팀은 하나만 포함할 수 있지만 여러 하위 팀을 만들 수 있습니다. 팀 관리자는 구성원을 초대 하 고, 사용 권한을 설정 하 고, 다른 하위 팀에 할당할 수 있습니다.
+**팀** 탭에서는 팀 및 하위 팀을 관리 하 여 특정 사용자 [검토가](../review-api.md#reviews) 시작 될 때 알릴 수 있는 사용자 그룹&mdash;수 있습니다. 검토 도구를 사용 하 여 등록할 때 만든 팀은 하나만 포함할 수 있지만 여러 하위 팀을 만들 수 있습니다. 팀 관리자는 구성원을 초대 하 고, 사용 권한을 설정 하 고, 다른 하위 팀에 할당할 수 있습니다.
 
 ![검토 도구 팀 설정](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "72757426"
 
 ## <a name="tags"></a>태그
 
-**태그** 탭에서는**isadult** (**a**) 및 **isracy** (**r**) &mdash; 두 개의 기본 중재 태그 외에도 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
+**태그** 탭에서는 **isadult** (**a**) 및 **isracy** (**r**)&mdash;두 개의 기본 중재 태그 외에도 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
 
 ![태그 보기 ("표시 됨" 확인란 포함)](images/tags-4-disable.png)
 
@@ -90,14 +90,14 @@ ms.locfileid: "72757426"
 
 **커넥터** 탭을 사용 하면 콘텐츠 [워크플로의](../review-api.md#workflows)일부로 다양 한 방법으로 콘텐츠를 처리할 수 있는 서비스별 플러그인 인 커넥터를 관리할 수 있습니다.
 
-워크플로를 만들 때 기본 커넥터는 Content Moderator 커넥터 이며, 콘텐츠를 **성인** 또는 **외설**로 표시 하 고, 비속어를 찾을 수 있습니다. 그러나 여기에 나열 된 다른 커넥터를 사용할 수 있습니다. 각 서비스에 대 한 자격 증명을 사용 하는 경우 (예: Face API 커넥터를 사용 하려면 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview) 구독 키를 받아야 합니다.)
+워크플로를 만들 때 기본 커넥터는 Content Moderator 커넥터 이며, 콘텐츠를 **성인** 또는 **외설**로 표시 하 고, 비속어를 찾을 수 있습니다. 그러나 여기에 나열 된 다른 커넥터를 사용할 수 있습니다. 각 서비스에 대 한 자격 증명을 사용 하는 경우 (예 [: 얼굴 연결](https://docs.microsoft.com/azure/cognitive-services/face/overview) 키를 받아야 하는 경우), 얼굴 커넥터를 사용 합니다.
 
 [검토 도구](./human-in-the-loop.md) 에는 다음 커넥터가 포함 되어 있습니다.
 
-- Emotion API
-- Face API
+- Emotion
+- Face
 - PhotoDNA 클라우드 서비스
-- Text Analytics API
+- Text Analytics
 
 ### <a name="add-a-connector"></a>커넥터 추가
 
