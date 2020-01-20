@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b447a0328de210caeb23a1beb91c532853c180bc
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550471"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867482"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>빠른 시작: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 미리 보기 디바이스 만들기(Windows)
 
@@ -85,7 +85,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 이 빠른 시작에서는 기존 샘플 디바이스 기능 모델 및 연결된 인터페이스를 사용합니다.
 
-1. 로컬 드라이브에 `pnp_app` 디렉터리를 만듭니다. 이 폴더는 디바이스 모델 파일 및 디바이스 코드 스텁에 사용됩니다.
+1. 로컬 드라이브에 `pnp_app` 폴더를 만듭니다. 이 폴더는 디바이스 모델 파일 및 디바이스 코드 스텁에 사용됩니다.
 
 1. [디바이스 기능 모델 및 인터페이스 샘플 파일](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) 및 [인터페이스 샘플](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json)을 다운로드하고 파일을 `pnp_app` 폴더에 저장합니다.
 
@@ -109,7 +109,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 1. 디바이스 코드 스텁을 생성하는 데 사용할 **SampleDevice.capabilitymodel.json** 파일을 선택합니다.
 
-1. 프로젝트 이름 **sample_device**를 입력합니다. 이것은 디바이스 애플리케이션의 이름입니다.
+1. 프로젝트 이름 **sample_device**를 입력합니다. 이는 디바이스 애플리케이션의 이름입니다.
 
 1. 언어로 **ANSI C**를 선택합니다.
 
@@ -124,7 +124,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## <a name="build-and-run-the-code"></a>코드 빌드 및 실행
 
-디바이스 SDK 소스 코드를 사용하여 생성된 디바이스 코드 스텁을 빌드합니다. 빌드하는 애플리케이션은 IoT Hub에 연결하는 디바이스를 시뮬레이션합니다. 이 애플리케이션은 원격 분석 데이터 및 속성을 보내고 명령을 수신합니다.
+Vcpkg 패키지를 사용하여 생성된 디바이스 코드 스텁을 빌드합니다. 빌드하는 애플리케이션은 IoT Hub에 연결하는 디바이스를 시뮬레이션합니다. 이 애플리케이션은 원격 분석 데이터 및 속성을 보내고 명령을 수신합니다.
 
 1. `sample_device` 폴더에 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다.
 

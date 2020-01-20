@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2570e3753dd93173166c6b563e9add69bed3f862
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670474"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922267"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -50,7 +50,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="container-characteristics"></a>컨테이너 특성
 
-Linux 기반 App Service에 배포된 Python 앱은 GitHub 리포지토리에 정의된 Docker 컨테이너 [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) 또는 [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0) 내에서 실행됩니다.
+Linux의 App Service에 배포된 Python 앱은 [App Service Python GitHub 리포지토리](https://github.com/Azure-App-Service/python)에 정의된 Docker 컨테이너 내에서 실행됩니다. 버전별 디렉터리 내에서 이미지 구성을 찾을 수 있습니다.
 
 이 컨테이너에는 다음과 같은 특성이 있습니다.
 

@@ -1,17 +1,21 @@
 ---
 title: Azure App Configuration 사용 방법을 배우기 위한 빠른 시작
 description: Java Spring 앱 지원 Azure App Configuration 사용 빠른 시작
-author: yidon
-ms.author: yidon
+services: azure-app-configuration
+documentationcenter: ''
+author: lisaguthrie
+manager: maiye
+editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
-ms.openlocfilehash: c4fee6c61ba58a8a1629b5c98d7eebdadfdf1a89
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.author: lcozzens
+ms.openlocfilehash: 172fe646b294ca511a22128094c56172c4268018
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495213"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750302"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Java Spring 앱 만들기
 
@@ -46,7 +50,7 @@ ms.locfileid: "75495213"
    * **Java**를 사용하는 **Maven** 프로젝트를 생성합니다.
    * **Spring Boot** 버전 2.0 이상을 지정합니다.
    * 애플리케이션에 대한 **그룹** 및 **아티팩트** 이름을 지정합니다.
-   * **Web** 종속성 추가
+   * **Spring Web** 종속성을 추가합니다.
 
 3. 이전 옵션을 지정한 후 **프로젝트 생성**을 선택합니다. 메시지가 표시되면 로컬 컴퓨터의 경로에 프로젝트를 다운로드합니다.
 
@@ -60,13 +64,17 @@ ms.locfileid: "75495213"
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M5</version>
+        <version>1.1.0</version>
     </dependency>
     ```
 
 3. 앱의 패키지 디렉터리에 *MessageProperties.java*라는 새 Java 파일을 만듭니다. 다음 줄을 추가합니다.
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+
     @ConfigurationProperties(prefix = "config")
     public class MessageProperties {
         private String message;
@@ -84,6 +92,11 @@ ms.locfileid: "75495213"
 4. 앱의 패키지 디렉터리에 *HelloController.java*라는 새 Java 파일을 만듭니다. 다음 줄을 추가합니다.
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RestController;
+
     @RestController
     public class HelloController {
         private final MessageProperties properties;
@@ -102,11 +115,13 @@ ms.locfileid: "75495213"
 5. 기본 애플리케이션 Java 파일을 열고 `@EnableConfigurationProperties`를 추가하여 이 기능을 활성화합니다.
 
     ```java
+    import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
-    public class AzureConfigApplication {
+    public class DemoApplication {
         public static void main(String[] args) {
-            SpringApplication.run(AzureConfigApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
@@ -125,11 +140,13 @@ ms.locfileid: "75495213"
     mvn clean package
     mvn spring-boot:run
     ```
+
 2. 애플리케이션이 실행되면 *curl*을 사용하여 애플리케이션을 테스트합니다. 예를 들어 다음과 같습니다.
 
       ```CLI
       curl -X GET http://localhost:8080/
       ```
+
     App Configuration 저장소에 입력한 메시지가 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

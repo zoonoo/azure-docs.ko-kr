@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ca172e16fc13d2b8e10d0797f5b57b5b48136349
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0fc5c32570e5a5920d1616a522120ea5d5b251d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430441"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768330"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
  
@@ -41,6 +41,7 @@ ASE는 단일 고객의 애플리케이션만을 실행하도록 격리되며 �
 * 여러 ASE를 수평적 크기 조정에 사용할 수 있습니다. 자세한 내용은 [지리적으로 분산된 앱 설치 공간 설정 방법](app-service-app-service-environment-geo-distributed-scale.md)을 참조하세요.
 * AzureCon 심층 분석에 표시된 대로 ASE는 보안 아키텍처를 구성하는 데 사용할 수 있습니다. AzureCon 심층 분석에 표시된 보안 아키텍처가 어떻게 구성되었는지 확인하려면 App Service Environment를 사용하여 [계층화된 보안 아키텍처를 구현하는 방법에 대한 문서](app-service-app-service-environment-layered-security.md)를 참조하세요.
 * ASE에서 실행 중인 앱은 WAF(웹 애플리케이션 방화벽) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [WAF(웹 애플리케이션 방화벽)][AppGW]를 참조하세요.
+* 영역 고정을 사용하여 App Service Environments를 AZ(가용성 영역)에 배포할 수 있습니다.  자세한 내용은 [가용성 영역에 대한 App Service Environment 지원][ASEAZ]을 참조하세요.
 
 ## <a name="dedicated-environment"></a>전용 환경 ##
 
@@ -102,3 +103,4 @@ ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md
+[ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

@@ -10,16 +10,16 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8f937bcfb1bd03c970f21263c1cd09a1c3baba0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e353a65544e86e702bd216db5c8b5f81f033c46a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429431"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772247"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스를 위한 Python IoT Edge 모듈 개발 및 배포
 
-Visual Studio Code를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다. 
+Visual Studio Code를 사용하여 Python 코드를 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다. 
 
 비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 빠른 시작에서 설정한 IoT Edge 디바이스에서 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.    
 
@@ -100,7 +100,7 @@ VS 코드를 사용하여 빌드할 수 있는 Python 솔루션 템플릿을 만
 
 ### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
 
-현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 C 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다. 
+현재 Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 Python 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다. 
 
 1. 명령 팔레트를 열고 **Azure IoT Edge: 에지 솔루션용 기본 대상 플랫폼 설정**을 검색하거나 창의 맨 아래에 있는 사이드바에서 바로 가기 아이콘을 선택합니다. 
 

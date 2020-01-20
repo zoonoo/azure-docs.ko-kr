@@ -9,16 +9,16 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 83462d47af49a02817dcfa05afcd8fdb5e0beab1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872412"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863709"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
-이 자습서에서는 시뮬레이션된 디바이스의 데이터로 채워진 Azure Time Series Insights 환경을 만드는 프로세스를 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 시뮬레이션된 디바이스의 데이터로 채워진 Azure Time Series Insights 환경을 만드는 프로세스를 안내합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Time Series Insights 환경을 만듭니다.
@@ -30,7 +30,7 @@ ms.locfileid: "74872412"
 > [!IMPORTANT]
 > 아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 또한 Azure 로그인 계정은 구독에 대한 **소유자** 역할의 멤버여야 합니다. 자세한 내용은 [역할 기반 액세스 제어 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
@@ -61,7 +61,7 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
 
 1.  **지금 사용해보기**를 선택합니다. 그런 다음, **디바이스 시뮬레이션 솔루션 만들기** 페이지에서 필수 매개 변수를 입력합니다.
 
-   매개 변수|설명
+   매개 변수|Description
    ---|---
    **배포 이름** | 이 고유한 값은 새 리소스 그룹을 만드는 데 사용됩니다. 나열된 Azure 리소스가 생성되어 리소스 그룹에 할당됩니다.
    **Azure 구독** | 이전 섹션에서 Time Series Insights 환경을 만드는 데 사용한 동일한 구독을 지정합니다.
@@ -72,7 +72,7 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
 
    [![디바이스 시뮬레이션 솔루션 프로비전](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. 프로비저닝이 완료되면 배포 상태가 **프로비저닝**에서 **준비**로 이동되었음을 나타내는 두 개의 업데이트가 표시됩니다. 
+1. 프로비저닝이 완료되면 배포 상태가 **프로비저닝**에서 **준비**로 이동되었음을 알리는 두 개의 업데이트가 표시됩니다. 
 
    >[!IMPORTANT]
    > 솔루션 가속기를 아직 입력하지 마세요! 나중에 다시 돌아올 수 있으므로 이 웹 페이지는 그대로 열어 두세요.
@@ -95,7 +95,7 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
 
 1. **Time Series Insights 환경** 페이지에서 필수 매개 변수를 입력합니다.
 
-   매개 변수|설명
+   매개 변수|Description
    ---|---
    **환경 이름** | 고유한 Time Series Insights 환경 이름을 선택합니다. 이 이름은 Time Series Insights 탐색기 및 [쿼리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query)에서 사용합니다.
    **구독** | 구독은 Azure 리소스에 대한 컨테이너입니다. Time Series Insights 환경을 만들 구독을 선택합니다.
@@ -134,7 +134,7 @@ IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 �
 
 1. **+ 새 시뮬레이션**을 선택합니다. **시뮬레이션 설정** 페이지가 로드되면 필수 매개 변수를 입력합니다.
 
-   매개 변수|설명
+   매개 변수|Description
    ---|---
    **대상 IoT Hub** | **미리 프로비저닝된 IoT Hub 사용**을 선택합니다.
    **디바이스 모델** | **냉각기**를 선택합니다.
@@ -162,7 +162,7 @@ IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 �
 
    [![Time Series Insights 탐색기](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. Time Series Insights 탐색기에서 Azure Portal 계정을 사용하여 로드하고 인증합니다. 초기 보기의 차트 영역에서 Time Series Insights 환경이 시뮬레이션된 원격 분석 데이터로 채워져 있음을 확인할 수 있습니다. 더 좁은 시간 범위를 필터링하려면 왼쪽 위 모서리에서 드롭다운을 선택합니다. 디바이스 시뮬레이션의 기간을 처리할 만큼 충분히 큰 시간 범위를 입력합니다. 그런 다음, 검색 돋보기를 선택합니다.
+1. Time Series Insights 탐색기에서 Azure Portal 계정을 사용하여 로드하고 인증합니다. 처음에는 Time Series Insights 환경이 시뮬레이션된 원격 분석 데이터와 함께 채워진 차트 영역이 나타납니다. 더 좁은 시간 범위를 필터링하려면 왼쪽 위 모서리에서 드롭다운을 선택합니다. 디바이스 시뮬레이션의 기간을 처리할 만큼 충분히 큰 시간 범위를 입력합니다. 그런 다음, 검색 돋보기를 선택합니다.
 
    [![Time Series Insights 탐색기 시간 범위 필터](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
@@ -186,7 +186,7 @@ Azure Portal의 왼쪽 메뉴에서 다음을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Time Series Insights 환경을 만듭니다.
@@ -198,4 +198,4 @@ Azure Portal의 왼쪽 메뉴에서 다음을 수행합니다.
 이제 사용자 고유의 Time Series Insights 환경을 만드는 방법을 알아보았으므로 Time Series Insights 환경의 데이터를 사용하는 웹 애플리케이션을 빌드하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [호스팅된 클라이언트 SDK 시각화 샘플 참조](https://tsiclientsample.azurewebsites.net/)
+> [호스팅된 클라이언트 SDK 시각화 샘플 읽기](https://tsiclientsample.azurewebsites.net/)

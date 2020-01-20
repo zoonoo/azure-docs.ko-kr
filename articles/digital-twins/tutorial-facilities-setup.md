@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 20174a4eafb4e72fb62eeff6df2d129b91016b9e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383018"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895520"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins 미리 보기 배포 및 공간 그래프 구성
 
@@ -36,9 +36,9 @@ Azure Digital Twins 서비스를 사용하여 건물의 물리적 영역 및 엔
 
 이러한 자습서에서는 개념을 보다 구체적으로 설명하기 위해 [빠른 시작: 사용 가능한 회의실 찾기](quickstart-view-occupancy-dotnet.md)에 사용되는 것과 동일한 샘플을 수정하여 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 계정이 없으면 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독 Azure 계정이 없으면 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 - .NET Core SDK 이러한 자습서에 사용되는 Azure Digital Twins 샘플은 C#으로 작성되었습니다. 샘플을 빌드하고 실행할 수 있도록 개발 머신에 [.NET Core SDK 버전 2.1.403 이상](https://www.microsoft.com/net/download)을 설치합니다. 명령 창에서 `dotnet --version` 명령을 실행하여 머신에 올바른 버전이 설치되어 있는지 확인합니다.
 
@@ -75,7 +75,7 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
 
 * **occupancy-quickstart** 프로비전 샘플을 사용하여 [공간 인텔리전스 그래프](concepts-objectmodel-spatialgraph.md#digital-twins-object-models)를 구성하고 프로비전할 수 있습니다. 이 그래프는 물리적 공간 및 포함된 리소스의 디지털화된 이미지입니다. 이 샘플은 스마트 건물에 대한 개체를 정의하는 [개체 모델](concepts-objectmodel-spatialgraph.md#digital-twins-object-models)을 사용합니다. Digital Twins 개체 및 REST API의 전체 목록을 보려면 [인스턴스](#deploy-digital-twins)에 대해 작성된 [이 REST API 설명서](https://docs.westcentralus.azuresmartspaces.net/management/swagger) 또는 관리 API URL를 방문하세요.
 
-   샘플이 Digital Twins 인스턴스와 통신하는 방법을 알아보려면 **src\actions** 폴더를 시작하세요. 이 폴더의 파일은 이 자습서에서 사용할 명령을 구현합니다.
+   이 샘플을 탐색하여 Digital Twins 인스턴스와 통신하는 방법을 이해하려면 **src\actions** 폴더를 시작하세요. 이 폴더의 파일은 이 자습서에서 사용할 명령을 구현합니다.
     - **provisionSample.cs** 파일은 공간 그래프를 프로비전하는 방법을 보여줍니다.
     - **getSpaces.cs** 파일은 프로비전된 공간에 대한 정보를 가져옵니다.
     - **getAvailableAndFreshSpaces.cs** 파일은 사용자 정의 함수라고 하는 사용자 지정 함수의 결과를 가져옵니다.
@@ -99,10 +99,10 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
 
 1. Visual Studio Code의 **occupancy-quickstart** 프로젝트에서 [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) 파일을 엽니다. 다음 값을 업데이트합니다.
    * **ClientId**: Azure AD 앱 등록의 애플리케이션 ID를 입력합니다. [앱 사용 권한을 설정](#grant-permissions-to-your-app)하는 섹션에서 이 ID를 기록했습니다.
-   * **Tenant**: [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)의 디렉터리 ID를 입력합니다. [앱 사용 권한을 설정](#grant-permissions-to-your-app)하는 섹션에서 이 ID를 기록했습니다.
+   * **테넌트**: [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)의 디렉터리 ID를 입력합니다. [앱 사용 권한을 설정](#grant-permissions-to-your-app)하는 섹션에서 이 ID를 기록했습니다.
    * **BaseUrl**: Digital Twins 인스턴스의 URL을 입력합니다. 이 URL을 가져오려면 이 URL의 자리 표시자를 인스턴스에 대한 값(`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`)으로 바꿉니다. [배포 섹션](#deploy-digital-twins)에서 관리 API URL을 수정하여 이 URL을 가져올 수도 있습니다. **swagger/** 를 **api/v1.0/** 로 바꿉니다.
 
-1. 샘플을 사용하여 탐색할 수 있는 Digital Twins 기능 목록을 확인합니다. 다음 명령 실행:
+1. 샘플을 사용하여 탐색할 수 있는 Digital Twins 기능 목록을 검토합니다. 다음 명령 실행:
 
     ```cmd/sh
     dotnet run
@@ -129,7 +129,6 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
     return results;
 }
-
 ```
 
 이 함수는 같은 폴더에 있는 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 파일을 사용합니다. 이 파일을 열고, 사무실 건물의 계층 구조인 *구역*, *층*, *영역* 및 *방*을 살펴봅니다. 이러한 물리적 공간은 *디바이스* 및 *센서*를 포함할 수 있습니다. 각 항목에는 미리 정의된 `type`&mdash;이 있습니다(예: 층, 방).
@@ -150,7 +149,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 - **devices**: spaces에는 여러 센서를 관리하는 물리적 디바이스 또는 가상 엔터티인 `devices`가 포함될 수 있습니다. 예를 들어 디바이스는 사용자의 휴대폰, Raspberry Pi 센서 Pod 또는 게이트웨이일 수 있습니다. 샘플의 가상 건물에서 **Focus Room**이라는 이름의 방에 **Raspberry Pi 3 A1** 디바이스가 어떻게 포함되는지 살펴보세요. 각 디바이스 노드는 고유한 `hardwareId`를 통해 식별되며, 이 샘플에서는 이러한 ID가 하드코딩되었습니다. 실제 프로덕션 환경에 사용할 수 있도록 이 샘플을 구성하려면 이러한 ID를 해당 설정의 값으로 바꿔야 합니다.  
 
-- **sensors**: 디바이스에는 여러 `sensors`가 포함될 수 있습니다. 온도, 동작 및 배터리 수준과 같은 물리적 변경 내용을 감지하고 기록할 수 있습니다. 각 센서 노드는 `hardwareId`를 통해 식별되며, 여기서는 이 ID가 하드코딩되었습니다. 실제 애플리케이션의 경우 이러한 ID를 해당 설정에 사용되는 센서의 고유 식별자로 바꿔야 합니다. provisionSample.yaml 파일에는 *동작* 및 *이산화탄소*를 기록하는 두 개의 센서가 있습니다. 이산화탄소 센서에 대한 줄 아래에 다음 줄을 추가하여 *온도*를 기록할 또 다른 센서를 추가합니다. 이러한 항목은 provisionSample.yaml에서 주석줄로 제공됩니다. 각 줄의 앞에서 `#` 문자를 제거하여 주석 처리를 제거할 수 있습니다. 
+- **sensors**: 디바이스에는 여러 `sensors`가 포함될 수 있습니다. 온도, 동작 및 배터리 수준과 같은 물리적 변경 내용을 감지하고 기록할 수 있습니다. 각 센서 노드는 `hardwareId`를 통해 식별되며, 여기서는 이 ID가 하드코딩되었습니다. 실제 애플리케이션의 경우 이러한 ID를 해당 설정에 사용되는 센서의 고유 식별자로 바꿔야 합니다. provisionSample.yaml 파일에는 *동작* 및 *이산화탄소*를 기록하는 두 개의 센서가 있습니다. 이산화탄소 센서에 대한 줄 아래에 다음 줄을 추가하여 *온도*를 기록할 또 다른 센서를 추가합니다. 이러한 항목은 provisionSample.yaml에서 주석 처리된 줄로 제공됩니다. 각 줄의 앞에서 `#` 문자를 제거하여 주석 처리를 제거할 수 있습니다. 
 
     ```yaml
             - dataType: Temperature

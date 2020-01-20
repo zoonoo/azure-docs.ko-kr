@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 12/17/2019
-ms.openlocfilehash: c93ff5d97826ee618716cc15361a439a5429d696
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437747"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708294"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>빠른 시작: Azure Portal 및 Azure Database Migration Service를 사용하여 하이브리드 모드 인스턴스 만들기
 
@@ -172,7 +172,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>PowerShell을 사용하여 Azure Database Migration Service Hybrid Worker 설정
 
-Azure Portal을 통해 Azure Database Migration Service Hybrid Worker를 설치하는 것 외에도, 하이브리드 모드에서 신규 Azure Database Migration Service 인스턴스를 만든 후 Worker 설치 단계를 자동화하는 데 사용할 수 있는 PowerShell 스크립트가 제공됩니다. 스크립트:
+Azure Portal을 통해 Azure Database Migration Service Hybrid Worker를 설치하는 것 외에도, 하이브리드 모드에서 신규 Azure Database Migration Service 인스턴스를 만든 후 Worker 설치 단계를 자동화하는 데 사용할 수 있는 [PowerShell 스크립트](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip)가 제공됩니다. 스크립트:
 
 1. 신규 AdApp을 만듭니다.
 2. 설치 관리자를 다운로드합니다.

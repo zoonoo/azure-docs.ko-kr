@@ -10,18 +10,18 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 814be233c80213f84fb81a62caf152536ef4811f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951448"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834072"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>빠른 시작: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - PowerShell
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [서버용 Azure Arc 개요](overview.md)에서 지원되는 클라이언트와 필수 네트워크 구성을 검토합니다.
 
@@ -35,6 +35,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="steps-to-create-the-service-principal"></a>서비스 사용자를 만드는 단계
 
 이 예에서는 [Azure PowerShell](/powershell/azure/install-az-ps)을 사용하여 SPN(서비스 사용자 이름)을 만듭니다. 또는 이 작업에 대해 [Azure Portal을 사용하여 서비스 사용자 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 아래에 나열된 단계를 수행할 수 있습니다.
+
+> [!NOTE]
+> 서비스 주체를 만들 때는 온보딩에 사용할 구독의 소유자 또는 사용자 액세스 관리자여야 합니다. 역할 할당을 만들 수 있는 충분한 권한이 없는 경우 서비스 주체가 생성될 수 있지만 머신을 온보딩할 수 없습니다.
 
 `Azure Connected Machine Onboarding` 역할에는 온보딩에 필요한 권한만 포함됩니다. 해당 범위에 리소스 그룹 또는 구독을 포함할 수 있도록 SPN의 권한을 정의할 수 있습니다.
 
@@ -142,7 +145,7 @@ Windows의 경우 대상 노드에서 관리자 권한으로 PowerShell을 열�
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -164,7 +167,7 @@ azcmagent connect \
 * `tenant-id` : 테넌트 GUID입니다. Azure Portal에서 **Azure Active Directory** -> **속성** -> **디렉터리 ID**를 선택하여 찾을 수 있습니다.
 * `subscription-id` : Azure에서 머신을 연결하려는 구독의 GUID입니다.
 * `resource-group` : 머신을 연결하려는 리소스 그룹입니다.
-* `location` : [Azure 지역 및 위치](https://azure.microsoft.com/global-infrastructure/regions/)를 참조하세요. 이 위치는 리소스 그룹의 위치와 같거나 다를 수 있습니다. 공개 미리 보기를 위해 **미국 서부 2** 및 **서유럽**에서 이 서비스가 지원됩니다.
+* `location` : [Azure 지역 및 위치](https://azure.microsoft.com/global-infrastructure/regions/)를 참조하세요. 이 위치는 리소스 그룹의 위치와 같거나 다를 수 있습니다. 공개 미리 보기의 경우 **미국 서부 2** 및 **아시아 남동부** 및 **유럽 서부**에서 이 서비스가 지원됩니다.
 * `resource-name` :  (*선택 사항*) 온-프레미스 머신의 Azure 리소스 표현에 사용됩니다. 이 값을 지정하지 않으면 머신 호스트 이름이 사용됩니다.
 
 'azcmagent' 도구에 대한 자세한 내용은 [Azcmagent 참조](azcmagent-reference.md)에서 찾을 수 있습니다.

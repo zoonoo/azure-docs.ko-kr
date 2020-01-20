@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Maps를 사용하여 여러 경로 찾기'
-description: '자습서: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기'
+title: '자습서: 여행 모드별 여러 경로 찾기 | Microsoft Azure Maps'
+description: 이 자습서에서는 Microsoft Azure Maps를 사용하여 다양한 여행 모드에 대한 경로를 찾는 방법을 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613638"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910860"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -117,7 +117,7 @@ ms.locfileid: "75613638"
 
 2. **MapTruckRoute.html** 파일을 저장하고, 브라우저에서 페이지를 새로 고칩니다. 지도와 상호 작용하고 로스엔젤레스를 확대하는 경우 현재 교통 데이터가 있는 거리가 보입니다.
 
-   ![교통 지도 보기](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![맵에서 트래픽 보기](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 

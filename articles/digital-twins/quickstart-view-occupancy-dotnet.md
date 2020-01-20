@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/12/2019
-ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383136"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895549"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기
 
@@ -27,7 +27,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. Azure 계정이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -83,11 +83,11 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 
 1. 프로비전 단계는 몇 분 정도 걸릴 수 있습니다. Digital Twins 인스턴스 내에 IoT Hub도 프로비전합니다. IoT Hub가 Status=`Running`으로 표시될 때까지 반복됩니다.
 
-    [![샘플 프로비저닝 - 상태=실행 중](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![샘플 프로비저닝 - 상태=실행 중](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png#lightbox)
 
 1. 실행이 끝나면 디바이스 시뮬레이터 샘플에 사용할 수 있도록 디바이스의 `ConnectionString`을 복사합니다. 이 이미지에 설명된 문자열만 복사하세요.
 
-    [![연결 문자열 복사](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
+    [![연결 문자열 복사](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png#lightbox)
 
     >[!TIP]
     > [Azure Digital Twins 그래프 뷰어](https://github.com/Azure/azure-digital-twins-graph-viewer)를 사용하여 공간 그래프를 보고 수정할 수 있습니다.
@@ -102,9 +102,9 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 1. `cd device-connectivity`을 실행합니다.
 1. `dotnet restore`을 실행합니다.
 1. [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json)을 편집하여 **DeviceConnectionString**을 위의 `ConnectionString`으로 업데이트합니다. 업데이트된 파일을 저장합니다.
-1. `dotnet run` 명령을 실행하여 센서 데이터 전송을 시작합니다. 다음 이미지처럼 센서 데이터가 Digital Twins로 전송되는 것이 보입니다.
+1. `dotnet run` 명령을 실행하여 센서 데이터 전송을 시작합니다. 다음 이미지와 같이 Azure Digital Twins로 전송됩니다.
 
-     [![디바이스 연결](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [![디바이스 연결](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png#lightbox)
 
 1. 다음 단계 작업을 통해 결과를 나란히 놓고 볼 수 있도록 이 시뮬레이터를 실행합니다. 이 창은 Digital Twins로 전성된 시뮬레이션된 센서 데이터를 보여줍니다. 다음 단계에서는 공기가 깨끗한 가용 회의실을 실시간으로 쿼리합니다.
 
@@ -123,7 +123,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
    - `Room is available and air is fresh`
    - `Room is not available or air quality is poor`
 
-     [![공기가 깨끗한 가용 회의실 가져오기](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [![공기가 깨끗한 가용 회의실 가져오기](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png#lightbox)
 
 이 빠른 시작에서 어떤 일이 발생했고 어떤 API가 호출되었는지 이해하려면 `digital-twins-samples-csharp`에서 찾은 코드 작업 영역 프로젝트를 사용하여 [Visual Studio Code](https://code.visualstudio.com/Download)를 엽니다. 다음 명령을 사용합니다.
 
@@ -137,7 +137,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | 다음 항목으로 교체 |
+| 속성 | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 인스턴스의 이름 |
 | YOUR_LOCATION | 인스턴스를 호스트하는 서버 지역 |
@@ -161,7 +161,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 간단한 시나리오와 샘플 애플리케이션을 사용하여 Digital Twins로 좋은 작업 조건의 방을 찾는 방법을 보여 줍니다. 이 시나리오에 대한 자세한 분석 내용은 다음 자습서를 참조하세요.
+이 빠른 시작에서는 간단한 시나리오와 샘플 애플리케이션을 사용하여 Digital Twins로 좋은 작업 조건의 방을 찾는 방법을 보여 줍니다. 이 시나리오에 대한 심층 분석은 다음 자습서를 참조하세요.
 
 >[!div class="nextstepaction"]
 >[자습서: Azure Digital Twins 배포 및 공간 그래프 구성](tutorial-facilities-setup.md)

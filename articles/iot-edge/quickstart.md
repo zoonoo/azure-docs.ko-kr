@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ab3805e39112d4d37635571d8aa43030a1896951
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: aa6d3d61cb2ce0972653f787976a89e3d372ae27
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552443"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912354"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>빠른 시작: 가상 Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -227,7 +227,7 @@ iotedge logs SimulatedTemperatureSensor -f
 
    ![모듈의 데이터 보기](./media/quickstart/iotedge-logs.png)
 
-[Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT 허브에 메시지가 도착하는 것을 확인할 수도 있습니다.
+[Visual Studio Code용 Azure IoT Hub 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT 허브에 메시지가 들어오는 것을 확인할 수도 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

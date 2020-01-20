@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 01/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503de723894388a198abbb687221cb1403a6fa84
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 29cf5eebfb485837ee9656909323688384a4b890
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104440"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028602"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "71104440"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -97,7 +97,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. 위에서 언급한 특성 외에도, Cisco Webex 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
     
-    | Name |  원본 특성|
+    | 속성 |  원본 특성|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 
@@ -135,7 +135,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -158,21 +158,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-cisco-webex"></a>Cisco Webex 구성
 
-1. 전체 관리자 자격 증명으로 [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/)에 로그인합니다.
+1. Cisco Webex 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-2. **설정**을 선택하고 **인증** 섹션 아래에서 **수정**을 클릭합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+2. 브라우저에 확장을 추가한 후 **Cisco Webex 설정**을 클릭하면 Cisco Webex 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Cisco Webex에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-8단계를 자동으로 수행합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+3. Cisco Webex를 수동으로 설정하려면 전체 관리자 자격 증명으로 [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/)에 로그인합니다.
+
+4. **설정**을 선택하고 **인증** 섹션 아래에서 **수정**을 클릭합니다.
+
+    ![Single Sign-on 구성](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
-3. **타사 ID 공급자 통합 (고급)** 을 선택하고 다음 화면으로 이동합니다.
+5. **타사 ID 공급자 통합 (고급)** 을 선택하고 다음 화면으로 이동합니다.
 
-4. **Idp 메타데이터 가져오기** 페이지에서 Azure AD 메타데이터 파일을 페이지로 끌어다 놓거나 파일 브라우저 옵션을 사용하여 Azure AD 메타데이터 파일을 찾아 업로드합니다. 그런 다음 **메타데이터에서 인증 기관이 서명한 인증서 필요(더 안전)** 를 선택하고 **다음**을 클릭합니다.
+6. **Idp 메타데이터 가져오기** 페이지에서 Azure AD 메타데이터 파일을 페이지로 끌어다 놓거나 파일 브라우저 옵션을 사용하여 Azure AD 메타데이터 파일을 찾아 업로드합니다. 그런 다음 **메타데이터에서 인증 기관이 서명한 인증서 필요(더 안전)** 를 선택하고 **다음**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+    ![Single Sign-on 구성](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
-5. **SSO 연결 테스트**를 선택하고 새 브라우저 탭이 열리면 로그인하여 Azure AD로 인증합니다.
+7. **SSO 연결 테스트**를 선택하고 새 브라우저 탭이 열리면 로그인하여 Azure AD로 인증합니다.
 
-6. **Cisco Cloud Collaboration Management** 브라우저 탭으로 돌아갑니다. 테스트에 성공하면 **이 테스트에 성공했습니다. Single Sign-On 사용 옵션**을 선택하고 **다음**을 클릭합니다.
+8. **Cisco Cloud Collaboration Management** 브라우저 탭으로 돌아갑니다. 테스트에 성공하면 **이 테스트에 성공했습니다. Single Sign-On 사용 옵션**을 선택하고 **다음**을 클릭합니다.
 
 ### <a name="create-cisco-webex-test-user"></a>Cisco Webex 테스트 사용자 만들기
 
@@ -182,13 +190,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **사용자**, **사용자 관리**를 차례로 클릭합니다.
    
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![Single Sign-on 구성](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. **사용자 관리** 창에서 **수동으로 사용자 추가 또는 수정**을 선택하고 **다음**을 클릭합니다.
 
 4. **이름 및 전자 메일 주소**를 선택합니다. 그런 다음 아래와 같이 텍스트 상자에 내용을 입력합니다.
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![Single Sign-on 구성](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. **이름** 텍스트 상자에서 사용자의 이름(예: **B**)을 입력합니다.
 

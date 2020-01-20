@@ -13,18 +13,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707196"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028361"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
 Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 활동 로그 보기
@@ -36,11 +36,11 @@ Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
-+ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서도 완료 합니다.
++ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -48,7 +48,7 @@ Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시
 
 API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으로 API의 상태를 확인할 수 있도록 합니다. 다음은 몇 가지 사용 가능한 메트릭에 대한 요약입니다.
 
-* 용량(미리 보기): APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스를 기반으로 계산됩니다.
+* 용량: APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스를 기반으로 계산됩니다.
 * 총 게이트웨이 요청: 기간 동안의 API 요청 수입니다. 
 * 성공적인 게이트웨이 요청: 304, 307 및 301보다 작은(예: 200) 모든 항목을 포함하여 성공적인 HTTP 응답 코드를 수신하는 API 요청의 수입니다.
 * 실패한 게이트웨이 요청: 400 및 500보다 큰 모든 항목을 포함하여 잘못된 HTTP 응답 코드를 수신하는 API 요청의 수입니다.
@@ -180,33 +180,33 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 }  
 ```
 
-| 자산  | Type | 설명 |
+| 속성  | Type | Description |
 | ------------- | ------------- | ------------- |
-| isRequestSuccess | 부울 | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
+| isRequestSuccess | boolean | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
 | time | 날짜-시간 | 게이트웨이가 요청을 처리하는 시점의 타임스탬프 |
 | operationName | 문자열 | 상수 값 'Microsoft.ApiManagement/GatewayLogs' |
 | category | 문자열 | 상수 값 'GatewayLogs' |
-| durationMS | 정수 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초)입니다. clienTime, cacheTime 및 backendTime이 포함됩니다. |
+| durationMS | integer | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초)입니다. clienTime, cacheTime 및 backendTime이 포함됩니다. |
 | callerIpAddress | 문자열 | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
 | correlationId | 문자열 | API Management에서 할당하는 고유의 http 요청 식별자 |
-| location | 문자열 | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
+| 위치 | 문자열 | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
 | httpStatusCodeCategory | 문자열 | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
 | resourceId | 문자열 | API Management 리소스의 ID /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | 현재 요청의 속성 |
 | method | 문자열 | 들어오는 요청의 HTTP 메서드 |
 | url | 문자열 | 들어오는 요청의 URL |
 | clientProtocol | 문자열 | 들어오는 요청의 HTTP 프로토콜 버전 |
-| responseCode | 정수 | 클라이언트로 전송된 HTTP 응답의 상태 코드 |
+| responseCode | integer | 클라이언트로 전송된 HTTP 응답의 상태 코드 |
 | backendMethod | 문자열 | 백 엔드로 전송된 요청의 HTTP 메서드 |
 | backendUrl | 문자열 | 백 엔드로 전송된 요청의 URL |
-| backendResponseCode | 정수 | 백 엔드에서 받은 HTTP 응답 코드 |
+| backendResponseCode | integer | 백 엔드에서 받은 HTTP 응답 코드 |
 | backendProtocol | 문자열 | 백 엔드로 전송된 요청의 HTTP 프로토콜 버전 | 
-| requestSize | 정수 | 요청을 처리하는 동안 클라이언트에서 받은 바이트 수 | 
-| responseSize | 정수 | 요청을 처리하는 동안 클라이언트로 전송된 바이트 수 | 
-| cache | 문자열 | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
-| cacheTime | 정수 | 전체 API Management 캐시 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
-| backendTime | 정수 | 전체 백 엔드 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
-| clientTime | 정수 | 전체 클라이언트 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
+| requestSize | integer | 요청을 처리하는 동안 클라이언트에서 받은 바이트 수 | 
+| responseSize | integer | 요청을 처리하는 동안 클라이언트로 전송된 바이트 수 | 
+| 캐시 | 문자열 | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
+| cacheTime | integer | 전체 API Management 캐시 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
+| backendTime | integer | 전체 백 엔드 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
+| clientTime | integer | 전체 클라이언트 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
 | apiId | 문자열 | 현재 요청에 대한 API 엔터티 식별자 | 
 | operationId | 문자열 | 현재 요청에 대한 작업 엔터티 식별자 | 
 | productId | 문자열 | 현재 요청에 대한 제품 엔터티 식별자 | 
@@ -214,7 +214,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | apimSubscriptionId | 문자열 | 현재 요청에 대한 구독 엔터티 식별자 | 
 | backendId | 문자열 | 현재 요청에 대한 백 엔드 엔터티 식별자 | 
 | lastError | object | 마지막 요청 처리 오류 | 
-| elapsed | 정수 | 게이트웨이에서 요청을 받은 순간부터 오류가 발생한 순간 사이에 경과된 시간(밀리초) | 
+| elapsed | integer | 게이트웨이에서 요청을 받은 순간부터 오류가 발생한 순간 사이에 경과된 시간(밀리초) | 
 | source | 문자열 | 오류를 발생시킨 정책 또는 처리 내부 처리기의 이름 | 
 | scope | 문자열 | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 범위 | 
 | section | 문자열 | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 섹션 | 
@@ -223,7 +223,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 활동 로그 보기

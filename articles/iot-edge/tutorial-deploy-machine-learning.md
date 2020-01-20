@@ -9,22 +9,22 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 420db19a5ddcddfe37fa1a922e792fc0c8bc5b66
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701931"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912307"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
 Azure Notebooks를 사용하여 기계 학습 모듈을 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다. 
 
-비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
+비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/how-to-deploy-and-where.md)를 참조하세요.
 
 이 자습서에서 만드는 Azure Machine Learning 모듈은 디바이스에서 생성된 환경 데이터를 읽고, 메시지에 비정상 레이블을 지정하기도 합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Machine Learning 모듈 만들기
@@ -38,7 +38,7 @@ Azure Notebooks를 사용하여 기계 학습 모듈을 개발하고 Azure IoT E
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure IoT Edge 디바이스:
 
@@ -49,7 +49,7 @@ Azure IoT Edge 디바이스:
 클라우드 리소스:
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Azure Machine Learning 작업 영역 [Azure Portal을 사용하여 Azure Machine Learning 시작](../machine-learning/service/quickstart-get-started.md)의 지침에 따라 작업 영역을 만들어서 사용하는 방법을 알아봅니다.
+* Azure Machine Learning 작업 영역 [Azure Portal을 사용하여 Azure Machine Learning 시작](../machine-learning/tutorial-1st-experiment-sdk-setup.md)의 지침에 따라 작업 영역을 만들어서 사용하는 방법을 알아봅니다.
    * 작업 영역 이름, 리소스 그룹 및 구독 ID를 적어둡니다. 이러한 값은 모두 Azure Portal의 작업 영역 개요에서 확인할 수 있습니다. 이 값은 자습서의 뒷부분에서 Azure Notebook을 작업 영역 리소스에 연결하는 데 사용됩니다. 
 
 
@@ -133,7 +133,7 @@ IoT Edge 디바이스에서 모든 개별 모듈에서 보낸 메시지를 볼 �
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>IoT 허브에 도착한 데이터 보기
 
-[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT Hub에서 받는 디바이스-클라우드 메시지를 볼 수 있습니다.
+[Visual Studio Code용 Azure IoT Hub 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT 허브가 받는 디바이스-클라우드 메시지를 볼 수 있습니다.
 
 다음 단계에서는 IoT 허브에 도착한 디바이스-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여줍니다.
 

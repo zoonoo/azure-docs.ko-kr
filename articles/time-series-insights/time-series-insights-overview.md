@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b9491a4438ff07222bb5ce5bd684964bdfc0031
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c068e33bc7844c464bc8a289387990128d96dd35
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452825"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861798"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
@@ -67,7 +67,7 @@ Azure Time Series Insights는 새로운 모든 이벤트를 하나의 행으로 
 
 ## <a name="capabilities"></a>기능
 
-- **빠른 시작**: Azure Time Series Insights는 데이터를 미리 준비할 필요가 없으므로 IoT Hub 또는 이벤트 허브에서 수백만 개의 이벤트에 빠르게 연결할 수 있습니다. 연결되면 센서 데이터를 시각화하고 상호 작용하여 IoT 솔루션의 유효성을 빠르게 검사할 수 있습니다. 코드를 작성하지 않고도 데이터와 상호 작용할 수 있으며, 새로운 언어를 습득할 필요가 없습니다. Time Series Insights는 고급 사용자 및 가리키고 클릭 검색을 위해 세분화된 자유 텍스트 쿼리 화면을 제공합니다.
+- **빠른 시작**: Azure Time Series Insights는 데이터를 미리 준비할 필요가 없으므로 IoT Hub 또는 이벤트 허브에서 수백만 개의 이벤트에 빠르게 연결할 수 있습니다. 연결되면 센서 데이터를 시각화하고 상호 작용하여 IoT 솔루션의 유효성을 빠르게 검사할 수 있습니다. 코드를 작성하지 않고도 데이터와 상호 작용할 수 있으며, 새로운 언어를 습득할 필요가 없습니다. Time Series Insights에서는 고급 사용자 및 마우스 검색을 위해 자유롭고 세분화한 텍스트 쿼리 서피스를 제공합니다.
 
 - **거의 실시간에 가까운 인사이트**: Time Series Insights는 1분 대기 시간을 통해 하루에 수백만 개의 센서 이벤트를 수집할 수 있습니다. Time Series Insights를 사용하면 센서 데이터에 대한 인사이트를 얻을 수 있습니다. 이를 통해 추세와 이상 현상을 파악하고, 근본 원인을 분석하며, 비용이 많이 드는 가동 중지 시간을 방지합니다. 실시간 데이터와 기록 데이터 간의 상호 상관 관계를 사용하면 데이터에 숨겨진 추세를 찾을 수 있습니다.
 
@@ -82,7 +82,7 @@ Azure Time Series Insights는 새로운 모든 이벤트를 하나의 행으로 
 1. Azure Portal에서 Time Series Insights 환경을 프로비저닝합니다
 1. IoT Hub 또는 이벤트 허브와 같은 이벤트 원본에 연결합니다.
 1. 참조 데이터를 업로드합니다. 이는 추가 서비스가 아닙니다.
-1. Time Series Insights 탐색기를 사용하여 몇 분 만에 데이터를 볼 수 있습니다.
+1. Time Series Insights 탐색기를 사용하여 몇 분 만에 데이터를 검토하고 표시할 수 있습니다.
 
 ## <a name="explorer"></a>Explorer
 

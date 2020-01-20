@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 31af4ad9c6985202555dbcbe86c52e45d5c4154a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453290"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028732"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 VMware VM 평가
 
@@ -41,11 +41,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - Azure Migrate에 대한 [Azure 권한을 설정](tutorial-prepare-vmware.md#prepare-azure)합니다.
 - 평가할 [VMware를 준비](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment)합니다.
-   - VMware 설정을 확인합니다.
-   - OVA 템플릿을 사용하여 VMware VM을 만들 수 있는 권한을 설정합니다.
-   - VM 검색을 위한 계정을 설정합니다. 
-   - 필요한 포트를 사용할 수 있도록 설정합니다.
-   - Azure에 액세스하는 데 필요한 URL을 알고 있어야 합니다.
+   - VMware 설정을 [확인](migrate-support-matrix-vmware.md#vmware-requirements)합니다.
+   - OVA 템플릿을 사용하여 VMware VM을 만들 수 있는 권한을 VMware에 설정합니다.
+   - [VM 검색을 위한 계정](migrate-support-matrix-vmware.md#vmware-requirements)을 설정합니다. 
+   - [필요한 포트](migrate-support-matrix-vmware.md#port-access)를 사용할 수 있도록 설정합니다.
+   - Azure에 액세스하는 데 [필요한 URL](migrate-replication-appliance.md#url-access)을 알고 있어야 합니다.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Azure Migrate 프로젝트 설정
 
@@ -130,7 +130,7 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM에서 [Azure URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements)에 연결할 수 있는지 확인합니다.
+어플라이언스 VM에서 [Azure URL](migrate-appliance.md#url-access)에 연결할 수 있는지 확인합니다.
 
 ### <a name="configure-the-appliance"></a>어플라이언스 구성
 
@@ -172,7 +172,7 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server 인스턴스의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신 대기하는 사용자 지정 포트를 지정할 수 있습니다.
 1. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server 인스턴스에서 VM을 검색하는 데 사용할 vCenter Server 계정 자격 증명을 지정합니다. 
 
-   계정에 [필요한 검색 권한](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)이 있는지 확인합니다. [검색 범위](tutorial-assess-vmware.md#set-the-scope-of-discovery)는 vCenter 계정에 대한 액세스를 제한하여 지정할 수 있습니다.
+   계정에 [필요한 검색 권한](migrate-support-matrix-vmware.md#vmware-requirements)이 있는지 확인합니다. [검색 범위](tutorial-assess-vmware.md#set-the-scope-of-discovery)는 vCenter 계정에 대한 액세스를 제한하여 지정할 수 있습니다.
 1. **연결 유효성 검사**를 선택하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정
@@ -285,7 +285,7 @@ Azure Migrate 서버 평가를 사용하여 두 가지 유형의 평가를 만�
 
 평가를 보려면 다음을 수행합니다.
 
-1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 선택합니다.
+1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
 1. **평가**에서 평가를 선택하여 엽니다.
 
    ![평가 요약](./media/tutorial-assess-vmware/assessment-summary.png)

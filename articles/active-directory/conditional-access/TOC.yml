@@ -19,6 +19,8 @@
       href: concept-conditional-access-policy-common.md
     - name: 조건부 액세스 정책 구성 요소
       href: concept-conditional-access-policies.md
+    - name: 클라우드 앱 및 작업
+      href: concept-conditional-access-cloud-apps.md
     - name: 조건
       href: conditions.md
     - name: 위치 조건
@@ -82,7 +84,7 @@
       items:
         - name: What If 도구를 사용하여 문제 해결
           href: troubleshoot-conditional-access-what-if.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 기술 참조
       href: technical-reference.md
@@ -92,7 +94,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md

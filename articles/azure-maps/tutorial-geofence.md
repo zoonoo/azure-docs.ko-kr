@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Maps를 사용하여 지오펜스 만들기'
-description: '자습서: Azure Maps를 사용하여 지오펜스를 설정합니다.'
+title: '자습서: 지오펜스 생성 및 맵에서 디바이스 추적 | Microsoft Azure Maps'
+description: 이 자습서에서는 Microsoft Azure Maps Spatial Service를 사용하여 지오펜스를 설정하고 지오펜스와 관련된 디바이스를 추적하는 방법을 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407824"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910935"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -58,7 +58,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
 
 3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 키로 바꿉니다.
    
-    ![키 값 매개 변수 Postman](./media/tutorial-geofence/postman-key-vals.png)
+    ![Postman의 업로드 데이터(지오펜스)에 대한 매개 변수](./media/tutorial-geofence/postman-key-vals.png)
 
 4. **본문**을 클릭하고 원시 입력 형식을 선택한 다음, 드롭다운 목록에서 JSON을 입력 형식으로 선택합니다. 다음 JSON을 업로드할 데이터로 제공합니다.
 
@@ -177,7 +177,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
 
 1. Azure Portal에서 Logic App 만들기
 
-   ![Logic Apps 만들기](./media/tutorial-geofence/logic-app.png)
+   ![지오펜스 이벤트를 처리하는 Azure Logic Apps 만들기](./media/tutorial-geofence/logic-app.png)
 
 2. HTTP 요청 트리거를 선택한 다음, outlook 커넥터에서 작업으로 "이메일 보내기"를 선택합니다.
   
@@ -185,7 +185,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
 
 3. 논리 앱을 저장하여 HTTP URL 엔드포인트를 생성하고 HTTP URL을 복사합니다.
 
-   ![Logic Apps 엔드포인트](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Logic Apps 엔드포인트 생성](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Azure Maps 이벤트 구독 만들기
@@ -196,15 +196,15 @@ Azure Maps는 세 가지 이벤트 유형을 지원합니다. Azure Maps에서 �
 
 1. [이 포털 링크](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/)를 통해 Azure Maps 계정으로 이동하여 이벤트 탭을 선택합니다.
 
-   ![Azure Maps 이벤트](./media/tutorial-geofence/events-tab.png)
+   ![Azure Maps 계정 이벤트로 이동](./media/tutorial-geofence/events-tab.png)
 
 2. 이벤트 구독을 만들려면 이벤트 페이지에서 [이벤트 구독]을 선택합니다.
 
-   ![Azure Maps 이벤트 구독](./media/tutorial-geofence/create-event-subscription.png)
+   ![Azure Maps 이벤트 구독 만들기](./media/tutorial-geofence/create-event-subscription.png)
 
 3. 이벤트 구독의 이름을 지정하고, [입장] 이벤트 유형을 구독합니다. 이제 "엔드포인트 유형"으로 [웹후크]를 선택하고, Logic App HTTP URL 엔드포인트를 "엔드포인트"로 복사합니다.
 
-   ![이벤트 구독](./media/tutorial-geofence/events-subscription.png)
+   ![Azure Maps 이벤트 구독 세부 정보](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>지오펜스 API 사용
@@ -214,7 +214,7 @@ Azure Maps는 세 가지 이벤트 유형을 지원합니다. Azure Maps에서 �
 > [!Note]
 > 위의 시나리오와 동작은 동일한 **디바이스 ID**를 기반으로 하여 아래 그림과 같이 5개의 다른 위치를 반영하고 있습니다.
 
-![지오펜스 맵](./media/tutorial-geofence/geofence.png)
+![Azure Maps의 지오펜스 맵](./media/tutorial-geofence/geofence.png)
 
 Postman 앱에서, 위에서 만든 컬렉션에 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택합니다.
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Node.js 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1b2101c5e7a59105b2c1da876e9a66294ce3a021
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f96806828b2169e9022b1eaf2ec1819879c729ab
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438196"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867696"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>빠른 시작: Visual Studio Code 및 Node.js를 사용하여 Kubernetes에서 디버깅 및 반복 - Azure Dev Spaces
 
@@ -93,6 +93,9 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 
 이 명령은 Dockerfile 및 Helm 차트를 생성하여 Azure Dev Spaces에서 실행하도록 프로젝트를 준비합니다. 또한 프로젝트의 루트에서 디버깅 구성을 사용하여 *.vscode* 디렉터리를 생성합니다.
 
+> [!TIP]
+> 프로젝트의 [Dockerfile 및 Helm 차트](how-dev-spaces-works.md#prepare-your-code)는 Azure Dev Spaces에서 코드를 빌드하고 실행하는 데 사용되지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
+
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Visual Studio Code에서 Kubernetes의 코드 빌드 및 실행
 
 왼쪽에서 *디버그* 아이콘을 클릭하고 위쪽에서 *서버 시작(AZDS)* 을 클릭합니다.
@@ -171,4 +174,4 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 > [여러 컨테이너 작업 및 팀 개발](multi-service-nodejs.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

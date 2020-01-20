@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457623"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749559"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Table storage에 대한 성능 및 확장성 검사 목록
 
 Microsoft는 Table storage를 사용하여 고성능 애플리케이션을 개발하는 방법에 대해 검증된 다양한 사례를 개발했습니다. 이 검사 목록에서는 개발자가 성능을 최적화하기 위해 수행할 수 있는 주요 사례를 식별합니다. 애플리케이션을 설계하는 동안 프로세스 전체에서 이러한 사례를 명심하세요.
 
-Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장성 및 성능 목표가 있습니다. Azure Storage 확장성 목표에 대한 자세한 내용은 [스토리지 계정에 대한 Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)를 참조하세요.
+Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장성 및 성능 목표가 있습니다. Azure Storage 확장성 목표에 대한 자세한 내용은 [표준 스토리지 계정의 확장성 및 성능 목표](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) 및 [Table Storage의 확장성 및 성능 목표](scalability-targets.md)를 참조하세요.
 
 ## <a name="checklist"></a>검사 목록
 
@@ -289,5 +289,6 @@ Table service의 성능에 영향을 미치는 가장 중요한 단일 요인은
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스토리지 계정의 Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Table Storage의 확장성 및 성능 목표](scalability-targets.md)
+- [표준 스토리지 계정의 확장성 및 성능 목표](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [상태 및 오류 코드](/rest/api/storageservices/Status-and-Error-Codes2)

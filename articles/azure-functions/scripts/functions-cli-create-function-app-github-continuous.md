@@ -4,12 +4,12 @@ description: 함수 앱을 만들고 Azure Functions를 사용하여 GitHub 리�
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 37dc0235b258f6d47f8813546fe953e92799454a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e424737b67be58ac0c3880ad2454c87fab803a15
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532815"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922730"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Azure에서 GitHub로부터 배포되는 함수 앱 만들기
 
@@ -42,7 +42,7 @@ Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 스토리지 계정을 만듭니다. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만들어 Git 또는 Mercurial 리포지토리와 연결합니다. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버리스 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만들어 Git 또는 Mercurial 리포지토리와 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

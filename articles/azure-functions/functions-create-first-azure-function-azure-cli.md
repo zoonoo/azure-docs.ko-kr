@@ -5,12 +5,12 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 147ad4bd20ee1c7ae8f1529e1b3bc0e4f3e7dbb0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 222e4a98974a1af40ff860cfc4fdb246d9c97bca
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230852"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769390"
 ---
 # <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 명령줄에서 첫 번째 함수 만들기
 
@@ -18,7 +18,7 @@ ms.locfileid: "74230852"
 
 Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하기 전에 다음 사항이 준비되어야 합니다.
 
@@ -46,7 +46,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 서버를 사용하지 않는 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 함수 앱을 만듭니다. 
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 서버를 사용하지 않는 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 함수 앱을 만듭니다.
 
 다음 명령에서 `<APP_NAME>` 자리 표시자 및 `<STORAGE_NAME>`의 스토리지 계정 이름을 고유한 함수 앱 이름으로 바꿉니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 또한 `dotnet`(C#) 또는 `node`(JavaScript)에서 함수 앱에 대한 `<language>` 런타임을 설정해야 합니다.
 

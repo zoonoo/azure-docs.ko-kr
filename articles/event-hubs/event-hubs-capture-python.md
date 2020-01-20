@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: ade4aa79b2de005bfecd7a5882f06cb491ea4e6d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e81871e27c04f8a43f678110d7f44cc9c3be149c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717849"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940752"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python"></a>빠른 시작: Event Hubs 캡처 연습: Python
 
 캡처는 Azure Event Hubs의 기능입니다. 캡처를 사용하여 이벤트 허브의 스트리밍 데이터를 원하는 Azure Blob 스토리지 계정에 자동으로 전달할 수 있습니다. 이 기능을 통해 손쉽게 실시간 스트리밍 데이터에 대한 일괄 처리를 수행할 수 있습니다. 이 문서에서는 Python과 함께 Event Hubs 캡처를 사용하는 방법을 설명합니다. Event Hubs 캡처에 대한 자세한 내용은 [Azure Event Hubs를 통해 이벤트 캡처][Overview of Event Hubs Capture]를 참조하세요.
 
 이 연습에서는 [Azure Python SDK](https://azure.microsoft.com/develop/python/)를 사용하여 캡처 기능을 보여줍니다. *sender.py* 프로그램은 시뮬레이션된 환경 원격 분석 데이터를 JSON 형식으로 Event Hubs에 보냅니다. 이벤트 허브는 캡처 기능을 사용하여 이 데이터를 Blob 스토리지에 일괄적으로 씁니다. *capturereader.py* 앱은 이러한 Blob을 읽고, 각 디바이스에 대한 추가 파일을 만들고, 각 디바이스의 *.csv* 파일에 데이터를 씁니다.
+
+> [!IMPORTANT]
+> 이 빠른 시작에서는 Azure Event Hubs Python SDK 버전 1을 사용합니다. Azure Event Hubs를 처음 사용하는 경우 Python SDK 버전 5를 사용합니다. Python SDK 버전 5를 사용하는 빠른 시작은 [이 문서](get-started-capture-python-v2.md)를 참조하세요. 기존 코드를 버전 1에서 버전 5로 마이그레이션해야 하는 경우 [마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)를 참조하세요.
 
 이 연습에서는 다음을 수행합니다. 
 
@@ -36,11 +39,11 @@ ms.locfileid: "73717849"
 > * Python 스크립트를 사용하여 이벤트 허브에 데이터 보내기
 > * 다른 Python 스크립트를 사용하여 Event Hubs 캡처에서 파일 읽기 및 처리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - `pip`가 설치 및 업데이트된 Python 3.4 이상
   
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
   
 - [빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기](event-hubs-create.md)의 지침에 따라 만든 활성 Event Hubs 네임스페이스 및 이벤트 허브. 네임스페이스와 이벤트 허브 이름을 적어 두세요. 이 연습의 뒷부분에서 사용됩니다. 
   

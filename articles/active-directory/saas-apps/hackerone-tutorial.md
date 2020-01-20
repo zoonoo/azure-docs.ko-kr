@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0158a7df96f4c83763c5b2324ccc2bfcb5a72b5d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159167"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>자습서: HackerOne과 Azure Active Directory 통합
 
@@ -32,10 +32,10 @@ HackerOne을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다
 * 사용자가 해당 Azure AD 계정으로 HackerOne에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 HackerOne과 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -107,12 +107,9 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![HackerOne 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://hackerone.com/<company name>/authentication` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음(`https://hackerone.com/users/saml/auth`)을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://hackerone.com/users/saml/metadata` URL을 입력합니다.
-
-    > [!NOTE]
-    > 이 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [HackerOne 클라이언트 지원 팀](mailto:support@hackerone.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음(`hackerone.com`)을 입력합니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -134,15 +131,15 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 위쪽 메뉴에서 **설정**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Single Sign-on 구성](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. **인증**으로 이동하여 **SAML 설정 추가**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Single Sign-on 구성](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. **SAML 설정** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_004.png)
+    ![Single Sign-on 구성](./media/hackerone-tutorial/tutorial_hackerone_004.png)
 
     a. **전자 메일 도메인** 텍스트 상자에 등록된 도메인을 입력합니다.
 
@@ -154,7 +151,7 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 5. 인증 설정 대화 상자에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Single Sign-on 구성](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. **테스트 실행**을 클릭합니다.
 
@@ -181,7 +178,7 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

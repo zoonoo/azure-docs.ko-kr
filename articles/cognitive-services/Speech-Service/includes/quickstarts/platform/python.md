@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 37b0deba6531c8e714b8786f8c815cf323c310ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 218d0dca43d126c1318c273603a4980697c465af
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467168"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752270"
 ---
 이 가이드에서는 Python용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "75467168"
         ```
 
 - Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 이 패키지를 처음 설치하는 경우 이 가이드를 계속하기 전에 Windows를 다시 시작해야 할 수 있습니다.
-- 마지막으로 [Python 3.5 이상](https://www.python.org/downloads/)이 필요합니다. 설치를 확인하려면 명령 프롬프트를 열고 `python --version` 명령을 입력하고 결과를 확인합니다. 올바르게 설치된 경우 "Python 3.5.1" 또는 이와 유사한 응답을 얻게 됩니다.
+- 마지막으로 [Python 3.5, 3.6 또는 3.7](https://www.python.org/downloads/)이 필요합니다. 설치를 확인하려면 명령 프롬프트를 열고 `python --version` 명령을 입력하고 결과를 확인합니다. 올바르게 설치된 경우 "Python 3.5.1" 또는 이와 유사한 응답을 얻게 됩니다.
 
 ## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Speech SDK 설치
 

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/19/2019
+ms.date: 01/13/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 7b44597b24adce05498eed273c9494cae3360ed6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c78ac615d2a93865721152442461d40925dc088d
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168810"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922594"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -100,19 +100,18 @@ Azure Firewall은 PCI(결제 카드 산업), SOC(서비스 조직 컨트롤) 및
 
 Azure Firewall의 알려진 문제는 다음과 같습니다.
 
-|문제  |설명  |해결 방법  |
+|문제  |Description  |완화 방법  |
 |---------|---------|---------|
 TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
 |ICMP에 대한 PowerShell 및 CLI 지원 누락|Azure PowerShell 및 CLI는 네트워크 규칙에 유효한 프로토콜로 ICMP를 지원하지 않습니다.|여전히 포털 및 REST API를 통해 ICMP를 프로토콜로 사용할 수 있습니다. PowerShell 및 CLI에 ICMP를 조만간 추가하기 위해 노력 중입니다.|
 |FQDN 태그는 프로토콜: 설정할 포트가 필요|FQDN 태그를 사용하는 애플리케이션 규칙에는 포트: 프로토콜 정의가 필요합니다.|**https**를 포트: 프로토콜 값으로 사용할 수 있습니다. FQDN 태그를 사용할 때 이 필드 옵션이 작동하도록 하기 위한 작업이 진행 중입니다.|
 |방화벽을 다른 리소스 그룹 또는 구독으로 이동하는 기능은 지원되지 않습니다.|방화벽을 다른 리소스 그룹 또는 구독으로 이동하는 기능은 지원되지 않습니다.|이 기능은 로드맵에 있습니다. 방화벽을 다른 리소스 그룹 또는 구독으로 이동하려면 현재 인스턴스를 삭제하고 새 리소스 그룹 또는 구독에서 다시 만들어야 합니다.|
-|네트워크 및 애플리케이션 규칙의 포트 범위|높은 포트가 관리 및 상태 프로브용으로 예약되어 있으므로, 포트는 64,000으로 제한됩니다. |이 제한 사항을 완화하기 위해 노력하고 있습니다.|
 |위협 인텔리전스 경고는 마스킹될 수 있습니다.|아웃바운드 필터링의 대상이 80/443인 네트워크 규칙은 위협 전용 모드로 구성되면 위협 인텔리전스 경고를 마스킹합니다.|애플리케이션 규칙을 사용하여 80/443에 대한 아웃바운드 필터링을 만듭니다. 또는 위협 인텔리전스 모드를 **경고 및 거부**로 변경합니다.|
 |Azure Firewall에서 이름 확인에 Azure DNS만 사용|Azure Firewall은 Azure DNS만 사용해서 FQDN을 확인합니다. 사용자 지정 DNS 서버는 지원되지 않습니다. 다른 서브넷의 DNS 확인에는 영향을 주지 않습니다.|이 제한 사항을 완화하기 위해 노력하고 있습니다.|
 |Azure Firewall SNAT/DNAT는 개인 IP 대상에는 작동하지 않습니다.|Azure Firewall SNAT/DNAT 지원은 인터넷 송신/수신으로 제한됩니다. 현재 개인 IP 대상에는 SNAT/DNAT를 사용할 수 없습니다. 예: 스포크-스포크.|이 문제가 현재 제한 사항입니다.|
-|첫 번째 공용 IP 구성을 제거할 수 없음|각 Azure Firewall 공용 IP 주소는 *IP 구성*에 할당됩니다.  첫 번째 IP 구성은 방화벽을 배포하는 동안 할당되며, 일반적으로 방화벽 서브넷에 대한 참조도 포함하고 있습니다(템플릿 배포를 통해 명시적으로 다르게 구성하지 않는 이상). 이 IP 구성을 삭제하면 방화벽이 할당 취소되므로 삭제할 수 없습니다. 방화벽에 사용 가능한 다른 공용 IP 주소가 하나 이상 있는 경우 이 IP 구성과 연결된 공용 IP 주소를 변경하거나 제거할 수 있습니다.|의도적인 작동입니다.|
-|가용성 영역은 배포 중에만 구성할 수 있습니다.|가용성 영역은 배포 중에만 구성할 수 있습니다. 방화벽이 배포된 후에는 가용 영역을 구성할 수 없습니다.|의도적인 작동입니다.|
-|인바운드 연결의 SNAT|DNAT 외에도 방화벽 공용 IP 주소(인바운드)를 통한 연결은 방화벽 개인 IP 중 하나로 SNAT됩니다. 이 요구 사항은 현재(활성/활성 NVA의 경우에도) 대칭 라우팅을 보장합니다.|HTTP/S에 대한 원래 원본을 보존하려면 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 헤더를 사용하는 것이 좋습니다. 예를 들어, 방화벽 앞에 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend)와 같은 서비스를 사용합니다. Azure Front Door의 일부로 WAF를 추가하고 방화벽에 체인을 추가할 수도 있습니다.
+|첫 번째 공용 IP 구성을 제거할 수 없음|각 Azure Firewall 공용 IP 주소는 *IP 구성*에 할당됩니다.  첫 번째 IP 구성은 방화벽을 배포하는 동안 할당되며, 일반적으로 방화벽 서브넷에 대한 참조도 포함하고 있습니다(템플릿 배포를 통해 명시적으로 다르게 구성하지 않는 이상). 이 IP 구성을 삭제하면 방화벽이 할당 취소되므로 삭제할 수 없습니다. 방화벽에 사용 가능한 다른 공용 IP 주소가 하나 이상 있는 경우 이 IP 구성과 연결된 공용 IP 주소를 변경하거나 제거할 수 있습니다.|이것은 의도적인 것입니다.|
+|가용성 영역은 배포 중에만 구성할 수 있습니다.|가용성 영역은 배포 중에만 구성할 수 있습니다. 방화벽이 배포된 후에는 가용 영역을 구성할 수 없습니다.|이것은 의도적인 것입니다.|
+|인바운드 연결의 SNAT|DNAT 외에도 방화벽 공용 IP 주소(인바운드)를 통한 연결은 방화벽 개인 IP 중 하나로 SNAT됩니다. 이 요구 사항은 현재(활성/활성 NVA의 경우에도) 대칭 라우팅을 보장합니다.|HTTP/S에 대한 원래 원본을 보존하려면 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 헤더를 사용하는 것이 좋습니다. 예를 들어 방화벽 앞에 있는 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) 또는 [Azure Application Gateway](../application-gateway/rewrite-http-headers.md)와 같은 서비스를 사용합니다. Azure Front Door의 일부로 WAF를 추가하고 방화벽에 체인을 추가할 수도 있습니다.
 |프록시 모드(포트 1433)에서만 지원되는 SQL FQDN 필터링|Azure SQL Database, Azure SQL Data Warehouse 및 Azure SQL Managed Instance:<br><br>미리 보기 기간에는 SQL FQDN 필터링이 프록시 모드(포트 1433)에서만 지원됩니다.<br><br>Azure SQL IaaS:<br><br>비표준 포트를 사용하는 경우 애플리케이션 규칙에서 해당 포트를 지정할 수 있습니다.|Azure 내에서 연결할 때 기본값인 리디렉션 모드의 SQL은 이 방법 대신 SQL 서비스 태그를 Azure Firewall 네트워크 규칙의 일부로 사용하여 액세스를 필터링 할 수 있습니다.
 |TCP 포트 25의 아웃바운드 트래픽은 허용되지 않음| TCP 포트 25를 사용하는 아웃바운드 SMTP 연결이 차단되었습니다. 포트 25는 주로 인증되지 않은 이메일 배달을 위해 사용됩니다. 이는 가상 머신의 기본 플랫폼 동작입니다. 자세한 내용은 [Azure에서 아웃바운드 SMTP 연결 문제 해결](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)을 참조하세요. 그러나 가상 머신과 달리 현재는 Azure 방화벽에서 이 기능을 사용하도록 설정할 수 없습니다.|SMTP 문제 해결 문서에 설명된 것처럼 권장 방법에 따라 이메일을 보냅니다. 또는 기본 경로에서 방화벽으로 아웃바운드 SMTP 액세스가 필요한 가상 머신을 제외하고, 대신 인터넷에 대한 아웃바운드 액세스를 직접 구성합니다.
 

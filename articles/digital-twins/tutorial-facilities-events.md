@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/10/2020
+ms.openlocfilehash: 1cd617204bbc12a99b6ae9e3b55fbc59b0e0578a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790352"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933745"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure Digital Twins 공간으로부터 알림 수신
 
@@ -24,13 +24,13 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 이 자습서에서는 이러한 알림을 Azure Logic Apps와 통합하여 방이 사용 가능 상태가 되면 이메일을 보내는 방법을 보여줍니다. 사무실 관리자는 이 정보를 사용하여 직원이 가장 생산성 높은 회의실을 예약하도록 지원할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Event Grid와 이벤트 통합
 > * Logic Apps를 사용하여 이벤트 알림
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 이미 Azure Digital Twins를 [구성](tutorial-facilities-setup.md)하고 [프로비전](tutorial-facilities-udf.md)한 것으로 가정합니다. 계속 진행하기 전에 다음 사항을 확인합니다.
 
@@ -65,7 +65,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. **액세스 키**를 선택하고, **키 1** 및 **키 2**를 임시 파일에 복사합니다. 다음 섹션에서 엔드포인트를 만들려면 이러한 값이 필요합니다.
 
-    [![Event Grid 키](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
+    [![Event Grid 키](./media/tutorial-facilities-events/tutorial-event-grid-keys.png)](./media/tutorial-facilities-events/tutorial-event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Event Grid 토픽에 대한 엔드포인트 만들기
 
@@ -114,7 +114,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. 논리 앱 리소스의 **이름**을 입력하고, **구독**, **리소스 그룹** 및 **위치**를 선택합니다. **만들기**를 선택합니다.
 
-    [![논리 앱 리소스 만들기](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
+    [![논리 앱 리소스 만들기](./media/tutorial-facilities-events/tutorial-create-logic-app.png)](./media/tutorial-facilities-events/tutorial-create-logic-app.png#lightbox)
 
 1. Logic Apps 리소스가 배포되면 연 다음, **논리 앱 디자이너** 창을 엽니다. 
 
@@ -172,7 +172,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    다. 두 번째 **값 선택** 텍스트 상자에 `UdfCustom`을 입력합니다.
 
-   [![선택된 조건](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
+   [![선택된 조건](./media/tutorial-facilities-events/tutorial-logic-app-condition.png)](./media/tutorial-facilities-events/tutorial-logic-app-condition.png#lightbox)
 
 1. **true이면** 창에서 다음을 수행합니다.
 
@@ -184,7 +184,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    d. 동일한 창의 **본문** 아래에 다음과 유사한 텍스트를 입력합니다. **실내 공기질이 저하되었으며 온도를 조정해야 합니다**. **동적 콘텐츠** 목록의 요소를 사용하여 자유롭게 기술하면 됩니다.
 
-   [![Logic Apps "이메일 보내기" 선택 영역](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
+   [![Logic Apps "이메일 보내기" 선택 영역](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 
 1. **논리 앱 디자이너** 창의 맨 위에서 **저장** 단추를 선택합니다.
 

@@ -3,12 +3,12 @@ title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 걸쳐 대규모의 복잡한 리소스를 쿼리하는 방법을 이해합니다.
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: 7a96faa8502fca6fc501985cd677ac28454f1ba1
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 301543075d587079af0f53b6200890a75bfbb768
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406695"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965966"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -31,7 +31,7 @@ Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수
 
 Azure Resource Manager는 현재 기본 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치에서 쿼리를 지원합니다. 또한 Resource Manager는 한 번에 하나의 리소스에 대한 세부 속성을 위해 개별 리소스 공급 기업을 호출하는 기능을 제공합니다.
 
-Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다. 추가 리소스 유형은 관련 [Resource Graph 테이블](./concepts/query-language.md#resource-graph-tables)에서 찾을 수 있습니다. 지원되는 리소스 종류를 확인하는 다른 방법은 [Azure Graph Explorer Schema 브라우저](./first-query-portal.md#schema-browser)를 사용하는 것입니다.
+Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/templates/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다. 추가 리소스 유형은 관련 [Resource Graph 테이블](./concepts/query-language.md#resource-graph-tables)에서 찾을 수 있습니다. 지원되는 리소스 종류를 확인하는 다른 방법은 [Azure Graph Explorer Schema 브라우저](./first-query-portal.md#schema-browser)를 사용하는 것입니다.
 
 Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
 
@@ -62,7 +62,7 @@ Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 
 > [!NOTE]
 > Resource Graph는 로그인하는 동안 보안 주체에 제공되는 구독을 사용합니다. 활성 세션 중에 추가된 새 구독의 리소스를 보려면 보안 주체가 컨텍스트를 새로 고쳐야 합니다. 이 작업은 로그아웃했다가 다시 로그인하면 자동으로 수행됩니다.
 
-Azure CLI 및 Azure PowerShell에서는 사용자가 액세스할 수 있는 구독을 사용합니다. REST API를 직접 사용하는 경우 구독 목록은 사용자가 제공합니다. 사용자가 목록에 있는 구독에 액세스할 수 있는 경우 사용자가 액세스할 수 있는 구독에 대한 쿼리 결과가 반환됩니다. 이 동작은 [리소스 그룹 - 목록](/rest/api/resources/resourcegroups/list)을 호출하는 경우와 동일합니다. \-즉, 결과가 부분적일 수 있음을 표시하지 않고 액세스할 수 있는 리소스 그룹을 나열합니다.
+Azure CLI 및 Azure PowerShell에서는 사용자가 액세스할 수 있는 구독을 사용합니다. REST API를 직접 사용하는 경우 구독 목록은 사용자가 제공합니다. 사용자가 목록에 있는 구독에 액세스할 수 있는 경우 사용자가 액세스할 수 있는 구독에 대한 쿼리 결과가 반환됩니다. 이 동작은 [리소스 그룹 - 목록](/rest/api/resources/resourcegroups/list) \-을 호출하는 경우와 동일합니다. 즉, 결과가 부분적일 수 있음을 표시하지 않고 액세스할 수 있는 리소스 그룹을 가져옵니다.
 사용자에게 적절한 권한이 있는 구독 목록에서 구독이 없는 경우 응답은 _403_(사용할 수 없음)입니다.
 
 ## <a name="throttling"></a>제한

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 28705ea8a552f4d2e6653857c69ebb8d5f87b962
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 4a6e33770f93c365d5ccd034803c7c7f247d528a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907119"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028809"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>물리적 서버 또는 가상화된 서버를 Azure로 마이그레이션 
 
@@ -29,7 +29,7 @@ ms.locfileid: "73907119"
 [Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 클라우드 VM 인스턴스의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Azure Migrate 서버 마이그레이션 도구를 사용하여 마이그레이션을 위해 Azure를 준비합니다.
 > * 마이그레이션하려는 머신에 대한 요구 사항을 확인하고, 머신을 검색하여 Azure로 마이그레이션하는 데 사용되는 Azure Migrate 복제 어플라이언스용 머신을 준비합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "73907119"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -71,11 +71,11 @@ Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션하려
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당
 
-1. Azure Portal에서 구독을 열고 **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 확인**에서 관련 계정을 찾아서 클릭하여 권한을 확인합니다.
+1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
+2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
 3. **기여자** 또는 **소유자** 권한이 있어야 합니다.
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
-    - 구독 소유자가 아닌 경우 소유자에게 문의하여 역할을 할당받습니다.
+    - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
 
 ### <a name="assign-permissions-to-register-the-replication-appliance"></a>복제 어플라이언스를 등록할 수 있는 권한 할당
 
@@ -123,9 +123,8 @@ Azure Migrate 프로젝트가 있는 리소스 그룹에 대해 다음과 같이
 > [!NOTE]
 > Azure Migrate 서버 마이그레이션을 사용하는 에이전트 기반 마이그레이션은 Azure Site Recover 서비스의 기능을 기반으로 합니다. 일부 요구 사항은 Site Recovery 설명서에 연결될 수 있습니다.
 
-1. 서버 요구 사항을 [확인](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements)합니다.
-2. 마이그레이션에 대한 VM 지원 요구 사항을 [확인](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)합니다.
-3. VM 설정을 확인합니다. Azure에 복제하는 온-프레미스 VM은 [Azure VM 요구 사항](migrate-support-matrix-vmware.md#azure-vm-requirements)을 준수해야 합니다.
+1. 물리적 서버 요구 사항을 [확인](migrate-support-matrix-physical-migration.md#physical-server-requirements)합니다.
+2. VM 설정을 확인합니다. Azure에 복제하는 온-프레미스 머신은 [Azure VM 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>복제 어플라이언스용 머신 준비
@@ -135,7 +134,7 @@ Azure Migrate 서버 마이그레이션은 복제 어플라이언스를 사용�
 - **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
 - **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 
 
-시작하기 전에 복제 어플라이언스를 호스팅할 Windows Server 2016 머신을 준비해야 합니다. 머신은 [이러한 요구 사항](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements)을 준수해야 합니다. 보호하려는 원본 머신에 어플라이언스를 설치해서는 안 됩니다.
+시작하기 전에 복제 어플라이언스를 호스팅할 Windows Server 2016 머신을 준비해야 합니다. 머신은 [이러한 요구 사항](migrate-replication-appliance.md)을 준수해야 합니다. 보호하려는 원본 머신에 어플라이언스를 설치해서는 안 됩니다.
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Azure Migrate 서버 마이그레이션 도구 추가
@@ -159,7 +158,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 
     **지리** | **지역**
     --- | ---
-    아시아 | 동남아시아
+    Asia | 동남아시아
     유럽 | 북유럽 또는 유럽 서부
     미국 | 미국 동부 또는 미국 중서부
 
@@ -288,7 +287,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 
     ![대상 설정](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-vmware.md#azure-vm-requirements)을 준수해야 합니다.
+12. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
     - **VM 크기**: 기본적으로 Azure Migrate 서버 마이그레이션은 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
     - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. 

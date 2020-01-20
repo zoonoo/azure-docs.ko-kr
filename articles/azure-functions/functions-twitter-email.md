@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226620"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768965"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -22,7 +22,7 @@ Azure Functions는 논리 앱 디자이너에서 Azure Logic Apps와 통합합�
 
 ![논리 앱 디자이너에서 앱의 처음 2단계를 보여 주는 이미지](media/functions-twitter-email/00-logic-app-overview.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Cognitive Services API 리소스를 만듭니다.
@@ -32,7 +32,7 @@ Azure Functions는 논리 앱 디자이너에서 Azure Logic Apps와 통합합�
 > * 함수에 논리 앱을 연결합니다.
 > * 함수의 응답에 따라 전자 메일을 보냅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 활성 [Twitter](https://twitter.com/) 계정. 
 + [Outlook.com](https://outlook.com/) 계정(알림 전송용).
@@ -51,9 +51,9 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
     ![Cognitive 리소스 만들기 페이지](media/functions-twitter-email/01-create-text-analytics.png)
 
-    | 설정      |  제안 값   | 설명                                        |
+    | 설정      |  제안 값   | Description                                        |
     | --- | --- | --- |
-    | **Name** | MyCognitiveServicesAccnt | 고유한 계정 이름을 선택합니다. |
+    | **이름** | MyCognitiveServicesAccnt | 고유한 계정 이름을 선택합니다. |
     | **위치** | 미국 서부 | 가장 가까운 위치를 사용합니다. |
     | **가격 책정 계층** | F0 | 가장 낮은 계층으로 시작합니다. 호출에서 실행하는 경우 더 높은 계층으로 확장합니다.|
     | **리소스 그룹** | myResourceGroup | 이 자습서에서 모든 서비스에 대해 동일한 리소스 그룹을 사용합니다.|
@@ -129,7 +129,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기   
 
-1. Azure Portal에서 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+1. Azure Portal에서 Azure Portal의 왼쪽 상단 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
 
 2. **웹** > **논리 앱**을 클릭합니다.
  
@@ -137,9 +137,9 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
     ![Azure Portal에서 논리 앱 만들기](./media/functions-twitter-email/08-logic-app-create.png)
 
-    | 설정      |  제안 값   | 설명                                        |
+    | 설정      |  제안 값   | Description                                        |
     | ----------------- | ------------ | ------------- |
-    | **Name** | TweetSentiment | 앱에 적절한 이름을 선택합니다. |
+    | **이름** | TweetSentiment | 앱에 적절한 이름을 선택합니다. |
     | **리소스 그룹** | myResourceGroup | 이전과 동일한 기존 리소스 그룹을 선택합니다. |
     | **위치** | 미국 동부 | 가까운 위치를 선택합니다. |    
 
@@ -161,11 +161,11 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
     ![Twitter 커넥터 설정](media/functions-twitter-email/10-tweet-settings.png)
 
-    | 설정      |  제안 값   | 설명                                        |
+    | 설정      |  제안 값   | Description                                        |
     | ----------------- | ------------ | ------------- |
     | **검색 텍스트** | #Azure | 선택한 간격으로 새 트윗을 생성할 만큼 충분히 인기 있는 해시태그를 사용합니다. 무료 계층을 사용하고 사용자 해시태그가 너무 많이 사용되면 Cognitive Services API에서 트랜잭션 할당량을 빠르게 사용할 수 있습니다. |
     | **간격** | 15 | 빈도 단위에서 Twitter 요청 간 경과된 시간입니다. |
-    | **Frequency(빈도)** | 분 | Twitter 폴링에 사용되는 빈도 단위입니다.  |
+    | **빈도** | Minute | Twitter 폴링에 사용되는 빈도 단위입니다.  |
 
 3.  **저장**을 클릭하여 Twitter 계정에 연결합니다. 
 
@@ -205,7 +205,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
 4. **요청 본문**에서 **점수**, **저장**을 차례로 클릭합니다.
 
-    ![Score](media/functions-twitter-email/17-function-input-score.png)
+    ![점수](media/functions-twitter-email/17-function-input-score.png)
 
 이제 논리 앱에서 감정 점수를 보낼 때 함수가 트리거됩니다. 색으로 지정된 범주는 함수에 의해 논리 앱에 반환됩니다. 다음으로 **RED** 감정 값이 함수에서 반환될 때 전송되는 전자 메일 알림을 추가합니다. 
 
@@ -232,10 +232,10 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
     ![전자 메일 보내기 작업에 대한 전자 메일을 구성합니다.](media/functions-twitter-email/21-configure-email.png)
     
-| 설정      |  제안 값   | 설명  |
+| 설정      |  제안 값   | Description  |
 | ----------------- | ------------ | ------------- |
-| **To** | 메일 주소 입력 | 알림을 받는 전자 메일 주소입니다. |
-| **제목** | 부정적인 트윗 감정 검색  | 전자 메일 알림의 제목 줄입니다.  |
+| **수행할 작업** | 메일 주소 입력 | 알림을 받는 전자 메일 주소입니다. |
+| **Subject** | 부정적인 트윗 감정 검색  | 전자 메일 알림의 제목 줄입니다.  |
 | **본문** | 트윗 텍스트, 위치 | **트윗 텍스트** 및 **위치** 매개 변수를 클릭합니다. |
 
 1. **저장**을 클릭합니다.
@@ -283,7 +283,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Cognitive Services API 리소스를 만듭니다.

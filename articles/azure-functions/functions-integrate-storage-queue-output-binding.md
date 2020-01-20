@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226877"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769186"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
 
@@ -18,7 +18,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 ![Storage Explorer에 표시되는 큐 메시지](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -34,7 +34,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. 이전 빠른 시작에서 만든 함수를 선택합니다.
 
-1. **통합 > 새 출력 > Azure Queue storage**를 선택합니다.
+1. **통합 > 새 출력 > Azure Queue Storage**를 선택합니다.
 
 1. **선택**을 클릭합니다.
 
@@ -48,7 +48,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
     ![Queue Storage 출력 바인딩을 Azure Portal의 함수에 추가합니다.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | 설정      |  제안 값   | 설명                              |
+    | 설정      |  제안 값   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **메시지 매개 변수 이름** | outputQueueItem | 출력 바인딩 매개 변수의 이름입니다. | 
     | **Storage 계정 연결** | AzureWebJobsStorage | 함수 앱에 이미 사용된 스토리지 계정 연결을 사용하거나 새로 만들 수 있습니다.  |

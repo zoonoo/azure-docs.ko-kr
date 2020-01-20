@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 12/20/2019
-ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 023128d35030f99458bc5fd2c7a4a155a856e4c9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497338"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861509"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>빠른 시작: Azure Time Series Insights Preview 데모 환경 탐색
 
@@ -45,7 +45,7 @@ Time Series Insights 미리 보기 탐색기는 기록 데이터 및 근본 원�
 
       [![Contoso Plant 1의 W7](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. 최근에 Contoso는 풍력 터빈 **W7**에서 화재를 발견했습니다. 화재 원인에 대한 여러 의견이 있습니다. 화재가 발생하는 동안 화재 경고 센서가 작동한 것을 Time Series Insights에서 확인할 수 있습니다.
+1. 최근에 Contoso는 풍력 터빈 **W7**에서 화재를 발견했습니다. 화재 원인에 대한 여러 의견이 있습니다. Time Series Insights에는 화재 발생 시 활성화된 화재 경고 센서가 표시됩니다.
 
    1. 보기 범위를 **3/9/17 20:00:00.00 - 3/10/17 20:00:00.00(UTC)** 로 변경합니다.
    1. **안전 시스템** > **FireAlert**를 선택합니다.
@@ -59,7 +59,7 @@ Time Series Insights 미리 보기 탐색기는 기록 데이터 및 근본 원�
 
       [![같은 시간에 발생한 다른 이벤트 검토](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
-1. 화재가 발생하기 직전에 오일 압력과 활성 경고가 증가했습니다. 표시된 시계열을 확장하여 화재로 이어진 기타 징후가 있었는지 확인합니다. 시간이 지나면서 두 센서 모두 변화를 보입니다. 이 변화는 지속적이고 걱정스러운 패턴을 나타냅니다.
+1. 화재가 발생하기 직전에 오일 압력과 활성 경고가 증가했습니다. 표시된 시계열을 확장하여 화재로 이어진 기타 징후가 있었는지 검토합니다. 시간이 지나면서 두 센서 모두 변화를 보입니다. 이 변화는 지속적이고 걱정스러운 패턴을 나타냅니다.
 
     * 보기 범위를 **2/24/17 20:00:00.00 - 3/10/17 20:00:00.00(UTC)** 로 변경합니다.
 
@@ -100,7 +100,7 @@ Time Series Insights 및 센서 원격 분석을 사용하여 기록 데이터�
 
       [![시간 범위를 60일로 확장](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. 다른 센서 데이터를 추가하면 유용한 상황 정보를 제공할 수 있습니다. 더 많은 센서를 확인할수록 문제에 대한 이해의 폭이 넓어집니다. 실제 값을 보기 위해 표식을 놓겠습니다. 
+1. 다른 센서 데이터를 추가하면 유용한 상황 정보를 제공할 수 있습니다. 더 많은 센서를 확인할수록 문제에 대한 이해의 폭이 넓어집니다. 실제 값을 표시하기 위해 표식을 놓겠습니다. 
 
     1. **발전기 시스템**를 선택하고, **GridVoltagePhase1**, **GridVoltagePhase2** 및 **GridVoltagePhase3** 센서를 선택합니다.
     1. 표시 영역의 마지막 데이터 요소에 마커를 놓습니다.

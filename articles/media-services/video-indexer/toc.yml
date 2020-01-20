@@ -37,7 +37,7 @@
           href: customize-brands-model-overview.md
         - name: 언어
           href: customize-language-model-overview.md
-        - name: 사람
+        - name: Person
           href: customize-person-model-overview.md
 - name: 방법 가이드
   items:
@@ -45,7 +45,7 @@
       href: connect-to-azure.md
     - name: Azure에 연결된 계정 관리
       href: manage-account-connected-to-azure.md
-    - name: API를 사용하여 비디오 업로드 및 인덱싱
+    - name: 비디오 업로드 및 인덱싱
       href: upload-index-videos.md
     - name: Video Indexer 출력 검토
       href: video-indexer-output-json-v2.md
@@ -67,7 +67,7 @@
       items:
         - name: 애니메이션 문자
           href: animated-characters-recognition.md
-        - name: 사람
+        - name: Person
           items:
             - name: Video Indexer 웹 사이트 사용
               href: customize-person-model-with-website.md
@@ -85,7 +85,7 @@
               href: customize-language-model-with-website.md
             - name: Video Indexer API 사용
               href: customize-language-model-with-api.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Video Indexer API
       href: 'https://api-portal.videoindexer.ai/'
@@ -93,7 +93,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

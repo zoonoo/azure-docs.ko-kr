@@ -5,12 +5,12 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227159"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769305"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob Storage에 의해 트리거되는 함수 만들기
 
@@ -18,10 +18,10 @@ ms.locfileid: "74227159"
 
 ![로그에서 메시지 보기.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하고 설치합니다.
-+ Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
++ Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 ## <a name="create-an-azure-function-app"></a>Azure 함수 앱 만들기
 
@@ -53,9 +53,9 @@ ms.locfileid: "74227159"
 
     ![Blob Storage 트리거 함수 만들기.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
-    | 설정 | 제안 값 | 설명 |
+    | 설정 | 제안 값 | Description |
     |---|---|---|
-    | **Name** | 함수 앱에서 고유 | 이 Blob 트리거 함수의 이름입니다. |
+    | **이름** | 함수 앱에서 고유 | 이 Blob 트리거 함수의 이름입니다. |
     | **Path**   | samples-workitems/{name}    | 모니터링되는 Blob Storage의 위치입니다. 바인딩에 _name_ 매개 변수로 전달되는 Blob의 파일 이름입니다.  |
     | **Storage 계정 연결** | AzureWebJobsStorage | 함수 앱에 이미 사용된 스토리지 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
 
@@ -77,7 +77,7 @@ ms.locfileid: "74227159"
 
     ![스토리지 자격 증명 입력 및 연결.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. 연결된 스토리지 계정을 확장하고 **Blob 컨테이너**를 마우스 오른쪽 단추로 클릭하고 **Blob 컨테이너 만들기**를 클릭하고 `samples-workitems`를 입력한 후 Enter 키를 누릅니다.
+1. 연결된 스토리지 계정을 확장하고 **Blob 컨테이너**를 마우스 오른쪽 단추로 클릭하고 **Blob 컨테이너 만들기**를 클릭하고 `samples-workitems`를 입력한 다음, Enter를 누릅니다.
 
     ![스토리지 큐 만들기.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 

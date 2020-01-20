@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8e89c3923daab15793707ff99dbbed6deeb6a0b0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 808f0f81f937da688a8873e5f6ee959976e9d6aa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227167"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769288"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
@@ -18,7 +18,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 ![Azure Portal에서 함수 앱 만들기](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -48,9 +48,9 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
     ![Azure Portal에서 타이머 트리거 함수를 만듭니다.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
-    | 설정 | 제안 값 | 설명 |
+    | 설정 | 제안 값 | Description |
     |---|---|---|
-    | **Name** | 기본값 | 타이머 트리거 함수의 이름을 정의합니다. |
+    | **이름** | 기본값 | 타이머 트리거 함수의 이름을 정의합니다. |
     | **일정** | 0 \*/1 \* \* \* \* | 1분마다 함수가 실행되도록 예약하는 6개 필드의 [CRON 식](functions-bindings-timer.md#ncrontab-expressions)입니다. |
 
 4. **만들기**를 클릭합니다. 함수는 1분마다 실행되는 선택한 언어로 생성됩니다.
@@ -69,7 +69,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 ![Azure Portal에서 함수 업데이트 타이머 일정.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
-함수는 이제 한 시간마다 한 번씩 실행됩니다. 
+함수는 이제 한 시간마다 한 번씩 실행됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

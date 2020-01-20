@@ -8,19 +8,19 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: 80fd1275f3bf9585ff8e40a94d0de2d422baec71
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383236"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895355"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>자습서: Azure Digital Twins 미리 보기를 사용하여 건물 프로비전 및 작업 조건 모니터링
 
 이 자습서에서는 Azure Digital Twins 미리 보기로 공간을 모니터링하여 원하는 온도 조건 및 쾌적도를 유지하는 방법을 알아봅니다. [샘플 건물을 구성](tutorial-facilities-setup.md)한 후, 이 자습서의 단계에 따라 건물을 프로비전하고 센서 데이터에 대해 사용자 지정 함수를 실행할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 모니터링할 조건 정의
@@ -28,7 +28,7 @@ ms.locfileid: "74383236"
 > * 센서 데이터 시뮬레이션
 > * 사용자 정의 함수 결과 가져오기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 [Azure Digital Twins 설정을 완료](tutorial-facilities-setup.md)한 것으로 가정합니다. 계속 진행하기 전에 다음 사항을 확인합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "74383236"
 - 샘플을 빌드하고 실행하기 위해 개발 머신에 설치된 [.NET Core SDK 버전 2.1.403 이상](https://www.microsoft.com/net/download). 올바른 버전이 설치되어 있는지 확인하려면 `dotnet --version` 명령을 실행합니다. 
 - 샘플 코드를 탐색할 [Visual Studio Code](https://code.visualstudio.com/). 
 
-> [!TIP]
+>[!TIP]
 > 새 인스턴스를 프로비저닝하는 경우 고유한 Digital Twins 인스턴스 이름을 사용합니다.
 
 ## <a name="define-conditions-to-monitor"></a>모니터링할 조건 정의
@@ -74,7 +74,7 @@ ms.locfileid: "74383236"
 
    온도와 다른 조건을 모니터링하도록 JavaScript 파일을 수정합니다. 실내에서 동작이 감지되지 않고, 이산화탄소 농도가 1,000ppm 미만이고, 온도가 화씨 78도 미만인 조건을 찾는 다음 코드 줄을 추가합니다.
 
-   > [!NOTE]
+   >[!NOTE]
    > 이 섹션에서는 사용자 정의 함수를 작성하는 한 가지 방법을 자세히 알아볼 수 있도록 *src\actions\userDefinedFunctions\availability.js* 파일을 수정합니다. 하지만 [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) 파일을 직접 사용하도록 설정에서 선택할 수 있습니다. 이 파일에는 이 자습서에 필요한 모든 변경 내용이 들어 있습니다. 이 파일을 대신 사용하는 경우 [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml)의 **스크립트** 키에 올바른 파일 이름을 사용해야 합니다.
 
     a. 파일 맨 위에서, 온도에 대한 다음 줄을 주석 `// Add your sensor type here` 아래에 추가합니다.
@@ -178,7 +178,7 @@ ms.locfileid: "74383236"
     dotnet run ProvisionSample
     ```
 
-   > [!IMPORTANT]
+   >[!IMPORTANT]
    > Digital Twins 관리 API에 대한 무단 액세스를 방지하기 위해, **occupancy-quickstart** 애플리케이션에서는 Azure 계정 자격 증명으로 로그인할 것을 요구합니다. 이 애플리케이션은 짧은 기간 동안 자격 증명을 저장하므로 실행할 때 로그인이 필요 없는 경우도 있습니다. 이 프로그램을 처음으로 실행하면, 그리고 그 후에 저장된 자격 증명이 만료되면 애플리케이션의 로그인 페이지로 이동되고 해당 페이지에서 입력할 세션 관련 코드가 제공됩니다. 표시되는 메시지에 따라 Azure 계정으로 로그인하세요.
 
 1. 계정이 인증되면 애플리케이션이 *provisionSample.yaml* 파일에 구성된 대로 샘플 공간 그래프를 만들기 시작합니다. 프로비전이 완료될 때까지 기다립니다. 몇 분 정도 걸립니다. 완료되면 명령 창의 메시지를 관찰하고, 공간 그래프가 어떻게 생성되는지 살펴봅니다. 애플리케이션이 루트 노드 또는 `Venue`에 IoT 허브를 만드는 방법을 살펴봅니다.
@@ -187,7 +187,7 @@ ms.locfileid: "74383236"
 
     [![샘플 프로비저닝](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
-> [!TIP]
+>[!TIP]
 > 프로비전 중에 "스레드 종료 또는 애플리케이션 요청으로 인해 I/O 작업이 중단되었습니다"라는 오류 메시지를 받으면 명령을 다시 실행하세요. 네트워크 문제로 인해 HTTP 클라이언트 시간이 초과되면 이 오류가 발생할 수 있습니다.
 
 ## <a name="simulate-sensor-data"></a>센서 데이터 시뮬레이션
@@ -229,12 +229,12 @@ ms.locfileid: "74383236"
     dotnet run
     ```
 
-   > [!NOTE]
+   >[!NOTE]
    > 시뮬레이션 샘플은 Digital Twin 인스턴스와 직접 통신하지 않기 때문에 인증이 필요 없습니다.
 
 ## <a name="get-results-of-the-user-defined-function"></a>사용자 정의 함수 결과 가져오기
 
-인스턴스가 디바이스 및 센서 데이터를 받을 때마다 사용자 정의 함수가 실행됩니다. 이 섹션에서는 Azure Digital Twins 인스턴스를 쿼리하여 사용자 정의 함수의 결과를 가져옵니다. 언제 방을 사용할 수 있고, 공기가 깨끗하고, 온도가 적정 수준인지 거의 실시간으로 볼 수 있습니다. 
+인스턴스가 디바이스 및 센서 데이터를 받을 때마다 사용자 정의 함수가 실행됩니다. 이 섹션에서는 Azure Digital Twins 인스턴스를 쿼리하여 사용자 정의 함수의 결과를 가져옵니다. 언제 방을 사용할 수 있고, 공기가 깨끗하고, 온도가 적정 수준인지 거의 실시간으로 알릴 수 있습니다. 
 
 1. 샘플을 프로비전할 때 사용한 명령 창 또는 새 명령 창을 열고, 샘플의 **occupancy-quickstart\src** 폴더로 다시 이동합니다.
 
@@ -246,7 +246,7 @@ ms.locfileid: "74383236"
 
 출력 창에는 사용자 정의 함수가 실행되어 디바이스 시뮬레이션에서 이벤트를 가로채는 방법이 표시됩니다. 
 
-   [![UDF에 대한 출력](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![UDF에 대한 출력](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png)](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png#lightbox)
 
 모니터링 조건이 충족되면 [앞에서](#create-a-user-defined-function) 살펴본 것처럼 사용자 정의 함수는 관련 메시지와 함께 공간 값을 설정합니다. `GetAvailableAndFreshSpaces` 함수는 콘솔에 메시지를 출력합니다.
 
@@ -256,7 +256,7 @@ ms.locfileid: "74383236"
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고, Digital Twins 리소스 그룹을 선택하고, **삭제**를 선택하면 됩니다.
 
-    > [!TIP]
+    >[!TIP]
     > Digital Twins 인스턴스를 삭제하는 데 문제가 있을 경우 픽스가 포함된 서비스 업데이트가 배포된 것입니다. 인스턴스 삭제를 다시 시도해 보세요.
 
 2. 필요한 경우 작업 머신에서 샘플 애플리케이션을 삭제합니다.

@@ -7,14 +7,14 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c4fa9e6038f4007246552610f537825f9def92a8
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720554"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939962"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>빠른 시작: Python을 사용하여 Event Hubs와 이벤트 주고 받기
 
@@ -22,14 +22,18 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 이 빠른 시작에서는 이벤트 허브와 이벤트를 주고 받는 Python 애플리케이션을 만드는 방법을 보여줍니다. 
 
+> [!IMPORTANT]
+> 이 빠른 시작에서는 Azure Event Hubs Python SDK 버전 1을 사용합니다. Azure Event Hubs를 처음 사용하는 경우 Python SDK 버전 5를 사용합니다. Python SDK 버전 5를 사용하는 빠른 시작은 [이 문서](get-started-python-send-v2.md)를 참조하세요. 기존 코드를 버전 1에서 버전 5로 마이그레이션하려면 [마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)를 참조하세요.
+
+
 > [!NOTE]
 > 이 빠른 시작을 진행하는 대신, GitHub에서 [샘플 앱](https://github.com/Azure/azure-event-hubs-python/tree/master/examples)을 다운로드하여 실행해도 됩니다. 이 경우 `EventHubConnectionString` 및 `EventHubName` 문자열을 해당 이벤트 허브 값으로 바꿔야 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 - [빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기](event-hubs-create.md)의 지침에 따라 만든 활성 Event Hubs 네임스페이스 및 이벤트 허브. 네임스페이스와 이벤트 허브 이름을 적어 두세요. 이 연습의 뒷부분에서 사용됩니다. 
 - Event Hubs 네임스페이스의 공유 액세스 키 이름 및 기본 키 값. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)의 지침에 따라 액세스 키 이름과 값을 가져옵니다. 기본 액세스 키 이름은 **RootManageSharedAccessKey**입니다. 키 이름과 기본 키 값을 복사해 두세요. 이 연습의 뒷부분에서 사용됩니다. 
 - `pip`가 설치 및 업데이트된 Python 3.4 이상

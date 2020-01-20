@@ -56,6 +56,12 @@
           href: tutorial-1st-r-experiment.md
     - name: Machine Learning CLI
       href: tutorial-train-deploy-model-cli.md
+    - name: Visual Studio Code
+      items:
+        - name: Azure Machine Learning 확장 설정
+          href: tutorial-setup-vscode-extension.md
+        - name: TensorFlow 이미지 분류 모델 학습 및 배포
+          href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: 샘플
   items:
     - name: Jupyter Notebook
@@ -151,9 +157,6 @@
         - name: 입력 및 출력 디렉터리 설정
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: VS Code 확장 사용
-          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
-          href: how-to-vscode-tools.md
         - name: 대화형 디버깅
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
@@ -171,6 +174,9 @@
         - name: 데이터 세트로 학습
           displayName: 'data, dataset, mount'
           href: how-to-train-with-datasets.md
+        - name: 디자이너에서 데이터 가져오기
+          displayName: 'designer, data, import, dataset, datastore'
+          href: how-to-designer-import-data.md
         - name: 데이터 세트에 대한 드리프트 탐지
           displayName: 'data, dataset'
           href: how-to-monitor-datasets.md
@@ -397,3 +403,6 @@
     - name: Workbench의 변경된 내용
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md
+    - name: 디자이너 접근성 기능
+      displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
+      href: designer-accessibility.md

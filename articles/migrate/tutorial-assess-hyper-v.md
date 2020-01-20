@@ -1,29 +1,25 @@
 ---
 title: Azure Migrate를 사용하여 Hyper-V VM 평가 및 Azure로 마이그레이션 | Microsoft Docs
 description: Azure Migrate를 사용하여 Azure로 마이그레이션할 온-프레미스 Hyper-V VM을 평가하는 방법을 설명합니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: d8a4a6d650684cd5c8c0f22ad683c3952e2f6d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158376"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029019"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
-이 문서에서는 Azure Migrate: 서버 평가 도구를 사용하여 온-프레미스 Hyper-V VM을 평가하는 방법을 보여 줍니다.
+이 문서에서는 Azure Migrate: 서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다.
 
 [Azure Migrate](migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
 
 
-이 자습서는 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Migrate 프로젝트를 설정합니다.
@@ -38,12 +34,13 @@ ms.locfileid: "74158376"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 이 시리즈의 첫 번째 자습서를 [완료](tutorial-prepare-hyper-v.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
     - Azure Migrate에 대한 [Azure 권한을 설정](tutorial-prepare-hyper-v.md#prepare-azure)합니다.
-    - 평가할 [Hyper-V 클러스터, 호스트 및 VM을 준비](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment)합니다.
+    - 평가할 [Hyper-V 클러스터, 호스트 및 VM을 준비](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment)합니다.
+    - Hyper-V VM 검색 및 평가에 사용되는 Azure Migrate 어플라이언스의 [배포를 준비](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment)합니다.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Azure Migrate 프로젝트 설정
 
@@ -64,9 +61,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     **지리** | **지역**
     --- | ---
-    아시아  | 동남아시아
+    Asia  | 동남아시아
     유럽 | 북유럽 또는 유럽 서부
-    영국 |  영국 남부 또는 영국 서부
+    United Kingdom |  영국 남부 또는 영국 서부
     미국 | 미국 동부, 미국 서부 2 또는 미국 중서부
 
     - 프로젝트 지역은 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데만 사용됩니다.
@@ -88,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합니다.
 
-- 이 어플라이언스는 VM 검색을 수행하고 VM 메타데이터 및 성능 데이터를 Azure Migrate: 서버 평가에 보냅니다.
+- 이 어플라이언스는 VM 검색을 수행하고 VM 메타데이터 및 성능 데이터를 Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다.
 - 어플라이언스를 설정하려면 다음을 수행합니다.
     - Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
     - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
@@ -148,7 +145,7 @@ Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM에서 [Azure URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access)에 연결할 수 있는지 확인합니다.
+어플라이언스 VM에서 [Azure URL](migrate-appliance.md#url-access)에 연결할 수 있는지 확인합니다.
 
 ### <a name="configure-the-appliance"></a>어플라이언스 구성
 
@@ -184,7 +181,7 @@ Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합
 
 SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 이 작업을 수행하려면 다음이 필요합니다.
 
-- 각 호스트가 어플라이언스에 대한 대리자로 작동하도록 설정합니다. 평가 및 마이그레이션을 위해 Hyper-V를 준비한 경우 이전 자습서에서 이 작업을 수행해야 합니다. 호스트에 대한 CredSSP를 [수동으로](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) 설정하거나, [Hyper-V 필수 구성 요소 구성 스크립트를 실행](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script)하여 설정해야 합니다.
+- 각 호스트가 어플라이언스에 대한 대리자로 작동하도록 설정합니다. 자습서를 순서대로 따랐다면 평가 및 마이그레이션을 위해 Hyper-V를 준비할 때 이전 자습서에서 이 작업을 수행했습니다. 호스트에 대한 CredSSP를 [수동으로](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) 설정하거나, 이를 수행하는 [스크립트를 실행](tutorial-prepare-hyper-v.md#prepare-with-a-script)하여 설정해야 합니다.
 - Azure Migrate 어플라이언스가 클라이언트로 작동하여 자격 증명을 호스트에 위임할 수 있도록 CredSSP 위임을 사용하도록 설정합니다.
 
 다음과 같이 어플라이언스에서 사용하도록 설정합니다.
@@ -197,7 +194,7 @@ SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 H
 Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
 ```
 
-예제: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
+예: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
 
 #### <a name="option-2"></a>옵션 2
 
@@ -234,7 +231,7 @@ Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com Hyper
 
 Azure Migrate 서버 평가를 사용하여 실행할 수 있는 평가에는 두 가지 유형이 있습니다.
 
-**평가** | **세부 정보** | **데이터**
+**평가** | **세부 정보** | **Data**
 --- | --- | ---
 **성능 기반** | 수집된 성능 데이터를 기반으로 하는 평가 | **추천 VM 크기**: CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> **추천 디스크 유형(표준 또는 프리미엄 관리 디스크)** : 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.
 **온-프레미스로** | 온-프레미스 크기 조정을 기반으로 하는 평가 | **추천 VM 크기**: 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> **추천 디스크 유형**: 평가를 위해 선택한 스토리지 유형 설정을 기반으로 합니다.

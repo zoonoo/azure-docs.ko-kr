@@ -1,5 +1,5 @@
 ---
-title: Media Services의 동적 패키징
+title: Azure Media Services v3의 동적 패키징
 titleSuffix: Azure Media Services
 description: 이 문서에서는 Azure Media Services의 동적 패키징에 대해 간략하게 설명합니다.
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05a515d5f74569ff8d0fa8aec68eb681dc79d2fc
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977763"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779606"
 ---
-# <a name="dynamic-packaging-in-media-services"></a>Media Services의 동적 패키징
+# <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
 Microsoft Azure Media Services를 사용하여 많은 미디어 원본 파일 형식을 인코딩할 수 있습니다. 모든 주요 디바이스(예: iOS 및 Android 디바이스)에 연결되는 콘텐츠 보호를 사용하거나 사용하지 않는 다양한 스트리밍 프로토콜을 통해 이러한 기능을 제공합니다. 이러한 클라이언트는 여러 다양한 프로토콜을 이해합니다. 예를 들어, iOS는 HLS(HTTP 라이브 스트리밍) 형식으로 스트림이 배달되어야 하 고 Android 디바이스는 HLS와 MPEG DASH를 모두 지원합니다.
 
@@ -31,7 +31,7 @@ Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.m
 
 동적 패키징을 활용하려면 mezzanine(원본) 파일을 여러 개의 비트 전송률 MP4(ISO 기본 미디어 14496-12) 파일 세트로 [인코딩](encoding-concept.md)해야 합니다. Media Services 동적 패키징에 필요한 인코딩된 MP4 및 스트리밍 구성 파일이 포함된 [자산](assets-concept.md)이 있어야 합니다. 이 MP4 파일 세트에서 동적 패키징을 사용하여 다음 스트리밍 미디어 프로토콜을 통해 동영상을 전송할 수 있습니다.
 
-|프로토콜|예|
+|프로토콜|예제|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
@@ -258,7 +258,7 @@ DASH 매니페스트의 경우 오디오 설명을 알리기 위해 다음 두 �
 
 HLS v7 이상의 경우 `(format=m3u8-cmaf)` 해당 재생 목록은 오디오 설명 트랙이 신호를 받으면 `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"`를 전달합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 자세한 내용은 [오디오 설명 트랙을 알리는 방법](signal-descriptive-audio-howto.md)을 참조하세요.
 

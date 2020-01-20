@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 2dae0a31ad53a777f5ae88c1c12f988d2f80630a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550269"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867412"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스 빌드
 
@@ -35,7 +35,7 @@ ms.locfileid: "75550269"
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 확장 팩
 
-[빠른 시작: 디바이스 기능 모델을 사용하여 디바이스 만들기](quickstart-create-pnp-device-windows.md)에서 만든 IoT 플러그 앤 플레이 디바이스도 필요합니다.
+또한 Windows용 [디바이스 기능 모델을 사용하여 디바이스 만들기](quickstart-create-pnp-device-windows.md) 빠른 시작을 완료해야 합니다. 빠른 시작에서는 Vcpkg를 사용하여 개발 환경을 설정하고 샘플 프로젝트를 만드는 방법을 보여줍니다.
 
 ## <a name="store-a-capability-model-and-interfaces"></a>기능 모델 및 인터페이스 저장
 
@@ -107,20 +107,53 @@ Azure CLI를 사용하여 **디바이스 정보** 인터페이스를 보려면 �
 
 1. 디바이스 코드 스텁을 생성하는 데 사용할 DCM 파일을 선택합니다.
 
-1. 프로젝트 이름을 입력합니다. 이 이름이 디바이스 애플리케이션의 이름입니다.
+1. **sample_device**와 같은 프로젝트 이름을 입력합니다. 이는 디바이스 애플리케이션의 이름입니다.
 
 1. 언어로 **ANSI C**를 선택합니다.
 
 1. 연결 방법으로 **DPS(Device Provisioning Service) 대칭 키를 통해**를 선택합니다.
 
-1. 디바이스 OS에 따라 프로젝트 템플릿으로 **Windows의 CMake 프로젝트** 또는 **Linux의 CMake 프로젝트**를 선택합니다.
+1. 프로젝트 템플릿으로 **Windows의 CMake 프로젝트**를 선택합니다.
+
+1. 디바이스 SDK를 포함하는 방법으로 **Via Vcpkg**를 선택합니다.
 
 1. 생성된 디바이스 코드 스텁 파일이 포함된 VS Code 새 창이 열립니다.
 
-1. 코드를 빌드한 후 DPS 자격 증명(**DPS ID 범위**, **DPS 대칭 키** **디바이스 ID**)을 애플리케이션의 매개 변수로 입력합니다. 인증 포털에서 자격 증명을 가져오려면 [IoT 플러그 앤 플레이 디바이스 연결 및 테스트](tutorial-certification-test.md#connect-and-discover-interfaces)를 참조하세요.
+## <a name="build-and-run-the-code"></a>코드 빌드 및 실행
 
-    ```cmd/sh
-    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
+Vcpkg 패키지를 사용하여 생성된 디바이스 코드 스텁을 빌드합니다. 빌드하는 애플리케이션은 IoT Hub에 연결하는 디바이스를 시뮬레이션합니다. 이 애플리케이션은 원격 분석 데이터 및 속성을 보내고 명령을 수신합니다.
+
+1. `sample_device` 폴더에 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다.
+
+    ```cmd
+    mkdir cmake
+    cd cmake
+    ```
+
+1. 다음 명령을 실행하여 생성된 코드 스텁을 빌드합니다(자리 표시자를 Vcpkg 리포지토리의 디렉터리로 바꿈).
+
+    ```cmd
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+
+    cmake --build .
+    ```
+    
+    > [!NOTE]
+    > Visual Studio 2017 또는 2015를 사용하는 경우 사용 중인 빌드 도구에 따라 CMake 생성기를 지정해야 합니다.
+    >```cmd
+    ># Either
+    >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    ># or
+    >cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    >```
+
+    > [!NOTE]
+    > cmake에서 C++ 컴파일러를 찾을 수 없는 경우 이전 명령을 실행할 때 빌드 오류가 발생합니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다.
+
+1. 빌드가 성공적으로 완료되면 DPS 자격 증명(**DPS ID 범위**, **DPS 대칭 키** **디바이스 ID**)을 애플리케이션의 매개 변수로 입력합니다. 인증 포털에서 자격 증명을 가져오려면 [IoT 플러그 앤 플레이 디바이스 연결 및 테스트](tutorial-certification-test.md#connect-and-discover-interfaces)를 참조하세요.
+
+    ```cmd\sh
+    .\Debug\sample_device.exe [Device ID] [DPS ID Scope] [DPS symmetric key]
     ```
 
 ### <a name="implement-standard-interfaces"></a>표준 인터페이스 구현

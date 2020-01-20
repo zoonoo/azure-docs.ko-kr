@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1265861a872b01d558646ea2adb6cba27fa3ebd4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034577"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778416"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>자습서: Jenkins 및 Azure DevOps Services를 사용하여 Azure에서 Linux 가상 머신에 앱 배포
 
@@ -163,7 +163,7 @@ Azure Pipelines에서 릴리스 파이프라인을 만들려면
 
 1. **+ 릴리스**, **릴리스 만들기**를 차례로 선택합니다.
 2. 강조 표시된 드롭다운 목록에서 완성한 빌드를 선택하고 **큐**를 선택합니다.
-3. 팝업 메시지에서 릴리스 링크를 선택합니다. 예:  "**Release-1** 릴리스를 만들었습니다."
+3. 팝업 메시지에서 릴리스 링크를 선택합니다. 다음은 그 예입니다.  "**Release-1** 릴리스를 만들었습니다."
 4. **로그** 탭을 열어 릴리스 콘솔 출력을 확인합니다.
 5. 브라우저에서 배포 그룹에 추가한 서버 중 하나의 URL을 엽니다. 예를 들어 **http://{your-server-ip-address}** 를 입력합니다.
 6. 소스 Git 리포지토리로 이동하여 app/views/index.jade 파일의 **h1** 제목 내용을 변경된 텍스트로 수정합니다.
@@ -176,15 +176,17 @@ Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Jenkins를 빌드용으로, Azure DevOps를 릴리스용으로 사용하여 Azure로의 앱 배포를 자동화했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Jenkins를 빌드용으로, Azure DevOps를 릴리스용으로 사용하여 Azure로의 앱 배포를 자동화했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Jenkins에서 앱 빌드
 > * Azure DevOps Services와 통합되도록 Jenkins 구성
 > * Azure 가상 머신에 대한 배포 그룹 만들기
-> * VM을 구성하고 앱을 배포하는 릴리스 파이프라인 만들기
+> * VM을 구성하고 앱을 배포하는 Azure Pipeline을 만듭니다.
 
-LAMP(Linux, Apache, MySQL 및 PHP) 스택을 배포하는 방법을 알아보려면 다음 자습서로 진행하세요.
+빌드 및 릴리스 단계 모두에 Azure Pipelines를 사용하는 방법에 대해 알아보려면 [이 항목](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups)을 참조하세요.
+
+VM에 배포할 YAML 기반 CI/CD 파이프라인을 제작하는 방법에 대해 알아보려면 다음 자습서로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [LAMP 스택 배포](tutorial-lamp-stack.md)
+> [Azure Pipelines를 사용하는 CI/CD](tutorial-build-deploy-azure-pipelines.md)

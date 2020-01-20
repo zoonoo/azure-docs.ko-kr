@@ -1,9 +1,9 @@
-- name: Face API 설명서
+- name: Face 설명서
   href: index.yml
 - name: 개요
   expanded: true
   items:
-    - name: Face API란?
+    - name: Face 서비스란?
       href: Overview.md
 - name: 빠른 시작
   items:
@@ -77,7 +77,7 @@
           href: face-resource-container-config.md
         - name: 컨테이너 인스턴스 사용
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-    - name: Face API 연결 서비스 사용
+    - name: Face 연결 서비스 사용
       href: vs-face-connected-service.md
 - name: 참조
   items:
@@ -101,7 +101,7 @@
   items:
     - name: 샘플
       items:
-        - name: Face API 샘플
+        - name: Face 샘플
           href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'

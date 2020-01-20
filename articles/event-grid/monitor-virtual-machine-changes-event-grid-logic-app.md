@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488607"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982565"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링
 
@@ -34,16 +34,16 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
 ![개요 - Event Grid와 논리 앱으로 가상 머신 모니터링](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Event Grid를 통해 이벤트를 모니터링하는 논리 앱을 만듭니다.
 > * 특별히 가상 머신 변경 내용을 확인하는 조건을 추가합니다.
 > * 가상 컴퓨터가 변경될 때 전자 메일을 보냅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * Logic Apps에서 지원하는 메일 공급자(예: Office 365 Outlook, Outlook.com 또는 Gmail)의 메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](/connectors/).
 
@@ -63,12 +63,12 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
    ![논리 앱 세부 정보 제공](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **Name** | 예 | <*logic-app-name*> | 논리 앱의 고유한 이름을 제공합니다. |
-   | **구독** | 예 | <*Azure-subscription-name*> | 이 자습서의 모든 서비스에 대해 동일한 Azure 구독을 선택합니다. |
-   | **리소스 그룹** | 예 | <*Azure-resource-group*> | 이 자습서의 모든 서비스에 대해 선택할 수 있는 논리 앱의 Azure 리소스 그룹 이름입니다. |
-   | **위치** | 예 | <*Azure-region*> | 이 자습서의 모든 서비스에 대해 동일한 하위 지역을 선택합니다. |
+   | **이름** | yes | <*logic-app-name*> | 논리 앱의 고유한 이름을 제공합니다. |
+   | **구독** | yes | <*Azure-subscription-name*> | 이 자습서의 모든 서비스에 대해 동일한 Azure 구독을 선택합니다. |
+   | **리소스 그룹** | yes | <*Azure-resource-group*> | 이 자습서의 모든 서비스에 대해 선택할 수 있는 논리 앱의 Azure 리소스 그룹 이름입니다. |
+   | **위치** | yes | <*Azure-region*> | 이 자습서의 모든 서비스에 대해 동일한 하위 지역을 선택합니다. |
    |||
 
 1. Azure가 논리 앱을 배포하면 Logic Apps 디자이너가 소개 비디오 및 많이 사용되는 트리거가 포함된 페이지를 보여줍니다. 비디오 및 트리거를 거꾸로 스크롤합니다.
@@ -98,13 +98,13 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
    ![이벤트 구독에 대한 세부 정보 제공](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | Description |
    | -------- | -------- | ----- | ----------- |
-   | **구독** | 예 | <*event-publisher-Azure-subscription-name*> | *이벤트 게시자*와 연결된 Azure 구독의 이름을 선택합니다. 이 자습서에서는 가상 머신에 대한 Azure 구독 이름을 선택합니다. |
-   | **리소스 종류** | 예 | <*event-publisher-Azure-resource-type*> | 이벤트 게시자의 Azure 리소스 종류를 선택합니다. Azure 리소스 종류에 대한 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/resource-manager-supported-services.md)을 참조하세요. 이 자습서에서는 Azure 리소스 그룹을 모니터링하는 `Microsoft.Resources.ResourceGroups` 값을 선택합니다. |
-   | **리소스 이름** |  예 | <*event-publisher-Azure-resource-name*> | 이벤트 게시자의 Azure 리소스 이름을 선택합니다. 이 목록은 선택한 리소스 종류에 따라 달라집니다. 이 자습서에서는 가상 머신이 포함된 Azure 리소스 그룹의 이름을 선택합니다. |
-   | **이벤트 유형 항목** |  아니요 | <*event-types*> | 필터링하고 Event Grid로 보낼 하나 이상의 특정 이벤트 유형을 선택합니다. 예를 들어, 필요에 따라 다음 이벤트 유형을 추가하여 리소스가 변경 또는 삭제되는 경우를 감지할 수 있습니다. <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [Azure Event Grid 리소스 그룹에 대한 이벤트 스키마](../event-grid/event-schema-resource-groups.md) <br>- [이벤트 필터링 이해](../event-grid/event-filtering.md) <br>- [Event Grid에 대한 이벤트 필터링](../event-grid/how-to-filter-events.md) |
-   | 선택적 속성을 추가하려면 **새 매개 변수 추가**를 선택한 다음, 원하는 속성을 선택합니다. | 아니요 | {see descriptions} | * **접두사 필터**: 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 접두사 문자열(예: 특정 리소스에 대한 경로 및 매개 변수)을 필터로 지정할 수 있습니다. <p>* **접미사 필터**: 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 특정 파일 형식만 원하는 경우 접미사 문자열(예: 파일 이름 확장명)을 필터로 지정할 수 있습니다. <p>* **구독 이름**: 이 자습서에서는 이벤트 구독에 대한 고유한 이름을 제공할 수 있습니다. |
+   | **구독** | yes | <*event-publisher-Azure-subscription-name*> | *이벤트 게시자*와 연결된 Azure 구독의 이름을 선택합니다. 이 자습서에서는 가상 머신에 대한 Azure 구독 이름을 선택합니다. |
+   | **리소스 종류** | yes | <*event-publisher-Azure-resource-type*> | 이벤트 게시자의 Azure 리소스 종류를 선택합니다. Azure 리소스 종류에 대한 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요. 이 자습서에서는 Azure 리소스 그룹을 모니터링하는 `Microsoft.Resources.ResourceGroups` 값을 선택합니다. |
+   | **리소스 이름** |  yes | <*event-publisher-Azure-resource-name*> | 이벤트 게시자의 Azure 리소스 이름을 선택합니다. 이 목록은 선택한 리소스 종류에 따라 달라집니다. 이 자습서에서는 가상 머신이 포함된 Azure 리소스 그룹의 이름을 선택합니다. |
+   | **이벤트 유형 항목** |  예 | <*event-types*> | 필터링하고 Event Grid로 보낼 하나 이상의 특정 이벤트 유형을 선택합니다. 예를 들어, 필요에 따라 다음 이벤트 유형을 추가하여 리소스가 변경 또는 삭제되는 경우를 감지할 수 있습니다. <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [Azure Event Grid 리소스 그룹에 대한 이벤트 스키마](../event-grid/event-schema-resource-groups.md) <br>- [이벤트 필터링 이해](../event-grid/event-filtering.md) <br>- [Event Grid에 대한 이벤트 필터링](../event-grid/how-to-filter-events.md) |
+   | 선택적 속성을 추가하려면 **새 매개 변수 추가**를 선택한 다음, 원하는 속성을 선택합니다. | 예 | {see descriptions} | * **접두사 필터**: 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 접두사 문자열(예: 특정 리소스에 대한 경로 및 매개 변수)을 필터로 지정할 수 있습니다. <p>* **접미사 필터**: 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 특정 파일 형식만 원하는 경우 접미사 문자열(예: 파일 이름 확장명)을 필터로 지정할 수 있습니다. <p>* **구독 이름**: 이 자습서에서는 이벤트 구독에 대한 고유한 이름을 제공할 수 있습니다. |
    |||
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다. 논리 앱에서 작업의 세부 정보를 접어 숨기려면 작업의 제목 표시줄을 선택합니다.
@@ -145,7 +145,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
       `triggerBody()?['data']['operationName']`
 
-      예:
+      다음은 그 예입니다.
 
       ![작업 이름을 추출하는 식 입력](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
@@ -173,7 +173,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
    ![조건이 true인 경우의 작업 추가](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
-1. **작업 선택** 아래의 검색 상자에 `send an email`을 필터로 입력합니다. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 그런 다음 커넥터에 대한 "전자 메일 보내기" 작업을 선택합니다. 예:
+1. **작업 선택** 아래의 검색 상자에 `send an email`을 필터로 입력합니다. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 그런 다음 커넥터에 대한 "전자 메일 보내기" 작업을 선택합니다. 다음은 그 예입니다.
 
    * 예를 들어 Azure 회사 또는 학교 계정의 경우 Office 365 Outlook 커넥터를 선택합니다.
 
@@ -196,11 +196,11 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
    > [!TIP]
    > 워크플로의 이전 단계에서 출력을 선택하려면 동적 콘텐츠 목록이 표시되도록 편집 상자 내부를 클릭하거나 **동적 콘텐츠 추가**를 선택합니다. 더 많은 결과를 보려면 목록의 각 섹션에 대해 **자세히 보기**를 선택합니다. 동적 콘텐츠 목록을 닫으려면 **동적 콘텐츠 추가**를 다시 선택합니다.
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | Description |
    | -------- | -------- | ----- | ----------- |
-   | **To** | 예 | <*recipient\@domain*> | 수신자의 이메일 주소를 입력합니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. |
-   | **제목** | 예 | `Resource updated:` **제목** | 전자 메일의 제목에 콘텐츠를 입력합니다. 이 자습서의 경우 지정된 텍스트를 입력하고 이벤트의 **제목** 필드를 선택합니다. 여기에서 전자 메일 제목에는 업데이트된 리소스(가상 머신)에 대한 이름이 포함됩니다. |
-   | **본문** | 예 | `Resource:` **항목** <p>`Event type:` **이벤트 유형**<p>`Event ID:` **ID**<p>`Time:` **이벤트 시간** | 전자 메일의 본문에 콘텐츠를 입력합니다. 이 자습서의 경우 지정된 텍스트를 입력하고 이벤트의 **토픽**, **이벤트 유형**, **ID** 및 **이벤트 시간** 필드를 선택하여 이벤트를 발생한 리소스, 업데이트의 이벤트 유형, 이벤트 타임스탬프 및 이벤트 ID가 메일에 포함되도록 합니다. 이 자습서에서는 리소스가 트리거에서 선택한 Azure 리소스 그룹입니다. <p>콘텐츠에 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다. |
+   | **수행할 작업** | yes | <*recipient\@domain*> | 수신자의 이메일 주소를 입력합니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. |
+   | **Subject** | yes | `Resource updated:` **제목** | 전자 메일의 제목에 콘텐츠를 입력합니다. 이 자습서의 경우 지정된 텍스트를 입력하고 이벤트의 **제목** 필드를 선택합니다. 여기에서 전자 메일 제목에는 업데이트된 리소스(가상 머신)에 대한 이름이 포함됩니다. |
+   | **본문** | yes | `Resource:` **항목** <p>`Event type:` **이벤트 유형**<p>`Event ID:` **ID**<p>`Time:` **이벤트 시간** | 전자 메일의 본문에 콘텐츠를 입력합니다. 이 자습서의 경우 지정된 텍스트를 입력하고 이벤트의 **토픽**, **이벤트 유형**, **ID** 및 **이벤트 시간** 필드를 선택하여 이벤트를 발생한 리소스, 업데이트의 이벤트 유형, 이벤트 타임스탬프 및 이벤트 ID가 메일에 포함되도록 합니다. 이 자습서에서는 리소스가 트리거에서 선택한 Azure 리소스 그룹입니다. <p>콘텐츠에 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다. |
    ||||
 
    > [!NOTE]
@@ -224,7 +224,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
    예를 들어 Azure Portal에서 가상 머신의 크기를 조정하거나 [Azure PowerShell로 VM 크기를 조정](../virtual-machines/windows/resize-vm.md)할 수 있습니다.
 
-   몇 분 후에 전자 메일을 받아야 합니다. 예:
+   몇 분 후에 전자 메일을 받아야 합니다. 다음은 그 예입니다.
 
    ![가상 머신 업데이트에 대한 전자 메일](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

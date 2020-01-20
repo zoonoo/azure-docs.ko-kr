@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 106252b7c77f9ee3d6b9bdebafce3441d9c4b090
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224237"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971883"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스 
 
@@ -35,13 +35,20 @@ ms.locfileid: "74224237"
 > * Key Vault에 저장된 비밀 액세스 권한을 VM에 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져온 다음 Key Vault에서 비밀을 검색하는 데 사용 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Key Vault에 저장된 비밀 액세스 권한을 VM에 부여 
+
+## <a name="enable"></a>사용
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>액세스 권한 부여  
  
-Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다.  그러나 모든 Azure 서비스가 Azure AD 인증을 지원하지는 않습니다. 이러한 서비스에서 Azure 리소스에 대한 관리 ID를 사용하려면 Azure Key Vault에 서비스 자격 증명을 저장하고 VM의 관리 ID로 Key Vault에 액세스하여 자격 증명을 검색합니다. 
+이 섹션에서는 Key Vault에 저장된 비밀에 대한 액세스 권한을 VM에 부여하는 방법을 보여줍니다. Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다.  그러나 모든 Azure 서비스가 Azure AD 인증을 지원하지는 않습니다. 이러한 서비스에서 Azure 리소스에 대한 관리 ID를 사용하려면 Azure Key Vault에 서비스 자격 증명을 저장하고 VM의 관리 ID로 Key Vault에 액세스하여 자격 증명을 검색합니다. 
 
 먼저 Key Vault를 만들고, VM의 시스템 할당 관리 ID 액세스 권한을 Key Vault에 부여해야 합니다.   
 
@@ -66,9 +73,9 @@ Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증
 5. 활성화 날짜와 만료 날짜는 비워 두고 **사용 가능**은 **예**로 유지합니다. 
 6. **만들기**를 클릭하여 비밀을 만듭니다. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>VM ID를 사용하여 액세스 토큰을 가져온 다음 Key Vault에서 비밀을 검색하는 데 사용  
+## <a name="access-data"></a>데이터 액세스  
 
-PowerShell 4.3.1 이상이 설치되어 있지 않으면 [최신 버전을 다운로드하고 설치](https://docs.microsoft.com/powershell/azure/overview)해야 합니다.
+이 섹션에서는 VM ID를 사용하여 액세스 토큰을 가져오고 이를 사용하여 Key Vault에서 비밀을 검색하는 방법을 보여줍니다. PowerShell 4.3.1 이상이 설치되어 있지 않으면 [최신 버전을 다운로드하고 설치](https://docs.microsoft.com/powershell/azure/overview)해야 합니다.
 
 먼저 VM의 시스템 할당 관리 ID를 사용하여 Key Vault에 인증하기 위한 액세스 토큰을 가져옵니다.
  
@@ -108,6 +115,13 @@ PowerShell 4.3.1 이상이 설치되어 있지 않으면 [최신 버전을 다�
     ```
     
 Key Vault에서 비밀을 검색한 후에는 이름과 암호가 필요한 서비스에 인증하는 데 비밀을 사용할 수 있습니다. 
+
+
+## <a name="disable"></a>사용 안 함
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,32 +1,25 @@
 ---
-title: '빠른 시작: Blob 스토리지에 저장된 음성 인식, C# - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b8b650920c03b14c7d55aafd6ecdb43dafaafafe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 1022a744564ed61a90973f7bba3eb32e9a632b46
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468978"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942636"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
+> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-csharp)
+> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?pivots=programmming-language-csharp)
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [Azure Blob에 원본 파일 업로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>Visual Studio에서 프로젝트 열기
 
@@ -35,7 +28,7 @@ ms.locfileid: "75468978"
 1. Visual Studio 2019를 시작합니다.
 2. 프로젝트를 로드하고 `Program.cs`를 엽니다.
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>NewtonSoftJSon에 참조 추가
+## <a name="add-a-reference-to-newtonsoftjson"></a>Newtonsoft.Json에 참조 추가
 
 1. 솔루션 탐색기에서 **helloworld** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택하여 NuGet 패키지 관리자를 표시합니다.
 
@@ -45,7 +38,7 @@ ms.locfileid: "75468978"
 
 1. 검색 상자에 *newtonsoft.json*을 입력하고 **Enter** 키를 선택합니다.
 
-1. 검색 결과에서 **Newtonsoft.Json** 패키지를 선택한 다음 **설치**를 선택하여 안정적인 최신 버전을 설치합니다.
+1. 검색 결과에서 [**Newtonsoft.Json**](https://www.nuget.org/packages/Newtonsoft.Json) 패키지를 선택한 다음, **설치**를 선택하여 안정적인 최신 버전을 설치합니다.
 
 1. 설치를 시작하려면 모든 계약 및 라이선스를 수락합니다.
 
@@ -56,7 +49,9 @@ ms.locfileid: "75468978"
 프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-43,138,277)]
-(`YourSubscriptionKey`, `YourServiceRegion`및 `YourFileUrl` 값을 고유한 값으로 바꿔야 합니다.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
+
 ## <a name="json-wrappers"></a>JSON 래퍼
 
 REST API는 JSON 형식으로 요청을 가져오고 JSON으로 결과를 반환하므로 문자열만 사용하여 상호 작용할 수 있지만 권장되지는 않습니다.

@@ -1,32 +1,26 @@
 ---
-title: '빠른 시작: Blob 스토리지에 저장된 음성 인식, Java - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e110c87835cdf517bdd54adda0ef6d9168a44d52
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467425"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942651"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
+> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
+> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [Azure Blob에 원본 파일 업로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=dotnet)
+
 
 ## <a name="open-your-project-in-eclipse"></a>Eclipse에서 프로젝트 열기
 
@@ -45,7 +39,8 @@ pom.xml을 열고 다음 참조를 추가합니다. [!code-xml[](~/samples-cogni
 프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=1-13,95-105,206-207)]
-(`YourSubscriptionKey`, `YourServiceRegion`및 `YourFileUrl` 값을 고유한 값으로 바꿔야 합니다.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="json-wrappers"></a>JSON 래퍼
 

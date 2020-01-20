@@ -4,12 +4,12 @@ description: Azure CLI를 사용하여 서버리스 Python 함수 앱 만들기
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
-ms.openlocfilehash: d077c775ec6a182260d5ab75c4562acca9f9cc4c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c55934c42db6bb7248db107b97fb8998163fae8b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534580"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922635"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Azure CLI를 사용하여 서버리스 Python 함수 앱 만들기
 
@@ -28,7 +28,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 이 스크립트는 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 Azure 함수 앱을 만듭니다.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

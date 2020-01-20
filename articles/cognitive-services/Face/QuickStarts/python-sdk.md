@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e41817e3409f79aab3fbb3d57195b6b7ff13e7af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: badfec71ad44fd9eebc748f716301ad6731883cf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448200"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770359"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>빠른 시작: Python용 Face 클라이언트 라이브러리
 
@@ -153,7 +153,7 @@ Face Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터�
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-그런 다음, 다음 코드를 Python 스크립트의 아래쪽에 추가합니다. 이 코드는 **PersongGroup** 및 세 개의 **Person** 개체를 만듭니다.
+그런 다음, 다음 코드를 Python 스크립트의 아래쪽에 추가합니다. 이 코드는 **PersonGroup** 및 세 개의 **Person** 개체를 만듭니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_create)]
 

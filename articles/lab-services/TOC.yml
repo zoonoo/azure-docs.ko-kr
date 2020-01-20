@@ -66,8 +66,6 @@
           href: enable-browser-connection-lab-virtual-machines.md
         - name: 비용 관리 구성
           href: devtest-lab-configure-cost-management.md
-        - name: 자동 종료 알림 보내기
-          href: devtest-lab-auto-shutdown.md
         - name: 랩 가상 머신의 자동 시작 설정
           href: devtest-lab-auto-startup-vm.md
         - name: 랩 크기 조정
@@ -124,8 +122,8 @@
           href: devtest-lab-resize-vm.md
         - name: VM 재배포
           href: devtest-lab-redeploy-vm.md
-        - name: VM의 자동 종료 구성
-          href: devtest-lab-auto-shutdown-vm.md
+        - name: 컴퓨팅 및 랩 VM의 자동 종료 구성
+          href: devtest-lab-auto-shutdown.md
         - name: 클레임할 수 있는 VM 만들기 및 관리
           href: devtest-lab-add-claimable-vm.md
         - name: 비밀 구성
@@ -259,7 +257,7 @@
   items:
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs'

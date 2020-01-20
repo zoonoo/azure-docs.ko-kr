@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a7d25dfad20d8eff25020070d0bb32d5777fdb62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561496"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754599"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
 
-이 자습서에서는 다른 Azure 지역으로 복제하여 Azure VM의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다른 Azure 지역으로 복제하여 Azure VM의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Recovery Services 자격 증명 모음 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "74561496"
 > [!NOTE]
 > 이 문서에서는 가장 간단한 설정을 사용하여 재해 복구를 배포하기 위한 지침을 제공합니다. 사용자 지정된 설정을 알아보려면 [방법 섹션](azure-to-azure-how-to-enable-replication.md)의 문서를 검토하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "74561496"
 원본 지역을 제외한 모든 지역에 자격 증명 모음을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
-2. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다. 그런 다음, **관리 도구** > **Backup 및 Site Recovery**를 선택합니다.
+2. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다. 그런 다음, **관리 도구** > **Backup 및 Site Recovery**를 선택합니다.
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 4. 리소스 그룹을 만들거나 기존 그룹을 선택합니다. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
 5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정**을 클릭하고 **만들기**를 클릭합니다.
@@ -77,15 +77,18 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
-URL 대신 IP 주소를 사용하여 아웃바운드 연결을 제어하려는 경우에 IP 기반 방화벽, 프록시 또는 NSG 규칙에 대해 이러한 주소를 허용합니다.
+NSG를 사용하는 경우 Azure Storage, Azure Active Directory, Site Recovery 서비스 및 Site Recovery 모니터링에 액세스하기 위한 서비스 태그 기반 NSG 규칙을 만듭니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+
+NSG 규칙 대신 IP 주소를 사용하여 아웃바운드 연결을 제어하려는 경우에는 IP 기반 방화벽, 프록시 또는 NSG 규칙에 이러한 주소를 허용합니다.
+
+>[!NOTE]
+>아웃바운드 액세스를 위해 항상 서비스 태그를 사용하여 NSG 규칙을 구성하는 것이 좋습니다.
 
   - [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)
   - [Windows Azure 데이터 센터 IP 범위(독일)](https://www.microsoft.com/download/details.aspx?id=54770)
   - [Windows Azure 데이터 센터 IP 범위(중국)](https://www.microsoft.com/download/details.aspx?id=42064)
   - [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery 서비스 엔드포인트 IP 주소](https://aka.ms/site-recovery-public-ips)
-
-NSG를 사용하는 경우 원본 지역에 대한 스토리지 서비스 태그 NSG 규칙을 만들 수 있습니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## <a name="verify-azure-vm-certificates"></a>Azure VM 인증서 확인
 

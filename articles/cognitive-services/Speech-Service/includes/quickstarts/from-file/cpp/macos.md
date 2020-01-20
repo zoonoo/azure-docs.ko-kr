@@ -1,23 +1,22 @@
 ---
 title: '빠른 시작: 오디오 파일에서 음성 인식, C++(macOS) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Speech SDK를 사용하여 macOS에서 C++로 음성을 인식하는 방법 알아보기
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 01/14/2020
 ms.author: wolfma
-ms.openlocfilehash: 5cd7173d2df6f08b79d544a3a371039c24d5882a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 4a043c246cc859706e062cdc11d30cbd657bc6b2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819284"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037810"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
@@ -32,8 +31,7 @@ ms.locfileid: "74819284"
 
 1. `helloworld.cpp`라는 C++ 원본 파일을 만들고 다음 코드를 파일에 붙여넣습니다.
 
-   ````C++
-
+   ```cpp
     // Creates an instance of a speech config with specified subscription key and service region.
     // Replace with your own subscription key and service region (e.g., "westus").
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -53,28 +51,27 @@ ms.locfileid: "74819284"
     auto result = recognizer->RecognizeOnceAsync().get();
 
     // Checks result.
-    if (result->Reason == ResultReason::RecognizedSpeech)
+    switch (result->Reason)
     {
-        cout << "RECOGNIZED: Text=" << result->Text << std::endl;
-    }
-    else if (result->Reason == ResultReason::NoMatch)
-    {
-        cout << "NOMATCH: Speech could not be recognized." << std::endl;
-    }
-    else if (result->Reason == ResultReason::Canceled)
-    {
-        auto cancellation = CancellationDetails::FromResult(result);
-        cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+        case ResultReason::RecognizedSpeech:
+            cout << "RECOGNIZED: Text=" << result->Text << std::endl;
+            break;
+        case ResultReason::NoMatch:
+            cout << "NOMATCH: Speech could not be recognized." << std::endl;
+            break;
+        case ResultReason::Canceled:
+            auto cancellation = CancellationDetails::FromResult(result);
+            cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
 
-        if (cancellation->Reason == CancellationReason::Error)
-        {
-            cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
-            cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-            cout << "CANCELED: Did you update the subscription info?" << std::endl;
-        }
+            if (cancellation->Reason == CancellationReason::Error)
+            {
+                cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+                cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
+                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+            }
+            break;
     }
-
-   ````
+   ```
 
 1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 음성 서비스 구독 키로 바꿉니다.
 

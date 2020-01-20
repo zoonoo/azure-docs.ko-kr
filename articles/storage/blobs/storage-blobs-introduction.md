@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615609"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972446"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob Storage 소개
 
@@ -41,7 +41,7 @@ Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-스토리지 계정을 만들려면 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요. 스토리지 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+스토리지 계정을 만들려면 [스토리지 계정 만들기](../common/storage-account-create.md)를 참조하세요. 스토리지 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 ### <a name="containers"></a>컨테이너
 
@@ -73,5 +73,5 @@ Azure Storage는 다음 세 가지 유형의 Blob을 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스토리지 계정을 만드는](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md)
+- [스토리지 계정을 만드는](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Blob 스토리지의 확장성 및 성능 목표](scalability-targets.md)

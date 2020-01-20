@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 8198ff6579aff839ff9aacb729e2f3f8d3472fae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ce7b8590e4718585fe841921466e049dc204928
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230468"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769135"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>HTTP 이외 트리거 함수를 수동으로 실행
 
@@ -22,7 +22,7 @@ ms.locfileid: "74230468"
 
 ## <a name="define-the-request-location"></a>요청 위치 정의
 
-HTTP 이외 트리거 함수를 실행하려면 Azure에 함수를 실행하는 요청을 보낼 방법이 필요합니다. 이 요청에 사용된 URL은 특정 형식을 사용합니다.
+HTTP가 아닌 트리거 함수를 실행하려면 Azure에 해당 함수를 실행하기 위한 요청을 보낼 방법이 필요합니다. 이 요청에 사용된 URL은 특정 형식을 사용합니다.
 
 ![요청 위치를 정의합니다. 함수 이름 + 폴더 경로 + 호스트 이름](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 

@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Maps를 사용하여 스토어 로케이터 만들기'
-description: '자습서: Azure Maps를 사용하여 매장 로케이터를 만듭니다.'
+title: '자습서: Azure Maps를 사용하여 매장 로케이터 애플리케이션 만들기 | Microsoft Azure Maps'
+description: 이 자습서에서는 Microsoft Azure Maps 웹 SDK를 사용하여 매장 로케이터 웹 애플리케이션을 만드는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 830641ae1421b799ab8e7d8b47a1c1a6e38419cf
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408034"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910961"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -43,13 +43,13 @@ ms.locfileid: "75408034"
 
 <center>
 
-![Contoso Coffee 커피숍 위치에 대한 매장 로케이터 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Contoso 커피숍 위치에 대한 매장 로케이터 애플리케이션의 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 이 매장 로케이터의 유용성을 최대화하기 위해 사용자의 화면 너비가 700픽셀보다 작은 경우 조정되는 반응형 레이아웃을 포함합니다. 반응형 레이아웃이 있으면 모바일 디바이스와 같은 작은 화면에서 매장 로케이터를 쉽게 사용할 수 있습니다. 소형 화면 레이아웃의 와이어프레임은 다음과 같습니다.  
 
 <center>
 
-![모바일 디바이스의 Contoso Coffee 매장 로케이터 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![모바일 디바이스의 Contoso Coffee 매장 로케이터 애플리케이션 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 이 와이어프레임은 매우 간단한 애플리케이션을 보여 줍니다. 이 애플리케이션에는 검색 상자, 근처 매장 목록, 일부 표식(기호)이 있는 지도, 사용자가 표식을 선택할 때 추가 정보를 표시하는 팝업 창이 있습니다. 이 자습서에서 이 매장 로케이터에 구축하는 기능을 좀 더 자세히 살펴보면 다음과 같습니다.
 

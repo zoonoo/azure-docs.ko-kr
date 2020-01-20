@@ -1,6 +1,6 @@
 ---
-title: Azure Maps 개요 | Microsoft Docs
-description: Azure Maps 소개
+title: 개요 | Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure Maps의 서비스 및 기능과 이를 애플리케이션에서 활용하는 방법을 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/04/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: dbcb0e87159efc7cc33101cdd5eee55afbdf3c10
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 353850cacb06dcc8a0db1b957114db314d7002a3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516649"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911841"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 

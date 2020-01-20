@@ -5,12 +5,12 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3f4e9f8a607856e3de92a4824a4221071f3c02a4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d4cfc40f1849ecd2745b1d662973c7f64a0a60c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227131"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769254"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Azure Queue Storage에 의해 트리거되는 함수 만들기
 
@@ -18,11 +18,11 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
 ![로그에서 메시지 보기.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하고 설치합니다.
 
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
+- Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 ## <a name="create-an-azure-function-app"></a>Azure 함수 앱 만들기
 
@@ -54,11 +54,11 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
     ![스토리지 큐 트리거 함수를 구성합니다.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
 
-    | 설정 | 제안 값 | 설명 |
+    | 설정 | 제안 값 | Description |
     |---|---|---|
-    | **Name** | 함수 앱에서 고유 | 큐 트리거 함수의 이름입니다. |
+    | **이름** | 함수 앱에서 고유 | 큐 트리거 함수의 이름입니다. |
     | **큐 이름**   | myqueue-items    | Storage 계정에서 연결할 큐의 이름입니다. |
-    | **Storage 계정 연결** | AzureWebJobStorage | 함수 앱에 이미 사용된 스토리지 계정 연결을 사용하거나 새로 만들 수 있습니다.  |    
+    | **Storage 계정 연결** | AzureWebJobsStorage | 함수 앱에 이미 사용된 스토리지 계정 연결을 사용하거나 새로 만들 수 있습니다.  |    
 
 1. **만들기**를 클릭하여 사용자의 함수를 만듭니다.
 

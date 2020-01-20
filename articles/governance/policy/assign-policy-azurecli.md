@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: Azure CLI를 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 11/25/2019
+ms.date: 01/11/2020
 ms.topic: quickstart
-ms.openlocfilehash: 80dbccdb728da94d9f9fdd0aeb506ade40fd7394
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482627"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978316"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -19,7 +19,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 Azure CLI는 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 Azure 환경 내에서 규정 비준수 리소스를 식별하고 정책 할당을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -31,7 +31,7 @@ Azure CLI는 명령줄 또는 스크립트에서 Azure 리소스를 만들고 �
   az provider register --namespace 'Microsoft.PolicyInsights'
   ```
 
-  리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
+  리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../../azure-resource-manager/management/resource-providers-and-types.md)를 참조하세요.
 
 - [ARMClient](https://github.com/projectkudu/ARMClient)를 아직 설치하지 않은 경우 설치합니다. Azure Resource Manager 기반 API에 HTTP 요청을 전송하는 도구입니다.
 
@@ -58,17 +58,16 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 이 새 할당에서 준수되지 않는 리소스를 보려면 다음 명령을 실행하여 정책 할당 ID를 가져옵니다.
 
-```azurepowershell-interactive
-$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
-$policyAssignment.PolicyAssignmentId
+```azurecli-interactive
+az policy assignment list --query "[?displayName=='Audit VMs without managed disks Assignment'].id"
 ```
 
-정책 할당 ID에 대한 자세한 내용은 [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)를 참조하세요.
+정책 할당 ID에 대한 자세한 내용은 [az 정책 할당](/cli/azure/policy/assignment)을 참조하세요.
 
 다음으로 JSON 파일로 출력되는 비준수 리소스의 리소스 ID를 가져오려면 다음 명령을 실행합니다.
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 결과는 다음 예제와 유사합니다.

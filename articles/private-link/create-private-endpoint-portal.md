@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459940"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028885"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>빠른 시작: Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
@@ -125,7 +125,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 7. **확인**을 선택합니다. 
 8. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다. 
 9. 유효성 검사 통과 메시지가 표시되면 **만들기**를 선택합니다. 
-10. 유효성 검사 통과 메시지가 표시되면 [만들기]를 선택합니다. 
+10. 유효성 검사 통과 메시지가 표시되면 만들기를 선택합니다. 
 
 ## <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
 
@@ -162,7 +162,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     |**네트워킹**| |
     | 가상 네트워크| *MyVirtualNetwork*를 선택합니다. |
-    | 서브넷 |  *mySubnet*을 선택합니다. |
+    | 서브넷 | *mySubnet*을 선택합니다. |
     |**프라이빗 DNS 통합**||
     |프라이빗 DNS 영역과 통합 |**예**를 선택합니다. |
     |프라이빗 DNS 영역 |*(New)privatelink.database.windows.net*을 선택합니다. |
@@ -199,9 +199,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>VM에서 비공개로 SQL 데이터베이스 서버에 액세스
 
-1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+1. *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-2.  `nslookup myserver.database.windows.net`을 입력합니다. 
+2. `nslookup myserver.database.windows.net`를 입력합니다. 
 
     다음과 유사한 메시지가 표시됩니다.
     ```azurepowershell
@@ -227,11 +227,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **연결**을 선택합니다.
 2. 왼쪽 메뉴에서 데이터베이스를 찾아봅니다.
 3. (선택 사항) Mydatabase에서 정보를 만들거나 쿼리합니다.
-4.  *myVm*에 대한 원격 데스크톱 연결을 닫습니다. 
+4. *myVm*에 대한 원격 데스크톱 연결을 닫습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 프라이빗 엔드포인트, SQL Server 및 VM을 다 사용했으면 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 삭제합니다. 
-1. 포털 맨 위에 있는 **검색** 상자에  *myResourceGroup* 을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다. 
+1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력하고 검색 결과에서 *myResourceGroup*을 선택합니다. 
 2. **리소스 그룹 삭제**를 선택합니다. 
 3. **리소스 그룹 이름 입력**에 대해 myResourceGroup을 입력하고 **삭제**를 선택합니다.
 

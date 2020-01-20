@@ -7,20 +7,23 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 2d08180d40233c0ab990bc700f0412d11647d5f1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dfdde1ae981dcd2d539dec3667e44e90cef4d1c8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349958"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748036"
 ---
 # <a name="azure-storage-samples-using-java"></a>Java를 사용한 Azure Storage 샘플
 
 다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. GitHub에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
 
-## <a name="blob-samples"></a>Blob 샘플
+> [!NOTE]
+> 이러한 샘플은 Azure Storage Java v11 라이브러리를 사용합니다. v12 코드는 GitHub 리포지토리의 [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)을 참조하세요.
 
-| **시나리오** | **샘플 코드** |
+## <a name="blob-samples-v11"></a>Blob 샘플(v11)
+
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | Blob 추가 | [Java에서 Azure Blob Service 시작](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 | 블록 Blob | [Java에서 Azure Blob Service 시작](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
@@ -39,9 +42,9 @@ ms.locfileid: "71349958"
 | 서비스 속성 | [Java에서 Azure Blob Service 시작](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) |
 | Blob 스냅샷 | [Java에서 Azure Blob Service 시작](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 
-## <a name="file-samples"></a>파일 샘플
+## <a name="file-samples-v11"></a>파일 샘플(v11)
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 공유/디렉터리/파일 만들기 | [Java에서 Azure File Service 시작](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
 | 공유/디렉터리/파일 삭제 | [Java에서 Azure File Service 시작](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
@@ -53,9 +56,9 @@ ms.locfileid: "71349958"
 | 공유 나열 | [Java에서 Azure File Service 시작](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
 | 속성/메타데이터/통계 공유 | [Java에서 Azure File Service 시작](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
 
-## <a name="queue-samples"></a>큐 샘플
+## <a name="queue-samples-v11"></a>큐 샘플(v11)
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 메시지 추가 | [Java에서 Azure Queue Service 시작](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java#L63) |
 | 클라이언트 쪽 암호화 | [Java에서 Azure 클라이언트 쪽 암호화 시작](https://github.com/Azure-Samples/storage-java-client-side-encryption/blob/master/src/gettingstarted/KeyVaultGettingStarted.java) |
@@ -66,9 +69,9 @@ ms.locfileid: "71349958"
 | 큐 서비스 속성 | [Java에서 Azure Queue Service 시작](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java) |
 | 메시지 업데이트 | [Java에서 Azure Queue Service 시작](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java)
 |
-## <a name="table-samples"></a>테이블 샘플
+## <a name="table-samples-v11"></a>테이블 샘플(v11)
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 테이블 만들기 | [Java에서 Azure Table Service 시작](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
 | 엔터티/테이블 삭제 | [Java에서 Azure Table Service 시작](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |

@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: f8bd768dc7c01310874cd484f59869fbafcf3fe7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bdcf9ea247adb8d5941c75f90f7db3915af20bc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074202"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940936"
 ---
 # <a name="api-management-policy-samples"></a>API Management 정책 샘플
 
@@ -33,6 +33,7 @@ ms.locfileid: "70074202"
 | [JWT 클레임을 기반으로 액세스 권한 부여](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json)                                              | JWT 클레임 기반의 API에서 특정 HTTP 메서드에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.                                                                                                                                       |
 | [외부 권한 부여자를 사용하여 요청 권한 부여](./policies/authorize-request-using-external-authorizer.md)                                                   | API 액세스를 보호하기 위해 외부 권한 부여자를 사용하는 방법을 보여줍니다.                                                                                                                                                               |
 | [Google OAuth 토큰을 사용하여 액세스 권한 부여](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json)                                            | OAuth 토큰 공급자로 Google을 사용하여 엔드포인트에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.                                                                                                                                    |
+| [Application Gateway 사용 시 IP 주소 필터링](./policies/filter-ip-addresses-when-using-appgw.md) | Application Gateway를 통해 API Management 인스턴스를 액세스할 때 정책에서 IP를 필터링하는 방법을 보여줍니다.
 | [공유 액세스 서명 생성 및 Azure Storage에 요청 전달](./policies/generate-shared-access-signature.md?toc=api-management/toc.json)                  | 식을 사용하여 [공유 액세스 서명](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)을 생성하고 rewrite-uri 정책을 사용하여 Azure Storage로 요청을 전달하는 방법을 보여 줍니다. |
 | [AAD에서 OAuth2 액세스 토큰 가져오기 및 백 엔드로 전달](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | 게이트웨이와 백 엔드 간의 권한 부여에 OAuth2를 사용하는 예를 제공합니다. AAD에서 액세스 토큰을 가져오고 백 엔드로 전달하는 방법을 보여 줍니다.                                                    |
 | [요청 보내기 정책을 사용하여 SAP 게이트웨이에서 X-CSRF 토큰 가져오기](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | 대부분의 API에서 사용되는 X-CSRF 패턴을 구현하는 방법을 보여 줍니다. 이 예제는 SAP 게이트웨이에만 해당됩니다.                                                                                                                           |

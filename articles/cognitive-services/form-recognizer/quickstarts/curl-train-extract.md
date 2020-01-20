@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 16837ff53d7a87f6d6ac86643c7c8d16721e9470
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: b95c5511b2f64414fcf165a4346dbb06b1f02435
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660378"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833849"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - Form Recognizer 제한된 액세스 미리 보기에 대한 액세스 권한. 미리 보기에 액세스하려면 [Form Recognizer 액세스 요청](https://aka.ms/FormRecognizerRequestAccess) 양식을 작성하여 제출하세요.
 - [cURL](https://curl.haxx.se/windows/) 설치
-- 동일한 형식의 5개 이상 양식으로 구성된 세트. 이 데이터를 사용하여 모델을 학습합니다. 양식은 파일 형식이 다를 수 있지만 동일한 형식의 문서여야 합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
+- 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 중 다섯 개를 사용하여 모델을 학습한 다음, 여섯 번째 형식으로 테스트합니다. 양식은 파일 형식이 다를 수 있지만 동일한 형식의 문서여야 합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다. 테스트 파일을 별도의 폴더에 배치할 수 있습니다.
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
@@ -143,15 +143,14 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model
 
 1. `<Endpoint>`를 Form Recognizer 구독 키에서 가져온 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
 1. `<model ID>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
-1. `<path to your form>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다. 이는 원격 파일의 URL일 수도 있습니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Test** 폴더에 있는 파일을 사용할 수 있습니다.
-1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`입니다.
+1. `<SAS URL>`을 Azure 스토리지의 파일을 잇는 SAS URL로 바꿉니다. 학습 섹션의 단계를 따르되 전체 Blob 컨테이너에 대한 SAS URL을 가져오는 대신 분석하려는 특정 파일에 대한 SAS URL을 가져옵니다.
 1. `<subscription key>`를 구독 키로 바꿉니다.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -v "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
 
-**Operation-Location** 헤더를 포함하는 `202 (Success)` 응답을 받게 됩니다. 이 헤더의 값은 분석 작업의 결과를 추적하는 데 사용하는 ID입니다. 다음 단계를 위해 이 ID를 저장합니다.
+**Operation-Location** 헤더를 포함하는 `202 (Success)` 응답을 받게 됩니다. 이 헤더의 값은 분석 작업의 결과를 추적하는 데 사용하는 결과 ID를 포함합니다. 다음 단계를 위해 이 결과 ID를 저장합니다.
 
 ## <a name="get-the-analyze-results"></a>분석 결과 가져오기
 

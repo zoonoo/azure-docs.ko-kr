@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 86bbff167a2653fd8d89b566b551c4c53dd3614e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0e8bac8344bec06b58a22b8c9162cd8bd22ee700
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124560"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750440"
 ---
 # <a name="what-are-azure-queues"></a>Azure 큐란?
 
@@ -33,7 +33,7 @@ Azure Queue Storage는 대량의 메시지를 저장하기 위한 서비스입�
   
     `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **스토리지 계정:** Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. Storage 계정 용량에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) (영문)를 참조하십시오.
+* **스토리지 계정:** Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 스토리지 계정 용량에 대한 자세한 내용은 [표준 스토리지 계정의 확장성 및 성능 목표](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조하세요.
 
 * **큐:** 큐에는 메시지 세트가 포함됩니다. 큐 이름은 **반드시** 모두 소문자여야 합니다. 큐의 명명에 대한 자세한 내용은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/azure/dd179349.aspx)을 참조하세요.
 

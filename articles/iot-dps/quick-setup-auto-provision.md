@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e2b2f13c3570683b575d13b5aadb3e03ec549cab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 765b7e5bb7341974a6a16d3f1ed0bcabf415f9f3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434587"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029169"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>빠른 시작: Azure Portal에서 IoT Hub Device Provisioning Service 설정
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     * **이름:** 새 Device Provisioning Service 인스턴스의 고유한 이름을 입력합니다. 입력한 이름을 사용할 수 있으면 녹색 확인 표시가 나타납니다.
     * **구독:** 이 Device Provisioning Service 인스턴스를 만드는 데 사용할 구독을 선택합니다.
-    * **리소스 그룹:** 이 필드를 통해 새 리소스 그룹을 만들거나 새 인스턴스를 포함하도록 기존 항목을 선택할 수 있습니다. 위에서 만든 Iot 허브를 포함하는 동일한 리소스 그룹을 선택합니다(예: **TestResources**). 모든 관련 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 해당 그룹에 들어 있는 모든 리소스가 삭제됩니다. 자세한 내용은 [Azure Resource Manager 리소스 그룹 관리](../azure-resource-manager/manage-resource-groups-portal.md)를 참조하세요.
+    * **리소스 그룹:** 이 필드를 통해 새 리소스 그룹을 만들거나 새 인스턴스를 포함하도록 기존 항목을 선택할 수 있습니다. 위에서 만든 Iot 허브를 포함하는 동일한 리소스 그룹을 선택합니다(예: **TestResources**). 모든 관련 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 해당 그룹에 들어 있는 모든 리소스가 삭제됩니다. 자세한 내용은 [Azure Resource Manager 리소스 그룹 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
     * **위치:** 디바이스에 가장 가까운 위치를 선택합니다.
 
       ![포털 블레이드에서 Device Provisioning Service 인스턴스에 대한 기본 정보 입력](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
@@ -57,7 +57,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 Device Provisioning Service 인스턴스에 구성을 추가합니다. 이 구성은 디바이스가 프로비전될 IoT 허브를 설정합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 단추를 선택합니다. 이전 섹션에서 만든 Device Provisioning Service 인스턴스를 선택합니다.  
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 단추를 선택합니다. 이전 섹션에서 만든 Device Provisioning Service 인스턴스를 선택합니다. 
+
+    포털 설정에서 **Docked** 모드 대신 **Flyout**을 사용하여 메뉴를 구성한 경우 왼쪽 상단에 있는 3개 줄을 클릭하여 왼쪽에 있는 포털 메뉴를 열어야 합니다.  
 
 2. Device Provisioning Service 메뉴에서 **연결된 IoT 허브**를 선택합니다. 맨 위에서 **+ 추가** 단추를 누릅니다. 
 

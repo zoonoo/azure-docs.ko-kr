@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821303"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045630"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Azure SQL Database 및 Data Warehouse용 Private Link(미리 보기)
 
@@ -57,7 +57,7 @@ Private Link를 사용하면 고객이 ER(Express Route) 프라이빗 피어링 
 ### <a name="approval-process"></a>승인 프로세스
 네트워크 관리자가 PE(프라이빗 엔드포인트)를 만들면 SQL 관리자가 SQL Database에 대한 PEC(프라이빗 엔드포인트 연결)를 관리할 수 있습니다.
 
-1. Azure Portal에서 SQL 서버 리소스로 이동합니다.
+1. 아래 스크린샷에 표시된 단계에 따라 Azure Portal의 SQL 서버 리소스로 이동합니다.
 
     - (1) 왼쪽 창에서 프라이빗 엔드포인트 연결 선택
     - (2) 모든 PEC(프라이빗 엔드포인트 연결)의 목록 표시
@@ -146,8 +146,10 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 연결 확인
+> [!NOTE]
+>클라이언트의 연결 문자열에 있는 서버의 **FQDN(정규화된 도메인 이름)** 을 사용합니다. IP 주소에 직접 로그인하려고 하면 의도적으로 실패합니다.
 
-마지막 단계는 [SSMS를 사용하여 SQL Database에 연결](sql-database-connect-query-ssms.md)하는 것입니다. SSMS를 사용하여 SQL Database에 연결되면 다음 쿼리를 실행하여 Azure VM의 개인 IP 주소에서 연결하고 있는지 확인합니다.
+[SSMS를 사용하여 SQL Database에 연결](sql-database-connect-query-ssms.md)하려면 여기의 단계를 따르세요. SSMS를 사용하여 SQL Database에 연결되면 다음 쿼리를 실행하여 Azure VM의 개인 IP 주소에서 연결하고 있는지 확인합니다.
 
 ````
 select client_net_address from sys.dm_exec_connections 

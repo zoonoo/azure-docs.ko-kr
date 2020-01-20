@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인 | Microsoft Docs'
-description: '자습서: 이 자습서에서는 Azure Notebooks(Python)를 사용하여 Azure Maps 날씨 서비스의 날씨 예측 데이터와 센서 데이터를 조인하는 방법을 보여 줍니다.'
+title: '자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인 | Microsoft Azure Maps'
+description: 이 자습서에서는 Azure Notebooks(Python)를 사용하여 Microsoft Azure Maps Weather Service의 날씨 예측 데이터와 센서 데이터를 조인하는 방법을 보여 줍니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/09/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 809c188dc37aba64de27e89e38acd8692c7de032
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1a1493033717b18bef5d80b28d06004c901ffb29
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613570"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910790"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인
 

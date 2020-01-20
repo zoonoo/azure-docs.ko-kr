@@ -63,6 +63,8 @@
           href: container-instances-encrypt-data.md
         - name: 전용 호스트에 배포
           href: container-instances-dedicated-hosts.md
+        - name: Logic Apps 커넥터 사용
+          href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: 컨테이너 시나리오
       items:
         - name: 일회성 작업에 대한 다시 시작 정책 설정
@@ -141,7 +143,7 @@
       href: /learn/browse/?products=azure-container-instances
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/container-instances/'
     - name: 로드맵
       href: 'https://azure.microsoft.com/roadmap/'

@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)'
-description: '자습서: Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅합니다.'
+title: '자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python) | Microsoft Azure Maps'
+description: Microsoft Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅합니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 7039cd73263388f206075a53d7898e0d15da6b03
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f45859370ae178fb186399fdd2648bf37f0985aa
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613689"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910915"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 

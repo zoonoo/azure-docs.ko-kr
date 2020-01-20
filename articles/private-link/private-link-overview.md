@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 127807a57598fcfe239db39cb9874bca955da44e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 299cd81c05af385c435eaf3788e3d7e39c486623
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647359"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867553"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Azure Private Link란? (미리 보기)
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage, Azure Cosmos DB 및 SQL Database)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. VNet(가상 네트워크)에서 자체 [Private Link Service](private-link-service-overview.md)를 만들어 고객에게 개인적으로 제공할 수도 있습니다. Azure Private Link를 사용하는 설정 및 사용 환경은 Azure PaaS, 고객 소유/공유 파트너 서비스에서 일관적입니다.
@@ -46,6 +46,9 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |  |  Azure SQL Database         | 모든 공용 지역      |   미리 보기      |
 ||Azure SQL Data Warehouse| 모든 공용 지역 |미리 보기|
 ||Azure Cosmos DB| 미국 중서부, 미국 서부, 미국 북중부 |미리 보기|
+|  |  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역      |   미리 보기      |
+|  |  Azure Database for MySQL         | 모든 공용 지역      |   미리 보기      |
+|  |  Azure Database for MariaDB         | 모든 공용 지역      |   미리 보기      |
 
 최신 알림은 [Azure Virtual Network 업데이트 페이지](https://azure.microsoft.com/updates/?product=virtual-network)를 확인하세요.
 
@@ -58,7 +61,7 @@ Azure Private Link가 Azure Monitor와 통합되기 때문에 스토리지 계�
     - Private Link 서비스에서 처리한 데이터(수신/송신)
     - NAT 포트 가용성  
  
-## <a name="pricing"></a>가격   
+## <a name="pricing"></a>가격 책정   
 가격 책정에 대한 자세한 내용은 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
  
 ## <a name="faqs"></a>FAQ  

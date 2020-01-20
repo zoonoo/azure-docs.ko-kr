@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Maps를 사용하여 대화형 맵 검색'
-description: Azure 빠른 시작 - Azure Maps를 사용하여 대화형 맵 검색 데모를 만듭니다.
+title: '빠른 시작: Azure Maps를 사용하여 대화형 맵 검색 | Microsoft Azure Maps'
+description: Microsoft Azure Maps 웹 SDK를 사용하여 대화형 맵 검색을 위한 데모 웹 애플리케이션을 만드는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408402"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910688"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 대화형 검색 맵 만들기
 
@@ -57,7 +57,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 2. 설정 섹션에서 **인증**을 선택합니다.
 3. **기본 키**를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다.
 
-![포털에서 기본 키 가져오기](./media/quick-demo-map-app/get-key.png)
+![Azure Portal에서 기본 Key Azure Maps 키 가져오기](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>애플리케이션 다운로드
 
@@ -73,7 +73,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 4. 대화형 검색 환경을 사용해 봅니다. 웹 애플리케이션 데모의 왼쪽 위 모서리에 있는 검색 상자에서 **식당**을 검색합니다.
 5. 검색 상자 아래에 표시되는 주소와 위치의 목록 위로 마우스를 이동합니다. 지도의 해당 핀이 해당 위치에 대한 정보를 팝업하는 상태를 확인합니다. 프라이빗 비즈니스의 정보 보호를 위해 가상의 이름과 주소가 표시됩니다.
 
-    ![대화형 검색 웹 애플리케이션](./media/quick-demo-map-app/interactive-search.png)
+    ![대화형 맵 검색 웹 애플리케이션](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

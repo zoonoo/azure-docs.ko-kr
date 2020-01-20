@@ -4,12 +4,12 @@ description: Azure CLI 스크립트 샘플 - Azure Storage에 연결하는 Azure
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 9c2a70066e673bfa164a58884891f29e220c7bd6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532829"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922679"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>명명된 스토리지 계정 연결로 함수 앱 만들기 
 
@@ -37,7 +37,7 @@ ms.locfileid: "74532829"
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 위치를 사용하여 리소스 그룹을 만듭니다. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정을 만듭니다. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버리스 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
 | [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) | 계정에 대한 연결 문자열을 가져옵니다. |
 | [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | 함수 앱에서 연결 문자열을 앱 설정으로 설정합니다. |
 

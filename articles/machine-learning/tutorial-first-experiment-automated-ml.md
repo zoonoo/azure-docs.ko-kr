@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c13b2a24147c542e36b78e8ae17af8e85414cd74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532476"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982429"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습을 사용하여 처음으로 분류 모델 만들어보기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -138,9 +138,9 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Machine Learni
         유효성 검사 | 교차 유효성 검사 유형 및 테스트 수를 선택합니다.|유효성 검사 유형:<br>&nbsp;k겹&nbsp;교차 유효성 검사 <br> <br> 유효성 검사 수: 2
         동시성| 실행되는 최대 병렬 반복 수 및 반복당 사용되는 코어 수| 최대&nbsp;동시&nbsp;반복: 5<br> 반복당&nbsp;최대&nbsp;코어&nbsp;: None
         
-        **확인**을 선택합니다.
+        **저장**을 선택합니다.
 
-1. **만들기**를 선택하여 실험을 실행합니다. 실험 준비가 시작되면 **실행 상태**를 나타내는 **실행 세부 정보** 화면이 열립니다.
+1. **마침**을 선택하여 실험을 실행합니다. 실험 준비가 시작되면 **실행 상태**를 나타내는 **실행 세부 정보** 화면이 열립니다.
 
 >[!IMPORTANT]
 > 실험 실행을 준비하기 위한 준비는 **10-15분**이 걸립니다.
@@ -155,7 +155,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Machine Learni
 
 모든 실험 모델이 완료될 때까지 기다리는 동안 완료된 모델의 **알고리즘 이름**을 선택하여 성능 세부 정보를 살펴봅니다. 
 
-다음에서는 **모델 세부 정보** 및 **시각화** 탭으로 이동하여 선택한 모델의 속성, 메트릭 및 성능 차트를 표시합니다. 
+다음에서는 **모델 세부 정보** 및 **시각화** 탭으로 이동하여 선택한 모델의 속성, 메트릭 및 성능 차트를 확인합니다. 
 
 ![반복 실행 세부 정보](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 

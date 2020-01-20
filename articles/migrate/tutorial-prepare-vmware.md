@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454545"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028899"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>평가 후 Azure로 마이그레이션할 VMware VM 준비
 
@@ -104,8 +104,9 @@ VMware VM 평가를 준비하려면 다음을 수행해야 합니다.
 
 ### <a name="verify-vmware-settings"></a>VMware 설정 확인
 
-1. 평가에 필요한 VMware 서버 요구 사항을 [확인](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements)합니다.
-2. 필요한 포트가 vCenter Server에서 열려 있는지 [확인](migrate-support-matrix-vmware.md#assessment-port-requirements)합니다.
+1. 평가에 필요한 VMware 서버 요구 사항을 [확인](migrate-support-matrix-vmware.md#vmware-requirements)합니다.
+2. 필요한 포트가 vCenter Server에서 열려 있는지 [확인](migrate-support-matrix-vmware.md#port-access)합니다.
+3. vCenter Server에서 계정에 OVA 파일을 사용하여 VM을 만들 수 있는 권한이 있는지 확인합니다. OVA 파일을 사용하여 Azure Migrate 어플라이언스를 VMware VM으로 배포합니다.
 
 
 ### <a name="set-up-an-account-for-assessment"></a>평가를 위한 계정 설정
@@ -120,15 +121,12 @@ VMware VM 평가를 준비하려면 다음을 수행해야 합니다.
 
 ### <a name="verify-appliance-settings-for-assessment"></a>평가를 위한 어플라이언스 설정 확인
 
-어플라이언스를 배포하기 전에 어플라이언스 요구 사항을 확인하세요.
+Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가를 시작하기 전에 어플라이언스 배포를 준비합니다.
 
-1. 어플라이언스 요구 사항 및 제한 사항을 [확인](migrate-support-matrix-vmware.md#assessment-appliance-requirements)합니다.
-2. URL 기반 방화벽 프록시를 사용하는 경우 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-vmware.md#assessment-url-access-requirements)합니다. URL을 조회하는 동안 수신된 CNAME 레코드를 프록시가 확인해야 합니다.
-3. 검색 및 평가 중에 어플라이언스가 수집하는 [성능 데이터](migrate-appliance.md#collected-performance-data-vmware) 및 [메타데이터](migrate-appliance.md#collected-metadata-vmware)를 검토합니다.
-4. 어플라이언스에서 액세스하는 포트를 [적어둡니다](migrate-support-matrix-vmware.md#assessment-port-requirements).
-5. vCenter Server에서 계정에 OVA 파일을 사용하여 VM을 만들 수 있는 권한이 있는지 확인합니다. OVA 파일을 사용하여 Azure Migrate 어플라이언스를 VMware VM으로 배포합니다.
-
-URL 기반 firewall.proxy를 사용하는 경우 필요한 [Azure URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements)에 대한 액세스를 허용하세요.
+1. VMware VM의 어플라이언스 요구 사항을 [확인](migrate-appliance.md#appliance---vmware)합니다.
+2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-appliance.md#url-access)합니다. URL 기반 방화벽 또는 프록시를 사용하는 경우 필요한 URL에 대한 액세스를 허용하는지 확인합니다.
+3. 검색 및 평가 중에 어플라이언스가 수집 업무를 수행하는지 [검토](migrate-appliance.md#collected-data---vmware)합니다.
+4. 어플라이언스에 대한 포트 액세스 요구 사항에 [유의](migrate-support-matrix-vmware.md#port-access)하세요.
 
 
 
@@ -137,23 +135,22 @@ URL 기반 firewall.proxy를 사용하는 경우 필요한 [Azure URL](migrate-s
 
 VMware VM의 에이전트 없는 마이그레이션에 대한 요구 사항을 검토합니다.
 
-1. VMware 서버 요구 사항을 [검토](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements)합니다.
-2. Azure Migrate에서 Azure Migrate 서버 마이그레이션을 사용하여 에이전트 없는 마이그레이션을 위해 vCenter Server에 액세스할 수 있도록 [필요한 권한](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions)으로 계정을 설정합니다.
-3. 에이전트 없는 마이그레이션을 사용하여 Azure로 마이그레이션하려는 VMware VM에 대한 요구 사항을 [검토](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)합니다.
-4. 에이전트 없는 마이그레이션에 Azure Migrate 어플라이언스를 사용하기 위한 요구 사항을 [검토](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements)합니다.
-5. Azure Migrate 어플라이언스에서 에이전트 없는 마이그레이션에 필요한 [URL 액세스](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) 및 [포트 액세스](migrate-support-matrix-vmware.md#agentless-migration-port-requirements)를 적어둡니다.
+1. VMware 서버 요구 사항과 Azure Migrate에서 Azure Migrate Server Migration을 사용하여 에이전트 없는 마이그레이션을 위해 vCenter Server에 액세스해야 하는 [권한](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers)을 [검토](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers)합니다.
+2. 에이전트 없는 마이그레이션을 사용하여 Azure로 마이그레이션하려는 VMware VM에 대한 요구 사항을 [검토](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms)합니다.
+4. 에이전트 없는 마이그레이션에 Azure Migrate 어플라이언스를 사용하기 위한 요구 사항을 [검토](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance)합니다.
+5. 에이전트 없는 마이그레이션에 필요한 [URL 액세스](migrate-appliance.md#url-access) 및 [포트 액세스](migrate-support-matrix-vmware-migration.md#agentless-ports)에 유의하세요.
 
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>에이전트 기반 VMware 마이그레이션 준비
 
 VMware VM의 [에이전트 기반 마이그레이션](server-migrate-overview.md)에 대한 요구 사항을 검토합니다.
 
-1. VMware 서버 요구 사항을 [검토](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements)합니다.
-2. [필요한 권한](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions)이 있는 계정을 설정하여 Azure Migrate에서 Azure Migrate 서버 마이그레이션을 통해 에이전트 기반 마이그레이션을 위해 vCenter Server에 액세스할 수 있도록 합니다.
-3. 마이그레이션할 각 VM에 Mobility Service 설치를 포함하여, 에이전트 기반 마이그레이션을 사용해 Azure로 마이그레이션하려는 VMware VM에 대한 요구 사항을 [검토](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)합니다.
-4. [URL 액세스](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements)에 유의하세요.
-5. Azure Migrate 구성 요소의 에이전트 기반 액세스에 필요한 [포트 액세스](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements)를 검토합니다.
-
+1. VMware 서버 요구 사항과 Azure Migrate에서 Azure Migrate Server Migration을 사용하여 에이전트 기반 마이그레이션을 위해 vCenter Server에 액세스해야 하는 권한을 [검토](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers)합니다.
+2. 마이그레이션할 각 VM에 Mobility Service 설치를 포함하여, 에이전트 기반 마이그레이션을 사용해 Azure로 마이그레이션하려는 VMware VM에 대한 요구 사항을 [검토](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms)합니다.
+3. 에이전트 기반 마이그레이션은 복제 어플라이언스를 사용합니다.
+    - 복제 어플라이언스에 대한 배포 요구 사항 및 어플라이언스에 MySQL을 설치하기 위한 [옵션](migrate-replication-appliance.md#mysql-installation)을 [검토](migrate-replication-appliance.md#appliance-requirements)합니다.
+    - 복제 어플라이언스에 대한 [URL](migrate-replication-appliance.md#url-access) 및 [포트](migrate-replication-appliance.md#port-access) 액세스 요구 사항을 검토합니다.
+    
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음을 수행합니다.

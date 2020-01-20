@@ -8,14 +8,14 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: spelluru
-ms.openlocfilehash: ded2c83bc648e509c8cf00236cdf453b9c61af53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39087b189c424866fffcc3ea8723c712883f288c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720565"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940719"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 
@@ -23,10 +23,13 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 이 자습서에서는 이벤트 허브와 이벤트를 주고 받는 Node.js 애플리케이션을 작성하는 방법을 설명합니다.
 
+> [!IMPORTANT]
+> 이 빠른 시작에서는 Azure Event Hubs Java Script SDK 버전 2를 사용합니다. Azure Event Hubs를 처음 사용하는 경우 Java Script SDK 버전 5를 사용합니다. Java Script SDK 버전 5를 사용하는 빠른 시작은 [이 문서](get-started-node-send-v2.md)를 참조하세요. 기존 코드를 버전 2에서 버전 5로 마이그레이션해야 하는 경우 [마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)를 참조하세요.
+
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -37,10 +40,10 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 
 ### <a name="install-npm-package"></a>npm 패키지 설치
-[Event Hubs용 npm 패키지](https://www.npmjs.com/package/@azure/event-hubs)를 설치하려면 경로에 `npm`이 있는 명령 프롬프트를 열고, 샘플을 저장하고 이 명령을 실행할 폴더로 디렉터리를 변경합니다.
+[Event Hubs용 npm 패키지](https://www.npmjs.com/package/@azure/event-hubs/v/2.1.0)를 설치하려면 경로에 `npm`이 있는 명령 프롬프트를 열고, 샘플을 저장하고 이 명령을 실행할 폴더로 디렉터리를 변경합니다.
 
 ```shell
-npm install @azure/event-hubs
+npm install @azure/event-hubs@2
 ```
 
 [이벤트 프로세서 호스트용 npm 패키지](https://www.npmjs.com/package/@azure/event-processor-host)를 설치하려면 아래 명령을 대신 실행합니다.
@@ -57,7 +60,7 @@ npm install @azure/event-processor-host
 2. `send.js`라는 파일을 만들고 아래 코드를 이 파일에 붙여넣습니다. 문서의 지침에 따라 이벤트 허브 네임스페이스에 대한 연결 문자열을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 
 
     ```javascript
-    const { EventHubClient } = require("@azure/event-hubs");
+    const { EventHubClient } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -95,7 +98,7 @@ npm install @azure/event-processor-host
 1. 선호하는 편집기(예: [Visual Studio Code](https://code.visualstudio.com))를 엽니다. 
 2. `receive.js`라는 파일을 만들고 아래 코드를 이 파일에 붙여넣습니다.
     ```javascript
-    const { EventHubClient, delay } = require("@azure/event-hubs");
+    const { EventHubClient, delay } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

@@ -4,16 +4,16 @@ description: 함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 3fa11d5cd81d93b89b6e8ae63fd491842be78633
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532797"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922649"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Azure에서 Azure DevOps로부터 배포되는 함수 만들기
 
-이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/solutions/serverless/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 Azure DevOps 리포지토리에서 지속적으로 배포됩니다. 
+이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버리스](https://azure.microsoft.com/solutions/serverless/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 Azure DevOps 리포지토리에서 지속적으로 배포됩니다. 
 
 이 항목을 완료하려면 다음 항목이 필요합니다.
 
@@ -42,7 +42,7 @@ Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 스토리지 계정을 만듭니다. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버리스 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
 | [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Git 또는 Mercurial 리포지토리를 사용하여 함수 앱에 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계

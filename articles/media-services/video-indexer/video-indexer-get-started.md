@@ -8,20 +8,20 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: 957acc25c3218069a20e90fe83e00e441b6303d6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839551"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941551"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
 이 시작 자습서에서는 Video Indexer 웹 사이트에 로그인하고 첫 번째 비디오를 업로드하는 방법을 보여줍니다.
 
-Video Indexer 계정을 만들 때 평가판 계정(일정한 무료 인덱싱 시간(분)을 가져올 수 있음) 또는 유료 옵션(할당량으로 제한되지 않음)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 Azure Media Services 계정과 관련된 요금을 지불합니다. 
+Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 Azure Media Services 계정과 관련된 요금을 지불합니다. 
 
 ## <a name="sign-up-for-video-indexer"></a>Video Indexer에 가입
 
@@ -31,6 +31,12 @@ Video Indexer를 사용하여 개발을 시작하려면 [Video Indexer](https://
 
 > [!NOTE]
 > 비디오 이름은 80자를 넘지 않아야 합니다.
+
+### <a name="supported-file-formats-for-video-indexer"></a>Video Indexer에 대해 지원되는 파일 형식
+
+Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨테이너/파일 형식](../latest/media-encoder-standard-formats.md#input-containerfile-formats) 문서를 참조하세요.
+
+### <a name="upload-a-video"></a>비디오 업로드
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다.
 2. 비디오를 업로드하려면 **업로드** 단추나 링크를 누릅니다.
@@ -45,7 +51,9 @@ Video Indexer를 사용하여 개발을 시작하려면 [Video Indexer](https://
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 [Video Indexer](video-indexer-view-edit.md) 웹 사이트 또는 [Video Indexer 개발자 포털](video-indexer-use-apis.md)을 사용하여 비디오에 대한 인사이트를 볼 수 있습니다. 
+자세한 내용은 [비디오 업로드 및 인덱싱](upload-index-videos.md)을 참조하세요.
+
+비디오를 업로드하고 인덱싱한 후 [Video Indexer](video-indexer-view-edit.md) 웹 사이트 또는 [Video Indexer 개발자 포털](video-indexer-use-apis.md)을 사용하여 비디오의 인사이트를 확인할 수 있습니다. 
 
 ## <a name="see-also"></a>참고 항목
 

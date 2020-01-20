@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b387df5049fff2cb17e8d0758f1cf5fd8f0d0853
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 21488fbc8a5a9354db74d5b93719d100bce8878c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049100"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045675"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 표준 Load Balancer 만들기
 
@@ -105,7 +105,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>NAT 규칙 만들기
 
-[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig)를 사용하여 NAT 규칙을 만듭니다. 다음 예제에서는 포트 4221 및 4222로 백 엔드 서버에 RDP 연결을 허용하도록 *myLoadBalancerRDP1* 및 *myLoadBalancerRDP2*라는 NAT 규칙을 만듭니다.
+[New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig)를 사용하여 NAT 규칙을 만듭니다. 다음 예제에서는 포트 4221 및 4222로 백 엔드 서버에 RDP 연결을 허용하도록 *myLoadBalancerRDP1* 및 *myLoadBalancerRDP2*라는 NAT 규칙을 만듭니다.
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `

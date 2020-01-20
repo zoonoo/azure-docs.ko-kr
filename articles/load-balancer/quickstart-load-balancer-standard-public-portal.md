@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225202"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771464"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-standard-load-balancer"></a>표준 Load Balancer 만들기
 
-이 섹션에서는 가상 머신의 부하를 분산하는 데 도움이 되는 표준 Load Balancer를 만듭니다. 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. 표준 부하 분산 장치를 만들 때 표준 부하 분산 장치의 프런트 엔드(기본 이름은 *LoadBalancerFrontend*)로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 
+이 섹션에서는 가상 머신의 부하를 분산하는 데 도움이 되는 표준 Load Balancer를 만듭니다. 공용 표준 Load Balancer 또는 내부 표준 Load Balancer를 만들 수 있습니다. 표준 Load Balancer는 표준 공용 IP 주소만 지원하며 기본 공용 IP 주소는 지원되지 않습니다. 공용 표준 Load Balancer를 만들 때 표준 Load Balancer의 프런트 엔드(기본 이름은 *LoadBalancerFrontend*)로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 
 
 1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
 2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 유지한 다음, **검토 + 만들기**를 선택합니다.
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *myResourceGroupSLB*를 입력합니다.|
-    | Name                   | *myLoadBalancer*                                   |
+    | 속성                   | *myLoadBalancer*                                   |
     | 지역         | **유럽 서부**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |
@@ -75,7 +75,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myHealthProbe*를 입력합니다. |
+    | 속성 | *myHealthProbe*를 입력합니다. |
     | 프로토콜 | **HTTP**를 선택합니다. |
     | 포트 | *80*을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 *15*를 입력합니다. |
@@ -92,7 +92,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myHTTPRule*을 입력합니다. |
+    | 속성 | *myHTTPRule*을 입력합니다. |
     | 프로토콜 | **TCP**를 선택합니다. |
     | 포트 | *80*을 입력합니다.|
     | 백 엔드 포트 | *80*을 입력합니다. |
@@ -112,14 +112,14 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myVNet*을 입력합니다. |
+    | 속성 | *myVNet*을 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | 기존 리소스(*myResourceGroupSLB*)를 선택합니다. |
     | 위치 | **유럽 서부**를 선택합니다.|
     | 서브넷 - 이름 | *myBackendSubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
-1. 나머지는 기본값으로 두고 **만들기**를 선택합니다.
+1. 나머지는 기본값으로 두고, **만들기**를 선택합니다.
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 표준 Load Balancer는 백 엔드 풀에서 표준 IP 주소를 사용하는 VM만 지원합니다. 이 섹션에서는 이전에 생성된 표준 Load Balancer의 백 엔드 풀에 나중에 추가된 세 가지 다른 영역(*영역 1*, *영역 2* 및 *영역 3*)에 표준 공용 IP 주소를 사용하는 세 개의 VM(*myVM1*, *myVM2* 및 *myVM3*)을 만듭니다.
@@ -154,7 +154,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 
     | 설정 | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  *myVM2* |*myVM3*|
+    | 속성 |  *myVM2* |*myVM3*|
     | 가용성 영역 | 2 |3|
     |공용 IP| **표준** SKU|**표준** SKU|
     | 공용 IP - 가용성 영역| **영역 중복** |**영역 중복**|

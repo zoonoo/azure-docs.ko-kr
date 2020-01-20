@@ -4,12 +4,12 @@ description: Azure Container Instances 서비스는 가상 머신을 관리하�
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552324"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888036"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -54,7 +54,7 @@ Azure Container Instances는 동일한 API로 Windows 및 Linux 컨테이너를 
 * 컨테이너 그룹당 다중 컨테이너 수
 * 볼륨 탑재([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
 * Azure Monitor로 [리소스 사용량 메트릭](container-instances-monitor.md)
-* [가상 네트워크 배포](container-instances-vnet.md)(미리 보기)
+* [가상 네트워크 배포](container-instances-vnet.md)
 * [GPU 리소스](container-instances-gpu.md)(미리 보기)
 
 Windows 컨테이너 배포의 경우 일반적인 [Windows 기본 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지를 사용합니다.
@@ -66,12 +66,9 @@ Windows 컨테이너 배포의 경우 일반적인 [Windows 기본 이미지](co
 
 Azure Container Instances는 호스트 컴퓨터, 로컬 네트워크, 스토리지 및 수명 주기를 공유하는 [다중 컨테이너 그룹](container-instances-container-groups.md)의 예약을 지원합니다. 이렇게 하면 주 애플리케이션 컨테이너를 로깅 사이드카 같은 다른 지원 역할 컨테이너와 결합할 수 있습니다.
 
-## <a name="virtual-network-deployment-preview"></a>가상 네트워크 배포(미리 보기)
+## <a name="virtual-network-deployment"></a>가상 네트워크 배포
 
-현재 미리 보기에서는 Azure Containers Instances의 이 기능을 사용하면 [Azure 가상 네트워크에 컨테이너 인스턴스를 배포](container-instances-vnet.md)하도록 설정할 수 있습니다. 컨테이너 인스턴스를 가상 네트워크 내의 서브넷에 배포하면 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에 있는 컨테이너 인스턴스를 포함하여 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
-
-> [!IMPORTANT]
-> Azure Container Instances의 특정 기능은 미리 보기로 제공되며, 일부 [제한 사항이 적용](container-instances-vnet.md#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이러한 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+현재 Azure 지역의 하위 집합에서 프로덕션 워크로드에 사용할 수 있는 Azure Containers Instances의 이 기능을 통해 [Azure 가상 네트워크에 컨테이너 인스턴스를 배포](container-instances-vnet.md)하도록 설정할 수 있습니다. 컨테이너 인스턴스를 가상 네트워크 내의 서브넷에 배포하면 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에 있는 컨테이너 인스턴스를 포함하여 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,17 +8,17 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701840"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772366"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 
 > [!NOTE]
-> 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 진행한 경우 최상의 결과를 얻으려면 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작하는 것이 좋습니다.
+> 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 이동한 경우에는 학습 효과를 극대화할 수 있도록 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작하는 것이 좋습니다.
 
 이 문서에서는 리프 디바이스로부터 메시지를 받고, 기계 학습 모델을 통해 데이터를 실행한 다음, 인사이트를 IoT Hub에 전달하는 세 개의 IoT Edge 모듈을 만듭니다.
 
@@ -45,7 +45,7 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 
   * 출력:
     * **classify:** 메시지를 "amlInput"에 보냅니다.
-    * **writeAvro:** "avroModuleInput" 메시지를 보냅니다.
+    * **writeAvro:** "avroModuleInput"에 메시지를 보냅니다.
     * **toIotHub:** 메시지를 $upstream에 보내고 해당 메시지를 연결된 IoT Hub에 전달합니다.
 
 아래 다이어그램에서는 전체 솔루션에 대한 모듈, 입력, 출력 및 IoT Edge Hub 경로를 보여 줍니다.

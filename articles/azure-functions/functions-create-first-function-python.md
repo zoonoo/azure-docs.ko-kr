@@ -4,12 +4,12 @@ description: Azure에서 Azure Functions Core Tools 및 Azure CLI를 사용하�
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3de8c42c59455cc326fa909bc520a94daac68706
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433204"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769339"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>빠른 시작: Azure에서 HTTP 트리거 Python 함수 만들기
 
@@ -122,7 +122,7 @@ Ctrl+C를 사용하여 함수 앱 실행을 종료합니다.
 
 ## <a name="create-a-function-app-in-azure"></a>Azure에서 함수 앱 만들기
 
-함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. 
+함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다.
 
 다음 명령을 실행합니다. `<APP_NAME>`을 고유한 함수 앱 이름으로 바꿉니다. `<STORAGE_NAME>`을 스토리지 계정 이름으로 바꿉니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 이 이름은 Azure의 모든 앱에서 고유해야 합니다.
 

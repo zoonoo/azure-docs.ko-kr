@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 7208825581a0bf16f6ee3a3947387b01abfd16d0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5488606939bafc402210ad35f3a17e71ac072010
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433065"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044523"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 소개  
 Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 애플리케이션 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. Functions는 개발 생산성을 높일 수 있으며 C#, Java, JavaScript, PowerShell 및 Python 등 원하는 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure를 신뢰하여 필요에 따라 크기를 조정합니다. Azure Functions를 사용하면 Microsoft Azure에서 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 애플리케이션을 개발할 수 있습니다.
@@ -21,7 +21,7 @@ Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하
 ## <a name="features"></a>기능
 Azure Functions의 몇 가지 주요 기능은 다음과 같습니다.
 
-* **언어 선택** - C#, Java, Javascript, Python 등 원하는 언어를 사용하여 함수를 작성합니다. 전체 목록은 [지원되는 언어](supported-languages.md)를 참조하세요.
+* **언어 선택** - C#, Java, JavaScript, Python 및 기타 언어를 사용하여 함수를 작성합니다. 전체 목록은 [지원되는 언어](supported-languages.md)를 참조하세요.
 * **사용량에 따른 가격 책정 모델** - 코드를 실행하는 데 사용한 시간에 대해서만 지불합니다. [가격 책정 섹션](#pricing)에서 소비 호스팅 요금제 옵션을 참조하세요.  
 * **고유한 종속성 가져오기** - Functions는 NuGet 및 NPM을 지원하므로 즐겨찾는 라이브러리를 사용할 수 있습니다.  
 * **통합 보안** - Azure Active Directory, Facebook, Google, Twitter, Microsoft 계정 등의 OAuth 공급자를 사용하여 HTTP 트리거 함수를 보호합니다.  
@@ -30,7 +30,7 @@ Azure Functions의 몇 가지 주요 기능은 다음과 같습니다.
 * **오픈 소스** - Functions 런타임은 오픈 소스이며 [GitHub에서 사용](https://github.com/azure/azure-webjobs-sdk-script)할 수 있습니다.  
 
 ## <a name="what-can-i-do-with-functions"></a>함수로 할 수 있는 작업은 무엇인가요?
-Azure Functions는 데이터 처리, 시스템 통합, IoT(사물 인터넷) 작업 및 간단한 API/마이크로 서비스 빌드를 위한 훌륭한 솔루션입니다. Functions는 이미지 또는 주문 처리, 파일 유지 관리와 같은 작업 또는 일정에 따라 실행하려는 작업에 사용하는 것이 좋습니다. 
+Azure Functions는 데이터 처리, 시스템 통합, IoT(사물 인터넷) 작업 및 간단한 API/마이크로 서비스 빌드를 위한 훌륭한 솔루션입니다. 웹 API, 이미지 또는 주문 처리, 파일 유지 관리와 같은 작업 또는 일정에 따라 실행하려는 작업에 대한 Functions를 고려하세요. 
 
 Functions는 다음을 포함한 주요 시나리오로 시작할 수 있는 템플릿을 제공합니다.
 

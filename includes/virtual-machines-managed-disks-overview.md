@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 72b6c1f86b18df172994827ec78eb109fe82454e
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355897"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913776"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -55,7 +55,7 @@ ms.locfileid: "75355897"
 
 ### <a name="server-side-encryption"></a>서버 쪽 암호화
 
-[Azure 서버 쪽 암호화](../articles/virtual-machines/windows/disk-encryption.md)는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. 서버 쪽 암호화는 관리 디스크를 사용할 수 있는 모든 지역의 모든 관리 디스크, 스냅샷 및 이미지에서 기본적으로 사용하도록 설정됩니다. Azure에서 키를 관리하도록 허용하거나 플랫폼 관리 키, 직접 키를 관리할 수 있습니다. 이러한 키는 고객 관리 키(미리 보기)입니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
+[Azure 서버 쪽 암호화](../articles/virtual-machines/windows/disk-encryption.md)는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. 서버 쪽 암호화는 관리 디스크를 사용할 수 있는 모든 지역의 모든 관리 디스크, 스냅샷 및 이미지에서 기본적으로 사용하도록 설정됩니다. Azure에서 키를 관리하도록 허용하거나 플랫폼 관리 키, 직접 키를 관리할 수 있습니다. 이러한 키는 고객 관리 키입니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
 
 ### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 

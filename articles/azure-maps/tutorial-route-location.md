@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Maps로 경로 찾기'
-description: '자습서: Azure Maps를 사용하여 관심 지점으로 라우팅'
+title: '자습서: 위치에 대한 경로 찾기 | Microsoft Azure Maps'
+description: 이 자습서에서는 Microsoft Azure Maps Routing Service를 사용하여 맵에서 위치(관심 지점)로 경로를 렌더링하는 방법을 보여줍니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613604"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910843"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 관심 지점으로 라우팅
 
@@ -168,7 +168,7 @@ ms.locfileid: "75613604"
 
 3. **MapRoute.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 지도의 중심에 시애틀이 표시되며, 출발점을 표시하는 파란색 핀과 도착점을 표시하는 둥근 파란색 핀을 볼 수 있습니다.
 
-   ![시작점과 끝점이 표시된 지도 보기](media/tutorial-route-location/map-pins.png)
+   ![맵에서 경로 시작점과 종료점 보기](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

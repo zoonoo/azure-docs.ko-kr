@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 15c707b5424e84e99e0b1942bb623e6d3845213a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f73a35b9c04b8b520be4f0adeb8ddb4142499075
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471258"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834372"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기
 
@@ -18,7 +18,7 @@ Azure Resource Manager 템플릿을 만들어서 여러 리소스를 배포하�
 
 이 자습서에서는 스토리지 계정, 가상 머신, 가상 네트워크 및 몇 가지 다른 종속 리소스를 만듭니다. 일부 리소스는 다른 리소스가 존재하기 전에는 배포할 수 없습니다. 예를 들어 스토리지 계정 및 네트워크 인터페이스가 없으면 가상 머신을 만들 수 없습니다. 한 리소스를 다른 리소스의 종속 리소스로 만들어서 이 관계를 정의할 수 있습니다. Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의](./define-resource-dependency.md)를 참조하세요.
 
-![리소스 관리자 템플릿 종속 리소스 배포 순서 다이어그램](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![Resource Manager 템플릿 종속 리소스 배포 순서 다이어그램](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -161,7 +161,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 가상 머신, 가상 네트워크 및 종속 리소스를 만드는 템플릿을 개발하고 배포했습니다. 조건에 따라 Azure 리소스를 배포하는 방법을 배우려면 다음을 참조하세요.
+이 자습서에서는 가상 머신, 가상 네트워크 및 종속 리소스를 만드는 템플릿을 개발하고 배포했습니다. 배포 스크립트를 사용하여 배포 전/후 작업을 수행하는 방법에 대한 자세한 내용은
 
 > [!div class="nextstepaction"]
-> [조건 사용](./template-tutorial-use-conditions.md)
+> [배포 스크립트 사용](./template-tutorial-deployment-script.md)을 참조하세요.

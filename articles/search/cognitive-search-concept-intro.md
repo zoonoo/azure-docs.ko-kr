@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2ef7f273d6838b1bc051c70539ef7d9da59d7148
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791036"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754571"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 소개
 
@@ -32,7 +32,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
 ## <a name="when-to-use-cognitive-skills"></a>인지 기술을 사용하는 경우
 
@@ -103,7 +103,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 
 ## <a name="key-features-and-concepts"></a>주요 기능 및 개념
 
-| 개념 | 설명| 링크 |
+| 개념 | Description| 링크 |
 |---------|------------|-------|
 | 기술 집합 | 기술 컬렉션이 포함된 최상위의 명명된 리소스입니다. 기술 집합은 보강 파이프라인입니다. 인덱서가 인덱싱을 수행하는 동안 호출됩니다. | [기술 세트 정의](cognitive-search-defining-skillset.md)를 참조하세요. |
 | 인지 기술 | 보강 파이프라인의 원자성 변환입니다. 대개, 구조를 추출하거나 유추하는 구성 요소이므로 입력 데이터에 대한 이해를 높여줍니다. 거의 항상 출력은 텍스트 기반이며 처리는 자연어 처리이거나 이미지 입력으로부터 텍스트를 추출하거나 생성하는 이미지 처리입니다. 기술을 통한 출력은 인덱스의 필드로 매핑되거나 다운스트림 보강을 위한 입력으로 사용될 수 있습니다. 기술은 Microsoft가 미리 정의해서 제공하거나 사용자가 지정하여 생성하고 배포합니다. | [기본 제공 인지 기술](cognitive-search-predefined-skills.md) |
@@ -113,11 +113,11 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 | 문서 크래킹 | 인덱싱 중에 텍스트가 아닌 원본에서 텍스트 콘텐츠를 추출하거나 만드는 프로세스입니다. OCR(광학 문자 인식)은 하나의 예이며, 일반적으로 인덱서가 애플리케이션 파일에서 콘텐츠를 추출하는 핵심 인덱서 기능을 말합니다. 원본 파일 위치를 제공하는 데이터 원본과 필드 매핑을 제공하는 인덱서 정의는 문서 크래킹의 핵심 요소입니다. | [인덱서 개요](search-indexer-overview.md)를 참조하세요. |
 | 셰이핑 | 추가적인 다운스트림 처리를 위해 텍스트 조각을 더 큰 구조에 통합하거나 반대로 큰 텍스트 청크를 처리할 수 있는 크기로 분해합니다. | [쉐이퍼 기술](cognitive-search-skill-shaper.md), [텍스트 병합기 기술](cognitive-search-skill-textmerger.md), [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 참조하세요. |
 | 보강된 문서 | 검색 인덱스에 반영된 최종 출력을 사용하여 처리하는 동안 생성된 일시적인 내부 구조입니다. 기술 세트는 어떤 보강이 수행되는지 결정합니다. 필드 매핑은 인덱스에 추가할 데이터 요소를 결정합니다. 선택적으로, Storage Explorer, Power BI 또는 Azure Blob Storage에 연결되는 다른 도구를 사용하여 보강된 문서를 유지하고 살펴보기 위한 기술 저장소를 만들 수 있습니다. | [지식 저장소(미리 보기)](knowledge-store-concept-intro.md)를 참조하세요. |
-| 인덱서 |  외부 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 문서 크래킹을 위한 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. AI 보강의 경우 인덱서는 기술 세트를 호출하고, 인덱스의 대상 필드에 보강 출력을 연결하는 필드 매핑을 포함합니다. 인덱서 정의에는 파이프라인 작업에 대한 모든 지침과 참조가 포함되며 인덱서를 실행하면 파이프라인이 호출됩니다. 추가 구성을 통해 기존 처리를 다시 사용하고 변경된 단계 및 기술만 실행할 수 있습니다. | [인덱서](search-indexer-overview.md) 및 [증분 인덱싱(미리 보기)](cognitive-search-incremental-indexing-conceptual.md)을 참조하세요. |
+| 인덱서 |  외부 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 문서 크래킹을 위한 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. AI 보강의 경우 인덱서는 기술 세트를 호출하고, 인덱스의 대상 필드에 보강 출력을 연결하는 필드 매핑을 포함합니다. 인덱서 정의에는 파이프라인 작업에 대한 모든 지침과 참조가 포함되며 인덱서를 실행하면 파이프라인이 호출됩니다. 추가 구성을 통해 기존 처리된 콘텐츠를 다시 사용하고 변경된 단계 및 기술만 실행할 수 있습니다. | [인덱서](search-indexer-overview.md) 및 [증분 보강(미리 보기)](cognitive-search-incremental-indexing-conceptual.md)을 참조하세요. |
 | 데이터 원본  | Azure에서 지원되는 유형의 외부 데이터 소스에 연결할 때 인덱서에 사용되는 개체입니다. | [인덱서 개요](search-indexer-overview.md)를 참조하세요. |
 | 인덱스 | 필드 구조와 사용법을 정의하는 인덱스 스키마에서 작성된 Azure Cognitive Search의 지속형 검색 인덱스입니다. | [기본 인덱스 만들기](search-what-is-an-index.md)를 참조하세요. | 
 | 지식 저장소 | 검색 인덱스 외에도 보강 문서 모양을 지정하고 프로젝션 할 수 있는 스토리지 계정 | [지식 저장소 소개](knowledge-store-concept-intro.md)를 참조하세요. | 
-| 인덱서 캐시 | 스토리지 계정 기술 출력은 인덱서에 의해 캐시됩니다. 이 캐시를 사용하면 인덱서가 기술 세트를 편집할 때 많은 수의 문서를 다시 처리하는 비용을 최소화할 수 있습니다. | [증분 인덱싱](cognitive-search-incremental-indexing-conceptual.md)을 참조하세요. | 
+| 캐시 | 보강 파이프라인에서 만든 캐시된 출력을 포함하는 스토리지 계정입니다. 캐시를 사용하도록 설정하면 기술 세트 또는 보강 파이프라인의 다른 구성 요소에 대한 변경에 영향을 받지 않는 기존 출력이 유지됩니다. | [증분 보강](cognitive-search-incremental-indexing-conceptual.md)을 참조하세요. | 
 
 <a name="where-do-i-start"></a>
 
@@ -129,7 +129,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 
 + [빠른 시작(포털)](cognitive-search-quickstart-blob.md)
 + [자습서(HTTP 요청)](cognitive-search-tutorial-blob.md)
-+ [예제: AI 보강에 대한 사용자 지정 기술 만들기(C#)](cognitive-search-create-custom-skill-example.md)
++ [예: AI 보강에 대한 사용자 지정 기술 만들기(C#)](cognitive-search-create-custom-skill-example.md)
 
 학습 목적이라면 무료 서비스를 추천하지만, 무료 트랜잭션 수는 하루에 문서 20개로 제한됩니다. 빠른 시작과 자습서를 하루에 모두 실행하려면 두 연습 모두에 적합하도록 더 작은 파일 세트(10개 문서)를 사용하거나, 빠른 시작 또는 자습서에서 사용한 인덱서를 삭제하여 카운터를 0으로 다시 설정합니다.
 
@@ -139,7 +139,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 
 이 단계에서는 REST API를 사용하여 AI 보강 솔루션을 빌드합니다. AI 보강을 위해 두 개의 API만 추가되거나 확장됩니다. 다른 API는 일반적으로 사용 가능한 버전과 동일한 구문을 포함합니다.
 
-| REST API | 설명 |
+| REST API | Description |
 |-----|-------------|
 | [데이터 원본 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 보강된 문서를 만드는 데 사용되는 원본 데이터를 제공하는 외부 데이터 원본을 식별하는 리소스입니다.  |
 | [기술 세트 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 이 API는 AI 보강과 관련이 있습니다. 인덱싱 중에 보강 파이프라인에 사용되는 [기본 제공 기술](cognitive-search-predefined-skills.md) 및 [사용자 지정 인지 기술](cognitive-search-custom-skill-interface.md)의 사용을 조정하는 리소스입니다. |
@@ -174,4 +174,4 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 + [빠른 시작: 포털에서 AI 보강 체험 연습](cognitive-search-quickstart-blob.md)
 + [자습서: AI 보강 API에 대해 알아보기](cognitive-search-tutorial-blob.md)
 + [지식 저장소(미리 보기)](knowledge-store-concept-intro.md)
-+ [지식 저장소 연습](knowledge-store-howto.md)
++ [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)

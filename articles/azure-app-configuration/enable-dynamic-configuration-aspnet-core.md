@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c08b42d8217bf16dfcd8af17fa3c4627b95ffc3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433701"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028233"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -53,10 +53,12 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
 
     ```CLI
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
     ```
 
 1. *Program.cs*를 열고, `CreateWebHostBuilder` 메서드를 업데이트하여 `config.AddAzureAppConfiguration()` 메서드를 추가합니다.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -79,6 +81,30 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
             .UseStartup<Startup>();
     ```
 
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                    {   
+                        options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureRefresh(refresh =>
+                                {
+                                    refresh.Register("TestApp:Settings:BackgroundColor")
+                                            .Register("TestApp:Settings:FontColor")
+                                            .Register("TestApp:Settings:Message");
+                                });
+                    });
+                })
+            .UseStartup<Startup>());
+    ```
+    ---
+
     `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. 새로 고침 작업을 실제로 트리거하려면, 변경이 발생할 때 구성 데이터를 새로 고치도록 새로 고침 미들웨어를 애플리케이션에 대해 구성해야 합니다.
 
 2. 새 `Settings` 클래스를 정의하고 구현하는 *Settings.cs* 파일을 추가합니다.
@@ -96,12 +122,38 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
     }
     ```
 
-3. *Startup.cs*를 열고, `Settings` 클래스에 구성 데이터를 바인딩하도록 `ConfigureServices` 메서드를 업데이트합니다.
+3. *Startup.cs*를 열고 `ConfigureServices` 메서드에서 `IServiceCollection.Configure<T>`를 사용하여 구성 데이터를 `Settings` 클래스에 바인딩합니다.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddControllersWithViews();
+    }
+    ```
+    ---
+
+4. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 받는 동안 새로 고침을 위해 등록된 구성 설정을 업데이트할 수 있도록 `UseAzureAppConfiguration` 미들웨어를 추가합니다.
+
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
 
         services.Configure<CookiePolicyOptions>(options =>
         {
@@ -109,19 +161,46 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
             options.MinimumSameSitePolicy = SameSiteMode.None;
         });
 
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-    }
-    ```
-
-4. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 받는 동안 새로 고침을 위해 등록된 구성 설정을 업데이트할 수 있는 미들웨어를 추가합니다.
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        app.UseAzureAppConfiguration();
         app.UseMvc();
     }
     ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
+            // Add the following line:
+            app.UseAzureAppConfiguration();
+
+            app.UseHttpsRedirection();
+            
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+    }
+    ```
+    ---
     
     미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청마다 새로 고침 작업이 트리거되고 클라이언트 라이브러리는 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료된 캐시된 값의 경우 설정 값이 App Configuration 저장소로 업데이트되고 나머지 값은 그대로 유지됩니다.
     
@@ -137,6 +216,8 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
     ```
 
 2. 종속성 주입을 통해 `Settings`를 받도록 `HomeController` 클래스를 업데이트하고 해당 값을 사용합니다.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public class HomeController : Controller
@@ -158,6 +239,37 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
         }
     }
     ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger, IOptionsSnapshot<Settings> settings)
+        {
+            _logger = logger;
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+
+        // ...
+    }
+    ```
+    ---
+
+
 
 3. 보기 > 홈 디렉터리에서 *Index.cshtml*을 열고, 해당 콘텐츠를 다음 스크립트로 바꿉니다.
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6adb48b9d6c490b60302f93101506ec53679ae4f
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: bebc7dde30dad57157d0abee7f2294d9da58fd5c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530408"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861815"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>자습서: Azure Time Series Insights 미리 보기 환경 설정
 
@@ -62,12 +62,12 @@ ms.locfileid: "75530408"
 
    [![디바이스 시뮬레이션 솔루션 프로비저닝](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. 프로비저닝이 완료되면 배포 상태가 **프로비저닝**에서 **준비**로 이동되었음을 나타내는 두 개의 업데이트가 표시됩니다. 
+1. 프로비저닝이 완료되면 배포 상태가 **프로비저닝**에서 **준비**로 이동되었음을 알리는 두 개의 알림이 표시됩니다. 
 
    >[!IMPORTANT]
    > 솔루션 가속기를 아직 입력하지 마세요! 나중에 다시 돌아올 수 있으므로 이 웹 페이지는 그대로 열어 두세요.
 
-   [![디바이스 시뮬레이션 솔루션 프로비저닝 완료](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
+   [![디바이스 시뮬레이션 솔루션 프로비저닝이 완료되었습니다.](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
 
 1. 이제 Azure Portal에서 새로 만든 리소스를 검사합니다. **리소스 그룹** 페이지에서 마지막 단계에 제공된 **솔루션 이름**을 사용하여 새 리소스 그룹이 만들어졌는지 확인합니다. 디바이스 시뮬레이션을 위해 만든 리소스를 기록해 둡니다.
 
@@ -125,7 +125,7 @@ ms.locfileid: "75530408"
 
     [![만들기 단추가 있는 + 만들기 페이지를 검토합니다.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
-    아래와 같이 배포의 상태를 확인할 수 있습니다.
+    다음과 같이 배포 상태를 검토할 수 있습니다.
 
     [![배포가 완료되었다는 알림.](media/v2-update-provision/tsi-deployment-notification.png)](media/v2-update-provision/tsi-deployment-notification.png#lightbox)
 
@@ -169,7 +169,7 @@ Time Series Insights 환경을 배포했으므로, 분석할 데이터 스트리
 
     **시뮬레이션 시작**을 선택합니다.
 
-    디바이스 시뮬레이션 대시보드에 **활성 디바이스** 및 **초당 메시지 수**가 표시됩니다.
+    디바이스 시뮬레이션 대시보드에는 **활성 디바이스** 및 **총 메시지** 가 표시됩니다.
 
     [![Azure IoT 시뮬레이션 대시보드.](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
 
@@ -181,9 +181,9 @@ Time Series Insights 환경을 배포했으므로, 분석할 데이터 스트리
 
     [![Time Series Insights 미리 보기 탐색기 URL.](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
-1. Time Series Insights 탐색기 화면 위쪽에 걸쳐 막대가 표시됩니다. 이 막대가 가용성 선택기입니다. 2m을 두 개 이상 선택하고, 필요한 경우 선택기 핸들을 선택하고 좌우로 끌어 시간 프레임을 확장합니다.
+1. Time Series Insights 탐색기에는 화면 위쪽에 걸쳐 있는 막대가 표시됩니다. 이 막대가 가용성 선택기입니다. 2m을 두 개 이상 선택하고, 필요한 경우 선택기 핸들을 선택하고 좌우로 끌어 시간 프레임을 확장합니다.
 
-1. 왼쪽에 **Time Series 인스턴스**가 표시되는 것을 볼 수 있습니다.
+1. **시계열 인스턴스**가 왼쪽에 표시됩니다.
 
     [![부모가 없는 인스턴스 목록.](media/v2-update-provision/tsi-explorer-unparented-instances.png)](media/v2-update-provision/tsi-explorer-unparented-instances.png#lightbox)
 
@@ -254,9 +254,9 @@ Time Series Insights 환경을 배포했으므로, 분석할 데이터 스트리
 
     **적용**을 선택합니다.
 
-1. **저장**을 선택합니다. 세 개의 변수가 생성됩니다.
+1. **저장**을 선택합니다. 세 개의 변수가 생성되어 표시됩니다.
 
-    [![형식을 추가한 후 모델 뷰에서 해당 형식을 확인합니다.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
+    [![형식을 추가한 후 모델 뷰에서 해당 형식을 검토합니다.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. **계층** 탭을 선택합니다. 그런 다음, **+ 추가**를 선택합니다.
    

@@ -3,12 +3,12 @@ title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885452"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966030"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "74885452"
 > - 사용할 효과 결정
 > - 정책 정의 작성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -58,7 +58,7 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
   - 환경 만들기
   - 빠른 시작 템플릿(GitHub)
   - 템플릿 참조 문서
-- Azure 리소스 탐색기
+- Azure Resource Explorer
 
 ### <a name="view-resources-in-vs-code-extension"></a>VS Code 확장에서 리소스 보기
 
@@ -66,7 +66,7 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 
 ### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
-관리하려는 속성을 포함하고 있는 [Resource Manager 템플릿](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)을 찾는 여러 가지 방법이 있습니다.
+관리하려는 속성을 포함하고 있는 [Resource Manager 템플릿](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md)을 찾는 여러 가지 방법이 있습니다.
 
 #### <a name="existing-resource-in-the-portal"></a>포털의 기존 리소스
 
@@ -151,7 +151,7 @@ GitHub의 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickst
 **supportsHttpsTrafficOnly**가 올바른 속성인지 확인하려면 스토리지 공급자의 [스토리지 계정 리소스](/azure/templates/microsoft.storage/2018-07-01/storageaccounts)에 대한 Resource Manager 템플릿 참조를 확인하세요.
 속성 개체는 유효한 매개 변수 목록을 갖고 있습니다. [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 링크를 선택하면 허용되는 속성 표가 표시됩니다. **supportsHttpsTrafficOnly**가 있으며 해당 설명을 보면 우리가 비즈니스 요구 사항을 충족하기 위해 찾고 있는 속성과 일치합니다.
 
-### <a name="azure-resource-explorer"></a>Azure 리소스 탐색기
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
 Azure 리소스를 살펴보는 또 다른 방법은 [Azure Resource Explorer](https://resources.azure.com)(미리 보기)입니다. 이 도구는 구독의 컨텍스트를 사용하므로 Azure 자격 증명을 사용하여 웹 사이트에 인증해야 합니다. 인증되면 공급자, 구독, 리소스 그룹 및 리소스별로 찾아볼 수 있습니다.
 
@@ -348,7 +348,7 @@ Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용�
 }
 ```
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>메타데이터
 
 처음 세 개 구성 요소는 정책 메타데이터입니다. 이러한 구성 요소는 우리가 값을 만들 대상을 알고 있기 때문에 값을 쉽게 제공할 수 있습니다. [모드](../concepts/definition-structure.md#mode)는 주로 태그 및 리소스 위치와 관련이 있습니다. 평가 범위를 태그 지원 리소스로 제한할 필요가 없으므로 **모드**의 값으로 _all_ 을 사용하겠습니다.
 
@@ -386,7 +386,7 @@ Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용�
 - 스토리지 계정 **형식**이 **Microsoft.Storage/storageAccounts**입니다.
 - 스토리지 계정 **supportsHttpsTrafficOnly**는 **true**가 아닙니다.
 
-두 명령문이 모두 true여야 하므로 **allOf** [논리 연산자](../concepts/definition-structure.md#logical-operators)를 사용하겠습니다. 정적 선언을 만드는 대신 **effectType** 매개 변수를 효과로 전달하겠습니다. 완성된 규칙은 다음 예제와 비슷합니다.
+이러한 두 명령문이 모두 true여야 하므로 **allOf** [논리 연산자](../concepts/definition-structure.md#logical-operators)를 사용하겠습니다. 정적 선언을 만드는 대신 **effectType** 매개 변수를 효과로 전달하겠습니다. 완성된 규칙은 다음 예제와 비슷합니다.
 
 ```json
 "if": {

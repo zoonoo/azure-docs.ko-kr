@@ -8,19 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
-ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 7dd1f07d44bd3b71bb83becee5405cf5c100460c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563227"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754093"
 ---
-# <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>REST를 사용하여 Azure Cognitive Search 지식 저장소 만들기
+# <a name="create-a-knowledge-store-using-rest-and-postman"></a>REST 및 Postman을 사용하여 지식 저장소 만들기
 
 > [!IMPORTANT] 
 > 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
-Azure Cognitive Search의 지식 저장소 기능은 나중에 분석하거나 다른 다운스트림을 처리할 수 있도록 AI 보강 파이프라인의 출력을 유지합니다. AI 보강 파이프라인은 이미지 파일 또는 비정형 텍스트 파일을 수락하고, Azure Cognitive Search를 사용하여 인덱싱하고, Azure Cognitive Services의 AI 보강(예: 이미지 분석 및 자연어 처리)을 적용한 다음, 결과를 Azure Storage의 지식 저장소에 저장합니다. Azure Portal에서 Power BI 또는 Storage Explorer와 같은 도구를 사용하여 지식 저장소를 검색할 수 있습니다.
+지식 저장소에는 추후 분석 또는 기타 다운스트림 처리를 위해 Azure Cognitive Search 보강 파이프라인의 출력이 포함됩니다. AI 보강 파이프라인은 이미지 파일 또는 비정형 텍스트 파일을 수락하고, Azure Cognitive Search를 사용하여 인덱싱하고, Cognitive Services의 AI 보강(예: 이미지 분석 및 자연어 처리)을 적용한 다음, 결과를 Azure Storage의 지식 저장소에 저장합니다. Azure Portal에서 Power BI 또는 Storage Explorer와 같은 도구를 사용하여 지식 저장소를 검색할 수 있습니다.
 
 이 문서에서는 REST API 인터페이스를 사용하여 AI 보강을 호텔 리뷰 세트에 수집, 인덱싱 및 적용합니다. 호텔 리뷰는 Azure Blob 스토리지로 가져오고, 결과는 지식 저장소로 Azure Table 스토리지에 저장됩니다.
 

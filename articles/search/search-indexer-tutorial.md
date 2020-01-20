@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 36215403f99cc86ab4fb111ce95a6b3190063d7b
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 1b03f5569386212905cdeb362cfe0a88774eb887
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406706"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754346"
 ---
 # <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>자습서: Azure Cognitive Search 인덱서를 사용하여 C#의 Azure SQL 데이터베이스 가져오기
 
@@ -33,7 +33,7 @@ Azure SQL 데이터베이스 샘플에서 검색할 수 있는 데이터를 추�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
 
@@ -159,7 +159,7 @@ public string HotelName { get; set; }
 
 기본 프로그램에는 클라이언트, 인덱스, 데이터 원본 및 인덱서를 만드는 논리가 포함되어 있습니다. 코드는 이 프로그램을 여러 번 실행한다는 가정 하에서 동일한 이름의 기존 리소스를 확인하고 삭제합니다.
 
-데이터 원본 개체는 Azure SQL에서 기본적으로 제공하는 [변경 내용 검색 기능](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL 데이터베이스 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 데모 호텔 데이터베이스에는 **IsDeleted**라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Cognitive Search 인덱스에서 해당 문서를 제거합니다.
+데이터 원본 개체는 Azure SQL에서 기본적으로 제공하는 [변경 내용 검색 기능](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [부분 또는 증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL 데이터베이스 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 데모 호텔 데이터베이스에는 **IsDeleted**라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Cognitive Search 인덱스에서 해당 문서를 제거합니다.
 
   ```csharp
   Console.WriteLine("Creating data source...");

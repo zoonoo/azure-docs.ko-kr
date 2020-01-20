@@ -5,16 +5,16 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 74b0f83500903170616034d9d18d8ad31fa7065c
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670401"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834308"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Azure App Service용 Linux Ruby 앱 구성
 
-이 문서에서는 [Azure App Service](app-service-linux-intro.md)에서 Ruby 앱을 실행하는 방법 및 필요한 경우 App Service의 동작을 사용자 지정하는 방법에 대해 설명합니다. Ruby 앱은 필요한 [pip](https://pypi.org/project/pip/) 모듈을 모두 사용하여 배포해야 합니다.
+이 문서에서는 [Azure App Service](app-service-linux-intro.md)에서 Ruby 앱을 실행하는 방법 및 필요한 경우 App Service의 동작을 사용자 지정하는 방법에 대해 설명합니다. Ruby 앱은 필요한 [gems](https://rubygems.org/gems)를 모두 사용하여 배포해야 합니다.
 
 이 가이드에서는 App Service에 기본 제공된 Linux 컨테이너를 사용하는 Ruby 개발자를 위한 주요 개념과 지침을 제공합니다. Azure App Service를 사용한 경험이 없는 경우 먼저 [Ruby 빠른 시작](quickstart-ruby.md) 및 [PostgreSQL을 사용하는 Ruby 자습서](tutorial-ruby-postgres-app.md)를 수행해야 합니다.
 
@@ -82,7 +82,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="precompile-assets"></a>자산 미리 컴파일
 
-배포 후 단계에서는 기본적으로 자산을 미리 컴파일하지 않습니다. 자산을 미리 컴파일하도록 설정하려면 `ASSETS_PRECOMPILE` [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 `true`로 설정합니다. 그러면 배포 후 단계의 끝에서 `bundle exec rake --trace assets:precompile` 명령이 실행됩니다. 예:
+배포 후 단계에서는 기본적으로 자산을 미리 컴파일하지 않습니다. 자산을 미리 컴파일하도록 설정하려면 `ASSETS_PRECOMPILE` [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 `true`로 설정합니다. 그러면 배포 후 단계의 끝에서 `bundle exec rake --trace assets:precompile` 명령이 실행됩니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -111,7 +111,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 Ruby 컨테이너의 Rails 서버는 기본적으로 프로덕션 모드에서 실행되며, [자산이 미리 컴파일되어 웹 서버에서 제공된다고 가정합니다](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Rails 서버에서 정적 자산을 제공하려면 다음 두 가지 작업을 수행해야 합니다.
 
 - **자산 미리 컴파일** - [정적 자산을 로컬로 미리 컴파일](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation)하고 수동으로 배포합니다. 또는 배포 엔진이 대신 처리하도록 합니다([자산 미리 컴파일](#precompile-assets) 참조).
-- **정적 파일 제공 사용** - Ruby 컨테이너에서 정적 자산을 제공하려면 [`RAILS_SERVE_STATIC_FILES` 앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 `true`로 설정합니다. 예:
+- **정적 파일 제공 사용** - Ruby 컨테이너에서 정적 자산을 제공하려면 [`RAILS_SERVE_STATIC_FILES` 앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 `true`로 설정합니다. 다음은 그 예입니다.
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -125,7 +125,7 @@ Rails 서버는 기본적으로 프로덕션 모드에서 실행됩니다. 예�
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-그러나 이 설정만으로 인해 Rails 서버가 개발 모드로 시작되어 localhost 요청만 허용되고 컨테이너 외부에서는 액세스할 수 없습니다. 원격 클라이언트 요청을 허용하려면 `APP_COMMAND_LINE` [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 `rails server -b 0.0.0.0`으로 설정합니다. 이 앱 설정을 사용하면 Ruby 컨테이너에서 사용자 지정 명령을 실행할 수 있습니다. 예:
+그러나 이 설정만으로 인해 Rails 서버가 개발 모드로 시작되어 localhost 요청만 허용되고 컨테이너 외부에서는 액세스할 수 없습니다. 원격 클라이언트 요청을 허용하려면 `APP_COMMAND_LINE` [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 `rails server -b 0.0.0.0`으로 설정합니다. 이 앱 설정을 사용하면 Ruby 컨테이너에서 사용자 지정 명령을 실행할 수 있습니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
@@ -133,7 +133,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secret_key_base-manually"></a> 수동으로 secret_key_base 설정
 
-App Service에서 해당 값을 생성하는 대신 사용자 고유의 `secret_key_base` 값을 사용하려면 `SECRET_KEY_BASE` [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 원하는 값으로 설정합니다. 예:
+App Service에서 해당 값을 생성하는 대신 사용자 고유의 `secret_key_base` 값을 사용하려면 `SECRET_KEY_BASE` [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 원하는 값으로 설정합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"

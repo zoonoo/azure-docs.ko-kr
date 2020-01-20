@@ -232,48 +232,68 @@
       items:
         - name: 음성 번역 FAQ
           href: 'https://www.microsoft.com/translator/faq.aspx'
-- name: 대화 전사
+- name: 대화 시나리오
   expanded: false
   items:
-    - name: 개요
+    - name: 대화 전사
       items:
-        - name: 대화 전사란?
-          href: conversation-transcription.md
-    - name: 방법 가이드
-      items:
-        - name: 실시간 대화 전사
-          href: how-to-use-conversation-transcription.md
-        - name: 비동기 대화 전사
-          href: how-to-async-conversation-transcription.md
-    - name: 참조
-      items:
-        - name: 음성 SDK
+        - name: 개요
           items:
-            - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-            - name: 'C#'
-              href: 'https://aka.ms/csspeech/csharpref'
-              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-            - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-            - name: JavaScript
-              href: 'https://aka.ms/csspeech/javascriptref'
-              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-            - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
-              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-            - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
-              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-            - name: 릴리스 정보
-              href: releasenotes.md
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-        - name: REST API
+            - name: 대화 전사란?
+              href: conversation-transcription.md
+        - name: 방법 가이드
           items:
-            - name: 대화 전사 REST API
-              href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+            - name: 실시간 대화 전사
+              href: how-to-use-conversation-transcription.md
+            - name: 비동기 대화 전사
+              href: how-to-async-conversation-transcription.md
+        - name: 참조
+          items:
+            - name: 음성 SDK
+              items:
+                - name: C++
+                  href: 'https://aka.ms/csspeech/cppref'
+                  displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+                - name: 'C#'
+                  href: 'https://aka.ms/csspeech/csharpref'
+                  displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+                - name: Java
+                  href: 'https://aka.ms/csspeech/javaref'
+                  displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+                - name: JavaScript
+                  href: 'https://aka.ms/csspeech/javascriptref'
+                  displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+                - name: Objective-C
+                  href: 'https://aka.ms/csspeech/objectivecref'
+                  displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+                - name: Python
+                  href: 'https://aka.ms/csspeech/pythonref'
+                  displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+                - name: 릴리스 정보
+                  href: releasenotes.md
+                  displayName: 'release notes,updates,what''s new,what is new,changes'
+            - name: REST API
+              items:
+                - name: 대화 전사 REST API
+                  href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+    - name: 다중 디바이스 대화
+      items:
+        - name: 개요
+          items:
+            - name: 다중 디바이스 대화란?
+              href: multi-device-conversation.md
+        - name: 빠른 시작
+          items:
+            - name: 대화 시작 및 참가
+              href: quickstarts/multi-device-conversation.md
+        - name: 참조
+          items:
+            - name: 음성 SDK
+              items:
+                - name: C++
+                  href: 'https://aka.ms/csspeech/cppref'
+                - name: 'C#'
+                  href: 'https://aka.ms/csspeech/csharpref'
 - name: 음성 도우미
   expanded: false
   items:

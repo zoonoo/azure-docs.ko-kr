@@ -6,6 +6,8 @@
       href: overview.md
     - name: 용어 변경
       href: terminology.md
+    - name: FAQ
+      href: faq.md
 - name: 빠른 시작
   items:
     - name: Azure 리소스 모니터링
@@ -109,18 +111,10 @@
           href: platform/activity-log-alerts.md
         - name: 변경 분석
           href: app/change-analysis.md
-    - name: 데이터 가상화
+    - name: 데이터 시각화
       href: visualizations.md
     - name: 파트너 통합
       href: platform/partners.md
-    - name: FAQ
-      items:
-        - name: Log Analytics
-          displayName: FAQ
-          href: platform/log-faq.md
-        - name: Application Insights
-          displayName: FAQ
-          href: app/troubleshoot-faq.md
 - name: 방법 가이드
   items:
     - name: Azure Monitor 관리
@@ -162,6 +156,8 @@
       items:
         - name: Application Insights 개요
           href: app/app-insights-overview.md
+        - name: FAQ
+          href: app/troubleshoot-faq.md
         - name: 코드 기반 모니터링
           items:
             - name: ASP.NET Core
@@ -170,7 +166,7 @@
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
-            - name: Http가 아닌 앱/백그라운드 앱
+            - name: HTTP가 아닌 앱/백그라운드 앱
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
             - name: .NET 콘솔
@@ -535,6 +531,8 @@
           items:
             - name: 에이전트 개요
               href: platform/agents-overview.md
+            - name: FAQ
+              href: 'faq.md#agents'
             - name: Azure Diagnostics 확장
               items:
                 - name: 개요
@@ -633,7 +631,7 @@
             - name: 상용 서비스 관련 FAQ
               href: insights/vminsights-ga-release-faq.md
             - name: FAQ
-              href: insights/vminsights-faq.md
+              href: 'faq.md#azure-monitor-for-vms-preview'
             - name: 모니터링 사용
               items:
                 - name: 모니터링 사용 개요
@@ -679,7 +677,7 @@
             - name: 개요
               href: insights/container-insights-overview.md
             - name: FAQ
-              href: insights/container-insights-faq.md
+              href: 'faq.md#azure-monitor-for-containers'
             - name: 모니터링 사용
               items:
                 - name: 모니터링 사용 개요
@@ -763,7 +761,7 @@
                   href: insights/network-performance-monitor-service-connectivity.md
                 - name: ExpressRoute
                   href: insights/network-performance-monitor-expressroute.md
-                - name: 가격
+                - name: 가격 책정
                   href: insights/network-performance-monitor-pricing-faq.md
                 - name: FAQ
                   href: insights/network-performance-monitor-faq.md
@@ -897,7 +895,7 @@
         - name: REST API
           displayname: 'metrics, analyze'
           href: platform/rest-api-walkthrough.md
-    - name: 데이터 가상화
+    - name: 데이터 시각화
       items:
         - name: 뷰
           items:
@@ -1221,7 +1219,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

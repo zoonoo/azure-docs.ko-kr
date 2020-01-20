@@ -1,23 +1,22 @@
 ---
 title: '빠른 시작: 오디오 파일에서 음성 인식, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 가이드에 따라 Python용 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 애플리케이션을 만듭니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 01/14/2020
 ms.author: chlandsi
-ms.openlocfilehash: 8a5652f6cb8b42200e24221921868b084bd6e62f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 587a0e83eb6b8c96b44589f7f5701526c23e2aae
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819474"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76038143"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
@@ -49,13 +48,12 @@ python quickstart.py
 
 또는 [Speech SDK 샘플 리포지토리](https://github.com/Azure-Samples/cognitive-services-speech-sdk/)에서 [Jupyter](https://jupyter.org) Notebook으로 이 빠른 시작 자습서를 다운로드하고 노트북으로 실행할 수 있습니다.
 
-### <a name="sample-code"></a>샘플 코드
+### <a name="sample-code"></a>예제 코드
 
 > [!NOTE]
 > Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
-````Python
-
+```python
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
@@ -72,7 +70,6 @@ audio_input = speechsdk.AudioConfig(filename=audio_filename)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 
 print("Recognizing first result...")
-
 
 # Starts speech recognition, and returns after a single utterance is recognized. The end of a
 # single utterance is determined by listening for silence at the end or until a maximum of 15
@@ -92,8 +89,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
     if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
-
-````
+```
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Speech SDK 설치 및 사용
 
@@ -115,14 +111,14 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 1. 새로 생성된 파일에 [Python 코드](#sample-code)를 복사, 붙여넣기 및 저장합니다.
 1. Speech Service 구독 정보를 삽입합니다.
 1. Python 인터프리터가 이미 선택된 경우 창 아래쪽의 상태 표시줄 왼쪽에 표시됩니다.
-   그렇지 않을 경우 사용 가능한 Python 인터프리터 목록을 불러오세요. 명령 팔레트를 열고(Ctrl+Shift+P) **Python: 인터프리터 선택**을 입력합니다. 적절한 항목을 선택합니다.
+   그렇지 않을 경우 사용 가능한 Python 인터프리터 목록을 불러오세요. 명령 팔레트 <kbd>Ctrl+Shift+P</kbd>를 열고 **Python: 인터프리터 선택**을 입력합니다. 적절한 항목을 선택합니다.
 1. Visual Studio Code 내에서 Speech SDK Python 패키지를 설치할 수 있습니다. 선택한 Python 인터프리터에 아직 설치되지 않은 경우 이렇게 합니다.
-   Speech SDK 패키지를 설치하려면 터미널을 엽니다. 명령 팔레트를 다시 불러오고(Ctrl+Shift+P) **터미널: 새 통합 터미널 만들기**를 입력하여 터미널을 엽니다.
+   Speech SDK 패키지를 설치하려면 터미널을 엽니다. 명령 팔레트 <kbd>Ctrl+Shift+P</kbd>를 다시 불러오고 **터미널: 새 통합 터미널 만들기**를 입력하여 터미널을 엽니다.
    열리는 터미널에서 `python -m pip install azure-cognitiveservices-speech` 명령 또는 시스템에 대한 적절한 명령을 입력합니다.
 1. 샘플 코드를 실행하려면 편집기 내의 임의 위치를 마우스 오른쪽 단추로 클릭합니다. **터미널에서 Python 파일 실행**을 선택합니다.
    오디오 파일에서 나오는 처음 15초 간 음성 입력이 인식되어 콘솔 창에 기록됩니다.
 
-   ```text
+   ```console
    Recognizing first result...
    We recognized: What's the weather like?
    ```

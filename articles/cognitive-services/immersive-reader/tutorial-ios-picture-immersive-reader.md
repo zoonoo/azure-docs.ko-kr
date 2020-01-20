@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: bdaee97c8c5d7e19076847c5f1f7c07c528c1747
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 48e74f7dd6fa6f2c7fafe10797a301b3d4cc7f1d
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899385"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045248"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>자습서: 사진의 콘텐츠를 사용하여 몰입형 리더를 시작하는 iOS 앱 만들기(Swift)
 
@@ -26,10 +26,10 @@ ms.locfileid: "69899385"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* Azure AD(Azure Active Directory) 인증에 대해 구성된 몰입형 리더 리소스입니다. [다음 지침](./azure-active-directory-authentication.md)에 따라 설정하세요. 샘플 프로젝트 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
+* Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](./how-to-create-immersive-reader.md)에 따라 설정하세요. 샘플 프로젝트 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 * 이 샘플을 사용하려면 Computer Vision Cognitive Service에 대한 Azure 구독이 필요합니다. [Azure Portal에서 Computer Vision Cognitive Service 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## <a name="create-an-xcode-project"></a>Xcode 프로젝트 만들기
@@ -43,7 +43,7 @@ Xcode에서 새 프로젝트를 만듭니다.
 ![새 단일 보기 앱](./media/ios/xcode-single-view-app.png)
 
 ## <a name="get-the-sdk-cocoapod"></a>SDK CocoaPod 가져오기
-몰입형 리더 SDK를 사용하는 가장 쉬운 방법은 CocoaPods를 사용하는 것입니다. CocoaPods를 통해 설치하려면 다음을 수행합니다.
+몰입형 리더 SDK를 사용하는 가장 쉬운 방법은 CocoaPods를 사용하는 것입니다. Cocoapods를 통해 설치하려면 다음을 수행합니다.
 1. [CocoaPods 설치](http://guides.cocoapods.org/using/getting-started.html) - 시작 가이드에 따라 CocoaPods를 설치합니다.
 2. Xcode 프로젝트의 루트 디렉터리에서 `pod init`를 실행하여 Podfile을 만듭니다.
 3.  `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`를 추가하여 CocoaPod를 Podfile에 추가합니다. Podfile은 picture-to-immersive-reader-swift를 대상의 이름으로 바꿔 다음과 같습니다.
@@ -73,19 +73,13 @@ Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the reso
 
 ViewController.swift 파일이 포함된 기본 프로젝트 폴더에서 Constants.swift라는 Swift 클래스 파일을 만듭니다. 클래스를 다음 코드로 바꾸고, 해당하는 경우 값을 추가합니다. 이 파일은 머신에만 있는 로컬 파일로 유지하고, public이 되지 않아야 하는 비밀이 포함되어 있으므로 원본 제어에 커밋하지 않아야 합니다. 앱에서 비밀을 유지하지 않는 것이 좋습니다. 대신 백 엔드 서비스를 사용하여 비밀을 앱 외부와 디바이스 외부에 유지할 수 있는 토큰을 가져오는 것이 좋습니다. 권한 없는 사용자가 토큰을 획득하여 몰입형 리더 서비스 및 청구에 사용하지 못하도록 백 엔드 API 엔드포인트를 인증 형식(예: [OAuth](https://oauth.net/2/))으로 보호해야 합니다. 이 작업은 이 자습서의 범위를 벗어납니다.
 
-[!code-swift[Constants](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/Constants.swift)]
-
 ## <a name="set-up-the-app-to-run-without-a-storyboard"></a>스토리보드 없이 실행되도록 앱 설정
 
 AppDelegate.swift를 열고 파일을 다음 코드로 바꿉니다.
 
-[!code-swift[AppDelegate](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/AppDelegate.swift)]
-
 ## <a name="add-functionality-for-taking-and-uploading-photos"></a>사진을 촬영하고 업로드하는 기능 추가
 
 ViewController.swift의 이름을 PictureLaunchViewController.swift로 바꾸고, 파일을 다음 코드로 바꿉니다.
-
-[!code-swift[PictureLaunchViewController](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/PictureLaunchViewController.swift)]
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
@@ -105,4 +99,4 @@ Xcode에서 Ctrl+R을 누르거나 재생 단추를 클릭하여 프로젝트를
 
 ## <a name="next-steps"></a>다음 단계
 
-* [몰입형 리더 iOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) 및 [몰입형 리더 iOS SDK 참조](./ios-reference.md)를 살펴봅니다.
+* [몰입형 판독기 SDK 참조](./reference.md) 살펴보기

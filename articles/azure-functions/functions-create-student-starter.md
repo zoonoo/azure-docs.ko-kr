@@ -1,21 +1,21 @@
 ---
 title: Azure for Students Starter를 사용하여 함수 만들기
 description: Azure for Students Starter 구독 내에서 Azure 함수 만드는 방법 알아보기
-Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
+Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409892"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921124"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Azure for Students Starter를 사용하여 함수 만들기
 
-이 자습서에서는 Azure for Students Starter 구독에서 hello world HTTP 함수를 만듭니다. 또한 이 구독 형식의 Azure Functions에서 사용할 수 있는 기능도 알아봅니다.
+이 자습서에서는 Azure for Students Starter 구독에서 "hello world" HTTP 함수를 만듭니다. 또한 이 구독 형식의 Azure Functions에서 사용할 수 있는 기능도 알아봅니다.
 
 Microsoft *Azure for Students Starter*를 사용하면 비용을 들이지 않고 클라우드에서 개발하는 데 필요한 Azure 제품을 시작할 수 있습니다. [여기에서 이 제품에 대해 자세히 알아보세요.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -33,9 +33,9 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 관리, 배포 및 리소스 공유할 수 있습니다. 
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다.
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **새로 만들기** 단추를 선택한 다음, **계산** > **함수 앱**을 차례로 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 선택합니다. 그런 다음, **컴퓨팅** > **함수 앱**을 선택합니다.
 
     ![Azure Portal에서 함수 앱 만들기](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -110,13 +110,13 @@ HTTP 트리거 함수에 대한 언어별 템플릿을 사용하여 함수가 �
 
 ## <a name="supported-features-in-azure-for-students-starter"></a>Azure for Students Starter의 지원되는 기능
 
-Azure for Student Starter에서는 아래의 주요 제한 사항을 제외하고, Azure Functions 런타임의 기능 대부분에 액세스할 수 있습니다.
+Azure for Students Starter에서는 아래의 주요 제한 사항을 제외하고, Azure Functions 런타임의 기능 대부분에 액세스할 수 있습니다.
 
 * 트리거 유형으로는 HTTP 트리거만 지원됩니다.
     * 모든 입력 및 모든 출력 바인딩이 지원됩니다. [여기에서 전체 목록을 참조하세요.](functions-triggers-bindings.md)
 * 지원되는 언어: 
     * C#(.NET Core 2)
-    * Javascript(Node.js 8 및 10)
+    * JavaScript(Node.js 8 및 10)
     * F#(.NET Core 2)
     * [여기에서 상위 계획에서 지원되는 언어를 참조하세요.](supported-languages.md)
 * Windows는 유일하게 지원되는 운영 체제입니다.

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f788f7827f778029a0f34ec1f7e73b174738e1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a1a9b1973ded5db7182fb1898fc7222904c39c3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351295"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863964"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -229,7 +229,8 @@ await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
 
 ```csharp
 // Download the blob to a local file
-// Append the string "DOWNLOAD" before the .txt extension so you can see both files in MyDocuments
+// Append the string "DOWNLOAD" before the .txt extension 
+// so you can compare the files in the data directory
 string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
 
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
@@ -267,7 +268,7 @@ Console.WriteLine("Done");
 
 ## <a name="run-the-code"></a>코드 실행
 
-이 앱은 로컬 *MyDocuments* 폴더에 테스트 파일을 만들고 Blob Storage에 업로드합니다. 그런 다음, 컨테이너에 Blob을 나열하고 이전 파일과 새 파일을 비교할 수 있도록 새 이름으로 해당 파일을 다운로드합니다.
+이 앱은 로컬 *data* 폴더에 테스트 파일을 만들고 Blob 스토리지에 업로드합니다. 그런 다음, 컨테이너에 Blob을 나열하고 이전 파일과 새 파일을 비교할 수 있도록 새 이름으로 해당 파일을 다운로드합니다.
 
 애플리케이션 디렉터리로 이동한 다음, 애플리케이션을 빌드하고 실행합니다.
 
@@ -299,7 +300,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-정리 프로세스를 시작하기 전에 *MyDocuments* 폴더에서 두 파일을 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다.
+정리 프로세스를 시작하기 전에 *data* 폴더에서 두 파일을 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다.
 
 파일을 확인한 후에 **Enter** 키를 눌러 테스트 파일을 삭제하고 데모를 완료합니다.
 

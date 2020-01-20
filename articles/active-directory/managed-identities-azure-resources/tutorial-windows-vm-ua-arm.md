@@ -5,22 +5,22 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: daveba
+editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0999492f0d9c7d28da3ac896792fb2d7b898fd18
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ec9956f0c5d834633646938da19f03e5467a9f6d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224210"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977847"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>자습서: Windows VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -39,7 +39,7 @@ ms.locfileid: "74224210"
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -54,9 +54,18 @@ ms.locfileid: "74224210"
 - `Install-Module -Name PowerShellGet -AllowPrerelease` 명령을 실행하여 `PowerShellGet` 모듈의 시험판 버전을 가져옵니다. 이 명령을 실행한 후 `Az.ManagedServiceIdentity` 모듈을 설치하기 위해 현재 PowerShell 세션에서 `Exit`해야 할 수도 있습니다.
 - `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` 명령을 실행하여 `Az.ManagedServiceIdentity` 모듈의 시험판 버전을 설치하고 이 문서의 사용자 할당 ID 작업을 수행합니다.
 
-## <a name="create-a-user-assigned-identity"></a>사용자 할당 ID 만들기
 
-사용자 할당 ID는 독립 실행형 Azure 리소스로 생성됩니다. [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity)를 사용하면 하나 이상의 Azure 서비스 인스턴스를 할당할 수 있는 Azure AD 테넌트에 ID가 만들어집니다.
+## <a name="enable"></a>사용
+
+사용자 할당 ID를 기반으로 하는 시나리오의 경우 다음 단계를 수행해야 합니다.
+
+- ID 만들기
+ 
+- 새로 만든 ID 할당
+
+### <a name="create-identity"></a>ID 만들기
+
+이 섹션에서는 사용자 할당 ID를 만드는 방법을 보여줍니다. 사용자 할당 ID는 독립 실행형 Azure 리소스로 생성됩니다. [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity)를 사용하면 하나 이상의 Azure 서비스 인스턴스를 할당할 수 있는 Azure AD 테넌트에 ID가 만들어집니다.
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -80,18 +89,18 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## <a name="assign-the-user-assigned-identity-to-a-windows-vm"></a>사용자 할당 ID를 Windows VM에 할당
+### <a name="assign-identity"></a>ID 할당
 
-사용자 할당 ID는 여러 Azure 리소스에 있는 클라이언트에 사용될 수 있습니다. 다음 명령을 사용하여 사용자 할당 ID를 단일 VM에 할당합니다. 이전 단계에서 반환된 `Id` 속성을 `-IdentityID` 매개 변수에 사용합니다.
+이 섹션에서는 사용자 할당 ID를 Windows VM에 할당하는 방법을 보여줍니다. 사용자 할당 ID는 여러 Azure 리소스에 있는 클라이언트에 사용될 수 있습니다. 다음 명령을 사용하여 사용자 할당 ID를 단일 VM에 할당합니다. 이전 단계에서 반환된 `Id` 속성을 `-IdentityID` 매개 변수에 사용합니다.
 
 ```azurepowershell-interactive
 $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>사용자 할당 ID에 Azure Resource Manager의 리소스 그룹 액세스 권한 부여 
+## <a name="grant-access"></a>액세스 권한 부여 
 
-Azure 리소스에 대한 관리 ID는 Azure AD 인증을 지원하는 리소스 API를 인증하는 액세스 토큰을 요청하기 위해 코드에 사용할 수 있는 ID를 제공합니다. 이 자습서에서 코드는 Azure Resource Manager API에 액세스합니다. 
+이 섹션에서는 Azure Resource Manager의 리소스 그룹에 사용자 할당 ID 액세스 권한을 부여하는 방법을 보여줍니다. Azure 리소스에 대한 관리 ID는 Azure AD 인증을 지원하는 리소스 API를 인증하는 액세스 토큰을 요청하기 위해 코드에 사용할 수 있는 ID를 제공합니다. 이 자습서에서 코드는 Azure Resource Manager API에 액세스합니다. 
 
 코드가 API에 액세스할 수 있으려면 그 전에 Azure Resource Manager의 리소스에 ID 액세스 권한을 부여해야 합니다. 이 경우에는 VM이 포함된 리소스 그룹입니다. `<SUBSCRIPTION ID>`의 값을 환경에 적합하게 업데이트합니다.
 
@@ -114,11 +123,13 @@ ObjectType: ServicePrincipal
 CanDelegate: False
 ```
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>VM의 ID를 사용하여 액세스 토큰을 가져온 다음 Resource Manager를 호출하는 데 사용 
+## <a name="access-data"></a>데이터 액세스
+
+### <a name="get-an-access-token"></a>액세스 토큰 가져오기 
 
 자습서의 나머지 부분에서는 앞서 만든 VM에서 작업합니다.
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 2. Portal에서 **Virtual Machines** -> Windows 가상 머신으로 이동한 다음, **개요**에서 **연결**을 클릭합니다.
 
@@ -126,7 +137,7 @@ CanDelegate: False
 
 4. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 **PowerShell**을 엽니다.
 
-5. PowerShell의 `Invoke-WebRequest`를 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.  `client_id` 값은 [사용자 할당 관리 ID를 만들 때](#create-a-user-assigned-identity) 반환된 값입니다.
+5. PowerShell의 `Invoke-WebRequest`를 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.  `client_id` 값은 사용자 할당 관리 ID를 만들 때 반환되는 값입니다.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=af825a31-b0e0-471f-baea-96de555632f9&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
@@ -134,7 +145,7 @@ CanDelegate: False
     $ArmToken = $content.access_token
     ```
 
-## <a name="read-the-properties-of-a-resource-group"></a>Resource Group의 속성 읽기
+### <a name="read-properties"></a>속성 읽기
 
 이전 단계에서 검색한 액세스 토큰을 사용하여 Azure Resource Manager에 액세스하고, 사용자 할당 ID 액세스 권한을 부여한 리소스 그룹의 속성을 읽습니다. `<SUBSCRIPTION ID>`를 환경의 구독 ID로 바꿉니다.
 

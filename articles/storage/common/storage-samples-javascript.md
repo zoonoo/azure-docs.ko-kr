@@ -7,20 +7,23 @@ ms.date: 09/26/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 363739bbab67b92e78e0cdb56cf98cdb8e1446eb
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 44fe68b8b04a1192c928e04c7d2a9d147f400130
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350895"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748299"
 ---
 # <a name="azure-storage-samples-using-javascript"></a>JavaScript를 사용한 Azure Storage 샘플
 
 다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. GitHub에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
 
-## <a name="blob-samples"></a>Blob 샘플
+> [!NOTE]
+> 이러한 샘플은 Azure Storage JavaScript v10 라이브러리를 사용합니다. v12 코드는 GitHub 리포지토리의 [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 참조하세요.
 
-| **시나리오** | **샘플 코드** |
+## <a name="blob-samples-v10"></a>Blob 샘플(v10)
+
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 블록 Blob | [JavaScript에서 Azure Blob Service 시작](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/basic.js#L43) |
 | 클라이언트 쪽 암호화 | [Azure Key Vault에서 JavaScript를 사용하여 스토리지 계정 키 관리](https://github.com/Azure-Samples/key-vault-node-storage-accounts) |
@@ -43,9 +46,9 @@ ms.locfileid: "71350895"
 | CORS 규칙 설정 | [JavaScript에서 Azure Blob Service 시작](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L152) |
 | Blob 스냅샷 | [JavaScript에서 Azure Blob Service 시작](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/basic.js#L79) |
 
-## <a name="file-samples"></a>파일 샘플
+## <a name="file-samples-v10"></a>파일 샘플(v10)
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 공유/디렉터리/파일 만들기 | [JavaScript에서 Azure File Service 시작](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L97) |
 | 공유/디렉터리/파일 삭제 | [JavaScript에서 Azure File Service 시작](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L135) |
@@ -53,9 +56,9 @@ ms.locfileid: "71350895"
 | 디렉터리 및 파일 나열 | [JavaScript에서 Azure File Service 시작](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L115) |
 | 공유 나열 | [JavaScript에서 Azure File Service 시작](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L187) |
 
-## <a name="queue-samples"></a>큐 샘플
+## <a name="queue-samples-v10"></a>큐 샘플(v10)
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 메시지 추가 | [JavaScript에서 Azure Queue Service 시작](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L142) |
 | 클라이언트 쪽 암호화 | [Azure Key Vault에서 JavaScript를 사용하여 스토리지 계정 키 관리](https://github.com/Azure-Samples/key-vault-node-storage-accounts) |
@@ -71,9 +74,9 @@ ms.locfileid: "71350895"
 | 큐 상태 | [JavaScript에서 Azure Queue Service 시작](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L149) |
 | 메시지 업데이트 | [JavaScript에서 Azure Queue Service 시작](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L176) |
 
-## <a name="table-samples"></a>테이블 샘플
+## <a name="table-samples-v10"></a>테이블 샘플(v10)
 
-| **시나리오** | **샘플 코드** |
+| **시나리오** | **예제 코드** |
 |--------------|-----------------|
 | 일괄 처리 엔터티 | [JavaScript에서 Azure Table Service 시작](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L87) |
 | 테이블 만들기 | [JavaScript에서 Azure Table Service 시작](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L41) |

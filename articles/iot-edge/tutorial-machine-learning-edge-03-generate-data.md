@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707738"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912274"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>자습서: 시뮬레이션된 디바이스 데이터 생성
 
@@ -123,7 +123,7 @@ DeviceHarness 프로젝트는 4개 클래스로 구성된 C#으로 작성된 .NE
 
 1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택하면 메시지가 허브로 전송되는 것을 볼 수 있습니다. 메시지는 Visual Studio Code의 출력 창에 표시됩니다.
 
-1. **Azure IoT Hub Toolkit** 출력 창을 클릭하고 **Stop Monitoring Built-in Event Endpoint**(기본 제공 이벤트 엔드포인트 모니터링 중지)를 선택하면 모니터링을 중지할 수 있습니다.
+1. **Azure IoT Hub** 출력 창을 클릭하고 **기본 제공 이벤트 엔드포인트 모니터링 중지**를 선택하면 모니터링을 중지할 수 있습니다.
 
 1. 애플리케이션 실행이 완료될 때까지 기다립니다. 몇 분이 걸립니다.
 

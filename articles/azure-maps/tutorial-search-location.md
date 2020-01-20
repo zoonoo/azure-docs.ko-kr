@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Maps로 검색'
-description: '자습서: Azure Maps를 사용하여 주변 관심 지점 검색'
+title: '자습서: 맵에서 주변 위치 검색 | Microsoft Azure Maps'
+description: 이 자습서에서는 Microsoft Azure Maps를 사용하여 맵의 주변 위치(관심 지점)를 검색하는 방법을 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432732"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910818"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     * *라이선스* 및 *개인정보처리방침*을 읽고 조건에 동의하는 확인란을 선택합니다.
     * **만들기** 단추를 클릭합니다.
 
-![포털에서 Maps 계정 만들기](./media/tutorial-search-location/create-account.png)
+![Azure Portal에서 Azure Maps 계정 만들기](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
@@ -61,7 +61,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 2. 설정 섹션에서 **인증**을 선택합니다.
 3. **기본 키**를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다.
 
-![포털에서 기본 키 가져오기](./media/tutorial-search-location/get-key.png)
+![Azure Portal에서 기본 키 가져오기](./media/tutorial-search-location/get-key.png)
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 

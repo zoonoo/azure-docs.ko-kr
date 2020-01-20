@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 3a44dc35c27cd084e6589482f180b13b258f0b24
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c3f2009dc71df1a5496d585bdcba986a79ac0d0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470967"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768465"
 ---
 ## <a name="prepare-your-web-app"></a>웹앱 준비
 
@@ -29,7 +29,7 @@ ms.locfileid: "73470967"
 
 ![App Service 선택](./media/app-service-ssl-prepare-app/app-services.png)
 
-**App Service** 페이지에서 Azure 앱의 이름을 선택합니다.
+**App Service** 페이지에서 웹앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-ssl-prepare-app/select-app.png)
 

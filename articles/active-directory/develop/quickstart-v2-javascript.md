@@ -13,18 +13,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77763ac30b4ba98e4849a25690302469843b4d06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f003daea188c6f556d0981c83c98f3328362f864
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920636"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975120"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
 이 빠른 시작에서는 코드 샘플을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정의 사용자에 로그인하는 방법을 알아봅니다. 또한 JavaScript SPA는 Microsoft Graph API 또는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/).
@@ -61,7 +61,7 @@ ms.locfileid: "74920636"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 리디렉션 URI를 `http://localhost:30662/`로 추가하고 **암시적 허용**을 사용하도록 설정해야 합니다.
+> 이 빠른 시작을 위한 코드 샘플이 작동하려면 `redirectUri`를 `http://localhost:30662/`로 추가하고 **암시적 허용**을 사용하도록 설정해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
 >
@@ -89,7 +89,7 @@ var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
-        redirectURI: "http://localhost:30662/"
+        redirectUri: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -137,7 +137,7 @@ var msalConfig = {
 
 ## <a name="more-information"></a>자세한 정보
 
-### <a name="how-the-sample-works"></a>샘플 작동 방식
+### <a name="how-the-sample-works"></a>샘플 작동 방법
 
 ![이 빠른 시작에서 샘플 앱의 작동 방식](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
@@ -167,7 +167,7 @@ var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        redirectURI: "http://localhost:30662/"
+        redirectUri: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -182,7 +182,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |---------|---------|
 > |`clientId`     | Azure Portal에 등록된 애플리케이션의 애플리케이션 ID.|
 > |`authority`    | (선택 사항) 위의 구성 섹션에 설명된 대로 계정 유형을 지원하는 기관 URL입니다. 기본 기관은 `https://login.microsoftonline.com/common`입니다. |
-> |`redirectURI`     | 애플리케이션 등록의 구성된 회신/리디렉션 URI입니다. 이 예제의 경우 `http://localhost:30662/`입니다. |
+> |`redirectUri`     | 애플리케이션 등록의 구성된 회신/redirectUri입니다. 이 예제의 경우 `http://localhost:30662/`입니다. |
 > |`cacheLocation`  | (선택 사항) 인증 상태에 사용되는 브라우저 스토리지를 설정합니다. 기본값은 sessionStorage입니다.   |
 > |`storeAuthStateInCookie`  | (선택 사항) 브라우저 쿠키에서 인증 흐름의 유효성을 검사하는 데 필요한 인증 요청 상태를 저장하는 라이브러리입니다. 이 쿠키는 특정한 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)를 완화하기 위해 IE 및 Edge 브라우저에 대해 설정됩니다. |
 
@@ -238,7 +238,7 @@ myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우도 있습니다. 예:
+상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우도 있습니다. 다음은 그 예입니다.
 * 암호가 만료되었으므로 사용자가 자격 증명을 다시 입력해야 할 수도 있습니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.
 * 2단계 인증이 필요합니다.

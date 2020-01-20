@@ -4,12 +4,12 @@ description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e70edac09c8b2d61c148c9ba0fd04ec231e9a965
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551491"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769322"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
@@ -17,7 +17,7 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 
 이 자습서에서는 함수를 사용자 지정 Docker 이미지로 Azure에 배포하는 방법에 대해 알아봅니다. 이 패턴은 기본 제공 컨테이너 이미지를 사용자 지정해야 하는 경우에 유용합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공되지 않는 특정 종속성 또는 구성이 필요한 경우 사용자 지정 이미지를 사용할 수 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다. 
 
-이 자습서에서는 Azure Functions 핵심 도구를 사용하여 사용자 지정 Linux 이미지에서 함수를 만드는 방법을 안내합니다. Azure CLI를 사용하여, 만든 이미지를 Azure에서 함수 앱에 게시합니다. 나중에 Azure Queue storage에 연결하도록 함수를 업데이트합니다. 또한 다음을 설정합니다.  
+이 자습서에서는 Azure Functions 핵심 도구를 사용하여 사용자 지정 Linux 이미지에서 함수를 만드는 방법을 안내합니다. Azure CLI를 사용하여, 만든 이미지를 Azure에서 함수 앱에 게시합니다. 나중에 Azure Queue storage에 연결하도록 함수를 업데이트합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -118,7 +118,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ## <a name="push-to-docker-hub"></a>Docker Hub로 푸시
 
-레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 애플리케이션입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 프라이빗 리포지토리를 호스팅할 수 있습니다.
+레지스트리는 이미지를 호스팅하고 이미지 및 컨테이너 서비스를 제공하는 애플리케이션입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 프라이빗 리포지토리를 호스팅할 수 있습니다.
 
 이미지를 푸시하려면 먼저 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Docker 허브에 로그인해야 합니다. `<docker-id>`를 사용자의 계정 이름으로 바꾸고, 콘솔의 프롬프트에서 암호를 입력합니다. 다른 Docker 허브 암호 옵션은 [docker login 명령 설명서](https://docs.docker.com/engine/reference/commandline/login/)를 참조하세요.
 
@@ -140,7 +140,7 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 ## <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
 
-[Dedicated(App Service) 플랜](functions-scale.md#app-service-plan) 및 [프리미엄 플랜](functions-premium-plan.md#features)에서 지원되는 사용자 지정 Functions 컨테이너에 대한 Linux 호스팅. 이 자습서에서는 필요에 따라 크기를 조정할 수 있는 프리미엄 플랜을 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요.
+사용자 지정 Functions 컨테이너에 대한 Linux 호스팅은 [전용(App Service) 플랜](functions-scale.md#app-service-plan) 및 [프리미엄 플랜](functions-premium-plan.md#features)에서 지원됩니다. 이 자습서에서는 필요에 따라 크기를 조정할 수 있는 프리미엄 플랜을 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요.
 
 다음 예에서는 **탄력적 프리미엄 1** 가격 책정 계층(`--sku EP1`), 미국 서부 지역(`-location WestUS`) 및 Linux 컨테이너(`--is-linux`)에 `myPremiumPlan`이라는 프리미엄 플랜을 만듭니다.
 
@@ -346,13 +346,13 @@ Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`
 루트 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 다시 실행하고 이번에는 태그의 버전을 `v1.0.2`로 업데이트합니다. 이전처럼 `<docker-id>`를 Docker Hub 계정 ID로 바꿉니다. 
 
 ```bash
-docker build --tag <docker-id>/mydockerimage:v1.0.0 .
+docker build --tag <docker-id>/mydockerimage:v1.0.2
 ```
 
 업데이트된 이미지를 리포지토리로 다시 푸시합니다.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0
+docker push <docker-id>/mydockerimage:v1.0.2
 ```
 
 ### <a name="verify-the-updates-in-azure"></a>Azure에서 업데이트 확인

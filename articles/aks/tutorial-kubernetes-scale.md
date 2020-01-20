@@ -5,15 +5,15 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/14/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 1838cfefee8c1cf9ca6548aa64fa7a6fcb46f66a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b668d2bfecfba53c2a1b0904a8b6b77805ad965b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442850"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967413"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -98,6 +98,43 @@ resources:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
+```
+
+또는 매니페스트 파일을 만들어 자동 크기 조정기 동작 및 리소스 제한을 정의할 수 있습니다. 다음은 `azure-vote-hpa.yaml`이라는 매니페스트 파일의 예입니다.
+
+```yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-back-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-back
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-front-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-front
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+```
+
+`kubectl apply`를 사용하여 `azure-vote-hpa.yaml` 매니페스트 파일에 정의된 자동 크기 조정기를 적용합니다.
+
+```
+$ kubectl apply -f azure-vote-hpa.yaml
 ```
 
 자동 조정기의 상태를 확인하려면 다음과 같이 `kubectl get hpa` 명령을 실행합니다.

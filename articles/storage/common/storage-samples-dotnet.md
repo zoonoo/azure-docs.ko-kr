@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 50c5067c3db2f07da225b72d9ba0a8f0bdc44368
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431767"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748145"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET을 사용한 Azure Storage 샘플
 
@@ -21,7 +21,7 @@ ms.locfileid: "75431767"
 > [!NOTE]
 > 이러한 샘플은 Azure Storage .NET v11 라이브러리를 사용합니다. v12 코드는 GitHub 리포지토리의 [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)을 참조하세요.
 
-## <a name="blob-samples"></a>Blob 샘플
+## <a name="blob-samples-v11"></a>Blob 샘플(v11)
 
 | **시나리오** | **예제 코드** |
 |--------------|-----------------|
@@ -42,7 +42,7 @@ ms.locfileid: "75431767"
 | 서비스 속성 | [BLOB 시작](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Blob 스냅샷 | [증분 스냅샷을 사용하여 Azure Virtual Machine 디스크 백업](https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs) |
 
-## <a name="file-samples"></a>파일 샘플
+## <a name="file-samples-v11"></a>파일 샘플(v11)
 
 | **시나리오** | **예제 코드** |
 |--------------|-----------------|
@@ -56,7 +56,7 @@ ms.locfileid: "75431767"
 | 공유 나열 | [Azure Storage .NET File Storage 샘플](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 | 속성/메타데이터/통계 공유 | [Azure Storage .NET File Storage 샘플](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 
-## <a name="queue-samples"></a>큐 샘플
+## <a name="queue-samples-v11"></a>큐 샘플(v11)
 
 | **시나리오** | **예제 코드** |
 |--------------|-----------------|
@@ -69,7 +69,7 @@ ms.locfileid: "75431767"
 | 큐 서비스 속성 | [.NET에서 Azure 큐 서비스 시작](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs) |
 | 메시지 업데이트 | [.NET에서 Azure 큐 서비스 시작](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
 
-## <a name="table-samples"></a>테이블 샘플
+## <a name="table-samples-v11"></a>테이블 샘플(v11)
 
 | **시나리오** | **예제 코드** |
 |--------------|-----------------|

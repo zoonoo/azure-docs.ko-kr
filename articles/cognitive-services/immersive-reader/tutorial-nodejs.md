@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 2a07e392170fb9e6993f4c560a4896a468d90820
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 37453e1fdd8fdcfc89468731980581652027343c
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338496"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945250"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>자습서: 몰입형 판독기(Node.js) 시작
 
-[개요](./overview.md)에서는 몰입형 판독기란 무엇이며 어떻게 언어 학습자, 신흥 독자 및 학습 차이가 있는 사람들의 독해력 향상을 위해 입증된 기술을 구현하는지에 대해 알아보았습니다. 이 자습서에서는 몰입형 판독기를 시작하는 Node.js 애플리케이션을 만드는 방법을 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+[개요](./overview.md)에서는 몰입형 판독기란 무엇이며 어떻게 언어 학습자, 신흥 독자 및 학습 차이가 있는 사람들의 독해력 향상을 위해 입증된 기술을 구현하는지에 대해 알아보았습니다. 이 자습서에서는 몰입형 판독기를 시작하는 Node.js 애플리케이션을 만드는 방법을 설명합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Express에서 Node.js 웹앱 만들기
@@ -31,9 +31,9 @@ ms.locfileid: "71338496"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure AD(Azure Active Directory) 인증에 대해 구성된 몰입형 리더 리소스입니다. [다음 지침](./azure-active-directory-authentication.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
+* Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](./how-to-create-immersive-reader.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 * [Node.js](https://nodejs.org/) 및 [Yarn](https://yarnpkg.com)
 * [Visual Studio Code](https://code.visualstudio.com/)와 같은 IDE
 
@@ -111,14 +111,14 @@ router.get('/getimmersivereaderlaunchparams', function(req, res) {
                 if (err) {
                     return res.status(500).send('CogSvcs IssueToken error');
                 }
-        
+
                 const token = JSON.parse(tokenResponse).access_token;
                 const subdomain = process.env.SUBDOMAIN;
                 return res.send({token: token, subdomain: subdomain});
         }
   );
 });
- 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -149,7 +149,7 @@ module.exports = router;
           p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
           div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
           script.
-        
+
             function getImmersiveReaderLaunchParamsAsync() {
                     return new Promise((resolve, reject) => {
                         $.ajax({
@@ -165,7 +165,7 @@ module.exports = router;
                         });
                     });
             }
-        
+
             async function launchImmersiveReader() {
                     const content = {
                             title: document.getElementById('title').innerText,
@@ -174,11 +174,11 @@ module.exports = router;
                                     lang: 'en'
                             }]
                     };
-            
+
                     const launchParams = await getImmersiveReaderLaunchParamsAsync();
                     const token = launchParams.token;
                     const subdomain = launchParams.subdomain;
-            
+
                     ImmersiveReader.launchAsync(token, subdomain, content);
             }
     ```

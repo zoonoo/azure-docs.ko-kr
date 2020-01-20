@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d4fae87d999bd0f6b0b388613098a17c181dae0c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392742"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749718"
 ---
 # <a name="latency-in-blob-storage"></a>Blob 스토리지의 대기 시간
 
@@ -67,5 +67,5 @@ Azure Storage 요청을 처리하려면 클라이언트 CPU 및 메모리 리소
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스토리지 계정의 Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md)
-- [Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md)
+- [Blob 스토리지의 확장성 및 성능 목표](scalability-targets.md)
+- [Blob 스토리지에 대한 성능 및 확장성 검사 목록](storage-performance-checklist.md)

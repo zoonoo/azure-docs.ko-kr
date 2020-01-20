@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure CLI를 사용하여 Azure 가상 머신 제어
+title: 자습서 - CLI를 사용하여 가상 머신 관리
 description: 이 자습서에서는 Azure CLI를 사용하여 RBAC, 정책, 잠금 및 태그를 적용해 Azure 가상 머신을 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9595c6ce464cf9e4ab0baff9ef842e76f3d18a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034536"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970131"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 거버넌스에 대해 알아보기
+# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 관리에 대해 알아보기
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -140,7 +140,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 ## <a name="lock-resources"></a>리소스 잠금
 
-[리소스 잠금](../../azure-resource-manager/resource-group-lock-resources.md)은 조직의 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다. 역할 기반 액세스 제어와 달리 리소스 잠금은 모든 사용자와 역할 전반에 제한을 적용합니다. 잠금 수준을 *CanNotDelete* 또는 *ReadOnly*로 설정할 수 있습니다.
+[리소스 잠금](../../azure-resource-manager/management/lock-resources.md)은 조직의 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다. 역할 기반 액세스 제어와 달리 리소스 잠금은 모든 사용자와 역할 전반에 제한을 적용합니다. 잠금 수준을 *CanNotDelete* 또는 *ReadOnly*로 설정할 수 있습니다.
 
 관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.
 
@@ -172,7 +172,7 @@ az group delete --name myResourceGroup
 
 ## <a name="tag-resources"></a>리소스 태그 지정
 
-Azure 리소스에 [태그](../../azure-resource-manager/resource-group-using-tags.md)를 적용하여 범주별로 논리적으로 구성합니다. 각 태그는 이름과 값으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다.
+Azure 리소스에 [태그](../../azure-resource-manager/management/tag-resources.md)를 적용하여 범주별로 논리적으로 구성합니다. 각 태그는 이름과 값으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다.
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
@@ -228,7 +228,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 사용자 지정 VM 이미지를 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 사용자 지정 VM 이미지를 만들었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 역할에 사용자 할당

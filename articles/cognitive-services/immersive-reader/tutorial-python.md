@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326424"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945220"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>자습서: Python 샘플 프로젝트를 사용하여 몰입형 리더 시작
 
-[개요](./overview.md)에서는 몰입형 판독기란 무엇이며 어떻게 언어 학습자, 신흥 독자 및 학습 차이가 있는 사람들의 독해력 향상을 위해 입증된 기술을 구현하는지에 대해 알아보았습니다. 이 자습서에서는 몰입형 리더를 시작하는 Python 웹 애플리케이션을 만드는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+[개요](./overview.md)에서는 몰입형 판독기란 무엇이며 어떻게 언어 학습자, 신흥 독자 및 학습 차이가 있는 사람들의 독해력 향상을 위해 입증된 기술을 구현하는지에 대해 알아보았습니다. 이 자습서에서는 몰입형 리더를 시작하는 Python 웹 애플리케이션을 만드는 방법에 대해 설명합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 샘플 프로젝트를 사용하여 Pip, Flask, Jinja 및 virtualenv를 통해 Python 웹앱 만들기
@@ -28,9 +28,9 @@ ms.locfileid: "71326424"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure AD(Azure Active Directory) 인증에 대해 구성된 몰입형 리더 리소스입니다. [다음 지침](./azure-active-directory-authentication.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
+* Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](./how-to-create-immersive-reader.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 * [Git](https://git-scm.com/)
 * [몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) 및 [pip](https://docs.python.org/3/installing/index.html). Python 3.4부터 pip는 기본적으로 Python 이진 설치 관리자에 포함됩니다.
@@ -40,20 +40,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 * [requests 모듈](https://pypi.org/project/requests/2.7.0/)
 * [Visual Studio Code](https://code.visualstudio.com/)와 같은 IDE
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Azure AD 인증 토큰 획득
+## <a name="configure-authentication-credentials"></a>인증 자격 증명 구성
 
-Azure AD 인증 토큰을 검색하는 백 엔드 API를 작성합니다.
-
-이 부분에는 위의 Azure AD 인증 구성 필수 요소 단계의 값이 필요합니다. 해당 세션에서 저장한 텍스트 파일을 다시 참조합니다.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-값을 얻었으면 _.env_라는 새 파일을 만들고, 다음 코드를 이 파일에 붙여넣고, 위의 사용자 지정 속성 값을 입력합니다. 샘플 앱의 _.env._ 파일을 새로 만든 파일로 바꿉니다.
+_.env_라는 새 파일을 만들고 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하는 다음 코드를 붙여넣습니다.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}

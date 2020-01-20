@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dfe17b99c1a9b1130695c8e5cd9c65ca7681d35
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7d6b23aa3f35c99cf03f855152b2b231a60a965
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470948"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921630"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -194,7 +194,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
     다음과 같이 변경합니다.
 
-    * **deloymentScope**: `Management Group`, `Subscription` 및 `Resource Group` 옵션에서 배포 범위를 선택합니다. 이 자습서에서는 **리소스 그룹**을 사용합니다. 범위에 대해 자세히 알아보려면 [배포 범위](deploy-rest.md#deployment-scope)를 참조하세요.
+    * **deploymentScope**: `Management Group`, `Subscription` 및 `Resource Group` 옵션에서 배포 범위를 선택합니다. 이 자습서에서는 **리소스 그룹**을 사용합니다. 범위에 대해 자세히 알아보려면 [배포 범위](deploy-rest.md#deployment-scope)를 참조하세요.
     * **ConnectedServiceName**: 이전에 만든 서비스 연결 이름을 지정합니다.
     * **SubscriptionName**:  대상 구독 ID를 지정합니다.
     * **작업**: **리소스 그룹 만들기 또는 업데이트** 작업은 2가지 작업을 수행합니다. 1. 새 리소스 그룹 이름이 제공되면 리소스 그룹을 만듭니다. 2. 지정된 템플릿을 배포합니다.
