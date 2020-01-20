@@ -1,26 +1,18 @@
 ---
-title: Azure Virtual Machine Scale Sets를 사용하여 자동으로 OS 업그레이드 | Microsoft Docs
+title: Azure 가상 머신 확장 집합을 사용 하 여 자동 OS 이미지 업그레이드
 description: 확장 집합의 VM 인스턴스에서 OS 이미지를 자동으로 업그레이드 하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: vashan
-ms.openlocfilehash: 95a313b3c6995d55b86561c685641b447edae127
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c452ba5b8abfce4227d72922139824d639c62755
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240933"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278154"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
 
@@ -61,7 +53,7 @@ ms.locfileid: "72240933"
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
 | Rogue Wave(OpenLogic)  | CentOS        | 7.5                |
-| CoreOS                  | CoreOS        | 안정             |
+| CoreOS                  | CoreOS        | Stable             |
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
@@ -78,7 +70,7 @@ ms.locfileid: "72240933"
 - Service Fabric 이외의 확장 집합에는 애플리케이션 상태 프로브 또는 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)을 사용합니다.
 - Compute API 버전 2018-10-01 이상을 사용 합니다.
 - 확장 집합 모델에 지정된 외부 리소스가 사용 가능하고 업데이트되었는지 확인합니다. VM 확장 속성의 페이로드, 스토리지 계정의 페이로드, 모델의 비밀에 대한 참조 등을 부트스트랩하기 위한 SAS URI를 예로 들 수 있습니다.
-- Windows 가상 머신을 사용 하는 확장 집합의 경우 계산 API 버전 2019-03-01부터 *osProfile* 속성은 확장 집합 모델에서 *false* 로 설정 되어야 합니다. 정의. 위의 속성은 "Windows 업데이트"에서 OS 디스크를 교체 하지 않고 운영 체제 패치를 적용 하는 VM 내 업그레이드를 사용 하도록 설정 합니다. 크기 집합에서 자동 OS 이미지 업그레이드를 사용 하도록 설정 하면 "Windows 업데이트"를 통한 추가 업데이트가 필요 하지 않습니다.
+- Windows 가상 머신을 사용 하는 확장 집합의 경우 계산 API 버전 2019-03-01부터 *osProfile* 속성은 확장 집합 모델 정의에서 *false* 로 설정 되어야 합니다. 위의 속성은 "Windows 업데이트"에서 OS 디스크를 교체 하지 않고 운영 체제 패치를 적용 하는 VM 내 업그레이드를 사용 하도록 설정 합니다. 크기 집합에서 자동 OS 이미지 업그레이드를 사용 하도록 설정 하면 "Windows 업데이트"를 통한 추가 업데이트가 필요 하지 않습니다.
 
 ### <a name="service-fabric-requirements"></a>Service Fabric 요구 사항
 

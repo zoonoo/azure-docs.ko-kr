@@ -1,26 +1,19 @@
 ---
 title: 가상 머신 확장 집합 템플릿에 대해 알아보기
 description: 몇 가지 간단한 단계를 통해 Azure virtual machine scale sets에 대 한 기본 확장 집합 템플릿을 만드는 방법에 대해 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24db9b2d39771c481a8c43e2b55f12cef381b4d6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980177"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271896"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 기본 확장 집합 템플릿을 만드는 방법 및 다양 한 시나리오에 맞게이 템플릿을 수정 하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다.

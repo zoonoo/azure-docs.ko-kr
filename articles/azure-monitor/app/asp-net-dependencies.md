@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/25/2019
-ms.openlocfilehash: 7b23da81143a4ae66d9f25cd953c4a3952f27455
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5b37ce1ba3d8a9d56cb2204c9db89d0e47d9996e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678376"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277675"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
-*종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md) 은 종속성 호출의 시간 (실패 여부와 상관 없이 종속성의 이름과 같은 추가 정보)을 측정 합니다. 특정 종속성 호출을 조사 하 고 요청 및 예외와의 상관 관계를 지정할 수 있습니다.
+*종속성* 은 응용 프로그램에서 호출 하는 외부 구성 요소입니다. 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md) 은 종속성 호출의 시간 (실패 여부와 상관 없이 종속성의 이름과 같은 추가 정보)을 측정 합니다. 특정 종속성 호출을 조사 하 고 요청 및 예외와의 상관 관계를 지정할 수 있습니다.
 
 ## <a name="automatically-tracked-dependencies"></a>자동으로 추적 되는 종속성
 
-.NET 및 .NET Core 용 Application Insights Sdk는 종속성을 자동으로 수집 하는 원격 분석 모듈인 `DependencyTrackingTelemetryModule`와 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다.  `DependencyTrackingTelemetryModule`는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget 패키지로 제공 되며 nuget 패키지 `Microsoft.ApplicationInsights.Web` 또는 `Microsoft.ApplicationInsights.AspNetCore` 중 하나를 사용할 때 자동으로 가져옵니다.
+.NET 및 .NET Core 용 Application Insights Sdk는 종속성을 자동으로 수집 하는 원격 분석 모듈인 `DependencyTrackingTelemetryModule`와 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다.`DependencyTrackingTelemetryModule` 는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget  패키지로 제공 되며 nuget 패키지 `Microsoft.ApplicationInsights.Web` 또는 `Microsoft.ApplicationInsights.AspNetCore`중 하나를 사용 하는 경우 자동으로 가져옵니다.
 
  `DependencyTrackingTelemetryModule`는 현재 다음 종속성을 자동으로 추적 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "72678376"
 |---------------|-------|
 |Http/Https | 로컬 또는 원격 http/https 호출 |
 |WCF 호출| Http 기반 바인딩을 사용 하는 경우에만 자동으로 추적 됩니다.|
-|SQL | @No__t_0를 사용 하 여 호출 합니다. SQL 쿼리 캡처는 [이](#advanced-sql-tracking-to-get-full-sql-query) 항목을 참조 하세요.  |
+|SQL | `SqlClient`를 사용 하 여 호출 합니다. SQL 쿼리 캡처는 [이](#advanced-sql-tracking-to-get-full-sql-query) 항목을 참조 하세요.  |
 |[Azure storage (Blob, 테이블, 큐)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Azure Storage 클라이언트를 사용 하 여 호출 합니다. |
 |[EventHub 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1\.1.0 버전 이상. |
 |[ServiceBus 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3\.0.0 버전 이상. |
@@ -38,7 +38,7 @@ ms.locfileid: "72678376"
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>콘솔 앱에서 자동 종속성 추적 설정
 
-.NET/.NET Core 콘솔 앱에서 종속성을 자동으로 추적 하려면 `Microsoft.ApplicationInsights.DependencyCollector` Nuget 패키지를 설치 하 고 다음과 같이 `DependencyTrackingTelemetryModule`를 초기화 합니다.
+.NET/.NET Core 콘솔 앱에서 종속성을 자동으로 추적 하려면 `Microsoft.ApplicationInsights.DependencyCollector`Nuget 패키지를 설치 하 고 다음과 같이 `DependencyTrackingTelemetryModule`를 초기화 합니다.
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
@@ -90,7 +90,7 @@ SDK에서 자동으로 수집 되지 않는 종속성의 경우 표준 자동 �
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>전체 SQL 쿼리를 가져오기 위한 고급 SQL 추적
 
-SQL 호출의 경우 서버 및 데이터베이스의 이름은 항상 수집 되 고 수집 된 `DependencyTelemetry` 이름으로 저장 됩니다. 전체 SQL 쿼리 텍스트를 포함할 수 있는 ' data ' 라는 추가 필드가 있습니다.
+SQL 호출의 경우 서버 및 데이터베이스의 이름은 항상 수집 되 고 수집 된 `DependencyTelemetry`이름으로 저장 됩니다. 전체 SQL 쿼리 텍스트를 포함할 수 있는 ' data ' 라는 추가 필드가 있습니다.
 
 ASP.NET Core 응용 프로그램의 경우 전체 SQL 쿼리를 가져오는 데 필요한 추가 단계가 없습니다.
 

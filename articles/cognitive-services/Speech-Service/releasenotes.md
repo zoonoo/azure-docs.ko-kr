@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1b421e7acd7f94654ea80e41340022c8ef7a130e
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1cf9ce6d57c1e106472caeef6c1f2a4b008a09bd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264223"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277861"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -24,36 +24,43 @@ ms.locfileid: "76264223"
 
 **새로운 기능**
 
-- 다중 장치 대화: 음성 또는 텍스트 기반 대화에서 여러 장치를 연결 하 고 필요에 따라 전송 되는 메시지를 변환 합니다. [이 문서](multi-device-conversation.md)에서 자세히 알아보세요. 
+- 다중 장치 대화: 동일한 음성 또는 텍스트 기반 대화에 여러 장치를 연결 하 고 필요에 따라 전송 되는 메시지를 변환 합니다. [이 문서](multi-device-conversation.md)에서 자세히 알아보세요. 
 - Aar 패키지에 대 한 키워드 인식 지원이 추가 되었으며 x86 및 x64 기능에 대 한 지원이 추가 되었습니다. 
-- `SendMessage` 및 `SetMessageProperty` 메서드는 목표-C의 `Connection` 개체에 추가 됩니다. [여기](https://docs.microsoft.com/objectivec/cognitive-services/speech/)에서 설명서를 참조 하세요.
+- 목적-C: `Connection` 개체에 추가 된 `SendMessage` 및 `SetMessageProperty` 메서드입니다. [여기](https://docs.microsoft.com/objectivec/cognitive-services/speech/)에서 설명서를 참조 하세요.
 - 이제 C++ TTS api는 합성 텍스트 입력으로 `std::wstring` 지원 하므로 WSTRING을 SDK로 전달 하기 전에 문자열로 변환할 필요가 없습니다. 자세한 내용은 [여기](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync)를 참조하세요. 
-- 이제에서 C# [언어 id](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) 및 [소스 언어 구성을](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) 사용할 수 있습니다.
+- C#: [언어 id](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) 및 [소스 언어 구성을](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) 이제 사용할 수 있습니다.
+- JavaScript: 음성 서비스에서 콜백 `receivedServiceMessage`으로 사용자 지정 메시지를 전달 하기 위해 `Connection` 개체에 기능을 추가 했습니다.
+- JavaScript: 온-프레미스 컨테이너 및 소 버린 클라우드에서 편리 하 게 사용할 수 있는 `FromHost API`에 대 한 지원이 추가 되었습니다. [여기](speech-container-howto.md)에서 설명서를 참조 하세요.
+- JavaScript: 이제 [orgads](https://github.com/orgads)의 기여 덕분에 `NODE_TLS_REJECT_UNAUTHORIZED`을 인식 합니다. 자세한 내용은 [여기](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)를 참조하세요.
 
 
 **주요 변경 내용**
 
 - `OpenSSL` 버전 1.1.1 b로 업데이트 되었으며 Linux 용 Speech SDK core 라이브러리에 정적으로 연결 되어 있습니다. 이로 인해 수신함 `OpenSSL` 시스템의 `/usr/lib/ssl` 디렉터리에 설치 되지 않은 경우 중단 될 수 있습니다. 문제를 해결 하려면 Speech SDK 문서에서 [설명서](how-to-configure-openssl-linux.md) 를 확인 하세요.
 - `WordLevelTimingResult.Offset`에 대해 C# 반환 되는 데이터 형식을 `int`에서 `long`으로 변경 하 여 음성 데이터가 2 분 보다 길면 `WordLevelTimingResults`에 대 한 액세스를 허용 합니다.
+- 이제 `PushAudioInputStream` 및 `PullAudioInputStream`에서 `AudioStreamFormat`기반으로 하는 음성 서비스에 wav 헤더 정보를 보내고, 해당 정보를 만들 때 선택적으로 지정 합니다. 이제 고객이 [지원 되는 오디오 입력 형식을](how-to-use-audio-input-streams.md)사용 해야 합니다. 다른 모든 형식은 최적의 인식 결과를 얻거나 다른 문제를 일으킬 수 있습니다. 
 
 
 **버그 수정**
 
 - 위의 주요 변경 내용에서 `OpenSSL` 업데이트를 참조 하세요. Linux 및 Java에서 간헐적인 충돌 및 성능 문제 (높은 부하 상태에서 잠금 경합)가 모두 수정 되었습니다. 
-- 높은 동시성 시나리오에서 Java 개체 닫기를 개선 했습니다.
+- Java: 높은 동시성 시나리오에서 개체 닫기를 개선 했습니다.
 - Nuget 패키지를 재구성. Lib 폴더의 `Microsoft.CognitiveServices.Speech.core.dll` 및 `Microsoft.CognitiveServices.Speech.extension.kws.dll` 복사본 3 개를 제거 하 여 Nuget 패키지를 더 작고 더 빠르게 다운로드 하 고 일부 C++ 네이티브 앱을 컴파일하는 데 필요한 헤더를 추가 했습니다.
 - [여기서](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp)는 빠른 시작 샘플을 수정 했습니다. Linux, MacOS, Windows에서 "마이크를 찾을 수 없음" 예외를 표시 하지 않고 종료 되었습니다.
 - [이 샘플과](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp)같은 특정 코드 경로에서 긴 음성 인식이 있는 SDK 충돌 문제를 수정 했습니다.
 - [이 고객 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396)를 해결 하기 위해 Azure 웹 앱 환경에서 SDK 배포 오류가 수정 되었습니다.
 - [이 고객 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433)를 해결 하기 위해 다중 `<voice>` 태그 또는 `<audio>` 태그를 사용 하는 동안 TTS 오류가 수정 되었습니다. 
 - SDK가 일시 중단에서 복구 될 때 TTS 401 오류가 수정 되었습니다.
+- JavaScript: [euirim](https://github.com/euirim)에서 기여 하 여 오디오 데이터의 순환 가져오기를 수정 했습니다. 
+- JavaScript: 1.7에 추가 된 대로 서비스 속성을 설정 하기 위한 지원이 추가 되었습니다.
+- JavaScript: 연결 오류가 발생 하 여 실패 한 websocket 다시 연결 시도가 연속적으로 발생 하는 문제를 해결 했습니다.
 
 
 **샘플**
 
 - Android에 대 한 키워드 인식 샘플이 [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo)에 추가 되었습니다.
-- [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp)에 서버 시나리오에 대 한 TTS 샘플이 추가 되었습니다. 
-- 및 C++ C# .net에서 다중 장치 대화 퀵 스타트를 [추가 했습니다.](multi-device-conversation.md)
+- [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs)에 서버 시나리오에 대 한 TTS 샘플이 추가 되었습니다.
+- 및 C# C++ 에 대 한 다중 장치 대화 퀵 [스타트를 추가](quickstarts/multi-device-conversation.md)했습니다.
 
 
 **기타 변경 내용**

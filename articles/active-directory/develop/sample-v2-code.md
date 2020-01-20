@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ba9df2aa81111ec28970c28e9c584baf2f8cd93
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f6a3ed104e6e8d79fe629b9b97c8a4ec0678d2a7
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766347"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271027"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft id 플랫폼 코드 샘플 (v2.0 끝점)
 
@@ -45,10 +45,10 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 이러한 샘플은 Microsoft id 플랫폼을 사용 하 여 보호 되는 단일 페이지 응용 프로그램을 작성 하는 방법을 보여 줍니다. 이러한 샘플은 MSAL의 특징 중 하나를 사용 합니다.
 
-| 플랫폼 | 설명 | 링크 |
+| 플랫폼 | Description | 링크 |
 | -------- | --------------------- | -------- |
 | 이 이미지 ![javascript 로고](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 를 보여 줍니다. | Microsoft Graph 호출 |[javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-| 이 이미지 ![javascript 로고](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 를 보여 줍니다. | B2C 호출 |[b2c-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
+| 이 이미지 ![javascript 로고](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 를 보여 줍니다. | B2C 호출 |[b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
 | 이 이미지 ![javascript 로고](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 를 보여 줍니다. | 자체 web API를 호출 합니다. |[javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
 | 이 이미지 ![[MSAL AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)](media/sample-v2-code/logo_angular.png)의 각도 JS 로고를 표시 합니다.| Microsoft Graph 호출  | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/MsalAngularjsDemoApp)
 | 이 이미지 ![JavaScript](media/sample-v2-code/logo_angular.png)의 각도 로고 [(MSAL 각도)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) 를 보여 줍니다.| Microsoft Graph 호출  | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/MSALAngularDemoApp) |
@@ -75,8 +75,8 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | 데스크톱(WPF)      | ![이 이미지는 .NET/C# 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png) | [대화형](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | 데스크톱(콘솔)   | ![이 이미지는 .NET/C# (데스크톱) 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | 데스크톱(콘솔)   | ![이 이미지는 .NET/C# (데스크톱) 로고를 보여줍니다.](media/sample-v2-code/logo_NETcore.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| 데스크톱(콘솔)   | ![이 이미지는 Java 로고를 표시 합니다.](media/sample-v2-code/logo_java.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[ms-id-java-데스크톱](https://github.com/Azure-Samples/ms-identity-java-desktop/tree/master/Call-MsGraph-WithUsernamePassword) |  |
-| 데스크톱(콘솔)   | ![이 이미지는 Python 로고를 표시 합니다.](media/sample-v2-code/logo_python.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[m i d-python-데스크톱](https://github.com/Azure-Samples/ms-identity-python-desktop/tree/master/2-Call-MsGraph-WithUsernamePassword) |  |
+| 데스크톱(콘솔)   | ![이 이미지는 Java 로고를 표시 합니다.](media/sample-v2-code/logo_java.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[ms-id-java-데스크톱](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
+| 데스크톱(콘솔)   | ![이 이미지는 Python 로고를 표시 합니다.](media/sample-v2-code/logo_python.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[m i d-python-데스크톱](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
 | 모바일(Android, iOS, UWP)   | ![이 이미지는 .NET/C# (Xamarin) 로고를 보여줍니다.](media/sample-v2-code/logo_xamarin.png) | [대화형](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
 | 모바일(iOS)       | ![이 이미지는 iOS/목표-C 또는 Swift를 보여 줍니다.](media/sample-v2-code/logo_iOS.png) | [대화형](msal-authentication-flows.md#interactive) |[swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
 | 데스크톱 (macOS)       | macOS | [대화형](msal-authentication-flows.md#interactive) |[macOS-swift-v c-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
@@ -90,7 +90,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 |
 | ------------------ | -------- | ---------- | -------------------- |
 | Console | ![이 이미지는 .NET Core 로고를 보여줍니다.](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| 웹 앱 | ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| 웹앱 | ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 | Console | ![이 이미지는 Java 로고를 표시 합니다.](media/sample-v2-code/logo_java.png) | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [ms-id-java-디먼](https://github.com/Azure-Samples/ms-identity-java-daemon) |
 | Console | ![이 이미지는 Python 로고를 표시 합니다.](media/sample-v2-code/logo_python.png) | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [ms-chap-python-디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) |
 
@@ -122,7 +122,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | -------- | ------------------- |
 | ![이 이미지는 ASP.NET Core 로고를 표시 합니다.](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (서비스) Azure Function ( [dotnet-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) )  |
 | ![이 이미지는 node.js 로고를 표시 합니다.](media/sample-v2-code/logo_nodejs.png)</p>NodeJs | Nodejs 및 passport의 웹 API (서비스) [-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
-| ![이 이미지는 Python 로고를 표시 합니다.](media/sample-v2-code/logo_python.png)</p>파이썬 | [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) 의 Web API (서비스) |
+| ![이 이미지는 Python 로고를 표시 합니다.](media/sample-v2-code/logo_python.png)</p>Python | [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) 의 Web API (서비스) |
 | ![이 이미지는 node.js 로고를 표시 합니다.](media/sample-v2-code/logo_nodejs.png)</p>NodeJs | [다음을 대신 사용 하 여 Nodejs 및 passport](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) 의 웹 API (서비스) |
 
 ## <a name="other-microsoft-graph-samples"></a>다른 Microsoft Graph 샘플

@@ -1,21 +1,19 @@
 ---
 title: Azure 스폿 Vm을 사용 하는 확장 집합 만들기 (미리 보기)
 description: 집중 Vm을 사용 하 여 비용을 절약 하는 Azure 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: b57c13d4a5c671595a3e82ac7858c027456107f2
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4f434afdd02d15f98e005b44f5563847f4c5847d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894067"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278202"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>미리 보기: 가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -29,7 +27,7 @@ ms.locfileid: "75894067"
 >
 > 공개 미리 보기의 초기 파트의 경우 별색 인스턴스는 고정 가격이 있으므로 가격 기반 제거는 제공 되지 않습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 지점 인스턴스의 가격은 지역 및 SKU를 기준으로 하는 변수입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)가격 책정을 참조 하세요. 
 

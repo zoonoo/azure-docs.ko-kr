@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03dbb679c25ea692d2c52f80b9493889e367823d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c2f774401f32ff02ced690173c418dafc4c789b5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112154"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278803"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Azure Cognitive Search의 API 버전
 
@@ -30,7 +30,7 @@ SDK 업데이트와 동일한 규칙이 적용됩니다. Azure Cognitive Search 
 다음은 Azure Cognitive Search에 대 한 모든 프로그래밍 인터페이스의 현재 버전에 대 한 스냅숏입니다.
 
 
-| 인터페이스 | 가장 최근의 주 버전 | 가동 상태 |
+| 인터페이스 | 가장 최근의 주 버전 | 상태 |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |일반 공급, 릴리스 2019 년 5 월 |
 | [.NET SDK 미리 보기](https://aka.ms/search-sdk-preview) |8.0-미리 보기 |Preview, 4 월 2019 릴리스 |
@@ -49,6 +49,9 @@ REST API의 경우 각 호출의 `api-version` 을 포함해야 합니다. `api-
 > 서비스 REST API 및 관리 REST API는 따로따로 버전이 지정됩니다. 버전 번호 체계는 동일합니다.
 
 일반 공급(또는 GA) API는 프로덕션에서 사용할 수 있으며 Azure 서비스 수준 계약에 적용을 받습니다. 미리 보기 버전에는 GA 버전으로 항상 마이그레이션되지 않는 실험적 기능이 있습니다. **프로덕션 애플리케이션에서 미리 보기 API를 사용하지 않는 것이 좋습니다.**
+
+## <a name="update-to-the-latest-version-of-the-rest-api-by-october-15-2020"></a>2020 년 10 월 15 일까 지 최신 버전의 REST API 업데이트
+Azure Cognitive Search REST API의 다음 버전은 사용 중지 되며 2020 년 10 월 15 일: **2014-07-31-미리 보기**, **2014-10-20-미리**보기, **2015-02-28-미리 보기**및 **2015-02-28**부터 더 이상 지원 되지 않습니다. 또한 3.0.0 보다 오래 된 Azure Cognitive Search .Net SDK 버전은 이러한 REST API 버전 중 하나를 대상으로 하기 때문에 **사용** 이 중지 됩니다. 이 날짜 이후에는 더 이상 사용 되지 않는 REST API 또는 SDK 버전 중 하나를 사용 하는 응용 프로그램이 더 이상 작동 하지 않으므로 업그레이드 해야 합니다. 이 유형을 변경 하는 경우와 마찬가지로 12 개월의 통지를 제공 하므로 적절 한 시간을 조정할 수 있습니다.  계속 해 서 Azure Cognitive Search을 사용 하려면 [REST API](search-api-migration.md) 를 대상으로 하는 기존 코드를 [REST API 버전 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) 이상 또는 .Net SDK를 년 10 월 15 2020 일에 [버전 3.0](search-dotnet-sdk-migration.md) 이상으로 마이그레이션 하세요.  최신 버전으로 업데이트 하는 방법에 대 한 질문이 있는 경우 2020 년 5 월 15 일 azuresearch_contact@microsoft.com 메일을 보내 코드를 업데이트할 시간이 충분 한지 확인 하세요.
 
 ## <a name="about-preview-and-generally-available-versions"></a>미리 보기 및 일반 공급 버전 정보
 Azure Cognitive Search는 먼저 REST API를 통해 실험적 기능을 미리 릴리스한 후 시험판 버전의 .NET SDK를 통해 미리 릴리스 합니다.

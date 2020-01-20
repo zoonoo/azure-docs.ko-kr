@@ -1,26 +1,19 @@
 ---
-title: Azure 가상 머신 확장 집합 수정 | Microsoft Docs
+title: Azure 가상 머신 확장 집합 수정
 description: REST API, Azure PowerShell 및 Azure CLI로 Azure 가상 머신 확장 집합을 수정 및 업데이트하는 방법 알아보기
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803144"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274445"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -316,7 +309,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - 언어별 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
 
 >[!NOTE]
-> Service Fabric 클러스터는 *자동* 모드만 사용할 수 있지만 업데이트는 다르게 처리됩니다. 자세한 내용은 [Service Fabric 응용 프로그램 업그레이드](../service-fabric/service-fabric-application-upgrade.md)합니다.
+> Service Fabric 클러스터는 *자동* 모드만 사용할 수 있지만 업데이트는 다르게 처리됩니다. 자세한 내용은 [Service Fabric 응용 프로그램 업그레이드](../service-fabric/service-fabric-application-upgrade.md)를 참조 하세요.
 
 업그레이드 정책을 따르지 않는 전역 확장 집합 속성에 대한 한 가지 유형의 수정 작업이 있습니다. 확장 집합 OS 프로필(예: 관리자 사용자 이름 및 암호)을 변경하면 API 버전 *2017-12-01* 이상에서만 변경됩니다. 이러한 변경은 확장 집합 모델이 변경된 후에 만들어지는 VM에만 적용됩니다. 기존 VM을 최신 상태로 유지하려면 각 VM을 “이미지로 다시 설치”해야 합니다. 다음을 통해 VM을 이미지로 다시 설치할 수 있습니다.
 
@@ -364,7 +357,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 
 ## <a name="vm-specific-updates"></a>VM 관련 업데이트
-특정 수정 내용은 전역 확장 집합 속성 대신 특정 VM에 적용될 수 있습니다. 현재 지원되는 유일한 VM 관련 업데이트는 확장 집합의 VM에서 데이터 디스크 연결/분리 작업입니다. 이 기능은 미리 보기 상태입니다. 자세한 내용은 [미리 보기 설명서](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk)를 참조하세요.
+특정 수정 내용은 전역 확장 집합 속성 대신 특정 VM에 적용될 수 있습니다. 현재 지원되는 유일한 VM 관련 업데이트는 확장 집합의 VM에서 데이터 디스크 연결/분리 작업입니다. 이 기능은 미리 보기로 제공됩니다. 자세한 내용은 [미리 보기 설명서](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk)를 참조하세요.
 
 
 ## <a name="scenarios"></a>시나리오
@@ -382,7 +375,7 @@ Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하�
 
 사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>확장 집합에 대한 OS 이미지 업데이트
 이전 버전의 Ubuntu LTS 16.04를 실행하는 확장 집합이 있을 수도 있습니다. Ubuntu LTS 16.04의 최신 버전(예: 버전 *16.04.201801090*)으로 업데이트하려고 합니다. 이미지 참조 버전 속성은 목록에 포함되어 있지 않으므로 다음 중 한 가지 명령으로 이러한 속성을 직접 수정할 수 있습니다.

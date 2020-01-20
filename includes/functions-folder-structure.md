@@ -1,20 +1,18 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fd220a4a955a8b2cd583c2fe9e3899cb36c1587d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ea7396117935c13698a8c6cc6ef4029cc82b90bc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935952"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279383"
 ---
 특정 함수 앱의 모든 기능에 대한 코드는 호스트 구성 파일 및 하나 이상의 하위 폴더를 포함하는 루트 프로젝트 폴더에 있습니다. 각 하위 폴더에는 별도의 함수에 대 한 코드가 포함 되어 있습니다. 폴더 구조는 다음과 같은 표현으로 표시 됩니다.
 

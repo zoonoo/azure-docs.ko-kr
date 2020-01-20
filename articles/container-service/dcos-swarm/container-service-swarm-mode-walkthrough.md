@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) 빠른 시작 - Linux용 Azure Docker CE 클러스터
 description: Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Docker CE 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721802"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274871"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(사용되지 않음) Docker CE 클러스터 배포
 
@@ -38,7 +36,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 az group create --name myResourceGroup --location westus2
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -65,7 +63,7 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#az-acs-create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
 
-몇 분 후 명령이 완료되고 클러스터에 대해 JSON 형식 정보가 반환됩니다.
+몇 분 후에 명령이 완료되고 클러스터에 대한 JSON 형식의 정보가 반환됩니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
@@ -76,7 +74,7 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
-출력
+출력:
 
 ```bash
 Master                                                               Agent
@@ -106,7 +104,6 @@ export DOCKER_HOST=localhost:2374
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:
@@ -126,7 +123,7 @@ services:
 docker stack deploy azure-vote --compose-file azure-vote.yaml
 ```
 
-출력
+출력:
 
 ```bash
 Creating network azure-vote_default

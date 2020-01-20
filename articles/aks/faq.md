@@ -1,19 +1,17 @@
 ---
 title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: Azure Kubernetes 서비스 (AKS)에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
-services: container-service
 author: mlearned
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: ff44409180d61828c25980704c71b72965f6bd5d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d8ff14c28b8fccbf3dce41f5e43daa9685a4786a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967436"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277850"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 

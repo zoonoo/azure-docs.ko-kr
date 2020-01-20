@@ -1,26 +1,24 @@
 ---
 title: AKS(Azure Kubernetes Service)로 Apache Spark 작업 실행
 description: AKS(Azure Kubernetes Service)를 사용하여 Apache Spark 작업 실행
-services: container-service
 author: lenadroid
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 5ecfa1853479c1cdc705a1a465a1de6318917a72
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 72e87acf418d5085a76f18c595bf31d43b0d64ac
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928991"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274659"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
 [Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스에서][spark-latest-release]는 Apache Spark Kubernetes 클러스터와의 기본 통합을 지원 합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -294,7 +292,7 @@ Pi is roughly 3.152155760778804
 
 위의 예제에서는 Spark jar 파일을 Azure Storage에 업로드했습니다. 또 다른 옵션은 jar 파일을 사용자 지정된 Docker 이미지로 패키징하는 것입니다.
 
-이렇게 하려면 `dockerfile` 디렉터리에서 Spark 이미지에 대한 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`을 찾습니다. `ADD` 및 `jar` 선언 사이에 Spark 작업 `WORKDIR`에 대한 `ENTRYPOINT` 명령문을 추가합니다.
+이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. `WORKDIR` 및 `ENTRYPOINT` 선언 사이에 Spark 작업 `jar`에 대한 `ADD` 명령문을 추가합니다.
 
 jar 경로를 개발 시스템의 `SparkPi-assembly-0.1.0-SNAPSHOT.jar` 파일 위치로 업데이트합니다. 개발자 고유의 사용자 지정 jar 파일을 사용해도 됩니다.
 

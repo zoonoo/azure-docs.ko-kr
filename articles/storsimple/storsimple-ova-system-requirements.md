@@ -1,25 +1,18 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array 요구 사항 | Microsoft Docs
+title: Microsoft Azure StorSimple 가상 배열 시스템 요구 사항
 description: StorSimple 가상 배열의 소프트웨어 및 네트워킹 요구 사항에 대해 알아봅니다.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 65d2a21a9f40470cee1dd9d713f9f9cb5431a245
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516695"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273779"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 
@@ -65,7 +58,7 @@ ms.locfileid: "68516695"
 <sup>2</sup> - 네트워크 요구 사항은 일일 데이터 변경률에 따라 달라질 수 있습니다. 예를 들어, 디바이스에서 하루 동안 10GB 이상을 백업해야 한다면, 5Mbps 연결을 통한 매일 백업에는 최대 4.25 시간이 소요될 수 있습니다(데이터를 압축하거나 중복 제거할 수 없는 경우).
 
 ### <a name="supported-web-browsers"></a>지원되는 웹 브라우저
-| **구성 요소** | **Version** | **추가 요구 사항/메모** |
+| **구성 요소** | **버전** | **추가 요구 사항/메모** |
 | --- | --- | --- |
 | Microsoft Edge |최신 버전 | |
 | Internet Explorer |최신 버전 |Internet Explorer 11로 테스트함 |
@@ -96,15 +89,15 @@ Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 다음 테이블에는 iSCSI, SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
 
-| **포트 번호<sup>1</sup>** | **인 또는 아웃** | **포트 범위** | **필수** | **참고** |
+| **포트 번호<sup>1</sup>** | **인 또는 아웃** | **포트 범위** | **필수** | **참고 사항** |
 | --- | --- | --- | --- | --- |
-| TCP 80(HTTP) |아웃 |WAN |아니요 |업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
-| TCP 443(HTTPS) |아웃 |WAN |yes |아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
+| TCP 80(HTTP) |아웃 |WAN |아닙니다. |업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
+| TCP 443(HTTPS) |아웃 |WAN |예 |아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. <br></br> 파일 서버를 배포하는 경우에는 로컬 DNS 서버를 사용하는 것이 좋습니다. |
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.<br></br> 파일 서버를 배포하는 경우 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
 | TCP 80(HTTP) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. <br></br> HTTP를 통해 로컬 UI에 액세스하면 HTTPS로 자동으로 리디렉션됩니다. |
 | TCP 443(HTTPS) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. |
-| TCP 3260(iSCSI) |입력 |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
+| TCP 3260(iSCSI) |그런 다음 |LAN |아닙니다. |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 

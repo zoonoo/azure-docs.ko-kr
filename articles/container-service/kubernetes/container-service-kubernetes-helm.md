@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Kubernetes에서 Helm을 이용한 컨테이너 배포
 description: Helm 패키징 도구를 사용하여 Azure Container Service의 Kubernetes 클러스터에 컨테이너 배포
-services: container-service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712315"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271092"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(사용되지 않음) Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포
 
@@ -23,7 +21,7 @@ ms.locfileid: "60712315"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-[Helm](https://github.com/kubernetes/helm/)은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. Apt-get, Yum 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다. 이 문서는 Azure Container Service에 배포된 Kubernetes 클러스터에서 Helm을 이용하여 작업하는 방법을 보여줍니다.
+[Helm](https://github.com/kubernetes/helm/)은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. Apt-get, Yum 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다. 이 문서는 Azure Container Service에 배포된 Kubernetes 클러스터에서 Helm을 이용하여 작업하는 방법을 보여줍니다.
 
 Helm에는 두 가지 구성 요소가 있습니다. 
 * **Helm CLI**는 사용자 컴퓨터에서 로컬로 또는 클라우드에서 실행되는 클라이언트입니다  
@@ -145,7 +143,7 @@ sudo mysql –h v1-mariadb
 ```
  
  
-이제 표준 SQL 명령을 사용하여 데이터베이스, 테이블 등을 만들 수 있습니다. 예를 들어 `Create DATABASE testdb1;`은 빈 데이터베이스를 만듭니다. 
+이제 표준 SQL 명령을 사용 하 여 데이터베이스, 테이블 등을 만들 수 있습니다. 예를 들어 `Create DATABASE testdb1;`는 빈 데이터베이스를 만듭니다. 
  
  
  

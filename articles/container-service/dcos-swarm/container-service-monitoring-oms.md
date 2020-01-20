@@ -1,26 +1,24 @@
 ---
 title: (사용되지 않음) Azure DC/OS 클러스터 모니터링 - 운영 관리
 description: Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터를 모니터링합니다.
-services: container-service
 author: keikhara
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ab8d1cf3eb38a17f0b3d6c8137e37237498a527
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810097"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277331"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Container Solution은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
+Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. 컨테이너 솔루션은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있도록 하는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
@@ -62,7 +60,7 @@ Container Solution에 대한 자세한 내용은 [Container Solution Log Analyti
 
 VM에 Linux용 Log Analytics 에이전트를 설치했으면 다음 단계는 Log Analytics 대시보드를 설정하는 것입니다. Azure Portal을 통해 대시보드를 설정할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal 
+### <a name="azure-portal"></a>Azure Portal 
 
 <https://portal.microsoft.com/>에서 Azure Portal에 로그인합니다. **Marketplace**로 이동하고 **모니터링 + 관리**를 선택한 다음 **모두 표시**를 클릭합니다. 그런 다음 검색 상자에서 `containers`를 입력합니다. 그러면 검색 결과에서 "컨테이너"가 표시됩니다. **컨테이너**를 선택하고 **만들기**를 클릭합니다.
 

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805708"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277604"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위한 Azure 근접 배치 그룹
 Sap NetWeaver 또는 SAP S/4HANA 아키텍처를 기반으로 하는 SAP 응용 프로그램은 SAP 응용 프로그램 계층과 SAP 데이터베이스 계층 간의 네트워크 대기 시간을 구분 합니다. 이러한 민감도는 응용 프로그램 계층에서 실행 되는 대부분의 비즈니스 논리에 대 한 결과입니다. SAP 응용 프로그램 계층은 비즈니스 논리를 실행 하기 때문에 데이터베이스 계층에 대 한 쿼리를 초당 수천 또는 수만 개의 속도로 데이터베이스 계층에 보냅니다. 대부분의 경우 이러한 쿼리의 특성은 간단 합니다. 500 마이크로초 이하로 데이터베이스 계층에서 실행 되는 경우가 많습니다.
@@ -156,7 +156,7 @@ New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppgavsetappvm" -Locati
 > 하나의 영역에 하나의 DBMS VM을 배포 하 고 두 번째 DBMS VM을 다른 영역에 배포 하 여 고가용성 구성을 만들기 때문에 각 영역에 대해 서로 다른 근접 배치 그룹이 필요 합니다. 사용 하는 모든 가용성 집합에 대해서도 마찬가지입니다.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>기존 시스템을 근접 배치 그룹으로 이동
-SAP 시스템을 이미 배포한 경우에는 중요 한 시스템 중 일부의 네트워크 대기 시간을 최적화 하 고 동일한 데이터 센터에서 응용 프로그램 계층 및 DBMS 계층을 찾을 수 있습니다. 근접 배치 그룹의 공개 미리 보기 중에는 Vm을 삭제 하 고 새 Vm을 만들어 시스템을 근접 배치 그룹으로 이동 해야 합니다. 현재 Vm을 종료 하 고 근접 배치 그룹에 할당할 수는 없습니다.
+SAP 시스템을 이미 배포한 경우에는 중요 한 시스템 중 일부의 네트워크 대기 시간을 최적화 하 고 동일한 데이터 센터에서 응용 프로그램 계층 및 DBMS 계층을 찾을 수 있습니다. 전체 Azure 가용성 집합의 Vm을 이미 범위가 지정 된 기존 근접 배치 그룹으로 이동 하려면 가용성 집합의 모든 Vm을 종료 하 고 Azure Portal를 통해 기존 근접 배치 그룹에 가용성 집합을 할당 해야 합니다. PowerShell 또는 CLI. 가용성 집합의 일부가 아닌 VM을 기존 근접 배치 그룹으로 이동 하려는 경우에는 VM을 종료 하 고 기존 근접 배치 그룹에 할당 하기만 하면 됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

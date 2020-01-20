@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) 빠른 시작 - Windows용 Azure Kubernetes 클러스터
 description: Azure Container Service에서 Azure CLI를 사용하여 Windows 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148809"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277655"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(사용되지 않음) Windows 컨테이너용 Kubernetes 클러스터 배포
 

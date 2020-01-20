@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft 사용
 description: ACS Kubernetes 클러스터와 Azure Container Registry를 만들어 Azure에서 Draft로 첫 번째 애플리케이션을 만듭니다.
-services: container-service
 author: squillace
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712673"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271142"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 애플리케이션 빌드 및 Kubernetes에 배포
 
@@ -31,7 +29,7 @@ ms.locfileid: "60712673"
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
 [새 Azure Container Registry를 쉽게 만들](../../container-registry/container-registry-get-started-azure-cli.md) 수 있으며, 그 단계는 다음과 같습니다.
 
-1. ACR 레지스트리 및 ACS에서 Kubernetes 클러스터를 관리 하는 Azure 리소스 그룹을 만듭니다.
+1. ACS에서 ACR 레지스트리 및 Kubernetes 클러스터를 관리 하는 Azure 리소스 그룹을 만듭니다.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -204,7 +202,7 @@ kubernetes                    10.0.0.1       <none>          443/TCP            
 
 ### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>사용자 지정 하위 도메인에 수신 IP 매핑
 
-Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 애플리케이션에 대한 릴리스를 만듭니다. 각각은 **draft**에서 사용자가 제어하는 루트 _배포 도메인_의 최상위에 있는 _하위 도메인_으로 사용하도록 생성된 이름을 가져옵니다. (이 예제에서는 `squillace.io`를 배포 도메인으로 사용합니다.) 이 하위 도메인 동작을 사용하도록 설정하려면 `'*.draft'`에 대한 A 레코드를 배포 도메인의 DNS 항목에 만들어 생성된 각 하위 도메인이 Kubernetes 클러스터의 수신 컨트롤러로 라우팅되도록 해야 합니다. 
+Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 애플리케이션에 대한 릴리스를 만듭니다. 각각은 **draft**에서 사용자가 제어하는 루트 _배포 도메인_의 최상위에 있는 _하위 도메인_으로 사용하도록 생성된 이름을 가져옵니다. (이 예제에서는 `squillace.io`를 배포 도메인으로 사용 합니다.) 이 하위 도메인 동작을 사용 하도록 설정 하려면 생성 된 각 하위 도메인이 Kubernetes 클러스터의 수신 컨트롤러로 라우팅되도록 배포 도메인에 대 한 DNS 항목에서 `'*.draft'`에 대 한 A 레코드를 만들어야 합니다. 
 
 사용자의 도메인 공급자에는 DNS 서버를 할당하는 자체의 고유한 방법이 있습니다. [도메인 이름 서버를 Azure DNS로 위임](../../dns/dns-delegate-domain-azure-dns.md)하려면 다음 단계를 수행합니다.
 

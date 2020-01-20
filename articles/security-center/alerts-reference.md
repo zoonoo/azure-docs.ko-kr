@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: d936f9f30f79b3be6035d668211a15533cb3fa85
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: cfb77548217cf173438ab0407320cbdff8db092e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157222"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277002"
 ---
 # <a name="security-alerts---a-reference-guide"></a>보안 경고-참조 가이드
 
@@ -128,7 +128,7 @@ ms.locfileid: "76157222"
 |**코드 삽입 검색 됨**|코드 삽입은 실행 중인 프로세스 또는 스레드에 실행 파일 모듈을 삽입하는 작업입니다. 이 기술은 데이터에 액세스 하는 데 사용 되며,이를 통해 데이터에 액세스 하 고, 검색 및 제거 되지 않도록 합니다.<br>이 경고는 삽입된 모듈이 크래시 덤프에 있는지를 알려줍니다. 악성 및 비 악의적 삽입 모듈을 구분 하기 위해 Security Center 삽입 된 모듈이 의심 스러운 동작의 프로필을 준수 하는지 여부를 확인 합니다.|-|
 |**의심 스러운 코드 세그먼트가 검색 됨**|반사 주입 및 프로세스 비우기 같은 비표준 메서드를 사용 하 여 코드 세그먼트를 할당 했음을 나타냅니다. 경고는 보고 된 코드 세그먼트의 기능 및 동작에 대 한 컨텍스트를 제공 하기 위해 처리 된 코드 세그먼트의 추가 특성을 제공 합니다.|-|
 |**Shellcode 검색 됨**|Shellcode는 맬웨어가 소프트웨어 취약점을 악용한 후에 실행되는 페이로드입니다.<br>이 경고는 크래시 덤프 분석이 악의적인 페이로드에서 일반적으로 수행 하는 동작을 보여 주는 실행 코드를 검색 했음을 나타냅니다. 악성 소프트웨어는이 동작을 수행할 수도 있지만 일반적인 소프트웨어 개발 관행은 아닙니다.|-|
-|**Fileless 공격 기술이 검색 됨**|지정 된 프로세스의 메모리에 fileless attack toolkit: Meterpreter가 포함 되어 있습니다. 일반적으로 Fileless 공격 도구 키트는 파일 시스템에 존재 하지 않으므로 기존의 바이러스 백신 소프트웨어로 검색 하기가 어렵습니다.|DefenseEvasion/실행|
+|**Fileless 공격 기술이 검색 됨**|지정 된 프로세스의 메모리에 fileless attack toolkit [toolkit name]이 포함 되어 있습니다. 일반적으로 Fileless 공격 도구 키트는 파일 시스템에 존재 하지 않으므로 기존의 바이러스 백신 소프트웨어로 검색 하기가 어렵습니다.|DefenseEvasion/실행|
 ||<a name="alerts-linux"></a><h3>Linux 컴퓨터</h3> [추가 정보 및 참고 사항](security-center-alerts-iaas.md#linux-)||
 |**비정상적인 방식으로 SSH 권한 있는 키 파일에 액세스 하는 과정**|알려진 맬웨어 캠페인과 비슷한 방법으로 SSH 권한 있는 키 파일에 액세스 했습니다. 이 액세스는 공격자가 컴퓨터에 대 한 영구 액세스 권한을 얻으려고 함을 나타낼 수 있습니다.|-|
 |**지 속성 시도 감지**|호스트 데이터 분석에서 단일 사용자 모드에 대 한 시작 스크립트가 설치 되었음을 감지 했습니다.<br>모든 합법적인 프로세스가 해당 모드에서 실행 되어야 하는 것은 드물지만이는 공격자가 모든 실행 수준에 악의적인 프로세스를 추가 하 여 지 속성을 보장할 수 있음을 나타낼 수 있습니다. |지속성|

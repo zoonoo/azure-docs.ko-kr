@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: feaecbf3b9a39d77f6a60593c8e5f57f14c24ad7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768982"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277971"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -35,7 +35,7 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 중�
 
 + **버전**1.x: Azure Functions 런타임의 버전 1.X를 지원 합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
 
-+ [**버전 2.x/** ](#v2)2.x:는 [Azure Functions 런타임의 버전 2.x 또는](functions-versions.md)3.x를 지원 합니다. 이러한 버전은 [Windows](#windows-npm), [Macos](#brew)및 [Linux](#linux) 를 지원 하 고 플랫폼별 패키지 관리자 또는 npm를 사용 하 여 설치 합니다.
++ [**버전 2.x/** ](#v2)2.x:는 [Azure Functions 런타임의 버전 2.x 또는](functions-versions.md)3.x를 지원 합니다. 이러한 버전은 [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [Macos](/azure/azure-functions/functions-run-local?tabs=macos#v2)및 [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) 를 지원 하 고 플랫폼별 패키지 관리자 또는 npm를 사용 하 여 설치 합니다.
 
 별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
 
@@ -45,12 +45,12 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 중�
 
 ### <a name="v2"></a>버전 2.x 및 3(sp3)
 
-Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런타임을 사용 합니다. 이 버전은 [Windows](#windows-npm), [Macos](#brew)및 [Linux](#linux)를 포함 하 여 .net Core에서 지 원하는 모든 플랫폼에서 지원 됩니다. 
+Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런타임을 사용 합니다. 이 버전은 [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [Macos](/azure/azure-functions/functions-run-local?tabs=macos#v2)및 [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2)를 포함 하 여 .net Core에서 지 원하는 모든 플랫폼에서 지원 됩니다. 
 
 > [!IMPORTANT]
 > [확장 번들]을 사용 하 여 .NET Core SDK를 설치 하기 위한 요구 사항을 무시할 수 있습니다.
 
-#### <a name="windows-npm"></a>Windows
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 다음 단계에서는 npm을 사용하여 Windows에 핵심 도구를 설치합니다. [Chocolatey](https://chocolatey.org/)를 사용할 수도 있습니다. 자세한 내용은 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)를 참조하세요.
 
@@ -76,7 +76,7 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
 
 1. [확장 번들]을 사용 하지 않으려는 경우 [Windows 용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)를 설치 합니다.
 
-#### <a name="brew"></a>Homebrew가 있는 MacOS
+# <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
 다음 단계에서는 Homebrew를 사용하여 macOS에 핵심 도구를 설치합니다.
 
@@ -100,7 +100,7 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-#### <a name="linux"></a>APT가 있는 Linux(Debian/Ubuntu)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 다음 단계에서는 [APT](https://wiki.debian.org/Apt)를 사용하여 Ubuntu/Debian Linux 배포판에 핵심 도구를 설치합니다. 다른 Linux 배포판의 경우 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)를 참조하세요.
 
@@ -122,7 +122,7 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
    Debian에 대 한 APT 원본 목록을 설정 하려면 다음 명령을 실행 합니다.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
 1. `/etc/apt/sources.list.d/dotnetdev.list` 파일에서 아래에 나열 된 적절 한 Linux 버전 문자열 중 하나를 확인 합니다.
@@ -149,6 +149,8 @@ Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런�
     ```
 
 1. [확장 번들]을 사용 하지 않으려는 경우 [Linux 용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)를 설치 합니다.
+
+---
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
@@ -292,9 +294,9 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 | 인수     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (버전 2.x) 버전 1.x 및 포털에서 사용되는 것과 동일한 C# 스크립트(.csx) 템플릿을 생성합니다. |
-| **`--language -l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x에서는 이 옵션을 사용하지 않거나 작업자 런타임과 일치하는 언어를 선택하세요. |
-| **`--name -n`** | 함수 이름입니다. |
-| **`--template -t`** | `func templates list` 명령을 사용하여 지원되는 각 언어에 대해 사용 가능한 템플릿의 전체 목록을 확인합니다.   |
+| **`--language`** , **`-l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x에서는 이 옵션을 사용하지 않거나 작업자 런타임과 일치하는 언어를 선택하세요. |
+| **`--name`** , **`-n`** | 함수 이름입니다. |
+| **`--template`** , **`-t`** | `func templates list` 명령을 사용하여 지원되는 각 언어에 대해 사용 가능한 템플릿의 전체 목록을 확인합니다.   |
 
 예를 들어 단일 명령에서 JavaScript HTTP 트리거를 만들려면 다음을 실행합니다.
 
@@ -351,13 +353,13 @@ func host start
 | **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
 | **`--cors-credentials`** | 원본 간 인증된 요청(즉, 쿠키 및 인증 헤더)을 허용하며, 버전 2.x 전용입니다. |
 | **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
-| **`--language-worker`** | 언어 작업자를 구성 하는 인수입니다. 예를 들어 [디버그 포트 및 기타 필수 인수](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)를 제공 하 여 언어 작업자에 대해 디버깅을 사용 하도록 설정할 수 있습니다. 버전 2.x 전용입니다. |
-| **`--nodeDebugPort -n`** | 사용할 node.js 디버거의 포트입니다. 기본값: launch.json 값 또는 5858 버전 1.x 전용입니다. |
+| **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 예를 들어 [디버그 포트 및 기타 필수 인수](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)를 제공 하 여 언어 작업자에 대해 디버깅을 사용 하도록 설정할 수 있습니다. 버전 2.x 전용입니다. |
+| **`--nodeDebugPort`** , **`-n`** | 사용할 node.js 디버거의 포트입니다. 기본값: launch.json 값 또는 5858 버전 1.x 전용입니다. |
 | **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
-| **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
+| **`--port`** , **`-p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
 | **`--pause-on-error`** | 프로세스를 종료하기 전에 추가 입력에 대해 일시 중지합니다. IDE(통합 개발 환경)에서 Core Tools를 시작할 때만 사용됩니다.|
-| **`--script-root --prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
-| **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. 기본값: 20초|
+| **`--script-root`** , **`--prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
+| **`--timeout`** , **`-t`** | Functions 호스트를 시작할 제한 시간(초)입니다. 기본값: 20초|
 | **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
 
 Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니다.
@@ -437,10 +439,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 | 옵션     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--content -c`** | 인라인 콘텐츠입니다. |
-| **`--debug -d`** | 함수를 실행하기 전에 호스트 프로세스에 디버거를 연결합니다.|
-| **`--timeout -t`** | 로컬 Functions 호스트가 준비될 때까지의 대기 시간(초)입니다.|
-| **`--file -f`** | 콘텐츠로 사용할 파일 이름입니다.|
+| **`--content`** , **`-c`** | 인라인 콘텐츠입니다. |
+| **`--debug`** , **`-d`** | 함수를 실행하기 전에 호스트 프로세스에 디버거를 연결합니다.|
+| **`--timeout`** , **`-t`** | 로컬 Functions 호스트가 준비될 때까지의 대기 시간(초)입니다.|
+| **`--file`** , **`-f`** | 콘텐츠로 사용할 파일 이름입니다.|
 | **`--no-interactive`** | 입력에 대한 메시지를 표시하지 않습니다. 자동화 시나리오에 유용합니다.|
 
 예를 들어 HTTP 트리거 함수를 호출하고 콘텐츠 본문을 전달하려면 다음 명령을 실행합니다.
@@ -480,12 +482,12 @@ func azure functionapp publish <FunctionAppName>
 
 | 옵션     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only -o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
+| **`--publish-settings-only`** , **`-o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
 |**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |
 | **`--list-included-files`** | .funcignore 파일을 기준으로 하여 게시되는 파일 목록을 표시합니다. |
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 생성 되는 원반 폴더를 건너뜁니다. |
-| **`--build`**<br/>**`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local`. |
+| **`--build`** , **`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local`. |
 | **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |

@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Datadog을 사용하여 Azure Kubernetes 클러스터 모니터링
 description: Datadog을 사용하여 Azure Container Service에서 Kubernetes 클러스터 모니터링
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8ed146a224ec4225a7a0e85c76227fb1dc71b0b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712341"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271043"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(사용되지 않음) Datadog을 사용하여 Azure Container Service 클러스터 모니터링
 
@@ -57,4 +55,4 @@ DaemonSet은 Kubernetes가 클러스터의 각 호스트에서 컨테이너의 �
 Datadog에 로그인한 후 [Datadog 지침](https://app.datadoghq.com/account/settings#agent/kubernetes)에 따라 DaemonSet를 사용하여 클러스터에 Datadog 에이전트를 설치할 수 있습니다.
 
 ## <a name="conclusion"></a>결론
-정말 간단하죠. 에이전트가 작동 및 실행되면 몇 분 내에 콘솔에 데이터가 표시됩니다. 통합 [kubernetes 대시보드](https://app.datadoghq.com/screen/integration/kubernetes)를 방문하여 클러스터에 대한 요약을 볼 수 있습니다.
+이것으로 끝입니다. 에이전트가 작동 및 실행되면 몇 분 내에 콘솔에 데이터가 표시됩니다. 통합 [kubernetes 대시보드](https://app.datadoghq.com/screen/integration/kubernetes)를 방문하여 클러스터에 대한 요약을 볼 수 있습니다.

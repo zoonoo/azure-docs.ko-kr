@@ -4,7 +4,7 @@ description: Azure 가용성 영역을 사용하는 SAP NetWeaver의 고가용�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f5186f456003c341af41fc6067f3b5c08acb2b4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 698c198f58ead88b01b1c4b8b2e1fd9da4198c93
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078878"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277456"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.
@@ -57,7 +57,7 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 
 - Azure 가용성 영역을 배포하는 경우 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용해야 합니다. 
 - 물리적 영역에 대한 영역 열거형 매핑은 Azure 구독을 기준으로 고정됩니다. 다른 구독을 사용하여 SAP 시스템을 배포하는 경우 구독마다 적절한 영역을 정의해야 합니다.
-- Azure [근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 사용 하지 않는 한 azure 가용성 집합을 Azure 가용성 영역 내에 배포할 수 없습니다. 영역 간에 SAP DBMS 계층과 중앙 서비스를 배포 하는 방법 및 동시에 가용성 집합을 사용 하 여 SAP 응용 프로그램 계층을 배포 하 고 Vm에 대 한 근접 한 근접을 달성할 수 있는 방법은 [Azure 근접 배치 문서에 설명 되어 있습니다. SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위한 그룹](sap-proximity-placement-scenarios.md) Azure 근접 배치 그룹을 활용 하지 않는 경우 가상 컴퓨터에 대 한 배포 프레임 워크로 하나를 선택 해야 합니다.
+- Azure [근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 사용 하지 않는 한 azure 가용성 집합을 Azure 가용성 영역 내에 배포할 수 없습니다. 여러 영역에 걸쳐 SAP DBMS 계층과 중앙 서비스를 배포 하는 방법 및 동시에 가용성 집합을 사용 하 여 SAP 응용 프로그램 계층을 배포 하 고 Vm에 대 한 근접 하 게 유지 하는 방법은 [sap 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)문서에 설명 되어 있습니다. Azure 근접 배치 그룹을 활용 하지 않는 경우 가상 컴퓨터에 대 한 배포 프레임 워크로 하나를 선택 해야 합니다.
 - [Azure 기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus)를 사용하여 Windows Server 장애 조치(failover) 클러스터링 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터 솔루션을 만들 수 없습니다. 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다.
 
 
@@ -75,6 +75,8 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 - DBMS 인스턴스에 사용하려는 VM SKU를 세 가지 영역 모두에 배포합니다. 이러한 측정을 수행할 때 [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)을 사용하도록 설정해야 합니다.
 - 최소 네트워크 대기 시간을 나타내는 두 영역을 찾으면 세 가용성 영역에 걸쳐 애플리케이션 계층 VM으로 사용하려는 VM SKU의 다른 3개 VM을 배포합니다. 선택한 두 개의 ‘DBMS’ 영역에서 두 ‘DBMS VM’의 네트워크 대기 시간을 측정합니다. 
 - 측정 도구로 **niping**을 사용합니다. SAP의 이 도구는 SAP support note [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에서 설명합니다. 대기 시간 측정에 대한 명령을 중심으로 참조하세요. **ping**은 Azure Accelerated Networking 코드 경로를 통해 작동하지 않으므로 사용하지 않는 것이 좋습니다.
+
+이러한 테스트는 수동으로 수행할 필요가 없습니다. 설명 된 대기 시간 테스트를 자동화 하는 PowerShell 절차 [가용성 영역 대기 시간 테스트](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) 를 찾을 수 있습니다. 
 
 가용성 영역의 VM SKU 측정값 및 가용성에 따라, 다음과 같은 사항을 결정해야 합니다.
 
@@ -103,7 +105,7 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 이 구성에 대해 다음과 같은 고려 사항이 적용됩니다.
 
 - [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 사용 하지 않는 경우에는 가용성 집합을 Azure 가용성 영역에 배포할 수 없기 때문에 모든 vm에 대해 Azure 가용성 영역를 장애 및 업데이트 도메인으로 처리 합니다.
-- DBMS 계층과 중앙 서비스에 대해 영역 배포를 결합 하지만 응용 프로그램 계층에 대 한 Azure 가용성 집합을 사용 하려는 경우 [최적의 Azure 근접 배치 그룹 문서에 설명 된 대로 azure 근접 그룹을 사용 해야 합니다. SAP 응용 프로그램의 네트워크 대기 시간](sap-proximity-placement-scenarios.md)
+- DBMS 계층과 중앙 서비스에 대해 영역 배포를 결합 하지만 응용 프로그램 계층에 대 한 Azure 가용성 집합을 사용 하려는 경우 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)문서에 설명 된 대로 azure 근접 그룹을 사용 해야 합니다.
 - SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
 - SAP 시스템을 호스트하기 위해 배포한 Azure Virtual Network 및 해당 서브넷은 영역에 걸쳐 확장됩니다. 각 영역에 대해 별도의 가상 네트워크가 필요하지 않습니다.
 - 배포하는 모든 가상 머신에 대해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용해야 합니다. 영역 배포에서 관리되지 않는 디스크는 사용할 수 없습니다.

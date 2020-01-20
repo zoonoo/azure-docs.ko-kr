@@ -3,21 +3,20 @@ title: Cloud Foundry 모니터링을 위해 Azure Log Analytics 노즐 배포
 description: Azure Log Analytics을 위한 Cloud Foundry Loggregator Nozzle 배포에 대한 단계별 지침. Nozzle을 사용하여 Cloud Foundry 시스템 상태 및 성능 메트릭을 모니터링합니다.
 services: virtual-machines-linux
 author: ningk
-manager: jeconnoc
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: azure-monitor
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: d71f1d6af0944a676e35dfe6347fafb8706f21b8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286636"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277351"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -29,7 +28,7 @@ Log Analytics 노즐 (노즐)은 [Cloud Foundry loggregator](https://docs.cloudf
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 다음 단계는 Nozzle 배포를 위한 필수 구성 요소입니다.
 
@@ -194,7 +193,7 @@ OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 �
 
 [경고를 작성](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)하고 필요에 따라 쿼리와 임계값을 사용자 지정할 수 있습니다. 권장되는 경고는 다음과 같습니다.
 
-| 검색 쿼리                                                                  | 경고 생성 조건 | 설명                                                                       |
+| 검색 쿼리                                                                  | 경고 생성 조건 | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | 결과 수 < 1   | **bbs.Domain.cf-apps**는 cf-apps 도메인이 최신 상태인지 여부를 나타냅니다. 즉 Cloud Controller로부터의 CF App 요청이 실행을 위해 bbs.LRPsDesired(Diego에 적합한 AI)로 동기화되는지 여부를 나타냅니다. 수신되는 데이터가 없으면 지정한 기간에 cf-apps 도메인이 최신 상태가 아닌 것입니다. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | 결과 수 > 0   | Diego 셀의 경우 값이 0이면 정상 상태이고 1이면 비정상 상태입니다. 지정한 기간에 비정상 Diego 셀이 여러 개 검색되면 경고를 설정합니다. |
@@ -205,7 +204,7 @@ OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 �
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | 결과 수 > 0   | 노즐은 loggregator에서 저속 소비자 경고를 받으면 **slowConsumerAlert** ValueMetric를 Azure Monitor 로그에 보냅니다. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | 결과 수 > 0   | 손실된 이벤트의 델타 번호가 임계값에 도달하는 경우 Nozzle 실행과 관련하여 문제가 있을 수 있습니다. |
 
-## <a name="scale"></a>크기 조정
+## <a name="scale"></a>확장성
 
 Nozzle과 Loggregator를 확장할 수 있습니다.
 

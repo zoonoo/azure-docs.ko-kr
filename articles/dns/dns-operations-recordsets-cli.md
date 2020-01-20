@@ -1,25 +1,21 @@
 ---
-title: Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 관리 | Microsoft Docs
+title: Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 관리
 description: Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다.
-services: dns
-documentationcenter: na
 author: asudbring
-manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: allensu
-ms.openlocfilehash: a0316710f78afc8810f5f65e108638b08fae3da2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a7ecbb5eb2ff6e9b62091496b4debab14e906c55
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211627"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278584"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -82,7 +78,7 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-비어 있는 레코드 집합을 만들었으므로 `azure network dns record-set <record-type> add-record`DNS 레코드 만들기[에 설명된 대로 ](#create-a-dns-record)를 사용하여 레코드를 추가할 수 있습니다.
+비어 있는 레코드 집합을 만들었으므로 [DNS 레코드 만들기](#create-a-dns-record)에 설명된 대로 `azure network dns record-set <record-type> add-record`를 사용하여 레코드를 추가할 수 있습니다.
 
 ## <a name="create-records-of-other-types"></a>다른 형식의 레코드 만들기
 

@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: ca19aefdd213331214938b2af6c9a77501333fb0
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4deae28d172bf717f527824be4be050975614c7d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121219"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277384"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -152,6 +152,28 @@ let Run(myQueueItem: string, log: ILogger) =
  ) {
      context.getLogger().info(message);
  }
+```
+
+다음 Java 함수는 Service Bus 메시지의 _사용자 속성_ 에 정의 된 메타 데이터를 검색 하는 방법을 보여 줍니다. 
+```java
+public class ServiceBusQueueTriggerJava {
+    @FunctionName("ServiceBusQueueTriggerJava")
+    public void run(
+            @ServiceBusQueueTrigger(name = "message", queueName = "myqueue", connection = "AzureWebJobsStorage") String message,
+            @BindingName("UserProperties") UserProperties userProperties,
+            final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Service Bus Queue trigger function executed.");
+        context.getLogger().info(message);
+        context.getLogger().info(userProperties.key1);
+        context.getLogger().info(userProperties.key2);
+    }
+}
+
+public class UserProperties {
+    public String key1;
+    public String key2;
+}
 ```
 
 Service Bus 토픽에 메시지가 추가 될 때도 Java 함수를 트리거할 수 있습니다. 다음 예에서는 `@ServiceBusTopicTrigger` 주석을 사용 하 여 트리거 구성을 설명 합니다.

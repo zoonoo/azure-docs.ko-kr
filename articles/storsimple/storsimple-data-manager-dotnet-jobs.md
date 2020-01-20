@@ -1,27 +1,19 @@
 ---
-title: Microsoft Azure StorSimple 데이터 관리자 작업에 .NET SDK 사용 | Microsoft Docs
+title: Microsoft Azure StorSimple Data Manager 작업에 .NET SDK 사용
 description: .NET SDK를 사용하여 StorSimple 데이터 관리자 작업을 시작하는 방법에 대해 알아보기
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632359"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270734"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용 하 여 데이터 변환 시작 하려면
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용 하 여 데이터 변환 시작
 
 ## <a name="overview"></a>개요
 
@@ -73,7 +65,7 @@ ms.locfileid: "60632359"
     1. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
 
         ![프로젝트 1 만들기](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
-    2. **설치됨 > 템플릿 > Visual C# > 콘솔 응용 프로그램**을 선택합니다.
+    2. **설치됨 &gt; 템플릿 &gt; Visual C# &gt; 콘솔 애플리케이션**을 선택합니다.
     3. **이름**으로 **DataTransformationApp**을 입력합니다.
     4. **위치**로 **C:\DataTransformation**을 선택합니다.
     6. **확인**을 클릭하여 프로젝트를 만듭니다.
@@ -128,7 +120,7 @@ ms.locfileid: "60632359"
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
     ```
 
-    (또는)
+    또는
 
     런타임 시 작업 정의 매개 변수를 변경하려는 경우 다음 코드를 추가합니다.
 

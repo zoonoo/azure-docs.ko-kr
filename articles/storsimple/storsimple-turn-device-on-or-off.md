@@ -1,26 +1,19 @@
 ---
-title: StorSimple 8000 시리즈 디바이스 켜기 또는 끄기 | Microsoft Docs
+title: StorSimple 8000 시리즈 장치 켜기 또는 끄기
 description: 새 StorSimple 디바이스를 켜고, 종료되었거나 전원이 손실된 디바이스를 켜고, 실행 중인 디바이스를 끄는 방법을 설명합니다.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a45c0d32e35b5d321670bf25334a2976b93e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693673"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276891"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스 켜기 또는 끄기
 
@@ -173,5 +166,5 @@ StorSimple용 Windows PowerShell 또는 Azure Portal에 액세스한 후 [StorSi
 > EBOD 인클로저를 기본 인클로저에 연결하는데 사용되는 SAS 케이블을 시스템이 종료된 후까지 제거하면 안됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) 하십시오.
+StorSimple 디바이스를 켜거나 종료할 때 문제가 발생하면 [Microsoft 지원에 문의하세요](storsimple-8000-contact-microsoft-support.md).
 

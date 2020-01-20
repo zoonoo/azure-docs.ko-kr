@@ -3,17 +3,16 @@ title: AKS(Azure Kubernetes Service)에서 GPU 사용
 description: AKS(Azure Kubernetes Service)에서 고성능 컴퓨팅 또는 그래픽 집약적 워크로드에 GPU를 사용하는 방법 알아보기
 services: container-service
 author: zr-msft
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: e805ca87a34a6b50e9f799909efe8fcbe859883c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a68bd124f323225062a86a3e1fc178d2fc089c5d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899473"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276024"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
@@ -24,7 +23,7 @@ GPU(그래픽 처리 장치)는 그래픽 및 시각화 워크로드 같은 계�
 
 현재 GPU 사용 노드 풀을 사용 하는 것은 Linux 노드 풀에만 사용할 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 GPU를 지원하는 노드가 포함된 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터에서 Kubernetes 1.10 이상을 실행해야 합니다. 이러한 요구 사항을 충족하는 AKS 클러스터가 필요한 경우 이 문서의 첫 번째 섹션인 [AKS 클러스터 만들기](#create-an-aks-cluster)를 참조하세요.
 
@@ -40,7 +39,7 @@ GPU(그래픽 처리 장치)는 그래픽 및 시각화 워크로드 같은 계�
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만듭니다. 다음 예에서는 크기 `Standard_NC6`의 단일 노드를 사용 하 여 클러스터를 만듭니다.
+이제 [az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만듭니다. 다음 예에서는 크기가 `Standard_NC6`단일 노드를 사용 하 여 클러스터를 만듭니다.
 
 ```azurecli-interactive
 az aks create \
@@ -223,7 +222,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>GPU 지원 워크로드의 상태 및 출력 보기
 
-`--watch` 인수를 사용 하 여 [kubectl get jobs][kubectl-get] 명령을 사용 하 여 작업의 진행 상황을 모니터링 합니다. 처음으로 이미지를 끌어와서 데이터 세트를 처리하는 경우 몇 분 정도 걸릴 수 있습니다. *완료* 열에 *1/1*이 표시 되 면 작업이 성공적으로 완료 된 것입니다. Ctrl + `kubetctl --watch` *C*를 눌러 명령을 종료 합니다.
+`--watch` 인수를 사용 하 여 [kubectl get jobs][kubectl-get] 명령을 사용 하 여 작업의 진행 상황을 모니터링 합니다. 처음으로 이미지를 끌어와서 데이터 세트를 처리하는 경우 몇 분 정도 걸릴 수 있습니다. *완료* 열에 *1/1*이 표시 되 면 작업이 성공적으로 완료 된 것입니다. *Ctrl + C*를 사용 하 여 `kubetctl --watch` 명령을 종료 합니다.
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch

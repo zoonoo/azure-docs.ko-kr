@@ -3,15 +3,15 @@ title: Azure Disk Encryption 및 Azure 가상 머신 확장 집합 확장 시퀀
 description: 이 문서에서는 Linux IaaS VM용 Microsoft Azure Disk Encryption을 사용하도록 설정하는 방법에 대한 지침을 제공합니다.
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/10/2019
-ms.openlocfilehash: 351c3603ddc069647577b5465ea9fa839810cbc1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: aa638b86b0788b8c274f9dcb3c04c1fc385b4ae1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530889"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279022"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>가상 머신 확장 집합 확장 시퀀싱으로 Azure Disk Encryption 사용
 
@@ -157,8 +157,8 @@ Windows 기반 Azure VM에서 모니터링 및 진단 기능을 제공 하는 �
 
 ## <a name="next-steps"></a>다음 단계
 - 확장 시퀀싱에 대 한 자세한 내용은 [가상 머신 확장 집합의 시퀀스 확장 프로 비전을](virtual-machine-scale-sets-extension-sequencing.md)확인 하세요.
-- @No__t_0 속성에 대 한 자세한 내용은 [virtualMachineScaleSets/extensions 템플릿 참조를 참조](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)하세요.
-- [가상 머신 확장 집합에 대 한 Azure Disk Encryption](disk-encryption-overview.md)
-- [Azure CLI를 사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-cli.md)
-- [Azure PowerShell를 사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-powershell.md)
-- [Azure Disk Encryption에 대 한 키 자격 증명 모음 만들기 및 구성](disk-encryption-key-vault.md)
+- `provisionAfterExtensions` 속성에 대 한 자세한 내용은 [virtualMachineScaleSets/extensions 템플릿 참조를 참조](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)하세요.
+- [가상 머신 확장 집합을 위한 Azure Disk Encryption](disk-encryption-overview.md)
+- [Azure CLI를 사용하는 가상 머신 확장 집합 암호화](disk-encryption-cli.md)
+- [Azure PowerShell을 사용하는 가상 머신 확장 집합 암호화](disk-encryption-powershell.md)
+- [Azure Disk Encryption을 위한 Key Vault 만들기 및 구성](disk-encryption-key-vault.md)

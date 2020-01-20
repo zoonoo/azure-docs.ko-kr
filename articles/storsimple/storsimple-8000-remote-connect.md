@@ -1,32 +1,24 @@
 ---
-title: StorSimple 디바이스에 원격으로 연결 | Microsoft Docs
+title: StorSimple 디바이스에 원격으로 연결
 description: 원격 관리를 위해 디바이스를 구성하는 방법 및 HTTP 또는 HTTPS를 통해 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70d0246debc532260d287104bacea2f15c1b94d2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631880"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277290"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 원격으로 연결
 
 ## <a name="overview"></a>개요
 
-Windows PowerShell을 통해 디바이스에 원격으로 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 디바이스의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
+Windows PowerShell을 통해 디바이스에 원격으로 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. (장치에서 직렬 콘솔을 사용 하 여 연결 하는 경우에만 메뉴가 표시 됩니다.) Windows PowerShell 원격을 사용 하 여 특정 runspace에 연결 합니다. 표시 언어를 지정할 수도 있습니다.
 
 Windows PowerShell 원격을 사용하여 디바이스를 관리하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 StorSimple 디바이스 관리](storsimple-8000-windows-powershell-administration.md)를 참조하세요.
 
@@ -62,7 +54,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTP를 통한 원격 관리를
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 선택하고 원격 관리용으로 구성하려는 디바이스를 클릭하여 선택합니다. **디바이스 설정 &gt; 보안**으로 이동합니다.
 2. **보안 설정** 블레이드에서 **원격 관리**를 클릭합니다.
 3. **원격 관리** 블레이드에서 **원격 관리 사용**을 **예**로 설정합니다.
-4. 이제 HTTP를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통한 연결입니다. HTTP가 선택되었는지 확인합니다.
+4. 이제 HTTP를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통해 연결 하는 것입니다. HTTP가 선택 되어 있는지 확인 합니다.
    
    > [!NOTE]
    > HTTP를 통한 연결은 신뢰할 수 있는 네트워크에서만 허용됩니다.
@@ -141,7 +133,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리�
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 선택하고 원격 관리용으로 구성하려는 디바이스를 클릭하여 선택합니다. **디바이스 설정 &gt; 보안**으로 이동합니다.
 2. **보안 설정** 블레이드에서 **원격 관리**를 클릭합니다.
 3. **원격 관리 사용**을 **예**로 설정합니다.
-4. 이제 HTTPS를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통한 연결입니다. HTTPS가 선택되었는지 확인합니다.
+4. 이제 HTTPS를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통해 연결 하는 것입니다. HTTPS가 선택 되어 있는지 확인 합니다.
 5. ...를 클릭한 후 **원격 관리 인증서 다운로드**를 클릭합니다. 이 파일을 저장할 위치를 지정합니다. 디바이스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치해야 합니다.
 6. **저장**을 클릭하고 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
 
@@ -203,7 +195,7 @@ HTTPS 세션을 사용하는 원격 연결을 위해 호스트 컴퓨터를 준�
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>원격 호스트에 디바이스 일련 번호를 추가하려면
 1. 관리자 권한으로 메모장을 시작하고 \Windows\System32\Drivers\etc에 있는 호스트 파일을 엽니다.
-2. 다음 3개 항목을 호스트 파일에 추가합니다. 3개 항목은 **DATA 0 IP 주소**, **컨트롤러 0 고정 IP 주소** 및 **컨트롤러 1 고정 IP 주소**입니다.
+2. 호스트 파일에 **DATA 0 IP 주소**, **컨트롤러 0 고정 IP 주소** 및 **컨트롤러 1 고정 IP 주소**의 3개 항목을 추가합니다.
 3. 이전에 저장한 디바이스 일련 번호를 입력합니다. 다음 그림과 같이 이 일련 번호를 IP 주소에 매핑합니다. 컨트롤러 0과 컨트롤러 1의 경우 일련 번호(CN 이름)의 끝에 **Controller0** 및 **Controller1**을 추가합니다.
    
     ![hosts 파일에 CN 이름 추가](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
@@ -237,7 +229,7 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     cmdlet의 ComputerName 매개 변수의 경우 &lt;*대상 디바이스의 일련 번호*&gt;를 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT** )에 매핑되었습니다.
-5. 형식:
+5. 유형:
    
      `Enter-PSSession $session`
 6. 몇 분 정도 기다리면 HTTPS over SSL을 통해 디바이스에 연결됩니다. 디바이스에 연결되었음을 나타내는 메시지가 표시됩니다.

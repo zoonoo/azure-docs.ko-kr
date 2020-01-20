@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure DC/OS 클러스터에서 Vamp를 사용하여 카나리아 릴리스
 description: Vamp를 사용하여 Azure Container Service DC/OS 클러스터에서 서비스를 카나리아 릴리스하고 스마트 트래픽 필터링을 적용하는 방법
-services: container-service
 author: gggina
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458192"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275653"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로서비스 카나리아 릴리스
 
@@ -44,7 +42,7 @@ ms.locfileid: "61458192"
 
 ## <a name="set-up-vamp"></a>Vamp 설치
 
-실행 중인 DC/OS 클러스터를 설정 했으므로 DC/OS UI에서 Vamp를 설치할 수 있습니다 (http:\//localhost:80). 
+이제 DC/OS 클러스터를 실행 하 고 있으므로 DC/OS UI에서 Vamp를 설치할 수 있습니다 (http:\//localhost: 80). 
 
 ![DC/OS UI](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -145,7 +143,6 @@ Vamp가 실행 중이니, 청사진의 서비스를 배포합니다.
     9050: sava_cluster/webport      # stable endpoint
    clusters:
     sava_cluster:               # cluster to create
-     services:
         -
           breed:
             name: sava:1.0.0        # service variant name
@@ -200,13 +197,12 @@ Azure Portal을 사용하여 이러한 작업을 완료하는 자세한 단계�
 
 1. Vamp UI에서 **청사진**을 클릭합니다.
 
-2. **추가**를 클릭하여 다음 청사진 YAML에 붙여넣습니다. 이 청사진은 기존 클러스터(sava_cluster) 내에 배포할 새 서비스 변형(sava: 1.1.0)에 대해 설명합니다.
+2. **추가**를 클릭하고 다음 청사진 YAML에 붙여 넣습니다. 이 청사진은 기존 클러스터(sava_cluster) 내에 배포할 새 서비스 변형(sava: 1.1.0)에 대해 설명합니다.
 
    ```YAML
    name: sava:1.1.0      # blueprint name
    clusters:
     sava_cluster:       # cluster to update
-      services:
         -
           breed:
             name: sava:1.1.0    # service variant name

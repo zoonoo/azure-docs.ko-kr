@@ -3,12 +3,12 @@ title: 게스트 구성 정책을 만드는 방법
 description: Azure PowerShell를 사용 하 여 Windows 또는 Linux Vm에 대 한 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 7a6c6bb68302d41cd750c59062432a40cf01e8bd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867334"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278467"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
@@ -176,42 +176,6 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 완료 된 패키지는 관리 되는 가상 컴퓨터에서 액세스할 수 있는 위치에 저장 해야 합니다. 이러한 예로는 GitHub 리포지토리, Azure 리포지토리 또는 Azure storage가 있습니다. 패키지를 공용으로 설정 하지 않으려는 경우 [SAS 토큰](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 을 URL에 포함할 수 있습니다.
 이 구성은 패키지에 액세스 하 고 서비스와 통신 하지 않는 경우에만 적용 되지만 개인 네트워크의 컴퓨터에 대 한 [서비스 엔드포인트](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 를 구현할 수도 있습니다.
-
-### <a name="working-with-secrets-in-guest-configuration-packages"></a>게스트 구성 패키지의 암호 작업
-
-Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 하는 가장 좋은 방법은 Azure Key Vault에 저장 하는 것입니다. 이 디자인은 사용자 지정 DSC 리소스 내에서 구현 됩니다.
-
-1. Azure에서 사용자 할당 관리 id를 만듭니다.
-
-   Id는 컴퓨터에서 Key Vault에 저장 된 암호에 액세스 하는 데 사용 됩니다. 자세한 단계는 Azure PowerShell을 [사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조 하세요.
-
-1. Key Vault 인스턴스를 만듭니다.
-
-   자세한 단계는 [비밀 설정 및 검색-PowerShell](../../../key-vault/quick-create-powershell.md)을 참조 하세요.
-   인스턴스에 사용 권한을 할당 하 여 Key Vault에 저장 된 암호에 대 한 사용자 할당 id 액세스를 제공 합니다. 자세한 단계는 [암호 설정 및 검색-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)을 참조 하세요.
-
-1. 사용자 할당 id를 컴퓨터에 할당 합니다.
-
-   자세한 단계는 PowerShell을 [사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)을 참조 하세요.
-   대규모로 Azure Policy를 통해 Azure Resource Manager를 사용 하 여이 id를 할당 합니다. 자세한 단계는 [템플릿을 사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)을 참조 하세요.
-
-1. 사용자 지정 리소스 내에서 위에서 생성 된 클라이언트 ID를 사용 하 여 컴퓨터에서 사용할 수 있는 토큰을 사용 하 여 Key Vault에 액세스 합니다.
-
-   Key Vault 인스턴스에 대한 `client_id` 및 url을 리소스에 [속성](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema)으로 전달하여 여러 환경에 대해 리소스를 업데이트할 필요가 없도록하거나 값을 변경해야 할 수 있습니다.
-
-사용자 할당 id를 사용 하 여 Key Vault에서 비밀을 검색 하기 위해 사용자 지정 리소스에서 다음 코드 샘플을 사용할 수 있습니다. Key Vault 요청에서 반환 된 값은 일반 텍스트입니다. 자격 증명 개체에 저장 하는 것이 가장 좋습니다.
-
-```azurepowershell-interactive
-# the following values should be input as properties
-$client_id = 'e3a78c9b-4dd2-46e1-8bfa-88c0574697ce'
-$keyvault_url = 'https://keyvaultname.vault.azure.net/secrets/mysecret'
-
-$access_token = ((Invoke-WebRequest -Uri "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=$client_id&resource=https%3A%2F%2Fvault.azure.net" -Method GET -Headers @{Metadata='true'}).Content | ConvertFrom-Json).access_token
-
-$value = ((Invoke-WebRequest -Uri $($keyvault_url+'?api-version=2016-10-01') -Method GET -Headers @{Authorization="Bearer $access_token"}).content | convertfrom-json).value |  ConvertTo-SecureString -asplaintext -force
-
-$credential = New-Object System.Management.Automation.PSCredential('secret',$value)
-```
 
 ## <a name="test-a-guest-configuration-package"></a>게스트 구성 패키지 테스트
 

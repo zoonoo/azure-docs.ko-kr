@@ -3,16 +3,16 @@ title: Virtual Machine Scale Sets에 대 한 Azure Disk Encryption 사용
 description: 이 문서에서는 Virtual Machine Scale Sets에 대해 Microsoft Azure 디스크 암호화를 사용 하도록 설정 하는 지침을 제공 합니다.
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0097d0e1d5ea7de092da14683d4bab3d673b2219
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 36eb83d99af299260ebbbd74fe56d69921ba389b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177786"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278982"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 Azure Disk Encryption
 
@@ -23,7 +23,7 @@ Azure Disk Encryption는 다음과 같은 경우에 Windows 및 Linux 가상 머
 - Windows 확장 집합의 OS 및 데이터 볼륨.
 - Linux 확장 집합의 데이터 볼륨. Linux 확장 집합에 현재 OS 디스크 암호화가 지원 되지 않습니다.
 
-[Azure CLI를 사용 하 여](disk-encryption-cli.md) 가상 머신 확장 집합 암호화 또는를 [사용 하](disk-encryption-powershell.md) 여 가상 머신 확장 집합 암호화를 사용 하 여 몇 분만에 가상 머신 확장 집합에 대 한 Azure Disk Encryption의 기본 사항을 배울 수 있습니다 Azure PowerShell 자습서.
+[Azure CLI를 사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-cli.md) 또는 Azure PowerShell 자습서를 [사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-powershell.md) 를 사용 하 여 몇 분만에 가상 머신 확장 집합에 대 한 Azure Disk Encryption의 기본 사항을 배울 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

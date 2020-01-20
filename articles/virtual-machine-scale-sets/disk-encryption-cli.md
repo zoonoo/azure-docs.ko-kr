@@ -1,20 +1,19 @@
 ---
 title: Azure CLI를 사용 하 여 Azure 확장 집합에 대 한 디스크 암호화
 description: Azure PowerShell을 사용하여 Windows 가상 머신 확장 집합에서 VM 인스턴스 및 연결된 디스크를 암호화하는 방법 알아보기
-services: virtual-machine-scale-sets
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2577eef95cad3405eb42af22e4c57511a660c1a6
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530811"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279073"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용 하 여 가상 머신 확장 집합의 OS 및 연결 된 데이터 디스크 암호화
 
@@ -125,9 +124,9 @@ az vmss encryption enable \
 
 > [!NOTE]
 >  디스크 암호화-keyvault 매개 변수 값에 대 한 구문은 전체 식별자 문자열입니다.</br>
-/subscriptions/[구독 id-guid]/Ssourceg/[/providers/Microsoft.KeyVault/vaults/] [keyvault-name]</br></br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
 > 키-암호화 키 매개 변수의 값 구문은 KEK의 전체 URI입니다.</br>
-https://[keyvault-name]. kek/keys/[kekname]/[]
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>암호화 진행 확인
 

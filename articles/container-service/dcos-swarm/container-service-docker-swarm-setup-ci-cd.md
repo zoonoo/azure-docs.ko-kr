@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Container Service 및 Swarm을 사용한 CI/CD
 description: Docker Swarm, Azure Container Registry 및 Azure DevOps와 Azure Container Service를 사용하여 다중 컨테이너 .NET Core 애플리케이션 지속 제공
-services: container-service
 author: jcorioland
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 860c277e88918dc37eceb496d852691ced2af114
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598544"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277901"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(사용되지 않음) Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
@@ -22,7 +20,6 @@ ms.locfileid: "68598544"
 
 클라우드를 위한 최신 애플리케이션을 개발할 때 어려운 문제 중 하나는 이러한 애플리케이션을 지속적으로 전달할 수 있다는 점입니다. 이 문서에서는 Docker Swarm, Azure Container Registry, Azure Pipelines 관리와 함께 Azure Container Service를 사용하여 전체 CI/CD(연속 통합 및 배포) 파이프라인을 구현하는 방법에 대해 알아봅니다.
 
-이 문서는 간단한 애플리케이션을 기반으로 [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs)에서 사용할 수 있으며 ASP.NET Core를 사용하여 전개됩니다. 애플리케이션은 세 개의 웹 API 및 하나의 웹 프론트 엔드라는 네 개의 다른 서비스로 구성되어 있습니다.
 
 ![MyShop 샘플 애플리케이션](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
 
@@ -41,7 +38,7 @@ Azure DevOps Services를 사용하여 Docker Swarm 클러스터에서 이 애플
 1. 클러스터의 Docker Swarm은 이미지의 최신 버전을 가져옵니다. 
 1. Docker 작성을 사용하여 새 버전의 애플리케이션을 배포합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음 작업을 완료해야 합니다.
 
@@ -135,7 +132,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 다음 단계에서는 빌드 워크플로를 정의합니다. *MyShop* 애플리케이션에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
-* Proxy (프록시)
+* Proxy
 * RatingsApi
 * RecommendationsApi
 * ShopFront
@@ -162,7 +159,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 
 1. 5개의 이미지 각각에 대한 빌드 및 푸시 단계를 구성한 후에 빌드 워크플로에서 두 개 이상의 단계를 추가합니다.
 
-    a. bash 스크립트를 사용하여 docker-compose.yml 파일에서 *BuildNumber* 발생을 현재 빌드 ID로 바꾸는 명령줄 작업입니다. 자세한 내용은 다음과 같은 화면을 참조하세요.
+    a. Bash 스크립트를 사용 하 여 docker-compose.ci.build.yml 파일에서 *BuildNumber* 발생을 현재 빌드 Id로 바꾸는 명령줄 작업입니다. 자세한 내용은 다음 화면을 참조 하십시오.
 
     ![Azure DevOps Services - 작성 파일 업데이트](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 

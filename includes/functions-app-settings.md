@@ -1,20 +1,18 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 08/15/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a20fdb2ddefbd0cd89c655d29c6c4309f73e9d35
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 1d47e8e29f6114c601d86f73bf3c34023ffe9c40
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "67608273"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279271"
 ---
 함수 앱 설정을 추가, 업데이트 및 삭제할 수 있는 여러 가지 방법이 있습니다.
 

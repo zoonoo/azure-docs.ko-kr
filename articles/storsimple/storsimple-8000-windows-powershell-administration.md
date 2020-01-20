@@ -1,25 +1,17 @@
 ---
-title: StorSimple 디바이스 관리를 위한 PowerShell | Microsoft Docs
+title: StorSimple 장치 관리를 위한 PowerShell
 description: StorSimple용 Windows PowerShell을 사용하여 StorSimple 디바이스를 관리하는 방법을 알아봅니다.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7e488a1b2a63323361a597aaa6a438630fc09a05
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7d59f00d655bc7b2395c46713a56f52c61ffa42c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621630"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277100"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 디바이스 관리
 
@@ -58,13 +50,13 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 1. PuTTY **재구성** 대화 상자의 **범주** 창에서 **키보드**를 선택합니다.
 2. 다음 옵션이 선택되었는지 확인합니다(새 세션을 시작할 때의 기본 설정임).
    
-   | 키보드 항목 | 여기서 |
+   | 키보드 항목 | 선택 |
    | --- | --- |
    | 백스페이스 키 |Ctrl-? (127) |
-   | Home 및 End 키 |표준 |
+   | Home 및 End 키 |Standard |
    | 기능 키 및 키패드 |Esc[n~ |
-   | 커서 키의 초기 상태 |정상 |
-   | 숫자 키패드의 초기 상태 |일반 |
+   | 커서 키의 초기 상태 |보통 |
+   | 숫자 키패드의 초기 상태 |보통 |
    | 추가 키보드 기능 사용 |Ctrl-Alt는 AltGr과 다름 |
    
     ![지원되는 Putty 설정](./media/storsimple-windows-powershell-administration/IC740877.png)
@@ -97,7 +89,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 
 다음 설정에서 선택할 수 있습니다.
 
-1. **모든 권한으로 로그인** 이 옵션을 사용하면 적절한 자격 증명으로 로컬 컨트롤러의 **SSAdminConsole** Runspace에 연결할 수 있습니다. 로컬 컨트롤러는 StorSimple 디바이스의 직렬 콘솔을 통해 현재 액세스하는 컨트롤러입니다. 이 옵션을 사용하여 Microsoft 지원에서 가능한 디바이스 문제를 해결하기 위해 무제한 Runspace(지원 세션)에 액세스하도록 허용할 수도 있습니다. 옵션 1을 사용하여 로그온한 후 특정 cmdlet을 실행하여 Microsoft 지원 엔지니어가 무제한 Runspace에 액세스하도록 허용할 수 있습니다. 자세한 내용은 [지원 세션 시작](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)을 참조하세요.
+1. **모든 권한으로 로그인** 이 옵션을 사용하면 적절한 자격 증명으로 로컬 컨트롤러의 **SSAdminConsole** Runspace에 연결할 수 있습니다. (로컬 컨트롤러는 StorSimple 장치의 직렬 콘솔을 통해 현재 액세스 중인 컨트롤러입니다.) 이 옵션을 사용 하 여 Microsoft 지원 제한 된 runspace (지원 세션)에 액세스 하 여 가능한 장치 문제를 해결할 수도 있습니다. 옵션 1을 사용하여 로그온한 후 특정 cmdlet을 실행하여 Microsoft 지원 엔지니어가 무제한 Runspace에 액세스하도록 허용할 수 있습니다. 자세한 내용은 [지원 세션 시작](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)을 참조하세요.
    
 2. **모든 권한으로 피어 컨트롤러에 로그인** 이 옵션은 적절한 자격 증명으로 피어 컨트롤러의 **SSAdminConsole** Runspace에 연결할 수 있다는 점을 제외하고 옵션 1과 동일합니다. StorSimple 디바이스는 능동-수동 구성으로 두 개의 컨트롤러를 포함하는 고가용성 디바이스이기 때문에 피어는 직렬 콘솔을 통해 액세스하는 디바이스의 다른 컨트롤러를 가리킵니다.
    옵션 1과 마찬가지로, 이 옵션을 사용하여 Microsoft 지원이 피어 컨트롤러의 무제한 Runspace에 액세스하도록 허용할 수도 있습니다.
@@ -117,7 +109,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 사용하여 StorSimple에 원격으로 연결
 
-Windows PowerShell 원격을 사용하여 StorSimple 디바이스에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. (디바이스의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. 원격으로 연결하면 직렬 콘솔의 "옵션 1 - 모든 권한"에 해당하는 권한을 직접 갖습니다.) Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
+Windows PowerShell 원격을 사용하여 StorSimple 디바이스에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. (디바이스의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. 원격으로 연결 하면 직렬 콘솔의 "옵션 1 – 전체 액세스"와 동등한 것으로 바로 이동 합니다. Windows PowerShell 원격을 사용 하 여 특정 runspace에 연결 합니다. 표시 언어를 지정할 수도 있습니다.
 
 표시 언어는 직렬 콘솔 메뉴에서 **언어 변경** 옵션을 사용하여 설정하는 언어와 독립적입니다. 지정되지 않은 경우 원격 PowerShell은 연결에 사용되는 디바이스의 로캘을 자동으로 선택합니다.
 
@@ -159,7 +151,7 @@ StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 �
 
 StorSimple용 Windows PowerShell에서 cmdlet 도움말을 사용할 수 있습니다. 시스템의 도움말을 업데이트하는 데 사용할 수 있는 이 도움말의 온라인 최신 버전도 제공됩니다.
 
-이 인터페이스에서 도움을 받는 방법은 Windows PowerShell과 유사하며 대부분의 도움말 관련 cmdlet이 작동합니다. 온라인 Windows PowerShell에 대 한 도움말을 찾을 수 있습니다. [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
+이 인터페이스에서 도움을 받는 방법은 Windows PowerShell과 유사하며 대부분의 도움말 관련 cmdlet이 작동합니다. Windows PowerShell 온라인에 대 한 도움말을 찾을 수 있습니다: [Microsoft. PowerShell.](/powershell/module/Microsoft.PowerShell.Core/)
 
 다음은 도움말을 업데이트하는 방법을 포함하여 이 Windows PowerShell 인터페이스의 도움말 형식에 대한 간략한 설명입니다.
 

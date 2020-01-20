@@ -1,25 +1,19 @@
 ---
-title: Azure에서 가상 머신 확장 집합에 대한 유지 관리 알림 | Microsoft Docs
+title: Azure의 가상 머신 확장 집합에 대 한 유지 관리 알림
 description: Azure에서 가상 머신 확장 집합에 대한 유지 관리 알림을 보고, 셀프 서비스 유지 관리를 시작합니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shants123
-editor: ''
 tags: azure-service-management,azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 07580c8b8ea00039b48bd1f8765735ec5a5082ee
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8d8c32c2a2f3e31c1b7f4645fe61abf2d5d0e014
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746639"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275772"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 

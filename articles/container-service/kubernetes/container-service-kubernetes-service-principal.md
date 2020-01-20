@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Kubernetes 클러스터의 서비스 주체
 description: Azure Container Service에서 Kubernetes 클러스터에 대한 Azure Active Directory 서비스 주체를 만들고 관리합니다.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3126339a1eb8ff9c0ef34a330333635d3d0f6433
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609118"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274360"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(사용되지 않음) Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
 
@@ -37,7 +35,7 @@ Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작
 
 * **역할**: 참가자
 
-* **클라이언트 암호**: 암호여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
+* **클라이언트 비밀**: 암호여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
 
 > [!IMPORTANT]
 > 서비스 주체를 만들려면 Azure AD 테넌트에 애플리케이션을 등록하고 구독의 역할에 해당 애플리케이션을 할당할 수 있는 권한이 있어야 합니다. 필요한 권한이 있는지 확인하려면 [포털에서 확인합니다](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
@@ -80,7 +78,7 @@ Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언�
 
 1. GitHub에서 템플릿 매개 변수 파일 `azuredeploy.parameters.json`을 [다운로드](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json)합니다.
 
-2. 서비스 주체를 지정하려면 파일에 `servicePrincipalClientId` 및 `servicePrincipalClientSecret`의 값을 입력합니다. (또한 `dnsNamePrefix` 및 `sshRSAPublicKey`에 대한 고유한 값을 제공해야 합니다. 후자는 클러스터에 액세스하기 위한 SSH 공개 키입니다.) 파일을 저장합니다.
+2. 서비스 주체를 지정하려면 파일에 `servicePrincipalClientId` 및 `servicePrincipalClientSecret`의 값을 입력합니다. (또한 `dnsNamePrefix` 및 `sshRSAPublicKey`에 대한 고유한 값을 제공해야 합니다. 후자는 클러스터에 액세스 하는 SSH 공개 키입니다. 파일을 저장 합니다.
 
     ![서비스 주체 매개 변수 전달](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -113,7 +111,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 > 계정에 Azure AD 및 서비스 주체를 만들 수 있는 구독 권한이 없는 경우 명령은 `Insufficient privileges to complete the operation.`과 비슷한 오류를 생성합니다.
 >
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 * 구독에 서비스 주체를 만들 수 있는 권한이 없는 경우 Azure AD 또는 구독 관리자에게 필요한 권한을 할당하도록 요청하거나 Azure Container Service에서 사용할 서비스 주체를 요청해야 할 수도 있습니다.
 
@@ -155,7 +153,7 @@ az ad app show --id <appId> --debug
 az ad sp reset-credentials --name <appId>
 ```
 
-출력
+출력:
 
 ```json
 {

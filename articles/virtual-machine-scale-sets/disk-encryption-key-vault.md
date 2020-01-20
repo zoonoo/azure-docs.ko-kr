@@ -2,17 +2,17 @@
 title: Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 description: 이 문서에서는에서 사용할 키 자격 증명 모음을 만들고 구성 하는 단계를 제공 Azure Disk Encryption
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0252fff84307577ab307e591948e16dc30c38f66
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eec5b42da709ab5e79da42f11600f6ffc81d247e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750005"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279011"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 
@@ -49,5 +49,5 @@ Connect-AzAccount
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Disk Encryption 개요](disk-encryption-overview.md)
-- [Azure CLI를 사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-cli.md)
-- [Azure PowerShell를 사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-powershell.md)
+- [Azure CLI를 사용하는 가상 머신 확장 집합 암호화](disk-encryption-cli.md)
+- [Azure PowerShell을 사용하는 가상 머신 확장 집합 암호화](disk-encryption-powershell.md)

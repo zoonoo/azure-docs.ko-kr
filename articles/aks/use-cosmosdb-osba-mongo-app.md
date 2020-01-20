@@ -1,21 +1,19 @@
 ---
 title: 기존 MongoDB 애플리케이션을 MongoDB용 Azure Cosmos DB API 및 OSBA(Open Service Broker for Azure)와 통합
 description: 이 문서에서는 OSBA(Open Service Broker for Azure)를 사용하여 기존 Java 및 MongoDB 애플리케이션을 MongoDB용 Azure Cosmos DB API와 통합하는 방법을 알아봅니다.
-services: azure-dev-spaces
 author: zr-msft
-manager: jeconnoc
 ms.service: azure-dev-spaces
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d0ab0b27d77e45d779227d30c5a8e4f824ba62a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61028425"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277698"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>기존 MongoDB 애플리케이션을 MongoDB용 Azure Cosmos DB API 및 OSBA(Open Service Broker for Azure)와 통합
 
@@ -189,7 +187,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>AKS 클러스터에서 애플리케이션 실행
 
-[Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md)를 사용하여 애플리케이션을 AKS 클러스터에 배포할 수 있습니다. Azure 개발 공간을 사용 하면 Dockerfile 및 Helm 차트 등의 아티팩트를 생성 하 고 배포 하 고 AKS에서 응용 프로그램을 실행 합니다.
+[Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md)를 사용하여 애플리케이션을 AKS 클러스터에 배포할 수 있습니다. Azure Dev Spaces는 Dockerfiles 및 투구 차트와 같은 아티팩트를 생성 하 고 AKS에서 응용 프로그램을 배포 및 실행 하는 데 도움이 됩니다.
 
 AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하려면 다음을 수행합니다.
 

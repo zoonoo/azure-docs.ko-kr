@@ -1,20 +1,18 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3fd610512a87263eeb6599a24faef5ba23070823
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a925076dfccd30c73febb2aadc8692667ea01525
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608280"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279473"
 ---
 [Application Insights에서 샘플링 기능](../articles/azure-functions/functions-monitoring.md#configure-sampling)을 제어합니다.
 
@@ -29,7 +27,7 @@ ms.locfileid: "67608280"
 }
 ```
 
-|속성  |Default | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
 |maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 

@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Container Service의 DC/OS 에이전트 풀
 description: 공용 및 프라이빗 에이전트 풀이 Azure Container Service 클러스터와 함께 작동하는 방식
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 03cacda1aa405cb2d0ded579c8ddb5f6011ce3bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb9b33bf537ebd5a563f8e8a8afd45cd2e5b292d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60478449"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278371"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(사용되지 않음) Azure Container Service의 DC/OS 에이전트 풀
 
@@ -23,7 +21,7 @@ ms.locfileid: "60478449"
 Azure Container Service의 DC/OS 클러스터는 2개의 풀, 즉 공용 풀과 프라이빗 풀에 에이전트 노드를 포함합니다. 애플리케이션을 이러한 두 풀 중 하나에 배포할 수 있으며 이는 컨테이너 서비스의 컴퓨터 간의 액세스 가능성에 영향을 줍니다. 머신은 인터넷(공용)에 노출되거나 내부(개인)로 유지될 수 있습니다. 이 문서에서는 공용 및 프라이빗 풀이 있는 이유에 대한 간략한 개요를 제공합니다.
 
 
-* **사용자 에이전트**: 프라이빗 에이전트 노드는 라우팅할 수 없는 네트워크를 통해 실행됩니다. 이 네트워크는 관리 영역에서나 공용 영역 에지 라우터를 통해서만 액세스할 수 있습니다. 기본적으로 DC/OS는 프라이빗 에이전트 노드에서 앱을 시작합니다. 
+* **프라이빗 에이전트**: 프라이빗 에이전트 노드는 라우팅할 수 없는 네트워크를 통해 실행됩니다. 이 네트워크는 관리 영역에서나 공용 영역 에지 라우터를 통해서만 액세스할 수 있습니다. 기본적으로 DC/OS는 프라이빗 에이전트 노드에서 앱을 시작합니다. 
 
 * **공용 에이전트**: 공용 에이전트 노드는 공개적으로 액세스 가능한 네트워크를 통해 DC/OS 앱과 서비스를 실행합니다. 
 
@@ -33,7 +31,7 @@ DC/OS 네트워크 보안에 대한 자세한 내용은 [DC/OS 설명서](https:
 
 Azure Container Service의 DC/OS 에이전트 풀은 다음과 같이 만들어집니다.
 
-* **개인 풀**은 [DC/OS 클러스터 배포](container-service-deployment.md) 시 지정하는 에이전트 노드 수를 포함합니다. 
+* **프라이빗 풀**은 [DC/OS 클러스터 배포](container-service-deployment.md) 시 지정하는 에이전트 노드 수를 포함합니다. 
 
 * **공용 풀**은 처음에 미리 정의된 수의 에이전트 노드를 포함합니다. 이 풀은 DC/OS 클러스터가 프로비저닝될 때 자동으로 추가됩니다.
 

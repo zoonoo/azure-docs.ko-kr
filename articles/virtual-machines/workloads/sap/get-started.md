@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/16/2020
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3712e67e95c8957d2537660add14d6cdb09d609f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 55872d48dcf2a85812e1627e4e85bcd98b25d576
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264817"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271317"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -120,6 +120,9 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
+
+- 01/17/2020: [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위해 Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 을 변경 하 여 기존 vm을 근접 배치 그룹으로 이동 하는 섹션을 변경 합니다.
+- 01/17/2020: Azure 가용성 영역을 [사용 하 여 SAP 워크 로드 구성을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) 변경 하 여 가용성 영역 간의 대기 시간 측정을 자동화 하는 절차를 가리키도록 합니다.
 - 01/16/2020: [Azure에서 SAP HANA (Large Instances)를 설치 및 구성 하는 방법에 따라](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) OS 릴리스를 HANA IaaS 하드웨어 디렉터리에 맞게 조정 합니다.
 - 01/16/2020: [SLES 다중 SID 가이드에서 Azure vm의 Sap NetWeaver에 대 한 고가용성 변경 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) : 큐에 대기 중인 서버 2 아키텍처 (ENSA2)를 사용 하 여 sap 시스템에 대 한 지침 추가
 - 01/10/2020: SLES에 [Azure NetApp Files 있는 Azure vm의 대기 노드를 사용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) 하 여 SAP HANA를 확장 하 고 [SAP HANA, RHEL의 Azure NetApp Files를 사용 하 여 azure vm의 대기 노드를 확장](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) 하 여 `nfs4_disable_idmapping` 변경 내용을 영구적으로 변경 하는 방법에 대 한 지침을 추가 합니다.

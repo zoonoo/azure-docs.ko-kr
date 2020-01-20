@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: b4e09bf84d78c88d3625b0f6b478746db09cc2d8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 41d48bdd7cc7972536d0cf0e0cb78483f727d7f2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030053"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277013"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>종동체 데이터베이스를 사용 하 여 Azure 데이터 탐색기에 데이터베이스 연결
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 데이터베이스 연결
 
-이 섹션에서는 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md)사용 하 여 종동체 클러스터를 만들고 데이터베이스를 연결 하는 방법에 대해 알아봅니다. 클러스터가 이미 있는 경우 아래 리소스 목록에서 `Microsoft.Kusto/clusters` 리소스를 제거 합니다.
+이 섹션에서는 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md)사용 하 여 기존 배포한에 데이터베이스를 연결 하는 방법에 대해 알아봅니다. 
 
 ```json
 {
@@ -138,7 +138,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the follower cluster."
+                "description": "Name of the cluster to which the database will be attached."
             }
         },
         "attachedDatabaseConfigurationsName": {
@@ -180,17 +180,6 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('followerClusterName')]",
-            "type": "Microsoft.Kusto/clusters",
-            "sku": {
-                "name": "Standard_D13_v2",
-                "tier": "Standard",
-                "capacity": 2
-            },
-            "apiVersion": "2019-09-07",
-            "location": "[parameters('location')]"
-        },
-        {
             "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
             "apiVersion": "2019-09-07",
@@ -217,7 +206,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 |**설정**  |**설명**  |
 |---------|---------|
-|종동체 클러스터 이름     |  종동체 클러스터의 이름입니다. 클러스터 이름이 있는 경우 ARM 템플릿의 리소스 목록에서 `Microsoft.Kusto/clusters` 리소스를 제거 합니다. 그렇지 않으면 새 클러스터가 생성 됩니다.     |
+|종동체 클러스터 이름     |  종동체 클러스터의 이름입니다.  |
 |연결 된 데이터베이스 구성 이름    |    연결 된 데이터베이스 구성 개체의 이름입니다. 이름은 클러스터 수준에서 고유 해야 합니다.     |
 |데이터베이스 이름     |      따를 데이터베이스의 이름입니다. 모든 리더의 데이터베이스를 팔 로우 하려면 ' * '를 사용 합니다.   |
 |리더 클러스터 리소스 ID    |   리더 클러스터의 리소스 ID입니다.      |

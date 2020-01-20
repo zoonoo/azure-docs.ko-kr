@@ -1,26 +1,20 @@
 ---
-title: 가용성 영역을 사용하는 Azure 확장 집합 만들기 | Microsoft Docs
+title: 가용성 영역를 사용 하는 Azure 확장 집합 만들기
 description: 가동 중단에 대비해서 중복성을 늘리기 위해 가용성 영역을 사용하는 Azure 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a31ed174c7a5986594f7c07b7ce00b1649413c8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 11695eb889a10dc689b00399a37382a3b9772eae
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907976"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274419"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 
@@ -52,7 +46,7 @@ API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배
 
 확장 집합에서 VM이 만들어졌어도 해당 VM에서 확장은 배포되지 않을 수 있습니다. 확장이 실패한 이러한 VM은 확장 집합이 분산된 경우를 결정할 때에 여전히 계산됩니다. 예를 들어 영역 1에 3개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 모든 확장이 영역 1에서 실패하고 모든 확장이 영역 2 및 3에서 성공한 경우에도 균형으로 간주됩니다.
 
-최상의 영역 균형을 사용하면 확장 집합은 균형을 유지하면서 규모 확장 및 감축을 시도합니다. 그러나 어떤 이유로든 이것이 불가능한 경우(예: 하나의 영역이 다운되어 확장 집합에서 해당 영역에 새 VM을 만들 수 없는 경우) 확장 집합을 사용하면 일시적인 불균형을 성공적으로 확장 또는 감축할 수 있습니다. 후속 스케일 아웃 시도에서 확장 집합은 확장 집합이 균형을 이루기 위해 VM이 더 많이 필요한 영역에 VM을 추가합니다. 마찬가지로 후속 규모 축소 시도에서 확장 집합은 확장 집합이 균형을 이루기 위해 더 적은 VM이 필요한 영역에서 VM을 제거합니다. "엄격한 영역 균형"을 사용하면 확장 집합은 규모 확장 또는 축소 시도에 실패하고 그렇게 하는 경우 불균형이 발생합니다.
+최상의 영역 균형을 사용하면 확장 집합은 균형을 유지하면서 규모 확장 및 감축을 시도합니다. 그러나 어떤 이유로 든 가능 하지 않은 경우 (예: 한 영역이 중단 되 면 확장 집합에서 해당 영역에 새 VM을 만들 수 없는 경우) 확장 집합을 사용 하면 임시 불균형을 성공적으로 확장 하거나 축소할 수 있습니다. 이후 확장 시도에서 확장 집합은 확장 집합이 균형을 유지 하기 위해 더 많은 Vm이 필요한 영역에 Vm을 추가 합니다. 마찬가지로 후속 규모 축소 시도에서 확장 집합은 확장 집합이 균형을 이루기 위해 더 적은 VM이 필요한 영역에서 VM을 제거합니다. "엄격한 영역 균형"을 사용하면 확장 집합은 규모 확장 또는 축소 시도에 실패하고 그렇게 하는 경우 불균형이 발생합니다.
 
 최상의 영역 균형을 사용하려면 *zoneBalance*를 *false*로 설정합니다. 이 설정은 API 버전 *2017-12-01*에서 기본값입니다. 엄격한 영역 균형을 사용하려면 *zoneBalance*를 *true*로 설정합니다.
 

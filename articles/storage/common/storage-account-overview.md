@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975700"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274556"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -64,17 +64,15 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 계정
 
-BlockBlobStorage 계정은 구조화 되지 않은 개체 데이터를 블록 blob으로 저장 하는 데 사용 하는 특수 한 저장소 계정입니다. BlockBlobStorage 계정을 사용 하 여 프리미엄 블록 blob을 만들 수도 있습니다. 이 유형의 저장소 계정은 블록 blob 및 추가 blob을 지원 하지만 페이지 blob, 테이블 또는 큐는 지원 하지 않습니다.
+BlockBlobStorage 계정은 구조화 되지 않은 개체 데이터를 블록 blob 또는 추가 blob으로 저장 하기 위한 프리미엄 성능 계층의 특수 저장소 계정입니다. 일반 용도의 v2 및 BlobStorage 계정에 비해 BlockBlobStorage 계정은 낮은, 일관 된 대기 시간 및 더 높은 트랜잭션 속도를 제공 합니다.
 
-범용 v2 및 BlobStorage 계정과 비교할 때 BlockBlobStorage 계정은 낮은 대기 시간과 일관 된 대기 시간을 제공 하 고 더 높은 트랜잭션 속도를 제공 합니다.
-
-BlockBlobStorage 계정은 현재 핫, 쿨 또는 보관 액세스 계층에 대 한 계층화를 지원 하지 않습니다.
+BlockBlobStorage 계정은 현재 핫, 쿨 또는 보관 액세스 계층에 대 한 계층화를 지원 하지 않습니다. 이 유형의 저장소 계정은 페이지 blob, 테이블 또는 큐를 지원 하지 않습니다.
 
 ### <a name="filestorage-accounts"></a>FileStorage 계정
 
 FileStorage 계정은 프리미엄 파일 공유를 저장 하 고 만드는 데 사용 되는 특수 저장소 계정입니다. 이 저장소 계정 유형은 파일을 지원 하지만 블록 blob, 추가 blob, 페이지 blob, 테이블 또는 큐를 지원 하지 않습니다.
 
-FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을 제공 합니다. 이러한 특성에 대 한 자세한 내용은 파일 계획 가이드의 [파일 공유 성능 계층](../files/storage-files-planning.md#file-share-performance-tiers) 섹션을 참조 하십시오.
+FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 특성을 제공 합니다. 이러한 특성에 대 한 자세한 내용은 파일 계획 가이드의 [파일 공유 성능 계층](../files/storage-files-planning.md#file-share-performance-tiers) 섹션을 참조 하십시오.
 
 ## <a name="naming-storage-accounts"></a>스토리지 계정 이름 지정
 
@@ -85,12 +83,20 @@ FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을
 
 ## <a name="performance-tiers"></a>성능 계층
 
+만든 저장소 계정 유형에 따라 표준 및 프리미엄 성능 계층 중에서 선택할 수 있습니다.
+
+### <a name="general-purpose-storage-accounts"></a>범용 스토리지 계정
+
 다음 성능 계층 중 하나에 대해 범용 스토리지 계정을 구성할 수 있습니다.
 
 - Blob, 파일, 테이블, 큐 및 Azure 가상 머신 디스크를 저장하기 위한 표준 성능 계층 Standard storage 계정의 확장성 목표에 대 한 자세한 내용은 [standard storage 계정에 대 한 확장성 목표](scalability-targets-standard-account.md)를 참조 하세요.
-- 비관리형 가상 머신 디스크만 저장하기 위한 프리미엄 성능 계층 관리 디스크를 관리 되지 않는 디스크 대신 Azure virtual machines와 함께 사용 하는 것이 좋습니다. 프리미엄 성능 계층의 확장성 목표에 대 한 자세한 내용은 [프리미엄 페이지 blob storage 계정에 대 한 확장성 목표](../blobs/scalability-targets-premium-page-blobs.md)를 참조 하세요.
+- 관리 되지 않는 가상 머신 디스크를 저장 하기 위한 프리미엄 성능 계층입니다. 관리 디스크를 관리 되지 않는 디스크 대신 Azure virtual machines와 함께 사용 하는 것이 좋습니다. 프리미엄 성능 계층의 확장성 목표에 대 한 자세한 내용은 [프리미엄 페이지 blob storage 계정에 대 한 확장성 목표](../blobs/scalability-targets-premium-page-blobs.md)를 참조 하세요.
+
+### <a name="blockblobstorage-storage-accounts"></a>BlockBlobStorage 저장소 계정
 
 BlockBlobStorage 저장소 계정은 블록 blob 및 추가 blob을 저장 하기 위한 프리미엄 성능 계층을 제공 합니다. 자세한 내용은 [프리미엄 블록 blob 저장소 계정에 대 한 확장성 목표](../blobs/scalability-targets-premium-block-blobs.md)를 참조 하세요.
+
+### <a name="filestorage-storage-accounts"></a>FileStorage 저장소 계정
 
 FileStorage 저장소 계정은 Azure 파일 공유에 대 한 프리미엄 성능 계층을 제공 합니다. 자세한 내용은 [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)를 참조 하세요.
 
@@ -102,7 +108,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 - **핫** 액세스 계층입니다. 이 계층은 저장소 계정의 개체에 대 한 자주 액세스 하도록 최적화 되어 있습니다. 핫 계층의 데이터에 액세스 하는 것은 가장 비용 효율적 이지만, 저장소 비용은 더 높습니다. 기본적으로 새 스토리지 계정은 핫 계층에 만들어집니다.
 - **쿨** 액세스 계층입니다. 이 계층은 드물게 액세스 되 고 최소 30 일 동안 저장 되는 대량의 데이터를 저장 하는 데 최적화 되어 있습니다. 쿨 계층에 데이터를 저장 하는 것이 더 비용 효율적 이지만 데이터에 액세스 하는 것이 핫 계층의 데이터에 액세스 하는 것 보다 비용이 더 많이 들 수 있습니다.
-- **보관** 계층입니다. 이 계층은 개별 블록 blob에 대해서만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고 최소 180 일 동안 보관 계층에 남아 있는 데이터에 대해 최적화 됩니다. 보관 계층은 데이터를 저장 하는 가장 비용 효율적인 옵션입니다. 그러나 해당 데이터에 액세스 하는 것은 핫 또는 쿨 계층의 데이터에 액세스 하는 것 보다 비용이 많이 듭니다.
+- **보관** 계층입니다. 이 계층은 개별 블록 blob 및 추가 blob에 대해서만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고 최소 180 일 동안 보관 계층에 남아 있는 데이터에 대해 최적화 됩니다. 보관 계층은 데이터를 저장 하는 가장 비용 효율적인 옵션입니다. 그러나 해당 데이터에 액세스 하는 것은 핫 또는 쿨 계층의 데이터에 액세스 하는 것 보다 비용이 많이 듭니다.
 
 데이터의 사용 패턴이 변경 되 면 언제 든 지 이러한 액세스 계층 간을 전환할 수 있습니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조 하세요.
 

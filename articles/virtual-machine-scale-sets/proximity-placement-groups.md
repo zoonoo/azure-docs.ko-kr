@@ -1,23 +1,19 @@
 ---
-title: 가상 머신 확장 집합에 대 한 근접 배치 그룹 미리 보기 | Microsoft Docs
+title: 가상 머신 확장 집합에 대 한 근접 배치 그룹 미리 보기
 description: Azure에서 Windows 가상 머신 확장 집합에 대 한 근접 배치 그룹을 만들고 사용 하는 방법에 대해 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 6a4f145c6431e98bbe9575f128ace30a23a1b972
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 4fa2949e2a7e1b99ac26caa35f967e9dc9cf359a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850354"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273613"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 근접 배치 그룹 만들기 및 사용
 
@@ -29,7 +25,7 @@ ms.locfileid: "67850354"
 > 근접 배치 그룹은 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 >
-> 이러한 지역에서는 미리 보기 중에 근접 배치 그룹을 사용할 수 없습니다. **일본 동부**, **오스트레일리아 동부** 및 **인도 중부**.
+> 이러한 지역에서는 **일본 동부**, **오스트레일리아 동부** 및 **인도 중부**를 미리 볼 때 근접 배치 그룹을 사용할 수 없습니다.
 
 
 ## <a name="create-a-proximity-placement-group"></a>근접 배치 그룹 만들기

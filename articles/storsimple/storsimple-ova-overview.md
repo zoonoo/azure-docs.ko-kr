@@ -1,25 +1,18 @@
 ---
-title: Microsoft Azure StorSimple 가상 배열 개요 | Microsoft Docs
+title: Microsoft Azure StorSimple 가상 배열 개요
 description: 온-프레미스 가상 배열과 Microsoft Azure 클라우드 스토리지 간의 스토리지 작업을 관리하는 통합된 스토리지 솔루션인 StorSimple 가상 배열을 설명합니다.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516702"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273881"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
 
@@ -49,12 +42,12 @@ Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azu
 | 복구 시간 목표(RTO) |iSCSI: 크기에 관계없이 2분 미만 |
 | 복구 지점 목표(RPO) |매일 백업 및 주문형 백업 |
 | 스토리지 계층화 |열 매핑을 사용하여 계층화에 포함시킬 데이터와 그렇지 않은 데이터를 결정 |
-| Support(지원) |공급업체에 의해 지원되는 가상화 인프라 |
-| 성능 |기본 인프라에 따라 달라짐 |
+| 지원 |공급업체에 의해 지원되는 가상화 인프라 |
+| 성능 중심 |기본 인프라에 따라 달라짐 |
 | 데이터 이동성 |동일한 디바이스에 복원할 수 있음 또는 항목 수준 복원을 수행함(파일 서버) |
 | 스토리지 계층 |로컬 하이퍼바이저 스토리지 및 클라우드 |
 | 공유 크기 |계층화: 최대 20TB; 로컬로 고정: 최대 2TB |
-| 볼륨 크기 |계층화: 500GB~5TB(로컬로 고정): 50GB~200GB <br> 계층화된 볼륨에 대한 최대 로컬 예약은 200GB입니다. |
+| 볼륨 크기 |계층화: 500GB~5TB, 로컬로 고정: 50GB~200GB <br> 계층화된 볼륨에 대한 최대 로컬 예약은 200GB입니다. |
 | 스냅샷 |충돌 일관성 |
 | 항목 수준 복구 |예; 사용자가 공유에서 복원 가능 |
 
@@ -76,7 +69,7 @@ StorSimple은 애플리케이션을 수정하지 않고 사용자와 서버를 �
 
 지원되는 StorSimple 워크로드가 아래 표에 요약되어 있습니다.
 
-|시나리오     |작업     |지원됨      |Restrictions               | 적용 가능한 버전|
+|시나리오     |작업     |지원됨      |제한               | 적용 가능한 버전|
 |-------------|-------------|---------------|---------------------------|--------------------|
 |원격 사무실/지사(ROBO)  |파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
 |클라우드 보관  |보관 파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
@@ -139,7 +132,7 @@ Azure Portal에서 실행되는 StorSimple Device Manager 서비스를 사용하
 > [!NOTE]
 > 가상 배열은 확장할 수 없습니다. 따라서 가상 배열을 만들 때 충분한 스토리지를 프로비전하는 것이 중요합니다.
 
-### <a name="storsimple-device-manager-service"></a>StorSimple Device Manager 서비스
+### <a name="storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스
 
 Microsoft Azure StorSimple는 StorSimple 스토리지를 중앙에서 관리하기 위해 사용하는 웹 기반 사용자 인터페이스인 StorSimple Device Manager 서비스를 제공합니다. 다음 작업을 수행하는 데 StorSimple Device Manager 서비스를 사용할 수 있습니다.
 
@@ -175,7 +168,7 @@ StorSimple Device Manager 서비스를 사용하여 가상 배열의 일상적�
 * [예약된 백업 및 주문형 백업](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>자동 스토리지 계층화
-가상 배열은 가상 배열과 클라우드에 저장된 데이터를 관리하기 위해 새로운 계층화 메커니즘을 사용합니다. 계층은 로컬 가상 배열 및 Azure 클라우드 스토리지 이렇게 두 가지뿐입니다. StorSimple 가상 배열은 현재 사용량, 기간, 다른 데이터와의 관계를 추적하는 열 지도를 기반으로 데이터를 계층에 자동으로 배열합니다. 가장 활성화된(인기있는) 데이터는 로컬로 저장되지만, 덜 활성화된 데이터 및 비활성 데이터는 자동으로 클라우드로 마이그레이션됩니다. (모든 백업은 클라우드에 저장됩니다.) StorSimple는 데이터와 스토리지 할당을 조정하여 사용량 패턴 변경으로 다시 지정합니다. 예를 들어 일부 정보는 시간이 지남에 따라 덜 활성화될 수 있습니다. 점차적으로 활성이 낮아지면 클라우드로 계층화됩니다. 동일한 데이터가 다시 활성화되면, 스토리지 배열에 계층화됩니다.
+가상 배열은 가상 배열과 클라우드에 저장된 데이터를 관리하기 위해 새로운 계층화 메커니즘을 사용합니다. 계층은 로컬 가상 배열 및 Azure 클라우드 스토리지 이렇게 두 가지뿐입니다. StorSimple 가상 배열은 현재 사용량, 기간, 다른 데이터와의 관계를 추적하는 열 지도를 기반으로 데이터를 계층에 자동으로 배열합니다. 가장 활성화된(인기있는) 데이터는 로컬로 저장되지만, 덜 활성화된 데이터 및 비활성 데이터는 자동으로 클라우드로 마이그레이션됩니다. 모든 백업은 클라우드에 저장 됩니다. StorSimple은 사용 패턴이 변경 됨에 따라 데이터 및 저장소 할당을 조정 하 고 다시 정렬 합니다. 예를 들어 일부 정보는 시간이 지남에 따라 덜 활성화될 수 있습니다. 점차적으로 활성이 낮아지면 클라우드로 계층화됩니다. 동일한 데이터가 다시 활성화되면, 스토리지 배열에 계층화됩니다.
 
 계층화된 특정 공유 또는 볼륨에 대한 데이터는 자체 로컬 계층 공간이 보장됩니다(전체 프로비전된 공간의 약 10%가 해당 공유 또는 볼륨용으로 제공). 이렇게 하면 해당 공유 또는 볼륨에 대한 가상 배열에 사용할 수 있는 스토리지가 감소되지만 특정 공유 또는 볼륨에 대한 계층화가 다른 공유 또는 볼륨에 대한 계층화 수요에 의해 영향을 받지 않도록 보장됩니다. 따라서 특정한 공유 또는 볼륨에 매우 많이 사용되는 워크로드가 다른 모든 워크로드를 클라우드에 강제로 보낼 수 없습니다.
 

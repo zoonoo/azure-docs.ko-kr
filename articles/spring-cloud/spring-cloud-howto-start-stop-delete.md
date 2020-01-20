@@ -1,17 +1,17 @@
 ---
 title: Azure 스프링 클라우드 응용 프로그램 시작, 중지 및 삭제 | Microsoft Docs
 description: Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제하는 방법
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: jeconnoc
-ms.openlocfilehash: ed3db5cfbdeb501e564a8da0020821c550a54787
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: brendm
+ms.openlocfilehash: daa549e248668add54530e90174134c4e0059b3a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461641"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276831"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Azure 스프링 클라우드 응용 프로그램 시작, 중지 및 삭제
 

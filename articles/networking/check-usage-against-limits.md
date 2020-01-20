@@ -3,24 +3,21 @@ title: 제한에 대해 Azure 리소스 사용량 확인 | Microsoft Docs
 description: Azure 구독 제한을 기준으로 Azure 리소스 사용량을 확인하는 방법을 알아봅니다.
 services: networking
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor: ''
+author: KumudD
+ms.author: kumud
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 5c807397af3ee06b490017b7e14f7b64123b5075
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f59b688b2ce41985d69e800d6d1f6c6d7ce5e0d4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645228"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278326"
 ---
 # <a name="check-resource-usage-against-limits"></a>제한에 대해 리소스 사용량 확인
 

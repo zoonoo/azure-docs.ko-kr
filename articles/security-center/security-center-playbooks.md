@@ -13,15 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: faf297ef4b07b76f98bb7773c636cd8f6228bbc0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b4a2617bec145cf735058bc13c01bf8ebdfe6550
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201731"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275509"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Security Center의 보안 플레이북(미리 보기)
 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 관련 문제에 응답할 수 있습니다.
+
+> [!NOTE]
+> Security 플레이 북 기능이 워크플로 자동화로 이름이 변경 되었습니다. 업데이트 된 콘텐츠 정보는 [Workflow automation (미리 보기)](https://docs.microsoft.com/azure/security-center/workflow-automation) 페이지에서 확인 하세요. 이 콘텐츠는 이전에이를 미리 본 후 점진적으로 제거 되는 고객에 게 제공 되는 임시 보관 콘텐츠입니다. 미리 보기의 모든 기능은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 기반으로 합니다.
 
 ## <a name="what-is-security-playbook-in-security-center"></a>Security Center의 보안 플레이북이란?
 보안 플레이북은 특정 플레이북이 선택한 경고에서 트리거되면 Security Center에서 실행될 수 있는 프로시저의 컬렉션입니다. 보안 플레이북은 Security Center에서 감지한 특정 보안 경고에 대한 사용자 응답을 자동화하고 오케스트레이션할 수 있습니다. Security Center의 보안 플레이북은 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)에 기반합니다. 즉, Logic Apps 템플릿의 보안 범주 아래에서 제공되는 템플릿을 사용하거나, 요구 사항에 따라 수정하거나, [Azure Logic Apps 워크플로](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app) 및 트리거한 Security Center를 사용하여 새로운 플레이북을 만들 수 있습니다.
@@ -64,7 +67,7 @@ ms.locfileid: "71201731"
 1.  **Security Center** 대시보드를 엽니다.
 2.  왼쪽 창의 **위협 감지** 아래에서 **보안 인시던트 및 경고**를 클릭합니다.
 
-    ![,](./media/security-center-playbooks/security-center-playbooks-fig6.png)
+    ![경고](./media/security-center-playbooks/security-center-playbooks-fig6.png)
 
 3.  조사하려는 경고를 클릭합니다.
 4.  경고 페이지 맨 위에서 **플레이북 실행** 단추를 클릭합니다.
@@ -75,15 +78,15 @@ ms.locfileid: "71201731"
 
     ![플레이북](./media/security-center-playbooks/security-center-playbooks-fig13.png)
 
-### <a name="history"></a>기록
+### <a name="history"></a>내역
 
 플레이북을 실행한 후에 이전 실행 및 이전에 실행된 플레이북의 상태에 대한 자세한 정보를 포함하는 단계에 액세스할 수 있습니다. 기록은 경고의 문맥에 따릅니다. 즉, 이 페이지에 나타나는 플레이북 기록은 이 플레이북을 트리거한 경고와 상호 관련됩니다.
 
-![기록](./media/security-center-playbooks/security-center-playbooks-fig16.png)
+![내역](./media/security-center-playbooks/security-center-playbooks-fig16.png)
 
 특정 플레이북의 실행에 대한 자세한 내용을 보려면 플레이북 자체를 클릭합니다. 그러면 전체 워크플로를 포함한 논리 앱 실행 페이지가 나타납니다.
 
-![설명](./media/security-center-playbooks/security-center-playbooks-fig14.png)
+![세부 정보](./media/security-center-playbooks/security-center-playbooks-fig14.png)
 
 이 워크플로에서 각 작업이 실행하는 데 걸린 시간을 확인할 수 있습니다. 또한 각 작업을 확장하여 결과를 볼 수 있습니다.
 
@@ -95,7 +98,7 @@ Security Center에서 기존 플레이북을 변경하여 작업이나 조건을
 > Azure Logic App을 사용하여 고유한 플레이북을 만드는 방법에 대한 자세한 내용은 [클라우드 앱과 클라우드 서비스 간에 프로세스를 자동화하는 첫 번째 논리 앱 워크플로 만들기](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)를 참고하세요.
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure Security Center에서 플레이북을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.

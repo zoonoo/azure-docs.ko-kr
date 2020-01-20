@@ -1,22 +1,20 @@
 ---
-title: Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용 | Microsoft Docs
+title: Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용
 description: 자동 크기 조정 구성을 사용 하 여 인스턴스 수를 관리 하는 Azure 가상 머신 확장 집합에서 사용자 지정 확장 정책을 사용 하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
 author: avverma
-manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: avverma
-ms.openlocfilehash: c1618c398c0f7c4f0f54647e5232fdacc17de186
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453161"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271758"
 ---
 # <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>미리 보기: Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용
 
@@ -133,17 +131,17 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 1. 규모에서 보호
 2. 크기 집합 작업에서 보호
 
-보호 된 가상 컴퓨터는 적용 된 확장 정책에 관계 없이 스케일 인 작업을 통해 삭제 되지 않습니다. 예를 들어 VM_0 (확장 집합에서 가장 오래 된 VM)가 규모에서 보호 되 고 확장 집합에 ' OldestVM ' 스케일 인 정책이 설정 된 경우 확장 집합에서 가장 오래 된 VM 인 경우에도에서 크기를 조정 하는 것으로 간주 되지 않습니다. 
+보호 된 가상 컴퓨터는 적용 된 확장 정책에 관계 없이 스케일 인 작업을 통해 삭제 되지 않습니다. 예를 들어 VM_0 (확장 집합에서 가장 오래 된 VM)이 규모 확장에서 보호 되 고 확장 집합에 ' OldestVM ' 스케일 인 정책이 설정 된 경우 확장 집합에서 가장 오래 된 VM 인 경우에도에서 크기를 조정 하는 것으로 간주 되지 않습니다 VM_0. 
 
 확장 집합에서 사용 하도록 설정 된 확장 정책에 관계 없이 언제 든 지 보호 된 가상 컴퓨터를 수동으로 삭제할 수 있습니다. 
 
-## <a name="usage-examples"></a>사용 예제 
+## <a name="usage-examples"></a>사용 예 
 
 아래 예제에서는 가상 머신 확장 집합이 확장 이벤트를 트리거할 때 삭제할 Vm을 선택 하는 방법을 보여 줍니다. 인스턴스 Id가 가장 높은 가상 머신은 확장 집합의 최신 Vm으로 간주 되며, 인스턴스 Id가 가장 작은 Vm은 확장 집합에서 가장 오래 된 Vm으로 간주 됩니다. 
 
 ### <a name="oldestvm-scale-in-policy"></a>OldestVM 규모 조정 정책
 
-| 행사                 | 영역 1의 인스턴스 Id  | 영역 2의 인스턴스 Id  | 영역 3의 인스턴스 Id  | 선택 영역 확장                                                                                                               |
+| 이벤트                 | 영역 1의 인스턴스 Id  | 영역 2의 인스턴스 Id  | 영역 3의 인스턴스 Id  | 선택 영역 확장                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | 규모 확장              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | 영역 3에 가장 오래 된 VM이 있는 경우에도 영역 1와 2 중에서 선택 합니다. 해당 영역에서 가장 오래 된 VM 인 영역 2 V M 2에서 삭제 합니다.   |
@@ -157,7 +155,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 
 ### <a name="newestvm-scale-in-policy"></a>NewestVM 확장 정책
 
-| 행사                 | 영역 1의 인스턴스 Id  | 영역 2의 인스턴스 Id  | 영역 3의 인스턴스 Id  | 선택 영역 확장                                                                                                               |
+| 이벤트                 | 영역 1의 인스턴스 Id  | 영역 2의 인스턴스 Id  | 영역 3의 인스턴스 Id  | 선택 영역 확장                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | 규모 확장              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | 영역 1와 2 중에서 선택 합니다. 영역 2에서 VM11는 두 영역에 있는 최신 VM 이므로 삭제 합니다.                                |

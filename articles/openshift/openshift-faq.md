@@ -1,19 +1,17 @@
 ---
-title: Azure Red Hat OpenShift에 대 한 질문과 대답 | Microsoft Docs
+title: Azure Red Hat OpenShift에 대 한 질문과 대답
 description: Microsoft Azure Red Hat OpenShift에 대 한 일반적인 질문에 대 한 답변은 다음과 같습니다.
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2b4e78db9f3aa3a8f678212c7fcd1b97ed4834b1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5901be713f686f0c7213449a775c86b9e346fe12
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378214"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275399"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 

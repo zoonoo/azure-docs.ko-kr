@@ -1,38 +1,32 @@
 ---
-title: Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요 | Microsoft Docs
+title: Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 description: 성능이나 확정된 일정에 따라 Azure 가상 머신 확장 집합의 크기를 자동으로 조정할 수 있는 다양한 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883673"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278133"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 Azure 가상 머신 확장 집합은 애플리케이션을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 애플리케이션의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
 
 
 ## <a name="benefits-of-autoscale"></a>자동 크기 조정의 이점
-애플리케이션에 대한 요구가 증가하면 확장 집합의 VM 인스턴스에 대한 로드도 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다.
+애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다.
 
-이러한 VM 인스턴스가 만들어지고 애플리케이션이 배포되면 확장 집합에서 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 메모리), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간 및 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
+이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 메모리), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간 및 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
 
-저녁이나 주말에는 애플리케이션에 대한 요구가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 요구를 충족하는 데 필요한 인스턴스 수만 실행하므로 확장 집합을 실행하는 데 드는 비용을 줄여줍니다.
+저녁이나 주말에는 애플리케이션 수요가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합의 실행 비용을 줄입니다.
 
 
 ## <a name="use-host-based-metrics"></a>호스트 기반 메트릭 사용
@@ -90,12 +84,12 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 
 | 연산자                 |
 |--------------------------|
-| 다음보다 큼             |
+| 보다 큼             |
 | 크거나 같음 |
 | 보다 작음                |
 | 작거나 같음    |
-| 다음과 같음                 |
-| 다음과 같지 않음             |
+| 같음                 |
+| 같지 않음             |
 
 
 ### <a name="actions-when-rules-trigger"></a>규칙 트리거 시 작업

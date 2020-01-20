@@ -1,26 +1,20 @@
 ---
-title: Virtual Machine Scale Sets를 이용하여 자동 크기 조정 문제 해결 | Microsoft Docs
+title: Virtual Machine Scale Sets를 사용 하 여 자동 크기 조정 문제 해결
 description: Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결 일반적으로 발생하는 문제와 해결 방법에 대해 이해합니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
-ms.workload: na
 ms.tgt_pltfrm: windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 923967a902f611ce845fbdc096fd2c02e681bb6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803592"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76272423"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결
 **문제** – 가상 머신 확장 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 과 같은 템플릿을 배포했습니다. 정의된 크기 조정 규칙이 있으며, VM에 적용되는 로드의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고는 원활하게 작동합니다.
@@ -52,7 +46,7 @@ ms.locfileid: "60803592"
     Azure Resource Explorer는 Azure Resource Manager 리소스의 상태를 보여 주는 필수적인 문제 해결 도구입니다. 구독을 클릭하고 문제를 해결하려는 리소스 그룹을 살펴봅니다. Compute 리소스 공급자 아래에서, 만든 가상 머신 확장 집합을 살펴보고 배포 상태를 보여 주는 인스턴스 보기를 확인합니다. 또한 가상 머신 확장 집합에서 VM 인스턴스 보기를 확인합니다. 그런 다음 Microsoft.Insights 리소스 공급자로 이동하여 자동 크기 조정 규칙이 적절한지 확인합니다.
 * 진단 확장이 작동 중이고 성능 데이터를 내보내고 있나요?
   
-    **업데이트:** 더 이상 진단 확장을 설치 해야 하는 호스트 기반 메트릭 파이프라인을 사용 하도록 azure 자동 크기 조정 향상 되었습니다. 새 파이프라인을 사용하여 자동 크기 조정 애플리케이션을 만들 경우 다음 단락의 내용은 더 이상 적용되지 않습니다. 호스트 파이프라인을 사용하도록 변환된 Azure 템플릿의 예제는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 에서 사용할 수 있습니다. 
+    **업데이트:** 더 이상 진단 확장을 설치하지 않아도 되는 호스트 기반 메트릭 파이프라인을 사용하도록 Azure 자동 크기 조정 기능이 향상되었습니다. 새 파이프라인을 사용하여 자동 크기 조정 애플리케이션을 만들 경우 다음 단락의 내용은 더 이상 적용되지 않습니다. 호스트 파이프라인을 사용하도록 변환된 Azure 템플릿의 예제는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 에서 사용할 수 있습니다. 
   
     자동 크기 조정을 위한 호스트 기반 메트릭을 사용하는 것이 좋은 이유는 다음과 같습니다.
   

@@ -1,25 +1,17 @@
 ---
-title: StorSimple 지역 가용성 | Microsoft Docs
+title: StorSimple 지역 가용성
 description: 다양한 StorSimple 디바이스 모델을 사용할 수 있는 Azure 지역에 대해 설명합니다.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965132"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275122"
 ---
 # <a name="available-regions-for-your-storsimple"></a>StorSimple을 사용할 수 있는 지역
 
@@ -72,17 +64,17 @@ StorSimple 8100 또는 8600 물리적 장치를 사용 하는 경우 다음 국�
 | #  | 국가/지역        | #  | 국가/지역     | #  | 국가/지역      | #  | 국가/지역             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
 | 1  | 오스트레일리아             | 16 | 홍콩 특별 행정구      | 31 | 뉴질랜드         | 46 | 남아프리카 공화국               |
-| 2  | 오스트리아               | 17 | 헝가리            | 32 | 나이지리아             | 47 | 대한민국                |
+| 2  | 오스트리아               | 17 | 헝가리            | 32 | 나이지리아             | 47 | 한국                |
 | 3  | 바레인               | 18 | 아이슬란드            | 33 | 노르웨이              | 48 | 스페인                      |
 | 4  | 벨기에               | 19 | 인도              | 34 | 페루                | 49 | 스리랑카                  |
 | 5  | 브라질                | 20 | 인도네시아          | 35 | 필리핀         | 50 | 스웨덴                     |
 | 6  | 캐나다                | 21 | 아일랜드            | 36 | 폴란드              | 51 | 스위스                |
 | 7  | 칠레                 | 22 | 이스라엘             | 37 | 포르투갈            | 52 | 대만                     |
 | 8  | 콜롬비아              | 23 | 이탈리아              | 38 | 푸에르토리코         | 53 | 태국                   |
-| 9  | 체코        | 24 | 일본              | 39 | 카타르               | 54 | 터키                     |
+| 9  | 체코 공화국        | 24 | 일본              | 39 | 카타르               | 54 | 터키                     |
 | 10 | 덴마크               | 25 | 케냐              | 40 | 루마니아             | 55 | 우크라이나                    |
-| 11 | 이집트                 | 26 | 쿠웨이트             | 41 | 러시아              | 56 | 아랍 에미리트 연합국       |
-| 12 | 핀란드               | 27 | 마카오 특별 행정구          | 42 | 사우디아라비아        | 57 | 영국             |
+| 11 | 이집트                 | 26 | 쿠웨이트             | 41 | 러시아              | 56 | 아랍에미리트       |
+| 12 | 핀란드               | 27 | 마카오          | 42 | 사우디아라비아        | 57 | 영국             |
 | 13 | 프랑스                | 28 | 말레이시아           | 43 | 싱가포르           | 58 | 미국              |
 | 14 | 독일               | 29 | 멕시코             | 44 | 슬로바키아            | 59 | 베트남                    |
 | 15 | 그리스                | 30 | 네덜란드        | 45 | 슬로베니아            | 60 | 크로아티아                    |

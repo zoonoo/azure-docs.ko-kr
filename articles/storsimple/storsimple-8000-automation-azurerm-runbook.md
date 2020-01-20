@@ -1,25 +1,17 @@
 ---
-title: Azure Automation Runbook을 사용하여 StorSimple 디바이스 관리 | Microsoft Docs
+title: Azure Automation Runbook을 사용 하 여 StorSimple 장치 관리
 description: Azure Automation Runbook을 사용하여 StorSimple 작업을 자동화하는 방법에 대한 자세한 정보
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 30d70bb7e1f868060e3b287a0cdfb117c585b9ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 727bebe0c190ed4dff4408884c45fe166ad541a9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310218"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276967"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Azure Automation Runbook을 사용하여 StorSimple 디바이스 관리
 

@@ -1,27 +1,21 @@
 ---
-title: Visual Studio를 사용하여 Virtual Machine Scale Set 배포 | Microsoft Docs
+title: Visual Studio를 사용하여 Virtual Machine Scale Set 배포
 description: Visual Studio 및 Resource Manager 템플릿을 사용하여 Virtual Machine Scale Sets 배포 | Microsoft Azure
-services: virtual-machine-scale-sets
 ms.custom: H1Hack27Feb2017
-ms.workload: na
-documentationcenter: ''
+ms.workload: azure-vs
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: manayar
-ms.openlocfilehash: d397f81ce29e0ec738156b755948985a4edfc70b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0d0dc3fbb7e48b1f7e6936cfb65473dba882b776
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802263"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274227"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio에서 Virtual Machine Scale Set를 만드는 방법
 
@@ -31,7 +25,7 @@ ms.locfileid: "71802263"
 
 Azure 리소스 그룹 배포는 단일 배포 작업을 통해 관련된 Azure 리소스 집합을 그룹화하여 게시하는 방법입니다. 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Visual Studio에서 Virtual Machine Scale Sets 배포를 시작 하려면 다음 필수 구성 요소가 필요 합니다.
 
@@ -71,7 +65,7 @@ Visual Studio에서 Virtual Machine Scale Sets 배포를 시작 하려면 다음
 
 Azure Resource Manager 템플릿을 배포 하 여 가상 머신 확장 집합 리소스를 만듭니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **배포** > **새로 만들기**를 선택 합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 > **새로** **배포** 를 선택 합니다.
 
     ![프로젝트 배포](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
@@ -91,7 +85,7 @@ Azure Resource Manager 템플릿을 배포 하 여 가상 머신 확장 집합 �
 
 ## 가상 머신 확장 집합 살펴보기<a name="exploring-your-virtual-machine-scale-set"></a>
 
-새 가상 머신 확장 집합을 보려면  > **클라우드 탐색기** **보기**를 선택 합니다. 필요한 경우 **모두 새로 고침**을 사용 합니다.
+새 가상 머신 확장 집합을 보려면 **보기** > **클라우드 탐색기** 를 선택 합니다. 필요한 경우 **모두 새로 고침**을 사용 합니다.
 
 ![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 

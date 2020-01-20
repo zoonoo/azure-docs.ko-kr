@@ -1,26 +1,20 @@
 ---
 title: Azure Security Center와의 Application Gateway 통합 | Microsoft Docs
 description: 이 페이지에서는 Application Gateway가 Azure Security Center에 통합되는 방법에 대한 정보를 제공합니다.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
+ms.author: victorh
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.author: victorh
-ms.openlocfilehash: 10f115b64f0bd3f7e557da2bedbf3327d0ef483d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122304"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277181"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Application Gateway와 Azure Security Center 간의 통합 개요
 
@@ -50,7 +44,7 @@ Application Gateway WAF는 악용 및 취약성으로부터 웹 애플리케이�
 
 기존 애플리케이션 게이트웨이가 있는 경우 **기존 솔루션 사용** 아래에서 선택할 수 있습니다.
 
-![웹 애플리케이션 방화벽 추가 페이지][4]
+![웹 응용 프로그램 방화벽을 추가 하는 페이지][4]
 
 Security Center를 통해 애플리케이션 게이트웨이에 웹 애플리케이션을 추가하더라도 해당 리소스가 백 엔드 풀 멤버로 추가되지 않습니다. 이는 애플리케이션 게이트웨이 리소스에서 직접 추가해야 합니다.
 
@@ -68,7 +62,7 @@ Security Center를 통해 애플리케이션 게이트웨이에 웹 애플리케
 
 Security Center에서는 애플리케이션 게이트웨이에 추가한 애플리케이션을 보호된 리소스로 추적합니다.  이 리소스의 상태를 모니터링하고, 해당 리소스가 애플리케이션 게이트웨이에서 보호되는지 확인합니다. 다음 단계는 가상 머신의 프라이빗 IP, 공용 IP 또는 NIC를 애플리케이션 게이트웨이의 백 엔드 풀에 추가하는 것입니다. **애플리케이션 보호 마무리**에 대한 추가 권장 사항은 이 작업을 완료할 때까지 표시되며, 리소스를 추가하면 표시되지 않습니다.
 
-![웹 애플리케이션 방화벽 추가 페이지][5]
+![웹 응용 프로그램 방화벽을 추가 하는 페이지][5]
 
 ## <a name="security-alerts"></a>보안 경고
 
@@ -76,7 +70,7 @@ Security Center에서 **검색** > **보안 경고**로 차례로 이동합니�
 
 ![보안 경고][8]
 
-규칙을 클릭하면 해당 WAF 규칙에 대한 경고 목록이 제공됩니다. 경고마다 찾기에 대한 자세한 추가 정보가 표시됩니다. 세부 정보에서는 애플리케이션 게이트웨이에 대한 링크를 제공합니다.
+규칙을 선택 하면 특정 WAF 규칙에 대 한 경고 목록이 제공 됩니다. 경고마다 찾기에 대한 자세한 추가 정보가 표시됩니다. 세부 정보에서는 애플리케이션 게이트웨이에 대한 링크를 제공합니다.
  
 ![경고 세부 정보][9]
 

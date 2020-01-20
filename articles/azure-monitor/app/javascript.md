@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264087"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276774"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -29,7 +29,7 @@ Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니�
     * [JavaScript 코드 조각](#snippet-based-setup)
 
 > [!IMPORTANT]
-> > JavaScript SDK를 응용 프로그램에 추가 하려면 메서드를 하나만 사용 합니다. NPM 설치 프로그램을 사용 하는 경우 코드 조각을 사용 하지 말고 그 반대의 경우도 마찬가지입니다.
+> JavaScript SDK를 응용 프로그램에 추가 하려면 메서드를 하나만 사용 합니다. NPM 설치 프로그램을 사용 하는 경우 코드 조각을 사용 하지 말고 그 반대의 경우도 마찬가지입니다.
 
 > [!NOTE]
 > NPM 설치 프로그램은 JavaScript SDK를 프로젝트에 대 한 종속성으로 설치 하 고 IntelliSense를 사용 하도록 설정 하는 반면 코드 조각은 런타임에 SDK를 인출 합니다. 둘 다 동일한 기능을 지원 합니다. 그러나 더 많은 사용자 지정 이벤트 및 구성을 원하는 개발자는 일반적으로 NPM 설치를 선택 하는 반면, 사용자는 코드 조각에 대 한 기본 웹 분석 opt를 신속 하 게 사용할 수 있습니다.

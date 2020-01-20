@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 7987555dfd435aae1f580c73795a5617c192490a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: ac37c0e1f1f7d769a881c5965744b29d40468486
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725703"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276677"
 ---
 # <a name="configure-customer-managed-keys-using-c"></a>을 사용 하 여 고객이 관리 하는 키 구성C#
 
@@ -32,11 +32,11 @@ ms.locfileid: "75725703"
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-### <a name="install-c-nuget"></a>Nuget C# 설치
+### <a name="install-c-nuget"></a>NuGet C# 설치
 
-* [Azure Data Explorer(Kusto) nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)를 설치합니다.
+* [Azure 데이터 탐색기 (Kusto) NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)를 설치 합니다.
 
-* 인증에 사용할 [Microsoft.IdentityModel.Clients.ActiveDirectory nuget 패키지](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)를 설치합니다.
+* 인증을 위해 [system.identitymodel. ActiveDirectory NuGet 패키지](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) 를 설치 합니다.
 
 ### <a name="authentication"></a>인증
 

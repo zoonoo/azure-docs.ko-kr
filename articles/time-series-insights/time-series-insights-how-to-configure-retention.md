@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 954e61aec5b622d44435a8a5b196fdbfed33c564
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3fdc007caaa4cb79f6083599a5bc176bc022fb03
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561233"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278606"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Time Series Insights의 보존 기간 구성
 
@@ -34,13 +34,13 @@ ms.locfileid: "74561233"
 
 ## <a name="configure-data-retention"></a>데이터 보존 구성하기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 기존 Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
 1. **설정** 제목에서 **저장소 구성**을 선택 합니다.
 
-    [설정 ![선택 하 고 구성 합니다.](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+    [설정에서 ![저장소 구성을 선택 합니다.](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
 1. 슬라이더 막대를 사용 하 여 보존을 구성 하거나 텍스트 상자에 숫자를 입력 하 여 **데이터 보존 시간 (일)** 을 선택 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "74561233"
 
 1. **스토리지 제한을 초과하는 동작** 설정을 전환합니다. **이전 데이터 삭제** 또는 **수신 일시 중지** 동작을 선택합니다.
 
-    [데이터 보존-수락 및 저장을 ![합니다.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [수신 일시 중지 ![-수락 및 저장 합니다.](media/data-retention/pause-ingress-accept-and-save.png)](media/data-retention/pause-ingress-accept-and-save.png#lightbox)
 
 1. 문서를 검토 하 여 잠재적인 데이터 손실 위험을 파악 합니다. **저장**을 선택하여 변경 내용을 구성합니다.
 

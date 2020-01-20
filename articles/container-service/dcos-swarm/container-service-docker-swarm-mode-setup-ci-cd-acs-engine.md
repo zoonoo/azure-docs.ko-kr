@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Container Service Engine 및 Swarm Mode를 사용한 CI/CD
 description: Docker Swarm Mode, Azure Container Registry Engine 및 Azure DevOps와 Azure Container Service를 사용하여 다중 컨테이너 .NET Core 애플리케이션 연속 배달
-services: container-service
 author: diegomrtnzg
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598562"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277924"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(사용되지 않음) Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
@@ -24,10 +22,9 @@ ms.locfileid: "68598562"
 
 요즘 클라우드를 위한 최신 애플리케이션을 개발할 때 어려운 문제 중 하나는 이러한 애플리케이션을 지속적으로 전달할 수 있다는 점입니다. 이 문서에서는 다음을 사용하여 전체 CI/CD(지속적인 통합 및 배포) 파이프라인을 구현하는 방법을 알아봅니다. 
 * Docker Swarm Mode의 Azure Container Service Engine
-* Azure 컨테이너 레지스트리
+* Azure Container Registry
 * Azure DevOps
 
-이 문서는 간단한 애플리케이션을 기반으로 [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)에서 사용할 수 있으며 ASP.NET Core를 사용하여 전개됩니다. 애플리케이션은 세 개의 웹 API 및 하나의 웹 프론트 엔드라는 네 개의 다른 서비스로 구성되어 있습니다.
 
 ![MyShop 샘플 애플리케이션](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
@@ -46,7 +43,7 @@ Azure DevOps를 사용하여 Docker Swarm Mode 클러스터에서 이 애플리�
 7. 클러스터의 Docker Swarm Mode는 이미지의 최신 버전을 가져옵니다. 
 8. Docker Stack을 사용하여 새 버전의 애플리케이션을 배포합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음 작업을 완료해야 합니다.
 
@@ -129,7 +126,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 Docker Swarm 클러스터�
 *MyShop* 애플리케이션에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
-* Proxy (프록시)
+* Proxy
 * RatingsApi
 * RecommendationsApi
 * ShopFront

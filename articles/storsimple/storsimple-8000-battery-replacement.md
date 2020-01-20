@@ -1,25 +1,17 @@
 ---
-title: Microsoft Azure StorSimple 8000 시리즈 디바이스의 배터리 교체 | Microsoft Docs
+title: Microsoft Azure StorSimple 8000 시리즈 장치에서 배터리 교체
 description: StorSimple 디바이스의 백업 배터리 모듈을 꺼내고 교체 및 유지 관리하는 방법을 설명합니다.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693745"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276897"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>StorSimple 디바이스의 백업 배터리 모듈 교체
 
@@ -47,7 +39,7 @@ StorSimple 디바이스에 대한 백업 배터리 모듈은 FRU(현장 교체 �
    
     **그림 1** PCM 및 컨트롤러 모듈을 표시하는 기본 디바이스 뒷면
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -60,7 +52,7 @@ StorSimple 디바이스에 대한 백업 배터리 모듈은 FRU(현장 교체 �
    
     **그림 2** 모니터링 표시기 LED를 표시하는 PCM 뒷면
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |AC 전원 오류 |
    | 2 |팬 오류 |

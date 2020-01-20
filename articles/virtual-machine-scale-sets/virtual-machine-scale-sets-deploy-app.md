@@ -1,26 +1,19 @@
 ---
-title: Azure 가상 머신 확장 집합에 애플리케이션 배포 | Microsoft Docs
+title: Azure 가상 머신 확장 집합에 응용 프로그램 배포
 description: Linux 및 Windows 가상 머신 인스턴스의 확장 집합에 애플리케이션을 배포하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 0dc1c52e65090acd5f63d1b23d8da6f37e3cf567
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6bc319ea50da4ff6a654b2c9ab09bbe218695533
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960734"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278115"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
 
@@ -54,7 +47,7 @@ PowerShell DSC 확장을 사용하면 PowerShell을 통해 확장 집합의 VM �
 - [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 사용하여 확장 집합에 대한 정보를 가져옵니다.
 - [Update-AzVmss](/powershell/module/az.compute/update-azvmss)를 사용하여 VM 인스턴스에 확장을 적용합니다.
 
-DSC 확장은 *myResourceGroup*이라는 리소스 그룹의 *myScaleSet* VM 인스턴스에 적용됩니다. 다음과 같이 사용자 고유의 이름을 입력합니다:
+DSC 확장은 *myResourceGroup*이라는 리소스 그룹의 *myScaleSet* VM 인스턴스에 적용됩니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```powershell
 # Define the script for your Desired Configuration to download and run
@@ -98,7 +91,7 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 
 *cloud-init.txt* 예제 파일을 포함한 자세한 내용은 [cloud-init를 사용하여 Azure VM 사용자 지정](../virtual-machines/linux/using-cloud-init.md)을 참조하세요.
 
-확장 집합을 만들고 cloud-init 파일을 사용하려면 `--custom-data` 매개 변수를 [az vmss create](/cli/azure/vmss) 명령에 추가하고 cloud-init 파일의 이름을 지정합니다. 다음 예제에서는 *myResourceGroup*에 *myScaleSet*라는 확장 집합을 만들고, *cloud-init.txt* 파일을 사용하여 VM 인스턴스를 구성합니다. 다음과 같이 사용자 고유의 이름을 입력합니다:
+확장 집합을 만들고 cloud-init 파일을 사용하려면 `--custom-data` 매개 변수를 [az vmss create](/cli/azure/vmss) 명령에 추가하고 cloud-init 파일의 이름을 지정합니다. 다음 예제에서는 *myResourceGroup*에 *myScaleSet*라는 확장 집합을 만들고, *cloud-init.txt* 파일을 사용하여 VM 인스턴스를 구성합니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```azurecli
 az vmss create \

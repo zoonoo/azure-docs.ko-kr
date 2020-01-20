@@ -1,26 +1,19 @@
 ---
-title: VMware에서 StorSimple Virtual Array 프로비전 | Microsoft Docs
+title: VMware에서 StorSimple 가상 배열 프로 비전
 description: StorSimple Virtual Array 배포 시리즈의 두 번째 자습서에는 VMware에서 가상 디바이스를 프로비전하는 내용이 포함됩니다.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab5ad8acc5d0769a19a4022c55e0461e7ce42762
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516835"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76272089"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -40,7 +33,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 시작하기 전에 다음 사항을 확인합니다.
 
 * [StorSimple 가상 배열용 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
-* Azure Portal에서 VMware용 가상 디바이스 이미지를 다운로드했습니다. 자세한 내용은 **3단계: 가상 디바이스 이미지 다운로드**([StorSimple Virtual Array를 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md))를 참조하세요.
+* Azure Portal에서 VMware용 가상 디바이스 이미지를 다운로드했습니다. 자세한 내용은 [StorSimple Virtual Array를 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md)의 **3단계: 가상 디바이스 이미지 다운로드**를 참조하세요.
 
 ### <a name="for-the-storsimple-virtual-device"></a>StorSimple 가상 디바이스의 경우
 가상 디바이스를 배포하기 전에 다음 사항을 확인해야 합니다.
@@ -65,7 +58,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 2. 하이퍼바이저에서 가상 디바이스를 프로비전합니다.
 3. 가상 디바이스를 시작하고 IP 주소를 가져옵니다.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하는지 확인
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하도록 합니다.
 가상 디바이스를 만들려면 다음이 필요합니다.
 
 * VMware ESXi Server 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 대한 액세스
@@ -76,7 +69,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
   * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나. 디바이스가 최적으로 작동할 수 있도록 허용하는 최소 인터넷 대역폭은 5Mbps입니다.
   * 데이터용 가상 디스크 500GB
 
-## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 디바이스 프로비전
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 디바이스를 프로비전합니다.
 하이퍼바이저에서 가상 디바이스를 프로비전하려면 다음 단계를 수행합니다.
 
 1. 시스템에서 가상 디바이스 이미지를 복사합니다. Azure Portal을 통해 이 가상 이미지를 다운로드합니다.
@@ -176,13 +169,13 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
+33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **Finish**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **마침**을 클릭합니다.
+34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **Finish**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. 오른쪽 창에 가상 컴퓨터가 선택된 상태에서 **요약** 탭으로 이동합니다. 가상 머신에 대한 설정을 검토합니다.
+35. 오른쪽 창에서 가상 컴퓨터를 선택한 상태에서 **요약** 탭으로 이동 합니다. 가상 컴퓨터에 대 한 설정을 검토 합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -191,14 +184,14 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 > [!NOTE]
 > 가상 배열에는 VMware 도구를 설치하지 않는 것이 좋습니다(위에서 프로비전됨). VMware 도구를 설치하면 지원되지 않는 구성이 설정됩니다.
 
-## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3단계: 가상 디바이스 시작 및 IP 가져오기
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3단계: 가상 디바이스를 시작하고 IP를 가져옵니다.
 가상 디바이스를 시작하여 연결하려면 다음 단계를 수행합니다.
 
 #### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
-1. 가상 디바이스를 시작합니다. vSphere 구성 관리자의 왼쪽 창에서 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 컴퓨터의 전원이 켜집니다. vSphere 클라이언트의 아래쪽 **최근 태스크** 창에서 상태를 볼 수 있습니다.
+1. 가상 디바이스를 시작합니다. vSphere 구성 관리자의 왼쪽 창에서 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 머신의 전원이 켜집니다. vSphere 클라이언트의 아래쪽 **최근 태스크** 창에서 상태를 볼 수 있습니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 디바이스가 실행되면 **콘솔** 탭으로 이동합니다. Ctrl+Alt+Delete 키를 눌러서 디바이스에 로그온합니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
+2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 장치가 실행 되 면 **콘솔** 탭으로 이동 합니다. 장치에 로그인 하려면 Ctrl + Alt + Delete를 보냅니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. 보안상의 이유로 디바이스 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
@@ -238,7 +231,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
        >
        >
 
-디바이스가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하는지 확인](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
+디바이스가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 

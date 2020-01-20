@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Kubernetes 클러스터 모니터링 - 운영 관리
 description: Log Analytics를 사용하여 Azure Container Service에서 Kubernetes 클러스터 모니터링
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: d7370fc14a5ede23744e04ac9d35140f2368e21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cb500d2f00d6657420d7f294a7318b339e1f81e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711789"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271062"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service 클러스터 모니터링
 
@@ -62,7 +60,7 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 ## <a name="monitoring-containers-with-log-analytics"></a>Log Analytics를 사용하여 컨테이너 모니터링
 
-Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Container Solution은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
+Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. 컨테이너 솔루션은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있도록 하는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
@@ -126,4 +124,4 @@ Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 D
   - ```kubectl create -f omsagent-ds-secrets.yaml```을 실행하여 omsagent daemon-set 만들기
 
 ### <a name="conclusion"></a>결론
-정말 간단하죠. 몇 분 후 Log Analytics 대시보드로 이동하는 데이터를 볼 수 있습니다.
+이것으로 끝입니다. 몇 분 후 Log Analytics 대시보드로 이동하는 데이터를 볼 수 있습니다.

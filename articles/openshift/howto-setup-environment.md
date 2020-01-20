@@ -1,20 +1,18 @@
 ---
-title: Azure Red Hat OpenShift 개발 환경 설정 | Microsoft Docs
+title: Azure Red Hat OpenShift 개발 환경 설정
 description: Microsoft Azure Red Hat OpenShift를 사용 하기 위한 필수 구성 요소는 다음과 같습니다.
-services: openshift
 keywords: red hat openshift 설치 설정
 author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-manager: jeconnoc
-ms.openlocfilehash: fa09ed90258a62d37dafeea5f4760e1fabdc210b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 559c932c4826e82f36c09b85ee8da4186d90d34d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581607"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276081"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
 
@@ -100,7 +98,7 @@ az --version
 
 Azure Red Hat OpenShift 서비스를 사용 하려면 조직 및 Microsoft와의 관계를 나타내는 연결 된 Azure Active Directory (Azure AD) 테 넌 트가 필요 합니다. Azure AD 테 넌 트를 사용 하 여 앱을 등록, 빌드 및 관리 하 고 다른 Azure 서비스를 사용할 수 있습니다.
 
-Azure Red Hat OpenShift 클러스터에 대 한 테 넌 트로 사용할 Azure AD가 없거나 테스트에 대 한 테 넌 트를 만들려는 경우이 가이드를 계속 하기 전에 [Azure Red Hat openshift 클러스터에 대 한 AZURE ad 테 넌 트 만들기](howto-create-tenant.md) 의 지침을 따르세요. .
+Azure Red Hat OpenShift 클러스터에 대 한 테 넌 트로 사용할 Azure AD가 없거나 테스트에 대 한 테 넌 트를 만들려는 경우이 가이드를 계속 하기 전에 [Azure Red Hat openshift 클러스터에 대 한 AZURE ad 테 넌 트 만들기](howto-create-tenant.md) 의 지침을 따르세요.
 
 ## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Azure AD 사용자, 보안 그룹 및 응용 프로그램 개체 만들기
 

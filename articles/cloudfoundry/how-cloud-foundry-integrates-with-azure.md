@@ -4,27 +4,25 @@ description: Cloud Foundry Azure 서비스를 사용 하 여 엔터프라이즈 
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: jeconnoc
-editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: e341cc5beeb8e8362a848bb1e208ddf1dc773978
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 04ef72f7ec70b370305395ae8de8180f4594b43b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976793"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277339"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Azure와 Cloud Foundry 통합
 
 [Cloud Foundry](https://docs.cloudfoundry.org/)는 클라우드 공급자의 IaaS 플랫폼에서 실행되는 PaaS 플랫폼입니다. 클라우드 공급자 간에 일관된 애플리케이션 배포 환경을 제공합니다. 또한 엔터프라이즈급 HA, 확장성 및 비용 절감을 통해 다양 한 Azure 서비스와 통합할 수 있습니다.
-온라인으로 유연하게 확장될 수 있는 [Cloud Foundry의 하위 시스템](https://docs.cloudfoundry.org/concepts/architecture/)은 모두 6가지로, 라우팅, 인증, 응용 프로그램 수명 주기 관리, 서비스 관리, 메시징 및 모니터링을 지원 합니다. 각 하위 시스템에 대해 대응 Azure 서비스를 사용 하도록 Cloud Foundry를 구성할 수 있습니다. 
+Cloud Foundry에는 라우팅, 인증, 응용 프로그램 수명 주기 관리, 서비스 관리, 메시징 및 모니터링을 포함 하 여 유연 하 게 확장할 수 있는 [6 개의 하위 시스템이](https://docs.cloudfoundry.org/concepts/architecture/)있습니다. 각 하위 시스템에 대해 대응 Azure 서비스를 사용 하도록 Cloud Foundry를 구성할 수 있습니다. 
 
 ![Azure 통합 아키텍처의 Cloud Foundry](media/CFOnAzureEcosystem-colored.png)
 
@@ -50,7 +48,7 @@ Azure Load Balancer는 계층 4 부하 분산 장치입니다. 부하 분산 된
 ## <a name="3-authentication"></a>3. 인증 
 [Cloud Foundry 사용자 계정 및 인증](https://docs.cloudfoundry.org/concepts/architecture/uaa.html)은 CF 및 다양한 해당 구성 요소에 대한 중앙 ID 관리 서비스입니다. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 기본적으로 UAA는 Cloud Foundry 인증에 사용됩니다. 고급 옵션으로 UAA는 Azure AD를 외부 사용자 저장소로도 지원합니다. Azure AD 사용자는 Cloud Foundry 계정 없이 해당 LDAP ID를 사용하여 Cloud Foundry에 액세스할 수 있습니다. 다음 단계에 따라 [PCF에서 UAA용 Azure AD를 구성합니다](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
-## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Cloud Foundry 런타임 시스템에 대한 데이터 스토리지
+## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Cloud Foundry 런타임 시스템용 데이터 저장소
 Cloud Foundry에서는 애플리케이션 런타임 시스템 스토리지에 Azure Blobstore 또는 Azure MySQL/PostgreSQL 서비스를 사용하는 뛰어난 확장성을 제공합니다.
 ### <a name="azure-blobstore-for-cloud-foundry-cloud-controller-blobstore"></a>Cloud Foundry 클라우드 컨트롤러에 대한 Azure Blobstore
 클라우드 컨트롤러 Blobstore는 buildpacks, droplets, 패키지 및 리소스 풀에 대한 중요한 데이터 저장소입니다. 기본적으로 NFS 서버는 클라우드 컨트롤러 Blobstore에 사용됩니다. 단일 실패 지점을 방지하려면 Azure Blob Storage를 외부 저장소로 사용합니다. 백그라운드용 [Cloud Foundry 설명서](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html) 및 [Pivotal Cloud Foundry의 옵션](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure.html)을 체크 아웃합니다.

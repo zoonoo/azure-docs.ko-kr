@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7334d4292db710a32b888d9a3ad4e78872d15227
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 232d85789c25e905873286eba6fda32c327a6e25
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863515"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276928"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 만드는 방법
 
@@ -246,7 +246,7 @@ function process(telemetry, executionContext) {
 
 ## <a name="send-telemetry-to-be-processed"></a>처리될 원격 분석 전송
 
-공간 인텔리전스 그래프에서 정의된 센서는 원격 분석을 보냅니다. 따라서 원격 분석은 업로드된 사용자 정의 함수의 실행을 트리거합니다. 데이터 프로세스가 원격 분석 데이터를 선택합니다. 그 다음, 사용자 정의 함수 호출에 대한 실행 계획이 생성됩니다.
+공간 인텔리전스 그래프에서 정의된 센서는 원격 분석을 보냅니다. 따라서 원격 분석은 업로드된 사용자 정의 함수의 실행을 트리거합니다. 데이터 프로세스가 원격 분석 데이터를 선택합니다. 그런 다음 사용자 정의 함수를 호출할 수 있도록 실행 계획을 만듭니다.
 
 1. 읽기가 생성된 센서의 검사기를 검색합니다.
 1. 성공적으로 평가된 검사기에 따라 연결된 사용자 정의 함수를 검색합니다.

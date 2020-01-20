@@ -1,25 +1,17 @@
 ---
-title: Microsoft Azure StorSimple 데이터 관리자 UI | Microsoft Docs
+title: Microsoft Azure StorSimple Data Manager UI
 description: StorSimple Data Manager 서비스 UI를 사용하는 방법 설명
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 3a87b4c07d2e961d9876fb44c6584f37ad9246df
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796653"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273977"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Azure Portal에서 StorSimple 데이터 관리자 서비스 관리
 

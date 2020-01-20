@@ -3,17 +3,16 @@ title: AKS(Azure Kubernetes Service)의 HTTP 애플리케이션 라우팅 추가
 description: AKS(Azure Kubernetes Service)의 HTTP 애플리케이션 라우팅 추가 기능을 사용합니다.
 services: container-service
 author: lachie83
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: cfd69ebf6408acaa2938271ba87f36768416de80
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e550f81a758d27491b01a13c6c0e24c6d364fb5a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442956"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276113"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 

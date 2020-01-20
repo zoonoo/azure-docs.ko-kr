@@ -1,28 +1,19 @@
 ---
-title: Azure에서 공유 VM 이미지를 사용하여 확장 집합 만들기 | Microsoft Docs
+title: 공유 VM 이미지를 사용 하 여 Azure에서 확장 집합 만들기
 description: Azure PowerShell을 사용하여 Azure에서 가상 머신 확장 세트 배포에 사용할 공유 VM 이미지를 만드는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: axayjo
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.custom: ''
-ms.openlocfilehash: 13c870ec87fa914f74bcfc4297dbe2fcc0bea282
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b60a00828cfed8ef5d47704de2b2d7ede309ed6d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875621"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276307"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 세트용 공유 이미지 만들기 및 사용
 
@@ -45,11 +36,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 아래 단계에서는 기존 VM을 가져와서 새 VM 인스턴스를 만드는 데 사용할 수 있는 재사용 가능 사용자 지정 이미지로 변환하는 방법을 자세히 설명합니다.
 
-이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용](tutorial-use-custom-image-powershell.md)에 따라 이미지를 만들 수 있습니다. 관리 되는 이미지에 데이터 디스크가 포함 되어 있는 경우 데이터 디스크 크기는 1TB를 넘을 수 없습니다.
+이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. [Azure PowerShell를 사용 하 여 가상 머신 확장 집합에 대 한 사용자 지정 이미지 만들기 및 사용 자습서](tutorial-use-custom-image-powershell.md) 를 수행 하 여 필요한 경우 만들 수 있습니다. 관리 되는 이미지에 데이터 디스크가 포함 되어 있는 경우 데이터 디스크 크기는 1TB를 넘을 수 없습니다.
 
 이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 

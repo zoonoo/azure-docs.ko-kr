@@ -1,26 +1,19 @@
 ---
-title: Azure 확장 집합 템플릿에서 사용자 지정 이미지 참조 | Microsoft Docs
+title: Azure 확장 집합 템플릿에서 사용자 지정 이미지 참조
 description: 기존 Azure Virtual Machine Scale Set 템플릿에 사용자 지정 이미지를 추가하는 방법 알아보기
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: manayar
-ms.openlocfilehash: 2ed75a72360253996471034b001e12e8190cf733
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fd1a567af1c35cf6b659995e998b11a61a526508
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935273"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275584"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 사용자 지정 이미지 추가
 

@@ -1,23 +1,18 @@
 ---
-title: Azure DNS에서 역방향 DNS 조회 영역 호스트 | Microsoft Docs
+title: Azure DNS에서 역방향 DNS 조회 영역 호스트
 description: Azure DNS를 사용하여 IP 범위에 대한 역방향 DNS 조회 영역을 호스트하는 방법을 알아봅니다.
-services: dns
-documentationcenter: na
 author: asudbring
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: allensu
-ms.openlocfilehash: aeefb523b401effe4dedb21a8284f296948bbef9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6052934e15d6975265c9eded459eea4446c9eee1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211258"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277948"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
 
@@ -45,9 +40,9 @@ Azure 서비스에 할당된 Azure 소유 IP 주소에 역방향 DNS를 구성�
 IPv4 역방향 조회 영역의 이름은 나타내는 IP 범위를 기반으로 합니다. `<IPv4 network prefix in reverse order>.in-addr.arpa` 형식이어야 합니다. 예제는 [Azure의 역방향 DNS 및 지원 개요](dns-reverse-dns-overview.md#ipv4)를 참조하세요.
 
 > [!NOTE]
-> Azure DNS에서 클래스 없는 역방향 DNS 조회 영역을 만들 경우 영역 이름에 슬래시(`-`) 대신 하이픈(`/`)을 사용해야 합니다.
+> Azure DNS에서 클래스 없는 역방향 DNS 조회 영역을 만들 경우 영역 이름에 슬래시(`/`) 대신 하이픈(`-`)을 사용해야 합니다.
 >
-> 예를 들어 IP 범위 192.0.2.128/26에 대해 `128-26.2.0.192.in-addr.arpa` 대신 `128/26.2.0.192.in-addr.arpa`를 영역 이름으로 사용해야 합니다.
+> 예를 들어 IP 범위 192.0.2.128/26에 대해 `128/26.2.0.192.in-addr.arpa` 대신 `128-26.2.0.192.in-addr.arpa`를 영역 이름으로 사용해야 합니다.
 >
 > DNS 표준은 두 가지 방법을 모두 지원하지만 Azure DNS는 슬래시(`/`) 문자를 포함하는 DNS 영역 이름을 지원하지 않습니다.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5be8668f9a2761bf1aa9809749fa44f21d622dde
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045806"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277983"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -415,7 +415,7 @@ Feauturization = auto 일 때 발생 하는 전처리 및 [자동화 된 기능 
 |사용자 지정|정의|
 |--|--|
 |열 용도 업데이트|지정 된 열에 대 한 기능 유형을 재정의 합니다.|
-|변환기 매개 변수 업데이트 |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는  Uter 및 HashOneHotEncoder을 지원 합니다.|
+|변환기 매개 변수 업데이트 |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는 (평균, 가장 자주 & 중앙값) 및 HashOneHotEncoder을 지원 합니다.|
 |열 삭제 |기능화에서 삭제할 열입니다.|
 |블록 변환기| 기능화 프로세스에 사용할 변환기를 차단 합니다.|
 

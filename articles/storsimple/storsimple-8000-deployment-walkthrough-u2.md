@@ -1,25 +1,17 @@
 ---
-title: Azure Portal에서 StorSimple 8000 시리즈 디바이스 배포 | Microsoft Docs
+title: Azure Portal에서 StorSimple 8000 시리즈 장치 배포
 description: 업데이트 3 이상을 실행하는 StorSimple 8000 시리즈 디바이스 및 StorSimple 디바이스 관리자 서비스를 배포하기 위한 단계와 모범 사례를 설명합니다.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1f44690de1f38e3d337072cc7c974887eb0e31cc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965892"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273954"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>온-프레미스 StorSimple 디바이스(업데이트 3 이상) 배포
 
@@ -42,7 +34,7 @@ Microsoft Azure StorSimple 디바이스 배포를 시작합니다. 이러한 배
 ## <a name="deployment-steps"></a>배포 단계
 StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비스에 연결하려면 다음과 같은 필수 단계를 수행합니다. 필수 단계 외에 선택적 단계 및 배포하는 동안 필요할 수도 있는 절차가 있습니다. 단계별 배포 지침은 각 선택적 단계를 수행해야 하는 시기를 나타냅니다.
 
-| 단계 | 설명 |
+| 단계 | Description |
 | --- | --- |
 | **필수 조건** |향후 배포 준비 과정에서 완료해야 합니다. |
 | [배포 구성 검사 목록](#deployment-configuration-checklist) |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |
@@ -50,12 +42,12 @@ StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비
 |  | |
 | **단계별 배포** |프로덕션 환경에서 StorSimple 디바이스를 배포하려면 다음 단계가 필요합니다. |
 | [1단계: 새 서비스 만들기](#step-1-create-a-new-service) |StorSimple 디바이스에 대한 클라우드 관리 및 스토리지를 설정합니다. *다른 StorSimple 디바이스에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다*. |
-| [2단계: 서비스 등록 키 가져오기](#step-2-get-the-service-registration-key) |이 키를 사용하여 StorSimple 디바이스를 관리 서비스에 등록 및 연결합니다. |
-| [3단계: StorSimple용 Windows PowerShell를 통해 장치 구성 및 등록](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |관리 서비스를 사용하여 설정을 완료하려면 디바이스를 네트워크에 연결하고 Azure로 등록합니다. |
-| [4단계: 최소 장치 설정 완료](#step-4-complete-minimum-device-setup)</br>[모범 사례: StorSimple 장치 업데이트](#scan-for-and-apply-updates) |관리 서비스를 사용하여 디바이스 설정을 완료하고 스토리지를 제공할 수 있도록 설정합니다. |
+| [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key) |이 키를 사용하여 StorSimple 디바이스를 관리 서비스에 등록 및 연결합니다. |
+| [3단계: StorSimple용 Windows PowerShell을 통해 디바이스 구성 및 등록](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |관리 서비스를 사용하여 설정을 완료하려면 디바이스를 네트워크에 연결하고 Azure로 등록합니다. |
+| [4단계: 최소 디바이스 설정 완료](#step-4-complete-minimum-device-setup)</br>[모범 사례: StorSimple 디바이스 업데이트](#scan-for-and-apply-updates) |관리 서비스를 사용하여 디바이스 설정을 완료하고 스토리지를 제공할 수 있도록 설정합니다. |
 | [5단계: 볼륨 컨테이너 만들기](#step-5-create-a-volume-container) |볼륨을 프로비전할 컨테이너를 만듭니다. 볼륨 컨테이너에는 스토리지 계정, 대역폭 및 그 안에 포함된 모든 볼륨에 대한 암호화 설정이 있습니다. |
 | [6단계: 볼륨 만들기](#step-6-create-a-volume) |서버에 대한 StorSimple 디바이스의 스토리지 볼륨을 프로비전합니다. |
-| [7단계: 볼륨 탑재, 초기화 및 포맷](#step-7-mount-initialize-and-format-a-volume)</br>[선택 사항: MPIO 구성](storsimple-8000-configure-mpio-windows-server.md) |서버를 디바이스에서 제공하는 iSCSI 스토리지에 연결합니다. 필요에 따라 MPIO를 구성하여 서버가 링크, 네트워크 및 인터페이스 실패를 허용할 수 있도록 합니다. |
+| [7단계: 볼륨 탑재, 초기화 및 포맷](#step-7-mount-initialize-and-format-a-volume)</br>[선택 사항: MPIO를 구성합니다.](storsimple-8000-configure-mpio-windows-server.md) |서버를 디바이스에서 제공하는 iSCSI 스토리지에 연결합니다. 필요에 따라 MPIO를 구성하여 서버가 링크, 네트워크 및 인터페이스 실패를 허용할 수 있도록 합니다. |
 | [8단계: 백업 수행](#step-8-take-a-backup) |백업 정책을 설정하여 데이터 보호 |
 |  | |
 | **기타 절차** |솔루션을 배포하는 경우 이러한 절차를 참조해야 합니다. |
@@ -104,22 +96,22 @@ StorSimple 디바이스 관리자 서비스는 여러 StorSimple 디바이스를
 > 서비스와 함께 스토리지 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 스토리지 계정을 만들어야 합니다. 이 스토리지 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
 > * 스토리지 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 스토리지 계정 구성](#configure-a-new-storage-account-for-the-service) 을 참조하세요.
-> * 스토리지 계정을 자동으로 생성하도록 설정한 경우 [2단계: 서비스 등록 키 가져오기](#step-2-get-the-service-registration-key)로 이동합니다.
+> * 스토리지 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key)로 이동합니다.
 
 
-## <a name="step-2-get-the-service-registration-key"></a>2단계: 서비스 등록 키 가져오기
+## <a name="step-2-get-the-service-registration-key"></a>2단계: 서비스 등록 키 받기
 StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 디바이스를 서비스에 등록 및 연결하는 데 사용됩니다.
 
 Azure Portal에서 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
-## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3단계: StorSimple용 Windows PowerShell를 통해 장치 구성 및 등록
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3단계: StorSimple용 Windows PowerShell을 통해 디바이스 구성 및 등록
 다음 절차에서 설명한 대로 StorSimple 디바이스의 초기 설정을 완료하려면 StorSimple용 Windows PowerShell을 사용합니다. 이 단계를 완료하려면 터미널 에뮬레이션 소프트웨어를 사용해야 합니다. 자세한 내용은 [디바이스 직렬 콘솔 연결에 PuTTY 사용](#use-putty-to-connect-to-the-device-serial-console)을 참조하세요.
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>4단계: 최소 장치 설정 완료
+## <a name="step-4-complete-minimum-device-setup"></a>4단계: 최소 디바이스 설정 완료
 StorSimple 디바이스의 최소 디바이스 구성에는 다음 사항이 필요합니다. 
 
 * 디바이스에 대한 친숙한 이름을 제공합니다.

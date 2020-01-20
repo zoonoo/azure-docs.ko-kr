@@ -1,17 +1,17 @@
 ---
 title: Azure 스프링 클라우드에 대 한 질문과 대답 | Microsoft Docs
 description: 이 문서에서는 Azure 스프링 클라우드에 대해 자주 묻는 질문에 답변 합니다.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 12786f59db9644fd54e812687d27443c250aec05
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: brendm
+ms.openlocfilehash: e4fbeef06ae49ffe24f84b1a12dbcdfe0a5f1fec
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891852"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278564"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 

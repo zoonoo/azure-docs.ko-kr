@@ -1,21 +1,19 @@
 ---
 title: Azure Virtual Machine Scale Sets에 대 한 삭제 OS 디스크
 description: Azure Virtual Machine Scale Sets에 대 한 임시 운영 체제 디스크에 대해 자세히 알아보세요.
-services: virtual-machine-scale-sets
 author: cynthn
-manager: jeconnoc
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: cynthn
-ms.openlocfilehash: a5ef62cf048aa0588b8b5bb0e00a7883dcf5b683
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d459d55c0a1fcdf14e95b28e2a9c1b634846751
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459391"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278953"
 ---
 # <a name="ephemeral-os-disks-for-vm-instances"></a>VM 인스턴스에 대 한 삭제 OS 디스크
 

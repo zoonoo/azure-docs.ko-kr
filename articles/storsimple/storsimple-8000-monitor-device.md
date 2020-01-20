@@ -1,25 +1,17 @@
 ---
-title: StorSimple 8000 시리즈 디바이스 모니터링 | Microsoft Docs
+title: StorSimple 8000 시리즈 장치 모니터링
 description: StorSimple 디바이스 관리자 서비스를 사용하여 사용량, I/O 성능 및 수용작업량 사용률을 모니터링하는 방법에 대해 설명합니다.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634565"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277051"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 모니터링합니다.
 
@@ -28,7 +20,7 @@ StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 솔루션
 
 특정 디바이스에 대한 모니터링 정보를 확인하려면, Azure Portal에서 StorSimple 디바이스 관리자 서비스를 선택합니다. 디바이스 목록에서 디바이스를 선택한 다음, **모니터링**으로 이동합니다. 선택한 디바이스에 대한 **수용작업량**, **사용량** 및 **성능** 차트를 확인할 수 있습니다.
 
-## <a name="capacity"></a>용량
+## <a name="capacity"></a>용량 중심
 **수용작업량**은 프로비전된 공간 및 디바이스에 남은 공간을 추적합니다. 나머지 수용작업량은 로컬로 고정되었거나 계층화 것으로 표시됩니다.
 
 프로비전된 수용작업량 및 나머지 수용작업량은 계층화된 볼륨 및 로컬 고정 볼륨으로 분류됩니다. 각 볼륨의 경우 프로비전된 용량 및 디바이스의 나머지 용량이 표시됩니다.
@@ -37,7 +29,7 @@ StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 솔루션
 
 
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 **사용량**은 볼륨, 볼륨 컨테이너 또는 디바이스에서 사용되는 데이터 스토리지 공간의 양과 관련된 메트릭을 추적합니다. 기본 스토리지, 클라우드 스토리지 또는 디바이스 스토리지 용량 사용률을 기반으로 보고서를 만들 수 있습니다. 용량 사용률은 특정 볼륨, 특정 볼륨 컨테이너 또는 모든 볼륨 컨테이너에 대해 측정될 수 있습니다.
 기본적으로 지난 24시간 동안 사용량이 보고됩니다. 다음을 선택하여 보고되는 사용량에 대한 기간을 변경하기 위해 차트를 편집할 수 있습니다.
 * 지난 24시간
@@ -112,7 +104,7 @@ SSD 선형 계층을 포함하므로 기본 스토리지 사용량 이상인 디
 
 ![클라우드 스냅샷 이후 로컬 스토리지 사용률](./media/storsimple-8000-monitor-device/device-local-storage-after-cloudsnapshot.png)
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 **성능**은 호스트 서버의 iSCSI 초기자 인터페이스와 디바이스 또는 디바이스와 클라우드 사이의 읽기 및 쓰기 작업의 수와 관련된 메트릭을 추적합니다. 이 성능은 특정 볼륨, 특정 볼륨 컨테이너 또는 모든 볼륨 컨테이너에 대해 측정될 수 있습니다. 성능은 디바이스의 다양한 네트워크 인터페이스에 대한 CPU 사용률 및 네트워크 처리량도 포함합니다.
 
 ### <a name="io-performance-for-initiator-to-device"></a>초기자에서 디바이스로의 I/O 성능
