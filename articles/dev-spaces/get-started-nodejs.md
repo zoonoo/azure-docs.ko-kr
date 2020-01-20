@@ -88,7 +88,7 @@ Kubernetes 디버깅과 같은 다양한 기능은 VS Code를 사용하는 .NET 
 이 섹션에서는 Node.js 웹앱을 만들어 Kubernetes의 컨테이너에서 실행합니다.
 
 ### <a name="create-a-nodejs-web-app"></a>Node.js 웹앱 만들기
-[https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces ) 로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**을 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/nodejs/getting-started/webfrontend`에 있습니다.
+https://github.com/Azure/dev-spaces 로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**을 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/nodejs/getting-started/webfrontend`에 있습니다.
 
 ## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Docker 및 Kubernetes 개발을 위한 코드 준비
 지금까지 로컬로 실행할 수 있는 기본 웹앱이 있었습니다. 이제 앱의 컨테이너 및 Kubernetes에 배포되는 방법을 정의하는 자산을 만들어 컨테이너화합니다. 이 작업은 Azure Dev Spaces를 사용하여 쉽게 할 수 있습니다. 

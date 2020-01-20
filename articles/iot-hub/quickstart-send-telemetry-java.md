@@ -55,7 +55,7 @@ mvn --version
 az extension add --name azure-cli-iot-ext
 ```
 
-[https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip ) 에서 Java 프로젝트 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip 에서 Java 프로젝트 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

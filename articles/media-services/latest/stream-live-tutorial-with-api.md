@@ -34,7 +34,7 @@ ms.locfileid: "73582637"
 > [!div class="checklist"]
 > * 토픽에 설명된 샘플 앱 다운로드
 > * 라이브 스트리밍을 수행하는 코드 검사
-> * [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net ) 에서 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이벤트 감시
+> * https://ampdemo.azureedge.net 에서 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이벤트 감시
 > * 리소스를 정리합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

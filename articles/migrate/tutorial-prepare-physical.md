@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196393"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028659"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>물리적 서버의 평가 및 Azure로 마이그레이션 준비
 
@@ -21,7 +21,7 @@ ms.locfileid: "74196393"
 
 [Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다. 
 
-이 자습서는 Azure Migrate를 사용하여 물리적 서버를 평가하는 방법을 보여 주는 시리즈의 첫 번째 자습서입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 Azure Migrate를 사용하여 물리적 서버를 평가하는 방법을 보여 주는 시리즈의 첫 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure를 준비합니다. Azure Migrate에서 사용할 Azure 계정 및 리소스에 대한 권한을 설정합니다.
@@ -53,7 +53,7 @@ Azure Migrate 배포를 위한 권한을 설정해야 합니다.
 Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니다.
 
 1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 확인**에서 관련 계정을 찾아서 클릭하여 권한을 확인합니다.
+2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
 3. **기여자** 또는 **소유자** 권한이 있어야 합니다.
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
@@ -95,18 +95,18 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 
 ### <a name="verify-physical-server-settings"></a>물리적 서버 설정 확인
 
-1. 서버 평가에 대한 [물리적 서버 요구 사항](migrate-support-matrix-physical.md#assessment-physical-server-requirements)을 확인합니다.
-2. 물리적 서버에서 [필요한 포트](migrate-support-matrix-physical.md#assessment-port-requirements)가 열려 있는지 확인합니다.
+1. 서버 평가에 대한 [물리적 서버 요구 사항](migrate-support-matrix-physical.md#physical-server-requirements)을 확인합니다.
+2. 물리적 서버에서 [필요한 포트](migrate-support-matrix-physical.md#port-access)가 열려 있는지 확인합니다.
 
 
 ### <a name="verify-appliance-settings"></a>어플라이언스 설정 확인
 
 Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가를 시작하기 전에 어플라이언스 배포를 준비합니다.
 
-1. 어플라이언스 요구 사항을 [확인](migrate-support-matrix-physical.md#assessment-appliance-requirements)합니다.
-2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-physical.md#assessment-appliance-url-access)합니다.
-3. 검색 및 평가 중에 어플라이언스가 수집할 데이터를 검토합니다.
-4. 어플라이언스에 대한 포트 액세스 요구 사항에 [유의](migrate-support-matrix-physical.md#assessment-port-requirements)하세요.
+1. 물리적 서버의 어플라이언스 요구 사항을 [확인](migrate-appliance.md#appliance---physical)합니다.
+2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-appliance.md#url-access)합니다.
+3. 검색 및 평가 중에 어플라이언스가 수집 업무를 수행하는지 [검토](migrate-appliance.md#collected-data---vmware)합니다.
+4. 포트 액세스 요구 사항 물리적 서버 평가를 [참조](migrate-support-matrix-physical.md#port-access)하세요.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>물리적 서버 검색을 위한 계정 설정
@@ -115,6 +115,15 @@ Azure Migrate에는 온-프레미스 서버를 검색할 수 있는 권한이 �
 
 - **Windows:** 검색에 포함하려는 모든 Windows 서버에 로컬 사용자 계정을 설정합니다. 다음 그룹에 사용자 계정을 추가해야 합니다.       - Remote Management Users       - Performance Monitor Users       - Performance Log users
 - **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다.
+
+## <a name="prepare-for-physical-server-migration"></a>물리적 서버 마이그레이션 준비
+
+물리적 서버의 마이그레이션에 대한 요구 사항을 검토합니다.
+
+- 마이그레이션을 위한 물리적 서버 요구 사항을 [검토](migrate-support-matrix-physical-migration.md#physical-server-requirements)합니다.
+- Azure Migrate: 서버 마이그레이션은 물리적 서버 마이그레이션에 복제 서버를 사용합니다.
+    - 복제 어플라이언스에 대한 배포 요구 사항 및 어플라이언스에 MySQL을 설치하기 위한 [옵션](migrate-replication-appliance.md#mysql-installation)을 [검토](migrate-replication-appliance.md#appliance-requirements)합니다.
+    - 복제 어플라이언스에 대한 [URL](migrate-replication-appliance.md#url-access) 및 [포트](migrate-replication-appliance.md#port-access) 액세스 요구 사항을 검토합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

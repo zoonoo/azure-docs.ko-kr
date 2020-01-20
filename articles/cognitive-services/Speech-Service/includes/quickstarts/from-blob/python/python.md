@@ -1,32 +1,25 @@
 ---
-title: '빠른 시작: Blob 스토리지에 저장된 음성 인식, C# - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 2f06d0015bd80b37407df28045d4ced4a128e47e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: bfecfa1918d2e9199971b2f9738530dc1b4e3c4c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467540"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942763"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [Azure Blob에 원본 파일 업로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Blob에 원본 파일 업로드](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="download-and-install-the-api-client-library"></a>API 클라이언트 라이브러리 다운로드 및 설치
 
@@ -43,7 +36,8 @@ ms.locfileid: "75467540"
 1. pip(`pip install path/to/package/python-client`)을 사용하여 압축 해제된 python-client 모듈을 Python 환경에 설치합니다.
 1. 설치된 패키지에 `swagger_client`라는 이름이 지정됩니다. `python -c "import swagger_client"` 명령을 사용하여 설치가 정상적으로 완료되었는지 확인할 수 있습니다.
 
-> **참고:** [Swagger 자동 생성의 알려진 버그](https://github.com/swagger-api/swagger-codegen/issues/7541)로 인해 `swagger_client` 패키지를 가져오는 동안 오류가 발생할 수 있습니다.
+> [!NOTE]
+> [Swagger 자동 생성의 알려진 버그](https://github.com/swagger-api/swagger-codegen/issues/7541)로 인해 `swagger_client` 패키지를 가져오는 동안 오류가 발생할 수 있습니다.
 > 이 문제는 다음 내용이 포함된 줄을
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501
@@ -67,7 +61,8 @@ pip install requests
 프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
-(`YourSubscriptionKey`, `YourServiceRegion`및 `YourFileUrl` 값을 고유한 값으로 바꿔야 합니다.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="create-and-configure-an-http-client"></a>Http 클라이언트 만들기 및 구성
 가장 먼저 필요한 것은 올바른 기본 URL과 인증 집합이 있는 Http 클라이언트입니다.

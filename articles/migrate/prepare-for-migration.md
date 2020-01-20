@@ -1,19 +1,15 @@
 ---
 title: Azure Migrate를 사용하여 마이그레이션을 위한 머신 준비
 description: Azure Migrate를 사용하여 마이그레이션하기 위한 온-프레미스 머신을 준비하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 12/10/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3c10321e8d49ac6ecfe80024d23f24711298651
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974787"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028759"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -44,9 +40,9 @@ ms.locfileid: "74974787"
 
 ## <a name="check-whats-supported"></a>지원되는 기능 확인
 
-- VMware VM의 경우 Azure Migrate 서버 마이그레이션은 [에이전트리스 또는 에이전트 기반 마이그레이션](server-migrate-overview.md)을 지원합니다. [에이전트리스](migrate-support-matrix-vmware.md#migration---limitations) 및 [에이전트 기반](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) 마이그레이션에 대한 VMware VM 요구 사항/지원을 확인합니다.
-- Hyper-V VM에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements)을 확인합니다.
-- 온-프레미스 물리적 머신 또는 다른 가상화된 서버에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-physical.md)을 확인합니다. 
+- VMware VM의 경우 Azure Migrate 서버 마이그레이션은 [에이전트리스 또는 에이전트 기반 마이그레이션](server-migrate-overview.md)을 지원합니다. VMware VM [마이그레이션 요구 사항 및 지원](migrate-support-matrix-vmware-migration.md)을 확인합니다.
+- Hyper-V에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-hyper-v-migration.md)을 확인합니다.
+- 온-프레미스 물리적 머신 또는 다른 가상화된 서버에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-physical-migration.md)을 확인합니다. 
 
 
 
@@ -55,10 +51,11 @@ ms.locfileid: "74974787"
 
 마이그레이션하는 동안 머신에 인터넷 액세스가 필요할 수 있습니다.
 
-- [에이전트리스](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) 또는 [에이전트 기반](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements) 마이그레이션 중에 VMware VM에서 액세스해야 하는 URL을 검토합니다.
-- 마이그레이션 중에 Hyper-V 호스트에서 액세스해야 하는 URL을 검토합니다. Hyper-V VM에는 인터넷 액세스가 필요하지 않습니다.
-- 마이그레이션 중에 물리적 머신 또는 다른 가상화된 서버에서 액세스해야 하는 [URL을 검토](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements)합니다.
-- VMware VM/물리적 서버의 에이전트 기반 마이그레이션의 경우 머신에서 실행되는 모바일 서비스에서 Azure Migrate 구성 요소에 액세스해야 합니다. 머신에서 실행되는 서비스는 복제 관리를 위해 HTTPS 443 인바운드 포트에서 온-프레미스 Azure Migrate 복제 어플라이언스와 통신합니다. 머신은 복제 데이터를 HTTPS 9443 인바운드 포트에서 Azure Migrate 프로세스 서버로 보냅니다. 이 포트는 수정할 수 있습니다.
+- 에이전트 없는 마이그레이션을 수행하는 동안 Azure Migrate 어플라이언스에서 액세스해야 하는 [URL을 검토](migrate-appliance.md#url-access)합니다. [포트 액세스 검토](migrate-support-matrix-vmware-migration.md#agentless-ports) 요구 사항입니다.
+- VMware VM 에이전트 기반 마이그레이션을 수행하는 동안 복제 어플라이언스에서 사용하는 [URL](migrate-replication-appliance.md#url-access) 및 [포트](migrate-replication-appliance.md#port-access)를 검토합니다. 
+- 마이그레이션 중에 Hyper-V 호스트에서 액세스해야 하는 URL 및 포트를 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts)합니다. 
+- 물리적 서버 마이그레이션을 수행하는 동안 복제 어플라이언스에서 사용하는 [URL](migrate-replication-appliance.md#url-access) 및 [포트](migrate-replication-appliance.md#port-access)를 검토합니다.
+
 
 
 ## <a name="verify-required-changes-before-migration"></a>마이그레이션 전 필요한 변경 확인
@@ -105,7 +102,7 @@ Windows 머신을 마이그레이션하는 경우 마이그레이션하기 전�
 
 ## <a name="check-azure-vm-requirements"></a>Azure VM 요구 사항 확인
 
-Azure에 복제하는 온-프레미스 머신은 운영 체제와 아키텍처, 디스크, 네트워크 설정 및 VM 명명에 대한 Azure VM 요구 사항을 준수해야 합니다. 마이그레이션하기 전에 [VMware VM/물리적 서버](migrate-support-matrix-vmware.md#azure-vm-requirements) 및 [Hyper-V VM](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements)에 대한 요구 사항을 확인합니다.
+Azure에 복제하는 온-프레미스 머신은 운영 체제와 아키텍처, 디스크, 네트워크 설정 및 VM 명명에 대한 Azure VM 요구 사항을 준수해야 합니다. 마이그레이션하기 전에 [VMware VM/물리적 서버](migrate-support-matrix-vmware-migration.md#azure-vm-requirements) 및 [Hyper-V VM](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements)에 대한 요구 사항을 확인합니다.
 
 
 ## <a name="prepare-to-connect-after-migration"></a>마이그레이션 후 연결 준비
