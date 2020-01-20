@@ -84,7 +84,7 @@ Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같
 * 다음 [지원되는 OS 이미지](#supported-virtual-machine-os-images) 중 하나를 실행합니다.
 
 >[!NOTE]
->Azure 구독이 필요한 분들은 [1개월 평가판에 가입](https://azure.microsoft.com/free/)하시면 됩니다. Azure 평가판 버전을 사용하는 경우 Windows Server Active Directory와 Azure Active Directory가 동기화 상태를 유지하도록 Azure AD Domain Services를 사용해야 합니다.
+>Azure 구독이 필요한 경우에는 [1개월 평가판에 가입](https://azure.microsoft.com/free/)하면 됩니다. Azure 평가판 버전을 사용하는 경우 Windows Server Active Directory와 Azure Active Directory가 동기화 상태를 유지하도록 Azure AD Domain Services를 사용해야 합니다.
 
 Windows Virtual Desktop용으로 만드는 Azure 가상 머신에는 다음 URL에 대한 아웃바운드 TCP 443 액세스 권한이 있어야 합니다.
 
