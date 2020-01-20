@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 23db74b1cd157141454692805f9ec306ef89710a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f6f77268952f0ac7c01498ab8833bdad592bdc3f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975185"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155607"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -45,6 +45,7 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 * 인터넷 연결 부하 분산 장치
 * VPN 게이트웨이
 * 애플리케이션 게이트웨이
+* Azure Firewall
 
 ### <a name="ip-address-version"></a>IP 주소 버전
 
@@ -186,7 +187,7 @@ Azure 관리 DNS 서버를 사용하여 구성된 가상 머신은 동일한 가
 ## <a name="limits"></a>제한
 IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 전체 집합에 나와 있습니다. 제한은 지역별, 구독별로 적용됩니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하세요.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 공용 IP 주소에는 명목 요금이 부과될 수 있습니다. Azure의 IP 주소 가격 책정에 대한 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
