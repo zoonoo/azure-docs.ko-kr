@@ -14,8 +14,10 @@
   items:
     - name: 클라이언트 라이브러리
       items:
-        - name: 클라이언트 라이브러리를 사용하여 텍스트 분석
+        - name: v3.0-미리보기를 사용하여 텍스트 분석
           href: quickstarts/text-analytics-sdk.md
+        - name: v2를 사용하여 텍스트 분석
+          href: quickstarts/text-analytics-sdk-v2.md
     - name: REST API
       items:
         - name: Java 사용
@@ -66,7 +68,7 @@
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
     - name: 텍스트 분석 연결된 서비스 사용
       href: vs-text-connected-service.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: CLI 참조
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
@@ -98,7 +100,7 @@
       href: language-support.md
     - name: 명명된 엔터티 형식
       href: named-entity-types.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
