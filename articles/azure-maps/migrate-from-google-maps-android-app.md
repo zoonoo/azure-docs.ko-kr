@@ -1,38 +1,38 @@
 ---
-title: Android 앱 마이그레이션 | Microsoft Docs
-description: Google Maps에서 Microsoft Azure 맵으로 Android 앱을 마이그레이션하는 방법에 대 한 자습서입니다.
+title: '자습서: Android 앱 마이그레이션 | Microsoft Azure Maps'
+description: Android 앱을 Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법을 설명합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 60d8fcc9879e89276aad80bbaf3a0edf244a45b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 643d48cb931bcec1a8a3385d2ec24a394660c368
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75481400"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75909198"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Google Maps에서 Android 앱 마이그레이션
 
-Azure Maps Android SDK에는 웹 SDK와 매우 유사한 API 인터페이스가 있습니다. 이러한 Sdk 중 하나를 사용 하 여 개발 하는 경우 동일한 개념, 모범 사례 및 아키텍처가 적용 되며 한 정보를 다른 것으로 쉽게 이전할 수 있습니다.
+Azure Maps Android SDK의 API 인터페이스는 웹 SDK와 매우 비슷합니다. 이러한 SDK 중 하나, 동일한 개념, 모범 사례 및 아키텍처를 사용하여 앱을 개발한 경험이 있는 분들은 기존 지식을 다른 도구에서도 쉽게 적용할 수 있습니다.
 
-Azure Maps Android SDK는 최소 Android 버전의 API 21: Android 5.0.0 (롤리팝)를 지원 합니다.
+Azure Maps Android SDK는 Android 버전 API 21: Android 5.0.0(Lollipop) 이상을 지원합니다.
 
-그러나 Java에서 제공 되는 모든 예제는 Azure Maps Android SDK와 함께 사용할 수도 있습니다.
+Java에서 제공하는 모든 예제는(Kotlin이더라도) Azure Maps Android SDK와 함께 사용할 수도 있습니다.
 
-또한이 SDK를 사용 하 여 개발 하는 방법에 대 한 자세한 내용은 [Azure Maps Android SDK에 대 한 방법 가이드](how-to-use-android-map-control-library.md) 를 참조 하세요.
+이 SDK를 사용하여 개발하는 방법에 대한 자세한 내용은 [Azure Maps Android SDK에 대한 방법 가이드](how-to-use-android-map-control-library.md)를 참조하세요.
 
-## <a name="load-a-map"></a>지도 로드
+## <a name="load-a-map"></a>맵 로드
 
-Google 또는 Azure Maps를 사용 하 여 Android 앱에서 지도를 로드 하는 것은 동일한 여러 단계로 구성 됩니다. SDK 중 하나를 사용 하는 경우 다음을 수행 해야 합니다.
+Google 또는 Azure Maps를 사용하여 Android 앱에서 맵을 로드하는 방법은 여러 동일한 단계로 구성됩니다. 두 SDK 중 하나를 사용하는 경우 다음을 수행해야 합니다.
 
-- 하나 이상의 플랫폼에 액세스 하기 위한 API 또는 구독 키를 가져옵니다.
-- 작업에 일부 XML을 추가 하 여 map이 렌더링 되어야 하는 위치 및 레이아웃을 지정 하는 방법을 지정 합니다.
-- 지도 뷰를 포함 하는 활동의 모든 수명 주기 메서드를 map 클래스의 해당 항목으로 전달 합니다. 특히 다음과 같은 방법으로 전달 해야 합니다.
+- 두 플랫폼 중 하나에 액세스하기 위한 API 또는 구독 키를 가져옵니다.
+- 작업에 XML을 추가하여 맵을 렌더링할 위치 및 레이아웃을 지정합니다.
+- 맵 보기를 포함하고 있는 작업의 모든 수명 주기 메서드를 map 클래스의 해당 항목으로 전달합니다. 특히 다음 메서드를 전달해야 합니다.
     - `onCreate(Bundle)`
     - `onStart()`
     - `onResume()`
@@ -41,24 +41,24 @@ Google 또는 Azure Maps를 사용 하 여 Android 앱에서 지도를 로드 �
     - `onDestroy()`
     - `onSaveInstanceState(Bundle)`
     - `onLowMemory()`
-- 프로그래밍 방식으로 액세스를 시도 하기 전에 맵이 준비 될 때까지 기다립니다.
+- 맵이 준비될 때까지 기다렸다가 프로그래밍 방식으로 액세스를 시도합니다.
 
 **이전: Google Maps**
 
-Android 용 Google Maps SDK를 사용 하 여 지도를 표시 하려면 다음 단계를 수행 합니다.
+Android용 Google Maps SDK를 사용하여 맵을 표시하려면 다음 단계를 수행합니다.
 
-1.  Google Play 서비스가 설치 되어 있는지 확인 합니다.
-2.  Google Maps 서비스에 대 한 종속성을 모듈의 gradle 파일에 추가 **합니다** . 
+1.  Google Play 서비스가 설치되어 있는지 확인합니다.
+2.  모듈의 **gradle.build** 파일에 Google Maps 서비스에 대한 종속성을 추가합니다. 
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-1.  Google Maps API 키를 **google\_Maps\_api .xml** 파일의 응용 프로그램 섹션 안에 추가 합니다.
+1.  **google\_maps\_api.xml** 파일의 애플리케이션 섹션 안에 Google Maps API 키를 추가합니다.
     
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
     ```
 
-1.  기본 활동에 맵 단편 추가:
+1.  다음과 같이 기본 작업에 맵 조각을 추가합니다.
 
     ```xml
     <com.google.android.gms.maps.MapView
@@ -67,7 +67,7 @@ Android 용 Google Maps SDK를 사용 하 여 지도를 표시 하려면 다음 
             android:layout_height="match_parent"/>
     ```
 
-1.  **Mainactivity. java** 파일에서 GOOGLE Maps SDK에 대 한 가져오기를 추가 해야 합니다. 지도 뷰를 포함 하는 활동의 모든 수명 주기 메서드를 map 클래스의 해당 항목으로 전달 합니다. `MapView` 인스턴스는 `getMapAsync(OnMapReadyCallback)` 메서드를 사용 하 여 맵 조각에서 검색할 수 있습니다. `MapView`는 맵 시스템과 뷰를 자동으로 초기화 합니다. 다음과 같이 **Mainactivity. java** 파일을 편집 합니다.
+1.  **MainActivity.java** 파일에서 Google Maps SDK에 대한 가져오기를 추가해야 합니다. 맵 보기를 포함하고 있는 작업의 모든 수명 주기 메서드를 map 클래스의 해당 항목으로 전달합니다. `MapView` 인스턴스는 `getMapAsync(OnMapReadyCallback)` 메서드를 사용하여 맵 조각에서 검색할 수 있습니다. `MapView`는 맵 시스템과 보기를 자동으로 초기화합니다. **MainActivity.java** 파일을 다음과 같이 편집합니다.
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -142,7 +142,7 @@ Android 용 Google Maps SDK를 사용 하 여 지도를 표시 하려면 다음 
     }
     ```
 
-응용 프로그램에서 실행 되는 경우 다음과 같이 맵 컨트롤이 로드 됩니다.
+지도 컨트롤은 애플리케이션에서 실행되는 경우 다음과 같이 로드됩니다.
 
 <center>
 
@@ -150,9 +150,9 @@ Android 용 Google Maps SDK를 사용 하 여 지도를 표시 하려면 다음 
 
 **이후: Azure Maps**
 
-Android 용 Azure Maps SDK를 사용 하 여 맵을 표시 하려면 다음 단계를 수행 해야 합니다.
+Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계를 수행합니다.
 
-1. 최상위 **gradle** 파일을 열고 **모든 프로젝트**, **리포지토리** 블록 섹션에 다음 코드를 추가 합니다.
+1. 최상위 **build.gradle** 파일을 열고, **all projects**, **repositories** 블록에 다음 코드를 추가합니다.
 
     ```
     maven {
@@ -160,11 +160,11 @@ Android 용 Azure Maps SDK를 사용 하 여 맵을 표시 하려면 다음 단�
     }
     ```
 
-2. **App/gradle** 를 업데이트 하 고 다음 코드를 추가 합니다.
+2. **app/build.gradle**을 업데이트하고 다음 코드를 추가합니다.
     
-    1. 프로젝트의 **매니페스트의 minsdkversion** 가 API 21 이상에 있는지 확인 합니다.
+    1. 프로젝트의 **minSdkVersion**이 API 21 이상인지 확인합니다.
 
-    2. Android 섹션에 다음 코드를 추가 합니다.
+    2. Android 섹션에 다음 코드를 추가합니다.
 
         ```
         compileOptions {
@@ -172,17 +172,17 @@ Android 용 Azure Maps SDK를 사용 하 여 맵을 표시 하려면 다음 단�
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    3. 종속성 블록을 업데이트 하 고 최신 Azure Maps Android SDK에 대 한 새 구현 종속성 줄을 추가 합니다.
+    3. 다음과 같이 종속성 블록을 업데이트하고 최신 Azure Maps Android SDK에 대한 새 구현 종속성 줄을 추가합니다.
 
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
         > [!Note]
-        > Azure Maps Android SDK 정기적으로 업그레이드 되 고 향상 됩니다. [Android 맵 컨트롤 시작](how-to-use-android-map-control-library.md) 설명서를 참조 하 여 최신 Azure Maps 구현 버전 번호를 가져올 수 있습니다. 또한 버전 번호를 "0.2"에서 "0 +"로 설정 하 여 항상 최신 버전을 가리키도록 할 수 있습니다.
+        > Azure Maps Android SDK는 정기적으로 업그레이드되고 향상됩니다. [Android 지도 컨트롤 시작](how-to-use-android-map-control-library.md) 설명서에서 최신 Azure Maps 구현 버전 번호를 얻을 수 있습니다. 또한 버전 번호를 "0.2"에서 "0+"로 설정하여 항상 최신 버전을 가리키도록 할 수 있습니다.
     
-    4. 도구 모음에서 **파일로** 이동한 다음 **Gradle 파일을 사용 하 여 프로젝트 동기화**를 클릭 합니다.
-3. 주 활동에 지도 단편 추가 (res \> 레이아웃 \> 활동\_주 .xml):
+    4. 도구 모음에서 **파일**로 이동한 다음, **Gradle 파일과 프로젝트 동기화**를 클릭합니다.
+3. 다음과 같이 기본 작업에 맵 조각을 추가합니다(res \> layout \> activity\_main.xml).
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -201,15 +201,15 @@ Android 용 Azure Maps SDK를 사용 하 여 맵을 표시 하려면 다음 단�
     </FrameLayout>
     ```
 
-4. **Mainactivity. java** 파일에서 다음을 수행 해야 합니다.
+4. **MainActivity.java** 파일에서 다음을 수행해야 합니다.
     
-    * Azure Maps SDK에 대 한 가져오기 추가
+    * Azure Maps SDK에 대한 가져오기 추가
     * Azure Maps 인증 정보 설정
-    * **onCreate** 메서드에서 map 컨트롤 인스턴스 가져오기
+    * **onCreate** 메서드에서 지도 컨트롤 인스턴스 가져오기
 
-    `setSubscriptionKey` 또는 `setAadProperties` 메서드를 사용 하 여 `AzureMaps` 클래스에 대 한 인증 정보를 전역적으로 설정 하면 모든 보기에 인증 정보를 추가할 필요가 없습니다. 
+    `setSubscriptionKey` 또는 `setAadProperties` 메서드를 사용하여 `AzureMaps` 클래스에 대한 인증 정보를 전역적으로 설정하면 보기마다 인증 정보를 추가할 필요가 없습니다. 
 
-    맵 컨트롤에는 Android의 OpenGL 수명 주기를 관리 하는 자체 수명 주기 방법이 포함 되어 있습니다 .이를 포함 하는 작업에서 직접 호출 해야 합니다. 응용 프로그램이 올바르게 작동 하려면 맵 컨트롤의 수명 주기 메서드를 호출 하 고, 맵 컨트롤을 포함 하는 작업에서 다음 수명 주기 메서드를 재정의 하 고 해당 맵 컨트롤 메서드를 호출 해야 합니다. 
+    지도 컨트롤에는 Android의 OpenGL 수명 주기를 관리하는 자체 수명 주기 메서드가 포함되어 있으며, 이러한 메서드는 포함된 작업에서 직접 호출해야 합니다. 앱에서 지도 컨트롤의 수명 주기 메서드를 올바르게 호출하려면 지도 컨트롤을 포함하는 작업에서 다음 수명 주기 메서드를 재정의하고 각 지도 컨트롤 메서드를 호출해야 합니다. 
 
     * `onCreate(Bundle)` 
     * `onStart()` 
@@ -220,7 +220,7 @@ Android 용 Azure Maps SDK를 사용 하 여 맵을 표시 하려면 다음 단�
     * `onSaveInstanceState(Bundle)` 
     * `onLowMemory()`
 
-    다음과 같이 **Mainactivity. java** 파일을 편집 합니다.
+    **MainActivity.java** 파일을 다음과 같이 편집합니다.
     
     ```java
     package com.example.myapplication;
@@ -301,24 +301,24 @@ Android 용 Azure Maps SDK를 사용 하 여 맵을 표시 하려면 다음 단�
     }
     ```
 
-응용 프로그램을 실행 하는 경우 다음과 같이 맵 컨트롤이 로드 됩니다.
+애플리케이션을 실행하면 지도 컨트롤이 다음과 같이 로드됩니다.
 
 <center>
 
-![단순 Azure Maps](media/migrate-google-maps-android-app/simple-azure-maps.png)</center>
+![간단한 Azure Maps](media/migrate-google-maps-android-app/simple-azure-maps.png)</center>
 
-Azure Maps 컨트롤은 확대/축소를 지원 하 고 전 세계 보기를 제공 합니다.
+Azure Maps 컨트롤은 보다 강력한 축소를 지원하고 더 많은 월드 보기를 제공합니다.
 
 > [!TIP]
-> Windows에서 Android 에뮬레이터를 사용 하는 경우 OpenGL 및 소프트웨어 가속 그래픽 렌더링과 충돌 때문에 맵이 렌더링 되지 않을 수 있습니다. 다음은이 문제를 해결 하기 위해 일부 작업을 수행 했습니다. AVD 관리자를 열고 편집할 가상 장치를 선택 합니다. **에뮬레이트된 성능** 섹션에서 **그래픽** 옵션을 **하드웨어**로 설정 합니다.
+> Windows에서 Android 에뮬레이터를 사용하는 경우 OpenGL 및 소프트웨어 가속 그래픽 렌더링과의 충돌 때문에 맵이 렌더링되지 않을 수 있습니다. 다음과 같은 방법으로 이 이슈를 해결할 수 있습니다. AVD 관리자를 열고 편집할 가상 디바이스를 선택합니다. **에뮬레이트된 성능** 섹션에서 **그래픽** 옵션을 **하드웨어**로 설정합니다.
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
-대상 그룹이 여러 국가에 걸쳐 분산 되어 있거나 다른 언어를 말하는 경우 지역화가 중요 합니다.
+대상 그룹이 여러 국가에 분산되어 있거나 여러 언어를 사용하는 경우 지역화가 중요합니다.
 
 **이전: Google Maps**
 
-맵의 컨텍스트 뷰를 설정 하기 전에 다음 코드를 추가 하 여 기본 활동의 `onCreate` 메서드에서 맵의 언어를 설정할 수 있습니다. 다음은 언어 코드 "fr"을 사용 하 여 언어를 프랑스어로 제한 합니다.
+맵의 컨텍스트 보기를 설정하기 전에 다음 코드를 추가하여 기본 작업의 `onCreate` 메서드에서 맵의 언어를 설정할 수 있습니다. 다음은 언어 코드 "fr"을 사용하여 언어를 프랑스어로 제한합니다.
 
 ```java
 String languageToLoad = "fr";
@@ -330,7 +330,7 @@ getBaseContext().getResources().updateConfiguration(config,
         getBaseContext().getResources().getDisplayMetrics());
 ```
 
-언어가 "fr"로 설정 된 Google Maps의 예는 다음과 같습니다.
+다음은 언어가 "fr"로 설정된 Google Maps의 예입니다.
 
 <center>
 
@@ -338,7 +338,7 @@ getBaseContext().getResources().updateConfiguration(config,
 
 **이후: Azure Maps**
 
-Azure Maps은 지도의 언어 및 지역 보기를 설정 하는 세 가지 다른 방법을 제공 합니다. 첫 번째 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용 하 여 언어 및 지역 뷰 정보를 `AzureMaps` 클래스에 전달 하는 것입니다. 그러면 앱에 로드 된 모든 Azure Maps 컨트롤에 대해 기본 언어 및 지역 보기가 설정 됩니다. 다음은 언어 코드 "fr-fr"을 사용 하 여 언어를 프랑스어로 제한 합니다.
+Azure Maps는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 첫 번째 옵션은 정적 메서드인 `setLanguage` 및 `setView` 메서드를 전역적으로 사용하여 언어 및 지역 보기 정보를 `AzureMaps` 클래스에 전달하는 것입니다. 이렇게 하면 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기가 설정됩니다. 다음은 언어 코드 "fr-FR"을 사용하여 언어를 프랑스어로 제한합니다.
 
 ```java
 static {
@@ -353,7 +353,7 @@ static {
 }
 ```
 
-두 번째 옵션은 언어 및 뷰 정보를 맵 컨트롤 XML로 전달 하는 것입니다.
+두 번째 옵션은 언어 및 보기 정보를 지도 컨트롤 XML에 전달하는 것입니다.
 
 ```xml
 <com.microsoft.azure.maps.mapcontrol.MapControl
@@ -365,7 +365,7 @@ static {
     />
 ```
 
-세 번째 옵션은 maps `setStyle` 메서드를 사용 하 여 맵의 언어 및 지역별 뷰를 프로그래밍 방식으로 설정 하는 것입니다. 언제 든 지이 작업을 수행 하 여 지도의 언어 및 지역별 보기를 변경할 수 있습니다.
+세 번째 옵션은 맵 `setStyle` 메서드를 사용하여 맵의 언어 및 지역 보기를 프로그래밍 방식으로 설정하는 것입니다. 언제든지 이 작업을 수행하여 맵의 언어 및 지역 보기를 변경할 수 있습니다.
 
 ```java
 mapControl.onReady(map -> {
@@ -374,24 +374,24 @@ mapControl.onReady(map -> {
 });
 ```
 
-언어가 "fr-fr"로 설정 된 Azure Maps 예제는 다음과 같습니다.
+다음은 언어가 "fr-FR"로 설정된 Azure Maps의 예입니다.
 
 <center>
 
 ![Azure Maps 지역화](media/migrate-google-maps-android-app/azure-maps-localization.png)</center>
 
-지원 되는 언어 및 지역 보기의 전체 목록은 [여기](supported-languages.md)에 설명 되어 있습니다.
+지원되는 언어 및 지역 보기의 전체 목록은 [여기](supported-languages.md)에 설명되어 있습니다.
 
-## <a name="setting-the-map-view"></a>지도 보기 설정
+## <a name="setting-the-map-view"></a>맵 보기 설정
 
-Azure와 Google Maps의 동적 맵은 적절 한 메서드를 호출 하 여 프로그래밍 방식으로 새 지리적 위치로 이동할 수 있습니다. 아래 예제에서는 지도를 위성 항공 이미지를 표시 하는 방법을 보여 줍니다. 지도를 좌표를 사용 하 여 위치 (위도: 35.0272, 경도:-111.0225)로 가운데 맞춤 하 고 Google Maps에서 확대/축소 수준을 15로 변경 합니다.
+Azure 및 Google Maps의 동적 맵은 적절한 메서드를 호출하여 프로그래밍 방식으로 새 지리적 위치로 이동할 수 있습니다. 아래 예제에서는 맵을 위성 항공 이미지에 표시하고, 좌표(위도: 35.0272, 경도: -111.0225)를 사용하여 맵 중심을 특정 위치로 이동하고, Google Maps에서 확대/축소 수준을 15로 변경하는 방법을 보여줍니다.
 
 > [!NOTE]
-> Google Maps는 Azure Maps 차원에서 256 픽셀인 타일을 사용 하 고는 더 큰 512 픽셀 타일을 사용 합니다. 그러면 Azure Maps에서 Google Maps와 동일한 맵 영역을 로드 하는 데 필요한 네트워크 요청 수가 줄어듭니다. 그러나 지도 컨트롤에서 타일 피라미드가 작동 하는 방식으로 인해 Azure Maps의 큰 타일이 Google Maps에서 지도와 동일한 볼 수 있는 영역을 얻기 위해 Azure Maps 사용할 때 Google Maps에서 사용 되는 확대/축소 수준을 1로 빼야 합니다.
+> Google Maps는 크기가 256픽셀인 타일을 사용하고, Azure Maps는 이보다 큰 512픽셀 타일을 사용합니다. 따라서 Azure Maps에서 Google Maps와 동일한 맵 영역을 로드하는 데 필요한 네트워크 요청 수가 줄어듭니다. 그러나 지도 컨트롤에서 타일 피라미드가 작동하는 방식 때문에, 타일이 더 큰 Azure Maps에서는 Google Maps의 맵과 동일한 가시 영역을 얻으려면 Azure Maps를 사용할 때 Google Maps에 사용되는 확대/축소 수준에서 1을 빼야 합니다.
 
 **이전: Google Maps**
 
-Google 지도 지도 컨트롤의 카메라는 지도의 중심 및 확대/축소 수준을 지정할 수 있는 `moveCamera` 메서드를 사용 하 여 프로그래밍 방식으로 이동할 수 있습니다. `setMapType` 메서드를 사용 하 여 표시 되는 맵의 유형을 변경할 수 있습니다.
+Google Maps 지도 컨트롤의 카메라는 맵의 중심 및 확대/축소 수준을 지정할 수 있는 `moveCamera` 메서드를 사용하여 프로그래밍 방식으로 이동할 수 있습니다. `setMapType` 메서드를 사용하여 표시되는 맵 유형을 변경할 수 있습니다.
 
 ```java
 @Override
@@ -405,13 +405,13 @@ public void onMapReady(GoogleMap googleMap) {
 
 <center>
 
-![Google Maps 집합 보기](media/migrate-google-maps-android-app/google-maps-set-view.png)</center>
+![Google Maps 보기 설정](media/migrate-google-maps-android-app/google-maps-set-view.png)</center>
 
 **이후: Azure Maps**
 
-앞에서 설명한 것 처럼 Azure Maps에서 볼 수 있는 동일한 영역을 얻기 위해 Google Maps에서 사용 되는 확대/축소 수준을 1로 빼서이 경우 확대/축소 수준 14를 사용 합니다.
+앞에서 설명했듯이, Azure Maps에서 동일한 가시 영역을 얻으려면 Google Maps에 사용되는 확대/축소 수준에서 1을 빼야 합니다. 이 예제에서는 확대/축소 수준 14를 사용합니다.
 
-초기 맵 보기는 맵 컨트롤의 XML 특성에서 설정할 수 있습니다.
+초기 맵 보기는 지도 컨트롤의 XML 특성에서 설정할 수 있습니다.
 
 ```xml
 <com.microsoft.azure.maps.mapcontrol.MapControl
@@ -425,7 +425,7 @@ public void onMapReady(GoogleMap googleMap) {
     />
 ```
 
-지도 보기는 지도 `setCamera` 및 `setStyle` 메서드를 사용 하 여 프로그래밍 방식으로 업데이트할 수 있습니다.
+맵 보기는 맵 `setCamera` 및 `setStyle` 메서드를 사용하여 프로그래밍 방식으로 업데이트할 수 있습니다.
 
 ```java
 mapControl.onReady(map -> {
@@ -439,19 +439,19 @@ mapControl.onReady(map -> {
 
 <center>
 
-![Azure Maps 집합 뷰](media/migrate-google-maps-android-app/azure-maps-set-view.png)</center>
+![Azure Maps 보기 설정](media/migrate-google-maps-android-app/azure-maps-set-view.png)</center>
 
 **추가 리소스:**
 
-- [지원 되는 지도 스타일](supported-map-styles.md)
+- [지원되는 맵 스타일](supported-map-styles.md)
 
 ## <a name="adding-a-marker"></a>표식 추가
 
-지점 데이터는 맵의 이미지를 사용 하 여 맵에서 렌더링 되는 경우가 많습니다. 이러한 이미지를 종종 표식, 압정, 핀 또는 기호 라고 합니다. 다음 예제에서는 지점 데이터를 지도에 표식으로 렌더링 합니다 (위도: 51.5, 경도:-0.2).
+지점 데이터는 맵의 이미지를 사용하여 맵에 렌더링되는 경우가 많습니다. 이러한 이미지를 종종 표식, 압정, 핀 또는 기호라고 부릅니다. 다음 예제에서는 지점 데이터를 맵에 표식으로 렌더링합니다(위도: 51.5, 경도: -0.2).
 
 **이전: Google Maps**
 
-Google Maps를 사용 하면 지도 `addMarker` 메서드를 사용 하 여 표식이 추가 됩니다.
+Google Maps를 사용하면 맵 `addMarker` 메서드를 사용하여 표식이 추가됩니다.
 
 ```java
 @Override
@@ -464,11 +464,11 @@ public void onMapReady(GoogleMap googleMap) {
 
 <center>
 
-Google Maps 표식 ![](media/migrate-google-maps-android-app/google-maps-marker.png)</center>
+![Google Maps 표식](media/migrate-google-maps-android-app/google-maps-marker.png)</center>
 
 **이후: Azure Maps**
 
-Azure Maps 지점에서는 먼저 데이터 원본에 데이터를 추가한 다음 해당 데이터 원본을 기호 계층에 연결 하 여 맵에서 데이터를 렌더링할 수 있습니다. 데이터 원본은 지도 컨트롤에서 공간 데이터의 관리를 최적화 하 고 기호 계층은를 사용 하 여 요소 데이터를 이미지 및/또는 텍스트로 렌더링 하는 방법을 지정 합니다.
+Azure Maps에서는 데이터 원본에 데이터를 추가한 후 해당 데이터 원본을 기호 레이어에 연결하여 지점 데이터를 맵에 렌더링할 수 있습니다. 데이터 원본은 지도 컨트롤에서 공간 데이터 관리를 최적화하고, 기호 레이어는 이미지 및/또는 텍스트를 사용하여 지점 데이터를 렌더링하는 방법을 지정합니다.
 
 ```java
 mapControl.onReady(map -> {
@@ -490,18 +490,18 @@ mapControl.onReady(map -> {
 
 ## <a name="adding-a-custom-marker"></a>사용자 지정 표식 추가
 
-사용자 지정 이미지를 사용 하 여 지도의 요소를 나타낼 수 있습니다. 아래 예제에서 사용 되는 다음 이미지는 사용자 지정 이미지를 사용 하 여 지도의 점을 (위도: 51.5, 경도:-0.2) 표시 하 고 압정 아이콘의 점이 지도의 올바른 위치에 맞게 조정 되도록 표식의 위치를 오프셋 합니다.
+사용자 지정 이미지를 사용하여 맵에 지점을 나타낼 수 있습니다. 아래 예제에 사용된 다음 이미지는 사용자 지정 이미지를 사용하여 맵에 지점(위도: 51.5, 경도: -0.2)을 표시하고, 압정 아이콘의 지점이 맵의 올바른 위치와 일치하도록 표식의 위치를 오프셋합니다.
 
 <center>
 
 ![노란색 압정 이미지](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-ylw\_압정</center>
+ylw\_pushpin.png</center>
 
-두 예에서 위의 이미지는 앱 리소스의 그릴 수 있는 폴더에 추가 됩니다.
+위의 두 예제에서 이미지는 앱 리소스의 drawable 폴더에 추가됩니다.
 
 **이전: Google Maps**
 
-Google Maps를 사용 하면 표식의 `icon` 옵션을 통해 사용자 지정 이미지를 로드 하 여 표식에 사용할 수 있습니다. 이미지의 점을 좌표에 맞추려면 `anchor` 옵션을 사용할 수 있습니다. 앵커는 이미지의 크기를 기준으로 합니다 (이 경우 0.2 단위 너비, 1 단위 높음).
+Google Maps에서는 표식의 `icon` 옵션을 통해 사용자 지정 이미지를 로드하여 표식에 사용할 수 있습니다. 이미지의 지점을 좌표에 맞추려면 `anchor` 옵션을 사용하면 됩니다. 앵커는 이미지 크기에 비례하며, 이 예에서는 너비 0.2단위, 높이 1단위입니다.
 
 ```java
 @Override
@@ -520,7 +520,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **이후: Azure Maps**
 
-Azure Maps 기호 계층은 사용자 지정 이미지도 지원 하지만 먼저 이미지를 지도 리소스에 로드 하 고 고유한 ID를 할당 해야 합니다. 그러면 기호 계층에서이 ID를 참조할 수 있습니다. 기호는 `iconOffset` 옵션을 사용 하 여 이미지의 올바른 지점에 맞게 오프셋할 수 있습니다. 아이콘 오프셋은 픽셀 단위입니다. 기본적으로 오프셋은 이미지의 아래쪽 중심을 기준으로 하지만 `iconAnchor` 옵션을 사용 하 여 조정할 수 있습니다. 이 예제에서는 `iconAnchor` 옵션을 `"center"` 설정 하 고 아이콘 오프셋을 사용 하 여 이미지를 오른쪽으로 5 픽셀 이동 하 고 압정 이미지의 점에 맞춰 15 픽셀 위쪽으로 이동 합니다.
+Azure Maps의 기호 레이어는 사용자 지정 이미지도 지원하지만, 먼저 이미지를 맵 리소스에 로드하고 고유한 ID를 할당해야 합니다. 그러면 기호 레이어에서 이 ID를 참조할 수 있습니다. 기호는 `iconOffset` 옵션을 사용하여 이미지의 올바른 지점과 일치하도록 오프셋할 수 있습니다. 아이콘 오프셋은 픽셀 단위입니다. 기본적으로 오프셋은 이미지의 아래쪽 중심을 기준으로 하지만, `iconAnchor` 옵션을 사용하여 조정할 수 있습니다. 이 예제에서는 `iconAnchor` 옵션을 `"center"`로 설정하고 아이콘 오프셋을 사용하여 이미지를 오른쪽으로 5픽셀, 위로 15픽셀 이동하여 압정 이미지의 지점에 맞춥니다.
 
 ```java
 mapControl.onReady(map -> {
@@ -544,15 +544,15 @@ mapControl.onReady(map -> {
 
 <center>
 
-사용자 지정 표식 Azure Maps ![](media/migrate-google-maps-android-app/azure-maps-custom-marker.png)</center>
+![Azure Maps 사용자 지정 표식](media/migrate-google-maps-android-app/azure-maps-custom-marker.png)</center>
 
-## <a name="adding-a-polyline"></a>다중선 추가
+## <a name="adding-a-polyline"></a>폴리라인 추가
 
-다중선은 지도의 선 또는 경로를 나타내는 데 사용 됩니다. 다음 예에서는 지도에서 파선 다중선을 만드는 방법을 보여 줍니다.
+폴리라인은 맵에 선 또는 경로를 나타내는 데 사용됩니다. 다음 예제에서는 맵에 파선 폴리라인을 만드는 방법을 보여줍니다.
 
 **이전: Google Maps**
 
-Google Maps를 사용 하면 `PolylineOptions` 클래스를 사용 하 여 폴리라인을 만들고 `addPolyline` 메서드를 사용 하 여 맵에 추가할 수 있습니다. 스트로크 색은 `color` 옵션을 사용 하 여 설정 하 고, 스트로크 너비는 width 옵션을 사용 하 여 설정 하 고, 스트로크 파선 배열은 `pattern` 옵션을 사용 하 여 설정할 수 있습니다.
+Google Maps에서는 `PolylineOptions` 클래스를 사용하여 폴리라인을 만든 후 `addPolyline` 메서드를 사용하여 맵에 추가할 수 있습니다. 스트로크 색은 `color` 옵션을 사용하여 설정하고, 스트로크 너비는 width 옵션을 사용하여 설정하고, 스트로크 파선 배열은 `pattern` 옵션을 사용하여 설정할 수 있습니다.
 
 ```java
 @Override
@@ -580,7 +580,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **이후: Azure Maps**
 
-Azure Maps에서는 다중선을 LineString 또는 MultiLineString 개체 라고 합니다. 이러한 개체를 데이터 원본에 추가 하 고 선 계층을 사용 하 여 렌더링할 수 있습니다. 스트로크 너비 및 대시 배열 "픽셀" 단위는 두 Sdk에서 동일한 값을 사용 하 여 동일한 결과를 생성 하는 Azure Maps 웹 SDK와 일치 합니다.
+Azure Maps에서는 폴리라인을 LineString 또는 MultiLineString 개체라고 합니다. 이러한 개체는 선 계층을 사용하여 데이터 원본에 추가하고 렌더링할 수 있습니다. 스트로크 너비 및 파선 배열 "픽셀" 단위는 두 SDK에 같은 값을 사용하면 동일한 결과를 생성한다는 점에서 Azure Maps 웹 SDK와 동일합니다.
 
 ```java
 mapControl.onReady(map -> {
@@ -611,11 +611,11 @@ mapControl.onReady(map -> {
 
 ## <a name="adding-a-polygon"></a>다각형 추가
 
-다각형은 지도의 영역을 나타내는 데 사용 됩니다. 다음 예에서는 지도의 가운데 좌표를 기준으로 삼각형을 형성 하는 다각형을 만드는 방법을 보여 줍니다.
+다각형은 맵의 영역을 나타내는 데 사용됩니다. 다음 예제에서는 맵의 가운데 좌표를 기준으로 삼각형을 형성하는 다각형을 만드는 방법을 보여줍니다.
 
 **이전: Google Maps**
 
-Google Maps를 사용 하면 `PolygonOptions` 클래스를 사용 하 여 다각형을 만들고 `addPolygon` 메서드를 사용 하 여 지도에 추가할 수 있습니다. 채우기 및 스트로크 색은 `fillColor` 및 `strokeColor` 옵션을 사용 하 여 설정할 수 있으며, 스트로크 너비는 `strokeWidth` 옵션을 사용 하 여 설정 됩니다.
+Google Maps에서는 `PolygonOptions` 클래스를 사용하여 다각형을 만든 후 `addPolygon` 메서드를 사용하여 맵에 추가할 수 있습니다. 채우기 및 스트로크 색은 `fillColor` 및 `strokeColor` 옵션을 사용하여 설정할 수 있고, 스트로크 너비는 `strokeWidth` 옵션을 사용하여 설정할 수 있습니다.
 
 ```java
 @Override
@@ -639,11 +639,11 @@ public void onMapReady(GoogleMap googleMap) {
 
 <center>
 
-Google 지도 polygon을 ![](media/migrate-google-maps-android-app/google-maps-polygon.png)</center>
+![Google Maps 다각형](media/migrate-google-maps-android-app/google-maps-polygon.png)</center>
 
 **이후: Azure Maps**
 
-Azure Maps에서 Polygon 및 MultiPolygon 개체는 데이터 원본에 추가 하 고 레이어를 사용 하 여 지도에서 렌더링할 수 있습니다. 다각형의 면적은 다각형 계층에서 렌더링 될 수 있습니다. 다각형의 윤곽선은 선 계층을 사용 하 여 렌더링할 수 있습니다. 스트로크 너비 및 대시 배열 "픽셀" 단위는 두 Sdk에서 동일한 값을 사용 하 여 동일한 결과를 생성 하는 Azure Maps 웹 SDK와 일치 합니다.
+Azure Maps에서는 레이어를 사용하여 Polygon 및 MultiPolygon 개체를 데이터 원본에 추가하고 맵에 렌더링할 수 있습니다. 다각형 영역은 다각형 계층에 렌더링할 수 있습니다. 다각형 윤곽선은 선 계층을 사용하여 렌더링할 수 있습니다. 스트로크 너비 및 파선 배열 "픽셀" 단위는 두 SDK에 같은 값을 사용하면 동일한 결과를 생성한다는 점에서 Azure Maps 웹 SDK와 동일합니다.
 
 ```java
 mapControl.onReady(map -> {
@@ -675,17 +675,17 @@ mapControl.onReady(map -> {
 
 <center>
 
-![Azure Maps polygon](media/migrate-google-maps-android-app/azure-maps-polygon.png)</center>
+![Azure Maps 다각형](media/migrate-google-maps-android-app/azure-maps-polygon.png)</center>
 
-## <a name="overlay-a-tile-layer"></a>타일 계층 오버레이
+## <a name="overlay-a-tile-layer"></a>타일 레이어 오버레이
 
-Google Maps에서 이미지 오버레이가 라고도 하는 타일 계층을 사용 하면 지도 바둑판식 배열 시스템과 맞춘 더 작은 바둑판식 이미지로 분할 된 레이어 이미지를 오버레이 할 수 있습니다. 이는 레이어 이미지 또는 매우 큰 데이터 집합을 겹치게 하는 일반적인 방법입니다.
+Google Maps에서는 이미지 오버레이라고 부르는 타일 레이어를 사용하면 맵 바둑판식 배열 시스템과 맞춘 더 작은 바둑판식 이미지로 분할된 레이어 이미지를 오버레이할 수 있습니다. 이 방법은 레이어 이미지 또는 매우 큰 데이터 세트를 오버레이하는 일반적인 방법입니다.
 
-다음 예에서는 아이오 환경적 Mesonet 아이오 State 대학의 날씨 레이더 타일 계층을 오버레이 합니다. 타일의 크기는 256 픽셀입니다.
+다음 예제에서는 아이오와 주립 대학교의 Iowa Environmental Mesonet에서 받은 날씨 레이더 타일 레이어를 오버레이합니다. 타일의 크기는 256픽셀입니다.
 
 **이전: Google Maps**
 
-Google Maps를 사용 하 여 타일 계층을 지도 위에 겹쳐서 표시할 수 있습니다 `TileOverlayOptions` 클래스를 사용 하 고 `addTileLauer` 메서드를 사용 하 여 맵에 추가 합니다. 타일을 반투명 하 게 만들려면 `transparency` 옵션이 0.2 또는 20% 투명으로 설정 되어 있습니다.
+Google Maps에서는 `TileOverlayOptions` 클래스를 사용하여 타일 레이어를 맵 맨 위에 오버레이하고 `addTileLauer` 메서드를 사용하여 맵에 추가할 수 있습니다. 타일을 반투명하게 만들기 위해 `transparency` 옵션이 0.2 또는 20% 투명으로 설정됩니다.
 
 ```java
 @Override
@@ -714,14 +714,14 @@ public void onMapReady(GoogleMap googleMap) {
 
 <center>
 
-Google Maps 타일 계층을 ![](media/migrate-google-maps-android-app/google-maps-tile-layer.png)</center>
+![Google Maps 타일 레이어](media/migrate-google-maps-android-app/google-maps-tile-layer.png)</center>
 
 **이후: Azure Maps**
 
-Azure Maps에서 타일 계층을 다른 레이어와 거의 같은 방식으로 지도에 추가할 수 있습니다. X, y 및 zoom 자리 표시 자가 있는 형식이 지정 된 URL입니다. `{x}`, `{y}`, `{z}`는 각각 타일에 액세스할 위치를 계층에 알리는 데 사용 됩니다. Azure Maps의 타일 계층은 `{quadkey}`, `{bbox-epsg-3857}` 및 `{subdomain}` 자리 표시자도 지원 합니다. 타일 계층을 반투명 하 게 만들기 위해 불투명도 값 0.8이 사용 됩니다. 불투명도 및 투명도는 유사 하지만 반전 된 값을 사용 합니다. 둘 사이를 변환 하려면 숫자 1에서 해당 값을 뺍니다.
+Azure Maps에서는 다른 레이어와 거의 같은 방식으로 타일 레이어를 맵에 추가할 수 있습니다. x, y 및 확대/축소 자리 표시자가 있는 형식이 지정된 URL `{x}`, `{y}`, `{z}`는 각각 타일에 액세스할 위치를 레이어에 알리는 데 사용됩니다. Azure Maps의 타일 레이어는 `{quadkey}`, `{bbox-epsg-3857}` 및 `{subdomain}` 자리 표시자도 지원합니다. 타일 레이어를 반투명하게 만들기 위해 불투명도 값 0.8이 사용됩니다. 불투명도와 투명도는 비슷하지만 반전된 값을 사용합니다. 둘 사이에서 변환하려면 간단하게 숫자 1에서 해당 값을 빼면 됩니다.
 
 > [!TIP]
-> Azure Maps 레이어는 기본 지도 계층을 포함 하 여 다른 계층 아래에서 쉽게 렌더링할 수 있습니다. 쉽게 읽을 수 있도록 지도 레이블 아래에 타일 계층을 렌더링 하는 것이 좋습니다. `map.layers.add` 메서드는 아래에 새 계층을 삽입할 계층의 id 인 두 번째 매개 변수를 사용 합니다. 지도 레이블 아래에 타일 계층을 삽입 하려면 다음 코드를 사용할 수 있습니다. `map.layers.add(myTileLayer, "labels");`
+> Azure Maps에서는 기본 지도 계층을 비롯한 다른 계층 아래에 레이어를 쉽게 렌더링할 수 있습니다. 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 맵 레이블 아래에 타일 레이어를 삽입하려면 `map.layers.add(myTileLayer, "labels");` 코드를 사용하면 됩니다.
 
 ```java
 mapControl.onReady(map -> {
@@ -736,15 +736,15 @@ mapControl.onReady(map -> {
 
 <center>
 
-![Azure Maps 타일 계층](media/migrate-google-maps-android-app/azure-maps-tile-layer.png)</center>
+![Azure Maps 타일 레이어](media/migrate-google-maps-android-app/azure-maps-tile-layer.png)</center>
 
-## <a name="show-traffic"></a>교통량 표시
+## <a name="show-traffic"></a>트래픽 표시
 
-트래픽 데이터는 Azure와 Google maps 모두에 중첩 될 수 있습니다.
+트래픽 데이터는 Azure와 Google 맵에 모두 오버레이할 수 있습니다.
 
 **이전: Google Maps**
 
-Google Maps를 사용 하면 지도의 `setTrafficEnabled` 메서드에 true를 전달 하 여 지도 위에 트래픽 흐름 데이터를 겹쳐서 표시할 수 있습니다.
+Google Maps에서는 맵의 `setTrafficEnabled` 메서드에 true를 전달하여 맵의 맨 위에 트래픽 흐름 데이터를 오버레이할 수 있습니다.
 
 ```java
 @Override
@@ -761,7 +761,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **이후: Azure Maps**
 
-Azure Maps는 트래픽 표시를 위한 여러 가지 옵션을 제공 합니다. 여행 여행 및 사고와 같은 트래픽 인시던트를 지도에 아이콘으로 표시할 수 있습니다. 트래픽 흐름, 색으로 구분 된도로는 지도에 중첩 될 수 있으며, 일반적인 예상 지연 시간 또는 절대 지연 시간을 기준으로 게시 된 속도 제한을 기준으로 색을 변경할 수 있습니다. Azure Maps의 인시던트 데이터는 1 분 마다 업데이트 되 고 데이터 흐름은 2 분 마다 업데이트 됩니다.
+Azure Maps는 트래픽을 표시하는 여러 가지 옵션을 제공합니다. 도로 폐쇄나 사고 같은 트래픽 인시던트를 맵에 아이콘으로 표시할 수 있습니다. 트래픽 흐름, 색으로 구분된 도로를 맵에 오버레이할 수 있으며 게시된 속도 제한, 일반적인 예상 지연 시간 또는 절대 지연 시간을 기준으로 하도록 색을 수정할 수 있습니다. Azure Maps의 인시던트 데이터는 1분마다 업데이트되고 흐름 데이터는 2분마다 업데이트됩니다.
 
 ```java
 mapControl.onReady(map -> {
@@ -773,11 +773,11 @@ mapControl.onReady(map -> {
 
 <center>
 
-트래픽 Azure Maps ![](media/migrate-google-maps-android-app/azure-maps-traffic.png)</center>
+![Azure Maps 트래픽](media/migrate-google-maps-android-app/azure-maps-traffic.png)</center>
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Maps Android SDK에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Android 맵 컨트롤을 사용 하는 방법](how-to-use-android-map-control-library.md)
+> [Android 지도 컨트롤을 사용하는 방법](how-to-use-android-map-control-library.md)

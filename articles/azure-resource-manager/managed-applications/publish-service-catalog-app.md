@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: de2b79c5016b44011a14c1071eab6579f3a0b6df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e756617a700d258078e84a3fa11c8aceb6f4dd88
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649060"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903275"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>관리되는 애플리케이션 정의 만들기 및 게시
 
@@ -18,7 +18,7 @@ ms.locfileid: "75649060"
 
 조직의 구성원을 위한 Azure [관리되는 애플리케이션](overview.md)을 만들고 게시할 수 있습니다. 예를 들어 IT 부서에서는 조직 표준을 충족하는 관리되는 애플리케이션을 게시할 수 있습니다. 이러한 관리되는 애플리케이션은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
-서비스 카탈로그에 대한 관리형 애플리케이션을 게시하려면 다음을 수행해야 합니다.
+Azure Service Catalog에 대한 관리형 애플리케이션을 게시하려면 다음을 수행해야 합니다.
 
 * 관리되는 애플리케이션과 함께 배포할 리소스를 정의하는 템플릿을 만듭니다.
 * 관리 되는 애플리케이션을 배포할 때 포털에 대한 사용자 인터페이스 요소를 정의합니다.
@@ -207,6 +207,108 @@ New-AzManagedApplicationDefinition `
   -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
+
+## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>관리형 애플리케이션 정의에 대한 사용자 고유의 스토리지 가져오기
+생성 시 사용자가 제공한 스토리지 계정 내에 관리형 애플리케이션 정의를 저장하도록 선택하여 해당 위치와 액세스를 사용자가 자신의 규정 요구에 맞도록 완벽하게 관리할 수 있습니다.
+
+> [!NOTE]
+> 사용자 고유의 스토리지 가져오기는 ARM 템플릿 또는 관리형 애플리케이션 정의의 REST API 배포에서만 지원됩니다.
+
+### <a name="select-your-storage-account"></a>사용자의 스토리지 계정을 선택합니다.
+서비스 카탈로그와 함께 사용하기 위해 관리형 애플리케이션 정의를 포함할 [스토리지 계정을 만들어야](../../storage/common/storage-account-create.md) 합니다.
+
+스토리지 계정의 리소스 ID를 복사합니다. 나중에 정의를 배포할 때 사용됩니다.
+
+### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>스토리지 계정에서 “어플라이언스 리소스 공급자”에 대한 역할 할당을 설정합니다.
+스토리지 계정에 관리형 애플리케이션 정의를 배포하기 전에 **어플라이언스 리소스 공급자** 역할에 대한 기여자 권한을 부여하여 스토리지 계정의 컨테이너에 정의 파일을 쓸 수 있도록 해야 합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
+1. **액세스 제어(IAM)** 를 선택하여 스토리지 계정에 대한 액세스 제어 설정을 표시합니다. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
+1. **역할 할당 추가** 창에서 **기여자** 역할을 선택합니다. 
+1. **액세스 할당** 필드에서 **Azure AD 사용자, 그룹 또는 서비스 주체**를 선택합니다.
+1. **선택**에서 **어플라이언스 리소스 공급자** 역할을 검색하여 선택합니다.
+1. 역할 할당을 저장합니다.
+
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>ARM 템플릿을 사용하여 관리형 애플리케이션 정의 배포 
+
+다음 ARM 템플릿을 사용하여 패키지된 관리형 애플리케이션을 서비스 카탈로그에 새 관리형 애플리케이션 정의로 배포합니다. 정의 파일은 해당 스토리지 계정에 저장되고 유지 관리됩니다.
+   
+```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "applicationName": {
+            "type": "string",
+            "metadata": {
+                "description": "Managed Application name"
+            }
+        },
+        "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+        "definitionStorageResourceID": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account resource ID for where you're storing your definition"
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located."
+            }
+        }
+    },
+    "variables": {
+        "lockLevel": "None",
+        "description": "Sample Managed application definition",
+        "displayName": "Sample Managed application definition",
+        "managedApplicationDefinitionName": "[parameters('applicationName')]",
+        "packageFileUri": "[parameters('_artifactsLocation')]",
+        "defLocation": "[parameters('definitionStorageResourceID')]",
+        "managedResourceGroupId": "[concat(subscription().id,'/resourceGroups/', concat(parameters('applicationName'),'_managed'))]",
+        "applicationDefinitionResourceId": "[resourceId('Microsoft.Solutions/applicationDefinitions',variables('managedApplicationDefinitionName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Solutions/applicationDefinitions",
+            "apiVersion": "2019-07-01",
+            "name": "[variables('managedApplicationDefinitionName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "lockLevel": "[variables('lockLevel')]",
+                "description": "[variables('description')]",
+                "displayName": "[variables('displayName')]",
+                "packageFileUri": "[variables('packageFileUri')]",
+                "storageAccountId": "[variables('defLocation')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+**storageAccountId**라는 새 속성을 applicationDefintion의 속성에 추가하고 정의를 해당 값으로 저장할 스토리지 계정 ID를 제공합니다.
+
+애플리케이션 정의 파일이 **applicationdefinitions**라는 컨테이너에 제공된 스토리지 계정에 저장되어 있는지 확인할 수 있습니다.
+
+> [!NOTE]
+> 보안 강화를 위해 관리형 애플리케이션 정의를 만들어 [암호화를 사용하도록 설정된 Azure Storage 계정 Blob](../../storage/common/storage-service-encryption.md)에 저장할 수 있습니다. 정의 콘텐츠는 스토리지 계정의 암호화 옵션을 통해 암호화됩니다. 파일에 대한 권한이 있는 사용자만 서비스 카탈로그의 정의를 볼 수 있습니다.
 
 ### <a name="make-sure-users-can-see-your-definition"></a>사용자가 정의를 볼 수 있는지 확인합니다.
 

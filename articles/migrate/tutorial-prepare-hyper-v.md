@@ -1,19 +1,15 @@
 ---
 title: Azure Migrate를 사용하여 평가/마이그레이션을 위해 Hyper-V VM 준비
 description: Azure Migrate를 사용하여 Hyper-V VM의 평가/마이그레이션을 준비하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: 78e8a42c4f1e101f8d083c8d58bb452aadfa3a87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6140d9689dafe8a97ae77346ea2212846e964cdc
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454574"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028928"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
 
@@ -25,7 +21,8 @@ ms.locfileid: "75454574"
 
 > [!div class="checklist"]
 > * Azure를 준비합니다. Azure Migrate에서 사용할 Azure 계정 및 리소스에 대한 권한을 설정합니다.
-> * 서버 평가를 위해 온-프레미스 Hyper-V 호스트 및 VM을 준비합니다.
+> * 서버 평가를 위해 온-프레미스 Hyper-V 호스트 및 VM을 준비합니다. 구성 스크립트를 사용하거나 수동으로 준비할 수 있습니다.
+> * Azure Migrate 어플라이언스의 배포를 준비합니다. 어플라이언스는 온-프레미스 VM을 검색하고 평가하는 데 사용됩니다.
 > * 서버 마이그레이션을 위해 온-프레미스 Hyper-V 호스트 및 VM을 준비합니다.
 
 
@@ -43,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Azure Migrate 배포를 위한 권한을 설정해야 합니다.
 
 - Azure 계정에서 Azure Migrate 프로젝트를 만들 수 있는 권한
-- 계정에서 Azure Migrate 어플라이언스를 등록할 수 있는 권한. 어플라이언스는 Hyper-V 검색 및 마이그레이션에 사용됩니다. 어플라이언스를 등록하는 동안 Azure Migrate는 어플라이언스를 고유하게 식별하는 두 개의 Azure AD(Azure Active Directory) 앱을 만듭니다.
+- 계정에서 Azure Migrate 어플라이언스를 등록할 수 있는 권한. 어플라이언스는 마이그레이션하는 Hyper-V VM의 검색 및 평가에 사용됩니다. 어플라이언스를 등록하는 동안 Azure Migrate는 어플라이언스를 고유하게 식별하는 두 개의 Azure AD(Azure Active Directory) 앱을 만듭니다.
     - 첫 번째 앱은 Azure Migrate 서비스 엔드포인트와 통신합니다.
     - 두 번째 앱은 등록 중에 만든 Azure Key Vault에 액세스하여 Azure AD 앱 정보 및 어플라이언스 구성 설정을 저장합니다.
 
@@ -92,26 +89,21 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
-## <a name="prepare-for-hyper-v-assessment"></a>Hyper-V 평가 준비
+## <a name="prepare-hyper-v-for-assessment"></a>평가를 위한 Hyper-V 준비
 
-Hyper-V 평가를 준비하려면 다음을 수행합니다.
+VM 평가를 위해 Hyper-V를 수동으로 또는 구성 스크립트를 사용하여 준비할 수 있습니다. 스크립트를 사용하거나 [수동으로](#prepare-hyper-v-manually) 준비해야 하는 항목은 다음과 같습니다.
 
-1. Hyper-V 호스트 설정을 확인합니다.
-2. Azure Migrate 어플라이언스에서 WinRM 연결을 통해 호스트에서 PowerShell 명령을 실행할 수 있도록 각 호스트에서 PowerShell 원격을 설정합니다.
-3. VM 디스크가 원격 SMB 스토리지에 있으면 자격 증명을 위임해야 합니다.
-    - Azure Migrate 어플라이언스가 클라이언트로 작동하여 자격 증명을 호스트에 위임할 수 있도록 CredSSP 위임을 사용하도록 설정합니다.
-    - 아래에서 설명한 대로 각 호스트가 어플라이언스에 대한 대리자로 작동하도록 설정합니다.
-    - 나중에 어플라이언스를 설정할 때 어플라이언스에서 위임을 사용하도록 설정합니다.
-4. 어플라이언스 요구 사항 및 어플라이언스에 필요한 URL/포트 액세스를 검토합니다.
-5. 어플라이언스에서 VM을 검색하는 데 사용할 계정을 설정합니다.
-6. 검색하고 평가하려는 각 VM에서 Hyper-V Integration Services를 설정합니다.
+- Hyper-V 호스트 설정을 [확인](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements)하고 Hyper-V 호스트에 [필요한 포트](migrate-support-matrix-hyper-v.md#port-access)가 열려 있는지 확인합니다.
+- Azure Migrate 어플라이언스에서 WinRM 연결을 통해 호스트에서 PowerShell 명령을 실행할 수 있도록 각 호스트에서 PowerShell 원격을 설정합니다.
+- VM 디스크가 원격 SMB 공유에 있는 경우 자격 증명을 위임합니다.
+- 어플라이언스가 Hyper-V 호스트에서 VM을 검색하는 데 사용할 계정을 설정합니다.
+- 검색하고 평가하려는 각 VM에서 Hyper-V Integration Services를 설정합니다.
 
 
-이러한 설정은 아래 절차를 사용하여 수동으로 구성할 수 있습니다. 또는 Hyper-V 필수 구성 요소 구성 스크립트를 실행합니다.
 
-### <a name="hyper-v-prerequisites-configuration-script"></a>Hyper-V 필수 구성 요소 구성 스크립트
+## <a name="prepare-with-a-script"></a>스크립트로 준비
 
-이 스크립트는 Hyper-V 호스트의 유효성을 검사하고 Hyper-V VM을 검색하고 평가하는 데 필요한 설정을 구성합니다. 다음과 같은 작업이 수행됩니다.
+이 스크립트는 다음을 수행합니다.
 
 - 지원되는 PowerShell 버전에서 스크립트를 실행 중인지 확인합니다.
 - 사용자(스크립트를 실행하는 사용자)에게 Hyper-V 호스트에 대한 관리자 권한이 있는지 확인합니다.
@@ -144,7 +136,7 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
 
-#### <a name="hashtag-values"></a>해시태그 값
+### <a name="hashtag-values"></a>해시태그 값
 
 해시 값은 다음과 같습니다.
 
@@ -153,10 +145,34 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
 | **MD5** | 0ef418f31915d01f896ac42a80dc414e |
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
+
+## <a name="prepare-hyper-v-manually"></a>Hyper-V 수동으로 준비
+
+스크립트를 사용하는 대신 이 섹션의 절차에 따라 Hyper-V를 수동으로 준비합니다.
+
+### <a name="verify-powershell-version"></a>PowerShell 버전 확인
+
+PowerShell 버전 4.0 이상이 Hyper-V 호스트에 설치되어 있는지 확인합니다.
+
+
+
+### <a name="set-up-an-account-for-vm-discovery"></a>VM 검색용 계정 설정
+
+Azure Migrate에는 온-프레미스 VM을 검색할 수 있는 권한이 필요합니다.
+
+- Hyper-V 호스트/클러스터에 대한 관리자 권한이 있는 도메인 또는 로컬 사용자 계정을 설정합니다.
+
+    - 검색에 포함하려는 모든 호스트 및 클러스터에 대해 단일 계정이 필요합니다.
+    - 계정은 로컬 또는 도메인 계정일 수 있습니다. Hyper-V 호스트 또는 클러스터에 대한 관리자 권한이 있는 것이 좋습니다.
+    - 또는 관리자 권한을 할당하지 않으려면 다음 권한이 필요합니다.
+        - 원격 관리 사용자
+        - Hyper-V 관리자
+        - 성능 모니터 사용자
+
 ### <a name="verify-hyper-v-host-settings"></a>Hyper-V 호스트 설정 확인
 
-1. 서버 평가에 대한 [Hyper-V 호스트 요구 사항](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements)을 확인합니다.
-2. [필요한 포트](migrate-support-matrix-hyper-v.md#assessment-port-requirements)가 Hyper-V 호스트에서 열려 있는지 확인합니다.
+1. 서버 평가에 대한 [Hyper-V 호스트 요구 사항](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements)을 확인합니다.
+2. [필요한 포트](migrate-support-matrix-hyper-v.md#port-access)가 Hyper-V 호스트에서 열려 있는지 확인합니다.
 
 ### <a name="enable-powershell-remoting-on-hosts"></a>호스트에서 PowerShell 원격을 사용하도록 설정
 
@@ -168,6 +184,12 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
     ```
     Enable-PSRemoting -force
     ```
+### <a name="enable-integration-services-on-vms"></a>VM에서 Integration Services를 사용하도록 설정
+
+Azure Migrate에서 VM의 운영 체제 정보를 캡처할 수 있도록 각 VM에서 Integration Services를 사용하도록 설정해야 합니다.
+
+검색하고 평가하려는 VM의 경우 각 VM에서 [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)를 사용하도록 설정합니다.
+
 
 ### <a name="enable-credssp-on-hosts"></a>호스트에서 CredSSP를 사용하도록 설정
 
@@ -188,40 +210,21 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
 어플라이언스가 설정되면 [어플라이언스에서 CredSSP를 사용하도록 설정](tutorial-assess-hyper-v.md#delegate-credentials-for-smb-vhds)하여 해당 설정을 완료합니다. 이에 대해서는 이 시리즈의 다음 자습서에서 설명합니다.
 
 
-### <a name="verify-appliance-settings"></a>어플라이언스 설정 확인
+## <a name="prepare-for-appliance-deployment"></a>어플라이언스 배포를 위한 준비
 
 Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가를 시작하기 전에 어플라이언스 배포를 준비합니다.
 
-1. 어플라이언스 요구 사항을 [확인](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements)합니다.
-2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access)합니다.
+1. 어플라이언스 요구 사항을 [확인](migrate-appliance.md#appliance---hyper-v)합니다.
+2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-appliance.md#url-access)합니다.
 3. 검색 및 평가 중에 어플라이언스가 수집할 데이터를 검토합니다.
-4. 어플라이언스에 대한 포트 액세스 요구 사항에 [유의](migrate-support-matrix-hyper-v.md#assessment-port-requirements)하세요.
+4. 어플라이언스에 대한 포트 액세스 요구 사항에 [유의](migrate-appliance.md#collected-data---hyper-v)하세요.
 
-
-### <a name="set-up-an-account-for-vm-discovery"></a>VM 검색용 계정 설정
-
-Azure Migrate에는 온-프레미스 VM을 검색할 수 있는 권한이 필요합니다.
-
-- Hyper-V 호스트/클러스터에 대한 관리자 권한이 있는 도메인 또는 로컬 사용자 계정을 설정합니다.
-
-    - 검색에 포함하려는 모든 호스트 및 클러스터에 대해 단일 계정이 필요합니다.
-    - 계정은 로컬 또는 도메인 계정일 수 있습니다. Hyper-V 호스트 또는 클러스터에 대한 관리자 권한이 있는 것이 좋습니다.
-    - 또는 관리자 권한을 할당하지 않으려면 다음 권한이 필요합니다.
-        - 원격 관리 사용자
-        - Hyper-V 관리자
-        - 성능 모니터 사용자
-
-### <a name="enable-integration-services-on-vms"></a>VM에서 Integration Services를 사용하도록 설정
-
-Azure Migrate에서 VM의 운영 체제 정보를 캡처할 수 있도록 각 VM에서 Integration Services를 사용하도록 설정해야 합니다.
-
-검색하고 평가하려는 VM의 경우 각 VM에서 [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)를 사용하도록 설정합니다.
 
 ## <a name="prepare-for-hyper-v-migration"></a>Hyper-V 마이그레이션 준비
 
-1. 마이그레이션에 대한 Hyper-V 호스트 요구 사항을 [검토](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-requirements)합니다.
-2. Azure로 마이그레이션하려는 Hyper-V VM에 대한 요구 사항을 [검토](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements)합니다.
-3. VM 마이그레이션을 위해 Hyper-V 호스트 및 클러스터에서 액세스해야 하는 Azure URL을 [적어둡니다](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access).
+1. 마이그레이션을 위한 Hyper-V 호스트 요구 사항 및 VM 마이그레이션을 위해 Hyper-V 호스트 및 클러스터에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts)합니다.
+2. Azure로 마이그레이션하려는 Hyper-V VM에 대한 요구 사항을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms)합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -230,8 +233,9 @@ Azure Migrate에서 VM의 운영 체제 정보를 캡처할 수 있도록 각 VM
 > [!div class="checklist"]
 > * Azure 계정 권한을 설정합니다.
 > * 평가 및 마이그레이션을 위해 Hyper-V 호스트 및 VM을 준비합니다.
+> * Azure Migrate 어플라이언스의 배포를 준비합니다.
 
-Azure Migrate 프로젝트를 만들고 Hyper-V VM을 평가하여 Azure로 마이그레이션하려면 다음 자습서로 계속 진행하세요.
+다음 자습서를 계속 진행하여 Azure Migrate 프로젝트를 만들고 Hyper-V VM을 검색 및 평가하여 Azure로 마이그레이션합니다.
 
 > [!div class="nextstepaction"]
 > [Hyper-V VM 평가](./tutorial-assess-hyper-v.md)

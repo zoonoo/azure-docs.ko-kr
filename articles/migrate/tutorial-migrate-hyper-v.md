@@ -1,27 +1,23 @@
 ---
 title: Azure Migrate 서버 마이그레이션을 사용하여 Hyper-V VM을 Azure로 마이그레이션
 description: Azure Migrate 서버 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법 알아보기
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: be5d519269739f09b4a4264292f578b1d7051d26
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: b9c0de866a61ee2646d987c4fb98cb24a218417b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196333"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028978"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
-이 문서에서는 Azure Migrate 서버 마이그레이션 도구를 통한 에이전트 없는 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법에 대해 설명합니다.
+이 문서에서는 Azure Migrate를 통한 에이전트 없는 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법에 대해 설명합니다. Server Migration 도구와 통신할 수 없을 때 발생합니다.
 
 [Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 프라이빗/퍼블릭 클라우드 VM의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
 
-이 자습서는 Azure Migrate 서버 평가 및 마이그레이션을 사용하여 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 Azure Migrate 서버 평가 및 마이그레이션을 사용하여 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 
 > [!div class="checklist"]
@@ -30,12 +26,12 @@ ms.locfileid: "74196333"
 > * 대상 환경을 설정합니다.
 > * 복제를 활성화합니다.
 > * 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인합니다.
-> * Azure로 전체 마이그레이션을 실행합니다.
+> * 전체 마이그레이션을 Azure로 실행합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -43,12 +39,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. 이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-hyper-v.md)하여 마이그레이션을 위해 Azure 및 Hyper-V를 설정합니다. 첫 번째 자습서에서는 다음을 수행합니다.
     - 마이그레이션을 위해 [Azure를 준비](tutorial-prepare-hyper-v.md#prepare-azure)합니다.
     - 마이그레이션을 위해 [온-프레미스 환경을 준비](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration)합니다.
-3. Azure Migrate 서버 평가를 사용하여 Hyper-V VM을 평가한 후에 해당 VM을 Azure로 마이그레이션하는 것이 좋습니다. 이렇게 하려면 이 시리즈의 [두 번째 자습서를 완료](tutorial-assess-hyper-v.md)합니다. 평가를 시도하는 것이 좋지만 VM을 마이그레이션하기 전에는 평가를 실행할 필요가 없습니다.
+3. Azure로 마이그레이션하기 전에 Azure Migrate: 서버 평가를 사용하여 Hyper-V VM 평가를 시도하는 것이 좋습니다. 이렇게 하려면 이 시리즈의 [두 번째 자습서를 완료](tutorial-assess-hyper-v.md)합니다. 평가를 시도하는 것이 좋지만 VM을 마이그레이션하기 전에는 평가를 실행할 필요가 없습니다.
 4. Azure 계정에 다음과 같은 권한이 있는 Virtual Machine 기여자 역할이 할당되어 있는지 확인합니다.
 
     - 선택한 리소스 그룹에 VM 만들기
     - 선택한 가상 네트워크에 VM 만들기
-    - Azure 관리 디스크에 씁니다.   
+    - Azure 관리 디스크에 씁니다.
 5. [Azure 네트워크를 설정합니다](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Azure로 마이그레이션할 때 생성된 Azure VM은 마이그레이션을 설정할 때 지정하는 Azure 네트워크에 연결됩니다.
 
 
@@ -56,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 두 번째 자습서에 따라 Hyper-V VM을 평가하지 않은 경우, [다음 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정하고 Azure Migrate 서버 마이그레이션 도구를 프로젝트에 추가해야 합니다.
 
-이미 두 번째 자습서에 따라 Azure Migrate 프로젝트를 설정한 경우, 다음과 같이 Azure Migrate 서버 마이그레이션 도구를 추가합니다.
+이미 두 번째 자습서에 따라 Azure Migrate 프로젝트를 설정한 경우, 다음과 같이 Azure Migrate: 서버 마이그레이션 도구를 추가합니다.
 
 1. Azure Migrate 프로젝트에서 **개요**를 클릭합니다. 
 2. **서버 검색, 평가 및 마이그레이션**에서 **서버 평가 및 마이그레이션**을 클릭합니다.
@@ -74,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Azure Migrate 서버 마이그레이션은 경량 Hyper-V VM 어플라이언스를 실행합니다.
 
 - 이 어플라이언스는 VM 검색을 수행하고, VM 메타데이터 및 성능 데이터를 Azure Migrate 서버 마이그레이션에 보냅니다.
-- 동일한 어플라이언스가 Azure Migrate 서버 평가 도구에서도 사용됩니다.
+- 어플라이언스는 Azure Migrate: 서버 평가 도구에서도 Hyper-V VM을 Azure로 마이그레이션하기 위해 사용됩니다.
 
 어플라이언스를 설정하려면 다음을 수행합니다.
 - 두 번째 자습서에 따라 Hyper-V VM을 평가한 경우 해당 자습서에서 이미 어플라이언스를 설정했습니다.
@@ -84,7 +80,7 @@ Azure Migrate 서버 마이그레이션은 경량 Hyper-V VM 어플라이언스�
     - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다. 
     - 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
 
-    [이 문서](how-to-set-up-appliance-hyper-v.md)의 지침에 따라 어플라이언스를 설정합니다.
+    [이 문서](how-to-set-up-appliance-hyper-v.md)의 자세한 지침에 따라 어플라이언스를 설정합니다.
 
 ## <a name="prepare-hyper-v-hosts"></a>Hyper-V 호스트 준비
 
@@ -109,7 +105,7 @@ Azure Migrate 서버 마이그레이션은 경량 Hyper-V VM 어플라이언스�
 
     ![등록 완료](./media/tutorial-migrate-hyper-v/finalize-registration.png)
 
-검색된 VM이 Azure Migrate 서버 마이그레이션에 표시될 때 등록 완료 후 최대 15분 정도 걸릴 수 있습니다. VM이 검색되면 **검색된 서버** 수가 증가합니다.
+검색된 VM이 Azure Migrate 서버 마이그레이션에 표시될 때 등록 완료 후 최대 15분 정도 걸릴 수 있습니다. VM이 검색됨에 따라 **검색된 서버** 수가 증가합니다.
 
 ![검색된 서버](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
@@ -126,7 +122,7 @@ Azure Migrate 서버 마이그레이션은 경량 Hyper-V VM 어플라이언스�
     - 프록시 이름을 **http://ip-address** 또는 **http://FQDN** 으로 지정합니다. HTTPS 프록시 서버는 지원되지 않습니다.
    
 
-6. 공급자가 [필요한 URL](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access)에 연결할 수 있는지 확인합니다.
+6. 공급자가 [필요한 URL](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts)에 연결할 수 있는지 확인합니다.
 7. **등록**에서 호스트를 등록한 후에 **마침**을 클릭합니다.
 
 ## <a name="replicate-hyper-v-vms"></a>Hyper-V VM 복제
@@ -159,7 +155,7 @@ Azure Migrate 서버 마이그레이션은 경량 Hyper-V VM 어플라이언스�
 
     ![대상 설정](./media/tutorial-migrate-hyper-v/target-settings.png)
 
-10. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)을 준수해야 합니다.
+10. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
     - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에 권장 크기가 포함됩니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
     - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. 
@@ -178,14 +174,14 @@ Azure Migrate 서버 마이그레이션은 경량 Hyper-V VM 어플라이언스�
 > [!NOTE]
 > 복제가 시작되기 전에 언제든지 **관리** > **머신 복제 중**에서 복제 설정을 업데이트할 수 있습니다. 복제가 시작된 후에는 설정을 변경할 수 없습니다.
 
-### <a name="provisioning-for-the-first-time"></a>처음으로 프로비저닝
+## <a name="provisioning-for-the-first-time"></a>처음으로 프로비저닝
 
-Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migrate 서버 마이그레이션은 이러한 리소스를 프로젝트와 동일한 리소스 그룹에 자동으로 프로비저닝합니다.
+Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migrate: 서버 마이그레이션에서 프로젝트와 동일한 리소스 그룹에서 이러한 리소스를 자동으로 프로비저닝합니다.
 
-- **서비스 버스**: Azure Migrate 서버 마이그레이션은 서비스 버스를 사용하여 복제 오케스트레이션 메시지를 어플라이언스에 보냅니다.
-- **게이트웨이 스토리지 계정**: 서버 마이그레이션은 게이트웨이 스토리지 계정을 사용하여 복제되는 VM에 대한 상태 정보를 저장합니다.
+- **서비스 버스**: Azure Migrate: 서버 마이그레이션은 Service Bus를 사용하여 복제 오케스트레이션 메시지를 어플라이언스에 보냅니다.
+- **게이트웨이 스토리지 계정**: Azure Migrate: 서버 마이그레이션은 게이트웨이 스토리지 계정을 사용하여 복제되는 VM에 대한 상태 정보를 저장합니다.
 - **로그 스토리지 계정**: Azure Migrate 어플라이언스는 VM에 대한 복제 로그를 로그 스토리지 계정에 업로드합니다. Azure Migrate는 복제 정보를 복제본 관리 디스크에 적용합니다.
-- **키 자격 증명 모음**: Azure Migrate 어플라이언스는 키 자격 증명 모음을 사용하여 서비스 버스에 대한 연결 문자열을 관리하고, 복제에 사용되는 스토리지 계정에 대한 키에 액세스합니다. 준비할 때 키 자격 증명 모음에서 스토리지 계정에 액세스하는 데 필요한 권한을 설정해야 합니다. [이러한 권한을 검토](tutorial-prepare-vmware.md#assign-role-assignment-permissions)하세요.   
+- **키 자격 증명 모음**: Azure Migrate 어플라이언스는 키 자격 증명 모음을 사용하여 서비스 버스에 대한 연결 문자열을 관리하고, 복제에 사용되는 스토리지 계정에 대한 키에 액세스합니다. 준비할 때 키 자격 증명 모음에서 스토리지 계정에 액세스하는 데 필요한 권한을 설정해야 합니다. Hyper-V VM 평가 및 마이그레이션에 [준비된 Azure](tutorial-prepare-hyper-v.md#prepare-azure). 
 
 
 ## <a name="track-and-monitor"></a>추적 및 모니터링
@@ -208,7 +204,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 델타 복제가 시작되면 Azure로 전체 마이그레이션을 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
 
 - 테스트 마이그레이션을 실행하면 작동 상태를 유지하고 복제를 계속하는 온-프레미스 머신에 영향을 주지 않고 마이그레이션이 예상대로 작동하는지 확인합니다. 
-- 테스트 마이그레이션은 복제된 데이터를 사용하여 Azure VM을 만들어 마이그레이션을 시뮬레이션합니다(일반적으로 Azure 구독에서 비프로덕션 VNet으로 마이그레이션).
+- 테스트 마이그레이션은 복제된 데이터를 사용하여 Azure VM을 만들어 마이그레이션을 시뮬레이션합니다(일반적으로 Azure 구독에서 비프로덕션 Azure VNet으로 마이그레이션).
 - 복제된 테스트 Azure VM을 사용하여 마이그레이션의 유효성을 검사하고, 애플리케이션 테스트를 수행하며, 전체 마이그레이션을 수행하기 전에 문제를 해결할 수 있습니다.
 
 다음과 같이 테스트 마이그레이션을 수행합니다.
@@ -222,7 +218,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 
     ![테스트 마이그레이션](./media/tutorial-migrate-hyper-v/test-migrate.png)
 
-3. **테스트 마이그레이션**에서 마이그레이션 후 Azure VM이 위치할 Azure VNet을 선택합니다. 비프로덕션 VNet을 사용하는 것이 좋습니다.
+3. **테스트 마이그레이션**에서 마이그레이션 후 Azure VM이 위치할 Azure 가상 네트워크를 선택합니다. 비프로덕션 가상 네트워크를 사용하는 것이 좋습니다.
 4. **테스트 마이그레이션** 작업이 시작됩니다. 포털 알림에서 작업을 모니터링합니다.
 5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines**에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
 6. 테스트가 완료되면 **머신 복제 중**에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리**를 클릭합니다.

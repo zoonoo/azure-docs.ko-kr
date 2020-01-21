@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e321fcdf4b5871cf4a55e7018229569a337e8305
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230937"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863293"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
@@ -18,7 +18,7 @@ ms.locfileid: "74230937"
 
 ![로그에서 메시지 보기.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -61,13 +61,13 @@ ms.locfileid: "74230937"
 
     ![Azure Cosmos DB에 의해 트리거되는 함수 만들기](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
 
-    | 설정      | 제안 값  | 설명                                |
+    | 설정      | 제안 값  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Name** | 기본값 | 템플릿에서 추천하는 기본 함수 이름을 사용합니다.|
+    | **이름** | 기본값 | 템플릿에서 추천하는 기본 함수 이름을 사용합니다.|
     | **Azure Cosmos DB 계정 연결** | 새 설정 | **새로 만들기**를 선택한 다음, **구독**, 이전에 만든 **데이터베이스 계정**, **선택**을 차례로 선택합니다. 그러면 계정 연결에 대한 애플리케이션 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
-    | **컬렉션 이름** | Items | 모니터링할 컬렉션의 이름입니다. |
-    | **임대 컬렉션이 없는 경우 새로 만들기** | 선택 | 아직 컬렉션이 없으므로 지금 만듭니다. |
-    | **데이터베이스 이름** | 작업 | 모니터링할 컬렉션이 포함된 데이터베이스의 이름입니다. |
+    | **컨테이너 이름** | Items | 모니터링할 컨테이너의 이름입니다. |
+    | **임대 컨테이너가 없는 경우 새로 만들기** | 선택 | 아직 컨테이너가 없으므로 지금 만듭니다. |
+    | **데이터베이스 이름** | 작업 | 모니터링할 컨테이너가 포함된 데이터베이스의 이름입니다. |
 
 1. **만들기**를 클릭하여 Azure Cosmos DB에 의해 트리거되는 함수를 만듭니다. 함수를 만들면 템플릿 기반 함수 코드가 표시됩니다.  
 
@@ -75,9 +75,9 @@ ms.locfileid: "74230937"
 
     이 함수 템플릿은 문서 수와 첫 번째 문서 ID를 로그에 기록합니다.
 
-다음으로, Azure Cosmos DB 계정에 연결하고 `Tasks` 데이터베이스에 `Items` 컬렉션을 만듭니다.
+다음으로, Azure Cosmos DB 계정에 연결하고 `Tasks` 데이터베이스에 `Items` 컨테이너를 만듭니다.
 
-## <a name="create-the-items-collection"></a>항목 컬렉션 만들기
+## <a name="create-the-items-container"></a>항목 컨테이너 만들기
 
 1. [Azure Portal](https://portal.azure.com)의 두 번째 인스턴스를 브라우저의 새 탭에서 엽니다.
 
@@ -87,33 +87,32 @@ ms.locfileid: "74230937"
 
 1. Azure Cosmos DB 계정을 선택한 다음 **데이터 탐색기**를 선택합니다. 
 
-1. **컬렉션**에서 **taskDatabase**를 선택하고 **새 컬렉션**을 선택합니다.
+1. **SQL API**에서 **작업** 데이터베이스를 선택하고 **새 컨테이너**를 선택합니다.
 
-    ![컬렉션 만들기](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
+    ![컨테이너 만들기](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container.png)
 
-1. **컬렉션 추가**에서 이미지 아래의 표에 표시된 설정을 사용합니다. 
+1. **컨테이너 추가**에서 이미지 아래의 표에 표시된 설정을 사용합니다. 
 
-    ![taskCollection 정의](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
+    ![작업 컨테이너 정의](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | 설정|제안 값|설명 |
+    | 설정|제안 값|Description |
     | ---|---|--- |
     | **데이터베이스 ID** | 작업 |새 데이터베이스에 대한 이름입니다. 함수 바인딩에 정의된 이름과 일치해야 합니다. |
-    | **컬렉션 ID** | Items | 새 컬렉션의 이름입니다. 함수 바인딩에 정의된 이름과 일치해야 합니다.  |
-    | **스토리지 용량** | 고정(10GB)|기본값을 사용합니다. 이 값은 데이터베이스의 스토리지 용량입니다. |
-    | **처리량** |400RU| 기본값을 사용합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다. |
-    | **[파티션 키](../cosmos-db/partition-data.md)** | /category|각 파티션에 데이터를 균등하게 배포하는 파티션 키입니다. 올바른 파티션 키를 선택하는 것은 성능이 뛰어난 컬렉션을 만드는 데 중요합니다. | 
+    | **컨테이너 ID** | Items | 새 컨테이너의 이름입니다. 함수 바인딩에 정의된 이름과 일치해야 합니다.  |
+    | **[파티션 키](../cosmos-db/partition-data.md)** | /category|각 파티션에 데이터를 균등하게 배포하는 파티션 키입니다. 올바른 파티션 키를 선택하는 것은 성능이 뛰어난 컨테이너를 만드는 데 중요합니다. | 
+    | **처리량** |400RU| 기본값을 사용합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다. |    
 
-1. **확인**을 클릭하여 Items 컬렉션을 만듭니다. 컬렉션이 생성될 때까지 잠시 시간이 걸릴 수 있습니다.
+1. **확인**을 클릭하여 항목 컨테이너를 만듭니다. 컨테이너가 생성될 때까지 잠시 시간이 걸릴 수 있습니다.
 
-함수 바인딩에 지정된 컬렉션이 있으면 이 새 컬렉션에 문서를 추가하여 함수를 테스트할 수 있습니다.
+함수 바인딩에 지정된 컨테이너가 있으면 이 새 컨테이너에 항목을 추가하여 함수를 테스트할 수 있습니다.
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 데이터 탐색기에서 새 **taskCollection** 컬렉션을 확장하고, **문서**를 선택한 다음 **새 문서**를 선택합니다.
+1. Data Explorer에서 새 **항목** 컨테이너를 확장하고 **항목**을 선택한 다음, **새 항목**을 선택합니다.
 
-    ![taskCollection에 문서 만들기](./media/functions-create-cosmos-db-triggered-function/create-document-in-collection.png)
+    ![항목 컨테이너에 항목 만들기](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
 
-1. 새 문서의 콘텐츠를 다음 콘텐츠로 바꾼 후 **저장**을 선택합니다.
+1. 새 문서의 콘텐츠를 다음 콘텐츠로 바꾼 다음, **저장**을 선택합니다.
 
         {
             "id": "task1",
