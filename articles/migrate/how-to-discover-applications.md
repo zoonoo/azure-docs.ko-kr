@@ -3,12 +3,12 @@ title: Azure Migrate를 사용 하 여 온-프레미스 서버에서 앱, 역할
 description: Azure Migrate Server 평가를 사용 하 여 온-프레미스 서버에서 앱, 역할 및 기능을 검색 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029083"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280767"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>컴퓨터 앱, 역할 및 기능 검색
 
@@ -17,18 +17,18 @@ ms.locfileid: "76029083"
 앱 인벤토리를 검색 하 고 온-프레미스 컴퓨터에서 실행 되는 역할/기능을 사용 하면 워크 로드에 맞게 조정 된 Azure에 대 한 마이그레이션 경로를 파악 하 고 계획할 수 있습니다.
 
 > [!NOTE]
-> 앱 검색은 현재 VMware Vm에 대해서만 지원 되며 검색 으로만 제한 됩니다. 앱 기반 평가는 아직 제공 되지 않습니다.  현재 서버 평가는 현재 컴퓨터 수준에서 온-프레미스 VMware Vm, Hyper-v Vm 및 물리적 서버를 평가 하 여 리프트 앤 시프트 마이그레이션을 가능 하 게 합니다.
+> 앱 검색은 현재 VMware Vm에 대해서만 지원 되며 검색 으로만 제한 됩니다. 앱 기반 평가는 아직 제공 되지 않습니다. 온-프레미스 VMware Vm, Hyper-v Vm 및 물리적 서버에 대 한 컴퓨터 기반 평가
 
 Azure Migrate를 사용 하는 앱 검색: 서버 평가는 에이전트 없이 수행 됩니다. 컴퓨터 및 Vm에 아무 것도 설치할 필요가 없습니다. 서버 평가는 Azure Migrate 어플라이언스를 사용 하 여 컴퓨터 게스트 자격 증명과 함께 검색을 수행 합니다. 어플라이언스는 VMware Api를 사용 하 여 VMware 컴퓨터에 원격으로 액세스 합니다.
 
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-1. 앱 수준 검색에 대 한 [지원 제한 사항을](migrate-support-matrix-vmware.md#application-discovery) 검토 합니다.
-2. Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
-3. 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
+1. Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
+2. Azure Migrate: 서버 평가 도구를 프로젝트에 [추가](how-to-assess.md) 했는지 확인 합니다.
 4. Azure Migrate 어플라이언스를 사용 하 여 VMware Vm을 검색 하 고 평가 하기 위한 [vmware 요구 사항을](migrate-support-matrix-vmware.md#vmware-requirements) 확인 하세요.
-4. Azure Migrate 어플라이언스를 배포 하기 위한 [요구 사항을](migrate-appliance.md) 확인 합니다.
+5. Azure Migrate 어플라이언스를 배포 하기 위한 [요구 사항을](migrate-appliance.md) 확인 합니다.
+6. 응용 프로그램 검색에 대 한 [지원 및 요구 사항을 확인](/migrate-support-matrix-vmware.md#application-discovery) 합니다.
 
 ## <a name="prepare-for-app-discovery"></a>앱 검색 준비
 

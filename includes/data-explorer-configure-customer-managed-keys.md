@@ -4,17 +4,19 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 5443ee6912c30b89cee6fdb43f84f3bc1fbcfe68
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0d78e48fead7b1f53e67860e6be8fe6d77469e87
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020825"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280607"
 ---
 Azure 데이터 탐색기는 미사용 저장소 계정의 모든 데이터를 암호화 합니다. 기본적으로 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 암호화 키에 대 한 추가 제어를 위해 고객 관리 키를 제공 하 여 데이터 암호화에 사용할 수 있습니다. 고객 관리 키는 [Azure Key Vault](/azure/key-vault/key-vault-overview)에 저장 되어야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장 하거나 Azure Key Vault API를 사용 하 여 키를 생성할 수 있습니다. Azure 데이터 탐색기 클러스터와 key vault는 동일한 지역에 있어야 하지만 다른 구독에 있을 수 있습니다. 고객 관리 키에 대 한 자세한 설명은 [Azure Key Vault를 사용 하 여 고객 관리 키](/azure/storage/common/storage-service-encryption)를 참조 하세요. 이 문서에서는 고객이 관리 하는 키를 구성 하는 방법을 보여 줍니다.
 
-> [!Note]
-> Azure 데이터 탐색기을 사용 하 여 고객 관리 키를 구성 하려면 [키 자격 증명 모음에 대 한 두 가지 속성을 설정](/azure/key-vault/key-vault-ovw-soft-delete)해야 합니다. **일시 삭제** 및 **제거 안 함** 이러한 속성은 기본적으로 사용 되지 않습니다. 이러한 속성을 사용 하도록 설정 하려면 [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) 또는 [Azure CLI](/azure/key-vault/key-vault-soft-delete-cli)를 사용 합니다. RSA 키와 키 크기 2048만 지원 됩니다.
+Azure 데이터 탐색기을 사용 하 여 고객 관리 키를 구성 하려면 [키 자격 증명 모음에 대 한 두 가지 속성을 설정](/azure/key-vault/key-vault-ovw-soft-delete)해야 합니다. **일시 삭제** 및 **제거 안 함** 이러한 속성은 기본적으로 사용 되지 않습니다. 이러한 속성을 사용 하도록 설정 하려면 [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) 또는 [Azure CLI](/azure/key-vault/key-vault-soft-delete-cli)를 사용 합니다. RSA 키와 키 크기 2048만 지원 됩니다.
+
+> [!NOTE]
+> 고객 관리 키를 사용 하는 데이터 암호화는 [리더 및 종동체 클러스터](/azure/data-explorer/follower)에서 지원 되지 않습니다. 
 
 ## <a name="assign-an-identity-to-the-cluster"></a>클러스터에 id 할당
 

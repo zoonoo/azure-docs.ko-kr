@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 1c721685e12c417116888ccc3cf8d25123761933
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fa8bc56376704b96f5ddee09db7b09e28f10a936
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978618"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281243"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>포털을 사용 하 여 Azure Database for MySQL (미리 보기)에 대 한 개인 링크 만들기 및 관리
 
@@ -203,14 +203,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-2.  `nslookup  myServer.mysql.privatelink.database.azure.com`을 입력합니다. 
+2.  `nslookup  myServer.privatelink.mysql.database.azure.com`을 입력합니다. 
 
     다음과 유사한 메시지가 표시됩니다.
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    myServer.mysql.privatelink.database.azure.com
+    Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -220,7 +220,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **MySQL**.|
-    | Server name| Select *myServer.mysql.privatelink.database.azure.com* |
+    | Server name| Select *myServer.privatelink.mysql.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the MySQL server creation. |
     |Password |Enter a password provided during the MySQL server creation. |
     |SSL|Select **Required**.|

@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 41d48bdd7cc7972536d0cf0e0cb78483f727d7f2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277013"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281345"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>종동체 데이터베이스를 사용 하 여 Azure 데이터 탐색기에 데이터베이스 연결
 
@@ -383,6 +383,7 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 
 * 종동체와 리더 클러스터는 동일한 지역에 있어야 합니다.
 * 진행 중인 데이터베이스에서는 [스트리밍](/azure/data-explorer/ingest-data-streaming) 수집을 사용할 수 없습니다.
+* [고객 관리 키](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) 를 사용 하는 데이터 암호화는 리더가 나 종동체 클러스터에서 지원 되지 않습니다. 
 * 분리 하기 전에 다른 클러스터에 연결 된 데이터베이스는 삭제할 수 없습니다.
 * 다른 클러스터에 연결 된 데이터베이스를 분리 하기 전에는 해당 클러스터를 삭제할 수 없습니다.
 * 연결 된 종동체 또는 리더 데이터베이스가 있는 클러스터는 중지할 수 없습니다. 

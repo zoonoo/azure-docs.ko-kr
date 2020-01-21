@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e4a8afdb9bea4f528e57c914149f611b0578c63
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 28e3f276da231ef0186dba8ecd9c064cdd10a5a8
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973466"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281226"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -381,7 +381,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대 한 기본 파일 시스템의 초기 콘텐츠를 프로 비전 합니다. [자세히 알아보기](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Azure 가져오기 내보내기      | Microsoft.ImportExport     | 가져오기/내보내기 서비스를 사용 하 여 azure로 데이터를 가져오고 Azure에서 데이터를 내보낼 수 있습니다. [자세히 알아보기](/azure/storage/common/storage-import-export-service).  |
 | Azure Monitor            | Microsoft.Insights         | 보안 스토리지 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아보기](/azure/network-watcher/network-watcher-packet-capture-overview). |
+| Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 사용 캐시, 원본 또는 대상 저장소 계정을 사용 하는 경우 Azure IaaS 가상 컴퓨터의 재해 복구에 대 한 복제를 사용 하도록 설정 합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
 신뢰할 수 있는 **Microsoft 서비스 허용** ... 설정을 사용 하면 해당 리소스 인스턴스에 대 한 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 [RBAC 역할](storage-auth-aad.md#assign-rbac-roles-for-access-rights) 을 명시적으로 할당 하는 경우 아래 서비스의 특정 인스턴스에서 저장소 계정에 액세스할 수도 있습니다. 이 경우 인스턴스에 대 한 액세스 범위는 관리 id에 할당 된 RBAC 역할에 해당 합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: ea029e62ac1273d9796e52edc3f7a46868964d2a
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520752"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281294"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -42,7 +42,7 @@ Security Center를 완벽하게 활용하려면 조직의 여러 개인 또는 �
 다음 리소스를 사용하여 계획 및 작업 프로세스 중에 도움을 받습니다.
 
 
-문서
+기사
 * [Azure Security Center 계획 및 작업 가이드](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 비디오
@@ -53,7 +53,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 다음 리소스를 사용하여 온보딩 프로세스 중에 도움을 받습니다.
 
-문서
+기사
 * [보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
 
 비디오
@@ -85,7 +85,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 문서    
 * [인시던트 대응에 Azure Security Center 사용](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [보안 플레이 북으로 대응 자동화](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
+* [워크플로 자동화를 사용 하 여 응답 자동화](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>고급 클라우드 방어
 
@@ -115,7 +115,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [ID 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [네트워크 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS 권장 사항](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [규정 준수](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
+* [호환성](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Log analytics 고객은 이제 Azure Security Center를 사용 하 여 하이브리드 클라우드 워크 로드를 보호할 수 있습니다.](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>커뮤니티 리소스

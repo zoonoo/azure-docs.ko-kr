@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4bc2e67d276deeea01989ed76be7352ce27abd71
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454649"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280818"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>평가에 대 한 에이전트 없는 종속성 시각화 설정
 
-이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 없는 종속성 매핑을 설정 하는 방법을 설명 합니다. 이 기능은 현재 Azure Migrate 어플라이언스를 사용 하 여 검색 된 VMware 컴퓨터의 미리 보기에서 사용할 수 있습니다. 
+이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 없는 종속성 매핑을 설정 하는 방법을 설명 합니다. 
 
 > [!IMPORTANT]
 > 에이전트 없는 종속성 시각화는 현재 Azure Migrate 어플라이언스를 사용 하 여 검색 된 Azure VMware Vm에 대해 미리 보기로 제공 됩니다.
@@ -54,17 +54,8 @@ ms.locfileid: "75454649"
 - 에이전트 없는 종속성 분석은 현재 VMware 컴퓨터에 대해서만 사용할 수 있습니다.
 - 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
 - Azure Migrate에서 VMware 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아보기](migrate-appliance.md).
-- 아래 표에 요약 된 것 처럼 VMware Vm이 에이전트 없는 종속성 시각화에 대해 지원 되는지 확인 합니다.
+- 에이전트 없는 종속성 시각화를 설정 하기 위한 [요구 사항을 검토](migrate-support-matrix-vmware.md#agentless-dependency-visualization) 합니다.
 
-
-### <a name="supported-operating-systems"></a>지원되는 운영 체제
-
-에이전트 없는 종속성 시각화에 대해 지원 되는 운영 체제는 다음과 같습니다.
-
-**형식** | **지원되는 운영 체제**
---- | ---
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 비트)
-**Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
 ## <a name="create-a-user-account-for-discovery"></a>검색을 위한 사용자 계정 만들기

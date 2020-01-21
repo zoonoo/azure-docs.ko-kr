@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 239438133dc16630852626c49e8ffda08590976b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462462"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281005"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 IT (정보 기술) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자가 Azure Security Center 사용을 계획 하는 데 사용 됩니다.
@@ -239,7 +239,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 또한 이 페이지에서 [조사](https://docs.microsoft.com/azure/security-center/security-center-investigation)를 시작하여 공격의 타임라인, 공격 발생 방법, 잠재적으로 손상된 시스템, 사용된 자격 증명을 이해하고 전체 공격 체인의 그래프 표현을 확인할 수도 있습니다.
 
-손상된 시스템을 식별하면 이전에 만든 보안 [플레이북](https://docs.microsoft.com/azure/security-center/security-center-playbooks)을 실행할 수 있습니다. 보안 플레이북은 특정 플레이북이 선택한 경고에서 트리거되면 Security Center에서 실행될 수 있는 프로시저의 컬렉션입니다.
+손상 된 시스템을 식별 한 후에는 이전에 만든 [워크플로 자동화](workflow-automation.md) 를 실행할 수 있습니다. 다음은 경고에 의해 트리거된 Security Center에서 실행할 수 있는 프로시저 모음입니다.
 
 [인시던트 대응을 위해 Azure Security Center & Microsoft Operations Management Suite를 활용 하는 방법](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) 비디오에서 이러한 각 단계에서 Security Center를 사용 하는 방법을 이해 하는 데 도움이 되는 몇 가지 데모를 확인할 수 있습니다.
 

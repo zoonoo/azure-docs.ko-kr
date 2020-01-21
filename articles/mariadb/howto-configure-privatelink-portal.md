@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 4e05de1fc1bfb880767d113e88d5c49082fc146c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 76e9526ab39cbccd45a48d2cd24e05867c953774
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976092"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280835"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>포털을 사용 하 여 Azure Database for MariaDB (미리 보기)에 대 한 개인 링크 만들기 및 관리
 
@@ -201,14 +201,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-2.  `nslookup mydemomserver.mariadb.privatelink.database.azure.com`을 입력합니다. 
+2.  `nslookup mydemomserver.privatelink.mariadb.database.azure.com`을 입력합니다. 
 
     다음과 유사한 메시지가 표시됩니다.
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemoMariaDBserver.mariadb.privatelink.database.azure.com
+    Name:    mydemoMariaDBserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -219,7 +219,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **MariaDB**.|
-    | Server name| Select *mydemoserver.MariaDB.privatelink.database.azure.com* |
+    | Server name| Select *mydemoserver.privatelink.mariadb.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
     |Password |Enter a password provided during the MariaDB server creation. |
     |SSL|Select **Required**.|

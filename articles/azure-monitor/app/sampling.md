@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cb73acc227d110cbfe5f5bbd37c69e08e7628eee
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e30c4812ad11d7b39197062da30c90b2d8b1649b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275184"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281073"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -484,18 +484,18 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
   
   다음은 생성 된 기본 `ApplicationInsights.config` 파일을 보여 줍니다. ASP.NET Core 코드에서 동일한 기본 동작을 사용할 수 있습니다. 이 [페이지의 이전 섹션에 있는 예제](#configuring-adaptive-sampling-for-aspnet-core-applications) 를 사용 하 여이 기본 동작을 변경할 수 있습니다.
 
-```xml
-<TelemetryProcessors>
-    <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-        <ExcludedTypes>Event</ExcludedTypes>
-    </Add>
-    <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-        <IncludedTypes>Event</IncludedTypes>
-    </Add>
-</TelemetryProcessors>
-```
+    ```xml
+    <TelemetryProcessors>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <ExcludedTypes>Event</ExcludedTypes>
+        </Add>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <IncludedTypes>Event</IncludedTypes>
+        </Add>
+    </TelemetryProcessors>
+    ```
 
 *원격 분석을 두 번 이상 샘플링할 수 있나요?*
 
@@ -533,18 +533,18 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 * 이를 위해 사용자 지정 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)을 작성 하는 것이 가장 좋습니다 .이는 아래와 같이 보존 하려는 원격 분석 항목에 대 한 `SamplingPercentage`를 100로 설정 합니다. 이니셜라이저가 원격 분석 프로세서 (샘플링 포함) 보다 먼저 실행 되도록 보장 되므로 모든 샘플링 기술이 샘플링 고려 사항에서이 항목을 무시 하 게 됩니다.
 
-```csharp
-public class MyTelemetryInitializer : ITelemetryInitializer
-{
-    public void Initialize(ITelemetry telemetry)
+    ```csharp
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        if(somecondition)
+        public void Initialize(ITelemetry telemetry)
         {
-            ((ISupportSampling)telemetry).SamplingPercentage = 100;
+            if(somecondition)
+            {
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
+            }
         }
     }
-}
-```
+    ```
 
 ## <a name="older-sdk-versions"></a>이전 SDK 버전
 

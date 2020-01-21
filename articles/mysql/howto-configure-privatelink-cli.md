@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 37f408ba633abdd95824b2e94253251eacf1f7f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3ab02f0522ab52870d24f667ff91665e8aa0a4eb
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980839"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281328"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>CLI를 사용 하 여 Azure Database for MySQL (미리 보기)에 대 한 개인 링크 만들기 및 관리
 
@@ -97,9 +97,9 @@ az network private-endpoint create \
 MySQL server 도메인의 사설 DNS 영역을 만들고 Virtual Network 연결 링크를 만듭니다. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
-   --name  "privatelink.database.azure.com" 
+   --name  "privatelink.mysql.database.azure.com" 
 az network private-dns link vnet create --resource-group myResourceGroup \ 
-   --zone-name  "privatelink.database.azure.com"\ 
+   --zone-name  "privatelink.mysql.database.azure.com"\ 
    --name MyDNSLink \ 
    --virtual-network myVirtualNetwork \ 
    --registration-enabled false 
@@ -113,8 +113,8 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
  
 #Create DNS records 
-az network private-dns record-set a create --name myserver --zone-name privatelink.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a create --name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup  
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
@@ -146,14 +146,14 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-2.  `nslookup mydemomysqlserver.mysql.privatelink.database.azure.com`를 입력합니다. 
+2.  `nslookup mydemomysqlserver.privatelink.mysql.database.azure.com`를 입력합니다. 
 
     다음과 유사한 메시지가 표시됩니다.
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemomysqlserver.mysql.privatelink.database.azure.com
+    Name:    mydemomysqlserver.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -164,7 +164,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
     | Setting | Value |
     | ------- | ----- |
     | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.mysql.privatelink.database.azure.com* |
+    | Hostname | Select *mydemoserver.privatelink.mysql.database.azure.com* |
     | Username | Enter username as *username@servername* which is provided during the MySQL server creation. |
     | Password | Enter a password provided during the MySQL server creation. |
     ||
