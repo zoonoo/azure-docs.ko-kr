@@ -63,7 +63,7 @@
     - name: 고가용성 포트
       href: load-balancer-ha-ports-overview.md
     - name: IPv6 지원
-      href: load-balancer-ipv6-overview.md
+      href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-overview'
     - name: 여러 프런트 엔드
       href: load-balancer-multivip-overview.md
     - name: 아웃바운드 연결
@@ -107,11 +107,11 @@
     - name: IPv6를 사용하는 공용 부하 분산 장치 만들기
       items:
         - name: Azure CLI
-          href: load-balancer-ipv6-internet-cli.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
-          href: load-balancer-ipv6-internet-ps.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
         - name: 템플릿
-          href: load-balancer-ipv6-internet-template.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
     - name: 내부 부하 분산 장치 구성
       items:
         - name: Azure CLI
