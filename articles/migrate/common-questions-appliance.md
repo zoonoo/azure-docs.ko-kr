@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스에 대 한 일반적인 질문
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변 가져오기
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029133"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292335"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -83,9 +83,9 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 아닙니다. 어플라이언스와 vCenter Server 사이에 일대일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다.
 
-### <a name="how-many-vms-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 Vm 수는 몇 개입니까?
+### <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 Vm 또는 서버는 몇 개입니까?
 
-단일 어플라이언스를 사용 하 여 최대 1만 VMware Vm 및 최대 5000 Hyper-v Vm을 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 [hyper-v](scale-hyper-v-assessment.md) 및 [VMware](scale-vmware-assessment.md) 평가 크기 조정을 참조 하세요.
+최대 1만 VMware Vm, 최대 5000 Hyper-v Vm 및 단일 어플라이언스를 포함 하는 최대 250 서버를 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 [hyper-v](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) 및 [물리적](scale-physical-assessment.md) 평가를 확장 하는 방법을 참조 하세요.
 
 ## <a name="can-i-delete-an-appliance"></a>어플라이언스를 삭제할 수 있나요?
 

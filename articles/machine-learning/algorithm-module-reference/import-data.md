@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f9815dac9e61eec51230911094f35a33a64e541c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166780"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311515"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 기존 클라우드 데이터 서비스에서 machine learning 파이프라인으로 데이터를 로드할 수 있습니다. 
 
@@ -78,7 +78,7 @@ ms.locfileid: "76166780"
 
 가져오기가 완료 되 면 출력 데이터 집합을 클릭 하 고 **시각화** 를 선택 하 여 데이터를 성공적으로 가져왔는지 확인 합니다.
 
-다시 사용 하기 위해 데이터를 저장 하려는 경우 파이프라인이 실행 될 때마다 새 데이터 집합을 가져오는 대신, 출력을 마우스 오른쪽 단추로 클릭 하 고 **데이터 집합으로 저장**을 선택 합니다. 데이터 집합의 이름을 선택 합니다. 저장 된 데이터 집합은 저장 시 데이터를 유지 하 고 파이프라인의 데이터 집합이 변경 되더라도 파이프라인이 다시 실행 될 때 데이터가 업데이트 되지 않습니다. 이는 데이터의 스냅숏을 만드는 데 유용할 수 있습니다.
+다시 사용할 데이터를 저장 하려는 경우, 파이프라인이 실행 될 때마다 새 데이터 집합을 가져오는 대신 모듈의 오른쪽 패널에 있는 **출력** 탭에서 데이터 **집합 등록** 아이콘을 선택 합니다. 데이터 집합의 이름을 선택 합니다. 저장 된 데이터 집합은 저장할 때 데이터를 유지 하지만 파이프라인의 데이터 집합이 변경 되는 경우에도 파이프라인을 다시 실행 하면 데이터 집합이 업데이트 되지 않습니다. 이는 데이터의 스냅숏을 만드는 데 유용할 수 있습니다.
 
 데이터를 가져온 후 모델링 및 분석을 위해 다음과 같은 몇 가지 추가 준비가 필요할 수 있습니다.
 

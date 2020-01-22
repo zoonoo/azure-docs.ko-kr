@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: cherylmc
-ms.openlocfilehash: f5fcac938c965c0ff02f578ddd2605660b184f9f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 57a066132cbc8812fac95862bd1b02a3fc59ff2f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263696"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293898"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -183,6 +183,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전역 주석 erical Azure�
   * [NextDC](https://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)
+  * [Teraco](https://www.teraco.co.za/platform-teraco/africa-cloud-exchange/)
   
 * 연결 공급자가 선택한 피어링 위치로 네트워크를 확장합니다.
   * 연결 공급자는 단일 실패 지점이 없도록 항상 사용 가능한 방식으로 연결을 확장하는지 확인합니다.

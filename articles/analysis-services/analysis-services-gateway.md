@@ -4,15 +4,15 @@ description: Azure의 Analysis Services 서버가 온-프레미스 데이터 원
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f1fc00ced0d933884ca0fe6dce91fed4602eb825
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263441"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310155"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용 하 여 온-프레미스 데이터 원본에 연결
 
@@ -24,11 +24,11 @@ Azure Analysis Services의 경우 처음으로 게이트웨이를 사용 하 여
 
 - **설치 프로그램 다운로드 및 실행** - 이 단계는 조직의 컴퓨터에 게이트웨이 서비스를 설치합니다. 또한 [테넌트](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD의 계정을 사용하여 Azure에 로그인합니다. Azure B2B(게스트) 계정은 지원되지 않습니다.
 
-- **게이트웨이 등록** - 이 단계에서는 게이트웨이에 대한 이름 및 복구 키를 지정하고 게이트웨이 클라우드 서비스로 게이트웨이를 등록한 지역을 선택합니다. 게이트웨이 리소스를 Analysis Services 서버와 동일한 지역에 등록할 수 있습니다. 
+- **게이트웨이 등록** - 이 단계에서는 게이트웨이에 대한 이름 및 복구 키를 지정하고 게이트웨이 클라우드 서비스로 게이트웨이를 등록한 지역을 선택합니다. 모든 지역에 게이트웨이 리소스를 등록할 수 있지만 Analysis Services 서버와 동일한 지역에 있는 것이 좋습니다. 
 
 - **Azure에서 게이트웨이 리소스 만들기** -이 단계에서는 azure에서 게이트웨이 리소스를 만듭니다.
 
-- **게이트웨이 리소스에 서버 연결** -게이트웨이 리소스가 있으면 서버를 연결 하기 시작할 수 있습니다. 동일한 지역에 있는 경우 여러 서버 및 기타 리소스를 연결할 수 있습니다.
+- **게이트웨이 리소스에 서버 연결** -게이트웨이 리소스가 있으면 서버 연결을 시작할 수 있습니다. 동일한 지역에 있는 경우 여러 서버 및 기타 리소스를 연결할 수 있습니다.
 
 
 
@@ -54,7 +54,7 @@ Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services�
 
 게이트웨이는 Azure Service Bus에 대한 아웃바운드 연결을 만듭니다. 아웃바운드 포트 TCP 443(기본값), 5671, 5672, 9350-9354에서 통신합니다.  게이트웨이에는 인바운드 포트가 필요하지 않습니다.
 
-방화벽에 데이터 영역에 대 한 IP 주소를 포함 해야 할 수 있습니다. [Microsoft Azure 데이터 센터 IP 목록](https://www.microsoft.com/download/details.aspx?id=41653)을 다운로드할 수 있습니다. 이 목록은 매주 업데이트됩니다. Azure 데이터 센터 IP 목록에 나열된 IP 주소는 CIDR 표기법으로 작성됩니다. 자세한 내용은 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요.
+방화벽에 데이터 영역에 대 한 IP 주소를 포함 해야 할 수 있습니다. [Microsoft Azure 데이터 센터 IP 목록](https://www.microsoft.com/download/details.aspx?id=56519)을 다운로드할 수 있습니다. 이 목록은 매주 업데이트됩니다. Azure 데이터 센터 IP 목록에 나열된 IP 주소는 CIDR 표기법으로 작성됩니다. 자세한 내용은 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요.
 
 다음은 게이트웨이에서 사용 되는 정규화 된 도메인 이름입니다.
 

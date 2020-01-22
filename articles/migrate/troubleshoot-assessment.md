@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 3098e85fd21b6185defc4bbcf0a71d412846ab25
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: fb1e32d9f67febb09eadfb5d31221db33504eb05
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725742"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289478"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -92,6 +92,7 @@ Azure Migrate 어플라이언스에서 관련 온-프레미스 Vm에 대 한 성
 - 평가 기간 동안 Vm이 꺼져 있는 경우이 문제가 발생할 수 있습니다. 기기가 꺼져 있으면 기기가 VM에 대 한 성능 데이터를 수집할 수 없습니다.
 - 메모리 카운터만 없고 Hyper-v Vm을 평가 하려는 경우 이러한 Vm에서 동적 메모리를 사용 하도록 설정 했는지 확인 합니다. Hyper-v Vm에 대 한 알려진 문제는 Azure Migrate 어플라이언스는 동적 메모리를 사용 하지 않는 Vm에 대 한 메모리 사용률 데이터를 수집할 수 없습니다.
 - 성능 카운터가 없는 경우 Azure Migrate 서버 평가는 할당 된 코어 및 메모리를 대체 하 고 해당 VM 크기를 권장 합니다.
+- 모든 성능 카운터가 누락 된 경우 평가에 대 한 포트 액세스 요구 사항이 충족 되는지 확인 합니다. [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [hyper-v](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) 및 [물리적](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) 서버 평가를 위한 포트 액세스 요구 사항에 대해 자세히 알아보세요.
 
 ## <a name="is-the-operating-system-license-included"></a>운영 체제 라이선스 포함 여부
 

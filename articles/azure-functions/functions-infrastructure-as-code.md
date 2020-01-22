@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: df0c90ba3784acb96bd9f76a436ff2746f7efe2c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a3d8c8769ff5026ec1dde98f3c4167aac302bf8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262438"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292946"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -129,6 +129,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
     ]
+}
 ```
 
 > [!IMPORTANT]
@@ -138,7 +139,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 | 설정 이름                 | Description                                                                               | 예제 값                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | 내부 큐를 위한 함수 런타임에 대 한 저장소 계정에 대 한 연결 문자열입니다. | [저장소 계정](#storage) 을 참조 하세요.       |
+| AzureWebJobsStorage          | 함수 런타임에서 내부 큐에 사용 하는 저장소 계정에 대 한 연결 문자열입니다. | [저장소 계정](#storage) 을 참조 하세요.       |
 | FUNCTIONS_EXTENSION_VERSION  | Azure Functions 런타임의 버전입니다.                                                | `~2`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | 이 앱의 함수에 사용할 언어 스택입니다.                                   | `dotnet`, `node`, `java`, `python` 또는 `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | `node` 언어 스택을 사용 하는 경우에만 사용할 버전을 지정 합니다.              | `10.14.1`                             |
@@ -174,7 +175,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 ## <a name="deploy-on-consumption-plan"></a>소비 계획에 배포
 
-소비 계획은 코드가 실행 중일 때 컴퓨팅 용량을 자동으로 할당하고, 로드를 처리하는 데 필요한 만큼 확장한 다음, 코드가 실행되지 않을 때 축소합니다. 유휴 Vm에 대 한 비용을 지불할 필요가 없으며, 용량을 미리 예약할 필요가 없습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md#consumption-plan)을 참조하세요.
+소비 계획은 코드가 실행 중일 때 계산 능력을 자동으로 할당 하 고, 로드를 처리 하는 데 필요한 만큼 확장 한 다음 코드가 실행 되지 않을 때 확장 됩니다. 유휴 Vm에 대 한 비용을 지불할 필요가 없으며, 용량을 미리 예약할 필요가 없습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md#consumption-plan)을 참조하세요.
 
 샘플 Azure Resource Manager 템플릿은 [소비 계획의 함수 앱]을 참조하세요.
 

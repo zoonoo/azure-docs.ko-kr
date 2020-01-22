@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 4bc2e67d276deeea01989ed76be7352ce27abd71
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280818"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288961"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>평가에 대 한 에이전트 없는 종속성 시각화 설정
 
@@ -87,10 +87,10 @@ ms.locfileid: "76280818"
 
 1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
 2. **종속성 분석** 아이콘을 클릭 합니다.
-3. **종속성 검색 시작**을 클릭 합니다.
-3. **종속성 검색 시작** 페이지에서 관련 컴퓨터를 검색 하는 어플라이언스를 선택 합니다.
+3. **서버 추가**를 클릭 합니다.
+3. **서버 추가** 페이지에서 관련 컴퓨터를 검색 하는 어플라이언스를 선택 합니다.
 4. 컴퓨터 목록에서 컴퓨터를 선택 합니다.
-5. **종속성 검색 시작**을 클릭 합니다.
+5. **서버 추가**를 클릭 합니다.
 
     ![종속성 검색 시작](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -123,10 +123,10 @@ ms.locfileid: "76280818"
 
 1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
 2. **종속성 분석** 아이콘을 클릭 합니다.
-3. **종속성 검색 중지**를 클릭 합니다.
-3. 종속성 검색 **중지** 페이지에서 종속성 검색을 중지 하려는 vm을 검색 하는 **어플라이언스** 를 선택 합니다.
+3. **서버 제거**를 클릭 합니다.
+3. **서버 제거** 페이지에서 종속성 검색을 중지 하려는 vm을 검색 하는 **어플라이언스** 를 선택 합니다.
 4. 컴퓨터 목록에서 컴퓨터를 선택 합니다.
-5. **종속성 검색 중지** 를 클릭 합니다.
+5. **서버 제거**를 클릭 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

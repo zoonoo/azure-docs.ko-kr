@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: e9f7a10f19ed23e4f3b4fefa38fbb2d1912f2ac0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348781"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293643"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 격리 모범 사례
 
@@ -54,7 +54,7 @@ AKS 또는 다른 곳의 Kubernetes 환경은 악의적인 다중 테넌트 사�
 
 ![AKS에서 개별 Kubernetes 클러스터의 물리적 격리](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-물리적으로 분리된 클러스터는 일반적으로 Pod 밀도가 낮습니다. 각 팀 또는 워크로드에는 고유한 AKS 클러스터가 있으므로 클러스터는 대개 컴퓨팅 리소스를 사용하여 초과 프로비전됩니다. 일반적으로 해당 노드에는 적은 Pod가 예약됩니다. 노드의 사용되지 않은 용량은 다른 팀에서 개발 중인 애플리케이션 또는 서비스에 사용할 수 없습니다. 이러한 초과 리소스로 인해 물리적으로 분리된 클러스터에서 추가 비용이 발생합니다.
+물리적으로 분리된 클러스터는 일반적으로 Pod 밀도가 낮습니다. 각 팀 또는 워크로드에는 고유한 AKS 클러스터가 있으므로 클러스터는 대개 컴퓨팅 리소스를 사용하여 초과 프로비전됩니다. 종종 작은 수의 pod가 해당 노드에 예약 됩니다. 노드의 사용되지 않은 용량은 다른 팀에서 개발 중인 애플리케이션 또는 서비스에 사용할 수 없습니다. 이러한 초과 리소스로 인해 물리적으로 분리된 클러스터에서 추가 비용이 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 854d98a4f2a1b2500bc301d2305c0dd1f27aaaa4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980825"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289529"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -41,11 +41,11 @@ ms.locfileid: "75980825"
 - 프록시에 필요한 경우 권한 부여 자격 증명을 제공 해야 합니다.
 - URL 기반 방화벽 프록시를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 다음 Url을 허용 목록에 추가 합니다.
 
-    - [VMware 평가를 위한 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
-    - [Hyper-v 평가를 위한 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
-    - [VMware 에이전트 없는 마이그레이션의 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
-    - [VMware 에이전트 기반 마이그레이션의 URL](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
-    - [Hyper-v 마이그레이션의 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
+    - [VMware 평가를 위한 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [Hyper-v 평가를 위한 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
+    - [VMware 에이전트 없는 마이그레이션의 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [VMware 에이전트 기반 마이그레이션의 URL](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [Hyper-v 마이그레이션의 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
 
 - 가로채기 프록시를 사용 하 여 인터넷에 연결 하는 경우 [다음 단계](https://docs.microsoft.com/azure/migrate/concepts-collector)를 사용 하 여 프록시 인증서를 어플라이언스 VM으로 가져옵니다.
 

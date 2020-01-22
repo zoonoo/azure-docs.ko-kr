@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c903e3378e06734a8785531c1a16c695d4b6c21
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 111581def3ed0c366898534ee6b6c5f5b6d9e756
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814944"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293116"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -98,9 +98,16 @@ Azure AD 통합 서비스만 상호 작용 하 고 암호 만료 정책을 준�
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
 
-EnforceCloudPasswordPolicyForPasswordSyncedUsers 기능을 사용 하도록 설정 하려면 MSOnline PowerShell 모듈을 사용 하 여 다음 명령을 실행 합니다.
-
-`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers -Enable $true`
+EnforceCloudPasswordPolicyForPasswordSyncedUsers 기능을 사용 하도록 설정 하려면 아래와 같이 MSOnline PowerShell 모듈을 사용 하 여 다음 명령을 실행 합니다. 아래와 같이 Enable 매개 변수에 예를 입력 해야 합니다.
+```
+`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers`
+`cmdlet Set-MsolDirSyncFeature at command pipeline position 1`
+`Supply values for the following parameters:`
+`Enable: yes`
+`Confirm`
+`Continue with this operation?`
+`[Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y`
+```
 
 사용 하도록 설정 되 면 Azure AD는 동기화 된 각 사용자로 이동 하지 않으므로 PasswordPolicies 특성에서 `DisablePasswordExpiration` 값을 제거 합니다. 대신, 다음에 온-프레미스 AD에서 암호를 변경할 때 각 사용자에 대 한 다음 암호 동기화 중에 값이 `None`로 설정 됩니다.  
 
@@ -160,7 +167,7 @@ Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려
 Azure AD Domain Services를 사용 하 여 Kerberos, LDAP 또는 NTLM을 사용 해야 하는 응용 프로그램 및 서비스에 대 한 레거시 인증을 제공 하는 경우 몇 가지 추가 프로세스는 암호 해시 동기화 흐름의 일부입니다. Azure AD Connect는 다음과 같은 추가 프로세스를 사용 하 여 Azure AD Domain Services에서 사용할 수 있도록 암호 해시를 Azure AD에 동기화 합니다.
 
 > [!IMPORTANT]
-> Azure AD Connect은 온-프레미스 AD DS 환경과의 동기화를 위해서만 설치 되 고 구성 되어야 합니다. Azure AD로 개체를 다시 동기화 하기 위해 Azure AD DS 관리 되는 도메인에 Azure AD Connect를 설치 하는 것은 지원 되지 않습니다.
+> Azure AD Connect는 온-프레미스 AD DS 환경과의 동기화를 위해서만 설치되고 구성되어야 합니다. 개체를 Azure AD로 개체를 다시 동기화하기 위해 Azure AD DS 관리형 도메인에 Azure AD Connect를 설치하는 것은 지원되지 않습니다.
 >
 > Azure AD Connect는 azure AD 테 넌 트에 대해 Azure AD DS를 사용 하도록 설정 하는 경우에만 레거시 암호 해시를 동기화 합니다. Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경을 Azure AD와 동기화 하는 경우에는 다음 단계가 사용 되지 않습니다.
 >

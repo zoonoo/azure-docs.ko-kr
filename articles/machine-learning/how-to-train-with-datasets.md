@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24a19487567f2753457d5886cbb9fa4bf438bad4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982449"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311345"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ df = dataset.to_pandas_dataframe()
 
 * 스크립트에 대 한 스크립트 디렉터리입니다. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 학습 스크립트 *train_titanic. py*.
-* 학습을 위한 입력 데이터 집합 `titanic`입니다.
+* 학습을 위한 입력 데이터 집합 `titanic`입니다. 입력 데이터 집합을 학습 스크립트의 할당 된 이름으로 참조할 수 있도록 `as_named_input()` 필요 합니다. 
 * 실험의 계산 대상입니다.
 * 실험에 대 한 환경 정의입니다.
 
@@ -126,7 +126,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>평가기 구성
 
-평가기의 `inputs` 매개 변수를 통해 데이터 집합을 전달 하는 대신 `script_params`를 통해 데이터 집합을 전달 하 고 인수를 통해 학습 스크립트의 데이터 경로 (탑재 지점)를 가져올 수도 있습니다. 이러한 방식으로 데이터에 액세스 하 고 기존 학습 스크립트를 사용할 수 있습니다.
+평가기의 `inputs` 매개 변수를 통해 데이터 집합을 전달 하는 것 외에도 `script_params`를 통해 데이터 집합을 전달 하 고 인수를 통해 학습 스크립트의 데이터 경로 (탑재 지점)를 가져올 수 있습니다. 이러한 방식으로, 교육 스크립트를 azureml-sdk와 독립적으로 유지할 수 있습니다. 즉, 모든 클라우드 플랫폼에서 로컬 디버깅 및 원격 교육에 대해 동일한 학습 스크립트를 사용할 수 있습니다.
 
 Scikit [학습](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 평가기 개체는에 대 한 실행을 제출 하는 데 사용 됩니다. [평가기](how-to-train-scikit-learn.md)학습을 사용한 학습에 대해 자세히 알아보세요.
 

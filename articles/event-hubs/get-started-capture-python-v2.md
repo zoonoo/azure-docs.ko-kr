@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d7a0c757f7314e45d5b4d13273df984739912b27
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 43223f7cb9ed254340c99d235d494d1e93583c7f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942413"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293541"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-using-python"></a>Azure Storage에서 Event Hubs 데이터 캡처 및 Python을 사용 하 여 읽기 
 이벤트 허브에 전송 되는 데이터를 Azure Storage 또는 Azure Data Lake Storage로 캡처하도록 이벤트 허브 구성을 사용할 수 있습니다. 이 문서에서는 Python 코드 작성을 사용 하 여 이벤트 허브로 이벤트를 보내고 Azure blob storage에서 캡처된 데이터를 읽는 방법을 보여 줍니다. 이 기능에 대 한 자세한 내용은 [Event Hubs 캡처 기능 개요](event-hubs-capture-overview.md)를 참조 하세요.
@@ -42,9 +42,9 @@ ms.locfileid: "75942413"
 - Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 - [네임 스페이스에 Event Hubs 네임 스페이스와 이벤트 허브를 만듭니다](event-hubs-create.md). Event Hubs 네임 스페이스의 이름, 이벤트 허브 이름 및 네임 스페이스에 대 한 기본 액세스 키를 적어둡니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)문서의 지침에 따라 액세스 키를 가져옵니다. 기본 키 이름은 **RootManageSharedAccessKey**입니다. 자습서에 대 한 연결 문자열은 필요 하지 않습니다. 기본 키만 필요 합니다. 
 - **Azure Storage 계정** 및 **blob 컨테이너**를 만들려면 다음 단계를 따르세요.
-    1. [Azure Storage 계정을 만듭니다](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
-    2. [저장소에 blob 컨테이너를 만듭니다](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
-    3. [저장소 계정에 대 한 연결 문자열을 가져옵니다.](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+    1. [Azure Storage 계정을 만듭니다](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    2. [저장소에 blob 컨테이너를 만듭니다](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
+    3. [저장소 계정에 대 한 연결 문자열을 가져옵니다](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string).
 
         **연결 문자열과** **컨테이너 이름을**적어 둡니다. 코드에서 나중에 사용 합니다. 
 - 다음 지침에 따라 이벤트 허브에 대 한 **캡처** 기능을 사용 하도록 설정: [Azure Portal를 사용 하 여 Event Hubs 캡처를 사용 하도록 설정](event-hubs-capture-enable-through-portal.md)합니다. 이전 단계에서 만든 저장소 계정 및 blob 컨테이너를 선택 합니다. 또한 이벤트 허브를 만들 때이 기능을 사용 하도록 설정할 수 있습니다. 

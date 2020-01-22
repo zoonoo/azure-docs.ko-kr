@@ -8,12 +8,12 @@ ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: d59cca4b5c956134516aa2c8066894aa14e5d33d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec7091a32a1be8d875e16d8e0a9b20b5e80de387
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453097"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291960"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>계산 서비스를 사용 하 여 모바일 백 엔드 구성 요소 빌드
 모든 모바일 응용 프로그램에는 데이터 저장소, 비즈니스 논리 및 보안을 담당 하는 백 엔드가 필요 합니다. 백 엔드 코드를 호스트 하 고 실행 하는 인프라를 관리 하려면 여러 서버 크기를 조정 하 고 프로 비전 하 고 크기를 조정 해야 합니다. 또한 OS 업데이트 및 관련 하드웨어를 관리 하 고 보안 패치를 적용 해야 합니다. 그런 다음 성능, 가용성 및 내결함성을 위해 이러한 모든 인프라 구성 요소를 모니터링 해야 합니다. 
@@ -36,7 +36,7 @@ ms.locfileid: "75453097"
 - 트리거 및 바인딩을 사용 하 여 함수가 호출 되는 시기 및 연결 된 데이터를 정의할 수 있는 이벤트 기반 및 확장 가능.
 - 함수에서 NuGet 및 NPM을 지원 하므로 사용자의 종속성을 가져올 수 있으므로 즐겨 사용 하는 라이브러리를 사용할 수 있습니다.
 - Azure Active Directory, Facebook, Google, Twitter, Microsoft 계정 등의 OAuth 공급자를 사용 하 여 HTTP 트리거 함수를 보호할 수 있도록 통합 보안.
-- 서로 다른 [Azure 서비스](/azure/azure-functions/functions-overview#integrations) 및 SaaS (software as a service) 제품을 사용한 간소화 된 통합.
+- 서로 다른 [Azure 서비스](/azure/azure-functions/functions-overview) 및 SaaS (software as a service) 제품을 사용한 간소화 된 통합.
 - 유연한 개발-Azure Portal에서 바로 함수를 코딩 하거나 지속적인 통합을 설정 하 고 GitHub, Azure DevOps Services 및 기타 지원 되는 개발 도구를 통해 코드를 배포할 수 있습니다.
 - 함수 런타임은 오픈 소스 이며 [GitHub](https://github.com/azure/azure-webjobs-sdk-script)에서 사용할 수 있습니다.
 - 통합 도구와 기본 제공 DevOps 기능을 사용한 모니터링을 통해 기본 설정 된 편집기나 사용 하기 쉬운 웹 인터페이스를 사용 하 여 로컬로 코딩, 테스트 및 디버그할 수 있는 향상 된 개발 환경.

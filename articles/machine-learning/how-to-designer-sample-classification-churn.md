@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: sgilley
 ms.date: 12/25/2019
-ms.openlocfilehash: 9e0bae722430662ddbe252e82c5108eb820ce352
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 88f688608a0ae3d435699362f9326c7c02d494a4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660129"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311119"
 ---
 # <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>승격 된 의사 결정 트리를 사용 하 여 Azure Machine Learning 디자이너에서 변동 예측
 
-**Designer (미리 보기) 샘플 5**
+**디자이너 샘플 5**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 복잡 한 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다.
+디자이너를 사용 하 여 코드를 한 줄도 작성 하지 않고 복잡 한 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다.
 
 이 파이프라인은 CRM (고객 관계 관리) 시스템-고객 변동에 대 한 일반 작업을 예측 하기 위해 2 **클래스 승격 된 의사 결정 트리** 분류자 2 개를 학습 합니다. 데이터 값과 레이블은 여러 데이터 원본에 걸쳐 분할 되 고 익명화 고객 정보를 제공 합니다. 그러나 디자이너를 사용 하 여 데이터 집합을 결합 하 고 가려진 값을 사용 하 여 모델을 학습 시킬 수 있습니다.
 

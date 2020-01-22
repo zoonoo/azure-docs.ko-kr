@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75750398"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310784"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -1299,7 +1299,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |모델 배포 시작 됨|모델 배포 시작 됨|카운트|합계|이 작업 영역에서 시작 된 모델 배포 수|시나리오|
 |모델 배포 성공|모델 배포 성공|카운트|합계|이 작업 영역에서 성공한 모델 배포 수|시나리오|
 |모델 배포 실패|모델 배포 실패|카운트|합계|이 작업 영역에서 실패 한 모델 배포 수|시나리오, StatusCode|
-|총 노드|총 노드|카운트|평균|총 노드 수입니다. 이 합계에는 활성 노드, 유휴 노드, 사용할 수 없는 노드, Premepted 노드, 노드가 남아 있습니다.|시나리오, ClusterName|
+|총 노드|총 노드|카운트|평균|총 노드 수입니다. 이 합계에는 활성 노드, 유휴 노드, 사용할 수 없는 노드, 선점 된 노드, 노드가 남아 있습니다.|시나리오, ClusterName|
 |활성 노드|활성 노드|카운트|평균|활성 노드 수입니다. 작업을 적극적으로 실행 중인 노드입니다.|시나리오, ClusterName|
 |유휴 노드|유휴 노드|카운트|평균|유휴 노드의 수입니다. 유휴 노드는 작업을 실행 하지 않지만 사용 가능한 경우 새 작업을 허용할 수 있는 노드입니다.|시나리오, ClusterName|
 |사용할 수 없는 노드|사용할 수 없는 노드|카운트|평균|사용할 수 없는 노드 수입니다. 확인할 수 없는 노드는 확인할 수 없는 문제 때문에 작동 하지 않습니다. Azure는 이러한 노드를 재활용 합니다.|시나리오, ClusterName|

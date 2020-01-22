@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: c85ce38f88ecf113a9d27e82b0be12bbfb0b3b47
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8cbc067326bf77648d242cadaf91b491f50c3848
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122664"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294272"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>데이터 흐름 매핑의 데이터 변환 식 
 
@@ -152,11 +152,11 @@ ___
 ___
 ### <code>currentUTC</code>를 사용 하 여 작업을 실행 하기 시작할 때 현재 타임 스탬프를 가져옵니다 
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-현재 타임 스탬프를 UTC로 가져옵니다. 현재 시간을 클러스터 표준 시간대와 다른 표준 시간대로 해석 하려면 선택적인 표준 시간대를 ' GMT ', ' PST ', ' UTC ', ' 아메리카/케이맨 ' 형식으로 전달할 수 있습니다. 기본적으로 현재 표준 시간대로 설정 됩니다. 사용 가능한 형식에 대 한 자세한 내용은 Java의 SimpleDateFormat를 참조 하세요. UTC 시간을 다른 표준 시간대로 변환 하 https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo fromUTC () * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+현재 타임 스탬프를 UTC로 가져옵니다. 현재 시간을 클러스터 표준 시간대와 다른 표준 시간대로 해석 하려면 선택적인 표준 시간대를 ' GMT ', ' PST ', ' UTC ', ' 아메리카/케이맨 ' 형식으로 전달할 수 있습니다. 기본적으로 현재 표준 시간대로 설정 됩니다. 사용 가능한 형식에 대 한 자세한 내용은 Java의 SimpleDateFormat를 참조 하세요. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)를 참조하세요. UTC 시간을 다른 표준 시간대로 변환 하려면 fromUTC () * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
-### <code>dayOfMonth</code>
+### <code>dayOfMonth</code>을 사용 
 <code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 날짜가 지정 된 날짜 * ``dayOfMonth(toDate('2018-06-08')) -> 8``
 ___

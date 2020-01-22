@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 93fad58e971d761f626b79dc68f9576ccc2e1892
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994000"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290141"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 사용 약관 이해
 
@@ -90,11 +90,11 @@ PublisherType | 전체 | 게시자 유형 (값: **Azure**, **AWS**, **Marketplac
 수량 | 전체 | 구매 또는 소비된 단위 수입니다.
 ReservationId | EA, MCA | 구매한 예약 인스턴스의 고유 식별자입니다.
 ReservationName | EA, MCA | 구매한 예약 인스턴스의 이름입니다.
-ResourceGroup | 전체 | 리소스가 속하는 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)의 이름입니다.
+ResourceGroup | 전체 | 리소스가 속하는 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)의 이름입니다. 모든 요금은 리소스 그룹에 배포 된 리소스에서 제공 되는 것은 아닙니다. 리소스 그룹이 없는 요금은 null/비어 있음, **기타**또는 **해당 없음**으로 표시 됩니다.
 ResourceId<sup>1</sup> | 전체 | [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) 리소스의 고유 식별자입니다.
 ResourceLocation | 전체 | 리소스가 실행되고 있는 데이터 센터 위치입니다. Location을 참조하세요.
-ResourceName | EA, PAYG | 리소스의 이름입니다.
-ResourceType | MCA | 리소스 인스턴스의 유형입니다.
+ResourceName | EA, PAYG | 리소스의 이름입니다. 모든 요금은 배포 된 리소스에서 제공 되는 것은 아닙니다. 리소스 종류가 없는 요금은 null/비어 있음, **기타**또는 **해당 없음**으로 표시 됩니다.
+ResourceType | MCA | 리소스 인스턴스의 유형입니다. 모든 요금은 배포 된 리소스에서 제공 되는 것은 아닙니다. 리소스 종류가 없는 요금은 null/비어 있음, **기타**또는 **해당 없음**으로 표시 됩니다.
 ServiceFamily | MCA | 서비스가 속한 서비스 제품군입니다.
 ServiceInfo1 | 전체 | 서비스 특정 메타데이터입니다.
 ServiceInfo2 | 전체 | 선택적 서비스 특정 메타데이터를 포함하는 레거시 필드입니다.

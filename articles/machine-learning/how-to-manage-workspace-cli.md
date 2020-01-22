@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 11/05/2019
-ms.openlocfilehash: 6243b702e38e2a2edbe17a665be1d57b3921b6fd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: f22145541369093f9cb8a2e9d06b705b6b2121df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867102"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289869"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -161,7 +161,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**: ' az keyvault show--name < Key-name >--QUERY "ID"
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 키 자격 증명 모음에 대 한 ID입니다.
 

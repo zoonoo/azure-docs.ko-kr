@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6a77fa8c6c48c9c3d4f2eba3ba56ac9114707a
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122991"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290702"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>응용 프로그램에 대 한 동의 관리 및 승인 요청 평가
 
@@ -42,7 +42,7 @@ ms.locfileid: "76122991"
 
 3. 조직에 적절 한 라이선스가 있는 경우:
 
-    * [Microsoft Cloud App Security의 추가 OAuth 응용 프로그램 감사 기능을](https://docs.microsoft.com/azure/cloud-app-security/investigate-risky-oauth)사용 합니다.
+    * [Microsoft Cloud App Security의 추가 OAuth 응용 프로그램 감사 기능을](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)사용 합니다.
     * [Azure Monitor 통합 문서를 사용 하 여 권한 및 동의 관련 작업을 모니터링할 수](../reports-monitoring/howto-use-azure-monitor-workbooks.md) 있습니다. *동의 Insights* 통합 문서는 실패 한 승인 요청 수 별 앱 보기를 제공 합니다. 이는 관리자가 관리자에 게 동의를 부여할지 여부를 결정 하는 응용 프로그램의 우선 순위를 지정 하는 데 도움이 될 수 있습니다.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>마찰을 줄이기 위한 추가 고려 사항

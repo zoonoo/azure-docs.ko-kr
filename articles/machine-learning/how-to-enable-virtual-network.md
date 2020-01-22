@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: b647af11e47952656011a06268d4b0f384126ae9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263713"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289615"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 >
 > 기본 저장소 계정은 작업 영역을 만들 때 자동으로 프로 비전 됩니다.
 >
-> 기본이 아닌 저장소 계정의 경우 [`Workspace.create()` 함수의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) `storage_account` 매개 변수를 사용 하 여 AZURE 리소스 ID로 사용자 지정 저장소 계정을 지정할 수 있습니다.
+> 기본이 아닌 저장소 계정의 경우 [`Workspace.create()` 함수의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) `storage_account` 매개 변수를 사용 하 여 AZURE 리소스 ID로 사용자 지정 저장소 계정을 지정할 수 있습니다.
 
 ## <a name="use-azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2 사용
 

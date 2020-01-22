@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c4ed78dc9fd277fc61a923364519e338a9f720c2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889514"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290396"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -111,7 +111,7 @@ az aks create \
 
 상태 비저장 애플리케이션 마이그레이션은 가장 간단한 경우입니다. 리소스 정의 (YAML 또는 투구)를 새 클러스터에 적용 하 고 모든 항목이 예상 대로 작동 하는지 확인 하 고 트래픽을 리디렉션하여 새 클러스터를 활성화 합니다.
 
-### <a name="considers-for-stateful-applications"></a>상태 저장 응용 프로그램 고려
+### <a name="considerations-for-stateful-applications"></a>상태 저장 응용 프로그램에 대 한 고려 사항
 
 데이터 손실 또는 예기치 않은 가동 중지 시간을 방지 하기 위해 상태 저장 응용 프로그램의 마이그레이션을 신중 하 게 계획 합니다.
 
@@ -161,7 +161,7 @@ Azure Managed Disks를 사용 하는 경우 VM에 연결 되지 않은 경우에
 
 ### <a name="deployment-of-your-cluster-configuration"></a>클러스터 구성 배포
 
-기존 CI (지속적인 통합) 및 CD (지속적인 배달) 파이프라인을 사용 하 여 AKS에 알려진 양호한 구성을 배포 하는 것이 좋습니다. Azure Pipelines를 사용 하 여 [응용 프로그램을 빌드 및 배포](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops) 하 여 기존 배포 작업을 AKS 복제 하 고 `kubeconfig` 새 AKS 클러스터를 가리키는지 확인할 수 있습니다.
+기존 CI (지속적인 통합) 및 CD (지속적인 배달) 파이프라인을 사용 하 여 AKS에 알려진 양호한 구성을 배포 하는 것이 좋습니다. Azure Pipelines를 사용 하 여 [응용 프로그램을 빌드하고 응용 프로그램을 AKS에 배포할](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)수 있습니다. 기존 배포 작업을 복제 하 고 `kubeconfig` 새 AKS 클러스터를 가리키는지 확인 합니다.
 
 가능 하지 않은 경우 기존 Kubernetes 클러스터에서 리소스 정의를 내보낸 다음 AKS에 적용 합니다. `kubectl`을 사용하여 개체를 내보낼 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2020
 ms.author: aschhab
-ms.openlocfilehash: a795aa536e6e72b487abd18e60cfa52d6ab633ee
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 20d9fc141fa19a5c6d01f33c2a5398ca84497b9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264885"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309968"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus에 대 한 문제 해결 가이드
 이 문서에서는 Service Bus .NET Framework Api에 의해 생성 되는 몇 가지 .NET 예외 및 문제 해결을 위한 기타 팁을 제공 합니다. 
@@ -110,6 +110,23 @@ ConnectionsQuotaExceeded for namespace xxx.
 다음 단계는 *. servicebus.windows.net의 모든 서비스에 대 한 연결/인증서/시간 제한 문제를 해결 하는 데 도움이 될 수 있습니다. 
 
 - `https://<yournamespace>.servicebus.windows.net/`또는 [wget](https://www.gnu.org/software/wget/) 으로 이동 합니다. IP 필터링 또는 가상 네트워크 또는 인증서 체인 문제가 있는지 여부를 확인 하는 데 도움이 됩니다 (java SDK를 사용 하는 경우 가장 일반적으로).
+
+    성공적인 메시지의 예:
+    
+    ```xml
+    <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
+    ```
+    
+    오류 메시지의 예는 다음과 같습니다.
+
+    ```json
+    <Error>
+        <Code>400</Code>
+        <Detail>
+            Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
+        </Detail>
+    </Error>
+    ```
 - 다음 명령을 실행 하 여 방화벽에서 차단 된 포트가 있는지 확인 합니다. 사용 되는 포트는 443 (HTTPS), 5671 (AMQP) 및 9354 (Net Messaging/SBMP)입니다. 사용 하는 라이브러리에 따라 다른 포트도 사용 됩니다. 다음은 5671 포트가 차단 되었는지 여부를 확인 하는 샘플 명령입니다. 
 
     ```powershell

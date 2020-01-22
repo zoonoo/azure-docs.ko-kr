@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 227bf490d1ac264bb54ff3d1ecf0ccc2b3ef2e0e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: bfae0d8eed80a88475c447a141097022fed9adff
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763555"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311137"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>기능 선택을 사용 하 여 Azure Machine Learning 디자이너와 수입을 예측 & 분류자 빌드
 
-**Designer (미리 보기) 샘플 3**
+**디자이너 샘플 3**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 분류자를 빌드하는 방법에 대해 알아봅니다. 이 샘플은 성인용 인구 조사 수입 (> = 50K 또는 < = 50K)을 예측 하는 **2 클래스 승격 된 의사 결정 트리** 를 학습 합니다.
+디자이너를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 분류자를 빌드하는 방법에 대해 알아봅니다. 이 샘플은 성인용 인구 조사 수입 (> = 50K 또는 < = 50K)을 예측 하는 **2 클래스 승격 된 의사 결정 트리** 를 학습 합니다.
 
 질문에 대 한 응답은 이를 분류 문제 라고 합니다. 그러나 동일한 기본 프로세스를 적용 하 여 회귀, 분류, 클러스터링 등 모든 유형의 기계 학습 문제를 다룰 수 있습니다.
 

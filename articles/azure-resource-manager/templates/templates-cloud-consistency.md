@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 0c69c90410aab7fa37ab87e82314c53e4459ca25
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155658"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290651"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -55,7 +55,7 @@ Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 
 
 1. 리포지토리의 로컬 복제본이 있으면 PowerShell을 사용하여 대상의 Azure Resource Manager에 연결합니다.
 
-1. psm1 모듈을 가져오고 Test-AzureRmureRmTemplateFunctions cmdlet을 실행합니다.
+1. psm1 모듈을 가져오고 Test-AzureRmTemplateFunctions cmdlet을 실행합니다.
 
    ```powershell
    # Import the module

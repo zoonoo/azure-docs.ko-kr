@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ac66e46d449100fcdd004627820252473f6e2f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472602"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293660"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
-AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 및 워크로드를 격리해야 합니다. Kubernetes 스케줄러는 특정 노드에서 어떤 Pod 예약할 수 있는지 또는 다중 Pod 애플리케이션을 클러스터에 적절히 배포하는 방법을 제어할 수 있는 고급 기능을 제공합니다. 
+AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 및 워크로드를 격리해야 합니다. Kubernetes scheduler는 특정 노드에 대해 예약할 수 있는 pod 또는 다중 pod 응용 프로그램을 클러스터 전체에 적절 하 게 분산 하는 방법을 제어할 수 있는 고급 기능을 제공 합니다. 
 
 이 모범 사례 문서에서는 클러스터 운영자의 고급 Kubernetes 예약 기능을 중점적으로 설명합니다. 이 문서에서는 다음 방법을 설명합니다.
 

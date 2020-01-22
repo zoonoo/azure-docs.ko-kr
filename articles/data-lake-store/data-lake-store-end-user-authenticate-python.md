@@ -1,5 +1,5 @@
 ---
-title: '최종 사용자 인증: Azure Active Directory를 사용 하 Azure Data Lake Storage Gen1 Python Microsoft Docs'
+title: '최종 사용자 인증: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1과 함께 Python 사용 | Microsoft Docs'
 description: Azure Active Directory와 Python을 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 6a7e1b36e01094ea8ce65a785de0aad9494f4dbb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c69f6c1f587285c5c52280c4c49008764d5b20d8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088872"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294136"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Python을 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "71088872"
 
 이 문서에서는 두 옵션을 모두 설명합니다. Python을 사용하여 Data Lake Storage Gen1에서 서비스 간 인증을 수행하려면 [Python을 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-python.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 
@@ -48,7 +48,7 @@ Python을 통해 Data Lake Storage Gen1을 사용하려면 세 가지 모듈을 
 
 * Active Directory 등 Azure 모듈을 포함하는 `azure-mgmt-resource` 모듈.
 * Azure Data Lake Storage Gen1 계정 관리 작업을 포함하는 `azure-mgmt-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Storage Gen1 관리 모듈 참조](/python/api/azure-mgmt-datalake-store/)를 참조하세요.
-* Azure Data Lake Storage Gen1 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [azure-datalake-store 파일 시스템 모듈 참조](https://azure-datalake-store.readthedocs.io/en/latest/)를 참조하세요.
+* Azure Data Lake Storage Gen1 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [azure-datalake-store 파일 시스템 모듈 참조](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/)를 참조하세요.
 
 다음 명령을 사용하여 모듈을 설치합니다.
 

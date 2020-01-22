@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: 8bfa9237d365636c0bdaa3af06c5af23b683231d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: d06e75ec900faa17ed4441c20a52d8da60ee4d97
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563543"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289461"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 
@@ -53,7 +53,7 @@ Azure Migrate는 Azure로의 평가 및 마이그레이션에 대 한 중앙 집
 
 ## <a name="which-geographies-are-supported"></a>지원 되는 지역
 
-[VMWARE vm](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) 및 [hyper-v vm](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects)에 대해 지원 되는 Azure Migrate 지역을 검토 합니다.
+[VMWARE vm](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) 및 [hyper-v vm](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)에 대해 지원 되는 Azure Migrate 지역을 검토 합니다.
 
 ## <a name="how-do-i-get-started"></a>시작하려면 어떻게 하나요?
 

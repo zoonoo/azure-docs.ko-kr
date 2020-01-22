@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: ee15836906eef0b9205691f9a6003cea0b9fae80
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 809216aadb77f014b7fb461ba8439070c5e23d43
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036459"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291892"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>OpenBSD 디스크 이미지 만들기 및 Azure로 업로드
 이 문서에서는 OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure CLI를 통해 Azure에서 VM(가상 머신)을 만들 수 있습니다.
 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
 * **Azure 구독** - 계정이 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
 * **Azure CLI** - 최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치했고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
-* **.Vhd 파일에 설치 된 Openbsd 운영** 체제-가상 하드 디스크에 지원 되는 openbsd 운영 체제 ([6.2 버전 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.2/amd64/))를 설치 해야 합니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. Hyper-V를 설치하고 사용하는 방법에 대한 자세한 내용은 [Hyper-V 설치 및 가상 머신 만들기](https://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
+* **.Vhd 파일에 설치 된 Openbsd 운영** 체제-가상 하드 디스크에 지원 되는 openbsd 운영 체제 ([6.6 버전 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/))를 설치 해야 합니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. Hyper-V를 설치하고 사용하는 방법에 대한 자세한 내용은 [Hyper-V 설치 및 가상 머신 만들기](https://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>OpenBSD 이미지를 Azure에 사용하도록 준비

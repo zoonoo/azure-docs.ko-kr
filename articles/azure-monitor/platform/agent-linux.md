@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/24/2019
-ms.openlocfilehash: c06a7551a5c0f14be94ed14072b81c189e359aa8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/21/2020
+ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541999"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290328"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Azure Monitor에 Linux 컴퓨터 연결
 
@@ -74,9 +74,10 @@ Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 
 
 Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능한 셸 스크립트 번들로 제공 됩니다. 이 번들은 각 에이전트 구성 요소에 대한 Debian 및 RPM 패키지를 포함하며, 직접 설치되거나 압축이 풀린 후에 개별 패키지를 검색하는 데 사용될 수 있습니다. 하나의 번들은 x64 및 x86 아키텍처용으로 제공 됩니다. 
 
-Azure Vm의 경우 Linux 용 [azure LOG ANALYTICS VM 확장](../../virtual-machines/extensions/oms-linux.md) 을 사용 하 여 에이전트를 설치 하는 것이 좋습니다. 
+> [!NOTE]
+> Azure Vm의 경우 Linux 용 [azure LOG ANALYTICS VM 확장](../../virtual-machines/extensions/oms-linux.md) 을 사용 하 여 에이전트를 설치 하는 것이 좋습니다. 
 
-1. Scp/sftp를 사용 하 여 적절 한 번들 (x86 또는 x64)을 Linux VM 또는 물리적 컴퓨터로 전송 합니다.
+1. Scp/sftp를 사용 하 여 적절 한 번들 (x64 또는 x86)을 [다운로드](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) 하 고 Linux VM 또는 물리적 컴퓨터에 전송 합니다.
 
 2. `--install` 인수를 사용 하 여 번들을 설치 합니다. 설치 하는 동안 Log Analytics 작업 영역에 등록 하려면 앞에서 복사한 `-w <WorkspaceID>` 및 `-s <workspaceKey>` 매개 변수를 제공 합니다.
 
@@ -133,7 +134,7 @@ Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    다음 명령에는 프록시 서버에서 인증을 요구 하는 경우 `-p` 프록시 매개 변수와 예제 구문이 포함 되어 있습니다.
+    다음 명령에는 프록시 서버에서 인증이 필요한 경우 `-p` 프록시 매개 변수와 예제 구문이 포함되어 있습니다.
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -145,7 +146,7 @@ Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    다음 명령에는 프록시 서버에서 인증을 요구 하는 경우 `-p` 프록시 매개 변수와 예제 구문이 포함 되어 있습니다.
+    다음 명령에는 프록시 서버에서 인증이 필요한 경우 `-p` 프록시 매개 변수와 예제 구문이 포함되어 있습니다.
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a52977a46c1222a1626fa5a4dcb4de7dd84f8dd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638207"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291484"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 
@@ -294,7 +294,7 @@ Azure는 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure
 가용성 영역을 사용하여 고려할 일부 사항이 있습니다. 고려 사항 목록은 다음과 같습니다.
 
 - 가용성 영역 내에서 Azure 가용성 집합을 배포할 수 없습니다. VM에 대한 배포 프레임으로 가용성 영역 또는 가용성 집합을 선택해야 합니다.
-- [기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus)를 사용하여 Windows 장애 조치(failover) 클러스터 서비스 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터솔루션을 만들 수 없습니다. 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다.
+- [기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 사용하여 Windows 장애 조치(failover) 클러스터 서비스 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터솔루션을 만들 수 없습니다. 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다.
 - Azure 가용성 영역은 한 지역 내의 다른 영역 간 특정 거리의 어떤 보증도 제공하지 않습니다.
 - 서로 다른 Azure 지역 내에서 다양한 Azure 가용성 영역 간의 네트워크 대기 시간은 Azure 지역에서 지역으로 달라질 수 있습니다. 하나의 영역에서 활성 DBMS VM으로의 네트워크 대기 시간은 비즈니스 프로세스 영향에서 여전히 허용 가능하므로 고객으로서 다른 영역에서 배포된 SAP 애플리케이션 계층을 합리적으로 실행할 수 있는 경우가 있습니다. 반면 하나의 영역에서 활성 DBMS VM과 다른 영역에서 VM의 SAP 애플리케이션 인스턴스 간의 대기 시간은 너무 방해가 되며 SAP 비즈니스 프로세스에 대해 허용되지 않을 수 있는 고객 시나리오가 있습니다. 결과적으로 배포 아키텍처는 대기 시간이 너무 높은 경우 애플리케이션에 대한 활성/활성 아키텍처 또는 능동/수동 아키텍처와 달라야 합니다.
 - [Azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/) 사용은 Azure 가용성 영역으로 배포에 필수 항목입니다. 

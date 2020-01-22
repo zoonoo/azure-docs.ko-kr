@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 54ca0df005dccceacc88044a51f31ad784b7071b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 1430db34f9c31cbd9d9df921650c628d265bccc5
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763405"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311090"
 ---
 # <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 신용 위험을 예측 하는 Python 스크립트를 사용 하 & 분류자 빌드
 
-**Designer (미리 보기) 샘플 4**
+**디자이너 샘플 4**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-이 문서에서는 디자이너 (미리 보기)를 사용 하 여 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. Python 스크립트를 사용 하 여 사용자 지정 논리를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
+이 문서에서는 디자이너를 사용 하 여 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. Python 스크립트를 사용 하 여 사용자 지정 논리를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
 
 이 샘플은 신용 기록, 연령 및 신용 카드 수와 같은 크레딧 응용 프로그램 정보를 사용 하 여 신용 위험을 예측 하는 분류자를 학습 합니다. 그러나이 문서의 개념을 적용 하 여 고유한 기계 학습 문제를 다룰 수 있습니다.
 

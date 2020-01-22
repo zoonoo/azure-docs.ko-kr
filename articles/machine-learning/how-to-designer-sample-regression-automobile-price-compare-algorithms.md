@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: f8cf20743ee5420312ed751a26796a0859956ae7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b2511feefbe419223f355509ecb435518ce8382e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771447"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311052"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 여러 회귀 모델을 비교 하 여 자동차 가격 예측 & 학습
 
-**Designer (미리 보기) 샘플 2**
+**디자이너 샘플 2**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다. 이 샘플은 여러 회귀 모델을 학습 하 고 비교 하 여 기술 기능에 따라 자동차 가격을 예측 합니다. 사용자 고유의 기계 학습 문제를 다룰 수 있도록이 파이프라인에서 선택한 항목에 대 한 근거를 제공 합니다.
+디자이너를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다. 이 샘플은 여러 회귀 모델을 학습 하 고 비교 하 여 기술 기능에 따라 자동차 가격을 예측 합니다. 사용자 고유의 기계 학습 문제를 다룰 수 있도록이 파이프라인에서 선택한 항목에 대 한 근거를 제공 합니다.
 
 기계 학습을 시작 하는 경우이 파이프라인의 [기본 버전](how-to-designer-sample-regression-automobile-price-basic.md) 을 살펴보세요.
 

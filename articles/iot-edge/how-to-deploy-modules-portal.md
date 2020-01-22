@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7a3280e11d40a361c5a3305d71e58661b37b8bd1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: e4bf079d46271cadc0176fe5602adcdc3954dee5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563431"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290719"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -53,7 +53,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 ### <a name="specify-routes"></a>경로 지정
 
-**경로** 탭에서 모듈과 IoT Hub 간에 메시지를 전달 하는 방법을 정의 합니다. 메시지는 이름/값 쌍을 사용 하 여 생성 됩니다. 기본적으로 경로는 **경로** 라고 하며 * */messages/에서* $upstream * *로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub로 전송 됩니다.  
+**경로** 탭에서 모듈과 IoT Hub 간에 메시지를 전달 하는 방법을 정의 합니다. 메시지는 이름/값 쌍을 사용 하 여 생성 됩니다. 기본적으로 경로는 **경로** 라고 하며 **/messages/\*에서 $upstream**로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub에 전송 됩니다.  
 
 [선언 경로](module-composition.md#declare-routes)에서 정보를 사용 하 여 경로를 추가 하거나 업데이트 한 후 다음을 선택 합니다. 마법사의 다음 단계로 계속 진행 하려면 **다음** 을 선택 합니다.
 

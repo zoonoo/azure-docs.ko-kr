@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 1359f645c634f401f139fe1cd559f23aa4126c22
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 054113da7fe06436fab0cdfff6c4257f1263de97
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029977"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290362"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Azure 디스크를 사용 하 여 사용자 고유의 키 (BYOK) 가져오기
 
@@ -191,4 +191,4 @@ kubectl apply -f byok-azure-disk.yaml
 [byok-azure-portal]: /azure/storage/common/storage-encryption-keys-portal
 [customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys
 [key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
-[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-scenarios-and-restrictions
+[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-regions

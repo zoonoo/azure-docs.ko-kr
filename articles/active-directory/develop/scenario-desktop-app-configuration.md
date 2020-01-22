@@ -15,27 +15,27 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1724c25ef2d85aa8f838811864104b49576a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 473f0895ca53fb78b48c828eac807feb25364378
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423907"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293133"
 ---
-# <a name="desktop-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 데스크톱 앱-코드 구성
+# <a name="desktop-app-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 데스크톱 앱: 코드 구성
 
 이제 응용 프로그램을 만들었으므로 응용 프로그램 좌표를 사용 하 여 코드를 구성 하는 방법을 배웁니다.
 
-## <a name="msal-libraries"></a>MSAL 라이브러리
+## <a name="microsoft-authentication-libraries"></a>Microsoft 인증 라이브러리
 
-데스크톱 응용 프로그램을 지 원하는 Microsoft 라이브러리는 다음과 같습니다.
+다음 MSALs (Microsoft 인증 라이브러리)는 데스크톱 응용 프로그램을 지원 합니다.
 
-  MSAL 라이브러리 | Description
+  Microsoft 인증 라이브러리 | Description
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 여러 플랫폼 (Linux, Windows 및 MacOS)에서 데스크톱 응용 프로그램을 빌드할 수 있도록 지원 합니다.
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Linux, Windows 및 macOS와 같은 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있도록 지원 합니다.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 에서는 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있습니다.
   ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 에서는 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있습니다.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | MacOS 에서만 실행 되는 데스크톱 응용 프로그램 지원
+  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | MacOS 에서만 실행 되는 데스크톱 응용 프로그램을 지원 합니다.
 
 ## <a name="public-client-application"></a>공용 클라이언트 응용 프로그램
 
@@ -49,14 +49,14 @@ MSAL.NET `IPublicClientApplication`를 빌드하고 조작 해야 합니다.
 
 ### <a name="exclusively-by-code"></a>코드 전용
 
-다음 코드에서는 회사 및 학교 계정이 나 개인 Microsoft 계정를 사용 하 여 공용 클라이언트 응용 프로그램, Microsoft Azure 공용 클라우드의 로그인 사용자를 인스턴스화합니다.
+다음 코드는 공용 클라이언트 응용 프로그램을 인스턴스화하고 회사 또는 학교 계정 또는 개인 Microsoft 계정를 사용 하 여 Microsoft Azure 공용 클라우드의 사용자에 게 로그인 합니다.
 
 ```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-위에서 설명한 것 처럼 대화형 인증 또는 장치 코드 흐름을 사용 하려는 경우 `.WithRedirectUri` 한정자를 사용 합니다.
+앞서 살펴본 것 처럼 대화형 인증 또는 장치 코드 흐름을 사용 하려는 경우 `.WithRedirectUri` 한정자를 사용 합니다.
 
 ```csharp
 IPublicClientApplication app;
@@ -65,9 +65,9 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="using-configuration-files"></a>구성 파일 사용
+### <a name="use-configuration-files"></a>구성 파일 사용
 
-다음 코드는 구성 개체에서 공용 클라이언트 응용 프로그램을 인스턴스화하고 구성 파일에서 프로그래밍 방식으로 채우거 나 읽을 수 있습니다.
+다음 코드는 구성 개체에서 프로그래밍 방식으로 채우거 나 구성 파일에서 읽을 수 있는 공용 클라이언트 응용 프로그램을 인스턴스화합니다.
 
 ```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
@@ -78,7 +78,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### <a name="more-elaborated-configuration"></a>보다 정교한 구성
 
-여러 한정자를 추가 하 여 응용 프로그램 빌드를 정교 하 게 만들 수 있습니다. 예를 들어 응용 프로그램을 국가 클라우드의 다중 테 넌 트 응용 프로그램 (미국 정부 기관)으로 만들려면 다음을 작성할 수 있습니다.
+여러 한정자를 추가 하 여 응용 프로그램 빌드를 정교 하 게 만들 수 있습니다. 예를 들어, 응용 프로그램이 여기에 표시 된 미국 정부와 같이 국가별 클라우드의 다중 테 넌 트 응용 프로그램을 원하는 경우 다음을 작성할 수 있습니다.
 
 ```csharp
 IPublicClientApplication app;
@@ -89,7 +89,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-또한 MSAL.NET에는 ADFS 2019에 대 한 한정자가 포함 되어 있습니다.
+MSAL.NET에는 Active Directory Federation Services 2019에 대 한 한정자도 포함 되어 있습니다.
 
 ```csharp
 IPublicClientApplication app;
@@ -98,7 +98,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-마지막으로 Azure AD B2C 테 넌 트에 대 한 토큰을 가져오려는 경우는 다음 코드 조각과 같이 테 넌 트를 지정할 수 있습니다.
+마지막으로, Azure Active Directory (Azure AD) B2C 테 넌 트에 대 한 토큰을 획득 하려는 경우 다음 코드 조각과 같이 테 넌 트를 지정 합니다.
 
 ```csharp
 IPublicClientApplication app;
@@ -109,10 +109,10 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 ### <a name="learn-more"></a>자세히 알아보기
 
-MSAL.NET 데스크톱 응용 프로그램을 구성 하는 방법에 대 한 자세한 내용은 다음을 확인 하세요.
+MSAL.NET 데스크톱 응용 프로그램을 구성 하는 방법에 대 한 자세한 내용은 다음과 같습니다.
 
-- `PublicClientApplicationBuilder`에서 사용할 수 있는 모든 한정자 목록은 참조 설명서 [Publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods) 를 참조 하세요.
-- `PublicClientApplicationOptions`에서 제공 하는 모든 옵션에 대 한 설명은 참조 설명서의 [Publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)를 참조 하세요.
+- `PublicClientApplicationBuilder`에서 사용할 수 있는 모든 한정자 목록은 참조 설명서 [Publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)를 참조 하세요.
+- `PublicClientApplicationOptions`에서 제공 하는 모든 옵션에 대 한 설명은 참조 설명서의 [Publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) 를 참조 하세요.
 
 ### <a name="complete-example-with-configuration-options"></a>구성 옵션을 사용 하는 전체 예제
 
@@ -132,7 +132,7 @@ MSAL.NET 데스크톱 응용 프로그램을 구성 하는 방법에 대 한 자
 }
 ```
 
-.NET 제공 구성 프레임 워크를 사용 하 여이 파일을 읽을 수 있는 코드가 거의 없습니다.
+을 사용 하 여이 파일에서 읽을 수 있는 코드가 거의 없습니다. NET 제공 구성 프레임 워크:
 
 ```csharp
 public class SampleConfiguration
@@ -143,13 +143,13 @@ public class SampleConfiguration
  public PublicClientApplicationOptions PublicClientApplicationOptions { get; set; }
 
  /// <summary>
- /// Base URL for Microsoft Graph (it varies depending on whether the application is ran
- /// in Microsoft Azure public clouds or national / sovereign clouds
+ /// Base URL for Microsoft Graph (it varies depending on whether the application runs
+ /// in Microsoft Azure public clouds or national or sovereign clouds)
  /// </summary>
  public string MicrosoftGraphBaseEndpoint { get; set; }
 
  /// <summary>
- /// Reads the configuration from a json file
+ /// Reads the configuration from a JSON file
  /// </summary>
  /// <param name="path">Path to the configuration json file</param>
  /// <returns>SampleConfiguration as read from the json file</returns>
@@ -162,7 +162,7 @@ public class SampleConfiguration
                     .AddJsonFile(path);
   Configuration = builder.Build();
 
-  // Read the auth and graph endpoint config
+  // Read the auth and graph endpoint configuration
   SampleConfiguration config = new SampleConfiguration()
   {
    PublicClientApplicationOptions = new PublicClientApplicationOptions()
@@ -175,7 +175,7 @@ public class SampleConfiguration
 }
 ```
 
-이제 응용 프로그램을 만들려면 다음 코드를 작성 하기만 하면 됩니다.
+이제 응용 프로그램을 만들려면 다음 코드를 작성 합니다.
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
@@ -188,7 +188,7 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-다음은 샘플을 구성 하기 위해 MSAL Java dev 샘플에서 사용 되는 클래스입니다. [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+다음은 샘플을 구성 하기 위해 MSAL Java 개발 샘플에서 사용 되는 클래스입니다. [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
 PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
@@ -211,7 +211,7 @@ app = msal.PublicClientApplication(
 
 # <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
-다음 코드에서는 회사 및 학교 계정이 나 개인 Microsoft 계정를 사용 하 여 공용 클라이언트 응용 프로그램, Microsoft Azure 공용 클라우드의 로그인 사용자를 인스턴스화합니다.
+다음 코드는 공용 클라이언트 응용 프로그램을 인스턴스화하고 회사 또는 학교 계정 또는 개인 Microsoft 계정를 사용 하 여 Microsoft Azure 공용 클라우드의 사용자에 게 로그인 합니다.
 
 ### <a name="quick-configuration"></a>빠른 구성
 
@@ -232,7 +232,7 @@ if let application = try? MSALPublicClientApplication(configuration: config){ /*
 
 ### <a name="more-elaborated-configuration"></a>보다 정교한 구성
 
-여러 한정자를 추가 하 여 응용 프로그램 빌드를 정교 하 게 만들 수 있습니다. 예를 들어 응용 프로그램을 국가 클라우드의 다중 테 넌 트 응용 프로그램 (미국 정부 기관)으로 만들려면 다음을 작성할 수 있습니다.
+여러 한정자를 추가 하 여 응용 프로그램 빌드를 정교 하 게 만들 수 있습니다. 예를 들어, 응용 프로그램이 여기에 표시 된 미국 정부와 같이 국가별 클라우드의 다중 테 넌 트 응용 프로그램을 원하는 경우 다음을 작성할 수 있습니다.
 
 Objective-C:
 
@@ -266,4 +266,4 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [데스크톱 응용 프로그램에 대 한 토큰 가져오기](scenario-desktop-acquire-token.md)
+> [데스크톱 앱에 대 한 토큰 획득](scenario-desktop-acquire-token.md)

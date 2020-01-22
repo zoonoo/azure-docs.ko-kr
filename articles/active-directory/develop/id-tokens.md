@@ -14,12 +14,12 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0aa868d5ed57e27a89f2791f617dcdda74e766b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f7e910faaf9875b6791135c8721090fa801a7e08
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167441"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294187"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
@@ -85,6 +85,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`unique_name` | String | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. 이 값은 지정 된 시점에 고유 하지만 메일 및 기타 식별자를 다시 사용할 수 있으므로이 값은 다른 계정에 다시 나타날 수 있으므로 표시 목적 으로만 사용 해야 합니다. v1.0 `id_tokens`로만 발급됩니다. |
 |`uti` | 불투명 문자열 | Azure에서 토큰의 유효성을 다시 검사하기 위해 사용하는 내부 클레임입니다. 무시됩니다. |
 |`ver` | 문자열, 1.0 또는 2.0 | id_token의 버전을 나타냅니다. |
+
+
+> [!NOTE]
+> V1 및 v2 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 버전은 기본적으로 발급 된 위치에서 Azure AD 플랫폼 끝점을 지정 합니다. [AZURE AD Oauth 구현은](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) 몇 년 동안 진화 했습니다. 현재 AzureAD 응용 프로그램에 대해 서로 다른 두 개의 oAuth 끝점이 있습니다. V 2로 분류 된 새 끝점 또는 v1 이라고 하는 기존 끝점 중 하나를 사용할 수 있습니다. 둘 다에 대 한 Oauth 끝점은 서로 다릅니다. V2 끝점은 v1 끝점의 모든 기능을 마이그레이션하려는 새로운 기능으로, 새 개발자에 게 v2 끝점을 사용 하는 것이 좋습니다. 
+> - V1: Azure Active Directory 끝점: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - V2: Microsoft Id 플랫폼 끝점: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>id_token을 유효성 검사하는 중
 

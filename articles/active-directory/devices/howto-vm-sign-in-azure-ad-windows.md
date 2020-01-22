@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b70a475d841c3649ba9e2bcc63187fc4484a23d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119978"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293456"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -63,10 +63,10 @@ Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경
 
 Azure에서 Windows Vm에 대해 Azure AD 인증을 사용 하도록 설정 하려면 Vm 네트워크 구성에서 TCP 포트 443을 통해 다음 끝점에 대 한 아웃 바운드 액세스를 허용 하는지 확인 해야 합니다.
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
-- https://pas.windows.net
+- https:\//enterpriseregistration.windows.net
+- https:\//login.microsoftonline.com
+- https:\//device.login.microsoftonline.com
+- https:\//pas.windows.net
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Azure에서 Windows VM에 대 한 Azure AD 로그인 사용
 
@@ -239,24 +239,24 @@ VM이 Azure AD 조인 프로세스를 완료 하려면 AADLoginForWindows 확장
 
    | 실행할 명령 | 예상 출력 |
    | --- | --- |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Azure VM에 대 한 올바른 정보 |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | Azure 구독과 연결 된 유효한 테 넌 트 ID |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | 이 VM에 할당 된 관리 id에 대해 Azure Active Directory에서 발급 한 유효한 액세스 토큰 |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Azure VM에 대 한 올바른 정보 |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Azure 구독과 연결 된 유효한 테 넌 트 ID |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | 이 VM에 할당 된 관리 id에 대해 Azure Active Directory에서 발급 한 유효한 액세스 토큰 |
 
    > [!NOTE]
    > [http://calebb.net/](http://calebb.net/)와 같은 도구를 사용 하 여 액세스 토큰을 디코딩할 수 있습니다. 액세스 토큰의 "appid"가 VM에 할당 된 관리 id와 일치 하는지 확인 합니다.
 
 1. 명령줄을 사용 하 여 VM에서 필요한 끝점에 액세스할 수 있는지 확인 합니다.
    
-   - 말아 https://login.microsoftonline.com/ -D –
-   - 말아 https://login.microsoftonline.com/`<TenantID>` /-D –
+   - 말아 https:\//login.microsoftonline.com/-D –
+   - 말아 https:\//login.microsoftonline.com/`<TenantID>`/-D –
 
    > [!NOTE]
    > `<TenantID>`를 Azure 구독과 연결 된 Azure AD 테 넌 트 ID로 바꿉니다.
 
-   - 말아 https://enterpriseregistration.windows.net/ -D-
-   - 말아 https://device.login.microsoftonline.com/ -D-
-   - 말아 https://pas.windows.net/ -D-
+   - 말아 https:\//enterpriseregistration.windows.net/-D-
+   - 말아 https:\//device.login.microsoftonline.com/-D-
+   - 말아 https:\//pas.windows.net/-D-
 
 1. 장치 상태는 `dsregcmd /status`를 실행 하 여 볼 수 있습니다. 장치 상태를 `AzureAdJoined : YES`으로 표시 하는 것이 목표입니다.
 
@@ -283,15 +283,15 @@ AADLoginForWindows extension이 특정 오류 코드와 함께 실패 하는 경
 
 1. 명령줄을 사용 하 여 VM에서 필요한 끝점에 액세스할 수 있는지 확인 합니다.
 
-   - 말아 https://login.microsoftonline.com/ -D –
-   - 말아 https://login.microsoftonline.com/`<TenantID>` /-D –
+   - 말아 https:\//login.microsoftonline.com/-D –
+   - 말아 https:\//login.microsoftonline.com/`<TenantID>`/-D –
    
    > [!NOTE]
    > `<TenantID>`를 Azure 구독과 연결 된 Azure AD 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾아야 하는 경우 계정 이름 위로 마우스를 이동 하 여 디렉터리/테 넌 트 ID를 가져오거나 Azure Portal에서 디렉터리 ID > Azure Active Directory > 속성을 선택할 수 있습니다.
 
-   - 말아 https://enterpriseregistration.windows.net/ -D-
-   - 말아 https://device.login.microsoftonline.com/ -D-
-   - 말아 https://pas.windows.net/ -D-
+   - 말아 https:\//enterpriseregistration.windows.net/-D-
+   - 말아 https:\//device.login.microsoftonline.com/-D-
+   - 말아 https:\//pas.windows.net/-D-
 
 1. "호스트 `<URL>`를 확인할 수 없습니다."와 함께 명령이 실패 하는 경우이 명령을 실행 하 여 VM에서 사용 중인 DNS 서버를 확인 합니다.
    

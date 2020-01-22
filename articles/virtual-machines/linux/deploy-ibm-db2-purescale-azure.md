@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: fe6e581963753cac33092285fee0c8d16959bde8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c4db27b938934aafa350866991ff174cbdbed0ac
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530105"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291552"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Azure에서 IBM DB2 pureScale 배포
 
@@ -150,7 +150,5 @@ GitHub 리포지토리에는 작성자들이 유지 관리하는 기술 자료�
 -   [DB2 pureScale 클러스터 데이터 솔루션](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
-
--   [Platform 현대화 동맹: Azure에서 IBM DB2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 
 -   [Azure Virtual Data Center 리프트 앤 시프트 가이드](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

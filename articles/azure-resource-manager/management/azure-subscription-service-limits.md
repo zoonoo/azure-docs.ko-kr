@@ -4,12 +4,12 @@ description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제�
 tags: billing
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: 4a6d5664d76df5401a2bb5c55f42d86b48e99017
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: ebfa1139ba0649280634bc0fd18627ba74f0c3cc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75662949"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294119"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 한도, 할당량 및 제약 조건
 
@@ -48,6 +48,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [Azure Cognitive Search](#azure-cognitive-search-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Data Explorer](#azure-data-explorer-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
@@ -299,6 +300,10 @@ Azure Files 제한에 대 한 자세한 내용은 [Azure Files 확장성 및 성
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 제한
 
 Azure Cosmos DB 제한에 대해서는 [Azure Cosmos DB 제한](../../cosmos-db/concepts-limits.md)을 참조 하세요.
+
+### <a name="azure-data-explorer-limits"></a>Azure 데이터 탐색기 제한
+
+[!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
 ### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 

@@ -3,18 +3,18 @@ title: PowerShell을 사용 하 여 Azure Files 백업 및 복원
 description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 하 여 Azure Files를 백업 하 고 복원 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224172"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294051"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>PowerShell을 사용 하 여 Azure Files 백업 및 복원
 
 이 문서에서는 Azure PowerShell를 사용 하 여 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음을 사용 하 여 Azure Files 파일 공유를 백업 하 고 복구 하는 방법을 설명 합니다.
 
-이 문서에서는 다음 작업을 수행하는 방법을 설명합니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 >
@@ -25,10 +25,10 @@ ms.locfileid: "74224172"
 > * 백업 된 Azure 파일 공유 또는 공유에서 개별 파일을 복원 합니다.
 > * 백업 및 복원 작업을 모니터링 합니다.
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 * Recovery Services 자격 증명 모음에 대해 [자세히 알아보세요](backup-azure-recovery-services-vault-overview.md) .
-* [Azure 파일 공유 백업](backup-azure-files.md)에 대 한 미리 보기 기능에 대해 알아보세요.
+* [Azure 파일 공유 백업](backup-afs.md)에 대 한 미리 보기 기능에 대해 알아보세요.
 * Recovery Services에 대 한 PowerShell 개체 계층 구조를 검토 합니다.
 
 ## <a name="recovery-services-object-hierarchy"></a>Recovery Services 개체 계층 구조
@@ -249,7 +249,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 1. [AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer)를 사용 하 여 백업 데이터를 보관 하는 자격 증명 모음의 컨테이너에서 저장소 계정 및 파일 공유를 검색 합니다.
 2. 백업 작업을 시작하려면 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem)을 사용하여 VM에 대한 정보를 가져옵니다.
-3. [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)를 사용 하 여 요청 시 백업을 실행 합니다.
+3. [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)을 사용하여 주문형 백업을 실행합니다.
 
 다음과 같이 주문형 백업을 실행 합니다.
 
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Portal에서 Azure Files를 백업 하는 [방법에 대해 알아봅니다](backup-azure-files.md) .
+Azure Portal에서 Azure Files를 백업 하는 [방법에 대해 알아봅니다](backup-afs.md) .

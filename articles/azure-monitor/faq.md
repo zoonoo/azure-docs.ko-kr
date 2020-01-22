@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/30/2019
-ms.openlocfilehash: 1002a19506ad0a59cb24ae4edb1f7c9726d68cb2
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170863"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290345"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -94,7 +94,7 @@ KQL (Kusto Query Language)를 사용 하 여 작성 된 로그 쿼리를 사용 
 Azure Monitor에 의해 수집 된 모든 로그 데이터는 Log Analytics 작업 영역에 저장 됩니다. 작업 영역은 기본적으로 다양 한 원본에서 로그 데이터를 수집 하는 컨테이너입니다. 모든 모니터링 데이터에 대 한 단일 Log Analytics 작업 영역이 있거나 여러 작업 영역에 대 한 요구 사항이 있을 수 있습니다. [Azure Monitor 로그 배포 디자인](platform/design-logs-deployment.md)을 참조 하세요.
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>기존 Log Analytics 작업 영역을 다른 Azure 구독으로 이동할 수 있나요?
-리소스 그룹 또는 구독 간에 작업 영역을 이동할 수 있지만 다른 지역으로 이동할 수는 없습니다. [Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동을](/platform/move-workspace.md)참조 하세요.
+리소스 그룹 또는 구독 간에 작업 영역을 이동할 수 있지만 다른 지역으로 이동할 수는 없습니다. [Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동을](platform/move-workspace.md)참조 하세요.
 
 
 ## <a name="alerts"></a>경고
@@ -345,7 +345,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 ### <a name="what-are-the-user-and-session-counts"></a>사용자 및 세션 수란?
 
 * JavaScript SDK는 웹 클라이언트에서 사용자 쿠키를 설정하여 다시 방문하는 사용자와 그룹 작업에 대한 세션 쿠키를 식별합니다.
-* 클라이언트 쪽 스크립트가 없으면 [서버에서 쿠키를 설정](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-app/)할 수 있습니다.
+* 클라이언트 쪽 스크립트가 없으면 [서버에서 쿠키를 설정](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)할 수 있습니다.
 * 한 명의 실제 사용자가 특정 사이트를 다른 브라우저에서 사용하거나, in-private/incognito 검색을 통해 사용하거나, 다른 컴퓨터에서 사용하는 경우 두 번 이상 계산됩니다.
 * 여러 컴퓨터 및 브라우저에서 로그인한 사용자를 식별하려면 [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users)에 대한 호출을 추가합니다.
 
@@ -455,7 +455,7 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 #### <a name="proxy-passthrough"></a>프록시 통과
 
 프록시 통과는 컴퓨터 수준 또는 응용 프로그램 수준 프록시를 구성 하 여 달성할 수 있습니다.
-자세한 내용은 [Defaultproxy](https://docs.microsoft.com/dotnet/framework/configure-app/file-schema/network/defaultproxy-element-network-settings)의 dotnet 문서를 참조 하세요.
+자세한 내용은 [Defaultproxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)의 dotnet 문서를 참조 하세요.
  
  Web.config 예:
  ```xml

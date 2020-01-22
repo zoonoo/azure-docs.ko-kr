@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 01/20/2020
+ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819129"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293626"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Azure Data Factory와 Azure 데이터 탐색기 통합
 
@@ -44,6 +44,14 @@ Azure 데이터 탐색기는 azure 내에서 데이터를 복사할 때 사용 �
 ### <a name="copy-in-bulk-from-a-database-template"></a>데이터베이스 템플릿에서 대량 복사
 
 [Azure Data Factory 템플릿을 사용 하 여 데이터베이스에서 Azure 데이터 탐색기로 대량 복사](data-factory-template.md) 는 미리 정의 된 Azure Data Factory 파이프라인입니다. 템플릿은 데이터베이스 또는 테이블당 많은 파이프라인을 만드는 데 사용 되며 더 빠른 데이터 복사를 위해 사용 됩니다. 
+
+### <a name="mapping-data-flows"></a>데이터 흐름 매핑 
+
+데이터 [흐름 매핑 Azure Data Factory](/azure/data-factory/concepts-data-flow-overview) 는 데이터 엔지니어가 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있도록 시각적으로 디자인 된 데이터 변환입니다. 데이터 흐름을 만들고 Azure 데이터 탐색기에 데이터를 수집 하려면 다음 방법을 사용 합니다.
+
+1. [매핑 데이터 흐름](/azure/data-factory/data-flow-create)을 만듭니다.
+1. [데이터를 Azure Blob으로 내보냅니다](/azure/data-factory/data-flow-sink). 
+1. 데이터를 Azure 데이터 탐색기에 수집 하는 [Event Grid](/azure/data-explorer/ingest-data-event-grid) 또는 [ADF 복사 작업](/azure/data-explorer/data-factory-load-data) 을 정의 합니다.
 
 ## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>데이터 복사 시 복사와 Azure 데이터 탐색기 명령 활동 중에서 선택 
 
@@ -90,7 +98,7 @@ Azure 데이터 탐색기로 데이터를 복사 하기 위한 수집 명령과 
 
 다음 표에서는 Azure Data Factory와의 통합에서 다양 한 단계에 필요한 사용 권한을 나열 합니다.
 
-| 단계 | 작업(Operation) | 최소 권한 수준 | 참고 |
+| 단계 | 작업 | 최소 권한 수준 | 메모 |
 |---|---|---|---|
 | **연결 된 서비스 만들기** | 데이터베이스 탐색 | *데이터베이스 뷰어* <br>ADF를 사용 하는 로그인 한 사용자에 게는 데이터베이스 메타 데이터를 읽을 수 있는 권한이 있어야 합니다. | 사용자는 데이터베이스 이름을 수동으로 입력할 수 있습니다. |
 | | 연결을 테스트 | *데이터베이스 모니터* 또는 *테이블 수집기* <br>서비스 주체에는 데이터베이스 수준 `.show` 명령 또는 테이블 수준 수집을 실행할 수 있는 권한이 있어야 합니다. | <ul><li>TestConnection은 데이터베이스가 아니라 클러스터에 대 한 연결을 확인 합니다. 데이터베이스가 존재 하지 않더라도 성공할 수 있습니다.</li><li>테이블 관리자 권한이 충분 하지 않습니다.</li></ul>|
@@ -109,7 +117,7 @@ Azure 데이터 탐색기가 원본인 경우 쿼리를 포함 하는 조회, �
   
 이 섹션에서는 Azure 데이터 탐색기 싱크로 복사 작업을 사용 하는 방법을 설명 합니다. Azure 데이터 탐색기 싱크에 대 한 예상 처리량은 11-13 MBps입니다. 다음 표에서는 Azure 데이터 탐색기 싱크의 성능에 영향을 주는 매개 변수를 자세히 설명 합니다.
 
-| 매개 변수를 포함해야 합니다. | 참고 |
+| 매개 변수 | 메모 |
 |---|---|
 | **구성 요소 지리적 근접성** | 모든 구성 요소를 동일한 지역에 저장 합니다.<ul><li>원본 및 싱크 데이터 저장소.</li><li>ADF 통합 런타임.</li><li>ADX 클러스터.</li></ul>하나 이상의 통합 런타임이 ADX 클러스터와 동일한 지역에 있는지 확인 합니다. |
 | **DIUs 수** | ADF에서 사용 되는 4 개의 DIUs 마다 하나의 VM <br>파일이 여러 파일을 사용 하는 파일 기반 저장소 인 경우에만 DIUs를 늘릴 수 있습니다. 그러면 각 VM은 서로 다른 파일을 병렬로 처리 합니다. 따라서 하나의 큰 파일을 복사 하는 경우 여러 개의 작은 파일을 복사 하는 것 보다 대기 시간이 더 깁니다.|
@@ -137,7 +145,7 @@ Azure 데이터 탐색기에는 CSV 파일이 [RFC 4180](https://www.ietf.org/rf
 
 Azure Data Factory 백슬래시 (이스케이프) 문자를 허용 합니다. Azure Data Factory를 사용 하 여 백슬래시 문자를 사용 하 여 CSV 파일을 생성 하는 경우 파일을 Azure 데이터 탐색기 수집 하지 못합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 다음 텍스트 값: Hello, "세계"<br/>
 ABC DEF<br/>

@@ -3,14 +3,14 @@ title: Azure 업데이트 관리 업데이트 평가 보기
 description: 이 문서에서는 업데이트 배포에 대 한 업데이트 평가를 보는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419894"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310087"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Azure 업데이트 관리 업데이트 평가 보기
 
@@ -30,7 +30,7 @@ Azure Automation 계정에서 **업데이트 관리** 를 선택 하 여 컴퓨�
 
 ## <a name="update-classifications"></a>업데이트 분류
 
-다음 표에는 각 분류에 대한 정의와 함께 업데이트 관리의 업데이트 분류가 나열됩니다.
+다음 표에는 업데이트 관리에서 지원 되는 업데이트 분류와 각 분류에 대 한 정의가 나와 있습니다.
 
 ### <a name="windows"></a>Windows
 
@@ -59,6 +59,8 @@ sudo yum -q --security check-update
 ```
 
 현재 CentOS에서 네이티브 분류 데이터 가용성을 사용 하도록 설정 하는 방법이 지원 되지 않습니다. 지금은이 기능을 사용 하도록 설정한 고객에 게 최상의 지원만 제공 됩니다.
+
+Red Hat Enterprise 버전 6에서 업데이트를 분류 하려면 yum-보안 플러그 인을 설치 해야 합니다. Red Hat Enterprise Linux 7에서 플러그 인은 이미 yum 자체의 일부 이므로 아무 것도 설치할 필요가 없습니다. 자세한 내용은 다음 Red Hat [기술](https://access.redhat.com/solutions/10021)항목을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 31a6c53ec269c512ad641fcdc10469ccf16a1fe9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 514f98d95090f978395dd3f7decdcc0743a1628a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979754"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289155"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 속성
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../log-query/logs-structure.md)각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
 
 > [!NOTE]
-> 일부 표준 propertis는 Log Analytics에서 스키마 뷰나 intellisense에 표시 되지 않으며, 출력에서 속성을 명시적으로 지정 하지 않는 한 쿼리 결과에 표시 되지 않습니다.
+> 일부 표준 속성은 Log Analytics의 스키마 뷰나 intellisense에 표시 되지 않으며, 출력에서 속성을 명시적으로 지정 하지 않는 한 쿼리 결과에 표시 되지 않습니다.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated 및 timestamp
 **Timegenerated** (Log Analytics 작업 영역) 및 **timestamp** (Application Insights 응용 프로그램) 속성은 데이터 원본에서 레코드를 만든 날짜와 시간을 포함 합니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](data-ingestion-time.md) 을 참조 하세요.

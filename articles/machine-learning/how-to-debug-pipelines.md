@@ -9,17 +9,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: e0e4ea4689baeb8e85a765a33c3f8124d6bc4362
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 991f7ebf51be5f805a8b12fa0af0fefeff0ef582
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764289"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309560"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Machine learning 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 및 [Azure Machine Learning designer (미리 보기)](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 디버그 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
+이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 및 [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 디버그 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
 
 
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Azure Machine Learning SDK의 디버그 및 문제 해결
@@ -79,7 +79,7 @@ ms.locfileid: "75764289"
 | 파이프라인이 단계를 다시 사용 하지 않음 | 단계 다시 사용은 기본적으로 사용 되지만 파이프라인 단계에서 사용 하지 않도록 설정 하지 않았는지 확인 합니다. 다시 사용 하지 않도록 설정 된 경우 단계의 `allow_reuse` 매개 변수는 `False`로 설정 됩니다. |
 | 파이프라인이 불필요 하 게 다시 실행 되 고 있습니다. | 기본 데이터 또는 스크립트가 변경 될 때만 단계가 다시 실행 되도록 하려면 각 단계에 대 한 디렉터리를 분리 합니다. 여러 단계에 동일한 원본 디렉터리를 사용 하는 경우 불필요 한 다시 실행이 발생할 수 있습니다. 파이프라인 단계 개체의 `source_directory` 매개 변수를 사용 하 여 해당 단계에 대 한 격리 된 디렉터리를 가리키고 여러 단계에 대해 동일한 `source_directory` 경로를 사용 하지 않는지 확인 합니다. |
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너에서 디버그 및 문제 해결 (미리 보기)
+## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너의 디버그 및 문제 해결
 
 이 섹션에서는 디자이너의 파이프라인 문제를 해결 하는 방법에 대 한 개요를 제공 합니다.
 디자이너에서 만든 파이프라인의 경우 제작 페이지나 파이프라인 실행 세부 정보 페이지에서 **로그 파일** 을 찾을 수 있습니다.

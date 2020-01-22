@@ -3,12 +3,12 @@ title: Azure Migrate의 일반적인 질문-검색, 평가 및 종속성 분석
 description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 일반적인 질문에 대 한 답변을 얻습니다.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0b7bb425bff1d26c2a0d6feeaf70be826eab2b9a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5afda40f4953b8eb51a757034661eb5a3349cd10
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564050"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292368"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>검색, 평가 및 종속성 분석에 대 한 일반적인 질문
 
@@ -20,7 +20,7 @@ ms.locfileid: "75564050"
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 Vm 수는 몇 개입니까?
 
-단일 어플라이언스를 사용 하 여 최대 1만 VMware Vm 및 최대 5000 Hyper-v Vm을 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 [hyper-v](scale-hyper-v-assessment.md) 및 [VMware](scale-vmware-assessment.md) 평가 크기 조정을 참조 하세요.
+최대 1만 VMware Vm, 최대 5000 Hyper-v Vm 및 단일 어플라이언스를 포함 하는 최대 250 서버를 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 [hyper-v](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) 및 [물리적](scale-physical-assessment.md) 평가를 확장 하는 방법을 참조 하세요.
 
 
 

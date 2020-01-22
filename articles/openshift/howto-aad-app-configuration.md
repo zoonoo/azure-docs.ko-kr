@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 285456c87835344aba083c68a7876ecc78d9e45e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 09ae896d26d534d3f9d5651834e181d37581c8f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270566"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288962"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure Active Directory 통합
 
@@ -90,8 +90,8 @@ Azure 애플리케이션 개체에 대 한 자세한 내용은 [Azure Active Dir
 ## <a name="add-api-permissions"></a>API 사용 권한 추가
 
 1. **관리** 섹션에서 **API 권한**을 클릭 합니다.
-2. **권한 추가** 를 클릭 하 고 **Azure Active Directory 그래프** , **위임 된 권한** 을 차례로 선택 합니다.
-3. 아래 목록에서 **사용자** 를 확장 하 고 **사용자가 읽기** 를 사용 하도록 설정 했는지 확인 합니다.
+2. **권한 추가** 를 클릭 하 고 **Azure Active Directory 그래프** , **위임 된 권한**을 차례로 선택 합니다. 
+3. 아래 목록에서 **사용자** 를 확장 하 고 **사용자의 읽기** 권한을 사용 하도록 설정 합니다. **사용자** 가 기본적으로 사용 하도록 설정 되어 있는 경우에는 **Azure Active Directory Graph** 권한 **사용자**인지 확인 합니다. **Microsoft Graph** 권한 사용자는 읽을 수 *없습니다* . **읽기**.
 4. 위로 스크롤하여 **응용 프로그램 사용 권한**을 선택 합니다.
 5. 아래 목록에서 **디렉터리** 를 확장 하 고 디렉터리를 사용 하도록 설정 **합니다. readall**
 6. **권한 추가** 를 클릭 하 여 변경 내용을 적용 합니다.

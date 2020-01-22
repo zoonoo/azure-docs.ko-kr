@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: fb049b5af5c700cdb72f0319019cfd6eee952d9f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 2e14b1bcc991a009ed9b3267477933706e1ec474
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156967"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289954"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory에서 지속적인 통합 및 전달
 
@@ -82,7 +82,7 @@ Data Factory UX의 **ARM 템플릿** 드롭다운 메뉴에서 리소스 관리�
 
 ### <a name="requirements"></a>요구 사항
 
--    [Azure Resource Manager 서비스 끝점](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)을 사용 하는 Visual Studio Team Foundation Server 또는 Azure Repos에 연결 된 Azure 구독입니다.
+-    [Azure Resource Manager 서비스 끝점](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager)을 사용 하는 Visual Studio Team Foundation Server 또는 Azure Repos에 연결 된 Azure 구독입니다.
 
 -   Azure Repos Git 통합을 사용 하 여 구성 된 데이터 팩터리입니다.
 

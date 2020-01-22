@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/27/2019
-ms.openlocfilehash: d5b3733947876958b4d72da4cb7bb0f10a3a9165
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.date: 01/21/2020
+ms.openlocfilehash: b8cf7992617b7263b86fd98e5def8be1d43ca68c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614937"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293371"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스는 무엇입니까?
 
@@ -325,7 +325,7 @@ SQL Database 서비스는 사용자를 위해 작업을 수행하거나 이러�
 
 |속성|값|주석|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다.|
+|`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다. 이 **는** SQL 엔진 버전 12 (SQL Server 2014)를 나타내지 않습니다. 관리 되는 인스턴스는 항상 사용 가능한 최신 RTM 버전의 SQL Server와 같거나 높은 안정적인 최신 SQL 엔진 버전을 항상 실행 합니다.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|이 값은 SQL Database와 같습니다.|
 |`SERVERPROPERTY('EngineEdition')`|8|이 값은 Managed Instance를 고유하게 식별합니다.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|`<instanceName>`.`<dnsPrefix>`.database.windows.net 형식의 전체 인스턴스 DNS 이름. 여기서 `<instanceName>`은 고객이 제공한 이름이고, `<dnsPrefix>`는 글로벌 DNS 이름의 고유성을 보장하기 위해 이름에서 자동으로 생성되는 부분(예: “wcus17662feb9ce98”)입니다.|예: my-managed-instance.wcus17662feb9ce98.database.windows.net|

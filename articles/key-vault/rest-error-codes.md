@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 9ea77a6822a851951ea7363b9cf496fa0df534ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8c9390ea498647d34e8643ed4be596372ffb8696
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982086"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293388"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault REST API 오류 코드
  
@@ -54,7 +54,7 @@ Content-Length: 31
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>토큰에 연결 된 올바른 리소스가 부족 합니다. 
 
-Azure OAUTH 끝점에서 액세스 토큰을 요청 하는 경우 "resource" 라는 매개 변수는 필수입니다. 토큰 공급자는 토큰의 용도에 맞게 토큰의 범위를 사용 하므로이 값은 중요 합니다. Key Vault에 액세스 하는*모든* 토큰에 대 한 리소스는 후행 슬래시 없이 <https:\//vault.keyvault.net> 됩니다.
+Azure OAUTH 끝점에서 액세스 토큰을 요청 하는 경우 "resource" 라는 매개 변수는 필수입니다. 토큰 공급자는 토큰의 용도에 맞게 토큰의 범위를 사용 하므로이 값은 중요 합니다. Key Vault에 액세스 하는 **모든** 토큰에 대 한 리소스는 *https:\//vault.keyvault.net* (후행 슬래시 없음)입니다.
 
 ### <a name="the-token-is-expired"></a>토큰이 만료 되었습니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: dc627fc4bb7be449547a07cc34eb2cb3694964e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ac93d1f4f0f148e1f0ce3d0f21ac9a694f2e896d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445428"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310019"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -76,8 +76,6 @@ Azure를 처음 사용하는 경우 [Azure 체험 계정](https://azure.microsof
 새로운 기능을 요청하려면 [사용자 의견](https://feedback.azure.com/forums/263030-azure-cosmos-db)에서 새 요청을 만듭니다.
 
 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-
-기타 질문은 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)으로 팀에 제출할 수 있습니다. 그러나 이것은 기술 지원 별칭이 아닙니다.
 
 ## <a id="try-cosmos-db"></a>Azure Cosmos DB 구독 사용해 보기
 
@@ -288,8 +286,6 @@ Azure Cosmos DB가 SAS(공유 액세스 서명)을 지원하지만 새 테이블
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
-
-이러한 차이점으로 인해 프로젝트에서 문제가 발생하는 경우 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)에 알려주세요.
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>SDK 또는 버그에 대한 피드백은 어떻게 제공할 수 있나요?
 

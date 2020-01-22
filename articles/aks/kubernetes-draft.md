@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9b942c4726c770f1ea0d35c924395cdff40e1c7
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 07e267af307fedd9b896e08919b7026a3a1c2bac
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732021"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292965"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>빠른 시작: 초안을 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
 
 Draft는 Kubernetes 클러스터에서 응용 프로그램 컨테이너를 패키지 하 고 실행 하는 데 도움이 되는 오픈 소스 도구입니다. 초안을 사용 하면 변경 내용을 버전 제어에 커밋하지 않고도 코드 변경이 발생할 때 응용 프로그램을 Kubernetes에 신속 하 게 다시 배포할 수 있습니다. 초안에 대 한 자세한 내용은 [GitHub의 초안 설명서][draft-documentation]를 참조 하세요.
 
-이 문서에서는 초안 패키지를 사용 하 고 AKS에서 응용 프로그램을 실행 하는 방법을 보여 줍니다.
+이 문서에서는 Draft를 사용 하 여 AKS에서 응용 프로그램을 패키지 하 고 실행 하는 방법을 보여 줍니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -172,7 +172,7 @@ ACR를 사용 하도록 초안을 구성 하 고 초안에서 컨테이너 이�
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
-이 빠른 [시작에서는 초안 GitHub 리포지토리의 예제 java 응용 프로그램][example-java]을 사용 합니다. GitHub에서 응용 프로그램을 복제 하 고 `draft/examples/example-java/` 디렉터리로 이동 합니다.
+이 빠른 [시작에서는 초안 GitHub 리포지토리의 예제 Java 응용 프로그램][example-java]을 사용 합니다. GitHub에서 응용 프로그램을 복제 하 고 `draft/examples/example-java/` 디렉터리로 이동 합니다.
 
 ```console
 git clone https://github.com/Azure/draft
@@ -235,7 +235,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-`localhost` url을 사용 하 여 브라우저에서 응용 프로그램으로 이동 하 여 샘플 응용 프로그램을 확인 합니다. 위의 예제에서 url은 `http://localhost:49804`입니다. `Ctrl+c`를 사용 하 여 연결을 중지 합니다.
+`localhost` URL을 사용 하 여 브라우저에서 응용 프로그램으로 이동 하 여 샘플 응용 프로그램을 확인 합니다. 위의 예제에서 URL은 `http://localhost:49804`입니다. `Ctrl+c`를 사용 하 여 연결을 중지 합니다.
 
 ## <a name="access-the-application-on-the-internet"></a>인터넷의 애플리케이션 액세스
 

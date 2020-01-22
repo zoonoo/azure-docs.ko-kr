@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4b6944f7703500a2c3859e8e3111eceefbd5ff10
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428446"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311413"
 ---
 # <a name="smote"></a>SMOTE
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 SMOTE 모듈을 사용 하 여 기계 학습에 사용 되는 데이터 집합에서 가장 많이 표시 되는 사례 수를 늘리는 방법을 설명 합니다. SMOTE는 단순히 기존 사례를 복제 하는 것 보다 드물게 발생 하는 사례 수를 늘릴 수 있는 좋은 방법입니다.  
+이 문서에서는 Azure Machine Learning designer에서 SMOTE 모듈을 사용 하 여 기계 학습에 사용 되는 데이터 집합에서 가장 적게 표시 되는 사례 수를 늘리는 방법을 설명 합니다. SMOTE는 단순히 기존 사례를 복제 하는 것 보다 드물게 발생 하는 사례 수를 늘릴 수 있는 좋은 방법입니다.  
 
 SMOTE 모듈을 *불균형*데이터 집합에 연결 합니다. 데이터 집합이 불균형 하 게 분산 되는 이유는 여러 가지가 있습니다. 예를 들어 대상으로 하는 범주가 모집단에서 드물게 발생 하거나 데이터를 수집 하기가 어려울 수 있습니다. 일반적으로는 분석할 *클래스가* 가장 적게 표시 될 때 SMOTE를 사용 합니다. 
   

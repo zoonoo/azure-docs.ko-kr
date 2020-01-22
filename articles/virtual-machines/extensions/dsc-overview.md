@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 8f243527461a95d963854d8d018602dd81115482
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b6b9d0f146fd98fd90aa8858e522449be571842c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497284"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293167"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -59,7 +59,7 @@ Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure 
 - **wmfVersion** 속성을 지정한 경우 VM의 OS와 호환되지 않을 경우를 제외하고 해당 버전의 WMF가 설치됩니다.
 - **wmfVersion** 속성을 지정하지 않은 경우 WMF의 적용 가능한 최신 버전이 설치됩니다.
 
-WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작한 후에 확장은 **modulesUrl** 속성(제공된 경우)에 지정된 .zip 파일을 다운로드합니다. 이 위치가 Azure Blob Storage인 경우 **sasToken** 속성에 SAS 토큰을 지정하여 파일에 액세스할 수 있습니다. .zip을 다운로드하고 압축을 푼 후에 **configurationFunction**에 정의된 구성 함수를 실행하여 .mof 파일을 생성합니다. 그런 다음, 확장은 생성된 .mof 파일을 사용하여 `Start-DscConfiguration -Force`를 실행합니다. 확장은 출력을 캡처하고 Azure 상태 채널에 작성합니다.
+WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작한 후에 확장은 **modulesUrl** 속성(제공된 경우)에 지정된 .zip 파일을 다운로드합니다. 이 위치가 Azure Blob Storage인 경우 **sasToken** 속성에 SAS 토큰을 지정하여 파일에 액세스할 수 있습니다. .Zip을 다운로드 하 고 압축을 푼 후에는 **Configurationfunction** 에 정의 된 구성 함수를 실행 하 여 .mof ([MOF(Managed Object Format)](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)) 파일을 생성 합니다. 그런 다음, 확장은 생성된 .mof 파일을 사용하여 `Start-DscConfiguration -Force`를 실행합니다. 확장은 출력을 캡처하고 Azure 상태 채널에 작성합니다.
 
 ### <a name="default-configuration-script"></a>기본 구성 스크립트
 

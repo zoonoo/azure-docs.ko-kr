@@ -2,13 +2,13 @@
 title: 리소스를 찾을 수 없음 오류
 description: Azure Resource Manager 템플릿으로 배포할 때 리소스를 찾을 수 없을 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
-ms.date: 06/06/2018
-ms.openlocfilehash: 81a2541be4f0a99aa28186eb6b7289bdb595e678
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/21/2020
+ms.openlocfilehash: c3e19af24fa7fb850eadf3deb346180476943241
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152428"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310665"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Azure 리소스 찾을 수 없음 오류 해결
 
@@ -87,4 +87,16 @@ Resource Manager에서 리소스에 대한 속성을 검색해야 하지만 구�
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
+```
+
+## <a name="solution-4---get-managed-identity-from-resource"></a>해결 방법 4-리소스에서 관리 id 가져오기
+
+[관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 암시적으로 만드는 리소스를 배포 하는 경우 관리 되는 id의 값을 검색 하기 전에 해당 리소스가 배포 될 때까지 기다려야 합니다. 관리 id 이름을 [참조](template-functions-resource.md#reference) 함수에 전달 하는 경우 리소스와 id를 배포 하기 전에 리소스 관리자에서 참조를 확인 하려고 시도 합니다. 대신 id가 적용 되는 리소스의 이름을 전달 합니다. 이 방법을 사용 하면 리소스 관리자에서 참조 함수를 확인 하기 전에 리소스와 관리 되는 id가 배포 됩니다.
+
+참조 함수에서 `Full`를 사용 하 여 관리 id를 비롯 한 모든 속성을 가져옵니다.
+
+예를 들어 가상 머신 확장 집합에 적용 되는 관리 되는 id에 대 한 테 넌 트 ID를 가져오려면 다음을 사용 합니다.
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
 ```

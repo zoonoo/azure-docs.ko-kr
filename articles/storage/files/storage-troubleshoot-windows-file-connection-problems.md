@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a466601bb68e9cec72408a590f2aec3d3dbfbf93
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 97fdb0b243f71701491f2d2424c04dbd19208ef0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968267"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291196"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -139,28 +139,31 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 > [!Note]  
 > AzStorageFileHandle 및 AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
 
-<a id="authorizationfailureportal"></a>
-## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>포털에서 Azure 파일 공유를 찾을 때 "권한 부여 실패" 오류 발생
+<a id="noaaccessfailureportal"></a>
+## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>포털에서 Azure 파일 공유를 찾을 때 "액세스 없음" 오류 발생
 
 포털에서 Azure 파일 공유를 찾을 때 다음 오류가 표시될 수 있습니다.
 
-권한 부여 실패  
-액세스 권한이 없음 
+권한 없음  
+오류 코드: 403 
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 1: 사용자 계정에 저장소 계정에 대 한 액세스 권한이 없습니다.
+### <a name="cause-1-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 1: 저장소 계정에서 가상 네트워크 또는 방화벽 규칙을 사용할 수 있습니다.
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
-Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [RBAC(역할 기반 액세스 제어)를 사용하여 스토리지 계정의 보안을 유지하는 방법](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection)을 참조하세요.
+가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 저장소 계정에서 가상 네트워크 또는 방화벽 규칙이 사용 됩니다.
+### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 2: 사용자 계정에 저장소 계정에 대 한 액세스 권한이 없습니다.
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
-가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
+Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [RBAC(역할 기반 액세스 제어)를 사용하여 스토리지 계정의 보안을 유지하는 방법](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection)을 참조하세요.
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Azure 파일 공유에서 파일 또는 디렉터리를 삭제할 수 없습니다.
+파일을 삭제 하려고 하면 다음과 같은 오류가 표시 될 수 있습니다.
+
+지정된 리소스는 SMB 클라이언트에서 삭제되도록 표시됩니다.
 
 ### <a name="cause"></a>원인
 이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 

@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771430"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311040"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 회사 범주를 예측 하는 분류자를 빌드합니다.
 
-**Designer (미리 보기) 샘플 7**
+**디자이너 샘플 7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-이 샘플에서는 텍스트 분석 모듈을 사용 하 여 Azure Machine Learning designer (미리 보기)에서 텍스트 분류 파이프라인을 빌드하는 방법을 보여 줍니다.
+이 샘플에서는 Azure Machine Learning designer에서 텍스트 분석 모듈을 사용 하 여 텍스트 분류 파이프라인을 빌드하는 방법을 보여 줍니다.
 
 텍스트 분류의 목표는 하나 이상의 미리 정의 된 클래스 또는 범주에 일부 텍스트를 할당 하는 것입니다. 텍스트의 조각은 문서, 뉴스 기사, 검색 쿼리, 전자 메일, 트 윗, 지원 티켓, 고객 피드백, 사용자 제품 검토 등 일 수 있습니다. 텍스트 분류의 응용 프로그램에는 신문 문서와 뉴스 관련 콘텐츠를 토픽으로 분류 하 고, 웹 페이지를 계층적 범주로 구성 하 고, 스팸 메일 필터링, 감정 분석, 검색 쿼리에서 사용자 의도 예측, 라우팅 등을 포함 합니다. 티켓을 지원 하 고 고객 의견을 분석 합니다. 
 

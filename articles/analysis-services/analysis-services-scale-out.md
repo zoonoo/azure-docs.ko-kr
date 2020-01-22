@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 56a3d4f172cde70bdd1a875c76213c43184cbbc3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167933"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310189"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -50,7 +50,7 @@ ms.locfileid: "76167933"
 
 ### <a name="synchronization-mode"></a>동기화 모드
 
-기본적으로 쿼리 복제본은 증분이 아닌 전체로 증가 됩니다. 리하이드레이션는 단계에서 발생 합니다. 한 번에 두 개 이상의 복제본을 분리 하 고 연결 하 여 지정 된 시간에 하나 이상의 복제본이 온라인 상태로 유지 되도록 합니다. 경우에 따라이 프로세스가 수행 되는 동안 클라이언트에서 온라인 복제본 중 하나에 다시 연결 해야 할 수도 있습니다. 이제 **ReplicaSyncMode** 설정을 사용 하 여 쿼리 복제본 동기화가 병렬로 발생 하도록 지정할 수 있습니다. 병렬 동기화는 다음과 같은 이점을 제공 합니다. 
+기본적으로 쿼리 복제본은 증분이 아닌 전체로 증가 됩니다. 리하이드레이션는 단계에서 발생 합니다. 한 번에 두 개 이상의 복제본을 분리 하 고 연결 하 여 지정 된 시간에 하나 이상의 복제본이 온라인 상태로 유지 되도록 합니다. 경우에 따라이 프로세스가 수행 되는 동안 클라이언트에서 온라인 복제본 중 하나에 다시 연결 해야 할 수도 있습니다. 이제 (미리 보기에서) **ReplicaSyncMode** 설정을 사용 하 여 쿼리 복제본 동기화가 병렬로 발생 하도록 지정할 수 있습니다. 병렬 동기화는 다음과 같은 이점을 제공 합니다. 
 
 - 동기화 시간이 크게 감소 했습니다. 
 - 복제본 간의 데이터는 동기화 프로세스 중에 일관 될 가능성이 높습니다. 

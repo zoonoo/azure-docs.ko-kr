@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a2acb3a6bd7401de2a5b934f539adbb63c3f129
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 9b30ace8d7ae7a818611856d46b2c50ed8db06f7
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930393"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292453"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning에 CLI 확장 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,7 +153,7 @@ az extension remove -n azure-cli-ml
     >
     > 실행 구성 개체를 프로그래밍 방식으로 만드는 Python 스크립트가 있는 경우 [.runconfig ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) 를 사용 하 여 .runconfig 파일로 저장할 수 있습니다.
     >
-    > Full .runconfig 스키마는이 [JSON 파일](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)에서 찾을 수 있습니다.
+    > Full .runconfig 스키마는이 [JSON 파일](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)에서 찾을 수 있습니다. 스키마는 각 개체의 `description` 키를 통해 자체 문서화 됩니다. 또한 가능한 값에 대 한 열거형 및 끝에 템플릿 조각이 있습니다.
 
     자세한 내용은 [az ml run submit-스크립트](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)를 참조 하세요.
 

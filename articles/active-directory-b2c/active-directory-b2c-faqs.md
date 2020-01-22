@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 577dc6d4344cd6d7a38c4d538218c9dd89e883aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643648"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289087"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
@@ -27,7 +27,7 @@ Azure AD 확장이 작동하지 않는 경우에는 일반적으로 두 가지 �
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>기존의 직원 기반 Azure AD 테넌트에서 Azure AD B2C 기능을 사용할 수 있나요?
 
-Azure AD 및 Azure AD B2C는 별개 제품으로, 동일한 테넌트에서 함께 사용할 수 없습니다. Azure AD 테넌트는 조직을 나타냅니다. Azure AD B2C 테넌트는 신뢰 당사자 애플리케이션에서 사용할 ID 컬렉션을 나타냅니다. 사용자 지정 정책을 사용 하 여 조직 내 직원의 인증을 허용 하는 Azure AD에 페더레이션 할 수 Azure AD B2C.
+Azure AD 및 Azure AD B2C는 별개 제품으로, 동일한 테넌트에서 함께 사용할 수 없습니다. Azure AD 테넌트는 조직을 나타냅니다. Azure AD B2C 테넌트는 신뢰 당사자 애플리케이션에서 사용할 ID 컬렉션을 나타냅니다. **Azure AD B2C > id 공급자** 또는 사용자 지정 정책을 사용 하 여 **새 openid connect Connect 공급자** 를 추가 하 여 조직 내 직원의 인증을 허용 하는 Azure AD에 페더레이션 할 수 Azure AD B2C.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Azure AD B2C를 사용하여 소셜 로그인(Facebook 및 Google+)을 Office 365에 제공할 수 있나요?
 
@@ -49,7 +49,7 @@ Azure AD B2C는 [사용자 지정 정책](active-directory-b2c-overview-custom.m
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>범위를 구성하여 다양한 소셜 ID 공급자에서 소비자에 대한 자세한 정보를 수집할 수 있나요?
 
-아니요. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
+아닙니다. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
 
 * Facebook: 전자 메일
 * Google+: 전자 메일
@@ -137,8 +137,8 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 
 1. *구독 관리자로* [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 동일한 회사 또는 학교 계정 또는 Azure에 등록 하는 데 사용한 것과 동일한 Microsoft 계정를 사용 합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. Azure AD B2C 테 넌 트에서 모든 **사용자 흐름 (정책)** 을 삭제 합니다.
 1. Azure AD B2C 테 넌 트에 등록 한 모든 **응용 프로그램** 을 삭제 합니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
@@ -150,16 +150,16 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 1. **관리**에서 **사용자 설정**을 선택 합니다.
 1. 있는 경우 **LinkedIn 계정 연결**아래에서 **아니요**를 선택 하 고 **저장**을 선택 합니다.
 1. **관리**아래에서 **속성** 을 선택 합니다.
-1. **Azure 리소스에 대 한 액세스 관리**에서 **예**를 선택한 다음, **저장**을 선택 합니다.
+1. **Azure 리소스에 대한 액세스 관리**에서 **예**를 클릭한 후 **저장**을 클릭합니다.
 1. Azure Portal에서 로그 아웃 한 후 다시 로그인 하 여 액세스를 새로 고칩니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
 1. **개요** 페이지에서 **디렉터리 삭제**를 선택 합니다. 화면의 지시에 따라 프로세스를 완료 합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. *구독 관리자로* [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 동일한 회사 또는 학교 계정 또는 Azure에 등록 하는 데 사용한 것과 동일한 Microsoft 계정를 사용 합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. Azure AD B2C 테 넌 트에서 모든 **사용자 흐름 (정책)** 을 삭제 합니다.
 1. **앱 등록 (미리 보기)** 를 선택한 다음 **모든 응용 프로그램** 탭을 선택 합니다.
 1. 등록 한 모든 응용 프로그램을 삭제 합니다.
@@ -170,7 +170,7 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 1. **관리**에서 **사용자 설정**을 선택 합니다.
 1. 있는 경우 **LinkedIn 계정 연결**아래에서 **아니요**를 선택 하 고 **저장**을 선택 합니다.
 1. **관리**아래에서 **속성** 을 선택 합니다.
-1. **Azure 리소스에 대 한 액세스 관리**에서 **예**를 선택한 다음, **저장**을 선택 합니다.
+1. **Azure 리소스에 대한 액세스 관리**에서 **예**를 클릭한 후 **저장**을 클릭합니다.
 1. Azure Portal에서 로그 아웃 한 후 다시 로그인 하 여 액세스를 새로 고칩니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
 1. **개요** 페이지에서 **디렉터리 삭제**를 선택 합니다. 화면의 지시에 따라 프로세스를 완료 합니다.

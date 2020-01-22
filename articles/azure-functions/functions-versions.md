@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전 개요
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. 버전 간 차이점과 적합한 버전을 선택하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 88c151149d1d960746ff449819d31e8b32d98120
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921864"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290379"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -143,7 +143,7 @@ Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니�
 ```
 
 > [!NOTE]
-> Azure Functions 3.x 및 .NET을 사용 하려면 `Microsoft.Sdk.NET.Functions` 확장이 `3.0.0`이상 이어야 합니다.
+> Azure Functions 3.x 및 .NET을 사용 하려면 `Microsoft.NET.Sdk.Functions` 확장이 `3.0.0`이상 이어야 합니다.
 
 ###### <a name="updating-2x-apps-to-3x-in-visual-studio"></a>Visual Studio에서 2.x 앱을 3. x로 업데이트
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs API 개요 | Microsoft Docs
-description: 사용할 수 있는 Azure Event Hubs API의 개요
+description: 이 문서에서는 Azure Event Hubs 서비스를 사용 하는 데 사용할 수 있는 Api (런타임 및 관리)에 대 한 개요를 제공 합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 80566b0246179064d2a479b8c9bf3c79a2a93aac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c852bdeb30efe6acf626ae67028ec1ccb9e0b6db
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822627"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310971"
 ---
 # <a name="available-event-hubs-apis"></a>사용할 수 있는 Event Hubs API
 

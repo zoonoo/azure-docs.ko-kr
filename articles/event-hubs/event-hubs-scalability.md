@@ -1,6 +1,6 @@
 ---
 title: 확장성-Azure Event Hubs | Microsoft Docs
-description: Azure Event Hubs의 크기를 조정 하는 방법에 대 한 정보를 제공 합니다.
+description: 이 문서에서는 파티션 및 처리량 단위를 사용 하 여 Azure Event Hubs 크기를 조정 하는 방법에 대 한 정보를 제공 합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,25 +14,25 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827713"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309526"
 ---
-# <a name="scaling-with-event-hubs"></a>Event Hubs를 사용 하 여 크기 조정
+# <a name="scaling-with-event-hubs"></a>Event Hubs로 크기 조정
 
-Event Hubs를 사용 하 여 크기 조정에 영향을 줄 수 있는 두 가지 요인이 있습니다.
+Event Hubs를 사용 하 여 크기 조정에 영향을 주는 두 가지 요인이 있습니다.
 *   처리량 단위
 *   파티션
 
 ## <a name="throughput-units"></a>처리량 단위
 
-Event Hubs의 처리량 용량은 *처리량 단위*로 제어됩니다. 처리량 단위는 미리 구입한 용량의 단위입니다. 단일 처리량을 수 있습니다.
+Event Hubs의 처리량 용량은 *처리량 단위*로 제어됩니다. 처리량 단위는 미리 구입한 용량의 단위입니다. 단일 처리량을 사용 하면 다음을 수행할 수 있습니다.
 
-* 수신: 초당 최대 1MB 또는 초당 1,000회 이벤트(둘 중 빠른 쪽 적용)
-* 송신: 초당 최대 2MB 또는 4096개의 이벤트
+* 수신: 초당 최대 1MB 또는 초당 1,000회 이벤트(둘 중 빠른 쪽 적용).
+* 송신: 초당 최대 2MB 또는 4096개의 이벤트.
 
 구입한 처리량 단위의 용량을 초과하면 수신이 제한되며 [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception)이 반환됩니다. 송신은 제한 예외를 생성하지 않지만 구입한 처리량 단위의 용량으로 제한됩니다. 게시 속도 예외를 수신하거나 더 높은 송신을 예상하는 경우 네임스페이스에 대해 구입한 처리량 단위의 수를 확인해야 합니다. [Azure Portal](https://portal.azure.com)에서 네임스페이스의 **크기 조정** 블레이드에서 처리량 단위를 관리할 수 있습니다. [Event Hubs API](event-hubs-api-overview.md)를 사용하여 프로그래밍 방식으로 처리량 단위를 관리할 수도 있습니다.
 
@@ -45,7 +45,7 @@ Event Hubs의 **자동 확장** 기능은 필요한 사용량에 맞게 처리�
 
 ServerBusy 오류로 인한 요청 실패 없이 부하가 최소 임계값을 초과하면 Event Hubs 서비스는 처리량을 높입니다. 
 
-에 대 한 자세한 내용은 자동 팽창 기능을 참조 하십시오 [처리량 단위 자동으로](event-hubs-auto-inflate.md)입니다.
+자동 확장 기능에 대 한 자세한 내용은 [처리량 단위 자동 조정](event-hubs-auto-inflate.md)을 참조 하세요.
 
 ## <a name="partitions"></a>파티션
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]

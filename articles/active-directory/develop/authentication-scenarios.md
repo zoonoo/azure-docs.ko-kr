@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb09228b561718819c0c48aac4fc66d8205fe384
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ff9af6a6f51ca89fa7e852609ceed1ee02c6e23f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424608"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294357"
 ---
 # <a name="authentication-basics"></a>인증 기본 사항
 
@@ -168,4 +168,4 @@ Azure AD는 웹 앱과 동일한 id 쿠키를 브라우저에 저장 하므로 �
 - 일반적인 용어에 대해 알아 보려면 [Microsoft id 플랫폼 개발자 용어집](developer-glossary.md) 을 참조 하세요.
 - Microsoft id 플랫폼에서 지원 되는 사용자를 인증 하는 다른 시나리오에 대해 자세히 알아보려면 [인증 흐름 및 앱 시나리오](authentication-flows-app-scenarios.md) 를 참조 하세요.
 - Microsoft 계정, Azure AD 계정 및 Azure AD B2C 사용자를 모두 간소화 된 단일 프로그래밍 모델로 사용 하는 응용 프로그램을 개발 하는 데 도움이 되는 Microsoft 라이브러리에 대해 알아보려면 [Msal 라이브러리](msal-overview.md) 를 참조 하세요.
-- App Service 앱에 대 한 인증을 구성 하는 방법에 대 한 자세한 내용은 [마이크로 Sfot identity platform과 App Service 통합](/azure/app-service/configure-authentication-provider-aad) 을 참조 하세요.
+- App Service 앱에 대 한 인증을 구성 하는 방법을 알아보려면 [Microsoft id 플랫폼과 통합 App Service](/azure/app-service/configure-authentication-provider-aad) 을 참조 하세요.

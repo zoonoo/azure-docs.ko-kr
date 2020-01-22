@@ -76,7 +76,7 @@
   items:
     - name: 앱 통합
       items:
-        - name: OIDC 애플리케이션 등록
+        - name: 애플리케이션 등록
           href: tutorial-register-applications.md
         - name: SAML 서비스 공급자 등록
           href: connect-with-saml-service-providers.md
@@ -282,6 +282,11 @@
                   items:
                     - name: 지역화 문자열 ID
                       href: localization-string-ids.md
+                - name: DisplayControls
+                  href: display-controls.md
+                  items:
+                    - name: 확인
+                      href: display-control-verification.md
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
@@ -320,11 +325,6 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: 유효성 검사
                       href: validation-technical-profile.md
-            - name: DisplayControls
-              href: display-controls.md
-              items:
-                - name: 확인
-                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty
@@ -392,7 +392,7 @@
       href: active-directory-b2c-faqs.md
     - name: 도움말 보기
       href: /azure/active-directory/develop/developer-support-help-options
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory-b2c/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

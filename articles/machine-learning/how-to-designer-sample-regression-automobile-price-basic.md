@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 156b963fc1644d1f863d8ddd1d86c15b311e18a8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 18a9f9d49dce96b037f10a95a458e52d020fe6c7
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763388"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311073"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>회귀를 사용 하 Azure Machine Learning 디자이너로 자동차 가격 예측
 
-**Designer (미리 보기) 샘플 1**
+**디자이너 샘플 1**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 machine learning 회귀 모델을 빌드하는 방법에 대해 알아봅니다.
+디자이너를 사용 하 여 코드를 한 줄도 작성 하지 않고 machine learning 회귀 모델을 빌드하는 방법에 대해 알아봅니다.
 
 이 파이프라인은 **선형 회귀 변수** 을 학습 하 여 제조업체, 모델, 마 력, 크기 등의 기술 기능에 따라 자동차 가격을 예측 합니다. "어떻게 되나요?" 라는 질문에 답변 하려고 하기 때문에 이를 회귀 문제 라고 합니다. 그러나이 예제에서 동일한 기본 단계를 적용 하 여 재발, 분류, 클러스터링 등의 모든 유형의 기계 학습 문제를 다룰 수 있습니다.
 

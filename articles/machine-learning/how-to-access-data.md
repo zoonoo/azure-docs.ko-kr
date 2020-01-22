@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: ae04bf5268bb9973098735183842f7393e9d679b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4de8b032bd284ce0a2d6d8fd168b9ea3dd4937d3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121763"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289053"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +52,7 @@ Datastores는 현재 다음 행렬에 나열 된 저장소 서비스에 대 한 
 | 저장소&nbsp;유형 | 인증&nbsp;유형 | [Azure&nbsp;Machine&nbsp;학습 스튜디오](https://ml.azure.com/) | [Python SDK&nbsp; Azure&nbsp;Machine&nbsp;학습](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;학습 CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
 [Azure&nbsp;Blob&nbsp;저장소](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| 계정 키 <br> SAS 토큰 | ✓ | ✓ | ✓ |✓
-[Azure&nbsp;파일&nbsp;공유]((https://docs.microsoft.com/azure/storage/files/storage-files-introduction))| 계정 키 <br> SAS 토큰 | ✓ | ✓ | ✓ |✓
+[Azure&nbsp;파일&nbsp;공유](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| 계정 키 <br> SAS 토큰 | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;저장소 Gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| 서비스 주체| ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;저장소 Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| 서비스 주체| ✓ | ✓ | ✓ |✓
 Azure&nbsp;SQL&nbsp;데이터베이스| SQL 인증 <br>서비스 주체| ✓ | ✓ | ✓ |✓
@@ -271,7 +271,7 @@ SDK가 datastores에 대 한 액세스를 제공 하지 않는 경우에는 관�
 
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>지원 되는 Azure Storage 솔루션으로 데이터 이동
 
-Azure Machine Learning는 Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL의 데이터에 액세스 하는 것을 지원 합니다. 지원 되지 않는 저장소를 사용 하는 경우 [Azure Data Factory 및 이러한 단계]((https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool))를 사용 하 여 지원 되는 Azure Storage 솔루션으로 데이터를 이동 하는 것이 좋습니다. 지원 되는 저장소로 데이터를 이동 하면 기계 학습 실험 중에 데이터 송신 비용을 절감할 수 있습니다. 
+Azure Machine Learning는 Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL의 데이터에 액세스 하는 것을 지원 합니다. 지원 되지 않는 저장소를 사용 하는 경우 [Azure Data Factory 및 이러한 단계](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool)를 사용 하 여 지원 되는 Azure Storage 솔루션으로 데이터를 이동 하는 것이 좋습니다. 지원 되는 저장소로 데이터를 이동 하면 기계 학습 실험 중에 데이터 송신 비용을 절감할 수 있습니다. 
 
 Azure Data Factory는 80 개 이상의 미리 작성 된 커넥터를 추가 비용 없이 효율적이 고 복원 력 있는 데이터 전송을 제공 합니다. 이러한 커넥터에는 Azure 데이터 서비스, 온-프레미스 데이터 원본, Amazon S3 및 Redshift 및 Google 이상 쿼리가 포함 됩니다.
 

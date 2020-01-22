@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 69ae6766414dbe533500860b01852ee8d25c3a1e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513914"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291382"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>AKS (Azure Kubernetes Service) 진단 개요
 
@@ -24,7 +24,7 @@ AKS 진단에 액세스 하려면:
 
 - [Azure Portal](https://portal.azure.com)에서 Kubernetes 클러스터로 이동 합니다.
 - 왼쪽 탐색에서 **문제 진단 및 해결** 을 클릭 하면 AKS 진단이 열립니다.
-- 홈 페이지 타일의 키워드를 사용 하 여 클러스터의 문제를 가장 잘 설명 하는 범주를 선택 하거나 검색 표시줄에서 문제를 가장 잘 설명 하는 키워드 (예: _클러스터 노드 문제_)를 입력 합니다.
+- 홈페이지 타일의 키워드를 사용 하 여 클러스터의 문제를 가장 잘 설명 하는 범주를 선택 하거나 검색 표시줄에서 문제를 가장 잘 설명 하는 키워드 (예: _클러스터 노드 문제_)를 입력 합니다.
 
 ![홈페이지](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 

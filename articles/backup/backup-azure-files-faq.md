@@ -3,12 +3,12 @@ title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 파일 공유를 보호하는 방법에 대한 일반적인 질문과 답변을 검색합니다.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892574"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294000"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 
@@ -36,7 +36,7 @@ Azure 파일 공유가 동일한 Recovery Services 자격 증명 모음에서 �
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>파일 공유를 백업하는 자격 증명 모음을 변경할 수 있나요?
 
-예. 그러나 연결된 자격 증명 모음에서 [보호를 중지](backup-azure-files.md#stop-protecting-an-azure-file-share)하고, 이 스토리지 계정을 [등록 취소](troubleshoot-azure-files.md#configuring-backup)한 다음, 다른 자격 증명 모음에서 파일 공유를 보호해야 합니다.
+예. 그러나 연결 된 자격 증명 모음에서 [파일 공유에 대 한 보호를 중지](manage-afs-backup.md#stop-protection-on-a-file-share) 하 고이 저장소 계정의 등록을 [취소](troubleshoot-azure-files.md#configuring-backup) 한 다음 다른 자격 증명 모음에서 보호 해야 합니다.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>Azure 파일 공유를 백업할 수 있는 지역은 어디인가요?
 

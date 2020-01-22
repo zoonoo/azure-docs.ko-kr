@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: d8729e447aabfcb1c378919501ee48124e7ae27b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 4508d4b36e17db801a3ac172c434cf2e2136e141
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027810"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289359"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure managed disks의 서버 쪽 암호화
 
@@ -32,7 +32,7 @@ Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으�
 
 기본적으로 관리 디스크는 플랫폼 관리 암호화 키를 사용 합니다. 2017 년 6 월 10 일부 터 모든 새 관리 디스크, 스냅숏, 이미지 및 기존 관리 디스크에 기록 된 새 데이터는 플랫폼 관리 키를 사용 하 여 미사용 상태로 자동으로 암호화 됩니다. 
 
-## <a name="customer-managed-keys"></a>고객 관리 키
+## <a name="customer-managed-keys"></a>고객 관리형 키
 
 사용자 고유의 키를 사용 하 여 각 관리 디스크의 수준에서 암호화를 관리 하도록 선택할 수 있습니다. 고객이 관리 하는 키를 사용 하는 관리 디스크에 대 한 서버 쪽 암호화는 Azure Key Vault 통합 된 환경을 제공 합니다. Key Vault [rsa 키](../../key-vault/key-vault-hsm-protected-keys.md) 를 가져오거나 Azure Key Vault에서 새 rsa 키를 생성할 수 있습니다. Azure managed disks는 [봉투 (envelope) 암호화](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique)를 사용 하 여 완전히 투명 한 방식으로 암호화 및 암호 해독을 처리 합니다. 키를 사용 하 여 보호 되는 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 기반 dek (데이터 암호화 키)를 사용 하 여 데이터를 암호화 합니다. DEK를 암호화 하 고 암호 해독 하는 데 키를 사용 하려면 Key Vault에서 관리 디스크에 대 한 액세스 권한을 부여 해야 합니다. 이를 통해 데이터 및 키를 완전히 제어할 수 있습니다. 언제 든 지 키를 사용 하지 않도록 설정 하거나 관리 디스크에 대 한 액세스를 취소할 수 있습니다. 또한 Azure Key Vault 모니터링을 사용 하 여 암호화 키 사용을 감사 하 여 관리 디스크 또는 다른 신뢰할 수 있는 Azure 서비스만 키에 액세스할 수 있도록 할 수 있습니다.
 
@@ -189,3 +189,6 @@ az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
 
 - [고객 관리 키를 사용 하 여 암호화 된 디스크를 만들기 위한 Azure Resource Manager 템플릿 살펴보기](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Azure Key Vault란?](../../key-vault/key-vault-overview.md)
+- [고객 관리 키를 사용 하도록 설정 된 디스크를 사용 하 여 컴퓨터 복제](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
+- [PowerShell을 사용 하 여 Azure에 VMware Vm의 재해 복구 설정](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
+- [PowerShell 및 Azure Resource Manager를 사용 하 여 Hyper-v Vm 용 Azure에 대 한 재해 복구 설정](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

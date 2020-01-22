@@ -4,12 +4,12 @@ description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
-ms.openlocfilehash: 6b9cbe1638034ed05bd4759926f6488693fe8ae3
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 59e13b671f68c29271227d481b41562256d66fd6
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780484"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289648"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -131,8 +131,8 @@ Byn 스크립트를 실행 하는 모든 명령은 Azure Bash CLI (명령줄 인
 Byn.sh 및 fabric-admin 파일을 다운로드 합니다.
 
 ```bash-interactive
-curl https://raw.githubusercontent.com/ravastra/ARM-template-for-Hyperledger-Fabric-based-on-AKS/master/byn.sh -o byn.sh; chmod 777 byn.sh
-curl https://raw.githubusercontent.com/ravastra/ARM-template-for-Hyperledger-Fabric-based-on-AKS/master/fabric-admin.yaml -o fabric-admin.yaml
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/consortiumScripts/byn.sh -o byn.sh; chmod 777 byn.sh
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/consortiumScripts/fabric-admin.yaml -o fabric-admin.yaml
 ```
 **Azure CLI Bash 셸에서 아래 환경 변수를 설정**합니다.
 
@@ -143,7 +143,8 @@ SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 -
 ORDERER_AKS_SUBSCRIPTION=<ordererAKSClusterSubscriptionID>
 ORDERER_AKS_RESOURCE_GROUP=<ordererAKSClusterResourceGroup>
 ORDERER_AKS_NAME=<ordererAKSClusterName>
-ORDERER_DNS_ZONE=<ordererDNSZone>
+ORDERER_DNS_ZONE=
+ORDERER_DNS_ZONE=$(az aks show --resource-group $ORDERER_AKS_RESOURCE_GROUP --name $ORDERER_AKS_NAME --subscription $ORDERER_AKS_SUBSCRIPTION -o json | jq .addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName | tr -d '"')
 ORDERER_END_POINT="orderer1.$ORDERER_DNS_ZONE:443"
 CHANNEL_NAME=<channelName>
 ```
@@ -171,7 +172,7 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
-SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry 2020-01-01 --https-only --permissions lruw --resource-types sco --services f | tr -d '"')
+SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry `date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'` --https-only --permissions lruwd --resource-types sco --services f | tr -d '"')
 AZURE_FILE_CONNECTION_STRING="https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN"
 ```
 **채널 관리 명령**
@@ -265,7 +266,7 @@ cd app
 다음 명령을 실행 하 여 필요한 모든 파일 및 패키지를 다운로드 합니다.
 
 ```bash-interactive
-curl https://raw.githubusercontent.com/ravastra/ARM-template-for-Hyperledger-Fabric-based-on-AKS/master/application/setup.sh | bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/application/setup.sh | bash
 ```
 이 명령은 모든 패키지를 로드 하는 데 시간이 걸립니다. 명령을 성공적으로 실행 한 후에는 현재 디렉터리에서 `node_modules` 폴더를 볼 수 있습니다. 필요한 모든 패키지가 `node_modules` 폴더에 로드 됩니다.
 

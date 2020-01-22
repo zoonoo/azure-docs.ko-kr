@@ -14,27 +14,27 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9e224218217b18ffc5c35ec45011097d93e5d797
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917202"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291587"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
 이 문서에서는 MSAL (Microsoft Authentication Library)에서 제공 하는 다양 한 인증 흐름을 설명 합니다.  이러한 흐름은 다양 한 응용 프로그램 시나리오에서 사용할 수 있습니다.
 
-| 흐름 | 설명 | 사용 위치|  
+| 흐름 | Description | 사용 대상|  
 | ---- | ----------- | ------- | 
 | [대화형](#interactive) | 브라우저 또는 팝업 창을 통해 사용자에 게 자격 증명을 묻는 메시지를 표시 하는 대화형 프로세스를 통해 토큰을 가져옵니다. | [데스크톱 앱](scenario-desktop-overview.md), [모바일 앱](scenario-mobile-overview.md) |
 | [암시적 권한 부여](#implicit-grant) | 백 엔드 서버 자격 증명 교환을 수행 하지 않고도 앱에서 토큰을 가져올 수 있습니다. 이렇게 하면 앱에서 사용자에 게 로그인 하 고, 세션을 유지 관리 하 고, 다른 web Api에 대 한 토큰을 가져올 수 있습니다.| [SPA (단일 페이지 응용 프로그램)](scenario-spa-overview.md) |
 | [인증 코드](#authorization-code) | 웹 Api와 같은 보호 된 리소스에 대 한 액세스 권한을 얻기 위해 장치에 설치 된 앱에서 사용 됩니다. 이를 통해 모바일 및 데스크톱 앱에 로그인 및 API 액세스를 추가할 수 있습니다. | [데스크톱 앱](scenario-desktop-overview.md), [모바일 앱](scenario-mobile-overview.md), [웹 앱](scenario-web-app-call-api-overview.md) | 
 | [대리](#on-behalf-of) | 응용 프로그램은 다른 서비스 또는 web API를 호출 해야 하는 서비스 또는 웹 API를 호출 합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. | [Web API](scenario-web-api-call-api-overview.md) |
 | [클라이언트 자격 증명](#client-credentials) | 응용 프로그램의 id를 사용 하 여 웹 호스팅 리소스에 액세스할 수 있습니다. 사용자와 즉각적인 상호 작용 없이 백그라운드에서 실행 해야 하는 서버 간 상호 작용에 일반적으로 사용 됩니다. | [디먼 앱](scenario-daemon-overview.md) |
-| [디바이스 코드](#device-code) | 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력 제한 장치에 로그인 할 수 있습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [디바이스 코드](#device-code) | 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력 제한 장치에 로그인 할 수 있습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication) | 도메인 또는 Azure Active Directory (Azure AD)에 연결 된 컴퓨터의 응용 프로그램에서 사용자의 UI 상호 작용 없이 토큰을 자동으로 획득할 수 있습니다.| [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [사용자 이름/암호](scenario-desktop-acquire-token.md#username--password) | 응용 프로그램에서 직접 암호를 처리 하 여 사용자에 게 로그인 할 수 있도록 합니다. 이 흐름을 권장 하지 않습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#username--password) |
+| [사용자 이름/암호](scenario-desktop-acquire-token.md#username-and-password) | 응용 프로그램에서 직접 암호를 처리 하 여 사용자에 게 로그인 할 수 있도록 합니다. 이 흐름을 권장 하지 않습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#username-and-password) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>각 흐름에서 토큰 및 코드를 내보내는 방법
  

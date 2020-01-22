@@ -2,13 +2,13 @@
 title: 확장 리소스 종류
 description: 다른 리소스 유형의 기능을 확장 하는 데 사용 되는 Azure 리소스 유형을 나열 합니다.
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: af60bd648e41532cca364272fb0ded01c0c18239
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/20/2020
+ms.openlocfilehash: 47a98bca4912a1c59c8b2d9bad458769c6bf4ebf
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484676"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293269"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장 하는 리소스 종류
 
@@ -23,12 +23,14 @@ ms.locfileid: "75484676"
 - AlertsManagement/alertsSummary
 - Microsoft. Authorization/checkAccess
 - Microsoft. Authorization/denyAssignments
+- Microsoft. Authorization/findOrphanRoleAssignments
 - Microsoft. 권한 부여/잠금
 - Microsoft. 권한 부여/사용 권한
 - Microsoft. 권한 부여/policyAssignments
 - Microsoft. Authorization/policyDefinitions
 - Microsoft. Authorization/policySetDefinitions
 - Microsoft. 권한 부여/역할 할당
+- Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
 - Microsoft. 청구/billingPeriods
 - Microsoft. 청구/billingPermissions
@@ -82,6 +84,7 @@ ms.locfileid: "75484676"
 - microsoft insights/automatedExportSettings
 - microsoft. a s e/기준
 - microsoft insights/calculatebaseline
+- microsoft insights/dataCollectionRuleAssociations
 - microsoft insights/diagnosticSettings
 - microsoft insights/diagnosticSettingsCategories
 - microsoft insights/eventtypes
@@ -94,6 +97,8 @@ ms.locfileid: "75484676"
 - microsoft insights/metricbaselines
 - microsoft. 통찰력/메트릭
 - microsoft insights/myWorkbooks 문서
+- microsoft. a s e/토폴로지
+- microsoft. a s e/트랜잭션
 - microsoft insights/vmInsightsOnboardingStatuses
 - KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
@@ -109,6 +114,7 @@ ms.locfileid: "75484676"
 - Microsoft PolicyInsights/policyTrackedResources
 - Microsoft PolicyInsights/재구성
 - Microsoft RecoveryServices/backupProtectedItems
+- Microsoft RecoveryServices/replicationEligibilityResults  
 - Microsoft ResourceHealth/availabilityStatuses
 - Microsoft ResourceHealth/childAvailabilityStatuses
 - Microsoft ResourceHealth/childResources

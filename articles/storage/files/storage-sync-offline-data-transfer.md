@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b00948f8d0e1eb8538354a6c16febf81bd4d1f16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b1c167c71907e5f8af1006dfabd8f81ce4425d09
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457372"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291161"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>대량 데이터를 Azure File Sync으로 마이그레이션
 다음 두 가지 방법으로 대량 데이터를 Azure File Sync로 마이그레이션할 수 있습니다.
@@ -79,7 +79,7 @@ Azure File Sync 사용 하는 대량 마이그레이션 도구가 처음에 Acl�
 이제 준비 공유를 정리 하 여 비용을 절감할 수 있습니다.
 
 1. **서버 끝점 속성** 블레이드에서 상태가 **완료**인 경우 **오프 라인 데이터 전송 사용 안 함**을 선택 합니다.
-2. 준비 공유를 삭제 하 여 비용을 절감 하는 것이 좋습니다. 준비 공유에는 파일 및 폴더 Acl이 포함 되지 않을 수 있으므로 그다지 유용 하지 않습니다. 백업 지정 시간을 위해 [Azure 파일 공유 동기화의 실제 스냅숏을](storage-snapshots-files.md)만듭니다. 일정에 따라 [스냅숏을 생성 하도록 Azure Backup를 설정할]( ../../backup/backup-azure-files.md) 수 있습니다.
+2. 준비 공유를 삭제 하 여 비용을 절감 하는 것이 좋습니다. 준비 공유에는 파일 및 폴더 Acl이 포함 되지 않을 수 있으므로 그다지 유용 하지 않습니다. 백업 지정 시간을 위해 [Azure 파일 공유 동기화의 실제 스냅숏을](storage-snapshots-files.md)만듭니다. 일정에 따라 [스냅숏을 생성 하도록 Azure Backup를 설정할]( ../../backup/backup-afs.md) 수 있습니다.
 
 상태가 **완료** 된 경우 나 잘못 된 구성으로 인해 취소 하려는 경우에만 오프 라인 데이터 전송 모드를 사용 하지 않도록 설정 합니다. 배포 하는 동안 모드를 사용 하지 않도록 설정 하면 준비 공유를 여전히 사용할 수 있어도 파일이 서버에서 업로드 되기 시작 합니다.
 

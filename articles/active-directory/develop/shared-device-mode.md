@@ -16,12 +16,12 @@ ms.author: twhitney
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: babbaf75b91dfb870ba5001d23f62c5461a28218
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 70f629af35978771d48d0a29f9ec625628c3b630
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030303"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291263"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Android 장치에 대 한 공유 장치 모드
 
@@ -39,7 +39,7 @@ ms.locfileid: "76030303"
 공유 장치 모드 앱을 만들기 위해 개발자와 클라우드 장치 관리자는 함께 작동 합니다.
 
 - 개발자는 단일 계정 앱 (여러 계정 앱은 공유 장치 모드에서 지원 되지 않음)을 작성 하 고, 앱 구성에 `"shared_device_mode_supported": true`을 추가 하 고, 공유 장치 로그 아웃 등의 작업을 처리 하는 코드를 작성 합니다.
-- 장치 관리자는 인증자 앱을 설치 하 고 인증자 앱을 사용 하 여 장치를 공유 모드로 설정 하 여 공유할 장치를 준비 합니다. [클라우드 장치 관리자](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) 역할에 속한 사용자만 [인증자 앱](https://www.microsoft.com/account/authenticator)을 사용 하 여 장치를 공유 모드로 전환할 수 있습니다. Azure Portal를 통해 조직 역할의 멤버 자격을 구성할 수 있습니다. **Azure Active Directory** > **역할 및 관리자** > **클라우드 장치 관리자**.
+- 장치 관리자는 인증자 앱을 설치 하 고 인증자 앱을 사용 하 여 장치를 공유 모드로 설정 하 여 공유할 장치를 준비 합니다. [클라우드 장치 관리자](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) 역할에 속한 사용자만 [인증자 앱](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview)을 사용 하 여 장치를 공유 모드로 전환할 수 있습니다. Azure Portal를 통해 조직 역할의 멤버 자격을 구성할 수 있습니다. **Azure Active Directory** > **역할 및 관리자** > **클라우드 장치 관리자**.
 
  이 문서에서는 개발자가 주로 고려해 야 할 사항에 대해 중점적으로 설명 합니다.
 

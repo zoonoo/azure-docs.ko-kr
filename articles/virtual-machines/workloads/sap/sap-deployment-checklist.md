@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/08/2019
+ms.date: 01/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3a424c142fbfcbfe5e4c1802f3ba61da655f77f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 56b78f4296709206cefb762c87d4d1471bff2df7
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896025"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291518"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -53,7 +53,7 @@ ms.locfileid: "75896025"
         - SAP HANA 지원 되는 Azure Vm 및 [HANA Large 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 는 [SAP 웹 사이트](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에 나열 됩니다.
         - [SAP 제품 가용성 매트릭스](https://support.sap.com/en/).
         - 다른 SAP 관련 제품에 대 한 SAP 참고 사항     
-    - SAP 프로덕션 시스템에는 엄격한 3 계층 설계를 권장 합니다. 한 VM에서 ASCS와 앱 서버를 결합 하지 않는 것이 좋습니다. SAP Central Services에 다중 SID 클러스터 구성을 사용 하는 것은 Azure의 Windows 게스트 운영 체제에서 지원 됩니다. 그러나이 구성은 Azure에서 Linux 운영 체제의 SAP Central Services에 대해 지원 되지 않습니다. Windows 게스트 OS 시나리오에 대 한 설명서는 다음 문서에서 찾을 수 있습니다.
+    - SAP 프로덕션 시스템에는 엄격한 3 계층 설계를 권장 합니다. 단일 VM에서 ASCS 및/또는 DBMS 및/또는 앱 서버를 결합 하지 않는 것이 좋습니다. SAP Central Services에 다중 SID 클러스터 구성을 사용 하는 것은 Azure의 Windows 게스트 운영 체제에서 지원 됩니다. 그러나이 구성은 Azure에서 Linux 운영 체제의 SAP Central Services에 대해 지원 되지 않습니다. Windows 게스트 OS 시나리오에 대 한 설명서는 다음 문서에서 찾을 수 있습니다.
         - [Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
         - [Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
     - 고가용성 및 재해 복구 아키텍처.
@@ -135,7 +135,7 @@ ms.locfileid: "75896025"
         - SAP Central Services 및 DBMS에 대 한 고가용성이 필요 하지 않은 경우 SAP 응용 프로그램 계층과 동일한 가용성 집합에 이러한 Vm을 배포할 수 있습니다.
         - 수동 복제를 사용 하 여 고가용성을 위해 SAP Central Services와 DBMS 계층을 보호 하는 경우 SAP Central Services에 대 한 두 노드를 별도의 하나의 가용성 집합과 다른 가용성 집합의 두 DBMS 노드에 저장 합니다.
         - Azure 가용성 영역에 배포 하는 경우 가용성 집합을 사용할 수 없습니다. 하지만 활성 및 수동 중앙 서비스 노드를 서로 다른 두 가용성 영역에 배포 해야 합니다. 대기 시간이 가장 짧은 가용성 영역를 사용 합니다.
-          가용성 영역에서 DBMS 및 SAP Central Services 계층에 대 한 Windows 또는 Pacemaker 장애 조치 (failover) 클러스터를 설정 하는 사용 사례에는 [Azure 표준 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 를 사용 해야 합니다. 영역 배포에는 [기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) 를 사용할 수 없습니다.
+          가용성 영역에서 DBMS 및 SAP Central Services 계층에 대 한 Windows 또는 Pacemaker 장애 조치 (failover) 클러스터를 설정 하는 사용 사례에는 [Azure 표준 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 를 사용 해야 합니다. 영역 배포에는 [기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 를 사용할 수 없습니다.
    5. 시간 제한 설정입니다.
         - Sap 인스턴스의 SAP NetWeaver 개발자 추적을 확인 하 여 큐에 넣기 서버와 SAP 작업 프로세스 간에 연결이 중단 되지 않는지 확인 합니다. 이러한 두 레지스트리 매개 변수를 설정 하 여 이러한 연결 중단을 방지할 수 있습니다.
             - HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 12만. 자세한 내용은 [KeepAliveTime](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))을 참조 하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: 80812d1989e528a5a0f2333e92a068093d7b6b90
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c2a699a9fafdba60fb2a938fd4691c291562fbc5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528218"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292521"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>자습서: 사용자 프로 비전을 Active Directory SAP SuccessFactors 구성 (미리 보기)
 이 자습서는 SuccessFactors Employee Central에서 Active Directory (AD) 및 Azure AD로 사용자를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있도록 합니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../manage-apps/sap-successfactors-attribute-reference.md) 검색을 지원 합니다.
@@ -342,7 +342,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프로 비전 서비스를 켤 수 있습니다.
 
 > [!TIP]
-> 기본적으로 프로비전 서비스를 켜면 범위 내 모든 사용자의 프로비전 작업이 시작됩니다. 매핑 오류 또는 Workday 데이터 문제가 있는 경우 프로비전 작업이 실패하고 격리 상태로 전환될 수 있습니다. 이를 방지하기 위해 **원본 개체 범위** 필터를 구성하고 모든 사용자의 전체 동기화를 시작하기 전에 몇몇 테스트 사용자로 특성 매핑을 테스트하는 것이 좋습니다. 매핑이 작동하고 원하는 결과를 제공하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
+> 기본적으로 프로비전 서비스를 켜면 범위 내 모든 사용자의 프로비전 작업이 시작됩니다. 매핑 또는 SuccessFactors 데이터 문제에 오류가 있는 경우 프로 비전 작업이 실패 하 고 격리 상태로 전환 될 수 있습니다. 이를 방지하기 위해 **원본 개체 범위** 필터를 구성하고 모든 사용자의 전체 동기화를 시작하기 전에 몇몇 테스트 사용자로 특성 매핑을 테스트하는 것이 좋습니다. 매핑이 작동하고 원하는 결과를 제공하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
@@ -350,7 +350,7 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
 
 3. 이 작업을 수행 하면 초기 동기화가 시작 되며,이는 SuccessFactors 테 넌 트에 있는 사용자 수에 따라 시간이 많이 걸릴 수 있습니다. 진행률 표시줄을 확인 하 여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
 
-4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그는 Workday에서 어떤 사용자를 읽은 다음, Active Directory에 추가 또는 업데이트되는지와 같은 프로비저닝 서비스에서 수행한 모든 개별 동기화 이벤트를 나열합니다. 
+4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그에는 프로 비전 서비스에서 수행 하는 모든 개별 동기화 이벤트가 나열 됩니다. 예를 들어 SuccessFactors에서 읽고 이후에 Active Directory에 추가 하거나 업데이트 하는 사용자입니다. 
 
 5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 

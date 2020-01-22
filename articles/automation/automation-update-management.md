@@ -3,14 +3,14 @@ title: Azure의 업데이트 관리 솔루션
 description: 이 문서에서는 Azure 업데이트 관리 솔루션을 사용 하 여 Windows 및 Linux 컴퓨터에 대 한 업데이트를 관리 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 01/14/2020
+ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0cf47538f7db1cef629c2b58a9fbde16640a50ae
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 4efe9fe8dd1f006cb21c60c4c0e086264af26561
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945134"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310104"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -71,8 +71,9 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 run
 
 |운영 체제  |메모  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM 및 SP1 표준)||
-|CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치를 적용 하려면 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환 `yum` 해야 합니다. CentOS의 분류 기반 패치에 대 한 자세한 내용은 [Linux의 업데이트 분류](#linux-2)를 참조 하세요.          |
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 || 
+|Windows Server 2008 R2 (RTM 및 SP1 표준)| 이 운영 체제에 대 한 평가를 수행 하도록 지원 업데이트 관리 Windows Server 2008 r 2에서 [Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) 지원 되지 않으므로 패치가 지원 되지 않습니다. |
+|CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치를 적용 하려면 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환 `yum` 해야 합니다. CentOS의 분류 기반 패치에 대 한 자세한 내용은 [Linux의 업데이트 분류](automation-view-update-assessments.md#linux-2)를 참조 하세요.          |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |Ubuntu 14.04 LTS, 16.04 LTS 및 18.04(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
@@ -190,56 +191,6 @@ Hybrid Runbook Worker에 필요한 포트에 대한 자세한 내용은 [Hybrid 
 예외를 정의할 때 나열 된 주소를 사용 하는 것이 좋습니다. IP 주소의 경우 [데이터 센터 ip 범위 Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)다운로드할 수 있습니다. 이 파일은 매주 업데이트 되며 현재 배포 된 범위와 모든 예정 된 IP 범위 변경 내용을 반영 합니다.
 
 인터넷에 액세스할 수 없는 [컴퓨터 연결](../azure-monitor/platform/gateway.md) 의 지침에 따라 인터넷에 액세스할 수 없는 컴퓨터를 구성 합니다.
-
-## <a name="view-update-assessments"></a>업데이트 평가 보기
-
-Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태를 확인합니다.
-
-이 보기에서는 컴퓨터, 누락 업데이트, 업데이트 배포 및 예약된 업데이트 배포에 대한 정보를 제공합니다. **준수** 열에서 컴퓨터가 마지막으로 평가 된 시간을 확인할 수 있습니다. **에이전트 준비 상태 업데이트** 열에서 업데이트 에이전트의 상태를 확인할 수 있습니다. 문제가 있는 경우 문제를 해결 하는 데 도움이 될 수 있는 문제 해결 설명서로 이동 하려면 링크를 선택 합니다.
-
-컴퓨터, 업데이트 또는 배포에 대 한 정보를 반환 하는 로그 검색을 실행 하려면 목록에서 해당 항목을 선택 합니다. 이렇게 하면 선택한 항목에 대한 쿼리가 있는 **로그 검색** 창이 열립니다.
-
-![업데이트 관리 기본 보기](media/automation-update-management/update-management-view.png)
-
-## <a name="view-missing-updates"></a>누락 업데이트 보기
-
-**누락 업데이트**를 선택하여 컴퓨터에서 누락된 업데이트 목록을 표시합니다. 각 업데이트가 나열되며 선택 가능합니다. 업데이트가 필요한 컴퓨터 수, 운영 체제 및 세부 정보에 대한 링크와 관련된 정보가 표시됩니다. **로그 검색** 창에 업데이트에 대한 자세한 정보가 표시됩니다.
-
-![누락 업데이트](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
-
-## <a name="update-classifications"></a>업데이트 분류
-
-다음 표에는 각 분류에 대한 정의와 함께 업데이트 관리의 업데이트 분류가 나열됩니다.
-
-### <a name="windows"></a>Windows
-
-|분류  |Description  |
-|---------|---------|
-|중요 업데이트     | 보안 관련 중요 버그를 해결하는 특정 문제에 대한 업데이트입니다.        |
-|보안 업데이트     | 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.        |
-|업데이트 롤업     | 간편한 배포를 위해 함께 패키지된 핫픽스의 누적 집합입니다.        |
-|기능 팩     | 제품 릴리스와 따로 배포되는 새로운 제품 기능입니다.        |
-|서비스 팩     | 애플리케이션에 적용되는 핫픽스의 누적 집합입니다.        |
-|정의 업데이트     | 바이러스 또는 기타 정의 파일에 대한 업데이트입니다.        |
-|도구     | 하나 이상의 작업을 완료하는 데 도움이 되는 유틸리티 또는 기능입니다.        |
-|업데이트     | 현재 설치되어 있는 애플리케이션 또는 파일에 대한 업데이트입니다.        |
-
-### <a name="linux-2"></a>Linux
-
-|분류  |Description  |
-|---------|---------|
-|중요 업데이트 및 보안 업데이트     | 특정 문제 또는 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.         |
-|다른 업데이트     | 기본적으로 중요 하지 않거나 보안 업데이트가 아닌 다른 모든 업데이트.        |
-
-업데이트 관리 Linux의 경우 클라우드의 데이터 보강 인해 평가 데이터를 표시 하는 동안 클라우드의 중요 업데이트와 보안 업데이트를 구분할 수 있습니다. 패치의 경우, 업데이트 관리는 컴퓨터에서 사용할 수 있는 분류 데이터에 의존합니다. 다른 배포와 달리 CentOS는 RTM 버전에서이 정보를 사용할 수 없습니다. 다음 명령에 대 한 보안 데이터를 반환 하도록 구성 된 CentOS 컴퓨터가 있는 경우 분류에 따라 업데이트 관리 패치를 적용할 수 있습니다.
-
-```bash
-sudo yum -q --security check-update
-```
-
-현재 CentOS에서 네이티브 분류 데이터 가용성을 사용 하도록 설정 하는 방법이 지원 되지 않습니다. 지금은이 기능을 사용 하도록 설정 했을 수 있는 고객에 게 최상의 지원만 제공 됩니다. 
-
-Red Hat Enterprise 버전 6에서 업데이트를 분류 하려면 yum-보안 플러그 인을 설치 해야 합니다. Red Hat Enterprise Linux 7에서 플러그 인은 이미 yum 자체의 일부 이므로 아무 것도 설치할 필요가 없습니다. 자세한 내용은 다음 Red Hat [기술](https://access.redhat.com/solutions/10021)항목을 참조 하세요.
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager와 상호 작용
 

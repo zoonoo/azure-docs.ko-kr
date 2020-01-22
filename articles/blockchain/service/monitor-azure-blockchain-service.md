@@ -3,13 +3,13 @@ title: Azure Blockchain 서비스 모니터링 (ABS)
 description: Azure Monitor를 통해 Azure Blockchain 서비스 모니터링
 ms.date: 01/08/2020
 ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 8c2dc6afeaa00e4c7455940cbdf5a7acd6e17394
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.reviewer: v-umha
+ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780406"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293252"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Azure Monitor를 통해 Azure Blockchain 서비스 모니터링  
 

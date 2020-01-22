@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 698c198f58ead88b01b1c4b8b2e1fd9da4198c93
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277456"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291501"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.
@@ -58,7 +58,7 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 - Azure 가용성 영역을 배포하는 경우 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용해야 합니다. 
 - 물리적 영역에 대한 영역 열거형 매핑은 Azure 구독을 기준으로 고정됩니다. 다른 구독을 사용하여 SAP 시스템을 배포하는 경우 구독마다 적절한 영역을 정의해야 합니다.
 - Azure [근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 사용 하지 않는 한 azure 가용성 집합을 Azure 가용성 영역 내에 배포할 수 없습니다. 여러 영역에 걸쳐 SAP DBMS 계층과 중앙 서비스를 배포 하는 방법 및 동시에 가용성 집합을 사용 하 여 SAP 응용 프로그램 계층을 배포 하 고 Vm에 대 한 근접 하 게 유지 하는 방법은 [sap 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)문서에 설명 되어 있습니다. Azure 근접 배치 그룹을 활용 하지 않는 경우 가상 컴퓨터에 대 한 배포 프레임 워크로 하나를 선택 해야 합니다.
-- [Azure 기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus)를 사용하여 Windows Server 장애 조치(failover) 클러스터링 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터 솔루션을 만들 수 없습니다. 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다.
+- [Azure 기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 사용하여 Windows Server 장애 조치(failover) 클러스터링 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터 솔루션을 만들 수 없습니다. 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다.
 
 
 

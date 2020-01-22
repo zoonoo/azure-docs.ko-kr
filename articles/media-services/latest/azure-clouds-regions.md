@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3를 사용할 수 있는 클라우드 및 지역 | Microsoft Docs
+title: Azure Media Services v3를 사용할 수 있는 클라우드 및 지역
 description: 이 문서에서는 Azure Media Services v3를 사용할 수 있는 Azure 클라우드 및 지역에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58b5b749e81aab4d8563d09cbfd139629520531c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409276"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310573"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Azure Media Services v3가 있는 클라우드 및 지역
 
@@ -26,16 +26,16 @@ Azure Media Services v3는 전 세계 Azure, Azure Government, Azure Germany, Az
 
 | 기능|전 세계 Azure 지역 | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | 사용 가능 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  사용 가능 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  사용 가능 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-| [StandardEncoderPreset](encoding-concept.md) | 사용 가능 | 사용 가능 | 사용 가능 | 사용 가능 |
-| [LiveEvents](live-streaming-overview.md) | 사용 가능 | 사용 가능 | 사용 가능 | 사용 가능 |
-| [StreamingEndpoints](streaming-endpoint-concept.md) | 사용 가능 | 사용 가능 | 사용 가능 | 사용 가능 |
+| [Azure EventGrid](reacting-to-media-services-events.md) | 사용할 수 있음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  사용할 수 있음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  사용할 수 있음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| [StandardEncoderPreset](encoding-concept.md) | 사용할 수 있음 | 사용할 수 있음 | 사용할 수 있음 | 사용할 수 있음 |
+| [LiveEvents](live-streaming-overview.md) | 사용할 수 있음 | 사용할 수 있음 | 사용할 수 있음 | 사용할 수 있음 |
+| [StreamingEndpoints](streaming-endpoint-concept.md) | 사용할 수 있음 | 사용할 수 있음 | 사용할 수 있음 | 사용할 수 있음 |
 
 ## <a name="regionsgeographieslocations"></a>Azure 지역/지리적 위치/위치
 
-[Azure Media Services 서비스가 배포 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+[Azure Media Services 서비스가 배포 된 지역](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Azure 지역 코드 이름 
 
@@ -68,32 +68,32 @@ az account list-locations
 
 |엔드포인트 ||
 | --- | --- | 
-| Azure 리소스 관리자 |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| 인증 | `https://login.microsoftonline.com/` | 
 | 토큰 대상 그룹 | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
 |엔드포인트||
 | --- | --- | 
-| Azure 리소스 관리자 |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| 인증 | `https://login.microsoftonline.us/` | 
 | 토큰 대상 그룹 | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Germany
 
 | 엔드포인트 ||
 | --- | --- |  
-| Azure 리소스 관리자 | `https://management.cloudapi.de/` |
-| Authentication | `https://login.microsoftonline.de/` |
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| 인증 | `https://login.microsoftonline.de/` |
 | 토큰 대상 그룹 | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
 |엔드포인트||
 | --- | --- | 
-| Azure 리소스 관리자 | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.chinacloudapi.cn/` |
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| 인증 | `https://login.chinacloudapi.cn/` |
 | 토큰 대상 그룹 |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="see-also"></a>참고 항목

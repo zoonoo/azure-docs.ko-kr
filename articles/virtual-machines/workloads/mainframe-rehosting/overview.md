@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305860"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289801"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 메인프레임 재호스팅
 
@@ -39,7 +39,7 @@ Rehost, rebuild, replace 또는 사용 중지 하 시겠습니까? IaaS 또는 P
 
 마이크로 Focus Enterprise Server는 사용할 수 있는 가장 큰 메인프레임 재호스팅 플랫폼 중 하나입니다. Azure에서 더 저렴 한 x86 플랫폼에서 z/OS 워크 로드를 실행 하는 데 사용할 수 있습니다.
 
-시작하기:
+시작하려면:
 
 - [Azure에 Enterprise Server 및 Enterprise Developer 설치](./microfocus/set-up-micro-focus-azure.md)
 - [Azure에서 엔터프라이즈 개발자를 위한 CICS BankDemo 설정](./microfocus/demo.md)
@@ -50,7 +50,7 @@ Rehost, rebuild, replace 또는 사용 중지 하 시겠습니까? IaaS 또는 P
 
 TmaxSoft OpenFrame은 리프트 앤 시프트 시나리오에서 사용 되는 인기 있는 메인프레임 재호스팅 솔루션입니다. Azure의 OpenFrame 환경은 개발, 데모, 테스트 또는 프로덕션 워크 로드에 적합 합니다.
 
-시작하기:
+시작하려면:
 
 - [TmaxSoft OpenFrame 시작](./tmaxsoft/get-started.md)
 - [전자책 다운로드](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
@@ -61,7 +61,7 @@ Ibm Z 개발 및 테스트 환경 (IBM zD & T)은 Z/OS 기반 응용 프로그�
 
 Azure의 에뮬레이션 환경에서는 ADCDs (응용 프로그램 개발자 제어 배포)를 통해 다양 한 종류의 Z 인스턴스를 호스트할 수 있습니다. Azure에서 zD & T Personal Edition, zD & T Parallel Sysplex 및 zD & T Enterprise Edition을 실행 하 고 Azure Stack 수 있습니다.
 
-시작하기:
+시작하려면:
 
 - [Azure에서 IBM zD & T 12.0 설정](./ibm/install-ibm-z-environment.md)
 - [ZD & T에서 ADCD를 설정 합니다.](./ibm/demo.md)
@@ -90,9 +90,9 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 ### <a name="scalability"></a>확장성
 
-메인프레임은 일반적으로 강화되는 반면 클라우드 환경은 스케일 아웃됩니다. Azure는 요구 사항에 맞는 다양 한 [Linux](/azure/virtual-machines/linux/sizes) 및 [Windows](/azure/virtual-machines/windows/sizes) 크기를 제공 합니다. 또한 클라우드는 정확한 사용자 사양과 일치 하도록 확장 하거나 축소 합니다. 사용량 기반 청구 모델에서 요청 시 전원, 저장소 및 서비스의 [규모](/azure/architecture/best-practices/auto-scaling) 를 계산 합니다.
+일반적으로 메인프레임은 규모를 강화 하는 반면, 클라우드 환경 규모는 확장 됩니다. Azure는 요구 사항에 맞는 다양 한 [Linux](/azure/virtual-machines/linux/sizes) 및 [Windows](/azure/virtual-machines/windows/sizes) 크기를 제공 합니다. 또한 클라우드는 정확한 사용자 사양과 일치 하도록 확장 하거나 축소 합니다. 사용량 기반 청구 모델에서 요청 시 전원, 저장소 및 서비스의 [규모](/azure/architecture/best-practices/auto-scaling) 를 계산 합니다.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 클라우드에서는 유연 하 고 확장 가능한 저장소 옵션을 사용할 수 있으며 필요한 만큼만 요금을 지불 하면 됩니다. [Azure Storage](/azure/storage/common/storage-introduction)는 데이터 개체용으로 대폭 확장 가능한 개체 저장소, 클라우드용 파일 시스템 서비스, 안정적인 메시징 저장소 및 NoSQL 저장소를 제공합니다. VM의 경우에는 관리형 디스크와 비관리형 디스크에서 안전한 영구 디스크 스토리지가 제공됩니다.
 
@@ -112,7 +112,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 ## <a name="next-steps"></a>다음 단계
 
-파트너 응용 프로그램을 마이그레이션하거나 rehost 하는 데 도움이 되도록 [파트너](partner-workloads.md) 에 게 문의 하세요. 파트너 솔루션을 선택 하는 방법에 대 한 자세한 지침은 [Platform 현대화 동맹](https://www.platformmodernization.org/pages/mainframe.aspx) 웹 사이트를 참조 하세요.
+파트너 응용 프로그램을 마이그레이션하거나 rehost 하는 데 도움이 되도록 [파트너](partner-workloads.md) 에 게 문의 하세요. 
 
 참고 항목:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894617"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294255"
 ---
 # <a name="supported-platforms"></a>지원 플랫폼 
 
@@ -49,6 +49,10 @@ Azure 구독에서 활성화 된 Azure 환경의 경우 Azure Security Center는
 |Windows Server 2008 R2|✔|✔|
 
 위에 나열 된 Windows 운영 체제에 대해 지원 되는 기능에 대해 자세히 알아보려면 [가상 머신/서버 지원 기능](security-center-services.md#vm-server-features)을 참조 하세요.
+
+### Windows 운영 체제<a name="os-windows (non-server)"></a>
+
+Azure Security Center는 Windows 기반 가상 컴퓨터를 모니터링 하 고 보호 하기 위해 Azure 서비스와 통합 됩니다.
 
 ### Linux 운영 체제<a name="os-linux"></a>
 

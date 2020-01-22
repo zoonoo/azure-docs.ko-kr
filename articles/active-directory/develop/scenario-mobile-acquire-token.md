@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d584dc2eef27747627133511af3defe085068ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7570030f4b0cc2e7bc1a1d64ad9eea7a74429eee
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423834"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293473"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>웹 Api를 호출 하는 모바일 앱-토큰 가져오기
 
@@ -241,7 +241,7 @@ catch(MsalUiRequiredException)
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-이 한정자는 사용자가 사전에 여러 리소스에 대 한 동의를 원하는 고급 시나리오에서 사용 됩니다 (일반적으로 MSAL.NET/Microsoft id platform v 2.0에서 사용 되는 증분 동의를 사용 하지 않음). 자세한 내용은 [방법: 사용자에 게 여러 리소스에 대 한 사전 동의가 필요](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)합니다.
+이 한정자는 사용자가 사전에 여러 리소스에 대 한 동의를 원하는 고급 시나리오에서 사용 됩니다 (일반적으로 MSAL.NET/Microsoft id platform v 2.0에서 사용 되는 증분 동의를 사용 하지 않음). 자세한 내용은 [방법: 사용자에 게 여러 리소스에 대 한 사전 동의가 필요](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources)합니다.
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)

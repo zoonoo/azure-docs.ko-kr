@@ -17,34 +17,34 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe727afcfdec204c92c82c3e695961707af90e65
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a07a28837abf2fb6df3dd0583309ec1f3d278a58
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423818"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293490"
 ---
-# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱-프로덕션으로 이동
+# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱: 프로덕션으로 이동
 
-이 문서에서는 웹 Api를 호출 하는 데스크톱 앱을 프로덕션으로 이동 하기 위한 세부 정보를 제공 합니다.
+이 문서에서는 웹 Api를 호출 하는 데스크톱 앱을 프로덕션으로 이동 하는 방법에 대해 알아봅니다.
 
-## <a name="handling-errors-in-desktop-applications"></a>데스크톱 응용 프로그램의 오류 처리
+## <a name="handle-errors-in-desktop-applications"></a>데스크톱 응용 프로그램의 오류 처리
 
-여러 흐름에서 자동 흐름에 대 한 오류를 처리 하는 방법을 배웠습니다 (코드 조각에 표시 됨). 또한 상호 작용이 필요한 경우도 있습니다 (증분 동의 및 조건부 액세스).
+다른 흐름에서는 코드 조각에 표시 된 것 처럼 자동 흐름에 대 한 오류를 처리 하는 방법을 배웠습니다. 또한 증분 동의 및 조건부 액세스와 같이 상호 작용이 필요한 경우도 있습니다.
 
-## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>사용자에 게 여러 리소스를 사전에 동의 하는 방법
+## <a name="have-the-user-consent-upfront-for-several-resources"></a>사용자에 게 여러 리소스에 대 한 사전 승인이 필요 합니다.
 
 > [!NOTE]
 > 여러 리소스에 대 한 동의를 얻는 것은 Microsoft id 플랫폼에서 작동 하지만 Azure Active Directory (Azure AD) B2C의 경우에는 작동 하지 않습니다. Azure AD B2C은 사용자 동의가 아닌 관리자 동의만 지원 합니다.
 
-V2.0 (Microsoft identity platform) 끝점을 사용 하면 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. 따라서 `scopes` 매개 변수는 단일 리소스에 대 한 범위만 포함할 수 있습니다. `extraScopesToConsent` 매개 변수를 사용 하 여 사용자가 여러 리소스를 미리 동의 수 있도록 할 수 있습니다.
+V2.0 (Microsoft identity platform) 끝점을 사용 하 여 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. `scopes` 매개 변수는 단일 리소스에 대 한 범위만 포함할 수 있습니다. `extraScopesToConsent` 매개 변수를 사용 하 여 사용자가 여러 리소스를 미리 동의 수 있도록 할 수 있습니다.
 
-예를 들어 두 개의 리소스가 있는 경우 두 개의 범위가 있습니다.
+예를 들어, 두 개의 범위가 각각 포함 된 두 개의 리소스가 있을 수 있습니다.
 
-- `https://mytenant.onmicrosoft.com/customerapi`-2 개 범위 `customer.read` 및 `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`-2 개 범위 `vendor.read` 및 `vendor.write`
+- 범위 `customer.read`와 `https://mytenant.onmicrosoft.com/customerapi` `customer.write`
+- 범위 `vendor.read`와 `https://mytenant.onmicrosoft.com/vendorapi` `vendor.write`
 
-`extraScopesToConsent` 매개 변수가 있는 `.WithAdditionalPromptToConsent` 한정자를 사용 해야 합니다.
+이 예제에서는 `extraScopesToConsent` 매개 변수가 있는 `.WithAdditionalPromptToConsent` 한정자를 사용 합니다.
 
 예를 들면 다음과 같습니다.
 
@@ -99,17 +99,17 @@ interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
 ```
 
-이 호출을 통해 첫 번째 web API에 대 한 액세스 토큰을 얻을 수 있습니다.
+이 호출은 첫 번째 web API에 대 한 액세스 토큰을 가져옵니다.
 
-두 번째 웹 API를 호출 해야 하는 경우 `AcquireTokenSilent` API를 호출할 수 있습니다.
+두 번째 web API를 호출 해야 하는 경우 `AcquireTokenSilent` API를 호출 합니다.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>Microsoft 개인 계정에는 앱이 실행 될 때마다 reconsenting가 필요 합니다.
+### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>앱을 실행할 때마다 Microsoft 개인 계정에 다시 동의 해야 함
 
-Microsoft 개인 계정 사용자의 경우 권한 부여에 대 한 각 native client (데스크톱/모바일 앱) 호출에 대 한 동의를 다시 요청 하는 것이 의도 된 동작입니다. Native client id는 기본적으로 안전 하지 않습니다. 기밀 클라이언트 응용 프로그램은 암호를 Microsoft Id 플랫폼과 교환 하 여 id를 증명 합니다. Microsoft id 플랫폼은 응용 프로그램에 권한이 부여 될 때마다 사용자에 게 동의 하 라는 메시지를 표시 하 여이 입력할 소비자 서비스를 완화 하도록 선택 했습니다.
+Microsoft 개인 계정 사용자의 경우 권한 부여를 위해 각 native client (데스크톱 또는 모바일 앱) 호출에 대 한 동의를 다시 확인 하는 것은 의도 된 동작입니다. Native client id는 본질적으로 안전 하지 않습니다 .이는 기밀 클라이언트 응용 프로그램 id와 반대입니다. 기밀 클라이언트 응용 프로그램은 Microsoft Id 플랫폼과 암호를 교환 하 여 해당 id를 증명 합니다. Microsoft id 플랫폼은 응용 프로그램에 권한이 부여 될 때마다 사용자에 게 동의 하 라는 메시지를 표시 하 여이 입력할 소비자 서비스를 완화 하도록 선택 했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

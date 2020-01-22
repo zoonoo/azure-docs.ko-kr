@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 807bb4b4dd07298635ff0cd3e18f095ccf862e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9ebc418327d8c73198d43d3c40e14d48c73ad209
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989801"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290243"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure 예약 할인이 가상 머신에 적용되는 방식
 
@@ -47,7 +47,7 @@ SQL Database 예약된 용량의 경우 [Azure Reserved Instances 할인](../res
 
 ![적용된 하나의 예약 및 일치하는 두 개의 VM 인스턴스에 대한 스크린샷](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. 예약 줄을 초과하는 사용량은 일반 종량제 요금으로 청구됩니다. 예약 선을 초과하지 않는 사용량은 이미 예약 구매의 일부로 지불되었기 때문에 청구되지 않습니다.
+1. 예약 줄을 초과하는 사용량은 일반 종량제 요금으로 청구됩니다. 예약 구매의 일부로 이미 지불 되었기 때문에 예약 라인 아래의 사용량에 대해서는 요금이 청구 되지 않습니다.
 2. 시간 1 중에 인스턴스 1은 0.75시간 동안 실행되고 인스턴스 2는 0.5시간 동안 실행됩니다. 시간 1의 총 사용량은 1.25시간입니다. 나머지 0.25시간에 대한 종량제 요금이 청구됩니다.
 3. 시간 2 및 시간 3의 경우 두 인스턴스는 1시간 동안 실행되었습니다. 하나의 인스턴스는 예약에 포함되고 다른 하나는 종량제 요금으로 요금이 부과됩니다.
 4. 시간 4의 경우 인스턴스 1은 0.5시간 동안 실행되고 인스턴스 2는 1시간 동안 실행됩니다. 인스턴스 1은 예약에 완전히 포함되고 인스턴스 2 중 0.5시간도 포함됩니다. 나머지 0.5시간에 대한 종량제 요금이 청구됩니다.

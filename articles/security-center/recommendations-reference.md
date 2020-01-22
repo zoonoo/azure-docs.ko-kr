@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
-ms.openlocfilehash: fdcaaa981246e86e5b87b4af3c9a6e8c597ced25
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 686b8bedfeb4ae5e1b2b7bf3b750b51074677990
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553307"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288985"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항-참조 가이드
 
@@ -27,11 +27,10 @@ ms.locfileid: "75553307"
 
 보안 점수는 완화 된 Security Center 권장 사항의 수를 기준으로 합니다. 권장 사항에 우선 순위를 지정 하려면 각각의 심각도를 고려 합니다.
 
-## <a name="azure-security-center-recommendations"></a>Azure Security Center 권장 사항
+## <a name="recs-network"></a>네트워크 권장 사항
 
-||설명 & 관련 정책|심각도|빠른 수정 사용 여부 ([자세한 정보](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|리소스 유형|
+|권장|설명 & 관련 정책|심각도|빠른 수정 사용 여부 ([자세한 정보](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|리소스 유형|
 |----|----|----|----|----|
-||<a name="recs-network"></a><h3>네트워크 권장 사항-네트워크 토폴로지 및 인터넷 연결 끝점에 대 한|
 |**Just-in-time 네트워크 액세스 제어는 가상 컴퓨터에 적용 되어야 합니다.**|JIT (just-in-time) VM (가상 컴퓨터) 액세스 제어를 적용 하 여 선택한 포트에 대 한 액세스 권한을 영구적으로 잠그고, 권한 있는 사용자가 제한 된 시간 동안만 JIT를 통해 해당 포트를 열 수 있도록 합니다.<br>(관련 정책: Just-in-time 네트워크 액세스 제어는 가상 컴퓨터에 적용 되어야 함)|높음|N|가상 머신|
 |**서브넷 수준의 네트워크 보안 그룹을 사용 하도록 설정 해야 합니다.**|네트워크 보안 그룹을 사용 하 여 서브넷에 배포 된 리소스에 대 한 네트워크 액세스를 제어 합니다.<br>(관련 정책: 서브넷은 네트워크 보안 그룹과 연결 되어야 함)|높음/보통|N|서브넷|
 |**가상 컴퓨터는 네트워크 보안 그룹에 연결 해야 합니다.**|가상 머신의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.<br>(관련 정책: 가상 컴퓨터는 네트워크 보안 그룹에 연결 되어야 함)|높음/보통|N|가상 머신|
@@ -44,7 +43,25 @@ ms.locfileid: "75553307"
 |**HTTPS를 통해서만 웹 응용 프로그램에 액세스할 수 있어야 합니다.**|웹 응용 프로그램에 대해 "HTTPS만" 액세스를 사용 하도록 설정 합니다. HTTPS를 사용 하 여 서버/서비스 인증을 보장 하 고 전송 중인 데이터를 네트워크 계층 도청 공격 으로부터 보호 합니다.<br>(관련 정책: 웹 응용 프로그램은 HTTPS를 통해서만 액세스할 수 있어야 함)|중간|**예**|웹 애플리케이션|
 |**함수 앱는 HTTPS를 통해 액세스할 수 있어야 합니다.**|함수 앱에 대해 "HTTPS만" 액세스를 사용 하도록 설정 합니다. HTTPS를 사용 하 여 서버/서비스 인증을 보장 하 고 전송 중인 데이터를 네트워크 계층 도청 공격 으로부터 보호 합니다.<br>(관련 정책: HTTPS를 통해서만 함수 앱에 액세스할 수 있어야 함)|중간|**예**|함수 앱|
 |**저장소 계정에 대 한 보안 전송을 사용 하도록 설정 해야 합니다.**|저장소 계정에 대 한 보안 전송을 사용 하도록 설정 합니다. 보안 전송은 사용자의 스토리지 계정이 보안 연결(HTTPS)에서 오는 요청만 수락하도록 강제 적용하는 옵션입니다. HTTPS를 사용 하면 서버와 서비스 간의 인증을 보장할 뿐 아니라 메시지 가로채기 (man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격 으로부터 전송 중인 데이터를 보호 합니다.<br>(관련 정책: 저장소 계정에 대 한 보안 전송을 사용 하도록 설정 해야 함)|높음|**예**|Storage 계정|
-||<a name="recs-computeapp"></a><h3>컴퓨팅 및 앱 권장 사항|
+||||||
+
+
+## <a name="recs-containers"></a>컨테이너 권장 사항
+
+|권장|설명 & 관련 정책|심각도|빠른 수정 사용 여부 ([자세한 정보](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|리소스 유형|
+|----|----|----|----|----|
+|**Kubernetes 서비스 클러스터 (미리 보기)에 대 한 액세스를 제한 하기 위해 역할 기반 Access Control를 사용 해야 합니다.**|사용자가 수행할 수 있는 작업에 대 한 세부적인 필터링을 제공 하려면 RBAC (역할 기반 Access Control)를 사용 하 여 Kubernetes 서비스 클러스터에서 사용 권한을 관리 하 고 관련 된 권한 부여 정책을 구성 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac)를 참조 하세요.<br>(관련 정책: [Preview]: Kubernetes Services에서 RBAC (역할 기반 Access Control)를 사용 해야 합니다.|중간|N|계산 리소스 (컨테이너)|
+|**Kubernetes 서비스를 최신 Kubernetes 버전 (미리 보기)으로 업그레이드 해야 합니다.**|최신 취약점 패치를 활용 하기 위해 Azure Kubernetes 서비스 클러스터를 최신 Kubernetes 버전으로 업그레이드 합니다. 특정 Kubernetes 취약성에 대 한 자세한 내용은 [Kubernetes CVEs](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes)를 참조 하십시오.<br>(관련 정책: [Preview]: Kubernetes Services를 취약 하지 않은 Kubernetes 버전으로 업그레이드 해야 함)|높음|N|계산 리소스 (컨테이너)|
+|**Pod 보안 정책은 불필요 한 응용 프로그램 권한 (미리 보기)을 제거 하 여 공격 벡터를 줄이도록 정의 되어야 합니다.**|Pod 보안 정책을 정의 하 여 불필요 한 응용 프로그램 권한을 제거 함으로써 공격 벡터를 줄일 수 있습니다. Pod가 액세스할 수 있는 리소스에만 액세스할 수 있도록 pod 보안 정책을 구성 하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: Pod 보안 정책은 Kubernetes Services)에 정의 되어 있어야 합니다.|중간|N|계산 리소스 (컨테이너)|
+|**특정 IP 범위만 인증 (미리 보기) 하 여 Kubernetes service management API에 대 한 액세스를 제한 해야 합니다.**|특정 범위의 IP 주소에만 API 액세스를 부여 하 여 Kubernetes service management API에 대 한 액세스를 제한 합니다. 허용 된 네트워크의 응용 프로그램만 클러스터에 액세스할 수 있도록 권한이 부여 된 IP 범위를 구성 하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: 권한 있는 IP 범위는 Kubernetes Services에서 정의 해야 함)|높음|N|계산 리소스 (컨테이너)|
+|**Azure Container Registry 이미지의 취약점을 재구성 해야 함 (Qualys) (미리 보기)**|컨테이너 이미지 취약성 평가는 푸시된 각 컨테이너 이미지의 보안 취약성에 대해 레지스트리를 검사 하 고 이미지 당 자세한 결과를 노출 합니다. 취약성을 해결 하면 컨테이너의 보안 상태를 크게 개선 하 고 공격 으로부터 보호할 수 있습니다.<br>(관련 정책 없음)|높음|N|계산 리소스 (컨테이너)|
+||||||
+
+
+## <a name="recs-appservice"></a>App Service 권장 사항
+
+|권장|설명 & 관련 정책|심각도|빠른 수정 사용 여부 ([자세한 정보](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|리소스 유형|
+|----|----|----|----|----|
 |**HTTPS를 통해서만 웹 응용 프로그램에 액세스할 수 있어야 합니다.**|웹 애플리케이션의 액세스를 HTTPS 사용으로 제한합니다.<br>(관련 정책:)|중간|N|App Service|
 |**함수 앱는 HTTPS를 통해 액세스할 수 있어야 합니다.**|함수 앱의 액세스를 HTTPS 사용으로 제한합니다.<br>(관련 정책:)|중간|N|App Service|
 |**API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.**|HTTPS를 통한 API Apps 액세스만 제한 합니다.<br>(관련 정책:)|중간|N|App Service|
@@ -55,18 +72,19 @@ ms.locfileid: "75553307"
 |**CORS에서 모든 리소스가 함수 앱에 액세스할 수 있도록 허용 해서는 안 됩니다.**|필요한 도메인만 함수 애플리케이션과 상호 작용할 수 있도록 허용합니다. CORS(교차 원본 리소스 공유)는 함수 애플리케이션에 액세스하는 모든 도메인을 허용하지 않아야 합니다.<br>(관련 정책: CORS는 모든 리소스가 함수 앱에 액세스할 수 있도록 허용 해서는 안 됩니다.)|낮음|**예**|App Service|
 |**CORS에서 모든 리소스가 API 앱에 액세스 하도록 허용 해서는 안 됩니다.**|필수 도메인만 API 응용 프로그램과 상호 작용 하도록 허용 합니다. CORS (원본 간 리소스 공유)는 모든 도메인이 API 응용 프로그램에 액세스 하는 것을 허용 해서는 안 됩니다.<br>(관련 정책: CORS가 모든 리소스에서 API 앱에 액세스 하도록 허용 해서는 안 됩니다.)|낮음|**예**|App Service|
 |**App Services의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: App Services의 진단 로그를 사용 하도록 설정 해야 함)</span>|낮음|N|App Service|
+||||||
+
+
+## <a name="recs-computeapp"></a>계산 및 앱 권장 사항
+
+|권장|설명 & 관련 정책|심각도|빠른 수정 사용 여부 ([자세한 정보](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|리소스 유형|
+|----|----|----|----|----|
 |**Azure Stream Analytics의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: Azure Stream Analytics의 진단 로그를 사용 하도록 설정 해야 함)|낮음|**예**|Compute 리소스(스트림 분석)|
 |**Batch 계정의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: Batch 계정의 진단 로그를 사용 하도록 설정 해야 함)|낮음|**예**|Compute 리소스(Batch)|
 |**이벤트 허브의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: 이벤트 허브의 진단 로그를 사용 하도록 설정 해야 함)|낮음|**예**|Compute 리소스(이벤트 허브)|
 |**Logic Apps의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: Logic Apps의 진단 로그를 사용 하도록 설정 해야 함)|낮음|**예**|Compute 리소스(Logic Apps)|
 |**검색 서비스의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: 검색 서비스의 진단 로그를 사용 하도록 설정 해야 함)|낮음|**예**|Compute 리소스(검색)|
 |**Service Bus의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: Service Bus의 진단 로그를 사용 하도록 설정 해야 함)|낮음|**예**|Compute 리소스(Service Bus)|
-|**Virtual Machine Scale Sets의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년간 보존합니다. 이 옵션을 사용하면 조사를 위해 작업 내역을 다시 만들 수 있습니다. 이 옵션은 보안 인시던트가 발생하거나 네트워크가 손상된 경우에 유용합니다.<br>(관련 정책: Virtual Machine Scale Sets의 진단 로그를 사용 하도록 설정 해야 함)|낮음|N|가상 머신 크기 집합|
-|**Kubernetes 서비스 클러스터 (미리 보기)에 대 한 액세스를 제한 하기 위해 역할 기반 Access Control를 사용 해야 합니다.**|사용자가 수행할 수 있는 작업에 대 한 세부적인 필터링을 제공 하려면 RBAC (역할 기반 Access Control)를 사용 하 여 Kubernetes 서비스 클러스터에서 사용 권한을 관리 하 고 관련 된 권한 부여 정책을 구성 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac)를 참조 하세요.<br>(관련 정책: [Preview]: Kubernetes Services에서 RBAC (역할 기반 Access Control)를 사용 해야 합니다.|중간|N|계산 리소스 (컨테이너)|
-|**Kubernetes 서비스를 최신 Kubernetes 버전 (미리 보기)으로 업그레이드 해야 합니다.**|최신 취약점 패치를 활용 하기 위해 Azure Kubernetes 서비스 클러스터를 최신 Kubernetes 버전으로 업그레이드 합니다. 특정 Kubernetes 취약성에 대 한 자세한 내용은 [Kubernetes CVEs](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes)를 참조 하십시오.<br>(관련 정책: [Preview]: Kubernetes Services를 취약 하지 않은 Kubernetes 버전으로 업그레이드 해야 함)|높음|N|계산 리소스 (컨테이너)|
-|**Pod 보안 정책은 불필요 한 응용 프로그램 권한 (미리 보기)을 제거 하 여 공격 벡터를 줄이도록 정의 되어야 합니다.**|Pod 보안 정책을 정의 하 여 불필요 한 응용 프로그램 권한을 제거 함으로써 공격 벡터를 줄일 수 있습니다. Pod가 액세스할 수 있는 리소스에만 액세스할 수 있도록 pod 보안 정책을 구성 하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: Pod 보안 정책은 Kubernetes Services)에 정의 되어 있어야 합니다.|중간|N|계산 리소스 (컨테이너)|
-|**특정 IP 범위만 인증 (미리 보기) 하 여 Kubernetes service management API에 대 한 액세스를 제한 해야 합니다.**|특정 범위의 IP 주소에만 API 액세스를 부여 하 여 Kubernetes service management API에 대 한 액세스를 제한 합니다. 허용 된 네트워크의 응용 프로그램만 클러스터에 액세스할 수 있도록 권한이 부여 된 IP 범위를 구성 하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: 권한 있는 IP 범위는 Kubernetes Services에서 정의 해야 함)|높음|N|계산 리소스 (컨테이너)|
-|**Azure Container Registry 이미지의 취약점을 재구성 해야 함 (Qualys) (미리 보기)**|컨테이너 이미지 취약성 평가는 푸시된 각 컨테이너 이미지의 보안 취약성에 대해 레지스트리를 검사 하 고 이미지 당 자세한 결과를 노출 합니다. 취약성을 해결 하면 컨테이너의 보안 상태를 크게 개선 하 고 공격 으로부터 보호할 수 있습니다.<br>(관련 정책 없음)|높음|N|계산 리소스 (컨테이너)|
 |**Service Fabric 클러스터는 클라이언트 인증용 으로만 Azure Active Directory를 사용 해야 합니다.**|Service Fabric에서 Azure Active Directory를 통해서만 클라이언트 인증을 수행합니다.<br>(관련 정책: Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용 해야 함)|높음|N|Compute 리소스(Service Fabric)|
 |**Service Fabric 클러스터는 ClusterProtectionLevel 속성을 EncryptAndSign로 설정 해야 합니다.**|Service Fabric는 기본 클러스터 인증서를 사용 하 여 노드 간 통신을 위한 세 가지 수준의 보호 (None, Sign 및 EncryptAndSign)를 제공 합니다. 모든 노드 간 메시지가 암호화되고 디지털로 서명될 수 있게 보호 수준을 설정합니다.<br>(관련 정책: Service Fabric에서 EncryptAndSign에 대 한 ClusterProtectionLevel 속성을 설정 해야 함)|높음|N|Compute 리소스(Service Fabric)|
 |**RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙은 Service Bus 네임 스페이스에서 제거 해야 합니다.**|Service Bus 클라이언트는 네임스페이스의 모든 큐 및 토픽에 대한 액세스를 제공하는 네임스페이스 수준 액세스 정책을 사용하지 않아야 합니다. 최소 권한 보안 모델에 맞게 큐 및 토픽에 대한 엔터티 수준의 액세스 정책을 만들어 특정 엔터티에만 액세스를 제공해야 합니다.<br>(관련 정책: RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙은 Service Bus 네임 스페이스)에서 제거 해야 합니다.|낮음|N|Compute 리소스(Service Bus)|
@@ -78,7 +96,6 @@ ms.locfileid: "75553307"
 |**컴퓨터에 endpoint protection 솔루션 설치**|위협 및 취약성 으로부터 보호 하기 위해 Windows 및 Linux 컴퓨터에 endpoint protection 솔루션을 설치 합니다.<br>(관련 정책 없음)|중간|N|컴퓨터|
 |**가상 컴퓨터에 endpoint protection 솔루션 설치**|가상 머신에 엔드포인트 보호 솔루션을 설치하여 위협 및 취약성으로부터 보호합니다.<br>(관련 정책 없음)|중간|N|컴퓨터|
 |**클라우드 서비스 역할에 대 한 OS 버전을 업데이트 해야 합니다.**|클라우드 서비스 역할의 OS(운영 체제) 버전을 OS 제품군의 사용 가능한 최신 버전으로 업데이트합니다.<br>(관련 정책 없음)|높음|N|컴퓨터|
-|**가상 머신 확장 집합에 대 한 시스템 업데이트를 설치 해야 합니다.**|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신 확장 집합을 보호합니다.<br>(관련 정책: 가상 머신 확장 집합의 시스템 업데이트를 설치 해야 함)|높음|N|가상 머신 크기 집합|
 |**시스템 업데이트를 컴퓨터에 설치 해야 합니다.**|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신과 컴퓨터를 보호합니다.<br>(관련 정책: 시스템 업데이트를 컴퓨터에 설치 해야 함)|높음|N|컴퓨터|
 |**시스템 업데이트를 적용 하려면 컴퓨터를 다시 시작 해야 합니다.**|시스템 업데이트를 적용하고 취약성으로부터 머신을 보호하려면 머신을 다시 시작합니다.<br>(관련 정책 없음)|중간|N|컴퓨터|
 |**Automation 계정 변수는 암호화 되어야 합니다.**|중요한 데이터를 저장할 때 Automation 계정 변수 자산의 암호화를 사용하도록 설정합니다.<br>(관련 정책: Automation 계정 변수에 암호화를 사용 하도록 설정 해야 함)|높음|N|Compute 리소스(Automation 계정)|
@@ -88,11 +105,26 @@ ms.locfileid: "75553307"
 |**취약성 평가 솔루션에서 취약성을 재구성 해야 함**|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.<br>(관련 정책: 취약점 평가 솔루션에서 취약점을 재구성 해야 함)|높음|N|컴퓨터|
 |**컴퓨터에서 보안 구성의 취약성을 재구성 해야 함**|머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br>(관련 정책: 컴퓨터에서 보안 구성의 취약성을 재구성 해야 함)|낮음|N|컴퓨터|
 |**컨테이너 보안 구성의 취약성을 재구성 해야 함**|Docker가 설치된 머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br>(관련 정책: 컨테이너 보안 구성의 취약성을 재구성 해야 함)|높음|N|컴퓨터|
-|**가상 머신 확장 집합에 대 한 보안 구성의 취약성을 재구성 해야 함**|가상 머신 확장 집합의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다. <br>(관련 정책: 가상 머신 확장 집합에 대 한 보안 구성의 취약성을 재구성 해야 함)|높음|N|가상 머신 크기 집합|
 |**컴퓨터에서 Endpoint protection 상태 문제를 해결 해야 합니다.**|완벽한 Security Center 보호를 위해 문제 해결 가이드의 지침에 따라 머신에서 모니터링 에이전트 문제를 해결합니다.<br>(관련 정책 없음)|중간|N|컴퓨터|
+||||||
+
+
+## <a name="recs-vmscalesets"></a>가상 머신 확장 집합 권장 사항
+
+|권장|설명 & 관련 정책|심각도|빠른 수정 사용 여부 ([자세한 정보](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|리소스 유형|
+|----|----|----|----|----|
+|**Virtual Machine Scale Sets의 진단 로그를 사용 하도록 설정 해야 합니다.**|로그를 사용하도록 설정하고 최대 1년간 보존합니다. 이 옵션을 사용하면 조사를 위해 작업 내역을 다시 만들 수 있습니다. 이 옵션은 보안 인시던트가 발생하거나 네트워크가 손상된 경우에 유용합니다.<br>(관련 정책: Virtual Machine Scale Sets의 진단 로그를 사용 하도록 설정 해야 함)|낮음|N|가상 머신 크기 집합|
+|**가상 머신 확장 집합에 대 한 시스템 업데이트를 설치 해야 합니다.**|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신 확장 집합을 보호합니다.<br>(관련 정책: 가상 머신 확장 집합의 시스템 업데이트를 설치 해야 함)|높음|N|가상 머신 크기 집합|
+|**가상 머신 확장 집합에 대 한 보안 구성의 취약성을 재구성 해야 함**|가상 머신 확장 집합의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다. <br>(관련 정책: 가상 머신 확장 집합에 대 한 보안 구성의 취약성을 재구성 해야 함)|높음|N|가상 머신 크기 집합|
 |**가상 머신 확장 집합에서 Endpoint protection 상태 오류를 재구성 해야 함**|가상 머신 확장 집합에 대한 엔드포인트 보호 상태 오류를 수정하여 위협 및 취약성으로부터 보호합니다.<br>(관련 정책 없음)|낮음|N|가상 머신 크기 집합|
 |**Endpoint protection 솔루션은 가상 머신 확장 집합에 설치 해야 합니다.**|가상 머신 확장 집합에 엔드포인트 보호 솔루션을 설치하여 위협 및 취약성으로부터 보호합니다.<br>(관련 정책: Endpoint protection 솔루션은 가상 머신 확장 집합에 설치 해야 함)|높음|N|가상 머신 크기 집합|
-||<a name="recs-datastorage"></a><h3>데이터 및 스토리지 권장 사항|
+||||||
+
+
+## <a name="recs-datastorage"></a>데이터 및 저장소 권장 사항
+
+|권장|설명 & 관련 정책|심각도|빠른 수정 사용 여부 ([자세한 정보](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|리소스 유형|
+|----|----|----|----|----|
 |**SQL server에 대 한 Azure Active Directory 관리자를 프로 비전 해야 합니다.**|SQL Server에 대한 Azure AD 관리자를 프로비전하여 Azure AD 인증을 활성화합니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다.<br>(관련 정책: SQL server에 대 한 Azure Active Directory 관리자의 감사 프로 비전)|높음|N|SQL|
 |**SQL server에 대 한 감사를 사용 하도록 설정 해야 합니다.**|Azure SQL 서버에 대 한 감사를 사용 하도록 설정 합니다. (Azure SQL 서비스에만 해당됩니다. 가상 머신에서 실행 중인 SQL을 포함하지 않습니다.)<br>(관련 정책: SQL Server의 고급 데이터 보안 설정에서 감사를 사용 하도록 설정 해야 함)|낮음|**예**|SQL|
 |**저장소 계정에 대 한 보안 전송을 사용 하도록 설정 해야 합니다.**|보안 전송은 사용자의 스토리지 계정이 보안 연결(HTTPS)에서 오는 요청만 수락하도록 강제 적용하는 옵션입니다. HTTPS는 서버와 서비스 간의 인증을 보장 하 고 전송 중인 데이터를 메시지 가로채기 (man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격 으로부터 보호 합니다.<br>(관련 정책: 저장소 계정에 대 한 보안 전송을 사용 하도록 설정 해야 함)|높음|N|Storage 계정|
@@ -104,7 +136,13 @@ ms.locfileid: "75553307"
 |**SQL 데이터베이스에 대 한 취약성을 재구성 해야 합니다.**|SQL 취약성 평가는 데이터베이스에서 보안 취약점을 검사 하 고 잘못 된 오류, 과도 한 권한, 보호 되지 않는 중요 한 데이터 등의 모범 사례에 대 한 모든 편차를 제공 합니다. 발견된 취약성을 해결하면 데이터베이스 보안 상태가 크게 향상될 수 있습니다.<br>(관련 정책: SQL 데이터베이스에 대 한 취약성을 재구성 해야 함)|높음|N|SQL|
 |**방화벽 및 가상 네트워크 구성을 사용 하 여 저장소 계정에 대 한 액세스를 제한 해야 합니다.**|스토리지 계정 방화벽 설정에서 무제한 네트워크 액세스를 감사합니다. 또는, 허용되는 네트워크의 애플리케이션만 스토리지 계정에 액세스할 수 있도록 네트워크 규칙을 구성합니다. 특정 인터넷 또는 온-프레미스 클라이언트의 연결을 허용 하려면 특정 Azure virtual network 또는 공용 인터넷 IP 주소 범위에서 트래픽에 대 한 액세스 권한을 부여할 수 있습니다.<br>(관련 정책: 저장소 계정에 대 한 무제한 네트워크 액세스 감사)|낮음|N|Storage 계정|
 |**저장소 계정은 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.**|저장소 계정에 새 Azure Resource Manager를 사용 하 여 더 강력한 액세스 제어 (RBAC), 향상 된 감사, 리소스 관리자 기반 배포 및 거 버 넌 스, 관리 되는 id 액세스, 비밀에 대 한 key vault 액세스 등의 향상 된 보안 기능을 제공 합니다. 그리고 Azure AD 기반 인증 및 태그 및 리소스 그룹에 대 한 지원을 통해 보다 쉽게 보안을 관리할 수 있습니다.<br>(관련 정책: 저장소 계정은 새 Azure Resource Manager 리소스로 마이그레이션해야 함)|낮음|N|Storage 계정|
-||<a name="recs-identity"></a><h3>Id 및 액세스 권장 사항|
+||||||
+
+
+## <a name="recs-identity"></a>Id 및 액세스 권장 사항
+
+|권장|설명 & 관련 정책|심각도|빠른 수정 사용 여부 ([자세한 정보](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|리소스 유형|
+|----|----|----|----|----|
 |**구독에 대 한 읽기 권한이 있는 계정에서 MFA를 사용 하도록 설정 해야 합니다.**|계정 또는 리소스 위반을 방지하려면 읽기 권한이 있는 모든 구독 계정에 대해 MFA(Multi-factor Authentication)를 사용합니다.<br>(관련 정책: 구독에 대 한 읽기 권한이 있는 계정에서 MFA를 사용 하도록 설정 해야 함)|높음|N|Subscription|
 |**구독에 대 한 쓰기 권한이 있는 계정에서 MFA를 사용 하도록 설정 해야 합니다.**|계정 또는 리소스 위반을 방지하려면 쓰기 권한이 있는 모든 구독 계정에 대해 MFA(Multi-factor Authentication)를 사용합니다.<br>(관련 정책: 구독에 대 한 쓰기 권한이 있는 계정에서 MFA를 사용 하도록 설정 해야 함)|높음|N|Subscription|
 |**구독에 대 한 소유자 권한이 있는 계정에서 MFA를 사용 하도록 설정 해야 합니다.**|계정 또는 리소스의 위반을 방지 하려면 소유자 권한이 있는 모든 구독 계정에 대해 MFA (Multi-Factor Authentication)를 사용 하도록 설정 합니다.<br>(관련 정책: 구독에 대 한 소유자 권한이 있는 계정에서 MFA를 사용 하도록 설정 해야 함)|높음|N|Subscription|

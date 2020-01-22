@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1cf9ce6d57c1e106472caeef6c1f2a4b008a09bd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 15a118dc72ae9ffc4b6c99b0e0b527a252d3ded8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277861"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293592"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -26,7 +26,7 @@ ms.locfileid: "76277861"
 
 - 다중 장치 대화: 동일한 음성 또는 텍스트 기반 대화에 여러 장치를 연결 하 고 필요에 따라 전송 되는 메시지를 변환 합니다. [이 문서](multi-device-conversation.md)에서 자세히 알아보세요. 
 - Aar 패키지에 대 한 키워드 인식 지원이 추가 되었으며 x86 및 x64 기능에 대 한 지원이 추가 되었습니다. 
-- 목적-C: `Connection` 개체에 추가 된 `SendMessage` 및 `SetMessageProperty` 메서드입니다. [여기](https://docs.microsoft.com/objectivec/cognitive-services/speech/)에서 설명서를 참조 하세요.
+- 목적-C: `Connection` 개체에 추가 된 `SendMessage` 및 `SetMessageProperty` 메서드입니다. [여기](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxconnection)에서 설명서를 참조 하세요.
 - 이제 C++ TTS api는 합성 텍스트 입력으로 `std::wstring` 지원 하므로 WSTRING을 SDK로 전달 하기 전에 문자열로 변환할 필요가 없습니다. 자세한 내용은 [여기](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync)를 참조하세요. 
 - C#: [언어 id](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) 및 [소스 언어 구성을](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) 이제 사용할 수 있습니다.
 - JavaScript: 음성 서비스에서 콜백 `receivedServiceMessage`으로 사용자 지정 메시지를 전달 하기 위해 `Connection` 개체에 기능을 추가 했습니다.

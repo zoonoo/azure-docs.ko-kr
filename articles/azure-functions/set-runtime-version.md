@@ -3,16 +3,16 @@ title: Azure Functions 런타임 버전을 대상으로 지정하는 방법
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. Azure에서 호스팅된 함수 앱의 런타임 버전을 지정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 60953d10aeb92083b0aad3432921c7c55bc77e39
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942276"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294170"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
-함수 앱은 특정 Azure Functions 런타임 버전에서 실행됩니다. [1. x와](functions-versions.md)2.x의 두 가지 주요 버전이 있습니다 .이 버전은 preview에 버전 2.x가 있습니다. 기본적으로 작성되는 함수 앱은 런타임의 버전 2.x입니다. 이 문서에는 선택한 버전에서 실행할 함수 앱을 Azure에서 구성하는 방법을 설명합니다. 특정 버전에 대한 로컬 개발 환경을 구성하는 방법에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
+함수 앱은 특정 Azure Functions 런타임 버전에서 실행됩니다. [1. x, 2.x 및 3(sp3)](functions-versions.md)의 세 가지 주요 버전이 있습니다. 기본적으로 함수 앱은 런타임의 버전 2.x에 생성 됩니다. 이 문서에는 선택한 버전에서 실행할 함수 앱을 Azure에서 구성하는 방법을 설명합니다. 특정 버전에 대한 로컬 개발 환경을 구성하는 방법에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
 
 ## <a name="automatic-and-manual-version-updates"></a>자동 및 수동 버전 업데이트
 

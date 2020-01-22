@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b3e2b6fbfb11c0ee89e56cd29fa3bf606c336235
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278549"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293915"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너에 대 한 Azure Cost Management 시작
 
@@ -120,7 +120,7 @@ Microsoft 고객 계약에 고객을 등록 한 후 Microsoft 고객 계약에 �
 
 파트너는 다음 정보를 사용 하 여 정책에서 고객에 대 한 Azure 사용 요금을 볼 수 있도록 합니다.
 
-Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management + 청구**를 선택 합니다. 청구 계정을 선택한 다음 **고객**을 선택 합니다. 고객 목록은 청구 계정과 연결 됩니다.
+Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management + 청구**를 선택 합니다. 관련 Microsoft 파트너 계약 청구 계정을 선택한 다음 **고객**을 선택 합니다. 고객 목록은 청구 계정과 연결 됩니다.
 
 고객 목록에서 비용을 볼 수 있도록 허용 하려는 고객을 선택 합니다.
 
@@ -137,7 +137,7 @@ Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management 
 
 비용 표시 정책을 사용 하는 경우 구독 사용이 있는 모든 서비스는 종 량 제 요금으로 비용을 표시 합니다. 예약 사용은 실제 및 분할 상환 비용에 대 한 요금이 0으로 표시 됩니다. 구매 및 자격은 특정 구독에 연결 되지 않습니다. 따라서 구매는 구독 범위에 표시 되지 않습니다.
 
-고객 테 넌 트에 대 한 비용을 보려면 Cost Management + 청구를 연 후 대금 청구 계정을 선택 합니다. 청구 계정 목록에서 청구 계정을 선택 합니다.
+고객 테 넌 트에 대 한 비용을 보려면 **Cost Management + 청구** 를 열고 관련 Microsoft 파트너 계약 청구 계정을 선택 합니다.
 
 ![청구 계정 선택](./media/get-started-partners/select-billing-account.png)
 
@@ -263,7 +263,7 @@ Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management 
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>파트너 테 넌 트 또는 고객 테 넌 트에서 내보내기 만들기
 
-Azure Portal에서 파트너 테 넌 트 또는 고객 테 넌 트에 로그인 하 고 **Cost Management + 청구**를 선택 합니다. 적절 한 범위 (예: 청구 계정)를 선택 하 고 **비용 분석**을 선택 합니다. 페이지가 로드 되 면 **내보내기**를 선택 합니다. 일정 내보내기에서 **모든 내보내기 보기** 를 선택 합니다.
+Azure Portal에서 파트너 테 넌 트 또는 고객 테 넌 트에 로그인 하 고 **Cost Management + 청구**를 선택 합니다. 적절 한 범위 (예: Microsoft 파트너 계약 청구 계정)를 선택 하 고 **비용 분석**을 선택 합니다. 페이지가 로드 되 면 **내보내기**를 선택 합니다. 일정 내보내기에서 **모든 내보내기 보기** 를 선택 합니다.
 
 ![내보내기 및 모든 내보내기 보기를 선택 합니다.](./media/get-started-partners/export01.png)
 

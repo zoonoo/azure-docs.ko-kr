@@ -3,12 +3,12 @@ title: VMware에 대 한 Azure Migrate 어플라이언스 설정
 description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: da451149d0420bc71a355fdf4f4fb122b196d5a0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029050"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291943"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
@@ -115,7 +115,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 3. **연결 유효성 검사**를 클릭하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정
-애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 대한 액세스 권한이 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions).
+애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 대한 액세스 권한이 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware).
 
 > [!NOTE]
 > 이 입력은 선택 사항이며 애플리케이션 검색 및 에이전트 없는 종속성 시각화를 사용하도록 설정하는 데 필요합니다.

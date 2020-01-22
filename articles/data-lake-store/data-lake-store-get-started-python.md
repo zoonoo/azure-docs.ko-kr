@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fad832ba7b16e8dbb37043d971368062fcbd842f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c71136ecb57fac460514b5f4815ba19cc22d86cb
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966037"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290617"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Python을 통해 Data Lake Storage Gen1을 사용하려면 세 가지 모듈을 
 
 * Active Directory 등 Azure 모듈을 포함하는 `azure-mgmt-resource` 모듈.
 * Azure Data Lake Storage Gen1 계정 관리 작업을 포함하는 `azure-mgmt-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Storage Gen1 관리 모듈 참조](/python/api/azure-mgmt-datalake-store/)를 참조하세요.
-* Azure Data Lake Storage Gen1 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [azure-datalake-store 파일 시스템 모듈 참조](https://azure-datalake-store.readthedocs.io/en/latest/)를 참조하세요.
+* Azure Data Lake Storage Gen1 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [azure-datalake-store 파일 시스템 모듈 참조](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/)를 참조하세요.
 
 다음 명령을 사용하여 모듈을 설치합니다.
 
@@ -135,5 +135,5 @@ pip install azure-datalake-store
 
 ## <a name="see-also"></a>참고 항목
 
-* [azure-datalake-store Python(파일 시스템) 참조](https://azure-datalake-store.readthedocs.io/en/latest)
+* [azure-datalake-store Python(파일 시스템) 참조](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
