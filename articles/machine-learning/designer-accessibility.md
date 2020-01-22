@@ -1,5 +1,5 @@
 ---
-title: 디자이너에서 내게 필요한 옵션 기능 사용 (미리 보기)
+title: 디자이너에서 내게 필요한 옵션 기능 사용
 titleSuffix: Azure Machine Learning
 description: 디자이너에서 사용할 수 있는 바로 가기 키 및 화면 판독기 접근성 기능에 대해 알아봅니다.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 9c899ae16d16fc76f0ea8d24169451556cf24025
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158014"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314235"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>키보드를 사용 하 여 Azure Machine Learning designer 사용 (미리 보기)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>키보드를 사용 하 여 Azure Machine Learning 디자이너 사용
 
 키보드 및 화면 판독기를 사용 하 여 Azure Machine Learning 디자이너를 사용 하는 방법을 알아봅니다. Azure Portal의 모든 위치에서 작동 하는 바로 가기 키 목록은 [Azure Portal의 바로 가기 키](../azure-portal/azure-portal-keyboard-shortcuts.md) 를 참조 하세요.
 

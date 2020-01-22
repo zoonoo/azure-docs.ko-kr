@@ -9,20 +9,20 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 0c1a4f33da7e1f39951d641ed1d563c46fb664ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c07ae779334c97b28803d77d2ce4a1b5b7962b48
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232661"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314422"
 ---
 # <a name="create-python-model"></a>Python 모델 만들기
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 Python **모델 만들기** 모듈을 사용 하 여 python 스크립트에서 학습 되지 않은 모델을 만드는 방법에 대해 알아봅니다. Azure Machine Learning designer 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다. 
 
-모델을 만든 후에는 [모델 학습](train-model.md) 을 사용 하 여 Azure Machine Learning의 다른 학습자 같은 데이터 집합에 대 한 모델 학습을 수행할 수 있습니다. 모델을 사용 하 여 예측을 만드는 학습 된 모델을 [점수 매기기 모델](score-model.md) 에 전달할 수 있습니다. 그러면 학습 된 모델을 저장할 수 있으며 점수 매기기 워크플로를 웹 서비스로 게시할 수 있습니다.
+모델을 만든 후에는 [모델 학습](train-model.md) 을 사용 하 여 Azure Machine Learning의 다른 학습자 같은 데이터 집합에 대 한 모델 학습을 수행할 수 있습니다. 모델을 사용 하 여 예측을 만드는 학습 된 모델을 [점수 매기기 모델](score-model.md) 에 전달할 수 있습니다. 그런 다음 학습된 모델을 저장할 수 있으며 점수 매기기 워크플로를 웹 서비스로 게시할 수 있습니다.
 
 > [!WARNING]
 > 현재는 Python 모델의 점수가 매겨진 결과를 전달 하 여 [모델을 평가할](evaluate-model.md)수 없습니다. 모델을 평가 해야 하는 경우 사용자 지정 Python 스크립트를 작성 하 고 [Python 스크립트 실행](execute-python-script.md) 모듈을 사용 하 여 실행할 수 있습니다.  

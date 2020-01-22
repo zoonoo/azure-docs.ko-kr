@@ -9,14 +9,14 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 421f1f733e64daaa4d87ce3c5af5126a48a8ffa5
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170889"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314031"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer로 데이터 가져오기 (미리 보기)
+# <a name="import-your-data-into-azure-machine-learning-designer"></a>Azure Machine Learning designer로 데이터 가져오기
 
 이 문서에서는 사용자 지정 솔루션을 만드는 디자이너에서 사용자 고유의 데이터를 가져오는 방법에 대해 알아봅니다. 다음 두 가지 방법으로 데이터를 디자이너로 가져올 수 있습니다. 
 

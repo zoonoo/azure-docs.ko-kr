@@ -1,5 +1,5 @@
 ---
-title: Media Services 엔터티의 필터링, 순서 지정 및 페이징
+title: Media Services v3 엔터티의 필터링, 순서 지정 및 페이징
 titleSuffix: Azure Media Services
 description: Azure Media Services 엔터티의 필터링, 순서 지정 및 페이징에 대해 알아봅니다.
 services: media-services
@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c5ae9839b7bbb86e28c9f8adab0aa0ec5e885087
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186240"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311702"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Media Services 엔터티의 필터링, 순서 지정 및 페이징
 
@@ -45,7 +45,7 @@ ms.locfileid: "74186240"
 - `ge`: 필드가 상수 값 *보다 크거나 같은지* 여부를 테스트 합니다.
 - `le`: 필드가 상수 값 *보다 작거나 같은지* 여부를 테스트 합니다.
 
-## <a name="filter"></a>Filter
+## <a name="filter"></a>필터링
 
 `$filter`를 사용 하 여 원하는 개체만 찾도록 OData 필터 매개 변수를 제공 합니다.
 
@@ -64,7 +64,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>정렬 기준
 
-지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 하려면 `$orderby`을 사용 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.  
+지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 하려면 `$orderby`을 사용 합니다. 예:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -156,7 +156,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 다음 표에서는 필터링 및 순서 지정 옵션을 다른 엔터티에 적용할 수 있는 방법을 보여 줍니다.
 
-|엔터티 이름|속성 이름|Filter|주문|
+|엔터티 이름|속성 이름|필터링|주문하기|
 |---|---|---|---|
 |[Assets](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 및 `desc`|
 ||properties.alternateId |`eq`||
@@ -176,7 +176,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 |[스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
-|[변환을](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` 및 `desc`|
+|[변형](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` 및 `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 

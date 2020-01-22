@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 57cf5bab2afe58ed802ef5ec03c316f1ebec6673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f1a508e6188b68f932993eb60e13228b56f8e7e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232584"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313948"
 ---
 # <a name="train-clustering-model"></a>클러스터링 모델 학습
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 클러스터링 모델을 학습 합니다.
 
@@ -49,10 +49,7 @@ ms.locfileid: "74232584"
 
 학습을 완료 한 후:
 
-
-+  데이터 집합의 값을 보려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **결과 데이터 집합**을 선택한 다음 **시각화**를 클릭 합니다.
-
-+ 학습 된 모델을 나중에 다시 사용 하기 위해 저장 하려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **학습 된 모델**을 선택한 다음 **학습 된 모델로 저장**을 클릭 합니다.
++ 학습 된 모델의 스냅숏을 저장 하려면 **모델 학습** 모듈의 오른쪽 패널에서 **출력** 탭을 선택 합니다. **데이터 집합 등록** 아이콘을 선택 하 여 모델을 재사용 가능한 모듈로 저장 합니다.
 
 + 모델에서 점수를 생성 하려면 [클러스터에 데이터 할당](assign-data-to-clusters.md)을 사용 합니다.
 

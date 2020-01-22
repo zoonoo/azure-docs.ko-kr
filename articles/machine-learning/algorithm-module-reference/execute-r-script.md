@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: dce4fee57a6d712534ba265cc932e10e66fc9899
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0be7e1ac0f505f227c46e63a80a954a5dd176d66
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232628"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312280"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
-이 문서에서는 **r 스크립트 실행** 모듈을 사용 하 여 Azure Machine Learning designer (미리 보기) 파이프라인에서 r 코드를 실행 하는 방법을 설명 합니다.
+이 문서에서는 **r 스크립트 실행** 모듈을 사용 하 여 Azure Machine Learning 디자이너 파이프라인에서 r 코드를 실행 하는 방법을 설명 합니다.
 
 R을 사용 하면 다음과 같은 기존 모듈에서 현재 지원 되지 않는 작업을 수행할 수 있습니다. 
 - 사용자 지정 데이터 변환 만들기
@@ -121,7 +121,7 @@ azureml_main <- function(dataframe1, dataframe2){
     > [!NOTE]
     >  기존 R 코드를 디자이너 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 디자이너에서 사용 되는 데이터 및 열 유형에 따라 달라 집니다.
 
-1.  **임의 초기값**: R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출 하는 것과 같습니다.  
+1.  **임의 초기값**: R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출하는 경우와 동일합니다.  
 
 1. 파이프라인을 실행합니다.  
 
@@ -260,7 +260,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
-| 하단         | 3.5.1      | 
+| 기본         | 3.5.1      | 
 | base64enc    | 0.1-3      | 
 | BH           | 1.69.0-1   | 
 | bindr        | 0.1.1      | 
@@ -271,17 +271,17 @@ azureml_main <- function(dataframe1, dataframe2){
 | callr        | 3.2.0      | 
 | caret        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
-| 셀 레인저   | 1.1.0      | 
+| cellranger   | 1.1.0      | 
 | class        | 7.3-15     | 
 | cli          | 1.1.0      | 
 | clipr        | 0.6.0      | 
 | cluster      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
-| 컴파일러나     | 3.5.1      | 
-| 크레용       | 1.3.4      | 
+| 컴파일러     | 3.5.1      | 
+| crayon       | 1.3.4      | 
 | curl         | 3.3        | 
-| data. table   | 1.12.2     | 
+| data.table   | 1.12.2     | 
 | 데이터 세트     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
@@ -295,10 +295,10 @@ azureml_main <- function(dataframe1, dataframe2){
 | 외래      | 0.8-71     | 
 | fs           | 1.3.1      | 
 | gdata        | 2.18.0     | 
-| 제네릭이     | 0.0.2      | 
+| 제네릭(generics)     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
 | glmnet       | 2.0-18     | 
-| 붙이기가         | 1.3.1      | 
+| glue         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
 | graphics     | 3.5.1      | 
@@ -306,7 +306,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | (grid)         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
-| 되지 않았고        | 2.1.0      | 
+| haven        | 2.1.0      | 
 | highr        | 0.8        | 
 | hms          | 0.4.2      | 
 | htmltools    | 0.3.6      | 
@@ -316,18 +316,18 @@ azureml_main <- function(dataframe1, dataframe2){
 | jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
 | knitr        | 1.23       | 
-| 원인은     | 0.3        | 
-| 격자      | 0.20-38    | 
+| 레이블 지정     | 0.3        | 
+| lattice      | 0.20-38    | 
 | lava         | 1.6.5      | 
 | lazyeval     | 0.2.2      | 
 | lubridate    | 1.7.4      | 
 | magrittr     | 1.5        | 
 | markdown     | 1          | 
-| 편지         | 7.3-51.4   | 
+| MASS         | 7.3-51.4   | 
 | 행렬       | 1.2-17     | 
 | 메서드      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
-| 더하려면         | 0.7        | 
+| mime         | 0.7        | 
 | ModelMetrics | 1.2.2      | 
 | modelr       | 0.1.4      | 
 | munsell      | 0.5.0      | 
@@ -335,8 +335,8 @@ azureml_main <- function(dataframe1, dataframe2){
 | nnet         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
 | openssl      | 1.4        | 
-| 평행선     | 3.5.1      | 
-| 기둥       | 1.4.1      | 
+| parallel     | 3.5.1      | 
+| pillar       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
 | plyr         | 1.8.4      | 
@@ -356,7 +356,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | readr        | 1.3.1      | 
 | readxl       | 1.3.1      | 
 | 레시피      | 0.1.5      | 
-| 다시 일치      | 1.0.1      | 
+| rematch      | 1.0.1      | 
 | reprex       | 0.3.0      | 
 | reshape2     | 1.4.3      | 
 | reticulate   | 1.12       | 
@@ -366,16 +366,16 @@ azureml_main <- function(dataframe1, dataframe2){
 | rpart        | 4.1-15     | 
 | rstudioapi   | 0.1        | 
 | rvest        | 0.3.4      | 
-| 배       | 1.0.0      | 
+| 눈금       | 1.0.0      | 
 | selectr      | 0.4-1      | 
-| 음      | 7.3-11     | 
+| 공간      | 7.3-11     | 
 | 스플라인      | 3.5.1      | 
 | SQUAREM      | 2017.10-1  | 
 | stats        | 3.5.1      | 
 | stats4       | 3.5.1      | 
 | stringi      | 1.4.3      | 
 | stringr      | 1.3.1      | 
-| 생존     | 2.44-1.1   | 
+| survival     | 2.44-1.1   | 
 | sys          | 3.2        | 
 | tcltk        | 3.5.1      | 
 | tibble       | 2.1.3      | 
@@ -388,10 +388,10 @@ azureml_main <- function(dataframe1, dataframe2){
 | tseries      | 0.10-47    | 
 | TTR          | 0.23-4     | 
 | utf8         | 1.1.4      | 
-| 유틸리티        | 3.5.1      | 
+| utils        | 3.5.1      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
-| 수염      | 0.3-2      | 
+| whisker      | 0.3-2      | 
 | withr        | 2.1.2      | 
 | xfun         | 0.8        | 
 | xml2         | 1.2.0      | 

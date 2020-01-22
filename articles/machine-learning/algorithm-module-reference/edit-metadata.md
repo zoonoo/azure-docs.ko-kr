@@ -9,20 +9,20 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 2c8224edbe95c8185e390c2ce48cbb4263f97586
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 173e483710c3fa96ae542f7941f0912ed07ea2ca
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497950"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312206"
 ---
 # <a name="edit-metadata-module"></a>메타 데이터 모듈 편집
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에 포함 된 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer에 포함 된 모듈을 설명 합니다.
 
 데이터 편집 모듈을 사용 하 여 데이터 집합의 열과 연결 된 메타 데이터를 변경할 수 있습니다. 메타 데이터 편집 모듈을 사용한 후에는 데이터 집합의 값과 데이터 형식이 변경 됩니다.
 
-일반적인 메타 데이터 변경 내용에는 다음이 포함 될 수 있습니다.
+일반적인 메타데이터 변경 작업은 다음과 같습니다.
   
 + 부울 또는 숫자 열을 범주 값으로 처리 합니다.
   
@@ -63,7 +63,7 @@ ms.locfileid: "73497950"
   
 1. Azure Machine Learning에서 모델의 데이터를 사용 하는 방법을 변경 하려면 **필드** 옵션을 사용 합니다.
 
-    + **기능**:이 옵션을 사용 하 여 기능 열 에서만 작동 하는 모듈의 기능으로 열에 플래그를 지정 합니다. 기본적으로 모든 열은 처음에 기능으로 처리 됩니다.  
+    + **기능**:이 옵션을 사용 하 여 기능 열 에서만 작동 하는 모듈의 기능으로 열에 플래그를 지정 합니다. 기본적으로 모든 열은 초기에 기능으로 처리됩니다.  
   
     + **레이블**:이 옵션을 사용 하 여 레이블 (예측 가능한 특성 또는 대상 변수 라고도 함)을 표시 합니다. 많은 모듈에서 정확히 하나의 레이블 열이 데이터 집합에 있어야 합니다.
 

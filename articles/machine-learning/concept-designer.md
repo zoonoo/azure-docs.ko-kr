@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: d3a12dec64d481c5c877039fecc71b46f224e91d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541830"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312433"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너 (미리 보기) 란? 
+# <a name="what-is-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너 란? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Azure Machine Learning designer를 사용 하 여 대화형 캔버스의 [데이터 집합](#datasets) 및 [모듈](#module) 을 시각적으로 연결 하 여 기계 학습 모델을 만들 수 있습니다. 디자이너를 시작 하는 방법을 알아보려면 [자습서: 디자이너를 사용 하 여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md) 을 참조 하세요.
@@ -116,7 +116,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>시각적 인터페이스에서 디자이너로 이동
 
-시각적 인터페이스 (미리 보기)가 업데이트 되었으며 현재 디자이너 (미리 보기)를 Azure Machine Learning 합니다. 디자이너는 Azure Machine Learning의 다른 기능과 완벽 하 게 통합 되는 파이프라인 기반 백 엔드를 사용 하도록 다시 설계 되었습니다. 
+시각적 인터페이스 (미리 보기)가 업데이트 되었으며 이제 디자이너 Azure Machine Learning 되었습니다. 디자이너는 Azure Machine Learning의 다른 기능과 완벽 하 게 통합 되는 파이프라인 기반 백 엔드를 사용 하도록 다시 설계 되었습니다. 
 
 이러한 업데이트의 결과로 시각적 인터페이스의 일부 개념과 용어는 변경 되거나 이름이 변경 되었습니다. 가장 중요 한 개념 변경 내용에 대해서는 아래 표를 참조 하세요. 
 

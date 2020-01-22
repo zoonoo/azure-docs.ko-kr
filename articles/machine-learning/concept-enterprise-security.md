@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 277b22498066542deaa080845cb816df493d7e13
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: bc083a95ebf6c7ecfabfef87e606f99053ba58bb
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122358"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312416"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -176,12 +176,12 @@ Azure Container Instance는 디스크 암호화를 지원 하지 않습니다. �
 
 #### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-언제 든 지 고객이 관리 하는 키를 사용 하 여 배포 된 Azure Kubernetes Service 리소스를 암호화할 수 있습니다. 자세한 내용은 [https://aka.ms/aks/byok](https://aka.ms/aks/byok)를 참조하세요. 
+언제 든 지 고객이 관리 하는 키를 사용 하 여 배포 된 Azure Kubernetes Service 리소스를 암호화할 수 있습니다. 자세한 내용은 [Azure Kubernetes Service를 사용 하 여 고유한 키 가져오기](../aks/azure-disk-customer-managed-keys.md)를 참조 하세요. 
 
 이 프로세스를 통해 Kubernetes 클러스터에서 배포 된 가상 머신의 데이터와 OS 디스크를 모두 암호화할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 프로세스는 AKS K8s 버전 1.16 이상 에서만 작동 합니다. Azure Machine Learning 1 월 13 2020 일에 AKS 1.16에 대 한 지원이 추가 되었습니다.
+> 이 프로세스는 AKS K8s 버전 1.17 이상 에서만 작동 합니다. Azure Machine Learning 1 월 13 2020 일에 AKS 1.17에 대 한 지원이 추가 되었습니다.
 
 #### <a name="machine-learning-compute"></a>Machine Learning 컴퓨팅
 

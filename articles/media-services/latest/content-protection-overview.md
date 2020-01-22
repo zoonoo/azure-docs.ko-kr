@@ -1,5 +1,5 @@
 ---
-title: Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
+title: Media Services v3 동적 암호화를 사용 하 여 콘텐츠 보호
 titleSuffix: Azure Media Services
 description: Azure Media Services에서 동적 암호화, 스트리밍 프로토콜 및 암호화 유형을 사용 하 여 콘텐츠를 보호 하는 방법에 대해 알아봅니다.
 services: media-services
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 18e80383bfcbebc6a442663c141100faa56fd061
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977780"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313810"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
-Azure Media Services를 사용 하 여 저장, 처리 및 배달 과정을 통해 컴퓨터를 떠날 때부터 미디어를 보호할 수 있습니다. Media Services를 사용 하면 AES(Advanced Encryption Standard) (AES-128) 또는 세 가지 주요 DRM (디지털 권한 관리) 시스템 (Microsoft PlayReady, Google Widevine 및 Apple)을 사용 하 여 동적으로 암호화 된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.  
+Azure Media Services를 사용 하 여 저장, 처리 및 배달 과정을 통해 컴퓨터를 떠날 때부터 미디어를 보호할 수 있습니다. Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.  
 
 Media Services v 3에서 콘텐츠 키가 스트리밍 로케이터와 연결 되어 있습니다 ( [이 예제](protect-with-aes128.md)참조). Media Services 키 배달 서비스를 사용 하는 경우 콘텐츠 키를 Azure Media Services 생성 하도록 할 수 있습니다. 고유한 키 배달 서비스를 사용 하는 경우 또는 두 데이터 센터에서 동일한 콘텐츠 키를 가져야 하는 고가용성 시나리오를 처리 해야 하는 경우 콘텐츠 키를 직접 생성 해야 합니다.
 
@@ -51,7 +51,7 @@ REST API 또는 Media Services 클라이언트 라이브러리를 사용하여 �
   
 [DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) 에서는 .net을 사용 하 여 Media Services v3로 다중 DRM 시스템을 구현 하는 방법을 보여 줍니다. 또한 Media Services 라이선스/키 배달 서비스를 사용 하는 방법을 보여 줍니다.
   
-Minden objektumot több titkosítási típussal titkosíthat (AES-128, PlayReady, Widevine, FairPlay). 결합에 대 한 의미를 확인 하려면 [스트리밍 프로토콜 및 암호화 유형](#streaming-protocols-and-encryption-types)을 참조 하세요.
+여러 암호화 유형(AES-128, PlayReady, Widevine, FairPlay)을 사용하여 각 자산을 암호화할 수 있습니다. 결합에 대 한 의미를 확인 하려면 [스트리밍 프로토콜 및 암호화 유형](#streaming-protocols-and-encryption-types)을 참조 하세요.
 
 예제에서는 다음을 수행하는 방법을 보여 줍니다.
 
@@ -114,7 +114,7 @@ STS (보안 토큰 서비스)는 백 엔드 리소스 액세스를 위한 액세
 
 [이 sts 도구](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) 를 사용 하 여 sts를 테스트할 수 있습니다. 키 롤오버가 있는 대칭, 비대칭 또는 Azure Active Directory (Azure AD)의 세 가지 유형의 확인 키를 모두 지원 합니다.
 
-## <a name="streaming-protocols-and-encryption-types"></a>Streamelési protokollok és titkosítási típusok
+## <a name="streaming-protocols-and-encryption-types"></a>스트리밍 프로토콜 및 암호화 유형
 
 Media Services를 사용하여 AES 암호화되지 않은 키 또는 PlayReady, Widevine 또는 FairPlay 등과 같은 DRM 암호화로 동적 암호화된 콘텐츠를 제공할 수 있습니다. 현재 HLS, MPEG 대시 및 부드러운 스트리밍 형식을 암호화할 수 있습니다. 각 프로토콜은 다음과 같은 암호화 방법을 지원 합니다.
 
@@ -124,7 +124,7 @@ HLS 프로토콜은 다음과 같은 컨테이너 형식 및 암호화 스키마
 
 |컨테이너 형식|암호화 체계|URL 예|
 |---|---|---|
-|Mind|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|전체|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC(PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -142,15 +142,15 @@ MPEG 대시 프로토콜은 다음과 같은 컨테이너 형식 및 암호화 �
 
 |컨테이너 형식|암호화 체계|URL 예
 |---|---|---|
-|Mind|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|전체|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC(Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC(Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
-### <a name="smooth-streaming"></a>Smooth Streaming
+### <a name="smooth-streaming"></a>부드러운 스트리밍
 
 부드러운 스트리밍 프로토콜은 다음과 같은 컨테이너 형식 및 암호화 스키마를 지원 합니다.
 
-|Protocol (Protokoll)|컨테이너 형식|암호화 체계|
+|프로토콜|컨테이너 형식|암호화 체계|
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC(PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
@@ -159,7 +159,7 @@ MPEG 대시 프로토콜은 다음과 같은 컨테이너 형식 및 암호화 �
 
 일반 브라우저는 다음 DRM 클라이언트를 지원 합니다.
 
-|Böngésző|Titkosítás|
+|브라우저|암호화|
 |---|---|
 |Chrome|Widevine|
 |Microsoft Edge, Internet Explorer 11|PlayReady|
@@ -169,7 +169,7 @@ MPEG 대시 프로토콜은 다음과 같은 컨테이너 형식 및 암호화 �
 
 ## <a name="controlling-content-access"></a>콘텐츠 액세스 제어
 
-콘텐츠 키 정책을 구성하여 콘텐츠에 액세스하는 사람을 제어할 수 있습니다. A Media Services szolgáltatásban több különböző módot is beállíthat, amelyek segítségével a rendszer hitelesítheti a kulcskérelmet küldő felhasználókat. 키가 클라이언트에 배달되려면 먼저 클라이언트(플레이어)에서 정책을 충족해야 합니다. 콘텐츠 키 정책에는 *개방* 또는 *토큰* 제한이 있을 수 있습니다.
+콘텐츠 키 정책을 구성하여 콘텐츠에 액세스하는 사람을 제어할 수 있습니다. Media Services는 키를 요청 하는 사용자에 권한을 부여하는 여러 방법을 지원합니다. 키가 클라이언트에 배달되려면 먼저 클라이언트(플레이어)에서 정책을 충족해야 합니다. 콘텐츠 키 정책에는 *개방* 또는 *토큰* 제한이 있을 수 있습니다.
 
 권한 부여 없이 모든 사용자에 게 라이선스를 발급 하려는 경우 공개 제한 된 콘텐츠 키 정책을 사용할 수 있습니다. 예를 들어 수익이 ad 기반 이며 구독 기반이 아닌 경우입니다.  
 
@@ -186,7 +186,7 @@ Azure AD를 STS로 사용 하거나 [사용자 지정 sts](#using-a-custom-sts)�
 
 *토큰 재생 방지* 기능을 사용 하면 고객이 동일한 토큰을 사용 하 여 키 또는 라이선스를 요청 하는 횟수에 대 한 제한을 설정할 수 Media Services 있습니다. 사용자는 토큰에 `urn:microsoft:azure:mediaservices:maxuses` 형식의 클레임을 추가할 수 있습니다. 여기서 값은 토큰이 라이선스 또는 키를 획득 하는 데 사용 될 수 있는 횟수입니다. 키 배달이 동일한 토큰을 사용 하는 모든 후속 요청은 권한 없는 응답을 반환 합니다. [DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)에서 클레임을 추가 하는 방법을 참조 하세요.
  
-#### <a name="considerations"></a>Megfontolandó szempontok
+#### <a name="considerations"></a>고려 사항
 
 * 고객은 토큰 생성을 제어 해야 합니다. 클레임은 토큰 자체에 배치 해야 합니다.
 * 이 기능을 사용 하는 경우 만료 시간이 요청을 수신 하는 시간부터 1 시간을 초과 하는 토큰이 있는 요청은 거부 된 응답으로 거부 됩니다.
@@ -197,7 +197,7 @@ Azure AD를 STS로 사용 하거나 [사용자 지정 sts](#using-a-custom-sts)�
 
 ## <a name="using-a-custom-sts"></a>사용자 지정 STS 사용
 
-고객이 사용자 지정 STS를 사용 하 여 토큰을 제공 하도록 선택할 수 있습니다. 이유는 다음과  같습니다.
+고객이 사용자 지정 STS를 사용 하 여 토큰을 제공 하도록 선택할 수 있습니다. 그 이유는 다음과 같습니다.
 
 * 고객이 사용 하는 IDP (id 공급자)가 STS를 지원 하지 않습니다. 이 경우 사용자 지정 STS가 옵션일 수 있습니다.
 * 고객은 STS를 고객의 구독자 청구 시스템과 통합하는 데 보다 유연하고 긴밀한 제어가 필요할 수 있습니다.
@@ -214,8 +214,8 @@ Azure AD를 STS로 사용 하거나 [사용자 지정 sts](#using-a-custom-sts)�
 
 두 가지 유형의 보안 키가 있습니다.
 
-* 대칭 키: JWT를 생성 및 확인 하는 데 동일한 키가 사용 됩니다.
-* 비대칭 키: X509 인증서의 공개-개인 키 쌍은 JWT를 암호화/생성 하 고 공개 키를 사용 하 여 토큰을 확인 하는 개인 키와 함께 사용 됩니다.
+* 대칭 키: JWT를 생성 및 확인하는 데 동일한 키가 사용됩니다.
+* 비대칭 키: JWT를 암호화/생성하는 데는 프라이빗 키가, 토큰을 확인하는 데는 공개 키가 사용되는 방식으로 X509 인증서에 공개-프라이빗 키 쌍이 사용됩니다.
 
 개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이 키 길이는 .NET Framework의 X509AsymmetricSecurityKey 클래스에 대 한 요구 사항입니다. 그렇지 않으면 다음 예외가 throw 됩니다. IDX10630: 서명에 대 한 ' System.identitymodel. X509AsymmetricSecurityKey '은 ' 2048 ' 비트 보다 작을 수 없습니다.
 
@@ -236,7 +236,7 @@ Azure AD를 STS로 사용 하거나 [사용자 지정 sts](#using-a-custom-sts)�
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 합니다. Widevine 전용입니다. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 하며 FairPlay에만 해당 합니다.  
 
-Példa:
+예:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -247,23 +247,23 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 사용자 지정 라이선스/키 취득 Url을 사용 하는 REST 예제는 [스트리밍 정책-만들기](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)를 참조 하세요.
 
 > [!NOTE]
-> Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+> Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="troubleshoot"></a>Hibaelhárítás
+## <a name="troubleshoot"></a>문제 해결
 
 `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` 오류가 발생 하면 적절 한 스트리밍 정책을 지정 해야 합니다.
 
-`_NOT_SPECIFIED_IN_URL`로 끝나는 오류가 발생 하면 URL에서 암호화 형식을 지정 해야 합니다. Például: `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)참조 하세요.
+`_NOT_SPECIFIED_IN_URL`로 끝나는 오류가 발생 하면 URL에서 암호화 형식을 지정 해야 합니다. 예제는 `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`입니다. [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)참조 하세요.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 * [AES 암호화로 보호](protect-with-aes128.md)
 * [DRM으로 보호](protect-with-drm.md)
 * [액세스 제어를 사용 하 여 다중 DRM 콘텐츠 보호 시스템 디자인](design-multi-drm-system-with-access-control.md)
 * [저장소 쪽 암호화](storage-account-concept.md#storage-side-encryption)
-* [Gyakori kérdések](frequently-asked-questions.md)
-* [JSON Web Token 처리기](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [질문과 대답](frequently-asked-questions.md)
+* [JSON 웹 토큰 처리기](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

@@ -1,6 +1,6 @@
 ---
 title: Apache Spark 통합 - Azure Event Hubs | Microsoft Docs
-description: Apache Spark와 통합하여 Event Hubs를 통해 구조적 스트리밍을 사용하도록 설정합니다.
+description: 이 문서에서는 Apache Spark와 통합 하 여 Event Hubs 구조적 스트리밍을 사용 하도록 설정 하는 방법을 보여 줍니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c4fd74e9123e1310be297a15090433d365d24cf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343395"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311685"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Azure Event Hubs와 Apache Spark 통합
 
@@ -31,7 +31,7 @@ Azure Event Hubs는 [Apache Spark](https://spark.apache.org/)와 원활하게 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. 아직 Azure 구독이 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Azure 구독 아직 Azure 구독이 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Event Hubs 인스턴스. 아직 없는 경우 [하나를 만듭니다](event-hubs-create.md).
 * [Azure Databricks](https://azure.microsoft.com/services/databricks/) 인스턴스. 아직 없는 경우 [하나를 만듭니다](../azure-databricks/quickstart-create-databricks-workspace-portal.md).
 * [Maven 좌표를 사용하여 라이브러리 만들기](https://docs.databricks.com/user-guide/libraries.html#upload-a-maven-package-or-spark-package): `com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.1`.

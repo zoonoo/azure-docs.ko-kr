@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs .NET Framework API 개요 | Microsoft Docs
-description: 핵심 Event Hubs .NET Framework 클라이언트 API 일부를 요약한 것입니다.
+description: 이 문서에서는 클라이언트 Api (management 및 runtime)를 .NET Framework Event Hubs 몇 가지 주요 사항에 대해 간략하게 설명 합니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f67351fa38543504d63dbf8d86c9537feea24a4f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822038"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312620"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API 개요
 
@@ -26,7 +26,7 @@ ms.locfileid: "60822038"
 
 다음 관리 작업을 수행하려면 Event Hubs 네임스페이스에 대한 **관리** 권한이 있어야 합니다.
 
-### <a name="create"></a>생성
+### <a name="create"></a>Create
 
 ```csharp
 // Create the event hub
@@ -35,7 +35,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### <a name="update"></a>주 지역에서
+### <a name="update"></a>업데이트
 
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);

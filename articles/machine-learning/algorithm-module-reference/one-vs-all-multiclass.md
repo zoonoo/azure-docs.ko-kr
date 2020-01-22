@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 939ac7caacac7cfb55bd29ed9a5d9c136a8e5c90
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428508"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314252"
 ---
 # <a name="one-vs-all-multiclass"></a>OVA(One-vs-All)  다중 클래스
 
-이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 일대다 다중 클래스 모듈을 사용 하는 방법을 설명 합니다. 목표는 *일 대* 다 접근 방법을 사용 하 여 여러 클래스를 예측할 수 있는 분류 모델을 만드는 것입니다.
+이 문서에서는 Azure Machine Learning 디자이너에서 일대다 다중 클래스 모듈을 사용 하는 방법을 설명 합니다. 목표는 *일 대* 다 접근 방법을 사용 하 여 여러 클래스를 예측할 수 있는 분류 모델을 만드는 것입니다.
 
 이 모듈은 결과가 연속 또는 범주 예측 변수에 의존하는 경우 세 개 이상의 가능한 결과를 예측하는 모델을 만드는 데 유용합니다. 이 메서드를 사용하면 여러 출력 클래스가 필요한 문제에 대해서도 이진 분류 방법을 사용할 수 있습니다.
 

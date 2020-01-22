@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: eb3e473535c394818772ac949808023254087555
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 21afb12bf2464218119ebf52ebd980745e3d731d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448038"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311719"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 시키기 위해 패턴을 추가 하는 방법
 LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md) 을 사용 하 여 단어 순서 및 단어 선택의 패턴을 표시 하는 길이 발언에 대 한 예측 정확도를 향상 시킵니다. 패턴은 특정 [구문을](luis-concept-patterns.md#pattern-syntax) 사용 하 여 [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md)및 선택적 텍스트의 위치를 지정 합니다.
@@ -42,7 +42,7 @@ LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md
     > [!div class="mx-imgBorder"]
     > 의도 세부 정보 페이지에서 utterance 예제를 템플릿 패턴으로 확인 하는 ![스크린샷](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
 
-1. `[]` (사각형) 대괄호를 사용 하 여 텍스트를 선택 사항으로 선택 하는 등 템플릿을 편집 해야 하는 경우이 편집을 **패턴** 페이지로 만들어야 합니다.
+1. `[]` (사각형) 대괄호를 사용 하 여 텍스트를 선택 사항으로 선택 하는 것과 같이 템플릿을 편집 해야 하는 경우 **패턴** 페이지에서이 편집 작업을 수행 해야 합니다.
 
 1. 탐색 모음에서 **학습** 을 선택 하 여 새 패턴으로 앱을 학습 합니다.
 

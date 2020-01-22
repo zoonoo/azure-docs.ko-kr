@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 68f73afbf81914938f78baad2cacda7327e7789a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ca35af997834a897572555e752597026b5159712
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428598"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314456"
 ---
 # <a name="clip-values"></a>값 잘라내기
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 자르기 값 모듈을 사용 하 여 지정 된 임계값 보다 높거나 낮은 데이터 값을 식별 하 고 필요에 따라 평균, 상수 또는 다른 대체 값으로 바꿀 수 있습니다.  
 
@@ -86,7 +86,7 @@ ms.locfileid: "75428598"
   
 1.  파이프라인을 실행합니다.  
   
-    **클립 값** 모듈의 출력을 마우스 오른쪽 단추로 클릭 하 고 **시각화** 를 선택 하 여 값을 검토 하 고 클리핑 작업이 예상과 일치 하는지 확인 합니다.  
+    **클립 값** 모듈을 마우스 오른쪽 단추로 클릭 하 고 **시각화** **를 선택**하거나 모듈을 선택 하 고 오른쪽 패널의 **출력** 탭으로 전환 하 여 값을 검토 하 고 클리핑 작업이 예상과 일치 하는지 확인 합니다.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>백분위 수를 사용 하 여 클리핑 예제
 

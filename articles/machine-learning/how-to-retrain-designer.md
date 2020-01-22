@@ -1,7 +1,7 @@
 ---
-title: Azure Machine Learning designer를 사용 하 여 모델 다시 학습 (미리 보기)
+title: Azure Machine Learning designer를 사용 하 여 모델 다시 학습
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning designer (미리 보기)에서 게시 된 파이프라인으로 모델을 다시 학습 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning designer에서 게시 된 파이프라인으로 모델을 다시 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 12/15/2019
-ms.openlocfilehash: 734acd712eb954e66a9c0b037d10b7b1fd626c6a
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732164"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311872"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer를 사용 하 여 모델 다시 학습 (미리 보기)
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 모델 다시 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 방법에서는 Azure Machine Learning 디자이너를 사용 하 여 Machine Learning 모델을 다시 학습 하는 방법에 대해 알아봅니다. 게시 된 파이프라인을 사용 하 여 재 학습을 위한 기계 학습 워크플로를 자동화 하는 방법을 알아보세요.

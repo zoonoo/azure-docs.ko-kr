@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00414bea82a7a78dd88ff4b1a592a6e35b5241c7
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428566"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314405"
 ---
 # <a name="convert-to-dataset"></a>데이터 세트로 변환
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 데이터 집합으로 변환 모듈을 사용 하 여 파이프라인에 대 한 모든 데이터를 디자이너의 내부 형식으로 변환 하는 방법을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너에서 데이터 집합으로 변환 모듈을 사용 하 여 파이프라인에 대 한 모든 데이터를 디자이너의 내부 형식으로 변환 하는 방법을 설명 합니다.
   
 대부분의 경우에는 변환이 필요 하지 않습니다. Azure Machine Learning는 데이터에 대해 작업이 수행 될 때 암시적으로 데이터를 네이티브 데이터 집합 형식으로 변환 합니다. 
 
@@ -51,11 +51,11 @@ ms.locfileid: "75428566"
     **ReplaceValues** 작업은 정확히 일치 하는 항목에만 적용 됩니다. 예를 들어 다음 문자열은 `obs.`, `obsolete`에 영향을 받지 않습니다.  
  
   
-5.  파이프라인을 실행 하거나 데이터 집합으로 변환 모듈을 마우스 오른쪽 단추로 클릭 하 고 **선택 된 실행**을 선택 합니다.  
+5.  파이프라인을 실행합니다.  
 
 ## <a name="results"></a>결과
 
-+  결과 데이터 집합을 새 이름으로 저장 하려면 데이터 집합으로 변환의 출력을 마우스 오른쪽 단추로 클릭 하 고 **데이터 집합으로 저장**을 선택 합니다.  
++  결과 데이터 집합을 새 이름으로 저장 하려면 모듈의 오른쪽 패널에 있는 **출력** 탭에서 아이콘 **레지스터 데이터 집합** 을 선택 합니다.  
   
 ## <a name="technical-notes"></a>기술 정보  
 
