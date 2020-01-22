@@ -124,6 +124,8 @@
           href: scale-vmware-assessment.md
         - name: 다수의 Hyper-V VM 평가
           href: scale-hyper-v-assessment.md
+        - name: 다수의 물리적 서버 평가
+          href: scale-physical-assessment.md
         - name: 많은 수의 VM의 마이그레이션 자동화
           href: how-to-migrate-at-scale.md
         - name: 마이그레이션 예제(Contoso 시리즈)

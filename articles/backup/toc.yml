@@ -148,10 +148,28 @@
           href: backup-mabs-sharepoint-azure-stack.md
         - name: SQL Server 데이터베이스 보호
           href: backup-mabs-sql-azure-stack.md
-    - name: Azure 파일 공유
+    - name: Azure 파일 공유 백업
       items:
-        - name: Azure 파일 공유 백업
-          href: backup-azure-files.md
+        - name: Azure Portal에서
+          items:
+            - name: Azure 파일 공유 백업
+              href: backup-afs.md
+            - name: Azure 파일 공유 복원
+              href: restore-afs.md
+            - name: Azure 파일 공유 백업 관리
+              href: manage-afs-backup.md
+        - name: Azure CLI 사용
+          items:
+            - name: CLI를 사용하여 Azure 파일 공유 백업
+              href: backup-afs-cli.md
+            - name: CLI를 사용하여 Azure 파일 공유 복원
+              href: restore-afs-cli.md
+            - name: CLI를 사용하여 Azure 파일 공유 백업 관리
+              href: manage-afs-backup-cli.md
+        - name: PowerShell 사용
+          items:
+            - name: Powershell을 사용한 Azure 파일 공유 백업
+              href: backup-azure-afs-automation.md
     - name: Azure VM 백업
       items:
         - name: Azure VM 백업 정보
@@ -222,8 +240,6 @@
           href: backup-dpm-automation.md
         - name: Azure Portal의 Windows Server
           href: backup-client-automation.md
-        - name: Azure Portal의 Azure 파일 공유
-          href: backup-azure-afs-automation.md
         - name: Azure VM 백업의 SQL
           href: backup-azure-sql-automation.md
     - name: Azure Backup REST API 사용
@@ -334,7 +350,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/backup/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

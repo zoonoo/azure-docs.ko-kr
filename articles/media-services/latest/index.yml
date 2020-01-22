@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Azure Media Services v3 설명서
+title: Azure Media Services v3 클라우드 기반 플랫폼에 대해 알아보기
 summary: Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
 metadata:
   title: Azure Media Services v3 설명서
@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 10/07/2019
-  ms.openlocfilehash: b55677aba5f99d4960d51d3a717175d47db026e2
-  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.openlocfilehash: 70eab66c3bd2d8536e415c9ac7c62161f3710c0c
+  ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/10/2019
-  ms.locfileid: "72244204"
+  ms.lasthandoff: 01/22/2020
+  ms.locfileid: "76314677"
 landingContent:
 - title: Media Services 정보
   linkLists:
