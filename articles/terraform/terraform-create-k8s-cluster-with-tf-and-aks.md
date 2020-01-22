@@ -297,7 +297,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
-## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터를 만듭니다.
+## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
 이 섹션에서는 `terraform init` 명령을 사용하여 이전 섹션에서 만든 구성 파일을 정의하는 리소스를 만드는 방법을 보여 줍니다.
 
