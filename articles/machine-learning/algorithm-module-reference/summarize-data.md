@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a037c959b44a6216724c285f932250b1b05cb509
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428450"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313749"
 ---
 # <a name="summarize-data"></a>데이터 요약
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 데이터 요약 모듈을 사용 하 여 입력 테이블의 각 열을 설명 하는 표준 통계 측정값 집합을 만들 수 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "75428450"
 
 1. 추가 매개 변수는 필요 하지 않습니다. 기본적으로 모듈은 입력으로 제공 된 모든 열을 분석 하 고, 열의 값 유형에 따라 [결과](#results) 섹션에 설명 된 대로 관련 된 통계 집합을 출력 합니다.
 
-1. 파이프라인을 실행 하거나 모듈을 마우스 오른쪽 단추로 클릭 하 고 **선택 된 실행**을 선택 합니다.
+1. 파이프라인을 실행합니다.
 
 ## <a name="results"></a>결과
 

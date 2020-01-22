@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74d209adf745d1a3c319ef6567b2a7818a5fd514
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152259"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314728"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -167,6 +167,11 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 이러한 모든 경우에 대해 [지원 되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 및 [인덱서의 데이터 형식 맵](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) 을 참조 하 여 인덱스 스키마를 올바르게 작성 하 고 적절 한 [인덱서 필드 매핑을](search-indexer-field-mappings.md)설정 했는지 확인 합니다. 오류 메시지에는 불일치의 원인을 추적 하는 데 도움이 되는 세부 정보가 포함 됩니다.
 
 <a name="could-not-process-document-within-indexer-max-run-time"/>
+
+## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>오류: 테이블에 복합 기본 키가 있으므로 통합 변경 내용 추적 정책을 사용할 수 없습니다.
+
+이는 SQL 테이블에 적용 되며, 일반적으로 키가 복합 키로 정의 되거나 테이블이 Azure Search 인덱스가 아닌 SQL 인덱스에서와 같이 고유 클러스터형 인덱스를 정의한 경우에 발생 합니다. 주된 이유는 키 특성이 [고유 클러스터형 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15)의 경우 복합 기본 키로 수정 되기 때문입니다. 이 경우에는 SQL 테이블이 고유 클러스터형 인덱스를 포함 하지 않는지 확인 하거나 키 필드를 중복 값이 없는 필드에 매핑해야 합니다.
+
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>오류: 인덱서 최대 실행 시간 내에서 문서를 처리할 수 없습니다.
 

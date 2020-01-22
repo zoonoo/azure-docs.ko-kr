@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/07/2020
-ms.openlocfilehash: 60334666c0ace76bd29ded03712549ec44d68732
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/21/2020
+ms.openlocfilehash: 012e6eca13c2b1afe00343da98dd58ca1f683dd5
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690983"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315102"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>자습서: DMS를 사용 하 여 Azure SQL Database online에서 단일 데이터베이스 또는 풀링된 데이터베이스로 SQL Server 마이그레이션
 
@@ -242,7 +242,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
-7.**만들기**를 선택하여 서비스를 만듭니다.
+7. **만들기**를 선택하여 서비스를 만듭니다.
 
 ## <a name="create-a-migration-project"></a>마이그레이션 프로젝트 만들기
 

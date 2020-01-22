@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 723821a78ecae308443c93567402e3b232c036f0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206550"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314711"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>CloudSimple 사설 클라우드 사이트를 사용 하 여 VMware 수평으로 가상 데스크톱 인프라 호스팅
 
@@ -47,7 +47,7 @@ CloudSimple 솔루션을 사용 하려면 다음을 수행 해야 합니다.
 ### <a name="estimate-the-size-of-your-desktop-environment"></a>데스크톱 환경의 크기 예측
 
 * 식별 된 구성이 VMware 작동 제한 내에 있는지 확인 합니다.
-* DR 사이트에서 온-프레미스 환경을 보호 하는 데 필요한 리소스를 추정 합니다.
+* 모든 데스크톱 및 수평 관리 구성 요소에 필요한 리소스를 예측 합니다.
 
 ### <a name="create-a-private-cloud-for-your-environment"></a>사용자 환경에 맞는 사설 클라우드 만들기
 

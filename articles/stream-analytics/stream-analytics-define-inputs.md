@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/17/2020
+ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646849"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314796"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -55,6 +55,7 @@ Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공
 | **이벤트 허브 이름** | 입력으로 사용할 이벤트 허브의 이름입니다. |
 | **이벤트 허브 정책 이름** | 이벤트 허브에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다.|
 | **이벤트 허브 소비자 그룹**(권장) | 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용하는 것이 좋습니다. 이 문자열은 이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 $Default 소비자 그룹을 사용합니다.  |
+| **파티션 키** | 입력이 속성에 의해 분할 된 경우에는이 속성의 이름을 추가할 수 있습니다. 파티션 키는 선택 사항이 며이 속성의 PARTITION BY 또는 GROUP BY 절이 포함 된 경우 쿼리 성능을 향상 시키는 데 사용 됩니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식 (JSON, CSV, Avro 또는 [기타 (Protobuf, XML, 독점적인 ...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **인코딩** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
 | **이벤트 압축 유형** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
@@ -104,6 +105,7 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 
 | **공유 액세스 정책 이름** | IoT Hub에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
 | **공유 액세스 정책 키** | IoT Hub에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다.  IoT Hub 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
 | **소비자 그룹** | 각 Stream Analytics 작업마다 서로 다른 소비자 그룹을 사용하는 것이 좋습니다. 소비자 그룹은 IoT Hub에서 데이터를 수집하는 데 사용됩니다. Stream Analytics에서는 달리 지정하지 않는 한 $Default 소비자 그룹을 사용합니다.  |
+| **파티션 키** | 입력이 속성에 의해 분할 된 경우에는이 속성의 이름을 추가할 수 있습니다. 파티션 키는 선택 사항이 며이 속성의 PARTITION BY 또는 GROUP BY 절이 포함 된 경우 쿼리 성능을 향상 시키는 데 사용 됩니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식 (JSON, CSV, Avro 또는 [기타 (Protobuf, XML, 독점적인 ...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **인코딩** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
 | **이벤트 압축 유형** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
@@ -157,6 +159,7 @@ CSV 형식의 입력은 데이터 집합에 대 한 필드를 정의 하는 머�
 | **경로 패턴**(선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 컨테이너의 루트에서 blob을 읽으려면 경로 패턴을 설정 하지 마십시오. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름을 포함 하지 마세요. |
 | **날짜 형식**(선택 사항) | 경로에서 날짜 변수를 사용하는 경우 파일이 구성된 날짜 형식입니다. 예: `YYYY/MM/DD` |
 | **시간 형식**(선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 몇 시간 동안 `HH`입니다. |
+| **파티션 키** | 입력이 속성에 의해 분할 된 경우에는이 속성의 이름을 추가할 수 있습니다. 파티션 키는 선택 사항이 며이 속성의 PARTITION BY 또는 GROUP BY 절이 포함 된 경우 쿼리 성능을 향상 시키는 데 사용 됩니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식 (JSON, CSV, Avro 또는 [기타 (Protobuf, XML, 독점적인 ...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **인코딩** | CSV 및 JSON의 경우 UTF-8이 현재 지원되는 유일한 인코딩 형식입니다. |
 | **압축** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |

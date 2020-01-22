@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 55981279cb1902424d1a0f77af097dc379d7222f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5e1390cb45fc6f659883ddfc8624719e45f99ce
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493972"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314592"
 ---
 # <a name="add-columns-module"></a>열 추가 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 두 데이터 집합을 연결 합니다. 지정 하는 두 데이터 집합의 모든 열을 입력으로 결합 하 여 단일 데이터 집합을 만듭니다. 세 개 이상의 데이터 집합을 연결 해야 하는 경우 **열 추가**의 여러 인스턴스를 사용 합니다.
 
@@ -38,11 +38,11 @@ ms.locfileid: "73493972"
 ### <a name="results"></a>결과
 파이프라인이 실행 된 후 다음을 수행 합니다.
 
-- 새 데이터 집합의 첫 번째 행을 보려면 **열 추가** 의 출력을 마우스 오른쪽 단추로 클릭 하 고 시각화를 선택 합니다.
+- 새 데이터 집합의 첫 번째 행을 보려면 **열 추가** 모듈을 마우스 오른쪽 단추로 클릭 하 고 시각화를 선택 합니다. 또는 모듈을 선택 하 고 오른쪽 패널의 **출력** 탭으로 전환 하 고 **포트 출력** 에서 히스토그램 아이콘을 클릭 하 여 결과를 시각화 합니다.
 
-새 데이터 집합의 열 수는 두 입력 데이터 집합의 열 합계와 같습니다.
+새 데이터 집합의 열 수는 두 입력 데이터 집합의 열 합과 같습니다.
 
-입력 데이터 집합에 이름이 같은 열이 두 개 있으면 열 이름에 숫자 접미사가 추가 됩니다. 예를 들어 TargetOutcome 이라는 열이 두 개 있는 경우 왼쪽 열 이름이 TargetOutcome_1로 바뀌고 오른쪽 열의 이름이 TargetOutcome_2로 바뀝니다.
+입력 데이터 집합에 이름이 같은 열이 두 개 있으면 열 이름에 숫자 접미사가 추가 됩니다. 예를 들어 TargetOutcome 이라는 열이 두 개 있는 경우 왼쪽 열 이름이 TargetOutcome_1 변경 되 고 TargetOutcome_2 오른쪽 열의 이름이 바뀝니다.
 
 ## <a name="next-steps"></a>다음 단계
 

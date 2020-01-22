@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b136f408bbc4fbf13bba902f76f7d33ce6b2ba96
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428604"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314575"
 ---
 # <a name="apply-math-operation"></a>수학 연산 적용
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 수학 적용 연산을 사용 하 여 입력 데이터 집합의 숫자 열에 적용 되는 계산을 만들 수 있습니다. 
 

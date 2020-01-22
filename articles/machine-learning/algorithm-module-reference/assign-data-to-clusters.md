@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1dd88eaa9c92a4f8ff5d491da950f7bb1cc48c20
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214565"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314507"
 ---
 # <a name="module-assign-data-to-clusters"></a>모듈: 클러스터에 데이터 할당
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 *클러스터에 데이터 할당* 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 *K를 의미* 하는 클러스터링 알고리즘을 사용 하 여 학습 된 클러스터링 모델을 통해 예측을 생성 합니다.
+이 문서에서는 Azure Machine Learning 디자이너에서 *클러스터에 데이터 할당* 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 *K를 의미* 하는 클러스터링 알고리즘을 사용 하 여 학습 된 클러스터링 모델을 통해 예측을 생성 합니다.
 
 클러스터에 데이터 할당 모듈은 각 새 데이터 요소에 대해 가능한 할당을 포함 하는 데이터 집합을 반환 합니다. 
 
@@ -47,5 +47,5 @@ ms.locfileid: "74214565"
   
 ### <a name="results"></a>결과
 
-+  데이터 집합의 값을 보려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **결과 데이터 집합**을 선택한 다음 **시각화**를 선택 합니다.
++  데이터 집합의 값을 보려면 모듈을 마우스 오른쪽 단추로 클릭 한 다음 **시각화**를 선택 합니다. 또는 모듈을 선택 하 고 오른쪽 패널의 **출력** 탭으로 전환 하 고 **포트 출력** 에서 히스토그램 아이콘을 클릭 하 여 결과를 시각화 합니다.
 

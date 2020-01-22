@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 71041012bc77da6d7613deb178c3cec1413e57e2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863498"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314891"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -38,7 +38,9 @@ ms.locfileid: "75863498"
 
 1. 기존 Azure Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
-1. **개요** 페이지를 선택합니다. **Time Series Insights 탐색기 URL**을 찾은 후 링크를 엽니다.  
+1. **개요** 페이지를 선택합니다. 페이지 맨 위 근처의 **Essentials** 섹션을 확장 하 여 **Time Series Insights 탐색기 URL** 을 찾고 링크를 엽니다.  
+
+   [![Essentials 섹션 확장](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
    Time Series Insights 환경의 탐색기를 확인 합니다.
 

@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7a0cf3c41929eb6a020a9d4761b08a2a4f2f6caa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460391"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314762"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 엔드투엔드 문제 해결
 
@@ -143,10 +143,10 @@ Storage 클라이언트 라이브러리는 애플리케이션의 구성 파일(w
 
 Azure Storage는 메트릭이 테이블에 기록되는 동안 서버 로그 데이터를 Blob에 작성합니다. 로그 Blob은 스토리지 계정의 잘 알려진 `$logs` 컨테이너에서 사용할 수 있습니다. 로그 Blob은 조사하려는 시간 범위를 쉽게 찾을 수 있도록 연도, 월, 일 및 시간별로 계층적으로 명명됩니다. 예를 들어 `storagesample` 계정에서 2015년 1월 2일, 오전 8-9시에 대한 로그 Blob의 컨테이너는 `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`입니다. 이 컨테이너의 개별 Blob은 `000000.log`부터 시작하여 순차적으로 명명됩니다.
 
-AzCopy 명령줄 도구를 사용하여 이러한 서버 쪽 로그 파일을 로컬 컴퓨터의 원하는 위치에 다운로드할 수 있습니다. 예를 들어 다음 명령을 사용하여 2015년 1월 2일에 발생한 Blob 작업의 로그 파일을 `C:\Temp\Logs\Server` 폴더로 다운로드할 수 있습니다. `<storageaccountname>`은 스토리지 계정의 이름으로, `<storageaccountkey>`는 계정 액세스 키로 바꿉니다.
+AzCopy 명령줄 도구를 사용하여 이러한 서버 쪽 로그 파일을 로컬 컴퓨터의 원하는 위치에 다운로드할 수 있습니다. 예를 들어, 다음 명령을 사용 하 여 2015 년 1 월 2 일에 발생 한 blob 작업에 대 한 로그 파일을 `C:\Temp\Logs\Server`폴더로 다운로드할 수 있습니다. `<storageaccountname>`을 저장소 계정의 이름으로 바꿉니다.
 
 ```azcopy
-AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
 ```
 
 AzCopy는 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 다운로드할 수 있습니다. AzCopy 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
