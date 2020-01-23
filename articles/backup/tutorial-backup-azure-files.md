@@ -3,12 +3,12 @@ title: 자습서 - Azure Files 파일 공유 백업
 description: 이 자습서에서는 Azure Portal을 사용하여 Recovery Services 자격 증명 모음을 구성하고 Azure 파일 공유를 백업하는 방법에 대해 알아봅니다.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ec9074a39f2ece7878c0c3ef828dc21748d0ab89
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921637"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293932"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Azure Portal의 Azure 파일 공유 백업
 
@@ -43,29 +43,29 @@ ZRS([지역 중복 스토리지](../storage/common/storage-redundancy-zrs.md)) �
 
 1. 파일 공유와 동일한 지역에 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음이 이미 있는 경우 자격 증명 모음의 개요 페이지를 열고 **Backup**을 클릭합니다.
 
-    ![자격 증명 모음의 개요 페이지에서 백업 클릭](./media/backup-file-shares/overview-backup-page.png)
+    ![자격 증명 모음의 개요 페이지에서 백업 클릭](./media/tutorial-backup-azure-files/overview-backup-page.png)
 
 2. **백업 목표** 메뉴의 **백업할 항목**에서 Azure 파일 공유를 선택합니다.
 
-    ![Backup 목표로 Azure 파일 공유 선택](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
+    ![Backup 목표로 Azure 파일 공유 선택](./media/tutorial-backup-azure-files/choose-azure-fileshare-from-backup-goal.png)
 
 3. **Backup**을 클릭하여 Recovery Services 자격 증명 모음에 대한 Azure 파일 공유를 구성합니다.
 
-   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/set-backup-goal.png)
+   ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/tutorial-backup-azure-files/set-backup-goal.png)
 
     자격 증명 모음이 Azure 파일 공유와 연결되면 Backup 메뉴가 열리고 스토리지 계정을 선택하라는 메시지가 표시됩니다. 메뉴에는 개발자의 자격 증명 모음이 있는 지역에서 아직 Recovery Services 자격 증명 모음과 연결되지 않은 모든 지원되는 스토리지 계정이 표시됩니다.
 
-   ![사용자의 스토리지 계정을 선택합니다.](./media/backup-file-shares/list-of-storage-accounts.png)
+   ![사용자의 스토리지 계정을 선택합니다.](./media/tutorial-backup-azure-files/list-of-storage-accounts.png)
 
 4. 스토리지 계정 목록에서 계정을 선택하고 **확인**을 클릭합니다. Azure는 스토리지 계정에서 백업 가능한 파일 공유를 검색합니다. 최근에 파일 공유를 추가했는데 목록에 보이지 않으면 파일 공유가 표시될 때까지 잠시 기다립니다.
 
-   ![파일 공유 검색 중](./media/backup-file-shares/discover-file-shares.png)
+   ![파일 공유 검색 중](./media/tutorial-backup-azure-files/discover-file-shares.png)
 
 5. **파일 공유** 목록에서 백업하려는 파일 공유를 하나 이상 선택하고 **확인**을 클릭합니다.
 
 6. 파일 공유를 선택하면 Backup 메뉴가 **Backup 정책**으로 전환됩니다. 이 메뉴에서 기존 백업 정책을 선택하거나 새 백업 정책을 만든 후 **Backup 사용**을 클릭합니다.
 
-   ![백업 정책 선택 또는 새 백업 정책 만들기](./media/backup-file-shares/apply-backup-policy.png)
+   ![백업 정책 선택 또는 새 백업 정책 만들기](./media/tutorial-backup-azure-files/apply-backup-policy.png)
 
     백업 정책을 설정한 후에는 예정된 시간에 파일 공유의 스냅샷이 생성되고, 선택한 기간 동안 복구 지점이 유지됩니다.
 
@@ -77,19 +77,19 @@ ZRS([지역 중복 스토리지](../storage/common/storage-redundancy-zrs.md)) �
 
 1. 파일 공유 복구 지점이 포함된 Recovery Services 자격 증명 모음을 열고 **Backup 항목**을 클릭합니다. Backup 항목 형식 목록이 표시됩니다.
 
-   ![백업 항목 목록](./media/backup-file-shares/list-of-backup-items.png)
+   ![백업 항목 목록](./media/tutorial-backup-azure-files/list-of-backup-items.png)
 
 2. 목록에서 **Azure Storage(Azure Files)** 를 선택합니다. Azure 파일 공유 목록이 나타납니다.
 
-   ![Azure 파일 공유 목록](./media/backup-file-shares/list-of-azure-files-backup-items.png)
+   ![Azure 파일 공유 목록](./media/tutorial-backup-azure-files/list-of-azure-files-backup-items.png)
 
 3. Azure 파일 공유 목록에서 원하는 파일 공유를 선택합니다. 선택한 파일 공유에 대한 Backup 항목 메뉴가 열립니다.
 
-   ![선택한 파일 공유에 대한 Backup 항목 메뉴](./media/backup-file-shares/backup-item-menu.png)
+   ![선택한 파일 공유에 대한 Backup 항목 메뉴](./media/tutorial-backup-azure-files/backup-item-menu.png)
 
 4. Backup 항목 메뉴에서 **지금 백업**을 클릭합니다. 이것은 주문형 백업 작업이기 때문에 복구 지점과 연결된 보존 정책이 없습니다. **지금 백업** 대화 상자가 열립니다. 복구 지점을 보존할 마지막 날을 지정합니다.
 
-   ![복구 지점을 보존할 날짜 선택](./media/backup-file-shares/backup-now-menu.png)
+   ![복구 지점을 보존할 날짜 선택](./media/tutorial-backup-azure-files/backup-now-menu.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -103,4 +103,4 @@ ZRS([지역 중복 스토리지](../storage/common/storage-redundancy-zrs.md)) �
 Azure 파일 공유의 백업에서 복원하려면 다음 문서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure 파일 공유의 백업에서 복원](./backup-azure-files.md#restore-from-backup-of-azure-file-share)
+> [Azure 파일 공유의 백업에서 복원](restore-afs.md)

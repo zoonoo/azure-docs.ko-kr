@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: a1c514368960d39834125bd497d05b3d9ebeae7c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640706"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513374"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 
@@ -52,7 +52,6 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 
 -   많은 `servers` 지정 하는 경우 API Management 첫 번째 HTTPs URL을 선택 하려고 시도 합니다. HTTPs URL이 없으면 첫 번째 HTTP URL이 선택됩니다. HTTP URL도 없으면 서버 URL은 비어 있게 됩니다.
 -   `Examples` 지원 되지 않지만 `example`는입니다.
--   `Multipart/form-data`는 지원되지 않습니다.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI 가져오기, 업데이트 및 내보내기 메커니즘
 

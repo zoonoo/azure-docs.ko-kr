@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746052"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512422"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -129,7 +129,7 @@ Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
 Azure AD 앱 갤러리를 통해 MDM 솔루션을 사용할 수 없는 경우 [MDM과 Azure Active Directory 통합](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm)에 설명된 프로세스에 따라 추가할 수 있습니다. 
 
-공동 관리를 통해 SCCM을 사용하여 디바이스의 특정 측면을 관리할 수 있으며, 정책은 MDM 플랫폼을 통해 제공됩니다. Microsoft Intune은 SCCM을 사용한 공동 관리를 지원합니다. 자세한 내용은 [Windows 10 디바이스의 공동 관리](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview)를 참조하세요. Intune이 아닌 MDM 제품을 사용하는 경우 해당하는 공동 관리 시나리오에서 MDM 공급자를 확인하세요.
+공동 관리를 통해 SCCM을 사용하여 디바이스의 특정 측면을 관리할 수 있으며, 정책은 MDM 플랫폼을 통해 제공됩니다. Microsoft Intune은 SCCM을 사용한 공동 관리를 지원합니다. Windows 10 장치에 대 한 공동 관리에 대 한 자세한 내용은 [공동 관리 란?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview)을 참조 하세요. Intune이 아닌 MDM 제품을 사용하는 경우 해당하는 공동 관리 시나리오에서 MDM 공급자를 확인하세요.
 
 **권장 사항:** Azure AD 조인 디바이스에는 MDM 전용 관리를 고려해 보세요.
 

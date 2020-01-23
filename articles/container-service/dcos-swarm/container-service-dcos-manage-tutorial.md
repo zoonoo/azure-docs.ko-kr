@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Container Service 자습서 - DC/OS 관리
 description: Azure Container Service 자습서 - DC/OS 관리
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1c9b3bfdbe7aff203efa6b36f0e40cb65aba1175
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000414"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278346"
 ---
 # <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(사용되지 않음) Azure Container Service 자습서 - DC/OS 관리
 
@@ -128,7 +126,7 @@ dcos marathon app add marathon-app.json
 dcos marathon app list
 ```
 
-**태스크** 열 값이 *0/1*에서 *1/1*로 전환되는 경우 응용 프로그램 배포가 완료됩니다.
+**태스크** 열 값이 *0/1*에서 *1/1*로 전환되는 경우 애플리케이션 배포가 완료됩니다.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -165,7 +163,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 }
 ```
 
-`dcos marathon app update` 명령을 사용하여 응용 프로그램을 업데이트합니다.
+`dcos marathon app update` 명령을 사용하여 애플리케이션을 업데이트합니다.
 
 ```azurecli
 dcos marathon app update demo-app-private < marathon-app.json
@@ -177,7 +175,7 @@ dcos marathon app update demo-app-private < marathon-app.json
 dcos marathon app list
 ```
 
-**태스크** 열 값이 *1/3*에서 *3/1*로 전환되는 경우 응용 프로그램 배포가 완료됩니다.
+**태스크** 열 값이 *1/3*에서 *3/1*로 전환되는 경우 애플리케이션 배포가 완료됩니다.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -240,7 +238,7 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 ## <a name="scale-dcos-cluster"></a>DC/OS 클러스터 크기 조정
 
-이전의 예에서 애플리케이션은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 용량 작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
+이전의 예에서 애플리케이션은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 컴퓨팅 용량 작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
 
 DC/OS 에이전트의 현재 수를 보려면 [az acs show](/cli/azure/acs#az-acs-show) 명령을 사용합니다.
 
@@ -278,4 +276,4 @@ az group delete --name myResourceGroup --no-wait
 다음 자습서로 이동하여 Azure의 DC/OS에서 애플리케이션의 부하를 분산하는 방법에 대해 알아봅니다. 
 
 > [!div class="nextstepaction"]
-> [부하 분산 응용 프로그램](container-service-load-balancing.md)
+> [부하 분산 애플리케이션](container-service-load-balancing.md)

@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Container Service 자습서 - 애플리케이션 크기 조정
 description: Azure Container Service 자습서 - 애플리케이션 크기 조정
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b0aa78a519567a8e1ffd76e26f1d9ea3ca701fca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993083"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274185"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(사용되지 않음) Kubernetes Pod 및 Kubernetes 인프라 크기 조정
 
@@ -155,5 +153,5 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 다음 자습서로 이동하여 Kubernetes에서 애플리케이션 업데이트에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Kubernetes에서 응용 프로그램 업데이트](./container-service-tutorial-kubernetes-app-update.md)
+> [Kubernetes에서 애플리케이션 업데이트](./container-service-tutorial-kubernetes-app-update.md)
 

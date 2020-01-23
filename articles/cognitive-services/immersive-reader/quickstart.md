@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: dd3e1e6de886b24a2912fe6a12b47a852d8956d0
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a219d83551b63d564ee4296a7c28b0ac99adc159
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945409"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122307"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>빠른 시작: 몰입형 판독기를 시작하는 웹앱 만들기(C#)
 
@@ -62,7 +62,7 @@ _Solution Explorer_에서 프로젝트를 마우스 오른쪽 단추로 클릭�
 **도구 -> NuGet 패키지 관리자 - > 패키지 관리자 콘솔**에서 NuGet 패키지 관리자 콘솔을 열고 다음 명령을 실행합니다.
 
 ```powershell
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.1.0
+    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.2.0
 ```
 
 ### <a name="update-the-controller-to-acquire-the-token"></a>토큰을 획득하도록 컨트롤러 업데이트 

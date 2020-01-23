@@ -1,5 +1,5 @@
 ---
-title: Video Indexer BCDR (비즈니스 연속성 및 재해 복구)-Azure | Microsoft Docs
+title: 비즈니스 연속성 및 재해 복구 Video Indexer-Azure
 description: 지역 데이터 센터 중단 또는 오류가 발생 하는 경우 보조 Video Indexer 계정으로 장애 조치 (failover) 하는 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: ce788b4640f0a6c6f25b3280ce4f52fd018d1699
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 2f54c340226a9ea78643df8e0a984c8ed8475c94
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668310"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513578"
 ---
 # <a name="handle-video-indexer-business-continuity-and-disaster-recovery"></a>Video Indexer 비즈니스 연속성 및 재해 복구를 처리 합니다.
 
@@ -26,9 +26,9 @@ Azure Media Services Video Indexer는 지역 데이터 센터 중단 또는 오�
 
 Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(비즈니스 연속성 및 재해 복구)을 구성하는 것이 좋습니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 조건 
 
-Azure 구독. Azure 구독이 아직 없는 경우 [azure 무료 평가판](https://azure.microsoft.com/free/)에 등록 합니다.
+Azure 구독 Azure 구독이 아직 없는 경우 [azure 무료 평가판](https://azure.microsoft.com/free/)에 등록 합니다.
 
 ## <a name="failover-to-a-secondary-account"></a>보조 계정으로 장애 조치 (Failover)
 
@@ -40,7 +40,7 @@ BCDR를 구현 하려면 중복성을 처리 하기 위해 두 개의 Video Inde
 > [!TIP]
 > [서비스 알림에 대 한 활동 로그 경고 만들기에](../../service-health/alerts-activity-log-service-notifications.md)따라 서비스 상태 알림에 대 한 활동 로그 경고를 설정 하 여 BCDR를 자동화할 수 있습니다.
 
-다중 테 넌 트 사용에 대 한 자세한 내용은 [다중 테 넌 트 관리](manage-multiple-tenants.md)를 참조 하세요. BCDR를 구현 하려면 다음 두 옵션 중 하나를 선택 합니다. 테 넌 트 [당 계정](manage-multiple-tenants.md#video-indexer-account-per-tenant) 또는 [테 넌 트 당 Azure 구독](manage-multiple-tenants.md#azure-subscription-per-tenant)을 Video Indexer 합니다.
+다중 테 넌 트 사용에 대 한 자세한 내용은 [다중 테 넌 트 관리](manage-multiple-tenants.md)를 참조 하세요. BCDR를 구현 하려면 [테 넌 트 당 계정](manage-multiple-tenants.md#video-indexer-account-per-tenant) 또는 [테 넌 트 당 Azure 구독](manage-multiple-tenants.md#azure-subscription-per-tenant)의 두 Video Indexer 옵션 중 하나를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

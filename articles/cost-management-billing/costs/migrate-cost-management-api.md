@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/25/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0dfb7245135097780f027185e4037b6cafbae690
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b0c30cd35efd598767d21dbdafc5100d8896380c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989359"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514717"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업계약에서 Microsoft 고객 계약 Api로 마이그레이션
 
@@ -81,7 +81,7 @@ EA Api는 인증 및 권한 부여를 위해 API 키를 사용 합니다. MCA Ap
 | 용도 | 이전 제품 | 새 제품 |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | [Microsoft 소비량 정보](/power-bi/desktop-connect-azure-consumption-insights) 콘텐츠 팩 및 커넥터 | [Microsoft Azure Consumption Insights Power BI 앱](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) 및 [Azure Consumption Insights 커넥터](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | [Microsoft 소비량 정보](/power-bi/desktop-connect-azure-consumption-insights) 콘텐츠 팩 및 커넥터 |  [Azure Consumption Insights 커넥터](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>잔액 및 크레딧을 얻기 위한 Api
 

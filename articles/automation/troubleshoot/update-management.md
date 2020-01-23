@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769798"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513272"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -376,7 +376,7 @@ HRESULT가 표시 되 면 빨간색으로 표시 된 예외를 두 번 클릭 �
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>업데이트를 사용할 수 있지만 내 컴퓨터에서 사용할 수 있는 것으로 표시 되지 않습니다.
 
-* 이는 컴퓨터가 WSUS 또는 System Center Configuration Manager (SCCM)에서 업데이트를 가져오도록 구성 되었지만 WSUS 및 SCCM이 업데이트를 승인 하지 않은 경우에 주로 발생 합니다.
+* 이는 컴퓨터에서 WSUS 또는 Microsoft 끝점 Configuration Manager 업데이트를 가져오도록 구성 되었지만 WSUS 및 Configuration Manager 업데이트를 승인 하지 않은 경우에 주로 발생 합니다.
 * [이 문서의 "레지스트리를 편집 하 여 자동 업데이트 구성" 섹션의 레지스트리 키에 대 한 usewuserver가 레지스트리 키를 상호 참조](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)하 여 컴퓨터가 WSUS 및 SCCM에 대해 구성 되었는지 여부를 확인할 수 있습니다.
 * 업데이트가 WSUS에서 승인 되지 않으면 설치 되지 않습니다. 다음 쿼리를 실행 하 여 Log Analytics에서 승인 되지 않은 업데이트를 확인할 수 있습니다.
 

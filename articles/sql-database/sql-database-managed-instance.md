@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: b8cf7992617b7263b86fd98e5def8be1d43ca68c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293371"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514558"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스는 무엇입니까?
 
@@ -72,7 +72,7 @@ Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 
 ## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
-Managed Instance의 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)은 유연성, 제어 기능, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 사용하면 워크로드 요구 사항에 따라 컴퓨팅, 메모리 및 스토리지를 선택할 수 있습니다. 또한 vCore 모델은 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 통해 최대 30%까지 비용을 절약할 수 있습니다.
+Managed Instance의 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)은 유연성, 제어 기능, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 사용하면 워크로드 요구 사항에 따라 컴퓨팅, 메모리 및 스토리지를 선택할 수 있습니다. VCore 모델은 [SQL Server Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)으로 최대 55%까지 비용을 절감할 수 있습니다.
 
 vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 

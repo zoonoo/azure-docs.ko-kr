@@ -5,20 +5,20 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 7c40cfc8fbc6a9957281be842f6714fa9289a3c8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122222"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513741"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
 Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터를 Datahub로 가져올 수 있습니다. 현재 지원 되는 센서 장치 파트너는 다음과 같습니다.
 
-  ![FarmBeats 파트너](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![FarmBeats 파트너](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
-장치 데이터를 Azure FarmBeats와 통합 하면 팜에 배포 된 IoT 센서에서 datahub로의 그라운드 데이터를 가져올 수 있습니다. 데이터를 사용할 수 있게 되 면 FarmBeats accelerator를 통해 시각화할 수 있습니다. 데이터는 FarmBeats을 사용 하 여 데이터 fusion 및 기계 학습/인공 지능 (ML/AI) 모델을 빌드하는 데 사용할 수 있습니다.
+장치 데이터를 Azure FarmBeats와 통합 하면 팜에 배포 된 IoT 센서에서 데이터 허브로의 그라운드 데이터를 가져올 수 있습니다. 데이터를 사용할 수 있게 되 면 FarmBeats accelerator를 통해 시각화할 수 있습니다. 데이터는 FarmBeats을 사용 하 여 데이터 fusion 및 기계 학습/인공 지능 (ML/AI) 모델을 빌드하는 데 사용할 수 있습니다.
 
 센서 데이터 스트리밍을 시작 하려면 다음을 확인 합니다.
 
@@ -44,7 +44,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 1. [Zip 파일](https://aka.ms/farmbeatspartnerscriptv2)을 다운로드 하 고 로컬 드라이브에 압축을 풉니다. Zip 파일 안에는 파일이 하나 있습니다.
 2. https://portal.azure.com/ 에 로그인 하 고 Azure Active Directory-> 앱 등록으로 이동 합니다.
 
-3. FarmBeats 배포의 일부로 만들어진 앱 등록을 클릭 합니다. FarmBeats Datahub와 동일한 이름을 갖게 됩니다.
+3. FarmBeats 배포의 일부로 만들어진 앱 등록을 클릭 합니다. FarmBeats 데이터 허브와 동일한 이름을 갖게 됩니다.
 
 4. "API 표시"를 클릭 하 > "클라이언트 응용 프로그램 추가"를 클릭 하 고 **04b07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 후 "범위 권한 부여"를 선택 합니다. 그러면 아래 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
 

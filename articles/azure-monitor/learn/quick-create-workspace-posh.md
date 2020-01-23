@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 303f255057b414bc06cd7ae803fe368c2acc1a1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 87550e7ee3008418fde84596a811d44d02191cee
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399439"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513527"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell로 Log Analytics 작업 영역 만들기
 
@@ -20,7 +20,7 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 
 * 구독의 Azure 리소스  
 * System Center Operations Manager에서 모니터링하는 온-프레미스 컴퓨터  
-* System Center Configuration Manager의 데이터 수집  
+* Configuration Manager에서 장치 컬렉션  
 * Azure Storage에서 진단 또는 로그 데이터  
  
 Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 경우 다음 항목을 참조하세요.

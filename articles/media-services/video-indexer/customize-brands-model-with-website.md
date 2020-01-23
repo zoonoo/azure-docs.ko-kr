@@ -1,5 +1,5 @@
 ---
-title: Video Indexer 웹 사이트를 사용하여 브랜드 모델 사용자 지정 - Azure
+title: Video Indexer 웹 사이트를 사용 하 여 브랜드 모델 사용자 지정-Azure
 titleSuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer 웹 사이트를 사용하여 브랜드 모델을 사용자 지정하는 방법을 설명합니다.
 services: media-services
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: f4b2f7a8b43c1723beb0dd8da82814f74cd7b135
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 956ca7af055768398392045ecf9b383d2eb1060f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838357"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513901"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 브랜드 모델 사용자 지정
 
-Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 음성 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠에 멘션되거나, 비디오의 시각적 텍스트에 표시되는 경우 Video Indexer는 콘텐츠에서 해당 항목을 브랜드로 검색합니다. 사용자 지정 브랜드 모델을 사용하여 Video Indexer가 Bing 브랜드 데이터베이스에서 브랜드를 검색할지, 특정 브랜드를 검색되지 않도록 제외할지(브랜드의 차단 목록 생성), Bing의 브랜드 데이터베이스에 없을 수 있는 모델 부분에 해당하는 브랜드를 포함할지(브랜드의 허용 목록 생성)를 선택할 수 있습니다.
+Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 연설 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠에 멘션되거나, 비디오의 시각적 텍스트에 표시되는 경우 Video Indexer는 콘텐츠에서 해당 항목을 브랜드로 검색합니다. 사용자 지정 브랜드 모델을 사용하여 Video Indexer가 Bing 브랜드 데이터베이스에서 브랜드를 검색할지, 특정 브랜드를 검색되지 않도록 제외할지(브랜드의 차단 목록 생성), Bing의 브랜드 데이터베이스에 없을 수 있는 모델 부분에 해당하는 브랜드를 포함할지(브랜드의 허용 목록 생성)를 선택할 수 있습니다.
 
 자세한 개요를 보려면 [개요](customize-brands-model-overview.md)를 참조하세요.
 
@@ -49,7 +49,7 @@ Bing 브랜드 데이터베이스의 브랜드를 검색할지를 여부를 설�
     ![브랜드 모델 사용자 지정](./media/customize-brand-model/add-brand.png)
 
     이름(필수), 범주(선택), 설명(선택) 및 참조 URL(선택)을 제공합니다.
-    범주 필드는 브랜드에 태그를 지정하는 데 도움을 주기 위한 것입니다. 이 필드는 Video Indexer API를 사용할 때 브랜드의 *태그*로 표시됩니다. 예를 들어, "Azure" 브랜드는 "클라우드"로 태그를 지정하거나 분류할 수 있습니다.
+    범주 필드는 브랜드에 태그를 지정하는 데 도움을 주기 위한 것입니다. 이 필드는 Video Indexer API를 사용할 때 브랜드의 *태그*로 표시됩니다. 예를 들어 “Azure” 브랜드는 “클라우드”로 태그를 지정하거나 분류할 수 있습니다.
 
     참조 URL 필드는 해당 Wikipedia 페이지의 링크처럼, 브랜드의 참조 웹 사이트일 수 있습니다.
 2. "브랜드 추가"를 클릭하면 **브랜드 포함** 목록에 해당 브랜드가 추가된 것을 볼 수 있습니다.

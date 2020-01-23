@@ -7,20 +7,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931901"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513561"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 VMware VM 및 물리적 서버에 대한 재해 복구를 설정할 경우 각 온-프레미스 VMware VM 및 물리적 서버에 Site Recovery Mobility 서비스를 설치합니다.  Mobility 서비스는 머신에 기록된 데이터를 캡처하고 이를 Site Recovery 프로세스 서버에 전달합니다. 다음 메서드를 사용하여 Mobility 서비스를 설치할 수 있습니다.
 
-- [푸시 설치](#push-installation): Azure Portal를 통해 보호를 사용 하도록 설정 하면 서버에 모바일 에이전트를 설치 Site Recovery.
+- [강제 설치](#push-installation): Azure Portal를 통해 보호를 사용 하도록 설정 하면 Site Recovery 서버에 모바일 에이전트를 설치 합니다.
 - 수동으로 설치: [UI](#install-mobility-agent-through-ui) 또는 [명령 프롬프트](#install-mobility-agent-through-command-prompt)를 통해 각 컴퓨터에 모바일 서비스를 수동으로 설치할 수 있습니다.
-- [자동화된 배포](vmware-azure-mobility-install-configuration-mgr.md): System Center Configuration Manager 같은 소프트웨어 배포 도구를 사용하여 설치를 자동화할 수 있습니다.
+- [자동 배포](vmware-azure-mobility-install-configuration-mgr.md): Configuration Manager와 같은 소프트웨어 배포 도구를 사용 하 여 설치를 자동화할 수 있습니다.
 
 ## <a name="anti-virus-on-replicated-machines"></a>복제된 머신에서 바이러스 백신
 
@@ -115,17 +115,17 @@ ms.locfileid: "70931901"
 #### <a name="installation-settings"></a>설치 설정
 **설정** | **세부 정보**
 --- | ---
-사용법 | Unifiedagent.exe/Role \<MS/MT >/InstallLocation \<Install Location >/Platform "VmWare"/Silent
+사용량 | Unifiedagent.exe/Role \<MS/MT >/InstallLocation \<설치 위치 >/Platform "VmWare"/Silent
 설정 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log에 있습니다.
 /Role | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
-/InstallLocation| 선택적 매개 변수입니다. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
+/InstallLocation| 선택적 매개 변수. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
 /Platform | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. VMware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다.<br/><br/> Azure Vm을 물리적 컴퓨터로 처리 하는 경우 **VMware**를 지정 합니다.
-/Silent| 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
+/Silent| (선택 사항) 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
 **설정** | **세부 정보**
 --- | ---
-사용법 | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
+사용량 | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 에이전트 구성 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log에 있습니다.
 /CSEndPoint | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 /PassphraseFilePath |  필수. 암호의 위치입니다. 유효한 UNC 또는 로컬 파일 경로를 사용합니다.
@@ -154,27 +154,27 @@ ms.locfileid: "70931901"
 #### <a name="installation-settings"></a>설치 설정
 **설정** | **세부 정보**
 --- | ---
-사용법 | ./install-d \<install Location >-r \<MS/MT >-v VmWare-q
+사용량 | ./install-d \<설치 위치 >-r \<MS/MT >-v VmWare-q
 -r | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
--d | 선택적 매개 변수입니다. Mobility 서비스 설치 위치(/usr/local/ASR)를 지정합니다.
+-d | 선택적 매개 변수. Mobility 서비스 설치 위치(/usr/local/ASR)를 지정합니다.
 -v | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. VMware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다.
--q | 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
+-Q | (선택 사항) 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
 **설정** | **세부 정보**
 --- | ---
-사용법 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
+사용량 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
 -i | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 -P |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더를 사용합니다.
 
 ## <a name="azure-virtual-machine-agent"></a>Azure Virtual Machine 에이전트
 
-- **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 Mobility 서비스 설치 관리자가 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 설치합니다. 이렇게 하면 머신이 Azure로 장애 조치되는 경우에는 Azure VM이 VM 확장 사용을 위한 에이전트 설치 필수 조건을 충족하게 됩니다.
-- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent)를 Azure VM에 수동으로 설치해야 합니다.
+- **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 머신이 Azure로 장애 조치되는 경우에는 Azure VM이 VM 확장 사용을 위한 에이전트 설치 필수 조건을 충족하게 됩니다.
+- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent)가 Azure VM에 수동으로 설치되어야 합니다.
 
 ## <a name="locate-installer-files"></a>설치 관리자 파일 찾기
 
-구성 서버에서%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository 폴더로 이동 합니다. 운영 체제에 따라 필요한 설치 관리자를 확인 합니다. 다음 표에는 각 VMware VM 및 물리적 서버 운영 체제에 대 한 설치 관리자 파일이 요약 되어 있습니다. 시작하기 전에 [지원되는 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines)를 검토할 수 있습니다.
+구성 서버 에서%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository 폴더로 이동 합니다. 운영 체제에 따라 필요한 설치 관리자를 확인 합니다. 다음 표에는 각 VMware VM 및 물리적 서버 운영 체제에 대 한 설치 관리자 파일이 요약 되어 있습니다. 시작하기 전에 [지원되는 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines)를 검토할 수 있습니다.
 
 **설치 관리자 파일** | **운영 체제(64비트만 해당)**
 --- | ---

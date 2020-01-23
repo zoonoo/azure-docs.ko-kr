@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704521"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512762"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 
@@ -34,7 +34,7 @@ Azure Active Directory Domain Services (Azure AD DS)에서 사용자 보안을 �
 * 활성화된 Azure 구독.
   * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-  * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+  * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
   * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
   * Azure AD DS 인스턴스는 리소스 관리자 배포 모델을 사용 하 여 만들어야 합니다. 필요한 경우 [클래식 가상 네트워크 모델에서 리소스 관리자로 마이그레이션합니다][migrate-from-classic].
@@ -65,7 +65,7 @@ Fgpp입니다 (세분화 된 암호 정책)를 사용 하면 암호 및 계정 �
 
 계정 잠금은 관리 되는 도메인 내 에서만 발생 합니다. 사용자 계정은 관리 되는 도메인에 대 한 실패 한 로그인 시도로 인 한 Azure AD DS에만 잠깁니다. Azure AD 또는 온-프레미스에서 동기화 된 사용자 계정은 해당 원본 디렉터리에서 잠기지 않으며 Azure AD DS에만 해당 됩니다.
 
-최대 암호 사용 기간을 90 일 보다 크게 지정 하는 Azure AD 암호 정책이 있는 경우 해당 암호 사용 기간은 Azure AD DS의 기본 정책에 적용 됩니다. Azure AD DS에서 다른 최대 암호 사용 기간을 정의 하도록 사용자 지정 암호 정책을 구성할 수 있습니다. Azure AD 또는 온-프레미스 AD DS 환경 보다 Azure AD DS 암호 정책에 짧은 최대 암호 사용 기간을 구성 하는 경우 주의 해야 합니다. 이 시나리오에서 사용자의 암호는 온-프레미스 AD DS 환경에서 Azure AD를 변경 하 라는 메시지가 표시 되기 전에 Azure AD DS에서 만료 될 수 있습니다.
+최대 암호 사용 기간을 90 일 보다 크게 지정 하는 Azure AD 암호 정책이 있는 경우 해당 암호 사용 기간은 Azure AD DS의 기본 정책에 적용 됩니다. Azure AD DS에서 다른 최대 암호 사용 기간을 정의 하도록 사용자 지정 암호 정책을 구성할 수 있습니다. Azure AD 또는 온-프레미스 AD DS 환경 보다 Azure AD DS 암호 정책에 짧은 최대 암호 사용 기간을 구성 하는 경우 주의 해야 합니다. 이 시나리오에서는 azure AD 또는 온-프레미스 AD DS 환경에서 변경 하 라는 메시지가 표시 되기 전에 사용자의 암호가 Azure AD DS에서 만료 될 수 있습니다.
 
 Azure AD DS 관리 되는 도메인에서 수동으로 만든 사용자 계정의 경우 다음 추가 암호 설정도 기본 정책에서 적용 됩니다. 이러한 설정은 azure AD에서 동기화 된 사용자 계정에 적용 되지 않습니다. 사용자가 Azure AD DS에서 직접 암호를 업데이트할 수 없기 때문입니다.
 
@@ -103,12 +103,12 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 1. 다른 암호 정책 설정을 원하는 대로 편집 합니다. 다음 핵심 사항을 명심 하십시오.
 
     * Azure AD DS 관리 되는 도메인에서 수동으로 만든 사용자 에게만 암호 복잡성, 나이, 만료 시간 등의 설정을 적용할 수 있습니다.
-    * 계정 잠금 설정은 모든 사용자에 게 적용 되지만 관리 되는 도메인 내 에서만 적용 됩니다.
+    * 계정 잠금 설정은 모든 사용자에 게 적용 되지만 Azure AD 자체가 아닌 관리 되는 도메인 내 에서만 적용 됩니다.
 
     ![사용자 지정 세분화 된 암호 정책 만들기](./media/how-to/custom-fgpp.png)
 
 1. **실수로 삭제 되지 않도록 보호를**선택 취소 합니다. 이 옵션을 선택 하면 FGPP를 저장할 수 없습니다.
-1. 에 **직접 적용** 섹션에서 **추가** 단추를 선택 합니다. **사용자 또는 그룹 선택** 대화 상자에서 **위치** 단추를 클릭합니다.
+1. 에 **직접 적용** 섹션에서 **추가** 단추를 선택 합니다. **사용자 또는 그룹 선택** 대화 상자에서 **위치** 단추를 선택 합니다.
 
     ![암호 정책을 적용할 사용자 및 그룹을 선택 합니다.](./media/how-to/fgpp-applies-to.png)
 

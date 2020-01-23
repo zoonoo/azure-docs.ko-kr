@@ -1,5 +1,5 @@
 ---
-title: Video Indexer 웹 사이트를 사용하여 언어 모델 사용자 지정 - Azure
+title: Video Indexer 웹 사이트로 언어 모델 사용자 지정-Azure
 titleSuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer 웹 사이트를 사용하여 언어 모델을 사용자 지정하는 방법을 설명합니다.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 5d92cb02a0ac52b317cf9d4b6c8e0278f9291910
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 329da39914ef957d3a5376ba59e0c7103ad6a5dd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838451"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513918"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 언어 모델 사용자 지정
 
@@ -72,7 +72,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ### <a name="using-a-language-model-to-reindex"></a>언어 모델을 사용하여 다시 인덱싱
 
-언어 모델을 사용하여 컬렉션의 비디오를 다시 인덱싱하려면 **Video Indexer** 홈페이지의 [계정 비디오](https://www.videoindexer.ai/)로 이동하여 다시 인덱싱할 비디오의 이름을 커서로 가리킵니다.
+언어 모델을 사용하여 컬렉션의 비디오를 다시 인덱싱하려면 [Video Indexer](https://www.videoindexer.ai/) 홈페이지의 **계정 비디오**로 이동하여 다시 인덱싱할 비디오의 이름을 커서로 가리킵니다.
 
 비디오 편집, 비디오 삭제 및 비디오 다시 인덱싱 옵션이 표시됩니다. 비디오를 다시 인덱싱하는 옵션을 클릭합니다.
 

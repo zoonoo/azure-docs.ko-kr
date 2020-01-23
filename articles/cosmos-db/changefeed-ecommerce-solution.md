@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442062"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513512"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -93,7 +93,7 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 이제 전자 상거래 사이트 이벤트를 저장할 컬렉션을 만들어 보겠습니다. 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하면, 컬렉션에서 작업("viewed(조회)", "added(추가)" 또는 "purchased(구입)"), 관련 항목의 이름, 관련 항목의 가격 및 관련 사용자 카트의 ID 번호가 포함된 레코드를 받습니다.
 
-1. [Azure Portal](https://portal.azure.com/)로 이동하고, 템플릿 배포를 통해 만들어진 **Azure Cosmos DB 계정**을 찾습니다.  
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 템플릿 배포에 의해 생성 된 **Azure Cosmos DB 계정을** 찾습니다.  
 
 2. **데이터 탐색기** 창에서 **새 컬렉션**을 선택하고 다음 세부 정보로 양식을 채웁니다.  
 
@@ -117,7 +117,7 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Azure Cosmos DB 연결 문자열 가져오기
 
-1. [Azure Portal](https://portal.azure.com/)로 이동하고, 템플릿 배포를 통해 만들어진 **Azure Cosmos DB 계정**을 찾습니다.  
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 템플릿 배포에 의해 생성 된 **Azure Cosmos DB 계정을** 찾습니다.  
 
 2. **키** 창으로 이동하고, [기본 연결 문자열]을 복사하여 랩 전체에서 액세스할 수 있는 메모장이나 다른 문서에 붙여넣습니다. **Cosmos DB 연결 문자열**이라는 레이블을 지정해야 합니다. 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.
 
@@ -177,7 +177,7 @@ Azure Event Hub는 이벤트 데이터를 받고, 저장하고, 처리하고, �
  
 6. 프로그램이 실행될 때까지 기다립니다. 별은 데이터가 들어오고 있다는 것을 의미합니다! 프로그램을 계속 실행합니다. 많은 양의 데이터가 수집되는 것이 중요합니다.  
 
-7. [Azure Portal](https://portal.azure.com/), 리소스 그룹 내의 Cosmos DB 계정, **데이터 탐색기**로 차례로 이동하면 **changefeedlabcollection**에 가져온 임의 데이터가 표시됩니다.
+7. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 리소스 그룹 내의 Cosmos DB 계정으로 이동한 다음 **데이터 탐색기**하려면 **changefeedlabcollection** 에서 가져온 임의 데이터를 확인 합니다.
  
    ![포털에서 생성된 데이터](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ Azure Event Hub는 이벤트 데이터를 받고, 저장하고, 처리하고, �
 
 Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 수 있도록 완벽하게 관리되는 클라우드 서비스입니다. 이 랩에서는 스트림 분석을 사용하여 Event Hub에서 새 이벤트(예: 항목을 조회하거나 카트에 추가하거나 구입하는 경우)를 처리하고, 해당 이벤트를 실시간 데이터 분석에 통합하고, 시각화를 위해 Power BI로 보냅니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹, **streamjob1**(이전 실습에서 만든 스트림 분석 작업)로 차례로 이동합니다.  
+1. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹으로 이동한 다음 **streamjob1** (prelab에서 만든 스트림 분석 작업)로 이동 합니다.  
 
 2. 아래와 같이 **입력**을 선택합니다.  
 
@@ -320,7 +320,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 이제 새 데이터 분석 도구를 사용하여 실제 전자 상거래 사이트에 연결하는 방법을 살펴보겠습니다. 전자 상거래 사이트를 빌드하기 위해 Azure Cosmos 데이터베이스를 사용 하 여 제품 범주 (여자, 남자, 전 성별), 제품 카탈로그 및 가장 인기 있는 항목의 목록을 저장 합니다.
 
-1. [Azure Portal](https://portal.azure.com/), **Cosmos DB 계정**, **데이터 탐색기**로 차례로 다시 이동합니다.  
+1. [Azure Portal](https://portal.azure.com/)으로 다시 이동한 다음 **Cosmos DB 계정**으로 이동한 다음 **데이터 탐색기**합니다.  
 
    **changefeedlabdatabase** - **products** 및 **categories** 아래에 [고정] 스토리지 용량이 있는 두 개의 컬렉션을 추가합니다.
 
@@ -390,9 +390,8 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 ## <a name="delete-the-resources"></a>리소스 삭제
 
-이 랩에서 만든 리소스를 삭제하려면 [Azure Portal](https://portal.azure.com/)에서 리소스 그룹으로 이동한 다음, 페이지 위쪽의 메뉴에서 **리소스 그룹** 삭제를 선택하고, 제시되는 지침을 따릅니다.
+이 랩 중에 만든 리소스를 삭제 하려면 [Azure Portal](https://portal.azure.com/)의 리소스 그룹으로 이동한 다음 페이지 맨 위에 있는 메뉴에서 **리소스 그룹 삭제** 를 선택 하 고 제공 된 지침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계 
   
 * 변경 피드에 대해 자세히 알아보기 위해 [Azure Cosmos DB에서 변경 피드 지원 사용](change-feed.md)을 참조하세요. 
-* Azure Cosmos DB를 사용하여 의료 기관용 [피드 알림 솔루션 변경](change-feed-hl7-fhir-logic-apps.md)합니다.

@@ -1,6 +1,6 @@
 ---
 title: Azure Relay .NET Standard API 개요 | Microsoft Docs
-description: Azure Relay .NET Standard API 개요
+description: 이 문서에서는 Azure Relay 하이브리드 연결 .NET Standard API에 대 한 개요를 요약 합니다.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 78ad3ab49db162af060b4273deea717cd3472668
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18eaf2d2daae817107be6cdb0da9359bb5f9b4e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749022"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514538"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure Relay 하이브리드 연결 .NET Standard API 개요
 
@@ -27,7 +27,7 @@ ms.locfileid: "60749022"
   
 ## <a name="relay-connection-string-builder-class"></a>Relay 연결 문자열 작성기 클래스
 
-[RelayConnectionStringBuilder][RelayConnectionStringBuilder] 클래스는 Relay 하이브리드 연결에 관련된 연결 문자열의 서식을 지정합니다. 연결 문자열의 서식을 확인하거나 연결 문자열을 처음부터 작성하는 데 사용할 수 있습니다. 예제를 보려면 다음 코드를 참조하세요.
+[RelayConnectionStringBuilder][RelayConnectionStringBuilder] 클래스는 릴레이 하이브리드 연결 관련 된 연결 문자열의 서식을 지정 합니다. 연결 문자열의 서식을 확인하거나 연결 문자열을 처음부터 작성하는 데 사용할 수 있습니다. 예제를 보려면 다음 코드를 참조하세요.
 
 ```csharp
 var endpoint = "[Relay namespace]";
@@ -63,13 +63,13 @@ catch (ArgumentException ae)
 
 ## <a name="hybrid-connection-stream"></a>하이브리드 연결 스트림
 
-[HybridConnectionStream][HCStream] 클래스는 [HybridConnectionClient][HCClient] 또는 [HybridConnectionListener][HCListener]로 작업하는지에 상관 없이 Azure Relay 엔드포인트에서 데이터를 송수신하는 데 사용되는 기본 개체입니다.
+[HybridConnectionStream][HCStream] 클래스는 [HybridConnectionClient][HCClient]또는 [HybridConnectionListener][HCListener]를 사용 하는지에 관계 없이 Azure Relay 끝점에서 데이터를 보내고 받는 데 사용 되는 기본 개체입니다.
 
 ### <a name="getting-a-hybrid-connection-stream"></a>하이브리드 연결 스트림 가져오기
 
 #### <a name="listener"></a>수신기
 
-[HybridConnectionListener][HCListener] 개체를 사용하면 다음과 같이 `HybridConnectionStream` 개체를 가져올 수 있습니다.
+[HybridConnectionListener][HCListener] 개체를 사용 하 여 다음과 같이 `HybridConnectionStream` 개체를 가져올 수 있습니다.
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -80,9 +80,9 @@ await listener.OpenAsync();
 var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
-#### <a name="client"></a>클라이언트
+#### <a name="client"></a>Client
 
-[HybridConnectionClient][HCClient] 개체를 사용하면 다음과 같이 `HybridConnectionStream` 개체를 가져올 수 있습니다.
+[HybridConnectionClient][HCClient] 개체를 사용 하 여 다음과 같이 `HybridConnectionStream` 개체를 가져올 수 있습니다.
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -93,7 +93,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>데이터 수신
 
-[HybridConnectionStream][HCStream] 클래스를 사용하면 양방향 통신이 가능합니다. 대부분의 경우 스트림에서 지속적으로 수신합니다. 스트림에서 텍스트를 읽는 경우 데이터 구문 분석이 더 쉬운 [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) 개체를 사용하는 것이 좋을 수도 있습니다. 예를 들어 아닌 데이터를 `byte[]`가 아닌 텍스트로 읽을 수 있습니다.
+[HybridConnectionStream][HCStream] 클래스는 양방향 통신을 사용 하도록 설정 합니다. 대부분의 경우 스트림에서 지속적으로 수신합니다. 스트림에서 텍스트를 읽는 경우 데이터 구문 분석이 더 쉬운 [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) 개체를 사용하는 것이 좋을 수도 있습니다. 예를 들어 아닌 데이터를 `byte[]`가 아닌 텍스트로 읽을 수 있습니다.
 
 다음 코드는 취소가 요청될 때까지 스트림에서 개별 텍스트 줄을 읽습니다.
 

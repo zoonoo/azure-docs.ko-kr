@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 컴퓨터의 백업 및 복원에�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664636"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513799"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -262,7 +262,6 @@ Windows VM에서 VM 에이전트 버전을 확인합니다.
 
 VM 백업은 기본 스토리지에 대한 스냅샷 명령 실행을 사용합니다. 스토리지에 액세스할 수 없거나 스냅샷 작업 실행이 지연되는 경우 백업 작업이 실패할 수 있습니다. 다음 조건으로 인해 스냅샷 작업 오류가 발생할 수 있습니다.
 
-* **NSG를 사용하여 스토리지에 대한 네트워크 액세스가 차단되었습니다**. 허용 된 Ip 목록 또는 프록시 서버를 사용 하 여 저장소에 대 한 [네트워크 액세스를 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity) 하는 방법에 대해 자세히 알아보세요.
 * **SQL Server 백업이 구성된 VM이 스냅샷 작업을 지연시킬 수 있습니다**. 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 만듭니다. SQL Server 백업이 구성된 SQL Server를 실행하는 VM에서는 스냅샷 지연이 발생할 수 있습니다. 스냅샷 지연으로 인해 백업이 실패하는 경우 다음 레지스트리 키를 설정합니다.
 
    ```text
@@ -276,29 +275,9 @@ VM 백업은 기본 스토리지에 대한 스냅샷 명령 실행을 사용합�
 
 ## <a name="networking"></a>네트워킹
 
-모든 확장과 마찬가지로, Backup 확장이 작동하려면 공용 인터넷에 액세스해야 합니다. 공용 인터넷에 액세스할 수 없는 경우는 다음과 같은 여러 방법으로 확인할 수 있습니다.
+IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. 고정 프라이빗 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성합니다. VM 내 DHCP 옵션이 활성화되었는지 확인합니다.
+PowerShell을 통해 고정 IP를 설정하는 방법에 대한 자세한 정보를 가져옵니다.
 
-* 확장 설치가 실패할 수 있습니다.
-* 디스크 스냅샷과 같은 백업 작업이 실패할 수 있습니다.
-* 백업 작업의 상태가 표시되지 않을 수 있습니다.
+* [기존 VM에 고정 내부 IP를 추가하는 방법](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-공용 인터넷 주소를 확인하기 위한 필요는 [이 Azure 지원 블로그](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx)에 설명되어 있습니다. VNET에 대한 DNS 구성을 검사하고 Azure URI를 확인할 수 있는지 확인합니다.
-
-이름 확인이 올바르게 완료된 후에는 Azure IP에 대한 액세스 권한을 부여해야 합니다. Azure 인프라에 대한 액세스 차단을 해제하려면 다음 단계 중 하나를 따르세요.
-
-* Azure 데이터 센터 IP 범위 목록을 허용 합니다.
-   1. 허용 목록에 있는 [Azure 데이터 센터 ip](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 가져옵니다.
-   1. [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창을 통해 Azure VM 내에서 이 cmdlet을 실행합니다. 관리자 권한으로 실행합니다.
-   1. IP에 대한 액세스를 허용하도록 NSG(있는 경우)에 규칙을 추가합니다.
-* HTTP 트래픽을 보내는 경로 만들기:
-   1. 일부 네트워크 제한이 있는 경우 트래픽을 라우팅하는 HTTP 프록시 서버를 배포합니다. 예제는 네트워크 보안 그룹입니다. [네트워크 연결 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity)에서 HTTP 프록시 서버를 배포하는 단계를 참조하세요.
-   1. HTTP 프록시에서 인터넷에 액세스할 수 있도록 NSG(있는 경우)에 규칙을 추가합니다.
-
-> [!NOTE]
-> IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. 고정 프라이빗 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성합니다. VM 내 DHCP 옵션이 활성화되었는지 확인합니다.
-> PowerShell을 통해 고정 IP를 설정하는 방법에 대한 자세한 정보를 가져옵니다.
->
-> * [기존 VM에 고정 내부 IP를 추가하는 방법](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->

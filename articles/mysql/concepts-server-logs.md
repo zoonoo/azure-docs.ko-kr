@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 9b661a7fa6a7b9f079a3b24d1b83f27118c4bd23
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/21/2020
+ms.openlocfilehash: e0c58c5c3fef41a472fe791f66292c9280531493
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745858"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514683"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 저속 쿼리 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
@@ -43,8 +43,9 @@ Azure CLI에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 저속 쿼
 - **log_throttle_queries_not_using_indexes**:이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
 - **log_output**: "File" 이면 저속 쿼리 로그가 로컬 서버 저장소에 기록 되 고 진단 로그를 Azure Monitor 수 있습니다. "None" 인 경우 저속 쿼리 로그는 Azure Monitor 진단 로그에만 기록 됩니다. 
 
-> [!Note]
-> `sql_text`의 경우 로그는 2048 자를 초과 하는 경우 잘립니다.
+> [!IMPORTANT]
+> 테이블이 인덱싱되지 않은 경우 이러한 인덱싱되지 않은 테이블에 대해 실행 되는 모든 쿼리가 저속 쿼리 로그에 기록 되기 때문에 `log_queries_not_using_indexes` 및 `log_throttle_queries_not_using_indexes` 매개 변수를 ON으로 설정 하면 MySQL 성능에 영향을 줄 수 있습니다.<br><br>
+> 오랜 시간 동안 느리게 쿼리를 로깅할 계획인 경우 `log_output`를 "없음"으로 설정 하는 것이 좋습니다. "File"로 설정 된 경우 이러한 로그는 로컬 서버 저장소에 기록 되며 MySQL 성능에 영향을 줄 수 있습니다. 
 
 느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요.
 
@@ -84,5 +85,64 @@ Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQ
 | `thread_id_s` | 스레드 ID |
 | `\_ResourceId` | 리소스 URI |
 
+> [!Note]
+> `sql_text`의 경우 로그는 2048 자를 초과 하는 경우 잘립니다.
+
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Azure Monitor 로그의 로그 분석
+
+저속 쿼리 로그가 진단 로그를 통해 Azure Monitor 로그에 전달 되 면 속도가 느려지는 쿼리를 추가로 분석할 수 있습니다. 다음은 시작 하는 데 도움이 되는 몇 가지 샘플 쿼리입니다. 아래를 서버 이름으로 업데이트 해야 합니다.
+
+- 특정 서버에서 10 초 보다 긴 쿼리
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```
+
+- 특정 서버에 가장 긴 쿼리 5 개 나열
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | order by query_time_d desc
+    | take 5
+    ```
+
+- 특정 서버에서 최소, 최대, 평균 및 표준 편차 쿼리 시간을 기준으로 느리게 쿼리를 요약 합니다.
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
+    ```
+
+- 특정 서버에서 느리게 쿼리를 배포 하는 그래프
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart
+    ```
+
+- 진단 로그가 활성화 된 모든 MySQL 서버에서 10 초 보다 긴 쿼리 표시
+
+    ```Kusto
+    AzureDiagnostics
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```    
+    
 ## <a name="next-steps"></a>다음 단계
-- [Azure CLI에서 서버 로그 구성 및 액세스](howto-configure-server-logs-in-cli.md)
+- [Azure Portal에서 느리게 쿼리 로그를 구성 하는 방법](howto-configure-server-logs-in-portal.md)
+- [Azure CLI에서 느리게 쿼리 로그를 구성 하는 방법](howto-configure-server-logs-in-cli.md)입니다.

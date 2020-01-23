@@ -4,7 +4,6 @@ description: Azure PowerShell 스크립트 샘플 - OWASP 규칙을 사용하는
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d3dfb9708e22a86af8fb9854e424f7da7d1f410a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fd36775e15376054bed34d9e828344c529313d3b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202862"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273415"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 트래픽 제한
 
@@ -73,4 +72,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
-추가 응용 프로그램 게이트웨이 PowerShell 스크립트 샘플은 [Azure Application Gateway 설명서](../powershell-samples.md)에서 찾을 수 있습니다.
+추가 애플리케이션 게이트웨이 PowerShell 스크립트 샘플은 [Azure Application Gateway 설명서](../powershell-samples.md)에서 찾을 수 있습니다.

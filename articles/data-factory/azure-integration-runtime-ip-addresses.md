@@ -1,5 +1,5 @@
 ---
-title: IP 주소 Azure Integration Runtime
+title: Azure Integration Runtime IP 주소
 description: 데이터 저장소에 대 한 네트워크 액세스를 보호 하기 위해 방화벽을 제대로 구성 하기 위해에서 인바운드 트래픽을 허용 해야 하는 IP 주소에 대해 알아봅니다.
 services: data-factory
 ms.author: abnarain
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a2947eee31ccb193c8a81cff86cead577e6810c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d64475ce524a3e859ed68a46552fedf30068f71d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863862"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514785"
 ---
-# <a name="azure-integration-runtime-ip-addresses"></a>IP 주소 Azure Integration Runtime
+# <a name="azure-integration-runtime-ip-addresses"></a>Azure Integration Runtime IP 주소
 
 Azure Integration Runtime 사용 하는 IP 주소는 Azure Integration Runtime이 있는 지역에 따라 다릅니다. *모두* 동일한 지역에 있는 Azure integration runtime은 동일한 IP 주소 범위를 사용 합니다.
 
@@ -45,6 +45,7 @@ Azure Integration Runtime 사용 하는 IP 주소는 Azure Integration Runtime�
 | 인도          | 인도 중부       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
 | 일본          | 일본 동부          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
 | 한국          | 한국 중부       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
+| 남아프리카 공화국   | 남아프리카 공화국 북부  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
 | 영국 | 영국 남부            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
 | 미국  | 미국 중부          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | 미국 동부             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |

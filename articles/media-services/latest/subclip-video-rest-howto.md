@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services REST API를 사용 하 여 인코딩할 경우 비디오를 하위 클립
+title: Azure Media Services REST를 사용 하 여 인코딩할 경우 비디오 하위 클립
 description: 이 항목에서는 REST를 사용 하 여 Azure Media Services 인코딩할 때 비디오를 하위 클립 하는 방법에 대해 설명 합니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3557aef6213955ef77542bffafe0a2b0c374ed68
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704439"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514326"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Media Services를 사용 하 여 인코딩할 때 비디오를 하위 클립-REST
 
@@ -26,7 +26,7 @@ ms.locfileid: "68704439"
 
 이 항목의 REST 예제에서는 인코딩 작업을 전송할 때 비디오를 트리밍하는 작업을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "68704439"
 
 ## <a name="create-a-subclipping-job"></a>서브 클립 작업 만들기
 
-1. 다운로드 한 postman 컬렉션에서 **변환 및 작업** -> **하위 클리핑으로 작업 만들기**를 선택 합니다.
+1. 다운로드 한 Postman 컬렉션에서 **변환 및 작업** 을 선택 하 -> **하위 클리핑으로 작업 만들기**를 선택 합니다.
     
     **PUT** 요청은 다음과 같습니다.
     

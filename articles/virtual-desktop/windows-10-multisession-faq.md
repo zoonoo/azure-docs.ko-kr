@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 10724407b8ba5568b38a844f2bf475060e2b7699
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227661"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515108"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -44,7 +44,7 @@ LOB 응용 프로그램을 설치 하 고 이미지를 sysprep 하 여 필요에
  
 ## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>배포 후 Windows 10 Enterprise 다중 세션을 관리 어떻게 할까요?
 
-모든 지원 되는 구성 도구를 사용할 수 있지만 Windows 10 Enterprise 다중 세션을 지원 하기 때문에 1906 System Center Configuration Manager 권장 됩니다. 현재 Microsoft Intune 지원에 대해 작업 하 고 있습니다.
+모든 지원 되는 구성 도구를 사용할 수 있지만 Windows 10 Enterprise 다중 세션을 지원 하기 때문에 버전 1906 Configuration Manager 하는 것이 좋습니다. 현재 Microsoft Intune 지원에 대해 작업 하 고 있습니다.
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>Windows 10 Enterprise 다중 세션이 AD (Azure Active Directory)에 조인 될 수 있나요?
 

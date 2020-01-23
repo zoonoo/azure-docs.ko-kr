@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: a97a03f7ef20ae56cec04341fe76b79ee657547b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.custom: hdinsightactive
+ms.date: 01/21/2020
+ms.openlocfilehash: 102ae56bb9dce2898c14bdc710420759a527a9e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748486"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514700"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux 기반 HDInsight 클러스터에 대 한 OS 패치 일정 구성
 
@@ -27,6 +27,19 @@ HDInsight는 OS 패치, 보안 업데이트 및 다시 부팅 노드 설치와 �
 
 > [!NOTE]  
 > 스크립트 작업은 이후의 모든 업데이트 주기에 대해 업데이트를 자동으로 적용 하지 않습니다. 업데이트를 설치 하기 위해 새 업데이트를 적용 해야 할 때마다 스크립트를 실행 하 고 VM을 다시 시작 합니다.
+
+## <a name="preparation"></a>준비
+
+프로덕션 환경에 배포 하기 전에 대표적인 비프로덕션 환경에 패치를 적용할 수 있습니다. 실제 패치 적용 전에 시스템을 적절 하 게 테스트 하기 위한 계획을 개발 합니다.
+
+클러스터와의 ssh 세션에서 시간에 이르기까지 업그레이드를 사용할 수 있다는 메시지가 표시 될 수 있습니다. 메시지는 다음과 유사 하 게 표시 될 수 있습니다.
+
+```
+New release '18.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade it
+```
+
+패치는 선택 사항이 며 사용자의 판단에 따라 결정 됩니다.
 
 ## <a name="restart-nodes"></a>노드 다시 시작
   
@@ -56,5 +69,5 @@ HDInsight는 OS 패치, 보안 업데이트 및 다시 부팅 노드 설치와 �
 
 스크립트 동작 사용에 대 한 특정 단계는 [스크립트 작업을 사용 하 여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)의 다음 섹션을 참조 하세요.
 
-* [클러스터를 만드는 동안 스크립트 작업 사용](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-* [실행 중인 클러스터에 스크립트 작업 적용](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [클러스터를 만드는 동안 스크립트 작업 사용](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
+- [실행 중인 클러스터에 스크립트 작업 적용](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

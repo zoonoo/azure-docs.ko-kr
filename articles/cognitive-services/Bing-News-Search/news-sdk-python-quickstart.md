@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b84b5ee8682007191953bef34579973c7c24ca45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d7d7da659aed5a4ba6ef984384524254207d6eda
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448504"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311430"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>빠른 시작: Python용 Bing News Search SDK로 뉴스 검색 수행
 
@@ -45,18 +45,19 @@ python -m pip install azure-cognitiveservices-search-newssearch
 1. 즐겨 찾는 IDE 또는 편집기에서 새 Python 파일을 만들고 다음 라이브러리를 가져옵니다. 구독 키 및 검색 용어에 대한 변수를 만듭니다.
 
     ```python
-    from azure.cognitiveservices.search.newssearch import NewsSearchAPI
+    from azure.cognitiveservices.search.newssearch import NewsSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    endpoint = "YOUR-ENDPOINT"
     search_term = "Quantum Computing"
     ```
 
 ## <a name="initialize-the-client-and-send-a-request"></a>클라이언트 초기화 및 요청 보내기
 
-1. `CognitiveServicesCredentials`의 인스턴스를 만듭니다. 클라이언트를 인스턴스화합니다.
+1. `CognitiveServicesCredentials`의 인스턴스를 만듭니다.
     
     ```python
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = NewsSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 2. News Search API에 검색 쿼리를 보내고, 응답을 저장합니다.

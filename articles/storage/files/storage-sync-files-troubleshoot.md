@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 9318944004ae98eeb2a3300cabca07dfbe4e4fc7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027791"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514632"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -41,8 +41,15 @@ PDC 역할 소유자가 Windows Server 2008 R2 이하 OS 버전에 있는 Active
 
 이 문제를 해결하려면 PDC 역할을 Windows Server 2012 R2 이상을 실행 중인 다른 도메인 컨트롤러로 전송한 다음, 동기화를 설치합니다.
 
-<a id="server-registration-prerequisites"></a>**서버 등록에 "필수 구성 요소가 없습니다." 라는 메시지가 표시 됩니다.**
+<a id="parameter-is-incorrect"></a>**오류가 발생 하 여 Windows Server 2012 r 2의 볼륨에 액세스 하지 못했습니다. 매개 변수가 잘못 되었습니다.**  
+Windows Server 2012 r 2에서 서버 끝점을 만든 후 볼륨에 액세스할 때 다음 오류가 발생 합니다.
 
+r: \ 에 액세스할 수 없습니다.  
+매개 변수가 올바르지 않습니다.
+
+문제를 해결 하려면 Windows Server 2012 r 2에 대 한 최신 업데이트를 설치 하 고 서버를 다시 시작 합니다.
+
+<a id="server-registration-prerequisites"></a>**서버 등록에 "필수 구성 요소가 없습니다." 라는 메시지가 표시 됩니다.**  
 이 메시지는 Az 또는 AzureRM PowerShell 모듈이 PowerShell 5.1에 설치 되지 않은 경우 나타납니다. 
 
 > [!Note]  

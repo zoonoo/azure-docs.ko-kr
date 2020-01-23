@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c1c7dd0bd017852144139a841ff609dabf0f1a27
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9a4f5094837b0c642c4de75180039064de4e40c2
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928065"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513986"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드 용 응용 프로그램을 개발할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 구현 및 확인 단계 중에 고려해 야 하는 보안 질문 및 개념을 다룹니다. 목표는 보다 안전한 응용 프로그램을 개발 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -99,13 +99,13 @@ Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 �
 
 응용 프로그램에서 [파일 업로드](https://www.owasp.org/index.php/Unrestricted_File_Upload)를 허용 하는 경우이 위험한 작업에 대해 수행할 수 있는 예방 조치를 고려 하십시오. 대부분의 공격에 대 한 첫 번째 단계는 공격을 받는 시스템에 악성 코드를 가져오는 것입니다. 파일 업로드를 사용 하면 공격자가이를 수행할 수 있습니다. OWASP는 파일의 유효성을 검사 하는 솔루션을 제공 하 여 업로드 하는 파일이 안전한 지 확인 합니다.
 
-맬웨어 방지 보호는 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 하 고 제거 하는 데 도움이 됩니다. [Microsoft Antimalware](../fundamentals/antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 및 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
+맬웨어 방지 보호는 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 하 고 제거 하는 데 도움이 됩니다. [Microsoft 맬웨어 방지 프로그램](../fundamentals/antimalware.md) 또는 microsoft 파트너의 endpoint protection 솔루션 ([Trend 마이크로](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)및 [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
 
 [Microsoft 맬웨어 방지 프로그램](../fundamentals/antimalware.md) 에는 실시간 보호, 예약 된 검색, 맬웨어 재구성, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 수집과 같은 기능이 포함 되어 있습니다. 배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](../../security-center/security-center-partner-integration.md)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
 
 ### <a name="dont-cache-sensitive-content"></a>중요 한 콘텐츠 캐시 안 함
 
-브라우저에서 중요 한 콘텐츠를 캐시 하지 않습니다. 브라우저는 캐싱 및 기록에 대 한 정보를 저장할 수 있습니다. 캐시 된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더와 같은 폴더에 저장 됩니다. 이러한 페이지를 다시 참조 하는 경우 브라우저는 해당 캐시의 페이지를 표시 합니다. 중요 한 정보 (주소, 신용 카드 정보, 주민 등록 번호, 사용자 이름)가 사용자에 게 표시 되는 경우 정보는 브라우저의 캐시에 저장 되 고 브라우저의 캐시를 검사 하거나 브라우저의 **캐시를 검색 하 여 검색할 수 있습니다. 뒤로** 단추.
+브라우저에서 중요 한 콘텐츠를 캐시 하지 않습니다. 브라우저는 캐싱 및 기록에 대 한 정보를 저장할 수 있습니다. 캐시 된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더와 같은 폴더에 저장 됩니다. 이러한 페이지를 다시 참조 하는 경우 브라우저는 해당 캐시의 페이지를 표시 합니다. 중요 한 정보 (주소, 신용 카드 정보, 주민 등록 번호, 사용자 이름)가 사용자에 게 표시 되는 경우 정보는 브라우저의 캐시에 저장 되 고 브라우저의 캐시를 검사 하거나 브라우저의 **뒤로** 단추를 누르기만 하면 검색할 수 있습니다.
 
 ## <a name="verification"></a>확인
 확인 단계에는 코드가 이전 단계에서 설정 된 보안 및 개인 정보 개념을 충족 하는지 확인 하는 포괄적인 노력이 포함 됩니다.
@@ -119,7 +119,7 @@ Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 �
 > [!NOTE]
 > [Tinfoil security를 AZURE AD와 통합할](../../active-directory/saas-apps/tinfoil-security-tutorial.md)수도 있습니다. Tinfoil Security를 Azure AD와 통합 하면 다음과 같은 이점이 제공 됩니다.
 >  - Azure AD에서 Tinfoil Security에 대 한 액세스 권한이 있는 사용자를 제어할 수 있습니다.
->  - 사용자는 해당 Azure AD 계정을 사용 하 여 Tinfoil Security (single sign-on)에 자동으로 로그인 할 수 있습니다.
+>  - 사용자는 해당 Azure AD 계정을 사용 하 여 Tinfoil Security (Single Sign-On)에 자동으로 로그인 할 수 있습니다.
 >  - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 ### <a name="test-your-application-in-an-operating-state"></a>운영 상태에서 응용 프로그램 테스트
@@ -148,7 +148,7 @@ Aast는 정적 SAST (응용 프로그램 보안 테스트)와는 다릅니다. S
 
 ### <a name="run-security-verification-tests"></a>보안 확인 테스트 실행
 
-[Azure에 대 한 보안 DevOps 키트](https://azsk.azurewebsites.net/index.html) (AzSK)는 Azure platform의 여러 서비스에 대 한 SVTs를 포함 합니다. 이러한 SVTs를 정기적으로 실행 하 여 Azure 구독 및 응용 프로그램을 구성 하는 다른 리소스가 안전한 상태 인지 확인 합니다. 또한 AzSK의 CI/CD (연속 통합/연속 배포) 확장 기능을 사용 하 여 이러한 테스트를 자동화할 수 있습니다. 그러면 SVTs를 Visual Studio 확장으로 사용할 수 있습니다.
+[Azure에 대 한 보안 DevOps 키트](https://azsk.azurewebsites.net/index.html) (AzSK)는 azure 플랫폼의 여러 서비스에 대 한 svts를 포함 합니다. 이러한 SVTs를 정기적으로 실행 하 여 Azure 구독 및 응용 프로그램을 구성 하는 다른 리소스가 안전한 상태 인지 확인 합니다. 또한 AzSK의 CI/CD (연속 통합/연속 배포) 확장 기능을 사용 하 여 이러한 테스트를 자동화할 수 있습니다. 그러면 SVTs를 Visual Studio 확장으로 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서에서는 보안 응용 프로그램을 디자인 하 고 배포 하는 데 도움이 되는 보안 제어 및 작업을 권장 합니다.

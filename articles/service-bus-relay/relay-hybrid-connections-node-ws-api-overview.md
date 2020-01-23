@@ -1,6 +1,6 @@
 ---
 title: Azure Relay Node API 개요 | Microsoft Docs
-description: Relay Node API 개요
+description: 이 문서에서는 Azure Relay 서비스에 대 한 node.js API의 개요를 제공 합니다. 또한 hyco-ws-ws 노드 패키지를 사용 하는 방법을 보여 줍니다.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699388"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514513"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
 
@@ -29,7 +29,7 @@ Azure Relay 하이브리드 연결에 대한 [`hyco-ws`](https://www.npmjs.com/p
 
 `require('ws')`이 `require('hyco-ws')` 대신 이 패키지를 사용할 수 있는 기존 애플리케이션을 사용하면 애플리케이션이 WebSocket 연결을 "방화벽 내부"에서 로컬로 및 하이브리드 연결을 통해 동시에 수신 대기할 수 있는 하이브리드 시나리오를 수행할 수 있습니다.
   
-## <a name="documentation"></a>문서화
+## <a name="documentation"></a>설명서
 
 API는 [주 'ws' 패키지에 문서화되어](https://github.com/websockets/ws/blob/master/doc/ws.md) 있습니다. 이 문서에서는 이 패키지가 해당 기준과 어떻게 다른지를 설명합니다. 
 
@@ -131,7 +131,7 @@ var wss = new server(
 - `server`(필수) - 수신하는 하이브리드 연결 이름에 대한 정규화된 URI로, 일반적으로 WebSocket.createRelayListenUri() 도우미 메서드로 생성됩니다.
 - `token`(필수) - 이 인수는 이전에 발급된 토큰 문자열 또는 그러한 토큰 문자열을 가져오도록 호출할 수 있는 콜백 함수를 저장합니다. 콜백 옵션은 토큰 갱신을 활성화하기 때문에 기본으로 설정되어 있습니다.
 
-#### <a name="events"></a>Events
+#### <a name="events"></a>이벤트
 
 `RelayedServer` 인스턴스는 들어오는 요청을 처리하고, 연결을 설정하며, 오류 상태를 검색할 수 있도록 하는 세 가지 이벤트를 내보냅니다. 메시지를 처리하는 `connect` 이벤트를 구독해야 합니다. 
 
@@ -143,7 +143,7 @@ function(headers)
 
 들어오는 연결이 수락되기 바로 전에 `headers` 이벤트가 발생하여 클라이언트에 전송할 헤더를 수정할 수 있게 합니다. 
 
-##### <a name="connection"></a>connection
+##### <a name="connection"></a>연결
 
 ```JavaScript
 function(socket)

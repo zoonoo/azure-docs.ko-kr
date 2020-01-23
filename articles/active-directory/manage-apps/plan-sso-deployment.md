@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory single sign-on 배포 계획
+title: Azure Active Directory Single Sign-On 배포 계획
 description: 조직에서 SSO를 계획, 배포 및 관리 하는 데 도움이 되는 가이드입니다.
 services: active-directory
 author: jeevansd
@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779372"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512830"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -31,7 +31,7 @@ SSO (Single sign-on)는 사용자가 Azure Active Directory (Azure AD)에서 응
 
 Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이상의 응용 프로그램이 있으므로 테 넌 트에 쉽게 통합할 수 있습니다.
 
-## <a name="licensing"></a>라이선싱
+## <a name="licensing"></a>라이선스
 
 - **AZURE AD 라이선스** -미리 통합 된 SaaS 응용 프로그램에 대 한 SSO는 무료입니다. 그러나 디렉터리의 개체 수와 배포 하려는 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항에 대 한 전체 목록은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조 하세요.
 - **응용 프로그램 라이선스** -비즈니스 요구 사항에 맞게 SaaS 응용 프로그램에 대 한 적절 한 라이선스가 필요 합니다. 응용 프로그램 소유자와 협력 하 여 응용 프로그램에 할당 된 사용자에 게 응용 프로그램 내에서 해당 역할에 대 한 적절 한 라이선스가 있는지 확인 합니다. Azure AD에서 역할에 따라 자동 프로 비전을 관리 하는 경우 Azure AD에서 할당 된 역할은 응용 프로그램 내에서 소유 하는 라이선스 수와 일치 해야 합니다. 응용 프로그램에서 소유 하는 라이선스 수가 잘못 되어 사용자의 프로 비전/업데이트 중에 오류가 발생할 수 있습니다.
@@ -45,11 +45,11 @@ Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이�
 
 페더레이션 프로토콜을 기반으로 하는 SSO 구현은 보안, 안정성 및 최종 사용자 환경을 개선 하 고 구현 하기 쉽습니다. 많은 응용 프로그램은 Azure AD에서 단계별 [가이드](../saas-apps/tutorial-list.md)를 사용 하 여 미리 통합 되어 있습니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)에서 찾을 수 있습니다. 각 SSO 방법에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램에 대 한 Single sign-on](what-is-single-sign-on.md)문서에서 찾을 수 있습니다.
 
-사용자가 앱에 single sign-on을 사용 하도록 설정할 수 있는 두 가지 기본 방법이 있습니다.
+사용자가 앱에 Single Sign-On 하는 데 사용할 수 있는 두 가지 기본 방법이 있습니다.
 
-- **페더레이션된 single Sign-on 사용** Azure AD는 Azure AD 계정을 사용 하 여 응용 프로그램에 대해 사용자를 인증 합니다. 이 메서드는 SAML 2.0, WS-FEDERATION 또는 Openid connect Connect와 같은 프로토콜을 지 원하는 응용 프로그램에서 지원 되며 single sign-on의 가장 다양 한 모드입니다. 응용 프로그램에서 지 원하는 경우 암호 기반 SSO 및 ADFS 대신 페더레이션된 SSO를 Azure AD와 함께 사용 하는 것이 좋습니다.
+- **페더레이션된 Single Sign-On 사용** Azure AD는 Azure AD 계정을 사용 하 여 응용 프로그램에 대해 사용자를 인증 합니다. 이 메서드는 SAML 2.0, WS-FEDERATION 또는 Openid connect Connect와 같은 프로토콜을 지 원하는 응용 프로그램에 대해 지원 되며, Single Sign-On의 가장 다양 한 모드입니다. 응용 프로그램에서 지 원하는 경우 암호 기반 SSO 및 ADFS 대신 페더레이션된 SSO를 Azure AD와 함께 사용 하는 것이 좋습니다.
 
-- **암호 기반 single sign-on** 사용자는 처음으로 사용자 이름 및 암호를 사용 하 여 응용 프로그램에 로그인 합니다. 첫 번째 로그온 후에는 Azure AD가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 암호 기반 Single Sign-On을 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 스토리지하고 재생할 수 있습니다. 이 옵션은 응용 프로그램에서 제공 하는 기존 로그인 프로세스를 활용 하 여 관리자가 암호를 관리할 수 있도록 하 고 사용자가 암호를 알 필요가 없습니다.
+- **암호 기반 Single Sign-On** 사용자는 처음으로 사용자 이름과 암호를 사용 하 여 응용 프로그램에 로그인 합니다. 첫 번째 로그온 후에는 Azure AD가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 암호 기반 Single Sign-On을 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 스토리지하고 재생할 수 있습니다. 이 옵션은 응용 프로그램에서 제공 하는 기존 로그인 프로세스를 활용 하 여 관리자가 암호를 관리할 수 있도록 하 고 사용자가 암호를 알 필요가 없습니다.
 
 ### <a name="considerations-for-federation-based-sso"></a>페더레이션 기반 SSO에 대 한 고려 사항
 
@@ -59,10 +59,10 @@ Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이�
 
 ### <a name="considerations-for-password-based-sso"></a>암호 기반 SSO에 대 한 고려 사항
 
-암호 기반 SSO에 Azure AD를 사용 하려면 자격 증명을 안전 하 게 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 합니다. 다음 옵션을 사용할 수 있습니다.
+암호 기반 SSO에 Azure AD를 사용 하려면 자격 증명을 안전 하 게 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 합니다. 옵션은 다음과 같습니다.
 
 - [Internet Explorer에 대 한 그룹 정책](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [Internet Explorer 용 System Center Configuration Manager (SCCM)](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Internet Explorer에 대 한 Configuration Manager](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 사용자 구동 다운로드 및 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 자세한 내용은 [암호 single sign-on을 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery)을 참조 하세요.
@@ -117,12 +117,12 @@ Network 경계는 점점 더 많은 ou가 되 고 BYOD 장치와 클라우드 �
 
 Azure AD는 [기술 및 비즈니스 통찰력을 포함 하는 보고서](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/)를 제공 합니다. 
 
-보안 및 작업 보고서를 모두 사용할 수 있습니다. 보안 보고서에는 위험 플래그가 지정 된 사용자 및 위험한 로그인이 표시 됩니다. 활동 보고서는 로그인 활동을 자세히 설명 하 고 모든 로그인에 대 한 감사 내역을 제공 하 여 조직의 사용자 동작을 이해 하는 데 도움이 됩니다. 보고서를 사용 하 여 위험을 관리 하 고 생산성을 높이고 규정 준수를 모니터링할 수 있습니다.
+보안 및 작업 보고서를 모두 사용할 수 있습니다. 보안 보고서에는 위험 플래그가 지정 된 사용자 및 위험한 로그인이 표시 됩니다. 활동 보고서는 로그인 활동을 자세히 설명 하 고 모든 로그인의 감사 내역을 제공 하 여 조직의 사용자 동작을 이해 하는 데 도움이 됩니다. 보고서를 사용 하 여 위험을 관리 하 고 생산성을 높이고 규정 준수를 모니터링할 수 있습니다.
 
-| 보고서 형식 | 액세스 검토 | 보안 보고서 | 로그인 보고서 |
+| 보고서 유형 | 액세스 검토 | 보안 보고서 | 로그인 보고서 |
 |-------------|---------------|------------------|----------------|
 | 을 검토 하는 데 사용 | 응용 프로그램 사용 권한 및 사용. | 잠재적으로 손상 된 계정 | 응용 프로그램에 액세스 하는 사용자 |
-| 잠재적 작업 | 감사 액세스 권한 해지 | 액세스 취소 강제 보안 다시 설정 | 액세스 해지 |
+| 잠재적 작업 | 감사 액세스 권한 해지 | 액세스 취소 강제 보안 다시 설정 | 액세스 취소 |
 
 Azure AD는 대부분의 감사 데이터를 30 일 동안 유지 하 고 Azure 관리 포털 또는 API를 통해 분석 시스템으로 다운로드 하는 데 사용할 수 있는 데이터를 만듭니다.
 
@@ -138,7 +138,7 @@ MCAS를 배포 하면 다음 작업을 수행할 수 있습니다.
 - 조건부 액세스 앱 제어 보호를 사용 하 여 클라우드 앱 내에서 액세스 및 활동을 실시간으로 표시 하 고 제어할 수 있습니다.
 - 정책을 설정 하 고 지속적으로 미세 조정 하 여 지속적으로 제어할 수 있습니다.
 
-MCAS (Microsoft 클라우드 응용 프로그램 보안) 세션 컨트롤은 모든 운영 체제의 모든 주요 플랫폼에 있는 모든 브라우저에서 사용할 수 있습니다. 모바일 앱 및 데스크톱 앱을 차단 하거나 허용할 수도 있습니다. 기본적으로 Azure AD와 통합 하면 [여러 주요 앱](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)을 포함 하 여 SAML 또는 single sign-on을 사용 하 여 azure ad에서 single sign-on으로 구성 된 앱을 지원할 수 있습니다.
+MCAS (Microsoft 클라우드 응용 프로그램 보안) 세션 컨트롤은 모든 운영 체제의 모든 주요 플랫폼에 있는 모든 브라우저에서 사용할 수 있습니다. 모바일 앱과 데스크톱 앱도 차단되거나 허용될 수 있습니다. 기본적으로 Azure AD와 통합 하면 [몇 가지 주요 앱](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)을 포함 하 여 SAML 또는 azure ad의 Single Sign-On에 대 한 Open ID Connect 앱을 사용 하 여 구성 된 앱을 지원할 수 있습니다.
 
 MCAS에 대 한 자세한 내용은 [Microsoft Cloud App Security 개요](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)를 참조 하세요. MCAS는 사용자 기반 구독 서비스입니다. [Mcas 라이선스 데이터 시트](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO)에서 라이선스 정보를 검토할 수 있습니다.
 
@@ -156,7 +156,7 @@ MCAS에 대 한 자세한 내용은 [Microsoft Cloud App Security 개요](https:
 
 사전 통합 된 모든 SaaS 앱에 대해 Microsoft는 자습서를 제공 하며,이 정보는 필요 하지 않습니다. 응용 프로그램이 응용 프로그램 마켓플레이스/갤러리에 없는 경우 다음 데이터를 수집 해야 할 수 있습니다.
 
-- **응용 프로그램이 SSO에 대해 사용 하는 현재 id 공급자** (예: AD FS, 고-페더레이션, Okta
+- **응용 프로그램이 SSO에 대해 사용 하는 현재 id 공급자** (예: AD FS, 공동 페더레이션, okta)
 - **대상 응용 프로그램에서 지 원하는 프로토콜** (예: SAML 2.0, openid connect Connect, OAuth, 폼 기반 인증, Ws-신뢰
 - **AZURE AD를 사용 하 여 구성 되는 프로토콜** (예: SAML 2.0 또는 1.1, openid connect Connect, OAuth, Forms 기반, WS-급지됨)
 
@@ -237,16 +237,16 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 | Persona| 역할 | Azure AD 역할 (필요한 경우) |
 |--------|-------|-----------------------------|
 | 지원 센터 관리자 | 계층 1 지원 | 없음 |
-| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 전역 관리자 |
-| 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
-| 인프라 관리자 | 인증서 롤오버 소유자 | 전역 관리자 |
+| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 글로벌 관리자 |
+| 애플리케이션 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
+| 인프라 관리자 | 인증서 롤오버 소유자 | 글로벌 관리자 |
 | 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
 
 디렉터리 사용 권한을 가진 사용자에 대 한 추가 감사, 제어 및 액세스 검토를 제공 하기 위해 PIM ( [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) )을 사용 하 여 역할을 관리 하는 것이 좋습니다.
 
 ### <a name="sso-certificate-lifecycle-management"></a>SSO 인증서 수명 주기 관리
 
-Azure AD와 single sign-on을 사용 하 여 구성 되는 응용 프로그램 간의 서명 인증서 수명 주기를 관리 하는 데 필요한 올바른 역할 및 메일 배포 목록을 식별 하는 것이 중요 합니다. 다음은 권장 되는 주요 역할 중 일부입니다.
+Azure AD와 Single Sign-On를 사용 하 여 구성 되는 응용 프로그램 간의 서명 인증서 수명 주기를 관리 하는 데 필요한 올바른 역할 및 메일 배포 목록을 확인 하는 것이 중요 합니다. 다음은 권장 되는 주요 역할 중 일부입니다.
 
 - 응용 프로그램에서 사용자 속성을 업데이트 하기 위한 소유자
 - 응용 프로그램 중단/수정 지원에 대 한 소유자 호출

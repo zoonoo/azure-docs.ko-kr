@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 95df54eb096588fe23da87f7334f9d693e54cf9d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7cb2966c94485d0a05febf3085ab367fcba97434
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992323"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514360"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -370,7 +370,7 @@ Enterprise Portal 내에서 수행되는 반올림은 IEEE 표준 뱅커 반올�
 | 가격 책정 반올림(2자리) | =MROUND({_source_}, 0.02) |
 | 가격 책정 반올림(0자리) | =MROUND({_source_}, 2) |
 
-**표**  **2**  **-클라우드 서비스 및 가상 컴퓨터 시간 변환**
+**표** **2** **– 클라우드 서비스 및 Virtual Machine 시간 변환**
 
 ### <a name="conversion-between-download-usage-file-and-usage-summary-portal-view"></a>사용량 다운로드 파일과 사용 요약 포털 보기 간에 변환
 
@@ -417,7 +417,7 @@ Enterprise Portal 내에서 수행되는 반올림은 IEEE 표준 뱅커 반올�
 | 영역 2 | 아시아 태평양 동부 <br> 아시아 태평양 남동부 <br> 일본 동부 <br> 일본 서부 <br> 오스트레일리아 동부 <br> 오스트레일리아 남동부 | 아시아 태평양 <br> 일본 <br> 라틴 아메리카 <br> 중동/아프리카 <br> 오스트레일리아 동부 <br> 오스트레일리아 남동부 |
 | 영역 3 | 브라질 남부 |   |
 
-**표**  **4**  **-데이터 전송 영역**
+**표** **4** **– 데이터 전송 영역**
 
 동일한 데이터 센터 내에 있는 서비스(예: O365 및 Azure) 간의 데이터 송신에 대한 요금은 없습니다.
 
@@ -557,7 +557,7 @@ Microsoft에서는 Azure 현금 약정 금액과 관련하여 최상의 고객 �
 | [**친숙한 서비스 이름**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | 모든 활성 서비스 목록에 서비스 범주, 친숙한 서비스 이름, 약정 이름 및 부품 번호, 사용 이름 및 부품 번호, 측정 단위, 보고된 사용량과 표시된 Enterprise Portal 사용량 간의 변환 계수를 제공합니다. | Friendly\_Service\_Names.xlsx |
 | [**서비스 다운로드 필드**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | 이 스프레드시트는 사용량 다운로드 보고서에서 가능한 모든 서비스 관련 필드 조합을 제공합니다. | Service\_Download\_Fields.xlsx |
 
-**표**  **5**  **-추가 정보 원본**
+**표** **5** **– 추가 정보 소스**
 
 ## <a name="power-bi-reporting"></a>Power BI 보고
 
@@ -585,7 +585,7 @@ Microsoft Azure Consumption Insights 콘텐츠 팩을 사용하는 현재 Power 
 1. 연결할 API 액세스 키를 입력합니다. [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)에서 등록 키를 찾을 수 있습니다. **로그인**을 클릭합니다.
 1. 가져오기 프로세스가 자동으로 시작됩니다. 프로세스가 완료되면 새 대시보드, 보고서 및 모델이 탐색 창에 표시됩니다. 대시보드를 클릭하여 가져온 데이터를 확인합니다.
 
-등록의 API 키를 생성하는 방법에 대한 자세한 내용은 [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)의 API 보고서 도움말 파일을 참조하세요. 새 콘텐츠 팩에 대한 자세한 내용은 [Microsoft Azure Consumption Insights](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26) 문서를 다운로드하세요.
+등록의 API 키를 생성하는 방법에 대한 자세한 내용은 [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)의 API 보고서 도움말 파일을 참조하세요. 새 콘텐츠 팩에 대 한 자세한 내용은 [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management)를 참조 하세요.
 
 ### <a name="to-access-the-legacy-power-bi-ea-content-pack"></a>레거시 Power BI EA 콘텐츠 팩에 액세스하려면 다음을 수행합니다.
 

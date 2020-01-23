@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 9184929099b43def0f690f51d5e76532a0310448
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 917ded03892f3a8a5812948bcbfe31f029fc5cf8
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532876"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314983"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>자습서: 디자이너를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 2부로 구성된 이 자습서에서는 Azure Machine Learning 디자이너를 사용하여 자동차의 가격을 예측하는 예측 분석 솔루션을 개발하고 배포하는 방법을 알아봅니다. 

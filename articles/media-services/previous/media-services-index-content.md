@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: dea31e350ddf4b9dbebfa6a9f802edd256adf2ce
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b837da4d68ea83d502e66373b9b7f029ff7fe07e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706410"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515142"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer를 사용하여 미디어 파일 인덱싱
 
 > [!NOTE]
-> [Azure Media Indexer](media-services-index-content.md) 미디어 프로세서는 2020 년 10 월 1 일에 사용 중지 됩니다. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이 레거시 미디어 프로세서를 대체 합니다. 자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.
+> [Azure Media Indexer](media-services-index-content.md) 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는이 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이 레거시 미디어 프로세서를 대체 합니다. 자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.
 
 Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 한 미디어 파일 또는 한 배치에 있는 여러 미디어 파일을 처리할 수 있습니다.  
 
@@ -147,7 +147,7 @@ Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능�
 
 둘 이상의 입력 미디어 파일이 있을 때, 인덱서는 ‘JobResult.txt’라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각 입력 미디어 파일의 결과로 생성 되는 TTML, WebVTT 및 키워드 파일은 순차적으로 번호가 지정 되 고 "별칭"을 사용 하 여 이름이 지정 됩니다.
 
-| 파일 이름 | 설명 |
+| 파일 이름 | Description |
 | --- | --- |
 | **InputFileName.ttml**<br/>**InputFileName.vtt** |TTML 및 WebVTT 형식의 자막 (참조) 파일입니다.<br/><br/>청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다.<br/><br/>선택 자막 파일에는 <b>Recognisability</b>라는 태그가 포함되어 있으며, 원본 비디오의 음성 인식 정도에 따라 인덱싱 작업에 점수를 매깁니다.  유용성을 위해 화면 출력 파일에 <b>Recognizability</b> 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다. |
 | **InputFileName.kw.xml<br/>InputFileName.info** |키워드 및 정보 파일입니다. <br/><br/>키워드 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함하는 XML 파일입니다. <br/><br/>정보 파일은 인식된 각 용어에 대한 세부적인 정보를 포함하는 일반 텍스트 파일입니다. 첫 번째 줄은 특수하며 Recognizability 점수를 포함합니다. 이후 각 줄은 탭으로 구분된 데이터 목록이며, 다음과 같습니다. 시작 시간, 종료 시간, 단어/구, 신뢰도 시간은 초 단위로 제공되며 신뢰도는 0-1의 숫자로 지정됩니다. <br/><br/>예제 줄: "1.20    1.45    word    0.67" <br/><br/>음성 분석을 수행하거나, Bing, Google 또는 Microsoft SharePoint와 같은 검색 엔진에 노출하여 미디어 파일을 보다 검색하기 쉽게 하거나, 보다 관련 있는 광고를 제공하는 데에도 사용하는 등의 여러 가지 목적을 위해 이들 파일을 사용할 수 있습니다. |
@@ -243,16 +243,16 @@ Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능�
 ### <a id="preset"></a> Azure Media Indexer의 태스크 미리 설정
 태스크와 함께 태스크 미리 설정을 제공하여 Azure Media Indexer의 처리를 사용자 지정할 수 있습니다.  다음은 이 구성 xml의 형식을 설명합니다.
 
-| name | 필요 | 설명 |
+| 이름 | 필요 | Description |
 | --- | --- | --- |
 | **input** |false |인덱싱할 자산 파일입니다.</p><p>Azure Media Indexer는 MP4, WMV, MP3, M4A, WMA, AAC, WAV의 미디어 파일 형식을 지원합니다.</p><p>아래에서 보여 주듯이 **입력** 요소의 **name** 또는 **list** 특성에 파일 이름을 지정할 수 있습니다. 인덱싱할 파일을 지정하지 않으면 기본 파일이 선택됩니다. 기본 자산 파일이 설정되지 않은 경우 입력 자산의 첫 번째 파일이 인덱싱됩니다.</p><p>자산 파일 이름을 명시적으로 지정하려면 다음을 수행합니다.<br/>`<input name="TestFile.wmv">`<br/><br/>한 번에 여러 자산 파일을 인덱싱할 수도 있습니다(최대 10개 파일). 다음을 수행합니다.<br/><br/><ol class="ordered"><li><p>텍스트 파일(매니페스트 파일)을 만들고 .lst 확장명을 지정합니다. </p></li><li><p>입력 자산에 있는 모든 자산 파일의 이름 목록을 이 매니페스트 파일에 추가합니다. </p></li><li><p>자산에 매니페스트 파일을 추가(업로드)합니다.  </p></li><li><p>입력의 목록 특성에 매니페스트 파일의 이름을 지정합니다.<br/>`<input list="input.lst">`</li></ol><br/><br/>참고: 매니페스트 파일에 10개 이상의 파일을 추가하는 경우 인덱싱 작업이 2006 오류 코드와 함께 실패합니다. |
 | **metadata** |false |어휘 적응에 사용되는 지정된 자산 파일에 대한 메타데이터입니다.  적절한 명사와 같은 비표준 어휘 단어를 인식하는 인덱서를 준비하는 경우 유용합니다.<br/>`<metadata key="..." value="..."/>` <br/><br/>미리 정의된 **키**에 대해 **값**을 제공할 수 있습니다. 현재 다음 키가 지원됩니다.<br/><br/>"title" 및 "description" - 어휘 적응에서 작업에 대한 언어 모델을 조정하고 음성 인식 정확도를 향상하는 데 사용됩니다.  값 시드 인터넷으로 인덱싱 태스크 기간 동안 내부 디렉터리를 보강할 콘텐츠를 사용하여 문맥적으로 관련된 텍스트 문서를 검색하여 찾습니다.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **features** <br/><br/> 버전 1.2에 추가되었습니다. 현재 지원되는 유일한 기능은 음성 인식("ASR")입니다. |false |음성 인식 기능에는 다음 설정 키가 포함됩니다.<table><tr><th><p>키</p></th>        <th><p>설명</p></th><th><p>예제 값</p></th></tr><tr><td><p>언어</p></td><td><p>멀티미디어 파일에서 인식되는 자연 언어입니다.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>원하는 출력 자막 형식의 세미콜론으로 구분된 목록(있는 경우)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>키워드 XML 파일이 필요한지 여부를 지정하는 부울 플래그입니다.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>신뢰 수준에 관계없이 전체 캡션을 강제로 적용할지 여부를 지정하는 부울 플래그입니다.  </p><p>기본값은 false이고 신뢰 수준이 50% 미만인 단어 및 구는 최종 캡션 출력에서 생략되고 줄임표("...")로 대체됩니다.  줄임표는 캡션 품질 제어 및 감사에 유용합니다.</p></td><td><p>True; False. </p></td></tr></table> |
+| **features** <br/><br/> 버전 1.2에 추가되었습니다. 현재 지원되는 유일한 기능은 음성 인식("ASR")입니다. |false |음성 인식 기능에는 다음 설정 키가 포함됩니다.<table><tr><th><p>키</p></th>        <th><p>Description</p></th><th><p>예제 값</p></th></tr><tr><td><p>언어</p></td><td><p>멀티미디어 파일에서 인식되는 자연 언어입니다.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>원하는 출력 자막 형식의 세미콜론으로 구분된 목록(있는 경우)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>키워드 XML 파일이 필요한지 여부를 지정하는 부울 플래그입니다.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>신뢰 수준에 관계없이 전체 캡션을 강제로 적용할지 여부를 지정하는 부울 플래그입니다.  </p><p>기본값은 false이고 신뢰 수준이 50% 미만인 단어 및 구는 최종 캡션 출력에서 생략되고 줄임표("...")로 대체됩니다.  줄임표는 캡션 품질 제어 및 감사에 유용합니다.</p></td><td><p>True; False. </p></td></tr></table> |
 
 ### <a id="error_codes"></a>오류 코드
 오류 발생 시 Azure Media Indexer는 다음 오류 코드 중 하나를 다시 보고해야 합니다.
 
-| 코드 | name | 가능한 이유 |
+| 코드 | 이름 | 가능한 이유 |
 | --- | --- | --- |
 | 2000 |유효하지 않은 구성 |유효하지 않은 구성 |
 | 2001 |유효하지 않은 입력 자산 |입력 자산 유실 또는 빈 자산. |
@@ -261,7 +261,7 @@ Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능�
 | 2004 |지원되지 않는 프로토콜 |미디어 URL 프로토콜이 지원되지 않습니다. |
 | 2005 |지원되지 않는 파일 유형 |입력 미디어 파일 유형이 지원되지 않습니다. |
 | 2006 |너무 많은 입력 파일 |입력 매니페스트에 10개 이상의 파일이 있습니다. |
-| 3000 |미디어 파일 디코딩 실패 |지원되지 않는 미디어 코덱 <br/>or<br/> 손상된 미디어 파일 <br/>or<br/> 입력 미디어에 오디오 스트림 없음. |
+| 3000 |미디어 파일 디코딩 실패 |지원되지 않는 미디어 코덱 <br/>또는<br/> 손상된 미디어 파일 <br/>또는<br/> 입력 미디어에 오디오 스트림 없음. |
 | 4000 |인덱싱 일괄 처리 부분적으로 성공 |일부 입력 미디어 파일 인덱싱에 실패했습니다. 자세한 내용은 <a href="#output_files">출력 파일</a>을 참조하세요. |
 | other |내부 오류 |지원 팀에 문의하시기 바랍니다. indexer@microsoft.com |
 

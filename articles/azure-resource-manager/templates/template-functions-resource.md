@@ -3,12 +3,12 @@ title: 템플릿 함수-리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 56ace8c75ea27eb4d730b1630115b6fcbdc3f575
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 1b860876b0d8967a6a3f90c7bb68f20d6c442109
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310540"
+ms.locfileid: "76513867"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -32,7 +32,7 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
 ```
 
-해당 기능에 추가 하기 위해 다른 리소스에 적용 되는 리소스 유형인 [확장 리소스](extension-resource-types.md)의 리소스 ID를 반환 합니다.
+해당 기능에 추가 하기 위해 다른 리소스에 적용 되는 리소스 유형인 [확장 리소스](../management/extension-resource-types.md)의 리소스 ID를 반환 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -536,7 +536,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 ### <a name="get-managed-identity"></a>관리 id 가져오기
 
-[Azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 는 일부 리소스에 대해 암시적으로 생성 된 [확장 리소스 형식](extension-resource-types.md) 입니다. 관리 id가 템플릿에 명시적으로 정의 되어 있지 않기 때문에 id가 적용 되는 리소스를 참조 해야 합니다. `Full`를 사용 하 여 암시적으로 생성 된 id를 비롯 한 모든 속성을 가져옵니다.
+[Azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 는 일부 리소스에 대해 암시적으로 생성 된 [확장 리소스 형식](../management/extension-resource-types.md) 입니다. 관리 id가 템플릿에 명시적으로 정의 되어 있지 않기 때문에 id가 적용 되는 리소스를 참조 해야 합니다. `Full`를 사용 하 여 암시적으로 생성 된 id를 비롯 한 모든 속성을 가져옵니다.
 
 예를 들어 가상 머신 확장 집합에 적용 되는 관리 되는 id에 대 한 테 넌 트 ID를 가져오려면 다음을 사용 합니다.
 

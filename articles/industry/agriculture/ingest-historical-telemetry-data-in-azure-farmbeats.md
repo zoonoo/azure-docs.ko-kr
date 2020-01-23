@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b4a567bc0495595da77ef7d6cd240ee7fb30f0ed
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170145"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513935"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -20,7 +20,7 @@ ms.locfileid: "76170145"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 진행 하기 전에 FarmBeats를 설치 하 고 IoT에서 기록 데이터를 수집 했는지 확인 합니다.
+이 문서를 진행 하기 전에 IoT 장치에서 FarmBeats 및 수집 된 기록 데이터를 설치 했는지 확인 합니다.
 또한 다음 단계에 설명 된 대로 파트너 액세스를 사용 하도록 설정 해야 합니다.
 
 ## <a name="enable-partner-access"></a>파트너 액세스 사용
@@ -38,31 +38,36 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 >[!NOTE]
 > 다음 단계를 수행 하려면 관리자 여야 합니다.
 
-1. 이 [스크립트](https://aka.ms/farmbeatspartnerscript)를 다운로드 하 고 로컬 드라이브에 압축을 풉니다. 두 파일은 zip 파일 내에 있습니다.
-2. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Cloud Shell을 엽니다. 이 옵션은 포털의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
+1. [Zip 파일](https://aka.ms/farmbeatspartnerscriptv2)을 다운로드 하 고 로컬 드라이브에 압축을 풉니다. Zip 파일 안에는 파일이 하나 있습니다.
+2. https://portal.azure.com/ 에 로그인 하 고 Azure Active Directory-> 앱 등록으로 이동 합니다.
 
-    ![Azure Portal 도구 모음](./media/for-tutorials/navigation-bar-1.png)
+3. FarmBeats 배포의 일부로 만들어진 앱 등록을 클릭 합니다. FarmBeats Datahub와 동일한 이름을 갖게 됩니다.
 
-3. 환경이 **PowerShell**로 설정 되었는지 확인 합니다.
+4. "API 표시"를 클릭 하 > "클라이언트 응용 프로그램 추가"를 클릭 하 고 **04b07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 후 "범위 권한 부여"를 선택 합니다. 그러면 아래 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
 
-    ![PowerShell 설정](./media/for-tutorials/power-shell-new-1.png)
+5. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
-4. Cloud Shell 인스턴스에서 1 단계에서 다운로드 한 두 파일을 업로드 합니다.
+    ![Azure Portal 도구 모음](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-    ![도구 모음에서 업로드 단추](./media/for-tutorials/power-shell-two-1.png)
+6. 환경이 **PowerShell**로 설정 되었는지 확인 합니다. 기본적으로 Bash로 설정 됩니다.
 
-5. 파일이 업로드 된 디렉터리로 이동 합니다.
+    ![PowerShell 도구 모음 설정](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-   >[!NOTE]
-   > 기본적으로 파일은 홈 디렉터리/홈/사용자 이름으로 업로드 됩니다.
-6. 다음 명령을 사용 하 여 스크립트를 실행 합니다.
+7. Cloud Shell 인스턴스의 1 단계에서 파일을 업로드 합니다.
 
-    ```azurepowershell-interactive
-    ./generateCredentials.ps1
+    ![업로드 도구 모음 단추](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+
+8. 파일이 업로드 된 디렉터리로 이동 합니다. 기본적으로 파일은 사용자 이름의 홈 디렉터리에 업로드 됩니다.
+
+9. 다음 스크립트를 실행합니다. 스크립트는 Azure Active Directory > 개요 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
+
+    ```azurepowershell-interactive 
+
+    ./generatePartnerCredentials.ps1   
+
     ```
 
-7. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다. EventHub 연결 문자열은 Swagger에서 API 응답의 일부로 사용할 수 있습니다.
-
+10. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다.
 ## <a name="create-device-or-sensor-metadata"></a>장치 또는 센서 메타 데이터 만들기
 
  이제 필수 자격 증명이 있으므로 장치 및 센서를 정의할 수 있습니다. 이렇게 하려면 FarmBeats Api를 호출 하 여 메타 데이터를 만듭니다. 위의 섹션에서 만든 클라이언트 앱으로 Api를 호출 해야 합니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052498"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513459"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 
@@ -118,7 +118,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 모든 데이터는 미사용 시 암호화 되 고 데이터 센터 간에 이동 합니다.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>내 애플리케이션에서 Application Insights 서버로 전송 중에 데이터가 암호화되나요?
-예, https를 사용 하 여 웹 서버, 장치 및 HTTPS 웹 페이지를 비롯 한 거의 모든 Sdk에서 포털에 데이터를 전송 합니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다.
+예, https를 사용 하 여 웹 서버, 장치 및 HTTPS 웹 페이지를 비롯 한 거의 모든 Sdk에서 포털에 데이터를 전송 합니다. 
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK에서 임시 로컬 스토리지를 작성하나요?
 
@@ -234,15 +234,15 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 
 | 사용자 작업 | 수집되는 데이터 클래스(다음 표 참조) |
 | --- | --- |
-| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>Session<br/>users |
+| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>Session<br/>사용자 |
 | [IIS에 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
-| [Java 웹 앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>Session<br/>users |
-| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Java 웹 앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>Session<br/>사용자 |
+| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax |
 | [기본 속성 정의][apiproperties] |**속성** |
 | [통화 통신 메트릭][api] |숫자 값<br/>**속성** |
 | [호출 추적 *][api] |이벤트 이름<br/>**속성** |
 | [호출 통신 예외][api] |**예외**<br/>스택 덤프<br/>**속성** |
-| SDK는 데이터를 수집할 수 없습니다. 다음은 그 예입니다. <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| SDK는 데이터를 수집할 수 없습니다. 예: <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
 [다른 플랫폼용 sdk][platforms]는 해당 문서를 참조 하세요.
 

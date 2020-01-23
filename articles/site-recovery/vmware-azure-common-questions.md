@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16892ec729f56f8c8e1713379285e07fbc0dd4d1
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: a078f1dc7d7aa3727f3f057f284c2ea5da923e07
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495431"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514853"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
@@ -73,7 +73,7 @@ Site Recovery에서는 다음 작업을 위해 VMware 서버에 액세스해야 
 
 Site Recovery는 ISO 27001:2013 및 27018, HIPAA 및 DPA에 대해 인증 됩니다. SOC2 및 FedRAMP JAB 평가 프로세스에 있습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 ### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 대략적인 요금을 계산 하는 어떻게 할까요??
 
@@ -101,7 +101,7 @@ GPv2 저장소 Azure Site Recovery 계정에 발생 하는 트랜잭션 비용�
 
 - [강제 설치](vmware-physical-mobility-service-overview.md#push-installation)
 - UI 또는 PowerShell에서 [수동 설치](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui)
-- [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 와 같은 배포 도구를 사용 하 여 배포
+- [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 와 같은 배포 도구를 사용 하 여 배포
 
 ## <a name="managed-disks"></a>Managed Disks
 

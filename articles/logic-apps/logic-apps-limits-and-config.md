@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: 96e7cbd09873192d8b73b57cb2b46bf5b7679742
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 3c921bda1b839ee18a91b28f875ba7c84c0dd944
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263458"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515040"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -160,7 +160,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 
 | 이름 | 메모 |
 |------|-------|
 | 식 평가 제한 | 131,072자 | `@concat()`, `@base64()`, `@string()` 식은 이 제한보다 길 수 없습니다. |
-| 요청 URL 문자 제한 | 32K 자 |
+| 요청 URL 문자 제한 | 16384 문자 |
 |||
 
 #### <a name="retry-policy"></a>다시 시도 정책

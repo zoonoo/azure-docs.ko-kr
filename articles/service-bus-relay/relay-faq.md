@@ -1,6 +1,6 @@
 ---
 title: Azure Relay FAQ | Microsoft Docs
-description: Azure Relay에 대해 자주 묻는 일부 질문에 답변합니다.
+description: 이 문서에서는 Azure Relay 서비스에 대 한 몇 가지 자주 묻는 질문에 대 한 답변을 제공 합니다.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d5032b427316a3c4e07013af4e8214e239a6efb3
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459094"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514003"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -38,7 +38,7 @@ ms.locfileid: "75459094"
 ### <a name="what-happened-to-service-bus-relay-service"></a>Service Bus Relay 서비스는 어떻게 되나요?
 이전의 Service Bus Relay 서비스를 이제 [WCF Relay](service-bus-relay-tutorial.md)라고 부릅니다. 평소처럼 이 서비스를 계속 사용할 수 있습니다. 하이브리드 연결 기능은 Azure BizTalk Services에 옮겨진 업데이트된 버전의 서비스입니다. WCF Relay 및 하이브리드 연결은 모두 계속 지원됩니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 이 섹션에서는 Relay 가격 책정 구조에 대해 자주 묻는 일부 질문에 답변합니다. 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하면 됩니다. 릴레이 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요.
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이의 요금은 어떻게 청구되나요?
