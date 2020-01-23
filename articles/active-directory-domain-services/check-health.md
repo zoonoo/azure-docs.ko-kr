@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705420"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509141"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 상태를 확인 합니다.
 
-Azure Active Directory Domain Services (Azure AD DS)는 관리 되는 도메인을 최신 상태로 유지 하기 위해 몇 가지 백그라운드 작업을 실행 합니다. 이러한 작업에는 백업 수행, 보안 업데이트 적용 및 Azure AD의 데이터 동기화가 포함 됩니다. Azure AD DS 관리 되는 도메인에 문제가 있는 경우 이러한 작업이 성공적으로 실행 되지 않을 수 있습니다. 문제를 검토 하 고 해결 하려면 Azure Portal를 사용 하 여 Azure AD DS 관리 되는 도메인의 상태를 확인할 수 있습니다.
+Azure Active Directory Domain Services (Azure AD DS)는 관리 되는 도메인을 최신 상태로 유지 하기 위해 몇 가지 백그라운드 작업을 실행 합니다. 이러한 작업에는 백업 수행, 보안 업데이트 적용 및 Azure AD의 데이터 동기화가 포함 됩니다. Azure AD DS 관리 되는 도메인에 문제가 있는 경우 이러한 작업이 성공적으로 완료 되지 않을 수 있습니다. 문제를 검토 하 고 해결 하려면 Azure Portal를 사용 하 여 Azure AD DS 관리 되는 도메인의 상태를 확인할 수 있습니다.
 
 이 문서에서는 Azure AD DS 상태를 확인 하 고 표시 되는 정보 또는 경고를 이해 하는 방법을 보여 줍니다.
 
@@ -47,11 +47,11 @@ Azure Portal를 사용 하 여 Azure AD DS 관리 되는 도메인의 상태를 
 
 ## <a name="understand-monitors-and-alerts"></a>모니터 및 경고 이해
 
-Azure AD DS 관리 되는 도메인의 상태에는 두 가지 유형의 정보 모니터와 경고가 표시 됩니다. 모니터는 코어 백그라운드 작업이 완료 된 시간을 표시 합니다. 경고는 관리 되는 도메인의 안정성을 향상 시킬 수 있는 정보나 제안 사항을 제공 합니다.
+Azure AD DS 관리 되는 도메인의 상태에는 두 가지 유형의 정보 *모니터*와 *경고가*표시 됩니다. 모니터는 코어 백그라운드 작업이 완료 된 시간을 표시 합니다. 경고는 관리 되는 도메인의 안정성을 향상 시킬 수 있는 정보나 제안 사항을 제공 합니다.
 
 ### <a name="monitors"></a>모니터
 
-모니터는 정기적으로 확인 되는 Azure AD DS 관리 되는 도메인의 영역입니다. Azure AD DS 관리 되는 도메인에 대 한 활성 경고가 있는 경우이로 인해 모니터 중 하나가 문제를 보고할 수 있습니다. Azure AD Domain Services 현재 다음 영역을 모니터링 합니다.
+모니터는 정기적으로 확인 되는 Azure AD DS 관리 되는 도메인의 영역입니다. Azure AD DS 관리 되는 도메인에 대 한 활성 경고가 있는 경우이로 인해 모니터 중 하나가 문제를 보고할 수 있습니다. 현재 Azure AD Domain Services에는 다음 영역에 대 한 모니터가 있습니다.
 
 * Backup
 * Azure AD와 동기화
@@ -68,7 +68,7 @@ Azure AD DS 관리 되는 도메인의 상태에는 두 가지 유형의 정보 
 
 #### <a name="synchronization-with-azure-ad-monitor"></a>Azure AD monitor와 동기화
 
-Azure AD DS 관리 되는 도메인은 Azure Active Directory와 정기적으로 동기화 됩니다. 사용자 및 그룹 개체의 수와 마지막 동기화 이후 Azure AD 디렉터리에서 변경 된 횟수는 동기화 하는 데 걸리는 시간에 영향을 줍니다. Azure AD DS 관리 되는 도메인이 3 일 전에 마지막으로 동기화 된 경우 모든 활성 경고를 확인 하 고 해결 합니다. 동기화 모니터가 최신 동기화를 표시 하도록 상태를 업데이트 하지 않는 경우 [Azure 지원 요청을 엽니다][azure-support].
+Azure AD DS 관리 되는 도메인은 Azure Active Directory와 정기적으로 동기화 됩니다. 사용자 및 그룹 개체의 수와 마지막 동기화 이후 Azure AD 디렉터리에서 변경 된 횟수는 동기화 하는 데 걸리는 시간에 영향을 줍니다. Azure AD DS 관리 되는 도메인이 3 일 전에 마지막으로 동기화 된 경우 모든 활성 경고를 확인 하 고 해결 합니다. 활성 경고를 해결 한 후 동기화 모니터가 상태를 업데이트 하 여 최근 동기화가 표시 되지 않으면 [Azure 지원 요청을 엽니다][azure-support].
 
 ### <a name="alerts"></a>경고
 

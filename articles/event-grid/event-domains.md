@@ -1,18 +1,18 @@
 ---
 title: Azure Event Grid의 이벤트 도메인
-description: Azure Event Grid에서 이벤트 도메인을 사용하여 토픽을 관리하는 방법을 설명합니다.
+description: 이 문서에서는 이벤트 도메인을 사용하여 다양한 비즈니스 조직, 고객 또는 애플리케이션에 대한 사용자 지정 이벤트의 흐름을 관리하는 방법을 설명합니다.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.date: 01/21/2020
+ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305419"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511385"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -105,9 +105,9 @@ Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 �
 - 50 도메인 범위 구독 
 - 5000 초당 이벤트 수집 율 (도메인)
 
-이러한 제한에 맞지 않는 경우 지원 티켓을 열거나로 [askgrid@microsoft.com](mailto:askgrid@microsoft.com)전자 메일을 보내 제품 팀에 연락 하세요. 
+이러한 제한에 맞지 않는 경우 지원 티켓을 열거나 [askgrid@microsoft.com](mailto:askgrid@microsoft.com)에 전자 메일을 전송 하 여 제품 팀에 연락 하세요. 
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 이벤트 도메인은 Event Grid의 다른 모든 기능에서 사용 하는 것과 동일한 [작업 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/) 을 사용 합니다.
 
 작업은 이벤트 도메인에서도 사용자 지정 토픽과 동일한 방식으로 작동합니다. 각 이벤트가 이벤트 도메인에 수신되는 것도 작업이고, 각 이벤트 전달 시도도 작업입니다.

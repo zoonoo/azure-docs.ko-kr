@@ -1,5 +1,5 @@
 ---
-title: Media Services v3 .NET SDK를 사용하여 기존 정책에서 서명 키 가져오기 - Azure | Microsoft Docs
+title: Azure Media Services v3 .NET을 사용 하 여 정책에서 서명 키 가져오기
 description: 이 항목에서는 Media Services v3 .NET SDK를 사용하여 기존 정책에서 서명 키를 가져오는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 58b6f49f4bbbd93fefb9b616f92baf7ef30f7deb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff27ae0fd639316f03fe89ffc906561b3ef85f6f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322637"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515074"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>기존 정책에서 서명 키 가져오기
 
-v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api 반환 하지 않는 암호 또는 자격 증명에 **가져옵니다** 하거나 **목록** 작업 합니다. 자세한 설명은 다음을 참조 하세요. 자세한 내용은 참조 하세요. [RBAC 및 Media Services 계정](rbac-overview.md)
+v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api는 **가져오기** 또는 **나열** 작업에 대 한 암호 또는 자격 증명을 반환 하지 않습니다. 자세한 내용은 여기를 참조 하세요. 자세한 내용은 [RBAC 및 Media Services 계정](rbac-overview.md) 을 참조 하세요.
 
 이 문서의 예제에서는 .NET을 사용하여 기존 정책에서 서명 키를 가져오는 방법을 보여 줍니다. 
  

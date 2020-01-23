@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: ecc2a8236b51013895bfe831d6785ff3e6925906
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979674"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514489"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -61,6 +61,7 @@ RTMP 라이브 스트리밍에 대 한 다음과 같은 새로운 권장 파트�
 - [Restream.io](https://restream.io/)
 
 ### <a name="file-encoding-enhancements"></a>파일 인코딩 기능 향상
+
 - 이제 새로운 콘텐츠 인식 인코딩 사전 설정을 사용할 수 있습니다. 콘텐츠 인식 인코딩을 사용 하 여 GOP 정렬 Mp4 집합을 생성 합니다. 입력 콘텐츠가 지정 된 경우 서비스는 입력 콘텐츠에 대 한 초기 경량 분석을 수행 합니다. 이러한 결과를 사용 하 여 적응 스트리밍이 배달할 최적의 계층 수, 적절 한 비트 전송률 및 해상도 설정을 결정 합니다. 이 사전 설정은 덜 복잡 하 고 복잡성이 높은 비디오에 특히 효과적입니다 .이 비디오에서는 출력 파일이 더 낮은 비트 전송률이 고 여전히 좋은 경험을 제공 하는 품질로 제공 됩니다. 출력에는 비디오 및 오디오가 인터리브 된 MP4 파일이 포함 됩니다. 자세한 내용은 [OPEN API 사양](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)을 참조 하십시오.
 - Media Encoder Standard의 sizer에 대 한 향상 된 성능 및 다중 스레딩 특정 조건에서 고객은 5-40% VOD 인코딩 사이의 성능 향상을 확인 해야 합니다. 여러 비트 전송률로 인코드된 복잡성이 낮은 콘텐츠가 있으면 성능이 가장 높습니다. 
 - 이제 표준 인코딩은 시간 기반 GOP 설정을 사용 하는 경우 VOD 인코딩에 대해 VFR (가변 프레임 요금) 콘텐츠에 대 한 일반 GOP 주기를 유지 관리 합니다.  즉, 15-30 fps 마다 다른 혼합 프레임 속도 콘텐츠를 제출 하는 고객이 적응 비트 전송률 스트리밍 MP4 파일에 대 한 출력에서 계산 되는 일반적인 GOP 거리가 표시 됩니다. 이렇게 하면 HLS 또는 대시를 통해 배달할 때 트랙 간에 원활 하 게 전환 하는 기능이 향상 됩니다. 
@@ -82,7 +83,7 @@ Media Services v3은 라이브 이벤트의 라이브 선형 인코딩의 24 시
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
 
-*Azure Media Indexer* 및 *Azure Media Indexer 2 Preview*의 사용 중단을 발표 하 고 있습니다. [Azure Media Indexer](../previous/media-services-index-content.md) 미디어 프로세서는 2020 년 10 월 1 일에 사용 중지 됩니다. [Azure Media Indexer 2 Preview](../previous/media-services-process-content-with-indexer2.md) 미디어 프로세서는 2020 년 1 월 1 일에 사용 중지 됩니다. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이러한 레거시 미디어 프로세서를 대체 합니다.
+*Azure Media Indexer* 및 *Azure Media Indexer 2 Preview*의 사용 중단을 발표 하 고 있습니다. 사용 중지 날짜는이 [레거시 구성 요소](../previous/legacy-components.md) 항목을 참조 하세요. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이러한 레거시 미디어 프로세서를 대체 합니다.
 
 자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조 하세요.
 
@@ -100,7 +101,7 @@ Media Services v3은 라이브 이벤트의 라이브 선형 인코딩의 24 시
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
 
-2020 년 3 월 31 일에 사용이 중지 되는 wame ( *Windows Azure Media Encoder* ) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다.
+사용이 중지 된 wame ( *Windows Azure Media Encoder* ) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다. 사용 중지 날짜는이 [레거시 구성 요소](../previous/legacy-components.md) 항목을 참조 하세요.
 
 자세한 내용은 [WAME to Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101334) 및 [AME를 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101335)을 참조 하세요.
  

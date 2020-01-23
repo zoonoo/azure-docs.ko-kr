@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 1a6fb12311fe4474f03c22c91d9b478220adf5d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c65e1f871fdab2c925f7a5e6747ad23fe8952d9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425525"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512779"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
-Azure Active Directory Domain Services (AD DS)는 다른 응용 프로그램 및 워크 로드에 대 한 인증 및 관리 서비스를 제공 하며, 네트워크 연결은 주요 구성 요소입니다. 가상 네트워크 리소스를 적절히 구성 하지 않으면 응용 프로그램 및 워크 로드에서 Azure AD DS 제공 하는 기능을 사용 하 여 통신할 수 없습니다. 가상 네트워크를 올바르게 계획 하는 경우 Azure AD DS 필요에 따라 응용 프로그램 및 워크 로드를 제공할 수 있는지 확인 합니다.
+Azure Active Directory Domain Services (AD DS)는 다른 응용 프로그램 및 워크 로드에 대 한 인증 및 관리 서비스를 제공 하며, 네트워크 연결은 주요 구성 요소입니다. 가상 네트워크 리소스를 올바르게 구성 하지 않으면 응용 프로그램 및 워크 로드에서 Azure AD DS 제공 하는 기능을 사용 하 여 통신할 수 없습니다. 가상 네트워크 요구 사항을 계획 하 여 Azure AD DS 필요에 따라 응용 프로그램 및 워크 로드를 제공할 수 있는지 확인 합니다.
 
-이 문서에서는 Azure AD DS를 지 원하는 Azure virtual network에 대 한 디자인 고려 사항 및 요구 사항을 설명 합니다.
+이 문서에서는 azure AD DS을 지원 하기 위해 Azure virtual network에 대 한 디자인 고려 사항 및 요구 사항을 간략하게 설명 합니다.
 
 ## <a name="azure-virtual-network-design"></a>Azure 가상 네트워크 디자인
 
@@ -33,7 +33,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 * Azure AD DS는 가상 네트워크와 동일한 Azure 지역에 배포 되어야 합니다.
     * 이번에는 azure AD 테 넌 트 당 하나의 Azure AD DS 관리 되는 도메인만 배포할 수 있습니다. Azure AD DS 관리 되는 도메인은 단일 지역에 배포 됩니다. [Azure AD DS을 지 원하는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all)에서 가상 네트워크를 만들거나 선택 해야 합니다.
 * 응용 프로그램 워크 로드를 호스트 하는 다른 Azure 지역 및 가상 네트워크의 근접성을 고려 합니다.
-    * 대기 시간을 최소화 하려면 Azure AD DS 관리 되는 도메인에 대 한 가상 네트워크 서브넷과 동일한 지역에 가까운 코어 응용 프로그램을 유지 합니다. Azure 가상 네트워크 간의 가상 네트워크 피어 링 또는 VPN (가상 사설망) 연결을 사용할 수 있습니다.
+    * 대기 시간을 최소화 하려면 Azure AD DS 관리 되는 도메인에 대 한 가상 네트워크 서브넷과 동일한 지역에 가까운 코어 응용 프로그램을 유지 합니다. Azure 가상 네트워크 간의 가상 네트워크 피어 링 또는 VPN (가상 사설망) 연결을 사용할 수 있습니다. 이러한 연결 옵션에 대해서는 다음 섹션에서 설명 합니다.
 * 가상 네트워크는 Azure AD DS에서 제공 하는 것 외의 DNS 서비스를 사용할 수 없습니다.
     * Azure AD DS는 자체 DNS 서비스를 제공 합니다. 이러한 DNS 서비스 주소를 사용 하도록 가상 네트워크를 구성 해야 합니다. 조건부 전달자를 사용 하 여 추가 네임 스페이스에 대 한 이름 확인을 수행할 수 있습니다.
     * 사용자 지정 DNS 서버 설정을 사용 하 여 Vm을 비롯 한 다른 DNS 서버의 쿼리를 전달할 수 없습니다. 가상 네트워크의 리소스는 Azure AD DS에서 제공 하는 DNS 서비스를 사용 해야 합니다.
@@ -62,7 +62,7 @@ Azure AD DS 관리 되는 도메인은 Azure virtual network의 서브넷에 연
 * 가상 네트워크 피어링
 * VPN(가상 사설망)
 
-### <a name="virtual-network-peering"></a>Virtual Network 피어 링
+### <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 동일한 지역에 있는 두 개의 가상 네트워크를 연결하는 메커니즘입니다. 글로벌 가상 네트워크 피어 링은 Azure 지역에서 가상 네트워크를 연결할 수 있습니다. 피어 링 두 개의 가상 네트워크를 사용 하면 Vm과 같은 리소스가 개인 IP 주소를 사용 하 여 서로 직접 통신할 수 있습니다. 가상 네트워크 피어 링을 사용 하면 다른 가상 네트워크에 배포 된 응용 프로그램 워크 로드를 사용 하 여 Azure AD DS 관리 되는 도메인을 배포할 수 있습니다.
 
@@ -70,7 +70,7 @@ Azure AD DS 관리 되는 도메인은 Azure virtual network의 서브넷에 연
 
 자세한 내용은 [Azure 가상 네트워크 피어 링 개요](../virtual-network/virtual-network-peering-overview.md)를 참조 하세요.
 
-### <a name="virtual-private-networking"></a>가상 개인 네트워킹
+### <a name="virtual-private-networking-vpn"></a>VPN(가상 사설망)
 
 가상 네트워크를 온-프레미스 사이트 위치에 구성할 수 있는 것과 동일한 방식으로 가상 네트워크를 다른 가상 네트워크 (VNet 간)에 연결할 수 있습니다. 두 연결 모두 VPN gateway를 사용 하 여 IPsec/IKE를 통한 보안 터널을 만듭니다. 이 연결 모델을 사용 하면 azure 가상 네트워크에 Azure AD DS를 배포한 후 온-프레미스 위치 또는 다른 클라우드를 연결할 수 있습니다.
 
@@ -91,8 +91,8 @@ Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소�
 | Azure 리소스                          | Description |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 실행 되는 두 개의 Dc (도메인 컨트롤러)에서 관리 되는 도메인을 Azure Vm으로 호스팅합니다. 각 VM에는 가상 네트워크 서브넷에 연결 하는 가상 네트워크 인터페이스가 있습니다. |
-| 동적 표준 공용 IP 주소         | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/virtual-network-ip-addresses-overview-arm.md)을 참조 하세요. |
-| Azure 표준 부하 분산 장치               | Azure AD DS는 NAT (네트워크 주소 변환) 및 부하 분산을 위해 표준 SKU 부하 분산 장치를 사용 합니다 (보안 LDAP와 함께 사용 하는 경우). Azure 부하 분산 장치에 대 한 자세한 내용은 [Azure Load Balancer?](../load-balancer/load-balancer-overview.md) 을 참조 하세요. |
+| 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/virtual-network-ip-addresses-overview-arm.md)을 참조 하세요. |
+| Azure 표준 부하 분산 장치            | Azure AD DS는 NAT (네트워크 주소 변환) 및 부하 분산을 위해 표준 SKU 부하 분산 장치를 사용 합니다 (보안 LDAP와 함께 사용 하는 경우). Azure 부하 분산 장치에 대 한 자세한 내용은 [Azure Load Balancer?](../load-balancer/load-balancer-overview.md) 을 참조 하세요. |
 | NAT (Network address translation) 규칙 | Azure AD DS는 부하 분산 장치에 대 한 세 가지 NAT 규칙을 만들고 사용 합니다 .이 규칙은 보안 HTTP 트래픽에 대 한 규칙 하나, 보안 PowerShell 원격을 위한 두 가지 규칙입니다. |
 | 부하 분산 장치 규칙                     | Azure AD DS 관리 되는 도메인이 TCP 포트 636에서 보안 LDAP를 사용 하도록 구성 된 경우 부하 분산 장치에서 트래픽을 분산 하는 세 가지 규칙이 만들어지고 사용 됩니다. |
 
@@ -160,7 +160,3 @@ Azure AD DS에서 사용 하는 몇 가지 네트워크 리소스 및 연결 옵
 * [Azure 가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)
 * [Azure VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
 * [Azure 네트워크 보안 그룹](../virtual-network/security-overview.md)
-
-<!-- INTERNAL LINKS -->
-
-<!-- EXTERNAL LINKS -->

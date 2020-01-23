@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919344"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511895"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "74919344"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| 작업 | 소유자 |
+| Task | 소유자 |
 | :- | :- |
 | Azure AD에서 SSO (Single Sign-On) 구성의 수명 주기 관리 | IAM 운영 팀 |
 | Azure AD 응용 프로그램에 대 한 조건부 액세스 정책 디자인 | InfoSec 아키텍처 팀 |
@@ -59,7 +59,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 아래 표를 사용 하 여 해결 해야 하는 문제를 완화 하기 위한 권장 솔루션을 찾을 수 있습니다.
 
-| 문제 | 권장 사항 |
+| 문제 | 권장 |
 | :- | :- |
 | 약한 암호 로부터 보호 하는 메커니즘이 없습니다. | Azure AD [SSPR (셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) 및 [암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) 를 사용 하도록 설정 |
 | 누출 암호를 검색 하는 메커니즘이 없습니다. | 정보를 얻기 위해 phs ( [암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ) 사용 |
@@ -127,8 +127,8 @@ PowerShell 또는 Graph API를 사용 하는 응용 프로그램을 사용 하�
 
 다음 방법 중 하나를 사용 하 여 장치 id를 가져오고 Azure AD에서 관리 하 여이 목표를 수행할 수 있습니다.
 
-- 조직에서는 [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) 를 사용 하 여 장치를 관리 하 고 규정 준수 정책을 적용 하며 장치 상태를 증명 하 고, 장치가 규격 인지 여부에 따라 조건부 액세스 정책을 설정할 수 있습니다. IOS 장치, Mac 데스크톱 (JAMF 통합을 통해), Windows 데스크톱 (Windows 10의 경우 기본적으로 모바일 장치 관리 사용, Microsoft Endpoint Manager/System Center Configuration Manager를 사용한 공동 관리 사용) 및 Android 모바일 장치를 관리할 수 Microsoft Intune.
-- [하이브리드 AZURE AD 조인은](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) Active Directory 도메인에 가입 된 컴퓨터 장치를 사용 하는 환경에서 그룹 정책, System Center Configuration Manager 또는 Microsoft 끝점 관리자에 대 한 관리를 제공 합니다. 조직은 원활한 SSO를 사용 하 여 PHS 또는 PTA를 통해 관리 되는 환경을 배포할 수 있습니다. 장치를 Azure AD로 가져오면 클라우드 및 온-프레미스 리소스에 대해 SSO를 통해 사용자 생산성을 극대화 하 고, 동시에  [조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 를 사용 하 여 클라우드 및 온-프레미스 리소스에 안전 하 게 액세스할 수 있도록 합니다.
+- 조직에서는 [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) 를 사용 하 여 장치를 관리 하 고 규정 준수 정책을 적용 하며 장치 상태를 증명 하 고, 장치가 규격 인지 여부에 따라 조건부 액세스 정책을 설정할 수 있습니다. IOS 장치, Mac 데스크톱 (JAMF 통합을 통해), Windows 데스크톱 (Windows 10의 경우 기본적으로 모바일 장치 관리를 사용 하 고, Microsoft 엔드포인트 Configuration Manager로 공동 관리) 및 Android 모바일 장치를 관리할 수 Microsoft Intune.
+- [하이브리드 AZURE AD 조인은](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) Active Directory 도메인에 가입 된 컴퓨터 장치를 사용 하는 환경에서 그룹 정책 또는 Microsoft 끝점 Configuration Manager에 대 한 관리를 제공 합니다. 조직은 원활한 SSO를 사용 하 여 PHS 또는 PTA를 통해 관리 되는 환경을 배포할 수 있습니다. 장치를 Azure AD로 가져오면 클라우드 및 온-프레미스 리소스에 대해 SSO를 통해 사용자 생산성을 극대화 하 고, 동시에  [조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 를 사용 하 여 클라우드 및 온-프레미스 리소스에 안전 하 게 액세스할 수 있도록 합니다.
 
 클라우드에 등록 되지 않은 도메인 가입 windows 장치 또는 클라우드에 등록 되어 있고 조건부 액세스 정책을 사용 하지 않는 도메인에 가입 된 windows 장치를 사용 하는 경우 등록 되지 않은 장치를 등록 하 고 두 경우 모두 조건부 액세스 정책에서 [컨트롤로 하이브리드 AZURE AD 조인을 사용](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) 합니다.
 
@@ -205,7 +205,7 @@ Azure AD의 [명명 된 위치](https://docs.microsoft.com/azure/active-director
 
 우선 순위에 따라 아래 표를 사용 하 여 조직의 요구 사항에 가장 부합 하는 권장 솔루션을 찾습니다.
 
-| **우선 순위** | **시나리오** | **권장 사항** |
+| **우선 순위** | **시나리오** | **권장** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | PHS 또는 PTA를 사용 하 고 명명 된 위치가 정의 되지 않은 경우 | 위험 이벤트 검색을 향상 시키기 위해 명명 된 위치 정의 |
 | 2 | 페더레이션 하 고 "insideCorporateNetwork" 클레임을 사용 하지 않고 명명 된 위치가 정의 되지 않은 경우 | 위험 이벤트 검색을 향상 시키기 위해 명명 된 위치 정의 |
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 다음은 그 예입니다.
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예:
 
 |리소스 | 사용 권한 |
 | :- | :- |

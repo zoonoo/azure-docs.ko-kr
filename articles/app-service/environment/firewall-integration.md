@@ -4,28 +4,25 @@ description: Azure 방화벽과 통합 하 여 App Service 환경 내에서 아�
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 01/14/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687227"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513350"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
 ASE(App Service Environment)에는 제대로 작동하기 위해 액세스해야 하는 여러 가지 외부 종속성이 있습니다. ASE는 고객의 Azure VNet(Virtual Network)에 상주합니다. 고객은 ASE 종속성 트래픽을 허용해야 합니다. 이는 VNet의 모든 송신을 잠그려고 하는 고객에게는 문제가 됩니다.
 
-ASE에는 여러 가지 인바운드 종속성이 있습니다. 인바운드 관리 트래픽은 방화벽 디바이스를 통해 보낼 수 없습니다. 이 트래픽에 대한 원본 주소는 알려져 있으며 [App Service Environment 관리 주소](https://docs.microsoft.com/azure/app-service/environment/management-addresses) 문서에 게시됩니다. 해당 정보를 사용하여 네트워크 보안 그룹 규칙을 만들어 인바운드 트래픽을 보호할 수 있습니다.
+ASE를 관리 하는 데 사용 되는 여러 인바운드 끝점이 있습니다. 인바운드 관리 트래픽은 방화벽 디바이스를 통해 보낼 수 없습니다. 이 트래픽에 대한 원본 주소는 알려져 있으며 [App Service Environment 관리 주소](https://docs.microsoft.com/azure/app-service/environment/management-addresses) 문서에 게시됩니다. 또한 NSGs (네트워크 보안 그룹)에서 인바운드 트래픽을 보호 하는 데 사용할 수 있는 AppServiceManagement 라는 서비스 태그가 있습니다.
 
-ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없는 FQDN을 사용하여 정의됩니다. 고정 주소가 없으면 NSG(네트워크 보안 그룹)를 사용하여 ASE의 아웃바운드 트래픽을 잠글 수 없습니다. 주소는 현재 확인에 기반한 규칙을 설정하고 NSG를 만드는 데 사용할 수 없을 만큼 자주 변경됩니다. 
+ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없는 FQDN을 사용하여 정의됩니다. 고정 주소가 없으면 네트워크 보안 그룹을 사용 하 여 ASE에서 아웃 바운드 트래픽을 잠글 수 없습니다. 주소는 현재 확인에 기반한 규칙을 설정하고 NSG를 만드는 데 사용할 수 없을 만큼 자주 변경됩니다. 
 
 아웃바운드 주소를 보호하는 솔루션은 도메인 이름에 따라 아웃바운드 트래픽을 제어할 수 있는 방화벽 디바이스를 사용하는 것입니다. Azure Firewall은 대상의 FQDN을 기반으로 아웃바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.  
-
-> [!NOTE]
-> 현재는 아웃 바운드 연결을 완전히 잠금 할 수 없습니다.
 
 ## <a name="system-architecture"></a>시스템 아키텍처
 
@@ -42,6 +39,12 @@ ASE에서 들어오고 나가는 트래픽은 다음 규칙을 준수 해야 합
 
 ![Azure Firewall 연결 흐름 포함 ASE][5]
 
+## <a name="locking-down-inbound-management-traffic"></a>인바운드 관리 트래픽 잠금
+
+ASE 서브넷에 NSG가 아직 할당 되지 않은 경우 하나를 만듭니다. NSG 내에서 포트 454, 455에서 이름이 AppServiceManagement 인 서비스 태그의 트래픽을 허용 하는 첫 번째 규칙을 설정 합니다. 이는 ASE를 관리 하기 위해 공용 Ip에서 필요한 모든 것입니다. 해당 서비스 태그 뒤에 있는 주소는 Azure App Service를 관리 하는 데만 사용 됩니다. 이러한 연결을 통해 흐르는 관리 트래픽은 암호화 되어 인증 인증서로 보호 됩니다. 이 채널의 일반적인 트래픽에는 고객 시작 명령 및 상태 프로브와 같은 항목이 포함 됩니다. 
+
+새 서브넷을 사용 하 여 포털을 통해 수행 되는 Ase는 AppServiceManagement 태그에 대 한 허용 규칙이 포함 된 NSG를 사용 하 여 생성 됩니다.  
+
 ## <a name="configuring-azure-firewall-with-your-ase"></a>ASE를 사용하여 Azure Firewall 구성 
 
 Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다음과 같습니다.
@@ -51,14 +54,19 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
    ![서비스 엔드포인트 선택][2]
   
 1. ASE가 있는 VNet에서 AzureFirewallSubnet이라는 서브넷을 만듭니다. [Azure Firewall 설명서](https://docs.microsoft.com/azure/firewall/)의 지침에 따라 Azure Firewall을 만듭니다.
+
 1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [애플리케이션 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. FQDN 태그 섹션에서 이름을 입력하고, 원본 주소를 *로 설정하며, App Service Environment FQDN 태그 및 Windows 업데이트를 선택합니다. 
    
    ![애플리케이션 규칙 추가][1]
    
-1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션에서 이름을 입력하고, **모두**를 선택한 다음, 원본 및 대상 주소를 *로 설정하며, 포트를 123으로 설정합니다. 이 규칙은 시스템이 NTP를 사용하여 클록 동기화를 수행할 수 있게 합니다. 시스템 문제를 분류하기 위해 포트 12000과 동일한 방식으로 다른 규칙을 만듭니다.
+1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 IP 주소에서 이름을 제공 하 고, **임의**의 ptocol을 선택 하 고, *를 원본 및 대상 주소로 설정 하 고, 포트를 123으로 설정 합니다. 이 규칙은 시스템이 NTP를 사용하여 클록 동기화를 수행할 수 있게 합니다. 시스템 문제를 분류하기 위해 포트 12000과 동일한 방식으로 다른 규칙을 만듭니다. 
 
    ![NTP 네트워크 규칙 추가][3]
+   
+1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 서비스 태그에서 이름을 제공 하 고, 프로토콜을 선택 하 고 **, 주소**를 원본 주소로 설정 하 고, azuremonitor의 서비스 태그를 선택 하 고, 포트를 80, 443로 설정 합니다. 이 규칙은 시스템에서 상태 및 메트릭 정보를 Azure Monitor 제공할 수 있도록 합니다.
 
+   ![NTP 서비스 태그 네트워크 규칙 추가][6]
+   
 1. 인터넷의 다음 홉을 사용하여 [App Service Environment 관리 주소]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)의 관리 주소가 있는 경로 테이블을 만듭니다. 경로 테이블 항목은 비대칭 라우팅 문제를 방지하는 데 필요합니다. 인터넷의 다음 홉을 사용하여 IP 주소 종속성 아래에 명시된 IP 주소 종속성에 대한 경로를 추가합니다. Azure Firewall 개인 IP 주소인 다음 홉을 사용하여 0.0.0.0/0에 대한 경로 테이블에 Virtual Appliance 경로를 추가합니다. 
 
    ![경로 테이블 만들기][4]
@@ -106,7 +114,7 @@ Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그
 |----------|
 | Azure SQL |
 | Azure Storage |
-| Azure 이벤트 허브 |
+| Azure Event Hub |
 
 #### <a name="ip-address-dependencies"></a>IP 주소 종속성
 
@@ -248,7 +256,25 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 
 ## <a name="us-gov-dependencies"></a>US Gov 종속성
 
-US Gov의 경우 저장소, SQL 및 이벤트 허브에 대 한 서비스 엔드포인트를 설정 해야 합니다.  이 문서의 앞부분에 나오는 지침에 따라 Azure 방화벽을 사용할 수도 있습니다. 사용자 고유의 송신 방화벽 장치를 사용 해야 하는 경우 끝점은 아래에 나열 되어 있습니다.
+US Gov 지역의 Ase의 경우이 문서의 [ase를 사용 하 여 Azure 방화벽 구성](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) 섹션의 지침에 따라 ase를 사용 하 여 azure 방화벽을 구성 합니다.
+
+US Gov에서 Azure 방화벽 이외의 장치를 사용 하려는 경우 
+
+* 서비스 엔드포인트 지원 서비스는 서비스 엔드포인트로 구성되어야 합니다.
+* FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
+* 와일드카드 HTTP/HTTPS 엔드포인트는 몇 가지 한정자를 기반으로 하여 ASE에 따라 달라질 수 있는 종속성입니다.
+
+Linux는 US Gov 지역에서 사용할 수 없으며, 따라서 선택적 구성으로 표시 되지 않습니다.
+
+#### <a name="service-endpoint-capable-dependencies"></a>서비스 엔드포인트 지원 종속성 ####
+
+| 엔드포인트 |
+|----------|
+| Azure SQL |
+| Azure Storage |
+| Azure Event Hub |
+
+#### <a name="dependencies"></a>종속성 ####
 
 | 엔드포인트 |
 |----------|
@@ -375,3 +401,4 @@ US Gov의 경우 저장소, SQL 및 이벤트 허브에 대 한 서비스 엔드
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
 [5]: ./media/firewall-integration/firewall-topology.png
+[6]: ./media/firewall-integration/firewall-ntprule-monitor.png

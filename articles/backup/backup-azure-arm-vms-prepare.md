@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure Vm을 백업 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 95c185c09558f3d1a525c9bcf15f3957118c4311
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: e5ff3a00d8cb3bf0c5fa3cb4929b7c22d92c7834
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294034"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513816"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -36,7 +36,6 @@ ms.locfileid: "76294034"
 또한 경우에 따라 몇 가지 작업을 수행 해야 할 수도 있습니다.
 
 * Vm **에 vm 에이전트 설치**: Azure Backup는 컴퓨터에서 실행 되는 azure vm 에이전트에 확장을 설치 하 여 azure vm을 백업 합니다. Azure marketplace 이미지에서 VM을 만든 경우 에이전트가 설치 되 고 실행 됩니다. 사용자 지정 VM을 만들거나 온-프레미스 컴퓨터를 마이그레이션하는 경우 [에이전트를 수동으로 설치](#install-the-vm-agent)해야 할 수 있습니다.
-* **아웃 바운드 액세스 명시적 허용**: 일반적으로 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 Azure Backup와 통신 하기 위해 명시적으로 허용 하지 않아도 됩니다. 그러나 연결을 시도할 때 **ExtensionSnapshotFailedNoNetwork** 오류가 표시 되는 일부 vm에 연결 문제가 발생할 수 있습니다. 이 경우 [아웃 바운드 액세스를 명시적으로 허용](#explicitly-allow-outbound-access)해야 하므로 Azure Backup 확장은 백업 트래픽에 대해 AZURE 공용 IP 주소와 통신할 수 있습니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -45,7 +44,7 @@ ms.locfileid: "76294034"
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 검색에 **Recovery Services**을 입력 합니다. **서비스**에서 **Recovery Services 자격 증명 모음**을 클릭 합니다.
 
-     ![Recovery Services 자격 증명 모음 검색](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
+     ![Recovery Services 자격 증명 모음 검색](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png)
 
 3. **Recovery Services 자격 증명 모음** 메뉴에서 **+ 추가**를 클릭 합니다.
 
@@ -121,6 +120,7 @@ ms.locfileid: "76294034"
 * 백업이 실행 되는 경우 다음을 참고 하십시오.
   * 실행 중인 VM은 응용 프로그램 일치 복구 지점을 캡처할 가능성이 가장 큽니다.
   * 그러나 VM이 해제 된 경우에도 백업 됩니다. 이러한 VM을 오프 라인 VM 이라고 합니다. 이 경우 복구 지점은 크래시 일관성을 유지 합니다.
+* Azure Vm의 백업을 허용 하기 위해 명시적인 아웃 바운드 연결이 필요 하지 않습니다.
 
 ### <a name="create-a-custom-policy"></a>사용자 지정 정책 만들기
 
@@ -177,7 +177,7 @@ Completed | 실패 | 완료 되었지만 경고 발생
 이제이 기능을 사용 하는 경우 동일한 VM에 대해 두 개의 백업이 병렬로 실행 될 수 있지만 두 단계 (스냅숏, 자격 증명 모음에 데이터 전송)는 하나의 하위 작업만 실행할 수 있습니다. 따라서 진행 중인 백업 작업이 발생 하 여 다음 날의 백업이 실패 하는 경우이 분리 기능이 사용 되지 않습니다. 이후 날의 백업은 이전 날짜의 백업 작업이 진행 중일 경우 **자격 증명 모음으로 데이터를 전송** 하는 동안 스냅숏이 완료 될 수 있습니다.
 자격 증명 모음에 생성 된 증분 복구 지점은 자격 증명 모음에서 만든 마지막 복구 지점부터 모든 변동 (code)을 캡처합니다. 사용자에 게는 비용에 영향을 주지 않습니다.
 
-## <a name="optional-steps-install-agentallow-outbound"></a>선택적 단계 (에이전트 설치/아웃 바운드 허용)
+## <a name="optional-steps"></a>선택적 단계
 
 ### <a name="install-the-vm-agent"></a>VM 에이전트 설치
 
@@ -187,114 +187,6 @@ Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을
 --- | ---
 **Windows** | 1. 에이전트 MSI 파일을 [다운로드 하 여 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 합니다.<br/><br/> 2. 컴퓨터에 대 한 관리자 권한으로를 설치 합니다.<br/><br/> 3. 설치를 확인 합니다. VM의 >  *c:\windowsazure\\pupv\\pupv\\pupv\ppv\pv* **세부 정보** 탭에서 **제품 버전** 을 2.6.1198.718 이상 이상으로 설정 해야 합니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 한 후 [에이전트를 다시 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)하십시오.
 **Linux** | 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용 하 여를 설치 합니다. 이는 Azure Linux 에이전트를 설치 하 고 업그레이드 하는 데 선호 되는 방법입니다. 모든 [인증 배포 공급자](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다. 에이전트는 [GitHub](https://github.com/Azure/WALinuxAgent)에서 사용할 수 있지만 설치하지 않는 것이 좋습니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 하 고 이진 파일을 업데이트 합니다.
-
-### <a name="explicitly-allow-outbound-access"></a>아웃 바운드 액세스를 명시적으로 허용
-
-VM에서 실행 되는 백업 확장에는 Azure 공용 IP 주소에 대 한 아웃 바운드 액세스가 필요 합니다.
-
-* 일반적으로 Azure Backup와 통신 하기 위해 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 명시적으로 허용 하지 않아도 됩니다.
-* Vm에 연결 하는 데 문제가 발생 하거나 연결을 시도할 때 **ExtensionSnapshotFailedNoNetwork** 오류가 표시 되는 경우 백업 확장이 백업 트래픽에 대해 AZURE 공용 IP 주소와 통신할 수 있도록 명시적으로 액세스를 허용 해야 합니다. 액세스 방법은 다음 표에 요약 되어 있습니다.
-
-**옵션** | **동작** | **세부 정보**
---- | --- | ---
-**NSG 규칙 설정** | [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용 합니다.<br/><br/> 모든 주소 범위를 허용 하 고 관리 하는 대신 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)를 사용 하 여 Azure Backup 서비스에 대 한 액세스를 허용 하는 규칙을 추가할 수 있습니다. | [서비스 태그](../virtual-network/security-overview.md#service-tags)에 대해 자세히 알아보세요.<br/><br/> 서비스 태그는 액세스 관리를 간소화 하며 추가 비용이 발생 하지 않습니다.
-**프록시 배포** | 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다. | 스토리지뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.<br/><br/> 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> VM에 대한 인터넷 액세스의 단일 지점입니다.<br/><br/> 프록시에 대한 추가 비용이 없습니다.
-**Azure Firewall 설정** | Azure Backup 서비스에 대한 FQDN 태그를 사용하여 VM에서 Azure Firewall을 통해 트래픽을 허용합니다. | VNet 서브넷에 Azure 방화벽이 설정 되어 있는 경우 간단 하 게 사용할 수 있습니다.<br/><br/> 사용자 고유의 FQDN 태그를 만들거나 태그에서 fqdn을 수정할 수 없습니다.<br/><br/> Azure Vm에 관리 디스크가 있는 경우 방화벽에서 추가 포트 (8443)를 열어야 할 수도 있습니다.
-
-#### <a name="establish-network-connectivity"></a>네트워크 연결 설정
-
-NSG, 프록시 또는 방화벽을 통해 연결 설정
-
-##### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Azure에 아웃바운드 액세스를 허용하도록 NSG 규칙 설정
-
-NSG가 VM 액세스를 관리 하는 경우 필요한 범위 및 포트에 대 한 백업 저장소에 대 한 아웃 바운드 액세스를 허용 합니다.
-
-1. VM 속성 > **네트워킹**에서 **아웃 바운드 포트 규칙 추가**를 선택 합니다.
-2. **아웃 바운드 보안 규칙 추가**에서 **고급**을 선택 합니다.
-3. **원본**에서 **VirtualNetwork**를 선택합니다.
-4. **원본 포트 범위**에서 별표 (*)를 입력 하 여 모든 포트에서 아웃 바운드 액세스를 허용 합니다.
-5. **대상**에서 **서비스 태그**를 선택합니다. 목록에서 **Storage.region**을 선택합니다. 지역은 자격 증명 모음 및 백업 하려는 Vm이 있는 위치입니다.
-6. **대상 포트 범위**에서 포트를 선택합니다.
-    * 암호화 되지 않은 저장소 계정으로 관리 되지 않는 디스크를 사용 하는 VM: 80
-    * 암호화 된 저장소 계정에 관리 되지 않는 디스크를 사용 하는 VM: 443 (기본 설정)
-    * 관리 디스크를 사용 하는 VM: 8443.
-7. **프로토콜**에서 **TCP**를 선택합니다.
-8. **우선 순위**에서 모든 거부 규칙보다 더 작은 우선 순위 값을 지정합니다.
-
-   액세스를 거부 하는 규칙이 있는 경우 새 허용 규칙이 높아야 합니다. 예를 들어 우선 순위 1000에서 **Deny_All** 규칙이 있는 경우 새 규칙은 1000 미만으로 설정해야 합니다.
-9. 규칙에 대 한 이름 및 설명을 입력 하 고 **확인**을 선택 합니다.
-
-아웃바운드 액세스를 허용하는 여러 VM에 NSG 규칙을 적용할 수 있습니다. 이 비디오에서는 프로세스에 대해 설명합니다.
-
->[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
-
-##### <a name="route-backup-traffic-through-a-proxy"></a>프록시를 통해 백업 트래픽 라우팅
-
-프록시를 통해 백업 트래픽을 라우팅한 다음, 필요한 Azure 범위에 액세스할 수 있는 권한을 프록시에 부여할 수 있습니다. 다음을 허용 하도록 프록시 VM을 구성 합니다.
-
-* Azure VM은 프록시를 통해 공용 인터넷으로 향하는 모든 HTTP 트래픽을 라우팅해야 합니다.
-* 프록시는 해당 하는 가상 네트워크의 Vm에서 들어오는 트래픽을 허용 해야 합니다.
-* NSG **NSF-lockdown**은 프록시 VM에서 들어오는 아웃바운드 인터넷 트래픽을 허용하는 규칙이 필요합니다.
-
-###### <a name="set-up-the-proxy"></a>프록시 설정
-
-시스템 계정 프록시가 없는 경우 다음과 같이 설정합니다.
-
-1. [PsExec](https://technet.microsoft.com/sysinternals/bb897553)을 다운로드합니다.
-2. **PsExec.exe-i-s cmd.exe**를 실행하여 시스템 계정에서 명령 프롬프트를 실행합니다.
-3. 시스템 컨텍스트에서 브라우저를 실행합니다. 예를 들어 Internet Explorer에 **%Programfiles%\internet explorer\ Explorer\iexplore.exe** 를 사용 합니다.  
-4. 프록시 설정을 정의합니다.
-   * Linux 머신:
-     * 이 줄을 **/etc/environment** 파일에 추가합니다.
-       * **http_proxy = http:\//프록시 IP 주소: 프록시 포트**
-     * 이 줄을 **/etc/waagent.conf** 파일에 추가합니다.
-         * **HttpProxy.Host=proxy IP address**
-         * **HttpProxy.Port=proxy port**
-   * Windows 머신의 브라우저 설정에서 프록시를 사용함으로 지정합니다. 현재 사용자 계정에서 프록시를 사용하는 경우 시스템 계정 수준에서 설정을 적용하려면 이 스크립트를 사용할 수 있습니다.
-
-       ```powershell
-      $obj = Get-ItemProperty -Path Registry::"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
-      Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
-      Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
-      $obj = Get-ItemProperty -Path Registry::"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
-      Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
-      Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
-
-       ```
-
-###### <a name="allow-incoming-connections-on-the-proxy"></a>프록시에서 들어오는 연결 허용
-
-프록시 설정에서 들어오는 연결을 허용합니다.
-
-1. Windows 방화벽에서 **고급 보안이 포함 된 Windows 방화벽**을 엽니다.
-2. 마우스 오른쪽 단추로 **인바운드 규칙** > **새 규칙**을 클릭합니다.
-3. **규칙 유형**에서 **사용자 지정** > **다음**을 선택 합니다.
-4. **프로그램**에서 **모든 프로그램** > **다음**을 선택합니다.
-5. **프로토콜 및 포트**에서:
-   * 유형을 **TCP**로 설정 합니다.
-   * **로컬 포트** 를 **특정 포트로**설정 합니다.
-   * **모든 포트**에 **원격 포트** 를 설정 합니다.
-
-6. 마법사를 끝내고 규칙 이름을 지정합니다.
-
-###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>NSG에 프록시에 대한 예외 규칙 추가
-
-NSG **NSF-lockdown**에서 10.0.0.5의 모든 포트에서 오는 트래픽을 포트 80(HTTP) 또는 443(HTTPS)의 모든 인터넷 주소에 허용합니다.
-
-다음 PowerShell 스크립트에서는 트래픽을 허용하는 예제를 제공합니다.
-모든 공용 인터넷 주소에 대해 아웃 바운드를 허용 하는 대신 IP 주소 범위 (`-DestinationPortRange`)를 지정 하거나, 저장소. 지역 서비스 태그를 사용할 수 있습니다.
-
-```powershell
-Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
-Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
-```
-
-##### <a name="allow-firewall-access-with-an-fqdn-tag"></a>FQDN 태그를 사용 하 여 방화벽 액세스 허용
-
-Azure Backup에 대 한 네트워크 트래픽에 대 한 아웃 바운드 액세스를 허용 하도록 Azure 방화벽을 설정할 수 있습니다.
-
-* Azure Firewall 배포에 대해 [알아보기](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
-* FQDN 태그에 대해 [읽어보기](https://docs.microsoft.com/azure/firewall/fqdn-tags)
 
 >[!NOTE]
 > 이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.

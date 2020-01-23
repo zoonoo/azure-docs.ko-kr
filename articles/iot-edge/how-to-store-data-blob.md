@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12c5bf66de966faf8dc31c7265fdfb0180a95323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970840"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509821"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용 하 여에 지에 데이터 저장
 
@@ -85,7 +85,6 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`으로 컨테이너 이름이 자동으로 할당 됩니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15로 잘립니다. 자를. <br><br> 환경 변수: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | 기본적으로 `false`로 설정 합니다. `true`로 설정 된 경우 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 성공적으로 업로드 한 후 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램이 드물게 추가 작업을 수행 하거나 연속 추가 작업을 지원 하지 않는 경우이 설정을 사용 하지 않도록 주의 하십시오.<br><br> 환경 변수: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`. |
 
-
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
 이 설정의 이름은 `deviceAutoDeleteProperties`입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
@@ -97,6 +96,7 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 | retainWhileUploading | true, false | 기본적으로 `true`로 설정 되며, deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob이 유지 됩니다. `false`로 설정할 수 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고:이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다.  <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 값이 만료 될 때 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램에서 수행 하는 추가 작업의 예상 된 빈도로 만료 값이 충분 한지 확인 하는 것이 좋습니다.<br><br> 환경 변수: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>로컬 저장소로 SMB 공유 사용
+
 Windows 호스트에서이 모듈의 Windows 컨테이너를 배포할 때 로컬 저장소 경로로 SMB 공유를 제공할 수 있습니다.
 
 SMB 공유 및 IoT 장치가 상호 트러스트 된 도메인에 있는지 확인 합니다.
@@ -104,48 +104,58 @@ SMB 공유 및 IoT 장치가 상호 트러스트 된 도메인에 있는지 확�
 `New-SmbGlobalMapping` PowerShell 명령을 실행 하 여 Windows를 실행 하는 IoT 장치에서 로컬로 SMB 공유를 매핑할 수 있습니다.
 
 구성 단계는 다음과 같습니다.
+
 ```PowerShell
 $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
-예: <br>
-`$creds = Get-Credential` <br>
-`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:`
 
-이 명령은 자격 증명을 사용 하 여 원격 SMB 서버에 인증 합니다. 그런 다음 원격 공유 경로를 G: 드라이브 문자에 매핑합니다(사용 가능한 다른 모든 드라이브 문자일 수 있음). 이제 IoT 장치에는 G: 드라이브의 경로에 매핑된 데이터 볼륨이 있습니다. 
+예:
+
+```powershell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
+```
+
+이 명령은 자격 증명을 사용 하 여 원격 SMB 서버에 인증 합니다. 그런 다음 원격 공유 경로를 G: 드라이브 문자에 매핑합니다(사용 가능한 다른 모든 드라이브 문자일 수 있음). 이제 IoT 장치에는 G: 드라이브의 경로에 매핑된 데이터 볼륨이 있습니다.
 
 IoT 장치의 사용자가 원격 SMB 공유에 대 한 읽기/쓰기를 수행할 수 있는지 확인 합니다.
 
-배포의 `<storage mount>` 값은 **G:/ContainerData: C:/BlobRoot**일 수 있습니다. 
+배포의 `<storage mount>` 값은 **G:/ContainerData: C:/BlobRoot**일 수 있습니다.
 
 ## <a name="granting-directory-access-to-container-user-on-linux"></a>Linux에서 컨테이너 사용자에 게 디렉터리 액세스 권한 부여
+
 Linux 컨테이너에 대 한 만들기 옵션에서 저장소에 [볼륨 탑재](https://docs.docker.com/storage/volumes/) 를 사용한 경우 추가 단계를 수행 하지 않아도 되지만, [bind 탑재](https://docs.docker.com/storage/bind-mounts/) 를 사용 하는 경우 이러한 단계는 서비스를 올바르게 실행 하는 데 필요 합니다.
 
-최소 권한의 원칙에 따라 사용자가 작업을 수행 하는 데 필요한 최소 권한으로 사용자의 액세스 권한을 제한 합니다 .이 모듈에는 사용자 (이름: absie, ID: 11000) 및 사용자 그룹 (이름: absie, ID: 11000)이 포함 됩니다. 컨테이너가 **root** (기본 사용자 **루트**)로 시작 되는 경우 서비스는 낮은 권한 **absie** 사용자로 시작 됩니다. 
+최소 권한의 원칙에 따라 사용자가 작업을 수행 하는 데 필요한 최소 권한으로 사용자의 액세스 권한을 제한 합니다 .이 모듈에는 사용자 (이름: absie, ID: 11000) 및 사용자 그룹 (이름: absie, ID: 11000)이 포함 됩니다. 컨테이너가 **root** (기본 사용자 **루트**)로 시작 되는 경우 서비스는 낮은 권한 **absie** 사용자로 시작 됩니다.
 
 이 동작은 서비스가 올바르게 작동 하는 데 매우 중요 한 호스트 경로 바인딩에 대 한 권한을 구성 합니다. 그렇지 않으면 서비스가 액세스 거부 오류로 인해 중단 됩니다. 디렉터리 바인딩에 사용 되는 경로는 컨테이너 사용자가 액세스할 수 있어야 합니다 (예: absie 11000). 호스트에서 아래 명령을 실행 하 여 컨테이너 사용자에 게 디렉터리에 대 한 액세스 권한을 부여할 수 있습니다.
 
 ```terminal
-sudo chown -R 11000:11000 <blob-dir> 
-sudo chmod -R 700 <blob-dir> 
+sudo chown -R 11000:11000 <blob-dir>
+sudo chmod -R 700 <blob-dir>
 ```
 
-예:<br>
-`sudo chown -R 11000:11000 /srv/containerdata` <br>
-`sudo chmod -R 700 /srv/containerdata`
+예:
 
+```terminal
+sudo chown -R 11000:11000 /srv/containerdata
+sudo chmod -R 700 /srv/containerdata
+```
 
 **Absie**이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이 경우 기본 또는 루트 그룹 ID `0`를 사용 해야 합니다.
 
 ```json
-"createOptions": { 
-  "User": "<custom user ID>:0" 
-} 
+"createOptions": {
+  "User": "<custom user ID>:0"
+}
 ```
+
 이제 컨테이너 사용자에 게 디렉터리에 대 한 액세스 권한을 부여 합니다.
+
 ```terminal
-sudo chown -R <user ID>:<group ID> <blob-dir> 
-sudo chmod -R 700 <blob-dir> 
+sudo chown -R <user ID>:<group ID> <blob-dir>
+sudo chmod -R 700 <blob-dir>
 ```
 
 ## <a name="configure-log-files"></a>로그 파일 구성
@@ -158,11 +168,11 @@ sudo chmod -R 700 <blob-dir>
 
 만드는 스토리지 요청의 Blob 엔드포인트로 IoT Edge 디바이스를 지정합니다. 구성한 IoT Edge 디바이스 정보 및 계정 이름을 사용하여 [명시적 스토리지 엔드포인트에 대한 연결 문자열을 만들 수 있습니다](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint).
 
-- IoT Edge 모듈의 Azure Blob Storage와 동일한 장치에 배포 된 모듈의 경우 Blob 끝점은 `http://<module name>:11002/<account name>`입니다.
-- 다른 장치에서 실행 되는 모듈 또는 응용 프로그램의 경우 네트워크에 적합 한 끝점을 선택 해야 합니다. 네트워크 설정에 따라 외부 모듈이 나 응용 프로그램의 데이터 트래픽이 IoT Edge 모듈의 Azure Blob Storage를 실행 하는 장치에 도달할 수 있도록 끝점 형식을 선택 합니다. 이 시나리오에 대 한 blob 끝점은 다음 중 하나입니다.
-  - `http://<device IP >:11002/<account name>`
-  - `http://<IoT Edge device hostname>:11002/<account name>`
-  - `http://<fully qualified domain name>:11002/<account name>`
+* IoT Edge 모듈의 Azure Blob Storage와 동일한 장치에 배포 된 모듈의 경우 Blob 끝점은 `http://<module name>:11002/<account name>`입니다.
+* 다른 장치에서 실행 되는 모듈 또는 응용 프로그램의 경우 네트워크에 적합 한 끝점을 선택 해야 합니다. 네트워크 설정에 따라 외부 모듈이 나 응용 프로그램의 데이터 트래픽이 IoT Edge 모듈의 Azure Blob Storage를 실행 하는 장치에 도달할 수 있도록 끝점 형식을 선택 합니다. 이 시나리오에 대 한 blob 끝점은 다음 중 하나입니다.
+  * `http://<device IP >:11002/<account name>`
+  * `http://<IoT Edge device hostname>:11002/<account name>`
+  * `http://<fully qualified domain name>:11002/<account name>`
 
 ## <a name="azure-blob-storage-quickstart-samples"></a>Azure Blob Storage 빠른 시작 샘플
 
@@ -202,7 +212,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 
 ## <a name="supported-storage-operations"></a>지원되는 스토리지 작업
 
-IoT Edge의 blob storage 모듈은 Azure Storage Sdk를 사용 하며, 블록 blob 끝점에 대 한 Azure Storage API의 2017-04-17 버전과 일치 합니다. 
+IoT Edge의 blob storage 모듈은 Azure Storage Sdk를 사용 하며, 블록 blob 끝점에 대 한 Azure Storage API의 2017-04-17 버전과 일치 합니다.
 
 IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하지 않기 때문에이 섹션에는 각 작업의 상태가 나열 됩니다.
 
@@ -271,6 +281,7 @@ IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하
 * URL의 블록 추가
 
 ## <a name="event-grid-on-iot-edge-integration"></a>IoT Edge 통합 Event Grid
+
 > [!CAUTION]
 > IoT Edge에서 Event Grid와의 통합이 미리 보기 상태입니다.
 

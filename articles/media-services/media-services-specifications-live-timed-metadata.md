@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services - 라이브 스트리밍의 신호 타이밍 메타데이터 | Microsoft Docs
+title: 라이브 스트리밍의 Azure Media Services 신호 시간 제한 메타 데이터
 description: 이 사양에서는 수집 및 streaming이 Azure Media Services 때 시간 지정 되는 메타 데이터 신호를 위한 메서드를 간략하게 설명 합니다. 여기에는 ad 삽입 및 스플라이스 조건 신호에 대 한 SCTE-35 신호 뿐만 아니라 일반 시간 제한 메타 데이터 신호 (ID3)도 지원 됩니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: fd8533ff310e307604e5ce25a4285cc90f3ea4ab
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933995"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514241"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터 
 

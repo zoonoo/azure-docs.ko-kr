@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8323333f378f95f0a640313524f198bdd00dc340
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848496"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512575"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>암호 없는 인증 배포 완료
 
@@ -67,7 +67,7 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 **장치 등록** -암호 없는 인증을 위해 인증자 앱을 사용 하려면 장치가 Azure AD 테 넌 트에 등록 되어 있어야 하 고 공유 장치 일 수 없습니다. 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 Authenticator 앱을 사용 하 여 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 지원 됨을 의미 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -108,7 +108,7 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
    - Intune 배포를 권장 하는 옵션입니다.
 - [프로 비전 패키지를 사용 하 여 자격 증명 공급자 사용](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Intune 배포를 수행할 수 없는 경우 관리자는 자격 증명 공급자 기능을 사용 하려면 각 컴퓨터에 패키지를 배포 해야 합니다. 다음 옵션 중 하나를 수행 하 여 패키지를 설치할 수 있습니다.
-      - 그룹 정책 또는 System Center Configuration Manager (SCCM)
+      - 그룹 정책 또는 Configuration Manager
       - Windows 10 컴퓨터에 로컬 설치
 
 ### <a name="register-security-keys"></a>보안 키 등록
@@ -129,7 +129,7 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
 
 다음 표에서는이 프로젝트 중에 구현 되는 사용 사례를 간략하게 설명 합니다.
 
-| 영역 | 설명 |
+| 영역 | Description |
 | --- | --- |
 | **Access** | Passwordless 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사 하는 데 사용할 수 있습니다. <br> 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 되거나 SIEM 도구가 사용 됩니다. |
@@ -245,7 +245,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 
 ### <a name="required-administrative-roles"></a>필요한 관리 역할
 
-| Azure AD 역할 | 설명 |
+| Azure AD 역할 | Description |
 | --- | --- |
 | 인증 관리자 | 인증 방법을 구현 및 관리할 수 있는 최소 권한 역할 |
 | 사용자 | 장치에서 Authenticator 앱을 구성 하거나 웹 또는 Windows 10 로그인에 대 한 보안 키 장치를 등록 하기 위한 최소 권한 있는 역할입니다. |

@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: fb3795ff807a87e9bac4d95400f5e446c68d1e4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b08ffa79e012344cad6cf72df98a0f1ba5240ce0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897526"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76508610"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 
@@ -25,10 +25,10 @@ ms.locfileid: "73897526"
 
 첫 번째 단계는 사용자 지정 하위 도메인을 만드는 것입니다. 사용자 지정 하위 도메인 이름이 없는 기존 Cognitive Services 리소스를 사용 하려는 경우 [사용자 지정 하위 도메인 Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) 의 지침에 따라 리소스에 대 한 사용자 지정 하위 도메인을 사용 하도록 설정 합니다.
 
-1. Azure Cloud Shell를 열어 시작 합니다. 그런 다음 [구독을 선택 합니다](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description).
+1. Azure Cloud Shell를 열어 시작 합니다. 그런 다음 [구독을 선택 합니다](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0).
 
    ```azurecli-interactive
-   Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
+   Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
 2. 다음으로 사용자 지정 하위 도메인을 사용 하 여 [Cognitive Services 리소스를 만듭니다](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) . 하위 도메인 이름은 전역적으로 고유 해야 하며 특수 문자 (예: ".", "!", ",")를 포함할 수 없습니다.

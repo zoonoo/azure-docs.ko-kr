@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912279"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514258"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -105,7 +105,7 @@ Windows에서:
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>IoT Edge 보안 관리자가 실행되지 않는 경우 yaml 구성 파일을 확인합니다.
 
 > [!WARNING]
-> YAML 파일은 탭을 들여쓰기로 포함할 수 없습니다. 2 공백을 대신 사용합니다.
+> YAML 파일은 탭을 들여쓰기로 포함할 수 없습니다. 2 공백을 대신 사용합니다. 최상위 요소에는 선행 공백이 없어야 합니다.
 
 Linux에서:
 
@@ -121,7 +121,7 @@ Windows에서:
 
 ### <a name="check-container-logs-for-issues"></a>문제에 대한 컨테이너 로그 확인
 
-IoT Edge 보안 디먼이 실행되면 컨테이너의 로그를 확인하여 문제를 검색합니다. 배포 된 컨테이너에서 시작 하 고 IoT Edge 런타임을 구성 하는 컨테이너 (edgeAgent 및 edgeHub)를 확인 합니다. IoT Edge 에이전트 로그는 일반적으로 각 컨테이너의 수명 주기에 대 한 정보를 제공 합니다. IoT Edge 허브 로그는 메시징 및 라우팅에 대 한 정보를 제공 합니다. 
+IoT Edge 보안 디먼이 실행되면 컨테이너의 로그를 확인하여 문제를 검색합니다. 배포 된 컨테이너에서 시작 하 고 IoT Edge 런타임을 구성 하는 컨테이너 (edgeAgent 및 edgeHub)를 확인 합니다. IoT Edge 에이전트 로그는 일반적으로 각 컨테이너의 수명 주기에 대 한 정보를 제공 합니다. IoT Edge 허브 로그는 메시징 및 라우팅에 대 한 정보를 제공 합니다.
 
    ```cmd
    iotedge logs <container name>
@@ -163,7 +163,7 @@ Windows에서:
    ```
 
    > [!WARNING]
-   > YAML 파일은 들여쓰기로 탭을 포함할 수 없습니다. 2 공백을 대신 사용합니다.
+   > YAML 파일은 들여쓰기로 탭을 포함할 수 없습니다. 2 공백을 대신 사용합니다. 최상위 항목에는 선행 공백이 있을 수 없습니다.
 
 파일을 저장하고 IoT Edge 보안 관리자를 다시 시작합니다.
 
@@ -249,7 +249,7 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 
 **근본 원인**
 
-Iot Edge 에이전트에는 모듈의 이미지에 액세스할 수 있는 권한이 없습니다.
+IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한이 없습니다.
 
 **해결 방법**
 
@@ -435,6 +435,6 @@ IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iotedge/issues)하세요. 
+IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iotedge/issues)하세요.
 
 추가 질문이 있으면 [지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 만들어 도움을 받으세요.

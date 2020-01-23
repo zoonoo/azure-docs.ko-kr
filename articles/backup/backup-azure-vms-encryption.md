@@ -3,12 +3,12 @@ title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 754a0899d25f2672c6a66eeafe5013f98b7a8f4d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449976"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513782"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>암호화 된 Azure VM 백업 및 복원
 
@@ -53,7 +53,6 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 또한 경우에 따라 몇 가지 작업을 수행 해야 할 수도 있습니다.
 
 - Vm **에 vm 에이전트 설치**: Azure Backup는 컴퓨터에서 실행 되는 azure vm 에이전트에 확장을 설치 하 여 azure vm을 백업 합니다. Azure marketplace 이미지에서 VM을 만든 경우 에이전트가 설치 되 고 실행 됩니다. 사용자 지정 VM을 만들거나 온-프레미스 컴퓨터를 마이그레이션하는 경우 [에이전트를 수동으로 설치](backup-azure-arm-vms-prepare.md#install-the-vm-agent)해야 할 수 있습니다.
-- **아웃 바운드 액세스 명시적 허용**: 일반적으로 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 Azure Backup와 통신 하기 위해 명시적으로 허용 하지 않아도 됩니다. 그러나 연결을 시도할 때 **ExtensionSnapshotFailedNoNetwork** 오류가 표시 되는 일부 vm에 연결 문제가 발생할 수 있습니다. 이 경우 [아웃 바운드 액세스를 명시적으로 허용](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access)해야 하므로 Azure Backup 확장은 백업 트래픽에 대해 AZURE 공용 IP 주소와 통신할 수 있습니다.
 
 ## <a name="configure-a-backup-policy"></a>백업 정책 구성
 

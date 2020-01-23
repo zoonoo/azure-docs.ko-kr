@@ -1,6 +1,6 @@
 ---
 title: Azure Relay API 개요 | Microsoft Docs
-description: 사용 가능한 Azure Relay API 개요
+description: 이 문서에서는 사용 가능한 Azure Relay Api (.NET Standard, .NET Framework, node.js 등)의 개요를 제공 합니다.
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593350"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513969"
 ---
 # <a name="available-relay-apis"></a>사용 가능한 Relay API
 
@@ -32,7 +32,7 @@ ms.locfileid: "60593350"
 | 언어/플랫폼 | 사용 가능한 기능 | 클라이언트 패키지 | 리포지토리 |
 | --- | --- | --- | --- |
 | .NET Standard | 하이브리드 연결 | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
-| .NET Framework | WCF 릴레이 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
+| .NET Framework | WCF Relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
 | 노드 | 하이브리드 연결 | [Websockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP 요청: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>추가 정보

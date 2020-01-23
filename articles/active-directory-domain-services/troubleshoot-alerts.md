@@ -1,5 +1,5 @@
 ---
-title: Azure AD Domain Services의 일반적인 경고 및 해결 방법 | Microsoft Docs '
+title: Azure AD Domain Services의 일반적인 경고 및 해결 방법 | Microsoft Docs
 description: 상태 Azure Active Directory Domain Services의 일부로 생성 된 일반적인 경고를 해결 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
 author: iainfoulds
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979898"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512667"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services 일반적인 경고 및 해결 방법
 
@@ -37,7 +37,7 @@ ms.locfileid: "75979898"
 이 오류는 복구할 수 없습니다. 이 경고를 해결 하려면 [기존 Azure AD DS 관리 되는 도메인을 삭제](delete-aadds.md) 하 고 새 디렉터리에서 다시 만듭니다. Azure AD DS 관리 되는 도메인을 삭제 하는 데 문제가 있으면 추가 문제 해결 지원을 위해 [azure 지원 요청을 여세요][azure-support] .
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C가 이 디렉터리에서 실행 중임
- 
+
 ### <a name="alert-message"></a>경고 메시지
 
 *Azure AD Domain Services를 Azure AD B2B 디렉터리에서 사용 가능하게 설정할 수 없습니다.*
@@ -78,7 +78,7 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 1. 왼쪽 탐색 영역에서 **서브넷** 을 선택 합니다.
 1. 편집 하려는 서브넷을 선택 하거나 추가 서브넷을 만듭니다.
 1. 개인 IP 주소 범위를 업데이트 하거나 지정 하 고 변경 내용을 **저장** 합니다.
-1. [대체 Azure AD DS 관리 되는 도메인을 만듭니다](tutorial-create-instance.md). 개인 IP 주소 범위를 사용 하 여 업데이트 된 가상 네트워크 서브넷을 선택 해야 합니다.
+1. [대체 Azure AD DS 관리 되는 도메인을 만듭니다](tutorial-create-instance.md). 개인 IP 주소 범위를 사용 하 여 업데이트 된 가상 네트워크 서브넷을 선택 했는지 확인 합니다.
 
 Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
 
@@ -129,7 +129,7 @@ Azure AD DS에는 활성 구독이 필요 하며 다른 구독으로 이동할 �
 
 ### <a name="resolution"></a>해상도
 
-Azure AD DS는 공용 IP 주소, Nic, 부하 분산 장치 등 제대로 작동 하는 특정 리소스를 만듭니다. 이러한 리소스 중 하나라도 삭제 되 면 관리 되는 도메인은 지원 되지 않는 상태가 되며 도메인이 관리 되지 않습니다. 이러한 리소스에 대 한 자세한 내용은 [Azure AD DS에서 사용 하는 네트워크 리소스](network-considerations.md#network-resources-used-by-azure-ad-ds)를 참조 하세요.
+Azure AD DS는 공용 IP 주소, 가상 네트워크 인터페이스, 부하 분산 장치 등 제대로 작동 하는 추가 리소스를 만듭니다. 이러한 리소스 중 하나라도 삭제 되 면 관리 되는 도메인은 지원 되지 않는 상태가 되며 도메인이 관리 되지 않습니다. 이러한 리소스에 대 한 자세한 내용은 [Azure AD DS에서 사용 하는 네트워크 리소스](network-considerations.md#network-resources-used-by-azure-ad-ds)를 참조 하세요.
 
 이 경고는 이러한 필수 리소스 중 하나를 삭제할 때 생성 됩니다. 리소스가 4 시간 이내에 삭제 된 경우 Azure 플랫폼에서 삭제 된 리소스를 자동으로 다시 만들 수 있습니다. 다음 단계에서는 리소스 삭제에 대 한 상태 및 타임 스탬프를 확인 하는 방법을 간략하게 설명 합니다.
 
@@ -160,7 +160,7 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 
 ### <a name="resolution"></a>해상도
 
-자동으로 생성 된 일부 서비스 주체는 Azure AD DS 관리 되는 도메인에 대 한 리소스를 관리 하 고 만드는 데 사용 됩니다. 이러한 서비스 사용자 중 하나에 대 한 액세스 권한이 변경 된 경우 리소스를 올바르게 관리할 수 없습니다. 다음 단계에서는 서비스 주체에 대 한 액세스 권한을 이해 하 고 부여 하는 방법을 보여 줍니다.
+자동으로 생성 된 일부 서비스 주체는 Azure AD DS 관리 되는 도메인에 대 한 리소스를 관리 하 고 만드는 데 사용 됩니다. 이러한 서비스 사용자 중 한 명에 대 한 액세스 권한이 변경 되 면 도메인은 리소스를 올바르게 관리할 수 없습니다. 다음 단계에서는 서비스 주체에 대 한 액세스 권한을 이해 하 고 부여 하는 방법을 보여 줍니다.
 
 1. [역할 기반 액세스 제어 및 Azure Portal 응용 프로그램에 대 한 액세스 권한을 부여 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)에 대해 알아봅니다.
 2. ID *abba844e-bc0e-44b0-947a-dc74e5d09022* 를 사용 하는 서비스 주체에 대 한 액세스를 검토 하 고 이전 날짜에 거부 된 액세스 권한을 부여 합니다.
@@ -173,12 +173,12 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 
 ### <a name="resolution"></a>해상도
 
-Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리소스에 대 한 IP 주소가 충분 해야 합니다. 이 IP 주소 공간에는 유지 관리 이벤트가 있는 경우 대체 리소스를 만들어야 하는 필요성이 포함 됩니다. 사용 가능한 IP 주소가 부족 하 게 되는 위험을 최소화 하려면 Azure AD DS와 동일한 가상 네트워크 서브넷에 자체 Vm과 같은 추가 리소스를 배포 하지 마세요.
+Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리소스에 대 한 충분 한 IP 주소가 필요 합니다. 이 IP 주소 공간에는 유지 관리 이벤트가 있는 경우 대체 리소스를 만들어야 하는 필요성이 포함 됩니다. 사용 가능한 IP 주소가 부족 하 게 되는 위험을 최소화 하려면 Azure AD DS와 동일한 가상 네트워크 서브넷에 자체 Vm과 같은 추가 리소스를 배포 하지 마세요.
 
 이 경고를 해결 하려면 기존 Azure AD DS 관리 되는 도메인을 삭제 하 고 충분 한 IP 주소 범위를 가진 가상 네트워크에서 다시 만듭니다. 이 프로세스는 Azure AD DS 관리 되는 도메인을 사용할 수 없고 Ou 또는 서비스 계정 처럼 만든 사용자 지정 리소스가 손실 됨에 따라 중단 됩니다.
 
 1. 디렉터리에서 [Azure AD DS 관리 되는 도메인을 삭제](delete-aadds.md) 합니다.
-1. 가상 네트워크 IP 주소 범위를 업데이트 하려면 Azure Portal에서 *가상 네트워크* 를 검색 하 고 선택 합니다. 작은 IP 주소 범위에 해당 하는 Azure AD DS의 가상 네트워크를 선택 합니다.
+1. 가상 네트워크 IP 주소 범위를 업데이트 하려면 Azure Portal에서 *가상 네트워크* 를 검색 하 고 선택 합니다. IP 주소 범위가 작은 Azure AD DS의 가상 네트워크를 선택 합니다.
 1. **설정**아래에서 *주소 공간*을 선택 합니다.
 1. 기존 주소 범위를 선택 하 고 편집 하거나 추가 주소 범위를 추가 하 여 주소 범위를 업데이트 합니다. 새 IP 주소 범위가 Azure AD DS 서브넷 범위에 대해 충분히 큰지 확인 합니다. 준비가 되 면 변경 내용을 **저장** 합니다.
 1. 왼쪽 탐색 영역에서 **서브넷** 을 선택 합니다.
@@ -216,11 +216,11 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 
 ### <a name="resolution"></a>해상도
 
-변경 또는 삭제를 방지 하기 위해 Azure 리소스 및 리소스 그룹에 리소스 잠금을 적용할 수 있습니다. Azure AD DS는 관리 되는 서비스 이므로 Azure 플랫폼에서 구성 변경을 수행 하는 기능이 필요 합니다. 리소스 잠금이 일부 Azure AD DS 구성 요소에 적용 되는 경우 Azure 플랫폼은 해당 관리 작업을 수행할 수 없습니다.
+변경 또는 삭제를 방지 하기 위해 Azure 리소스에 리소스 잠금을 적용할 수 있습니다. Azure AD DS는 관리 되는 서비스 이므로 Azure 플랫폼에서 구성 변경을 수행 하는 기능이 필요 합니다. 리소스 잠금이 일부 Azure AD DS 구성 요소에 적용 되는 경우 Azure 플랫폼은 해당 관리 작업을 수행할 수 없습니다.
 
 Azure AD DS 구성 요소에 대 한 리소스 잠금을 확인 하 고 제거 하려면 다음 단계를 완료 합니다.
 
-1. 리소스 그룹의 각 Azure AD DS 네트워크 구성 요소 (예: 가상 네트워크, NIC 또는 공용 IP 주소)에 대해 Azure Portal에서 작업 로그를 확인 합니다. 이러한 작업 로그에는 작업이 실패 하 고 리소스 잠금이 적용 되는 이유가 표시 됩니다.
+1. 리소스 그룹의 각 Azure AD DS 네트워크 구성 요소 (예: 가상 네트워크, 네트워크 인터페이스 또는 공용 IP 주소)에 대해 Azure Portal에서 작업 로그를 확인 합니다. 이러한 작업 로그에는 작업이 실패 하 고 리소스 잠금이 적용 되는 이유가 표시 됩니다.
 1. 잠금이 적용 되는 리소스를 선택 하 고 **잠금 아래에서**잠금을 선택 하 고 제거 합니다.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: 리소스를 사용할 수 없음
@@ -231,7 +231,7 @@ Azure AD DS 구성 요소에 대 한 리소스 잠금을 확인 하 고 제거 �
 
 ### <a name="resolution"></a>해상도
 
-Azure 리소스 및 리소스 그룹에 정책을 적용 하 여 허용 되는 구성 작업을 제어 합니다. Azure AD DS는 관리 되는 서비스 이므로 Azure 플랫폼에서 구성 변경을 수행 하는 기능이 필요 합니다. 일부 Azure AD DS 구성 요소에 정책이 적용 되는 경우 Azure 플랫폼은 관리 작업을 수행 하지 못할 수 있습니다.
+정책은 허용 되는 구성 작업을 제어 하는 Azure 리소스 및 리소스 그룹에 적용 됩니다. Azure AD DS는 관리 되는 서비스 이므로 Azure 플랫폼에서 구성 변경을 수행 하는 기능이 필요 합니다. 일부 Azure AD DS 구성 요소에 정책이 적용 되는 경우 Azure 플랫폼은 관리 작업을 수행 하지 못할 수 있습니다.
 
 Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트 하려면 다음 단계를 완료 합니다.
 
@@ -246,7 +246,7 @@ Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트
 
 ### <a name="resolution"></a>해상도
 
-관리 되는 도메인의 구성에서 문제를 나타내는 모든 경고에 대해 [Azure AD DS 상태를 확인 합니다](check-health.md) . 네트워크 구성 문제로 인해 Azure AD에서 동기화가 차단 될 수 있습니다. 구성 문제를 나타내는 경고를 해결할 수 있는 경우 2 시간 동안 기다렸다가 동기화가 완료 되었는지 확인 합니다.
+관리 되는 도메인의 구성에서 문제를 나타내는 모든 경고에 대해 [Azure AD DS 상태를 확인 합니다](check-health.md) . 네트워크 구성 문제로 인해 Azure AD에서 동기화가 차단 될 수 있습니다. 구성 문제를 나타내는 경고를 해결할 수 있는 경우 2 시간 동안 기다렸다가 동기화가 성공적으로 완료 되었는지 확인 합니다.
 
 다음과 같은 일반적인 이유로 인해 Azure AD DS 관리 되는 도메인에서 동기화가 중지 됩니다.
 
@@ -261,7 +261,7 @@ Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트
 
 ### <a name="resolution"></a>해상도
 
-관리 되는 도메인의 구성에서 문제를 나타내는 모든 경고에 대해 [Azure AD DS 상태를 확인 합니다](check-health.md) . 네트워크 구성과 관련 된 문제는 Azure 플랫폼이 백업을 성공적으로 수행 하지 못하도록 차단할 수 있습니다. 구성 문제를 나타내는 경고를 해결할 수 있는 경우 2 시간 동안 기다렸다가 동기화가 완료 되었는지 확인 합니다.
+[Azure AD DS 상태에서](check-health.md) 관리 되는 도메인의 구성에 문제가 있음을 나타내는 경고를 확인 합니다. 네트워크 구성과 관련 된 문제는 Azure 플랫폼이 백업을 성공적으로 수행 하지 못하도록 차단할 수 있습니다. 구성 문제를 나타내는 경고를 해결할 수 있는 경우 2 시간 동안 기다렸다가 동기화가 성공적으로 완료 되었는지 확인 합니다.
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: 비활성화된 구독으로 인한 일시 중단
 
@@ -292,7 +292,7 @@ Azure AD DS에는 활성 구독이 필요 합니다. Azure AD DS 관리 되는 �
 > [!WARNING]
 > Azure AD DS 관리 되는 도메인이 오랫동안 일시 중단 된 경우 삭제 될 위험이 있습니다. 가능한 한 빨리 일시 중단의 원인을 해결 합니다. 자세한 내용은 [Azure AD DS의 일시 중단 된 상태 이해](suspension.md)를 참조 하세요.
 
-관리 되는 도메인의 구성에서 문제를 나타내는 모든 경고에 대해 [Azure AD DS 상태를 확인 합니다](check-health.md) . 구성 문제를 나타내는 경고를 해결할 수 있는 경우 2 시간 동안 기다렸다가 동기화가 완료 되었는지 확인 합니다. 준비가 되 면 azure [지원 요청을 열어][azure-support] azure AD DS 관리 되는 도메인을 다시 사용 하도록 설정 합니다.
+[Azure AD DS 상태에서](check-health.md) 관리 되는 도메인의 구성에 문제가 있음을 나타내는 경고를 확인 합니다. 구성 문제를 나타내는 경고를 해결할 수 있는 경우 2 시간 동안 기다렸다가 동기화가 완료 되었는지 확인 합니다. 준비가 되 면 azure [지원 요청을 열어][azure-support] azure AD DS 관리 되는 도메인을 다시 사용 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953085"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513612"
 ---
 # <a name="offline-evaluation"></a>오프라인 평가
 
-오프라인 평가는 코드를 변경하거나 사용자 환경에 영향을 주지 않고 Personalizer 서비스의 효율성을 테스트하고 평가할 수 있는 방법입니다. 오프라인 평가는 애플리케이션에서 Rank API로 보낸 과거 데이터를 사용하여 다른 순위에서 수행된 방식을 비교합니다.
+오프라인 평가는 코드를 변경하거나 사용자 환경에 영향을 주지 않고 Personalizer 서비스의 효율성을 테스트하고 평가할 수 있는 방법입니다. 오프 라인 평가는 응용 프로그램에서 순위 및 보상 Api로 전송 되는 과거 데이터를 사용 하 여 다른 순위가 수행 된 방식을 비교 합니다.
 
 오프라인 평가는 날짜 범위에서 수행됩니다. 범위의 끝은 현재 시간까지 늦을 수 있으며, 범위의 시작은 [데이터 보존](how-to-settings.md)에 지정된 일 수보다 클 수 없습니다.
 
@@ -56,9 +56,9 @@ Personalizer는 오프라인 평가 프로세스를 사용하여 최적의 학�
 
 ## <a name="how-offline-evaluations-are-done"></a>오프라인 평가 수행 방법
 
-오프라인 평가는 **반사실적 평가**라는 방법을 사용하여 수행됩니다. 
+오프라인 평가는 **반사실적 평가**라는 방법을 사용하여 수행됩니다.
 
-Personalizer는 사용자의 동작(및 이에 따라 보상)을 소급하여 예측할 수 없고(사용자가 본 것과 다른 것을 표시했을 경우 Personalizer에서 발생한 상황을 인식할 수 없음) 측정된 보상을 통해서만 학습할 수 있다는 가정하에 빌드되었습니다. 
+Personalizer는 사용자의 동작(및 이에 따라 보상)을 소급하여 예측할 수 없고(사용자가 본 것과 다른 것을 표시했을 경우 Personalizer에서 발생한 상황을 인식할 수 없음) 측정된 보상을 통해서만 학습할 수 있다는 가정하에 빌드되었습니다.
 
 평가에 사용되는 개념 프로세스는 다음과 같습니다.
 
@@ -70,11 +70,11 @@ Personalizer는 사용자의 동작(및 이에 따라 보상)을 소급하여 �
     [For every chronological event in the logs]
     {
         - Perform a Rank call
-    
+
         - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
-        
+
     }
 
     Add up the rewards and statistics that were predicted, do some aggregation to aid visualizations, and save the results.

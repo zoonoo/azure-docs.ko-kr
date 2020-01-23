@@ -7,14 +7,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922161"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512915"
 ---
-# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Data Lake에서 데이터 쿼리
+# <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Azure 데이터 탐색기를 사용 하 여 Azure Data Lake에서 데이터 쿼리
 
 Azure Data Lake Storage은 빅 데이터 분석을 위한 확장성이 뛰어나고 경제적인 data Lake 솔루션입니다. 고성능 파일 시스템의 기능과 거대한 규모 및 경제성을 결합하여 인사이트 시간을 단축합니다. Data Lake Storage Gen2는 Azure Blob Storage 기능을 확장하며 분석 워크로드에 최적화되어 있습니다.
  

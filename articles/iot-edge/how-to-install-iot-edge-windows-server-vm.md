@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: gregman
-ms.openlocfilehash: b32bbfa5e849c1a0490bba5d09d1838268033b26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 99474246bf1ff5cbcc39861d56f05aa38f177f31
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964668"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510042"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Windows Server Virtual Machines에서 Azure IoT Edge 실행
 
@@ -26,28 +26,30 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Azure Marketplace에서 배포
 
-1.  [Windows server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace 제품으로 이동 하거나 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 에서 "windows server"를 검색 합니다.
-2.  **지금 가져오기** 를 선택 합니다. 
-3.  **소프트웨어 계획**에서 "Windows Server 2019 Datacenter Server Core with 컨테이너"를 찾은 후 다음 대화 상자에서 **계속** 을 선택 합니다.
+1. [Windows server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace 제품으로 이동 하거나 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 에서 "windows server"를 검색 합니다.
+2. **지금 가져오기** 를 선택 합니다.
+3. **소프트웨어 계획**에서 "Windows Server 2019 Datacenter Server Core with 컨테이너"를 찾은 후 다음 대화 상자에서 **계속** 을 선택 합니다.
     * 또한 컨테이너를 사용 하 여 다른 버전의 Windows Server에 대해 이러한 지침을 사용할 수 있습니다.
-4.  Azure Portal에서 **만들기**를 선택하고 마법사를 따라 VM을 배포합니다. 
-    *   VM을 처음 사용 하는 경우 암호를 사용 하 고 공용 인바운드 포트 메뉴에서 RDP 및 SSH를 사용 하는 것이 가장 쉽습니다. 
-    *   리소스를 많이 사용하는 워크로드가 있는 경우 CPU 및/또는 메모리를 더 추가하여 가상 머신 크기를 업그레이드해야 합니다.
-5.  가상 머신이 배포되고 나면, IoT Hub에 연결되도록 구성합니다.
-    1.  IoT Hub에서 만든 IoT Edge 장치에서 장치 연결 문자열을 복사 합니다. [Azure Portal에서 연결 문자열 검색](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal)절차를 참조 하십시오.
-    1.  Azure Portal에서 새로 만든 가상 머신 리소스를 선택하고 **명령 실행** 옵션을 엽니다.
-    1.  **Runpowershellscript** 옵션을 선택 합니다.
-    1.  장치 연결 문자열을 사용 하 여 명령 창에이 스크립트를 복사 합니다. 
+4. Azure Portal에서 **만들기**를 선택하고 마법사를 따라 VM을 배포합니다.
+    * VM을 처음 사용 하는 경우 암호를 사용 하 고 공용 인바운드 포트 메뉴에서 RDP 및 SSH를 사용 하는 것이 가장 쉽습니다.
+    * 리소스를 많이 사용하는 워크로드가 있는 경우 CPU 및/또는 메모리를 더 추가하여 가상 머신 크기를 업그레이드해야 합니다.
+5. 가상 머신이 배포되고 나면, IoT Hub에 연결되도록 구성합니다.
+    1. IoT Hub에서 만든 IoT Edge 장치에서 장치 연결 문자열을 복사 합니다. [Azure Portal에서 연결 문자열 검색](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal)절차를 참조 하십시오.
+    1. Azure Portal에서 새로 만든 가상 머신 리소스를 선택하고 **명령 실행** 옵션을 엽니다.
+    1. **Runpowershellscript** 옵션을 선택 합니다.
+    1. 장치 연결 문자열을 사용 하 여 명령 창에이 스크립트를 복사 합니다.
+
         ```powershell
         . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
         Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'
         ```
-    1.  스크립트를 실행 하 여 IoT Edge 런타임을 설치 하 고 **실행** 을 선택 하 여 연결 문자열을 설정 합니다.
-    1.  1 ~ 2 분 후에 Edge 런타임이 성공적으로 설치 및 프로 비전 되었다는 메시지가 표시 됩니다.
+
+    1. 스크립트를 실행 하 여 IoT Edge 런타임을 설치 하 고 **실행** 을 선택 하 여 연결 문자열을 설정 합니다.
+    1. 1 ~ 2 분 후에 Edge 런타임이 성공적으로 설치 및 프로 비전 되었다는 메시지가 표시 됩니다.
 
 ## <a name="deploy-from-the-azure-portal"></a>Azure Portal에서 배포
 
-1. Azure Portal에서 "Windows Server"를 검색 하 고 **Windows server 2019 Datacenter** 를 선택 하 여 VM 만들기 워크플로를 시작 합니다. 
+1. Azure Portal에서 "Windows Server"를 검색 하 고 **Windows server 2019 Datacenter** 를 선택 하 여 VM 만들기 워크플로를 시작 합니다.
 2. **소프트웨어 계획 선택** 에서 "Windows Server 2019 Datacenter Server Core with 컨테이너"를 선택한 다음 **만들기** 를 선택 합니다.
 3. 위의 "Azure Marketplace에서 배포" 지침에서 5 단계를 완료 합니다.
 
@@ -69,7 +71,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
    1. 사용하려는 구독의 SubscriptionID 필드를 복사합니다.
    1. 복사한 ID를 사용 하 여이 명령을 실행 합니다.
 
-      ```azurecli-interactive 
+      ```azurecli-interactive
       az account set -s {SubscriptionId}
       ```
 

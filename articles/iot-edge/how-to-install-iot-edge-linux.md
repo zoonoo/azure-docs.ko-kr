@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4a8725e3ba7be2dc572798d1397e098046a4b352
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772417"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510229"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치
 
@@ -30,7 +30,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 ## <a name="install-the-latest-runtime-version"></a>최신 런타임 버전 설치
 
-다음 섹션을 사용 하 여 최신 버전의 Azure IoT Edge runtime을 장치에 설치 합니다. 
+다음 섹션을 사용 하 여 최신 버전의 Azure IoT Edge runtime을 장치에 설치 합니다.
 
 ### <a name="register-microsoft-key-and-software-repository-feed"></a>Microsoft 키 및 소프트웨어 리포지토리 피드 등록
 
@@ -39,16 +39,19 @@ IoT Edge 런타임 설치를 위해 장치를 준비 합니다.
 리포지토리 구성을 설치 합니다. 장치 운영 체제와 일치 하는 **16.04** 또는 **18.04** 명령을 선택 합니다.
 
 * **Ubuntu Server 16.04**:
+
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
 * **Ubuntu Server 18.04**:
+
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
 * **Raspbian Stretch**:
+
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
    ```
@@ -88,7 +91,7 @@ Moby CLI(명령줄 인터페이스)를 설치합니다. CLI는 개발에 유용�
    sudo apt-get install moby-cli
    ```
 
-Moby 컨테이너 런타임을 설치할 때 오류가 발생 하는 경우이 문서의 뒷부분에서 설명 하는 단계에 따라 [moby 호환성에 대해 Linux 커널을 확인](#verify-your-linux-kernel-for-moby-compatibility)합니다. 
+Moby 컨테이너 런타임을 설치할 때 오류가 발생 하는 경우이 문서의 뒷부분에서 설명 하는 단계에 따라 [moby 호환성에 대해 Linux 커널을 확인](#verify-your-linux-kernel-for-moby-compatibility)합니다.
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 설치
 
@@ -108,7 +111,7 @@ Apt 업데이트를 수행 합니다.
    sudo apt-get install iotedge
    ```
 
-IoT Edge 성공적으로 설치 되 면 구성 파일을 업데이트 하 라는 메시지가 출력에 표시 됩니다. [보안 디먼 구성](#configure-the-security-daemon) 섹션의 단계에 따라 장치 프로 비전을 완료 합니다. 
+IoT Edge 성공적으로 설치 되 면 구성 파일을 업데이트 하 라는 메시지가 출력에 표시 됩니다. [보안 디먼 구성](#configure-the-security-daemon) 섹션의 단계에 따라 장치 프로 비전을 완료 합니다.
 
 ## <a name="install-a-specific-runtime-version"></a>특정 런타임 버전 설치
 
@@ -145,7 +148,7 @@ IoT Edge 성공적으로 설치 되 면 구성 파일을 업데이트 하 라는
       ```bash
       curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
       ```
-   
+
    3. IoT Edge 장치의 아키텍처와 일치 하는 **iotedge** 파일을 찾습니다. 파일 링크를 마우스 오른쪽 단추로 클릭 하 고 링크 주소를 복사 합니다. 
 
    4. 다음 명령의 복사 된 링크를 사용 하 여 해당 버전의 IoT Edge 보안 디먼을 설치 합니다. 
@@ -174,7 +177,7 @@ IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 
 sudo nano /etc/iotedge/config.yaml
 ```
 
-파일의 프로 비전 구성을 찾고 **수동 프로 비전 구성** 섹션의 주석 처리를 제거 합니다. **device_connection_string**의 값을 IoT Edge 디바이스의 연결 문자열로 업데이트합니다. 다른 프로 비전 섹션이 주석 처리 되었는지 확인 합니다.
+파일의 프로 비전 구성을 찾고 **수동 프로 비전 구성** 섹션의 주석 처리를 제거 합니다. **device_connection_string**의 값을 IoT Edge 디바이스의 연결 문자열로 업데이트합니다. 다른 프로 비전 섹션이 주석 처리 되었는지 확인 합니다. **프로 비전:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다.
 
    ```yaml
    # Manual provisioning configuration
@@ -190,7 +193,8 @@ sudo nano /etc/iotedge/config.yaml
    #   attestation:
    #     method: "tpm"
    #     registration_id: "{registration_id}"
-```
+   ```
+
 클립보드 내용을 Nano `Shift+Right Click`에 붙여넣으려면 `Shift+Insert`를 누릅니다.
 
 파일을 저장하고 닫습니다.
@@ -213,7 +217,7 @@ sudo systemctl restart iotedge
 sudo nano /etc/iotedge/config.yaml
 ```
 
-파일의 프로 비전 구성을 찾고 증명 메커니즘에 적합 한 섹션의 주석 처리를 제거 합니다. 예를 들어 TPM 증명을 사용 하는 경우 **scope_id** 및 **registration_id** 의 값을 IoT Hub Device Provisioning 서비스의 값과 TPM을 사용 하는 IoT Edge 장치 각각의 값으로 업데이트 합니다.
+파일의 프로 비전 구성을 찾고 증명 메커니즘에 적합 한 섹션의 주석 처리를 제거 합니다. 예를 들어 TPM 증명을 사용 하는 경우 **scope_id** 및 **registration_id** 의 값을 IoT Hub Device Provisioning 서비스의 값과 TPM을 사용 하는 IoT Edge 장치 각각의 값으로 업데이트 합니다. **프로 비전:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다.
 
    ```yaml
    # Manual provisioning configuration
@@ -265,7 +269,7 @@ journalctl -u iotedge --no-pager --no-full
 sudo iotedge check
 ```
 
-장치에서 IoT Edge 하기 위해 첫 번째 모듈을 배포할 때 까지는 **$edgeHub** 시스템 모듈이 장치에 배포 되지 않습니다. 따라서 자동 검사는 `Edge Hub can bind to ports on host` 연결 확인에 대 한 오류를 반환 합니다. 이 오류는 장치에 모듈을 배포한 후에 발생 하는 경우에만 ingored 수 있습니다.
+장치에서 IoT Edge 하기 위해 첫 번째 모듈을 배포할 때 까지는 **$edgeHub** 시스템 모듈이 장치에 배포 되지 않습니다. 따라서 자동 검사는 `Edge Hub can bind to ports on host` 연결 확인에 대 한 오류를 반환 합니다. 장치에 모듈을 배포한 후에도이 오류가 발생 하지 않으면이 오류를 무시할 수 있습니다.
 
 마지막으로 실행 중인 모듈을 나열 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services – HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항 | Microsoft Docs
+title: HEVC에 대 한 부드러운 스트리밍 프로토콜 (MS SSTR) 수정-Azure
 description: 이 사양은 Azure Media Services에서 HEVC를 사용한 조각화된 MP4 기반 라이브 스트리밍에 대한 프로토콜 및 형식을 설명합니다. 이 문서에서는 HEVC를 제공하는 데 필요한 변경 내용을 명시하며, 그 외 "(변경 없음)"으로 표시된 부분은 단순히 설명용으로 복사되었습니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: 6dd7e0dc7e58f33f952aa5531773a84ebd31a163
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887869"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514224"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항 
 
@@ -30,7 +30,7 @@ ms.locfileid: "74887869"
 이 문서에서는 부드러운 스트리밍 매니페스트에서 HEVC 비디오 코덱 (' hev1 ' 또는 ' hvc1 ' 형식 트랙 사용)에 대 한 신호를 보내는 데 필요한 기술 구현 요구 사항을 제공 하며, 규범 참조는 현재 MPEG 표준을 참조 하도록 업데이트 되었습니다. ISO 기본 미디어 파일 형식에 대 한 HEVC, HEVC Common Encryption 및 box 이름 포함이 최신 사양과 일치 하도록 업데이트 되었습니다. 
 
 참조된 부드러운 스트리밍 프로토콜 사양 [MS-SSTR]은 오디오나 비디오 같은 실시간 및 주문형 디지털 미디어를 여러 방법으로(인코더에서 웹 서버로, 서버에서 다른 서버로, 서버에서 HTTP 클라이언트로) 제공하는 데 사용되는 통신 형식을 설명합니다.
-HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) 기반 데이터 구조를 사용하면 품질 수준이 다른 여러 압축 미디어 콘텐츠 간에 거의 실시간으로 원활하게 전환할 수 있습니다. 따라서 클라이언트 컴퓨터 또는 디바이스에 따라 네트워크 및 비디오 렌더링 조건이 변하더라도 HTTP 클라이언트 최종 사용자에게 일관적인 재생 환경이 제공됩니다.
+HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) 기반의 데이터 구조를 사용하면 품질 수준이 다른 여러 압축 미디어 콘텐츠 간에 거의 실시간으로 원활한 전환을 구현할 수 있습니다. 따라서 클라이언트 컴퓨터 또는 디바이스에 따라 네트워크 및 비디오 렌더링 조건이 변하더라도 HTTP 클라이언트 최종 사용자에게 일관적인 재생 환경이 제공됩니다.
 
 ## <a name="11-glossary"></a>1.1 용어 
 
@@ -42,15 +42,15 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 
 >  **컴퍼지션 시간:** [[ISO/IEC-14496-12-12]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의 된 대로 샘플이 클라이언트에 표시 되는 시간입니다.
 > 
->   **CENC**: 일반 암호화로, [ISO/IEC 23001-7] 제2판에 정의되어 있습니다.
+>   **CENC**: Common Encryption으로, [ISO/IEC 23001-7] 제2판에 정의되어 있습니다.
 > 
 >   **디코드 시간:** [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의 된 대로 클라이언트에서 샘플을 디코딩하는 데 필요한 시간입니다.
 
-**조각:** 하나 이상의 **샘플**로 구성되어 있고 독립적으로 다운로드 가능한 **미디어** 단위입니다.
+**조각(Fragment):** 하나 이상의 **샘플**로 구성되어 있고 독립적으로 다운로드 가능한 **미디어** 단위입니다.
 
->   **HEVC:** 고효율 비디오 코딩으로, [ISO/IEC 23008-2]에 정의되어 있습니다.
+>   **HEVC:** 고효율 비디오 코딩(High Efficiency Video Coding)으로, [ISO/IEC 23008-2]에 정의되어 있습니다.
 > 
->   **매니페스트:** 클라이언트가 **미디어**에 대한 요청을 만들 수 있도록 허용하는 **프레젠테이션**에 대한 메타데이터. **미디어:** 클라이언트에서 **프레젠테이션** 재생에 사용하는 압축된 오디오, 비디오 및 텍스트 데이터. **미디어 형식:** 오디오 또는 비디오를 압축된 **샘플**로 표시하는 데 사용되는 잘 정의된 형식.
+>   **매니페스트:** 클라이언트가 **미디어**에 대한 요청을 할 수 있도록 허용하는 **프레젠테이션**에 대한 메타데이터. **미디어:** 클라이언트에서 **프레젠테이션** 재생에 사용하는 압축된 오디오, 비디오 및 텍스트 데이터. **미디어 형식:** 오디오 또는 비디오를 압축된 **샘플**로 표시하는 데 사용되는 잘 정의된 형식.
 > 
 >   **프레젠테이션:** 단일 동영상을 재생하는 데 필요한 모든 **스트림** 및 관련 메타데이터 집합. **요청:** [ [RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **응답:** 서버에서 클라이언트로 전송 된 Http 메시지로, [ [RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) 에 정의 된 대로 클라이언트에서 서버로 보내는 http 메시지입니다.
 > 
@@ -78,17 +78,17 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 > 
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for "Bucket" Media Types”<https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] MP4 등록 기관 "MP4REG" [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] MP4 등록 기관, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119 Bradner, s., "Rfc에서 사용 하 여 요구 수준 표시", BCP 14, RFC 2119, 3 월 1997, [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement   Levels", BCP 14, RFC 2119, 1997년 3월,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 정보 참조 
 
->   [MS-GLOS] Microsoft Corporation, "*Windows 프로토콜 마스터 용어집*."
+>   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*(Windows 프로토콜 마스터 용어집)."
 > 
->   RFC3548 Josefsson, s., Ed., "Base16, Base32 및 Base64 데이터 인코딩", RFC 3548, 7 월 2003 [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data   Encodings", RFC 3548, 2003년 7월, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   RFC5234 Crocker, d., Ed. 및 Overell, P., "BNF for 구문 사양: ABNF", STD 68, RFC 5234, 1 월 2008, [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax   Specifications: ABNF", STD 68, RFC 5234, 2008년 1월,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 개요 
@@ -187,17 +187,17 @@ CENC(일반 암호화)가 비디오 또는 오디오 스트림에 적용된 경�
 
 #### <a name="2244-tfxdbox"></a>2.2.4.4 TfxdBox 
 
->   **TfxdBox**는 사용되지 않으며, 그 함수는 [ISO/IEC 14496-12] 섹션 8.8.12에 지정된 트랙 조각 디코딩 시간 상자(‘tfdt’)로 대체되었습니다.
+>   **TfxdBox**는 사용되지 않으며, 그 함수는 [ISO/IEC 14496-12] 섹션 8.8.12에 명시된 트랙 조각 디코딩 시간 상자(‘tfdt’ - Track Fragment Decode Time Box)로 대체되었습니다.
 > 
->   **참고**: 클라이언트가 트랙 실행 상자('trun')에 나열된 샘플 기간을 모두 더하거나 샘플 시간을 기본 샘플 기간과 곱하여 조각의 시간을 계산할 수 있습니다. ‘tfdt’의 baseMediaDecodeTime과 조각 기간을 더하면 그 다음 조각의 URL 시간 매개 변수와 같습니다.
+>   **참고**: 클라이언트가 트랙 실행 상자('trun' - Track Run Box)에 나열된 샘플 기간을 모두 더하거나 샘플 시간을 기본 샘플 기간과 곱하여 조각의 시간을 계산할 수 있습니다. ‘tfdt’의 baseMediaDecodeTime과 조각 기간을 더하면 그 다음 조각의 URL 시간 매개 변수와 같습니다.
 > 
 >   필요한 경우 [ISO/IEC 14496-12] 섹션 8.16.5에 지정된 대로 동영상 조각 상자에서 참조하는 첫 번째 샘플의 트랙 조각 디코딩 시간과 일치하는 UTC 시간을 나타내도록 동영상 조각 상자(‘moof’)보다 생산자 참조 시간 상자('prft')를 먼저 삽입하는 것이 좋습니다.
 
 #### <a name="2245-tfrfbox"></a>2.2.4.5 TfrfBox 
 
->   **TfrfBox**는 사용되지 않으며, 그 함수는 [ISO/IEC 14496-12] 섹션 8.8.12에 지정된 트랙 조각 디코딩 시간 상자(‘tfdt’)로 대체되었습니다.
+>   **TfrfBox**는 사용되지 않으며, 그 함수는 [ISO/IEC 14496-12] 섹션 8.8.12에 명시된 트랙 조각 디코딩 시간 상자(‘tfdt’ - Track Fragment Decode Time Box)로 대체되었습니다.
 > 
->   **참고**: 클라이언트가 트랙 실행 상자('trun')에 나열된 샘플 기간을 모두 더하거나 샘플 시간을 기본 샘플 기간과 곱하여 조각의 시간을 계산할 수 있습니다. ‘tfdt’의 baseMediaDecodeTime과 조각 기간을 더하면 그 다음 조각의 URL 시간 매개 변수와 같습니다. 미리 보기 주소는 라이브 스트리밍을 지연하므로 사용되지 않습니다.
+>   **참고**: 클라이언트가 트랙 실행 상자('trun' - Track Run Box)에 나열된 샘플 기간을 모두 더하거나 샘플 시간을 기본 샘플 기간과 곱하여 조각의 시간을 계산할 수 있습니다. ‘tfdt’의 baseMediaDecodeTime과 조각 기간을 더하면 그 다음 조각의 URL 시간 매개 변수와 같습니다. 미리 보기 주소는 라이브 스트리밍을 지연하므로 사용되지 않습니다.
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
@@ -305,7 +305,7 @@ CENC(일반 암호화)가 비디오 또는 오디오 스트림에 적용된 경�
 
 >   보호 시스템 메타데이터 설명 데이터 요소는 단일 콘텐츠 보호 시스템과 관련된 메타데이터를 캡슐화합니다. (변경 없음)
 > 
->   보호 헤더 설명: 단일 콘텐츠 보호 시스템에 관련된 콘텐츠 보호 메타데이터. 보호 헤더 설명은 *2.2.2.2* 섹션에 지정된 다음 필드로 구성됩니다.
+>   보호 헤더 설명: 단일 콘텐츠 보호 시스템에 관련된 콘텐츠 보호 메타데이터. 보호 헤더 설명은 *2.2.2.2* 섹션에 명시된 다음 필드로 구성됩니다.
 > 
 >   * **SystemID**
 >   * **ProtectionHeaderContent**
