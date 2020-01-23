@@ -8,18 +8,18 @@ ms.date: 01/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad92d4cf0d5b61c778b87114d4be6c23557f8e26
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ee4f01c3ec57b0cf9e3ecf47254b57be95ea051a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457149"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510943"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용 하 여 시뮬레이트된 IoT Edge 장치 만들기 및 프로 비전
 
 Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning Service](../iot-dps/index.yml)를 사용하여 Azure IoT Edge 디바이스를 자동 프로비전할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요.
 
-DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 대칭 키 증명을 지원 합니다. 그룹 등록의 경우 대칭 키 증명에서 "IoT Edge 장치" 옵션을 true로 선택 하면 해당 등록 그룹에 등록 된 모든 장치가 IoT Edge 장치로 표시 됩니다. 
+DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 대칭 키 증명을 지원 합니다. 그룹 등록의 경우 대칭 키 증명에서 "IoT Edge 장치" 옵션을 true로 선택 하면 해당 등록 그룹에 등록 된 모든 장치가 IoT Edge 장치로 표시 됩니다.
 
 이 문서에서는 다음 단계를 사용 하 여 시뮬레이트된 IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다.
 
@@ -28,16 +28,16 @@ DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 �
 * 디바이스에 대한 개별 등록을 만듭니다.
 * IoT Edge 런타임을 설치하고 IoT Hub에 디바이스를 연결합니다.
 
-> [!NOTE]
-> Tpm 2.0는 DPS에서 TPM 증명을 사용 하는 경우 필요 하며, 개별 그룹, 등록 그룹을 만드는 데만 사용할 수 있습니다.
-
 > [!TIP]
 > 이 문서에서는 가상 장치에서 TPM 증명을 사용 하 여 자동 프로 비전 테스트에 대해 설명 하지만, 실제 TPM 하드웨어를 사용 하는 경우에도 대부분 적용 됩니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
-* 활성 IoT Hub.
+* 활성 IoT Hub
+
+> [!NOTE]
+> Tpm 2.0는 DPS에서 TPM 증명을 사용 하는 경우 필요 하며, 개별 그룹, 등록 그룹을 만드는 데만 사용할 수 있습니다.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service 설정
 
@@ -130,4 +130,4 @@ iotedge list
 
 ## <a name="next-steps"></a>다음 단계
 
-Device Provisioning Service 등록 프로세스를 사용하면 새 디바이스를 프로비전할 때 디바이스 ID 및 디바이스 쌍 태그를 동시에 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-monitor.md)하거나 [Azure Portal을 사용하여 대규모 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-monitor-cli.md)하는 방법을 알아봅니다.
+Device Provisioning Service 등록 프로세스를 사용하면 새 디바이스를 프로비전할 때 디바이스 ID 및 디바이스 쌍 태그를 동시에 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-monitor-cli.md)하거나 [Azure Portal을 사용하여 대규모 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-monitor.md)하는 방법을 알아봅니다.

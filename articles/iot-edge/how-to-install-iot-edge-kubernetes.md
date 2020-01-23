@@ -8,16 +8,16 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f3627a79cad6833b5fb20f3c829c1e3bcbd9c3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d11d23cf7d96482028a9d3738196fc5a787fec91
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457353"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510212"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Kubernetes에 IoT Edge를 설치 하는 방법 (미리 보기)
 
-IoT Edge를 사용 하 여 복원 력이 높은 고가용성 인프라 계층으로 사용 하는 Kubernetes와 통합할 수 있습니다. Kubernetes API 서버를 사용 하 여 IoT Edge *사용자 지정 리소스 정의* (CRD)를 등록 합니다. 또한 로컬 클러스터 상태를 사용 하 여 클라우드 관리 desired 상태를 조정 하는 *운영자* (IoT Edge 에이전트)를 제공 합니다. 
+IoT Edge를 사용 하 여 복원 력이 높은 고가용성 인프라 계층으로 사용 하는 Kubernetes와 통합할 수 있습니다. Kubernetes API 서버를 사용 하 여 IoT Edge *사용자 지정 리소스 정의* (CRD)를 등록 합니다. 또한 로컬 클러스터 상태를 사용 하 여 클라우드 관리 desired 상태를 조정 하는 *운영자* (IoT Edge 에이전트)를 제공 합니다.
 
 모듈 수명은 Kubernetes scheduler에서 관리 하며, 모듈 가용성을 유지 하 고 배치를 선택 합니다. IoT Edge는 위쪽에서 실행 되는 edge 응용 프로그램 플랫폼을 관리 하 고, IoT Hub에 지정 된 원하는 상태를에 지 클러스터의 상태로 지속적으로 조정 합니다. Edge 응용 프로그램 모델은 IoT Edge 모듈과 경로를 기반으로 하는 친숙 한 모델입니다. IoT Edge agent 연산자는 pod, 배포, 서비스 등과 같은 Kubernetes natives 구문으로 *자동* 번역을 수행 합니다.
 
@@ -32,9 +32,9 @@ Edge 배포의 모든 구성 요소는 장치와 관련 된 Kubernetes 네임 �
 
 ## <a name="install-locally-for-a-quick-test-environment"></a>빠른 테스트 환경에 대 한 로컬 설치
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>필수 조건
 
-* Kubernetes 1.10 이상. 기존 클러스터 설정이 없는 경우 로컬 클러스터 환경에 [Minikube](https://kubernetes.io/docs/setup/minikube/) 를 사용할 수 있습니다. 
+* Kubernetes 1.10 이상. 기존 클러스터 설정이 없는 경우 로컬 클러스터 환경에 [Minikube](https://kubernetes.io/docs/setup/minikube/) 를 사용할 수 있습니다.
 
 * Kubernetes 패키지 관리자 인 [투구](https://helm.sh/docs/using_helm/#quickstart-guide).
 
@@ -71,6 +71,7 @@ Edge 배포의 모든 구성 요소는 장치와 관련 된 Kubernetes 네임 �
     --set "deviceConnectionString=replace-with-device-connection-string" \
     edgek8s/edge-kubernetes
     ```
+
 1. 브라우저에서 Kubernetes 대시보드를 엽니다.
 
     ```shell
@@ -93,6 +94,6 @@ helm delete --purge k8s-edge1
 
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="deploy-as-a-highly-available-edge-gateway"></a>항상 사용 가능한 edge 게이트웨이로 배포 
+### <a name="deploy-as-a-highly-available-edge-gateway"></a>항상 사용 가능한 edge 게이트웨이로 배포
 
 Kubernetes 클러스터의에 지 장치를 다운스트림 장치에 대 한 IoT 게이트웨이로 사용할 수 있습니다. 노드 오류에 대 한 복원 력을 제공 하 여에 지 배포에 고가용성을 제공 하도록 구성할 수 있습니다. 이 시나리오에서 IoT Edge를 사용 하려면이 [자세한 연습](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes) 을 참조 하세요.

@@ -1,5 +1,5 @@
 ---
-title: Video Indexer API를 사용하여 언어 모델 사용자 지정 - Azure
+title: Video Indexer Api를 사용 하 여 언어 모델 사용자 지정-Azure
 titlesuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer API를 사용하여 언어 모델을 사용자 지정하는 방법을 설명합니다.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
-ms.openlocfilehash: b7517c8a8745569635a9570c02c851854eebeb96
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: e8df7ffd285b0d49f5d4a87585e769b5b0bbafe9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289495"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513153"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Video Indexer API로 언어 모델 사용자 지정
 

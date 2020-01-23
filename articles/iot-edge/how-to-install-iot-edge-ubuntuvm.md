@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 03c517ac80ed42f96cae00001a154e519ec94148
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 84dd1b6d657dfe5061f53698114f3dc4e0197571
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263339"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510059"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -22,7 +22,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-이 문서에는 [Ubuntu Azure Marketplace 제품에 미리 구성된 Azure IoT Edge](https://aka.ms/azure-iot-edge-ubuntuvm)를 사용하여 Ubuntu 16.04 Virtual Machine에서 Azure IoT Edge 런타임을 실행하는 단계가 나와 있습니다. 
+이 문서에는 [Ubuntu Azure Marketplace 제품에 미리 구성된 Azure IoT Edge](https://aka.ms/azure-iot-edge-ubuntuvm)를 사용하여 Ubuntu 16.04 Virtual Machine에서 Azure IoT Edge 런타임을 실행하는 단계가 나와 있습니다.
 
 첫 번째 부팅 시 Ubuntu VM의 Azure IoT Edge는 Azure IoT Edge 런타임의 최신 버전을 사전 설치합니다. 또한 연결 문자열을 설정한 다음, 런타임을 다시 시작하는 스크립트가 포함되어 있습니다. 이 스크립트는 Azure VM 포털이나 Azure 명령줄을 통해 원격으로 트리거될 수 있으며, SSH 또는 원격 데스크톱 세션을 시작하지 않고 IoT Edge 디바이스를 쉽게 구성하고 연결할 수 있도록 합니다. 이 스크립트는 IoT Edge 클라이언트가 완전히 설치될 때까지 기다렸다가 연결 문자열을 설정하므로 자동화에 빌드할 필요가 없습니다.
 
@@ -52,22 +52,22 @@ Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LT
    ```azurecli-interactive
    az login
    ```
-    
+
 1. 구독이 여러 개인 경우 사용할 구독을 선택합니다.
    1. 구독 나열:
-    
+
       ```azurecli-interactive
       az account list --output table
       ```
-    
+
    1. 사용 하려는 구독에 대 한 SubscriptionID 필드를 복사 합니다.
 
    1. 방금 복사한 ID를 사용 하 여 작업 구독을 설정 합니다.
-    
-      ```azurecli-interactive 
+
+      ```azurecli-interactive
       az account set -s {SubscriptionId}
       ```
-    
+
 1. 새 리소스 그룹을 만들거나, 다음 단계에서 기존 리소스 그룹을 지정합니다.
 
    ```azurecli-interactive
@@ -93,7 +93,6 @@ Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LT
    ```
 
 설정 후에 이 VM에 SSH를 수행하려면 `ssh azureuser@{publicIpAddress}` 명령에 publicIpAddress를 사용합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e4bf079d46271cadc0176fe5602adcdc3954dee5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290719"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510535"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -43,9 +43,9 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 선택 합니다.
 1. 드롭다운 메뉴에서 모듈의 유형을 확인 합니다.
 
-   * **IoT Edge 모듈** -모듈 이름과 컨테이너 이미지 URI를 제공 합니다. 예를 들어 샘플 SimulatedTemperatureSensor 모듈에 대 한 이미지 URI는 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`됩니다. 모듈 이미지가 개인 컨테이너 레지스트리에 저장 되어 있는 경우이 페이지의 자격 증명을 추가 하 여 이미지에 액세스 합니다. 
+   * **IoT Edge 모듈** -모듈 이름과 컨테이너 이미지 URI를 제공 합니다. 예를 들어 샘플 SimulatedTemperatureSensor 모듈에 대 한 이미지 URI는 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`됩니다. 모듈 이미지가 개인 컨테이너 레지스트리에 저장 되어 있는 경우이 페이지의 자격 증명을 추가 하 여 이미지에 액세스 합니다.
    * **Marketplace 모듈** -Azure Marketplace에서 호스트 되는 모듈입니다. 일부 마켓플레이스 모듈에는 추가 구성이 필요 하므로 [Azure Marketplace IoT Edge 모듈](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) 목록에서 모듈 세부 정보를 검토 하세요.
-   * **모듈 Azure Stream Analytics** Azure Stream Analytics 워크 로드에서 생성 된 모듈입니다. 
+   * **모듈 Azure Stream Analytics** Azure Stream Analytics 워크 로드에서 생성 된 모듈입니다.
 
 1. 모듈을 추가한 후 목록에서 모듈 이름을 선택 하 여 모듈 설정을 엽니다. 필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)을 참조하세요.
 1. 필요한 경우 5 ~ 8 단계를 반복 하 여 배포에 모듈을 더 추가 합니다.
