@@ -6,17 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 2cef965f8ba23e31444d8dd8e36cdfc51afa15f6
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 6bb8dfc4b85da47a70ba768400341317462bafd8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513255"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543480"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Azure Logic Apps의 트리거 및 동작 유형에 대 한 스키마 참조 가이드
 
-이 참조에서는 논리 앱의 기본 워크플로 정의에서 트리거와 작업을 식별 하는 데 사용 되는 일반적인 형식에 대해 설명 하며, [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에 의해 설명 되 고 유효성이 검사 됩니다.
-논리 앱에서 사용할 수 있는 특정 커넥터 트리거와 작업을 찾으려면 [커넥터 개요](https://docs.microsoft.com/connectors/)에서 목록을 참조 하세요.
+이 참조에서는 논리 앱의 기본 워크플로 정의에서 트리거와 작업을 식별 하는 데 사용 되는 일반적인 형식에 대해 설명 하며, [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에 의해 설명 되 고 유효성이 검사 됩니다. 논리 앱에서 사용할 수 있는 특정 커넥터 트리거와 작업을 찾으려면 [커넥터 개요](https://docs.microsoft.com/connectors/)에서 목록을 참조 하세요.
 
 <a name="triggers-overview"></a>
 
@@ -26,7 +25,7 @@ ms.locfileid: "76513255"
 
 * *폴링* 트리거 - 정기적인 간격으로 서비스의 엔드포인트을 검사합니다.
 
-* *푸시* 트리거 - 엔드포인트에 대한 구독을 만들고 *콜백 URL*을 제공하여 지정된 이벤트가 발생하거나 데이터를 사용할 수 있을 때 엔드포인트이 트리거에 알릴 수 있도록 합니다. 그러면 트리거는 발생하기 전에 엔드포인트의 응답을 기다립니다. 
+* *푸시* 트리거 - 엔드포인트에 대한 구독을 만들고 *콜백 URL*을 제공하여 지정된 이벤트가 발생하거나 데이터를 사용할 수 있을 때 엔드포인트이 트리거에 알릴 수 있도록 합니다. 그러면 트리거는 발생하기 전에 엔드포인트의 응답을 기다립니다.
 
 트리거에는 이러한 최상위 요소가 있습니다. 단, 일부는 선택 사항입니다.  
   
@@ -127,15 +126,15 @@ ms.locfileid: "76513255"
 
 *필수*
 
-| 값 | 유형 | Description | 
-|-------|------|-------------| 
-| <*APIConnection_trigger_name*> | String | 트리거의 이름입니다. | 
-| <*connection-name*> | String | 워크플로에서 사용하는 관리되는 API 연결의 이름입니다. | 
-| <*method-type*> | String | 관리되는 API와 통신하기 위한 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
-| <*api-operation*> | String | 호출할 API 작업입니다. | 
-| <*time-unit*> | String | 트리거가 실행되는 빈도를 설명하는 시간 단위로, “초”, “분”, “시간”, “일”, “주” 또는 “월”이 있습니다. | 
-| <*number-of-time-units*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
-|||| 
+| 값 | 유형 | Description |
+|-------|------|-------------|
+| <*APIConnection_trigger_name*> | String | 트리거의 이름입니다. |
+| <*connection-name*> | String | 워크플로에서 사용하는 관리되는 API 연결의 이름입니다. |
+| <*method-type*> | String | 관리되는 API와 통신하기 위한 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” |
+| <*api-operation*> | String | 호출할 API 작업입니다. |
+| <*time-unit*> | String | 트리거가 실행되는 빈도를 설명하는 시간 단위로, “초”, “분”, “시간”, “일”, “주” 또는 “월”이 있습니다. |
+| <*number-of-time-units*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
+||||
 
 *선택 사항*
 
@@ -143,7 +142,7 @@ ms.locfileid: "76513255"
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
 | <*query-parameters*> | JSON 개체 | API 호출에 포함하려는 쿼리 매개 변수입니다. 예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. | 
-| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
+| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 [기본적](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)으로 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
 | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*splitOn-expression*> | String | 배열을 반환하는 트리거의 경우 이 식은 사용할 배열을 참조하므로, "for each" 루프를 사용하는 대신, 각 배열 항목에 대해 워크플로 인스턴스를 만들고 실행할 수 있습니다. <p>예를 들어, 이 식은 트리거 본문 콘텐츠 내에서 반환되는 배열의 항목을 나타냅니다. `@triggerbody()?['value']` |
 | <*operation-option*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. |
@@ -160,7 +159,7 @@ ms.locfileid: "76513255"
 
 *예제*
 
-이 트리거 정의는 Office 365 Outlook 계정의 받은 편지함 내에서 매일 이메일을 확인합니다. 
+이 트리거 정의는 Office 365 Outlook 계정의 받은 편지함 내에서 매일 이메일을 확인합니다.
 
 ```json
 "When_a_new_email_arrives": {
@@ -233,7 +232,7 @@ ms.locfileid: "76513255"
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
 | <*query-parameters*> | JSON 개체 | API 호출에 포함하려는 쿼리 매개 변수입니다. <p>예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. | 
-| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
+| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 [기본적](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)으로 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
 | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*splitOn-expression*> | String | 배열을 반환하는 트리거의 경우 이 식은 사용할 배열을 참조하므로, "for each" 루프를 사용하는 대신, 각 배열 항목에 대해 워크플로 인스턴스를 만들고 실행할 수 있습니다. <p>예를 들어, 이 식은 트리거 본문 콘텐츠 내에서 반환되는 배열의 항목을 나타냅니다. `@triggerbody()?['value']` |
 | <*operation-option*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
@@ -319,7 +318,7 @@ ms.locfileid: "76513255"
 | `body` | <*body-content*> | JSON 개체 | 요청과 함께 페이로드로 전송할 메시지 콘텐츠입니다. |
 | `authentication` | <*인증 유형-및 속성-값*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정 되지 않은 경우 기본값은 `https://management.azure.com/`이지만 다른 값을 사용할 수 있습니다. |
 | `retryPolicy` > `type` | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. |
-| `runs` | <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. |
+| `runs` | <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 [기본적](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)으로 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. |
 | `maximumWaitingRuns` | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. |
 | `operationOptions` | <*operation-option*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. |
 |||||
@@ -361,8 +360,7 @@ ms.locfileid: "76513255"
 
 이 트리거는 지정된 엔드포인트 URL을 호출하여 구독을 등록할 수 있는 엔드포인트을 만들어 논리 앱이 호출 가능해지도록 만듭니다. 워크플로에서 이 트리거를 만들 때 나가는 요청은 호출을 수행하여 구독을 등록합니다. 이러한 방식으로 트리거는 이벤트 수신을 시작할 수 있습니다. 작업에서 이 트리거가 유효해지지 않을 경우 나가는 요청은 자동으로 호출을 수행하여 구독을 취소합니다. 자세한 내용은 [엔드포인트 구독](#subscribe-unsubscribe)을 참조하세요.
 
-**HTTPWebhook** 트리거에 대해 [비동기 제한](#asynchronous-limits)을 지정할 수도 있습니다.
-트리거 동작은 사용하거나 생략하는 섹션에 따라 달라집니다. 
+**HTTPWebhook** 트리거에 대해 [비동기 제한](#asynchronous-limits)을 지정할 수도 있습니다. 트리거 동작은 사용하거나 생략하는 섹션에 따라 달라집니다.
 
 ```json
 "HTTP_Webhook": {
@@ -414,7 +412,7 @@ ms.locfileid: "76513255"
 | <*body-content*> | String | 구독 또는 취소 요청에 전송할 메시지 콘텐츠입니다. | 
 | <*인증-형식*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. |
 | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
-| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
+| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
 | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*operation-option*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
@@ -462,7 +460,7 @@ ms.locfileid: "76513255"
 
 ### <a name="recurrence-trigger"></a>되풀이 트리거  
 
-이 트리거는 지정된 되풀이 일정에 따라 실행되고, 주기적으로 실행되는 워크플로를 만드는 편리한 방법을 제공합니다. 
+이 트리거는 지정된 되풀이 일정에 따라 실행되고, 주기적으로 실행되는 워크플로를 만드는 편리한 방법을 제공합니다.
 
 ```json
 "Recurrence": {
@@ -508,7 +506,7 @@ ms.locfileid: "76513255"
 | <*one-or-more-hour-marks*> | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~23 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 시간으로 지정할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
 | <*one-or-more-minute-marks*> | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~59 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 분으로 지정할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
 | weekDays | 문자열 또는 문자열 배열 | `frequency`에 대해 “Week”를 지정하는 경우 워크플로를 실행하려는 경우 하나 이상의 요일을 쉼표로 구분해서 지정할 수 있습니다. 예를 들면 "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"와 같이 지정합니다. | 
-| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
+| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
 | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*operation-option*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
@@ -569,7 +567,7 @@ ms.locfileid: "76513255"
 
 ### <a name="request-trigger"></a>요청 트리거
 
-이 트리거는 들어오는 요청을 수락할 수 있는 엔드포인트을 만들어서 논리 앱을 호출할 수 있게 합니다. 이 트리거의 경우 트리거가 들어오는 요청에서 수신하는 입력 또는 페이로드에 대해 설명하고 유효성을 검사하는 JSON 스키마를 제공합니다. 또한 이 스키마는 워크플로의 이후 작업에서 트리거 속성을 보다 쉽게 참조할 수 있도록 합니다. 
+이 트리거는 들어오는 요청을 수락할 수 있는 엔드포인트을 만들어서 논리 앱을 호출할 수 있게 합니다. 이 트리거의 경우 트리거가 들어오는 요청에서 수신하는 입력 또는 페이로드에 대해 설명하고 유효성을 검사하는 JSON 스키마를 제공합니다. 또한 이 스키마는 워크플로의 이후 작업에서 트리거 속성을 보다 쉽게 참조할 수 있도록 합니다.
 
 이 트리거를 호출하려면 [워크플로 서비스 REST API](https://docs.microsoft.com/rest/api/logic/workflows)에 설명된 `listCallbackUrl` API를 사용해야 합니다. HTTP 엔드포인트로 이 트리거를 사용하는 방법을 알아보려면 [HTTP 엔드포인트를 사용하여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
 
@@ -615,14 +613,14 @@ ms.locfileid: "76513255"
 | <*method-type*> | String | 들어오는 요청에서 논리 앱을 호출하는 데 사용해야 하는 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” |
 | <*relative-path-for-accepted-parameter*> | String | 엔드포인트의 URL이 수락할 수 있는 매개 변수에 대한 상대 경로입니다. | 
 | <*required-properties*> | Array | 값이 필요한 하나 이상의 속성 | 
-| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
+| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
 | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*operation-option*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
 
 *예제*
 
-이 트리거는 들어오는 요청이 HTTP POST 메서드를 사용하여 트리거를 호출해야 하고, 들어오는 요청에서 입력의 유효성을 검사하는 스키마를 포함합니다. 
+이 트리거는 들어오는 요청이 HTTP POST 메서드를 사용하여 트리거를 호출해야 하고, 들어오는 요청에서 입력의 유효성을 검사하는 스키마를 포함합니다.
 
 ```json
 "manual": {
@@ -674,7 +672,7 @@ ms.locfileid: "76513255"
 }
 ```
 
-기본적으로 트리거는 "200 정상" 응답을 받은 경우에만 트리거됩니다. 식에서 트리거의 상태 코드를 참조하는 경우 트리거의 기본 동작이 바뀝니다. 따라서 "200" 및 "201"과 같은 둘 이상의 상태 코드에 대해 트리거가 발생하도록 하려면 다음 식을 조건으로 포함해야 합니다. 
+기본적으로 트리거는 "200 정상" 응답을 받은 경우에만 트리거됩니다. 식에서 트리거의 상태 코드를 참조하는 경우 트리거의 기본 동작이 바뀝니다. 따라서 "200" 및 "201"과 같은 둘 이상의 상태 코드에 대해 트리거가 발생하도록 하려면 다음 식을 조건으로 포함해야 합니다.
 
 `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
@@ -682,15 +680,14 @@ ms.locfileid: "76513255"
 
 ## <a name="trigger-multiple-runs"></a>여러 실행 트리거
 
-트리거에서 논리 앱이 처리할 배열을 반환하는 경우, "for each" 루프에서 각 배열 항목을 처리하는 데 너무 오래 걸리는 경우가 있습니다. 대신, 트리거에 **SplitOn** 속성을 사용하여 배열을 *분리 처리(debatch)* 합니다. 일괄 처리는 배열 항목을 분할 하 고 각 배열 항목에 대해 실행 되는 새 워크플로 인스턴스를 시작 합니다. 예를 들어 이 방법은 폴링 간격 사이에 여러 개의 새 항목을 반환할 수 있는 엔드포인트를 폴링하려는 경우에 유용합니다.
-**SplitOn**이 단일 논리 앱 실행에서 처리할 수 있는 배열 항목의 최대 개수는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조하세요. 
+트리거에서 논리 앱이 처리할 배열을 반환하는 경우, "for each" 루프에서 각 배열 항목을 처리하는 데 너무 오래 걸리는 경우가 있습니다. 대신, 트리거에 **SplitOn** 속성을 사용하여 배열을 *분리 처리(debatch)* 합니다. 일괄 처리는 배열 항목을 분할 하 고 각 배열 항목에 대해 실행 되는 새 워크플로 인스턴스를 시작 합니다. 예를 들어 이 방법은 폴링 간격 사이에 여러 개의 새 항목을 반환할 수 있는 엔드포인트를 폴링하려는 경우에 유용합니다. **SplitOn**이 단일 논리 앱 실행에서 처리할 수 있는 배열 항목의 최대 개수는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조하세요. 
 
 > [!NOTE]
 > 동기 응답 패턴에는 **SplitOn**을 사용할 수 없습니다. **SplitOn**을 사용하고 응답 작업을 포함하는 모든 워크플로는 비동기적으로 실행되고 즉시 `202 ACCEPTED` 응답을 보냅니다.
 >
 > 트리거 동시성을 사용 하는 경우 [SplitOn 한도가](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 크게 줄어듭니다. 항목 수가이 한도를 초과 하면 SplitOn 기능을 사용할 수 없습니다.
  
-트리거의 Swagger 파일에서 배열인 페이로드를 설명하고 있으면 **SplitOn** 속성이 자동으로 트리거에 추가됩니다. 그렇지 않으면 분리 처리할 배열이 있는 응답 페이로드 내에 이 속성을 추가합니다. 
+트리거의 Swagger 파일에서 배열인 페이로드를 설명하고 있으면 **SplitOn** 속성이 자동으로 트리거에 추가됩니다. 그렇지 않으면 분리 처리할 배열이 있는 응답 페이로드 내에 이 속성을 추가합니다.
 
 *예제*
 
@@ -711,7 +708,7 @@ ms.locfileid: "76513255"
    ]
 }
 ```
- 
+
 논리 앱에는 `Rows`의 배열 콘텐츠만 필요하므로 다음 예제와 같은 트리거를 만들 수 있습니다.
 
 ``` json
@@ -758,9 +755,7 @@ ms.locfileid: "76513255"
 
 ## <a name="actions-overview"></a>작업 개요
 
-Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 입력을 받는 다양한 작업 형식을 제공합니다. 
-
-작업에는 이러한 최상위 요소가 있습니다. 단, 일부는 선택 사항입니다.
+Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 입력을 받는 다양한 작업 형식을 제공합니다. 작업에는 이러한 최상위 요소가 있습니다. 단, 일부는 선택 사항입니다.
 
 ```json
 "<action-name>": {
@@ -1000,8 +995,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="compose-action"></a>작성 작업
 
-이 작업은 식을 포함하는 여러 입력에서 단일 출력을 만듭니다. 출력 및 입력 둘 다 배열, JSON 개체, XML 및 이진 파일 등 Azure Logic Apps에서 기본적으로 지원하는 어떤 형식도 될 수 있습니다.
-그런 후, 다른 작업에서 해당 작업의 출력을 사용할 수 있습니다. 
+이 작업은 식을 포함하는 여러 입력에서 단일 출력을 만듭니다. 출력 및 입력 둘 다 배열, JSON 개체, XML 및 이진 파일 등 Azure Logic Apps에서 기본적으로 지원하는 어떤 형식도 될 수 있습니다. 그런 후, 다른 작업에서 해당 작업의 출력을 사용할 수 있습니다. 
 
 ```json
 "Compose": {
@@ -1310,7 +1304,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="parse-json-action"></a>Parse JSON 작업
 
-이 작업은 JSON 콘텐츠의 속성에서 사용자에게 친숙한 필드 또는 *토큰*을 만듭니다. 그러면 토큰을 대신 사용하여 논리 앱에서 해당 속성에 액세스할 수 있습니다. 예를 들어, Azure Service Bus 및 Azure Cosmos DB와 같은 서비스에서 JSON 출력을 사용하려는 경우 해당 출력에서 데이터를 보다 쉽게 참조할 수 있도록 논리 앱에 이 작업을 포함할 수 있습니다. 
+이 작업은 JSON 콘텐츠의 속성에서 사용자에게 친숙한 필드 또는 *토큰*을 만듭니다. 그러면 토큰을 대신 사용하여 논리 앱에서 해당 속성에 액세스할 수 있습니다. 예를 들어, Azure Service Bus 및 Azure Cosmos DB와 같은 서비스에서 JSON 출력을 사용하려는 경우 해당 출력에서 데이터를 보다 쉽게 참조할 수 있도록 논리 앱에 이 작업을 포함할 수 있습니다.
 
 ```json
 "Parse_JSON": {
@@ -1333,7 +1327,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *예제*
 
-이 작업 정의는 워크플로에서 사용할 수 있는 다음 **JSON 구문 분석** 작업을 수행 하는 작업 에서만 이러한 토큰을 만듭니다. 
+이 작업 정의는 워크플로에서 사용할 수 있는 다음 **JSON 구문 분석** 작업을 수행 하는 작업 에서만 이러한 토큰을 만듭니다.
 
 `FirstName`, `LastName`, `Email`
 
@@ -1525,7 +1519,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="select-action"></a>작업 선택
 
-이 작업은 지정된 맵을 기준으로 다른 배열의 항목을 변형하여 JSON 개체를 포함하는 배열을 만듭니다. 출력 배열 및 원본 배열은 항상 동일한 항목 수를 갖습니다. 출력 배열의 개체 수를 변경할 수 없지만 해당 개체에서 속성 및 값을 추가하거나 제거할 수 있습니다. `select` 속성은 원본 배열에서 항목을 변환하기 위한 맵을 정의하는 하나 이상의 키-값 쌍을 지정합니다. 키-값 쌍은 출력 배열에 있는 모든 개체에서 속성 및 해당 값을 나타냅니다. 
+이 작업은 지정된 맵을 기준으로 다른 배열의 항목을 변형하여 JSON 개체를 포함하는 배열을 만듭니다. 출력 배열 및 원본 배열은 항상 동일한 항목 수를 갖습니다. 출력 배열의 개체 수를 변경할 수 없지만 해당 개체에서 속성 및 값을 추가하거나 제거할 수 있습니다. `select` 속성은 원본 배열에서 항목을 변환하기 위한 맵을 정의하는 하나 이상의 키-값 쌍을 지정합니다. 키-값 쌍은 출력 배열에 있는 모든 개체에서 속성 및 해당 값을 나타냅니다.
 
 ```json
 "Select": {
@@ -1554,7 +1548,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *예제*
 
-이 작업 정의는 정수 배열에서 JSON 개체 배열을 만듭니다. 이 작업은 원본 배열을 반복하고, `@item()` 식을 사용하여 각 정수 값을 가져오고, 각 값을 각 JSON 개체의 "`number`" 속성에 할당합니다. 
+이 작업 정의는 정수 배열에서 JSON 개체 배열을 만듭니다. 이 작업은 원본 배열을 반복하고, `@item()` 식을 사용하여 각 정수 값을 가져오고, 각 값을 각 JSON 개체의 "`number`" 속성에 할당합니다.
 
 ```json
 "Select": {
@@ -1659,11 +1653,11 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *예제 1*
 
-현재 이 배열이 포함된 이전에 만든 "myItemArray" 변수가 있다고 가정합니다. 
+현재 이 배열이 포함된 이전에 만든 "myItemArray" 변수가 있다고 가정합니다.
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
-이 작업 정의는 "myItemArray" 변수에서 CSV 테이블을 만듭니다. `from` 속성에 사용되는 식은 `variables()` 함수를 사용하여 "myItemArray"에서 배열을 가져옵니다. 
+이 작업 정의는 "myItemArray" 변수에서 CSV 테이블을 만듭니다. `from` 속성에 사용되는 식은 `variables()` 함수를 사용하여 "myItemArray"에서 배열을 가져옵니다.
 
 ```json
 "Create_CSV_table": {
@@ -1686,7 +1680,7 @@ ID,Product_Name
 
 *예제 2*
 
-이 작업 정의는 "myItemArray" 변수에서 HTML 테이블을 만듭니다. `from` 속성에 사용되는 식은 `variables()` 함수를 사용하여 "myItemArray"에서 배열을 가져옵니다. 
+이 작업 정의는 "myItemArray" 변수에서 HTML 테이블을 만듭니다. `from` 속성에 사용되는 식은 `variables()` 함수를 사용하여 "myItemArray"에서 배열을 가져옵니다.
 
 ```json
 "Create_HTML_table": {
@@ -1736,7 +1730,7 @@ ID,Product_Name
 
 ### <a name="terminate-action"></a>종료 작업
 
-이 작업은 워크플로 인스턴스에 대 한 실행을 중지 하 고 진행 중인 모든 작업을 취소 하 고 나머지 작업을 건너뛰고 지정 된 상태를 반환 합니다. 예를 들어, 논리 앱이 오류 상태에서 완전히 종료되어야 할 경우 **Terminate** 작업을 사용할 수 있습니다. 이 작업이 이미 완료된 작업에 영향을 주지 않으며 순차 루프를 포함하여 **Foreach** 및 **Until** 루프 내에 포함될 수 없습니다. 
+이 작업은 워크플로 인스턴스에 대 한 실행을 중지 하 고 진행 중인 모든 작업을 취소 하 고 나머지 작업을 건너뛰고 지정 된 상태를 반환 합니다. 예를 들어, 논리 앱이 오류 상태에서 완전히 종료되어야 할 경우 **Terminate** 작업을 사용할 수 있습니다. 이 작업이 이미 완료된 작업에 영향을 주지 않으며 순차 루프를 포함하여 **Foreach** 및 **Until** 루프 내에 포함될 수 없습니다.
 
 ```json
 "Terminate": {
@@ -1789,9 +1783,9 @@ ID,Product_Name
 
 <a name="wait-action"></a>
 
-### <a name="wait-action"></a>대기 작업  
+### <a name="wait-action"></a>대기 작업
 
-이 작업은 지정된 간격 동안 또는 지정된 시간이 도달할 때까지 워크플로 실행을 일시 중지합니다. 
+이 작업은 지정된 간격 동안 또는 지정된 시간이 도달할 때까지 워크플로 실행을 일시 중지합니다.
 
 *지정된 간격*
 
@@ -1876,7 +1870,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 * 부모 논리 앱과 동일한 Azure 구독
 
-* 부모 논리 앱에서 중첩된 논리 앱의 출력을 사용하려면 중첩된 논리 앱에 [Response](#response-action) 작업이 있어야 합니다. 
+* 부모 논리 앱에서 중첩된 논리 앱의 출력을 사용하려면 중첩된 논리 앱에 [Response](#response-action) 작업이 있어야 합니다.
 
 ```json
 "<nested-logic-app-name>": {
@@ -1920,7 +1914,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 *예제*
 
-"Start_search" 작업이 성공적으로 완료되면 이 워크플로 작업 정의는 지정된 입력을 전달하는 "Get_product_information"이라는 다른 논리 앱을 호출합니다. 
+"Start_search" 작업이 성공적으로 완료되면 이 워크플로 작업 정의는 지정된 입력을 전달하는 "Get_product_information"이라는 다른 논리 앱을 호출합니다.
 
 ```json
 "actions": {
@@ -1985,7 +1979,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 | 값 | 유형 | Description | 
 |-------|------|-------------| 
-| <*count*> | 정수 | 기본적으로 "for each" 루프 반복은 동시에 또는 병렬로 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 실행됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 ["for each" 동시성 변경](#change-for-each-concurrency)을 참조하세요. | 
+| <*count*> | 정수 | 기본적으로 "for each" 루프 반복은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 ["for each" 동시성 변경](#change-for-each-concurrency)을 참조하세요. | 
 | <*operation-option*> | String | "for each" 루프를 병렬 방식이 아닌 순차적으로 실행하려면 <*operation-option*>을 `Sequential`로 설정하거나 <*count*>를 `1`로 설정합니다. 둘 중 하나만 설정해야 합니다. 자세한 내용은 ["for each" 루프를 순차적으로 실행](#sequential-for-each)을 참조하세요. | 
 |||| 
 
@@ -2316,7 +2310,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 *예제*
 
-이 루프 작업 정의는 다음 조건 중 하나가 충족될 때까지 지정된 URL에 HTTP 요청을 보냅니다. 
+이 루프 작업 정의는 다음 조건 중 하나가 충족될 때까지 지정된 URL에 HTTP 요청을 보냅니다.
 
 * 요청은 "200 정상" 상태 코드의 응답을 받습니다.
 * 루프는 60번 실행됩니다.
@@ -2364,7 +2358,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 ## <a name="change-asynchronous-duration"></a>비동기 지속 시간 변경
 
-트리거 및 작업에 대해 `limit.timeout` 속성을 추가하여 비동기 패턴의 지속 시간을 특정 시간 간격으로 제한할 수 있습니다. 이러한 방식으로, 간격이 경과할 때 작업이 완료되지 않은 경우 상태는 `ActionTimedOut` 코드와 함께 `Cancelled`로 표시됩니다. `timeout` 속성은 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용합니다. 
+트리거 및 작업에 대해 `limit.timeout` 속성을 추가하여 비동기 패턴의 지속 시간을 특정 시간 간격으로 제한할 수 있습니다. 이러한 방식으로, 간격이 경과할 때 작업이 완료되지 않은 경우 상태는 `ActionTimedOut` 코드와 함께 `Cancelled`로 표시됩니다. `timeout` 속성은 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용합니다.
 
 ``` json
 "<trigger-or-action-name>": {
@@ -2381,13 +2375,13 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 ## <a name="runtime-configuration-settings"></a>런타임 구성 설정
 
-트리거 및 작업에 대한 기본 런타임 동작을 트리거 또는 작업 정의의 `runtimeConfiguration` 속성을 사용하여 변경할 수 있습니다.
+트리거 또는 작업 정의에 이러한 `runtimeConfiguration` 속성을 추가 하 여 트리거 및 작업에 대 한 기본 런타임 동작을 변경할 수 있습니다.
 
 | 속성 | 유형 | Description | 트리거 또는 작업 | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | 정수 | 동시에 실행 되거나 동시에 실행 될 수 있는 워크플로 인스턴스 수에 대 한 [*기본 제한을*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 변경 합니다. 이 값은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다. <p>`runs` 속성을 `1`로 설정하면 `operationOptions` 속성을 `SingleInstance`로 설정할 때와 같은 결과가 나타납니다. 두 속성 중 하나만 설정할 수 있습니다. <p>기본 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](#sequential-trigger)를 참조하세요. | 모든 트리거 | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | 정수 | 워크플로가 최대 동시 인스턴스를 이미 실행 중인 경우 실행을 대기할 수 있는 워크플로 인스턴스 수에 대 한 [*기본 제한을*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 변경 합니다. `concurrency.runs` 속성에서 동시성 제한을 변경할 수 있습니다. <p>기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 모든 트리거 | 
-| `runtimeConfiguration.concurrency.repetitions` | 정수 | 동시에 또는 병렬로 실행할 수 있는 "for each" 루프 반복 수에 대한 [*기본 제한*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 변경합니다. <p>`repetitions` 속성을 `1`로 설정하면 `operationOptions` 속성을 `SingleInstance`로 설정할 때와 같은 결과가 나타납니다. 두 속성 중 하나만 설정할 수 있습니다. <p>기본 제한을 변경하려면 ["for each" 동시성 변경](#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](#sequential-for-each)을 참조하세요. | 작업: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.concurrency.runs` | 정수 | 동시에 또는 동시에 실행할 수 있는 워크플로 인스턴스 수에 대 한 [*기본 제한을*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 변경 합니다. 이 값을 조정 하면 백엔드 시스템이 받는 요청 수를 제한할 수 있습니다. <p>`runs` 속성을 `1`로 설정하면 `operationOptions` 속성을 `SingleInstance`로 설정할 때와 같은 결과가 나타납니다. 두 속성 중 하나만 설정할 수 있습니다. <p>기본 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](#sequential-trigger)를 참조하세요. | 모든 트리거 | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | 정수 | 논리 앱에서 최대 동시 인스턴스를 이미 실행 중인 경우 실행 대기 해야 하는 워크플로 인스턴스 수에 대 한 [*기본 제한을*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 변경 합니다. <p>기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 모든 트리거 | 
+| `runtimeConfiguration.concurrency.repetitions` | 정수 | 동시에 실행 되거나 동시에 실행 될 수 있는 "for each" 루프 반복의 수에 대 한 [*기본 제한을*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 변경 합니다. <p>`repetitions` 속성을 `1`로 설정하면 `operationOptions` 속성을 `SingleInstance`로 설정할 때와 같은 결과가 나타납니다. 두 속성 중 하나만 설정할 수 있습니다. <p>기본 제한을 변경하려면 ["for each" 동시성 변경](#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](#sequential-for-each)을 참조하세요. | 작업: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | 정수 | 을 지원 하 고 페이지 매김이 설정 된 특정 작업의 경우이 값은 검색할 *최소* 결과 수를 지정 합니다. <p>페이지 매김 기능을 설정 하려면 [페이지 매김을 사용 하 여 대량 데이터, 항목 또는 결과 가져오기](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) 를 참조 하세요. | 작업: 다양 |
 | `runtimeConfiguration.secureData.properties` | Array | 이러한 설정은 많은 트리거와 작업에서 논리 앱의 실행 기록에서 입력, 출력 또는 둘 다를 숨깁니다. <p>이 데이터를 보호 하려면 [실행 기록에서 입력 및 출력 숨기기](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view)를 참조 하세요. | 대부분의 트리거 및 작업 |
 | `runtimeConfiguration.staticResult` | JSON 개체 | 을 지원 하 고 [정적 결과](../logic-apps/test-logic-apps-mock-data-static-results.md) 설정이 설정 된 작업의 경우 `staticResult` 개체에는 다음과 같은 특성이 있습니다. <p>현재 작업의 정적 결과 정의 이름을 참조 하는 `name`- 논리 앱 워크플로의 `definition` 특성에서 `staticResults` 특성 안에 표시 됩니다. 자세한 내용은 [워크플로 정의 언어에 대 한 정적 결과-스키마 참조](../logic-apps/logic-apps-workflow-definition-language.md#static-results)를 참조 하세요. <p> 현재 동작에 대해 정적 결과가 `Enabled` 되는지 여부를 지정 하는 `staticResultOptions`을 - 합니다. <p>정적 결과를 켜려면 [정적 결과를 설정 하 여 모의 데이터를 사용 하 여 논리 앱 테스트](../logic-apps/test-logic-apps-mock-data-static-results.md) 를 참조 하세요. | 작업: 다양 |
@@ -2411,7 +2405,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 ### <a name="change-trigger-concurrency"></a>트리거 동시성 변경경
 
-기본적으로 논리 앱 인스턴스는 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 따라서 각 트리거 인스턴스는 이전 워크플로 인스턴스의 실행이 완료 되기 전에 발생 합니다. 이 제한은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다. 
+기본적으로 논리 앱 워크플로 인스턴스는 동시에 동시에 실행 되거나 동시에 실행 됩니다. 이 동작은 이전에 활성화 된 워크플로 인스턴스의 실행이 완료 되기 전에 각 트리거 인스턴스가 발생 함을 의미 합니다. 그러나 동시에 실행 되는 인스턴스의 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)있습니다. 동시에 실행 되는 워크플로 인스턴스의 수가이 한도에 도달 하면 다른 모든 새 인스턴스는 실행 대기 해야 합니다. 이 제한은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다.
 
 디자이너를 통해 동시성 설정을 변경하면 기본 트리거 정의에서 `runtimeConfiguration.concurrency.runs` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 기본 제한을 변경하려면 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다. 이 속성은 병렬로 실행할 수 있는 워크플로 인스턴스의 최대 수를 제어 합니다. 동시성 제어를 사용 하도록 설정 하려는 경우에 대 한 몇 가지 고려 사항은 다음과 같습니다.
 
@@ -2428,7 +2422,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
        ![가장 이른 실행 인스턴스 선택](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
 
        > [!TIP]
-       > 아직 실행 중인 인스턴스만 보려면 **모두** 목록을 열고 **실행 중**을 선택 합니다.    
+       > 아직 실행 중인 인스턴스만 보려면 **모두** 목록을 열고 **실행 중**을 선택 합니다.
 
     1. **논리 앱 실행**에서 **실행 취소**를 선택 합니다.
 
@@ -2444,11 +2438,11 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
        ![제한 시간 지정](./media/logic-apps-workflow-actions-triggers/timeout.png)
 
-* 논리 앱을 순차적으로 실행 하려면 코드 보기 편집기나 디자이너를 사용 하 여 `1` 트리거의 동시성을 설정 하면 됩니다. 그러나 코드 뷰 편집기에서 트리거의 `operationOptions` 속성을 `SingleInstance`로 설정 하지 않습니다. 그렇지 않으면 유효성 검사 오류가 표시됩니다. 자세한 내용은 [인스턴스를 순차적으로 트리거](#sequential-trigger)를 참조하세요.
+* 논리 앱을 순차적으로 실행 하려면 코드 보기 편집기나 디자이너를 사용 하 여 `1` 트리거의 동시성을 설정 합니다. 코드 보기 편집기에서 트리거의 `operationOptions` 속성을 `SingleInstance`로 설정 하지 않아야 합니다. 그렇지 않으면 유효성 검사 오류가 표시됩니다. 자세한 내용은 [인스턴스를 순차적으로 트리거](#sequential-trigger)를 참조하세요.
 
 #### <a name="edit-in-code-view"></a>코드 보기에서 편집 
 
-기본 트리거 정의에서 `1` 및 `50` 사이의 값을 갖는 `runtimeConfiguration.concurrency.runs` 속성을 추가하거나 속성을 이 값으로 업데이트합니다.
+기본 트리거 정의에서 `runtimeConfiguration.concurrency.runs` 속성을 추가 합니다 .이 속성의 범위는 `1`에서 `50`값을 가질 수 있습니다.
 
 동시 실행 수를 10 인스턴스로 제한하는 예제는 다음과 같습니다.
 
@@ -2467,26 +2461,30 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
+자세한 내용은 [런타임 구성 설정](#runtime-config-options)을 참조하세요.
+
 #### <a name="edit-in-logic-apps-designer"></a>Logic Apps 디자이너에서 편집
 
-1. 트리거의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다.
+1. 트리거의 상단 오른쪽 모서리에서 줄임표 ( **...** ) 단추를 선택한 다음 **설정**을 선택 합니다.
 
-2. **동시성 제어** 아래에서 **제한**을 **켜기**로 설정합니다. 
+1. **동시성 제어** 아래에서 **제한**을 **켜기**로 설정합니다. 
 
-3. **병렬도** 슬라이더를 원하는 값으로 끕니다. 논리 앱을 순차적으로 실행하려면 슬라이더 값을 **1**로 끕니다.
+1. **병렬도** 슬라이더를 원하는 값으로 끕니다. 논리 앱을 순차적으로 실행하려면 슬라이더 값을 **1**로 끕니다.
 
 <a name="change-for-each-concurrency"></a>
 
 ### <a name="change-for-each-concurrency"></a>"for each" 동시성 변경
 
-기본적으로 "for each" 루프 반복은 동시에 또는 병렬로 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 실행됩니다. 디자이너를 통해 동시성 설정을 변경하면 기본 "for each" 작업 정의에서 `runtimeConfiguration.concurrency.repetitions` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 기본 제한을 변경하려면 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다. 이 속성은 병렬로 실행할 수 있는 최대 반복 수를 제어합니다.
+기본적으로 "for each" 루프 반복은 동시에 실행 되거나 동시에 실행 됩니다. 이 동작은 이전 반복의 실행이 완료 되기 전에 각 반복이 실행 되기 시작 함을 의미 합니다. 그러나 동시에 실행 되는 반복 횟수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)있습니다. 동시에 실행 되는 반복 횟수가이 제한에 도달 하면 다른 반복은 실행 대기 해야 합니다.
+
+디자이너를 통해 동시성 설정을 변경하면 기본 "for each" 작업 정의에서 `runtimeConfiguration.concurrency.repetitions` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 기본 제한을 변경하려면 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다. 이 속성은 병렬로 실행할 수 있는 최대 반복 수를 제어합니다.
 
 > [!NOTE] 
 > 디자이너 또는 코드 보기 편집기를 사용하여 "for each" 작업이 순차적으로 실행되도록 설정할 경우 코드 보기 편집기에서 작업의 `operationOptions` 속성을 `Sequential`로 설정하지 마세요. 그렇지 않으면 유효성 검사 오류가 표시됩니다. 자세한 내용은 ["for each" 루프를 순차적으로 실행](#sequential-for-each)을 참조하세요.
 
 #### <a name="edit-in-code-view"></a>코드 보기에서 편집 
 
-기본 "for each" 정의에서 `1` 및 `50` 사이의 값을 갖는 `runtimeConfiguration.concurrency.repetitions` 속성을 추가하거나 속성을 이 값으로 업데이트합니다. 
+기본 "for each" 정의에서 `runtimeConfiguration.concurrency.repetitions` 속성을 추가 하거나 업데이트 합니다 .이 속성은 `1` 및 `50`의 범위에 해당 하는 값을 가질 수 있습니다.
 
 동시 실행 수를 10번 반복으로 제한하는 예제는 다음과 같습니다.
 
@@ -2504,23 +2502,25 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
+자세한 내용은 [런타임 구성 설정](#runtime-config-options)을 참조하세요.
+
 #### <a name="edit-in-logic-apps-designer"></a>Logic Apps 디자이너에서 편집
 
-1. **For each** 작업의 오른쪽 위 모서리에서 줄임표(...) 단추를 선택하고 **설정**을 선택합니다.
+1. 각 작업 **에 대해** 오른쪽 위 모퉁이에서 줄임표 ( **...** ) 단추를 선택한 다음 **설정**을 선택 합니다.
 
-2. **동시성 제어** 아래에서 **동시성 제어**를 **켜기**로 설정합니다. 
+1. **동시성 제어** 아래에서 **동시성 제어**를 **켜기**로 설정합니다.
 
-3. **병렬도** 슬라이더를 원하는 값으로 끕니다. 논리 앱을 순차적으로 실행하려면 슬라이더 값을 **1**로 끕니다.
+1. **병렬도** 슬라이더를 원하는 값으로 끕니다. 논리 앱을 순차적으로 실행하려면 슬라이더 값을 **1**로 끕니다.
 
 <a name="change-waiting-runs"></a>
 
 ### <a name="change-waiting-runs-limit"></a>실행 대기 제한 변경
 
-기본적으로 논리 앱 워크플로 인스턴스는 모두 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 각 트리거 인스턴스는 이전에 활성화 된 워크플로 인스턴스의 실행이 완료 되기 전에 발생 합니다. [이 기본 제한을 변경할](#change-trigger-concurrency)수 있지만, 워크플로 인스턴스 수가 새 동시성 한도에 도달 하는 경우 다른 모든 새 인스턴스는 실행 대기 해야 합니다. 
+기본적으로 논리 앱 워크플로 인스턴스는 동시에 동시에 실행 되거나 동시에 실행 됩니다. 이 동작은 이전에 활성화 된 워크플로 인스턴스의 실행이 완료 되기 전에 각 트리거 인스턴스가 발생 함을 의미 합니다. 그러나 동시에 실행 되는 인스턴스의 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)있습니다. 동시에 실행 되는 워크플로 인스턴스의 수가이 한도에 도달 하면 다른 모든 새 인스턴스는 실행 대기 해야 합니다.
 
-대기할 수 있는 실행 수에도 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 있습니다. 이 제한은 변경 가능합니다. 그러나 논리 앱이 대기 중인 실행 한도에 도달하면 Logic Apps 엔진은 새 실행을 더 이상 허용하지 않습니다. 요청 및 웹후크 트리거는 429 오류를 반환하며, 되풀이 트리거는 폴링 시도를 건너뛰기 시작합니다.
+대기 중인 실행 수에도 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)있습니다. 대기 중인 실행 수가이 한도에 도달 하면 Logic Apps 엔진은 더 이상 새 실행을 수락 하지 않습니다. 요청 및 웹후크 트리거는 429 오류를 반환하며, 되풀이 트리거는 폴링 시도를 건너뛰기 시작합니다.
 
-대기 중인 실행에 대한 기본 제한을 변경하려면 기본 트리거 정의에서 값이 `1`~`100` 사이인 `runtimeConfiguration.concurency.maximumWaitingRuns` 속성을 추가합니다. 
+[트리거 동시성의 기본 제한을 변경할](#change-trigger-concurrency)수 있을 뿐 아니라 대기 중인 실행에 대 한 기본 제한도 변경할 수 있습니다. 기본 트리거 정의에서 `runtimeConfiguration.concurrency.maximumWaitingRuns` 속성을 추가 합니다 .이 속성의 범위는 `1`에서 `100`값을 가질 수 있습니다.
 
 ```json
 "<trigger-name>": {
@@ -2537,11 +2537,13 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
+자세한 내용은 [런타임 구성 설정](#runtime-config-options)을 참조하세요.
+
 <a name="sequential-trigger"></a>
 
 ### <a name="trigger-instances-sequentially"></a>인스턴스를 순차적으로 트리거
 
-이전 인스턴스의 실행이 완료 된 후에만 각 논리 앱 워크플로 인스턴스를 실행 하려면 트리거를 순차적으로 실행 하도록 설정 합니다. 또한 디자이너를 통해 동시성 설정을 변경하면 기본 트리거 정의에서 `runtimeConfiguration.concurrency.runs` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다. 
+이전 인스턴스의 실행이 완료 된 후에만 각 논리 앱 워크플로 인스턴스를 실행 하려면 트리거를 순차적으로 실행 하도록 설정 합니다. 또한 디자이너를 통해 동시성 설정을 변경하면 기본 트리거 정의에서 `runtimeConfiguration.concurrency.runs` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다.
 
 > [!NOTE] 
 > 디자이너 또는 코드 보기 편집기를 사용하여 순차적으로 실행되도록 트리거를 설정할 경우 코드 보기 편집기에서 트리거의 `operationOptions` 속성을 `Sequential`로 설정하지 마세요. 그렇지 않으면 유효성 검사 오류가 표시됩니다. 
@@ -2582,19 +2584,21 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
+자세한 내용은 [런타임 구성 설정](#runtime-config-options) 및 [작업 옵션](#operation-options)을 참조 하세요.
+
 #### <a name="edit-in-logic-apps-designer"></a>Logic Apps 디자이너에서 편집
 
-1. 트리거의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다.
+1. 트리거의 상단 오른쪽 모서리에서 줄임표 ( **...** ) 단추를 선택한 다음 **설정**을 선택 합니다.
 
-2. **동시성 제어** 아래에서 **제한**을 **켜기**로 설정합니다. 
+1. **동시성 제어** 아래에서 **제한**을 **켜기**로 설정합니다. 
 
-3. **병렬도** 슬라이더를 숫자 `1`로 끕니다. 
+1. **병렬도** 슬라이더를 숫자 `1`로 끕니다. 
 
 <a name="sequential-for-each"></a>
 
 ### <a name="run-for-each-loops-sequentially"></a>"for each" 루프를 순차적으로 실행
 
-"for each" 루프 반복을 이전 반복 실행이 끝난 후에만 실행하려면 "for each" 작업이 순차적으로 실행되도록 설정합니다. 또한 디자이너를 통해 작업의 동시성을 변경하면 기본 작업 정의에서 `runtimeConfiguration.concurrency.repetitions` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다. 
+"for each" 루프 반복을 이전 반복 실행이 끝난 후에만 실행하려면 "for each" 작업이 순차적으로 실행되도록 설정합니다. 또한 디자이너를 통해 작업의 동시성을 변경하면 기본 작업 정의에서 `runtimeConfiguration.concurrency.repetitions` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다.
 
 > [!NOTE] 
 > 디자이너 또는 코드 보기 편집기를 사용하여 "for each" 작업이 순차적으로 실행되도록 설정할 경우 코드 보기 편집기에서 작업의 `operationOptions` 속성을 `Sequential`로 설정하지 마세요. 그렇지 않으면 유효성 검사 오류가 표시됩니다. 
@@ -2633,13 +2637,15 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
+자세한 내용은 [런타임 구성 설정](#runtime-config-options) 및 [작업 옵션](#operation-options)을 참조 하세요.
+
 #### <a name="edit-in-logic-apps-designer"></a>Logic Apps 디자이너에서 편집
 
-1. **For each** 작업의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다.
+1. **각** 작업의 오른쪽 위 모서리에서 줄임표 ( **...** ) 단추를 선택한 다음 **설정**을 선택 합니다.
 
-2. **동시성 제어** 아래에서 **동시성 제어**를 **켜기**로 설정합니다. 
+1. **동시성 제어** 아래에서 **동시성 제어**를 **켜기**로 설정합니다.
 
-3. **병렬도** 슬라이더를 숫자 `1`로 끕니다. 
+1. **병렬도** 슬라이더를 숫자 `1`로 끕니다.
 
 <a name="asynchronous-patterns"></a>
 
@@ -2648,7 +2654,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 기본적으로 모든 HTTP 기반 작업은 표준 비동기 작업 패턴을 따릅니다. 이 패턴은 HTTP 기반 작업이 지정된 엔드포인트으로 요청을 보낼 때 원격 서버가 &quot;202 수락됨&quot; 응답을 다시 보내도록 지정합니다. 이 응답은 서버가 처리 요청을 수락했음을 의미합니다. Logic Apps 엔진은 처리가 중지될 때까지 응답(202 이외의 응답)의 위치 헤더가 지정하는 URL을 계속 확인합니다.
 
 그러나 요청에는 제한 시간이 있으므로 장기 실행 작업의 경우 작업의 입력 아래에서 `operationOptions` 속성을 추가하고 `DisableAsyncPattern`으로 설정하여 비동기 동작을 사용하지 않도록 설정할 수 있습니다.
-  
+
 ```json
 "<some-long-running-action>": {
    "type": "Http",
@@ -2658,11 +2664,13 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
+자세한 내용은 [작업 옵션](#operation-options)을 참조하세요.
+
 <a name="run-high-throughput-mode"></a>
 
 ### <a name="run-in-high-throughput-mode"></a>높은 처리량 모드에서 실행
 
-단일 논리 앱 정의의 경우 5 분 마다 실행 되는 작업 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)있습니다. 이 제한을 가능한 [최대](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)로 높이려면 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. 이렇게 설정하면 논리 앱이 "높은 처리량" 모드가 됩니다. 
+단일 논리 앱 정의의 경우 5 분 마다 실행 되는 작업 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)있습니다. 이 제한을 가능한 [최대](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)로 높이려면 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. 이렇게 설정하면 논리 앱이 "높은 처리량" 모드가 됩니다.
 
 > [!NOTE]
 > 높은 처리량 모드는 미리 보기로 제공됩니다. 또는 필요에 따라 둘 이상의 논리 앱에 워크로드를 분산할 수도 있습니다.

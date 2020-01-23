@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: e4c18f1148259d246445b94ac6117ebefa9470a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975384"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543038"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그 
 <a name="network-service-tags"></a>
@@ -51,7 +51,7 @@ ms.locfileid: "75975384"
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | 아웃바운드 | 아닙니다. | 아닙니다. |
 | **AzureBackup** |Azure Backup.<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속 됩니다. | 아웃바운드 | 아닙니다. | 예 |
 | **AzureBotService** | Azure Bot Service. | 아웃바운드 | 아닙니다. | 아닙니다. |
-| **AzureCloud** | 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)입니다. | 아웃바운드 | 예 | 예 |
+| **AzureCloud** | 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)입니다. | 아웃바운드 | 예 | 예 |
 | **AzureCognitiveSearch** | Azure Cognitive Search (기술와 함께 인덱서를 사용 하는 경우). | 둘 다 | 아닙니다. | 아닙니다. |
 | **AzureConnectors** | 프로브/백 엔드 연결용 커넥터를 Azure Logic Apps 합니다. | 인바운드 | 예 | 예 |
 | **AzureContainerRegistry** | Azure Container Registry. | 아웃바운드 | 예 | 예 |

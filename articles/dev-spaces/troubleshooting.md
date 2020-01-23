@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용 하도록 설정 하 고 사용 하는 경우 일반적인 문제를 해결 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: b35f7310286546b0ff051f3a61404e96286c78cb
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 3a2eb98af2c73b5a920f3e3bcedb7ab18e9f0430
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156610"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548852"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -252,7 +252,7 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-이 오류는 AKS 노드에서 다단계 빌드를 지원 하지 않는 이전 버전의 Docker를 실행 하기 때문에 발생 합니다. 다단계 빌드를 방지하려면 Dockerfile을 다시 작성합니다.
+이 오류는 Azure Dev Spaces에서 현재 다단계 빌드를 지원 하지 않기 때문에 발생 합니다. 다단계 빌드를 방지하려면 Dockerfile을 다시 작성합니다.
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>개발 컴퓨터에 연결할 때 네트워크 트래픽이 AKS 클러스터로 전달 되지 않습니다.
 
@@ -475,3 +475,12 @@ Pod가 다시 시작 되 면 Azure Dev Spaces에서 기존 네임 스페이스 �
 | gcr.io | HTTP: 443 | 투구/tiller 이미지를 꺼내려면|
 | storage.googleapis.com | HTTP: 443 | 투구/tiller 이미지를 꺼내려면|
 | azds-<guid>.<location>azds.io | HTTPS:443 | 컨트롤러에 대 한 Azure Dev Spaces 백 엔드 서비스와 통신 하는 데 사용 됩니다. 정확한 FQDN 은% USERPROFILE%\.azds\settings.json의 "dataplaneFqdn"에서 찾을 수 있습니다.|
+
+### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>"구독 \<subscriptionId\>에서 클러스터\> 클러스터 \<를 찾을 수 없습니다." 오류가 발생 했습니다.
+
+Kubeconfig 파일이 Azure Dev Spaces 클라이언트 쪽 도구에서 사용 하려는 것과 다른 클러스터 또는 구독을 대상으로 하는 경우이 오류가 표시 될 수 있습니다. Azure Dev Spaces 클라이언트 쪽 도구는 [하나 이상의 kubeconfig 파일](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) 을 사용 하 여 클러스터를 선택 하 고 통신 하는 *kubectl*의 동작을 복제 합니다.
+
+이 문제를 해결하려면
+
+* `az aks use-dev-spaces -g <resource group name> -n <cluster name>`를 사용 하 여 현재 컨텍스트를 업데이트 합니다. 이 명령을 사용 하도록 설정 하지 않은 경우에도 AKS 클러스터에 대 한 Azure Dev Spaces를 사용할 수 있습니다. 또는 `kubectl config use-context <cluster name>`를 사용 하 여 현재 컨텍스트를 업데이트할 수 있습니다.
+* `az account show`를 사용 하 여 대상으로 지정 하는 현재 Azure 구독을 표시 하 고 올바른지 확인 합니다. `az account set`를 사용 하 여 대상으로 지정 하는 구독을 변경할 수 있습니다.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: bd725d41f75bdfb1048b5bee7e8224679dbece4c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bd27827441082698bb4e0b43e7dd22d5b7e66539
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837263"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548954"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: 사전 조회
 
@@ -33,45 +33,21 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-<table width="100%">
-  <th width="20%">쿼리 매개 변수</th>
-  <th>설명</th>
-  <tr>
-    <td>api-version</td>
-    <td>*필수 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
-  </tr>
-  <tr>
-    <td>from</td>
-    <td>*필수 매개 변수*입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 [ 범위에 포함된 ](./v3-0-languages.md)지원되는 언어`dictionary` 중 하나여야 합니다.</td>
-  </tr>
-  <tr>
-    <td>to</td>
-    <td>*필수 매개 변수*입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 [ 범위에 포함된 ](./v3-0-languages.md)지원되는 언어`dictionary` 중 하나여야 합니다.</td>
-  </tr>
-</table>
+| 쿼리 매개 변수  | Description |
+| ------ | ----------- |
+| api-version <img width=200/>   | **필수 매개 변수**입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0` 이어야 합니다. |
+| 원본 | **필수 매개 변수**입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. |
+| to   | **필수 매개 변수**입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](v3-0-languages.md) 중 하나여야 합니다. |
+
 
 요청 헤더에는 다음이 포함됩니다.
 
-<table width="100%">
-  <th width="20%">헤더</th>
-  <th>설명</th>
-  <tr>
-    <td>인증 헤더</td>
-    <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*필수 요청 헤더*<br/>요청 본문의 길이입니다.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*선택 사항*입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
-  </tr>
-</table> 
+| headers  | Description |
+| ------ | ----------- |
+| 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
+| 콘텐츠 형식 | **필수 요청 헤더**<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |
+| Content-Length   | **필수 요청 헤더**<br/>요청 본문의 길이입니다. |
+| X-ClientTraceId   | **선택 사항**.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다. |
 
 ## <a name="request-body"></a>요청 본문
 
@@ -104,7 +80,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
     * `posTag`: 이 용어를 음성 부분 태그에 연결하는 문자열입니다.
 
-        | 태그 이름 | 설명  |
+        | 태그 이름 | Description  |
         |----------|--------------|
         | ADJ      | 형용사   |
         | ADV      | 부사      |
@@ -136,7 +112,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
     > [!NOTE]
     > 조회되는 용어가 사전에 없는 경우 응답은 200(정상)이지만 `translations` 목록은 빈 목록이 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 이 예제에서는 영어 용어인 `fly`의 스페인어 대체 번역을 조회하는 방법을 보여 줍니다.
 

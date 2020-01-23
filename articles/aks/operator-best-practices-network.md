@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: mlearned
-ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5b138849538cb9bbd6af6cbcf3e7a11b0cf66395
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614763"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549124"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -23,7 +23,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 노
 > [!div class="checklist"]
 > * AKS에서 Azure CNI 네트워크 모드와 Kubenet 비교
 > * 필수 IP 주소 및 연결 계획
-> * 부하 분산 장치, 수신 컨트롤러 또는 WAF(웹 애플리케이션 방화벽)를 사용하여 트래픽 분산
+> * 부하 분산 장치, 수신 컨트롤러 또는 WAF (웹 응용 프로그램 방화벽)를 사용 하 여 트래픽 분산
 > * 클러스터 노드에 안전하게 연결
 
 ## <a name="choose-the-appropriate-network-model"></a>적절한 네트워크 모델 선택
@@ -47,7 +47,7 @@ Azure CNI 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클�
 
 AKS 서비스 주체 위임에 대 한 자세한 내용은 [다른 Azure 리소스에 대 한 액세스 위임][sp-delegation]을 참조 하세요.
 
-각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 이벤트 확장 또는 클러스터 업그레이드를 처리하려면 할당된 서브넷에서 사용할 수 있는 추가 IP 주소가 필요합니다. 이러한 추가 주소 공간은 Windows Server 컨테이너를 사용 하는 경우 특히 중요 합니다 (현재 AKS에서 미리 보기 상태). 이러한 노드 풀에는 최신 보안 패치를 적용 하기 위해 업그레이드가 필요 하기 때문입니다. Windows Server 노드에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
+각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 규모 확장 이벤트 또는 클러스터 업그레이드를 처리 하려면 할당 된 서브넷에 사용할 수 있는 추가 IP 주소도 필요 합니다. 이러한 추가 주소 공간은 Windows Server 컨테이너를 사용 하는 경우 특히 중요 합니다 (현재 AKS에서 미리 보기 상태). 이러한 노드 풀에는 최신 보안 패치를 적용 하기 위해 업그레이드가 필요 하기 때문입니다. Windows Server 노드에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
 필요한 IP 주소를 계산 하려면 [AKS에서 Azure CNI 네트워킹 구성][advanced-networking]을 참조 하세요.
 
@@ -118,7 +118,7 @@ spec:
 
 ![Azure App Gateway와 같은 WAF(웹 애플리케이션 방화벽)로 AKS 클러스터에 대한 트래픽을 보호하고 분산할 수 있음](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추가적인 보안 계층을 제공합니다. OWASP(Open Web Application Security Project)는 교차 사이트 스트립팅 또는 쿠키 악성 침입과 같은 공격을 감시하기 위한 규칙 세트를 제공합니다. [Azure 애플리케이션 게이트웨이][app-gateway] (현재 AKS의 미리 보기 상태)는 트래픽이 AKS 클러스터 및 응용 프로그램에 도달 하기 전에 AKS 클러스터와 통합 하 여 이러한 보안 기능을 제공할 수 있는 WAF입니다. 기타 타사 솔루션도 이러한 기능을 수행하므로 지정된 제품의 기존 투자 또는 전문 지식을 계속 사용할 수 있습니다.
+WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추가적인 보안 계층을 제공합니다. OWASP(Open Web Application Security Project)는 교차 사이트 스트립팅 또는 쿠키 악성 침입과 같은 공격을 감시하기 위한 규칙 세트를 제공합니다. [Azure 애플리케이션 게이트웨이][app-gateway] (현재 AKS의 미리 보기 상태)는 트래픽이 AKS 클러스터 및 응용 프로그램에 도달 하기 전에 AKS 클러스터와 통합 하 여 이러한 보안 기능을 제공할 수 있는 waf입니다. 기타 타사 솔루션도 이러한 기능을 수행하므로 지정된 제품의 기존 투자 또는 전문 지식을 계속 사용할 수 있습니다.
 
 부하 분산 장치 또는 수신 리소스는 트래픽 분산을 미세 조정하기 위해 AKS 클러스터에서 계속 실행됩니다. App Gateway는 리소스 정의를 사용하여 중앙에서 수신 컨트롤러로 관리될 수 있습니다. 시작 하려면 [Application Gateway 수신 컨트롤러를 만듭니다][app-gateway-ingress].
 

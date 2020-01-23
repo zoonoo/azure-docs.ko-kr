@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913891"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547968"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -20,7 +20,7 @@ ms.locfileid: "74913891"
 
 이 문서에서는 AKS에서 네트워킹을 애플리케이션에 제공하는 핵심 개념을 소개합니다.
 
-- [서비스](#services)
+- [Services](#services)
 - [Azure 가상 네트워크](#azure-virtual-networks)
 - [수신 컨트롤러](#ingress-controllers)
 - [네트워크 정책](#network-policies)
@@ -33,7 +33,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
 또한 Azure 플랫폼은 AKS 클러스터에 대한 가상 네트워킹을 간소화하는 데에도 도움이 됩니다. Kubernetes 부하 분산 장치를 만들면 기본 Azure 부하 분산 장치 리소스가 만들어지고 구성됩니다. Pod에서 네트워크 포트를 열면 해당 Azure 네트워크 보안 그룹 규칙이 구성됩니다. HTTP 애플리케이션 라우팅의 경우 새 수신 경로가 구성될 때 Azure에서 *외부 DNS*를 구성할 수도 있습니다.
 
-## <a name="services"></a>Services
+## <a name="services"></a>서비스
 
 애플리케이션 워크로드에 대한 네트워크 구성을 간소화하기 위해 Kubernetes는 *Service*를 사용하여 일단의 Pod를 논리적으로 그룹화하고 네트워크 연결을 제공합니다. 사용할 수 있는 Service 유형은 다음과 같습니다.
 
@@ -45,7 +45,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
     ![AKS 클러스터의 NodePort 트래픽 흐름을 보여 주는 다이어그램][aks-nodeport]
 
-- **LoadBalancer** - Azure 부하 분산 장치 리소스를 만들고, 외부 IP 주소를 구성하고, 요청된 Pod를 부하 분산 장치 백 엔드 풀에 연결합니다. 고객 트래픽이 애플리케이션에 도달할 수 있도록 하기 위해 부하 분산 규칙이 원하는 포트에 만들어집니다. 
+- **LoadBalancer** - Azure 부하 분산 장치 리소스를 만들고, 외부 IP 주소를 구성하고, 요청된 Pod를 부하 분산 장치 백 엔드 풀에 연결합니다. 고객의 트래픽이 응용 프로그램에 도달 하도록 허용 하기 위해 원하는 포트에서 부하 분산 규칙이 생성 됩니다. 
 
     ![AKS 클러스터의 Load Balancer 트래픽 흐름을 보여 주는 다이어그램][aks-loadbalancer]
 
@@ -68,13 +68,13 @@ AKS에서는 다음 두 가지 네트워크 모델 중 하나를 사용하는 �
 
 *kubenet* 네트워킹 옵션은 AKS 클러스터 만들기에 대한 기본 구성입니다. *kubenet*을 사용하면 노드는 Azure Virtual Network 서브넷의 IP 주소를 얻습니다. Pod는 논리적으로 다른 주소 공간에서 Azure Virtual Network 노드 서브넷에 대한 IP 주소를 받습니다. 그런 후에 NAT(Network Address Translation)는 Pod가 Azure Virtual Network의 리소스에 연결할 수 있도록 구성됩니다. 트래픽의 원본 IP 주소는 노드의 기본 IP 주소로 NAT됩니다.
 
-노드는 [kubenet][kubenet] Kubernetes 플러그 인을 사용 합니다. Azure 플랫폼에서 가상 네트워크를 만들고 구성하거나 기존 가상 네트워크 서브넷에 AKS 클러스터를 배포하도록 선택할 수 있습니다. 다시 말해, 노드만 라우팅할 수 있는 IP 주소를 받으며 pod는 NAT를 사용 하 여 AKS 클러스터 외부의 다른 리소스와 통신 합니다. 이 방법을 사용하면 네트워크 공간에서 pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
+노드는 [kubenet][kubenet] Kubernetes 플러그 인을 사용 합니다. Azure 플랫폼에서 가상 네트워크를 만들고 구성하거나 기존 가상 네트워크 서브넷에 AKS 클러스터를 배포하도록 선택할 수 있습니다. 다시 말해, 노드만 라우팅할 수 있는 IP 주소를 받으며 pod는 NAT를 사용 하 여 AKS 클러스터 외부의 다른 리소스와 통신 합니다. 이 방법을 사용하면 네트워크 공간에서 Pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
 
 자세한 내용은 [Configure kubenet 네트워킹 for a AKS cluster][aks-configure-kubenet-networking]항목을 참조 하세요.
 
 ### <a name="azure-cni-advanced-networking"></a>Azure CNI(고급) 네트워킹
 
-Azure CNI를 사용하면 모든 Pod가 서브넷에서 IP 주소를 가져오고 직접 액세스가 가능합니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획해야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 접근 방식에는 추가 계획이 필요 합니다. 그렇지 않으면 IP 주소 고갈 또는 응용 프로그램 요구가 증가 함에 따라 더 큰 서브넷에서 클러스터를 다시 작성 해야 합니다.
+Azure CNI를 사용하면 모든 Pod가 서브넷에서 IP 주소를 가져오고 직접 액세스가 가능합니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획되어야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 접근 방식에는 추가 계획이 필요 합니다. 그렇지 않으면 IP 주소 고갈 또는 응용 프로그램 요구가 증가 함에 따라 더 큰 서브넷에서 클러스터를 다시 작성 해야 합니다.
 
 노드는 [CNI (Azure Container 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용 합니다.
 
@@ -115,7 +115,7 @@ Kubenet와 Azure CNI 간에는 다음과 같은 동작 차이가 있습니다.
 * Azure 플랫폼은 AKS 클러스터를 만들 때 가상 네트워크 리소스를 자동으로 만들고 구성할 수 있습니다.
 * AKS 클러스터를 만들 때 가상 네트워크 리소스를 수동으로 만들고 구성 하 고 해당 리소스에 연결할 수 있습니다.
 
-서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 다음은 그 예입니다.
+서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 예:
 
 * AKS 클러스터에 대 한 가상 네트워크 리소스를 수동으로 만드는 경우 고유한 UDRs 또는 서비스 끝점을 구성할 때 지원 됩니다.
 * Azure 플랫폼에서 AKS 클러스터에 대 한 가상 네트워크 리소스를 자동으로 만드는 경우 해당 AKS 관리 리소스를 수동으로 변경 하 여 사용자 고유의 UDRs 또는 서비스 끝점을 구성할 수 없습니다.
@@ -132,7 +132,7 @@ AKS에서는 NGINX와 같은 도구를 사용하여 수신 리소스를 만들�
 
 수신의 또 다른 일반적인 기능은 SSL/TLS 종료입니다. HTTPS를 통해 액세스되는 대규모 웹 애플리케이션에서 TLS 종료는 애플리케이션 자체 내에서가 아니라 수신 리소스에서 처리할 수 있습니다. 자동 TLS 인증 생성 및 구성을 제공하기 위해 Let's Encrypt와 같은 공급자를 사용하도록 수신 리소스를 구성할 수 있습니다. Let's Encrypt를 사용하여 NGINX 인그레스 컨트롤러를 구성하는 방법에 대한 자세한 내용은[인그레스 및 TLS][aks-ingress-tls]를 참조 하세요.
 
-AKS 클러스터에서 컨테이너에 대한 요청에 클라이언트 원본 IP를 유지하기 위해 인그레스 컨트롤러를 구성할 수도 있습니다. 클라이언트의 요청을 인그레스 컨트롤러를 통해 AKS 클러스터의 컨테이너에 라우팅되면 해당 요청의 원본 IP는 대상 컨테이너에 사용할 수 없습니다. *클라이언트 원본 IP 유지*를 사용하도록 설정한 경우, 클라이언트에 대한 원본 IP는 *X-Forwarded-For* 아래에 있는 요청 헤더에서 사용할 수 있습니다. 인그레스 컨트롤러에서 클라이언트 원본 IP 유지를 사용하고 있는 경우, SSL pass-through 옵션을 사용할 수 없습니다. 클라이언트 원본 IP 유지 및 SSL pass-through는 *LoadBalancer* 유형과 같은 다른 서비스들과 함께 사용할 수 있습니다.
+AKS 클러스터에서 컨테이너에 대한 요청에 클라이언트 원본 IP를 유지하기 위해 인그레스 컨트롤러를 구성할 수도 있습니다. 클라이언트의 요청이 수신 컨트롤러를 통해 AKS 클러스터의 컨테이너에 라우팅되는 경우 해당 요청의 원래 원본 IP를 대상 컨테이너에서 사용할 수 없게 됩니다. *클라이언트 원본 IP 유지*를 사용하도록 설정한 경우, 클라이언트에 대한 원본 IP는 *X-Forwarded-For* 아래에 있는 요청 헤더에서 사용할 수 있습니다. 인그레스 컨트롤러에서 클라이언트 원본 IP 유지를 사용하고 있는 경우, SSL pass-through 옵션을 사용할 수 없습니다. 클라이언트 원본 IP 유지 및 SSL pass-through는 *LoadBalancer* 유형과 같은 다른 서비스들과 함께 사용할 수 있습니다.
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
 

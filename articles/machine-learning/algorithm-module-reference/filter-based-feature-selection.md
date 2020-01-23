@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: e4e09ca77de00b7f189db2cbbcaca2e090dd7e72
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311634"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548478"
 ---
 # <a name="filter-based-feature-selection"></a>필터 기반 기능 선택
 
-이 문서에서는 Azure Machine Learning 디자이너에서 필터 기반 기능 선택 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 입력 데이터 집합에서 예측 전력이 가장 많은 열을 식별 하는 데 도움이 됩니다. 
+이 문서에서는 Azure Machine Learning designer (미리 보기)에서 필터 기반 기능 선택 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 입력 데이터 집합에서 예측 전력이 가장 많은 열을 식별 하는 데 도움이 됩니다. 
 
 일반적으로 *기능 선택* 은 지정 된 출력에서 입력에 통계 테스트를 적용 하는 프로세스를 의미 합니다. 목표는 출력의 예측 가능성이 더 높은 열을 결정 하는 것입니다. 필터 기반 기능 선택 모듈에서는 선택할 수 있는 여러 기능 선택 알고리즘을 제공 합니다. 모듈에는 피어슨 상관 관계 및 카이 제곱 값과 같은 상관 관계 메서드가 포함 되어 있습니다. 
 

@@ -1,27 +1,19 @@
 ---
 title: 빠른 시작 - Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기
 description: Azure PowerShell을 사용하여 가상 머신 확장 확장을 신속하게 만드는 방법을 학습하여 배포를 시작합니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 52111559ac784e112c4cb3ddbf5ba9e6967385e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b3454291a40a1d39b281e28b7d1ebdbcac4020b4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351132"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270903"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2377cc2e0824911217fbc2783fdf8e86fd7b9405
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442912"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549209"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -24,7 +24,7 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 때 워크로드 �
 > * Azure Active Directory 및 역할 기반 액세스 제어를 사용하여 API 서버 액세스 보안 유지
 > * 노드 리소스에 대한 컨테이너 액세스 보안 유지
 > * AKS 클러스터를 최신 Kubernetes 버전으로 업그레이드
-> * 노드 업데이트를 최신 상태로 유지하고 자동으로 보안 패치 적용
+> * 노드를 최신 상태로 유지 하 고 보안 패치를 자동으로 적용
 
 [컨테이너 이미지 관리][best-practices-container-image-management] 및 [pod 보안][best-practices-pod-security]에 대 한 모범 사례를 읽을 수도 있습니다.
 

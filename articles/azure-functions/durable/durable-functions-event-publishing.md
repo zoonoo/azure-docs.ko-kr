@@ -3,12 +3,12 @@ title: Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 description: Durable Functions에 대한 자동 Azure Event Grid 게시를 구성하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 768af2e89d6523f50bd9fcc3d13cc84b711cc6f0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613128"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547475"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 
@@ -277,7 +277,7 @@ Azure Portal에서 만든 함수의 로그를 봅니다.
 
 ## <a name="how-to-test-locally"></a>로컬로 테스트하는 방법
 
-로컬로 테스트하려면 [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok)를 사용합니다.
+로컬로 테스트 하려면 [Azure 함수 Event Grid 로컬 디버깅 트리거](../functions-debug-event-grid-trigger-local.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

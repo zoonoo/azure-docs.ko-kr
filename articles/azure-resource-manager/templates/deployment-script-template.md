@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/22/2020
 ms.author: jgao
-ms.openlocfilehash: 5475f49acfdcd74a792a9a0f2f16cf1ea3272232
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 125fefbb1d83db8b6114b2d09f5bd6da885159ba
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121899"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547645"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -42,7 +42,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **구독 수준에서 참가자의 역할을 하는 사용자 할당 관리 id**입니다. 이 id는 배포 스크립트를 실행 하는 데 사용 됩니다. 하나를 만들려면 [사용자 할당 관리 id](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity)를 참조 하세요. 템플릿을 배포할 때 id ID가 필요 합니다. Id 형식은 다음과 같습니다.
+- **구독 수준에서 참가자의 역할을 하는 사용자 할당 관리 id**입니다. 이 id는 배포 스크립트를 실행 하는 데 사용 됩니다. 하나를 만들려면 Azure Portal를 사용 하거나 [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)를 사용 하거나 [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 사용 하 여 [사용자 할당 관리 id 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 참조 하세요. 템플릿을 배포할 때 id ID가 필요 합니다. Id 형식은 다음과 같습니다.
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>

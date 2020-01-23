@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
-ms.openlocfilehash: 3c921bda1b839ee18a91b28f875ba7c84c0dd944
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/18/2020
+ms.openlocfilehash: 95960a0af628526eb11335ea5c2fcec51f3c66b5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515040"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548546"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -47,8 +47,8 @@ ms.locfileid: "76515040"
 
 | 이름 | 다중 테 넌 트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
-| 실행 기간 | 90일 | 366 일 | 기본 제한을 변경 하려면 [실행 기간 변경](#change-duration)을 참조 하세요. |
-| 스토리지 보존 | 실행 시작 시간부터 90일 | 366 일 | 기본 제한을 변경 하려면 [저장소 보존 변경](#change-retention)을 참조 하세요. |
+| 실행 기간 | 90일 | 366 일 | 실행 지속 시간은 시작 시간 및 워크플로 설정에 따라 *시작 시간* 에 지정 된 제한 [ **(일 단위 실행)** ](#change-duration)을 사용 하 여 계산 됩니다. <p><p>기본 제한 (90 일)을 변경 하려면 [실행 기간 변경](#change-duration)을 참조 하세요. |
+| 저장소에서 보존 실행 | 90일 | 366 일 | 실행 보존은 실행의 시작 시간 및 워크플로 설정에 따라 *현재 시간* 에 지정 된 제한 [ **(일 단위 실행)** ](#change-retention)을 사용 하 여 계산 됩니다. 실행이 완료 되거나 제한 시간이 초과 되는 경우 보존 계산은 항상 실행의 시작 시간을 사용 합니다. 실행 기간이 *현재* 보존 한도를 초과 하면 실행 기록에서 실행이 제거 됩니다. <p><p>이 설정을 변경 하는 경우 현재 제한은 이전 제한과 상관 없이 항상 보존을 계산 하는 데 사용 됩니다. 예를 들어 보존 제한을 90 일에서 30 일로 줄이면 실행 기록에서 60 일 이전 실행이 제거 됩니다. 보존 기간을 30 일에서 60 일로 늘리는 경우 20 일 이전 실행은 다른 40 일에 대 한 실행 기록에 유지 됩니다. <p><p>기본 제한 (90 일)을 변경 하려면 [저장소에서 실행 보존 변경](#change-retention)을 참조 하세요. |
 | 최소 되풀이 간격 | 1초 | 1초 ||
 | 최대 되풀이 간격 | 500일 | 500일 ||
 |||||
@@ -56,9 +56,13 @@ ms.locfileid: "76515040"
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-storage-retention"></a>실행 기간 및 스토리지 보존 변경
+### <a name="change-run-duration-and-run-retention-in-storage"></a>저장소에서 실행 기간 변경 및 보존 실행
 
-실행 지속 시간 및 저장소 보존의 기본 제한을 변경 하려면 다음 단계를 수행 합니다. 최대 한도를 늘리려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com) 하 여 요구 사항에 대 한 도움을 요청 하세요.
+실행 지속 시간 및 저장소에서 보존 실행의 기본 제한을 변경 하려면 다음 단계를 수행 합니다. 최대 한도를 늘리려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com) 하 여 요구 사항에 대 한 도움을 요청 하세요.
+
+> [!NOTE]
+> 다중 테 넌 트 Azure에서 논리 앱의 경우 90 일 기본 제한은 최대 제한과 동일 합니다. 이 값은 줄일 수만 있습니다.
+> 통합 서비스 환경의 논리 앱에 대해 90 일 기본 제한을 줄이거나 늘릴 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 포털 검색 상자에서 **논리 앱**을 찾아 선택 합니다.
 
@@ -68,11 +72,9 @@ ms.locfileid: "76515040"
 
 1. **런타임 옵션**의 **실행 기록 보존 기간 (일)** 목록에서 **사용자 지정**을 선택 합니다.
 
-1. 원하는 일 수 동안 슬라이더를 입력 하거나 끕니다.
+1. 슬라이더를 끌어 원하는 일 수를 변경 합니다.
 
-   > [!NOTE]
-   > 다중 테 넌 트 Azure에서 논리 앱의 경우 90 일 기본 제한은 최대 제한과 동일 합니다. 이 값은 줄일 수만 있습니다.
-   > 통합 서비스 환경의 논리 앱에 대해 90 일 기본 제한을 줄이거나 늘릴 수 있습니다.
+1. 작업이 완료 되 면 **워크플로 설정** 도구 모음에서 **저장**을 선택 합니다.
 
 <a name="looping-debatching-limits"></a>
 
@@ -82,11 +84,11 @@ ms.locfileid: "76515040"
 
 | 이름 | 제한 | 메모 |
 | ---- | ----- | ----- |
-| 트리거 동시성 | * 동시성 제어가 꺼지면 무제한 <p><p>* 동시성 제어가 켜지면 25가 기본 제한이며, 제어를 켠 후 실행 취소할 수 없습니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>**참고**: 동시성이 설정 되 면 [배열을 일괄 처리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하기 위해 SplitOn 한도가 100 항목으로 줄어듭니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. |
-| 최대 대기 중인 실행 | 동시성 제어가 켜지면 대기 중인 실행의 최소 수는 10 + 동시 실행의 수입니다(동시성 트리거). 최대 수를 100까지 변경할 수 있습니다. | 이 제한은 논리 앱에서 이미 최대 동시 인스턴스를 실행 중인 경우 실행될 때까지 기다릴 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 변경하려면 [대기 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. |
+| 트리거 동시성 | -동시성 제어가 해제 된 경우 무제한 <p><p>-25는 동시성 컨트롤이 설정 된 경우의 기본 제한 이며, 컨트롤을 설정한 후에는 실행 취소할 수 없습니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>**참고**: 동시성이 설정 되 면 [배열을 일괄 처리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하기 위해 SplitOn 한도가 100 항목으로 줄어듭니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. |
+| 최대 대기 중인 실행 | -동시성이 없으면 대기 중인 최소 실행 수는 1이 고, 최대 수는 50입니다. <p><p>-동시성을 사용 하는 경우 대기 중인 최소 실행 수는 10 개에 동시 실행 수 (동시성 트리거)를 더한 값입니다. 최대 수를 100까지 변경할 수 있습니다. | 이 제한은 논리 앱에서 이미 최대 동시 인스턴스를 실행 중인 경우 실행될 때까지 기다릴 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 변경하려면 [대기 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. |
 | Foreach 배열 항목 | 100,000개의 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 나타냅니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](logic-apps-perform-data-operations.md#filter-array-action)을 사용하면 됩니다. |
 | Foreach 동시성 | 동시성 제어가 꺼지면 20이 기본 제한입니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. |
-| SplitOn 항목 | * 10만 (트리거 동시성 없음) <p><p>* 100 (트리거 동시성 포함) | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. <p><p>**참고**: 동시성이 켜져 있으면 SplitOn 한도가 100 항목으로 줄어듭니다. |
+| SplitOn 항목 | -10만 트리거 동시성 없음 <p><p>-100 트리거 동시성 | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. <p><p>**참고**: 동시성이 켜져 있으면 SplitOn 한도가 100 항목으로 줄어듭니다. |
 | Until 반복 | 5,000 | |
 ||||
 

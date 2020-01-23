@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826172"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543157"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 애플리케이션 SKU 탭
 
@@ -44,11 +44,11 @@ ms.locfileid: "73826172"
 
 다음 SKU 값을 제공 합니다.  별표가 추가 된 필드가 필요 합니다.
 
-|    필드         |       설명                                                            |
+|    필드         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
 |  **제목\***     | SKU의 제목입니다. 이 제목은 이 항목의 갤러리에 나타납니다.   |
 | **요약\***    | SKU에 대 한 간단한 요약 설명입니다. 최대 길이는 100자입니다.  |
-| **설명\*** | SKU에 대 한 자세한 설명입니다. 기본 HTML이 지원 됩니다.                 | 
+| **Description\*** | SKU에 대 한 자세한 설명입니다. 기본 HTML이 지원 됩니다.                 | 
 | **SKU 유형\***   | Azure 응용 프로그램 솔루션의 유형,이 시나리오에 대 한**솔루션 템플릿** 을 선택 합니다. |
 | **클라우드 가용성\*** | SKU의 위치입니다. 기본값은 **공용 Azure**입니다.  <b/>**공용 azure** -marketplace 통합을 포함 하는 모든 공용 azure 지역에서 고객에 게 앱을 배포할 수 있습니다.  <b/>**Azure Government 클라우드** 앱은 Azure Government 클라우드에 배포 됩니다. [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)에 게시 하기 전에 게시자가이 환경에서 예상 대로 작동 하는 솔루션을 테스트 하 고 유효성을 검사 하는 것이 좋습니다. 준비하고 테스트하려면 [평가판 계정](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/)을 요청하세요.  |
 | **사설 SKU 입니까?\*** | 선택한 고객 그룹에만이 SKU를 사용할 수 있는 경우 **예** 를 선택 합니다. |
@@ -66,11 +66,11 @@ ms.locfileid: "73826172"
 
 다음 SKU 설정을 구성 합니다. 별표가 추가 된 필드가 필요 합니다.
 
-|    필드         |       설명                                                            |
+|    필드         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
 |  **제목\***     | SKU의 제목입니다. 이 제목은 이 항목의 갤러리에 나타납니다.   |
 | **요약\***    | SKU에 대 한 간단한 요약 설명입니다. 최대 길이는 100자입니다.  |
-| **설명\*** | SKU에 대 한 자세한 설명입니다. 기본 HTML이 지원 됩니다.                 | 
+| **Description\*** | SKU에 대 한 자세한 설명입니다. 기본 HTML이 지원 됩니다.                 | 
 | **SKU 유형\***   | Azure 응용 프로그램 솔루션의 유형,이 시나리오에 대해 ***관리 되는 응용** 프로그램을 선택 합니다. 
 | **클라우드 가용성\*** | SKU의 위치입니다. 기본값은 **공용 Azure**입니다.  <b/>**공용 azure** -marketplace 통합을 포함 하는 모든 공용 azure 지역에서 고객에 게 앱을 배포할 수 있습니다.  <b/>**Azure Government 클라우드** 앱은 Azure Government 클라우드에 배포 됩니다. [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)에 게시 하기 전에 게시자가이 환경에서 예상 대로 작동 하는 솔루션을 테스트 하 고 유효성을 검사 하는 것이 좋습니다. 준비하고 테스트하려면 [평가판 계정](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/)을 요청하세요.   Microsoft Azure Government는 미국 연방, 주, 지방 또는 부족의 고객 및 이러한 실체에 서비스를 제공할 자격이 있는 파트너에 대한 액세스를 제어할 수 있는 정부 커뮤니티 클라우드입니다. |
 | **사설 SKU 입니까?\*** | 선택한 고객 그룹에만이 SKU를 사용할 수 있는 경우 **예** 를 선택 합니다. |
@@ -82,17 +82,19 @@ ms.locfileid: "73826172"
 
 ### <a name="package-details-for-solution-template"></a>솔루션 템플릿에 대한 패키지 세부 정보
 
-   ![솔루션 템플릿에 대한 패키지 세부 정보](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![솔루션 템플릿에 대한 패키지 세부 정보](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 다음 **패키지 세부 정보** 값을 제공 합니다.  별표가 추가 된 필드가 필요 합니다.
 
 - **버전\*** -업로드할 패키지의 버전입니다. 버전 태그는 X.Y.Z 형식이며, X, Y 및 Z는 정수여야 합니다.
 - **패키지 파일 (.zip)\*** -이 패키지에는 .zip 파일에 저장 된 다음 파일이 포함 되어 있습니다.
-  - MainTemplate.json - 솔루션/애플리케이션을 배포하고 솔루션에 대해 정의된 리소스를 만드는 데 사용되는 배포 템플릿 파일입니다. 자세한 내용은 [배포 템플릿 파일을 작성하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)을 참조하세요.
-  - createUIDefinition.json - 이 파일은 Azure Portal에서 이 솔루션/애플리케이션을 프로비전하기 위한 사용자 인터페이스를 생성하는 데 사용됩니다. 자세한 내용은 [관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요.
+  - **maintemplate.json\*** -솔루션/응용 프로그램을 배포 하 고 솔루션에 대해 정의 된 리소스를 만드는 데 사용 되는 배포 템플릿 파일입니다. 자세한 내용은 [배포 템플릿 파일을 작성하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)을 참조하세요.
+  - **Createuidefinition\*** -이 파일은 Azure Portal에서이 솔루션/응용 프로그램을 프로 비전 하기 위한 사용자 인터페이스를 생성 하는 데 사용 됩니다. 자세한 내용은 [관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요.
+  - 스크립트 (필요한 경우)-템플릿을 실행할 때 필요할 수 있는 추가 스크립트 (예: `Microsoft.Compute/virtualMachines/extensions`).
+  - 중첩 된 템플릿 (필요한 경우)-추가 중첩 된 템플릿
 
-  >[!IMPORTANT] 
-  >이 패키지는 이 애플리케이션을 프로비전하는 데 필요한 중첩된 템플릿 또는 스크립트를 포함해야 합니다. MainTemplate.json 파일 및 createUIDefinition.json 파일은 루트 폴더에 있어야 합니다.
+  > [!IMPORTANT] 
+  > 이 패키지는 이 애플리케이션을 프로비전하는 데 필요한 중첩된 템플릿 또는 스크립트를 포함해야 합니다. Maintemplate.json 파일 및 createUIDefinition. json 파일은 루트 폴더에 있어야 합니다. 배포 아티팩트에 대 한 자세한 내용은 [Azure Resource Manager 템플릿-모범 사례 가이드](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts)를 참조 하세요.
 
 
 ### <a name="package-details-for-managed-application"></a>관리되는 애플리케이션에 대한 패키지 세부 정보

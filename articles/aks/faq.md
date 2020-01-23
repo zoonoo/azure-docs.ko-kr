@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: d8ff14c28b8fccbf3dce41f5e43daa9685a4786a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 58b372e1f80386c4e02339f67f4c5aeaa686a662
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277850"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549226"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -185,7 +185,7 @@ AKS는 이러한 구성을 견딜 수 있는 복원 력 메커니즘이 있지�
 
 ## <a name="can-i-use-custom-vm-extensions"></a>사용자 지정 VM 확장을 사용할 수 있나요?
 
-AKS는 관리 되는 서비스 이며 IaaS 리소스 조작은 지원 되지 않습니다. 사용자 지정 구성 요소 등을 설치 하려면 kubernetes Api 및 메커니즘을 활용 하세요. 예를 들어 DaemonSets를 활용 하 여 필수 구성 요소를 설치 합니다.
+AKS는 관리 되는 서비스 이며 IaaS 리소스 조작은 지원 되지 않습니다. 사용자 지정 구성 요소 등을 설치 하려면 Kubernetes Api 및 메커니즘을 활용 하세요. 예를 들어 DaemonSets를 활용 하 여 필수 구성 요소를 설치 합니다.
 
 <!-- LINKS - internal -->
 

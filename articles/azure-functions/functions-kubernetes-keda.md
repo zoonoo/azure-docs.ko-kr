@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 9978bd567b1b07e8dd0e22e1f02834626281a5dd
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 83c57b27c1cd1d524805a92381a1ba9eb2e1fbd6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920672"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549039"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>KEDA를 사용 하 여 Kubernetes에서 Azure Functions
 
@@ -26,15 +26,9 @@ Kubernetes 기반 함수는 KEDA를 통해 이벤트 기반 크기 조정을 사
 
 Kubernetes 클러스터에서 함수를 실행 하려면 KEDA 구성 요소를 설치 해야 합니다. [Azure Functions Core Tools](functions-run-local.md)를 사용 하 여이 구성 요소를 설치할 수 있습니다.
 
-### <a name="installing-with-the-azure-functions-core-tools"></a>Azure Functions Core Tools를 사용 하 여 설치
+### <a name="installing-with-helm"></a>투구를 사용 하 여 설치
 
-기본적으로 핵심 도구는 각각 이벤트 기반 및 HTTP 크기 조정을 지 원하는 KEDA 및 오시리스 구성 요소를 모두 설치 합니다.  설치는 현재 컨텍스트에서 실행 중인 `kubectl`를 사용 합니다.
-
-다음 설치 명령을 실행 하 여 클러스터에 KEDA를 설치 합니다.
-
-```cli
-func kubernetes install --namespace keda
-```
+투구를 포함 하 여 Kubernetes 클러스터에 KEDA를 설치 하는 다양 한 방법이 있습니다.  배포 옵션은 [Keda 사이트](https://keda.sh/deploy/)에 설명 되어 있습니다.
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Kubernetes에 함수 앱 배포
 
@@ -73,11 +67,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## <a name="uninstalling-keda-from-kubernetes"></a>Kubernetes에서 KEDA 제거
 
-다음 핵심 도구 명령을 실행 하 여 Kubernetes 클러스터에서 KEDA를 제거할 수 있습니다.
-
-```cli
-func kubernetes remove --namespace keda
-```
+KEDA를 제거 하는 단계는 [keda 사이트에](https://keda.sh/deploy/)설명 되어 있습니다.
 
 ## <a name="supported-triggers-in-keda"></a>KEDA에서 지원 되는 트리거
 
@@ -91,7 +81,7 @@ KEDA는 다음 Azure Function 트리거를 지원 합니다.
 
 ### <a name="http-trigger-support"></a>HTTP 트리거 지원
 
-HTTP 트리거를 노출 하는 Azure Functions를 사용할 수 있지만 KEDA는 직접 관리 하지 않습니다.  Azure Functions Core Tools은 HTTP 끝점을 0에서 1로 확장할 수 있도록 하는 관련 프로젝트인 오시리스를 설치 합니다.  1에서 *n* 으로의 크기 조정은 기존 Kubernetes 크기 조정 정책에 의존 합니다.
+HTTP 트리거를 노출 하는 Azure Functions를 사용할 수 있지만 KEDA는 직접 관리 하지 않습니다.  KEDA 프로메테우스 트리거를 활용 하 여 [HTTP Azure Functions를 1에서 *n* 인스턴스로 확장할](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42)수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.

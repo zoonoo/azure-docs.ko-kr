@@ -3,12 +3,12 @@ title: 을 사용 하 여 Azure Functions 개발 Visual Studio Code
 description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
-ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
+ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75667555"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547424"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -146,7 +146,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 `msg` 매개 변수는 `ICollector<T>` 형식이며, 함수가 완료될 때 출력 바인딩에 작성되는 메시지의 컬렉션을 나타냅니다. 하나 이상의 메시지를 컬렉션에 추가 합니다. 이러한 메시지는 함수가 완료 되 면 큐에 전송 됩니다.
 
-자세히 알아보려면 [Queue storage output binding](functions-bindings-storage-queue.md#output---c-example) 설명서를 참조 하세요.
+자세히 알아보려면 [Queue storage output binding](functions-bindings-storage-queue.md#output) 설명서를 참조 하세요.
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -184,7 +184,7 @@ Visual Studio Code를 사용 하면 편리한 프롬프트 집합에 따라 함�
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-자세히 알아보려면 [큐 저장소 출력 바인딩](functions-bindings-storage-queue.md#output---javascript-example) 참조를 참조 하세요.
+자세히 알아보려면 [큐 저장소 출력 바인딩](functions-bindings-storage-queue.md#output) 참조를 참조 하세요.
 
 ---
 

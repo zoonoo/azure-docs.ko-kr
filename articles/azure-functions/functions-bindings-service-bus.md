@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 4deae28d172bf717f527824be4be050975614c7d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 424d797410c091dc53687284c2b32e2f1f0358e1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277384"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549073"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -40,16 +40,7 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
-언어 관련 예제를 참조하세요.
-
-* [C#](#trigger---c-example)
-* [C# 스크립트(.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>트리거 - C# 예제
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음 예제에서는 [메시지 메타데이터](#trigger---message-metadata)를 읽고 Service Bus 큐 메시지를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -70,7 +61,7 @@ public static void Run(
 }
 ```
 
-### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 Service Bus 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 [메시지 메타데이터](#trigger---message-metadata)를 읽고 Service Bus 큐 메시지를 기록합니다.
 
@@ -110,90 +101,7 @@ public static void Run(string myQueueItem,
 }
 ```
 
-### <a name="trigger---f-example"></a>트리거 - F# 예제
-
-다음 예에서는 *function.json* 파일의 Service Bus 트리거 바인딩 및 바인딩을 사용하는 [F# 함수](functions-reference-fsharp.md)를 보여줍니다. 이 함수는 Service Bus 큐 메시지를 기록합니다. 
-
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-F# 스크립트 코드는 다음과 같습니다.
-
-```fsharp
-let Run(myQueueItem: string, log: ILogger) =
-    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
-```
-
-### <a name="trigger---java-example"></a>트리거 - Java 예제
-
-다음 Java 함수는 [java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 `@ServiceBusQueueTrigger` 주석을 사용 하 여 Service Bus queue 트리거의 구성을 설명 합니다. 함수는 큐에 배치 된 메시지를 가져와 하 고 로그에 추가 합니다.
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
-```
-
-다음 Java 함수는 Service Bus 메시지의 _사용자 속성_ 에 정의 된 메타 데이터를 검색 하는 방법을 보여 줍니다. 
-```java
-public class ServiceBusQueueTriggerJava {
-    @FunctionName("ServiceBusQueueTriggerJava")
-    public void run(
-            @ServiceBusQueueTrigger(name = "message", queueName = "myqueue", connection = "AzureWebJobsStorage") String message,
-            @BindingName("UserProperties") UserProperties userProperties,
-            final ExecutionContext context
-    ) {
-        context.getLogger().info("Java Service Bus Queue trigger function executed.");
-        context.getLogger().info(message);
-        context.getLogger().info(userProperties.key1);
-        context.getLogger().info(userProperties.key2);
-    }
-}
-
-public class UserProperties {
-    public String key1;
-    public String key2;
-}
-```
-
-Service Bus 토픽에 메시지가 추가 될 때도 Java 함수를 트리거할 수 있습니다. 다음 예에서는 `@ServiceBusTopicTrigger` 주석을 사용 하 여 트리거 구성을 설명 합니다.
-
-```java
-@FunctionName("sbtopicprocessor")
-    public void run(
-        @ServiceBusTopicTrigger(
-            name = "message",
-            topicName = "mytopicname",
-            subscriptionName = "mysubscription",
-            connection = "ServiceBusConnection"
-        ) String message,
-        final ExecutionContext context
-    ) {
-        context.getLogger().info(message);
-    }
-```
-
-### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 Service Bus 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 [메시지 메타데이터](#trigger---message-metadata)를 읽고 Service Bus 큐 메시지를 기록합니다. 
 
@@ -226,7 +134,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-### <a name="trigger---python-example"></a>트리거 - Python 예제
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 다음 예에서는 트리거를 통해 Service Bus 큐 메시지를 읽는 방법을 보여 줍니다.
 
@@ -277,7 +185,44 @@ def main(msg: func.ServiceBusMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>트리거 - 특성
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+다음 Java 함수는 [java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 `@ServiceBusQueueTrigger` 주석을 사용 하 여 Service Bus queue 트리거의 구성을 설명 합니다. 함수는 큐에 배치 된 메시지를 가져와 하 고 로그에 추가 합니다.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+```
+
+Service Bus 토픽에 메시지가 추가 될 때도 Java 함수를 트리거할 수 있습니다. 다음 예에서는 `@ServiceBusTopicTrigger` 주석을 사용 하 여 트리거 구성을 설명 합니다.
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+```
+
+---
+
+## <a name="trigger---attributes-and-annotations"></a>트리거-특성 및 주석
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 다음 특성을 사용하여 Service Bus 트리거를 구성합니다.
 
@@ -308,7 +253,7 @@ def main(msg: func.ServiceBusMessage):
   }
   ```
 
-  전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
+  전체 예제는 [트리거-예제](#trigger---example)를 참조 하세요.
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
 
@@ -336,6 +281,28 @@ def main(msg: func.ServiceBusMessage):
 * 클래스에 적용된 `ServiceBusAccount` 특성
 * "AzureWebJobsServiceBus" 앱 설정입니다.
 
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+스크립트에서 C# 특성을 지원 하지 않습니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원 하지 않습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python에서 특성을 지원 하지 않습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`ServiceBusQueueTrigger` 주석을 사용 하 여 Service Bus 큐 메시지를 만들 때 실행 되는 함수를 만들 수 있습니다. 사용 가능한 구성 옵션에는 큐 이름 및 연결 문자열 이름이 있습니다.
+
+`ServiceBusTopicTrigger` 주석을 사용 하면 함수를 트리거하는 데이터를 대상으로 하는 토픽 및 구독을 지정할 수 있습니다.
+
+자세한 내용은 트리거 [예제](#trigger---example) 를 참조 하십시오.
+
+---
+
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
 다음 표에서는 *function.json* 파일 및 `ServiceBusTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
@@ -356,7 +323,9 @@ def main(msg: func.ServiceBusMessage):
 
 ## <a name="trigger---usage"></a>트리거 - 사용
 
-C# 및 C# 스크립트에서 큐 또는 토픽 메시지에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+큐 또는 토픽 메시지에 사용할 수 있는 매개 변수 유형은 다음과 같습니다.
 
 * `string` - 메시지가 텍스트인 경우
 * `byte[]` - 이진 데이터에 유용합니다.
@@ -365,7 +334,32 @@ C# 및 C# 스크립트에서 큐 또는 토픽 메시지에 대해 다음 매개
 
 이러한 매개 변수 형식은 Azure Functions 버전 1.x에 대 한 것입니다. 2.x 이상에서는 `BrokeredMessage`대신 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 를 사용 합니다.
 
-JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽 메시지에 액세스합니다. Service Bus 메시지가 문자열 또는 JSON 개체로 함수에 전달됩니다.
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+큐 또는 토픽 메시지에 사용할 수 있는 매개 변수 유형은 다음과 같습니다.
+
+* `string` - 메시지가 텍스트인 경우
+* `byte[]` - 이진 데이터에 유용합니다.
+* 사용자 지정 형식 - 메시지에 JSON이 포함된 경우 Azure Functions는 JSON 데이터를 역직렬화하려고 합니다.
+* `BrokeredMessage`- [BrokeredMessage\<t > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 메서드를 사용 하 여 deserialize 된 메시지를 제공 합니다.
+
+이러한 매개 변수는 Azure Functions 버전 1.x에 대 한 것입니다. 2.x 이상에서는 `BrokeredMessage`대신 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 를 사용 합니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`context.bindings.<name from function.json>`를 사용 하 여 큐 또는 토픽 메시지에 액세스 합니다. Service Bus 메시지가 문자열 또는 JSON 개체로 함수에 전달됩니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+큐 메시지는 `func.ServiceBusMessage`으로 형식화 된 매개 변수를 통해 함수에서 사용할 수 있습니다. Service Bus 메시지가 문자열 또는 JSON 개체로 함수에 전달됩니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+들어오는 Service Bus 메시지는 `ServiceBusQueueMessage` 또는 `ServiceBusTopicMessage` 매개 변수를 통해 사용할 수 있습니다.
+
+[자세한 내용은 예제를 참조](#trigger)하세요.
+
+---
 
 ## <a name="trigger---poison-messages"></a>트리거 - 포이즌 메시지
 
@@ -404,18 +398,9 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-binding
 
 Azure Service Bus 출력 바인딩을 사용하여 큐 또는 토픽 메시지를 보냅니다.
 
-## <a name="output---example"></a>출력 - 예제
+### <a name="output---example"></a>출력 - 예제
 
-언어 관련 예제를 참조하세요.
-
-* [C#](#output---c-example)
-* [C# 스크립트(.csx)](#output---c-script-example)
-* [F#](#output---f-example)
-* [Java](#output---java-example)
-* [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>출력 - C# 예제
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음 예제에서는 Service Bus 큐 메시지를 보내는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -429,7 +414,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-### <a name="output---c-script-example"></a>출력 - C# 스크립트 예제
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 Service Bus 출력 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 타이머 트리거를 사용하여 15초마다 큐 메시지를 보냅니다.
 
@@ -480,79 +465,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
-### <a name="output---f-example"></a>출력 - F# 예제
-
-다음 예에서는 *function.json* 파일의 Service Bus 출력 바인딩 및 바인딩을 사용하는 [F# 스크립트 함수](functions-reference-fsharp.md)를 보여줍니다. 함수는 타이머 트리거를 사용하여 15초마다 큐 메시지를 보냅니다.
-
-*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-단일 메시지를 만드는 F# 스크립트 코드는 다음과 같습니다.
-
-```fsharp
-let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
-    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.LogInformation(message)
-    outputSbQueue = message
-```
-
-### <a name="output---java-example"></a>출력 - Java 예제
-
-다음 예제에서는 HTTP 요청에 의해 트리거될 때 `myqueue` Service Bus 큐로 메시지를 보내는 Java 함수를 보여 줍니다.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Service Bus 큐에 기록될 함수 매개 변수에 대한 `@ServiceBusQueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
-
-Java 함수는 Service Bus 토픽에도 쓸 수 있습니다. 다음 예제에서는 `@ServiceBusTopicOutput` 주석을 사용 하 여 출력 바인딩에 대 한 구성을 설명 합니다. 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
-            final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
-```
-
-### <a name="output---javascript-example"></a>출력 - JavaScript 예제
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 Service Bus 출력 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 타이머 트리거를 사용하여 15초마다 큐 메시지를 보냅니다.
 
@@ -604,7 +517,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="output---python-example"></a>출력 - Python 예제
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 다음 예제에서는 Python에서 Service Bus 큐에 쓰는 방법을 보여 줍니다.
 
@@ -654,7 +567,46 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>출력 - 특성
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+다음 예제에서는 HTTP 요청으로 트리거될 때 `myqueue` Service Bus 큐에 메시지를 보내는 Java 함수를 보여 줍니다.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+```
+
+ [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Service Bus 큐에 기록될 함수 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
+
+Java 함수는 Service Bus 토픽에도 쓸 수 있습니다. 다음 예제에서는 `@ServiceBusTopicOutput` 주석을 사용 하 여 출력 바인딩에 대 한 구성을 설명 합니다. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
+---
+
+## <a name="output---attributes-and-annotations"></a>출력-특성 및 주석
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs)를 사용합니다.
 
@@ -680,9 +632,27 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
+전체 예제는 [출력-예제](#output---example)를 참조 하세요.
 
-`ServiceBusAccount` 특성을 사용 하 여 클래스, 메서드 또는 매개 변수 수준에서 사용할 Service Bus 계정을 지정할 수 있습니다.  자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
+`ServiceBusAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 사용할 Service Bus 계정을 지정합니다.  자세한 내용은 [트리거 - 특성](#trigger---attributes-and-annotations)을 참조하세요.
+
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+스크립트에서 C# 특성을 지원 하지 않습니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원 하지 않습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python에서 특성을 지원 하지 않습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`ServiceBusQueueOutput` 및 `ServiceBusTopicOutput` 주석은 함수 출력으로 메시지를 작성 하는 데 사용할 수 있습니다. 이러한 주석을 사용 하 여 데코레이팅된 매개 변수는 `OutputBinding<T>`로 선언 해야 합니다. 여기서 `T`는 메시지의 형식에 해당 하는 형식입니다.
+
+---
 
 ## <a name="output---configuration"></a>출력 - 구성
 
@@ -704,7 +674,9 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 Azure Functions 1.x에서 큐가 존재하지 않고 `accessRights`를 `manage`로 설정한 경우 런타임은 큐를 만듭니다. 함수 버전 2.x 이상에서는 큐 또는 항목이 이미 존재 해야 합니다. 존재 하지 않는 큐 또는 토픽을 지정 하면 함수가 실패 합니다. 
 
-C# 및 C# 스크립트에서 출력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+출력 바인딩에 대해 다음 매개 변수 형식을 사용 합니다.
 
 * `out T paramName` - `T`는 JSON 직렬화 가능 형식일 수 있습니다. 함수가 종료될 때 매개 변수 값이 null이면 함수는 null 개체와 메시지를 만듭니다.
 * `out string` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
@@ -719,9 +691,36 @@ C# 및 C# 스크립트에서 출력 바인딩에 대해 다음 매개 변수 형
 
 * 세션 ID에 액세스 하려면 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 형식에 바인딩하고 `sessionId` 속성을 사용 합니다.
 
-JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽에 액세스합니다. 문자열, 바이트 배열 또는 JavaScript 개체 (JSON으로 deserialize)를 `context.binding.<name>`에 할당할 수 있습니다.
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
-비C# 언어에서 세션 사용 큐로 메시지를 보내려면 기본 제공 출력 바인딩이 아닌 [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) 를 사용 합니다.
+출력 바인딩에 대해 다음 매개 변수 형식을 사용 합니다.
+
+* `out T paramName` - `T`는 JSON 직렬화 가능 형식일 수 있습니다. 함수가 종료될 때 매개 변수 값이 null이면 함수는 null 개체와 메시지를 만듭니다.
+* `out string` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
+* `out byte[]` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
+* `out BrokeredMessage`-함수가 종료 될 때 매개 변수 값이 null 이면 함수는 1. x 함수에 대 한 메시지를 생성 하지 않습니다.
+* `out Message`-함수가 종료 될 때 매개 변수 값이 null 이면 함수는 2.x의 함수에 대해 메시지를 만들지 않습니다.
+* `ICollector<T>` 또는 `IAsyncCollector<T>` - 여러 개의 메시지를 만들려는 경우. 메시지는 `Add` 메서드를 호출할 때 생성됩니다.
+
+함수를 사용 C# 하는 경우:
+
+* 비동기 함수에는 `out` 매개 변수 대신 반환 값 또는 `IAsyncCollector` 필요 합니다.
+
+* 세션 ID에 액세스 하려면 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 형식에 바인딩하고 `sessionId` 속성을 사용 합니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`context.bindings.<name from function.json>`를 사용 하 여 큐 또는 토픽에 액세스 합니다. 문자열, 바이트 배열 또는 JavaScript 개체 (JSON으로 deserialize)를 `context.binding.<name>`에 할당할 수 있습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](https://docs.microsoft.com/azure/service-bus-messaging) 를 사용 합니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](https://docs.microsoft.com/azure/service-bus-messaging) 를 사용 합니다.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 

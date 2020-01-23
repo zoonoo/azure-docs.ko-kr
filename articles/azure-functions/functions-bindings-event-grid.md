@@ -5,22 +5,22 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b1717b9b336d31c86db1ec38eb97c7e8814b76d7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8062428ae63a572b81a5432c8b29910fe8422e24
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925990"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547458"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
-이 문서에서는 Azure Functions에서 [Event Grid](../event-grid/overview.md) 이벤트를 처리하는 방법을 설명합니다.
+이 문서에서는 Azure Functions에서 [Event Grid](../event-grid/overview.md) 이벤트를 처리하는 방법을 설명합니다. HTTP 끝점에서 Event Grid 메시지를 처리 하는 방법에 대 한 자세한 내용은 [http 끝점에 대 한 수신 이벤트](../event-grid/receive-events.md)를 참조 하세요.
 
 Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 요청을 전송하는 Azure 서비스입니다. 게시자는 이벤트를 시작하는 서비스 또는 리소스입니다. 예를 들어, Azure Blob Storage 계정은 게시자이고 [Blob 업로드 또는 삭제는 이벤트](../storage/blobs/storage-blob-event-overview.md)입니다. 일부 [Azure 서비스에는 Event Grid에 이벤트를 게시하는 방식을 기본적으로 지원합니다](../event-grid/overview.md#event-sources).
 
 이벤트 *처리기*는 이벤트를 수신하고 처리합니다. Azure Functions는 [Event Grid 이벤트를 처리를 기본적으로 지원하는 Azure 서비스](../event-grid/overview.md#event-handlers) 중 하나입니다. 이 문서에서는 Event Grid에서 이벤트가 수신될 때 Event Grid 트리거를 사용하여 함수를 호출하는 방법을 알아봅니다.
 
-원할 경우 HTTP 트리거를 사용하여 Event Grid 이벤트를 처리할 수 있습니다. 관련 내용은 이 문서 뒷부분에서 [HTTP 트리거를 Event Grid 트리거로 사용](#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요. 현재는, 이벤트가 [CloudEvents 스키마](../event-grid/cloudevents-schema.md)를 통해 전달되는 경우, Azure Functions 앱에 대해 Event Grid 트리거를 사용할 수 없습니다. 대신, HTTP 트리거를 사용합니다.
+원하는 경우 HTTP 트리거를 사용 하 여 Event Grid 이벤트를 처리할 수 있습니다. [HTTP 끝점으로 이벤트 수신을](../event-grid/receive-events.md)참조 하세요. 현재는, 이벤트가 [CloudEvents 스키마](../event-grid/cloudevents-schema.md#azure-functions)를 통해 전달되는 경우, Azure Functions 앱에 대해 Event Grid 트리거를 사용할 수 없습니다. 대신, HTTP 트리거를 사용합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -36,17 +36,11 @@ Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://w
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
-Event Grid 트리거에 대한 다음과 같은 언어별 예제를 참조하세요.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-* C#
-* [C# 스크립트(.csx)](#c-script-example)
-* [Java](#trigger---java-examples)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-HTTP 트리거 예제에 대해서는 이 문서 뒷부분에 나오는 [HTTP 트리거 사용 방법](#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
+HTTP 트리거 예제는 [http 끝점으로 이벤트 수신](../event-grid/receive-events.md)을 참조 하세요.
 
 ### <a name="c-2x-and-higher"></a>C#(2.x 이상)
 
@@ -74,7 +68,7 @@ namespace Company.Function
 
 자세한 내용은 패키지, [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
-### <a name="c-version-1x"></a>C#(버전 1.x)
+### <a name="version-1x"></a>버전 1.x
 
 다음 예제에서는 `JObject`에 바인딩되는 Functions 1.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -99,7 +93,7 @@ namespace Company.Function
 }
 ```
 
-### <a name="c-script-example"></a>C# 스크립트 예제
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다.
 
@@ -135,7 +129,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 
 자세한 내용은 패키지, [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
-#### <a name="c-script-version-1x"></a>C# 스크립트(버전 1.x)
+### <a name="version-1x"></a>버전 1.x
 
 `JObject`에 바인딩하는 Functions 1.x C# 스크립트 코드는 다음과 같습니다.
 
@@ -151,7 +145,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-### <a name="javascript-example"></a>JavaScript 예제
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩과 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다.
 
@@ -182,7 +176,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-### <a name="python-example"></a>Python 예제
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다.
 
@@ -205,23 +199,30 @@ module.exports = function (context, eventGridEvent) {
 다음은 Python 코드입니다.
 
 ```python
+import json
 import logging
+
 import azure.functions as func
 
-
 def main(event: func.EventGridEvent):
-    logging.info("Python Event Grid function processed a request.")
-    logging.info("  Subject: %s", event.subject)
-    logging.info("  Time: %s", event.event_time)
-    logging.info("  Data: %s", event.get_json())
+
+    result = json.dumps({
+        'id': event.id,
+        'data': event.get_json(),
+        'topic': event.topic,
+        'subject': event.subject,
+        'event_type': event.event_type,
+    })
+
+    logging.info('Python EventGrid trigger processed an event: %s', result)
 ```
 
-### <a name="trigger---java-examples"></a>트리거 - Java 예제
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
-* [Event Grid 트리거, 문자열 매개 변수](#event-grid-trigger-string-parameter-java)
-* [Event Grid 트리거, POJO 매개 변수](#event-grid-trigger-pojo-parameter-java)
+* [Event Grid 트리거, 문자열 매개 변수](#event-grid-trigger-string-parameter)
+* [Event Grid 트리거, POJO 매개 변수](#event-grid-trigger-pojo-parameter)
 
 다음 예제에서는 *function.json* 파일의 트리거 바인딩과 이 바인딩을 사용하고 이벤트를 출력한 후 처음에는 이 이벤트를 ```String```으로 수신하고, 두 번째로는 POJO로 수신하는 [Java 함수](functions-reference-java.md)를 보여 줍니다.
 
@@ -237,7 +238,7 @@ def main(event: func.EventGridEvent):
 }
 ```
 
-#### <a name="event-grid-trigger-string-parameter-java"></a>Event Grid 트리거, 문자열 매개 변수(Java)
+### <a name="event-grid-trigger-string-parameter"></a>Event Grid trigger, String 매개 변수
 
 ```java
   @FunctionName("eventGridMonitorString")
@@ -251,7 +252,7 @@ def main(event: func.EventGridEvent):
   }
 ```
 
-#### <a name="event-grid-trigger-pojo-parameter-java"></a>Event Grid 트리거, POJO 매개 변수(Java)
+### <a name="event-grid-trigger-pojo-parameter"></a>Event Grid trigger, POJO 매개 변수
 
 이 예제에서는 다음 POJO를 사용하여 Event Grid 이벤트의 최상위 속성을 나타냅니다.
 
@@ -291,9 +292,13 @@ public class EventSchema {
   }
 ```
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 EventGrid에서 제공되는 매개 변수에 대한 `EventGridTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 EventGrid에서 제공되는 매개 변수에 대한 `EventGridTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+
+---
 
 ## <a name="attributes"></a>특성
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) 특성을 사용합니다.
 
@@ -309,11 +314,29 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 전체 예제는 C# 예제를 참조하세요.
 
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+스크립트에서 C# 특성을 지원 하지 않습니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원 하지 않습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python에서 특성을 지원 하지 않습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+[Eventgridtrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) 주석을 사용 하면 구성 값을 제공 하 여 Event Grid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조 하세요.
+
+---
+
 ## <a name="configuration"></a>구성
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. `EventGridTrigger` 특성에서 설정할 생성자 매개 변수 또는 속성은 없습니다.
 
-|function.json 속성 |설명|
+|function.json 속성 |Description|
 |---------|---------|
 | **type** | 필수 - `eventGridTrigger`으로 설정해야 합니다. |
 | **direction** | 필수 - `in`으로 설정해야 합니다. |
@@ -321,19 +344,47 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 ## <a name="usage"></a>사용량
 
-Azure Functions 1.x의 C# 및 C# 함수의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+1\.x Azure Functions에서는 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
 * `JObject`
 * `string`
 
-Azure Functions C# 2.x F# 이상에서 및 함수의 경우에는 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수도 있습니다.
+Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용 하는 옵션도 있습니다.
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
+
+> [!NOTE]
+> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다.
+
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+1\.x Azure Functions에서는 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
+
+* `JObject`
+* `string`
+
+Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용 하는 옵션도 있습니다.
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
 
 > [!NOTE]
 > Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
-JavaScript 함수의 경우 *function.json* `name` 속성에 따라 명명되는 매개 변수가 이벤트 개체를 참조합니다.
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Event Grid 인스턴스는 *함수 json* 파일의 `name` 속성에서 구성 된 매개 변수를 통해 사용할 수 있습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Event Grid 인스턴스는 `func.EventGridEvent`으로 형식화 된 *함수 json* 파일의 `name` 속성에 구성 된 매개 변수를 통해 사용할 수 있습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Event Grid 이벤트 인스턴스는 `EventSchema`으로 형식화 된 `EventGridTrigger` 특성과 연결 된 매개 변수를 통해 사용할 수 있습니다. 자세한 내용은 [예제](#example) 를 참조 하세요.
+
+---
 
 ## <a name="event-schema"></a>이벤트 스키마
 
@@ -545,227 +596,6 @@ Event Grid 함수를 로컬로 실행합니다.
 Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과를 표시합니다.
 
 ![샘플 Event Grid 트리거 함수 로그](media/functions-bindings-event-grid/eg-output.png)
-
-## <a name="local-testing-with-ngrok"></a>ngrok를 사용한 로컬 테스트
-
-Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. [Ngrok](https://ngrok.com/)와 같은 도구를 사용 하 여이 작업을 수행할 수 있습니다.
-
-1. [ngrok 엔드포인트를 만듭니다](#create-an-ngrok-endpoint).
-1. [Event Grid 트리거 함수를 실행](#run-the-event-grid-trigger-function)합니다.
-1. ngrok 엔드포인트로 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-a-subscription).
-1. [이벤트를 트리거](#trigger-an-event)합니다.
-
-테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
-
-### <a name="create-an-ngrok-endpoint"></a>ngrok 엔드포인트 만들기
-
-[ngrok](https://ngrok.com/)에서 *ngrok.exe*를 다운로드하고 다음 명령을 사용해서 실행합니다.
-
-```
-ngrok http -host-header=localhost 7071
-```
-
-함수 런타임은 localhost에서 실행될 때 localhost의 요청을 예상하기 때문에 -host-header 매개 변수가 필요합니다. 7071은 런타임이 로컬로 실행될 때의 기본 포트 번호입니다.
-
-이 명령은 다음과 같은 출력을 만듭니다.
-
-```
-Session Status                online
-Version                       2.2.8
-Region                        United States (us)
-Web Interface                 http://127.0.0.1:4040
-Forwarding                    http://263db807.ngrok.io -> localhost:7071
-Forwarding                    https://263db807.ngrok.io -> localhost:7071
-
-Connections                   ttl     opn     rt1     rt5     p50     p90
-                              0       0       0.00    0.00    0.00    0.00
-```
-
-Event Grid 구독에 대해 `https://{subdomain}.ngrok.io` URL을 사용합니다.
-
-### <a name="run-the-event-grid-trigger-function"></a>Event Grid 트리거 함수 실행
-
-ngrok URL은 Event Grid에서 특수하게 처리되지 않으므로, 구독이 만들어질 때 함수가 로컬로 실행되고 있어야 합니다. 그렇지 않은 경우 유효성 검사 응답이 전송되지 않으며 구독을 만들지 못합니다.
-
-### <a name="create-a-subscription"></a>구독 만들기
-
-테스트하려는 유형의 Event Grid 구독을 만들고 ngrok 엔드포인트에 제공합니다.
-
-함수 2.x 이상에 대해이 끝점 패턴을 사용 합니다.
-
-```
-https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
-```
-
-Functions 1.x에 대해 이 엔드포인트 패턴을 사용합니다.
-
-```
-https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
-```
-
-`{FUNCTION_NAME}` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
-
-다음은 Azure CLI 사용 예입니다.
-
-```azurecli
-az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/runtime/webhooks/eventgrid?functionName=EventGridTrigger
-```
-
-구독을 만드는 방법에 대한 내용은 이 문서 앞부분에 나오는 [구독 만들기](#create-a-subscription)를 참조하세요.
-
-### <a name="trigger-an-event"></a>이벤트 트리거
-
-ngrok 엔드포인트로의 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob Storage 구독을 만든 경우 Blob을 업로드하거나 삭제합니다.
-
-Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과를 표시합니다.
-
-![샘플 Event Grid 트리거 함수 로그](media/functions-bindings-event-grid/eg-output.png)
-
-## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>HTTP 트리거를 Event Grid 트리거로 사용
-
-Event Grid 이벤트는 HTTP 요청으로 수신되므로, Event Grid 트리거 대신 HTTP 트리거를 사용하여 이벤트를 처리할 수 있습니다. 이렇게 하는 한 가지 가능한 이유는 함수를 호출하는 엔드포인트 URL을 보다 강력하게 제어할 수 있기 때문입니다. 다른 이유는 [CloudEvents 스키마](../event-grid/cloudevents-schema.md)에서 이벤트를 수신해야 하는 경우입니다. 현재, Event Grid 트리거는 CloudEvents 스키마를 지원하지 않습니다. 이 섹션의 예제는 Event Grid 스키마와 CloudEvents 스키마 둘 다에 대한 솔루션을 보여 줍니다.
-
-HTTP 트리거를 사용하는 경우, 다음과 같이 Event Grid 트리거가 자동으로 수행하는 작업에 대한 코드를 작성해야 합니다.
-
-* 유효성 검사 응답을 [구독 유효성 검사 요청](../event-grid/security-authentication.md#webhook-event-delivery)으로 보냅니다.
-* 요청 본문에 포함된 이벤트 배열의 요소별로 한 번씩 함수를 호출합니다.
-
-함수를 로컬로 호출하거나 Azure에서 실행할 때 사용할 URL에 대한 내용은 [HTTP 트리거 바인딩 참조 설명서](functions-bindings-http-webhook.md)를 참조하세요.
-
-### <a name="event-grid-schema"></a>Event Grid 스키마
-
-HTTP 트리거에 대한 다음 샘플 C# 코드는 Event Grid 트리거 동작을 시뮬레이트합니다. Event Grid 스키마에 전달된 이벤트의 경우, 이 예제를 사용합니다.
-
-```csharp
-[FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequestMessage req,
-    ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    var messages = await req.Content.ReadAsAsync<JArray>();
-
-    // If the request is for subscription validation, send back the validation code.
-    if (messages.Count > 0 && string.Equals((string)messages[0]["eventType"],
-        "Microsoft.EventGrid.SubscriptionValidationEvent",
-        System.StringComparison.OrdinalIgnoreCase))
-    {
-        log.LogInformation("Validate request received");
-        return req.CreateResponse<object>(new
-        {
-            validationResponse = messages[0]["data"]["validationCode"]
-        });
-    }
-
-    // The request is not for subscription validation, so it's for one or more events.
-    foreach (JObject message in messages)
-    {
-        // Handle one event.
-        EventGridEvent eventGridEvent = message.ToObject<EventGridEvent>();
-        log.LogInformation($"Subject: {eventGridEvent.Subject}");
-        log.LogInformation($"Time: {eventGridEvent.EventTime}");
-        log.LogInformation($"Event data: {eventGridEvent.Data.ToString()}");
-    }
-
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-HTTP 트리거에 대한 다음 샘플 JavaScript 코드는 Event Grid 트리거 동작을 시뮬레이트합니다. Event Grid 스키마에 전달된 이벤트의 경우, 이 예제를 사용합니다.
-
-```javascript
-module.exports = function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    var messages = req.body;
-    // If the request is for subscription validation, send back the validation code.
-    if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
-        context.log('Validate request received');
-        var code = messages[0].data.validationCode;
-        context.res = { status: 200, body: { "ValidationResponse": code } };
-    }
-    else {
-        // The request is not for subscription validation, so it's for one or more events.
-        // Event Grid schema delivers events in an array.
-        for (var i = 0; i < messages.length; i++) {
-            // Handle one event.
-            var message = messages[i];
-            context.log('Subject: ' + message.subject);
-            context.log('Time: ' + message.eventTime);
-            context.log('Data: ' + JSON.stringify(message.data));
-        }
-    }
-    context.done();
-};
-```
-
-이벤트 처리 코드는 `messages` 배열을 통해 루프로 들어갑니다.
-
-### <a name="cloudevents-schema"></a>CloudEvents 스키마
-
-HTTP 트리거에 대한 다음 샘플 C# 코드는 Event Grid 트리거 동작을 시뮬레이트합니다.  CloudEvents 스키마에 전달된 이벤트의 경우, 이 예제를 사용합니다.
-
-```csharp
-[FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    var requestmessage = await req.Content.ReadAsStringAsync();
-    var message = JToken.Parse(requestmessage);
-
-    if (message.Type == JTokenType.Array)
-    {
-        // If the request is for subscription validation, send back the validation code.
-        if (string.Equals((string)message[0]["eventType"],
-        "Microsoft.EventGrid.SubscriptionValidationEvent",
-        System.StringComparison.OrdinalIgnoreCase))
-        {
-            log.LogInformation("Validate request received");
-            return req.CreateResponse<object>(new
-            {
-                validationResponse = message[0]["data"]["validationCode"]
-            });
-        }
-    }
-    else
-    {
-        // The request is not for subscription validation, so it's for an event.
-        // CloudEvents schema delivers one event at a time.
-        log.LogInformation($"Source: {message["source"]}");
-        log.LogInformation($"Time: {message["eventTime"]}");
-        log.LogInformation($"Event data: {message["data"].ToString()}");
-    }
-
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-HTTP 트리거에 대한 다음 샘플 JavaScript 코드는 Event Grid 트리거 동작을 시뮬레이트합니다. CloudEvents 스키마에 전달된 이벤트의 경우, 이 예제를 사용합니다.
-
-```javascript
-module.exports = function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    var message = req.body;
-    // If the request is for subscription validation, send back the validation code.
-    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
-        context.log('Validate request received');
-        var code = message[0].data.validationCode;
-        context.res = { status: 200, body: { "ValidationResponse": code } };
-    }
-    else {
-        // The request is not for subscription validation, so it's for an event.
-        // CloudEvents schema delivers one event at a time.
-        var event = JSON.parse(message);
-        context.log('Source: ' + event.source);
-        context.log('Time: ' + event.eventTime);
-        context.log('Data: ' + JSON.stringify(event.data));
-    }
-    context.done();
-};
-```
 
 ## <a name="next-steps"></a>다음 단계
 

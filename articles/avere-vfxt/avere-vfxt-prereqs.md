@@ -4,14 +4,14 @@ description: Avere vFXT for Azure에 대한 필수 조건입니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 7f89ea553bc7198c1faee5ba3549f88da5ec2b2c
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152989"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547509"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -23,10 +23,10 @@ ms.locfileid: "76152989"
 
 Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 
-* [구독 블레이드](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동합니다.
-* 위쪽에 있는 **+ 추가** 단추를 클릭합니다.
-* 메시지가 표시되면 로그인합니다.
-* 제안을 선택하고 새 구독을 만드는 단계를 수행합니다.
+1. [구독 블레이드](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동합니다.
+1. 위쪽에 있는 **+ 추가** 단추를 클릭합니다.
+1. 메시지가 표시되면 로그인합니다.
+1. 제안을 선택하고 새 구독을 만드는 단계를 수행합니다.
 
 ## <a name="configure-subscription-owner-permissions"></a>구독 소유자 권한 구성
 
@@ -104,6 +104,6 @@ Azure Portal에서 저장소 서비스 끝점을 만듭니다.
 
    ![서비스 엔드포인트를 만드는 단계에 대한 주석이 있는 Azure Portal 스크린샷](media/avere-vfxt-service-endpoint.png)
 
-## <a name="next-step-create-the-vfxt-cluster"></a>다음 단계: vFXT 클러스터 만들기
+## <a name="next-steps"></a>다음 단계
 
 이러한 필수 구성 요소를 완료 한 후 클러스터를 만들 수 있습니다. 지침은 [vFXT 클러스터 배포](avere-vfxt-deploy.md)를 참조하세요.

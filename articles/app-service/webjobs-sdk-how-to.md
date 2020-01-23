@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421958"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549090"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -681,8 +681,8 @@ public static void CreateQueueMessage(
 Azure Functions 설명서에서는 각 바인딩 형식에 대 한 참조 정보를 제공 합니다. 각 바인딩 참조 문서에서 다음 정보를 찾을 수 있습니다. 이 예제는 저장소 큐를 기반으로 합니다.
 
 * [패키지](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). WebJobs SDK 프로젝트에서 바인딩에 대 한 지원을 포함 하기 위해 설치 해야 하는 패키지입니다.
-* [예](../azure-functions/functions-bindings-storage-queue.md#trigger---example). 코드 샘플. 클래스 C# 라이브러리 예제는 WebJobs SDK에 적용 됩니다. `FunctionName` 특성만 생략 하면 됩니다.
-* [특성](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). 바인딩 형식에 사용할 특성입니다.
+* [예](../azure-functions/functions-bindings-storage-queue.md#trigger). 코드 샘플. 클래스 C# 라이브러리 예제는 WebJobs SDK에 적용 됩니다. `FunctionName` 특성만 생략 하면 됩니다.
+* [특성](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). 바인딩 형식에 사용할 특성입니다.
 * [구성](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). 특성 속성 및 생성자 매개 변수에 대 한 설명입니다.
 * [사용 현황](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). 바인딩할 수 있는 형식과 바인딩의 작동 방식에 대 한 정보입니다. 예: 폴링 알고리즘, 포이즌 큐 처리.
   

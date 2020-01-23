@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 01/22/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: a7b6867033e750f476b3d995926f0b670965a5d7
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 92c2e79910e40721a0ef62d44825bd1f3e19fc79
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875548"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548221"
 ---
 | 리소스 | 기본 제한 |
 | --- | --- |
 | 데이터 처리량 |30gbps<sup>1</sup> |
 |규칙|1만. 모든 규칙 유형을 결합 합니다.|
-|공용 IP 요청당 DNAT 규칙|299|
+|최대 DNAT 규칙|299|
 |AzureFirewallSubnet 최소 크기 |/26|
 |네트워크 및 애플리케이션 규칙의 포트 범위|0-64,000 이 제한을 완화하는 작업이 진행 중입니다.|
 |공용 IP 주소|100 최대 (현재 SNAT 포트는 처음 5 개의 공용 IP 주소에 대해서만 추가 됩니다.)|

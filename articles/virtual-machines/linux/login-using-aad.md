@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951312"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544619"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
 
@@ -72,11 +72,11 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 Azure에서 Linux Vm에 대해 Azure AD 인증을 사용 하도록 설정 하려면 Vm 네트워크 구성에서 TCP 포트 443을 통해 다음 끝점에 대 한 아웃 바운드 액세스를 허용 하는지 확인 해야 합니다.
 
-* https://login.microsoftonline.com
-* https://device.login.microsoftonline.com
-* https://pas.windows.net
-* https://management.azure.com
-* https://packages.microsoft.com
+* https:\//login.microsoftonline.com
+* https:\//device.login.microsoftonline.com
+* https:\//pas.windows.net
+* https:\//management.azure.com
+* https:\//packages.microsoft.com
 
 > [!NOTE]
 > 현재 azure AD 인증을 사용 하도록 설정 된 Vm에 대해 Azure 네트워크 보안 그룹을 구성할 수 없습니다.

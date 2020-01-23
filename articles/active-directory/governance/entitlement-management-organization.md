@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608740"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548903"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
@@ -31,9 +31,12 @@ Azure AD 자격 관리를 통해 조직 외부 사용자와 공동 작업을 수
 
 연결 된 조직은 외부 Azure AD 디렉터리 또는 관계가 있는 도메인입니다.
 
-예를 들어 Woodgrove 은행에서 작업 하 고 두 개의 외부 조직 (그래픽 디자인 협회 및 Contoso)과 공동 작업 하려는 경우를 가정해 보겠습니다. 사용자가 Azure AD를 사용 하는 그래픽 디자인 협회에서 연락처에 게 지시 했으며, 해당 그래픽 디자인의 사용자에 게는 `graphicdesigninstitute.com`로 끝나는 사용자 계정 이름이 있습니다. Azure AD를 아직 사용 하지는 않지만 contoso의 사용자에 게는 `contoso.com`로 끝나는 사용자 계정 이름이 있습니다.
+예를 들어, Woodgrove Bank에서 작업 하 고 두 개의 외부 조직과 공동 작업 하려는 경우를 가정해 보겠습니다. 이러한 두 조직의 구성은 다음과 같이 다릅니다.
 
-두 개의 연결 된 조직을 구성할 수 있습니다. 하나는 도메인 `graphicdesigninstitute.com`를 사용 하는 그래픽 디자인 협회를 위한 것이 고 다른 하나는 도메인 `contoso.com`를 포함 하는 Contoso 용입니다. 그런 다음 두 개의 연결 된 조직을 정책에 추가 하는 경우 정책과 일치 하는 사용자 계정 이름이 있는 각 조직의 사용자는 액세스 패키지를 요청할 수 있습니다. 또한 그래픽 디자인 협회가 Azure AD를 사용 하 여 식별 되었기 때문에 그래픽 설계 협회에 `graphicdesigninstitute.example`와 같은 하위 도메인이 있는 경우 해당 사용자 계정 이름을 가진 사용자는 동일한 정책을 사용 하 여 액세스 패키지를 요청할 수 있습니다.
+- 그래픽 디자인 협회는 Azure AD를 사용 하 고 해당 사용자에 게는 `graphicdesigninstitute.com`로 끝나는 사용자 계정 이름이 있습니다.
+- Contoso는 아직 Azure AD를 사용 하지 않습니다. Contoso 사용자는 `contoso.com`로 끝나는 사용자 계정 이름을 갖습니다.
+
+이 경우 연결 된 두 조직을 구성할 수 있습니다. 그래픽 디자인 협회와 Contoso 용으로 하나의 연결 된 조직을 만들 수 있습니다. 그런 다음 두 개의 연결 된 조직을 정책에 추가 하면 정책과 일치 하는 사용자 보안 주체 이름을 가진 각 조직의 사용자가 액세스 패키지를 요청할 수 있습니다. Graphicdesigninstitute.com 도메인을 포함 하는 사용자 계정 이름을 가진 사용자는 그래픽 디자인 협회 연결 된 조직과 일치 하 고 요청을 제출할 수 있으며, 사용자 계정 이름이 contoso.com 인 사용자는 일치 합니다. Contoso 연결 된 조직에도 패키지를 요청할 수 있습니다. 또한 그래픽 설계 협회에서는 Azure AD를 사용 하기 때문에 graphicdesigninstitute 등의 테 넌 트에 추가 되는 [확인 된 도메인과](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) 일치 하는 보안 주체 이름을 가진 사용자도 동일한 정책을 사용 하 여 액세스 패키지를 요청할 수 있습니다.
 
 ![연결 된 조직 예](./media/entitlement-management-organization/connected-organization-example.png)
 

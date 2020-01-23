@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 739f97e912a33402aa7482e59dd78f5aeb005772
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944437"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547254"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복원
 
@@ -57,6 +57,29 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+## <a name="permanent-workspace-delete"></a>영구 작업 영역 삭제
+일시 삭제 방법은 개발 및 테스트와 같은 일부 시나리오에 맞지 않을 수 있습니다 .이 경우 동일한 설정 및 작업 영역 이름으로 배포를 반복 해야 합니다. 이 경우 작업 영역을 영구적으로 삭제 하 고 일시 삭제 기간을 "재정의" 할 수 있습니다. 영구 작업 영역 삭제 작업은 작업 공간 이름을 해제 하 고 동일한 이름을 사용 하 여 새 작업 영역을 만들 수 있습니다.
+
+
+> [!IMPORTANT]
+> 작업 영역을 영구적으로 삭제 하는 경우 작업 영역 및 해당 데이터를 복구할 수 없으므로 주의 해야 합니다.
+
+영구 작업 영역 삭제는 현재 REST API를 통해 수행할 수 있습니다.
+
+> [!NOTE]
+> 모든 API 요청은 요청 헤더에 전달자 권한 부여 토큰을 포함 해야 합니다.
+>
+> 토큰은 다음을 사용 하 여 가져올 수 있습니다.
+> - [앱 등록](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+> - 브라우저에서 F12 (개발자 콘솔)를 사용 하 여 Azure Portal로 이동 합니다. **요청 헤더**의 인증 문자열에 대해 **batch?** 인스턴스 중 하나를 확인 합니다. 이는 패턴 *권한 부여: 전달자 <token>* 입니다. 예제에 표시 된 것 처럼이를 복사 하 여 API 호출에 추가 합니다.
+> - Azure REST 설명서 사이트로 이동 합니다. 모든 API에서 **시도** 를 누르고 전달자 토큰을 복사 하 여 api 호출에 추가 합니다.
+작업 영역을 영구적으로 삭제 하려면 [작업 영역]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) 을 사용 합니다. force 태그를 사용 하 여 REST API 호출을 삭제 합니다.
+>
+> ```rst
+> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
+> ```
 
 ## <a name="recover-workspace"></a>작업 영역 복구
 

@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 718fd4054d5e21c7f6309b3b1ac65a459c514ea0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932371"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548019"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 활동 및 감사 기록 보기
 
@@ -111,6 +111,9 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
 
     ![현재 사용자에 대 한 감사 목록](media/azure-pim-resource-rbac/my-audit-time.png)
+    
+> [!NOTE]
+> 감사 기록에 액세스 하려면 전역 관리자 또는 권한 있는 역할 관리자 역할이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

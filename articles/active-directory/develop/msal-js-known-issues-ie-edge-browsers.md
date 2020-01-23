@@ -14,12 +14,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a4e847bc0d297f3aa41551fbf56242ae1a566f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c75162cc66e9277d111def92842f5a67a132f59
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424320"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548155"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제 (MSAL .js)
 
@@ -38,10 +38,6 @@ ms.locfileid: "75424320"
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
 - **로그인을 사용 하 여 인증할 때 팝업 창이 닫히지 않거나 중단 됩니다**. 자격 증명을 입력 하 고 로그인 한 후에 Microsoft Edge 또는 IE (InPrivate)의 팝업 창을 통해 인증 하는 경우, 보안 영역에 있는 여러 도메인이 탐색에 포함 되는 경우 MSAL에서 핸들이 손실 되기 때문에 팝업 창이 닫히지 않습니다. 팝업 창입니다.  
-
-    Microsoft Edge 문제 추적기에서 이러한 문제에 대 한 링크는 다음과 같습니다.  
-    - [버그 13861050](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861050/)
-    - [버그 13861663](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861663/)
 
 ### <a name="update-fix-available-in-msaljs-023"></a>업데이트: MSAL .js 0.2.3에서 사용할 수 있는 수정
 인증 리디렉션 루프 문제에 대 한 픽스는 [Msal .js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)에서 릴리스 되었습니다. 이 수정 사항을 이용 하려면 MSAL 구성에서 `storeAuthStateInCookie` 플래그를 사용 하도록 설정 합니다. 기본적으로이 플래그는 false로 설정 됩니다.

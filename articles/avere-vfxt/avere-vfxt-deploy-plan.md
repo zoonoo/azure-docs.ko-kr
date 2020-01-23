@@ -4,14 +4,14 @@ description: Avere vFXT for Azure를 배포하기 전에 수행할 계획에 대
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 5ffa28a0f6080b94bd47519df578fd15309dbab5
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: cd0c74c8aa40b3e96716ef37aa27b08b5f6aece1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153645"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547543"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT 시스템 계획
 
@@ -175,6 +175,6 @@ Avere vFXT virtual machines에는 두 개의 기본 제공 Azure 역할이 사�
 
 Avere vFXT 구성 요소에 대 한 액세스 역할을 사용자 지정 해야 하는 경우 사용자 고유의 역할을 정의 하 고 만들 때 Vm에 할당 해야 합니다. Azure Marketplace에서는 배포 템플릿을 사용할 수 없습니다. 시스템에 대 한 [도움말 보기](avere-vfxt-open-ticket.md)에 설명 된 대로 Azure Portal에서 티켓을 열어 Microsoft 고객 서비스 및 지원 센터에 문의 하세요.
 
-## <a name="next-step-understand-the-deployment-process"></a>다음 단계: 배포 프로세스 이해
+## <a name="next-steps"></a>다음 단계
 
 [배포 개요](avere-vfxt-deploy-overview.md) 는 Azure 시스템에 대 한 Avere vFXT를 만들고 데이터를 서비스할 준비를 하는 데 필요한 단계에 대 한 전체적인 그림 보기를 제공 합니다.

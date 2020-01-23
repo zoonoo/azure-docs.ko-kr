@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 3ba4ac665df45ab6d53d2195ab59ec577f8bab05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e461f9de8b20e4f6c8f027b1ae81ae21e54ece86
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422278"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547934"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -30,7 +30,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하
 
 AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관리 서비스에 속합니다. 각 AKS 클러스터에는 API 서버, 스케줄러 등을 제공 하는 고유한 단일 테 넌 트, 전용 Kubernetes 마스터가 있습니다. 이 마스터는 Microsoft에서 관리 하 고 유지 관리 합니다.
 
-기본적으로 Kubernetes API 서버는 공용 IP 주소와 FQDN(정규화된 도메인 이름)을 사용합니다. Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 API 서버에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 AZURE AD 통합][aks-aad]을 참조 하세요.
+기본적으로 Kubernetes API 서버는 공용 IP 주소 및 FQDN (정규화 된 도메인 이름)을 사용 합니다. Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 API 서버에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 AZURE AD 통합][aks-aad]을 참조 하세요.
 
 ## <a name="node-security"></a>노드 보안
 

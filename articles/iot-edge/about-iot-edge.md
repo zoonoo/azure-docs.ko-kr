@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1c14d1dd171f9bca6b6bdc61e35c0d541b29cb3c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026151"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511215"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge란?
 
@@ -26,7 +26,7 @@ Azure IoT Edge는 조직에서 데이터 관리 대신 비즈니스 통찰력에
 Azure IoT Edge는 다음과 같은 세 가지 구성 요소로 구성됩니다.
 
 * **IoT Edge 모듈**은 Azure 서비스, 타사 서비스 또는 개발자 고유의 코드를 실행하는 컨테이너입니다. 모듈은 IoT Edge 디바이스에 배포되어 해당 디바이스에서 로컬로 실행됩니다.
-* **IoT Edge 런타임**은 각 IoT Edge 디바이스에서 실행되며 각 디바이스에 배포된 모듈을 관리합니다. 
+* **IoT Edge 런타임**은 각 IoT Edge 디바이스에서 실행되며 각 디바이스에 배포된 모듈을 관리합니다.
 * **클라우드 기반 인터페이스**를 사용하여 IoT Edge 디바이스를 원격으로 모니터링 및 관리할 수 있습니다.
 
 >[!NOTE]

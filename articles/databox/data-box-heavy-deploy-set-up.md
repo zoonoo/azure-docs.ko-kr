@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3b27a4788bd144a8d2d423af1fa23ef09c5379f8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772848"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514428"
 ---
 ::: zone target = "docs"
 
@@ -32,7 +32,7 @@ ms.locfileid: "70772848"
 
 이 자습서에서는 Azure Data Box Heavy에 케이블을 장착하고, 연결을 설정하고, 전원을 켜는 방법을 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Data Box Heavy에 케이블 장착
@@ -46,7 +46,7 @@ ms.locfileid: "70772848"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -58,9 +58,9 @@ ms.locfileid: "70772848"
 6. 호스트 컴퓨터를 데이터 센터 네트워크에 연결해야 합니다. Data Box Heavy는 이 컴퓨터에서 데이터를 복사합니다. 호스트 컴퓨터에서 [지원되는 운영 체제](data-box-heavy-system-requirements.md)를 실행해야 합니다.
 7. 데이터 센터에는 고속 네트워크가 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 
 8. 로컬 UI에 연결하고 디바이스를 구성하기 위해 RJ-45 케이블이 있는 랩톱이 있어야 합니다. 랩톱을 사용하여 디바이스의 각 노드를 한 번 구성합니다.
-9. 디바이스 노드당 40Gbps 케이블이나 10Gbps 케이블이 하나 필요합니다.
+9. 디바이스 노드당 40Gbps 케이블 또는 10Gbps 케이블이 하나씩 필요합니다.
     - [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) 네트워크 인터페이스와 호환되는 케이블을 선택합니다.
-    - 40Gbps 케이블의 경우 케이블의 디바이스 끝이 QSFP+이어야 합니다.
+    - 40Gbps 케이블의 경우 케이블의 디바이스 끝이 QSFP+여야 합니다.
     - 10Gbps 케이블의 경우, 한 쪽에는 10Gbps 스위치에 꽂을 SFP+ 케이블이 필요하고, 디바이스에 꽂는 쪽에는 QSFP+ ~ SFP+ 어댑터(또는 QSA 어댑터)가 필요합니다.
 
 ::: zone target = "docs"
@@ -92,7 +92,7 @@ ms.locfileid: "70772848"
     ![Data Box Heavy 포트](media/data-box-heavy-deploy-set-up/data-box-heavy-ports.png)
 
 7. 4개 전원 케이블 모두를 디바이스 전원 공급 장치에 연결합니다. 녹색 LED가 켜지고 깜빡입니다.
-8. 전면의 전원 단추를 사용하여 디바이스 노드를 켭니다. 파란색 등이 켜질 때까지 전원 단추를 몇 초 동안 누르고 있습니다. 이제 디바이스 뒤쪽에 있는 전원 공급 장치의 녹색 LED가 모두 켜져 있어야 합니다. 디바이스 전면의 작동 패널에는 오류 LED도 있습니다. PSU 또는 팬에 오류가 있거나 디스크 드라이브에 문제가 있으면 오류 LED가 켜집니다.  
+8. 전면 패널의 전원 단추를 사용하여 디바이스 노드를 켭니다. 파란색 등이 켜질 때까지 전원 단추를 몇 초 동안 누르고 있습니다. 이제 디바이스 뒤쪽에 있는 전원 공급 장치의 녹색 LED가 모두 켜져 있어야 합니다. 디바이스 전면의 작동 패널에는 오류 LED도 있습니다. PSU 또는 팬에 오류가 있거나 디스크 드라이브에 문제가 있으면 오류 LED가 켜집니다.  
 
     ![Data Box Heavy 전면 작동 패널](media/data-box-heavy-deploy-set-up/data-box-heavy-front-ops-panel.png)
 

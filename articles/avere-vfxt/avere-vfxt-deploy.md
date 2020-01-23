@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153593"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547526"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
-이 절차에서는 Azure Marketplace에서 제공되는 배포 마법사를 사용하는 과정을 안내합니다. 이 마법사는 Azure Resource Manager 템플릿을 사용하여 클러스터를 자동으로 배포합니다. 양식에 매개 변수를 입력하고 **만들기**를 클릭하면 Azure에서 다음 단계가 자동으로 완료됩니다.
+이 절차에서는 Azure Marketplace에서 제공되는 배포 마법사를 사용하는 과정을 안내합니다. 이 마법사는 Azure Resource Manager 템플릿을 사용하여 클러스터를 자동으로 배포합니다. 양식에 매개 변수를 입력 하 고 **만들기**를 클릭 하면 Azure에서 다음 작업을 자동으로 완료 합니다.
 
 * 클러스터를 배포 하 고 관리 하는 데 필요한 소프트웨어를 포함 하는 기본 VM 인 클러스터 컨트롤러를 만듭니다.
 * 새 요소 만들기를 포함 하 여 리소스 그룹 및 가상 네트워크 인프라를 설정 합니다.
@@ -28,10 +28,10 @@ ms.locfileid: "76153593"
 
 만들기 템플릿을 사용하기 전에 다음 필수 구성 요소가 충족되었는지 확인하세요.  
 
-1. [새 구독](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [구독 소유자 권한](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Storage 서비스 끝점 (필요한 경우)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -기존 가상 네트워크를 사용 하 고 blob 저장소를 만드는 배포에 필요 합니다.
+* [새 구독](avere-vfxt-prereqs.md#create-a-new-subscription)
+* [구독 소유자 권한](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+* [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+* [Storage 서비스 끝점 (필요한 경우)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -기존 가상 네트워크를 사용 하 고 blob 저장소를 만드는 배포에 필요 합니다.
 
 클러스터 배포 단계 및 계획에 대한 자세한 내용은 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md) 및 [배포 개요](avere-vfxt-deploy-overview.md)를 참조하세요.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771294"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548002"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -46,13 +46,13 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 |저장 된 검색 삭제    |OperationalInsights/작업 영역/savedSearches|
 |경고 규칙 업데이트 |Microsoft SecurityInsights/alertRules|
 |경고 규칙 삭제 |Microsoft SecurityInsights/alertRules|
-|경고 규칙 응답 작업 업데이트 |Microsoft SecurityInsights/alertRules|
-|경고 규칙 응답 작업 삭제 |Microsoft SecurityInsights/alertRules|
+|경고 규칙 응답 작업 업데이트 |Microsoft SecurityInsights/alertRules/작업|
+|경고 규칙 응답 작업 삭제 |Microsoft SecurityInsights/alertRules/작업|
 |책갈피 업데이트   |Microsoft SecurityInsights/책갈피|
 |책갈피 삭제   |Microsoft SecurityInsights/책갈피|
 |업데이트 사례   |Microsoft SecurityInsights/사례|
-|업데이트 사례 조사  |Microsoft SecurityInsights/사례|
-|사례 설명 만들기   |Microsoft SecurityInsights/사례|
+|업데이트 사례 조사  |Microsoft SecurityInsights/사례/조사|
+|사례 설명 만들기   |Microsoft SecurityInsights/사례/설명|
 |데이터 커넥터 업데이트 |Microsoft SecurityInsights/dataConnectors|
 |데이터 커넥터 삭제 |Microsoft SecurityInsights/dataConnectors|
 |업데이트 설정    |Microsoft SecurityInsights/설정|

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 09ae896d26d534d3f9d5651834e181d37581c8f3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288962"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545622"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure Active Directory 통합
 
@@ -55,6 +55,9 @@ Red Hat OpenShift Microsoft Azure 클러스터 대신 작업을 수행할 수 �
 
 9. 그룹이 만들어지면 모든 그룹 목록에 표시 됩니다. 새 그룹을 클릭 합니다.
 10. 표시 되는 페이지에서 **개체 ID**를 복사 합니다. [Azure Red Hat OpenShift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서 `GROUPID`으로이 값을 참조 합니다.
+
+> [!IMPORTANT]
+> 이 그룹을 osa-고객-관리자 OpenShift 그룹과 동기화 하려면 Azure CLI를 사용 하 여 클러스터를 만듭니다. 현재 Azure Portal에이 그룹을 설정할 필드가 없습니다.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Azure AD 앱 등록 만들기
 

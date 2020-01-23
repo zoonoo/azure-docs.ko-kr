@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27273fecc9d117079cfda58d537cf7342d3c5dc4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 080310d5884ca82a3ff02ff0474777ea3a71997e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027067"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547611"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 컴퓨팅 노드 프로비전
 
@@ -319,7 +319,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 노드에 사용자를 만들 때 암호 대신 SSH 공개 키를 지정할 수 있습니다. Python SDK에서 [ComputeNodeUser][py_computenodeuser]의 **ssh_public_key** 매개 변수를 사용 합니다. .NET에서는 [ComputeNodeUser][net_computenodeuser]를 사용 합니다. [SshPublicKey][net_ssh_key] 속성입니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 Azure Batch는 Azure Cloud Services 및 Azure Virtual Machines 기술을 기반으로 빌드됩니다. Batch 서비스 자체는 무료로 제공됩니다. 즉, Batch 솔루션에서 사용하는 컴퓨팅 리소스에 대해서만 요금이 청구됩니다. **Cloud Services 구성을**선택 하면 [Cloud Services 가격 책정][cloud_services_pricing] 구조에 따라 요금이 청구 됩니다. **가상 컴퓨터 구성을**선택 하면 [Virtual Machines 가격 책정][vm_pricing] 구조에 따라 요금이 청구 됩니다. 
 
 [애플리케이션 패키지](batch-application-packages.md)를 사용하여 Batch 노드에 애플리케이션을 배포하는 경우에도 애플리케이션 패키지에서 사용하는 Azure Storage 리소스에 대한 요금이 청구됩니다. 일반적으로 Azure Storage 비용은 최소입니다. 
@@ -347,7 +347,7 @@ GitHub의 [azure batch 샘플][github_samples] 리포지토리에 있는 [Python
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
-[py_batch_docs]: https://azure-sdk-for-python.readthedocs.io/batch.html
+[py_batch_docs]: https://azure.github.io/azure-sdk-for-python/ref/Batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: /python/api/azure-batch/azure.batch.models.computenodeuser
 [py_imagereference]: /python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference
