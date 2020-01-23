@@ -309,7 +309,7 @@
                   href: vmware-physical-mobility-service-overview.md
                 - name: 모바일 서비스의 푸시 설치 준비
                   href: vmware-azure-install-mobility-service.md
-                - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
+                - name: Configuration Manager를 사용하여 Mobility Service 배포
                   href: vmware-azure-mobility-install-configuration-mgr.md
         - name: 장애 조치(failover) 및 장애 복구(failback) 실행
           href: physical-to-azure-failover-failback.md
@@ -509,7 +509,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
     - name: 학습 경로
       href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

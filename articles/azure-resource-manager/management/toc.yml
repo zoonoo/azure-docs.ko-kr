@@ -16,6 +16,8 @@
       href: azure-resource-manager-security-controls.md
     - name: 서비스별 리소스 공급자
       href: azure-services-resource-providers.md
+    - name: 확장 리소스 종류
+      href: extension-resource-types.md
     - name: 리소스 인스턴스 제한
       href: resources-without-resource-group-limit.md
 - name: 방법
@@ -68,44 +70,44 @@
           href: tag-resources.md
         - name: 태그 지원
           href: tag-support.md
-    - name: 관리
+    - name: 리소스 그룹 관리
       items:
-        - name: 리소스 그룹 관리
-          items:
-            - name: Azure Portal 사용
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-portal.md
-            - name: Azure CLI 사용
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-cli.md
-            - name: Azure PowerShell 사용
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-powershell.md
-        - name: 리소스 관리
-          items:
-            - name: Azure Portal 사용
-              displayName: 'open,delete,deploy,move,lock,tag,monitor'
-              href: manage-resources-portal.md
-            - name: Azure CLI 사용
-              displayName: 'open,delete,deploy,move,lock,tag'
-              href: manage-resources-cli.md
-            - name: Azure PowerShell 사용
-              displayName: 'open,delete,deploy,move,lock,tag'
-              href: manage-resources-powershell.md
-        - name: 리소스 그룹 및 리소스 삭제
-          href: delete-resource-group.md
-        - name: 리소스 잠금
-          href: lock-resources.md
-        - name: EA 구독 만들기
+        - name: Azure portal
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-portal.md
+        - name: Azure CLI
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-cli.md
+        - name: Azure PowerShell
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-powershell.md
+    - name: 리소스 관리
+      items:
+        - name: Azure portal
+          displayName: 'open,delete,deploy,move,lock,tag,monitor'
+          href: manage-resources-portal.md
+        - name: Azure CLI
+          displayName: 'open,delete,deploy,move,lock,tag'
+          href: manage-resources-cli.md
+        - name: Azure PowerShell
+          displayName: 'open,delete,deploy,move,lock,tag'
+          href: manage-resources-powershell.md
+    - name: EA 구독
+      items:
+        - name: 생성
           href: programmatically-create-subscription.md
-        - name: EA 구독을 만드는 액세스 권한 부여
+        - name: 생성 액세스 권한 부여
           href: grant-access-to-create-subscription.md
-        - name: 테넌트에서 인증
-          href: authenticate-multi-tenant.md
-    - name: 활동 로그 보기
-      href: view-activity-logs.md
     - name: 리소스 공급자 및 형식
       href: resource-providers-and-types.md
+    - name: 리소스 그룹 및 리소스 삭제
+      href: delete-resource-group.md
+    - name: 리소스 잠금
+      href: lock-resources.md
+    - name: 테넌트에서 인증
+      href: authenticate-multi-tenant.md
+    - name: 활동 로그 보기
+      href: view-activity-logs.md
     - name: 제한 요청
       href: request-limits-and-throttling.md
     - name: 비동기 작업 추적

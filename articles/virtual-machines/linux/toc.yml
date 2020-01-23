@@ -43,9 +43,11 @@
       href: tutorial-azure-security.md
     - name: 14a - Jenkins로 빌드
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 14b - Azure Pipelines를 사용한 배포(기본)
+    - name: 14b - Azure DevOps와 Jenkins 통합
       href: tutorial-build-deploy-jenkins.md
-    - name: 15 - Azure Pipelines를 사용한 CI/CD(YAML)
+    - name: 15a - Azure의 IaaS 및 PaaS용 DevOps
+      href: tutorial-devops-azure-pipelines-classic.md
+    - name: 15b - Azure Pipelines를 사용한 CI/CD(YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - LAMP 스택 만들기
       href: tutorial-lamp-stack.md
@@ -687,7 +689,7 @@
     - name: Azure 빠른 시작 템플릿
       displayName: 'Azure Resource Manager, ARM'
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
