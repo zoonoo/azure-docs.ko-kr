@@ -1,26 +1,24 @@
 ---
 title: (사용되지 않음) Azure DC/OS 클러스터의 컨테이너 부하 분산
 description: Azure Container Service DC/OS 클러스터에 있는 여러 컨테이너에 대해 부하를 분산합니다.
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148877"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277842"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터에서 컨테이너 부하 분산
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-이 문서에서는 Marathon-LB를 사용하여 DC/OS로 관리되는 Azure Container Service에 내부 부하 분산 장치를 만드는 방법을 살펴봅니다. 이 구성은 애플리케이션을 수평으로 확장할 수 있습니다. 또한 부하 분산 장치를 공용 클러스터에 배치하고 애플리케이션 컨테이너를 프라이빗 클러스터에 배치하여 공용 및 프라이빗 에이전트 클러스터를 활용할 수 있습니다. 이 자습서에서는 다음을 수행했습니다.
+이 문서에서는 Marathon-LB를 사용하여 DC/OS로 관리되는 Azure Container Service에 내부 부하 분산 장치를 만드는 방법을 살펴봅니다. 이 구성은 애플리케이션을 수평으로 확장할 수 있습니다. 또한 부하 분산 장치를 공용 클러스터에 배치하고 애플리케이션 컨테이너를 프라이빗 클러스터에 배치하여 공용 및 프라이빗 에이전트 클러스터를 활용할 수 있습니다. 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * Marathon Load Balancer 구성

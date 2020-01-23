@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed3e5c543f96876d9b6078f1bd47839a0a0396a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227489"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>자습서: MCM과 Azure Active Directory 통합
 
@@ -31,10 +31,10 @@ MCM을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 MCM에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 MCM과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -110,7 +110,7 @@ MCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://myaba.co.uk/<companyname>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [MCM 클라이언트 지원 팀](https://mcmtechnology.com/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [MCM 클라이언트 지원 팀](https://mcmtechnology.com/support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -128,7 +128,7 @@ MCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
 
 ### <a name="configure-mcm-single-sign-on"></a>MCM Single Sign-On 구성
 
-**MCM** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [MCM 지원 팀](https://mcmtechnology.com/support/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**MCM** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [MCM 지원 팀](https://mcmtechnology.com/support)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -151,7 +151,7 @@ MCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -183,7 +183,7 @@ MCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
 
 ### <a name="create-mcm-test-user"></a>MCM 테스트 사용자 만들기
 
-이 섹션에서는 MCM에서 Britta Simon이라는 사용자를 만듭니다.  [MCM 지원 팀](https://mcmtechnology.com/support/)과 협력하여 MCM 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 MCM에서 Britta Simon이라는 사용자를 만듭니다.  [MCM 지원 팀](https://mcmtechnology.com/support)과 협력하여 MCM 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 >[!NOTE]
 >다른 MCM 사용자 계정 생성 도구 또는 MCM이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.

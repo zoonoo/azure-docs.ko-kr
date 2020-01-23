@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028732"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289444"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 VMware VM 평가
 
@@ -176,7 +176,7 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 1. **연결 유효성 검사**를 선택하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정
-애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 액세스할 수 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions).
+애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 액세스할 수 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware).
 
 > [!NOTE]
 > 이 입력은 선택 사항이지만, 애플리케이션 검색 및 에이전트 없는 종속성 시각화를 사용하도록 설정하려면 필요합니다.
@@ -210,7 +210,7 @@ vCenter Server 인스턴스 및 VM 자격 증명(선택 사항)이 지정되면 
 1.  드롭다운 메뉴에서 vCenter Server 인스턴스를 선택합니다.
 1.  **Create role**(역할 만들기)을 선택합니다.
 1.  새 역할의 이름(예: <em>Azure_Migrate</em>)을 입력합니다.
-1.  [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)을 새로 정의한 역할에 할당합니다.
+1.  [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)을 새로 정의한 역할에 할당합니다.
 1.  **확인**을 선택합니다.
 
 #### <a name="3-assign-permissions-on-vcenter-objects"></a>3. vCenter 개체에 대한 권한 할당
@@ -219,7 +219,7 @@ vCenter의 인벤토리 개체에 대한 권한을 역할이 할당된 vCenter �
 
 서버 평가의 경우 검색할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 **읽기 전용** 역할을 적용해야 합니다. 데이터 센터까지의 계층 구조에 있는 모든 부모 개체(호스트, 호스트 폴더, 클러스터, 클러스터 폴더)가 포함됩니다. 이러한 권한은 계층 구조의 자식 개체에 전파됩니다.
 
-마찬가지로 서버 마이그레이션의 경우에도 마이그레이션할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)이 포함된 사용자 정의 역할을 적용해야 합니다. 이 역할의 이름은 <em>Azure _Migrate</em>입니다.
+마찬가지로 서버 마이그레이션의 경우에도 마이그레이션할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)이 포함된 사용자 정의 역할을 적용해야 합니다. 이 역할의 이름은 <em>Azure _Migrate</em>입니다.
 
 ![권한 할당](./media/tutorial-assess-vmware/assign-perms.png)
 
@@ -285,7 +285,7 @@ Azure Migrate 서버 평가를 사용하여 두 가지 유형의 평가를 만�
 
 평가를 보려면 다음을 수행합니다.
 
-1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
+1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 평가를 클릭합니다.
 1. **평가**에서 평가를 선택하여 엽니다.
 
    ![평가 요약](./media/tutorial-assess-vmware/assessment-summary.png)

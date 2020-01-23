@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 05bc30fb8401597695848290a3d4f6c0d10ce836
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 95b15924db7e5b1b788656d7592bb4ad87e07ce2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382245"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166757"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>빠른 시작: Node.js용 Computer Vision 클라이언트 라이브러리
 
@@ -62,7 +62,7 @@ npm init
 `ms-rest-azure` 및 `azure-cognitiveservices-computervision` NPM 패키지를 설치합니다.
 
 ```console
-npm install azure-cognitiveservices-computervision ms-rest-azure
+npm install @azure/cognitiveservices-computervision
 ```
 
 종속성이 있는 앱의 `package.json` 파일이 업데이트됩니다.

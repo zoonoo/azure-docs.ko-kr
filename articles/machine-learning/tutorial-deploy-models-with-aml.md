@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1a749570fe2320be18c98bb6267656cf2687aa1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3c0ff63a360d96d0e9db18d430e755e567197de1
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532196"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122086"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,6 +389,6 @@ service.delete()
 
 + [Azure Machine Learning에 대한 배포 옵션](how-to-deploy-and-where.md)을 모두 알아봅니다.
 + [웹 서비스에 대한 클라이언트를 만드는 방법](how-to-consume-web-service.md)에 대해 알아봅니다.
-+  [많은 양의 데이터에 대해 비동기적으로 예측](how-to-run-batch-predictions.md)합니다.
++  [많은 양의 데이터에 대해 비동기적으로 예측](how-to-use-parallel-run-step.md)합니다.
 + [Application Insights](how-to-enable-app-insights.md)를 사용하여 Azure Machine Learning 모델을 모니터링합니다.
 + [자동 알고리즘 선택](tutorial-auto-train-models.md) 자습서를 사용해보세요. 

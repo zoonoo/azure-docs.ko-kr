@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Azure Container Service 자습서 - 애플리케이션 배포
 description: Azure Container Service 자습서 - 애플리케이션 배포
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7e10fd982c19e45be8c5da4ffc7f7248276352c1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998792"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275485"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(사용되지 않음) Kubernetes에서 애플리케이션 실행
 
@@ -70,7 +68,7 @@ containers:
 
 ## <a name="deploy-application"></a>애플리케이션 배포
 
-[kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) 명령을 사용하여 응용 프로그램을 실행합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
+[kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) 명령을 사용하여 애플리케이션을 실행합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
 
 ```azurecli-interactive
 kubectl create -f azure-vote-all-in-one-redis.yml
@@ -119,4 +117,4 @@ azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m
 다음 자습서로 이동하여 Kubernetes 애플리케이션과 기본 Kubernetes 인프라를 모두 크기 조정하는 방법에 대해 알아봅니다. 
 
 > [!div class="nextstepaction"]
-> [Kubernetes 응용 프로그램 및 인프라 크기 조정](./container-service-tutorial-kubernetes-scale.md)
+> [Kubernetes 애플리케이션 및 인프라 크기 조정](./container-service-tutorial-kubernetes-scale.md)
