@@ -1,17 +1,17 @@
 ---
 title: Azure Spring Cloud 소개
 description: Azure에서 Java Spring 애플리케이션을 배포 및 관리하는 Azure Spring Cloud의 기능 및 이점을 알아봅니다.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: overview
 ms.date: 11/4/2019
-ms.author: jeconnoc
-ms.openlocfilehash: d05ce8f94862d737b3514bd1116e431bcba5dedd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: brendm
+ms.openlocfilehash: 87b7ac1e9de2087de6e0b9d72fb445ca515a2e32
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891690"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277139"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 

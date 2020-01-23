@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 680cf04e79a9cb6d5748723dad3cb37cf3c76468
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314218"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546710"
 ---
 # <a name="cross-validate-model"></a>모델 교차 유효성 검사
 
-이 문서에서는 Azure Machine Learning 디자이너에서 모델 교차 유효성 검사 모듈을 사용 하는 방법을 설명 합니다. *교차 유효성 검사* 는 데이터 집합의 산포도와 해당 데이터를 통해 학습 된 모델의 안정성을 모두 평가 하기 위해 기계 학습에서 자주 사용 되는 기술입니다.  
+이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)의 모델 교차 유효성 검사 모듈을 사용 하는 방법을 설명 합니다. *교차 유효성 검사* 는 데이터 집합의 산포도와 해당 데이터를 통해 학습 된 모델의 안정성을 모두 평가 하기 위해 기계 학습에서 자주 사용 되는 기술입니다.  
 
 모델 교차 유효성 검사 모듈은 학습 되지 않은 분류 또는 회귀 모델과 함께 레이블이 지정 된 데이터 집합을 입력으로 사용 합니다. 데이터 집합을 일부 하위 집합 (*접기*)으로 나누고 각 접기에 대 한 모델을 작성 한 다음 각 접기에 대 한 정확도 통계 집합을 반환 합니다. 모든 접기에 대 한 정확도 통계를 비교 하 여 데이터 집합의 품질을 해석할 수 있습니다. 그런 다음 모델이 데이터의 변형에 취약 한지 여부를 파악할 수 있습니다.  
 

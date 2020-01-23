@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 93a70bf0d9189368135b8007e95627fc64064c51
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: de1e01e56079753a1a9ee8debc2f2172e1dc8375
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932192"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548308"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 & 배포를 위한 환경을 재사용 합니다.
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -248,6 +248,10 @@ myenv.docker.enabled = True
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
+# Alternatively, you can specify the contents of dockerfile of your base image
+with open("docker_file_of_your_base_image", "r") as f:
+    dockerfile_contents_of_your_base_image=f.read()
+myenv.docker.base_dockerfile=dockerfile_contents_of_your_base_image 
 ```
 
 > [!NOTE]
@@ -344,6 +348,10 @@ service = Model.deploy(
 ## <a name="example-notebooks"></a>노트북 예제
 
 이 [예제 전자 필기장은](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) 이 문서에 설명 되어 있는 개념과 메서드를 확장 합니다.
+
+[사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](how-to-deploy-custom-docker-image.md) 사용자 지정 docker 기본 이미지를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
+
+이 [예제 노트북에서는](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) Spark 모델을 웹 서비스로 배포 하는 방법을 보여 줍니다.
 
 ## <a name="create-and-manage-environments-with-the-cli"></a>CLI를 사용 하 여 환경 만들기 및 관리
 

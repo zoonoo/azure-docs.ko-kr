@@ -9,27 +9,16 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b07adc955b7904c6e6a3278480cec5a2be91ec35
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70232901"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514071"
 ---
 ::: zone target="docs"
 
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box Disk 배포
-
-::: zone-end
-
-::: zone target="chromeless"
-
-## <a name="get-started-with-azure-data-box-disk"></a>Azure Data Box Disk 시작 
-
-::: zone-end
-
-::: zone target="docs"
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Box Disk를 배포하는 방법을 설명합니다. 단계는 신속하게 주문을 만들고, 디스크를 수신하고, 압축을 풀고, 연결하고 Azure에 업로드하도록 디스크에 데이터를 복사하는 방법을 포함합니다.
 
@@ -47,7 +36,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ::: zone target="docs"
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에
 
@@ -74,7 +63,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ::: zone target="docs"
 
-## <a name="order"></a>순서
+## <a name="order"></a>주문
 
 이 단계에는 약 5분 정도가 걸립니다.
 

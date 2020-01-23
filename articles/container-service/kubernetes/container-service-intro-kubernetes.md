@@ -1,20 +1,18 @@
 ---
 title: (사용되지 않음) Kubernetes용 Azure Container Service 소개
 description: Kubernetes용 Azure Container Service를 통해 Azure에서 컨테이너 기반 애플리케이션을 간단히 배포 및 관리할 수 있습니다.
-services: container-service
 author: gabrtv
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c0ef7255a087dd5dc26532316deab337f9eff715
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999171"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271580"
 ---
 # <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(사용되지 않음) Kubernetes용 Azure Container Service 소개
 
@@ -34,7 +32,7 @@ Azure 컨테이너 서비스를 사용하는 우리의 목표는 현재 우리 �
 Azure Container Service 사용을 시작하려면 [Azure CLI](container-service-kubernetes-walkthrough.md)를 사용하거나 포털(Marketplace에서 **Azure Container Service** 검색)을 통해 Azure Container Service 클러스터를 배포합니다. Azure Resource Manager 템플릿을 통해 더 많은 제어를 필요로 하는 고급 사용자인 경우 오픈 소스 [acs-engine](https://github.com/Azure/acs-engine) 프로젝트를 사용하여 사용자 지정 Kubernetes 클러스터를 빌드하여 `az` CLI를 통해 배포할 수 있습니다.
 
 ### <a name="using-kubernetes"></a>Kubernetes 사용
-Kubernetes는 컨테이너화된 응용 프로그램의 배포, 크기 조정 및 관리를 자동화합니다. 여기에는 다음과 같이 풍부한 기능들이 포함되어 있습니다.
+Kubernetes는 컨테이너화된 애플리케이션의 배포, 크기 조정 및 관리를 자동화합니다. 여기에는 다음과 같이 풍부한 기능들이 포함되어 있습니다.
 * 자동 저장소 적재
 * 자동 복구
 * 수평적 크기 조정

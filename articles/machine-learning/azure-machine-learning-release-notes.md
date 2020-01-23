@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 11/04/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122375"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546353"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -23,12 +23,49 @@ ms.locfileid: "76122375"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2020-01-21"></a>2020-01-21
+
+### <a name="azure-machine-learning-sdk-for-python-v1085"></a>Azure Machine Learning SDK for Python v 1.0.85
+
++ **새로운 기능**
+  + **azureml-core**
+    + 지정 된 작업 영역 및 구독에서 AmlCompute 리소스에 대 한 현재 코어 사용량 및 할당량 제한을 가져옵니다.
+  
+  + **azureml-파이프라인-단계**
+    + 사용자가 테이블 형식 데이터 집합을 이전 단계에서 parallelrunstep로 중간 결과로 전달 하도록 설정
+
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-runtime**
+    + 배포 된 예측 서비스에 대 한 요청의 y_query 열에 대 한 요구 사항이 제거 되었습니다. 
+    + ' Y_query '이 (가) Dominick의 주황색 주스 노트북 서비스 요청 섹션에서 제거 되었습니다.
+    + 날짜 시간 열이 포함 된 데이터 집합에서 작동 하는 배포 된 모델에 대 한 예측을 방지 하는 버그를 수정 했습니다.
+    + Matthews 상관 계수를 이진 및 다중 클래스 분류에 대 한 분류 메트릭으로 추가 했습니다.
+  + **azureml-인-해석**
+    + Azureml에서 텍스트 explainers 제거 됨-텍스트 설명이 즉시 릴리스되는 해석 텍스트 리포지토리로 이동 되었습니다.
+  + **azureml-core**
+    + 데이터 집합: 파일 데이터 집합에 대 한 사용은 더 이상 python env에 설치 되는 numpy 및 pandas에 종속 되지 않습니다.
+    + 상태 끝점에 대 한 ping을 시도 하기 전에 로컬 Docker 컨테이너의 상태를 확인 하 고 실패 한 배포를 보고 하는 데 걸리는 시간을 크게 줄여 LocalWebservice. wait_for_deployment ()를 변경 했습니다.
+    + Localwebservice () 생성자를 사용 하 여 기존 배포에서 서비스 개체를 만들 때 LocalWebservice. reload ()에서 사용 되는 내부 속성의 초기화가 수정 되었습니다.
+    + 설명에 대 한 오류 메시지를 편집 했습니다.
+    + 액세스 토큰, 타임 스탬프 이후 새로 고침, 타임 스탬프 및 토큰 형식에 대 한 만료를 포함 하는 AksServiceAccessToken 개체를 반환 하는 AksWebservice () get_access_token 라는 새 메서드를 추가 했습니다. 
+    + AksWebservice에서 사용 되지 않는 기존 get_token () 메서드는 새 메서드는이 메서드가 반환 하는 모든 정보를 반환 합니다.
+    + Az ml service get-access 토큰 명령의 출력을 수정 했습니다. 토큰 이름을 accessToken로 바꾸고 refreshby를 Refreshby로 바꿉니다. ExpiryOn 및 tokenType 속성을 추가 했습니다.
+    + 고정 get_active_runs
+  + **azureml-explain-model**
+    + shap를 0.33.0로 업데이트 하 고-community를 0.4으로 해석 합니다. *
+  + **azureml-해석**
+    + shap를 0.33.0로 업데이트 하 고-community를 0.4으로 해석 합니다. *
+  + **azureml-학습-자동 ml-런타임**
+    + Matthews 상관 계수를 이진 및 다중 클래스 분류에 대 한 분류 메트릭으로 추가 했습니다.
+    + 사용 중단는 코드에서 전처리 플래그를 설정 하 고 기능화-기능화은 기본적으로 설정 되어 있습니다.
+
 ## <a name="2020-01-06"></a>2020-01-06
 
 ### <a name="azure-machine-learning-sdk-for-python-v1083"></a>Azure Machine Learning SDK for Python v 1.0.83
 
 + **새로운 기능**
   + 데이터 집합: `on_error`에 두 옵션을 추가 하 고, 데이터에 `None`를 사용 하 여 데이터를 채우지 않고 오류가 발생할 경우 `to_pandas_dataframe`에 대 한 `out_of_range_datetime` 합니다.
+  + 작업 영역: 추가 암호화를 사용 하 고 작업 영역에서 고급 진단을 사용 하지 않도록 설정 하는 중요 한 데이터가 포함 된 작업 영역에 대 한 `hbi_workspace` 플래그 또한 작업 영역을 만들 때 `cmk_keyvault` 및 `resource_cmk_uri` 매개 변수를 지정 하 여 연결 된 Cosmos DB 인스턴스에 대 한 사용자 고유의 키를 가져오기 위한 지원도 추가 했습니다. 그러면 작업 영역을 프로 비전 하는 동안 구독에 Cosmos DB 인스턴스가 만들어집니다. [자세한 내용은 여기를 참조 하세요.](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
 
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-runtime**
@@ -49,7 +86,6 @@ ms.locfileid: "76122375"
   + **azureml-학습-자동 ml-클라이언트**
     + Automl 실행에 대 한 콘솔 출력의 맞춤을 수정 했습니다.
     + Pandas의 잘못 된 버전이 원격 amlcompute에 설치 될 수 있는 버그를 수정 했습니다.
-
 
 ## <a name="2019-12-23"></a>2019-12-23
 

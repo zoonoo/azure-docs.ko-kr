@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 8e0fcdc97475053dcf285b562b28784deffff28c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552732"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548937"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Apache Spark 기록 서버의 확장 기능을 사용 하 여 Spark 응용 프로그램 디버그 및 진단
 
@@ -163,7 +163,7 @@ Spark 기록 서버 웹 UI는 다음 이미지와 유사 하 게 보일 수 있�
 
 #### <a name="specify-parameters"></a>매개 변수 지정
 
-**매개 변수 지정** 섹션에는 데이터 오차를 검색 하는 데 사용 되는 매개 변수가 표시 됩니다. 기본 규칙은 다음과 같습니다. 작업 데이터 읽기가 평균 태스크 데이터를 읽은 3 시간 보다 크고 작업 데이터 읽기가 10mb를 초과 합니다. 기울어진 태스크에 대 한 고유 규칙을 정의 하려는 경우 매개 변수를 선택할 수 있습니다. **기울어진 단계** 및 **기울이기 문자** 섹션이 그에 따라 업데이트 됩니다.
+**매개 변수 지정** 섹션에는 데이터 오차를 검색 하는 데 사용 되는 매개 변수가 표시 됩니다. 기본 규칙은 다음과 같습니다. 작업 데이터 읽기가 평균 태스크 데이터를 읽은 3 시간 보다 크고 작업 데이터 읽기가 10mb를 초과 합니다. 기울어진 태스크에 대 한 고유 규칙을 정의 하려는 경우 매개 변수를 선택할 수 있습니다. **기울어진 스테이지** 및 **기울이기 차트** 섹션은 그에 따라 업데이트 됩니다.
 
 #### <a name="skewed-stage"></a>기울어진 스테이지
 

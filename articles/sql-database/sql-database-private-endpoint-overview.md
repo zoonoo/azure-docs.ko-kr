@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045630"
+ms.locfileid: "76121083"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Azure SQL Database 및 Data Warehouse용 Private Link(미리 보기)
 
@@ -43,8 +43,6 @@ Private Link를 사용하면 이제 고객이 NSG와 같은 네트워크 액세�
 고객이 온-프레미스 머신에서 퍼블릭 엔드포인트에 연결하는 경우 [서버 수준 방화벽 규칙](sql-database-server-level-firewall-rule.md)을 사용하여 IP 주소를 IP 기반 방화벽에 추가해야 합니다. 이 모델은 개발 또는 테스트 워크로드를 위해 개별 머신에 액세스할 수 있도록 하는 데 효과적이지만 프로덕션 환경에서는 관리하기가 어렵습니다.
 
 Private Link를 사용하면 고객이 [ExpressRoute](../expressroute/expressroute-introduction.md), 프라이빗 피어링 또는 VPN 터널링을 사용하여 프라이빗 엔드포인트에 대한 프레미스 간 액세스를 사용하도록 설정할 수 있습니다. 그런 다음, 고객이 퍼블릭 엔드포인트를 통한 모든 액세스를 사용하지 않도록 설정하고, IP 기반 방화벽을 사용하여 IP 주소를 허용하지 않을 수 있습니다.
-
-Private Link를 사용하면 고객이 ER(Express Route) 프라이빗 피어링 또는 VPN 터널을 사용하여 프라이빗 엔드포인트에 대한 프레미스 간 액세스를 사용하도록 설정할 수 있습니다. 이후에는 퍼블릭 엔드포인트를 통한 모든 액세스를 사용하지 않도록 설정하고 IP 기반 방화벽을 사용할 수 없습니다.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Azure SQL Database용 Private Link를 설정하는 방법 
 

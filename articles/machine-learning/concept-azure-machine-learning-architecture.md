@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 452b0e597d0b4ad027ff62303afe2f0e7fd6abb9
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e3dcd9305a48b0d34f1bcbea64d6628efabc1235
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314371"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546064"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -47,8 +47,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 +  [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 python 환경에서 서비스와 상호 작용 합니다.
 + [R에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하 여 r 환경에서 서비스와 상호 작용 합니다.
 + [AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)를 사용 하 여 기계 학습 작업을 자동화 합니다.
-+ [Azure Machine Learning VS Code 확장](tutorial-setup-vscode-extension.md) 을 사용 하 여 Visual Studio Code에 코드 작성
-+ [Azure Machine Learning 디자이너](concept-designer.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
++ [Azure Machine Learning 디자이너 (미리 보기)](concept-designer.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
 
 
 > [!NOTE]

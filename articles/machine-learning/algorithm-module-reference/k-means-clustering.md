@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 7451758e758d597bfe63d92fe4789c8fa81b3dff
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 000db771f27c7063aee120f06e13eec3575c8ef5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311481"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546642"
 ---
 # <a name="module-k-means-clustering"></a>모듈: K-클러스터링을 의미 합니다.
 
-이 문서에서는 Azure Machine Learning designer에서 *k-의미 클러스터링* 모듈을 사용 하 여 학습 되지 않은 k 의미 클러스터링 모델을 만드는 방법을 설명 합니다. 
+이 문서에서는 Azure Machine Learning designer (미리 보기)에서 *k-의미 클러스터링* 모듈을 사용 하 여 학습 되지 않은 k 의미 클러스터링 모델을 만드는 방법을 설명 합니다. 
  
 K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니다. 다음과 같은 다양 한 기계 학습 작업에 알고리즘을 사용할 수 있습니다. 
 

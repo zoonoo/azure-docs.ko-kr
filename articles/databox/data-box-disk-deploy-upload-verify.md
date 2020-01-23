@@ -9,13 +9,12 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: fc3145ee0b60402026389863b94d21da4b3e4123
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: e2851f7087151b09b5f859b7142aa28e5b18a4e5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70307758"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514088"
 ---
 ::: zone target="docs"
 
@@ -27,7 +26,7 @@ ms.locfileid: "70307758"
 > * Azure에 대한 데이터 업로드 확인
 > * Data Box Disk에서 데이터 지우기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 [자습서: Azure Data Box Disk 반환](data-box-disk-deploy-picked-up.md)을 완료했는지 확인합니다.
 
@@ -50,7 +49,7 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 
 오류와 함께 복사가 완료되면 [업로드 오류 문제 해결](data-box-disk-troubleshoot-upload.md)을 참조하세요.
 
-원본에서 데이터를 삭제하기 전에 데이터 스토리지 계정에 있는지 확인합니다. 다음 위치에 데이터가 있을 수 있습니다.
+원본에서 데이터를 삭제하기 전에 데이터 스토리지 계정에 있는지 확인합니다. 데이터는 다음 위치에 있을 수 있습니다.
 
 - Azure Storage 계정. Data Box에 데이터를 복사할 때, 데이터 형식에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
 
@@ -59,13 +58,13 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 
     또는 Azure Portal에서 Azure storage 계정으로 이동하여 찾아볼 수도 있습니다.
 
-- 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문 생성 시 지정된 리소스 그룹에 연결됩니다.
+- 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다.
 
   - Azure에서 관리 디스크로 복사가 완료되면 Azure Portal에서 **주문 세부 정보**로 이동하여 관리 디스크에 지정된 리소스 그룹을 메모할 수 있습니다.
 
       ![주문 세부 정보 보기](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
-    메모한 리소스 그룹으로 이동하여 사용자의 관리 디스크를 찾습니다.
+    기록한 리소스 그룹으로 이동하여 관리 디스크를 찾습니다.
 
       ![관리 디스크의 리소스 그룹](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 

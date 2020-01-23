@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 517940ab4a3e004d99faf6ca2bedb43c93dba8c5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407036"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514190"
 ---
 ::: zone target="docs"
 
@@ -35,13 +35,13 @@ ms.locfileid: "74407036"
 이 자습서에서는 다음과 같은 주제에 대해 학습합니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * 배송 준비
 > * Microsoft에 Data Box 배송
 > * Azure에 대한 데이터 업로드 확인
 > * Data Box에서 데이터 지우기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 

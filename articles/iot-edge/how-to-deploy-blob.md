@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: fe09fb47a75ff9d412ffab2daafaf241a43443b4
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 8c2df4854f4cdb93c08e22f7dcdc23b1b69b13d6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75729610"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548784"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IoT Edge 모듈에 Azure Blob Storage를 장치에 배포
 
@@ -37,7 +37,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 ### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
-배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. Azure Portal에는 JSON 문서를 수동으로 빌드하는 대신 배포 매니페스트를 만드는 과정을 안내 하는 마법사가 있습니다. 이 클래스는 **모듈**, **경로**및 **검토 + 만들기**의 세 단계로 구성 됩니다.
+배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. Azure Portal에는 배포 매니페스트를 만드는 과정을 안내 하는 마법사가 있습니다. 이 클래스는 **모듈**, **경로**및 **검토 + 만들기**의 세 단계로 구성 됩니다.
 
 #### <a name="add-modules"></a>모듈 추가
 
@@ -57,11 +57,11 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
    > [!IMPORTANT]
    > 모듈에 대 한 호출을 수행할 때 Azure IoT Edge 대/소문자를 구분 하 고, 저장소 SDK도 기본값인 소문자로 설정 합니다. [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) 모듈의 이름은 **Azureblobstorageoniotedge**이지만 이름을 소문자로 변경 하면 IoT Edge 모듈의 Azure Blob Storage에 대 한 연결이 중단 되지 않도록 할 수 있습니다.
 
-3. **컨테이너 만들기 옵션** 탭에서 저장소 계정 정보를 제공 하는 JSON 코드와 장치의 저장소에 대 한 탑재를 제공 합니다.
+3. **컨테이너 만들기 옵션** 탭을 엽니다.
 
    ![모듈 쌍 설정](./media/how-to-deploy-blob/addmodule-tab3.png)
 
-   다음 단계에서 자리 표시자 설명을 참조 하 여 다음 JSON을 복사 하 여 입력란에 붙여 넣습니다.
+   저장소 계정 정보를 제공 하 고 장치에 저장소에 대 한 탑재를 제공 하려면 다음 JSON을 복사 하 여 입력란에 붙여 넣습니다.
   
    ```json
    {
@@ -80,13 +80,13 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
    }
    ```
 
-4. 다음 정보를 사용 하 여 **컨테이너 만들기 옵션** 에 대해 복사한 JSON을 업데이트 합니다.
+4. 다음 정보를 사용 하 여 **컨테이너 만들기 옵션** 에 복사한 JSON을 업데이트 합니다.
 
    - `<your storage account name>`을 기억하기 쉬운 이름으로 바꿉니다. 계정 이름은 3 자에서 24 자 사이 여야 하 고 소문자와 숫자만 사용 해야 합니다. 공백 없음
 
    - `<your storage account key>`를 64바이트 base64 키로 바꿉니다. [GeneratePlus](https://generate.plus/en/base64) 같은 도구를 사용하여 키를 생성할 수 있습니다. 다른 모듈에서 Blob Storage에 액세스하려면 이러한 자격 증명을 사용합니다.
 
-   - 컨테이너 운영 체제에 따라 `<storage mount>`를 바꿉니다. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.
+   - 컨테이너 운영 체제에 따라 `<storage mount>`를 바꿉니다. Blob 모듈이 데이터를 저장 하는 IoT Edge 장치의 기존 디렉터리에 대 한 절대 경로 또는 [볼륨](https://docs.docker.com/storage/volumes/) 의 이름을 제공 합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.
 
      - Linux 컨테이너의 경우 형식은 *\<저장소 경로 또는 볼륨 >:/blobroot*입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용: **내 볼륨:/blobroot**
@@ -261,6 +261,7 @@ IoT Edge 모듈에 Azure Blob Storage의 여러 인스턴스를 배포 하려는
 추가 Blob Storage 모듈에 연결할 때 업데이트된 호스트 포트를 가리키도록 엔드포인트를 변경합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [IoT Edge Azure Blob Storage](how-to-store-data-blob.md) 에 대 한 자세한 정보
 
 배포 매니페스트의 작동 방식 및 생성 방법에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 1dd88eaa9c92a4f8ff5d491da950f7bb1cc48c20
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ac99b95e3cece09c5bdeb0986a11a999603707e6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314507"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548529"
 ---
 # <a name="module-assign-data-to-clusters"></a>모듈: 클러스터에 데이터 할당
 
-이 문서에서는 Azure Machine Learning 디자이너에서 *클러스터에 데이터 할당* 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 *K를 의미* 하는 클러스터링 알고리즘을 사용 하 여 학습 된 클러스터링 모델을 통해 예측을 생성 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 *클러스터에 데이터 할당* 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 *K를 의미* 하는 클러스터링 알고리즘을 사용 하 여 학습 된 클러스터링 모델을 통해 예측을 생성 합니다.
 
 클러스터에 데이터 할당 모듈은 각 새 데이터 요소에 대해 가능한 할당을 포함 하는 데이터 집합을 반환 합니다. 
 

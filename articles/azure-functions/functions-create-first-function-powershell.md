@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 934f3f69d46362e4bef4e713bcee23e9a3e24eb6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8cc89805ce53c141ff2c012fccb3c01ff2e9db49
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769356"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167911"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Azure에서 첫 번째 PowerShell 함수 만들기
 
@@ -20,9 +20,6 @@ ms.locfileid: "75769356"
 ![Visual Studio Code 프로젝트의 Azure Functions 코드](./media/functions-create-first-function-powershell/powershell-project-first-function.png)
 
 [Visual Studio Code용 Azure Functions 확장]을 사용하여 로컬로 PowerShell 함수를 만든 후 Azure에서 새 함수 앱에 배포합니다. 확장은 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Visual Studio Code용 Azure Functions 확장] 확장 페이지를 참조하세요.
-
-> [!NOTE]  
-> [Azure Functions 확장][Visual Studio Code용 Azure Functions 확장]에 대한 PowerShell 지원은 현재 기본적으로 사용하지 않도록 설정됩니다. PowerShell 지원을 사용하도록 설정하는 것도 이 문서의 여러 단계 중 하나입니다.
 
 다음 단계는 macOS, Windows, Linux 기반 운영 체제에서 지원됩니다.
 
